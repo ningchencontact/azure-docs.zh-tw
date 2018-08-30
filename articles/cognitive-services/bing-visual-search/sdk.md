@@ -10,19 +10,19 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 4/19/2018
 ms.author: scottwhi
-ms.openlocfilehash: 43b7b71ee1cce3d0f9f8d9f955004825d6b1a3af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9095ef443e406c0f3e40ae575cdf6d6484726e0f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370670"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42093847"
 ---
 # <a name="bing-visual-search-sdk"></a>Bing 圖像式搜尋 SDK
 
 Bing 圖像式搜尋提供下列用戶端 SDK，以用來執行圖像式搜尋 API。
 
 * [.NET 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
-    * [NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/1.2.0)
+    * [Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/1.2.0)
     * [.NET 程式庫](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingVisualSearch)以了解定義和相依性
 * [Node.js 範例](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * [Node.js 程式庫](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/imageSearch)以了解定義和相依性
@@ -32,3 +32,8 @@ Bing 圖像式搜尋提供下列用戶端 SDK，以用來執行圖像式搜尋 A
     * [Python 程式庫](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch)以了解定義和相依性
 
 每種語言的 SDK 範例都會包括讀我檔案，內含使用 SDK 的必要條件和安裝和執行範例的步驟。
+
+### <a name="sdk-tools"></a>SDK 工具
+用來探索 Bing 圖像式搜尋功能的 SDK 工具可在此 Git 存放庫中找到：[Bing 圖像式搜尋工具](https://github.com/Azure-Samples/bing-visualsearch-tools)
+
+

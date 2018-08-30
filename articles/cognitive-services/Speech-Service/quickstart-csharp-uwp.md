@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 551439d28bcd7c64faf7ac6ac7388145456f7a53
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b709b2791ae7472689cc2c7ca747f75ce0f1e6bf
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093817"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126085"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 UWP 應用程式中辨識語音
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將學習到如何透過使用認知服務語音 SDK 將語音轉譯成文字，以建立通用 Windows 平台 (UWP) 應用程式。
 應用程式是利用 [Microsoft 認知服務 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 所建置的。
@@ -112,7 +112,7 @@ ms.locfileid: "42093817"
 
     ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 在 `quickstart/csharp-uwp` 資料夾中尋找此範例。
 
 ## <a name="next-steps"></a>後續步驟

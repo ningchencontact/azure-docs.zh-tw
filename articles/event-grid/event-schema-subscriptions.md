@@ -3,17 +3,16 @@ title: Azure 事件格線訂用帳戶的事件結構描述
 description: 描述 Azure 事件格線針對訂用帳戶事件所提供的屬性
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 18f2a64a4354fbd99f1a471c21cc35cbf5df6619
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493569"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140268"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>針對訂用帳戶的 Azure 事件格線事件結構描述
 
@@ -27,7 +26,9 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 
 若要以程式設計方式處理事件，您可藉由查看 `operationName` 值來排序事件。 例如，您的事件端點可能只會處理等於 `Microsoft.Compute/virtualMachines/write` 或 `Microsoft.Storage/storageAccounts/write` 的作業事件。
 
-事件主旨是資源的資源識別碼，而該資源為作業目標。 若要篩選資源的事件，請在建立事件訂用帳戶時提供該資源識別碼。 如需範例指令碼，請參閱[訂閱及篩選資源群組 - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) 或[訂閱及篩選資源群組 - Azure CLI](scripts/event-grid-cli-resource-group-filter.md)。 若要依資源類型進行篩選，請使用以下格式的值：`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+事件主旨是資源的資源識別碼，而該資源為作業目標。 若要篩選資源的事件，請在建立事件訂用帳戶時提供該資源識別碼。 若要依資源類型進行篩選，請使用以下格式的值：`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+如需範例指令碼和教學課程的清單，請參閱 [Azure 訂用帳戶事件來源](event-sources.md#azure-subscriptions)。
 
 ## <a name="available-event-types"></a>可用的事件類型
 

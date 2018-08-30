@@ -3,18 +3,18 @@ title: 將其他 Azure 儲存體帳戶新增至 HDInsight
 description: 了解如何將其他 Azure 儲存體帳戶新增至現有的 HDInsight 叢集。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d8d9a71d3c30628ca27420f6b87b0dfb2bc5e571
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7d37a60ad3ae3bea8490006bdd35dc47d728b88e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592851"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43103849"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 

@@ -3,18 +3,18 @@ title: 採用 Visual Studio 和 C# 的 Apache Storm 拓撲 - Azure HDInsight
 description: 了解如何使用 C# 建立 Storm 拓撲。 使用適用於 Visual Studio 的 Hadoop 工具在 Visual Studio 中建立簡單的字數統計拓撲。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1ed10fca7e9351aa4cbec42011b5f961a461ccef
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3844bf101287774e1e4278cabf5a3e5b2c3dfa3c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620326"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045583"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 

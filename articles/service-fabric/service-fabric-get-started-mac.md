@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 87721428e1cd8a5360dcecc5f29225f813705a4f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2ea120ed1c43db5cf843bdd64c32a6c8d9c02bb1
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344751"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140708"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37344751"
 
 您可以建置 Azure Service Fabric 應用程式，以使用 Mac OS X 在 Linux 叢集上執行。本文件涵蓋如何設定您的 Mac 進行開發。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行本機 Service Fabric 叢集，我們提供預先設定的 Docker 容器映像。 開始之前，您需要：
 
 * 至少 4 GB 的 RAM。
@@ -118,7 +118,7 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
 
 
 
-6. 當您完成，可以使用此命令來停止和清除容器：
+6. 當您完成時，請使用此命令來停止和清除容器：
 
     ```bash 
     docker rm -f sftestcluster

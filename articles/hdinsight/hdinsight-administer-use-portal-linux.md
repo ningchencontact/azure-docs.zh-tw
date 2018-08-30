@@ -3,18 +3,18 @@ title: 使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集
 description: 了解如何使用 Azure 入口網站來監視和管理 HDInsight 叢集。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jasonh
-ms.openlocfilehash: 20a48dcd4a9c3dd4c89390c1048ec4fd5f5783ae
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0e584343e568c5cd0d91a1e6ff51dc899c5434d7
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597203"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106524"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
 
@@ -275,7 +275,7 @@ Ambari 會變更叢集中所有節點上的密碼。
 
    | 欄位 | 值 |
    | --- | --- |
-   | Name |變更 SSH 密碼 |
+   | 名稱 |變更 SSH 密碼 |
    | Bash 指令碼 URI |changepassword.sh 檔案的 URI |
    | 節點 (前端、背景工作、Nimbus、監督員、Zookeeper 等) |✓ 針對列出的所有節點類型 |
    | 參數 |輸入 SSH 使用者名稱，然後輸入密碼。 使用者名稱和密碼之間應該有一個空格。 |

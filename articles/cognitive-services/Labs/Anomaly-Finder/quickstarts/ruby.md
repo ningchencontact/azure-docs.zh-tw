@@ -9,18 +9,18 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: ca4754514ba5012f7e9e28981d0869d174561fb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6eb559f8971583afe9619fb41fe331bd3013bb69
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369138"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42093803"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>搭配 Ruby 使用異常搜尋工具 API
 
 本文提供資訊和程式碼範例，協助您快速開始搭配 Ruby 使用異常搜尋工具 API，以便完成對於時間序列資料取得異常偵測結果的工作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -28,7 +28,9 @@ ms.locfileid: "35369138"
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>時間序列資料範例
-時間序列資料點的範例如下所示：[!INCLUDE [Request](../includes/request.md)]
+時間序列資料點的範例如下所示。
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-ruby-example"></a>分析資料並取得異常點的 Ruby 範例
 
@@ -74,7 +76,7 @@ puts response.body
 
 ### <a name="example-response"></a>範例回應
 
-以 JSON 傳回成功的回應。 範例回應如下所示。
+成功的回應會以 JSON 的形式傳回。 範例回應如下所示。
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>後續步驟

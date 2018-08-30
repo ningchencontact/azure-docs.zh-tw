@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: d4f07896e835821612971f1558ca5a030a59d154
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd62083bc7bd0254084f0fc209540de929c25d06
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597434"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042248"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>使用 Apache Hive 作為擷取、 轉換和載入 (ETL) 工具
 
@@ -92,4 +92,5 @@ ms.locfileid: "39597434"
 
 * [大規模 ETL](apache-hadoop-etl-at-scale.md)
 * [使用資料管線](../hdinsight-operationalize-data-pipeline.md)
+
 <!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

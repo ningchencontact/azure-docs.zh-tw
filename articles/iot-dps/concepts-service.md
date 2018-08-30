@@ -1,6 +1,6 @@
 ---
 title: Azure IoT 中樞裝置佈建服務的概念 | Microsoft Docs
-description: 說明具有 DPS 和 IoT 中樞之裝置的特定服務佈建概念
+description: 針對具有裝置佈建服務和 IoT 中樞的服務說明其特有的服務佈建概念
 author: nberdy
 ms.author: nberdy
 ms.date: 03/30/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2908e08e36f41ebb8a154e7c490e5c6719d911be
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ca2ea3c000e811223ded3022021c2516f547ae66
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628295"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140270"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT 中樞裝置佈建服務服務概念
 
@@ -29,17 +29,20 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 ## <a name="device-provisioning-endpoint"></a>裝置佈建端點
 
-裝置佈建端點是所有裝置用來自動佈建的單一端點。 所有佈建服務執行個體都有相同的 URL，這樣就不需以供應鏈案例中的連線資訊重新刷新裝置。 [識別碼範圍](#id-scope)會確保租用戶隔離。
+裝置佈建端點是所有裝置用來自動佈建的單一端點。 所有佈建服務執行個體都有相同的 URL，這樣就不需以供應鏈案例中的連線資訊重新刷新裝置。 識別碼範圍會確保租用戶隔離。
 
 ## <a name="linked-iot-hubs"></a>連結的 IoT 中樞
 
-裝置佈建服務只能將裝置佈建到已和自身連結的 IoT 中樞。 將 IoT 中樞連結至裝置佈建服務可為 IoT 中樞的裝置登錄提供該服務的讀/寫權限；這項連結可以讓裝置佈建服務申請裝置識別碼，以及在裝置對應項中進行初始設定。 連結的 IoT 中樞可能位於任何 Azure 區域。 您可以將其他訂用帳戶的中樞連結至佈建服務。
+裝置佈建服務只能將裝置佈建到已和自身連結的 IoT 中樞。 將 IoT 中樞連結至裝置佈建服務的執行個體可為 IoT 中樞的裝置登錄提供該服務的讀/寫權限；這項連結可以讓裝置佈建服務申請裝置識別碼，以及在裝置對應項中進行初始設定。 連結的 IoT 中樞可能位於任何 Azure 區域。 您可以將其他訂用帳戶的中樞連結至佈建服務。
 
 ## <a name="allocation-policy"></a>配置原則
 
 服務等級的設定決定裝置佈建服務將裝置指派給 IoT 中樞的方式。 共有三個支援的配置原則：
+
 * **平均加權分佈**：裝置佈建到每個已連結 IoT 中樞的機率都是一樣的。 預設設定。 如果您只要將裝置佈建到一個 IoT 中樞，可以保留此設定。
+
 * **最低延遲時間**：系統會以裝置的最低延遲時間將該裝置佈建到 IoT 中樞。 如果多個已連結 IoT 中樞都提供相同的最低延遲時間，佈建服務就能在這些中樞裡為裝置建立雜湊
+
 * **透過申請清單進行靜態設定**：您在申請清單中指定的所需 IoT 中樞，其優先順序高於服務等級的配置原則。
 
 ## <a name="enrollment"></a>申請
@@ -54,7 +57,7 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 ### <a name="enrollment-group"></a>申請群組
 
-申請群組為一組共用特定證明機制的裝置。 註冊群組中的所有裝置都有相同根或中繼 CA 簽署的 X.509 憑證。 申請群組只能使用 X.509 證明機制。 註冊群組名稱和憑證名稱必須是英數字元、小寫字母且可包含連字號。
+申請群組為一組共用特定證明機制的裝置。 註冊群組中的所有裝置都有相同根或中繼憑證授權單位 (CA) 簽署的 X.509 憑證。 申請群組只能使用 X.509 證明機制。 註冊群組名稱和憑證名稱必須是英數字元、小寫字母且可包含連字號。
 
 > [!TIP]
 > 對於一大批共用所需初始設定的裝置，或是全都設定為相同租用戶的裝置，我們建議使用申請群組。

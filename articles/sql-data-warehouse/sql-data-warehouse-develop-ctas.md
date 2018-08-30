@@ -3,19 +3,19 @@ title: Azure SQL 資料倉儲中的 CREATE TABLE AS SELECT (CTAS) | Microsoft Do
 description: 在 Azure SQL 資料倉儲中利用 CREATE TABLE AS SELECT (CTAS) 陳述式撰寫程式碼作為開發解決方案的提示。
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 9bff6b1216ae826203b24a2cdf8a3d7fd0fd586f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dad0b1570f54cde1b1d474d8ebfc78f793724ef4
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599079"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247748"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中使用 CREATE TABLE AS SELECT (CTAS)
 在 Azure SQL 資料倉儲中利用 CREATE TABLE AS SELECT (CTAS) T-SQL 陳述式撰寫程式碼作為開發解決方案的提示。

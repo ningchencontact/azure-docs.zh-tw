@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c782cadadb0250e6c3ca4912dbf8f81e19cb88c5
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064404"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919049"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>了解 Microsoft Azure 帳單
 若要了解您的 Azure 帳單，請比較您包含詳細每日使用量檔案的發票，與 Azure 入口網站中的成本管理報告。
@@ -33,6 +33,9 @@ ms.locfileid: "37064404"
 如需您發票的詳細字詞和描述，以及詳細的每日使用量檔案，請參閱[了解您 Microsoft Azure 發票上的字詞](billing-understand-your-invoice.md)和[了解您 Microsoft Azure 詳細使用量上的字詞](billing-understand-your-usage.md)。 
 
 如需成本管理報告的詳細資料，請參閱 [Azure 入口網站成本管理](https://docs.microsoft.com/azure/billing/billing-getting-started)。
+
+> [!div class="nextstepaction"]
+> [協助改善 Azure 計費文件](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="charges"></a>如何確定我發票中的費用是否正確？
 
@@ -136,8 +139,8 @@ Azure 並不是直接根據資源成本而收費。 收費是以一個或多個�
 ## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Azure 第一方費用和 Azure Marketplace 費用之間有何差別？
 Azure 第一方費用適用於 Azure 直接開發和提供的資源。 Azure Marketplace 費用適用於第三方軟體廠商建立而且可以透過 Azure Marketplace 取得的資源。 例如，Barracuda Firewall 是協力廠商提供的 Azure Marketplace 資源。 適用於該防火牆和其相對應之計量的所有費用都會顯示為 Marketplace 費用。 
 
-## <a name="tips-for-cost-management"></a>成本管理的祕訣
-- 使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)和來[估計成本](https://aka.ms/azure-tco-calculator)，並取得[每個服務的詳細定價資訊](https://azure.microsoft.com/pricing/)。
+## <a name="tips-for-cost-management"></a>成本管理的秘訣
+- 使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)和來[估計成本](https://aka.ms/azure-tco-calculator)，並取得[每項服務的詳細定價資訊](https://azure.microsoft.com/pricing/)。
 - [設定帳務警示](billing-set-up-alerts.md)。
 - [定期在 Azure 入口網站檢閱您的使用量和成本](billing-getting-started.md#costs)。
 

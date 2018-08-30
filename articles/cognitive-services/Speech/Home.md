@@ -1,5 +1,5 @@
 ---
-title: Microsoft 語音服務 | Microsoft Docs
+title: Microsoft Bing 語音服務 | Microsoft Docs
 description: 使用 Microsoft Speech API 將語音導向動作新增至您的應用程式，包括與使用者的即時互動。
 services: cognitive-services
 author: zhouwangzw
@@ -9,19 +9,22 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: c041132e992f07e94e4b6669ec7ce174f7c2d0dd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368391"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42093823"
 ---
-# <a name="microsoft-speech-api-overview"></a>Microsoft Speech API 概觀
+# <a name="microsoft-bing-speech-api-overview"></a>Microsoft Bing 語音 API 概觀
 
-雲端式 Microsoft Speech API 可讓開發人員在其應用程式中輕鬆建立支援語音的強大功能，例如語音命令控制、使用自然語音轉換的使用者對話，以及語音文字記錄和聽寫。 Microsoft Speech API 同時支援「語音轉換文字」和「文字轉換語音」轉換。
+雲端式 Microsoft Bing 語音 API 可讓開發人員在其應用程式中輕鬆建立支援語音的強大功能，例如語音命令控制、使用自然語音轉換的使用者對話，以及語音文字記錄和聽寫。 Microsoft Speech API 同時支援「語音轉換文字」和「文字轉換語音」轉換。
 
 - **語音轉換文字** API 會將人類語音轉換成可作為輸入或命令來控制應用程式的文字。
 - **文字轉換語音** API 會將文字轉換成可向應用程式使用者播放的音訊資料流。
+
+> [!NOTE] 
+> 在 2018 年 5 月，我們發行了新的[語音服務](/speech-service/overview.md) (公開預覽狀態)。 我們鼓勵您[免費試用](/speech-service/get-started.md)。
 
 ## <a name="speech-to-text-speech-recognition"></a>語音轉換文字 (語音辨識)
 
@@ -32,10 +35,10 @@ Microsoft 語音辨識 API 會將音訊資料流「轉譯」成文字，可供�
 
 | 使用案例 | [REST APIs](GetStarted/GetStartedREST.md) | [用戶端程式庫](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| 轉換簡短的語音，例如命令 (音訊長度 < 15 秒)，但不提供中期結果 | yes | yes |
-| 轉換長音訊 (> 15 秒) | 否 | yes |
-| 串流音訊並提供所需的中期結果 | 否 | yes |
-| 使用 LUIS 來理解從音訊轉換的文字 | 否 | yes |
+| 轉換簡短的語音，例如命令 (音訊長度 < 15 秒)，但不提供中期結果 | 是 | 是 |
+| 轉換長音訊 (> 15 秒) | 否 | 是 |
+| 串流音訊並提供所需的中期結果 | 否 | 是 |
+| 使用 LUIS 來理解從音訊轉換的文字 | 否 | 是 |
 
 不論開發人員選擇哪一種方法 (REST API 或用戶端程式庫)，Microsoft 語音服務都支援下列各項：
 
@@ -43,7 +46,7 @@ Microsoft 語音辨識 API 會將音訊資料流「轉譯」成文字，可供�
 - 即時連續辨識。 語音辨識 API 可讓使用者將音訊即時轉譯成文字，並支援接收到目前為止已辨識單字的中繼結果。 語音服務也支援語音結束偵測。 此外，使用者也可以選擇額外的格式設定功能，例如轉換成大寫和標點符號、粗話遮罩，以及文字正規化。
 - 針對「互動式」、「對話」及「聽寫」案例，支援最佳化語音辨識結果。 針對需要自訂的語言模型和原音模型的使用者案例，[自訂語音服務](../custom-speech-service/cognitive-services-custom-speech-home.md)可讓您建立為應用程式和使用者量身打造的語音模型。
 - 支援多個方言的眾多口語。 如需每個辨識模式中所支援語言的完整清單，請參閱[辨識語言](api-reference-rest/supportedlanguages.md)。
-- 與語言理解整合 除了將輸入音訊轉換成文字之外，「語音轉換文字」還為應用程式提供一項可理解文字意義的額外功能。 它會使用 [Language Understanding Intelligent Service (LUIS)](../LUIS/Home.md) 從已辨識的文字中擷取意圖和實體。
+- 與語言理解整合 除了將輸入音訊轉換成文字之外，「語音轉換文字」還為應用程式提供一項可理解文字意義的額外功能。 它會使用 [Language Understanding Intelligent Service (LUIS)](../LUIS/what-is-luis.md) 從已辨識的文字中擷取意圖和實體。
 
 ### <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599209"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140056"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight 的作業系統修補 
 HDInsight 作為受控 Hadoop 服務，會負責修補 HDInsight 叢集所使用之基礎 VM 的作業系統。 自 2016 年 8 月 1 日起，我們已變更以 Linux 為基礎之 HDInsight 叢集 (3.4 版或更新版本) 的客體 OS 修補原則。 新原則的目標是大幅減少因為修補而產生的重新開機次數。 新的原則將會在每個星期一或星期四 UTC 上午 12 時開始，以交錯方式在任何指定叢集的節點之間，繼續修補 Linux 叢集上的虛擬機器 (VM)。 不過，任何指定的 VM 每隔 30 天只會因為客體 OS 修補而最多重新開機一次。 此外，新建立的叢集在叢集建立之後，也不會在 30 天內第一次重新開機。 VM 重新開機後，修補便會生效。
@@ -38,7 +38,7 @@ HDInsight 叢集中的虛擬機器有時候需要重新開機，以便系統可�
 ## <a name="how-to-use-the-script"></a>如何使用指令碼 
 
 使用此指令碼時需要下列資訊︰
-1. 指令碼位置：https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh。HDInsight 會使用此 URI 在叢集中的所有虛擬機器上尋找和執行指令碼。
+1. 指令碼位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh。HDInsight 會使用此 URI 在叢集中的所有虛擬機器上尋找和執行指令碼。
   
 2. 指令碼會套用到的叢集節點類型︰headnode、workernode、zookeeper。 此指令碼必須套用至叢集中的所有節點類型。 如果未套用至某個節點類型，則該節點類型的虛擬機器會繼續使用先前的修補排程。
 

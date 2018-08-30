@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdf56a85c43513f573c02e3b28cd93f28217814b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 7ce8afa04751cd38e64b9ed920a6f863781e3ad1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128957"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126276"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 
@@ -228,8 +228,6 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 ## <a name="ignore-recommendations"></a>忽略建議
 
 如果您有想要忽略的建議，則可以建立供 Log Analytics 用來防止建議出現在您評估結果的文字檔。
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>若要識別您想要忽略的建議
 1. 在 Azure 入口網站中的 Log Analytics 工作區頁面上，針對您選取的工作區，按一下 [記錄搜尋] 功能表項目。

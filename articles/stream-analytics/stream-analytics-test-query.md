@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 3dc9091934f3db8ededc13f74d2f302eccace4d6
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312985"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140866"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>使用樣本資料測試串流分析查詢
 
@@ -29,9 +29,7 @@ ms.locfileid: "32312985"
 
 3. 在 [串流分析作業] 頁面上，[工作拓撲] 標題下方，選取 [查詢] 開啟 [查詢] 編輯器視窗。 
 
-4. 若要使用樣本輸入資料測試查詢，請以滑鼠右鍵按一下任何輸入資料。  然後選取 [從檔案上傳樣本資料]。
-
-   資料必須僅限於 JSON 格式資料。 如果您的資料採用不同格式 (例如 CSV)，請於上傳前先將其轉換為 JSON。 您可以使用任何開放原始碼轉換工具 (例如 [CSV 至 JSON 轉換器](http://www.convertcsv.com/csv-to-json.htm))，將資料轉換為 JSON。
+4. 若要使用樣本輸入資料測試查詢，請以滑鼠右鍵按一下任何輸入資料。  然後選取 [從檔案上傳樣本資料]。 必須以 JSON、CSV 或 AVRO 將資料序列化。
 
     ![串流分析查詢編輯器的測試查詢](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

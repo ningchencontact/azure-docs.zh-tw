@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117158"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128044"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用適用於 .NET 的 Batch 檔案慣例程式庫將作業和工作輸出保存到 Azure 儲存體 
 
@@ -49,7 +49,7 @@ Azure Batch 提供多個方法來保存工作輸出。 檔案慣例最適合這�
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Batch 檔案慣例標準是什麼？
 
-[Batch 檔案慣例標準](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)提供目的地容器的命名配置，以及寫入輸出檔案的 blob 路徑。 保存到 Azure 儲存體 (符合檔案慣例標準) 的檔案會自動可在 Azure 入口網站中檢視。 入口網站知道命名慣例，因此可以顯示符合它的檔案。
+[Batch 檔案慣例標準](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)提供目的地容器的命名配置，以及寫入輸出檔案的 blob 路徑。 保存到 Azure 儲存體 (符合檔案慣例標準) 的檔案會自動可在 Azure 入口網站中檢視。 入口網站知道命名慣例，因此可以顯示符合它的檔案。
 
 適用於 .NET 的檔案慣例程式庫會根據檔案慣例標準，自動命名您的儲存體容器和工作輸出檔案。 檔案慣例程式庫也提供方法來根據作業識別碼、工作識別碼或目的，在 Azure 儲存體中查詢輸出檔案。   
 
@@ -201,7 +201,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>在 Azure 入口網站中檢視輸出檔案
 
-Azure 入口網站會顯示使用 [Batch 檔案慣例標準](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)保存到已連結 Azure 儲存體帳戶的工作輸出檔案和記錄。 您可以使用自選的語言實作這些慣例，或是使用 .NET 應用程式中的檔案慣例程式庫。
+Azure 入口網站會顯示使用 [Batch 檔案慣例標準](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)保存到已連結 Azure 儲存體帳戶的工作輸出檔案和記錄。 您可以使用自選的語言實作這些慣例，或是使用 .NET 應用程式中的檔案慣例程式庫。
 
 若要讓您的輸出檔案顯示在入口網站中，您必須滿足下列需求：
 

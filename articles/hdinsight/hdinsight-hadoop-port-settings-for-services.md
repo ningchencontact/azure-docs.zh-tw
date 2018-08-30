@@ -3,18 +3,18 @@ title: HDInsight 上 Hadoop 服務所使用的連接埠 - Azure
 description: 在 HDInsight 上執行的 Hadoop 服務所使用的連接埠清單。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 78aed9d74325dfae0a02a4b95082baf60f6af603
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 3dea97d674c2027307ac7eb7cae34b6664e40b0b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599243"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108115"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight 上 Hadoop 服務所使用的連接埠
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001798"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140865"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>如何整合 Azure API 管理與 Azure Application Insights
 
@@ -111,9 +111,15 @@ Azure Application Insights 會接收：
 
 根據內部負載測試，當要求速率超過每秒 1,000 個要求時，啟用此功能造成了輸送量降低 40%-50%。 Azure Application Insights 是設計成使用統計資料分析來評估應用程式效能。 它不是用來作為稽核系統，也不適用於記錄大量 API 的每個個別要求。
 
-您可以透過調整 [取樣] 設定 (請參閱上述步驟) 來操控要記錄的要求數目。 值為 100% 時，表示會記錄所有要求，值為 0% 時，則表示完全不進行記錄。 「取樣」有助於減少遙測量，可有效地防止嚴重的效能衰退，同時仍享有記錄功能的優點。
+您可以透過調整 [取樣] 設定 (請參閱上述步驟) 來操控要記錄的要求數目。 值為 100% 時，表示會記錄所有要求，值為 0% 時，則表示完全不進行記錄。 **取樣**有助於減少遙測量，可有效地防止嚴重的效能衰退，同時仍享有記錄功能的優點。
 
 將要求和回應的標頭與本文略過而不進行記錄，對於緩和效能問題也有正面影響。
+
+## <a name="video"></a>影片
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
 
 ## <a name="next-steps"></a>後續步驟
 

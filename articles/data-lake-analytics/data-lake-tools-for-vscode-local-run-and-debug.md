@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jejiang
 ms.author: jejiang
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: 850b13becb2137c9e881b2d6a657bbd06216e96e
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: bf98562224c2da770541f731ba93ec2e5dc1718d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317141"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041315"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>以 Visual Studio Code 在本機執行 U-SQL 及偵錯
 本文說明如何在本機開發電腦上執行 U-SQL 作業，以便加速早期的編碼階段，或以 Visual Studio Code 在本機對程式碼進行偵錯。 如需如何使用 Azure Data Lake Tools for Visual Studio Code 的指示，請參閱[使用 Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)。 

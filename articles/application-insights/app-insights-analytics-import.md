@@ -11,22 +11,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2017
+ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989748"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140669"
 ---
 # <a name="import-data-into-analytics"></a>將資料匯入分析
 
 將任何表格式資料匯入[分析](app-insights-analytics.md)，將它從應用程式加入 [Application Insights](app-insights-overview.md) 遙測，或是讓您可以為個別的資料流進行分析。 分析是適用於分析大量遙測時間戳記資料流的強大查詢語言。
-
 您可以使用自己的結構描述將資料匯入分析。 它不需要使用標準 Application Insights 結構描述，例如要求或追蹤。
 
 您可以匯入 JSON 或 DSV (以分隔符號分隔值 - 逗號、分號或定位字元) 檔案。
+
+> [!IMPORTANT]
+> 此文章已**淘汰**。 若要將資料放到 Log Analytics 中，建議的方法是透過 [Log Analytics 資料收集器 API。](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 有三種情況下，匯入至分析會很實用︰
 

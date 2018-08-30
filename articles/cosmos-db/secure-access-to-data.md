@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2017
+ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: a8ea53b8f9b705078ac4ab56faeb60b8ba51e72e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038089"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140908"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>安全存取 Azure Cosmos DB 資料
 本文提供儲存於 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)中資料的安全存取概觀。
@@ -174,6 +174,20 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="add-users-and-assign-roles"></a>新增使用者和指派角色
+
+若要將 Azure Cosmos DB 帳戶讀者存取權新增至您的使用者帳戶，請在 Azure 入口網站執行下列步驟，以取得訂用帳戶擁有者。
+
+1. 開啟 Azure 入口網站，選取您的 Azure Cosmos DB 帳戶。
+2. 按一下 [存取控制 (IAM)] 索引標籤，然後按一下 [+ 新增]。
+3. 在 [新增權限] 窗格的 [角色] 方塊中，選取 [Cosmos DB 帳戶讀者角色]。
+4. 在 [存取權指派對象為] 方塊中，選取 [Azure AD 使用者、群組或應用程式]。
+5. 選取目錄中您要為其授與存取權的使用者、群組或應用程式。  您可以依顯示名稱、電子郵件地址或物件識別碼來搜尋目錄。
+    選取的使用者、群組或應用程式會出現在選取的成員清單中。
+6. 按一下 [檔案] 。
+
+實體現在已可讀取 Azure Cosmos DB 資源。
 
 ## <a name="delete-or-export-user-data"></a>刪除或匯出使用者資料
 Azure Cosmos DB 可讓您搜尋、選取、修改和刪除資料庫或集合中的任何個人資料。 Azure Cosmos DB 會提供可尋找和刪除個人資料的 API，不過，您必須負責使用 API，並定義清除個人資料時所需的邏輯。 每個多模型 API (SQL API、MongoDB API、Gremlin API、Cassandra API、資料表 API) 皆會提供不同的語言 SDK，其中包含搜尋和刪除個人資料的方法。 您也可以啟用[存留時間 (TTL)](time-to-live.md) 功能，在指定期間後自動刪除資料，完全不會產生任何額外的費用。

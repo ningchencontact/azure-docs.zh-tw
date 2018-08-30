@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a65237b3eba6c9878d73148f0143f20dd60dd79
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a3a007bf19a28e6f361837856f83a191a761ef9b
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636543"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247409"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>使用 PowerShell 將市集映像新增至 Azure DevTest Labs 的實驗室中
 
@@ -25,7 +25,7 @@ ms.locfileid: "34636543"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **實驗室**。 指令碼需要您擁有現有的實驗室。 
 
 ## <a name="sample-script"></a>範例指令碼
@@ -38,7 +38,7 @@ ms.locfileid: "34636543"
 
 | 命令 | 注意 |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | 根據指定的參數搜尋資源。 |
+| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | 根據指定的參數搜尋資源。 |
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | 取得資源。 |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | 修改資源。 |
 | [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | 建立資源。 |

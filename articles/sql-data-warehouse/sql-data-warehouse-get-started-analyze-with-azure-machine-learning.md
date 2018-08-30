@@ -3,19 +3,19 @@ title: 使用 Azure Machine Learning 分析資料 | Microsoft Docs
 description: 使用 Azure Machine Learning，根據 Azure 資料倉儲中儲存的資料建置預測性機器學習模型。
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4a5137ef22455c304dc672520aabd16cac2570e1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601323"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247521"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 分析資料
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "31601323"
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要逐步執行本教學課程，您需要：
 
 * 預先載入 AdventureWorksDW 範例資料的 SQL 資料倉儲。 若要進行佈建，請參閱[建立 SQL 資料倉儲][Create a SQL Data Warehouse]並選擇載入範例資料。 如果您已經有資料倉儲但沒有範例資料，您可以[手動載入範例資料][load sample data manually]。

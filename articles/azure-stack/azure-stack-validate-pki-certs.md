@@ -15,11 +15,11 @@ ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605605"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917078"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>驗證 Azure Stack PKI 憑證
 
@@ -51,7 +51,7 @@ ms.locfileid: "34605605"
 > [!IMPORTANT]  
 > PKI 憑證是 PFX 檔案，且密碼都應該視為機密資訊。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在驗證 Azure Stack 部署的 PKI 憑證之前，您的系統應該符合下列必要條件：
 

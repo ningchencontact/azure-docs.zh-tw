@@ -3,18 +3,18 @@ title: 使用以 Linux 為基礎的 HDInsight 開發指令碼動作 - Azure
 description: 深入了解如何使用 Bash 指令碼自訂以 Linux 為基礎的 HDInsight 叢集。 HDInsight 的指令碼動作功能可讓您在建立叢集期間或之後執行指令碼。 指令碼可用於變更叢集組態設定或安裝其他軟體。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
-ms.openlocfilehash: 35d54970e41a7e1533f3d5adc09fc60dc1bbd68d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0225115fb6c74f736e6a5fba09414dc2ebafd84e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600484"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104818"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 

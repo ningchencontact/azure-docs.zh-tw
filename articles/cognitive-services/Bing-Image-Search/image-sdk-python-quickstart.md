@@ -1,6 +1,6 @@
 ---
-title: 影像搜尋 SDK Python 快速入門 | Microsoft Docs
-description: 設定影像搜尋 SDK 主控台應用程式。
+title: 快速入門：在 Python 中使用 SDK 來要求和篩選影像
+description: 在本快速入門中，您可以使用 Python 來要求和篩選 Bing 影像搜尋所傳回的影像。
 titleSuffix: Azure Image Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
@@ -10,23 +10,23 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: e30852439ad8ec2d5ddc667b75167e8b5d35be33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4729f103bb9b50d4ff039907db8eb677f3dc290a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370419"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42093802"
 ---
-# <a name="image-search-sdk-python-quickstart"></a>影像搜尋 SDK Python 快速入門
+ # <a name="quickstart-request-and-filter-images-using-the-sdk-and-python"></a>快速入門：使用 SDK 和 Python 來要求和篩選影像
 
 Bing 影像搜尋 SDK 包含用於 Web 查詢以及剖析結果的 REST API 功能。 
 
 [Python Bing 影像搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py)可從 Git Hub 取得。
 
 ## <a name="application-dependencies"></a>應用程式相依性
-如果還沒有 Python，請安裝。 SDK 可與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。
+若還沒有 Python，請安裝。 SDK 可與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。
 
-Python 開發的一般建議是使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv) 安裝和初始化虛擬環境。 您必須安裝適用於 Python 2.7 的 virtualenv。
+Python 開發的一般建議是使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv)來安裝和初始化虛擬環境。 您必須安裝適用於 Python 2.7 的 virtualenv。
 ```
 python -m venv mytestenv
 ```

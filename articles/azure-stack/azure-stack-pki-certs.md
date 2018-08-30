@@ -16,11 +16,11 @@ ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929265"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917447"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 
@@ -35,7 +35,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 
 ## <a name="certificate-requirements"></a>憑證需求
 下列清單描述部署 Azure Stack 時所需的憑證需求： 
-- 憑證必須由內部憑證授權單位或公用憑證授權單位發出。 如果使用公用憑證授權單位，它必須包含在基礎作業系統映像中成為 Microsoft 信任根授權單位方案的一部分。 您可以在這裡找到完整清單：https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
+- 憑證必須由內部憑證授權單位或公用憑證授權單位發出。 如果使用公用憑證授權單位，它必須包含在基礎作業系統映像中成為 Microsoft 信任根授權單位方案的一部分。 您可以在這裡找到完整清單： https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - 您的 Azure Stack 基礎結構必須能透過網路來存取憑證中所發佈憑證授權單位的憑證撤銷清單 (CRL) 位置。 這個 CRL 必須是 http 端點
 - 旋轉憑證時，憑證必須是與從用來簽署憑證 (在部署時提供) 相同的內部憑證授權單位，或上述任何公用憑證授權單位發行
 - 不支援使用自我簽署憑證

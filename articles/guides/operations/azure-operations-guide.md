@@ -1,6 +1,6 @@
 ---
 title: Azure IT 操作員快速入門指南 | Microsoft Docs
-description: Azure IT 操作人員快速入門指南
+description: Azure IT 操作員快速入門指南
 services: ''
 documentationcenter: ''
 author: themichaelbender-ms
@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
-ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072329"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140504"
 ---
-# <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>雲端運算和 Microsoft Azure 簡介
+# <a name="get-started-for-azure-it-operators"></a>Azure IT 操作員快速入門
 
 本指南介紹與 Microsoft Azure 基礎結構部署和管理相關的核心概念。 如果您不熟悉雲端運算或 Azure 本身，本指南可協助您快速了解概念、部署及管理詳細資料。 本指南的許多小節討論部署虛擬機器等作業，並接著提供深入技術詳細資料的連結。
 
@@ -53,27 +53,33 @@ Microsoft 已在世界各地部署許多 Azure 資料中心，且更有計劃。
 
 如需可用 Azure 區域的詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。
 
-### <a name="cloud-computing-is-classified-into-three-categories-saas-paas-and-iaas"></a>雲端運算分為三個類別：SaaS、PaaS 和 IaaS。
+### <a name="cloud-computing-model"></a>雲端運算模型
 
-#### <a name="saas-software-as-a-service"></a>SaaS：軟體即服務
-
-SaaS 是集中裝載和管理的軟體。 它通常以多租用戶架構為基礎 — 單一應用程式版本用於所有客戶。 它可以相應放大為多個執行個體，以確保所有位置的最佳效能。 SaaS 軟體通常透過每月或每年訂用帳戶授權。
-
-Microsoft Office 365 是良好的 SaaS 供應項目範例。 訂閱者需每月或每年支付訂閱費用，他們可取得 Microsoft Exchange、Microsoft OneDrive 和 Microsoft Office 套件即服務的其餘部分。 訂閱者一律可取得最新版本，而系統會為您管理 Exchange 伺服器。 相較於每年安裝及升級 Office，這種作法比較經濟實惠。
-
-#### <a name="paas-platform-as-a-service"></a>PaaS：平台即服務
-
-採用 PaaS，您可將應用程式部署到雲端服務廠商所提供的環境。 廠商會進行所有的基礎結構管理工作，以便您專注於應用程式開發。
-
-Azure 提供數個 PaaS 計算供應項目，包括 Azure App Service 與 Azure 雲端服務的 Web Apps 功能 (Web 和背景工作角色)。 在任一情況下，開發人員可使用多種方法來部署其應用程式，而不需要知道任何有關支援它的具體細節。 開發人員不必建立虛擬機器 (VM)，可使用遠端桌面通訊協定 (RDP) 來登入或安裝應用程式。 他們只需按下按鈕 (或接近它)，Microsoft 所提供的工具就會佈建 VM，然後在其上部署並安裝應用程式。
+Azure 會根據對客戶所提供的服務類別來使用雲端運算模型。 三個服務類別包括基礎結構即服務 (IaaS)、平台即服務 (PaaS) 以及軟體即服務 (Saas)。 針對上述各個類別中的運算堆疊元件，廠商需分擔部分或所有責任。 讓我們看一下雲端運算的各個類別。
+![雲端運算堆疊比較](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS：基礎結構即服務
 
-IaaS 雲端廠商會執行及管理所有實體計算資源和必要軟體，以啟用電腦虛擬化。 此服務的客戶會將虛擬機器部署於這些裝載的資料中心。 雖然虛擬機器位於異地資料中心，但 IaaS 取用者可控制其設定和管理。
+IaaS 雲端廠商會執行及管理所有實體計算資源和必要軟體，以啟用電腦虛擬化。 此服務的客戶會將虛擬機器部署於這些裝載的資料中心。 雖然虛擬機器位於異地資料中心，但 IaaS 取用者可控制作業系統的設定和管理，基礎結構則交由雲端廠商處理。
 
 Azure 包含數個 IaaS 解決方案，其中包括虛擬機器、虛擬機器擴展集，以及相關的網路基礎結構。 一開始將服務移轉至 Azure 時，虛擬機器是個熱門選擇，因為它允許「隨即轉移」移轉模型。 您可以設定一部 VM (例如目前在您的資料中心執行服務的基礎結構)，然後將軟體移轉至新的 VM。 您可能需要進行組態更新，例如其他服務或儲存體的 URL，但您可以用這種方式移轉許多應用程式。
 
 虛擬機器擴展集是以 Azure 虛擬機器為建置基礎，可提供簡單的方式來部署相同 VM 的叢集。 虛擬機器擴展集也支援自動調整，以便視需要自動部署新的 VM。 這讓虛擬機器擴展集成為裝載較高層級微服務計算叢集 (例如 Azure Service Fabric 和 Azure 容器服務) 的理想平台。
+
+#### <a name="paas-platform-as-a-service"></a>PaaS：平台即服務
+
+採用 PaaS，您可將應用程式部署到雲端服務廠商所提供的環境。 廠商會進行所有的基礎結構管理工作，以便您專注於應用程式開發和資料管理。
+
+Azure 提供數個 PaaS 計算供應項目，包括 Azure App Service 與 Azure 雲端服務的 Web Apps 功能 (Web 和背景工作角色)。 在任一情況下，開發人員可使用多種方法來部署其應用程式，而不需要知道任何有關支援它的具體細節。 開發人員不必建立虛擬機器 (VM)，可使用遠端桌面通訊協定 (RDP) 來登入或安裝應用程式。 他們只需按下按鈕 (或接近它)，Microsoft 所提供的工具就會佈建 VM，然後在其上部署並安裝應用程式。
+
+#### <a name="saas-software-as-a-service"></a>SaaS：軟體即服務
+
+SaaS 是集中裝載和管理的軟體。 它通常以多租用戶架構為基礎 — 單一應用程式版本用於所有客戶。 它可以相應放大為多個執行個體，以確保所有位置的最佳效能。 SaaS 軟體通常透過每月或每年訂用帳戶授權。 SaaS 軟體通常透過每月或每年訂用帳戶授權。 SaaS 軟體廠商會負責軟體堆疊的所有元件，因此，您只需要管理所提供的服務。
+
+Microsoft Office 365 是良好的 SaaS 供應項目範例。 訂閱者需每月或每年支付訂閱費用，他們可取得 Microsoft Exchange、Microsoft OneDrive 和 Microsoft Office 套件即服務的其餘部分。 訂閱者一律可取得最新版本，而系統會為您管理 Exchange 伺服器。 相較於每年安裝及升級 Office，這種作法比較經濟實惠。
+
+
+
 
 ## <a name="azure-services"></a>Azure 服務
 
@@ -175,6 +181,9 @@ Azure 命令列介面是一項工具，可用來從命令列建立、管理和�
 
 **REST API** Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支援其中的大部分 REST API，讓您以程式設計方式從任何啟用網際網路的裝置佈建和管理 Azure 資源和應用程式。 如需詳細資訊，請參閱 [Azure REST SDK 參考](https://docs.microsoft.com/rest/api/index)。
 
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
+
+系統管理員可以透過稱為 Azure Cloud Shell 的可供瀏覽器存取體驗，來存取 Azure PowerShell 和 Azure CLI。 這個互動式介面會提供彈性的工具，讓 Linux 和 Windows 的系統管理員使用其選擇的命令列介面 (Bash 或 PowerShell)。 若要存取 Azure Cloud Shell，您可以透過入口網站存取、以獨立 Web 介面的形式在 [shell.azure.com](https://shell.azure.com) 存取，或從數個其他存取點來存取。 如需詳細資訊，請參閱 [Azure Cloud Shell 概觀](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)。
 ## <a name="azure-subscriptions"></a>Azure 訂用帳戶
 
 訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯分組。 單一 Azure 帳戶可以包含多個訂用帳戶。 Azure 服務是根據訂用帳戶計費。 Azure 訂用帳戶有可完全掌控訂用帳戶的帳戶管理員，以及可控制訂用帳戶中所有服務的服務管理員。 除了系統管理員，可以透過 RBAC 授與個別帳戶對於 Azure 資源的細部控制。
@@ -355,6 +364,7 @@ Azure 虛擬機器是 Azure 的其中一個中央 IaaS 服務。 Azure 虛擬機
 
 您可使用網路安全性群組 (NSG) 資源來管理透過公用 IP 位址的虛擬機器存取。 NSG 的作用如同防火牆，可在一組定義的連接埠上允許或拒絕跨越網路介面或子網路的流量。 例如，若要建立 Azure VM 的遠端桌面工作階段，您需要設定 NSG 才能允許連接埠 3389 的輸入流量。 如需詳細資訊，請參閱[使用 Azure 入口網站對 Azure 中的 VM 開啟連接埠](../../virtual-machines/windows/nsg-quickstart-portal.md)。
 
+
 最後，如同任何電腦系統的管理，您應該使用安全性認證和軟體防火牆，在作業系統提供 Azure 虛擬機器的安全性。
 
 ## <a name="azure-storage"></a>Azure 儲存體
@@ -415,7 +425,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 **入口網站**
 
-使用 Azure 入口網站部署儲存體帳戶時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以將新的儲存體帳戶部署到新的或現有的資源群組。 建立儲存體帳戶後，您可以使用入口網站來建立 blob 容器或檔案共用。 您可以用程式設計方式建立資料表和佇列儲存體實體。 如需詳細資訊，請參閱[建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+使用 Azure 入口網站部署儲存體帳戶時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以將新的儲存體帳戶部署到新的或現有的資源群組。 建立儲存體帳戶後，您可以使用入口網站來建立 blob 容器或檔案共用。 您可以用程式設計方式建立資料表和佇列儲存體實體。 如需詳細資訊，請參閱[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)。
 
 除了從 Azure 入口網站部署儲存體帳戶，您也可以從入口網站部署 Azure Resource Manager 範本。 這會部署和設定如範本中定義的所有資源，包括任何儲存體帳戶。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure 入口網站來部署資源](../../azure-resource-manager/resource-group-template-deploy-portal.md)。
 

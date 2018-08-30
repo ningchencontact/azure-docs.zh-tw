@@ -3,18 +3,18 @@ title: 指令碼動作 - 在 Azure HDInsight 上搭配 Jupyter 安裝 Python 套
 description: 說明如何使用指令碼動作以設定讓 HDInsight Spark 叢集隨附之 Jupyter Notebook 使用外部 Python 套件的逐步指示。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: jasonh
-ms.openlocfilehash: 36e727a59b91303c8c62c5525f72c328e2792ad6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c8d0b172682654c858a97b4ca2df99ec5079adaa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619170"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041144"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>使用指令碼動作在 HDInsight Linux 上的 Apache Spark 叢集中安裝 Jupyter Notebook 的外部 Python 封裝
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "39619170"
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。   
 
-2. 從 Spark 叢集刀鋒視窗的左窗格中，按一下 [指令碼動作]。 執行自訂動作，將 TensorFlow 安裝在前端節點和背景工作角色節點。 您可以在以下網址參考 Bash 指令碼：https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh 瀏覽有關於[如何使用自訂指令碼動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文件。
+2. 從 Spark 叢集刀鋒視窗的左窗格中，按一下 [指令碼動作]。 執行自訂動作，將 TensorFlow 安裝在前端節點和背景工作角色節點。 您可以在以下網址參考 Bash 指令碼： https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh 瀏覽有關於[如何使用自訂指令碼動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文件。
 
    > [!NOTE]
    > 叢集中有兩個 Python 安裝。 Spark 會使用位於 `/usr/bin/anaconda/bin` 的 Anaconda Python 安裝。 在您的自訂動作中，透過 `/usr/bin/anaconda/bin/pip` 和 `/usr/bin/anaconda/bin/conda` 來參考該安裝。

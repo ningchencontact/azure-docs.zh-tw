@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 963f0ebdddab9fe7519b34153b7fd787da0fe7dd
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264990"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112080"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常見問題集
 
@@ -65,7 +65,7 @@ ms.locfileid: "39264990"
 所有網路軟體、實體裝置或其他軟硬體限制連線開啟時間上限的閥值應該至少為 5 分鐘 (300 秒)，以便讓安裝 Azure AD Connect 用戶端的伺服器與 Azure Active Directory 連線。 此建議也適用於所有先前發行的 Microsoft 身分識別同步處理工具。
 
 **問：是否支援單一標籤網域 (SLD)？**  
-雖然非常不建議您使用這種網路設定 ([請參閱文章](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains))，但只要單一層級網域的網路設定可正常運作，便支援搭配使用 Azure AD Connect 同步處理與單一標籤網域。
+雖然非常不建議您使用這種網路設定 ([請參閱文章](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains))，但只要單一層級網域的網路設定可正常運作，便支援搭配使用 Azure AD Connect 同步處理與單一標籤網域。
 
 **問：是否支援使用斷續 AD 網域的樹系？**  
 否，Azure AD Connect 不支援包含斷續命名空間的內部部署樹系。
@@ -91,8 +91,8 @@ ms.locfileid: "39264990"
 **問：Azure AD 中的 userPrincipalName (UPN) 屬性為什麼不符合內部部署的 UPN？**  
 如需詳細資訊，請參閱這些文章：
 
-* [Office 365、Azure 或 Intune 中的使用者名稱不符合內部部署的 UPN 或替代登入識別碼](https://support.microsoft.com/en-us/kb/2523192)
-* [在您將使用者帳戶的 UPN 變更為使用不同的同盟網域後，Azure Active Directory 同步作業工具未同步處理變更](https://support.microsoft.com/en-us/kb/2669550)
+* [Office 365、Azure 或 Intune 中的使用者名稱不符合內部部署的 UPN 或替代登入識別碼](https://support.microsoft.com/kb/2523192)
+* [在您將使用者帳戶的 UPN 變更為使用不同的同盟網域後，Azure Active Directory 同步作業工具未同步處理變更](https://support.microsoft.com/kb/2669550)
 
 您也可以將 Azure AD 設定為允許同步處理引擎更新 UPN，如 [Azure AD Connect 同步處理服務功能](active-directory-aadconnectsyncservice-features.md)中所述。
 
@@ -134,11 +134,11 @@ ms.locfileid: "39264990"
 
 若要手動升級，您必須下載並執行最新版的 AADConnect.msi 檔案。
  
--  如果您目前的版本早於 1.1.750.0，[請下載最新版本並進行升級](https://www.microsoft.com/en-us/download/details.aspx?id=47594)。
+-  如果您目前的版本早於 1.1.750.0，[請下載最新版本並進行升級](https://www.microsoft.com/download/details.aspx?id=47594)。
 - 如果您的 Azure AD Connect 版本是 1.1.750.0 或更新版本，則不需要執行進一步的動作。 您已使用包含自動升級修正程式的版本。 
 
 **問：我收到一封電子郵件通知我升級至最新版本，以重新啟用自動升級。我目前使用 1.1.654.0 版。是否需要升級？**  
-是，您要升級至 1.1.750.0 版或更新版本，以重新啟用自動升級。 [下載最新版本並進行升級](https://www.microsoft.com/en-us/download/details.aspx?id=47594)。
+是，您要升級至 1.1.750.0 版或更新版本，以重新啟用自動升級。 [下載最新版本並進行升級](https://www.microsoft.com/download/details.aspx?id=47594)。
 
 **問：我收到一封電子郵件通知我升級至最新版本，以重新啟用自動升級。如果我已使用 PowerShell 來啟用自動升級，我還需要安裝最新版本嗎？**  
 是，您仍需要升級至 1.1.750.0 版或更新版本。 使用 PowerShell 啟用自動升級服務，並不能減輕在 1.1.750.0 之前版本中找到的自動升級問題。
@@ -190,7 +190,7 @@ Office 小組正在處理 Office 入口網站更新，以反映目前的產品�
 ## <a name="troubleshooting"></a>疑難排解
 **問：如何取得 Azure AD Connect 的說明？**
 
-[搜尋 Microsoft 知識庫 (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[搜尋 Microsoft 知識庫 (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
 
 * 針對 Azure AD Connect 支援，在 KB 中搜尋常見協助修正問題的技術解決方案。
 

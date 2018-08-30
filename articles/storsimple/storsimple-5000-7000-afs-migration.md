@@ -11,16 +11,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 4dc4ddb2d11cf792bfa6288eadce8eb03470ae1d
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099661"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140667"
 ---
-# <a name="migrate-data-from-storsimple-5000-7000-series"></a>從 StorSimple 5000-7000 系列移轉資料 
+# <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>將資料從 StorSimple 5000-7000 系列移轉至 Azure 檔案同步
 
 資料移轉是將資料從一個儲存體位置移至另一個的程序。 為此，必須要為組織目前的資料建立從一個裝置到另一個裝置的確切複本 (最好不會中斷或停用作用中的應用程式)，然後將所有輸入/輸出 (I/O) 活動重新導向至新的裝置。 
 
@@ -67,12 +67,12 @@ StorSimple 5000 和 7000 系列儲存體裝置將在 2019 年 7 月終止服務�
 
 執行下列步驟，將設定於 StorSimple 磁碟區的 Windows 檔案共用移轉至 Azure 檔案同步共用。 
 1.  在掛接 StorSimple 磁碟區的相同 Windows Server 主機上執行下列步驟，或以不同的系統執行。 
-    - [準備 Windows Server 以搭配 Azure 檔案同步使用](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal)。
-    - [安裝 Azure 檔案同步代理程式](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal)。
-    - [部署儲存體同步服務](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal)。 
-    - [向儲存體同步服務註冊 Windows Server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal)。 
-    - [建立同步群組和雲端端點](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal。 對於每個需要從主機移轉的 Windows 檔案共用，都必須建立同步群組。
-    - [建立伺服器端點](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal)。 請將路徑指定為您的檔案共用資料所在的 StorSimple 磁碟區路徑。 例如，如果 StorSimple 磁碟區是磁碟機 `J`，而您的資料位於 `J:/<myafsshare>` 中，則應將此路徑新增為伺服器端點。 將 [分層] 保留為 [已停用]。
+    - [準備 Windows Server 以搭配 Azure 檔案同步使用](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync)。
+    - [安裝 Azure 檔案同步代理程式](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent)。
+    - [部署儲存體同步服務](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service)。 
+    - [向儲存體同步服務註冊 Windows Server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service)。 
+    - [建立同步群組和雲端端點](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint)。 對於每個需要從主機移轉的 Windows 檔案共用，都必須建立同步群組。
+    - [建立伺服器端點](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint)。 請將路徑指定為您的檔案共用資料所在的 StorSimple 磁碟區路徑。 例如，如果 StorSimple 磁碟區是磁碟機 `J`，而您的資料位於 `J:/<myafsshare>` 中，則應將此路徑新增為伺服器端點。 將 [分層] 保留為 [已停用]。
 2.  等候檔案伺服器同步完成。 針對給定同步群組中的每個伺服器，請確定：
     - 上傳和下載的「上次嘗試的同步」時間戳記都是最新的。
     - 上傳和下載的狀態都是綠色的。

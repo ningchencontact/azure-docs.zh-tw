@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050860"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140496"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 服務識別
 
@@ -27,10 +27,10 @@ ms.locfileid: "37050860"
 
 建立資料處理站時，服務識別可隨著處理站建立一起建立。 服務識別是向 Azure Active Directory 註冊的受控應用程式，代表這個特定資料處理站。
 
-資料處理站的服務識別有助於下列兩個功能：
+資料處理站的服務識別有助於下列功能：
 
 - [在 Azure Key Vault 中存放認證](store-credentials-in-key-vault.md)，在此案例中，資料處理站服務識別是用於 Azure Key Vault 驗證。
-- [複製資料從/至 Azure Data Lake Store](connector-azure-data-lake-store.md)，在此案例中，資料處理站服務識別可用來作為支援的 Data Lake Store 驗證類型之一。
+- 連接器，包括 [Azure Blob 儲存體](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、[Azure SQL Database](connector-azure-sql-database.md), 和 [Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md)。
 
 ## <a name="generate-service-identity"></a>產生服務識別
 

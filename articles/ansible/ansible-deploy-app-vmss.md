@@ -4,29 +4,23 @@ description: 了解如何使用 Ansible 來設定虛擬機器擴展集，並在 
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 腳本, 虛擬機器, 虛擬機器擴展集, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011496"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918081"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 將應用程式部署至 Azure。 本文說明如何將 Java 應用程式部署至 Azure 虛擬機器擴展集 (VMSS)。  
 
 ## <a name="prerequisites"></a>必要條件
 - **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-- **設定 Ansible** - [建立 Azure 認證和設定 Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible 和 Azure Python SDK 模組** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **虛擬機器擴展集** - 如果您還沒有虛擬機器擴展集，您可以[使用 Ansible 建立虛擬機器擴展集](ansible-create-configure-vmss.md)。 
 - **git** - [git](https://git-scm.com) 可用來下載本教學課程中使用的 Java 範例。
 - **Java SE 開發套件 (JDK)** - JDK 可用來建置範例 Java 專案。

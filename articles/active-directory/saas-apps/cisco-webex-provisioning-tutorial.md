@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: fdaf77e3d8a1858372298fb0d67ca05c2717adf6
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 76a83ef4f647dcf7d79218cb281f1f976b292870
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324163"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140870"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>教學課程︰設定 Cisco Webex 來自動佈建使用者
 
@@ -30,7 +30,7 @@ ms.locfileid: "36324163"
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../active-directory-saas-app-provisioning.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中概述的案例假設您已經具有下列必要條件：
 
@@ -116,7 +116,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
     * 向下捲動至 [[Authentication](https://developer.webex.com/getting-started.html#authentication)] \(驗證\) 區段
     ![Cisco Webex 驗證權杖](./media/cisco-webex-provisioning-tutorial/SecretToken.png)
     * 方塊中的英數字元字串就是您的「祕密權杖」。 請將此權杖複製到剪貼簿
-    * 移至 [[Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html)] \(取得我自己的詳細資料\) 頁面
+    * 移至 [Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html) (取得我自己的詳細資料) 頁面
         * 確定 [Test Mode] \(測試模式\) 為 [ON] \(開啟\)
         * 輸入 "Bearer" 單字，後面接著一個空格，然後將「祕密權杖」貼到 [Authorization] \(授權\) 欄位中![Cisco Webex 驗證權杖](./media/cisco-webex-provisioning-tutorial/GetMyDetails.png)
         * 按一下 [Run] \(執行\)
@@ -171,6 +171,10 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，然後依循連結來佈建活動報告，此報告會描述 Azure AD 佈建服務在 Cisco Webex 上執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+
+## <a name="connector-limitations"></a>連接器限制
+
+* Cisco Webex 目前處於 Cisco 的早期現場測試 (EFT) 階段。 如需詳細資訊，請連絡 [Cisco 的支援小組](https://www.webex.co.in/support/support-overview.html)。 
 
 ## <a name="additional-resources"></a>其他資源
 

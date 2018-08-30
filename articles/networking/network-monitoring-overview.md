@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850132"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140494"
 ---
 # <a name="network-monitoring-solutions"></a>網路監視解決方案 
 
@@ -35,7 +35,7 @@ Azure 提供許多可監視網路資產的解決方案。 Azure 擁有的解決�
 * 任務關鍵性多層應用程式/微服務
 * 使用者位置和 Web 架構應用程式 (HTTP/HTTPS) 
 
-效能監視器、ExpressRoute 監視器及服務端點監視器都是 NPM 內的監視功能，如下所述。
+效能監視器、ExpressRoute 監視器及服務連線能力監視器都是 NPM 內的監視功能，如下所述。
 
 ## <a name="performance-monitor"></a>效能監視器
 
@@ -73,9 +73,9 @@ Expressroute 的 NPM 提供對於 Azure 私用對等連線和 Microsoft 對等�
 * [設定 ExpressRoute 線路的網路效能監視器](../expressroute/how-to-npm.md)
 * [部落格文章](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>服務端點監視
+## <a name="service-connectivity-monitor"></a>服務連線能力監視
 
-您現在可以使用服務端點監視，測試應用程式的連線能力，並跨內部部署、電訊廠商網路和雲端/私用資料中心偵測效能瓶頸。
+您現在可以使用服務連線能力監視，測試應用程式的連線能力，並跨內部部署、電訊廠商網路和雲端/私用資料中心偵測效能瓶頸。
 
 * 監視對應用程式的端對端網路連線
 * 將應用程式傳遞與網路效能相互關聯，沿著使用者和應用程式之間的路徑偵測效能降低的確切位置

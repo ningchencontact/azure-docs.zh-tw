@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 11aba1ae6f49d6c00fabd928ae3aefedcbea8ed8
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 923ab3378d5e2d833e11c5111d4dd9964fea6dc4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234190"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126608"
 ---
 # <a name="quickstart-recognize-speech-in-java-windows-or-linux"></a>快速入門：如何以 Java 辨識語音 (Windows 或 Linux)
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 本文件說明如何為 Java Run-Time Environment (JRE) 建立運用「語音 SDK」的 Java 型主控台應用程式。
 此應用程式會以「Microsoft 認知服務 SDK Maven 套件」為基礎。
@@ -56,7 +56,7 @@ ms.locfileid: "40234190"
    ![選取一個精靈](media/sdk/qs-java-jre-02-select-wizard.png)
 
 1. 在下一個視窗中，輸入 **quickstart** 作為專案名稱，然後選擇 [JavaSE-1.8] (或更新版本) 作為執行環境。
-   按一下 [完成]。
+   按一下 [完成] 。
 
    ![選取一個精靈](media/sdk/qs-java-jre-03-create-java-project.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "40234190"
 
 ![成功辨識後的主控台輸出](media/sdk/qs-java-jre-07-console-output.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 在 `quickstart/java-jre` 資料夾中尋找此範例。
 
 ## <a name="next-steps"></a>後續步驟

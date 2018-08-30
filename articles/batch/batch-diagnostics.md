@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 54034b9a851fc6f06f97be9cfd5f261465bad455
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248257"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122462"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 
@@ -64,7 +64,7 @@ ms.locfileid: "39248257"
 2. 在 [監視] 下方，按一下 [警示規則] > [新增計量警示]。
 3. 選取計量、警示條件 (例如計量在某個期間超過特定值)，以及一個或多個通知。
 
-您也可以使用 [REST API]() 設定幾近即時的警示。 如需詳細資訊，請參閱[在 Azure 入口網站中針對 Azure 服務使用新版計量警示](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+您也可以使用 [REST API](https://docs.microsoft.com/rest/api/monitor/) 設定幾近即時的警示。 如需詳細資訊，請參閱[在 Azure 入口網站中針對 Azure 服務使用新版計量警示](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
 ## <a name="batch-diagnostics"></a>Batch 診斷
 
 診斷記錄包含 Azure 資源發出的資訊，其會描述每個資源的作業。 針對 Batch，您可以收集下列記錄：

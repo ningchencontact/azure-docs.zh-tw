@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622247"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140286"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
@@ -25,13 +25,13 @@ Azure AD 自助式密碼重設 (SSPR) 與 Multi-factor Authentication (MFA) 可�
 
 Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方法數目下限，以免使用者無法存取其中一個。
 
-|驗證方法|使用|
+|驗證方法|使用量|
 | --- | --- |
 | 密碼 | MFA 和 SSPR |
 | 安全性問題 | 僅 SSPR |
 | 電子郵件地址 | 僅 SSPR |
 | Microsoft Authenticator 應用程式 | MFA 和 SSPR 的公開預覽版 |
-| 簡訊 | MFA 和 SSPR |
+| sms | MFA 和 SSPR |
 | 語音通話 | MFA 和 SSPR |
 | 應用程式密碼 | 只有在某些情況下的 MFA |
 
@@ -136,6 +136,8 @@ Microsoft Authenticator 應用程式可協助防止未經授權即存取帳戶�
 >
 > 需要兩種方法時，使用者除了任何其他已啟用的方法之外，將能夠使用通知**或**驗證碼。
 >
+
+如果您允許使用透過行動裝置應用程式的通知和來自行動裝置應用程式的驗證碼，使用通知註冊 Microsoft Authenticator 應用程式的使用者，就能使用通知和驗證碼來確認其身分識別。
 
 ### <a name="verification-code-from-mobile-app"></a>行動應用程式傳回的驗證碼
 

@@ -3,24 +3,18 @@ title: Azure PowerShell 指令碼範例 - 建立 VPN 閘道 | Microsoft Docs
 description: 使用 PowerShell 建立 VPN 閘道。
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
 ms.date: 04/17/2018
-ms.author: anzaman
-ms.openlocfilehash: 348d59bab7042469a9a7ee5b384a317f52543994
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: alzam
+ms.openlocfilehash: 82d721393f58d7bd203605b15819a98bcf86830b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792846"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885420"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>使用 PowerShell 建立 VPN 閘道
 

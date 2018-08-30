@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6bfe6f9b76693ded79aa9b9d21ddcac4e1a0733e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440468"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110299"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>建立 Azure Kubernetes Service (AKS) 叢集
 
@@ -48,7 +48,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster
 | `--enable-rbac` `-r` | 啟用 Kubernetes 角色型存取控制。 | no |
 | `--generate-ssh-keys` | 產生 SSH 公開金鑰和私密金鑰檔案 (如果遺失)。 | no |
 | `--kubernetes-version` `-k` | 要用來建立叢集的 Kubernetes 版本，例如 '1.7.9' 或 '1.9.6'。 | no |
-| `--locaton` `-l` | 自動建立的資源群組所在的位置 | no |
+| `--location` `-l` | 自動建立的資源群組所在的位置 | no |
 | `--max-pods` `-m` | 可部署至節點的 Pod 數目上限。 | no |
 | `--network-plugin` | 要使用的 Kubernetes 網路外掛程式。 | no |
 | `--no-ssh-key` `-x` | 請勿使用或建立本機 SSH 金鑰。 | no |

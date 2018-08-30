@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
-ms.topic: get-started-article
-ms.date: 05/02/2018
-ms.openlocfilehash: 0acaace474d62f18b9b6ca4aaae324405a2f43db
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.topic: conceptual
+ms.date: 08/13/2018
+ms.openlocfilehash: 2af1cf1c41ddacd973b3e1dc0f2dd7a8b6d9563a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735788"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045950"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 指令碼
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -36,7 +35,7 @@ ms.locfileid: "34735788"
 >    - [針對 Visual Studio 2013 和 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Visual Studio**：支援 Express 以外的所有版本。
     * Visual Studio 2017
@@ -52,16 +51,20 @@ ms.locfileid: "34735788"
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>連線至 Azure Data Lake Analytics 帳戶
 
 1. 開啟 Visual Studio。
-2. 選取 [檢視] > [伺服器總管] 可開啟伺服器總管。
-3. 以滑鼠右鍵按一下 [Azure]。 然後選取 [連線到 Microsoft Azure 訂用帳戶]並遵循指示進行。
-4. 在 [伺服器總管] 中，選取 **Azure** > **Data Lake Analytics**。 您會看到 Data Lake Analytics 帳戶的清單。
 
+2. 選取 [檢視] > [伺服器總管] 可開啟伺服器總管。
+
+3. 以滑鼠右鍵按一下 [Azure]。 然後選取 [連線到 Microsoft Azure 訂用帳戶]並遵循指示進行。
+
+4. 在 [伺服器總管] 中，選取 **Azure** > **Data Lake Analytics**。 您會看到 Data Lake Analytics 帳戶的清單。
 
 ## <a name="write-your-first-u-sql-script"></a>撰寫第一個 U-SQL 指令碼
 
 下列文字是簡單的 U-SQL 指令碼。 它會定義小型資料集，並將該資料集寫入預設 Data Lake Store 中，作為名為 `/data.csv` 的檔案。
 
 ```
+USE DATABASE master;
+USE SCHEMA dbo;
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -74,7 +77,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-### <a name="submit-a-data-lake-analytics-job"></a>提交 Data Lake Analytics 作業
+## <a name="submit-a-data-lake-analytics-job"></a>提交 Data Lake Analytics 作業
 
 1. 選取 [檔案] > [新增] > [專案]。
 
@@ -87,31 +90,35 @@ OUTPUT @a
     ![提交 U-SQL Visual Studio 專案](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
 5. 在 **Script.usql** 視窗的左上角中，選取 [提交]。
-6. 確認 **Analytics 帳戶**，然後選取 [提交]。 提交作業完成時，適用於 Visual Studio 結果的 Data Lake 工具中便會出現提交結果。
 
-    ![提交 U-SQL Visual Studio 專案](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-7. 按一下 [重新整理]，可查看最新的作業狀態並重新整理畫面。 當作業成功時，它會顯示**作業圖形**、**中繼資料作業**、**狀態記錄**和**診斷**：
+6. 提交作業之後，[作業檢視] 索引標籤隨即開啟，並顯示作業進度。 按一下 [重新整理]，可查看最新的作業狀態並重新整理畫面。
 
     ![U SQL Visual Studio Data Lake Analytics 工作效能圖表](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
    * **作業摘要**會顯示作業的摘要。   
-   * **作業詳細資料**會顯示更多作業的相關資訊，包括指令碼、資源和頂點。
    * **作業圖形**會以視覺化方式檢視作業的進度。
    * **中繼資料作業**會顯示 U-SQL 目錄上所執行的所有動作。
    * **資料**會顯示所有的輸入和輸出。
+   * [狀態歷程記錄] 會顯示時間軸和狀態的詳細資料。
+   * [AU 分析] 會顯示作業中使用了多少個 AU，並探索不同 AU 配置策略的模擬。
    * **診斷**會提供作業執行和效能最佳化的進階分析。
 
-### <a name="to-check-job-state"></a>檢查作業狀態
+## <a name="check-job-status"></a>檢查作業狀態
 
-1. 在 [伺服器總管] 中，選取 **Azure** > **Data Lake Analytics**。 
+1. 在 [伺服器總管] 中，選取 **Azure** > **Data Lake Analytics**。
+
 2. 展開 Data Lake Analytics 帳戶名稱。
+
 3. 按兩下 [作業]。
+
 4. 選取您先前提交的作業。
 
-### <a name="to-see-the-output-of-a-job"></a>若要查看作業的輸出
+## <a name="see-the-job-output"></a>查看作業輸出
 
 1. 在伺服器總管中，瀏覽至您所提交的作業。
+
 2. 按一下 [資料]  索引標籤。
+
 3. 在 [作業輸出] 索引標籤中，選取 `"/data.csv"` 檔案。
 
 ## <a name="next-steps"></a>後續步驟

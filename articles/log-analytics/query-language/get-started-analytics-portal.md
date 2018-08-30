@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Log Analytics 中開始使用 Analytics 入口網站 | Microsoft Docs
-description: 本文提供教學課程來說明如何使用 Analytics 入口網站在 Log Analytics 中撰寫查詢。
+title: 在 Azure 入口網站中開始使用 Log Analytics 頁面 | Microsoft Docs
+description: 本文提供教學課程來說明如何使用 Log Analytics 頁面來撰寫查詢。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6f6916b27aa251bc0a0c25be060378c11faab607
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632287"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140093"
 ---
-# <a name="get-started-with-the-analytics-portal"></a>開始使用 Analytics 入口網站
+# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>在 Azure 入口網站中開始使用 Log Analytics 頁面
 
-在本教學課程中，您會了解如何使用 Analytics 入口網站來撰寫 Azure Log Analytics 查詢。 它會告訴您如何：
+在本教學課程中，您會了解如何在 Azure 入口網站中使用 Log Analytics 頁面 (目前為預覽功能) 來撰寫 Log Analytics 查詢。 它會告訴您如何：
 
 - 撰寫簡單的查詢
 - 了解資料的結構描述
@@ -35,12 +35,12 @@ ms.locfileid: "39632287"
 - 匯出及共用查詢
 
 
-## <a name="meet-the-analytics-portal"></a>認識 Analytics 入口網站
-Analytics 入口網站是 Web 工具，可用來撰寫及執行 Azure Log Analytics 查詢。 
+## <a name="meet-the-log-analytics-page"></a>認識 Log Analytics 頁面 
+Log Analytics 頁面是一種 Web 工具，可用來撰寫及執行 Azure Log Analytics 查詢。 在 Log Analytics 功能表中選取 [記錄 (預覽)] 來加以開啟。 它會從新的空白查詢來開始。
 
 ![首頁](media/get-started-analytics-portal/homepage.png)
 
-首頁可讓您輕鬆存取有用的資源，例如最近和已儲存的查詢，以及範例。 請開啟新的索引標籤，開始撰寫您自己的查詢。
+
 
 ## <a name="basic-queries"></a>基本查詢
 查詢可用來搜尋字詞、識別趨勢、分析模式，以及提供許多其他以資料為基礎的深入解析。 請從基本查詢來開始：
@@ -83,7 +83,7 @@ search in (Event) "error"
 Event
 ```
 
-Analytics 入口網站會自動根據下列條件來限制結果的範圍：
+Log Analytics 頁面會自動根據下列條件來限制結果的範圍：
 
 - 時間範圍：根據預設，系統會將查詢限制在過去 24 小時。
 - 結果數：結果數上限為 10,000 筆記錄。
@@ -121,7 +121,7 @@ Analytics 入口網站會自動根據下列條件來限制結果的範圍：
 
 
 ## <a name="select-a-time-range"></a>選取時間範圍
-根據預設，Analytics 入口網站會套用「過去 24 小時」的時間範圍。 若要使用不同範圍，請透過時間選擇器來選取另一個值，然後按一下 [執行]。 除了預設值外，您也可以使用 [自訂時間範圍] 選項，來選取查詢的絕對範圍。
+根據預設，Log Analytics 頁面會套用「過去 24 小時」的時間範圍。 若要使用不同範圍，請透過時間選擇器來選取另一個值，然後按一下 [執行]。 除了預設值外，您也可以使用 [自訂時間範圍] 選項，來選取查詢的絕對範圍。
 
 ![時間選擇器](media/get-started-analytics-portal/time-picker.png)
 
@@ -183,7 +183,7 @@ Log Analytics 查詢一律會儲存至選取的工作區中，並與該工作區
 ![查詢總管](media/get-started-analytics-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>以連結形式匯出及共用
-Analytics 入口網站支援數種匯出方法：
+Log Analytics 頁面支援數種匯出方法：
 
 - Excel：將結果儲存為 CSV 檔案。
 - Power BI：將結果匯出至 Power BI。 如需詳細資訊，請參閱[將 Azure Log Analytics 資料匯入至 Power BI](../log-analytics-powerbi.md)。

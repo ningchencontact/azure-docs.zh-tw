@@ -2,18 +2,18 @@
 title: 將 HDInsight 連線到內部部署網路 - Azure HDInsight
 description: 了解如何在 Azure 虛擬網路中建立 HDInsight 叢集，然後將它連線到您的內部部署網路。 了解如何使用自訂的 DNS 伺服器來設定 HDInsight 與內部部署網路之間的解析名稱。
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: jasonh
-ms.openlocfilehash: c7186298c95667f1f29febca8c85d6799710deab
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b9b744edbcb2abce70487c84c85a0aae71494e52
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597502"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105863"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>將 HDInsight 連線至內部部署網路
 

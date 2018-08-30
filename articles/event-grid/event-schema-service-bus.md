@@ -6,18 +6,20 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/23/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 39bf8df69f491aace546386b1b3aabce9ea6c696
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: afb85f20c49821ca98e078791730a3376198e9e5
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226538"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140481"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>服務匯流排的 Azure Event Grid 事件結構描述
 
 本文提供服務匯流排事件的屬性與結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
+
+如需範例指令碼和教學課程的清單，請參閱[服務匯流排事件來源](event-sources.md#service-bus)。
 
 ## <a name="available-event-types"></a>可用的事件類型
 

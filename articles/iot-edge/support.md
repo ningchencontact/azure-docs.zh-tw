@@ -8,12 +8,12 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 05a571c4491122ec5c7c35f6bccc4b8c332a4be2
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 91821d66ac0be265e6b66fd9eb2378169e337430
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130704"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140905"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT Edge 支援
 有許多方式可尋求 Azure IoT Edge 產品的支援。
@@ -33,31 +33,32 @@ Azure IoT Edge 可以在能夠執行容器的大部分作業系統上執行，�
 * 有為它們提供安裝套件
 
 正式推出
-* Ubuntu Server 18.04
-* Ubuntu Server 16.04
-* Raspbian-stretch
+| 作業系統 | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Ubuntu Server 18.04 | 是 | 否 |
+| Ubuntu Server 16.04 | 是 | 否 |
+| Raspbian-stretch | 否 | 是|
 
 公開預覽
-* Windows 10 Server 1803
-* Windows 10 IoT 企業版 (具有 2018 年 4 月份更新)
-* Windows 10 IoT 核心版 (具有 2018 年 4 月份更新)
+| 作業系統 | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Windows 10 Server 1803 | 是 | 否 |
+| Windows 10 IoT 企業版 (2018 年 4 月份更新) | 是 | 否 |
+| Windows 10 IoT 核心版 (2018 年 4 月份更新) | 是 | 否 |
 
 ### <a name="tier-2"></a>第 2 層
 第 2 層系統可以認定為與 Azure IoT Edge 相容，並且可以相對輕鬆地使用。 這表示：
 * Microsoft 已在平台上完成臨機操作測試，或者知道合作夥伴已在平台上成功執行過 Azure IoT Edge
 * 其他平台的安裝套件或許能在這些平台上運作
 
-Ubuntu 18.04
-
-Ubuntu 16.04
-
-Wind River 8
-
-Yocto
-
-Debian
-
-Mac
+| 作業系統 | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Ubuntu 18.04 | 是 | 否 |
+| Ubuntu 16.04 | 是 | 否 |
+| Wind River 8 | 是 | 否 |
+| Yocto | 是 | 否 |
+| Debian | 是 | 否 |
+| Mac | 是 | 否 |
 
 ## <a name="container-engines"></a>容器引擎
 無論是在哪個作業系統上執行，Azure IoT Edge 都需要容器引擎才能啟動模組。 Microsoft 提供了容器引擎 moby-engine，以滿足此需求。 它是基於 Moby 開放原始碼專案。 Docker CE 和 Docker EE 是其他常用的容器引擎。 它們也是基於 Moby 開放原始碼專案，並且與 Azure IoT Edge 相容。 Microsoft 盡最大努力為使用這些容器引擎的系統提供支援，不過，請恕 Microsoft 無法為系統內的問題提供修正。 基於這個理由，Microsoft 建議在生產系統上使用 moby-engine。

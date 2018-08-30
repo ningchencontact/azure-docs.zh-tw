@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 1cf67b61d330363690aea1da706e8cce4700ddcd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 32e76d1593f8bda0ebf745e76373908970aeb181
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618677"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124164"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics 中的 Wire Data 2.0 (預覽) 解決方案
 
@@ -386,8 +386,6 @@ rpm -e dependency-agent dependency-agent-connector
 | 擷取網路流量的代理程式數 | 顯示擷取網路流量的代理程式數，並列出擷取最多流量的前 10 部電腦。 按一下此數字可執行記錄搜尋，以搜尋 <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>。 按一下清單中的電腦可執行記錄搜尋，以傳回擷取的位元組總數。 |
 | 區域子網路數 | 顯示代理程式探索到的區域子網路數。  按一下此數字可執行記錄搜尋，以搜尋 <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code>，其中列出所有子網路及透過每個子網路傳送的位元組數目。 按一下清單中的子網路可執行記錄搜尋，以傳回透過子網路傳送的位元組總數。 |
 | 應用程式層級通訊協定數 | 顯示代理程式探索到的使用中應用程式層級通訊協定數。 按一下此數字可執行記錄搜尋，以搜尋 <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>。 按一下通訊協定可執行記錄搜尋，以傳回使用該通訊協定傳送的位元組總數。 |
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Wire Data 儀表板](./media/log-analytics-wire-data/wire-data-dash.png)
 

@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: douglasl
-ms.openlocfilehash: 5959eeea7e5a16170414c7ef8036093ce122681d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 60dc0e88998580732b50cb202fb5d00a7cfcae21
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045665"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106676"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure 入口網站建立 Data Factory 管線，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -31,7 +31,7 @@ ms.locfileid: "37045665"
 > * 監視管道執行 
 > * 驗證輸出
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先決條件
 - **Azure 儲存體帳戶**。 您會建立 hive 指令碼，並上傳至 Azure 儲存體。 Hive 指令碼的輸出會儲存在此儲存體帳戶中。 在此範例中，HDInsight 叢集會使用此 Azure 儲存體帳戶作為主要儲存體。 
@@ -224,7 +224,7 @@ ms.locfileid: "37045665"
         ![指令碼設定](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. 在 [指令碼] 索引標籤中，展開 [進階] 區段。 
     6. 針對 [參數]，按一下 [從指令碼自動填滿]。 
-    7. 以下列格式輸入 **Output** 參數的值：`wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`。 例如：`wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`。
+    7. 以下列格式輸入 **Output** 參數的值：`wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`。 例如： `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/` 。
  
         ![指令碼引數](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. 若要將成品發佈至 Data Factory，按一下 [發佈]。

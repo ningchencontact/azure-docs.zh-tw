@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: diberry;
-ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.author: diberry
+ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247710"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124391"
 ---
 # <a name="integrate-speech-service"></a>整合語音服務
 [語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。
@@ -43,7 +43,7 @@ Do I have any paid time off?
 匯入應用程式後，選取 [實體]，然後再選取 [管理預先建立的實體]。 新增 **KeyPhrase** 實體。 KeyPhrase 實體會從語句中擷取金鑰主題。
 
 ## <a name="train-and-publish-the-app"></a>訓練和發佈應用程式
-1. 在頂端右側的瀏覽列中，選取 [訓練] 按鈕以訓練 LUIS 應用程式。
+1. 在頂端右側的導覽列中，選取 [訓練] 按鈕以訓練 LUIS 應用程式。
 
 2. 選取 [發佈] 以移至 [發佈] 頁面。 
 

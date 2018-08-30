@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd810f6e5a4211f64044a88ae6ca6bb6dc044e28
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bc29fbd0946f0abfe692e2270d145cd2cb292356
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416111"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42139861"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置
 
@@ -46,7 +46,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 3. 在 [管理] 區段中，按一下 [裝置]。
 
-    ![設定裝置設定](./media/device-management-azure-portal/11.png)
+    ![設定裝置設定](./media/device-management-azure-portal/74.png)
  
 [裝置] 頁面可讓您：
 
@@ -70,13 +70,13 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 ![管理 Intune 裝置](./media/device-management-azure-portal/21.png)
 
 
-- **使用者可以將裝置加入 Azure AD** - 這項設定可讓您選取哪些使用者能夠[將裝置加入](overview.md#azure-ad-joined-devices) Azure AD。 預設值是 [全部]。
+- **使用者可以將裝置加入 Azure AD** - 這項設定可讓您選取哪些使用者能夠[將裝置加入](overview.md#azure-ad-joined-devices) Azure AD。 預設值是 [全部]。 此設定僅適用於 Windows 10 上的 Azure AD Join。
 
 - **加入 Azure AD 的裝置上其他本機系統管理員** - 您可以選取哪些使用者會授與裝置的本機系統管理員權限。 新增至此處的使用者將會新增至 Azure AD 中的「裝置系統管理員」角色。 Azure AD 中的全域管理員和裝置擁有者預設會授與本機系統管理員權限。 此選項是可透過 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 等產品使用的進階編輯功能。 
 
 - **使用者可以向 Azure AD 註冊其裝置** - 您需要設定這項設定，才能向 Azure AD [註冊](overview.md#azure-ad-registered-devices)裝置。 如果您選取 [無]，當裝置未加入 Azure AD 或混合式 Azure AD 時，則不允許註冊這些裝置。 需要先註冊 (registration)，才可註冊 (enrollment) Microsoft Intune 或適用於 Office 365 的行動裝置管理 (MDM)。 如果您已設定任一服務，則會選取 [全部] 且無法使用 [無]。
 
-- **需要 Multi-Factor Auth 才能加入裝置** - 您可以選擇使用者是否需要提供次要驗證因素，才能將其裝置[加入](overview.md#azure-ad-joined-devices) Azure AD。 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的 Multi-Factor Authentication 之前，您必須確定已為註冊其裝置的使用者設定 Multi-Factor Authentication。 如需不同 Azure Multi-Factor Authentication 服務的詳細資訊，請參閱[開始使用 Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md)。 
+- **需要 Multi-Factor Auth 才能加入裝置** - 您可以選擇使用者是否需要提供次要驗證因素，才能將其裝置[加入](overview.md#azure-ad-joined-devices) Azure AD。 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的 Multi-Factor Authentication 之前，您必須確定已為註冊其裝置的使用者設定 Multi-Factor Authentication。 如需不同 Azure Multi-Factor Authentication 服務的詳細資訊，請參閱[開始使用 Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md)。 此設定不會影響 Windows 10 或 Windows 7 的混合式聯結。 這僅適用於 Windows 10 上的 Azure AD Join 以及 Windows 10、iOS 和 Android 的 BYO 裝置註冊。 
 
 - **裝置數目上限** - 這項設定可讓您選取使用者可在 Azure AD 中擁有的裝置數目上限。 如果使用者達到此配額，則在移除一或多個現有的裝置之前，將無法新增其他裝置。 今日已加入 Azure AD 或 Azure AD 已註冊的所有裝置都會計入裝置配額。 預設值為 **20**。
 

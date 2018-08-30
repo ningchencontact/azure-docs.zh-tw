@@ -1,26 +1,18 @@
 ---
 title: Azure IoT 預先設定解決方案 | Microsoft Docs
 description: 說明 Azure IoT 預先設定解決方案及其架構，且包含其他資源的連結。
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: d860c768a73737e6c8c52a8652d6b43434a3a07d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9642bfb8bb6b2e6d63082ff8287c1d5b31bbaefa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361983"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191396"
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>什麼是 Azure IoT 套件預先設定的解決方案？
 
@@ -40,9 +32,9 @@ Azure IoT 套件預先設定的解決方案是常見 IoT 解決方案模式的�
 
 | 解決方法 | 資料擷取 | 裝置身分識別 | 裝置管理 | 命令與控制 | 執行和動作 | 預測性分析 |
 | --- | --- | --- | --- | --- | --- | --- |
-| [遠端監視][lnk-getstarted-preconfigured] |yes |yes |yes |yes |yes |- |
-| [預測性維護][lnk-predictive-maintenance] |yes |yes |- |yes |yes |yes |
-| [連線的處理站][lnk-getstarted-factory] |yes |yes |yes |yes |yes |- |
+| [遠端監視][lnk-getstarted-preconfigured] |是 |yes |yes |yes |是 |- |
+| [預測性維護][lnk-predictive-maintenance] |是 |yes |- |yes |yes |是 |
+| [連線的處理站][lnk-getstarted-factory] |是 |yes |yes |yes |是 |- |
 
 * *資料擷取*：雲端規模的資料輸入。
 * *裝置身分識別*：管理唯一裝置身分識別，以及控制裝置對解決方案的存取。
@@ -165,11 +157,11 @@ IoT 中樞的裝置管理功能可讓您從解決方案入口網站管理裝置�
 [img-dashboard]: ./media/iot-suite-v1-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-predictive-maintenance]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-v1-getstarted-preconfigured-solutions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md

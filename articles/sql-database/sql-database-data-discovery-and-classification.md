@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: cc093bebb4b3c39140d6fa5370a78d59168990fa
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950800"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140065"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 的資料探索與分類
 資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
@@ -107,6 +107,13 @@ ms.locfileid: "37950800"
 * 新增/更新一或多個資料行的分類：[ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 * 從一或多個資料行移除分類：[DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 * 檢視資料庫上的所有分類：[sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+您也可以使用 REST API 以程式設計方式管理分類。 已發行的 REST API 支援下列作業：
+* [建立或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 建立或更新指定資料行的敏感度標籤
+* [刪除](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 刪除指定資料行的敏感度標籤
+* [取得](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 取得指定資料行的敏感度標籤
+* [依資料庫列出](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - 取得指定資料庫的敏感度標籤
+
 
 ## <a id="subheading-5"></a>後續步驟
 

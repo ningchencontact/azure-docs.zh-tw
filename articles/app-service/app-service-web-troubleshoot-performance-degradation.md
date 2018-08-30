@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29461837"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128301"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>針對 Azure App Service 中 Web 應用程式效能變慢的問題進行疑難排解
 本文可協助您針對 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)中 Web 應用程式效能變慢的問題進行疑難排解。
@@ -46,7 +46,7 @@ ms.locfileid: "29461837"
 2. [收集資料](#collect)
 3. [減輕問題](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) 在每個步驟均提供您各種選項。
+[App Service Web Apps](app-service-web-overview.md) 在每個步驟均提供您各種選項。
 
 <a name="observe" />
 
@@ -91,7 +91,7 @@ ms.locfileid: "29461837"
 - 原始程式碼編輯器，例如 [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)。 
 - 適用於已連線的資源的管理工具，例如連線到 Web 應用程式的 MySQL 資料庫。
 
-[Azure Application Insights](/services/application-insights/) 也是可使用的效能監視網站擴充功能。 若要使用 Application Insights，您可以使用 SDK 重建您的程式碼。 您也可以安裝擴充功能來存取供其他資料。 SDK 可讓您撰寫程式碼來監視應用程式的詳細使用狀況和效能。 如需詳細資訊，請參閱[監視 Web 應用程式中的效能](../application-insights/app-insights-web-monitor-performance.md)。
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 也是可使用的效能監視網站擴充功能。 若要使用 Application Insights，您可以使用 SDK 重建您的程式碼。 您也可以安裝擴充功能來存取供其他資料。 SDK 可讓您撰寫程式碼來監視應用程式的詳細使用狀況和效能。 如需詳細資訊，請參閱[監視 Web 應用程式中的效能](../application-insights/app-insights-web-monitor-performance.md)。
 
 <a name="collect" />
 

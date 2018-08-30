@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115668"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140462"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -213,12 +213,14 @@ Heartbeat
 
 | 屬性 | 說明 |
 | --- | --- |
-|Name |用以識別更新部署的唯一名稱。 |
-|作業系統| 選取 [Linux] 或 [Windows]。|
-|要更新的機器 |選取已儲存的搜尋，或從下拉式清單中選擇 [機器] ，然後選取個別機器。 |
-|更新分類|選取您需要的所有更新分類。 CentOS 預設不支援這種更新分類。|
-|要排除的更新|輸入要排除的更新。 針對 Windows，輸入不含 **KB** 前置詞的 KB 文章。 針對 Linux，輸入套件名稱或使用萬用字元。  |
-|排程設定|選取開始時間，然後選取 [一次] 或 [週期性] 以定期執行。|| 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時。 |
+| 名稱 |用以識別更新部署的唯一名稱。 |
+|作業系統| Linux 或 Windows|
+| 要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md) |
+|更新分類|選取您需要的所有更新分類|
+|要排除的更新|輸入要排除的更新。 針對 Windows，輸入不含 'KB' 前置詞的 KB。 針對 Linux，輸入套件名稱或使用萬用字元。  |
+|排程設定|選取開始時間，並選取 [一次] 或 [週期性] 以定期執行|
+| 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時 |
+| 重新開機控制| 決定應該如何處理重新開機。</br>可用選項包括：</br>在必要時重新開機 (預設值)</br>一律重新開機</br>永不重新開機</br>僅重新開機 - 將不會安裝更新|
 
 ## <a name="update-classifications"></a>更新分類
 

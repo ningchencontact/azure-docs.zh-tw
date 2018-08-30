@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308861"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140059"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 應用程式開發概觀
 本文將逐步解說開發人員在撰寫程式碼以連接到 Azure SQL Database 時應注意的基本考量事項。
@@ -35,8 +35,8 @@ ms.locfileid: "36308861"
 ## <a name="resource-limitations"></a>資源限制
 Azure SQL Database 使用兩種不同機制來管理資料庫可使用的資源：資源管理和限制強制執行。 如需詳細資訊，請參閱
 
-- [以 DTU 為基礎的資源模型限制 - 單一資料庫](sql-database-dtu-resource-limits-elastic-pools.md)
-- [以 DTU 為基礎的資源模型限制 - 單一資料庫](sql-database-dtu-resource-limits-elastic-pools.md)
+- [以 DTU 為基礎的資源模型限制 - 單一資料庫](sql-database-dtu-resource-limits-single-databases.md)
+- [以 DTU 為基礎的資源模型限制 - 彈性集區](sql-database-dtu-resource-limits-elastic-pools.md)
 - [以虛擬核心為基礎的資源限制 - 單一資料庫](sql-database-vcore-resource-limits-single-databases.md)
 - [以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)
 

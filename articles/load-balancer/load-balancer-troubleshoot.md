@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1a4be7b5caba751f0f90e865d8ef23e5e9c899d6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890704"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140618"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>針對 Azure Load Balancer 進行疑難排解
 
@@ -87,7 +87,7 @@ ms.locfileid: "37890704"
 * 負載平衡器後端集區 VM 未接聽資料連接埠 
 * 網路安全性群組封鎖負載平衡器後端集區 VM 上的連接埠  
 * 從相同的 VM 和 NIC 存取負載平衡器 
-* 從參與的負載平衡器後端集區 VM 存取網際網路負載平衡器 VIP 
+* 從參與的負載平衡器後端集區 VM 存取網際網路負載平衡器前端 
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>原因 1：負載平衡器後端集區 VM 未接聽資料連接埠 
 如果 VM 未回應資料流量，則可能是因為參與的 VM 上未開啟目標連接埠，或 VM 未接聽該連接埠。 
@@ -119,10 +119,11 @@ ms.locfileid: "37890704"
 * 每個應用程式都設定個別的後端集區 VM。 
 * 在有兩個 NIC 的 VM 中設定應用程式，讓每個應用程式使用自己的網路介面和 IP 位址。 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>原因 4：從參與的負載平衡器後端集區 VM 存取內部負載平衡器 VIP
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>原因 4：從參與的負載平衡器後端集區 VM 存取內部負載平衡器前端
 
-如果在 VNet 內設定 ILB VIP，其中一個參與的後端 VM 會嘗試存取內部負載平衡器 VIP，這會導致失敗。 這是不支援的案例。
-**解決方式** 評估使用應用程式閘道或其他 Proxy (例如 nginx 或 haproxy) 來支援這種案例。 如需應用程式閘道的詳細資訊，請參閱[應用程式閘道的概觀](../application-gateway/application-gateway-introduction.md)
+如果在 VNet 內設定內部 Load Balancer，且其中一個參與的後端 VM 嘗試存取內部 Load Balancer 前端，則當流程對應至原始 VM 時，會發生失敗。 不支援這種案例。 請檢閱[限制](load-balancer-overview.md#limitations)以取得詳細討論。
+
+**解決方式** 有數種方式可為此案例排除障礙，包括使用 Proxy。 請評估使用應用程式閘道或其他第三方 Proxy (例如 nginx 或 haproxy)。 如需應用程式閘道的詳細資訊，請參閱[應用程式閘道的概觀](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>其他網路擷取
 如果您決定開啟支援案例，請收集下列資訊以便更快解決問題。 選擇單一的後端 VM 來執行下列測試︰

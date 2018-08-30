@@ -1,29 +1,23 @@
 ---
-title: 搭配 Azure HDInsight 使用互動式查詢 | Microsoft Docs
+title: 搭配 Azure HDInsight 使用互動式查詢
 description: 了解如何搭配 HDInsight 使用互動式查詢 (Hive LLAP)。
-keywords: ''
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0957643c-4936-48a3-84a3-5dc83db4ab1a
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-ms.openlocfilehash: 9450f60b88c63e2cd818130521d67daf435f0b17
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e83d51a18c7ab5861699114e4622bda167dab41d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407100"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042092"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>搭配 HDInsight 使用互動式查詢
-互動式查詢 (又稱為 Hive LLAP 或 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) 是一種 Azure HDInsight [叢集類型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 互動式查詢支援記憶體內快取，可讓 Hive 查詢速度更快且更具互動性。
+互動式查詢 (又稱為 Hive LLAP 或[低延遲分析處理](https://cwiki.apache.org/confluence/display/Hive/LLAP)) 是一種 Azure HDInsight [叢集類型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 互動式查詢支援記憶體內快取，可讓 Hive 查詢速度更快且更具互動性。
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
 
@@ -69,7 +63,7 @@ ms.locfileid: "31407100"
 
 若要尋找 Java 資料庫連線 (JDBC) 連接字串：
 
-1. 使用下列 URL 登入 Ambari：https://\<cluster name\>.AzureHDInsight.net。
+1. 使用下列 URL 登入 Ambari： https://\<cluster name\>.AzureHDInsight.net。
 2. 在左側功能表中，選取 **Hive**。
 3. 若要複製 URL，選取剪貼簿圖示：
    

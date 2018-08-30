@@ -3,19 +3,19 @@ title: 使用 Python 元件的 Apache Storm - Azure HDInsight
 description: 了解如何建立使用 Python 元件的 Apache Storm 拓撲。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 keywords: apache storm python
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: jasonh
-ms.openlocfilehash: 8c26bfc85c70addebd5e68fad7769faa63e07bea
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 753c870f5d99d7bf887944b0d180645dc019b2b1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623012"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045762"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 開發 Apache Storm 拓撲
 

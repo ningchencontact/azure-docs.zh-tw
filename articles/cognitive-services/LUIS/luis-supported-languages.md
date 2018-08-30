@@ -1,24 +1,24 @@
 ---
-title: 在 Azure 中使用 LUIS 應用程式支援當地語系化 | Microsoft Docs
-description: 了解 LUIS 支援的語言。
+title: 支援當地語系化 - Language Understanding (LUIS) - Azure 認知服務 | Microsoft Docs
+description: LUIS 在服務內有各種不同的功能。 並非所有功能都有相同的語言地位。 請確定您有興趣的功能支援您所針對的語言文化特性。 LUIS 應用程式是特定文化特性，一旦設定就無法變更。
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 08/17/2017
 ms.author: diberry
-ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 4fa58843f7e888a8fc1cfbbf76a8131bba6c488a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248412"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42093811"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>LUIS 應用程式中的特定文化特性理解
 
-LUIS 應用程式是特定文化特性，一旦設定就無法變更。 
+LUIS 在服務內有各種不同的功能。 並非所有功能都有相同的語言地位。 請確定您有興趣的功能支援您所針對的語言文化特性。 LUIS 應用程式是特定文化特性，一旦設定就無法變更。 
 
 ## <a name="multi-language-luis-apps"></a>多語言 LUIS 應用程式
 如果您需要多語言 LUIS 用戶端應用程式 (例如聊天機器人)，您會有幾個選項可用。 如果 LUIS 支援所有語言，請針對每種語言開發 LUIS 應用程式。 每個 LUIS 應用程式都有唯一的應用程式識別碼和端點記錄。 如果您必須為 LUIS 不支援的語言提供語言理解，您可以使用 [Microsoft 翻譯工具 API](../Translator/translator-info-overview.md)將語句翻譯成支援的語言、將語句提交至 LUIS 端點，以及接收所產生的分數。
@@ -27,7 +27,7 @@ LUIS 應用程式是特定文化特性，一旦設定就無法變更。
 LUIS 可理解下列語言的語句：
 
 
-| 語言 |地區設定  |  預建網域 | 預建實體 | 片語建議 | **[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+| 語言 |地區設定  |  預建網域 | 預建實體 | 片語建議 | **[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)| 
 |--|--|:--:|:--:|:--:|:--:|
 | 美式英文 |`en-US` | ✔ | ✔  |✔|✔|
 | 法文 (加拿大) |`fr-CA` |-|   -   |-|✔|

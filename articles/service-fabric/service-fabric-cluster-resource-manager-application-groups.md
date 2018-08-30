@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 215efc1f0597f5199dd37baf4b109d7e76040aae
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2c641703547c391618d75fabfa181dff0b98f74f
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212988"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918765"
 ---
 # <a name="introduction-to-application-groups"></a>應用程式群組簡介
 Service Fabric 的叢集資源管理員通常會將負載平均分配到整個叢集 (透過[計量](service-fabric-cluster-resource-manager-metrics.md)表示)，以管理叢集資源。 Service Fabric 透過[容量](service-fabric-cluster-resource-manager-cluster-description.md)管理叢集的節點容量及整個叢集的容量。 計量和容量很適用於許多工作負載，但過度使用不同 Service Fabric 應用程式執行個體的模式，有時會引起其他需求。 例如，您可能想要：
@@ -160,7 +160,7 @@ Service Fabric 為 Application1 保留了兩個節點上的容量，而且即使
 PowerShell：
 
 ``` posh
-Get-ServiceFabricApplicationLoad –ApplicationName fabric:/MyApplication1
+Get-ServiceFabricApplicationLoadInformation –ApplicationName fabric:/MyApplication1
 ```
 
 C#

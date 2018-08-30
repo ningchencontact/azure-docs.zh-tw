@@ -1,6 +1,6 @@
 ---
-title: 呼叫和回應 - Azure 認知服務 Bing 影像搜尋 API 的 PHP 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing 影像搜尋 API。
+title: 快速入門：使用 PHP 針對 Bing 影像搜尋 API 使用 REST API 來傳送搜尋查詢
+description: 在本快速入門中，您可以使用 PHP 傳送搜尋查詢給 Bing 搜尋 API，以取得相關影像清單。
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,24 +9,24 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: b3b7e082eeca5fbccb8729ab8abdf7ec933b4197
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d91021c4bd5e0f78e518811f3794055b397c1a39
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369934"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42093813"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-php"></a>呼叫和回應：第一次以 PHP 撰寫 Bing 影像搜尋查詢
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-php"></a>快速入門：使用 REST API 和 PHP 傳送搜尋查詢
 
-Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，取回相關影像的清單，提供類似 Bing.com/Images 的經驗。
+Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，以提供類似 Bing.com/Images 的體驗，並取回相關影像清單。
 
 本文內有一個簡單主控台應用程式，其會執行 Bing 影像搜尋 API 查詢，並顯示傳回之未經處理的搜尋結果 (格式為 JSON)。 雖然此應用程式是以 PHP 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您需要 [PHP 5.6.x](http://php.net/downloads.php) 以執行此程式碼。
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您必須要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>執行應用程式
 
@@ -35,7 +35,7 @@ Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，取回�
 1. 請確定 `php.ini` 中已啟用安全 HTTP 支援，如程式碼註解中所述。 在 Windows 中，這個檔案位於 `C:\windows`。
 2. 在您愛用的 IDE 或編輯器中建立新的 PHP 專案。
 3. 加入提供的程式碼。
-4. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
+4. 以訂用帳戶有效的存取金鑰來取代 `accessKey` 值。
 5. 執行程式。
 
 ```php

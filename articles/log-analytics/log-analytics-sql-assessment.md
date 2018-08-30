@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e83a722ee58f49c20871faaca6aae7d7a5678361
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2dcbd0cab055e8a2b2128b1f83f5c080a0887b85
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130602"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122515"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL Server 健康情況檢查方案最佳化 SQL 環境
 
@@ -40,7 +40,7 @@ ms.locfileid: "37130602"
 
 ![SQL 健康情況檢查儀表板的影像](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * SQL 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4 的支援版本。  MMA 代理程式會由 System Center 2016 - Operations Manager 和 Operations Manager 2012 R2 及 Log Analytics 服務使用。  
 * 方案支援 SQL Server 2012、2014 和 2016 版本。
@@ -174,8 +174,6 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
 
 ## <a name="ignore-recommendations"></a>忽略建議
 如果您有想要忽略的建議，則可以建立 Log Analytics 將用來防止建議出現在您評估結果的文字檔。
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>識別您將忽略的建議
 1. 在 Azure 入口網站中的 Log Analytics 工作區頁面上，針對您選取的工作區，按一下 [記錄搜尋] 圖格。

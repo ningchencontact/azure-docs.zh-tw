@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5635998eb72f08ddc665793e77008890b2cdb05d
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114018"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140903"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>適用於網路安全性群組的診斷記錄
 
@@ -50,7 +50,7 @@ ms.locfileid: "37114018"
 
     | 設定                                                                                     | 值                                                          |
     | ---------                                                                                   |---------                                                       |
-    | Name                                                                                        | 您選擇的名稱。  例如：*myNsgDiagnostics*      |
+    | 名稱                                                                                        | 您選擇的名稱。  例如：*myNsgDiagnostics*      |
     | **封存至儲存體帳戶**，**串流至事件中樞**，以及**傳送至 Log Analytics** | 您可以任意選取多個目的地。 若要深入了解每個目的地，請參閱[記錄目的地](#log-destinations)。                                                                                                                                           |
     | 記錄                                                                                         | 選取任一或兩個記錄類別。 若要深入了解針對每個類別所記錄的資料，請參閱[記錄類別](#log-categories)。                                                                                                                                             |
 6. 檢視及分析記錄。 如需詳細資訊，請參閱[檢視及分析記錄檔](#view-and-analyze-logs)。
@@ -140,7 +140,7 @@ az monitor diagnostic-settings create \
 
 ### <a name="event"></a>Event
 
-事件記錄包含要根據 MAC 位址，將哪些 NSG 規則套用至 VM 的相關資訊。 每個事件會記錄下列範例資料︰
+事件記錄包含要根據 MAC 位址，將哪些 NSG 規則套用至 VM 的相關資訊。 每個事件會記錄下列資料。 在下列範例中，會為 IP 位址為 192.168.1.4 且 MAC 為 00-0D-3A-92-6A-7C 的虛擬機器記錄資料：
 
 ```json
 {
@@ -154,16 +154,16 @@ az monitor diagnostic-settings create \
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "priority":1000,
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "priority":[PRIORITY-SPECIFIED-IN-RULE],
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "conditions":{
-            "protocols":"6",
-            "destinationPortRange":"[PORT RANGE]",
-            "sourcePortRange":"0-65535",
-            "sourceIP":"0.0.0.0/0",
-            "destinationIP":"0.0.0.0/0"
+            "protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",
+            "destinationPortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourcePortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourceIP":"[SOURCE-IP-OR-RANGE-SPECIFIED-IN-RULE]",
+            "destinationIP":"[DESTINATION-IP-OR-RANGE-SPECIFIED-IN-RULE]"
             }
         }
 }
@@ -171,7 +171,7 @@ az monitor diagnostic-settings create \
 
 ### <a name="rule-counter"></a>規則計數器
 
-規則計數器記錄中針對每個套用至資源的規則，包含其相關資訊。 每次套用規則時會記錄下列範例資料︰
+規則計數器記錄中針對每個套用至資源的規則，包含其相關資訊。 每次套用規則時會記錄下列範例資料。 在下列範例中，會為 IP 位址為 192.168.1.4 且 MAC 為 00-0D-3A-92-6A-7C 的虛擬機器記錄資料：
 
 ```json
 {
@@ -185,9 +185,9 @@ az monitor diagnostic-settings create \
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "matchedConnections":125
         }
 }

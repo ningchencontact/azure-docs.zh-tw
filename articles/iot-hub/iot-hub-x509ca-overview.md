@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b5028010953b9dbe2386c30e6fa05cc4a94cb971
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185487"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140680"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>使用 X.509 CA 憑證進行裝置驗證
 
@@ -64,7 +64,7 @@ X.509 CA 憑證的擁有者可以透過密碼編譯方式簽署中繼 CA，此 C
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>如何在 IoT 中樞上建立裝置
 
-為了杜絕裝置模擬，「IoT 中樞」會要求您讓它知道所要預期的裝置。  您可以在「IoT 中樞」的裝置登錄中建立裝置項目，來達到此目的。  當使用「IoT 中樞」[裝置佈建服務](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS) 時，會自動執行此程序。 
+為了杜絕裝置模擬，「IoT 中樞」會要求您讓它知道所要預期的裝置。  您可以在「IoT 中樞」的裝置登錄中建立裝置項目，來達到此目的。  當使用「IoT 中樞」[裝置佈建服務](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/)時，會自動執行此程序。 
 
 請從這裡了解如何[在 IoT 中樞中手動建立裝置](iot-hub-security-x509-get-started.md#createdevice)。
 

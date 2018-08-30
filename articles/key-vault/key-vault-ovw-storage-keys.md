@@ -5,16 +5,16 @@ description: 儲存體帳戶金鑰提供 Azure Key Vault 與 Azure 儲存體帳�
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
-ms.date: 10/12/2017
-ms.openlocfilehash: 4f42a47a6d934bf0538efccbcf7f057fd28e2c03
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/21/2017
+ms.openlocfilehash: 0112d48647c031845bc89ccebfcdd40954c59f14
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179583"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42139892"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 儲存體帳戶金鑰
 
@@ -38,8 +38,8 @@ Azure 儲存體帳戶 (ASA) 金鑰功能可管理密碼輪替， 也提供共用
     - Azure Key Vault 會定期重新產生 (輪替) 金鑰。
     - 永遠不會傳回金鑰值以回應呼叫者。
     - Azure Key Vault 會管理儲存體帳戶和傳統儲存體帳戶的金鑰。
-- Azure Key Vault 可讓身為保存庫/物件擁有者的您建立 SAS (帳戶或服務 SAS) 定義。
-    - 系統會透過 REST URI 路徑，將使用 SAS 定義建立的 SAS 值傳回作為密碼。 如需詳細資訊，請參閱 [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations) (Azure Key Vault 儲存體帳戶作業)。
+- Azure Key Vault 可讓身為保存庫/物件擁有者的您建立 SAS (共用存取簽章、帳戶或服務 SAS) 定義。
+    - 系統會透過 REST URI 路徑，將使用 SAS 定義建立的 SAS 值傳回作為密碼。 如需詳細資訊，請參閱 [Azure Key Vault REST API 參考](/rest/api/keyvault)中的 SAS 定義作業。
 
 ## <a name="naming-guidance"></a>命名指導方針
 
@@ -97,7 +97,9 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ## <a name="getting-started"></a>開始使用
 
-### <a name="setup-for-role-based-access-control-rbac-permissions"></a>設定角色型存取控制 (RBAC) 權限
+### <a name="give-key-vault-access-to-your-storage-account"></a>對儲存體帳戶提供 Key Vault 存取權 
+
+和許多應用程式一樣，Key Vault 會向 Azure AD 註冊以便使用 OAuth 來存取其他服務。 註冊期間會建立[服務主體](/azure/active-directory/develop/app-objects-and-service-principals)物件，以用來在執行階段代表應用程式的身分識別。 服務主體也可用來授權應用程式的身分識別，使其可透過角色型存取控制 (RBAC) 來存取另一個資源。
 
 Azure Key Vault 應用程式身分識別需要「列出」及「重新產生」儲存體帳戶金鑰的權限。 請使用下列步驟來設定這些權限：
 
@@ -106,7 +108,7 @@ Azure Key Vault 應用程式身分識別需要「列出」及「重新產生」�
 # Below, we are fetching a storage account using Azure Resource Manager
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get ObjectId of Azure Key Vault Identity
+# Get Application ID of Azure Key Vault's service principal
 $servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 
 # Assign Storage Key Operator role to Azure Key Vault Identity
@@ -118,7 +120,7 @@ New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'St
 
 ## <a name="working-example"></a>實用範例
 
-下列範例示範如何建立金鑰保存庫受控 Azure 儲存體帳戶和相關聯的共用存取簽章 (SAS) 定義。
+下列範例示範如何建立金鑰保存庫受控 Azure 儲存體帳戶和相關聯的 SAS 定義。
 
 ### <a name="prerequisite"></a>必要條件
 
@@ -205,8 +207,9 @@ $writeSasToken = (Get-AzureKeyVaultSecret -VaultName $keyVaultName -SecretName "
 $context1 = New-AzureStorageContext -SasToken $readSasToken -StorageAccountName $storage.StorageAccountName
 $context2 = New-AzureStorageContext -SasToken $writeSasToken -StorageAccountName $storage.StorageAccountName
 
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt" -Context $context2
+# Ensure the txt file in command exists in local path mentioned
+Set-AzureStorageBlobContent -Container containertest1 -File "./abc.txt" -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context2
 ```
 
 您能夠使用具有寫入權限的 SAS 權杖來存取儲存體 Blob 內容。
@@ -232,7 +235,7 @@ Key Vault 必須驗證身分識別具有「重新產生」權限，才能取得�
 - Key Vault 會列出儲存體帳戶資源的 RBAC 權限。
 - Key Vault 會透過比對動作和非動作的規則運算式來驗證回應。
 
-在 [Key Vault - 受控儲存體帳戶金鑰範例](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167)中尋找一些支援的範例。
+在 [Key Vault - 受控儲存體帳戶金鑰範例](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)中尋找一些支援的範例。
 
 如果身分識別沒有「重新產生」權限，或如果 Key Vault 的第一個憑證者身分識別沒有「列出」或「重新產生」權限，則登入要求會失敗，並傳回適當的錯誤碼和訊息。
 

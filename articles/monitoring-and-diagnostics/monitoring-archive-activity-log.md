@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: a519cd242b88916d1a11df47c0b7450594848ef5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d7ed440ba794bcdfab4744e0ac4864aab6896ca8
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920544"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140299"
 ---
 # <a name="archive-the-azure-activity-log"></a>封存 Azure 活動記錄檔
 在本文中，我們示範如何使用 Azure 入口網站、PowerShell Cmdlet 或跨平台 CLI 封存儲存體帳戶中的 [**Azure 活動記錄檔**](monitoring-overview-activity-logs.md)。 如果您想要保留活動記錄檔超過 90 天 (而且對保留原則有完全的控制)，以便稽核、靜態分析或備份，這個選項非常有用。 如果您只需要保留事件 90 天或更短，則不需要設定封存至儲存體帳戶，因為在不啟用封存的情況下，活動記錄檔就會在 Azure 平台保留 90 天。
 
 > [!WARNING]
-> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文章以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./monitor-diagnostic-logs-append-blobs.md) 
+> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
-## <a name="prerequisites"></a>先決條件
-在開始之前，您需要 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account) ，以便將活動記錄檔封存至此。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存診斷記錄檔和度量至儲存體帳戶，則將同一儲存體帳戶用於活動記錄檔合情合理，因為可以將所有監視資料集中在一個位置。 儲存體帳戶不一定要和訂用帳戶發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
+## <a name="prerequisites"></a>必要條件
+在開始之前，您需要[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)，以便將活動記錄檔封存至此。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存診斷記錄檔和度量至儲存體帳戶，則將同一儲存體帳戶用於活動記錄檔合情合理，因為可以將所有監視資料集中在一個位置。 儲存體帳戶不一定要和訂用帳戶發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
 > [!NOTE]
 >  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
@@ -64,8 +64,8 @@ ms.locfileid: "37920544"
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| StorageAccountId |yes |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
-| 位置 |yes |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 您可以使用 `(Get-AzureRmLocation).Location` 來檢視您訂用帳戶的所有區域清單。 |
+| StorageAccountId |是 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
+| 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 您可以使用 `(Get-AzureRmLocation).Location` 來檢視您訂用帳戶的所有區域清單。 |
 | RetentionInDays |否 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
 | 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。  如果未提供，則會採用所有可能的值 |
 
@@ -77,12 +77,12 @@ ms.locfileid: "37920544"
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| name |yes |記錄檔設定檔的名稱。 |
-| storage-account-id |yes |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
-| 位置 |yes |以空格分隔的區域清單，其中列出您要收集的活動記錄事件的區域。 您可以使用 `az account list-locations --query [].name` 來檢視您訂用帳戶的所有區域清單。 |
-| days |yes |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。  如果是零，則啟用的參數應設為 true。 |
-|已啟用 | yes |True 或 False。  用來啟用或停用保留原則。  如果為 True，則 days 參數必須是大於 0 的值。
-| 類別 |yes |以空格分隔的類別清單，其中列出應收集的事件類別。 可能的值有 Write、Delete、Action。 |
+| name |是 |記錄檔設定檔的名稱。 |
+| storage-account-id |是 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
+| 位置 |是 |以空格分隔的區域清單，其中列出您要收集的活動記錄事件的區域。 您可以使用 `az account list-locations --query [].name` 來檢視您訂用帳戶的所有區域清單。 |
+| days |是 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。  如果是零，則啟用的參數應設為 true。 |
+|已啟用 | 是 |True 或 False。  用來啟用或停用保留原則。  如果為 True，則 days 參數必須是大於 0 的值。
+| 類別 |是 |以空格分隔的類別清單，其中列出應收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 ## <a name="storage-schema-of-the-activity-log"></a>活動記錄檔的儲存體結構描述
 一旦您已經設定封存，只要一發生活動記錄檔事件，就會在儲存體帳戶中建立儲存體容器。 容器內的 Blob 在整個活動記錄和診斷記錄中，會遵循相同的命名慣例，如下所示：

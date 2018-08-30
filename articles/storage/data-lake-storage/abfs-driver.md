@@ -4,18 +4,17 @@ description: ABFS Hadoop 檔案系統驅動程式
 services: storage
 keywords: ''
 author: jamesbak
-manager: jahogg
 ms.topic: article
 ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: dedf398064dd0a49e5691e952ea7c9b6d16e34fd
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114328"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140035"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 檔案系統驅動程式 (ABFS)：Hadoop 專用的 Azure 儲存體驅動程式
 
@@ -23,9 +22,7 @@ Azure Data Lake Storage Gen2 預覽版中資料的主要存取方法之一是透
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>先前的功能：Windows Azure 儲存體 Blob 驅動程式
 
-Windows Azure 儲存體 Blob 驅動程式或 [WASB 驅動程式](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) \(英文\) 提供了 Azure 儲存體 Blob 的原始支援。 此驅動程式所執行的複雜工作是將檔案系統語意 (如 Hadoop 檔案系統介面所要求) 對應到 Azure Blob 儲存體所公開物件存放區樣式介面的檔案系統語意。 此驅動程式會繼續支援此模型，可針對儲存於 Blob 中的資料提供高效能存取，但會包含執行此對應的大量程式碼，因而使其難以維護。 此外，某些作業 (例如 [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) \(英文\) 和 [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) \(英文\)) 在套用到目錄時需要此驅動程式來執行大量作業 (由於物件存放區不支援目錄)，這通常會導致效能降低。
-
-因此，若要克服 WASB 的固有設計缺陷，新的 Azure Data Lake Storage 服務是利用新 ABFS 驅動程式的支援來實作的。
+Windows Azure 儲存體 Blob 驅動程式或 [WASB 驅動程式](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) \(英文\) 提供了 Azure 儲存體 Blob 的原始支援。 此驅動程式所執行的複雜工作是將檔案系統語意 (如 Hadoop 檔案系統介面所要求) 對應到 Azure Blob 儲存體所公開物件存放區樣式介面的檔案系統語意。 此驅動程式會繼續支援此模型，可針對儲存於 Blob 中的資料提供高效能存取，但會包含執行此對應的大量程式碼，因而使其難以維護。 此外，某些作業 (例如 [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) \(英文\) 和 [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) \(英文\)) 在套用到目錄時需要此驅動程式來執行大量作業 (由於物件存放區不支援目錄)，這通常會導致效能降低。 新 Azure Data Lake 儲存體服務的設計訴求是要克服 WASB 固有的缺點。
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob 檔案系統驅動程式
 
@@ -48,7 +45,11 @@ ABFS 驅動程式會在內部將 URI 中指定的資源轉譯為檔案和目錄�
 
 ### <a name="authentication"></a>驗證
 
-ABFS 驅動程式目前支援共用金鑰驗證，如此一來，Hadoop 應用程式可能就可安全地存取 Data Lake Storage Gen2 內所含的資源。 金鑰會加密並儲存於 Hadoop 設定中。
+ABFS 驅動程式支援兩種形式的驗證，讓 Hadoop 應用程式可以安全地存取具有 Data Lake Storage Gen2 功能的帳戶內所含的資源。 [Azure 儲存體安全性指南](../common/storage-security-guide.md)中有提供可用驗證配置的完整詳細資料。 如下：
+
+- **共用金鑰：** 這允許使用者存取帳戶中的所有資源。 金鑰會加密並儲存於 Hadoop 設定中。
+
+- **Azure Active Directory OAuth 持有人權杖：** 驅動程式會使用終端使用者的身分識別或是已設定的服務主體，來取得和重新整理 Azure AD 持有人權杖。 使用此驗證模型，則可以使用與所提供權杖相關聯的身分識別對個別呼叫授權所有存取權，並針對所指派的 POSIX 存取控制清單 (ACL) 進行評估。
 
 ### <a name="configuration"></a>組態
 

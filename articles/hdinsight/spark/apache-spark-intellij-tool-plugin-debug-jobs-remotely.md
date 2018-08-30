@@ -4,17 +4,17 @@ description: 了解如何使用適用於 IntelliJ 的 Azure 工具組中的 HDIn
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: d71186dcfd5528de48151804492d8ae51e808a07
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: bc1f1dd577231f5b22474f6cd3dc622480209dd9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618915"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042913"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用適用於 IntelliJ 的 Azure 工具組透過 VPN 對 HDInsight 中的 Spark 應用程式進行遠端偵錯
 

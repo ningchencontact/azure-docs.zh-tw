@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 397a6aaf7dc27adfa0fc0e722b8a2be5cc1d75f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1ffc80994244fc44e3cd23cbb05b14e6f878ddb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986253"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125797"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>對您的 Azure Web 應用程式中「502 不正確的閘道」和「503 服務無法使用」的 HTTP 錯誤進行疑難排解
 在裝載於 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)的 Web 應用程式中「502 不正確的閘道」和「503 服務無法使用」是常見的錯誤。 本文可協助您對這些錯誤進行疑難排解。
@@ -45,7 +45,7 @@ ms.locfileid: "22986253"
 2. [收集資料](#collect)
 3. [減輕問題](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) 在每個步驟均提供您各種選項。
+[App Service Web Apps](app-service-web-overview.md) 在每個步驟均提供您各種選項。
 
 <a name="observe" />
 

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: e19130c5ee418ebaa41f9ee42e217c52cdeec6cb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697937"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140267"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>建立使用可用性區域的虛擬機器擴展集
 
@@ -45,10 +45,10 @@ ms.locfileid: "38697937"
 
 ### <a name="zone-balancing"></a>區域平衡
 
-最後，針對跨多個區域部署的擴展集，您也可以選擇「最佳區域平衡」或「嚴格區域平衡」。 對擴展集而言，如果每個區域中的 VM 數目比所有其他區域中的 VM 數目少於一個以內，則此擴展集即為「平衡」。 例如︰
+最後，針對跨多個區域部署的擴展集，您也可以選擇「最佳區域平衡」或「嚴格區域平衡」。 對擴展集而言，如果每個區域有相同數目的 VM，或是與所有其他區域中的 VM 數目差異為 +\\- 1 個，則此擴展集即為「平衡」。 例如︰
 
-- 擴展集的區域 1 中有 2 個 VM，區域 2 中有 3 個 VM，而區域 3 中有 3 個 VM，則視為平衡。
-- 擴展集的區域 1 中有 1 個 VM，區域 2 中有 3 個 VM，而區域 3 中有 3 個 VM，則視為不平衡。
+- 擴展集的區域 1 中有 2 個 VM，區域 2 中有 3 個 VM，而區域 3 中有 3 個 VM，則視為平衡。 只有一個區域的 VM 計數不同，且只比其他區域少 1 個。 
+- 擴展集的區域 1 中有 1 個 VM，區域 2 中有 3 個 VM，而區域 3 中有 3 個 VM，則視為不平衡。 區域 1 的 VM 數目比區域 2 和 3 少 2 個。
 
 也有可能發生擴展集中的 VM 建立成功，但這些 VM 上的延伸模組卻無法部署。 判斷擴展集是否平衡時，仍會將這些擴充失敗的 VM 計算在內。 例如，針對區域 1 中有 3 個 VM，區域 2 中有 3 個 VM，以及區域 3 中有 3 個 VM 的擴展集，即使區域 1 中的所有擴充都失敗，但區域 2 和區域 3 中的所有擴充都成功，則此擴展集將視為平衡。
 
@@ -98,7 +98,7 @@ az vmss create \
 
 ### <a name="zone-redundant-scale-set"></a>區域備援擴展集
 
-若要建立區域備援擴展集，請使用標準 SKU 公用 IP 位址和負載平衡器。 為了增強備援能力，標準 SKU 會建立區域備援網路資源。 如需詳細資訊，請參閱 [Azure Load Balancer Standard 概觀](../load-balancer/load-balancer-standard-overview.md)。
+若要建立區域備援擴展集，請使用標準 SKU 公用 IP 位址和負載平衡器。 為了增強備援能力，標準 SKU 會建立區域備援網路資源。 如需詳細資訊，請參閱 [Azure Load Balancer Standard 概觀](../load-balancer/load-balancer-standard-overview.md)和[標準 Load Balancer 和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md)。
 
 若要建立區域備援擴展集，請使用 `--zones` 參數來指定多個區域。 下列範例會跨區域 1、2、3 建立名為 myScaleSet 的區域備援擴展集：
 
@@ -215,7 +215,7 @@ New-AzureRmVmss `
 }
 ```
 
-如果您建立的是公用 IP 位址或負載平衡器，請指定「"sku": { "name": "Standard" }"」屬性，以建立區域備援網路資源。 您還必須建立網路安全性群組和規則，以便允許所有流量。 如需詳細資訊，請參閱 [Azure Load Balancer Standard 概觀](../load-balancer/load-balancer-standard-overview.md)。
+如果您建立的是公用 IP 位址或負載平衡器，請指定「"sku": { "name": "Standard" }"」屬性，以建立區域備援網路資源。 您還必須建立網路安全性群組和規則，以便允許所有流量。 如需詳細資訊，請參閱 [Azure Load Balancer Standard 概觀](../load-balancer/load-balancer-standard-overview.md)和[標準 Load Balancer 和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md)。
 
 如需區域備援擴展集和網路資源的完整範例，請參閱[這個 Resource Manager 範本範例](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

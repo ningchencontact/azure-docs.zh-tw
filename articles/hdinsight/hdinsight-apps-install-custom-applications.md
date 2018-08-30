@@ -3,18 +3,18 @@ title: 在 Azure HDInsight 上安裝您自己的 Hadoop 應用程式
 description: 了解如何在 HDInsight 應用程式上安裝 HDInsight 應用程式。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 23fbbdc4fc41329efadc4fc7953afa0659e79465
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9df3b20cd72236d7001aac94bae302b5a6f9eb8d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595894"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110567"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝自訂 Hadoop 應用程式
 

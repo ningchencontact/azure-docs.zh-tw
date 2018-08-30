@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 816cde31e84eeda8110c042f4e0640f12fb4cc53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645985"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247661"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>在使用分區化多租用戶 SQL 資料庫的 SaaS 應用程式中管理結構描述
 
@@ -40,7 +40,7 @@ Azure SQL Database 的[彈性作業](sql-database-elastic-jobs-overview.md) 功�
 > * 更新所有租用戶資料庫中的參考資料。
 > * 針對所有租用戶資料庫中的資料表建立索引。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 必須已部署 Wingtip Tickets 多租用戶資料庫應用程式：
     - 如需相關指示，請參閱第一個教學課程，其中會介紹 Wingtip Tickets SaaS 多租戶資料庫應用程式：<br />[部署及探索使用 Azure SQL Database 的分區化多租用戶應用程式](saas-multitenantdb-get-started-deploy.md)。
@@ -168,7 +168,6 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-.
 > * 建立可跨多個資料庫執行 T-SQL 作業的作業代理程式
 > * 更新所有租用戶資料庫中的參考資料
 > * 針對所有租用戶資料庫中的資料表建立索引

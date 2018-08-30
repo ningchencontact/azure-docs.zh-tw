@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 59ee992518b5e529f486415f962c6f26881875f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e2985882b2e72b6e2f23945aa54c7a282137ce4e
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607407"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918977"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>下載或檢視您的 Azure 帳單發票和每日使用量資料
 您可以從 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)下載您的發票，或透過電子郵件傳送它。 若要下載您的每日使用量，請移至 [Azure 帳戶中心](https://account.azure.com/Subscriptions)。 只有某些角色有權取得帳單發票和使用量資訊，例如帳戶管理員。 若要深入了解取得計費資訊的存取權，請參閱[使用角色管理 Azure 計費的存取權](billing-manage-access.md)。
@@ -28,6 +28,9 @@ ms.locfileid: "34607407"
 本文不適用於 Enterprise 合約 (EA) 客戶。 如果您是 EA 客戶，系統會將您的發票直接傳送給申請管理員。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
+> [!div class="nextstepaction"]
+> [協助改善 Azure 計費文件](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="get-your-invoice-in-email-pdf"></a>透過電子郵件取得發票 (.pdf)
 您可以選擇加入並設定其他收件者來透過電子郵件接收您的 Azure 發票。 這項功能可能無法用於支援供應項目、Enterprise 合約或 Azure in Open 等特定訂用帳戶。

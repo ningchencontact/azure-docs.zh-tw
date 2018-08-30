@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 2ca1c1518589e60a03570e1c2063381f749ed9aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659051"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885865"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Azure App Service 和 Azure Functions 中的安全性
 
@@ -49,7 +49,7 @@ App Service 可讓您利用 [HTTPS](https://wikipedia.org/wiki/HTTPS) 保護您�
 
 為了保護應用程式以抵禦所有未加密的 (HTTP) 連線，App Service 會提供單鍵設定來強制使用 HTTPS。 不安全的要求會在觸達您應用程式的程式碼之前離開。 如需詳細資訊，請參閱[強制使用 HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)。
 
-業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)) 不再將 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 視為安全的。 App Service 可讓您藉由[強制使用 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112) 來停用過時的通訊協定。
+業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)) 不再將 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 視為安全的。 App Service 可讓您藉由[強制使用 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions) 來停用過時的通訊協定。
 
 App Service 同時支援使用 FTP 和 FTPS 來部署您的檔案。 不過，應該使用 FTPS，而不是 FTP (如果全都可行)。 如有其中一個或兩個通訊協定都不在使用中，您應該[停用它們](app-service-deploy-ftp.md#enforce-ftps)。
 

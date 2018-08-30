@@ -3,18 +3,18 @@ title: 利用堆積傾印偵錯和分析 Hadoop 服務 - Azure
 description: 自動為 Hadoop 服務收集堆積傾印，並放在 Azure Blob 儲存體帳戶內以供偵錯和分析。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 484cdcb45a835a0a3b76e2c3aeca7500af7c9b7b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 35f7843ebf49e79d9045c72493bb38b218234288
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596999"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43099762"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>收集 Blob 儲存體中的堆積傾印以偵錯和分析 Hadoop 服務
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]

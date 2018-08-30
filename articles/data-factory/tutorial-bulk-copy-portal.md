@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 651f9ba71d08698c64f3e90de59b5f29a8afc77d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e7c134881cbf8745a4e4ef9102a418f7d47a6f8c
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433505"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43098023"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
@@ -265,7 +265,7 @@ ms.locfileid: "39433505"
     1. 按一下 DWTableName 參數的 [值] 輸入方塊 -> 選取下方的 [新增動態內容]，輸入 `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` 運算式作為指令碼 -> 選取 [完成]。
     1. 展開 [Polybase 設定]，然後選取 [允許 Polybase]。 
     1. 清除 [使用類型預設值] 選項。 
-    1. 按一下 [清除指令碼] 輸入方塊 -> 選取下方的 [新增動態內容] -> 輸入下列運算式作為指令碼 -> 選取 [完成]。 
+    1. 按一下 [預先複製指令碼] 輸入方塊 -> 選取下方的 [新增動態內容] -> 輸入下列運算式作為指令碼 -> 選取 [完成]。 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]

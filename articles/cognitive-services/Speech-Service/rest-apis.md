@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283064"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122098"
 ---
 # <a name="speech-service-rest-apis"></a>語音服務 REST API
 
@@ -23,7 +23,7 @@ ms.locfileid: "39283064"
 
 在語音轉換文字 API 中，只有使用的端點與先前語音服務的語音辨識 API 不同。 下表會顯示新的端點。 請使用與訂用帳戶區域相符的端點。
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 語音轉換文字 API 在其他方面類似於先前語音 API 的 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest)。
 
@@ -54,7 +54,7 @@ zh-TW  | 美式英文 | 男性   | "Microsoft Server Speech Text to Speech Voice
 
 以下是統一語音服務之文字轉換語音 API 的 REST 端點。 請使用與訂用帳戶區域相符的端點。
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 當您參閱先前語音 API 的 [REST API 文件](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput)時，請記住這些差異。
 
@@ -62,7 +62,7 @@ zh-TW  | 美式英文 | 男性   | "Microsoft Server Speech Text to Speech Voice
 
 將要求傳送至語音服務的 REST API 需要存取權杖。 您可以藉由提供訂用帳戶金鑰給區域語音服務的 `issueToken` 端點來取得權杖，如下表所示。 請使用與訂用帳戶區域相符的端點。
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 每一個存取權杖的有效時間為 10 分鐘。 您可以隨時取得新的權杖—包括，如有需要，可在每個語音 REST API 要求之前取得。 不過，為了盡量降低網路流量和延遲，建議您使用相同的權杖九分鐘。
 

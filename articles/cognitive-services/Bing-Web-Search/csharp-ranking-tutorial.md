@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: brumbaug
-ms.openlocfilehash: 7d371a5a44f44ca743294f3f73f84e81d390cdea
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0dd3a2057e73adda3224e7cebe7c492572f94105
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867771"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42093854"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>使用 C# 建置主控台應用程式搜尋用戶端
 
@@ -26,7 +26,7 @@ ms.locfileid: "37867771"
 - 對 Bing Web 搜尋 API 進行簡單查詢
 - 以已設定順位的順序顯示查詢結果
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要繼續進行本教學課程，您需要：
 

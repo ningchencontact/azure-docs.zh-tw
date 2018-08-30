@@ -1,22 +1,49 @@
 ---
-title: 認知服務語音 SDK 文件
+title: 認知服務語音 SDK 文件 | Microsoft Docs
 description: 版本資訊 - 最近版本中的變更
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f346241e1d10d16eae08e389296f4be9149ec086
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502453"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42093818"
 ---
 # <a name="release-notes"></a>版本資訊
+
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>認知服務語音 SDK 0.6.0：2018 年 8 月版
+
+**新功能**
+
+* 使用語音 SDK 所建置的 UWP 應用程式現在可以通過 Windows 應用程式認證套件 (WACK) 的認證。
+  請參閱 [UWP 快速入門](quickstart-csharp-uwp.md)。
+* 在 Linux (Ubuntu 16.04 x64) 上支援 .NET Standard 2.0。
+* 實驗性：在 Windows (64 位元) 和 Linux (Ubuntu 16.04 x64) 上支援 Java 8。
+  請參閱 [Java 執行階段環境快速入門](quickstart-java-jre.md)
+
+**功能性變更**
+
+* 公開關於連線錯誤的其他錯誤詳細資料資訊。
+
+**重大變更**
+
+* 在 Java (Android) 上，`SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` 函式不再需要路徑參數。 系統現在會自動在所有支援平台上偵測路徑。
+* Java 和 C# 中 `EndpointUrl` 屬性的 get-accessor 已移除。
+
+**錯誤修正**
+
+* 在 Java 中，現已實作翻譯辨識器上的音訊合成結果。
+* 已修正錯誤，此錯誤可能導致非作用中的執行緒，並增加已開啟且未使用的通訊端數目。
+* 已修正問題，長時間執行的辨識可能會在傳輸途中終止。
+* 已修正辨識器關機中的競爭條件。
 
 ## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>認知服務語音 SDK 0.5.0：2018 年 7 月版
 

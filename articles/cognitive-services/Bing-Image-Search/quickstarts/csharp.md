@@ -1,22 +1,22 @@
 ---
-title: 呼叫和回應 - Azure 認知服務，Bing 影像搜尋 API 的 C# 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing 影像搜尋 API。
+title: 快速入門：使用 C# 針對 Bing 影像搜尋 API 使用 REST API 來傳送搜尋查詢
+description: 在本快速入門中，您可以使用 C# 傳送搜尋查詢給 Bing 搜尋 API，以取得相關影像清單。
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e5a506b9a25e94c827815323d209bf7c175bac4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 8/9/2018
+ms.author: aahi
+ms.openlocfilehash: 7a5ef36f02d82ee17698af9c647f043792280fbc
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369975"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42093809"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-c"></a>呼叫和回應：以 C# 撰寫的第一個 Bing 影像搜尋查詢
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-c"></a>快速入門：使用 REST API 和 C# 傳送搜尋查詢
 
 Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，以提供類似 Bing.com/Images 的體驗，並取回相關影像清單。
 
@@ -24,20 +24,20 @@ Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，以提�
 
 範例程式只使用 .NET Core 類別，然後使用 .NET CLR 在 Windows 上執行，或使用 [Mono](http://www.mono-project.com/) 在 Linux 或 macOS 上執行。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您必須要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>執行應用程式
 
 若要執行此應用程式，請遵循下列步驟。
 
 1. 在 Visual Studio 中建立新的主控台解決方案。
-1. 以提供的程式碼取代 `Program.cs`。
-2. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
-3. 執行程式。
+2. 以提供的程式碼取代 `Program.cs`。
+3. 以訂用帳戶有效的存取金鑰來取代 `accessKey` 值。
+4. 執行程式。
 
 ```csharp
 using System;
@@ -297,11 +297,11 @@ namespace BingSearchApisQuickstart
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 影像搜尋單頁應用程式教學課程](../tutorial-bing-image-search-single-page-app.md)
+> [Bing 影像搜尋單頁應用程式教學課程](../tutorial-bing-image-search-single-page-app.md) (英文)
 
 ## <a name="see-also"></a>另請參閱 
 
-[Bing 影像搜尋概觀](../overview.md)  
-[試試看](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+[什麼是 Bing 影像搜尋？](../overview.md)  
+[試用 Bing 影像搜尋](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 [取得免費試用的存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing 影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Bing 影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (英文)

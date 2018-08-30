@@ -10,21 +10,21 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e17a9275792e3a7fdbea6e3b95e596eaa15f4359
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258034"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105806"
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>在 Azure Blockchain Workbench 中使用應用程式
 
 您可以使用 Blockchain Workbench 建立合約並對其採取動作。 您也可以檢視合約詳細資料，例如狀態和交易歷程記錄。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Blockchain Workbench 部署。 如需詳細資訊，請參閱 [Azure Blockchain Workbench 部署](blockchain-workbench-deploy.md)，以取得部署的詳細資訊
-* 已在 Blockchain Workbench 中部署的區塊鏈應用程式。 請參閱[在 Azure Blockchain Workbench 中建立區塊鏈應用程式]()
+* 已在 Blockchain Workbench 中部署的區塊鏈應用程式。 請參閱[在 Azure Blockchain Workbench 中建立區塊鏈應用程式](blockchain-workbench-create-app.md)
 
 在瀏覽器中[開啟 Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url)。
 

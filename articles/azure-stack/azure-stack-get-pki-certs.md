@@ -16,11 +16,11 @@ ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: b5adc1bb5a5aae96f37cc312588aa71e57d8342e
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083221"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916346"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 憑證簽署要求產生
 
@@ -35,7 +35,7 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在產生 Azure Stack 部署的 PKI 憑證 CSR 之前，您的系統應該符合下列必要條件：
 

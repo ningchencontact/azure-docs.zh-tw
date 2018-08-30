@@ -1,36 +1,36 @@
 ---
 title: 整合 Azure Active Directory 與 Azure Kubernetes Service
-description: 如何建立已啟用 Azure Active Directory 的 Azure Kubernetes Service 叢集。
+description: 如何建立已啟用 Azure Active Directory 的 Azure Kubernetes Service (AKS) 叢集。
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/17/2018
+ms.date: 8/9/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2c4e0f8c31299644c912a70fc91bbdfa6da6795b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9bbf7ad201a70a315b75ed5e1f35671e4a5604fc
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579022"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140899"
 ---
-# <a name="integrate-azure-active-directory-with-aks---preview"></a>整合 Azure Active Directory 與 AKS - 預覽
+# <a name="integrate-azure-active-directory-with-aks"></a>整合 Azure Active Directory 與 AKS
 
-Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory 進行使用者驗證。 在此組態中，您可以使用您的 Azure Active Directory 驗證權杖來登入 Azure Kubernetes Service 叢集。 此外，叢集系統管理員能夠根據使用者身分識別或目錄群組成員資格，設定 Kubernetes 角色型存取控制。
+Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD) 進行使用者驗證。 在此組態中，您可以使用您的 Azure Active Directory 驗證權杖來登入 AKS 叢集。 此外，叢集系統管理員能夠根據使用者身分識別或目錄群組成員資格，設定 Kubernetes 角色型存取控制 (RBAC)。
 
-本文件詳述如何建立 AKS 和 Azure AD 的所有必要先決條件、部署已啟用 Azure AD 的叢集，以及在 AKS 叢集中建立簡單的 RBAC 角色。 請注意，目前無法更新現有之已啟用非 RBAC 的 AKS 叢集供 RBAC 使用。
+本文說明如何部署 AKS 和 Azure AD 的先決條件，然後說明如何部署已啟用 Azure AD 的叢集，以及在 AKS 叢集中建立簡單的 RBAC 角色。
 
-> [!IMPORTANT]
-> Azure Kubernetes Service (AKS) RBAC 和 Azure AD 整合目前為**預覽**狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
->
+套用下列限制：
+
+- 目前無法更新現有之已啟用非 RBAC 的 AKS 叢集供 RBAC 使用。
+- 不支援 Azure AD 中的來賓使用者 (例如，如果您從不同的目錄使用同盟登入)。
 
 ## <a name="authentication-details"></a>驗證詳細資料
 
-透過 OpenID Connect 對 Azure Kubernetes 叢集提供 Azure AD 驗證。 OpenID Connect 是以 OAuth 2.0 通訊協定為建置基礎的身分識別層。 在 [Open ID Connect 文件][open-id-connect]中可以找到 OpenID Connect 的詳細資訊。
+透過 OpenID Connect 對 AKS 叢集提供 Azure AD 驗證。 OpenID Connect 是以 OAuth 2.0 通訊協定為建置基礎的身分識別層。 如需 OpenID Connect 的詳細資訊，請參閱 [OpenID Connect 文件][open-id-connect]。
 
-從 Kubernetes 叢集內部，Webhook 權杖驗證用來確認驗證權杖。 Webhook 權杖驗證已設定並當作 AKS 叢集的一部分管理。 在 [Webhook 驗證文件][kubernetes-webhook]中可以找到 Webhook 權杖驗證的詳細資訊。
+從 Kubernetes 叢集內部，Webhook 權杖驗證用來確認驗證權杖。 Webhook 權杖驗證已設定並當作 AKS 叢集的一部分管理。 如需 Webhook 權杖驗證的詳細資訊，請參閱 [Webhook 驗證文件][kubernetes-webhook]。
 
 > [!NOTE]
 > 設定 Azure AD 進行 AKS 驗證時，會設定兩個 Azure AD 應用程式。 這項作業必須由 Azure 租用戶系統管理員完成。
@@ -72,6 +72,10 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory 進�
 7. 選取 [完成]，從 API 清單中選擇 [Microsoft Graph]，然後選取 [授與權限]。 如果目前的帳戶不是租用戶系統管理員，此步驟將會失敗。
 
   ![設定應用程式圖表權限](media/aad-integration/grant-permissions.png)
+
+  成功授與權限時，入口網站會顯示下列通知：
+
+  ![成功授與權限的通知](media/aad-integration/permissions-granted.png)
 
 8. 返回應用程式並記下 [應用程式識別碼]。 部署已啟用 Azure AD 的 AKS 叢集時，這個值就是指 `Server application ID`。
 
@@ -131,7 +135,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-k
 
 ## <a name="create-rbac-binding"></a>建立 RBAC 繫結
 
-必須先建立角色繫結或叢集角色繫結，Azure Active Directory 帳戶才能搭配 AKS 叢集使用。
+必須先建立角色繫結或叢集角色繫結，Azure Active Directory 帳戶才能搭配 AKS 叢集使用。 「角色」會定義要授與的權限，而「繫結」會將角色套用至需要的使用者。 這些指派可以套用至指定的命名空間或在整個叢集中套用。 如需詳細資訊，請參閱[使用 RBAC 授權][rbac-authorization]。
 
 首先，使用 [az aks get-credentials][az-aks-get-credentials] 命令搭配 `--admin` 引數，透過系統管理員存取權登入叢集。
 
@@ -139,7 +143,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-k
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
 ```
 
-接下來，使用下列資訊清單來建立 Azure AD 帳戶的 ClusterRoleBinding。 以 Azure AD 租用戶中的使用者名稱來更新使用者名稱。 此範例讓帳戶可以完整存取叢集的所有命名空間。
+接下來，使用下列資訊清單來建立 Azure AD 帳戶的 ClusterRoleBinding。 以 Azure AD 租用戶中的使用者名稱來更新使用者名稱。 此範例讓帳戶可以完整存取叢集的所有命名空間：
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -156,7 +160,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-此外，也可以為 Azure AD 群組的所有成員建立角色繫結。 Azure AD 群組是由群組物件識別碼所指定。
+此外，也可以為 Azure AD 群組的所有成員建立角色繫結。 Azure AD 群組是使用群組物件識別碼所指定的，如下列範例所示：
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1

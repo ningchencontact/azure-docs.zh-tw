@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/20/2018
 ms.author: iainfou
-ms.openlocfilehash: 129a39294d52a312c91fc6a4fd009d76e88b4ff7
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7048ab4e08d25fd5181857a4e7592d0bcb7d3b5f
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185217"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885589"
 ---
 # <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes Service (AKS) 建立永續性磁碟區
 
@@ -150,7 +150,7 @@ azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi   
 此磁碟區名稱會形成基礎的 Azure 磁碟名稱。 使用 [az disk list][az-disk-list] 查詢磁碟識別碼，並提供您的 PVC 磁碟區名稱，如下列範例所示：
 
 ```
-$ az disk list --query '[].id|[?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
+$ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
 
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
+ms.date: 08/21/2018
 ms.author: rithorn
-ms.openlocfilehash: 13eea4f2b5125d7ab25b05a9e20021ebc6a2e0c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 114c3c03b49468b6130243bbf9f881a5de42740f
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435368"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140501"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>建立用於資源組織及管理的管理群組
 
@@ -27,7 +27,7 @@ ms.locfileid: "39435368"
 
 ## <a name="create-a-management-group"></a>建立管理群組
 
-您可以使用入口網站、PowerShell 或 Azure CLI 來建立管理群組。
+您可以使用入口網站、PowerShell 或 Azure CLI 來建立管理群組。 目前，您無法使用 Resource Manager 範本來建立管理群組。
 
 ### <a name="create-in-portal"></a>在入口網站中建立
 

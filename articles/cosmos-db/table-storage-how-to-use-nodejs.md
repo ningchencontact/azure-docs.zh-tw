@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 19e152b8cb8f18a616af647b31a4f35998f47858
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2b88bd3c86d520b10c27746319f807d2f6208bfa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798214"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048170"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何從 Node.js 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -69,7 +69,7 @@ Azure 模組會讀取環境變數 AZURE_STORAGE_ACCOUNT 和 AZURE_STORAGE_ACCESS
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-comsos-db-connection"></a>新增 Azure Cosmos DB 連線
+## <a name="add-an-azure-cosmos-db-connection"></a>新增 Azure Cosmos DB 連線
 若要新增 Azure Cosmos DB 連線，請建立 **TableService** 物件，然後指定您的帳戶名稱、主要索引鍵及端點。 您可以在 Azure 入口網站中，從您 Cosmos DB 的 [設定] > [連接字串] 中複製這些值。 例如︰
 
 ```nodejs

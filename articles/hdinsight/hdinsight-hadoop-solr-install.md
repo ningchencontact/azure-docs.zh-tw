@@ -3,18 +3,18 @@ title: 使用指令碼動作在 Hadoop 叢集上安裝 Solr - Azure
 description: 深入了解如何使用指令碼動作來以 Solr 自訂 HDInsight 叢集。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: d9c2742081ec83a52f7029814acd7b04a2f0fdb7
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e0c1f2ecbe86eda5161324bfe84c7cf8f7d31d60
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595659"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110749"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Solr
 
@@ -48,7 +48,7 @@ ms.locfileid: "39595659"
 
     <table border='1'>
         <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>Name</td>
+        <tr><td>名稱</td>
             <td>指定指令碼動作的名稱。 例如，<b>安裝 Solr</b>。</td></tr>
         <tr><td>指令碼 URI</td>
             <td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，<i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>

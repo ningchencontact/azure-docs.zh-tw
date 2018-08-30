@@ -1,25 +1,20 @@
 ---
-title: 在 Linux 架構的 HDInsight 上使用 Hadoop 的秘訣 - Azure | Microsoft Docs
+title: 在 Linux 架構的 HDInsight 上使用 Hadoop 的秘訣 - Azure
 description: 取得在 Azure 雲端中執行的熟悉 Linux 環境上使用 Linux 架構的 HDInsight (Hadoop) 叢集的實作秘訣。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 3ad7aa01200bf2bf4a63a380b2b883983c8622d6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 08/09/2018
+ms.openlocfilehash: 0b22e51814f79b00257433a7e601349ad25cd2b7
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405386"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104295"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
@@ -28,7 +23,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文件中的許多步驟都使用下列公用程式，可能需要安裝在您的系統上。
 
@@ -103,18 +98,21 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS、Azure 儲存體和 Data Lake Store
 
-在大部分的 Hadoop 散發套件中，是以叢集機器上的本機儲存體支援 HDFS 的運作。 針對雲端解決方案使用本機儲存體的成本可能相當高，因為計算資源是以每小時或每分鐘為單位來計費。
+在大部分的 Hadoop 散發套件中，資料會儲存在叢集機器上的本機儲存體所支援的 HDFS 中。 針對雲端解決方案使用本機儲存體的成本可能相當高，因為計算資源是以每小時或每分鐘為單位來計費。
 
-HDInsight 使用 Azure 儲存體或 Azure Data Lake Store 中的 Blob 做為預設存放區。 這些服務提供下列優點：
+使用 HDInsight 時，會使用 Azure Blob 儲存體 (並選擇性地使用 Azure Data Lake Store) 以可調整的彈性方式將資料檔案儲存在雲端中。 這些服務提供下列優點：
 
 * 長期儲存成本低廉
 * 可從各種外部服務進行存取，例如網站、檔案上傳/下載公用程式、各種語言的 SDK 和網頁瀏覽器
+* 大型檔案容量和大型可調整儲存體
 
-Azure 儲存體帳戶可以保存多達 4.75 TB 的資料，但個別 Blob (或檔案，從 HDInsight 觀點來看) 只能保存到達 195 GB 的資料。 Azure Data Lake Store 可以動態地成長來保存數兆的檔案，個別檔案可大於 PB。 如需詳細資訊，請參閱[了解 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 和[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。
+如需詳細資訊，請參閱[了解 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 和[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。
 
 使用 Azure 儲存體或 Data Lake Store 時，您不需要從 HDInsight 進行任何特殊動作就能存取資料。 例如，下列命令列出 `/example/data` 資料夾中的檔案，不論其儲存在 Azure 儲存體或 Data Lake Store 中：
 
     hdfs dfs -ls /example/data
+
+在 HDInsight 中，資料儲存體資源 (Azure Blob 儲存體和 Azure Data Lake Store) 會與計算資源分離。 因此，您可以在必要時建立 HDInsight 叢集以執行計算，並在後續完成工作後刪除該叢集，同時將您的資料檔案安全地保存在雲端儲存體中，沒有時間限制。
 
 ### <a name="uri-and-scheme"></a>URI 和配置
 
@@ -272,7 +270,7 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務會協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 ## <a name="next-steps"></a>後續步驟
 

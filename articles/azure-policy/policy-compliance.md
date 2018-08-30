@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343547"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140294"
 ---
 # <a name="getting-compliance-data"></a>取得合規性資料
 
@@ -26,6 +26,9 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 - 透過[命令列](#command_line)指令碼
 
 在查看這些報告合規性的方法之前，讓我們來看何時會更新合規性資訊，以及觸發評估週期的頻率和事件。
+
+> [!WARNING]
+> 如果合規性狀態報告為 **'N/A'**，請確認您已註冊 **Microsoft.PolicyInsights** 資源提供者，且使用者有適當的角色型存取控制 (RBAC) 權限，如[此處](azure-policy-introduction.md#rbac-permissions-in-azure-policy)所述。
 
 ## <a name="evaluation-triggers"></a>評估觸發程序
 

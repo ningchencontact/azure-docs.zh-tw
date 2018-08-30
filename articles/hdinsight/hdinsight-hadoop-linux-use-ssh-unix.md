@@ -3,19 +3,19 @@ title: 使用 SSH 搭配 Hadoop - Azure HDInsight
 description: 您可以使用安全殼層 (SSH) 存取 HDInsight。 本文提供從 Windows、Linux、Unix 或 macOS 用戶端使用 ssh 和 scp 命令連線到 HDInsight 的資訊。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 keywords: linux 中的 hadoop 命令,hadoop linux 命令,hadoop macos,ssh hadoop,ssh hadoop 叢集
 ms.service: hdinsight
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 589e6d56fca1e987cb9fd086d76dc6fb8a686333
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f7e6651e0aa776c4bbcac1fc70017139c21a7512
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594341"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105015"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Hadoop)
 
@@ -136,7 +136,7 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```
-取消註解並將 `KerberosAuthentication` 變更為 `yes`
+取消註解，並將 `KerberosAuthentication` 變更為 `yes`
 
 ```bash
 sudo service sshd restart

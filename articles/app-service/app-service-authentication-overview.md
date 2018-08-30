@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: 6b536ba7792e66fe09ba2cc8a631dc5e934faaea
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 0b682b369bf0e0238b3930d89087db535faa8c53
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937970"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140446"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 
@@ -95,7 +95,7 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 - 使用提供者 SDK：應用程式會以手動方式將使用者登入，然後將驗證權杖提交給 App Service 進行驗證。 無瀏覽器應用程式通常是這種情況，無法向使用者顯示提供者的登入頁面。 應用程式程式碼會管理登入程序，因此也稱為「用戶端導向流程」或「用戶端流程」。 此案例適用於 REST API、[Azure Functions](../azure-functions/functions-overview.md)、JavaScript 瀏覽器用戶端，以及在登入程序中需要更多彈性的 Web 應用程式。 它也適用於使用提供者 SDK 將使用者登入的原生行動應用程式。
 
 > [!NOTE]
-> 您可以使用伺服器導向流程來驗證 App Service 中受信任瀏覽器應用程式的呼叫對 App Service 或 [Azure Functions](../azure-functions/functions-overview.md) 中另一個 REST API 的呼叫。 如需詳細資訊，請參閱[使用 Azure App Service 驗證使用者]()。
+> 您可以使用伺服器導向流程來驗證 App Service 中受信任瀏覽器應用程式的呼叫對 App Service 或 [Azure Functions](../azure-functions/functions-overview.md) 中另一個 REST API 的呼叫。 如需詳細資訊，請參閱[自訂 App Service 中的驗證與授權](app-service-authentication-how-to.md)。
 >
 
 下表顯示驗證流程的步驟。

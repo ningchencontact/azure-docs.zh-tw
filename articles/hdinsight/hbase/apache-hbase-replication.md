@@ -3,18 +3,18 @@ title: 設定 Azure 虛擬網路中的 HBase 叢集複寫
 description: 了解如何針對負載平衡、高可用性、零停機時間移轉和更新，以及災害復原來設定 HDInsight 版本之間的 HBase 複寫。
 services: hdinsight,virtual-network
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: jasonh
-ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600300"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047478"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 HBase 叢集複寫
 
@@ -302,7 +302,7 @@ sudo service bind9 status
 
 必要的引數︰
 
-|Name|說明|
+|名稱|說明|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -311,7 +311,7 @@ sudo service bind9 status
 
 選擇性的引數︰
 
-|Name|說明|
+|名稱|說明|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |

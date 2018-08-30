@@ -3,18 +3,18 @@ title: 在 HDInsight 上使用 Hadoop 分析航班延誤資料 - Azure
 description: 了解如何使用一個 Windows PowerShell 指令碼建立 HDInsight 叢集、執行 Hive 工作、執行 Sqool 工作和刪除叢集。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d1ab85f3efeaa17abbe1cc93157e63bbca1a0b9
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1d39fd1cf40834781375b2c7bd6cb801ccd3cb97
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592249"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091893"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>在 HDInsight 上使用 Hadoop 分析航班延誤資料
 Hive 可透過一種類似 SQL 的指令碼語言 (稱為 *[HiveQL][hadoop-hiveql]*) 來執行 Hadoop MapReduce 作業，可用來彙總、查詢和分析大量資料。
@@ -251,7 +251,7 @@ Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益�
 2. 在此頁面上選取下列值：
 
     <table border="1">
-    <tr><th>Name</th><th>值</th></tr>
+    <tr><th>名稱</th><th>值</th></tr>
     <tr><td>篩選年份</td><td>2013 </td></tr>
     <tr><td>篩選期間</td><td>一月</td></tr>
     <tr><td>欄位</td><td>*Year*、*FlightDate*、*UniqueCarrier*、*Carrier*、*FlightNum*、*OriginAirportID*、*Origin*、*OriginCityName*、*OriginState*、*DestAirportID*、*Dest*、*DestCityName*、*DestState*、*DepDelayMinutes*、*ArrDelay*、*ArrDelayMinutes*、*CarrierDelay*、*WeatherDelay*、*NASDelay*、*SecurityDelay*、*LateAircraftDelay* (請清除其餘所有欄位)</td></tr>

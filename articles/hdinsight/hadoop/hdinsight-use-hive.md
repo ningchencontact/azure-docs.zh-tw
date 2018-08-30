@@ -5,17 +5,17 @@ keywords: hiveql,什麼是 hive,hadoop hiveql,如何使用 hive,了解 hive,什�
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0ca968c0412396852e531af3b37f6675e0b519db
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596655"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126632"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
@@ -222,7 +222,7 @@ HDInsight 可提供互動式查詢叢集類型的 LLAP。 如需詳細資訊，�
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory 可讓您使用 HDInsight 作為 Data Factory 管線的一部分。 若想進一步了解如何使用管線中的 Hive，請參閱[使用 Azure Data Factory 中的 Hive 活動轉換資料](/data-factory/transform-data-using-hadoop-hive.md)文件。
+Azure Data Factory 可讓您使用 HDInsight 作為 Data Factory 管線的一部分。 若想進一步了解如何使用管線中的 Hive，請參閱[使用 Azure Data Factory 中的 Hive 活動轉換資料](../../data-factory/transform-data-using-hadoop-hive.md)文件。
 
 ### <a name="hive-jobs-and-sql-server-integration-services"></a>Hive 工作和 SQL Server 整合服務
 

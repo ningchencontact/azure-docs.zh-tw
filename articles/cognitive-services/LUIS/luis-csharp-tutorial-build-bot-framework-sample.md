@@ -1,24 +1,24 @@
 ---
-title: 在 Azure 中使用適用於 C# 的 Bot 產生器 SDK 來整合 LUIS 與 Bot | Microsoft Docs
-description: 使用 Bot Framework 來建置與 LUIS 應用程式整合的 Bot。
+title: 使用 C#，使用 Bot Builder SDK 來整合 LUIS 與聊天機器人 - Azure 認知服務 | Microsoft Docs
+description: 使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 08/13/2018
 ms.author: diberry
-ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225953"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42093861"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>使用適用於 C# 之 LUIS 範本的 Web 應用程式 Bot
 
-建立具有整合式語言理解能力的 Chatbot。
+使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。 
 
 ## <a name="prerequisite"></a>必要條件
 
@@ -148,7 +148,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 > 您無須對 Bot 程式碼進行任何修改，即可將 LUIS 應用程式重新定型。 請參閱[新增範例語句](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) \(英文\) 和[對您的 LUIS 應用程式進行定型和測試](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test) \(英文\)。 
 
 ## <a name="download-the-bot-to-debug"></a>下載 Bot 來進行偵錯
-如果您的 Bot 無法運作，請將專案下載到您的本機電腦，然後繼續[偵錯](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot)。 
+如果您的 Bot 無法運作，請將專案下載到您的本機電腦，然後繼續[偵錯](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot)。 
 
 ## <a name="learn-more-about-bot-framework"></a>深入了解 Bot Framework
 深入了解 [Bot Framework](https://dev.botframework.com/)，以及 [3.x](https://github.com/Microsoft/BotBuilder) 和 [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK。

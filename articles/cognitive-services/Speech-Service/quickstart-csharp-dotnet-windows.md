@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 8b257a6f4c32b4013ac0478d82dc1f7f32675b9b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 20d0f4736d3aa5f23d9061b4482da7a623862344
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578155"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128216"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上根據 .NET Framework 以 C# 辨識語音
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將學習到如何透過使用認知服務語音 SDK 將語音轉譯成文字，在 Windows 上的 .NET Framework 建立 C# 主控台應用程式。
 應用程式是利用 [Microsoft 認知服務 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 所建置的。
@@ -55,7 +55,7 @@ ms.locfileid: "39578155"
 1. 下列輸出行會出現在套件管理器主控台中。
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.6.0' to helloworld
    ```
 
 ## <a name="create-a-platform-configuration-matching-your-pc-architecture"></a>建立符合您 PC 結構的平台設定
@@ -100,7 +100,7 @@ ms.locfileid: "39578155"
 
     ![成功辨識後的主控台輸出](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "成功辨識後的主控台輸出")
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 在 `quickstart/csharp-dotnet-windows` 資料夾中尋找此範例。
 
 ## <a name="next-steps"></a>後續步驟

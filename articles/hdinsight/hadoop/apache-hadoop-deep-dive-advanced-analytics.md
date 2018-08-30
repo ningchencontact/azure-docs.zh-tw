@@ -3,18 +3,18 @@ title: 深入探討 - 進階分析 - Azure HDInsight
 description: 了解進階分析如何使用演算法來處理巨量資料。
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ad1c96d1d1578489ae16b61e67a73f02cd461e0e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 40536aae15f2ae9fa5e186cdbea1f75f7d264437
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591902"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047135"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探討 - 進階分析
 
@@ -63,8 +63,7 @@ HDInsight 有多個適用於進階分析工作流程的機器學習服務選項�
 
 ### <a name="machine-learning-and-spark"></a>機器學習服務和 Spark
 
-
-  [HDInsight Spark](../spark/apache-spark-overview.md) 是 Azure 代管的 [Spark](http://spark.apache.org/) 供應項目方案，是一個使用記憶體內處理來大幅提升巨量資料分析效能的統一、開放原始碼平行資料處理架構。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。 
+[HDInsight Spark](../spark/apache-spark-overview.md) 是 Azure 代管的 [Spark](http://spark.apache.org/) 供應項目方案，是一個使用記憶體內處理來大幅提升巨量資料分析效能的統一、開放原始碼平行資料處理架構。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。 
 
 有三個可將演算法模型化功能導入此分散式環境的可調整機器學習服務程式庫：
 

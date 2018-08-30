@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037992"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919097"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -84,7 +84,7 @@ New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAcc
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 設定中使用連接
 
-您會使用 **Get-AutomationConnection** Cmdlet 在 Runbook 或 DSC 設定中擷取連接。  您不能使用 [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn) 活動。  這個活動會擷取連接中不同欄位的值，並傳回其作為 [雜湊表](http://go.microsoft.com/fwlink/?LinkID=324844) ，然後可以與 Runbook 或 DSC 設定中的適當命令搭配使用。
+您會使用 **Get-AutomationConnection** Cmdlet 在 Runbook 或 DSC 設定中擷取連接。  您不能使用 [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) 活動。  這個活動會擷取連接中不同欄位的值，並傳回其作為 [雜湊表](http://go.microsoft.com/fwlink/?LinkID=324844) ，然後可以與 Runbook 或 DSC 設定中的適當命令搭配使用。
 
 ### <a name="textual-runbook-sample"></a>文字式 Runbook 範例
 

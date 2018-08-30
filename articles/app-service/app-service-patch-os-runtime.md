@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9855becd7c047788ed310dff4317a5df87cc9b61
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030048"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047623"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service 中的 OS 和執行階段修補
 
@@ -94,7 +94,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 | Python 版本 | 位於 `https://<appname>.scm.azurewebsites.net/DebugConsole`，在命令提示字元中執行下列命令： <br> `python --version` |  
 
 > [!NOTE]  
-> 您無法存取登錄位置 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages` (這裡儲存了有關 ["KB" 修補程式]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins))的資訊)。
+> 您無法存取登錄位置 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages` (這裡儲存了有關 ["KB" 修補程式](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)的資訊)。
 >
 >
 

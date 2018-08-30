@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
-ms.openlocfilehash: be8fb801acfb625685604a302051d813bfd97939
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 5cd12d4fab97f295cad1e0ea06112fc53e376b12
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325297"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140469"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux (x64) 上安裝 Azure IoT Edge 執行階段
 
@@ -128,6 +128,9 @@ Edge 裝置可以使用[裝置連接字串][lnk-dcs]手動設定，或[透過裝
 ```cmd/sh
 sudo systemctl restart iotedge
 ```
+
+>[!TIP]
+>您必須要有提高的權限才能執行 `iotedge` 命令。 當您在安裝 IoT Edge 執行階段之後登出機器，並第一次重新登入時，您的權限將會自動更新。 在那之前，請在這些命令前面使用 **sudo**。 
 
 ## <a name="verify-successful-installation"></a>確認安裝成功
 

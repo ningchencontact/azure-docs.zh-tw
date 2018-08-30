@@ -4,7 +4,7 @@ description: 在 Azure Functions 上執行 Azure 函式之前，先了解如何�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cb336d6742aab10e1fd8305fd52f1376bb4f2598
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618609"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140096"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -131,13 +131,13 @@ Functions 專案目錄包含 [host.json](functions-host-json.md) 和 [local.sett
 func init MyFunctionProj
 ```
 
+當您提供專案名稱時，系統會建立具有該名稱的新資料夾，並將其初始化。 否則，會將目前的資料夾初始化。  
 在 2.x 版中，當您執行命令時，您必須為您的專案選擇執行階段。 如果您打算開發 JavaScript 函式，請選擇**節點**：
 
 ```output
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 使用向上/向下鍵來選擇語言，然後按 Enter。 JavaScript 專案的輸出看起來會像下列範例：
@@ -298,19 +298,24 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 ```bash
 func host start
 ```
+1.x 版才需要 `host` 命令。
 
 `func host start` 支援下列選項：
 
 | 選項     | 說明                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | 要接聽的本機連接埠。 預設值：7071。 |
-| **`--debug <type>`** | 啟動已開啟偵錯連接埠的主機，以便您從 [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 或 [Visual Studio 2017](functions-dotnet-class-library.md) 連結至 **func.exe** 程序。 *\<type\>* 選項為 `VSCode` 和 `VS`。  |
 | **`--cors`** | 以逗號分隔的 CORS 來源清單，不含空格。 |
-| **`--nodeDebugPort -n`** | 要使用的節點偵錯工具連接埠。 預設值：Launch.json 中的值或 5858。 |
-| **`--debugLevel -d`** | 主控台追蹤層級 (off、verbose、info、warning 或 error)。 預設：info。|
+| **`--debug <type>`** | 啟動已開啟偵錯連接埠的主機，以便您從 [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 或 [Visual Studio 2017](functions-dotnet-class-library.md) 連結至 **func.exe** 程序。 *\<type\>* 選項為 `VSCode` 和 `VS`。  |
+| **`--port -p`** | 要接聽的本機連接埠。 預設值：7071。 |
 | **`--timeout -t`** | Functions 主機要啟動的逾時 (以秒為單位)。 預設值：20 秒。|
 | **`--useHttps`** | 繫結至 `https://localhost:{port}` 而不是 `http://localhost:{port}` 。 根據預設，此選項會在您的電腦上建立受信任的憑證。|
-| **`--pause-on-error`** | 暫停以在結束處理程序之前取得其他輸入。 使用於從 Visual Studio 或 VS Code 啟動 Core Tools 時。|
+| **`--build`** | 執行前先建置目前的專案。 僅限 2.x 版和 C# 專案。 |
+| **`--cert`** | 包含私密金鑰的 .pfx 檔案路徑。 僅能與 `--useHttps` 搭配使用。 僅限 2.x 版。 | 
+| **`--password`** | 密碼或包含 .pfx 檔案密碼的檔案。 僅能與 `--cert` 搭配使用。 僅限 2.x 版。 |
+| **`--language-worker`** | 用來設定語言背景工作角色的引數。 僅限 2.x 版。 |
+| **`--nodeDebugPort -n`** | 要使用的節點偵錯工具連接埠。 預設值：Launch.json 中的值或 5858。 僅限 1.x 版。 |
+
+針對 C# 類別庫專案 (.csproj)，您必須包含 `--build` 選項才能產生程式庫 .dll。
 
 Functions 主機啟動時，它會輸出 HTTP 觸發函式的 URL：
 

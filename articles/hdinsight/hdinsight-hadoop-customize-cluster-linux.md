@@ -3,18 +3,18 @@ title: 使用指令碼動作自訂 HDInsight 叢集 - Azure
 description: 使用指令碼動作在以 Linux 為基礎的 HDInsight 叢集上新增自訂元件。 指令碼動作是 Bash 指令碼，可用來自訂叢集設定，或新增其他服務和公用程式，如 Hue、Solr 或 R。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jasonh
-ms.openlocfilehash: 0837029cbe22ba7f659efefb113ed47ae1cf2dfe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e12379dbb63e57ee12e1cebb1761f0b103d50ef1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038086"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110522"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
@@ -152,7 +152,7 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
 HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
-| Name | 指令碼 |
+| 名稱 | 指令碼 |
 | --- | --- |
 | **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。請參閱 [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
 | **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
@@ -185,7 +185,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 或是選取其中一個提供的指令碼。 |
-    | Name |指定指令碼動作的名稱。 |
+    | 名稱 |指定指令碼動作的名稱。 |
     | Bash 指令碼 URI |指定指令碼的 URI。 |
     | Head/Worker/Zookeeper |指定執行指令碼的節點 (**前端**、**背景工作**或 **ZooKeeper**)。 |
     | 參數 |如果指令碼要求，請指定參數。 |
@@ -264,7 +264,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 否則，請選取提供的指令碼。 |
-    | Name |指定指令碼動作的名稱。 |
+    | 名稱 |指定指令碼動作的名稱。 |
     | Bash 指令碼 URI |指定指令碼的 URI。 |
     | Head/Worker/Zookeeper |指定執行指令碼的節點 (**前端**、**背景工作**或 **ZooKeeper**)。 |
     | 參數 |如果指令碼要求，請指定參數。 |

@@ -3,18 +3,18 @@ title: 在 Azure HDInsight Linux 叢集上安裝 Presto
 description: 了解如何使用指令碼動作，在以 Linux 為基礎的 HDInsight Hadoop 叢集上安裝 Presto 和 Airpal。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: ea777b13348b84aaeb7cb7628a4d0aac9f5705bd
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1569b5931a24048fa7a88c4a546bbf88547208d1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591416"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109611"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Presto
 

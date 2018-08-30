@@ -3,18 +3,18 @@ title: '教學課程：使用 Data Factory 在 Azure HDInsight 中建立隨選 H
 description: 了解如何使用 Azure Data Factory 在 HDInsight 中建立隨選 Handooop 叢集。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: bddcaa7eb4c5bbb699218e781df848722917ba6e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8a177ad2bbd463d2dcb94a01ff2a29a95d86693
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599644"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105278"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -236,7 +236,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     | 屬性 | 說明 |
     | --- | --- |
-    | Name | 輸入 HDInsight 連結服務的名稱 |
+    | 名稱 | 輸入 HDInsight 連結服務的名稱 |
     | 類型 | 選取 [隨選 HDInsight] |
     | Azure 儲存體連結服務 | 選取您稍早建立的儲存體連結服務。 |
     | 叢集類型 | 選取 [Hadoop] |

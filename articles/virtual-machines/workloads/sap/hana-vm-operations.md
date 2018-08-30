@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521977"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917953"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>SAP HANA 在 Azure 上的基礎結構設定和作業
 此文件提供設定 Azure 基礎結構和已部署在 Azure 原生虛擬機器 (VM) 上之 SAP Hana 系統的作業指導方針。 此文件也包含 M128s VM SKU 的 SAP HANA 相應放大設定資訊。 這份文件並非用以取代標準 SAP 文件，包含下列內容：
@@ -215,7 +215,7 @@ Azure Write Accelerator 的詳細資料和限制可以在相同文件中找到�
 
 不過，對於持續進行的部署，您需要在 Azure 中建立虛擬資料中心網路架構。 此架構建議將會連線到內部部署的 Azure VNet 閘道分隔在個別的 Azure VNet。 此個別 VNet 應主控要送至內部部署或網際網路的所有流量。 這種方法可讓您在此個別的中樞 VNet 部署軟體，稽核和記錄進入 Azure 虛擬資料中心的流量。 因此，您會有一個 VNet，裝載與 Azure 部署的傳入和傳出流量相關的所有軟體和設定。
 
-[Azure 虛擬資料中心：網路觀點](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter)與 [Azure 虛擬資料中心和 Enterprise 控制平面](https://docs.microsoft.com/azure/architecture/vdc/)等文章，可為虛擬資料中心方法與相關 Azure VNet 設計提供詳細資訊。
+[Azure 虛擬資料中心：網路觀點](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)與 [Azure 虛擬資料中心和 Enterprise 控制平面](https://docs.microsoft.com/azure/architecture/vdc/)等文章，可為虛擬資料中心方法與相關 Azure VNet 設計提供詳細資訊。
 
 
 >[!NOTE]

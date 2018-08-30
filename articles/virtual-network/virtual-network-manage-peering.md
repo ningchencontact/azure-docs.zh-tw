@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 08/16/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 1b9807b587b6b52594133e8c792c72b21e8bd4ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d27b95f9c7d21f49f547534ca99a44657062abc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503616"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140478"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
-了解如何建立、變更或刪除虛擬網路對等互連。 虛擬網路對等互連可以讓您透過 Azure 骨幹網路來連線虛擬網路。 對等互連建立好之後，系統仍會將虛擬網路視為獨立資源來進行管理。 如果您不熟悉虛擬網路同儕節點，您可以在[虛擬網路同儕節點概觀](virtual-network-peering-overview.md)或透過完成[教學課程](tutorial-connect-virtual-networks-portal.md)來深入了解。
+了解如何建立、變更或刪除虛擬網路對等互連。 虛擬網路對等互連可讓您透過 Azure 骨幹網路，將同一區域或跨區域 (也稱為全域 VNet 對等互連) 的虛擬網路連線。 對等互連建立好之後，系統仍會將虛擬網路視為獨立資源來進行管理。 如果您不熟悉虛擬網路同儕節點，您可以在[虛擬網路同儕節點概觀](virtual-network-peering-overview.md)或透過完成[教學課程](tutorial-connect-virtual-networks-portal.md)來深入了解。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -112,10 +112,10 @@ ms.locfileid: "39503616"
 
 ## <a name="requirements-and-constraints"></a>需求和限制 
 
-- <a name="cross-region"></a>您可以將相同區域或不同區域中的虛擬網路對等互連。 兩個虛擬網路位於「相同」區域時不適用下列限制，但虛擬網路全域對等時則適用： 
-    - 虛擬網路可以存在於任何的 Azure 公用雲端區域，但並非在 Azure 國家雲端。
-    - 一個虛擬網路中的資源無法與對等互連虛擬網路中 Azure 內部負載平衡器的 IP 位址通訊。 負載平衡器和與其通訊的資源必須位於相同的虛擬網路。
-    - 您無法使用遠端閘道，也無法允許閘道傳輸。 若要使用遠端閘道或允許閘道傳輸，對等互連的兩個虛擬網路必須存在於相同區域。 
+- <a name="cross-region"></a>您可以將相同區域或不同區域中的虛擬網路對等互連。 讓不同區域中的虛擬網路進行對等互連，也稱為「全域對等互連」。 
+- 在建立全域對等互連時，對等互連的虛擬網路可以存在於任何的 Azure 公用雲端區域，但並非在 Azure 國家雲端。 您只能將國家雲端中相同區域內的虛擬網路對等互連。
+- 一個虛擬網路中的資源無法與全域對等互連虛擬網路中的 Azure 內部負載平衡器的前端 IP 位址通訊。 負載平衡器和與其通訊的資源必須位於相同區域內的虛擬網路。 如果對等互連的虛擬網路位於相同區域，但任一虛擬網路中的資源可以和對等互連中任一虛擬網路內的 Azure 內部負載平衡器前端 IP 位址通訊。
+- 您無法在全域對等互連的虛擬網路中，使用遠端閘道或允許閘道傳輸。 若要使用遠端閘道或允許閘道傳輸，對等互連的虛擬網路必須位於相同區域中。
 - 虛擬網路可位於相同或不同的訂用帳戶。 當您將不同訂用帳戶中的虛擬網路對等互連時，這兩個訂用帳戶必須與相同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以快速地[建立一個](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)。 您可以使用 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)，將兩個存在於與不同 Active Directory 租用戶相關聯之不同訂用帳戶中的虛擬網路加以連線。
 - 要建立對等互連的虛擬網路必須有非重疊的 IP 位址空間。
 - 一旦虛擬網路與另一個虛擬網路對等互連，您便無法在虛擬網路中新增或刪除位址範圍。 若要新增或移除位址範圍，請刪除對等互連，新增或移除位址範圍，然後重新建立對等互連。 若要在虛擬網路新增或移除位址範圍，請參閱[管理虛擬網路](manage-virtual-network.md)。
@@ -143,7 +143,7 @@ ms.locfileid: "39503616"
 
 如果您的帳戶未指派給上述其中一個角色，則必須指派給[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，且該角色已獲指派下表中的必要動作：
 
-| 動作 | Name |
+| 動作 | 名稱 |
 |---|---|
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | 建立從虛擬網路 A 到虛擬網路 B 的對等互連時所需。虛擬網路 A 必須為虛擬網路 (資源管理員)                            |
 | Microsoft.Network/virtualNetworks/peer/action                   | 建立從虛擬網路 B (資源管理員) 到虛擬網路 A 的對等互連時所需                                                                                |

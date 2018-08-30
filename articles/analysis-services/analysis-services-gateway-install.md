@@ -5,20 +5,20 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444934"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140455"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。 若要深入了解閘道，請參閱[內部部署資料閘道](analysis-services-gateway.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 **最低需求：**
 
 * .NET 4.5 Framework
@@ -38,6 +38,7 @@ ms.locfileid: "37444934"
 * 請在電源維持開啟且不會進入睡眠狀態的電腦上安裝閘道。
 * 請勿將閘道安裝於採用無線網路的電腦上。 效能會因此降低。
 * 如果[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)與您要註冊閘道的訂用帳戶相同，請以 Azure AD 中的帳戶登入 Azure。 安裝和註冊閘道時不支援 Azure B2B (來賓) 帳戶。
+* 如果資料來源位於 Azure 虛擬網路 (VNet) 上，您必須設定 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 伺服器屬性。
 * Azure Government、Azure Germany、Azure China 主權區域 不支援此處所述的 (統一) 閘道。 使用 **Azure Analysis Services 的專用內部部署閘道**，在入口網站中從伺服器的 [快速入門] 安裝。 
 
 
@@ -114,4 +115,5 @@ ms.locfileid: "37444934"
 
 ## <a name="next-steps"></a>後續步驟
 * [ Analysis Services](analysis-services-manage.md)   
-* [從 Azure Analysis Services 取得資料](analysis-services-connect.md)
+* [從 Azure Analysis Services 取得資料](analysis-services-connect.md)   
+* [使用 Azure 虛擬網路上的資料來源閘道](analysis-services-vnet-gateway.md)

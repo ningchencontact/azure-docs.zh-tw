@@ -1,6 +1,6 @@
 ---
-title: 呼叫和回應 - Azure 認知服務 Bing 影像搜尋 API 的 Ruby 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing 影像搜尋 API。
+title: 快速入門：針對 Bing 影像搜尋 API 和 Ruby 使用 REST API 來傳送搜尋查詢
+description: 在本快速入門中，您可以使用 Ruby 傳送搜尋查詢給 Bing 搜尋 API，以取得相關影像清單。
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,24 +9,24 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 30fae3c589bdb232d57c25a0cba46b89f2c58d2f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bbe154f22557fb357edfb6b981eb1024f0a81d38
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369910"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42093859"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-ruby"></a>呼叫和回應：第一次以 Ruby 撰寫 Bing 影像搜尋查詢
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>快速入門：使用 REST API 和 Ruby 傳送搜尋查詢
 
-Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，取回相關影像的清單，提供類似 Bing.com/Images 的經驗。
+Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，以提供類似 Bing.com/Images 的體驗，並取回相關影像清單。
 
 本文內有一個簡單主控台應用程式，其會執行 Bing 影像搜尋 API 查詢，並顯示傳回之未經處理的搜尋結果 (格式為 JSON)。 雖然此應用程式是以 Ruby 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您需要 [Ruby 2.4 或更新版本](https://www.ruby-lang.org/en/downloads/)以執行範例程式碼。
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您必須要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>執行應用程式
 
@@ -34,7 +34,7 @@ Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，取回�
 
 1. 在您愛用的 IDE 或編輯器中建立新的 Ruby 專案。
 2. 加入提供的程式碼。
-3. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
+3. 以訂用帳戶有效的存取金鑰來取代 `accessKey` 值。
 4. 執行程式。
 
 ```ruby

@@ -4,18 +4,18 @@ description: 從瀏覽器、Azure CLI、Azure PowerShell、REST 或 SDK 設定 H
 keywords: hadoop 叢集設定、kafka 叢集設定、spark 叢集設定、什麼是 hadoop 中的叢集
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0cb3840c0ce40e062b4de0b7bbd5c9e324d6081f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/27/2018
+ms.openlocfilehash: 0df38e1bd9c4db1cf988beab31b1c3189da4f0c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595836"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127902"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集
 
@@ -86,7 +86,7 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 
 ### <a name="enterprise-security-package"></a>企業安全性套件
 
-對於 Hadoop、Spark 和互動式查詢叢集類型，您可以選擇啟用 [企業安全性套件]。 此套件使用 Apache Ranger 以及與 Azure Active Direcotry 整合，以供選擇更安全的叢集設定。 如需詳細資訊，請參閱 [Azure HDInsight 中的企業安全性套件](./domain-joined/apache-domain-joined-introduction.md)。
+對於 Hadoop、Spark 和互動式查詢叢集類型，您可以選擇啟用 [企業安全性套件]。 此套件使用 Apache Ranger 並與 Azure Active Directory 整合，讓您可選擇更安全的叢集設定。 如需詳細資訊，請參閱 [Azure HDInsight 中的企業安全性套件](./domain-joined/apache-domain-joined-introduction.md)。
 
 ![hdinsight 建立選擇企業安全性套件的選項](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
@@ -140,10 +140,23 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 > [!IMPORTANT]
 > 您無法重複使用自訂的 Oozie 中繼存放區。 若要使用自訂的 Oozie 中繼存放區，您必須在建立 HDInsight 叢集時提供空的 Azure SQL Database。
 
+
+## <a name="custom-cluster-setup"></a>自訂叢集設定
+自訂叢集設定是以 [Quick create] \(快速建立\) 的設定為基礎，並加入下列選項：
+- [HDInsight 應用程式](#install-hdinsight-applications-on-clusters)
+- [叢集大小](#configure-cluster-size)
+- [指令碼動作](#advanced-settings-script-actions)
+- [虛擬網路](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>在叢集上安裝 HDInsight 應用程式
+
+HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢集上安裝的應用程式。 您可以使用由 Microsoft、協力廠商所提供或您自己開發的應用程式。 如需詳細資訊，請參閱[在 Azure HDInsight 上安裝第三方 Hadoop 應用程式](hdinsight-apps-install-applications.md)。
+
+大部分的 HDInsight 應用程式會安裝在空白的邊緣節點。  空白的邊緣節點是一部 Linux 虛擬機器，其中已安裝及設定和前端節點相同的用戶端工具。 您可以使用邊緣節點來存取叢集、測試用戶端應用程式，以及裝載用戶端應用程式。 如需詳細資訊，請參閱 [Use empty edge nodes in HDInsight (在 HDInsight 中使用空白的邊緣節點)](hdinsight-apps-use-edge-node.md)。
+
 ## <a name="configure-cluster-size"></a>設定叢集大小
 
 只要叢集存在，就會針對您的節點使用量收費。 建立叢集後就開始計費，並在叢集刪除後停止計費。 無法取消配置或保留叢集。
-
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>每個叢集類型的節點數目
 每個叢集類型都有自己的節點數目、節點術語和預設 VM 大小。 下表中各節點類型的節點數目位於括號中。
@@ -191,20 +204,6 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 >
 
 如需相關資訊，請參閱[虛擬機器的大小](../virtual-machines/windows/sizes.md)。 如需各式大小的價格資訊，請參閱 [HDInsight 價格](https://azure.microsoft.com/pricing/details/hdinsight)。   
-
-## <a name="custom-cluster-setup"></a>自訂叢集設定
-自訂叢集設定是以 [Quick create] \(快速建立\) 的設定為基礎，並加入下列選項：
-- [HDInsight 應用程式](#hdinsight-applications)
-- [叢集大小](#cluster-size)
-- 進階設定
-  - [指令碼動作](#customize-clusters-using-script-action)
-  - [虛擬網路](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>在叢集上安裝 HDInsight 應用程式
-
-HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢集上安裝的應用程式。 您可以使用由 Microsoft、協力廠商所提供或您自己開發的應用程式。 如需詳細資訊，請參閱[在 Azure HDInsight 上安裝第三方 Hadoop 應用程式](hdinsight-apps-install-applications.md)。
-
-大部分的 HDInsight 應用程式會安裝在空白的邊緣節點。  空白的邊緣節點是一部 Linux 虛擬機器，其中已安裝及設定和前端節點相同的用戶端工具。 您可以使用邊緣節點來存取叢集、測試用戶端應用程式，以及裝載用戶端應用程式。 如需詳細資訊，請參閱 [Use empty edge nodes in HDInsight (在 HDInsight 中使用空白的邊緣節點)](hdinsight-apps-use-edge-node.md)。
 
 ## <a name="advanced-settings-script-actions"></a>進階設定：指令碼動作
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 74fb9e784122dadd1ad2f6f29a497398eacf7464
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 04247792f8467ecf51a074d1e03bbd6e7c553a02
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412877"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247250"
 ---
 # <a name="services-that-support-managed-service-identity"></a>支援受控服務識別的服務 
 
@@ -31,7 +31,7 @@ ms.locfileid: "39412877"
 | Azure App Service | 可用 | 尚未提供 | [Azure 入口網站](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure CLI](/azure/app-service/app-service-managed-service-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/app-service-managed-service-identity#using-azure-powershell)<br>[Azure Resource Manager 範本](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[JavaScript](/azure/app-service/app-service-managed-service-identity#token-js)<br>[PowerShell](/azure/app-service/app-service-managed-service-identity#token-powershell)  |
 | Azure Functions | 可用 | 尚未提供 | [Azure 入口網站](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure CLI](/azure/app-service/app-service-managed-service-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/app-service-managed-service-identity#using-azure-powershell)<br>[Azure Resource Manager 範本](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[JavaScript](/azure/app-service/app-service-managed-service-identity#token-js)<br>[PowerShell](/azure/app-service/app-service-managed-service-identity#token-powershell) |
 | Azure Data Factory V2 | 預覽 | 尚未提供 | [Azure 入口網站](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Azure API 管理 | 預覽 | 尚未提供 | [Azure Resource Manager 範本](/azure/api-management/api-management-howto-use-managed-service-identity) | 
+| Azure API 管理 | 可用 | 尚未提供 | [Azure Resource Manager 範本](/azure/api-management/api-management-howto-use-managed-service-identity) | 
 
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>支援 Azure AD 驗證的 Azure 服務
@@ -46,4 +46,4 @@ ms.locfileid: "39412877"
 | Azure SQL | https://database.windows.net/ | 可用 | 2017 年 10 月 | |
 | Azure 事件中心 | https://eventhubs.azure.net | 可用 | 2017 年 12 月 | |
 | Azure 服務匯流排 | https://servicebus.azure.net | 可用 | 2017 年 12 月 | |
-| Azure 儲存體 | https://storage.azure.com/ | 預覽 | 2018 年 5 月 | |
+| Azure 儲存體 | https://azure.microsoft.com/services/storage/ | 預覽 | 2018 年 5 月 | |

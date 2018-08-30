@@ -1,36 +1,31 @@
 ---
-title: Azure HDInsight 工具 - 使用適用於 Hive、LLAP 或 pySpark 的 Visual Studio Code | Microsoft Docs
+title: Azure HDInsight 工具 - 使用適用於 Hive、LLAP 或 pySpark 的 Visual Studio Code
 description: 了解如何使用適用於 Visual Studio Code 的 Azure HDInsight 工具來建立及提交查詢和指令碼。
-Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: HDInsight
-documentationcenter: ''
+keywords: VS Code,Azure HDInsight 工具,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,互動式 Hive,互動式查詢
+services: hdinsight
 author: jejiang
-manager: ''
-editor: jgao
-tags: azure-portal
-ms.assetid: ''
-ms.service: HDInsight
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 10/27/2017
+ms.openlocfilehash: b66658bde818e2b4cce2cbc0dc5b419ba33dc737
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595298"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108823"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
 了解如何使用適用於 Visual Studio Code (VS Code) 的 Azure HDInsight 工具來建立、提交 Hive 批次作業、互動式 Hive 查詢和 pySpark 指令碼。 Azure HDInsight 工具可以安裝在 VS Code 所支援的平台上。 這些包括 Windows、Linux 及 MacOS。 您可以找到不同平台的必要條件。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 需要有下列項目才能完成本文中的步驟：
 
-- HDInsight 叢集。 若要建立叢集，請參閱[開始使用 HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md)。
+- HDInsight 叢集。 若要建立叢集，請參閱[開始使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)。
 - [Mono](http://www.mono-project.com/docs/getting-started/install/)。 Linux 和 macOS 才需要 Mono。
 

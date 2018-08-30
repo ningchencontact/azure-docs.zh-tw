@@ -1,30 +1,25 @@
 ---
-title: Azure 資料目錄必要條件 | Microsoft Docs
+title: Azure 資料目錄必要條件
 description: 了解開始使用 Azure 資料目錄所需的必要條件。
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+ms.author: maroche
 ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: d34d9e49c3ad405a86e42ada9c86615a12adaa62
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 168083ed6226d8e1d55e116297dde5884875945b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448939"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041297"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Azure 資料目錄必要條件
 
 您必須注意幾件事，才能設定 Azure 資料目錄。 別擔心，這個過程不需要很長時間。
 
-## <a name="azure-subscription"></a>Azure 訂閱
+## <a name="azure-subscription"></a>Azure 訂用帳戶
 若要設定資料目錄，您必須是 Azure 訂用帳戶的擁有者或共同擁有者。
 
 Azure 訂用帳戶可協助您組織雲端服務資源 (例如 Azure 資料目錄) 的存取權。 訂用帳戶也可協助您控制如何根據資源使用量產生報告、計費及付費。 每一個訂用帳戶可以有個別的計費和付款設定；因此，依照部門、專案及分處等，您可以有不同的訂用帳戶和不同的計劃。 每一個雲端服務都屬於某個訂用帳戶，在設定資料目錄之前，您必須先有訂用帳戶。 若要深入了解，請參閱 [管理帳戶、訂用帳戶及管理角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。

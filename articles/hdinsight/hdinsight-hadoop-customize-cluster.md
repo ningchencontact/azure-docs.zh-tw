@@ -3,18 +3,18 @@ title: 使用指令碼動作自訂 HDInsight 叢集 - Azure
 description: 深入了解使用指令碼動作來自訂 HDInsight 叢集。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0f49284782ab5ab17476f37ae5ae40a753ee107b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6c4652e65f0f320063d989f97a5428510913005b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597410"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105919"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用指令碼動作自訂 Windows 型 HDInsight 叢集
 **指令碼動作** 可用來叫用 [自訂指令碼](hdinsight-hadoop-script-actions.md) 。
@@ -46,7 +46,7 @@ ms.locfileid: "39597410"
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
-| Name | 指令碼 |
+| 名稱 | 指令碼 |
 | --- | --- |
 | **安裝 Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`。 請參閱[在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]。 |
 | **安裝 R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`。 請參閱 [在 HDInsight 叢集上安裝及使用 R](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster)。 |
@@ -64,7 +64,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
     <table border='1'>
         <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>Name</td>
+        <tr><td>名稱</td>
             <td>指定指令碼動作的名稱。</td></tr>
         <tr><td>指令碼 URI</td>
             <td>對自訂叢集所叫用的指令碼指定 URI。 s</td></tr>

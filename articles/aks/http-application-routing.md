@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93b9075831db356607438288a7c153dde2f8b210
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238517"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140694"
 ---
 # <a name="http-application-routing"></a>HTTP 應用程式路由
 
@@ -33,13 +33,19 @@ HTTP 應用程式路由解決方案可讓您輕鬆存取已部署至 Azure Kuber
 部署 AKS 叢集時，可以使用 Azure CLI 來啟用 HTTP 應用程式路由附加元件。 若要這樣做，請使用 [az aks create][az-aks-create] 命令並搭配 `--enable-addons` 引數。
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
-部署叢集之後，使用 [az aks show][az-aks-show] 命令來擷取 DNS 區域名稱。 需要此名稱，才能將應用程式部署至 AKS 叢集。
+您也可以使用 [az aks enable-addons][az-aks-enable-addons] 命令，在現有 AKS 叢集上啟用 HTTP 路由。 若要在現有叢集上啟用 HTTP 路由，請新增 `--addons` 參數並指定 *http_application_routing*，如下列範例所示：
 
 ```azurecli
-$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
+```
+
+部署或更新叢集之後，請使用 [az aks show][az-aks-show] 命令來擷取 DNS 區域名稱。 需要此名稱，才能將應用程式部署至 AKS 叢集。
+
+```azurecli
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 
 Result
 -----------------------------------------------------
@@ -155,7 +161,7 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 HTTP 路由解決方案可以使用 Azure CLI 來移除。 若要執行此動作，請執行下列命令，並替代您的 AKS 叢集和資源群組名稱。
 
 ```azurecli
-az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
 ## <a name="troubleshoot"></a>疑難排解
@@ -232,6 +238,7 @@ ingress "party-clippy" deleted
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 
 
 <!-- LINKS - external -->

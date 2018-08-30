@@ -1,22 +1,20 @@
 ---
 title: 監視虛擬機器變更 - Azure Event Grid 和 Logic Apps | Microsoft Docs
 description: 使用 Azure Event Grid 和 Logic Apps 來檢查虛擬機器 (VM) 的組態變更
-keywords: logic apps, event grids, 虛擬機器, VM
 services: logic-apps
-author: ecfan
-manager: anneta
-ms.assetid: ''
-ms.workload: logic-apps
 ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303108"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127654"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更
 
@@ -40,7 +38,7 @@ ms.locfileid: "34303108"
 > * 新增可特別檢查虛擬機器變更的條件。
 > * 在虛擬機器變更時傳送電子郵件。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 來自 [Azure Logic Apps 所支援的任何電子郵件提供者](../connectors/apis-list.md)的電子郵件帳戶，例如 Office 365 Outlook、Outlook.com 或 Gmail，以傳送通知。 本教學課程是使用 Office 365 Outlook。
 

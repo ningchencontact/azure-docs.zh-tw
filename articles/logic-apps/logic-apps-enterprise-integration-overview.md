@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298632"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140670"
 ---
 # <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>概觀：使用企業整合套件的 B2B 案例與通訊
 
@@ -37,7 +37,7 @@ ms.locfileid: "35298632"
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>如何開始使用企業整合？
 
-您可以透過 **Azure 入口網站**中的邏輯應用程式設計工具，使用企業整合套件來建置及管理 B2B 應用程式。 您也可以使用 [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell 主題") 來管理您的邏輯應用程式。
+您可以透過 **Azure 入口網站**中的邏輯應用程式設計工具，使用企業整合套件來建置及管理 B2B 應用程式。 您也可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "Logic apps PowerShell") 來管理邏輯應用程式。
 
 以下是在 Azure 入口網站中建立應用程式之前必須執行的高階步驟︰
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7a1bab75521730f7e80e5b86112bbb0aed129f88
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208279"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917869"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>叢集資源管理員與 Service Fabric 叢集管理整合
 Service Fabric 叢集資源管理員不會促使 Service Fabric 升級，但有所關聯。 叢集資源管理員協助管理的第一種方法是追蹤所需的叢集狀態及其內部的服務。 當叢集資源管理員無法讓叢集處於所需的設定時，它會送出健全狀況報告。 例如，如果容量不足，叢集資源管理員會發出健康情況警告和錯誤，指出問題所在。 整合的另一方面必定與升級方式有關。 在升級期間，叢集資源管理員會稍微改變其行為。  
@@ -32,7 +32,7 @@ Resource Manager 健全狀況警告的另一個例子是違反放置條件約束
 以下是這類健康狀態報告的範例。 在此情況下，健全狀況報告是針對系統服務的其中一個資料分割。 健全狀況訊息指出該資料分割的複本暫時封裝至太少的升級網域。
 
 ```posh
-PS C:\Users\User > Get-WindowsFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
+PS C:\Users\User > Get-ServiceFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
 
 
 PartitionId           : 00000000-0000-0000-0000-000000000001

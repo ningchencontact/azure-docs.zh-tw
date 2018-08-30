@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413853"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140497"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -43,13 +43,37 @@ Unknown_user_type: Unknown User Type
 
    ```powershell
    $Cred = Get-Credential  
-   #Using Azure Service Management   
+   #Using Azure Service Management
    Add-AzureAccount –Credential $Cred  
    #Using Azure Resource Manager  
    Connect-AzureRmAccount –Credential $Cred
    ```
 
 3. 如果您的驗證在本機失敗，這表示您尚未正確設定 Azure Active Directory 認證。 請參閱 [Authenticating to Azure using Azure Active Directory (使用 Azure Active Directory 對 Azure 進行驗證)](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 部落格文章，以正確設定 Azure Active Directory 帳戶。  
+
+4. 如果這似乎為暫時性錯誤，請嘗試將重試邏輯新增至您的驗證常式，讓驗證變得更強固。
+
+   ```powershell
+   # Get the connection "AzureRunAsConnection"
+   $connectionName = "AzureRunAsConnection"
+   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
+
+   $logonAttempt = 0
+   $logonResult = $False
+
+   while(!($connectionResult) -And ($logonAttempt -le 10))
+   {
+   $LogonAttempt++
+   # Logging in to Azure...
+   $connectionResult = Connect-AzureRmAccount `
+      -ServicePrincipal `
+      -TenantId $servicePrincipalConnection.TenantId `
+      -ApplicationId $servicePrincipalConnection.ApplicationId `
+      -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
+
+   Start-Sleep -Seconds 30
+   }
+   ```
 
 ### <a name="unable-to-find-subscription"></a>案例：找不到 Azure 訂用帳戶
 
@@ -113,7 +137,43 @@ Exception: A task was canceled.
 
 此錯誤可以透過將 Azure 模組更新至最新版本來解決。
 
-在您的自動化帳戶中，按一下 [模組]，然後按一下 [更新 Azure 模組]。 更新需要花費大約 15 分鐘的時間。完成之後，請重新執行先前失敗的 Runbook。
+在您的自動化帳戶中，按一下 [模組]，然後按一下 [更新 Azure 模組]。 更新需要花費大約 15 分鐘的時間。完成之後，請重新執行先前失敗的 Runbook。 若要深入了解如何更新模組，請參閱[更新 Azure 自動化中的 Azure 模組](../automation-update-azure-modules.md)。
+
+### <a name="child-runbook-auth-failure"></a>案例：處理多個訂用帳戶時，子 Runbook 失敗
+
+#### <a name="issue"></a>問題
+
+使用 `Start-AzureRmRunbook` 執行子 Runbook 時，子 Runbook 無法管理 Azure 資源。
+
+#### <a name="cause"></a>原因
+
+子 Runbook 在執行時未使用正確的內容。
+
+#### <a name="resolution"></a>解決方案
+
+在使用多個訂用帳戶時，若叫用子 Runbook，可能會遺失訂用帳戶內容。 若要確保訂用帳戶的內容會傳遞至子 Runbook，請將 `DefaultProfile` 參數新增至 Cmdlet，並將內容傳遞給它。
+
+```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
+```
 
 ### <a name="not-recognized-as-cmdlet"></a>案例：因為遺失 Cmdlet，所以 Runbook 失敗
 
@@ -165,6 +225,8 @@ The job was tried three times but it failed
 * 在記憶體限制內運作的建議方法是分割多個 Runbook 之間的工作負載、不要處理記憶體中的太多資料、不要寫入來自 Runbook 的不必要輸出，或考慮您寫入 PowerShell 工作流程 Runbook 的檢查點數目。  
 
 * 遵循[如何更新 Azure 自動化中的 Azure PowerShell 模組](../automation-update-azure-modules.md)步驟來更新 Azure 模組。  
+
+* 另一個解決方案是在[混合式 Runbook 背景工作角色](../automation-hrw-run-runbooks.md)上執行 Runbook。 混合式背景工作角色未受限於 Azure 沙箱的[公平共用](../automation-runbook-execution.md#fair-share)限制。
 
 ### <a name="fails-deserialized-object"></a>案例：Runbook 因還原序列化物件而失敗
 

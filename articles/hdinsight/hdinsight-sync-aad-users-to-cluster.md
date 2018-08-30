@@ -1,31 +1,26 @@
 ---
-title: 將 Azure Active Directory 使用者同步至叢集 - Azure HDInsight | Microsoft Docs
+title: 將 Azure Active Directory 使用者同步至叢集 - Azure HDInsight
 description: 從 Azure Active Directory 將已驗證的使用者同步至叢集。
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: f2deaaa31a4d0e8a91d048b538e9251a8eb9e1b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 08/19/2018
+ms.openlocfilehash: 7e002a43c774bd1a6df9cfe46207ddebd02284b3
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409276"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104218"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>將 Azure Active Directory 使用者同步至 HDInsight 叢集
 
 [已加入網域的 HDInsight 叢集](hdinsight-domain-joined-introduction.md)會搭配 Azure Active Directory (Azure AD) 使用者使用增強式驗證，也會使用*角色型存取控制* (RBAC) 原則。 當您將使用者和群組新增至 Azure AD 時，您可以將需要存取權的使用者同步至您的叢集。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您尚未這樣做，[請建立已加入網域的 HDInsight 叢集](hdinsight-domain-joined-configure.md)。
 
@@ -80,10 +75,10 @@ ms.locfileid: "31409276"
     }
     ```
 
-4. 若要查看同步狀態，請執行新的 `curl` 命令，使用從先前命令傳回的 `href` 值：
+4. 若要查看同步狀態，請執行新的 `curl` 命令：
 
     ```bash
-    curl -u admin:<YOUR PASSWORD> http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1
+    curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.net/api/v1/ldap_sync_events/1
     ```
     
     回應應該如下所示：

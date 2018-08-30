@@ -3,18 +3,18 @@ title: 在 HDInsight 上執行 Hadoop 範例 - Azure
 description: 利用提供的範例開始使用 Azure HDInsight 服務。 使用 PowerShell 指令碼在資料叢集上執行 MapReduce 程式。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef88e1d3e165e3ae21b235a33b295b51b574ff67
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 59e6fd0a05374329efb20201c8d904cbbdc72b1a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593279"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110994"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 中執行 Hadoop MapReduce 範例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]

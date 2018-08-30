@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: b8bc24123fe75e876f607b07e37423ae68d92ee4
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 92bd5980ac2e6befbe352df6ddf8644f04d37d34
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093880"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126860"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Linux 上以 C++ 辨識語音
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將了解如何使用認知服務語音 SDK 將語音轉譯成文字，以在 Linux (Ubuntu 16.04) 上建立 C++ 主控台應用程式。
 
@@ -35,7 +35,7 @@ ms.locfileid: "42093880"
 
 ## <a name="get-the-speech-sdk"></a>取得語音 SDK
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 認知服務語音 SDK 目前的版本為 `0.6.0`。
 
@@ -71,7 +71,7 @@ ms.locfileid: "42093880"
 
    它應該會顯示第三方聲明和授權檔案，與包含標頭的 `include` 目錄，以及包含程式庫的 `lib` 目錄。
 
-   [!include[Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
+   [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## <a name="add-the-sample-code"></a>新增範例程式碼
 
@@ -129,7 +129,7 @@ ms.locfileid: "42093880"
    We recognized: What's the weather
    ```
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 在 `quickstart/cpp-linux` 資料夾中尋找此範例。
 
 ## <a name="next-steps"></a>後續步驟

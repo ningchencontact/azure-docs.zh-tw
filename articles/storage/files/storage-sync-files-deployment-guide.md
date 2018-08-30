@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: b84de7475c54d2bc35dcc10b0bbfb0c1839c5631
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 261f8dfe41ece0cd56a4a71972e3142ef8440afb
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522130"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918104"
 ---
 # <a name="deploy-azure-file-sync"></a>部署 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -25,7 +25,7 @@ ms.locfileid: "39522130"
     - Azure 檔案同步的[區域可用性](storage-sync-files-planning.md#region-availability)。
     - 如需如何建立儲存體帳戶的逐步說明，請參閱[建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
     - [建立檔案共用](storage-how-to-create-file-share.md)以取得如何建立檔案共用的逐步說明。
-* 至少有一個 Windows Server 或 Windows Server 叢集的受支援執行個體，以與 Azure 檔案同步進行同步處理。如需 Windows Server 受支援版本的詳細資訊，請參閱[與 Windows Server 的互通性](storage-sync-files-planning.md#azure-file-sync-interoperability)。
+* 至少有一個 Windows Server 或 Windows Server 叢集的受支援執行個體，以與 Azure 檔案同步進行同步處理。如需 Windows Server 受支援版本的詳細資訊，請參閱[與 Windows Server 的互通性](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability)。
 * 確定 PowerShell 5.1 已安裝在您的 Windows Server 上。 如果是使用 Windows Server 2012 R2，請確定至少執行 PowerShell 5.1\*。 因為 PowerShell 5.1 是預設的現成版本，所以您可以在 Windows Server 2016 上安全地略過這項檢查。 在 Windows Server 2012 R2 上，您可以查看 **$PSVersionTable** 物件的 **PSVersion** 屬性值，確定執行的是否為 PowerShell 5.1.\*：
 
     ```PowerShell

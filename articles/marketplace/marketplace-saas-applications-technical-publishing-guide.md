@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056397"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123477"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 應用程式供應項目發行指南
 
@@ -97,7 +97,7 @@ SaaS 應用程式的技術需求很簡單。 發行者只需要與 Azure Active 
 * [IT 專業人員的 Microsoft Azure 內容系列：Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 此外，Azure Active Directory 提供可檢查服務更新的網站   
-* [Azure AD 服務更新](https://azure.microsoft.com/updates/?product=active-directory)|
+* [Azure AD 服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>使用 Azure Active Directory 啟用試用版  
 

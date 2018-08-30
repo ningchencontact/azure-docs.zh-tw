@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1121bc9e34f0e544ba5d7acb9179944ee2382efd
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 2c50ba1abfe3681a39b39bf52f127efd9d518aef
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415731"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041863"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 
 
@@ -57,7 +57,7 @@ ms.locfileid: "39415731"
 
 - 您可以在使用者資訊索引標籤上，因為重新安裝作業系統或以手動方式重新註冊來取得適用於裝置的多個項目。 
 
-- 如果是 Windows 7 SP1 或 Windows Server 2008 R2 SP1，請確定已安裝 [KB4284842](https://support.microsoft.com/en-us/help/4284842)。 此更新可避免未來的驗證因客戶在變更密碼之後遺失存取受保護金鑰的權限而失敗。
+- 如果是 Windows 7 SP1 或 Windows Server 2008 R2 SP1，請確定已安裝 [KB4284842](https://support.microsoft.com/help/4284842)。 此更新可避免未來的驗證因客戶在變更密碼之後遺失存取受保護金鑰的權限而失敗。
 
 ## <a name="step-1-retrieve-the-registration-status"></a>步驟 1：擷取註冊狀態 
 

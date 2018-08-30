@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343150"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140653"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>安裝 Durable Functions 擴充和範例 (Azure Functions)
 
@@ -33,7 +33,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
 
 使用 Durable Functions 來開發應用程式時，Visual Studio 目前提供最佳體驗。  您的函式可以在本機執行，也可以發佈至 Azure。 您可以從空白專案或一組範例函式開始。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 * 安裝[最新版本的 Visual Studio](https://www.visualstudio.com/downloads/) (15.3 版或更新版本)。 在您的安裝選項中包含 **Azure 開發**工作負載。
 
@@ -55,7 +55,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
 
 Visual Studio Code 提供涵蓋所有主要平台 (Windows、macOS 和 Linux) 的本機開發體驗。  您的函式可以在本機執行，也可以發佈至 Azure。 您可以從空白專案或一組範例函式開始。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 * 安裝[最新版的 Visual Studio Code](https://code.visualstudio.com/Download) 
 
@@ -146,14 +146,14 @@ Visual Studio Code 提供涵蓋所有主要平台 (Windows、macOS 和 Linux) �
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
-想要的話，您可以使用 Azure 入口網站進行 Durable Functions 開發。
+想要的話，您可以使用 [Azure 入口網站](https://portal.azure.com)進行 Durable Functions 開發。
 
    > [!NOTE]
    > JavaScript 中的 Durable Functions 尚無法使用於入口網站中。
 
 ### <a name="create-an-orchestrator-function"></a>建立協調器函式
 
-1. 在 [functions.azure.com](https://functions.azure.com/signin) 上建立新的函式應用程式。
+1. 在入口網站中建立新的函式應用程式，如[函式快速入門文章](functions-create-first-azure-function.md#create-a-function-app)中所示。
 
 2. 將函式應用程式設定成[使用 2.0 執行階段版本](set-runtime-version.md)。
 

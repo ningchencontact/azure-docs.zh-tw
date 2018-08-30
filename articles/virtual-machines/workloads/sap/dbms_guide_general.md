@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdf5685ad8072175bdabf8938ef293bed6f5cc13
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075194"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918796"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -263,7 +263,7 @@ Azure 平台會提供適用於 VM 的數個不同 SLA。 如需確切的詳細�
 
 
 ## <a name="azure-network-considerations"></a>Azure 網路考量事項 
-在大規模的 SAP 部署中，建議您將 [Azure 虛擬資料中心](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter)的藍圖使用於其 VNet 組態，以及其不同組織部分的權限和角色指派。
+在大規模的 SAP 部署中，建議您將 [Azure 虛擬資料中心](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)的藍圖使用於其 VNet 組態，以及其不同組織部分的權限和角色指派。
 
 最佳做法有數種，其出自於數百個客戶部署：
 

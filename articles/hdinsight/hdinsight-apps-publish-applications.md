@@ -3,18 +3,18 @@ title: 發佈 Azure HDInsight 應用程式
 description: 了解如何建立 HDInsight 應用程式，然後將其發佈到 Azure Marketplace。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9b25452565a66fbd2edec51626bc636bed3d2e53
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1cfefc3463fee6e432170a16034175bb4267fad5
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599780"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43103565"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>將 HDInsight 應用程式發佈到 Azure Marketplace
 您可以在以 Linux 為基礎的 HDInsight 叢集上安裝 Azure HDInsight 應用程式。 在此文章中，您會學習如何將 HDInsight 應用程式發佈到 Azure Marketplace。 如需發佈到 Azure Marketplace 的一般資訊，請參閱[將供應項目發佈到 Azure Marketplace](../marketplace/marketplace-publishers-guide.md)。

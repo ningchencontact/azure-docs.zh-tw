@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 316c7212c30e9fe1151cdf5ceabf875439ad4c65
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368166"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42093819"
 ---
 # <a name="facebook-content-moderation-with-content-moderator"></a>使用 Content Moderator 進行 Facebook 內容仲裁
 
@@ -85,7 +85,7 @@ ms.locfileid: "35368166"
     6. 按一下頁面底部的 [新增] 。
     7. 使用來自 [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx) 的內容取代 **run.csx** 的內容。
 
-6. 建立名為 **CMListener** 的新 **HttpTrigger-CSharp** 函式。 此函式會從 Facebook 接收事件。 請依照下列步驟來建立此函式。
+6. 建立名為 **CMListener** 的新 **HttpTrigger-CSharp** 函式。 此函式會從 Content Moderator 接收事件。 請依照下列步驟來建立此函式。
 
     1. 將 [Azure Functions 建立](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 頁面保持開啟以供參考。
     2. 按一下 [+ 新增]以建立新函式。
@@ -150,7 +150,7 @@ ms.locfileid: "35368166"
 
 ## <a name="license"></a>授權
 
-所有「Microsoft 認知服務 SDK」和範例都是透過 MIT 授權來獲得授權的。 如需詳細資料，請參閱[授權](https://microsoft.mit-license.org/) \(英文\)。
+所有 Microsoft 認知服務 SDK 和範例都是透過 MIT 授權來獲得授權的。 如需詳細資料，請參閱[授權](https://microsoft.mit-license.org/) \(英文\)。
 
 ## <a name="developer-code-of-conduct"></a>開發人員行為準則
 

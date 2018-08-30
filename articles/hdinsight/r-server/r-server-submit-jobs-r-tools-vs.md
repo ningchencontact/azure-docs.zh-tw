@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 14618e46dd95dae6b7e5923a43a8eaef5e5c8518
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 65a0d8074b8dcf89d8fc713cb4b2272c6576e8fb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617542"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043949"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>從 Visual Studio R 工具提交作業
 

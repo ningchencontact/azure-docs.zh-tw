@@ -5,23 +5,22 @@ ms.service: data-lake-analytics
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
-ms.topic: get-started-article
+ms.reviewer: jasonwhowell
+ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 3095c3281e1797c8103e0c229c62aca1aae3444f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: db20188244ba12afa97c96400e095d06a0dffce5
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625096"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043742"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>使用 Azure CLI 2.0 開始使用 Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 本文說明如何使用 Azure CLI 2.0 命令列介面，來建立 Azure Data Lake Analytics 帳戶、提交 U-SQL 作業和目錄。 此作業可讀取定位字元分隔值 (TSV) 檔案，並將該檔案轉換為逗點分隔值 (CSV) 檔案。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在開始之前，您需要下列項目：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。

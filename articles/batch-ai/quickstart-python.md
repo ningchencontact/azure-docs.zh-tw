@@ -15,12 +15,12 @@ ms.devlang: Python
 ms.topic: quickstart
 ms.date: 06/18/2018
 ms.author: danlep
-ms.openlocfilehash: 6e80996cb0359e88d2a6d5fae231523a5c69c8ca
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 2ae0220b5240dc4a6e6d70056956140feb8153c4
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295256"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108522"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-python-sdk"></a>使用 Azure Python SDK 執行 CNTK 訓練作業
 
@@ -28,7 +28,7 @@ ms.locfileid: "36295256"
 
 在此範例中中，您可使用手寫映像的 MNIST 資料庫，在單一節點 GPU 叢集上訓練卷積神經網路 (CNN)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶 - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -171,7 +171,7 @@ parameters = models.ClusterCreateParameters(
         ),
     ),
 )
-batchai_client.clusters.create(resource_group_name, cluster_name,
+batchai_client.clusters.create(resource_group_name, workspace_name, cluster_name,
                                parameters).result()
 ```
 

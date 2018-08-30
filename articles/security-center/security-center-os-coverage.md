@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 1bb0b61fe8a74edd35bb096fd295aedc67f6efb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b82b152ae4f44e475b5c3e9bda9d604f405503e0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335885"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123726"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Azure 資訊安全中心支援的平台
 針對使用傳統與 Resource Manager 部署模型建立的虛擬機器 (VM) 與電腦，提供安全性狀態監視和建議。

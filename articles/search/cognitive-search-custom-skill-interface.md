@@ -3,27 +3,30 @@ title: 認知搜尋管線中自訂技能的介面定義 (Azure 搜尋服務) | M
 description: Azure 搜尋服務的認知搜尋管線中，web-api 自訂技能的自訂資料擷取介面。
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 08/14/2018
 ms.author: luisca
-ms.openlocfilehash: 8f21a56982189aa13745f27f0fae49310ae55aa0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2218a96702a02a32df18da9640ea9946d05acdb1
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640314"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140884"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>如何將自訂技能新增至認知搜尋管線
 
-在本文中，您會了解如何將自訂技能新增至認知搜尋管線。 Azure 搜尋服務中的[認知搜尋索引管線](cognitive-search-concept-intro.md)可從[預先定義的技能](cognitive-search-predefined-skills.md)和自行建立並新增至管線的自訂技能來組合。
+Azure 搜尋服務中的[認知搜尋索引管線](cognitive-search-concept-intro.md)可從[預先定義的技能](cognitive-search-predefined-skills.md)以及自行建立並新增至管線的自訂技能來組合。 在本文中，了解如何建立自訂技能，公開介面以讓它包含在認知搜尋管線中。 
 
 建置自訂技能可讓您插入內容獨有的轉換。 自訂技能會獨立執行，可套用在任何所需的擴充步驟。 例如，您可以定義欄位特定的自訂實體、建立自訂的分類模型以區分商務和財務合約和文件，或者新增語音辨識技能以深入觸及音訊檔案來了解相關內容。 如需逐步範例，請參閱[範例：建立自訂技能](cognitive-search-create-custom-skill-example.md)。
 
  無論您需要哪一種自訂功能，都有一個簡單且清楚的介面，可將自訂技能連接到擴充管線的其餘部分。 要包含[技能集](cognitive-search-defining-skillset.md)中的唯一需求，便是以在技能集內可整體取用的方式，接受輸入並發出輸出的能力。 本文著重於擴充管線所需的輸入和輸出格式。
 
 ## <a name="web-api-custom-skill-interface"></a>Web API 自訂技能介面
+
+自訂 WebAPI 技能端點必須在 5 分鐘的時段內傳回回應。 索引管線是同步的，且如果未在該時段內收到回應，則索引會產生逾時錯誤。
 
 目前與自訂技能互動的唯一機制是透過 Web API 介面。 Web API 的需求必須符合本節所描述的需求。
 

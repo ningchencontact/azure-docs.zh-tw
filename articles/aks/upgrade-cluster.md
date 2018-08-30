@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 4ff2b56afc4496b6344735b4e3c813b06cee17e3
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144579"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140262"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升級 Azure Kubernetes Service (AKS) 叢集
 
@@ -39,7 +39,7 @@ default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.
 我們有三個版本可進行升級：1.9.1、1.9.2 和 1.9.6。 我們可以使用 `az aks upgrade` 命令，升級為最新的可用版本。  在升級過程中，AKS 會將新節點新增至叢集，然後仔細地[隔離並清空][kubernetes-drain]節點 (一次一個)，將中斷執行中應用程式的情況降到最低。
 
 > [!NOTE]
-> 升級 AKS 叢集時，無法略過 Kubernetes 次要版本。 例如，允許 1.8.x -> 1.9.x 或 1.9.x -> 1.10.x 之間的升級，但不允許 1.8 -> 1.10 的升級。
+> 升級 AKS 叢集時，無法略過 Kubernetes 次要版本。 例如，允許 1.8.x -> 1.9.x 或 1.9.x -> 1.10.x 之間的升級，但不允許 1.8 -> 1.10 的升級。 若要從 1.8 升級至 1.10，您必須先從 1.8 升級至 1.9，再從 1.9 升級至 1.10
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

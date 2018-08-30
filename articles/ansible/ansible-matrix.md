@@ -4,16 +4,16 @@ description: Azure 的 Ansible 模組和版本對照表
 ms.service: ansible
 keywords: ansible, 角色, 對照表, 版本, azure, devops
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 07/02/2018
 ms.topic: article
-ms.openlocfilehash: c9be94d1ea77b3609f146a373574e10b7f4d4355
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8bbb2563991b45fe7a20ce243751c1c1a1f75b99
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859913"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094902"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 模組和版本對照表
 
@@ -24,91 +24,91 @@ Ansible 隨附於許多模組，這些模組可以直接在遠端主機上或透
 | Azure 的 Ansible 模組                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 |  劇本角色 [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------| 
 | **計算**                    |           |                          |                          |                                  | 
-| azure_rm_availabilityset                    | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_availabilityset_facts              | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_deployment                         | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_resource                           | -            | -                           | yes          | yes                                 | 
-| azure_rm_resource_facts                     | -            | -                           | yes          | yes                                 | 
-| azure_rm_virtualmachine_scaleset_facts      | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_virtualmachineimage_facts          | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_resourcegroup                      | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_resourcegroup_facts                | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_virtualmachine                     | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_virtualmachine_extension           | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_virtualmachine_scaleset            | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_image                              |              | yes                         | yes          | yes                                 | 
+| azure_rm_availabilityset                    | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_availabilityset_facts              | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_deployment                         | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_resource                           | -            | -                           | 是          | 是                                 | 
+| azure_rm_resource_facts                     | -            | -                           | 是          | 是                                 | 
+| azure_rm_virtualmachine_scaleset_facts      | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_virtualmachineimage_facts          | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_resourcegroup                      | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_resourcegroup_facts                | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_virtualmachine                     | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_virtualmachine_extension           | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_virtualmachine_scaleset            | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_image                              |              | 是                         | yes          | 是                                 | 
 | **網路功能**                    |           |                          |                          |                                  | 
-| azure_rm_virtualnetwork                     | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_virtualnetwork_facts               | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_subnet                             | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_networkinterface                   | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_networkinterface_facts             | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_publicipaddress                    | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_publicipaddress_facts              | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_dnsrecordset                       | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_dnsrecordset_facts                 | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_dnszone                            | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_dnszone_facts                      | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_loadbalancer                       | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_loadbalancer_facts                 | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_appgw                              | -            | -                           | -            | yes                                 | 
-| azure_rm_appgwroute                         | -            | -                           | -            | yes                                 | 
-| azure_rm_appgwroute                         | -            | -                           | -            | yes                                 |
-| azure_rm_appgwroute_facts                   | -            | -                           | -            | yes                                 |
-| azure_rm_appgwroutetable                    | -            | -                           | -            | yes                                 |
-| azure_rm_securitygroup                      | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_appgwroutetable_facts              | -            | -                           | -            | yes                                 | 
+| azure_rm_virtualnetwork                     | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_virtualnetwork_facts               | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_subnet                             | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_networkinterface                   | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_networkinterface_facts             | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_publicipaddress                    | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_publicipaddress_facts              | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_dnsrecordset                       | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_dnsrecordset_facts                 | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_dnszone                            | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_dnszone_facts                      | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_loadbalancer                       | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_loadbalancer_facts                 | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_appgw                              | -            | -                           | -            | 是                                 | 
+| azure_rm_appgwroute                         | -            | -                           | -            | 是                                 | 
+| azure_rm_appgwroute                         | -            | -                           | -            | 是                                 |
+| azure_rm_appgwroute_facts                   | -            | -                           | -            | 是                                 |
+| azure_rm_appgwroutetable                    | -            | -                           | -            | 是                                 |
+| azure_rm_securitygroup                      | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_appgwroutetable_facts              | -            | -                           | -            | 是                                 | 
 | **儲存體**                    |           |                          |                          |                                  | 
-| azure_rm_storageaccount                     | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_storageaccount_facts               | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_storageblob                        | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_managed_disk                       | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_managed_disk_facts                 | yes          | yes                         | yes          | yes                                 | 
+| azure_rm_storageaccount                     | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_storageaccount_facts               | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_storageblob                        | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_managed_disk                       | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_managed_disk_facts                 | 是          | yes                         | yes          | 是                                 | 
 | **容器**                    |           |                          |                          |                                  | 
-| azure_rm_aks                                | -            | -                           | yes          | yes                                 | 
-| azure_rm_aks_facts                          | -            | -                           | yes          | yes                                 | 
-| azure_rm_acs                                | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_containerinstance                  | -            | yes                         | yes          | yes                                 | 
-| azure_rm_containerinstance_facts            | -            | -                           | -            | yes                                 | 
-| azure_rm_containerregistry                  | -            | yes                         | yes          | yes                                 | 
-| azure_rm_containerregistry_facts            | -            | -                           | -            | yes                                 | 
-| azure_rm_containerregistryreplication       | -            | -                           | -            | yes                                 | 
-| azure_rm_containerregistryreplication_facts | -            | -                           | -            | yes                                 | 
-| azure_rm_containerregistrywebhook           | -            | -                           | -            | yes                                 | 
-| azure_rm_containerregistrywebhook_facts     | -            | -                           | -            | yes                                 | 
+| azure_rm_aks                                | -            | -                           | 是          | 是                                 | 
+| azure_rm_aks_facts                          | -            | -                           | 是          | 是                                 | 
+| azure_rm_acs                                | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_containerinstance                  | -            | 是                         | yes          | 是                                 | 
+| azure_rm_containerinstance_facts            | -            | -                           | -            | 是                                 | 
+| azure_rm_containerregistry                  | -            | 是                         | yes          | 是                                 | 
+| azure_rm_containerregistry_facts            | -            | -                           | -            | 是                                 | 
+| azure_rm_containerregistryreplication       | -            | -                           | -            | 是                                 | 
+| azure_rm_containerregistryreplication_facts | -            | -                           | -            | 是                                 | 
+| azure_rm_containerregistrywebhook           | -            | -                           | -            | 是                                 | 
+| azure_rm_containerregistrywebhook_facts     | -            | -                           | -            | 是                                 | 
 | **Azure Functions**                    |           |                          |                          |                                  | 
-| azure_rm_functionapp                        | yes          | yes                         | yes          | yes                                 | 
-| azure_rm_functionapp_facts                  | yes          | yes                         | yes          | yes                                 | 
+| azure_rm_functionapp                        | 是          | yes                         | yes          | 是                                 | 
+| azure_rm_functionapp_facts                  | 是          | yes                         | yes          | 是                                 | 
 | **資料庫**                    |           |                          |                          |                                  | 
-| azure_rm_sqlserver                          | -            | yes                         | yes          | yes                                 | 
-| azure_rm_sqlserver_facts                    | -            | yes                         | yes          | yes                                 | 
-| azure_rm_sqldatabase                        | -            | yes                         | yes          | yes                                 | 
-| azure_rm_sqldatabase_facts                  | -            | -                           | -            | yes                                 | 
-| azure_rm_sqlelasticpool                     | -            | -                           | -            | yes                                 | 
-| azure_rm_sqlelasticpool_facts               | -            | -                           | -            | yes                                 | 
-| azure_rm_sqlfirewallrule                    | -            | -                           | -            | yes                                 | 
-| azure_rm_sqlfirewallrule_facts              | -            | -                           | -            | yes                                 | 
-| azure_rm_mysqlserver                        | -            | yes                         | yes          | yes                                 | 
-| azure_rm_mysqlserver_facts                  | -            | -                           | -            | yes                                 | 
-| azure_rm_mysqldatabase                      | -            | yes                         | yes          | yes                                 | 
-| azure_rm_mysqldatabase_facts                | -            | -                           | -            | yes                                 | 
-| azure_rm_mysqlfirewallrule                  | -            | -                           | -            | yes                                 | 
-| azure_rm_mysqlfirewallrule_facts            | -            | -                           | -            | yes                                 | 
-| azure_rm_mysqlconfiguration                 | -            | -                           | -            | yes                                 | 
-| azure_rm_mysqlconfiguration_facts           | -            | -                           | -            | yes                                 | 
-| azure_rm_postgresqlserver                   | -            | yes                         | yes          | yes                                 | 
-| azure_rm_postgresqlserver_facts             | -            | -                           | -            | yes                                 | 
-| azure_rm_postgresqldatabase                 | -            | yes                         | yes          | yes                                 | 
-| azure_rm_postgresqldatabase_facts           | -            | -                           | -            | yes                                 | 
-| azure_rm_postgresqlfirewallrule             | -            | -                           | -            | yes                                 | 
-| azure_rm_postgresqlfirewallrule_facts       | -            | -                           | -            | yes                                 | 
-| azure_rm_postgresqlconfiguration            | -            | -                           | -            | yes                                 | 
-| azure_rm_postgresqlconfiguration_facts      | -            | -                           | -            | yes                                 | 
+| azure_rm_sqlserver                          | -            | 是                         | yes          | 是                                 | 
+| azure_rm_sqlserver_facts                    | -            | 是                         | yes          | 是                                 | 
+| azure_rm_sqldatabase                        | -            | 是                         | yes          | 是                                 | 
+| azure_rm_sqldatabase_facts                  | -            | -                           | -            | 是                                 | 
+| azure_rm_sqlelasticpool                     | -            | -                           | -            | 是                                 | 
+| azure_rm_sqlelasticpool_facts               | -            | -                           | -            | 是                                 | 
+| azure_rm_sqlfirewallrule                    | -            | -                           | -            | 是                                 | 
+| azure_rm_sqlfirewallrule_facts              | -            | -                           | -            | 是                                 | 
+| azure_rm_mysqlserver                        | -            | 是                         | yes          | 是                                 | 
+| azure_rm_mysqlserver_facts                  | -            | -                           | -            | 是                                 | 
+| azure_rm_mysqldatabase                      | -            | 是                         | yes          | 是                                 | 
+| azure_rm_mysqldatabase_facts                | -            | -                           | -            | 是                                 | 
+| azure_rm_mysqlfirewallrule                  | -            | -                           | -            | 是                                 | 
+| azure_rm_mysqlfirewallrule_facts            | -            | -                           | -            | 是                                 | 
+| azure_rm_mysqlconfiguration                 | -            | -                           | -            | 是                                 | 
+| azure_rm_mysqlconfiguration_facts           | -            | -                           | -            | 是                                 | 
+| azure_rm_postgresqlserver                   | -            | 是                         | yes          | 是                                 | 
+| azure_rm_postgresqlserver_facts             | -            | -                           | -            | 是                                 | 
+| azure_rm_postgresqldatabase                 | -            | 是                         | yes          | 是                                 | 
+| azure_rm_postgresqldatabase_facts           | -            | -                           | -            | 是                                 | 
+| azure_rm_postgresqlfirewallrule             | -            | -                           | -            | 是                                 | 
+| azure_rm_postgresqlfirewallrule_facts       | -            | -                           | -            | 是                                 | 
+| azure_rm_postgresqlconfiguration            | -            | -                           | -            | 是                                 | 
+| azure_rm_postgresqlconfiguration_facts      | -            | -                           | -            | 是                                 | 
 | **金鑰保存庫**                    |           |                          |                          |                                  | 
-| azure_rm_keyvault                           | -            | yes                         | yes          | yes                                 |
-| azure_rm_keyvault_facts                     | -            | -                           | -            | yes                                 |
-| azure_rm_keyvaultkey                        | -            | yes                         | yes          | yes                                 |
-| azure_rm_keyvaultsecret                     | -            | yes                         | yes          | yes                                 |
+| azure_rm_keyvault                           | -            | 是                         | yes          | 是                                 |
+| azure_rm_keyvault_facts                     | -            | -                           | -            | 是                                 |
+| azure_rm_keyvaultkey                        | -            | 是                         | yes          | 是                                 |
+| azure_rm_keyvaultsecret                     | -            | 是                         | yes          | 是                                 |
 
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Azure 劇本角色簡介

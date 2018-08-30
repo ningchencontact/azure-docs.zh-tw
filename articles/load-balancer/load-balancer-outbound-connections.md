@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2018
+ms.date: 08/15/2018
 ms.author: kumud
-ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824994"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140063"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -220,7 +220,7 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 
 例如，後端集區中的 2 部虛擬機器有 1024 個 SNAT 連接埠可供每個 IP 組態使用，總計允許 2048 個 SNAT 連接埠用於部署。  如果部署增加到 50 部虛擬機器，即使每部虛擬機器預先配置的連接埠數目維持不變，部署還是可以使用總計 51,200 (50 x 1024) 個 SNAT 連接埠。  如果您想要將部署相應放大，請檢查每層[預先配置的連接埠](#preallocatedports)數目，以確定您針對個別層相應放大到最大值。  在先前範例中，如果您已選擇相應放大到 51 個而不是 50 個執行個體，您會進到下一層且最終在每部虛擬機器及總計上具有較少的 SNAT 連接埠。
 
-相反地，如果已配置的連接埠必須重新配置，則相應放大到下一個較大後端集區大小層可能會輸出連線。  如果您不希望發生這種情形，則必須讓部署符合層大小。  或確保您的應用程式可以視需要偵測及重試。  TCP 存留可協助在 SNAT 連接埠因為重新配置而無法運作時進行偵測。
+如果您相應放大到下一個較大後端集區大小的層級，且必須將已配置的連接埠重新配置，則部分輸出連線可能會逾時。  如果您只使用部分 SNAT 連接埠，則相應放大到下一個較大後端集區大小並無意義。  每當您移至下一個後端集區層級時，會有一半的現有連接埠重新配置。  如果您不希望發生這種情形，則必須讓部署符合層大小。  或確保您的應用程式可以視需要偵測及重試。  TCP 存留可協助在 SNAT 連接埠因為重新配置而無法運作時進行偵測。
 
 ### <a name="idletimeout"></a>使用 Keepalive 來重設輸出閒置逾時
 

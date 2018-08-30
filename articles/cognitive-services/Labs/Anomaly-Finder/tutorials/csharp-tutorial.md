@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c6d33de70fd5b7c03b7af6b85e8ebc567dd2f925
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502503"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42093846"
 ---
 # <a name="anomaly-detection-c-application"></a>異常偵測 C# 應用程式
 
@@ -77,7 +77,8 @@ ms.locfileid: "39502503"
             // ----------------------------------------------------------------------
 
 ```
-**Request(...)** 以下程式碼片段示範如何使用 HttlClient，將您的訂用帳戶金鑰和資料點提交到異常偵測 API 的端點。
+### <a name="request"></a>**要求**
+以下程式碼片段示範如何使用 HttpClient，將訂用帳戶金鑰和資料點提交到異常偵測 API 的端點。
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4bf92638e15767ea254b33e5804977f0d6ab5476
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412180"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140052"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>使用 Power BI 工作區集合驗證和授權
 
@@ -44,10 +44,10 @@ Power BI 工作區集合服務會使用**金鑰**和**應用程式權杖**進行
 
 您的應用程式權杖可包含下列宣告：
 
-| 宣告 | 說明 |
+| 宣告 | 說明 |    
 | --- | --- |
 | **ver** |應用程式權杖的版本。 目前版本為 0.2.0。 |
-| **aud** |權杖的預定接收者。 針對 Power BI 工作區集合，請使用：「https://analysis.windows.net/powerbi/api」。 |
+| **aud** |權杖的預定接收者。 對於 Power BI 工作區集合，使用：https:\//analysis.windows.net/powerbi/api。 |
 | **iss** |字串，表示已發出權杖的應用程式。 |
 | **type** |正在建立的應用程式權杖類型。 目前唯一支援的類型為 **內嵌**。 |
 | **wcn** |為其發出權杖的工作區集合名稱。 |
@@ -100,7 +100,7 @@ SDK 中有方法可簡化應用程式權杖的建立。 例如，對於 .NET，�
 
 以下是 Power BI 工作區集合的可用範圍。
 
-|Scope|說明|
+|影響範圍|說明|
 |---|---|
 |Dataset.Read|提供讀取指定資料集的權限。|
 |Dataset.Write|提供寫入指定資料集的權限。|

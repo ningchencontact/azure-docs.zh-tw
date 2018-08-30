@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: d46ff5563df1423e3c01ba945b328b748b5979b4
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2f8a22c6cda6c63a225fbfe8fba4cf4c8396b53e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091566"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140873"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
@@ -280,6 +280,25 @@ public void Process(ITelemetry item)
 [詳細查看此範例。](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
 <a name="js-initializer"></a>
+
+### <a name="java-telemetry-initializers"></a>Java 遙測初始設定式
+
+[Java SDK 文件](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility._telemetry_initializer?view=azure-java-stable)
+
+```Java
+public interface TelemetryInitializer
+{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
+
+void initialize(Telemetry telemetry); }
+```
+
+然後，在 applicationinsights.xml 檔案中註冊自訂的初始設定式。
+
+```xml
+<Add type="mypackage.MyConfigurableContextInitializer">
+<Param name="some_config_property" value="some_value" />
+</Add>
+```
 
 ### <a name="javascript-telemetry-initializers"></a>JavaScript 遙測初始設定式
 *JavaScript*

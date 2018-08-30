@@ -3,18 +3,18 @@ title: 快速入門：使用範本在 HDInsight 中建立 Spark 叢集
 description: 本快速入門會說明如何使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Spark 叢集，以及執行簡單的 Spark SQL 查詢。
 services: azure-hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jasonh
 ms.custom: mvc
-ms.openlocfilehash: d8a56704afda30a0a9466cab9d78a31490b113de
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: eccef79b53a78abc577ff40d84b615968be3dd0f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619442"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046108"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>快速入門：使用範本在 HDInsight 中建立 Spark 叢集
 

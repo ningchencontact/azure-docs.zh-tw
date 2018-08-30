@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 50c6a0cc268e2b638a03494bed96d294789da9ab
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 92e1d94f9d68e6d877e2c39b71151dee77f5a49f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794661"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120613"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>快速入門：使用 Azure RM PowerShell 模組建立原則指派，以識別不符合規範的資源
 
@@ -22,9 +22,9 @@ ms.locfileid: "34794661"
 
 AzureRM PowerShell 模組用於從命令列或在指令碼中建立和管理 Azure 資源。 本指南說明如何使用 AzureRM 建立原則指派。 此原則可識別 Azure 環境中不符合規範的資源。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 請安裝 [ARMClient](https://github.com/projectkudu/ARMClient) (如果尚未安裝)。 此工具會將 HTTP 要求傳送至以 Azure Resource Manager 為基礎的 API。
 - 開始之前，請確定已安裝最新版 PowerShell。 如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
@@ -108,7 +108,7 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 此集合中的後續指南是以本快速入門為基礎。 如果您打算繼續進行其他教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，您可藉由執行以下命令來刪除您所建立的指派：
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
 ```
 
 ## <a name="next-steps"></a>後續步驟

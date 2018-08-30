@@ -3,18 +3,18 @@ title: 使用 HDInsight 開發指令碼動作 - Azure
 description: 了解如何使用指令碼動作來自訂 Hadoop 叢集。 指令碼動作可用來安裝其他在 Hadoop 叢集上執行的軟體，或變更叢集上所安裝應用程式的組態。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f26a11e623148eecc8096b45c6ac9df68b8e102a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e14f106c9cd2d2d2f65fb72ad8890c4a9042cb47
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599151"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104094"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>開發 HDInsight Windows 型叢集指令碼動作指令碼
 了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
@@ -96,7 +96,7 @@ ms.locfileid: "39599151"
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
-| Name | 指令碼 |
+| 名稱 | 指令碼 |
 | --- | --- |
 | **安裝 Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`。 請參閱[在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]。 |
 | **安裝 R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`。 請參閱 [在 HDInsight 叢集上安裝及使用 R](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster)。 |
@@ -163,7 +163,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 * 提供穩定的指令碼資源連結
 
     使用者應該確定在叢集的整個存留期間，於叢集自訂中使用的所有指令碼及其他構件都保持可用，並且這些檔案的版本在此持續時間內不會變更。 如需為叢集中的節點重新製作映像，就必須有這些資源。 最佳做法是下載並封存使用者所控制之儲存體帳戶中的所有項目。 這可以是預設的儲存體帳戶，或是在部署時為自訂叢集指定的任何其他儲存體帳戶。
-    例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，此儲存體帳戶中具有資源的已本機複本：https://hdiconfigactions.blob.core.windows.net/。
+    例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，此儲存體帳戶中具有資源的已本機複本： https://hdiconfigactions.blob.core.windows.net/。
 * 確保叢集自訂指令碼具有等冪性
 
     您必須預期在叢集存留期間將為 HDInsight 叢集的節點重新製作映像。 每當重新製作叢集映像時，都會執行叢集自訂指令碼。 此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集會回到與當初建立叢集時，指令碼剛剛第一次執行後相同的自訂狀態。 例如，如果自訂指令碼在第一次執行時，在 D:\AppLocation 中安裝了某個應用程式，則在後續每次的執行中，當重新製作映像時，此指令碼應該先檢查 D:\AppLocation 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
