@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 05/08/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 282cd4bc9256fc483014b53626c02106d0de236a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e6c3330519692eb829803af2582b711be2fb3efe
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885114"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092873"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>快速入門：使用 PowerShell 建立 Azure Container Registry
 
 Azure Container Registry 是受控的私用 Docker 容器登錄服務，用於建立、儲存及提供 Docker 容器映像。 在此快速入門中，您會學到如何使用 PowerShell 建立 Azure 容器登錄。 建立登錄之後，您會將容器映像推送到此登錄，再從登錄將容器部署至 Azure 容器執行個體 (ACI)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本快速入門需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來判斷您安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
@@ -252,7 +252,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[New-AzureRMContainerRegistry]: /powershell/module/containerregistry/New-AzureRMContainerRegistry
+[New-AzureRMContainerRegistry]: /powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
 

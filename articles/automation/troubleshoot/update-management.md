@@ -4,20 +4,44 @@ description: 了解如何針對更新管理問題進行疑難排解
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 08/08/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b77d1210ff48a4bd30834fcbad64173bf77b1290
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064386"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146357"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
-本文探討您使用「更新管理」時可能遇到之問題的解決方案
+本文探討您使用「更新管理」時可能遇到的問題及其解決方案。
+
+## <a name="general"></a>一般
+
+### <a name="components-enabled-not-working"></a>案例：已啟用「更新管理」解決方案的元件，而此虛擬機器現在正在設定中
+
+#### <a name="issue"></a>問題
+
+上架後 15 分鐘，您會繼續在虛擬機器上看見下列訊息：
+
+```
+The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
+```
+
+#### <a name="cause"></a>原因
+
+這個錯誤可能是下列原因所造成：
+
+1. 正在封鎖連回自動化帳戶的通訊。
+2. 正在上架的 VM 可能來自已安裝 Microsoft Monitoring Agent 但未執行過 sysprep 的所複製機器。
+
+#### <a name="resolution"></a>解決方案
+
+1. 請瀏覽[網路規劃](../automation-hybrid-runbook-worker.md#network-planning)，了解必須允許哪些位址和連接埠，才能進行更新管理。
+2. 如果使用複製的映像，請先對映像執行 sysprep，然後再安裝 MMA 代理程式。
 
 ## <a name="windows"></a>Windows
 
@@ -31,7 +55,7 @@ ms.locfileid: "37064386"
 
 您收到下列錯誤訊息：
 
-```error
+```
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
@@ -39,7 +63,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 電腦已經在另一個工作區上線以供進行「更新管理」。
 
-#### <a name="resolution"></a>解決方式
+#### <a name="resolution"></a>解決方案
 
 在電腦上藉由[刪除混合式 Runbook 群組](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)來清除舊成品，然後再試一次。
 
@@ -65,7 +89,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 可能有 Proxy、閘道或防火牆封鎖網路通訊。
 
-#### <a name="resolution"></a>解決方式
+#### <a name="resolution"></a>解決方案
 
 檢閱您的網路並確定已允許適當的連接埠和位址。 如需「更新管理」和「混合式 Runbook 背景工作角色」所需的連接埠和位址清單，請參閱[網路需求](../automation-hybrid-runbook-worker.md#network-planning)。
 
@@ -83,7 +107,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 「混合式 Runbook 背景工作角色」無法產生自我簽署憑證
 
-#### <a name="resolution"></a>解決方式
+#### <a name="resolution"></a>解決方案
 
 確認系統帳戶具有 **C:\ProgramData\Microsoft\Crypto\RSA** 資料夾的讀取存取權，然後再試一次。
 
@@ -99,7 +123,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 「Linux 混合式背景工作角色」狀況不良。
 
-#### <a name="resolution"></a>解決方式
+#### <a name="resolution"></a>解決方案
 
 複製以下記錄檔並將其保留供疑難排解使用：
 
@@ -121,7 +145,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 * 特定套件可能干擾雲端式修補
 * 其他原因
 
-#### <a name="resolution"></a>解決方式
+#### <a name="resolution"></a>解決方案
 
 如果在更新執行於 Linux 上成功開始後，於更新執行期間發生失敗，請查看來自該執行中受影響電腦的工作輸出。 您可能可以從電腦套件管理員找到可供研究和採取動作的特定錯誤訊息。 「更新管理」必須在套件管理員狀況良好的情況下，才能進行成功的更新部署。
 
@@ -135,7 +159,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您看不到問題或無法解決問題，請瀏覽下列其中一個管道以取得更多支援：
+如果您看不到問題或無法解決問題，請瀏覽下列其中一個通道以取得更多支援：
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。

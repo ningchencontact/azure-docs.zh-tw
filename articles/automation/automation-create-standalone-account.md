@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 77d766358135f5cdabfe7e9b62e54513c2604ed3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193561"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145125"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
 
@@ -68,7 +68,7 @@ ms.locfileid: "34193561"
   >
   > ![加入自動化帳戶警告](media/automation-create-standalone-account/create-account-without-perms.png)
   >
-1. 在 [加入自動化帳戶] 窗格的 [名稱] 方塊中，輸入新自動化帳戶的名稱。
+1. 在 [加入自動化帳戶] 窗格的 [名稱] 方塊中，輸入新自動化帳戶的名稱。 選擇名稱之後，就無法變更此名稱。
 1. 如果您有多個訂用帳戶，請在 [訂用帳戶] 方塊中，指定您想要用於新帳戶的訂用帳戶。
 1. 對於 [資源群組]，輸入或選取新的或現有的資源群組。
 1. 對於 [位置]，選取一個 Azure 資料中心位置。

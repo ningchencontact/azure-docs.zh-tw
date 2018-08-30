@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 47509cd0a9208f41a52bf1a07c460bcdda2cb479
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325474"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146397"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
@@ -86,15 +86,11 @@ Load Balancer 為 TCP 和 UDP 應用程式提供下列基本功能：
 
 * **健康情況探查**
 
-     若要判斷後端集區中執行個體的健康情況，Load Balancer 會使用您定義的健康情況探查。 當探查無法回應時，負載平衡器會停止傳送新的連線至狀況不良的執行個體。 現有連線不會受到影響，會繼續維持連線直到應用程式終止流程、發生閒置逾時或 VM 關機。
+    若要判斷後端集區中執行個體的健康情況，Load Balancer 會使用您定義的健康情況探查。 當探查無法回應時，負載平衡器會停止傳送新的連線至狀況不良的執行個體。 現有連線不會受到影響，會繼續維持連線直到應用程式終止流程、發生閒置逾時或 VM 關機。
+     
+    Load Balancer 會為 TCP、HTTP 和 HTTPS 端點提供[不同的健康情況探查類型](load-balancer-custom-probe-overview.md#types)。
 
-    支援的探查類型有三種：
-
-    - **HTTP 自訂探查：** 您可以使用此探查建立自己的自訂邏輯，來判斷後端集區執行個體的健康情況。 Load Balancer 會定期探查您的端點 (預設為每 15 秒一次)。 如果執行個體在逾時期限 (預設值為 31 秒) 內以 HTTP 200 回應，系統會將其視為狀況良好。 HTTP 200 以外的任何狀態皆會造成此探查失敗。 此探查也適合用於實作您自己的邏輯，從 Load Balancer 的循環中移除執行個體。 例如，您可以將執行個體設定為大於 90% 的 CPU 時傳回非 200 狀態。  此探查會覆寫預設的客體代理程式探查。
-
-    - **TCP 自訂探查：** 此探查依賴於將 TCP 工作階段成功建立至定義的探查連接埠。 只要 VM 上有指定的接聽程式，此探查就成功。 如果系統拒絕連線，探查便會失敗。 此探查會覆寫預設的客體代理程式探查。
-
-    - **客體代理程式探查：** 負載平衡器也可以利用虛擬機器內的客體代理程式。 客體代理程式只有在執行個體處於就緒狀態時，才會接聽並以「HTTP 200 確定」回應。 如果代理程式無法以 HTTP 200 OK 回應，負載平衡器就會將執行個體標示為沒有回應，並停止傳送流量到該執行個體。 負載平衡器會繼續嘗試聯繫執行個體。 如果客體代理程式以 HTTP 200 回應，則負載平衡器會再次傳送流量到該執行個體。 客體代理程式探查是_最後手段_，只要還能使用 HTTP 或 TCP 自訂探查設定，就不建議使用此方式。 
+    此外，使用傳統雲端服務時，允許使用其他類型：[客體代理程式](load-balancer-custom-probe-overview.md#guestagent)。  這應該被視為健康情況探查的最後手段，但不建議使用於有其他可行的選項時。
     
 * **輸出連線 (SNAT)**
 
@@ -114,7 +110,7 @@ Load Balancer 支援基本和標準 SKU，兩者在案例規模、功能、價�
 不過，根據選擇的 SKU 不同，完整的案例設定可能稍有不同。 當文章僅適用於特定 SKU 時，Load Balancer 文件才會加以標注。 若要比較並了解其中的差異，請參閱下表。 如需詳細資訊，請參閱[標準 Load Balancer 概觀](load-balancer-standard-overview.md)。
 
 >[!NOTE]
-> 新的設計應該使用標準 Load Balancer。 
+> 新的設計應該使用 Standard Load Balancer。 
 
 獨立 VM、可用性設定組和虛擬機器擴展集都只能和一個 SKU 連線，永遠不能和兩者同時連線。 與公用 IP 位址搭配使用時，Load Balancer 和公用 IP 位址的 SKU 必須相符。 Load Balancer 和公用 IP 的 SKU 不可變動。
 
@@ -170,7 +166,7 @@ Load Balancer 支援基本和標準 SKU，兩者在案例規模、功能、價�
 ## <a name="limitations"></a>限制
 
 - Load Balancer 是一款 TCP 或 UDP 產品，用於針對特定的 IP 通訊協定，進行負載平衡和連接埠轉送作業。  負載平衡規則和 NAT 傳入規則均支援 TCP 和 UDP ，但不支援包含 ICMP 在內的其他 IP 通訊協定。 Load Balancer 並不會終止、回應或與 UDP 或 TCP 流程的承載互動。 Load Balancer 並非 Proxy。 前端連線能力必須在與負載平衡或是 NAT 傳入規則 (TCP 或 UDP) 所使用的相同通訊協定中，成功進行頻內驗證，「而且」至少要有一個虛擬機器必須對用戶端產生回應，以查看來自前端的回應。  未從 Load Balancer 前端接收到頻內回應，即表示沒有任何虛擬機器能夠回應。  在虛擬機器未回應的情況下，無法和 Load Balancer 前端互動。  這也適用於傳出連線，其中[連接埠偽裝 SNAT](load-balancer-outbound-connections.md#snat) 僅支援 TCP 和 UDP，包括 ICMP 在內的任何其他 IP 通訊協定也會失敗。  指派執行個體層級的公用 IP 可減輕負擔。
-- 公用 Load Balancer 從虛擬網路內的私人 IP 位址轉換至公用 IP 位址時會提供[傳出連線](load-balancer-outbound-connections.md)，但是內部 Load Balancers 與公用 Load Balancer 不同，不會將傳出的起源連線轉譯至內部 Load Balancer，因為兩者都位於私人 IP 位址空間內。  如此可避免在無需轉譯的專屬內部 IP 位址空間中將 SNAT 耗盡。  副作用是，如果後端集區虛擬機器的傳出流程嘗試將流程傳送到其所在集區之內部 Load Balancer 前端，「而且」對應回本身，則這兩個流程互不相符，而且流程會失敗。  如果流程未對應回位於後端集區中，且建立了到前端流程的相同虛擬機器，則流程將會成功。   當流程對應回本身時，傳出流程會看來像是從虛擬機器傳至前端，而對應的傳入流程會看來像是從虛擬機器傳至本身。 以客體作業系統來看，相同流程的傳入和傳出部分在虛擬機器內部不相符。 由於來源和目的地不同，TCP 堆疊無法將其中半數的流程視為相同流程的一部分。  當流程對應至後端集區中的任何其他虛擬機器時，半數流程將會相符，而虛擬機器就能成功回應流程。  此案例的症狀是間歇性出現連線逾時。 若要將來自後端集區的流程導向各自內部 Load Balancer 前端的後端集區，有數個常見的因應措施能夠可靠地實現這種情況，包括在內部 Load Balancer 後插入第三方 Proxy 或[使用 DSR 樣式規則](load-balancer-multivip-overview.md)。  儘管可以使用公用 Load Balancer 來減輕負擔，但產生的情節容易造成 [SNAT 耗盡](load-balancer-outbound-connections.md#snat)，除非謹慎控管，否則應該避免。
+- 公用 Load Balancer 從虛擬網路內的私人 IP 位址轉換至公用 IP 位址時會提供[傳出連線](load-balancer-outbound-connections.md)，但是內部 Load Balancers 與公用 Load Balancer 不同，不會將傳出的起源連線轉譯至內部 Load Balancer，因為兩者都位於私人 IP 位址空間內。  如此可避免在無需轉譯的專屬內部 IP 位址空間中將 SNAT 連接埠耗盡。  副作用是，如果後端集區虛擬機器的傳出流程嘗試將流程傳送到其所在集區之內部 Load Balancer 前端，「而且」對應回本身，則這兩個流程互不相符，而且流程會失敗。  如果流程未對應回位於後端集區中，且建立了到前端流程的相同虛擬機器，則流程將會成功。   當流程對應回本身時，傳出流程會看來像是從虛擬機器傳至前端，而對應的傳入流程會看來像是從虛擬機器傳至本身。 以客體作業系統來看，相同流程的傳入和傳出部分在虛擬機器內部不相符。 由於來源和目的地不同，TCP 堆疊無法將其中半數的流程視為相同流程的一部分。  當流程對應至後端集區中的任何其他虛擬機器時，半數流程將會相符，而虛擬機器就能成功回應流程。  此案例的徵兆是當流量回到其源自的相同後端時，發生間歇性連線逾時。 若要將來自後端集區的流程導向各自內部 Load Balancer 前端的後端集區，有數個常見的因應措施能夠可靠地實現這種情況，包括在內部 Load Balancer 後插入 Proxy 層或[使用 DSR 樣式規則](load-balancer-multivip-overview.md)。  客戶可以結合內部 Load Balancer 與任何第 3 方 Proxy，或用內部[應用程式閘道](../application-gateway/application-gateway-introduction.md)代替受限於 HTTP/HTTPS 的 Proxy 案例。 儘管可以使用公用 Load Balancer 來減輕負擔，但產生的情節容易造成 [SNAT 耗盡](load-balancer-outbound-connections.md#snat)，除非謹慎控管，否則應該避免。
 
 ## <a name="next-steps"></a>後續步驟
 

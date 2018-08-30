@@ -7,14 +7,14 @@ manager: shivamg
 keywords: 項目層級復原；從 Azure VM 備份檔案復原；從 Azure VM 中還原檔案
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: fecdb54af58faaf601ab74f89039a47e0d32e650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493376"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616904"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -33,9 +33,13 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
 2. 在虛擬機器的功能表中，按一下 [備份] 來開啟 [備份] 儀表板。
 
-    ![開啟復原服務保存庫備份項目](./media/backup-azure-restore-files-from-vm/open-vault-from-vm.png)
+    ![開啟復原服務保存庫備份項目](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. 在 [備份] 儀表板功能表中，按一下 [檔案復原] 以開啟其功能表。
+3. 在 [備份] 儀表板功能表中，按一下 [檔案復原]。
+
+    ![[檔案復原] 按鈕](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+
+    [檔案復原] 功能表隨即開啟。
 
     ![[檔案復原] 功能表](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
@@ -95,7 +99,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
 ![取消掛接磁碟](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-一旦卸載磁碟後，您會收到一則訊息，告知您已順利完成。 連線可能需要幾分鐘重新整理，以讓您可以移除磁碟。
+一旦卸載磁碟後，您會收到一則訊息。 連線可能需要幾分鐘重新整理，以讓您可以移除磁碟。
 
 在 Linux 中，復原點的連線嚴重損毀之後，作業系統並不會自動移除對應的掛接路徑。 這些掛接路徑會以「孤立」磁碟區的形式存在。雖然您看得見，但是存取/寫入檔案時會擲回錯誤。 可以手動移除它們。 指令碼執行時，會從任何先前的復原點識別任何這類現有的磁碟區，並在同意下將它們清除。
 
@@ -213,7 +217,7 @@ $ mount [RAID Disk Path] [/mountpath]
 | Exe 輸出︰連線到目標的例外狀況 |指令碼無法存取復原點    | 檢查電腦是否符合上述的存取需求。 |  
 | Exe 輸出︰目標已透過 iSCSI 工作階段登入。 | 指令碼已在相同電腦上執行，並已附加磁碟機 | 復原點磁碟區已連接。 它們可能未使用原始 VM 的相同磁碟機代號裝載。 在檔案總管中的檔案瀏覽所有可用的磁碟區 |
 | Exe 輸出︰這個指令碼無效，因為磁碟已透過入口網站/超過 12 小時限制卸載。*從入口網站下載新的指令碼。* |    已從入口網站卸載磁碟或超過 12 小時的限制 | 此特定 exe 目前無效，無法執行。 如果您想要存取該復原點時間的檔案，請瀏覽新 exe 的入口網站|
-| 在執行 exe 的電腦上︰按一下 [卸載] 按鈕之後不會卸載新的磁碟區 | 電腦上的 iSCSI 啟動器沒有回應/重新整理其與目標的連接及維護快取 |    按下 [卸載] 按鈕後等候幾分鐘。 如果仍無法卸載新磁碟區，請瀏覽的所有磁碟區。 這會強制啟動器重新整理連接，且會卸載磁碟區，並出現磁碟無法使用的錯誤訊息|
+| 在執行 exe 的電腦上︰按一下 [卸載] 按鈕之後不會卸載新的磁碟區 | 電腦上的 iSCSI 啟動器沒有回應/重新整理與目標的連線並維護快取。 |  按一下 [卸載] 後，請稍候幾分鐘。 如果新磁碟區並未卸載，請瀏覽所有磁碟區。 瀏覽所有磁碟區會強制啟動器重新整理連線，且會卸載磁碟區，並出現磁碟無法使用的錯誤訊息。|
 | Exe 輸出︰指令碼成功執行，但指令碼輸出上不會顯示「附加的新磁碟區」 |    這是暫時性的錯誤    | 磁碟區可能已經附加。 開啟檔案總管以瀏覽。 如果您每次都使用同一部電腦執行指令碼，請考慮重新啟動電腦，清單應該會顯示在後續的 exe 執行。 |
 | Linux 特定︰無法檢視所需的磁碟區 | 執行指令碼所在電腦的作業系統可能無法辨識受保護 VM 的底層檔案系統 | 檢查復原點是否損毀一致還是檔案一致。 如果檔案一致，請在作業系統可辨識受保護 VM 檔案系統的其他電腦上執行指令碼 |
 | Windows 特定︰無法檢視所需的磁碟區 | 已連接磁碟，但未設定磁碟區 | 從 [磁碟管理] 畫面上，找出與復原點相關的其他磁碟。 如果有任何這些磁碟處於離線狀態，請透過在磁碟上按一下滑鼠右鍵並按一下 [上線]，來嘗試使狀態成為上線|

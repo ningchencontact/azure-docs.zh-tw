@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224104"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146370"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
 ## <a name="overview"></a>概觀
-本教學課程示範如何使用 Visual Studio 工具，協助針對 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web 應用程式進行偵錯，方法是以[偵錯模式](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)從遠端執行，或者檢視應用程式記錄與 Web 伺服器記錄。
+本教學課程示範如何使用 Visual Studio 工具，協助針對 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web 應用程式進行偵錯，方法是以[偵錯模式](https://docs.microsoft.com/visualstudio/debugger/)從遠端執行，或者檢視應用程式記錄與 Web 伺服器記錄。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -134,7 +134,8 @@ public ActionResult About()
     return View();
 }
 ```
-4. [在 `ViewBag.Message`這行設定中斷點](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
+
+4. [在 `ViewBag.Message`這行設定中斷點](https://docs.microsoft.com/visualstudio/debugger/)。
 
 5. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
 
@@ -185,7 +186,7 @@ public ActionResult About()
 
 2. 在 ContosoAdsWebJob 專案中，開啟 *Functions.cs*。
 
-3. 在 `GnerateThumbnail` 方法的第一個陳述式上[設定中斷點](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
+3. 在 `GnerateThumbnail` 方法的第一個陳述式上[設定中斷點](https://docs.microsoft.com/visualstudio/debugger/)。
 
     ![設定中斷點](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -250,7 +251,7 @@ public ActionResult About()
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* 如果您發現偵錯工具不會逐步執行您要進行偵錯的程式碼，可能需要變更 [Just My Code] 設定。  如需詳細資訊，請參閱 [將逐步執行限制於 Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)。
+* 如果您發現偵錯工具不會逐步執行您要進行偵錯的程式碼，可能需要變更 [Just My Code] 設定。  如需詳細資訊，請參閱[指定是否使用 Visual Studio 中的 Just My Code 只對使用者程式碼進行偵錯](https://docs.microsoft.com/visualstudio/debugger/just-my-code)。
 * 當您啟用遠端偵錯功能時，伺服器上會啟動計時器，並在 48 小時後自動關閉此功能。 此 48 小時的限制是為了安全性與效能起見而設計的功能。 若需要，您可以輕鬆開啟這項功能，次數不限。 當您不需要偵錯時，建議您將其保持為停用。
 * 您可以手動將偵錯工具附加至任何處理序，不僅止於 Web 應用程式處理序 (w3wp.exe)。 如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱 [Visual Studio 偵錯](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
 

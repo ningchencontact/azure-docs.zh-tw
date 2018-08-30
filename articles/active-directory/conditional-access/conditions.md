@@ -17,16 +17,16 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f5e2051f9c67fa4e37ce0e1213e14e197222f05
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627537"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141099"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？ 
 
-您可以使用 [Azure Active Directory (Azure AD) 條件式存取](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)，控制授權使用者將如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則的原因所做出的回應。 範例回應是**則執行此動作**。 範例原因是**發生此情況時**。
+您可以使用 [Azure Active Directory (Azure AD) 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)，控制授權使用者將如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則原因 ("When this happens") 做出的回應 ("Then do this")。 
 
 ![原因和回應](./media/conditions/10.png)
 
@@ -64,15 +64,17 @@ ms.locfileid: "39627537"
 
 ## <a name="cloud-apps"></a>雲端應用程式 
 
-雲端應用程式是網站或服務。 受 Azure 應用程式 Proxy 保護的網站，也是雲端應用程式。 如需所支援雲端應用程式的詳細描述，請參閱[雲端應用程式指派](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments)。 
+雲端應用程式是網站或服務。 受 Azure 應用程式 Proxy 保護的網站，也是雲端應用程式。 如需所支援雲端應用程式的詳細描述，請參閱[雲端應用程式指派](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments)。 
 
 **雲端應用程式**條件是條件式存取原則中的必要條件。 在原則中，您可以選取 [所有雲端應用程式] 或選取特定的應用程式。
 
 ![包含雲端應用程式](./media/conditions/03.png)
 
-- 選取 [所有雲端應用程式]，以針對要套用至整個組織的原則設定基準。 在偵測到任何雲端應用程式有登入風險時，請為需要執行多重要素驗證的原則使用此選項。 套用至**所有雲端應用程式**的原則，也會套用至所有網站和服務的存取。 此設定並非僅限於 [選取應用程式] 清單上顯示的雲端應用程式。 
+選取：
 
-- 選取個別雲端應用程式，以依據原則將特定服務當作目標。 例如，您可以要求使用者必須具備[符合規範的裝置](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)，才能存取 SharePoint Online。 當使用者存取 SharePoint 內容時，此原則也會套用至其他服務。 Microsoft Teams 即為一例。 
+- [所有雲端應用程式]，以針對要套用至整個組織的原則設定基準。 在偵測到任何雲端應用程式有登入風險時，請為需要執行多重要素驗證的原則使用此選項。 套用至**所有雲端應用程式**的原則，也會套用至所有網站和服務的存取。 此設定並非僅限於 [選取應用程式] 清單上顯示的雲端應用程式。 
+
+- 個別雲端應用程式，以依據原則將特定服務當作目標。 例如，您可以要求使用者必須具備[符合規範的裝置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)，才能存取 SharePoint Online。 當使用者存取 SharePoint 內容時，此原則也會套用至其他服務。 Microsoft Teams 即為一例。 
 
 您可以將特定應用程式從原則中排除。 不過，這些應用程式仍須遵循它們存取的服務所套用的原則。 
 
@@ -80,18 +82,18 @@ ms.locfileid: "39627537"
 
 ## <a name="sign-in-risk"></a>登入風險
 
-登入風險是高、中或低可能性的指標，代表執行登入嘗試的使用者不是使用者帳戶合法擁有者的可能性。 Azure AD 會計算使用者登入期間的登入風險層級。 計算出來的登入風險層級可作為條件式存取原則中的條件。 
+登入風險是可能性 (高、中或低) 的指標，代表執行登入嘗試的使用者不是使用者帳戶合法擁有者的可能性。 Azure AD 會計算使用者登入期間的登入風險層級。 您可以使用計算出的登入風險層級作為條件式存取原則中的條件。
 
 ![登入風險層級](./media/conditions/22.png)
 
-若要使用此條件，您必須[啟用 Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection-enable)。
+若要使用此條件，您必須[啟用 Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable)。
  
 此條件的常見使用案例，是採取下列保護措施的原則： 
 
 - 封鎖具有高度登入風險的使用者。 此保護措施可防止可能的非合法使用者存取您的雲端應用程式。 
 - 針對具有中度登入風險的使用者，要求執行多重要素驗證。 藉由強制執行多重要素驗證，您可以更加確信執行登入的使用者是帳戶的合法擁有者。
 
-如需詳細資訊，請參閱[有風險的登入](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-security-risky-sign-ins)。  
+如需詳細資訊，請參閱[有風險的登入](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins)。  
 
 ## <a name="device-platforms"></a>裝置平台
 
@@ -114,7 +116,7 @@ ms.locfileid: "39627537"
 
 ![設定裝置狀態](./media/conditions/112.png)
 
-如果您想要封鎖未受控裝置的存取，請實作[裝置型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)。
+如果您想要封鎖未受控裝置的存取，請實作[裝置型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)。
 
 
 ## <a name="locations"></a>位置
@@ -148,7 +150,7 @@ ms.locfileid: "39627537"
 
 此條件的常見使用案例，是採取下列保護措施的原則： 
 
-- 針對將大量資料下載到裝置的行動應用程式或桌面應用程式，要求使用[符合規範的裝置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)。 在此同時，仍允許從任何裝置以瀏覽器進行存取。
+- 針對將大量資料下載到裝置的行動應用程式或桌面應用程式，要求使用[符合規範的裝置](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)。 在此同時，仍允許從任何裝置以瀏覽器進行存取。
 
 - 封鎖來自任何 Web 應用程式的存取，但允許來自行動應用程式和桌面應用程式的存取。
 
@@ -163,7 +165,7 @@ ms.locfileid: "39627537"
  
 ![僅將原則套用至支援的平台](./media/conditions/33.png)
 
-只將此條件套用到支援的平台，相當於套用到[裝置平台條件](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)中的所有裝置平台。
+只將此條件套用到支援的平台，相當於套用到[裝置平台條件](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)中的所有裝置平台。
 
 ![設定裝置平台](./media/conditions/34.png)
 
@@ -172,7 +174,7 @@ ms.locfileid: "39627537"
 
 - [設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)。
  
-- [Azure Active Directory 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)。 
+- [Azure Active Directory 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)。 
 
 
 ### <a name="legacy-authentication"></a>舊版驗證  

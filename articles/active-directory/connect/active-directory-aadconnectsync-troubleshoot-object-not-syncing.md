@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 997269efc017a024f2abbcb6561c951d7957af86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9bd3f60800976967e1fc1e5f163a6ae3ea525f2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594324"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42146149"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>針對未同步至 Azure AD 的物件進行疑難排解
 
 如果物件未如預期般同步至 Azure AD，則可能是數個原因所造成。 如果您從 Azure AD 收到錯誤電子郵件，或是在 Azure AD Connect Health 中看到錯誤，則請改為閱讀[針對匯出錯誤進行疑難排解](active-directory-aadconnect-troubleshoot-sync-errors.md)。 但如果您要針對物件不在 Azure AD 中的問題進行疑難排解，則本主題正適合您。 它說明如何尋找內部部署元件 Azure AD Connect 同步中的錯誤。
 
 >[!IMPORTANT]
->對於 <verison> 版或更新版本的 Azure Active Directory (AAD) Connect 部署，請在精靈中使用[疑難排解工作](active-directory-aadconnect-troubleshoot-objectsync.md)，針對物件同步處理問題進行疑難排解。 
+>對於 1.1.749.0 版或更新版本的 Azure Active Directory (AAD) Connect 部署，請在精靈中使用[疑難排解工作](active-directory-aadconnect-troubleshoot-objectsync.md)，針對物件同步處理問題進行疑難排解。 
 
 為了尋找錯誤，您將依下列順序查看幾個不同的地方：
 

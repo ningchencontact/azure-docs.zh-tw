@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 90f41e56f8e95584959576d3e5ad837f4774048a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629077"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141293"
 ---
 # <a name="tpm-attestation"></a>TPM 證明
 
 IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於設定在指定 IoT 中樞上的全自動佈建裝置作業。 這項裝置佈建服務可以讓您以安全的方式佈建數百萬個裝置。
 
-本文將說明使用 [TPM](./concepts-device.md) 時的識別證明程序。 TPM 代表的是「信賴平台模組 (Trusted Platform Module)」，而且是一種硬體安全模組 (HSM)。 本文假設您使用的是個別、韌體或整合式 TPM。 模擬軟體的 TPM 非常適合用來建立原型或測試，但是其不提供與個別、韌體或整合式 TPM 相同的安全性等級。 我們不建議將軟體 TPM 用在生產環境中。 [深入了解](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf) TPM 類型。
+本文將說明使用 [TPM](./concepts-device.md) 時的識別證明程序。 TPM 代表的是「信賴平台模組 (Trusted Platform Module)」，而且是一種硬體安全模組 (HSM)。 本文假設您使用的是個別、韌體或整合式 TPM。 模擬軟體的 TPM 非常適合用來建立原型或測試，但是其不提供與個別、韌體或整合式 TPM 相同的安全性等級。 我們不建議將軟體 TPM 用在生產環境中。 如需 TPM 類型的詳細資訊，請參閱 [TPM 簡短介紹](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf)。
 
 本文僅與使用 TPM 2.0 及具有 HMAC 金鑰支援的裝置和其簽署金鑰有關。 不適用於使用 X.509 憑證進行驗證的裝置。 在信賴運算群組中，TPM 是業界廣泛使用的 ISO 標準，您可以在[完整 TPM 2.0 規格](https://trustedcomputinggroup.org/tpm-library-specification/)或 [ISO/IEC 11889 規格](https://www.iso.org/standard/66510.html)中深入了解 TPM。本文也假設您熟悉公用和私密金鑰組，以及其用於加密的方式。
 
@@ -61,7 +61,7 @@ TPM 有另一種類型的金鑰，稱為儲存根金鑰 (SRK)。 TPM 的擁有�
 
 接著，裝置可以使用解密的 nonce 來簽署 SAS 權杖，並使用已簽署的 SAS 權仗來重新與裝置佈建服務建立連線。 完成 Nonce 查問後，服務就會允許裝置進行佈建。
 
-![裝置會重新建立與 DPS 的連線以驗證 EK 擁有權](./media/concepts-tpm-attestation/step-three-validation.png)
+![裝置會重新建立與裝置佈建服務的連線以驗證 EK 擁有權](./media/concepts-tpm-attestation/step-three-validation.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448436"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146197"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和部署
 
@@ -47,6 +47,10 @@ ms.locfileid: "39448436"
 選取 [載入檔案] 以選取匯出的 Resource Manager 範本，並提供所有的組態值 (例如，連結服務)。
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**連接字串**。 您可以在有關個別連接器的文章中找到建立連接字串所需的資訊。 例如，針對 Azure SQL Database，請參閱[使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料](connector-azure-sql-database.md)。 若要確認正確的連接字串 (例如，針對連結的服務)，您也可以在 Data Factory UI 中開啟資源的程式碼檢視。 不過，在程式碼檢視中，連接字串的密碼或帳戶金鑰部分已遭移除。 若要開啟程式碼檢視，選取下列螢幕擷取畫面中醒目提示的圖示。
+
+![開啟程式碼檢視以查看連接字串](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>持續整合生命週期
 以下是您在 Data Factory UI 中啟用 VSTS GIT 整合之後所能使用的持續整合和部署的完整生命週期：
@@ -174,11 +178,7 @@ Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取�
 
 在部署之後，您可以依照類似的步驟，並使用 (與 `Start-AzureRmDataFactoryV2Trigger` 函式) 類似的程式碼，來重新啟動觸發程序。
 
-## <a name="sample-template-and-script"></a>範例範本和指令碼
-以下是您在開始使用 Data Factory 的持續整合和部署時可參考的兩個範例：
-
--   您可以在 VSTS 中匯入的範例部署範本。
--   可在部署之前停止觸發程序並在其後重新啟動觸發程序的範例指令碼。 此指令碼也包含可將已移除的資源刪除的程式碼。
+## <a name="sample-deployment-template"></a>範例部署範本
 
 以下是您可以在 VSTS 中匯入的範例部署範本。
 
@@ -718,7 +718,9 @@ Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取�
 }
 ```
 
-以下是可在部署之前停止觸發程序並在其後重新啟動觸發程序的範例指令碼：
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>用以停止並重新啟動觸發程序和清除的範例指令碼
+
+以下是可在部署之前停止觸發程序並在其後重新啟動觸發程序的範例指令碼。 此指令碼也包含可將已移除的資源刪除的程式碼。
 
 ```powershell
 param

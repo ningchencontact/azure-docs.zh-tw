@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 229ca187f98fd4c7e085c994b5896ae4a6a50748
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 75a3dcb5aeb3e30da570eb57d0d1495710624e54
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037973"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144019"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 在 Azure 獨立雲端中管理儲存體
 
@@ -35,7 +35,7 @@ ms.locfileid: "40037973"
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-執行 [Get-AzureEnvironment](/powershell/module/servicemanagement/azure/Get-AzureRmEnvironment) Cmdlet，查看可用的 Azure 環境：
+執行 [Get-AzureRmEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-azurermenvironment) Cmdlet，查看可用的 Azure 環境：
    
 ```powershell
 Get-AzureRmEnvironment
@@ -79,7 +79,7 @@ Get-AzureRmEnvironment | select Name, StorageEndpointSuffix
 
 此命令會傳回下列結果。
 
-| Name| StorageEndpointSuffix|
+| 名稱| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -96,7 +96,7 @@ Get-AzureRmEnvironment -Name AzureGermanCloud
 
 |屬性名稱|值|
 |----|----|
-| Name | AzureGermanCloud |
+| 名稱 | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

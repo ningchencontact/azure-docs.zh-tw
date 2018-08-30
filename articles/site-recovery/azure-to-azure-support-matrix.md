@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173045"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444821"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
@@ -34,11 +34,11 @@ ms.locfileid: "39173045"
 
 ## <a name="resource-support"></a>資源支援
 
-**資源移動類型** | **詳細資料** 
+**資源移動類型** | **詳細資料**
 --- | --- | ---
 **在資源群組間移動保存庫** | 不支援<br/><br/> 您無法跨資源群組移動復原服務保存庫。
 **跨資源群組移動計算/儲存體/網路資源** | 不支援。<br/><br/> 如果您在 VM 或是相關聯的元件 (例如儲存體/網路) 複寫之後移動它們，您必須停用複寫，然後重新啟用該 VM 的複寫。
-**將 Azure VM 從某個訂用帳戶複寫至另一個以進行災害復原** | 不支援。
+**將 Azure VM 從某個訂用帳戶複寫至另一個以進行災害復原** | 在相同的 Azure Active Directory 租用戶中支援。
 **跨訂用帳戶移轉 VM** | 不支援。
 **在相同區域內移轉 VM** | 不支援。
 
@@ -135,7 +135,7 @@ Azure Government    | US Gov 維吉尼亞州、US Gov 愛荷華州、US Gov 亞�
 
 ## <a name="support-for-vmdisk-management"></a>VM/磁碟管理的支援
 
-**動作** | **詳細資料**
+**Action** | **詳細資料**
 -- | ---
 在複寫的 VM 上調整磁碟大小 | 支援
 在複寫的 VM 上新增磁碟 | 不支援。 您需要停用 VM 的複寫、新增磁碟，然後重新啟用複寫。

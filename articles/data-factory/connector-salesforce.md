@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 69e3e308fb5af98dd5763c56503cc28bd4ecfa9e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125243"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442049"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,7 +184,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為 **SalesforceSource**。 | 是 |
-| query |使用自訂查詢來讀取資料。 您可以使用 SQL-92 查詢或 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢。 例如 `select * from MyTable__c`。 | 否 (如果已指定資料集中的 "tableName") |
+| query |使用自訂查詢來讀取資料。 您可以使用 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢或 SQL-92 查詢。 請參閱[查詢秘訣](#query-tips)一節中的秘訣。 | 否 (如果已指定資料集中的 "tableName") |
 | readBehavior | 指出是要查詢現有記錄，還是要查詢包含已刪除記錄在內的所有記錄。 如果未指定，預設行為是前者。 <br>允許的值：**query** (預設值)、**queryAll**。  | 否 |
 
 > [!IMPORTANT]
@@ -282,10 +282,20 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>從 Salesforce 資源回收筒擷取已刪除的記錄
 
-若要查詢 Salesforce 資源回收筒中的虛刪除記錄，您可以在查詢中指定 **"IsDeleted = 1"**。 例如︰
+若要查詢 Salesforce 資源回收筒中的虛刪除記錄，您可以將 `readBehavior` 指定為 `queryAll`。 
 
-* 若只要查詢已刪除的記錄，請指定 "select * from MyTable__c **where IsDeleted= 1**"。
-* 若要查詢所有記錄 (包括現有和已刪除的記錄)，請指定 "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"。
+### <a name="difference-between-soql-and-sql-query-syntax"></a>SOQL 和 SQL 查詢語法的差異
+
+從 Salesforce 複製資料時，您可以使用 SOQL 查詢或 SQL 查詢。 請注意，這兩個查詢具有不同的語法和功能支援，不可混用。 建議您使用 Salesforce 原生支援的 SOQL 查詢。 下表列出主要差異：
+
+| 語法 | SOQL 模式 | SQL 模式 |
+|:--- |:--- |:--- |
+| 資料行選擇 | 需要列舉要在查詢中複製的欄位，例如 `SELECT field1, filed2 FROM objectname` | 支援 `SELECT *` (資料行選取除外)。 |
+| 引號 | 欄位/物件名稱不能加上引號。 | 欄位/物件名稱可以加上引號，例如 `SELECT "id" FROM "Account"` |
+| 日期時間格式 |  請參閱[這裡](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm)的詳細資料和下一節中的範例。 | 請參閱[這裡](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017)的詳細資料和下一節中的範例。 |
+| 布林值 | 以 `False` 和 `Ture` 表示，例如 `SELECT … WHERE IsDeleted=True`。 | 以 0 或 1 表示，例如 `SELECT … WHERE IsDeleted=1`。 |
+| 資料行重新命名 | 不支援。 | 支援，例如 `SELECT a AS b FROM …`。 |
+| 關聯性 | 支援，例如 `Account_vod__r.nvs_Country__c`。 | 不支援。 |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>在 DateTime 資料行上使用 where 子句來擷取資料
 

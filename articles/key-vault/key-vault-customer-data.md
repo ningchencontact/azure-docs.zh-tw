@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235528"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146152"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 客戶資料功能
 
@@ -60,14 +60,10 @@ Azure Key Vault 存取記錄是選擇性的功能，您可以針對每個 REST A
 
 - [Azure Key Vault 虛刪除概觀](key-vault-soft-delete-cli.md)
 
-- [保存庫](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Azure Key Vault 金鑰作業](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Azure Key Vault 祕密作業](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Azure Key Vault 憑證和原則](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [憑證簽發者](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Azure Key Vault 儲存體帳戶作業](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

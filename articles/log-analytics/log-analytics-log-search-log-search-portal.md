@@ -11,28 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 8468186d545d7aae484b037f3962b01b0ed4cd2e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127545"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146194"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>在 Azure Log Analytics 中使用記錄搜尋入口網站來建立記錄搜尋
-
-> [!NOTE]
-> 本文會說明 Azure Log Analytics 中使用新查詢語言的記錄搜尋入口網站。  您可以在[將 Azure Log Analytics 工作區升級為新的記錄搜尋](log-analytics-log-search-upgrade.md)中，深入了解新的語言，並且取得升級工作區的程序。  
->
-> 如果您的工作區尚未升級為新的查詢語言，您應該參閱[在 Log Analytics 中使用記錄搜尋以尋找資料](log-analytics-log-searches.md)，以取得記錄搜尋入口網站目前版本的資訊。
 
 本文包含一篇教學課程，說明如何使用記錄搜尋入口網站來建立記錄搜尋，以及分析儲存在 Log Analytics 工作區的資料。  教學課程包含執行一些簡單查詢以傳回不同類型的資料並分析結果。  其著重在記錄搜尋入口網站的功能，可修改查詢內容卻不必直接修改查詢本身。  如需直接編輯查詢的詳細資訊，請參閱[查詢語言參考](https://go.microsoft.com/fwlink/?linkid=856079)。
 
 若要在進階 Analytics 入口網站 (而非記錄搜尋入口網站) 中建立搜尋，請參閱 [Analytics 入口網站的使用者入門](https://go.microsoft.com/fwlink/?linkid=856587)。  這兩個入口網站使用相同的查詢語言在 Log Analytics 工作區中存取相同的資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本教學課程假設您已擁有 Log Analytics 工作區，且其具有至少一個連線來源以產生供查詢分析的資料。  
 
 - 如果您沒有工作區，可以使用[開始使用 Log Analytics 工作區](log-analytics-get-started.md)的程序來建立免費工作區。

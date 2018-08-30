@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 787178b2c1582729249fcf549356fa7445f5ecbe
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494959"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145759"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -213,4 +213,4 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 - - -
 **問︰是否可以設定與 Azure AD 之間的安全 LDAP 連線？**
 
-**答：** 否。 Azure AD 不支援 LDAP 通訊協定。
+**答：** 否。 Azure AD 不支援 LDAP 通訊協定。 不過，您也可以使用 Azure AD Domain Services 設定安全 LDAP。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 24bd0e8eff616920dba0eb5353f983444e3161cd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 31fe386cfbe5b6ccf842c05a2dd1d6fcd45bc9b7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019954"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141510"
 ---
 # <a name="security-frame-session-management--articles"></a>安全性架構︰工作階段管理 | 文章 
 | 產品/服務 | 文章 |
@@ -552,6 +552,11 @@ public ViewResult SubmitUpdate()
 | **步驟** | 如果使用 OAuth 2.0 保護 Web API，則它會預期授權要求標頭中有持有人權杖，並且只會在權杖有效時將存取權授與要求。 不同於以 Cookie 為基礎的驗證，瀏覽器不會在要求中附加持有人權杖。 提出要求的用戶端必須在要求標頭中明確附加持有人權杖。 因此，對於使用 OAuth 2.0 來保護的 ASP.NET Web API，會將持有人權杖視為 CSRF 攻擊的防禦手段。 請注意，如果應用程式的 MVC 部分使用表單驗證 (亦即，使用 Cookie)，MVC Web 應用程式必須使用防偽權杖。 |
 
 ### <a name="example"></a>範例
-必須通知 Web API 只依賴持有人權杖，而不要依賴 Cookie。 這可以透過在 `WebApiConfig.Register` 方法中進行下列設定來達成：``C-Sharp code config.SuppressDefaultHostAuthentication(); config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+必須通知 Web API 只依賴持有人權杖，而不要依賴 Cookie。 這可透過 `WebApiConfig.Register` 方法中的下列設定來完成：
+
+```csharp
+config.SuppressDefaultHostAuthentication();
+config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 ```
-The SuppressDefaultHostAuthentication method tells Web API to ignore any authentication that happens before the request reaches the Web API pipeline, either by IIS or by OWIN middleware. That way, we can restrict Web API to authenticate only using bearer tokens.
+
+SuppressDefaultHostAuthentication 方法會指示 Web API 忽略要求透過 IIS 或 OWIN 中介軟體連線到 Web API 管線前發生的任何驗證。 如此一來，我們可以限制 Web API 只驗證使用持有人權杖的要求。

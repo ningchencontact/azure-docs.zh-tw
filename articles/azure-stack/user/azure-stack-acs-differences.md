@@ -3,7 +3,7 @@ title: Azure Stack 儲存體差異與考量 | Microsoft Docs
 description: 了解「Azure Stack 儲存體」與「Azure 儲存體」之間的差異，以及 Azure Stack 部署考量。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
-ms.author: jeffgilb
+ms.date: 08/15/2018
+ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 6c0c42763ec3d124850555500c3a322073af2479
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604455"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050404"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與考量
 
@@ -91,7 +91,7 @@ Azure Stack 儲存體支援下列用戶端程式庫：
 | C++            | 從 2.4.0 到 3.1.0           | Nuget 套件：<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | 連接字串設定      |
 | PHP            | 從 0.15.0 到 1.0.0          | GitHub 版本：<br>https://github.com/Azure/azure-storage-php/releases<br> <br>透過編輯器安裝 (請參閱下面的詳細資料)                                                                                                                                                                                                                  | 連接字串設定      |
 | Python         | 從 0.30.0 到 1.0.0          | GitHub 版本：<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | 服務執行個體宣告 |
-| Ruby           | 從 0.12.1 從 1.0.1          | RubyGems 套件：<br>一般：<br>https://rubygems.org/gems/azure-storage-common/<br>Blob：https://rubygems.org/gems/azure-storage-blob/<br>佇列：https://rubygems.org/gems/azure-storage-queue/<br>資料表：https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-ruby/releases | 連接字串設定      |
+| Ruby           | 從 0.12.1 從 1.0.1          | RubyGems 套件：<br>一般：<br>https://rubygems.org/gems/azure-storage-common/<br>Blob： https://rubygems.org/gems/azure-storage-blob/<br>佇列： https://rubygems.org/gems/azure-storage-queue/<br>資料表： https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-ruby/releases | 連接字串設定      |
 
 ## <a name="next-steps"></a>後續步驟
 

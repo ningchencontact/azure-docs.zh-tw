@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17ff6ebed615971b4157831431d9e2395ca68b48
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441670"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146175"
 ---
 # <a name="create-a-model-in-azure-portal"></a>在 Azure 入口網站中建立模型
 
@@ -23,9 +23,10 @@ Azure 入口網站中的 Azure Analysis Services Web 設計工具 (預覽) 提�
 
 ## <a name="before-you-begin"></a>開始之前
 
-- 在標準或開發人員層的 Azure Analysis Services 伺服器。 使用 Web 設計工具所建立的新模型是 DirectQuery，只受到這些層級的支援。
+- Azure Analysis Services 伺服器必須位於標準或開發人員層。 使用 Web 設計工具所建立的新模型是 DirectQuery，只受到這些層級的支援。
 - 作為資料來源的 Azure SQL Database、Azure SQL 資料倉儲或 Power BI Desktop (.pbix) 檔案。 從 Power BI Desktop 檔案建立的新模型支援 Azure SQL Database 和 Azure SQL 資料倉儲。
 - 用來連線至 Azure SQL Database 或 Azure SQL 資料倉儲資料來源的 SQL Server 帳戶和密碼。
+- 您必須具有伺服器系統管理員權限，才能建立新模型。 需要有資料庫管理員權限，才能使用設計工具來編輯和查詢模型。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 

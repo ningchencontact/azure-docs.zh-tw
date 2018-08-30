@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480551"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146368"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用存留時間讓 Azure Cosmos DB 集合中的資料自動過期
 應用程式可以產生並儲存大量資料。 其中有些資料，例如電腦產生的事件資料、記錄檔和使用者工作階段資訊只能在有限的期間內使用。 一旦資料超過應用程式的需求，即可放心清除此資料並減少應用程式的儲存體需求。
@@ -41,11 +41,11 @@ TTL 功能是由兩個層級 (集合層級和文件層級) 的 TTL 屬性所控�
 
 上述邏輯可以顯示在下列矩陣中︰
 
-|  | 集合上遺漏/未設定 DefaultTTL | 集合上的 DefaultTTL = -1 | 集合上的 DefaultTTL = "n" |
+|  | 集合上遺漏/未設定 DefaultTTL | 集合上的 DefaultTTL = -1 | 集合上的 DefaultTTL = n' |
 | --- |:--- |:--- |:--- |
-| 集合上遺漏 TTL |文件層級沒有可覆寫的項目，因為文件和集合沒有 TTL 的概念。 |此集合中的所有文件都不會過期。 |此集合中的文件將會在間隔 n 過去時到期。 |
-| 文件上的 TTL = -1 |文件層級沒有可覆寫的項目，因為集合未定義文件可以覆寫的 DefaultTTL 屬性。 系統無法解譯文件上的 TTL。 |此集合中的所有文件都不會過期。 |此集合中 TTL=-1 的文件永遠不會過期。 所有其他文件將在 "n" 間隔之後過期。 |
-| 文件上的 TTL = n |文件層級沒有可覆寫的項目。 系統無法解譯文件上的 TTL。 |TTL = n 的文件將在間隔 n (以秒為單位) 之後到期。 其他文件會繼承間隔 -1 且永遠不會過期。 |TTL = n 的文件將在間隔 n (以秒為單位) 之後到期。 其他文件會繼承集合的間隔 "n"。 |
+| 集合上遺漏 TTL |文件層級沒有可覆寫的項目，因為文件和集合沒有 TTL 的概念。 |此集合中的所有文件都不會過期。 |此集合中的文件將會在間隔 n' 過去時到期。 |
+| 文件上的 TTL = -1 |文件層級沒有可覆寫的項目，因為集合未定義文件可以覆寫的 DefaultTTL 屬性。 系統無法解譯文件上的 TTL。 |此集合中的所有文件都不會過期。 |此集合中 TTL=-1 的文件永遠不會過期。 所有其他文件將在 n' 間隔之後過期。 |
+| 文件上的 TTL = n |文件層級沒有可覆寫的項目。 系統無法解譯文件上的 TTL。 |TTL = n 的文件將在間隔 n (以秒為單位) 之後到期。 其他文件會繼承間隔 -1 且永遠不會過期。 |TTL = n 的文件將在間隔 n (以秒為單位) 之後到期。 其他文件會繼承集合的間隔 n'。 |
 
 ## <a name="configuring-ttl"></a>設定 TTL
 根據預設，在所有 Cosmos DB 集合中及所有文件上都會停用存留時間。 您可以程式設計方式或使用 Azure 入口網站來設定 TTL。 請使用下列步驟從 Azure 入口網站設定 TTL：

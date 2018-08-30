@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 7cf41a10f13e2edeb4ab1944c0d38cc7064c02bb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161500"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432284"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service on Azure Stack 更新 3 版本資訊
 
@@ -70,6 +70,10 @@ Azure App Service on Azure Stack 更新 3 包含下列改良功能和修正：
   - 新增 Wincache 2.0.0.8
   - 將 Git for Windows 更新為 v 2.17.1.2
   - 將 Kudu 更新為 74.10611.3437
+  
+- **所有角色的基礎作業系統更新**：
+  - [適用於 Windows Server 2016 (x64 型系統) 的服務堆疊更新 (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [適用於 Windows Server 2016 (x64 型系統) 的 2018-07 累積更新 (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
 ### <a name="post-update-steps-optional"></a>更新後的步驟 (選擇性)
 
@@ -80,7 +84,7 @@ Azure App Service on Azure Stack 更新 3 包含下列改良功能和修正：
 >
 >
 
-1. [將資料庫新增至可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. 將 [AppService 資料庫 (appservice_hosting and appservice_metering) 新增至可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
 
 1. 啟用自主資料庫
     ```sql

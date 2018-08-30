@@ -4,16 +4,16 @@ description: 了解 Azure IoT Edge 執行階段，以及如何有效運用 Edge 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/05/2018
+ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 36750a4d907da1d4fa029aca0ecc503db7e82d81
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526087"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141481"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 執行階段和架構
 
@@ -24,7 +24,7 @@ IoT Edge 執行階段會在 IoT Edge 裝置上執行下列功能：
 * 在裝置上安裝和更新工作負載。
 * 在裝置上維護 Azure IoT Edge 安全性標準。
 * 確保 [IoT Edge 模組][lnk-modules]一律執行中。
-* 將模組健康情況回報至雲端，以進行遠端監視。
+* 將模組健康情況報告至雲端，以便進行遠端監控。
 * 促進下游分葉裝置與 IoT Edge 裝置之間的通訊。
 * 促進 IoT Edge 裝置上模組之間的通訊。
 * 促進 IoT Edge 裝置與雲端之間的通訊。
@@ -33,7 +33,7 @@ IoT Edge 執行階段會在 IoT Edge 裝置上執行下列功能：
 
 IoT Edge 執行階段的責任分為兩類：模組管理和通訊。 這兩個角色都是透過組成 IoT Edge 執行階段的兩個元件來執行。 IoT Edge 中樞負責通訊，而 IoT Edge 代理程式會管理部署和監視模組。 
 
-Edge 代理程式和 Edge 中樞都是模組，就像 IoT Edge 裝置上執行的任何其他模組。 如需模組運作方式的詳細資訊，請參閱 [lnk-modules]。 
+Edge 代理程式和 Edge 中樞都是模組，就像 IoT Edge 裝置上執行的任何其他模組。 
 
 ## <a name="iot-edge-hub"></a>IoT Edge 中樞
 
@@ -52,9 +52,6 @@ Edge 中樞不是在本機執行的 IoT 中樞完整版本。 Edge 中樞會以�
 ![Edge 中樞會作為多個實體裝置與雲端之間的閘道][2]
 
 Edge 中樞可以判斷是否已連線到 IoT 中樞。 如果連線中斷，Edge 中樞就會在本機儲存訊息或對應項更新。 一旦連線重新建立之後，就會將所有資料同步。 針對此暫時的快取所使用的位置取決於 Edge 中樞模組對應項的屬性。 快取的大小不會受限，而且只要裝置還有儲存體容量就會持續成長。 
-
->[!NOTE]
->透過其他快取參數新增控制，將在產品正式運作之前新增至該產品。
 
 ### <a name="module-communication"></a>模組通訊
 
@@ -86,11 +83,11 @@ Edge 中樞可促進模組對模組的通訊。 使用 Edge 中樞作為訊息�
 
 IoT Edge 代理程式是另一個組成 Azure IoT Edge 執行階段的模組。 它負責將模組具現化，確保它們會繼續執行，並將模組的狀態回報至 IoT 中樞。 就像任何其他模組，Edge 代理程式會使用其模組對應項來儲存此設定資料。 
 
-若要開始執行 Edge 代理程式，請執行 azure-iot-edge-runtime-ctl.py start 命令。 代理程式會從 IoT 中樞擷取其模組對應項，並檢查模組字典。 模組字典是需要啟動的模組集合。 
+[IoT Edge 安全性精靈](iot-edge-security-manager.md)會在裝置啟動時啟動 Edge 代理程式。 代理程式會從 IoT 中樞擷取其模組對應項，並檢查部署資訊清單。 部署資訊清單是 JSON 檔案，會宣告需要啟動的模組。 
 
-模組字典中的每個項目都包含關於模組的特定資訊，而 Edge 代理程式可用其來控制模組的生命週期。 以下提供一些更令人感興趣的屬性： 
+部署資訊清單中的每個項目都包含關於模組的特定資訊，而 Edge 代理程式可用其來控制模組的生命週期。 以下提供一些更令人感興趣的屬性： 
 
-* **settings.image**：Edge 代理程式用來啟動模組的容器映像。 如果映像受到密碼保護，Edge 代理程式就必須使用適用於容器登錄的認證來設定。 若要設定 Edge 代理程式，請更新 `config.yaml` 檔案。 在 Linux 上使用下列命令： `sudo nano /etc/iotedge/config.yaml`
+* **settings.image**：Edge 代理程式用來啟動模組的容器映像。 如果映像受到密碼保護，Edge 代理程式就必須使用適用於容器登錄的認證來設定。 若要從遠端設定容器登錄的認證，您可以藉由使用部署資訊清單來進行，也可以在 Edge 裝置本身上藉由在 IoT Edge 方案資料夾中更新 `config.yaml` 檔案來進行。
 * **settings.createOptions**：啟動容器模組時直接傳遞至 Docker 精靈的字串。 在這個屬性中新增 Docker 選項，可允許使用連接埠轉送或將磁碟區掛接到模組容器等進階選項。  
 * **status**：Edge 代理程式放置模組的狀態。 這個值通常會設定為 *running*，因為大多數人都想要 Edge 代理程式在裝置上立即啟動所有模組。 不過，您可以指定要停止之模組的初始狀態，並等候一段時間，以告知 Edge 代理程式啟動模組。 Edge 代理程式會在回報的屬性中，將每個模組的狀態回報至雲端。 所需屬性和回報的屬性之間的差異可能表示裝置異常。 支援的狀態如下：
    * 正在下載
@@ -114,13 +111,13 @@ IoT Edge 代理程式會將執行階段回應傳送到 IoT 中樞。 以下是�
 
 ### <a name="security"></a>安全性
 
-IoT Edge 代理程式在 IoT Edge 裝置的安全性中扮演了關鍵角色。 例如，它會執行像是啟動前先驗證模組映像的動作。 這些功能都會在正式推出時新增。 
+IoT Edge 代理程式在 IoT Edge 裝置的安全性中扮演了關鍵角色。 例如，它會執行像是啟動前先驗證模組映像的動作。 
 
-<!-- For more information about the Azure IoT Edge security framework, see []. -->
+如需 Azure IoT Edge 安全性架構的詳細資訊，請閱讀 [IoT Edge 安全性管理員](iot-edge-security-manager.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [了解 Azure IoT Edge 模組][lnk-modules]
+[了解 Azure IoT Edge 模組][lnk-modules]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png

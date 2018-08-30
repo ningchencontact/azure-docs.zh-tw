@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: 74907693270e6cd340d3b34585a80077aa87f0f7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: bb3b3061c15a661caff778ca5c0ec48b0434c718
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055451"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145730"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>教學課程︰設定 Cisco Spark 來自動佈建使用者
 
@@ -30,7 +30,7 @@ ms.locfileid: "37055451"
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](./../active-directory-saas-app-provisioning.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中概述的案例假設您已經具有下列必要條件：
 
@@ -171,6 +171,10 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，然後遵循連結來佈建活動報告，此報告會描述 Azure AD 佈建服務在 Cisco Spark 上執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+
+## <a name="connector-limitations"></a>連接器限制
+
+* Cisco Spark 目前處於 Cisco 的早期現場測試 (EFT) 階段。 如需詳細資訊，請連絡 [Cisco 的支援小組](https://www.webex.co.in/support/support-overview.html)。 
 
 ## <a name="additional-resources"></a>其他資源
 

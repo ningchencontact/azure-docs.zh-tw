@@ -1,34 +1,32 @@
 ---
 title: Azure SQL 登入與使用者 | Microsoft Docs
-description: 深入了解 SQL Database 安全性管理，特別是如何透過伺服器層級主體帳戶管理資料庫存取與登入安全性。
+description: 深入了解 SQL Database 和 SQL 資料倉儲安全性管理，特別是如何透過伺服器層級主體帳戶管理資料庫存取與登入安全性。
 keywords: sql 資料庫安全性, 資料庫安全性管理, 登入安全性, 資料庫安全性, 資料庫存取權
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 08/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 8529256313d8e3cb3b7155bb1b79764c17274397
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649800"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144018"
 ---
-# <a name="controlling-and-granting-database-access"></a>控制和授與資料庫存取權
+# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制及授與 SQL Database 和 SQL 資料倉儲的資料庫存取權
 
-設定防火牆規則後，使用者可以系統管理員帳戶、資料庫擁有者或資料庫中的資料庫使用者身分連接至 SQL 資料庫。  
+設定防火牆規則後，您就能以系統管理員帳戶、資料庫擁有者或資料庫中的資料庫使用者身份連線至 [SQL 資料庫](sql-database-technical-overview.md)和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)。  
 
 >  [!NOTE]  
 >  本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 
->
 
 > [!TIP]
 > 如需教學課程，請參閱[保護 Azure SQL Database](sql-database-security-tutorial.md)。
->
-
 
 ## <a name="unrestricted-administrative-accounts"></a>不受限制的系統管理帳戶
 做為系統管理員的系統管理帳戶有兩個 (**伺服器管理員**和**Active Directory 管理員**)。 若要識別 SQL server 的系統管理員帳戶，請開啟 Azure 入口網站，然後瀏覽至 SQL server 的屬性。
@@ -38,17 +36,17 @@ ms.locfileid: "34649800"
 - **伺服器管理員**   
 當您建立 Azure SQL server 時，您必須指定**伺服器管理員登入**。 SQL Server 會將該帳戶建立為 master 資料庫中的登入。 此帳戶會使用 SQL Server 驗證 (使用者名稱和密碼) 連接。 只有其中一個帳戶可以存在。   
 - **Azure Active Directory 管理員**   
-一個 Azure Active Directory 帳戶 (個人或安全性群組帳戶) 也可以設定為系統管理員。 選擇性地設定 Azure AD 系統管理員，但是如果您想要使用 Azure AD 帳戶連接到 SQL Database，則必須設定 Azure AD 系統管理員。 如需有關設定 Azure Active Directory 存取權的詳細資訊，請參閱[使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)和[適用於與 SQL Database 和 SQL 資料倉儲搭配使用之 Azure AD MFA 的 SSMS 支援](sql-database-ssms-mfa-authentication.md)。
+一個 Azure Active Directory 帳戶 (個人或安全性群組帳戶) 也可以設定為系統管理員。 選擇性地設定 Azure AD 系統管理員，但是如果您想要使用 Azure AD 帳戶連線到 SQL Database，則**必須**設定 Azure AD 系統管理員。 如需有關設定 Azure Active Directory 存取權的詳細資訊，請參閱[使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)和[適用於與 SQL Database 和 SQL 資料倉儲搭配使用之 Azure AD MFA 的 SSMS 支援](sql-database-ssms-mfa-authentication.md)。
  
 
 **伺服器管理員**和 **Azure AD 管理員**帳戶具有下列特性︰
-- 這些是唯一可以自動連接到伺服器上任何 SQL Database 的帳戶。 (若要連接至使用者資料庫，其他帳戶必須是資料庫的擁有者，或在使用者資料庫中擁有使用者帳戶。)
+- 是唯一可以自動連線到伺服器上任何 SQL Database 的帳戶。 (若要連接至使用者資料庫，其他帳戶必須是資料庫的擁有者，或在使用者資料庫中擁有使用者帳戶。)
 - 這些帳戶會輸入使用者資料庫做為 `dbo` 使用者，而且具有使用者資料庫中的所有權限。 (使用者資料庫的擁有者也會進入資料庫做為 `dbo` 使用者。) 
-- 這些帳戶不會輸入 `master` 資料庫做為 `dbo` 使用者，而且具有 master 的有限權限。 
-- 這些帳戶不是標準 SQL Server `sysadmin` 固定伺服器角色的成員，該角色不適用於 SQL Database。  
-- 這些帳戶可以建立、改變和卸除 master 中的資料庫、登入、使用者，以及伺服器層級防火牆規則。
-- 這些帳戶可以新增和移除 `dbmanager` 和 `loginmanager` 角色的成員。
-- 這些帳戶可以檢視 `sys.sql_logins` 系統資料表。
+- 不會輸入 `master` 資料庫作為 `dbo` 使用者，而且具有 master 的有限權限。 
+- **不是**標準 SQL Server `sysadmin` 固定伺服器角色的成員，該角色不適用於 SQL Database。  
+- 可以建立、改變和卸除 master 中的資料庫、登入、使用者，以及伺服器層級防火牆規則。
+- 可以新增和移除 `dbmanager` 和 `loginmanager` 角色的成員。
+- 可以檢視 `sys.sql_logins` 系統資料表。
 
 ### <a name="configuring-the-firewall"></a>設定防火牆
 已設定個別 IP 位址或範圍的伺服器層級防火牆時，**SQL Database 管理員**和 **Azure Active Directory 管理員**可以連接到 master 資料庫和所有使用者資料庫。 透過 [Azure 入口網站](sql-database-get-started-portal.md) 並使用 [PowerShell](sql-database-get-started-powershell.md) 或使用 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) 即可設定初始伺服器層級防火牆。 建立連線之後，也可以藉由使用 [Transact-SQL](sql-database-configure-firewall-settings.md) 來設定其他伺服器層級防火牆規則。
@@ -89,7 +87,7 @@ ms.locfileid: "34649800"
    
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 

@@ -11,21 +11,21 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 852f514a36ea640f478c5cc5ebbb137ca962703a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f3b6c4f6af14615511400650662fe7a350c172ba
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115348"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146401"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>如何在 Azure Machine Learning 中使用 GPU
 圖形處理器 (GPU) 廣泛用於處理需進行大量運算的工作，因此適用於針對特定深度類神經網路的定型處理工作。 透過使用 GPU，您將能大幅降低模型的定型時間。 在本文件中，您將了解如何設定 Azure ML Workbench，以使用配備 GPU 的 [DSVM (資料科學虛擬機器)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) \(英文\) 作為執行目標。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 - 若要逐步執行本作法指南，您需要先[安裝 Azure ML Workbench](../service/quickstart-installation.md)。
 - 您需要能夠存取配備 NVidia GPU 的電腦。
     - 您可以直接在具有 GPU 的本機電腦 (Windows 或 macOS) 上執行指令碼。
-    - 您也可以在位於具有 GPU 電腦上的 Docker 容器中執行指令碼。
+    - 您也可以在具 GPU 的 Linux 電腦上的 Docker 容器中執行指令碼。
 
 ## <a name="execute-in-local-environment-with-gpus"></a>在具有 GPU 的「本機」環境中執行
 您可以在配備 GPU 的電腦上安裝 Azure ML Workbench，並針對「本機」環境執行。 這可以是：

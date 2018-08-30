@@ -7,14 +7,14 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: e4bb72eb8ad6f15b0e5bc14e0e07556e76d0477b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 2d9e69a900f6665aa0ee3034cd6f9d7c394e8f0b
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368596"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146161"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>在 Azure 搜尋服務中建置查詢的簡單語法查詢範例
 
@@ -26,7 +26,7 @@ ms.locfileid: "39368596"
 
 下列範例會根據 [紐約市 OpenData](https://nycopendata.socrata.com/) 計劃所提供的資料集，利用由可用工作組成的 NYC 工作搜尋索引。 這項資料不應視為目前的或已完成。 此索引屬於 Microsoft 所提供的沙箱服務，這表示您不需要 Azure 訂用帳戶或 Azure 搜尋服務，即可嘗試執行這些查詢。
 
-您的需要是 Postman，或可對 GET 發出 HTTP 要求的對等工具。 如需詳細資訊，請參閱[使用 REST 用戶端測試](search-fiddler.md)。
+您的需要是 Postman，或可對 GET 發出 HTTP 要求的對等工具。 如需詳細資訊，請參閱[使用 REST 用戶端瀏覽](search-fiddler.md)。
 
 ### <a name="set-the-request-header"></a>設定要求標頭
 
@@ -57,36 +57,36 @@ URL 組合具有下列元素：
 在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]。 結果會以詳細 JSON 文件的形式傳回。 您可以將此 URL 複製並貼到下方的第一個範例中。
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
   ```
 
 查詢字串 **`search=*`** 是未指定的搜尋，等同於 Null 或空的搜尋。 其功用並不高，卻是最方便執行的搜尋。
 
-(選擇性) 您可以將 **`$count=true`** 新增至 URL，以傳回符合搜尋準則的文件計數。 在空的搜尋字串上，這是索引中的所有文件 (在 NYC 工作的案例中為 2802)。
+(選擇性) 您可以將 **`$count=true`** 新增至 URL，以傳回符合搜尋準則的文件計數。 在空的搜尋字串上，這是索引中的所有文件 (在 NYC 作業的案例中大約 2800)。
 
 ## <a name="how-to-invoke-simple-query-parsing"></a>如何叫用簡單查詢剖析
 
-針對互動式查詢，您不需要指定任何項目：簡單是預設值。 在程式碼中，如果您先前叫用 **queryType=full** 而使用完整查詢語法，您可以透過 **queryType=simple** 重設為預設值。
+針對互動式查詢，您不需要指定任何項目：簡單是預設值。 在程式碼中，如果您先前叫用 **queryType=full** 而使用完整查詢語法，您可以透過 **queryType=simple** 重設預設值。
 
 ## <a name="example-1-field-scoped-query"></a>範例 1：欄位範圍查詢
 
-第一個查詢並不會隨語法而不同 (此查詢同時適用於簡單和完整語法)，但我們首先舉出此例，為的是要介紹可產生易讀 JSON 回應的基準查詢概念。 為求簡潔，查詢僅以 *business_title* 欄位為目標，且指定僅傳回公司職稱。 
+第一個範例不是剖析器專屬的，但我們會介紹第一個基本查詢概念：內含項目。 此範例會將查詢執行和回應範圍限定為少數特定欄位。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
+
+為求簡潔，查詢僅以 *business_title* 欄位為目標，且指定僅傳回公司職稱。 語法為 **searchFields** 可將執行查詢限制為只有 business_title 欄位，而 **select** 可指定要包含在回應中的欄位。
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
 
-**searchFields** 參數會將搜尋限制在商務標題欄位。 **select** 參數會決定要包含在結果集中的欄位。
-
 此查詢的回應會如下列螢幕擷取畫面所示。
 
   ![Postman 範例回應](media/search-query-lucene-examples/postman-sample-results.png)
 
-您可能已經注意到，即使未指定搜尋分數，仍會傳回每個文件的搜尋分數。 這是因為搜尋分數是中繼資料，具有可指出結果排名順序的值。 沒有排名時，分數一律為 1，這是因為搜尋不是全文檢索搜尋，或是沒有可套用的準則。 Null 搜尋沒有任何準則，且資料列會以任意順序傳回。 隨著搜尋準則取用更多定義時，您會發現搜尋分數逐漸具有其實質意義。
+您可能已注意到在回應中的搜尋分數。 沒有排名時，分數一律為 1，這是因為搜尋不是全文檢索搜尋，或是未套用任何準則。 若是未套用任何準則的 Null 搜尋，資料列會以任意順序傳回。 當您包含實際準則時，您會發現搜尋分數逐漸具有其實質意義。
 
 ## <a name="example-2-look-up-by-id"></a>範例 2︰依識別碼查閱
 
-此範例有點不規則，但在評估搜尋行為時，您可能想要查看某個文件的完整內容，以了解結果為何會包含或排除該文件。 若要傳回整份文件，請使用[查閱作業](https://docs.microsoft.com/rest/api/searchservice/lookup-document)傳入文件識別碼。
+此範例有點不規則，但在評估搜尋行為時，您可能想要查看特定文件的完整內容，以了解結果為何會包含或排除該文件。 若要傳回一份完整的文件，請使用[查閱作業](https://docs.microsoft.com/rest/api/searchservice/lookup-document)傳入文件識別碼。
 
 所有文件都有唯一識別碼。 若要嘗試使用查閱查詢的語法，請先傳回文件識別碼清單，以尋找您要使用的文件。 NYC 工作的識別碼會儲存在 `id` 欄位中。
 
@@ -100,45 +100,150 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
  ```
 
-## <a name="example-3-search-precision"></a>範例 3︰搜尋精準度
+## <a name="example-3-filter-queries"></a>範例 3：篩選查詢
+
+[篩選語法](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)是您可搭配**搜尋**使用或單獨使用的 OData 運算式。 獨立的篩選條件 (不含搜尋參數) 在篩選運算式能夠完全限定相關文件時，將有其效用。 沒有查詢字串，就沒有語彙或語言分析、沒有計分 (所有分數均為 1)，也沒有排名。 請注意，搜尋字串是空的。
+
+```http
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
+    {  
+      "search": "",
+      "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
+      "select": "select=job_id, business_title, agency, salary_range_from",
+      "count": "true"
+    }
+```
+
+搭配使用時，會先將篩選套用到整個索引，再對篩選結果執行搜尋。 由於篩選能夠減少搜尋查詢需要處理的資料集合，因此對於提升查詢效能方面是很實用的技術。
+
+  ![篩選查詢回應](media/search-query-simple-examples/filtered-query.png)
+
+如果您想要使用 GET 在 Postman 中試用看看，您可以貼入此字串：
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
+ ```
+
+合併篩選和搜尋的另一種強大方式就是透過篩選運算式中的 **`search.ismatch*()`**，您可以在其中的篩選內使用搜尋查詢。 這個篩選運算式在 *plan* 上使用萬用字元來選取包含 term plan、planner、planning 等等的 business_title。
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
+ ```
+
+如需此函式的詳細資訊，請參閱[「篩選範例」中的 search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)。
+
+## <a name="example-4-range-filters"></a>範例 4︰範圍篩選條件
+
+範圍篩選是透過任何資料類型的 **`$filter`** 運算式來支援。 下列範例會搜尋數值和字串欄位。 
+
+資料類型在範圍篩選條件中很重要，而當數值資料位於數值欄位且字串資料位於字串欄位時效果最好。 字串欄位中的數值資料不適合用於範圍，因為數值字串在 Azure 搜尋服務中無法比較。 
+
+下列範例採用 POST 格式，以方便閱讀 (數值範圍，後面接著文字範圍)：
+
+```http
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
+    {  
+      "search": "",
+      "filter": "num_of_positions ge 5 and num_of_positions lt 10",
+      "select": "job_id, business_title, num_of_positions, agency",
+      "orderby": "agency",
+      "count": "true"
+    }
+```
+  ![數值範圍的範圍篩選條件](media/search-query-simple-examples/rangefilternumeric.png)
+
+
+```http
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
+    {  
+      "search": "",
+      "filter": "business_title ge 'A*' and business_title lt 'C*'",
+      "select": "job_id, business_title, agency",
+      "orderby": "business_title",
+      "count": "true"
+    }
+```
+
+  ![文字範圍的範圍篩選條件](media/search-query-simple-examples/rangefiltertext.png)
+
+您也可以使用 GET 在 Postman 中試用這些：
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=num_of_positions ge 5 and num_of_positions lt 10&$select=job_id, business_title, num_of_positions, agency&$orderby=agency&$count=true
+```
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
+ ```
+
+> [!NOTE]
+> 透過值範圍進行面向化是常見的搜尋應用程式需求。 如需為 Facet 導覽結構建立篩選條件的詳細資訊和範例，請參閱[「如何實作多面向導覽」中的「根據範圍篩選」](search-faceted-navigation.md#filter-based-on-a-range)。
+
+## <a name="example-5-geo-search"></a>範例 5：異地搜尋
+
+此範例索引包含具有經度和緯度座標的 geo_location 欄位。 這個範例會使用 [geo.distance 函式](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)，以篩選起始點周圍以至您提供的任意距離 (以公里為單位) 內的文件。 您可以調整查詢 (4) 中的最後一個值，以縮小或放大查詢的介面區。
+
+下列範例採用 POST 格式以便閱讀：
+
+```http
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
+    {  
+      "search": "",
+      "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
+      "select": "job_id, business_title, work_location",
+      "count": "true"
+    }
+```
+為了讓結果更容易閱讀，搜尋結果會經過修剪，以包含作業識別碼、職稱及工作地點。 起始座標是從索引中的隨機文件取得 (在此例中為史泰登島上的工作地點)。
+
+您也可以使用 GET 在 Postman 中試用看看：
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
+```
+
+## <a name="example-6-search-precision"></a>範例 6：搜尋精準度
 
 字詞查詢是個別評估的單一字詞 (可能有許多個)。 片語查詢會以引號括住，並以逐字字串的形式評估。 比對的精確度由運算子和 searchMode 所控制。
 
 範例 1︰**`&search=fire`** 傳回 150 個結果，其中，所有相符項目皆在文件中的某處包含 word 一字。
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire
 ```
 
 範例 2︰**`&search=fire department`** 傳回 2002 個結果。 系統會針對包含 fire 或 department 的文件傳回相符項目。
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire department
 ```
 
 範例 3︰**`&search="fire department"`** 傳回 82 個結果。 以引號括住字串時會對這兩個字詞進行逐字搜尋，並從索引中包含此組合字詞的權杖化字詞尋找相符項目。 這解釋了為何 **`search=+fire +department`** 這樣的搜尋並不相同。 這兩個字詞都必須存在，但兩者的掃描會個別執行。 
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search="fire department"
 ```
 
-## <a name="example-4-booleans-with-searchmode"></a>範例 4︰使用 searchMode 的布林值
+## <a name="example-7-booleans-with-searchmode"></a>範例 7︰使用 searchMode 的布林值
 
 簡單語法支援字元格式 (`+, -, |`) 的布林運算子。 SearchMode 參數會指出精確度與召回率之間的取捨；`searchMode=any` 會以召回率優先 (符合任何準則即可將文件納入結果集內)，而 `searchMode=all` 則以精確度優先 (必須符合所有準則)。 預設值為 `searchMode=any`，這在以多個運算子堆疊出查詢而取得範圍較廣 (而非範圍較窄) 的結果時，可能會令人混淆。 在使用 NOT 更是如此，因為其結果會包含所有「不含」特定字詞的文件。
 
 使用預設 searchMode (any) 會傳回 2800 份文件：包含複合字詞 "fire department" 的文件，以及所有不含 "Metrotech Center" 一詞的文件。
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
+
+  ![搜尋模式：任何](media/search-query-simple-examples/searchmodeany.png)
+
 將 searchMode 變更為 `all` 時，會對準則強制執行累加效果，而傳回較小的結果集 (21 份文件)，由包含完整片語 "fire department"、但工作地點不是 Metrotech Center 的文件所組成。
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
+  ![搜尋模式：全部](media/search-query-simple-examples/searchmodeall.png)
 
-
-## <a name="example-5-structuring-results"></a>範例 5︰建構結果
+## <a name="example-8-structuring-results"></a>範例 8︰建構結果
 
 有數個參數會控制要在搜尋結果中包含的欄位、每個批次中傳回的文件數目，以及排序次序。 此範例將從前述幾個範例延伸，使用 **$select** 陳述式和逐字搜尋準則將結果限定於特定欄位，而傳回 82 個相符項目 
 
@@ -175,3 +280,4 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 + [全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md)
 + [簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [完整 Lucene 查詢](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [篩選和 Order 語法](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)

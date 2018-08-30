@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/18/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a075b60c525fc3883f4464f19a8964fb64ce15a0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 69ff295e434f199f3a15e96f134f92098b1b8b79
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627707"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141320"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -23,7 +23,7 @@ ms.locfileid: "39627707"
 
 ## <a name="top-level-diagnostic-logs-schema"></a>最上層診斷記錄結構描述
 
-| Name | 必要/選用 | 說明 |
+| 名稱 | 必要/選用 | 說明 |
 |---|---|---|
 | 分析 | 必要 | 事件的時間戳記 (UTC)。 |
 | ResourceId | 必要 | 發出事件之資源的資源識別碼。 對於租用戶服務，這是 /tenants/tenant-id/providers/provider-name 的格式。 |
@@ -53,6 +53,7 @@ ms.locfileid: "39627707"
 | 應用程式閘道 |[應用程式閘道的診斷記錄功能](../application-gateway/application-gateway-diagnostics.md) |
 | Azure 自動化 |[Azure 自動化的記錄檔分析](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 診斷記錄](../batch/batch-diagnostics.md) |
+| 認知服務 | 無法使用結構描述。 |
 | 內容傳遞網路 | [CDN 的 Azure 診斷記錄](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 記錄](../cosmos-db/logging.md) |
 | Data Factory | [使用 Azure 監視器來監視 Data Factory](../data-factory/monitor-using-azure-monitor.md) |
@@ -61,13 +62,14 @@ ms.locfileid: "39627707"
 | 適用於 PostgreSQL 的 DB |  無法使用結構描述。 |
 | 事件中樞 |[Azure 事件中樞診斷記錄](../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | 無法使用結構描述。 |
+| Azure 防火牆 | 無法使用結構描述。 |
 | IoT 中樞 | [IoT 中樞作業](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure 金鑰保存庫記錄](../key-vault/key-vault-logging.md) |
 | 負載平衡器 |[Azure 負載平衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 自訂追蹤結構描述](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 網路安全性群組 |[網路安全性群組 (NSG) 的記錄檔分析](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS 保護 | [管理 Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md) |
-| PowerBI 專用 | 無法使用結構描述。 |
+| PowerBI 專用 | [Azure 中 PowerBI Embedded 的診斷記錄](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | [復原服務] | [Azure 備份的資料模型](../backup/backup-azure-reports-data-model.md)|
 | Search |[啟用和使用搜尋流量分析](../search/search-traffic-analytics.md) |
 | 服務匯流排 |[Azure 服務匯流排診斷記錄](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -88,6 +90,12 @@ ms.locfileid: "39627707"
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc 節點狀態|
 |Microsoft.Batch/batchAccounts|ServiceLog|服務記錄檔|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|取得端點的計量，例如頻寬、輸出等資訊。|
+|Microsoft.ClassicNetwork/networksecuritygroups|網路安全性群組規則流程事件|網路安全性群組規則流程事件|
+|Microsoft.CognitiveServices/accounts|稽核|稽核|
+|Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API 伺服器|
+|Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes 控制器管理員|
+|Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes 排程器|
+|Microsoft.ContainerService/managedClusters|成立條件|驗證 Webhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|管線活動執行記錄|
 |Microsoft.DataFactory/factories|PipelineRuns|管線執行記錄|
@@ -97,7 +105,6 @@ ms.locfileid: "39627707"
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄|
 |Microsoft.DataLakeStore/accounts|Requests|要求記錄檔|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 伺服器記錄|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|PostgreSQL Backup 事件|
 |Microsoft.Devices/IotHubs|連線|連線|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|裝置遙測|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 命令|
@@ -110,6 +117,7 @@ ms.locfileid: "39627707"
 |Microsoft.Devices/IotHubs|JobsOperations|作業的操作|
 |Microsoft.Devices/IotHubs|DirectMethods|直接方法|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|E2E 診斷 (預覽)|
+|Microsoft.Devices/IotHubs|組態|組態|
 |Microsoft.Devices/provisioningServices|DeviceOperations|裝置作業|
 |Microsoft.Devices/provisioningServices|ServiceOperations|服務作業|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -130,13 +138,17 @@ ms.locfileid: "39627707"
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|應用程式閘道存取記錄檔|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|應用程式閘道效能記錄檔|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|應用程式閘道防火牆記錄檔|
+|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure 防火牆應用程式規則|
+|Microsoft.Network/securegateways|AzureFirewallNetworkRule|Azure 防火牆網路規則|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure 防火牆應用程式規則|
+|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Azure 防火牆網路規則|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|閘道診斷記錄|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|通道診斷記錄|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|路由診斷記錄|
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE 診斷記錄|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S 診斷記錄|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|流量管理員探查健康情況結果事件|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 計數器的資料表|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|對等互連路由表記錄|
 |Microsoft.PowerBIDedicated/capacities|引擎|引擎|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure 備份報表資料|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 作業|
@@ -148,15 +160,19 @@ ms.locfileid: "39627707"
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery 受保護的磁碟資料變換|
 |Microsoft.Search/searchServices|OperationLogs|作業記錄|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|作業記錄|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|AutomaticTuning|自動微調|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|查詢存放區執行階段統計資料|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|查詢存放區等候統計資料|
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|資料庫等候統計資料|
 |Microsoft.Sql/servers/databases|逾時|逾時|
 |Microsoft.Sql/servers/databases|區塊|區塊|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|死結|死結|
 |Microsoft.Sql/servers/databases|稽核|稽核記錄|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 安全性稽核事件|
+|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW 要求|
+|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW 要求步驟|
 |Microsoft.StreamAnalytics/streamingjobs|執行|執行|
 |Microsoft.StreamAnalytics/streamingjobs|編寫|編寫|
 

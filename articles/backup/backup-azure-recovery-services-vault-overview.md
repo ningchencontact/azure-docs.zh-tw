@@ -6,14 +6,14 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/15/2017
+ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: b6195feb25a7206d7c453e31f0ac312e070b3113
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b755d7ca1ec72b075ecaa4b32a35f5009a938b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606166"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141673"
 ---
 # <a name="recovery-services-vaults-overview"></a>復原服務保存庫概觀
 
@@ -38,11 +38,17 @@ ms.locfileid: "34606166"
 - **IaaS VM 的立即還原**︰您可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM，這樣可加速還原時間。 IaaS VM 的立即還原適用於 Windows 和 Linux VM。 [深入了解](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>在入口網站中管理復原服務保存庫
-建立和管理 Azure 入口網站中的復原服務保存庫很輕鬆，因為備份服務已整合至 [Azure 設定] 功能表。 這項整合代表您可以在目標服務的內容中，建立或管理復原服務保存庫。 例如，若要檢視 VM 的復原點，請加以選取，然後按一下 [設定] 功能表中的 [備份]。 隨即出現該 VM 特定的備份資訊。 在下列範例中，**ContosoVM** 是虛擬機器的名稱。 **ContosoVM demovault** 是復原服務保存庫的名稱。 您不需要記住儲存復原點的復原服務保存庫名稱，您可以從虛擬機器存取這項資訊。  
+建立和管理 Azure 入口網站中的復原服務保存庫很輕鬆，因為備份服務已整合至其他 Azure 服務。 這項整合代表您可以在目標服務的內容中，建立或管理復原服務保存庫。 例如，若要檢視 VM 的復原點，請選取您的 VM，然後按一下 [作業] 功能表中的 [備份]。 
 
-![復原服務保存庫詳細資料 VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+![復原服務保存庫詳細資料 VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
-如果使用相同的復原服務保存庫來保護多部伺服器，則查看復原服務保存庫可能更具邏輯。 您可以搜尋訂用帳戶中所有的復原服務保存庫，並從清單中選擇一個。
+如果 VM 沒有設定備份，則會出現要您設定備份的提示。 如果已設定備份，您會看到與 VM 相關的備份資訊，其中包括還原點清單。  
+
+![復原服務保存庫詳細資料 VM](./media/backup-azure-recovery-services-vault-overview/vm-recovery-point-list.png)
+
+在先前範例中，**ContosoVM** 是虛擬機器的名稱。 **ContosoVM demovault** 是復原服務保存庫的名稱。 您不需要記住儲存復原點的復原服務保存庫名稱，您可以從虛擬機器存取這項資訊。  
+
+如果一個復原服務保存庫保護著多部伺服器，則查看復原服務保存庫可能更具邏輯。 您可以搜尋訂用帳戶中所有的復原服務保存庫，並從清單中選擇一個。
 
 下列各節所包含的文章連結，說明如何在每一個活動類型中使用復原服務保存庫。
 

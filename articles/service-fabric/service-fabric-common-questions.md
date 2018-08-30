@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971531"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146389"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -27,7 +27,7 @@ ms.locfileid: "38971531"
 
 ## <a name="cluster-setup-and-management"></a>叢集設定和管理
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>如何復原 Service Fabric 叢集憑證？
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>如何復原 Service Fabric 叢集憑證？
 
 若要復原應用程式的任何升級，唯有發生健康情況失敗偵測，Service Fabric 叢集仲裁才會認可變更；認可後的變更只能向前復原。 如果您引進未受監視的中斷性憑證變更，若要復原叢集，您可能需要透過客戶支援服務提報工程師。  [Service Fabric 的應用程式升級](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)會套用[應用程式升級參數](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)，以及履行不需要停機升級承諾。  完成我們建議的應用程式升級監視模式後，是否能自動進展到更新網域，端視應用程式是否通過健康情況檢查，如果預設服務更新失敗，系統將進行自動復原。
  
@@ -119,6 +119,12 @@ ms.locfileid: "38971531"
 | FabricRM.exe |
 | FileStoreService.exe |
  
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>我的應用程式要如何向 KeyVault 進行驗證來取得祕密？
+您的應用程式可使用下列方法取得向 KeyVault 驗證所需的認證：
+
+A. 在您的應用程式建置/封裝作業期間，您可以將憑證提取到 SF 應用程式的資料套件中，並以此憑證向 KeyVault 驗證。
+B. 針對已啟用虛擬機器擴展集 MSI 的主機，您可以針對 SF 應用程式開發簡單的 PowerShell SetupEntryPoint，以取得[來自 MSI 端點的存取權杖](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token)，然後[從 KeyVault 擷取您的祕密](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+
 ## <a name="application-design"></a>應用程式設計
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>在可靠集合的所有分割中查詢資料的最佳方式為何？

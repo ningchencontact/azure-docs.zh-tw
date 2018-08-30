@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 08/20/2018
 ms.author: jeedes
-ms.openlocfilehash: d46f2aac5fb16b10f33cccabdcd76d60f0d6dfb9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eadf6724891d348c2ea3654bcf19ef0d74078049
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438048"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>教學課程：Azure Active Directory 與 Dropbox for Business 整合
 
@@ -50,29 +50,32 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
+
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。
+本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Dropbox for Business
-1. 設定並測試 Azure AD 單一登入
+2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>從資源庫新增 Dropbox for Business
+
 若要設定 Dropbox for Business 與 Azure AD 整合，您需要從資源庫將 SAP Dropbox for Business 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Dropbox for Business，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
     ![Azure Active Directory 按鈕][1]
 
-1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
-    
-1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-1. 在搜尋方塊中，輸入 [商務用 Dropbox]，從結果面板中選取 [商務用 Dropbox]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 [商務用 Dropbox]，從結果面板中選取 [商務用 Dropbox]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的商務用 Dropbox](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
 
@@ -87,10 +90,10 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 若要設定及測試與 Dropbox for Business 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立商務用 Dropbox 測試使用者](#create-a-dropbox-for-business-test-user)** - 在商務用 Dropbox 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
-1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+3. **[建立商務用 Dropbox 測試使用者](#create-a-dropbox-for-business-test-user)** - 在商務用 Dropbox 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -102,11 +105,11 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
 
-1. 在 [Dropbox for Business 網域與 URL] 區段上，執行下列步驟：
+3. 在 [Dropbox for Business 網域與 URL] 區段上，執行下列步驟：
 
     ![商務用 Dropbox 網域及 URL 單一登入資訊](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
@@ -114,59 +117,56 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     b. 在 [識別碼] 文字方塊中，輸入一個值：`Dropbox`
 
-    > [!NOTE] 
-    > 上述登入 URL 值並非真正的值。 您將會使用實際的登入 URL 來更新值，稍後會在本教學課程中說明。 請連絡[商務用 Dropbox 用戶端支援小組](https://www.dropbox.com/business/contact)以取得此值。 
- 
+    > [!NOTE]
+    > 上述登入 URL 值並非真正的值。 您將會使用實際的登入 URL 來更新值，稍後會在本教學課程中說明。
 
-1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
 
-1. 按一下 [儲存]  按鈕。
+5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/dropboxforbusiness-tutorial/tutorial_general_400.png)
 
-1. 在 [Dropbox for Business 設定] 區段中，按一下 [設定 Dropbox for Business] 可開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
+6. 在 [Dropbox for Business 設定] 區段中，按一下 [設定 Dropbox for Business] 可開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
 
     ![商務用 Dropbox 組態](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
 
-1. 若要在 [商務用 Dropbox] 端上設定單一登入，請移至商務用 Dropbox 租用戶。
+7. 若要在 [商務用 Dropbox] 端上設定單一登入，請移至商務用 Dropbox 租用戶，並登入您的商務用 Dropbox 租用戶。
 
-    a. 登入您的 Dropbox for Business 租用戶。 
-   
     ![設定單一登入](./media/dropboxforbusiness-tutorial/ic769509.png "設定單一登入")
-   
-    b. 在左側的導覽窗格中，按一下 [管理主控台]。 
-   
-    ![設定單一登入](./media/dropboxforbusiness-tutorial/ic769510.png "設定單一登入")
-   
-    c. 在 [管理主控台] 上，按一下左側導覽窗格中的 [驗證]。 
-   
-    ![設定單一登入](./media/dropboxforbusiness-tutorial/ic769511.png "設定單一登入")
-   
-    d. 在 [單一登入] 區段中，選取 [啟用單一登入]，然後按一下 [更多資訊] 以展開此區段。  
-   
-    ![設定單一登入](./media/dropboxforbusiness-tutorial/ic769512.png "設定單一登入")
-   
-    e. 複製 [使用者可以藉由輸入其電子郵件地址進行登入或直接移至] 旁邊的 URL，將其貼到 Azure 入口網站上 [商務 Dropbox 網域和 URL] 一節的 [登入 URL] 文字方塊中。 
-    
-    ![設定單一登入](./media/dropboxforbusiness-tutorial/ic769513.png)
-    
-1. 在 [驗證] 頁面的 [單一登入] 區段中，執行下列步驟： 
-   
-    ![設定單一登入](./media/dropboxforbusiness-tutorial/IC769516.png "設定單一登入")
-   
-    a. 按一下 [必要]。
-   
-    b. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
-    c. 按一下 [選擇憑證]，然後瀏覽至您的 **Base-64 編碼的憑證檔案**。
+8. 按一下 [使用者圖示]，然後選取 [設定] 索引標籤。
 
-    d. 按一下 [儲存變更] 以完成 DropBox for Business 租用戶設定。
+    ![設定單一登入](./media/dropboxforbusiness-tutorial/configure1.png "設定單一登入")
 
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+9. 在左側的導覽窗格中，按一下 [管理主控台]。
+
+    ![設定單一登入](./media/dropboxforbusiness-tutorial/configure2.png "設定單一登入")
+
+10. 在 [管理主控台] 上，按一下左側導覽窗格中的 [設定]。
+
+    ![設定單一登入](./media/dropboxforbusiness-tutorial/configure3.png "設定單一登入")
+
+11. 選取 [驗證]區段下的 [單一登入] 選項。
+
+    ![設定單一登入](./media/dropboxforbusiness-tutorial/configure4.png "設定單一登入")
+
+12. 在 [單一登入]  區段中，執行下列步驟：  
+
+    ![設定單一登入](./media/dropboxforbusiness-tutorial/configure5.png "設定單一登入")
+
+    a. 在 [單一登入]的下拉式清單中選取 [必要] 選項。
+
+    b. 在 [識別提供者登入 URL] 文字方塊中，按一下 [新增登入 URL]，並貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值，然後選取 [完成]。
+
+    ![設定單一登入](./media/dropboxforbusiness-tutorial/configure6.png "設定單一登入")
+
+    c. 按一下 [上傳憑證]，然後瀏覽至您從 Azure 入口網站下載的 **Base64 編碼憑證檔案**。
+
+    d. 按一下 [複製連結]，並在 Azure 入口網站中，將複製的值貼到 [商務用 Dropbox 網域和 URL] 區段的 [登入 URL] 文字方塊。
+
+    e. 按一下 [檔案] 。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

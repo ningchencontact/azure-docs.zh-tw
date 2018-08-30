@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/21/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 69cd7774c92cf1c213f8522dffeb02be6c024acb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525132"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445017"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -25,7 +25,8 @@ Azure 檔案同步代理程式支援下列版本：
 
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
-| 正式運作 | 3.1 | 2018 年 7 月 19 日 | 支援 (建議的版本) |
+| 八月更新彙總套件 | 3.2.0.0 | 2018 年 8 月 15 日 | 支援 (建議的版本) |
+| 正式運作 | 3.1.0.0 | 2018 年 7 月 19 日 | 支援 |
 | 六月更新彙總套件 | 3.0.13.0 | 2018 年 6 月 29 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
 | 重新整理 2 | 3.0.12.0 | 2018 年 5 月 22 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
 | 四月更新彙總套件 | 2.3.0.0 | 2018 年 5 月 8 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
@@ -39,6 +40,12 @@ Azure 檔案同步代理程式支援下列版本：
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-3200"></a>代理程式版本 3.2.0.0
+下列版本資訊適用於 Azure 檔案同步代理程式版本 3.2.0.0 (在 2018 年 8 月 15 日發行)。 這些是針對版本 3.1.0.0 所列的版本資訊以外的版本資訊。
+
+此版本包含下列修正︰
+- 同步處理失敗，由於記憶體流失造成記憶體不足錯誤 (0x8007000e)
 
 ## <a name="agent-version-3100"></a>代理程式版本 3.1.0.0
 下列版本資訊適用於 Azure 檔案同步代理程式版本 3.1.0.0 (在 2018 年 6 月 17 日發行)。
@@ -84,6 +91,7 @@ Azure 檔案同步代理程式支援下列版本：
 
 ### <a name="cloud-endpoint"></a>雲端端點
 - Azure 檔案同步支援直接對 Azure 檔案共用進行變更。 不過，在 Azure 檔案共用上所做的任何變更，都必須先由 Azure 檔案同步變更偵測作業做出探索。 針對雲端端點的變更偵測作業，每隔 24 小時會起始一次。 此外，透過 REST 通訊協定對 Azure 檔案共用所做的變更，將不會更新 SMB 上次修改時間，而且將不會同步顯示為變更。
+- 可以將儲存體同步服務及/或儲存體帳戶移至不同的資源群組或訂用帳戶。 如果移動儲存體帳戶，您需要將儲存體帳戶的存取權給予混合式檔案同步服務 (請參閱[確保 Azure 檔案同步有儲存體帳戶的存取權](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac))。
 
 ### <a name="cloud-tiering"></a>雲端階層處理
 - 如果使用 Robocopy 將階層式檔案複製到另一個位置，則所產生的檔案不會進行階層處理。 因為 Robocopy 未正確地在複製作業中包含該屬性，所以可能設定離線屬性。

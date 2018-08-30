@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c2297f072786bdc1e80255dee278d640b0c0d26d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5a134e14768e0576c501232b6aedb1f836bc05b1
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629509"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144236"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 來部署和管理通知中樞
 ## <a name="overview"></a>概觀
-本文將說明如何使用 PowerShell 來建立和管理 Azure 通知中樞。 本主題示範下列一般自動化工作。
+本文將說明如何使用 PowerShell 來建立和管理 Azure 通知中樞。 本文示範下列一般自動化工作。
 
 * 建立通知中樞
 * 設定認證
@@ -89,10 +89,10 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 您會在指令碼的這個部分設定四個區域變數。 
 
-1. `$Namespace` ：將此變數設定為要建立通知中樞之命名空間的名稱。
-2. `$Path` ：將此路徑設定為新的通知中樞之名稱。  例如，"MyHub"。    
-3. `$WnsPackageSid`：從 [Windows 開發人員中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)，將此變數設定為 Windows 應用程式的套件 SID。
-4. `$WnsSecretkey`：從 [Windows 開發人員中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)，將此變數設定為 Windows 應用程式的祕密金鑰。
+1. `$Namespace`：將此變數設定為要在其中建立通知中樞的命名空間名稱。
+2. `$Path`：將此路徑設定為新的通知中樞名稱。  例如，"MyHub"。    
+3. `$WnsPackageSid`：從 [Windows 開發人員中心](https://developer.microsoft.com/en-us/windows)，將此變數設定為 Windows 應用程式的套件 SID。
+4. `$WnsSecretkey`：從 [Windows 開發人員中心](https://developer.microsoft.com/en-us/windows)，將此變數設定為 Windows 應用程式的祕密金鑰。
 
 這些變數可用以連接命名空間，以及建立新的通知中樞，並將其設定為利用 WNS 認證，為 Windows 應用程式處理 Windows Notification Services (WNS) 通知。 如需取得封裝 SID 與祕密金鑰的相關資訊，請參閱 [開始使用通知中樞](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 教學課程。 
 

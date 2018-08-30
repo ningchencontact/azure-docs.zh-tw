@@ -2,19 +2,19 @@
 title: Azure Stack 虛擬機器簡介
 description: 了解 Azure Stack 虛擬機器
 services: azure-stack
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 05/21/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 967fcb86c1bf0c85517bc13c2066ed32e8fa28d9
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604126"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050437"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虛擬機器簡介
 
@@ -98,11 +98,11 @@ VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功�
 
 |資源|必要|說明|
 |---------|---------|---------|
-|資源群組|yes|VM 必須包含在資源群組中。|
-|儲存體帳戶|yes|VM 需要儲存體帳戶儲存其虛擬硬碟。|
-|虛擬網路|yes|VM 必須是虛擬網路的成員。|
+|資源群組|是|VM 必須包含在資源群組中。|
+|儲存體帳戶|是|VM 需要儲存體帳戶儲存其虛擬硬碟。|
+|虛擬網路|是|VM 必須是虛擬網路的成員。|
 |公用 IP 位址|否|可以有公用 IP 位址指派給 VM，以從遠端存取它。|
-|Linux|yes|VM 需要網路介面以在網路中進行通訊。|
+|Linux|是|VM 需要網路介面以在網路中進行通訊。|
 |資料磁碟|否|VM 可以包含資料磁碟來擴充儲存體功能。|
 
 ## <a name="create-your-first-vm"></a>建立您的第一個 VM

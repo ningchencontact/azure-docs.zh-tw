@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 51f38cf7ade01b58ad5ce7925af5546d1a4f1a0c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 072573b16fbeebac1ec942b0be508cf901b5cd27
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525377"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42144197"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 預覽版介紹
 
@@ -33,6 +33,8 @@ Data Lake Storage Gen2 的基本功能是將[階層式命名空間](./namespace.
 
 - **管理**更容易，因為您可以透過目錄和子目錄整理和操作檔案。
 
+- **安全性**是強制的，因為您可以在資料夾或個人檔案上定義 POSIX 權限。
+
 - **符合成本效益**，因為 Data Lake Storage Gen2 建立在低成本的 [Azure Blob 儲存體](../blobs/storage-blobs-introduction.md)上。 額外功能進一步降低了在 Azure 上執行巨量資料分析的擁有權總成本。
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake Storage Gen2 的主要功能
@@ -43,9 +45,7 @@ Data Lake Storage Gen2 的基本功能是將[階層式命名空間](./namespace.
 
 - **Hadoop 相容存取**：Data Lake Storage Gen2 可讓您管理及存取資料，就如同使用 [Hadoop 分散式檔案系統 (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一樣。 全新 [ABFS 驅動程式](./abfs-driver.md)可在所有 Apache Hadoop 環境中使用，包括 [Azure HDInsight](../../hdinsight/index.yml) 和 [Azure Databricks](../../azure-databricks/index.yml)，以存取儲存在 Data Lake Storage Gen2 中的資料。
 
-- **多重通訊協定和多重強制回應資料存取**：Data Lake Storage Gen2 視為是一種**多重強制回應**的儲存體服務，因為可以**同時**為同一資料提供物件存放區和檔案系統介面。 這必須提供能夠存取相同資料的多重通訊協定端點才能達成。 
-
-    儲存在 Data Lake Storage Gen2 中的資料在執行各種分析工具之前無須移動或轉換，這點和其他分析解決方案不同。 您可以透過傳統的 [Blob 儲存體 API](../blobs/storage-blobs-introduction.md) (例如：透過[事件中樞擷取](../../event-hubs/event-hubs-capture-enable-through-portal.md)的內嵌資料) 存取資料，並且同時使用 HDInsight 或 Azure Databricks 處理該資料。 
+- **POSIX 權限的超集合**：Data Lake Gen2 的安全性模型可完全支援 ACL 和 POSIX 權限，以及一些 Data Lake Storage Gen2 特有的額外細微姓。 這些設定可透過系統管理工具或 Hive 和 Spark 這類架構來配置。
 
 - **符合成本效益**：Data Lake Storage Gen2 具有低成本儲存體容量和異動功能。 隨著資料在整個生命週期中進行轉換，計費率會有所更改，透過 [Azure Blob 儲存體生命週期](../common/storage-lifecycle-managment-concepts.md)等內建功能將成本降到最低。
 

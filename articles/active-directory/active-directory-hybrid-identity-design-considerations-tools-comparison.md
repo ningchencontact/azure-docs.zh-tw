@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/31/2018
+ms.date: 08/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 10774e7ca1168a58e8c8d47e6a7295ff727fa1cd
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 80cbe09eca2e5aacd46325e9add35f3ec8aae407
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801444"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143269"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>混合式身分識別目錄整合工具比較
 目錄整合工具已經經過多年的成長和發展。  本文件是為了整合檢視這些工具，並比較各個工具中所提供的功能。
@@ -45,14 +45,20 @@ PP = 公開預覽
 | 連接到單一內部部署 AD 樹系 |● |● |● |● |● |
 | 連接到多個內部部署 AD 樹系 |● |● | |● |● |
 | 連接到多個內部部署 Exchange 組織 |● | | | | |
-| 連接到單一內部部署 LDAP 目錄 | | | |● |● |
-| 連接到多個內部部署 LDAP 目錄 |  | | |● |● |
-| 連接到內部部署 AD 和內部部署 LDAP 目錄 | | | |● |● |
+| 連接到單一內部部署 LDAP 目錄 |●* | | |● |● | 
+| 連接到多個內部部署 LDAP 目錄 |●*  | | |● |● | 
+| 連接到內部部署 AD 和內部部署 LDAP 目錄 |●* | | |● |● | 
 | 連接到自訂系統 (亦即 SQL、Oracle、MySQL 等) |FR | | |● |● |
 | 同步處理客戶定義的屬性 (目錄擴充功能) |● | | | | |
 | 連接到內部部署人力資源系統 (例如 SAP、Oracle eBusiness、PeopleSoft) |FR | | |● |● |
 | 支援 FIM 同步處理規則和連接器，以供佈建到內部部署系統。 | | | |● |● |
 
+ 
+&#42; 目前這有兩個支援的選項。  如下： 
+
+   1. 您可以使用泛型 LDAP 連接器，並在 Azure AD Connect 之外啟用。  這很複雜，且需要夥伴才能上架，以及頂級支援合約來維護。  此選項可以處理單一和多個 LDAP 目錄。 
+
+   2. 您可以開發自己的解決方案，將物件從 LDAP 移至 Active Directory。  然後使用 Azure AD Connect 將物件同步。  MIM 或 FIM 可用來作為移動物件的可能解決方案。 
 
 ## <a name="cloud-to-on-premises-synchronization"></a>雲端至內部部署同步處理
 | 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 - 不再支援  | Azure Active Directory 同步處理工具 (DirSync) - 不再支援  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

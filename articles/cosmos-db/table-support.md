@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 1ebf244aeb00b1eb87b846a5bb1db6bd4f954e26
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 114286b45df5f47e81bd2b990c8b50c8b7b7a482
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798163"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185361"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>使用 Azure Cosmos DB 資料表 API 和 Azure 表格儲存體進行開發
 
@@ -26,12 +26,12 @@ Azure Cosmos DB 資料表 API 和 Azure 表格儲存體共用同一個資料表�
 ## <a name="developing-with-the-azure-cosmos-db-table-api"></a>使用 Azure Cosmos DB 資料表 API 進行開發
 
 此時，[Azure Cosmos DB 資料表 API](table-introduction.md) 有四個 SDK 可供開發使用： 
-- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK。 此文件庫具有與公用 [Windows Azure 儲存體 SDK](https://www.nuget.org/packages/WindowsAzure.Storage) 相同的類別和方法簽章，但它也可以使用資料表 API 來連線到 Azure Cosmos DB 帳戶。 
+- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK。 此文件庫具有與公用 [Windows Azure 儲存體 SDK](https://www.nuget.org/packages/WindowsAzure.Storage) 相同的類別和方法簽章，但它也可以使用資料表 API 來連線到 Azure Cosmos DB 帳戶。 請注意，`Microsoft.Azure.CosmosDB.Table` 文件庫目前僅適用於 .NET Standard，尚不適用於 .NET Core。
 - [Python SDK](table-sdk-python.md)。 新的 Azure Cosmos DB Python SDK 是唯一支援 Azure 表格儲存體 (Python) 的 SDK。 此 SDK 與 Azure 表格儲存體和 Azure Cosmos DB 資料表 API 連線。
 - [Java SDK](table-sdk-java.md)。 此 Azure 儲存體 SDK 能夠使用資料表 API 連線至 Azure Cosmos DB 帳戶。
 - [Node.js SDK](table-sdk-nodejs.md)。 此 Azure 儲存體 SDK 能夠使用資料表 API 連線至 Azure Cosmos DB 帳戶。
 
-[常見問題集：使用資料表 API 開發](faq.md#develop-with-the-table-api)一文提供使用資料表 API 的其他資訊。
+[常見問題集：使用資料表 API 開發](faq.md#table)一文提供使用資料表 API 的其他資訊。
 
 ## <a name="developing-with-azure-table-storage"></a>使用 Azure 表格儲存體進行開發
 

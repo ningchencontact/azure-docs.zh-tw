@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 38926cc42b44e61bd83f6b1e33946a9026cda06d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: f5596f4c9bc827852c730d18856753e87de3c59c
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989396"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144004"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>如何管理 Azure 地圖服務帳戶和金鑰
 
@@ -51,4 +51,5 @@ ms.locfileid: "38989396"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何使用[地圖服務管理 API](https://docs.microsoft.com/rest/api/maps-management/accounts)，來建立、更新和刪除地圖服務帳戶。 
+* 了解如何使用 Azure 地圖服務搜尋API 來[搜尋地址](./how-to-search-for-address.md)。
+* 了解如何使用 Azure 地圖服務的 [JavaScript 地圖控制項](./how-to-use-map-control.md)。

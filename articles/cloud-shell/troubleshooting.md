@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619401"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141676"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 的疑難排解和限制
 
@@ -31,6 +31,11 @@ ms.locfileid: "39619401"
 
 - **詳細資料**：Cloud Shell 會利用開放式 Websocket 將輸入/輸出傳遞至瀏覽器。 FireFox 預設的原則會提早關閉 Websocket，而造成在 Cloud Shell 中提前逾時。
 - **解決辦法**：開啟 FireFox，然後在 URL 方塊中瀏覽至 "about:config"。 搜尋 "network.websocket.timeout.ping.request"，然後將值從 0 變更為 10。
+
+### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>在鎖定的網路環境中停用 Cloud Shell
+
+- **詳細資料**：建議系統管理員阻止其使用者存取 Cloud Shell。 Cloud Shell 存取 `ux.console.azure.com` 網域時可能會遭到拒絕，進而停止任何對 Cloud Shell 進入點的存取，例如 portal.azure.com、shell.azure.com、Visual Studio Code 的 Azure 帳戶擴充及 docs.microsoft.com。
+- **解決方法**：透過環境的網路設定來限制 `ux.console.azure.com` 的存取權。 Cloud Shell 圖示仍會顯示在 portal.azure.com 中，但無法成功連線至該服務。
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>儲存體對話方塊 - 錯誤：403 RequestDisallowedByPolicy
 

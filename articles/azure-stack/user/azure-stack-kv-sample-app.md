@@ -3,7 +3,7 @@ title: 允許應用程式取出 Azure Stack Key Vault 密碼 | Microsoft Docs
 description: 使用範例應用程式來處理 Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/11/2018
-ms.author: mabrigg
-ms.openlocfilehash: 39bce286c756660cd8755358cf98f2c8d35ce351
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: ed02174247de1a99f3d9a4880fd0afa60f867552
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807375"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050444"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>使用金鑰保存庫中儲存之金鑰和密碼的範例應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "34807375"
 
 請依照本文中的步驟執行範例應用程式 (HelloKeyVault)，以從 Azure Stack 中的金鑰保存庫擷取金鑰和密碼。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您可以從 Azure Stack [開發套件](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)安裝下列必要項目，或從 Windows 型外部用戶端 (如果您[透過 VPN 連線](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)) 安裝：
 

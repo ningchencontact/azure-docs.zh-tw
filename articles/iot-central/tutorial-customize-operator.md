@@ -2,19 +2,18 @@
 title: 在 Azure IoT Central 中自訂操作員的檢視 | Microsoft Docs
 description: 身為建置者，您可以在 Azure IoT Central 應用程式中自訂操作員的檢視。
 author: sandeeppujar
-ms.author: sadeepu
+ms.author: sandeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: ddb6e6d7859227b8eec7f13b95fab06b333dacda
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235363"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185846"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>教學課程：自訂 Azure IoT 中心操作員的檢視
 
@@ -32,7 +31,7 @@ ms.locfileid: "35235363"
 > * 設定預設首頁
 > * 以操作員的身分預覽預設首頁
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在開始之前，您應先完成兩個先前的教學課程：
 
@@ -65,7 +64,7 @@ ms.locfileid: "35235363"
 
     | 設定     | 值 |
     | ----------- | ----- |
-    | Name        | 最高溫度 |
+    | 名稱        | 最高溫度 |
     | 測量 | 溫度 |
     | 彙總 | 最大值 |
     | 時間範圍  | 過去 1 星期 |

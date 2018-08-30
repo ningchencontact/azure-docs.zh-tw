@@ -4,22 +4,20 @@ description: 使用 Azure Resource Manager 將資源移到新的資源群組或�
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503575"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617285"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -113,11 +111,11 @@ ms.locfileid: "39503575"
 
 啟用移動到新資源群組與訂用帳戶的服務有：
 
+* Analysis Services
 * API 管理
 * App Service 應用程式 (Web 應用程式) - 請參閱 [App Service 限制](#app-service-limitations)
 * App Service 憑證
 * Application Insights
-* Analysis Services
 * 自動化
 * Azure Active Directory B2C
 * Azure Cosmos DB
@@ -133,6 +131,8 @@ ms.locfileid: "39503575"
 * 認知服務
 * Container Registry
 * 內容仲裁
+* 成本管理
+* Customer Insights
 * 資料目錄
 * Data Factory
 * 資料湖分析
@@ -141,12 +141,14 @@ ms.locfileid: "39503575"
 * Event Grid
 * 事件中樞
 * HDInsight 叢集 - 請參閱 [HDInsight 限制](#hdinsight-limitations)
+* IoT 中心
 * IoT 中樞
 * Key Vault
 * Load Balancer - 請參閱 [Load Balancer 限制](#lb-limitations)
 * Log Analytics
 * Logic Apps
 * Machine Learning：Machine Learning Studio Web 服務可以移至相同訂用帳戶 (而非不同的訂用帳戶) 中的資源群組。 其他 Machine Learning 資源可以在訂用帳戶之間移動。
+* 受控識別 - 使用者指派
 * 媒體服務
 * Mobile Engagement
 * 通知中樞
@@ -160,6 +162,7 @@ ms.locfileid: "39503575"
 * Search
 * 服務匯流排
 * Service Fabric
+* Service Fabric Mesh
 * SignalR Service
 * 儲存體
 * 儲存體 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
@@ -187,7 +190,10 @@ ms.locfileid: "39503575"
 * Azure Databricks
 * Batch AI
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
+* Container Instances
 * 容器服務
+* 資料箱
+* Dev Spaces
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes 服務
@@ -196,6 +202,7 @@ ms.locfileid: "39503575"
 * 受控應用程式
 * 受控磁碟 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * Microsoft Genomics
+* NetApp
 * 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
 * 復原服務保存庫 - 也不會移動與「復原服務」保存庫關聯的「計算」、「網路」及「儲存體」資源，請參閱 [復原服務限制](#recovery-services-limitations)。
 * SAP HANA on Azure
@@ -225,7 +232,7 @@ ms.locfileid: "39503575"
 
 ## <a name="virtual-networks-limitations"></a>虛擬網路限制
 
-當您移動虛擬網路時，也必須移動其相依資源。 例如，您必須移動虛擬網路的閘道。
+當您移動虛擬網路時，也必須移動其相依資源。 針對 VPN 閘道，您必須移動 IP 位址、虛擬網路閘道和所有相關聯的連線資源。 區域網路閘道可位於不同的資源群組。
 
 若要移動對等虛擬網路，您必須先停用虛擬網路對等互連。 停用之後，您可以移動虛擬網路。 移動之後，重新啟用虛擬網路對等互連。
 

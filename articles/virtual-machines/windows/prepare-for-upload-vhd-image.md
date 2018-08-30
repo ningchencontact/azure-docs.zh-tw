@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398966"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141317"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 將 Windows 虛擬機器 (VM) 從內部部署上傳至 Microsoft Azure 之前，您必須先準備虛擬硬碟 (VHD 或 VHDX)。 Azure 只支援採用 VHD 檔案格式且具有固定大小磁碟的**第 1 代 VM**。 允許的 VHD 大小上限為 1023 GB。 您可以將第 1 代 VM 從 VHDX 檔案系統轉換為 VHD，以及從動態擴充磁碟轉換為固定大小的磁碟。 但您無法變更 VM 的世代。 如需詳細資訊，請參閱[應該在 Hyper-V 中建立第 1 代還是第 2 代的 VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) \(英文\)。
@@ -67,7 +67,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 1. 在路由表上移除任何靜態持續路由：
    
    * 若要檢視路由表，在命令提示字元視窗上執行 `route print`。
-   * 檢查 [持續路由]  區段。 如果有持續的路由，請使用 [route delete](https://technet.microsoft.com/library/cc739598.apx) 加以移除。
+   * 檢查 [持續路由]  區段。 如果有持續的路由，請使用 **route delete** 命令加以移除。
 2. 移除 WinHTTP Proxy：
    
     ```PowerShell
@@ -90,7 +90,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
 
-    Set-Service -Name w32time -StartupType Auto
+    Set-Service -Name w32time -StartupType Automatic
     ```
 5. 將電源設定檔設為 [高效能]：
 
@@ -102,17 +102,17 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 確定以下的每個 Windows 服務都已設為 **Windows 預設值**。 這些是必須設定來確定 VM 具有連線能力的服務最小數目。 若要重設啟動設定，請執行下列命令：
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Auto
-Set-Service -Name dhcp -StartupType Auto
-Set-Service -Name dnscache -StartupType Auto
-Set-Service -Name IKEEXT -StartupType Auto
-Set-Service -Name iphlpsvc -StartupType Auto
+Set-Service -Name bfe -StartupType Automatic
+Set-Service -Name dhcp -StartupType Automatic
+Set-Service -Name dnscache -StartupType Automatic
+Set-Service -Name IKEEXT -StartupType Automatic
+Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Auto
+Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Auto
-Set-Service -Name RemoteRegistry -StartupType Auto
+Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## <a name="update-remote-desktop-registry-settings"></a>更新遠端桌面登錄設定
@@ -307,11 +307,22 @@ Set-Service -Name RemoteRegistry -StartupType Auto
     - 電腦設定\Windows 設定\安全性設定\本機原則\使用者權限指派\拒絕從遠端桌面服務登入
 
 
-9. 重新啟動 VM，以確保 Windows 仍然狀況良好，可使用 RDP 連線來達成。 此時，您可能想要在本機 Hyper-V 中建立 VM，以確定 VM 已完全啟動，然後測試是否可連線到 RDP。
+9. 檢查下列 AD 原則，確定您未移除下列任何一項所需的存取帳戶：
 
-10. 移除任何額外的傳輸驅動程式介面篩選，例如分析 TCP 封包的軟體或額外的防火牆。 您也可以視需要，在 Azure 中部署 VM 之後的後續階段中檢閱這部分。
+    - 電腦設定\Windows 設定\安全性設定\本機原則\使用者權限指派\從網路存取此電腦
 
-11. 解除安裝與實體元件或任何其他虛擬化技術相關的所有其他協力廠商軟體和驅動程式。
+    下列群組應列在此原則上：
+
+    - 系統管理員
+    - 備份操作員
+    - 所有人
+    - 使用者
+
+10. 重新啟動 VM，以確保 Windows 仍然狀況良好，可使用 RDP 連線來達成。 此時，您可能想要在本機 Hyper-V 中建立 VM，以確定 VM 已完全啟動，然後測試是否可連線到 RDP。
+
+11. 移除任何額外的傳輸驅動程式介面篩選，例如分析 TCP 封包的軟體或額外的防火牆。 您也可以視需要，在 Azure 中部署 VM 之後的後續階段中檢閱這部分。
+
+12. 解除安裝與實體元件或任何其他虛擬化技術相關的所有其他協力廠商軟體和驅動程式。
 
 ### <a name="install-windows-updates"></a>安裝 Windows 更新
 理想的設定是**具有最新的電腦修補程式等級**。 如果這不可行，請確定已安裝下列更新：

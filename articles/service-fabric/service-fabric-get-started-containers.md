@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: e76ffa3256da5acecf55ad37ea3d927510565ffe
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577283"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141713"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -204,6 +204,8 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您建立容器�
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> 透過適用的屬性值來宣告其他 EndPoint 元素，即可為服務新增其他 EndPoint。 每個連接埠只能宣告一個通訊協定值。
 
 透過定義端點，Service Fabric 會將端點發佈至名稱服務。 在叢集中執行的其他服務可以解析容器。 您也可以使用[反向 Proxy](service-fabric-reverseproxy.md)來執行容器對容器通訊。 將 HTTP 接聽連接埠和您想要與之通訊的服務名稱提供給反向 Proxy，並將這些都設為環境變數，便可進行通訊。
 
@@ -247,6 +249,8 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您建立容器�
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> 透過適用的屬性值來宣告其他 PortBinding 元素，即可為服務新增其他 PortBinding。
 
 ## <a name="configure-container-registry-authentication"></a>設定容器登錄驗證
 將 `RepositoryCredentials` 新增至 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 中，以設定容器登錄驗證。 為 myregistry.azurecr.io 容器登錄新增帳戶和密碼，讓服務從存放庫中下載容器映像。
@@ -598,13 +602,13 @@ Service Fabric 執行階段會配置 20 分鐘來下載及擷取容器映像，�
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -626,7 +630,7 @@ Service Fabric 執行階段會配置 20 分鐘來下載及擷取容器映像，�
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494203"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617213"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -82,7 +82,8 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 
 > [!WARNING]
 > 執行 Bronze 持久性的節點類型「沒有權限」。 這表示不會停止或延遲對您的無狀態工作負載造成影響的基礎結構作業 (可能會影響工作負載)。 針對僅執行無狀態工作負載的節點類型，只能使用 Bronze。 對於生產工作負載，建議執行 Silver 或以上的層級。 
->
+
+> 無論是任何持久性層級，虛擬機器擴展集上的[解除配置](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate)作業都會終結叢集
 
 **使用 Silver 或 Gold 持久性層級的優點**
  
@@ -150,7 +151,7 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 
 以下是規劃主要節點類型容量的指引：
 
-- **要在 Azure 中執行任何生產工作負載的 VM 執行個體數目︰** 您必須指定最小的主要節點類型大小 5。 
+- **要在 Azure 中執行任何生產工作負載的 VM 執行個體數目︰** 您必須指定最小的主要節點類型大小為 5 以及可靠性層級為 Silver。  
 - **要在 Azure 中執行測試工作負載的 VM 執行個體數目︰** 您可以指定最小的主要節點類型大小 1 或 3。 以特殊組態執行的一個節點叢集，因此不支援該叢集的相應放大。 一個節點叢集有沒有可靠性且在您的 Resource Manager 範本中，您必須移除/不指定該組態 (不設定組態值並不足夠)。 如果您透過入口網站設定一個節點叢集，則會自動處理組態。 一和三個節點叢集不支援執行生產工作負載。 
 - **VM SKU：** 主要節點類型是執行系統服務的地方，因此，您為此而選擇的 VM SKU，必須考量您打算投入叢集的整體尖峰負載。 我用比喻來闡明我的意思 - 將主要節點類型想像成您的「肺」，它供應氧氣給您的腦，如果腦沒有足夠的氧氣，您的身體就會出問題。 
 
@@ -166,8 +167,7 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 - 基於效能理由，標準 A1 SKU 不支援生產工作負載。
 
 > [!WARNING]
-> 目前不支援變更執行中叢集上的主要節點 VM SKU 大小。 因此請謹慎選擇主要節點類型的 VM SKU，將未來的容量需求列入考量。 現階段，若要將主要節點類型移到新的 VM SKU (較小或較大)，唯一支援的方法是建立具有正確容量的新叢集，將您的應用程式部署至新叢集，然後使用從舊叢集取得的[最新服務備份](service-fabric-reliable-services-backup-restore.md)還原應用程式狀態 (如果適用)。 您不需要還原任何系統服務狀態，它們會在您部署應用程式到新叢集時重新建立。 如果您之前只在叢集上執行無狀態應用程式，那麼您要做的只有部署應用程式到新叢集，不需還原任何東西。
-> 
+> 在執行的叢集上變更主要節點虛擬機器 SKU 大小是一種調整作業，且會記錄在[虛擬機器擴展集相應放大](virtual-machine-scale-set-scale-node-type-scale-out.md)文件中。
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>非主要節點類型 - 具狀態工作負載的容量指引
 

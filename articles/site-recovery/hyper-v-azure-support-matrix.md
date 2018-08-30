@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/14/2018
 ms.author: raynew
-ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171978"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146154"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V 複寫至 Azure 的支援矩陣
 
@@ -25,7 +25,7 @@ ms.locfileid: "39171978"
 
 **案例** | **詳細資料**
 --- | ---
-Hyper-V (含 Virtual Machine Manager) | 您可以針對在 System Center Virtual Machine Manager 網狀架構中管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。<br/><br/> 當 Hyper-V 主機受 Virtual Machine Manager 管理時，您也可以執行災害復原至次要內部部署網站。 若要深入了解此案例，請閱讀[本教學課程](tutorial-vmm-to-vmm.md)。
+Hyper-V (含 Virtual Machine Manager) | 您可以針對在 System Center Virtual Machine Manager 網狀架構中管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。<br/><br/> 當 Hyper-V 主機受 Virtual Machine Manager 管理時，您也可以執行災害復原至次要內部部署網站。 若要深入了解此案例，請閱讀[本教學課程](hyper-v-vmm-disaster-recovery.md)。
 Hyper-V (不含 Virtual Machine Manager) | 您可以針對在不是由 Virtual Machine Manager 管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。
 
 
@@ -44,8 +44,8 @@ Hyper-V (執行時含 Virtual Machine Manager) | Virtual Machine Manager 2016、
 
  **元件** | **詳細資料**
 --- | ---
-VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#failed-over-azure-vm-requirements)。
-客體作業系統 | Azure 支援的任何客體作業系統。<br/><br/> 不支援 Windows Server 2016 Nano Server。
+VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#azure-vm-requirements)。
+客體作業系統 | [Azure 支援的](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)任何客體作業系統。<br/><br/> 不支援 Windows Server 2016 Nano Server。
 
 
 ## <a name="vmdisk-management"></a>VM/磁碟管理
@@ -113,7 +113,8 @@ RDM | NA | NA
 磁碟 > 1 TB | 是，最多 4,095 GB | 是，最多 4,095 GB
 磁碟：4k 邏輯與實體磁區 | 不支援：第 1 代/第 2 代 | 不支援：第 1 代/第 2 代
 磁碟：4K 邏輯與 512 位元組實體磁區 | 是 |  是
-使用等量磁碟的磁碟區 > 1 TB<br/><br/> 邏輯磁碟區管理 (LVM) | 是 | 是
+邏輯磁碟區管理 (LVM)。 資料磁碟上才支援 LVM。 Azure 只提供單一 OS 磁碟。 | 是 | 是
+使用等量磁碟的磁碟區 > 1 TB | 是 | 是
 儲存空間 | 是 | 是
 熱新增/移除磁碟 | 否 | 否
 排除磁碟 | 是 | 是

@@ -10,12 +10,12 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 05/07/2018
 ms.author: bahariri
-ms.openlocfilehash: eee090e7d539e0dd21f078039b8448cee5440340
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d9ac8137e1e86edcdfe824ae29c1a8d46126900c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412190"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141518"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>使用 Kafka MirrorMaker 搭配適用於 Apache Kafka 的事件中樞
 
@@ -24,7 +24,7 @@ ms.locfileid: "39412190"
    ![具有事件中樞的 Kafka MirrorMaker](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
 > [!NOTE]
-> 您可以在 [GitHub](https://github.com/Azure/azure-event-hubs) 上取得此範例
+> 您可在 [GitHub](https://github.com/Azure/azure-event-hubs) 上取得此範例
 
 
 在本教學課程中，您了解如何：
@@ -44,6 +44,7 @@ Azure 事件中樞 Kafka 端點可讓您使用 Kafka 通訊協定 (亦即 Kafka 
 
 若要完成本教學課程，請確定您具有下列項目︰
 
+* 請參閱[適用於 Apache Kafka 的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)一文。 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * 在 Ubuntu 上，執行 `apt-get install default-jdk` 來安裝 JDK。

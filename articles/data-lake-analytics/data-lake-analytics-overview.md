@@ -4,18 +4,17 @@ description: Data Lake Analytics 可讓您使用在任意規模的雲端資料�
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a0e4878987d55b57587fe949d3bdaa8921599a14
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623616"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053370"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>什麼是 Azure Data Lake Analytics？
 
@@ -39,7 +38,7 @@ Data Lake Analytics 可利用您現有的 IT 投資，進行身分識別、管�
 
 ### <a name="affordable-and-cost-effective"></a>經濟實惠並符合成本效益
 
-Data Lake Analytics 可用於執行巨量資料工作負載，是十分符合成本效益的解決方案。 所處理的資料將會以每件工作來計費。 您無需簽訂任何硬體、授權或服務相關的支援合約。 系統會自動在作業開始及完成時相應增加或減少，讓您的每一分錢都花在刀口上。 [深入了解如何控制成本及節省金錢](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)。
+Data Lake Analytics 可用於執行巨量資料工作負載，是十分符合成本效益的解決方案。 所處理的資料將會以每件工作來計費。 您無需簽訂任何硬體、授權或服務相關的支援合約。 系統會自動在作業開始及完成時相應增加或減少，讓您的每一分錢都花在刀口上。 [深入了解如何控制成本及節省金錢](https://aka.ms/adlasavemoney)。
     
 ### <a name="works-with-all-your-azure-data"></a>使用所有的 Azure 資料
   

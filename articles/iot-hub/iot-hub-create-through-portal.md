@@ -2,18 +2,17 @@
 title: 使用 Azure 入口網站建立 IoT 中樞 | Microsoft Docs
 description: 如何透過 Azure 入口網站建立、管理和刪除 Azure IoT 中樞。 其中包括定價層、調整、安全性和傳訊組態的相關資訊。
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ca0eff415c4ba0e887c3999e7a03e3c4fa1cc156
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b03ae434e93dbab45235fe67c499497e1257064
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635928"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141288"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 入口網站建立 IoT 中樞
 
@@ -36,9 +35,10 @@ ms.locfileid: "34635928"
 您可以使用下列方法建立 IoT 中樞：
 
 * [+ 新增] 選項會開啟下列螢幕擷取畫面中顯示的刀鋒視窗。 透過這個方法以及透過 Marketplace 建立 IoT 中樞的步驟完全相同。
+
 * 在 Marketplace 中，選擇 [建立] 以開啟下列螢幕擷取畫面中顯示的刀鋒視窗。
 
-下列幾節說明建立 IoT 中樞的幾個步驟：
+下列幾節說明建立 IoT 中樞的幾個步驟。
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>選擇 IoT 中樞的名稱
 
@@ -58,11 +58,11 @@ ms.locfileid: "34635928"
 
 ### <a name="device-to-cloud-partitions-and-resource-group"></a>裝置到雲端分割及資源群組
 
-您可以變更 IoT 中樞的分割數目。 分割的預設數目是 4，您可以從下拉式清單中選擇不同的數字。
+您可以變更 IoT 中樞的分割數目。 分割的預設數目是 4；您可以從下拉式清單中選擇不同的數字。
 
 您不需要明確建立空的資源群組。 您可以在建立資源時，選擇建立新的資源群組，或使用現有的資源群組。
 
-![][5]
+![顯示在 Azure 入口網站中建立中樞的螢幕擷取畫面](./media/iot-hub-create-through-portal/location1.png)
 
 ### <a name="choose-subscription"></a>選擇訂用帳戶
 
@@ -79,10 +79,11 @@ Azure IoT 中樞會自動列出使用者帳戶所連結的 Azure 訂用帳戶。
 由於要在適當的位置伺服器上執行後端部署需要時間，因此建立 IoT 中樞會需要幾分鐘的時間。
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>變更 IoT 中樞的設定
+<!--robinsh these screenshots are out of date -->
 
 從 IoT 中樞刀鋒視窗建立 IoT 中樞後，您可以變更此現有 IoT 中樞的設定。
 
-![][8]
+![顯示 IoT 中樞設定的螢幕擷取畫面](./media/iot-hub-create-through-portal/portal-settings.png)
 
 **共用存取原則**：這些原則定義了裝置與服務連接至 IoT 中樞的權限。 您可以按一下 [一般] 之下的 [共用存取原則] 來存取這些原則。 在這個刀鋒視窗中，您可以修改現有的原則或新增原則。
 
@@ -96,19 +97,20 @@ Azure IoT 中樞會自動列出使用者帳戶所連結的 Azure 訂用帳戶。
 
 * 按一下 [建立]  將此新建立的原則新增至現有的清單。
 
-![][10]
+   ![顯示新增共用存取原則的螢幕擷取畫面](./media/iot-hub-create-through-portal/shared-access-policies.png)
 
 ## <a name="endpoints"></a>端點
 
 按一下 [端點] 以顯示您正在修改之 IoT 中樞的端點清單。 端點有兩個類型︰IoT 中樞內建的端點，以及您在 IoT 中樞建立後新增的端點。
 
-![][11]
+![顯示新增端點的螢幕擷取畫面](./media/iot-hub-create-through-portal/messaging-settings.png)
 
 ### <a name="built-in-endpoints"></a>內建端點
 
 有兩種內建端點︰**雲端到裝置回饋**和**事件**。
 
 * **雲端到裝置回饋**設定：此設定有 2 個子設定：訊息的**雲端到裝置 TTL** (存留時間) 和**保留時間** (以小時為單位)。 當您第一次建立 IoT 中樞時，這兩個設定的預設值都是一個小時。 若要調整這些設定，可使用滑桿或輸入值。
+
 * **事件**設定：這個設定有數個子設定，其中有些是唯讀。 下列清單說明這些設定：
 
   * **分割**：當 IoT 中樞建立後會設定預設值。 您可以透過此設定變更分割數目。
@@ -126,19 +128,19 @@ Azure IoT 中樞會自動列出使用者帳戶所連結的 Azure 訂用帳戶。
 
 您可以使用入口網站在 IoT 中樞上新增自訂端點。 從 [端點] 刀鋒視窗，按一下頂端的 [新增] 以開啟 [新增端點] 刀鋒視窗。 輸入必要資訊，然後按一下 [確定]。 您的自訂端點現在會列在主要 [端點] 刀鋒視窗中。
 
-![][13]
+![顯示建立自訂端點的螢幕擷取畫面](./media/iot-hub-create-through-portal/endpoint-creation.png)
 
-您可以在[參考 - IoT 中樞端點][lnk-devguide-endpoints]中深入了解自訂端點。
+您可以在[參考 - IoT 中樞端點]( iot-hub-devguide-endpoints.md)中深入了解自訂端點。
 
 ## <a name="routes"></a>路由
 
 按一下 [路由] 以管理 IoT 中樞分派您的裝置到雲端訊息的方式。
 
-![][14]
+![顯示新增路由的螢幕擷取畫面](./media/iot-hub-create-through-portal/routes-list.png)
 
 您可以將路由新增至 IoT 中樞，方法是按一下 [路由]* 刀鋒視窗頂端的 [新增]、輸入必要資訊，然後按一下 [確定]。 接著您的路由會列在主要 [路由] 刀鋒視窗中。 您可以在路由清單中按一下路由來編輯它。 若要啟用路由，按一下路由清單中的路由，並將 [已啟用] 切換為 [關閉]。 若要儲存變更，請按一下刀鋒視窗底部的 [確定]。
 
-![][15]
+![顯示編輯新路由規則的螢幕擷取畫面](./media/iot-hub-create-through-portal/route-edit.png)
 
 ## <a name="delete-the-iot-hub"></a>刪除 IoT 中樞
 
@@ -148,31 +150,12 @@ Azure IoT 中樞會自動列出使用者帳戶所連結的 Azure 訂用帳戶。
 
 遵循下列連結以深入了解如何管理 Azure IoT 中樞：
 
-* [大量管理 IoT 裝置][lnk-bulk]
-* [IoT 中樞度量][lnk-metrics]
-* [作業監視][lnk-monitor]
+* [大量管理 IoT 裝置](iot-hub-bulk-identity-mgmt.md)
+* [IoT 中樞計量](iot-hub-metrics.md)
+* [作業監視](iot-hub-operations-monitoring.md)
 
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
-* [IoT 中樞開發人員指南][lnk-devguide]
-* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
-* [徹底保護您的 IoT 解決方案][lnk-securing]
-
-[4]: ./media/iot-hub-create-through-portal/create-iothub.png
-[5]: ./media/iot-hub-create-through-portal/location1.png
-[8]: ./media/iot-hub-create-through-portal/portal-settings.png
-[10]: ./media/iot-hub-create-through-portal/shared-access-policies.png
-[11]: ./media/iot-hub-create-through-portal/messaging-settings.png
-[12]: ./media/iot-hub-create-through-portal/pricing-error.png
-[13]: ./media/iot-hub-create-through-portal/endpoint-creation.png
-[14]: ./media/iot-hub-create-through-portal/routes-list.png
-[15]: ./media/iot-hub-create-through-portal/route-edit.png
-
-[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-securing]: iot-hub-security-ground-up.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
+* [IoT 中樞開發人員指南](iot-hub-devguide.md)
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
+* [徹底保護您的 IoT 解決方案](../iot-fundamentals/iot-security-ground-up.md)

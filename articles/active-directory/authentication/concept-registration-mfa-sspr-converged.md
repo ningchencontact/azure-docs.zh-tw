@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492887"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141304"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>自助密碼重設和 Azure Multi-Factor Authentication 的聚合式註冊 (公開預覽)
 
@@ -55,6 +55,9 @@ ms.locfileid: "39492887"
 > 此體驗只有在使用者於登入時收到註冊提示時才會顯示。 直接前往新體驗 (aka.ms/setupsecurityinfo) 的使用者將會看到不同版本的體驗，本文稍後將會描述。
 
 根據您的 MFA 或 SSPR 原則中啟用的方法，顯示的驗證方法將會有所不同。 系統會要求使用者必須註冊最小數目的驗證方法，以符合 MFA 原則、SSPR 原則 (或兩者皆是) 的規範。 如果使用者可註冊的驗證方法有彈性，則他們可以選取 [選擇安全性資訊] 來選擇其他驗證方法。  
+
+> [!NOTE]
+> 如果您允許使用行動裝置應用程式通知和行動裝置應用程式驗證碼，使用通知註冊 Microsoft Authenticator 應用程式的使用者，就能使用通知和驗證碼來確認其身分識別。
 
 不同於先前的 MFA 註冊體驗，使用者進行新的註冊體驗時，不會收到要註冊應用程式密碼提示。 相反地，他們應依照應用程式密碼教學課程中所列出的步驟，在新的體驗中註冊應用程式密碼。  
 

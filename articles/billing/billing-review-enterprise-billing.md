@@ -14,29 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: alleonar
-ms.openlocfilehash: 046b2e31aaefa5916a42b3652f9e6a8fdceff367
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 71143549916fc7440d5f21bcb03f1f795ddc73ac
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064398"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141282"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>使用 REST API 檢閱 Enterprise 註冊計費
 
 Azure 報告 API 可協助您檢閱及管理 Azure 費用。
 
-在本文中，您將了解如何擷取與企業帳戶註冊建立關聯的目前帳單。
+在本文中，您會了解如何使用 Azure REST API，來擷取與計費帳戶、部門或 Enterprise 合約 (EA) 註冊帳戶相關聯的帳單資訊。 
 
-若要擷取目前的帳單：
-``` http
-GET https://consumption.azure.com/v2/enrollments/{enrollmentID}/usagedetails
+## <a name="individual-account-billing"></a>個別帳戶的帳單
+
+若要取得某部門帳戶的使用量詳細資料：
+
+```http
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
 Content-Type: application/json   
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>建立要求  
-
-`{enrollmentID}` 是必要參數，應該包含企業帳戶 (EA) 的註冊識別碼。
+`{billingAccountId}` 是必要參數，其中應該包含帳戶的識別碼。
 
 以下是必要標頭： 
 
@@ -50,53 +51,143 @@ Authorization: Bearer
 
 ## <a name="response"></a>Response  
 
-傳回狀態碼 200 (確定) 表示成功回應，其中包含您帳戶的詳細費用清單。
+傳回狀態碼 200 (確定) 表示成功回應，其中包含帳戶的詳細費用清單。
 
-``` json
+```json
 {
-    "id": "${id}",
-    "data": [
-        {
-            "cost": ${cost}, 
-            "departmentId": ${departmentID},
-            "subscriptionGuid" : ${subscriptionGuid} 
-            "date": "${date}",
-            "tags": "${tags}",
-            "resourceGroup": "${resourceGroup}"
-        } // ...
-    ],
-    "nextLink": "${nextLinkURL}"
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/BillingAccounts/1234/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
+      "name": "usageDetailsId1",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        ...
+        "usageStart": "2017-02-13T00:00:00Z",
+        "usageEnd": "2017-02-13T23:59:59Z",
+        "instanceName": "shared1",
+        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "currency": "USD",
+        "usageQuantity": 0.00328,
+        "billableQuantity": 0.00328,
+        "pretaxCost": 0.67,
+        "isEstimated": false,
+        ...
+      }
+    }
+  ]
 }
 ```  
 
-**data** 中的每個項目代表一筆費用：
+此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得帳單帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/listbybillingaccount)。
 
-|回應屬性|說明|
-|----------------|----------|
-|**cost** | 收取金額，以適用於資料中心位置的貨幣為單位。 |
-|**subscriptionGuid** | 訂用帳戶的全域唯一識別碼。 | 
-|**departmentId** | 部門的識別碼 (若有)。 |
-|**date** | 帳單日期。 |
-|**「標記」** | JSON 字串，其中包含與訂用帳戶建立關聯的標記。 |
-|**resourceGroup**|資源群組名稱，其中包含產生費用的物件。 |
-|**nextLink**| 設定時，指定「下一頁」詳細資料的 URL。 如果該頁面是最後一頁，則為空白。 |  
-||
-  
-部門識別碼、資源群組、標記及相關欄位是由 EA 管理員定義。  
+## <a name="department-billing"></a>部門帳單 
 
-此範例已經過縮減；如需每個回應欄位的完整描述，請參閱 [Get usage detail](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) (取得使用情況詳細資料)。 
+取得針對某部門所有帳戶所彙總的使用量詳細資料。 
 
-其他狀態碼表示錯誤狀況。 在這些情況下，回應物件會說明要求為何失敗。
+```http
+GET https://management.azure.com/providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
+Content-Type: application/json   
+Authorization: Bearer
+```
 
-``` json
-{  
-  "error": [  
-    { "code": "Error type." 
-      "message": "Error response describing why the operation failed."  
-    }  
-  ]  
-}  
+`{departmentId}` 是必要參數，其中應該包含註冊帳戶中的部門識別碼。
+
+以下是必要標頭： 
+
+|要求標頭|說明|  
+|--------------------|-----------------|  
+|*Content-Type:*|必要。 設定為 `application/json`。|  
+|*Authorization:*|必要。 設定為有效的 `Bearer` [API 金鑰](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)。 |  
+
+此範例示範傳回目前計費週期詳細資料的同步呼叫。 基於效能的考量，同步呼叫會傳回過去一個月的資訊。  您也可以[非同步呼叫 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 傳回 36 個月的資料。
+
+### <a name="response"></a>Response  
+
+成功的回應會傳回狀態碼 200 (確定)，回應中會列出指定帳單期間的詳細使用量資訊和成本以及部門的發票識別碼。
+
+
+下列範例顯示 `1234` 部門的 REST API 輸出。
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/Departments/1234/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
+      "name": "usageDetailsId1",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        "billingPeriodId": "/providers/Microsoft.Billing/Departments/1234/providers/Microsoft.Billing/billingPeriods/201702",
+        "invoiceId": "/providers/Microsoft.Billing/Departments/1234/providers/Microsoft.Billing/invoices/201703-123456789",
+        "usageStart": "2017-02-13T00:00:00Z",
+        "usageEnd": "2017-02-13T23:59:59Z",
+        "instanceName": "shared1",
+        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "instanceLocation": "eastasia",
+        "currency": "USD",
+        "usageQuantity": 0.00328,
+        "billableQuantity": 0.00328,
+        "pretaxCost": 0.67,
+        ...
+      }
+    }
+  ]
+}
 ```  
+
+此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得部門的使用量詳細資料](/rest/api/consumption/usagedetails/listbydepartment)。
+
+## <a name="enrollment-account-billing"></a>註冊帳戶帳單
+
+取得針對註冊帳戶所彙總的使用量詳細資料。
+
+```http
+GET GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
+Content-Type: application/json   
+Authorization: Bearer
+```
+
+`{enrollmentAccountId}` 是必要參數，其中應該包含註冊帳戶的識別碼。
+
+以下是必要標頭： 
+
+|要求標頭|說明|  
+|--------------------|-----------------|  
+|*Content-Type:*|必要。 設定為 `application/json`。|  
+|*Authorization:*|必要。 設定為有效的 `Bearer` [API 金鑰](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)。 |  
+
+此範例示範傳回目前計費週期詳細資料的同步呼叫。 基於效能的考量，同步呼叫會傳回過去一個月的資訊。  您也可以[非同步呼叫 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 傳回 36 個月的資料。
+
+### <a name="response"></a>Response  
+
+成功的回應會傳回狀態碼 200 (確定)，回應中會列出指定帳單期間的詳細使用量資訊和成本以及部門的發票識別碼。
+
+下列範例顯示 `1234` 企業註冊的 REST API 輸出。
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/EnrollmentAccounts/1234/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
+      "name": "usageDetailsId1",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        "billingPeriodId": "/providers/Microsoft.Billing/EnrollmentAccounts/1234/providers/Microsoft.Billing/billingPeriods/201702",
+        "invoiceId": "/providers/Microsoft.Billing/EnrollmentAccounts/1234/providers/Microsoft.Billing/invoices/201703-123456789",
+        "usageStart": "2017-02-13T00:00:00Z",
+        "usageEnd": "2017-02-13T23:59:59Z",
+        ....
+        "currency": "USD",
+        "usageQuantity": 0.00328,
+        "billableQuantity": 0.00328,
+        "pretaxCost": 0.67,
+        ...
+      }
+    }
+  ]
+}
+``` 
+
+此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得註冊帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/listbyenrollmentaccount)。
 
 ## <a name="next-steps"></a>後續步驟 
 - 檢閱[企業報告概觀](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 806ae38f614c44ce25b8fcc159b74f1bda3f00f3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 79a44e3f5303aaf0d337333b482c2df670e0b3da
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343112"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146192"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>將 MXChip IoT DevKit 連線到 Azure IoT 遠端監視解決方案加速器
 
@@ -50,7 +50,7 @@ ms.locfileid: "39343112"
   
    ![建立解決方案](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
-4. 在佈建完成之後，按一下 [啟動]。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下 [裝置] 將其簽出。
+4. 在佈建完成之後，按一下 [啟動]。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下 **裝置** 將其簽出。
 
    ![儀表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
@@ -104,7 +104,7 @@ VS Code 終端機中會有互動式命令列引導您佈建所需的 Azure 服�
 
 4. 在 `task config-device-connection` 完成之後，請按一下 `F1` 以載入 VS Code 命令並選取 `Arduino: Upload`。 VS Code 就會開始驗證並上傳 Arduino 草稿碼：
   
-   ![驗證並上傳 Arduino 草稿碼](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
+   ![驗證和上傳 Arduino 草圖](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
 
 DevKit 會重新開機，然後開始執行程式碼。
 
@@ -120,7 +120,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 ## <a name="change-device-id"></a>變更裝置識別碼
 
-您可以依照[自訂裝置識別碼指南](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/) \(英文\) 來變更 IoT 中樞內的裝置識別碼。 若要將程式碼中的硬式編碼 **AZ3166** 變更為自訂裝置識別碼，請修改[遠端監視範例](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23) \(英文\) 的程式碼。
+若要將程式碼中的硬式編碼 **AZ3166** 變更為自訂裝置識別碼，請修改[遠端監視範例](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)中顯示的程式碼。
 
 ## <a name="problems-and-feedback"></a>問題與意見反應
 
@@ -136,3 +136,5 @@ DevKit 會重新開機，然後開始執行程式碼。
 * [Azure IoT 解決方案加速器概觀](https://docs.microsoft.com/azure/iot-suite/)
 
 * [將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+
+* [IoT 開發人員套件](https://microsoft.github.io/azure-iot-developer-kit/) 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 21dde5b0199345e9e8faffc6feac4854a3aa7350
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627139"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146373"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>購買並設定您的 Azure App Service 的 SSL 憑證
 
@@ -205,7 +205,7 @@ App Service 憑證還支援其他兩種網域驗證：網域驗證和手動驗�
 如果您的 SSL 憑證已設定為要自動更新，但並未自動更新，您可能尚未完成網域驗證。 請注意： 
 
 - GoDaddy (會產生 App Service 憑證) 每兩年需要驗證網域一次。 網域系統管理員每三年就會收到一次用來驗證網域的電子郵件。 若未檢查電子郵件或驗證網域，App Service 憑證就不會自動更新。 
-- 由於 GoDaddy 原則中的變更，因此，2018 年 3 月 1 日之前發出的所有 App Service 憑證都需要在下一次更新時重新驗證網域 (即使憑證已啟用自動更新)。 請檢查您的電子郵件，並完成這項一次性的網域驗證，以繼續自動更新 App Service 憑證。 
+- 由於 GoDaddy 原則中的變更，因此，2017 年 3 月 1 日之前發出的所有 App Service 憑證都需要在下一次更新時重新驗證網域 (即使憑證已啟用自動更新)。 請檢查您的電子郵件，並完成這項一次性的網域驗證，以繼續自動更新 App Service 憑證。 
 
 ## <a name="more-resources"></a>其他資源
 

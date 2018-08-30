@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: ac8262da05837dcdb4ebddd5029f9b5ece3dbc6f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cc174822af436e7c31eb5ad4bfa419e1fa022f44
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067942"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617364"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>提交按發票支付 Azure 訂用帳戶的要求
 
@@ -27,7 +27,7 @@ ms.locfileid: "34067942"
 
 > [!IMPORTANT]
 > * 發票支付只適用於商務帳戶。
-> * [第三方和外部服務](billing-understand-your-azure-marketplace-charges.md)無法購買或使用發票支付來付費。 如果您的訂用帳戶包含外部服務的資源，例如 ClearDB 或 SendGrid，在變更為發票支付之前，必須先將它們刪除。 切換到發票支付之後若要購買外部服務，您將需要個別訂用帳戶與信用卡或轉帳卡。
+> * [第三方和外部服務](billing-understand-your-azure-marketplace-charges.md)無法購買或使用發票支付來付費。 如果您的訂用帳戶包含外部服務的資源，例如 SendGrid，在變更為發票支付之前，必須先將它們刪除。 切換到發票支付之後若要購買外部服務，您將需要個別訂用帳戶與信用卡或轉帳卡。
 > * 一旦您切換到發票付款後，就無法切換回信用卡或轉帳卡付款。
 
 ## <a name="request-pay-by-invoice"></a>依發票要求付款

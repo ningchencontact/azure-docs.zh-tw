@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 79b499f8063e5c15f76d89182955cbd90fb1039f
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4b25c82de4d2d3f4300fbb688c75be74ce63fe40
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629305"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141082"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>使用範本設定虛擬機器受控服務識別 (MSI)
 
@@ -57,23 +57,15 @@ ms.locfileid: "39629305"
 
 1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都請使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。
 
-2. 將範本載入編輯器中之後，找出＜`resources`一節中您感興趣的 `Microsoft.Compute/virtualMachines` 資源。 根據您所使用的編輯器，以及您是編輯新的或現有部署的範本而定，您的畫面與下列螢幕擷取畫面可能看起來稍有不同。
-
-   >[!NOTE] 
-   > 此範例假設在範本中已定義了 `vmName`、`storageAccountName` 和 `nicName` 這類變數。
-   >
-
-   ![範本的螢幕擷取畫面 - 尋找虛擬機器](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
-
-3. 若要啟用系統指派的身分識別，請在與 `"type": "Microsoft.Compute/virtualMachines"` 屬性相同的層級新增 `"identity"` 屬性。 使用下列語法：
+2. 若要啟用系統指派的身分識別，請將範本載入到編輯器、在 `resources` 區段中找出感興趣的 `Microsoft.Compute/virtualMachines` 資源，然後在與 `"type": "Microsoft.Compute/virtualMachines"` 屬性相同的層級上新增 `"identity"` 屬性。 使用下列語法：
 
    ```JSON
    "identity": { 
-       "type": "systemAssigned"
+       "type": "SystemAssigned"
    },
    ```
 
-4. (選擇性) 將 VM 受控服務識別擴充新增為 `resources` 元素。 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。  使用下列語法：
+3. (選擇性) 將 VM 受控服務識別擴充新增為 `resources` 元素。 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。  使用下列語法：
 
    >[!NOTE] 
    > 下列範例假設正在部署 Windows 虛擬機器擴充 (`ManagedIdentityExtensionForWindows`)。 您也可以改用 `ManagedIdentityExtensionForLinux`來為 Linux 設定 `"name"` 和 `"type"` 元素。
@@ -83,7 +75,7 @@ ms.locfileid: "39629305"
    { 
        "type": "Microsoft.Compute/virtualMachines/extensions",
        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-       "apiVersion": "2016-03-30",
+       "apiVersion": "2018-06-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -101,9 +93,40 @@ ms.locfileid: "39629305"
    }
    ```
 
-5. 完成之後，您的範本看起來應該如下所示：
+4. 當您完成時，應該將下列區段新增至範本的 `resource` 區段，而且應該類似下列內容：
 
-   ![更新之後範本的螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ```JSON
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned",
+                },
+            },
+            {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "apiVersion": "2018-06-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+                }
+            }
+        }
+    ]
+   ```
 
 ### <a name="assign-a-role-the-vms-system-assigned-identity"></a>指派角色給 VM 的系統指派身分識別
 
@@ -155,18 +178,28 @@ ms.locfileid: "39629305"
 
 1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都請使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。
 
-2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後在 `resources` 區段找出想要的 `Microsoft.Compute/virtualMachines` 資源。 若您的 VM 只有系統指派的識別，您可以將識別類型變更為 `None` 予以停用。  若您的 VM 同時具有系統與使用者指派的身分識別，請從身分識別類型中移除 `SystemAssigned`，並保留使用者指派身分識別中的 `UserAssigned` 與 `identityIds` 陣列。  下列範例示範如何從沒有使用者指派身分識別的 VM 中移除系統指派的身分識別：
+2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後在 `resources` 區段找出想要的 `Microsoft.Compute/virtualMachines` 資源。 若您的 VM 只有系統指派的識別，您可以將識別類型變更為 `None` 予以停用。  
    
-   ```JSON
-    {
-      "apiVersion": "2017-12-01",
-      "type": "Microsoft.Compute/virtualMachines",
-      "name": "[parameters('vmName')]",
-      "location": "[resourceGroup().location]",
-      "identity": { 
-          "type": "None"
-    }
-   ```
+   **Microsoft.Compute/virtualMachines API 版本 2018-06-01**
+
+   如果 VM 同時具有系統與使用者指派的身分識別，請從身分識別類型中移除 `SystemAssigned`，並保留 `UserAssigned` 以及 `userAssignedIdentities` 字典值。
+
+   **Microsoft.Compute/virtualMachines API 版本 2018-06-01 和先前版本**
+   
+   若 `apiVersion` 為 `2017-12-01` 且 VM 同時具有系統與使用者指派的身分識別，請從身分識別類型中移除 `SystemAssigned`，並保留 `UserAssigned` 以及使用者指派身分識別的 `identityIds` 陣列。  
+   
+下列範例示範如何從沒有使用者指派身分識別的 VM 中移除系統指派的身分識別：
+
+```JSON
+{
+    "apiVersion": "2018-06-01",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[parameters('vmName')]",
+    "location": "[resourceGroup().location]",
+    "identity": { 
+        "type": "None"
+}
+```
 
 ## <a name="user-assigned-identity"></a>使用者指派的身分識別
 
@@ -178,30 +211,52 @@ ms.locfileid: "39629305"
  ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>將使用者指派的身分識別指派給 Azure VM
 
 1. 在 `resources` 元素之下，新增下列項目，以將使用者指派的身分識別指派至您的虛擬機器。  請務必將 `<USERASSIGNEDIDENTITY>` 取代為您建立的使用者指派身分識別名稱。
+
+   **Microsoft.Compute/virtualMachines API 版本 2018-06-01**
+
+   如果 `apiVersion` 為 `2018-06-01`，則使用者指派的身分識別會以 `userAssignedIdentities` 字典格式儲存，而 `<USERASSIGNEDIDENTITYNAME>` 值必須儲存在您範本 `variables` 區段內所定義的變數中。
+
+   ```json
+   {
+       "apiVersion": "2018-06-01",
+       "type": "Microsoft.Compute/virtualMachines",
+       "name": "[variables('vmName')]",
+       "location": "[resourceGroup().location]",
+       "identity": {
+           "type": "userAssigned",
+           "userAssignedIdentities": {
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+           }
+        }
+   }
+   ```
    
-   > [!Important]
-   > 下列範例所示的 `<USERASSIGNEDIDENTITYNAME>` 值必須儲存於變數中。  此外，目前支援將使用者指派的身分識別指派給 Resource Manager 範本中的虛擬機器，針對這類實作，API 版本必須符合下列範例中的版本。
+   **Microsoft.Compute/virtualMachines API 版本 2017-12-01 和先前版本**
     
-    ```json
-    {
-        "apiVersion": "2017-12-01",
-        "type": "Microsoft.Compute/virtualMachines",
-        "name": "[variables('vmName')]",
-        "location": "[resourceGroup().location]",
-        "identity": {
-            "type": "userAssigned",
-            "identityIds": [
-                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
-            ]
-        },
-    ```
+   如果 `apiVersion` 為 `2017-12-01`，則使用者指派的身分識別會儲存在 `identityIds` 陣列中，而 `<USERASSIGNEDIDENTITYNAME>` 值必須儲存在您範本 `variables` 區段內所定義的變數中。
     
+   ```json
+   {
+       "apiVersion": "2017-12-01",
+       "type": "Microsoft.Compute/virtualMachines",
+       "name": "[variables('vmName')]",
+       "location": "[resourceGroup().location]",
+       "identity": {
+           "type": "userAssigned",
+           "identityIds": [
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+           ]
+       }
+   }
+   ```
+       
+
 2. (選用) 接著，在 `resources` 元素下新增下列項目，以將受控身分識別擴充指派至您的虛擬機器。 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。 使用下列語法：
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
         "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2015-05-01-preview",
+        "apiVersion": "2018-06-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -218,9 +273,83 @@ ms.locfileid: "39629305"
     }
     ```
     
-3.  完成之後，您的範本看起來應該如下所示：
+3. 當您完成時，應該將下列區段新增至範本的 `resource` 區段，而且應該類似下列內容：
+   
+   **Microsoft.Compute/virtualMachines API 版本 2018-06-01**    
 
-      ![使用者指派之身分識別的螢幕擷取畫面](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
+   ```JSON
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "userAssigned",
+                "userAssignedIdentities": {
+                   "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "apiVersion": "2018-06-01-preview",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+            }
+        }
+       }
+    ]
+   ```
+   **Microsoft.Compute/virtualMachines API 版本 2017-12-01 和先前版本**
+   
+   ```JSON
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2017-12-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "userAssigned",
+                "identityIds": [
+                   "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+            }
+        }
+       }
+    ]
+   ```
+    
 
 ### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>從 Azure VM 移除使用者指派的識別
 
@@ -228,15 +357,13 @@ ms.locfileid: "39629305"
 
 1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都請使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。
 
-2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後在 `resources` 區段找出想要的 `Microsoft.Compute/virtualMachines` 資源。 若您的 VM 只有使用者指派的識別，您可以將識別類型變更為 `None` 予以停用。  如果您的 VM 同時具有系統和使用者指派的識別，而且想要保留系統指派的識別，請從識別類型中移除 `UserAssigned`，以及使用者指派識別的 `identityIds` 陣列。
-    
-   若要從 VM 中移除單一使用者指派的識別，請從 `identityIds` 陣列中移除它。
-   
+2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後在 `resources` 區段找出想要的 `Microsoft.Compute/virtualMachines` 資源。 若您的 VM 只有使用者指派的識別，您可以將識別類型變更為 `None` 予以停用。
+ 
    下列範例示範如何從沒有系統指派識別的 VM 中移除所有使用者指派的識別：
    
-   ```JSON
+   ```json
     {
-      "apiVersion": "2017-12-01",
+      "apiVersion": "2018-06-01",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('vmName')]",
       "location": "[resourceGroup().location]",
@@ -244,7 +371,19 @@ ms.locfileid: "39629305"
           "type": "None"
     }
    ```
+   
+   **Microsoft.Compute/virtualMachines API 版本 2018-06-01 和先前版本**
+    
+   若要從 VM 中移除單一使用者指派的身分識別，請從 `useraAssignedIdentities` 字典中移除它。
 
+   如果您有系統指派的身分識別，則將它保存在 `identity` 值下方的 `type` 值中。
+ 
+   **Microsoft.Compute/virtualMachines API 版本 2017-12-01**
+
+   若要從 VM 中移除單一使用者指派的識別，請從 `identityIds` 陣列中移除它。
+
+   如果您有系統指派的身分識別，則將它保存在 `identity` 值下方的 `type` 值中。
+   
 ## <a name="related-content"></a>相關內容
 
 - 如需有關受控服務識別的更廣泛觀點，請參閱[受控服務識別概觀](overview.md)。

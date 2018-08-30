@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: tutorial
 ms.date: 3/07/2018
 ms.author: luisca
-ms.openlocfilehash: 705b7b0eb32777953b365b217550e4591b8c27aa
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 2cdb93d44218627efdcb0360d8cf4a4eeeca177a
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39717281"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42890047"
 ---
 # <a name="text-analytics-with-power-bi"></a>文字分析與 Power BI
 
@@ -96,7 +96,7 @@ Microsoft Power BI 會將組織的資料去蕪存菁為美觀的報告，讓您�
 函式會收到要處理為參數的文字。 它會將資料轉換成所需的 JavaScript 物件標記法 (JSON) 以及進行反向轉換，並對關鍵片語 API 端點提出 HTTP 要求。 對回應進行剖析之後，函式會傳回字串，其中包含所擷取關鍵片語的逗號分隔清單。
 
 > [!NOTE]
-> Power BI Desktop 自訂函式會以 [Power Query M 公式語言](https://msdn.microsoft.com/library/mt211003.aspx) (簡稱 "M") 來撰寫。 M 是以 [F#](http://www.tryfsharp.org/) 為基礎的功能性程式設計語言。 不過，不是程式設計師也能完成本教學課程；下面有所需的程式碼。
+> Power BI Desktop 自訂函式會以 [Power Query M 公式語言](https://msdn.microsoft.com/library/mt211003.aspx) (簡稱 "M") 來撰寫。 M 是以 [F#](https://docs.microsoft.com/dotnet/fsharp/) 為基礎的功能性程式設計語言。 不過，不是程式設計師也能完成本教學課程；下面有所需的程式碼。
 
 您應該還是在 [查詢編輯器] 視窗中。 從 [常用] 功能區中，按一下 [新增來源] (在 [新增查詢] 群組中)，然後從下拉式功能表選擇 [空白查詢]。 
 

@@ -1,32 +1,287 @@
 ---
 title: 工作流程定義語言的函式參考 - Azure Logic Apps | Microsoft Docs
-description: 了解使用工作流程定義語言來建立邏輯應用程式的函式
+description: 了解 Azure Logic Apps 的工作流程定義語言函式
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 46ccf9484b76ec5f24dba470a194b5b83c32f013
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6292ea4ccd3780e1da86252b7ec9c09c2eea3982
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263771"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141102"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的函式參考
 
-本文會說明您使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立自動化工作流程時可使用的函式。 若要深入了解邏輯應用程式定義中的函式，請參閱 [Azure Logic Apps 的工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md#functions)。 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中的某些[運算式](../logic-apps/logic-apps-workflow-definition-language.md#expressions)會從邏輯應用程式工作流程定義開始執行時可能還不存在的執行階段動作中取得其值。 若要在運算式中參考或使用這些值，您可以使用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)所提供的「函式」。 例如，您可以使用數學函式進行計算，例如 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 函式，以傳回整數或浮點數總和。 以下是您可以使用函式執行的另外幾個範例工作：
+
+| Task | 函式語法 | 結果 | 
+| ---- | --------------- | ------ | 
+| 傳回小寫格式的字串。 | toLower('<*text*>') <p>例如：toLower('Hello') | "hello" | 
+| 傳回全域唯一識別碼 (GUID)。 | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
+|||| 
+
+本文會說明您可以在建立邏輯應用程式定義時使用的函式。
+若要[根據其一般目的](#ordered-by-purpose)來尋找函式，請繼續看後面的資料表。 或者，如需每個函式的詳細資訊，請參閱[依字母順序排列的清單](#alphabetical-list)。 
 
 > [!NOTE]
 > 在參數定義的語法中，參數後方出現問號 (？) 表示此參數是選擇性的。 例如，請參閱 [getFutureTime()](#getFutureTime)。
 
+## <a name="functions-in-expressions"></a>運算式中的函式
+
+為了說明如何在運算式中使用函式，此範例示範如何藉由在運算式中使用 [parameters()](#parameters) 函式，從 `customerName` 參數取得值並將該值指派給 `accountName` 屬性：
+
+```json
+"accountName": "@parameters('customerName')"
+```
+
+以下是您可以在運算式中使用函式的一些其他一般方式：
+
+| Task | 運算式中的函式語法 | 
+| ---- | -------------------------------- | 
+| 將該項目傳遞至函式，以執行項目處理。 | "\@<functionName>(<item>)" | 
+| 1.使用巢狀 `parameters()` 函式來取得 parameterName 的值。 </br>2.將該值傳遞至 functionName，以執行結果處理。 | "\@<functionName>(parametersparameterName('<>'))" | 
+| 1.從巢狀內部函式 functionName 取得結果。 </br>2.將結果傳遞至外部函式 functionName2。 | "\@<functionName2>(<functionName>(<item>))" | 
+| 1.從 functionName 取得結果。 </br>2.假設結果是具有 propertyName 屬性的物件，則會取得該屬性的值。 | "\@<functionName>(<item>).<propertyName>" | 
+||| 
+
+例如，`concat()` 函式可以採用兩個或多個字串值作為參數。 此函式會將這些字串合併成一個字串。 您可以傳入字串常值，例如，"Sophia" 和 "Owen"，以便取得合併字串 "SophiaOwen"：
+
+```json
+"customerName": "@concat('Sophia', 'Owen')"
+```
+
+或者，您可以從參數取得字串值。 這個範例在每個 `concat()` 參數以及 `firstName` 和 `lastName`參數中使用 `parameters()` 函式。 接著，您會將所產生的字串傳遞至 `concat()` 函式，以便取得合併字串，例如 "SophiaOwen"：
+
+```json
+"customerName": "@concat(parameters('firstName'), parameters('lastName'))"
+```
+
+無論如何，這兩個範例都會將結果指派給 `customerName` 屬性。 
+
+以下是依其一般目的排序的可用函式，或者，您也可以根據[字母順序](#alphabetical-list)瀏覽函式。
+
+<a name="ordered-by-purpose"></a>
+<a name="string-functions"></a>
+
+## <a name="string-functions"></a>字串函數
+
+若要處理字串，您可以使用這些字串函式以及一些[集合函式](#collection-functions)。 字串函式只能用於字串。 
+
+| 字串函式 | Task | 
+| --------------- | ---- | 
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | 結合兩個或多個字串，並傳回合併的字串。 | 
+| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | 檢查字串是否以指定的子字串結束。 | 
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | 以字串形式產生全域唯一識別碼 (GUID)。 | 
+| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | 傳回子字串的起始位置。 | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 傳回子字串的結束位置。 | 
+| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 使用指定字串取代子字串，並傳回已更新的字串。 | 
+| [分割](../logic-apps/workflow-definition-language-functions-reference.md#split) | 傳回具有字串中所有字元的陣列，並以特定分隔符號字元將每個字元隔開。 | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 檢查字串是否以特定的子字串開始。 | 
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | 傳回字串中的字元 (從指定的位置起始)。 | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | 傳回小寫格式的字串。 | 
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | 傳回大寫格式的字串。 | 
+| [修剪](../logic-apps/workflow-definition-language-functions-reference.md#trim) | 移除字串的開頭和尾端空白字元，並傳回更新後的字串。 | 
+||| 
+
+<a name="collection-functions"></a>
+
+## <a name="collection-functions"></a>集合函式
+
+若要處理集合 (通常為陣列、字串，而有時候為字典)，您可以使用這些集合函式。 
+
+| 集合函式 | Task | 
+| ------------------- | ---- | 
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | 檢查集合是否具有特定項目。 |
+| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | 檢查集合是否是空的。 | 
+| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | 傳回集合中的第一個項目。 | 
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 在指定的多個集合中，傳回「只有」共同項目的集合。 | 
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | 傳回具有陣列中「所有」項目 (以指定的字元隔開) 的字串。 | 
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | 傳回集合中的最後一個項目。 | 
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | 傳回字串或陣列中的項目數目。 | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | 移除集合前端的項目，並傳回「其他所有」項目。 | 
+| [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | 傳回集合中的前端項目。 | 
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | 傳回具有指定集合中「所有」項目的集合。 | 
+||| 
+
+<a name="comparison-functions"></a>
+
+## <a name="logical-comparison-functions"></a>邏輯比較函式
+
+若要處理條件、比較值和運算式結果，或評估各種不同的邏輯，您可以使用下列邏輯比較函式。 如需有關每個函式的完整參考，請參閱[依字母順序排列的清單](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
+
+| 邏輯比較函式 | Task | 
+| --------------------------- | ---- | 
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | 檢查是否所有運算式都是 True。 | 
+| [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | 檢查兩個值是否相等。 | 
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | 檢查第一個值是否大於第二個值。 | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | 檢查第一個值是否大於或等於第二個值。 | 
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | 檢查運算式是 True 或 False。 根據結果，傳回指定的值。 | 
+| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | 檢查第一個值是否小於第二個值。 | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | 檢查第一個值是否小於或等於第二個值。 | 
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | 檢查運算式是否為 False。 | 
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | 檢查是否至少有一個運算式是 True。 |
+||| 
+
+<a name="conversion-functions"></a>
+
+## <a name="conversion-functions"></a>轉換函式
+
+若要變更值的類型或格式，您可以使用這些轉換函式。 例如，您可以將一個值從布林值變更為整數。 若要深入了解 Logic Apps 在轉換期間如何處理內容類型，請參閱[處理內容類型](../logic-apps/logic-apps-content-type.md)。 如需有關每個函式的完整參考，請參閱[依字母順序排列的清單](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
+
+| 轉換函式 | Task | 
+| ------------------- | ---- | 
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | 從單一指定輸入傳回的陣列。 關於多個輸入的資訊，請參閱 [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray)。 | 
+| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | 傳回字串的 base64 編碼版本。 | 
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | 傳回 base64 編碼字串的二進位版本。 | 
+| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | 傳回 base64 編碼字串的字串版本。 | 
+| [binary](../logic-apps/workflow-definition-language-functions-reference.md#binary) | 傳回輸入值的二進位版本。 | 
+| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | 傳回輸入值的布林值版本。 | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | 從多個輸入傳回陣列。 | 
+| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | 傳回輸入值的資料 URI。 | 
+| [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | 傳回資料 URI 的二進位版本。 | 
+| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | 傳回資料 URI 的字串版本。 | 
+| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | 傳回 base64 編碼字串的字串版本。 | 
+| [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | 傳回資料 URI 的二進位版本。 | 
+| [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | 傳回以已解碼版本取代逸出字元的字串。 | 
+| [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | 傳回以逸出字元取代 URL 中 Unsafe 字元的字串。 | 
+| [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | 傳回輸入值的浮點數。 | 
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | 傳回字串的整數版本。 | 
+| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | 傳回字串或 XML 的 JavaScript 物件標記法 (JSON) 類型值或物件。 | 
+| [字串](../logic-apps/workflow-definition-language-functions-reference.md#string) | 傳回輸入值的字串版本。 | 
+| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | 藉由以逸出字元取代 URL 中的 Unsafe 字元，傳回輸入值的 URI 編碼版本。 | 
+| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | 傳回 URI 編碼字串的二進位版本。 | 
+| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | 傳回 URI 編碼字串的字串版本。 | 
+| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | 傳回字串的 SML 版本。 | 
+||| 
+
+<a name="math-functions"></a>
+
+## <a name="math-functions"></a>數學函式
+
+若要處理整數和浮點數，您可以使用這些數學函式。 如需有關每個函式的完整參考，請參閱[依字母順序排列的清單](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
+
+| 數學函式 | Task | 
+| ------------- | ---- | 
+| [新增](../logic-apps/workflow-definition-language-functions-reference.md#add) | 傳回兩個數字相加的結果。 | 
+| [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | 傳回兩個數字相除的結果。 | 
+| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | 從數字集合或陣列中傳回最大值。 | 
+| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | 從數字集合或陣列中傳回最小值。 | 
+| [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | 傳回兩數相除的餘數。 | 
+| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | 傳回將兩數相乘的乘積。 | 
+| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | 從指定範圍傳回隨機整數。 | 
+| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | 傳回從指定整數開始的整數陣列。 | 
+| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | 傳回第一個數字減去第二個數字的結果。 | 
+||| 
+
+<a name="date-time-functions"></a>
+
+## <a name="date-and-time-functions"></a>日期和時間函式
+
+若要處理日期和時間，您可以使用這些日期和時間函式。
+如需有關每個函式的完整參考，請參閱[依字母順序排列的清單](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
+
+| 日期或時間函式 | Task | 
+| --------------------- | ---- | 
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | 將天數加入時間戳記。 | 
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | 將時數加入時間戳記。 | 
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | 將分鐘數加入時間戳記。 | 
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | 將秒數加入時間戳記。 |  
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | 將時間單位數字加入時間戳記。 另請參閱 [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime)。 | 
+| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | 將時間戳記從國際標準時間 (UTC) 轉換為目標時區。 | 
+| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | 將時間戳記從來源時區轉換為目標時區。 | 
+| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | 將時間戳記從來源時區轉換為國際標準時間 (UTC)。 | 
+| [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | 傳回時間戳記中的當月日期元件。 | 
+| [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | 傳回時間戳記中的星期幾元件。 | 
+| [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | 傳回時間戳記中一年的第幾天元件。 | 
+| [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | 傳回時間戳記中的日期。 | 
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | 傳回目前時間戳記加上指定時間單位的結果。 另請參閱 [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime)。 | 
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | 傳回目前時間戳記減去指定時間單位的結果。 另請參閱 [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime)。 | 
+| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | 傳回時間戳記中當天的起始點。 | 
+| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | 傳回時間戳記中小時的起始點。 | 
+| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | 傳回時間戳記中月份的起始點。 | 
+| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | 從時間戳記減去時間單位數字。 另請參閱 [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime)。 | 
+| [ticks](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | 傳回指定時間戳記的 `ticks` 屬性值。 | 
+| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | 傳回目前的時間戳記作為字串。 | 
+||| 
+
+<a name="workflow-functions"></a>
+
+## <a name="workflow-functions"></a>工作流程函式
+
+這些工作流程函式可協助您：
+
+* 在執行階段取得有關工作流程執行個體的詳細資料。 
+* 處理用於具現化邏輯應用程式的輸入。
+* 參考來自觸發程序和動作的輸出。
+
+例如，您可以參考來自一個動作的輸出，並在稍後動作中使用該資料。 如需有關每個函式的完整參考，請參閱[依字母順序排列的清單](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
+
+| 工作流程函式 | Task | 
+| ----------------- | ---- | 
+| [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | 傳回目前動作在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 另請參閱 [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions)。 | 
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | 傳回動作在執行階段的 `body` 輸出。 另請參閱 [body](../logic-apps/workflow-definition-language-functions-reference.md#body)。 | 
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | 傳回動作在執行階段的輸出。 請參閱 [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions)。 | 
+| [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | 傳回動作在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 另請參閱 [action](../logic-apps/workflow-definition-language-functions-reference.md#action)。  | 
+| [body](#body) | 傳回動作在執行階段的 `body` 輸出。 另請參閱 [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody)。 | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | 建立帶有值的陣列，這些值會符合「表單資料」或「表單編碼」動作輸出中的索引鍵名稱。 | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | 傳回單一值，此值會符合動作「表單資料」或「表單編碼」輸出的索引鍵名稱。 | 
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | 若用於透過陣列進行的重複動作中，則會在動作的目前反覆運算期間，傳回陣列中的目前項目。 | 
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | 若用於 for-each 或 do-until-loop 內，則會從指定的迴圈傳回目前的項目。| 
+| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | 傳回呼叫觸發程序或動作的「回呼 URL」。 | 
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 在具有多個部分的動作輸出中，傳回特定部分的內容。 | 
+| [參數](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 傳回邏輯應用程式定義中描述的參數值。 | 
+| [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 傳回觸發程序在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 另請參閱 [triggerOutputs](#triggerOutputs) 和 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)。 | 
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 傳回觸發程序在執行階段的 `body` 輸出。 請參閱 [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | 在「表單資料」或「表單編碼」觸發程序輸出中，傳回符合索引鍵名稱的單一值。 | 
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | 在觸發程序的多部分輸出中，傳回特定部分的內容。 | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | 建立帶有值的陣列，這些值會符合「表單資料」或「表單編碼」觸發程序輸出中的索引鍵名稱。 | 
+| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | 傳回觸發程序在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 請參閱 [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 | 
+| [變數](../logic-apps/workflow-definition-language-functions-reference.md#variables) | 傳回指定變數的值。 | 
+| [workflow](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | 傳回執行階段期間與工作流程本身相關的所有詳細資料。 | 
+||| 
+
+<a name="uri-parsing-functions"></a>
+
+## <a name="uri-parsing-functions"></a>URI 剖析函式
+
+若要處理統一資源識別項 (URI) 並取得這些 URI 的各種屬性值，您可以使用這些 URI 剖析函式。 如需有關每個函式的完整參考，請參閱[依字母順序排列的清單](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
+
+| URI 剖析函式 | Task | 
+| -------------------- | ---- | 
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | 傳回統一資源識別項 (URI) 的 `host` 值。 | 
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | 傳回統一資源識別項 (URI) 的 `path` 值。 | 
+| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | 傳回統一資源識別項 (URI) 的 `path` 和 `query` 值。 | 
+| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | 傳回統一資源識別項 (URI) 的 `port` 值。 | 
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | 傳回統一資源識別項 (URI) 的 `query` 值。 | 
+| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | 傳回統一資源識別項 (URI) 的 `scheme` 值。 | 
+||| 
+
+<a name="manipulation-functions"></a>
+
+## <a name="manipulation-functions-json--xml"></a>操作函式：JSON 和 XML
+
+若要處理 JSON 物件和 XML 節點，您可以使用這些操作函式。 如需有關每個函式的完整參考，請參閱[依字母順序排列的清單](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
+
+| 操作函式 | Task | 
+| --------------------- | ---- | 
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | 將屬性和其值或成對的名稱和數值新增至 JSON 物件，並傳回更新的物件。 | 
+| [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | 從一個或多個參數中傳回第一個非 Null 值。 | 
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | 從 JSON 物件中移除屬性，並傳回更新的物件。 | 
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | 設定 JSON 物件屬性的值，並傳回更新的物件。 | 
+| [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | 檢查 XML 中是否有符合 XPath (XML 路徑語言) 運算式的節點或值，並傳回符合的節點或值。 | 
+||| 
+
+<a name="alphabetical-list"></a>
 <a name="action"></a>
 
-## <a name="action"></a>動作
+### <a name="action"></a>動作
 
 傳回執行階段上「目前」動作的輸出，或來自其他 JSON 名稱-值配對的值，而您可以將其指派給運算式。 根據預設，此函式會參考整個動作物件，但是您可以選擇性地指定其中有所需值的屬性。 另請參閱 [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions)。
 
@@ -53,7 +308,7 @@ action().outputs.body.<property>
 
 <a name="actionBody"></a>
 
-## <a name="actionbody"></a>actionBody
+### <a name="actionbody"></a>actionBody
 
 傳回執行階段上動作的 `body` 輸出。 `actions('<actionName>').outputs.body` 的簡略版。 請參閱 [body()](#body) 和 [actions()](#actions)。
 
@@ -98,7 +353,7 @@ actionBody('Get_user')
 
 <a name="actionOutputs"></a>
 
-## <a name="actionoutputs"></a>actionOutputs
+### <a name="actionoutputs"></a>actionOutputs
 
 傳回動作在執行階段的輸出。 `actions('<actionName>').outputs` 的簡略版。 請參閱 [actions()](#actions)。
 
@@ -161,7 +416,7 @@ actionOutputs('Get_user')
 
 <a name="actions"></a>
 
-## <a name="actions"></a>動作
+### <a name="actions"></a>動作
 
 傳回執行階段上動作的輸出，或來自其他 JSON 成對名稱和數值中的值，而您可以將其指派給運算式。 根據預設，函式會參考整個動作物件，但是您可以選擇性地指定其中有所需值的屬性。 若要了解簡略版，請參閱 [actionBody()](#actionBody)、[actionOutputs()](#actionOutputs) 和 [body()](#body)。 若要了解目前的動作，請參閱 [action()](#action)。
 
@@ -196,7 +451,7 @@ actions('Get_user').outputs.body.status
 
 <a name="add"></a>
 
-## <a name="add"></a>新增
+### <a name="add"></a>新增
 
 傳回兩個數字相加的結果。
 
@@ -226,7 +481,7 @@ add(1, 1.5)
 
 <a name="addDays"></a>
 
-## <a name="adddays"></a>addDays
+### <a name="adddays"></a>addDays
 
 將天數加入時間戳記。
 
@@ -268,7 +523,7 @@ addDays('2018-03-15T00:00:00Z', -5)
 
 <a name="addHours"></a>
 
-## <a name="addhours"></a>addHours
+### <a name="addhours"></a>addHours
 
 將時數加入時間戳記。
 
@@ -310,7 +565,7 @@ addHours('2018-03-15T15:00:00Z', -5)
 
 <a name="addMinutes"></a>
 
-## <a name="addminutes"></a>addMinutes
+### <a name="addminutes"></a>addMinutes
 
 將分鐘數加入時間戳記。
 
@@ -352,7 +607,7 @@ addMinutes('2018-03-15T00:20:00Z', -5)
 
 <a name="addProperty"></a>
 
-## <a name="addproperty"></a>addProperty
+### <a name="addproperty"></a>addProperty
 
 將屬性和其值或成對的名稱和數值新增至 JSON 物件，並傳回更新的物件。 如果物件已存在於執行階段中，函式會擲回錯誤。
 
@@ -382,7 +637,7 @@ addProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="addSeconds"></a>
 
-## <a name="addseconds"></a>addSeconds
+### <a name="addseconds"></a>addSeconds
 
 將秒數加入時間戳記。
 
@@ -424,7 +679,7 @@ addSeconds('2018-03-15T00:00:30Z', -5)
 
 <a name="addToTime"></a>
 
-## <a name="addtotime"></a>addToTime
+### <a name="addtotime"></a>addToTime
 
 將時間單位數字加入時間戳記。 另請參閱 [getFutureTime()](#getFutureTime)。
 
@@ -467,7 +722,7 @@ addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 
 <a name="and"></a>
 
-## <a name="and"></a>和
+### <a name="and"></a>和
 
 檢查是否所有運算式都是 True。 在所有運算式都是 True 時，傳回 True，或至少有一個運算式為 False 時傳回 False。
 
@@ -519,7 +774,7 @@ and(equals(1, 2), equals(1, 3))
 
 <a name="array"></a>
 
-## <a name="array"></a>array
+### <a name="array"></a>array
 
 從單一指定輸入傳回的陣列。 關於多個輸入的資訊，請參閱 [createArray()](#createArray)。 
 
@@ -549,7 +804,7 @@ array('hello')
 
 <a name="base64"></a>
 
-## <a name="base64"></a>base64
+### <a name="base64"></a>base64
 
 傳回字串的 base64 編碼版本。
 
@@ -579,7 +834,7 @@ base64('hello')
 
 <a name="base64ToBinary"></a>
 
-## <a name="base64tobinary"></a>base64ToBinary
+### <a name="base64tobinary"></a>base64ToBinary
 
 傳回 base64 編碼字串的二進位版本。
 
@@ -611,7 +866,7 @@ base64ToBinary('aGVsbG8=')
 
 <a name="base64ToString"></a>
 
-## <a name="base64tostring"></a>base64ToString
+### <a name="base64tostring"></a>base64ToString
 
 傳回 base64 編碼字串的字串版本，也就是有效地解碼 base64 字串。 使用此函式而非 [decodeBase64()](#decodeBase64)。 雖然這兩個函數的運作方式相同，但是較常使用 `base64ToString()`。
 
@@ -641,7 +896,7 @@ base64ToString('aGVsbG8=')
 
 <a name="binary"></a>
 
-## <a name="binary"></a>binary 
+### <a name="binary"></a>binary 
 
 傳回字串的二進位版本。
 
@@ -673,7 +928,7 @@ binary('hello')
 
 <a name="body"></a>
 
-## <a name="body"></a>body
+### <a name="body"></a>body
 
 傳回動作在執行階段的 `body` 輸出。 `actions('<actionName>').outputs.body` 的簡略版。 請參閱 [actionBody()](#actionBody) 和 [actions()](#actions)。
 
@@ -718,7 +973,7 @@ body('Get_user')
 
 <a name="bool"></a>
 
-## <a name="bool"></a>布林
+### <a name="bool"></a>布林
 
 傳回值的布林值版本。
 
@@ -752,7 +1007,7 @@ bool(0)
 
 <a name="coalesce"></a>
 
-## <a name="coalesce"></a>coalesce
+### <a name="coalesce"></a>coalesce
 
 從一個或多個參數中傳回第一個非 Null 值。 空白字串、空白陣列和空白物件不是 null。
 
@@ -788,7 +1043,7 @@ coalesce(null, null, null)
 
 <a name="concat"></a>
 
-## <a name="concat"></a>concat
+### <a name="concat"></a>concat
 
 結合兩個或多個字串，並傳回合併的字串。 
 
@@ -818,7 +1073,7 @@ concat('Hello', 'World')
 
 <a name="contains"></a>
 
-## <a name="contains"></a>contains
+### <a name="contains"></a>contains
 
 檢查集合是否具有特定項目。 找到項目時，傳回 True，或找不到項目時，傳回 False。 此函式會區分大小寫。
 
@@ -862,7 +1117,7 @@ contains('hello world', 'universe')
 
 <a name="convertFromUtc"></a>
 
-## <a name="convertfromutc"></a>convertFromUtc
+### <a name="convertfromutc"></a>convertFromUtc
 
 將時間戳記從國際標準時間 (UTC) 轉換為目標時區。
 
@@ -904,7 +1159,7 @@ convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
 
 <a name="convertTimeZone"></a>
 
-## <a name="converttimezone"></a>convertTimeZone
+### <a name="converttimezone"></a>convertTimeZone
 
 將時間戳記從來源時區轉換為目標時區。
 
@@ -947,7 +1202,7 @@ convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 
 
 <a name="convertToUtc"></a>
 
-## <a name="converttoutc"></a>convertToUtc
+### <a name="converttoutc"></a>convertToUtc
 
 將時間戳記從來源時區轉換為國際標準時間 (UTC)。
 
@@ -989,7 +1244,7 @@ convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 
 <a name="createArray"></a>
 
-## <a name="createarray"></a>createArray
+### <a name="createarray"></a>createArray
 
 從多個輸入傳回陣列。 如需單一輸入陣列的資訊，請參閱 [array()](#array)。
 
@@ -1019,7 +1274,7 @@ createArray('h', 'e', 'l', 'l', 'o')
 
 <a name="dataUri"></a>
 
-## <a name="datauri"></a>dataUri
+### <a name="datauri"></a>dataUri
 
 傳回字串的資料統一資源識別項 (URI)。 
 
@@ -1049,7 +1304,7 @@ dataUri('hello')
 
 <a name="dataUriToBinary"></a>
 
-## <a name="datauritobinary"></a>dataUriToBinary
+### <a name="datauritobinary"></a>dataUriToBinary
 
 傳回資料統一資源識別項 (URI) 的二進位版本。 使用此函式而非 [decodeDataUri()](#decodeDataUri)。 雖然這兩個函數的運作方式相同，但是較常使用 `decodeDataUri()`。
 
@@ -1084,7 +1339,7 @@ dataUriToBinary('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 
 <a name="dataUriToString"></a>
 
-## <a name="datauritostring"></a>dataUriToString
+### <a name="datauritostring"></a>dataUriToString
 
 傳回資料統一資源識別項 (URI) 的字串版本。
 
@@ -1114,7 +1369,7 @@ dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 
 <a name="dayOfMonth"></a>
 
-## <a name="dayofmonth"></a>dayOfMonth
+### <a name="dayofmonth"></a>dayOfMonth
 
 傳回時間戳記中的當月日期。 
 
@@ -1144,7 +1399,7 @@ dayOfMonth('2018-03-15T13:27:36Z')
 
 <a name="dayOfWeek"></a>
 
-## <a name="dayofweek"></a>dayOfWeek
+### <a name="dayofweek"></a>dayOfWeek
 
 從時間戳記傳回當週的第幾天。  
 
@@ -1174,7 +1429,7 @@ dayOfWeek('2018-03-15T13:27:36Z')
 
 <a name="dayOfYear"></a>
 
-## <a name="dayofyear"></a>dayOfYear
+### <a name="dayofyear"></a>dayOfYear
 
 從時間戳記傳回一年的第幾天。 
 
@@ -1204,7 +1459,7 @@ dayOfYear('2018-03-15T13:27:36Z')
 
 <a name="decodeBase64"></a>
 
-## <a name="decodebase64"></a>decodeBase64
+### <a name="decodebase64"></a>decodeBase64
 
 傳回 base64 編碼字串的字串版本，也就是有效地解碼 base64 字串。 請考慮使用 [base64ToString()](#base64ToString)，而非 `decodeBase64()`。 雖然這兩個函數的運作方式相同，但是較常使用 `base64ToString()`。
 
@@ -1234,7 +1489,7 @@ decodeBase64('aGVsbG8=')
 
 <a name="decodeDataUri"></a>
 
-## <a name="decodedatauri"></a>decodeDataUri
+### <a name="decodedatauri"></a>decodeDataUri
 
 傳回資料統一資源識別項 (URI) 的二進位版本。 請考慮使用 [dataUriToBinary()](#dataUriToBinary)，而非 `decodeDataUri()`。 雖然這兩個函數的運作方式相同，但是較常使用 `dataUriToBinary()`。
 
@@ -1269,7 +1524,7 @@ decodeDataUri('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 
 <a name="decodeUriComponent"></a>
 
-## <a name="decodeuricomponent"></a>decodeUriComponent
+### <a name="decodeuricomponent"></a>decodeUriComponent
 
 傳回以已解碼版本取代逸出字元的字串。 
 
@@ -1299,7 +1554,7 @@ decodeUriComponent('http%3A%2F%2Fcontoso.com')
 
 <a name="div"></a>
 
-## <a name="div"></a>div
+### <a name="div"></a>div
 
 傳回兩數相除的整數結果。 若要取得餘數，請參閱 [mod()](#mod)。
 
@@ -1331,7 +1586,7 @@ div(11, 5)
 
 <a name="encodeUriComponent"></a>
 
-## <a name="encodeuricomponent"></a>encodeUriComponent
+### <a name="encodeuricomponent"></a>encodeUriComponent
 
 傳回字串的統一資源識別項 (URI) 編碼版本，以逸出字元取代 URL 中的 Unsafe 字元。 請考慮使用 [uriComponent()](#uriComponent)，而非 `encodeUriComponent()`。 雖然這兩個函數的運作方式相同，但是較常使用 `uriComponent()`。
 
@@ -1361,7 +1616,7 @@ encodeUriComponent('https://contoso.com')
 
 <a name="empty"></a>
 
-## <a name="empty"></a>empty
+### <a name="empty"></a>empty
 
 檢查集合是否是空的。 集合若是空的，傳回 True，或集合若不是空的，則傳回 False。
 
@@ -1396,7 +1651,7 @@ empty('abc')
 
 <a name="endswith"></a>
 
-## <a name="endswith"></a>endsWith
+### <a name="endswith"></a>endsWith
 
 檢查字串是否以特定的子字串結束。 找到子字串時，傳回 True，或找不到子字串時，傳回 False。 此函式不區分大小寫。
 
@@ -1437,7 +1692,7 @@ endsWith('hello world', 'universe')
 
 <a name="equals"></a>
 
-## <a name="equals"></a>equals
+### <a name="equals"></a>equals
 
 檢查兩個值、運算式或物件是否相等。 兩個項目相等時，傳回 True，或兩個項目不相等時，傳回 False。
 
@@ -1471,7 +1726,7 @@ equals('abc', 'abcd')
 
 <a name="first"></a>
 
-## <a name="first"></a>first
+### <a name="first"></a>first
 
 傳回字串或陣列中的第一個項目。
 
@@ -1506,7 +1761,7 @@ first([0, 1, 2])
 
 <a name="float"></a>
 
-## <a name="float"></a>float
+### <a name="float"></a>float
 
 將浮點數的字串版本轉換為實際浮點數。 您只可在將自訂參數傳遞給應用程式 (例如邏輯應用程式) 時使用這個函式。
 
@@ -1536,7 +1791,7 @@ float('10.333')
 
 <a name="formatDateTime"></a>
 
-## <a name="formatdatetime"></a>formatDateTime
+### <a name="formatdatetime"></a>formatDateTime
 
 傳回指定格式的時間戳記。
 
@@ -1567,7 +1822,7 @@ formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 
 <a name="formDataMultiValues"></a>
 
-## <a name="formdatamultivalues"></a>formDataMultiValues
+### <a name="formdatamultivalues"></a>formDataMultiValues
 
 傳回帶有值的陣列，此值會符合動作「表單資料」或「表單編碼」輸出的索引鍵名稱。 
 
@@ -1598,7 +1853,7 @@ formDataMultiValues('Send_an_email', 'Subject')
 
 <a name="formDataValue"></a>
 
-## <a name="formdatavalue"></a>formDataValue
+### <a name="formdatavalue"></a>formDataValue
 
 傳回單一值，此值會符合動作「表單資料」或「表單編碼」輸出的索引鍵名稱。 如果函式找到一個以上的相符項目，函式會擲回錯誤。
 
@@ -1629,7 +1884,7 @@ formDataValue('Send_an_email', 'Subject')
 
 <a name="getFutureTime"></a>
 
-## <a name="getfuturetime"></a>getFutureTime
+### <a name="getfuturetime"></a>getFutureTime
 
 傳回目前時間戳記加上指定時間單位的結果。
 
@@ -1671,7 +1926,7 @@ getFutureTime(5, 'Day', 'D')
 
 <a name="getPastTime"></a>
 
-## <a name="getpasttime"></a>getPastTime
+### <a name="getpasttime"></a>getPastTime
 
 傳回目前時間戳記減去指定時間單位的結果。
 
@@ -1713,7 +1968,7 @@ getPastTime(5, 'Day', 'D')
 
 <a name="greater"></a>
 
-## <a name="greater"></a>greater
+### <a name="greater"></a>greater
 
 檢查第一個值是否大於第二個值。 當第一個值比較大時，傳回 True，或當第一個值比較小時，傳回 False。
 
@@ -1749,7 +2004,7 @@ greater('apple', 'banana')
 
 <a name="greaterOrEquals"></a>
 
-## <a name="greaterorequals"></a>greaterOrEquals
+### <a name="greaterorequals"></a>greaterOrEquals
 
 檢查第一個值是否大於或等於第二個值。
 當第一個值較大或相等時，傳回 True，或當第一個值較小時，傳回 False。
@@ -1786,7 +2041,7 @@ greaterOrEquals('apple', 'banana')
 
 <a name="guid"></a>
 
-## <a name="guid"></a>GUID
+### <a name="guid"></a>GUID
 
 以字串形式產生唯一識別碼 (GUID)，例如 "c2ecc88d-88c8-4096-912c-d6f2e2b138ce"： 
 
@@ -1822,7 +2077,7 @@ guid('P')
 
 <a name="if"></a>
 
-## <a name="if"></a>if
+### <a name="if"></a>if
 
 檢查運算式是 True 或 False。 根據結果，傳回指定的值。
 
@@ -1852,7 +2107,7 @@ if(equals(1, 1), 'yes', 'no')
 
 <a name="indexof"></a>
 
-## <a name="indexof"></a>indexOf
+### <a name="indexof"></a>indexOf
 
 傳回子字串的起始位置或索引值。 此函式不區分大小寫，而且索引以數字 0 開頭。 
 
@@ -1883,7 +2138,7 @@ indexOf('hello world', 'world')
 
 <a name="int"></a>
 
-## <a name="int"></a>int
+### <a name="int"></a>int
 
 傳回字串的整數版本。
 
@@ -1913,7 +2168,7 @@ int('10')
 
 <a name="item"></a>
 
-## <a name="item"></a>item
+### <a name="item"></a>item
 
 若用於透過陣列進行的重複動作中，則會傳回動作進行目前反覆項目期間，目前在陣列中的項目。 您也可以從該項目的屬性取得這些值。 
 
@@ -1936,7 +2191,7 @@ item().body
 
 <a name="items"></a>
 
-## <a name="items"></a>items
+### <a name="items"></a>items
 
 從 for-each 迴圈中的每個循環傳回目前項目。 在 for each 迴圈內使用此函式。
 
@@ -1964,7 +2219,7 @@ items('myForEachLoopName')
 
 <a name="json"></a>
 
-## <a name="json"></a>json
+### <a name="json"></a>json
 
 傳回字串或 XML 的 JavaScript 物件標記法 (JSON) 類型值或物件。
 
@@ -2033,7 +2288,7 @@ json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> 
 
 <a name="intersection"></a>
 
-## <a name="intersection"></a>交集
+### <a name="intersection"></a>交集
 
 在指定的多個集合中，傳回「只有」共同項目的集合。 項目若要出現在結果中，必須出現在所有傳遞至此函式的集合中。 如果一個或多個項目有相同的名稱，則具有該名稱的最後一個項目會出現在結果中。
 
@@ -2064,7 +2319,7 @@ intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
 
 <a name="join"></a>
 
-## <a name="join"></a>Join
+### <a name="join"></a>Join
 
 傳回具有陣列中所有項目的字串，並以「分隔符號」將每個字元隔開。
 
@@ -2095,7 +2350,7 @@ join([a, b, c], '.')
 
 <a name="last"></a>
 
-## <a name="last"></a>last
+### <a name="last"></a>last
 
 傳回集合中的最後一個項目。
 
@@ -2130,7 +2385,7 @@ last([0, 1, 2, 3])
 
 <a name="lastindexof"></a>
 
-## <a name="lastindexof"></a>lastIndexOf
+### <a name="lastindexof"></a>lastIndexOf
 
 傳回子字串的結束位置或索引值。 此函式不區分大小寫，而且索引以數字 0 開頭。
 
@@ -2161,7 +2416,7 @@ lastIndexOf('hello world', 'world')
 
 <a name="length"></a>
 
-## <a name="length"></a>length
+### <a name="length"></a>length
 
 傳回集合中的項目數目。
 
@@ -2193,7 +2448,7 @@ length([0, 1, 2, 3])
 
 <a name="less"></a>
 
-## <a name="less"></a>less
+### <a name="less"></a>less
 
 檢查第一個值是否小於第二個值。
 當第一個值較小時，傳回 True，或當第一個值較大時，傳回 False。
@@ -2230,7 +2485,7 @@ less('banana', 'apple')
 
 <a name="lessOrEquals"></a>
 
-## <a name="lessorequals"></a>lessOrEquals
+### <a name="lessorequals"></a>lessOrEquals
 
 檢查第一個值是否小於或等於第二個值。
 當第一個值較小或相等時，傳回 True，或當第一個值較大時，傳回 False。
@@ -2267,7 +2522,7 @@ lessOrEquals('apply', 'apple')
 
 <a name="listCallbackUrl"></a>
 
-## <a name="listcallbackurl"></a>listCallbackUrl
+### <a name="listcallbackurl"></a>listCallbackUrl
 
 傳回呼叫觸發程序或動作的「回呼 URL」。 此函式僅適用於 **HttpWebhook** 和 **ApiConnectionWebhook** 連接器類型的觸發程序和動作，但不適用於**手動**、**循環**、**HTTP** 和 **APIConnection** 類型。 
 
@@ -2288,7 +2543,7 @@ listCallbackUrl()
 
 <a name="max"></a>
 
-## <a name="max"></a>max
+### <a name="max"></a>max
 
 從具有數字的清單或陣列中傳回最大值 (包含首尾兩端的值)。 
 
@@ -2321,7 +2576,7 @@ max([1, 2, 3])
 
 <a name="min"></a>
 
-## <a name="min"></a>Min
+### <a name="min"></a>Min
 
 從數字集合或陣列中傳回最小值。
 
@@ -2354,7 +2609,7 @@ min([1, 2, 3])
 
 <a name="mod"></a>
 
-## <a name="mod"></a>mod
+### <a name="mod"></a>mod
 
 傳回兩數相除的餘數。 若要取得整數結果，請參閱 [div()](#div)。
 
@@ -2385,7 +2640,7 @@ mod(3, 2)
 
 <a name="mul"></a>
 
-## <a name="mul"></a>mul
+### <a name="mul"></a>mul
 
 傳回將兩數相乘的乘積。
 
@@ -2420,7 +2675,7 @@ mul(1.5, 2)
 
 <a name="multipartBody"></a>
 
-## <a name="multipartbody"></a>multipartBody
+### <a name="multipartbody"></a>multipartBody
 
 在具有多個部分的動作輸出中，傳回特定部分的內容。
 
@@ -2441,7 +2696,7 @@ multipartBody('<actionName>', <index>)
 
 <a name="not"></a>
 
-## <a name="not"></a>否
+### <a name="not"></a>否
 
 檢查運算式是否為 False。 運算式為 False 時，傳回 True，或運算式為 True 時，傳回 False。
 
@@ -2489,7 +2744,7 @@ not(equals(1, 1))
 
 <a name="or"></a>
 
-## <a name="or"></a>或
+### <a name="or"></a>或
 
 檢查是否至少有一個運算式是 True。 至少有一個運算式是 True 時，傳回 True，或所有運算式都是 False 時，傳回 False。
 
@@ -2537,7 +2792,7 @@ or(equals(1, 2), equals(1, 3))
 
 <a name="parameters"></a>
 
-## <a name="parameters"></a>parameters
+### <a name="parameters"></a>parameters
 
 傳回邏輯應用程式定義中描述的參數值。 
 
@@ -2575,7 +2830,7 @@ parameters('fullName')
 
 <a name="rand"></a>
 
-## <a name="rand"></a>rand
+### <a name="rand"></a>rand
 
 從指定範圍傳回隨機整數 (不包含範圍中的末端數字)。
 
@@ -2606,7 +2861,7 @@ rand(1, 5)
 
 <a name="range"></a>
 
-## <a name="range"></a>range
+### <a name="range"></a>range
 
 傳回從指定整數開始的整數陣列。
 
@@ -2637,7 +2892,7 @@ range(1, 4)
 
 <a name="replace"></a>
 
-## <a name="replace"></a>取代
+### <a name="replace"></a>取代
 
 使用指定字串取代子字串，並傳回結果字串。 此函式會區分大小寫。
 
@@ -2669,7 +2924,7 @@ replace('the old string', 'old', 'new')
 
 <a name="removeProperty"></a>
 
-## <a name="removeproperty"></a>removeProperty
+### <a name="removeproperty"></a>removeProperty
 
 從物件中移除屬性，並傳回更新的物件。
 
@@ -2698,7 +2953,7 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 <a name="setProperty"></a>
 
-## <a name="setproperty"></a>setProperty
+### <a name="setproperty"></a>setProperty
 
 設定物件屬性的值，並傳回更新的物件。 若要新增屬性，您可以使用此函式或 [addProperty()](#addProperty) 函式。
 
@@ -2728,7 +2983,7 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-## <a name="skip"></a>skip
+### <a name="skip"></a>skip
 
 移除集合前端的項目，並傳回「其他所有」項目。
 
@@ -2759,7 +3014,7 @@ skip([0, 1, 2, 3], 1)
 
 <a name="split"></a>
 
-## <a name="split"></a>split
+### <a name="split"></a>split
 
 傳回具有字串中所有字元的陣列，並以「分隔符號」將每個字元隔開。
 
@@ -2790,7 +3045,7 @@ split('abc', ',')
 
 <a name="startOfDay"></a>
 
-## <a name="startofday"></a>startOfDay
+### <a name="startofday"></a>startOfDay
 
 傳回時間戳記中當天的起始點。 
 
@@ -2821,7 +3076,7 @@ startOfDay('2018-03-15T13:30:30Z')
 
 <a name="startOfHour"></a>
 
-## <a name="startofhour"></a>startOfHour
+### <a name="startofhour"></a>startOfHour
 
 傳回時間戳記中小時的起始點。 
 
@@ -2852,7 +3107,7 @@ startOfHour('2018-03-15T13:30:30Z')
 
 <a name="startOfMonth"></a>
 
-## <a name="startofmonth"></a>startOfMonth
+### <a name="startofmonth"></a>startOfMonth
 
 傳回時間戳記中月份的起始點。 
 
@@ -2883,7 +3138,7 @@ startOfMonth('2018-03-15T13:30:30Z')
 
 <a name="startswith"></a>
 
-## <a name="startswith"></a>startsWith
+### <a name="startswith"></a>startsWith
 
 檢查字串是否以特定的子字串開始。 找到子字串時，傳回 True，或找不到子字串時，傳回 False。 此函式不區分大小寫。
 
@@ -2924,7 +3179,7 @@ startsWith('hello world', 'greetings')
 
 <a name="string"></a>
 
-## <a name="string"></a>字串
+### <a name="string"></a>字串
 
 傳回值的字串版本。
 
@@ -2964,7 +3219,7 @@ string( { "name": "Sophie Owen" } )
 
 <a name="sub"></a>
 
-## <a name="sub"></a>sub
+### <a name="sub"></a>sub
 
 傳回第一個數字減去第二個數字的結果。
 
@@ -2995,7 +3250,7 @@ sub(10.3, .3)
 
 <a name="substring"></a>
 
-## <a name="substring"></a>substring
+### <a name="substring"></a>substring
 
 從字串中傳回從指定位置或索引起始的字元。 索引值會以數字 0 開頭。 
 
@@ -3027,7 +3282,7 @@ substring('hello world', 6, 5)
 
 <a name="subtractFromTime"></a>
 
-## <a name="subtractfromtime"></a>subtractFromTime
+### <a name="subtractfromtime"></a>subtractFromTime
 
 從時間戳記減去時間單位數字。 另請參閱 [getPastTime](#getPastTime)。
 
@@ -3070,7 +3325,7 @@ subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
 
 <a name="take"></a>
 
-## <a name="take"></a>take
+### <a name="take"></a>take
 
 傳回集合中的前端項目。 
 
@@ -3106,7 +3361,7 @@ take([0, 1, 2, 3, 4], 3)
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>刻度
+### <a name="ticks"></a>刻度
 
 傳回指定時間戳記的 `ticks` 屬性值。 一「刻度」是 100 奈秒的間隔。
 
@@ -3126,7 +3381,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-## <a name="tolower"></a>toLower
+### <a name="tolower"></a>toLower
 
 傳回小寫格式的字串。 如果字串中的字元沒有小寫版本，則該字元在傳回的字串中會保持不變。
 
@@ -3156,7 +3411,7 @@ toLower('Hello World')
 
 <a name="toUpper"></a>
 
-## <a name="toupper"></a>toUpper
+### <a name="toupper"></a>toUpper
 
 傳回大寫格式的字串。 如果字串中的字元沒有大寫版本，則該字元在傳回的字串中會保持不變。
 
@@ -3186,7 +3441,7 @@ toUpper('Hello World')
 
 <a name="trigger"></a>
 
-## <a name="trigger"></a>觸發程序
+### <a name="trigger"></a>觸發程序
 
 傳回執行階段上觸發程序的輸出，或來自其他 JSON 成對名稱和數值中的值，而您可以將其指派給運算式。 
 
@@ -3207,7 +3462,7 @@ trigger()
 
 <a name="triggerBody"></a>
 
-## <a name="triggerbody"></a>triggerBody
+### <a name="triggerbody"></a>triggerBody
 
 傳回觸發程序在執行階段的 `body` 輸出。 `trigger().outputs.body` 的簡略版。 請參閱 [trigger()](#trigger)。 
 
@@ -3222,7 +3477,7 @@ triggerBody()
 
 <a name="triggerFormDataMultiValues"></a>
 
-## <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
+### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
 傳回帶有值的陣列，此值會符合觸發程序「表單資料」或「表單編碼」輸出的索引鍵名稱。 
 
@@ -3252,7 +3507,7 @@ triggerFormDataMultiValues('feedUrl')
 
 <a name="triggerFormDataValue"></a>
 
-## <a name="triggerformdatavalue"></a>triggerFormDataValue
+### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
 傳回具有單一值的字串，此單一值會符合觸發程序「表單資料」或「表單編碼」輸出的索引鍵名稱。 如果函式找到一個以上的相符項目，函式會擲回錯誤。
 
@@ -3300,7 +3555,7 @@ triggerMultipartBody(<index>)
 
 <a name="triggerOutputs"></a>
 
-## <a name="triggeroutputs"></a>triggerOutputs
+### <a name="triggeroutputs"></a>triggerOutputs
 
 傳回觸發程序在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 `trigger().outputs` 的簡略版。 請參閱 [trigger()](#trigger)。 
 
@@ -3315,7 +3570,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-## <a name="trim"></a>修剪
+### <a name="trim"></a>修剪
 
 移除字串的開頭和尾端空白字元，並傳回更新後的字串。
 
@@ -3345,7 +3600,7 @@ trim(' Hello World  ')
 
 <a name="union"></a>
 
-## <a name="union"></a>union
+### <a name="union"></a>union
 
 傳回具有指定集合中「所有」項目的集合。 出現在結果中的項目，可以出現在任何傳遞至此函式的集合中。 如果一個或多個項目有相同的名稱，則具有該名稱的最後一個項目會出現在結果中。 
 
@@ -3376,7 +3631,7 @@ union([1, 2, 3], [1, 2, 10, 101])
 
 <a name="uriComponent"></a>
 
-## <a name="uricomponent"></a>uriComponent
+### <a name="uricomponent"></a>uriComponent
 
 傳回字串的統一資源識別項 (URI) 編碼版本，以逸出字元取代 URL 中的 Unsafe 字元。 使用此函式而非 [encodeUriComponent()](#encodeUriComponent)。 雖然這兩個函數的運作方式相同，但是較常使用 `uriComponent()`。
 
@@ -3406,7 +3661,7 @@ uriComponent('https://contoso.com')
 
 <a name="uriComponentToBinary"></a>
 
-## <a name="uricomponenttobinary"></a>uriComponentToBinary
+### <a name="uricomponenttobinary"></a>uriComponentToBinary
 
 傳回統一資源識別項 (URI) 元件的二進位版本。
 
@@ -3441,7 +3696,7 @@ uriComponentToBinary('http%3A%2F%2Fcontoso.com')
 
 <a name="uriComponentToString"></a>
 
-## <a name="uricomponenttostring"></a>uriComponentToString
+### <a name="uricomponenttostring"></a>uriComponentToString
 
 傳回統一資源識別項 (URI) 編碼字串的字串版本，也就是有效地解碼 URI 編碼字串。
 
@@ -3471,7 +3726,7 @@ uriComponentToString('http%3A%2F%2Fcontoso.com')
 
 <a name="uriHost"></a>
 
-## <a name="urihost"></a>uriHost
+### <a name="urihost"></a>uriHost
 
 傳回統一資源識別項 (URI) 的 `host` 值。
 
@@ -3501,7 +3756,7 @@ uriHost('https://www.localhost.com:8080')
 
 <a name="uriPath"></a>
 
-## <a name="uripath"></a>uriPath
+### <a name="uripath"></a>uriPath
 
 傳回統一資源識別項 (URI) 的 `path` 值。 
 
@@ -3531,7 +3786,7 @@ uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
 
 <a name="uriPathAndQuery"></a>
 
-## <a name="uripathandquery"></a>uriPathAndQuery
+### <a name="uripathandquery"></a>uriPathAndQuery
 
 傳回統一資源識別項 (URI) 的 `path` 和 `query` 值。
 
@@ -3561,7 +3816,7 @@ uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 
 <a name="uriPort"></a>
 
-## <a name="uriport"></a>uriPort
+### <a name="uriport"></a>uriPort
 
 傳回統一資源識別項 (URI) 的 `port` 值。
 
@@ -3591,7 +3846,7 @@ uriPort('http://www.localhost:8080')
 
 <a name="uriQuery"></a>
 
-## <a name="uriquery"></a>uriQuery
+### <a name="uriquery"></a>uriQuery
 
 傳回統一資源識別項 (URI) 的 `query` 值。
 
@@ -3621,7 +3876,7 @@ uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 
 <a name="uriScheme"></a>
 
-## <a name="urischeme"></a>uriScheme
+### <a name="urischeme"></a>uriScheme
 
 傳回統一資源識別項 (URI) 的 `scheme` 值。
 
@@ -3651,7 +3906,7 @@ uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
 
 <a name="utcNow"></a>
 
-## <a name="utcnow"></a>utcNow
+### <a name="utcnow"></a>utcNow
 
 傳回目前的時間戳記。 
 
@@ -3694,7 +3949,7 @@ utcNow('D')
 
 <a name="variables"></a>
 
-## <a name="variables"></a>variables
+### <a name="variables"></a>variables
 
 傳回指定變數的值。 
 
@@ -3724,7 +3979,7 @@ variables('numItems')
 
 <a name="workflow"></a>
 
-## <a name="workflow"></a>工作流程
+### <a name="workflow"></a>工作流程
 
 傳回執行階段期間與工作流程本身相關的所有詳細資料。 
 
@@ -3747,7 +4002,7 @@ workflow().run.name
 
 <a name="xml"></a>
 
-## <a name="xml"></a>xml
+### <a name="xml"></a>xml
 
 傳回包含 JSON 物件的 XML 版字串。 
 
@@ -3805,7 +4060,7 @@ xml('<value>')
 
 <a name="xpath"></a>
 
-## <a name="xpath"></a>xpath
+### <a name="xpath"></a>xpath
 
 檢查 XML 中是否有符合 XPath (XML 路徑語言) 運算式的節點或值，並傳回符合的節點或值。 XPath 運算式 (或 "XPath") 可協助您瀏覽 XML 文件結構，讓您可以在 XML 內容中選取節點或計算值。
 

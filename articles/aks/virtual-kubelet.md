@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 305a6c805f14e8d3ef9f77fcd90a78a50e0f770c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443727"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145530"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -36,31 +36,41 @@ Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行
 
 ### <a name="for-rbac-enabled-clusters"></a>對於已啟用 RBAC 的叢集
 
-如果已啟用 RBAC 的 AKS 叢集，您必須建立服務帳戶和角色繫結，以與 Tiller 搭配使用。 如需詳細資訊，請參閱 [Helm 角色型存取控制][helm-rbac]。
-
-也必須為 Virtual Kubelet 建立 *ClusterRoleBinding*。 若要建立繫結，請建立名為 *rbac virtualkubelet.yaml* 的檔案，並貼上下列定義：
+如果已啟用 RBAC 的 AKS 叢集，您必須建立服務帳戶和角色繫結，以與 Tiller 搭配使用。 如需詳細資訊，請參閱 [Helm 角色型存取控制][helm-rbac]。 若要建立服務帳戶和角色繫結，請建立名為 rbac virtualkubelet.yaml 的檔案，並貼上下列定義：
 
 ```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: virtual-kubelet
+  name: tiller
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: default
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
 ```
 
-使用 [kubectl apply][kubectl-apply] 套用繫結，並指定您的 *rbac-virtualkubelet.yaml* 檔案，如下列範例所示：
+使用 [kubectl apply][kubectl-apply] 套用服務帳戶和繫結，並指定您的 rbac-virtualkubelet.yaml 檔案，如下列範例所示：
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
-clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+clusterrolebinding.rbac.authorization.k8s.io/tiller created
+```
+
+設定 Helm 以使用 tiller 服務帳戶：
+
+```console
+helm init --service-account tiller
 ```
 
 您現在可以繼續將 Virtual Kubelet 安裝至 AKS 叢集。
@@ -164,7 +174,7 @@ spec:
     spec:
       containers:
       - name: nanoserver-iis
-        image: nanoserver/iis
+        image: microsoft/iis:nanoserver
         ports:
         - containerPort: 80
       nodeSelector:
@@ -199,6 +209,8 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 ## <a name="next-steps"></a>後續步驟
 
+若要了解使用 Virtual Kubelet 時可能會遇到的問題，請參閱[已知異常和因應措施][vk-troubleshooting]。 若要回報有關 Virtual Kubelet 的問題，[請提出 GitHub 問題][vk-issues]。
+
 在 [Virtual Kubelet Github 專案][vk-github]中深入了解 Virtual Kubelet。
 
 <!-- LINKS - internal -->
@@ -215,3 +227,5 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[vk-troubleshooting]: https://github.com/virtual-kubelet/virtual-kubelet#known-quirks-and-workarounds
+[vk-issues]: https://github.com/virtual-kubelet/virtual-kubelet/issues

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 982a5eabf8c6c3012a9b3e8fdbe2ff32ba439972
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f73a9e59c0add664128b506172182afe566ca670
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113587"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444505"
 ---
 # <a name="reference-architecture-simple-enterprise-integration"></a>參考架構：簡單的企業整合
 
@@ -38,7 +38,7 @@ ms.locfileid: "39113587"
 - **Azure API 管理開發人員入口網站**。 Azure API 管理的每個執行個體都隨附[開發人員入口網站](https://docs.microsoft.com/azure/api-management/api-management-customize-styles)的存取權。 API 管理開發人員入口網站可讓您存取文件和程式碼範例。 您可以在開發人員入口網站中測試 API。
 - **Azure Logic Apps**。 [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) 是一個用於建置企業工作流程和整合的無伺服器平台。
 - **連接器**。 Logic Apps 會使用[連接器](https://docs.microsoft.com/azure/connectors/apis-list)來連線到常用的服務。 Logic Apps 已經有數百個各種不同的連接器，但您也可以建立自訂連接器。
-- **IP 位址**。 Azure API 管理服務有固定的公用 [IP 位址](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)和網域名稱。 網域名稱是 azure-api.net 的子網域，例如 contoso.azure-api.net。 Logic Apps 和服務匯流排也有公用 IP 位址。 不過，在此架構中，我們會將呼叫 Logic Apps 端點的存取權限制成僅供 API 管理的 IP 位址使用 (基於安全考量)。 對服務匯流排的呼叫會受到共用存取簽章 (SAS) 保護。
+- **IP 位址**。 Azure API 管理服務有固定的公用 [IP 位址](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)和網域名稱。 預設網域名稱是 azure-api.net 的子網域，例如 contoso.azure-api.net，但也可以設定[自訂網域](https://docs.microsoft.com/azure/api-management/configure-custom-domain)。 Logic Apps 和服務匯流排也有公用 IP 位址。 不過，在此架構中，我們會將呼叫 Logic Apps 端點的存取權限制成僅供 API 管理的 IP 位址使用 (基於安全考量)。 對服務匯流排的呼叫會受到共用存取簽章 (SAS) 保護。
 - **Azure DNS**。 [Azure DNS](https://docs.microsoft.com/azure/dns/) 是一個適用於 DNS 網域的主機服務。 Azure DNS 採用 Microsoft Azure 基礎結構來提供名稱解析。 只要將您的網域裝載於 Azure，就可以使用您用於其他 Azure 服務的相同認證、API、工具和計費方式來管理 DNS 記錄。 若要使用自訂網域名稱 (例如 contoso.com)，請建立將自訂網域名稱對應至 IP 位址的 DNS 記錄。 如需詳細資訊，請參閱[在 API 管理中設定自訂網域名稱](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain)。
 - **Azure Active Directory (Azure AD)**。 使用 [Azure AD](https://docs.microsoft.com/azure/active-directory/) 或其他識別提供者來進行驗證。 Azure AD 藉由傳遞[適用於 API 管理的 JSON Web 權杖](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims)進行驗證，以提供用於存取 API 端點的驗證。 Azure AD 可以保護 API 管理開發人員入口網站 (僅限標準和進階層) 的存取權。
 

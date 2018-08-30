@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: e04d1072acee635235b0a5bd8465ca38c861017b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3b01e75a9b34ce4e38138816935bdae2e0ea778
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523518"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146387"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>串流分析的常見問題以及疑難排解的步驟
 
@@ -38,7 +38,9 @@ ms.locfileid: "31523518"
 
 3. 若要取得具有不正確格式的 JSON 資料，請執行 CheckMalformedEvents.cs 程式碼。 您可以從 [GitHub 範例存放庫](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH)取得此範例。 此程式碼讀取分割區識別碼、位移，並列印位於該位移的資料。 
 
-4. 一旦您讀取資料後，可以分析並修正序列化格式。 
+4. 一旦您讀取資料後，可以分析並修正序列化格式。
+
+5. 您也可以[透過 Service Fabric Explorer 從 IoT 中樞讀取事件](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b)。
 
 ## <a name="delayed-output"></a>延遲的輸出
 

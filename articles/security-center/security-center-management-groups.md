@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144562"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441689"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>取得 Azure 資訊安全中心的全租用戶可見性
 本文可協助您先執行數個可充分發揮 Azure Security Center 效用的動作，以著手使用。 執行這些動作可讓您檢視所有連結至 Azure Active Directory 租用戶的 Azure 訂用帳戶，並以彙總的方式跨多個訂用帳戶套用安全性原則，以有效而大規模地管理組織的安全性狀態。
@@ -85,21 +85,26 @@ Azure Active Directory 租用戶管理員並沒有 Azure 訂用帳戶的直接�
 
 5. 執行您需要以更高存取權完成的工作。 當您完成時，請將開關設回 [否]。
 
-### <a name="open-or-refresh-security-center"></a>開啟或重新整理資訊安全中心
-提高存取權限後，請開啟或重新整理 Azure 資訊安全中心，以確認您可以檢視 Azure AD 租用戶下的所有訂用帳戶。 
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 請務必在訂用帳戶選取器中，選取想要在資訊安全中心檢視的所有訂用帳戶。
-    ![訂用帳戶選取器螢幕擷取畫面](./media/security-center-management-groups/subscription-selector.png)
-1. 在 Azure 主功能表下選取 [所有服務]，然後選取 [資訊安全中心]。
-2. 在 [概觀] 中，會有一個訂用帳戶涵蓋範圍表。 
-    ![訂用帳戶涵蓋範圍表螢幕擷取畫面](./media/security-center-management-groups/security-center-subscription-coverage.png)
-3. 按一下 [涵蓋範圍] 以查看涵蓋的訂用帳戶清單。 
-    ![訂用帳戶涵蓋範圍清單螢幕擷取畫面](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="assign-rbac-roles-to-users"></a>將 RBAC 角色指派給使用者
-在租用戶管理員提升存取權後，他們即可在根管理群組層級將 RBAC 角色指派給相關使用者。 建議指派的角色為[**讀者**](../role-based-access-control/built-in-roles.md#reader)。 必須具有此角色，才能提供租用戶層級可見性。 指派的角色將會自動傳播至根管理群組下的所有管理群組和訂用帳戶。 如需 RBAC 角色的詳細資訊，請參閱[可用的角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles)。 
+若要取得所有訂用帳戶的可見性，租用戶系統管理員必須在根管理群組層級，將適當的 RBAC 角色指派給他們想要授與整個租用戶可見性的任何使用者 (包括本身)。 建議指派的角色為 [安全性管理員] 或 [安全性讀取者]。 一般而言，需具備安全性管理員角色，才能在根層級套用原則，而安全性讀取者就足以提供租用戶層級的可見性。 如需有關這些角色所授與權限的詳細資訊，請參閱[安全性管理員內建角色描述](../role-based-access-control/built-in-roles.md#security-admin)或[安全性讀取者內建角色描述](../role-based-access-control/built-in-roles.md#security-reader)。
 
+
+#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>透過 Azure 入口網站將 RBAC 角色指派給使用者： 
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 
+2. 若要檢視管理群組，請在 Azure 主功能表下選取 [所有服務]，然後選取 [管理群組]。
+3.  選取管理群組，然後按一下 [詳細資料]。
+
+    ![管理群組詳細資料螢幕擷取畫面](./media/security-center-management-groups/management-group-details.PNG)
+ 
+4. 按一下 [存取控制 (IAM)]，然後按一下 [新增]。
+5. 選取要指派的角色和使用者，然後按一下 [儲存]。  
+   
+   ![新增安全性讀取者角色螢幕擷取畫面](./media/security-center-management-groups/asc-security-reader.png)
+
+
+#### <a name="assign-rbac-roles-to-users-with-powershell"></a>使用 PowerShell 將 RBAC 角色指派給使用者： 
 1. 安裝 [Azure PowerShell](/powershell/azure/install-azurerm-ps)。
 2. 執行下列命令： 
 
@@ -128,19 +133,17 @@ Azure Active Directory 租用戶管理員並沒有 Azure 訂用帳戶的直接�
     Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
-<!-- Currently, PowerShell method only 6/26/18
+### <a name="open-or-refresh-security-center"></a>開啟或重新整理資訊安全中心
+提高存取權限後，請開啟或重新整理 Azure 資訊安全中心，以確認您可以檢視 Azure AD 租用戶下的所有訂用帳戶。 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
-3.  Select a management group and click **details**.
-
-    ![Management Groups details screenshot](./media/security-center-management-groups/management-group-details.PNG)
- 
-4. Click **Access control (IAM)** then **Add**.
-5. Select the role to assign and the user, then click **Save**.  
-   
-   ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
--->
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 
+2. 請務必在訂用帳戶選取器中，選取想要在資訊安全中心檢視的所有訂用帳戶。
+    ![訂用帳戶選取器螢幕擷取畫面](./media/security-center-management-groups/subscription-selector.png)
+1. 在 Azure 主功能表下選取 [所有服務]，然後選取 [資訊安全中心]。
+2. 在 [概觀] 中，會有一個訂用帳戶涵蓋範圍表。 
+    ![訂用帳戶涵蓋範圍表螢幕擷取畫面](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. 按一下 [涵蓋範圍] 以查看涵蓋的訂用帳戶清單。 
+    ![訂用帳戶涵蓋範圍清單螢幕擷取畫面](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>移除已提高的存取權 
 在 RBAC 角色指派給使用者後，租用戶管理員應將本身從使用者存取管理員角色中移除。

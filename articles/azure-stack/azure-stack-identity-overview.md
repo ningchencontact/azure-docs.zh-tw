@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a5390b51b3b901b159f99e757ca4db1aaf8258e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399026"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050962"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的身分識別概觀
 
@@ -137,7 +137,7 @@ Azure Stack 的身分識別包括使用者帳戶、群組和服務主體。
 |層次    |各層之間的驗證  |
 |---------|---------|
 |工具與用戶端，例如管理入口網站     | 若要存取或修改 Azure Stack 中的資源，工具和用戶端會使用 [JSON Web 權杖](/azure/active-directory/develop/active-directory-token-and-claims) 來呼叫 Azure Resource Manager。 <br>Azure Resource Manager 會驗證 JSON Web 權杖並查看所核發權杖中的「宣告」，以評估使用者或服務主體在 Azure Stack 中具有的授權層級。 |
-|Azure Resource Manager 與其核心服務     |Azure Resource Manager 會與資源提供者通訊，以傳輸使用者的通訊。 <br> 傳輸會透過 [Azure Resource Manager 範本](/azure/azure-stack/user/azure-stack-arm-templates.md)使用「直接命令式」呼叫或「宣告式」呼叫。|
+|Azure Resource Manager 與其核心服務     |Azure Resource Manager 會與資源提供者通訊，以傳輸使用者的通訊。 <br> 傳輸會透過 [Azure Resource Manager 範本](/azure/azure-stack/user/azure-stack-arm-templates)使用「直接命令式」呼叫或「宣告式」呼叫。|
 |資源提供者     |傳遞至資源提供者的呼叫會以憑證型驗證進行保護。 <br>Azure Resource Manager 和資源提供者而後會持續透過 API 通訊。 對於從 Azure Resource Manager 接收的每個呼叫，資源提供者會使用該憑證來驗證呼叫。|
 |基礎結構和商務邏輯     |資源提供者會使用其所選的驗證模式來與商務邏輯和基礎結構通訊。 Azure Stack 隨附的預設資源提供者會使用 Windows 驗證來保護此通訊。|
 
@@ -149,7 +149,7 @@ Azure Stack 的身分識別包括使用者帳戶、群組和服務主體。
 1.  **身分識別系統 (授權單位) 的 URL**：可以觸達識別提供者的 URL。 例如：*https://login.windows.net*。 
 2.  **Azure Resource Manager 的應用程式識別碼 URI**：已向識別提供者註冊之 Azure Resource Manager 的唯一識別碼。 此識別碼也是每個 Azure Stack 安裝中的唯一識別碼。
 3.  **認證**：您用來向識別提供者驗證的認證。 
-4.  **Azure Resource Manager 的 URL**：URL 是 Azure Resource Manager 服務的位置。 例如，https://management.azure.com 或 https://management.local.azurestack.external。
+4.  **Azure Resource Manager 的 URL**：URL 是 Azure Resource Manager 服務的位置。 例如， https://management.azure.com 或 https://management.local.azurestack.external。
 
 當主體 (用戶端、應用程式或使用者) 提出驗證要求以存取資源時，該要求必須包含：
 - 主體的認證。
@@ -180,7 +180,7 @@ Azure Stack 中的角色型存取控制 (RBAC) 與 Microsoft Azure 中的實作�
 如需有關使用 Azure PowerShell 向 Azure Stack 驗證的詳細資料，請參閱[設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)。
 
 ### <a name="authenticate-with-azure-cli"></a>使用 Azure CLI 進行驗證
-如需使用 Azure PowerShell 向 Azure Stack 驗證的相關資訊，請參閱[安裝和設定 Azure CLI 以便與 Azure Stack 搭配使用](/azure/azure-stack/user/azure-stack-connect-cli.md)。
+如需使用 Azure PowerShell 向 Azure Stack 驗證的相關資訊，請參閱[安裝和設定 Azure CLI 以便與 Azure Stack 搭配使用](/azure/azure-stack/user/azure-stack-connect-cli)。
 
 ## <a name="next-steps"></a>後續步驟
 - [身分識別架構](azure-stack-identity-architecture.md)   

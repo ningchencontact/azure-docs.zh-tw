@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f45f9337a5522f490c268bbdae3ef1a41205175
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859369"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444855"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics 365
 
@@ -59,12 +59,12 @@ ms.locfileid: "37859369"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為 **Dynamics**。 | yes |
-| deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"**。 | yes |
-| serviceUri | 您 Dynamics 執行個體的服務 URL，例如 `https://adfdynamics.crm.dynamics.com`。 | yes |
-| authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | yes |
-| username | 指定要連線到 Dynamics 的使用者名稱。 | yes |
-| password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | type 屬性必須設定為 **Dynamics**。 | 是 |
+| deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"**。 | 是 |
+| serviceUri | 您 Dynamics 執行個體的服務 URL，例如 `https://adfdynamics.crm.dynamics.com`。 | 是 |
+| authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | 是 |
+| username | 指定要連線到 Dynamics 的使用者名稱。 | 是 |
+| password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 如果來源連結服務沒有整合執行階段，則對於來源而言為「否」；對於接收而言為「是」 |
 
 >[!IMPORTANT]
@@ -105,14 +105,14 @@ ms.locfileid: "37859369"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為 **Dynamics**。 | yes |
-| deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"**。| yes |
-| hostName | 內部部署 Dynamics 伺服器的主機名稱。 | yes |
+| type | type 屬性必須設定為 **Dynamics**。 | 是 |
+| deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"**。| 是 |
+| hostName | 內部部署 Dynamics 伺服器的主機名稱。 | 是 |
 | 連接埠 | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
-| organizationName | Dynamics 執行個體的組織名稱。 | yes |
-| authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是搭配 IFD 的 Dynamics 內部部署版，請指定 **"Ifd"**。 | yes |
-| username | 指定要連線到 Dynamics 的使用者名稱。 | yes |
-| password | 指定您為 username 指定之使用者帳戶的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | yes |
+| organizationName | Dynamics 執行個體的組織名稱。 | 是 |
+| authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是搭配 IFD 的 Dynamics 內部部署版，請指定 **"Ifd"**。 | 是 |
+| username | 指定要連線到 Dynamics 的使用者名稱。 | 是 |
+| password | 指定您為 username 指定之使用者帳戶的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
 >[!IMPORTANT]
@@ -154,7 +154,7 @@ ms.locfileid: "37859369"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的 type 屬性必須設定為 **DynamicsEntity**。 |yes |
+| type | 資料集的 type 屬性必須設定為 **DynamicsEntity**。 |是 |
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
 
 > [!IMPORTANT]
@@ -207,7 +207,7 @@ ms.locfileid: "37859369"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為 **DynamicsSource**。 | yes |
+| type | 複製活動來源的 type 屬性必須設定為 **DynamicsSource**。 | 是 |
 | query | FetchXML 是在 Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱下列範例。 若要深入了解，請參閱[使用 FetchXML 建置查詢](https://msdn.microsoft.com/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName") |
 
 >[!NOTE]
@@ -271,8 +271,8 @@ ms.locfileid: "37859369"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收的 type 屬性必須設定為 **DynamicsSink**。 | yes |
-| writeBehavior | 作業的寫入行為。<br/>允許的值為 **"Upsert"**。 | yes |
+| type | 複製活動接收的 type 屬性必須設定為 **DynamicsSink**。 | 是 |
+| writeBehavior | 作業的寫入行為。<br/>允許的值為 **"Upsert"**。 | 是 |
 | writeBatchSize | 每個批次中寫入 Dynamics 的資料列計數。 | 否 (預設值為 10) |
 | ignoreNullValues | 指出在寫入作業期間是否要忽略輸入資料中的 Null 值 (索引鍵欄位除外)。<br/>允許的值為 **true** 和 **false**。<br>- **True**：執行 upsert/更新作業時，將目的地物件中的資料保持不變。 執行插入作業時，插入已定義的預設值。<br/>- **False**：執行 upsert/更新作業時，將目的地物件中的資料更新為 NULL。 執行插入作業時，插入 NULL 值。 | 否 (預設值為 false) |
 
@@ -333,7 +333,7 @@ Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](http
 | AttributeType.Double | 兩倍 | ✓ | ✓ |
 | AttributeType.EntityName | 字串 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ (具有相關聯的單一類型) |
+| AttributeType.Lookup | Guid | ✓ | ✓ (具有相關聯的單一目標) |
 | AttributeType.ManagedProperty | BOOLEAN | ✓ | |
 | AttributeType.Memo | 字串 | ✓ | ✓ |
 | AttributeType.Money | 十進位 | ✓ | ✓ |

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495293"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616839"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器提出警示及監視 Data Factory
 雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
@@ -26,7 +26,7 @@ ms.locfileid: "39495293"
 Azure 監視器可針對 Microsoft Azure 中的大多數服務提供基本等級的基礎結構計量與記錄。 如需詳細資訊，請參閱[監視概觀](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)。 Azure 診斷記錄是資源所發出的記錄，會經常提供有關該資源之作業的豐富資料。 Data Factory 會在 Azure 監視器中輸出診斷記錄。
 
 ## <a name="persist-data-factory-data"></a>保存 Data Factory 資料
-Data Factory 只會儲存管線執行資料 45 天。 如果您想要保存管線執行資料 45 天以上，使用 Azure 監視器的話，您不僅可以路由診斷記錄以進行分析，還可以將其保存在儲存體帳戶，您便擁有所選擇持續時間的處理站資訊。
+Data Factory 只會儲存管線執行資料 45 天。 如果您想要保存管線執行資料 45 天以上，可以使用 Azure 監視器；如此一來，您不僅可以路由診斷記錄以進行分析，還可以將這些資料保存在儲存體帳戶中，並擁有所選擇持續時間的處理站資訊。
 
 ## <a name="diagnostic-logs"></a>診斷記錄檔
 
@@ -398,6 +398,70 @@ ADFV2 會發出下列計量
 | TriggerFailedRuns    | 失敗的觸發程序執行計量     | Count    | 總計                | 為期一分鐘的時間內失敗的觸發程序執行總計      |
 
 若要存取計量，請遵循文章中的指示操作 - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>使用 Azure 監視器監視 Data Factory 計量
+
+您可以使用 Azure Data Factory 與 Azure 監視器的整合，將資料路由傳送至 Azure 監視器。 此整合在下列案例中很實用 ：
+
+1.  您想要對由 Data Factory 發佈至 Azure 監視器的一組豐富計量，撰寫複雜的查詢。 您也可以透過 Azure 監視器建立這些查詢的自訂警示。
+
+2.  您想要監視所有資料處理站。 您可以將資料從多個資料處理站傳送至單一 Azure 監視器工作區。
+
+如需此功能的 7 分鐘簡介與示範，請觀看下列影片：
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>設定診斷設定和工作區
+
+啟用資料處理站的 [診斷設定]。
+
+1.  選取 [Azure 監視器] -> [診斷設定] -> 選取資料處理站 -> 開啟診斷。
+
+    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  提供診斷設定，包括工作區的組態。
+
+    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>從 Azure Marketplace 安裝 Azure Data Factory Analytics
+
+![monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+按一下 [建立]，然後選取工作區和工作區設定。
+
+![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>監視 Data Factory 計量
+
+安裝 **Azure Data Factory Analytics**，可建立能啟用下列計量的預設檢視集：
+
+- ADF 執行- 1) 依 Data Factory 的管線執行
+
+- ADF 執行- 2) 依 Data Factory 的活動執行
+
+- ADF 執行- 3) 依 Data Factory 的觸發程序執行
+
+- ADF 錯誤- 1) 依 Data Factory 的前 10 個管線錯誤
+
+- ADF 錯誤- 2) 依 Data Factory 的前 10 個活動執行
+
+- ADF 錯誤- 3) 依 Data Factory 的前 10 個觸發程序執行
+
+- ADF 統計資料- 1) 依類型的活動執行
+
+- ADF 統計資料- 2) 依類型的觸發程序執行
+
+- ADF 統計資料- 3) 最大管線執行持續時間
+
+![monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+您可以將上述計量視覺化、查看這些計量背後的查詢、編輯查詢、建立警示等等。
+
+![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>警示
 

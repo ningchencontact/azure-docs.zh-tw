@@ -8,36 +8,36 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: f21973855ceb3a257627c147490ac50465c54020
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5af829ca076b39758973c28a44d918b9ba5782b1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281934"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42351245"
 ---
 # <a name="batch-transcription"></a>批次轉譯
 
-批次轉譯適用於具有大量音訊的使用案例。 它可讓開發人員以非同步模式指向音訊檔案並取回轉譯。
+如果您有大量音訊，則適合使用 Batch 轉譯。 您可以在非同步模式中指向音訊檔案並取回轉譯。
 
 ## <a name="batch-transcription-api"></a>批次轉譯 API
 
-批次轉譯 API 可執行上述案例。 它提供非同步語音轉換文字轉譯及其他功能。
+Batch 轉譯 API 會提供非同步語音轉換文字轉譯及其他功能。
 
 > [!NOTE]
-> 批次轉譯 API 適用於通常會累積數千個小時音訊的話務中心。 此 API 的「射後不理」哲學可讓您輕鬆轉譯大量錄製的音訊。
+> Batch 轉譯 API 適用於通常會累積數千個小時音訊的話務中心。 此 API 遵循「射後不理」哲學，可讓您輕鬆轉譯大量錄製的音訊。
 
 ### <a name="supported-formats"></a>支援的格式
 
-批次轉譯 API 旨在成為所有離線話務中心相關案例的實作者，並提供所有相關格式的支援。 目前支援的格式：
+Batch 轉譯 API 支援下列格式：
 
-Name| 通道  |
+名稱| 通道  |
 ----|----------|
 mp3 |   Mono   |   
 mp3 |  立體聲  | 
 wav |   Mono   |
 wav |  立體聲  |
 
-針對立體聲音訊資料流，批次轉譯會在轉譯期間分割左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 下列 JSON 範例顯示聲道的輸出。
+針對立體聲音訊資料流，Batch 轉譯會在轉譯期間分割左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 下列 JSON 範例顯示聲道的輸出。
 
 ```json
        {
@@ -55,28 +55,28 @@ wav |  立體聲  |
 ```
 
 > [!NOTE]
-> 批次轉譯 API 使用 REST 服務來要求轉譯、其狀態及相關結果。 任何語言都可以使用 API。 下一節描述其使用方式。
+> 批次轉譯 API 使用 REST 服務來要求轉譯、其狀態及相關結果。 您可以使用任何語言的 API。 下一節描述其使用方式。
 
 ## <a name="authorization-token"></a>授權權杖
 
-如同統一語音服務的所有功能，使用者需要從 [Azure 入口網站](https://portal.azure.com)建立訂用帳戶金鑰。 此外，必須從語音入口網站取得 API 金鑰。 產生 API 金鑰的步驟：
+如同統一語音服務的所有功能，您可從 [Azure 入口網站](https://portal.azure.com)建立訂用帳戶金鑰。 此外，您可從語音入口網站取得 API 金鑰： 
 
-1. 登入 https://customspeech.ai。
+1. 登入[自訂語音](https://customspeech.ai)。
 
-2. 按一下 [訂用帳戶]。
+2. 選取 **訂用帳戶** 。
 
-3. 按一下選項 `Generate API Key`。
+3. 選取 [產生 API 金鑰]。
 
-    ![上傳檢視](media/stt/Subscriptions.jpg)
+    ![自訂語音訂用帳戶頁面的螢幕擷取畫面](media/stt/Subscriptions.jpg)
 
 4. 複製該金鑰並貼到下列範例的用戶端程式碼中。
 
 > [!NOTE]
-> 如果您打算使用自訂模型，您也需要該模型的識別碼。 請注意，這不是您在 [端點詳細資料] 檢視中所找到的部署或端點識別碼，而是您按一下該模型的 [詳細資料] 時可擷取的模型識別碼
+> 如果您打算使用自訂模型，您也需要該模型的識別碼。 請注意，這不是您在 [端點詳細資料] 檢視中所找到的部署或端點識別碼。 這是您選取該模型的詳細資料時可擷取的模型識別碼。
 
 ## <a name="sample-code"></a>範例程式碼
 
-使用 API 相當簡單。 下列範例程式碼必須使用訂用帳戶金鑰和 API 金鑰自訂，才能讓開發人員取得持有人權杖，如下列程式碼片段所示：
+使用訂用帳戶金鑰和 API 金鑰來自訂下列範例程式碼。 這可讓您取得持有人權杖。
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -93,7 +93,7 @@ wav |  立體聲  |
         }
 ```
 
-一旦取得權杖之後，開發人員必須指定指向需要轉譯之音訊檔案的 SAS Uri。 其餘的程式碼只會逐一查看狀態，並顯示結果。
+在您取得權杖之後，您必須指定 SAS URI，該 URI 會指向需要轉譯的音訊檔案。 其餘的程式碼會逐一查看狀態，並顯示結果。
 
 ```cs
    static async Task TranscribeAsync()
@@ -152,21 +152,20 @@ wav |  立體聲  |
 ```
 
 > [!NOTE]
-> 上述程式碼片段中所提及的訂用帳戶金鑰，是您在 Azure 入口網站上建立之語音 (預覽) 資源中的金鑰。 從自訂語音服務資源取得的金鑰將無法運作。
+> 在上述程式碼中，訂用帳戶金鑰來自您在 Azure 入口網站上建立的語音 (預覽) 資源。 從自訂語音服務資源取得的金鑰無法運作。
 
+請注意，張貼音訊和接收轉譯狀態是非同步設定。 建立的用戶端是 .NET HTTP 用戶端。 您可以使用 `PostTranscriptions` 方法來傳送音訊檔案詳細資料，並使用 `GetTranscriptions` 方法來接收結果。 `PostTranscriptions` 會傳回控制代碼，而 `GetTranscriptions` 會使用此控制代碼來建立控制代碼，以取得轉譯狀態。
 
-請注意，張貼音訊和接收轉譯狀態是非同步設定。 建立的用戶端是 .NET HTTP 用戶端。 您可以使用 `PostTranscriptions` 方法來傳送音訊檔案詳細資料，並使用 `GetTranscriptions` 方法來接收結果。 `PostTranscriptions` 會傳回控制代碼，而 `GetTranscriptions` 方法會使用此控制代碼來建立控制代碼，以取得轉譯狀態。
+目前的範例程式碼未指定任何自訂模型。 該服務會使用基準模型來轉譯一或多個檔案。 若要指定模型，您可以將原音和語言模型的模型識別碼傳遞給相同的方法。 
 
-目前的範例程式碼未指定任何自訂模型。 該服務將會使用基準模型來轉譯檔案。 如果使用者想要指定模型，使用者可以將原音和語言模型的模型識別碼傳遞給相同的方法。 
-
-如果使用者不想要使用基準，使用者必須傳遞原音和語言模型的模型識別碼。
+如果您不想要使用基準，則必須傳遞原音和語言模型的模型識別碼。
 
 > [!NOTE]
-> 針對基準轉譯，使用者不需要宣告基準模型的端點。 如果使用者想要使用自訂模型，就必須提供其端點識別碼作為[範例](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI)。 如果使用者想要搭配使用原音基準和基準語言模型，則只需要宣告自訂模型的端點識別碼。 我們的系統會在內部找出夥伴基準模型 (原音或語言)，然後使用該模型來完成轉譯要求。
+> 針對基準轉譯，您不需要宣告基準模型的端點。 如果您想要使用自訂模型，就必須提供其端點識別碼作為[範例](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI)。 如果您想要搭配使用原音基準和基準語言模型，您只需宣告自訂模型的端點識別碼。 Microsoft 會偵測夥伴基準模型 (原音或語言)，然後使用該模型來完成轉譯要求。
 
 ### <a name="supported-storage"></a>支援的儲存體
 
-Azure Blob 是目前唯一支援的儲存體。
+Azure Blob 儲存體是目前唯一支援的儲存體。
 
 ## <a name="downloading-the-sample"></a>下載範例
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: d95a1b510411f913a05762494dd48d6a5b6f84fd
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413666"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145358"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>適用於 Linux 的 NVIDIA GPU 驅動程式擴充功能
 
@@ -63,7 +63,8 @@ NVIDIA 使用者授權合約條款位於此處 - https://go.microsoft.com/fwlink
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -72,12 +73,12 @@ NVIDIA 使用者授權合約條款位於此處 - https://go.microsoft.com/fwlink
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | publisher | Microsoft.HpcCompute | 字串 |
 | type | NvidiaGpuDriverLinux | 字串 |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.1 | int |
 
 
 ## <a name="deployment"></a>部署
@@ -103,7 +104,8 @@ NVIDIA 使用者授權合約條款位於此處 - https://go.microsoft.com/fwlink
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```
@@ -166,6 +168,8 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 1 | 擴充功能的使用方式不正確。 | 請以執行輸出記錄連絡支援人員。 |
 | 10 | 適用於 Hyper-V 和 Azure 的 Linux Integration Services 無法使用或未安裝。 | 檢查 lspci 輸出。 |
 | 11 | 在此虛擬機器大小上找不到 NVIDIA GPU。 | 使用[支援的虛擬機器大小和作業系統](../linux/n-series-driver-setup.md)。 |
+| 12 | 不支援的映像供應項目 |
+| 13 | 不支援的 VM 大小 | 請使用 N 系列 VM 進行部署 |
 | 14 | 作業失敗 | |
 | 21 | 無法在 Ubuntu 上更新 | 檢查 "sudo apt-get update" 的輸出 |
 

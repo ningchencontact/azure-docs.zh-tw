@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 3719e037f1564411a8f94d1ca962ba1ef6b5d435
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 884edbf56fbf67e4ee71e0832f8924a3747994c9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22987453"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141271"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>透過可預測方式在 Azure 中佈建和部署微服務
-本教學課程示範如何在 [Azure App Service](/services/app-service/) 中將包含[微服務](https://en.wikipedia.org/wiki/Microservices)的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。 
+本教學課程示範如何在 [Azure App Service](https://azure.microsoft.com/services/app-service/) 中將包含[微服務](https://en.wikipedia.org/wiki/Microservices)的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。 
 
-佈建和部署包含高低耦合微服務的高級別應用程式時，重複性和可預測性是成功的重要關鍵。 [Azure App Service](/services/app-service/) 可讓您建立微服務，其中包括 Web 應用程式、行動應用程式、API 應用程式和邏輯應用程式。 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 可讓您將所有微服務當成一個單位來進行管理，以及管理資源相依性 (例如資料庫和原始檔控制設定)。 現在，您也可以使用 JSON 範本和簡單 PowerShell 指令碼來部署這類應用程式。 
+佈建和部署包含高低耦合微服務的高級別應用程式時，重複性和可預測性是成功的重要關鍵。 [Azure App Service](https://azure.microsoft.com/services/app-service/) 可讓您建立微服務，其中包括 Web 應用程式、行動應用程式、API 應用程式和邏輯應用程式。 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 可讓您將所有微服務當成一個單位來進行管理，以及管理資源相依性 (例如資料庫和原始檔控制設定)。 現在，您也可以使用 JSON 範本和簡單 PowerShell 指令碼來部署這類應用程式。 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -68,7 +68,7 @@ ms.locfileid: "22987453"
 3. 您會進入 [deploy-to-azure](https://deploy.azure.com) 網站，並要求您輸入部署參數。 請注意，大部分的欄位都會填入儲存機制名稱以及一些隨機字串。 您可以視需要變更所有欄位，但唯一必須輸入的項目是 SQL Server 管理登入和密碼，然後按 [ **下一步**]。
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
-4. 接著，按一下 [ **部署** ] 啟動部署程序。 程序執行並完成之後，請按一下 http://todoapp*XXXX*.azurewebsites.net 連結來瀏覽已部署的應用程式。 
+4. 接著，按一下 [ **部署** ] 啟動部署程序。 程序執行並完成之後，請按一下 http://todoappXXXX.azurewebsites.net 連結來瀏覽已部署的應用程式。 
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    

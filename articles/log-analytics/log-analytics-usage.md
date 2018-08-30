@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1bb96821b61647f5dfad54c8b0cb6248eb0db4af
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128559"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140881"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>在 Log Analytics 中分析資料使用量
+
+> [!NOTE]
+> 本文說明如何在 Log Analytics 中分析資料使用量。  請參閱下列文章以了解相關資訊。
+> - [藉由控制 Log Analytics 中的資料量與保留期來管理成本](log-analytics-manage-cost-storage.md)說明如何藉由變更資料保留期限來控制成本。
+> - [監視使用量和估計成本](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md)說明如何針對不同的定價模型，檢視多項 Azure 監視功能的使用量和估計成本。 其中也會說明如何變更定價模型。
+
 Log Analytics 包含下列資訊：收集的資料量、傳送資料的來源，以及傳送的不同資料類型。  使用 [Log Analytics 使用量] 儀表板來檢閱和分析資料使用量。 此儀表板會顯示每個解決方案所收集的資料量，以及您的電腦正在傳送的資料量。
 
 ## <a name="understand-the-usage-dashboard"></a>了解使用量儀表板

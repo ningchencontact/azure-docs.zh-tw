@@ -13,23 +13,28 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f6671e05c53b8be2e06eb969adc8a4d5736aff37
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 674c3b5cbd3b4253833a785b32e2bc4b0f1928da
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284431"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146191"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>使用 Akka Streams 搭配適用於 Apache Kafka 的事件中樞
-
-使用 Apache Kafka 的其中一項優點，便是能夠連線之架構的生態系統。 已啟用 Kafka 的事件中樞結合了 Kafka 的彈性與 Azure 生態系統的延展性、一致性和支援度。
-
 本教學課程說明如何將 Akka Streams 連線至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 適用於 Kafka 的 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html) \(英文\)。
+
+在本教學課程中，您了解如何：
+> [!div class="checklist"]
+> * 建立事件中樞命名空間
+> * 複製範例專案
+> * 執行 Flink 生產者 
+> * 執行 Flink 取用者
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您具有下列必要條件：
 
+* 請參閱[適用於 Apache Kafka 的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)一文。 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 * [Java Development Kit (JDK) 1.8+](http://www.oracle.com/technetwork/java/javase/downloads/index.html) \(英文\)
     * 在 Ubuntu 上，執行 `apt-get install default-jdk` 來安裝 JDK。
@@ -52,7 +57,7 @@ git clone https://github.com/Azure/azure-event-hubs.git
 cd azure-event-hubs/samples/kafka/akka
 ```
 
-## <a name="akka-streams-producer"></a>Akka Streams 生產者
+## <a name="run-akka-streams-producer"></a>執行 Akka Streams 生產者
 
 使用提供的 Akka Streams 生產者範例，傳送訊息到事件中樞服務。
 
@@ -89,7 +94,7 @@ mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 
 生產者會開始將事件傳送到已啟用 Kafka 的事件中樞 (位於主題 `test`)，並將事件印出至 stdout。
 
-## <a name="akka-streams-consumer"></a>Akka Streams 取用者
+## <a name="run-akka-streams-consumer"></a>執行 Akka Streams 取用者
 
 使用提供的取用者範例，接收來自已啟用 Kafka 之事件中樞的訊息。
 
@@ -132,6 +137,15 @@ mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 如需有關 Akka Streams 的詳細資訊，請參閱 [Akka Streams Kafka 指南](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
+在本教學課中，您已了解如何將 Akka Streams 連線至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 適用於 Kafka 的 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)。 您在本教學課程中執行了下列動作： 
+
+> [!div class="checklist"]
+> * 建立事件中樞命名空間
+> * 複製範例專案
+> * 執行 Flink 生產者 
+> * 執行 Flink 取用者
+
+若要深入了解事件中樞和適用於 Kafka 的事件中樞，請參閱下列主題：  
 
 * [了解事件中樞](event-hubs-what-is-event-hubs.md)
 * [了解適用於 Kafka 的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)

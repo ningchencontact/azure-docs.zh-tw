@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 8dfe313cb82fd0ace7221ea320bb2228be75196c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038066"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141110"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -223,6 +223,9 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 
 ## <a name="vnet-peering"></a>VNet 對等互連
 
+### <a name="what-is-vnet-peering"></a>什麼是 VNet 對等互連？
+VNet 對等互連 (或虛擬網路對等互連) 可讓您將虛擬網路連線。 虛擬網路之間的 VNet 對等互連連線可讓您私下透過 IPv4 位址在虛擬網路之間路由傳送流量。 所對等互連 VNet 中的虛擬機器可以彼此通訊，彷彿它們位於相同的網路內。 這些虛擬網路可位於相同或不同的區域 (也稱為全域 VNet 對等互連)。 VNet 對等互連連線也可以跨 Azure 訂用帳戶來建立。
+
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>我是否可對不同區域中的 VNet 建立對等互連連線？
 是。 全域 VNet 可讓您對不同區域中的對等 VNet 建立對等互連。 全域 VNet 對等互連適用於所有的 Azure 公用區域。 您無法建立從 Azure 公用區域到國家雲端的全域對等互連。 全域對等互連目前不適用於國家雲端。
 
@@ -231,6 +234,9 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>我的 VNet 對等互連連線處於「已起始」狀態，但為何無法連線？
 如果您的對等互連連線處於「已起始」狀態，表示您只建立了一個連結。 必須建立雙向連結，才能建立成功的連線。 例如，若要建立 VNet A 對 VNet B 的對等互連，則必須建立從 VNetA 到 VNetB 和從 VNetB 到 VNetA 的連結。 兩個連結都建立後，狀態將會變更為「已連線」。
+
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>我的 VNet 對等互連連線處於「已中斷連線」狀態，為何我無法將連線對等互連？
+如果 VNet 對等互連連線處於「已中斷連線」的狀態，則表示其中一個所建立的連結已刪除。 若要重新建立對等互連連線，您必須刪除該連結，再重新建立。
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>我的 VNet 是否可與不同訂用帳戶中的 VNet 對等互連？
 是。 您可以跨訂用帳戶和跨區域建立 VNet 的對等互連。

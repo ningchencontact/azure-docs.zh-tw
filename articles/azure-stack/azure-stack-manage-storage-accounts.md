@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 2ae2b628b2e61893a5289151c3b405e7412e7d13
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 8914391a586bb508192200beaba7f591649a1e99
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076905"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "43050400"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
 了解如何在 Azure Stack 中管理儲存體帳戶，以便根據業務需求來尋找、復原及回收儲存體容量。
@@ -54,7 +54,7 @@ ms.locfileid: "34076905"
 **篩選帳戶：**
 
 1. 選取窗格頂端的 [篩選]。
-2. 在 [篩選] 窗格上，您可以指定 [帳戶名稱]、[訂用帳戶識別碼] 或 [狀態]，以微調要顯示的儲存體帳戶清單。 請適當地指定。
+2. 在 [篩選] 窗格上，您可以指定 [帳戶名稱]、\*\*[訂用帳戶識別碼] 或 [狀態]，以微調要顯示的儲存體帳戶清單。 請適當地指定。
 3. 選取 [更新]。 清單應該會隨著重新整理。
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
@@ -150,7 +150,7 @@ ms.locfileid: "34076905"
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ````
 
-如需詳細資訊，請參閱 [Azure Stack PowerShell 文件](https://msdn.microsoft.com/library/mt637964.aspx)。
+如需詳細資訊，請參閱 [Azure Stack PowerShell 文件](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage)。
  
 
 ## <a name="next-steps"></a>後續步驟

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216694"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145362"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -481,7 +481,13 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 >如有需要，您可以[下載 SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx)。
 
 ## <a name="limitations"></a>限制
-在 Azure 虛擬機器中，由於負載平衡器不支援 RPC 連接埠，因此 FCI 不支援 Microsoft Distributed Transaction Coordinator (DTC)。
+
+Azure 虛擬機器支援 Windows Server 2019 上的 Microsoft 分散式交易協調器 (MSDTC)，並且可使用叢集共用磁碟區 (CSV) 上的儲存體和[標準負載平衡器](../../../load-balancer/load-balancer-standard-overview.md)。
+
+在 Azure 虛擬機器上，Windows Server 2016 或更早版本無法支援 MSDTC，因為：
+
+- 叢集 MSDTC 資源無法設定為使用共用儲存體。 若在 Windows Server 2016 上建立 MSDTC 資源，即使有共用儲存體存在，系統也不會顯示任何可用的共用儲存體。 Windows Server 2019 中已修正此問題。
+- 基本負載平衡器不會處理 RPC 連接埠。
 
 ## <a name="see-also"></a>另請參閱
 

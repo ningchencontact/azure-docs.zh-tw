@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b38d90251ab59e537e7d637f45f04c4db87a94ae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580305"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144053"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點中的範圍、權限及同意
 與 Azure Active Directory (Azure AD) 整合的應用程式會遵循一種授權模型，可讓使用者控制應用程式存取他們資料的方式。 v2.0 的授權模型實作已更新，它變更了應用程式必須與 Azure AD 互動的方式。 本文涵蓋此授權模型的基本概念，包括範圍、權限及同意。
@@ -73,6 +73,19 @@ v2.0 的 OpenID Connect 實作有一些定義妥善但不會套用至特定資�
 如果您的應用程式未要求 `offline_access` 範圍，則不會收到重新整理權杖。 這意謂著當您在 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md)中兌換授權碼時，您只會從 `/token` 端點收到存取權杖。 存取權杖的有效期短。 存取權杖的有效期通常在一小時內。 屆時，您的應用程式將必須把使用者重新導向回 `/authorize` 端點，以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者可能需要重新輸入其認證或重新同意權限。
 
 如需有關如何取得及使用重新整理權杖的詳細資訊，請參閱 [v2.0 通訊協定參考](active-directory-v2-protocols.md)。
+
+## <a name="accessing-v10-resources"></a>存取 v1.0 資源
+v2.0 應用程式可以要求權杖，並同意 v1.0 應用程式 (例如 PowerBI API `https://analysis.windows.net/powerbi/api` 或 Sharepoint API `https://{tenant}.sharepoint.com`)。  若要這樣做，您可以在 `scope` 參數中參考應用程式 URI 和範圍字串。  例如，`scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` 會要求您應用程式的 PowerBI `View all Datasets` 權限。 
+
+若要要求多個權限，請附加整個 URI，並加上空格或 `+`，例如 `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://analysis.windows.net/powerbi/api/Report.Read.All`。  這會同時要求 `View all Datasets` 和 `View all Reports` 權限。  請注意，與所有 Azure AD 範圍和權限一樣，應用程式一次只能對一個資源發出要求 - 所以 `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://api.skypeforbusiness.com/Conversations.Initiate` 要求 (會同時要求 PowerBI `View all Datasets` 權限及商務用 Skype `Initiate conversations` 權限) 將會遭到拒絕，因為要求的權限在兩個不同資源上。  
+
+### <a name="v10-resources-and-tenancy"></a>v1.0 資源和租用戶
+v1.0 與 v2.0 Azure AD 通訊協定會使用內嵌在 URI (`https://login.microsoftonline.com/{tenant}/oauth2/`) 中的 `{tenant}` 參數。  使用 v2.0 端點存取 v1.0 組織資源時，`common` 和 `consumers` 租用戶會無法使用，因為這些資源只能透過組織 (Azure AD) 帳戶存取。  因此，要存取這些資源時，只能使用租用戶 GUID 或 `organizations` 作為 `{tenant}` 參數。  
+
+如果應用程式嘗試使用不正確的租用戶來存取組織 v1.0 資源時，就會傳回類似下面的錯誤。 
+
+`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
+
 
 ## <a name="requesting-individual-user-consent"></a>要求個別使用者同意
 在 [OpenID Connect 或 OAuth 2.0](active-directory-v2-protocols.md) 授權要求中，應用程式可以使用 `scope` 查詢參數來要求它所需的權限。 例如，當使用者登入應用程式時，應用程式會傳送如以下範例的要求 (加入分行符號是為了增加可讀性)：

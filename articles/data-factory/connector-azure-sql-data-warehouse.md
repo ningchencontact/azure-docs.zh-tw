@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430734"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442234"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -71,6 +71,9 @@ ms.locfileid: "39430734"
 - [SQL 驗證](#sql-authentication)
 - Azure AD 應用程式權杖驗證：[服務主體](#service-principal-authentication)
 - Azure AD 應用程式權杖驗證：[受控服務識別](#managed-service-identity-authentication)
+
+>[!TIP]
+>如果您遇到錯誤，其錯誤碼為 "UserErrorFailedToConnectToSqlServer"，以及「資料庫的工作階段限制為 XXX 並已達到。」訊息，請將 `Pooling=false` 新增至您的連接字串並再試一次。
 
 ### <a name="sql-authentication"></a>SQL 驗證
 
@@ -397,7 +400,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store。 �
 
 如果不符合需求，Azure Data Factory 會檢查設定，並自動切換回適用於資料移動的 BULKINSERT 機制。
 
-1. 「來源連結的服務」類型為 **AzureStorage** 或具備服務主題驗證的 **AzureDataLakeStore**。
+1. [來源連結的服務] 類型是採用帳戶金鑰驗證的 Azure Blob 儲存體 (**AzureBLobStorage**/**AzureStorage**) 或採用服務主體驗證的 Azure Data Lake Storage Gen1 (**AzureDataLakeStore**)。
 1. **輸入資料集**類型為 **AzureBlob** 或 **AzureDataLakeStoreFile**。 `type` 屬性下方的格式類型為 **OrcFormat**、**ParquetFormat** 或 **TextFormat**，並且具備下列組態：
 
    1. `rowDelimiter` 必須為 **\n**。

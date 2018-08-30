@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: d97388732f0b5cf4570026d5b23a64b2d689e5d4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9ee61ae931f08d2087835eaa9cb1c0b0fde23fde
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056846"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145536"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>安全性架構︰輸入驗證 | 風險降低 
 | 產品/服務 | 文章 |

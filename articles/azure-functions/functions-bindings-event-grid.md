@@ -4,7 +4,7 @@ description: 了解如何在 Azure Functions 中處理 Event Grid 事件。
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 08/20/2018
 ms.author: glenga
-ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f0cb698bad42bcfd035451361b9a20d0f0b5bddf
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344625"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144037"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -53,6 +53,7 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 * [C#](#c-example)
 * [C# 指令碼 (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
+* [Java](#trigger---java-example)
 
 如需 HTTP 觸發程序範例，請參閱本文稍後的[如何使用 HTTP 觸發程序](#use-an-http-trigger-as-an-event-grid-trigger)。
 
@@ -180,6 +181,36 @@ module.exports = function (context, eventGridEvent) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>觸發程序 - Java 範例
+
+下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結並輸出事件的 [Java 函式](functions-reference-java.md)。
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+以下是 Java 程式碼：
+
+```java
+@FunctionName("eventGridMonitor")
+  public void logEvent(
+     @EventGridTrigger(name = "event") String content,
+      final ExecutionContext context
+  ) { 
+      context.getLogger().info(content);
+    }
+```
+
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自事件方格的參數使用 `EventGridTrigger` 註釋。 具有這些附註的參數會使得函式在事件抵達時執行。  此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。 
      
 ## <a name="attributes"></a>屬性
 
@@ -279,7 +310,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, Trac
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) 建立訂用帳戶，請使用 [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) 命令。
+若要使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) 建立訂用帳戶，請使用 [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) 命令。
 
 此命令需要叫用函式的端點 URL。 下列範例顯示 URL 模式：
 
@@ -310,7 +341,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
 ```
 
-這是管理員 API，因此需要您的[管理金鑰](functions-bindings-http-webhook.md#authorization-keys)。 請勿混淆系統金鑰 (用來叫用 Event Grid 觸發程序函式) 與管理金鑰 (用來執行函式應用程式的管理工作)。 當您訂閱 Event Grid 主題時，請務必使用系統金鑰。
+這是管理員 API，因此需要函式應用程式的[主要金鑰](functions-bindings-http-webhook.md#authorization-keys)。 請勿混淆系統金鑰 (用來叫用事件方格觸發程序函式) 與主要金鑰 (用來執行函式應用程式的管理工作)。 當您訂閱 Event Grid 主題時，請務必使用系統金鑰。 
 
 以下範例說明提供系統金鑰的回應：
 
@@ -340,7 +371,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 4. [產生要求](#generate-a-request)，並從檢視器應用程式複製要求本文。
 5. [手動將要求發佈至](#manually-post-the-request) Event Grid 觸發程序函式的 localhost URL。
 
-完成測試後，您可以藉由更新端點，在生產環境使用相同的訂用帳戶。 使用 [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI 命令。
+完成測試後，您可以藉由更新端點，在生產環境使用相同的訂用帳戶。 使用 [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 命令。
 
 ### <a name="create-a-viewer-web-app"></a>建立檢視器 Web 應用程式
 
@@ -406,7 +437,7 @@ Event Grid 觸發程序函式會執行並顯示類似於下列範例的記錄：
 5. [建立會將事件傳送至 ngrok 端點的 Event Grid 訂用帳戶](#create-a-subscription)。
 6. [觸發事件](#trigger-an-event)。
 
-完成測試後，您可以藉由更新端點，在生產環境使用相同的訂用帳戶。 使用 [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI 命令。
+完成測試後，您可以藉由更新端點，在生產環境使用相同的訂用帳戶。 使用 [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 命令。
 
 ### <a name="create-an-ngrok-endpoint"></a>建立 ngrok 端點
 
@@ -432,7 +463,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-您的 Event Grid 訂用帳戶將會使用 https://{subdomain}.ngrok.io URL。
+您的 Event Grid 訂用帳戶將會使用 `https://{subdomain}.ngrok.io` URL。
 
 ### <a name="run-the-event-grid-trigger-function"></a>執行 Event Grid 觸發程序函式
 
@@ -440,12 +471,16 @@ Event Grid 不會以特殊方式處理 ngrok URL，因此，在訂用帳戶建�
 
 ### <a name="create-a-subscription"></a>建立訂用帳戶
 
-建立您想要測試的 Event Grid 訂用帳戶類型，並使用下列模式為其提供您的 ngrok 端點：
+建立您想要測試的 Event Grid 訂用帳戶類型，並為其提供您的 ngrok 端點。
 
+將此端點模式使用於 Functions 1.x：
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+將此端點模式使用於 Functions 2.x：
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 `functionName` 參數必須是 `FunctionName` 屬性中指定的名稱。
 
 以下是使用 Azure CLI 的範例：

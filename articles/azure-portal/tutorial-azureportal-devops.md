@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216337"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141073"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>教學課程︰DevOps 與 Azure 入口網站
 Azure 平台充滿著彈性的 DevOps 工作流程。 在本教學課程中，您將會了解如何運用 Azure 入口網站的功能，來開發、測試、部署、疑難排解、監視和管理執行中的應用程式。 本教學課程著重於下列內容︰
@@ -125,7 +125,7 @@ Azure 平台充滿著彈性的 DevOps 工作流程。 在本教學課程中，�
 12. 回到 [工具] 刀鋒視窗，然後按一下 [開發] 類別下的 [效能測試]。
     
     ![Image28][image28]
-13. 您需要設定 Team Services 帳戶。 如需詳細資訊，請參閱此處︰ [建立 Team Services 帳戶](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+13. 您需要設定 Team Services 帳戶。 如需詳細資訊，請參閱此處︰[建立 Team Services 帳戶](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)。
 14. 按一下 [新增] 以建立效能測試。
     
     ![Image29][image29]

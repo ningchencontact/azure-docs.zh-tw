@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 266315a731eec8a2c0ab0a880ce9e1db58331184
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 463a015b7c01dafc5b30de56b95fa0510ffb98e4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283131"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42424364"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>開始使用 Speech Devices SDK
 
@@ -44,11 +44,11 @@ ms.locfileid: "39283131"
 
 ## <a name="set-up-the-development-kit"></a>設定開發套件
 
-1. 插入開發套件的電源供應器。 上方面板底下應該會亮起綠色電源指示燈。
+1. 啟動使用迷你 USB 纜線連接到電腦或電源轉接器的開發套件。 上方面板底下應該會亮起綠色電源指示燈。
 
-1. 使用迷你 USB 纜線，將開發套件連接到電腦。
+1. 使用第二個迷你 USB 纜線將開發套件連接到電腦。
 
-    ![連接開發套件](media/speech-devices-sdk/qsg-1.jpg)
+    ![連接開發套件](media/speech-devices-sdk/qsg-1.png)
 
 1. 適當地擺放您的開發套件。
 
@@ -57,7 +57,7 @@ ms.locfileid: "39283131"
     |圓形|直立，麥克風朝向天花板|
     |線性|側邊，麥克風朝向您 (如下所示)|
 
-    ![線性開發套件方向](media/speech-devices-sdk/qsg-2.jpg)
+    ![線性開發套件方向](media/speech-devices-sdk/qsg-2.png)
 
 1. 安裝憑證和喚醒字 (關鍵字) 表檔案，並設定音效裝置的權限。 在命令視窗中輸入下列命令。
 
@@ -82,9 +82,22 @@ ms.locfileid: "39283131"
 
 1.  您的裝置應該會列在 [選擇裝置] 下。 按一下 [檢視] 旁邊的按鈕。 
  
-1.  依序按一下 [設定]、[WLAN]，即可連線到您的無線網路。
+1.  依序按一下資料夾圖示、[設定]、[WLAN]，即可連線到您的無線網路。
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+ 
+ > [!NOTE]
+ > 如果貴公司有關於將裝置連線到 wifi 系統的原則，您就需要取得 Mac 位址並連絡 IT 部門，了解如何連線到 wifi 系統。 若要尋找開發套件的 Mac 位址，請按一下開發套件桌面上的檔案資料夾圖示，然後按一下 [設定]、搜尋「Mac 位址」，按一下 [Mac 位址] 以進入 [進階 WLAN]，記下底端找到的 Mac 位址。 此外，有些公司可能有裝置可連線到 wifi 系統的時間長度限制。 您可能需要在特定天數之後，將開發套件向 wifi 系統的註冊延長。  
+ 
+ 
+   ![Vysor 檔案資料夾](media/speech-devices-sdk/qsg-10.png)
+   
+   ![VM Mac 位址](media/speech-devices-sdk/qsg-11.png)
+   
+   
+ > 如果您想要將喇叭連結到開發套件，您可以將它連線到音訊線路輸出。您也應該選擇高品質的 3.5mm 喇叭。
+ 
+   ![Vysor 音訊](media/speech-devices-sdk/qsg-14.png)
  
 ## <a name="run-a-sample-application"></a>執行範例應用程式
 
@@ -126,7 +139,7 @@ ms.locfileid: "39283131"
         exit
         ```
 
-    * 將檔案 `kws.table`、`kws_g.fst`、`kws_k.fst` 和 `words_kw.txt`) 複製到裝置的 \data\keyword\ 資料夾。 在命令視窗中執行下列命令。
+    * 將檔案 `kws.table`、`kws_g.fst`、`kws_k.fst` 和 `words_kw.txt`) 複製到裝置的 \data\keyword\ 資料夾。 在命令視窗中執行下列命令。 如果您已建立[自訂喚醒字](speech-devices-sdk-create-kws.md)，從網路產生的 kws.table 檔案將位於與 `kws.table`， `kws_g.fst``kws_k.fst` 和 `words_kw.txt` 檔案相同的目錄中。 請使用 adb 推送 C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword 命令，將 kws.table 檔案改為推送至開發套件。
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
@@ -179,7 +192,11 @@ ms.locfileid: "39283131"
 
 ## <a name="troubleshooting"></a>疑難排解
 
-如果使用語音服務時發生憑證失敗，請確定裝置有正確的日期和時間。
+如果使用語音服務時發生憑證失敗，請確定裝置有正確的日期和時間。 移至 [設定]，按一下 [系統] 下方的 [日期和時間]，然後**選取時區**作為您目前的時區。 讓 [自動日期和時間] 保持 [開啟] 狀態。 當您看到開發套件的時間符合您的 PC 時間時，您將得知開發套件會連線到網際網路。 
+
+ ![Vysor 檔案資料夾](media/speech-devices-sdk/qsg-12.png)
+ 
+ ![Vysor 檔案資料夾](media/speech-devices-sdk/qsg-13.png)
 
 如需更多開發資訊，請參閱 Roobo 的[開發指南](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf)。
 

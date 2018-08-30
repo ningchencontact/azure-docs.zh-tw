@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113712"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141059"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -42,6 +42,12 @@ ms.locfileid: "37113712"
 ## <a name="release-notes"></a>版本資訊
 
 ### <a name="v2-builds"></a>v2 組建
+
+### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
+* 已新增 ChangeFeedEventHost.HostName 公用屬性以與 v1 相容。
+
+### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
+* 已修正會在分割區進行分割期間發生的競爭條件。 競爭條件可能會導致在取得租用後立即於分割區進行分割期間失去它，並導致競爭情形。 競爭條件問題已在此版本中修正。
 
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * GA SDK

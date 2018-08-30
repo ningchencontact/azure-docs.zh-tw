@@ -1,1 +1,1 @@
-如果您不熟悉受控服務識別功能，請參閱此[概觀](../articles/active-directory/msi-overview.md)。 如果您沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
+- 如果您不熟悉受控服務識別功能，請參閱此[概觀](../articles/active-directory/msi-overview.md)。 如果您沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。

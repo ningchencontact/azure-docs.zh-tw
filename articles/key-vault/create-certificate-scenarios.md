@@ -3,7 +3,7 @@ title: 監視和管理憑證建立
 description: 情節，示範使用 Key Vault 建立和監視憑證建立流程並與憑證建立流程互動的某範圍選項。
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: e1ea77304fa59b67e0e28a4c7e0b13633eeeff6f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: 80f350b9b83438ee04540527cce0ea6821d148ca
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011891"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145725"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>監視和管理憑證建立
 適用對象：Azure  
@@ -46,7 +46,7 @@ ms.locfileid: "34011891"
 |------------|-----------------|  
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-下列範例需要簽發者提供者為 DigiCert 之金鑰保存庫中已有名為 "mydigicert" 的物件。 如需使用簽發者的詳細資訊，請參閱[憑證簽發者](/rest/api/keyvault/certificate-issuers.md)。  
+下列範例需要簽發者提供者為 DigiCert 之金鑰保存庫中已有名為 "mydigicert" 的物件。 憑證簽發者是 Azure Key Vault (KV) 中以 CertificateIssuer 資源表示的實體。 它用來提供 KV 憑證來源相關資訊；簽發者名稱、提供者、認證和其他系統管理詳細資訊。  
 
 ### <a name="request"></a>要求  
 
@@ -429,7 +429,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |元素名稱|必要|類型|版本|說明|  
 |------------------|--------------|----------|-------------|-----------------|  
-|x5c|yes|array|\<簡介版本 >|作為 base64 字串陣列的 X509 憑證鏈結。|  
+|x5c|是|array|\<簡介版本 >|作為 base64 字串陣列的 X509 憑證鏈結。|  
 
 ### <a name="response"></a>Response  
 

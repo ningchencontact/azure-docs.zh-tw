@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 8fbce92c8c703b86d86367f83329cfa853bc5e4d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 15c2ec0aa8b795a826eae29026b7039491dbb64f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003496"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141307"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 從 Azure 事件中樞接收事件
 
@@ -164,7 +164,7 @@ Azure 事件中樞是一項服務，可處理來自連線裝置和應用程式�
 
 
 > [!NOTE]
-> 本教學課程使用單一 [EventProcessorHost][EventProcessorHost] 執行個體。 若要增加輸送量，建議您執行多個 [EventProcessorHost][EventProcessorHost] 執行個體 (如 [相應放大事件處理][相應放大事件處理] 範例所示)。 在這些情況下，各種執行個體會自動彼此協調，以對已接收的事件進行負載平衡。 如果您想要多個接收者都處理 *所有* 事件，則必須使用 **ConsumerGroup** 概念。 收到來自不同電腦的事件時，根據在其中執行 [EventProcessorHost][EventProcessorHost] 執行個體的電腦 (或角色) 來指定名稱可能十分有用。 如需這些主題的詳細資訊，請參閱[事件中樞概觀][Event Hubs overview]和[事件中樞程式設計指南][Event Hubs Programming Guide]主題。
+> 本教學課程使用單一 [EventProcessorHost][EventProcessorHost] 執行個體。 若要增加輸送量，建議您執行多個 [EventProcessorHost][EventProcessorHost] 執行個體 (如[相應放大事件處理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)範例所示)。 在這些情況下，各種執行個體會自動彼此協調，以對已接收的事件進行負載平衡。 如果您想要多個接收者都處理 *所有* 事件，則必須使用 **ConsumerGroup** 概念。 收到來自不同電腦的事件時，根據在其中執行 [EventProcessorHost][EventProcessorHost] 執行個體的電腦 (或角色) 來指定名稱可能十分有用。 如需這些主題的詳細資訊，請參閱[事件中樞概觀][Event Hubs overview]和[事件中樞程式設計指南][Event Hubs Programming Guide]主題。
 > 
 > 
 

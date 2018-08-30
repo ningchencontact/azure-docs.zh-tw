@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 44bfdd192f846b710e378b1f00799eda304cec1e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f5fa68488fa8130ad49da37c91b7f4c04376edb3
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522759"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42440674"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 檔案同步 Proxy 和防火牆設定
 Azure 檔案同步會將您的內部部署伺服器連線到 Azure 檔案服務，以啟用多網站同步處理和雲端層功能。 因此，內部部署伺服器必須連線到網際網路。 IT 系統管理員必須決定進入 Azure 雲端服務之伺服器的最佳路徑。
@@ -46,15 +46,47 @@ Azure 檔案同步會運用任何可用的方法來允許連線到 Azure，自�
 ## <a name="proxy"></a>Proxy
 Azure 檔案同步支援應用程式特定和整部電腦的 Proxy 設定。
 
-整部電腦的 Proxy 設定對於 Azure 檔案同步代理程式而言是透明的，因為伺服器的整個流量都會透過 Proxy 路由傳送。
-
-應用程式特定的 Proxy 設定可特別針對 Azure 檔案同步流量允許 Proxy 的組態。 代理程式 3.0.12.0 版或更新版本可支援應用程式特定的 Proxy 設定，且可以在代理程式安裝期間進行設定，或藉由使用 Set-StorageSyncProxyConfiguration PowerShell Cmdlet。
+**應用程式特定的 Proxy 設定**可特別針對 Azure 檔案同步流量允許 Proxy 的組態。 代理程式 3.0.12.0 版或更新版本可支援應用程式特定的 Proxy 設定，且可以在代理程式安裝期間進行設定，或藉由使用 Set-StorageSyncProxyConfiguration PowerShell Cmdlet。
 
 以下 PowerShell 命令可用來設定應用程式特定的 Proxy 設定：
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
+**整部電腦的 Proxy 設定**對於 Azure 檔案同步代理程式而言是透明的，因為伺服器的整個流量都會透過 Proxy 路由傳送。
+
+若要設定整部電腦的 Proxy 設定，請遵循下列步驟： 
+
+1. 設定 .NET 應用程式的 Proxy 設定 
+
+  - 編輯這兩個檔案：  
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+
+  - 在 machine.config 檔案中新增 <system.net> 區段 (在 <system.serviceModel> 區段底下)。  將 127.0.01:8888 變更為 Proxy 伺服器的 IP 位址和連接埠。 
+  ```
+      <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+          <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+      </system.net>
+  ```
+
+2. 設定 WinHTTP Proxy 設定 
+
+  - 從提高權限的命令提示字元或 PowerShell 中執行下列命令，以查看現有的 Proxy 設定：   
+
+    netsh winhttp show proxy
+
+  - 從提高權限的命令提示字元或 PowerShell 中執行下列命令 (將 127.0.01:8888 變更為 Proxy 伺服器的 IP 位址和連接埠)：  
+
+    netsh winhttp set proxy 127.0.0.1:8888
+
+3. 從提高權限的命令提示字元或 PowerShell 中執行下列命令，以重新啟動儲存體同步代理程式服務： 
+
+      net stop filesyncsvc
+
+      注意：儲存體同步代理程式 (filesyncsvc) 服務會在停止後自動啟動。
 
 ## <a name="firewall"></a>防火牆
 如前一節所述，連接埠 443 必須開放連出。 根據您資料中心、分公司或區域的原則，可能會想要或需要進一步限制透過此連接埠送至特定網域的流量。
@@ -76,7 +108,22 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 基於商務持續性和災害復原 (BCDR) 的理由，您可能已在異地備援 (GRS) 儲存體帳戶中指定 Azure 檔案共用。 如果情況確實如此，則在發生持久的區域中斷時，Azure 檔案共用會容錯移轉至配對的區域。 Azure 檔案同步會使用相同的區域配對作為儲存體。 因此，如果您使用 GRS 儲存體帳戶，則需要啟用其他 URL，以供伺服器向 Azure 檔案同步的配對區域聯繫。下表將此稱為「配對的區域」。 此外，也必須啟用流量管理員設定檔 URL。 這可確保在發生容錯移轉時，網路流量會順暢地重新路由傳送至配對的區域，這個行為在下表中稱為「探索 URL」。
 
-| 區域 | 主要端點 URL | 配對的區域 | 探索 URL | |--------|---------------------------------------||--------||---------------------------------------| | 澳大利亞東部 | https://kailani-aue.one.microsoft.com | 澳大利亞東南部 | https://kailani-aue.one.microsoft.com | | 澳大利亞東南部 | https://kailani-aus.one.microsoft.com | 澳大利亞東部 | https://tm-kailani-aus.one.microsoft.com | | 加拿大中部 | https://kailani-cac.one.microsoft.com | 加拿大東部 | https://tm-kailani-cac.one.microsoft.com | | 加拿大東部 | https://kailani-cae.one.microsoft.com | 加拿大中部 | https://tm-kailani.cae.one.microsoft.com | | 美國中部 | https://kailani-cus.one.microsoft.com | 美國東部 2 | https://tm-kailani-cus.one.microsoft.com | |東亞 | https://kailani11.one.microsoft.com | 東南亞 | https://tm-kailani11.one.microsoft.com | | 美國東部 | https://kailani1.one.microsoft.com | 美國西部 | https://tm-kailani1.one.microsoft.com | | 美國東部 2 | https://kailani-ess.one.microsoft.com | 美國中部 | https://tm-kailani-ess.one.microsoft.com | | 北歐 | https://kailani7.one.microsoft.com | 西歐 | https://tm-kailani7.one.microsoft.com | | 東南亞 | https://kailani10.one.microsoft.com | 東亞 | https://tm-kailani10.one.microsoft.com | | 英國南部 | https://kailani-uks.one.microsoft.com | 英國西部 | https://tm-kailani-uks.one.microsoft.com | | 英國西部 | https://kailani-ukw.one.microsoft.com | 英國南部 | https://tm-kailani-ukw.one.microsoft.com | |西歐 | https://kailani6.one.microsoft.com | 北歐 | https://tm-kailani6.one.microsoft.com | | 美國西部 | https://kailani.one.microsoft.com | 美國東部 | https://tm-kailani.one.microsoft.com |
+| 區域 | 主要端點 URL | 配對的區域 | 探索 URL |
+|--------|---------------------------------------|--------|---------------------------------------|
+| 澳洲東部 | https://kailani-aue.one.microsoft.com | 澳洲東南部 | https://kailani-aue.one.microsoft.com |
+| 澳大利亞東南部 | https://kailani-aus.one.microsoft.com | 澳洲東部 | https://tm-kailani-aus.one.microsoft.com |
+| 加拿大中部 | https://kailani-cac.one.microsoft.com | 加拿大東部 | https://tm-kailani-cac.one.microsoft.com |
+| 加拿大東部 | https://kailani-cae.one.microsoft.com | 加拿大中部 | https://tm-kailani.cae.one.microsoft.com |
+| 美國中部 | https://kailani-cus.one.microsoft.com | 美國東部 2 | https://tm-kailani-cus.one.microsoft.com |
+| 東亞 | https://kailani11.one.microsoft.com | 東南亞 | https://tm-kailani11.one.microsoft.com |
+| 美國東部 | https://kailani1.one.microsoft.com | 美國西部 | https://tm-kailani1.one.microsoft.com |
+| 美國東部 2 | https://kailani-ess.one.microsoft.com | 美國中部 | https://tm-kailani-ess.one.microsoft.com |
+| 北歐 | https://kailani7.one.microsoft.com | 西歐 | https://tm-kailani7.one.microsoft.com |
+| 東南亞 | https://kailani10.one.microsoft.com | 東亞 | https://tm-kailani10.one.microsoft.com |
+| 英國南部 | https://kailani-uks.one.microsoft.com | 英國西部 | https://tm-kailani-uks.one.microsoft.com |
+| 英國西部 | https://kailani-ukw.one.microsoft.com | 英國南部 | https://tm-kailani-ukw.one.microsoft.com |
+| 西歐 | https://kailani6.one.microsoft.com | 北歐 | https://tm-kailani6.one.microsoft.com |
+| 美國西部 | https://kailani.one.microsoft.com | 美國東部 | https://tm-kailani.one.microsoft.com |
 
 - 如果您使用本地備援 (LRS) 或區域備援 (ZRS) 儲存體帳戶，您只需要啟用 [主要端點 URL] 底下所列的 URL。
 

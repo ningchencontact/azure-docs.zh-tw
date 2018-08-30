@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
+ms.date: 08/20/2017
 ms.author: marsma
-ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c424e81b13c3c60e975d3721693b1f80e00cfdd7
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426083"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145558"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure Container Registry Webhook
 
@@ -36,7 +36,7 @@ Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方�
 
 | 值 | 說明 |
 |---|---|
-| Name | 您想要提供給 Webhook 的名稱。 它只能包含小寫字母和數字，且長度必須介於 5-50 個字元。 |
+| 名稱 | 您想要提供給 Webhook 的名稱。 它只能包含小寫字母和數字，且長度必須介於 5-50 個字元。 |
 | 服務 URI | Webhook 需在當中傳送 POST 通知的 URI。 |
 | 自訂標頭 | 您想要與 POST 要求一起傳遞的標頭。 它們應該為「金鑰：值」的格式。 |
 | 觸發程序動作 | 觸發 Webhook 的動作。 可藉由推送映像及/或刪除動作來觸發 Webhook。 |
@@ -95,4 +95,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>後續步驟
 
+### <a name="webhook-schema-reference"></a>Webhook 結構描述參考
+
+若要深入了解 Azure Container Registry 所發出的 JSON 事件裝載格式與內容，請參閱 Webhook 結構描述參考：
+
 [Azure Container Registry Webhook 結構描述參考](container-registry-webhook-reference.md)
+
+### <a name="event-grid-events"></a>事件方格的事件
+
+除了本文所討論的原生登錄 Webhook 事件，Azure Container Registry 可將事件發送至事件方格：
+
+[快速入門：將容器登錄事件傳送至事件方格](container-registry-event-grid-quickstart.md)

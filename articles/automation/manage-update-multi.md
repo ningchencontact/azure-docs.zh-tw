@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 59a00f5605f7664148b65f2ec9a88fbaa9057ccf
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946052"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144248"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -25,14 +25,14 @@ ms.locfileid: "36946052"
 - 排定必要更新的安裝
 - 檢閱部署結果，以確認更新已成功套用至已啟用「更新管理」的所有虛擬機器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用「更新管理」，您需要：
 
 - Azure 自動化執行身分帳戶。 若要了解帳戶的建立方式，請參閱[開始使用 Azure 自動化](automation-offering-get-started.md)。
 - 已安裝其中一個支援作業系統的虛擬機器或電腦。
 
-## <a name="supported-operating-systems"></a>支援的作業系統
+## <a name="supported-operating-systems"></a>受支援的作業系統
 
 下列作業系統支援「更新管理」：
 
@@ -46,7 +46,7 @@ ms.locfileid: "36946052"
 |Ubuntu 12.04 LTS、14.04 LTS 和 16.04 LTS (x86/x64)      |Linux 代理程式必須能夠存取更新存放庫。         |
 
 > [!NOTE]
-> 若要避免在 Ubuntu 維護時間範圍之外套用更新，請重新設定自動安裝升級套件以停用自動更新。 如需詳細資訊，請參閱 [Ubuntu Server 指南中的自動更新主題](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)。
+> 若要避免在 Ubuntu 維護期間以外套用更新，請將自動安裝升級套件重新設定為停用自動更新。 如需詳細資訊，請參閱 [Ubuntu Server 指南中的自動更新主題](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)。
 
 Linux 代理程式必須能夠存取更新存放庫。
 
@@ -64,7 +64,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 在 [啟用更新管理] 下方，選取 [啟用] 以讓虛擬機器上線。
 
-![[啟用更新管理] 對話方塊](./media/manage-update-multi/update-enable.png)
+![啟用 [更新管理] 對話方塊](./media/manage-update-multi/update-enable.png)
 
 完成上線之後，隨即會為您的虛擬機器啟用「更新管理」。
 
@@ -127,7 +127,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 - **名稱**：輸入唯一名稱來識別更新部署。
 - **作業系統**：選取 [Windows] 或 [Linux]。
-- **要更新的電腦**：選取您要更新的虛擬機器。 電腦的整備程度會顯示於 [更新代理程式整備程度] 欄中。 您可以在排程更新部署之前，先查看機器的健康情況。
+- **要更新的機器**：選取已儲存的搜尋或已匯入的群組，或選取機器，以選擇您想要更新的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 您可以在排程更新部署之前，先查看機器的健康情況。 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md)
 
   ![[新增更新部署] 窗格](./media/manage-update-multi/update-select-computers.png)
 
@@ -135,7 +135,7 @@ Linux 代理程式必須能夠存取更新存放庫。
   - 重大更新
   - 安全性更新
   - 更新彙總套件
-  - 功能套件
+  - Feature Pack
   - Service Pack
   - 定義更新
   - 工具
@@ -150,10 +150,16 @@ Linux 代理程式必須能夠存取更新存放庫。
    ![排程 [設定] 對話方塊](./media/manage-update-multi/update-set-schedule.png)
 - **維護時間範圍 (分鐘)**：指定您要執行更新部署的時段。 此設定有助於確保在您定義的服務時段內執行變更。
 
-完成排程設定之後，請選取 [建立] 按鈕以返回狀態儀表板。 [已排定] 表格會顯示您建立的部署排程。
+- **重新啟動控制** - 此設定可決定如何處理更新部署的重新開機。
 
-> [!WARNING]
-> 如果更新需要重新啟動，虛擬機器會自動重新啟動。
+   |選項|說明|
+   |---|---|
+   |在必要時重新開機| **(預設值)** 如有需要，會在維護時段允許的情況下啟動重新開機。|
+   |一律重新開機|不論是否有必要，皆會啟動重新開機。 |
+   |永不重新開機|不論是否需要重新開機，皆不啟動重新開機。|
+   |僅重新開機 - 將不會安裝更新|此選項會略過安裝更新，而且只會啟動重新開機。|
+
+完成排程設定之後，請選取 [建立] 按鈕以返回狀態儀表板。 [已排定] 表格會顯示您建立的部署排程。
 
 ## <a name="view-results-of-an-update-deployment"></a>檢視更新部署的結果
 

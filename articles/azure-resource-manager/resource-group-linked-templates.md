@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602810"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141270"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 資源時使用連結和巢狀的範本
 
@@ -48,6 +48,8 @@ ms.locfileid: "34602810"
 ```
 
 您針對部署資源所提供的屬性，會根據您是連結到外部範本還是在主要範本中巢狀內嵌範本而有所不同。
+
+針對連結和巢狀的範本，您只可以使用[累加](deployment-modes.md)部署模式。
 
 ### <a name="nested-template"></a>巢狀範本
 

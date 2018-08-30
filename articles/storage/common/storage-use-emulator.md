@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 4f4c5870bb1bdd804aa4b2da8c46c0698b897798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526176"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144017"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -204,6 +204,12 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-
 模擬器中的佇列儲存體沒有特定差異。
 
 ## <a name="storage-emulator-release-notes"></a>儲存體模擬器版本資訊
+
+### <a name="version-57"></a>5.7 版
+已修正啟用記錄時會造成當機的錯誤。
+
+### <a name="version-56"></a>5.6 版
+* 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上 2018-03-28 版的儲存體服務。
 
 ### <a name="version-55"></a>版本 5.5
 * 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上 2017-11-09 版的儲存體服務。

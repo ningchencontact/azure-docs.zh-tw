@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a5ca615d984d07513b12399b6f7e7901490f2e41
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298826"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42141225"
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用企業整合套件將 Azure Logic Apps 的 AS2 訊息解碼 
 
@@ -67,6 +67,7 @@ ms.locfileid: "35298826"
 
     ![從要求輸出選取內文和標頭](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
+
 ## <a name="as2-decoder-details"></a>AS2 解碼器詳細資料
 
 解碼 AS2 連接器會執行下列工作︰ 
@@ -75,6 +76,7 @@ ms.locfileid: "35298826"
 * 驗證簽章 (若已設定)
 * 將訊息解密 (若已設定)
 * 將訊息解壓縮 (若已設定)
+* 檢查且不允許訊息識別碼重複項 (若已設定)
 * 協調收到的 MDN 與原始輸出訊息
 * 更新不可否認性資料庫中的記錄並使其相互關聯
 * 寫入記錄以便進行 AS2 狀態報告
@@ -82,6 +84,13 @@ ms.locfileid: "35298826"
 * 決定是否需要 MDN，以及根據 AS2 合約中的組態決定 MDN 應為同步或非同步
 * 產生同步或非同步 MDN (根據合約組態)
 * 在 MDN 上設定相互關聯權杖和屬性
+
+
+  > [!NOTE]
+  > 如果您使用 Azure 金鑰保存庫來管理憑證，請確定您已設定允許**解密**作業的金鑰。
+  > 否則，AS2 解碼會失敗。
+  >
+  > ![金鑰保存庫解密](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>嘗試此範例
 

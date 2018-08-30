@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e77ccdc5b4bc03ba233aae49eda8465704e5405e
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e562b694b2d3f226d0b4f5bc03b54d6562e52244
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344370"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146190"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結 (預覽)
 
@@ -54,6 +54,7 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 * [C#](#trigger---c-example)
 * [C# 指令碼 (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 [略過觸發程序範例](#trigger---attributes)
 
@@ -159,7 +160,43 @@ namespace CosmosDBSamplesV2
     }
 ```
 
-## <a name="trigger---attributes"></a>觸發程序 - 屬性
+### <a name="trigger---java-example"></a>觸發程序 - Java 範例
+
+下列範例示範的是使用繫結的 function.json 檔案，以及 [Java 函式](functions-reference-java.md)中的 Cosmos DB 觸發程序繫結。 當指定的資料庫和集合中有插入或更新時，就會涉及此函式。
+
+```json
+{
+    "type": "cosmosDBTrigger",
+    "name": "items",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "AzureCosmosDBConnection",
+    "databaseName": "ToDoList",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": false
+}
+```
+
+以下是 Java 程式碼：
+
+```java
+    @FunctionName("cosmosDBMonitor")
+    public void cosmosDbProcessor(
+        @CosmosDBTrigger(name = "items",
+            databaseName = "ToDoList",
+            collectionName = "Items",
+            leaseCollectionName = "leases",
+            reateLeaseCollectionIfNotExists = true,
+            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
+            final ExecutionContext context ) {
+                context.getLogger().info(items.length + "item(s) is/are changed.");
+            }
+```
+
+
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的參數使用 `@CosmosDBTrigger` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用選擇性 <T> 的可為 Null 值使用。 
+
+## <a name="trigger---c-attributes"></a>觸發程序 - C# 屬性
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) 屬性。
 
@@ -177,6 +214,7 @@ namespace CosmosDBSamplesV2
 ```
 
 如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
+
 
 ## <a name="trigger---configuration"></a>觸發程式 - 設定
 
@@ -229,6 +267,7 @@ Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並�
 * [C# 指令碼 (.csx)](#input---c-script-examples)
 * [JavaScript](#input---javascript-examples)
 * [F#](#input---f-examples)
+* [Java](#input---java-examples)
 
 [跳過輸入範例](#input---attributes)
 
@@ -1156,6 +1195,32 @@ module.exports = function (context, req, toDoItem) {
 
 若要新增 `project.json` 檔案，請參閱 [F# 封裝管理](functions-reference-fsharp.md#package)。
 
+### <a name="input---java-examples"></a>輸入 - Java 範例
+
+下列範例示範會擷取單一文件的 Java 函式。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 ToDoItem 文件。
+
+以下是 Java 程式碼：
+
+```java
+@FunctionName("getItem")
+public String cosmosDbQueryById(
+    @HttpTrigger(name = "req",
+                  methods = {HttpMethod.GET},
+                  authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> dummy,
+    @CosmosDBInput(name = "database",
+                      databaseName = "ToDoList",
+                      collectionName = "Items",
+                      leaseCollectionName = "",
+                      id = "{Query.id}"
+                      connectionStringSetting = "AzureCosmosDBConnection") Optional<String> item,
+    final ExecutionContext context
+ ) {
+    return item.orElse("Not found");
+ }
+ ```
+
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的函式參數使用 `@CosmosDBInput` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用選擇性 <T> 的可為 Null 值使用。 
+
 ## <a name="input---attributes"></a>輸入 - 屬性
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) 屬性。
@@ -1201,6 +1266,7 @@ Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資�
 * [C# 指令碼 (.csx)](#output---c-script-examples)
 * [JavaScript](#output---javascript-examples)
 * [F#](#output---f-examples)
+* [Java](#output---java-example)
 
 另請參閱使用 `DocumentClient` 的[輸入範例](#input---c-examples)。
 
@@ -1564,6 +1630,24 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 ```
 
 若要新增 `project.json` 檔案，請參閱 [F# 封裝管理](functions-reference-fsharp.md#package)。
+
+## <a name="output---java-examples"></a>輸出 - Java 範例
+
+下列範例示範的 Java 函式使用佇列儲存體中的訊息資料，將文件新增至資料庫。
+
+```java
+@FunctionName("getItem")
+@CosmosDBOutput(name = "database", databaseName = "ToDoList", collectionName = "Items", connectionStringSetting = "AzureCosmosDBConnection")
+public String cosmosDbQueryById(
+     @QueueTrigger(name = "msg", queueName = "myqueue-items", connection = "AzureWebJobsStorage") String message,
+     final ExecutionContext context
+)  {
+     return "{ id: " + System.currentTimeMillis() + ", Description: " + message + " }";
+   }
+```
+
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對即將寫入至 Cosmos DB 的參數使用 `@CosmosDBOutput` 註釋。  註解參數類型應該是 OutputBinding<T>，其中 T 是原生 Java 類型或 POJO。
+
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 

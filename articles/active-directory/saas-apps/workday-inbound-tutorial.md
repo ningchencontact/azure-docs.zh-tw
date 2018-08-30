@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334321"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445655"
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>教學課程︰設定 Workday 來自動佈建使用者 (預覽)
 
 本教學課程的目標是說明將人員從 Workday 匯入 Active Directory 和 Azure Active Directory，以及將某些屬性選擇性回寫至 Workday 需要執行的步驟。
 
@@ -31,9 +31,9 @@ ms.locfileid: "36334321"
 
 * **將使用者佈建至 Active Directory** - 將選取的使用者集合從 Workday 同步至一或多個 Active Directory 樹系。
 
-* **將僅限雲端使用者佈建至 Azure Active Directory** - 可以使用 [AAD Connect](../connect/active-directory-aadconnect.md)，將存在於 Active Directory 和 Azure Active Directory 的混合式使用者佈建至後者。 不過，可以使用 Azure AD 使用者佈建服務，將僅限雲端使用者從 Workday 直接佈建至 Azure Active Directory。
+* **將僅限雲端使用者佈建至 Azure Active Directory** - 在未使用內部部署 Active Directory 的情況下，使用 Azure AD 使用者佈建服務可以直接將使用者從 Workday 佈建至 Azure Active Directory。 
 
-* **將電子郵件地址回寫至 Workday** - Azure AD 使用者佈建服務可以將選取的 Azure AD 使用者屬性回寫至 Workday，例如電子郵件地址。
+* **將電子郵件地址回寫至 Workday** - Azure AD 使用者佈建服務可以將 Azure AD 使用者電子郵件地址回寫至 Workday。 
 
 ### <a name="what-human-resources-scenarios-does-it-cover"></a>它涵蓋了哪些人力資源案例？
 
@@ -67,7 +67,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 開始進行 Workday 整合之前，請檢查下列必要條件，並閱讀下列有關如何讓目前的 Active Directory 結構和使用者佈建需求與 Azure Active Directory 提供解決方案相符的指導。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -281,7 +281,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
    * **系統管理員密碼 –** 輸入 Workday 整合系統帳戶的密碼
 
-   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 這應該看起來像這樣：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中會以您的正確租用戶名稱取代 contoso4，以正確的環境字串取代 wd3-impl。
+   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 這應該看起來像這樣： https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources，其中會以您的正確租用戶名稱取代 contoso4，以正確的環境字串取代 wd3-impl。
 
    * **Active Directory 樹系 -** Get-ADForest powershell commandlet 所傳回 Active Directory 樹系的「名稱」。 此字串通常類似於：*contoso.com*
 
@@ -407,6 +407,9 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 * 輸入：針對「目錄名稱」輸入 AD 樹系名稱，如第 \#2 部分所輸入
 * 輸入：Active Directory 樹系的系統管理員使用者名稱和密碼
 
+>[!TIP]
+> 如果您收到「主要網域和受信任網域之間的關聯失敗」錯誤訊息，這是因為本機電腦所在環境中已設定多個 Active Directory 樹系或網域，且至少有一個設定的信任關係失敗或無法運作。 若要解決此問題，請更正或移除中斷的信任關係。
+
 **命令 3**
 
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
@@ -418,7 +421,6 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 >[!IMPORTANT]
 >目前有一項已知問題：如果啟用多重要素驗證，則全域管理員認證無法運作。 因應措施是停用全域系統管理員的多重要素驗證。
-
 
 **命令 4**
 
@@ -537,7 +539,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
    * **系統管理員密碼 –** 輸入 Workday 整合系統帳戶的密碼
 
-   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 這應該看起來像這樣：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中會以您的正確租用戶名稱取代 contoso4，以正確的環境字串取代 wd3-impl。 如果不知道此 URL，請與您的 Workday 整合夥伴或支援代表合作，來判斷要使用的正確 URL。
+   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 這應該看起來像這樣： https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources，其中會以您的正確租用戶名稱取代 contoso4，以正確的環境字串取代 wd3-impl。 如果不知道此 URL，請與您的 Workday 整合夥伴或支援代表合作，來判斷要使用的正確 URL。
 
    * **電子郵件通知 –** 輸入您的電子郵件地址，然後勾選 [發生失敗時傳送電子郵件] 核取方塊。
 
@@ -640,7 +642,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
    * **系統管理員密碼 –** 輸入 Workday 整合系統帳戶的密碼
 
-   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 這應該看起來像這樣：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中會以您的正確租用戶名稱取代 contoso4，以正確的環境字串取代 wd3-impl (如有必要)。
+   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 這應該看起來像這樣： https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources，其中會以您的正確租用戶名稱取代 contoso4，以正確的環境字串取代 wd3-impl (如有必要)。
 
    * **電子郵件通知 –** 輸入您的電子郵件地址，然後勾選 [發生失敗時傳送電子郵件] 核取方塊。
 
@@ -654,7 +656,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 2. 在 [來源物件範圍] 欄位中，您可以選擇性地篩選應該將電子郵件地址寫回至 Workday 的 Azure Active Directory 使用者集合。 預設範圍是「Azure AD 中的所有使用者」。 
 
-3. 在 [屬性對應] 區段中，您可以定義個別 Workday 屬性如何對應至 Active Directory 屬性。 根據預設，存在電子郵件地址的對應。 不過，您必須更新比對識別碼以在 Azure AD 中比對使用者及其在 Workday 中的對應項目。 常用的比對方法是將 Workday 人員識別碼或員工識別碼同步至 Azure AD 中的 extensionAttribute1-15，然後在 Azure AD 中使用此屬性再次比對 Workday 的使用者。
+3. 在 [屬性對應] 區段中，更新相符的識別碼，代表 Azure Active Directory 中儲存了 Workday 人員識別碼或員工識別碼的屬性。 常用的比對方法是將 Workday 人員識別碼或員工識別碼同步至 Azure AD 中的 extensionAttribute1-15，然後在 Azure AD 中使用此屬性再次比對 Workday 的使用者。 
 
 4. 若要儲存您的對應，請按一下 [屬性對應] 區段頂端的 [儲存]。
 
@@ -682,7 +684,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 1. 下載並安裝 [Workday Studio](https://community.workday.com/studio-download)。 您需要 Workday 社群帳戶才能存取安裝程式。
 
-2. 從下列 URL 下載 Workday Human_Resources WDSL 檔案：https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+2. 從下列 URL 下載 Workday Human_Resources WDSL 檔案： https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. 啟動 Workday Studio。
 
@@ -794,6 +796,10 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 * 執行 **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell 命令時，目前有一項已知問題：若使用自訂網域，則全域管理員認證無法運作 (範例：admin@contoso.com)。 因應措施是在 Azure AD 以 onmicrosoft.com 網域來建立和使用全域管理員帳戶 (範例：admin@contoso.onmicrosoft.com)。
 
+* 目前不支援在內部部署 Active Directory 中將資料寫入 thumbnailPhoto 使用者屬性。
+
+* 目前在已啟用 AAD Connect 的 Azure AD 租用戶上，不支援「Workday 至 Azure AD」連接器。  
+
 * 已解決之前位於歐盟的 Azure AD 租用戶上並未出現稽核記錄的問題。 不過，位於歐盟的 Azure AD 租用戶需要進行其他代理程式設定。 欲知詳情，請參閱[第 3 部分：設定內部部署同步代理程式](#Part 3: Configure the on-premises synchronization agent)
 
 ## <a name="managing-personal-data"></a>管理個人資料
@@ -805,3 +811,4 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 * [瞭解如何針對佈建活動檢閱記錄和取得報告](../active-directory-saas-provisioning-reporting.md)
 * [了解如何設定 Workday 與 Azure Active Directory 之間的單一登入](workday-tutorial.md)
 * [了解如何將其他 SaaS 應用程式與 Azure Active Directory 整合](tutorial-list.md)
+

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444179"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141490"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -309,7 +309,7 @@ WHERE devices.jobs.jobId = 'myJobId'
 
 使用[裝置對雲端路由][lnk-devguide-messaging-routes]時，您可以設定讓「IoT 中樞」將裝置到雲端的訊息分派至不同的端點。 分派時會根據針對個別訊息評估的運算式來進行分派。
 
-路由[條件][lnk-query-expressions]會使用相同的 IoT 中樞查詢語言做為對應項和作業查詢中的條件。 路由條件會依據訊息標頭和內文進行評估。 您的路由查詢運算式可以只涉及訊息標頭、只涉及訊息本文，或同時涉及上述兩者。 為了路由傳送訊息，「IoT 中樞」會針對標頭和訊息內文採用特定的結構描述。 下列各節將說明需要哪些項目才能讓 IoT 中樞正確路由傳送。
+路由[條件][lnk-query-expressions]會使用 IoT 中樞查詢語言語法作為對應項和作業查詢中的條件，但只有部分函式可供使用。 路由條件會依據訊息標頭和內文進行評估。 您的路由查詢運算式可能只涉及訊息標頭、只涉及訊息內文，或同時涉及訊息標頭和訊息內文。 IoT 中樞假設標頭和訊息內文有特定結構描述才能路由傳送訊息，下列各節將說明讓 IoT 中樞正確路由所需的項目。
 
 ### <a name="routing-on-message-headers"></a>依據訊息標頭進行路由
 

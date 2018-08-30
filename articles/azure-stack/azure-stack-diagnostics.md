@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064168"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616944"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 診斷工具
 
@@ -110,38 +110,40 @@ if($s)
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK 和整合系統的參數考量
 
 - 如果未指定 **FromDate** 和 **ToDate** 參數，預設將會收集過去 4 小時的記錄。
+- 使用 **FilterByNode** 參數依電腦名稱篩選記錄。 例如：```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
+- 使用 **FilterByLogType** 參數依類型篩選記錄。 您可以選擇依檔案、共用或 WindowsEvent 進行篩選。 例如：```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
 - 您可以使用 **TimeOutInMinutes** 參數來設定記錄收集的逾時。 根據預設，它是設定為 150 (2.5 個小時)。
 - 在 1805 版和更新版本中，預設會停用傾印檔案記錄收集。 若要加以啟用，請使用 **IncludeDumpFile** 切換參數。 
 - 目前您可以透過下列角色使用 **FilterByRole** 參數來篩選記錄集合：
 
-   |   |   |   |
-   | - | - | - |
-   | ACS                    | DeploymentMachine                | NC                         |
-   | ACSBlob                | DiskRP                           | 網路                    |
-   | ACSFabric              | 網域                           | NonPrivilegedAppGateway    |
-   | ACSFrontEnd            | ECE                              | NRP                        |
-   | ACSMetrics             | ExternalDNS                      | OEM                        |
-   | ACSMigrationService    | 網狀架構                           | PXE                        |
-   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
-   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
-   | ACSTableMaster         | FRP                              | SLB                        |   
-   | ACSTableServer         | 資源庫                          | SlbVips                    |
-   | ACSWac                 | 閘道器                          | SQL                        |   
-   | ADFS                   | HealthMonitoring                 | SRP                        |
-   | ASAppGateway           | HRP                              | 儲存體                    |   
-   | NCAzureBridge          | IBC                              | 儲存體帳戶            |    
-   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
-   | AzureStackBitlocker    | iDns                             | 租用戶                     |
-   | BareMetal              | InfraServiceController           | TraceCollector             |
-   | BRP                    | 基礎結構                   | URP                        |
-   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
-   | 雲端                  | KeyVaultControlPlane             | VirtualMachines            |
-   | 叢集                | KeyVaultDataPlane                | WAS                        |
-   | 計算                | KeyVaultInternalControlPlane     | WASBootstrap               |
-   | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
-   | CRP                    | KeyVaultNamingService            |                            |
-   | DatacenterIntegration  | MonitoringAgent                  |                            |
-   |                        |                                  |                            |
+ |   |   |   |    |
+ | - | - | - | -  |   
+ |ACS|計算|InfraServiceController|QueryServiceCoordinator|
+ |ACSBlob|CPI|基礎結構|QueryServiceWorker|
+ |ACSDownloadService|CRP|KeyVaultAdminResourceProvider|SeedRing|
+ |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
+ |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
+ |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
+ |ACSMigrationService|網域|KeyVaultInternalDataPlane|SQL|
+ |ACSMonitoringService|ECE|KeyVaultNamingService|SRP|
+ |ACSSettingsService|EventAdminRP|MDM|儲存體|
+ |ACSTableMaster|EventRP|MetricsAdminRP|儲存體帳戶|
+ |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
+ |ACSWac|網狀架構|MetricsServer|租用戶|
+ |ADFS|FabricRing|MetricsStoreService|TraceCollector|
+ |ApplicationController|FabricRingServices|MonAdminRP|URP|
+ |ASAppGateway|FirstTierAggregationService|MonitoringAgent|使用量|
+ |AzureBridge|FRP|MonRP|UsageBridge|
+ |AzureMonitor|資源庫|NC|VirtualMachines|
+ |AzureStackBitlocker|閘道器|網路|WAS|
+ |BareMetal|HealthMonitoring|NonPrivilegedAppGateway|WASBootstrap|
+ |BRP|HintingServiceV2|NRP|WASPUBLIC|
+ |CA|HRP|OboService|WindowsDefender|
+ |CacheService|IBC|OEM|     |
+ |雲端|IdentityProvider|OnboardRP|     |   
+ |叢集|iDns|PXE|     |
+ |   |   |   |    |
+
 
 ### <a name="bkmk_gui"></a> 使用圖形化使用者介面收集記錄
 除了提供所需參數供 Get-AzureStackLog Cmdlet 擷取 Azure Stack 記錄，您也可以利用可用的開放原始碼 Azure Stack 工具 (位於主要的 Azure Stack 工具 GitHub 工具存放庫，網址為 http://aka.ms/AzureStackTools)。

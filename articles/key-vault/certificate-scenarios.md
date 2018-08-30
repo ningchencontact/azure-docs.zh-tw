@@ -3,7 +3,7 @@ title: 開始使用 Key Vault 憑證
 description: 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: bryanla
+ms.openlocfilehash: f2becc5d746c3079e8f686748f33f10cd4a8d8c8
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109479"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146356"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>開始使用 Key Vault 憑證
 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
@@ -51,14 +51,14 @@ ms.locfileid: "37109479"
 
 **步驟 3** - Contoso 管理員與擁有憑證的 Contoso 員工 (Key Vault 使用者) (根據 CA 而定) 可以向管理員取得憑證或者直接向 CD 從帳戶取得憑證。  
 
--   建立[憑證簽發者](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)資源，來開始將認證作業新增至金鑰保存庫。 
+-   [設定憑證簽發者](/rest/api/keyvault/setcertificateissuer)資源，開始將認證作業新增至金鑰保存庫。 憑證簽發者是 Azure Key Vault (KV) 中以 CertificateIssuer 資源表示的實體。 它用來提供 KV 憑證來源相關資訊；簽發者名稱、提供者、認證和其他系統管理詳細資訊。
     -   例如 MyDigiCertIssuer  
         -   提供者  
         -   認證 – CA 帳戶認證。 每個 CA 都有自己的特定資料。  
 
      如需使用 CA 提供者建立帳戶的詳細資訊，請參閱 [Key Vault 部落格](http://aka.ms/kvcertsblog)上的相關文章。  
 
-**步驟 3.1** - 設定[憑證連絡人](https://docs.microsoft.com/rest/api/keyvault/certificate-contacts)以進行通知。 這是 Key Vault 使用者的連絡人。 Key Vault 不會強制執行此步驟。  
+**步驟 3.1** - 設定[憑證連絡人](/rest/api/keyvault/setcertificatecontacts)以進行通知。 這是 Key Vault 使用者的連絡人。 Key Vault 不會強制執行此步驟。  
 
 附註 - 透過步驟 3.1 的這個流程是一次性作業。  
 
@@ -121,5 +121,5 @@ ms.locfileid: "37109479"
   (5) - 應用程式合併 CA 的 X509 憑證，來完成新憑證建立。
 
 ## <a name="see-also"></a>另請參閱
-- [憑證作業](/rest/api/keyvault/certificate-operations)
+
 - [關於金鑰、密碼與憑證](about-keys-secrets-and-certificates.md)

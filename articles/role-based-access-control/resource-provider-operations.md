@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4e062b1bc56eada2fa2c27797151e265271022e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 86a2fba7730a653a254a2fd996f9e45ed322fbe3
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621152"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141717"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -391,8 +391,12 @@ ms.locfileid: "39621152"
 > | --- | --- | --- |
 > | 動作 | Microsoft.Authorization/checkAccess/action | 檢查呼叫者是否有權執行特定動作 |
 > | 動作 | Microsoft.Authorization/classicAdministrators/delete | 從訂用帳戶中移除系統管理員。 |
+> | 動作 | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 取得訂用帳戶的管理員作業狀態。 |
 > | 動作 | Microsoft.Authorization/classicAdministrators/read | 讀取訂用帳戶的系統管理員。 |
 > | 動作 | Microsoft.Authorization/classicAdministrators/write | 對訂用帳戶新增或修改系統管理員。 |
+> | 動作 | Microsoft.Authorization/denyAssignments/delete | 在指定範圍刪除拒絕指派。 |
+> | 動作 | Microsoft.Authorization/denyAssignments/read | 取得拒絕指派的資訊。 |
+> | 動作 | Microsoft.Authorization/denyAssignments/write | 在指定範圍建立拒絕指派。 |
 > | 動作 | Microsoft.Authorization/elevateAccess/action | 對呼叫者授與租用戶範圍的使用者存取系統管理員存取權 |
 > | 動作 | Microsoft.Authorization/locks/delete | 刪除指定範圍的鎖定。 |
 > | 動作 | Microsoft.Authorization/locks/read | 取得指定範圍的鎖定。 |
@@ -1165,6 +1169,7 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.Compute/virtualMachineScaleSets/instanceView/read | 取得虛擬機器擴展集的執行個體檢視 |
 > | 動作 | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | 將虛擬機器擴展集的執行個體手動更新至最新模型 |
 > | 動作 | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | 取得虛擬機器擴展集之所有網路介面的屬性 |
+> | 動作 | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | 開始輪流升級，以將所有虛擬機器擴展集執行個體移至最新可用的平台映像作業系統版本。 |
 > | 動作 | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | 取得虛擬機器擴展集的 OS 升級歷程記錄 |
 > | 動作 | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | 在虛擬機器擴展集的執行個體上執行規劃的維護 |
 > | 動作 | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | 關閉虛擬機器擴展集執行個體的電源 |
@@ -1244,10 +1249,23 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.ContainerRegistry/locations/operationResults/read | 取得非同步作業結果 |
 > | 動作 | Microsoft.ContainerRegistry/operations/read | 列出所有可用的 Azure Container Registry REST API 作業 |
 > | 動作 | Microsoft.ContainerRegistry/register/action | 針對容器登錄資源提供者註冊訂用帳戶，並讓您能夠建立容器登錄。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/builds/cancel/action | 取消現有組建。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | 取得下載組建記錄檔的連結。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/builds/read | 取得指定組建的屬性，或列出指定容器登錄的所有組建。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/builds/write | 使用指定參數更新容器登錄的組建。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/buildTasks/delete | 刪除容器登錄中的組建工作。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties/action | 列出組建工作的原始檔控制屬性。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/buildTasks/read | 取得指定組建工作的屬性，或列出指定容器登錄的所有組建工作。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | 從組建工作中刪除組建步驟。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | 列出組建步驟的組建引數，包括祕密引數。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/buildTasks/steps/read | 取得指定組建步驟的屬性，或列出指定組建工作的所有組建步驟。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | 使用指定參數建立或更新組建工作的組建步驟。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/buildTasks/write | 使用指定參數建立或更新容器登錄的組建工作。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/delete | 刪除容器登錄。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/eventGridFilters/delete | 從容器登錄中刪除事件格線篩選。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/eventGridFilters/read | 取得指定事件格線篩選的屬性，或列出指定容器登錄的所有事件格線篩選。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/eventGridFilters/write | 使用指定參數，建立或更新容器登錄的事件格線篩選。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | 取得上傳位置，讓使用者可上傳來源。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/importImage/action | 使用指定參數將映像匯入到容器登錄。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/listCredentials/action | 列出指定容器登錄的登入認證。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/listPolicies/read | 列出指定容器登錄的原則 |
@@ -1256,12 +1274,18 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | 取得資源的診斷設定 |
 > | 動作 | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新資源的診斷設定 |
 > | 動作 | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read | 取得 Microsoft ContainerRegistry 的可用計量 |
+> | 動作 | Microsoft.ContainerRegistry/registries/pull/read | 從容器登錄中提取或取得映像。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/push/write | 將映像推送或寫入至容器登錄。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/quarantineRead/read | 從容器登錄中提取或取得隔離的映像 |
+> | 動作 | Microsoft.ContainerRegistry/registries/quarantineWrite/write | 寫入/修改已隔離映像的隔離狀態 |
+> | 動作 | Microsoft.ContainerRegistry/registries/queueBuild/action | 根據要求參數建立新的組建，並將它新增至組建佇列。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/read | 取得指定容器登錄的屬性，或列出指定資源群組或訂用帳戶下的所有容器登錄。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/regenerateCredential/action | 針對指定容器登錄重新產生一個登入認證。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/replications/delete | 刪除容器登錄中的複寫。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/replications/operationStatuses/read | 取得複寫非同步作業狀態 |
 > | 動作 | Microsoft.ContainerRegistry/registries/replications/read | 取得指定複寫的屬性，或列出指定容器登錄的所有複寫。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/replications/write | 使用指定參數，建立或更新容器登錄的複寫。 |
+> | 動作 | Microsoft.ContainerRegistry/registries/sign/write | 推送/提取容器登錄的內容信任中繼資料。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/updatePolicies/write | 更新指定容器登錄的原則 |
 > | 動作 | Microsoft.ContainerRegistry/registries/webhooks/delete | 刪除容器登錄中的 Webhook。 |
 > | 動作 | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | 針對 Webhook 取得服務 URI 的設定和自訂標頭。 |
@@ -1524,9 +1548,11 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.DataFactory/factories/pipelineruns/activityruns/read | 讀取所指定管線執行識別碼的活動執行。 |
 > | 動作 | Microsoft.DataFactory/factories/pipelineruns/cancel/action | 取消執行識別碼所指定的管線執行。 |
 > | 動作 | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/action | 查詢所指定管線執行識別碼的活動執行。 |
+> | 動作 | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/read | 讀取所指定管線執行識別碼的查詢活動執行結果。 |
 > | 動作 | Microsoft.DataFactory/factories/pipelineruns/read | 讀取管線執行。 |
 > | 動作 | Microsoft.DataFactory/factories/pipelines/createrun/action | 建立管線的執行。 |
 > | 動作 | Microsoft.DataFactory/factories/pipelines/delete | 刪除管線。 |
+> | 動作 | Microsoft.DataFactory/factories/pipelines/pipelineruns/activityruns/progress/read | 取得活動執行的進度。 |
 > | 動作 | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | 讀取管線執行。 |
 > | 動作 | Microsoft.DataFactory/factories/pipelines/read | 讀取管線。 |
 > | 動作 | Microsoft.DataFactory/factories/pipelines/write | 建立或更新管線 |
@@ -1535,7 +1561,9 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | 取得處理站的可用記錄 |
 > | 動作 | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | 取得處理站的可用計量 |
 > | 動作 | Microsoft.DataFactory/factories/querypipelineruns/action | 查詢管線執行。 |
+> | 動作 | Microsoft.DataFactory/factories/querypipelineruns/read | 讀取查詢管線執行的結果。 |
 > | 動作 | Microsoft.DataFactory/factories/querytriggerruns/action | 查詢觸發程序執行。 |
+> | 動作 | Microsoft.DataFactory/factories/querytriggerruns/read | 讀取觸發程序執行的結果。 |
 > | 動作 | Microsoft.DataFactory/factories/read | 讀取 Data Factory。 |
 > | 動作 | Microsoft.DataFactory/factories/triggerruns/read | 讀取觸發程序執行。 |
 > | 動作 | Microsoft.DataFactory/factories/triggers/delete | 刪除任何觸發程序。 |
@@ -1546,6 +1574,7 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.DataFactory/factories/triggers/write | 建立或更新任何觸發程序。 |
 > | 動作 | Microsoft.DataFactory/factories/write | 建立或更新 Data Factory |
 > | 動作 | Microsoft.DataFactory/locations/configureFactoryRepo/action | 設定中心的存放庫。 |
+> | 動作 | Microsoft.DataFactory/operations/read | 讀取 Microsoft Data Factory 提供者中的所有作業。 |
 > | 動作 | Microsoft.DataFactory/register/action | 為 Data Factory 資源提供者註冊訂用帳戶。 |
 > | 動作 | Microsoft.DataFactory/unregister/action | 為 Data Factory 資源提供者取消註冊訂用帳戶。 |
 
@@ -2071,6 +2100,14 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.Features/providers/features/unregister/action | 在指定的資源提供者內取消註冊訂用帳戶的功能。 |
 > | 動作 | Microsoft.Features/register/action | 註冊訂用帳戶的功能。 |
 
+## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+
+> [!div class="mx-tdCol2BreakAll"]
+> | 動作類型 | 作業 | 說明 |
+> | --- | --- | --- |
+> | 動作 | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | 取得來賓組態指派。 |
+> | 動作 | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | 取得新的來賓組態指派。 |
+
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -2503,6 +2540,7 @@ ms.locfileid: "39621152"
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | 從 WindowsFirewall 資料表讀取資料 |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | 從 WindowsServerAssessmentRecommendation 資料表讀取資料 |
 > | DataAction | Microsoft.LogAnalytics/logs/WireData/read | 從 WireData 資料表讀取資料 |
+> | DataAction | Microsoft.LogAnalytics/logs/WorkloadMonitoringPerf/read | 從 WorkloadMonitoringPerf 資料表中讀取資料 |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | 從 WUDOAggregatedStatus 資料表讀取資料 |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | 從 WUDOStatus 資料表讀取資料 |
 
@@ -2715,6 +2753,7 @@ ms.locfileid: "39621152"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 說明 |
 > | --- | --- | --- |
+> | DataAction | Microsoft.Maps/accounts/data/read | 將資料讀取權限授與地圖服務帳戶。 |
 > | 動作 | Microsoft.Maps/accounts/delete | 刪除地圖服務帳戶。 |
 > | 動作 | Microsoft.Maps/accounts/listKeys/action | 列出地圖服務帳戶金鑰 |
 > | 動作 | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | 取得資源的診斷設定 |
@@ -3449,8 +3488,11 @@ ms.locfileid: "39621152"
 > | --- | --- | --- |
 > | 動作 | Microsoft.PolicyInsights/asyncOperationResults/read | 取得非同步作業結果。 |
 > | 動作 | Microsoft.PolicyInsights/policyEvents/queryResults/action | 查詢原則事件的相關資訊。 |
+> | 動作 | Microsoft.PolicyInsights/policyEvents/queryResults/read | 查詢原則事件的相關資訊。 |
 > | 動作 | Microsoft.PolicyInsights/policyStates/queryResults/action | 查詢原則狀態的相關資訊。 |
+> | 動作 | Microsoft.PolicyInsights/policyStates/queryResults/read | 查詢原則狀態的相關資訊。 |
 > | 動作 | Microsoft.PolicyInsights/policyStates/summarize/action | 查詢原則最新狀態的摘要資訊。 |
+> | 動作 | Microsoft.PolicyInsights/policyStates/summarize/read | 查詢原則最新狀態的摘要資訊。 |
 > | 動作 | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | 對選取的範圍觸發新的合規性評估。 |
 > | 動作 | Microsoft.PolicyInsights/register/action | 註冊原則見解資源提供者，並允許對其執行動作。 |
 
@@ -4809,6 +4851,7 @@ ms.locfileid: "39621152"
 > | 動作 | microsoft.web/sites/config/delete | 刪除 Web Apps 設定。 |
 > | 動作 | Microsoft.Web/sites/config/list/Action | 列出 Web 應用程式的安全性機密設定，例如發佈認證、應用程式設定和連接字串 |
 > | 動作 | Microsoft.Web/sites/config/Read | 取得 Web 應用程式的組態設定 |
+> | 動作 | microsoft.web/sites/config/snapshots/read | 取得 Web Apps 組態快照集。 |
 > | 動作 | Microsoft.Web/sites/config/Write | 更新 Web 應用程式的組態設定 |
 > | 動作 | microsoft.web/sites/containerlogs/action | 取得 Web 應用程式的壓縮容器記錄檔。 |
 > | 動作 | microsoft.web/sites/continuouswebjobs/delete | 刪除 Web Apps 的連續 Web 作業。 |
@@ -4857,6 +4900,8 @@ ms.locfileid: "39621152"
 > | 動作 | microsoft.web/sites/hostnamebindings/delete | 刪除 Web Apps 的主機名稱繫結。 |
 > | 動作 | microsoft.web/sites/hostnamebindings/read | 取得 Web Apps 的主機名稱繫結。 |
 > | 動作 | microsoft.web/sites/hostnamebindings/write | 更新 Web Apps 的主機名稱繫結。 |
+> | 動作 | Microsoft.Web/sites/hostruntime/host/_master/read | 取得系統管理作業的函式應用程式主要金鑰 |
+> | 動作 | Microsoft.Web/sites/hostruntime/host/action | 執行函式應用程式的執行階段動作，例如同步觸發程序、新增函式、叫用函式、刪除函式等動作。 |
 > | 動作 | microsoft.web/sites/hybridconnection/delete | 刪除 Web Apps 的混合式連線。 |
 > | 動作 | microsoft.web/sites/hybridconnection/read | 取得 Web Apps 的混合式連線。 |
 > | 動作 | microsoft.web/sites/hybridconnection/write | 更新 Web Apps 的混合式連線。 |
@@ -4871,6 +4916,7 @@ ms.locfileid: "39621152"
 > | 動作 | microsoft.web/sites/instances/extensions/read | 取得 Web Apps 的執行個體擴充功能。 |
 > | 動作 | microsoft.web/sites/instances/processes/delete | 刪除 Web Apps 的執行個體處理序。 |
 > | 動作 | microsoft.web/sites/instances/processes/read | 取得 Web Apps 的執行個體處理序。 |
+> | 動作 | microsoft.web/sites/instances/processes/threads/read | 取得 Web Apps 執行個體處理程序的執行緒。 |
 > | 動作 | microsoft.web/sites/instances/read | 取得 Web Apps 執行個體。 |
 > | 動作 | microsoft.web/sites/listsyncfunctiontriggerstatus/action | 列出同步函式觸發程序狀態 Web Apps。 |
 > | 動作 | microsoft.web/sites/metricdefinitions/read | 取得 Web Apps 計量定義。 |
@@ -4886,6 +4932,7 @@ ms.locfileid: "39621152"
 > | 動作 | microsoft.web/sites/premieraddons/delete | 刪除 Web Apps 的頂級附加元件。 |
 > | 動作 | microsoft.web/sites/premieraddons/read | 取得 Web Apps 的頂級附加元件。 |
 > | 動作 | microsoft.web/sites/premieraddons/write | 更新 Web Apps 的頂級附加元件。 |
+> | 動作 | microsoft.web/sites/privateaccess/read | 取得私人網站存取啟用和已授權虛擬網路 (可存取該網站) 的資料。 |
 > | 動作 | microsoft.web/sites/processes/read | 取得 Web Apps 處理序。 |
 > | 動作 | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/read | 取得資源的診斷設定 |
 > | 動作 | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新資源的診斷設定 |
@@ -4907,6 +4954,7 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.Web/sites/restart/Action | 重新啟動 Web 應用程式 |
 > | 動作 | microsoft.web/sites/restore/read | 取得 Web Apps 還原。 |
 > | 動作 | microsoft.web/sites/restore/write | 還原 Web Apps。 |
+> | 動作 | microsoft.web/sites/restorefrombackupblob/action | 從備份 Blob 還原 Web 應用程式。 |
 > | 動作 | microsoft.web/sites/restorefromdeletedwebapp/action | 從已刪除的應用程式還原 Web Apps。 |
 > | 動作 | microsoft.web/sites/restoresnapshot/action | 還原 Web Apps 快照集。 |
 > | 動作 | microsoft.web/sites/siteextensions/delete | 刪除 Web Apps 的網站擴充功能。 |
@@ -4917,6 +4965,7 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.Web/sites/slots/backup/Action | 建立新的 Web 應用程式位置備份。 |
 > | 動作 | microsoft.web/sites/slots/backup/read | 取得 Web Apps 位置備份。 |
 > | 動作 | microsoft.web/sites/slots/backup/write | 更新 Web Apps 位置的備份。 |
+> | 動作 | microsoft.web/sites/slots/backups/action | 探索 Web Apps 位置備份。 |
 > | 動作 | microsoft.web/sites/slots/backups/delete | 刪除 Web Apps 位置備份。 |
 > | 動作 | microsoft.web/sites/slots/backups/list/action | 列出 Web Apps 位置的備份。 |
 > | 動作 | Microsoft.Web/sites/slots/backups/Read | 取得 Web 應用程式位置備份的屬性 |
@@ -4925,6 +4974,7 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.Web/sites/slots/config/list/Action | 列出 Web 應用程式位置的安全性機密設定，例如發佈認證、應用程式設定和連接字串 |
 > | 動作 | Microsoft.Web/sites/slots/config/Read | 取得 Web 應用程式位置的組態設定 |
 > | 動作 | Microsoft.Web/sites/slots/config/Write | 更新 Web 應用程式位置的組態設定 |
+> | 動作 | microsoft.web/sites/slots/containerlogs/action | 取得 Web 應用程式位置的壓縮容器記錄。 |
 > | 動作 | microsoft.web/sites/slots/continuouswebjobs/delete | 刪除 Web Apps 位置的連續 Web 作業。 |
 > | 動作 | microsoft.web/sites/slots/continuouswebjobs/read | 取得 Web Apps 位置的連續 Web 作業。 |
 > | 動作 | microsoft.web/sites/slots/continuouswebjobs/start/action | 啟動 Web Apps 位置的連續 Web 作業。 |
@@ -4934,6 +4984,7 @@ ms.locfileid: "39621152"
 > | 動作 | microsoft.web/sites/slots/deployments/log/read | 取得 Web Apps 的位置部署記錄。 |
 > | 動作 | microsoft.web/sites/slots/deployments/read | 取得 Web Apps 的位置部署。 |
 > | 動作 | microsoft.web/sites/slots/deployments/write | 更新 Web Apps 的位置部署。 |
+> | 動作 | microsoft.web/sites/slots/detectors/read | 取得 Web Apps 位置偵測器。 |
 > | 動作 | microsoft.web/sites/slots/diagnostics/analyses/execute/Action | 執行 Web Apps 位置診斷的分析。 |
 > | 動作 | microsoft.web/sites/slots/diagnostics/analyses/read | 取得 Web Apps 位置診斷的分析。 |
 > | 動作 | microsoft.web/sites/slots/diagnostics/aspnetcore/read | 取得 ASP.NET Core 應用程式的 Web Apps 位置診斷。 |
@@ -4958,6 +5009,7 @@ ms.locfileid: "39621152"
 > | 動作 | microsoft.web/sites/slots/diagnostics/workeravailability/read | 取得 Web Apps 位置診斷的 Workeravailability。 |
 > | 動作 | microsoft.web/sites/slots/diagnostics/workerprocessrecycle/read | 取得 Web Apps 位置診斷的背景工作處理序回收。 |
 > | 動作 | microsoft.web/sites/slots/domainownershipidentifiers/read | 取得 Web Apps 位置的網域擁有權識別碼。 |
+> | 動作 | microsoft.web/sites/slots/functions/read | 取得 Web Apps 位置函式。 |
 > | 動作 | microsoft.web/sites/slots/hostnamebindings/delete | 刪除 Web Apps 位置的主機名稱繫結。 |
 > | 動作 | microsoft.web/sites/slots/hostnamebindings/read | 取得 Web Apps 位置的主機名稱繫結。 |
 > | 動作 | microsoft.web/sites/slots/hostnamebindings/write | 更新 Web Apps 位置的主機名稱繫結。 |
@@ -4999,6 +5051,7 @@ ms.locfileid: "39621152"
 > | 動作 | Microsoft.Web/sites/slots/restart/Action | 重新啟動 Web 應用程式位置 |
 > | 動作 | microsoft.web/sites/slots/restore/read | 取得 Web Apps 位置的還原。 |
 > | 動作 | microsoft.web/sites/slots/restore/write | 還原 Web Apps 位置。 |
+> | 動作 | microsoft.web/sites/slots/restorefrombackupblob/action | 從備份 Blob 還原 Web 應用程式位置。 |
 > | 動作 | microsoft.web/sites/slots/restorefromdeletedwebapp/action | 從已刪除的應用程式還原 Web 應用程式位置。 |
 > | 動作 | microsoft.web/sites/slots/restoresnapshot/action | 還原 Web Apps 位置快照集。 |
 > | 動作 | microsoft.web/sites/slots/siteextensions/delete | 刪除 Web Apps 位置的網站擴充功能。 |
@@ -5057,21 +5110,15 @@ ms.locfileid: "39621152"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 說明 |
 > | --- | --- | --- |
-> | 動作 | Microsoft.WorkloadMonitor/components/read | 讀取作業資源 |
-> | 動作 | Microsoft.WorkloadMonitor/healthInstances/read | 讀取作業資源 |
-> | 動作 | Microsoft.WorkloadMonitor/Operations/read | 讀取作業資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloadInsights/delete | 刪除 workloadInsights 資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloadInsights/delete | 刪除 workloadInsights 資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloadInsights/read | 讀取 workloadInsights 資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloadInsights/read | 讀取 workloadInsights 資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloadInsights/write | 寫入 workloadInsights 資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloadInsights/write | 寫入 workloadInsights 資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | 動作 | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | 動作 | Microsoft.WorkloadMonitor/workloads/read | 讀取工作負載資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloads/read | 讀取工作負載資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloads/write | 寫入工作負載資源 |
-> | 動作 | Microsoft.WorkloadMonitor/workloads/write | 寫入工作負載資源 |
+> | 動作 | Microsoft.WorkloadMonitor/components/read | 取得資源的元件 |
+> | 動作 | Microsoft.WorkloadMonitor/componentsSummary/read | 取得元件的摘要 |
+> | 動作 | Microsoft.WorkloadMonitor/monitorInstances/read | 取得資源的監視器執行個體 |
+> | 動作 | Microsoft.WorkloadMonitor/monitorInstancesSummary/read | 取得監視器執行個體的摘要 |
+> | 動作 | Microsoft.WorkloadMonitor/monitors/read | 取得資源的監視器 |
+> | 動作 | Microsoft.WorkloadMonitor/monitors/write | 設定資源的監視器 |
+> | 動作 | Microsoft.WorkloadMonitor/notificationSettings/read | 取得資源的通知設定 |
+> | 動作 | Microsoft.WorkloadMonitor/notificationSettings/write | 設定資源的通知設定 |
+> | 動作 | Microsoft.WorkloadMonitor/operations/read | 取得支援的作業 |
 
 ## <a name="next-steps"></a>後續步驟
 

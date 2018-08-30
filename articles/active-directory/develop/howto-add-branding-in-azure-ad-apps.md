@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 78a0b9bf7f49cc41c8d78287bcbe54c5c88f0809
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "39597900"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185415"
 ---
 # <a name="branding-guidelines-for-applications"></a>應用程式的商標指導方針
 
@@ -72,7 +72,7 @@ Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，
 
 | 資產                                | PNG 格式 | SVG 格式 |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft 標誌  | ![Microsoft 標誌 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.png) | ![Microsoft 標誌 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.svg) |
+| Microsoft 標誌  | ![Microsoft 標誌 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Microsoft 標誌 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>登入的視覺化導引
 
@@ -84,16 +84,16 @@ Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，
 
 下圖顯示當您將資產與應用程式搭配使用時 Microsoft 建議使用的紅線。 紅線適用於「使用 Microsoft 登入」或較簡短的「登入」版本。
 
-![「使用 Microsoft 登入」紅線](./media/howto-add-branding-in-azure-ad-apps/Sign-in-with-Microsoft-redlines.png)
+![「使用 Microsoft 登入」紅線](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 若要下載官方影像並在您的應用程式中使用，請以滑鼠右鍵按一下您要使用的影像，然後將其儲存到您的電腦。
 
 | 資產                                | PNG 格式 | SVG 格式 |
 | ------------------------------------ | ---------- | ---------- |
-| 使用 Microsoft 登入 (深色佈景主題)  | ![[登入] 按鈕深色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.png) | ![[使用 Microsoft 登入] 按鈕深色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.svg) |
-| 使用 Microsoft 登入 (淺色佈景主題) | ![[登入] 按鈕淺色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.png) | ![[使用 Microsoft 登入] 按鈕淺色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.svg) |
-| 登入 (深色佈景主題)                 | ![[登入] 簡短按鈕深色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.png) | ![[登入] 簡短按鈕深色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.svg) |
-| 登入 (淺色佈景主題)                | ![[登入] 簡短按鈕淺色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.png) | ![[登入] 簡短按鈕淺色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.svg) |
+| 使用 Microsoft 登入 (深色佈景主題)  | ![[登入] 按鈕深色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![[使用 Microsoft 登入] 按鈕深色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| 使用 Microsoft 登入 (淺色佈景主題) | ![[登入] 按鈕淺色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![[使用 Microsoft 登入] 按鈕淺色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| 登入 (深色佈景主題)                 | ![[登入] 簡短按鈕深色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![[登入] 簡短按鈕深色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| 登入 (淺色佈景主題)                | ![[登入] 簡短按鈕淺色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![[登入] 簡短按鈕淺色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 
 ## <a name="branding-dos-and-donts"></a>商標的建議與禁忌

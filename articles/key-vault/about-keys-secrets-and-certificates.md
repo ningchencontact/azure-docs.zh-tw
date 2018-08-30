@@ -3,7 +3,7 @@ title: 關於金鑰、祕密與憑證
 description: REST 介面概觀與 KV 開發人員詳細資料
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: BryanLa
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/14/2018
+ms.author: bryanla
+ms.openlocfilehash: 962f9be53ce0b2022e8e5490bdeb04b2eefb4d7c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359184"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145318"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 Azure Key Vault 可讓使用者在 Microsoft Azure 環境中儲存和使用密碼編譯金鑰。 Key Vault 支援多種金鑰類型和演算法，並可針對高價值金鑰使用硬體安全模組 (HSM)。 此外，Key Vault 可讓使用者安全地儲存秘密。 秘密是有大小限制的八位元物件，其中不包含特定語意。 Key Vault 也支援建立於金鑰和秘密之上，且會新增自動更新功能的憑證。
@@ -28,26 +28,26 @@ Azure Key Vault 可讓使用者在 Microsoft Azure 環境中儲存和使用密�
 
 **Key Vault 一般詳細資料**
 
--   [支援標準](about-keys-secrets-and-certificates.md#BKMK_Standards)
--   [資料類型](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
--   [物件、識別碼和版本控制](about-keys-secrets-and-certificates.md#BKMK_ObjId)  
+-   [支援標準](#BKMK_Standards)
+-   [資料類型](#BKMK_DataTypes)  
+-   [物件、識別碼和版本控制](#BKMK_ObjId)  
 
 **關於金鑰**
 
--   [金鑰與金鑰類型](about-keys-secrets-and-certificates.md#BKMK_KeyTypes)  
--   [RSA 演算法](about-keys-secrets-and-certificates.md#BKMK_RSAAlgorithms)  
--   [RSA-HSM 演算法](about-keys-secrets-and-certificates.md#BKMK_RSA-HSMAlgorithms)  
--   [密碼編譯保護](about-keys-secrets-and-certificates.md#BKMK_Cryptographic)
--   [金鑰作業](about-keys-secrets-and-certificates.md#BKMK_KeyOperations)  
--   [金鑰屬性](about-keys-secrets-and-certificates.md#BKMK_KeyAttributes)  
--   [金鑰標記](about-keys-secrets-and-certificates.md#BKMK_Keytags)  
+-   [金鑰與金鑰類型](#BKMK_KeyTypes)  
+-   [RSA 演算法](#BKMK_RSAAlgorithms)  
+-   [RSA-HSM 演算法](#BKMK_RSA-HSMAlgorithms)  
+-   [密碼編譯保護](#BKMK_Cryptographic)
+-   [金鑰作業](#BKMK_KeyOperations)  
+-   [金鑰屬性](#BKMK_KeyAttributes)  
+-   [金鑰標記](#BKMK_Keytags)  
 
 **關於秘密** 
 
--   [使用秘密](about-keys-secrets-and-certificates.md#BKMK_WorkingWithSecrets)  
--   [秘密屬性](about-keys-secrets-and-certificates.md#BKMK_SecretAttrs)  
--   [秘密標記](about-keys-secrets-and-certificates.md#BKMK_SecretTags)  
--   [秘密存取控制](about-keys-secrets-and-certificates.md#BKMK_SecretAccessControl)  
+-   [使用秘密](#BKMK_WorkingWithSecrets)  
+-   [秘密屬性](#BKMK_SecretAttrs)  
+-   [秘密標記](#BKMK_SecretTags)  
+-   [秘密存取控制](#BKMK_SecretAccessControl)  
 
 **關於憑證**
 
@@ -133,7 +133,7 @@ Azure Key Vault 支援大小為 2048、3072 與 4096 的 RSA 金鑰，以及類�
 
 ### <a name="BKMK_Cryptographic"></a>密碼編譯保護
 
-Azure Key Vault 使用的密碼編譯模組 (HSM 或軟體) 皆經過 FIPS 驗證。 您不需要在 FIPS 模式中執行任何特殊動作。 如果您在**建立**或**匯入**金鑰時是使用 HSM 進行保護，則這些金鑰保證會在以 FIPS 140-2 層級 2 或更高層級驗證的 HSM 內進行處理。 如果您在**建立**或**匯入**金鑰時是使用軟體進行保護，則這些金鑰會在以 FIPS 140-2 層級 1 或更高層級驗證的加密模組內進行處理。 如需詳細資訊，請參閱[金鑰與金鑰類型](about-keys-secrets-and-certificates.md#BKMK_KeyTypes)。
+Azure Key Vault 使用的密碼編譯模組 (HSM 或軟體) 皆經過 FIPS 驗證。 您不需要在 FIPS 模式中執行任何特殊動作。 如果您在**建立**或**匯入**金鑰時是使用 HSM 進行保護，則這些金鑰保證會在以 FIPS 140-2 層級 2 或更高層級驗證的 HSM 內進行處理。 如果您在**建立**或**匯入**金鑰時是使用軟體進行保護，則這些金鑰會在以 FIPS 140-2 層級 1 或更高層級驗證的加密模組內進行處理。 如需詳細資訊，請參閱[金鑰與金鑰類型](#BKMK_KeyTypes)。
 
 ###  <a name="BKMK_ECAlgorithms"></a> EC 演算法
  Azure Key Vault 中的 EC 與 EC-HSM 金鑰支援下列演算法識別碼。 
@@ -174,7 +174,7 @@ Azure Key Vault 支援以下關於金鑰物件的作業：
 -   **備份**：以受保護的形式匯出金鑰。  
 -   **還原**：匯入先前備份的金鑰。  
 
-如需詳細資訊，請參閱[金鑰作業](/rest/api/keyvault/key-operations)。  
+如需詳細資訊，請參閱 [Key Vault REST API 參考中的金鑰作業](/rest/api/keyvault)。  
 
 一旦在 Azure Key Vault 中建立金鑰之後，即可使用該金鑰執行下列加密編譯作業：  
 
@@ -194,22 +194,22 @@ Azure Key Vault 不支援 EXPORT 作業：一旦金鑰佈建在系統中，即�
 
 除了金鑰內容，您可以指定下列屬性。 在 JSON 要求中，屬性關鍵字和括弧「{」「}」是必要的，即使沒有指定任何屬性。  
 
-- enabled：選擇性的布林值，預設值是 **true**。 指定金鑰是否已啟用，並可用於密碼編譯作業。 enabled 屬性會與 nbf 和 exp 一起使用。當作業發生於 nbf 和 exp 之間時，只有在 enabled 設定為 **true** 時，才能允許此作業。 發生於 nbf / exp 範圍外的作業將自動禁止，除了[特定條件](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops)下的特定作業類型。
-- nbf：選擇性的 IntDate，預設值為現在 (now)。 nbf (不早於) 屬性會定義一個時間，而在此時間之前「絕不可」將金鑰用於密碼編譯作業，除了[特定條件](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops)下的特定作業類型。 若要處理 nbf 屬性，目前的日期/時間「必須」晚於或等同 nbf 屬性中所列的「不早於」日期/時間。 考慮到時鐘誤差，Azure Key Vault 可能會多提供一點時間 (通常都在幾分鐘內)。 其值必須是包含 IntDate 值的數字。  
-- exp：選擇性的 IntDate，預設值為永久 (forever)。 exp (到期時間) 屬性會定義到期時間，而在此時間點或之後「絕不可」將金鑰用於密碼編譯作業，除了[特定條件](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops)下的特定作業類型。 若要處理 exp 屬性，目前的日期/時間「必須」早於 exp 屬性中所列的到期日期/時間。 考慮到時鐘誤差，Azure Key Vault 可能會多提供一點時間 (通常都在幾分鐘內)。 其值必須是包含 IntDate 值的數字。  
+- enabled：選擇性的布林值，預設值是 **true**。 指定金鑰是否已啟用，並可用於密碼編譯作業。 enabled 屬性會與 nbf 和 exp 一起使用。當作業發生於 nbf 和 exp 之間時，只有在 enabled 設定為 **true** 時，才能允許此作業。 發生於 nbf / exp 範圍外的作業將自動禁止，除了[特定條件](#BKMK_key-date-time-ctrld-ops)下的特定作業類型。
+- nbf：選擇性的 IntDate，預設值為現在 (now)。 nbf (不早於) 屬性會定義一個時間，而在此時間之前「絕不可」將金鑰用於密碼編譯作業，除了[特定條件](#BKMK_key-date-time-ctrld-ops)下的特定作業類型。 若要處理 nbf 屬性，目前的日期/時間「必須」晚於或等同 nbf 屬性中所列的「不早於」日期/時間。 考慮到時鐘誤差，Azure Key Vault 可能會多提供一點時間 (通常都在幾分鐘內)。 其值必須是包含 IntDate 值的數字。  
+- exp：選擇性的 IntDate，預設值為永久 (forever)。 exp (到期時間) 屬性會定義到期時間，而在此時間點或之後「絕不可」將金鑰用於密碼編譯作業，除了[特定條件](#BKMK_key-date-time-ctrld-ops)下的特定作業類型。 若要處理 exp 屬性，目前的日期/時間「必須」早於 exp 屬性中所列的到期日期/時間。 考慮到時鐘誤差，Azure Key Vault 可能會多提供一點時間 (通常都在幾分鐘內)。 其值必須是包含 IntDate 值的數字。  
 
 任何包含金鑰屬性的回應中，可包含其他唯讀屬性：  
 
 - created：選擇性的 IntDate。 created 屬性會指出建立此金鑰版本的時間。 若金鑰是在新增此屬性之前建立的，則此值為 Null。 其值必須是包含 IntDate 值的數字。  
 - updated：選擇性的 IntDate。 updated 屬性會指出更新此金鑰版本的時間。 若金鑰是在新增此屬性之前進行最後一次更新，則此值為 Null。 其值必須是包含 IntDate 值的數字。  
 
-如需有關 IntDate 和其他資料類型的詳細資訊，請參閱[資料類型](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
+如需有關 IntDate 和其他資料類型的詳細資訊，請參閱[資料類型](#BKMK_DataTypes)  
 
 #### <a name="BKMK_key-date-time-ctrld-ops"></a>受到日期時間控制的作業
 
 nbf / exp 範圍外的尚未生效和過期金鑰，將會用於**解密**、**解除包裝**和**驗證**作業 (不會傳回 403 禁止)。 使用尚未生效狀態的基本原理是，允許金鑰先經過測試，然後才在生產環境使用。 使用過期狀態的基本原理是，允許對在金鑰有效時建立的資料執行復原作業。 此外，您可以使用 Key Vault 原則，或藉由將 enabled 金鑰屬性更新為 **false**，來停用金鑰的存取權。
 
-如需有關資料類型的詳細資訊，請參閱[資料類型](about-keys-secrets-and-certificates.md#BKMK_DataTypes)。
+如需有關資料類型的詳細資訊，請參閱[資料類型](#BKMK_DataTypes)。
 
 如需其他可能屬性的詳細資訊，請參閱 [JSON Web 金鑰 (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)。
 
@@ -256,9 +256,9 @@ Azure Key Vault 也支援秘密的 contentType 欄位。 用戶端可以指定�
 
 除了秘密內容，您可以指定下列屬性：  
 
-- exp：選擇性的 IntDate，預設值為**永久 (forever)**。 Exp (到期時間) 屬性識別到期時間，在此時間點或之後「絕不可」擷取秘密資料，除非在[特定情況下](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops)。 若要處理 exp 屬性，目前的日期/時間「必須」早於 exp 屬性中所列的到期日期/時間。 考慮到時鐘誤差，Azure Key Vault 可能會多提供一點時間 (通常都在幾分鐘內)。 其值必須是包含 IntDate 值的數字。  
-- nbf：選擇性的 IntDate，預設值為**現在 (now)**。 nbf (不早於) 屬性會識別一個時間，在此時間之前「絕不可」擷取秘密資料，除非在[特定情況下](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops)。 若要處理 nbf 屬性，目前的日期/時間「必須」晚於或等同 nbf 屬性中所列的「不早於」日期/時間。 考慮到時鐘誤差，Azure Key Vault 可能會多提供一點時間 (通常都在幾分鐘內)。 其值必須是包含 IntDate 值的數字。  
-- enabled：選擇性的布林值，預設值是 **true**。 此屬性會指定是否可以擷取秘密資料。 當作業發生於 nbf 和 exp 之間時，enabled 屬性會用來搭配 nbf 和 exp 使用，只有在 enabled 設定為 **true** 時，才能允許此作業。 發生於 nbf 和 exp 範圍外的作業將自動禁止，除了在[特定情況下](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops)。  
+- exp：選擇性的 IntDate，預設值為**永久 (forever)**。 Exp (到期時間) 屬性會識別到期時間，在此時間點或之後「不應」擷取秘密資料，除非在[特定情況下](#BKMK_secret-date-time-ctrld-ops)。 此欄位僅供**參考**用，因為它告知金鑰保存庫的使用者服，特定祕密可能無法使用。 其值必須是包含 IntDate 值的數字。   
+- nbf：選擇性的 IntDate，預設值為**現在 (now)**。 nbf (不早於) 屬性會識別一個時間，在此時間之前「不應」擷取秘密資料，除非在[特定情況下](#BKMK_secret-date-time-ctrld-ops)。 此欄位僅供**參考**用。 其值必須是包含 IntDate 值的數字。 
+- enabled：選擇性的布林值，預設值是 **true**。 此屬性會指定是否可以擷取秘密資料。 當作業發生於 nbf 和 exp 之間時，enabled 屬性會用來搭配 nbf 和 exp 使用，只有在 enabled 設定為 **true** 時，才能允許此作業。 發生於 nbf 和 exp 範圍外的作業將自動禁止，除了在[特定情況下](#BKMK_secret-date-time-ctrld-ops)。  
 
 任何包含秘密屬性的回應中，可包含其他唯讀屬性：  
 
@@ -269,7 +269,7 @@ Azure Key Vault 也支援秘密的 contentType 欄位。 用戶端可以指定�
 
 秘密的**取得**作業將會用於尚未生效和過期的秘密 (在 nbf  / exp 範圍外)。 呼叫祕密的**取得**作業來取得尚未生效的秘密，可以用於測試。 擷取 (**取得**) 過期的密碼，可用於復原作業。
 
-如需有關資料類型的詳細資訊，請參閱[資料類型](about-keys-secrets-and-certificates.md#BKMK_DataTypes)。  
+如需有關資料類型的詳細資訊，請參閱[資料類型](#BKMK_DataTypes)。  
 
 ###  <a name="BKMK_SecretAccessControl"></a>密碼存取控制
 
@@ -283,7 +283,7 @@ Azure Key Vault 也支援秘密的 contentType 欄位。 用戶端可以指定�
 -   刪除：刪除秘密  
 -   所有：所有權限  
 
-如需使用秘密的詳細資訊，請參閱[秘密作業](/rest/api/keyvault/secret-operations)。  
+如需使用秘密的詳細資訊，請參閱 [Key Vault REST API 參考中的秘密作業](/rest/api/keyvault)。  
 
 ###  <a name="BKMK_SecretTags"></a>秘密標記  
 您可以將其他應用程式專屬的中繼資料指定為標記形式。 Azure Key Vault 支援最多 15 個標記，其中每一個都可以有 256 個字元的名稱和 256 個字元的值。  
@@ -436,18 +436,14 @@ Key Vault 可讓您以不同簽發者的提供者組態，來建立多個簽發�
 -   建立：允許建立 Key Vault 憑證。  
 -   匯入：允許將憑證內容匯入 Key Vault 憑證。  
 -   更新：允許更新憑證。  
--   manageconnects：允許管理 Key Vault 憑證連絡人  
+-   managecontacts：允許管理 Key Vault 憑證連絡人  
 -   getissuers：允許取得憑證的簽發者  
 -   listissuers：允許列出憑證的簽發者  
 -   setissuers：允許建立或更新 Key Vault 憑證簽發者  
 -   deleteissuers：允許刪除 Key Vault 憑證簽發者  
 -   所有：授與所有權限  
 
-## <a name="additional-information-for-certificates"></a>憑證的其他資訊
-
-- [憑證與原則](/rest/api/keyvault/certificates-and-policies)
-- [憑證簽發者](/rest/api/keyvault/certificate-issuers)
-- [憑證連絡人](/rest/api/keyvault/certificate-contacts)
+如需詳細資訊，請參閱 [Key Vault REST API 參考中的憑證作業](/rest/api/keyvault)。 
 
 ## <a name="see-also"></a>另請參閱
 

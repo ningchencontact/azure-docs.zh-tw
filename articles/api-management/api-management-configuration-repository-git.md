@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857526"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146361"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 儲存和設定 API 管理服務組態
 
@@ -107,7 +107,7 @@ git clone https://username:password@bugbashdev4.scm.azure-api.net/
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-複製儲存機制之後，您可以在您的本機檔案系統中檢視及使用它。 如需詳細資訊，請參閱 [本機 Git 儲存機制的檔案和資料夾結構參考](#file-and-folder-structure-reference-of-local-git-repository)。
+複製儲存機制之後，您可以在本機檔案系統中檢視並加以使用。 如需詳細資訊，請參閱 [本機 Git 儲存機制的檔案和資料夾結構參考](#file-and-folder-structure-reference-of-local-git-repository)。
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>使用最新的服務執行個體組態更新本機儲存機制
 
@@ -259,8 +259,8 @@ git push
 如需管理您的服務執行個體的其他方法的詳細資訊，請參閱︰
 
 * 使用下列 PowerShell Cmdlet 管理您的服務執行個體
-  * [服務部署 PowerShell Cmdlet 參考](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [服務管理 PowerShell Cmdlet 參考](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [服務部署 PowerShell Cmdlet 參考](https://docs.microsoft.com/powershell/module/wds)
+  * [服務管理 PowerShell Cmdlet 參考](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * 使用 REST API 管理您的服務執行個體
   * [API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

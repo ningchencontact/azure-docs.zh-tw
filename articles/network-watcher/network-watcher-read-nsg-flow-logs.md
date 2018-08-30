@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 492a0a63198fe2013cfeac0459fc6da8521a5e6e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056795"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146193"
 ---
 # <a name="read-nsg-flow-logs"></a>讀取 NSG 流量記錄
 
@@ -28,7 +28,7 @@ NSG 流量記錄會以[區塊 Blob](/rest/api/storageservices/understanding-bloc
 
 ## <a name="scenario"></a>案例
 
-在以下案例中，儲存體帳戶中已經存有一個範例流程記錄檔。 我們會逐步說明選擇性讀取 NSG 流量記錄中最新事件的方式。 在本文中，我們將會使用 PowerShell，但本文中所討論的概念並不限於該程式設計語言，且適用於 Azure 儲存體 API 所支援的所有語言
+在以下案例中，儲存體帳戶中已經存有一個範例流程記錄檔。 您已了解如何選擇性讀取 NSG 流量記錄中最新的事件。 在本文中，您會使用 PowerShell，但本文中所討論的概念並不限於該程式設計語言，且適用於 Azure 儲存體 API 所支援的所有語言。
 
 ## <a name="setup"></a>設定
 
@@ -98,7 +98,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>讀取區塊 Blob
 
-接下來我們需要讀取 `$blocklist` 變數以擷取資料。 在這個範例中，我們會逐一查看區塊清單，從每個區塊讀取位元組，並將它們儲存在陣列中。 我們會使用 [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法來擷取資料。
+接下來，您需要讀取 `$blocklist` 變數以擷取資料。 在這個範例中，我們會逐一查看區塊清單，從每個區塊讀取位元組，並將它們儲存在陣列中。 使用 [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法來擷取資料。
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -132,7 +132,7 @@ $valuearray += $value
 }
 ```
 
-現在 `$valuearray` 陣列包含每個區塊的字串值。 若要確認項目，請透過執行 `$valuearray[$valuearray.Length-2]` 取得陣列的第二個到最後一個值。 最後一個值不應該只是右括號。
+現在 `$valuearray` 陣列包含每個區塊的字串值。 若要確認項目，請透過執行 `$valuearray[$valuearray.Length-2]` 取得陣列的第二個到最後一個值。 您不會想要最後一個值，因為它是右括號。
 
 這個值的結果會顯示在下列範例中：
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 此案例為如何在不需要剖析整個記錄的情況下，讀取 NSG 流量記錄中項目的範例。 您可以透過使用區塊識別碼，或是透過追蹤儲存在區塊 Blob 中之區塊的長度，來在新項目撰寫至記錄檔時讀取它們。 這可以讓您僅讀取新項目。
-
 
 ## <a name="next-steps"></a>後續步驟
 

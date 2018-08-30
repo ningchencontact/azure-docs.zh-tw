@@ -12,27 +12,26 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: c2071e662b50e57189e048b028fd5359482c817f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 6120ef39c4eb91c4b595f6b97a0eb4b96621b6f2
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358644"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145570"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 應用程式常見問題集
 
-本文將回答有關 Microsoft Authenticator 應用程式的常見問題。 如果您沒有看到您問題的解答，請移至 [Microsoft 驗證器應用程式論壇](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)。 此外，如果您正在尋找有關手機登入程序的詳細資訊，您可以查看[使用手機登入的常見問題集](microsoft-authenticator-app-phone-signin-faq.md)。
+本文將回答有關 Microsoft Authenticator 應用程式的常見問題。 如果您沒有看到您問題的解答，請移至 [Microsoft 驗證器應用程式論壇](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)。
 
 Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式，當您使用 Azure Multi-Factor Authentication 時，建議使用此應用程式。 Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 |問題|解決方法|
 |--------|--------|
-|Authenticator 會為我儲存何種資料，而我該如何刪除它？| Microsoft Authenticator 應用程式會儲存當您新增帳戶時所提供的帳戶資訊。 當您使用應用程式時，即會基於偵錯目的建立診斷記錄，並且只儲存可協助 Microsoft 診斷未預期問題的實用資料。 您可以開啟應用程式，然後依序選取 [說明]、[傳送記錄]及 [檢視記錄] 按鈕，來檢閱記錄資料。<br><br>您可以藉由刪除 [帳戶] 畫面上的帳戶磚，來刪除您的所有資料 (包括您的記錄檔)。 如需 Microsoft 如何使用您資料的詳細資訊，請參閱[服務信任入口網站](https://servicetrust.microsoft.com/ViewPage/HomePage.)|
+|Authenticator 會為我儲存何種資料，而我該如何刪除它？|Microsoft Authenticator 應用程式會收集三種類型的資訊：<ul><li>您新增帳戶時提供的帳戶資訊。 這項資料可以藉由移除帳戶來移除。</li><li>診斷記錄資料，在您透過應用程式的 [說明] 功能表，選擇**傳送記錄**給 Microsoft 之前，此資料只會存在應用程式中。 這些記錄檔包含個人資料，像是電子郵件地址 (例如alain@contoso.com)、伺服器/IP 位址和裝置資料 (例如裝置名稱和作業系統版本)，以及僅限有助於應用程式問題移難排解所需資訊的個人資料。 您可以隨時在應用程式中檢視這些記錄檔，以查看所收集的資訊。 如果您傳送記錄檔，驗證應用程式的工程師就可以使用此資訊來對客戶回報問題進行疑難排解。</li><li>非個人的可識別使用資料，例如「已啟動的新增帳戶流程/已成功新增的帳戶」或「已核准的通知」。 這項資料是我們的工程決策中不可或缺的一部分，可協助我們判斷哪些功能對您而言很重要，以及要透過應用程式更新形式來改善的地方。 身為應用程式使用者的您，可以在第一次啟動應用程式時看到此資料收集的通知，而系統也會讓您知道可以在應用程式的 [設定] 頁面上關閉此設定。 您可以隨時啟用或停用此設定。</li></ul>|
 |應用程式中的程式碼有什麼作用？|當您開啟 Microsoft Authenticator 應用程式時，將看到您已新增的帳戶顯示為磚，而且每個磚旁邊都有一個六或八位數的數字。<br><br>您將使用這些驗證碼來驗證您就是您所說的人員。 使用您的使用者名稱和密碼登入之後，您將輸入與您的帳戶位於同一個磚的驗證碼。 例如，如果您以 Alain 登入 Contoso 帳戶，您就會使用驗證碼 427303。<br><br>![應用程式中的 [帳戶] 畫面](./media/microsoft-authenticator-app-faq/auth-app-accounts.png)|
 |為什麼驗證碼旁邊的數字會持續倒數計時？|您可能會看到 30 秒的計時器在作用中的驗證碼旁邊倒數計時。 此計時器讓您永遠不會使用同一個驗證碼登入兩次。 與密碼不同，我們不希望您記得此號碼。 其概念是，只有可存取您手機的人才會知道您的驗證碼。|
 |為什麼我的帳戶磚會呈現灰色？|有些組織要求 Microsoft Authenticator 應用程式透過單一登入運作，並保護組織資源。 在此情況下，就無法使用帳戶進行雙步驟驗證，而且帳戶會顯示為灰色或非作用中狀態。 此類型的帳戶通常稱為「訊息代理程式」帳戶。|
-|每個圖示分別具有何種含意？|![電話按鍵圖示](./media/microsoft-authenticator-app-faq/icon.png)<br>電話按鍵圖示會顯示您的帳戶已升級為使用無密碼手機登入。 這可針對所有的個人 Microsoft 帳戶，以及驗證器應用程式中的單一公司或學校帳戶來開啟。 如需手機登入的詳細資訊，請參閱[使用您的電話而不是您的密碼登入](microsoft-authenticator-app-phone-signin-faq.md)<br><br>![鎖定圖示](./media/microsoft-authenticator-app-faq/lock.png)<br>鎖定圖示會顯示您的公司或學校帳戶已向您的組織註冊。 您的組織可能想要您註冊裝置，讓他們可以了解哪些裝置正在存取受保護的資源 (例如檔案和應用程式)，而且可能會開啟條件式存取來降低不適當存取那些資源的風險。|
 |什麼是裝置註冊？|您的組織可能想要您註冊裝置，讓他們可以了解哪些裝置正在存取受保護的資源 (例如檔案和應用程式)，而且可能會開啟條件式存取來降低不適當存取那些資源的風險。 您可以使用 [設定] 來取消註冊裝置，但可能會遺失對 Outlook 中電子郵件及 OneDrive 中檔案的存取權，而您將無法使用手機登入。|
 |我是否需要連線到網際網路或我的網路，以取得並使用驗證碼？|驗證碼不需要您位於網際網路上或連線到資料，因此您不需要使用手機服務來登入。 此外，由於應用程式會在您關閉它之後立即停止執行，因此，它將不會耗盡您的電池。|
 |我只有在開啟應用程式時才會收到通知。 不會在應用程式關閉時收到通知。|如果您會收到通知，但不會收到警示，即使已開啟響鈴，還是應該檢查您的應用程式設定。 請確定應用程式已開啟來針對通知使用音效或震動。 如果您完全不會收到通知，則應檢查下列各項：<ul><li>您的電話處於「請勿打擾」還是無訊息模式？ 這些模式讓應用程式無法傳送通知。</li><li>您可以收到來自其他應用程式的通知嗎？ 如果收不到，可能就是手機上的網路連線問題，或是來自 Android 或 Apple 的通知通道問題。 您可以透過手機設定嘗試解決網路連線問題，但您可能需要與服務提供者聯繫，以協助解決 Android 或 Apple 通知通道問題。</li><li>您可以在應用程式上收到某些帳戶的通知，但收不到其他帳戶的通知嗎？ 如果是，請從您的應用程式移除有問題的帳戶、再次新增它以允許通知，然後查看是否能解決問題。</li></ul>如果您嘗試了上述所有步驟，但仍發生問題，建議您傳送記錄檔以進行診斷。 開啟應用程式、移至 [說明]，然後選取 [傳送記錄]。 在那之後，移至 [Microsoft Authenticator 應用程式論壇](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) \(英文\)，讓我們了解您遇到的問題，以及到目前為止已採取的步驟。|
@@ -50,8 +49,6 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 |我的 Apple Watch 附屬應用程式當機。 可以將我的當機記錄傳送給您，讓您可以進行調查嗎？ |首先，必須確定您已選擇要與我們共用您的分析。 如果您是 TestFlight 使用者，則您已經註冊。 否則，您可以移至 [設定] > [隱私權] > [分析]，然後同時選取 [共用 iPhone 與 Watch 分析] 和 [與應用程式開發人員共用] 選項。<br><br>註冊之後，您可以嘗試重現當機狀況，如此一來，您的當機記錄就會自動傳送給我們以利調查。 不過，如果您無法重現當機狀況，您可以手動複製記錄檔並將它們傳送給我們。<ol><li>在手機上開啟 Watch 應用程式、移至 [設定] > [一般]，然後按一下 [複製 Watch 分析]。</li><li>在 [設定] > [隱私權] > [分析] > [分析資料] 下方尋找對應的當機，然後手動複製整個文字。</li><li>在手機上開啟 Microsoft Authenticator 應用程式，將複製的文字貼到 [傳送記錄] 頁面上的 [與應用程式開發人員共用] 文字方塊中。</li></ol>|
 
 ## <a name="next-steps"></a>後續步驟
-
--   如果您有更多關於手機登入的問題，請參閱[使用您的電話而不是您的密碼登入](microsoft-authenticator-app-phone-signin-faq.md)
 
 -   如果您需要雙步驟驗證的詳細資訊，請參閱[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)
 

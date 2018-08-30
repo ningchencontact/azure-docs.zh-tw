@@ -11,12 +11,12 @@ ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 61bc081ca3221c0d588b7b7a2d9482d2fc70c0d5
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038061"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144223"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -78,9 +78,10 @@ azds list-uris
 
 如果 URL 處於「擱置」狀態，表示 Dev Spaces 仍在等候 DNS 註冊完成。 此作業有時需要數分鐘才能完成。 Dev Spaces 也會為每個服務開啟一個 localhost 通道，您在等候 DNS 登錄完成時可以使用此通道。
 
-如果 URL 處於「擱置」狀態超過 5 分鐘，即表示負責取得公用端點的 nginx 輸入控制器可能有問題。 您可以使用下列命令刪除執行 nginx 控制器的 Pod。 它將會自動重新建立。
+如果 URL 處於「擱置」狀態超過 5 分鐘，可能表示建立公用端點的外部 DNS Pod 和/或取得公用端點的 nginx 輸入控制器 Pod 有問題。 您可以使用下列命令來刪除這些 Pod。 這些 Pod 將會自動重新建立。
 
 ```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
 ```
 
@@ -139,6 +140,14 @@ kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-in
 1. 請關閉 VS Code 然後重新開啟。
 2. 再點擊一次 F5。
 
+## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>偵錯錯誤「找不到 coreclr 類型的偵測工具擴充」
+執行 VS Code 偵錯工具會回報錯誤：`Failed to find debugger extension for type:coreclr.`
+
+### <a name="reason"></a>原因
+您的開發機器上未安裝適用於 C# 的 VS Code 擴充功能，其中包含 .Net Core (CoreCLR) 的偵錯支援。
+
+### <a name="try"></a>請嘗試︰
+安裝[適用於 C# 的 VS Code 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>偵錯錯誤「不支援設定的偵錯類型 'coreclr'」
 執行 VS Code 偵錯工具會回報錯誤：`Configured debug type 'coreclr' is not supported.`

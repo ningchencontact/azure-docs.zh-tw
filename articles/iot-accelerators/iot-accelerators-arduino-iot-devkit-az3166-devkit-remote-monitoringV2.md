@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: e900b952ab9bb2054b9e4174670894027cdd2618
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 88ce34125009665d346cf034f5d02ba7e21f48fc
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969447"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141521"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>將 MXChip IoT DevKit AZ3166 連線到 IoT 遠端監視解決方案加速器
 
@@ -139,12 +139,6 @@ ms.locfileid: "38969447"
 
 ![LED MX 晶片](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
 
-
-## <a name="change-device-id"></a>變更裝置識別碼
-
-您可以遵循[此指南](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/)來變更 IoT 中樞內的裝置識別碼。
-
-
 ## <a name="problems-and-feedback"></a>問題與意見反應
 
 如果您遇到問題，請參閱[常見問題集](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)或透過下列管道與我們連絡：
@@ -158,3 +152,4 @@ ms.locfileid: "38969447"
 
 * [IoT 解決方案加速器概觀](https://docs.microsoft.com/azure/iot-suite/)
 * [將 MXChip IoT DevKit 裝置連線到您的 Microsoft IoT Central 應用程式](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [IoT 開發人員套件](https://microsoft.github.io/azure-iot-developer-kit/)

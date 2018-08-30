@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036933"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146402"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -233,7 +233,7 @@ RebootRequired | true - 需要重新開機<br> false - 不需要重新開機 | �
 
 如果尚未排程更新，JSON 結果會是空的。
 
-登入叢集，查詢 Windows Update 的結果。 接著，找出主要協調器服務的複本位址，然後點閱瀏覽器的 URL：http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults。
+登入叢集，查詢 Windows Update 的結果。 接著，找出主要協調器服務的複本位址，然後點閱瀏覽器的 URL： http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults。
 
 協調器服務的 REST 端點具有動態連接埠。 若要知道確切 URL，請查看 Service Fabric Explorer。 例如，可在 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults` 找到結果。
 
@@ -391,6 +391,10 @@ A. 否，修補協調流程應用程式無法用來修補單一節點的叢集�
 - 由於準備修復工作期間健康情況檢查未如預期般發生，而在 RM 工作建立時進行的錯誤修正。
 - 將 Windows 服務 POANodeSvc 的啟動模式從自動變更為延遲自動。
 
-### <a name="version-121-latest"></a>版本 1.2.1 (最新版)
+### <a name="version-121"></a>1.2.1 版
 
 - 縮小叢集範圍工作流程中的錯誤修正。 針對屬於不存在節點的 POA 修復工作，導入了記憶體回收邏輯。
+
+### <a name="version-122-latest"></a>1.2.2 版 (最新)
+
+- 其他錯誤修正。

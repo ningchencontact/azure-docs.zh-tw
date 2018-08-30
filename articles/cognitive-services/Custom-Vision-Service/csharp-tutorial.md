@@ -9,24 +9,30 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 80cb022808748ed2c60dff7c363d6020cb4043a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368834"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617429"
 ---
 # <a name="use-the-custom-vision-service-from-a-c35-application"></a>從 C&#35; 應用程式使用自訂視覺服務
 
 了解如何從 C# 應用程式使用自訂視覺服務。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺服務 API，利用此開放原始碼範例作為範本，來建置您自己適用於 Windows 的應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* 適用於 Windows 的任何 Visual Studio 2015 或 2017 版本。
+* 適用於 Windows 的任何 Visual Studio 2017 版本。
 
-* [自訂視覺服務 SDK](http://github.com/Microsoft/Cognitive-CustomVision-Windows/) \(英文\)。 這包括本文件中所使用的範例和影像。
+## <a name="get-the-custom-vision-sdk-and-samples"></a>取得自訂視覺 SDK 與範例
+若要建置此範例，您需要自訂視覺 SDK NuGet 套件：
 
-## <a name="get-the-training-and-prediction-keys"></a>取得定型和預測金鑰
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+
+您可以將影像與 [C# 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision)一起下載。
+
+## <a name="get-the-training-and-prediction-keys"></a>取得定型與預測金鑰
 
 若要取得此範例中所使用的金鑰，請瀏覽[自訂視覺網頁](https://customvision.ai) \(英文\)，然後選取右上方的__齒輪圖示__。 在 [帳戶] 區段中，複製 [定型金鑰] 和 [預測金鑰] 欄位的值。
 

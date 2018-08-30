@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8798d0f17918ecce473afe8dc21b3f60bf0fa4b1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ac548d90d5a5ed931dc199b6fed52c7cd8f25239
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620125"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144253"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
@@ -26,7 +26,7 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 ## <a name="what-is-a-sql-database-backup"></a>什麼是 SQL Database 備份？
 
-針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server)及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 根據效能層級和資料庫活動量的頻率，交易記錄備份通常每隔 5-10 分鐘會進行一次，而差異備份通常每隔 12 小時進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
+針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server)及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 根據效能層級和資料庫活動量的頻率，交易記錄備份通常每隔 5-10 分鐘會進行一次，而差異備份通常每隔 12 小時進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 完整和差異資料庫備份也會複寫到[配對的資料中心](../best-practices-availability-paired-regions.md)，以防止發生資料中心中斷的情況。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
 
 
 您可以使用這些備份︰
@@ -51,12 +51,14 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 > [!IMPORTANT]
 > 如果您刪除裝載 SQL 資料庫的 Azure SQL Server，則也會一併刪除所有屬於該伺服器的彈性集區和資料庫，且無法復原。 您無法還原已刪除的伺服器。 但是，如果您已設定長期保留，則不會刪除具有 LTR 之資料庫的備份，而且可以還原這些資料庫。
 
-### <a name="pitr-retention-for-dtu-based-service-tiers"></a>DTU 服務層的 PITR 保留
+### <a name="pitr-retention-period"></a>PITR 保留期限
 使用 DTU 購買模型所建立之資料庫的預設保留週期取決於服務層：
 
 * 基本服務層為 1 週。
 * 標準服務層為 5 週。
 * 進階服務層為 5 週。
+
+如果您使用[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)，備份保留期可以設定為最多 35 天。 
 
 如果您降低目前 PITR 保留期間，則比新保留期間還要舊的所有現有備份將不再可用。 
 

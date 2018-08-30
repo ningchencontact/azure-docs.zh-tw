@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: 463a00823997f1acfb65fdd739a093e556982a61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411945"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145557"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>適用於 Windows 的 NVIDIA GPU 驅動程式擴充功能
 
@@ -63,7 +63,8 @@ NVIDIA 使用者授權合約條款位於此處 - https://go.microsoft.com/fwlink
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -72,12 +73,12 @@ NVIDIA 使用者授權合約條款位於此處 - https://go.microsoft.com/fwlink
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | publisher | Microsoft.HpcCompute | 字串 |
 | type | NvidiaGpuDriverWindows | 字串 |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.2 | int |
 
 
 ## <a name="deployment"></a>部署
@@ -103,7 +104,8 @@ NVIDIA 使用者授權合約條款位於此處 - https://go.microsoft.com/fwlink
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.2 `
   --settings '{ `
   }'
 ```
@@ -164,7 +166,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | 作業已順利完成 |
 | 1 | 作業成功。 需要重新開機。 |
-| 4、10 | 作業逾時。 | 重試作業。
+| 100 | 不支援或無法完成作業。 | 可能原因：PowerShell 版本不受支援、VM 大小不是 N 系列 VM、資料下載失敗。 請檢查記錄檔，以判斷錯誤的成因。 |
+| 240、840 | 作業逾時。 | 重試作業。 |
 | -1 | 發生例外狀況。 | 請檢查記錄檔，以判斷例外狀況的成因。 |
 | -5x | 作業因重新開機擱置而中斷。 | 重新啟動 VM。 重新開機後將會繼續安裝。 解除安裝應以手動方式叫用。 |
 
