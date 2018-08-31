@@ -201,7 +201,7 @@ items:
       href: use-remote-desktop.md
     - name: 將 VM 加入 Azure Active Directory
       items:
-      - name: Red Hat Enteprise Linux
+      - name: Red Hat Enterprise Linux
         href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
       - name: CentOS
         href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
@@ -233,7 +233,9 @@ items:
     items:
     - name: 預付 VM - Azure 保留項目
       href: prepay-reserved-vm-instances.md
-    - name: 什麼是 Azure 保留？
+    - name: 預付 SUSE 軟體
+      href: prepay-suse-software-charges.md
+    - name: 什麼是 Azure 保留項目？
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM 執行個體大小彈性
       href: reserved-vm-instance-size-flexibility.md
@@ -549,9 +551,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: 常見問題集
     href: faq.md
-ms.openlocfilehash: bec61918cbd85b2c4501c580a0067a376bd089a4
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 10eeab7d30e245a32ea166b26b173cd78f19a7b8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41927977"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300887"

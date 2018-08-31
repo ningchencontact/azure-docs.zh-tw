@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: db2c6f9995356abc233e971a2fae5a1ee6233ed1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 40070acab5f656cab7f3034e3b35c113c0ff6051
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915691"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300806"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 計費與成本管理文件
 
@@ -104,7 +104,7 @@ ms.locfileid: "42915691"
                         <p>
                         <a href="/azure/billing/billing-manage-access">授與帳單存取權</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">按發票付款</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">管理 Azure 保留</a><br/>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">管理 Azure 保留項目</a><br/>
                         <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Azure 保留項目使用量</a>
                         </p>
                     </div>
