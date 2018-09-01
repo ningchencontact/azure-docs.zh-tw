@@ -123,10 +123,6 @@
 #### [使用憑證](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [管理密碼](authentication/concept-sspr-howitworks.md)
-### 使用者文件
-#### [重設或變更您的密碼](user-help/active-directory-passwords-update-your-own-password.md)
-#### [註冊自助式密碼重設](user-help/active-directory-passwords-reset-register.md)
-
 
 ## 管理應用程式
 ### [概觀](manage-apps/what-is-application-management.md)
@@ -338,10 +334,6 @@
 ### [取出存取權檢閱結果](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## 保護您的身分識別
-### 憑證式驗證
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [開始使用](active-directory-certificate-based-authentication-get-started.md)
 
 ### Azure AD Identity Protection
 #### [概觀](identity-protection/overview.md)
