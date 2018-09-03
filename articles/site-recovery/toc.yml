@@ -196,20 +196,22 @@ items:
         href: vmware-azure-deploy-configuration-server.md
       - name: 設定 VMware 虛擬機器的目標環境
         href: vmware-azure-set-up-target.md
-      - name: 設定複寫設定
+      - name: 設定適用於 VMware VM 的複寫設定
         href: vmware-azure-set-up-replication.md
-      - name: 啟用 VMware 虛擬機器複寫
+      - name: 啟用適用於 VMware VM 的複寫
         href: vmware-azure-enable-replication.md
-      - name: 從複寫排除磁碟
+      - name: 從 VMware VM 複寫排除磁碟
         href: vmware-azure-exclude-disk.md
-      - name: 具有 VMWare 虛擬機器的 CSP 的多租用戶
+      - name: 使用多租用戶和適用於 VMWare VM 的 CSP 來設定複寫
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
-      - name: 設定適用於實體伺服器的來源環境
-        href: physical-azure-set-up-source.md
-      - name: 設定實體伺服器的目標環境
-        href: physical-azure-set-up-target.md
-      - name: Azure 實體伺服器的災害復原
+      - name: 將實體伺服器的災害復原設定至 Azure
         href: physical-azure-disaster-recovery.md
+      - name: 設定適用於實體伺服器複寫的來源環境
+        href: physical-azure-set-up-source.md
+      - name: 設定適用於實體伺服器複寫的目標環境
+        href: physical-azure-set-up-target.md
+      - name: 設定適用於 Azure Stack VM 的災害復原
+        href: azure-stack-site-recovery.md
     - name: 部署行動服務
       items:
       - name: 行動服務概觀
@@ -390,9 +392,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 服務更新
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 63d404406e3b33d4022974246a227cad1e6535a6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 01f369aede31d44ff404c1ff5e7d2d1e9bb92950
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285101"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343968"
