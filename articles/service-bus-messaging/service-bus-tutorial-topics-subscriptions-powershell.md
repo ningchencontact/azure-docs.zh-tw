@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237959"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126546"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>教學課程：使用 PowerShell 和主題/訂用帳戶來更新庫存
 
@@ -32,7 +32,7 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 
 此案例的範例是多個零售商店的庫存商品更新。 在此案例中，每個 (或每組) 商店都會收到預定要傳送給他們的訊息，用以更新其商品。 本教學課程將說明如何使用訂用帳戶和篩選實作此案例。 首先，您會以 3 個訂用帳戶建立主題、新增的某些規則和篩選條件，然後從主題和訂用帳戶來傳送和接收訊息。
 
-![佇列](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![主題](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
 
@@ -47,7 +47,7 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
 發出下列命令以登入 Azure。 如果您在 Cloud Shell 中執行 PowerShell 命令，則不需要執行這些步驟： 
 

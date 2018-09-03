@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6e3679a994a7340fc38bf98f370efd359785fd90
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 2aca366e6a433e3e71cccb49a13638dedacc38d6
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214960"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887501"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure Web Apps
 
@@ -237,11 +237,11 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 - `http://contoso.com`
 - `http://www.contoso.com`
 
-## <a name="enforce-tls-1112"></a>強制使用 TLS 1.1/1.2
+## <a name="enforce-tls-versions"></a>強制使用 TLS 版本
 
-根據預設，您的應用程式允許 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0，業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)) 不再將它視為安全的。 若要強制使用更高的 TLS 版本，請遵循下列步驟：
+根據預設，您的應用程式會允許 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2，此為業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)) 建議的 TLS 層級。 若要強制使用不同的 TLS 版本，請遵循下列步驟：
 
-在 Web 應用程式頁面的左側導覽列中，選取 [SSL 設定]。 然後，在 [TLS 版本] 中，選取您想要的最低 TLS 版本。
+在 Web 應用程式頁面的左側導覽列中，選取 [SSL 設定]。 然後，在 [TLS 版本] 中，選取您想要的最低 TLS 版本。 此設定只會控制內送的呼叫。 
 
 ![強制使用 TLS 1.1 或 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 

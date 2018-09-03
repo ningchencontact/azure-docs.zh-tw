@@ -14,23 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 6854b0a6c72b44bcd3f778e0c46cb109b34ce826
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 4a9d147d1605f4efa638ff258df2667b6b95230e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258825"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885153"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>教學課程：使用 Linux VM 的受控服務識別來存取 Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程示範如何使用 Linux 虛擬機器 (VM) 的受控服務身分識別來存取 Azure Data Lake Store。 Azure 會自動管理您透過受控服務識別所建立的身分識別。 您可以使用受控服務識別向支援 Azure Active Directory (Azure AD) 驗證的服務進行驗證，而不需要將認證插入您的程式碼中。 
+本教學課程說明如何將系統指派的身分識別用於 Linux 虛擬機器 (VM)，以存取 Azure Data Lake Store。 Azure 會自動管理您透過受控服務識別所建立的身分識別。 您可以使用受控服務識別向支援 Azure Active Directory (Azure AD) 驗證的服務進行驗證，而不需要將認證插入您的程式碼中。 
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 在 Linux VM 上啟用受控服務識別。 
 > * 將您的 VM 存取權授與 Azure Data Lake Store。
 > * 使用 VM 身分識別取得存取權杖，並使用它來存取 Azure Data Lake Store。
 
@@ -40,33 +39,11 @@ ms.locfileid: "39258825"
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>登入 Azure
+- [登入 Azure 入口網站](https://portal.azure.com)
 
-登入 [Azure 入口網站](https://portal.azure.com)。
+- [建立 Linux 虛擬機器](/azure/virtual-machines/linux/quick-create-portal)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
-
-此教學課程中，我們會建立新的 Linux VM。 您也可以在現有的 VM 中啟用 MSI。
-
-1. 選取 Azure 入口網站左上角的 [新增] 按鈕。
-2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
-3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
-
-   ![用來建立虛擬機器的「基本」窗格](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. 在 [訂用帳戶] 清單中，選取虛擬機器的訂用帳戶。
-5. 若要選取需要在其中建立虛擬機器的新資源群組，請選擇 [資源群組] > [新建]。 完成時，請選取 [確定]。
-6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 窗格中，保留預設值並選取 [確定]。
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>在 VM 上啟用受控服務識別
-
-VM 受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 在 VM 上啟用受控服務識別可執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。
-
-1. 針對 [虛擬機器]，選取您想要在其上啟用受控服務識別的虛擬機器。
-2. 在左窗格中，選取 [設定]。
-3. 您會看到**受控服務識別**。 若要註冊並啟用受控服務識別，請選取 [是]。 如果您需要將它停用，請選取 [否]。
-   ![「向 Azure Active Directory 註冊」選取項目](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-4. 選取 [ **儲存**]。
+- [在虛擬機器上啟用系統指派的身分識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>將您的 VM 存取權授與 Azure Data Lake Store
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4614eedd08eabf5c1c2eec6f26e542e20b0875bf
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109669"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040498"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教學課程：將 Java 應用程式部署到 Azure 中的 Service Fabric 叢集
 
@@ -41,7 +41,7 @@ ms.locfileid: "37109669"
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-java-elk.md)
 > * [設定 CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
@@ -171,9 +171,9 @@ ms.locfileid: "37109669"
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    EventHubs 的 SAS URL 會遵循以下結構：https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>。 例如， https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    EventHubs 的 SAS URL 會遵循以下結構： https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>。 例如， https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. 開啟 sfdeploy.parameters.json 檔案並取得上述步驟中的下列內容
+12. 開啟 sfdeploy.parameters.json 檔案，並取代從先前的步驟中取得的下列內容。 步驟 8 中註明了 [SAS-URL-STORAGE-ACCOUNT]。 步驟 11 中註明了 [SAS-URL-EVENT-HUBS]。
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -187,7 +187,12 @@ ms.locfileid: "37109669"
     }
     ```
 
-13. 執行下列命令以建立 Service Fabric 叢集
+13. 開啟 **sfdeploy.parameters.json**。 變更下列參數，然後儲存檔案。
+    - **clusterName**。 請一律使用小寫字母和數字。
+    - **adminUserName** (設為非空白的值)
+    - **adminPassword** (設為非空白的值)
+
+14. 執行下列命令以建立 Service Fabric 叢集
 
     ```bash
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -206,13 +211,13 @@ ms.locfileid: "37109669"
 2. 若要將您的應用程式部署至此叢集，您必須使用 SFCTL 建立叢集的連線。 SFCTL 需要同時具有公用和私密金鑰的 PEM 檔案，才能連線到叢集。 執行下列命令，以產生同時具有公用和私密金鑰的 PEM 檔案。 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. 執行下列命令以連線至叢集。
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. 若要部署您的應用程式，請瀏覽至 Voting/Scripts 資料夾並執行 **install.sh** 指令碼。

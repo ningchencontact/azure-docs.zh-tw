@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9322c364832a12e711ee7e1b6ad9722ec82d8468
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450242"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050391"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 將 Azure Stack 連線至 Azure
 
@@ -108,7 +108,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 
    |欄位  |值  |
    |---------|---------|
-   |Name     |Tenant1VNet1         |
+   |名稱     |Tenant1VNet1         |
    |位址空間     |10.1.0.0/16|
    |子網路名稱     |Tenant1-Sub1|
    |子網路位址範圍     |10.1.1.0/24|
@@ -180,7 +180,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 
 1. 在 Azure Stack 使用者入口網站中，選取 [所有資源]。
 1. 在 [所有資源] 底下選取虛擬網路閘道，在此範例中為 **GW1**。
-1. 在 [虛擬網路閘道] 底下，選取 [概觀]。 從資源清單中。 或者，您也可以選取 [屬性]。
+1. 在 [虛擬網路閘道] 下方，從資源清單中選取 [概觀]。 或者，您也可以選取 [屬性]。
 1. 您要記下的 IP 位址列在 [公用 IP 位址] 底下。 在設定範例中，此位址是 192.68.102.1。
 
 #### <a name="create-a-virtual-machine"></a>建立虛擬機器
@@ -360,7 +360,7 @@ Azure 網路基礎結構範例的設定方式如下：
 
 ## <a name="configure-the-router"></a>設定路由器
 
-您可以使用下列「ExpressRoute 路由器設定」圖表作為 ExpressRoute 路由器的設定指南。 這個圖表顯示兩個租用戶 (租用戶 1 和租用戶 2)，有各自的 Express Route 線路。 每個租用戶都連結至各自在 ExpressRoute 路由器 LAN 和 WAN 端的 VRF (虛擬路由和轉送)。 此設定可確保兩個租用戶之間的端對端隔離。 隨著您進行設定範例，請記下路由器介面中使用的 IP 位址。
+您可以使用下列「ExpressRoute 路由器設定」圖表作為 ExpressRoute 路由器的設定指南。 這個圖表顯示兩個租用戶 (租用戶 1 和租用戶 2) 有各自的 ExpressRoute 線路。 每個租用戶都連結至各自在 ExpressRoute 路由器 LAN 和 WAN 端的 VRF (虛擬路由和轉送)。 此設定可確保兩個租用戶之間的端對端隔離。 隨著您進行設定範例，請記下路由器介面中使用的 IP 位址。
 
 *圖 4：ExpressRoute 路由器設定*
 
@@ -368,7 +368,7 @@ Azure 網路基礎結構範例的設定方式如下：
 
 您可以使用任何支援 IKEv2 VPN 和 BGP 的路由器，以終止 Azure Stack 的站對站 VPN 連線。 相同的路由器用於透過 ExpressRoute 線路來連線至 Azure。
 
-下列 Cisco Azure Site Recovery 1000 設定範例可支援「ExpressRoute 路由器設定」圖表所示的網路基礎結構。
+下列 Cisco ASR 1000 Series Aggregation Services Router 設定範例可支援「ExpressRoute 路由器設定」圖表顯示的網路基礎結構。
 
 **Cisco ASR 1000 設定範例**
 
@@ -457,7 +457,7 @@ description S2S VPN Tunnel for Tenant 2
  tunnel protection ipsec profile V4-PROFILE
 !
 interface GigabitEthernet0/0/1
- description PRIMARY Express Route Link to AZURE over Equinix
+ description PRIMARY ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
@@ -476,7 +476,7 @@ description Primary WAN interface of Tenant 2
  ip address 192.168.1.17 255.255.255.252
 !
 interface GigabitEthernet0/0/2
- description BACKUP Express Route Link to AZURE over Equinix
+ description BACKUP ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !

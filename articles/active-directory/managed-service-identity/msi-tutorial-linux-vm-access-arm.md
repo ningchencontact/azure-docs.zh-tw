@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d1e4d8dd7201935ef1dbdc83224f905c812f9cca
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 98be87d62861295536a75201ff93e809c9ba120b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447470"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886847"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>教學課程：使用 Linux 虛擬機器上使用者指派的身分識別，來存取 Azure Resource Manager
 
@@ -40,29 +40,15 @@ ms.locfileid: "39447470"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。 **請務必檢閱[系統和使用者指派之身分識別其間的差異](overview.md#how-does-it-work)**。
-- 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
-- 若要執行本教學課程中所需的資源建立和角色管理步驟，您的帳戶必須在適當的範圍 (您的訂用帳戶或資源群組) 上具備「擁有者」權限。 如果您需要角色指派的協助，請參閱[使用角色型存取控制來管理 Azure 訂用帳戶資源的存取權](/azure/role-based-access-control/role-assignments-portal)。
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[登入 Azure 入口網站](https://portal.azure.com)
+
+[建立 Linux 虛擬機器](/azure/virtual-machines/linux/quick-create-portal)
 
 如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
-
-## <a name="sign-in-to-azure"></a>登入 Azure
-
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
-
-在本教學課程中，您會先建立新的 Linux VM。 您也可以選擇使用現有 VM。
-
-1. 按一下 Azure 入口網站左上角的 [建立資源]。
-2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
-3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
-
-    ![建立 Linux VM](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. 在下拉式清單中選擇適用於虛擬機器的**訂用帳戶**。
-5. 若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
-6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更支援的磁碟類型篩選條件。 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
 
 ## <a name="create-a-user-assigned-identity"></a>建立使用者指派的身分識別
 

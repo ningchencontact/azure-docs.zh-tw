@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 1adfd5dc21a7cab207fa14eeecc21d02507277f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444131"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "43050427"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 儲存體的資料傳輸工具
 
@@ -221,9 +221,9 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 ### <a name="powershell-known-issues"></a>PowerShell 的已知問題
 
-Azure Stack 目前相容的 Azure PowerShell 模組版本是 1.3.0。 此版本與最新版的 Azure PowerShell 不同。 此差異會影響儲存體服務作業：
+Azure Stack 目前相容的 Azure PowerShell 模組版本是 1.2.11 (供使用者作業使用)。 此版本與最新版的 Azure PowerShell 不同。 此差異會影響儲存體服務作業：
 
-* `Get-AzureRmStorageAccountKey` 在 1.3.0 版的傳回值格式有兩個屬性：`Key1` 和 `Key2`，而目前的 Azure 版本則會傳回包含所有帳戶金鑰的陣列。
+* `Get-AzureRmStorageAccountKey` 在 1.2.11 版的傳回值格式有兩個屬性：`Key1` 和 `Key2`，而目前的 Azure 版本則會傳回包含所有帳戶金鑰的陣列。
 
    ```
    # This command gets a specific key for a storage account, 

@@ -1,19 +1,19 @@
 ---
 title: 使用 Jenkins 將 Web 應用程式部署至 Azure
 description: 使用 Jenkins 與 Docker 設定 Java Web 應用程式從 GitHub 到 Azure App Service 的持續整合。
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service, 持續整合, ci, 持續部署, cd
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389937"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106792"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>使用 Jenkins 設定 Azure App Service 的持續整合和部署
 
@@ -33,7 +33,7 @@ ms.locfileid: "39389937"
 
 若要完成本教學課程，您需要：
 
-* 設定含 JDK 的 [Jenkins](https://jenkins.io/) 和 Maven 工具。 如果您沒有 Jenkins 系統，請立即從 [Jenkins 解決方案範本](/azure/jenkins/install-jenkins-solution-template)在 Azure 中建立一個。
+* 已設定 JDK 和 Maven 工具的 [Jenkins](https://jenkins.io/)。 如果您沒有 Jenkins 系統，請立即從 [Jenkins 解決方案範本](/azure/jenkins/install-jenkins-solution-template)在 Azure 中建立一個。
 * [GitHub](https://github.com) 帳戶。
 * [Azure CLI 2.0](/cli/azure)，從本機命令列或在 [Azure Cloud Shell](/azure/cloud-shell/overview) 中
 
@@ -102,7 +102,7 @@ ms.locfileid: "39389937"
 ## <a name="configure-the-azure-app-service-jenkins-plug-in"></a>設定 Azure App Service Jenkins 外掛程式
 
 1. 在 Jenkins Web 主控台中，選取您建立的 [MyJavaApp] 作業，然後在頁面左側選取 [設定]。
-2. 向下捲動至 [建置後動作]，然後選取 [新增建置後動作]，並選擇 [發佈 Azure Web 應用程式]。
+2. 向下捲動至 [建置後動作]，選取 [新增建置後動作]，然後選擇 [發佈 Azure Web 應用程式]。
 3. 在 [Azure 設定檔組態] 下，選取 [Azure 認證] 旁的 [新增]，並選擇 [Jenkins]。
 4. 在 [新增認證] 對話方塊中，從 [種類] 下拉式清單中選取 [Microsoft Azure 服務主體]。
 5. 從 Azure CLI 或 [Cloud Shell](/azure/cloud-shell/overview) 建立 Active Directory 服務主體。
@@ -164,7 +164,7 @@ ms.locfileid: "39389937"
 ## <a name="deploy-the-app-from-github"></a>從 GitHub 部署應用程式
 
 1. 從 Jenkins 專案中，選取 [立即組建]，以將範例應用程式部署至 Azure。
-2. 一旦組建完成，您的應用程式會存留在其發佈的 URL，例如 http://myjavaapp.azurewebsites.net。   
+2. 建置完成後，您的應用程式會依其發佈的 URL 存留在 Azure 上，例如 http://myjavaapp.azurewebsites.net。   
    ![在 Azure 上檢視已部署的應用程式](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## <a name="push-changes-and-redeploy"></a>推送變更並重新部署
@@ -178,7 +178,7 @@ ms.locfileid: "39389937"
 3. 新組建會在 Jenkins 上啟動，由儲存機制之 `master` 分支上的新認可觸發。 完成時，請在 Azure 上重新載入您的應用程式。     
       ![在 Azure 上檢視已部署的應用程式](media/jenkins-java-quickstart/hello_docker_world.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>針對 Jenkins 外掛程式進行疑難排解
+## <a name="troubleshooting-the-jenkins-plugin"></a>對 Jenkins 外掛程式進行疑難排解
 
 如果您遇到任何有關 Jenkins 外掛程式的錯誤，請在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 的特定元件中提交問題。
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/21/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937932"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104977"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -81,13 +81,13 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 |巴西南部     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |加拿大中部    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |美國東部     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|美國東部 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|美國東部 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
 |美國中北部     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |美國中部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |美國中南部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |美國中西部   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|美國西部     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
-|美國西部 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
+|美國西部     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
+|美國西部 2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
 
 ### <a name="europe"></a>歐洲
 
@@ -95,7 +95,7 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 |---------|---------|:---------:|
 |北歐     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |英國南部   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|西歐     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
+|西歐     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
 
 ### <a name="asia-pacific"></a>亞太地區 
 
@@ -103,10 +103,8 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 |---------|---------|:---------:|
 |澳大利亞東南部     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |日本東部  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|東南亞     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
+|東南亞     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |印度西部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-
-\* 標準層中的 S8、S9 方案支援一個查詢複本。
 
 ## <a name="scale-to-your-needs"></a>調整您的需求
 

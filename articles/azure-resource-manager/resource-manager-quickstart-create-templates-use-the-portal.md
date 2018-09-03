@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5bb5ed45363216bb1bcd39f85157a3eed68c2f9
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: fb59ada68d773d1ef4148c1a4c1ae35620972aca
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126839"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093701"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本
 
@@ -78,7 +78,9 @@ Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決
 
 ## <a name="edit-and-deploy-the-template"></a>編輯和部署範本
 
-在本節中，您會從範本程式庫中開啟已儲存的範本、在入口網站中編輯範本，並部署修改過的範本。 若要編輯更複雜的範本，請考慮使用提供更多樣化編輯功能的 Visual Studio Code。
+在本節中，您會從範本程式庫中開啟已儲存的範本、在入口網站中編輯範本，並部署修改過的範本。 若要編輯更複雜的範本，請考慮使用提供更多樣化編輯功能的 [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)。
+
+Azure 會要求每個 Azure 服務都必須有唯一名稱。 如果您輸入已存在的儲存體帳戶名稱，部署將會失敗。 若要避免發生此問題，您可以使用範本函式呼叫 uniquestring() 來產生唯一的儲存體帳戶名稱。
 
 1. 在 Azure 入口網站中，從左側功能表中選取 [所有服務]，在篩選方塊中輸入**範本**，然後選取 [範本 (預覽)]。
 
@@ -178,6 +180,14 @@ Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決
 10. 選取 [購買]。
 11. 從畫面頂端選取鈴鐺圖示 (通知)，以查看部署狀態。
 
+    ![Azure Resource Manager 範本部署通知](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+
+12. 在 [通知] 窗格中選取 [移至資源群組]。 您應該會看到類似下方的畫面：
+
+    ![Azure Resource Manager 範本部署資源群組](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+
+    您可以看到部署狀態為成功，且資源群組中只有一個儲存體帳戶。 儲存體帳戶名稱是範本所產生的唯一字串。 若要深入了解如何使用 Azure 儲存體帳戶，請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
+
 ## <a name="clean-up-resources"></a>清除資源
 
 不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
@@ -189,7 +199,7 @@ Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何從 Azure 入口網站產生範本，以及如何使用入口網站部署範本。 本快速入門中使用的範本，是具有單一 Azure 資源的簡單範本。 如果是複雜的範本，則使用 Visual Studio Code 或 Visual Studio 會較容易開發範本。
+在本教學課程中，您已了解如何從 Azure 入口網站產生範本，以及如何使用入口網站部署範本。 本快速入門中使用的範本，是具有單一 Azure 資源的簡單範本。 如果是複雜的範本，則使用 Visual Studio Code 或 Visual Studio 會較容易開發範本。 下一個快速入門也將說明如何使用 Azure PowerShell 和 Azure 命令列介面 (CLI) 來部署範本。
 
 > [!div class="nextstepaction"]
 > [使用 Visual Studio Code 建立範本](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)

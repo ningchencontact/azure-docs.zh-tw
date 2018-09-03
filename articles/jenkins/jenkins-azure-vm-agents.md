@@ -1,19 +1,19 @@
 ---
 title: 使用 Azure VM 代理程式調整 Jenkins 部署。
 description: 使用有 Jenkins Azure VM 代理程式外掛程式的 Azure 虛擬機器，增加 Jenkins 管線的容量。
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, 虛擬機器, 代理程式
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 069c6df38f9caa73a30fbc25baafdf7efbd2f402
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429391"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106218"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>使用 Azure VM 代理程式調整 Jenkins 部署以滿足需求
 
@@ -118,7 +118,7 @@ ms.locfileid: "39429391"
 
 ![設定虛擬機器作業系統與工具](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
 
-選取 [管理員認證] 旁的 [新增]，再選取 [Jenkins]。 輸入用於登入代理程式的使用者名稱與密碼，並確定符合 Azure VM 上系統管理帳戶的[使用者名稱與密碼原則](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm)。
+選取 [管理員認證] 旁的 [新增]，再選取 [Jenkins]。 輸入用來登入代理程式的使用者名稱與密碼，並確定這些資料符合 Azure VM 系統管理帳戶的[使用者名稱與密碼原則](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm)。
 
 選取 [驗證範本] 驗證設定，然後選取 [儲存] 儲存您的變更並返回 Jenkins 儀表板。
 

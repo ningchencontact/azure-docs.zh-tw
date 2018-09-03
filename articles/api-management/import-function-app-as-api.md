@@ -1,9 +1,9 @@
 ---
-title: 在 Azure 入口網站中匯入 Azure Functions 應用程式作為 API | Microsoft Docs
-description: 本教學課程說明如何使用「Azure API 管理」匯入 Azure Functions 應用程式作為 API。
+title: 在 Azure API 管理中匯入 Azure 函式應用程式作為 API | Microsoft Docs
+description: 本教學課程說明如何將 Azure 函式應用程式匯入至 Azure API 管理作為 API。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,100 +11,168 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/15/2018
+ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: 670fa58de7155028b0f72f1f819b9f269e07b9eb
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239047"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246810"
 ---
-# <a name="import-an-azure-functions-app-as-an-api"></a>匯入 Azure Functions 應用程式作為 API
+# <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>在 Azure API 管理中匯入 Azure 函式應用程式作為 API
 
-本文說明如何匯入 Azure Functions 應用程式作為 API。 本文也說明如何測試 Azure API 管理 API。
+Azure API 管理支援將 Azure 函式應用程式匯入為新的 API，或將其附加至現有的 API。 此程序會在 Azure 函式應用程式中自動產生主機金鑰，而此金鑰接著會指派給 Azure API 管理中的具名值。
 
-在本文中，您將了解：
+本文將逐步說明如何在 Azure API 管理中匯入 Azure 函式應用程式作為 API。 此外也會說明其測試程序。
+
+您將了解如何：
 
 > [!div class="checklist"]
-> * 匯入函式應用程式作為 API
+> * 匯入 Azure 函式應用程式作為 API
+> * 將 Azure 函式應用程式附加至 API
+> * 檢視新的 Azure 函式應用程式主機金鑰與 Azure API 管理的具名值
 > * 在 Azure 入口網站中測試 API
 > * 在開發人員入口網站中測試 API
 
 ## <a name="prerequisites"></a>必要條件
 
-+ 完成[建立 Azure API 管理執行個體](get-started-create-service-instance.md)快速入門。
-+ 確定您的訂用帳戶中有 Azure Functions 應用程式。 如需詳細資訊，請參閱[建立函式應用程式](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)。
-+ 為您的 Azure Functions 應用程式[建立 OpenAPI 定義](../azure-functions/functions-openapi-definition.md)。
+* 完成[建立 Azure API 管理執行個體](get-started-create-service-instance.md)快速入門。
+* 確定您的訂用帳戶中有 Azure Functions 應用程式。 如需詳細資訊，請參閱[建立 Azure 函式應用程式](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)。 其中必須包含具有 HTTP 觸發程序的函式，且授權層級設定必須設為 [匿名] 或 [函式]。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"></a>匯入和發佈後端 API
+## <a name="add-new-api-from-azure-function-app"></a>匯入 Azure 函式應用程式作為新的 API
 
-1. 在 [API 管理] 下方，選取 [API]。
+請依照下列步驟從 Azure 函式應用程式建立新的 API。
+
+1. 在您的 **Azure API 管理**服務執行個體中，從左側的功能表中選取 [API]。
+
 2. 在 [新增 API] 清單中，選取 [函式應用程式]。
 
-    ![函式應用程式](./media/import-function-app-as-api/function-app-api.png)
-3. 選取 [瀏覽] 以查看您訂用帳戶中的函式應用程式清單。
-4. 選取應用程式。 APIM 管理會尋找與選取的應用程式相關聯的 Swagger，並在擷取後加以匯入。 
-5. 新增 API URL 尾碼。 此尾碼可用來在此 API 管理執行個體中識別這個 API 的名稱。 尾碼在此 API 管理執行個體中必須是唯一的。
-6. 透過將 API 關聯至某個產品來發佈 API。 在此案例中，我們使用「無限制」的產品。 如果您想要發佈 API 以供開發人員使用，請將 API 新增至產品。 您可以在建立 API 時將 API 新增至產品，或稍後再新增。
+    ![從函式應用程式新增](./media/import-function-app-as-api/add-01.png)
 
-    產品是一或多個 API 的關聯。 您可以包含多個 API，並透過開發人員入口網站將其提供給開發人員。 開發人員必須先訂閱產品，才能取得 API 的存取權。 當開發人員訂閱時，他們會取得適用於該產品中任何 API 的訂用帳戶金鑰。 如果您已建立 API 管理執行個體，您將是系統管理員。 根據預設，系統管理員會訂閱每個產品。
+3. 按一下 [瀏覽] 以選取要匯入的函式。
 
-    依預設，每個 API 管理執行個體會隨附兩個範例產品：
+    ![從函式應用程式新增](./media/import-function-app-as-api/add-02.png)
 
-    * **入門**
-    * **無限制**   
-7. 選取 [建立] 。
+4. 按一下 [函式應用程式] 區段，從可用的函式應用程式清單中選擇。
 
-## <a name="populate-azure-functions-keys-in-azure-api-management"></a>在 Azure API 管理中填入 Azure Functions 金鑰
+    ![從函式應用程式新增](./media/import-function-app-as-api/add-03.png)
 
-如果匯入的 Azure Functions 應用程式受到金鑰的保護，則 API 管理會自動為金鑰建立*具名值*。 API 管理不會在項目中填入祕密。 請為每個項目完成下列步驟：  
+5. 找出您要從中匯入函式的函式應用程式並按一下，然後按 [選取]。
 
-1. 在 API 管理執行個體中，選取 [具名值] 索引標籤。
-2. 選取項目，然後在資訊看板中選取 [顯示值]。
+    ![從函式應用程式新增](./media/import-function-app-as-api/add-04.png)
 
-    ![具名值](./media/import-function-app-as-api/apim-named-values.png)
+6. 選取您要匯入的函式，然後按一下 [選取]。
 
-3. 如果顯示在 [值] 方塊中的文字類似於 **\<Azure Functions 名稱\> 的程式碼**，請移至 [函式應用程式]，然後移至 [函式]。
-4. 選取 [管理]，然後根據應用程式的驗證方法複製相關金鑰。
+    ![從函式應用程式新增](./media/import-function-app-as-api/add-05.png)
 
-    ![函式應用程式 - 複製金鑰](./media/import-function-app-as-api/azure-functions-app-keys.png)
+    > [!NOTE]
+    > 您只能匯入設有 HTTP 觸發程序、且授權層級設定設為 [匿名] 或 [函式] 的函式。
 
-5. 將金鑰貼到 [值] 方塊中，然後選取 [儲存]。
+7. 視需要編輯預先填入的欄位。 按一下頁面底部的 [新增] 。
 
-    ![函式應用程式 - 貼上金鑰值](./media/import-function-app-as-api/apim-named-values-2.png)
+    ![從函式應用程式新增](./media/import-function-app-as-api/add-06.png)
 
-## <a name="test-the-new-api-management-api-in-the-azure-portal"></a>在 Azure 入口網站中測試新的 API 管理 API
+## <a name="append-azure-function-app-to-api"></a>將 Azure 函式應用程式附加至現有的 API
+
+請依照下列步驟，將 Azure 函式應用程式附加至現有的 API。
+
+1. 在您的 **Azure API 管理**服務執行個體中，從左側的功能表中選取 [API]。
+
+2. 選擇要在其中匯入 Azure 函式應用程式的 API。 按一下 **...**，然後從內容功能表中選取 [匯入]。
+
+    ![從函式應用程式附加](./media/import-function-app-as-api/append-01.png)
+
+3. 按一下 [函式應用程式] 圖格。
+
+    ![從函式應用程式附加](./media/import-function-app-as-api/append-02.png)
+
+4. 在快顯視窗中，按一下 [瀏覽]。
+
+    ![從函式應用程式附加](./media/import-function-app-as-api/append-03.png)
+
+5. 按一下 [函式應用程式] 區段，從可用的函式應用程式清單中選擇。
+
+    ![從函式應用程式新增](./media/import-function-app-as-api/add-03.png)
+
+6. 找出您要從中匯入函式的函式應用程式並按一下，然後按 [選取]。
+
+    ![從函式應用程式新增](./media/import-function-app-as-api/add-04.png)
+
+7. 選取您要匯入的函式，然後按一下 [選取]。
+
+    ![從函式應用程式新增](./media/import-function-app-as-api/add-05.png)
+
+8. 按一下 [匯入] 。
+
+    ![從函式應用程式附加](./media/import-function-app-as-api/append-04.png)
+
+## <a name="function-app-import-keys"></a>產生的 Azure 函式應用程式主機金鑰
+
+匯入 Azure 函式應用程式後會自動產生：
+* 位於函式應用程式內、名為 apim-{*您的 Azure API 管理服務執行個體名稱*} 的主機金鑰、
+* 位於 Azure API 管理執行個體內、名稱為 {*您的 Azure 函式應用程式執行個體名稱*}-key 的具名值，其中包含建立的主機金鑰。
+
+> [!WARNING]
+> 移除或變更 Azure 函式應用程式主機金鑰的值或 Azure API 管理具名值，將會中斷服務之間的通訊。 這些值不會自動同步。
+>
+> 如果需要輪替主機金鑰，請確定 Azure API 管理中的具名值也須一併修改。
+
+### <a name="access-azure-function-app-host-key"></a>存取 Azure 函式應用程式主機金鑰
+
+1. 瀏覽至 Azure 函式應用程式執行個體。
+
+2. 從概觀中選取 [函式應用程式設定]。
+
+    ![從函式應用程式新增](./media/import-function-app-as-api/keys-02-a.png)
+
+3. 金鑰位於 [主機金鑰] 區段中。
+
+    ![從函式應用程式新增](./media/import-function-app-as-api/keys-02-b.png)
+
+### <a name="access-the-named-value-in-azure-api-management"></a>存取 Azure API 管理中的具名值
+
+瀏覽至您的 Azure API 管理執行個體，然後從左側的功能表中選取 [具名值]。 Azure 函式應用程式金鑰儲存於此處。
+
+![從函式應用程式新增](./media/import-function-app-as-api/keys-01.png)
+
+## <a name="test-in-azure-portal"></a>在 Azure 入口網站中測試新的 API 管理 API
 
 您可以直接從 Azure 入口網站呼叫作業。 使用 Azure 入口網站可方便您檢視和測試 API 的作業。  
 
 1. 選取您在先前的小節中建立的 API。
+
 2. 選取 [測試] 索引標籤。
+
 3. 選取作業。
 
     頁面會顯示查詢參數的欄位和標頭的欄位。 其中一個標頭是 **Ocp-Apim-Subscription-Key**，它適用於此 API 相關產品的訂用帳戶金鑰。 如果您建立了 API 管理執行個體，您就已經是系統管理員，因此會自動填入此金鑰。 
+
 4. 選取 [傳送]。
 
     後端會回應 **200 確定**與部分資料。
 
-## <a name="call-operation"></a>從開發人員入口網站呼叫作業
+## <a name="test-in-developer-portal"></a>從開發人員入口網站呼叫作業
 
 您也可以從開發人員入口網站呼叫作業，以測試 API。 
 
 1. 選取您在[匯入和發佈後端 API](#create-api) 中建立的 API。
+
 2. 選取 [開發人員入口網站]。
 
     開發人員入口網站隨即開啟。
+
 3. 選取您所建立的 **API**。
+
 4. 選取您要測試的作業。
+
 5. 選取 [試試看]。
+
 6. 選取 [傳送]。
     
     叫用作業之後，開發人員入口網站會顯示 [回應狀態]、[回應標頭]，以及任何的 [回應內容]。
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

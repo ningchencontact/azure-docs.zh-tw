@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: f504f3bf513a20d8590d9907106b1fd12f907877
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 654cb09621837c360deccecb7778c5d467592dd1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651362"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124209"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教學課程：使用 Azure 入口網站和主題/訂用帳戶來更新庫存
 
@@ -34,7 +34,7 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 
 如果您沒有 Azure 訂用帳戶，您可以在開始前建立[免費帳戶][]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您已安裝︰
 
@@ -45,9 +45,9 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 
 [主題的每個訂用帳戶](service-bus-messaging-overview.md#topics)都會接收到每則訊息的複本。 主題在通訊協定和語意上都與服務匯流排佇列完全相容。 服務匯流排主題支援具有篩選條件、並且可透過選用動作來設定或修改訊息屬性的多種選取規則。 每當有規則符合時，就會產生一則訊息。 若要深入了解規則、篩選條件和動作，請進入此[連結](topic-filters.md)。
 
-## <a name="log-on-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
-首先，使用您的 Azure 訂用帳戶移至 [Azure 入口網站][Azure portal]並登入。 第一個步驟是建立**傳訊**類型的服務匯流排命名空間。
+首先，移至 [Azure 入口網站][Azure portal]，並使用您的 Azure 訂用帳戶登入。 第一個步驟是建立**傳訊**類型的服務匯流排命名空間。
 
 ## <a name="create-a-service-bus-namespace"></a>建立服務匯流排命名空間
 

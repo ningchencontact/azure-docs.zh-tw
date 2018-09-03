@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 08/29/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216961"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247363"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>使用 Azure 自動化來管理 Windows 更新
 
@@ -31,7 +31,7 @@ ms.locfileid: "36216961"
 > * 排定更新部署
 > * 檢視部署的結果
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 
@@ -82,9 +82,19 @@ ms.locfileid: "36216961"
 
 ## <a name="configure-alerts"></a>設定警示
 
-在此步驟中，您會設定警示，以便得知更新是否成功部署。 您所建立的警示會以 Log Analytics 查詢為基礎。 您可以為其他警示撰寫自訂查詢，以涵蓋許多不同的案例。 在 Azure 入口網站中，移至 [監視器]，然後選取 [建立警示]。 
+在此步驟中，您將了解如何透過 Log Analytics 查詢來設定警示，以得知更新已成功部署，或藉由追蹤更新管理的主要 Runbook 得知失敗的部署。
 
-在 [建立規則] 的 [1.定義警示條件] 之下，選取 [選取目標]。 在 [依資源類型篩選] 下，選取 [Log Analytics]。 選取您的 Log Analytics 工作區，然後選取 [完成]。
+### <a name="alert-conditions"></a>警示條件
+
+每個類型的警示各有不同的警示條件需要定義。
+
+#### <a name="log-analytics-query-alert"></a>Log Analytics 查詢警示
+
+針對成功的部署，您可以根據 Log Analytics 查詢來建立警示。 針對失敗的部署，您可以使用 [Runbook 警示](#runbook-alert)步驟，在負責協調更新部署的主要 Runbook 失敗時發出警示。 您可以為其他警示撰寫自訂查詢，以涵蓋許多不同的案例。
+
+在 Azure 入口網站中，移至 [監視器]，然後選取 [建立警示]。
+
+在 [1. 定義警示條件] 下，按一下 [選取目標]。 在 [依資源類型篩選] 下，選取 [Log Analytics]。 選取您的 Log Analytics 工作區，然後選取 [完成]。
 
 ![建立警示](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -104,7 +114,21 @@ UpdateRunProgress
 
 ![設定訊號邏輯](./media/automation-tutorial-update-management/signal-logic.png)
 
-在 [2.定義警示詳細資料] 之下，輸入警示的名稱和描述。 將 [嚴重性] 設定為 [資訊 (嚴重性 2)]，因為警示是在執行成功時發出。
+#### <a name="runbook-alert"></a>Runbook 警示
+
+針對失敗的部署，您必須在主要 Runbook 失敗時獲得通知。在 Azure 入口網站中移至 [監視]，然後選取 [建立警示]。
+
+在 [1. 定義警示條件] 下，按一下 [選取目標]。 在 [依資源類型篩選] 下方，選取 [自動化帳戶]。 選取您的自動化帳戶，然後選取 [完成]。
+
+針對 [Runbook 名稱]，按一下 **\+** 號，然後輸入 **Patch-MicrosoftOMSComputers** 作為自訂名稱。 針對 [狀態] 選擇 [失敗]，或按一下 **\+** 號以輸入 [失敗]。
+
+![設定 Runbook 的訊號邏輯](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+在 [警示邏輯] 之下，針對 [閾值]，輸入 **1**。 完成之後，選取 [完成]。
+
+### <a name="alert-details"></a>警示詳細資料
+
+在 **2.** 定義警示詳細資料 之下，輸入警示的名稱和描述。 將執行成功的 [嚴重性] 設定為 [資訊 (嚴重性 2)]，或將執行失敗的嚴重性設定為 [資訊 (嚴重性 1)]。
 
 ![設定訊號邏輯](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -126,9 +150,6 @@ UpdateRunProgress
 
 接下來，將部署安排在發行排程和服務時間範圍之後，以便安裝更新。 您可以選擇要在部署中包含的更新類型。 例如，您可以包含重大更新或安全性更新，並排除更新彙總套件。
 
-> [!WARNING]
-> 當更新需要重新啟動時，VM 就會自動重新啟動。
-
 若要為 VM 安排新的更新部署，請移至 [更新管理]，然後選取 [排程更新部署]。
 
 在 [新增更新部署] 之下，指定下列資訊：
@@ -136,6 +157,8 @@ UpdateRunProgress
 * **名稱**：輸入更新部署的唯一名稱。
 
 * **作業系統**：選取要進行更新部署的目標 OS。
+
+* **要更新的機器**：選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md)
 
 * **更新分類**：選取更新部署在部署中包含的軟體類型。 此教學課程中，將所有類型保留選取。
 
@@ -154,9 +177,17 @@ UpdateRunProgress
 
 * **維護時間範圍 (分鐘)**：保留預設值。 您可以設定您希望發生更新部署的時間範圍。 此設定有助於確保在您定義的服務時段內執行變更。
 
+* **重新開機選項**：此設定會決定應該如何處理重新開機。 可用選項包括：
+  * 在必要時重新開機 (預設值)
+  * 一律重新開機
+  * 永不重新開機
+  * 僅重新開機 - 將不會安裝更新
+
+排程設定完成後，請選取 [建立]。
+
 ![更新排程設定窗格](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-排程設定完成後，請選取 [建立]。 您會回到狀態儀表板。 選取 [排程更新部署] 可顯示您所建立的部署排程。
+您會回到狀態儀表板。 選取 [排程更新部署] 可顯示您所建立的部署排程。
 
 ## <a name="view-results-of-an-update-deployment"></a>檢視更新部署的結果
 

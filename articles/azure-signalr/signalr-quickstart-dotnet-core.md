@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cf47b2d6bd17fa5a9f7cbe98ab7db2799f6e8287
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674847"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916295"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>快速入門：搭配 SignalR 服務建立聊天室
 
@@ -39,7 +39,7 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 安裝 [.NET Core SDK](https://www.microsoft.com/net/download/windows) \(英文\)
 * 下載或複製 [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) \(英文\) GitHub 存放庫。 
@@ -93,15 +93,20 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
 
         dotnet restore
 
-3. 將名為 *Azure__SignalR__ConnectionString* 的祕密新增至祕密管理員。 此祕密是階層式組態值，且冒號 (:) 可能並非在所有平台上都有效。 所有平台皆支援雙底線 (__) (如同此秘密所使用)。  此祕密將包含存取您 SignalR 服務資源的連接字串。 *Azure__SignalR__ConnectionString* 為 SignalR 在建立連線時會尋找的預設組態金鑰。 請以您 SignalR 服務資源的連接字串取代下列命令中的值。
+3. 將名為 *Azure:SignalR:ConnectionString* 的祕密新增至祕密管理員。 
+
+    此祕密將包含存取您 SignalR 服務資源的連接字串。 *Azure:SignalR:ConnectionString* 為 SignalR 在建立連線時預設會尋找的設定金鑰。 請以您 SignalR 服務資源的連接字串取代下列命令中的值。
 
     此命令必須在和 *.csproj* 檔案相同的目錄中執行。
 
     ```
-    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     祕密管理員將只會被用來測試於本機裝載的 Web 應用程式。 在稍後的教學課程中，您會將聊天 Web 應用程式部署至 Azure。 在 Web 應用程式部署至 Azure 之後，您將會使用應用程式設定，而非搭配祕密管理員儲存連接字串。
+
+    此祕密可使用組態 API 來存取。 在所有支援的平台上，組態 API 的組態名稱中都適用冒號 (:)，請參閱[取決於環境的組態](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment)。 
+
 
 4. 開啟 *Startup.cs* 並更新 `ConfigureServices` 方法，以透過呼叫 `services.AddSignalR().AddAzureSignalR()` 來使用 Azure SignalR 服務：
 
@@ -113,7 +118,7 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
     }
     ```
 
-    透過不傳遞參數至 `AddAzureSignalR()`，此程式碼會針對 SignalR 服務資源連接字串使用預設組態金鑰 *Azure__SignalR__ConnectionString*。
+    透過不傳遞參數至 `AddAzureSignalR()`，此程式碼會針對 SignalR 服務資源連接字串使用預設設定金鑰 *Azure:SignalR:ConnectionString*。
 
 5. 同時，透過在 *Startup.cs* 中以下列程式碼取代對 `app.UseStaticFiles()` 的呼叫並儲存檔案，來更新 `Configure` 方法。
 

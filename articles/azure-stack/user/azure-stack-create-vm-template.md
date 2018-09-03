@@ -3,7 +3,7 @@ title: 在本教學課程中，您要使用範本來建立 Azure Stack 虛擬機
 description: 說明如何使用 ASDK，來建立會使用預先定義範本和 GitHub 自訂範本的虛擬機器。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: e772dc41ce2cb77a03b91515cae35ffc48f5dbc3
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5026a7a753ec744d281266b2fb30a70a66a7f9db
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236914"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050377"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>教學課程：建立使用社群範本的虛擬機器
 身為 Azure Stack 操作人員或使用者，您可以建立會使用[自訂 GitHub 快速入門的範本](https://github.com/Azure/AzureStack-QuickStart-Templates)的虛擬機器，而無須從 Azure Stack 市集手動部署虛擬機器。
@@ -101,13 +101,13 @@ Minikube 是種可讓您在本機輕鬆執行 Kubernetes 的工具。 Minikube �
    > 部署完成後，虛擬機器就會開始執行。 
 
 ## <a name="start-minikube-and-install-an-application"></a>啟動 minikube 並安裝應用程式
-現在 Linux 虛擬機器已成功建立，您就可以登入以啟動 Minikube 並安裝應用程式。 
+Linux 虛擬機器現已成功建立，您可以登入以啟動 Minikube 並安裝應用程式。 
 
 1. 部署完成後，請按一下 [連線] 以檢視用來連線到 Linux 虛擬機器的公用 IP 位址。 
 
    ![](media/azure-stack-create-vm-template/9.PNG)
 
-2. 從提升權限的命令提示字元執行 **mstsc.exe**，開啟 [遠端桌面連線]，並連線到上一個步驟中所探索到的 Linux 虛擬機器公用 IP 位址。 系統提示您登入 xRDP 時，請使用您在建立虛擬機器時所指定的認證。
+2. 從提升權限的命令提示字元執行 **mstsc.exe**，開啟 [遠端桌面連線]，並連線到上一個步驟中所探索到的 Linux 虛擬機器公用 IP 位址。 當系統提示您登入 xRDP 時，請使用您在建立虛擬機器時指定的認證。
 
    ![](media/azure-stack-create-vm-template/10.PNG)
 
@@ -125,7 +125,7 @@ Minikube 是種可讓您在本機輕鬆執行 Kubernetes 的工具。 Minikube �
 
    ![](media/azure-stack-create-vm-template/12.PNG)
 
-5. 若您想要部署範例應用程式，請造訪 Kubernetes 的官方文件頁面，並略過「建立 Minikube 叢集」一節 (因為您在以上步驟中已建立過)。 請直接跳到「建立 Node.js 應用程式」一節，網址是：https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/。
+5. 若您想要部署範例應用程式，請造訪 Kubernetes 的官方文件頁面，並略過「建立 Minikube 叢集」一節 (因為您在以上步驟中已建立過)。 請直接跳到「建立 Node.js 應用程式」一節，網址是： https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/。
 
 ## <a name="next-steps"></a>後續步驟
 

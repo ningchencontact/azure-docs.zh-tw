@@ -1,19 +1,19 @@
 ---
 title: 使用 Jenkins 外掛程式來部署到 Azure App Service
 description: 了解如何在 Jenkins 中使用 Azure App Service Jenkins 外掛程式將 Java Web 應用程式部署到 Azure
-ms.topic: article
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441675"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095762"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
 
@@ -39,7 +39,7 @@ ms.locfileid: "39441675"
 > [!NOTE]
 > 必須要有 Java JDK 和 Maven，才能建置 Java 專案。 如果您使用代理程式來進行持續整合，請將這些元件安裝在 Jenkins Master 上。 
 
-若要安裝這些元件，請使用 SSH 來登入 Jenkins 執行個體，然後執行下列命令：
+若要安裝這些元件，請使用 SSH 登入 Jenkins 執行個體，然後執行下列命令：
 
 ```bash
 sudo apt-get install -y openjdk-7-jdk
@@ -119,7 +119,7 @@ Azure App Service Jenkins 外掛程式是符合管線需求的外掛程式。 �
 2. 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)。 選取 [確定] 。
 3. 選取 [Pipeline] \(管線\) 索引標籤。
 4. 針對 [Definition] \(定義\) 值，選取 [Pipeline script from SCM] \(來自 SCM 的管線指令碼\)。
-5. 針對 [SCM] 值，選取 [Git]。 輸入您分支儲存機制的 GitHub URL。 例如：https://&lt;your_forked_repo>.git。
+5. 針對 [SCM] 值，選取 [Git]。 輸入您分支儲存機制的 GitHub URL。 例如： https://&lt;your_forked_repo>.git。
 6. 將 [Script Path] \(指令碼路徑\) 值更新成 **Jenkinsfile_ftp_plugin**。
 7. 按一下 [Save] \(儲存\) 並執行作業。
 
@@ -137,7 +137,7 @@ Linux 上的 Web Apps 也支援 Git 和 FTP 等傳統部署方法，但僅適用
 ### <a name="set-up-the-jenkins-job-for-docker"></a>設定 Docker 的 Jenkins 作業
 
 1. 在 Jenkins 儀表板上建立新的**自由樣式**專案。
-2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如：http://github.com/&ltyour_ID>/javawebappsample。
+2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如： http://github.com/&ltyour_ID>/javawebappsample。
 3. 使用 Maven 藉由新增**執行 shell** 命令來新增一個建置專案的步驟。 在命令中包含下列一行：
     ```bash
     mvn clean package
@@ -187,7 +187,7 @@ Linux 上的 Web Apps 也支援 Git 和 FTP 等傳統部署方法，但僅適用
 2. 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)。 選取 [確定] 。
 3. 選取 [Pipeline] \(管線\) 索引標籤。
 4. 針對 [Definition] \(定義\) 值，選取 [Pipeline script from SCM] \(來自 SCM 的管線指令碼\)。
-5. 針對 [SCM] 值，選取 [Git]。 輸入您分支儲存機制的 GitHub URL。 例如：https://&lt;your_forked_repo>.git。
+5. 針對 [SCM] 值，選取 [Git]。 輸入您分支儲存機制的 GitHub URL。 例如： https://&lt;your_forked_repo>.git。
 7. 將 [Script Path] \(指令碼路徑\) 值更新成 **Jenkinsfile_container_plugin**。
 8. 按一下 [Save] \(儲存\) 並執行作業。
 

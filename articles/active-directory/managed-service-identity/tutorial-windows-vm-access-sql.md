@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b6b2985bf72d9ecb2041d51852b5a4230e11d8be
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41917908"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886048"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>教學課程：使用 Windows VM 受控服務識別來存取 Azure SQL
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程示範如何使用 Windows 虛擬機器 (VM) 的受控服務識別來存取 Azure SQL 伺服器。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
+本教學課程說明如何將系統指派的身分識別用於 Windows 虛擬機器 (VM)，以存取 Azure SQL 伺服器。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
 
 > [!div class="checklist"]
-> * 在 Windows VM 上啟用受控服務識別 
 > * 將您的 VM 存取權授與 Azure SQL 伺服器
+> * 在 Azure AD 中建立群組，並讓 VM 受控服務識別成為此群組的成員
+> * 啟用 SQL Server 的 Azure AD 驗證
+> * 在代表 Azure AD 群組的資料庫中建立包含的使用者
 > * 使用 VM 身分識別取得存取權杖，並使用它查詢 Azure SQL 伺服器
 
 ## <a name="prerequisites"></a>必要條件
@@ -38,32 +40,11 @@ ms.locfileid: "41917908"
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>登入 Azure
+- [登入 Azure 入口網站](https://portal.azure.com)
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+- [建立 Windows 虛擬機器](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
-
-此教學課程中，我們會建立新的 Windows VM。  您也可以在現有的 VM 上啟用受控服務識別。
-
-1.  按一下 Azure 入口網站左上角的 [建立資源] 按鈕。
-2.  選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
-3.  輸入虛擬機器資訊。 在此建立的**使用者名稱**和**密碼**是您登入虛擬機器要使用的認證。
-4.  在下拉式清單中選擇適用於虛擬機器的適當**訂用帳戶**。
-5.  若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
-6.  選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 頁面上，保留預設值並按一下 [確定]。
-
-    ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>在 VM 上啟用受控服務識別 
-
-VM 受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 啟用受控服務識別會告訴 Azure 為您的 VM 建立受控識別。 實際上，啟用受控服務識別可執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控識別，它就會在 VM 上設定身分識別。
-
-1.  選取您想要在其上啟用受控服務識別的 [虛擬機器]。  
-2.  在左側的導覽列上，按一下 [設定]。 
-3.  您會看到**受控服務識別**。 若要註冊並啟用受控服務識別，請選取 [是]，如果您想要將停用，則請選擇 [否]。 
-4.  按一下 [儲存] 確認儲存設定。  
-    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [在虛擬機器上啟用系統指派的身分識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>將您的 VM 存取權授與 Azure SQL 伺服器中的資料庫
 
@@ -78,7 +59,7 @@ VM 受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將�
 > 通常您會建立直接對應到 VM 受控服務識別的「包含的使用者」。  現階段，Azure SQL 不允許代表 VM 受控服務識別的 Azure AD 服務主體對應到包含的使用者。  支援的因應措施是，讓 VM 受控服務識別成為 Azure AD 群組的成員，然後在代表該群組的資料庫中建立包含的使用者。
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>在 Azure AD 中建立群組，並讓 VM 受控服務識別成為此群組的成員
+## <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>在 Azure AD 中建立群組，並讓 VM 受控服務識別成為此群組的成員
 
 您可以使用現有的 Azure AD 群組，或使用 Azure AD PowerShell 建立一個新群組。  
 
@@ -132,7 +113,7 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>啟用 SQL Server 的 Azure AD 驗證
+## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>啟用 SQL Server 的 Azure AD 驗證
 
 現在，您已建立群組並將 VM 受控服務識別新增為成員，可以使用下列步驟[設定 SQL Server 的 Azure AD 驗證](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server)：
 
@@ -143,7 +124,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 5.  選取要設為伺服器系統管理員的 Azure AD 使用者帳戶，然後按一下 [選取]。
 6.  在命令列中，按一下 [儲存]。
 
-### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>在代表 Azure AD 群組的資料庫中建立包含的使用者
+## <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>在代表 Azure AD 群組的資料庫中建立包含的使用者
 
 在這一個步驟中，您需要 [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。 在開始之前，先閱讀以下文章了解 Azure AD 整合的背景會很有幫助：
 
@@ -180,7 +161,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 Azure SQL 原生支援 Azure AD 驗證，因此可以直接接受使用受控服務識別取得的存取權杖。  您使用 **access token** 方法來建立 SQL 連線。  這是 Azure AD 與 Azure SQL 整合的一部分，與在連接字串上提供認證不同。
 
-以下是使用存取權杖開啟 SQL 連線的 .Net 程式碼範例。  此程式碼必須在 VM 上執行，才能夠存取 VM 受控服務識別端點。  需使用 **.Net framework 4.6** 或更高版本，才可使用的 access token 方法。  將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。  請注意，Azure SQL 資源識別碼是「https://database.windows.net/」。
+以下是使用存取權杖開啟 SQL 連線的 .Net 程式碼範例。  此程式碼必須在 VM 上執行，才能夠存取 VM 受控服務識別端點。  需使用 **.Net framework 4.6** 或更高版本，才可使用的 access token 方法。  將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。  請注意，Azure SQL 資源識別碼是「 https://database.windows.net/」。
 
 ```csharp
 using System.Net;

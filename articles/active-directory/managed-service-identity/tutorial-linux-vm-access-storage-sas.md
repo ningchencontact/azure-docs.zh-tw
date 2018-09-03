@@ -14,24 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a8eb733cf90d0160fe4b36cfb8c30df3ff19566e
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: e59282f202b80ffe43e049c71a60b882ea8168a5
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258487"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885003"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>教學課程：使用 Linux VM 受控服務識別透過 SAS 認證存取 Azure 儲存體
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程說明如何為 Linux 虛擬機器啟用受控服務識別，然後使用受控服務識別來取得儲存體共用存取簽章 (SAS) 認證。 具體而言，即[服務 SAS 認證](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)。 
+本教學課程說明如何將系統指派的身分識別用於 Linux 虛擬機器 (VM)，以取得儲存體共用存取簽章 (SAS) 認證。 具體而言，即[服務 SAS 認證](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)。 
 
 服務 SAS 提供可針對有限的時間和特定的服務，授與儲存體帳戶中物件的有限存取權 (在此情況下，即 Blob 服務)，而不需要公開帳戶存取金鑰。 在執行儲存體作業時 (例如使用儲存體 SDK)，您可以如往常般使用 SAS 認證。 此教學課程中，我們會示範使用 Azure 儲存體 CLI 上傳和下載 blob。 您將了解如何：
 
 
 > [!div class="checklist"]
-> * 在 Linux 虛擬機器上啟用受控服務識別 
+> * 建立儲存體帳戶
+> * 在儲存體帳戶中建立 Blob 容器
 > * 在資源管理員中將 VM 存取權限授與儲存體帳戶 SAS 
 > * 使用 VM 身分識別取得存取權杖，並將其用於從資源管理員取出 SAS 
 
@@ -41,34 +42,11 @@ ms.locfileid: "39258487"
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>登入 Azure
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+- [登入 Azure 入口網站](https://portal.azure.com)
 
+- [建立 Linux 虛擬機器](/azure/virtual-machines/linux/quick-create-portal)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
-
-此教學課程中，我們會建立新的 Linux VM。 您也可以在現有的 VM 上啟用受控服務識別。
-
-1. 按一下 Azure 入口網站左上角的 [+/建立新服務] 按鈕。
-2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
-3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
-
-    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. 在下拉式清單中選擇適用於虛擬機器的**訂用帳戶**。
-5. 若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
-6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更支援的磁碟類型篩選條件。 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>在 VM 上啟用受控服務識別
-
-虛擬機器受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 在 VM 上啟用受控服務識別可執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。 
-
-1. 巡覽 至新虛擬機器的資源群組，並選取您在上一個步驟中建立的虛擬機器。
-2. 在左側的 VM [ 設定] 下，按一下 [設定]。
-3. 若要註冊並啟用受控服務識別，請選取 [是]，如果您想要將停用，則請選擇 [否]。
-4. 按一下 [儲存] 確認儲存設定。
-
-    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [在虛擬機器上啟用系統指派的身分識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 

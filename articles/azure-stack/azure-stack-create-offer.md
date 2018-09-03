@@ -6,20 +6,20 @@ documentationcenter: ''
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/2/2018
+ms.date: 08/20/2018
 ms.author: brenduns
-ms.openlocfilehash: eed715a7c2cb967f6c9ea0b7d4442a4f9976bd17
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.reviewer: efemmano
+ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345884"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "43050411"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>在 Azure Stack 中建立優惠
 
@@ -46,20 +46,16 @@ ms.locfileid: "37345884"
    > [!TIP]  
    > 對供應項目所做的變更不會立即對使用者顯示。 若要查看變更，使用者可能必須先登出並再次登入使用者入口網站，才能看見新的供應項目。
 
-   若要變更供應項目的狀態：
-
-   - **1803 (含) 之後的版本**：  
-     在供應項目的 [概觀] 上，選取 [可存取性狀態]。 選擇您想要使用的狀態 (例如，公用)，然後選取 [儲存]。
+   在供應項目的 [概觀] 上，選取 [可存取性狀態]。 選擇您想要使用的狀態 (例如，公用)，然後選取 [儲存]。
  
-     ![選取可存取性狀態](media/azure-stack-create-offer/change-state.png)
+     ![選擇狀態](media/azure-stack-create-offer/change-stage-1807.png)
 
-     或者，在存取供應項目之後，您可以移至 [供應項目設定]。 選取 [可存取性狀態] 來變更狀態。
+     或者，您可以選取 [變更狀態]，然後選擇狀態。
 
-   - **1803 之前的版本**：  
-     選取 [所有資源]，搜尋您的新供應項目，然後選取新的供應項目。 選取 [變更狀態]，然後選取 [公開]。
+    ![選取可存取性狀態](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > 您也可以使用 PowerShell 來建立預設供應項目、方案和配額。 如需詳細資訊，請參閱 [Azure Stack PowerShell Module 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)。
+   > 您也可以使用 PowerShell 來建立預設供應項目、方案和配額。 如需詳細資訊，請參閱 [Azure Stack PowerShell Module 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0)。
 
 ## <a name="next-steps"></a>後續步驟
 

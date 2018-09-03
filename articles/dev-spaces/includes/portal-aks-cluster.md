@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c4a5b66fe35da01a3661715e17a9fda20bc2411
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166027"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184730"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>建立已針對 Azure Dev Spaces 啟用的 Kubernetes 叢集
 
@@ -42,7 +42,7 @@ ms.locfileid: "40166027"
 
    ![啟用 Http 應用程式路由](../media/common/Kubernetes-Create-Cluster-3.PNG)
 
-    > [!IMPORTANT]
-    > 您務必要在建立 AKS 叢集時啟用 [Http 應用程式路由]。 您之後無法變更此設定。
+    > [!Note]
+    > 若要在現有的叢集上啟用 [HTTP 應用程式路由](/azure/aks/http-application-routing)，請使用命令：`az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. 選取 [檢閱 + 建立]，然後在完成時選取 [建立]。

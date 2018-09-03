@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 20dc414c5cdd309434ba53acf2d7f6716d3edfe5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009921"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143418"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱磁碟 (預覽)
 
@@ -54,7 +54,6 @@ ms.locfileid: "39009921"
 
 一旦建立訂單後，磁碟就準備出貨。 
 
-
 ## <a name="unpack"></a>打開包裝
 
 這個步驟需要大約 5 分鐘。
@@ -64,7 +63,6 @@ ms.locfileid: "39009921"
 - 1 到 5 個發泡包裝的 USB 磁碟。
 - 每個磁碟都有連接纜線。 
 - 退貨用的出貨標籤。
- 
 
 ## <a name="connect-and-unlock"></a>連線並解除鎖定
 
@@ -75,10 +73,8 @@ ms.locfileid: "39009921"
 
     1. 在 Azure 入口網站中，前往 [一般] > [裝置詳細資料] 並取得通行金鑰。
     2. 在用來將資料複製到磁碟上的電腦上，下載及擷取資料箱碟解除鎖定工具。 
-    3. 執行 DataBoxDiskUnlock.exe，並提供通行金鑰。 若重新插入任何磁碟，請重複進行步驟。
+    3. 執行 DataBoxDiskUnlock.exe，並提供通行金鑰。 若要執行磁碟重新插入，請再次執行解除鎖定工具，並提供通行金鑰。 **請勿使用 BitLocker 對話方塊或 BitLocker 金鑰來解除鎖定磁碟。** 
     4. 指派給磁碟的磁碟機代號會由工具顯示。 請記下磁碟機代號。 這會用於後續的步驟。
-
-
 
 ## <a name="copy-data-and-verify"></a>複製資料並加以確認
 
@@ -92,7 +88,7 @@ ms.locfileid: "39009921"
     > - 所有容器和 Blob 都應符合 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)。 如果未遵循這些規則，則將資料上傳至 Azure 會失敗。
     > - 請確定檔案的區塊 Blob 不超過約 4.7 TB，而分頁 Blob 不超過約 8 TB。
 
-2. (選擇性) 複製完成之後，建議您執行 AzureImportExport 資料夾中提供的 `AzureExpressDiskService.ps1`，以產生驗證的總和檢查碼。 視資料大小而定，此步驟可能需要一段時間。 
+2. (選擇性) 複製完成之後，建議您執行 AzureImportExport 資料夾中提供的 `AzureExpressDiskService.cmd`，以產生驗證的總和檢查碼。 視資料大小而定，此步驟可能需要一段時間。 
 3. 拔除磁碟機。 
 
 
@@ -116,7 +112,6 @@ ms.locfileid: "39009921"
     1. 檢查所有失敗的錯誤記錄，並採取適當的動作。
     2. 請先確認您的資料位於儲存體帳戶中，再從來源予以刪除。
 
-
 ## <a name="clean-up-resources"></a>清除資源
 
 完成此步驟需要 2-3 分鐘。
@@ -131,7 +126,7 @@ ms.locfileid: "39009921"
 
     若要刪除訂單，請前往 [概觀]，然後從命令列按一下 [刪除]。
 
-## <a name="next-step"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 在本快速入門中，您已部署 Azure 資料箱磁碟，以協助將您的資料匯入 Azure。 若要深入了解 Azure 資料箱磁碟管理，請進入下列教學課程： 
 

@@ -1,26 +1,19 @@
 ---
-title: 使用 Jenkins 來執行 Azure CLI | Microsoft Docs
+title: 使用 Jenkins 執行 Azure CLI
 description: 了解如何在 Jenkins 管線中使用 Azure CLI 將 Java Web 應用程式部署到 Azure
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
 ms.service: jenkins
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
+keywords: jenkins, azure, devops, app service, cli
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 6/7/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 1796e9f76e39334c8bbdd03463a0f91e9b47cb17
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7d9565db8fe46ee26fafa7bd021d771e728e9a77
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421299"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43101607"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>使用 Jenkins 和 Azure CLI 來部署到 Azure App Service
 若要將 Java Web 應用程式部署到 Azure，您可以在 [Jenkins 管線](https://jenkins.io/doc/book/pipeline/)中使用 Azure CLI。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
@@ -46,7 +39,7 @@ ms.locfileid: "39421299"
 * 在 Jenkins 儀表板中，按一下 [Manage Jenkins] \(管理 Jenkins\) -> [Plugin Manager] \(外掛程式管理員\)，然後搜尋 [Azure Credential] \(Azure 認證\)。 
 * 如果版本比 1.2 版舊，請更新外掛程式。
 
-Jenkins Master 中也必須有 Java JDK 和 Maven。 若要安裝，請使用 SSH 來登入 Jenkins Master，然後執行下列命令：
+Jenkins Master 中也必須有 Java JDK 和 Maven。 若要安裝，請使用 SSH 登入 Jenkins Master，然後執行下列命令：
 ```bash
 sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
@@ -122,7 +115,7 @@ Web 應用程式定義備妥之後，Azure CLI 會顯示類似下列範例的資
 
 ### <a name="configure-java"></a>設定 Java 
 
-使用 [az appservice web config update](/cli/azure/appservice/web/config#az-appservice-web-config-update) 命令來設定您的應用程式需要的 Java 執行階段組態。
+使用 [az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update) 命令來設定您的應用程式需要的 Java 執行階段組態。
 
 下列命令會將 Web 應用程式設定為在最新的 Java 8 JDK 和 [Apache Tomcat](http://tomcat.apache.org/) 8.0 上執行。
 

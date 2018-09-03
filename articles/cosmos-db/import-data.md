@@ -12,18 +12,19 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 43092a12535ed18a5c91f924e3fdf72ad6d47d7b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ea8bb1db53deaa546f4174ddc04d9a270aa96d9a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41917541"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187778"
 ---
-# <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：資料移轉工具
+# <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用資料移轉工具將您的資料移轉至 Azure Cosmos DB 
 
 本教學課程提供使用 Azure Cosmos DB 資料移轉工具的相關指示，可將資料從各種來源匯入到 Azure Cosmos DB 集合和資料表。 您可以從 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB 以及甚至 Azure Cosmos DB SQL API 集合來匯入，並將該資料移轉到集合和資料表以供用於 Azure Cosmos DB。 針對 SQL API 從單一分割區集合移轉到多重分割區集合時，也可以使用資料移轉工具。
 
 您要將哪個 API 用於 Azure Cosmos DB？ 
+
 * **[SQL API](documentdb-introduction.md)** - 您可以使用資料移轉工具中所提供的任何來源選項來匯入資料。
 * **[資料表 API](table-introduction.md)** - 您可以使用資料移轉工具或 AzCopy 來匯入資料。 如需詳細資訊，請參閱[匯入資料以用於 Azure Cosmos DB 資料表 API](table-import.md)。
 * **[MongoDB API](mongodb-introduction.md)** - 資料移轉工具目前不支援 Azure Cosmos DB MongoDB API 作為來源或目標。 如果您想要在 Azure Cosmos DB 的 MongoDB API 集合中移入或移出資料，請參閱 [Azure Cosmos DB：如何針對 MongoDB API 移轉資料](mongodb-migrate.md)以取得相關指示。 您仍可使用資料移轉工具，將資料從 MongoDB 匯出到 Azure Cosmos DB SQL API 集合，以便使用於 SQL API。 
@@ -77,8 +78,8 @@ ms.locfileid: "41917541"
 * [Blob](#BlobImport)
 * [Azure Cosmos DB 集合](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure Cosmos DB 大量匯入](#SQLBulkImport)
-* [Azure Cosmos DB 循序記錄匯入](#DocumentDSeqTarget)
+* [Azure Cosmos DB 大量匯入](#SQLBulkTarget)
+* [Azure Cosmos DB 循序記錄匯入](#SQLSeqTarget)
 
 
 ## <a id="JSON"></a>匯入 JSON 檔案

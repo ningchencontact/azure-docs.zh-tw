@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9d60b85051ff6e24c64f074ccd4fad055ba47ae8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1009a7a1d9f354f7a41b0e3a0fbc49d57992bc31
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523575"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916465"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>快速入門：建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶
 
@@ -87,7 +87,7 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 若要在 Azure 入口網站中建立一般用途 v2 儲存體帳戶，請遵循下列步驟：
 
 > [!NOTE]
-> 只有美國西部 2 和美國中西部會啟用階層式命名空間。 在建立儲存體帳戶時，請務必指定這兩個位置其中之一。
+> 只有在美國東部、美國東部 2、美國西部、美國西部 2、美國中西部、北歐、西歐、東南亞和澳大利亞東部才會啟用階層式命名空間。 在建立儲存體帳戶時，請務必指定這兩個位置其中之一。
 
 1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [所有服務]。 然後，向下捲動至 [儲存體]，然後選擇 [儲存體帳戶]。 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
 2. 輸入儲存體帳戶的名稱。
@@ -114,15 +114,6 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 2. 找出要刪除的資源群組，以滑鼠右鍵按一下清單右側的 [更多] 按鈕 (**...**)。
 3. 選取 [刪除資源群組] 並且確認。
 
-
-## <a name="upgrade-your-powershell-module"></a>升級 PowerShell 模組
-
-若要透過 PowerShell 與 Data Lake Storage Gen2 互動，您必須將模組升級為預覽版本。
-
-若要這樣做，請開啟提升權限的 PowerShell 並輸入下列命令：`Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
-
-然後重新啟動殼層。
-
 ## <a name="create-an-account-using-powershell"></a>使用 PowerShell 建立帳戶
 
 使用 `Login-AzureRmAccount` 命令登入 Azure 訂用帳戶，並遵循畫面上的指示以進行驗證。
@@ -131,12 +122,20 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 Login-AzureRmAccount
 ```
 
+### <a name="upgrade-your-powershell-module"></a>升級 PowerShell 模組
+
+若要透過 PowerShell 與 Data Lake Storage Gen2 互動，您必須將模組升級為預覽版本。
+
+若要這樣做，請開啟提升權限的 PowerShell 並輸入下列命令：`Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+然後重新啟動殼層。
+
 ### <a name="create-a-resource-group"></a>建立資源群組
 
 若要使用 PowerShell 建立新的資源群組，請使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令： 
 
 > [!NOTE]
-> 只有美國西部 2 和美國中西部會啟用階層式命名空間。 在建立儲存體帳戶時，請務必指定這兩個位置其中之一。
+> 只有在美國東部、美國東部 2、美國西部、美國西部 2、美國中西部、北歐、西歐、東南亞和澳大利亞東部才會啟用階層式命名空間。 在建立儲存體帳戶時，請務必指定這兩個位置其中之一。
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -170,13 +169,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="upgrade-your-cli-module"></a>升級 CLI 模組
-
-若要透過 CLI 與 Data Lake Storage Gen2 互動，您必須在殼層中新增擴充功能。
-
-若要這樣做：請使用 Cloud Shell 或本機殼層，輸入下列命令來這麼做：`az extension add --name storage-preview`
-
-## <a name="create-an-account-using-azure-cli"></a>使用 Azure CLI 建立帳戶 
+## <a name="create-an-account-using-azure-cli"></a>使用 Azure CLI 建立帳戶
 
 若要啟動 Azure Cloud Shell，請登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -186,9 +179,15 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 az login
 ```
 
+### <a name="upgrade-your-cli-module"></a>升級 CLI 模組
+
+若要透過 CLI 與 Data Lake Storage Gen2 互動，您必須在殼層中新增擴充功能。
+
+若要這樣做：請使用 Cloud Shell 或本機殼層輸入下列命令：`az extension add --name storage-preview`
+
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-若要使用 Azure CLI 建立新的資源群組，請使用 [az group create](/cli/azure/group#az_group_create) 命令。 
+若要使用 Azure CLI 建立新的資源群組，請使用 [az group create](/cli/azure/group#az_group_create) 命令。
 
 ```azurecli-interactive
 az group create \
@@ -197,7 +196,7 @@ az group create \
 ```
 
 > [!NOTE]
-> 只有美國西部 2 和美國中西部會啟用階層式命名空間。 在建立儲存體帳戶時，請務必指定這兩個位置其中之一。
+> 只有在美國東部、美國東部 2、美國西部、美國西部 2、美國中西部、北歐、西歐、東南亞和澳大利亞東部才會啟用階層式命名空間。 在建立儲存體帳戶時，請務必指定這兩個位置其中之一。
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>建立一般用途的 v2 儲存體帳戶
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726324"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42811908"
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -124,7 +124,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 
 當您使用 BGP 交換 Azure 與路由時，系統會針對每個公佈的首碼，將個別路由新增至虛擬網路中的所有子網路路由表。 新增路由的來源和下一個躍點類型會列為*虛擬網路閘道*。 
 
-在路由表上使用屬性，即可在子網路上停用 BGP 路由傳播。 當您使用 BGP 與 Azure 交換路由時，路由不會新增至已停用 BGP 傳播的所有子網路路由表。 使用下一個躍點類型為 VPN 的[自訂路由](#custom-routes) 即可進行 VPN 連線。 如需詳細資訊，請參閱[如何停用 BGP 路由傳播](manage-route-table.md#create-a-route-table)。
+在路由表上使用屬性，即可在子網路上停用 BGP 路由傳播。 當您使用 BGP 與 Azure 交換路由時，路由不會新增至已停用 BGP 傳播的所有子網路路由表。 使用下一個躍點類型為*虛擬網路閘道*的[自訂路由](#custom-routes)，即可進行 VPN 連線。 如需詳細資訊，請參閱[如何停用 BGP 路由傳播](manage-route-table.md#create-a-route-table)。
 
 ## <a name="how-azure-selects-a-route"></a>Azure 如何選取路由
 
@@ -167,7 +167,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
         - 能夠進行網路位址轉譯和轉送，或對傳送至子網路中目的地資源的流量設定 Proxy，並將流量傳回網際網路。 
     - **虛擬網路閘道**：如果閘道是 ExpressRoute 虛擬網路閘道，則透過 ExpressRoute 的[私人對等互連](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering)，連線到網際網路的裝置在內部部署上可以進行網路位址轉譯和轉送，或對傳送至子網路中目的地資源的流量設定 Proxy。 
 
-如果虛擬網路連線至 Azure VPN 閘道，請勿將路由表關聯至所含路由的目的地為 0.0.0.0/0 的[閘道子網路](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 這麼做會讓閘道無法正常運作。
+如果虛擬網路連線至 Azure VPN 閘道，請勿將路由表關聯至所含路由的目的地為 0.0.0.0/0 的[閘道子網路](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 這麼做會讓閘道無法正常運作。 如需詳細資訊，請參閱 [VPN 閘道常見問題集](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway)中的*為什麼 VPN 閘道上的某些連接埠已開啟？* 問題。
 
 請參閱 [Azure 與內部部署資料中心之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json)和 [Azure 與網際網路之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)，以取得在網際網路和 Azure 之間使用虛擬網路閘道和虛擬設備的實作詳細資料。
 
@@ -227,7 +227,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 
 1. Azure 已自動為 Virtual-network-1 內的所有子網路新增此路由，因為 10.0.0.0/16 是虛擬網路位址空間中定義的唯一位址範圍。 如果未建立路由 ID2 中的使用者定義路由，傳送到 10.0.0.1 和 10.0.255.254 之間任何位址的流量就會在虛擬網路內進行路由，因為首碼長度大於 0.0.0.0/0，且不在任何其他路由的位址首碼內。 當 ID2 (使用者定義路由) 已新增時，Azure 會自動將狀態從「作用中」變更為「無效」，因為其首碼與預設路由一樣，而使用者定義路由會覆寫預設路由。 Subnet2 的此路由狀態仍然是「作用中」，因為其中有使用者定義路由 (ID2) 的路由表並未與 Subnet2 產生關聯。
 2. 當 10.0.0.0/16 位址首碼的使用者定義路由已與 Virtual-network-1 中 Subnet1 子網路產生關聯時，Azure 就會新增此路由。 使用者定義路由會指定 10.0.100.4 作為虛擬設備的 IP 位址，因為該位址是指派給虛擬設備虛擬機器的私人 IP 位址。 此路由存在的路由表並未與 Subnet2 產生關聯，因此不會出現在 Subnet2 的路由表中。 此路由會覆寫 10.0.0.0/16 首碼 (ID1) 的預設路由，預設路由會透過虛擬網路的下一個躍點類型，自動在虛擬網路內路由位址 10.0.0.1 和 10.0.255.254 的流量。 此路由是為符合[需求](#requirements) 3 而存在，會強制所有輸出流量通過虛擬設備。
-3. 當 10.0.0.0/24 位址首碼的使用者定義路由已與 Subnet1 子網路產生關聯時，Azure 就會新增此路由。 傳送至位址 10.0.0.1 和 10.0.0.0.254 之間的流量仍會在子網路內，而不是路由至上一個規則 (ID2) 中指定的虛擬設備，因為有比 ID2 路由更長的首碼。 此路由並未與Subnet2 產生關聯，因此路由不會出現在 Subnet2 的路由表中。 針對 Subnet1 內的流量，此路由有效地覆寫 ID2 路由。 此路由是為符合[需求](#requirements) 3 而存在。
+3. 當 10.0.0.0/24 位址首碼的使用者定義路由已與 Subnet1 子網路產生關聯時，Azure 就會新增此路由。 傳送至位址 10.0.0.1 和 10.0.0.254 之間的流量仍會在子網路內，而不是路由至上一個規則 (ID2) 中指定的虛擬設備，因為有比 ID2 路由更長的首碼。 此路由並未與Subnet2 產生關聯，因此路由不會出現在 Subnet2 的路由表中。 針對 Subnet1 內的流量，此路由有效地覆寫 ID2 路由。 此路由是為符合[需求](#requirements) 3 而存在。
 4. 當虛擬網路與 Virtual-network-2 對等互連時，Azure 會針對 Virtual-network-1 內的所有子網路，自動在 ID 4 和 ID 5 中新增路由。 Virtual-network-2 在其位址空間中有兩個位址範圍：10.1.0.0/16 和 10.2.0.0/16，因此 Azure 會為每個範圍新增路由。 如果未建立路由 ID 6 和 ID 7 中的使用者定義路由，傳送到 10.1.0.1-10.1.255.254 和 10.2.0.1-10.2.255.254 之間任何位址的流量將會路由至對等虛擬網路，因為首碼長度大於 0.0.0.0/0，且不在任何其他路由的位址首碼內。 當 ID 6 和 ID 7 中的已新增時，Azure 會自動將狀態從「作用中」變更為「無效」，因為他們的首碼與路由 ID 4 和 ID 5 一樣，而使用者定義路由會覆寫預設路由。 Subnet2 中 ID 4 和 ID 5 的路由狀態仍然是「作用中」，因為包含 ID 4 和 ID 5 中使用者定義路由的路由表並未與 Subnet2 產生關聯。 虛擬網路對等互連是為符合[需求](#requirements) 1 而建立。
 5. 與 ID4 的說明相同。
 6. 當 10.1.0.0/16 和 10.2.0.0/16 位址首碼的使用者定義路由已與 Subnet1 子網路產生關聯時，Azure 就會新增此路由和 ID7 中的路由。 傳送至 10.1.0.1-10.1.255.254 和 10.2.0.1-10.2.255.254 之間位址的流量會遭到 Azure 捨棄，而不是路由至對等互連的虛擬網路，因為使用者定義路由會覆寫預設路由。 這些路由並未與 Subnet2 產生關聯，因此路由不會出現在 Subnet2 的路由表中。 針對離開 Subnet1 的流量，這些路由會覆寫 ID4 和 ID5 路由。 ID6 和 ID7 路由是為符合[需求](#requirements) 3 而存在，會捨棄其他虛擬網路指定的流量。

@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: b34fd81532e27960d0dd92f172790aee3cd82ca5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639413"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050222"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 
@@ -85,6 +85,10 @@ Azure Database for PostgreSQL 會在伺服器層級建立防火牆。 它會防�
     AllowAllIps | 0.0.0.0 | 255.255.255.255
 
      ![設定防火牆規則](./media/quickstart-create-database-portal/5-firewall-2.png)
+     
+      > [!NOTE]
+      > 針對生產執行個體，您必須將防火牆規則設定為接受來自已知 IP 位址的連入要求。  此處的設定僅供舉例說明之用。
+      >
 
 4. 在 [連線安全性] 頁面的工具列上，選取 [儲存]。 等到陳述連線安全性更新已成功完成的通知出現，您才能繼續進行。
 

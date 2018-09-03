@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7c78636a210ae90c5bfe1d0bfd35e4e05633f5cd
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188194"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43097880"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>教學課程：建立用來部署加密儲存體帳戶的 Azure Resource Manager 範本
 
@@ -30,9 +30,7 @@ ms.locfileid: "39188194"
 
 > [!div class="checklist"]
 > * 開啟快速入門範本
-> * 了解範本格式
-> * 使用範本中的參數
-> * 使用範本中的變數
+> * 了解範本
 > * 編輯範本
 > * 部署範本
 
@@ -111,10 +109,10 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
 ## <a name="edit-the-template"></a>編輯範本
 
-若要尋找儲存體帳戶加密相關組態，您可以使用 Azure 儲存體帳戶的範本參考。
+本教學課程的目標是要定義用來建立加密儲存體帳戶的範本。  範例範本只會建立基本的未加密儲存體帳戶。 若要尋找加密相關組態，您可以使用 Azure 儲存體帳戶的範本參考。
 
 1. 瀏覽至 [Azure 範本](https://docs.microsoft.com/azure/templates/)。
-2. 從 TOC 左側，選取 [參考]->[儲存體]->[儲存體帳戶]。 頁面中包含定義儲存體帳戶資訊的資訊。
+2. 從 TOC 左側，選取 [參考]->[儲存體]->[儲存體帳戶]。 您也可以在 [依標題篩選] 欄位中輸入**儲存體**。  頁面中包含定義儲存體帳戶資訊的結構描述。
 3. 瀏覽加密相關資訊。  
 4. 在儲存體帳戶資源定義的屬性元素內，新增下列 JSON：
 
@@ -130,59 +128,17 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
     ```
     此組件可啟用 Blob 儲存體服務的加密功能。
 
-最終的資源元素會像是：
+從 Visual Studio Code 修改範本，使最終的資源元素顯示如下：
 
 ![Resource Manager 範本加密的儲存體帳戶資源](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>部署範本
 
-有許多方法可用來部署範本。  在本教學課程中，您會從 Azure 入口網站使用 Cloud Shell。 Cloud Shell 支援 Azure CLI 和 Azure PowerShell。 此處提供的指示會使用 CLI。
+請參閱 Visual Studio Code 快速入門中的[部署範本](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template)一節，以取得部署程序。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)
-2. 選取位於右上角的 [Cloud Shell]，如下圖所示：
+下列螢幕擷取畫面顯示 CLI 命令列出了新建的儲存體帳戶，這表示已為 Blob 儲存體啟用加密。
 
-    ![Azure 入口網站的 Cloud Shell](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell.png)
-
-3. 選取向下箭號，然後選取 [Bash] (如果原本不是 Bash)。 在本教學課程中，您會使用 Azure CLI。
-
-    ![Azure 入口網站的 Cloud Shell CLI](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-choose-cli.png)
-4. 選取 [重新啟動] 以重新啟動殼層。
-5. 選取 [上傳/下載檔案]，然後選取 [上傳]。
-
-    ![Azure 入口網站的 Cloud Shell 上傳檔案](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-upload-file.png)
-6. 選取您先前在本教學課程中儲存的檔案。 預設名稱為 **azuredeploy.json**。
-7. 從 Cloud Shell 執行 **ls** 命令，以確認已成功上傳檔案。 您也可以使用 **cat** 命令來確認範本內容。
-
-    ![Azure 入口網站的 Cloud Shell 列出檔案](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-list-file.png)
-8. 從 Cloud Shell 執行下列命令︰
-
-    ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file azuredeploy.json
-    ```
-    以下是範例部署的螢幕擷取畫面：
-
-    ![Azure 入口網站的 Cloud Shell 部署範本](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-deploy-template.png)
-
-    在螢幕擷取畫面上，會使用下列值：
-
-    * **&lt;ResourceGroupName>**：myresourcegroup0719。 此參數出現於兩處。  請務必使用相同的值。
-    * **&lt;AzureLocation>**：eastus2
-    * **&lt;DeployName>**：mydeployment0719
-    * **&lt;TemplateFile>**：azuredeploy.json
-
-    在螢幕擷取畫面輸出中，儲存體帳戶名稱為 *fhqbfslikdqdsstandardsa*。 
-
-9. 執行下列 PowerShell 命令，以列出新建立的儲存體帳戶：
-
-    ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
-    ```
-
-    您應該會看到類似於下列螢幕擷取畫面的輸出，這表示已為 Blob 儲存體啟用加密。
-
-    ![Azure Resource Manager 加密的儲存體帳戶](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+![Azure Resource Manager 加密的儲存體帳戶](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -195,7 +151,7 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用範本參考來自訂現有的範本。 本教學課程中使用的範本僅包含一個 Azure 資源。  在下一個教學課程中，您會開發具有多個資源的範本。  某些資源有相依的資源。
+在本教學課程中，您已了解如何使用範本參考來自訂現有的範本。 本教學課程中使用的範本僅包含一個 Azure 資源。  在下一個教學課程中，您會開發具有多個資源的範本。 某些資源有相依的資源。
 
 > [!div class="nextstepaction"]
 > [建立多個資源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

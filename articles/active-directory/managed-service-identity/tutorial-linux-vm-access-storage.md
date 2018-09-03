@@ -14,23 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5117444b6312d96f87f9e1edf8ce26d0360417ef
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049332"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885746"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>教學課程：使用 Linux VM 受控識別來存取 Azure 儲存體 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-
-本教學課程會示範如何建立和使用 Linux VM 受控識別來存取 Azure 儲存體。 您會了解如何：
+本教學課程說明如何將系統指派的身分識別用於 Linux 虛擬機器 (VM)，以存取 Azure 儲存體。 您會了解如何：
 
 > [!div class="checklist"]
-> * 在新的資源群組中建立 Linux 虛擬機器
-> * 在 Linux 虛擬機器 (VM) 上啟用受控識別
+> * 建立儲存體帳戶
 > * 在儲存體帳戶中建立 Blob 容器
 > * 將 Linux VM 的受控識別存取權授與 Azure 儲存體容器
 > * 取得存取權杖，並用來呼叫 Azure 儲存體
@@ -40,41 +38,20 @@ ms.locfileid: "39049332"
 
 ## <a name="prerequisites"></a>必要條件
 
-如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com)，再繼續進行。
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [登入 Azure 入口網站](https://portal.azure.com)
+
+- [建立 Linux 虛擬機器](/azure/virtual-machines/linux/quick-create-portal)
+
+- [在虛擬機器上啟用系統指派的身分識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 若要執行本教學課程中的 CLI 指令碼範例，您有兩個選項：
 
 - 透過 Azure 入口網站或是每個程式碼區塊右上角的 [試試看] 按鈕，使用 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)。
 - 如果您需要使用本機 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本)。
-
-## <a name="sign-in-to-azure"></a>登入 Azure
-
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
-
-在本節中您會建立 Linux VM，稍後會對其授與受控識別。
-
-1. 選取 Azure 入口網站左上角的 [新增] 按鈕。
-2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
-3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
-
-   ![用來建立虛擬機器的「基本」窗格](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. 在 [訂用帳戶] 清單中，選取虛擬機器的訂用帳戶。
-5. 若要選取需要在其中建立虛擬機器的新資源群組，請選擇 [資源群組] > [新建]。 完成時，請選取 [確定]。
-6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 窗格中，保留預設值並選取 [確定]。
-
-## <a name="enable-managed-identity-on-your-vm"></a>啟用您虛擬機器上的受控身分識別
-
-虛擬機器受控身分識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，透過 Azure 入口網站在虛擬機器上啟用受控身分識別會執行兩項工作：向 Azure AD 註冊您的虛擬機器以建立受控身分識別，以及在虛擬機器上設定身分識別。
-
-1. 巡覽 至新虛擬機器的資源群組，並選取您在上一個步驟中建立的虛擬機器。
-2. 在 [設定] 分類下，按一下 [組態]。
-3. 若要啟用受控識別，請選取 [是]。
-4. 按一下 [儲存] 以套用組態。 
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 

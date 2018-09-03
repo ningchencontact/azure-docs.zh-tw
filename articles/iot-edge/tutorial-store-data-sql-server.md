@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fa01d2d3f4ab3923129ab1690477d5a8af82d4df
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448899"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143495"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教學課程：使用 SQL Server 資料庫在 Edge 上儲存資料
 
@@ -36,8 +36,7 @@ ms.locfileid: "39448899"
 
 Azure IoT Edge 裝置：
 
-* 您可以遵循 [Linux](quickstart-linux.md) 快速入門中的步驟，使用開發電腦或虛擬機器作為邊緣裝置。
-* 適用於 IoT Edge 的 Python 模組不支援 ARM 處理器或 Windows 裝置。
+* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。
 
 雲端資源：
 
@@ -74,7 +73,7 @@ Azure IoT Edge 裝置：
 下列步驟會示範如何使用 Visual Studio Code 和 Azure IoT Edge 擴充功能來建立 IoT Edge 函式。
 
 1. 開啟 Visual Studio Code。
-2. 選取 [檢視] > [整合式終端機]，以開啟 VS Code 整合式終端機。
+2. 選取 [檢視] > [終端機]，以開啟 VS Code 整合式終端機。
 3. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。
 4. 在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
 3. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
@@ -254,15 +253,15 @@ Azure IoT Edge 裝置：
 2. 依照提示來登入您的 Azure 帳戶。 
 3. 在命令選擇區中選取您的 Azure 訂用帳戶，然後選取 IoT 中樞。 
 4. 在 VS Code 總管中，展開 [Azure IoT 中樞裝置] 區段。 
-5. 以滑鼠右鍵按一下部署的目標裝置，然後選取 [建立 IoT Edge 裝置的部署]。 
+5. 以滑鼠右鍵按一下部署的目標裝置，然後選取 [建立單一裝置的部署]。 
 6. 在檔案總管中，瀏覽至解決方案內的 **config** 資料夾，然後選擇 **deployment.json**。 按一下 [選取 Edge 部署資訊清單]。 
 
 如果部署成功，確認訊息會列印在 VS Code 輸出中。 您也可以查看並確認所有模組均已在裝置上啟動並執行。 
 
 在 IoT Edge 裝置上執行下列命令，以查看模組的狀態。 可能需要數分鐘的時間。
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## <a name="create-the-sql-database"></a>建立 SQL 資料庫
@@ -341,45 +340,13 @@ Azure IoT Edge 裝置：
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
+如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。 
 
-根據您的 IoT 裝置平台 (Linux 或 Windows) 移除 IoT Edge 服務執行階段。
+否則，可以刪除您在本文中建立的本機組態和 Azure 資源，以避免產生費用。 
 
-#### <a name="windows"></a>Windows
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-移除 IoT Edge 執行階段。
-
-```Powershell
-stop-service iotedge -NoWait
-sleep 5
-sc.exe delete iotedge
-```
-
-刪除已在您的裝置上建立的容器。 
-
-```Powershell
-docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-#### <a name="linux"></a>Linux
-
-移除 IoT Edge 執行階段。
-
-```bash
-sudo apt-get remove --purge iotedge
-```
-
-刪除已在您的裝置上建立的容器。 
-
-```bash
-sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-移除容器執行階段。
-
-```bash
-sudo apt-get remove --purge moby
-```
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 

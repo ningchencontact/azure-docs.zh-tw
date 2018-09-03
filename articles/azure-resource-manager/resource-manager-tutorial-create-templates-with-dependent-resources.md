@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bd559cb9f0140706a4b9735c642367e03616a14d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188160"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107100"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本
 
@@ -56,12 +56,27 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 ## <a name="explore-the-template"></a>瀏覽範本
 
+當您探索這一節中的範本時，請試著回答下列問題：
+
+- 此範本中定義了多少個 Azure 資源？
+- 其中一項資源是 Azure 儲存體帳戶。  定義是否與最後一個教學課程中使用的定義相仿？
+- 您是否可找到此範本中定義的資源所適用的範本參考？
+- 您是否可找到資源的相依性？
+
 1. 在 Visual Studio Code 中摺疊元素，直到您只看到**資源**內的第一層元素和第二層元素：
 
     ![Visual Studio Code 的 Azure Resource Manager 範本](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     範本中定義了五項資源。
-2. 展開第四個元素：
+2. 展開第一項資源。 這是儲存體帳戶。 其定義應與最後一個教學課程開頭所用的定義相同。
+
+    ![Visual Studio Code 的 Azure Resource Manager 範本儲存體帳戶定義](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+
+3. 展開第二項資源。 其資源類型為 **Microsoft.Network/publicIPAddresses**。 若要尋找範本參考，請瀏覽至[範本參考](https://docs.microsoft.com/azure/templates/)，然後在 [依標題篩選] 欄位中輸入**公用 IP 位址**或**多個公用 IP 位址**。 將資源定義與範本參考相比較。
+
+    ![Visual Studio Code 的 Azure Resource Manager 範本公用 IP 位址定義](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+4. 重複上一個步驟，以尋找此範本中定義的其他資源所適用的範本參考。  將資源定義與參考相比較。
+5. 展開第四項資源：
 
     ![Visual Studio Code 的 Azure Resource Manager 範本 dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -70,7 +85,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     * publicIPAddress
     * virtualNetwork
 
-3. 展開第五個元素。 此資源是虛擬機器。 它依存於其他兩項資源：
+6. 展開第五項資源。 此資源是虛擬機器。 它依存於其他兩項資源：
 
     * storageAccount
     * networkInterface

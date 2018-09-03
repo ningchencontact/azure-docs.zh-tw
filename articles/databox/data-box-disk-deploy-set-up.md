@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7f382e3b6e70aadf8c6a090a3d5c049f6b5c0337
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6fcc7823a7e2f2f1e280622a1fa05d4417a71546
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010356"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143477"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教學課程：針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
 
@@ -41,7 +41,9 @@ ms.locfileid: "39010356"
 3. 您有主機電腦，可以在上面安裝資料箱磁碟解除鎖定工具。 您的主機電腦必須符合下列條件：
     - 執行[支援的作業系統](data-box-disk-system-requirements.md)。
     - 已[安裝 Windows PowerShell 4](https://www.microsoft.com/download/details.aspx?id=40855)。
-    - 已[安裝 .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)。
+    - 已[安裝 .NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653)。
+    - 已[啟用 BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server)。
+    - 已[安裝 Windows Management Framework 4](https://www.microsoft.com/en-us/download/details.aspx?id=40855)。 
 
 ## <a name="unpack-your-disks"></a>打開磁碟的包裝
 

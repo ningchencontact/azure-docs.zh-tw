@@ -1,19 +1,19 @@
 ---
 title: 在 Azure 上建立 Jenkins 伺服器
 description: 從 Jenkins 方案範本在 Azure Linux 虛擬機器上安裝 Jenkins，並建置範例 Java 應用程式。
-ms.topic: quickstart
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, 入口網站, 虛擬機器, 解決方案範本
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
-ms.date: 07/31/2018
-ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: quickstart
+ms.date: 6/7/2017
+ms.openlocfilehash: 92a0583ad01c4dc9263988f6ef48c95c380c9289
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390423"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43086569"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>從 Azure 入口網站在 Azure Linux VM 上建立 Jenkins 伺服器
 
@@ -75,7 +75,7 @@ Jenkins 伺服器現在已準備要建置程式碼。
 
 ![使用要建置的 Gradle 包裝函式](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-選取 [進階...] 然後在 [根組建指令碼] 欄位中輸入 `complete`。 選取 [ **儲存**]。
+選取 [進階]，然後在 [根組建指令碼] 欄位中輸入 `complete`。 選取 [ **儲存**]。
 
 ![在 Gradle 包裝函式建置步驟中設定進階設定](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 

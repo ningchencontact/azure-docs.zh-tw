@@ -1,26 +1,21 @@
 ---
 title: 建立核准工作流程以處理郵寄清單要求 - Azure Logic Apps | Microsoft Docs
-description: 此教學課程說明如何使用 Azure Logic Apps 建立用來處理郵寄清單訂閱的自動化核准工作流程
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: 教學課程 - 如何使用 Azure Logic Apps 建立用來處理郵寄清單訂閱的自動化核准工作流程
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300669"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122864"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>使用邏輯應用程式來管理郵寄清單要求
 
@@ -44,7 +39,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 如果您沒有 Azure 訂用帳戶，請在開始前，先<a href="https://azure.microsoft.com/free/" target="_blank">註冊一個免費的 Azure 帳戶</a>。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * MailChimp 帳戶。 建立名為 "test-members-ML" 的清單，您的邏輯應用程式可以在其中為已核准的成員新增電子郵件地址。 如果您沒有帳戶，請[註冊一個免費帳戶](https://login.mailchimp.com/signup/)並了解[如何建立清單](https://us17.admin.mailchimp.com/lists/#)。 
 

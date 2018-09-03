@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中建立 ASP.NET Framework Web 應用程式 | Microsoft Docs
-description: 藉由部署預設 ASP.NET Web 應用程式，了解如何在 Azure App Service 中執行 Web 應用程式。
+title: 在 Azure 中建立 C# ASP.NET Framework Web 應用程式 | Microsoft Docs
+description: 藉由部署預設 C# ASP.NET Web 應用程式，了解如何在 Azure App Service 中執行 Web 應用程式。
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,34 +12,29 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/30/2017
+ms.date: 08/29/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f6f443dfe637e68b0e1e13f7c3b9e718ae48a85d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191321"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Framework Web 應用程式
 
 [Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。  本快速入門會顯示如何將第一個 ASP.NET Web 應用程式部署至 Azure Web Apps。 當您完成時，您會有已部署 Web 應用程式的資源群，其中包含 App Service 方案和 Azure Web 應用程式。
 
-觀賞影片可觀看本快速入門動態版，然後自行遵循相關步驟，以在 Azure 上發佈您的第一個 .NET 應用程式。
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
-* 使用下列工作負載安裝 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>：
-    - **ASP.NET 和 Web 開發**
-    - **Azure 開發**
-
-    ![ASP.NET 和 Web 開發及 Azure 開發 (在 [Web 和雲端] 之下)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+安裝包含 **ASP.NET 和 Web 開發**工作負載的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>。
 
 如果您已安裝 Visual Studio，請按一下 [工具] > [取得工具和功能] 在 Visual Studio 中新增工作負載。
 
@@ -143,7 +138,8 @@ ms.lasthandoff: 04/05/2018
 
 若要重新部署至 Azure，請在 [方案總管] 中，以滑鼠右鍵按一下 **myFirstAzureWebApp** 專案，然後選取 [發佈]。
 
-在發佈頁面中，選取 [發佈]。
+在發佈頁面上，選取 [發佈]。
+![Visual Studio 發佈摘要頁面](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 發佈完成時，Visual Studio 會啟動瀏覽器以前往 Web 應用程式的 URL。
 
@@ -162,6 +158,12 @@ ms.lasthandoff: 04/05/2018
 ![Azure 入口網站中的 App Service 刀鋒視窗](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
 左側功能表提供不同的頁面來設定您的應用程式。 
+
+## <a name="video"></a>影片
+
+觀賞影片可觀看本快速入門動態版，然後自行遵循相關步驟，以在 Azure 上發佈您的第一個 .NET 應用程式。
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

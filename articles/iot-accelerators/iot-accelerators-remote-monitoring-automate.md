@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d94f8d38ef771bd5ab03f4d3cef25233c33e7546
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6759568a678394f7cec4ac9f0bdd99d8ed1db9de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282612"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886785"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>教學課程：偵測與監視解決方案連線的裝置問題
 
@@ -112,11 +112,23 @@ ms.locfileid: "39282612"
 
 ## <a name="disable-a-rule"></a>停用規則
 
-若要暫時關閉某個規則，您可以在規則清單中將它停用。 選擇要停用的規則，然後選擇 [停用]。 清單中該規則的 [狀態] 會變更以指出規則現在已停用。 您可以使用相同的程序來重新啟用先前停用的規則。
+若要暫時關閉某個規則，您可以在規則清單中將它停用。 選取要停用的規則，然後選擇 [停用]。 清單中該規則的 [狀態] 會變更以指出規則現在已停用。 您可以使用相同的程序來重新啟用先前停用的規則。
 
 [![停用規則](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 如果您從清單中選取多個規則，便可以同時啟用和停用多個規則。
+
+## <a name="delete-a-rule"></a>刪除規則
+
+若要永久刪除某個規則，您可以在規則清單中加以刪除。 選取要刪除的規則，然後選擇 [刪除]。
+
+[![刪除規則](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+
+在您確認要刪除規則之後，您將有權從 [維護] 頁面中刪除任何與規則相關聯的警示。
+
+[![刪除規則](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+
+您一次只能刪除一個規則。
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

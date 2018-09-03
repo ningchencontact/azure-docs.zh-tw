@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 89973581d7c6aa99ab671d5bd04f258898e9235e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1345d4c4d349ed2fa5bb95ee35299c77fb391359
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306832"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42884980"
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立.NET Core Web 應用程式
 
@@ -37,7 +37,7 @@ ms.locfileid: "38306832"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門：
 
@@ -60,6 +60,8 @@ dotnet new web
 ```
 
 ## <a name="run-the-app-locally"></a>在本機執行應用程式
+
+在本機執行應用程式，以便您查看它在部署至 Azure 時的樣貌。 
 
 還原 NuGet 套件，並執行應用程式。
 

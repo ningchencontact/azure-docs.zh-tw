@@ -1,25 +1,25 @@
 ---
-title: Jenkins 與 Azure 的概觀 | Microsoft Docs
+title: Jenkins 與 Azure 的概觀
 description: 在 Azure 中裝載 Jenkins 組建和部署自動化伺服器，以及使用 Azure 計算和儲存體資源來擴充您的持續整合和部署 (CI/CD) 管線。
-ms.topic: overview
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, 概觀
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: ecb4ea7aee005cb539910b2cb25f0b84de7ba510
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: cb4082046e57ac16abd6cdef3d5779525e7cfc82
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281550"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105524"
 ---
 # <a name="azure-and-jenkins"></a>Azure 與 Jenkins
 
 [Jenkins](https://jenkins.io/) 是熱門的開放原始碼自動化伺服器，用來設定軟體專案的持續整合與傳遞 (CI/CD)。 您可以將 Jenkins 部署裝載在 Azure 中，或是使用 Azure 資源來延伸現有的 Jenkins 組態。 Jenkins 外掛程式也可用來簡化您的應用程式對 Azure 的 CI/CD。
 
-本文介紹如何使用 Azure 搭配 Jenkins，並詳述可供 Jenkins 使用者使用的核心 Azure 功能。 若要開始在 Azure 中使用您自己的 Jenkins 伺服器，請參閱我們的[快速入門](install-jenkins-solution-template.md)。
+本文介紹如何使用 Azure 搭配 Jenkins，並詳述可供 Jenkins 使用者使用的核心 Azure 功能。 如需如何開始在 Azure 中自行使用 Jenkins 伺服器的詳細資訊，請參閱[在 Azure 上建立 Jenkins 伺服器](install-jenkins-solution-template.md)。
 
 ## <a name="host-your-jenkins-servers-in-azure"></a>在 Azure 中裝載 Jenkins 伺服器
 

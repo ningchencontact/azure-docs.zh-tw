@@ -4,29 +4,23 @@ description: 了解如何使用 Ansible 在 Azure 中建立及設定虛擬機器
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 腳本, 虛擬機器, 虛擬機器擴展集, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 5f915f7b1b425a3bd6e5d62eb70bb3f633b7eda8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011706"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918570"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>使用 Ansible 在 Azure 中建立虛擬機器擴展集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器擴展集 (VMSS)，就像管理任何其他 Azure 資源一樣。 本文說明如何使用 Ansible 來建立及相應放大虛擬機器擴展集。 
 
 ## <a name="prerequisites"></a>必要條件
 - **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-- **設定 Ansible** - [建立 Azure 認證和設定 Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible 和 Azure Python SDK 模組** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > 必須使用 Ansible 2.6，才能執行本教學課程中的下列範例腳本。 
@@ -186,7 +180,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-輸出應該類似如下範例：
+您會看到類似下列輸出的結果：
 
   ```bash
   {
@@ -271,7 +265,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-在 Cloud Shell 中執行命令的結果，會顯示目前已有三個執行個體存在。 
+在 Cloud Shell 中執行命令的結果，會顯示目前有三個執行個體存在。 
 
   ```bash
   {

@@ -15,20 +15,20 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911313"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42820312"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
-Microsoft Azure 集結了各種整合式公用雲端服務且數量不斷增加，包括分析、虛擬機器、資料庫、行動、網路、儲存體和 Web&mdash;因此很適合用來裝載您的方案。  Microsoft Azure 提供可調整的運算平台，可讓您在需要時用多少就付多少，而不需投資內部部署的硬體。  Azure 可供您將您的方案相應增加和放大至任何您需要的規模，以滿足您所服務之客戶的需求。
+Microsoft Azure 集結了各種整合式公用雲端服務且數量不斷增加，包括分析、虛擬機器、資料庫、行動、網路、儲存體和 Web&mdash;因此很適合用來裝載您的解決方案。  Microsoft Azure 提供可調整的運算平台，可讓您在需要時用多少就付多少，而不需投資內部部署的硬體。  Azure 可供您將您的方案相應增加和放大至任何您需要的規模，以滿足您所服務之客戶的需求。
 
 如果您熟悉 Amazon AWS 的各項功能，您可以查看 Azure 與 AWS 的對照 [定義對應文件](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)。
 
 ## <a name="regions"></a>區域
-Microsoft Azure 資源分散在世界各地的多個地理區域。  「區域」代表單一地理區域中的多個資料中心。 Azure 目前 (截至 2017 年 11 月為止) 已在全球 36 個區域正式推出 ，並即將在另外 6 個區域推出。 在下列頁面可以找到最新的現有和全新推出的區域清單：
+Microsoft Azure 資源分散在世界各地的多個地理區域。  「區域」代表單一地理區域中的多個資料中心。 Azure 目前 (截至 2018 年 8 月為止) 已在全球 42 個區域正式推出，並即將在另外 12 個區域推出 - 全球適用的區域比任何其他雲端提供者都還要多。 在下列頁面可以找到最新的現有和全新推出的區域清單：
 
 * [Azure 區域](https://azure.microsoft.com/regions/)
 
@@ -59,7 +59,7 @@ Azure 可依據 VM 的大小和作業系統，以[每小時](https://azure.micro
 * [Azure 範本](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure 將針對支援 [cloud-init](http://cloud-init.io/) 的大多數 Linux 散發套件推出 cloud-init 支援。  目前 Canonical 的 Ubuntu VM 部署預設即已啟用 cloud-init。  Red Hats RHEL、CentOS 及 Fedora 支援 cloud-init，不過由 RedHat 維護的 Azure 映像目前並未安裝 cloud-init。  若要在 RedHat 系列 OS 上使用 cloud-init，您必須建立已安裝 cloud-init 的自訂映像。
+Azure 將針對支援 [cloud-init](http://cloud-init.io/) 的大多數 Linux 散發套件推出 cloud-init 支援。  目前 Canonical 的 Ubuntu VM 部署預設即已啟用 cloud-init。  Red Hats RHEL、CentOS 及 Fedora 支援 cloud-init，不過由 Red Hat 維護的 Azure 映像目前並未安裝 cloud-init。  若要在 Red Hat 系列 OS 上使用 cloud-init，您必須建立已安裝 cloud-init 的自訂映像。
 
 * [在 Azure Linux VM 上使用 cloud-init](using-cloud-init.md)
 
@@ -73,7 +73,7 @@ Microsoft 與合作夥伴密切合作，以確保更新可用的映像並針對 
 
 * [Azure 背書散發套件上的 Linux](endorsed-distros.md)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
@@ -115,7 +115,7 @@ VM 現在已在 Azure 上執行，而您已經可以登入。  使用密碼透�
 * [使用 azure-cli 將磁碟新增到 Linux VM](add-disk.md)
 * [如何在 Azure 入口網站中將資料磁碟連結到 Linux VM](attach-disk-portal.md)
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 * [虛擬網路概觀](../../virtual-network/virtual-networks-overview.md)
 * [Azure 中的 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [對 Azure 中的 Linux VM 開啟連接埠](nsg-quickstart.md)

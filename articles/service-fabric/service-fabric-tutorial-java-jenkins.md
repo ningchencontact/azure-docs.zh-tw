@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432434"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124975"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教學課程︰設定 Jenkins 環境以便在 Service Fabric 上啟用 Java 應用程式的 CI/CD
 
@@ -53,10 +53,10 @@ ms.locfileid: "39432434"
 
 1. 提取 Service Fabric Jenkins 容器映像︰``docker pull rapatchi/jenkins:v10``。 此映像隨附於預先安裝的 Service Fabric Jenkins 外掛程式。
 
-1. 在本機電腦上您的憑證所在位置執行容器映像
+1. 使用您的 Azure 憑證在已掛接的本機電腦上儲存所在的位置執行容器映像。
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. 取得容器映像執行個體的識別碼。 您可以使用命令 ``docker ps –a`` 列出所有 Docker 容器
@@ -86,7 +86,7 @@ ms.locfileid: "39432434"
 
 1. 首先，如果您沒有可用於在 Github 上裝載 Voting 專案的存放庫，請建立一個。 在本教學課程的其餘部分中，存放庫稱為 **dev_test**。
 
-1. 在 Jenkins 儀表板上建立**新項目**。
+1. 在 Jenkins 儀表板上建立**新項目**，網址是 ``http://<HOST-IP>:8080``。
 
 1. 輸入項目名稱 (例如，**MyJob**)。 選取 [自由樣式專案]，然後按一下 [確定]。
 
@@ -123,6 +123,8 @@ ms.locfileid: "39432434"
     > [!NOTE]
     > 如果您使用 Service Fabric 來部署 Jenkins 容器映像，這裡的叢集可能與裝載 Jenkins 容器應用程式的叢集相同。
     >
+
+1. 按一下 [檔案] 。
 
 ## <a name="update-your-existing-application"></a>更新現有的應用程式
 

@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0781bf3fe9806c2c8aaa911433c4d6eddcafe04c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056169"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885488"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>教學課程：使用 Windows VM 受控身分識別來存取 Azure 儲存體
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程會示範如何為 Windows 虛擬機器啟用受控身分識別，並使用該身分識別來存取 Azure 儲存體。  您會了解如何：
+本教學課程說明如何將系統指派的身分識別用於 Windows 虛擬機器 (VM)，以存取 Azure 儲存體。 您會了解如何：
 
 > [!div class="checklist"]
-> * 在新的資源群組中建立 Windows 虛擬機器 
-> * 在 Windows 虛擬機器 (VM) 上啟用受控身分識別
 > * 在儲存體帳戶中建立 Blob 容器
 > * 將您 Windows VM 的受控身分識別存取權授與儲存體帳戶 
 > * 取得存取權，並用來呼叫 Azure 儲存體 
@@ -43,31 +41,11 @@ ms.locfileid: "39056169"
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>登入 Azure
+- [登入 Azure 入口網站](https://portal.azure.com)
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+- [建立 Windows 虛擬機器](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
-
-在本節中您會建立 Windows VM，稍後會對其授與受控身分識別。
-
-1.  按一下 Azure 入口網站左上角的 [+/建立新服務] 按鈕。
-2.  選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
-3.  輸入虛擬機器資訊。 在此建立的**使用者名稱**和**密碼**是您登入虛擬機器要使用的認證。
-4.  在下拉式清單中選擇適用於虛擬機器的適當**訂用帳戶**。
-5.  若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
-6.  選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
-
-    ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-identity-on-your-vm"></a>啟用您虛擬機器上的受控身分識別
-
-虛擬機器受控身分識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，透過 Azure 入口網站在虛擬機器上啟用受控身分識別會執行兩項工作：向 Azure AD 註冊您的虛擬機器以建立受控身分識別，以及在虛擬機器上設定身分識別。 
-
-1. 巡覽 至新虛擬機器的資源群組，並選取您在上一個步驟中建立的虛擬機器。
-2. 在 [設定] 分類下，按一下 [組態]。
-3. 若要啟用受控身分識別，請選取 [是]。
-4. 按一下 [儲存] 以套用組態。 
+- [在虛擬機器上啟用系統指派的身分識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 

@@ -1,6 +1,6 @@
 ---
-title: 設定 Azure AD Privileged Identity Management | Microsoft Docs
-description: 本主題說明何謂 Azure AD Privileged Identity Management，以及如何使用 PIM 改善雲端安全性。
+title: 什麼是 Azure AD Privileged Identity Management？ | Microsoft Docs
+description: 提供 Azure Active Directory Privileged Identity Management (PIM) 的概觀。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618847"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186206"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
@@ -51,6 +51,35 @@ Azure AD Privileged Identity Management 可協助您的組織：
 ## <a name="just-in-time-administrator-access"></a>即時管理員存取權
 
 在過去，您可以透過 Azure 入口網站、其他 Microsoft 線上服務入口網站或在 Windows PowerShell 中的 Azure AD Cmdlet 將使用者指派為系統管理員角色。 因此，該使用者會成為 **永久管理員**，其獲得指派的角色永遠處於作用狀態。 Azure AD Privileged Identity Management 導入了「合格系統管理員」 的概念。合格系統管理員應是指偶爾需要特殊存取權限，而非全天及每天都需要此權限的使用者。 在使用者需要存取權之前，角色會處於非作用中狀態，然後使用者須完成啟用程序，才能在一段預定的時間內成為作用中的系統管理員。 越來越多組織選擇使用此方法來減少或消除特殊權限角色的「永久性系統管理存取權限」。
+
+
+## <a name="terminology"></a>術語
+
+*合格角色使用者* – 合格角色使用者是您組織內已在符合資格時指派給 Azure AD 角色的使用者 (角色需要啟用)。
+
+*委派核准者* – 委派核准者是您 Azure AD 內的一或多個個人或群組，負責核准啟用角色的要求。
+
+## <a name="scenarios"></a>案例
+
+Privileged Identity Management 支援下列案例：
+
+**身為特殊權限角色管理員，您可以：**
+
+- 啟用特定角色的核准
+- 指定核准者使用者和/或群組來核准要求
+- 檢視所有特殊權限角色的要求和核准歷程記錄
+
+**身為指定的核准者，您可以：**
+
+- 檢視待決的核准 (要求)
+- 核准或拒絕提高角色權限 (單一和/或大量) 的要求
+- 提供我的核准/拒絕理由 
+
+**身為合格角色使用者，您可以：**
+
+- 要求啟用需要核准的角色
+- 檢視要啟用之要求的狀態
+- 如果已核准啟用，在 Azure AD 中完成您的工作
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>啟用目錄的 Privileged Identity Management
 
@@ -157,4 +186,6 @@ Azure 資源角色 (預覽) 的角色設定允許系統管理員設定 Just-In-T
 
 ## <a name="next-steps"></a>後續步驟
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [使用 PIM 的訂用帳戶需求](subscription-requirements.md)
+- [您可以在 PIM 中管理的 Azure AD 目錄角色](pim-roles.md)
+- [在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

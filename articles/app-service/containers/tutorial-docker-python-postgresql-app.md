@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9a623156ad2a27abf7fa5e865f8b7452e2c70b3c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423074"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124513"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式
 
@@ -169,7 +169,9 @@ az postgres server create --resource-group myResourceGroup --name <postgresql_na
 
 ### <a name="create-a-firewall-rule-for-the-postgresql-server"></a>建立 PostgreSQL 伺服器的防火牆規則
 
-在 Cloud Shell 中執行下列 Azure CLI 命令，以允許從所有 IP 位址存取資料庫。 當起始 IP 和結束 IP 都設為 `0.0.0.0` 時，防火牆只會為其他 Azure 資源開啟。 
+在 Cloud Shell 中執行下列 Azure CLI 命令，以允許從所有 IP 位址存取資料庫。 
+> [!Note]
+> 建議您不要對您的資料庫開啟所有連接埠，或讓資料庫對向網際網路。  請參閱其他 [Azure 安全性文章](https://docs.microsoft.com/azure/security/)，以適當保護您用於生產環境中的新資料庫。  
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs

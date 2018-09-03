@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216303"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746013"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -288,7 +288,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 如果您新增或更新現有集區的啟動工作，您必須重新啟動其計算節點，啟動工作才會套用至節點。
 
 >[!NOTE]
-> 啟動工作的總大小必須小於或等於 32768 個字元，包括資源檔案和環境變數。 若要確保啟動工作符合此需求，您可以使用兩種方法的其中一個：
+> Batch 會限制啟動工作的總大小，包括資源檔案和環境變數。 如果您需要減少啟動工作的大小，您可以使用下列其中一個方法：
 >
 > 1. 您可以使用應用程式套件，將應用程式或資料分散於 Batch 集區中的每個節點。 如需應用程式套件的詳細資訊，請參閱[使用 Batch 應用程式套件將應用程式部署至計算節點](batch-application-packages.md)。
 > 2. 您可以手動建立已壓縮的封存檔，其中包含您的應用程式檔案。 將已壓縮的封存檔以 blob 形式上傳至 Azure 儲存體。 指定已壓縮的封存檔作為您啟動工作的資源檔。 執行啟動工作的命令列之前，請從命令列將封存檔解壓縮。 

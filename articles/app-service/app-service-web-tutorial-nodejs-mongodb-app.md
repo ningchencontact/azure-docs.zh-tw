@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7a3e91e8f928f6e7e2df7a26f52bd44b3b3a81b2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 70b7af1701c13e6a5d7644f04e4502f76ef7743a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618949"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187840"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>教學課程：在 Azure 中建置 Node.js 和 MongoDB Web 應用程式
 
@@ -117,6 +117,9 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 選取 [系統管理員] > [管理文章] 來新增一些文章。
 
 如需隨時停止 Node.js，請在終端機上按下 `Ctrl+C`。 
+
+> [!NOTE]
+> [Node.js 快速入門](app-service-web-get-started-nodejs.md)中提到，應用程式的根目錄中必須要有 web.config。 不過，在本教學課程中，當您使用[本機 Git 部署](app-service-deploy-local-git.md) (而非 ZIP 檔案部署) 來部署檔案時，App Service 部署即會自動產生此 web.config 檔案。 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

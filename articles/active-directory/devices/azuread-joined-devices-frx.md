@@ -12,18 +12,18 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1376f011d056aac33333f6ac31ee2eaadaf3ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415791"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046317"
 ---
-# <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>在初次執行期間向 Azure AD 加入新的 Windows 10 裝置
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>教學課程：在初次執行期間向 Azure AD 加入新的 Windows 10 裝置
 
 使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 如需詳細資訊，請參閱 [Azure Active Directory 中的裝置管理簡介](overview.md)。
 
@@ -34,9 +34,13 @@ ms.locfileid: "39415791"
 
 在 Windows「全新體驗」中，不支援加入內部部署 Active Directory (AD) 網域的功能。 如果您打算要在安裝期間讓電腦加入 AD 網域，應該要選取 [使用本機帳戶設定 Windows] 連結。 然後，您就可以透過自己電腦上的設定來加入網域。
  
+在本教學課程中，您將了解如何在 FRX 期間將裝置加入 Azure AD：
+ > [!div class="checklist"]
+> * 必要條件
+> * 加入裝置
+> * 驗證
 
-
-## <a name="before-you-begin"></a>開始之前
+## <a name="prerequisites"></a>必要條件
 
 若要加入 Windows 10 裝置，必須設定 Device Registration Service，才能註冊裝置。 除了擁有在 Azure AD 租用戶中加入裝置的權限之外，您所擁有的已註冊裝置必須少於已設定的最大值。 如需詳細資訊，請參閱[設定裝置設定](device-management-azure-portal.md#configure-device-settings)。
 

@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: c2c138e7064ae5f8bfb11d2f8d4c6b8e9e45760d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b38804a4450bfc76f5048f8049a7369d7ebebc30
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441998"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886230"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-cosmos-db"></a>教學課程：使用 Linux VM 受控服務識別來存取 Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-本教學課程會示範如何建立和使用 Linux VM 受控服務識別。 您會了解如何：
+本教學課程說明如何將系統指派的身分識別用於 Linux 虛擬機器 (VM)，以存取 Azure Cosmos DB。 您會了解如何：
 
 > [!div class="checklist"]
-> * 建立已啟用的 Linux 虛擬機器
 > * 建立 Cosmos DB 帳戶
 > * 在 Cosmos DB 帳戶中建立集合
 > * 將受控服務識別存取權授與 Azure Cosmos DB 執行個體
@@ -39,42 +38,20 @@ ms.locfileid: "39441998"
 
 ## <a name="prerequisites"></a>必要條件
 
-如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com)，再繼續進行。
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [登入 Azure 入口網站](https://portal.azure.com)
+
+- [建立 Linux 虛擬機器](/azure/virtual-machines/linux/quick-create-portal)
+
+- [在虛擬機器上啟用系統指派的身分識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 若要執行本教學課程中的 CLI 指令碼範例，您有兩個選項：
 
 - 透過 Azure 入口網站或是每個程式碼區塊右上角的 [試試看] 按鈕，使用 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)。
 - 如果您需要使用本機 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本)。
-
-## <a name="sign-in-to-azure"></a>登入 Azure
-
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
-
-此教學課程會建立已啟用受控服務識別的新 Linux VM。
-
-若要建立已啟用受控服務識別的 VM：
-
-1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az-login) 登入 Azure。 使用您想部署 VM 且已與 Azure 訂用帳戶相關聯的帳戶：
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. 使用 [az group create](/cli/azure/group/#az-group-create)，為您的 VM 和其相關資源建立[資源群組](../../azure-resource-manager/resource-group-overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
-
-   ```azurecli-interactive 
-   az group create --name myResourceGroup --location westus
-   ```
-
-3. 使用 [az vm create](/cli/azure/vm/#az-vm-create) 建立 VM。 下列範例會根據 `--assign-identity` 參數的要求，建立具有受控服務識別且名為 myVM 的 VM。 `--admin-username` 和 `--admin-password` 參數會指定登入虛擬機器的系統管理使用者名稱和密碼帳戶。 請針對您的環境適當地更新這些值： 
-
-   ```azurecli-interactive 
-   az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
-   ```
 
 ## <a name="create-a-cosmos-db-account"></a>建立 Cosmos DB 帳戶 
 

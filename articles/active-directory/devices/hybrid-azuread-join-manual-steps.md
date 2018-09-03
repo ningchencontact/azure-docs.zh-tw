@@ -12,27 +12,38 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630614"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049932"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定混合式 Azure Active Directory 已加入裝置 
 
 使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 如需詳細資料，請參閱 [Azure Active Directory 中的裝置管理簡介](overview.md)。
 
-如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 本文為您提供相關步驟。 
-
-
 
 > [!TIP]
 > 如果使用 Azure AD Connect 是您可使用的選項，請參閱[選取您的案例](hybrid-azuread-join-plan.md#select-your-scenario)。 使用 Azure AD Connect，您可以大幅簡化混合式 Azure AD Join 的設定。
+
+
+
+如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 在本教學課程中，您將了解如何手動為您的裝置設定混合式 Azure AD Join。
+
+> [!div class="checklist"]
+> * 必要條件
+> * 組態步驟
+> * 設定服務連接點
+> * 設定宣告的發行
+> * 啟用舊版 Windows 裝置
+> * 確認加入的裝置
+> * 對您的實作進行疑難排解
+ 
 
 
 
