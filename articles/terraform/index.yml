@@ -1,24 +1,23 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 38f55894925febb66a50f019de15f8e7dcd9ef23
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666974"
 documentType: LandingData
 title: Terraform on Azure 文件
 metadata:
-  title: Terraform on Azure 文件 - 教學課程和參考
-  meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  title: Terraform on Azure 文件 - 教學課程、範例、參考和資源
+  description: 了解如何使用 Terraform 可靠地佈建虛擬機器和 Azure 上的其他基礎結構。
   services: terraform
-  author: rloutlaw
-  manager: justhe
   ms.service: terraform
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
+  keywords: terraform, azure, devops, 教學課程, 範例, 參考
+  author: tomarcher
+  manager: jeconnoc
+  ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 09/21/2017
-  ms.author: routlaw
-  ms.openlocfilehash: b12e9b8f611bb456d0eda04a1b9e8d42d1256d0a
-  ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-  ms.translationtype: HT
-  ms.contentlocale: zh-TW
-  ms.lasthandoff: 06/11/2018
-  ms.locfileid: "35300604"
+  ms.date: 08/31/2018
 abstract:
   description: 使用 Terraform 進行版本可靠化，並在 Azure 上建立架構。 了解如何建立資源、使用 Azure Terraform 模組，並使用我們的快速入門和教學課程，透過程式碼維護基礎結構。
 sections:

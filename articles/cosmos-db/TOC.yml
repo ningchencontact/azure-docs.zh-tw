@@ -37,7 +37,7 @@ items:
       href: create-mongodb-golang.md
   - name: Gremlin
     items:
-    - name: 使用 Gremlin 主控台
+    - name: Gremlin 主控台
       href: create-graph-gremlin-console.md
     - name: .NET
       href: create-graph-dotnet.md
@@ -78,6 +78,9 @@ items:
     href: distribute-data-globally.md
   - name: Throughput
     href: request-units.md
+    items:
+    - name: 取得並設定輸送量
+      href: set-throughput.md
   - name: 分割
     href: partition-data.md
   - name: 編製索引
@@ -86,11 +89,11 @@ items:
     href: consistency-levels.md
   - name: 多重主機
     href: multi-region-writers.md
+    items:
+    - name: 多主機設定
+      href: multi-master-workaround.md
   - name: 變更摘要
     href: change-feed.md
-    items:
-    - name: 變更摘要電子商務解決方案
-      href: changefeed-ecommerce-solution.md
   - name: 存留時間
     href: time-to-live.md
   - name: 唯一金鑰
@@ -104,18 +107,16 @@ items:
       href: secure-access-to-data.md
     - name: 防火牆支援
       href: firewall-support.md
-    - name: 設定虛擬網路服務端點
+    - name: 設定 VNet 端點
       href: vnet-service-endpoint.md
-    - name: 儲存祕密的金鑰保存庫
+    - name: 金鑰保存庫支援
       href: access-secrets-from-keyvault.md
 - name: 多模型 API
   items:
   - name: SQL API 文件
     items:
     - name: 概觀
-      items:
-      - name: 關於 SQL API
-        href: sql-api-introduction.md
+      href: sql-api-introduction.md
     - name: 教學課程
       items:
       - name: 1 - 建立帳戶
@@ -172,22 +173,16 @@ items:
         href: powershell-samples.md
       - name: Azure CLI
         href: cli-samples.md
-    - name: 概念
-      items:
-      - name: 模型文件資料
-        href: modeling-data.md
     - name: 使用說明指南
       items:
-      - name: 使用大量執行程式 - .NET 程式庫
+      - name: 大量執行程式 - .NET 程式庫
         href: bulk-executor-dot-net.md
-      - name: 使用大量執行程式 - Java 程式庫
+      - name: 大量執行程式 - Java 程式庫
         href: bulk-executor-java.md
       - name: 撰寫 SQL 查詢
         href: sql-api-sql-query.md
       - name: 微調查詢效能
         href: sql-api-sql-query-metrics.md
-      - name: SQL 資料分割
-        href: sql-api-partition-data.md
       - name: 資料類型
         items:
         - name: Datetime
@@ -220,16 +215,11 @@ items:
         href: /rest/api/cosmos-db-resource-provider/
       - name: SQL 語言語法
         href: sql-api-sql-query-reference.md
-    - name: 資源
-      items:
-      - name: SQL 園地
-        href: https://aka.ms/cosmos-db-playground
   - name: MongoDB API 文件
     items:
     - name: 概觀
+      href: mongodb-introduction.md
       items:
-      - name: 關於 MongoDB API
-        href: mongodb-introduction.md
       - name: MongoDB 支援
         href: mongodb-feature-support.md
     - name: 教學課程
@@ -276,16 +266,11 @@ items:
         href: mongodb-time-to-live.md
       - name: 管理資料索引
         href: mongodb-indexing.md
-    - name: 資源
-      items:
-      - name: Visual Studio Code 擴充功能
-        href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Gremlin API 文件
     items:
     - name: 概觀
+      href: graph-introduction.md
       items:
-      - name: 關於 Gremlin API
-        href: graph-introduction.md
       - name: Gremlin 支援
         href: gremlin-support.md
     - name: 教學課程
@@ -296,14 +281,10 @@ items:
       items:
       - name: 匯出圖形資料
         href: bulk-executor-graph-dotnet.md
-      - name: 圖表資料分割
-        href: graph-partitioning.md
   - name: Cassandra API 文件
     items:
     - name: 概觀
-      items:
-      - name: 關於 Cassandra API
-        href: cassandra-introduction.md
+      href: cassandra-introduction.md
     - name: 教學課程
       items:
       - name: 1 - 建立帳戶
@@ -313,9 +294,7 @@ items:
   - name: 資料表 API 文件
     items:
     - name: 概觀
-      items:
-      - name: 關於資料表 API
-        href: table-introduction.md
+      href: table-introduction.md
     - name: 教學課程
       items:
       - name: 1 - 建立帳戶
@@ -373,10 +352,8 @@ items:
       href: storage-explorer.md
     - name: 使用資料總管進行管理
       href: data-explorer.md
-    - name: 管理金鑰和一致性層級
+    - name: 管理您的帳戶
       href: manage-account.md
-    - name: 取得並設定輸送量
-      href: set-throughput.md
   - name: 記錄
     items:
     - name: 診斷記錄
@@ -407,6 +384,14 @@ items:
       href: performance-tips-async-java.md
     - name: 效能測試 - 範例應用程式
       href: performance-testing.md
+  - name: 最佳作法
+    items:
+    - name: 模型文件資料
+      href: modeling-data.md
+    - name: SQL 資料分割
+      href: sql-api-partition-data.md
+    - name: 圖表資料分割
+      href: graph-partitioning.md
   - name: 巨量資料與分析
     items:
     - name: Lambda 架構
@@ -415,9 +400,11 @@ items:
       href: spark-connector.md
     - name: Spark、Kafka 及 Azure Cosmos DB
       href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
+    - name: 變更摘要電子商務解決方案
+      href: changefeed-ecommerce-solution.md
   - name: 與其他 Azure 服務整合
     items:
-    - name: 以 Azure App Service 部署網站
+    - name: Azure App Service
       href: create-website.md
     - name: Azure 搜尋服務索引子
       href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
@@ -427,7 +414,7 @@ items:
         href: serverless-computing-database.md
       - name: Azure Functions 繫結
         href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
-    - name: 使用 Azure Data Factory 移動資料
+    - name: Azure Data Factory
       href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
     - name: Azure 串流分析
       href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
@@ -449,8 +436,6 @@ items:
     href: regional-failover.md
   - name: 預存程序、觸發程序和 UDF
     href: programming.md
-  - name: 多主機設定
-    href: multi-master-workaround.md
   - name: 關於大量執行程式程式庫
     href: bulk-executor-overview.md
   - name: 符合成本效益的讀取和寫入
@@ -459,8 +444,8 @@ items:
   items:
   - name: 查詢速查表
     href: query-cheat-sheet.md
-  - name: 20 天的秘訣
-    href: 20-days-of-tips.md
+  - name: SQL 園地
+    href: https://aka.ms/cosmos-db-playground
   - name: 常見問題集
     href: faq.md
   - name: 技術白皮書
@@ -478,9 +463,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: 社交媒體應用程式
     href: social-media-apps.md
-ms.openlocfilehash: 882b7d69a8282beb2fcbbce0ed788810210236ca
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8837d9bc6cf492a146d96d917d9157e51bffa0f5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184890"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695977"

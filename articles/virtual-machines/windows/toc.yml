@@ -436,6 +436,12 @@ items:
         href: storage-resource-deletion-errors.md
       - name: 包含連結 VHD 的 VM 非預期重新開機
         href: unexpected-reboots-attached-vhds.md
+    - name: 針對開機錯誤進行疑難排解
+      items:
+      - name: BitLocker 錯誤
+        href: troubleshoot-bitlocker-boot-error.md
+      - name: 檢查檔案系統錯誤
+        href: troubleshoot-check-disk-boot-error.md
 - name: 參考
   items:
   - name: Azure CLI
@@ -472,9 +478,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: 常見問題集
     href: faq.md
-ms.openlocfilehash: 92605b5b08cf4f36af1fbf2eaf15601d2ccfd173
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 891d433b02416cb3c02df87a4c4fae29b27d0d78
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43304431"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666725"

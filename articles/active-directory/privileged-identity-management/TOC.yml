@@ -12,6 +12,8 @@ items:
     href: pim-roles.md
   - name: 特殊權限的安全存取
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: MFA 和 PIM
+    href: pim-how-to-require-mfa.md
   - name: 儀表板概觀
     href: pim-resource-roles-overview-dashboards.md
   - name: 電子郵件通知
@@ -42,30 +44,28 @@ items:
     items:
     - name: 指派角色
       href: pim-how-to-add-role-to-user.md
-    - name: 配置角色設定
-      href: pim-how-to-change-default-settings.md
-    - name: 需要 MFA
-      href: pim-how-to-require-mfa.md
-    - name: 設定警示
-      href: pim-how-to-configure-security-alerts.md
     - name: 核准要求
       href: azure-ad-pim-approval-workflow.md
+    - name: 配置角色設定
+      href: pim-how-to-change-default-settings.md
+    - name: 設定警示
+      href: pim-how-to-configure-security-alerts.md
     - name: 檢視稽核記錄
       href: pim-how-to-use-audit-log.md
   - name: 管理資源角色
     items:
-    - name: 檢視具有存取權的人員
-      href: azure-pim-resource-rbac.md
     - name: 指派角色
       href: pim-resource-roles-assign-roles.md
-    - name: 配置角色設定
-      href: pim-resource-roles-configure-role-settings.md
-    - name: 設定警示
-      href: pim-resource-roles-configure-alerts.md
     - name: 核准要求
       href: pim-resource-roles-approval-workflow.md
     - name: 擴充或更新角色
       href: pim-resource-roles-renew-extend.md
+    - name: 配置角色設定
+      href: pim-resource-roles-configure-role-settings.md
+    - name: 設定警示
+      href: pim-resource-roles-configure-alerts.md
+    - name: 檢視具有存取權的人員
+      href: azure-pim-resource-rbac.md
     - name: 檢視稽核記錄
       href: pim-resource-roles-use-the-audit-log.md
     - name: 使用自訂角色
@@ -89,9 +89,9 @@ items:
       - name: 完成存取權檢閱
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: e545faae657ae3dc0feadca7f4a5eed10db7ff34
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 3f42a0786cfa0d2e6caffccd6e84d5cc21d2d74c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340482"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667773"

@@ -103,6 +103,7 @@
 #### [將活動記錄路由至 Azure 事件中樞](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [將活動記錄封存至 Azure 儲存體帳戶](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [使用 Azure 監視器整合活動記錄與 Splunk](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [使用 Azure 監視器整合活動記錄與 SumoLogic](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### 參考
 #### [保留](reports-monitoring/reference-reports-data-retention.md)
@@ -332,6 +333,8 @@
 ### [透過檢閱管理使用者存取](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [管理程式和控制項](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [取出存取權檢閱結果](active-directory-azure-ad-controls-retrieve-access-review.md)
+
+## [使用規定](active-directory-tou.md)
 
 ## 保護您的身分識別
 
