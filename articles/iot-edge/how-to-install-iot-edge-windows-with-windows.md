@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 39e0de6b378ed61ab375c6468b58c8c4a87b5fb9
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e92adc5dbd0da6ab4f60f8cc7bf6dbe7a58694c6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575959"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128413"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>在 Windows 上安裝要與 Windows 容器搭配使用的 Azure IoT Edge 執行階段
 
-Azure IoT Edge 執行階段會部署到所有 IoT Edge 裝置上。 它有三個元件。 **IoT Edge 安全性精靈**提供及維護 Edge 裝置的安全性標準。 精靈會在每次開機時啟動，並且透過啟動 IoT Edge 代理程式讓裝置進入啟動程序。 **IoT Edge 代理程式**有助於在 Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。
+Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段可以部署在像 Raspberry Pi 一樣小或像工業伺服器一樣大的裝置上。 利用 IoT Edge 執行階段設定裝置之後，您就可以開始從雲端將商務邏輯部署給它。 
 
-本文列出在 Windows x64 (AMD/Intel) 系統上安裝 Azure IoT Edge 執行階段的步驟。 
+若要深入了解 IoT Edge 執行階段的運作方式，以及會包含哪些元件，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。
+
+本文列出在 Windows x64 (AMD/Intel) 系統上安裝 Azure IoT Edge 執行階段與 Windows 容器的步驟。 
 
 Windows 支援目前為預覽版。
 
@@ -28,6 +30,8 @@ Windows 支援目前為預覽版。
 具有 Windows 容器的 Azure IoT Edge 可搭配下列項目使用：
   * 搭載 2018 年 4 月更新 (版本 17134) 的 Windows 10/IoT 企業版/IoT 核心版。
   * Windows Server 1803
+
+如需目前支援哪些作業系統的詳細資訊，請參閱 [Azure IoT Edge 支援](support.md#operating-systems)。
 
 ## <a name="install-the-container-runtime"></a>安裝容器執行階段 
 

@@ -8,16 +8,16 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342703"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128590"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>使用執行命令在 Windows 虛擬機器中執行 PowerShell 指令碼
 
-執行命令會使用虛擬機器代理程式在 Azure Windows 虛擬機器中執行殼層 PowerShell 指令碼。 這些指令碼可用於一般機器或應用程式管理，且可用來快速診斷和修復虛擬機器存取和網路問題，並使虛擬機器恢復正常狀態。
+執行命令會使用 VM 代理程式在 Azure Windows VM 中執行 PowerShell 指令碼。 這些指令碼可用於一般機器或應用程式管理，且可用來快速診斷和修復虛擬機器存取和網路問題，並使虛擬機器恢復正常狀態。
 
 ## <a name="benefits"></a>優點
 
@@ -63,7 +63,6 @@ ms.locfileid: "37342703"
 |**EnableAdminAccount**|檢查本機系統管理員帳戶是否已停用，若已停用，請將它啟用。|
 |**IPConfig**| 對於繫結至 TCP/IP 的每個介面卡，顯示 IP 位址、子網路遮罩和預設閘道的詳細資訊。|
 |**RDPSettings**|檢查登錄設定和網域原則設定。 如果機器是網域的一部分，或修改設定成為預設值，會建議原則動作。|
-|**ResetAccountPassword**| 重設內建的 Administrator 帳戶密碼。|
 |**ResetRDPCert**|移除繫結至 RDP 接聽程式的 SSL 憑證，並將 RDP 接聽程式安全性還原為預設值。 如果您發現憑證有任何問題，請使用此指令碼。|
 |**SetRDPPort**|設定遠端桌面連線的預設連接埠號碼或使用者指定連接埠號碼。 對於連接埠的輸入存取，啟用防火牆規則。|
 

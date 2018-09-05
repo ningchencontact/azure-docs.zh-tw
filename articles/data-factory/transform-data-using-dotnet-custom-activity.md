@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 08/29/2018
 ms.author: douglasl
-ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f4a88c5495fc3297699110d8a12a22ff7d6c2bbb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055294"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144349"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,15 +99,19 @@ ms.locfileid: "37055294"
 
 | 屬性              | 說明                              | 必要 |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | 管線中的活動名稱     | yes      |
+| name                  | 管線中的活動名稱     | 是      |
 | 說明           | 說明活動用途的文字。  | 否       |
-| type                  | 針對自訂活動，活動類型是**自訂**。 | yes      |
-| 預設容器     | Azure Batch 的已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  | yes      |
-| 命令               | 要執行的自訂應用程式命令。 如果應用程式已經可以在 Azure Batch 集區節點上使用，則可以略過 resourceLinkedService 和 folderPath。 例如，您可以將命令指定為 `cmd /c dir`，該命令原生受 Windows Batch 集區節點支援。 | yes      |
+| type                  | 針對自訂活動，活動類型是**自訂**。 | 是      |
+| 預設容器     | Azure Batch 的已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  | 是      |
+| 命令               | 要執行的自訂應用程式命令。 如果應用程式已經可以在 Azure Batch 集區節點上使用，則可以略過 resourceLinkedService 和 folderPath。 例如，您可以將命令指定為 `cmd /c dir`，該命令原生受 Windows Batch 集區節點支援。 | 是      |
 | resourceLinkedService | 對儲存體帳戶 (自訂應用程式儲存所在) 的 Azure 儲存體已連結的服務 | 否       |
 | folderPath            | 自訂應用程式及其所有相依項目的資料夾路徑 | 否       |
 | referenceObjects      | 現有已連結的服務和資料集的陣列。 參考的已連結的服務和資料集會傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考 Data Factory 的資源 | 否       |
 | extendedProperties    | 使用者定義的屬性，可以傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考其他屬性 | 否       |
+
+## <a name="custom-activity-permissions"></a>自訂活動權限
+
+自訂活動會將 Azure Batch 自動使用者帳戶設定為*具有工作範圍 (預設的自動使用者規格) 的非系統管理員存取權*。 您無法變更自動使用者帳戶的權限等級。 如需詳細資訊，請參閱[在 Batch 中的使用者帳戶執行工作 | 自動使用者帳戶](../batch/batch-user-accounts.md#auto-user-accounts)。
 
 ## <a name="executing-commands"></a>執行命令
 
@@ -287,7 +291,7 @@ namespace SampleApp
 如果您想要在下游活動中取用 stdout.txt 的內容，可以在 "\@activity('MyCustomActivity').output.outputs[0]" 運算式中取得 stdout.txt 檔案的路徑。 
 
   > [!IMPORTANT]
-  > - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 例如，activity.json、linkedServices.json 和 datasets.json 會儲存在「https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/」路徑。 您必須視需要個別加以清除。 
+  > - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 例如，activity.json、linkedServices.json 和 datasets.json 會儲存在「 https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/」路徑。 您必須視需要個別加以清除。 
   > - 針對已連結的服務使用自我裝載整合執行階段，機密資訊 (例如金鑰或密碼) 就會由自我裝載整合執行階段加密，以確保認證保留在客戶定義的私人網路環境中。 某些機密欄位由您的自訂應用程式以這樣的方式參考時，可能會遺失。 視需要在 extendedProperties 中使用 SecureString，而不是使用已連結的服務參考。 
 
 ## <a name="compare-v2-v1"></a> 比較 v2 自訂活動和第 1 版 (自訂) DotNet 活動

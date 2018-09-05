@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/28/2018
 ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127477"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143805"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>對 Azure SQL Database 和 SQL 資料倉儲使用虛擬網路服務端點和規則
 
@@ -181,11 +181,10 @@ Azure 儲存體已實作功能，可讓您限制連線至儲存體帳戶的連�
 如果您選擇使用這項功能，並使用 Azure SQL Server 正在使用的儲存體帳戶，可能會遇到問題。 接下來是受此影響的 Azure SQLDB 功能的清單和討論。
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase 通常用於將資料從儲存體帳戶載入 Azure SQLDW。 如果您正在載入資料的來源儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 目前沒有方法可降低此風險，您可以連絡 *dmalik@microsoft.com* 以了解詳細資訊。
+PolyBase 通常用於將資料從儲存體帳戶載入 Azure SQLDW。 如果您正在載入資料的來源儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 目前沒有方法可降低此風險，您可以連絡 Microsoft 支援服務以了解詳細資訊。
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 稽核
 Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這個儲存體帳戶使用 VENT 服務端點功能，則 Azure SQLDB 與儲存體帳戶的連線將會中斷。
-
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>在不開啟 VNET 服務端點的情況下將 VNET 防火牆規則新增至伺服器
 

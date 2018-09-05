@@ -2,18 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/04/2018
-ms.author: sethm
+ms.date: 08/29/2018
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 0ff1e31e52c7db5c41f92cb9e4cb1a17f28dea6f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 481ae07ae9f8877ff93b2fee948849076c054906
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755640"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187024"
 ---
 下表列出服務匯流排訊息的特定配額資訊。 如需有關服務匯流排的價格及其他配額的詳細資訊，請參閱 [服務匯流排價格](https://azure.microsoft.com/pricing/details/service-bus/) 概觀。
 
@@ -24,7 +24,7 @@ ms.locfileid: "38755640"
 | 佇列/主題大小 |實體 |在建立佇列/主題時定義。 <br/><br/> 後續內送訊息會遭到拒絕，而且呼叫端程式碼會收到例外狀況。 |1、2、3、4 GB 或 5 GB。<br /><br />在進階 SKU，以及啟用[分割](/azure/service-bus-messaging/service-bus-partitioning)的標準 SKU 中，佇列/主題大小上限為 80 GB。 |
 | 命名空間上的並行連線數目 |命名空間 |後續對更多連線的要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 REST 作業不會計入並行 TCP 連線內。 |NetMessaging: 1,000<br /><br />AMQP: 5,000 |
 | 佇列/主題/訂用帳戶實體上的並行接收要求數目 |實體 |後續接收要求會遭到拒絕，而且呼叫端程式碼會收到例外狀況。 這個配額套用至一個主題的所有訂用帳戶的並行接收作業數目合計。 |5,000 |
-| 每個命名空間的主題/佇列數目 |命名空間 |後續在命名空間上建立新主題或佇列的要求都會遭到拒絕。 因此，如果透過 [Azure 入口網站][Azure portal]設定，則會產生錯誤訊息。 如果從管理 API 進行呼叫，則呼叫端程式碼會收到例外狀況。 |10,000<br /><br />命名空間中主題和佇列的總數必須小於或等於 10,000。 |
+| 每個命名空間的主題/佇列數目 |命名空間 |後續在命名空間上建立新主題或佇列的要求都會遭到拒絕。 因此，如果透過 [Azure 入口網站][Azure portal]設定，則會產生錯誤訊息。 如果從管理 API 進行呼叫，則呼叫端程式碼會收到例外狀況。 |10,000 (基本/標準層)。 命名空間中主題和佇列的總數必須小於或等於 10,000。 <br/><br/>在進階中，則是每個傳訊單位 (MU) 1000 個。 上限為 4000。 |
 | 每個命名空間的[分割主題/佇列](/azure/service-bus-messaging/service-bus-partitioning)數目 |命名空間 |後續要求在命名空間上建立新分割主題或佇列會遭到拒絕。 因此，如果透過 [Azure 入口網站][Azure portal]設定，則會產生錯誤訊息。 如果從管理 API 進行呼叫，則呼叫端程式碼會收到 **QuotaExceededException** 例外狀況。 |基本層和標準層 - 100<br/><br/>[Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md) 層不支援分割的實體。<br/><br />每個分割佇列或主題的配額計數為每個命名空間 10,000 個實體。 |
 | 任何傳訊實體路徑的大小上限︰佇列或主題 |實體 |- |260 個字元 |
 | 任何傳訊實體名稱的大小上限︰命名空間、訂用帳戶或訂用帳戶規則 |實體 |- |50 個字元 |

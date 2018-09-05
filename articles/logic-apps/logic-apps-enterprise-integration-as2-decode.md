@@ -1,27 +1,23 @@
 ---
 title: 將 AS2 訊息解碼 - Azure Logic Apps | Microsoft Docs
-description: 如何在 Azure Logic Apps 的企業整合套件中使用 AS2 解碼器
+description: 使用 Azure Logic Apps 與 Enterprise Integration Pack 為 AS 訊息解碼
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 06ffa6bddc1340ad548f9baf30eba65ba503bf73
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141225"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128276"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用企業整合套件將 Azure Logic Apps 的 AS2 訊息解碼 
+# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure Logic Apps 與 Enterprise Integration Pack 為 AS2 訊息解碼 
 
 若要在傳輸訊息時建立安全性和可靠性，請使用解碼 AS2 訊息連接器。 此連接器可透過訊息處置通知 (MDN) 提供數位簽章、解密和通知。
 

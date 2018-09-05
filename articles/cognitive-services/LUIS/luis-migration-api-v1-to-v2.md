@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: cb68ad57302f151975c1ca6616a24db9804a6a68
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e7460a0eaf51e839accf08b6f8b07a112033af17
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223050"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130480"
 ---
 # <a name="api-v2-migration-guide"></a>API v2 移轉指南
 第 1 版的[端點](https://aka.ms/v1-endpoint-api-docs)和[編寫](https://aka.ms/v1-authoring-api-docs) API 將被取代。 使用本指南可了解如何移轉到第 2 版的[端點](https://aka.ms/luis-endpoint-apis)和[編寫](https://aka.ms/luis-authoring-apis) API。 
@@ -168,6 +168,6 @@ V1 允許加上標籤的語句，在單字或片語的開頭或結尾包含空�
 
 ## <a name="next-steps"></a>後續步驟
 
-使用 v2 API 文件，更新現有 REST 呼叫 LIUS[端點](https://aka.ms/luis-endpoint-apis)和[編寫](https://aka.ms/luis-authoring-apis) API。 
+使用 v2 API 文件，更新現有 REST 呼叫 LUIS [端點](https://aka.ms/luis-endpoint-apis)和[撰寫](https://aka.ms/luis-authoring-apis) API。 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

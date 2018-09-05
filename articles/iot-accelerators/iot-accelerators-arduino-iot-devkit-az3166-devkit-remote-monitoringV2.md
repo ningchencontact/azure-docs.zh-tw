@@ -1,5 +1,5 @@
 ---
-title: IoT DevKit 到雲端：將 IoT DevKit AZ3166 連線到遠端監視 IoT 解決方案加速器 | Microsoft Docs
+title: IoT DevKit 到雲端-- 將 IoT DevKit AZ3166 連線到遠端監視 IoT 解決方案加速器 | Microsoft Docs
 description: 在本教學課程中，了解如何將 IoT DevKit AZ3166 上的感應器狀態傳送至遠端監視 IoT 解決方案加速器來進行監視和呈現視覺效果。
 author: isabelcabezasm
 manager: ''
@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 88ce34125009665d346cf034f5d02ba7e21f48fc
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 92ce85a3cc94702468a13348d3a41667498c68f5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141521"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187386"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>將 MXChip IoT DevKit AZ3166 連線到 IoT 遠端監視解決方案加速器
 

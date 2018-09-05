@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: efc71e02cc02574973f0b6b428b5b670cd9cfd5b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617347"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144224"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 
@@ -74,13 +74,14 @@ ms.locfileid: "42617347"
 
 ## <a name="iot-hub"></a>IoT 中樞
 
-訂閱 IoT 中樞事件，以回應裝置建立和刪除事件。
+訂閱 IoT 中樞事件，以回應裝置建立、刪除、連線和中斷連線事件。
 
 |標題  |說明  |
 |---------|---------|
-| [教學課程：使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知](publish-iot-hub-events-to-logic-apps.md) | 每當有裝置新增至您的 IoT 中樞時，邏輯應用程式就會傳送電子郵件通知。 |
-| [概觀：使用「事件方格」來觸發動作以回應「IoT 中樞」事件](../iot-hub/iot-hub-event-grid.md) | 整合 IoT 中樞與事件方格的概觀。 |
+| [使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知](publish-iot-hub-events-to-logic-apps.md) | 每當有裝置新增至您的 IoT 中樞時，邏輯應用程式就會傳送電子郵件通知。 |
+| [使用事件方格來觸發動作以回應「IoT 中樞」事件](../iot-hub/iot-hub-event-grid.md) | 整合 IoT 中樞與事件方格的概觀。 |
 | [事件結構描述](event-schema-iot-hub.md) | 顯示 IoT 中樞事件中的欄位。 |
+| [排序裝置連線和裝置中斷連線事件](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | 說明如何排序裝置連線狀態事件。 |
 
 ## <a name="media-services"></a>媒體服務
 

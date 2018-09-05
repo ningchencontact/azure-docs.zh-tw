@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: b180c7e8d26acc86aa1d1982ace92efafa85f9ef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115359"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144120"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 
@@ -165,7 +165,7 @@ ms.locfileid: "37115359"
 
 ### <a name="configure-snapshot-collection-for-other-net-applications"></a>設定其他 .NET 應用程式的快照集集合
 
-1. 如果您的應用程式尚未使用 Application Insights 檢測，請從[啟用 Application Insights 及設定檢測金鑰](app-insights-windows-desktop.md)著手。
+1. 如果您的應用程式尚未使用 Application Insights 進行檢測，請從[啟用 Application Insights 及設定檢測金鑰](app-insights-windows-desktop.md)著手。
 
 2. 在您的應用程式中新增 [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件。
 
@@ -251,7 +251,8 @@ Azure 訂用帳戶的擁有者可以檢查快照集。 其他使用者必須由�
 ## <a name="current-limitations"></a>目前的限制
 
 ### <a name="publish-symbols"></a>發佈符號
-快照集偵錯工具需要符號檔出現在生產環境伺服器上，才可將變數解碼並提供 Visual Studio 中的偵錯體驗。 15.2 版 Visual Studio 2017 發佈至 App Service 時，預設會發佈版本組建的符號。 在舊版中，您必須將下列這一行新增至發佈設定檔 `.pubxml` 檔案，才會在發行模式中將符號發佈：
+快照集偵錯工具需要符號檔出現在生產環境伺服器上，才可將變數解碼並提供 Visual Studio 中的偵錯體驗。
+Visual Studio 2017 的 15.2 版 (或更新版本) 在發佈至 App Service 時，依預設會發佈版本組建的符號。 在舊版中，您必須將下列這一行新增至發佈設定檔 `.pubxml` 檔案，才會在發行模式中將符號發佈：
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
@@ -355,7 +356,7 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 所需的空間取決於您應用程式的總工作集以及並行快照集數目。
 32 位元 ASP.NET Web 角色的工作集一般介於 200 MB 與 500 MB 之間。
 允許至少兩個並行快照集。
-例如，如果您的應用程式使用 1 GB 的總工作集，則應該確定至少有 2 GB 的磁碟空間可儲存快照集。
+例如，如果您的應用程式使用 1 GB 的總工作集，則應確定至少有 2 GB 的磁碟空間可儲存快照集。
 請遵循下列步驟，以使用快照集的專用本機資源來設定您的雲端服務角色。
 
 1. 編輯雲端服務定義 (.csdef) 檔案，以將新的本機資源新增至雲端服務。 下列範例定義稱為 `SnapshotStore` 且大小為 5 GB 的資源。
@@ -400,6 +401,49 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
       <!-- Other SnapshotCollector configuration options -->
     </Add>
    </TelemetryProcessors>
+   ```
+
+### <a name="overriding-the-shadow-copy-folder"></a>覆寫陰影複製資料夾
+
+快照集收集器啟動時，它會嘗試在磁碟上尋找適合用來執行快照集上傳程式程序的資料夾。 選擇的資料夾稱為陰影複製資料夾。
+
+快照集收集器會檢查幾個已知的位置，確定它有權複製快照集上傳程式二進位檔。 使用的環境變數如下：
+- Fabric_Folder_App_Temp
+- LOCALAPPDATA
+- APPDATA
+- TEMP
+
+如果找不到適合的資料夾，快照集收集器會報告錯誤，指出「找不到適合的陰影複製資料夾。」
+
+如果複製失敗，快照集收集器會報告 `ShadowCopyFailed` 錯誤。
+
+如果上傳程式無法啟動，快照集收集器會報告 `UploaderCannotStartFromShadowCopy` 錯誤。 訊息內文通常會包含 `System.UnauthorizedAccessException`。 之所以發生此錯誤，通常是因為應用程式執行於權限降低的帳戶下。 該帳戶有權寫入陰影複製資料夾，但沒有執行程式碼的權限。
+
+這些錯誤通常是在啟動期間發生的，因此通常會尾隨 `ExceptionDuringConnect` 錯誤，指出「上傳程式無法啟動。」
+
+若要解決這些錯誤，您可以透過 `ShadowCopyFolder` 組態選項以手動方式指定陰影複製資料夾。 例如，使用 ApplicationInsights.config：
+
+   ```xml
+   <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Override the default shadow copy folder. -->
+      <ShadowCopyFolder>D:\SnapshotUploader</ShadowCopyFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+   </TelemetryProcessors>
+   ```
+
+或者，如果您搭配使用 appsettings.json 與 .NET Core 應用程式：
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "ShadowCopyFolder": "D:\\SnapshotUploader"
+     }
+   }
    ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>使用 Application Insights 搜尋來尋找快照集例外狀況的

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 320320687e441a1296065eb9d0b7b12771036459
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: af03f737c082a7fda90104303e018f7b417729b9
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636166"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143788"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>比較 IoT 中樞的訊息路由和事件格線
 
@@ -29,11 +29,11 @@ ms.locfileid: "34636166"
 | 功能 | IoT 中樞訊息路由 | IoT 中樞與事件格線的整合 |
 | ------- | --------------- | ---------- |
 | **裝置訊息** | 是，訊息路由可以用來處理遙測資料。 | 否，「事件格線」只能用來處理非遙測「IoT 中樞」事件。 |
-| **事件類型** | 是，訊息路由可以回報對應項變更和裝置生命週期事件。 | 是，「事件格線」可以在裝置已註冊至「IoT 中樞」時以及裝置被刪除時進行回報。 |
+| **事件類型** | 是，訊息路由可以回報對應項變更和裝置生命週期事件。 | 是，事件方格可在裝置已從 IoT 中樞建立、刪除、連線和中斷連線時時進行回報 |
 | **排序** | 是，會維持事件的排序。  | 否，不保證維持事件的順序。 | 
 | **訊息大小上限** | 256 KB (裝置到雲端) | 64 KB |
 | **篩選** | 透過類似 SQL 的語言提供豐富的篩選，可支援依據訊息標頭和本文進行篩選。 例如，請參閱 [IoT 中樞查詢語言](iot-hub-devguide-query-language.md)。 | 根據裝置識別碼的尾碼/首碼進行的篩選，相當適用於階層式服務 (例如儲存體)。 |
-| **Endpoints** | <ul><li>事件中樞</li> <li>儲存體 Blob</li> <li>服務匯流排佇列</li> <li>服務匯流排主題</li></ul><br>付費的「IoT 中樞」SKU (S1、S2 及 S3) 僅限有 10 個自訂端點。 可以為每個「IoT 中樞」建立 100 個路由。 | <ul><li>Azure Functions</li> <li>Azure 自動化</li> <li>事件中樞</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>透過 WebHook 提供的協力廠商服務</li></ul><br>如需最新的端點清單，請參閱[事件格線處理常式](../event-grid/overview.md#event-handlers)。 |
+| **Endpoints** | <ul><li>事件中樞</li> <li>儲存體 Blob</li> <li>服務匯流排佇列</li> <li>服務匯流排主題</li></ul><br>付費的「IoT 中樞」SKU (S1、S2 及 S3) 僅限有 10 個自訂端點。 可以為每個「IoT 中樞」建立 100 個路由。 | <ul><li>Azure Functions</li> <li>Azure 自動化</li> <li>事件中樞</li> <li>Logic Apps</li> <li>儲存體 Blob</li> <li>自訂主題</li> <li>透過 WebHook 提供的協力廠商服務</li></ul><br>如需最新的端點清單，請參閱[事件格線處理常式](../event-grid/overview.md#event-handlers)。 |
 | **成本** | 針對訊息路由並不另外收費。 僅針對將遙測資料輸入「IoT 中樞」收費。 例如，如果您將一則訊息路由傳送至三個不同的端點，將只需支付一則訊息的費用。 | 沒有任何來自「IoT 中樞」的收費。 「事件格線」的計費方式為每月前 100,000 個作業免費，之後每百萬個作業 $0.60 美元。 |
 
 「IoT 中樞訊息路由」與「事件格線」也有相似之處，下表詳細說明一些相似之處：
@@ -44,7 +44,7 @@ ms.locfileid: "34636166"
 | **延展性** | 高：已經過最佳化，可支援數百萬部同時連線的裝置傳送數十億則訊息。 | 高：能夠每個區域每秒路由傳送 10,000,000 個事件。 |
 | **延遲** | 低：近乎即時。 | 低：近乎即時。 |
 | **傳送至多個端點** | 是，將單一訊息傳送至多個端點。 | 是，將單一訊息傳送至多個端點。  | 
-| **Security** | 「IoT 中樞」提供個別裝置身分識別與可撤銷的存取控制。 如需詳細資訊，請參閱 [IoT 中樞存取控制](iot-hub-devguide-security.md)。 | 「事件格線」提供三個時間點的驗證：事件訂閱、事件發佈，以及 Webhook 事件傳遞。 如需詳細資訊，請參閱 [Event Grid 安全性和驗證](../event-grid/security-authentication.md)。 |
+| **安全性** | 「IoT 中樞」提供個別裝置身分識別與可撤銷的存取控制。 如需詳細資訊，請參閱 [IoT 中樞存取控制](iot-hub-devguide-security.md)。 | 「事件格線」提供三個時間點的驗證：事件訂閱、事件發佈，以及 Webhook 事件傳遞。 如需詳細資訊，請參閱 [Event Grid 安全性和驗證](../event-grid/security-authentication.md)。 |
 
 ## <a name="how-to-choose"></a>如何選擇
 
@@ -54,7 +54,7 @@ ms.locfileid: "34636166"
 
    當您必須將遙測資料傳送給其他服務時，請使用「IoT 中樞訊息路由」。 訊息路由也可以讓您查詢訊息標頭和訊息本文。 
 
-   「IoT 中樞與事件格線的整合」可處理「IoT 中樞」服務中發生的事件。 這些「IoT 中樞」事件包括裝置建立與刪除。 
+   「IoT 中樞與事件格線的整合」可處理「IoT 中樞」服務中發生的事件。 這些 IoT 中樞事件包括裝置建立、刪除、連線和中斷連線。 
 
 * **哪些端點需要接收此資訊？**
 

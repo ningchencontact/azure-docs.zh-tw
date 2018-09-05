@@ -1,28 +1,23 @@
 ---
 title: 管理整合帳戶構件中繼資料 - Azure Logic Apps | Microsoft Docs
-description: 從 Azure Logic Apps 的整合帳戶新增或擷取構件中繼資料
-author: padmavc
-manager: jeconnoc
-editor: ''
+description: 從 Azure Logic Apps 與 Enterprise Integration Pack 的整合帳戶新增或擷取成品中繼資料
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 02/23/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 3e7ef6aef9bc1062ae0f76adfbaf086961fcaa94
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 537014c2780fe94cfb35806759f8bcbd974c4c95
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298360"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128798"
 ---
-# <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>在 Logic Apps 的整合帳戶中管理構件中繼資料
+# <a name="manage-artifact-metadata-from-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>從 Azure Logic Apps 與 Enterprise Integration Pack 的整合帳戶管理成品中繼資料
 
 您可以在整合帳戶中定義構件的自訂中繼資料，並在邏輯應用程式的執行階段期間擷取該中繼資料。 例如，您可以指定構件的中繼資料 (如合作夥伴、合約、結構描述及對應)，這些全都會使用索引鍵值組來儲存中繼資料。 
 

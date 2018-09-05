@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125736"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186909"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>在 Azure 中部署 OpenShift 容器平台
 
 您可以使用數種方法其中之一，在 Azure 中部署 OpenShift 容器平台：
 
-- 您可以手動部署必要的 Azure 基礎結構元件，然後依照 OpenShift 容器平台[文件](https://docs.openshift.com/container-platform/3.6/welcome/index.html) \(英文\) 進行。
+- 您可以手動部署必要的 Azure 基礎結構元件，然後依照 OpenShift 容器平台[文件](https://docs.openshift.com/container-platform/3.10/welcome/index.html) \(英文\) 進行。
 - 您也可以使用能夠簡化 OpenShift 容器平台叢集部署的現有 [Resource Manager 範本](https://github.com/Microsoft/openshift-container-platform/) \(英文\)。
 - 另一個選項是使用 [Azure Marketplace 供應項目](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview) \(英文\)。
 
 對於所有選項，都需要有 Red Hat 訂用帳戶。 在部署期間，Red Hat Enterprise Linux 執行個體會向 Red Hat 訂用帳戶註冊，並且附加至包含 OpenShift 容器平台之權利的集區識別碼。
-請確定您具備有效的 Red Hat Subscription Manager (RHSM) 使用者名稱、密碼和集區識別碼。 您可以登入 https://access.redhat.com 來驗證資訊。
+請確定您具備有效的 Red Hat Subscription Manager (RHSM) 使用者名稱、密碼和集區識別碼。 您可以登入 https://access.redhat.com 來驗證這項資訊。
 
 ## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>使用 OpenShift 容器平台 Resource Manager 範本部署
 

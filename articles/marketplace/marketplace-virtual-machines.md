@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5508b5943e116545297d91e85621d2a11a635299
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058070"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144517"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>虛擬機器供應項目發佈指南
 
@@ -42,7 +42,7 @@ ms.locfileid: "39058070"
 
 您會透過基礎結構即服務 (IaaS) 或 SaaS 應用程式部署一或多部虛擬機器。 試用產品發佈選項的優點是，可在合作夥伴所主持的引導式導覽帶領下，以自動化方式佈建虛擬機器或整個解決方案。 試用產品可為您的客戶提供評估，而無須額外收費。 客戶不必是現有的 Azure 客戶，即可參與試用體驗。 
 
-請傳送電子郵件到 amp-testdrive@microsoft.com 來開始體驗。 
+請經由 [amp-testdrive](mailto:amp-testdrive@microsoft.com) 與我們連絡，以開始使用。 
 
 |需求  |詳細資料 |
 |---------|---------|
@@ -72,8 +72,8 @@ ms.locfileid: "39058070"
 
 如果您還沒有這麼做，請 
 
-- 在 Marketplace 中[註冊](https://azuremarketplace.microsoft.com/sell)
+- 在市集中[註冊](https://azuremarketplace.microsoft.com/sell)
 
-如果您已註冊，且要建立新的供應項目或使用現有的供應項目，請
+如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 
 - [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目

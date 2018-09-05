@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505356"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128444"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中監視整合執行階段  
 **整合執行階段**是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的各種資料整合功能。 Data Factory 提供三種類型的整合執行階段：
@@ -43,7 +43,7 @@ Cmdlet 會為不同類型的整合執行階段傳回不同的資訊。 本文說
 
 | 屬性 | 說明 |
 -------- | ------------- | 
-| Name | Azure 整合執行階段的名稱。 |  
+| 名稱 | Azure 整合執行階段的名稱。 |  
 | State | Azure 整合執行階段的狀態。 | 
 | 位置 | Azure 整合執行階段的位置。 如需 Azure 整合執行階段的位置詳細資訊，請參閱[整合執行階段簡介](concepts-integration-runtime.md)。 |
 | DataFactoryName | Azure 整合執行階段所屬的資料處理站名稱。 | 
@@ -70,7 +70,7 @@ Cmdlet 會為不同類型的整合執行階段傳回不同的資訊。 本文說
 
 | 屬性 | 說明 | 
 | -------- | ----------- | 
-| Name | 自我裝載整合執行階段及其關聯之節點的名稱。 節點是安裝了自我裝載整合執行階段的內部部署 Windows 電腦。 |  
+| 名稱 | 自我裝載整合執行階段及其關聯之節點的名稱。 節點是安裝了自我裝載整合執行階段的內部部署 Windows 電腦。 |  
 | 狀態 | 整體自我裝載整合執行階段與每個節點的狀態。 範例：線上/離線/受限制/等等。如需這些狀態的相關資訊，請參閱下一節。 | 
 | 版本 | 自我裝載整合執行階段與每個節點的版本。 自我裝載整合執行階段的版本取決於群組中大多數節點的版本。 如果自我裝載整合執行階段設定中有不同版本的節點，則只有版本號碼和邏輯自我裝載整合執行階段的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。 | 
 | 可用的記憶體 | 自我裝載整合執行階段節點上的可用記憶體。 這個值是近乎即時的快照集。 | 
@@ -178,7 +178,7 @@ Azure SSIS 整合執行階段是完全受控的 Azure 虛擬機器 (或節點) �
 | 類型 | Azure SSIS 整合執行階段的 (受控/自我裝載) 類型。 |
 | resourceGroupName | Azure 資源群組的名稱，其中已建立 Data Factory 和 Azure SSIS 整合執行階段。 |
 | DataFactoryName | Azure 資料處理站的名稱。 |
-| Name | Azure SSIS 整合執行階段的名稱。 |
+| 名稱 | Azure SSIS 整合執行階段的名稱。 |
 | 說明 | Azure SSIS 整合執行階段的說明。 |
 
   

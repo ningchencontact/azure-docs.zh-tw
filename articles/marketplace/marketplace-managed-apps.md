@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 674e91a7c1de026a26cf9a3bf1eaead7f5e86144
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8ead3dc34faefce0f113dee2074960fddfa11a1
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059190"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144586"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 應用程式：受控應用程式供應項目發佈指南
 
-解決方案範本是在 Marketplace 中發佈解決方案的其中一個主要方法。 您可以使用本指南來了解這項供應項目的需求。 
+受控應用程式是在 Marketplace 中發佈解決方案的主要方式之一。 您可以使用本指南來了解這項供應項目的需求。 
 
 這些交易供應項目是透過 Marketplace 來部署並計費的。 使用者會看到的呼籲行動是「立即取得」。
 
@@ -50,8 +50,8 @@ ms.locfileid: "39059190"
 ## <a name="next-steps"></a>後續步驟
 如果您還沒有這麼做，請 
 
-- 在 Marketplace 中[註冊](https://azuremarketplace.microsoft.com/sell)
+- 在市集中[註冊](https://azuremarketplace.microsoft.com/sell)
 
-如果您已註冊，且要建立新的供應項目或使用現有的供應項目，請
+如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 
 - [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目

@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238874"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128121"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -94,8 +94,18 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 |已啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
-|輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\myfile.txt"       |
+|輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\\\*.txt"<br>您也可以使用環境變數，例如 "%winDir%\System32\\\*.*"       |
+|遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
 |上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>萬用字元、遞迴和環境設定
+
+遞迴可讓您指定萬用字元，以簡化跨目錄的追蹤，而環境變數則可讓您以多個或動態的磁碟機名稱跨環境追蹤檔案。 以下列出您在設定遞迴時所應知悉的一般資訊：
+
+* 追蹤多個檔案時需使用萬用字元
+* 使用萬用字元時，這些字元只能在路徑的最後一個部分使用。 (例如 C:\folder\\**file** 或 /etc/*.conf)
+* 如果環境變數具有無效路徑，驗證仍會成功，但執行清查時，該路徑將會失敗。
+* 在設定路徑應避免使用 `c:\*.*` 這類的一般路徑，因為這會導致過多資料夾的周遊。
 
 ## <a name="configure-file-content-tracking"></a>設定檔案內容追蹤
 
@@ -122,13 +132,8 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 變更追蹤解決方案目前不支援下列項目︰
 
-* Windows 檔案追蹤的資料夾 (目錄)
-* Windows 檔案追蹤的遞迴
-* Windows 檔案追蹤的萬用字元
 * Windows 登錄追蹤的遞迴
-* 路徑變數
 * 網路檔案系統
-* 檔案內容
 
 其他限制：
 
