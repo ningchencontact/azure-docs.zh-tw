@@ -6,14 +6,14 @@ author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: a8d2eca785ad166aa4cff26bce876e41770a3427
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246230"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818268"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 安全性與合規性藍圖 - 適用於 Australia PROTECTED 的 PaaS Web 應用程式
 
@@ -36,7 +36,7 @@ ms.locfileid: "40246230"
 
 解決方案會使用 Azure 儲存體帳戶，客戶可加以設定，以便使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的區域內儲存三份資料複本以供復原之用。 Azure 區域是部署在復原性良好的區域組中，而且異地備援儲存體可確保資料將會被複寫到第二個區域，而且也會有三份複本。 這可防止客戶主要資料位置的不良反應造成資料遺失。
 
-為加強安全性，此解決方案中的所有 Azure 資源都會透過 Azure Resource Manager 以資源群組方式管理。 Azure Active Directory 角色型存取控制可用來控制對於已部署的資源和 Azure Key Vault 中的金鑰所做的存取。 透過 Azure 資訊安全中心和 Azure 監視器來監視系統健康情況。 客戶可設定這兩項監視服務來擷取記錄，並在易於瀏覽的單一儀表板上顯示系統健康情況。 Azure 應用程式閘道已設定為防止模式中的防火牆，而且不允許非 TLSv1.2 以上版本的流量。 解決方案會利用 Azure 應用程式服務環境 v2，以在非多租用戶環境中隔離 Web 層。
+為加強安全性，此解決方案中的所有 Azure 資源都會透過 Azure Resource Manager 以資源群組方式管理。 Azure Active Directory 角色型存取控制可用來控制對於已部署的資源和 Azure Key Vault 中的金鑰所做的存取。 透過 Azure 資訊安全中心和 Azure 監視器來監視系統健康情況。 客戶可設定這兩項監視服務來擷取記錄，並在易於瀏覽的單一儀表板上顯示系統健康情況。 Azure 應用程式閘道已設定為防止模式中的防火牆，而且不允許非 TLS v1.2 以上版本的流量。 解決方案會利用 Azure 應用程式服務環境 v2，以在非多租用戶環境中隔離 Web 層。
 
 ![適用於 AU-PROTECTED 的 PaaS Web 應用程式參考架構](images/au-protected-paaswa-architecture.png?raw=true "適用於 AU-PROTECTED 的 PaaS Web 應用程式參考架構圖表")
 
@@ -95,7 +95,7 @@ App Service 環境已經過隔離，可執行只有單一客戶的應用程式�
 - 在安全的 Azure 虛擬網路和網路安全性規則內裝載
 - 使用自我簽署的內部負載平衡器憑證設定 App Service 環境，以進行 HTTPS 通訊。 Microsoft 建議的最佳做法是使用受信任的憑證授權單位，來增強安全性。
 - [內部負載平衡模式](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (模式 3)
-- 停用 [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- 停用 [TLS v1.0 和 v1.1](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - 變更 [TLS 加密](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - 控制[輸入流量的 N/W 連接埠](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Web 應用程式防火牆 - 限制資料](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -128,11 +128,9 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。
 
 針對客戶自有網路中的傳輸中受保護資料，架構會使用網際網路或 ExpressRoute 搭配已使用 IPSEC 設定的 VPN 閘道。
 
-此外，透過 Azure 管理入口網站與 Azure 進行的所有交易都會透過 HTTPS 使用 TLS 1.2 發生。
-待用資料
+此外，透過 Azure 管理入口網站與 Azure 進行的所有交易都會透過 HTTPS 使用 TLS v1.2 發生。
 
 ### <a name="data-at-rest"></a>待用資料
-
 架構會透過加密、資料庫稽核及其他量值來保護待用資料。
 
 **Azure 儲存體**：為符合加密的待用資料需求，所有 [Azure 儲存體](https://azure.microsoft.com/services/storage/)都會使用[儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)。 這有助於保護與防衛資料，以支援組織的安全性承諾及澳洲政府所定義的合規性需求。
@@ -215,11 +213,11 @@ Azure 網路監看員：[Azure 網路監看員]https://docs.microsoft.com/en-us/
 ## <a name="compliance-documentation"></a>合規性文件
 此合規性文件是由 Microsoft 根據 Microsoft 所提供的平台與服務所建立。 由於客戶部署的廣泛性，此文件只針對 Azure 環境中裝載的解決方案提供一般方法。 客戶可以根據自己的作業環境與商業結果來尋找並使用替代產品與服務。 選擇使用內部部署資源的客戶必須解決那些內部部署資源的安全性與作業問題。 客戶可以自訂已記錄的解決方案以滿足其特定內部部署與安全性需求。
 
-[Azure 安全性與合規性藍圖 - AU-PROTECTED 客戶責任對照表](https://aka.ms/au-protected-crm)列出 AU-Prot 所需的所有安全性控制措施。 此對照表詳細說明每個控制措施的實作是由 Microsoft、客戶還是兩者共同負責。
+[Azure 安全性與合規性藍圖 - AU-PROTECTED 客戶責任對照表](https://aka.ms/au-protected-crm)列出 AU-Prot 所需的所有安全性控制措施。 此對照表詳細說明每個控制項的實作是由 Microsoft、客戶還是兩者共同負責。
 
 [Azure 安全性與合規性藍圖 - AU-PROTECTED PaaS Web 應用程式實作對照表](https://aka.ms/au-protected-paaswa-cim)提供 PaaS Web 應用程式架構處理了哪些 AU-PROTECTED 控制措施的相關資訊，包括詳細說明此實作如何滿足每個涵蓋控制措施的需求。
 
-## <a name="guidance-and-recommendations"></a>指導方針與建議
+## <a name="guidance-and-recommendations"></a>指引與建議
 ### <a name="vpn-and-expressroute"></a>VPN 和 ExpressRoute
 
 針對分類資訊，您需要設定安全的 IPSec VPN 通道，以安全地連線到部署為此 IaaS Web 應用程式參考架構一部分的資源。 透過適當地設定 IPSec VPN，客戶可以在傳輸過程中加上資料保護層。

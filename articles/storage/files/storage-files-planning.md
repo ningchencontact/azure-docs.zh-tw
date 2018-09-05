@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529102"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818481"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 因為 Azure 檔案服務受到完整管理，所以部署於生產環境案例遠易於部署及管理檔案伺服器或 NAS 裝置。 針對在組織中部署生產環境使用的 Azure 檔案共用，本文說明應考慮的主題。
@@ -81,7 +81,7 @@ Azure 檔案服務支援三個資料備援選項：本地備援儲存體 (LRS)�
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>資料成長模式
-Azure 檔案共用現在的大小上限是 5 TiB，包含共用快照集。 由於目前的此一限制，當您在部署 Azure 檔案共用時，必須考量預期的資料成長。 請注意，Azure 儲存體帳戶可以儲存多個共用，所有共用總計為 500 TiB。
+目前，Azure 檔案共用的大小上限是 5 TiB。 由於目前的此一限制，當您在部署 Azure 檔案共用時，必須考量預期的資料成長。 請注意，Azure 儲存體帳戶可以儲存多個共用，所有共用總計為 500 TiB。
 
 使用 Azure 檔案同步可以將多個 Azure 檔案共用同步處理到單一 Windows 檔案伺服器。這可確保內部部署上較舊的超大檔案共用可以帶入 Azure 檔案同步。如需詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-files-planning.md)。
 

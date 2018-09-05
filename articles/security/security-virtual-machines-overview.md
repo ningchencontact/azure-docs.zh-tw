@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 5ffba386ae6b1e1e5d18f92803bc8cb74b2ff89e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: fb6a984ff838305b4ce411538465c0b9b5c152da
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061294"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886909"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虛擬機器安全性概觀
 您可以使用 Azure 虛擬機器靈活地部署各種運算方案。 此服務支援 Microsoft Windows、Linux、Microsoft SQL Server、Oracle、IBM、SAP 和 Azure BizTalk 服務。 因此，您幾乎可以在所有作業系統上部署任何工作負載和任何語言。
@@ -82,9 +82,8 @@ Azure 磁碟加密是用於加密 Windows 和 Linux 虛擬機器磁碟的新功�
 
 深入了解：
 
-* [Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
-* [適用於 Linux 和 Windows 虛擬機器的 Azure 磁碟加密](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
-* [加密虛擬機器](../security-center/security-center-disk-encryption.md)
+* [IaaS VM 適用的 Azure 磁碟加密](../security/azure-security-disk-encryption-overview.md)
+* [快速入門：使用 Azure PowerShell 為 Windows IaaS VM 加密](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>虛擬機器備份
 Azure 備份是可調式解決方案，可以不需成本地協助保護您的應用程式資料，以及將操作成本降到最低。 應用程式錯誤可能導致資料損毀，而人為錯誤可能會將 Bug 導入應用程式中。 使用 Azure 備份，您執行 Windows 與 Linux 的虛擬機器會受到保護。

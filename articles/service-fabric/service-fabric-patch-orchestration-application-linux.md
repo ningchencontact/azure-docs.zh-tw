@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971261"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746712"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Linux 作業系統
 
@@ -57,7 +57,7 @@ ms.locfileid: "38971261"
 > [!NOTE]
 > 修補程式協調流程應用程式是使用 Service Fabric 的修復管理器系統服務，將節點停用或啟用以及執行健康情況檢查。 修補程式協調流程應用程式所建立的修復工作會追蹤每個節點的更新進度。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>確定您的 Azure VM 執行 Ubuntu 16.04
 在撰寫本文時，Ubuntu 16.04 (`Xenial Xerus`) 是唯一支援的版本。
@@ -121,7 +121,7 @@ ms.locfileid: "38971261"
 
 應用程式和安裝指令碼可以從[封存連結](https://go.microsoft.com/fwlink/?linkid=867984)下載。
 
-Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg)下載。 這對於 [Azure Resource Manager 型應用程式部署](service-fabric-application-arm-resource.md)非常有用。
+Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA_v2.0.2.sfpkg)下載。 這對於 [Azure Resource Manager 型應用程式部署](service-fabric-application-arm-resource.md)非常有用。
 
 ## <a name="configure-the-app"></a>設定應用程式
 
@@ -232,7 +232,7 @@ RejectedList | 預設值為 "" | 此更新已拒絕的修補程式清單
 
 如果尚未排程更新，JSON 結果會是空的。
 
-登入叢集以查詢更新結果。 接著，找出主要協調員服務的複本位址，然後點閱瀏覽器的 URL：http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetResults。
+登入叢集以查詢更新結果。 接著，找出主要協調員服務的複本位址，然後點閱瀏覽器的 URL： http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetResults。
 
 協調器服務的 REST 端點具有動態連接埠。 若要知道確切 URL，請查看 Service Fabric Explorer。 例如，可在 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetResults` 找到結果。
 
@@ -370,5 +370,8 @@ A. 否，修補協調流程應用程式無法用來修補單一節點的叢集�
 ### <a name="version-200"></a>版本 2.0.0
 - 公開版本
 
-### <a name="version-201-latest"></a>版本 2.0.1 (最新版)
+### <a name="version-201"></a>版本 2.0.1
 - 已使用最新 Service Fabric SDK 重新編譯應用程式
+
+### <a name="version-202-latest"></a>版本 2.0.2 (最新)
+- 已修正會在重新啟動期間遺留健康情況警告的問題。

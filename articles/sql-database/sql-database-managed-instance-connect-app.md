@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c9d656908d265aeb6143e857b0ea4f635203bdd9
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258723"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818397"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>將您的應用程式連線到 Azure SQL Database 受控執行個體
 
@@ -75,9 +75,23 @@ ms.locfileid: "39258723"
 
 受控執行個體只能透過私人 IP 位址存取，因此若要從開發人員方塊存取它，首先您需要進行開發人員方塊與受控執行個體 VNet 之間的連線。  
  
-「使用原生 Azure 憑證驗證設定 VNet 的點對站連線」文章 ([Azure 入口網站](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)、[PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)、[Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) 會詳細說明如何完成。  
+「使用原生 Azure 憑證驗證設定 VNet 的點對站連線」文章 ([Azure 入口網站](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)、[PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)、[Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) 會詳細說明如何完成。 
+
+## <a name="required-versions-of-drivers-and-tools"></a>所需的驅動程式和工具版本
+
+如果您想要連線到受控執行個體，建議您至少使用下列版本的工具和驅動程式：
+
+| 驅動程式/工具 | 版本 |
+| --- | --- |
+|.NET Framework | 4.6.1 (或 .NET Core) | 
+|ODBC 驅動程式    | v17 |
+|PHP 驅動程式 | 5.2.0 |
+|JDBC 驅動程式    | 6.4.0 |
+|Node.js 驅動程式 | 2.1.1 |
+|OLEDB 驅動程式   | 18.0.2.0 |
+|SSMS   | 17.8.1 或[更高版本](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如需受控執行個體的詳細資訊，請參閱[受控執行個體是什麼](sql-database-managed-instance.md)。
-- 如需示範如何新建受控執行個體的教學課程，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
+- 如需示範如何新建受控執行個體的教學課程，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)。

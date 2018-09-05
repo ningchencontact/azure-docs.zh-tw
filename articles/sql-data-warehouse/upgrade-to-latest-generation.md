@@ -7,24 +7,24 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 58d65ef05ed872bb357070de9866253baea5dc70
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777802"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746957"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>升級 SQL 資料倉儲可將效能發揮到極限
 將「Azure SQL 資料倉儲」升級至最新一代 Azure 硬體和儲存體架構。
 
 ## <a name="why-upgrade"></a>為何要升級？
-目前，您可以在 Azure 入口網站中順暢地升級到 SQL 資料倉儲 Gen2。 如果您有 Gen1 資料倉儲時，建議進行升級。 透過升級，您可以使用最新一代的 Azure 硬體和增強的儲存體架構。 您能夠利用更快的效能、更高的延展性，且無限制的單欄式儲存體。 
+您現在可以在 Azure 入口網站中順暢地升級至 SQL 資料倉儲計算最佳化 Gen2 層。 如果您有計算最佳化 Gen1 層的資料倉儲，則建議您升級。 透過升級，您可以使用最新一代的 Azure 硬體和增強的儲存體架構。 您能夠利用更快的效能、更高的延展性，且無限制的單欄式儲存體。 
 
 ## <a name="applies-to"></a>適用於
-這項升級適用於 Gen1 資料倉儲。
+這項升級適用於計算最佳化 Gen1 層資料倉儲。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -32,34 +32,33 @@ ms.locfileid: "33777802"
 
 ## <a name="before-you-begin"></a>開始之前
 > [!NOTE]
-> 如果現有的 Gen1 資料倉儲不在可以使用 Gen2 的區域中，您可以透過 PowerShell [異地還原至 Gen2](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) 以還原到支援的地區。
+> 如果您現有的計算最佳化 Gen1 層資料倉儲不是位於可使用計算最佳化 Gen2 層的區域，您可以透過 PowerShell [異地還原](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region)到支援的區域。
 > 
 >
 
-1. 如果要升級的 Gen1 資料倉儲已暫停，請[繼續執行資料倉儲](pause-and-resume-compute-portal.md)。
+1. 如果要升級的計算最佳化 Gen1 層資料倉儲已暫停，請[繼續執行資料倉儲](pause-and-resume-compute-portal.md)。
 2. 請做好停機幾分鐘的準備。 
 
 
 
 ## <a name="start-the-upgrade"></a>開始升級
 
-1. 在 Azure 入口網站中移至您的 Gen1 資料倉儲，然後按一下 [升級至 Gen2]：![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. 在 Azure 入口網站中移至計算最佳化 Gen1 層資料倉儲，然後按一下 [升級至 Gen2]：![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
 
-2. 根據預設，使用下列對應，根據您 Gen1 目前的效能層級，針對資料倉儲**選取建議的效能層級**：
+2. 依預設，使用下列對應，根據計算最佳化 Gen1 層目前的效能層級，針對資料倉儲**選取建議的效能層級**：
     
-| Gen1 | Gen2 |
-| :----------------------: | :-------------------: |
-|      DW100 – DW1000      |        DW1000c        |
-|          DW1200          |        DW1500c        |
-|          DW1500          |        DW1500c        |
-|          DW2000          |        DW2000c        |
-|          DW3000          |        DW3000c        |
-|          DW6000          |        DW6000c        |
+   | 計算最佳化 Gen1 層 | 計算最佳化 Gen2 層 |
+   | :----------------------: | :-------------------: |
+   |      DW100 – DW1000      |        DW1000c        |
+   |          DW1200          |        DW1500c        |
+   |          DW1500          |        DW1500c        |
+   |          DW2000          |        DW2000c        |
+   |          DW3000          |        DW3000c        |
+   |          DW6000          |        DW6000c        |
 
-
-3. 在升級之前，請確定您的工作負載已完成執行並停止。 在您的資料倉儲重新上線成為 Gen2 資料倉儲之前，會發生幾分鐘的停機時間。 按一下 [升級]。 Gen2 效能層級的價格目前在預覽版期間為半價：
+3. 在升級之前，請確定您的工作負載已完成執行並停止。 在您的資料倉儲重新上線成為計算最佳化 Gen2 層資料倉儲之前，會發生幾分鐘的停機時間。 按一下 [升級]。 計算最佳化 Gen2 層效能層級的價格目前在預覽版期間為半價：
     
-    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
+   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
 4. 檢查 Azure 入口網站中的狀態來**監視您的升級**：
 
@@ -69,15 +68,9 @@ ms.locfileid: "33777802"
    
    升級程序的第二個步驟是資料移轉 (「升級 - 上線」)。 資料移轉是線上緩慢移動背景程序，會將單欄式資料緩慢地從舊的儲存體架構移至新的儲存體架構，以充分利用本機 SSD 快取。 在此期間，您的資料倉儲將會上線以進行查詢和載入。 您所有的資料無論已遷移與否，都將可供查詢。 資料移轉會依據您的資料大小、效能層級和資料行存放區的區段數目，而以不同的速率進行。 
 
-5. 使用 SQL Database 的瀏覽刀鋒視窗，來**尋找您的 Gen2 資料倉儲**。 
+5. **選擇性的建議：** 為了加速資料移轉背景程序，您可以用較大的 SLO 和資源類別在您會查詢的所有主要資料行存放區資料表上執行 [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index)，立即強制執行資料移動。 相較於緩慢移動背景程序，這項作業會**離線**進行，因此可能需要幾個小時才能完成 (視資料表的數量和大小而定)；不過，資料移轉將會更快，接著一旦完成後，您便可使用高品質的資料列群組充分利用新的增強儲存體架構。 
 
-> [!NOTE]
-> 目前有一個 Gen2 資料倉儲不會顯示在 SQL 資料倉儲之瀏覽刀鋒視窗中的問題。 請使用 SQL Database 的瀏覽刀鋒視窗，以尋找新升級的 Gen2 資料倉儲。 我們正積極處理這項修正。
-> 
-
-6. **選擇性的建議：** 為了加速資料移轉背景程序，建議您以較大的 SLO 和資源類別在所有資料行存放區資料表上執行 [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index)，立即強制執行資料移動。 相較於緩慢移動背景程序，這項作業是離線進行；不過，資料移轉將會更快，接著一旦完成後，您便可使用高品質的資料列群組充分利用新的增強儲存體架構。 
-
-下列這個查詢會產生必要的 Alter Index Rebuild 命令，以加速資料移轉程序：
+下列查詢會產生必要的 Alter Index Rebuild 命令，以加速資料移轉程序：
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 

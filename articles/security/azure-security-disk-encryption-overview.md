@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 0e81a48c1215e8590f90c42aee0861e6fda3db8e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 88500be4bae83049e8a7060719f4f85e7622c645
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392725"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886986"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM 適用的 Azure 磁碟加密 
 Microsoft Azure 致力於確保您的資料隱私權、資料主權，並透過一系列進階技術來加密、控制和管理加密金鑰、控制和稽核資料存取，讓您控制您的 Azure 託管資料。 此控制提供 Azure 客戶靈活度，可選擇最符合其商務需求的解決方案。 本文為您介紹技術解決方案「Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密」，以協助保護及保障您的資料，以便符合組織的安全性和符合性的承諾。 
@@ -34,6 +34,10 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密已在所有 Azure 公用�
 * IaaS VM 會使用業界標準的加密技術輕鬆加以保護，解決組織的安全性與法務遵循的需求。
 * IaaS VM 會在客戶控制的金鑰和原則下開機，且您可以在金鑰保存庫中稽核其使用狀況。
 
+
+如果您使用 Azure 資訊安全中心，其會在您有未加密的虛擬機器時對您發出警示。 這些警示會顯示為高嚴重性，因此建議您加密這些虛擬機器。
+![Azure 資訊安全中心磁碟加密警示](media/azure-security-disk-encryption/security-center-disk-encryption-fig1.png)
+
 > [!NOTE]
 > 某些建議可能會增加資料、網路或計算資源的使用量，導致額外的授權或訂用帳戶成本。
 
@@ -44,8 +48,12 @@ Azure 磁碟加密解決方案支援下列客戶案例：
 * 對透過預先加密的 VHD 和加密金鑰建立的新 Windows IaaS VM 啟用加密 
 * 對透過受支援 Azure 資源庫映像建立的新 IaaS VM 啟用加密
 * 在 Azure 中執行的現有 IaaS VM 上啟用加密
+* 在 Windows 虛擬機器擴展集上啟用加密
+* 在 Linux 虛擬機器擴展集的資料磁碟機上啟用加密
 * 在 Windows IaaS VM 上停用加密
 * 在 Linux IaaS VM 的資料磁碟機上停用加密
+* 在 Windows 虛擬機器擴展集上停用加密
+* 在 Linux 虛擬機器擴展集的資料磁碟機上停用加密
 * 允許加密受控磁碟 VM
 * 更新現有已加密進階與非進階儲存體 VM 的加密設定
 * 備份與還原加密的 VM
@@ -55,9 +63,9 @@ Azure 磁碟加密解決方案支援下列客戶案例：
 * 與 Azure 金鑰保存庫整合
 * 標準層 VM：[A、D、DS、G、GS、F 等系列 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
     * 這幾層內的 [Linux VM](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 必須符合 7GB 的最小記憶體需求
-* 對透過受支援 Azure 資源庫映像的 Windows 和 Linux IaaS VM 以及受控磁碟 VM 啟用加密
-* 在 Windows IaaS VM 與受控磁碟 VM 的作業系統與資料磁碟機上停用加密
-* 在 Linux IaaS VM 與受控磁碟 VM 的資料磁碟機上停用加密
+* 在來自受支援 Azure 資源庫映像的 Windows 和 Linux IaaS VM、受控磁碟以及擴展集 VM 上啟用加密
+* 在 Windows IaaS VM、擴展集 VM 與受控磁碟 VM 的作業系統與資料磁碟機上停用加密
+* 在 Linux IaaS VM、擴展集 VM 與受控磁碟 VM 的資料磁碟機上停用加密
 * 在執行 Windows Client OS 的 IaaS VM 上啟用加密
 * 在具有掛接路徑的磁碟區上啟用加密
 * 使用 mdadm 在設定了磁碟串接 (RAID) 的 Linux VM 上啟用加密
@@ -74,7 +82,7 @@ Azure 磁碟加密解決方案支援下列客戶案例：
 * 在 Linux IaaS VM 的 OS 磁碟機上停用加密
 * 如果已加密 Linux IaaS VM 的 OS 磁碟機，請將資料磁碟機上的加密停用
 * 使用傳統 VM 建立方法所建立的 IaaS VM
-* 不支援在 Linux IaaS VM 客戶自訂映像上啟用加密。
+* 在 Linux IaaS VM 客戶自訂映像上啟用加密
 * 與您的內部部署金鑰管理服務整合
 * Azure 檔案 (共用檔案系統)、網路檔案系統 (NFS)、動態磁碟區和以軟體型 RAID 系統所設定的 Windows VM
 
@@ -103,8 +111,10 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
 > [!NOTE]
 > 使用 Azure 磁碟加密來加密 VM 磁碟完全免費。 標準[金鑰保存庫定價](https://azure.microsoft.com/pricing/details/key-vault/)適用於用來儲存加密金鑰的金鑰保存庫。 
 
+
 ## <a name="encryption-workflow"></a>加密工作流程
-若要啟用 Windows 和 Linux VM 的磁碟加密，請執行下列步驟︰
+
+ 若要啟用 Windows 和 Linux VM 的磁碟加密，請執行下列步驟︰
 
 1. 從先前的加密案例中選擇一個加密案例。
 2. 選擇透過 Azure 磁碟加密 Resource Manager 範本、PowerShell Cmdlet 或 CLI 命令啟用磁碟加密，並指定加密組態。
@@ -114,9 +124,7 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
 
 3. 授與存取至 Azure 平台，以從您的金鑰保存庫讀取加密金鑰資料 (Windows 系統的 BitLocker 加密金鑰和 Linux 的複雜密碼)，藉以在 IaaS VM 上啟用加密。
 
-4. 提供 Azure Active Directory (Azure AD) 應用程式身分識別，以將加密金鑰資料寫入至金鑰保存庫。 如此可針對步驟 2 中所述的案例在 IaaS VM 上啟用加密。
-
-5. Azure 會使用加密和金鑰保存庫組態更新 VM 服務模型，並建立加密的 VM。
+4. Azure 會使用加密、金鑰保存庫組態更新 VM 服務模型，並設定加密的 VM。
 
  ![Azure 中的 Microsoft Antimalware](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
 
@@ -132,6 +140,24 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
 > 停用加密作業並不會刪除您的金鑰保存庫和加密金鑰資料 (Windows 系統的 BitLocker 加密金鑰或 Linux 的複雜密碼)。
  > 不支援停用 Linux 適用的作業系統磁碟加密。 只允許對 Linux VM 上的資料磁碟機執行解密步驟。
 如果 OS 磁碟機已加密，就不支援將 Linux 的資料磁碟加密停用。
+
+
+## <a name="encryption-workflow-previous-release"></a>加密工作流程 (舊版)
+
+新版的 Azure 磁碟加密不需要提供 Azure AD 應用程式參數，即可啟用 VM 磁碟加密。 若使用新版本，您就不再需要在啟用加密步驟期間提供 Azure AD 認證。 若使用新版本，所有新的 VM 必須經過加密，而不需要 Azure AD 應用程式參數。 已經使用 Azure AD 應用程式參數進行加密的 VM 仍然受支援，應該繼續使用 AAD 語法進行維護。 若要啟用 Windows 和 Linux VM (舊版) 的磁碟加密，請執行下列步驟︰
+
+1. 從先前的加密案例中選擇一個加密案例。
+2. 選擇透過 Azure 磁碟加密 Resource Manager 範本、PowerShell Cmdlet 或 CLI 命令啟用磁碟加密，並指定加密組態。
+
+   * 針對客戶加密的 VHD 案例，請將加密的 VHD 上傳至儲存體帳戶並將加密金鑰資料上傳至金鑰保存庫。 接著，提供加密組態資訊以在新的 IaaS VM 上啟用加密。
+   * 針對透過 Marketplace 所建立的新 VM 和已在 Azure 中執行的現有 VM，提供加密組態以在 IaaS VM 上啟用加密。
+
+3. 授與存取至 Azure 平台，以從您的金鑰保存庫讀取加密金鑰資料 (Windows 系統的 BitLocker 加密金鑰和 Linux 的複雜密碼)，藉以在 IaaS VM 上啟用加密。
+
+4. 提供 Azure Active Directory (Azure AD) 應用程式身分識別，以將加密金鑰資料寫入至金鑰保存庫。 如此可針對步驟 2 中所述的案例在 IaaS VM 上啟用加密。
+
+5. Azure 會使用加密和金鑰保存庫組態更新 VM 服務模型，並建立加密的 VM。
+
 
 ## <a name="terminology"></a>術語
 若要了解此技術所使用的一些常用術語，請使用以下術語表：

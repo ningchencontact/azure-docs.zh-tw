@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146402"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746892"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -139,7 +139,7 @@ ms.locfileid: "42146402"
 
 應用程式和安裝指令碼可以從[封存連結](https://go.microsoft.com/fwlink/?linkid=869566)下載。
 
-Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://go.microsoft.com/fwlink/?linkid=869567)下載。 這對於 [Azure Resource Manager 型應用程式部署](service-fabric-application-arm-resource.md)非常有用。
+Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA_v1.2.2.sfpkg)下載。 這對於 [Azure Resource Manager 型應用程式部署](service-fabric-application-arm-resource.md)非常有用。
 
 ## <a name="configure-the-app"></a>設定應用程式
 
@@ -398,3 +398,5 @@ A. 否，修補協調流程應用程式無法用來修補單一節點的叢集�
 ### <a name="version-122-latest"></a>1.2.2 版 (最新)
 
 - 其他錯誤修正。
+- 現在已簽署二進位檔。
+- sfpkg 下載連結現在會指向特定版本。

@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: cf3e9ce055219bccb44c19fd8e77fe39c938c968
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9efd8730af292e6f720c3bacd5707c48f0eab7ac
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392595"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887928"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Azure 磁碟加密的附錄 
 本文是[IaaS VM 適用的 Azure 磁碟加密](azure-security-disk-encryption-overview.md)附錄。 請務必先閱讀 IaaS VM 適用的 Azure 磁碟加密文章，以了解內容。 本文說明如何準備預先加密的 VHD 和其他工作。
 
 ## <a name="connect-to-your-subscription"></a>連線至您的訂用帳戶
-在繼續之前，請檢閱[必要條件](azure-security-disk-encryption-prerequisites.md)一文。 確定已符合所有必要條件之後，請執行下列 Cmdlet 來連線到您的訂用帳戶︰
+在開始之前，請檢閱[必要條件](azure-security-disk-encryption-prerequisites.md)一文。 符合所有必要條件之後，請執行下列 Cmdlet 來連線到您的訂用帳戶︰
 
 ### <a name="bkmk_ConnectPSH"> 使用 PowerShell</a> 連線到您的訂用帳戶
 
@@ -106,33 +106,77 @@ ms.locfileid: "39392595"
      Get-AzureKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
+### <a name="bkmk_prereq-script"></a> 使用 Azure 磁碟加密先決條件 PowerShell 指令碼
+如果您已經熟悉 Azure 磁碟加密的必要條件，您可以使用 [Azure 磁碟加密必要條件 PowerShell 指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )。 如需使用此 PowerShell 指令碼的範例，請參閱[加密 VM 快速入門](quick-encrypt-vm-powershell.md)。 您可以從指令碼區段 (起自 211 行) 中移除註解，以對現有資源群組中現有 VM 的所有磁碟加密。 
+
+下表顯示可在 PowerShell 指令碼中使用的參數： 
+
+
+|參數|說明|屬於必要項目|
+|------|------|------|
+|$resourceGroupName| 金鑰保存庫所屬資源群組的名稱。  如果不存在此名稱的應用程式，將會以此名稱建立新的資源群組。| True|
+|$keyVaultName|要用來放置加密金鑰的金鑰保存庫名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的保存庫。| True|
+|$location|金鑰保存庫的位置。 請確定金鑰保存庫和要加密的 VM 位於相同位置。 使用 `Get-AzureRMLocation` 取得位置清單。|True|
+|$subscriptionId|要使用的 Azure 訂用帳戶識別碼。  您可以使用 `Get-AzureRMSubscription` 取得您的訂用帳戶識別碼。|True|
+|$aadAppName|會用來將祕密寫入到金鑰保存庫的 Azure AD 應用程式名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的應用程式。 如果此應用程式已經存在，請將 aadClientSecret 參數傳遞至指令碼。|False|
+|$aadClientSecret|稍早建立的 Azure AD 應用程式用戶端密碼。|False|
+|$keyEncryptionKeyName|金鑰保存庫中選用金鑰加密金鑰的名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的金鑰。|False|
+
+
 ## <a name="resource-manager-templates"></a>Resource Manager 範本
 
-- [建立金鑰保存庫](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) 
+<!--   - [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) -->
+
+### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>加密或解密沒有 Azure AD 應用程式的 VM
+
+
+- [在現有或執行中的 IaaS Windows VM 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
+- [在現有或執行中的 IaaS Windows VM 上停用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
+- [在現有或執行中的 IaaS Linux VM 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+ -  [在執行中 Linux VM 上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+    - 只能在 Linux VM 的資料磁碟區上停用加密。  
+
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>加密或解密具有 Azure AD 應用程式 (舊版) 的 VM 
  
-- [在來自 Marketplace 的新 IaaS Windows VM 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
-    - 此範本會建立使用 Windows Server 2012 資源庫映像的新加密 Windows VM。
-
-- [使用完整磁碟加密部署 RHEL 7.2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - 此範本會在 Azure 中建立完整加密的 RHEL 7.2 VM，其在 /mnt/raidencrypted 掛接 30 GB 加密的 OS 磁碟機和 200 GB RAID-0 陣列。 請參閱[常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)一文中支援的 Linux 伺服器散發套件。 
-
-- [在 Windows 或 Linux 預先加密的 VHD 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
-
 - [在現有或執行中的 IaaS Windows VM 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
 
-- [在現有或執行中的 IaaS Linux VM 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrt-running-linux-vm)    
+- [在現有或執行中的 IaaS Linux VM 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 - [在執行中 Windows IaaS 上停用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
 
--  [在執行中 Linux VM 上停用加密](https://aka.ms/decrypt-linuxvm) 
+-  [在執行中 Linux VM 上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
     - 只能在 Linux VM 的資料磁碟區上停用加密。 
+
+- [在來自 Marketplace 的新 IaaS Windows VM 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
+    - 此範本會建立使用 Windows Server 2012 資源庫映像的新加密 Windows VM。
+
+- [從資源庫映像建立新加密的 Windows IaaS 受控磁碟虛擬機器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
+    - 此範本會使用 Windows Server 2012 資源庫映像，建立具有受控磁碟的新加密 Windows VM。
+
+- [搭配使用完整磁碟加密與受控磁碟來部署 RHEL 7.2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
+    - 此範本會使用受控磁碟在 Azure 中建立已完整加密的 RHEL 7.2 VM。 其內含加密的 30 GB OS 磁碟機和加密的 200 GB 陣列 (RAID-0)，並掛接於 /mnt/raidencrypted。 請參閱[常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)一文中支援的 Linux 伺服器散發套件。 
+
+- [搭配使用完整磁碟加密與非受控磁碟來部署 RHEL 7.2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
+    - 此範本會在 Azure 中建立已完整加密的 RHEL 7.2 VM，此 VM 內含加密的 30 GB OS 磁碟機和加密的 200 GB 陣列 (RAID-0)，並掛接於 /mnt/raidencrypted。 請參閱[常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)一文中支援的 Linux 伺服器散發套件。 
+
+- [在 Windows 或 Linux 預先加密的 VHD 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 
 - [從預先加密的 VHD/儲存體 Blob 建立新加密的受控磁碟](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - 建立已加密的新受控磁碟，新的受控磁碟具備預先加密的 VHD 以及對應的加密設定
 
-- [從資源庫映像建立新加密的 Windows IaaS 受控磁碟虛擬機器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
-    - 此範本會使用 Windows Server 2012 資源庫映像，建立具有受控磁碟的新加密 Windows VM。
+- [使用 Azure AD 用戶端憑證指紋在執行中的 Windows VM 上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
+- [在執行中的 Linux 虛擬機器擴展集上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [在執行中的 Windows 虛擬機器擴展集上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [使用 Jumpbox 部署 Linux VM 的 VM 擴展集並在 Linux VMSS 上啟用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [使用 Jumpbox 部署 Windows VM 的 VM 擴展集並在 Windows VMSS 上啟用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [在執行中的 Linux 虛擬機器擴展集上停用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [在執行中的 Windows 虛擬機器擴展集上停用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a>準備已預先加密的 Windows VHD
 下列各節是準備預先加密的 Windows VHD 以在 Azure IaaS 中部署為加密的 VHD 的必要項目。 使用該資訊以在 Azure Site Recovery 或 Azure 上準備並啟動全新的 Windows VM (VHD)。 如需有關如何準備和上傳 VHD 的詳細資訊，請參閱[上傳一般化 VHD 並使用它在 Azure 中建立新的 VM](../virtual-machines/windows/upload-generalized-managed.md)。
@@ -465,7 +509,7 @@ to
 ```
     if [ 1 ]; then
 ```
-4. 編輯 /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh 並將此附加在「# Open LUKS device」之後：
+4. 編輯 /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh 並將下列內容附加在「# Open LUKS device」之後：
     ```
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -496,7 +540,7 @@ to
     Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="bkmk_UploadSecret"></a>將已預先加密 VM 的祕密上傳至金鑰保存庫
-先前取得的磁碟加密密碼必須上傳，做為金鑰保存庫中的密碼。 金鑰保存庫必須為 Azure AD 用戶端啟用磁碟加密以及權限。
+使用 Azure AD 應用程式 (舊版) 加密時，先前取得的磁碟加密密碼必須上傳，作為金鑰保存庫中的密碼。 金鑰保存庫必須為 Azure AD 用戶端啟用磁碟加密以及權限。
 
 ```powershell 
  $AadClientId = "My-AAD-Client-Id"

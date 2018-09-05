@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 89270a0bd1914a2486c8cc634563bdded743adaa
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578580"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746468"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>進行 Site Recovery 的監視和疑難排解
 
@@ -153,13 +153,14 @@ Healthy | 正常複寫中。 未偵測到任何錯誤或警告症狀。
 3.  按一下 [資料行] 以顯示其他資料行，例如，以便顯示 RPO、目標設定問題和複寫錯誤。
 4. 按一下 [篩選] 以根據特定參數 (例如，複寫健康情況或特定複寫原則) 檢視資訊。
 5. 以滑鼠右鍵按一下機器，即可為機器起始作業 (例如，測試容錯移轉)，也可檢視與機器相關聯的特定錯誤詳細資料。
-6. 按一下機器即可更加深入地了解機器。 詳細資料包括： - **複寫資訊**：機器目前的狀態和健康情況。
-        - **RPO** (復原點目標)：虛擬機器的目前 RPO 與上次計算 RPO 的時間。
-        - **復原點**：機器的最新可用復原點。
-        - **容錯移轉整備程度**：指出是否已為機器執行測試容錯移轉、機器上所執行的代理程式版本 (針對執行行動服務的機器)，以及任何設定問題。
-        - **錯誤**：目前在機器上觀察到的複寫錯誤症狀清單，以及可能的原因/動作。
-        - **事件**：依時間列出影響機器的最近事件。 錯誤詳細資料會顯示目前可觀察到的錯誤症狀，事件則是已影響機器的問題歷史記錄。
-        - **基礎結構檢視**：顯示機器在複寫至 Azure 時，案例的基礎結構狀態。
+6. 按一下機器即可更加深入地了解機器。 詳細資料包括：
+      - **複寫資訊**：機器目前的狀態和健康情況。
+      - **RPO** (復原點目標)：虛擬機器的目前 RPO 與上次計算 RPO 的時間。
+      - **復原點**：機器的最新可用復原點。
+      - **容錯移轉整備程度**：指出是否已為機器執行測試容錯移轉、機器上所執行的代理程式版本 (針對執行行動服務的機器)，以及任何設定問題。
+      - **錯誤**：目前在機器上觀察到的複寫錯誤症狀清單，以及可能的原因/動作。
+      - **事件**：依時間列出影響機器的最近事件。 錯誤詳細資料會顯示目前可觀察到的錯誤症狀，事件則是已影響機器的問題歷史記錄。
+      - **基礎結構檢視**：顯示機器在複寫至 Azure 時，案例的基礎結構狀態。
 
     ![Site Recovery 複寫項目詳細資料/概觀](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

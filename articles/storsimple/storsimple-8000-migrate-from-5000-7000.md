@@ -4,25 +4,26 @@ description: 提供移轉功能的概觀和必要條件。
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: jeconnoc
+manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2017
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 378eaea4c0cf19c48f47067e4f548f2d7f530377
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 23fde5fab8f223ff1d958a8fac6a31818f1fdd7c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856683"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818911"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>將 StorSimple 5000-7000 系列的資料移轉到 8000 系列裝置
 
 > [!IMPORTANT]
+> - StorSimple 5000/7000 系列將於 2019 年 7 月 31 日到達結束支援 (EOS) 狀態。 建議 StorSimple 5000/7000 系列的客戶遷移至文件中所述的其中一個替代方案。
 > - 移轉目前是協助進行的作業。 如果您要將 StorSimple 5000-7000 系列裝置的資料移轉到 8000 系列裝置，您需要向 Microsoft 支援服務排定移轉的時間。 Microsoft 支援服務接著會啟用移轉用的訂用帳戶。 如需詳細資訊，請參閱如何[開啟支援票證](storsimple-8000-contact-microsoft-support.md)。
 > - 您提出服務要求之後，可能需要幾週的時間來執行移轉計劃並實際開始移轉。
 > - 連絡 Microsoft 支援服務之前，務必詳閱和完成本文提及的[移轉必要條件](#migration-prerequisites)。

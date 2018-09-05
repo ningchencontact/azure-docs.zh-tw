@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170903"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888199"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>如何使用動作的「預期實體」屬性
 
@@ -59,14 +59,14 @@ ms.locfileid: "39170903"
 
 ### <a name="create-two-actions"></a>建立兩個動作
 
-1. 按一下 [動作]，然後按一下 [新增動作]
+1. 按一下 [動作]，然後按一下 [新增動作]。
 2. 在 [回應] 中，鍵入「What's your name?」(您叫什麼名字？)。
 3. 在 [Expected entity]\(預期實體\) 中，輸入 $name。 按一下 [儲存]。
     - 這些值表示，提出此問題時，如果使用者回應未偵測到任何實體，則聊天機器人應該會假設使用者的整個回應就是這個實體。
 2. 按一下 [動作]，然後按一下 [新增動作] 以建立第二個動作。
 3. 在 [回應] 中，鍵入「Hello $name」($name，您好)。
-    - 實體會自動新增為不合格的實體。 
-4. 按一下 [Save] \(儲存)。
+    - 實體會自動新增為所需的實體。 
+4. 按一下 [儲存]。
 
 現在您有兩個動作。
 

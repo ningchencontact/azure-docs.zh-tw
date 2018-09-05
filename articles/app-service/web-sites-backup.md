@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224797"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886399"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
 [Azure App Service](app-service-web-overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式，輕鬆建立應用程式備份。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。 
@@ -55,6 +55,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 * 備份上限是 10 GB 的應用程式和資料庫內容。 如果備份大小超出此限制，您就會收到錯誤。
 * 不支援備份具 SSL 功能的適用於 MySQL 的 Azure 資料庫。 如果設定備份，會得到失敗的備份檔案。
 * 不支援備份具 SSL 功能的適用於 PostgreSQL 的 Azure 資料庫。 如果設定備份，會得到失敗的備份檔案。
+* 應用程式內 MySQL 資料庫會自動備份 (不含任何設定)。 如果您對應用程式內 MySQL 資料庫進行手動設定 (例如，新增連接字串)，可能就無法正確備份。
 * 不支援將具防火牆功能的儲存體帳戶做為備份目的地。 如果設定備份，會得到失敗的備份檔案。
 
 
@@ -85,7 +86,9 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > 若要讓資料庫出現在此清單中，其連接字串必須存在於您應用程式之 [應用程式設定] 頁面的 [連接字串] 區段中。
+   > 若要讓資料庫出現在此清單中，其連接字串必須存在於您應用程式之 [應用程式設定] 頁面的 [連接字串] 區段中。 
+   >
+   > 應用程式內 MySQL 資料庫會自動備份 (不含任何設定)。 如果您對應用程式內 MySQL 資料庫進行手動設定 (例如，新增連接字串)，可能就無法正確備份。
    > 
    > 
 6. 在 [備份設定] 頁面中，按一下 [儲存]。    

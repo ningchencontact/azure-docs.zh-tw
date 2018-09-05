@@ -1,26 +1,29 @@
 ---
 title: 適用於 Azure Logic Apps 的連接器 | Microsoft Docs
-description: 使用內建、受控 API、內部部署、整合帳戶，以及適用於 Azure Logic Apps 的企業連接器，自動執行工作流程
+description: 使用 Azure Logic Apps 的連接器 (包括內建、受控、內部部署、整合帳戶和企業連接器) 將工作流程自動化
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 06/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 2bb3e2ce29037372395aa0b30e9f76f3e712667d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.topic: article
+ms.date: 08/23/2018
+ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096606"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818529"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
 
-當您使用 Azure Logic Apps 建立自動化工作流程時，連接器扮演不可或缺的部分。 在邏輯應用程式中使用連接器，即可擴充內部部署和雲端應用程式的功能，以便對您建立和已有的資料執行工作。 儘管 Logic Apps 提供 200 個以上的連接器，但本文說明由數千個應用程式及數百萬次執行成功用於處理資料和資訊的熱門常用連接器。
-連接器可以內建項目或受控連接器的形式提供。 
+當您使用 Azure Logic Apps 建立自動化工作流程時，連接器扮演不可或缺的部分。 在邏輯應用程式中使用連接器，即可擴充內部部署和雲端應用程式的功能，以便對您建立和已有的資料執行工作。 
+
+儘管 Logic Apps 提供 [200 個以上的連接器](https://docs.microsoft.com/connectors)，但本文說明由數千個應用程式及數百萬次執行成功用於處理資料和資訊的熱門常用連接器。 連接器可以內建項目或受控連接器的形式提供。 
+
+> [!NOTE]
+> 如需連接器的完整清單和每個連接器的參考資訊，例如動作、任何觸發程序和限制，您可以在[連接器概觀](https://docs.microsoft.com/connectors)下找到完整清單。
 
 * [**內建項目**](#built-ins)：這些內建動作和觸發程序可協助您建立可執行下列作業的邏輯應用程式：依照自訂排程執行、與其他端點通訊、接收和回應要求，以及呼叫 Azure 函式、Azure API Apps (Web 應用程式)，透過 Azure API 管理控管和發佈的自有 API，以及可接收要求的巢狀邏輯應用程式。 您也可以使用內建動作，協助您組織及控制邏輯應用程式的工作流程，以及處理資料。
 
@@ -37,7 +40,8 @@ ms.locfileid: "37096606"
   例如，如果您使用 Microsoft BizTalk Server，則邏輯應用程式可以使用 [BizTalk Server 連接器](#on-premises-connectors)連線到 BizTalk Server 並且進行通訊。 
   您可以使用[整合帳戶連接器](#integration-account-connectors)，接著在邏輯應用程式中擴充或執行類似 BizTalk 的作業。 
 
-如需連接器觸發程序和動作 (由 Swagger 說明加上任何限制所定義) 的技術資訊，請參閱[連接器詳細資料](/connectors/)。 如需成本資訊，請參閱 [Logic Apps 定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)和 [Logic Apps 定價模型](../logic-apps/logic-apps-pricing.md)。 
+> [!NOTE] 
+> 如需連接器的完整清單和每個連接器的參考資訊，例如動作和任何觸發程序 (由 Swagger 描述定義) 以及任何限制，您可以在[連接器概觀](/connectors/)下找到完整清單。 如需定價資訊，請參閱 [Logic Apps 定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)和 [Logic Apps 定價模型](../logic-apps/logic-apps-pricing.md)。 
 
 <a name="built-ins"></a>
 
@@ -160,6 +164,7 @@ Logic Apps 會提供下列幾種觸發程序：
 
 ## <a name="next-steps"></a>後續步驟
 
+* 尋找[連接器的完整清單](https://docs.microsoft.com/connectors)
 * [建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [建立邏輯應用程式的自訂連接器](https://docs.microsoft.com/connectors/custom-connectors/)
 * [建立邏輯應用程式的自訂 API](../logic-apps/logic-apps-create-api-app.md)

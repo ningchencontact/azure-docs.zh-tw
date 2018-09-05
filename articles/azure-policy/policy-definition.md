@@ -4,16 +4,16 @@ description: 說明「Azure 原則」如何使用資源原則定義，藉由描�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524102"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818692"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -107,7 +107,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-在原則規則中，您可以使用下列語法參考參數︰
+在原則規則中，您可以使用下列 `parameters` 部署值函式語法來參考參數︰
 
 ```json
 {
@@ -245,6 +245,53 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 如需在未部署虛擬機器擴充功能時進行稽核的範例，請參閱[稽核擴充功能是否不存在](scripts/audit-ext-not-exist.md)。
 
 如須每個效果的完整詳細資訊、評估順序、屬性和範例，請參閱[了解原則效果](policy-effects.md)。
+
+### <a name="policy-functions"></a>原則函式
+
+[Resource Manager 範本函式](../azure-resource-manager/resource-group-template-functions.md)的子集可用於原則規則中。 目前支援的函式如下︰
+
+- [參數](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [訂用帳戶](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+此外，`field` 函式可用於原則規則。 此函數主要會與 **AuditIfNotExists** 和 **DeployIfNotExists** 搭配使用，來參考所評估資源上的欄位。 舉例來說，您可以在 [DeployIfNotExists 範例](policy-effects.md#deployifnotexists-example)上看到此情形。
+
+#### <a name="policy-function-examples"></a>原則函式範例
+
+此原則規則範例會使用 `resourceGroup` 資源函式來取得**名稱**屬性，並與 `concat` 陣列和物件函式結合來建置 `like` 條件，以強制資源名稱的開頭使用資源群組名稱。
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+此原則規則範例會使用 `resourceGroup` 資源函式來取得資源群組上 **CostCenter** 標記的**標記**屬性陣列值，並將此值附加至新資源上的 **CostCenter** 標記。
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>別名
 

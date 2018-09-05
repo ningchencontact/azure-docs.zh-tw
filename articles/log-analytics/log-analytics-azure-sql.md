@@ -3,9 +3,9 @@ title: Log Analytics 中的 Azure SQL Analytics 解決方案 | Microsoft Docs
 description: Azure SQL 分析解決方案可協助您管理 Azure SQL 資料庫
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 440e16416b8567178c61c3d6ce2155e0e331521c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216320"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886555"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>使用 Azure SQL 分析來監視 Azure SQL Database (預覽)
 
@@ -135,27 +135,77 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 您可以使用來自 Azure SQL Database 資源的資料，輕鬆[建立警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。 以下是您可以搭配記錄警示使用的一些實用[記錄搜尋](log-analytics-log-searches.md)查詢：
 
-
-
-Azure SQL Database 上的高 DTU
+Azure SQL Database 上的高 CPU
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/DATABASES/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
-Azure SQL Database 彈性集區上的高 DTU
+> [!NOTE]
+> - 若要設定此警示，先決條件是受監視的資料庫會將診斷計量 (「所有計量」選項) 串流至解決方案。
+> - 請將 MetricName 值 cpu_percent 更換為 dtu_consumption_percent，即可改為取得高 DTU 結果。
+
+Azure SQL Database 彈性集區上的高 CPU
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/ELASTICPOOLS/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
+> [!NOTE]
+> - 若要設定此警示，先決條件是受監視的資料庫會將診斷計量 (「所有計量」選項) 串流至解決方案。
+> - 請將 MetricName 值 cpu_percent 更換為 dtu_consumption_percent，即可改為取得高 DTU 結果。
 
+*過去 1 小時的平均 Azure SQL Database 儲存體高於 95%*
+
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - 若要設定此警示，先決條件是受監視的資料庫會將診斷計量 (「所有計量」選項) 串流至解決方案。
+> - 這項查詢需要將警示規則設定為會在有查詢結果 (> 0 個結果) 時引發警示，這表示某些資料庫上有此情況。 其輸出中會列出所定義 time_range 內高於 storage_threshold 的資料庫資源。
+> - 其輸出中會列出所定義 time_range 內高於 storage_threshold 的資料庫資源。
+
+針對 Intelligent insights 的警示
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - 若要設定此警示，先決條件是受監視的資料庫會將 SQLInsights 診斷記錄串流至解決方案。
+> - 這項查詢需要將警示規則設定為利用和 alert_run_interval 相同的頻率來執行，以避免產生重複結果。 請將此規則設定為會在有查詢結果 (> 0 個結果) 時引發警示。
+> - 自訂 alert_run_interval 來指定時間範圍，以檢查設定為會將 SQLInsights 記錄串流至解決方案的資料庫上是否發生此情況。
+> - 自訂 insights_string 以擷取深入解析根本原因分析文字的輸出。 在可從現有深入解析使用的解決方案中，其 UI 中會顯示此相同文字。 或者，您也可以使用下列查詢來查看訂用帳戶所產生的所有深入解析文字。 請使用查詢的輸出來搜集可供對深入解析設定警示的不同字串。
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## <a name="next-steps"></a>後續步驟
 

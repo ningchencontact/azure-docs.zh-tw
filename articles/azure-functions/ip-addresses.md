@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397842"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818287"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure 中的 IP 位址 中的 IP 位址
 
@@ -39,7 +39,7 @@ IP 位址與函式應用程式相關聯，而非與個別函式相關聯。 傳�
 3. 選取 [平台功能]。
 4. 選取 [屬性]，以及 [虛擬 IP 位址] 之下的輸入 IP 位址。
 
-## <a name="function-app-outbound-ip-addresses"></a>函式應用程式輸出 IP 位址
+## <a name="find-outbound-ip-addresses"></a>函式應用程式輸出 IP 位址
 
 每個函式應用程式都有一組可用的輸出 IP 位址。 任何來自應用程式的輸出連線 (例如連往後端資料庫) 都會使用其中一個可用的輸出 IP 位址作為來源 IP 位址。 您事先不知道指定的連線會使用哪個 IP 位址。 基於這個理由，您的後端服務必須對函式應用程式的所有輸出 IP 位址開啟其防火牆。
 

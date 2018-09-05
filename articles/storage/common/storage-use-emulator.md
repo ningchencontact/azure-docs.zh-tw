@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144017"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888078"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -26,9 +26,8 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 > [!NOTE]
 > 在某個儲存體模擬器版本中建立的資料不保證可在使用不同版本時加以存取。 如果您需要長期保存資料，建議您將該資料儲存於 Azure 儲存體帳戶中 (而不是儲存體模擬器中)。
-> <p/>
+> 
 > 儲存體模擬器取決於特定的 OData 程式庫版本。 不支援將儲存體模擬器所使用的 OData DLL 更換為其他版本，而且可能會造成非預期的行為。 不過，儲存體服務支援的任何版本 OData 可能用來將要求傳送至模擬器。
->
 
 ## <a name="how-the-storage-emulator-works"></a>儲存體模擬器的運作方式
 儲存體模擬器會使用本機 Microsoft SQL Server 執行個體及本機檔案系統來模擬 Azure 儲存體服務。 儲存體模擬器預設會使用 Microsoft SQL Server 2012 Express LocalDB 中的資料庫。 您可以選擇設定儲存體模擬器存取 SQL Server 本機執行個體，而非 LocalDB 執行個體。 如需詳細資訊，請參閱本文稍後的[啟動及初始化儲存體模擬器](#start-and-initialize-the-storage-emulator)一節。
@@ -187,6 +186,7 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-
 下列差異適用於模擬器中的 Blob 儲存體：
 
 * 儲存體模擬器最多只支援 2 GB 的 blob 大小。
+* 儲存體模擬器中的 Blob 名稱長度上限是 256 個字元，而 Azure 儲存體中的 Blob 名稱長度上限是 1024 個字元。
 * 增量複本會讓來自覆寫 blob 的快照進行複製，其會在服務時傳回失敗。
 * 取得頁面範圍差異無法在使用累加複製 Blob 複製的快照之間運作。
 * 針對存在於儲存體模擬器中的 blob 進行的 Put Blob 作業會成功，並擁有作用中的租用 (即使要求中並未指定租用識別碼)。

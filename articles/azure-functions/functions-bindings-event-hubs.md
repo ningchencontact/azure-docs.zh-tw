@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144246"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747039"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
@@ -52,24 +52,24 @@ ms.locfileid: "42144246"
 
 ## <a name="trigger---scaling"></a>觸發程序 - 調整規模
 
-事件中樞所觸發之函式的每個執行個體只能由 1 個 EventProcessorHost (EPH) 執行個體來支援。 事件中樞會確保只有 1 個 EPH 可以在指定的分割區上取得租用。
+由事件中樞所觸發的函式，其每個執行個體只會由 1 個 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 執行個體來提供支援。 事件中樞會確保只有 1 個 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 執行個體可以在指定的分割區上取得租用。
 
-例如，假設我們開始進行下列設定，並假設事件中樞具有：
+例如，請考慮以下事件中樞：
 
-1. 10 個分割區。
-1. 1000 個平均散佈於所有分割區上的事件 => 每個分割區中有 100 個訊息。
+* 10 個分割區。
+* 1000 個平均散佈於所有分割區上的事件，且每個分割區中有 100 個訊息。
 
-當您的函式首次啟用時，只會有 1 個該函式的執行個體。 讓我們將這個函式執行個體稱為 Function_0。 Function_0 將具有 1 個會設法在所有 10 個分割區上取得租用的 EPH。 它將會開始讀取分割區 0-9 的事件。 從這裡開始，將發生下列其中一件事：
+當您的函式首次啟用時，只會有 1 個該函式的執行個體。 讓我們將這個函式執行個體稱為 `Function_0`。 `Function_0` 具有單一 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)執行個體，且這個執行個體在 10 個分割區全都擁有租用。 此執行個體會從分割區 0-9 讀取事件。 從這裡開始，會發生下列其中一件事：
 
-* **只需要 1 個函式執行個體**：Function_0 能夠在 Azure Functions 的規模調整邏輯開始生效之前完全處理 1000 個。 因此，Function_0 會完全處理 1000 個訊息。
+* **不需要新的函式執行個體**：`Function_0` 能夠在 Functions 的規模調整邏輯開始生效之前完全處理這 1000 個事件。 在此情況下，`Function_0` 會完全處理這 1000 個訊息。
 
-* **新增另 1 個函式執行個體**：Azure Functions 的規模調整邏輯判斷 Function_0 所擁有的訊息數目比它可處理的還多，因此會建立新的執行個體 Function_1。 事件中樞偵測到新的 EPH 執行個體正在嘗試讀取訊息。 事件中樞將開始在 EPH 執行個體之間進行分割區的負載平衡，例如，將分割區 0-4 指派給 Function_0，並將分割區 5-9 指派給 Function_1。 
+* **再新增 1 個函式執行個體**：Functions 的規模調整邏輯判斷 `Function_0` 所擁有的訊息數目比它可處理的還多。 在此情況下，系統會建立一個新的函式應用程式執行個體 (`Function_1`)，以及一個新的 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 執行個體。 事件中樞偵測到新的主機執行個體正在嘗試讀取訊息。 事件中樞會在其主機執行個體之間進行分割區的負載平衡。 例如，分割區 0-4 可能會指派給 `Function_0`，分割區 5-9 則指派給 `Function_1`。 
 
-* **新增另 N 個函式執行個體**：Azure Functions 的規模調整邏輯判斷 Function_0 和 Function_1 所擁有的訊息數目比它們可處理的還多。 它將再次針對 Function_2…N 進行規模調整，其中 N 大於事件中樞分割區數目。 事件中樞將在 Function_0...9 執行個體之間進行分割區的負載平衡。
+* **再新增 N 個函式執行個體**：Functions 的規模調整邏輯判斷 `Function_0` 和 `Function_1` 所擁有的訊息數目都比它們可處理的還多。 系統會建立新的函式應用程式執行個體 `Function_2`...`Functions_N`，其中 `N` 大於事件中樞分割區的數目。 在本例中，事件中樞同樣會將分割區負載平衡，在此案例中，會跨執行個體 `Function_0`...`Functions_9` 來進行。 
 
-Azure Functions 目前規模調整邏輯特有的事實是 N 大於分割區數目。 這樣做是為了確保一律會有 EPH 的執行個體可方便用來在分割區變成可從其他執行個體使用時，快速取得分割區上的鎖定。 使用者只需針對函式執行個體執行時所使用的資源付費，不需要針對這個過度佈建付費。
+請注意，當 Functions 調整為 `N` 個執行個體時，也就是大於事件中樞分割區數目的數字。 這樣做是為了確保一律會有 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 執行個體可用來在分割區變成可從其他執行個體使用時，取得這些分割區的鎖定。 您只需針對函式執行個體執行時所使用的資源付費，不需要針對這個過度佈建付費。
 
-如果所有函式執行都成功且未發生錯誤，就會將檢查點新增至相關聯的儲存體帳戶。 當檢查點檢查成功時，應該永遠不會再次擷取所有的 1000 個訊息。
+當所有函式執行完成時 (不論有無錯誤)，系統就會在相關聯的儲存體帳戶中新增檢查點。 當檢查點檢查成功時，就永遠不會再次擷取所有的 1000 個訊息。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 

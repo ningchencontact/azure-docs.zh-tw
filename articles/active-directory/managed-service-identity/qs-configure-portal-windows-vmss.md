@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: cbe2e3d9f60ced5c707ce5a701a5aac937ccc072
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257754"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887984"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>使用 Azure 入口網站設定虛擬機器擴展集的受控服務識別
 
@@ -27,10 +27,7 @@ ms.locfileid: "39257754"
 
 在 Azure Active Directory 中，「受控服務身分識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
-在本文中，您將了解如何使用 Azure 入口網站為虛擬機器擴展集啟用和停用系統指派的識別。 目前不支援透過 Azure 入口網站在 Azure 虛擬機器擴展集中指派及移除使用者指派的識別。
-
-> [!NOTE]
-> 目前，不支援透過 Azure 入口網站執行使用者指派的身分識別作業。 請隨時回來查看是否有更新內容。
+在本文中，您會了解如何使用 Azure 入口網站，為虛擬機器擴展集啟用和停用系統與使用者指派的身分識別。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -39,37 +36,68 @@ ms.locfileid: "39257754"
 - 若要執行本文中的管理作業，您的帳戶需要下列角色指派：
     - [虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)，可從虛擬機器擴展集啟用和移除系統指派的受控識別。
 
-## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>在 Azure 虛擬機器擴展集建立期間使用受控服務識別
+## <a name="system-assigned-identity"></a>系統指派的身分識別 
 
-目前，透過 Azure 入口網站建立虛擬機器不支援受控服務識別作業。 相反地，請參閱下列建立 Azure 虛擬機器擴展集的快速入門文件，先建立 Azure 虛擬機器擴展集：
+在本節中，您會了解如何使用 Azure 入口網站，在虛擬機器擴展集上啟用和停用系統指派的身分識別。
+
+### <a name="enable-system-assigned-identity-during-creation-of-a-virtual-machine-scale-set"></a>在虛擬機器擴展集建立期間啟用系統指派的識別
+
+目前，Azure 入口網站不支援在建立虛擬機器擴展集時啟用系統指派的身分識別。 相反地，請參閱下列虛擬機器擴展集建立快速入門文章，來先建立虛擬機器擴展集，然後繼續進行下一節，以了解如何在虛擬機器擴展集上啟用系統指派的身分識別：
 
 - [在 Azure 入口網站建立虛擬機器擴展集](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-然後進入下一節，取得在虛擬機器擴展集上啟用受控服務識別的詳細資料。
+### <a name="enable-system-assigned-identity-on-an-existing-virtual-machine-scale-set"></a>在現有虛擬機器擴展集上啟用系統指派的身分識別
 
-## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>在現有的 Azure VMMS 上啟用受控服務識別
-
-若要在原本佈建時沒有使用系統指派身分識別的 VM 上啟用此身分識別：
+若要在原本佈建時沒有使用系統指派身分識別的虛擬機器擴展集上啟用此身分識別：
 
 1. 使用與包含虛擬機器擴展集的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 瀏覽到需要的虛擬機器擴展集。
 
-3. 藉由在 [受控服務識別] 下選取 [是]，以在虛擬機器上啟用系統指派的身分識別，然後按一下 [儲存]。 此作業可能需要 60 秒以上才能完成：
+3. 在 [系統指派]、[狀態] 底下，選取 [開啟]，然後按一下 [儲存]：
 
    [![組態頁面螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集移除受控服務識別
+### <a name="remove-system-assigned-identity-from-a-virtual-machine-scale-set"></a>從虛擬機器擴展集移除系統指派的身分識別
 
-如果您的虛擬機器擴展集不再需要受控服務識別：
+如果您有不再需要系統指派身分識別的虛擬機器擴展集：
 
 1. 使用與包含虛擬機器擴展集的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。 此外也請確定您的帳戶屬於在虛擬機器擴展集上具有寫入權限的角色。
 
 2. 瀏覽到需要的虛擬機器擴展集。
 
-3. 藉由在 [受控服務識別] 下選取 [否]，以在虛擬機器上停用系統指派的身分識別，然後按一下 [儲存]。 此作業可能需要 60 秒以上才能完成：
+3. 在 [系統指派]、[狀態] 底下，選取 [關閉]，然後按一下 [儲存]：
 
-   ![組態頁面螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![組態頁面螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
+
+## <a name="user-assigned-identity"></a>使用者指派的身分識別
+
+在本節中，您會了解如何使用 Azure 入口網站，從虛擬機器擴展集新增和移除使用者指派的身分識別。
+
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>在虛擬機器擴展集建立期間指派使用者指派的識別
+
+目前，Azure 入口網站不支援在建立虛擬機器擴展集時指派使用者指派的身分識別。 相反地，請參閱下列虛擬機器擴展集建立快速入門文章，來先建立虛擬機器擴展集，然後繼續進行下一節，以了解如何對它指派使用者指派的身分識別：
+
+- [在 Azure 入口網站建立虛擬機器擴展集](../../virtual-machine-scale-sets/quick-create-portal.md)
+
+### <a name="assign-a-user-assigned-identity-to-an-existing-virtual-machine-scale-set"></a>將使用者指派的識別指派給現有的虛擬機器擴展集
+
+1. 使用與包含虛擬機器擴展集的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
+2. 瀏覽至所需虛擬機器擴展集，然後依序按一下 [身分識別]、[使用者指派] 和 [\+新增]。
+
+   ![對 VMSS 新增使用者指派的身分識別](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+
+3. 按一下想要新增到虛擬機器擴展集的使用者指派身分識別，然後按一下 [新增]。
+   
+   ![對 VMSS 新增使用者指派的身分識別](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
+
+### <a name="remove-a-user-assigned-identity-from-a-virtual-machine-scale-set"></a>從虛擬機器擴展集移除使用者指派的識別
+
+1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
+2. 瀏覽至所需虛擬機器擴展集，按一下 [身分識別]、[使用者指派] 和想要刪除的使用者指派身分識別名稱，然後按一下 [移除] (按一下 [確認] 窗格中的 [是])。
+
+   ![從 VMSS 中移除使用者指派的身分識別](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
+
 
 ## <a name="related-content"></a>相關內容
 

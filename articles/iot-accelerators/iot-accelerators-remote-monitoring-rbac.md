@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8886c08e88c1dd46d2b325b9ba8e9e0b8ae104f9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007159"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886305"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>在遠端監視解決方案加速器中設定角色型存取控制
 
@@ -51,7 +51,7 @@ ms.locfileid: "40007159"
 
 1. 請檢查[使用者是否在您所用的目錄中](../active-directory/fundamentals/add-users-azure-active-directory.md)。 當您登入 [Microsoft Azure IoT 解決方案加速器](https://www.azureiotsolutions.com/Accelerators)網站時，您會選擇要使用的目錄。 目錄名稱會顯示在[頁面](https://www.azureiotsolutions.com/Accelerators)的右上角。
 
-1. 在 Azure 入口網站中為您的解決方案尋找**企業應用程式**。 應用程式名稱是遠端監視解決方案的名稱。 在下列螢幕擷取畫面中，解決方案和應用程式顯示名稱為 **contoso-rm4**。
+1. 在 Azure 入口網站中為您的解決方案尋找**企業應用程式**。 到達該處後，藉由將 [應用程式類型] 設定為 [所有應用程式] 來篩選清單。 依應用程式名稱搜尋應用程式。 應用程式名稱是遠端監視解決方案的名稱。 在下列螢幕擷取畫面中，解決方案和應用程式顯示名稱為 **contoso-rm4**。
 
     ![企業應用程式](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 

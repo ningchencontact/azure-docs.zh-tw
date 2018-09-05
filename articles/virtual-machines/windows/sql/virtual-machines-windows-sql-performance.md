@@ -1,6 +1,6 @@
 ---
-title: Azure 中的 SQL Server 效能最佳做法 | Microsoft Docs
-description: 提供將 Microsoft Azure VM 中 SQL Server 效能最佳化的最佳作法。
+title: Azure 中的 SQL Server 效能指導方針 | Microsoft Docs
+description: 提供將 Microsoft Azure VM 中 SQL Server 效能最佳化的指導方針。
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/19/2018
+ms.date: 08/24/2018
 ms.author: jroth
-ms.openlocfilehash: a7a24bde6cc34befee7de3bcbf13b96c8b641af2
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 3a61c20b922b60e3135d9f9e53928462887a602e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888903"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886180"
 ---
-# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能最佳做法
+# <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能指導方針
 
 ## <a name="overview"></a>概觀
 

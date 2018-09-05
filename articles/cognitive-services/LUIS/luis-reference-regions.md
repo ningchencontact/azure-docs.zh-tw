@@ -1,21 +1,21 @@
 ---
-title: Language Understanding (LUIS) 區域 | Microsoft Docs
+title: Language Understanding (LUIS) 區域和端點 - Azure - 認知服務 LUIS | Microsoft Docs
 titleSuffix: Azure
-description: 本文章包含適用於 LUIS 網站、Azure 訂用帳戶，以及全球區域之 LUIS 區域的清單。
+description: 您發行 LUIS 應用程式的區域，會對應至您在建立 Azure LUIS 端點金鑰時於 Azure 入口網站中指定的區域或位置。 當您發行應用程式時，LUIS 會針對與該金鑰相關的區域自動產生端點 URL。 若要將 LUIS 應用程式發行至多個區域，針對每個區域，您至少需要有一個金鑰。
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/23/2018
 ms.author: diberry
-ms.openlocfilehash: 1f6090bf1ac588585a16f93d2ac091e8950ca45f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7812ce37cb22c8774c785f5f645b8fef90b02a3e
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238925"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815498"
 ---
 # <a name="regions-and-keys"></a>區域和金鑰
 
@@ -59,6 +59,24 @@ ms.locfileid: "39238925"
 ## <a name="publishing-to-australia"></a>發行至澳大利亞
 
 若要發行至澳大利亞區域，您僅能在 https://au.luis.ai 建立 LUIS 應用程式。 若您嘗試使用澳大利亞區域的金鑰於其他區域發行，LUIS 會顯示警告訊息。 請改用 https://au.luis.ai。 在 [https://au.luis.ai][au.luis.ai] 建立的 LUIS 應用程式不會自動移轉至其他區域。 若要移轉它，請匯出然後再匯入該 LUIS 應用程式。
+
+## <a name="endpoints"></a>端點
+
+LUIS 目前有 2 個端點：一個用於撰寫，一個用於文字分析。
+
+|目的|URL|
+|--|--|
+|編寫|`https://{region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|文字分析 (查詢預測)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+
+下表說明上表中的參數 (以大括號 `{}` 表示)。
+
+|參數|目的|
+|--|--|
+|region|Azure 區域 - 撰寫和發佈具有不同區域|
+|appID|URL 路由中使用的 LUIS 應用程式識別碼，於應用程式儀表板上找到|
+|q|用戶端應用程式 (例如聊天機器人) 所傳來的語句文字|
+
 
 ## <a name="next-steps"></a>後續步驟
 
