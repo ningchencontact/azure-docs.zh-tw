@@ -1,6 +1,6 @@
 ---
-title: 如何授與對 Privileged Identity Management 的存取權 - Azure | Microsoft Docs
-description: 了解如何使用 Azure Active Directory Privileged Identity Management 擴充功能為使用者加入角色，以便他們可以管理 PIM。
+title: 授與其他系統管理員存取權以管理 PIM - Azure | Microsoft Docs
+description: 了解如何授與其他系統管理員存取權以管理 Azure AD Privileged Identity Management (PIM)。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ade3939057669e7f9979001db4376fe61c2f4ad9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623063"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189550"
 ---
-# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>授與存取權以管理 Azure AD Privileged Identity Management
+# <a name="grant-access-to-other-administrators-to-manage-pim"></a>授與其他系統管理員存取權以管理 PIM
 為組織啟用 Azure AD Privileged Identity Management (PIM) 的全域系統管理員會自動取得角色指派及 PIM 的存取權。 不過，預設不會有任何其他人取得寫入存取權，包括其他全域系統管理員。 其他全域系統管理員、安全性管理員及安全性讀取者具有 Azure AD PIM 的唯讀存取權。 若要授與對 PIM 的存取權，第一位使用者可以將其他使用者指派給「特殊權限角色管理員」  角色。
 
 > [!NOTE]
@@ -54,4 +54,5 @@ ms.locfileid: "39623063"
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [啟用租用戶中的訂用帳戶管理](pim-resource-roles-enable-subscription-management.md)

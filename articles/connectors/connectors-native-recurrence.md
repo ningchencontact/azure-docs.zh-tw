@@ -1,28 +1,24 @@
 ---
-title: 排程工作和定期執行的工作流程 - Azure Logic Apps | Microsoft Docs
-description: 使用邏輯應用程式建立和排程定期執行的工作、動作、工作流程、程序，以及工作負載
+title: 使用 Azure Logic Apps 建立定期執行的工作和工作流程 | Microsoft Docs
+description: 自動執行工作和工作流程，其透過 Azure Logic Apps 中的週期連接器依排程執行
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/25/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 3bd396355681cdde486cfbea7004c9c1aece09da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296782"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127049"
 ---
-# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>使用 Azure Logic Apps 建立並排程定期執行的工作
+# <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>使用 Azure Logic Apps 建立並執行週期性工作和工作流程
 
 若要排程定期執行的工作、動作、工作負載或程序，您可以先使用**排程 - 重複**[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)，建立邏輯應用程式工作流程。 使用此觸發程序，您可以設定開始重複的日期和時間，以及執行工作的重複排程，例如下列範例等等：
 
@@ -43,7 +39,7 @@ ms.locfileid: "35296782"
 
 每次引發重複觸發程序時，Logic Apps 會建立並執行新的邏輯應用程式工作流程執行個體。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以[開始使用免費 Azure 帳戶](https://azure.microsoft.com/free/)。 否則，您可以[註冊隨用隨付訂用帳戶](https://azure.microsoft.com/pricing/purchase-options/)。
 
@@ -97,10 +93,10 @@ ms.locfileid: "35296782"
 
 您可以設定重複觸發程序的下列屬性。
 
-| Name | 必要 | 屬性名稱 | 類型 | 說明 | 
+| 名稱 | 必要 | 屬性名稱 | 類型 | 說明 | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **頻率** | yes | frequency | 字串 | 重複的時間單位：**秒**、**分鐘**、**小時**、**天**、**週**或**月** | 
-| **間隔** | yes | interval | 整數  | 描述工作流程根據 frequency 多久執行一次的正整數。 <p>預設間隔是 1。 以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 | 
+| **頻率** | 是 | frequency | 字串 | 重複的時間單位：**秒**、**分鐘**、**小時**、**天**、**週**或**月** | 
+| **間隔** | 是 | interval | 整數  | 描述工作流程根據 frequency 多久執行一次的正整數。 <p>預設間隔是 1。 以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 | 
 | **時區** | 否 | timeZone | 字串 | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 選取您要套用的時區。 | 
 | **開始時間** | 否 | startTime | 字串 | 提供下列格式的開始時間： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後選取時區，例「美國太平洋時間」。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**注意：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不選取時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 [*我可以使用開始日期和時間的方式有哪些？*](#start-time) | 
 | **在這幾天內** | 否 | weekDays | 字串或字串陣列 | 如果您選取 [週]，可以選取想要在哪一天或哪幾天執行工作流程：**星期一**、**星期二**、**星期三**、**星期四**、**星期五**、**星期六**和**星期日** | 

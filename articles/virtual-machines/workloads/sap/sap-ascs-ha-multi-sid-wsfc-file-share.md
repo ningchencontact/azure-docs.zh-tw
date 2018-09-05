@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657208"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189628"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -216,7 +216,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 
 如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」一節。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您已經使用**檔案共用**來設定要用於一個 SAP ASCS/SCS 執行個體的 WSFC 叢集，如下圖所示。
 
@@ -227,6 +227,7 @@ _**圖 1：** 在兩個叢集中部署 SAP ASCS/SCS 執行個體和 SOFS 部署_
 > [!IMPORTANT]
 > 安裝程式必須符合下列條件︰
 > * SAP ASCS / SCS 執行個體必須共用相同的 WSFC 叢集。
+> * 屬於不同 SAP SID 的不同 SAP 全域主機檔案共用，必須共用相同的 SOFS 叢集。
 > * 每個資料庫管理系統 (DBMS) SID 必須有自己專用的 WSFC 叢集。
 > * SAP 應用程式伺服器屬於必須擁有自己專用 VM 的一個 SAP 系統 SID。
 

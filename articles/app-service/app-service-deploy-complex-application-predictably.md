@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 884edbf56fbf67e4ee71e0832f8924a3747994c9
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141271"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050741"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>透過可預測方式在 Azure 中佈建和部署微服務
 本教學課程示範如何在 [Azure App Service](https://azure.microsoft.com/services/app-service/) 中將包含[微服務](https://en.wikipedia.org/wiki/Microservices)的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。 
@@ -40,7 +40,7 @@ ms.locfileid: "42141271"
 在本教學課程中，您將使用下列工具。 這不是工具的完整討論，因此將著重在端對端案例，並且只對每個工具進行簡短介紹，以及您可以在哪裡找到更多資訊。 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure 資源管理員範本 (JSON)
-例如，每次在 Azure App Service 中建立 Web 應用程式時，Azure 資源管理員都會使用 JSON 範本來建立具有元件資源的整個資源群組。 像是 [Scalable WordPress](/marketplace/partners/wordpress/scalablewordpress/) 應用程式等來自 [Azure Marketplace](/marketplace) 的複雜範本，可包括 MySQL 資料庫、儲存體帳戶、App Service 方案、Web 應用程式本身、警示規則等等，而且您可以透過 PowerShell 使用所有這類範本。 如需如何下載和使用這些範本的詳細資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
+例如，每次在 Azure App Service 中建立 Web 應用程式時，Azure 資源管理員都會使用 JSON 範本來建立具有元件資源的整個資源群組。 來自 [Azure Marketplace](/azure/marketplace) 的複雜範本，可包括資料庫、儲存體帳戶、App Service 方案、Web 應用程式本身、警示規則、應用程式設定、自動調整設定等等，而且您可以透過 PowerShell 使用所有這類範本。 如需如何下載和使用這些範本的詳細資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
 
 如需 Azure 資源管理員範本的詳細資訊，請參閱 [編寫 Azure 資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md)
 

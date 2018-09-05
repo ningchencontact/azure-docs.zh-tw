@@ -1,27 +1,23 @@
 ---
 title: B2B 整合帳戶的災害復原 - Azure 邏輯應用程式 | Microsoft Docs
-description: Logic Apps B2B 災害復原
+description: 準備好在 Azure Logic Apps 中進行跨區域的災害復原
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 1882207207327214ee6519a98715d06a7e32ab93
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3d465123f814887282bf2b29a5b6e0836601c243
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045597"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123899"
 ---
-# <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Logic Apps B2B 跨區域災害復原
+# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps 中 B2B 整合帳戶的跨區域災害復原
 
 B2B 工作負載涉及金錢交易，例如訂單和發票。 在災害事件期間，企業務必快速復原，才可符合與合作夥伴達成的商務層級 SLA。 本文示範如何建置 B2B 工作負載的商務持續性計劃。 
 

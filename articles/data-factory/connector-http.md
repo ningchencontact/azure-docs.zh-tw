@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 08/24/2018
 ms.author: jingwang
-ms.openlocfilehash: a27d90006d31c83b5ebe6cfc4a8d97969743a91e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5afb2fccd5c7b8ca306079941837d854c0b21349
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049853"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091712"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,10 +54,10 @@ ms.locfileid: "37049853"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**HttpServer**。 | yes |
-| url | Web 伺服器的基本 URL | yes |
+| type | 類型屬性必須設定為：**HttpServer**。 | 是 |
+| url | Web 伺服器的基本 URL | 是 |
 | enableServerCertificateValidation | 指定是否在連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 當 HTTPS 伺服器使用自我簽署的憑證時，請將此屬性設定為 false。 | 否，預設值是 True |
-| authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | yes |
+| authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>使用基本、摘要或 Windows 驗證
@@ -66,8 +66,8 @@ ms.locfileid: "37049853"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| userName | 存取 HTTP 端點的使用者名稱。 | yes |
-| password | 使用者 (userName) 的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| userName | 存取 HTTP 端點的使用者名稱。 | 是 |
+| password | 使用者 (userName) 的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 
 **範例**
 
@@ -162,13 +162,16 @@ ms.locfileid: "37049853"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**HttpFile** | yes |
+| type | 資料集的類型屬性必須設定為：**HttpFile** | 是 |
 | relativeUrl | 包含資料之資源的相對 URL。 未指定此屬性時，則只會使用在連結服務定義中指定的 URL。 | 否 |
 | requestMethod | HTTP 方法。<br/>允許的值為 **Get** (預設值) 或 **Post**。 | 否 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
 | requestBody | HTTP 要求的內文。 | 否 |
 | format | 如果您想要**依原樣擷取 HTTP 端點的資料**而不剖析資料，並將資料複製到以檔案為基礎的存放區，請略過輸入和輸出資料集定義中的格式區段。<br/><br/>如果您想要在複製期間剖析 HTTP 回應內容，支援下列檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱 [Json 格式](supported-file-formats-and-compression-codecs.md#json-format)、[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)章節。 |否 |
 | compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/>支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。<br/>支援的層級為：**Optimal** 和 **Fastest**。 |否 |
+
+>[!NOTE]
+>支援的 HTTP 要求承載大小是大約 500KB。 如果您希望傳遞至 Web 端點的承載大小大於這個值，請考慮批次分成較小區塊。
 
 **範例 1：使用 Get 方法 (預設值)**
 
@@ -219,7 +222,7 @@ ms.locfileid: "37049853"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**HttpSource** | yes |
+| type | 複製活動來源的類型屬性必須設定為：**HttpSource** | 是 |
 | httpRequestTimeout | HTTP 的逾時 (TimeSpan) 要求取得回應。 逾時會取得回應，而非逾時讀取回應資料。<br/> 預設值為：00:01:40  | 否 |
 
 **範例：**

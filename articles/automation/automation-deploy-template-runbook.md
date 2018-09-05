@@ -10,11 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell, runbook, json, azure 自動化
-ms.openlocfilehash: 489676736e0a3dcff463fae954f0250d90ba3d0f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe7a3632936e13a0762ebc0afcc357965e019146
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918601"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自動化 PowerShell Runbook 中部署 Azure Resource Manager 範本
 
@@ -24,11 +25,11 @@ ms.lasthandoff: 05/16/2018
 
 在本主題中，我們會建立使用儲存在 [Azure 儲存體](../storage/common/storage-introduction.md)中 Resource Manager 範本的 PowerShell Runbook，來部署新的 Azure 儲存體帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，您需要下列項目：
 
-* Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益<a href="/pricing/free-account/" target="_blank">或](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)[註冊免費帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或[註冊免費帳戶](https://azure.microsoft.com/free/)。
 * [自動化帳戶](automation-sec-configure-azure-runas-account.md) ，用來保存 Runbook 以及向 Azure 資源驗證。  此帳戶必須擁有啟動和停止虛擬機器的權限。
 * 用來儲存 Resource Manager 範本的 [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
 * 本機電腦上安裝的 Azure Powershell。 如需如何取得 Azure PowerShell 的詳細資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0)。
@@ -56,6 +57,13 @@ ms.lasthandoff: 05/16/2018
       "metadata": {
         "description": "Storage Account type"
       }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
   },
   "variables": {
@@ -65,8 +73,8 @@ ms.lasthandoff: 05/16/2018
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-02-01",
+      "location": "[parameters('location')]",
       "sku": {
           "name": "[parameters('storageAccountType')]"
       },

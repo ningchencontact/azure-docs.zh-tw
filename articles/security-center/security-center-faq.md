@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2018
+ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: 382f85c268b2e21a780756057f4bf78c41c791c2
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b93ad6793bb8e431ba318772c780a06c792dcd9a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283498"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126755"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -51,9 +51,146 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
 請參閱[Azure 資訊安全中心的權限](security-center-permissions.md)以深入了解角色與資訊安全中心允許的動作。
 
-## <a name="data-collection"></a>資料收集
+## <a name="data-collection-agents-and-workspaces"></a>資料收集、代理程式及工作區
 資訊安全中心會從您的 Azure 虛擬機器 (VM) 和非 Azure 電腦收集資料，以監視安全性漏洞與威脅。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。
 
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>資訊安全中心所建立工作區上的 Log Analytics 是否需要付費？
+否。 資訊安全中心所建立的工作區雖然設定以每個節點的 Log Analytics 來計費，但實際上不會產生 Log Analytics 費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
+
+- **免費層** – 資訊安全中心在預設工作區啟用 'SecurityCenterFree' 解決方案。 免費層不須付費。
+- **標準層** – 資訊安全中心在預設工作區啟用 'Security' 解決方案。
+
+如需詳細資訊，請參閱[資訊安全中心價格](https://azure.microsoft.com/pricing/details/security-center/)。 價格頁面反映了自 2017 年起 6 月起安全性資料儲存體及依比例計費的改變。
+
+> [!NOTE]
+> 資訊安全中心所建立工作區的 Log Analytics 定價層不會影響資訊安全中心的收費。
+>
+>
+
+### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>安裝 Microsoft Monitoring Agent 自動佈建的 VM 需要什麼資格？
+符合下列條件的 Windows 或 Linux IaaS 虛擬機器：
+
+- 虛擬機器目前尚未安裝 Microsoft Monitoring Agent 擴充功能。
+- 虛擬機器處於執行狀態。
+- 已安裝 Windows 或 Linux 虛擬機器代理程式。
+- 虛擬機器沒有作為 Web 應用程式防火牆或新一代防火牆等設備使用。
+
+### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>我可以刪除資訊安全中心所建立的預設工作區嗎？
+**建議您不要刪除預設工作區。** 資訊安全中心會使用預設工作區儲存您虛擬機器傳來的安全性資料。  如果您刪除了工作區，資訊安全中心無法收集此資料，特定安全性建議及警示就無法使用。
+
+若要復原，請將連線到刪除工作區之虛擬機器上的 Microsoft Monitoring Agent 移除。 資訊安全中心會重新安裝代理程式，並建立新的預設工作區。
+
+### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>如何使用我現有的 Log Analytics 工作區？
+
+您可以選取現有的 Log Analytics 工作區來儲存資訊安全中心收集的資料。 若要使用現有的 Log Analytics 工作區：
+
+- 工作區必須與您選取的 Azure 訂用帳戶相關聯。
+- 至少必須擁有讀取權限以存取工作區。
+
+若要選取現有的 Log Analytics 工作區：
+
+1. 在 [安全性原則 - 資料收集] 下，選取 [使用其他工作區]。
+
+   ![使用其他工作區][5]
+
+2. 從下拉式功能表中，選取要儲存收集資料的工作區。
+
+   > [!NOTE]
+   > 在下拉式功能表中，只會顯示您可存取，而且在您 Azure 訂用帳戶中的工作區。
+   >
+   >
+
+3. 選取 [ **儲存**]。
+4. 選取 [儲存] 之後，會詢問您是否要重新設定受監控的虛擬機器。
+
+   - 如果您希望新的工作區設定**僅套用在新的虛擬機器**，請選取 [否]。 新的工作區設定只會套用在新安裝的代理程式，以及新探索到的未安裝 Microsoft Monitoring Agent 之虛擬機器。
+   - 如果您希望新的工作區設定**套用在所有虛擬機器**，請選取 [是]。 此外，每個連線到資訊安全中心建立之工作區的虛擬機器會重新連線到新的目標工作區。
+
+   > [!NOTE]
+   > 如果您選取 [是]，您必須刪除資訊安全中心建立的工作區，直到所有虛擬機器已重新連線至新的目標工作區。 如果過早刪除工作區，這項作業將會失敗。
+   >
+   >
+
+   - 選取 [取消] 以取消作業。
+
+### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>如果虛擬機器上 Microsoft Monitoring Agent 已經以擴充功能的形式安裝了呢？
+資訊安全中心不會覆寫既存的使用者工作區連線。 資訊安全中心會將虛擬機器送出的資料儲存到已經連線的工作區。 資訊安全中心會更新擴充功能版本以包含虛擬機器的 Azure 資源識別碼，進而支援資訊安全中心的使用方式。
+
+### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>如果我已經在機器上安裝了 Microsoft Monitoring Agent，但不是以擴充功能的形式呢？
+如果 Microsoft Monitoring Agent 已經直接安裝在虛擬機器上 (而非作為 Azure 擴充功能)，資訊安全中心不會再安裝 Microsoft Monitoring Agent，且資訊安全監控的功能會受到限制。
+
+如需詳細資訊，請參閱下一節：[如果虛擬機器上已安裝 SCOM 或 OMS 直接代理程式，會發生什麼狀況？](#scomomsinstalled)
+
+### 如果我的 VM 上已安裝 SCOM 或 OMS 直接代理程式，會發生什麼狀況？<a name="scomomsinstalled"></a>
+資訊安全中心無法事先識別是否已安裝代理程式。  資訊安全中心會嘗試安裝 Microsoft Monitoring Agent 擴充功能，然後因為已安裝的代理程式而發生失敗。  此失敗可防止代理程式的連線設定覆寫其工作區，並避免建立多重主目錄。
+
+> [!NOTE]
+> 代理程式版本會更新為最新的 OMS 代理程式版本。  這也適用於 SCOM 使用者。
+>
+>
+
+### <a name="what-is-the-impact-of-removing-these-extensions"></a>移除這些擴充功能會有什麼影響？
+如果您移除了 Microsoft Monitoring 擴充功能，資訊安全中心會無法收集虛擬機器送出的安全性資料，且特定安全性建議及警示將無法使用。 24 小時內，資訊安全中心會判定虛擬機器缺少了擴充功能，並重新安裝。
+
+### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>我要如何避免自動安裝代理程式和建立工作區？
+您可以在安全性原則中關閉訂用帳戶的自動佈建，但不建議您這麼做。 關閉自動佈建會限制資訊安全中心的建議和警示。 標準層上的訂用帳戶需要進行自動佈建。 若要停用自動佈建：
+
+1. 如果您的訂用帳戶設定為標準層，請開啟該訂用帳戶的安全性原則，並選取**免費**層。
+
+   ![定價層][1]
+
+2. 接下來，請選取 [安全性原則 – 資料收集] 刀鋒視窗上的 [關閉]，來停用自動佈建。
+   ![資料收集][2]
+
+### <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>我應該要退出自動安裝代理程式和建立工作區嗎？
+
+> [!NOTE]
+> 如果您選擇退出自動佈建，請務必檢閱[退出的影響為何？](#what-are-the-implications-of-opting-out-of-automatic-provisioning)和[退出時的建議步驟](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)區段。
+>
+>
+
+如果您符合下列條件，您可以選擇退出自動佈建：
+
+- 資訊安全中心的自動代理程式安裝適用於整個訂用帳戶。  您無法將自動安裝套用到虛擬機器的子集。 如果有重要虛擬機器無法使用 Microsoft Monitoring Agent 安裝，您應該退出自動佈建。
+- Microsoft Monitoring Agent 擴充功能的安裝程序會更新代理程式的版本。 這適用於直接代理程式和 SCOM 代理程式。 如果已安裝的 SCOM 代理程式是 2012 版並且已升級，那麼當 SCOM 伺服器也是 2012 版時，管理性功能可能會遺失。 如果已安裝的 SCOM 代理程式是 2012 版，您應考慮退出自動佈建。
+- 如果您在訂用帳戶 (集中式工作區) 之外還有自訂工作區，則您應該退出自動佈建。 您可以手動安裝 Microsoft Monitoring Agent 擴充功能，然後將其連線至您的工作區，而不是由資訊安全中心覆寫連線。
+- 如果您不想在每個訂用帳戶上建立多個工作區，而且訂用帳戶中有您自己的自訂工作區，則您有兩個選項：
+
+   1. 您可以退出自動佈建。 移轉之後，依循[我可以如何使用現有 Log Analytics 工作區？](#how-can-i-use-my-existing-log-analytics-workspace)中的說明來設定預設工作區的設定
+   2. 或者，您可以讓移轉程序完成，讓 Microsoft Monitoring Agent 安裝在虛擬機器上，然後讓虛擬機器連線至已建立的工作區。 接著，藉由選擇重新設定已安裝的代理程式，在設定預設工作區的設定上，選取您的自訂工作區。 如需詳細資訊，請參閱[如何使用我現有的 Log Analytics 工作區？](#how-can-i-use-my-existing-log-analytics-workspace)
+
+### <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>退出自動佈建有什麼影響？
+移轉完成後，資訊安全中心會無法收集虛擬機器送出的安全性資料，且特定安全性建議及警示將無法使用。 如果您選擇退出，您應該手動安裝 Microsoft Monitoring Agent。 請參閱[退出時的建議步驟](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)。
+
+### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>退出自動佈建時的建議步驟是什麼？
+您應手動安裝 Microsoft Monitoring Agent，讓資訊安全中心可以收集您虛擬機器所傳來的安全性資料，並提供建議和警示。 請參閱[將 Windows 電腦連接到 Azure 中的 Log Analytics 服務](../log-analytics/log-analytics-windows-agent.md)，以取得安裝指南。
+
+您可以將代理程式連線到任何現有的自訂工作區，或資訊安全中心建立的工作區。 如果自訂工作區並沒有啟用的 'Security' 或 'SecurityCenterFree' 解決方案，則您必須套用解決方案。 若要套用，請選取自訂工作區或訂用帳戶，並透過**安全性原則 - 定價層**刀鋒視窗來套用定價層。
+
+   ![定價層][1]
+
+資訊安全中心會根據選取的定價層，在工作區上啟用正確的解決方案。
+
+### 我要如何移除資訊安全中心安裝的 OMS 擴充功能？<a name="remove-oms"></a>
+您可以手動移除 Microsoft Monitoring Agent。 關閉資料收集會限制資訊安全中心的建議和警示，所以不建議您這麼做。
+
+> [!NOTE]
+> 如果已啟用資料收集，資訊安全中心將會在您移除代理程式後重新安裝程式。  您必須停用資料收集，再手動移除代理程式。 若要了解如何停用資料收集，請參閱[我要如何避免自動安裝代理程式和建立工作區？](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?)
+>
+>
+
+若要手動移除代理程式：
+
+1.  在入口網站中，開啟**Log Analytics**。
+2.  在 [Log Analytics] 刀鋒視窗中，選取工作區：
+3.  選取您不想監控的虛擬機器，並選取 [中斷連線]。
+
+   ![移除代理程式][3]
+
+> [!NOTE]
+> 如果 Linux VM 已經有非擴充功能的 OMS 代理程式，移除功能的同時也會移除代理程式，客戶必須要重新安裝。
+>
+>
 ### <a name="how-do-i-disable-data-collection"></a>我要如何停用資料收集？
 預設會關閉自動佈建。 您可以在安全性原則中關閉這項設定，隨時停用資源的自動佈建。 強烈建議進行自動佈建，以便取得安全性警示，以及系統更新、作業系統弱點和端點保護的建議。
 
@@ -78,6 +215,31 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
 ### <a name="where-is-my-data-stored"></a>我的資料會儲存在何處？
 從這個代理程式收集的資料會儲存在與您的訂用帳戶相關聯的現有 Log Analytics 工作區或新的工作區中。 如需詳細資訊，請參閱[資料安全性](security-center-data-security.md)。
+
+## 現有的 Log Analytics 客戶<a name="existingloganalyticscust"></a>
+
+### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>資訊安全中心是否會覆寫任何虛擬機器及工作區之間現有的連線？
+如果虛擬機器已經以擴充功能的形式安裝 Microsoft Monitoring Agent，資訊安全中心不會覆寫既存的工作區連線。 相反地，資訊安全中心會使用現有的工作區。
+
+資訊安全中心解決方案若尚未安裝，此時會安裝至工作區，且此解決方案只會套用至相關的虛擬機器。 當您新增解決方案時，依預設會該解決方案會自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。 [解決方案目標設定](../operations-management-suite/operations-management-suite-solution-targeting.md)讓您能將範圍套用至解決方案。
+
+如果 Microsoft Monitoring Agent 已經直接安裝在虛擬機器上 (而非作為 Azure 擴充功能)，資訊安全中心不會再安裝 Microsoft Monitoring Agent，且資訊安全監控的功能會受到限制。
+
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>資訊安全中心是否會在我現有的 Log Analytics 工作區上安裝解決方案？ 這會對計費造成什麼影響？
+當資訊安全中心發現已經有虛擬機器連線到您建立的工作區時，資訊安全中心會根據您的定價層啟用此工作區上的解決方案。 這些解決方案會透過[方案目標設定](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting)，只套用至相關的 Azure 虛擬機器，所以收費不會改變。
+
+- **免費層** – 資訊安全中心在工作區安裝 SecurityCenterFree 解決方案。 免費層不須付費。
+- **標準層** – 資訊安全中心在工作區安裝 'Security' 解決方案。
+
+   ![預設工作區的解決方案][4]
+
+### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>我的環境中已經有工作區，我是否能使用這些工作區來收集安全性資料？
+如果虛擬機器已經以擴充套件的形式安裝 Microsoft Monitoring Agent，資訊安全中心會使用現有已連線的工作區。 資訊安全中心解決方案若尚未安裝，此時會安裝至工作區，且透過[解決方案目標設定](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting)，此解決方案只會套用至相關的虛擬機器。
+
+資訊安全中心在虛擬機器上安裝 Microsoft Monitoring Agent 時，會使用資訊安全中心建立的預設工作區。
+
+### <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>我的工作區上已經有安全性解決方案。 這會對計費造成什麼影響？
+Security & Audit 解決方案會用來啟用 Azure 虛擬機器上資訊安全中心標準層的功能。 如果工作區已經安裝有 Security & Audit 解決方案，資訊安全中心會使用現有的解決方案。 收費不會改變。
 
 ## <a name="using-azure-security-center"></a>使用 Azure 資訊安全中心
 ### <a name="what-is-a-security-policy"></a>什麼是安全性原則？
@@ -150,3 +312,11 @@ Azure 資訊安全中心能辨識透過 Azure 擴充功能安裝的反惡意程�
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>為什麼我會收到「VM 代理程式已遺失」訊息？
 VM 代理程式必須安裝在 VM 上，才能啟用資料收集。 預設會為從 Azure Marketplace 部署的 VM 安裝「VM 代理程式」。 如需如何在其他 VM 上安裝 VM 代理程式的資訊，請參閱部落格文章 [VM Agent and Extensions (VM 代理程式和擴充功能)](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)。
+
+
+<!--Image references-->
+[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
+[2]: ./media/security-center-platform-migration-faq/data-collection.png
+[3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
+[4]: ./media/security-center-platform-migration-faq/solutions.png
+[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png

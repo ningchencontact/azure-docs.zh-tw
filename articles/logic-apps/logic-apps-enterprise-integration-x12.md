@@ -1,27 +1,23 @@
 ---
 title: 適用於 B2B 企業整合的 X12 訊息 - Azure Logic Apps | Microsoft Docs
-description: 利用 Azure Logic Apps 交換 EDI 格式的 X12 訊息以進行 B2B 企業整合
+description: 在採用 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 X12 訊息 (採用 EDI 格式)
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: b269a5171dcb8867f7ea40215d6b8a75d5d918bc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299074"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123952"
 ---
-# <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換適用於企業整合的 X12 訊息
+# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 X12 訊息
 
 您必須先建立 X12 合約並將該合約儲存在您的整合帳戶中，才可以交換 X12 訊息。 以下是如何建立 X12 合約的步驟。
 
@@ -67,7 +63,7 @@ ms.locfileid: "35299074"
 
     | 屬性 | 說明 |
     | --- | --- |
-    | Name |合約的名稱 |
+    | 名稱 |合約的名稱 |
     | 合約類型 | 應該是 X12 |
     | 主控夥伴 |合約需要主控夥伴和來賓夥伴。 主機夥伴代表設定合約的組織。 |
     | 主控身分識別 |主控夥伴的識別碼 |

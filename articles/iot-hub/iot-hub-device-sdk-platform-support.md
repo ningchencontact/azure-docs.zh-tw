@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: cf3c80424c4626b62317bda537f9491cafc8198c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 02d9a326f0209bacca17a9617374105fcbf5ed6a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043392"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189760"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支援
 
@@ -24,7 +24,7 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
     - 提供適用的安裝指南或套件
     - GitHub 上的完整支援
 
-此外，合作夥伴清單已將我們的 C SDK 移轉至更多平台，且這些平台保有平台抽象層 (PAL)。  [Azure IoT 認證裝置目錄](https://catalog.azureiotsolutions.com/)也提供已測試過各種 SDK 的作業系統平台清單。  此外也會在這些平台上定期建置 SDK，並進行有限的測試和支援：
+此外，合作夥伴清單已將我們的 C SDK 移轉至更多平台，且這些平台保有平台抽象層 (PAL)。  [Azure IoT 認證裝置目錄](https://catalog.azureiotsolutions.com/)也提供已測試過各種 SDK 的作業系統平台清單。  SDK 也會在這些平台上定期建置，並進行有限的測試和支援：
 - MBED2
 - Arduino
 - Windows CE 2013 (在 2018 年 10 月淘汰)
@@ -76,14 +76,15 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 | Windows Server 2016 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>合作夥伴支援的平台
+客戶可以藉由移轉 Azure IoT C SDK 來擴充我們的平台支援，具體來說，他們可以建立 SDK 的平台抽象層 (PAL)。  Microsoft 會與合作夥伴一起提供擴充的支援。  有一組合作夥伴已將 C SDK 移轉至更多平台上，並同時維護 PAL。
 | 合作夥伴             | 裝置                            | 連結                     | 支援 |
 |---------------------|------------------------------------|--------------------------|---------|
+| Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE for IoT SDK](https://developer.qualcomm.com/software/lte-iot-sdk) | [論壇](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
-| ST Microelectronics | STM32L4 系列、STM32F4 系列      | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html)             | [支援](https://www.st.com/content/st_com/en/support/support-home.html) |
-|                     | STM32F7 系列                     | [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html)             |         |
-|                     | 適用於 IoT 節點的 STM32L4 Discovery Kit | [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html)          |         |
-|                     |                                    | [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            |         |
-| Espressif           | ESP32                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  |
+| ST Microelectronics | STM32L4 系列 <br/> STM32F4 系列 <br/>  STM32F7 系列 <br/>  適用於 IoT 節點的 STM32L4 Discovery Kit    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [支援](https://www.st.com/content/st_com/en/support/support-home.html)
+| Texas Instruments   | CC3220SF 啟動控制板 <br/> CC3220S 啟動控制板 <br/> MSP432E4 啟動控制板      | [適用於 SimpleLink 的 Azure IoT 外掛程式](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [TI E2E 論壇](https://e2e.ti.com) <br/> [CC3220 的 TI E2E 論壇](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [MSP432E4 的 TI E2E 論壇](https://e2e.ti.com/support/microcontrollers/msp430/) |
+
+
 
 ## <a name="next-steps"></a>後續步驟
 - [裝置與服務 SDK](iot-hub-devguide-sdks.md)

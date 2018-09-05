@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 08/27/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 67e82a4809253123e15305b5f2ecd8cc5f7ee4ed
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41954838"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046845"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>將 Kubernetes 叢集部署至 Azure Stack
 
@@ -88,9 +88,9 @@ ms.locfileid: "41954838"
 
 指定對訂用帳戶的服務主體存取權，讓主體能夠建立資源。
 
-1.  登入[系統管理入口網站](https://adminportal.local.azurestack.external)。
+1.  登入 [Azure Stack 入口網站](https://portal.local.azurestack.external/)。
 
-1. 選取 [更多服務] > [使用者訂用帳戶] > [+ 新增]。
+1. 選取 [更多服務] > [訂用帳戶]。
 
 1. 選取您所建立的訂用帳戶。
 

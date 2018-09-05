@@ -15,12 +15,12 @@ ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: e03b2ab45edd57a124dcc960ff518ece4902d2fa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617153"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048363"
 ---
 # <a name="built-in-roles-in-azure"></a>Azure 中的內建角色
 [角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
@@ -43,7 +43,7 @@ ms.locfileid: "42617153"
 | [API 管理服務操作員角色](#api-management-service-operator-role) | 可管理服務，但無法管理 API |
 | [API 管理服務讀取者角色](#api-management-service-reader-role) | 具有服務與 API 的唯讀存取權 |
 | [Application Insights 元件參與者](#application-insights-component-contributor) | 可以管理 Application Insights 元件 |
-| [Application Insights 快照集偵錯工具](#application-insights-snapshot-debugger) | 賦予使用者使用「Application Insights 快照集偵錯工具」功能的權限 |
+| [Application Insights 快照集偵錯工具](#application-insights-snapshot-debugger) | 給予使用者權限，以便檢視及下載使用 Application Insights 快照偵錯工具所收集的偵錯快照。 請注意，[擁有者](#owner)或[參與者](#contributor)角色均不包含這個角色。 |
 | [自動化作業運算子](#automation-job-operator) | 使用「自動化 Runbook」來建立及管理作業。 |
 | [自動化運算子](#automation-operator) | 「自動化運算子」能夠啟動、停止、暫止及繼續作業 |
 | [自動化 Runbook 運算子](#automation-runbook-operator) | 讀取 Runbook 屬性 - 以便能夠建立 Runbook 的作業。 |

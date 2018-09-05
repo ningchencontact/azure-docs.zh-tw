@@ -7,14 +7,14 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 08/27/2018
 ms.author: shvija
-ms.openlocfilehash: 6217f507b83325acb9a5062aada150fa6f8bc5d2
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f67982eda60a8fdfdf0d50785827c513275fd202
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007102"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124750"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>使用 Java 將事件傳送至 Azure 事件中樞
 
@@ -35,13 +35,13 @@ ms.locfileid: "40007102"
 
 ## <a name="send-events-to-event-hubs"></a>將事件傳送至事件中樞
 
-[Maven 中央儲存機制](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)中的 Maven 專案可使用事件中樞的 Java 用戶端程式庫。 您可以在 Maven 專案檔中用下列相依性宣告來參照此程式庫。 目前版本為 1.0.1：    
+[Maven 中央儲存機制](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)中的 Maven 專案可使用事件中樞的 Java 用戶端程式庫。 您可以在 Maven 專案檔中用下列相依性宣告來參照此程式庫。 目前版本為 1.0.2：    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -74,6 +74,10 @@ public class SimpleSend {
 
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
+            
+            
+    }
+ }
 ```
 
 ### <a name="construct-connection-string"></a>建構連接字串
@@ -104,6 +108,33 @@ ehClient.sendSync(sendEvent);
 ehClient.closeSync();
 
 ``` 
+
+### <a name="how-messages-are-routed-to-eventhub-partitions"></a>如何將訊息路由傳送至事件中樞分割區
+
+在取用者擷取訊息之前，發行者必須先將這些訊息發佈至分割區。 在 com.microsoft.azure.eventhubs.EventHubClient 物件上使用 sendSync() 方法將訊息同步發佈到事件中樞後，可以根據是否指定分割索引鍵，將訊息傳送到特定分割區或以循環配置方式分散到所有可用的分割區。
+
+指定代表分割索引鍵的字串後，將會雜湊處理此索引鍵來判斷事件要傳送到哪個分割區。
+
+若未設定分割索引鍵，則訊息會循環配置到所有可用的分割區
+
+```java
+// Serialize the event into bytes
+byte[] payloadBytes = gson.toJson(messagePayload).getBytes(Charset.defaultCharset());
+
+// Use the bytes to construct an {@link EventData} object
+EventData sendEvent = EventData.create(payloadBytes);
+
+// Transmits the event to event hub without a partition key
+// If a partition key is not set, then we will round-robin to all topic partitions
+eventHubClient.sendSync(sendEvent);
+
+//  the partitionKey will be hash'ed to determine the partitionId to send the eventData to.
+eventHubClient.sendSync(sendEvent, partitionKey);
+
+// close the client at the end of your program
+eventHubClient.closeSync();
+
+```
 
 ## <a name="next-steps"></a>後續步驟
 

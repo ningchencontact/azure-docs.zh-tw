@@ -1,27 +1,23 @@
 ---
 title: 將 EDIFACT 訊息編碼 - Azure Logic Apps | Microsoft Docs
-description: 在 Azure Logic Apps 的企業整合套件中使用 EDIFACT 訊息編碼器來驗證 EDI 及產生 XML
+description: 在採用 Enterprise Integration Pack 的 Azure Logic Apps 中使用 EDIFACT 訊息編碼器來驗證 EDI 及產生 XML
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: eaad2561254d858af99f06e576d67c05838e1220
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e1c990030a9fa9ad25950ccb24b36b82a8c69f5c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299887"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122348"
 ---
-# <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用企業整合套件將 Azure Logic Apps 的 EDIFACT 訊息編碼
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 將 Azure Logic Apps 的 EDIFACT 訊息編碼
 
 使用編碼 EDIFACT 訊息連接器，可以驗證 EDI 和夥伴特定屬性，產生每個交易集的 XML 文件，以及要求技術通知、功能通知或兩者。
 若要使用此連接器，您必須將連接器新增至邏輯應用程式中的現有觸發程序。

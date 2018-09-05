@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: e833cb0e7f98933fd106a92a9aac6c4c2677d50d
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443577"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124992"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>選擇虛擬核心服務層、計算、記憶體、儲存體和 IO 資源
 
@@ -35,7 +35,7 @@ ms.locfileid: "42443577"
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|
 |計算|Gen4：1 到 24 個虛擬核心<br/>Gen5：1 到 80 個虛擬核心|Gen4：1 到 24 個虛擬核心<br/>Gen5：1 到 80 個虛擬核心|
 |記憶體|Gen4：每個核心 7 GB<br>Gen5：每個核心 5.5 GB | Gen4：每個核心 7 GB<br>Gen5：每個核心 5.5 GB |
-|儲存體|[進階遠端儲存體](../virtual-machines/windows/premium-storage.md)、<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |本機 SSD 儲存體、<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 4 TB |
+|儲存體|[進階遠端儲存體](../virtual-machines/windows/premium-storage.md)、<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |本機 SSD 儲存體、<br/>單一資料庫：5 GB – 1 TB<br/>受控執行個體：32 GB - 4 TB |
 |IO 輸送量 (大約)|單一資料庫：每個虛擬核心 500 IOPS，且 IOPS 上限為 7000</br>受控執行個體：取決於[檔案大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200000|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域備援 HA|
 |備份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|
@@ -75,8 +75,7 @@ ms.locfileid: "42443577"
 為了支援 SQL Database 的還原時間點 (PITR) 和[長期保留 (LTR)](sql-database-long-term-retention.md) 功能，系統會配置儲存體供資料庫備份使用。 這個儲存體會分別配置給每個資料庫，並以兩個不同的每一資料庫費用來計費。 
 
 - **PITR**：個別的資料庫備份會自動複製到 [RA-GRS 儲存體](../storage/common/storage-designing-ha-apps-with-ragrs.md)。 儲存體大小會隨著新備份的建立而動態地增加。  每週完整備份、每日差異備份以及每 5 分鐘複製一次的交易記錄備份都使用此儲存體。 儲存體耗用量取決於資料庫的變動率及保留期限。 您可以為每個資料庫設定 7 到 35 天的不同保留期限。 系統會提供等於資料大小 1 倍的最小儲存體數量，且無額外費用。 對於大多數資料庫來說，此數量就足以儲存 7 天份的備份。
-- 
-  **LTR**：SQL Database 提供選項讓您設定完整備份的長期保留期，最長可達 10 年之久。 如果啟用 LTR 原則，這些備份會自動儲存在 RA-GRS 儲存體中，但您可以控制備份的複製頻率。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 此設定會定義要將多少儲存體用於 LTR 備份。 您可以使用 LTR 定價計算機來估算 LTR 儲存體的成本。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
+- **LTR**：SQL Database 提供選項讓您設定完整備份的長期保留期，最長可達 10 年之久。 如果啟用 LTR 原則，這些備份會自動儲存在 RA-GRS 儲存體中，但您可以控制備份的複製頻率。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 此設定會定義要將多少儲存體用於 LTR 備份。 您可以使用 LTR 定價計算機來估算 LTR 儲存體的成本。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 

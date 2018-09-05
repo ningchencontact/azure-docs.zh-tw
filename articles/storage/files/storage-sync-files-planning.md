@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617187"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247390"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -67,18 +67,66 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 > [!Important]  
 > Windows 系統磁碟區上的伺服器端點不支援雲端接層。
 
-## <a name="azure-file-sync-interoperability"></a>Azure 檔案同步互通性 
-本節涵蓋 Azure 檔案同步與 Windows Server 功能和角色，以及協力廠商解決方案的互通性。
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure 檔案同步系統需求和互通性 
+本節涵蓋 Azure 檔案同步代理程式與 Windows Server 功能和角色以及第三方解決方案的系統需求和互通性。
 
-### <a name="supported-versions-of-windows-server"></a>支援的 Windows Server 版本
-Azure 檔案同步目前支援的 Windows Server 版本為：
+### <a name="evaluation-tool"></a>評估工具
+在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 AzureRM PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的作業系統版本。 請注意，此工具會檢查下列提到的大部分功能 (但不是全部)；我們建議您仔細閱讀本節的其餘部分，以確保您的部署可順利進行。 
 
-| 版本 | 支援的 SKU | 支援的部署選項 |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
-| Windows Server 2012 R2 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
+#### <a name="download-instructions"></a>下載指示
+1. 請確定您已安裝最新版的 PackageManagement 和 PowerShellGet (這可讓您安裝預覽模組)
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. 重新啟動 PowerShell
+3. 安裝模組
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
 
-Windows Server 的未來版本將會於發佈時加入支援清單。 舊版的 Windows 可能會根據使用者意見反應加入支援清單。
+#### <a name="usage"></a>使用量  
+您可以使用幾個不同的方式來叫用評估工具：您可以執行系統檢查、資料集檢查，或兩者都執行。 若要執行系統和資料集的檢查： 
+
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+若要只要測試資料集：
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+若只要測試系統需求：
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+若要以 CSV 格式顯示結果：
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
+
+### <a name="system-requirements"></a>系統需求
+- 執行 Windows Server 2012 R2 或 Windows Server 2016 的伺服器 
+
+    | 版本 | 支援的 SKU | 支援的部署選項 |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
+    | Windows Server 2012 R2 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
+
+    Windows Server 的未來版本將會於發佈時加入支援清單。 舊版的 Windows 可能會根據使用者意見反應加入支援清單。
+
+- 至少有 2 GB 記憶體的伺服器
+
+    > [!Important]  
+    > 如果伺服器在啟用動態記憶體的虛擬機器中執行，則 VM 的記憶體應最少設定為 2048 MB。
+    
+- 本機連結的磁碟區會以 NTFS 檔案系統進行格式化
 
 > [!Important]  
 > 建議您透過 Windows Update 的最新更新，將搭配 Azure 檔案同步使用的所有伺服器保持在最新狀態。 

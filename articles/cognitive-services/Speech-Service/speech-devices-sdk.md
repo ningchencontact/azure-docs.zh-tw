@@ -9,20 +9,22 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4607c997f6c274f6b367fe3e99bf8d21deceef0d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 97a5d00d43ac6a9d4b28ba23ca69d9b67e1bdf6f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285488"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049794"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>關於語音裝置 SDK (預覽)
 
-Microsoft 語音服務本身會搭配各種的裝置和音訊來源。 您現在可以利用相符的硬體和軟體，將語音應用程式提升至下一個層級。 語音裝置 SDK 是已預先微調的程式庫，可搭配已啟用特定麥克風的硬體。 SDK 讓您輕鬆地整合您的裝置與雲端架構 Microsoft 語音服務，並為您的客戶建立特殊的使用者體驗。
+[Microsoft 語音服務](overview.md)可搭配各種的裝置和音訊來源。 您現在可以利用相符的硬體和軟體，將語音應用程式提升至下一個層級。 語音裝置 SDK 是已預先微調的程式庫，可搭配有目的建置的麥克風陣列開發套件。 語音裝置 SDK 給予您快速測試新語音案例的能力，可讓您輕鬆將雲端式 Microsoft 語音服務整合到您的裝置，並為客戶創造不同凡響的使用者體驗。 
 
-此 SDK 可讓您以自訂的喚醒字打造自己的周邊裝置 — 用以起始您的品牌獨有的使用者互動。 它可使用多聲道音訊，透過噪音抑制、回音消除、遠場語音和波束成形來提供更精確的語音辨識。
+語音裝置 SDK 會取用[語音 SDK](speech-sdk.md)，並且使用語音 SDK 將我們的進階音訊處理演算法所處理的音訊，從裝置的麥克風陣列傳送至 [Microsoft 語音服務](overview.md)。  它可使用多聲道音訊，透過噪音抑制、回音消除、波束成形和消除迴響，來提供更精確的遠場[語音辨識](speech-to-text.md)。
 
-SDK 有助於促成各種已啟用語音功能的案例，例如得來速訂購系統、車上或住家行動助理，以及智慧型喇叭。 您可以利用文字回應使用者、以預設或自訂語音回答他們、提供搜尋結果、翻譯成其他語言等等。 
+語音裝置 SDK 也可讓您以[自訂的喚醒字](speech-devices-sdk-create-kws.md)打造自己的周邊裝置，以及開啟貴品牌所獨有使用者互動的語音提示。 
+
+SDK 有助於促成各種已啟用語音功能的案例，例如得來速訂購系統、市集內或住家行動助理，以及智慧型喇叭。 您可以利用文字來回應使用者、以預設或[自訂語音](how-to-customize-voice-font.md)回答他們、提供搜尋結果、[翻譯](speech-translation.md)成其他語言等等。 我們期待看到您所打造的不凡成果！
 
 
 

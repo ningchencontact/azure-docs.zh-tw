@@ -1,6 +1,6 @@
 ---
-title: 如何完成存取權檢閱 | Microsoft Docs
-description: 在您於 Azure AD Privileged Identity Management 中開始存取權檢閱之後，了解如何完成它並檢視結果
+title: 在 PIM 中完成 Azure AD 目錄角色的存取權檢閱 | Microsoft Docs
+description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中完成 Azure AD 目錄角色的存取權檢閱，並檢視結果
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3b4135368c2222a08b155c851b384244774ce246
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3955f4bf9b579ae40424c2650f9d3b4c2ac4f030
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622525"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188581"
 ---
-# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>如何在 Azure AD Privileged Identity Management 中完成存取權檢閱
+# <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>在 PIM 中完成 Azure AD 目錄角色的存取權檢閱
 在[開始存取權檢閱](pim-how-to-start-security-review.md)之後，特殊權限角色管理員就可以檢閱特殊權限存取權。 Azure AD Privileged Identity Management (PIM) 會自動傳送電子郵件，提示使用者檢閱其存取權。 如果使用者未收到電子郵件，您可以將[如何執行存取權檢閱](pim-how-to-perform-security-review.md)中的指示傳送給他們。
 
 存取權檢閱期間結束後，或所有使用者都已完成其自我檢閱後，請遵循本文的步驟來管理檢閱並查看結果。
@@ -53,4 +53,6 @@ ms.locfileid: "39622525"
 > 刪除執行前，您不會收到警告，因此請務必確定您想要刪除該檢閱。 
 
 ## <a name="next-steps"></a>後續步驟
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [在 PIM 中起始 Azure AD 目錄角色的存取權檢閱](pim-how-to-start-security-review.md)
+- [在 PIM 中執行 Azure AD 目錄角色的存取權檢閱](pim-how-to-perform-security-review.md)

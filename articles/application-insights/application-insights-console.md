@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: b2b5abf3b3b170e60df3aa2d6ec5ce471db74f80
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 6d161a49b35bbdfedcb27dd91f9f09dcf7ba4133
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140883"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122021"
 ---
 # <a name="application-insights-for-net-console-applications"></a>適用於 .NET 主控台應用程式的 Application Insights
 [Application Insights](app-insights-overview.md) 可讓您監視 Web 應用程式的可用性、效能和使用情況。
@@ -44,7 +44,7 @@ telemetryClient.TrackTrace("Hello World!");
 您可以從程式碼或使用 `ApplicationInsights.config` 檔案，將 Application Insights 初始化並加以設定。 確定初始化會盡早發生。 
 
 > [!NOTE]
-> 參考 **ApplicationInsights.config** 的指示僅適用於目標為 .NET Standard 的應用程式，不適用 .NET Core 應用程式。 
+> 參考 **ApplicationInsights.config** 的指示僅適用於目標為 .NET Framework 的應用程式，不適用於 .NET Core 應用程式。
 
 ### <a name="using-config-file"></a>使用設定檔
 

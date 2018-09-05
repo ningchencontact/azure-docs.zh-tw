@@ -1,27 +1,23 @@
 ---
 title: 疑難排解和診斷失敗 - Azure Logic Apps | Microsoft Docs
-description: 了解如何及為何邏輯應用程式失敗
+description: 了解如何針對 Azure Logic Apps 中的失敗進行疑難排解和診斷
 services: logic-apps
-documentationcenter: ''
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: ''
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441527"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123682"
 ---
-# <a name="troubleshoot-and-diagnose-logic-app-failures"></a>疑難排解和診斷邏輯應用程式失敗
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>針對 Azure Logic Apps 中的失敗進行疑難排解和診斷
 
 您的邏輯應用程式會產生可協助您診斷和偵錯應用程式邏輯中問題的資訊。 您可以藉由在 Azure 入口網站檢閱工作流程中的每個步驟來診斷邏輯應用程式。 或者您可以新增一些步驟至工作流程，以進行執行階段偵錯。
 

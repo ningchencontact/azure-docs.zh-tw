@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bbf3c5930de2ec6c709b6b527ae3eac107382420
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093818"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047794"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -78,7 +78,7 @@ ms.locfileid: "42093818"
 
 * 修正 `RecognizeAsync()` 逾時的時候，結果中不正確的傳回值。
 * 已移除 Windows 上，媒體基礎程式庫的相依性。 SDK 現在使用 Core Audio API。
-* 文件修正：已加入區域頁面，來描述支援的區域。
+* 文件修正：已新增[區域](regions.md)頁面，來描述支援的區域。
 
 **已知問題**
 

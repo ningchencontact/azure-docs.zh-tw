@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433165"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919001"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源
 
@@ -37,10 +37,11 @@ ms.locfileid: "39433165"
 > [!NOTE]
 > 當您使用 Resource Manager 範本作為建立其他實驗室 VM 的基礎時，不論是建立多重 VM 還是單一 VM，都請記住一些差異。 [使用虛擬機器的 Azure Resource Manager 範本](devtest-lab-use-resource-manager-template.md)會更詳細地說明這些差異。
 >
->
 
-## <a name="configure-azure-resource-manager-template-repositories"></a>設定 Azure Resource Manager 範本儲存機制
+## <a name="devtest-labs-public-environments"></a>DevTest Labs 公用環境
+Azure DevTest Labs 有 [Azure Resource Manager 範本的公用存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Environments)，您可以用來建立環境，而不需要自行連線到外部 GitHub 來源。 此存放庫包括常用範本，例如 Azure Web Apps、Service Fabric 叢集與開發 SharePoint 伺服器陣列環境。 此功能類似您建立之每個實驗室包含之成品的公用存放庫。 環境存放庫可讓您使用預先製作的環境範本在輸入參數最少的情況下開始，以在實驗室內為您提供順暢的 PaaS 資源開始使用體驗。 如需詳細資訊，請參閱[在 DevTest Labs 中設定及使用公用環境](devtest-lab-configure-use-public-environments.md)。
 
+## <a name="configure-your-own-template-repositories"></a>設定您自己的範本存放庫
 做為基礎結構即程式碼與組態即程式碼的其中一個最佳作法，應在原始檔控制中管理環境範本。 Azure DevTest Labs 採用這種作法，並直接從您的 GitHub 或 VSTS Git 儲存機制載入所有 Azure Resource Manager 範本。 因此，可以在測試環境到生產環境的整個發行週期使用 Resource Manager 範本。
 
 請參閱[公用 GitHub 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Environments)中由 DevTest Labs 小組所建立的範本。 在公用存放庫中，您可以檢視其他人分享的範本，並且可以直接使用這些範本，或根據您的需求來自訂這些範本。 建立範本之後，請將它儲存在這個存放庫以與他人分享。 您也可以使用可用來在雲端中設定環境的範本，來設定您自己的 Git 存放庫。 
@@ -56,12 +57,9 @@ ms.locfileid: "39433165"
 - 可以定義中繼資料來指定範本顯示名稱和描述。 此中繼資料必須在名為 `metadata.json` 的檔案中。 下列範例中繼資料檔案說明如何指定顯示名稱和描述︰ 
 
     ```json
-    {
- 
-        "itemDisplayName": "<your template name>",
- 
-        "description": "<description of the template>"
- 
+    { 
+        "itemDisplayName": "<your template name>", 
+        "description": "<description of the template>" 
     }
     ```
 

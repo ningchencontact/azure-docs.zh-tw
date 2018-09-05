@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 入口網站管理裝置 | Microsoft Docs
+title: 如何使用 Azure 入口網站來管理裝置 | Microsoft Docs
 description: 了解如何使用 Azure 入口網站來管理裝置。
 services: active-directory
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: bc29fbd0946f0abfe692e2270d145cd2cb292356
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42139861"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041420"
 ---
-# <a name="managing-devices-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置
+# <a name="how-to-manage-devices-using-the-azure-portal"></a>如何使用 Azure 入口網站來管理裝置
 
 
 使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 

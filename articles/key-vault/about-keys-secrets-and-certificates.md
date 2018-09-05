@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: bryanla
-ms.openlocfilehash: 962f9be53ce0b2022e8e5490bdeb04b2eefb4d7c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f36e0e3ddc605d960ed764252308cbf09578832c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42145318"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126137"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 Azure Key Vault 可讓使用者在 Microsoft Azure 環境中儲存和使用密碼編譯金鑰。 Key Vault 支援多種金鑰類型和演算法，並可針對高價值金鑰使用硬體安全模組 (HSM)。 此外，Key Vault 可讓使用者安全地儲存秘密。 秘密是有大小限制的八位元物件，其中不包含特定語意。 Key Vault 也支援建立於金鑰和秘密之上，且會新增自動更新功能的憑證。

@@ -1,27 +1,23 @@
 ---
-title: 在 Azure Logic Apps 中編碼或解碼一般檔案 | Microsoft Docs
-description: 如何在您的邏輯應用程式中使用企業整合套件內的檔案編碼器或解碼器
+title: 編碼或解碼一般檔案 - Azure Logic Apps | Microsoft Docs
+description: 使用 Azure Logic Apps 與 Enterprise Integration Pack 來編碼或解碼適用於企業整合的一般檔案
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.author: LADocs; divswa
-ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037972"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123923"
 ---
-# <a name="overview-of-enterprise-integration-with-flat-files"></a>企業與一般檔案整合概觀
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure Logic Apps 與 Enterprise Integration Pack 來編碼或解碼一般檔案
 
 在企業對企業 (B2B) 案例中，您可能會希望先將 XML 內容編碼，然後再傳送給企業夥伴。 在邏輯應用程式中，您可以使用一般檔案編碼連接器來執行此動作。 您所建立的邏輯應用程式可從各種來源取得其 XML 內容，包括 HTTP 要求觸發程序、另一個應用程式，或甚至是這其中任一種 [連接器](../connectors/apis-list.md)。 如需邏輯應用程式的詳細資訊，請參閱[邏輯應用程式文件](logic-apps-overview.md "深入了解 Logic Apps")。  
 

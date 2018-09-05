@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142323"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046374"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何在 Azure API 管理中使用服務備份和還原實作災害復原
 
@@ -179,7 +179,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 其中：
 
 * `subscriptionId` - 訂用帳戶的識別碼，此訂用帳戶含有您要還原備份的目標 API 管理服務
-* `resourceGroupName` - 'Api-Default-{service-region}' 形式的字串，其中 `service-region` 可識別裝載您還原備份時之目的地「API 管理」服務的 Azure 區域 (例如 `North-Central-US`)
+* `resourceGroupName` - 資源群組的名稱，該資源群組包含您要還原備份的目標 Azure API 管理服務
 * `serviceName` - 要還原之目標 API 管理服務的名稱，該名稱是在服務建立時所指定
 * `api-version` - 取代為 `2018-06-01-preview`
 

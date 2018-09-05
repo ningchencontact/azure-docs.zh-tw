@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 305a6c805f14e8d3ef9f77fcd90a78a50e0f770c
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: e7208cb4c2cdef6fc4e639b32fdb2fac242bd3a2
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145530"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104056"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -206,6 +206,9 @@ nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.
 ```azurecli-interactive
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
 ```
+
+> [!NOTE]
+> 如果您在移除兩個 OS 連接器時遇到錯誤，或者只想要移除 Windows 或 Linux OS 連接器，可以手動指定 OS 類型。 將 `--os-type` 參數新增至先前的 `az aks remove-connector` 命令，然後指定 `Windows` 或 `Linux`。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,14 +4,14 @@ description: 概括介紹 Azure Migrate 服務的已知問題以及常見錯誤�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 896e918f6031f3bc6b925a2ecdfa2a5c82f00e0b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228249"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126356"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -50,6 +50,10 @@ ms.locfileid: "36228249"
 --- | ---
 *.portal.azure.com | 檢查與 Azure 服務的連線能力及驗證時間同步問題時所需。
 *.oneget.org | 下載以 Powershell 為基礎的 vCenter PowerCLI 模組時所需。
+
+**因為憑證驗證失敗，所以收集器無法連線至網際網路**
+
+如果您使用攔截 Proxy 來連線到網際網路，而且您未將 Proxy 憑證匯入到收集器 VM，也可能會發生這種情形。 您可以使用[這裡](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity)詳述的步驟來匯入 Proxy 憑證。
 
 **收集器無法使用我從入口網站複製的專案識別碼和金鑰連線到專案。**
 

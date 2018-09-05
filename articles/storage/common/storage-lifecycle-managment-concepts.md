@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528438"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247777"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>管理 Azure Blob 儲存體生命週期 (預覽)
 
@@ -37,7 +37,7 @@ ms.locfileid: "39528438"
 生命週期管理功能提供免費預覽。 客戶需針對 [List Blobs ](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (列出 Blob) 和[Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (設定 Blob 層) API 呼叫的一般作業成本支付費用。 若要深入了解定價，請參閱[區塊 Blob 定價](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 ## <a name="register-for-preview"></a>註冊預覽版 
-若要註冊公開預覽版，您必須提交要求向您的訂用帳戶註冊這項功能。 一旦您的要求經核准 (幾天內)，美國西部 2 和美國中西部任何現有和新的 GPv2 或 Blob 儲存體帳戶都會啟用該功能。 在預覽期間，僅支援區塊 Blob。 如同大部分預覽，這項功能在正式運作之前不應該用於生產工作負載。
+若要註冊公開預覽版，您必須提交要求向您的訂用帳戶註冊這項功能。 一旦您的要求經核准 (幾天內)，美國西部 2、美國中西部和西歐任何現有和新的 GPv2 或 Blob 儲存體帳戶都會啟用該功能。 在預覽期間，僅支援區塊 Blob。 如同大部分預覽，這項功能在正式運作之前不應該用於生產工作負載。
 
 若要提交要求，請執行下列 PowerShell 或 CLI 命令。
 
@@ -126,7 +126,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 
 | 參數名稱 | 參數類型 | 注意 |
 |----------------|----------------|-------|
-| Name           | 字串 | 規則名稱可包含英數字元的任意組合。 規則名稱會區分大小寫。 它在原則內必須是唯一的。 |
+| 名稱           | 字串 | 規則名稱可包含英數字元的任意組合。 規則名稱會區分大小寫。 它在原則內必須是唯一的。 |
 | type           | 列舉值 | 預覽的有效值為 `Lifecycle` |
 | 定義     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 |
 

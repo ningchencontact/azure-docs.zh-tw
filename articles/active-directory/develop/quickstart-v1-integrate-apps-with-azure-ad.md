@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592198"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188235"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>整合應用程式與 Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -95,7 +95,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
 
 5. 使用者同意後，授權碼會傳回您的應用程式，藉以兌換取得存取權杖和重新整理權杖。 如需此流程的詳細資訊，請參閱 [Azure AD 的驗證案例中的 Web 應用程式到 Web API 一節](authentication-scenarios.md#web-application-to-web-api)。
 
-6. 身為系統管理員，您也可以代表租用戶中的所有使用者，同意應用程式的委派權限。 系統管理員同意可避免對租用戶的每個使用者都顯示同意對話方塊，並且可由具有系統管理員角色的使用者在 [Azure 入口網站](https://portal.azure.com)中完成。 在應用程式的 [設定] 頁面中，按一下 [必要的權限]，然後按一下 [授與權限] 按鈕。 
+6. 身為系統管理員，您也可以代表租用戶中的所有使用者，同意應用程式的委派權限。 系統管理員同意可避免對租用戶的每個使用者都顯示同意對話方塊，並且可由具有系統管理員角色的使用者在 [Azure 入口網站](https://portal.azure.com)中完成。 在應用程式的 [設定] 頁面中，按一下 [所需的權限]，然後按一下 [授與權限] 按鈕。 
 
   ![授與明確的系統管理員同意權限](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
@@ -112,7 +112,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
 - 委派權限：您的用戶端應用程式需要存取 Web API 做為已登入的使用者，但其存取權受到選取權限的限制。 這種類型的權限可由使用者授與，除非權限需要系統管理員的同意。 
 
   > [!NOTE]
-  > 新增對應用程式的委派權限並不會自動將同意授與租用戶內的使用者。 使用者仍必須在執行階段手動同意新增委派的權限，除非系統管理員按一下 Azure 入口網站中應用程式頁面上 [必要的權限] 區段中的 [授與權限] 按鈕。 
+  > 新增對應用程式的委派權限並不會自動將同意授與租用戶內的使用者。 使用者仍必須手動同意在執行階段新增的委派權限，除非者系統管理員代表所有使用者授與同意。
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>新增用來存取 Web API 的應用程式認證或權限
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -121,13 +121,15 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
 
    ![更新應用程式的註冊](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. 系統會將您帶往應用程式的主要註冊頁面，以開啟應用程式的 [設定] 頁面。 若要為 Web 應用程式的認證新增秘密金鑰：
+4. 系統會將您帶往應用程式的主要註冊頁面，以開啟應用程式的 [設定] 頁面。 若要新增您 Web 應用程式的認證：
   - 按一下 [設定] 頁面上的 [金鑰] 區段。 
-  - 為金鑰新增描述。
-  - 選取一年或兩年的持續時間。
-  - 按一下 [檔案] 。 在您儲存組態變更之後，最右邊的資料行會包含金鑰值。 **請務必複製此金鑰**，以供在用戶端應用程式的程式碼中使用，因為您一旦離開此頁面就無法再存取此金鑰。
-
-  ![更新應用程式的註冊 - 金鑰](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - 若要新增憑證：
+    - 選取 [上傳公開金鑰]。
+    - 選取您想要上傳的檔案。 檔案必須是下列其中一種檔案類型：.cer、.pem、.crt。
+  - 若要新增密碼：
+    - 為金鑰新增描述。
+    - 選取持續時間。
+    - 按一下 [檔案] 。 在您儲存組態變更之後，最右邊的資料行會包含金鑰值。 **請務必複製此金鑰**，以供在用戶端應用程式的程式碼中使用，因為您一旦離開此頁面就無法再存取此金鑰。
 
 5. 若要新增權限以從用戶端存取資源 API
   - 按一下 [設定] 頁面上的 [所需的權限] 區段。 
@@ -141,11 +143,6 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
   ![更新應用程式的註冊 - 權限 perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. 完成後，按一下 [啟用存取] 頁面上的 [選取] 按鈕，然後按一下 [新增 API 存取] 頁面上的 [完成] 按鈕。 您會回到 [所需的權限] 頁面，其中新的資源已新增到 API 清單。
-
-  > [!NOTE]
-  > 按一下 [完成] 按鈕，也可以根據您設定的其他應用程式權限，在您的目錄中自動設定您的影用程式權限。 您可以查看應用程式的 [設定] 頁面來檢視這些應用程式權限。
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>設定資源應用程式以公開 Web API
 

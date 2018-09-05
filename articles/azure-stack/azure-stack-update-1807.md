@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dba43f0823282bd385dca30402a9b16fa3b99de6
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: afbe3ff2e6be4e03f8de8ac2490922c3ec788733
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41954844"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091375"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
@@ -168,6 +168,8 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安裝來裝載關鍵基�
 以下是此組建版本的安裝後已知問題。
 
 ### <a name="portal"></a>入口網站
+- <!-- 2931230 – IS  ASDK --> 無法刪除以附加方案形式新增至使用者訂用帳戶的方案 (即使您從使用者訂用帳戶中移除此方案)。 此方案會持續保留，直到參考附加方案的訂用帳戶也遭到刪除為止。 
+
 - <!--2760466 – IS  ASDK --> 當您安裝執行此版本的新 Azure Stack 環境時，可能不會顯示指出「需要啟用」的警示。 必須[啟用](azure-stack-registration.md)，才能使用市集摘要整合。  
 
 - <!-- TBD - IS ASDK --> 不應該使用[隨 1804 版導入的](azure-stack-update-1804.md#new-features)兩個系統管理訂用帳戶類型。 這些訂用帳戶類型為「計量訂用帳戶」和「取用訂用帳戶」。 自 1804 版起，這些訂用帳戶類型就已經會在新的 Azure Stack 環境中顯示，只是還未就緒以供使用。 請繼續使用「預設提供者」訂用帳戶類型。
@@ -245,7 +247,9 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安裝來裝載關鍵基�
 
 - <!-- 1662991 IS ASDK --> Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。  
 
-- <!-- 2724961- IS ASDK --> 當您在「訂用帳戶」設定中註冊 **Microsoft.Insight** 資源提供者，並建立一個已啟用「客體 OS 診斷」功能的 Windows VM 時，VM 概觀頁面中的「CPU 百分比」圖表將無法顯示計量資料。 若要尋找該 VM 的「CPU 百分比」圖表，請移至 [計量] 刀鋒視窗並顯示所有支援的 Windows VM 客體計量。
+- <!-- 2724961- IS ASDK --> 當您在「訂用帳戶」設定中註冊 **Microsoft.Insight** 資源提供者，並建立已啟用「客體 OS 診斷」功能的 Windows VM 時，VM 概觀頁面不會顯示計量資料。 
+
+   若要尋找該 VM 的計量資料 (例如「CPU 百分比」圖表)，請移至 [計量] 刀鋒視窗，並顯示所有支援的 Windows VM 客體計量。
 
 ### <a name="networking"></a>網路功能  
 

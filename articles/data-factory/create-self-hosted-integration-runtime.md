@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443385"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044725"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>如何建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -156,6 +156,8 @@ ms.locfileid: "42443385"
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
+   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+
 2. 請記下要共用的自我裝載整合執行階段的 [資源識別碼]。
 
    ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
@@ -167,6 +169,20 @@ ms.locfileid: "42443385"
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### <a name="monitoring"></a>監視 
+
+- **共用 IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+
+  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+
+- **連結 IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
 #### <a name="known-limitations-of-self-hosted-ir-sharing"></a>自我裝載整合執行階段共用的已知限制
 
@@ -182,6 +198,8 @@ ms.locfileid: "42443385"
 5. 支援這項功能的 ADF.Net SDK 版本 >= 1.1.0
 
 6. 支援這項功能的 Azure PowerShell 版本 >= 6.6.0 (AzureRM.DataFactoryV2 >= 0.5.7)
+
+7. 為了授與權限，使用者需要共用 IR 所在 Data Factory 中的「擁有者」角色或繼承「擁有者」角色。 
 
   > [!NOTE]
   > 這項功能僅適用於 Azure Data Factory 第 2 版 

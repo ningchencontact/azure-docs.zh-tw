@@ -4,17 +4,17 @@ description: 了解如何從 Azure 儲存體和 Azure Data Lake Store 查詢資�
 services: hdinsight,storage
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: bccaf00537dd1455e1364ceb2b5ca152b12f218c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 027204065429a9eebd2e8121cbac8bc18b9d9ce6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598226"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091430"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Azure 儲存體
 
@@ -60,7 +60,7 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 * **儲存體帳戶中未連線至叢集的公用容器或公用 Blob：** 您對容器中的 Blob 只有唯讀權限。
   
   > [!NOTE]
-  > 公用容器可讓您取得該容器中所有可用的 Blob 清單，並取得容器中繼資料。 公用 Blob 只在您知道確切的 URL 時才可讓您存取 Blob。 如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">限制對容器和 Blob 的存取</a>。
+  > 公用容器可讓您取得該容器中所有可用的 Blob 清單，並取得容器中繼資料。 公用 Blob 只在您知道確切的 URL 時才可讓您存取 Blob。 如需詳細資訊，請參閱<a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources">管理對容器和 Blob 的存取</a>。
   > 
   > 
 * **儲存體帳戶中未連接至叢集的私人容器：** 除非在提交 WebHCat 工作時定義儲存體帳戶，否則不能存取容器中的 Blob。 稍後在本文中會加以說明。

@@ -1,6 +1,6 @@
 ---
-title: 如何要求進行多重要素驗證 | Microsoft Docs
-description: 了解如何利用  Azure Active Directory Privileged Identity Management 擴充功能，為特殊權限的身分識別強制啟用 Multi-Factor Authentication (MFA)。
+title: 在 PIM 中對 Azure AD 目錄角色要求多重要素驗證 | Microsoft Docs
+description: 了解如何在 Azure AD Privileged Identity Management 中對 Azure AD 目錄角色要求多重要素驗證 (MFA)。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8e1c0fa212b31c05fcc4559f9f8d42b627f0da0e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9777a7d2ed07ea2edf4bea661a5065c808de9f2b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622842"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188348"
 ---
-# <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management：如何要求 MFA
+# <a name="require-multi-factor-authentication-for-azure-ad-directory-roles-in-pim"></a>在 PIM 中對 Azure AD 目錄角色要求多重要素驗證
 建議您針對所有系統管理員都要求進行多重要素驗證 (MFA)。 這可降低密碼遭入侵所導致的攻擊風險。
 
 您可以要求使用者在登入時完成 MFA 挑戰。 部落格文章 [MFA for Office 365 and MFA for Azure (MFA for Office 365 和 MFA for Azure)](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) 比較 Office 和 Azure 訂用帳戶所包含的內容，以及 Microsoft Azure Multi-Factor Authentication 供應項目提供的功能。
@@ -46,5 +46,6 @@ ms.locfileid: "39622842"
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [在 PIM 中設定 Azure AD 目錄角色設定](pim-how-to-change-default-settings.md)
+- [在 PIM 中設定 Azure AD 目錄角色的安全性警示](pim-how-to-configure-security-alerts.md)

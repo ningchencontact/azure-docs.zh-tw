@@ -15,15 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: ff658fd14700e9fdf66b9d929da133f7a3b3f3a0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b67e6202c470be46b3100c06e503c05415371c6e
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831780"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42920170"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>適用於企業客戶的報告 API 概觀
-報告 API 可讓企業 Azure 客戶以程式設計方式提取使用情況和帳單資料，以使用慣用的資料分析工具進行分析。 
+報告 API 可讓企業 Azure 客戶以程式設計方式提取使用情況和帳單資料，以使用慣用的資料分析工具進行分析。 企業客戶已經與 Azure 簽署一份 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)，以便進行綁約金協商，並獲得 Azure 資源的自訂價格。
+
+> [!div class="nextstepaction"]
+> [協助改善 Azure 計費文件](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="enabling-data-access-to-the-api"></a>啟用對 API 的資料存取
 * **產生或擷取 API 金鑰** - 登入企業版入口網站，並瀏覽至 [報告] > [下載使用量] > [API 存取金鑰] 來產生或擷取 API 金鑰。
@@ -36,11 +39,9 @@ ms.locfileid: "34831780"
 ## <a name="consumption-apis"></a>使用情況 API
 下述 API 的 Swagger 端點可在[這裡](https://consumption.azure.com/swagger/ui/index)取得，它可讓使用者輕鬆進行 API 自我檢查，並且能使用 [AutoRest](https://github.com/Azure/AutoRest) 或 [Swagger CodeGen](http://swagger.io/swagger-codegen/) 產生用戶端 SDK。 自 2014 年 5 月 1 日起的資料可透過此 API 取得。 
 
-* 
-  **餘額與摘要** - [餘額與摘要 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) 可提供餘額、新購買、Azure Marketplace 服務費用、調整，以及超額部分費用的每月摘要資訊。
+* **餘額與摘要** - [餘額與摘要 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) 可提供餘額、新購買、Azure Marketplace 服務費用、調整，以及超額部分費用的每月摘要資訊。
 
-* 
-  **使用量詳細資料** - [使用量詳細資料 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) 可提供註冊之使用量和預估費用的每日明細。 結果也包含執行個體、計量和部門的資訊。 API 可依計費週期或指定開始和結束日期來查詢。 
+* **使用量詳細資料** - [使用量詳細資料 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) 可提供註冊之使用量和預估費用的每日明細。 結果也包含執行個體、計量和部門的資訊。 API 可依計費週期或指定開始和結束日期來查詢。 
 
 * **Marketplace 市集費用** - [Marketplace 市集費用 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) 可針對指定的計費週期或開始和結束日期，傳回以使用量為基礎的 Marketplace 費用每日明細 (不含一次性費用)。
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 08/28/2018
 ms.author: kumud
-ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144790"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190728"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 健康情況探查
 
@@ -181,7 +181,12 @@ UDP 是不需連線的，因此 UDP 沒有流程狀態追蹤。 如有任何後�
 
 ## <a name="probesource"></a>探查來源 IP 位址
 
-所有 Load Balancer 健康情況探查都源自作為其來源的 IP 位址 168.63.129.16。  當您將自有的 IP 位址帶到 Azure 的虛擬網路時，此健康情況探查來源 IP 位址保證是唯一的，因為它為 Microsoft 全域保留。  此位址在所有區域中皆相同，而且不會變更。 它不應被視為安全性風險，因為只有內部 Azure 平台可以從此 IP 位址取得封包來源。 
+Load Balancer 會為其內部健康情況模型使用分散式探查服務。 每個 VM 所在的主機都可以透過程式設計方式來為每個客戶的組態產生健康情況探查。 健康情況探查流量會直接在產生健康情況探查的基礎結構元件和客戶 VM 之間產生。 所有 Load Balancer 健康情況探查都源自作為其來源的 IP 位址 168.63.129.16。  當您將自有的 IP 位址帶到 Azure 的虛擬網路時，此健康情況探查來源 IP 位址保證是唯一的，因為它為 Microsoft 全域保留。  此位址在所有區域中皆相同，而且不會變更。 它不應被視為安全性風險，因為只有內部 Azure 平台可以從此 IP 位址取得封包來源。 
+
+除了 Load Balancer 健康情況探查外，下列作業會使用此 IP 位址：
+
+- 啟用 VM 代理程式來與平台通訊，藉此表示它處於「就緒」狀態
+- 啟用與 DNS 虛擬伺服器的通訊，以提供篩選後的名稱解析給未定義自訂 DNS 伺服器的客戶。  此篩選可確保客戶只可以解析其部署的主機名稱。
 
 為了讓 Load Balancer 的健康情況探查將您的執行個體標示為已啟動，您**必須**在任何 Azure [安全性群組](../virtual-network/security-overview.md)和本機防火牆原則中允許此 IP 位址。
 

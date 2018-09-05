@@ -1,6 +1,6 @@
 ---
-title: 適用於 Azure Privileged Identity Management 的合格指派和資源可見度 | Microsoft Docs
-description: 說明使用 PIM 時如何將成員指派為「合格」的資源角色。
+title: PIM 中的合格指派和資源可見度 - Azure | Microsoft Docs
+description: 說明如何在 Azure AD Privileged Identity Management (PIM) 中，指派 Azure 資源角色的合格成員。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336453c1ef6ef8d0295d00f31afc6a5e7e42e8b6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621543"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189209"
 ---
-# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Privileged Identity Management 適用的合格指派和資源可見度
+# <a name="eligible-assignments-and-resource-visibility-in-pim"></a>PIM 中的合格指派和資源可見度
 
 適用於 Azure 資源角色的 Privileged Identity Management (PIM) 可為具有重要 Azure 資源的組織，提供增強式安全性。 資源管理員可以使用 PIM 將成員指派為合格的資源角色。 深入了解不同的指派類型和下列各節中 Azure 資源角色的指派狀態。 
 
@@ -70,4 +70,4 @@ ms.locfileid: "39621543"
 
 ## <a name="next-steps"></a>後續步驟
 
-[指派 Privileged Identity Management 中的角色](pim-resource-roles-assign-roles.md)
+- [在 PIM 中指派 Azure 資源角色](pim-resource-roles-assign-roles.md)

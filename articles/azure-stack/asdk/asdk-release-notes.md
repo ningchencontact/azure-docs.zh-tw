@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: b77772ce69afbc32bfe8a6826fdf8420076074d9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6016d6fd4dcae699efba49667676373a6586e723
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41946531"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43101640"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 開發套件版本資訊  
 這些版本資訊提供 Azure Stack 開發套件中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](.\.\azure-stack-updates.md#determine-the-current-version)。
@@ -106,6 +106,8 @@ ms.locfileid: "41946531"
 ### <a name="known-issues"></a>已知問題
 
 #### <a name="portal"></a>入口網站  
+- <!-- 2931230 – IS  ASDK --> 無法刪除以附加方案形式新增至使用者訂用帳戶的方案 (即使您從使用者訂用帳戶中移除此方案)。 此方案會持續保留，直到參考附加方案的訂用帳戶也遭到刪除為止。 
+
 - <!--2760466 – IS  ASDK --> 當您安裝執行此版本的新 Azure Stack 環境時，可能不會顯示指出「需要啟用」的警示。 必須[啟用](.\.\azure-stack-registration.md)，才能使用市集摘要整合。 
 
 - <!-- TBD - IS ASDK --> 不應該使用[隨 1804 版導入的](.\.\azure-stack-update-1804.md#new-features)兩個系統管理訂用帳戶類型。 這些訂用帳戶類型為「計量訂用帳戶」和「取用訂用帳戶」。 這些訂用帳戶類型為「計量訂用帳戶」和「取用訂用帳戶」。 自 1804 版起，這些訂用帳戶類型就已經會在新的 Azure Stack 環境中顯示，只是還未就緒以供使用。 您應該繼續使用「預設提供者訂用帳戶」類型。
@@ -171,7 +173,9 @@ ms.locfileid: "41946531"
 
 - <!-- 1662991 - IS ASDK --> Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。
 
-- <!-- 2724961- IS ASDK --> 當您在「訂用帳戶」設定中註冊 **Microsoft.Insight** 資源提供者，並建立一個已啟用「客體 OS 診斷」功能的 Windows VM 時，VM 概觀頁面中的「CPU 百分比」圖表將無法顯示計量資料。 若要尋找該 VM 的「CPU 百分比」圖表，請移至 [計量] 刀鋒視窗並顯示所有支援的 Windows VM 客體計量。
+- <!-- 2724961- IS ASDK --> 當您在「訂用帳戶」設定中註冊 **Microsoft.Insight** 資源提供者，並建立已啟用「客體 OS 診斷」功能的 Windows VM 時，VM 概觀頁面不會顯示計量資料。 
+
+   若要尋找該 VM 的計量資料 (例如「CPU 百分比」圖表)，請移至 [計量] 刀鋒視窗，並顯示所有支援的 Windows VM 客體計量。
 
 #### <a name="networking"></a>網路功能
 - <!-- 1766332 - IS, ASDK --> 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。
@@ -249,6 +253,8 @@ ms.locfileid: "41946531"
 ### <a name="known-issues"></a>已知問題
 
 #### <a name="portal"></a>入口網站
+- <!-- 2931230 – IS  ASDK --> 無法刪除以附加方案形式新增至使用者訂用帳戶的方案 (即使您從使用者訂用帳戶中移除此方案)。 此方案會持續保留，直到參考附加方案的訂用帳戶也遭到刪除為止。 
+
 - <!-- 2551834 - IS, ASDK --> 當您在系統管理員或使用者入口網站中選取儲存體帳戶的 [概觀] 時，[基本資訊] 窗格中並未顯示資訊。  [基本資訊] 窗格會顯示帳戶相關資訊，例如其*資源群組*、*位置*和*訂用帳戶識別碼*。  [概觀] 中有其他選項可供存取，例如 [服務] 和 [監視]，以及用來 [在 Explorer 中開啟] 或 [刪除儲存體帳戶] 的選項。  
 
   若要檢視未能看到的資訊，請使用 [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell Cmdlet。

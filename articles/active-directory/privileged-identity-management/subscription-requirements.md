@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management 訂用帳戶 - Azure| Microsoft Docs
-description: 說明在租用戶中管理及使用 Azure AD Privileged Identity Management 的訂用帳戶和授權需求
+title: 使用 PIM 的訂用帳戶需求 - Azure | Microsoft Docs
+description: 說明要使用 Azure AD Privileged Identity Management (PIM) 的訂用帳戶和授權需求。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617064"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190605"
 ---
-# <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management 訂用帳戶需求
+# <a name="subscription-requirements-to-use-pim"></a>使用 PIM 的訂用帳戶需求
 
 Azure AD Privileged Identity Management 可在 Azure AD 的 Premium P2 Edition 中使用。 如需 P2 的其他功能資訊以及其與 Premium P1 的比較詳細資訊，請參閱 [Azure Active Directory 版本](../active-directory-editions.md)。
 
@@ -61,5 +61,5 @@ Azure Active Directory (Azure AD) Privileged Identity Management 處於預覽狀
 
 ## <a name="next-steps"></a>後續步驟
 
-- [開始使用 Azure AD Privileged Identity Management](pim-getting-started.md)
-- [Azure AD Privileged Identity Management 中的角色](pim-roles.md)
+- [開始使用 PIM](pim-getting-started.md)
+- [您可以在 PIM 中管理的 Azure AD 目錄角色](pim-roles.md)

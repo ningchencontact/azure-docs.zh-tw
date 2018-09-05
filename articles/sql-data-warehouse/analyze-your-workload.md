@@ -3,19 +3,19 @@ title: 分析工作負載 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中用來分析工作負載查詢優先順序的技術。
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795352"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248088"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>分析 Azure SQL 資料倉儲的工作負載 | Microsoft Docs
 在 Azure SQL 資料倉儲中用來分析工作負載查詢優先順序的技術。
@@ -39,8 +39,7 @@ SQL 資料倉儲使用工作負載群組來實作資源類別。 共有八個工
 | SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | 高               |
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | 高               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-**並行存取插槽的配置和耗用量** 圖表中，顯示 DW500 針對 smallrc、mediumrc、largerc 和 xlargerc，分別使用了 1、4、8 或 16 個並行存取插槽。 若要了解每個資源類別的重要性，您可以在上述圖表中查詢這些值。
+<!-- where are the allocation and consumption of concurrency slots charts? -->**並行存取插槽的配置和耗用量**圖表中，顯示 DW500 針對 smallrc、mediumrc、largerc 和 xlargerc，分別使用了 1、4、8 或 16 個並行存取插槽。 若要了解每個資源類別的重要性，您可以在上述圖表中查詢這些值。
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>重要性與資源類別的 DW500 對應
 | 資源類別 | 工作負載群組 | 已使用的並行存取插槽 | MB / 散發套件 | 重要性 |

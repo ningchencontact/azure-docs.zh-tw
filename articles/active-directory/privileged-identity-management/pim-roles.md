@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management 中的角色 | Microsoft Docs
-description: 了解要針對具備 Azure 特殊權限身分識別管理擴充功能的特殊權限身分識別使用哪些角色。
+title: 您可以在 PIM 中管理的 Azure AD 目錄角色 | Microsoft Docs
+description: 說明您可以在 Azure AD Privileged Identity Management (PIM) 中管理的 Azure AD 目錄角色。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: f8045d70ab4926cdc0e28a9a2290685c4f11205a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618558"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188981"
 ---
-# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>可以使用 Azure AD PIM 管理的目錄角色
+# <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>您可以在 PIM 中管理的 Azure AD 目錄角色
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 您可以將組織中的使用者指派給 Azure AD 內的不同系統管理角色。 這些角色指派控制使用者可以在 Azure AD、Office 365 和其他 Microsoft Online Services 與連線的應用程式執行哪些工作，像是新增或移除使用者或變更服務設定。  
@@ -86,5 +86,7 @@ Azure 訂用帳戶和資源群組也不會出現在 Azure AD 中。 若要管理
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [開始使用 PIM](pim-getting-started.md)
+- [在 PIM 中指派 Azure AD 目錄角色](pim-how-to-add-role-to-user.md)
 

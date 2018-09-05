@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445015"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092089"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -37,19 +37,7 @@ ms.locfileid: "37445015"
 
 ## <a name="region-limits"></a>區域限制
 
-您可以設定的查詢複本數目受限於您伺服器所在的區域。 適用下列限制：
-
-|區域  |複本的最大數目  |
-|---------|---------|
-|美國東部 2    |    7     |
-|美國中西部     |    7     |
-|西歐     |    7     |
-|美國西部     |     7    |
-|美國中部     |     3    |
-|東南亞    |     3    |
-|所有其他區域  |   1    |
-
-
+您可以設定的查詢複本數目受限於您伺服器所在的區域。 若要深入了解，請參閱[依區域的可用性](analysis-services-overview.md#availability-by-region)。
 
 ## <a name="monitor-qpu-usage"></a>監視 QPU 使用量
 

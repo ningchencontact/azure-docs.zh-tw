@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f825a2a343d9b5ad8f9802042b7aca2ba1544dfb
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42432284"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917397"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service on Azure Stack 更新 3 版本資訊
 
@@ -178,6 +178,21 @@ Azure App Service on Azure Stack 更新 3 包含下列改良功能和修正：
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
+
+### <a name="known-issues-post-installation"></a>已知問題 (安裝後)
+
+- 將應用程式服務部署在現有的虛擬網路中且只能在私人網路上使用檔案伺服器時，背景工作角色無法連線到檔案伺服器。  這也會在 Azure Stack 上的 Azure App Service 部署文件中提及。
+
+如果您選擇要部署到現有的虛擬網路並以內部 IP 位址連線到檔案伺服器，便必須新增輸出安全性規則，以啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。 若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
+ * 來源：任何
+ * 來源連接埠範圍：*
+ * 目的地：IP 位址
+ * 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
+ * 目的地連接埠範圍：445
+ * 通訊協定：TCP
+ * 動作：允許
+ * 優先順序：700
+ * 名稱：Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>雲端管理員操作 Azure App Service on Azure Stack 時的已知問題
 

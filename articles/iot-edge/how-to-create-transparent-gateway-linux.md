@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f54001c26938ea508111542b930b189342303633
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186857"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247678"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>建立作為透明閘道的 Linux IoT Edge 裝置
 
@@ -80,9 +80,9 @@ ms.locfileid: "39186857"
    >[!NOTE]
    > **請勿**使用與閘道 DNS 主機名稱相同的名稱。 這麼做將導致使用這些憑證的用戶端認證失敗。
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+   ```cmd
+   ./certGen.sh create_edge_device_certificate "<gateway device name>"
+   ```
 
    指令碼執行的輸出是下列憑證和金鑰：
    * `$WRKDIR/certs/new-edge-device.*`
@@ -101,15 +101,21 @@ ms.locfileid: "39186857"
    * 裝置 CA 憑證 -  `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * 裝置 CA 私密金鑰 - `$WRKDIR/private/new-edge-device.key.pem`
    * 擁有者 CA - `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. 開啟 IoT Edge 組態檔。 此檔案受到保護，因此您可能必須使用提高的權限才能加以存取。
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.  將安全性精靈設定 yaml 檔案中的 `certificate` 屬性，設定為您放置憑證和金鑰檔案的路徑。
+3.  將 IoT Edge 精靈設定 yaml 檔案中的 `certificate` 屬性，設定為您放置憑證和金鑰檔案的路徑。
 
-```yaml
-certificates:
-  device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
+     device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
+     trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
+   ```
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>將 Edge 中樞部署至閘道
 Azure IoT Edge 的主要功能之一，是能夠從雲端將模組部署到您的 IoT Edge 裝置。 在本節中，您建立了看似空白的部署，但即使沒有其他模組存在，Edge 中樞也會自動新增至所有部署。 Edge 中樞是您讓 Edge 裝置作為透明閘道所需的唯一模組，因此建立空白部署就已足夠。 

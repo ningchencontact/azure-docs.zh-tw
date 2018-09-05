@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 08/22/2018
 ms.author: rolyon
-ms.openlocfilehash: 6162ee59689df12e2dace9a0419490979a13d4c5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 69313adea1719324e2b22b45c6a45535ea65097f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616858"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125037"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用 Azure AD 使用規定。

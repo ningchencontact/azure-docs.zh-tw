@@ -4,14 +4,14 @@ description: 說明如何使用 Azure Migrate 服務評定大量的內部部署�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 553e0d6569a3a35802703ef58e1460878dcd930b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144807"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127509"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
 
@@ -22,7 +22,7 @@ Azure Migrate 具有每個專案 1500 部機器的限制，本文說明如何使
 - **VMware**：您計劃移轉的虛擬機器必須透過 vCenter Server 5.5、6.0 或 6.5 版來管理。 此外，您還需要一部執行 5.0 版或更新版本的 ESXi 主機來部署收集器虛擬機器。
 - **vCenter 帳戶**：您需要一個唯讀帳戶來存取 vCenter Server。 Azure Migrate 會使用此帳戶來探索內部部署 VM。
 - **權限**：在 vCenter Server 中，您需要權限，方可藉由匯入 .OVA 格式的檔案來建立虛擬機器。
-- **統計資料設定**：vCenter Server 的統計資料設定應該先設為層級 3，再開始部署。 如果低於層級 3，還是能進行評定，但不會收集儲存體和網路的效能資料。 在此情況下，將根據 CPU 和記憶體的效能資料，以及磁碟和網路介面卡的組態資料來提出大小建議。
+- **統計資料設定**：vCenter Server 的統計資料設定應該先設為層級 3，再開始部署。 日、週和月收集間隔的統計資料層級都會設定為 3。 如果任一收集間隔的層級低於 3，還是能進行評定，但不會收集儲存體和網路的效能資料。 將會根據 CPU 和記憶體的效能資料，以及磁碟和網路介面卡的組態資料來提出大小建議。
 
 
 ### <a name="set-up-permissions"></a>設定權限

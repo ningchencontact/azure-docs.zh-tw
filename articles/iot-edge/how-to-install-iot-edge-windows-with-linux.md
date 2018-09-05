@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: ea576c0d434d4db7077fc41bc1f5bbbc89e7779e
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d6852b5b1fe3d0b3c248fc1948fa4c3a9428de89
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576642"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125403"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>在 Windows 上安裝要與 Linux 容器搭配使用的 Azure IoT Edge 執行階段
 
-Azure IoT Edge 執行階段是部署到所有 IoT Edge 裝置上。 它有三個元件。 **IoT Edge 安全性精靈**提供及維護 Edge 裝置的安全性標準。 精靈會在每次開機時啟動，並且透過啟動 IoT Edge 代理程式讓裝置進入啟動程序。 **IoT Edge 代理程式**有助於在 Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。
+Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段可以部署在像 Raspberry Pi 一樣小或像工業伺服器一樣大的裝置上。 利用 IoT Edge 執行階段設定裝置之後，您就可以開始從雲端將商務邏輯部署給它。 
 
-本文列出在 Windows x64 (AMD/Intel) 系統上安裝 Azure IoT Edge 執行階段的步驟。 Windows 支援目前為預覽版。
+若要深入了解 IoT Edge 執行階段的運作方式，以及會包含哪些元件，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。
+
+本文列出在 Windows x64 (AMD/Intel) 系統上安裝 Azure IoT Edge 執行階段與 Linux 容器的步驟。 Windows 支援目前為預覽版。
 
 >[!NOTE]
 針對 Azure IoT Edge 而言，在 Windows 系統上使用 Linux 容器不是建議或支援的生產設定。 不過，這很適合用於開發與測試用途。
@@ -29,6 +31,8 @@ Azure IoT Edge 執行階段是部署到所有 IoT Edge 裝置上。 它有三個
 使用 Linux 容器時，可以在下列 Windows 版本上進行 Azure IoT Edge 的開發與測試：
   * Windows 10 或更新版本的電腦作業系統。
   * Windows Server 2016 或新的伺服器作業系統。
+
+如需目前支援哪些作業系統的詳細資訊，請參閱 [Azure IoT Edge 支援](support.md#operating-systems)。 
 
 ## <a name="install-the-container-runtime"></a>安裝容器執行階段 
 
@@ -43,7 +47,7 @@ Azure IoT Edge 須依賴 [OCI 相容][lnk-oci]的容器執行階段 (例如 Dock
 
 單一 IoT Edge 裝置可以使用 IoT 中樞所提供的裝置連接字串以手動方式佈建。 或者，您可以使用裝置佈建服務來自動佈建裝置，這在您有許多裝置要佈建時將很有幫助。 請根據您選擇的佈建方式，選擇適當的安裝指令碼。 
 
-### <a name="install-and-manually-provision"></a>安裝並手動佈建
+### <a name="option-1-install-and-manually-provision"></a>選項 1：安裝並手動佈建
 
 1. 依照[註冊新的 Azure IoT Edge 裝置][lnk-dcs]中的步驟註冊您的裝置，並擷取裝置連接字串。 
 
@@ -58,7 +62,7 @@ Azure IoT Edge 須依賴 [OCI 相容][lnk-oci]的容器執行階段 (例如 Dock
 
 4. 在出現 **DeviceConnectionString** 的提示時，請提供您從 IoT 中樞擷取的連接字串。 請勿在連接字串兩側加上引號。 
 
-### <a name="install-and-automatically-provision"></a>安裝並自動佈建
+### <a name="option-2-install-and-automatically-provision"></a>選項 2：安裝並自動佈建
 
 1. 依照[在 Windows 上建立及佈建模擬 TPM Edge 裝置][lnk-dps]中的步驟設定裝置佈建服務並擷取其 [範圍識別碼]、模擬 TPM 裝置並擷取其 [註冊識別碼]，然後建立個別註冊。 在您的 IoT 中樞註冊裝置之後，請繼續進行安裝。  
 

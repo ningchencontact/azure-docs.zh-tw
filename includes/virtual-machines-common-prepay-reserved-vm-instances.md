@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 19a153a5cdc9d5f878494984313baebd12dbcbb5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631158"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43039270"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>預付具有 Azure 保留 VM 執行個體的虛擬機器
 
@@ -30,6 +30,9 @@ ms.locfileid: "39631158"
 
 保留 VM 執行個體適用於大多數 VM 大小，但有些例外：
 
+- 傳統 VM 和雲端服務沒有保留折扣。
+- 隱藏的核心 VM 沒有保留折扣。
+- 下列 VM 系列沒有保留折扣：A 系列、Av2 系列或 G 系列。
 - 預覽版 VM：任何預覽版 VM 系列或大小都不適用於保留項目購買。
 - 雲端：保留項目不適用於 Azure 美國政府、德國或中國區域中的購買。
 - 配額不足：保留項目如果範圍限定在單一訂用帳戶，必須訂用帳戶中有可用的 vCPU 配額，才能新增 RI。 例如，如果目標訂用帳戶的配額限制為 10 個 D 系列的 vCPU，您便無法購買一個適用於 11 個 Standard_D1 執行個體的保留項目。 保留的配額檢查包含已在訂用帳戶中部署的 VM。 例如，如果訂用帳戶的配額為 10 個 D 系列的 vCPU，且已部署 2 個 standard_D1 執行個體，則您可以在此訂用帳戶中購買一個適用於 10 個 standard_D1 執行個體的保留項目。 
@@ -44,7 +47,7 @@ ms.locfileid: "39631158"
 
     | 欄位      | 說明|
     |:------------|:--------------|
-    |Name        |此保留項目的名稱。| 
+    |名稱        |此保留項目的名稱。| 
     |訂用帳戶|用來支付保留項目的訂用帳戶。 保留項目的預付費用會透過訂用帳戶的付款方式收取。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P) 或預付型方案 (供應項目號碼：MS-AZR-0003P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 針對預付型方案訂用帳戶，費用是透過訂用帳戶的信用卡或發票付款方式收取。|    
     |影響範圍       |保留項目範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>單一訂用帳戶 - 保留項目折扣會套用至此訂用帳戶中的 VM。 </li><li>共用 - 保留項目折扣會套用至計費內容內任何訂用帳戶中執行的 VM。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶 (開發/測試訂用帳戶除外)。 針對預付型方案客戶，共用範圍是帳戶系統管理員所建立的所有預付型方案訂用帳戶。</li></ul>|
     |位置    |保留項目所涵蓋的 Azure 區域。|    

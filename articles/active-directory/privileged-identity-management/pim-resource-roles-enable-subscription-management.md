@@ -1,6 +1,6 @@
 ---
-title: 適用於 Azure 資源的 Privileged Identity Management - 啟用訂用帳戶管理 | Microsoft Docs
-description: 了解全域管理員如何管理租用戶中的訂用帳戶。
+title: 啟用租用戶中的訂用帳戶管理 - Azure | Microsoft Docs
+description: 了解如何在使用 Azure AD Privileged Identity Management (PIM) 時，啟用您租用戶中的訂用帳戶管理。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620275"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189990"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>啟用租用戶中的訂用帳戶管理
 
@@ -79,14 +79,5 @@ ms.locfileid: "39620275"
 
 ## <a name="next-steps"></a>後續步驟
 
-[探索資源](pim-resource-roles-discover-resources.md)
-
-[配置角色設定](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [在 PIM 中探索要管理的 Azure 資源](pim-resource-roles-discover-resources.md)
+- [在 PIM 中設定 Azure 資源角色設定](pim-resource-roles-configure-role-settings.md)

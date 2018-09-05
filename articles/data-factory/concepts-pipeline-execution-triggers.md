@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867081"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122428"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -278,10 +278,10 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 | JSON 屬性 | 類型 | 必要 | 預設值 | 有效值 | 範例 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | 字串 | yes | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | 物件 | yes | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | 字串 | 是 | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | 物件 | 是 | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | 否 | 1 | 1 到 1000 | `"interval":10` |
-| **endTime** | 字串 | yes | None | 代表未來時間的日期時間值 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | 字串 | 是 | None | 代表未來時間的日期時間值 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | 物件 | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 屬性

@@ -6,14 +6,14 @@ author: jj09
 manager: jlembicz
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/14/2016
+ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: 2f52ed0ab302d1c3dad699258287f6edd7197cef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6fed5a8afe6030038752d540bfabbc446c57db2c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525615"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124146"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ ms.locfileid: "39525615"
 
 我們使用了以下軟體建置及測試此範例：
 
-* [Eclipse IDE for Java EE Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar)。 請務必下載 EE 版本。 其中一個驗證步驟所需的功能只有在此版本中才能找到。
-* [JDK 8u40。](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Apache Tomcat 8.0。](http://tomcat.apache.org/download-80.cgi)
+* [Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers)。 請務必下載 EE 版本。 其中一個驗證步驟所需的功能只有在此版本中才能找到。
+* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>關於資料
 此範例應用程式使用的 [美國地理服務中心 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm)資料已依據羅德島州進行篩選，藉此減少資料集的大小。 我們將使用此資料建置可傳回地標建築物 (例如醫院和學校) 及地理特徵 (例如河流、湖泊和山峰) 的搜尋應用程式。
@@ -51,7 +51,7 @@ ms.locfileid: "39525615"
 * SearchServiceHelper.java：提供靜態方法的協助程式類別
 * Document.java：提供資料模型
 * config.properties：設定搜尋服務 URL 和 API 金鑰
-* Pom.xml：Maven 相依性
+* pom.xml：Maven 相依性
 
 <a id="sub-2"></a>
 

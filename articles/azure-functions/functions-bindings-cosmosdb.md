@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 0715f1723f7bb43b0d11e55e8af01202fc8a92be
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d408456373c8124e1a385879852d6198caf0813c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344455"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050185"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 Azure Cosmos DB 繫結
 
@@ -36,6 +36,10 @@ ms.locfileid: "39344455"
 >這個繫結最初命名為 DocumentDB。 在 Functions 1.x 版中，只有觸發程序已重新命名為 Cosmos DB；輸入繫結、輸出繫結和 NuGet 套件則保留 DocumentDB 名稱。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>支援的 API
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
@@ -216,10 +220,7 @@ namespace CosmosDBSamplesV1
 
 ## <a name="input"></a>輸入
 
-Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並將它們傳遞給函式的輸入參數。 您可以叫用函式的觸發程序作為基礎來判斷文件識別碼或查詢參數。 
-
->[!NOTE]
-> 如果您是在 Cosmos DB 帳戶上使用 MongoDB API，請勿使用 Azure Cosmos DB 輸入或輸出繫結。 資料可能會損毀。
+Azure Cosmos DB 輸入繫結會使用 SQL API 來擷取一或多個 Azure Cosmos DB 文件，並傳遞給函式的輸入參數。 您可以叫用函式的觸發程序作為基礎來判斷文件識別碼或查詢參數。
 
 ## <a name="input---examples"></a>輸入 - 範例
 
@@ -1185,10 +1186,7 @@ module.exports = function (context, req, toDoItem) {
 
 ## <a name="output"></a>輸出
 
-Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資料庫。 
-
->[!NOTE]
-> 如果您是在 Cosmos DB 帳戶上使用 MongoDB API，請勿使用 Azure Cosmos DB 輸入或輸出繫結。 資料可能會損毀。
+Azure Cosmos DB 輸出繫結可讓您使用 SQL API，將新的文件寫入 Azure Cosmos DB 資料庫。 
 
 ## <a name="output---examples"></a>輸出 - 範例
 

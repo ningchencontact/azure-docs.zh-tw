@@ -4,15 +4,15 @@ description: 提供收集器設備的概觀及其設定方式。
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308454"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122882"
 ---
 # <a name="collector-appliance"></a>收集器設備
 
@@ -59,7 +59,31 @@ Azure Migrate 收集器是輕量型設備，可用來探索您的內部部署 vC
 > [!NOTE]
 > 收集器不支援 HTTPS 型 Proxy 伺服器。
 
-#### <a name="whitelisting-urls-for-internet-connection"></a>將網際網路連線的 URL 加入白名單
+#### <a name="internet-connectivity-with-intercepting-proxy"></a>採用攔截 Proxy 的網際網路連線
+
+如果您用於連線到網際網路的 Proxy 伺服器為攔截 Proxy，則必須將 Proxy 憑證匯入您的收集器 VM 中。 以下是如何將憑證匯入收集器 VM 中的步驟。
+
+1. 在收集器 VM 中，移至 [開始] 功能表，然後尋找並開啟 [管理電腦憑證]。
+2. 在 [憑證] 工具中，在左窗格上的 [憑證 - 本機電腦] 之下，尋找 [信任的發行者]。 在 [信任的發行者] 之下，按一下 [憑證] 可查看右邊窗格中的憑證清單。
+
+    ![憑證工具](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+3. 將您的 Proxy 憑證複製到收集器 VM。 您可能必須連絡貴組織的網路管理員小組，，才能取得此憑證。
+4. 按兩下憑證加以開啟。 按一下 [安裝憑證]。 這會帶您前往 [憑證匯入精靈]。
+5. 在 [憑證匯入精靈] 中，針對 [存放區位置] 選擇 [本機電腦]。 按 [下一步] 。
+
+    ![憑證存放區位置](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+6. 選擇 [將所有憑證放入以下的存放區] 選項。 按一下 [瀏覽]，然後從出現的憑證清單中選取 [信任的發行者]。 按 [下一步] 。
+
+    ![憑證存放區](./media/concepts-intercepting-proxy/certificate-store.png)
+    
+7. 按一下 [完成] 。 這將會匯入憑證。 
+8. (選擇性) 您可開啟如以上步驟 1 和 2 所示的 [憑證] 工具，確認憑證已匯入。
+9. 在 Azure Migrate 收集器應用程式上，確認網際網路連線必要條件檢查是否成功。
+
+
+#### <a name="whitelisting-urls-for-internet-connection"></a>將網際網路連線的 URL 加入允許清單
 
 如果收集器可以透過所提供的設定連線到網際網路，必要條件檢查就會成功。 您可以連線到下表中所提供的 URL 清單來驗證連線檢查。 如果您使用任何 URL 型防火牆 Proxy 控制輸出連線能力，務必將這些必要的 URL 列入允許清單：
 

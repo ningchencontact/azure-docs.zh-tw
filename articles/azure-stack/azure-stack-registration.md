@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/24/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: e2411a91174fd0b52227b4cfe8783c8c74c4039e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41946582"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247818"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
@@ -82,15 +82,14 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
 您的 Azure Stack 部署可能為「已連線」或「已中斷連線」。
 
- - **已連線**  
+ - **已連接**  
  「已連線」意謂著您已部署 Azure Stack，讓它可以連線至網際網路和 Azure。 您可以使用 Azure Active Directory (Azure AD) 或「Active Directory 同盟服務」(AD FS) 作為您的身分識別存放區。 使用已連線的部署時，有兩種計費模型可供您選擇：使用時付費或以容量為基礎。
-    - [使用「使用時付費」計費模型向 Azure 註冊已連線的 Azure Stack](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
-    - [使用「容量」計費模型向 Azure 註冊已連線的 Azure Stack](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+    - [使用「使用時付費」計費模型向 Azure 註冊已連線的 Azure Stack](#register-connected-with-pay-as-you-go-billing)
+    - [使用「容量」計費模型向 Azure 註冊已連線的 Azure Stack](#register-connected-with-capacity-billing)
 
  - **已中斷連線**  
  使用與 Azure 中斷連線的部署選項，您可以在沒有網際網路連線的情況下，部署和使用 Azure Stack。 不過，若使用已中斷連線的部署，您會受限於 AD FS 身分識別儲存和以容量為基礎的計費模型。
-    - [使用「容量」**** 計費模型來註冊已中斷連線的 Azure Stack](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model
-)
+    - [使用「容量」計費模型來註冊已中斷連線的 Azure Stack](#register-disconnected-with-capacity-billing)
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>使用隨用隨付計費來註冊已連線的環境
 
@@ -218,7 +217,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    如需有關 Get-AzsRegistrationToken Cmdlet 的詳細資訊，請參閱[註冊參考](#registration-reference)。
 
@@ -358,7 +357,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
 ### <a name="disable-or-enable-usage-reporting"></a>停用或啟用使用量報告功能
 
-針對使用容量計費模型的 Azure Stack 環境，請使用 **Set-AzsRegistration** 或 **Get-AzsRegistrationToken** Cmdlet 搭配 **EnableUsageReporting** 參數來關閉使用量報告功能。 Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。
+針對使用容量計費模型的 Azure Stack 環境，請使用 **Set-AzsRegistration** 或 **Get-AzsRegistrationToken** Cmdlet 搭配 **UsageReportingEnabled** 參數來關閉使用量報告功能。 Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。
 
 #### <a name="with-a-connected-azure-stack"></a>使用已連線的 Azure Stack
 
@@ -378,7 +377,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 

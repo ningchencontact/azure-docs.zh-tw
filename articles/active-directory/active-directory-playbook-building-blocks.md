@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4618c8a0298afdac28e7511e9521cf1e26238734
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038348"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189033"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -480,7 +480,7 @@ ms.locfileid: "40038348"
 | 以全域管理員身分 (GA) 登入 https://portal.azure.com，並啟動載入 PIM 刀鋒視窗。 執行此步驟的「全域管理員」會植入為安全性系統管理員。  讓我們將此執行者稱為 GA1 | [在 Azure AD Privileged Identity Management 中使用安全性精靈](privileged-identity-management/pim-security-wizard.md) |
 | 識別全域管理員，並將他們從永久移至合格。 為了清楚起見，這應該與步驟 1 中使用的管理員不同。 讓我們將此執行者稱為 GA2 | [Azure AD Privileged Identity Management：如何新增或移除使用者角色](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[什麼是 Azure AD Privileged Identity Management？：設定角色啟用設定](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | 現在，以 GA2 身分登入 https://portal.azure.com，並嘗試變更 [使用者設定]。 請注意，部分選項是呈現灰色。 | |
-| 在新索引標籤及與步驟 3 相同的工作階段中，現在瀏覽至 https://portal.azure.com，然後將 PIM 刀鋒視窗新增至儀表板中。 | [如何在 Azure AD Privileged Identity Management 中啟用或停用角色：新增 Privileged Identity Management 應用程式](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| 在新索引標籤及與步驟 3 相同的工作階段中，現在瀏覽至 https://portal.azure.com，然後將 PIM 刀鋒視窗新增至儀表板中。 | [開始使用 PIM](privileged-identity-management/pim-getting-started.md) |
 | 要求啟用「全域管理員」角色 | [如何在 Azure AD Privileged Identity Management 中啟用或停用角色：啟用角色](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | 請注意，如果 GA2 從未註冊 MFA，將必須註冊 Azure MFA |  |
 | 回到步驟 3 中的原始索引標籤，然後按一下瀏覽器中的 [重新整理] 按鈕。 請注意，您現在已具有能夠變更 [使用者設定] 的存取權 | |

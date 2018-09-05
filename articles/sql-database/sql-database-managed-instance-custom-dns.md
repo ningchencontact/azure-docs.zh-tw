@@ -10,67 +10,28 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: d5bb2f2f4b79c4b03e631fc844a712f76fc69109
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: af9afcbf97df5f3d7fa82f6ea0163c714fa4f582
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258162"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051736"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>設定 Azure SQL Database 受控執行個體的自訂 DNS
 
-Azure SQL Database 受控執行個體 (預覽) 必須部署在 Azure [虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 內。 在少數案例中，連結的伺服器連線至您雲端或混合式環境中的其他 SQL 執行個體時，就必須從受控執行個體解析私人主機名稱。 在此情況下，您需要在 Azure 內設定自訂 DNS 。 由於受控執行個體會為其內部工作使用相同的 DNS，因此虛擬網路 DNS 設定必須與受控執行個體相容。 
+Azure SQL Database 受控執行個體 (預覽) 必須部署在 Azure [虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 內。 在少數案例中，例如連結的伺服器連線至您雲端或混合式環境中的其他 SQL 執行個體時，就必須從受控執行個體解析私人主機名稱。 在此情況下，您需要在 Azure 內設定自訂 DNS 。 由於受控執行個體會為其內部工作使用相同的 DNS，因此虛擬網路 DNS 設定必須與受控執行個體相容。 
 
-為了讓自訂 DNS 設定和受控執行個體相容，您需要完成下列步驟： 
-- 設定自訂 DNS 將要求轉送至 Azure DNS 
-- 將 VNet 的主要伺服器設為自訂 DNS，次要伺服器設為 Azure DNS 
-- 將自訂 DNS 註冊為主要伺服器，將 Azure DNS 註冊為次要伺服器
-
-## <a name="configure-custom-dns-to-forward-requests-to-azure-dns"></a>設定自訂 DNS 將要求轉送至 Azure DNS 
-
-若要在 Windows Server 2016 上設定 DNS 轉送，使用下列步驟： 
-
-1. 在 [伺服器管理員] 中，依序按一下 [工具]、[DNS]。 
-
-   ![DNS](./media/sql-database-managed-instance-custom-dns/dns.png) 
-
-2. 按兩下 [轉送]。
-
-   ![轉送](./media/sql-database-managed-instance-custom-dns/forwarders.png) 
-
-3. 按一下 [編輯]。 
-
-   ![轉送清單](./media/sql-database-managed-instance-custom-dns/forwarders-list.png) 
-
-4. 輸入 Azure 的遞迴解析程式 IP 位址，如 168.63.129.16。
-
-   ![遞迴解析程式 IP 位址](./media/sql-database-managed-instance-custom-dns/recursive-resolvers-ip-address.png) 
+為了讓自訂 DNS 設定和受控執行個體相容，您需要： 
+- 設定自訂 DNS 伺服器，讓它可以解析公用網域名稱 
+- 將 Azure 遞迴解析程式的 DNS IP 位址 168.63.129.16，放置在虛擬網路 DNS 清單結尾 
  
-## <a name="set-up-custom-dns-as-primary-and-azure-dns-as-secondary"></a>將自訂 DNS 設為主要伺服器，將 Azure DNS 設為次要伺服器 
- 
-在 Azure VNet 上的 DNS 組態需要您輸入 IP 位址，因此要為裝載 DNS 伺服器的 Azure VM 設定靜態 IP 位址，請使用下列步驟： 
-
-1. 在 Azure 入口網站中，開啟自訂 DNS VM 網路介面。
-
-   ![網路介面](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
-
-2. 在 [IP 設定] 區段中， 選取 [IP 設定]。 
-
-   ![IP 設定](./media/sql-database-managed-instance-custom-dns/ip-configuration.png) 
-
-
-3. 將私人 IP 位址設為 [靜態]。 記下 IP 位址 (在此螢幕擷取畫面中是 10.0.1.5)。 
-
-   ![靜態](./media/sql-database-managed-instance-custom-dns/static.png) 
-
-
-## <a name="register-custom-dns-as-primary-and-azure-dns-as-secondary"></a>將自訂 DNS 註冊為主要伺服器，將 Azure DNS 註冊為次要伺服器 
+## <a name="setting-up-custom-dns-servers-configuration"></a>設定自訂 DNS 伺服器組態
 
 1. 在 Azure 入口網站中，找到您的 VNet 的自訂 DNS 選項。
 
    ![自訂 DNS 選項](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
 
-2. 切換至 [自訂]，輸入您的自訂 DNS 伺服器 IP 位址，以及 Azure 的遞迴解析程式的 IP 位址，例如 168.63.129.16。 
+2. 切換至 [自訂]，輸入您的自訂 DNS 伺服器 IP 位址，以及 Azure 的遞迴解析程式 IP 位址，168.63.129.16。 
 
    ![自訂 DNS 選項](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 

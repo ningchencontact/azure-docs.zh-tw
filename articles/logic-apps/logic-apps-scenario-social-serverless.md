@@ -1,28 +1,23 @@
 ---
-title: 無伺服器案例 - 使用 Azure 建立客戶深入解析儀表板 | Microsoft Docs
-description: 了解如何使用 Azure Logic Apps 與 Azure Functions 來建置客戶儀表板，以管理客戶的意見反應、社交媒體資料和其他項目
-keywords: ''
+title: 無伺服器案例 - 使用 Azure 服務建立客戶深入解析儀表板 | Microsoft Docs
+description: 使用 Azure Logic Apps 與 Azure Functions 來建置客戶儀表板，以管理客戶的意見反應、社交媒體資料和其他項目
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: estfan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 3ee3ec3107cf8aad834e8201405c9aa833d838af
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9d6d74c4afb4d1cd62e5946b7e6f8c401e7ef2aa
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299955"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124639"
 ---
-# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure Logic Apps 與 Azure Functions 來建立串流的客戶深入解析儀表板
+# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure Logic Apps 與 Azure Functions 來建立串流的客戶深入解析儀表板
 
 Azure 提供的無伺服器工具，可協助您在雲端中快速建置及裝載應用程式，而不必考慮基礎結構。 在此教學課程中，您可以建立會對客戶的意見反應而觸發的儀表板、使用機器學習服務分析意見反應，並將深入解析發佈至來源，例如 Power BI 或 Azure Data Lake。
 

@@ -1,25 +1,20 @@
 ---
-title: 使用 Log Analytics 監視邏輯應用程式執行並取得深入解析 - Azure Logic Apps | Microsoft Docs
-description: 透過 Log Analytics 監視邏輯應用程式執行，來取得深入解析和更豐富的偵錯詳細資料，以便進行疑難排解和診斷
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
+title: 使用 Log Analytics 監視邏輯應用程式執行 - Azure Logic Apps | Microsoft Docs
+description: 透過 Log Analytics 取得邏輯應用程式執行的深入解析和偵錯資料，以便進行疑難排解和診斷
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1aa55728b222c2838026cf5b06175736c5c84194
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294569"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123285"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>透過 Log Analytics 監視邏輯應用程式執行並取得深入解析
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Privileged Identity Management 啟用適用於 Azure 資源的角色 | Microsoft Docs
-description: 說明如何在 PIM 中啟用角色。
+title: 在 PIM 中啟用我的 Azure 資源角色 | Microsoft Docs
+description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中啟用 Azure 資源角色。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 45a2747a60df4d91c2fe1c5247e1d4ac82ff819f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 234c1d71f0ec17d15a4dd589e3db92fd9bf68df2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617144"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189484"
 ---
-# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 啟用適用於 Azure 資源的角色
+# <a name="activate-my-azure-resource-roles-in-pim"></a>在 PIM 中啟用我的 Azure 資源角色
 Privileged Identity Management (PIM) 在啟用適用於 Azure 資源的角色方面引進了全新體驗。 符合資格的角色成員可以排程在未來的日期和時間啟用。 他們也可以在最大範圍內選取特定的啟用期間 (由管理員設定)。 如需更多資訊，請參閱 [Azure AD Privileged Identity Management：如何啟用或停用角色](pim-how-to-activate-role.md)。
 
-## <a name="activate-roles"></a>啟用角色
+## <a name="activate-a-role"></a>啟用角色
 瀏覽至左側窗格中 [我的角色] 區段。 針對您想要啟用的角色選取 [啟用]。
 
 ![[我的角色] 窗格中的 [符合資格的角色] 索引標籤。](media/azure-pim-resource-rbac/rbac-roles.png)
@@ -39,6 +39,19 @@ Privileged Identity Management (PIM) 在啟用適用於 Azure 資源的角色方
 
 ![含 [取消] 按鈕的擱置要求清單](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
+## <a name="use-a-role-immediately-after-activation"></a>啟用後可立即使用角色
+
+因為快取的關係，啟用不會立即在 Azure 入口網站中生效，必須重新整理畫面。 如果您需要降低啟用角色之後的延遲機率，您可以使用入口網站中的**應用程式存取**頁面。 從此頁面存取的應用程式會立即檢查新的角色指派。
+
+1. 開啟 Azure AD Privileged Identity Management。
+
+1. 按一下 [應用程式存取] 頁面。
+
+    ![PIM 應用程式存取 - 螢幕擷取畫面](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. 按一下 [Azure 資源]，即可重新開啟入口網站的 [所有資源] 頁面。
+
+    當您按一下此連結後，即可強制重新整理，並檢查新的 Azure 資源角色指派。
 
 ## <a name="apply-just-enough-administration-practices"></a>套用恰到好處的系統管理做法
 
@@ -51,3 +64,7 @@ Privileged Identity Management (PIM) 在啟用適用於 Azure 資源的角色方
 從左側窗格中選取 [我的角色]，然後選擇適當的角色以啟用。 系統會**繼承**指派類型，因為角色已在訂用帳戶中獲指派，而非資源群組中。
 
 ![符合資格的角色指派清單，指派類型會反白顯示](media/azure-pim-resource-rbac/my-roles-02.png)
+
+## <a name="next-steps"></a>後續步驟
+
+- [在 PIM 中啟用我的 Azure AD 目錄角色](pim-how-to-activate-role.md)

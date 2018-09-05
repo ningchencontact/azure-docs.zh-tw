@@ -1,26 +1,21 @@
 ---
 title: 檢查狀態、設定記錄並取得警示 - Azure Logic Apps | Microsoft Docs
-description: 監視邏輯應用程式的狀態和效能、記錄診斷資料，並設定警示
-author: jeffhollan
-manager: jeconnoc
-editor: ''
+description: 監視 Azure Logic Apps 的狀態、記錄診斷資料，以及設定其警示
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: a08cd6289fc85b79ccec731126a33a9549d60546
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293518"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123528"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 

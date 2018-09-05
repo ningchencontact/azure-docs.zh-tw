@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 14cdb2d3e433da38913ffa29b3b150bdb264278b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1948fb927c00e928a46c347bc6f1a01a43e155df
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658701"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112134"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>快速入門：在 Azure VM 上手動安裝單一執行個體 SAP HANA
 ## <a name="introduction"></a>簡介
@@ -30,7 +30,7 @@ ms.locfileid: "34658701"
 >[!Note]
 >本指南說明如何將 SAP HANA 部署到 Azure VM。 如需將 SAP HANA 部署至 HANA 大型執行個體上的資訊，請參閱[在 Azure 虛擬機器 (VM) 上使用 SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)。
  
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本指南假設您已熟悉如下的這類基礎結構即服務 (IaaS) 基本知識：
  * 如何透過 Azure 入口網站或 PowerShell 部署虛擬機器或虛擬網路。
  * Azure 跨平台命令列介面 (CLI)，包括使用 JavaScript 物件通知 (JSON) 範本的選項。
@@ -41,7 +41,7 @@ ms.locfileid: "34658701"
 * 下列概念和程序：
    * 在 Azure 上規劃 SAP 部署，包括 Azure 虛擬網路規劃和 Azure 儲存體使用方式。 請參閱 [Azure 虛擬機器 (VM) 上的 SAP NetWeaver - 規劃和實作指南](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)。
    * 部署原則及在 Azure 中部署 VM 的方式。 請參閱[適用於 SAP 的 Azure 虛擬機器部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)。
-   * Azure 上的 SAP NetWeaver ASCS (ABAP SAP 中央服務)、SCS (SAP 中央服務)，以及 ERS (評估的收貨結算) 高可用性。 請參閱 [Azure VM 上的 SAP NetWeaver 高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide)。
+   * Azure 上的 SAP NetWeaver ASCS (ABAP SAP 中央服務)、SCS (SAP 中央服務)，以及 ERS (將複寫伺服器加入佇列) 高可用性。 請參閱 [Azure VM 上的 SAP NetWeaver 高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide)。
    * 如何運用 Azure 上的 ASCS/SCS 多重 SID 安裝改善效率的詳細資料。 請參閱[建立 SAP NetWeaver 多 SID 組態](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid)。 
    * Azure 中以 Linux 驅動的 VM 作為基礎執行 SAP NetWeaver 的準則。 請參閱[在 Microsoft Azure SUSE Linux VM 上執行 SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)。 本指南提供 Azure VM 中 Linux 的特定設定，以及如何正確地將 Azure 儲存體磁碟連結至 Linux VM 的詳細資訊。
 

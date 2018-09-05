@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141901"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190267"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何規劃混合式 Azure Active Directory Join 實作
 
@@ -128,9 +128,10 @@ ms.locfileid: "42141901"
 
 - 採用無縫單一登入 (SSO) 的密碼雜湊同步 (PHS) 
 
-從 1.1.819.0 版開始，Azure AD Connect 為您提供一個精靈以便設定混合式 Azure AD Join。 此精靈可讓您大幅簡化設定程序。 如需詳細資訊，請參閱
+從 1.1.819.0 版開始，Azure AD Connect 即為您提供用來設定混合式 Azure AD Join 的精靈。 此精靈可讓您大幅簡化設定程序。 如需詳細資訊，請參閱
 
 - [設定適用於同盟網域的混合式 Azure Active Directory Join](hybrid-azuread-join-federated-domains.md)
+
 
 - [設定適用於受控網域的混合式 Azure Active Directory Join](hybrid-azuread-join-managed-domains.md)
 

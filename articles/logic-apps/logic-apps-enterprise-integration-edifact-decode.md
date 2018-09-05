@@ -1,25 +1,21 @@
 ---
 title: 將 EDIFACT 訊息解碼 - Azure Logic Apps | Microsoft Docs
-description: 在 Azure Logic Apps 的企業整合套件中使用 EDIFACT 解碼器，針對交易集驗證 EDI 及產生通知
+description: 針對採用 Enterprise Integration Pack 的 Azure Logic Apps，使用 EDIFACT 訊息解碼器驗證 EDI 及產生通知
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: bfb64b4abfca6e2a113489b79405b5df2b53c049
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b101922d15a3f90c29eff51c223d2ea7dc30ddf2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299149"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125347"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用企業整合套件將 Azure Logic Apps 的 EDIFACT 訊息解碼
 

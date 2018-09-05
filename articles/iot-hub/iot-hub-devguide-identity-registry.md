@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 2039b7760704de35c688dda41e3b75425e5ec0e8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186266"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247640"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中樞的身分識別登錄
 
@@ -85,10 +85,9 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 
 ## <a name="device-heartbeat"></a>裝置活動訊號
 
-IoT 中樞身分識別登錄包含稱為 **connectionState** 的欄位。 請只在進行開發和偵錯時才使用 **connectionState**。 IoT 解決方案不應該在執行階段查詢欄位。 例如，請勿查詢 **connectionState** 欄位從而在傳送雲端到裝置訊息或 SMS 之前先確認裝置是否已連線。
+IoT 中樞身分識別登錄包含稱為 **connectionState** 的欄位。 請只在進行開發和偵錯時才使用 **connectionState**。 IoT 解決方案不應該在執行階段查詢欄位。 例如，請勿查詢 **connectionState** 欄位從而在傳送雲端到裝置訊息或 SMS 之前先確認裝置是否已連線。 我們建議您訂閱事件方格上的[**裝置中斷連線**事件](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types)來取得警示，並監視裝置連線狀態。 使用此[教學課程](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)可了解如何將 IoT 中樞的事件整合至 IoT 解決方案中。
 
-如果 IoT 解決方案需要知道裝置是否已連線，請實作*活動訊號模式*。
-
+如果 IoT 解決方案需要知道裝置是否已連線，可實作「活動訊號模式」。
 在活動訊號模式中，裝置每隔固定時間就會至少傳送一次裝置到雲端的訊息 (例如，每小時至少一次)。 因此，即使裝置沒有任何要傳送的資料，它仍會傳送空的裝置到雲端的訊息 (通常具有可識別它是活動訊號的屬性)。 此解決方案會在服務端保有一份對應，其中有針對每個裝置收到的最後一次活動訊號。 此解決方案若未在預期時間內收到裝置傳來的活動訊號訊息，就會假設該裝置發生問題。
 
 更複雜的實作可以包含來自[作業監視][lnk-devguide-opmon]的資訊，以便識別嘗試連接或通訊但失敗的裝置。 當您實作活動訊號模式時，請務必檢查 [IoT 中樞配額與節流][lnk-quotas]。
@@ -104,7 +103,7 @@ IoT 中樞在身分識別建立或刪除時，可透過傳送生命週期通知�
 
 裝置的通知訊息：
 
-| Name | 值 |
+| 名稱 | 值 |
 | --- | --- |
 |$content-type | application/json |
 |$iothub-enqueuedtime |  傳送通知的時間 |
@@ -140,7 +139,7 @@ IoT 中樞在身分識別建立或刪除時，可透過傳送生命週期通知�
 ```
 模組的通知訊息：
 
-| Name | 值 |
+| 名稱 | 值 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  傳送通知的時間 |

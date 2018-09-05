@@ -1,28 +1,23 @@
 ---
-title: 監視 B2B 交易並設定記錄 - Azure Logic Apps | Microsoft Docs
-description: 監視 AS2、X12 和 EDIFACT 訊息，並啟動整合帳戶的診斷記錄
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: 監視 B2B 訊息並設定記錄 - Azure Logic Apps | Microsoft Docs
+description: 監視 AS2、X12 和 EDIFACT 訊息。 在 Azure Logic Apps 中設定整合帳戶的診斷記錄。
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 399c7b91949a854f3a152e9a3788d9163c565934
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299312"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125170"
 ---
-# <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>監視和設定整合帳戶中 B2B 通訊的診斷記錄
+# <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>在 Azure Logic Apps 中監視 B2B 訊息並設定整合帳戶的診斷記錄
 
 在您透過整合帳戶設定兩個執行中商務程序或應用程式之間的 B2B 通訊之後，這些實體也可以彼此交換訊息。 若要確認此通訊如預期運作，您可以設定 AS2、X12 和 EDIFACT 訊息的監視，以及透過 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 服務之整合帳戶的診斷記錄。 這個服務會監視您的雲端和內部部署環境，協助您維護其可用性和效能，同時收集執行階段詳細資料和事件，進行更豐富的偵錯。 您也可以[搭配使用診斷資料與其他服務](#extend-diagnostic-data)，例如 Azure 儲存體和 Azure 事件中樞。
 

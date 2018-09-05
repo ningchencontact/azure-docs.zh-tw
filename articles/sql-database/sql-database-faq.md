@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246554"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091819"
 ---
 # <a name="sql-database-faq"></a>SQL Database 常見問題集
 
@@ -31,8 +31,8 @@ ms.locfileid: "40246554"
 ## <a name="what-is-a-vcore"></a>什麼是 vCore？ 
 虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第 4 代邏輯 CPU 以 E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎，而第 5 代邏輯 CPU 則以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎。
 
-## <a name="is-moving-to-the-vcore-based-model-required"></a>是否一定要改用以 vCore 為基礎的模型？
-否，在彈性集區和單一資料庫部署選項中加入以 vCore 為基礎的模型，反映了我們對客戶選擇和彈性的承諾。 如果客戶想要繼續使用 DTU 架構的模型，他們可以忽略此公告，其使用和計費方式都會和原來一樣。 
+## <a name="is-moving-to-the-vcore-based-model-required"></a>一定要改用以 vCore 為基礎的模型嗎？
+不一定。在彈性集區和單一資料庫部署選項中加入以 vCore 為基礎的模型，反映了我們對客戶選擇和彈性的承諾。 如果客戶想要繼續使用 DTU 架構的模型，他們可以忽略此公告，其使用和計費方式都會和原來一樣。 
 
 在許多情況下，應用程式都可基於預先設定的資源組合所具備的簡易性而獲益。 因此，我們會繼續為客戶提供並支援這些以 DTU 為基礎的選項。 如果您正在使用此類模型，而它也符合您的業務需求，您就應該繼續使用。
 
@@ -155,7 +155,7 @@ SQL Database 會根據[購買模型](sql-database-service-tiers-dtu.md)以可預
 - 若您在一般目的層內建立有 8 個 vCore 的受控執行個體，然後立即將其升級為 16 個 vCore，則第一小時需支付 16 個 vCore 的費率。
 
 > [!NOTE]
-> 在 2018 年 6 月 30 日之前，限時提供免費的備份與 IO。
+> 限時提供免費的備份與 IO。
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>在彈性集區中使用作用中異地複寫會在我的帳單上如何顯示？
 與單一資料庫不同，搭配彈性資料庫使用[作用中異地複寫](sql-database-geo-replication-overview.md)對計費並沒有直接的影響。  您只需要為對每個集區 (主要集區和次要集區) 佈建的資源付費

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 08/27/2018
 ms.author: Kumud
-ms.openlocfilehash: 9d5d596254f673b86650e8d9754dacdb70be0666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179789"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125639"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>標準 Load Balancer 的計量和健康情況診斷
 
@@ -219,5 +219,6 @@ VIP 可用性目前僅適用於公用前端。
 
 - 深入了解[標準負載平衡器](load-balancer-standard-overview.md)。
 - 深入了解 [Load Balancer 輸出連線能力](https://aka.ms/lboutbound)。
+- 了解 [Azure 監視器計量 REST API](https://docs.microsoft.com/rest/api/monitor/metrics/)。
 
 

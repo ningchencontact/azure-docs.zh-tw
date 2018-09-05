@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2018
+ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a7ba92d871bb440b7b8c8a12c1e90f9aa10df3be
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110867"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105336"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>具狀態 Reliable Services 診斷功能
 Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件，可用於偵錯服務、提供執行階段運作情形的深入了解，以及協助疑難排解。
@@ -117,7 +117,10 @@ Reliable Services 執行階段會發出 `Service Fabric TStore` 類別底下的�
 
  計數器名稱 | 說明 |
 | --- | --- |
-| 項目計數 | 存放區中的索引鍵數目。|
+| 項目計數 | 存放區中的項目數。|
+| 磁碟大小 | 存放區檢查點檔案的磁碟大小總計 (位元組)。|
+| 檢查點檔案寫入位元組/秒 | 最近檢查點檔案的每秒寫入位元組數。|
+| 複製磁碟傳輸位元組/秒 | 存放區複製期間的每秒讀取 (主要複本上) 或寫入 (次要複本上) 磁碟位元組數。|
 
 ## <a name="next-steps"></a>後續步驟
 [PerfView 中的 EventSource 提供者](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

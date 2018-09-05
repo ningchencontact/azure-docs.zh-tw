@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 67806563dcd67876d4d922c7f2c76379f7ad7222
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158976"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125508"
 ---
 # <a name="billing-options-in-the-azure-marketplace"></a>Azure Marketplace 的計費選項
 
@@ -70,7 +70,7 @@ Marketplace 不分享下列清單類型的營收：
 在此情況下，Microsoft 會代表您計費及收費。 Microsoft 計費服務可讓您無須建立自己與客戶的採購關係。 單一計費可節省您的時間和資源。 這也可以幫助您將精力放在銷售上，不用擔心帳款的催收。 
 
 ## <a name="enterprise-agreement"></a>Enterprise 合約  
-如果您是 Microsoft Enterprise 合約客戶，可以使用 Enterprise 合約來支付 Microsoft 產品的款項。 可能會針對產品 (包括您的 Azure 使用量) 向您收取費用。 使用 Enterprise 合約作為付款方式適用於希望軟體和雲端服務的授權年限至少為三年的組織。 您可以分次付款，不用一次繳清。 預付款。 如果您使用「預付型方案」發行選項，則您的軟體授權費用會依每季的 Enterprise 合約超額計費週期計費。  
+如果您是 Microsoft Enterprise 合約客戶，可以使用 Enterprise 合約來支付 Microsoft 產品的款項。 可能會針對產品 (包括您的 Azure 使用量) 向您收取費用。 使用 Enterprise 合約作為付款方式適用於希望軟體和雲端服務的授權年限至少為三年的組織。 您可以分次付款，不用預付款項。 如果您使用「預付型方案」發行選項，則您的軟體授權費用會依每季的 Enterprise 合約超額計費週期計費。  
 
 ### <a name="monetary-commitment"></a>承諾用量
 如果您是 Enterprise 合約客戶，您可以將 Azure 新增至您的合約。 向 Azure 事先承諾用量金額後，即可將 Azure 新增至您的合約。 您的承諾用量金額可供整年使用。 您的承諾用量包括 Azure 服務的任意使用組合。

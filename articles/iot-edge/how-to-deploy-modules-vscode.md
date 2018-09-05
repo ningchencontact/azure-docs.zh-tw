@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5867012e0322e520b4ef234599fa25a2ec08138d
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: d5b43f81cbb3bbebb231a8a9738f6138b62ef7f6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325763"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046024"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>從 Visual Studio Code 部署 Azure IoT Edge 模組
 
@@ -130,7 +130,7 @@ ms.locfileid: "39325763"
 
 2. 以滑鼠右鍵按一下您想要利用部署資訊清單設定的裝置。 
 
-3. 選取 [為 IoT Edge 裝置建立部署]。 
+3. 選取 [建立單一裝置的部署]。 
 
 4. 導覽至您想要使用的部署資訊清單 JSON 檔案，，然後按一下 [選取 Edge 部署資訊清單]。 
 

@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628166"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049119"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -48,26 +48,26 @@ Azure 環境內有數個「層級」的監視資料，而存取每一層資料�
 
 另請參閱 [Azure 事件中樞常見問題集](../event-hubs/event-hubs-faq.md)。
 
-## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>我要如何設定 Azure 租用戶監視資料，以將它串流至事件中樞？
+## <a name="azure-tenant-monitoring-data"></a>Azure 租用戶監視資料
 
 Azure 租用戶監視資料目前只適用於 Azure Active Directory。 您可以使用 [Azure Active Directory 報告](../active-directory/reports-monitoring/overview-reports.md)中的資料，其中包含在特定租用戶內所進行登入活動的歷程記錄，和所做變更的稽核記錄。
 
-### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>將 Azure Active Directory 記錄資料串流至事件中樞
+### <a name="azure-active-directory-data"></a>Azure Active Directory 資料
 
 若要將資料從 Azure Active Directory 記錄傳送到事件中樞命名空間，您要設定 AAD 租用戶上的租用戶診斷設定。 [遵循本指南](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)來設定租用戶診斷設定。
 
-## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>我要如何設定 Azure 訂用帳戶監視資料，以將它串流至事件中樞？
+## <a name="azure-subscription-monitoring-data"></a>Azure 訂用帳戶監視資料
 
 Azure 訂用帳戶監視資料可用於 [Azure 活動記錄](./monitoring-overview-activity-logs.md)。 這包含來自 Resource Manager 的建立、更新及刪除作業、可能會影響訂用帳戶中資源的 [Azure 服務健康情況](../service-health/service-health-overview.md)變更、[資源健康情況](../service-health/resource-health-overview.md)在狀態上的轉換，以及數種其他類型的訂用帳戶層級事件。 [本文詳細說明 Azure 活動記錄中所出現事件的所有類別](./monitoring-activity-log-schema.md)。
 
-### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>將 Azure 活動記錄資料串流至事件中樞
+### <a name="activity-log-data"></a>活動記錄資料
 
 若要將 Azure 活動記錄的資料傳送至事件中樞命名空間，您必須在訂用帳戶上設定記錄設定檔。 [遵循此指南](./monitoring-stream-activity-logs-event-hubs.md)以在訂用帳戶上設定記錄設定檔。 請為每個要監視的訂用帳戶執行這項操作一次。
 
 > [!TIP]
 > 記錄設定檔目前僅允許您選取事件中樞命名空間，其中會以 'insights-operational-logs' 的名稱建立事件中樞。 目前還不能在記錄設定檔中自行指定事件中樞名稱。
 
-## <a name="how-do-i-set-up-azure-resource-monitoring-data-to-be-streamed-to-an-event-hub"></a>我要如何設定 Azure 資源監視資料，以將它串流至事件中樞？
+## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Azure 資源計量和診斷記錄
 
 Azure 資源會發出兩種監視資料：
 1. [資源診斷記錄](./monitoring-overview-of-diagnostic-logs.md)
@@ -78,25 +78,25 @@ Azure 資源會發出兩種監視資料：
 > [!TIP]
 > 您可以使用 Azure 原則以透過[在原則規則中使用 DeployIfNotExists 效果](../azure-policy/policy-definition.md#policy-rule)，來確保特定範圍內的每個資源一律會搭配診斷設定進行設定。 目前僅於內建原則上支援 DeployIfNotExists。
 
-## <a name="how-do-i-set-up-guest-os-monitoring-data-to-be-streamed-to-an-event-hub"></a>我要如何設定客體 OS 監視資料，以將它串流至事件中樞？
+## <a name="guest-os-data"></a>客體 OS 資料
 
 您必須安裝代理程式，才能將客體 OS 監視資料傳送至事件中樞。 不論是使用 Windows 或 Linux，您都要在設定檔中指定想傳送至事件中樞的資料，以及要傳送資料的目標事件中樞，並將該設定檔傳遞至 VM 上執行的代理程式。
 
-### <a name="stream-linux-data-to-an-event-hub"></a>將 Linux 資料串流至事件中樞
+### <a name="linux-data"></a>Linux 資料
 
 [Linux Azure 診斷代理程式](../virtual-machines/extensions/diagnostics-linux.md)可用來將 Linux 電腦的監視資料傳送至事件中樞。 若要執行此動作，請在 LAD 設定檔保護的設定 JSON 中，將事件中樞新增為接收裝置。 [請參閱此文章以深入了解將事件中樞接收新增至 Linux Azure 診斷代理程式](../virtual-machines/extensions/diagnostics-linux.md#protected-settings)。
 
 > [!NOTE]
 > 您無法在入口網站中進行將客體 OS 監視資料串流至事件中樞的設定。 相反地，您必須手動編輯設定檔。
 
-### <a name="stream-windows-data-to-an-event-hub"></a>將 Windows 資料串流至事件中樞
+### <a name="windows-data"></a>Windows 資料
 
 [Windows Azure 診斷代理程式](./azure-diagnostics.md)可用來將 Windows 電腦的監視資料傳送至事件中樞。 若要執行此動作，請在 WAD 設定檔的 privateConfig 區段中，將事件中樞新增為接收裝置。 [請參閱此文章以深入了解如何將事件中樞接收裝置新增至 Windows Azure 診斷代理程式](./azure-diagnostics-streaming-event-hubs.md)。
 
 > [!NOTE]
 > 您無法在入口網站中進行將客體 OS 監視資料串流至事件中樞的設定。 相反地，您必須手動編輯設定檔。
 
-## <a name="how-do-i-set-up-application-monitoring-data-to-be-streamed-to-event-hub"></a>我要如何設定應用程式監視資料，以將它串流至事件中樞？
+## <a name="application-monitoring-data"></a>應用程式監視資料
 
 應用程式監視資料要求您的程式碼需搭配 SDK 進行檢測，因此沒有一般的解決方案可將應用程式監視資料路由至 Azure 中的事件中樞。 不過，[Azure Application Insights](../application-insights/app-insights-overview.md) 是可以用來收集 Azure 應用程式層級資料的其中一個服務。 如果您是使用 Application Insights，便執行下列動作來將監視資料串流至事件中樞：
 

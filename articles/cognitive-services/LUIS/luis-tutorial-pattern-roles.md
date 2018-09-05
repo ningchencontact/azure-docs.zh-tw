@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524139"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090521"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>教學課程：使用模式角色來改善應用程式
 
@@ -52,7 +52,7 @@ ms.locfileid: "39524139"
 |[階層式 (沒有角色)](luis-quickstart-intent-and-hier-entity.md)|將 Jill Jones 從 **a-2349** 搬遷到 **b-1298**|a-2349、b-1298|
 |本教學課程 (含有角色)|將 Billy Patterson 從 **Yuma** 搬遷到 **Denver**。|Yuma、Denver|
 
-您無法在模式中使用階層式實體，因為階層式父代只會在父代中使用。 若要傳回來源和目的地的具名位置，您必須使用模式。
+您無法在模式中使用階層式實體，因為在模式中只會使用階層式父代。 若要傳回來源和目的地的具名位置，您必須使用模式。
 
 ### <a name="simple-entity-for-new-employee-name"></a>適用於新員工名稱的簡單實體
 新進員工的名稱 Billy Patterson 尚不屬於**員工**清單實體的一部分。 先擷取新的員工名稱，才能將該名稱傳送到外部系統來建立公司認證。 建立公司認證之後，會將員工認證新增到**員工**清單實體。

@@ -1,24 +1,19 @@
 ---
-title: Azure 資料目錄的新功能 | Microsoft Docs
+title: Azure 資料目錄的新功能
 description: 本文提供新增至 Azure 資料目錄之新功能的概觀。
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+ms.author: maroche
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 61f837fbe7f53cdf9f313e5498c6f99ea14203a7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577057"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047000"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 資料目錄的新功能
 **Azure 資料目錄** 的更新會定期發行。 並非所有發行版本都會包含新的使用者對應功能，某些版本會著重在後端服務功能。 本頁特別強調已加入 Azure 資料目錄服務的新使用者對應功能。

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 9845476e23396eecc4149f3e856c40b0f80f13cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f099eefbc6d196f25c2b09669cdc1c3cdec68a12
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004761"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050009"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>使用 Azure PowerShell 將 OS 磁碟連結至復原 VM，以針對 Windows VM 進行疑難排解
 如果 Azure 中的 Windows 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對磁碟本身執行疑難排解步驟。 常見的例子是應用程式更新無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure PowerShell 將磁碟連接至另一部 Windows VM，以修正任何錯誤，然後重新建立原始 VM。 
@@ -39,6 +39,8 @@ ms.locfileid: "40004761"
 5. 連線至復原 VM。 編輯檔案或執行任何工具來修正所複製 OS 磁碟的問題。
 6. 從復原 VM 取消掛接磁碟並中斷其連結。
 7. 變更受影響 VM 的 OS 磁碟。
+
+您可以使用 VM 復原指令碼，將步驟 1、2、3、4、6 和 7 自動化。 如需詳細的文件和指示，請參閱 [Resource Manager VM 的 VM 復原指令碼](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager) (英文)。
 
 確定您已安裝[最新的 Azure PowerShell](/powershell/azure/overview) 並登入您的訂用帳戶。
 

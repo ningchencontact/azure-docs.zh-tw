@@ -14,44 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94ade24f1761700b93ab79d497e273c64c51bddf
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990892"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190516"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
-本文包含「Azure 儲存體總管」1.2.0 版及先前版本的版本資訊。
+本文包含 Azure 儲存體總管 1.4.1 版和先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
-## <a name="version-130"></a>版本 1.3.0
-07/09/2018
+## <a name="version-141"></a>1.4.1 版
+08/28/2018
 
-### <a name="download-azure-storage-explorer-130"></a>下載 Azure 儲存體總管 1.3.0
-- [適用於 Windows 的 Azure 儲存體總管 1.3.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 1.3.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 1.3.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-141"></a>下載 Azure 儲存體總管 1.4.1
+- [適用於 Windows 的 Azure 儲存體總管 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 1.4.1 ](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Hotfix
+* 第一次啟動時，儲存體總管無法產生用來加密敏感性資料的金鑰。 這會在使用快速存取和連結資源時造成問題。 [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
+* 如果您的帳戶沒有對其主租用戶要求 MFA，但對其他租用戶有此要求，那麼儲存體總管將無法列出訂用帳戶。 現在，登入這類帳戶之後，儲存體總管將會要求您重新輸入認證和執行 MFA。 [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
+* 儲存體總管無法從 Azure 德國及 Azure 美國政府連結資源。 [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
+* 如果您登入兩個具有相同電子郵件地址的帳戶，儲存體總管有時會無法在樹狀檢視中顯示您的資源。 [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
+* 在速度較慢的 Windows 機器上，啟動顯示畫面有時會需要很長的時間才會出現。 [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
+* 即使沒有連結的帳戶或服務，還是會出現 [連線] 對話方塊。 [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
 
 ### <a name="new"></a>新增
-* 現在支援存取靜態網站所使用的 $web 容器。 這可讓您輕鬆上傳及管理您的網站所使用的檔案和資料夾。 [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
-* macOS 上的應用程式列已重整。 變更包括 [檔案] 功能表、一些快速鍵變更，以及應用程式功能表底下的數個新命令。 [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* 用於登入 Azure US Government 的授權單位端點已變更為 https://login.microsoftonline.us/
-* 協助工具：如果螢幕助讀程式為作用中，鍵盤瀏覽現在可搭配用於在右側顯示項目的資料表運作。 您可以使用方向鍵來瀏覽資料列和資料行，使用 Enter 鍵叫用預設動作，使用操作功能表鍵來開啟操作功能表中的項目，以及使用 Shift 或 Ctrl 鍵來選取多個項目。 [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* 已針對 SAS 連線和模擬器等大幅改良外部資源附件。 現在您可以：
+   * 針對要連結的資源自訂顯示名稱。 [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * 使用不同連接埠連結至多個本機模擬器。 [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * 將連結的資源新增至快速存取。 [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* 儲存體總管現在支援使虛刪除。 您可以：
+   * 以滑鼠右鍵按一下您儲存體帳戶的 Blob 容器節點，即可設定虛刪除原則。
+   * 在瀏覽列旁的下拉式清單中選取 [作用中和已刪除的 Blob]，即可在 Blob 編輯器中檢視虛刪除的 Blob。
+   * 取消刪除虛刪除的 Blob。
 
 ### <a name="fixes"></a>修正
-*  在某些電腦上，子處理序花了很長的時間才能啟動。 發生這種情況時，會出現「子處理無法及時啟動」錯誤。 為了讓子處理序啟動而配置的時間現在已從 20 增加為 90 秒。 如果您仍然受到此問題影響，請註解連結的 GitHub 問題。 [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
-* 使用沒有讀取權限的 SAS 時，無法上傳大型 blob。 上傳的邏輯已修改成在此案例中運作。 [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
-* 設定容器的公開存取層級會移除所有的存取原則，反之亦然。 現在，若設定公開存取層級和存取原則其中一項，則會同時保留兩者。 [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
-* "AccessTierChangeTime" 在 [屬性] 對話方塊中遭到截斷。 已修正此問題。 [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
-* [建立新目錄] 對話方塊中遺漏 "Microsoft Azure 儲存體總管 -" 前置詞。 已修正此問題。 [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* 協助工具：使用 VoiceOver 時難以瀏覽 [新增實體] 對話方塊。 已進行改進。 [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* 協助工具：[動作] 和 [屬性] 窗格的摺疊/展開按鈕背景色彩，與黑色高對比佈景主題中類似的 UI 控制項不一致。 此色彩已變更。 [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* 協助工具：在黑色高對比佈景主題中，看不見 [屬性] 對話方塊中 'X' 按鈕的焦點樣式。 已修正此問題。 [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* 協助工具：[動作] 和 [屬性] 索引標籤遺漏數個 aria 值，進而造成低於標準的螢幕助讀程式體驗。 現在已新增遺漏的 aria 值。 [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* 協助工具：系統並未對左側摺疊的樹狀節點提供 aria-expanded 值 false。 已修正此問題。 [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* 由於進階儲存體帳戶不支援 CORS，因此進階儲存體帳戶上不再有 [配置 CORS 設定] 動作。 [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* SAS 連結服務現在有共用存取簽章屬性。 [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* [設定預設存取層] 動作現在可用於釘選到快速存取的 Blob 和 GPV2 儲存體帳戶。 [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* 有時候，儲存體總管會無法顯示傳統儲存體帳戶。 [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>已知問題
 * 使用模擬器 (例如「Azure 儲存體模擬器」或 Azurite) 時，您將必須讓它們在其預設連接埠上接聽連線。 否則，「儲存體總管」將無法連線至這些模擬器。
@@ -88,6 +94,7 @@ ms.locfileid: "38990892"
 
 ## <a name="previous-releases"></a>舊版
 
+* [1.3.0 版](#version-130)
 * [版本 1.2.0](#version-120)
 * [1.1.0 版](#version-110)
 * [1.0.0 版](#version-100)
@@ -113,6 +120,63 @@ ms.locfileid: "38990892"
 * [0.7.20160129.1 版](#version-07201601291)
 * [0.7.20160105.0 版](#version-07201601050)
 * [0.7.20151116.0 版](#version-07201511160)
+
+## <a name="version-130"></a>版本 1.3.0
+07/09/2018
+
+### <a name="new"></a>新增
+* 現在支援存取靜態網站所使用的 $web 容器。 這可讓您輕鬆上傳及管理您的網站所使用的檔案和資料夾。 [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* macOS 上的應用程式列已重整。 變更包括 [檔案] 功能表、一些快速鍵變更，以及應用程式功能表底下的數個新命令。 [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* 用於登入 Azure US Government 的授權單位端點已變更為 https://login.microsoftonline.us/
+* 協助工具：如果螢幕助讀程式為作用中，鍵盤瀏覽現在可搭配用於在右側顯示項目的資料表運作。 您可以使用方向鍵來瀏覽資料列和資料行，使用 Enter 鍵叫用預設動作，使用操作功能表鍵來開啟操作功能表中的項目，以及使用 Shift 或 Ctrl 鍵來選取多個項目。 [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### <a name="fixes"></a>修正
+*  在某些電腦上，子處理序花了很長的時間才能啟動。 發生這種情況時，會出現「子處理無法及時啟動」錯誤。 為了讓子處理序啟動而配置的時間現在已從 20 增加為 90 秒。 如果您仍然受到此問題影響，請註解連結的 GitHub 問題。 [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* 使用沒有讀取權限的 SAS 時，無法上傳大型 blob。 上傳的邏輯已修改成在此案例中運作。 [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* 設定容器的公開存取層級會移除所有的存取原則，反之亦然。 現在，若設定公開存取層級和存取原則其中一項，則會同時保留兩者。 [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* "AccessTierChangeTime" 在 [屬性] 對話方塊中遭到截斷。 已修正此問題。 [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* [建立新目錄] 對話方塊中遺漏 "Microsoft Azure 儲存體總管 -" 前置詞。 已修正此問題。 [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* 協助工具：使用 VoiceOver 時難以瀏覽 [新增實體] 對話方塊。 已進行改進。 [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* 協助工具：[動作] 和 [屬性] 窗格的摺疊/展開按鈕背景色彩，與黑色高對比佈景主題中類似的 UI 控制項不一致。 此色彩已變更。 [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* 協助工具：在黑色高對比佈景主題中，看不見 [屬性] 對話方塊中 'X' 按鈕的焦點樣式。 已修正此問題。 [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* 協助工具：[動作] 和 [屬性] 索引標籤遺漏數個 aria 值，進而造成低於標準的螢幕助讀程式體驗。 現在已新增遺漏的 aria 值。 [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* 協助工具：系統並未對左側摺疊的樹狀節點提供 aria-expanded 值 false。 已修正此問題。 [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### <a name="known-issues"></a>已知問題
+* 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 請參閱[此問題](https://github.com/Microsoft/AzureStorageExplorer/issues/537)，以了解詳細資訊。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請對[此問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* Azure Stack 不支援下列功能，而且嘗試使用這些功能來搭配 Azure Stack 使用時，可能會導致非預期的錯誤：
+   * 檔案共用
+   * 存取層級
+   * 虛刪除
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-120"></a>版本 1.2.0
 2018 年 12 月 6 日

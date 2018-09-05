@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 08/23/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bac728f286c90550107b27da76a070623577ed82
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114339"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918895"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>設定 Azure 虛擬 WAN 自動化 - 適用於虛擬 WAN 合作夥伴 (預覽)
 
@@ -23,7 +23,7 @@ ms.locfileid: "39114339"
 
 ##  <a name="access"></a>存取控制
 
-客戶必須能夠在裝置 UI 中針對虛擬 WAN 設定適當的存取控制。 建議使用 Azure 服務主體進行此設定。 服務主體型存取為裝置控制器提供適當的驗證，以上傳分支資訊。
+客戶必須能夠在裝置 UI 中針對虛擬 WAN 設定適當的存取控制。 建議使用 Azure 服務主體進行此設定。 服務主體型存取為裝置控制器提供適當的驗證，以上傳分支資訊。 如需詳細資訊，請參閱[建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)。
 
 ##  <a name="site"></a>上傳分支資訊
 
@@ -252,7 +252,7 @@ ms.locfileid: "39114339"
 
 ## <a name="feedback"></a>預覽意見反應
 
-歡迎提供意見反應。 若要回報任何問題，或針對虛擬 WAN 提供意見反應 (正面或負面皆可)，請傳送電子郵件給 <azurevirtualwan@microsoft.com>。 請在主旨列中以 "[]" 包含您的公司名稱。 如果您要回報問題，請也包含您的訂用帳戶 ID。
+歡迎提供意見反應。 若要回報任何問題，或針對虛擬 WAN 提供意見反應 (正面或負面皆可)，請寄送電子郵件至 <azurevirtualwan@microsoft.com>。 請在主旨列中以 "[]" 包含您的公司名稱。 如果您要回報問題，請也包含您的訂用帳戶 ID。
 
 ## <a name="next-steps"></a>後續步驟
 

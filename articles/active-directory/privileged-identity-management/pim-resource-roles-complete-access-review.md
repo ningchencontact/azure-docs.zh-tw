@@ -1,6 +1,6 @@
 ---
-title: 使用 Privileged Identity Management 完成適用於 Azure 資源的存取權檢閱 | Microsoft Docs
-description: 說明如何完成 Azure 資源的存取權檢閱。
+title: 在 PIM 中完成 Azure 資源角色的存取權檢閱 | Microsoft Docs
+description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中完成 Azure 資源角色的存取權檢閱。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f1fc23afb41753bfe358cb05376a5ee9a07e34fd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: f998c509e9bea65980367690a5e9d03f579b8e98
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620037"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189122"
 ---
-# <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 完成適用於 Azure 資源的存取權檢閱
+# <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>在 PIM 中完成 Azure 資源角色的存取權檢閱
 在[開始存取權檢閱](pim-resource-roles-start-access-review.md)之後，特殊權限角色管理員就可以檢閱特殊權限存取權。 適用於 Azure 資源的 Privileged Identity Management (PIM) 會自動傳送電子郵件，提示使用者檢閱其存取權。 如果使用者未收到電子郵件，您可以將[如何執行存取權檢閱](pim-resource-roles-perform-access-review.md)中的指示傳送給他們。
 
 存取權檢閱期間結束後，或所有使用者都已完成其自我檢閱後，請遵循本文的步驟來管理檢閱並查看結果。
@@ -60,5 +60,7 @@ ms.locfileid: "39620037"
 檢視檢閱者並將其新增至現有的存取權檢閱。 提醒檢閱者完成其檢閱。
 [新增檢閱者]![](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 
+## <a name="next-steps"></a>後續步驟
 
-
+- [在 PIM 中起始 Azure 資源角色的存取權檢閱](pim-resource-roles-start-access-review.md)
+- [在 PIM 中執行 Azure 資源角色的存取權檢閱](pim-resource-roles-perform-access-review.md)

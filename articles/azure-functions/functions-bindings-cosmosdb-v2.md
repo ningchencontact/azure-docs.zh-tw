@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e562b694b2d3f226d0b4f5bc03b54d6562e52244
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3fc00400590582d21590aadc9741cf0eaf048240
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146190"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047209"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結 (預覽)
 
@@ -36,6 +36,10 @@ ms.locfileid: "42146190"
 > 這個繫結最初命名為 DocumentDB。 在 Functions 2.x 版本中，觸發程序、繫結和套件已重新命名為 Cosmos DB。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>支援的 API
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-2x"></a>套件 - Functions 2.x
 
@@ -254,10 +258,7 @@ namespace CosmosDBSamplesV2
 
 ## <a name="input"></a>輸入
 
-Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並將它們傳遞給函式的輸入參數。 您可以叫用函式的觸發程序作為基礎來判斷文件識別碼或查詢參數。 
-
->[!NOTE]
-> 如果您是在 Cosmos DB 帳戶上使用 MongoDB API，請勿使用 Azure Cosmos DB 輸入或輸出繫結。 資料可能會損毀。
+Azure Cosmos DB 輸入繫結會使用 SQL API 來擷取一或多個 Azure Cosmos DB 文件，並傳遞給函式的輸入參數。 您可以叫用函式的觸發程序作為基礎來判斷文件識別碼或查詢參數。 
 
 ## <a name="input---examples"></a>輸入 - 範例
 
@@ -1092,7 +1093,7 @@ module.exports = function (context, req, toDoItem) {
 
 以下是 JavaScript 程式碼：
 
-```cs
+```javascript
 module.exports = function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
@@ -1219,7 +1220,7 @@ public String cosmosDbQueryById(
  }
  ```
 
-在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的函式參數使用 `@CosmosDBInput` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用選擇性 <T> 的可為 Null 值使用。 
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的函式參數使用 `@CosmosDBInput` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用「選擇性」<T>的可為 Null 值一起使用。 
 
 ## <a name="input---attributes"></a>輸入 - 屬性
 
@@ -1253,10 +1254,7 @@ public String cosmosDbQueryById(
 
 ## <a name="output"></a>輸出
 
-Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資料庫。 
-
->[!NOTE]
-> 如果您是在 Cosmos DB 帳戶上使用 MongoDB API，請勿使用 Azure Cosmos DB 輸入或輸出繫結。 資料可能會損毀。
+Azure Cosmos DB 輸出繫結可讓您使用 SQL API，將新的文件寫入 Azure Cosmos DB 資料庫。 
 
 ## <a name="output---examples"></a>輸出 - 範例
 

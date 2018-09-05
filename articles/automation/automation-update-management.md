@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42140462"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247931"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -35,6 +35,8 @@ ms.locfileid: "42140462"
 
 ![更新管理程序流程](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+您可以使用更新管理在相同租用戶中的多個訂用帳戶中以原生方式上架機器。 若要管理不同租用戶上的機器，您必須將其上架為[非 Azure 機器](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine)。
+
 在電腦執行更新合規性掃描之後，代理程式會將大量資訊轉送至 Azure Log Analytics。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。
 
 除了掃描排程，如果在更新安裝之前與更新安裝之後重新啟動 MMA，則會在 15 分鐘內起始更新合規性掃描。
@@ -48,7 +50,7 @@ ms.locfileid: "42140462"
 
 您可以藉由建立排定的部署，在需要更新的電腦上部署和安裝軟體更新。 歸類為「選擇性」的更新不會包含在 Windows 電腦的部署範圍內。 部署範圍中僅包含必要更新。 
 
-已排定的部署會透過明確指定電腦，或透過選取以一組特定電腦之記錄搜尋為基礎的[電腦群組](../log-analytics/log-analytics-computer-groups.md)，來定義哪些目標電腦會收到適用的更新。 您也可以指定核准排程，並指定允許安裝更新的一段時間。 
+已排定的部署會透過明確指定電腦，或透過選取以一組特定電腦之記錄搜尋為基礎的[電腦群組](../log-analytics/log-analytics-computer-groups.md)，來定義哪些目標電腦會收到適用的更新。 您也可以指定核准排程，並指定允許安裝更新的一段時間。
 
 在 Azure 自動化中，會由 Runbook 安裝更新。 您無法檢視這些 Runbook，而且這些 Runbook 也不需要任何設定。 建立更新部署之後，更新部署會建立排程，以便在指定的時間內，針對包含的電腦啟動主要更新 Runbook。 這個主要 Runbook 會在每個代理程式上啟動子 Runbook，以安裝必要更新。
 
@@ -220,7 +222,7 @@ Heartbeat
 |要排除的更新|輸入要排除的更新。 針對 Windows，輸入不含 'KB' 前置詞的 KB。 針對 Linux，輸入套件名稱或使用萬用字元。  |
 |排程設定|選取開始時間，並選取 [一次] 或 [週期性] 以定期執行|
 | 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時 |
-| 重新開機控制| 決定應該如何處理重新開機。</br>可用選項包括：</br>在必要時重新開機 (預設值)</br>一律重新開機</br>永不重新開機</br>僅重新開機 - 將不會安裝更新|
+| 重新開機控制| 決定應該如何處理重新開機。 可用選項包括：</br>在必要時重新開機 (預設值)</br>一律重新開機</br>永不重新開機</br>僅重新開機 - 將不會安裝更新|
 
 ## <a name="update-classifications"></a>更新分類
 

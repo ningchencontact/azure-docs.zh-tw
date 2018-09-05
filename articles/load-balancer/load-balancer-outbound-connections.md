@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140063"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122571"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -122,13 +122,23 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 當公用 Load Balancer 資源與 VM 執行個體建立關聯時，系統會改寫每個連出連線來源。 來源會從虛擬網路私人 IP 位址空間改寫成負載平衡器的前端「公用 IP」位址。 在公用 IP 位址空間中，5 tuple 流程 (來源 IP 位址、來源連接埠、IP 傳輸通訊協定、目的地 IP 位址、目的地連接埠) 必須是唯一的。  連接埠偽裝 SNAT 可與 TCP 或 UDP IP 通訊協定搭配使用。
 
-在重寫私人來源 IP 位址之後，會使用暫時連接埠 (SNAT 連接埠) 來達到這個目的，因為多個流程來自單一公用 IP 位址。 
+在重寫私人來源 IP 位址之後，會使用暫時連接埠 (SNAT 連接埠) 來達到這個目的，因為多個流程來自單一公用 IP 位址。 連接埠偽裝 SNAT 演算法會以不同的方式針對 UDP 與 TCP 配置 SNAT 連接埠。
 
-每個流程都會取用一個 SNAT 連接埠至單一目的地 IP 位址、連接埠和通訊協定。 針對相同目的地 IP 位址、連接埠和通訊協定的多個流程，每個流程都會取用單一 SNAT 連接埠。 這可確保流程在從相同公用 IP 位址產生並前往相同目的地 IP 位址、連接埠及通訊協定時，會是唯一的。 
+#### <a name="tcp"></a>TCP SNAT 連接埠
+
+每個流程會取用一個 SNAT 連接埠至單一目的地 IP 位址、連接埠。 針對相同目的地 IP 位址、連接埠和通訊協定的多個 TCP 流程，每個 TCP 流程都會取用單一 SNAT 連接埠。 這可確保流程在從相同公用 IP 位址產生並前往相同目的地 IP 位址、連接埠及通訊協定時，會是唯一的。 
 
 多個各自前往不同目的地 IP 位址、連接埠及通訊協定的流程會共用單一 SNAT 連接埠。 目的地 IP 位址、連接埠及通訊協定可讓流程成為唯一的，而無須使用額外的來源連接埠來區別公用 IP 位址空間中的流程。
 
+#### <a name="udp"></a> UDP SNAT 連接埠
+
+UDP SNAT 連接埠是由與 TCP SNAT 連接埠不同的演算法管理。  Load Balancer 會對 UDP 使用稱為 "Port-Restricted cone NAT" 的演算法。  每個流程都會取用一個 SNAT 連接埠 (不管目的地 IP 位址、連接埠為何)。
+
+#### <a name="exhaustion"></a>耗盡
+
 當 SNAT 連接埠資源耗盡時，輸出流程會失敗，直到現有的流程釋出 SNAT 連接埠為止。 當流程關閉並使用 [4 分鐘閒置逾時](#idletimeout)來從閒置流程回收 SNAT 連接埠時，Load Balancer 會回收 SNAT 連接埠。
+
+UDP SNAT 連接埠通常比 TCP SNAT 連接埠更快耗盡，因為使用的演算法有所差異。 您必須在設計及調整測試時記住此差異。
 
 如需了解可緩和通常會導致 SNAT 連接埠耗盡情況的模式，請檢閱[管理 SNAT](#snatexhaust) 一節。
 
@@ -136,7 +146,7 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 Azure 會使用演算法在使用連接埠偽裝 SNAT ([PAT](#pat)) 時，根據後端集區的大小決定可用的預先配置 SNAT 連接埠數目。 SNAT 連接埠是可供特定公用 IP 來源位址使用的暫時連接埠。
 
-分別針對 UDP 和 TCP 預先配置相同數目的 SNAT 連接埠，並且對每個 IP 傳輸通訊協定個別使用。 
+分別針對 UDP 和 TCP 預先配置相同數目的 SNAT 連接埠，並且對每個 IP 傳輸通訊協定個別使用。  不過，視流程為 UDP 或 TCP 而定，SNAT 連接埠的使用方式會有所不同。
 
 >[!IMPORTANT]
 >標準 SKU SNAT 程式設計是針對每個 IP 傳輸通訊協定，並且衍生自負載平衡規則。  如果只有 TCP 負載平衡規則存在，則 SNAT 只適用於 TCP。 如果您只有 TCP 負載平衡規則，而且需要 UDP 的輸出 SNAT，請從同一個前端將 UDP 負載平衡規則建立到相同的後端集區。  這會觸發 UDP 的 SNAT 程式設計。  不需要可運作的規則或健康情況探查。  不論是否已在負載平衡規則中指定傳輸通訊協定，基本 SKU SNAT 一律會針對這兩個 IP 傳輸通訊協定進行 SNAT 程式設計。

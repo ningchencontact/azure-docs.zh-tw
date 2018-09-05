@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecef13f0ce97c7cec5a6583479911a08a99b0877
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 1d335e135551b7b6faed8ee566acb14b46fd6c81
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110723"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107506"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何安裝和設定 Azure 上的 SAP HANA (大型執行個體)
 
@@ -32,8 +32,7 @@ ms.locfileid: "37110723"
 
 其他常用定義包括：
 - **大型執行個體戳記︰** 經 SAP HANA TDI 認證並專門用來執行 Azure 內 SAP HANA 執行個體的硬體基礎結構堆疊。
-- 
-  **SAP HANA on Azure (大型執行個體)：** Azure 中供應項目的正式名稱，此供應項目可在經 SAP HANA TDI 認證並部署在不同 Azure 區域之「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 **HANA 大型執行個體**是 SAP HANA on Azure (大型執行個體) 的相關詞彙簡稱，並在本技術部署指南中廣泛使用。
+- **SAP HANA on Azure (大型執行個體)：** Azure 中供應項目的正式名稱，此供應項目可在經 SAP HANA TDI 認證並部署在不同 Azure 區域之「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 **HANA 大型執行個體**是 SAP HANA on Azure (大型執行個體) 的相關詞彙簡稱，並在本技術部署指南中廣泛使用。
 
 
 安裝 SAP HANA 是您的責任，您可以在遞交新的 SAP HANA on Azure (大型執行個體) 伺服器之後開始此活動。 在 Azure VNet 和 HANA 大型執行個體單位之間建立連線之後。 
@@ -42,6 +41,9 @@ ms.locfileid: "37110723"
 > 根據 SAP 原則，SAP HANA 安裝必須由通過 SAP HANA 安裝執行認證的使用者執行。 通過 SAP 相關技術認證檢定、SAP HANA 安裝認證檢定的人員，或 SAP 認證系統整合者 (SI)。
 
 再次檢查，尤其是在打算安裝 HANA 2.0、[SAP 支援附註 #2235581 - SAP HANA：支援的作業系統](https://launchpad.support.sap.com/#/notes/2235581/E)時，才能確保 OS 受您決定安裝的 SAP HANA 版本支援。 您要了解 HANA 2.0 支援的作業系統所受到的限制比 HANA 1.0 支援的作業系統更多。 
+
+> [!IMPORTANT] 
+> 針對類型 II 單元，此時只支援 SLES 12 SP2 作業系統版本。 
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>收到 HANA 大型執行個體單位之後的前幾個步驟
 
@@ -143,6 +145,9 @@ S72m HANA 大型執行個體單元的 df -h 命令輸出應該像這樣：
 若要了解適用於您的架構的儲存配置，請參閱 [HLI 支援案例](hana-supported-scenario.md)。
 
 ## <a name="operating-system"></a>作業系統
+
+> [!IMPORTANT] 
+> 針對類型 II 單元，此時只支援 SLES 12 SP2 作業系統版本。 
 
 根據 [SAP 支援附註 #1999997 - 常見問題集：SAP HANA 記憶體](https://launchpad.support.sap.com/#/notes/1999997/E)，已傳遞作業系統映像的交換空間會設為 2 GB。 您必須以客戶身分設定所需的任何不同設定。
 

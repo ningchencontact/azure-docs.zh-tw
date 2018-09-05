@@ -1,25 +1,21 @@
 ---
-title: 如何設定 Azure Data Lake Analytics 的 CI/CD 管線 | Microsoft Docs
+title: 如何設定 Azure Data Lake Analytics 的 CI/CD 管線
 description: 了解如何為 Azure Data Lake Analytics 設定持續整合和持續部署。
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: c114f190ae05f5ea4788c3785a713a6365938ded
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 49ac9f9603a1b8043b19c327d5a66015959b9dd1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630699"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045869"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>如何設定 Azure Data Lake Analytics 的 CI/CD 管線  
 
@@ -440,16 +436,16 @@ U-SQL 資料庫專案的建置輸出，是一個名稱加上 `.usqldbpack` 尾�
         PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
         ```
 
-    * 使用 **secret** 驗證將 U-SQL 資料庫部署到 Azure Data Lake Analytics 帳戶：
+    * 使用**祕密**驗證將 U-SQL 資料庫部署到 Azure Data Lake Analytics 帳戶：
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
         ```
 
     * 使用 **certFile** 驗證將 U-SQL 資料庫部署到 Azure Data Lake Analytics 帳戶：
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
         ```
 
 ### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>PackageDeploymentTool.exe h0 參數說明
@@ -480,9 +476,9 @@ U-SQL 資料庫專案的建置輸出，是一個名稱加上 `.usqldbpack` 尾�
 |AzureSDKPath|在 Azure SDK 中搜尋相依組件的路徑。|null|true|
 |互動式|是否要使用互動模式來進行驗證。|false|false|
 |ClientId|非互動式驗證所需的 Azure AD 應用程式識別碼。|null|非互動式驗證的必要項目。|
-|Secret|非互動式驗證的祕密或密碼。 只應在受信任且安全的環境中使用它。|null|非互動式驗證的必要項目，否則請使用 SecretFile。|
-|SecretFile|此檔案會儲存非互動式驗證的祕密或密碼。 請確保只有目前的使用者可讀取它。|null|非互動式驗證的必要項目，否則請使用 Secret。|
-|CertFile|此檔案會儲存非互動式驗證的 X.509 憑證。 預設值是使用用戶端密碼驗證。|null|false|
+|Secrete|非互動式驗證的祕密或密碼。 只應在受信任且安全的環境中使用它。|null|若是非互動式驗證則為必要項目，否則請使用 SecreteFile。|
+|SecreteFile|此檔案會儲存非互動式驗證的祕密或密碼。 請確保只有目前的使用者可讀取它。|null|若是非互動式驗證則為必要項目，否則請使用祕密。|
+|CertFile|此檔案會儲存非互動式驗證的 X.509 憑證。 預設值是使用用戶端祕密驗證。|null|false|
 | JobPrefix | U-SQL DDL 作業的資料庫部署前置詞。 | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>後續步驟

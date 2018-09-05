@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/20/2018
-ms.openlocfilehash: 4bfa6ef778f51446146de4c10575ac7a287c68dc
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.date: 08/27/2018
+ms.openlocfilehash: 443edcaf1d087028120f4996ba5abef00b1d2c94
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246578"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041332"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>什麼是 Azure 資料庫移轉服務？
 Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。
@@ -25,6 +25,12 @@ Azure 資料庫移轉服務整合我們現有工具和服務的某些功能。 �
 
 ## <a name="regional-availability"></a>區域可用性
 如需有關提供資料庫移轉服務之區域的最新資訊，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。
+
+> [!NOTE]
+> 線上移轉和 SKU 建議功能目前僅適用於下列區域：
+> - 美國中部
+> - 美國東部 2
+> - 西歐
 
 ## <a name="next-steps"></a>後續步驟
 - [使用 Azure 入口網站建立 Azure 資料庫移轉服務的執行個體](quickstart-create-data-migration-service-portal.md)。

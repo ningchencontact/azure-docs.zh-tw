@@ -1,6 +1,6 @@
 ---
-title: 使用 Privileged Identity Management 管理適用於 Azure 資源的安全性警示 | Microsoft Docs
-description: 說明 PIM 安全性警示。
+title: 在 PIM 中設定 Azure 資源角色的安全性警示 | Microsoft Docs
+description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中設定 Azure 資源角色的安全性警示。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 46b19866ec3f276c8337cf9501b779701377d0a5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 33bd13421b0c1574475516da942abe4e8c71ed52
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620411"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188827"
 ---
-# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 管理適用於 Azure 資源的安全性警示
+# <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>在 PIM 中設定 Azure 資源角色的安全性警示
 當您的環境中有可疑或不安全的活動時，適用於 Azure 資源的 Privileged Identity Management (PIM) 就會產生警示。 觸發後的警示會顯示在 [警示] 頁面上。 
 
 ![警示頁面](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
@@ -50,3 +50,8 @@ ms.locfileid: "39620411"
 
 自訂不同警示的設定，以便合您的環境和安全性目標。
 ![自訂設定](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+
+## <a name="next-steps"></a>後續步驟
+
+- [在 PIM 中對 Azure 資源角色要求多重要素驗證](pim-resource-roles-require-mfa.md)
+- [在 PIM 中設定 Azure 資源角色的安全性警示](pim-resource-roles-configure-alerts.md)

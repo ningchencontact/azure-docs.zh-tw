@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 83b3aa1efdde367577a563b477403c313a51d4fe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a6f8984086771fea4df4851b2a878d480b2050ea
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177434"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918512"
 ---
-# <a name="windows-commands---cmd"></a>Windows 命令 - CMD 
+# <a name="windows-commands---cmd-and-powershell"></a>Windows 命令 - CMD 和 PowerShell
 
 本節包含範例命令，用以執行您在可能需要使用 SAC 來存取 Windows VM 的情況下 (例如，當您需要對 RDP 連線失敗進行疑難排解時) 常會進行的工作。
 
@@ -91,6 +91,8 @@ SAC 可讓您透過序列埠連線至執行中的作業系統。 當您從 SAC �
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### <a name="set-nic-to-use-dhcp"></a>設定 NIC 以使用 DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
+
+如需 `netsh` 的詳細資訊，請[按一下這裡](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts) (機器翻譯)。
 
 Azure VM 在客體作業系統中應一律設定為使用 DHCP 來取得 IP 位址。 Azure 靜態 IP 設定仍會使用 DHCP 將靜態 IP 提供給 VM。
 ### <a name="ping"></a>Ping

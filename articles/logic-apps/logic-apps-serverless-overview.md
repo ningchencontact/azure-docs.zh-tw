@@ -1,28 +1,23 @@
 ---
 title: Azure 無伺服器概觀 | Microsoft Docs
-description: 在雲端建立功能強大的解決方案，而不必考慮基礎結構。
-keywords: ''
+description: 了解如何在雲端建立強大的解決方案，而不必擔心基礎結構
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: klam, estfan, LADocs
+ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 84ff855676215e6b69ec97a1527d14366e763b07
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 97c928c34a18a5d4f3549c348a273df268ee1db0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299921"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123303"
 ---
-# <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Azure 無伺服器搭配 Functions 和 Logic Apps 的概觀
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>概觀：Azure 無伺服器搭配 Azure Logic Apps 和 Azure Functions
 
 無伺服器應用程式提供的好處包括加速開發、減少必要的程式碼，以及簡單調整。  本文描述無伺服器解決方案的各種屬性和 Azure 無伺服器供應項目。
 

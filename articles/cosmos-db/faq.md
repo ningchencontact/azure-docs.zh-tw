@@ -10,21 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 053e72ce81f69b267c72ded572e8912a1a09d2e6
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a8d9704c48801b98800abb71769ba0954e727848
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579692"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190451"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
-### <a name="what-is-azure-cosmos-db"></a>什麼是 Azure Cosmos DB？
-Azure Cosmos DB 是一種可進行全域複寫的多模型資料庫服務，可在無結構描述的資料上進行豐富的查詢、協助提供可設定且可靠的效能，並支援快速開發。 這些完全都是透過受控平台，背後有 Microsoft Azure 強大的功能與先進的技術做後盾。 
-
-如果關鍵需求在於可預測的輸送量、高可用性、低延遲性和無結構描述的資料模型，則 Azure Cosmos DB 就是最適合 Web、行動裝置、遊戲和 IoT 應用程式的解決方案。 它能提供結構描述的彈性和豐富的編製索引能力，並利用整合式 JavaScript 來包含多文件交易式支援。 
-
-如需更多資料庫問題、解答，以及部署和使用此服務的指示，請參閱 [Azure Cosmos DB 文件頁面](https://docs.microsoft.com/azure/cosmos-db/)。
 
 ### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API 有何改變？
 
@@ -84,8 +78,8 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 
 您可以將其他問題提交給小組 (利用 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com))；不過，這不是技術支援小組的別名。 
 
-<a id="try-cosmos-db"></a>
-## <a name="try-azure-cosmos-db-subscriptions"></a>試用 Azure Cosmos DB 訂用帳戶
+
+## <a id="try-cosmos-db"></a>試用 Azure Cosmos DB 訂用帳戶
 
 您現在不需要訂用帳戶即可享用限時的 Azure Cosmos DB 體驗，不僅免費，也沒有任何承諾用量。 若要註冊試用 Azure Cosmos DB 訂用帳戶，請移至[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)。 此訂用帳戶與 [Azure 免費試用](https://azure.microsoft.com/free/)有所區別，有了 Azure 免費試用或 Azure 付費訂用帳戶之後，還是可以使用這個訂用帳戶。 
 
@@ -124,7 +118,7 @@ PreferredLocations 值可以設定為任何提供 Cosmos DB 的 Azure 區域。 
 
 目前，您可以使用 .Net SDK 的 [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) 方法或使用 [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create)，透過分割區索引鍵的輸送量來建立集合。 目前不支援使用 Azure 入口網站建立固定集合。  
 
-## <a name="develop-against-the-sql-api"></a>針對 SQL API 進行開發
+## <a name="sql-api"></a>SQL API
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>如何開始針對 SQL API 進行開發？
 首先，您必須註冊 Azure 訂用帳戶。 註冊 Azure 訂用帳戶之後，您可以將 SQL API 容器新增至您的 Azure 訂用帳戶。 如需加入 Azure Cosmos DB 帳戶的相關指示，請參閱[建立 Azure Cosmos DB 資料庫帳戶](create-sql-api-dotnet.md#create-account)。 
@@ -195,7 +189,7 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 您可以在容器層級和其子系 (例如文件、附件) 使用 ResourceTokens 來建立權限。 這意味著目前不允許在資料庫或帳戶層級嘗試建立權限。
 
 
-## <a name="develop-against-the-api-for-mongodb"></a>針對 MongoDB 開發 API
+## <a name="mongodb-api"></a>MongoDB API
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>什麼是適用於 MongoDB 的 Azure Cosmos DB API？
 適用於 MongoDB 的 Azure Cosmos DB API 是一個相容性層級，可讓應用程式使用社群支援的現有 Apache MongoDB API 和驅動程式，輕鬆且透明地與原生 Azure Cosmos DB 資料庫引擎通訊。 開發人員現在可以使用現有的 MongoDB 工具鏈結和技術，建置充分利用 Azure Cosmos DB 的應用程式。 開發人員能從 Azure Cosmos DB 的獨特功能受益，包括自動編製索引、備份維護、有金錢補償的服務等級協定 (SLA) 等。
 
@@ -215,7 +209,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 | TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或容器集的輸送量，或重試一次。 |
 | ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>範例：*&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-## <a name="develop-with-the-table-api"></a>利用資料表 API 進行開發
+## <a id="table"></a>資料表 API
 
 ### <a name="how-can-i-use-the-table-api-offering"></a>如何使用資料表 API 供應項目？ 
 [Azure 入口網站][azure-portal]中已提供 Azure Cosmos DB 資料表 API。 首先，您必須註冊 Azure 訂用帳戶。 註冊之後，您可以將 Azure Cosmos DB 資料表 API 帳戶加入 Azure 訂用帳戶，接著再將資料表加入帳戶。 
@@ -446,7 +440,7 @@ Azure 資料表儲存體和 Azure Cosmos DB 資料表 API 使用相同的 SDK，
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>當我嘗試在資料表 API 中逐一建立許多資料表時，為什麼要進行節流？
 Azure Cosmos DB 是 SLA 型系統，可提供延遲、輸送量、可用性及一致性的保證。 由於它是佈建的系統，因此會保留資源以保證這些需求。 系統會偵測到快速建立的資料表，並加以節流。 我們建議您查看資料表的建立速率，並降低為低於每分鐘 5 個。 請記住，資料表 API 是佈建的系統。 只要您一佈建，就必須開始支付費用。 
 
-## <a name="develop-against-the-graph-api"></a>針對圖形 API 進行開發
+## <a name="graph-api"></a>圖形 API
 ### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>如何將圖形 API 的功能套用到 Azure Cosmos DB？
 您可以使用擴充程式庫套用圖形 API 的功能。 這個程式庫稱為 Microsoft Azure Graphs，並可在 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs) \(英文\) 上取得。 
 
@@ -456,8 +450,8 @@ Azure Cosmos DB 是 SLA 型系統，可提供延遲、輸送量、可用性及�
 ### <a name="how-can-i-use-the-new-graph-api-offering"></a>如何使用新的圖形 API 供應項目？ 
 若要開始使用，請完成[圖形 API](../cosmos-db/create-graph-dotnet.md) 快速入門文章。
 
-<a id="cassandra"></a> 
-## <a name="develop-with-the-apache-cassandra-api-preview"></a>利用 Apache Cassandra API (預覽) 進行開發
+
+## <a id="cassandra"></a> Cassandra API
 
 ### <a name="what-is-the-protocol-version-supported-in-the-private-preview-is-there-a-plan-to-support-other-protocols"></a>私人預覽版所支援的通訊協定版本為何？ 是否打算支援其他通訊協定？
 Azure Cosmos DB 的 Apache Cassandra API 目前支援 CQL 第 4 版。 如果您有關於支援其他通訊協定的意見反應，請透過 [UserVoice 意見反應](https://feedback.azure.com/forums/263030-azure-cosmos-db)讓我們知道，或傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。 

@@ -1,35 +1,31 @@
 ---
 title: 安全存取 Azure Logic Apps | Microsoft Docs
-description: 新增安全性以保護存取 Azure Logic Apps 中工作流程使用的觸發程序、輸入和輸出、動作參數和服務。
+description: 保護對 Azure Logic Apps 工作流程中觸發程序、輸入和輸出、動作參數和服務的存取
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 11/22/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 2052e58dab7241836409fb013778f9702004021c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299904"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127474"
 ---
-# <a name="secure-access-to-your-logic-apps"></a>安全存取您的邏輯應用程式
+# <a name="secure-access-in-azure-logic-apps"></a>在 Azure Logic Apps 中安全存取
 
-有許多工具可用來協助您保護您的邏輯應用程式。
+以下是您可以安全存取邏輯應用程式中不同元件的方式：
 
-* 保護觸發邏輯應用程式的存取 (HTTP 要求觸發程序)
-* 保護管理、編輯或讀取邏輯應用程式的存取
-* 保護輸入內容與執行輸出的存取
-* 保護工作流程中動作內的參數或輸入
-* 保護接受工作流程要求之服務的存取
+* 保護存取，以便透過 HTTP 要求觸發程序觸發邏輯應用程式工作流程。
+* 保護存取，以便管理、編輯或讀取邏輯應用程式。
+* 保護邏輯應用程式執行的輸入和輸出內容的存取。
+* 保護邏輯應用程式工作流程中動作的參數或輸入。
+* 保護可接收邏輯應用程式工作流程要求的服務存取。
 
 ## <a name="secure-access-to-trigger"></a>保護觸發程序的存取
 

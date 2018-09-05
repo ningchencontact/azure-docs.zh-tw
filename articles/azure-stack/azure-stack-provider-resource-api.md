@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 08/24/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 46e46cfea621f99e150446fcc75b71feb468fa49
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aedaa729ec51d7b60b2c242239935f7b3e41794f
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052693"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918182"
 ---
 # <a name="provider-resource-usage-api"></a>提供者資源使用狀況 API
 「提供者」一詞適用於服務管理員和任何委派的提供者。 Azure Stack 操作員和委派的提供者可使用提供者使用狀況 API，檢視其直接租用戶的使用狀況。 例如，如圖表所示，P0 可以呼叫提供者 API，以取得 P1 和 P2 直接使用的使用狀況資訊；而 P1 可呼叫以取得 P3 和 P4 的使用狀況資訊。
@@ -93,6 +93,8 @@ meterID1",
 
 ## <a name="retrieve-usage-information"></a>擷取使用量資訊
 
+### <a name="powershell"></a>PowerShell
+
 若要產生使用量資料，您應該要有正在執行且積極地使用系統的資源，例如作用中的虛擬機器或包含某些資料的儲存體帳戶等。如果不確定您是否有任何資源正在 Azure Stack Marketplace 中執行，請部署虛擬機器 (VM)，並檢查 VM 監控刀鋒視窗以確定它正在執行。 請使用下列 PowerShell Cmdlet 檢視使用量資料：
 
 1. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
@@ -101,6 +103,22 @@ meterID1",
 ```powershell
 Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
 ```
+### <a name="rest-api"></a>REST API
+
+您可以藉由呼叫 Microsoft.Commerce.Admin 服務，來收集已刪除訂用帳戶的使用量資訊。 
+
+**若要傳回已刪除或作用中使用者的所有租用戶使用量：**
+
+| **方法** | **要求 URI** |
+| --- | --- |
+| GET | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview |
+
+**若要傳回已刪除或作用中使用者的使用量：**
+
+| **方法** | **要求 URI** |
+| --- | --- |
+| GET |https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview |
+
 
 ## <a name="next-steps"></a>後續步驟
 [租用戶資源使用狀況 API 參考](azure-stack-tenant-resource-usage-api.md)

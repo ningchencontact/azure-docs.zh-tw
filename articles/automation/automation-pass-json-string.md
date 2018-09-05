@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell, runbook, json, azure 自動化
-ms.openlocfilehash: 1bdeef02621924bbb7af1e676d2b275229761081
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5e1ab8d6bd2de24251851cfc60d270a2fef4090d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42144200"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918813"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>將 JSON 物件傳送至 Azure 自動化 Runbook
 
@@ -29,7 +29,7 @@ PowerShell Runbook 會啟動 Azure VM，並從傳入的 JSON 取得 VM 的參數
 ## <a name="prerequisites"></a>必要條件
 若要完成此教學課程，您需要下列項目：
 
-* Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益<a href="/pricing/free-account/" target="_blank">或](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)[註冊免費帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或[註冊免費帳戶](https://azure.microsoft.com/free/)。
 * [自動化帳戶](automation-sec-configure-azure-runas-account.md) ，用來保存 Runbook 以及向 Azure 資源驗證。  此帳戶必須擁有啟動和停止虛擬機器的權限。
 * Azure 虛擬機器。 我們會停止並啟動這部電腦，因此它不該是生產 VM。
 * 本機電腦上安裝的 Azure Powershell。 如需如何取得 Azure PowerShell 的詳細資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0)。
