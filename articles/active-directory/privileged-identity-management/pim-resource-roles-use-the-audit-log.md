@@ -1,6 +1,6 @@
 ---
-title: 使用 Privileged Identity Management 稽核適用於 Azure 資源的資源角色 | Microsoft Docs
-description: 說明如何取得指定資源的所有角色活動檢視。
+title: 在 PIM 中檢視 Azure 資源角色的稽核記錄 | Microsoft Docs
+description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中檢視 Azure 資源角色的稽核記錄。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8f328a609d696886ed452589d3cdfb5f45aec62a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c0536423e9640f78149b612ec66b0a07cdcf24bb
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621278"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189306"
 ---
-# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 稽核適用於 Azure 資源的資源角色 
+# <a name="view-audit-history-for-azure-resource-roles-in-pim"></a>在 PIM 中檢視 Azure 資源角色的稽核記錄
 
 資源稽核可讓您檢視資源的所有角色活動。 您可以使用預先定義的日期或自訂範圍來篩選資訊。
 ![篩選資訊](media/azure-pim-resource-rbac/rbac-resource-audit.png)
@@ -31,7 +31,7 @@ ms.locfileid: "39621278"
 
 ![更多活動詳細資料](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-# <a name="my-audit"></a>我的稽核
+## <a name="my-audit"></a>我的稽核
 
 「我的稽核」可讓您檢視使用者的個人角色活動。 您可以使用預先定義的日期或自訂範圍來篩選資訊。
 ![個人角色活動](media/azure-pim-resource-rbac/my-audit-time.png)
@@ -46,3 +46,6 @@ ms.locfileid: "39621278"
 
 ![選取角色啟用](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
+## <a name="next-steps"></a>後續步驟
+
+- [在 PIM 中檢視 Azure AD 目錄角色的稽核記錄](pim-how-to-use-audit-log.md)

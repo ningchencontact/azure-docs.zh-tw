@@ -1,6 +1,6 @@
 ---
-title: 如何逐頁瀏覽可用的網頁 | Microsoft Docs
-description: 示範如何逐頁瀏覽 Bing 可傳回的所有網頁。
+title: 如何逐頁檢視 Bing Web 搜尋 API 結果 | Microsoft Docs
+description: 了解如何逐頁檢視 Bing Web 搜尋 API 結果。
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -8,22 +8,22 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 04/15/2017
-ms.author: scottwhi
-ms.openlocfilehash: bf29783246c603270d59b20b63027fccdbd45b89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/20/2018
+ms.author: erhopf
+ms.openlocfilehash: cd03b3af08746674dd2ba2d4af593e19e066efca
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367939"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888236"
 ---
-# <a name="paging-webpages"></a>逐頁瀏覽網頁 
+# <a name="how-to-page-through-bing-web-search-api-results"></a>如何逐頁檢視 Bing Web 搜尋 API 結果
 
 當您呼叫 Web 搜尋 API 時，Bing 會傳回結果清單。 此清單是查詢相關結果總數的子集。 若要取得可用結果的預估總數，請存取解答物件的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) 欄位。  
   
 下列範例顯示 Web 解答包含的 `totalEstimatedMatches` 欄位。  
   
-```  
+```
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -32,7 +32,7 @@ ms.locfileid: "35367939"
         "value" : [...]
     }
 }  
-```  
+```
   
 若要逐頁瀏覽可用的網頁，請使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) 查詢參數。  
   
