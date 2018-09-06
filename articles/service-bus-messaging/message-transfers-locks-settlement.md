@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: sethm
-ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28199027"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702056"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>訊息傳輸、鎖定和安置
 
@@ -96,13 +96,13 @@ for (int i = 0; i < 100; i++)
 
 ## <a name="settling-receive-operations"></a>安置接收作業
 
-對於接收作業，服務匯流排 API 用戶端會啟用兩個不同的 Explicit 模式：*接收並刪除*和*查看鎖定*。
+對於接收作業，服務匯流排 API 用戶端會啟用兩個不同的 Explicit 模式：「接收並刪除」和「查看鎖定」。
 
-[接收並刪除](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式會告知訊息代理程式，考慮它傳送給接收用戶端且在傳送時已安置的所有訊息。 那就表示訊息會被視為在訊息代理程式將其放在線路上之後立即取用。 如果訊息傳輸失敗，訊息就會遺失。
+「接收並刪除」[](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式會告知訊息代理程式，考慮它傳送給接收用戶端且在傳送時已安置的所有訊息。 那就表示訊息會被視為在訊息代理程式將其放在線路上之後立即取用。 如果訊息傳輸失敗，訊息就會遺失。
 
 此模式的優點是接收者不需對訊息採取進一步動作，同時也不會因為等候安置結果而變慢。 如果個別訊息中包含的資料值很低和 (或) 資料在極短時間內才有意義，則此模式是合理的選擇。
 
-[查看鎖定](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式會告知訊息代理程式，接收用戶端想要明確地安置已接收的訊息。 訊息可讓接收者用來加以處理，同時保留於服務的獨佔鎖定下，如此，其他競爭的接收者就無法看見該訊息。 鎖定的持續期間一開始會定義於佇列或訂用帳戶層級，可由擁有鎖定的用戶端透過 [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 作業來延長。
+「查看鎖定」[](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式會告知訊息代理程式，接收用戶端想要明確地安置已接收的訊息。 訊息可讓接收者用來加以處理，同時保留於服務的獨佔鎖定下，如此，其他競爭的接收者就無法看見該訊息。 鎖定的持續期間一開始會定義於佇列或訂用帳戶層級，可由擁有鎖定的用戶端透過 [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 作業來延長。
 
 當訊息鎖定時，從相同佇列或訂用帳戶接收的其他用戶端均可取得鎖定，並擷取下一個不是處於作用中鎖定的可用訊息。 明確釋放訊息上的鎖定或當鎖定到期時，訊息會在擷取順序的前端或附近重新出現以便重新傳遞。
 

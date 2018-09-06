@@ -40,7 +40,7 @@ ms.locfileid: "40190804"
 print "this is a 'string' literal in double \" quotes"
 ```
 
-若要防止 "\\" 被視為逸出字元，請將 "@" 新增為字串的前置詞：
+若要防止 "\\" 被視為逸出字元，請將 \"\@\" 新增為字串的前置詞：
 
 ```OQL
 print @"C:\backslash\not\escaped\with @ prefix"
