@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: a94c3a4c4b8ffb22b1d75ca064bd3e48a2e50141
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 483ac248619a6d8a0f403592b1b4e55ad5e973da
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005673"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841850"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL Database 中建立及管理邏輯伺服器和單一資料庫 
 
@@ -156,10 +156,7 @@ ms.locfileid: "40005673"
 |[伺服器 - 更新](/rest/api/sql/servers/update)|更新現有伺服器。|
 |[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
 |[資料庫 - 取得](/rest/api/sql/databases/get)|取得資料庫。|
-|[資料庫 - 依彈性集區取得](/rest/api/sql/databases/getbyelasticpool)|取得彈性集區內的資料庫。|
-|[資料庫 - 依建議的彈性集區取得](/rest/api/sql/databases/getbyrecommendedelasticpool)|取得建議之彈性集區內的資料庫。|
 |[資料庫 - 依彈性集區列出](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
-|[資料庫 - 依建議的彈性集區列出](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區內的資料庫清單。|
 |[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
 |[資料庫 - 更新](/rest/api/sql/databases/update)|更新現有的資料庫。|
 |[防火牆規則 - 建立或更新](/rest/api/sql/firewallrules/createorupdate)|建立或更新防火牆規則。|

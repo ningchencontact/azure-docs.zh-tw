@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: 96ea965ac383ae449afffa62c5e9950c6fd4e4da
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411928"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842018"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>建立和管理 Azure SQL Database 中的彈性集區
 
@@ -28,7 +28,7 @@ ms.locfileid: "39411928"
 
 您可以從這裡進行下列任何變更並將變更全部儲存在一個批次中：
 1. 變更集區的服務層
-2. 相應放大或縮小效能 (DTU 或 vCore) 和儲存體
+2. 相應放大或縮小效能 (DTU 或虛擬核心) 和儲存體
 3. 在集區中新增或移除資料庫
 4. 為集區中的資料庫設定最小 (保證) 和最大效能限制
 5. 檢閱成本摘要，以檢視因為您的新選擇所造成的任何帳單變更
@@ -104,17 +104,11 @@ ms.locfileid: "39411928"
 |[彈性集區 - 取得](/rest/api/sql/elasticpools/get)|取得彈性集區。|
 |[彈性集區 - 依伺服器列出](/rest/api/sql/elasticpools/listbyserver)|傳回將伺服器中的彈性集區列出的清單。|
 |[彈性集區 - 更新](/rest/api/sql/elasticpools/update)|更新現有的彈性集區。|
-|[建議的彈性集區 - 取得](/rest/api/sql/recommendedelasticpools/get)|取得建議的彈性集區。|
-|[建議的彈性集區 - 依伺服器列出](/rest/api/sql/recommendedelasticpools/listbyserver)|傳回建議的彈性集區。|
-|[建議的彈性集區 - 列出計量](/rest/api/sql/recommendedelasticpools/listmetrics)|傳回建議的彈性集區計量。|
 |[彈性集區活動](/rest/api/sql/elasticpoolactivities)|傳回彈性集區活動。|
 |[彈性集區資料庫活動](/rest/api/sql/elasticpooldatabaseactivities)|傳回資料庫內彈性集區上的活動。|
 |[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
 |[資料庫 - 取得](/rest/api/sql/databases/get)|取得資料庫。|
-|[資料庫 - 依彈性集區取得](/rest/api/sql/databases/getbyelasticpool)|取得彈性集區內的資料庫。|
-|[資料庫 - 依建議的彈性集區取得](/rest/api/sql/databases/getbyrecommendedelasticpool)|取得所建議彈性集區內的資料庫。|
 |[資料庫 - 依彈性集區列出](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
-|[資料庫 - 依建議的彈性集區列出](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區內的資料庫清單。|
 |[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
 |[資料庫 - 更新](/rest/api/sql/databases/update)|更新現有的資料庫。|
 

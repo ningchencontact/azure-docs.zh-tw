@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: ce3a3d28a25c8e904eeebbfc4cf68003fdda07a5
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: afb4cbafeb29800b1f5b1c837da301e2944d678b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443627"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842527"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -153,15 +153,15 @@ ms.locfileid: "42443627"
 若要使用 MSI 型 Azure AD 應用程式權杖驗證，請遵循下列步驟：
 
 1. **在 Azure AD 中建立群組。** 讓處理站 MSI 成為群組成員。
-
-    a. 從 Azure 入口網站尋找資料處理站服務識別。 移至資料處理站的 [屬性]。 複製 SERVICE IDENTITY ID。
-
-    b. 安裝 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 模組。 使用 `Connect-AzureAD` 命令登入。 執行下列命令來建立群組，並將資料處理站 MSI 新增為成員。
+    
+    1. 從 Azure 入口網站尋找資料處理站服務識別。 移至資料處理站的 [屬性]。 複製 SERVICE IDENTITY ID。
+    
+    1. 安裝 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 模組。 使用 `Connect-AzureAD` 命令登入。 執行下列命令來建立群組，並將資料處理站 MSI 新增為成員。
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
-
+    
 1. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您已對具有 MSI 的群組授與系統管理員角色，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
 
 1. 為 Azure AD 群組**[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**。 以至少具有 ALTER ANY USER 權限的 Azure AD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料庫。 執行下列 T-SQL： 

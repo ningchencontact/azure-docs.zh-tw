@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e057d7a649397083240e9f67080808a3057c7f50
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: d3bfe2c472d48a68bd818ac06874db136528b470
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41947748"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840264"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 安裝後設定工作
 
@@ -140,16 +140,6 @@ Set-PSRepository `
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 如果發生失敗，請依照疑難排解步驟來取得協助。
-
-## <a name="activate-the-administrator-and-tenant-portals"></a>啟用系統管理員和租用戶入口網站
-使用 Azure AD 部署之後，您必須啟用 Azure Stack 系統管理員和租用戶入口網站。 此啟用同意將所有目錄使用者的正確權限 (列在同意頁面上) 提供給 Azure Stack 入口網站和 Azure Resource Manager。
-
-- 若是系統管理員入口網站，瀏覽至 https://adminportal.local.azurestack.external/guest/signup、閱讀資訊，然後按一下 [接受]。 接受之後，您即可新增同時不是目錄租用戶管理員的服務管理員。
-
-- 若是租用戶入口網站，瀏覽至 https://portal.local.azurestack.external/guest/signup、閱讀資訊，然後按一下 [接受]。 接受之後，目錄中的使用者可以登入租用戶入口網站。 
-
-> [!NOTE] 
-> 如果未啟用入口網站，則只有目錄管理員可以登入並使用入口網站。 如果其他使用者登入，他們會看到一項錯誤，告知系統管理員尚未授與權限給其他使用者。 當系統管理員原本不屬於 Azure Stack 註冊至的目錄時，Azure Stack 目錄必須附加到啟用 URL。 例如，如果 Azure Stack 註冊至 fabrikam.onmicrosoft.com 且管理使用者是 admin@contoso.com，請瀏覽至 https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com 以啟動入口網站。 
 
 ## <a name="reset-the-password-expiration-policy"></a>重設密碼到期原則 
 為確定開發套件主機的密碼不會在評估期間結束前到期，請在部署 ASDK 之後遵循下列步驟進行。

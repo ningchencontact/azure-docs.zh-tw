@@ -84,7 +84,6 @@
 
 ## [管理群組和成員](fundamentals/active-directory-manage-groups.md)
 ### [管理群組](fundamentals/active-directory-groups-create-azure-portal.md)
-### [還原已刪除的 Office 365 群組](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [管理群組設定](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [管理報告](reports-monitoring/overview-reports.md)
 ### [登入活動](reports-monitoring/concept-sign-ins.md)

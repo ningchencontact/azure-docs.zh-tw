@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 9d31d12e400bbae441d70c5d3797d4fcdca509fc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9213f82a8e3a350312d4830aa2a8e5f695852ca5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415721"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841828"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database 邏輯伺服器與其管理方式
 
@@ -39,7 +39,7 @@ Azure 資料庫邏輯伺服器：
 - 藉由連接到 master 資料庫提供存取有關透過 DMV 內含資源的中繼資料 
 - 提供適用於其資料庫的管理原則範圍 - 登入、防火牆、稽核、威脅偵測等等 
 - 受父訂用帳戶內的配額限制 (每個訂用帳戶預設六部伺服器 - [在此參閱訂用帳戶限制](../azure-subscription-service-limits.md))
-- 提供其包含之資源的資料庫配額和 DTU 或 vCore 配額範圍 (例如 45,000 DTU)
+- 提供其包含之資源的資料庫配額和 DTU 或虛擬核心配額範圍 (例如 45,000 DTU)
 - 內含資源上啟用功能的版本控制範圍 
 - 伺服器層級主體登入可以管理伺服器上的所有資料庫
 - 可以包含類似內部部署之 SQL Server 執行個體中的登入，其在伺服器上一或多個資料庫被授與存取，且可以授與有限的系統管理權限。 如需詳細資訊，請參閱[登入](sql-database-manage-logins.md)。
@@ -60,7 +60,7 @@ Azure 資料庫邏輯伺服器：
   ![建立資料庫-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> 如需選取資料庫定價層的資訊，請參閱 [DTU 型購買模型](sql-database-service-tiers-dtu.md)和 [vCore 型購買模型](sql-database-service-tiers-vcore.md)。
+> 如需選取資料庫定價層的資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 
 若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -73,7 +73,7 @@ Azure 資料庫邏輯伺服器：
    ![伺服器防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> 若要設定資料庫的效能屬性，請參閱 [DTU 型購買模型](sql-database-service-tiers-dtu.md)和 [vCore 型購買模型](sql-database-service-tiers-vcore.md)。
+> 若要設定資料庫的效能屬性，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 >
 
 > [!TIP]
@@ -179,10 +179,7 @@ Azure 資料庫邏輯伺服器：
 |[伺服器 - 更新](/rest/api/sql/servers/update)|更新現有伺服器。|
 |[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
 |[資料庫 - 取得](/rest/api/sql/databases/get)|取得資料庫。|
-|[資料庫 - 依彈性集區取得](/rest/api/sql/databases/getbyelasticpool)|取得彈性集區內的資料庫。|
-|[資料庫 - 依建議的彈性集區取得](/rest/api/sql/databases/getbyrecommendedelasticpool)|取得建議之彈性集區內的資料庫。|
 |[資料庫 - 依彈性集區列出](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
-|[資料庫 - 依建議的彈性集區列出](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區內的資料庫清單。|
 |[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
 |[資料庫 - 更新](/rest/api/sql/databases/update)|更新現有的資料庫。|
 |[防火牆規則 - 建立或更新](/rest/api/sql/firewallrules/createorupdate)|建立或更新防火牆規則。|

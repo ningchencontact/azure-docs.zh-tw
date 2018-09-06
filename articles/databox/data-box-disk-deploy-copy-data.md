@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b0769ba70f495728df5c38b43bae4059b27de88b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010815"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841500"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
@@ -62,7 +62,7 @@ ms.locfileid: "39010815"
     |實體   |慣例  |
     |---------|---------|
     |容器會為區塊 Blob 和分頁 Blob 命名     |必須以字母或數字開頭，且只能包含小寫字母、數字和連字號 (-)。 每個連字號 (-) 字元的前面和後面必須緊接著字母或數字。 名稱中不允許連續的連字號。 <br>必須是有效的 DNS 名稱，也就是 3 到 63 個字元的長度。          |
-    |區塊 Blob 和分頁 Blob 的 Blob 名稱    |Blob 名稱區分大小寫，而且可以包含字元的任意組合。 <br>Blob 名稱長度必須介於 1 到 1024 個字元之間。<br>必須將保留的 URL 字元正確逸出。<br>構成 Blob 名稱的路徑線段數目不能超過 254 個。 路徑線段是連續分隔符號字元 (例如，正斜線 '/') 之間的字串，會對應到虛擬目錄的名稱。         |
+    |區塊 Blob 和分頁 Blob 的 Blob 名稱    |Blob 名稱會區分大小寫，而且可以包含字元的任意組合。 <br>Blob 名稱長度必須介於 1 到 1,024 個字元之間。<br>保留的 URL 字元必須正確逸出。<br>構成 Blob 名稱的路徑區段數目不可超過 254 個。 路徑線段是連續分隔符號字元 (例如，正斜線 '/') 之間的字串，會對應到虛擬目錄的名稱。         |
 
     > [!IMPORTANT] 
     > 所有容器和 Blob 都應符合 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)。 如果未遵循這些規則，則將資料上傳至 Azure 會失敗。
@@ -76,8 +76,8 @@ ms.locfileid: "39010815"
     
     |參數/選項  |說明 |
     |--------------------|------------|
-    |<Source>            | 指定來源目錄的路徑。        |
-    |<Destination>       | 指定目的地目錄的路徑。        |
+    |來源            | 指定來源目錄的路徑。        |
+    |目的地       | 指定目的地目錄的路徑。        |
     |/E                  | 複製子目錄，包含空的目錄。 |
     |/MT[:N]             | 建立具有 N 個執行緒的多執行緒複製，其中 N 是介於 1 到 128 之間的整數。 <br>N 的預設值為 8。        |
     |/R: <N>             | 指定失敗複製的重試次數。 N 的預設值為 1000000 (1 百萬次重試)。        |

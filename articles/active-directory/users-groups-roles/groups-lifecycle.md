@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 656577211a992432366033326362c9892f7ba6ef
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861088"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841729"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>為 Office 365 群組設定到期原則
 
@@ -43,7 +43,7 @@ ms.locfileid: "37861088"
 全域管理員或使用者帳戶管理員 | 可以建立、讀取、更新或刪除 Office 365 群組到期日原則設定<br>可以更新任何 Office 365 群組
 使用者 | 可以更新它們所擁有的 Office 365 群組<br>可以還原它們所擁有的 Office 365 群組<br>可以讀取到期原則設定
 
-如需有關將已刪除群組還原之權限的詳細資訊，請參閱[在 Azure Active Directory 中還原已刪除的 Office 365 群組](../fundamentals/active-directory-groups-restore-azure-portal.md)。
+如需有關將已刪除群組還原之權限的詳細資訊，請參閱[在 Azure Active Directory 中還原已刪除的 Office 365 群組](groups-restore-deleted.md)。
 
 ## <a name="set-group-expiration"></a>設定群組到期日
 
@@ -71,7 +71,7 @@ ms.locfileid: "37861088"
 
 ![群組刪除電子郵件通知](./media/groups-lifecycle/deletion-notification.png)
 
-在刪除群組後的 30 天內，您可以選取 [還原群組] 或使用 PowerShell Cmdlet 來還原群組，如[在 Azure Active Directory 中還原已刪除的 Office 365 群組](../fundamentals/active-directory-groups-restore-azure-portal.md)所述。
+在刪除群組後的 30 天內，您可以選取 [還原群組] 或使用 PowerShell Cmdlet 來還原群組，如[在 Azure Active Directory 中還原已刪除的 Office 365 群組](groups-restore-deleted.md)所述。
     
 如果您要還原的群組包含文件、SharePoint 網站或其他持續物件，則可能需要 24 小時，才能完全還原群組及其內容。
 
