@@ -3,20 +3,21 @@ title: 部署使用 Azure SQL Database 的分區化多租用戶 SaaS 應用程�
 description: 部署及探索分區化 Wingtip SaaS 多租用戶資料庫應用程式，其使用 Azure SQL Database 示範 SaaS 模式。
 keywords: SQL Database Azure
 services: sql-database
-author: MightyPen
+author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: genemi
-ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 04/02/2018
+ms.reviewer: genemi
+ms.author: billgib
+ms.openlocfilehash: 0c2677622b118c11216bef62ff70e87f4de4cded
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646451"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665918"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的分區化多租用戶應用程式
 
@@ -46,7 +47,7 @@ ms.locfileid: "34646451"
 
 建置此初始部署時可以取得一系列相關的教學課程。 教學課程會探索 SaaS 設計和管理模式的範圍。 當您進行教學課程時，我們鼓勵您逐步執行提供的指令碼，以查看如何實作不同的 SaaS 模式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定已完成下列必要條件：
 

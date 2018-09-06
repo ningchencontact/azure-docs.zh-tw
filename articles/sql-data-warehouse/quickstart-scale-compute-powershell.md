@@ -3,25 +3,25 @@ title: 快速入門：相應放大 Azure SQL 資料倉儲中的計算 - PowerShe
 description: 在 PowerShell 中調整 Azure SQL 資料倉儲中的計算。 相應放大計算以提升效能，或將計算調整回來以節省成本。
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d3a3b30539ed33bf3e8d21a8cc5e5f2692308f98
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187884"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283187"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入門：在 PowerShell 中調整 Azure SQL 資料倉儲中的計算
 
 在 PowerShell 中調整 Azure SQL 資料倉儲中的計算。 [相應放大計算](sql-data-warehouse-manage-compute-overview.md)以提升效能，或將計算調整回來以節省成本。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 本教學課程需要 Azure PowerShell 模組 5.1.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找您目前擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps.md)。
 

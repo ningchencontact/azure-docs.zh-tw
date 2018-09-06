@@ -2,18 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
 ms.date: 07/03/2018
-ms.author: sethm
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a110998505ed49c36e1ec722b1dfbf0969def060
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 377ea6629223c365ef3d00c756929bf23ddffde5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449553"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702626"
 ---
 若要開始在 Azure 中使用服務匯流排傳訊實體，您必須先使用 Azure 中的唯一名稱建立命名空間。 命名空間提供範圍容器，可在應用程式內定址服務匯流排資源。
 
@@ -39,7 +39,7 @@ ms.locfileid: "37449553"
 3. 在 [共用存取原則] 畫面中，按一下 **RootManageSharedAccessKey**。
    
     ![connection-info][connection-info]
-4. 在 [原則: RootManageSharedAccessKey] 視窗中，按一下 [連接字串 - 主要金鑰] 旁邊的複製按鈕，將連接字串複製到剪貼簿以供稍後使用。 將此值貼到記事本或一些其他暫存位置。
+4. 在 [原則：RootManageSharedAccessKey] 視窗中，按一下 [主要連接字串] 旁邊的 [複製] 按鈕，將連接字串複製到剪貼簿以供後續使用。 將此值貼到記事本或一些其他暫存位置。
    
     ![connection-string][connection-string]
 

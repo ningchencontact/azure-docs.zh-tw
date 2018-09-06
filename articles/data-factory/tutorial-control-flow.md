@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 6e2f752e829d0b839d609d7a05bc55659fb126df
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b492635da55ae08f92b18dcf9c030cb23d4fa48c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090020"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665061"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，您希望透過成功電子郵件傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，您希望透過失敗電子郵件傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
@@ -503,7 +503,7 @@ Dictionary<string, object> arguments = new Dictionary<string, object>
     { "sinkBlobContainer", outputBlobPath },
     { "receiver", emailReceiver }
 };
-
+ 
 CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```

@@ -3,7 +3,7 @@ title: 什麼是 Azure 轉送和為什麼使用的概觀 | Microsoft Docs
 description: Azure 轉送的概觀
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 05/02/2018
-ms.author: sethm
-ms.openlocfilehash: 2b179f8f5de9a0020ea6457c11bb6f48f3a51320
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: spelluru
+ms.openlocfilehash: dc616f18033014a5dcc9e5d15434497978484bc1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896535"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695960"
 ---
 # <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
 
@@ -36,7 +36,7 @@ Azure 轉送服務可執行混合式應用程式，方法是讓您以安全的�
 Azure 轉送有兩項功能︰
 
 1. [混合式連線](#hybrid-connections) - 使用開放式標準 Web 通訊端來啟用多平台案例。
-2. [WCF 轉送](#wcf-relays) - 使用 Windows Communication Foundation (WCF) 來啟用遠端程序呼叫。 WCF 轉送是舊版的轉送服務，許多客戶已將該服務用於其 WCF 程式設計模型。
+2. [WCF 轉送](#wcf-relays) - 使用 Windows Communication Foundation (WCF) 來啟用遠端程序呼叫。 WCF 轉送是舊版的轉送供應項目，許多客戶已將該服務用於其 WCF 程式設計模型。
 
 混合式連線和 WCF 轉送都能夠對存在於企業網路內的資產進行安全的連線。 視您的特定需求使用其中一項功能，詳述於下表︰
 

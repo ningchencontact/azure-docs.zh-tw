@@ -10,21 +10,21 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: bf0bd715e47cc7145a76d5f8b5f2589f24b343a8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0a2bd840c4e93755988cf1638a6c0bdcb6b6207d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100550"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696375"
 ---
+# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB 和 Java 的效能祕訣
+
 > [!div class="op_single_selector"]
 > * [非同步 Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
 
-# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB 和 Java 的效能祕訣
 Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得延遲與輸送量保證的情況下順暢地調整。 使用 Azure Cosmos DB 時，您不須進行主要的架構變更，或是撰寫複雜的程式碼來調整您的資料庫。 相應增加和減少就像進行單一 API 呼叫或 [SDK 方法呼叫](set-throughput.md#set-throughput-java)一樣簡單。 不過，由於 Azure Cosmos DB 是透過網路呼叫存取，所以您可以在使用 [SQL Java SDK](documentdb-sdk-java.md) 時進行用戶端最佳化以達到最高效能。
 
 如果您詢問「如何改善我的資料庫效能？ 」，請考慮下列選項：

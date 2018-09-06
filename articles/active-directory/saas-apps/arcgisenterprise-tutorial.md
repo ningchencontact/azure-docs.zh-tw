@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ca5bf7ae49cf120c0566419ccadeff92433c6467
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea2b32b43fedacba7b8a60db29762c32fda65aa5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819612"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>教學課程：Azure Active Directory 與 ArcGIS Enterprise 整合
 
@@ -120,7 +120,7 @@ ArcGIS Enterprise 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [ArcGIS Enterprise 用戶端支援小組](mailto:nshampur@esri.com)以取得這些值。 您會從 [設定識別提供者] 區段取得識別碼值，本教學課程稍後會有其說明。
+    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [ArcGIS Enterprise 用戶端支援小組](mailto:support@esri.com)以取得這些值。 您會從 [設定識別提供者] 區段取得識別碼值，本教學課程稍後會有其說明。
 
 5. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
 
@@ -195,7 +195,7 @@ ArcGIS Enterprise 與 Azure AD 整合提供下列優點：
 本節目標是在 ArcGIS Enterprise 中建立名為 Britta Simon 的使用者。 ArcGIS Enterprise 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 ArcGIS Enterprise 時，如果使用者還不存在，就會建立新使用者。
 
 > [!Note]
-> 如果您需要手動建立使用者，請連絡 [ArcGIS Enterprise 支援小組](mailto:nshampur@esri.com)。
+> 如果您需要手動建立使用者，請連絡 [ArcGIS Enterprise 支援小組](mailto:support@esri.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

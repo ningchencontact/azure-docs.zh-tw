@@ -2,18 +2,18 @@
 title: 建立分割的 Azure 服務匯流排佇列和主題 | Microsoft Docs
 description: 說明如何使用多個訊息代理程式分割服務匯流排佇列和主題。
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: sethm
-ms.openlocfilehash: f9fb5f53496ea3f98a9d3341e77db283a3e3b570
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.author: spelluru
+ms.openlocfilehash: 821d9bf3c844da030d1d351e895704a81678fb4e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824365"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699466"
 ---
 # <a name="partitioned-queues-and-topics"></a>分割的佇列和主題
 
@@ -26,7 +26,7 @@ Azure 服務匯流排會採用多個訊息代理人來處理訊息，並採用�
 
 ## <a name="how-it-works"></a>運作方式
 
-每個分割的佇列或主題都包含多個片段。 每個片段儲存在不同的訊息存放區中，並由不同的訊息代理人處理。 當訊息傳送至分割的佇列或主題時，服務匯流排會指派訊息到其中一個片段。 選取作業由服務匯流排或使用傳送者可指定的分割區索引鍵隨機進行。
+每個分割的佇列或主題都包含多個片段。 每個片段儲存在不同的訊息存放區中，並由不同的訊息代理人處理。 當訊息傳送至分割的佇列或主題時，服務匯流排會指派訊息到其中一個片段。 選取作業由服務匯流排或使用傳送者可指定的分割索引鍵隨機進行。
 
 當用戶端想要從分割的佇列或從分割主題的訂用帳戶接收訊息時，服務匯流排會查詢所有片段的訊息，然後將取自任何訊息存放區的第一個訊息傳回給接收者。 服務匯流排會快取其他訊息，然後在它收到其他接收要求時將其傳回。 接收的用戶端並不知道分割。分割佇列或主題的用戶端對向行為 (例如讀取、完成、延遲、無效化、預先擷取) 和一般實體的行為相同。
 
@@ -58,23 +58,23 @@ ns.CreateTopic(td);
 
 或者，您可以在 [Azure 入口網站][Azure portal]中建立分割的佇列或主題。 當您在入口網站建立佇列或主題時，依預設會勾選佇列或主題 [建立] 對話方塊中的 [啟用分割] 選項。 您只能在標準層實體中停用此選項，進階層不支援分割，且核取方塊沒有作用。 
 
-## <a name="use-of-partition-keys"></a>分割區索引鍵的用途
+## <a name="use-of-partition-keys"></a>分割索引鍵的用途
 
-當訊息加入佇列至分割的佇列或主題時，服務匯流排會檢查分割區索引鍵是否存在。 如果找到，它會根據該索引鍵選取片段。 如果找不到分割區索引鍵，它會根據內部演算法選取片段。
+當訊息加入佇列至分割的佇列或主題時，服務匯流排會檢查分割區索引鍵是否存在。 如果找到，它會根據該索引鍵選取片段。 如果找不到分割索引鍵，它會根據內部演算法選取片段。
 
 ### <a name="using-a-partition-key"></a>使用分割區索引鍵
 
-某些案例，例如工作階段或交易，需要儲存在特定片段的訊息。 這些案例都需要使用分割區索引鍵。 使用相同分割區索引鍵的所有訊息都會指派給相同的片段。 若片段暫時無法使用，服務匯流排會傳回錯誤。
+某些案例，例如工作階段或交易，需要儲存在特定片段的訊息。 這些案例都需要使用分割區索引鍵。 使用相同分割索引鍵的所有訊息都會指派給相同的片段。 若片段暫時無法使用，服務匯流排會傳回錯誤。
 
-根據這個案例，會使用不同的訊息屬性做為分割區索引鍵：
+根據這個案例，會使用不同的訊息屬性做為分割索引鍵：
 
 **SessionId**：若訊息已設定 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 屬性，則服務匯流排會使用 **SessionID** 做為分割區索引鍵。 如此一來，所有屬於相同工作階段的訊息都會由相同的訊息代理人處理。 工作階段可讓服務匯流排保證訊息的排序以及工作階段狀態的一致性。
 
-**PartitionKey**：若訊息已設定 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性而非 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 屬性，則服務匯流排會使用 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性做為分割區索引鍵。 如果訊息已設定 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 和 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性，這兩個屬性必須相同。 如果 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性設為和 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 屬性不同的值，服務匯流排會傳回無效作業例外狀況。 如果傳送者傳送非工作階段感知的交易訊息，應使用 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性。 分割區索引鍵可確保在交易內傳送的所有訊息都由相同的訊息代理人處理。
+**PartitionKey**：若訊息已設定 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性而非 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 屬性，則服務匯流排會使用 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性做為分割區索引鍵。 如果訊息已設定 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 和 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性，這兩個屬性必須相同。 如果 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性設為和 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 屬性不同的值，服務匯流排會傳回無效作業例外狀況。 如果傳送者傳送非工作階段感知的交易訊息，應使用 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性。 分割索引鍵可確保在交易內傳送的所有訊息都由相同的訊息代理人處理。
 
 **MessageId**：如果佇列或主題已將 [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) 屬性設為 **true**，且未設定 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 或 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 屬性，則 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 屬性值可做為分割區索引鍵。 (如果傳送應用程式沒有指派訊息識別碼，Microsoft .NET 和 AMQP 程式庫會自動指派)。在此情況下，相同訊息的所有複本會由相同的訊息代理人處理。 此識別碼可讓服務匯流排偵測並排除重複的訊息。 如果 [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) 屬性未設為 **true**，服務匯流排不會將 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 屬性視為分割區索引鍵。
 
-### <a name="not-using-a-partition-key"></a>不使用分割區索引鍵
+### <a name="not-using-a-partition-key"></a>不使用分割索引鍵
 
 沒有分割區索引鍵時，服務匯流排會以循環配置的方式將訊息分配到分割區佇列或主題的所有片段。 如果找不到所選的片段，服務匯流排會將訊息指派至不同的片段。 如此一來，儘管訊息存放區暫時無法使用，傳送作業仍會成功。 不過，您將無法達到分割區索引鍵所提供的保證排序。
 
@@ -82,11 +82,11 @@ ns.CreateTopic(td);
 
 若要讓服務匯流排有足夠的時間將訊息加入佇列的不同片段中，由傳送訊息之用戶端所指定的 [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) 值必須大於 15 秒。 建議將 [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) 屬性設為預設值 60 秒。
 
-分割區索引鍵會將訊息「釘選」到指定的片段。 如果保留此片段的訊息存放區無法使用，服務匯流排會傳回錯誤。 沒有分割區索引鍵時，服務匯流排可以選擇不同的片段，而作業就會成功。 因此，建議您若非必要請勿提供分割區索引鍵。
+分割索引鍵會將訊息「釘選」到指定的片段。 如果保留此片段的訊息存放區無法使用，服務匯流排會傳回錯誤。 沒有分割索引鍵時，服務匯流排可以選擇不同的片段，而作業就會成功。 因此，建議您若非必要請勿提供分割索引鍵。
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>進階主題：搭配交易使用分割的實體
 
-傳送做為交易一部分的訊息必須指定資料分割區索引鍵。 索引鍵可以是下列屬性的其中一個：[SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)、[PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 或 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)。 傳送做為相同交易一部分的所有訊息必須指定相同的分割區索引鍵。 如果您嘗試在交易內傳送沒有分割區索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 如果您嘗試在相同交易內傳送多個具有不同分割區索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 例如︰
+傳送做為交易一部分的訊息必須指定資料分割索引鍵。 索引鍵可以是下列屬性的其中一個：[SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)、[PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 或 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)。 傳送做為相同交易一部分的所有訊息必須指定相同的分割索引鍵。 如果您嘗試在交易內傳送沒有分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 如果您嘗試在相同交易內傳送多個具有不同分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 例如︰
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -100,7 +100,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-如果設定任何做為分割區索引鍵的屬性，服務匯流排會將訊息釘選到特定片段。 無論是否使用交易，都會發生這個行為。 建議您若非必要請勿指定分割區索引鍵。
+如果設定任何做為分割索引鍵的屬性，服務匯流排會將訊息釘選到特定片段。 無論是否使用交易，都會發生這個行為。 建議您若非必要請勿指定分割索引鍵。
 
 ## <a name="using-sessions-with-partitioned-entities"></a>搭配工作階段使用分割的實體
 
@@ -122,7 +122,7 @@ committableTransaction.Commit();
 
 ## <a name="automatic-message-forwarding-with-partitioned-entities"></a>使用分割實體的自動訊息轉送
 
-服務匯流排支援往返於分割實體或在它們之間自動轉送訊息。 若要啟用自動訊息轉送，請在來源佇列或訂用帳戶上設定 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] 屬性。 如果該訊息指定分割區索引鍵 ([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)、[PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 或 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid))，該分割區索引鍵會用於目的地實體。
+服務匯流排支援往返於分割實體或在它們之間自動轉送訊息。 若要啟用自動訊息轉送，請在來源佇列或訂用帳戶上設定 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] 屬性。 如果該訊息指定分割索引鍵 ([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)、[PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 或 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid))，該分割索引鍵會用於目的地實體。
 
 ## <a name="considerations-and-guidelines"></a>考量和指導方針
 * **高度一致性功能**︰如果實體使用工作階段、重複偵測或明確控制資料分割區索引鍵等功能，則傳訊作業一定會路由至特定的片段。 如果任何片段遇到過高的流量，或基礎存放區的狀況不良，這些作業將會失敗，而且可用性會降低。 整體來說，一致性仍然遠高於非分割實體，只有一部分流量會遭遇問題，而不是所有的流量。 如需詳細資訊，請參閱這篇[針對可用性和一致性的討論](../event-hubs/event-hubs-availability-and-consistency.md)。

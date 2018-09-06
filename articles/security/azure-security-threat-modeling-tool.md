@@ -3,23 +3,23 @@ title: Microsoft 威脅模型化工具 - Azure | Microsoft Docs
 description: Microsoft 威脅模型化工具的主頁面，內含開始使用工具的資訊，包括威脅模型化程序
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 6e26b0af2a16a872c8e02b736e24019b47ed5780
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/16/2017
+ms.author: jegeib
+ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043353"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307070"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 威脅模型化工具
 

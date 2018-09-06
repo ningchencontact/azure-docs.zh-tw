@@ -3,7 +3,7 @@ title: 服務匯流排非同步傳訊 |Microsoft Docs
 description: 「Azure 服務匯流排」非同步傳訊說明。
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
-ms.author: sethm
-ms.openlocfilehash: e48e95d99847e68bdb218b341ad2fbcd44eb31f4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: spelluru
+ms.openlocfilehash: 8b345656c9cb4cabd86581ccd04f74311fe0ce04
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28929965"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696076"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>非同步傳訊模式和高可用性
 

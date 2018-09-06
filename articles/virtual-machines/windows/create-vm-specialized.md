@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 34bfe7733c60337d6ab7d81c498d2fb0fd15e1fd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012779"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338481"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>使用 PowerShell 從特製化磁碟建立 Windows 虛擬機器
 
@@ -47,7 +47,7 @@ Install-Module AzureRM -RequiredVersion 6.0.0
 
 ## <a name="option-1-use-an-existing-disk"></a>選項 1. 使用現有磁碟
 
-如果您已刪除虛擬機器，而想要重複使用 OS 磁碟建立新的虛擬機器，請使用 [Get-AzureRmDisk](/azure/powershell/get-azurermdisk)。
+如果您已刪除虛擬機器，而想要重複使用 OS 磁碟建立新的虛擬機器，請使用 [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermdisk?view=azurermps-6.8.1)。
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'

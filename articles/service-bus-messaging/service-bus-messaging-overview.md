@@ -3,20 +3,20 @@ title: Azure 服務匯流排傳訊概觀 | Microsoft Docs
 description: 描述服務匯流排傳訊
 services: service-bus-messaging
 documentationcenter: ''
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.service: service-bus-messaging
 ms.topic: overview
 ms.date: 05/22/2018
 ms.custom: mvc
-ms.author: sethm
-ms.openlocfilehash: 0357602e6085b25fc6d11363113ebc962dc4d008
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: a291d4d7ecafde366a20b7e7f1f12a95303da90d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643085"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697613"
 ---
 # <a name="what-is-azure-service-bus"></a>什麼是 Azure 服務匯流排？
 

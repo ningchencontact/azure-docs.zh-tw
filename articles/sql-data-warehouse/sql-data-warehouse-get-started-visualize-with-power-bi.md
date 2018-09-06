@@ -3,19 +3,19 @@ title: 使用 Power BI 來將 SQL 資料倉儲資料視覺化 | Microsoft Azure
 description: 使用 Power BI 視覺化 SQL 資料倉儲資料
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 52581a87caac419a79caab647cc9c5a4ee7453ba
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601571"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306658"
 ---
 # <a name="visualize-data-with-power-bi"></a>使用 Power BI 視覺化資料
 本教學課程會示範如何使用 Power BI 來連接到 SQL 資料倉儲，並建立一些基本的視覺效果。
@@ -24,7 +24,7 @@ ms.locfileid: "31601571"
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要逐步執行本教學課程，您需要：
 
 * 預先載入 AdventureWorksDW 資料庫的 SQL 資料倉儲。 若要佈建資料倉儲，請參閱[建立 SQL 資料倉儲](create-data-warehouse-portal.md)並選擇載入範例資料。 如果您已經有資料倉儲但沒有範例資料，您可以[載入 WideWorldImportersDW](load-data-wideworldimportersdw.md)。

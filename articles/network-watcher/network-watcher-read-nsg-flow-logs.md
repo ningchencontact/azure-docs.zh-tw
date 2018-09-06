@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146193"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286439"
 ---
 # <a name="read-nsg-flow-logs"></a>讀取 NSG 流量記錄
 
 了解如何使用 PowerShell 讀取 NSG 流量記錄項目。
 
-NSG 流量記錄會以[區塊 Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs) 的形式儲存在儲存體帳戶中。 區塊 Blob 是由較小的區塊組成。 每個記錄都是於每小時產生的個別區塊 Blob。 每小時都會產生新的記錄檔，而每幾分鐘就會以最新的資料更新記錄檔。 您可以透過本文了解讀取部分流量記錄的方式。
+NSG 流量記錄會以[區塊 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 的形式儲存在儲存體帳戶中。 區塊 Blob 是由較小的區塊組成。 每個記錄都是於每小時產生的個別區塊 Blob。 每小時都會產生新的記錄檔，而每幾分鐘就會以最新的資料更新記錄檔。 您可以透過本文了解讀取部分流量記錄的方式。
 
 ## <a name="scenario"></a>案例
 

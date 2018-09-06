@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: c37ff7e2f81b3dbca42193777287dae873768e24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630495"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286743"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure 使用量 API 概觀 
 
@@ -81,7 +81,7 @@ Azure 使用量 API 可存取：
 -   **僅限企業客戶** - 此 API 僅適用於 EA 客戶。 
     - 客戶必須具有企業系統管理員權限才能呼叫此 API 
 
-如需詳細資訊，請參閱[餘額 API](https://docs.microsoft.com/rest/api/consumption/getbalancesbybillingaccount) 的技術規格。
+如需詳細資訊，請參閱[餘額 API](https://docs.microsoft.com/rest/api/consumption/balances) 的技術規格。
 
 ## <a name="budgets-api"></a>預算 API
 

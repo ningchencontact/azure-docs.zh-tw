@@ -3,7 +3,7 @@ title: 在 .NET 中開始使用 Azure 轉送 WCF 轉送 | Microsoft Docs
 description: 了解如何使用 Azure 轉送 WCF 轉送連接主控於相異位置的兩個應用程式。
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
-ms.author: sethm
-ms.openlocfilehash: face684190456fbf4b78a84ac3afe7a4ead8995a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: b9701eae026522238424a21ae3ecf2baa40334fa
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697887"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701760"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何使用 Azure 轉送 WCF 轉送搭配 .NET
 本文說明如何使用 Azure 轉送服務。 這些範例均以 C# 撰寫，並使用 Windows Communication Foundation (WCF) API 以及包含在服務匯流排組件中的擴充功能。 如需 Azure 轉送的詳細資訊，請參閱 [Azure 轉送概觀](relay-what-is-it.md)。

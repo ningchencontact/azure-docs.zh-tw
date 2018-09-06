@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 8c7acbe12c6bfed2066f6edb4ef7358b2180aeb3
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 7d5f2246eec20144a30e0abbc31038bdf04ab2b0
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39212930"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339271"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (Python)
 
@@ -127,7 +127,7 @@ npm install -g iothub-explorer
 在另一個終端機視窗中，執行下列命令，並以先前所記錄的服務連接字串來取代 `{your hub service connection string}`：
 
 ```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login {your hub service connection string}
+iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
 ```
 
 下列螢幕擷取畫面顯示由模擬裝置傳送遙測至中樞時，公用程式接收遙測的輸出：

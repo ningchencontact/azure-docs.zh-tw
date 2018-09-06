@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 139658b57cfdce2603d4413b5bf4c9a86b6a8c14
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: af97a85b4d5d9c38f0e2bf8947482a0585fa6ee1
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444322"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338306"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C︰使用 Azure AD 帳戶登入
 
@@ -23,7 +23,7 @@ ms.locfileid: "37444322"
 
 本文將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)讓特定 Azure Active Directory (Azure AD) 組織的使用者登入。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
@@ -54,7 +54,7 @@ ms.locfileid: "37444322"
     >在**登入 URL** 中，「yourtenant」的值必須全部小寫。
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 8. 儲存應用程式識別碼。
@@ -113,7 +113,7 @@ ms.locfileid: "37444322"
                     <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                     <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
                     <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
                     <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
                 </OutputClaims>
                 <OutputClaimsTransformations>

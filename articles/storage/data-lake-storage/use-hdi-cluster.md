@@ -1,22 +1,18 @@
 ---
 title: 搭配 Azure HDInsight 叢集使用 Azure Data Lake Storage Gen2 預覽
 description: 了解如何從 Azure Data Lake Storage Gen2 預覽查詢資料，並儲存分析的結果。
-keywords: hdfs, 結構化資料, 非結構化資料, data lake store, Hadoop 輸入, Hadoop 輸出, hadoop 儲存體, hdfs 輸入, hdfs 輸出, hdfs 儲存體, wasb azure
-services: hdinsight,storage
-tags: azure-portal
 author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4a9f79b292e58331dcd2f7cb656e24b244aa89ba
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528503"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782272"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Azure Data Lake Storage Gen2 預覽
 
@@ -174,7 +170,7 @@ az storage account create \
 
 從 HDInsight 存取 Azure 儲存體中的檔案的 URI 配置如下：
 
-    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>
 
 URI 配置提供未加密存取 (使用 abfs: 首碼) 和 SSL 加密存取 (使用 abfss 首碼)。 建議盡可能使用 abfss，即使是存取 Azure 中相同區域內的資料也一樣。
 
@@ -183,7 +179,7 @@ URI 配置提供未加密存取 (使用 abfs: 首碼) 和 SSL 加密存取 (使�
 
     如果 &lt;FILE_SYSTEM_NAME&gt; 和 &lt;ACCOUNT_NAME&gt; 的值皆未指定，則會使用預設檔案系統。 對於預設檔案系統上的檔案，您可以使用相對路徑或絕對路徑。 例如，可使用下列其中一個路徑來參考 HDInsight 叢集隨附的 hadoop-mapreduce-examples.jar 檔案：
     
-        abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
+        abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
         abfs:///example/jars/hadoop-mapreduce-examples.jar
         /example/jars/hadoop-mapreduce-examples.jar
 

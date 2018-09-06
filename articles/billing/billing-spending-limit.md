@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
-ms.openlocfilehash: 6049e3614b63bfabee6721dcaa83008eb3306493
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069977"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669990"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>了解 Azure 消費限制及如何移除此限制
 
-Azure 中消費限制的目的是避免您的花費超過點數額度。 根據預設，系統會針對所有註冊試用版或包含多月點數之優惠的新客戶開啟消費限制。 消費限制是 $0。 此限制無法變更。 隨用隨付訂用帳戶和承諾方案之類的訂用帳戶類型無法使用消費限制。 請參閱[完整的 Azure 優惠及消費限制可用性清單](https://azure.microsoft.com/support/legal/offer-details/)。
+Azure 中消費限制的目的是避免您的花費超過點數額度。 根據預設，系統會針對所有註冊試用版或包含多月點數之供應項目的新客戶開啟消費限制。 消費限制是 $0。 此限制無法變更。 隨用隨付訂用帳戶和承諾方案之類的訂用帳戶類型無法使用消費限制。 請參閱[完整的 Azure 供應項目及消費限制可用性清單](https://azure.microsoft.com/support/legal/offer-details/)。
 
 **在尋找付款警示嗎？** 請參閱[為 Azure 訂用帳戶設定付款或點數額度警示](billing-set-up-alerts.md)。
 
@@ -33,7 +33,7 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 舉例來說，若您花光訂用帳戶隨附的所有點數，您部署的雲端服務便會從生產環境中移除，且 Azure 虛擬機器會停止運作並解除配置。 您只能以唯讀方式存取儲存體帳戶和資料庫中的資料。
 
-下一個計費期間開始時，若您的訂用帳戶優惠包含多月點數，系統便會自動重新啟用您的訂用帳戶。 接著，您便可以重新部署「雲端服務」，並完整存取您的儲存體帳戶和資料庫。
+下一個計費期間開始時，若您的訂用帳戶供應項目包含多月點數，系統便會自動重新啟用您的訂用帳戶。 接著，您便可以重新部署「雲端服務」，並完整存取您的儲存體帳戶和資料庫。
 
 您達到訂用帳戶的消費限制時，我們會傳送電子郵件通知給您。 登入[帳戶中心](https://account.windowsazure.com/Subscriptions)之後，您會看到所有訂用帳戶達到消費限制的通知。
 
@@ -43,13 +43,12 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 ## <a name="remove-the-spending-limit-in-account-center"></a>在帳戶中心裡移除消費限制
 
-只要您的訂用帳戶所關聯的付款方式有效，您就可以隨時移除消費限制。 針對有多月點數的優惠，您也可以在下一個計費期間開始時重新啟用消費限制。
+只要您的訂用帳戶所關聯的付款方式有效，您就可以隨時移除消費限制。 針對有多月點數的供應項目，您也可以在下一個計費期間開始時重新啟用消費限制。
 
 若要移除您的消費限制，請依照下列步驟操作：
 
 1. 登入[帳戶中心](https://account.windowsazure.com/Subscriptions)。
-1. 選取一個訂用帳戶。
-. 如果訂用帳戶因為達到消費限制而遭到停用，請按一下此通知：[訂用帳戶已達到消費限制，為防止產生費用已被停用。] 否則，請按一下 [訂用帳戶狀態] 區域中的 [移除消費限制]。
+1. 選取一個訂用帳戶。 如果訂用帳戶因為達到消費限制而遭到停用，請按一下此通知：[訂用帳戶已達到消費限制，為防止產生費用已被停用。] 否則，請按一下 [訂用帳戶狀態] 區域中的 [移除消費限制]。
 1. 選取適合您的選項。
 
 ![選取用於移除消費限制的選項](./media/billing-spending-limit/remove-spending-limit.PNG)

@@ -3,23 +3,25 @@ title: 針對 Azure SQL 資料倉儲設計 ELT 而不是 ETL | Microsoft Docs
 description: 針對「Azure SQL 資料倉儲」的資料載入設計「擷取」、「載入」及「轉換」(ELT) 程序，而不是 ETL。
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: facd9a98b2f2d866574dd1f9bf180fa2a9618f31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144792"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301325"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>設計 Azure SQL 資料倉儲的擷取、載入及轉換 (ELT)
 
 設計「擷取」、「載入」及「轉換」(ELT) 程序 (而不是 ETL) 來將資料載入至「Azure SQL 資料倉儲」。 本文介紹如何設計可將資料移至 Azure 資料倉儲中的 ELT 程序。
+
+> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>什麼是 ELT?
 

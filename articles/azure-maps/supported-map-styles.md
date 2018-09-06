@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 33b0f5df57623f0b4433a4a09c7cd15688783485
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 04c8f43e3b484ceeb942ae13ea95baf7f0215b53
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191344"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344830"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure 地圖服務支援的地圖樣式
 Azure 地圖服務支援四個不同的內建地圖樣式。 下方列出各樣式及其描述。
@@ -52,4 +52,4 @@ Azure 地圖服務支援四個不同的內建地圖樣式。 下方列出各樣�
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **適用 API：**
-* JS 地圖控制項
+* JS 地圖控制項 

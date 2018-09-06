@@ -3,19 +3,19 @@ title: SQL 資料倉儲中的透明資料加密 (T-SQL) | Microsoft Docs
 description: SQL 資料倉儲中的透明資料加密 (TDE) (T-SQL)
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d10b8f751d782f00cbc58274e4b48c501cea6f70
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ccdba241a2921a59f7db9668ec2b6f0921aa9f44
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526007"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307682"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>開始使用透明資料加密 (TDE)
 > [!div class="op_single_selector"]

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 196e671eefc3a8baaa7d6edc723851c101afc2da
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bb2dc0d5500778372de674c749b44267fb512a2e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41946543"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701148"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -90,8 +90,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![Debian 9 "Stretch"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux 是最受歡迎其中一個 Linux 散發套件。 | credativ |
 | ![CentOS 型 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic)  |
 | ![CentOS 型 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic)  |
-| ![CentOS 型 7.4](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
-| ![CentOS 型 7.4-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.4-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
+| ![CentOS 型 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
 | ![CentOS 型 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
 | ![CentOS 型 7.5-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.5-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
@@ -234,9 +233,9 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![KEMP LoadMaster 負載平衡器 ADC 內容切換](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 負載平衡器 ADC 內容切換](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 第 4-7 層應用程式傳遞控制器 (ADC) 負載平衡器、內容切換和流量管理員。 | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite - Multi-Cloud Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multi-Cloud Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 可用來監視、設定、佈建、自動化及治理任何工作負載或雲端的單一虛擬管理介面。 | NRI |
 | ![NooBaa Hybrid AWS S3 相容 - 社群版](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybird AWS S3 相容 - 社群版](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | 橫跨公用和內部部署容量資源的 S3 相容存體服務。 | NooBaa |
+| ![Palo Alto VM-Series Next Generation Firewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series Next Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-Series 新一代防火牆可讓客戶安全地將其應用程式和資料移轉至 Azure Stack，藉由應用程式白名單功能和威脅防護原則保護它們免於已知和未知的威脅。 **此映像必須要有範本才能部署；請參閱這篇[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以取得重要資訊。**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall 會偵測已知和未知的漏洞，並防止 Web 應用程式上的攻擊。 **請同時下載兩個 PT Marketplace 項目。** | Positive Technologies |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise 可讓您將整個 Azure Stack 基礎結構的生命週期自動化。 **下載兩個 Puppet Marketplace 項目。** | Puppet |
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rapid Recovery 進階資料保護以一個易於使用的軟體解決方案來整合備份、複寫及復原。 | Quest Software |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | 同級產品中最佳的開放原始碼基礎結構管理。 | SUSE |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Business Continuity as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® Software 技術可讓企業透過其 Business Continuity as a Service (BCaaS)™ 架構持續存取它們的公司資料，此架構可在發生通常會讓企業陷入癱瘓的網路中斷時，保護應用程式和交易。 | ZeroDown Software |
-| ![Palo Alto VM-Series Next Generation Firewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series Next Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-Series 新一代防火牆可讓客戶安全地將其應用程式和資料移轉至 Azure Stack，藉由應用程式白名單功能和威脅防護原則保護它們免於已知和未知的威脅。 **此映像必須要有範本才能部署；請參閱這篇[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以取得重要資訊。**| Palo Alto Networks, Inc. |

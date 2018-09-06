@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 15e01dd55a0fe297eab69417074dc58a15b469c4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888136"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783207"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Microsoft Translator 文字 API 支援的語言
 
@@ -80,6 +80,7 @@ Microsoft Translator 文字 API 支援以下語言的文字轉文字翻譯。 �
 | 瑞典文        |  類神經 |`sv`          |
 | 大溪地文      | 統計 |`ty`          |
 | 坦米爾文      | 統計 |`ta`          |
+| 泰盧固文   | 類神經   | `te` |
 | 泰文      | 類神經 |`th`          |
 | 東加文      | 統計 |`to`          |
 | 土耳其文       |  類神經 |`tr`          |
@@ -236,6 +237,7 @@ Microsoft Translator 文字 API 支援以下語言的文字轉文字翻譯。 �
 | 史瓦西里文 |
 | 瑞典文 |
 | 他加祿文 |
+| 泰盧固文 |
 | 泰文 |
 | 土耳其文 |
 | 烏克蘭文 |

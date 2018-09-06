@@ -3,7 +3,7 @@ title: Azure 儲存體佇列和服務匯流排佇列異同比較 | Microsoft Doc
 description: 分析 Azure 所提供之兩種佇列類型之間的差異和相似性。
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/05/2018
-ms.author: sethm
-ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: spelluru
+ms.openlocfilehash: 49694780f4fe32f8068c1d7c4cc87cfb88f77fe5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802348"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700975"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 本文將分析 Microsoft Azure 目前所提供之兩種佇列類型之間的差異和相似性：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。

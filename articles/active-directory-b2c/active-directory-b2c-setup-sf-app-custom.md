@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2017
+ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1307fc455cacde81cb25ad58c5e99df21f126568
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5b7621bde0be02b4656c4678438b94499bb82b5b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448249"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43345032"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C︰使用 Salesforce 帳戶透過 SAML 來登入
 
@@ -23,7 +23,7 @@ ms.locfileid: "37448249"
 
 本文將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)設定特定 Salesforce 組織的使用者登入。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="azure-ad-b2c-setup"></a>Azure AD B2C 設定
 
@@ -66,11 +66,11 @@ ms.locfileid: "37448249"
 4. 在 [Web 應用程式設定] 下，選取 [啟用 SAML] 核取方塊。
 5. 在 [實體識別碼] 欄位中，輸入下列 URL。 請確定您取代 `tenantName` 的值。
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 6. 在 [ACS URL] 欄位中，輸入下列 URL。 請確定您取代 `tenantName` 的值。
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
 7. 將所有其他設定保留預設值。
 8. 捲動到清單底部，然後按一下 [儲存]。
@@ -150,7 +150,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
           <OutputClaimsTransformations>

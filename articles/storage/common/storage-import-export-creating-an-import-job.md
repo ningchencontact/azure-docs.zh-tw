@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 3c6adc3f27e49facec124401f03a036269b7c7a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524442"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666014"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>建立 Azure 匯入/匯出服務的匯入作業
 
@@ -57,7 +57,7 @@ ms.locfileid: "39524442"
 
 ## <a name="obtaining-your-shipping-location"></a>取得寄送位置
 
-在建立匯入作業之前，您需要藉由呼叫 [List Locations](/rest/api/storageimportexport/listlocations) 作業來取得寄送位置名稱和地址。 `List Locations` 會傳回位置及其郵寄地址的清單。 您可以從傳回的清單中選取位置，並將您的硬碟寄送至該地址。 您也可以使用 `Get Location` 作業來直接取得特定位置的寄送地址。
+在建立匯入作業之前，您需要藉由呼叫 [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) 作業來取得寄送位置名稱和地址。 `List Locations` 會傳回位置及其郵寄地址的清單。 您可以從傳回的清單中選取位置，並將您的硬碟寄送至該地址。 您也可以使用 `Get Location` 作業來直接取得特定位置的寄送地址。
 
  請遵循下列步驟來取得寄送位置︰
 

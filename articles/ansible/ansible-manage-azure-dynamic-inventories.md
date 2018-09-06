@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 2757dea5e73f226efc13b7788ce1ab0702aa2e61
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1b8c1ba80b4c69f36e8304cbe978452a359ac911
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104692"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698072"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>使用 Ansible 來管理 Azure 動態清查
 您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 在本文中，您使用 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) 來設定 Ansible Azure 動態清查，並在其中建立兩部虛擬機器、標記其中一部虛擬機器，然後在已標記的虛擬機器上安裝 Nginx。
@@ -137,25 +137,26 @@ ansible-inventory-test-vm1 | SUCCESS => {
 1. 將下列程式碼插入新建的 `nginx.yml` 檔案：
 
     ```yml
+    ---
     - name: Install and start Nginx on an Azure virtual machine
     hosts: azure
     become: yes
     tasks:
     - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
+      apt: pkg=nginx state=installed
+      notify:
+      - start nginx
 
     handlers:
     - name: start nginx
-        service: name=nginx state=started
+      service: name=nginx state=started
     ```
 
 1. 執行 `nginx.yml` 腳本：
 
-  ```azurecli-interactive
-  ansible-playbook -i azure_rm.py nginx.yml
-  ```
+    ```azurecli-interactive
+    ansible-playbook -i azure_rm.py nginx.yml
+    ```
 
 1. 一旦執行腳本後，您會看到類似下列輸出的結果：
 

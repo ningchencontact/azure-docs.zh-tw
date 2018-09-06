@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 0f10384e7e21d65b3a16869a10f8294b9643c74c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705678"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340588"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模組建立和管理 VPN 閘道
 
@@ -145,7 +145,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gateway
 
 ## <a name="get-the-gateway-public-ip-address"></a>取得閘道公用 IP 位址
 
-如果您知道公用 IP 位址的名稱，請使用 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Reset-AzureRmPublicIpAddress) 來顯示指派給該閘道的公用 IP 位址。
+如果您知道公用 IP 位址的名稱，請使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) 來顯示指派給該閘道的公用 IP 位址。
 
 ```azurepowershell-interactive
 $myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1

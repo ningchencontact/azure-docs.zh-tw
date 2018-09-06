@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145554"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287753"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>使用 SQL 查詢來查詢 Azure Cosmos DB 資料
 
@@ -27,17 +27,7 @@ Microsoft Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢
 
 * Azure Cosmos DB 會使用 JavaScript 的程式設計模型作為查詢語言的基礎。 SQL API 是以 JavaScript 的類型系統、運算式評估和函式叫用為基礎。 這除了其他功能之外，還進而提供自然程式設計模型來進行關聯式投射、跨 JSON 文件的階層式導覽、自我聯結、空間查詢，以及叫用完全以 JavaScript 撰寫的使用者定義函式 (UDF)。 
 
-本文會透過簡單的 JSON 文件引導您執行一些 SQL 查詢範例。 若要深入了解 Azure Cosmos DB SQL 語言語法，請參閱 [SQL 語法參考](sql-api-sql-query-reference.md)文章。 您也可以從觀看下列影片開始，其中會說明 Azure Cosmos DB 的查詢功能，以及示範線上 [Query Playground](http://www.documentdb.com/sql/demo)。
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-以下後續影片示範較進階的查詢技術：
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
+本文會透過簡單的 JSON 文件引導您執行一些 SQL 查詢範例。 若要深入了解 Azure Cosmos DB SQL 語言語法，請參閱 [SQL 語法參考](sql-api-sql-query-reference.md)文章。 
 
 ## <a id="GettingStarted"></a>開始使用 SQL 命令
 讓我們建立兩個簡單的 JSON 文件，並對該資料進行查詢。 我們考慮使用兩個關於家庭的 JSON 文件，並將這些 JSON 文件插入集合中，然後查詢此資料。 這裡有 Andersen 一家和 Wakefield 一家的簡單 JSON 文件，其中包括父母、孩子 (以及寵物)、地址及登記資訊。 這份文件包含字串、數字、布林值、陣列和巢狀屬性。 

@@ -2,19 +2,19 @@
 title: 教學課程 - 透過 Azure 入口網站使用發佈/訂閱通道和主題篩選來更新零售庫存商品 | Microsoft Docs
 description: 在本教學課程中，您將了解如何從主題和訂用帳戶傳送及接收訊息，以及如何使用 .NET 新增和使用篩選規則
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 654cb09621837c360deccecb7778c5d467592dd1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2496c931da734c019801e3fa6deee127d8e571df
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124209"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697048"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教學課程：使用 Azure 入口網站和主題/訂用帳戶來更新庫存
 

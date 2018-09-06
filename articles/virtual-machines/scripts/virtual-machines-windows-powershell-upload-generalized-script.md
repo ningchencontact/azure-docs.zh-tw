@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 832b32ebc4cf99d17df4669b421415d0d0ca0560
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 786dbb258fa4299f80f7ff9d24a1c129a9506bb7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112843"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663740"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>將 VHD 上傳至 Azure 並新建 VM 的範例指令碼
 
@@ -147,7 +147,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 | [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | 指定虛擬機器的映像。                                                                                                                                            |
 | [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | 設定虛擬機器上的作業系統磁碟屬性。                                                                                                                      |
 | [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | 設定虛擬機器上的作業系統磁碟屬性。                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.network/add-azurermvmnetworkinterface)                 | 將網路介面新增至虛擬機器。                                                                                                                                       |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-6.8.1)                 | 將網路介面新增至虛擬機器。                                                                                                                                       |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)                                                 | 建立虛擬機器。                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | 移除資源群組及其內含的所有資源。                                                                                                                         |
 

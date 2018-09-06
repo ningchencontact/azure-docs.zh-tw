@@ -3,19 +3,19 @@ title: 還原 Azure SQL 資料倉儲 (Azure 入口網站) | Microsoft Docs
 description: 還原 Azure SQL 資料倉儲的 Azure 入口網站工作。
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6268f500d44bf7ceaaccbcc8e2c2134b42032197
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8752bc1977bac75928651a62576272ffc673ee7e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526867"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306295"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>還原 Azure SQL 資料倉儲 (入口網站)
 > [!div class="op_single_selector"]

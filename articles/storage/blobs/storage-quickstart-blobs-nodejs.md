@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: acf332209ca0588ab7722ddcfdcfe7b6715d672c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 21e09ea231853826155d1ab12d9c992d85ef568a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397927"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664207"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>快速入門：使用 Node.js 上傳、下載及列出 Blob
 
@@ -100,11 +100,11 @@ const blobName = path.basename(sourceFilePath, path.extname(sourceFilePath));
 - sourceFilePath 會設定為要上傳之檔案的絕對路徑
 - blobName 的建立是藉由擷取檔案名稱並移除副檔名來達成
 
-在下列實作中，每個 blobService 函式都會包裝在 Promise 中，以允許存取 JavaScript 的 async 函式和 await 運算子來簡化 [Azure 儲存體 API](/nodejs/api/azure-storage/blobservice) 的回呼性質。 當每個函式都有成功的回應傳回時，promise 會使用相關資料以及動作特有的訊息來解析。
+在下列實作中，每個 blobService 函式都會包裝在 Promise 中，以允許存取 JavaScript 的 async 函式和 await 運算子來簡化 [Azure 儲存體 API](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 的回呼性質。 當每個函式都有成功的回應傳回時，promise 會使用相關資料以及動作特有的訊息來解析。
 
 ### <a name="create-a-blob-container"></a>建立 Blob 容器
 
-CreateContainer 函式會呼叫 [createContainerIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) 並為 Blob 設定適當的存取層級。
+CreateContainer 函式會呼叫 [createContainerIfNotExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) 並為 Blob 設定適當的存取層級。
 
 ```javascript
 const createContainer = () => {
@@ -120,13 +120,13 @@ const createContainer = () => {
 };
 ```
 
-**createContainerIfNotExists** 的第二個參數 (options) 會接受 [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) 的值。 publicAccessLevel 的 Blob 值會指定要公開的特定 Blob 資料。 此設定可和 container 存取層級相比較，後者可授與列出容器內容的能力。
+**createContainerIfNotExists** 的第二個參數 (options) 會接受 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) 的值。 publicAccessLevel 的 Blob 值會指定要公開的特定 Blob 資料。 此設定可和 container 存取層級相比較，後者可授與列出容器內容的能力。
 
 使用 **createContainerIfNotExists** 可讓應用程式執行 createContainer 命令多次，而不會在容器早已存在時傳回錯誤。 在生產環境中，由於整個應用程式都使用相同的容器，因此您往往只會呼叫 **CreateIfNotExists** 一次。 在這些情況下，您可以透過入口網站或透過 Azure CLI 事先建立容器。
 
 ### <a name="upload-a-blob-to-the-container"></a>將 Blob 上傳至容器
 
-upload 函式會使用 [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) 函式將檔案從檔案系統上傳及寫入或覆寫到 Blob 儲存體。 
+upload 函式會使用 [createBlockBlobFromLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile) 函式將檔案從檔案系統上傳及寫入或覆寫到 Blob 儲存體。 
 
 ```javascript
 const upload = () => {
@@ -141,13 +141,13 @@ const upload = () => {
     });
 };
 ```
-在應用程式範例的內容中，名為 example.txt 的檔案會上傳至名為 test-container 之容器內的「範例」Blob 中。 其他可供將內容上傳至 Blob 的方法包括使用[文字](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText)和[串流](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream)。
+在應用程式範例的內容中，名為 example.txt 的檔案會上傳至名為 test-container 之容器內的「範例」Blob 中。 其他可供將內容上傳至 Blob 的方法包括使用[文字](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext)和[串流](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream)。
 
 若要確認檔案有上傳至您的 Blob 儲存體，您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來檢視您帳戶中的資料。
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-list 函式會呼叫 [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) 方法以傳回容器中 Blob 中繼資料的清單。 
+list 函式會呼叫 [listBlobsSegmented](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented) 方法以傳回容器中 Blob 中繼資料的清單。 
 
 ```javascript
 const list = () => {
@@ -163,11 +163,11 @@ const list = () => {
 };
 ```
 
-呼叫 listBlobsSegmented 會將 Blob 中繼資料傳回為 [BlobResult](/nodejs/api/azure-storage/blobresult) 執行個體的陣列。 結果會以 5,000 的增量批次 (區段) 傳回。 如果容器中有 5,000 個以上的 Blob，結果中會包含 **continuationToken** 的值。 若要列出 Blob 容器的後續區段，您可以將接續權杖回傳給 **listBlobSegmented** 作為第二個引數。
+呼叫 listBlobsSegmented 會將 Blob 中繼資料傳回為 [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest) 執行個體的陣列。 結果會以 5,000 的增量批次 (區段) 傳回。 如果容器中有 5,000 個以上的 Blob，結果中會包含 **continuationToken** 的值。 若要列出 Blob 容器的後續區段，您可以將接續權杖回傳給 **listBlobSegmented** 作為第二個引數。
 
 ### <a name="download-a-blob-from-the-container"></a>從容器下載 Blob
 
-download 函式會使用 [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_getBlobToLocalFile) 將 Blob 的內容下載至指定的絕對檔案路徑。
+download 函式會使用 [getBlobToLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile) 將 Blob 的內容下載至指定的絕對檔案路徑。
 
 ```javascript
 const download = () => {
@@ -187,7 +187,7 @@ const download = () => {
 
 ### <a name="delete-blobs-in-the-container"></a>刪除容器中的 Blob
 
-DeleteBlock 函式 (別名為 delete 主控台命令) 會呼叫 [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) 函式。 顧名思義，此函式不會傳回 Blob 早已刪除的錯誤。
+DeleteBlock 函式 (別名為 delete 主控台命令) 會呼叫 [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) 函式。 顧名思義，此函式不會傳回 Blob 早已刪除的錯誤。
 
 ```javascript
 const deleteBlock = () => {
@@ -272,7 +272,7 @@ try {
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
-如果您不打算使用本文所建立的資料或帳戶，建議您將其刪除以避免任何不想要的帳單。 若要刪除 Blob 和容器，您可以使用 [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) 和 [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) 方法。 您也可以[透過入口網站](../common/storage-create-storage-account.md)刪除儲存體帳戶。
+如果您不打算使用本文所建立的資料或帳戶，建議您將其刪除以避免任何不想要的帳單。 若要刪除 Blob 和容器，您可以使用 [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) 和 [deleteContainerIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deletecontainerifexists) 方法。 您也可以[透過入口網站](../common/storage-create-storage-account.md)刪除儲存體帳戶。
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>可供使用 Blob 開發 Node.js 應用程式的資源
 

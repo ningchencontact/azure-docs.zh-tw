@@ -2,20 +2,20 @@
 title: 系統檢視表 - Azure SQL 資料倉儲 | Microsoft Docs
 description: Azure SQL 資料倉儲中所支援系統檢視表的文件連結。
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
-ms.author: kevin
+ms.date: 06/13/2018
+ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: a0e75bc9b7cfa6827794f8d4256bddc3807f17d1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d76e21e37266a1b17f90fe7ce41438b9361c6e31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195374"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43310501"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中支援的系統檢視表
 Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。

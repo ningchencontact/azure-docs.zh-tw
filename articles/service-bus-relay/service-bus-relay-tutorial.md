@@ -3,7 +3,7 @@ title: Azure 服務匯流排 WCF 轉送教學課程 | Microsoft Docs
 description: 使用 WCF 轉送建立用戶端和服務應用程式。
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
-ms.author: sethm
-ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 0833a7ec71a0aea66f8ebfdfff81d88925019309
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642303"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701860"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 轉送教學課程
 
@@ -31,7 +31,7 @@ ms.locfileid: "34642303"
 
 最後三個步驟描述如何建立用戶端應用程式、設定用戶端應用程式，以及建立和使用可存取主機功能的用戶端。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，您需要下列項目：
 

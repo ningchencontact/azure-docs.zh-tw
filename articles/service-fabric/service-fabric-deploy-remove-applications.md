@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0fa7bd1135c099f853b9a3bb66661c0a57a0f7eb
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d38ec87fb634e1809959b85f0382935e8a78bf3b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271411"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697159"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署與移除應用程式
 > [!div class="op_single_selector"]
@@ -226,7 +226,7 @@ ApplicationParameters  : {}
 ```
 多個應用程式執行個體可以針對任何指定的已註冊應用程式類型版本來建立。 每個應用程式執行個體將在隔離狀態下執行，包含本身的工作目錄和程序。
 
-若要查看哪些具名的應用程式和服務正在叢集中執行，請執行 [Get-servicefabricapplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) 和 [Get-servicefabricservice](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) Cmdlet︰
+若要查看哪些具名的應用程式和服務正在叢集中執行，請執行 [Get-servicefabricapplication](/powershell/module/servicefabric/get-servicefabricapplication) 和 [Get-servicefabricservice](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) Cmdlet︰
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication  

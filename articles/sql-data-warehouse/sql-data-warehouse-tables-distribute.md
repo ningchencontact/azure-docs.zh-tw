@@ -3,19 +3,19 @@ title: 分散式資料表設計指引 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中設計雜湊分散式資料表和循環配置資源分散式資料表的建議。
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 99a063abb3edea75b14fbcf67a889c5ba435daf3
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 6b6d6dd5f000c4295ffdf64f7d2f1ece4f625678
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258043"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307512"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計分散式資料表的指引
 在 Azure SQL 資料倉儲中設計雜湊分散式資料表和循環配置資源分散式資料表的建議。

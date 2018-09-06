@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 889cedf555c8a9a86cc8a2101f27cafcb48376df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523150"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666819"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>建立 Azure 匯入/匯出服務的匯出作業
 使用 REST API 建立 Microsoft Azure 匯入/匯出服務的匯出作業包含下列步驟︰
@@ -48,7 +48,7 @@ ms.locfileid: "39523150"
  如需指定要匯出之 blob 的詳細資訊，請參閱 [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 作業。
 
 ## <a name="obtaining-your-shipping-location"></a>取得寄送位置
-在建立匯出作業之前，您需要藉由呼叫 [Get Location](https://portal.azure.com) 或 [List Locations](/rest/api/storageimportexport/listlocations) 作業來取得寄送位置名稱和地址。 `List Locations` 會傳回位置及其郵寄地址的清單。 您可以從傳回的清單中選取位置，並將您的硬碟寄送至該地址。 您也可以使用 `Get Location` 作業來直接取得特定位置的寄送地址。
+在建立匯出作業之前，您需要藉由呼叫 [Get Location](https://portal.azure.com) 或 [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) 作業來取得寄送位置名稱和地址。 `List Locations` 會傳回位置及其郵寄地址的清單。 您可以從傳回的清單中選取位置，並將您的硬碟寄送至該地址。 您也可以使用 `Get Location` 作業來直接取得特定位置的寄送地址。
 
 請遵循下列步驟來取得寄送位置︰
 

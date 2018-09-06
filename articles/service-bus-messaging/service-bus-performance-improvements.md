@@ -3,18 +3,18 @@ title: 使用 Azure 服務匯流排提升效能的最佳做法 |Microsoft Docs
 description: 描述如何使用服務匯流排來在交換代理訊息時將效能最佳化。
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: spelluru
+ms.openlocfilehash: 9dd9150411b465d210c7e02dc52d6851f670845f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301796"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697630"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服務匯流排傳訊的效能改進最佳作法
 

@@ -3,23 +3,23 @@ title: 授權 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: 降低威脅模型化工具所暴露的威脅
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 9ab106a78aa56b8308207bcadb3db0b5a9714a9d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: eec628a5084dc663978e16e617192802d3ecfcfa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029487"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307651"
 ---
 # <a name="security-frame-authorization--mitigations"></a>安全框架︰授權 | 緩和措施 
 | 產品/服務 | 文章 |

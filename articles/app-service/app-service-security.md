@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885865"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382111"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Azure App Service 和 Azure Functions 中的安全性
 
@@ -29,7 +29,7 @@ App Service 的平台元件 (包括 Azure VM、儲存體、網路連線、Web �
 
 - 您的應用程式資源[受到保護](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)免於遭受其他客戶的 Azure 資源威脅。
 - [VM 執行個體和執行階段軟體會定期更新](app-service-patch-os-runtime.md)，以因應新發現的弱點。 
-- 您的應用程式與其他 Azure 資源 (例如 [SQL Database](/services/sql-database/)) 之間的祕密通訊 (例如連接字串) 仍在 Azure 內，不會跨越任何網路界限。 祕密會在儲存時一律加密。
+- 您的應用程式與其他 Azure 資源 (例如 [SQL Database](https://azure.microsoft.com/services/sql-database/)) 之間的祕密通訊 (例如連接字串) 仍在 Azure 內，不會跨越任何網路界限。 祕密會在儲存時一律加密。
 - 透過 App Service 連線功能 (例如[混合式連線](app-service-hybrid-connections.md)) 的所有通訊都會加密。 
 - 透過 Azure PowerShell、Azure CLI、Azure SDK、REST API 等遠端管理工具進行的連線全都會加密。
 - 全天候威脅管理會保護基礎結構和平台，免於遭受惡意程式碼、分散式拒絕服務 (DDoS)、攔截式 (MITM) 和其他威脅。
@@ -84,7 +84,7 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 
 ### <a name="azure-resources"></a>Azure 資源
 
-當您的應用程式連線到 Azure 資源 (例如 [SQL Database](/services/sql-database/) 和 [Azure 儲存體](/azure/storage/)) 時，連線仍在 Azure 內，不會跨越任何網路界限。 不過，連線會通過 Azure 中的共用網路，因此務必確定您的連線已加密。 
+當您的應用程式連線到 Azure 資源 (例如 [SQL Database](https://azure.microsoft.com/services/sql-database/) 和 [Azure 儲存體](/azure/storage/)) 時，連線仍在 Azure 內，不會跨越任何網路界限。 不過，連線會通過 Azure 中的共用網路，因此務必確定您的連線已加密。 
 
 如果您的應用程式裝載於 [App Service 環境](environment/intro.md)中，您應該[使用虛擬網路服務端點來連線到支援的 Azure 服務](../virtual-network/virtual-network-service-endpoints-overview.md)。
 
@@ -117,4 +117,4 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 - 使用內部負載平衡器 (ILB) 來提供內部應用程式，只允許從 Azure 虛擬網路內部進行存取。 ILB 有來自私人子網路的 IP 位址，這可讓您的應用程式與網際網路完全隔離。
 - [使用 Web 應用程式防火牆 (WAF) 後方的 ILB](environment/integrate-with-application-gateway.md)。 WAF 可為您的公開應用程式提供企業層級保護，例如 DDoS 保護、URI 篩選和 SQL 插入式攻擊的防護。
 
-如需詳細資訊，請參閱 [Azure App Service 環境簡介](environment/intro.md)。
+如需詳細資訊，請參閱 [Azure App Service 環境簡介](environment/intro.md)。 

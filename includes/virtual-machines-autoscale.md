@@ -10,7 +10,7 @@ Azure 監視器的自動調整功能只會水平調整，亦即增加 (相應放
 
 ## <a name="create-a-virtual-machine-scale-set"></a>建立虛擬機器擴展集
 
-擴展集可讓您將完全相同的 VM 以集合的方式進行部署和管理。 您可以建立 Linux 或 Windows 擴展集，方法為使用 [Azure 入口網站](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)、[Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md) 或 [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md)。 您也可以使用 SDK (例如 [Python](/develop/python) 或 [Node.js](/nodejs/azure))，或直接使用 [REST API](/rest/api/compute/virtualmachinescalesets) 來建立及管理規模集。 會透過將計量和規則套用至擴展集來完成自動調整 VM。
+擴展集可讓您將完全相同的 VM 以集合的方式進行部署和管理。 您可以建立 Linux 或 Windows 擴展集，方法為使用 [Azure 入口網站](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)、[Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md) 或 [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md)。 您也可以使用 SDK (例如 [Python](https://azure.microsoft.com/develop/python/) 或 [Node.js](/nodejs/azure))，或直接使用 [REST API](/rest/api/compute/virtualmachinescalesets) 來建立及管理規模集。 會透過將計量和規則套用至擴展集來完成自動調整 VM。
 
 ## <a name="configure-autoscale-for-a-scale-set"></a>設定自動調整擴展集
 

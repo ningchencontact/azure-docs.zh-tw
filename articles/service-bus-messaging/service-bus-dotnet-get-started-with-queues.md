@@ -3,7 +3,7 @@ title: 開始使用 Azure 服務匯流排佇列 | Microsoft Docs
 description: 撰寫使用服務匯流排傳訊佇列的 C# 主控台應用程式。
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/7/2017
-ms.author: sethm
-ms.openlocfilehash: 6af7e4d238c10c0fed3443db58644e3557525993
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: d75d1937ca0450f3eedd2c5ba4e91caf3b473a9b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308360"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698005"
 ---
 # <a name="get-started-with-service-bus-queues"></a>開始使用服務匯流排佇列
 
@@ -32,7 +32,7 @@ ms.locfileid: "38308360"
 3. 撰寫 .NET Core 主控台應用程式，以將一組訊息傳送到佇列。
 4. 撰寫 .NET Core 主控台應用程式，以從佇列接收這些訊息。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](http://www.visualstudio.com/vs) 或更新版本。
 2. [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。

@@ -14,17 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 25193232263d55cb56c6ca35a8d1a074ce6bb157
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637985"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669108"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 編碼器來傳送單一位元速率的即時串流
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
@@ -34,7 +33,7 @@ ms.locfileid: "34637985"
 
 本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果您是用 Mac 或 Linux，請使用 Azure 入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * [建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)
 * 確定有執行中的「串流端點」。 如需詳細資訊，請參閱 [在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。

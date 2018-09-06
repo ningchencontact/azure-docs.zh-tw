@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: d4b27feab5c1bb5913d2ba26f7f43aca9a899aa0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818209"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697664"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -104,7 +104,7 @@ Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication
 ## <a name="application-lifecycle"></a>應用程式生命週期
 如同其他平台，Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。 從開發到部署、到每日管理、維護，以及最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。 服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。 [Service Fabric 應用程式生命週期](service-fabric-application-lifecycle.md)說明 API 的概觀，以及不同的角色如何在 Service Fabric 應用程式生命週期的各個階段使用 API。 
 
-您可使用 [PowerShell cmdlet](/powershell/module/ServiceFabric/)、[CLI 命令](service-fabric-sfctl.md)、[C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)、[Java APIs](/java/api/system.fabric._application_management_client) 和 [REST APIs](/rest/api/servicefabric/) 來管理整個應用程式生命週期。 您亦可使用 [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) 或 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) 等工具，設定持續整合/持續部署管線。
+您可使用 [PowerShell cmdlet](/powershell/module/ServiceFabric/)、[CLI 命令](service-fabric-sfctl.md)、[C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)、[Java APIs](/java/api/system.fabric) 和 [REST APIs](/rest/api/servicefabric/) 來管理整個應用程式生命週期。 您亦可使用 [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) 或 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) 等工具，設定持續整合/持續部署管線。
 
 下列 Microsoft Virtual Academy 影片說明如何管理應用程式生命週期︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -185,7 +185,7 @@ Service Fabric 元件會針對叢集中的所有實體，提供現成的報告�
 
 Service Fabric 提供多種[健康狀態報告檢視](service-fabric-view-entities-aggregated-health.md)方式，且會將此報告彙總於健康狀態資料存放區：
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 或其他視覺效果工具。
-* 健康情況查詢 (透過 [PowerShell](/powershell/module/ServiceFabric/)、[CLI](service-fabric-sfctl.md)、[C# FabricClient API](/dotnet/api/system.fabric.fabricclient.healthclient) 和 [Java FabricClient API](/java/api/system.fabric._health_client)，或是 [REST API](/rest/api/servicefabric))。
+* 健康情況查詢 (透過 [PowerShell](/powershell/module/ServiceFabric/)、[CLI](service-fabric-sfctl.md)、[C# FabricClient API](/dotnet/api/system.fabric.fabricclient.healthclient) 和 [Java FabricClient API](/java/api/system.fabric)，或是 [REST API](/rest/api/servicefabric))。
 * 一般查詢會傳回一份實體清單，這些實體的其中一個屬性即為健康情況 (透過 Powershell、CLI、API 或 REST)。
 
 下列 Microsoft Virtual Academy 影片說明 Service Fabric 健康狀態模型及其使用方式：<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">

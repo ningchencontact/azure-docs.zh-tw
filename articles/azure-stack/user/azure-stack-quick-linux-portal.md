@@ -3,20 +3,20 @@ title: Azure Stack 快速入門 - 建立 VM 入口網站
 description: Azure Stack 快速入門 - 使用入口網站來建立 Linux VM
 services: azure-stack
 cloud: azure-stack
-author: brenduns
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 04/24/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: c364a9ba5a9606967fa86262417ccd1ac3aeffc3
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: c692bc461c116b4c0497c2378ae4e21e1b841c8f
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866265"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43775124"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入門：使用 Azure Stack 入口網站建立 Linux 伺服器虛擬機器
 
@@ -28,7 +28,7 @@ ms.locfileid: "37866265"
 * 安裝 NGINX 網頁伺服器。
 * 清除資源。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure Stack 市集中的 Linux 映像**
 
@@ -58,7 +58,7 @@ ms.locfileid: "37866265"
 
 登入 Azure Stack 入口網站。 Azure Stack 入口網站的位址取決於您所連線的 Azure Stack 產品：
 
-* 如需 Azure Stack 開發套件 (ASDK)，請前往：https://portal.local.azurestack.external。
+* 如需 Azure Stack 開發套件 (ASDK)，請前往： https://portal.local.azurestack.external。
 * 針對 Azure Stack 整合系統，請移至您 Azure Stack 操作員所提供的 URL。
 
 ## <a name="create-the-virtual-machine"></a>建立虛擬機器

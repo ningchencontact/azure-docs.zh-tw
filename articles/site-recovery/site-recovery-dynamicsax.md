@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919558"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669437"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 Dynamics AX 應用程式
 
@@ -34,7 +34,7 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您需要完成下列必要條件，才能使用 Site Recovery 實作 Dynamics AX 應用程式的災害復原：
 
@@ -52,9 +52,9 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 **案例** | **至次要網站** | **至 Azure**
 --- | --- | ---
-**Hyper-V** | yes | yes
-**VMware** | yes | yes
-**實體伺服器** | yes | yes
+**Hyper-V** | 是 | 是
+**VMware** | 是 | 是
+**實體伺服器** | 是 | 是
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>使用 Site Recovery 讓 Dynamics AX 應用程式可以災害復原
 ### <a name="protect-your-dynamics-ax-application"></a>保護 Dynamics AX 應用程式
@@ -99,7 +99,7 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 * 如果您是使用靜態 IP 位址，在 [目標 IP] 文字方塊中指定您希望 VM 採用的 IP。
 
-    ![網路設定 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![網路設定 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5.建立復原計畫

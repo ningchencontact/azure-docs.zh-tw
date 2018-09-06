@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 31676ea43acc495bf0cb6a249901e5b64ef217b7
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024664"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782925"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 常見問題集：計費、功能、限制及支援
 以下是有關 Azure Machine Learning 的一些常見問題和對應解答，而 Azure Machine Learning 是適合透過 Web 服務開發預測性模型和運作方案的雲端服務。 這個常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -312,7 +312,7 @@ Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能�
 
 **如何取得 Azure Machine Learning 的支援？**
 
-若要取得 Azure Machine Learning 的技術支援，請移至 [Azure 支援](/support/options/)，並選取 [Machine Learning]。
+若要取得 Azure Machine Learning 的技術支援，請移至 [Azure 支援](https://azure.microsoft.com/support/options/)，並選取 [Machine Learning]。
 
 Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure Machine Learning 的相關問題。 此論壇由 Azure Machine Learning 團隊控管。 請移至 [Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)。
 
@@ -525,8 +525,7 @@ Azure Machine Learning API 服務會根據它是傳統 Web 服務還是新型 (R
 
 **Azure 免費試用版和 Azure Machine Learning 免費層有何差異？**
 
-
-  [Microsoft Azure 免費試用版](https://azure.microsoft.com/free/)提供適用於任何 Azure 服務的一個月點數。 Azure Machine Learning 免費層特別為非生產工作負載，提供連續存取 Azure Machine Learning。
+[Microsoft Azure 免費試用版](https://azure.microsoft.com/free/)提供適用於任何 Azure 服務的一個月點數。 Azure Machine Learning 免費層特別為非生產工作負載，提供連續存取 Azure Machine Learning。
 
 **要如何將實驗從免費層移至標準層？**
 

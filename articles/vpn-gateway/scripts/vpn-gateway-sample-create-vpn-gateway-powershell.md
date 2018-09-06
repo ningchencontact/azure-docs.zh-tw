@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/17/2018
 ms.author: alzam
-ms.openlocfilehash: 82d721393f58d7bd203605b15819a98bcf86830b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 705a2089262da5e32ced8a6d0642e87d626e600c
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885420"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343727"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>使用 PowerShell 建立 VPN 閘道
 
@@ -74,7 +74,7 @@ Remove-AzureRmResourceGroup -Name TestRG1
 | [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | 建立子網路組態。 此組態可使用於虛擬網路建立程序。 |
 | [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | 建立虛擬網路。 |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | 建立公用 IP 位址。 |
-|[New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgateway) | 建立 VPN 閘道。 |
+|[New-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway?view=azurermps-6.8.1) | 建立 VPN 閘道。 |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 移除資源群組及其內含的所有資源。 |
 | [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | 設定虛擬網路的子網路設定。 |
 

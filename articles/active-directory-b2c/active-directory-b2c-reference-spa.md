@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ee341fd3b54d748849da34cd11db30e5ea758fb1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b00eb1b2d25187dc50be53425ebae347edde33b4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445261"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344806"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C：使用 OAuth 2.0 隱含流程的單一頁面應用程式登入
 
@@ -46,7 +46,7 @@ Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而�
 
 ### <a name="use-a-sign-in-policy"></a>使用登入原則
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -59,7 +59,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-a-sign-up-policy"></a>使用註冊原則
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -72,7 +72,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-an-edit-profile-policy"></a>使用編輯設定檔原則
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -144,11 +144,11 @@ error=access_denied
 
 Azure AD B2C 具有 OpenID Connect 中繼資料端點。 應用程式可以使用此端點，在執行階段擷取 Azure AD B2C 的相關資訊。 這項資訊包括端點、權杖內容和權杖簽署金鑰。 您的 Azure AD B2C 租用戶中的每個原則都有一份 JSON 中繼資料文件。 例如，fabrikamb2c.onmicrosoft.com 租用戶中 b2c_1_sign_in 原則的中繼資料文件位於：
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 此設定文件的屬性之一是 `jwks_uri`。 相同原則的值會是：
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
 若要判斷使用了哪個原則來簽署識別碼權杖 (以及可從何處擷取中繼資料)，您有兩個選項。 首先，原則名稱包含在 `id_token` 的 `acr` 宣告中。 如需如何剖析識別碼權杖中的宣告相關資訊，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。 另一個選項是當您發出要求時，在 `state` 參數的值中將原則編碼。 然後將 `state` 參數解碼，以判斷使用了哪個原則。 任一種方法都有效。
 
@@ -180,7 +180,7 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點。 應用程式可以使�
 
 ```
 
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -254,7 +254,7 @@ error=user_authentication_required
 您只要將使用者重新導向至 `end_session_endpoint` (列於[驗證識別碼權杖](#validate-the-id-token)中所述的相同 OpenID Connect 中繼資料文件中) 即可。 例如︰
 
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 061e2257200b6d660a421a86c540f43597112c5e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444814"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337880"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C：權杖、工作階段及單一登入設定
 
@@ -69,8 +69,8 @@ Azure AD B2C 支援以 [OAuth 2.0 授權通訊協定](active-directory-b2c-refer
 我們對 Azure AD B2C 所發出之安全性權杖中的重要宣告進行了格式變更。 這都是為了改善我們的標準通訊協定支援，以及獲得更佳的協力廠商身分識別程式庫互通性。 不過，為了避免破壞現有的應用程式，我們建立了下列可讓客戶視需要選擇加入的屬性︰
 
 * **簽發者 (iss) 宣告**︰這會識別發出權杖的 Azure AD B2C 租用戶。
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`︰這是預設值。
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`︰此值包括 B2C 租用戶和權杖要求中所用原則的識別碼。 如果您的應用程式或程式庫需要符合 Azure AD B2C 與 [OpenID Connect Discovery 1.0 規格](http://openid.net/specs/openid-connect-discovery-1_0.html)，請使用此值。
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`︰這是預設值。
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`︰此值包括 B2C 租用戶和權杖要求中所用原則的識別碼。 如果您的應用程式或程式庫需要符合 Azure AD B2C 與 [OpenID Connect Discovery 1.0 規格](http://openid.net/specs/openid-connect-discovery-1_0.html)，請使用此值。
 * **主體 (子) 宣告**：這可識別權杖判斷提示其相關資訊的主體，亦即使用者。
   * **ObjectID**：這是預設值。 它會將目錄中使用者的物件識別碼填入權杖中的 `sub` 宣告。
   * **不支援**︰這僅針對回溯相容性提供，我們建議您儘可能切換到 **ObjectID**。

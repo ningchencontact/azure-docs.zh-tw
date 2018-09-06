@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 4eeae864721040bda18409b48abf5d33b81ca609
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295893"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301723"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>教學課程 - 使用 RBAC 與 Azure PowerShell 為使用者授與存取權
 
@@ -33,7 +33,7 @@ ms.locfileid: "36295893"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 
@@ -109,7 +109,7 @@ ms.locfileid: "36295893"
 
 若要為使用者授與存取權，您可以使用 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) 命令來指派角色。 您必須指定安全性主體、角色定義和範圍。
 
-1. 使用 [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) 命令取得訂用帳戶的識別碼。
+1. 使用 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 命令取得訂用帳戶的識別碼。
 
     ```azurepowershell
     Get-AzureRmSubscription

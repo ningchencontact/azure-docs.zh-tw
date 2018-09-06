@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 300a8a15552fe1e8ec9d6b434a14a31b3d827f19
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c77feed3b86358c74f741b53aa03ecb454dc9a62
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445580"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337097"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>使用 Application Insights 在 Azure AD B2C 旅程圖內追蹤使用者行為
 
@@ -37,7 +37,7 @@ Azure AD B2C 中的身分識別體驗架構現在也納入了 `Handler="Web.TPEn
 
 Application Insights 可以使用相互關聯識別碼來記錄使用者工作階段，以此方式統一事件。 Application Insights 會在數秒內使事件和工作階段成為可用狀態，並提供許多視覺效果、匯出及分析工具。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。 本文假設您使用自訂原則入門套件。 但您不一定要使用入門套件。
 
@@ -300,7 +300,7 @@ OIDC 或 OAuth2 要求中所包含的任何參數名稱均可對應至使用者�
 以下是來自應用程式的範例要求：
 
 ```
-https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
+https://sampletenant.b2clogin.com/tfp/sampletenant.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize?client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
 然後您可以將 `Input Claim` 元素新增至 Application Insights 事件，藉以新增宣告。 透過語法 {property:NAME} 即可新增事件的屬性，其中 NAME 是要新增至該事件的屬性。 例如︰

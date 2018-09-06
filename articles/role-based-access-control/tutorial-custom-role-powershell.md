@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b3bd55fd2ed9f392611fcb32b0ebd0f5c6b5e09
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322520"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300604"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立自訂角色
 
@@ -34,7 +34,7 @@ ms.locfileid: "36322520"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 
@@ -99,7 +99,7 @@ ms.locfileid: "36322520"
     
 1. 編輯 JSON 檔案，以將 `"Microsoft.Support/*"` 作業新增至 `Actions` 屬性。 請務必在讀取作業之後包含逗號。 這個動作將允許使用者建立支援票證。
 
-1. 使用 [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) 命令取得訂用帳戶的識別碼。
+1. 使用 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 命令取得訂用帳戶的識別碼。
 
     ```azurepowershell
     Get-AzureRmSubscription

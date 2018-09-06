@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 20fea7f4f4ccf852045d53ba06c3f8fcbdd1d60d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c926c67a330648e09c1fd8133164f64582ad9a34
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959826"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701070"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB：在 Azure 平台上實作 Lambda 架構 
 
@@ -30,17 +30,12 @@ Lambda 架構能夠對於大量資料集進行高效率的資料處理。 Lambda
 
 本文描述根據原始多層設計的 Lambda 架構本身的基本概念，以及簡化作業的「重新架構」Lambda 架構所具有的優點。  
 
-如需 Lambda 架構的概觀以及 Lambda 架構提供的資源範例，請觀看下列影片：
-
-> [!VIDEO https:///channel9.msdn.com/Events/Connect/2017/T135/player]
->
-
 ## <a name="what-is-a-lambda-architecture"></a>什麼是 Lambda 架構？
 Lambda 架構為泛型、可擴充且容錯的資料處理架構，可因應 [Nathan Marz](https://twitter.com/nathanmarz) 所述的批次和速度延遲情況。
 
 ![顯示 Lambda 架構的圖表](./media/lambda-architecture/lambda-architecture-intro.png)
 
-來源：http://lambda-architecture.net/
+來源： http://lambda-architecture.net/
 
 上圖根據 [https://lambda-architecture.net](http://lambda-architecture.net/) 描述 Lambda 架構的基本原則。
 
@@ -206,7 +201,7 @@ tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
  
 #### <a name="resources"></a>資源
 
-如需完整的程式碼範例，請參閱 [azure-cosmosdb-spark/lambda/samples](vhttps://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)，其中包括：
+如需完整的程式碼範例，請參閱 [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)，其中包括：
 * Lambda 架構重新架構 - 批次層 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb)
 * Lambda 架構重新架構 - 服務層的批次 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)
 

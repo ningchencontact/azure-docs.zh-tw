@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 9466f4178047a4927684a1fcfd80f661ea4aa7a5
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 523746153aa39f50d5c54c97a4f74352de04c27f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127697"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288033"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰
 
@@ -491,7 +491,7 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>步驟 5：將金鑰傳輸至 Azure 金鑰保存庫
 
-針對這最後一個步驟，在連線到網際網路的工作站上，使用 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) Cmdlet，將您從已中斷連線的工作站複製的金鑰傳輸套件上傳到「Azure 金鑰保存庫 HSM」：
+針對這最後一個步驟，在連線到網際網路的工作站上，使用 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-add-azurekeyvaultkey) Cmdlet，將您從已中斷連線的工作站複製的金鑰傳輸套件上傳到「Azure 金鑰保存庫 HSM」：
 
    ```powershell
         Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'

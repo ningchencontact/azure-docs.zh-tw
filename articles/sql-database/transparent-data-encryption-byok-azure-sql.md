@@ -14,19 +14,19 @@ ms.service: sql-database
 ms.custom: ''
 ms.tgt_pltfrm: ''
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 08/30/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: d3e8d34599600512a1d9d0308c0d6014691bf519
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 30ef71d0fc98b168000f7e7b936e4efc6c441498
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442717"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307925"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>Azure SQL Database 和資料倉儲具有「攜帶您自己的金鑰」支援的的透明資料加密
 
-[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption) 的「攜帶您自己的金鑰」(BYOK) 支援可讓您使用名為 TDE 保護裝置的非對稱金鑰來加密資料庫加密金鑰 (DEK)。  TDE 保護裝置可在您的控制下儲存於 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 Azure Key Vault 是第一個將 BYOK 的支援整合至 TDE 的金鑰管理服務。 TDE DEK 儲存於資料庫的啟動頁面上，可由 TDE 保護裝置加密和解密。 TDE 保護裝置會儲存在 Azure Key Vault 中，且一律不會移至金鑰保存庫以外。 如果撤銷了伺服器對金鑰保存庫的存取權，資料庫即無法解密並讀取到記憶體中。  TDE 保護裝置可設定於邏輯伺服器層級上，讓所有與該伺服器的相關聯資料庫繼承。 
+[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) 的「攜帶您自己的金鑰」(BYOK) 支援可讓您使用名為 TDE 保護裝置的非對稱金鑰來加密資料庫加密金鑰 (DEK)。  TDE 保護裝置可在您的控制下儲存於 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 Azure Key Vault 是第一個將 BYOK 的支援整合至 TDE 的金鑰管理服務。 TDE DEK 儲存於資料庫的啟動頁面上，可由 TDE 保護裝置加密和解密。 TDE 保護裝置會儲存在 Azure Key Vault 中，且一律不會移至金鑰保存庫以外。 如果撤銷了伺服器對金鑰保存庫的存取權，資料庫即無法解密並讀取到記憶體中。  TDE 保護裝置可設定於邏輯伺服器層級上，讓所有與該伺服器的相關聯資料庫繼承。 
 
 透過 BYOK 支援，使用者現在可以使用 Azure Key Vault 功能來控制金鑰管理工作，包括金鑰輪替、金鑰保存庫權限、刪除金鑰，以及啟用所有 TDE 保護裝置的稽核/報告功能。 Key Vault 可提供集中管理金鑰的機制、使用嚴密監控的硬體安全性模組 (HSM)，並可區分管理金鑰和資料的職責，以利符合法規合規性。  
 

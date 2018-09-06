@@ -3,19 +3,19 @@ title: SQL 資料倉儲資料整合合作夥伴 | Microsoft Docs
 description: 具有可支援「Azure SQL 資料倉儲」之資料整合解決方案的協力廠商合作夥伴清單。
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 1329fe4b30070111354adb87b32be6f694f316c5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d92d230be1ec0e85894a1e9e4d8635aa71afa514
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144227"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307699"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 資料倉儲資料整合合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在具有可支援「Azure SQL 資料倉儲」之資料整合解決方案的 Microsoft 合作夥伴公司。

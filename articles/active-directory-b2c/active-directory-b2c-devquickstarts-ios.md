@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d9be99278797911ce7b49a176861ce6a39c28a1d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5f95b71497b59eafff09d4add2b4bb1c20656592
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443744"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339353"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C︰使用 iOS 應用程式登入
 
@@ -69,13 +69,13 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 取代下列 URL 中的 Tenant\_ID 和Policy\_Name，即可產生權杖端點 URI︰
 
 ```objc
-static NSString *const tokenEndpoint = @"https://login.microsoftonline.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
+static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
 取代下列 URL 中的 Tenant\_ID 和Policy\_Name，即可產生授權端點 URI︰
 
 ```objc
-static NSString *const authorizationEndpoint = @"https://login.microsoftonline.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
+static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
 ```
 
 執行下列程式碼來建立 AuthorizationServiceConfiguration 物件︰

@@ -3,19 +3,19 @@ title: 在 Azure SQL 資料倉儲中指派變數 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中指派 T-SQL 變數以便開發解決方案的秘訣。
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 09b0ee336ce00eb20ea501cd97833dfdd6540b30
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cf6d63c8cf67e42eed2ca52bfd0d0a3f9b0e10b1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598739"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302079"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中指派變數
 在 Azure SQL 資料倉儲中指派 T-SQL 變數以便開發解決方案的秘訣。

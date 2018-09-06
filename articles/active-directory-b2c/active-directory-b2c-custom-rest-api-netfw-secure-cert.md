@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0832b3b8e0b2b6d7459eeddb8d8e5a93a7f17d09
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448344"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344960"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>使用用戶端憑證保護您的 RESTful 服務
 
@@ -33,7 +33,7 @@ ms.locfileid: "37448344"
 * 將憑證上傳至 Azure AD B2C 原則金鑰。
 * 將您的自訂原則設定為使用用戶端憑證。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 完成[整合 REST API 宣告交換](active-directory-b2c-custom-rest-api-netfw.md)文章中的步驟。
 * 取得有效的憑證 (具有私密金鑰的 .pfx 檔案)。
 
@@ -136,7 +136,7 @@ ms.locfileid: "37448344"
      "exp": 1507125903,
      "nbf": 1507122303,
      "ver": "1.0",
-     "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+     "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
      "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
      "acr": "b2c_1a_signup_signin",
      "nonce": "defaultNonce",

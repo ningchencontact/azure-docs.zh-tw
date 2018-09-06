@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d6e9531edf8915e4b6c2636372b756002fca10fd
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060442"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382394"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 上的支援客體作業系統
 
@@ -57,18 +57,18 @@ Marketplace 映像適用於隨用隨付或 BYOL (EA/SPLA) 授權。 不支援在
 
 | 配送映像 | 說明 | 發行者 | Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| CentOS 型 6.9 | 64 位元 | Rogue Wave | yes |
-| CentOS 型 7.4 | 64 位元 | Rogue Wave | yes |
-| ClearLinux | 64 位元 | ClearLinux.org | yes |
+| CentOS 型 6.9 | 64 位元 | Rogue Wave | 是 |
+| CentOS 型 7.4 | 64 位元 | Rogue Wave | 是 |
+| ClearLinux | 64 位元 | ClearLinux.org | 是 |
 | 容器 Linux |  64 位元 | CoreOS | Stable |
-| Debian 8 "Jessie" | 64 位元 | credativ |  yes |
-| Debian 9 "Stretch" | 64 位元 | credativ | yes |
+| Debian 8 "Jessie" | 64 位元 | credativ |  是 |
+| Debian 9 "Stretch" | 64 位元 | credativ | 是 |
 | Red Hat Enterprise Linux 7.x | 64 位元 | Red Hat |自備映像 |
-| SLES 11SP4 | 64 位元 | SUSE | yes |
-| SLES 12SP3 | 64 位元 | SUSE | yes |
-| Ubuntu 14.04-LTS | 64 位元 | Canonical | yes |
-| Ubuntu 16.04-LTS | 64 位元 | Canonical | yes |
-| Ubuntu 18.04-LTS | 64 位元 | Canonical | yes |
+| SLES 11SP4 | 64 位元 | SUSE | 是 |
+| SLES 12SP3 | 64 位元 | SUSE | 是 |
+| Ubuntu 14.04-LTS | 64 位元 | Canonical | 是 |
+| Ubuntu 16.04-LTS | 64 位元 | Canonical | 是 |
+| Ubuntu 18.04-LTS | 64 位元 | Canonical | 是 |
 
 未來可能支援其他 Linux 發佈。
 

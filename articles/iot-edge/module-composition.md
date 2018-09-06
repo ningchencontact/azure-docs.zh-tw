@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ddeee70d29f54a0691b0a13ad299003b3da338a1
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: af4a831c084ae10b381b8e08fd0ce4798b21b394
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345013"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382166"
 ---
 # <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>了解如何使用部署資訊清單來部署模組及建立路由
 
@@ -153,7 +153,7 @@ Edge 中樞提供方法以宣告方式在模組之間及模組與 IoT 中樞之�
 有個 IoT Edge 特有的範例，是想要篩選從分葉裝置送達閘道裝置的訊息。 來自模組的訊息包含稱為 **connectionModuleId** 的系統屬性。 因此，如果您將訊息直接從分葉裝置路由至 IoT 中樞，請使用下列路由來排除模組訊息：
 
 ```sql
-FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
+FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
 ### <a name="sink"></a>接收

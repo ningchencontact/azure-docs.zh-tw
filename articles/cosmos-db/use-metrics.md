@@ -11,21 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e4bc8af7533b3d18f9e04f431d6c9f97e0982ae5
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858658"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286664"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的計量監控及偵錯
 
 Azure Cosmos DB 為輸送量、儲存體、一致性、可用性和延遲提供計量。 [Azure 入口網站](https://portal.azure.com)提供這些計量的彙總檢視；如需更精確的計量，可參考用戶端 SDK 和[診斷記錄](./logging.md)。
-
-若要概略了解新計量，以及學習如何在資料庫中找出過度使用的磁碟分割，請觀看以下 Azure Friday 影片：
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Cosmos-DB-Get-the-Most-Out-of-Provisioned-Throughput/player]
-> 
 
 本文將逐步解說常見的使用案例，以及如何使用 Azure Cosmos DB 計量來分析和偵錯這些問題。 每五分鐘會收集計量，而且這些計量會保留七天。
 

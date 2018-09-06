@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c4f1b63e2d564f0480508c3ec5a5a24c76ea6bc4
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918730"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782255"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service 教學課程 - 管理 DC/OS
 
@@ -238,7 +238,7 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 ## <a name="scale-dcos-cluster"></a>調整 DC/OS 叢集
 
-在上一個範例中，應用程式會調整為多個執行個體。 也可以調整 DC/OS 基礎結構以提供較多或較少的計算容量。 方法是使用 [az acs scale]() 命令。 
+在上一個範例中，應用程式會調整為多個執行個體。 也可以調整 DC/OS 基礎結構以提供較多或較少的計算容量。 方法是使用 [az acs scale](/cli/azure/acs#az-acs-scale) 命令。 
 
 若要查看目前 DC/OS 代理程式的計數，請使用 [az acs show](/cli/azure/acs#az-acs-show) 命令。
 

@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0f8568dd67dd292ccca3972a402a110cd4a46fb
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580273"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344871"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 代理者流程
 OAuth2.0 代理者流程的使用案例，是應用程式叫用服務/Web API，而後者又需要呼叫另一個服務/Web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 中介層服務若要向下游服務提出已驗證的要求，需要代表使用者保護來自 Azure Active Directory (Azure AD) 存取權杖。
@@ -40,7 +40,7 @@ OAuth2.0 代理者流程的使用案例，是應用程式叫用服務/Web API，
 
 接下來的步驟由代理者流程構成，並搭配下圖協助說明。
 
-![OAuth2.0 代理者流程](/media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth2.0 代理者流程](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. 用戶端應用程式使用權杖 A (含 API A 的 `aud` 宣告) 向 API A 提出要求。

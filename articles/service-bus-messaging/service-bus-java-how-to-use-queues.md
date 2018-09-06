@@ -3,7 +3,7 @@ title: 如何搭配 Java 使用 Azure 服務匯流排佇列 | Microsoft Docs
 description: 了解如何使用 Azure 中的服務匯流排佇列。 程式碼範例以 Java 撰寫。
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.assetid: f701439c-553e-402c-94a7-64400f997d59
 ms.service: service-bus-messaging
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: e4099c8228e9434276242a3c49ebcb4fc2e995b2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696140"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696460"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何將服務匯流排佇列搭配 Java 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 5012ce22204c3ac32b22fe2cd842ce1300b426f8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8bb06493683dabb92dfe75f371f96db14a7951b3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295808"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300998"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>教學課程 - 使用 RBAC 與 Azure PowerShell 為群組授與存取權
 
@@ -33,7 +33,7 @@ ms.locfileid: "36295808"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 
@@ -122,7 +122,7 @@ ms.locfileid: "36295808"
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. 使用 [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) 命令取得訂用帳戶的識別碼。
+1. 使用 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 命令取得訂用帳戶的識別碼。
 
     ```azurepowershell
     Get-AzureRmSubscription

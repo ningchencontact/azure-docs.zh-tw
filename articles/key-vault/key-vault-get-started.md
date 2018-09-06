@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 3f3adb1230d6ca6b3a7e616a0beed15d66895124
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41919365"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43282992"
 ---
 # <a name="get-started-with-azure-key-vault"></a>開始使用 Azure 金鑰保存庫
 本文可協助您使用 PowerShell 來開始使用 Azure Key Vault，並引導您完成下列活動：
@@ -34,7 +34,7 @@ ms.locfileid: "41919365"
 ## <a name="requirements"></a>需求
 在繼續進行文章之前，請先確認您有：
 
-- **Azure 訂用帳戶**。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+- **Azure 訂用帳戶**。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/en-us/free/)。
 - **Azure PowerShell**，**最低版本為 1.1.0**。 若要安裝 Azure PowerShell，並將它與 Azure 訂用帳戶建立關聯，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 如果您已安裝 Azure PowerShell 但不知道版本，請在 Azure PowerShell 主控台中輸入 `(Get-Module azure -ListAvailable).Version`。 如果您已安裝 Azure PowerShell 版本 0.9.1 至 0.9.8，您仍可使用本教學課程並稍作變更。 例如，您必須使用 `Switch-AzureMode AzureResourceManager` 命令，而有些 Azure 金鑰保存庫命令已變更。 如需版本 0.9.1 至 0.9.8 的金鑰保存庫 Cmdlet 清單，請參閱 [Azure 金鑰保存庫 Cmdlet](/powershell/module/azurerm.keyvault/#key_vault)。
 - **可以設定為使用 Key Vault 的應用程式**。 您可以在 [Microsoft 下載中心](http://www.microsoft.com/download/details.aspx?id=45343)找到範例應用程式。 如需相關指示，請參閱隨附的**讀我**檔案。
 

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: 6c3756e721847a8cb746f5dc755ccd90bfebe9f0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b518d86d5cb08f85beecd4afe30efc9e4f70e1f7
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008269"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371463"
 ---
 # <a name="indexing-in-azure-search"></a>在 Azure 搜尋服務中編製索引
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.locfileid: "39008269"
 
 ### <a name="how-to-pull-data-into-an-azure-search-index"></a>如何將資料提取到 Azure 搜尋服務索引
 
-索引子功能會在 [Azure 入口網站](search-import-data-portal.md)、[REST API](/rest/api/searchservice/Indexer-operations) 以及 [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperations)中出現。 
+索引子功能會在 [Azure 入口網站](search-import-data-portal.md)、[REST API](/rest/api/searchservice/Indexer-operations) 以及 [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperationsextensions)中出現。 
 
 使用入口網站的優點是 Azure 搜尋服務通常可藉由讀取來源資料集的中繼資料，為您產生預設的索引結構描述。 直到處理索引後，您才可以修改產生的索引，而後只允許不需要重新編製索引的結構描述編輯。 如果您想要進行的變更會直接影響結構描述，您必須重建索引。 
 

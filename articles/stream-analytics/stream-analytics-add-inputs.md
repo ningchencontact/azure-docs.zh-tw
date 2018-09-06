@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 62e928525c8bd63258ea079830585db0f0ffc358
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4a84e8f7460d3a339be783be6a12353770ced1b8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716486"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665818"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>了解 Azure 串流分析的輸入
 
@@ -42,7 +42,7 @@ Azure 串流分析作業能連接一或多個資料輸入。 每個輸入都定�
 
 如需參考資料輸入的詳細資訊，請參閱[使用參考資料在串流分析中進行查閱](stream-analytics-use-reference-data.md)
 
-本文章是 [串流分析學習路徑](/documentation/learning-paths/stream-analytics/)中的一個步驟。
+本文章是 [串流分析學習路徑](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)中的一個步驟。
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]

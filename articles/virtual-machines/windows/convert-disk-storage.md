@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 7748cf41bb97e0136d7b619debcb60d460df5d8b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7e4a37e318bd45c5cc2dca4e085b2a112db65efe
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596574"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371350"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然
 
 受控磁碟提供三種儲存體選項：[進階 SSD](../windows/premium-storage.md)、標準 SSD (預覽) 及[標準 HDD](../windows/standard-storage.md)。 它可讓您根據您的效能需求，以最少的停機時間在選項之間輕鬆切換。 非受控磁碟不支援此功能。 但您可以輕鬆地[轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)，以在磁碟類型之間輕鬆切換。
 
-本文說明如何使用 Azure PowerShell 將受控磁碟從標準轉換至進階，反之亦然。 如果您需要安裝或升級 Azure PowerShell，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps.md)。
+本文說明如何使用 Azure PowerShell 將受控磁碟從標準轉換至進階，反之亦然。 如果您需要安裝或升級 Azure PowerShell，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1)。
 
 ## <a name="before-you-begin"></a>開始之前
 

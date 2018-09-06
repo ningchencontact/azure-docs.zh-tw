@@ -3,26 +3,26 @@ title: 搭配使用 Azure 串流分析與 SQL 資料倉儲 | Microsoft Docs
 description: 搭配使用 Azure 串流分析與 SQL 資料倉儲以便開發解決方案的秘訣。
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 76cbbddca70d3bc8091dbea383213446adac533e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6e9a6e9c7407939ea9e76cad569e870d578b37f9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600303"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307356"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>搭配使用 Azure 串流分析與 SQL 資料倉儲
 Azure 串流分析是完全受控的服務，可用來對雲端中的串流資料進行低延遲、高可用性、可延展的複雜事件處理。 如需基本概念，請參閱 [Azure 串流分析簡介][Introduction to Azure Stream Analytics]。 您可以接著依照[開始使用 Azure 串流分析][Get started using Azure Stream Analytics]教學課程，了解如何使用串流分析建立端對端解決方案。
 
 在本文中，您將學習如何使用 Azure SQL 資料倉儲資料庫做為串流分析工作的輸出接收器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 首先，執行[開始使用 Azure 串流分析][Get started using Azure Stream Analytics]教學課程中的下列步驟。  
 
 1. 建立事件中樞輸入

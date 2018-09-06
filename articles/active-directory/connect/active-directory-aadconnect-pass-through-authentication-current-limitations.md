@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a112e2f201109b71b7bab1c2b344ec4fcf2a851c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ff023812acd5e30bfec34254379431b3e620dac9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627639"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781837"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 傳遞驗證：目前的限制
 
@@ -47,7 +47,7 @@ ms.locfileid: "39627639"
 - 傳遞驗證未與 [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) 整合。
 
 >[!IMPORTANT]
->「僅」針對不支援的案例 (Azure AD Connect Health 整合除外)，在 Azure AD Connect 精靈的[選用功能](active-directory-aadconnect-get-started-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。 當使用者登入「不支援的情節」一節中列出的應用程式時，傳遞驗證代理程式_不_會處理這些特定的登入要求，因此[傳遞驗證記錄](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)不會記錄。
+>「僅」針對不支援的案例 (Azure AD Connect Health 整合除外)，在 Azure AD Connect 精靈的[選用功能](active-directory-aadconnect-get-started-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。
 
 >[!NOTE]
 啟用密碼雜湊同步處理可讓您選擇在內部部署基礎結構中斷時，將驗證容錯移轉。 這個從傳遞驗證到密碼雜湊同步處理的容錯移轉不會自動進行。 您必須使用 Azure AD Connect，以手動方式切換登入方法。 如果執行 Azure AD Connect 的伺服器關閉，您將需要 Microsoft 支援服務的協助，以關閉傳遞驗證。

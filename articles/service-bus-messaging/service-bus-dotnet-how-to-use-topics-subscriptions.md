@@ -3,7 +3,7 @@ title: 開始使用 Azure 服務匯流排主題和訂用帳戶 | Microsoft Docs
 description: 撰寫使用服務匯流排傳訊主題和訂用帳戶的 C# .NET Core 主控台應用程式。
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 07/03/2018
-ms.author: sethm
-ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: c53e0c16f6b1fd8a79f864651f5aae97af886b96
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38298957"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699595"
 ---
 # <a name="get-started-with-service-bus-topics"></a>開始使用服務匯流排主題
 
@@ -33,7 +33,7 @@ ms.locfileid: "38298957"
 4. 撰寫 .NET Core 主控台應用程式，以將一組訊息傳送到主題。
 5. 撰寫 .NET Core 主控台應用程式，以從訂用帳戶接收這些訊息。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](http://www.visualstudio.com/vs) 或更新版本。
 2. [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。

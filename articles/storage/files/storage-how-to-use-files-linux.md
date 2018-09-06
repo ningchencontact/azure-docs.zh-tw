@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 89343f3e4ec91dd32b24cdea6632cecd855cc6f8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bbd250e9ee987403d670b2605fdb8deda8c19092
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523218"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782040"
 ---
 # <a name="use-azure-files-with-linux"></a>搭配 Linux 使用 Azure 檔案
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 可以使用 [SMB 核心用戶端](https://wiki.samba.org/index.php/LinuxCIFS)將 Azure 檔案共用裝載在 Linux 發行版本中。 本文將說明掛接 Azure 檔案共用的兩種方式：使用 `mount` 命令的隨選掛接，以及建立項目 `/etc/fstab` 的開機掛接。
@@ -107,7 +107,7 @@ ms.locfileid: "39523218"
 3. **建立認證檔來儲存檔案共用的使用者名稱 (儲存體帳戶名稱) 和密碼 (儲存體帳戶金鑰)。** 請記得將 `<storage-account-name>` 和 `<storage-account-key>` 取代為您環境的適當資訊。 
 
     ```bash
-    if [ -d "/etc/smbcredentials" ]; then
+    if [ ! -d "/etc/smbcredentials" ]; then
         sudo mkdir /etc/smbcredentials
     fi
 

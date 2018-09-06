@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 2283f55be1a17ec95c73878d42d3acf4d0503e07
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42145514"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371367"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
 
@@ -42,7 +42,7 @@ Azure AD Connect 會使用 3 個帳戶，以便將資訊從內部部署或 Windo
 - **AD DS 企業系統管理員帳戶**：用來安裝 Azure AD Connect
 - **Azure AD 全域系統管理員帳戶**：用來建立 Azure AD Connector 帳戶和設定 Azure AD。
 
-- **SQL SA 帳戶 (選擇性)**：用來在使用完整版 SQL Server 時建立 ADSync 資料庫。  這個 SQL Server 可位於 Azure AD Connect 安裝的本機或遠端。  此帳戶可以是和企業系統管理員相同的帳戶。  SQL 管理員可執行頻外資料庫佈建，然後由具有資料庫擁有者權限的 Azure AD Connect 管理員進行安裝。  如需這方面的資訊，請參閱[使用 SQL 委派的管理員權限安裝 Azure AD Connect]()
+- **SQL SA 帳戶 (選擇性)**：用來在使用完整版 SQL Server 時建立 ADSync 資料庫。  這個 SQL Server 可位於 Azure AD Connect 安裝的本機或遠端。  此帳戶可以是和企業系統管理員相同的帳戶。  SQL 管理員可執行頻外資料庫佈建，然後由具有資料庫擁有者權限的 Azure AD Connect 管理員進行安裝。  如需這方面的資訊，請參閱[使用 SQL 委派的管理員權限安裝 Azure AD Connect](active-directory-aadconnect-sql-delegation.md)
 
 ## <a name="installing-azure-ad-connect"></a>安裝 Azure AD Connect
 Azure AD Connect 安裝精靈提供兩個不同的路徑：

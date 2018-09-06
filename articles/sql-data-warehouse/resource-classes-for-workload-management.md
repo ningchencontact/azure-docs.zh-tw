@@ -3,19 +3,19 @@ title: 適用於工作負載管理的資源類別 - Azure SQL 資料倉儲 | Mic
 description: 在 Azure SQL 資料倉儲中，使用資源類別來管理並行和適用於查詢之計算資源的指引。
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192776"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287467"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中搭配使用工作負載管理與資源類別
 指引如何在 Azure SQL 資料倉儲中，使用資源類別來管理查詢的記憶體與並行存取。  
@@ -170,13 +170,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 資源類別會藉由將使用者指派給資料庫角色來實作。 當使用者執行查詢時，查詢會利用使用者的資源類別來執行。 例如，當使用者為 smallrc 或 staticrc10 資料庫角色的成員時，他們的查詢會利用少量記憶體來執行。 當資料庫使用者為 xlargerc 或 staticrc80 資料庫角色的成員時，他們的查詢會利用大量記憶體來執行。 
 
-若要增加使用者的資源類別，請使用預存程序 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) \(機器翻譯\)。 
+若要增加使用者的資源類別，請使用預存程序 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) \(英文\)。 
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-若要減少資源類別，使用 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) \(機器翻譯\)。  
+若要減少資源類別，使用 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) \(英文\)。  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';

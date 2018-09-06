@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86ef621eccc7e6ba999318348f940a6a3931274e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442401"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344121"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C︰使用 Android 應用程式登入
 
@@ -74,7 +74,7 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 如果您選擇自動探索授權和權杖端點 URI，您必須從探索 URI 擷取資訊。 取代下列 URL 中的 Tenant\_ID 和Policy\_Name，即可產生探索 URI︰
 
 ```java
-String mDiscoveryURI = "https://login.microsoftonline.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
 ```
 
 然後，您可以取得授權和權杖端點 URI，並執行下列命令來建立 AuthorizationServiceConfiguration 物件︰
@@ -101,9 +101,9 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
 除了使用探索來取得授權和權杖端點 URI，您也可以取代下列 URL 中的 Tenant\_ID 和 Policy\_Name，以明確指定它們︰
 
 ```java
-String mAuthEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
 
-String mTokenEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
 ```
 
 執行下列程式碼來建立 AuthorizationServiceConfiguration 物件︰

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d61ac48aa7c51bc4b215a7d56b1bbedfdc613f9f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264213"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287551"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure 中的度量概觀
 本文章說明何謂 Microsoft Azure 中的度量、其優點，以及如何開始使用它們。  
@@ -107,7 +107,7 @@ Azure 監視器的預覽版本也可讓使用者體驗新的計量圖表。 這�
 
  ![Azure 監視器中的度量和警示規則](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-新版計量警示能夠監視資源的多個計量和閾值，然後透過[動作群組](/monitoring-action-groups.md)通知您。 深入了解[新版警示](https://aka.ms/azuremonitor/near-real-time-alerts)。
+新版計量警示能夠監視資源的多個計量和閾值，然後透過[動作群組](monitoring-action-groups.md)通知您。 深入了解[新版警示](https://aka.ms/azuremonitor/near-real-time-alerts)。
 
 
 ### <a name="autoscale-your-azure-resources"></a>自動調整您的 Azure 資源

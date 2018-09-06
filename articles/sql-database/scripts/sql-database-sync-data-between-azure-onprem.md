@@ -17,12 +17,12 @@ ms.workload: database
 ms.date: 04/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 76a36d7266a6432c7406ccb9b8fc4467a03e9271
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 650303918e6aac1d4d16549f0b1ca976f0e6bf11
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617093"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663878"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 設定「資料同步」在內部部署的 SQL Database 和 SQL Server 之間進行同步處理
 
@@ -379,7 +379,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 | [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  取得同步代理程式的所有資訊 |
 | [New-AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  在同步群組中新增成員 |
 | [Update-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  重新整理資料庫結構描述資訊 |
-| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  取得資料庫結構描述資訊 |
+| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchema?view=azurermps-6.8.1) |  取得資料庫結構描述資訊 |
 | [Update-AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  更新同步群組 |
 | [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | 觸發同步處理 |
 | [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  檢查同步記錄 |

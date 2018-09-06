@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2452389605db0654fb9d8dc06d89a8195f9ae372
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: c6ab5ede0b8af6c601cc53e044a3e6902fbd2e11
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480839"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340805"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C：OAuth 2.0 授權碼流程
 在安裝於裝置上的應用程式中，您可以使用 OAuth 2.0 授權碼授與來存取受保護的資源，例如 Web API。 您可以使用 Azure Active Directory B2C (Azure AD B2C) 的 OAuth 2.0 實作，將註冊、登入及其他身分識別管理工作新增至行動及桌面應用程式。 這篇文章是與語言無關。 在本文中，我們將說明如何傳送及接收 HTTP 訊息，但不使用任何開放原始碼程式庫。
@@ -39,7 +39,7 @@ Azure AD B2C 擴充標準的 OAuth 2.0 流程，功能更強大，而不僅止�
 
 ### <a name="use-a-sign-in-policy"></a>使用登入原則
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code
 &redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
@@ -51,7 +51,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-a-sign-up-policy"></a>使用註冊原則
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code
 &redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
@@ -63,7 +63,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-an-edit-profile-policy"></a>使用編輯設定檔原則
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code
 &redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
@@ -121,7 +121,7 @@ error=access_denied
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -186,7 +186,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob

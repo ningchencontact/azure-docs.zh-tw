@@ -2,18 +2,18 @@
 title: Azure 服務匯流排地理災害復原 | Microsoft Docs
 description: 如何使用地理區域，在 Azure 服務匯流排中進行容錯移轉並執行災害復原
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: spelluru
+ms.openlocfilehash: 42960222efb1ade1b48a1d0db56ae3fb0349d174
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301514"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695386"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服務匯流排地理災害復原
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7ca0e8eb2d496bdcd8eff7dbee2af2e549f123dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626850"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698752"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
@@ -142,7 +142,7 @@ ms.locfileid: "39626850"
 
 | 網域名稱 | 連接埠 | 說明 |
 | --- | --- | --- |
-| *.servicebus.windows.net |443、80 |用於與「資料移動服務」後端進行通訊 |
+| *.servicebus.windows.net |443 |用於與「資料移動服務」後端進行通訊 |
 | *.core.windows.net |443 |用於使用 Azure Blob 的分段複製 (如果已設定)|
 | *.frontend.clouddatahub.net |443 |用於與「資料移動服務」後端進行通訊 |
 | *.servicebus.windows.net |9350-9354, 5671 |透過 TCP 的選擇性服務匯流排轉送，由複製精靈所使用 |
@@ -362,7 +362,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
 監視屬性 | 說明
 :------------------ | :---------- 
-Name | 邏輯閘道和閘道相關聯節點的名稱。 節點是安裝了閘道的內部部署 Windows 機器。 若要了解如何在單一邏輯閘道中擁有一個以上的節點 (最多四個節點)，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。    
+名稱 | 邏輯閘道和閘道相關聯節點的名稱。 節點是安裝了閘道的內部部署 Windows 機器。 若要了解如何在單一邏輯閘道中擁有一個以上的節點 (最多四個節點)，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。    
 狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/受限制/等等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。 
 版本 | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。 
 可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。 

@@ -3,19 +3,19 @@ title: Azure SQL 資料倉儲最佳作法 | Microsoft Docs
 description: 開發 Azure SQL 資料倉儲的解決方案時應該知道的建議和最佳作法。
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/18/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c39adbfbb85173f7ac3fa129e7551efab6ddefd6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 81fd5ea082fe05c9908b2eb0689aba9a4fe4e789
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798687"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307127"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲最佳做法
 本文集合讓您從 Azure SQL 資料倉儲獲得最佳效能的最佳做法。  文章中有些基本概念很容易說明，有些概念則更進階，我們在文中只做概述。  這篇文章的目的是要提供您一些基本指引，以及讓您對建立資料倉儲時需注意的重要領域有所認知。  每一節都會介紹一個概念，並提供您哪裡可以閱讀深度討論的詳細文章。

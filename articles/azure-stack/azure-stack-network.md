@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617016"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340183"
 ---
 # <a name="network-connectivity"></a>網路連線
 本文提供 Azure Stack 網路基礎架構資訊，可協助您決定如何以最佳方式將 Azure Stack 整合至現有的網路環境。 
@@ -45,7 +45,7 @@ Azure Stack 解決方案需要有彈性且高可用性的實體基礎結構，�
 | 交換器基礎結構 | 路由用途的點對點 IP 位址、專屬的交換器管理介面，及指派給參數的回送位址。 | /26 | 
 | 基礎結構 | 用於通訊的 Azure Stack 內部元件。 | /24 |
 | 私人 | 用於存放網路和私用 VIP。 | /24 | 
-| BMC | 用來與實體主機上的 BMC 通訊。 | /27 | 
+| BMC | 用來與實體主機上的 BMC 通訊。 | /26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>網路基礎結構

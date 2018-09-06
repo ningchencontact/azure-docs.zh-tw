@@ -3,19 +3,19 @@ title: 教學課程：Azure SQL 資料倉儲的彈性查詢 | Microsoft Docs
 description: 本教學課程使用彈性查詢功能，從 Azure SQL Database 查詢 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 355ae1c27d0af8f77c2c9bda61c3581562050fc4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526187"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307087"
 ---
 # <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>教學課程：使用彈性查詢，從 Azure SQL Database 存取 Azure SQL 資料倉儲中的資料
 

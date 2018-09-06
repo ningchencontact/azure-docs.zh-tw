@@ -3,7 +3,7 @@ title: 使用 PowerShell 來管理 Azure 服務匯流排資源 | Microsoft Docs
 description: 使用 PowerShell 模組來建立及管理服務匯流排資源
 services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 962134c0c71ac0a251f8adf1f0f067d6067cb808
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: spelluru
+ms.openlocfilehash: 66475d9d59c8825eef7eb16e826d9813e819aa8a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018616"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699622"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>使用 PowerShell 來管理服務匯流排資源
 
@@ -27,7 +27,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 您也可以使用 Azure Resource Manager 範本來管理服務匯流排實體。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本建立服務匯流排資源](service-bus-resource-manager-overview.md)文章。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，您需要下列必要條件：
 

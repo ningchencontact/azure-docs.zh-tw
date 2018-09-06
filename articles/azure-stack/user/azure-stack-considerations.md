@@ -3,7 +3,7 @@ title: 了解使用服務和建置應用程式時 Azure 與 Azure Stack 之間�
 description: 使用服務或為 Azure Stack 建置應用程式時，您需要了解的事項。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: c81f551d-c13e-47d9-a5c2-eb1ea4806228
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/16/2018
-ms.author: mabrigg
-ms.openlocfilehash: eab208175f7eb3b761ec7266483a7cd5268198e8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: a8d211992f52c9719cad76f16133e23eba24d422
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31512923"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43775080"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>關鍵考量：使用服務或為 Azure Stack 建置應用程式
 
@@ -48,8 +48,8 @@ Azure 技術內容會假設應用程式是為了 Azure 服務 (而不是 Azure S
 | 由誰操作？ | Microsoft | 您的組織或服務提供者。|
 | 尋求支援的連絡對象？ | Microsoft | 如果是整合環境，請連絡您的 Azure Stack 操作員 (位於您的組織或服務提供者) 以取得支援。<br><br>如需 Azure Stack 開發套件的支援，請瀏覽 [Microsoft 論壇](https://social.msdn.microsoft.com/Forums/home?forum=azurestack)。 因為開發套件屬於評估環境，因此 Microsoft 客戶支援服務 (CSS) 不會提供官方支援。
 | 可用服務 | 查看 [Azure 產品](https://azure.microsoft.com/services/?b=17.04b)的清單。 可用的服務因 Azure 區域而異。 | Azure Stack 支援 Azure 服務的子集。 實際服務會因您組織或服務提供者選擇提供的項目而異。
-| Azure Resource Manager 端點* | https://management.azure.com | 如果是 Azure Stack 整合系統，請使用您 Azure Stack 操作員所提供的端點。<br><br>如果是開發套件，請使用：https://management.local.azurestack.external
-| 入口網站 URL* | [https://portal.azure.com](https://portal.azure.com) | 針對 Azure Stack 整合系統，請移至您 Azure Stack 操作員所提供的 URL。<br><br>如果是開發套件，請使用：https://portal.local.azurestack.external
+| Azure Resource Manager 端點* | https://management.azure.com | 如果是 Azure Stack 整合系統，請使用您 Azure Stack 操作員所提供的端點。<br><br>如果是開發套件，請使用： https://management.local.azurestack.external
+| 入口網站 URL* | [https://portal.azure.com](https://portal.azure.com) | 針對 Azure Stack 整合系統，請移至您 Azure Stack 操作員所提供的 URL。<br><br>如果是開發套件，請使用： https://portal.local.azurestack.external
 | 區域 | 您可以選取想要部署的目標區域。 | 如果是 Azure Stack 整合系統，請使用您系統上可用的區域。<br><br>若為開發套件，區域一律為**本機**。
 | 資源群組 | 資源群組可以跨區域。 | 就整合系統和開發套件兩者而言，只有一個區域。
 |支援的命名空間、資源類型和 API 版本 | 最新版本 (或未過時的較早版本)。 | Azure Stack 支援特定版本。 請參閱本文章的＜版本需求＞一節。

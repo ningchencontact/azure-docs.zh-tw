@@ -3,7 +3,7 @@ title: 使用 Resource Manager 範本建立 Azure 服務匯流排資源 | Micros
 description: 使用 Azure Resource Manager 範本自動建立服務匯流排資源
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
-ms.author: sethm
-ms.openlocfilehash: 64942d80a2b8477c395abf185a332f31709598c6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.author: spelluru
+ms.openlocfilehash: c1e35f695c33ce33c5862116a7d5711251c0e505
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627088"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702107"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立服務匯流排資源
 

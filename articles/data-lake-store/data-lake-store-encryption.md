@@ -4,21 +4,16 @@ description: Azure Data Lake Store 中的加密可協助您保護資料，實作
 services: data-lake-store
 documentationcenter: ''
 author: esung22
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3f79348cb5d80639d76ad1a8ba82fcfa56ebed1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43311353"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store 中的資料加密
 
@@ -62,7 +57,7 @@ Data Lake Store 提供兩種管理主要加密金鑰 (MEK) 的模式。 現在�
 |儲存資料的方式|一律在儲存之前加密。|一律在儲存之前加密。|
 |主要加密金鑰的儲存位置|Key Vault|Key Vault|
 |任何加密金鑰是否會完全儲存在 Key Vault 外部？ |否|否|
-|Key Vault 是否可以擷取 MEK？|編號 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|編號 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|
+|Key Vault 是否可以擷取 MEK？|否。 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|否。 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|
 |誰擁有 Key Vault 執行個體和 MEK？|Data Lake Store 服務|您擁有 Key Vault 執行個體，其屬於您自己的 Azure 訂用帳戶。 Key Vault 中的 MEK 可以由軟體或硬體管理。|
 |您是否可以撤銷 Data Lake Store 服務對於 MEK 的存取權？|否|是。 您可以管理 Key Vault 中的存取控制清單，並移除 Data Lake Store 服務之服務識別的存取控制項目。|
 |您是否可以永久刪除 MEK？|否|是。 如果您從 Key Vault 中刪除 MEK，任何人 (包括 Data Lake Store 服務) 都無法將 Data Lake Store 帳戶中的資料解密。 <br><br> 如果從 Key Vault 中刪除 MEK 之前，您已明確進行備份，即可還原 MEK，進而復原資料。 不過，如果從 Key Vault 中刪除 MEK 之前，您尚未進行備份，則 Data Lake Store 帳戶中的資料之後就永遠無法解密。|
@@ -112,7 +107,7 @@ Data Lake Store 提供兩種管理主要加密金鑰 (MEK) 的模式。 現在�
 
 當您使用客戶受控的金鑰時，您可以輪替 MEK。 若要了解如何使用客戶管理的金鑰來設定 Data Lake Store 帳戶，請參閱[開始使用](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 當您設定 Data Lake Store 帳戶時，您已選擇使用自己的金鑰。 建立帳戶之後，就無法變更此選項。 下列步驟假設您使用客戶管理的金鑰 (也就是，您已從 Key Vault 中選擇自己的金鑰)。
 

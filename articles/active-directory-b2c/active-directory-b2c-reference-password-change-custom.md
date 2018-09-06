@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 09/05/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 028d10b5c005be2db7cfd9c5ca5210ab55f0592a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 491b3988a6581387c71b4214907e689119fcb979
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448130"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344984"
 ---
 # <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C：在自訂原則中設定密碼變更  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 利用密碼變更功能，登入的取用者 (使用本機帳戶) 可以變更其密碼而不需要透過電子郵件驗證來證明其真實性，如[自助式密碼重設流程](active-directory-b2c-reference-sspr.md)中所述。 如果取用者進入密碼變更流程時工作階段到期，系統會提示使用者重新登入。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定為完成本機帳戶註冊/登入的 Azure AD B2C 租用戶。
 
@@ -85,8 +85,8 @@ ms.locfileid: "37448130"
             <Item Key="UserMessageIfInvalidPassword">Your password is incorrect</Item>
             <Item Key="UserMessageIfOldPasswordUsed">Looks like you used an old password</Item>
             <Item Key="ProviderName">https://sts.windows.net/</Item>
-            <Item Key="METADATA">https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration</Item>
-            <Item Key="authorization_endpoint">https://login.microsoftonline.com/{tenant}/oauth2/token</Item>
+            <Item Key="METADATA">https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/.well-known/openid-configuration</Item>
+            <Item Key="authorization_endpoint">https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/token</Item>
             <Item Key="response_types">id_token</Item>
             <Item Key="response_mode">query</Item>
             <Item Key="scope">email openid</Item>

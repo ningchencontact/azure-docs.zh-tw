@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1d5298d2b15fc94d8e7e0d22fc2f858ffc13e7c8
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e42f8f36acdaa5e84f4a3087cac7016867622c21
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932580"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338819"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教學課程：在 Azure 中使用 Key Vault 內儲存的 SSL 憑證，來保護 Windows 虛擬機器上的網頁伺服器
 
@@ -151,7 +151,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### <a name="test-the-secure-web-app"></a>測試安全的 Web 應用程式
-使用 [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress) 取得 VM 的公用 IP 位址。 下列範例會取得稍早建立之 `myPublicIP` 的 IP 位址︰
+使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 取得 VM 的公用 IP 位址。 下列範例會取得稍早建立之 `myPublicIP` 的 IP 位址︰
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"

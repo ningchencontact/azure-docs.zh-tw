@@ -3,7 +3,7 @@ title: 使用 Azure 轉送的 REST 教學課程 | Microsoft Docs
 description: 建置簡單的 Azure 服務匯流排轉送主機應用程式來公開 REST 架構介面。
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
-ms.author: sethm
-ms.openlocfilehash: 7a5a2916514a125d0b7443ced42e5ec600c68857
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.author: spelluru
+ms.openlocfilehash: fa5b4ba02eda75d16243c9aebbf38dfb30afe53d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24008031"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695403"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 轉送的 REST 教學課程
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58a0a1e8be7ad5a119204b52b5263943dcef0192
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9cd5789cd2ee6e167f3d3ed05c2fde077f7ec9a3
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441221"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344936"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C︰要求存取權杖
 
@@ -79,7 +79,7 @@ ms.locfileid: "37441221"
 > 目前，自訂網域並未和存取權杖一起受到支援。 您必須在要求 URL 中使用您的 tenantName.onmicrosoft.com 網域。
 
 ```
-https://login.microsoftonline.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 要在相同的要求中取得多個權限，您可以在單一**範圍**參數中新增多個項目，以空格分隔。 例如︰
@@ -114,7 +114,7 @@ OpenID Connect 標準會指定數個特殊的「範圍」值。 下列特殊範�
 
 在成功產生**存取\_權杖** (從 `/authorize` 或 `/token` 端點)，會出現下列宣告︰
 
-| Name | 宣告 | 說明 |
+| 名稱 | 宣告 | 說明 |
 | --- | --- | --- |
 |對象 |`aud` |權杖授與存取權的單一資源之應用程式識別碼。 |
 |影響範圍 |`scp` |授與給資源的權限。 多個授與權限將會以空格隔開。 |

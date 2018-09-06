@@ -3,19 +3,19 @@ title: 在 Azure SQL 資料倉儲中使用 T-SQL 檢視 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中使用 T-SQL 檢視開發解決方案的秘訣。
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 28280a067e7008c20361e0a0041c81ba84e7f74c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 796a549c3a01c235422667dc63b729244b1917bf
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525990"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306498"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的檢視
 在 Azure SQL 資料倉儲中使用 T-SQL 檢視開發解決方案的秘訣。 

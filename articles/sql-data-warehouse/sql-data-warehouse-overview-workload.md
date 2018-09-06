@@ -3,19 +3,19 @@ title: 深入了解 Azure SQL 資料倉儲作業 |Microsoft Docs
 description: 'SQL 資料倉儲的彈性可讓您以滑動的方式調整資料倉儲單位 (DWU)，來增加、縮減或暫停計算能力。 本文說明資料倉儲指標以及它們與 DWU 之間的關係。 '
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 21e1f687e152cf91bd32389e0d5aa0dabd463b2f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c26dfc6f3fd8be28e56c18f0af379130c31aa859
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794604"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302161"
 ---
 # <a name="data-warehouse-workload"></a>資料倉儲工作負載
 資料倉儲工作負載是指所有針對資料倉儲所發生的作業。 資料倉儲工作負載包含將資料載入倉儲、對資料倉儲執行分析和報告、管理資料倉儲中的資料，以及從資料倉儲匯出資料的整個程序。 這些元件的廣度與深度多半與資料倉儲的成熟度相當。

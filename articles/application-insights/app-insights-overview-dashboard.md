@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970967"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344625"
 ---
 # <a name="application-insights-overview-dashboard"></a>Azure Application Insights 概觀儀表板
 
@@ -50,7 +50,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 如果這是您第一次使用儀表板，便會啟動預設檢視：
 
-![儀表板檢視](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
+![儀表板檢視](.\media\app-insights-overview-dashboard\0001-dashboard.png)
 
 如果您喜歡預設檢視，即可保持原狀繼續使用。 您也可以在儀表板上新增和刪除項目，盡可能滿足小組的需求。
 

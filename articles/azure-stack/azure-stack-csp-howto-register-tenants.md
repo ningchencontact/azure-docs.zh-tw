@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089905"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382683"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>將用於使用量與帳單的租用戶新增至 Azure Stack
 
@@ -91,5 +91,5 @@ CSP 通常會為其 Azure Stack 部署上的多位終端客戶 (租用戶) 提�
 ## <a name="next-steps"></a>後續步驟
 
  - 如果錯誤訊息在您的註冊過程中觸發，且您要檢閱這些錯誤訊息，請參閱[租用戶註冊錯誤訊息](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes)。
- - 若要深入了解如何取出 Azure Stack 的資源使用量資訊，請參閱 [Azure Stack 中的使用量與帳單](/azure-stack-billing-and-chargeback.md)。
+ - 若要深入了解如何取出 Azure Stack 的資源使用量資訊，請參閱 [Azure Stack 中的使用量與帳單](azure-stack-billing-and-chargeback.md)。
  - 若要檢閱終端客戶如何將身為 CSP 的您新增作為其 Azure Stack (租用戶) 的管理員，請參閱[讓雲端服務提供者能夠管理您的 Azure Stack 訂用帳戶](user\azure-stack-csp-enable-billing-usage-tracking.md)。

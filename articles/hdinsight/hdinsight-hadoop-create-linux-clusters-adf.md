@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: b8a177ad2bbd463d2dcb94a01ff2a29a95d86693
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 567bac8a12a841eed2df1467b94a2a91c86ff7b4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105278"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666146"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,9 +37,9 @@ ms.locfileid: "43105278"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure PowerShell。 如需指示，請參閱 [安裝並設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)。
+- Azure PowerShell。 如需指示，請參閱 [安裝並設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)。
 
-* Azure Active Directory 服務主體。 當您建立服務主體之後，請務必使用連結文章中的指示來擷取**應用程式識別碼**和**驗證金鑰**。 在本教學課程後續的內容中，您會需要這些值。 此外，請確定服務主體是訂用帳戶的「參與者」角色成員，或建立叢集所在的資源群組成員。 如需擷取所需的值並為角色指派權限的指示，請參閱[建立 Azure Active Directory 服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)。
+- Azure Active Directory 服務主體。 當您建立服務主體之後，請務必使用連結文章中的指示來擷取**應用程式識別碼**和**驗證金鑰**。 在本教學課程後續的內容中，您會需要這些值。 此外，請確定服務主體是訂用帳戶的「參與者」角色成員，或建立叢集所在的資源群組成員。 如需擷取所需的值並為角色指派權限的指示，請參閱[建立 Azure Active Directory 服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)。
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
@@ -148,18 +148,18 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 在 Azure Data Factory 中，資料處理站可以有一或多個資料管線。 資料管線具有一或多個活動。 活動可分為兩種：
 
-* [資料移動活動](../data-factory/copy-activity-overview.md)：您可以使用資料移動活動，將資料從來源資料存放區移到目的地資料存放區。
-* [資料轉換活動](../data-factory/transform-data.md)。 使用資料轉換活動以處理/轉換資料。 HDInsight Hive 活動是 Data Factory 所支援的其中一個轉換活動。 您在本教學課程中使用 Hive 轉換活動。
+- [資料移動活動](../data-factory/copy-activity-overview.md)：您可以使用資料移動活動，將資料從來源資料存放區移到目的地資料存放區。
+- [資料轉換活動](../data-factory/transform-data.md)。 使用資料轉換活動以處理/轉換資料。 HDInsight Hive 活動是 Data Factory 所支援的其中一個轉換活動。 您在本教學課程中使用 Hive 轉換活動。
 
 在本文中，您會設定 Hive 活動，以建立隨選 HDInsight Hadoop 叢集。 當活動執行以處理資料時，即會發生下列情況：
 
 1. 系統會適時自動建立 HDInsight Hadoop 叢集來處理配量。 
 
 1. 會在叢集上執行 HiveQL 指令碼以處理輸入資料。 在本教學課程中，與 Hive 活動相關聯的 HiveQL 指令碼會執行下列動作︰
-
-    * 使用現有的資料表 (*hivesampletable*) 來建立另一個資料表 **HiveSampleOut**。
-    * 在 **HiveSampleOut** 中只填入原始資料表 *hivesampletable* 的特定資料行。
-
+    
+    - 使用現有的資料表 (*hivesampletable*) 來建立另一個資料表 **HiveSampleOut**。
+    - 在 **HiveSampleOut** 中只填入原始資料表 *hivesampletable* 的特定資料行。
+    
 1. 處理完成後，會刪除 HDInsight Hadoop 叢集，且叢集在設定的一段時間會處於閒置狀態 (timeToLive 設定)。 如果下一個資料配量可用於在此 timeToLive 閒置時間中進行處理，相同的叢集會用來處理配量。  
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
@@ -265,16 +265,16 @@ Write-host "`nScript completed" -ForegroundColor Green
     ![針對管線提供 HDInsight 叢集詳細資料](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "針對管線提供 HDInsight 叢集詳細資料")
 
 1. 選取 [指令碼] 索引標籤並完成下列步驟：
-
-    a. 針對 [指令碼連結服務]，選取 [HDIStorageLinkedService]。 這個值是您稍早建立的儲存體連結服務。
-
-    b. 針對 [檔案路徑]，選取 [瀏覽儲存體]，然後瀏覽至範例 Hive 指令碼所在的位置。 如果您稍早執行過 PowerShell 指令碼，則此位置應該位於 `adfgetstarted/hivescripts/hivescript.hql`。
-
-    ![針對管線提供 Hive 指令碼詳細資料](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "針對管線提供 Hive 指令碼詳細資料")
-
-    c. 在 [進階] > [參數] 下方，選取 [從指令碼自動填滿]。 此選項會在 Hive 指令碼中尋找在執行階段需要值的任何參數。 您使用的指令碼 (**hivescript.hql**) 具有**輸出**參數。 使用 `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 格式來提供值，以指向您 Azure 儲存體上現有的資料夾。 路徑區分大小寫。 這是將儲存指令碼輸出的路徑。
-
-    ![針對 Hive 指令碼提供參數](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "針對 Hive 指令碼提供參數")
+    
+    1. 針對 [指令碼連結服務]，選取 [HDIStorageLinkedService]。 這個值是您稍早建立的儲存體連結服務。
+    
+    1. 針對 [檔案路徑]，選取 [瀏覽儲存體]，然後瀏覽至範例 Hive 指令碼所在的位置。 如果您稍早執行過 PowerShell 指令碼，則此位置應該位於 `adfgetstarted/hivescripts/hivescript.hql`。
+    
+        ![針對管線提供 Hive 指令碼詳細資料](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "針對管線提供 Hive 指令碼詳細資料")
+    
+    1. 在 [進階] > [參數] 下方，選取 [從指令碼自動填滿]。 此選項會在 Hive 指令碼中尋找在執行階段需要值的任何參數。 您使用的指令碼 (**hivescript.hql**) 具有**輸出**參數。 使用 `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 格式來提供值，以指向您 Azure 儲存體上現有的資料夾。 路徑區分大小寫。 這是將儲存指令碼輸出的路徑。
+    
+        ![針對 Hive 指令碼提供參數](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "針對 Hive 指令碼提供參數")
 
 1. 選取 [驗證] 來驗證管線。 選取 **>>** (右箭頭) 按鈕以關閉驗證視窗。
 

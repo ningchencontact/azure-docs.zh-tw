@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: e0c7ed22762ef19c6e68ad69d0cabcfeb8007251
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 19743dcd2866b8fc7b6ad1fdf387b134f7b3ca50
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031034"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783071"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen1 處理巨量資料需求
 
@@ -40,7 +40,7 @@ ms.locfileid: "37031034"
 
 | 資料來源 | 內嵌方式 |
 | --- | --- |
-| 本機電腦 |<ul> <li>[Azure 入口網站](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure 跨平台 CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[使用適用於 Visual Studio 的 Data Lake Tools](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| 本機電腦 |<ul> <li>[Azure 入口網站](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure 跨平台 CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[使用適用於 Visual Studio 的 Data Lake Tools](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure 儲存體 Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 叢集上執行的 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>串流資料
