@@ -3,19 +3,19 @@ title: 在 SQL 資料倉儲中使用使用者定義結構描述 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中使用 T-SQL 使用者定義結構描述開發解決方案的秘訣。
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c18e6d34416390ae7e93b69b28d508a540f7b1ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d46f41e75538fae230219068d3530b7181564ac0
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522702"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302636"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用使用者定義結構描述
 在 Azure SQL 資料倉儲中使用 T-SQL 使用者定義結構描述開發解決方案的秘訣。

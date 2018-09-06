@@ -3,25 +3,27 @@ title: 升級至最新一代 Azure SQL 資料倉儲 | Microsoft Docs
 description: 將「Azure SQL 資料倉儲」升級至最新一代 Azure 硬體和儲存體架構。
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746957"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306975"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>升級 SQL 資料倉儲可將效能發揮到極限
 將「Azure SQL 資料倉儲」升級至最新一代 Azure 硬體和儲存體架構。
 
 ## <a name="why-upgrade"></a>為何要升級？
 您現在可以在 Azure 入口網站中順暢地升級至 SQL 資料倉儲計算最佳化 Gen2 層。 如果您有計算最佳化 Gen1 層的資料倉儲，則建議您升級。 透過升級，您可以使用最新一代的 Azure 硬體和增強的儲存體架構。 您能夠利用更快的效能、更高的延展性，且無限制的單欄式儲存體。 
+
+> [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>適用於
 這項升級適用於計算最佳化 Gen1 層資料倉儲。

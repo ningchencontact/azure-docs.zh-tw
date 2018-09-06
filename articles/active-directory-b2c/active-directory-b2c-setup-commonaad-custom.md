@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/14/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2a8a23245a17c9a80c70860588a8312dbbb5e926
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 68eab85c7f67ad3af18c6066c29e1250e1be3d23
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446048"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344401"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則允許使用者登入多租用戶 Azure AD 識別提供者
 
@@ -26,7 +26,7 @@ ms.locfileid: "37446048"
 >[!NOTE]
 > 我們在下列指示中使用 "contoso.com" 作為組織的 Azure AD 租用戶，以及使用 "fabrikamb2c.onmicrosoft.com" 作為 Azure AD B2C 租用戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
@@ -54,7 +54,7 @@ ms.locfileid: "37446048"
     >在**登入 URL** 中，「yourtenant」的值必須全部小寫。
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. 儲存應用程式識別碼。

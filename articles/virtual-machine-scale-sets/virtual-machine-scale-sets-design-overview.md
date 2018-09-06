@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1716ebf1d3490511d7102c8c756c78c0f0c55291
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652394"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670071"
 ---
 # <a name="design-considerations-for-scale-sets"></a>擴展集的設計考量
 本文會討論虛擬機器擴展集的設計考量。 如需虛擬機器擴展集的相關資訊，請參閱 [虛擬機器擴展集概觀](virtual-machine-scale-sets-overview.md)。
@@ -33,8 +33,8 @@ ms.locfileid: "34652394"
 
 - 在指定擴展集設定後，您可以更新「容量」屬性以同時部署更多 VM。 比起撰寫指令碼，此程序更適合用來協調同時部署許多個別 VM 的作業。
 - 您可以[使用 Azure 自動調整規模自動調整擴展集](./virtual-machine-scale-sets-autoscale-overview.md)，但無法針對個別 VM 執行。
-- 您可以[重新安裝擴展集 VM 的映像](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm)，但[無法針對個別 VM](https://docs.microsoft.com/rest/api/compute/virtualmachines) 執行。
-- 您可以[過度佈建](./virtual-machine-scale-sets-design-overview.md)擴展集 VM，以提高可靠性並加快部署速度。 除非您撰寫自訂程式碼來執行這個動作，否則無法過度佈建個別 VM。
+- 您可以[重新安裝擴展集 VM 的映像](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage)，但[無法針對個別 VM](https://docs.microsoft.com/rest/api/compute/virtualmachines) 執行。
+- 您可以[過度佈建](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning)擴展集 VM，以提高可靠性並加快部署速度。 除非您撰寫自訂程式碼來執行這個動作，否則無法過度佈建個別 VM。
 - 您可以指定[升級原則](./virtual-machine-scale-sets-upgrade-scale-set.md)，以便輕鬆地在擴展集的 VM 之間進行升級。 使用個別的 VM，您必須自行協調更新。
 
 ### <a name="vm-specific-features"></a>VM 特定的功能

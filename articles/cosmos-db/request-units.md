@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053322"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286760"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
 
@@ -40,12 +40,6 @@ Azure Cosmos DB 的貨幣是「要求單位 (RU)」。 使用要求單位，就�
 Azure Cosmos DB 可保留資源來滿足應用程式的輸送量需求，以提供快速且可預測的效能。 應用程式負載和存取模式會隨著時間變更。 Azure Cosmos DB 可協助您輕鬆地增加或減少可供應用程式使用的保留輸送量。
 
 有了 Azure Cosmos DB，就可根據每秒處理的要求單位來指定保留的輸送量。 您可以將要求單位視為輸送量貨幣。 您會以每秒為基礎，保留一些保證可供應用程式使用的要求單位。 Azure Cosmos DB 中的每個作業 (包括寫入文件、執行查詢，以及更新文件) 都會耗用 CPU、記憶體和 IOPS。 也就是說，每個作業都會產生要求費用，這會以要求單位來表示。 當您了解影響要求單位費用的因素，以及應用程式的輸送量需求時，就可儘量以最符合經濟效益的方式來執行應用程式。 
-
-為了協助您開始使用，Azure Cosmos DB 方案經理 Andrew Liu 會在下列影片中探討要求單位 (影片的要求單位範例中有一點錯字。 使用包含 100,000 筆記錄的 1 KB 資料時，儲存體總計為 100 MB，而非 100 GB)： <br /><br />
-
-> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
-> 
-> 
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>輸送量隔離是分散在世界各地的資料庫
 

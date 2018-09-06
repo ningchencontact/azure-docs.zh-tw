@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f078cad95d39c18a8391bc32100d08accc53c37c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215198"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665717"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集
 此常見問題集可回答為 Azure Web Apps 使用及購買 ClearDB MySQL 資料庫的常見問題。
@@ -41,7 +41,7 @@ ClearDB 是 MySQL 代管服務，會為您管理 MySQL 基礎結構。 在 Azure
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>要取得 Azure Marketplace 中的 Web 應用程式與 MySQL 範本需要使用信用卡嗎？
 這取決於您使用的訂用帳戶類型。 以下是一些常用的訂用帳戶類型：
 
-* [預付型](/offers/ms-azr-0003p/)：需要信用卡，購買付費的 MySQL 資料庫時，將向您的信用卡收費。
+* [預付型](https://azure.microsoft.com/offers/ms-azr-0003p/)：需要信用卡，購買付費的 MySQL 資料庫時，將向您的信用卡收費。
 * [免費試用](https://azure.microsoft.com/pricing/free-trial/)：包括可用於 Microsoft Azure 服務的信用額度，但不允許購買第三方資源。 若要購買第三方服務或付費的 MySQL 資料庫，您需要使用啟用信用卡的訂用帳戶。 針對 Web Apps，您可以建立免費的 ClearDB MySQL 資料庫。
 * [MSDN 訂用帳戶](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 和 **MSDN 開發人員測試預付型**：類似於免費試用，MSDN 訂用帳戶要求您使用信用卡向 ClearDB 購買付費的 MySQL 解決方案。
 * [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)：我們會每季以單一彙總的發票就 EA 向 EA 客戶的所有 Azure Marketplace (第三方) 購買項目收費。 對於任何 Marketplace 購買項目，將向您就財務承諾以外收費。 請注意，目前 Azure 市集無法供在亞塞拜然、克羅埃西亞、挪威和波多黎各註冊的客戶使用。 
@@ -109,5 +109,5 @@ Azure Marketplace 無法供在亞塞拜然、克羅埃西亞、挪威或波多�
 如有任何關於自己 EA 註冊的計費問題，請連絡 [企業版客戶支援](http://aka.ms/AzureEntSupport) 。 EA 入口網站支援小組會回答您的問題或協助解決您的問題。
 
 ## <a name="more-information"></a>詳細資訊
-[Azure Marketplace 常見問題集](/marketplace/faq/)
+[Azure Marketplace 常見問題集](https://azure.microsoft.com/marketplace/faq/)
 

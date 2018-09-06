@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: b68550bce1f4e3fbe3845c21598720083c8e384c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 43edbc653ddbd55aab5e722071de1f2cf4bcd1c4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295171"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344511"
 ---
 # <a name="implement-the-device-model-behavior"></a>實作裝置模型行為
 
@@ -41,6 +41,6 @@ ms.locfileid: "39295171"
 > * 定義模擬裝置如何從所連線的 IoT 中樞回應方法呼叫
 > * 為指令碼偵錯
 
-現在您已經學會如何指定模擬裝置的行為，建議的下一個步驟是了解如何[建立模擬的裝置](iot-accelerators-remote-monitoring-test.md)。
+現在您已經學會如何指定模擬裝置的行為，建議的下一個步驟是了解如何[建立模擬的裝置](iot-accelerators-device-simulation-create-simulated-device.md)。
 
 如需更多有關裝置模擬解決方案的開發人員資訊，請參閱[開發人員參考指南](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide)。

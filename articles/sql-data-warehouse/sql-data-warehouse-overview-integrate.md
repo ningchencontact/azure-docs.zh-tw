@@ -3,19 +3,19 @@ title: 使用 SQL 資料倉儲建置整合式解決方案 | Microsoft Docs
 description: '工具以及提供可與 SQL 資料倉儲整合之解決方案的合作夥伴。 '
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: f198a99fc03a079be77c7f8167580bb7b758579e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 221d5d05906e7e162013c0d4cdddc01a95f4024c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599827"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302697"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>將其他服務與 SQL 資料倉儲整合
 除了其核心功能，SQL 資料倉儲可讓使用者整合許多其他 Azure 中的服務。 其中一些服務包括：

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3ee1f394536061cecaa5d775650149b30098560e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600216"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382040"
 ---
 # <a name="add-custom-html-to-the-map"></a>在地圖上新增自訂 HTML
 
@@ -29,13 +29,13 @@ ms.locfileid: "34600216"
 
 程式碼的第二個區塊會透過影像建立 HTML 元素。
 
-程式碼的最後一個區塊會使用地圖類別的 [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml) 函式，在地圖的指定位置新增影像。
+程式碼的最後一個區塊會使用地圖類別的 [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml) 函式，在地圖的指定位置新增影像。
 
 ## <a name="next-steps"></a>後續步驟
 
 深入了解本文使用的類別和方法： 
-* [地圖](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml)
+* [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
     
 如需更多可新增至地圖的程式碼範例，請參閱下列文章： 
 * [顯示搜尋結果](./map-search-location.md)

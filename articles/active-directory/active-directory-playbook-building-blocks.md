@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 4618c8a0298afdac28e7511e9521cf1e26238734
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189033"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340034"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -560,7 +560,7 @@ ms.locfileid: "43189033"
 | 步驟 | 資源 |
 | --- | --- |
 | 在 ADFS 上啟用「憑證驗證」 | [設定驗證原則：在 Windows Server 2012 R2 全域設定主要驗證](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| 選擇性：在 Azure AD 中為 Exchange Active Sync 用戶端啟用「憑證驗證」 | [開始在 Azure Active Directory 中使用憑證式驗證](active-directory-certificate-based-authentication-get-started.md) |
+| 選擇性：在 Azure AD 中為 Exchange Active Sync 用戶端啟用「憑證驗證」 | [開始在 Azure Active Directory 中使用憑證式驗證](./authentication/active-directory-certificate-based-authentication-get-started.md) |
 | 瀏覽至「存取面板」並使用「使用者憑證」進行驗證 | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>考量

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5c05f2617025d5cb4f1328f04c8d71049e1efcc7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a983c7307308534140ab8999593ac4c8c6992a42
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284770"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338501"
 ---
 # <a name="implement-the-device-model-behavior"></a>實作裝置模型行為
 
@@ -41,7 +41,7 @@ ms.locfileid: "39284770"
 > * 定義模擬裝置從遠端監視解決方案回應方法呼叫的方式
 > * 為指令碼偵錯
 
-現在您已經學會如何指定模擬裝置的行為，建議的下一個步驟是了解如何[建立模擬的裝置](iot-accelerators-remote-monitoring-test.md)。
+現在您已經學會如何指定模擬裝置的行為，建議的下一個步驟是了解如何[建立模擬的裝置](iot-accelerators-remote-monitoring-create-simulated-device.md)。
 
 如需關於遠端監視解決方案的開發人員詳細資訊，請參閱：
 

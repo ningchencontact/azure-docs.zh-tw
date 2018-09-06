@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f2e1a59584507b52d0a834af1869e3e9f2db5f07
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b1beb0e9a5a0435bdf298eddbefc230b2f95ed0a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127359"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698497"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>什麼是 Azure 資料箱磁碟？ (預覽)
 
@@ -106,14 +106,14 @@ Microsoft Azure 資料箱磁碟解決方案可讓您以快速、實惠和可靠�
 
 |Azure 區域  |Azure 區域  |
 |---------|---------|
-|美國中西部     |美國東部        |        
-|美國西部 2     |美國東部 2          |     
+|美國中西部     |加拿大中部       |        
+|美國西部 2     |加拿大東部         |     
 |美國西部     | 西歐        |      
 |美國中南部   |北歐     |         
-|美國中部     |加拿大東部|
-|美國中北部  |加拿大中部    |
-
-
+|美國中部     |澳洲東部|
+|美國中北部  |澳大利亞東南部   |
+|美國東部      |澳大利亞中部 |
+|美國東部 2     |澳大利亞中部 2|
 
 
 ## <a name="pricing"></a>價格

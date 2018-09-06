@@ -2,20 +2,20 @@
 title: 快速入門 - 對 Azure 服務匯流排傳送和接收訊息 | Microsoft Docs
 description: 在本快速入門中，您將了解如何使用 PowerShell 和 .NET Standard 用戶端來傳送和接收服務匯流排訊息
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: b22bf2acc83f46eda1aa74981377e66261d13394
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 5652069e7a81f54936a41ddb563b49fe6131e7e0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660506"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696831"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>快速入門：使用 Azure PowerShell 和 .NET 傳送和接收訊息
 
@@ -27,7 +27,7 @@ Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您已安裝︰
 

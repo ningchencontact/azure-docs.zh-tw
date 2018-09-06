@@ -1,18 +1,20 @@
 ---
 title: 使用 Terraform 來建立 Azure 虛擬機器擴展集
 description: 關於使用 Terraform 設定以虛擬網路和受控已連結磁碟完成的 Azure 虛擬機器擴展集，並設定版本的教學課程
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, 虛擬機器, Azure, 擴展集, 網路, 儲存體, 模組
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/04/2018
-ms.topic: article
-ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971828"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666190"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>使用 Terraform 來建立 Azure 虛擬機器擴展集
 
@@ -30,7 +32,7 @@ ms.locfileid: "38971828"
 > [!NOTE]
 > 本文中使用的最新版本 Terraform 組態檔位於 [Github 上很棒的 Terraform 存放庫](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss)中。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 

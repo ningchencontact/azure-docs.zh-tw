@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446736"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344557"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C：開始使用自訂原則
 
@@ -23,7 +23,7 @@ ms.locfileid: "37446736"
 
 完成本文中的步驟之後，您的自訂原則將支援透過電子郵件地址和密碼執行「本機帳戶」註冊或登入。 您也會準備環境以新增識別提供者 (例如 Facebook 或 Azure Active Directory)。 我們建議您先完成這些步驟，然後再了解 Azure Active Directory (Azure AD) B2C 識別體驗架構的其他用途。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 繼續之前，請確定具有 Azure AD B2C 租用戶。此租用戶是存放您的所有使用者、應用程式、原則等的容器。 如果您還沒有租用戶，則必須[建立 Azure AD B2C 租用戶](active-directory-b2c-get-started.md)。 我們強烈建議所有開發人員完成 Azure AD B2C 內建原則的逐步解說，並使用內建原則來設定他們的應用程式，然後再繼續。 當您對原則名稱進行些微變更以叫用自訂原則之後，應用程式將會使用這兩種類型的原則。
 
@@ -77,7 +77,7 @@ Azure AD B2C 會要求您註冊兩個額外的應用程式，由引擎用來註�
 4. 選取 [新增應用程式註冊]。
    * 針對 [名稱] 使用 `IdentityExperienceFramework`。
    * 針對 [應用程式類型] 使用 [Web 應用程式/API]。
-   * 針對 [登入 URL] 使用 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`，其中 `yourtenant` 是您的 Azure AD B2C 租用戶網域名稱。
+   * 針對 [登入 URL] 使用 `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`，其中 `yourtenant` 是您的 Azure AD B2C 租用戶網域名稱。
 5. 選取 [建立] 。
 6. 建立之後，選取新建立的應用程式 **IdentityExperienceFramework**。<br>
    * 選取 [屬性] 。<br>
@@ -89,7 +89,7 @@ Azure AD B2C 會要求您註冊兩個額外的應用程式，由引擎用來註�
 1. 選取 [新增應用程式註冊]。
    * 針對 [名稱] 使用 `ProxyIdentityExperienceFramework`。
    * 針對 [應用程式類型] 使用 [原生]。
-   * 針對 [重新導向 URI] 使用 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`，其中 `yourtenant` 是您的 Azure AD B2C 租用戶。
+   * 針對 [重新導向 URI] 使用 `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`，其中 `yourtenant` 是您的 Azure AD B2C 租用戶。
 1. 選取 [建立] 。
 1. 建立之後，選取應用程式 **ProxyIdentityExperienceFramework**。<br>
    * 選取 [屬性] 。 <br>

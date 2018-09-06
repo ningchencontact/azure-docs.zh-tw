@@ -3,19 +3,19 @@ title: 將您的 SQL 程式碼移轉至 SQL 資料倉儲 | Microsoft Docs
 description: 將 SQL 程式碼移轉至 Azure SQL 資料倉儲來開發解決方案的秘訣。
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: b17e8e306c01bef4c58658b35f3a67d0e721633c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f16f9448da2dab9670908f74935bb5fb31a0547
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527448"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301366"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>將您的 SQL 程式碼移轉至 SQL 資料倉儲
 本文說明將您的程式碼從另一個資料庫移轉到 SQL 資料倉儲時，可能需要進行的程式碼變更。 某些 SQL 資料倉儲功能設計為以分散式方式運作，可以大幅改善效能。 不過，為了維持效能和延展性，某些功能也無法使用。

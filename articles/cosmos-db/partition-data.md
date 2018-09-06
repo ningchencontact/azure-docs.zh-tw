@@ -10,21 +10,16 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9c1379cd457dcba37246985058b01e85633f968
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 3cc2794105eff196c3e1db02d664a89c9b37e318
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037996"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286980"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中進行資料分割和調整
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是全域分散的多重模型資料庫服務，其設計目的是要協助您達成快速且可預測的效能。 它會順暢地隨著應用程式調整規模。 本文概述 Azure Cosmos DB 中所有資料模型的資料分割運作方式的概觀， 它也描述可如何設定 Azure Cosmos DB 容器以有效地調整應用程式規模。
-
-下列影片將討論資料分割和分割區索引鍵：
-
-> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
-> 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料分割
 Azure Cosmos DB 提供存放資料的容器，稱為「集合」(適用於文件)、「圖形」或「資料表」。 容器是邏輯資源，可以跨一或多個實體分割或伺服器。 分割區數目由 Azure Cosmos DB 根據為容器或一組容器佈建的儲存體大小和輸送量所決定。 

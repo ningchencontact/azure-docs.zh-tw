@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 6ec0feeac9364b416709b45af09c79773a87d0e1
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f2f2257d3ddc22a80600882d2078210ac27cb15d
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42024019"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43284917"
 ---
 # <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB：Apache Cassandra API 簡介
 
@@ -34,10 +34,7 @@ Azure Cosmos DB 提供的 Cassandra API (預覽) 適用於針對 Apache Cassandr
 
 ![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-透過使用 Cassandra 查詢語言型工具 (例如 CQLSH)，以及您熟悉的 Cassandra 用戶端驅動程式，Cassandra API 可讓您與儲存在 Azure Cosmos DB 中的資料互動。 透過此 Microsoft Mechanics 影片和首席工程經理 Kirill Gavrylyuk 一起深入了解。
-
-> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
->
+透過使用 Cassandra 查詢語言型工具 (例如 CQLSH)，以及您熟悉的 Cassandra 用戶端驅動程式，Cassandra API 可讓您與儲存在 Azure Cosmos DB 中的資料互動。 
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>使用適用於 Azure Cosmos DB 的 Apache Cassandra API 有什麼優點？
 

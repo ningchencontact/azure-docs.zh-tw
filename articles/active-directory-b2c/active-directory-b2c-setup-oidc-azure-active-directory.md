@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 70d3a19b715052fe658102929a1c29cf3db2d595
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e09ad89f3225af9de40781fafc022c8326f80619
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443712"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338633"
 ---
 # <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C：透過內建原則使用 Azure AD 帳戶登入
 
@@ -37,13 +37,13 @@ ms.locfileid: "37443712"
 1. 選取 [新增應用程式註冊]。
 1. 輸入應用程式的名稱 (例如，`Azure AD B2C App`)。
 1. 選取 [Web 應用程式/API] 作為應用程式類型。
-1. 針對 [登入 URL]，輸入下列 URL，其中 `yourtenant` 由 Azure AD B2C 租用戶的名稱 (`fabrikamb2c.onmicrosoft.com`) 取代：
+1. 針對 [登入 URL]，輸入下列 URL，其中 `yourtenant` 由 Azure AD B2C 租用戶的名稱 (`fabrikamb2c`) 取代：
 
     >[!NOTE]
     >在**登入 URL** 中，「yourtenant」的值必須全部小寫。
 
     ```Console
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. 儲存應用程式識別碼，在下一節中會將它當作用戶端識別碼使用。

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 18f921fb718aeb7ae4add2836fbb6ffabd66668f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a37a37dbed3b5ef9733f1105444529b4d255bcf
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445053"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336776"
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C︰用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具
 本文可搭配 Azure Active Directory (Azure AD) B2C 中的 [主要 UI 自訂文章](active-directory-b2c-reference-ui-customization.md) 一起閱讀。 以下步驟說明如何使用我們提供的範例 HTML 和 CSS 內容，來練習頁面 UI 自訂功能。
@@ -74,7 +74,7 @@ ms.locfileid: "37445053"
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-此儲存機制包含 `sample_templates\wingtip` 目錄，其中含有範例 HTML、CSS 和影像。 為了讓這些範本參考您自己的 Azure Blob 儲存體帳戶，您必須編輯 HTML 檔案。 開啟 `unified.html` 和 `selfasserted.html`，並以您自己容器的 URL (您在上述步驟中記下的 URL) 來取代任何出現的 `https://localhost`。 您必須使用 HTML 檔案的絕對路徑，因為在此案例中，HTML 將是由 Azure AD 在 `https://login.microsoftonline.com`網域下提供。
+此儲存機制包含 `sample_templates\wingtip` 目錄，其中含有範例 HTML、CSS 和影像。 為了讓這些範本參考您自己的 Azure Blob 儲存體帳戶，您必須編輯 HTML 檔案。 開啟 `unified.html` 和 `selfasserted.html`，並以您自己容器的 URL (您在上述步驟中記下的 URL) 來取代任何出現的 `https://localhost`。 您必須使用 HTML 檔案的絕對路徑，因為在此案例中，HTML 將是由 Azure AD 在 `tenantname.b2clogin.com`網域下提供。
 
 ### <a name="upload-the-sample-files"></a>上傳範例檔案
 在相同的儲存機制中，解壓縮 `B2CAzureStorageClient.zip` 並執行其中的 `B2CAzureStorageClient.exe` 檔案。 這個程式只會將您指定目錄中的所有檔案上傳至您的儲存體帳戶，並允許 CORS 存取這些檔案。 如果您遵循上述步驟操作，HTML 和 CSS 檔案現在會指向您的儲存體帳戶。 請注意您的儲存體帳戶名稱是 `blob.core.windows.net` 前面的部分，例如 `contoso`。 您可以試著在瀏覽器上存取 `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` ，確認該內容已正確地上傳。 此外，使用 [http://test-cors.org/](http://test-cors.org/) 來確定該內容現在已啟用 CORS。 (在結果中尋找 "XHR status: 200")。

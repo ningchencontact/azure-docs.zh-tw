@@ -9,12 +9,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 28a73918b50d7b13248fe5b6a17f2c95287a1ba4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866979"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666283"
 ---
 # <a name="project-answer-search-v7-reference"></a>專案答案搜尋 v7 參考
 
@@ -82,10 +82,10 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 要求可能含有下列查詢參數。 請參閱必要參數的必要資料行。 您必須對查詢參數進行 URL 編碼。  
   
   
-|Name|值|類型|必要|  
+|名稱|值|類型|必要|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱[市場代碼](#market-codes)。<br /><br /> **注意：** URL 預覽 API 目前僅支援 en-us 市場和語言。<br /><br />|字串|yes|  
-|<a name="query" />q|要預覽的 URL|字串|yes|  
+|<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱[市場代碼](#market-codes)。<br /><br /> **注意：** URL 預覽 API 目前僅支援 en-us 市場和語言。<br /><br />|字串|是|  
+|<a name="query" />q|要預覽的 URL|字串|是|  
 |<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值為 JSON。 如需回應所含 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />  如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](http://json-ld.org/)。|字串|否|  
 |<a name="safesearch" />safeSearch|用來篩選成人內容的篩選條件。 以下是可能的篩選值 (不區分大小寫)。<br /><ul><li>關閉 &mdash; 傳回含有成人文字、影像或視訊的網頁。<br /><br/></li><li>中度 &mdash; 傳回含有成人文字、但不含成人影像或視訊的網頁。<br /><br/></li><li>嚴格 &mdash; 不傳回含有成人文字、影像或視訊的網頁。</li></ul><br /> 預設值為「中度」。<br /><br /> **注意：** 如果要求來自於 Bing 的成人內容原則必須將 `safeSearch` 設為「嚴格」的市場，Bing 將會忽略 `safeSearch` 值並使用「嚴格」。<br/><br/>**注意：** 如果您使用 `site:` 查詢運算子，則無論 `safeSearch` 查詢參數設定為何，回應都有可能包含成人內容。 只有在您了解網站上的內容，而且您的案例支援成人內容的可能性時，才可使用 `site:`。 |字串|否|  
 |<a name="setlang" />setLang|用於使用者介面字串的語言。 請使用 ISO 639-1 2 字母語言代碼指定語言。 例如，英文的語言代碼是 EN。 預設值為 EN (英文)。<br /><br /> 語言雖然是選擇性的，但您應一律加以指定。 一般而言，除非使用者想要以不同的語言顯示使用者介面字串，否則您都會將 `setLang` 設定為 `mkt` 所指定的相同語言。<br /><br /> 此參數和 [Accept-Language](#acceptlanguage) 標頭彼此互斥 &mdash; 請勿同時指定。<br /><br /> 使用者介面字串是在使用者介面中作為標籤的字串。 JSON 回應物件中有幾個使用者介面字串。 同樣地，回應物件中 Bing.com 屬性的任何連結都會套用指定的語言。|字串|否| 
@@ -118,17 +118,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="errorresponse"></a>ErrorResponse  
 要求失敗時，回應包含的最上層物件。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |_type|類型提示。|字串|  
-|<a name="errors" />errors|說明要求失敗原因的錯誤清單。|[Error](#error)[]|  
+|<a name="errors" />errors|說明要求失敗原因的錯誤清單。|[錯誤](#error)|  
 
   
   
 ### <a name="license"></a>授權  
 定義可據以使用文字或相片的授權。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |name|授權的名稱。|字串|  
 |url|可讓使用者取得更多授權相關資訊的網站 URL。<br /><br /> 請使用名稱和 URL 建立超連結。|字串|  
@@ -137,7 +137,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="licenseattribution"></a>LicenseAttribution  
 定義授權屬性的合約規則。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 LicenseAttribution。|字串|  
 |授權|可據以使用內容的授權。|[授權](#license)|  
@@ -149,7 +149,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="link"></a>連結  
 定義超連結的元件。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |_type|類型提示。|字串|  
 |text|顯示文字。|字串|  
@@ -159,7 +159,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="linkattribution"></a>LinkAttribution  
 定義連結屬性的合約規則。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 LinkAttribution。|字串|  
 |mustBeCloseToContent|一個布林值，用以決定規則的內容是否必須放置在套用規則的欄位附近。 若為 **true**，則必須將內容放置在附近。 若為 **false**，或此欄位不存在，則可由呼叫者自行決定如何放置內容。|BOOLEAN|  
@@ -171,7 +171,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="mediaattribution"></a>MediaAttribution  
 定義媒體屬性的合約規則。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 MediaAttribution。|字串|  
 |mustBeCloseToContent|一個布林值，用以決定規則的內容是否必須放置在套用規則的欄位附近。 若為 **true**，則必須將內容放置在附近。 若為 **false**，或此欄位不存在，則可由呼叫者自行決定如何放置內容。|BOOLEAN|  
@@ -185,7 +185,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
   
 請注意，發行者可以提供其名稱和 (或) 網站。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |name|發行者的名稱。|字串|  
 |url|發行者網站的 URL。<br /><br /> 請注意，發行者可能不會提供網站。|字串|  
@@ -195,7 +195,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="webpage"></a>WebPage  
 定義預覽網頁的相關資訊。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|
 |name|頁面標題，不一定是 HTML 標題|字串|
 |url|實際搜耙的 URL (要求可能已遵循重新導向)|字串|  
@@ -216,19 +216,19 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 |originalQuery|指定於要求中的查詢字串。|字串|  
 
 ### <a name="identifiable"></a>Identifiable
-|Name|值|類型|  
+|名稱|值|類型|  
 |-------------|-----------------|----------|
 |id|資源識別碼|字串|
  
 ### <a name="rankinggroup"></a>RankingGroup
 定義搜尋結果群組，例如主線。
-|Name|值|類型|  
+|名稱|值|類型|  
 |-------------|-----------------|----------|
 |項目|要顯示在群組中的搜尋結果清單。|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 定義要顯示的搜尋結果項目。
-|Name|值|類型|  
+|名稱|值|類型|  
 |-------------|-----------------|----------|
 |resultIndex|答案中要顯示的項目以零為起始的索引。 如果該項目未包含此欄位，則會顯示答案中的所有項目。 例如，顯示「新聞」答案中的所有新聞發行項。|整數 |
 |answerType|包含要顯示項目的答案。 例如「新聞」。<br /><br />請使用類型在 SearchResponse 物件中尋找答案。 類型是 SearchResponse 欄位的名稱。<br /><br /> 不過，只有在此物件包含值欄位時，才需要使用答案類型，否則請加以忽略。|字串|
@@ -238,7 +238,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="rankingresponse"></a>RankingResponse  
 定義內容在搜尋結果頁面上的放置位置和順序。  
   
-|Name|值|  
+|名稱|值|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|要顯示在主線中的搜尋結果。|  
 |<a name="ranking-pole" />pole|應獲得最明顯處理的搜尋結果 (例如，顯示在主線和資訊看板上方)。|  
@@ -250,7 +250,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
   
 請注意，如果服務懷疑有阻絕服務攻擊，要求就會成功 (HTTP 狀態碼為 200 OK)；不過，回應本文將是空的。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 SearchResponse。|字串|  
 |WebPage|定義預覽的 JSON 物件|字串|  
@@ -259,7 +259,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="textattribution"></a>TextAttribution  
 定義純文字屬性的合約規則。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 TextAttribution。|字串|  
 |text|屬性文字。<br /><br /> 文字屬性會套用至整個實體，且應在實體呈現後隨即顯示。 如果有多個未指定目標的文字或連結屬性規則，您應將其串連，並使用 "Data from:" 標籤加以顯示。|字串| 

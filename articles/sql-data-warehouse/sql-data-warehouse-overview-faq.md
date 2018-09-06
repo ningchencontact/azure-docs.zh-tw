@@ -3,19 +3,19 @@ title: Azure SQL 資料倉儲常見問題集 | Microsoft Docs
 description: 此文章列出客戶和開發人員針對 Azure SQL 資料倉儲的常見問題集
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971698"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306735"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 資料倉儲常見問題集
 
@@ -27,7 +27,7 @@ A. SQL DW 提供數個解決方案來保護資料，例如 TDE 和稽核。 如�
 
 問： 哪裡可以了解 SQL DW 符合規範的法規或企業標準？
 
-A. 請造訪 [Microsoft 合規性]頁面，依產品取得不同的合規性供應項目，例如 SOC 和 ISO。 首先依「合規性」標題選擇，然後在頁面右側的 [Microsoft 範圍內雲端服務] 區段中展開 [Azure]，以查看 Azure 服務符合規範的服務。
+A. 請造訪 [Microsoft 合規性 (英文)]頁面，依產品取得不同的合規性供應項目，例如 SOC 和 ISO。 首先依「合規性」標題選擇，然後在頁面右側的 [Microsoft 範圍內雲端服務] 區段中展開 [Azure]，以查看 Azure 服務符合規範的服務。
 
 問： 可以連接 PowerBI 嗎？
 
@@ -108,7 +108,7 @@ A. 如需 DW 的驅動程式支援，請參閱[連接字串]頁面
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [支援票證]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [安全性]: ./sql-data-warehouse-overview-manage-security.md
-[Microsoft 合規性]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
+[Microsoft 合規性 (英文)]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [容量限制]: ./sql-data-warehouse-service-capacity-limits.md
 [資料類型]: ./sql-data-warehouse-tables-data-types.md
 [不支援的資料表功能]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
