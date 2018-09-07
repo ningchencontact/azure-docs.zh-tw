@@ -98,6 +98,13 @@ items:
         href: azure-stack-kv-push-secret-into-vm.md
       - name: KeyVault 範例應用程式
         href: azure-stack-kv-sample-app.md
+    - name: Azure Stack 監視器
+      href: azure-stack-metrics-azure-data.md
+      items:
+      - name: 支援的計量
+        href: azure-stack-metrics-supported.md
+      - name: 取用 Azure 監視資料
+        href: azure-stack-metrics-monitor.md
     - name: 解決方案範本
       items:
       - name: 部署 Service Fabric 叢集
@@ -181,9 +188,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 訓練與憑證
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 343847c800ce888cd211f6d2314af71c45189b50
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 7bf5ef3ab2270d059a6d426cba3551cf21ce16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915367"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026708"
