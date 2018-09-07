@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856635"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288297"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全域散發資料
 Azure 無所不在，它跨 50 多個地理區域，遍佈全球並持續擴充中。 遍佈全球的 Azure 提供給開發人員的其中一項獨特功能，就是能夠輕鬆地建置、部署及管理分散在世界各地的應用程式。 
@@ -34,11 +34,6 @@ Azure 無所不在，它跨 50 多個地理區域，遍佈全球並持續擴充�
 
 ## <a id="EnableGlobalDistribution"></a>啟用周全的全域散發
 Azure Cosmos DB 提供下列功能，讓您輕鬆地撰寫全域散發的應用程式。 透過 Azure Cosmos DB 的資源提供者型 [REST API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) 和 Azure 入口網站，即可使用這些功能。
-
-觀賞下列影片，了解 Azure Cosmos DB 中周全的全域散發功能如何運作。
-
-> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
->
 
 ### <a id="RegionalPresence"></a>遍及各區，無所不在 
 Azure 透過不斷連上[新的地理區域](https://azure.microsoft.com/regions/)，而日益普及。 Azure Cosmos DB 在 Azure 中是歸類為*基本服務*，預設會在所有新的 Azure 區域中提供。 一旦 Azure 為企業開啟新的區域，這就能讓您將地理區域關聯至 Azure Cosmos DB 資料庫帳戶。
