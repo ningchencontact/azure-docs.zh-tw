@@ -40,7 +40,7 @@
 ### [設定診斷記錄](analysis-services-logging.md)
 ### [建立服務主體 - Azure 入口網站](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [建立服務主體 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [將服務主體加入伺服器管理員角色](analysis-services-addservprinc-admins.md)
+### [將服務主體新增至伺服器管理員角色](analysis-services-addservprinc-admins.md)
 
 ## 模型
 ### [匯入 Power BI Desktop 檔案](analysis-services-import-pbix.md)
