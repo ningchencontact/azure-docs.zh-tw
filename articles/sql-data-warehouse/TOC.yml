@@ -218,10 +218,12 @@ items:
     items:
     - name: 監視工作負載
       href: sql-data-warehouse-manage-monitor.md
-    - name: 還原資料倉儲
-      href: sql-data-warehouse-restore.md
     - name: 升級至 Gen2
       href: upgrade-to-latest-generation.md
+    - name: 監視 Gen2 快取
+      href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: 還原資料倉儲
+      href: sql-data-warehouse-restore.md
     - name: 將效能層級自動化
       href: manage-compute-with-azure-functions.md
   - name: 整合
@@ -278,9 +280,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: 資料管理
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: e072fc928466617303a5dc44a17a2c2b7c33c2c0
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f7669d3ce2274367ef9d2753bd9018f5ffc8cd97
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782707"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091606"

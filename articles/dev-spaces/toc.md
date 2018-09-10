@@ -2,11 +2,15 @@
 ## [概觀](azure-dev-spaces.md)
 
 ## 快速入門
+### [Java (VS Code 與 CLI)](quickstart-java.md)
 ### [.NET Core (VS Code 與 CLI)](quickstart-netcore.md)
 ### [.NET Core (Visual Studio 2017)](quickstart-netcore-visualstudio.md)
 ### [Node.js (VS Code 與 CLI)](quickstart-nodejs.md)
 
 ## 教學課程
+### Java (VS Code 與 CLI)
+#### [1 - 開始使用](get-started-java.md)
+#### [2 - 小組開發](team-development-java.md)
 ### .NET Core (VS Code 和 CLI)
 #### [1 - 開始使用](get-started-netcore.md)
 #### [2 - 小組開發](team-development-netcore.md)

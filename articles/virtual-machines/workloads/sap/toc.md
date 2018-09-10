@@ -16,14 +16,21 @@
 ### [網路架構](hana-network-architecture.md)
 ### [儲存體架構](hana-storage-architecture.md)
 ### [HLI 支援案例](hana-supported-scenario.md)
-## [基礎結構和連線能力](hana-overview-infrastructure-connectivity.md)
-## [安裝 SAP HANA](hana-installation.md)
+## 基礎結構與連線能力
+### [HLI 部署](hana-overview-infrastructure-connectivity.md)
+### [將 Azure VM 連線到 HANA 大型執行個體](hana-connect-azure-vm-large-instances.md)
+### [將 VNet 連線到 HANA 大型執行個體 ExpressRoute](hana-connect-vnet-express-route.md)
+### [其他網路需求](hana-additional-network-requirements.md)
+## 安裝 SAP HANA
+### [驗證組態](hana-installation.md)
+### [範例 HANA 安裝](hana-example-installation.md)
 ## [高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)
 ## [疑難排解和監視](troubleshooting-monitoring.md)
 ## 作法
 ### [使用 STONITH 進行 HA 設定](ha-setup-with-stonith.md)
 ### [類型 II SKU 的 OS 備份](os-backup-type-ii-skus.md)
 ### [適用於 HANA 大型執行個體的作業系統升級](os-upgrade-hana-large-instance.md)
+### [設定適用於 SUSE Linux 的 SMT 伺服器](hana-setup-smt.md)
 # Azure 虛擬機器上的 SAP HANA
 ## [單一執行個體 SAP HANA 安裝](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL 部署指南](cal-s4h.md)
