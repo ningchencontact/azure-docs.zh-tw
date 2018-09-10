@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: d5b92681b9677db085b3c271c37490154d781d84
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ef7a1c81f453a8d4ff9526a4844518782e152c4f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494305"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159481"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>教學課程：8. 新增 KeyPhrase 實體 
 在本教學課程中，使用應用程式來示範如何從語句中擷取重要主題。
@@ -27,7 +27,7 @@ ms.locfileid: "39494305"
 > * 訓練和發佈應用程式
 > * 查詢的應用程式的端點，以查看包括關鍵片語的 LUIS JSON 回應
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[簡單實體](luis-quickstart-primary-and-secondary-data.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
@@ -72,16 +72,16 @@ ms.locfileid: "39494305"
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>利用語句查詢端點
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `does form hrf-123456 cover the new dental benefits and medical plan`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
@@ -184,7 +184,7 @@ LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) �
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

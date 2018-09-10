@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 3f23ade2b0256c72c344e2a619227a79e3c79a47
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494368"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160110"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>教學課程：1. 建置具有自訂網域的應用程式
 在本教學課程中建立應用程式，以示範如何使用**意圖**，根據使用者提交給應用程式的語句 (文字) 來判斷使用者的「意圖」。 完成之後，您會擁有一個在雲端中執行的 LUIS 端點。
@@ -32,7 +32,7 @@ ms.locfileid: "39494368"
 > * 在 ApplyForJob 意圖中新增語句範例 
 > * 訓練、發行和重新查詢端點 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>應用程式的用途
 此應用程式有幾個意圖。 第一個意圖 **`GetJobInformation`** 可識別出使用者想要知道公司內部職缺的相關資訊。 第二個意圖 **`None`** 可識別出語句的每個其他類型。 稍後在快速入門中會新增第三個意圖 `ApplyForJob`。 
@@ -85,15 +85,15 @@ ms.locfileid: "39494368"
 
 ## <a name="train-and-publish-the-app"></a>將應用程式定型並發佈
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>查詢端點的 GetJobInformation 意圖
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `I'm looking for a job with Natual Language Processing`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 此語句與步驟 4 中的任何語句範例都不同，因此這是很好的測試，且應該會將 `GetJobInformation` 意圖傳回作為評分最高的意圖。 
 
@@ -147,7 +147,7 @@ ms.locfileid: "39494368"
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>查詢端點的 ApplyForJob 意圖
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 在新的瀏覽器視窗中，於 URL 結尾輸入 `Can I submit my resume for job 235986`。 
 
@@ -186,7 +186,7 @@ LUIS 在此要求的工作已完成。 呼叫端應用程式 (例如聊天機器
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9672215c8cc5f95775e3b7fba74b27379a58ff49
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492818"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162914"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>教學課程：3. 新增規則運算式實體
 在本教學課程中，使用**規則運算式**實體來建立應用程式，讓其示範如何從語句中擷取格式一致的資料。
@@ -28,7 +28,7 @@ ms.locfileid: "39492818"
 > * 訓練和發佈應用程式
 > * 查詢應用程式端點來查看 LUIS JSON 回應
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[預先建置的實體](luis-tutorial-prebuilt-intents-entities.md)教學課程中的人力資源應用程式，請從 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github 存放庫，將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。
@@ -111,15 +111,15 @@ HRF 代表人力資源表單。
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `When were HRF-123456 and hrf-234567 published in the last year?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有兩種表單編號 `HRF-123456` 和 `hrf-234567` 的 `FindForm` 意圖。
 
@@ -231,7 +231,7 @@ LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) �
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

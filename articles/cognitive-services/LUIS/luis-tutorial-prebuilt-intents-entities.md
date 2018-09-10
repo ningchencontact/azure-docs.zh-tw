@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 5e4201f3d0684066bb6ba75850191e28405d8e8a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0e45b659508c71a9f1220ef5e76b9a95438fa1e6
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522266"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162235"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>教學課程：2. 新增預先建置的意圖和實體
 將預先建置的意圖和實體新增至「人力資源」教學課程應用程式，以快速預測意圖及擷取資料。 
@@ -27,7 +27,7 @@ ms.locfileid: "39522266"
 * 定型和發佈
 * 查詢 LUIS 並接收預測回應
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有上一個教學課程中的[人力資源](luis-quickstart-intents-only.md)應用程式，請從 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github 存放庫，將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。
@@ -73,15 +73,15 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 ## <a name="train-and-publish-the-app"></a>將應用程式定型並發佈
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-endpoint-with-an-utterance"></a>使用語句來查詢端點
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `I want to cancel on March 3`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 
 
@@ -168,7 +168,7 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

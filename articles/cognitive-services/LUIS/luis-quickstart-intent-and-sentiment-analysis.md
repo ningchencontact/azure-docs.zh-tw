@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: baa449bb9e78a5c6437b0a9528e5d1f10dfa519f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a89755bcc0ed5ef8bee4ed00b99c73993a57bcb9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520447"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163017"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>教學課程：9.  新增情感分析
 在本教學課程中，建立一個應用程式，示範如何從語句中擷取正面、負面和中性人氣。
@@ -27,7 +27,7 @@ ms.locfileid: "39520447"
 > * 訓練和發佈應用程式
 > * 查詢應用程式端點來查看 LUIS JSON 回應 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[預先建置的 keyPhrase 實體](luis-quickstart-intent-and-key-phrase.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
@@ -80,7 +80,7 @@ ms.locfileid: "39520447"
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>設定應用程式以納入情感分析
 在 [發佈] 頁面上設定情感分析。 
@@ -93,11 +93,11 @@ ms.locfileid: "39520447"
 
 ## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>利用語句查詢端點
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `Jill Jones work with the media team on the public portal was amazing`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有所擷取情感分析的 `EmployeeFeedback` 意圖。
 
@@ -204,7 +204,7 @@ LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) �
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
