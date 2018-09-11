@@ -42,7 +42,7 @@ items:
     href: tutorial-azure-security.md
   - name: 13 - 部署 Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 14 - 透過 Team Services 設定 CI/CD
+  - name: 14 - CI/CD 搭配 Azure Pipelines
     href: tutorial-build-deploy-jenkins.md
   - name: 15a - 建立 LAMP 堆疊
     href: tutorial-lamp-stack.md
@@ -441,6 +441,20 @@ items:
       items:
       - name: 使用內部 DNS
         href: static-dns-name-resolution-for-linux-on-azure.md
+  - name: 設定受控識別
+    items:
+    - name: 入口網站
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: CLI
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: PowerShell
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Azure Resource Manager 範本
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: REST
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Azure SDK
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
   - name: 使用 VM 延伸模組
     href: ../extensions/overview.md
   - name: 移轉 VM
@@ -551,9 +565,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: 常見問題集
     href: faq.md
-ms.openlocfilehash: 10eeab7d30e245a32ea166b26b173cd78f19a7b8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d01a454c9b7b7a0996ff700b529233f661d7c153
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300887"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348322"
