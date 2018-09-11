@@ -1,5 +1,5 @@
 # Azure 開發人員空間
-## [概觀](azure-dev-spaces.md)
+## [概觀](index.yml)
 
 ## 快速入門
 ### [Java (VS Code 與 CLI)](quickstart-java.md)
