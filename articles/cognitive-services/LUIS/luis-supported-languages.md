@@ -27,7 +27,7 @@ LUIS 在服務內有各種不同的功能。 並非所有功能都有相同的�
 LUIS 可理解下列語言的語句：
 
 
-| 語言 |地區設定  |  預建網域 | 預建實體 | 片語建議 | **[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)| 
+| 語言 |地區設定  |  預建網域 | 預建實體 | 片語建議 | \**[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)| 
 |--|--|:--:|:--:|:--:|:--:|
 | 美式英文 |`en-US` | ✔ | ✔  |✔|✔|
 | 法文 (加拿大) |`fr-CA` |-|   -   |-|✔|
@@ -58,7 +58,7 @@ LUIS 可理解下列語言的語句：
      - でございます 與 です 不同。 
      - です 與 だ 不同。 
 
-### <a name="text-analytics-support-notes"></a>**文字分析支援附註
+### <a name="text-analytics-support-notes"></a>\*\*文字分析支援附註
 文字分析包含 keyPhrase 預先建置的實體和情感分析。 只有葡萄牙文支援次文化特性：`pt-PT` 和 `pt-BR`。 主要文化特性層級支援其他所有的文化特性。 深入了解文字分析[支援的語言](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)。 
 
 ### <a name="speech-api-supported-languages"></a>語音 API 支援的語言
