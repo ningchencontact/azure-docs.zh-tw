@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: bb3b3061c15a661caff778ca5c0ec48b0434c718
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: aafbde6907e59be3b0ff1d5807ffe4a7d2fffaa4
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145730"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346095"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>教學課程︰設定 Cisco Spark 來自動佈建使用者
 
@@ -28,7 +28,7 @@ ms.locfileid: "42145730"
 
 
 > [!NOTE]
-> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](./../active-directory-saas-app-provisioning.md)。
+> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -153,7 +153,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![Cisco Spark 佈建](./media/cisco-spark-provisioning-tutorial/UserMappingAttributes.png)
 
-12. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../active-directory-saas-scoping-filters.md)中提供的下列指示。
+12. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
 
 13. 若要為 Cisco Spark 啟用 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]。
 
@@ -170,7 +170,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，然後遵循連結來佈建活動報告，此報告會描述 Azure AD 佈建服務在 Cisco Spark 上執行的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 ## <a name="connector-limitations"></a>連接器限制
 
@@ -184,7 +184,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="next-steps"></a>後續步驟
 
-* [瞭解如何針對佈建活動檢閱記錄和取得報告](../active-directory-saas-provisioning-reporting.md)
+* [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/cisco-spark-provisioning-tutorial/tutorial_general_01.png

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887339"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380281"
 ---
-# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>針對 Azure 度量警示設定 Webhook
+# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>設定傳統計量警示使用 Webhook 通知非 Azure 系統
 您可以使用 Webhook 將 Azure 警示通知路由到其他系統以進行後處理或自訂動作。 您可以針對警示使用 Webhook，以將警示路由到會傳送簡訊、記錄錯誤、透過聊天或傳訊服務通知小組，或進行其他許多動作的服務。 
 
 本文說明如何針對 Azure 計量警示設定 Webhook。 文中也會說明 HTTP POST 至 Webhook 的承載資料樣貌。 如需有關 Azure 活動記錄警示 (事件警示) 設定和結構描述的詳細資訊，請參閱[針對 Azure 活動記錄警示呼叫 Webhook](insights-auditlog-to-webhook-email.md)。

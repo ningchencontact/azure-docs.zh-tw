@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 56d207dc47b9e055782568f1c4a4cedc4d19a288
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e527a0eaec433b96b5c37c5ec22f392a7166dfe8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347788"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162439"
 ---
 # <a name="manage-app-passwords-using-security-info-preview"></a>使用安全性資訊管理應用程式密碼 (預覽)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 某些非瀏覽器應用程式 (例如 Outlook 2010) 不支援雙步驟驗證。 缺乏支援表示，如果您使用雙步驟驗證，應用程式將無法運作。 若要解決此問題，您可以建立自動產生的密碼來與每個非瀏覽器應用程式搭配使用，此密碼與您的一般密碼不同。
 

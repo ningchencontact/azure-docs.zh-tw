@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127474"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377389"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>在 Azure Logic Apps 中安全存取
 
@@ -77,7 +77,7 @@ POST
 1. 按一下 [設定] 下的 [工作流程設定] 功能表項目
 1. 指定觸發程序可接受的 IP 位址範圍清單
 
-有效的 IP 位址範圍格式為 `192.168.1.1/255`。 如果您只想讓邏輯應用程式做為巢狀邏輯應用程式進行引發，請選取 [僅其他邏輯應用程式] 選項。 這個選項會將空陣列寫入資源，表示只能成功引發來自服務本身 (父邏輯應用程式) 的呼叫。
+有效的 IP 位址範圍格式為 `192.168.1.1/32`。 如果您只想讓邏輯應用程式做為巢狀邏輯應用程式進行引發，請選取 [僅其他邏輯應用程式] 選項。 這個選項會將空陣列寫入資源，表示只能成功引發來自服務本身 (父邏輯應用程式) 的呼叫。
 
 > [!NOTE]
 > 您仍然可以透過 REST API / Management `/triggers/{triggerName}/run` 來執行含有要求觸發程序的邏輯應用程式，不論 IP 位址為何。 在此情況下，會要求針對 Azure REST API 進行驗證，而所有事件都會出現在 Azure 稽核記錄中。 請適當地設定存取控制原則。

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107100"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160505"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本
 
@@ -26,11 +26,12 @@ ms.locfileid: "43107100"
 
 某些資源必須在另一項資源已存在時才能部署。 例如，在虛擬機器的儲存體帳戶和網路介面存在之前，您無法建立虛擬機器。 您可以讓一項資源相依於其他資源，以定義此關聯性。 資源管理員會評估資源之間的相依性，並依其相依順序進行部署。 如果資源並未彼此相依，Resource Manager 就會平行部署資源。 如需詳細資訊，請參閱[定義 Azure Resource Manager 範本中部署資源的順序](./resource-group-define-dependencies.md)。
 
+本教學課程涵蓋下列工作：
+
 > [!div class="checklist"]
 > * 開啟快速入門範本
 > * 瀏覽範本
 > * 部署範本
-> * 清除資源
 
 本教學課程中的指示會建立虛擬機器、虛擬網路和其他相依資源。 
 

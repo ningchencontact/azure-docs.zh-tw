@@ -1,24 +1,18 @@
 ---
 title: 針對 Azure 磁碟加密進行疑難排解 | Microsoft Docs
 description: 本文提供的疑難排解秘訣適用於 Windows 及 Linux IaaS VM 適用的 Microsoft Azure 磁碟加密。
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: ce0e23bd-07eb-43af-a56c-aa1a73bdb747
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: e63d798c24159777711c9cdd765e40b44826a530
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 3d52e031d6c3266ba9d15a2283adcdbce7a6b929
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888724"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347676"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
 

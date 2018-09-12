@@ -5,21 +5,17 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 06124a0a0db47d76552ddf2172a7f656c6d869cf
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818462"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347115"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions 的 ZIP 部署
 
@@ -97,7 +93,7 @@ az functionapp deployment source config-zip  -g myResourceGroup -n \
 > [!NOTE]
 > 從部署套件執行函式應用程式的功能目前為預覽狀態。
 
-ZIP 部署會與這項功能整合，藉由將函式應用程式的設定 `WEBSITE_RUN_FROM_ZIP` 設定為值 `1` 即可加以啟用。 如需詳細資訊，請參閱[從部署套件檔案執行函式](run-functions-from-deployment-package.md)。
+ZIP 部署會與這項功能整合，藉由將函式應用程式的設定 `WEBSITE_RUN_FROM_PACKAGE` 設定為值 `1` 即可加以啟用。 如需詳細資訊，請參閱[從部署套件檔案執行函式](run-functions-from-deployment-package.md)。
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

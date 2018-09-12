@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ee606540bef47b11ad8fd9e820af2f5b51d47b0b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 00b2b249f5889888f34d57fd1577ccfea776d00c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493016"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347965"
 ---
 # <a name="securing-paas-databases-in-azure"></a>保護 Azure 中的 PaaS 資料庫
 
@@ -79,7 +79,7 @@ SQL Database 的預設來源 IP 位址限制會允許來自任何 Azure 位址 (
 ### <a name="encryption-of-data-at-rest"></a>待用資料加密
 [透明資料加密 (TDE)](https://msdn.microsoft.com/library/azure/bb934049) 預設為啟用。 TDE 會透明加密 SQL Server、Azure SQL Database 和 Azure SQL 資料倉儲資料和記錄檔。 TDE 會保護對檔案或其備份的直接存取，免於遭受入侵。 這可讓您加密待用資料，而不需要變更現有應用程式。 TDE 應保持啟用，不過這無法阻止攻擊者使用一般存取路徑。 TDE 提供遵守各種產業中所確立的眾多法律、規定及指導方針的功能。
 
-Azure SQL 會管理 TDE 的金鑰相關問題。 如同 TDE，在移動資料庫時，內部部署必須特別小心，如此才能保障復原能力。 在更複雜的情況下，您可以透過可延伸金鑰管理在 Azure Key Vault 中明確管理金鑰 (請參閱[使用 EKM 在 SQL Server 上啟用 TDE](/security/encryption/enable-tde-on-sql-server-using-ekm))。 也可以透過 Azure Key Vault BYOK 功能，實行自備金鑰 (BYOK)。
+Azure SQL 會管理 TDE 的金鑰相關問題。 如同 TDE，在移動資料庫時，內部部署必須特別小心，如此才能保障復原能力。 在更複雜的情況下，您可以透過可延伸金鑰管理在 Azure Key Vault 中明確管理金鑰 (請參閱[使用 EKM 在 SQL Server 上啟用 TDE](/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm))。 也可以透過 Azure Key Vault BYOK 功能，實行自備金鑰 (BYOK)。
 
 Azure SQL 可透過 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 提供資料行加密。 如此僅有獲得授權的應用程式得以存取敏感的資料行。 使用此類加密可讓加密資料行的 SQL 查詢限制於相等值。
 

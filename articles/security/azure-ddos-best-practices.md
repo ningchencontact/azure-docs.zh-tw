@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: b802c7b96bd8d0cfa56347d45542495caf69d7e4
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 09411ad3f0a27ba4d6d36342f9e298e177a021d8
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824705"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324932"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS 保護：最佳做法與參考架構
 
@@ -88,7 +88,7 @@ Azure 客戶可藉由檢閱 Microsoft 的最佳做法，以及全域建置針對
 深層防禦背後的概念是使用各種不同的防禦策略來管理風險。 將應用程式中的安全性防禦分層，可降低成功攻擊的機會。 建議您使用 Azure 平台的內建功能，為您的應用程式實作安全設計。
 
 例如，攻擊的風險會隨著應用程式大小 (*介面區*) 而提高。 您可以使用白名單來關閉負載平衡器 ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) 和 [Azure 應用程式閘道](../application-gateway/application-gateway-create-probe-portal.md)) 上不需要的公開 IP 位址空間和接聽連接埠，來減少介面區。 [網路安全性群組 (NSG)](../virtual-network/security-overview.md) 是減少攻擊面的另一種方法。
-您可以使用[服務標記](/virtual-network/security-overview.md#service-tags)和[應用程式安全性群組](/virtual-network/security-overview.md#application-security-groups)，將建立安全性規則與設定網路安全性的複雜性近可能降低，直到成為應用程式結構的自然延伸。
+您可以使用[服務標記](../virtual-network/security-overview.md#service-tags)和[應用程式安全性群組](../virtual-network/security-overview.md#application-security-groups)，將建立安全性規則與設定網路安全性的複雜性近可能降低，直到成為應用程式結構的自然延伸。
 
 應盡可能將 Azure 服務部署於[虛擬網路](../virtual-network/virtual-networks-overview.md)上。 此種做法可讓服務資源透過私人 IP 位址進行通訊。 根據預設，來自虛擬網路的 Azure 服務流量會使用公用 IP 位址作為來源 IP 位址。 使用[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)，會在從虛擬網路存取 Azure 服務時，將服務流量切換為使用虛擬網路私人位址作為來源 IP 位址。
 
@@ -126,7 +126,7 @@ Azure 基本 DDoS 保護服務可協助保護客戶，並防止對其他客戶�
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS 保護遙測、監視及警示
 
-標準 DDoS 保護在遭受 DDoS 攻擊持續期間，透過 [Azure 監視器](/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)公開豐富的遙測。 可設定 DDoS 保護所用的任何 Azure 監視器度計量的警示。 您可以透過 Azure 監視器診斷介面來與 Splunk (Azure 事件中樞)、Azure Log Analytics 及 Azure 儲存體整合，以進行進階分析。
+標準 DDoS 保護在遭受 DDoS 攻擊持續期間，透過 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)公開豐富的遙測。 可設定 DDoS 保護所用的任何 Azure 監視器度計量的警示。 您可以透過 Azure 監視器診斷介面來與 Splunk (Azure 事件中樞)、Azure Log Analytics 及 Azure 儲存體整合，以進行進階分析。
 
 ##### <a name="ddos-mitigation-policies"></a>DDoS 防護原則
 

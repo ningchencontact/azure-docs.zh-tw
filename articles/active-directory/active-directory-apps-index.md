@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cd95a1f1e0631340fa9844fd31c3d8c0af1168dd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621526"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347047"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory 中應用程式管理的文章索引
 本頁面提供一份完整清單，列出撰寫 Azure Active Directory (Azure AD) 中各種應用程式相關功能的所有文章。
@@ -42,7 +42,7 @@ ms.locfileid: "39621526"
 | 功能範圍 |  |
 |:---:| --- |
 | 同盟單一登入 |[對 SAML 型單一登入進行疑難排解](develop/howto-v1-debug-saml-sso-issues.md) |
-| 密碼單一登入 |[疑難排解 Internet explorer 的存取面板擴充功能](active-directory-saas-ie-troubleshooting.md) |
+| 密碼單一登入 |[疑難排解 Internet explorer 的存取面板擴充功能](manage-apps/manage-access-panel-browser-extension.md) |
 | 應用程式 Proxy |[應用程式 Proxy 疑難排解指南](manage-apps/application-proxy-troubleshoot.md) |
 | 內部部署 AD 與 Azure AD 之間的單一登入 |[針對密碼雜湊同步處理進行疑難排解](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[對密碼回寫進行疑難排解](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 動態群組成員資格 |[對動態群組成員資格進行疑難排解](users-groups-roles/groups-troubleshooting.md) |
@@ -56,7 +56,7 @@ ms.locfileid: "39621526"
 | 簡介同盟和其他類型的登入 |[使用 Azure AD 進行單一登入](manage-apps/what-is-single-sign-on.md) |
 | 透過已簡化摸單一登入設定步驟，與 Azure AD 預先整合的數千個 SaaS 應用程式 |[開始使用 Azure AD 應用程式庫](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支援同盟的預先整合應用程式完整清單](saas-apps/tutorial-list.md)<br /><br />[如何將您的應用程式新增至 Azure AD 應用程式庫](develop/howto-app-gallery-listing.md) |
 | 超過 150 個應用程式教學課程，教導您如何為 [Salesforce](saas-apps/salesforce-tutorial.md)、[ServiceNow](saas-apps/servicenow-tutorial.md)、[Google Apps](saas-apps/google-apps-tutorial.md)、[Workday](saas-apps/workday-tutorial.md) 等應用程式設定單一登入 |[如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](saas-apps/tutorial-list.md) |
-| 如何手動設定及自訂您的單一登入設定 |[如何設定對不在 Azure Active Directory 應用程式庫中之應用程式的同盟單一登入](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[如何為預先整合的應用程式自訂在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md) |
+| 如何手動設定及自訂您的單一登入設定 |[如何設定對不在 Azure Active Directory 應用程式庫中之應用程式的同盟單一登入](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)<br /><br />[如何為預先整合的應用程式自訂在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md) |
 | 使用 SAML 通訊協定的同盟應用程式疑難排解指南 |[對 SAML 型單一登入進行疑難排解](develop/howto-v1-debug-saml-sso-issues.md) |
 | 如何設定應用程式的憑證到期日，以及如何更新憑證 |[在 Azure Active Directory 中管理同盟單一登入的憑證](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
@@ -70,7 +70,7 @@ ms.locfileid: "39621526"
 | 密碼型 SSO 運作方式的簡介以及簡要的技術概觀 |[使用 Azure AD 進行密碼型單一登入](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | 與共用帳戶相關的案例以及 Azure AD 如何解決這些問題的摘要 |[使用 Azure AD 共用帳戶](active-directory-sharing-accounts.md) |
 | 自動定期變更特定應用程式的密碼 |[自動密碼變換 (預覽)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
-| Internet Explorer 版本的 Azure AD 密碼管理擴充功能的部署和疑難排解指南 |[如何使用群組原則部署 Internet Explorer 的存取面板擴充功能](active-directory-saas-ie-group-policy.md)<br /><br />[疑難排解 Internet explorer 的存取面板擴充功能](active-directory-saas-ie-troubleshooting.md) |
+| Internet Explorer 版本的 Azure AD 密碼管理擴充功能的部署和疑難排解指南 |[如何使用群組原則部署 Internet Explorer 的存取面板擴充功能](manage-apps/deploy-access-panel-browser-extension.md)<br /><br />[疑難排解 Internet explorer 的存取面板擴充功能](manage-apps/manage-access-panel-browser-extension.md) |
 
 密碼型單一登入適用於所有版本的 Azure AD，每個使用者最多十個應用程式。 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。 如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組來指派對應用程式的存取權](#managing-access-to-applications)。 自動密碼變換是一項 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
 
@@ -96,7 +96,7 @@ ms.locfileid: "39621526"
 |:---:| --- |
 | Azure AD Connect 中提供之單一登入選項的概觀，以及管理混合式環境的相關資訊 |[Azure AD Connect 中的使用者登入選項](active-directory-aadconnect-user-signin.md) |
 | 同時使用內部部署 Active Directory 和 Azure Active Directory 管理環境的一般指引 |[Azure AD 混合式身分識別設計考量](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md) |
-| 使用密碼同步處理來啟用 SSO 的相關指導方針 |[使用 Azure AD Connect 實作密碼同步處理](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[對密碼同步處理進行疑難排解](https://support.microsoft.com/en-us/kb/2855271) |
+| 使用密碼同步處理來啟用 SSO 的相關指導方針 |[使用 Azure AD Connect 實作密碼同步處理](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[對密碼同步處理進行疑難排解](https://support.microsoft.com/kb/2855271) |
 | 使用密碼回寫來啟用 SSO 的相關指導方針 |[在 Azure AD 中開始使用密碼管理](authentication/quickstart-sspr.md)<br /><br />[針對密碼回寫問題進行疑難排解](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 使用協力廠商身分識別提供者來啟用 SSO 的指導方針 |[可用來啟用單一登入的相容協力廠商身分識別提供者清單](https://aka.ms/ssoproviders) |
 | Windows 10 使用者如何透過 Azure AD Join 享受單一登入的優點 |[透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md) |
@@ -130,11 +130,11 @@ Cloud Discovery 會針對超過 16,000 個雲端應用程式的 Microsoft Cloud 
 
 | 文章指南 |  |
 |:---:| --- |
-| 了解其運作方式，並尋找常見問題的解答 |[自動化 SaaS 應用程式使用者佈建和解除佈建](active-directory-saas-app-provisioning.md) |
-| 設定如何在 Azure AD 與您的 SaaS 應用程式之間對應資訊 |[自訂屬性對應](active-directory-saas-customizing-attribute-mappings.md)<br><br>[撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| 了解其運作方式，並尋找常見問題的解答 |[自動化 SaaS 應用程式使用者佈建和解除佈建](manage-apps/user-provisioning.md) |
+| 設定如何在 Azure AD 與您的 SaaS 應用程式之間對應資訊 |[自訂屬性對應](manage-apps/customize-application-attributes.md)<br><br>[撰寫屬性對應的運算式](manage-apps/functions-for-customizing-application-data.md) |
 | 如何對任何支援 SCIM 通訊協定的應用程式啟用自動化佈建 |[對任何啟用 SCIM 的應用程式設定自動化使用者佈建](manage-apps/use-scim-to-provision-users-and-groups.md) |
-| 如何針對使用者佈建提出報告和進行疑難排解 |[關於使用者自動佈建的報告](active-directory-saas-provisioning-reporting.md)<br><br>[針對使用者佈建進行疑難排解](active-directory-application-provisioning-content-map.md) |
-| 根據應用程式的屬性值限制可以佈建應用程式的人員 |[範圍篩選器](active-directory-saas-scoping-filters.md) |
+| 如何針對使用者佈建提出報告和進行疑難排解 |[關於使用者自動佈建的報告](manage-apps/check-status-user-account-provisioning.md)<br><br>[針對使用者佈建進行疑難排解](active-directory-application-provisioning-content-map.md) |
+| 根據應用程式的屬性值限制可以佈建應用程式的人員 |[範圍篩選器](manage-apps/define-conditional-rules-for-provisioning-user-accounts.md) |
 
 自動化使用者佈建適用於所有版本的 Azure AD，每個使用者最多十個應用程式。 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。 如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組來管理要佈建哪些使用者](#managing-access-to-applications)。
 

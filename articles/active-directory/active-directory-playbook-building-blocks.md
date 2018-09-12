@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340034"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349223"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -340,7 +340,7 @@ ms.locfileid: "43340034"
 | 步驟 | 資源 |
 | --- | --- |
 | 從應用程式所屬的群組中移除使用者 | [管理 Azure Active Directory 租用戶中使用者的群組成員資格](fundamentals/active-directory-groups-members-azure-portal.md) |
-| 等候幾分鐘來執行取消佈建 | [Azure AD 中的自動化 SaaS 應用程式使用者佈建：自動化佈建如何運作？](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| 等候幾分鐘來執行取消佈建 | [Azure AD 中的自動化 SaaS 應用程式使用者佈建：自動化佈建如何運作？](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | 在個別的瀏覽器工作階段上，以資訊工作者身分登入「我的應用程式」入口網站，並確認該圖格已經消失 | http://myapps.microsoft.com |
 
 

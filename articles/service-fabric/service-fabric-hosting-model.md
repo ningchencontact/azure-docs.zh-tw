@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: d56bb10041e3baffddf6fd4121a6e1f7ba8e0632
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 367f21c63eac3969fb19eada91eae9a8577921de
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206315"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348475"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 主控模型
 本文提供 Azure Service Fabric 所提供之應用程式主控模型的概觀，並說明**共用處理序**與**專屬處理序**模型之間的差異。 本文說明已部署之應用程式在 Service Fabric 節點上看起來的樣子，以及服務的複本 (或執行個體) 與服務主機處理序之間的關聯性。
@@ -146,7 +146,7 @@ Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為�
 
 - 您想要藉由減少產生處理序並提高每一處理序的複本密度，將資源使用率最佳化。
 - 來自不同 ServiceType 的複本需要共用一些具有高初始化或記憶體成本的通用資料。
-- 您有免費的服務方案，而您想要透過將服務的所有複本都放在同一個處理序中，為資源使用量設定限制。
+- 您有免費的服務供應項目，而您想要透過將服務的所有複本都放在同一個處理序中，為資源使用量設定限制。
 
 專屬處理序主控模型與每一 ServicePackage 有多個 ServiceType 的應用程式模型並不相同。 這是因為每一 ServicePackage 多個 ServiceType 的設計是用來提高複本間的資源共用，以及提高每一處理序的複本密度。 專屬處理序模型的設計目的是要實現不同結果。
 
@@ -201,11 +201,11 @@ Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為�
 [c1]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync
 [c2]: https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.instancecount
 
-[p1]: https://docs.microsoft.com/powershell/servicefabric/vlatest/new-servicefabricservice
-[p2]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricservicedescription
-[p3]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedservicePackage
-[p4]: https://docs.microsoft.com/powershell/servicefabric/vlatest/send-servicefabricdeployedservicepackagehealthreport
-[p5]: https://docs.microsoft.com/powershell/servicefabric/vlatest/restart-servicefabricdeployedcodepackage
-[p6]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedservicetype
-[p7]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedreplica
-[p8]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedcodepackage
+[p1]: https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice
+[p2]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicedescription
+[p3]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicePackage
+[p4]: https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricdeployedservicepackagehealthreport
+[p5]: https://docs.microsoft.com/powershell/module/servicefabric/restart-servicefabricdeployedcodepackage
+[p6]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicetype
+[p7]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedreplica
+[p8]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedcodepackage

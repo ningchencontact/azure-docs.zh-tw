@@ -3,7 +3,7 @@ title: 驗證、要求和回應
 description: 使用 Key Vault 向 AD 驗證
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: caa2d74ecafe0b0e2508bd97eb4dc21a18e58f51
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.author: bryanla
+ms.openlocfilehash: c7cd9dfa019ca0d8560833b10a3e8a1a37a1e1ac
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626415"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296545"
 ---
 # <a name="authentication-requests-and-responses"></a>驗證、要求和回應
 

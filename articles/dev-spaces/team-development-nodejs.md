@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 1bdc0b450a0d36c5de00050559750ded61edd7e5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b4c355c864f83bcd76c310fecb0f26dd3372e760
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188889"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162745"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
 
@@ -76,7 +76,7 @@ ms.locfileid: "43188889"
 
 ## <a name="learn-about-team-development"></a>了解小組開發
 
-[!INCLUDE[](includes/team-development-1.md)]
+[!INCLUDE [](includes/team-development-1.md)]
 
 現在，請了解它是如何運作的：
 1. 請移至 `mywebapi` 的 VS Code 視窗，並對 GET `/` 處理常式進行程式碼編輯，例如：
@@ -87,11 +87,11 @@ ms.locfileid: "43188889"
     });
     ```
 
-[!INCLUDE[](includes/team-development-2.md)]
+[!INCLUDE [](includes/team-development-2.md)]
 
-[!INCLUDE[](includes/well-done.md)]
+[!INCLUDE [](includes/well-done.md)]
 
-[!INCLUDE[](includes/clean-up.md)]
+[!INCLUDE [](includes/clean-up.md)]
 
 
 

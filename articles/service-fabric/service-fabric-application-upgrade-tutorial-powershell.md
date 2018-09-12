@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139813"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348764"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>使用 PowerShell 進行 Service Fabric 應用程式升級
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ ms.locfileid: "42139813"
 > 
 > 
 
-在 Visual Studio 中建置專案後，您可以使用 PowerShell 命令 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 將應用程式封裝複製到 ImageStore。 如果您想要在本機確認應用程式套件，使用 [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet。 下一個步驟是使用 [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) Cmdlet 將應用程式註冊至 Service Fabric 執行階段。 下一個步驟是使用 [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) Cmdlet 啟動應用程式的執行個體。  這三個步驟類似於在 Visual Studio 中使用 [部署]  功能表項目。  一旦佈建完成，您應該清除從映像存放區複製的應用程式套件，以減少耗用的資源。  如果不再需要應用程式類型，應該基於相同原因將其取消註冊。 如需詳細資訊，請參閱[使用 PowerShell 部署與移除應用程式](service-fabric-application-upgrade-tutorial-powershell.md)。
+在 Visual Studio 中建置專案後，您可以使用 PowerShell 命令 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) 將應用程式封裝複製到 ImageStore。 如果您想要在本機確認應用程式套件，使用 [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) cmdlet。 下一個步驟是使用 [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) Cmdlet 將應用程式註冊至 Service Fabric 執行階段。 下一個步驟是使用 [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) Cmdlet 啟動應用程式的執行個體。  這三個步驟類似於在 Visual Studio 中使用 [部署]  功能表項目。  一旦佈建完成，您應該清除從映像存放區複製的應用程式套件，以減少耗用的資源。  如果不再需要應用程式類型，應該基於相同原因將其取消註冊。 如需詳細資訊，請參閱[使用 PowerShell 部署與移除應用程式](service-fabric-application-upgrade-tutorial-powershell.md)。
 
 現在，您可以使用 [Service Fabric Explorer 來檢視叢集與應用程式](service-fabric-visualizing-your-cluster.md)。 該應用程式有一個 Web 服務，透過在 Internet Explorer 的網址列中輸入 [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) ，即可瀏覽至該服務。  您應該會在畫面上看到一些浮動視覺物件四處移動。  此外，您可以使用 [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) 檢查應用程式狀態。
 

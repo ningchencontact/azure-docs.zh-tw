@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 9efd9470982f0afaa357114828d51df37a7c2890
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520923"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298670"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>使用 RBAC 來管理 Azure 儲存體資料的存取權限 (預覽)
 
 Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)，來授與存取受保護資源的權限。 Azure 儲存體會定義一組內建的 RBAC 角色，其中包含一般用來存取容器或佇列的權限集合。 當 RBAC 角色指派給 Azure AD 身分識別時，該身分識別會根據指定的範圍，獲得存取這些資源的權限。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 您可以使用 Azure 入口網站、Azure 命令列工具或 Azure 管理 API 來指派 Azure 儲存體資源的存取權限。 
 
-Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是「受控服務識別」。 安全性主體可以是使用者、群組或應用程式服務主體。 [受控服務識別](../../active-directory/managed-service-identity/overview.md)是自動的受控身分識別，用來在 Azure 虛擬機器中執行的應用程式、函式應用程式和虛擬機器擴展集等之中執行驗證。 如需 Azure AD 中的身分識別概觀，請參閱[了解 Azure 身分識別解決方案](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)。
+Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是「受控服務識別」。 安全性主體可以是使用者、群組或應用程式服務主體。 [受控服務識別](../../active-directory/managed-identities-azure-resources/overview.md)是自動的受控身分識別，用來在 Azure 虛擬機器中執行的應用程式、函式應用程式和虛擬機器擴展集等之中執行驗證。 如需 Azure AD 中的身分識別概觀，請參閱[了解 Azure 身分識別解決方案](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)。
 
 ## <a name="rbac-roles-for-azure-storage"></a>Azure 儲存體的 RBAC 角色
 
@@ -32,12 +32,9 @@ Azure 儲存體支援內建和自訂 RBAC 角色。 Azure 儲存體提供下列�
 
 如需有關如何為 Azure 儲存體定義內建角色的詳細資訊，請參閱[了解角色定義](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview)。
 
-您也可以定義能與容器和佇列搭配使用的自訂角色。 如需詳細資訊，請參閱[建立 Azure 角色型存取控制的自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles.md)。 
+您也可以定義能與容器和佇列搭配使用的自訂角色。 如需詳細資訊，請參閱[建立 Azure 角色型存取控制的自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)。 
 
-> [!IMPORTANT]
-> 此預覽僅適用於非生產環境。 Azure 儲存體的 Azure AD 整合宣告上市之前，無法使用生產服務等級協定 (SLA)。 如果您的案例尚未支援 Azure AD 整合，請繼續在應用程式中使用您的共用金鑰授權或 SAS 權杖。 如需預覽的詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。
->
-> 在預覽期間，RBAC 角色指派可能需要五分鐘的時間傳播。
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="assign-a-role-to-a-security-principal"></a>將角色指派給安全性主體
 

@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: c1431ec852cab943e00d3933ef4f0500a4fdb151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1f9b689ac6127bc2f7d1e810356ae9a23b8e0996
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368851"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162388"
 ---
 # <a name="build-a-custom-search-web-page"></a>建置自訂搜尋網頁
 Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋經驗。 例如，如果您的武術網站提供搜尋體驗，可以指定 Bing 搜尋的網域、子網站及網頁。 您的使用者會看到針對他們感興趣的內容而量身訂做的搜尋結果，不需要逐頁查看可能包含不相關內容的一般搜尋結果。 
@@ -30,7 +30,7 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
 > - 加入已釘選的項目
 > - 將自訂搜尋整合到網頁
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 - 若要依照本教學課程，您需要 Bing 自訂搜尋 API 的訂用帳戶金鑰。  若要取得金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)。
 - 如果尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。
 
@@ -39,7 +39,7 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
 
 1.  開啟網際網路瀏覽器。
 2.  瀏覽至自訂搜尋[入口網站](https://customsearch.ai)。
-3.  使用 Microsoft 帳戶 (MSA) 登入入口網站。 如果您沒有 MSA，請按一下 [建立 Microsoft 帳戶]。 如果這是您第一次使用入口網站，它會要求您提供存取資料的權限。 按一下 [是]。
+3.  使用 Microsoft 帳戶 (MSA) 登入入口網站。 如果您沒有 MSA，請按一下 [建立 Microsoft 帳戶]。 如果這是您第一次使用入口網站，它會要求您提供存取資料的權限。 按一下 [是] 。
 4.  登入之後，按一下 [新增自訂搜尋]。 在 [建立新的自訂搜尋執行個體] 視窗中，輸入有意義的名稱且名稱能夠描述搜尋傳回的內容類型。 您可以隨時變更名稱。
  
     ![[建立新的自訂搜尋執行個體] 方塊的螢幕擷取畫面](../media/newCustomSrch.png)
@@ -96,7 +96,7 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
 
     ![[託管的 UI] 其他設定步驟的螢幕擷取畫面](./media/custom-search-hosted-ui-subscription-key.png)
 
-[!INCLUDE[publish or revert](../includes/publish-revert.md)]
+[!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## <a name="consuming-hosted-ui"></a>使用託管的 UI

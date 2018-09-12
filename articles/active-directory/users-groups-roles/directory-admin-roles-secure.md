@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141905"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346724"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -300,7 +300,7 @@ Azure 記錄整合可讓您將來自 Azure 資源的原始記錄整合到組織�
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>為連線的應用程式實作使用者佈建
 
-Azure AD 可讓您自動化在雲端 (SaaS) 應用程式 (例如 Dropbox、Salesforce、ServiceNow 等等) 中建立、維護和移除使用者身分識別的作業。 如需詳細資訊，請參閱[自動化使用 Azure AD 對於 SaaS 應用程式的使用者佈建和解除佈建](../active-directory-saas-app-provisioning.md)。
+Azure AD 可讓您自動化在雲端 (SaaS) 應用程式 (例如 Dropbox、Salesforce、ServiceNow 等等) 中建立、維護和移除使用者身分識別的作業。 如需詳細資訊，請參閱[自動化使用 Azure AD 對於 SaaS 應用程式的使用者佈建和解除佈建](../manage-apps/user-provisioning.md)。
 
 #### <a name="integrate-information-protection"></a>整合資訊保護
 

@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 81a7be973739cfd6eb3f8fb8dc7a0723623c2b8e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c50e4b5c9eb81c9386e2cb0db96a88de70dcb9e9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234508"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157798"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Azure Stack 驗證即服務的工作流程常見參數
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 常見的參數包括值，例如驗證即服務 (VaaS) 中所有測試所需的環境變數和使用者認證。 您會在工作流程層級定義這些值。 您需在建立或修改工作流程時，儲存這些值。 在排程時間，工作流程會為測試載入這些值。 
 
@@ -40,7 +40,7 @@ ms.locfileid: "40234508"
 | 租用戶 Resource Manager 端點 | 必要 |  | 租用戶 Azure Resource Manager 作業的端點 (例如 https://management.<ExternalFqdn>) |
 | 管理員 Resource Manager 端點 | 是 |  | 租用戶 Azure Resource Manager 作業的端點 (例如 https://adminmanagement.<ExternalFqdn>) |
 | 外部 FQDN | 是 |  | 用來作為端點尾碼的外部完整網域名稱 (FQDN)。 (例如 local.azurestack.external 或 redmond.contoso.com)。 |
-| 節點的數目 | 是 |  | 部署上的節點數目。 |
+| 節點數目 | 是 |  | 部署上的節點數目。 |
 
 ## <a name="test-parameters"></a>測試參數
 

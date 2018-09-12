@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445684"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346384"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程︰設定 G Suite 來自動佈建使用者
 
 本教學課程旨在說明如何將使用者帳戶從 Azure Active Directory (Azure AD) 針對 G Suite 進行自動佈建和取消佈建。
 
 > [!NOTE]
-> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](./../active-directory-saas-app-provisioning.md)。
+> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -172,7 +172,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 此流程會對在 [使用者和群組] 區段中指派給 G Suite 的任何使用者和群組啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，在服務正在執行時，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄。 這些記錄會描述由您應用程式上的佈建服務所執行的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: spelluru
-ms.openlocfilehash: ff0e3124168927d03816079a4f5ab322663459ac
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e6dd30fc8da919995849ba818f608604a57a0b37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702447"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346821"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>預先擷取 Azure 服務匯流排訊息
 
@@ -44,7 +44,7 @@ ms.locfileid: "43702447"
 
 在 [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) 接收模式中，會以鎖定狀態來將擷取到預先擷取緩衝區的訊息擷取到緩衝區，並且會有具鎖定期限的逾時時鐘。 如果預先擷取緩衝區夠大，而且會花這麼長的時間來處理位於預先擷取緩衝區的訊息鎖定到期，甚至是當應用程式正在處理訊息時的訊息鎖定到期，則可能會有一些複雜難懂的事件需要應用程式處理。
 
-應用程式所取得的訊息可能含有過期或即將到期的鎖定。 若是如此，應用程式可能會處理該訊息，但接著為發現它因為鎖定到期而無法完成。 應用程式可以檢查 [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) 屬性 (受限於訊息代理程式和本機電腦時鐘之間的時鐘誤差)。 如果訊息鎖定已過期，應用程式就必須忽略該訊息；不應對訊息進行任何 API 呼叫。 如果訊息尚未到期但即將到期，則可呼叫 [message.RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 來更新鎖定，並以另一個預設鎖定期間來延長鎖定。
+應用程式所取得的訊息可能含有過期或即將到期的鎖定。 若是如此，應用程式可能會處理該訊息，但接著為發現它因為鎖定到期而無法完成。 應用程式可以檢查 [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) 屬性 (受限於訊息代理程式和本機電腦時鐘之間的時鐘誤差)。 如果訊息鎖定已過期，應用程式就必須忽略該訊息；不應對訊息進行任何 API 呼叫。 如果訊息尚未到期但即將到期，則可呼叫 [message.RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 來更新鎖定，並以另一個預設鎖定期間來延長鎖定。
 
 如果預先擷取緩衝區中的鎖定會以無訊息方式到期，則該訊息會被視為已放棄，並可再次從佇列加以擷取。 那樣可能會導致它被擷取到預先擷取緩衝區；放置於結尾處。 假設在訊息到期期間通常無法處理預先擷取緩衝區，這會導致重複預先擷取訊息，但永遠不會以可用 (有效地鎖定) 狀態有效地進行傳遞，而且最終會在超過最大傳遞計數時，將其移至無效信件佇列中。
 
