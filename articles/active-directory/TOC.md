@@ -197,6 +197,7 @@
 #### [租用戶限制](manage-apps/tenant-restrictions.md)
 #### [使用 SCIM 佈建使用者](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [了解 Azure AD 應用程式同意體驗](application-consent-experience.md)
 
 ### 疑難排解
 
@@ -231,11 +232,11 @@
 
 
 #### 應用程式註冊
-##### [應用程式物件的輸入欄位](application-dev-registration-config-specific-application-property-how-to.md)
-##### [變更權杖存留期預設值](application-dev-registration-config-change-token-lifetime-how-to.md)
+##### [應用程式物件的輸入欄位](develop/registration-config-specific-application-property-how-to.md)
+##### [變更權杖存留期預設值](develop/registration-config-change-token-lifetime-how-to.md)
 
 #### 驗證
-##### [設定端點](application-dev-registration-config-how-to.md)
+##### [設定端點](develop/registration-config-how-to.md)
 
 #### 條件式存取
 ##### [客戶不符合裝置註冊預先要求](active-directory-conditional-access.md)
@@ -247,7 +248,7 @@
 ##### [哪些應用程式支援條件式存取？](active-directory-conditional-access-supported-apps.md)
 
 #### 尋找 API
-##### [尋找 API](application-dev-api-find-an-api-how-to.md)
+##### [尋找 API](develop/api-find-an-api-how-to.md)
 
 #### 管理存取
 ##### [將使用者和群組指派至群組](manage-apps/methods-for-assigning-users-and-groups.md)
@@ -257,14 +258,14 @@
 ##### [應用程式清單中的未預期應用程式](manage-apps/application-types.md)
 
 #### 多租用戶應用程式
-##### [設定新的應用程式](application-dev-setup-multi-tenant-app.md)
-##### [新增至應用程式資源庫](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [設定新的應用程式](develop/setup-multi-tenant-app.md)
+##### [新增至應用程式資源庫](develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### 權限
-##### [選擇適用於 API 的使用權限](application-dev-perms-for-given-api.md)
-##### [將使用權限授與應用程式](application-dev-registration-config-grant-permissions-how-to.md)
-##### [委派與應用程式使用權限](application-dev-delegated-and-app-perms.md)
-##### [應用程式同意](application-dev-consent-framework.md)
+##### [選擇適用於 API 的使用權限](develop/perms-for-given-api.md)
+##### [將使用權限授與應用程式](develop/registration-config-grant-permissions-how-to.md)
+##### [委派與應用程式使用權限](develop/delegated-and-app-perms.md)
+##### [應用程式同意](develop/consent-framework.md)
 
 #### 佈建
 ##### [所需時間](manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)
@@ -277,7 +278,7 @@
 
 #### 單一登入
 ##### [選擇方法](manage-apps/single-sign-on-modes.md)
-##### [設定](application-dev-registration-config-sso-how-to.md)
+##### [設定](develop/registration-config-sso-how-to.md)
 ##### [設定同盟 - 資源庫應用程式](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
 ##### [設定同盟常見問題 - 資源庫應用程式](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
 ##### [設定同盟 - 非資源庫應用程式](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
@@ -302,7 +303,7 @@
 ##### [內部部署應用程式問題 - 應用程式 Proxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [開發應用程式](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [文件庫](active-directory-apps-index.md)
+
 
 ## 管理您的目錄
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)

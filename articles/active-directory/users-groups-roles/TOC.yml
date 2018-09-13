@@ -138,12 +138,12 @@ items:
         href: directory-emergency-access.md
     - name: 管理單位
       href: directory-administrative-units.md
-    - name: 設定權杖存留期
-      href: /azure/active-directory/active-directory-configurable-token-lifetimes?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: 將服務與 Azure AD 整合
     items:
     - name: 將 LinkedIn 與 Azure AD 整合
       href: linkedin-integration.md
+    - name: 使用者同意和資料共用
+      href: linkedin-user-consent.md
   - name: 疑難排解
     items:
     - name: 取得 Azure AD 支援
@@ -161,9 +161,9 @@ items:
     href: https://docs.microsoft.com/cli/azure/ad
   - name: Azure AD PowerShell for Graph
     href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
-ms.openlocfilehash: 04819474768310ff88467f2461aafda3789754f5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b11e6bfd24a8046352e53028031c0bfbfc6b1360
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050896"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717194"
