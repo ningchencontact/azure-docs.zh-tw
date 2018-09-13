@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/30/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: cc1b89ff94b4d4dc0b191512b110521d5fa05a7a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445017"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344361"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -27,16 +27,16 @@ Azure 檔案同步代理程式支援下列版本：
 |----|----------------------|--------------|------------------|
 | 八月更新彙總套件 | 3.2.0.0 | 2018 年 8 月 15 日 | 支援 (建議的版本) |
 | 正式運作 | 3.1.0.0 | 2018 年 7 月 19 日 | 支援 |
-| 六月更新彙總套件 | 3.0.13.0 | 2018 年 6 月 29 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
-| 重新整理 2 | 3.0.12.0 | 2018 年 5 月 22 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
-| 四月更新彙總套件 | 2.3.0.0 | 2018 年 5 月 8 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
-| 三月更新彙總套件 | 2.2.0.0 | 2018 年 3 月 12 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
-| 二月更新彙總套件 | 2.1.0.0 | 2018 年 2 月 28 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
-| 重新整理 1 | 2.0.11.0 | 2018 年 2 月 8 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
-| 一月更新彙總套件 | 1.4.0.0 | 2018 年 1 月 8 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
-| 十一月更新彙總套件 | 1.3.0.0 | 2017 年 11 月 30 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
-| 十二月更新彙總套件 | 1.2.0.0 | 2017 年 10 月 31 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
-| 初始預覽版本 | 1.1.0.0 | 2017 年 11 月 26 日 | 代理程式版本將於 2018 年 9 月 4 日到期 |
+| 六月更新彙總套件 | 3.0.13.0 | 2018 年 6 月 29 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
+| 重新整理 2 | 3.0.12.0 | 2018 年 5 月 22 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
+| 四月更新彙總套件 | 2.3.0.0 | 2018 年 5 月 8 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
+| 三月更新彙總套件 | 2.2.0.0 | 2018 年 3 月 12 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
+| 二月更新彙總套件 | 2.1.0.0 | 2018 年 2 月 28 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
+| 重新整理 1 | 2.0.11.0 | 2018 年 2 月 8 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
+| 一月更新彙總套件 | 1.4.0.0 | 2018 年 1 月 8 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
+| 十一月更新彙總套件 | 1.3.0.0 | 2017 年 11 月 30 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
+| 十二月更新彙總套件 | 1.2.0.0 | 2017 年 10 月 31 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
+| 初始預覽版本 | 1.1.0.0 | 2017 年 11 月 26 日 | 代理程式版本將於 2018 年 10 月 1 日到期 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -49,6 +49,9 @@ Azure 檔案同步代理程式支援下列版本：
 
 ## <a name="agent-version-3100"></a>代理程式版本 3.1.0.0
 下列版本資訊適用於 Azure 檔案同步代理程式版本 3.1.0.0 (在 2018 年 6 月 17 日發行)。
+
+### <a name="evaluation-tool"></a>評估工具
+在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 AzureRM PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的作業系統版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#evaluation-tool)小節。 
 
 ### <a name="agent-installation-and-server-configuration"></a>代理程式安裝和伺服器設定
 如需如何使用 Windows Server 安裝及設定 Azure 檔案同步代理程式的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。

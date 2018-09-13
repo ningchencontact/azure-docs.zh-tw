@@ -10,49 +10,81 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 06/06/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9d5fce5a80ac1f281fdbe6afe7f9a97816807ccc
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189550"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287082"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>授與其他系統管理員存取權以管理 PIM
-為組織啟用 Azure AD Privileged Identity Management (PIM) 的全域系統管理員會自動取得角色指派及 PIM 的存取權。 不過，預設不會有任何其他人取得寫入存取權，包括其他全域系統管理員。 其他全域系統管理員、安全性管理員及安全性讀取者具有 Azure AD PIM 的唯讀存取權。 若要授與對 PIM 的存取權，第一位使用者可以將其他使用者指派給「特殊權限角色管理員」  角色。
+
+為組織啟用 Azure AD Privileged Identity Management (PIM) 的全域系統管理員，會自動取得角色指派及 PIM 的存取權。 然而依照預設，其他任何人皆不會取得寫入存取權，包括其他全域系統管理員在內。 其他全域系統管理員、安全性系統管理員及安全性讀取者具有 PIM 的唯讀存取權。 若要授與對 PIM 的存取權，第一位使用者可以將其他使用者指派給**特殊權限角色管理員**角色。
 
 > [!NOTE]
-> 管理 Azure AD PIM 需要 Azure MFA。 因為 Microsoft 帳戶無法註冊 Azure MFA，所以使用 Microsoft 帳戶登入的使用者無法存取 Azure AD PIM。
-> 
-> 
+> 管理 PIM 需要 Azure MFA。 因為 Microsoft 帳戶無法註冊 Azure MFA，所以使用 Microsoft 帳戶登入的使用者無法存取 PIM。
 
 請確保特殊權限角色管理員角色中永遠至少有兩位使用者，以防一位使用者遭到鎖定或他們的帳戶遭刪除。
 
-## <a name="give-another-user-access-to-manage-pim"></a>授與另一位使用者存取權以管理 PIM
-1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後在儀表板上選取 **Azure AD Privileged Identity Management** 應用程式。
-2. 選取 [管理特殊權限角色]  >  [特殊權限角色管理員]  >  [新增]。
-   
-    ![新增特殊權限角色管理員 - 螢幕擷取畫面](./media/pim-how-to-give-access-to-pim/PIM_add_PRA.png)
-3. 在 [新增受控使用者] 刀鋒視窗上，步驟 1 已經完成。 請選取步驟 2 [選取使用者]  ，然後搜尋您想要新增的使用者。
-   
-    ![選取使用者 - 螢幕擷取畫面](./media/pim-how-to-give-access-to-pim/PIM_select_users.png)
-4. 從搜尋結果中選取使用者，然後按一下 [完成] 。
-5. 按一下 [確定]  以儲存您的選取項目。 您選取的使用者將會出現在特殊權限角色管理員清單中。
-   
-   * 每當您指派新角色給某位使用者時，系統都會自動將他們設定成符合啟用該角色的資格。 如果您想要將使用者在該角色中設為永久，請按一下清單中的該使用者。 在使用者資訊功能表中選取 [設為永久]  。
-6. 將 [開始使用 Azure AD Privileged Identity Management](pim-getting-started.md)連結傳送給使用者。
+## <a name="grant-access-to-manage-pim"></a>授予管理 PIM 的存取權
 
-## <a name="remove-another-users-access-rights-for-managing-pim"></a>移除其他使用者管理 PIM 的存取權限
-將某人自特殊權限角色管理員角色移除之前，請確保該角色仍有兩位指派的使用者。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 在 PIM 儀表板中，按一下 [特殊權限角色管理員] 角色。  該角色的目前使用者清單隨即出現。
-2. 按一下使用者清單中的使用者。
-3. 按一下 [移除] 。  您將會看到確認訊息。
-4. 按一下 [是]  以將使用者從角色中移除。
+1. 開啟 **Azure AD Privileged Identity Management**。
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+1. 按一下 [Azure AD 目錄角色]。
+
+1. 按一下 [角色]。
+
+    ![PIM Azure AD 目錄角色 - 角色](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+
+1. 按一下 [特殊權限角色管理員] 角色開啟成員頁面。
+
+    ![特殊權限角色管理員 - 成員](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
+
+1. 按一下 [新增成員] 以開啟 [新增受控成員] 窗格。
+
+1. 按一下 [選取成員] 以開啟 [選取成員] 窗格。
+
+    ![特殊權限角色管理員 - 選取成員](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
+
+1. 選取成員，然後按一下 [選取]。
+
+1. 按一下 [確定]，使成員符合**特殊權限角色管理員**角色的資格。
+
+    每當您指派新角色給 PIM 中的某位使用者時，系統都會自動將這些人設定成符合啟用該角色的**資格**。
+
+1. 若要使成員永久符合資格，請在 [特殊權限角色管理員] 成員清單中按一下該使用者。
+
+1. 按一下 [更多]，然後按一下 [設為永久] 進行永久指派。
+
+    ![特殊權限角色管理員 - 永久符合資格](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
+
+1. 將[開始使用 PIM](pim-getting-started.md) 的連結傳送給使用者。
+
+## <a name="remove-access-to-manage-pim"></a>移除管理 PIM 的存取權
+
+將某人自特殊權限角色管理員角色移除之前，請確保該角色至少仍有兩位指派的使用者。
+
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
+
+1. 開啟 **Azure AD Privileged Identity Management**。
+
+1. 按一下 [Azure AD 目錄角色]。
+
+1. 按一下 [角色]。
+
+1. 按一下 [特殊權限角色管理員] 角色開啟成員頁面。
+
+1. 勾選您想要移除的使用者，然後按一下 [移除成員]。
+
+    ![特殊權限角色管理員 - 移除成員](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
+
+1. 在詢問您是否要從角色移除成員的訊息中，按一下 [是]。
+
 ## <a name="next-steps"></a>後續步驟
 
-- [啟用租用戶中的訂用帳戶管理](pim-resource-roles-enable-subscription-management.md)
+- [開始使用 PIM](pim-getting-started.md)

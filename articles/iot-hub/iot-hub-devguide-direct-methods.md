@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 0b84d7b0e7bbd2021ea4d3e3e804c739be59b48a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 4d55c152bdc938d943c90a3e51af37b45f6a8eb5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186874"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301391"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解 IoT 中樞的直接方法並從中樞叫用直接方法
 「IoT 中樞」能讓您從雲端在裝置上叫用直接方法。 直接方法代表與裝置的要求-回覆互動，類似於 HTTP 呼叫，因為會立即成功或失敗 (在使用者指定的逾時之後)。 針對立即動作的進展取決於裝置是否能夠回應的案例，此方法會相當有用。
@@ -105,7 +105,7 @@ curl -X POST \
     `status` 和 `body` 都是由裝置提供，用來回應裝置本身的狀態碼和/或描述。
 
 ### <a name="method-invocation-for-iot-edge-modules"></a>適用於 IoT Edge 模組的方法引動過程
-C# 預覽 SDK (可在[這裡](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004) \(英文\) 取得) 中支援使用模組識別碼叫用直接方法。
+C# SDK (可在[這裡](https://www.nuget.org/packages/Microsoft.Azure.Devices/) \(英文\) 取得) 中支援使用模組識別碼叫用直接方法。
 
 基於此用途，請使用 `ServiceClient.InvokeDeviceMethodAsync()` 方法並傳入 `deviceId` 和 `moduleId` 作為參數。
 

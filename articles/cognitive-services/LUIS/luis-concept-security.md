@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: fe0ee7d575e69c883ad7f980477e86fbd004778e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fddffbcabba753e9ef214f924d5ff2cee38427a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397238"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301688"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>撰寫和端點的使用者存取權
 撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。 就公用應用程式而言，端點存取權適用於擁有自己 LUIS 帳戶且擁有公用應用程式識別碼的所有使用者。 
@@ -60,7 +60,7 @@ ms.locfileid: "39397238"
 使用者如果不是擁有者或共同作業者，在取得應用程式識別碼的情況下，只能存取公用應用程式。 LUIS 沒有公用「市集」或其他方式可供搜尋公用應用程式。  
 
 ## <a name="microsoft-user-accounts"></a>Microsoft 使用者帳戶
-作者和共同作業者可以在 [Publish] \(發佈\) 頁面上將金鑰新增至 LUIS。 在 Azure 入口網站中建立 LUIS 金鑰的 Microsoft 使用者帳戶必須是應用程式擁有者，或應用程式共同作業者。 
+作者和共同作業者可以在 [Publish] \(發佈\) 頁面上將金鑰新增至 LUIS。 在 Azure 入口網站中建立 LUIS 金鑰的 Microsoft 使用者帳戶，必須是應用程式擁有者或應用程式共同作業者。 
 
 若要深入了解 Active Directory 使用者帳戶，請參閱 [Azure Active Directory 租用戶使用者](luis-how-to-collaborate.md#azure-active-directory-tenant-user)。 
 

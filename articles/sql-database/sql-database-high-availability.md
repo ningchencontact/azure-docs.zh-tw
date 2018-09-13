@@ -6,19 +6,19 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/29/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 329af89e52af6f3599e2d86e6ac6d28b8b63f333
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 7a60d800ce76f8ff9a903cc068fa7bc87cd33f3f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42145773"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700630"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 
-Azure SQL Database 是高度可用的資料庫平台即服務，可確保您的資料庫啟動並執行 99.99％ 的時間，無須擔心維護和停機時間。 這是 Azure 雲端中託管的完全受控 SQL Server Database Engine 流程，可確保隨時升級/修補 SQL Server Database，而不會影響您的工作負載。 即使在最關鍵的情況下，Azure SQL Database 也可以快速復原，確保您的資料隨時可用。
+Azure SQL Database 是高度可用的資料庫平台即服務，可確保您的資料庫啟動並執行 99.99％ 的時間，無須擔心維護和停機時間。 這是 Azure 雲端中託管的完全受控 SQL Server Database Engine 流程，可確保隨時升級/修補 SQL Server Database，而不會影響您的工作負載。 當修補或容錯移轉執行個體時，如果您在應用程式中[採用重試邏輯](sql-database-develop-overview.md#resiliency)，則停機時間通常不明顯。 如果完成容錯移轉的時間超過 60 秒，您應該開啟支援個案。 即使在最關鍵的情況下，Azure SQL Database 也可以快速復原，確保您的資料隨時可用。
 
 Azure 平台可完全管理每個 Azure SQL Database，並保證不會遺失任何資料，也不會影響高度的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 SQL Server 工程師已執行了最知名的實務，確保所有維護作業在資料庫生命週期不到 0.01% 的時間內完成。 此架構旨在確保已認可的資料不會遺失，且在不影響工作負載的情況下執行維護作業。 在升級或維護資料庫時，不會有維護視窗或停機時間要求您停止工作負載。 Azure SQL Database 中內建的高可用性可確保資料庫絕對不會成為軟體架構中的單一失敗點。
 
@@ -41,7 +41,7 @@ Azure 透明地升級和修補基礎作業系統、驅動程式及 SQL Server Da
 - 無狀態計算層，執行 sqlserver.exe 流程並且僅包含暫時性和快取資料 (例如計畫快取、緩衝集區、列儲存集區)。 此無狀態 SQL Server 節點是由 Azure Service Fabric 操作，可初始化流程、控制節點的健康情況，並在必要時執行故障轉移至其他位置。
 - 具狀態資料層，包含儲存在 Azure 進階儲存體中的資料庫檔案 (.mdf/.ldf)。 Azure 儲存體可確保任何資料庫檔案中放置的任何記錄都不會遺失資料。 Azure 儲存體具有內建的資料可用性/備援，即使 SQL Server 流程損毀，也可以確保保留資料檔案中記錄檔或頁面中的每項記錄。
 
-每當升級資料庫引擎或作業系統，部份的基礎結構失敗，或者在 SQL Server 流程中偵測到某些關鍵問題時，Azure Service Fabric 都會將無狀態 SQL Server 流程移至另一個無狀態計算節點。 發生容錯移轉時，會有一組備用節點等候執行新的計算服務，以便將容錯移轉的時間縮到最短。 Azure 儲存體層中的資料不受影響，而資料/記錄檔會附加到新初始化的 SQL Server 流程。 預期的容錯移轉時間可以以秒為單位進行測量。 此流程可保證 99.99％ 的可用性，但由於轉換時間和新 SQL Server 節點以冷快取啟動，可能會對正在執行的繁重工作負載產生一些效能影響。
+每當升級資料庫引擎或作業系統，部份的基礎結構失敗，或者在 SQL Server 流程中偵測到某些關鍵問題時，Azure Service Fabric 都會將無狀態 SQL Server 流程移至另一個無狀態計算節點。 發生容錯移轉時，會有一組備用節點等候執行新的計算服務，以便將容錯移轉的時間縮到最短。 Azure 儲存體層中的資料不受影響，而資料/記錄檔會附加到新初始化的 SQL Server 流程。 此流程可保證 99.99％ 的可用性，但由於轉換時間和新 SQL Server 節點以冷快取啟動，可能會對正在執行的繁重工作負載產生一些效能影響。
 
 ## <a name="premiumbusiness-critical-availability"></a>進階/業務關鍵可用性
 
@@ -51,7 +51,7 @@ Azure 透明地升級和修補基礎作業系統、驅動程式及 SQL Server Da
 
 ![資料庫引擎節點的叢集](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-SQL Server Database Engine 流程和基礎 mdf/ldf 檔案都放在具有本機連接 SSD 儲存體的同一節點上，為您的工作負載提供低延遲。 使用標準 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)執行高可用性。 每個資料庫都屬於資料庫節點叢集，其中一個主要資料庫可供客戶工作負載存取，還有三個包含資料副本的次要流程。 主要節點持續將更改推送到次要節點，以確保主要節點因故損毀時，次要複本仍可提供資料。 容錯轉移由 SQL Server Database Engine 處理 - 一個次要複本成為主要節點，並建立新的次要複本，以確保叢集中有足夠的節點。 工作負載會自動重新導向至新的主要節點。 容錯移轉時間以毫秒為單位測量，而新的主要執行個體立即準備繼續提供要求。
+SQL Server Database Engine 流程和基礎 mdf/ldf 檔案都放在具有本機連接 SSD 儲存體的同一節點上，為您的工作負載提供低延遲。 使用標準 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)執行高可用性。 每個資料庫都屬於資料庫節點叢集，其中一個主要資料庫可供客戶工作負載存取，還有三個包含資料副本的次要流程。 主要節點持續將更改推送到次要節點，以確保主要節點因故損毀時，次要複本仍可提供資料。 容錯轉移由 SQL Server Database Engine 處理 - 一個次要複本成為主要節點，並建立新的次要複本，以確保叢集中有足夠的節點。 工作負載會自動重新導向至新的主要節點。
 
 此外，業務關鍵叢集會提供內建唯讀節點，該節點可用於執行不會影響主要工作負載效能的唯讀狀態 (例如報告)。 
 

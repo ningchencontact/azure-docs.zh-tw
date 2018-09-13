@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188981"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666331"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>您可以在 PIM 中管理的 Azure AD 目錄角色
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -76,13 +76,36 @@ Azure 訂用帳戶和資源群組也不會出現在 Azure AD 中。 若要管理
 使用者若要存取 Microsoft Online Services，可能也必須已獲指派授權才能開啟服務的入口網站或執行系統管理工作。
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>將授權指派給 Azure AD 中的使用者
+
 1. 使用全域管理員帳戶或共同管理員帳戶登入 [Azure 入口網站](http://portal.azure.com)。
-3. 選取 Azure AD 以及您想要使用且有相關授權的目錄。
-4. 選取左邊的 [授權]。 隨即會出現可用的授權清單。
-5. 針對您要散發的授權，選取包含此授權的授權方案。
-6. 選取 [指派使用者] 。
-7. 選取您想要指派授權的使用者。
-8. 按一下 [指派]  按鈕。  使用者現在已可以登入 Azure。
+
+1. 選取您想要使用的 Azure AD 目錄，且該目錄會含有與它相關聯的授權。
+
+1. 在左側導覽列中，按一下 [Azure Active Directory]。
+
+1. 按一下 [授權]。 隨即會出現可用的授權清單。
+
+    ![Azure Active Directory 授權](./media/pim-roles/licenses-overview.png)
+
+1. 按一下您的 [產品]。
+
+1. 針對您要散發的授權，按一下包含此授權的授權方案。
+
+    ![授權產品](./media/pim-roles/licenses-products.png)
+
+1. 按一下 [指派] 開啟 [指派授權] 窗格。
+
+    ![經過授權的使用者](./media/pim-roles/licenses-licensed-users.png)
+
+1. 選取您想要指派授權的使用者或群組。
+
+    ![指派授權](./media/pim-roles/licenses-assign-license.png)
+
+1. 按一下 [指派選項] 設定您的指派選項。
+
+    ![指派選項](./media/pim-roles/licenses-assignment-options.png)
+
+1. 按一下 [指派] 指派授權。 使用者現在擁有授權。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟

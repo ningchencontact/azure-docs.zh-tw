@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917130"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381749"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 同盟服務
 AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功能。 與 Azure AD 或 O365 同盟可讓使用者使用內部部署認證進行驗證，並存取雲端中的所有資源。 如此一來，就一定要有高可用性的 AD FS 基礎結構，以確保能夠存取內部部署和雲端中的資源。 在 Azure 中部署 AD FS 有助於達成執行最低限度的工作所需要的高可用性。
@@ -187,12 +187,14 @@ AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功�
 
 **6.3.設定探查**
 
-在 ILB 的 [設定] 面板中，選取 [探查]。
+在 ILB 設定面板中，選取 [健康情況探查]。
 
 1. 按一下 [新增]
-2. 提供探查的詳細資料 a. **名稱**︰探查名稱 b. **通訊協定**：TCP c. **連接埠**：443 (HTTPS) d. **間隔**：5 (預設值) – 這是 ILB 在後端集區中探查機器的間隔 e. **狀況不良臨界值限制**：2 (預設值) – 這是連續探查失敗臨界值，達到此臨界值之後，ILB 就會將後端集區中的機器宣告為沒有回應，並停止對它傳送流量。
+2. 提供探查的詳細資料 a. **名稱**︰探查名稱 b. **通訊協定**：HTTP c. **連接埠**：80 (HTTP) d. **路徑**：/adfs/probe e. **間隔**：5 (預設值) – 這是 ILB 在後端集區中探查機器的間隔 f. **狀況不良臨界值限制**：2 (預設值) – 這是連續探查失敗臨界值，達到此臨界值之後，ILB 就會將後端集區中的機器宣告為沒有回應，並停止對它傳送流量。
 
 ![設定 ILB 探查](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+在無法執行完整 HTTPS 路徑檢查的 AD FS 環境中，我們會使用明確建立的 /adfs/probe 端點來執行健康情況檢查。  這遠優於基本連接埠 443 檢查；後者無法準確反映新式 AD FS 部署的狀態。  如需詳細資訊，請參閱 https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/。
 
 **6.4.建立負載平衡規則**
 

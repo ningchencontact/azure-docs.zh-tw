@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 29d04781d166abdd1fc1fc506077e6257f6551a6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145555"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287337"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -259,7 +259,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>使用指標以指向上傳至金鑰保存庫的祕密
 
-若要使用現有的金鑰保存庫，保存庫必須[啟用為可供部署使用](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI)，才能讓計算資源提供者從中取得憑證，然後將它安裝在叢集節點上。
+若要使用現有的金鑰保存庫，其必須[啟用為可供部署使用](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI)，才能讓計算資源提供者從中取得憑證，然後將它安裝在叢集節點上。
 
 使用 PowerShell 部署叢集：
 

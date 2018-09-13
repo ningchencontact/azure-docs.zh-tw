@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: de42e68116c147d81ed0211426bfa813d070b121
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e15e17a499ad33a270b220fa7483d96c2945f6bb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627989"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338072"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>自訂和重新部署微服務
 
@@ -30,7 +30,7 @@ ms.locfileid: "34627989"
 > * 提取新的 Docker 映像
 > * 將變更視覺化 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 為了依循本教學課程進行操作，您需要：
 
@@ -45,7 +45,7 @@ ms.locfileid: "34627989"
 
 1. 確定遠端監視解決方案正在您的電腦上以本機方式執行。
 2. 找出您已下載的 Postman 並開啟它。
-3. 在 Postman 中，於 GET 中輸入下列內容：http://localhost:8080/iothubmanager/v1/status。
+3. 在 Postman 中，於 GET 中輸入下列內容： http://localhost:8080/iothubmanager/v1/status。
 4. 檢視傳回內容，您應該會看到 "Status": "OK:Alive and Well"。
 ![Alive and Well 的 Postman訊息](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
@@ -138,7 +138,7 @@ ms.locfileid: "34627989"
     ```
 
 3. 找出您已下載的 Postman 並開啟它。
-4. 在 Postman 中，於 GET 中輸入下列要求：http://localhost:8080/iothubmanager/v1/status。 您現在應該會看到 "Status": "OK: New Edits Made Here!"。
+4. 在 Postman 中，於 GET 中輸入下列要求： http://localhost:8080/iothubmanager/v1/status。 您現在應該會看到 "Status": "OK: New Edits Made Here!"。
 
 ![New Edits Made Here 的 Postman 訊息](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
@@ -187,7 +187,7 @@ ms.locfileid: "34627989"
 > * 提取新的 Docker 映像
 > * 將變更視覺化 
 
-下一個要嘗試的動作是[在遠端監視解決方案中自訂裝置模擬器微服務](iot-accelerators-remote-monitoring-test.md)
+下一個要嘗試的動作是[在遠端監視解決方案中自訂裝置模擬器微服務](iot-accelerators-microservices-example.md)
 
 如需關於遠端監視解決方案的開發人員詳細資訊，請參閱：
 

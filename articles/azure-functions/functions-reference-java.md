@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw
-ms.openlocfilehash: d895258a4c8a38d00932d81600dc8633d7d70112
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: bbc1c3426b52e71db84a988b39a1d76ac24b6168
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140654"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697006"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
@@ -93,7 +93,7 @@ public class MyClass {
 
 Azure Functions 支援使用第三方程式庫。 根據預設，專案的 `pom.xml` 檔案中所指定的相依性全都會在 `mvn package` 目標期間自動配套。 對於在 `pom.xml` 檔案中未指定為相依性的程式庫，請將其放入函式根目錄的 `lib` 目錄中。 放在 `lib` 目錄中的相依性會在執行階段新增至系統類別載入器。
 
-## <a name="data-types"></a>資料類型
+## <a name="data-type-support"></a>資料類型支援
 
 您可以針對輸入和輸出資料在 Java 中使用任何資料類型，包括原生類型。自訂 Java 類型及特殊 Azure 類型會在 `azure-functions-java-library` 套件中定義。 Azure Functions 執行階段會嘗試將收到的輸入轉換為您的程式碼要求的類型。
 
@@ -243,7 +243,7 @@ public class MyClass {
 
 透過 `azure-functions-java-library` 套件中定義的 `ExecutionContext` 物件，與 Azure Functions 執行環境互動。 使用 `ExecutionContext` 物件以在您的程式碼中使用引動資訊和函式執行階段資訊。
 
-### <a name="logging"></a>記錄
+### <a name="custom-logging"></a>自訂記錄
 
 可以透過 `ExecutionContext` 物件存取函式執行階段記錄器。 這個記錄器會繫結至 Azure 監視，並可讓您將函式執行期間遇到的警告和錯誤加上旗標。
 
@@ -263,6 +263,29 @@ public class Function {
     }
 }
 ```
+
+## <a name="view-logs-and-trace"></a>檢視記錄檔和追蹤
+
+您可以使用 Azure CLI 以串流 Java 標準流出與錯誤記錄檔，以及其他應用程式記錄檔。 首先，設定您的函式應用程式以使用 Azure CLI 寫入應用程式記錄：
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+若要使用 Azure CLI 串流 Function 應用程式的記錄輸出，請開啟新的命令列提示字元、Bash 或終端機工作階段，然後輸入下列命令：
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+[az webapp log tail](/cli/azure/webapp/log) 命令有選項可使用 `--provider` 選項篩選輸出。 
+
+若要使用 Azure CLI 將記錄檔做為單一 ZIP 檔案下載，請開啟新的命令列提示字元、Bash 或終端機工作階段，然後輸入下列命令：
+
+```azurecli-interactive
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+您必須先在 Azure 入口網站或 Azure CLI 中啟用檔案系統記錄，再執行此命令。
 
 ## <a name="environment-variables"></a>環境變數
 
@@ -288,9 +311,12 @@ public class Function {
 由於您的程式碼現在仰賴這些環境變數，您現在可以登入 Azure 入口網站，在函數應用程式設定中設定相同的機碼/值組，如此程式碼功能在本機測試及部署至 Azure 時都會相同。
 
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱下列資源：
+
+如需 Azure Function Java 開發的詳細資訊，請參閱以下資源：
 
 * [Azure Functions 的最佳做法](functions-best-practices.md)
 * [Azure Functions 開發人員參考](functions-reference.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
+- 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 進行本機開發與偵錯。 
 * [使用 Visual Studio Code 針對 Java Azure Functions 進行遠端偵錯](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Azure Functions 適用的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) (英文) - 透過 `azure-functions:add` 目標建立串流函式，並針對 [ZIP 檔案開發](deployment-zip-push.md)準備暫存目錄。

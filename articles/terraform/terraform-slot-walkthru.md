@@ -1,18 +1,20 @@
 ---
 title: Terraform 和 Azure 提供者部署位置
 description: 關於使用 Terraform 和 Azure 提供者部署位置的教學課程
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, 虛擬機器, Azure, 部署位置
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 4/05/2018
-ms.topic: article
-ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416858"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667231"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>使用 Terraform 來佈建具有 Azure 部署位置的基礎結構
 
@@ -20,7 +22,7 @@ ms.locfileid: "31416858"
 
 本文逐步引導您透過 GitHub 和 Azure 部署兩個應用程式，以說明部署位置的使用範例。 一個應用程式會裝載在生產位置中。 第二個應用程式會裝載在預備位置中。 (「生產」和「預備」這兩個名稱都是隨意的名稱，可以是您想代表您的案例的任何事物。)設定部署位置後，您可視需要使用 Terraform 來交換兩個位置。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
@@ -217,7 +219,7 @@ ms.locfileid: "31416858"
 
 在前面幾節中，您設定了兩個位置--**slotAppService** 和 **slotAppServiceSlotOne**--以從 GitHub 中不同的分支進行部署。 讓我們來預覽 Web 應用程式，以驗證這些應用程式是否已部署成功。
 
-請執行下列步驟兩次。 在步驟 3 中，您第一次會選取 [slotAppService]，然後第二次會選取 [slotAppServiceSlotOne]。
+執行下列步驟 2 次。 在步驟 3 中，您第一次會選取 [slotAppService]，然後第二次會選取 [slotAppServiceSlotOne]。
 
 1. 在 Azure 入口網站的主功能表上，選取 [資源群組]。
 

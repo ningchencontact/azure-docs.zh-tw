@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: e7a63167285c06fdfe632e7d45d9fddd3cca7842
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248517"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700190"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>針對 Microsoft Azure 復原服務 (MARS) 代理程式問題進行疑難排解
 ## <a name="recommended-steps"></a>建議的步驟
@@ -66,7 +66,10 @@ ms.locfileid: "39248517"
 <li>按兩下 'Microsoft-OnlineBackup' 工作，並移至 [觸發程序] 索引標籤。
 <li>請確定工作的 [狀態] 設為 [已啟用]。 如果沒有，請按一下 [編輯]，然後選取 [已啟用] 核取方塊
 <li>巡覽至 [一般] 索引標籤的 [安全性選項] 區段
-<li>請確定所選取來執行工作的使用者帳戶為「系統」或伺服器上的本機系統管理員群組> [!TIP] 在執行上述步驟之後，建議您重新啟動伺服器，以確保一致地套用所進行的變更
+<li>請確定為執行工作而選取的使用者帳戶為 *SYSTEM*，或伺服器上的本機系統管理員群組
+
+> [!TIP]
+> 在執行上述步驟之後，建議您重新啟動伺服器，以確保一致地套用所進行的變更
 
 
 ## <a name="troubleshooting-restore-issues"></a>針對還原問題進行疑難排解

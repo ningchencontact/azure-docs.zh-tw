@@ -9,16 +9,16 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e1b7c82e6998705bdc7e1c1a5d279bda7793667a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113346"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43305194"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>搭配使用中繼資料與 GenerateAnswer API
 
-QnA Maker 可讓您將索引鍵/值組形式的中繼資料新增至問答集。 這項資訊可運用於多種用途，例如篩選使用者查詢的結果、提升特定結果，以及儲存可在待處理的交談中使用的其他資訊。 如需詳細資訊，請參閱[知識庫](../Concepts/knowledge-base.md)。
+QnA Maker 可讓您將索引鍵/值組形式的中繼資料新增至問答集。 這項資訊可用來篩選使用者查詢的結果，並儲存待處理的交談中可用的其他資訊。 如需詳細資訊，請參閱[知識庫](../Concepts/knowledge-base.md)。
 
 ## <a name="qna-entity"></a>QnA 實體
 
@@ -50,7 +50,7 @@ QnA Maker 可讓您將索引鍵/值組形式的中繼資料新增至問答集。
 
 您可以透過 HTTP POST 要求來呼叫 GenerateAnswer。 如需示範如何呼叫 GenerateAnswer 的範例程式碼，請參閱[快速入門](../quickstarts/csharp.md)。
 
-- **要求 URL**：https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
+- **要求 URL**： https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
 
 - **要求參數**： 
     - **知識庫識別碼** (字串)：知識庫的 GUID。

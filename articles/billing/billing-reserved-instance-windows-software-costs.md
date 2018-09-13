@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 8ff2d126fd491ddc40f6223b6d4ec1fc4505b8fb
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ec4869ed5c4d823a8144ba430ebb29c65c2abc13
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630106"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302061"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reservations"></a>Windows 軟體的成本不包括在 Azure 保留內
+# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Windows 軟體的成本不包括在 Azure 保留的虛擬機器執行個體內
 
 如果保留的虛擬機器執行個體上沒有 Azure Hybrid Use Benefit，則必須為下列區段所列的 Windows 軟體計量支付費用。
 
@@ -57,7 +57,7 @@ ms.locfileid: "39630106"
 
 - [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [管理 Azure 中的保留項目](billing-manage-reserved-vm-instance.md)
+- [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
 - [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
 - [了解預付型方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)

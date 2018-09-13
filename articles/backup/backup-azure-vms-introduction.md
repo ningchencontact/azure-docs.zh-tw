@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 備份 VM, 備份虛擬機器
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390750"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286647"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中規劃 VM 備份基礎結構
 本文提供效能和資源方面的建議，以協助您規劃 VM 備份基礎結構。 本文也會定義備份服務的重要層面；這些層面對於決定架構、容量規劃及排程來說相當重要。 如果您已經[準備好環境](backup-azure-arm-vms-prepare.md)，則規劃是您開始[備份 VM](backup-azure-arm-vms.md) 之前的下一個步驟。 如果您需要 Azure 虛擬機器的詳細資訊，請參閱 [虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。 
@@ -50,17 +50,18 @@ Azure 備份會在 Windows VM 上執行 VSS 完整備份 (深入了解 [VSS 完�
 ```
 
 #### <a name="linux-vms"></a>Linux VM
-Azure 備份提供指令碼架構。 為確保備份 Linux VM 時應用程式的一致性，請建立自訂的前指令碼與後指令碼來控制備份工作流程與環境。 Azure 備份會在擷取 VM 快照集之前先叫用前指令碼，並在 VM 快照集作業完成之後叫用後指令碼。 如需詳細資訊，請參閱 [Azure Linux VM 的應用程式一致備份 (預覽)](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)。
+
+Azure 備份提供指令碼處理架構，可用來控制備份工作流程和環境。 若要確保應用程式一致的 Linux VM 備份，請使用指令碼處理架構來建立自訂前置指令碼和後置指令碼。 擷取虛擬機器快照集之前先叫用前指令碼，然後在虛擬機器快照集作業完成之後叫用後指令碼。 如需詳細資訊，請參閱[應用程式一致的 Linux VM 備份](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)一文。
+
 > [!NOTE]
 > Azure 備份只會叫用客戶撰寫的前指令碼和後指令碼。 如果前指令碼和後指令碼順利執行，Azure 備份會將復原點標記為應用程式一致。 但是，客戶要對使用自訂指令碼時的應用一致性負最終責任。
 >
 
-
-此表說明一致性的類型，以及它們在 Azure VM 備份和還原程序期間發生的條件。
+下表說明一致性的類型，以及發生一致性的條件。
 
 | 一致性 | 以 VSS 基礎 | 說明和詳細資料 |
 | --- | --- | --- |
-| 應用程式一致性 |是 - 適用於 Windows|對於工作負載而言，最理想的情況是應用程式一致性，因為它確保：<ol><li> VM 啟動。 <li>不會毀損。 <li>不會遺失資料。<li> 資料會與使用資料的應用程式保持一致，方法是在備份期間使用 VSS 或前/後指令碼將應用程式納入。</ol> <li>*Windows VM*- 大部分 Microsoft 工作負載都有 VSS 寫入器，負責執行與資料一致性有關的工作負載特定動作。 例如，Microsoft SQL Server 的 VSS 寫入器可確保正確寫入交易記錄檔和資料庫。 對於 Azure Windows VM 備份，若要建立應用程式一致的復原點，備份擴充功能必須叫用 VSS 工作流程，並在建立 VM 快照之前完成它。 若要取得精確的 Azure VM 快照集，也必須完成所有 Azure VM 應用程式的 VSS 寫入器。 (了解 [VSS 的基本知識](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)及深入了解[其運作方式](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)的詳細資料)。 </li> <li> *Linux VM*- 客戶可以執行[自訂前指令碼和後指令碼以確保應用程式一致性](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)。 </li> |
+| 應用程式一致性 |是 - 適用於 Windows|對於工作負載而言，最理想的情況是應用程式一致性，因為它確保：<ol><li> VM 啟動。 <li>不會毀損。 <li>不會遺失資料。<li> 資料會與使用資料的應用程式保持一致，方法是在備份期間使用 VSS 或前/後指令碼將應用程式納入。</ol> <li>*Windows VM*- 大部分 Microsoft 工作負載都有 VSS 寫入器，負責執行與資料一致性有關的工作負載特定動作。 例如，SQL Server VSS 寫入器可確保正確寫入交易記錄檔和資料庫。 對於 IaaS Windows VM 備份，若要建立應用程式一致的復原點，備份擴充功能必須叫用 VSS 工作流程，並在建立虛擬機器快照之前完成它。 若要取得精確的 Azure VM 快照集，也必須完成所有 Azure VM 應用程式的 VSS 寫入器。 (了解 [VSS 的基本知識](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)及深入了解[其運作方式](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)的詳細資料)。 </li> <li> *Linux VM*- 客戶可以執行[自訂前指令碼和後指令碼以確保應用程式一致性](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)。 </li> |
 | 檔案系統一致性 |是 - 適用於 Windows 電腦 |有兩種案例的復原點可以讓「檔案系統保持一致」：<ul><li>Azure 中 Linux VM 的備份，沒有前指令碼/後指令碼，或是前指令碼/後指令碼失敗。 <li>在 Azure 中備份 Windows VM 期間發生的 VSS 失敗。</li></ul> 在這兩種情況中，可採取的最佳作法是確保： <ol><li> VM 啟動。 <li>不會毀損。<li>不會遺失資料。</ol> 應用程式需要在還原的資料上實作自己的「修正」機制。 |
 | 損毀一致性 |否 |此狀況相當於虛擬機器「當機」(經由軟體重設或硬體重設)。 當機時保持一致性通常發生於 Azure 虛擬機器在備份期間關閉時。 當機時保持一致的復原點不保證儲存媒體上資料的一致性 -- 無論從作業系統還是應用程式的觀點來說都一樣。 只會擷取備份時已存在磁碟上的資料，並加以備份。 <br/> <br/> 儘管不提供保證，但作業系統通常會啟動，後面接著進行磁碟檢查程序 (例如 chkdsk)，以修正任何損毀錯誤。 任何未傳輸到磁碟的記憶體內部資料或寫入都會遺失。 如果需要進行資料復原，應用程式通常會接著進行其本身的驗證機制。 <br><br>例如，如果交易記錄中有項目不存在資料庫中，則資料庫軟體會執行復原，直到資料變成一致為止。 當資料跨多個虛擬磁碟時 (例如跨距磁碟區)，損毀一致復原點不保證資料的正確性。 |
 
@@ -104,19 +105,22 @@ Azure 備份提供指令碼架構。 為確保備份 Linux VM 時應用程式的
 * 資料複製時間 - 資料會從保存庫複製到客戶儲存體帳戶。 還原時間取決於 Azure 備份服務在所選客戶儲存體帳戶上取得的 IOPS 和輸送量。 若要減少還原程序期間的複製時間，請選取未使用其他應用程式寫入或讀取載入的儲存體帳戶。
 
 ## <a name="best-practices"></a>最佳作法
-為具有非受控磁碟的虛擬機器設定備份時，建議您遵循下列做法：
 
-> [!Note]
-> 下列建議變更或管理儲存體帳戶的做法，僅適用於具有非受控磁碟的 VM。 如果您使用受控磁碟，Azure 會負責處理涉及儲存體的所有管理活動。
-> 
+在設定所有虛擬機器的備份時，建議您遵循下列做法：
 
-* 避免將超過 10 個來自相同雲端服務的傳統 VM 排程在同一時間內進行備份。 如果您想要備份多個來自相同雲端服務的 VM，建議您將備份開始時間錯開一小時。
-* 避免將單一保存庫中超過 100 部的 VM 排程在同一時間進行備份。 
+* 避免將超過 10 個來自相同雲端服務的傳統虛擬機器排程在同一時間內進行備份。 如果您想要備份多個來自相同雲端服務的虛擬機器，建議您將備份開始時間錯開一小時。
+* 避免將一個保存庫的超過 100 個虛擬機器排程在同一時間內進行備份。
 * 安排 VM 備份在非尖峰時段進行。 如此一來，備份服務會使用 IOPS 將資料從客戶儲存體帳戶傳輸到保存庫。
-* 確定有原則套用至橫跨不同儲存體帳戶的 VM。 我們的建議是，相同備份排程只保護單一儲存體帳戶中總計不超過 20 個的磁碟。 如果您的儲存體帳戶中有超過 20 個磁碟，請將這些 VM 分散到多個原則，以在備份程序的傳輸階段取得所需的 IOPS。
-* 請勿將進階儲存體上執行的 VM 還原至相同的儲存體帳戶。 如果還原作業程序與備份作業一致，將會減少備份可用的 IOPS。
-* 對於 VM 備份堆疊 V1 上的進階 VM ，建議只配置 50% 的總儲存體帳戶空間，讓 Azure 備份服務可以將快照集複製到儲存體帳戶，並從儲存體帳戶中複製的這個位置，將資料傳送到到保存庫。
 * 請確定為了備份而啟用的 Linux VM 具有 Python 2.7 版或更新版本。
+
+### <a name="best-practices-for-vms-with-unmanaged-disks"></a>非受控磁碟虛擬機器的適用最佳做法
+
+下列建議僅適用於使用非受控磁碟的虛擬機器。 如果您的虛擬機器使用受控磁碟，備份服務會處理所有的儲存體管理活動。
+
+* 請務必將備份原則套用於分散到多個儲存體帳戶的虛擬機器。 單一儲存體帳戶中受到同個備份排程保護的磁碟數量，最多不應超過 20 個。 如果您的儲存體帳戶中有超過 20 個磁碟，請將這些 VM 分散到多個原則，以在備份程序的傳輸階段取得所需的 IOPS。
+* 請勿將進階儲存體上執行的 VM 還原至相同的儲存體帳戶。 如果還原作業程序與備份作業一致，將會減少備份可用的 IOPS。
+* 對於虛擬機器備份堆疊 V1 上的進階虛擬機器備份，您應該只配置 50% 的總儲存體帳戶空間，讓備份服務可以將快照集複製到儲存體帳戶，並從儲存體帳戶將資料傳送到到保存庫。
+
 
 ## <a name="data-encryption"></a>資料加密
 Azure 備份不會在備份過程中加密資料。 不過，您可以在 VM 中加密資料，並順暢地備份受保護的資料 (深入了解 [加密資料的備份](backup-azure-vms-encryption.md))。

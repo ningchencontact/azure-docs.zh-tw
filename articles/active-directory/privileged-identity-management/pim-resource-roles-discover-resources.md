@@ -11,56 +11,53 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 03/30/2018
+ms.date: 08/30/2018
 ms.author: rolyon
-ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190653"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306684"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>在 PIM 中探索要管理的 Azure 資源
 
-了解當您在 Azure Active Directory (Azure AD) 中使用 Privileged Identity Management (PIM) 時，如何探索與管理 Azure 資源。 此資訊對於已經使用 PIM 來保護系統管理員資源的組織，以及想要保護生產資源的訂用帳戶擁有者而言非常實用。
+您可以使用 Azure AD Privileged Identity Management (PIM)，來改善您 Azure 資源的保護。 這有助於已經使用 PIM 的組織來保護 Azure AD 目錄角色，並管理想要保護生產資源的群組和訂用帳戶擁有者。
 
 當您第一次設定適用於 Azure 資源的 PIM 時，必須探索並選取要使用 PIM 保護的資源。 您可以使用 PIM 管理的資源數目並無任何限制。 不過，我們建議從您最重要的 (生產) 資源開始。
 
-> [!NOTE]
-> 您只能使用 PIM 來搜尋並選取要管理的管理群組或訂用帳戶資源。 當您在 PIM 中對管理群組或訂用帳戶進行管理時，也可以管理其中的子資源。
-
 ## <a name="discover-resources"></a>探索資源
 
-在 Azure 入口網站中，移至 [Privileged Identity Management] 窗格。 在左側功能表的 [管理] 區段中，選取 [Azure 資源]。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-![[Privileged Identity Management - Azure 資源] 窗格](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+1. 開啟 **Azure AD Privileged Identity Management**。
 
-如果這是您第一次針對 Azure 資源使用 PIM，請先執行探索來尋找要管理的資源。 在 [探索資源] 窗格中，選取 [探索資源] 按鈕以啟動探索體驗。
+1. 按一下 [Azure 資源]。
 
-![[探索資源] 窗格](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
+    如果這是您第一次使用適用於 Azure 資源的 PIM，您會看到 [探索資源] 窗格。
 
-如果組織中的其他資源或目錄系統管理員已使用 PIM 來管理 Azure 資源，或者您具有某個資源的合格角色指派，則清單檢視會顯示以下訊息：**探索資源或啟用合格的角色指派以繼續**。 
+    ![探索資源 - 第一次](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
-![[Privileged Identity Manager - Azure 資源] 窗格中的 [探索資源] 按鈕](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
+    如果您組織中的其他資源或目錄系統管理員已經管理 PIM 中的 Azure 資源，您會看到將目前管理的資源列出的清單。
 
-當您選取 [探索資源] 按鈕時，不論是從上層功能表或在窗格中間，都會出現您可以管理的訂用帳戶清單。 反白顯示的訂用帳戶已受到 PIM 保護。
+    ![[探索資源] 窗格](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
-> [!NOTE]
-> 為了防止其他資源系統管理員移除 PIM 設定，一旦將訂用帳戶設定為受控之後，就無法將其變成非受控。
+1. 按一下 [探索資源] 啟動探索體驗。
 
-![[Azure 資源 - 探索] 窗格](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
+    ![[探索] 窗格](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-在 [資源] 欄中，將滑鼠放在您想要使用 PIM 保護的訂用帳戶上方。 然後，選取資源名稱左邊的核取方塊。 您可以同時選取多個訂用帳戶。
+1. 在 [探索] 窗格中，使用 [資源狀態篩選] 和 [選取資源類型] 篩選您擁有寫入權限的管理群組或訂用帳戶。 一開始可能最容易的做法是先使用 [全部]。
 
-![[Azure 資源 - 探索] 窗格中的資源清單](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
+    您只能使用 PIM 來搜尋並選取要管理的管理群組或訂用帳戶資源。 當您在 PIM 中對管理群組或訂用帳戶進行管理時，也可以管理其中的子資源。
 
-若要起始上線程序，請在上層功能表中選取 [管理資源]。
+1. 勾選您想要管理的任何未受控資源。
 
-![[Azure 資源 - 探索] 窗格中的 [管理資源] 按鈕](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
+    > [!NOTE]
+    > 管理群組或訂用帳戶設定為受控後，則無法變為非受控。 這可防止其他資源管理員移除 PIM 設定。
 
-選取的資源現在由 PIM 管理。 若要關閉探索畫面，請選取右上角的 **X**。若要開始管理 PIM 設定並指派成員，在 [Privileged Identity Management - Azure 資源] 窗格頂端的功能表中，選取 [重新整理] 按鈕。
+    ![探索 - 管理資源](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-![[Privileged Identity Management - Azure 資源] 窗格頂端功能表中的 [重新整理] 按鈕](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
+1. 按一下 [管理資源] 開始管理選取的資源。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,78 +1,73 @@
 ---
-title: 呼叫和回應 - Azure 認知服務，Bing Web 搜尋 API 的 PHP 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing Web 搜尋 API。
+title: 快速入門：使用 PHP 來呼叫 Bing Web 搜尋 API
+description: 在本快速入門中，您將學習如何使用 PHP 來第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 2e54db4ba59d89271077d243589243768bf8b7fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: ef5263ce65efccdab0fb461165e66156dd4fce52
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368510"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888424"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-php"></a>呼叫和回應：以 PHP 撰寫的第一個 Bing Web 搜尋查詢
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>快速入門：使用 PHP 來呼叫 Bing Web 搜尋 API  
 
-Bing Web 搜尋 API 提供的體驗與 Bing.com/Search 類似，都會傳回 Bing 判斷與使用者的查詢相關的搜尋結果。 結果可能包括網頁、影像、影片、新聞和實體，以及相關的搜尋查詢、拼字校正、時區、單位轉換、翻譯以及計算。 您取得的結果種類取決於其相關性，以及訂閱的 Bing 搜尋 API 層。
+本快速入門可讓您在 10 分鐘內完成第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。  
 
-本文包含一個簡單主控台應用程式，其執行 Bing Web 搜尋 API 查詢，並顯示所傳回未經處理的搜尋結果 (格式為 JSON)。 雖然此應用程式是以 PHP 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-您需要 [PHP 5.6.x](http://php.net/downloads.php) 以執行此程式碼。
+以下是執行本快速入門之前的幾個必備項目：
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) \(英文\)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+* [PHP 5.6.x](http://php.net/downloads.php) (英文) 或更新版本
+* 訂用帳戶金鑰  
 
-## <a name="running-the-application"></a>執行應用程式
+## <a name="enable-secure-http-support"></a>啟用安全的 HTTP 支援
 
-若要執行此應用程式，請遵循下列步驟。
+開始之前，請找出 `php.ini` 並取消註解這一行：
 
-1. 請確定 `php.ini` 中已啟用安全 HTTP 支援，如程式碼註解中所述。 在 Windows 中，這個檔案位於 `C:\windows`。
-2. 在您最愛的 IDE 或編輯器中建立新的 PHP 專案。
-3. 加入提供的程式碼。
-4. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
-5. 執行程式。
+```
+;extension=php_openssl.dll
+```
+
+## <a name="create-a-project-and-define-variables"></a>建立專案並定義變數  
+
+在您最愛的 IDE 或編輯器中建立新的 PHP 專案。 別忘了將 `<?php` 和 `?>` 加上開頭和結尾標記。
+
+必須先設定幾個變數才能繼續。 請確認 `$endpoint` 正確，並將 `$accesskey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `$term` 的值來自訂搜尋查詢。
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';
-
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this value against
-// the endpoint for your Bing Web search instance in your Azure dashboard.
 $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
-
 $term = 'Microsoft Cognitive Services';
+```
 
+## <a name="construct-a-request"></a>建構要求
+
+此程式碼會宣告 `BingWebSearch` 函式，用於建構對 Bing Web 搜尋 API 所提出的要求。 此函式接受三個引數︰`$url`、`$key` 和 `$query`。
+
+```php
 function BingWebSearch ($url, $key, $query) {
-    // Prepare HTTP request
-    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    /* Prepare the HTTP request.
+     * NOTE: Use the key 'http' even if you are making an HTTPS request.
+     * See: http://php.net/manual/en/function.stream-context-create.php.
+     */
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,
                            'method' => 'GET'));
 
-    // Perform the Web request and get the JSON response
+    // Perform the request and get a JSON response.
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
 
-    // Extract Bing HTTP headers
+    // Extract Bing HTTP headers.
     $headers = array();
     foreach ($http_response_header as $k => $v) {
         $h = explode(":", $v, 2);
@@ -83,18 +78,25 @@ function BingWebSearch ($url, $key, $query) {
 
     return array($headers, $result);
 }
+```
 
+## <a name="make-a-request-and-print-the-response"></a>提出要求並列印回應
+
+此程式碼會驗證訂用帳戶金鑰、提出要求，並列印回應。
+
+```php
+// Validates the subscription key.
 if (strlen($accessKey) == 32) {
 
     print "Searching the Web for: " . $term . "\n";
-    
+    // Makes the request.
     list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
-    
+
     print "\nRelevant Headers:\n\n";
     foreach ($headers as $k => $v) {
         print $k . ": " . $v . "\n";
     }
-    
+    // Prints JSON encoded response.
     print "\nJSON Response:\n\n";
     echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
@@ -104,12 +106,55 @@ if (strlen($accessKey) == 32) {
     print("Please paste yours into the source code.\n");
 
 }
+```
+
+## <a name="put-it-all-together"></a>組合在一起
+
+最後一步就是驗證您的程式碼並執行！ 如果想要將您的程式碼與我們的程式碼做比較，以下是完整的程式：
+
+```php
+<?php
+$accessKey = 'enter key here';
+$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
+$term = 'Microsoft Cognitive Services';
+
+function BingWebSearch ($url, $key, $query) {
+    $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
+    $options = array ('http' => array (
+                          'header' => $headers,
+                           'method' => 'GET'));
+    $context = stream_context_create($options);
+    $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
+    $headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
+    }
+    return array($headers, $result);
+}
+
+if (strlen($accessKey) == 32) {
+    print "Searching the Web for: " . $term . "\n";
+    list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
+    print "\nRelevant Headers:\n\n";
+    foreach ($headers as $k => $v) {
+        print $k . ": " . $v . "\n";
+    }
+    print "\nJSON Response:\n\n";
+    echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
+
+} else {
+    print("Invalid Bing Search API subscription key!\n");
+    print("Please paste yours into the source code.\n");
+}
 ?>
 ```
 
-## <a name="json-response"></a>JSON 回應
+## <a name="sample-response"></a>範例回應
 
-範例回應如下。 為了限制 JSON 的長度，只顯示單一結果，其他部分的回應已截斷。 
+來自 Bing Web 搜尋 API 的回應會以 JSON 格式傳回。 本範例回應已截斷而只顯示單一結果。  
 
 ```json
 {
@@ -238,9 +283,4 @@ if (strlen($accessKey) == 32) {
 > [!div class="nextstepaction"]
 > [Bing Web 搜尋單頁應用程式教學課程](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>另請參閱 
-
-[Bing Web 搜尋概觀](../overview.md)  
-[試試看](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[取得免費試用的存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web 搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

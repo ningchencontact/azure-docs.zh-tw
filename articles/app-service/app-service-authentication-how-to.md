@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226521"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344165"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>自訂 Azure App Service 中的驗證與授權
 
@@ -34,9 +34,9 @@ ms.locfileid: "39226521"
 * [如何設定 App 以使用 Microsoft 帳戶登入](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [如何設定 App 以使用 Twitter 登入](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## <a name="configure-multiple-sign-in-options"></a>設定多個登入選項
+## <a name="use-multiple-sign-in-providers"></a>使用多個登入提供者
 
-入口網站設定不會提供周全的方式，向您的使用者顯示多個登入選項 (例如 Facebook 和 Twitter)。 不過，要將功能新增至您的 Web 應用程式並不困難。 步驟概述如下：
+入口網站設定不會提供周全的方式，向您的使用者顯示多個登入提供者 (例如 Facebook 和 Twitter)。 不過，要將功能新增至您的 Web 應用程式並不困難。 步驟概述如下：
 
 首先，在 Azure 入口網站的 [驗證/授權] 頁面中，設定您需要啟用的每一個識別提供者。
 
@@ -58,6 +58,50 @@ ms.locfileid: "39226521"
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="sign-out-of-a-session"></a>登出工作階段
+
+使用者可以將 `GET` 要求傳送到應用程式的 `/.auth/logout` 端點起始登出。 `GET` 要求會執行下列作業：
+
+- 清除目前工作階段的驗證 Cookie。
+- 從安全性權杖存放區中刪除目前使用者的安全性權杖。
+- 對於 Azure Active Directory 和 Google，對身分識別提供者執行伺服器端登出。
+
+以下是網頁中的簡單登出連結：
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+成功登出預設會將用戶端重新導向到 URL `/.auth/logout/done`。 您可以新增 `post_logout_redirect_uri` 查詢參數來變更登出後重新導向頁面。 例如︰
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+建議您將值 `post_logout_redirect_uri` [編碼](https://wikipedia.org/wiki/Percent-encoding)。
+
+使用完整的 URL，URL 必須裝載於相同的網域，或設定為應用程式允許的外部重新導向 URL。 在下列範例中，將重新導向至不在相同的網域中裝載的 `https://myexternalurl.com`：
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+您必須在 [Azure Cloud Shell](../cloud-shell/quickstart.md) 中輸入下列命令︰
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## <a name="preserve-url-fragments"></a>保留 URL 片段
+
+使用者登入您的應用程式之後，通常想要重新導向至相同頁面的相同區段，例如 `/wiki/Main_Page#SectionZ`。 不過，因為 [URL 片段](https://wikipedia.org/wiki/Fragment_identifier) (例如，`#SectionZ`) 不會傳送到伺服器，因此 OAuth 登入完成之後預設不會保留，而會重新導向回到您的應用程式。 使用者會在需要再次瀏覽至所需的錨點時感受到欠佳的體驗。 這項限制適用於所有的伺服器端驗證解決方案。
+
+在 App Service 驗證中，您可以在 OAuth 登入保留 URL 片段。 若要這麼做，將稱為 `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` 的應用程式設定設為 `true`。 您可以在 [Azure 入口網站](https://portal.azure.com)中這麼做，也可以直接在 [Azure Cloud Shell](../cloud-shell/quickstart.md) 中執行下列命令：
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
 ## <a name="access-user-claims"></a>存取使用者宣告

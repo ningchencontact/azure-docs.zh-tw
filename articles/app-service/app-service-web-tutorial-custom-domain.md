@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461634"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664882"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure Web Apps
 
@@ -38,9 +38,7 @@ ms.locfileid: "38461634"
 > * 將預設 URL 重新導向至自訂目錄
 > * 使用指令碼來自動對應網域
 
-若要將即時網站及其 DNS 網域名稱移轉至 App Service，請參閱[將作用中的 DNS 名稱移轉至 Azure App Service](app-service-custom-domain-name-migrate.md)。
-
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
@@ -304,6 +302,10 @@ ms.locfileid: "38461634"
 - 瀏覽器用戶端已將網域的舊 IP 位址加入快取。 請清除快取並再次測試 DNS 解析。 在 Windows 電腦上，您可以使用 `ipconfig /flushdns` 清除快取。
 
 <a name="virtualdir"></a>
+
+## <a name="migrate-an-active-domain"></a>移轉作用中的網域
+
+若要將即時網站及其 DNS 網域名稱遷移至 App Service 而不要停機，請參閱[將作用中的 DNS 名稱遷移至 Azure App Service](app-service-custom-domain-name-migrate.md)。
 
 ## <a name="redirect-to-a-custom-directory"></a>重新導向至自訂目錄
 

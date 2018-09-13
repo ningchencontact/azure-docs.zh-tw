@@ -4,14 +4,14 @@ description: 解說 Azure Migrate 的相關常見問題
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952744"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699959"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -123,6 +123,12 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 ### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>單一移轉專案中可以探索多少個虛擬機器？
 
 您在單一移轉專案中可探索 1500 台虛擬機器。 如果您的內部部署環境中有多台機器，請[進一步了解](how-to-scale-assessment.md)如何在 Azure Migrate 中探索大型環境。
+
+### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate 是否支援以 Enterprise 合約 (EA) 為基礎的成本估計？
+
+Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https://azure.microsoft.com/offers/enterprise-agreement-support/)的成本估計。 因應措施是指定「預付型方案」做為供應項目，並在評量屬性的 [折扣] 欄位中手動指定折扣百分比 (適用於訂用帳戶)。
+
+  ![折扣](./media/resources-faq/discount.png)
 
 ## <a name="dependency-visualization"></a>相依性視覺效果
 

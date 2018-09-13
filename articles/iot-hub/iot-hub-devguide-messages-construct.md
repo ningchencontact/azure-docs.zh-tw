@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: a1296565384e60117d883a1f1407362482ba1a3e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 7c08848698f07d64bbbff429682c18525659f7bf
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125008"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286512"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -23,7 +23,7 @@ ms.locfileid: "39125008"
 
 [IoT 中樞訊息][lnk-messaging]包含：
 
-* 一組 *系統屬性*。 IoT 中樞解譯或設定的屬性。 這個集合是預先決定的。
+* 預先決定的*系統屬性*集如下所示。
 * 一組 *應用程式屬性*。 應用程式可以定義的字串屬性字典，而且不需將訊息本文還原序列化即可加以存取。 IoT 中樞不會修改這些屬性。
 * 不透明的二進位主體。
 
@@ -36,20 +36,20 @@ ms.locfileid: "39125008"
 
 下表列出 IoT 中樞訊息中的系統屬性集合。
 
-| 屬性 | 說明 |
-| --- | --- |
-| MessageId |使用者可設定的訊息識別碼，用於「要求-回覆」模式。 格式：區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和 `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`。 |
-| 序號 |IoT 中樞指派給每則雲端到裝置訊息的數字 (對每個裝置佇列而言都是唯一的)。 |
-| 至 |[雲端到裝置][lnk-c2d]訊息中指定的目的地。 |
-| ExpiryTimeUtc |訊息到期的日期和時間。 |
-| EnqueuedTime |IoT 中樞收到[雲端到裝置][lnk-c2d]訊息的日期和時間。 |
-| CorrelationId |回應訊息中的字串屬性，通常包含採用「要求-回覆」模式之要求的 MessageId。 |
-| UserId |用來指定訊息來源的識別碼。 當 IoT 中樞產生訊息時，它會設定為 `{iot hub name}`。 |
-| Ack |意見反應訊息產生器。 這個屬性是在雲端到裝置訊息中使用，可要求 IoT 中樞因為裝置取用訊息而產生意見反應訊息。 可能的值︰**none** (預設值)︰不會產生任何意見反應訊息；**positive**︰如果訊息已完成，則會收到意見反應訊息；**negative**︰如果訊息未由裝置完成就到期 (或已達到最大傳遞計數) 則會收到意見反應訊息；或者 **full**︰positive 和 negative。 若需詳細資訊，請參閱[訊息意見反應][lnk-feedback]。 |
-| ConnectionDeviceId |由 IoT 中樞在裝置到雲端訊息上設定的識別碼。 它包含傳送訊息之裝置的 **deviceId** 。 |
-| ConnectionDeviceGenerationId |由 IoT 中樞在裝置到雲端訊息上設定的識別碼。 它包含傳送訊息之裝置的 **generationId** (依據[裝置身分識別屬性][lnk-device-properties])。 |
-| ConnectionAuthMethod |由 IoT 中樞在裝置到雲端訊息上設定的驗證方法。 這個屬性包含用來驗證傳送訊息之裝置的驗證方法的相關資訊。 如需詳細資訊，請參閱[裝置到雲端反詐騙][lnk-antispoofing]。 |
-| CreationTimeUtc | 在裝置上建立訊息的日期和時間。 裝置必須明確設定此值。 |
+| 屬性 | 說明 | 是否可設定使用者？ |
+| --- | --- | --- |
+| MessageId |使用者可設定的訊息識別碼，用於「要求-回覆」模式。 格式：區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和 `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`。 | 是 |
+| 序號 |IoT 中樞指派給每則雲端到裝置訊息的數字 (對每個裝置佇列而言都是唯一的)。 | [否] 表示 C2D 訊息；[是] 表示其他。 |
+| 至 |[雲端到裝置][lnk-c2d]訊息中指定的目的地。 | [否] 表示 C2D 訊息；[是] 表示其他。 |
+| ExpiryTimeUtc |訊息到期的日期和時間。 | 是 |
+| EnqueuedTime |IoT 中樞收到[雲端到裝置][lnk-c2d]訊息的日期和時間。 | [否] 表示 C2D 訊息；[是] 表示其他。 |
+| CorrelationId |回應訊息中的字串屬性，通常包含採用「要求-回覆」模式之要求的 MessageId。 | 是 |
+| UserId |用來指定訊息來源的識別碼。 當 IoT 中樞產生訊息時，它會設定為 `{iot hub name}`。 | 否 |
+| Ack |意見反應訊息產生器。 這個屬性是在雲端到裝置訊息中使用，可要求 IoT 中樞因為裝置取用訊息而產生意見反應訊息。 可能的值︰**none** (預設值)︰不會產生任何意見反應訊息；**positive**︰如果訊息已完成，則會收到意見反應訊息；**negative**︰如果訊息未由裝置完成就到期 (或已達到最大傳遞計數) 則會收到意見反應訊息；或者 **full**︰positive 和 negative。 若需詳細資訊，請參閱[訊息意見反應][lnk-feedback]。 | 是 |
+| ConnectionDeviceId |由 IoT 中樞在裝置到雲端訊息上設定的識別碼。 它包含傳送訊息之裝置的 **deviceId** 。 | [否] 表示 D2C 訊息；[是] 表示其他。 |
+| ConnectionDeviceGenerationId |由 IoT 中樞在裝置到雲端訊息上設定的識別碼。 它包含傳送訊息之裝置的 **generationId** (依據[裝置身分識別屬性][lnk-device-properties])。 | [否] 表示 D2C 訊息；[是] 表示其他。 |
+| ConnectionAuthMethod |由 IoT 中樞在裝置到雲端訊息上設定的驗證方法。 這個屬性包含用來驗證傳送訊息之裝置的驗證方法的相關資訊。 如需詳細資訊，請參閱[裝置到雲端反詐騙][lnk-antispoofing]。 | [否] 表示 D2C 訊息；[是] 表示其他。 |
+| CreationTimeUtc | 在裝置上建立訊息的日期和時間。 裝置必須明確設定此值。 | 是 |
 
 ## <a name="message-size"></a>訊息大小
 

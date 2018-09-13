@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 25af61ce51828691d08210f4089afa0cf56b9846
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257838"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669002"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>運作方式：Azure Multi-Factor Authentication
 
@@ -39,11 +39,14 @@ Multi-Factor Authentication 隨附於下列供應項目：
 * **Multi-Factor Authentication for Office 365** - Azure Multi-Factor Authentication 功能的子集為您訂用帳戶可供使用的一部分。 如需 MFA for Office 365 的詳細資訊，請參閱 [Office 365 部署多重要素驗證方案](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)一文。
 * **Azure Active Directory 全域管理員** - Azure Multi-Factor Authentication 功能子集可用來作為保護全域管理員帳戶的方法。
 
+> [!NOTE]
+> 自 2018 年 9 月 1 日起，新客戶無法再將 Azure Multi-Factor Authentication 當做獨立供應項目購買。 多重要素驗證將繼續為 Azure AD Premium 授權中的可用功能。
+
 ### <a name="auth-provider-or-mfa-license"></a>驗證提供者或 MFA 授權
 
-如果您有 Azure AD Premium 或包含 Azure AD Premium 的授權配套，您就已經擁有 Azure MFA。 您的組織不需要任何其他項目，即可將雙步驟驗證功能延伸到所有使用者。 您只需要將授權指派給使用者，接著就可以開啟 MFA。
+如果您有 Azure AD Premium 或其他包含 Azure AD Premium 的授權配套，您就已經擁有 Azure MFA。 您的組織不需要任何其他項目，即可將雙步驟驗證功能延伸到所有使用者。 您只需要將授權指派給使用者，接著就可以開啟 MFA。
 
-如果您沒有包含 Azure MFA 的授權，或沒有足夠的授權來涵蓋所有使用者，則您可以建立 [MFA 驗證提供者](concept-mfa-authprovider.md)，將 MFA 的完整功能擴充到需要它們的使用者。 
+如果您沒有包含 Azure MFA 的授權，或沒有足夠的授權來涵蓋所有使用者，則您可以建立 [MFA 驗證提供者](concept-mfa-authprovider.md)，將 MFA 的完整功能擴充到需要它們的使用者。
 
 > [!IMPORTANT]
 > 如果您沒有足夠的授權給所有使用者，您可以建立依每個使用者的 Multi-Factor Auth Provider，以涵蓋組織的其餘部分。 不要建立依每次驗證的 Multi-Factor Auth Provider。 如果這麼做，您可能因為已有授權的使用者提出驗證要求而需要付費。

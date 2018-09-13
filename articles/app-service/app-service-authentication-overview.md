@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888095"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336799"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 
@@ -135,7 +135,7 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 
 選項為 [允許匿名要求]。 此選項會開啟 App Service 中的驗證和授權，但是會延遲對應用程式程式碼的授權決策。 對於已驗證的要求，App Service 也會在 HTTP 標頭中一起傳送驗證資訊。 
 
-此選項會提供更大的彈性來處理匿名要求。 例如，它可讓您向使用者[顯示多個登入選項](app-service-authentication-how-to.md#configure-multiple-sign-in-options)。 不過，您必須撰寫程式碼。 
+此選項會提供更大的彈性來處理匿名要求。 例如，它可讓您向使用者[顯示多個登入提供者](app-service-authentication-how-to.md#use-multiple-sign-in-providers)。 不過，您必須撰寫程式碼。 
 
 ## <a name="more-resources"></a>其他資源
 

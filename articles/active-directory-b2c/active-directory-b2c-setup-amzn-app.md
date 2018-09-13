@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5fb6289f75f0c98cc218233d8adb900484ee4a17
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c64b32656db2d3b821833450b4e866b9e33e44cd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916491"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337340"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Amazon 帳戶登入
 
@@ -28,7 +28,7 @@ ms.locfileid: "37916491"
 3. 選取 [註冊新應用程式]。
 4. 請輸入 [名稱]、[描述]，以及 [隱私權注意事項 URL]，然後按一下 [儲存]。
 5. 在 [Web 設定] 區段中，複製 [用戶端識別碼] 的值。 選取 [顯示密碼] 以取得用戶端密碼，然後複製該密碼。 您必須使用這兩個值，將 Amazon 帳戶設為租用戶中的識別提供者。 **用戶端密碼** 是重要的安全性認證。
-6. 在 [Web 設定] 區段中，選取 [編輯]，然後在 [允許的 JavaScript 原始來源] 中，輸入 `https://login.microsoftonline.com`，並在 [允許的傳回 URL] 中，輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contoso.onmicrosoft.com) 來取代 **{tenant}**。 
+6. 在 [Web 設定] 區段中，選取 [編輯]，然後在 [允許的 JavaScript 原始來源] 中，輸入 `https://{tenant}.b2clogin.com`，並在 [允許的傳回 URL] 中，輸入 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c) 來取代 **{tenant}**。 
 7. 按一下 [檔案] 。
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>將 Amazon 帳戶設為識別提供者

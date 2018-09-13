@@ -1,60 +1,106 @@
 ---
-title: Web 搜尋 SDK C# 快速入門 | Microsoft Docs
-description: 設定 Web 搜尋 SDK C# 主控台應用程式。
-titleSuffix: Azure cognitive services Web search SDK C# quickstart
+title: 快速入門：使用適用於 C# 的 Bing Web 搜尋 SDK
+description: 了解如何使用適用於 C# 的 Bing Web 搜尋 SDK。
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: 6d87b292475edff04e930ec4aa2f8e077a0fb82c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 08/16/2018
+ms.author: erhopf
+ms.openlocfilehash: ed958f4a691b878cfa7ff9766a0fb72857cce5db
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370455"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186791"
 ---
-# <a name="web-search-sdk-c-quickstart"></a>Web 搜尋 SDK C# 快速入門
+# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing Web 搜尋 SDK
 
-Bing Web 搜尋 SDK 包含用於 Web 要求以及剖析結果的 REST API 功能。
+Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 C# 應用程式。 在本快速入門中，您將了解如何具現化用戶端、傳送要求，以及列印回應。
 
-[C# Bing Web 搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs)可從 Git Hub 取得。
+要立即查看程式碼嗎？ GitHub 上提供[適用於 C# 的 Bing Web 搜尋 SDK 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/) (英文)。
 
-## <a name="application-dependencies"></a>應用程式相依性
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-若要使用 Bing Web 搜尋 SDK 來設定主控台應用程式，請在 Visual Studio 中瀏覽至 [方案總管] 中的 `Manage NuGet Packages` 選項。  新增 `Microsoft.Azure.CognitiveServices.Search.WebSearch` 套件。
+## <a name="prerequisites"></a>必要條件
 
-安裝 [NuGet Web 搜尋 SDK 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)也會安裝相依性，包括：
+以下是執行本快速入門之前的幾個必備項目：
+
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) 或
+* [Visual Studio Code 2017](https://code.visualstudio.com/download) (英文)
+  * [C# for Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
+  * [NuGet 套件管理員](https://github.com/jmrog/vscode-nuget-package-manager) (英文)
+* [.Net Core SDK](https://www.microsoft.com/net/download) (英文)
+
+## <a name="create-a-project-and-install-dependencies"></a>建立專案並安裝相依性
+
+第一個步驟是建立新的主控台專案。 關於設定主控台專案，如需協助，請參閱 [Hello World - 您的第一個程式 (C# 程式設計手冊)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)。 若要在您的應用程式中使用 Bing Web 搜尋 SDK，您必須使用 NuGet 套件管理員安裝 `Microsoft.Azure.CognitiveServices.Search.WebSearch`。
+
+[Web 搜尋 SDK 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) (英文) 也會安裝：
+
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="web-search-client"></a>Web 搜尋用戶端
-若要建立 `WebSearchAPI` 用戶端的執行個體，請新增 using 指示詞：
-```
+## <a name="declare-dependencies"></a>宣告相依性
+
+在 Visual Studio 或 Visual Studio Code 中開啟您的專案，並匯入這些相依性：
+
+```csharp
+using System;
+using System.Collections.Generic;
 using Microsoft.Azure.CognitiveServices.Search.WebSearch;
 using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
+using System.Linq;
+```
 
-```
-然後，具現化用戶端：
-```
-var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+## <a name="create-project-scaffolding"></a>建立專案 Scaffolding
 
+當您建立新的主控台專案時，應該就已建立應用程式的命名空間和類別。 您的程式看起來應該像這樣：
 
-```
-使用用戶端以利用查詢文字搜尋：
-```
-// Search for "Yosemite National Park"
-var webData = client.Web.Search(query: "Yosemite National Park");
-Console.WriteLine("Searched for Query# \" Yosemite National Park \"");
+```csharp
+namespace WebSearchSDK
+{
+    class YOUR_PROGRAM
+    {
 
+        // The code in the following sections goes here.
+
+    }
+}
 ```
-剖析先前查詢結果中所傳回的網頁：
+
+在下列章節中，我們會在此類別內建置我們的範例應用程式。
+
+## <a name="construct-a-request"></a>建構要求
+
+此程式碼會建構搜尋查詢。
+
+```csharp
+public static void WebResults(WebSearchAPI client)
+{
+    try
+    {
+        var webData = client.Web.Search(query: "Yosemite National Park");
+        Console.WriteLine("Searching for \"Yosemite National Park\"");
+
+        // Code for handling responses is provided in the next section...
+
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Encountered exception. " + ex.Message);
+    }
+}
 ```
-//WebPages
+
+## <a name="handle-the-response"></a>處理回應
+
+接下來，讓我們新增一些程式碼來剖析回應並列印結果。 若第一個網頁、影像、新聞文章和影片存在於回應物件中，則會列印其 `name` 和 `url`。
+
+```csharp
 if (webData?.WebPages?.Value?.Count > 0)
 {
     // find the first web page
@@ -62,286 +108,306 @@ if (webData?.WebPages?.Value?.Count > 0)
 
     if (firstWebPagesResult != null)
     {
-        Console.WriteLine("Webpage Results #{0}", webData.WebPages.Value.Count);
+        Console.WriteLine("Webpage Results # {0}", webData.WebPages.Value.Count);
         Console.WriteLine("First web page name: {0} ", firstWebPagesResult.Name);
         Console.WriteLine("First web page URL: {0} ", firstWebPagesResult.Url);
     }
     else
     {
-        Console.WriteLine("Couldn't find web results!)";
+        Console.WriteLine("Didn't find any web pages...");
     }
 }
 else
 {
-    Console.WriteLine("Didn't see any Web data..");
+    Console.WriteLine("Didn't find any web pages...");
 }
 
-```
-## <a name="complete-console-application"></a>完成主控台應用程式
-
-下列主控台應用程式會執行先前定義的查詢，以及剖析結果中所含的網頁、影像、新聞和影片：
-```
-using System;
-using System.Collections.Generic;
-using Microsoft.Azure.CognitiveServices.Search.WebSearch;
-using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
-using System.Linq;
-
-namespace WebSrchSDK
+/*
+ * Images
+ * If the search response contains images, the first result's name
+ * and url are printed.
+ */
+if (webData?.Images?.Value?.Count > 0)
 {
-    class Program
+    // find the first image result
+    var firstImageResult = webData.Images.Value.FirstOrDefault();
+
+    if (firstImageResult != null)
     {
-        static void Main(string[] args)
-        {
-            var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-
-            WebResults(client);
-            // Include the following calls to use queries defined under following headings.
-            //WebResultsWithCountAndOffset(client);  
-            //WebSearchWithResponseFilter(client);
-            //WebSearchWithAnswerCountPromoteAndSafeSearch(client);
-
-            Console.WriteLine("Any key to exit... ");
-            Console.ReadKey();
-        }
-
-        public static void WebResults(WebSearchAPI client)
-        {
-            try
-            {
-                // Search for (Yosemite National Park"), print the number of results and print out name and url of first result.
-                var webData = client.Web.Search(query: "Yosemite National Park");
-                Console.WriteLine("Searched for Query# \" Yosemite National Park \"");
-
-                //WebPages
-                if (webData?.WebPages?.Value?.Count > 0)
-                {
-                    // find the first web page
-                    var firstWebPagesResult = webData.WebPages.Value.FirstOrDefault();
-
-                    if (firstWebPagesResult != null)
-                    {
-                        Console.WriteLine("Webpage Results #{0}", webData.WebPages.Value.Count);
-                        Console.WriteLine("First web page name: {0} ", firstWebPagesResult.Name);
-                        Console.WriteLine("First web page URL: {0} ", firstWebPagesResult.Url);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find web results!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Didn't see any Web data..");
-                }
-
-                //Images
-                if (webData?.Images?.Value?.Count > 0)
-                {
-                    // find the first image result
-                    var firstImageResult = webData.Images.Value.FirstOrDefault();
-
-                    if (firstImageResult != null)
-                    {
-                        Console.WriteLine("Image Results #{0}", webData.Images.Value.Count);
-                        Console.WriteLine("First Image result name: {0} ", firstImageResult.Name);
-                        Console.WriteLine("First Image result URL: {0} ", firstImageResult.ContentUrl);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find first image results!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Didn't see any image data..");
-                }
-
-                //News
-                if (webData?.News?.Value?.Count > 0)
-                {
-                    // find the first news result
-                    var firstNewsResult = webData.News.Value.FirstOrDefault();
-
-                    if (firstNewsResult != null)
-                    {
-                        Console.WriteLine("\r\nNews Results #{0}", webData.News.Value.Count);
-                        Console.WriteLine("First news result name: {0} ", firstNewsResult.Name);
-                        Console.WriteLine("First news result URL: {0} ", firstNewsResult.Url);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find any News results!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Didn't see first news data..");
-                }
-
-                //Videos
-                if (webData?.Videos?.Value?.Count > 0)
-                {
-                    // find the first video result
-                    var firstVideoResult = webData.Videos.Value.FirstOrDefault();
-
-                    if (firstVideoResult != null)
-                    {
-                        Console.WriteLine("\r\nVideo Results #{0}", webData.Videos.Value.Count);
-                        Console.WriteLine("First Video result name: {0} ", firstVideoResult.Name);
-                        Console.WriteLine("First Video result URL: {0} ", firstVideoResult.ContentUrl);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find first video results!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Didn't see any video data..");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-        }
+        Console.WriteLine("Image Results # {0}", webData.Images.Value.Count);
+        Console.WriteLine("First Image result name: {0} ", firstImageResult.Name);
+        Console.WriteLine("First Image result URL: {0} ", firstImageResult.ContentUrl);
+    }
+    else
+    {
+        Console.WriteLine("Didn't find any images...");
     }
 }
+else
+{
+    Console.WriteLine("Didn't find any images...");
+}
 
+/*
+ * News
+ * If the search response contains news articles, the first result's name
+ * and url are printed.
+ */
+if (webData?.News?.Value?.Count > 0)
+{
+    // find the first news result
+    var firstNewsResult = webData.News.Value.FirstOrDefault();
+
+    if (firstNewsResult != null)
+    {
+        Console.WriteLine("\r\nNews Results # {0}", webData.News.Value.Count);
+        Console.WriteLine("First news result name: {0} ", firstNewsResult.Name);
+        Console.WriteLine("First news result URL: {0} ", firstNewsResult.Url);
+    }
+    else
+    {
+        Console.WriteLine("Didn't find any news articles...");
+    }
+}
+else
+{
+    Console.WriteLine("Didn't find any news articles...");
+}
+
+/*
+ * Videos
+ * If the search response contains videos, the first result's name
+ * and url are printed.
+ */
+if (webData?.Videos?.Value?.Count > 0)
+{
+    // find the first video result
+    var firstVideoResult = webData.Videos.Value.FirstOrDefault();
+
+    if (firstVideoResult != null)
+    {
+        Console.WriteLine("\r\nVideo Results # {0}", webData.Videos.Value.Count);
+        Console.WriteLine("First Video result name: {0} ", firstVideoResult.Name);
+        Console.WriteLine("First Video result URL: {0} ", firstVideoResult.ContentUrl);
+    }
+    else
+    {
+        Console.WriteLine("Didn't find any videos...");
+    }
+}
+else
+{
+    Console.WriteLine("Didn't find any videos...");
+}
 ```
 
-Bing 搜尋範例會示範 SDK 的各種功能。  將下列函式新增至先前定義的 `WebSrchSDK` 類別。
+## <a name="declare-the-main-method"></a>宣告 main 方法
 
-## <a name="count-and-offset-parameters"></a>count 和 offset 參數
+在此應用程式中，main 方法包含可具現化用戶端、驗證 `subscriptionKey` 及呼叫 `WebResults` 的程式碼。 請務必輸入 Azure 帳戶的有效訂用帳戶金鑰再繼續。
 
-下列程式碼搜尋 "Best restaurants in Seattle"，並驗證結果數目，然後印出第一個結果的名稱和 URL。
+```csharp
+static void Main(string[] args)
+{
+    var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
+    WebResults(client);
+
+    Console.WriteLine("Press any key to exit...");
+    Console.ReadKey();
+}
 ```
-       public static void WebResultsWithCountAndOffset(WebSearchAPI client)
+
+## <a name="run-the-application"></a>執行應用程式
+
+讓我們執行應用程式！
+
+```console
+dotnet run
+```
+
+## <a name="define-functions-and-filter-results"></a>定義函式和篩選結果
+
+既然您已完成第一次呼叫 Bing Web 搜尋 API，讓我們看看一些函式，以突顯 SDK 在改善查詢和篩選結果方面的實用性。 每個函式都可以新增至上一節所建立的 C# 應用程式。
+
+### <a name="limit-the-number-of-results-returned-by-bing"></a>限制 Bing 所傳回的結果數目
+
+這個範例會使用 `count` 和 `offset` 參數，來限制「西雅圖最佳餐廳」傳回的結果數目。 第一個結果的 `name` 和 `URL` 會列印出來。
+
+1. 將此程式碼新增至主控台專案：
+    ```csharp
+    public static void WebResultsWithCountAndOffset(WebSearchAPI client)
+    {
+        try
         {
-            try
+            var webData = client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
+            Console.WriteLine("\r\nSearching for \" Best restaurants in Seattle \"");
+
+            if (webData?.WebPages?.Value?.Count > 0)
             {
-                var webData = client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
-                Console.WriteLine("\r\nSearched for Query# \" Best restaurants in Seattle \"");
+                var firstWebPagesResult = webData.WebPages.Value.FirstOrDefault();
 
-                if (webData?.WebPages?.Value?.Count > 0)
+                if (firstWebPagesResult != null)
                 {
-                    // find the first web page
-                    var firstWebPagesResult = webData.WebPages.Value.FirstOrDefault();
-
-                    if (firstWebPagesResult != null)
-                    {
-                        Console.WriteLine("Web Results #{0}", webData.WebPages.Value.Count);
-                        Console.WriteLine("First web page name: {0} ", firstWebPagesResult.Name);
-                        Console.WriteLine("First web page URL: {0} ", firstWebPagesResult.Url);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find first web result!");
-                    }
+                    Console.WriteLine("Web Results #{0}", webData.WebPages.Value.Count);
+                    Console.WriteLine("First web page name: {0} ", firstWebPagesResult.Name);
+                    Console.WriteLine("First web page URL: {0} ", firstWebPagesResult.Url);
                 }
                 else
                 {
-                    Console.WriteLine("Didn't see any Web data..");
+                    Console.WriteLine("Couldn't find first web result!");
                 }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Encountered exception. " + ex.Message);
+                Console.WriteLine("Didn't see any Web data..");
             }
         }
-
-```
-## <a name="response-filter"></a>回應篩選
-
-下列查詢會使用設定為 `news` 的回應篩選來搜尋 "Microsoft" 字詞，然後列印結果的詳細資料。
-```
-        public static void WebSearchWithResponseFilter(WebSearchAPI client)
+        catch (Exception ex)
         {
-            //var client = new WebSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-            try
-            {
-                IList<string> responseFilterstrings = new List<string>() { "news" };
-                var webData = client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
-                Console.WriteLine("\r\nSearched for Query# \" Microsoft \" with response filters \"news\"");
-
-                //News
-                if (webData?.News?.Value?.Count > 0)
-                {
-                    // find the first news result
-                    var firstNewsResult = webData.News.Value.FirstOrDefault();
-
-                    if (firstNewsResult != null)
-                    {
-                        Console.WriteLine("News Results #{0}", webData.News.Value.Count);
-                        Console.WriteLine("First news result name: {0} ", firstNewsResult.Name);
-                        Console.WriteLine("First news result URL: {0} ", firstNewsResult.Url);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find first News results!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Didn't see any News data..");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-
-```
-## <a name="query-parameters---count-promotion-safe-search"></a>查詢參數 - count、promotion、安全搜尋
-
-此查詢 "Lady Gaga" 使用 `answerCount` 和 `promote` 參數搜尋，然後列印結果的詳細資料。
-
-```
-        public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
-        {
-            //var client = new WebSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-            try
-            {
-                IList<string> promoteAnswertypeStrings = new List<string>() { "videos" };
-                var webData = client.Web.SearchAsync(query: "Lady Gaga", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
-                Console.WriteLine("\r\nSearched for Query# \" Lady Gaga \"");
-
-                if (webData?.Videos?.Value?.Count > 0)
-                {
-                    var firstVideosResult = webData.Videos.Value.FirstOrDefault();
-
-                    if (firstVideosResult != null)
-                    {
-                        Console.WriteLine("Video Results #{0}", webData.Videos.Value.Count);
-                        Console.WriteLine("First Video result name: {0} ", firstVideosResult.Name);
-                        Console.WriteLine("First Video result URL: {0} ", firstVideosResult.ContentUrl);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find videos results!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Didn't see any data..");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
+            Console.WriteLine("Encountered exception. " + ex.Message);
         }
     }
-```
+    ```
+2. 將 `WebResultsWithCountAndOffset` 新增至 `main`：
+    ```csharp
+    static void Main(string[] args)
+    {
+        var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+
+        WebResults(client);
+        // Search with count and offset...
+        WebResultsWithCountAndOffset(client);  
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+    }
+    ```
+3. 執行應用程式。
+
+### <a name="filter-for-news"></a>篩選新聞
+
+這個範例會使用 `response_filter` 參數來篩選搜尋結果。 傳回的搜尋結果僅限於有關 "Microsoft" 的新聞文章。 第一個結果的 `name` 和 `URL` 會列印出來。
+
+1. 將此程式碼新增至主控台專案：
+    ```csharp
+    public static void WebSearchWithResponseFilter(WebSearchAPI client)
+    {
+        try
+        {
+            IList<string> responseFilterstrings = new List<string>() { "news" };
+            var webData = client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
+            Console.WriteLine("\r\nSearching for \" Microsoft \" with response filter \"news\"");
+
+            if (webData?.News?.Value?.Count > 0)
+            {
+                var firstNewsResult = webData.News.Value.FirstOrDefault();
+
+                if (firstNewsResult != null)
+                {
+                    Console.WriteLine("News Results #{0}", webData.News.Value.Count);
+                    Console.WriteLine("First news result name: {0} ", firstNewsResult.Name);
+                    Console.WriteLine("First news result URL: {0} ", firstNewsResult.Url);
+                }
+                else
+                {
+                    Console.WriteLine("Couldn't find first News results!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Didn't see any News data..");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Encountered exception. " + ex.Message);
+        }
+    }
+    ```
+2. 將 `WebResultsWithCountAndOffset` 新增至 `main`：
+    ```csharp
+    static void Main(string[] args)
+    {
+        var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+
+        WebResults(client);
+        // Search with count and offset...
+        WebResultsWithCountAndOffset(client);  
+        // Search with news filter...
+        WebSearchWithResponseFilter(client);
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+    }
+    ```
+3. 執行應用程式。
+
+### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>使用安全搜尋、回應計數和宣傳篩選條件
+
+這個範例使用 `answer_count`、`promote` 和 `safe_search` 參數，來篩選 "音樂影片" 的搜尋結果。 第一個結果的 `name` 和 `URL` 會出現。
+
+1. 將此程式碼新增至主控台專案：
+    ```csharp
+    public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
+    {
+        try
+        {
+            IList<string> promoteAnswertypeStrings = new List<string>() { "videos" };
+            var webData = client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
+            Console.WriteLine("\r\nSearching for \"Music Videos\"");
+
+            if (webData?.Videos?.Value?.Count > 0)
+            {
+                var firstVideosResult = webData.Videos.Value.FirstOrDefault();
+
+                if (firstVideosResult != null)
+                {
+                    Console.WriteLine("Video Results # {0}", webData.Videos.Value.Count);
+                    Console.WriteLine("First Video result name: {0} ", firstVideosResult.Name);
+                    Console.WriteLine("First Video result URL: {0} ", firstVideosResult.ContentUrl);
+                }
+                else
+                {
+                    Console.WriteLine("Couldn't find videos results!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Didn't see any data..");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Encountered exception. " + ex.Message);
+        }
+    }
+    ```
+2. 將 `WebResultsWithCountAndOffset` 新增至 `main`：
+    ```csharp
+    static void Main(string[] args)
+    {
+        var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+
+        WebResults(client);
+        // Search with count and offset...
+        WebResultsWithCountAndOffset(client);  
+        // Search with news filter...
+        WebSearchWithResponseFilter(client);
+        // Search with answer count, promote, and safe search
+        WebSearchWithAnswerCountPromoteAndSafeSearch(client);
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+    }
+    ```
+3. 執行應用程式。
+
+## <a name="clean-up-resources"></a>清除資源
+
+此專案使用完畢時，請務必從應用程式的程式碼中移除訂用帳戶金鑰。
 
 ## <a name="next-steps"></a>後續步驟
 
-[認知服務 .NET SDK 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)。
+> [!div class="nextstepaction"]
+> [認知服務 Node.js SDK 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/) (英文)

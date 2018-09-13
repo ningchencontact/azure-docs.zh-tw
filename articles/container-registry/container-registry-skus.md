@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 08/30/2018
 ms.author: marsma
-ms.openlocfilehash: 5c10c961519614d1560f27c41ba57237085261ba
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: eb3a1745677871211df05d18e28d32061f360bac
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190403"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301811"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -21,9 +21,9 @@ Azure Container Registry (ACR) 具有多個服務層 (稱為SKU)。 這些 SKU �
 
 | SKU | 受控 | 說明 |
 | --- | :-------: | ----------- |
-| **基本** | 是 | 適用於正在學習 Azure Container Registry 之開發人員的成本最佳化進入點。 「基本」登錄具有與「標準」和「進階」相同的程式設計功能 (Azure Active Directory 驗證整合、映像刪除和 Webhook)；不過，它具有大小和使用方式上的條件約束。 |
-| **標準** | 是 | 「標準」登錄提供與「基本」相同的功能，並且提高儲存體限制和映像輸送量。 「標準」登錄應該能滿足大部分實際執行案例的需求。 |
-| **高級** | 是 | 「進階」登錄提供較高的條件約束限制 (例如儲存體和並行作業)，以啟用大量案例。 除了更高的映像輸送量容量之外，「進階」也會新增[異地複寫][container-registry-geo-replication]這類功能，來在多個區域上管理單一登錄，並針對每個部署維護網路關閉登錄。 |
+| **基本** | 是 | 適用於正在學習 Azure Container Registry 之開發人員的成本最佳化進入點。 「基本」登錄具有與「標準」和「進階」相同的程式設計功能 (Azure Active Directory 驗證整合、映像刪除和 Webhook)。 不過，內含儲存體和映像輸送量最適合較低的使用方式情節。 |
+| **標準** | 是 | 「標準」登錄提供與「基本」相同的功能，並且提高內含儲存體和映像輸送量。 「標準」登錄應該能滿足大部分實際執行案例的需求。 |
+| **高級** | 是 | 「進階」登錄提供最多的內含儲存體和並行作業，可啟用大量情節。 除了更高的映像輸送量之外，「進階」也會新增[異地複寫][container-registry-geo-replication]這類功能，以在多個區域上管理單一登錄，並針對影像標籤簽署提供[內容信任 (預覽)](container-registry-content-trust.md)。 |
 | 傳統<sup>1</sup> | 否 | 此 SKU 已啟用 Azure 中 Azure Container Registry 服務的初始版本。 Azure 在訂用帳戶中建立的儲存體帳戶支援「傳統」登錄，這會限制 ACR 提供更高層級功能的能力，例如提高輸送量和異地複寫。 |
 
 <sup>1</sup> 傳統 SKU 將在 **2019 年 3 月** **淘汰**。 針對所有新的容器登錄，請使用基本、標準或進階。

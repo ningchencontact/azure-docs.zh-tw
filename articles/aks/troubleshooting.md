@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 614930fb11e65404416e604c94351e2754b8e941
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190803"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287534"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 當您建立或管理 AKS 叢集時，可能偶爾會遇到問題。 本文將詳細說明一些常見問題與疑難排解步驟。
@@ -24,16 +24,16 @@ ms.locfileid: "40190803"
 
 ### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>我在建立或升級期間收到已超出配額的錯誤。 我該怎麼辦？ 
 
-您將需要在[這裡](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)要求核心
+您將需要在[這裡](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)要求核心。
 
 ### <a name="what-is-the-max-pods-per-node-setting-for-aks"></a>對於 AKS，每個節點的最大 Pod 數設定為何？
 
 如果您在 Azure 入口網站中部署 AKS 叢集，每個節點的最大 Pod 數預設會設為 30。
 如果您在 Azure CLI 中部署 AKS 叢集，每個節點的最大 Pod 數預設會設為 110 (請確定您使用的是最新版的 Azure CLI)。 您可以在 az aks create 命令中，使用 –max-nodes-per-pod 旗標來變更這個預設設定。
 
-### <a name="i-am-getting--insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>當我使用進階網路設定部署 AKS 叢集時收到 “insufficientSubnetSize” 錯誤。 我該怎麼辦？
+### <a name="i-am-getting-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>當我使用進階網路設定部署 AKS 叢集時收到 “insufficientSubnetSize” 錯誤。 我該怎麼辦？
 
-在建立 AKS 期間選取來進行網路設定的自訂 VNET 選項中，會針對 IPAM 使用 Azure CNI。 AKS 叢集中的節點數可以是介於 1 到 100 之間的任何數字。 根據上述的 2)，子網路大小應大於節點數和每個節點的最大 Pod 數之乘積，子網路大小 > 叢集中的節點數 * 每個節點的最大 Pod 數
+在建立 AKS 期間選取來進行網路設定的自訂 VNET 選項中，會針對 IPAM 使用 Azure CNI。 AKS 叢集中的節點數可以是介於 1 到 100 之間的任何數字。 根據上述的 2)，子網路大小應大於節點數和每個節點的最大 Pod 數之乘積，子網路大小 > 叢集中的節點數 * 每個節點的最大 Pod 數。
 
 ### <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>我的 Pod 會在 'CrashLoopBackOff' 模式中停滯。 我該怎麼辦？
 

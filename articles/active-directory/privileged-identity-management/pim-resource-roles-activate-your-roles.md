@@ -11,33 +11,77 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/21/2018
+ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 234c1d71f0ec17d15a4dd589e3db92fd9bf68df2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59bce2c61db5838bb21a29757d4e354311ecffd5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189484"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666242"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>在 PIM 中啟用我的 Azure 資源角色
-Privileged Identity Management (PIM) 在啟用適用於 Azure 資源的角色方面引進了全新體驗。 符合資格的角色成員可以排程在未來的日期和時間啟用。 他們也可以在最大範圍內選取特定的啟用期間 (由管理員設定)。 如需更多資訊，請參閱 [Azure AD Privileged Identity Management：如何啟用或停用角色](pim-how-to-activate-role.md)。
+
+Azure 資源的合格角色成員可使用 Azure AD Privileged Identity Management (PIM)，排程未來啟用的日期與時間。 他們也可以在最大範圍內選取特定的啟用期間 (由管理員設定)。
+
+本文適用於需要在 PIM 中啟用其 Azure 資源角色的成員。
 
 ## <a name="activate-a-role"></a>啟用角色
-瀏覽至左側窗格中 [我的角色] 區段。 針對您想要啟用的角色選取 [啟用]。
 
-![[我的角色] 窗格中的 [符合資格的角色] 索引標籤。](media/azure-pim-resource-rbac/rbac-roles.png)
+當您需要擔任某個 Azure 資源角色時，您可以在 PIM 中使用 [我的角色] 導覽選項來要求啟用。
 
-從 [啟用] 功能表中，輸入開始日期和時間以啟用角色。 選擇性地減少啟用持續時間 (角色的啟用時間長度)，並輸入理由 (如有必要)。 然後選取 [啟用]。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-如果未修改開始日期和時間，幾秒內就會啟用該角色。 在 [我的角色] 窗格中，橫幅訊息會顯示角色已排入佇列進行啟用。 選取 [重新整理] 按鈕以清除此訊息。
+1. 開啟 **Azure AD Privileged Identity Management**。 如需如何將 [PIM] 圖格新增至儀表板的資訊，請參閱[開始使用 PIM](pim-getting-started.md)。
 
-![含橫幅訊息的 [我的角色] 窗格以及等待核准的相關通知](media/azure-pim-resource-rbac/rbac-activate-notification.png)
+1. 按一下 [我的角色] 可查看符合資格的 Azure AD 目錄角色與 AD 資源角色清單。
 
-如果排定角色在未來日期和時間啟用，暫止的要求會出現在左側窗格的 [擱置要求] 索引標籤。 如果不再需要啟用角色，您可以選取 [取消] 按鈕來取消要求。
+    ![Azure AD 目錄角色與 Azure 資源角色 - 我的角色](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
-![含 [取消] 按鈕的擱置要求清單](media/azure-pim-resource-rbac/rbac-activate-pending.png)
+1. 在 [Azure 資源角色] 清單中，尋找您要啟用的角色。
+
+    ![Azure 資源角色 - 我的角色清單](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
+
+1. 按一下 [啟用] 以開啟 [啟用] 窗格。
+
+1. 如果您的角色需要多重要素驗證 (MFA)，請按一下 [先驗證您的身分識別後再繼續]。 您只需在每個工作階段驗證一次。
+
+    ![在啟用角色之前先以 MFA 驗證](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
+
+1. 按一下 [驗證我的身分識別]，並遵循指示來提供其他安全性驗證。
+
+    ![其他安全性驗證](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+
+1. 如果您想要指定縮小的範圍，請按一下 [範圍] 開啟 [資源] 篩選窗格。
+
+    最佳做法是僅要求存取您需要的資源。 在 [資源] 篩選窗格中，您可以指定資源群組或您需要存取的群組。
+
+    ![啟用 - 資源篩選](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
+
+1. 如有必要，請指定自訂啟用開始時間。 成員會在選取的時間後啟用。
+
+1. 在 [原因] 方塊中輸入此啟用要求的原因。
+
+    ![已完成的啟用窗格](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
+
+1. 按一下 [啟用]。
+
+    如果角色不需要核准，它現在就會啟用，角色會出現在使用中角色的清單中。 如果[角色需要核准](pim-resource-roles-approval-workflow.md)才能啟用，通知會出現在瀏覽器右上角，通知您要求正在等待核准。
+
+    ![要求擱置通知](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+
+## <a name="view-the-status-of-your-requests"></a>檢視要求狀態
+
+您可以檢視要啟用的擱置要求狀態。
+
+1. 開啟 Azure AD Privileged Identity Management。
+
+1. 按一下 [我的要求] 可查看您的 Azure AD 目錄角色與 AD 資源角色要求清單。
+
+    ![Azure AD 目錄角色與 Azure 資源角色 - 我的要求](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+
+1. 捲動至右側可檢視 [要求狀態] 欄。
 
 ## <a name="use-a-role-immediately-after-activation"></a>啟用後可立即使用角色
 
@@ -53,18 +97,21 @@ Privileged Identity Management (PIM) 在啟用適用於 Azure 資源的角色方
 
     當您按一下此連結後，即可強制重新整理，並檢查新的 Azure 資源角色指派。
 
-## <a name="apply-just-enough-administration-practices"></a>套用恰到好處的系統管理做法
+## <a name="cancel-a-pending-request"></a>取消擱置要求
 
-配合 PIM 的 Azure 資源，您可在指派資源角色時輕易使用恰到好處的系統管理 (JEA) 最佳做法。 在 Azure 訂用帳戶或資源群組中具有指派的使用者與群組成員，可在較小的範圍內啟用其現有的角色指派。 
+如果您不需要啟用需要核准的角色，您可以隨時取消擱置要求。
 
-從 [搜尋] 頁面中，尋找您需要管理的次級資源。
+1. 開啟 Azure AD Privileged Identity Management。
 
-![選取一項資源](media/azure-pim-resource-rbac/azure-resources-02.png)
+1. 按一下 [我的要求]。
 
-從左側窗格中選取 [我的角色]，然後選擇適當的角色以啟用。 系統會**繼承**指派類型，因為角色已在訂用帳戶中獲指派，而非資源群組中。
+1. 針對您想要取消的角色，按一下 [取消] 連結。
 
-![符合資格的角色指派清單，指派類型會反白顯示](media/azure-pim-resource-rbac/my-roles-02.png)
+    當您按一下 [取消] 時，要求將會取消。 若要再次啟用角色，您必須提交新的啟用要求。
+
+   ![取消擱置要求](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## <a name="next-steps"></a>後續步驟
 
+- [在 PIM 中延長或更新 Azure 資源角色](pim-resource-roles-renew-extend.md)
 - [在 PIM 中啟用我的 Azure AD 目錄角色](pim-how-to-activate-role.md)

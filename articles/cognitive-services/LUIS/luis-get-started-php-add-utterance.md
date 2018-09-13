@@ -1,118 +1,81 @@
 ---
-title: 教學課程：了解如何使用 PHP 將語句新增至 LUIS 應用程式 | Microsoft Docs
-description: 在本教學課程中，您會了解如何使用 PHP 呼叫 LUIS 應用程式。
+title: 使用 PHP 來變更模型並且定型 LUIS 應用程式的快速入門 - Azure 認知服務 | Microsoft Docs
+description: 在此 PHP 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。 範例語句是對應到意圖的交談使用者文字。 您可以藉由提供與意圖相關的範例語句，教導 LUIS 哪些種類的使用者提供文字屬於哪種意圖。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 59150b7ed6782c28f243041be2ed6aa17e69cc01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: ae2d3624cb3f8314a613af356730fb1d8b5d4b29
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263775"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43750331"
 ---
-# <a name="tutorial-add-utterances-to-app-using-php"></a>教學課程：使用 PHP 將語句新增至應用程式 
-在本教學課程中，在 PHP 中使用撰寫 API 來撰寫一個程式，以將語句新增至意圖。
+# <a name="quickstart-change-model-using-php"></a>快速入門：使用 PHP 來變更模型 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * 建立 Visual Studio 主控台專案 
-> * 新增呼叫 LUIS API 的方法來新增語句和訓練應用程式
-> * 新增具有 BookFlight 意圖範例語句的 JSON 檔案
-> * 執行主控台並查看語句的訓練狀態
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-如需詳細資訊，請參閱[將範例語句新增至意圖](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08)、[訓練](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45)和[訓練狀態](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) API 的技術文件。
+## <a name="prerequisites"></a>必要條件
 
-在本文中，您需要免費 [LUIS][LUIS] 帳戶才能撰寫 LUIS 應用程式。
-
-## <a name="prerequisites"></a>先決條件
-
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * 最新 [**PHP**](http://php.net/)。
 * 確定 openssl 可作為 PHP 的相依性。  
-* 您的 LUIS **[撰寫金鑰](luis-concept-keys.md#authoring-key)**。 您可以在 [LUIS](luis-reference-regions.md) 網站的 [帳戶設定] 之下找到此金鑰。
-* 您現有的 LUIS [**應用程式識別碼**](./luis-get-started-create-app.md)。 應用程式識別碼會顯示在應用程式儀表板中。 在 `add-utterances.php` 中執行程式碼之前，在 `utterances.json` 檔案中使用意圖和實體的 LUIS 應用程式必須存在。 本文中的程式碼不會建立意圖和實體。 它只會新增現有意圖和實體的語句。 
-* 應用程式內用來接收語句的**版本識別碼**。 預設識別碼為 "0.1"
-* 在 VSCode 中建立名為 `add-utterances.php` 專案的新檔案。
 
-> [!NOTE] 
-> 從 [**LUIS-Samples** Github 存放庫](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/php/)可以取得完整 `add-utterances.cs` 檔案和範例 `utterances.json` 檔案。
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
+## <a name="example-utterances-json-file"></a>範例語句 JSON 檔案
 
-## <a name="write-the-php-code"></a>撰寫 PHP 程式碼
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-將相依性新增至此檔案。
+## <a name="create-quickstart-code"></a>建立快速入門程式碼 
 
-   [!code-php[PHP and LUIS Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=10-29 "PHP and LUIS Dependencies")]
+將相依性新增至名為 `add-utterances.php` 的檔案。
+
+   [!code-php[PHP and LUIS Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=1-22 "PHP and LUIS Dependencies")]
 
 新增用於訓練狀態的 GET 要求。
 
-   [!code-php[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=31-50 "SendGet")]
+   [!code-php[SendGet](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=24-43 "SendGet")]
 
 新增用於建立語句或開始訓練的 POST 要求。 
 
-   [!code-php[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=52-72 "SendPost")]
+   [!code-php[SendPost](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=45-65 "SendPost")]
 
 新增 `AddUtterances` 函式。
 
-   [!code-php[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=74-79 "AddUtterances method")]
+   [!code-php[AddUtterances method](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=67-72 "AddUtterances method")]
 
 
 新增 `Train` 函式。 
 
-   [!code-php[Train](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=81-88 "Train")]
+   [!code-php[Train](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=74-81 "Train")]
 
 新增 `Status` 函式。
 
-   [!code-php[Status](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=90-94 "Status")]
+   [!code-php[Status](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=83-87 "Status")]
 
 若要管理命令列引數，請新增主要程式碼區塊。
 
-   [!code-php[Main code](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=96-120 "Main code")]
+   [!code-php[Main code](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=89-93 "Main code")]
 
-## <a name="specify-utterances-to-add"></a>指定要新增的語句
-建立和編輯 `utterances.json` 檔案，以指定您要新增至 LUIS 應用程式的**語句陣列**。 意圖和實體**必須**已經在 LUIS 應用程式中。
-
-> [!NOTE]
-> 在 `add-utterances.php` 中執行程式碼之前，在 `utterances.json` 檔案中使用意圖和實體的 LUIS 應用程式必須存在。 本文中的程式碼不會建立意圖和實體。 它只會新增現有意圖和實體的語句。
-
-`text` 欄位包含語句的文字。 `intentName` 欄位必須對應到 LUIS 應用程式中的意圖名稱。 `entityLabels` 是必填欄位。 如果您不想要標示任何實體，請提供如下列範例所示的空白清單：
-
-如果 entityLabels 清單不是空的，`startCharIndex` 和 `endCharIndex` 必須標示 `entityName` 欄位中參考的實體。 這兩個索引都是從零開始的計數，這表示在最上方範例中的 6 是指 Seattle 的 "S"，而不是大寫字母 S 前面的空格。
-
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
-
-## <a name="add-an-utterance-from-the-command-line"></a>從命令列新增語句
+## <a name="run-code"></a>執行程式碼
 
 使用 PHP 從命令列執行應用程式。
 
-以 utterance.json 作為引數來呼叫 `add-utterances.php`，只會新增但不會使用新語句來訓練 LUIS。
-````
-> php add-utterances.php ./utterances.json
-````
+### <a name="add-an-utterance-from-the-command-line"></a>從命令列新增語句
+
+使用 PHP 從命令列執行應用程式。
+
+呼叫 `add-utterances.php` 會新增語句、定型及取得定型狀態。
+
+```CMD
+> php add-utterances.php 
+```
 
 以下是從新增語句 API 呼叫傳回的 JSON。 對於已新增的語句而言，`response` 欄位採用此格式。 `hasError` 為 false，表示已新增語句。  
 
@@ -135,17 +98,8 @@ ms.locfileid: "36263775"
     ]
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>從命令列新增語句及進行訓練
-使用 `-train` 引數呼叫 `add-utterance.php` 以傳送訓練要求。 
-
-````
-> php add-utterances.php ./utterances.json -train
-````
-
-> [!NOTE]
-> 重複的語句不會再次新增，但不會造成錯誤。 `response` 包含原始語句的識別碼。
-
 以下顯示成功訓練要求的結果：
+
 ```json
 {
     "request": null,
@@ -156,16 +110,8 @@ ms.locfileid: "36263775"
 }
 ```
 
-將訓練要求排入佇列之後，可能需要一些時間來完成訓練。
 
-## <a name="get-training-status-from-the-command-line"></a>從命令列取得訓練狀態
-使用 `-status` 引數呼叫應用程式，以檢查訓練狀態並顯示狀態詳細資料。
-
-````
-> php add-utterances.php -status
-````
-
-```
+```JSON
 Requested training status.
 [
    {
@@ -262,10 +208,9 @@ Requested training status.
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
-當您完成本教學課程時，如果您不再需要 Visual Studio 和主控台應用程式，請將它們移除。 
+
+當您完成快速入門時，請移除在本快速入門中建立的所有檔案。 
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 
 > [以程式設計方式建置 LUIS 應用程式](luis-tutorial-node-import-utterances-csv.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

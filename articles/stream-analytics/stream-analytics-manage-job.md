@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186225"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702522"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>建立串流分析作業來分析通話資料，並且在 Power BI 儀表板中將結果視覺化
  
@@ -51,7 +51,7 @@ ms.locfileid: "39186225"
 
    |**設定**  |**建議的值** |**說明**  |
    |---------|---------|---------|
-   |Name     | myEventHubNS        |  用以識別事件中樞命名空間的唯一名稱。       |
+   |名稱     | myEventHubNS        |  用以識別事件中樞命名空間的唯一名稱。       |
    |訂用帳戶     |   \<您的訂用帳戶\>      |   選取您要在其中建立事件中樞的 Azure 訂用帳戶。      |
    |資源群組     |   MyASADemoRG      |  選取 [新建]，然後為您的帳戶輸入新的資源群組名稱。       |
    |位置     |   美國西部 2      |    可以部署事件中樞命名空間的位置。     |
@@ -61,7 +61,7 @@ ms.locfileid: "39186225"
    ![建立事件中樞命名空間](media/stream-analytics-manage-job/create-ehns.png)
 
 5. 當命名空間部署完成時，請移至 [所有資源] > 在 Azure 資源清單中尋找 "myEventHubNS" > 選擇開啟它。  
-6. 接下來選取 [+事件中樞] > [名稱] 將事件中樞命名為 "MyEventHub"。 您可以使用不同的名稱。 對其餘的設定使用預設選項，選取 [建立] 並等待部署成功。
+6. 接下來，選取 [+事件中樞] > [名稱]，將事件中樞命名為 "MyEventHub"。 您可以使用不同的名稱。 對其餘的設定使用預設選項，選取 [建立] 並等待部署成功。
 
    ![建立事件中樞](media/stream-analytics-manage-job/create-eh.png)
 
@@ -69,7 +69,7 @@ ms.locfileid: "39186225"
 
 事件中樞必須先具有允許適當存取權的原則，應用程式才能將資料傳送到 Azure 事件中樞。 存取原則會產生包含授權資訊的連接字串。
 
-1. 巡覽至您在上一個步驟中建立的 [事件中樞] (即 “MyEventHub”) > 從事件中樞窗格選取 [共用存取原則] > 選取 [+新增]。  
+1. 巡覽至您在上一個步驟中建立的 [事件中樞]，名為 "MyEventHub" > 從事件中樞窗格選取 [共用存取原則] > 選取 [+新增]。  
 2. 將原則名稱設定為 [Mypolicy] > 然後選取 [管理] > 選取 [建立]。  
 
    ![建立事件中樞共用存取原則](media/stream-analytics-manage-job/create-ehpolicy.png)
@@ -240,7 +240,7 @@ ms.locfileid: "39186225"
 
 2. 針對作業輸出開始時間選取 [現在] 並選取 [啟動]。 作業會在幾分鐘內啟動，您可以在通知列中檢視狀態。  
 
-3. 作業成功之後，請巡覽至 [Powerbi.com](https://powerbi.com/)，然後使用公司或學校帳戶登入。 如果串流分析作業查詢有輸出結果，您會看到資料集已建立。 巡覽至 [資料集] 索引標籤，您可以檢視名為 “ASAdataset” 的資料集。  
+3. 作業成功之後，請巡覽至 [Powerbi.com](https://powerbi.com/)，然後使用公司或學校帳戶登入。 如果串流分析作業查詢有輸出結果，您會看到資料集已建立。 巡覽至 [資料集] 索引標籤，您可以檢視名為 "ASAdataset" 的資料集。  
 
 4. 從您的工作區中選取 [+建立]。 建立新的儀表板並命名為 Fraudulent Calls。 您會將兩個圖格新增至此儀表板，其中一個圖格用來檢視指定執行個體的詐騙通話計數，而另一個圖格具有折線圖視覺效果。  
 

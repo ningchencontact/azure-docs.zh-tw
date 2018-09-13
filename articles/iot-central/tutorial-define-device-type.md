@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869558"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702539"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>教學課程：在 Azure IoT 中心應用程式中定義新的裝置類型
 
@@ -43,7 +43,7 @@ ms.locfileid: "37869558"
 > * 使用裝置設定
 > * 使用命令
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您必須要有 Azure IoT 中心應用程式。 如果您已完成[建立 Azure IoT Central 應用程式](quick-deploy-iot-central.md)快速入門，則可以重複使用您在該快速入門中建立的應用程式。 否則，請完成下列步驟以建立空的 Azure IoT Central 應用程式：
 
@@ -280,22 +280,22 @@ ms.locfileid: "37869558"
 
 ## <a name="use-properties--device-properties"></a>使用屬性 / 裝置屬性
 
-您可以使用*屬性*來儲存與應用程式中的裝置有關的資訊。 在本節中，您會將裝置屬性新增至**連線的空調**裝置範本，以儲存裝置序號和韌體版本。 請注意，這兩種都是裝置所報告的唯讀屬性，您無法將值指派給它們。 您可以使用的屬性，可以指派值來包含裝置的位置、擁有權資訊，以及裝置的最近服務日期/時間。
+您可以使用*屬性*來儲存與應用程式中的裝置有關的資訊。 在本節中，您會將裝置屬性新增至「**連接的空調**」裝置範本，以儲存裝置位置和上次維修日期。 請注意，這兩者都是可編輯的裝置屬性。 裝置也會報告不可變更的唯讀屬性，例如裝置序號和韌體版本。
  
 1. 瀏覽至 [連線的空調] 裝置範本的 [屬性] 頁面：
 
     ![準備新增屬性](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    您可以建立不同類型裝置的屬性，例如數值或文字。 若要將序號屬性新增至裝置範本，請選擇 [文字]。
+    您可以建立不同類型裝置的屬性，例如數值或文字。 若要將位置屬性新增至裝置範本，請選擇 [位置]。
 
-2. 若要設定序號屬性，請使用下表中的資訊：
+2. 若要設定位置屬性，請使用下表中的資訊：
 
     | 欄位                | 值                |
     | -------------------- | -------------------- |
-    | 顯示名稱         | 序號        |
-    | 欄位名稱           | serialNumber         |
-    | 初始值        | cac00001             |
-    | 說明          | 裝置序號 |
+    | 顯示名稱         | 位置             |
+    | 欄位名稱           | location             |
+    | 初始值        | 美國華盛頓州西雅圖          |
+    | 說明          | 裝置位置      |
 
     讓其他欄位保留其預設值。
 
@@ -303,16 +303,16 @@ ms.locfileid: "37869558"
 
     選擇 [儲存]。
 
-3. 若要將韌體版本新增至您裝置範本的裝置屬性，請選擇 [文字]。
+3. 若要將上次維修日期屬性新增至裝置範本，請選擇 [日期]。
 
-4. 若要設定韌體版本裝置屬性，請使用下表中的資訊：
+4. 若要設定上次維修日期屬性，請使用下表中的資訊：
 
     | 欄位                | 值                   |
     | -------------------- | ----------------------- |
-    | 顯示名稱         | 韌體版本        |
-    | 欄位名稱           | firmwareVersion         |
-    | 初始值        | 0.1                     |
-    | 說明          | 裝置韌體版本 |
+    | 顯示名稱         | 上次維修日期       |
+    | 欄位名稱           | serviceDate             |
+    | 初始值        | 1/1/2018                |
+    | 說明          | 上次維修日期           |
 
     ![設定裝置屬性](./media/tutorial-define-device-type/configureproperties2.png)
 
@@ -342,8 +342,8 @@ ms.locfileid: "37869558"
     | 顯示名稱         | 回應命令    |
     | 欄位名稱           | 回應            |
     | 預設逾時      | 30              |
-    | 顯示名稱         | 顯示文字    |
-    | 顯示類型         | text            |  
+    | 顯示類型         | text            |
+    | 說明          | 裝置命令  |  
 
 您可以按一下輸入的 [+] 將其他輸入新增至命令。
 

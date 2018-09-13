@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: govindk
-ms.openlocfilehash: 7c9367cccf8d59d60dfa474f02567d59b9c8c8c2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b21debdd6baa0a6587318ad861a821840ec6879c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037983"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666692"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 防火牆支援
 為了保護 Azure Cosmos DB 資料庫帳戶中所儲存的資料，Azure Cosmos DB 已支援利用強式雜湊式訊息驗證碼 (HMAC) 的密碼型[授權模型](https://msdn.microsoft.com/library/azure/dn783368.aspx)。 現在，除了密碼型授權模型之外，Azure Cosmos DB 還支援使用原則驅動的 IP 型存取控制來進行輸入防火牆支援。 此模型與傳統資料庫系統的防火牆規則相類似，且可為 Azure Cosmos DB 資料庫帳戶提供額外的安全性層級。 您現在可以使用這個模型，設定只能從一組核准的電腦和 (或) 雲端服務存取 Azure Cosmos DB 資料庫帳戶。 透過這些核准的電腦和服務組合來存取 Azure Cosmos DB 資源，仍然需要呼叫者呈現有效的授權權杖。
@@ -57,7 +57,12 @@ ms.locfileid: "40037983"
 ![顯示如何允許存取 Azure 入口網站的螢幕擷取畫面](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>來自全域 Azure 資料中心或 Azure PaaS 服務的連線
-在 Azure 中，Azure 串流分析、Azure Functions 和 Azure App Service 之類的 PaaS 服務會與 Azure Cosmos DB 搭配使用。 若要能夠從 IP 位址尚無法使用的這些服務存取 Azure Cosmos DB 資料庫帳戶，請以程式設計方式將 IP 位址 0.0.0.0 新增到與您的 Azure Cosmos DB 資料庫帳戶相關聯的允許 IP 位址清單中。 
+
+如 Azure 串流分析、Azure Functions 之類的 Azure PaaS 服務會與 Azure Cosmos DB 搭配使用。 若要允許應用程式從其他的 Azure PaaS 服務連線到您的 Azure Cosmos DB 資源，則必須啟用防火牆設定。 若要啟用此防火牆設定，請將 IP 位址- 0.0.0.0 新增至允許的 IP 位址清單。 0.0.0.0 會限制只能連線到 Azure 資料中心 IP 範圍內的 Azure Cosmos DB 帳戶。 此設定不允許任何其他 IP 範圍存取 Azure Cosmos DB 帳戶。
+
+> [!IMPORTANT]
+> 這個選項會設定防火牆，以允許所有來自 Azure 的連線，包括來自其他客戶訂用帳戶的連線。 選取這個選項時，請確定您的登入和使用者權限會限制為只有授權的使用者才能存取。
+> 
 
 當您在 Azure 入口網站中將防火牆設定變更為 [選取的網路] 時，預設會啟用從全域 Azure 資料中心內存取連線的功能。 
 

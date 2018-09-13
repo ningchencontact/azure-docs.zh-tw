@@ -11,21 +11,22 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: sngun
-ms.openlocfilehash: 43c5b8beef523684a405f1396ad0a9d862c123e8
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8e788207e99a87e9635fbf668ad99c21ca101ecf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918740"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697110"
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 和 Node.js SDK 來建置 Node.js Web 應用程式 (預覽)
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - v2.0 預覽](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 本 Node.js 教學課程說明如何使用 Azure Cosmos DB SQL API 帳戶，來儲存和存取 Azure 網站上所託管的 Node.js 快速應用程式資料。 在本教學課程中，您會建置一個簡單的網頁型應用程式 (待辦事項清單應用程式)，以便能夠建立、擷取和完成工作。 在 Azure Cosmos DB 中，這些工作會儲存為 JSON 文件。 下圖顯示待辦事項應用程式的螢幕擷取畫面：

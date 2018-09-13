@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412010"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666379"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
@@ -74,7 +74,8 @@ Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Micros
 
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4.登入 Cloud Partner 入口網站
-| 1-3 天| 我們的 Marketplace 上線小組會檢閱和驗證您在步驟 3 提供的市集註冊詳細資料。 一旦核准之後，您會收到歡迎電子郵件帳戶，其中包含帳戶認證及登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)的指引。
+| 1-3 天 | <br>
+我們的 Marketplace 上線小組會檢閱和驗證您在步驟 3 提供的市集註冊詳細資料。 一旦核准之後，您會收到歡迎電子郵件帳戶，其中包含帳戶認證及登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)的指引。
 
 您將使用 [Cloud Partner 入口網站](https://cloudpartner.azure.com)來建立、發行及管理市集供應項目。 一旦收到核准的歡迎電子郵件時，即可立即使用您的 Microsoft 帳戶登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)，以存取發行至市集及建立供應項目的其他技術資訊。 
 *   如需使用 Cloud Partner 入口網站的詳細資訊，[請瀏覽＜使用者入門＞一文中的＜學習＞區段](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal)。 您必須登入 Cloud Partner 入口網站，來存取這些詳細資料。

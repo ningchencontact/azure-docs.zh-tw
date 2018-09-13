@@ -1,18 +1,20 @@
 ---
 title: 使用 Azure Marketplace 映像透過受控服務識別來建立 Terraform Linux 虛擬機器
 description: 使用 Azure Marketplace 映像，透過受控服務識別與遠端狀態管理來建立 Terraform Linux 虛擬機器，輕鬆地將資源部署至 Azure。
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, MSI, 虛擬機器, 遠端狀態, azure
-author: VaijanathB
-manager: rloutlaw
+author: tomarcher
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 3/12/2018
-ms.topic: article
-ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413791"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669382"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>使用 Azure Marketplace 映像透過受控服務識別來建立 Terraform Linux 虛擬機器
 
@@ -22,7 +24,7 @@ Terraform Marketplace 映像可讓您輕鬆地在 Azure 上開始使用 Terrafor
 
 這個 Terraform VM 映像沒有任何軟體費用。 您僅需支付 Azure 硬體使用費，這是根據所佈建的虛擬機器大小來評估。 如需費用計算的詳細資料，請參閱 [Linux 虛擬機器定價頁面](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 您必須先具有 Azure 訂用帳戶，才可以建立 Linux Terraform 虛擬機器。 如果您還沒有訂用帳戶，請參閱[立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free/)。  
 
 ## <a name="create-your-terraform-virtual-machine"></a>建立 Terraform 虛擬機器 
@@ -89,7 +91,7 @@ Terraform VM 映像會執行下列步驟：
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- 如需遠端狀態管理的詳細資訊，請參閱[與 Terraform 遠端狀態相關的此網頁](https://www.terraform.io/docs/state/remote.html)。 儲存體存取金鑰會在這個檔案中公開，且需要在將 Terraform 組態檔認可至原始檔控制之前加以排除。
+ 如需遠端狀態管理的詳細資訊，請參閱[與 Terraform 遠端狀態相關的此網頁](https://www.terraform.io/docs/state/remote.html)。 儲存體存取金鑰會在這個檔案中公開，且在將 Terraform 組態檔認可至原始檔控制之前，需要排除儲存體存取金鑰。
 
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何在 Azure 上設定 Terraform Linux 虛擬機器。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform： 

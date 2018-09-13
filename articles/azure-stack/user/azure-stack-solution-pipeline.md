@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 3fcede7f813e97885d8fc3d7e0bc04776f2d0d12
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579840"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697742"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>教學課程：將應用程式部署至 Azure 和 Azure Stack
 
@@ -108,7 +108,11 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 
 ### <a name="create-a-service-principal"></a>建立服務主體
 
-請參閱[服務主體建立](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)指示以建立服務主體，然後選擇 [Web 應用程式/API] 作為 [應用程式類型]。
+請參閱[建立服務主體](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)指示來建立服務主體。 選擇 [Web 應用程式/API] 作為 [應用程式類型]，或[使用 PowerShell 指令碼](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) (英文)，如[以現有的服務主體建立 Azure Resource Manager 服務連線](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) (英文) 一文中所述。
+
+ > [!Note]  
+ > 如果您使用指令碼來建立 Azure Stack Azure Resource Manager 端點，則需要傳遞 **-azureStackManagementURL** 參數和 **-environmentName** 參數。 例如︰  
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>建立存取金鑰
 
@@ -261,7 +265,19 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 9. 在 [新增使用者和群組] 中，輸入使用者名稱，然後從使用者清單中選取該使用者。
 10. 選取 [儲存變更]。
 
-端點資訊已存在，所以 VSTS 對 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 VSTS 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
+## <a name="create-an-azure-stack-endpoint"></a>建立 Azure Stack 端點
+
+您可以依照[以現有的服務主體建立 Azure Resource Manager 服務連線](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) (英文) 一文中的指示，使用現有的服務主體建立服務連線，並使用下列對應：
+
+- 環境：Azure Stack
+- 環境 URL：類似於 `https://management.local.azurestack.external`
+- 訂用帳戶識別碼：Azure Stack 中的使用者訂用帳戶識別碼
+- 訂用帳戶名稱：Azure Stack 中的使用者訂用帳戶名稱
+- 服務主體用戶端識別碼：本文[這一節](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal)中的主體識別碼。
+- 服務主體金鑰：同一篇文章中的金鑰 (如果您使用指令碼，則是密碼)。
+- 租用戶識別碼：您依照[取得租用戶識別碼](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)中的指示，所擷取的租用戶識別碼。
+
+現在已建立端點，所以 VSTS 到 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 VSTS 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
 
 ![組建代理程式](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 
@@ -301,7 +317,7 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 ### <a name="create-the-build-definition"></a>建立組建定義
 
 1. 使用可以建立組建定義的帳戶來登入 VSTS。
-2. 瀏覽至專案的 [建置 Web 應用程式] 頁面。
+2. 巡覽至專案的 [組建 Web 應用程式] 頁面。
 
 3. 在 [引數] 中，新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dd0bf50d73b70e37195e8e5e45336b68e4e883e7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 477bd6047da639dcf21592a7ec0c1b80844e031e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915634"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337729"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Google 帳戶登入
 
@@ -30,7 +30,7 @@ ms.locfileid: "37915634"
 4. 選取 [設定同意畫面]。
 5. 選取或指定有效的**電子郵件地址**、提供**向使用者顯示的產品名稱**，然後按一下 [儲存]。
 6. 在 [應用程式類型] 下方，選取 [Web 應用程式]。
-7. 輸入應用程式的**名稱**，在 [授權 JavaScript 來源] 中輸入 `https://login.microsoftonline.com`，接著在 [授權重新導向 URI] 中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。
+7. 輸入應用程式的**名稱**，在 [授權 JavaScript 來源] 中輸入 `https://{tenant}.b2clogin.com`，接著在 [授權重新導向 URI] 中輸入 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c) 來取代 **{tenant}**。
 8. 按一下頁面底部的 [新增] 。
 9. 複製 [用戶端識別碼] 和 [用戶端密碼] 的值。 您必須使用這兩個值，將 Google 設為租用戶中的身分識別提供者。 **用戶端密碼** 是重要的安全性認證。
 

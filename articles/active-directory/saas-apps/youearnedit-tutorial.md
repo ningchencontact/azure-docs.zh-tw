@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: f860036f1a69b2d1ab6ac8de763a49380f8fe4bf
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140863"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>教學課程：Azure Active Directory 與 YouEarnedIt 整合
 
@@ -139,7 +139,7 @@ YouEarnedIt 與 Azure AD 整合提供下列優點：
 
     ![YouEarnedIt 組態](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. 若要在 **YouEarnedIt** 端設定單一登入，您必須將已下載的「憑證 (Base64)」和「SAML 單一登入服務 URL」傳送到指派給您的 YouEarnedIt Customer Success Manager。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+7. 若要在 **YouEarnedIt** 端設定單一登入，您必須將已下載的***憑證 (Base64)*** 和 ***SAML 單一登入服務 URL*** 傳送到指派給您的 **YouEarnedIt** Customer Success Manager。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

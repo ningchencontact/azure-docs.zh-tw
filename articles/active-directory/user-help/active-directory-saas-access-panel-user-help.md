@@ -1,5 +1,5 @@
 ---
-title: 取得在 Azure Active Directory 中存取和使用 My Apps 入口網站的協助 | Microsoft Docs
+title: 取得在 Azure Active Directory 中存取和使用 MyApps 入口網站的協助 | Microsoft Docs
 description: 取得在存取面板中登入及執行常見工作的協助。
 services: active-directory
 author: eross-msft
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343605"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306405"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>針對存取和使用 My Apps 入口網站的問題進行疑難排解
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>針對存取和使用 MyApps 入口網站的問題進行疑難排解
 
-如果您在登入或使用 My Apps 入口網站時遇到問題，請在連絡技術服務人員或系統管理員以取得協助之前，先嘗試下列疑難排解提示。
+如果您在登入或使用 MyApps 入口網站時遇到問題，請在連絡技術服務人員或系統管理員以取得協助之前，先嘗試下列疑難排解提示。
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>我無法登入 My Apps 入口網站
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>我無法登入 MyApps 入口網站
 
 請嘗試下列一般提示：
 
@@ -45,7 +45,7 @@ ms.locfileid: "39343605"
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>我無法安裝 My Apps 安全登入延伸模組
 
-My Apps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如果您使用密碼單一登入應用程式，就必須一併安裝隨附的延伸模組。 當您啟動已設定密碼單一登入的應用程式時，就會自動下載此擴充功能。
+MyApps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如果您使用密碼單一登入應用程式，就必須一併安裝隨附的延伸模組。 當您啟動已設定密碼單一登入的應用程式時，就會自動下載此擴充功能。
 
 請檢查以確定您符合下列瀏覽器需求：
 
@@ -63,8 +63,8 @@ My Apps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如
 如果您已安裝擴充功能，但仍遇到問題，請嘗試下列各項：
 
 - 檢查您的瀏覽器擴充功能設定以確定擴充功能已啟用。
-- 重新啟動瀏覽器，然後登入 My Apps 入口網站。
-- 清除瀏覽器的 Cookie，然後登入 My Apps 入口網站。
+- 重新啟動瀏覽器，然後登入 MyApps 入口網站。
+- 清除瀏覽器的 Cookie，然後登入 MyApps 入口網站。
 - 如需存取診斷工具和設定 Internet Explorer 擴充功能的逐步指示，請參閱[針對 Internet Explorer 的存取面板擴充功能進行疑難排解](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting)。
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>使用 My Apps 安全登入擴充功能
@@ -85,7 +85,7 @@ My Apps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如
 * 若要從擴充功能啟動應用程式，請執行下列動作：
    1. 安裝擴充功能後，請選取 [登入以開始使用] 來登入擴充功能。
    2. 選取擴充功能圖示將其功能表開啟。
-   3. 在 My Apps 入口網站中搜尋可用的應用程式。
+   3. 在 MyApps 入口網站中搜尋可用的應用程式。
    4. 在搜尋結果清單中，選取應用程式。  
        您所使用的最後三個應用程式會顯示在 [最近使用的] 捷徑清單中。
 

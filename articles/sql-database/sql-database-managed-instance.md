@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2c6cdcd5d8d50a54a87e3dabd2aa09eccc646738
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146189"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287658"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什麼是受控執行個體 (預覽)？
 
@@ -71,7 +71,7 @@ Azure SQL Database 受控執行個體結合了可在 Azure SQL Database 和 SQL 
 - **一般用途**：專為具有標準效能和 IO 延遲需求的應用程式所設計。
 - **業務關鍵**：專為具有低 IO 延遲需求且對工作負載的基礎維護作業影響最小的應用程式所設計。
 
-這兩個服務層均保證 99.99% 的可用性，可讓您單獨選取儲存體大小和計算容量。 
+這兩個服務層均保證 99.99% 的可用性，可讓您單獨選取儲存體大小和計算容量。 如需 Azure SQL Database 高可用性架構的詳細資訊，請參閱[高可用性和 Azure SQL Database](sql-database-high-availability.md)。
 
 > [!IMPORTANT]
 > 公開預覽版本不支援將服務層級從一般用途變更為業務關鍵，反之亦然。 如果您想要將資料庫遷移至不同服務層中的執行個體，您可以建立新執行個體，並透過原始執行個體的還原時間點來還原資料庫，然後捨棄原始執行個體 (如果已不再需要)。 
@@ -97,7 +97,7 @@ Azure SQL Database 受控執行個體結合了可在 Azure SQL Database 和 SQL 
 | 每個資料庫的資料檔案 (ROWS) 數目 | 多個 | 
 | 每個資料庫的記錄檔 (LOG) 數目 | 1 | 
 | 受控自動化備份 | 是 |
-| HA | 以遠端儲存體和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md)為基礎 |
+| HA | Azure 儲存體和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) 中儲存的資料 |
 | 內建執行個體和資料庫的監視與計量 | 是 |
 | 自動軟體修補 | 是 |
 | VNet - Azure Resource Manager 部署 | 是 |
@@ -105,8 +105,7 @@ Azure SQL Database 受控執行個體結合了可在 Azure SQL Database 和 SQL 
 | 入口網站支援 | 是|
 |||
 
-
-  \*虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第四代邏輯 CPU 的基礎為 E5-2673 v3 (Haswell) 2.4 GHz 處理器，第五代邏輯 CPU 的基礎為 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器。 
+\*虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第四代邏輯 CPU 的基礎為 E5-2673 v3 (Haswell) 2.4 GHz 處理器，第五代邏輯 CPU 的基礎為 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器。 
 
 如需詳細資訊，請參閱 Azure SQL Database 中的[標準/一般用途可用性和架構](sql-database-high-availability.md#standardgeneral-purpose-availability)。
 
@@ -132,7 +131,7 @@ Azure SQL Database 受控執行個體結合了可在 Azure SQL Database 和 SQL 
 | 每個資料庫的資料檔案 (ROWS) 數目 | 多個 | 
 | 每個資料庫的記錄檔 (LOG) 數目 | 1 | 
 | 受控自動化備份 | 是 |
-| HA | 根據 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HA | 資料儲存於本機 SSD，並使用 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | 內建執行個體和資料庫的監視與計量 | 是 |
 | 自動軟體修補 | 是 |
 | VNet - Azure Resource Manager 部署 | 是 |

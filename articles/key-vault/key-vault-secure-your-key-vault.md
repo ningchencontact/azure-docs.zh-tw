@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576962"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343457"
 ---
 # <a name="secure-your-key-vault"></a>保護您的金鑰保存庫
 Azure 金鑰保存庫是用來保護雲端應用程式加密金鑰和密碼 (例如憑證、連接字串、密碼) 的雲端服務。 由於這項資料相當敏感且攸關業務，您會想要保護金鑰保存庫的存取權，讓只有獲得授權的應用程式和使用者可以存取金鑰保存庫。 本文提供金鑰保存庫存取模型概觀、說明驗證和授權，並透過範例描述如何保護雲端應用程式金鑰保存庫的存取權。
@@ -87,15 +87,15 @@ Azure 金鑰保存庫是一項可透過 Azure Resource Manager 部署模型取�
 ## <a name="data-plane-access-control"></a>資料平面存取控制
 金鑰保存庫資料平面是由會影響金鑰保存庫物件 (例如金鑰、密碼和憑證) 的作業所組成。  這包括金鑰作業 (例如建立、匯入、更新、列出、備份和還原金鑰)、密碼編譯作業 (例如簽署、驗證、加密、解密、包裝和解除包裝)，以及為金鑰設定標籤和其他屬性。 同樣地，針對密碼所包含的是取得、設定、列出、刪除。
 
-資料平面的存取權是藉由設定金鑰保存庫的存取原則來授與。 使用者、群組或應用程式必須具有管理平面的參與者權限 (RBAC)，金鑰保存庫才能設定該金鑰保存庫的存取原則。 您可以對使用者、群組或應用程式授與權限，來為金鑰保存庫中的金鑰或密碼執行特定作業。 金鑰保存庫最多可支援 16 個存取原則項目。 建立 Azure Active Directory 安全性群組並在該群組中新增使用者，即可對數名使用者授與金鑰保存庫的資料平面存取權。
+資料平面的存取權是藉由設定金鑰保存庫的存取原則來授與。 使用者、群組或應用程式必須具有管理平面的參與者權限 (RBAC)，金鑰保存庫才能設定該金鑰保存庫的存取原則。 您可以對使用者、群組或應用程式授與權限，來為金鑰保存庫中的金鑰或密碼執行特定作業。 金鑰保存庫最多可支援 1024 個存取原則項目。 建立 Azure Active Directory 安全性群組並在該群組中新增使用者，即可對數名使用者授與金鑰保存庫的資料平面存取權。
 
 ### <a name="key-vault-access-policies"></a>金鑰保存庫存取原則
 金鑰保存庫存取原則可分別授與金鑰、密碼和憑證的權限。 例如，您可以只提供金鑰存取權給使用者，但不提供密碼的權限。 不過，金鑰、密碼或憑證的存取權限是在保存庫層級。 換句話說，金鑰保存庫存取原則不支援物件層級權限。 您可以使用 [Azure 入口網站](https://portal.azure.com/)、[Azure CLI 工具](../cli-install-nodejs.md)、[PowerShell](/powershell/azureps-cmdlets-docs) 或[金鑰保存庫管理 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx) 來設定金鑰保存庫的存取原則。
 
 > [!IMPORTANT]
 > 請注意，金鑰保存庫存取原則會套用在保存庫層級。 例如，對使用者授與金鑰的建立和刪除權限時，她就可以對該金鑰保存庫的所有金鑰執行這些作業。
-> 
-> 
+
+除了存取原則，您也可以設定[防火牆和虛擬網路規則](key-vault-network-security.md)，利用 [Azure Key Vault 的虛擬網路服務端點](key-vault-overview-vnet-service-endpoints.md)來限制資料層存取，以多加一道安全性。
 
 ## <a name="example"></a>範例
 假設您正在開發的應用程式使用 SSL 憑證、使用 Azure 儲存體來儲存資料，並使用 RSA 2048 位元金鑰來進行簽署作業。 假設此應用程式正在 VM (或 VM 擴展集) 中執行。 您可以使用金鑰保存庫來儲存所有應用程式密碼，並使用金鑰保存庫來儲存應用程式用來向 Azure Active Directory 進行驗證的啟動程序憑證。
@@ -201,8 +201,8 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 > [!NOTE]
 > 注意︰此範例示範生產環境中會如何鎖定金鑰保存庫的存取權。 開發人員應該有自己的訂用帳戶或資源群組，並擁有完整權限以便管理他們用來開發應用程式的保存庫、VM 和儲存體帳戶。
-> 
-> 
+
+強烈建議[設定 Key Vault 防火牆和虛擬網路](key-vault-network-security.md)，以進一步保護對金鑰保存庫的存取。
 
 ## <a name="resources"></a>資源
 * [Azure Active Directory 角色型存取控制](../role-based-access-control/role-assignments-portal.md)
@@ -243,6 +243,8 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
   用來管理金鑰保存庫存取原則之 PowerShell Cmdlet 參考文件的連結。
 
 ## <a name="next-steps"></a>後續步驟
+[設定 Key Vault 防火牆和虛擬網路](key-vault-network-security.md)
+
 如需適用於系統管理員的開始使用教學課程，請參閱[開始使用 Azure 金鑰保存庫](key-vault-get-started.md)。
 
 如需金鑰保存庫使用方法記錄的詳細資訊，請參閱 [Azure 金鑰保存庫記錄](key-vault-logging.md)。

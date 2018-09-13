@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308026"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344492"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>建立支援 Azure Active Directory B2C 註冊、登入、設定檔編輯及密碼重設的 ASP.NET Web 應用程式
 
@@ -26,7 +26,7 @@ ms.locfileid: "38308026"
 > * 在您的 Azure AD B2C 目錄中註冊 Web 應用程式
 > * 為您的 Web 應用程式建立使用者註冊/登入、編輯設定檔和密碼重設原則
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您必須將 B2C 租用戶與 Azure 帳戶連接。 您可以在[這裡](https://azure.microsoft.com/)建立免費的 Azure 帳戶。
 - 您需要 [Microsoft Visual Studio](https://www.visualstudio.com/) 或類似的程式來檢視與修改範例程式碼。
@@ -95,7 +95,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 * `ida:ResetPasswordPolicyId`：使用您的「重設密碼」原則名稱
 
 ## <a name="launch-the-app"></a>啟動應用程式
-在 Visual Studio 內啟動應用程式。 瀏覽至 [待辦事項清單] 索引標籤，並記下 URl 為：https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
+在 Visual Studio 內啟動應用程式。 瀏覽至 [待辦事項清單] 索引標籤，並記下 URl 為： https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
 
 使用電子郵件地址或使用者名稱來註冊應用程式。 登出後再次登入，然後編輯設定檔或重設密碼。 請登出應用程式，再以不同的使用者身分登入， 
 

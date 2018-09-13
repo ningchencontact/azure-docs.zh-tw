@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a0ca0ae3ed615f6bc2774364f7a443023b911b5d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 06b5660a9428e98d2e99b5d447a05700968ec884
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937552"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381908"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 驗證報告
-Azure Stack 整備檢查程式工具會執行可支援 Azure Stack 環境部署和服務的驗證。 此工具會將驗證結果寫入 .json 報告檔案。 報告中會顯示關於 Azure Stack 部署先決條件狀態，以及關於現有 Azure Stack 部署秘密輪替的詳細和摘要資料。  
+使用 Azure Stack 整備檢查程式工具來執行驗證，這些驗證支援 Azure Stack 環境的部署和維護。 此工具會將結果寫入 .json 報告檔案。 報告會針對 Azure Stack 部署的必要條件狀態，顯示相關的詳細和摘要資料。 報告也會顯示現有 Azure Stack 部署祕密輪替的相關資訊。  
 
  ## <a name="where-to-find-the-report"></a>報告的所在位置
 工具在執行時，會將結果記錄至 **AzsReadinessCheckerReport.json**。 此工具也會建立名為 **AzsReadinessChecker.log** 的記錄。 PowerShell 中的驗證結果會一同顯示這些檔案的位置。
@@ -37,7 +37,7 @@ Azure Stack 整備檢查程式工具會執行可支援 Azure Stack 環境部署�
 - 使用執行命令結尾的 **-CleanReport** 參數，從 AzsReadinessCheckerReport.json 清除資訊。 關於此工具先前的執行。
 
 ## <a name="view-the-report"></a>檢視報告
-若要在 PowerShell 中檢視報告，請提供報告的路徑作為 **-ReportPath** 的值。 此命令會顯示報告的內容，也會識別還沒有結果的驗證。
+若要在 PowerShell 中檢視報告，請提供報告的路徑作為 **-ReportPath** 的值。 此命令會顯示報告的內容，並識別還沒有結果的驗證。
 
 例如，若要從 PowerShell 提示字元檢視對報告所在位置開啟的報告，請執行： 
    > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
@@ -56,7 +56,7 @@ Azure Stack 整備檢查程式工具會執行可支援 Azure Stack 環境部署�
 
 
 ## <a name="view-a-filtered-report"></a>檢視篩選的報告
-若要檢視針對單一驗證類型所篩選出的報告，請使用 **-ReportSections** 參數，並指定下列其中一個對應至所要檢視驗證類型的值：
+若要檢視依單一類型的驗證而篩選的報告，請使用 **-ReportSections** 參數並搭配下列其中一個值：
 - 憑證
 - AzureRegistration
 - AzureIdentity

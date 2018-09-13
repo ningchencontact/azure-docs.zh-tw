@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056754"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666427"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -42,7 +42,7 @@ ms.locfileid: "39056754"
 | 12 個 vCPU (2 個插槽 * 6 核心 \@ 2.5GHz) |18 GB |600 GB |500 GB 至 1 TB |複寫 100-150 部機器。 |
 | 16 個 vCPU (2 個插槽 * 8 核心 \@ 2.5GHz) |32 GB |1 TB |1 TB 至 2 TB |複寫 150-200 部機器。 |
 
-如果您要複寫多個 VMware VM，請參閱[容量規劃考量](/site-recovery-plan-capacity-vmware.md)。 執行用於 VMware 複寫的[部署規劃工具](site-recovery-deployment-planner.md)。
+如果您要複寫多個 VMware VM，請參閱[容量規劃考量](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware)。 執行用於 VMware 複寫的[部署規劃工具](site-recovery-deployment-planner.md)。
 
 ## <a name="download-the-template"></a>下載範本
 
@@ -81,7 +81,7 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
 
 1. 在 vSphere 用戶端詳細目錄中，以滑鼠右鍵按一下 VM 並選取 [編輯設定]。
 2. 在 [硬體] 中，選取 [新增] > [乙太網路介面卡]。 然後，選取 [下一步]。
-3. 選取介面卡類型和網路。 
+3. 選取介面卡類型和網路。
 4. 若要在 VM 開啟時連線虛擬 NIC，請選取 [在電源開啟時連線]。 然後，選取 [下一步] > [完成] > [確定]。
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>向 Azure Site Recovery 服務註冊設定伺服器
@@ -102,7 +102,7 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
 
     > [!NOTE]
     > 復原服務保存庫在註冊之後，即沒有變更的彈性。
-    
+
 3. 在 [安裝協力廠商軟體] 中，
 
     |案例   |要依循的步驟  |
@@ -144,6 +144,10 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
 ## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
 
 若要將組態伺服器升級為最新版本，請閱讀[此處](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)的步驟
+
+## <a name="manage-the-configuration-server"></a>管理組態伺服器
+
+若要避免進行中的複寫中斷，請確定已向保存庫註冊組態伺服器後，組態伺服器的 IP 位址不會變更。 您可在[此處](vmware-azure-manage-configuration-server.md)深入了解常見組態伺服器管理工作。
 
 ## <a name="troubleshoot-deployment-issues"></a>為部署問題進行疑難排解
 

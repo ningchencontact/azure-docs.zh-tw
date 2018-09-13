@@ -1,22 +1,24 @@
 ---
 title: 搭配 Azure 使用 Terraform
 description: 使用 Terraform 設定 Azure 基礎結構版本和部署的簡介。
-ms.service: virtual-machines-linux
+services: terraform
+ms.service: terraform
 keywords: Terraform, DevOps, 概觀, 計畫, 套用, 自動化
-author: binderjoe
-ms.author: jbinder
-ms.date: 10/19/2017
-ms.topic: article
-ms.openlocfilehash: 5d313bda6a1067e6d023f62fb26704f9aee5c7bf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 08/31/2018
+ms.openlocfilehash: dd340238f8a70c1dd0cfc172976bef6b1ad282b1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114467"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665624"
 ---
 # <a name="terraform-with-azure"></a>搭配 Azure 使用 Terraform
 
-[Hashicorp Terraform](https://www.terraform.io/) \(英文\) 是開放原始碼工具，可用來佈建和管理雲端基礎結構。 它會在設定檔中制訂基礎結構，以描述雲端資源的拓撲，例如虛擬機器、儲存體帳戶和網路介面。 Terraform 的命令列介面 (CLI) 提供簡單的機制，以針對 Azure 或任何其他支援雲端的設定檔來部署和設定版本。
+[Hashicorp Terraform](https://www.terraform.io/) (英文) 是開放原始碼工具，可用來佈建和管理雲端基礎結構。 它會在設定檔中制訂基礎結構，以描述雲端資源的拓撲，例如虛擬機器、儲存體帳戶和網路介面。 Terraform 的命令列介面 (CLI) 提供簡單的機制，以針對 Azure 或任何其他支援雲端的設定檔來部署和設定版本。
 
 本文說明使用 Terraform 來管理 Azure 基礎結構的優點。
 

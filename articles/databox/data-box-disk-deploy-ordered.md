@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f46a3ecb3c4ef6ace31b7010ba9068ab04a43315
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 37130e946aad00ef4eca14b7ce7942a8e435e6cd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126536"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782323"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>教學課程：訂購 Azure 資料箱磁碟 (預覽)
 
-Azure 資料箱磁碟是一項雲端解決方案，可讓您以快速、簡便而可靠的方式將內部部署資料匯入 Azure 中。 您可以將資料傳輸至由 Microsoft 提供的固態硬碟 (SSD)，並將磁碟寄回。 這項資料隨後會上傳至 Azure。 
+Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速、簡便而可靠的方式，將內部部署資料匯入 Azure 中。 您可以將資料傳輸至由 Microsoft 提供的固態硬碟 (SSD)，並將磁碟寄回。 這項資料隨後會上傳至 Azure。 
 
 本教學課程說明如何訂購 Azure 資料箱磁碟。 在本教學課程中，您會了解：
 
@@ -38,7 +38,7 @@ Azure 資料箱磁碟是一項雲端解決方案，可讓您以快速、簡便�
 
 > [!IMPORTANT]
 > - 資料箱磁碟處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
-> - 在預覽期間，資料箱磁碟可運送給美國與歐盟的客戶。 如需詳細資訊，請移至[區域可用性](data-box-disk-overview.md#region-availability)。
+> - 在預覽期間，資料箱磁碟可運送給美國、西歐和北歐、加拿大及澳大利亞的客戶。 如需詳細資訊，請移至[區域可用性](data-box-disk-overview.md#region-availability)。
 
 ## <a name="sign-up"></a>註冊 
 
@@ -78,9 +78,9 @@ Azure 資料箱磁碟是一項雲端解決方案，可讓您以快速、簡便�
 
     |設定|值|
     |---|---|
-    |Name|提供用來追蹤訂單的易記名稱。<br> 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 <br> 名稱必須以字母或數字為開頭或結尾。 |
+    |名稱|提供用來追蹤訂單的易記名稱。<br> 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 <br> 名稱必須以字母或數字為開頭或結尾。 |
     |資源群組| 使用現有的群組或建立新群組。 <br> 資源群組是適用於資源而可一併管理或部署的邏輯容器： |
-    |目的地 Azure 區域| 選取儲存體帳戶的區域。<br> 目前支援全美國以及西歐和北歐區域中的儲存體帳戶。 |
+    |目的地 Azure 區域| 選取儲存體帳戶的區域。<br> 目前支援全美國、西歐和北歐、加拿大及澳大利亞地區的儲存體帳戶。 |
     |儲存體帳戶|根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中進行選取。 <br>您也可以建立新的一般用途 v1 或一般用途 v2 帳戶。 |
     |預估資料大小 (TB)| 輸入以 TB 為單位的估計值。 <br>Microsoft 會根據資料大小為您傳送適當數目的 8 TB SSD (可用容量為 7 TB)。 <br>5 個磁碟的可用容量上限為 35 TB。 |
 

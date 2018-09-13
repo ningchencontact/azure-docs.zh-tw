@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: brenduns
-ms.openlocfilehash: e9e474fe4a32bb99673fba2a88f28a3161f23362
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6380936766bb0f3848811be305783c274867b0fc
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050381"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381862"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 閘道組態設定
 
@@ -27,7 +27,7 @@ ms.locfileid: "43050381"
 
 VPN 閘道是一種虛擬網路閘道，可在 Azure Stack 中的虛擬網路與遠端 VPN 閘道之間傳送加密流量。 遠端 VPN 閘道可位於 Azure 中、您資料中心的裝置中或另一個網站的裝置中。  如果兩個端點之間有網路連線，您可以在這兩個網路之間建立安全的站對站 (S2S) VPN 連線。
 
-VPN 閘道連線依賴多個資源的設定，每一個都包含可設定的設定值。 本文各節討論在 Resource Manager 部署模型中所建立之虛擬網路 VPN 閘道相關的資源和設定。 您可以在[關於 Azure Stack 的 VPN 閘道](azure-stack-vpn-gateway-about-vpn-gateways.md)中找到每個連線解決方案的描述和拓撲圖。
+VPN 閘道連線依賴多個資源的設定，每一個都包含可設定的設定值。 本文針對您在 Resource Manager 部署模型中建立的虛擬網路，討論其 VPN 閘道的相關資源和設定。 您可以在[關於 Azure Stack 的 VPN 閘道](azure-stack-vpn-gateway-about-vpn-gateways.md)中找到每個連線解決方案的描述和拓撲圖。
 
 ## <a name="vpn-gateway-settings"></a>VPN 閘道設定
 
@@ -100,7 +100,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 >
 > 此外，Azure Stack 目前並不支援將原則式流量選取器用於路由式閘道，因為自訂 IPSec/IKE 原則組態不受支援。
 
-* **原則式**：原則式 VPN 會根據使用內部部署網路與 Azure Stack VNet 之間的位址首碼組合所設定的 IPsec 原則，透過 IPsec 通道來加密和導向封包。 原則 (或流量選取器) 通常會定義為 VPN 裝置組態中的存取清單。
+* **原則式**：原則式 VPN 會根據使用內部部署網路與 Azure Stack VNet 之間的位址首碼組合所設定的 IPsec 原則，透過 IPsec 通道來加密和導向封包。 原則 (或流量選取器) 通常為 VPN 裝置組態中的存取清單。
 
   >[!NOTE]
   >原則式在 Azure 中受到支援，但在 Azure Stack 中則不受支援。
@@ -184,14 +184,12 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 |IKE 版本 |IKEv2 |
 |加密與雜湊演算法 (加密)     | GCMAES256|
 |加密與雜湊演算法 (驗證) | GCMAES256|
-|SA 存留期 (時間)  | 27,000 秒<sup>請參閱附註 1</sup> |
-|SA 存留期 (位元組) | 33,553,408<sup>請參閱附註 2</sup>     |
-|完整轉寄密碼 (PFS) |無<sup>請參閱附註 3</sup> |
+|SA 存留期 (時間)  | 27,000 秒  |
+|SA 存留期 (位元組) | 33,553,408     |
+|完整轉寄密碼 (PFS) |無<sup>請參閱附註 1</sup> |
 |停用的對等偵測 | 支援|  
 
-* *附註 1：* 在 1803 之前的版本，Azure Stack 會使用 14,400 作為 SA 存留期 (時間) 的值。
-* *附註 2：* 在 1803 之前的版本，Azure Stack 會使用 819,200 作為 SA 存留期 (位元組) 的值。
-* *附註 3：* 在 1807 之前的版本，Azure Stack 會使用 PFS2048 作為完整轉寄密碼 (PFS) 的值。
+* *附註 1：* 在 1807 之前的版本，Azure Stack 會使用 PFS2048 作為完整轉寄密碼 (PFS) 的值。
 
 ## <a name="next-steps"></a>後續步驟
 

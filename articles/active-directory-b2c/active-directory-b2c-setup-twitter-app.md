@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bf5ae39d83fd021775fbd18cf23d2e6b9078e748
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6d8e9245e95c08aad69cd05f338b6260e554469b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927891"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337785"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Twitter 帳戶登入
 
@@ -26,7 +26,7 @@ ms.locfileid: "37927891"
 1. 使用您的 Twitter 認證登入 [Twitter 應用程式](https://apps.twitter.com/)。
 2. 選取 [Create New App] \(建立新的應用程式\)。
 3. 輸入 [名稱]、[描述] 和 [網站]。
-4. 請在 [回呼 URL] 中，輸入 `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`。 使用租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**，並使用原則識別碼 (例如 b2c_1_policy) 來取代 **{policyId}**。 您應該為所有使用 Twitter 帳戶的原則新增回呼 URL。 如果要在應用程式中使用，請務必使用 `b2clogin.com` 而不是 ` login.microsoftonline.com`。
+4. 請在 [回呼 URL] 中，輸入 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp`。 使用租用戶名稱 (例如 contosob2c) 來取代 **{tenant}**，並使用原則識別碼 (例如 b2c_1_policy) 來取代 **{policyId}**。 您應該為所有使用 Twitter 帳戶的原則新增回呼 URL。 
 5. 同意 [開發人員合約]，然後按一下 [建立 Twitter 應用程式]。
 7. 選取 [ **金鑰和存取權杖** ] 索引標籤。
 8. 複製 [取用者金鑰] 和 [取用者祕密] 的值。 您必須使用這兩個值，將 Twitter 帳戶設為租用戶中的識別提供者。

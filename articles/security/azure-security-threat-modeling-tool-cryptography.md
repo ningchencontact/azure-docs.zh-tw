@@ -3,23 +3,23 @@ title: 密碼編譯 - Microsoft 威脅模型化工具 - Azure | Microsoft Docs
 description: 降低威脅模型化工具所暴露的威脅
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911653"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306140"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>安全性架構︰密碼編譯 | 風險降低 
 | 產品/服務 | 文章 |
@@ -173,7 +173,7 @@ ms.locfileid: "30911653"
 | **適用的技術** | 泛型 |
 | **屬性**              | 裝置作業系統 - Windows IoT 核心版、裝置連線能力 - Azure IoT 裝置 SDK |
 | **參考**              | [Windows IoT 核心版上的 TPM](https://developer.microsoft.com/windows/iot/docs/tpm)、[設定 Windows IoT 核心版上的 TPM](https://developer.microsoft.com/windows/iot/win10/setuptpm)、[Azure IoT 裝置 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **步驟** | 在硬體保護的儲存體 (如 TPM 或智慧卡晶片) 中安全地對稱或憑證私密金鑰。 Windows 10 IoT Core 支援使用 TPM，而且有數個相容 TPM 可供使用︰https://developer.microsoft.com/windows/iot/win10/tpm。 建議您使用韌體或離散 TPM。 軟體 TPM 只應用於開發和測試用途。 一旦 TPM 可供使用而且在其中佈建了金鑰，應該就能撰寫權杖產生程式碼而不必在其中硬式編碼任何敏感性資訊。 | 
+| **步驟** | 在硬體保護的儲存體 (如 TPM 或智慧卡晶片) 中安全地對稱或憑證私密金鑰。 Windows 10 IoT Core 支援使用 TPM，而且有數個相容 TPM 可供使用︰ https://developer.microsoft.com/windows/iot/win10/tpm。 建議您使用韌體或離散 TPM。 軟體 TPM 只應用於開發和測試用途。 一旦 TPM 可供使用而且在其中佈建了金鑰，應該就能撰寫權杖產生程式碼而不必在其中硬式編碼任何敏感性資訊。 | 
 
 ### <a name="example"></a>範例
 ```

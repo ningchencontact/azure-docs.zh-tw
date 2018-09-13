@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6099a818651cf75a75159f43748720b3eb01e4de
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005470"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287816"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
@@ -30,27 +30,28 @@ Azure Functions 的 JavaScript 體驗能讓您輕鬆地匯出函式，系統會�
 本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。
 
 ## <a name="exporting-a-function"></a>匯出函數
-所有 JavaScript 函式都必須透過 `module.exports` 匯出單一 `function`，如此執行階段才能找到函式並執行它。 此函式一定要包含 `context` 物件。
+每個 JavaScript 函式都必須透過 `module.exports` 匯出單一 `function`，如此執行階段才能找到函式並執行它。 此函式必須一律採用 `context` 物件做為第一個參數。
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
-    if(arguments.length === 4) {
-        context.log('This function has 4 inputs');
-    }
-};
-// or you can include additional inputs in your arguments
+// You must include a context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
+    context.done();
+};
+// You can also use 'arguments' to dynamically handle inputs
+module.exports = function(context) {
+    context.log('Number of inputs: ' + arguments.length);
+    // Iterates through trigger and input binding data
+    for (i = 1; i < arguments.length; i++){
+        context.log(arguments[i]);
+    }
+    context.done();
 };
 ```
 
-`direction === "in"` 的繫結會和函式引數一起傳遞，這表示您可以使用 [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 以動態方式處理新的輸入 (例如，藉由使用 `arguments.length` 來反覆查看您的所有輸入)。 當您只有單一觸發程序而沒有其他輸入時，這項功能十分便利，因為您可以如預期般存取觸發程序資料，而不需要參考 `context` 物件。
+輸入和觸發程序繫結 (`direction === "in"` 的繫結) 可以傳遞至函式做為參數。 這些繫結會按照在 *function.json* 中定義的順序傳遞至函式。 您可以使用 JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 物件動態處理輸入。 例如，如果您有 `function(context, a, b)` 並將它變更為 `function(context, a)`，您仍然可以在函式程式碼中藉由參考 `arguments[2]` 來取得 `b` 的值。
 
-引數一律會以它們在 *function.json* 中出現的順序傳遞至函式，即使您未在匯出陳述式中指定它們也一樣。 例如，如果您有 `function(context, a, b)` 並將它變更為 `function(context, a)`，您仍然可以在函式程式碼中藉由參考 `arguments[2]` 來取得 `b` 的值。
-
-所有繫結 (不論方向為何) 也都會在 `context` 物件上傳遞 (請參閱下列指令碼)。 
+所有繫結 (不論方向為何) 也都會使用 `context.bindings` 屬性傳遞到 `context` 物件。
 
 ## <a name="context-object"></a>context 物件
 執行階段使用 `context` 物件來將資料傳遞至函式並從中傳出，而且可讓您與執行階段進行通訊。
@@ -61,6 +62,7 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
     // function logic goes here :)
+    context.done();
 };
 ```
 

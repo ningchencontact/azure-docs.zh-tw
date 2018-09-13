@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238803"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344418"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -45,7 +45,7 @@ ms.locfileid: "39238803"
 
 
 
-## <a name="on-premises"></a>內部部署 
+## <a name="on-premises"></a>內部部署
 
 ### <a name="what-do-i-need-on-premises"></a>我的內部部署環境需要什麼？
 在內部部署環境中，您需要安裝在單一 VMware VM 上的 Site Recovery 元件。 您也需要至少有一個 ESXi 主機的 VMware 基礎結構，此外也建議要有 vCenter 伺服器。 此外，您需要一或多個要複寫的 VMware VM。 [深入了解](vmware-azure-architecture.md) VMware 到 Azure 的架構。
@@ -72,7 +72,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>為何我無法透過 VPN 進行複寫？
 
-在複寫至 Azure 時，複寫流量會送到 Azure 儲存體帳戶的公用端點，因此您只能使用公用網際網路透過 ExpressRoute (公用對等互連) 進行複寫，VPN 無法運作。 
+在複寫至 Azure 時，複寫流量會送到 Azure 儲存體帳戶的公用端點，因此您只能使用公用網際網路透過 ExpressRoute (公用對等互連) 進行複寫，VPN 無法運作。
 
 
 
@@ -90,7 +90,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 不支援此做法。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。
 
 ### <a name="can-i-exclude-disks"></a>是否可排除磁碟嗎？
-是的，您可以將磁碟排除於複寫外。 
+是的，您可以將磁碟排除於複寫外。
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>是否可使用動態磁碟來複寫 VM？
 動態磁碟可以複寫。 作業系統磁碟必須是基本磁碟。
@@ -105,7 +105,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 ## <a name="configuration-server"></a>組態伺服器
 
 ### <a name="what-does-the-configuration-server-do"></a>組態伺服器有何功用？
-組態伺服器會執行內部部署 Site Recovery 元件，包括： 
+組態伺服器會執行內部部署 Site Recovery 元件，包括：
 - 設定伺服器，會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
 - 處理序伺服器，可作為複寫閘道。 它會接收複寫資料、使用快取、壓縮和加密加以最佳化，然後將其傳送至 Azure 儲存體。處理序伺服器也會在您要複寫的 VM 上安裝行動服務，並且在內部部署 VMware VM 上執行自動探索。
 - 主要目標伺服器，會在從 Azure 容錯回復期間處理複寫資料。
@@ -118,13 +118,13 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 請檢閱[必要條件](vmware-azure-deploy-configuration-server.md#prerequisites)。
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>是否可以手動設定組態伺服器，而不要使用範本？
-建議您使用最新版的 OVF 範本來[建立組態伺服器 VM](vmware-azure-deploy-configuration-server.md)。 如果您因故無法這麼做 (例如您沒有 VMware 伺服器的存取權)，您可以從入口網站[下載統一安裝檔案](physical-azure-set-up-source.md)，並在 VM 上執行。 
+建議您使用最新版的 OVF 範本來[建立組態伺服器 VM](vmware-azure-deploy-configuration-server.md)。 如果您因故無法這麼做 (例如您沒有 VMware 伺服器的存取權)，您可以從入口網站[下載統一安裝檔案](physical-azure-set-up-source.md)，並在 VM 上執行。
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>組態伺服器是否可複寫到多個區域？
 否。 若要這麼做，您必須在每個區域中設定組態伺服器。
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>是否可將組態伺服器裝載在 Azure 中？
-雖然可行，但執行組態伺服器的 Azure VM 將需要與您的內部部署 VMware 基礎結構和 VM 通訊。 額外負荷可能會大幅降低其可行性。
+雖然可行，但執行組態伺服器的 Azure VM 將需要與您的內部部署 VMware 基礎結構和 VM 通訊。 這會加入延遲，並影響進行中的複寫。
 
 
 ### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>哪裡可以取得最新版的組態伺服器範本？
@@ -132,6 +132,9 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 
 ### <a name="how-do-i-update-the-configuration-server"></a>如何更新組態伺服器？
 您可以安裝更新彙總套件。 您可以在 [Wiki 更新頁面](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)中找到最新的更新資訊。
+
+### <a name="should-i-backup-the-deployed-configuration-server"></a>我是否應該備份已部署的組態伺服器？
+建議對於組態伺服器進行定期排程的備份。 為了成功容錯回復，進行容錯回復的虛擬機器必須存在於組態伺服器資料庫，而且組態伺服器必須執行中且處於連線狀態。 您可在[此處](vmware-azure-manage-configuration-server.md)深入了解常見組態伺服器管理工作。
 
 ## <a name="mobility-service"></a>行動服務
 
@@ -191,7 +194,7 @@ Azure 是針對復原能力而設計的。 Site Recovery 設計成可根據 Azur
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>為何需要以 VPN 或 ExpressRoute 進行容錯回復？
 
-您從 Azure 容錯回復時，Azure 中的資料會重新複製到內部部署 VM，因此需要私用存取。 
+您從 Azure 容錯回復時，Azure 中的資料會重新複製到內部部署 VM，因此需要私用存取。
 
 
 

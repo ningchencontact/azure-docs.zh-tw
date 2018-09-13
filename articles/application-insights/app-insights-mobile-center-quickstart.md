@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e69cf8753fb0cc9326e047ec97cbe08ee6f26610
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988920"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668456"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>開始使用 App Center 和 Application Insights 分析您的行動應用程式
 
@@ -68,9 +68,9 @@ Analytics.trackEvent("Video clicked")
 一旦您的應用程式開始傳送自訂事件，且 App Center 已經收到這些事件，您就需要在 Azure 入口網站中建立 App Center 類型的 Application Insights 資源：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 選取 [建立資源] > **[監視 + 管理]** > **[Application Insights]**。
+2. 選取 [建立資源] > [管理工具] > [Application Insights]。
 
-    ![新增 Application Insights 資源](./media/app-insights-mobile-center-quickstart/add.png)
+    ![新增 Application Insights 資源](./media/app-insights-mobile-center-quickstart/add-b.png)
 
     隨後將會出現設定方塊。 根據下表來填寫輸入欄位。
 

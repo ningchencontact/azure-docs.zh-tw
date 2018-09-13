@@ -1,63 +1,76 @@
 ---
-title: 呼叫和回應 - Azure 認知服務，Bing Web 搜尋 API 的 Node.js 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing Web 搜尋 API。
+title: 快速入門：使用 Node.js 來呼叫 Bing Web 搜尋 API
+description: 在本快速入門中，您將學習如何使用 Node.js 來第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: a47dfaa48acb5b4a8ffc9b9f8da98f42e7729399
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 7a46500f7cbf319c788761bccfaa92197ef67490
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368526"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886926"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-for-nodejs"></a>呼叫和回應：以 Node.js 撰寫的第一個 Bing Web 搜尋查詢
+# <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>快速入門：使用 Node.js 來呼叫 Bing Web 搜尋 API  
 
-Bing Web 搜尋 API 提供的體驗與 Bing.com/Search 類似，都會傳回 Bing 判斷與使用者的查詢相關的搜尋結果。 結果可能包括網頁、影像、影片、新聞和實體，以及相關的搜尋查詢、拼字校正、時區、單位轉換、翻譯以及計算。 您取得的結果種類取決於其相關性，以及訂閱的 Bing 搜尋 API 層。
+本快速入門可讓您在 10 分鐘內完成第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。  
 
-本文包含一個簡單主控台應用程式，其執行 Bing Web 搜尋 API 查詢，並顯示所傳回未經處理的搜尋結果 (格式為 JSON)。 雖然此應用程式是以 JavaScript 撰寫，並在 Node.js 下執行，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-您需要 [Node.js 6](https://nodejs.org/en/download/) 以執行此程式碼。
+以下是執行本快速入門之前的幾個必備項目：
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) \(英文\)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+* [Node.js 6](https://nodejs.org/en/download/) (英文) 或更新版本
+* 訂用帳戶金鑰  
 
-## <a name="running-the-application"></a>執行應用程式
+## <a name="create-a-project-and-declare-required-modules"></a>建立專案，並宣告所需的模組
 
-若要執行此應用程式，請遵循下列步驟。
-
-1. 在您最愛的 IDE 或編輯器中建立新的 Node.js 專案。
-2. 加入提供的程式碼。
-3. 將 `subscriptionKey` 值取代為對您的訂用帳戶有效的存取金鑰。
-4. 執行程式。
+在您最愛的 IDE 或編輯器中建立新的 Node.js 專案。 然後，將下列程式碼片段複製到您的專案。 本快速入門使用 strict 模式，且需要 `https` 模組來傳送和接收資料。
 
 ```javascript
+// Use strict mode.
 'use strict';
 
+// Require the https module.
 let https = require('https');
+```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+## <a name="define-variables"></a>定義變數
 
-// Replace the subscriptionKey string value with your valid subscription key.
+必須先設定幾個變數才能繼續。 請確認 `host` 和 `path` 有效，並將 `subscriptionKey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `term` 的值來自訂搜尋查詢。
+
+```javascript
+// Replace with a valid subscription key.
 let subscriptionKey = 'enter key here';
 
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
-// the endpoint for your Bing Web search instance in your Azure dashboard.
+/*
+ * Verify the endpoint URI. If you
+ * encounter unexpected authorization errors, double-check this host against
+ * the endpoint for your Bing Web search instance in your Azure dashboard.  
+ */
 let host = 'api.cognitive.microsoft.com';
 let path = '/bing/v7.0/search';
-
 let term = 'Microsoft Cognitive Services';
 
+// Validate the subscription key.
+if (subscriptionKey.length === 32) {
+    bing_web_search(term);
+} else {
+    console.log('Invalid Bing Search API subscription key!');
+    console.log('Please paste yours into the source code.');
+}
+```
+
+## <a name="create-a-response-handler"></a>建立回應處理常式
+
+建立處理常式，將回應轉換成字串並加以剖析。 如下一節所示，每次對 Bing Web 搜尋 API 提出要求時都會呼叫 `response_handler`。
+
+```javascript
 let response_handler = function (response) {
     let body = '';
     response.on('data', function (d) {
@@ -66,9 +79,10 @@ let response_handler = function (response) {
     response.on('end', function () {
         console.log('\nRelevant Headers:\n');
         for (var header in response.headers)
-            // header keys are lower-cased by Node.js
+            // Headers are lowercased by Node.js.
             if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
                  console.log(header + ": " + response.headers[header]);
+        // Stringify and parse the response body.
         body = JSON.stringify(JSON.parse(body), null, '  ');
         console.log('\nJSON Response:\n');
         console.log(body);
@@ -77,34 +91,37 @@ let response_handler = function (response) {
         console.log('Error: ' + e.message);
     });
 };
+```
 
+## <a name="make-a-request-and-print-the-response"></a>提出要求並列印回應
+
+建構要求並呼叫 Bing Web 搜尋 API。 提出要求後就會呼叫 `response_handler` 函式並列印回應。
+
+```javascript
 let bing_web_search = function (search) {
-  console.log('Searching the Web for: ' + term);
-  let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + '?q=' + encodeURIComponent(search),
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
-
+    console.log('Searching the Web for: ' + term);
+        // Declare the method, hostname, path, and headers.
+        let request_params = {
+            method : 'GET',
+            hostname : host,
+            path : path + '?q=' + encodeURIComponent(search),
+            headers : {
+                'Ocp-Apim-Subscription-Key' : subscriptionKey,
+            }
+        };
+    // Request to the Bing Web Search API.
     let req = https.request(request_params, response_handler);
     req.end();
 }
-
-if (subscriptionKey.length === 32) {
-    bing_web_search(term);
-} else {
-    console.log('Invalid Bing Search API subscription key!');
-    console.log('Please paste yours into the source code.');
-}
-
 ```
 
-## <a name="json-response"></a>JSON 回應
+## <a name="put-it-all-together"></a>組合在一起
 
-範例回應如下。 為了限制 JSON 的長度，只顯示單一結果，其他部分的回應已截斷。 
+最後一步就是執行您的程式碼！ 如果想要將您的程式碼與我們的程式碼做比較，[GitHub 上提供程式碼範例](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js) (英文)。
+
+## <a name="sample-response"></a>範例回應
+
+來自 Bing Web 搜尋 API 的回應會以 JSON 格式傳回。 本範例回應已截斷而只顯示單一結果。  
 
 ```json
 {
@@ -233,9 +250,4 @@ if (subscriptionKey.length === 32) {
 > [!div class="nextstepaction"]
 > [Bing Web 搜尋單頁應用程式教學課程](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>另請參閱 
-
-[Bing Web 搜尋概觀](../overview.md)  
-[試試看](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[取得免費試用的存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web 搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

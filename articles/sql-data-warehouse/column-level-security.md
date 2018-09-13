@@ -3,24 +3,26 @@ title: Azure SQL 資料倉儲的資料行層級安全性 | Microsoft Docs
 description: 資料行層級安全性 (CLS) 讓客戶能夠根據使用者的執行內容或其群組成員資格來控制資料庫資料表資料行的存取。 CLS 可簡化應用程式中安全性的設計和編碼。 CLS 可讓您實作資料行存取的限制。
 services: sql-data-warehouse
 author: KavithaJonnakuti
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 5a916132f705f3c517ee6789b61a3972b2445b62
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939760"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301050"
 ---
 # <a name="column-level-security"></a>資料行層級安全性 
 資料行層級安全性 (CLS) 讓客戶能夠根據使用者的執行內容或其群組成員資格來控制資料庫資料表資料行的存取。  
 
-CLS 可簡化應用程式中安全性的設計和編碼。 CLS 可讓您實作資料行存取的限制來保護機密資料。 例如，確保特定使用者只能存取其部門相關資料表的特定資料行。 存取限制邏輯位於資料庫層，而不是遠離另一個應用程式層中的資料。 資料庫會在每次嘗試從任何層級存取該資料時套用存取限制。 這可藉由縮小整個安全性系統的接觸區，讓安全性系統更加可靠和健全。 此外，這也不需引進檢視以篩選出可用來將存取限制加諸於使用者的資料行。 
+> [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+
+CLS 可簡化應用程式中安全性的設計和編碼。 CLS 可讓您實作資料行存取的限制來保護機密資料。 例如，確保特定使用者只能存取其部門相關資料表的特定資料行。 存取限制邏輯位於資料庫層，而不是遠離另一個應用程式層中的資料。 資料庫會在每次嘗試從任何層級存取該資料時套用存取限制。 此限制可藉由縮小整個安全性系統的介面區，讓安全性系統更加可靠和健全。 此外，CLS 也不需引進檢視以篩選出可用來將存取限制加諸於使用者的資料行。 
 
 您可以使用 [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL 陳述式來實作 CLS。 透過這個機制，即可支援 SQL 和 Azure Active Directory (AAD) 驗證。
 

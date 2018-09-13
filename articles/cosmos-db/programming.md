@@ -10,24 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140297"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287439"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
 
 了解 Azure Cosmos DB 的語言整合式、交易式 JavaScript 執行如何讓開發人員使用 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript 以原生方式撰寫**預存程序**、**觸發程序**及**使用者定義函式 (UDF)**。 Javascript 整合可讓您撰寫能夠直接在資料庫儲存體分割區內傳送和執行的程式邏輯。 
 
-我們建議使用者從觀看下列影片開始入門，Andrew Liu 在其中提供了 Azure Cosmos DB 的伺服器端資料庫程式設計模型的簡介。 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-然後，回到這篇文章，您可在此找到下列問題的答案：  
+在這篇文章中，您可找到下列問題的答案：  
 
 * 如何使用 JavaScript 來撰寫預存程序、觸發程序或 UDF？
 * Cosmos DB 如何提供 ACID 保證？

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: f81a087a2595db41dbe84a54ad1fd01adf043515
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060398"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700838"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 在當今大幅互連的社會當中，您的生活或多或少都成為 **社交網路**的一部分。 您會使用社交網路與朋友、同事、家人保持連絡，有時候還可以跟擁有共同興趣的人交流這份愛好。
@@ -39,7 +39,7 @@ ms.locfileid: "37060398"
 當然，您還是可以使用一個有足夠強大功能的龐大 SQL 執行個體，以解決數千個含有這些眾多聯結的查詢來提供內容，但如果有較簡單的解決方案，何須如此大費周章？
 
 ## <a name="the-nosql-road"></a>NoSQL 的方法
-本文將引導您如何以具成本效益的方式使用 Azure 的 NoSQL 資料庫 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)，將社交平台的資料模型化，同時利用 [Gremlin 圖形 API](../cosmos-db/graph-introduction.md) 等其他 Azure Cosmos DB 功能。 如果使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法，將資料以 JSON 格式儲存並套用[反正規化](https://en.wikipedia.org/wiki/Denormalization)時，即可將之前複雜的貼文轉換成單一[文件](https://en.wikipedia.org/wiki/Document-oriented_database)：
+本文將引導您如何以具成本效益的方式使用 Azure 的 NoSQL 資料庫 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)，將社交平台的資料模型化，同時利用 [Gremlin API](../cosmos-db/graph-introduction.md) 等其他 Azure Cosmos DB 功能。 如果使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法，將資料以 JSON 格式儲存並套用[反正規化](https://en.wikipedia.org/wiki/Denormalization)時，即可將之前複雜的貼文轉換成單一[文件](https://en.wikipedia.org/wiki/Document-oriented_database)：
 
 
     {
@@ -130,7 +130,7 @@ Azure Cosmos DB 可利用自身的自動索引編製作業，確保所有屬性�
         "totalPoints":11342
     }
 
-接著使用 Azure Cosmos DB [Gremlin 圖形 API](../cosmos-db/graph-introduction.md)，將實際的粉絲圖表儲存，並針對每位使用者和[邊緣](http://mathworld.wolfram.com/GraphEdge.html)建立[頂點](http://mathworld.wolfram.com/GraphVertex.html)，以維護「A-追蹤-B」的關聯性。 圖形 API 不僅可讓您取得特定使用者的粉絲，還可建立更複雜的查詢，甚至能建議具有共通點的人。 如果您在圖表中新增大眾喜愛的「內容類別」，便可開始編排含有智慧型內容探索的體驗、建議您所關注和喜愛的內容，或尋找可能與您有許多共通點的人。
+接著使用 Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md)，將實際的粉絲圖表儲存，並針對每位使用者和[邊緣](http://mathworld.wolfram.com/GraphEdge.html)建立[頂點](http://mathworld.wolfram.com/GraphVertex.html)，以維護「A-追蹤-B」的關聯性。 Gremlin API 不僅可讓您取得特定使用者的粉絲，還可建立更複雜的查詢，甚至能建議具有共通點的人。 如果您在圖表中新增大眾喜愛的「內容類別」，便可開始編排含有智慧型內容探索的體驗、建議您所關注和喜愛的內容，或尋找可能與您有許多共通點的人。
 
 您仍可運用使用者統計資料的文件，來建立 UI 或快速分析預覽中的卡片。
 

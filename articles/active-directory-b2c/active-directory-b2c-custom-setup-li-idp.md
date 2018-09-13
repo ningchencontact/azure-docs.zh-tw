@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 58a595c697b6e1a70089a6683493835e0d3a9780
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444373"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344313"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 LinkedIn 作為識別提供者
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 本文將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)，讓 LinkedIn 帳戶的使用者登入。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>步驟 1：建立 LinkedIn 帳戶應用程式
@@ -40,7 +40,7 @@ ms.locfileid: "37444373"
 
     c. 選取 [應用程式使用]。
 
-    d. 在 [Website URL] \(網站 URL\) 方塊中，貼上 **https://login.microsoftonline.com**。
+    d. 在 [網站 URL] 方塊中，貼上 **https://{tenant}.b2clogin.com**。  其中 {*tenant*} 是您的租用戶名稱 (例如 contoso.b2clogin.com)。
 
     e. 輸入您的**公司電子郵件**地址和**公司電話**號碼。
 
@@ -50,7 +50,7 @@ ms.locfileid: "37444373"
 
 3. 選取 [驗證]，然後記下**用戶端識別碼**和**用戶端密碼**值。
 
-4. 在 [Authorized Redirect URLs] \(授權的重新導向 URL\) 方塊中，貼上 **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 {*tenant*}。 請確實使用 HTTPS 配置。 
+4. 在 [授權重新導向 URL] 方塊中，貼上 **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 {*tenant*}。 請確實使用 HTTPS 配置。 
 
     ![LinkedIn 帳戶 - 設定授權的重新導向 URL](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

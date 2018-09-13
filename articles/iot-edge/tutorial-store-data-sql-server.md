@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143495"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300348"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教學課程：使用 SQL Server 資料庫在 Edge 上儲存資料
 
@@ -176,7 +176,11 @@ Azure IoT Edge 裝置：
 
 1. 在 Visual Studio Code 總管中，開啟 **deployment.template.json** 檔案。 
 2. 尋找 **moduleContent.$edgeAgent.properties.desired.modules** 區段。 此時應該會列出兩個模組：會產生模擬資料的 **tempSensor**，和您的 **sqlFunction** 模組。
-3. 新增下列程式碼以宣告第三個模組：
+3. 如果您使用 Windows 容器，請修改 **sqlFunction.settings.image** 區段。
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. 新增下列程式碼以宣告第三個模組。 在 sqlFunction 區段之後加上逗號並插入：
 
    ```json
    "sql": {
@@ -191,16 +195,18 @@ Azure IoT Edge 裝置：
    }
    ```
 
-4. 根據您 IoT Edge 裝置的作業系統，請使用下列程式碼更新 **sql.settings** 參數：
+   若您對新增 JSON 元素有任何不解之處，以下提供了範例。 ![新增 SQL Server 容器](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. 請根據您 IoT Edge 裝置上的 Docker 容器類型，使用下列程式碼更新 **sql.settings** 參數：
+
+   * Windows 容器：
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux：
+   * Linux 容器：
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +216,20 @@ Azure IoT Edge 裝置：
    >[!Tip]
    >每當您在生產環境中建立了 SQL Server 容器時，就應該[變更預設的系統管理員密碼](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password)。
 
-5. 儲存 **deployment.template.json** 檔案。 
+6. 儲存 **deployment.template.json** 檔案。
 
 ## <a name="build-your-iot-edge-solution"></a>建置 IoT Edge 解決方案
 
 在前幾節中，您以一個模組建立了解決方案，然後將另一個模組新增至部署資訊清單範本。 現在，您必須建置解決方案、建立模組的容器映像，並將其推送至容器登錄。 
 
-1. 在 deployment.template.json 檔案中，為 IoT Edge 執行階段提供您的登錄認證，使其能夠存取您的模組映像。 尋找 **moduleContent.$edgeAgent.properties.desired.runtime.settings** 區段。 
-2. 在 **loggingOptions** 後面插入下列 JSON 程式碼：
+1. 在 .env 檔案中，為 IoT Edge 執行階段提供您的登錄認證，使其能夠存取您的模組映像。 找出 **CONTAINER_REGISTRY_USERNAME** 和 **CONTAINER_REGISTRY_PASSWORD** 區段，在等號後面插入您的認證： 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. 將您的登錄認證插入 [使用者名稱]、[密碼] 和 [位址] 欄位中。 請使用您在本教學課程一開始建立 Azure Container Registry 時所複製的值。
-4. 儲存 **deployment.template.json** 檔案。
-5. 在 Visual Studio Code 中登入您的容器登錄，以便將您的映像推送到登錄。 請使用您剛剛新增至部署資訊清單的相同認證。 在整合式終端機中輸入下列命令： 
+2. 儲存 .env 檔案。
+3. 在 Visual Studio Code 中登入您的容器登錄，以便將您的映像推送到登錄。 請使用您新增至 .env 檔案中的相同認證。 在整合式終端機中輸入下列命令：
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +241,7 @@ Azure IoT Edge 裝置：
     Login Succeeded
     ```
 
-6. 在 VS Code 總管中，以滑鼠右鍵按一下 **deployment.template.json** 檔案，然後選取 [建置 IoT Edge 解決方案]。 
+4. 在 VS Code 總管中，以滑鼠右鍵按一下 **deployment.template.json** 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。 
 
 ## <a name="deploy-the-solution-to-a-device"></a>將解決方案部署至裝置
 
@@ -287,7 +285,7 @@ Azure IoT Edge 裝置：
    * Windows 容器：
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Linux 容器： 

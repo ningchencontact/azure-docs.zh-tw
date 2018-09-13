@@ -12,22 +12,23 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/30/2018
 ms.author: dech
-ms.openlocfilehash: f959bec42bf225f6893a5f29135dde37e5b9ebba
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bb7c5c48a137c559cd0276de69cc2964bb6ed574
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043011"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698225"
 ---
 # <a name="nodejs-tutorial-create-a-nodejs-console-application-with-azure-cosmos-db-sql-api-and-javascript-sdk-20-preview"></a>Node.js 教學課程：使用 Azure Cosmos DB SQL API 和 JavaScript SDK 2.0 (預覽) 建立 Node.js 主控台應用程式
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js - v2.0 預覽](sql-api-nodejs-get-started-preview.md)
-> * [Node.js for MongoDB](mongodb-samples.md)
 > * [Java](sql-api-java-get-started.md)
+> * [非同步 Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
+> 
 
 
 歡迎使用 Azure Cosmos DB JavaScript SDK 的 Node.js 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。

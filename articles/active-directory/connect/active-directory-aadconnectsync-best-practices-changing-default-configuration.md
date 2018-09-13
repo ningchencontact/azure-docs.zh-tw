@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c2fc3bcba4b685fba36683f89c0b6ad877dbb1d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0668eb33fe33b062c941ec4f2bff47c5ed77fb51
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595133"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287879"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態的最佳作法
 本主題的目的旨在說明支援及不支援的 Azure AD Connect 同步處理變更。
@@ -37,6 +37,9 @@ Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行
 
 ## <a name="changes-to-synchronization-rules"></a>同步處理規則的變更
 安裝精靈所提供的組態應該適用於最常見的案例。 萬一您需要對組態進行變更，則您必須遵循這些規則，以便仍能具備支援的組態。
+
+> [!WARNING]
+> 若您變更預設的同步處理規則，則系統在下次更新 Azure AD Connect 時會覆寫這些變更，導致非預期且可能不想要的同步處理結果。
 
 * 如果預設的直接屬性流程不適合您的組織使用，您可以 [變更屬性流程](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) 。
 * 如果您想要 [不傳送屬性](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) 並移除 Azure AD 中任何現有的屬性值，則必須為此案例建立規則。

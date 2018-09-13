@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4da97d708f8db2dcee406645a0eee409fa111012
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34652537"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696797"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>調整 Azure 串流分析作業以增加輸送量
 本文示範如何調整串流分析查詢，以增加串流分析作業的輸送量。 您可以使用以下指南來調整作業，進而處理更高的負載及利用更多系統資源 (如更多頻寬、更多 CPU 資源、更多記憶體)。
@@ -70,7 +70,7 @@ ms.locfileid: "34652537"
 2.  如果您使用事件中樞，請盡可能將輸入分割區計數減少為最小值 2。
 3.  使用 6 SU 執行查詢。 搭配上每個子查詢的預期負載，請盡可能新增這類子查詢的數目，直到作業達到系統資源限制為止。 如需達到限制時的徵兆，請參閱[案例 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions)。
 4.  一旦達到前文測得的子查詢限制後，請開始將子查詢新增到新作業中。 假設您沒有任何負載扭曲，以獨立查詢數目之函式表示的執行作業數目應該會呈現線性的結果。 這樣一來，您就可以根據要提供服務之租用戶數目的函式來預測要執行多少個 6 SU 作業。
-5.  在搭配使用參考資料聯結和這些查詢時，您應該在聯結相同的參考資料之前取得輸入的聯集，然後視需要分割事件。 否則，每個參考資料聯結都會將一份參考資料保存在記憶體中，導致記憶體使用量不必要地攀升。
+5.  將參考資料聯結搭配這類查詢使用時，請先將輸入聯集在一起，再與相同的參考資料聯結。 然後，視需要分割事件。 否則，每個參考資料聯結都會將一份參考資料保存在記憶體中，導致記憶體使用量不必要地攀升。
 
 > [!Note] 
 > 要在每個作業中放置多少個租用戶？

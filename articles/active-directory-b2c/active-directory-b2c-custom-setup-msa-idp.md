@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6a981f112c97ee35b476c92f6f698e68a12a1363
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448899"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336816"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C︰使用自訂原則新增 Microsoft 帳戶 (MSA) 作為識別提供者
 
@@ -23,7 +23,7 @@ ms.locfileid: "37448899"
 
 本文將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)，讓 Microsoft 帳戶 (MSA) 帳戶的使用者登入。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
 這些步驟包括：
@@ -58,7 +58,7 @@ ms.locfileid: "37448899"
 
     ![Microsoft 帳戶 - 從平台清單中選擇 Web](media/active-directory-b2c-custom-setup-ms-account-idp/msa-web.png)
 
-7.  在 [重新導向 URI] 欄位中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。
+7.  在 [重新導向 URI] 欄位中輸入 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c) 來取代 **{tenant}**。
 
     ![Microsoft 帳戶 - 設定重新導向 URL](media/active-directory-b2c-custom-setup-ms-account-idp/msa-redirect-url.png)
 

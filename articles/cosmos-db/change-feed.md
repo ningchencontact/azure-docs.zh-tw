@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902957"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287320"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 
@@ -31,12 +31,6 @@ Azure Cosmos DB 中的**變更摘要支援**允許您針對每一個模式建置
 
 > [!NOTE]
 > Azure Cosmos DB 中的所有資料模型和容器均可使用變更摘要支援。 不過，變更摘要是利用 SQL 用戶端來讀取，並可將項目序列化為 JSON 格式。 因為是 JSON 格式，MongoDB 用戶端會遇到 BSON 格式文件與 JSON 格式變更摘要互不相符的情況。
-
-在下列影片中，Azure Cosmos DB 程式管理員 Andrew Liu 會示範 Azure Cosmos DB 如何變更摘要工作。
-
-> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
->
->
 
 ## <a name="how-does-change-feed-work"></a>變更摘要如何運作？
 

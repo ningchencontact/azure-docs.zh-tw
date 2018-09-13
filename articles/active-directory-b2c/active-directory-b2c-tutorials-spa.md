@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591562"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343857"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>教學課程 - 讓單頁應用程式能夠使用 Azure Active Directory B2C 向帳戶進行驗證
 
@@ -24,24 +24,24 @@ ms.locfileid: "39591562"
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 在您的 Azure AD B2C 租用戶中註冊範例單頁應用程式。
+> * 在您的 Azure AD B2C 目錄中，註冊範例單頁應用程式。
 > * 建立使用者註冊、登入、編輯設定檔和密碼重設的原則。
-> * 將範例應用程式設定為使用您的 Azure AD B2C 租用戶。
+> * 將範例應用程式設定為使用您的 Azure AD B2C 目錄。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
-* 建立您自己的 [Azure AD B2C 租用戶](active-directory-b2c-get-started.md)
+* 建立您自己的 [Azure AD B2C 目錄](active-directory-b2c-get-started.md)
 * 安裝包含 **ASP.NET 和 Web 開發**工作負載的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 或更新版本
 * 安裝 [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-single-page-app"></a>註冊單頁應用程式
 
-應用程式必須[註冊](../active-directory/develop/developer-glossary.md#application-registration)於您的租用戶中，才能接收來自 Azure Active Directory 的[存取權杖](../active-directory/develop/developer-glossary.md#access-token)。 應用程式註冊會在您的租用戶中建立應用程式的[應用程式識別碼](../active-directory/develop/developer-glossary.md#application-id-client-id)。 
+應用程式必須[註冊](../active-directory/develop/developer-glossary.md#application-registration)於您的目錄中，才能接收來自 Azure Active Directory 的[存取權杖](../active-directory/develop/developer-glossary.md#access-token)。 應用程式註冊會在您的目錄中建立應用程式的[應用程式識別碼](../active-directory/develop/developer-glossary.md#application-id-client-id)。 
 
-以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
+以 Azure AD B2C 目錄的全域管理員身分，登入 [Azure 入口網站](https://portal.azure.com/)。
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,7 +49,7 @@ ms.locfileid: "39591562"
 
 2. 在 B2C 設定中按一下 [應用程式]，然後按一下 [新增]。 
 
-    若要在您的租用戶中註冊範例 Web 應用程式，請使用下列設定：
+    若要在您的目錄中註冊範例 Web 應用程式，請使用下列設定：
     
     ![新增應用程式](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,7 +63,7 @@ ms.locfileid: "39591562"
     
 3. 按一下 [建立]  以註冊您的應用程式。
 
-已註冊的應用程式會顯示在 Azure AD B2C 租用戶的應用程式清單中。 從清單中選取單頁應用程式。 已註冊單頁應用程式的 [屬性] 窗格隨即顯示。
+已註冊的應用程式會顯示在 Azure AD B2C 目錄的應用程式清單中。 從清單中選取單頁應用程式。 已註冊單頁應用程式的 [屬性] 窗格隨即顯示。
 
 ![單頁應用程式屬性](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -127,25 +127,25 @@ Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、
 
 ## <a name="update-single-page-app-code"></a>更新單頁應用程式程式碼
 
-現在，您已註冊應用程式並建立原則，接下來您必須將應用程式設定為使用您的 Azure AD B2C 租用戶。 在本教學課程中，您會設定可從 GitHub 下載的範例 SPA JavaScript 應用程式。 
+現在，您已註冊應用程式並建立原則，接下來您必須將應用程式設定為使用您的 Azure AD B2C 目錄。 在本教學課程中，您會設定可從 GitHub 下載的範例 SPA JavaScript 應用程式。 
 
 [下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)，或從 GitHub 複製範例 Web 應用程式。
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-範例應用程式會示範單頁應用程式如何使用 Azure AD B2C 進行使用者註冊、登入及呼叫受保護的 Web API。 您必須將此應用程式變更為使用您租用戶中的應用程式註冊，以及設定您所建立的原則。 
+範例應用程式會示範單頁應用程式如何使用 Azure AD B2C 進行使用者註冊、登入及呼叫受保護的 Web API。 您必須將此應用程式變更為使用您目錄中的應用程式註冊，以及設定您所建立的原則。 
 
 若要變更應用程式設定：
 
 1. 開啟 Node.js 單頁應用程式範例中的 `index.html` 檔案。
-2. 使用 Azure AD B2C 租用戶註冊資訊設定此範例。 變更下列幾行程式碼：
+2. 使用 Azure AD B2C 目錄註冊資訊來設定此範例。 變更下列幾行程式碼 (請務必將其中的值，取代為您的目錄和 API 名稱)：
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
     ![註冊工作流程](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. 按一下 [建立]，在 Azure AD B2C 租用戶中建立本機帳戶。
+4. 按一下 [建立]，在 Azure AD B2C 目錄中建立本機帳戶。
 
 現在，使用者已可使用電子郵件地址登入並使用 SPA 應用程式。
 
 > [!NOTE]
-> 登入之後，應用程式會顯示「權限不足」錯誤。 因為您嘗試從示範租用戶存取資源，所以會收到這個錯誤。 因為您的存取權杖只對您的 Azure AD 租用戶有效，所以此 API 呼叫未經授權。 繼續進行下一個教學課程，為您的租用戶建立受保護的 Web API。 
+> 登入之後，應用程式會顯示「權限不足」錯誤。 因為您嘗試從示範目錄存取資源，所以會收到這個錯誤。 因為您的存取權杖只對您的 Azure AD 目錄有效，所以此 API 呼叫未經授權。 繼續進行下一個教學課程，為您的目錄建立受保護的 Web API。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您想要嘗試其他 Azure AD B2C 教學課程，您可以使用 Azure AD B2C 租用戶。 不再需要時，您可以[刪除您的 Azure AD B2C 租用戶](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant)。
+如果您想要嘗試其他 Azure AD B2C 教學課程，您可以使用 Azure AD B2C 目錄。 不再需要時，您可以[刪除您的 Azure AD B2C 目錄](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant)。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何建立 Azure AD B2C 租用戶、建立原則，以及將範例單頁應用程式更新為使用您的 Azure AD B2C 租用戶。 請繼續進行下一個教學課程，以了解如何從傳統型應用程式註冊、設定及呼叫受保護的 Web API。
+在本教學課程中，您已了解如何建立 Azure AD B2C 目錄、建立原則，以及將範例單頁應用程式更新為使用您的 Azure AD B2C 目錄。 請繼續進行下一個教學課程，以了解如何從傳統型應用程式註冊、設定及呼叫受保護的 Web API。
 
 > [!div class="nextstepaction"]
 > 

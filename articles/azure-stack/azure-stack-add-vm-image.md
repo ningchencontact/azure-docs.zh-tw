@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/27/2018
+ms.date: 08/30/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447331"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698769"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器映像
 
@@ -37,7 +37,7 @@ ms.locfileid: "37447331"
 
 1. [將 Windows VM 映像上傳至 Azure 供 Resource Manager 部署使用](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)，或如果是 Linux 映像，則依照[在 Azure Stack 上部署 Linux 虛擬機器](azure-stack-linux.md)所述的指示操作。 您上傳映像之前，務必考慮下列因素：
 
-   - Azure Stack 支援固定的磁碟 VHD 格式。 固定格式會線性地建構檔案內部的邏輯磁碟，因此磁碟位移 X 會儲存於 Blob 位移 X。Blob 最後的小頁尾將說明 VHD 屬性。 若要確認是否為固定磁碟，請使用 [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 命令。  
+   - Azure Stack 僅支援固定磁碟 VHD 格式的第一代 VM。 固定格式會線性地建構檔案內部的邏輯磁碟，因此磁碟位移 X 會儲存於 Blob 位移 X。Blob 最後的小頁尾將說明 VHD 屬性。 若要確認是否為固定磁碟，請使用 [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 命令。  
 
     > [!IMPORTANT]
     >  Azure Stack 不支援動態磁碟 VHD。 對連結至 VM 的動態磁碟調整大小，會導致 VM 處於失敗狀態。 若要解決這個問題，請刪除 VM，但不要刪除 VM 的磁碟 (儲存體帳戶中的 VHD Blob)。 然後，將 VHD 從動態磁碟轉換為固定磁碟，並重新建立虛擬機器。
@@ -48,7 +48,7 @@ ms.locfileid: "37447331"
 
    * 記下您上傳映像的 blob 儲存體 URI。 blob 儲存體 URI 的格式如下：*&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd。
 
-   * 若要讓 Blob 可供匿名存取，請移至將 VM 映像 VHD 上傳時的儲存體帳戶 Blob 容器。 選取 [Blob]，然後選取 [存取原則]。 您可以選擇性地改為產生容器的共用存取簽章，然後將它包含在 Blob URI 中。
+   * 若要讓 Blob 可供匿名存取，請移至將 VM 映像 VHD 上傳時的儲存體帳戶 Blob 容器。 選取 [Blob]，然後選取 [存取原則]。 您可以選擇性地改為產生容器的共用存取簽章，然後將它包含在 Blob URI 中。 此步驟會確保 Blob 可用於將此項目新增為映像。 如果 Blob 不可供匿名存取，則建立的 VM 映像會處於失敗狀態。
 
    ![移至儲存體帳戶 Blob](./media/azure-stack-add-vm-image/image1.png)
 
@@ -96,10 +96,9 @@ ms.locfileid: "37447331"
   - **publisher**  
     例如：`Canonical`  
     部署映像時，使用者所使用 VM 映像的發行者名稱區段。 例如 **Microsoft**。 請勿在此欄位中包含空格或其他特殊字元。  
-  - 
-      **供應項目**  
+  - **供應項目**  
     例如：`UbuntuServer`  
-部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
+    部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
   - **sku**  
     例如：`14.04.3-LTS`  
     部署 VM 映像時，使用者所使用 VM 映像的 SKU 名稱區段。 例如 **Datacenter2016**。 請勿在此欄位中包含空格或其他特殊字元。  
@@ -201,10 +200,9 @@ ms.locfileid: "37447331"
   - **publisher**  
     例如：`Canonical`  
     部署映像時，使用者所使用 VM 映像的發行者名稱區段。 例如 **Microsoft**。 請勿在此欄位中包含空格或其他特殊字元。  
-  - 
-      **供應項目**  
+  - **供應項目**  
     例如：`UbuntuServer`  
-部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
+    部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
   - **sku**  
     例如：`14.04.3-LTS`  
     部署 VM 映像時，使用者所使用 VM 映像的 SKU 名稱區段。 例如 **Datacenter2016**。 請勿在此欄位中包含空格或其他特殊字元。  

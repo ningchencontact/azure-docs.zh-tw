@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445502"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697233"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路組態
 
@@ -27,8 +27,7 @@ ms.locfileid: "42445502"
 
 ## <a name="advanced-networking"></a>進階網路
 
-
-  **進階**網路會將 Pod 放置在您所設定的 Azure 虛擬網路 (VNet) 中，以便讓 Pod 能夠自動連線至 VNet 資源，並與 Vnet 所提供的一組豐富功能做整合。 使用 [Azure 入口網站][portal]、Azure CLI 或 Resource Manager 範本來部署 AKS 叢集時，可以使用進階網路功能。
+**進階**網路會將 Pod 放置在您所設定的 Azure 虛擬網路 (VNet) 中，以便讓 Pod 能夠自動連線至 VNet 資源，並與 Vnet 所提供的一組豐富功能做整合。 使用 [Azure 入口網站][portal]、Azure CLI 或 Resource Manager 範本來部署 AKS 叢集時，可以使用進階網路功能。
 
 設定為進階網路的 AKS 叢集節點會使用 [Azure 容器網路介面 (CNI)][cni-networking] Kubernetes 外掛程式。
 
@@ -48,68 +47,75 @@ ms.locfileid: "42445502"
 
 ## <a name="advanced-networking-prerequisites"></a>進階網路功能的必要條件
 
-* 適用於 AKS 叢集的 VNet 必須允許輸出網際網路連線。
+* 適用於 AKS 叢集的虛擬網路必須允許輸出網際網路連線.
 * 請勿在相同子網路中建立多個 AKS 叢集。
 * AKS 叢集可能不會針對 Kubernetes 服務位址範圍使用 `169.254.0.0/16`、`172.30.0.0/16` 或 `172.31.0.0/16`。
-* AKS 叢集所使用的服務主體在您 VNet 內的子網路上必須至少具有[網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)權限。 如果您想要定義[自訂角色](../role-based-access-control/custom-roles.md)，而不使用內建的網路參與者角色，則需要下列權限：
+* AKS 叢集所使用的服務主體在您虛擬網路內的子網路上必須至少具有[網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)權限。 如果您想要定義[自訂角色](../role-based-access-control/custom-roles.md)，而不使用內建的網路參與者角色，則需要下列權限：
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>規劃叢集的 IP 位址
 
-設定為使用進階網路的叢集需要進行額外的規劃。 您的 VNet 及其子網路的大小必須配合您規劃要執行的 Pod 數目以及叢集的節點數目。
+設定為使用進階網路的叢集需要進行額外的規劃。 您的虛擬網路及其子網路的大小必須配合您規劃要執行的 Pod 數目以及叢集的節點數目。
 
-Pod 和叢集節點的 IP 位址會從 VNet 內的指定子網路來指派。 每個節點都會設定主要 IP (也就是節點的 IP) 和 30 個額外的 IP 位址 (由 Azure CNI 預先設定，並指派給排程至節點的 Pod)。 當您將叢集相應放大時，每個節點同樣也會設定子網路中的 IP 位址。
+Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派。 每個節點都會設定主要 IP (也就是節點的 IP) 和 30 個額外的 IP 位址 (由 Azure CNI 預先設定，並指派給排程至節點的 Pod)。 當您將叢集相應放大時，每個節點同樣也會設定子網路中的 IP 位址。
 
-適用於 AKS 叢集的 IP 位址方案會由一個 VNet、至少一個適用於節點和 Pod 的子網路，以及一個 Kubernetes 服務位址範圍所組成。
+適用於 AKS 叢集的 IP 位址方案會由一個虛擬網路、至少一個適用於節點和 Pod 的子網路，以及一個 Kubernetes 服務位址範圍所組成。
 
 | 位址範圍 / Azure 資源 | 限制和調整大小 |
 | --------- | ------------- |
-| 虛擬網路 | Azure VNet 可以和 /8 一樣大，但可能只有 16,000 個已設定的 IP 位址。 |
+| 虛擬網路 | Azure 虛擬網路可以和 /8 一樣大，但可能只有 65,536 個已設定的 IP 位址。 |
 | 子網路 | 必須大到足以容納節點、Pod，以及可能會在您叢集中佈建的所有 Kubernetes 和 Azure 資源。 例如，如果您部署內部 Azure Load Balancer，其前端 IP 會從叢集子網路配置，而不是從公用 IP 配置。 <p/>若要計算「最小」的子網路大小：`(number of nodes) + (number of nodes * pods per node)` <p/>50 個節點叢集的範例：`(50) + (50 * 30) = 1,550` (/21 或更大) |
-| Kubernetes 服務位址範圍 | 此範圍不應由此 VNet 上或連線到此 VNet 的任何網路元素所使用。 服務位址 CIDR 必須小於 /12。 |
+| Kubernetes 服務位址範圍 | 此範圍不應由此虛擬網路上或連線到此虛擬網路的任何網路元素所使用。 服務位址 CIDR 必須小於 /12。 |
 | Kubernetes DNS 服務 IP 位址 | 將由叢集服務探索 (kube-dns) 所使用之 Kubernetes 服務位址範圍內的 IP 位址。 |
 | Docker 橋接器位址 | 用來作為節點上 Docker 橋接器 IP 位址的 IP 位址 (採用 CIDR 標記法)。 預設值為 172.17.0.1/16。 |
 
-為了與 Azure CNI 外掛程式搭配使用所佈建的每個 VNet 限制只能有 **16,000 個已設定的 IP 位址**。
-
 ## <a name="maximum-pods-per-node"></a>每個節點的最大 Pod 數目
 
-AKS 叢集中每個節點預設的最大 Pod 數目，會根據基本和進階網路功能以及叢集部署方法而有所不同。
+AKS 叢集中每個節點預設的最大 Pod 數目，會根據「基本」和「進階」網路功能以及叢集部署方法而有所不同。
 
 ### <a name="default-maximum"></a>預設的最大值
 
-* 基本網路功能：**每個節點 110 個 Pod**
-* 進階網路功能：**每個節點 30 個 Pod**
+若您在部署 AKS 叢集時，未在部署期間指定 Pod 數上限，則這是*預設*上限：
 
-### <a name="configure-maximum"></a>設定最大值
+| 部署方法 | 基本 | 進階 | 可在部署時設定 |
+| -- | :--: | :--: | -- |
+| Azure CLI | 110 | 30 | 是 |
+| Resource Manager 範本 | 110 | 30 | 是 |
+| 入口網站 | 110 | 30 | 否 |
 
-根據您的部署方法而定，您可能可在 AKS 叢集中修改每個節點的最大 Pod 數目。
+### <a name="configure-maximum---new-clusters"></a>設定最大值 - 新叢集
+
+當您部署 AKS 叢集時，若要為各 Pod 指定不同的上限數目：
 
 * **Azure CLI**：當您使用 [az aks create][ az-aks-create] 命令部署叢集時，請指定 `--max-pods` 引數。
 * **Resource Manager 範本**：當您使用 Resource Manager 範本部署叢集時，請指定 [ManagedClusterAgentPoolProfile] 物件中的 `maxPods` 屬性。
 * **Azure 入口網站**：當您使用 Azure 入口網站部署叢集時，無法修改每個節點的最大 Pod 數目。 在 Azure 入口網站中部署時，進階網路功能的叢集限制為每個節點 30 個 Pod。
 
+### <a name="configure-maximum---existing-clusters"></a>設定最大值 - 現有叢集
+
+您無法在現有 AKS 叢集上變更每個節點的 Pod 數目上限。 只有在您一開始部署叢集時，才能調整此數目。
+
 ## <a name="deployment-parameters"></a>部署參數
 
 當您建立 AKS 叢集時，可針對進階網路功能設定下列參數：
 
-**虛擬網路**：要作為 Kubernetes 叢集部署目的地的 VNet。 如果您要為叢集建立新的 VNet，請選取 [新建] 並遵循＜建立虛擬網路＞一節中的步驟。 VNet 限制為 16,000 個已設定的 IP 位址。
+**虛擬網路**：要作為 Kubernetes 叢集部署目的地的虛擬網路。 如果您要為叢集建立新的虛擬網路，請選取 [新建] 並遵循＜建立虛擬網路＞一節中的步驟。 如需有關 Azure 虛擬網路限制和配額的資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)。
 
-**子網路**：VNet 內要用來部署叢集的子網路。 如果您要為叢集建立新的 VNet 子網路，請選取 [新建] 並遵循＜建立子網路＞一節中的步驟。
+**子網路**：虛擬網路內要用來部署叢集的子網路。 如果您要在虛擬網路中為叢集建立新的子網路，請選取 [新建] 並遵循＜建立子網路＞一節中的步驟。
 
 **Kubernetes 服務位址範圍**：這是 Kubernetes 指派給您叢集中[服務][services]的一組虛擬 IP。 您可以使用任何符合下列需求的私人位址範圍：
 
-* 不得位於叢集的 VNet IP 位址範圍內
-* 不得與叢集 VNet 對等的任何其他 VNet 重疊
+* 不得在叢集的虛擬網路 IP 位址範圍內
+* 不得與叢集虛擬網路對等的任何其他虛擬網路重疊
 * 不得與任何內部部署 IP 重疊
 * 不得在 `169.254.0.0/16``172.30.0.0/16` 或 `172.31.0.0/16` 範圍內
 
-雖然技術上有可能指定與您叢集相同 VNet 內的服務位址範圍，但不建議這麼做。 如果使用重疊的 IP 範圍，就會造成無法預期的行為。 如需詳細資訊，請參閱本文的[常見問題集](#frequently-asked-questions)一節。 如需有關 Kubernetes 服務的詳細資訊，請參閱 Kubernetes 文件中的[服務][services]。
+雖然技術上有可能指定與您叢集相同虛擬網路內的服務位址範圍，但不建議這麼做。 如果使用重疊的 IP 範圍，就會造成無法預期的行為。 如需詳細資訊，請參閱本文的[常見問題集](#frequently-asked-questions)一節。 如需有關 Kubernetes 服務的詳細資訊，請參閱 Kubernetes 文件中的[服務][services]。
 
 **Kubernetes DNS 服務 IP 位址**：叢集 DNS 服務的 IP 位址。 此位址必須位於 Kubernetes 服務位址範圍內。
 
-**Docker 橋接器位址**：要指派給 Docker 橋接器的 IP 位址和網路遮罩。 此 IP 位址不得位於叢集的 VNet IP 位址範圍內。
+**Docker 橋接器位址**：要指派給 Docker 橋接器的 IP 位址和網路遮罩。 IP 位址不得在叢集的虛擬網路 IP 位址範圍內。
 
 ## <a name="configure-networking---cli"></a>設定網路功能 - CLI
 
@@ -141,7 +147,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin
 
 * 是否可以在叢集子網路中部署 VM？
 
-  否。 不支援在 Kubernetes 叢集所使用的子網路中部署 VM。 VM 可部署在相同 VNet 中，但不能部署在不同的子網路。
+  否。 不支援在 Kubernetes 叢集所使用的子網路中部署 VM。 虛擬機器可部署在相同虛擬網路中，但不能部署在不同的子網路。
 
 * 是否可以針對個別 Pod 設定網路原則？
 
@@ -151,13 +157,15 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin
 
   是，當您使用 Azure CLI 或 Resource Manager 範本部署叢集時。 請參閱[每個節點的最大 Pod 數目](#maximum-pods-per-node)。
 
+  您無法在現叢集上變更每個節點的 Pod 數目上限。
+
 * 如何針對在 AKS 叢集建立期間所建立的子網路設定其他屬性？例如，服務端點。
 
-  在 AKS 叢集建立期間所建立的 VNet 和子網路屬性完整清單，均可在 Azure 入口網站的標準 VNet 組態頁面中進行設定。
+  在 AKS 叢集建立期間所建立的虛擬網路和子網路屬性完整清單，均可在 Azure 入口網站的標準虛擬網路組態頁面中進行設定。
 
-* *可以使用叢集 VNet 內的不同子網路作為* **Kubernetes 服務位址範圍**嗎？
+* *可以使用叢集虛擬網路內的不同子網路作為* **Kubernetes 服務位址範圍**嗎？
 
-  不建議，但此組態是可行的。 服務位址範圍是 Kubernetes 指派給您叢集中服務的一組虛擬 IP (VIP)。 Azure 網路功能無法查看 Kubernetes 叢集的服務 IP 範圍。 因為無法查看叢集的服務位址範圍，所以稍後有可能在與服務位址範圍重疊的叢集 VNet 中建立新的子網路。 如果發生這類重疊，Kubernetes 可能會將子網路中另一項資源已經使用的 IP 指派給服務，因而造成無法預期的行為或失敗。 您可藉由確保您使用叢集 VNet 外部的位址範圍，避免此重疊風險。
+  不建議，但此組態是可行的。 服務位址範圍是 Kubernetes 指派給您叢集中服務的一組虛擬 IP (VIP)。 Azure 網路功能無法查看 Kubernetes 叢集的服務 IP 範圍。 因為無法查看叢集的服務位址範圍，所以稍後有可能在與服務位址範圍重疊的叢集虛擬網路中建立新的子網路。 如果發生這類重疊，Kubernetes 可能會將子網路中另一項資源已經使用的 IP 指派給服務，因而造成無法預期的行為或失敗。 您可藉由確保您使用叢集虛擬網路外部的位址範圍，避免此重疊風險。
 
 ## <a name="next-steps"></a>後續步驟
 

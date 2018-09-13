@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fb52bc92c86261831d0e8d8e9e863a4863fe8fb9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189209"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666884"
 ---
 # <a name="eligible-assignments-and-resource-visibility-in-pim"></a>PIM 中的合格指派和資源可見度
 
@@ -67,6 +67,24 @@ ms.locfileid: "43189209"
 - 已啟用
 
 檢視 [有效角色] 中所列的成員資格時，您可以使用 [狀態] 資料行中的值區分「已指派」為有效的使用者與「已啟用」合格指派且現在有效的使用者。
+
+## <a name="azure-resource-role-approval-workflow"></a>Azure 資源角色核准工作流程
+
+系統管理員可以使用 PIM 中適用於 Azure 資源角色的核准工作流程，進一步保護或限制對重要資源的存取。 也就是說，系統管理員需要核准，才能啟用角色指派。
+
+資源階層的概念是 Azure 資源角色獨有的。 此階層能夠繼承從父資源物件向下到父容器內所有子資源的角色指派。 
+
+例如：資源系統管理員 Bob 使用 PIM，將 Alice 指派為 Contoso 訂用帳戶中擁有者角色的合格成員。 透過此指派，Alice 就是 Contoso 訂用帳戶內所有資源群組容器的合格擁有者。 Alice 也是訂用帳戶每個資源群組內所有資源 (例如虛擬機器) 的合格擁有者。
+
+讓我們假設 Contoso 訂用帳戶中有三個資源群組：Fabrikam Test、Fabrikam Dev 和 Fabrikam Prod。每個資源群組都包含單一虛擬機器。
+
+資源的每個角色都會設定 PIM 設定。 與指派不同的是，這些設定不會繼承且僅適用於資源角色。
+
+繼續上述範例：Bob 使用 PIM，要求 Contoso 訂用帳戶擁有者角色的所有成員都需要核准才能啟用。 為了協助保護 Fabrikam Prod 資源群組中的資源，Bob 也會要求此資源的擁有者角色成員必須取得核准。 Fabrikam Test 和 Fabrikam Dev 中的擁有者角色不需要取得核准就能啟用。
+
+當 Alice 要求啟用其 Contoso 訂用帳戶擁有者角色時，核准者必須先核准或拒絕她的要求，之後她才能成為有效角色。 如果 Alice 決定[將其啟用範圍侷限](pim-resource-roles-activate-your-roles.md)在 Fabrikam Prod 資源群組，核准者也必須核准或拒絕此要求。 不過，如果 Alice 決定將其啟用範圍侷限在Fabrikam Test 和/或 Fabrikam Dev，則不需要核准。
+
+角色成員不一定都需要進行核准工作流程。 假設您的組織雇用數名約聘夥伴，協助開發將在 Azure 訂用帳戶中執行的應用程式。 身為資源系統管理員，您希望員工不需核准就具有合格的存取權，但約聘夥伴必須要求核准。 若要只針對約聘夥伴設定核准工作流程，您可以建立自訂角色，再賦予其與員工所獲派角色相同的權限。 您需要核准，才可啟用該自訂角色。 [深入了解自訂角色](pim-resource-roles-custom-role-policy.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

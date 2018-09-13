@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294416"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667152"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何為適用於 MySQL 的 Azure 資料庫設定複寫中的資料
 
-在本文中，您將了解如何透過設定主要和複本伺服器，在適用於 MySQL 的 Azure 資料庫服務中設定複寫中的資料。 資料帶入複寫可讓您將來自在內部部署執行的主要 MySQL 伺服器、虛擬機器中或由其他雲端提供者所代管的資料庫服務的資料，同步處理到適用於 MySQL 的 Azure 資料庫服務中的複本。 
+在本文中，您將了解如何透過設定主要和複本伺服器，在適用於 MySQL 的 Azure 資料庫服務中設定「資料輸入複寫」。 「資料輸入複寫」可讓您將來自在內部部署執行的主要 MySQL 伺服器、虛擬機器中或由其他雲端提供者所代管的資料庫服務的資料，同步處理到適用於 MySQL 的 Azure 資料庫服務中的複本。 
 
 本文假設您先前已具備一些使用 MySQL 伺服器和資料庫的經驗。
 
@@ -36,8 +36,8 @@ ms.locfileid: "36294416"
 
    使用者帳戶不會從主要伺服器複寫到複本伺服器。 如果您預計提供複本伺服器存取權給使用者，則必須在此新建的適用於 MySQL 伺服器的 Azure資料庫中，手動建立所有帳戶及對應權限。
 
-## <a name="configure-the-primary-server"></a>設定主要伺服器
-下列步驟會針對裝載在內部部署的 MySQL 伺服器、虛擬機器中的 MySQL 伺服器或由其他雲端提供者所代管的資料庫服務，準備及設定資料帶入複寫。 此伺服器是資料帶入複寫中的「主要」伺服器。 
+## <a name="configure-the-master-server"></a>設定主要伺服器
+下列步驟會針對裝載在內部部署的 MySQL 伺服器、虛擬機器中的 MySQL 伺服器或由其他雲端提供者所代管的資料庫服務，準備及設定資料帶入複寫。 此伺服器是「資料輸入複寫」中的「主要」伺服器。 
 
 1. 開啟二進位記錄
 
@@ -53,7 +53,7 @@ ms.locfileid: "36294416"
 
 2. 主要伺服器設定
 
-   複寫中的資料要求主要伺服器和複本伺服器之間的參數 `lower_case_table_names` 一致。 此參數在適用於 MySQL 的 Azure 資料庫中預設為 1。 
+   「資料輸入複寫」要求主要伺服器和複本伺服器之間的參數 `lower_case_table_names` 一致。 此參數在適用於 MySQL 的 Azure 資料庫中預設為 1。 
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -120,7 +120,7 @@ ms.locfileid: "36294416"
 
    ![主要狀態結果](./media/howto-data-in-replication/masterstatus.png)
  
-## <a name="dump-and-restore-primary-server"></a>傾印並還原主要伺服器
+## <a name="dump-and-restore-master-server"></a>傾印並還原主要伺服器
 
 1. 從主要伺服器傾印所有資料庫
 
@@ -139,16 +139,16 @@ ms.locfileid: "36294416"
 
    將傾印檔案還原至在適用於 MySQL 的 Azure 資料庫服務中建立的伺服器。 請參閱[傾印和還原](concepts-migrate-dump-restore.md)，了解如何將傾印檔案還原至 MySQL 伺服器。 如果傾印檔案太大，請先在與複本伺服器所在區域相同的區域中，將檔案上傳至 Azure 內的虛擬機器。 從虛擬機器還原至適用於 MySQL 伺服器的 Azure 資料庫。
 
-## <a name="link-primary-and-replica-servers-to-start-data-in-replication"></a>連結主要和複本伺服器，以啟動複寫中的資料
+## <a name="link-master-and-replica-servers-to-start-data-in-replication"></a>連結主要和複本伺服器以啟動資料輸入複寫
 
 1. 設定主要伺服器
 
    所有「複寫中的資料」功能都可由已儲存的程序執行完成。 您可在[複寫中的資料已儲存的程序](reference-data-in-stored-procedures.md)中找到所有程序。 已儲存的程序可在 MySQL Shell 或 MySQL Workbench 中執行。 
 
-   若要連結兩個伺服器並啟動複寫，請在適用於 MySQL 的 Azure DB 服務中登入目標複本伺服器，然後將外部執行個體設為主要伺服器。 在適用於 MySQL 伺服器的 Azure DB 中使用 `mysql.az_replication_change_primary` 已儲存的程序，即可執行此作業。
+   若要連結兩個伺服器並啟動複寫，請在適用於 MySQL 的 Azure DB 服務中登入目標複本伺服器，然後將外部執行個體設為主要伺服器。 在適用於 MySQL 伺服器的 Azure DB 中使用 `mysql.az_replication_change_master` 已儲存的程序，即可執行此作業。
 
    ```sql
-   CALL mysql.az_replication_change_primary('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
 
    - master_host：主要伺服器的主機名稱
@@ -174,14 +174,14 @@ ms.locfileid: "36294416"
    在主要伺服器 (裝載於 “companya.com” 網域) 和複本伺服器 (裝載於適用於 MySQL 的 Azure 資料庫) 之間設定「使用 SSL 的複寫」。 此已儲存的程序可在複本伺服器上執行。 
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *不使用 SSL 的複寫*
 
    在主要伺服器 (裝載於 “companya.com” 網域) 和複本伺服器 (裝載於適用於 MySQL 的 Azure 資料庫) 之間設定「不使用 SSL 的複寫」。 此已儲存的程序可在複本伺服器上執行。
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
 2. 啟動複寫
@@ -217,7 +217,7 @@ CALL mysql.az_replication_stop;
 若要移除主要和複本伺服器之間的關聯，請使用下列已儲存的程序：
 
 ```sql
-CALL mysql.az_replication_remove_primary;
+CALL mysql.az_replication_remove_master;
 ```
 
 ### <a name="skip-replication-error"></a>略過複寫錯誤

@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143537"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783278"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>什麼是 Azure 資料箱磁碟？ (預覽)
 
@@ -48,7 +48,7 @@ A. Azure 資料箱磁碟可讓您快速、實惠且安全地將數 TB 的資料�
 磁碟會使用 Microsoft BitLocker 磁碟機加密進行加密，而您的加密金鑰會在 Azure 入口網站上受到管理。 然後，您可以從客戶的伺服器複製資料。 在資料中心，Microsoft 會使用快速的私人網路上傳連結，將您的資料從磁碟機移轉至雲端，並上傳至 Azure。
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>問： 何時應使用資料箱磁碟？
-A. 如果您有不超過 35 TB 的資料要傳輸至 Azure，則使用資料箱磁碟將有其效益。
+A. 如果您有不超過 40 TB 的資料要傳輸至 Azure，則使用資料箱磁碟將有其效益。
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>問： 資料箱磁碟的價格為何？
 A. 在預覽期間，資料箱磁碟可供免費使用。 出貨也是免費的，但 Azure 儲存體則需收費。
@@ -60,10 +60,10 @@ A.  若要取得 Azure 資料箱磁碟，請先註冊[資料箱磁碟預覽](htt
 A. 就各有 8 TB (可用容量為 7 TB) 的 5 個磁碟而言，可用容量上限為 35 TB。 因此，您可以在一個執行個體中傳輸 35 TB 的資料。  若要傳輸更多資料，您必須訂購更多磁碟。
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>問： 如何確認在我的區域中是否適用資料箱磁碟？ 
-A.  在預覽階段期間，資料箱磁碟適用於美國、加拿大和歐盟的所有國家/地區。  
+A.  在預覽階段期間，資料箱磁碟適用於美國、加拿大、澳大利亞和歐盟的所有國家/地區。  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>問： 在哪些區域中可以使用資料箱磁碟來儲存資料？
-A. 在預覽期間，美國、加拿大、西歐和北歐內的所有區域均支援資料箱磁碟。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。
+A. 在預覽期間，美國、加拿大、澳大利亞、西歐和北歐內的所有區域均支援資料箱磁碟。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>問： 如果遇到任何資料箱磁碟方面的問題，該與誰連絡？
 A. 如果您遇到任何資料箱磁碟方面的問題，請連絡[資料箱磁碟支援部門](mailto:expresspodsupport@microsoft.com)。
