@@ -9,21 +9,21 @@ editor: monicar
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2018
+ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: d12109efbb157b1e0c15b1a4c0d005fa98c44858
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261095"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696134"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵
 
 唯一索引鍵提供開發人員對其資料庫新增一層資料完整性的能力。 您可在建立容器時建立唯一索引鍵原則，以確保每個[資料分割索引鍵](partition-data.md)一或多個值的唯一性。 一旦使用唯一索引鍵原則建立容器，即可防止使用與唯一索引鍵條件約束所指定值重複的值，建立任何新的或已更新的項目。   
 
 > [!NOTE]
-> 唯一索引鍵是由最新版的 [.NET](sql-api-sdk-dotnet.md) 和 [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK 和 [MongoDB API](mongodb-feature-support.md#unique-indexes) 支援。 資料表 API 和圖形 API 此時不支援唯一索引鍵。 
+> 唯一索引鍵是由最新版的 [.NET](sql-api-sdk-dotnet.md) 和 [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK 和 [MongoDB API](mongodb-feature-support.md#unique-indexes) 支援。 資料表 API 和 Gremlin API 此時不支援唯一索引鍵。 
 > 
 >
 
@@ -128,6 +128,9 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
 ## <a name="mongodb-api-sample"></a>MongoDB API 範例
 
 下列命令範例示範如何在 MongoDB API 之 users 集合的 firstName、lastName 和 email 欄位上建立唯一索引。 這可確保集合中全部文件的這三個欄位組合的唯一性。 對於 MongoDB 集合，唯一索引會在集合建立之後，但在填入集合之前建立。
+
+> [!NOTE]
+> MongoDB API 帳戶與 SQL API 帳戶的唯一索引鍵格式不同，您不必在欄位名稱前面指定反斜線 (/) 字元。 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

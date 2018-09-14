@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 78e952b5b1eedc1757cfe636eb13e411044dce54
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6976314929ac2e0e099e8c2f07da32970bc57509
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42142296"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382502"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure IoT Edge 來開發 Node.js 模組以及針對其進行偵錯
 
@@ -35,9 +35,7 @@ ms.locfileid: "42142296"
 * [Node.js](https://nodejs.org)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 或 [Docker 中樞](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   >[!TIP]
-   >您可以使用本機 Docker 登錄作為原型並用於測試，而非使用雲端登錄。 
+   * 您可以使用本機 Docker 登錄作為原型並用於測試，而非使用雲端登錄。 
 
 若要在裝置上測試您的模組，您需要一個作用中 IoT 中樞，而且該中樞內至少必須有一個 IoT Edge 裝置。 如果要使用您的電腦作為 IoT Edge 裝置，您可以遵循 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 教學課程中的步驟執行。 
 
@@ -60,7 +58,9 @@ ms.locfileid: "42142296"
 6. 提供解決方案的名稱。 
 7. 選擇 [Node.js 模組] 作為解決方案中第一個模組的範本。
 8. 提供模組的名稱。 選擇容器登錄內唯一的名稱。 
-9. 提供模組的映像存放庫。 VS Code 會自動填寫模組名稱，因此您只需要將 **localhost:5000** 取代為自己的登錄資訊即可。 如果您使用本機 Docker 登錄來進行測試，則可以使用 localhost。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。
+9. 提供模組的映像存放庫。 VS Code 會自動填寫模組名稱，因此您只需要將 **localhost:5000** 取代為自己的登錄資訊即可。 如果您使用本機 Docker 登錄來進行測試，則可以使用 localhost。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。
+
+   ![提供 Docker 映像存放庫](./media/how-to-develop-node-module/repository.png)
 
 VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將它載入至新的視窗。
 
@@ -76,7 +76,7 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
 ## <a name="develop-your-module"></a>開發您的模組
 
-解決方案隨附的預設 Node.js 程式碼位於 **modules** > **\<您的模組名稱\>** > **app.js**。 系統會設定模組和 deployment.template.json 檔案，讓您可以建置解決方案、將其推送至容器登錄，然後部署到裝置以開始測試，而不需要觸碰到任何程式碼。 模組是建置為僅採用來源的輸入 (在此案例中，是會模擬資料的 tempSensor 模組)，並且將其傳送到 IoT 中樞。 
+解決方案隨附的預設 Node.js 程式碼位於 [modules] > [您的模組名稱] > [app.js]。 系統會設定模組和 deployment.template.json 檔案，讓您可以建置解決方案、將其推送至容器登錄，然後部署到裝置以開始測試，而不需要觸碰到任何程式碼。 模組是建置為僅採用來源的輸入 (在此案例中，是會模擬資料的 tempSensor 模組)，並且將其傳送到 IoT 中樞。 
 
 當您準備要使用自己的程式碼自訂 Node.js 範本時，請使用 [Azure IoT 中樞 SDK](../iot-hub/iot-hub-devguide-sdks.md) 以建置模組，該模組會解決 IoT 解決方案的主要需求，例如安全性、裝置管理和可靠性。 
 
@@ -92,7 +92,7 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
 2. 在 VS Code 命令選擇區中，輸入並執行命令 **Azure IoT Edge: Build IoT Edge solution**。
 3. 從命令選擇區中，為您的解決方案選取 `deployment.template.json` 檔案。 
-4. 在 Azure IoT 中樞裝置總管中，以滑鼠右鍵按一下 IoT Edge 裝置識別碼，然後選取 [針對 IoT Edge 裝置建立部署]。 
+4. 在 Azure IoT 中樞裝置總管中，以滑鼠右鍵按一下 IoT Edge 裝置識別碼，然後選取 [建立單一裝置的部署]。 
 5. 開啟解決方案的 **config** 資料夾，然後選取 `deployment.json` 檔案。 按一下 [選取 Edge 部署資訊清單]。 
 
 接著，您可以看到已順利建立部署，而且 VS Code 整合式終端機中會有部署識別碼。

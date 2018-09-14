@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: b888846056fd60f37cdb1da85904fa14ffe79a39
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 698f96b15a9387cd30d26e684ed03ff4cc3346a7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369655"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697895"
 ---
 # <a name="data-sources"></a>資料來源 
 QnA Maker 可自動從常用的半結構化內容格式中擷取問答組，例如常見問題集和產品手冊。 內容也可以從結構化檔案新增至知識庫。
@@ -53,7 +53,7 @@ QnA Maker 可自動從常用的半結構化內容格式中擷取問答組，例�
 
 | 問題  | Answer  | 中繼資料                |
 |-----------|---------|-------------------------|
-| 問題 1 | 解答 1 | `Key1:Value1\|Key2:Value2` |
+| 問題 1 | 解答 1 | `Key1:Value1|Key2:Value2` |
 | 問題 2 | 解答 2 |      `Key:Value`           |
 來源檔案中的任何其他資料行都會被忽略。
 
@@ -62,7 +62,7 @@ QnA Maker 可自動從常用的半結構化內容格式中擷取問答組，例�
 
 | 問題  | Answer  | 來源| 中繼資料                |
 |-----------|---------|----|---------------------|
-| 問題 1 | 解答 1 | Url1|`Key1:Value1\|Key2:Value2` |
+| 問題 1 | 解答 1 | Url1|`Key1:Value1|Key2:Value2` |
 | 問題 2 | 解答 2 | 編輯|    `Key:Value`       |
 
 ## <a name="editorial"></a>編輯

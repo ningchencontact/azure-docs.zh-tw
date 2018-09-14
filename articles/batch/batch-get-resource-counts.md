@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011946"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698378"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>依狀態計算作業和節點數目以監視 Batch 解決方案
 
-若要監視及管理大規模的 Azure Batch 解決方案，處於各種狀態的資源必須要有精準的計數。 Azure Batch 提供有效的作業，可取得 Batch *作業*和*計算節點*的這些計數。 請使用這些作業 (而非可能很耗時的 API 呼叫)，傳回大型作業或節點集合的相關詳細資訊。
+若要監視及管理大規模的 Azure Batch 解決方案，處於各種狀態的資源必須要有精準的計數。 Azure Batch 提供有效的作業，可取得 Batch *作業*和*計算節點*的這些計數。 請使用這些作業，而非可能很耗時的清單查詢 (會傳回大型工作或節點集合的相關詳細資訊)。
 
 * [取得作業計數][rest_get_task_counts]可取得作業中的作用中、執行中和已完成工作的彙總計數，以及成功或失敗的工作計數。 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 您可以使用類似 REST 的模式和其他支援的語言來取得作業的工作計數。 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>工作計數的一致性檢查
+### <a name="counts-for-large-numbers-of-tasks"></a>大量工作的計數
 
-Batch 可對多個系統元件執行一致性檢查，以提供工作狀態計數的額外驗證。 在一致性檢查找到錯誤的極罕見事件中，Batch 會根據一致性檢查的結果來更正「取得工作計數」作業的結果。
+「取得工作計數」作業會傳回系統中某一時間點的工作狀態計數。 當作業有大量工作時，「取得工作計數」所傳回的計數可能會將實際工作狀態延遲最多幾秒鐘的時間。 Batch 會確保「取得工作計數」的結果最終會和實際工作狀態 (可透過「列出工作 API」來查詢) 保持一致。 不過，如果作業有非常大量的工作 (>200,000)，建議您改用「列出工作 API」和[經過篩選的查詢](batch-efficient-list-queries.md)，以獲得較新的資訊。 
 
-回應中的 `validationStatus` 屬性會指出 Batch 是否已執行一致性檢查。 如果 Batch 未對系統中保留的實際狀態檢查狀態計數，則 `validationStatus` 屬性會設定為 `unvalidated`。 基於效能考量，如果作業包含 200,000 個以上的工作，Batch 將不會執行一致性檢查，所以在此情況下，`validationStatus` 屬性會設定為 `unvalidated`。 (在此情況下，工作計數不一定錯誤，因為連有限的資料遺失也不太可能發生。) 
-
-當工作變更狀態時，彙總管線會在幾秒鐘內處理變更。 「取得工作計數」作業會反映在該期間內更新的工作計數。 不過，如果彙總管線遺漏工作狀態變更，則在下一次進行驗證前，不會登錄該變更。 在此期間，工作計數可能會因為遺漏事件而稍微不正確，但是會在下一次進行驗證時更正。
+2018-08-01.7.0 之前的 Batch 服務 API 版本也會在「取得工作計數」回應中傳回 `validationStatus` 屬性。 這個屬性會指出 Batch 是否已檢查狀態計數有沒有與「列出工作 API」所回報的狀態保持一致。 值為 `validated` 只表示 Batch 已至少對作業是否一致檢查過一次。 `validationStatus` 屬性的值不會指出「取得工作計數」所傳回的計數是否為最新的。
 
 ## <a name="node-state-counts"></a>節點狀態計數
 

@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128121"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669478"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -27,8 +27,7 @@ ms.locfileid: "43128121"
 
 Windows 代理程式正式支援下列 Windows 作業系統版本：
 
-* Windows Server 2008 Service Pack 1 (SP1) 或更新版本
-* Windows 7 SP1 與更新版本
+* Windows Server 2008 R2 或更新版本
 
 ## <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
 
@@ -47,8 +46,8 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 若要開始追蹤變更，您必須為自動化帳戶啟用變更追蹤和清查解決方案。
 
 1. 在 Azure 入口網站中，瀏覽至您的自動化帳戶
-1. 選取 [組態] 下的 [變更追蹤]。
-1. 選取現有的 Log Analytics 工作區或 [建立新的工作區]，然後按一下 [啟用]。
+2. 選取 [組態] 下的 [變更追蹤]。
+3. 選取現有的 Log Analytics 工作區或 [建立新的工作區]，然後按一下 [啟用]。
 
 這會為您的自動化帳戶啟用解決方案。 啟用解決方案可能需要 15 分鐘。 解決方案啟用時，會有藍色橫幅通知您。 瀏覽回 [變更追蹤] 頁面，以管理解決方案。
 

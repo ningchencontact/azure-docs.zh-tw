@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527081"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781559"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密
 Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和合規性承諾。 Azure 儲存體平台保護您資料的其中一種方式，就是透過「儲存體服務加密」(SSE)，它會在將資料寫入至儲存體時加密資料，並在擷取資料時將資料解密。 加密和解密會自動在背景中執行，並且使用 256 位元 [AES 加密](https://wikipedia.org/wiki/Advanced_Encryption_Standard) (可用的最強大區塊編碼器之一)。
@@ -34,7 +34,7 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 如果您還沒有儲存體帳戶，請先建立一個帳戶。 如需詳細資訊，請參閱[建立新儲存體帳戶](storage-quickstart-create-account.md)。
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>步驟 2：為 Blob 和檔案儲存體啟用 SSE
-若要啟用使用客戶管理金鑰的 SSE，必須一併啟用兩個金鑰保護功能 (「虛刪除」和「不要清除」)。 這些設定可確保金鑰無法被意外或蓄意刪除。 金鑰的最長保留期是設定為 90 天，可保護使用者不受惡意執行者或勒索軟體攻擊。
+若要啟用使用客戶管理金鑰的 SSE，必須一併在 Azure Key Vault 中啟用兩個金鑰保護功能，即「虛刪除」和「不要清除」。 這些設定可確保金鑰無法被意外或蓄意刪除。 金鑰的最長保留期是設定為 90 天，可保護使用者不受惡意執行者或勒索軟體攻擊。
 
 如果您想要以程式設計方式針對 SSE 啟用客戶管理的金鑰，您可以使用 [Azure 儲存體資源提供者 REST API](https://docs.microsoft.com/rest/api/storagerp) \(英文\)、[適用於 .NET 的儲存體資源提供者用戶端程式庫](https://docs.microsoft.com/dotnet/api)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或 [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli)。
 

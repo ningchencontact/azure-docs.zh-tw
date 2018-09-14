@@ -11,16 +11,24 @@ ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144223"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841604"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
 本指南包含您在使用 Azure Dev Spaces 時可能會遇到的常見問題相關資訊。
+
+## <a name="enabling-detailed-logging"></a>啟用詳細記錄
+
+為了更有效地進行問題的疑難排解，建立更詳細的記錄以供檢閱可能會有幫助。
+
+針對 Visual Studio 擴充功能，您可以藉由將 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 環境變數設為 1 來執行此作業。 請務必重新啟動 Visual Studio，讓環境變數生效。 啟用之後，詳細記錄會寫入至您的 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 目錄。
+
+在命令執行期間，您可以在 CLI 中使用 `--verbose` 參數輸出更多資訊。
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>錯誤「無法建立 Azure Dev Spaces 控制器」
 
@@ -106,6 +114,16 @@ kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-in
     ```cmd
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
+
+## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>「因語言不受支援而無法產生 Dockerfile」的警告
+Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中執行 *azds prep*，而該目錄包含以其中一種語言撰寫的程式碼，Azure Dev Spaces 將自動為您建立適當的 Dockerfile。
+
+您仍可透過以其他語言撰寫的程式碼來使用 Azure Dev Spaces，但在第一次執行 *azds up* 之前，您將必須自行建立 Dockerfile。
+
+### <a name="try"></a>請嘗試︰
+如果您的應用程式是以 Azure Dev Spaces 未原生支援的語言所撰寫，您就必須提供適當的 Dockerfile，建置用來執行程式碼的容器映像。 Docker 提供[撰寫 Dockerfile 的最佳做法清單](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)和 [Dockerfile 參考](https://docs.docker.com/engine/reference/builder/)，可協助您執行這項操作。
+
+在您備妥適當的 Dockerfile 後，您即可繼續執行 *azds up*，以在 Azure Dev Spaces 中執行您的應用程式。
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>錯誤「上游連線錯誤或是在標頭前中斷連線/重設」
 您在嘗試存取服務時，可能會看到這個錯誤。 例如，當您在瀏覽器中移至服務的 URL 時。 

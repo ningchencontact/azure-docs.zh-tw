@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42145316"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782227"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自動化中的子 Runbook
 
@@ -72,7 +72,9 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 使用 Cmdlet 啟動之子 Runbook 的參數是以雜湊表方式提供，如 [Runbook 參數](automation-starting-a-runbook.md#runbook-parameters)中所述。 只能使用簡單資料類型。 若 Runbook 有複雜資料類型的參數，必須以內嵌方式呼叫。
 
-如果使用多個訂用帳戶，叫用子 Runbook 時，可能會遺失訂用帳戶內容。 若要確保訂用帳戶的內容會傳遞至子 Runbook，請將 `DefaultProfile` 參數新增至 Cmdlet，並將內容傳遞給它。
+以個別作業的形式叫用子 Runbook 時，可能會遺失訂用帳戶內容。 若要讓讓子 Runbook 對所需的 Azure 訂用帳戶叫用 Azure RM Cmdlet，子 Runbook 必須在父 Runbook 以外單獨對此訂用帳戶進行驗證。
+
+如果相同自動化帳戶中的作業使用多個訂用帳戶，則在某個作業中選取訂用帳戶時，可能會變更其他作業目前選取的訂用帳戶內容，而這通常不是我們想要的結果。 為了避免發生此問題，請儲存叫用 `Select-AzureRmSubscription` Cmdlet 的結果，並將此物件傳至所有後續 Azure RM Cmdlet 叫用的 `DefaultProfile` 參數。 此模式必須以一致的方式套用至所有在此自動化帳戶中執行的 Runbook。
 
 ### <a name="example"></a>範例
 

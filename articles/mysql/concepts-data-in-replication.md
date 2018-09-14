@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: 72f8211ecc0534b15402911de8fc0ec3d541a835
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294899"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666071"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>將資料複寫至適用於 MySQL 的 Azure 資料庫
 
@@ -39,6 +39,7 @@ ms.locfileid: "36294899"
 - 使用者必須有權設定二進位記錄，以及在主要伺服器上建立新的使用者。
 
 ### <a name="other"></a>其他
+- 資料輸入複寫只適用於一般用途和記憶體最佳化定價層
 - 不支援全域交易識別碼 (GTID)。
 
 ## <a name="next-steps"></a>後續步驟

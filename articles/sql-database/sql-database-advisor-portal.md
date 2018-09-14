@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 7df4033a378ce3b37a99ed0335200e7f71696594
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67432c8751cd8809649d41195957a7d68b392074
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528641"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665594"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -114,7 +114,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
  ，因此建議您在建立這些索引之後監視索引，以確認它們能夠提高效能，且於必要時調整或刪除它們。 如需有關建立索引的詳細資訊，請參閱 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。
 
 ### <a name="canceling-recommendations"></a>取消建議
-可以取消處於**擱置中**、**確認中**或**成功**狀態的建議。 狀態為 **執行中** 的建議無法取消。
+可以取消處於**擱置中**、**驗證中**或**成功**狀態的建議。 狀態為 **執行中** 的建議無法取消。
 
 1. 在 [調整歷程記錄] 區域中選取建議，以開啟 [建議詳細資料] 頁面。
 2. 按一下 [取消]  以中止套用建議的程序。
@@ -126,7 +126,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 |:--- |:--- |
 | Pending |已收到套用建議命令，且已排程執行。 |
 | 執行中 |正在套用建議。 |
-| 驗證中 |成功套用建議，而服務正在衡量益處。 |
+| Validating |成功套用建議，而服務正在衡量益處。 |
 | 成功 |已成功套用建議，並證實有益處。 |
 | Error |套用建議程序期間發生錯誤。 這可能是暫時性問題，也可能是資料表的結構描述變更，造成指令碼不再有效。 |
 | 還原 |已套用建立但被認為無助於效能，正在自動還原。 |

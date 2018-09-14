@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617285"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783333"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -57,8 +57,7 @@ ms.locfileid: "42617285"
   * [將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)
   * [如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. 服務必須啟用移動資源的功能。 本文列出哪些服務可實現移動資源，哪些服務無法實現移動資源。
-3. 必須針對要移動之資源的資源提供者註冊其目的地訂用帳戶。 否則，您會收到錯誤，指出 **未針對資源類型註冊訂用帳戶**。 將資源移至新的訂用帳戶時，可能會因為該訂用帳戶不曾以指定的資源類型使用過而遇到問題。
+1. 必須針對要移動之資源的資源提供者註冊其目的地訂用帳戶。 否則，您會收到錯誤，指出 **未針對資源類型註冊訂用帳戶**。 將資源移至新的訂用帳戶時，可能會因為該訂用帳戶不曾以指定的資源類型使用過而遇到問題。
 
   針對 PowerShell，使用下列命令來取得註冊狀態：
 
@@ -86,14 +85,16 @@ ms.locfileid: "42617285"
   az provider register --namespace Microsoft.Batch
   ```
 
-4. 移動資源的帳戶至少必須有下列權限：
+1. 移動資源的帳戶至少必須有下列權限：
 
    * 來源資源群組上的 **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action**。
    * 來源資源群組上的 **Microsoft.Resources/subscriptions/resourceGroups/write**。
 
-5. 移動資源之前，請針對您要將資源移入的訂用帳戶，檢查其訂用帳戶配額。 如果移動資源表示訂用帳戶會超出限制，那麼您必須檢閱您是否可以要求增加配額。 如需限制清單和如何要求增加配額的資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
+1. 移動資源之前，請針對您要將資源移入的訂用帳戶，檢查其訂用帳戶配額。 如果移動資源表示訂用帳戶會超出限制，那麼您必須檢閱您是否可以要求增加配額。 如需限制清單和如何要求增加配額的資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 
-5. 可能的話，請將大型移動細分為個別的移動作業。 Resource Manager 在單一作業中嘗試移動超過 800 個資源會立即失敗。 不過，移動少於 800 個資源也可能因為逾時而失敗。
+1. 可能的話，請將大型移動細分為個別的移動作業。 Resource Manager 在單一作業中嘗試移動超過 800 個資源會立即失敗。 不過，移動少於 800 個資源也可能因為逾時而失敗。
+
+1. 服務必須啟用移動資源的功能。 若要判斷移動是否會成功，請[驗證您的移動要求](#validate-move)。 請參閱本文的以下小節，了解[哪些服務可移動資源](#services-that-can-be-moved)，以及[哪些服務無法移動資源](#services-that-cannot-be-moved)。
 
 ## <a name="when-to-call-support"></a>呼叫支援的時機
 
@@ -106,6 +107,59 @@ ms.locfileid: "42617285"
 
 * 將資源移至新的 Azure 帳戶 (和 Azure Active Directory 租用戶)，而且需要上一節中指示的說明。
 * 移動傳統資源，但有限制的問題。
+
+## <a name="validate-move"></a>驗證移動
+
+[驗證移動作業](/rest/api/resources/resources/validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用這項作業來判斷移動是否會成功。 若要執行這項作業，您需要：
+
+* 來源資源群組的名稱
+* 目標資源群組的資源識別碼
+* 要移動的每個資源所具備的資源識別碼
+* 帳戶的[存取權杖](/rest/api/azure/#acquire-an-access-token)
+
+傳送下列要求：
+
+```
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+使用要求本文：
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+如果要求的格式正確，此作業將會傳回：
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.azure.com/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+202 狀態碼指出已接受驗證要求，但尚未判斷移動作業是否會成功。 `location` 值包含一個 URL，可讓您用來檢查長時間執行作業的狀態。  
+
+若要檢查狀態，請傳送下列要求：
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+當作業仍在執行時，您會持續收到 202 狀態碼。 請等候 `retry-after` 值中指出的秒數，再重新嘗試。 如果移動作業驗證成功，您會收到 204 狀態碼。 如果移動驗證失敗，則會收到錯誤訊息，例如：
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
 
 ## <a name="services-that-can-be-moved"></a>可以移動的服務
 
@@ -122,7 +176,6 @@ ms.locfileid: "42617285"
 * Azure 地圖服務
 * Azure 轉送
 * Azure Stack - 註冊
-* Azure Migrate
 * Batch
 * BizTalk 服務
 * Bot 服務
@@ -188,6 +241,7 @@ ms.locfileid: "42617285"
 * 適用於 PostgreSQL 的 Azure 資料庫
 * Azure 資料庫移轉
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
 * Container Instances
@@ -237,8 +291,6 @@ ms.locfileid: "42617285"
 若要移動對等虛擬網路，您必須先停用虛擬網路對等互連。 停用之後，您可以移動虛擬網路。 移動之後，重新啟用虛擬網路對等互連。
 
 如果虛擬網路包含有資源導覽連結的子網路，則無法將虛擬網路移動到其他訂用帳戶。 例如，如果 Redis 快取資源部署到子網路，該子網路具有資源導覽連結。
-
-如果虛擬網路包含自訂 DNS 伺服器，則無法將虛擬網路移動到其他訂用帳戶。 若要移動虛擬網路，請將它設定為預設 (Azure 所提供的) DNS 伺服器。 移動後，重新設定自訂 DNS 伺服器。
 
 ## <a name="app-service-limitations"></a>App Service 限制
 

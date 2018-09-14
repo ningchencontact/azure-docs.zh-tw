@@ -9,18 +9,18 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 105da0219efd7bf7c9a105a018dda7ea5b084cfd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369147"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665017"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>搭配 Javascript 使用異常搜尋工具 API
 
 本文提供資訊和程式碼範例，協助您快速開始搭配 Javascript 使用異常偵測 API，以便完成對於時間序列資料取得異常偵測結果的工作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -30,7 +30,9 @@ ms.locfileid: "35369147"
 
 ### <a name="example-of-time-series-data"></a>時間序列資料範例
 
-時間序列資料點的範例如下所示：[!INCLUDE [Request](../includes/request.md)]
+時間序列資料點的範例如下所示：
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>分析資料，並取得異常點 Javascript 範例
 
@@ -304,7 +306,7 @@ ms.locfileid: "35369147"
 
 ### <a name="example-response"></a>範例回應
 
-在 JSON 中，會回傳成功的回應。 範例回應如下所示。
+成功的回應會以 JSON 的形式傳回。 範例回應如下所示。
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>後續步驟

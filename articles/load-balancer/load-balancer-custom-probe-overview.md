@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190728"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695420"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 健康情況探查
 
@@ -36,7 +36,7 @@ Azure Load Balancer 會使用健康情況探查，來決定哪個後端集區執
 > [!IMPORTANT]
 > Load Balancer 健康情況探查源自於 IP 位址 168.63.129.16，而且不得封鎖探查以將您的執行個體標示為已啟動。  檢閱[探查來源 IP 位址](#probesource)，以取得詳細資料。
 
-## <a name="types"></a>健康情況探查類型
+## <a name="types"></a>探查類型
 
 健康情況探查可以觀察後端執行個體上的任何連接埠，包括在其上提供實際服務的連接埠。 您可以針對三種不同的健康情況探查類型，來設定健康情況探查通訊協定：
 

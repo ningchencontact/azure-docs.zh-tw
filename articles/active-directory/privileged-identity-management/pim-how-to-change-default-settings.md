@@ -13,18 +13,20 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189332"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665429"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>在 PIM 中設定 Azure AD 目錄角色設定
 
 特殊權限角色管理員可以自訂其組織中的 Azure AD Privileged Identity Management (PIM)，包括變更啟用合格角色指派之使用者的體驗。
 
 ## <a name="open-role-settings"></a>開啟角色設定
+
+請遵循下列步驟來開啟 Azure AD 目錄角色的設定。
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
@@ -44,19 +46,19 @@ ms.locfileid: "43189332"
 
 ## <a name="activations"></a>啟用
 
-**啟用**滑桿是角色在到期前維持作用中狀態的最長時間 (以小時為單位)。 此值可介於 1 到 72 小時。
+使用 [啟用] 滑桿，設定角色在到期前維持作用中狀態的最長時間 (以小時為單位)。 此值可介於 1 到 72 小時。
 
 ## <a name="notifications"></a>通知
 
-**通知**的切換可讓您選擇是否要讓系統傳送電子郵件給系統管理員來確認他們已啟用角色。 這對偵測未經授權或不合法的啟用而言相當有用。
+使用 [通知] 的切換，指定是否要讓系統傳送電子郵件給系統管理員來確認他們已啟用角色。 這對偵測未經授權或不合法的啟用而言相當有用。
 
 ## <a name="incidentrequest-ticket"></a>事件/要求票證
 
-**事件/要求票證**的切換可讓您選擇是否要要求合格系統管理員在啟用其角色時包含票證號碼。 當您執行角色存取稽核時，這會相當有用。
+使用 [事件/要求票證] 的切換，指定是否要要求合格系統管理員在啟用其角色時包含票證號碼。 當您執行角色存取稽核時，這會相當有用。
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-**Multi-Factor Authentication** 的切換可讓您選擇是否要要求使用者在啟用其角色之前，先以 MFA 驗證其身分識別。 他們只需在每一工作階段進行一次驗證，而不需在每次啟用角色時都進行驗證。 啟用 MFA 時，需要記住兩個秘訣：
+使用 [Multi-Factor Authentication] 的切換，指定是否要要求使用者在啟用其角色之前，先以 MFA 驗證其身分識別。 他們只需在每一工作階段進行一次驗證，而不需在每次啟用角色時都進行驗證。 啟用 MFA 時，需要記住兩個秘訣：
 
 * 使用 Microsoft 帳戶作為電子郵件地址 (通常是 @outlook.com，但不一定) 的使用者無法註冊 Azure MFA。 如果您想要將角色指派給使用 Microsoft 帳戶的使用者，您應該將他們設為永久系統管理員，或是停用該角色的 MFA。
 * 您無法將 Azure AD 和 Office365 中高特殊權限角色的 MFA 停用。 這是一項安全功能，因為這些角色應該嚴密地受到保護：  
@@ -80,13 +82,13 @@ ms.locfileid: "43189332"
   * 商務用 Skype 的管理員  
   * 使用者帳戶管理員  
 
-如需搭配 PIM 使用 MFA 的詳細資訊，請參閱[在 PIM 中對 Azure AD 目錄角色要求多重要素驗證](pim-how-to-require-mfa.md)。
+如需詳細資訊，請參閱[多重要素驗證 (MFA) 和 PIM](pim-how-to-require-mfa.md)。
 
 ## <a name="require-approval"></a>需要核准
 
-**需要核准**的切換可讓您選擇是否需要核准才可啟用此角色。
+如果您想要在啟用角色前先經過核准，請遵循下列步驟。
 
-1. 當您將切換設定為 [已啟用] 時，窗格會隨即展開，其中包含可選取核准者的選項。
+1. 將 [需要核准] 切換為 [啟用]。 展開的窗格會有選取核准者的選項。
 
     ![Azure AD 目錄角色 - 設定 - 需要核准](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
@@ -107,5 +109,5 @@ ms.locfileid: "43189332"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 PIM 中對 Azure AD 目錄角色要求多重要素驗證](pim-how-to-require-mfa.md)
+- [在 PIM 中指派 Azure AD 目錄角色](pim-how-to-add-role-to-user.md)
 - [在 PIM 中設定 Azure AD 目錄角色的安全性警示](pim-how-to-configure-security-alerts.md)

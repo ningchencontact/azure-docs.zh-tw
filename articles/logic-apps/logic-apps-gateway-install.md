@@ -1,25 +1,24 @@
 ---
 title: 安裝內部部署資料閘道 - Azure Logic Apps | Microsoft Docs
-description: 在您從邏輯應用程式存取內部部署資料之前，如何下載並安裝內部部署資料閘道
+description: 您必須先下載並安裝內部部署資料閘道，才能從 Azure Logic Apps 存取內部部署資料
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503643"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842442"
 ---
-# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
-您必須先在本機電腦下載並安裝內部部署資料閘道，才可以將邏輯應用程式連線到內部部署資料來源。 此閘道可作為橋樑，讓內部部署 (不在雲端) 資料來源與邏輯應用程式之間快速地傳輸和加密資料。 本文說明如何下載、安裝及設定您的內部部署資料閘道。 
+您必須先在本機電腦下載並安裝內部部署資料閘道，才能從 Azure Logic Apps 連線至內部部署資料來源。 此閘道可作為橋樑，讓內部部署 (不在雲端) 資料來源與邏輯應用程式之間快速地傳輸和加密資料。 本文說明如何下載、安裝及設定您的內部部署資料閘道。 
 
 您可以使用相同的閘道安裝搭配其他服務，例如 Power BI、Microsoft Flow、PowerApps 及 Azure Analysis Services。 深入了解[資料閘道的運作方式](#gateway-cloud-service)。
 
@@ -52,7 +51,11 @@ ms.locfileid: "39503643"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 具有 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)的[公司或學校帳戶](../active-directory/fundamentals/sign-up-organization.md)。 在閘道安裝期間，您會登入此帳戶，以便將閘道安裝與您的 Azure 訂用帳戶相關聯。 之後，在 Azure 入口網站中為您的閘道安裝建立 Azure 資源時，也會使用相同的帳戶。 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
+* 具有 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)的[公司或學校帳戶](../active-directory/fundamentals/sign-up-organization.md) 
+
+  在閘道安裝期間，您會登入此帳戶，以便將閘道安裝與您的 Azure 訂用帳戶相關聯。 
+  之後，在 Azure 入口網站中為您的閘道安裝建立 Azure 資源時，也會使用相同的帳戶。 
+  如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
 * 您的本機電腦需求如下：
 
@@ -72,8 +75,7 @@ ms.locfileid: "39503643"
     > [!TIP]
     > 若要盡量減少延遲，您可以將閘道安裝在最靠近資料來源的位置或同一部電腦上，但前提是您有相關權限。
 
-  * 將閘道安裝在「並未」關閉、進入睡眠狀態，或連線到網際網路的電腦上。 閘道無法在這些情況下執行。 
-  透過無線網路的閘道效能也可能會受到影響。
+  * 將閘道安裝在連線至網際網路、一律開啟且「不會」進入睡眠模式的電腦上。 否則，閘道將無法執行。 此外，透過無線網路的效能可能會受到影響。
 
   * 在安裝期間，您只能以[公司或學校帳戶](../active-directory/sign-up-organization.md)登入，且該帳戶必須是由 Azure Active Directory (Azure AD) 所管理，而非 Microsoft 帳戶。 
   此外，請確定此帳戶不是 Azure B2B (來賓) 帳戶。 

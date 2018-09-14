@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126420"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842592"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
@@ -184,7 +184,13 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 
 ## <a name="monitor-database-performance"></a>監視資料庫效能
 
-下列範例會建立從多個資料庫收集效能資料的新作業。  
+下列範例會建立從多個資料庫收集效能資料的新作業。
+
+根據預設，作業代理程式會建立資料表將傳回的結果儲存於其中。 因此，與用於輸出認證相關聯的登入必須要有足夠的權限能執行此作業。 如果您想要事先手動建立資料表，則必須具有下列屬性：
+1. 結果集使用正確名稱和資料類型的資料行。
+2. internal_execution_id 的其他資料行 (資料類型為 uniqueidentifier)。
+3. internal_execution_id 資料行上名為 "IX_<TableName>_Internal_Execution_ID" 的非叢集索引。
+
 連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
 
 ```sql

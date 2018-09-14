@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7c990fc0d385af9527bf55339b2fa617e589ec0e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190581"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665997"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>在 PIM 中啟用我的 Azure AD 目錄角色
 
@@ -26,11 +26,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了
 
 如果您已被設為符合系統管理角色資格，即表示您可以在需要執行特殊權限動作時，啟用該角色。 例如，如果您偶爾會管理 Office 365 功能，則貴組織的特殊權限角色管理員可能不會讓您成為永久全域管理員，因為該角色也會影響其他服務。 他們反而會讓您符合 Azure AD 角色 (例如「Exchange Online 管理員」) 的資格。 您可以在需要權限時，要求啟用該角色，然後您將會在預定的時段內擁有系統管理員控制權。
 
-本文適用於需要在 PIM 中啟用角色的系統管理員。
+本文適用於需要在 PIM 中啟用 Azure AD 目錄角色的系統管理員。
 
 ## <a name="activate-a-role"></a>啟用角色
 
-當您需要擔任某個角色時，您可以在 PIM 中使用**我的角色**導覽選項來要求啟用。
+當您需要擔任某個 Azure AD 目錄角色時，您可以在 PIM 中使用 [我的角色] 導覽選項來要求啟用。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 

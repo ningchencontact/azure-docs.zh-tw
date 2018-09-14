@@ -12,19 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247818"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841925"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
 向 Azure 註冊 Azure Stack 可讓您從 Azure 下載市集項目，並設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務報告，您可以在註冊所用的訂用帳戶中查看報告。
+
+本文中的資訊說明如何向 Azure 註冊 Azure Stack 整合系統。 如需向 Azure 註冊 ASDK 的相關資訊，請參閱 ASDK 文件中的 [Azure Stack 註冊](.\asdk\asdk-register.md)。
 
 > [!IMPORTANT]  
 > 必須註冊才能支援完整的 Azure Stack 功能，包括在 Marketplace 中提供項目。 此外，如果您在使用隨用隨付計費模型時未註冊，則會違反 Azure Stack 授權條款。 若要深入了解 Azure Stack 授權模型，請參閱[如何購買頁面](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)。
@@ -386,6 +388,8 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
 2. 儲存此註冊權杖，以在連線 Azure 的電腦上使用。 您可以從 $FilePathForRegistrationToken 複製檔案或文字。
 
+## <a name="move-a-registration-resource"></a>移動註冊資源
+對於所有環境均**支援**在相同的訂用帳戶下的資源群組之間移動註冊資源。 不過，如果兩個訂用帳戶解析為相同的合作夥伴識別碼，則僅針對 CSP 支援在訂用帳戶之間移動註冊資源。 如需將資源移到新資源群組的詳細資訊，請參閱[將資源移到新的資源群組或訂用帳戶](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
 
 ## <a name="registration-reference"></a>註冊參考
 

@@ -11,14 +11,14 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: f0fe2bde039cd209514d0cbc4842b20cd4b5fb99
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444037"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782649"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 Microsoft 資料科學虛擬機器 (DSVM) 是 Windows Azure 虛擬機器 (VM) 映像。 它會預先安裝並且以數個用於資料分析和機器學習的工具進行設定。 包含下列工具：
@@ -66,7 +66,7 @@ Microsoft 資料科學虛擬機器可快速啟動分析專案。 您可以用各
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>建立 Microsoft 資料科學虛擬機器
 若要建立 Microsoft 資料科學虛擬機器的執行個體，請遵循下列步驟：
 
-1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016)上的虛擬機器清單。
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)上的虛擬機器清單。 如果您尚未登入 Azure 帳戶，系統可能會提示您登入。
 1. 選取底部的 [建立] 按鈕以進入精靈。
 
   ![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png) 
@@ -126,7 +126,7 @@ Machine Learning Server 會藉由新增資料的平行和區塊處理，解決�
 > 
 > 
 
-Anaconda Python 3.6 安裝在 **C:\Anaconda** 之下。 Anaconda Python 2.7 則安裝在 **C:\Anaconda\envs\python2** 之下。 如需詳細步驟，請參閱 [PTVS 文件](/visualstudio/python/installing-python-interpreters.md)。 
+Anaconda Python 3.6 安裝在 **C:\Anaconda** 之下。 Anaconda Python 2.7 則安裝在 **C:\Anaconda\envs\python2** 之下。 如需詳細步驟，請參閱 [PTVS 文件](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters)。 
 
 ### <a name="the-jupyter-notebook"></a>Jupyter Notebook
 Jupyter Notebook 也隨附 Anaconda 散發套件，這是一個共用程式碼與分析的環境。 Jupyter Notebook 伺服器已預先設定 Python 2.7、Python 3.x、PySpark、Julia 及 R 核心。 若要啟動 Jupyter 伺服器和瀏覽器來存取 Notebook 伺服器，有一個名為 **Jupyter Notebook** 的桌面圖示。 

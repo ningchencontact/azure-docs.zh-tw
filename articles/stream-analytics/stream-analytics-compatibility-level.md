@@ -8,12 +8,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.openlocfilehash: 32e73918b2dd98822d42d74002b705ff730145d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902967"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699105"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
  
@@ -23,7 +23,7 @@ ms.locfileid: "30902967"
  
 ## <a name="set-a-compatibility-level"></a>設定相容性層級 
 
-相容性層級可控制串流分析作業的執行階段行為。 您可以使用入口網站或使用[建立作業 REST API 呼叫](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job)來設定串流分析作業的相容性層級。 Azure 串流分析目前支援兩個相容性層級 - "1.0" 和 "1.1"。 根據預設，相容性層級會設定為 “1.0”，其是在 Azure 串流分析正式運作期間所引入。 若要更新預設值，瀏覽至您現有的串流分析作業 > 選取 [設定] 區段中的 [相容性層級] 選項，然後變更值。 
+相容性層級可控制串流分析作業的執行階段行為。 您可以使用入口網站或使用[建立作業 REST API 呼叫](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job)來設定串流分析作業的相容性層級。 Azure 串流分析目前支援兩個相容性層級 - "1.0" 和 "1.1"。 根據預設，相容性層級會設定為 "1.0"，其是在 Azure 串流分析正式運作期間所引入。 若要更新預設值，瀏覽至您現有的串流分析作業 > 選取 [設定] 區段中的 [相容性層級] 選項，然後變更值。 
 
 請確定在更新相容性層級之前停止作業。 如果您的作業處於執行中狀態，則無法更新相容性層級。 
 
@@ -40,11 +40,11 @@ ms.locfileid: "30902967"
 
   * **舊版：** Azure 串流分析使用 DataContractSerializer，因此訊息內容包含 XML 標籤。 例如︰
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
+   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **目前的版本：** 訊息內容直接包含串流，而不含其他標籤。 例如︰
   
-   { “SensorId”:”1”, “Temperature”:64} 
+   { "SensorId":"1", "Temperature":64} 
  
 * **欄位名稱保持大小寫區分**  
 

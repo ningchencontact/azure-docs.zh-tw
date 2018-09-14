@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187049"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702369"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 串流分析 JavaScript 使用者定義彙總 (預覽)
  
@@ -80,7 +80,7 @@ function main() {
 
 ### <a name="function-alias"></a>函式別名
 
-函式別名是 UDA 識別碼。 在「串流分析」查詢中呼叫時，請一律將 UDA 別名與 “uda.” 。
+函式別名是 UDA 識別碼。 在「串流分析」查詢中呼叫時，請一律將 UDA 別名與 "uda" 搭配使用。 。
 
 ### <a name="function-type"></a>函式類型
 
@@ -171,11 +171,11 @@ computeResult() 方法會根據目前的狀態傳回彙總結果。 呼叫此方
 
 1. 按一下 [儲存] 按鈕之後，您的 UDA 就會顯示在函式清單上。
 
-1. 按一下新函式 “TWA” 即可查看函式定義。
+1. 按一下新函式 "TWA" 即可查看函式定義。
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>在 ASA 查詢中呼叫 JavaScript UDA
 
-在 Azure 入口網站中，開啟您的作業、編輯查詢，然後使用授權前置詞 “uda.” 來呼叫 TWA() 函式。 例如︰
+在 Azure 入口網站中，開啟您的作業、編輯查詢，然後使用授權前置詞 "uda" 來呼叫 TWA() 函式。 例如︰
 
 ````SQL
 WITH value AS

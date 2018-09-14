@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715415"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701009"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 本文說明適用於 Azure 串流分析作業的不同輸出類型。 輸出可讓您存放並儲存串流分析作業的結果。 透過使用輸出資料，您可以對資料進行進一步的商務分析及資料倉儲處理。 
@@ -172,7 +172,7 @@ bigint | Int64
 nvarchar(max) | 字串
 Datetime | DateTime
 float | 兩倍
-記錄陣列 | 字串類型、常數值 “IRecord” 或 “IArray”
+記錄陣列 | 字串類型、常數值 "IRecord" 或 "IArray"
 
 ### <a name="schema-update"></a>更新結構描述
 串流分析會根據輸出中的第一組事件來推斷資料模型結構描述。 之後會視需要更新資料模型結構描述，以容納原始結構描述放不下的連入事件。
@@ -198,8 +198,7 @@ DateTime | 字串 | 字串 |  DateTime | 字串
   ![Power BI 更新授權](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>表格儲存體
-
-  [Azure 表格儲存體](../storage/common/storage-introduction.md)提供高可用性且可大幅擴充的儲存體，可讓應用程式自動調整來滿足使用者需求。 資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，其中可以使用結構化資料，但結構描述的限制較少。 使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
+[Azure 表格儲存體](../storage/common/storage-introduction.md)提供高可用性且可大幅擴充的儲存體，可讓應用程式自動調整來滿足使用者需求。 資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，其中可以使用結構化資料，但結構描述的限制較少。 使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
 
 下表列出屬性名稱及其描述以建立資料表輸出。
 
@@ -214,8 +213,7 @@ DateTime | 字串 | 字串 |  DateTime | 字串
 | 批次大小 |批次作業的記錄數目。 預設值 (100)通常足以應付大部分的作業。 如需修改此設定的詳細資料，請參閱[資料表批次作業規格](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) \(英文\)。 |
  
 ## <a name="service-bus-queues"></a>服務匯流排佇列
-
-  [服務匯流排佇列](https://msdn.microsoft.com/library/azure/hh367516.aspx) 會採用「先進先出」(FIFO) 訊息傳遞機制。 通常會預期由接收者依訊息加入佇列的時間順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。
+[服務匯流排佇列](https://msdn.microsoft.com/library/azure/hh367516.aspx) 會採用「先進先出」(FIFO) 訊息傳遞機制。 通常會預期由接收者依訊息加入佇列的時間順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。
 
 下表列出屬性名稱及其描述以建立佇列輸出。
 
@@ -252,8 +250,7 @@ DateTime | 字串 | 字串 |  DateTime | 字串
 分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-
-  [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 是全域散發的多模型資料庫服務，在全球各地提供無限的彈性調整、透過無從驗證結構描述資料模型的豐富查詢和自動索引、保證低延遲以及領先業界的完整 SLA。 若要了解串流分析的 Cosmos DB 集合選項，請參閱[以 Cosmos DB 做為輸出的串流分析](stream-analytics-documentdb-output.md)一文。
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 是全域散發的多模型資料庫服務，在全球各地提供無限的彈性調整、透過無從驗證結構描述資料模型的豐富查詢和自動索引、保證低延遲以及領先業界的完整 SLA。 若要了解串流分析的 Cosmos DB 集合選項，請參閱[以 Cosmos DB 做為輸出的串流分析](stream-analytics-documentdb-output.md)一文。
 
 Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前無法從串流分析產生 Azure Cosmos DB 輸出。
 

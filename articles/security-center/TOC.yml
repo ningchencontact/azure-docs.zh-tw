@@ -34,7 +34,7 @@ items:
   items:
   - name: 升級為進階安全性
     href: security-center-onboarding.md
-  - name: 使用 WATP 保護伺服器 (預覽)
+  - name: 使用 Windows Defender ATP 進行伺服器保護 (預覽)
     href: security-center-wdatp.md
   - name: 設定安全性原則
   - name: 設定安全性原則
@@ -150,12 +150,14 @@ items:
       href: security-center-alert-validation.md
     - name: 警示信賴分數
       href: security-center-confidence-score.md
-    - name: 威脅情報對應
+    - name: 安全性警示地圖和威脅情報
       href: security-center-threat-intel.md
     - name: 調查
       href: security-center-investigation.md
     - name: 管理調查使用者資料
       href: security-center-investigation-user-data.md
+    - name: Azure 資源和使用者的 UEBA
+      href: security-center-ueba-mcas.md
   - name: 將安全性工作流程自動化
     items:
     - name: Logic Apps 手冊
@@ -210,9 +212,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: 區域可用性
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 2d35c25f9afb743b7c0d2d466bc7943d1cab1419
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 12f463c36edef411f42ff17f2126284a0c89983e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053735"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716888"

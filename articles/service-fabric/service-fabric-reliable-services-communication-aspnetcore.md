@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/01/2017
+ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207854"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701529"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
@@ -33,9 +33,7 @@ ASP.NET Core 是新的開放原始碼和跨平台架構，可建置現代化雲�
 
 ## <a name="aspnet-core-in-the-service-fabric-environment"></a>Service Fabric 環境中的 ASP.NET Core
 
-雖然 ASP.NET Core 應用程式可以在 .NET Core 或完整的 .NET Framework 上執行，但 Service Fabric 服務目前只能在完整 .NET Framework 上執行。 這表示當您建置 ASP.NET Core Service Fabric 服務時，仍必須指定完整的 .NET Framework。
-
-可在 Service Fabric 中以兩種方式使用 ASP.NET Core︰
+ASP.NET Core 和 Service Fabric 應用程式可以在 .NET Core 以及完整的 .NET Framework 上執行。 可在 Service Fabric 中以兩種方式使用 ASP.NET Core︰
  - **裝載作為客體可執行檔**。 這主要用於在 Service Fabric 上執行現有的 ASP.NET Core 應用程式而無須變更程式碼。
  - **在 Reliable Service 內部執行**. 這可與 Service Fabric 執行階段更緊密整合，並可允許具狀態 ASP.NET Core 服務。
 
@@ -96,12 +94,15 @@ Reliable Service 執行個體是由您衍生自 `StatelessService` 或 `Stateful
 
 ![Service Fabric ASP.NET Core 整合][2]
 
-Kestrel 和 HttpSys `ICommunicationListener` 實作以完全相同的方式使用這項機制。 雖然 HttpSys 可以使用基礎 http.sys 連接埠共用功能，根據唯一的 URL 路徑內部區分要求，該功能不供 HttpSys`ICommunicationListener` 實作使用，因為會導致在稍早所述的案例中的 HTTP 503 和 HTTP 404 錯誤狀態碼。 這會使用戶端很難判斷錯誤的意圖，因為 HTTP 503 和 HTTP 404 已經常用來表示其他錯誤。 因此，Kestrel 和 HttpSys `ICommunicationListener` 實作會在 `UseServiceFabricIntegration` 擴充方法所提供的中介軟體上標準化，讓用戶端只需在 HTTP 410 回應上執行服務端點重新解析動作。
+Kestrel 和 HttpSys `ICommunicationListener` 實作以完全相同的方式使用這項機制。 雖然 HttpSys 可以使用基礎 http.sys 連接埠共用功能，根據唯一的 URL 路徑內部區分要求，該功能不供 HttpSys`ICommunicationListener` 實作使用，因為會導致在稍早所述的案例中的 HTTP 503 和 HTTP 404 錯誤狀態碼。 這會使用戶端難以判斷錯誤的意圖，因為 HTTP 503 和 HTTP 404 已經常用來表示其他錯誤。 因此，Kestrel 和 HttpSys `ICommunicationListener` 實作會在 `UseServiceFabricIntegration` 擴充方法所提供的中介軟體上標準化，讓用戶端只需在 HTTP 410 回應上執行服務端點重新解析動作。
 
 ## <a name="httpsys-in-reliable-services"></a>Reliable Services 中的 HttpSys
 HttpSys 可在 Reliable Service 中使用，方法為匯入 **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet 封裝。 此套件包含 `HttpSysCommunicationListener`，實作`ICommunicationListener`，可讓您使用 HttpSys 作為 web 伺服器，在 Reliable Service 內部建立 ASP.NET Core WebHost。
 
 HttpSys 會建置在 [Windows HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx)上。 這會使用 IIS 用來處理 HTTP 要求並將它們路由傳送到執行 web 應用程式之處理程序的 http.sys 的核心驅動程式。 這可讓相同實體或虛擬機器上的多個處理序在相同的連接埠上裝載 web 應用程式，由唯一的 URL 路徑或主機名稱區分。 這些功能對於在 Service Fabric 中於相同叢集裝載多個網站很有用。
+
+>[!NOTE]
+>HttpSys 實作只適用於 Windows 平台。
 
 下圖說明 HttpSys 如何在 Windows 上使用 http.sys 核心驅動程式進行連接埠共用︰
 
@@ -188,7 +189,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
   </Resources>
 ```
 
-請注意，依 `Endpoint` 組態配置的動態連接埠只提供每個主機處理序一個連接埠。 目前的 Service Fabric 裝載模型可讓多個服務執行個體及/或複本裝載在相同的程序中，這表示當透過 `Endpoint` 組態配置時，每個都會共用相同的連接埠。 多個 HttpSys 執行個體可以使用基礎 http.sys 連接埠共用功能共用連接埠，但由於其為用戶端要求所帶來的複雜性，`HttpSysCommunicationListener` 並不支援。 針對動態連接埠使用量，Kestrel 是建議的 web 伺服器。
+依 `Endpoint` 組態配置的動態連接埠只提供每個主機處理序一個連接埠。 目前的 Service Fabric 裝載模型可讓多個服務執行個體及/或複本裝載在相同的程序中，這表示當透過 `Endpoint` 組態配置時，每個都會共用相同的連接埠。 多個 HttpSys 執行個體可以使用基礎 http.sys 連接埠共用功能共用連接埠，但由於其為用戶端要求所帶來的複雜性，`HttpSysCommunicationListener` 並不支援。 針對動態連接埠使用量，Kestrel 是建議的 web 伺服器。
 
 ## <a name="kestrel-in-reliable-services"></a>Reliable Services 中的 Kestrel
 Kestrel 可在 Reliable Service 中使用，方法為匯入 **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet 封裝。 此套件包含 `KestrelCommunicationListener`，實作`ICommunicationListener`，可讓您使用 Kestrel 做為 web 伺服器，在 Reliable Service 內部建立 ASP.NET Core WebHost。
@@ -250,7 +251,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 在此範例中，`IReliableStateManager` 的單一執行個體會提供給 WebHost 相依性插入容器。 這並非絕對必要，但它可讓您在 MVC 控制器動作方法中使用 `IReliableStateManager` 和可靠的集合。
 
-請注意，`Endpoint` 組態名稱**不**提供給具狀態服務中的 `KestrelCommunicationListener`。 我們會在下列各節中詳細說明這個部分。
+`Endpoint` 組態名稱**不**提供給具狀態服務中的 `KestrelCommunicationListener`。 我們會在下列各節中詳細說明這個部分。
 
 ### <a name="endpoint-configuration"></a>端點組態
 `Endpoint` 組態不需要使用 Kestrel。 
@@ -281,7 +282,7 @@ new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listen
 #### <a name="use-kestrel-with-a-dynamic-port"></a>搭配使用 Kestrel 與動態連接埠
 Kestrel 無法在 ServiceManifest.xml 中從 `Endpoint` 組態使用自動連接埠指派，因為來自 `Endpoint` 組態的自動連接埠指派會針對每個主機處理序指派唯一的連接埠，且單一主機處理序可以包含多個 Kestrel 執行個體。 因為 Kestrel 不支援連接埠共用，這並不會如每個 Kestrel 執行個體必須在唯一連接埠上開啟一般運作。
 
-若要使用動態通訊埠指派與 Kestrel，只要完全省略 ServiceManifest.xml 中的 `Endpoint` 組態，且不要將端點名稱傳遞至 `KestrelCommunicationListener` 建構函式︰
+若要使用動態通訊埠指派與 Kestrel，請完全省略 ServiceManifest.xml 中的 `Endpoint` 組態，且不要將端點名稱傳遞至 `KestrelCommunicationListener` 建構函式︰
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...

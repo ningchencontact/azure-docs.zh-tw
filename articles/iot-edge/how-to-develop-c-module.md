@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391447"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382562"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 C 模組以及針對其進行偵錯
 
@@ -35,9 +35,7 @@ ms.locfileid: "39391447"
 若要建立模組，您需要 Docker 來建置模組映像，最後需要容器登錄來保存模組映像：
 * 開發電腦上的 [Docker Community Edition](https://docs.docker.com/install/)。 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 或 [Docker 中樞](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > 您可以使用本機 Docker 登錄作為原型並用於測試，而非使用雲端登錄。 
+   * 您可以使用本機 Docker 登錄作為原型並用於測試，而非使用雲端登錄。 
 
 若要在裝置上測試模組，您需要一個有效的 IoT 中樞，而且該中樞中至少必須有一個 IoT Edge 裝置。 若要使用您的電腦作為 IoT Edge 裝置，請遵循 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 快速入門中的步驟。 
 
@@ -46,16 +44,24 @@ ms.locfileid: "39391447"
 採取這些步驟以使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，建立以 Azure IoT C SDK 為基礎的 IoT Edge 模組。 首先要建立解決方案，然後在該解決方案中產生第一個模組。 每個解決方案都可以包含多個模組。 
 
 1. 在 Visual Studio Code 中，選取 [檢視] > [整合式終端機]。
-3. 選取 [檢視] > [命令選擇區]。 
-4. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge Solution**。
+
+2. 選取 [檢視] > [命令選擇區]。 
+
+3. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge Solution**。
 
    ![執行新的 IoT Edge 解決方案](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. 瀏覽至要用來建立新解決方案的資料夾。 選擇 [選取資料夾]。 
-6. 輸入解決方案的名稱。 
-7. 選取 [C 模組] 作為解決方案中第一個模組的範本。
-8. 輸入模組的名稱。 選擇容器登錄內唯一的名稱。 
-9. 提供模組映像存放庫的名稱。 VS Code 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。
+4. 瀏覽至要用來建立新解決方案的資料夾。 選擇 [選取資料夾]。 
+
+5. 輸入解決方案的名稱。 
+
+6. 選取 [C 模組] 作為解決方案中第一個模組的範本。
+
+7. 輸入模組的名稱。 選擇容器登錄內唯一的名稱。 
+
+8. 提供模組映像存放庫的名稱。 VS Code 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。 
+
+   ![提供 Docker 映像存放庫](./media/how-to-develop-c-module/repository.png)
 
 VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將其載入至新的視窗。
 
@@ -73,7 +79,7 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
 ## <a name="develop-your-module"></a>開發您的模組
 
-解決方案隨附的預設 C 模組位於：[模組] > \<您的模組名稱\> > [main.c]。 系統會設定模組和 deployment.template.json 檔案，讓您可以建置解決方案、將其推送至容器登錄，然後部署到裝置以開始測試，而不需要觸碰到任何程式碼。 模組會建置為僅採用來源的輸入 (在此案例中，是會模擬資料的 tempSensor 模組)，並且將其傳送到 IoT 中樞。 
+解決方案隨附的預設 C 模組位於：[modules] > [您的模組名稱] > [main.c]。 系統會設定模組和 deployment.template.json 檔案，讓您可以建置解決方案、將其推送至容器登錄，然後部署到裝置以開始測試，而不需要觸碰到任何程式碼。 模組會建置為僅採用來源的輸入 (在此案例中，是會模擬資料的 tempSensor 模組)，並且將其傳送到 IoT 中樞。 
 
 當您準備要使用自己的程式碼自訂 C 範本時，請使用 [Azure IoT 中樞 SDK](../iot-hub/iot-hub-devguide-sdks.md) 以建置模組，該模組會滿足 IoT 解決方案的主要需求，例如安全性、裝置管理和可靠性。 
 
@@ -85,7 +91,7 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
     ![請將 **.debug** 新增至映像名稱](./media/how-to-develop-c-module/image-debug.png)
 
-2. 將 **deployment.template.json** 中的 Node.js 模組 createOptions 取代為以下內容並儲存此檔案： 
+2. 將 **deployment.template.json** 中的 C 模組 createOptions 取代為以下內容並儲存此檔案： 
     
     ```json
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
@@ -93,7 +99,7 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
 2. 在 VS Code 命令選擇區中，輸入並執行 **Edge: Build IoT Edge solution** 命令。
 3. 從命令選擇區中，為您的解決方案選取 `deployment.template.json` 檔案。 
-4. 在 Azure IoT 中樞 Device Explorer 中，以滑鼠右鍵按一下 IoT Edge 裝置識別碼。 然後選取 [為 IoT Edge 裝置建立部署]。 
+4. 在 Azure IoT 中樞 Device Explorer 中，以滑鼠右鍵按一下 IoT Edge 裝置識別碼。 然後選取 [建立單一裝置的部署]。 
 5. 開啟解決方案的 **config** 資料夾。 然後選取 `deployment.json` 檔案。 選擇 [選取 Edge 部署資訊清單]。 
 
 您會看到部署已順利建立，而且 VS Code 整合式終端機中會有部署識別碼。
@@ -113,7 +119,7 @@ VS Code 會將偵錯設定資訊保留在您工作區中之 `.vscode` 資料夾�
 
 4. 在 VS Code 偵錯檢視中，您可以在左面板中看到變數。 
 
-上述範例說明如何針對容器上的 C IoT Edge 模組進行偵錯。 這樣會在您的模組容器 createOptions 中新增公開連接埠。 完成 Node.js 模組偵錯之後，建議您針對已可供生產環境使用的 IoT Edge 模組，移除這些公開連接埠。
+上述範例說明如何針對容器上的 C IoT Edge 模組進行偵錯。 這樣會在您的模組容器 createOptions 中新增公開連接埠。 完成 C 模組偵錯之後，建議您針對已可供生產環境使用的 IoT Edge 模組，移除這些公開連接埠。
 
 ## <a name="next-steps"></a>後續步驟
 

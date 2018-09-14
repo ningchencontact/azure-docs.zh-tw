@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 82845f475857f9a911febd496e86eb2a60f69c25
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886555"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782221"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>使用 Azure SQL 分析來監視 Azure SQL Database (預覽)
 
 ![Azure SQL 分析符號](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL 分析是雲端監視解決方案，可以橫跨多個彈性集區和訂用帳戶，大規模監視 Azure SQL Database 的效能。 它會收集重要的 Azure SQL Database 效能計量，並且以視覺效果方式呈現，在頂端具有內建智慧可以執行效能疑難排解。 
+Azure SQL 分析是一個雲端監視解決方案，可以跨多個訂用帳戶大規模監視 Azure SQL Database、彈性集區和受控執行個體的效能。 它會收集重要的 Azure SQL Database 效能計量，並且以視覺效果方式呈現，具有內建智慧可以執行效能疑難排解。
 
-藉由使用您以解決方案收集的計量，您可以建立自訂的監視規則和警示。 解決方案可協助您找出應用程式堆疊中每個層級的問題。 它會使用 Azure 診斷計量與 Log Analytics 檢視，來呈現單一 Log Analytics 工作區中所有 Azure SQL 資料庫和彈性集區的相關資料。 Log Analytics 可協助您收集、相互關聯，並以視覺化方式檢視結構化和非結構化資料。
+藉由使用您以解決方案收集的計量，您可以建立自訂的監視規則和警示。 解決方案可協助您找出應用程式堆疊中每個層級的問題。 它會使用 Azure 診斷計量與 Log Analytics 檢視，來呈現單一 Log Analytics 工作區中所有 Azure SQL 資料庫、彈性集區和受控執行個體中各個資料庫的相關資料。 Log Analytics 可協助您收集、相互關聯，並以視覺化方式檢視結構化和非結構化資料。
 
-目前，此預覽解決方案針對每個工作區支援高達 150,000 個 Azure SQL Database 和 5,000 個 SQL 彈性集區。
+目前，此預覽解決方案針對每個工作區支援高達 200,000 個 Azure SQL Database 和 5,000 個 SQL 彈性集區。
 
 如需使用 Azure SQL Analytics 解決方案，以及一般使用案例的實際操作概觀，請觀看內嵌影片：
 
@@ -39,7 +39,7 @@ Azure SQL 分析是雲端監視解決方案，可以橫跨多個彈性集區和�
 
 ## <a name="connected-sources"></a>連接的來源
 
-Azure SQL 分析是雲端監視解決方案，支援 Azure SQL Database 和彈性集區診斷遙測的串流。 因為該解決方案不使用代理程式來與 Log Analytics 服務連線，所以不支援與 Windows、Linux 或 SCOM 資源的連線，請參閱下方的相容性資料表。
+Azure SQL 分析是僅限雲端的監視解決方案，支援 Azure SQL Database、彈性集區和受控執行個體診斷遙測的串流。 由於該解決方案不使用代理程式連線至 Log Analytics 服務，因此不支援對內部部署 SQL Server 或 VM 進行監視，請參閱下方的相容性資料表。
 
 | 連接的來源 | 支援 | 說明 |
 | --- | --- | --- |

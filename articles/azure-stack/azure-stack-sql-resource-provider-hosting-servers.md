@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970546"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842493"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>為 SQL 資源提供者新增主控伺服器
 
@@ -36,7 +36,7 @@ ms.locfileid: "38970546"
 
 ### <a name="general-requirements"></a>一般需求
 
-* 資源提供者和使用者工作負載專用的 SQL 執行個體。 您無法使用任何其他取用者正在使用的 SQL 執行個體。 此限制也適用於 App Service。
+* 資源提供者和使用者工作負載專用的 SQL 執行個體。 您無法使用任何其他取用者正在使用的 SQL 執行個體。 這項限制也適用於 App Service。
 * 設定具有適當權限層級的帳戶以供資源提供者使用 (如下所述)。
 * 您負責管理 SQL 執行個體及其主機。  例如，資源提供者不會套用更新、處理備份，或處理認證輪換。
 
@@ -78,15 +78,15 @@ ms.locfileid: "38970546"
 
 1. 以服務管理員身分登入 Azure Stack 操作員入口網站。
 
-2. 選取 [瀏覽]&gt;[管理資源]&gt;[SQL 主控伺服器]。
+2. 選取 [所有服務]&gt;[管理資源]&gt;[SQL 主控伺服器]。
 
    ![SQL 主控伺服器](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   在 [SQL 主控伺服器] 之下，您可以將 SQL 資源提供者連線到作為資源提供者後端的 SQL Server 執行個體。
+   在 [SQL 主控伺服器] 下方，您可以將 SQL 資源提供者連線到作為資源提供者後端的 SQL Server 執行個體。
 
-   ![SQL 配接器儀表板](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![SQL 配接器儀表板](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. 在 [Add a SQL Hosting Server] \(新增 SQL 主控伺服器\) 上，提供 SQL Server 執行個體的連線詳細資料。
+3. 按一下 [新增]，然後在 [新增 SQL 主控伺服器] 刀鋒視窗上提供 SQL Server 執行個體的連線詳細資料。
 
    ![新增 SQL 主控伺服器](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
@@ -147,7 +147,7 @@ ms.locfileid: "38970546"
   GO
   ```
 
-### <a name="to-add-sql-always-on-hosting-servers"></a>新增 SQL Always On 主控伺服器：
+### <a name="to-add-sql-always-on-hosting-servers"></a>若要新增 SQL Always On 主控伺服器：
 
 1. 以服務管理員身分登入 Azure Stack 管理入口網站。
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: bf7dabc1c3765d86e7a0f87acaa6f06a68d3d530
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398813"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782003"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>管理對容器與 Blob 的匿名讀取權限。
 您可以對 Azure Blob 儲存體中的容器及其 Blob 啟用匿名與公用讀取權限。 如此您就可以將這些資源的唯讀存取權限授與他人，而無須共用您的帳戶金鑰，也無須要求共用存取簽章 (SAS)。
@@ -39,7 +39,7 @@ ms.locfileid: "39398813"
 若要在 [Azure 入口網站](https://portal.azure.com)中設定容器權限，請遵循下列步驟：
 
 1. 在入口網站中開啟 [儲存體帳戶] 刀鋒視窗。 您可以在主要入口網站的功能表刀鋒視窗中選取 [儲存體帳戶]，來尋找您的儲存體帳戶。
-1. 在功能表刀鋒視窗的 [BLOB 服務] 下，選取 [容器]。
+1. 在功能表刀鋒視窗的 [BLOB 服務] 下方，選取 [Blob]。
 1. 以滑鼠右鍵按一下容器資料列或選取省略符號來開啟容器的**操作功能表**。
 1. 在操作功能表中選取 [存取原則]。
 1. 從下拉式功能表中選取 [存取類型]。

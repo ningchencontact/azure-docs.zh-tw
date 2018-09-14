@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c5cc20b4f20e3a4f746ab15aa5f139c8e7201a2c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447161"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382528"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>教學課程︰設定 Pingboard 來自動佈建使用者
 
-本教學課程旨在說明您需要執行的步驟，以將使用者帳戶從 Azure Active Directory (Azure AD) 自動佈建和取消佈建至 Pingboard。
+本教學課程旨在說明您需要遵循的步驟，以將使用者帳戶從 Azure Active Directory (Azure AD) 自動佈建和取消佈建至 Pingboard。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,7 +36,7 @@ ms.locfileid: "39447161"
 *   Pingboard 中具有管理員權限的使用者帳戶 
 
 > [!NOTE] 
-> Azure AD 佈建整合依存於可供您的帳戶使用的 [Pingboard API](`https://your_domain.pingboard.com/scim/v2`)。
+> Azure AD 佈建整合依存於可供您的帳戶使用的 [Pingboard API](https://pingboard.docs.apiary.io/#)。
 
 ## <a name="assign-users-to-pingboard"></a>將使用者指派給 Pingboard
 
@@ -69,7 +69,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
     ![Pingboard 佈建](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-1. 在 [管理員認證] 區段底下，執行下列步驟：
+1. 在 [管理員認證] 區段底下，使用下列步驟：
 
     a. 在 [租用戶 URL] 中輸入 `https://your_domain.pingboard.com/scim/v2`，並將 "your_domain" 取代為您實際的網域。
 
@@ -81,7 +81,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
     e. 複製 [OAuth 持有人權杖] 中的權杖，並在 [祕密權杖] 中輸入此權杖。
 
-1. 在 Azure 入口網站中，選取 [測試連線] 以確保 Azure AD 可以連線到您的 Pingboard 應用程式。 如果連線失敗，請確定您的 Pingboard 帳戶具有系統管理員權限，並再試一次**測試連線**步驟。
+1. 在 Azure 入口網站中，選取 [測試連線] 以測試 Azure AD 是否可以連線到您的 Pingboard 應用程式。 如果連線失敗，請測試您的 Pingboard 帳戶是否具有系統管理員權限，並再試一次**測試連線**步驟。
 
 1. 在 [通知電子郵件] 中，輸入應收到佈建錯誤通知之個人或群組的電子郵件地址。 選取下方的核取方塊。
 
@@ -95,7 +95,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
 1. 選取 [儲存] 以啟動對指派給 Pingboard 的使用者進行首次同步處理。
 
-初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 請使用 [同步處理詳細資料] 區段來監視進度，並依循連結來佈建活動記錄。 這些記錄會描述在 Pingboard 應用程式上佈建服務執行的所有動作。
+初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 請使用 [同步處理詳細資料] 區段來監視進度，並依循連結來佈建活動記錄。 這些記錄會描述在 Pingboard 應用程式上佈建服務採取的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
 

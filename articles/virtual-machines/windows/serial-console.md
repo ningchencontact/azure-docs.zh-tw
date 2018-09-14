@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ddd30729aa2bcb616efab814dc4046d2817c64fa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128672"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782408"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>虛擬機器序列主控台 (預覽) 
 
 
-Azure 上的「虛擬機器序列主控台」可讓您存取 Linux 和 Windows 虛擬機器的文字型主控台。 這個序列連線會連至虛擬機器的 COM1 序列埠，可讓您存取虛擬機器，而與虛擬機器的網路/作業系統狀態無關。 目前只能透過 Azure 入口網站存取虛擬機器的序列主控台，並且只允許具有虛擬機器之「VM 參與者」或更高存取權的使用者才能執行此操作。 
+Azure 上的「虛擬機器序列主控台」可讓您存取 Windows 虛擬機器的文字型主控台。 這個序列連線會連至虛擬機器的 COM1 序列埠，讓您存取未依存於虛擬機器的網路或作業系統狀態的虛擬機器。 目前只能透過 Azure 入口網站來存取虛擬機器的序列主控台，並且只允許對虛擬機器具有「VM 參與者」或更高存取權的使用者執行此操作。 
 
 如需 Linux VM 的序列主控台文件，請[按一下這裡](../linux/serial-console.md)。
 
@@ -39,14 +39,14 @@ Azure 上的「虛擬機器序列主控台」可讓您存取 Linux 和 Windows �
 * 虛擬機器必須啟用[開機診斷](boot-diagnostics.md)功能 
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * 使用序列主控台的帳戶必須具有 VM 的[參與者角色](../../role-based-access-control/built-in-roles.md)和[開機診斷](boot-diagnostics.md)儲存體帳戶。 
 * 您為其存取序列主控台的虛擬機器，也必須具有密碼型帳戶。 您可以使用 VM 存取擴充的[重設密碼](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password)功能來建立一個帳戶 - 請參閱以下螢幕擷取畫面。
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
 ## <a name="get-started-with-serial-console"></a>開始使用序列主控台
-只有透過 [Azure 入口網站](https://portal.azure.com)，才能存取虛擬機器的序列主控台。 以下是透過入口網站存取虛擬機器之序列主控台的步驟 
+只有透過 [Azure 入口網站](https://portal.azure.com)，才能存取虛擬機器的序列主控台。 以下是透過入口網站存取虛擬機器的序列主控台時須執行的步驟。
 
   1. 開啟 Azure 入口網站
   2. 在左功能表中，選取 [虛擬機器]。
@@ -55,8 +55,8 @@ Azure 上的「虛擬機器序列主控台」可讓您存取 Linux 和 Windows �
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="configure-serial-console-for-windows"></a>設定 Windows 的序列主控台 
-Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主控台](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC)。 在伺服器版本的 Windows 上可支援 SAC，但在用戶端版本 (例如 Windows 10、Windows 8 或 Windows 7) 上則不支援。 若要為使用 2018 年 2 月或更舊版映像建立的 Windows 虛擬機器啟用序列主控台，請使用下列步驟： 
+## <a name="enable-serial-console-in-custom-or-older-images"></a>在自訂或舊版的映像中啟用序列主控台
+Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主控台](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC)。 在伺服器版本的 Windows 上可支援 SAC，但在用戶端版本 (例如 Windows 10、Windows 8 或 Windows 7) 上則不支援。 若要為在 2018 年 2 月之前建立的 Windows 虛擬機器啟用序列主控台，請使用下列步驟： 
 
 1. 透過「遠端桌面」連線至您的 Windows 虛擬機器
 2. 從系統管理命令提示字元中執行下列命令 
@@ -73,13 +73,13 @@ Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-### <a name="how-do-i-know-if-sac-is-enabled-or-not"></a>如何知道是否已啟用 SAC 
+### <a name="how-do-i-know-if-sac-is-enabled"></a>如何得知 SAC 是否已啟用？
 
-如果未啟用 [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx)，序列主控台將不會顯示 SAC 提示。 在某些情況下，它可能會顯示「VM 健康情況」資訊，否則會顯示為空白。  
+如果未啟用 [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx)，序列主控台將不會顯示 SAC 提示。 在某些情況下會顯示 VM 健康情況資訊，在其他情況下則會空白。  
 
-### <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>讓開機功能表顯示在序列主控台中 
+## <a name="enable-the-windows-boot-menu-in-serial-console"></a>在序列主控台中啟用 Windows 開機功能表 
 
-如果您需要讓 Windows 開機載入器提示顯示在序列主控台中，您可以將下列額外選項新增至 Windows 開機載入器。
+如果您需要讓 Windows 開機載入器提示顯示在序列主控台中，您可以將下列額外選項新增至開機組態資料。 如需詳細資訊，請參閱 [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set)
 
 1. 透過「遠端桌面」連線至您的 Windows 虛擬機器
 2. 從系統管理命令提示字元中執行下列命令 
@@ -88,8 +88,14 @@ Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主
 * `bcdedit /set {bootmgr} bootems yes`
 3. 重新啟動系統以啟用開機功能表
 
-> [!NOTE] 
-> 目前並未支援功能鍵，如果您需要進階的開機選項，請使用 bcdedit /set {current} onetimeadvancedoptions on，如需更多詳細資料，請參閱 [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set)
+## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>使用序列主控台在 Windows VM 中進行 NMI 呼叫
+非遮罩式插斷 (NMI) 旨在建立虛擬機器上軟體不會忽略的訊號。 在過去，NMI 已用來監視系統上需要特定回應時間的硬體問題。  現在，程式設計人員和系統管理員通常會使用 NMI 作為對無回應系統進行偵錯和疑難排解的機制。
+
+使用命令列中的鍵盤圖示，即可使用序列主控台將 NMI 傳送至 Azure 虛擬機器，如下所示。 NMI 序列傳遞出去後，虛擬機器組態將會控制系統的回應方式。 您可以將 Windows 設定成在收到 NMI 時當機並建立記憶體傾印。
+
+![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+如需有關將 Windows 設定成在收到 NMI 時建立損毀傾印的資訊，請參閱：[如何在 Windows 型系統上使用 NMI 來產生完整的損毀傾印檔案或核心損毀傾印檔案](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file) \(機器翻譯\)
 
 ## <a name="disable-serial-console"></a>停用序列主控台
 根據預設，所有訂用帳戶都已啟用所有 VM 的序列主控台存取權。 您可以在訂用帳戶層級或 VM 層級停用序列主控台。
@@ -149,18 +155,26 @@ Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主
 >[!CAUTION] 
 這意謂著系統不會將中斷連線的使用者登出！ 強制在中斷連線時登出的功能 (透過 SIGHUP 或類似的機制) 仍在規劃中。 就 Windows 而言，在 SAC 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。 
 
-## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>使用序列主控台在 Windows VM 中進行 NMI 呼叫
-非遮罩式插斷 (NMI) 旨在建立虛擬機器上軟體不會忽略的訊號。 在過去，NMI 已用來監視系統上需要特定回應時間的硬體問題。  現在，程式設計人員和系統管理員通常會使用 NMI 作為對無回應系統進行偵錯和疑難排解的機制。
+## <a name="common-scenarios-for-accessing-serial-console"></a>存取序列主控台的常見案例 
+案例          | 序列主控台中的動作                
+:------------------|:-----------------------------------------
+不正確的防火牆規則 | 存取序列主控台，然後修正 Windows 防火牆規則。 
+檔案系統損毀/檢查 | 存取序列主控台，然後復原檔案系統。 
+RDP 設定問題 | 存取序列主控台，然後變更設定。 請移至 [RDP 文件](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access)以開始作業。
+網路鎖定系統| 透過入口網站存取序列主控台以管理系統。 [序列主控台 CMD 和 PowerShell 文件](./serial-console-cmd-ps-commands.md)中列出了部分網路命令。 
+與開機載入器互動 | 透過序列主控台存取 BCD。 請移至[讓開機功能表顯示在序列主控台中](#enabling-boot-menu-to-show-in-the-serial-console)以開始作業。 
 
-使用序列主控台命令列中的鍵盤圖示，即可將 NMI 傳送至 Azure 虛擬機器，如下所示。 傳遞 NMI 之後，虛擬機器設定會控制系統的回應方式。 您可以將 Windows 設定成在收到 NMI 時當機並建立記憶體傾印。
+## <a name="accessibility"></a>協助工具
+協助工具是 Azure 序列主控台的按鍵焦點。 為此，我們已確保視障和聽障人士以及無法使用滑鼠的使用者都能存取序列主控台。
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+### <a name="keyboard-navigation"></a>鍵盤導覽
+使用鍵盤上的 `tab` 鍵，在 Azure 入口網站中的序列主控台介面上導覽。 您的位置會在螢幕上醒目顯示。 若要離開序列主控台刀鋒視窗的焦點，請在鍵盤上按 `Ctrl + F6`。
 
-如需有關將 Windows 設定成在收到 NMI 時建立損毀傾印的資訊，請參閱：[如何在 Windows 型系統上使用 NMI 來產生完整的損毀傾印檔案或核心損毀傾印檔案](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file) \(機器翻譯\)
-
+### <a name="use-serial-console-with-a-screen-reader"></a>透過螢幕助讀程式使用序列主控台
+序列主控台附有內建的螢幕助讀程式支援。 在開啟螢幕助讀程式的情況下瀏覽，可讓螢幕助讀程式大聲讀出目前所選按鈕的替代文字。
 
 ## <a name="errors"></a>Errors
-大多數錯誤本質上都是暫時性的，重試連線將可解決這些錯誤。 下表顯示錯誤清單及緩和措施
+大多數錯誤本質上都是暫時性的，重試連線將可解決這些錯誤。 下表顯示錯誤及緩和措施清單
 
 Error                            |   緩和 
 :---------------------------------|:--------------------------------------------|

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123149"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668575"
 ---
 # <a name="supported-languages-for-speech-service"></a>語音服務所支援的語言
 
@@ -39,7 +39,7 @@ Microsoft 語音辨識 API 支援下列語言。
 
 ## <a name="text-to-speech"></a>文字轉語音
 
-**文字轉換語音** API 提供下列語音，且各支援依地區設定所識別的特定語言和方言。
+語音合成 API 提供下列語音，且各支援依地區設定所識別的特定語言和方言。
 
 地區設定 | 語言 | 性別 | 服務名稱對應
 -------|----------|---------|--------------------
@@ -128,13 +128,16 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 
 ### <a name="customization"></a>自訂
 
-自訂**文字轉換語音**語音字型支援美式英文 (en-US) 和簡體中文 (zh-CN)。
+目前提供美式英文 (en-US)、簡體中文 (zh-CN) 和義大利文 (it-IT) 的語音自訂功能。
+
+> [!NOTE]
+> 義大利文語音訓練會從有 2,000 個以上語句的資料集開始。 中文-英文雙語模型也支援使用有 2,000 個以上語句的初始資料集。
 
 ## <a name="speech-translation"></a>語音翻譯
 
 **語音翻譯** API 支援語音轉換語音和語音轉換文字翻譯的不同語言。 來源語言一律必須來自下面的語音語言表格。 可用的目標語言取決於翻譯目標是語音還是文字。
 
-您可以透過程式設計方式或是使用 REST API 的語言端點來取得語言清單。 此清單提供每個語言代碼，以及該語言的英文名稱或任何其他受支援語言的名稱。 只要有新語言可用，Microsoft Translator 服務就會自動更新此清單。
+您可以使用 REST API 的語言端點，透過程式設計方式來取得語言清單。 此清單提供每個語言代碼，以及該語言的英文名稱或任何其他受支援語言的名稱。 只要有新語言可用，Microsoft Translator 服務就會自動更新此清單。
 
 ### <a name="speech-languages"></a>語音語言
 

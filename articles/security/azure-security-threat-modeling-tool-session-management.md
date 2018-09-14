@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: cd843f1826ad65098a7c0f6d30383113ccd28f6a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306434"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841808"
 ---
-# <a name="security-frame-session-management--articles"></a>安全性架構︰工作階段管理 | 文章 
+# <a name="security-frame-session-management"></a>安全性架構︰工作階段管理
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[在使用 Azure AD 時以 ADAL 方法實作適當的登出](#logout-adal)</li></ul> |
@@ -380,36 +380,42 @@ void Page_Init (object sender, EventArgs e) {
 | **步驟** | 工作階段逾時代表使用者在一段間隔時間內 (由網頁伺服器定義) 未在網站上執行任何動作時所發生的事件。 伺服器端上的事件會將使用者工作階段的狀態變更為「無效」(例如「不再被使用」)，並指示網頁伺服器終結它 (刪除其中包含的所有資料)。 下列程式碼範例會在 Web.config 檔案中將逾時工作階段屬性設定為 15 分鐘。|
 
 ### <a name="example"></a>範例
-```XML 程式碼 <configuration> <system.web> <sessionState mode="InProc" cookieless="true" timeout="15" /> </system.web> </configuration>
+```XML 
+<configuration>
+  <system.web>
+    <sessionState mode="InProc" cookieless="true" timeout="15" />
+  </system.web>
+</configuration>
 ```
 
-## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
-
-| 標題                   | 詳細資料      |
-| ----------------------- | ------------ |
-| **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 建置 |  
-| **適用的技術** | Web Form |
-| **屬性**              | N/A  |
-| **參考**              | [用於驗證的表單元素 (ASP.NET 設定結構描述)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **步驟** | 將表單驗證票證 Cookie 逾時設定為 15 分鐘|
-
-### <a name="example"></a>範例
-```XML 程式碼 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
-</forms>
+## <a id="threat-detection"></a>在 Azure SQL 上啟用威脅偵測功能
 ```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Web Application | 
 | **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms, MVC5 |
-| **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
+```XML
+<forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
+</forms>
+```
+
+| 標題                   | 詳細資料      |
+| ----------------------- | ------------ |
+| **元件**               | Web 應用程式 | 
+| **SDL 階段**               | 建置 |  
+| **適用的技術** | Web Form、MVC5 |
+| **屬性**              | EnvironmentType - OnPrem |
+| **參考**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
+| **步驟** | 當 Web 應用程式是信賴憑證者，且 ADFS 是 STS 時，驗證 Cookie (FedAuth 權杖) 的存留期即可由 web.config 中的下列組態設定：|
+
+### <a name="example"></a>範例
 ```XML
   <system.identityModel.services>
     <federationConfiguration>

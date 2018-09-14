@@ -3,7 +3,7 @@ title: 如何搭配 Node.js 使用 Azure 服務匯流排主題和訂用帳戶 | 
 description: 了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排主題和訂用帳戶。
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: d3a7ebd135f705a6a3ea91feb4e037a9ed6d0c79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: daabf711e923e1c4ff3132c5e4765bdbff206948
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704991"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782906"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何透過 Node.js 使用服務匯流排主題和訂用帳戶
 
@@ -95,7 +95,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-`createServiceBusService` 方法也支援其他選項，而可讓您覆寫訊息存留時間或主題大小上限等預設主題設定。 
+`createTopicIfNotExists` 方法也支援其他選項，而可讓您覆寫訊息存留時間或主題大小上限等預設主題設定。 
 
 下列範例會將主題大小上限設為 5 GB，並將存留時間設為一分鐘：
 
@@ -235,7 +235,7 @@ var rule={
 }
 ```
 
-當訊息傳送至 `MyTopic` 時，會將該訊息傳遞至已訂閱 `AllMessages` 主題訂用帳戶的接收者，並選擇性地傳遞至已訂閱 `HighMessages` 和 `LowMessages` 主題訂用帳戶的接收者 (視訊息內容而定)。
+當訊息傳送至 `MyTopic` 時，該訊息會傳遞至已訂閱 `AllMessages` 主題訂用帳戶的接收者，並選擇性地傳遞至已訂閱 `HighMessages` 和 `LowMessages` 主題訂用帳戶的接收者 (視訊息內容而定)。
 
 ## <a name="how-to-send-messages-to-a-topic"></a>如何將訊息傳送至主題
 若要將訊息傳送至服務匯流排主題，應用程式必須使用 **ServiceBusService** 物件的 `sendTopicMessage` 方法。
@@ -268,7 +268,7 @@ for (i = 0;i < 5;i++) {
 ## <a name="receive-messages-from-a-subscription"></a>自訂用帳戶接收訊息
 對於 **ServiceBusService** 物件使用 `receiveSubscriptionMessage` 方法即可從訂用帳戶接收訊息。 依預設，讀取訊息後，訊息便會從訂用帳戶中刪除。 不過，您可以將選用參數 `isPeekLock` 設為 **true**，來讀取 (查看) 並鎖定訊息，避免從訂用帳戶中刪除訊息。
 
-隨著接收作業讀取及刪除訊息之預設行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解此行為，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
+隨著接收作業讀取及刪除訊息之預設行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解此行為，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排已將訊息標示為已取用，所以，當應用程式重新啟動並開始重新取用訊息時，它會遺漏當機前已取用的訊息。
 
 如果您將 `isPeekLock` 參數設為 **true**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。
 在應用程式處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 **deleteMessage** 方法完成接收程序的第二個階段，並以參數形式傳遞要刪除的訊息。 **deleteMessage** 方法會將訊息標示為已取用，並將其從訂用帳戶中移除。

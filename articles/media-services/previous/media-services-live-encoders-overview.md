@@ -14,18 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 129364c4ee5924413ed0bccb81d53b905f13d208
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b1166c34f1a0ce3f3e9be932eb6d7fb9d76389ec
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782717"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665752"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務時如何設定內部部署編碼器來建立多位元速率串流
 本主題列出的內部部署即時編碼器可用來擷取即時事件，並傳送單一位元速率即時串流到 AMS 通道 (啟用即時編碼) 以供進一步處理。 本主題也列出示範如何設定列出之編碼器的教學課程連結。
-
-## <a name="elemental-live"></a>Elemental Live
-如需有關如何設定 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 編碼器，藉此傳送單一位元速率的即時串流到 AMS 通道，請參閱[設定 Elemental Live](media-services-configure-elemental-live-encoder.md)。
 
 ## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
 如需有關如何設定 [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 編碼器以將單一位元速率即時串流傳送到 AMS 通道的詳細資訊，請參閱[設定 FMLE](media-services-configure-fmle-live-encoder.md)。
@@ -38,6 +35,9 @@ ms.locfileid: "33782717"
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
 如需有關如何設定 [Tricaster](http://newtek.com/products/tricaster-40.html) 編碼器，藉此傳送單一位元速率的即時串流到 AMS 通道，請參閱 [設定 Tricaster](media-services-configure-tricaster-live-encoder.md)。
+
+## <a name="elemental-live"></a>Elemental Live
+如需詳細資訊，請參閱 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live)。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 5b3cea87e7762e492432722c54a1a8aaa342b84a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145548"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840614"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 連線服務在 Web 應用程式中新增 Key Vault
 
@@ -74,6 +74,10 @@ ms.locfileid: "42145548"
 
 ## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>透過程式碼存取祕密 (ASP.NET Core 專案)
 
+Key Vault 的連線會在啟動時由實作 [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) 的類別以擴充啟動行為的方式設定，其擴充方式的說明請見[透過 IHostingStartup 從 ASP.NET Core 中的外部組件增強應用程式](/aspnet/core/fundamentals/host/platform-specific-configuration)。 啟動類別會使用兩個包含 Key Vault 連線資訊的環境變數：ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED (設定為 true) 和 ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT (設定為您的 Key Vault URL)。 當您執行**新增已連線的服務**程序時，這些變數將會新增至 launchsettings.json 檔案。
+
+若要存取您的祕密：
+
 1. 在 Visual Studio 的 ASP.NET Core 專案中，您現在可以藉由在程式碼中使用下列運算式來參考這些祕密：
  
    ```csharp
@@ -99,6 +103,10 @@ ms.locfileid: "42145548"
 1. 建置並執行 Web 應用程式、瀏覽至 [關於] 頁面，然後查看「祕密」值。
 
 ## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>透過程式碼存取祕密 (ASP.NET 4.7.1 專案)
+
+Key Vault 的連線會由 ConfigurationBuilder 類別使用您在執行**新增已連線的服務**程序時新增至 web.config 檔案中的資訊來設定。
+
+若要存取您的祕密：
 
 1. 修改 web.config，如下所示。 金鑰乃是預留位置，將由 AzureKeyVault ConfigurationBuilder 以 Key Vault 中的祕密值來取代。
 

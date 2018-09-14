@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8cab491a874094ee195f12ba6fe7f19a87f09ef2
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522176"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841942"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -42,6 +42,9 @@ ms.locfileid: "39522176"
     >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與密碼雜湊同步處理相關的問題。 如果您_不_想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)，以深入了解。
 
 * **使用支援的 Azure AD Connect 拓撲**：確定您會使用[這裡](active-directory-aadconnect-topologies.md)所述的 Azure AD Connect 支援技術之一。
+
+    >[!NOTE]
+    >無縫 SSO 可支援多個 AD 樹系，無論其間是否有 AD 信任，都是如此。
 
 * **設定網域管理員員認證**：下列情況的每個 Active Directory 樹系，均需擁有網域管理員認證：
     * 透過 Azure AD Connect 同步至 Azure AD。
@@ -180,7 +183,7 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
-確定執行 macOS 的電腦已加入 AD。 如需加入 AD 的相關說明，請參閱[整合 OS X 與 Active Directory 的最佳做法](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf)。
+確定執行 macOS 的電腦已加入 AD。 將您的 macOS 裝置加入 AD 的指示並不在本文的討論之列。
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (所有平台)
 

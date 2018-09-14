@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: b66658bde818e2b4cce2cbc0dc5b419ba33dc737
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 58f930b7bb1dee8f8f95b6627ebf70fe095126c0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108823"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697844"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -272,7 +272,7 @@ ms.locfileid: "43108823"
 在提交 Python 作業後，提交記錄會出現在 VS Code 的 [輸出] 視窗中。 此外也會顯示 **Spark UI URL** 和 **Yarn UI URL**。 您可以在網頁瀏覽器中開啟 URL 來追蹤作業狀態。
 
 >[!NOTE]
->Livy 0.4 中不再支援 PySpark3 (其為 HDI Spark 2.2 叢集)。 “PySpark” 只支援 Python。 這是已知問題，會提交給 Spark 2.2，在與 Python3 搭配使用時會失敗。
+>Livy 0.4 中不再支援 PySpark3 (其為 HDI Spark 2.2 叢集)。 "PySpark" 只支援 Python。 這是已知問題，會提交給 Spark 2.2，在與 Python3 搭配使用時會失敗。
    
 ## <a name="livy-configuration"></a>Livy 設定
 支援 Livy 設定，您可以在工作空間資料夾的專案設定中加以設定。 如需詳細資料，請參閱 [Livy 讀我檔案](https://github.com/cloudera/livy/blob/master/README.rst )。

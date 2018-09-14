@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 0408b26e687dd31c408dbccc68f56e8198016c8f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412407"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664783"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>部署雲端式 Azure Multi-Factor Authentication
 
@@ -23,16 +23,16 @@ ms.locfileid: "39412407"
 
 在開始之前，請先確定您已滿足下列先決條件：
 
-* Azure AD 租用戶中的全域系統管理員帳戶。 如果您需要完成這個步驟的說明，請參閱[開始使用 Azure AD](../get-started-azure-ad.md) 一文
+* Azure AD 租用戶中的全域系統管理員帳戶。 如果您需要完成這個步驟的說明，請參閱[開始使用 Azure AD](../get-started-azure-ad.md) 一文。
 * 指派給使用者的正確授權。 如需詳細資訊，請參閱[如何取得 Azure Multi-Factor Authentication](concept-mfa-licensing.md) 主題。
 
 ## <a name="choose-how-to-enable"></a>選擇啟用方式
 
 **由條件式存取原則啟用** - 本文會討論這個方法。 這是最具彈性的方法，可為您的使用者啟用雙步驟驗證。 啟用條件式存取原則，只適用於雲端 Azure MFA，而且是 Azure AD 的進階功能。
 
-由 Azure AD Identity Protection 啟用 - 這個方法使用 Azure AD Identity Protection 風險原則，要求所有雲端應用程式進行只根據登入風險的雙步驟驗證。 這個方法需要 Azure Active Directory P2 授權。 如需這個方法的詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md#risky-sign-ins)
+由 Azure AD Identity Protection 啟用 - 這個方法使用 Azure AD Identity Protection 風險原則，要求所有雲端應用程式進行只根據登入風險的雙步驟驗證。 這個方法需要 Azure Active Directory P2 授權。 如需這個方法的詳細資訊，請參閱 [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins)。
 
-藉由變更使用者狀態來啟用 - 這是要求使用雙步驟驗證的傳統方法。 這種方法適用於雲端 Azure MFA 和 Azure MFA Server。 如果使用這種方法，則會要求使用者在**每次**登入時執行雙步驟驗證，並且會覆寫條件式存取原則。 這個方法的詳細資訊可在[如何要求使用者使用雙步驟驗證](howto-mfa-userstates.md)中找到
+藉由變更使用者狀態來啟用 - 這是要求使用雙步驟驗證的傳統方法。 這種方法適用於雲端 Azure MFA 和 Azure MFA Server。 如果使用這種方法，則會要求使用者在**每次**登入時執行雙步驟驗證，並且會覆寫條件式存取原則。 這個方法的詳細資訊可在[如何要求使用者使用雙步驟驗證](howto-mfa-userstates.md)中找到。
 
 > [!Note]
 > 如需授權和定價的詳細資訊，請參閱 [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
@@ -109,3 +109,5 @@ ms.locfileid: "39412407"
 若要設定信任的 IP、自訂語音訊息及詐騙警示等額外設定，請參閱[設定 Azure Multi-Factor Authentication 設定](howto-mfa-mfasettings.md)
 
 如需管理 Azure Multi-Factor Authentication 使用者設定的詳細資訊，請參閱[在雲端中管理 Azure Multi-Factor Authentication 的使用者設定](howto-mfa-userdevicesettings.md)一文
+
+[啟用 Azure Multi-Factor Authentication 的聚合式註冊和 Azure AD 自助密碼重設](concept-registration-mfa-sspr-converged.md)

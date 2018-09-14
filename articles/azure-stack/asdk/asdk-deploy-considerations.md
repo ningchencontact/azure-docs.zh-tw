@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f4b55bb3287f67792b3257c3f62256437f5625ca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f3cf1232861239069894a8e5fa60c911053f038d
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30164962"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841976"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署規劃考量
 在部署 Azure Stack 開發套件 (ASDK) 前，請確定您的開發套件主機電腦符合本文中所述的需求。
@@ -66,7 +66,7 @@ ms.locfileid: "30164962"
 ## <a name="operating-system"></a>作業系統
 |  | **需求** |
 | --- | --- |
-| **作業系統版本** |Windows Server 2012 R2 或更新版本。 作業系統版本在部署開始前並不重要，因為您將會讓主機電腦開機進入 Azure Stack 安裝所包含的 VHD。 OS 和所有必要的修補程式都已經整合到該映像中。 請勿使用任何金鑰來啟用開發套件中使用的任何 Windows Server 執行個體。 |
+| **作業系統版本** |Windows Server 2016 或更新版本。 作業系統版本在部署開始前並不重要，因為您將會讓主機電腦開機進入 Azure Stack 安裝所包含的 VHD。 作業系統和所有必要的修補程式都已經整合到該映像中。 請勿使用任何金鑰來啟用開發套件中使用的任何 Windows Server 執行個體。 |
 
 > [!TIP]
 > 安裝作業系統之後，您可以使用[適用於 Azure Stack 的部署檢查程式](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)來確認您的硬體符合所有需求。
@@ -89,10 +89,10 @@ ms.locfileid: "30164962"
    
    | **Azure Active Directory 帳戶** | **是否支援？** |
    | --- | --- |
-   | 具備有效公用 Azure 訂用帳戶的公司或學校帳戶 |yes |
-   | 具備有效的公用 Azure 訂用帳戶之 Microsoft 帳戶 |yes |
-   | 具備有效中國 Azure 訂用帳戶的公司或學校帳戶 |yes |
-   | 具備有效美國政府 Azure 訂用帳戶的公司或學校帳戶 |yes |
+   | 具備有效公用 Azure 訂用帳戶的公司或學校帳戶 |是 |
+   | 具備有效的公用 Azure 訂用帳戶之 Microsoft 帳戶 |是 |
+   | 具備有效中國 Azure 訂用帳戶的公司或學校帳戶 |是 |
+   | 具備有效美國政府 Azure 訂用帳戶的公司或學校帳戶 |是 |
 
 ## <a name="network"></a>網路
 ### <a name="switch"></a>Switch

@@ -9,17 +9,17 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 80e287d09fdc5ab7157b9ee46bc830fd2db4d501
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912265"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698038"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>利用串流分析來建置 IoT 解決方案
 
 ## <a name="introduction"></a>簡介
-在本解決方案中，您將學習如何利用 Azure 串流分析來取得您資料的即時見解。 開發人員可以很容易地結合資料串流，例如點選流、記錄和裝置產生的事件，並且包含歷程記錄或參考資料，以衍生商務深入解析。 Azure 串流分析是由 Microsoft Azure 代管且完全受控的即時串流計算服務，它提供內建的備援、低延遲及延展性功能，可讓您在幾分鐘之內就立刻上手。
+在本解決方案中，您將學習如何利用 Azure 串流分析來從您的資料中取得即時見解。 開發人員可以很容易地結合資料串流，例如點選流、記錄和裝置產生的事件，並且包含歷程記錄或參考資料，以衍生商務深入解析。 Azure 串流分析是由 Microsoft Azure 代管且完全受控的即時串流計算服務，它提供內建的備援、低延遲及延展性功能，可讓您在幾分鐘之內就立刻上手。
 
 完成此解決方案之後，您便能夠：
 
@@ -30,10 +30,10 @@ ms.locfileid: "30912265"
 * 利用監視和記錄的經驗來排解問題。
 
 ## <a name="prerequisites"></a>先決條件
-若要完成本解決方案，您需要下列必要條件：
+若要完成本解決方案，您需要滿足下列必要條件：
 * [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>案例簡介：收費站，你好！
+## <a name="scenario-introduction-hello-toll"></a>案例簡介：「收費站，你好！」
 收費站是常見的設施。 您可以在世界各地的許多快速道路、橋樑及隧道中看到它們。 每個收費站都有多個收費亭。 在人工收費亭中，您需要停車來向服務員付費。 在自動收費亭中，位於每個收費亭最上方的感應器會在您通過收費亭時掃描黏貼在您車輛擋風玻璃上的 RFID 卡。 我們可以輕易地把車輛通過這些收費站的情況，想像成其中能執行許多有趣行動的事件串流。
 
 ![收費亭中車輛的圖片](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
@@ -127,7 +127,7 @@ ms.locfileid: "30912265"
 
 5. 選取 Azure 位置。
 
-6. 將 [間隔] 指定為秒數。 範例 Web 應用程式中會使用此值來說明要將資料傳送到事件中樞的頻率。 
+6. 將 [間隔] 指定為秒數。 範例 Web 應用程式中會使用此值來說明將資料傳送到事件中樞的頻率。 
 
 7. [勾選] 以同意條款和條件。
 
@@ -191,7 +191,7 @@ ms.locfileid: "30912265"
 
 4. 展開 [tollAppDatabase] > [tollAppCollection] > [文件]。
 
-5. 在識別碼清單中，一旦輸出可供使用後，會顯示數個文件。
+5. Azure 串流分析經悉心設計，能彈性調整以便於處理大量的資料。
 
 6. 選取每個識別碼，以檢閱 JSON 文件。 請注意該視窗中的每個 tollid、windowend 時間以及汽車計數。
 
@@ -303,9 +303,9 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 3. 在串流作業的 CONFIGURE 標題下，選取 [縮放]。
    
-4. 將 [串流單位] 滑桿從 1 滑動到 6。 串流單位會定義作業所能接收之計算能力的量。 選取 [ **儲存**]。
+4. 將 [串流單位] 滑桿從 1 滑動到 6。 串流單位會定義作業所能接收的計算能力量。 選取 [ **儲存**]。
 
-5. **啟動**串流作業以示範額外的縮放。 Azure 串流分析可將工作分送給更多計算資源以達到更佳的輸送量，並使用 PARTITION BY 子句中指定的資料行，將工作分割給各個資源。 
+5. **啟動**串流作業以示範額外的縮放。 Azure 串流分析可將工作分送給更多計算資源以改善輸送量，並使用 PARTITION BY 子句中指定的資料行，將工作分割給各個資源。 
 
 ## <a name="monitor-the-job"></a>監視作業
 [監視] 區域包含執行中作業的相關統計資料。 第一次設定需要使用相同區域中的儲存體帳戶 (如同本文的其餘部分，也就是收費)。   

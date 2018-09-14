@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 3d835a7bd93426e57c5ab204d277faca22ae0638
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 17212c076ef296a24021213b0aa887de930a44ac
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140050"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783350"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso 移轉：在 Azure 中重建內部部署應用程式
 
-本文會示範 Contoso 如何在 Azure 中遷移及重建其 SmartHotel 應用程式。 其會將應用程式的前端 VM 遷移至 Azure App Services Web 應用程式。 應用程式後端的建置，則是使用 Azure Kubernetes Service (AKS) 所管理容器中部署的微服務來進行。 該網站會與提供寵物相片功能的 Azure Functions 互動。 
+本文會示範 Contoso 如何在 Azure 中移轉及重建其 SmartHotel360 應用程式。 其會將應用程式的前端 VM 遷移至 Azure App Services Web 應用程式。 應用程式後端的建置，則是使用 Azure Kubernetes Service (AKS) 所管理容器中部署的微服務來進行。 該網站會與提供寵物相片功能的 Azure Functions 互動。 
 
 這份文件是系列文章中的其中一篇，說明 Contoso 這家虛構的公司如何將其內部部署資源移轉至 Microsoft Azure 雲端。 整個系列文章中包含背景資訊和說明如何設定移轉基礎結構的案例、評估內部部署資源的移轉，以及執行不同類型的移轉。 案例會變得越來越複雜，而我們也將不定期增加其他文章。
 
@@ -24,19 +24,19 @@ ms.locfileid: "42140050"
 --- | --- | ---
 [文章 1：概觀](contoso-migration-overview.md) | 簡單介紹 Contoso 的移轉策略、文章系列以及我們使用的範例應用程式。 | 可用
 [文章 2：部署 Azure 基礎結構](contoso-migration-infrastructure.md) | 說明 Contoso 如何準備其內部部署和 Azure 基礎結構以進行移轉。 所有移轉文章都使用相同的基礎結構。 | 可用
-[文章 3：評估內部部署資源](contoso-migration-assessment.md)  | 顯示 Contoso 如何評估在 VMware 上執行的內部部署兩層式 SmartHotel 應用程式。 Contoso 利用 [Azure Migrate](migrate-overview.md) 服務來評估應用程式 VM，並利用 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) 來評估應用程式 SQL Server 資料庫。 | 可用
-[文章 4：在 Azure VM 和 SQL 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | 說明 Contoso 如何為 SmartHotel 應用程式執行隨即移轉至 Azure 的作業。 Contoso 使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式前端 VM，並使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 SQL 受控執行個體。 | 可用
-[文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | 說明 Contoso 如何單純憑藉 Site Recovery 來移轉 SmartHotel 應用程式 VM。 | 可用
-[文章 6：將應用程式重新裝載至 Azure VM 和 SQL Server AlwaysOn 可用性群組](contoso-migration-rehost-vm-sql-ag.md) | 說明 Contoso 如何遷移 SmartHotel 應用程式。 Contoso 使用 Site Recovery 來移轉應用程式 VM，並使用資料庫移轉服務，將應用程式資料庫移轉至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 可用
+[文章 3：評估內部部署資源](contoso-migration-assessment.md)  | 顯示 Contoso 如何評估在 VMware 上執行的內部部署兩層式 SmartHotel360 應用程式。 Contoso 利用 [Azure Migrate](migrate-overview.md) 服務來評估應用程式 VM，並利用 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) 來評估應用程式 SQL Server 資料庫。 | 可用
+[文章 4：在 Azure VM 和 SQL 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | 說明 Contoso 如何為 SmartHotel360 應用程式執行隨即移轉至 Azure 的作業。 Contoso 使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式前端 VM，並使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 SQL 受控執行個體。 | 可用
+[文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | 說明 Contoso 如何單純憑藉 Site Recovery 來移轉 SmartHotel360 應用程式 VM。 | 可用
+[文章 6：將應用程式重新裝載至 Azure VM 和 SQL Server AlwaysOn 可用性群組](contoso-migration-rehost-vm-sql-ag.md) | 說明 Contoso 如何移轉 SmartHotel360 應用程式。 Contoso 使用 Site Recovery 來移轉應用程式 VM，並使用資料庫移轉服務，將應用程式資料庫移轉至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 可用
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | 說明 Contoso 如何使用 Site Recovery 執行將 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業 | 可用
 [文章 8：在 Azure VM 和 Azure MySQL Server 上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | 說明 Contoso 如何使用 Site Recovery 將 Linux osTicket 應用程式移轉至 Azure VM，並使用 MySQL Workbench 將應用程式資料庫移轉至 Azure MySQL Server 執行個體。 | 可用
-[文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | 說明 Contoso 如何將 SmartHotel 應用程式移轉至 Azure Web 應用程式，以及如何將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
+[文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | 說明 Contoso 如何將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及如何將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
 [文章 10：將 Linux 應用程式重構到 Azure Web Apps 和 Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | 示範 Contoso 如何將 Linux osTicket 應用程式遷移至多個網站中的 Azure Web Apps (與 GitHub 整合以達到持續傳遞)。 他們會將應用程式資料庫遷移至 Azure MySQL 執行個體。 | 可用
 [文章 11：在 VSTS 上重構 TFS](contoso-migration-tfs-vsts.md) | 示範 Contoso 如何藉由將內部部署 Team Foundation Server (TFS) 部署遷移至 Azure 中的 Visual Studio Team Services (VSTS) 來對其進行遷移。 | 可用
-[文章 12：在 Azure 容器和 SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | 示範 Contoso 如何將其 SmartHotel 應用程式遷移和重新架構至 Azure。 他們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
-文章 13：在 Azure 中重建應用程式 | 示範 Contoso 如何使用各種 Azure 功能和服務 (包括 App Services、Azure Kubernetes、Azure Functions、認知服務及 Cosmos DB) 重建其 SmartHotel 應用程式。 | 本文。
+[文章 12：在 Azure 容器和 SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | 說明 Contoso 如何將其 SmartHotel360 應用程式移轉和重新建構至 Azure。 他們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
+文章 13：在 Azure 中重建應用程式 | 說明 Contoso 如何使用各種 Azure 功能和服務 (包括應用程式服務、Azure Kubernetes、Azure Functions、認知服務及 Cosmos DB) 重建其 SmartHotel360 應用程式。 | 本文。
 
-在本文中，Contoso 會遷移兩層式 Windows。 .NET SmartHotel 應用程式移轉至 Azure。 如果您想使用此應用程式，您可以從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載其開放原始碼。
+在本文中，Contoso 會遷移兩層式 Windows。 NET SmartHotel360 應用程式 (執行於 VMware VM)，移轉至 Azure。 如果您想使用此應用程式，您可以從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載其開放原始碼。
 
 ## <a name="business-drivers"></a>商業動機
 
@@ -61,7 +61,7 @@ Contoso 雲端小組已針對此次移轉擬定好各項應用程式需求。 �
 
 ### <a name="current-app"></a>目前的應用程式
 
-- SmartHotel 內部部署應用程式會分層至兩個 VM (WEBVM 和 SQLVM)。
+- SmartHotel360 內部部署應用程式會分層至兩個 VM (WEBVM 和 SQLVM)。
 - 這些 VM 位於 VMware ESXi 主機 **contosohost1.contoso.com** (6.5 版)
 - VMware 環境是由 VM 上執行的 vCenter Server 6.5 (**vcenter.contoso.com**) 進行管理。
 - Contoso 有內部部署資料中心 (contoso-datacenter) 以及內部部署網域控制站 (**contosodc1**)。
@@ -132,7 +132,7 @@ Contoso 會透過比較一份優缺點清單，來評估其建議設計。
 > * **步驟 3：部署後端微服務**：他們會部署基礎結構的其餘部分，以供後端微服務運用。
 > * **步驟 4：部署前端基礎結構**：他們會部署前端基礎結構，包括寵物電話的 Blob 儲存體、Cosmos DB 和視覺 API。
 > * **步驟 5：遷移後端**：他們會部署微服務並在 AKS 上執行，以遷移後端。
-> * **步驟 6：發佈前端**：他們會將 SmartHotel 應用程式發佈至 Azure App Service 以及寵物服務所會呼叫的函式應用程式。
+> * **步驟 6：發佈前端**：他們會將 SmartHotel360 應用程式發佈至 Azure App Service 以及寵物服務所會呼叫的函式應用程式。
 
 
 
@@ -219,7 +219,7 @@ Contoso 會建立 VSTS 專案，並設定 CI 組建以建立容器，再將它�
 
     ![VSTS](./media/contoso-migration-rebuild/vsts2.png)
     
-4. 在 [建置和發行] 中，他們會使用 VSTS Git 作為來源從匯入的 **smarthotel** 存放庫建立新的定義。 
+4. 在 [建置和發行] 中，他們會使用 VSTS Git 作為來源從匯入的存放庫建立新的定義。 
 
     ![VSTS](./media/contoso-migration-rebuild/vsts3.png)
 
@@ -381,7 +381,7 @@ Contoso 會佈建電腦視覺 API。 函式會呼叫此 API 來評估使用者�
 
 ## <a name="step-6-publish-the-frontend"></a>步驟 6：發佈前端
 
-在最後一個步驟中，Contoso 會將 SmartHotel 應用程式發佈至 Azure App Service，以及寵物服務所呼叫的函式應用程式中。
+在最後一個步驟中，Contoso 會將 SmartHotel360 應用程式發佈至 Azure App Service，以及寵物服務所呼叫的函式應用程式中。
 
 本節中的指示會使用 [SmartHotel-public-web 存放庫。](https://github.com/Microsoft/SmartHotel360-public-web) 存放庫。
 
@@ -510,7 +510,7 @@ Contoso 會佈建電腦視覺 API。 函式會呼叫此 API 來評估使用者�
 
 ## <a name="conclusion"></a>結論
 
-在本文中，Contoso 在 Azure 重建 SmartHotel 應用程式。 他們已在 Azure App Services Web 應用程式中重建內部部署應用程式的前端 VM。 他們已使用 Azure Kubernetes Service (AKS) 所管理容器中部署的微服務來建置應用程式後端。 他們已使用寵物相片應用程式增強應用程式的功能。
+在本文中，Contoso 在 Azure 中重建了 SmartHotel360 應用程式。 他們已在 Azure App Services Web 應用程式中重建內部部署應用程式的前端 VM。 他們已使用 Azure Kubernetes Service (AKS) 所管理容器中部署的微服務來建置應用程式後端。 他們已使用寵物相片應用程式增強應用程式的功能。
 
 
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: a8d9704c48801b98800abb71769ba0954e727848
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190451"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702590"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -28,7 +28,7 @@ Azure Cosmos DB DocumentDB API 或 SQL (DocumentDB) API 現在也稱為 Azure Co
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Azure DocumentDB 服務有何改變？
 
-Azure DocumentDB 服務現在是 Azure Cosmos DB 服務的一部分，且本身以 SQL API 形式呈現。 針對 Azure DocumentDB 所建置的應用程式可在不變更 Azure Cosmos DB SQL API 的情況下執行。 此外，Azure Cosmos DB 支援圖形 API、資料表 API、MongoDB API 和 Cassandra API (預覽)。
+Azure DocumentDB 服務現在是 Azure Cosmos DB 服務的一部分，且本身以 SQL API 形式呈現。 針對 Azure DocumentDB 所建置的應用程式可在不變更 Azure Cosmos DB SQL API 的情況下執行。 此外，Azure Cosmos DB 支援 Gremlin API、資料表 API、MongoDB API 和 Cassandra API (預覽)。
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Azure Cosmos DB 有哪些一般使用案例？
 對於新的 Web、行動裝置、遊戲和 IoT 應用程式，若其中自動調整規模、可預測的效能、毫秒回應時間的快速排序，以及查詢無結構描述之資料的能力都很重要，則 Azure Cosmos DB 是個不錯的選擇。 Azure Cosmos DB 適合用來進行快速開發，且支援應用程式資料模型的持續反覆運算。 管理使用者產生之內容和資料的應用程式，就是 [Azure Cosmos DB 的常見使用案例](use-cases.md)。 
@@ -36,11 +36,11 @@ Azure DocumentDB 服務現在是 Azure Cosmos DB 服務的一部分，且本身�
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Azure Cosmos DB 如何提供可預測的效能？
 [要求單位](request-units.md) (RU) 是 Azure Cosmos DB 的輸送量計算單位。 1 RU 的輸送量會對應至 1KB 文件的 GET 輸送量。 根據完成作業所需的輸送量，Azure Cosmos DB 中的每個作業 (包括讀取、寫入、SQL 查詢和預存程序執行) 具有決定性的 RU 值。 您可以就單一 RU 計量來思考，而不是思考 CPU、IO 和記憶體以及它們分別如何影響您的應用程式輸送量。
 
-您可以按照每秒輸送量 RU 的佈建輸送量保留每個 Azure Cosmos DB 容器。 對於任何規模的應用程式，您可以將個別要求設為基準以測量其 RU 值，以及佈建容器來處理所有要求的要求單位總數。 您也可以隨著應用程式發展需求，相應增加或減少容器的輸送量。 如需有關要求單位的詳細資訊，以及幫助您判斷容器需求的協助，請參閱[估計輸送量需求](request-units.md#estimating-throughput-needs)並嘗試使用[輸送量計算機 (英文)](https://www.documentdb.com/capacityplanner)。 這裡的「容器」一詞指的是 SQL API 集合、圖形 API 圖形、MongoDB API 集合及資料表 API 資料表。 
+您可以按照每秒輸送量 RU 的佈建輸送量保留每個 Azure Cosmos DB 容器。 對於任何規模的應用程式，您可以將個別要求設為基準以測量其 RU 值，以及佈建容器來處理所有要求的要求單位總數。 您也可以隨著應用程式發展需求，相應增加或減少容器的輸送量。 如需有關要求單位的詳細資訊，以及幫助您判斷容器需求的協助，請參閱[估計輸送量需求](request-units.md#estimating-throughput-needs)並嘗試使用[輸送量計算機 (英文)](https://www.documentdb.com/capacityplanner)。 這裡的「容器」一詞指的是 SQL API 集合、Gremlin API 圖形、MongoDB API 集合及資料表 API 資料表。 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB 如何支援各種資料模型，例如索引鍵/值、單欄式資料、文件和圖形？
 
-索引鍵/值、單欄式資料、文件和圖形都是原生支援的模型，因為 Azure Cosmos DB 內建 ARS (原子、記錄、序列) 設計。 原子、記錄、序列可以輕易地對應並且投射至各種資料模型。 目前已有適用於各種模型子集合的 API (SQL、MongoDB、資料表、圖形 API)，未來會有更多用於其他特定資料模型的 API。
+索引鍵/值、單欄式資料、文件和圖形都是原生支援的模型，因為 Azure Cosmos DB 內建 ARS (原子、記錄、序列) 設計。 原子、記錄、序列可以輕易地對應並且投射至各種資料模型。 目前已有適用於各種模型子集合的 API (SQL、MongoDB、資料表、Gremlin API)，未來會有更多用於其他特定資料模型的 API。
 
 Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌之資料的索引，且不需要查詢任何結構描述或開發者的次要索引。 引擎依賴一組邏輯索引配置 (反向式、單欄式、樹狀目錄)，可將儲存配從索引和查詢的處理子系統分離。 Cosmos DB 也可以擴充支援一些有線網路通訊協定和 API，並將它們有效地轉譯成核心資料模型 (1) 和邏輯索引配置，(2) 造就其原生支援多個資料模型的獨特能力。
 
@@ -57,7 +57,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 是，這兩種模式一律會完整加密。 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Azure Cosmos DB 的費用是多少？
-如需詳細資料，請參閱 [Azure Cosmos DB 定價詳細資料](https://azure.microsoft.com/pricing/details/cosmos-db/)頁面。 Azure Cosmos DB 使用量費用取決於已佈建的容器數目、容器在線上的時數，以及每個容器的佈建輸送量。 這裡的「容器」一詞指的是 SQL API 集合、圖形 API 圖形、MongoDB API 集合及資料表 API 資料表。 
+如需詳細資料，請參閱 [Azure Cosmos DB 定價詳細資料](https://azure.microsoft.com/pricing/details/cosmos-db/)頁面。 Azure Cosmos DB 使用量費用取決於已佈建的容器數目、容器在線上的時數，以及每個容器的佈建輸送量。 這裡的「容器」一詞指的是 SQL API 集合、Gremlin API (Graph)、MongoDB API 集合及資料表 API 資料表。 
 
 ### <a name="is-a-free-account-available"></a>有免費的帳戶嗎？
 是，您可以免費註冊限時的帳戶，沒有承諾用量。 若要註冊，請造訪[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，或在[試用 Azure Cosmos DB 常見問題集](#try-cosmos-db)中深入了解。
@@ -87,7 +87,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 
 下列條件適用於試用 Azure Cosmos DB 訂用帳戶：
 
-* SQL、Gremlin (圖形 API) 和資料表帳戶的每個訂用帳戶一個容器。
+* SQL、Gremlin API 和資料表帳戶的每個訂用帳戶一個容器。
 * MongoDB 帳戶的每個訂用帳戶最多 3 個集合。
 * 10 GB 儲存體容量。
 * 全域複寫適用於下列 [Azure 區域](https://azure.microsoft.com/regions/)：美國中部、北歐和東南亞
@@ -97,7 +97,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 
 ## <a name="set-up-azure-cosmos-db"></a>設定 Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>如何註冊 Azure Cosmos DB？
-Azure 入口網站中已提供 Azure Cosmos DB。 首先，請註冊 Azure 訂用帳戶。 註冊後，您就可以將 SQL API、圖形 API、資料表 API、MongoDB API 或 Cassandra API 帳戶新增至您的 Azure 訂用帳戶。
+Azure 入口網站中已提供 Azure Cosmos DB。 首先，請註冊 Azure 訂用帳戶。 註冊後，您就可以將 SQL API、Gremlin API、資料表 API、MongoDB API 或 Cassandra API 帳戶新增至您的 Azure 訂用帳戶。
 
 ### <a name="what-is-a-master-key"></a>什麼是主要金鑰？
 主要金鑰是可存取帳戶的所有資源的安全性權杖。 擁有此金鑰的人，對資料庫帳戶中的所有資源具有讀取和寫入存取權。 分配主要金鑰時，務必謹慎。 [Azure 入口網站][azure-portal]的 [金鑰] 刀鋒視窗提供主要金鑰和次要金鑰。 如需金鑰的詳細資訊，請參閱 [檢視、複製和重新產生存取金鑰](manage-account.md#keys)。
@@ -440,15 +440,15 @@ Azure 資料表儲存體和 Azure Cosmos DB 資料表 API 使用相同的 SDK，
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>當我嘗試在資料表 API 中逐一建立許多資料表時，為什麼要進行節流？
 Azure Cosmos DB 是 SLA 型系統，可提供延遲、輸送量、可用性及一致性的保證。 由於它是佈建的系統，因此會保留資源以保證這些需求。 系統會偵測到快速建立的資料表，並加以節流。 我們建議您查看資料表的建立速率，並降低為低於每分鐘 5 個。 請記住，資料表 API 是佈建的系統。 只要您一佈建，就必須開始支付費用。 
 
-## <a name="graph-api"></a>圖形 API
-### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>如何將圖形 API 的功能套用到 Azure Cosmos DB？
-您可以使用擴充程式庫套用圖形 API 的功能。 這個程式庫稱為 Microsoft Azure Graphs，並可在 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs) \(英文\) 上取得。 
+## <a name="gremlin-api"></a>Gremlin API
+### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>如何將 Gremlin API 的功能套用到 Azure Cosmos DB？
+您可以使用擴充程式庫套用 Gremlin API 的功能。 這個程式庫稱為 Microsoft Azure Graphs，並可在 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs) \(英文\) 上取得。 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>看來你們支援 Gremlin 圖形周遊語言。 您們是否計劃加入更多形式的查詢？
 是，我們計劃在未來加入其他查詢機制。 
 
-### <a name="how-can-i-use-the-new-graph-api-offering"></a>如何使用新的圖形 API 供應項目？ 
-若要開始使用，請完成[圖形 API](../cosmos-db/create-graph-dotnet.md) 快速入門文章。
+### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>如何使用新的 Gremlin API 供應項目？ 
+若要開始使用，請完成 [Gremlin API](../cosmos-db/create-graph-dotnet.md) 快速入門文章。
 
 
 ## <a id="cassandra"></a> Cassandra API

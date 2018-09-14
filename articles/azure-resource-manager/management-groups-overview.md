@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2018
+ms.date: 08/31/2018
 ms.author: rithorn
-ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: b95dba65a7ab89306844e48641aba584e3d6b175
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480317"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371511"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源
 
@@ -38,7 +38,7 @@ ms.locfileid: "39480317"
 
 ### <a name="important-facts-about-management-groups"></a>關於管理群組的重要事實
 
-- 單一目錄中可支援 10,000 個管理群組。
+- 單一目錄中可支援 10,000 個管理群組 (Azure Active Directory 租用戶)。
 - 管理群組樹狀結構最多可支援六個層級的深度。
   - 此限制不包含根層級或訂用帳戶層級。
 - 每個管理群組和訂用帳戶只能支援一個父系。
