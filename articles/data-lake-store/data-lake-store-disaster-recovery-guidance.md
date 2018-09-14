@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 7401355c7920729933d0fcc3dd4cc8ce610c399e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b51f0c1e0c6ef713bf8d3ff0a124300f446a9373
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199070"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306803"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Data Lake Store 中資料的災害復原指引
 
-Azure Data Lake Store 提供本機備援儲存體 (LRS)。 因此，透過自動化複本，Azure Data Lake Store 帳戶中的資料可彈性應對區域內發生的暫時性硬體故障。 這可確保持久性和高可用性，符合 Azure Data Lake Store 的 SLA。 本文提供指引，說明如何進一步保護資料，使其不受罕見的全區停電或意外刪除事件影響。
+Azure Data Lake Store 提供本機備援儲存體 (LRS)。 因此，透過自動化複本，Azure Data Lake Store 帳戶中的資料可彈性應對資料中心內發生的暫時性硬體故障。 這可確保持久性和高可用性，符合 Azure Data Lake Store 的 SLA。 本文提供指引，說明如何進一步保護資料，使其不受罕見的全區停電或意外刪除事件影響。
 
 ## <a name="disaster-recovery-guidance"></a>災害復原指引
 每位客戶備妥自己的災害復原計畫是相當重要的。 請參閱本文的資訊來擬定您的災害復原計劃。 這裡有一些資源可協助您建立自己的計畫。

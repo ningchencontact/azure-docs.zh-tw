@@ -3,19 +3,19 @@ title: 將您的資料移轉至 SQL 資料倉儲 | Microsoft Docs
 description: 將您的資料移轉至 Azure SQL 資料倉儲來開發解決方案的秘訣。
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: ca467ae5fbe784399e4e046c47c920ff7dec638e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fc7bf4eaeb073b0337be68632e5057bfce96e06a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795998"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43311189"
 ---
 # <a name="migrate-your-data"></a>移轉資料
 資料可以藉由各種工具，從不同的來源移到您的「SQL 資料倉儲」中。  ADF 複製、SSIS 和 bcp 都可用來達成此目標。 不過，隨著資料量增加，您應該考慮將資料移轉程序細分成步驟。 這樣讓您有機會來最佳化每個步驟的效能和彈性，以確保順暢移轉資料。
@@ -33,7 +33,7 @@ PolyBase 還提供高效能選項來載入資料。 不過，這表示要使用�
 > 
 > 
 
-下列文章中有一些很好的 [ADF 範例][ADF samples]。
+請閱讀下文，內有一些很好的 [ADF 範例][ADF 範例]。
 
 ## <a name="integration-services"></a>Integration Services
 Integration Services (SSIS) 是一個功能強大且靈活的擷取轉換和載入 (ETL) 工具，支援複雜的工作流程、資料轉換，以及數個資料載入選項。 使用 SSIS 來單純將資料傳輸至 Azure，或做為更廣泛移轉的一部分。
@@ -182,9 +182,8 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。 您可以�
 
 <!--Article references-->
 [AZCopy]: ../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/v1/data-factory-data-movement-activities.md 
-[ADF samples]: ../data-factory/v1/data-factory-samples.md
-[ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
+[ADF Copy]: ../data-factory/copy-activity-overview.md 
+[ADF Copy examples]: ../data-factory/quickstart-create-data-factory-dot-net.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [移轉您的結構描述]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md

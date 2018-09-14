@@ -1,19 +1,18 @@
 ---
 title: 針對連結至 Azure VM 的磁碟進行疑難排解 | Microsoft Docs
-description: Azure Blob 儲存體依設計可用來儲存大量的非結構化物件資料，例如文字或二進位資料。 您的應用程式可從 PowerShell 或 CLI Azure、透過 Azure 儲存體用戶端程式庫中的程式碼，或透過 REST 來存取 Blob 儲存體中的物件。
+description: 提供針對 Azure 虛擬機器虛擬硬碟 (VHD) 的資源進行疑難排解的連結。
 services: storage
 author: genlin
 ms.service: storage
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: genli
-ms.component: disks
-ms.openlocfilehash: 0dbd89c28d18d64908d92cd38d8bd1cf3138fd5c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 81db3a819c28aab8f4b644a940eeb5e6c5ecf3d6
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397962"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307167"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>針對連結至 Azure VM 的磁碟進行疑難排解 
 

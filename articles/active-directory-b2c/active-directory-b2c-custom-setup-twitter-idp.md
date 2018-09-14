@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 28679ef07c2625908f7b08f808ff49c48ddb625b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440941"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339863"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 Twitter 作為 OAuth1 識別提供者
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 本文將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)，讓 Twitter 帳戶的使用者登入。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
 ## <a name="step-1-create-a-twitter-account-application"></a>步驟 1：建立 Twitter 帳戶應用程式
@@ -36,9 +36,9 @@ ms.locfileid: "37440941"
  
     a. 針對新的應用程式輸入 [名稱]和 [說明]。 
 
-    b. 在 [Website] \(網站\) 方塊中，貼上 **https://login.microsoftonline.com**。 
+    b. 在 [網站] 方塊中，貼上 **https://{tenant}.b2clogin.com**。 其中 **{tenant}** 是您的租用戶名稱 (例如 https://contosob2c.b2clogin.com))。
 
-    c. 4. 在 [回呼 URL] 中輸入 `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`。 務必要使用租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**，並使用原則識別碼 (例如 b2c_1_policy) 來取代 **{policyId}**。  **回呼 URL 必須是全部小寫。** 您應該為所有使用 Twitter 登入的原則新增回呼 URL。 如果要在應用程式中使用，請務必使用 `b2clogin.com` 而不是 ` login.microsoftonline.com`。
+    c. 4. 在 [回呼 URL] 中輸入 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp`。 務必使用租用戶名稱 (例如 contosob2c) 來取代 **{tenant}**，並使用原則識別碼 (例如 b2c_1_policy) 來取代 **{policyId}**。  **回呼 URL 必須是全部小寫。** 您應該為所有使用 Twitter 登入的原則新增回呼 URL。 如果要在應用程式中使用，請務必使用 `b2clogin.com` 而不是 ` login.microsoftonline.com`。
 
     d. 在頁面底部，請閱讀並接受條款，然後選取 [建立 Twitter 應用程式] 。
 

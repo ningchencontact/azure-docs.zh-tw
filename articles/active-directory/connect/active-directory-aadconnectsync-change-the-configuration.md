@@ -12,18 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bad1cbe0b142e146ada28f2af5d152973100e919
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4795e21c4279b6d313ba56296bafc49daf7bbb48
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595099"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288167"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態
 本文的目的在於逐步解說如何對 Azure Active Directory (Azure AD) Connect 同步處理中的預設組態進行變更。其中提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行簡單的變更。
+
+> [!WARNING]
+> 若要您變更預設的同步處理規則，則下一次更新 Azure AD Connect 時，會覆寫這些變更，導致非預期且可能不想要的同步處理結果。
+>
+> 現成可用的同步處理規則具有憑證指紋。 如果您變更這些規則，將不再符合憑證指紋。 未來當您嘗試套用新版的 Azure AD Connect 時可能會遇到問題。 僅利用本文所述的方式進行變更。
 
 ## <a name="synchronization-rules-editor"></a>同步處理規則編輯器
 同步處理規則編輯器用於查看和變更預設組態。 您可以在 [開始] 功能表的 [Azure AD Connect] 群組之下找到它。  
@@ -262,7 +267,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | Name | 提供名稱 | 例如，*In from AD – User UserType* |
+    | 名稱 | 提供名稱 | 例如，*In from AD – User UserType* |
     | 說明 | 提供描述 |  |
     | 連線系統 | 選取內部部署 AD 連接器 |  |
     | 連線系統物件類型 | **使用者** |  |
@@ -304,7 +309,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | ----- | ------ | --- |
-    | Name | 提供名稱 | 例如，*Out to AAD – User UserType* |
+    | 名稱 | 提供名稱 | 例如，*Out to AAD – User UserType* |
     | 說明 | 提供描述 ||
     | 連線系統 | 選取 AAD 連接器 ||
     | 連線系統物件類型 | **使用者** ||

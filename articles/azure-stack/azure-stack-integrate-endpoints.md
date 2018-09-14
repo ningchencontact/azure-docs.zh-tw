@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: c5d0bc6a0e7e885f61ba28be0575697b03fece09
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917137"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307603"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
 Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VIP 是從公用 IP 位址集區配置的。 針對每個 VIP，都會藉由軟體定義網路層中的存取控制清單 (ACL) 來提供保護。 ACL 也用於各個實體交換器 (TOR 和 BMC) 來進一步強化解決方案。 系統會針對在部署階段所指定外部 DNS 區域中的每個端點，都建立一個 DNS 項目。
@@ -76,7 +76,8 @@ Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上�
 |DNS|     |TCP<br>UDP|53|
 |     |     |     |     |
 
-
+> [!Note]  
+> 輸出 URL 會使用 Azure 流量管理員進行負載平衡，以根據地理位置提供可能的最佳連線能力。 利用負載平衡的 URL，Microsoft 可以更新和變更後端端點，但不會影響客戶。 Microsoft 不會共用已負載平衡 URL 的 IP 位址清單。 您應該使用可支援依照 URL (而非依照 IP) 篩選的裝置。
 
 ## <a name="next-steps"></a>後續步驟
 

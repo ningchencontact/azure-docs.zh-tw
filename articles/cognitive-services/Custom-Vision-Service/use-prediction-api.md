@@ -9,12 +9,12 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 54f9d9fec1f40c167341dec6a8699b6a558419da
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7f9b90db06811e16cd0cd6ad2b32a27912cfee5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369123"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341788"
 ---
 # <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>使用預測端點以程式設計方式利用自訂視覺服務分類器來測試影像
 
@@ -25,7 +25,7 @@ ms.locfileid: "35369123"
 
 ## <a name="get-the-url-and-prediction-key"></a>取得 URL 和預測金鑰
 
-從[自訂視覺網頁](https://customvision.ai) \(英文\) 選取您的專案，然後選取 [效能] 索引標籤。若要顯示使用預測 API 的相關資訊，請選取 [預測 URL]。 複製下列資訊以便在應用程式中使用：
+從[自訂視覺網頁](https://customvision.ai) \(英文\) 選取您的專案，然後選取 [效能] 索引標籤。若要顯示使用預測 API 的相關資訊 (包括 __Prediction-key__)，請選取 [預測 URL]。 對於連結至 Azure 資源的專案，在 [Azure 入口網站](https://portal.azure.com)頁面中 (相關聯 Azure 資源的 [金鑰] 下) 也可以找到您的 __Prediction-key__。 複製下列資訊以便在應用程式中使用：
 
 * 使用__影像檔__的 __URL__。
 * __預測金鑰__值。

@@ -12,31 +12,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/30/2018
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: ebaa679c43bd577d4f37feb7f3a025086490e25f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8d8067fcf30b16dd3dbc7f6cf50129d837aa3a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785747"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306851"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>更換儲存體存取金鑰之後更新媒體服務
 
-在建立新的 Azure 媒體服務 (AMS) 帳戶時，您需要選取用來儲存媒體內容的 Azure 儲存體帳戶。 您可以在媒體服務帳戶新增一個以上的儲存體帳戶。 本主題說明如何更換儲存體金鑰。 其中也示範如何在媒體帳戶新增儲存體帳戶。 
+在建立新的 Azure 媒體服務 (AMS) 帳戶時，您需要選取用來儲存媒體內容的 Azure 儲存體帳戶。 您可以在媒體服務帳戶新增一個以上的儲存體帳戶。 本文說明如何更換儲存體金鑰。 其中也示範如何在媒體帳戶新增儲存體帳戶。 
 
-若要執行本主題中描述的動作，您應該使用 [ARM API](https://docs.microsoft.com/rest/api/media/mediaservice) 和 [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media)。  如需詳細資訊，請參閱[如何使用 PowerShell 和資源管理員來管理 Azure 資源](../../azure-resource-manager/powershell-azure-resource-manager.md)。
+若要執行本文中描述的動作，您應該使用 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 和 [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media)。  如需詳細資訊，請參閱[如何使用 PowerShell 和 Resource Manager 來管理 Azure 資源](../../azure-resource-manager/powershell-azure-resource-manager.md)。
 
 ## <a name="overview"></a>概觀
 
 建立新的儲存體帳戶時，Azure 會產生兩個 512 位元儲存體存取金鑰，用來驗證儲存體帳戶的存取權。 為了讓儲存體連線更加安全，建議您定期重新產生並更換儲存體存取金鑰。 您會收到兩個存取金鑰(主要和次要)，這樣當您重新產生其他存取金鑰時，您就可以使用其中一個存取金鑰保持儲存體連線不中斷。 此程序也稱為 「 更換存取金鑰 」。
 
-媒體服務取決於所提供的儲存體金鑰。 具體而言，定位器是要串流傳送或下載您的資產，這會根據指定的儲存體存取金鑰而定。 建立 AMS 帳戶時，它預設會相依於主要儲存體存取金鑰，但身為使用者，您可以更新 AMS 所擁有的儲存體金鑰。 您必須確定會讓媒體服務知道本主題中所述之下列步驟所使用的金鑰。  
+媒體服務取決於所提供的儲存體金鑰。 具體而言，定位器是要串流傳送或下載您的資產，這會根據指定的儲存體存取金鑰而定。 建立 AMS 帳戶時，它預設會相依於主要儲存體存取金鑰，但身為使用者，您可以更新 AMS 所擁有的儲存體金鑰。 您必須確定會讓媒體服務知道下列本文所述步驟所要使用的金鑰。  
 
 >[!NOTE]
 > 如果您有多個儲存體帳戶，請針對每一個儲存體帳戶執行此程序。 更換儲存體金鑰無固定順序。 您可以先更換次要金鑰再更換主要金鑰，反之亦然。
 >
-> 在實際商用的帳戶上執行本文章描述的步驟之前，請事先在測試用帳戶上進行測試。
+> 在生產帳戶上執行本文描述的步驟之前，請事先在測試用帳戶上進行測試。
 >
 
 ## <a name="steps-to-rotate-storage-keys"></a>更換儲存體金鑰的步驟 
@@ -68,7 +68,7 @@ ms.locfileid: "33785747"
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>將儲存體帳戶新增到 AMS 帳戶的步驟
 
-以下主題說明如何將儲存體帳戶新增到 AMS 帳戶：[將多個儲存體帳戶附加到媒體服務帳戶](meda-services-managing-multiple-storage-accounts.md)。
+下列文章說明如何將儲存體帳戶新增到 AMS 帳戶：[將多個儲存體帳戶附加到媒體服務帳戶](meda-services-managing-multiple-storage-accounts.md)。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

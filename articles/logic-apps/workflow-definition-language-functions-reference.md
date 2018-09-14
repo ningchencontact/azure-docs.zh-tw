@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105634"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307108"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的函式參考
 
@@ -80,7 +80,7 @@ ms.locfileid: "43105634"
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | 檢查字串是否以指定的子字串結束。 | 
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | 以字串形式產生全域唯一識別碼 (GUID)。 | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | 傳回子字串的起始位置。 | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 傳回子字串的結束位置。 | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 傳回子字串最後一次出現的起始位置。 | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 使用指定字串取代子字串，並傳回已更新的字串。 | 
 | [分割](../logic-apps/workflow-definition-language-functions-reference.md#split) | 傳回具有字串中所有字元的陣列，並以特定分隔符號字元將每個字元隔開。 | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 檢查字串是否以特定的子字串開始。 | 
@@ -2123,7 +2123,7 @@ indexOf('<text>', '<searchText>')
 
 | 傳回值 | 類型 | 說明 | 
 | ------------ | ---- | ----------- | 
-| <*index-value*>| 整數  | 所指定子字串的起始位置或索引值。 <p>如果找不到該字串，傳回數字 -1。 </br>如果字串為空白，傳回數字 0。 | 
+| <*index-value*>| 整數  | 所指定子字串的起始位置或索引值。 <p>如果找不到該字串，傳回數字 -1。 | 
 |||| 
 
 *範例* 
@@ -2387,7 +2387,7 @@ last([0, 1, 2, 3])
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-傳回子字串的結束位置或索引值。 此函式不區分大小寫，而且索引以數字 0 開頭。
+傳回子字串最後一次出現的起始位置或索引值。 此函式不區分大小寫，而且索引以數字 0 開頭。
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2401,18 +2401,18 @@ lastIndexOf('<text>', '<searchText>')
 
 | 傳回值 | 類型 | 說明 | 
 | ------------ | ---- | ----------- | 
-| <*ending-index-value*> | 整數  | 所指定子字串的結束位置或索引值。 <p>如果找不到該字串，傳回數字 -1。 </br>如果字串為空白，傳回數字 0。 | 
+| <*ending-index-value*> | 整數  | 指定的子字串最後一次出現的起始位置或索引值。 <p>如果找不到該字串，傳回數字 -1。 | 
 |||| 
 
 *範例* 
 
-此範例會在 "hello world" 字串中，尋找 "world" 子字串的結束索引值：
+此範例會在 "hello world" 字串中，尋找 "world" 子字串最後一次出現的起始索引值：
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-並傳回此結果：`10`
+並傳回此結果：`6`
 
 <a name="length"></a>
 

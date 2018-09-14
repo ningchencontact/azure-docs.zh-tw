@@ -5,35 +5,40 @@ services: sql-database
 author: GithubMirek
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 9a0cb3d69cd161a409d0a035be783bb255a83036
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+ms.openlocfilehash: a648071d4d98f500e70557b330d5c79dba747a1f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644360"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43346746"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>搭配 SQL Database、受控執行個體或 SQL 資料倉儲來設定及管理 Azure Active Directory 驗證
 
-本文說明如何建立和填入 Azure AD，以及搭配 Azure SQL Database 和 SQL 資料倉儲使用 Azure AD。 如需概觀，請參閱 [Azure Active Directory 驗證](sql-database-aad-authentication.md)。
+本文說明如何建立和填入 Azure AD，以及搭配 Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)使用 Azure AD。 如需概觀，請參閱 [Azure Active Directory 驗證](sql-database-aad-authentication.md)。
 
->  [!NOTE]  
+> [!NOTE]
+> 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
+
+>  [!IMPORTANT]  
 >  使用 Azure Active Directory 帳戶不支援連線到 Azure VM 上執行的 SQL Server。 請改用 Active Directory 網域帳戶。
 
 ## <a name="create-and-populate-an-azure-ad"></a>建立和填入 Azure AD
 建立 Azure AD 並利用使用者和群組填入。 Azure AD 可以是初始 Azure AD 受控網域。 Azure AD 也可以是與 Azure AD 同盟的內部部署 Active Directory 網域服務。
 
-如需詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](../active-directory/active-directory-aadconnect.md)、[將您自己的網域名稱新增至 Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)、[Microsoft Azure 現在支援與 Windows Server Active Directory 同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理您的 Azure AD 目錄](../active-directory/active-directory-administer.md)、[使用 Windows PowerShell 管理 Azure AD](/powershell/azure/overview?view=azureadps-2.0) 和[混合式身分識別所需的連接埠和通訊協定](..//active-directory/connect/active-directory-aadconnect-ports.md)。
+如需詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](../active-directory/active-directory-aadconnect.md)、[將您自己的網域名稱新增至 Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)、[Microsoft Azure 現在支援與 Windows Server Active Directory 同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理您的 Azure AD 目錄](../active-directory/fundamentals/active-directory-administer.md)、[使用 Windows PowerShell 管理 Azure AD](/powershell/azure/overview?view=azureadps-2.0) 和[混合式身分識別所需的連接埠和通訊協定](..//active-directory/connect/active-directory-aadconnect-ports.md)。
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>將 Azure 訂用帳戶關聯或新增至 Azure Active Directory
 
-1. 讓目錄成為裝載資料庫之 Azure 訂用帳戶信任的目錄，以將 Azure 訂用帳戶與 Azure Active Directory 建立關聯。 如需詳細資料，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 建立關聯](../active-directory/active-directory-how-subscriptions-associated-directory.md)。
+1. 讓目錄成為裝載資料庫之 Azure 訂用帳戶信任的目錄，以將 Azure 訂用帳戶與 Azure Active Directory 建立關聯。 如需詳細資料，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 建立關聯](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 2. 使用 Azure 入口網站中的目錄切換器，切換至與網域建立關聯的訂用帳戶。
 
-   **其他資訊：** 每個 Azure 訂用帳戶都會與 Azure AD 執行個體有信任關係。 這表示它信任該目錄來驗證使用者、服務和裝置。 多個訂用帳戶可以信任相同的目錄，但是一個訂用帳戶只能信任一個目錄。 這個訂用帳戶與目錄之間存在的信任關係不同於訂用帳戶與所有其他 Azure 資源 (網站、資料庫等) 之間的關係，後者比較像是訂用帳戶的子資源。 如果訂用帳戶已過期，則也會停止存取與該訂用帳戶相關聯的其他資源。 但目錄會保留在 Azure 中，而且您可以將其他訂用帳戶與該目錄產生關聯，並繼續管理目錄使用者。 如需有關資源的詳細資訊，請參閱 [了解 Azure 中的資源存取](../active-directory/active-directory-b2b-admin-add-users.md)。 若要深入了解此信任關聯性，請參閱[如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)。
+   **其他資訊：** 每個 Azure 訂用帳戶都會與 Azure AD 執行個體有信任關係。 這表示它信任該目錄來驗證使用者、服務和裝置。 多個訂用帳戶可以信任相同的目錄，但是一個訂用帳戶只能信任一個目錄。 這個訂用帳戶與目錄之間存在的信任關係不同於訂用帳戶與所有其他 Azure 資源 (網站、資料庫等) 之間的關係，後者比較像是訂用帳戶的子資源。 如果訂用帳戶已過期，則也會停止存取與該訂用帳戶相關聯的其他資源。 但目錄會保留在 Azure 中，而且您可以將其他訂用帳戶與該目錄產生關聯，並繼續管理目錄使用者。 如需有關資源的詳細資訊，請參閱 [了解 Azure 中的資源存取](../active-directory/active-directory-b2b-admin-add-users.md)。 若要深入了解此信任關聯性，請參閱[如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>建立 Azure SQL 伺服器的 Azure AD 系統管理員
 每個 Azure SQL 伺服器 (裝載 SQL Database 或「SQL 資料倉儲」) 一開始都只有一個伺服器系統管理員帳戶，也就是整個 Azure SQL 伺服器的系統管理員。 第二個 SQL Server 系統管理員必須建立，也就是 Azure AD 帳戶。 這個主體會在 master 資料庫中建立為自主資料庫使用者。 身為系統管理員，伺服器系統管理員帳戶是每個使用者資料庫中的 **db_owner** 角色成員，並且會進入每個使用者資料庫做為 **dbo** 使用者。 如需有關伺服器管理員帳戶的詳細資訊，請參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)。
@@ -348,7 +353,7 @@ connection.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-如需詳細資訊，請參閱 [SQL Server 安全性部落格](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/)。 如需新增憑證的詳細資訊，請參閱[開始在 Azure Active Directory 中使用憑證式驗證](../active-directory/active-directory-certificate-based-authentication-get-started.md)。
+如需詳細資訊，請參閱 [SQL Server 安全性部落格](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/)。 如需新增憑證的詳細資訊，請參閱[開始在 Azure Active Directory 中使用憑證式驗證](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)。
 
 ### <a name="sqlcmd"></a>sqlcmd
 

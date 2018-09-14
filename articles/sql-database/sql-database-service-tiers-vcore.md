@@ -6,21 +6,21 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/30/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124992"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307267"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>選擇虛擬核心服務層、計算、記憶體、儲存體和 IO 資源
 
 虛擬核心形式的採購模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 它也可讓您選擇硬體世代：
 - Gen 4 - 最多 24 個以 Intel E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 PP (實體核心)，每一核心 7 GB，連結的 SSD
-- Gen 5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，5.5。 每一核心 GB，快速 eNVM SSD
+- Gen 5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，5.1。 每一核心 GB，快速 eNVM SSD
 
 虛擬核心模型還可讓您使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 來節省成本。
 
@@ -34,7 +34,7 @@ ms.locfileid: "43124992"
 |---|---|---|
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|
 |計算|Gen4：1 到 24 個虛擬核心<br/>Gen5：1 到 80 個虛擬核心|Gen4：1 到 24 個虛擬核心<br/>Gen5：1 到 80 個虛擬核心|
-|記憶體|Gen4：每個核心 7 GB<br>Gen5：每個核心 5.5 GB | Gen4：每個核心 7 GB<br>Gen5：每個核心 5.5 GB |
+|記憶體|Gen4：每個核心 7 GB<br>Gen5：每個核心 5.1 GB | Gen4：每個核心 7 GB<br>Gen5：每個核心 5.1 GB |
 |儲存體|[進階遠端儲存體](../virtual-machines/windows/premium-storage.md)、<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |本機 SSD 儲存體、<br/>單一資料庫：5 GB – 1 TB<br/>受控執行個體：32 GB - 4 TB |
 |IO 輸送量 (大約)|單一資料庫：每個虛擬核心 500 IOPS，且 IOPS 上限為 7000</br>受控執行個體：取決於[檔案大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200000|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域備援 HA|

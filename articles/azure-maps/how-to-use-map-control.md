@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 228d2d3331b510a0f07dbd3ca278715466d747af
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 619dda44b5ad74ba1dcb62cfb3318687aa6ec4d5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988886"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340130"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>如何使用 Azure 地圖服務的地圖控制項
 地圖控制項用戶端 Javascript 程式庫可讓您將地圖和內嵌的 Azure 地圖服務功能轉譯到 Web 或行動裝置應用程式中。 
@@ -62,4 +62,4 @@ ms.locfileid: "38988886"
 本文說明如何使用 Azure 地圖服務金鑰建立基本地圖。 如需更多可新增至地圖的程式碼範例，請參閱下列文章： 
 
 * [建立地圖](map-create.md)
-* [新增圖釘](map-add-pin.md)
+* [選擇地圖樣式](choose-map-style.md)

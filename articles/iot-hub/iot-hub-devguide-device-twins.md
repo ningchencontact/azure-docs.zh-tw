@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186783"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288273"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解和使用 Azure IoT 中樞的裝置對應項
 
@@ -172,7 +172,7 @@ ms.locfileid: "39186783"
 
     - properties
 
-    | Name | 值 |
+    | 名稱 | 值 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  傳送通知的時間 |
@@ -254,7 +254,7 @@ ms.locfileid: "39186783"
     }
     ```
 
-* 所有字串值的最大長度為 4 KB。
+* 所有字串值的最大長度為 512 個位元組。
 
 ## <a name="device-twin-size"></a>裝置對應項大小
 「IoT 中樞」會對 `tags`、`properties/desired` 和 `properties/reported` 的個別總計值 (排除唯讀元素) 分別強制執行 8 KB 大小的限制。
@@ -354,6 +354,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 
 * [如何使用裝置對應項][lnk-twin-tutorial]
 * [如何使用裝置對應項屬性][lnk-twin-properties]
+* [使用適用於 VS Code 的 Azure IoT 工具組管理裝置][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -377,6 +378,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

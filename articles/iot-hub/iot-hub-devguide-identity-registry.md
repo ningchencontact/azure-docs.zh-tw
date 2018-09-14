@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 78956c8e9d9248708ec326fc07d46f48e51e0f83
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247640"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341255"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中樞的身分識別登錄
 
@@ -85,12 +85,12 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 
 ## <a name="device-heartbeat"></a>裝置活動訊號
 
-IoT 中樞身分識別登錄包含稱為 **connectionState** 的欄位。 請只在進行開發和偵錯時才使用 **connectionState**。 IoT 解決方案不應該在執行階段查詢欄位。 例如，請勿查詢 **connectionState** 欄位從而在傳送雲端到裝置訊息或 SMS 之前先確認裝置是否已連線。 我們建議您訂閱事件方格上的[**裝置中斷連線**事件](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types)來取得警示，並監視裝置連線狀態。 使用此[教學課程](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)可了解如何將 IoT 中樞的事件整合至 IoT 解決方案中。
+IoT 中樞身分識別登錄包含稱為 **connectionState** 的欄位。 請只在進行開發和偵錯時才使用 **connectionState**。 IoT 解決方案不應該在執行階段查詢欄位。 例如，請勿查詢 **connectionState** 欄位從而在傳送雲端到裝置訊息或 SMS 之前先確認裝置是否已連線。 我們建議您訂閱事件方格上的[**裝置中斷連線**事件][lnk-devguide-evgrid-evtype]來取得警示，並監視裝置連線狀態。 使用此[教學課程][lnk-howto-evgrid-connstate]可了解如何將 IoT 中樞的「裝置連線」和「裝置中斷連線」事件整合至 IoT 解決方案中。
 
 如果 IoT 解決方案需要知道裝置是否已連線，可實作「活動訊號模式」。
 在活動訊號模式中，裝置每隔固定時間就會至少傳送一次裝置到雲端的訊息 (例如，每小時至少一次)。 因此，即使裝置沒有任何要傳送的資料，它仍會傳送空的裝置到雲端的訊息 (通常具有可識別它是活動訊號的屬性)。 此解決方案會在服務端保有一份對應，其中有針對每個裝置收到的最後一次活動訊號。 此解決方案若未在預期時間內收到裝置傳來的活動訊號訊息，就會假設該裝置發生問題。
 
-更複雜的實作可以包含來自[作業監視][lnk-devguide-opmon]的資訊，以便識別嘗試連接或通訊但失敗的裝置。 當您實作活動訊號模式時，請務必檢查 [IoT 中樞配額與節流][lnk-quotas]。
+更複雜的實作可以包含來自 [Azure 監視器][lnk-AM]和 [Azure 資源健康狀態][lnk-ARH]的資訊，以便識別嘗試連線或通訊但失敗的裝置，請查看[使用診斷進行監視][lnk-devguide-mon]指南。 當您實作活動訊號模式時，請務必檢查 [IoT 中樞配額與節流][lnk-quotas]。
 
 > [!NOTE]
 > 如果 IoT 解決方案僅使用連線狀態來判斷是否要傳送雲端到裝置訊息，而且訊息未廣播到大量的裝置組合，請考慮使用較簡單的「短暫的到期時間」模式。 此模式所達到的效果與使用活動訊號模式來維護裝置連線狀態登錄相同，但更有效率。 如果您要求訊息收條，IoT 中樞會通知您哪些裝置能夠收到訊息，哪些裝置不能收到。
@@ -256,7 +256,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
@@ -265,3 +265,8 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

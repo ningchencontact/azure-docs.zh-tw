@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122882"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665575"
 ---
 # <a name="collector-appliance"></a>收集器設備
 
@@ -212,17 +212,27 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 
 您可以在不需再次下載 OVA 的情況下，將收集器升級為最新版本。
 
-1. 下載最新的[升級套件](https://aka.ms/migrate/col/upgrade_9_13) (1.0.9.13 版)。
+1. 下載最新的[升級套件](https://aka.ms/migrate/col/upgrade_9_14) (1.0.9.14 版)。
 2. 若要確保下載的 Hotfix 是安全的，請開啟系統管理員命令視窗並執行下列命令來產生 ZIP 檔案的雜湊。 產生的雜湊應該符合針對特定版本所述的雜湊：
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (使用範例：C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+    (使用範例：C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. 將 ZIP 檔案複製到 Azure Migrate 收集器虛擬機器 (收集器設備)。
 4. 以滑鼠右鍵按一下 ZIP 檔案並選取 [全部解壓縮]。
 5. 以滑鼠右鍵按一下 Setup.ps1 並選取 [使用 PowerShell 執行]，然後遵循螢幕上的指示安裝更新。
 
 ### <a name="list-of-updates"></a>更新清單
+
+#### <a name="upgrade-to-version-10914"></a>升級為 1.0.9.14 版
+
+升級[套件 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14) 的雜湊值
+
+**演算法** | **雜湊值**
+--- | ---
+MD5 | c5bf029e9fac682c6b85078a61c5c79c
+SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
+SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
 #### <a name="upgrade-to-version-10913"></a>升級為 1.0.9.13 版
 

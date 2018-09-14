@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900824"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341078"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Microsoft 帳戶登入
 
@@ -28,7 +28,7 @@ ms.locfileid: "37900824"
 3. 為應用程式提供 [名稱]，然後按一下 [建立]。
 4. 在註冊頁面上，複製 [應用程式識別碼] 的值。您必須使用此值，在租用戶中將 Microsoft 帳戶設定為識別提供者。
 5. 選取 [新增平台]，然後選擇 [Web]。
-6. 在 [重新導向 URL] 中，輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。
+6. 在 [重新導向 URL] 中，輸入 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c) 來取代 **{tenant}**。
 7. 在 [應用程式密碼] 下，選取 [產生新密碼]。 複製螢幕上顯示的新密碼。 您必須使用此值，在租用戶中將 Microsoft 帳戶設定為識別提供者。 此密碼是重要的安全性認證。
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>將 Microsoft 帳戶設為識別提供者

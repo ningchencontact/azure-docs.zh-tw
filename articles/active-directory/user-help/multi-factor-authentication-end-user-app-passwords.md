@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343283"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300908"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>管理適用於雙步驟驗證的應用程式密碼
 
@@ -38,11 +38,46 @@ ms.locfileid: "39343283"
 
 您會在最初雙步驟驗證註冊期間獲得應用程式密碼。 如果需要一個以上的密碼，您可以根據使用雙步驟驗證的方式建立其他密碼：
 
-- **搭配 Microsoft Azure 帳戶使用雙步驟驗證。** 使用 [Azure 入口網站](https://portal.azure.com)建立和刪除您的應用程式密碼。 如需詳細資訊，請參閱[ 應用程式密碼和雙步驟驗證](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification)一文。
+- **搭配您的公司或學校帳戶和 MyApps 入口網站使用雙步驟驗證。** 使用本文內[使用 MyApps 入口網站建立和刪除應用程式密碼](#create-and-delete-app-passwords-using-the-myapps-portal)一節中的指示，來建立和刪除您的應用程式密碼。 如需 MyApps 入口網站及其使用方式的詳細資訊，請參閱[什麼是 Azure Active Directory 中的 MyApps 入口網站？](active-directory-saas-access-panel-introduction.md)。
 
-- **搭配您的個人 Microsoft 帳戶使用雙步驟驗證。** 透過您的 Microsoft 帳戶，使用[安全性基本概念](https://account.microsoft.com/account/) 頁面來建立和刪除應用程式密碼。 如需詳細資訊，請參閱[ 應用程式密碼和雙步驟驗證](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification)一文。
+- **搭配您的公司或學校帳戶和 Office 365 入口網站使用雙步驟驗證。** 使用本文內[使用 Office 365 入口網站建立和刪除應用程式密碼](#create-and-delete-app-passwords-using-the-office-365-portal)一節中的指示，來建立和刪除您的應用程式密碼。
 
-- **搭配您的公司或學校帳戶和您的 Office 365 應用程式使用雙步驟驗證。** 使用本文內[使用 Office 365 入口網站建立和刪除應用程式密碼](#create-and-delete-app-passwords-using-the-office-365-portal)一節中的指示，來建立和刪除您的應用程式密碼。
+- **搭配您的個人 Microsoft 帳戶使用雙步驟驗證。** 透過您個人的 Microsoft 帳戶，使用[安全性基本概念](https://account.microsoft.com/account/)頁面來建立和刪除應用程式密碼。 如需詳細資訊，請參閱[ 應用程式密碼和雙步驟驗證](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification)一文。
+
+## <a name="create-and-delete-app-passwords-using-the-myapps-portal"></a>使用 MyApps 入口網站建立和刪除應用程式密碼
+您可以透過 MyApps 入口網站建立和刪除應用程式密碼。
+
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>使用 MyApps 入口網站建立應用程式密碼
+
+1. 登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)。
+
+2. 在右上方選取您的名稱，然後選擇 [設定檔]。
+
+3. 選取 [其他安全性驗證]。
+
+   ![選取 [其他安全性驗證] - 螢幕擷取畫面](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+
+4. 選取 [應用程式密碼]。
+
+   ![選取 [應用程式密碼] - 螢幕擷取畫面](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+
+5. 按一下頁面底部的 [新增] 。
+
+6. 輸入應用程式密碼的名稱，然後選取 [下一步]。
+
+7. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
+   
+    ![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>使用 MyApps 入口網站刪除應用程式密碼
+
+1. 移至您的設定檔，然後選取 [其他安全性驗證]。
+
+2. 選取 [應用程式密碼]，然後選取您想要刪除之應用程式密碼旁的 [刪除]。
+
+   ![刪除應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+
+3. 選取 [是] 以確認您想要刪除密碼，然後選取 [關閉]。
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>使用 Office 365 入口網站建立和刪除應用程式密碼
 
@@ -77,46 +112,6 @@ ms.locfileid: "39343283"
     已成功刪除應用程式密碼。
 
 5. 遵循建立應用程式密碼的步驟來建立新的應用程式密碼。
-
-## <a name="manage-app-passwords-in-the-azure-portal"></a>在 Azure 入口網站中管理應用程式密碼
-
-如果您搭配 Azure 使用雙步驟驗證，您會想要透過 Azure 入口網站建立應用程式密碼。
-
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>使用 MyApps 入口網站管理應用程式密碼
-
-您也可以透過 MyApps 入口網站建立和刪除應用程式密碼。
-
-### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>使用 MyApps 入口網站建立應用程式密碼
-
-1. 登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)。
-
-2. 在右上方選取您的名稱，然後選擇 [設定檔]。
-
-3. 選取 [其他安全性驗證]。
-
-   ![選取 [其他安全性驗證] - 螢幕擷取畫面](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
-
-4. 選取 [應用程式密碼]。
-
-   ![選取 [應用程式密碼] - 螢幕擷取畫面](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. 按一下頁面底部的 [新增] 。
-
-6. 輸入應用程式密碼的名稱，然後選取 [下一步]。
-
-7. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
-   
-    ![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
-
-### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>使用 MyApps 入口網站刪除應用程式密碼
-
-1. 移至您的設定檔，然後選取 [其他安全性驗證]。
-
-2. 選取 [應用程式密碼]，然後選取您想要刪除之應用程式密碼旁的 [刪除]。
-
-   ![刪除應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-
-3. 選取 [是] 以確認您想要刪除密碼，然後選取 [關閉]。
 
 ## <a name="if-your-app-passwords-arent-working-properly"></a>如果您的應用程式密碼無法正確運作
 
