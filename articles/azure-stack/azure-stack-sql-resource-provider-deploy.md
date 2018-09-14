@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d063e4b79819a881dbf018979654d4d7d96b904a
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842035"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390922"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 資源提供者
 
@@ -93,7 +93,10 @@ _僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI �
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>使用自訂指令碼部署 SQL 資源提供者
 
-若要在部署資源提供者時免除任何手動設定，您可以自訂下列指令碼。 請視需要針對您的 Azure Stack 部署，變更預設帳戶資訊和密碼。
+<a name="to-eliminate-any-manual-configuration-when-deploying-the-resource-provider-you-can-customize-the-following-script"></a>若要在部署資源提供者時免除任何手動設定，您可以自訂下列指令碼。  
+-  
+- 請視需要針對您的 Azure Stack 部署，變更預設帳戶資訊和密碼。
+
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module

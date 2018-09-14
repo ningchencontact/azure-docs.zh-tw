@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698378"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391754"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>依狀態計算作業和節點數目以監視 Batch 解決方案
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 您可以使用類似 REST 的模式和其他支援的語言來取得作業的工作計數。 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>大量工作的計數
-
-「取得工作計數」作業會傳回系統中某一時間點的工作狀態計數。 當作業有大量工作時，「取得工作計數」所傳回的計數可能會將實際工作狀態延遲最多幾秒鐘的時間。 Batch 會確保「取得工作計數」的結果最終會和實際工作狀態 (可透過「列出工作 API」來查詢) 保持一致。 不過，如果作業有非常大量的工作 (>200,000)，建議您改用「列出工作 API」和[經過篩選的查詢](batch-efficient-list-queries.md)，以獲得較新的資訊。 
-
-2018-08-01.7.0 之前的 Batch 服務 API 版本也會在「取得工作計數」回應中傳回 `validationStatus` 屬性。 這個屬性會指出 Batch 是否已檢查狀態計數有沒有與「列出工作 API」所回報的狀態保持一致。 值為 `validated` 只表示 Batch 已至少對作業是否一致檢查過一次。 `validationStatus` 屬性的值不會指出「取得工作計數」所傳回的計數是否為最新的。
+> [!NOTE]
+> 2018-08-01.7.0 之前的 Batch 服務 API 版本也會在「取得工作計數」回應中傳回 `validationStatus` 屬性。 這個屬性會指出 Batch 是否已檢查狀態計數有沒有與「列出工作 API」所回報的狀態保持一致。 值為 `validated` 只表示 Batch 已至少對作業是否一致檢查過一次。 `validationStatus` 屬性的值不會指出「取得工作計數」所傳回的計數是否為最新的。
+>
 
 ## <a name="node-state-counts"></a>節點狀態計數
 

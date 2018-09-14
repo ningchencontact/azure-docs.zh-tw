@@ -1,24 +1,18 @@
 ---
 title: Azure 磁碟加密的先決條件 | Microsoft Docs
 description: 本文提供要對 IaaS VM 使用 Microsoft Azure 磁碟加密所需滿足的先決條件。
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 1b2daefc-1326-44dd-9c8b-10e413769af7
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 67c3591b0218beac6343b49ba7867294ebeb3f44
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.date: 09/10/2018
+ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381975"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348271"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁碟加密的先決條件 
  ＜Azure 磁碟加密的先決條件＞這篇文章會說明要先備妥才能使用 Azure 磁碟加密的項目。 Azure 磁碟加密會與 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) 整合，以協助管理加密金鑰。 您可以使用 [Azure PowerShell](/powershell/azure/overview)、[Azure CLI](/cli/azure/)或 [Azure 入口網站](https://portal.azure.com)來設定 Azure 磁碟加密。

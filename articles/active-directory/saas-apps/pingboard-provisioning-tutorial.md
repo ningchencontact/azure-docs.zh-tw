@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e96ea7d212f1a34bb6d10f8c49a15e1b34bfc469
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382528"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348951"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>教學課程︰設定 Pingboard 來自動佈建使用者
 
@@ -89,7 +89,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
 1. 在 [對應] 區段之下，選取 [將 Azure Active Directory 使用者同步至 Pingboard]。
 
-1. 在 [屬性對應] 區段中，檢閱要從 Azure AD 同步至 Pingboard 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Pingboard 中的使用者帳戶，以進行更新作業。 選取 [儲存] 認可任何變更。 如需詳細資訊，請參閱[自訂使用者佈建屬性對應](../active-directory-saas-customizing-attribute-mappings.md)。
+1. 在 [屬性對應] 區段中，檢閱要從 Azure AD 同步至 Pingboard 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Pingboard 中的使用者帳戶，以進行更新作業。 選取 [儲存] 認可任何變更。 如需詳細資訊，請參閱[自訂使用者佈建屬性對應](../manage-apps/customize-application-attributes.md)。
 
 1. 若要啟用 Pingboard 的 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]。
 
@@ -97,7 +97,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
 初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 請使用 [同步處理詳細資料] 區段來監視進度，並依循連結來佈建活動記錄。 這些記錄會描述在 Pingboard 應用程式上佈建服務採取的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

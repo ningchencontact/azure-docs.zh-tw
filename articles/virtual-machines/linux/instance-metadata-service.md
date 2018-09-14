@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 8a7a58581133d98738403bee2e659fae056e1a7f
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f2b6ba4b7faaeb7092c24d964d32c69946264906
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782476"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023288"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -310,7 +310,7 @@ subnet/prefix | 子網路首碼，範例 24 | 2017-04-02
 ipv6/ipAddress | VM 的本機 IPv6 位址 | 2017-04-02 
 macAddress | VM mac 位址 | 2017-04-02 
 scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
-身分識別 | (預覽) 受控服務識別。 請參閱[取得存取權杖](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01 
+身分識別 | (預覽) 受控服務識別。 請參閱[取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01 
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
 
