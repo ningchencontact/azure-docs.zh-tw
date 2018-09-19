@@ -332,7 +332,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
 |WebIssuesNotSignin|您尚未登入。 請至 {0} 回報問題或張貼註解。|  
 |WebIssuesReportIssueButton|報告問題|  
 |WebIssuesSignIn|登入|  
-|WebIssuesStatusReportedBy|狀態︰{0} &#124；由 {1} 報告|  
+|WebIssuesStatusReportedBy|狀態︰{0} &#124;由 {1} 報告|  
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   

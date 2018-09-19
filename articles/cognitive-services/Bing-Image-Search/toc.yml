@@ -22,7 +22,7 @@ items:
     - name: 使用拼音
       href: quickstarts/ruby.md
     expanded: true
-  - name: 使用 SDK 來要求和篩選映像
+  - name: 使用 SDK 搜尋映像
     items:
     - name: 使用 C#
       href: image-search-sdk-quickstart.md
@@ -34,14 +34,10 @@ items:
       href: image-sdk-java-quickstart.md
 - name: 教學課程
   items:
-  - name: 單一頁面 Web 應用程式
+  - name: 建置映像搜尋 Web 應用程式
     href: tutorial-bing-image-search-single-page-app.md
-  - name: 單一頁面 Web 應用程式 (原始程式碼)
-    href: tutorial-bing-image-search-single-page-app-source.md
-  - name: Bing 影像上傳以深入解析
+  - name: 擷取映像詳細資料
     href: tutorial-image-post.md
-  - name: Bing 影像上傳以深入解析 (原始程式碼)
-    href: tutorial-image-post-source.md
 - name: 範例
   items:
   - name: 程式碼範例
@@ -104,9 +100,9 @@ items:
     href: UseAndDisplayRequirements.md
   - name: Bing 影像搜尋 API 的分析
     href: bing-image-stats.md
-ms.openlocfilehash: 02b54baef02d40373bb574d12575e2df739f1703
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 74cc9f56aa4d559c7e2644fc6866ae3d97f158f6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42440189"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296289"
