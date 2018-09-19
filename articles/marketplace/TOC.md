@@ -20,7 +20,7 @@
 #### [容器](./marketplace-containers.md)
 #### [諮詢服務](./consulting-services.md)  
 #### [Office 365、Dynamics 365 和 Power BI 發行指南](./appsource-offer-publishing-guide.md)
-#### [使用 Azure Active Directory 進行市集試用體驗](./enable-trial-using-azure-ad.md)
+#### [使用 Azure Active Directory 來啟用 Microsoft AppSource 和 Azure Marketplace 清單](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [透過 Marketplace 拓展業務](./grow-your-business-with-azure-marketplace.md)  
 #### [慣用的解決方案](./preferred-solutions.md) 

@@ -12,7 +12,6 @@
 
 
 # 開始使用
-## [開始使用 Azure AD](fundamentals/get-started-azure-ad.md)
 ## [註冊 Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [新增自訂網域名稱](fundamentals/add-custom-domain.md)
 ## [設定公司商標](fundamentals/customize-branding.md)
@@ -20,6 +19,7 @@
 ## [將授權指派給使用者](fundamentals/license-users-groups.md)
 ## [啟用自助式密碼重設](authentication/quickstart-sspr.md)
 ## [在 Azure AD 中新增貴組織的隱私權資訊](active-directory-properties-area.md)
+## [存取 Azure Active Directory 以建立新的租用戶](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # 作法
@@ -83,6 +83,7 @@
 
 ## [管理群組和成員](fundamentals/active-directory-manage-groups.md)
 ### [管理群組](fundamentals/active-directory-groups-create-azure-portal.md)
+### [刪除群組和其成員](fundamentals/active-directory-groups-delete-group.md)
 ### [管理群組設定](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [管理報告](reports-monitoring/overview-reports.md)
 ### [登入活動](reports-monitoring/concept-sign-ins.md)
@@ -90,11 +91,13 @@
 ### [有風險的使用者](reports-monitoring/concept-user-at-risk.md)
 ### [有風險的登入](reports-monitoring/concept-risky-sign-ins.md)
 ### [風險事件](reports-monitoring/concept-risk-events.md)
-### [用 Azure 監視器 監視記錄](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [用 Azure 監視器 監視記錄](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [常見問題集](reports-monitoring/reports-faq.md)
 
 ### 工作
-#### [設定具名位置](active-directory-named-locations.md)
+#### [下載登入報告](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [下載稽核報告](reports-monitoring/quickstart-download-audit-report.md)
+#### [設定具名位置](reports-monitoring/quickstart-configure-named-locations.md)
 #### [尋找活動報告](reports-monitoring/howto-find-activity-reports.md)
 #### [使用 Azure AD Power BI 內容套件](reports-monitoring/howto-power-bi-content-pack.md)
 #### [修復標幟為有風險的使用者](reports-monitoring/howto-remediate-users-flagged-for-risk.md)
@@ -322,33 +325,8 @@
 
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
 
-## 存取權檢閱
-### [存取權檢閱概觀](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [完成存取權檢閱](active-directory-azure-ad-controls-complete-access-review.md)
-### [建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)
-### [開始執行存取權檢閱](active-directory-azure-ad-controls-perform-access-review.md)
-### [如何檢閱您的存取權](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [透過存取權檢閱進行來賓存取](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [透過檢閱管理使用者存取](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [管理程式和控制項](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [取出存取權檢閱結果](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [使用規定](active-directory-tou.md)
-
 ## 保護您的身分識別
 
-### Azure AD Identity Protection
-#### [概觀](identity-protection/overview.md)
-#### [啟用](identity-protection/enable.md)
-#### [偵測弱點](identity-protection/vulnerabilities.md)
-#### [風險事件](active-directory-identity-protection-risk-events.md)
-#### [通知](identity-protection/notifications.md)
-#### [登入體驗](identity-protection/flows.md)
-#### [模擬風險事件](identity-protection/playbook.md)
-#### [解除封鎖使用者](identity-protection/howto-unblock-user.md)
-#### [常見問題集](identity-protection/faqs.md)
-#### [詞彙](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [在 Azure 中部署 AD FS](active-directory-aadconnect-azure-adfs.md)

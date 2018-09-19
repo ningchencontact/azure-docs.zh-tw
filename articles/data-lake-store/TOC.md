@@ -3,14 +3,14 @@
 
 # 概觀
 ## [Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
-## [比較 Data Lake Storage Gen1 與 Azure 儲存體](data-lake-store-comparison-with-blob-storage.md)
-## [使用 Data Lake Storage Gen1 處理巨量資料](data-lake-store-data-scenarios.md)
-## [與 Data Lake Storage Gen1 搭配使用的開放原始碼應用程式](data-lake-store-compatible-oss-other-applications.md)
+## [與 Azure 儲存體比較](data-lake-store-comparison-with-blob-storage.md)
+## [巨量資料處理](data-lake-store-data-scenarios.md)
+## [使用開放原始碼應用程式](data-lake-store-compatible-oss-other-applications.md)
 ## [最佳做法](data-lake-store-best-practices.md)
 
 # 開始使用
-## [使用入口網站](data-lake-store-get-started-portal.md)
-## [使用 PowerShell](data-lake-store-get-started-powershell.md)
+## [使用 Azure 入口網站](data-lake-store-get-started-portal.md)
+## [使用 Azure PowerShell](data-lake-store-get-started-powershell.md)
 ## [使用 Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
 
@@ -22,7 +22,7 @@
 ### [使用 DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [使用 Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [從離線來源上傳資料](data-lake-store-offline-bulk-data-upload.md)
-### [跨區域移轉 Data Lake Store](data-lake-store-migration-cross-region.md)
+### [跨區域遷移 Data Lake Storage Gen1](data-lake-store-migration-cross-region.md)
 
 ## 保護資料
 ### [安全性概觀](data-lake-store-security-overview.md)
