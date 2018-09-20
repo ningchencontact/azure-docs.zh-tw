@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2217adbbb9e5222e6c33bfcdce41c30396c7f231
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95341f318a9902a82ecb0366400ec34d159f0225
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740315"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363678"
 documentType: LandingData
-title: Azure AD 報告和監視
+title: Azure Active Directory 報告和監視
 metadata:
   document_id: 
   title: Azure Active Directory 報告和監視文件 - 教學課程、快速入門、概念 | Microsoft Docs
@@ -22,7 +22,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: priyamo
 abstract:
-  description: 了解如何檢視環境的安全性和稽核報告，或進行長時間監視以深入了解使用模式。 使用 Azure AD 報告，您可以深入了解環境的安全性和使用模式。 例如，您可以回答下列問題：<ul><li>使用者如何運用應用程式或服務？</li><li>影響環境健康情況的潛在風險是什麼</li><li>如何針對會阻止使用者完成其工作的問題進行疑難排解</li>
+  description: 了解如何檢視環境的安全性和稽核報告，或進行長時間監視以深入了解使用模式。 使用 Azure Active Directory (Azure AD) 報告，您可以深入了解環境的安全性和使用模式。 例如，您可以回答下列問題：<ul><li>使用者如何運用應用程式或服務？</li><li>影響環境健康情況的潛在風險是什麼</li><li>如何針對會阻止使用者完成其工作的問題進行疑難排解</li>
 sections:
 - title: 5 分鐘快速入門
   items:

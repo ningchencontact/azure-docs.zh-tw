@@ -56,6 +56,8 @@ items:
       href: howto-set-up-template.md
     - name: 管理您的裝置
       href: howto-manage-devices.md
+    - name: 執行作業
+      href: howto-run-a-job.md
     - name: 使用裝置設定
       href: howto-use-device-sets.md
     - name: 版本裝置範本
@@ -66,7 +68,7 @@ items:
       href: howto-create-telemetry-rules.md
     - name: 建立事件規則
       href: howto-create-event-rules.md
-    - name: 建立自訂分析
+    - name: 分析您的裝置資料
       href: howto-create-analytics.md
   - name: 動作和擴充性
     items:
@@ -82,14 +84,12 @@ items:
       href: howto-connect-powerbi.md
   - name: 管理
     items:
-    - name: 管理您的應用程式
-      href: howto-administer.md
+    - name: 從 Azure 管理入口網站管理 IoT Central
+      href: howto-manage-iot-central-from-portal.md
     - name: 如同 CSP，建立和管理應用程式
       href: howto-create-and-manage-applications-as-CSP.md
     - name: 設定首頁
       href: howto-configure-homepage.md
-    - name: 準備及上傳映像
-      href: howto-prepare-images.md
 - name: 相關參考
   items:
   - name: 解決方案
@@ -122,9 +122,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: 堆疊溢位
     href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 103bbb59a20194447d49e11327df1d984ccb0a8a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3e8292ce6780381f4e8ead009002959fe42a9d02
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983098"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465669"

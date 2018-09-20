@@ -1,226 +1,232 @@
 ---
-layout: LandingPage
+layout: HubPage
+hide_bc: true
 title: Azure Active Directory 文件 - 教學課程和 API 參考 | Microsoft Docs
 description: Azure Active Directory (Azure AD) 是 Microsoft 的多租用戶雲端式目錄，也是身分識別管理服務，將核心目錄服務、應用程式存取管理、身分識別保護結合在單一解決方案中。
 services: active-directory
-author: rolyon
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 08/16/2018
+ms.date: 09/14/2018
 ms.author: mtillman
-ms.openlocfilehash: cc79601e2ec283cca2f0ef97cd220c656fc3d311
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 43da4d780a93418a12cb0cbadc6a801da300188b
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339844"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465821"
 ---
-# <a name="azure-active-directory-documentation"></a>Azure Active Directory 文件
-
-Azure Active Directory (Azure AD) 是多租用戶雲端式目錄和身分識別管理服務。
-
-<ul class="panelContent cardsF">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>基礎</h3>
-                        <p>
-                        <a href="/azure/active-directory/fundamentals/active-directory-whatis">什麼是 Azure AD？</a><br/>
-                        <a href="/azure/active-directory/fundamentals/understand-azure-identity-solutions">身分識別解決方案</a><br/>
-                        <a href="/azure/active-directory/fundamentals/get-started-azure-ad">開始使用</a><br/>
-                        <a href="/azure/active-directory/fundamentals/whats-new">新功能</a><br/>
-                        <a href="/azure/active-directory/fundamentals/active-directory-deployment-plans">Azure AD 部署方案</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3><a href="/azure/active-directory/users-groups-roles/index">企業使用者</a></h3>
-                        <p>
-                        <a href="/azure/active-directory/add-users-azure-active-directory">使用者</a><br/>
-                        <a href="/azure/active-directory/active-directory-manage-groups">群組</a><br/>
-                        <a href="/azure/active-directory/license-users-groups">授權</a><br/>
-                        <a href="/azure/active-directory/active-directory-administer">目錄管理</a><br/>
-                        <a href="/azure/active-directory/active-directory-assign-admin-roles-azure-portal">管理員角色</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>外部使用者</h3>
-                        <p>
-                        <a href="/azure/active-directory/b2b/what-is-b2b">企業對企業 (B2B)</a><br/>
-                        <a href="/azure/active-directory-b2c/">企業對消費者 (B2C)</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>驗證</h3>
-                        <p>
-                        <a href="/azure/active-directory/authentication/concept-sspr-howitworks">密碼</a><br/>
-                        <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Multi-Factor Authentication</a><br/>
-                        <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
-                        <a href="/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started">憑證式驗證</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>保護</h3>
-                        <p>
-                        <a href="/azure/active-directory/active-directory-identityprotection">身分識別保護</a><br/>
-                        <a href="/azure/active-directory/conditional-access/index">條件式存取</a><br/>
-                        <a href="/azure/active-directory/privileged-identity-management/pim-configure">具特殊權限身分識別管理</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>裝置</h3>
-                        <p>
-                        <a href="/azure/active-directory/devices/index">裝置管理</a><br/>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Windows 10 裝置</a><br/>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">加入的裝置</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>應用程式</h3>
-                        <p>
-                        <a href="/azure/active-directory/active-directory-enable-sso-scenario">應用程式管理</a><br/>
-                        <a href="/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure">應用程式移轉</a><br/>
-                        <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">企業應用程式</a><br/>
-                        <a href="/azure/active-directory/active-directory-managing-access-to-apps">應用程式的存取權</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>開發人員的驗證</h3>
-                        <p>
-                        <a href="/azure/active-directory/develop/active-directory-authentication-scenarios">驗證基本概念</a><br/>
-                        <a href="/azure/active-directory/develop/active-directory-integrating-applications">應用程式整合</a><br/>
-                        <a href="/azure/active-directory/managed-service-identity/overview">受控身分識別</a><br/>
-                        <a href="/azure/active-directory/develop/active-directory-code-samples">程式碼範例</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>參考</h3>
-                        <p>
-                        <a href="/powershell/module/azurerm.resources#active_directory">Azure RM PowerShell</a><br/>
-                        <a href="/powershell/azure/active-directory/overview">Azure AD PowerShell</a><br/>
-                        <a href="/cli/azure/ad">Azure CLI</a><br/>
-                        <a href="https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview">Microsoft Graph</a><br/>
-                        <a href="/dotnet/api/overview/azure/activedirectory">.NET</a><br/>
-                        <a href="/java/api/overview/azure/activedirectory">Java</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>混合式組織</h3>
-                        <p>
-                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview">混合式身分識別解決方案</a><br/>
-                        <a href="/azure/active-directory/connect/active-directory-aadconnect">內部部署目錄整合</a><br/>
-                        <a href="/azure/active-directory/connect/active-directory-aadconnect-azure-adfs">同盟服務</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>合規性 + 報告</h3>
-                        <p>
-                        <a href="/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview">存取權檢閱</a><br/>
-                        <a href="/azure/active-directory/active-directory-tou">使用規定</a><br/>
-                        <a href="/azure/active-directory/active-directory-reporting-azure-portal">報告</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>網域</h3>
-                        <p>
-                        <a href="/azure/active-directory-domain-services/">網域服務</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
+<div id="main" class="v2">
+    <div class="container">
+        <h1>Azure Active Directory 文件</h1>
+        <p>Azure Active Directory (Azure AD) 是多租用戶雲端式目錄和身分識別管理服務。</p>
+        <hr style="margin: 30px 0;" />
+        <ul class="pivots">
+            <li>
+                <a href="#products"></a>
+                <ul id="products">
+                    <li>
+                        <a class="singlePanelNavItem selected" style="display: none" href="#indexA" data-linktype="self-bookmark"></a>
+                        <ul class="panelContent singlePanelContent" id="indexA" style="border: medium; border-image: none; margin-top: 0px; display: flex; float: left;">
+                            <li class="fullSpan">
+                                <a href="#index1" data-linktype="self-bookmark"></a>
+                                <ul class="cardsF cols cols4" id="index1" style="float: left; display: flex; width: 100%; border-bottom: 1px var(--grey-lighter) solid;">  
+                                    <li>
+                                        <ul class="cardsB panelContent" id="cardtypes-B" style="float: left; display: flex; width: 100%;">
+                                            <li>
+                                                <a href="">
+                                                    <div class="cardSize">
+                                                        <div class="cardPadding">
+                                                            <div class="card">
+                                                                <div class="cardImageOuter">
+                                                                    <div class="cardImage">
+                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cardText" style="padding-left: 0px">
+                                                                    <h3><a href="fundamentals/index.yml">了解基礎知識</a></h3> 
+                                                                    <p>
+                                                                        <a href="fundamentals/active-directory-whatis.md">什麼是 Azure AD？</a><br>
+                                                                        <a href="fundamentals/active-directory-get-started-premium.md">註冊 Azure AD Premium</a><br>
+                                                                        <a href="fundamentals/active-directory-access-create-new-tenant.md">存取 Azure AD 以建立租用戶</a><br>
+                                                                        <a href="fundamentals/add-users-azure-active-directory.md">建立群組和新增成員</a><br>
+                                                                        <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">將角色指派給使用者</a><br>
+                                                                        <a href="fundamentals/license-users-groups.md">將授權指派給使用者</a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+<!--This is the learning section 
+                                            <li>
+                                                <a href="">
+                                                    <div class="cardSize">
+                                                        <div class="cardPadding">
+                                                            <div class="card">
+                                                                <div class="cardImageOuter">
+                                                                    <div class="cardImage">
+                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cardText" style="padding-left: 0px">
+                                                                    <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
+                                                                    <p>
+                                                                        <a href="https://docs.microsoft.com/learn/modules/secure-azure-resources-with-conditional-access">Secure your Azure resources with conditional access</a><br>
+                                                                        <a href="">More interactive learning ...</a><br>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+ End of the learning section -->
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3><a href="manage-apps/index.yml">應用程式管理</a></h3>
+                                                        <p>
+                                                            <a href="manage-apps/add-application-portal.md">新增應用程式</a><br>
+                                                            <a href="manage-apps/configure-single-sign-on-portal.md">設定單一登入 (SSO)</a><br>
+                                                            <a href="manage-apps/application-proxy.md">適用於內部部屬應用程式的 Application Proxy</a><br>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="authentication/index.yml">驗證方法</a></h3>
+                                                        <p>
+                                                            <a href="authentication/tutorial-mfa-applications.md">為 Azure 入口網站啟用 MFA</a><br>
+                                                            <a href="authentication/quickstart-sspr.md">啟用自助密碼重設</a><br>
+                                                            <a href="authentication/concept-registration-mfa-sspr-converged.md">適用於 MFA 和 SSPR 的聚合式註冊</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="b2b/index.yml">企業對企業 (B2B)</a></h3>
+                                                        <p>
+                                                            <a href="b2b/b2b-quickstart-add-guest-users-portal.md">在入口網站中新增來賓使用者</a><br>
+                                                            <a href="b2b/b2b-tutorial-bulk-invite.md">大量邀請來賓使用者</a><br>
+                                                            <a href="b2b/b2b-tutorial-require-mfa.md">來賓使用者需要使用 MFA</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="/azure/active-directory-b2c/index">企業對消費者 (B2C)</a></h3>
+                                                        <p>
+                                                            <a href="/azure/active-directory-b2c/tutorial-create-tenant">建立 Azure AD B2C 租用戶</a><br>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">啟用 Web 應用程式以進行驗證</a><br>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api"> ASP.NET Web API</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="governance/access-reviews-overview.md">存取權檢閱</a></h3>
+                                                        <p>
+                                                            <a href="governance/create-access-review.md">建立存取權檢閱</a><br>
+                                                            <a href="governance/perform-access-review.md">執行存取權檢閱</a><br>
+                                                            <a href="governance/active-directory-tou.md">使用規定</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3><a href="conditional-access/index.yml">條件式存取</a></h3>
+                                                        <p>
+                                                            <a href="conditional-access/app-based-mfa.md">特定應用程式需要 MFA</a><br>
+                                                            <a href="conditional-access/require-tou.md">接受的使用條款</a><br>
+                                                            <a href="conditional-access/app-sign-in-risk.md">偵測到工作階段風險時封鎖存取</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="develop/azure-ad-developers-guide.md">開發人員</a></h3>
+                                                        <p>
+                                                            <a href="develop/authentication-scenarios.md">應用程式案例</a><br>
+                                                            <a href="develop/active-directory-authentication-libraries.md">Azure AD v1.0 驗證程式庫</a><br>
+                                                            <a href="develop/reference-v2-libraries.md">Azure AD v2.0 驗證程式庫</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="devices/index.yml">裝置管理</a></h3>
+                                                        <p>
+                                                            <a href="devices/hybrid-azuread-join-managed-domains.md">設定適用於受控網域的混合式聯結</a><br>
+                                                            <a href="devices/hybrid-azuread-join-federated-domains.md">設定適用於同盟網域的混合式聯結</a><br>
+                                                            <a href="devices/azuread-joined-devices-frx.md">設定 Windows 10 首次執行體驗</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="/azure/active-directory-domain-services/index">網域服務</a></h3>
+                                                        <p>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started.md">啟用 Azure AD Domain Services</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md">將 Windows Server VM 加入受控網域</a><br>
+                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md">設定安全 LDAP</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="users-groups-roles/index.yml">企業使用者</a></h3>
+                                                        <p>
+                                                            <a href="users-groups-roles/directory-assign-admin-roles.md">指派管理員角色</a><br>
+                                                            <a href="users-groups-roles/licensing-groups-assign.md">將授權指派給群組</a><br>
+                                                            <a href="users-groups-roles/groups-create-rule.md">建立動態群組</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3><a href="hybrid/index.yml">混合式身分識別</a></h3>
+                                                        <p>
+                                                            <a href="hybrid/tutorial-password-hash-sync.md">Azure AD Connect</a><br>
+                                                            <a href="hybrid/tutorial-passthrough-authentication.md">將 AD 樹系整合至雲端</a><br>
+                                                            <a href="hybrid/tutorial-federation.md">將 AD 樹系與雲端同盟</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="identity-protection/index.yml">身分識別保護</a></h3>
+                                                        <p>
+                                                            <a href="identity-protection/enable.md">啟用</a><br>
+                                                            <a href="identity-protection/playbook.md">模擬風險事件</a><br>
+                                                            <a href="identity-protection/howto-unblock-user.md">解除封鎖使用者</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="managed-identities-azure-resources/index.yml">適用於 Azure 資源的受控識別</a></h3>
+                                                        <p>
+                                                            <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">使用 Windows VM 存取 Azure SQL</a><br>
+                                                            <a href="managed-identities-azure-resources/how-to-use-vm-token.md"> Azure VM 取得權杖</a><br>
+                                                            <a href="managed-identities-azure-resources/services-support-msi.md">支援受控識別的服務</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="privileged-identity-management/index.yml">PIM</a></h3>
+                                                        <p>
+                                                            <a href="privileged-identity-management/pim-getting-started.md">開始使用 PIM</a><br>
+                                                            <a href="privileged-identity-management/pim-how-to-activate-role.md">啟動我的目錄角色</a><br>
+                                                            <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">指派我的目錄角色</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="reports-monitoring/index.yml">報告和監控</a></h3>
+                                                        <p>
+                                                            <a href="reports-monitoring/howto-find-activity-reports.md">尋找活動報告</a><br>
+                                                            <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">在 Azure 監視器中使用 Azure AD 記錄</a><br>
+                                                            <a href="reports-monitoring/concept-reporting-api.md">以程式設計方式存取</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
