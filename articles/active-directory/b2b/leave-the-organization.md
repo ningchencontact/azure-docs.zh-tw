@@ -4,18 +4,18 @@ description: 說明 Azure AD B2B 來賓使用者如何使用 [存取面板] 從�
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 17b34b173a10a355817fee0f5928b7fb478125e3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cea882bd1ba2ba12d34690fb47ec1afd6edf5c4c
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506518"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982165"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>以來賓使用者的身分從組織離職
 
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2B 使用者如果不再需要組織的應用
 
 ## <a name="leave-an-organization"></a>從組織離職
 
-若要從組織離職，請以使用者身分登入 [[存取面板]](https://myapps.microsoft.com)，接著執行下列動作：
+若要從組織離職，請以使用者身分登入 [存取面板](https://myapps.microsoft.com)，接著執行下列動作：
 
 1. 如果您尚未登入打算離開的組織，請在右上角選取您的名稱，然後按一下要離開的組織。
 2. 在右上角選取您的名稱。

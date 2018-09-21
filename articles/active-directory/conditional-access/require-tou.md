@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a7aeecc84a3629b43f2c1eb40030866a941d0d3b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627979"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605839"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>快速入門：必須接受使用規定才可存取雲端應用程式 
 
@@ -45,7 +45,7 @@ ms.locfileid: "39627979"
 
 - **Azure AD Premium 版的存取權** - Azure AD 條件式存取是 Azure AD Premium 中的功能。 
 
-- **稱為 Isabella Simonsen 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users)。
+- **稱為 Isabella Simonsen 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)。
 
 
 ## <a name="test-your-sign-in"></a>測試您的登入
@@ -135,7 +135,7 @@ ms.locfileid: "39627979"
 
 1. 在 [新增] 頁面的 [名稱] 文字方塊中，輸入「Isabella 必須接受 TOU」。
 
-    ![Name](./media/require-tou/71.png)
+    ![名稱](./media/require-tou/71.png)
 
 2. 在 [指派] 區段中，按一下 [使用者和群組]。
 
@@ -250,7 +250,7 @@ ms.locfileid: "39627979"
 
 當您不再需要測試使用者與條件式存取原則時，即可予以刪除：
 
-- 如果您不知道如何刪除 Azure AD 使用者，請參閱[從 Azure AD 刪除使用者](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad)。
+- 如果您不知道如何刪除 Azure AD 使用者，請參閱[從 Azure AD 刪除使用者](../fundamentals/add-users-azure-active-directory.md#delete-a-user)。
 
 - 若要刪除原則，請選取您的原則，然後按一下快速存取工具列的 [刪除]。
 

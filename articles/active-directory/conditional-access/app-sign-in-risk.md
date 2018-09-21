@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2bd52486a78ca103e0070d94ea423c069f845587
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627503"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604360"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>快速入門：針對 Azure Active Directory 條件式存取偵測到工作階段風險時封鎖存取  
 
@@ -46,7 +46,7 @@ ms.locfileid: "39627503"
 
 - **Tor 瀏覽器** - [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)的設計目的是協助您保留您的線上隱私權。 Identity Protection 偵測到來自 Tor 瀏覽器的登入是**從匿名 IP 位址登入**，這種登入有中等風險等級。 如需詳細資訊，請參閱 [Azure Active Directory 風險事件](../reports-monitoring/concept-risk-events.md)。  
 
-- **稱為 Alain Charon 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users)。
+- **稱為 Alain Charon 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)。
 
 
 ## <a name="test-your-sign-in"></a>測試您的登入 
@@ -93,11 +93,11 @@ ms.locfileid: "39627503"
  
 4. 在 [條件式存取] 頁面頂端的工具列中，按一下 [新增]。
 
-    ![Name](./media/app-sign-in-risk/108.png)
+    ![名稱](./media/app-sign-in-risk/108.png)
 
 5. 在 [新增] 頁面上的 [名稱] 文字方塊中，鍵入**封鎖中等風險等級的存取**。
 
-    ![Name](./media/app-sign-in-risk/104.png)
+    ![名稱](./media/app-sign-in-risk/104.png)
 
 6. 在 [指派] 區段中，按一下 [使用者和群組]。
 
@@ -206,7 +206,7 @@ ms.locfileid: "39627503"
 
 當您不再需要測試使用者、Tor 瀏覽器與條件式存取原則時，即可予以刪除：
 
-- 如果您不知道如何刪除 Azure AD 使用者，請參閱[從 Azure AD 刪除使用者](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad)。
+- 如果您不知道如何刪除 Azure AD 使用者，請參閱[從 Azure AD 刪除使用者](../fundamentals/add-users-azure-active-directory.md#delete-a-user)。
 
 - 若要刪除原則，請選取您的原則，然後按一下快速存取工具列的 [刪除]。
 
