@@ -7,20 +7,24 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: d1869dd689ef090978c3835e0a16fec82dfb5c05
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648681"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498414"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>使用 PowerShell 建立和管理 SQL Database 彈性作業 (預覽)
 
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
 適用於 **彈性資料庫工作** (預覽版) 的 PowerShell API 可讓您定義一組資料庫，然後針對這組資料庫執行指令碼。 本文將說明如何使用 Powershell Cmdlet 建立和管理 **彈性資料庫工作** 。 請參閱 [彈性工作概觀](sql-database-elastic-jobs-overview.md)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * Azure 訂用帳戶。 如需免費試用，請參閱 [免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
 * 一組使用彈性資料庫工具所建立的資料庫。 請參閱 [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
 * Azure PowerShell。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
@@ -209,7 +213,7 @@ ms.locfileid: "34648681"
 * 認證應該具有執行工作作業所需的最低權限。  如需詳細資訊，請參閱 [SQL Server 中的授權和權限](https://msdn.microsoft.com/library/bb669084.aspx) 這篇 MSDN 文章。
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>建立跨資料庫執行工作的加密認證
-若要建立新的加密認證，[**Get-Credential Cmdlet**](https://technet.microsoft.com/library/hh849815.aspx) 會提示您輸入可以傳遞至 [**New-AzureSqlJobCredential Cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential) 的使用者名稱和密碼。
+若要建立新的加密認證，[**Get-Credential Cmdlet**](/powershell/module/microsoft.powershell.security/get-credential) 會提示您輸入可以傳遞至 [**New-AzureSqlJobCredential Cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential) 的使用者名稱和密碼。
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential
