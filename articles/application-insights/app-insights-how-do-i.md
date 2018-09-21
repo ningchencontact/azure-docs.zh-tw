@@ -1,8 +1,8 @@
 ---
-title: "我如何在 Azure Application Insights 中... | Microsoft Docs"
-description: "Application Insights 中的常見問題集。"
+title: 我如何在 Azure Application Insights 中... | Microsoft Docs
+description: Application Insights 中的常見問題集。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: a32127f14c93012b5ace11ff982824f9ecba7d94
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 235089cc0f0c8f84fe27edbbb97f65b8310fccba
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632809"
 ---
 # <a name="how-do-i--in-application-insights"></a>我如何在 Application Insights 中...？
 ## <a name="get-an-email-when-"></a>... 時收到電子郵件
@@ -159,5 +160,5 @@ ms.lasthandoff: 11/01/2017
 * **Unix 伺服器** - [安裝 collectd](app-insights-java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>顯示更多效能計數器
-* 首先， [新增圖表](app-insights-metrics-explorer.md) ，並查看計數器是否位於我們提供的基本組合中。
+* 首先，[新增圖表](app-insights-metrics-explorer.md) ，並查看計數器是否位於我們提供的基本組合中。
 * 如果沒有，請[將計數器加入效能計數器模組所收集的組合中](app-insights-performance-counters.md)。

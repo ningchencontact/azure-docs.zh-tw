@@ -9,12 +9,12 @@ ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 19d2472b526c38880f9241ec448f8a9d4a327f2a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300348"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294181"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教學課程：使用 SQL Server 資料庫在 Edge 上儲存資料
 
@@ -228,6 +228,7 @@ Azure IoT Edge 裝置：
    CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
    CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
+
 2. 儲存 .env 檔案。
 3. 在 Visual Studio Code 中登入您的容器登錄，以便將您的映像推送到登錄。 請使用您新增至 .env 檔案中的相同認證。 在整合式終端機中輸入下列命令：
 

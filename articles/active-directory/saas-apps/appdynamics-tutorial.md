@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7f24dad3cfefd5ecb0b1c78f4a2b242c99a01239
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548268"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>教學課程：Azure Active Directory 與 AppDynamics 整合
 
@@ -32,7 +32,7 @@ ms.locfileid: "38548268"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 AppDynamics 的整合，您需要下列項目：
 
@@ -112,9 +112,9 @@ ms.locfileid: "38548268"
 
     ![設定單一登入](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.saas.appdynamics.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.saas.appdynamics.com/controller`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.saas.appdynamics.com/controller`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [AppDynamics 用戶端支援小組](https://www.appdynamics.com/support/)以取得這些值。
@@ -189,6 +189,7 @@ ms.locfileid: "38548268"
 ### <a name="creating-an-appdynamics-test-user"></a>建立 AppDynamics 測試使用者
 
 本節目標是在 AppDynamics 中建立名為 Britta Simon 的使用者。 AppDynamics支援 Just-in-Time 佈建，並會根據預設啟用。 在這一節沒有您需要進行的動作項目。 嘗試存取 AppDynamics 時，如果使用者還不存在，就會建立新使用者。
+
 >[!Note]
 >如果您需要手動建立使用者，請連絡 [AppDynamics 用戶端支援小組](https://www.appdynamics.com/support/)。
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 14607e01c0bd51ca9ae98f969c9cd6e1c8c62bb9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42141316"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294266"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
 
@@ -82,7 +82,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 如需有關安裝 NPS 角色服務 Windows Server 2012 或更舊版本的資訊，請參閱[安裝 NAP 健康原則伺服器](https://technet.microsoft.com/library/dd296890.aspx)。 如需 NPS 最佳做法的說明 (包括在網域控制站上安裝 NPS 的建議)，請參閱 [NPS 的最佳做法](https://technet.microsoft.com/library/cc771746)。
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>與內部部署 Active Directory 同步的 Azure Active Directory
-若要使用 NPS 擴充功能，內部部署使用者必須與 Azure AD 保持同步並啟用 MFA。 這一節假設內部部署使用者已使用 AD Connect 來與 Azure AD 保持同步。 如需 Azure AD Connect 的相關資訊，請參閱[整合您的內部部署目錄與 Azure Active Directory](../connect/active-directory-aadconnect.md)。 
+若要使用 NPS 擴充功能，內部部署使用者必須與 Azure AD 保持同步並啟用 MFA。 這一節假設內部部署使用者已使用 AD Connect 來與 Azure AD 保持同步。 如需 Azure AD Connect 的相關資訊，請參閱[整合您的內部部署目錄與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)。 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID 識別碼
 若要安裝 NPS 擴充功能，您必須知道 Azure AD 的 GUID。 下面提供尋找 Azure AD GUID 的指示。
@@ -374,4 +374,4 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 
 [使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](howto-mfaserver-nps-rdg.md)
 
-[整合您的內部部署目錄與 Azure Active Directory](../connect/active-directory-aadconnect.md)
+[整合您的內部部署目錄與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

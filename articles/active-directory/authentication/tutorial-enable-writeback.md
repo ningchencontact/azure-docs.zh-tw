@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 9512c800a35ad4a819c657b07227d781c63c6399
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e91ca2ff438e3ae9e9b3f46e5a8db89f17fb1c8e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163266"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295116"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>教學課程：啟用密碼回寫
 
@@ -29,7 +29,7 @@ ms.locfileid: "39163266"
 
 * 能夠存取可運作且至少已被指派試用版授權的 Azure AD 租用戶。
 * 在 Azure AD 租用戶中具有全域系統管理員權限的帳戶。
-* 設定為執行最新版 [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md) 的現有伺服器。
+* 設定為執行最新版 [Azure AD Connect](../hybrid/how-to-connect-install-express.md) 的現有伺服器。
 * 已完成先前的自助式密碼重設 (SSPR) 教學課程。
 
 ## <a name="enable-password-writeback-option-in-azure-ad-connect"></a>在 Azure AD Connect 中啟用密碼回寫選項

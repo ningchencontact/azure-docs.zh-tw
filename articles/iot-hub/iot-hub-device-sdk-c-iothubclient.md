@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: 15541c8719e89080ba7685781cedf36fb4335e70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4ff4e8b9c6121366bf06eb8613b6d53667eeaca9
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633089"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35756442"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>適用於 C 的 Azure IoT 裝置 SDK - 深入了解 IoTHubClient
 本系列的[第一篇文章](iot-hub-device-sdk-c-intro.md)介紹了「適用於 C 的 Azure IoT 裝置 SDK」。該文章已說明 SDK 中有兩個架構層。 在基底的是 **IoTHubClient** 程式庫，可直接管理與 IoT 中樞的通訊。 還有 **序列化程式** 庫，此程式庫建置於其頂部以提供序列化服務。 在本文中，我們將提供 **IoTHubClient** 程式庫的其他詳細資料。
@@ -91,7 +91,7 @@ IoTHubClient_LL_SendEventAsync(iotHubClientHandle, message.messageHandle, SendCo
 while (1)
 {
     IoTHubClient_LL_DoWork(iotHubClientHandle);
-    ThreadAPI_Sleep(1000);
+    ThreadAPI_Sleep(100);
 }
 ```
 
@@ -109,7 +109,7 @@ IOTHUB_CLIENT_STATUS status;
 while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLIENT_OK) && (status == IOTHUB_CLIENT_SEND_STATUS_BUSY))
 {
     IoTHubClient_LL_DoWork(iotHubClientHandle);
-    ThreadAPI_Sleep(1000);
+    ThreadAPI_Sleep(100);
 }
 ```
 

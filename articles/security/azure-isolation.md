@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018402"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579834"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
@@ -127,7 +127,7 @@ Microsoft 與公認的稽核公司只會基於合法商業用途，定期驗證�
 Microsoft Azure 提供各種雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。 這些計算執行個體與服務會在多個層級上提供隔離，以保護資料而不會犧牲客戶所要求之組態中的彈性。
 
 ### <a name="isolated-virtual-machine-sizes"></a>隔離虛擬機器大小
-Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等元素的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。
+Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等元素的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。
 
 使用隔離大小可確保只有您的虛擬機器會在該特定伺服器執行個體上執行。  目前的隔離虛擬機器供應項目包括：
 * Standard_E64is_v3
@@ -138,7 +138,7 @@ Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制�
 * Standard_DS15_v2
 * Standard_D15_v2
 
-您可以在[這裡](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory)深入了解每個可用的隔離大小。
+您可以在[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)深入了解每個可用的隔離大小。
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>根 VM 與客體 VM 之間的 Hyper-V 和根 OS 隔離
 Azure 的計算平台會以機器虛擬化為基礎，這表示所有客戶程式碼都會在 Hyper-V 虛擬機器中執行。 在每個 Azure 節點 (或網路端點) 上，都有一個 Hypervisor 會直接在硬體上執行，並將節點分成不同數量的客體虛擬機器 (VM)。
@@ -346,8 +346,7 @@ Azure 部署具有多層網路隔離。 下圖顯示 Azure 提供給客戶的各
 
 **流量隔離**：[虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)是 Azure 平台上的流量隔離界限。 一個虛擬網路中的虛擬機器 (VM) 無法與不同虛擬網路中的 VM 直接通訊，即使兩個虛擬網路是由同一位客戶所建立也一樣。 隔離是很重要的屬性，可確保客戶 VM 和通訊仍然隱蔽於虛擬網路內。
 
-
-  [子網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets)使用以 IP 範圍為基礎的虛擬網路，來提供額外的隔離層級。 虛擬網路中的 IP 位址，您可以將虛擬網路分成多個子網路以便進行組織和獲得安全性。 部署至 VNet 內 (相同或不同) 子網路的 VM 和 PaaS 角色執行個體不需要進行額外設定就可以彼此通訊。 您也可以設定[網路安全性群組 (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg)，根據 NSG 之存取控制清單 (ACL) 中設定的規則，來允許或拒絕移至 VM 執行個體的網路流量。 NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。
+[子網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets)使用以 IP 範圍為基礎的虛擬網路，來提供額外的隔離層級。 虛擬網路中的 IP 位址，您可以將虛擬網路分成多個子網路以便進行組織和獲得安全性。 部署至 VNet 內 (相同或不同) 子網路的 VM 和 PaaS 角色執行個體不需要進行額外設定就可以彼此通訊。 您也可以設定[網路安全性群組 (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg)，根據 NSG 之存取控制清單 (ACL) 中設定的規則，來允許或拒絕移至 VM 執行個體的網路流量。 NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。
 
 ## <a name="next-steps"></a>後續步驟
 

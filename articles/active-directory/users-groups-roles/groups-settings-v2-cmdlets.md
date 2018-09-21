@@ -15,12 +15,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2ecd65bab478c37f1d3daa3ff86fdfadc788b301
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d6fb5a97ef573a35f335875beddc7752f580bec1
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448819"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296631"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>適用於群組管理的 Azure Active Directory 第 2 版 Cmdlet
 > [!div class="op_single_selector"]
@@ -268,4 +268,4 @@ Cmdlet 會傳回所指定群組的擁有者清單︰
 您可以在 [Azure Active Directory Cmdlet](/powershell/azure/install-adv2?view=azureadps-2.0)中找到更多 Azure Active Directory PowerShell 文件。
 
 * [使用 Azure Active Directory 群組來管理資源的存取權](../fundamentals/active-directory-manage-groups.md)
-* [整合內部部署身分識別與 Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [整合內部部署身分識別與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

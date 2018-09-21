@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 09/19/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2f22ed862f9b45334a961f80e47ee2b4634e46fb
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247661"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498329"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>在使用分區化多租用戶 SQL 資料庫的 SaaS 應用程式中管理結構描述
-
+ 
 本教學課程會檢視在 SaaS 應用程式中維護多個資料庫的挑戰。 將針對跨多個資料庫散開的結構描述變更示範解決方案。
 
 就像任何應用程式一樣，Wingtip Tickets SaaS 應用程式會隨著時間演進，而且會需要變更資料庫。 變更可能會影響結構描述或參考資料，或產生資料庫維護工作。 由於 SaaS 應用程式使用每一租用戶一個資料庫的模式，因此可能必須在大量租用戶資料庫間協調變更。 此外，您必須將這些變更併入資料庫佈建程序，確保建立新資料庫時會涵蓋這些變更。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 846b76bddbc771a924a1d710cd333dfa4623f5ec
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448836"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296272"
 ---
 # <a name="authentication-and-user-permissions"></a>驗證和使用者權限
 Azure Analysis Services 會使用 Azure Active Directory (Azure AD) 進行身分識別管理和使用者驗證。 任何建立、管理或連線到 Azure Analysis Services 伺服器的使用者在相同的訂用帳戶中必須 [Azure AD 租用戶](../active-directory/fundamentals/active-directory-administer.md)的有效使用者身分識別。
@@ -33,7 +33,7 @@ Excel 和 Power BI Desktop 等用戶端應用程式，以及 SSMS 和 SSDT 等�
 
 Power BI Desktop、SSDT 和 SSMS 支援 Active Directory 通用驗證，這是一種也支援 Azure Multi-Factor Authentication (MFA) 的互動式方法。 Azure MFA 有助於保護對資料與應用程式的存取，同時提供簡單的登入程序。 MFA 也提供具有數種驗證選項 (電話、簡訊、具有 PIN 的智慧卡或行動應用程式通知) 的強式驗證功能。 搭配 Azure AD 使用互動式 MFA 時，會出現快顯對話方塊以進行驗證。 **建議使用通用驗證**。
 
-如果使用 Windows 帳戶登入 Azure，但未選取或無法使用通用驗證 (Excel)，就需要 [Active Directory 同盟服務 (AD FS)](../active-directory/connect/active-directory-aadconnect-azure-adfs.md)。 透過同盟，Azure AD 和 Office 365 使用者就可以使用內部部署認證進行驗證，而且可以存取 Azure 資源。
+如果使用 Windows 帳戶登入 Azure，但未選取或無法使用通用驗證 (Excel)，就需要 [Active Directory 同盟服務 (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)。 透過同盟，Azure AD 和 Office 365 使用者就可以使用內部部署認證進行驗證，而且可以存取 Azure 資源。
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 Azure Analysis Services 伺服器使用 Windows 驗證、Active Directory 密碼驗證和 Active Directory 通用驗證，支援來自 [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和更高版本的連線。 一般而言，建議您使用 Active Directory 通用驗證，因為：

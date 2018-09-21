@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: db60aaacfb2ba60dbe73663cb415e2a3baea5400
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745794"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982132"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本設定檔
 
@@ -46,7 +46,7 @@ API 設定檔會指定 Azure 資源提供者和 Azure REST 端點的 API 版本�
     每兩年發行一次，此發行著重於跨多個雲端的一致性和穩定性。 此設定檔的目標是最佳 Azure Stack 相容性。
     - **yyyy-mm-dd-profile** 落於最佳穩定性和最新功能之間。
 
-### <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API 設定檔和 Azure Stack 相容性
+## <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API 設定檔和 Azure Stack 相容性
 
 最新的 Azure API 設定檔與 Azure Stack 不相容。 您可以使用下列命名慣例來識別要在 Azure Stack 解決方案中使用的設定檔。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 398594c37cb01cd337da983307a5f56753e54fd2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051520"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574754"
 ---
 # <a name="azure-database-security-overview"></a>Azure 資料庫安全性概觀
 
@@ -69,7 +69,7 @@ SQL Database 透過提供加密來協助您保護資料：
 
 其中一個解決方案就是將資料庫中的敏感性資料加密，然後使用憑證來保護用來加密資料的金鑰。 這個解決方案可防止所有沒有金鑰的人使用該資料，但這種保護必須予以規劃。
 
-為了解決這個問題，SQL Server 和 SQL Database 支援[透明資料加密](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017)。 透明資料加密會將 SQL Server 和 SQL Database 資料檔案加密，也稱為待用資料加密。
+為了解決這個問題，SQL Server 和 SQL Database 支援[透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017)。 透明資料加密會將 SQL Server 和 SQL Database 資料檔案加密，也稱為待用資料加密。
 
 透明資料加密有助於防範惡意活動的威脅。 它會對資料庫、相關聯的備份和待用的交易記錄檔執行即時加密和解密，而不需變更應用程式。  
 

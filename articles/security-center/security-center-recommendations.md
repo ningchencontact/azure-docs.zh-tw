@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3af84e0659d1d62079c239ad6e650d31c9f9a6f1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522232"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125352"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>管理 Azure 資訊安全中心的安全性建議
 本文件將逐步引導您了解如何使用「Azure 資訊安全中心」的建議來協助您保護 Azure 資源。

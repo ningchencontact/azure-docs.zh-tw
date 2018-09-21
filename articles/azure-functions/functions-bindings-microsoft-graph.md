@@ -3,20 +3,18 @@ title: 適用於 Azure Functions 的 Microsoft Graph 繫結
 description: 了解如何在 Azure Functions 中使用 Microsoft Graph 觸發程序和繫結。
 services: functions
 author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.tgt_pltfrm: na
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 06ee959d7b38f21684280a35cf770fdcc590b102
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 3d6d4f2e3d89e1d8abf647b21e35fcdfec020b1d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287982"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722260"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -739,6 +737,7 @@ public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDrive
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
         .Value;
     await myOneDriveFile.WriteAsync(Encoding.UTF8.GetBytes(data), 0, data.Length);
+    myOneDriveFile.Close();
     return;
 }
 ```

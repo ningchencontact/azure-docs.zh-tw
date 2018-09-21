@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 95ec87d2fdc34864b90a6596e7100cc6c1387631
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161985"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298314"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -41,7 +41,7 @@ ms.locfileid: "39161985"
 | --- | --- |
 | 我在 Azure 入口網站中的 Azure AD 之下看不到 [密碼重設] 區段。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 將授權指派給所提及的系統管理員帳戶。 您可以遵循[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)一文中的步驟。|
 | 我看不到特定的設定選項。 | 許多 UI 元素只會在需要時出現。 如果您想要看到這些元素，請嘗試啟用所有選項。 |
-| 我看不到 [內部部署整合] 索引標籤。 | 只有在您下載 Azure AD Connect 並設定密碼回寫後，這個選項才會出現。 如需詳細資訊，請參閱[利用快速設定開始使用 Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md)。 |
+| 我看不到 [內部部署整合] 索引標籤。 | 只有在您下載 Azure AD Connect 並設定密碼回寫後，這個選項才會出現。 如需詳細資訊，請參閱[利用快速設定開始使用 Azure AD Connect](../hybrid/how-to-connect-install-express.md)。 |
 
 ## <a name="troubleshoot-password-reset-reporting"></a>針對密碼重設報告進行疑難排解
 
@@ -83,7 +83,7 @@ ms.locfileid: "39161985"
 | 無法內部部署啟動密碼重設服務。 Azure AD Connect 電腦的應用程式事件記錄中出現錯誤 6800。 <br> <br> 上架之後，同盟、傳遞驗證或密碼雜湊同步使用者無法重設其密碼。 | 啟用「密碼回寫」時，同步處理引擎會透過與雲端上線服務通訊，呼叫回寫程式庫來執行設定 (上線)。 在上線期間或啟動 Windows Communication Foundation (WCF) 端點來進行「密碼回寫」時，如果發生任何錯誤，都會導致 Azure AD Connect 電腦的事件記錄中出現錯誤。 <br> <br> 在 Azure AD Sync (ADSync) 服務重新啟動期間，若已設定回寫，就會啟動 WCF 端點。 不過，如果端點啟動失敗，我們會記錄事件 6800，並讓同步處理服務啟動。 出現此事件即表示「密碼回寫」端點並未啟動。 此事件 (6800) 的事件記錄詳細資料，以及 PasswordResetService 元件所產生的事件記錄項目會指出為何無法啟動端點。 如果「密碼回寫」仍然無法運作，請檢閱這些事件記錄錯誤，然後嘗試重新啟動 Azure AD Connect。 如果此問題持續發生，請嘗試先將「密碼回寫」停用再重新啟用。
 | 當使用者嘗試在已啟用密碼回寫時重設密碼或解除鎖定帳戶，作業會失敗。 <br> <br> 此外，在解除鎖定作業發生之後，您會在 Azure AD Connect 事件記錄中看到事件，其中包含：「Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long」。 | 尋找 Azure AD Connect 的 Active Directory 帳戶，並將密碼重設，讓它包含不超過 127 個字元。 然後從 [開始] 功能表開啟 [同步處理服務]。 瀏覽至 [連接器]，然後尋找 [Active Directory 連接器]。 選取它，然後選取 [屬性]。 瀏覽至 [認證] 頁面，然後輸入新密碼。 選取 [確定] 以關閉頁面。 |
 | 在 Azure AD Connect 安裝程序的最後一個步驟，您會看到一個錯誤，指出無法設定「密碼回寫」。 <br> <br> Azure AD Connect 應用程式事件記錄包含錯誤 32009，以及「取得授權權杖時發生錯誤」文字。 | 下列兩種情況會發生此錯誤： <br><ul><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，指定了錯誤的密碼。</li><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，嘗試使用同盟使用者。</li></ul> 若要修正此問題，請確定您並未針對在安裝程序開始時所指定的全域系統管理員使用同盟帳戶。 也請確定所指定的密碼正確。 |
-| Azure AD Connect 電腦的事件記錄包含透過執行 PasswordResetService 所擲回的錯誤 32002。 <br> <br> 此錯誤指出：「連線到服務匯流排時發生錯誤。 權杖提供者無法提供安全性權杖。」 | 您的內部部署環境無法連線到雲端的 Azure 服務匯流排端點。 這個錯誤是因為防火牆規則封鎖連往特定連接埠或網址的輸出連線所導致。 如需詳細資訊，請參閱[連線必要條件](./../connect/active-directory-aadconnect-prerequisites.md)。 在您更新這些規則之後，請重新啟動 Azure AD Connect 電腦，「密碼回寫」應該就會再次開始運作。 |
+| Azure AD Connect 電腦的事件記錄包含透過執行 PasswordResetService 所擲回的錯誤 32002。 <br> <br> 此錯誤指出：「連線到服務匯流排時發生錯誤。 權杖提供者無法提供安全性權杖。」 | 您的內部部署環境無法連線到雲端的 Azure 服務匯流排端點。 這個錯誤是因為防火牆規則封鎖連往特定連接埠或網址的輸出連線所導致。 如需詳細資訊，請參閱[連線必要條件](../hybrid/how-to-connect-install-prerequisites.md)。 在您更新這些規則之後，請重新啟動 Azure AD Connect 電腦，「密碼回寫」應該就會再次開始運作。 |
 | 運作一段時間之後，同盟、傳遞驗證或密碼雜湊同步使用者無法重設其密碼。 | 在某些罕見的情況下，Azure AD Connect 重新啟動後，「密碼回寫」服務可能仍無法重新啟動。 在這些情況下，請先檢查「密碼回寫」是否在內部部署環境中顯示為已啟用。 您可以使用 Azure AD Connect 精靈或 PowerShell 來檢查 (請參閱上一節「做法」)。 如果此功能顯示為已啟用，請再次嘗試透過 UI 或 PowerShell 啟用或停用此功能。 如果這麼做沒有效，請嘗試完整解除安裝再重新安裝 Azure AD Connect。 |
 | 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br ><br> 除了這個問題之外，在密碼重設作業期間，您可能會在內部部署的事件記錄中看到關於管理代理程式存取遭拒的錯誤。 | 如果您在事件記錄中看到這些錯誤，請確認在設定時於精靈中指定的 Active Directory 管理代理程式 (ADMA) 帳戶具有密碼回寫的必要權限。 <br> <br> 這項權限在授與後，最多需要一小時的時間，才會透過網域控制站 (DC) 上的 `sdprop` 背景工作往下傳遞。 <br> <br> 若要讓密碼重設正常運作，必須在要重設密碼的使用者物件安全性描述元上為權限加上戳記。 在使用者物件上出現此權限之前，密碼重設會繼續因存取遭拒訊息而失敗。 |
 | 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br> <br> 除了這個問題之外，在密碼重設作業期間，您可能會在 Azure AD Connect 服務的事件記錄中，看到錯誤指出「找不到物件」錯誤。 | 這個錯誤通常表示同步處理引擎找不到 Azure AD 連接器空間中的使用者物件，或連結的 Metaverse (MV) 或 Azure AD 連接器空間物件。 <br> <br> 若要針對這個問題進行疑難排解，請確定使用者已確實透過 Azure AD Connect 的目前執行個體從內部部屬同步處理到 Azure AD，並檢查連接器空間和 MV 中物件的狀態。 確認 Active Directory 憑證服務 (AD CS) 物件會透過 “Microsoft.InfromADUserAccountEnabled.xxx” 規則連線到 MV 物件。|
@@ -171,7 +171,7 @@ ms.locfileid: "39161985"
 
 如需詳細資訊，請參閱 [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Microsoft Azure Datacenter IP 範圍) 的更新清單，該清單會在每星期三更新、隔週星期一生效。
 
-如需詳細資訊，請在 [Azure AD Connect 的必要條件](./../connect/active-directory-aadconnect-prerequisites.md)一文中檢閱連線必要條件。
+如需詳細資訊，請在 [Azure AD Connect 的必要條件](../hybrid/how-to-connect-install-prerequisites.md)一文中檢閱連線必要條件。
 
 
 

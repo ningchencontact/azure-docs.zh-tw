@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: fab76467025518bc455295da681d0b0127a9cbfe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7db7e00ec3f93695cc6bc3369fe1b00582740d0e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098724"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578067"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件
 下列範例將說明如何從 Azure 代管的網頁上使用 SendGrid 傳送電子郵件。 產生的應用程式會提示使用者提供電子郵件值，如下列螢幕擷取畫面所示。
@@ -213,7 +213,7 @@ ms.locfileid: "37098724"
 
 此程式碼可說明如何在 Azure 上的 Java 中使用 SendGrid。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如︰ 
 
-* 您可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電子郵件地址和電子郵件訊息，而不使用 Web 表單。 如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱 [如何從 Java 使用 Blob 儲存體服務](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/)。 如需在 Java 中使用 SQL Database 的相關資訊，請參閱 [在 Java 中使用 SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-connect-query-java)。
+* 您可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電子郵件地址和電子郵件訊息，而不使用 Web 表單。 如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱 [如何從 Java 使用 Blob 儲存體服務](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/)。 如需在 Java 中使用 SQL Database 的相關資訊，請參閱 [在 Java 中使用 SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java)。
 * 您可以使用 `RoleEnvironment.getConfigurationSettings` ，從部署的組態設定中擷取 SendGrid 使用者名稱和密碼，而不使用 Web 表單擷取這些值。 如需 `RoleEnvironment` 類別的相關資訊，請參閱[在 JSP 中使用 Azure Service Runtime Library](http://msdn.microsoft.com/library/windowsazure/hh690948)，以及 <http://dl.windowsazure.com/javadoc> 上的 Azure Service Runtime 套件文件。
 * 如需在 Java 中使用 SendGrid 的詳細資訊，請參閱 [如何使用 SendGrid 透過 Java 傳送電子郵件](store-sendgrid-java-how-to-send-email.md)。
 

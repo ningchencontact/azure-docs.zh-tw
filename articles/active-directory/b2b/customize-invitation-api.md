@@ -4,18 +4,18 @@ description: Azure Active Directory B2B 共同作業讓企業合作夥伴選擇�
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: reference
 ms.date: 04/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: e53bac5bca199fe08d53f232416a1c6432148f34
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 20c824da82d6e3e66bfa2d7447c8a9573cbdce69
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259545"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985808"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 共同作業 API 和自訂
 
@@ -75,7 +75,7 @@ API 可以在下列授權模型中執行：
 ### <a name="app-only-mode"></a>僅應用程式模式
 在僅應用程式模式中，應用程式需要 User.Invite.All 範圍，邀請才能成功。
 
-如需詳細資訊，請參閱：https://graph.microsoft.io/docs/authorization/permission_scopes
+如需詳細資訊，請參閱： https://graph.microsoft.io/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell

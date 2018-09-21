@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159561"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296239"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>部署密碼重設而不需要使用者註冊
 
 若要部署 Azure Active Directory (Azure AD) 自助式密碼重設 (SSPR)，必須要有驗證資料。 有些組織會讓其使用者自行輸入自己的驗證資料。 但許多組織會偏好與 Active Directory 中既有的資料進行同步處理。 如果您執行下列操作，同步處理的資料將可供 Azure AD 和 SSPR 使用而無須使用者輸入：
    * 將您內部部署目錄中的資料正確格式化。
-   * [使用快速設定來設定 Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md)。
+   * [使用快速設定來設定 Azure AD Connect](../hybrid/how-to-connect-install-express.md)。
 
 為了正確運作，電話號碼的格式必須是：+國碼 電話號碼，例如 +1 4255551234。
 

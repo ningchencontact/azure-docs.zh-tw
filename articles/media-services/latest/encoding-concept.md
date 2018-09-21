@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: juliako
-ms.openlocfilehash: e1c7536c59b110ae3dd753ff5f4b01195f8dadca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659119"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35771041"
 ---
 # <a name="encoding-with-azure-media-services"></a>使用 Azure 媒體服務進行編碼
 
@@ -63,13 +63,13 @@ Azure 媒體服務可讓您將高品質數位媒體檔案編碼成可在各種�
 下列程式碼範例包含的程式碼會說明如何使用媒體服務來編碼：
 
 * [.NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore)
-* [CLI 2.0](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
+* [Azure CLI](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
 
 ### <a name="sdks"></a>SDK
 
 您可以使用下列受支援的媒體服務 v3 SDK 來將內容編碼。
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [REST](https://docs.microsoft.com/rest/api/media/transforms)
 * [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)

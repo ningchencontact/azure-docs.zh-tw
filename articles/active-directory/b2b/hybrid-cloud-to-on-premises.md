@@ -4,18 +4,18 @@ description: 說明如何透過 Azure AD B2B 共同作業對雲端 B2B 使用者
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f34bb9eaa04491dfbef8fac711690d1b19677d89
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259524"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297209"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權
 
@@ -27,7 +27,7 @@ ms.locfileid: "34259524"
 
 您必須執行下列兩個動作：
 
-- 使用非資源庫的應用程式範本整合 SAML 應用程式，如[設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../active-directory-saas-custom-apps.md)所述。 請務必記下您所使用的**登入 URL** 值。
+- 使用非資源庫的應用程式範本整合 SAML 應用程式，如[設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../manage-apps/configure-single-sign-on-non-gallery-applications.md)所述。 請務必記下您所使用的**登入 URL** 值。
 -  使用 Azure AD 應用程式 Proxy 來發行內部部署應用程式，並將 **Azure Active Directory** 設定為驗證來源。 如需指示，請參閱[使用 Azure AD 應用程式 Proxy 發行應用程式](../manage-apps/application-proxy-publish-azure-portal.md)。 
 
    當您設定 [內部 Url] 設定時，請使用您在非資源庫的應用程式範本中指定的登入 URL。 如此一來，使用者就可以從組織界限外存取應用程式。 應用程式 Proxy 會為內部部署應用程式執行 SAML 單一登入。
@@ -63,7 +63,7 @@ ms.locfileid: "34259524"
 您可以透過生命週期管理原則管理內部部署 B2B 使用者物件。 例如︰
 
 - 您可以為來賓使用者設定多重要素驗證 (MFA) 原則，以在應用程式 Proxy 驗證期間使用 MFA。 如需詳細資訊，請參閱 [B2B 共同作業使用者的條件式存取](conditional-access.md)。
-- 任何對雲端 B2B 使用者執行的贊助、存取權檢閱、帳戶驗證等，皆適用於內部部署使用者。 例如，如果透過生命週期管理原則刪除雲端使用者，則也會由 MIM 同步處理或透過 Azure AD Connect 同步處理刪除內部部署使用者。如需詳細資訊，請參閱[使用 Azure AD 存取權檢閱來管理來賓存取權](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)。
+- 任何對雲端 B2B 使用者執行的贊助、存取權檢閱、帳戶驗證等，皆適用於內部部署使用者。 例如，如果透過生命週期管理原則刪除雲端使用者，則也會由 MIM 同步處理或透過 Azure AD Connect 同步處理刪除內部部署使用者。如需詳細資訊，請參閱[使用 Azure AD 存取權檢閱來管理來賓存取權](../governance/manage-guest-access-with-access-reviews.md)。
 
 ### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>透過 MIM 建立 B2B 來賓使用者物件 (預覽)
 
@@ -79,11 +79,11 @@ ms.locfileid: "34259524"
 
 ## <a name="license-considerations"></a>授權考量
 
-請確定您已為存取內部部署應用程式的外部來賓使用者準備正確的用戶端存取授權 (CAL)。 如需詳細資訊，請參閱[用戶端存取授權和管理授權](https://www.microsoft.com/en-us/licensing/product-licensing/client-access-license.aspx)的＜外部連接器＞一節。 請就您的特定授權需求向您的 Microsoft 業務代表或地區轉售商洽詢。
+請確定您已為存取內部部署應用程式的外部來賓使用者準備正確的用戶端存取授權 (CAL)。 如需詳細資訊，請參閱[用戶端存取授權和管理授權](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx)的＜外部連接器＞一節。 請就您的特定授權需求向您的 Microsoft 業務代表或地區轉售商洽詢。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [混合式組織的 Azure Active Directory B2B 共同作業](hybrid-organizations.md)
 
-- 如需 Azure AD Connect 的概觀，請參閱[整合您的內部部署目錄與 Azure Active Directory](../connect/active-directory-aadconnect.md)。
+- 如需 Azure AD Connect 的概觀，請參閱[整合您的內部部署目錄與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)。
 

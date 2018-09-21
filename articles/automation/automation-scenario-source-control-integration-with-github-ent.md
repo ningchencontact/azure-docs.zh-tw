@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 04/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 685d434affd0561658ae99c50bbe7b1fc27a5572
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8c7dc256b92252793545336ffc45a987054a5509
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195517"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35633116"
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Azure 自動化案例 - 自動化原始檔控制與 GitHub Enterprise 的整合
 
@@ -42,7 +42,7 @@ GitHRWCredential | 您所建立的認證資產，內含使用者的使用者名�
 
 ## <a name="installing-and-configuring-this-scenario"></a>安裝和設定此案例
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 1. Sync-LocalGitFolderToAutomationAccount Runbook 會使用 [Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)進行驗證。
 
@@ -59,7 +59,7 @@ GitHRWCredential | 您所建立的認證資產，內含使用者的使用者名�
 
 ### <a name="deploy-and-configure-hybrid-runbook-worker"></a>部署和設定 Hybrid Runbook Worker
 
-如果您尚未於資料中心部署混合式 Runbook 背景工作角色，請檢閱需求，並使用 Azure 自動化混合式 Runbook 背景工作角色 - 自動化 [Windows](automation-windows-hrw-install.md#automated-deployment) 或 [Linux](automation-linux-hrw-install.md#installing-linux-hybrid-runbook-worker) 的安裝和設定中的程序，執行自動化安裝步驟。 在電腦上順利安裝混合式背景工作角色之後，執行下列步驟，以完成組態來支援此案例。
+如果您尚未於資料中心部署混合式 Runbook 背景工作角色，請檢閱需求，並使用 Azure 自動化混合式 Runbook 背景工作角色 - 自動化 [Windows](automation-windows-hrw-install.md#automated-deployment) 或 [Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker) 的安裝和設定中的程序，執行自動化安裝步驟。 在電腦上順利安裝混合式背景工作角色之後，執行下列步驟，以完成組態來支援此案例。
 
 1. 以具有本機系統管理權限的帳戶，登入裝載混合式 Runbook 背景工作角色的電腦，然後建立目錄來存放 Git Runbook 檔案。 將內部 Git 存放庫複製到此目錄。
 1. 如果您尚未建立 RunAs 帳戶，或想要針對此用途建立專用的新帳戶，請從 Azure 入口網站瀏覽至「自動化」帳戶，選取您的「自動化」帳戶，然後建立包含使用者之使用者名稱和密碼的[認證資產](automation-credentials.md)，此使用者具有混合式背景工作角色的權限。

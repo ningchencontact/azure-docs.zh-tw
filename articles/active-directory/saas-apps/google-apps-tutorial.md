@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 8001f2d38ac80bb6c67419faa54bf834531f0332
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9281c5fe04e3f29d1e3425edb4841dfaca1cd9e2
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439397"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294827"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>教學課程：Azure Active Directory 與 G Suite 整合
 
@@ -70,7 +70,7 @@ G Suite 與 Azure AD 整合提供下列優點：
 
 1. **問：如果使用者透過 Windows 登入，他們是否會自動向 G Suite 進行驗證，而不會收到輸入密碼的提示？**
    
-    答：有兩個選項可允許這樣的情況。 第一個是，使用者可以透過 [Azure Active Directory Join](../device-management-introduction.md)登入 Windows 10 裝置。 另一個是，使用者可以登入已加入某個內部部署 Active Directory 網域的 Windows 裝置，其中此內部部署 Active Directory 已透過 [Active Directory 同盟服務 (AD FS)](../connect/active-directory-aadconnect-user-signin.md) 部署而能夠單一登入到 Azure AD。 這兩個選項都需要您執行下列教學課程的步驟，才能在 Azure AD 與 G Suite 之間啟用單一登入。
+    答：有兩個選項可允許這樣的情況。 第一個是，使用者可以透過 [Azure Active Directory Join](../device-management-introduction.md)登入 Windows 10 裝置。 另一個是，使用者可以登入已加入某個內部部署 Active Directory 網域的 Windows 裝置，其中此內部部署 Active Directory 已透過 [Active Directory 同盟服務 (AD FS)](../hybrid/plan-connect-user-signin.md) 部署而能夠單一登入到 Azure AD。 這兩個選項都需要您執行下列教學課程的步驟，才能在 Azure AD 與 G Suite 之間啟用單一登入。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：

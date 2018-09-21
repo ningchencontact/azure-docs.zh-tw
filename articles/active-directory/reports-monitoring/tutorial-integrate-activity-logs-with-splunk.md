@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bafd130b2fbd22f85407590ff2e86ecf5c6dfe67
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 59b33bcc75890372a7b27b9aca40ad1e22c58281
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140237"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364273"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-by-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure AD 記錄與 Splunk 整合 (預覽)
 
@@ -55,4 +55,4 @@ ms.locfileid: "42140237"
 
 * [解譯 Azure 監視器中的稽核記錄結構描述](reference-azure-monitor-audit-log-schema.md)
 * [解譯 Azure 監視器中的登入記錄結構描述](reference-azure-monitor-sign-ins-log-schema.md)
-* [常見問題集和已知問題](overview-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [常見問題集和已知問題](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)

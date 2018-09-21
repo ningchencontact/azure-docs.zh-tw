@@ -14,12 +14,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9e065b04083cce958bc42f2efade0038bf137f8a
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: f453afee6bc26c5ddcdb5018405ec69455f8f7e8
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145106"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295133"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>設定群組設定的 Azure Active Directory Cmdlet
 本文包含使用 Azure Active Directory (Azure AD) PowerShell Cmdlet 以建立和更新群組的指示。 本內容僅適用於 Office 365 群組 (又稱為整合群組)。 
@@ -222,4 +222,4 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 ## <a name="additional-reading"></a>其他閱讀資料
 
 * [使用 Azure Active Directory 群組來管理資源的存取權](../fundamentals/active-directory-manage-groups.md)
-* [整合內部部署身分識別與 Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [整合內部部署身分識別與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

@@ -4,22 +4,21 @@ description: 本主題說明如何實作容錯移轉串流案例。
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 9ea18d4131705ac1e7ba12ed6af6d8202e766abd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783697"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124605"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>使用 Azure 媒體服務實作容錯移轉串流
 
@@ -51,12 +50,7 @@ ms.locfileid: "33783697"
 * 儲存體加密資產 (AssetCreationOptions.StorageEncrypted) 不支援複寫 (因為兩個媒體服務帳戶中的加密金鑰不同)。 
 * 如果您想要利用動態封裝，請確定您想要從中串流內容的串流端點是處於 [執行中] 狀態。
 
-> [!NOTE]
-> 請考慮使用媒體服務 [複寫器工具](http://replicator.codeplex.com/) 做為手動實作容錯移轉串流案例的替代方式。 這項工具可讓您跨兩個媒體服務帳戶複製資產。
-> 
-> 
-
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 在新的或現有的 Azure 訂用帳戶中有兩個媒體服務帳戶。 請參閱 [如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
 * .NET Framework 4.5 或 .NET Framework 4。

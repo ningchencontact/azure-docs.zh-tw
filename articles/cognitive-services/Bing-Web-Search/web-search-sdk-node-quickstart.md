@@ -1,6 +1,7 @@
 ---
 title: 快速入門：使用適用於 Node.js 的 Bing Web 搜尋 SDK
-description: 了解如何使用適用於 Node.js 的 Bing Web 搜尋 SDK。
+titleSuffix: Azure Cognitive Services
+description: Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Node.js 應用程式。 在本快速入門中，您將了解如何具現化用戶端、傳送要求，以及列印回應。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 7c3003ab4ba40a9d0212e7c94b6dd3bfbc8f0ca2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b27c11a69c7d16f38c2448d380b611940078c501
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186626"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121896"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing Web 搜尋 SDK
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f069134c0665769316b794122cc077b05941f635
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c645b0a99493c71a9fa1416c16876da30bcff891
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346163"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367645"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>教學課程︰設定 GitHub 來自動佈建使用者
 
@@ -80,7 +80,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![授權對話方塊](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. 在 Azure 入口網站中，輸入 [租用戶 URL]，然後按一下 [測試連線]，以確保 Azure AD 可以連線至您的 GitHub 應用程式。 如果連線失敗，請確定您的 GitHub 帳戶具有系統管理員權限，並且已正確輸入**租用戶 URl**，然後再試一次「授權」步驟 (您可以依照下列規則來組成**租用戶 URL**：`https://api.github.com/scim/v2/<Organizations_name>`，您可以在 GitHub 帳戶下找到您的組織：[Settings] \(設定\) > [Organizations] \(組織\))。
+7. 在 Azure 入口網站中，輸入 [租用戶 URL]，然後按一下 [測試連線]，以確保 Azure AD 可以連線至您的 GitHub 應用程式。 如果連線失敗，請確定您的 GitHub 帳戶具有系統管理員權限，並且已正確輸入**租用戶 URl**，然後再試一次「授權」步驟 (您可以依照下列規則來組成**租用戶 URL**：`https://api.github.com/scim/v2/organizations/<Organization_name>`，您可以在 GitHub 帳戶下找到您的組織：[Settings] \(設定\) > [Organizations] \(組織\))。
 
     ![授權對話方塊](./media/github-provisioning-tutorial/GitHub3.png)
 

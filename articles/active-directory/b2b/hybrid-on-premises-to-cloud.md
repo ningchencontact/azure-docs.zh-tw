@@ -4,18 +4,18 @@ description: 使用和 Azure AD B2B 共同作業相同的認證，對本機管�
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 71d5ce8728d876740d6ef00b55ecdc9232a06f80
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 722ab51d0f591b8f16924d1d5661385267b7f0e6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267019"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295150"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>使用 Azure AD B2B 共同作業對本機管理的夥伴帳戶授與雲端資源的存取權
 
@@ -32,17 +32,17 @@ ms.locfileid: "34267019"
 - 指定未使用的內部部署 Active Directory 屬性 (例如 extensionAttribute1) 來作為來源屬性。 
 - 或者，從其他屬性衍生 UserType 屬性的值。 例如，如果使用者的內部部署 Active Directory UserPrincipalName 屬性是以 *@partners.contoso.com* 網域作為結尾，您就需要以 Guest 身分來同步處理所有使用者。
  
-如需詳細的屬性需求，請參閱[啟用 UserType 的同步處理](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype)。 
+如需詳細的屬性需求，請參閱[啟用 UserType 的同步處理](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype)。 
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>設定 Azure AD Connect 以將使用者同步至雲端
 
 在識別獨有屬性後，您可以設定 Azure AD Connect 來將這些使用者同步處理至雲端以作為 Azure AD B2B 使用者 (亦即，UserType = Guest 的使用者)。 從授權的觀點來看，這些使用者與透過 Azure AD B2B 共同作業邀請程序所建立的 B2B 使用者並無不同。
 
-如需實作指示，請參閱[啟用 UserType 的同步處理](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype)。
+如需實作指示，請參閱[啟用 UserType 的同步處理](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype)。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [混合式組織的 Azure Active Directory B2B 共同作業](hybrid-organizations.md)
 - [對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權](hybrid-cloud-to-on-premises.md)
-- 如需 Azure AD Connect 的概觀，請參閱[整合您的內部部署目錄與 Azure Active Directory](../connect/active-directory-aadconnect.md)。
+- 如需 Azure AD Connect 的概觀，請參閱[整合您的內部部署目錄與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)。
 

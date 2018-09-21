@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: b0fded9f5543d151091955c0b0d645bf9db16b7d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158578"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296154"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -27,7 +27,7 @@ ms.locfileid: "39158578"
 
 智慧鎖定可與混合式部署整合，使用密碼雜湊同步或傳遞驗證來保護內部部署 Active Directory 帳戶不被攻擊者鎖定。 藉由適當地在 Azure AD 中設定智慧鎖定原則，攻擊將會在到達內部部署 Active Directory 之前遭到篩除。
 
-使用[傳遞驗證](../connect/active-directory-aadconnect-pass-through-authentication.md)時，您必須確定：
+使用[傳遞驗證](../hybrid/how-to-connect-pta.md)時，您必須確定：
 
    * Azure AD 的鎖定閾值「小於」Active Directory 帳戶的鎖定閾值。 請適當設定這些值，使 Active Directory 帳戶的鎖定閾值比 Azure AD 鎖定閾值至少長兩到三倍。 
    * Azure AD 的鎖定持續期間 **(以秒表示)** 比 Active Directory 的「下列時間過後重設帳戶鎖定計數器」持續期間 **(分鐘)**「還長」。

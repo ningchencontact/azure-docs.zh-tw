@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3b4c9de16c7248cbd3087689544d70fe22c858fd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629067"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296408"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 當您要求使用者在工作場所將其個人裝置加入至 Azure Active Directory (Azure AD) 裝置註冊服務時，他們的裝置便可標示為組織已知的裝置。 以下是一個逐步指南，說明如何在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS)，來啟用對內部部署應用程式的條件式存取。
@@ -48,7 +48,7 @@ ms.locfileid: "39629067"
 * Azure Active Directory Premium 的授權
 * Windows Server 2012 R2 Federation Services，針對 Azure AD 的 SSO 設定
 * Windows Server 2012 R2 Web 應用程式 Proxy 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(下載 Azure AD Connect)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(下載 Azure AD Connect)](http://www.microsoft.com/download/details.aspx?id=47594)
 * 已驗證的網域
 
 ## <a name="known-issues-in-this-release"></a>此版本已知的問題
@@ -88,7 +88,7 @@ ms.locfileid: "39629067"
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>第 3 部分：在 Azure AD 中啟用裝置回寫
 | Task | 參考 |
 | --- | --- |
-| 完成「在 Azure AD Connect 中啟用裝置回寫」的第 2 部分。 完成之後，請返回本指南。 |[在 Azure AD Connect 中啟用裝置回寫](./connect/active-directory-aadconnect-feature-device-writeback.md) |
+| 完成「在 Azure AD Connect 中啟用裝置回寫」的第 2 部分。 完成之後，請返回本指南。 |[在 Azure AD Connect 中啟用裝置回寫](hybrid/how-to-connect-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[選擇性] 第 4 部分：啟用 Multi-Factor Authentication
 強烈建議您設定數個 Multi-Factor Authentication 選項其中之一。 如果您想要要求 Multi-Factor Authentication，請參閱[選擇您的 Multi-Factor Authentication 安全性解決方案](authentication/concept-mfa-whichversion.md)。 它包含每個解決方案的描述，以及可協助您設定您所選解決方案的連結。
@@ -107,9 +107,9 @@ ms.locfileid: "39629067"
 
 **請參閱：**
 
-- [整合您的內部部署目錄與 Azure Active Directory](./connect/active-directory-aadconnect.md) - 可檢閱概念性資訊。
+- [整合您的內部部署目錄與 Azure Active Directory](hybrid/whatis-hybrid-identity.md) - 可檢閱概念性資訊。
 
-- [自訂 Azure AD Connect 安裝](./connect/active-directory-aadconnect-get-started-custom.md) - 可獲得安裝指示。
+- [自訂 Azure AD Connect 安裝](hybrid/how-to-connect-install-custom.md) - 可獲得安裝指示。
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>升級您的 Active Directory 網域服務結構描述

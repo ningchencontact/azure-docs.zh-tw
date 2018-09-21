@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577300"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580426"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -102,7 +102,7 @@ public static void Run(
 
 ## <a name="enable-console-logging"></a>啟用主控台記錄
 
-在 WebJobs SDK 專案中進行記錄的選項有好幾個。 我們建議使用[針對 ASP.NET Core 開發的記錄架構](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging)。 此架構可提供更佳的效能，且在儲存區媒體和篩選方面更有彈性。 
+在 WebJobs SDK 專案中進行記錄的選項有好幾個。 我們建議使用[針對 ASP.NET Core 開發的記錄架構](https://docs.microsoft.com/aspnet/core/fundamentals/logging)。 此架構可提供更佳的效能，且在儲存區媒體和篩選方面更有彈性。 
 
 在這一節中，您會設定使用新架構的主控台記錄。
 
@@ -318,13 +318,13 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 在 [連接字串] 中，新增下列項目。
 
-   |Name  |連接字串  |資料庫類型|
+   |名稱  |連接字串  |資料庫類型|
    |---------|---------|------|
    |AzureWebJobsStorage | {您先前複製的儲存體連接字串}|自訂|
    
 1. 如果 [應用程式設定] 方塊沒有 Application Insights 檢測金鑰，請新增您先前複製的檢測金鑰。 (視您建立 App Service 應用程式的方式而言，檢測金鑰可能已經存在。)
 
-   |Name  |值  |
+   |名稱  |值  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {檢測金鑰} |
 

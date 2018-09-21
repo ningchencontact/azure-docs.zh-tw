@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e613ff742096077fe1765d4b855b6c7d409cc228
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158942"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295813"
 ---
 # <a name="how-to-configure-password-writeback"></a>如何：設定密碼回寫
 
-使用密碼回寫時，我們建議您使用 [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) 的自動更新功能。
+使用密碼回寫時，我們建議您使用 [Azure AD Connect](../hybrid/how-to-connect-install-express.md) 的自動更新功能。
 
-下列步驟假設您已使用[快速](./../connect/active-directory-aadconnect-get-started-express.md)或[自訂](./../connect/active-directory-aadconnect-get-started-custom.md)設定在您的環境中設定 Azure AD Connect。
+下列步驟假設您已使用[快速](../hybrid/how-to-connect-install-express.md)或[自訂](../hybrid/how-to-connect-install-custom.md)設定在您的環境中設定 Azure AD Connect。
 
 1. 若要設定和啟用密碼回寫，請登入 Azure AD Connect 伺服器，然後啟動 **Azure AD Connect** 設定精靈。
 2. 在 [歡迎] 頁面上，選取 [設定]。

@@ -4,18 +4,18 @@ description: B2B 共同作業可讓資訊工作者和應用程式擁有者將來
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 904f6b571c063dd760cfd2604a72a505112fe57a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e590500dd622988226c592352b0b86f16d54a9d4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42142087"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983058"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>組織中的使用者如何將來賓使用者邀請到應用程式
 
@@ -81,7 +81,7 @@ ms.locfileid: "42142087"
 3. 選取 [群組]。
 4. 在 [設定] 下，選取 [一般]。
 5. 在 [自助群組管理] 下的 [擁有者可在存取面板管理群組成員資格要求] 旁，選取 [是]。
-6. 選取 [儲存]。
+6. 選取 [ **儲存**]。
 
 ### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>建立要指派給應用程式的群組，並讓使用者成為擁有者
 1. 以 Azure AD 系統管理員或全域系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
@@ -97,7 +97,7 @@ ms.locfileid: "42142087"
 
 ### <a name="configure-the-app-for-self-service-and-assign-the-group-to-the-app"></a>設定應用程式以進行自助服務，並將群組指派給應用程式
 1. 以 Azure AD 系統管理員或全域系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在瀏覽窗格中，選取 [Azure Active Directory]。
+2. 在導覽窗格中，選取 [Azure Active Directory]。
 3. 在 [管理] 下選取 [企業應用程式] > [所有應用程式]。
 4. 在應用程式清單中，尋找並開啟應用程式。
 5. 在 [管理] 下，選取 [單一登入]，然後設定應用程式以進行單一登入 (如需詳細資訊，請參閱[管理企業應用程式的單一登入](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal))。

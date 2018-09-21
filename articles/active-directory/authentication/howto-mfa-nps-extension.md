@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a24988bb9866dde72769107f1c45fc461c039f9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9873347683fdfabd93083b44d034a8d9d5bcaeef
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161052"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297532"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -105,7 +105,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 2. 選取 [Azure Active Directory]  >  [Azure AD Connect]
 3. 確認同步處理狀態為 [已啟用]，且上次同步處理為不到一小時前。
 
-如果您必須展開新一回合的同步處理，請使用 [Azure AD Connect 同步處理：排程器](../connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler)中的指示。
+如果您必須展開新一回合的同步處理，請使用 [Azure AD Connect 同步處理：排程器](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler)中的指示。
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>判斷您的使用者可以使用的驗證方法
 

@@ -16,12 +16,12 @@ ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a79679068b03103bd8ca63455dd2d1758751aa6f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 617a2ab4f98155789ae882c4253f07d8712050d2
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131223"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985544"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集關於 Azure 虛擬機器的資料
 [Azure Log Analytics](log-analytics-overview.md) 可將環境中 Azure 虛擬機器和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Azure Linux 或 Windows VM 的資料。  
@@ -78,7 +78,7 @@ Log Analytics 可以從 Windows 事件記錄檔或 Linux Syslog 收集事件，�
 7. 選取 [Windows 效能資料] 以啟用收集 Windows 電腦上的效能計數器。 
 8. 當您第一次為新的 Log Analytics 工作區設定 Windows 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。 這些計數器旁邊皆會列出核取方塊。
 
-    ![選取的預設 Windows 效能計數器](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).
+    ![選取的預設 Windows 效能計數器](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png)
 
     按一下 [新增選定的效能計數器]。  隨即會新增且收集取樣間隔時間的預設值為 10 秒。
   
@@ -93,7 +93,7 @@ Log Analytics 可以從 Windows 事件記錄檔或 Linux Syslog 收集事件，�
 5. 選取 [Linux 效能資料] 以啟用 Linux 電腦上的效能計數器收集。 
 6. 當您第一次為新的 Log Analytics 工作區設定 Linux 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。 這些計數器旁邊皆會列出核取方塊。
 
-    ![選取的預設 Windows 效能計數器](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).
+    ![選取的預設 Windows 效能計數器](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)
 
     按一下 [新增選定的效能計數器]。  隨即會新增且收集取樣間隔時間的預設值為 10 秒。  
 

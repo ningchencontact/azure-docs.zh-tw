@@ -10,20 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ebcfe02eb8d969af26f5121bda85e4610302e838
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795555"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632738"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>在 Eclipse 中利用 Java 開始使用 Application Insights
 Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您可以分析使用量和效能。 Application Insights 適用的 Eclipse 外掛程式會自動在您的專案中安裝 SDK，使得您可以取得內建的遙測，加上可以用來編寫自訂遙測的 API。   
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 目前外掛程式可用於 Eclipse 中的 Maven 專案和動態網站專案。
 ([將 Application Insights 新增至其他類型的 Java 專案][java]。)
 
