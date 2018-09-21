@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3657b619dc57b994158c711c46d4db6924aa2930
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5e8048dc6b49a0f6c9a465e82a7278e491351034
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089816"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574125"
 ---
 # <a name="what-is-azure-firewall"></a>何謂 Azure 防火牆？
 
@@ -61,8 +61,8 @@ Azure 防火牆公開預覽版本具有下列已知問題：
 |---------|---------|---------|
 |與 NSG 的互通性     |如果在防火牆子網路上套用網路安全性群組 (NSG)，則可能會封鎖輸出網際網路連線，即使 NSG 已設定為允許輸出網際網路存取也一樣。 輸出網際網路連線會標示為來自 VirtualNetwork，且目的地是網際網路。 NSG 的 VirtualNetwork 至 VirtualNetwork 預設為「允許」，但是當目的地是網際網路時則否。|若要減輕問題，請將下列輸入規則新增至防火牆子網路上所套用的 NSG：<br><br>來源：VirtualNetwork 來源連接埠：任何 <br><br>目的地：任何 目的地連接埠：任何 <br><br>通訊協定：所有 存取：允許|
 |與 Azure 資訊安全中心 (ASC) Just-in-Time (JIT) 功能的衝突|如果使用 JIT 存取虛擬機器，且虛擬機器位於子網路中，且該子網路具有指向 Azure 防火牆作為預設閘道的使用者定義路由，則 ASC JIT 無法運作。 這是非對稱式路由的結果 - 封包透過虛擬機器公用 IP (JIT 已開啟存取權) 傳入，但是傳回路徑會透過防火牆，這樣會因為在防火牆上未建立任何工作階段，而捨棄封包。|若要解決此問題，請將 JIT 虛擬機器放置於不同的子網路，其中沒有防火牆的使用者定義路由。|
-|具有全域對等互連的中樞和輪輻無法運作|不支援中樞和輪輻模型 (其中中樞和防火牆是部署在某個 Azure 區域，而輪輻是部署在另一個 Azure 區域) 透過全域 VNet 對等互連連線到中樞。|如需詳細資訊，請參閱[建立、變更或刪除虛擬網路對等互連](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
-非 TCP/UDP 通訊協定 (例如 ICMP) 的網路篩選規則，不適用於流向網際網路的流量|非 TCP/UDP 通訊協定的網路篩選規則，無法與 SNAT 搭配用於您的公用 IP 位址。 在輪輻子網路與 VNet 之間支援非 TCP/UDP 通訊協定。|Azure 防火牆會使用 Standard Load Balancer，[目前針對 IP 通訊協定不支援 SNAT](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview#limitations)。 我們正在探索選項，以在未來的版本中支援這種案例。
+|具有全域對等互連的中樞和輪輻無法運作|不支援中樞和輪輻模型 (其中中樞和防火牆是部署在某個 Azure 區域，而輪輻是部署在另一個 Azure 區域) 透過全域 VNet 對等互連連線到中樞。|如需詳細資訊，請參閱[建立、變更或刪除虛擬網路對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
+非 TCP/UDP 通訊協定 (例如 ICMP) 的網路篩選規則，不適用於流向網際網路的流量|非 TCP/UDP 通訊協定的網路篩選規則，無法與 SNAT 搭配用於您的公用 IP 位址。 在輪輻子網路與 VNet 之間支援非 TCP/UDP 通訊協定。|Azure 防火牆會使用 Standard Load Balancer，[目前針對 IP 通訊協定不支援 SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations)。 我們正在探索選項，以在未來的版本中支援這種案例。
 
 
 

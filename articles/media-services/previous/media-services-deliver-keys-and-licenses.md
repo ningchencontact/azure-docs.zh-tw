@@ -4,7 +4,7 @@ description: 本文將說明如何使用 Azure 媒體服務來傳遞 PlayReady �
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: 84dd4db84fffd5ffc79e55b6ceb1182dcfbc3c55
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 300673ffd62324de1207a29551694f12dd84ea93
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783297"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366364"
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒體服務傳遞 DRM 授權或 AES 金鑰
+
 Azure 媒體服務可讓您內嵌、編碼、新增內容保護，以及串流您的內容。 如需詳細資訊，請參閱[使用 PlayReady 和/或 Widevine 動態一般加密](media-services-protect-with-playready-widevine.md)。 有些客戶只想使用媒體服務來傳遞授權和/或金鑰，並使用他們的內部部署伺服器來進行編碼、加密和串流。 本文章說明如何使用媒體服務來傳遞 PlayReady 和/或 Widevine 授權，但使用您的內部部署伺服器來完成其餘部分。 
 
 ## <a name="overview"></a>概觀
@@ -42,10 +43,11 @@ Azure 媒體服務可讓您內嵌、編碼、新增內容保護，以及串流�
 
 2. 將下列項目新增至 app.config 檔案中定義的 **appSettings**：
 
-    add key="Issuer" value="http://testacs.com"/
-    
-    add key="Audience" value="urn:test"/
-
+    ```xml
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
+    ```
+ 
 ## <a name="net-code-example"></a>.NET 程式碼範例
 下列程式碼範例示範如何建立通用內容金鑰，並取得 PlayReady 或 Widevine 授權取得 URL。 若要設定內部部署伺服器，您需要準備內容金鑰、金鑰識別碼和授權取得 URL。 在設定好內部部署伺服器之後，您就可以從串流伺服器進行串流。 因為加密的串流指向媒體服務授權伺服器，播放器會向媒體服務要求授權。 如果您選擇權杖驗證，媒體服務授權伺服器將會驗證您透過 HTTPS 所傳送的權杖。 如果權杖有效，授權伺服器會將授權傳遞回播放器。 下列程式碼範例僅示範如何建立通用內容金鑰以及取得 PlayReady 或 Widevine 授權取得 URL。 如果您想要傳遞 AES-128 金鑰，則必須建立信封內容金鑰，並取得金鑰取得 URL。 如需詳細資訊，請參閱[使用 AES-128 動態加密和金鑰傳遞服務](media-services-protect-with-aes128.md)。
 

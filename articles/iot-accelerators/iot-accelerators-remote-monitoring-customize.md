@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 36e63d26bf7ada2d23fa3cd9fddbb5ba90494527
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126017"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127341"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>自訂遠端監視解決方案加速器
 
@@ -35,7 +35,7 @@ ms.locfileid: "43126017"
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    您只應該在測試和開發期間啟用 SSH 存取。 如果您啟用 SSH，[您應儘速再次加以停用](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines)。
+    您只應該在測試和開發期間啟用 SSH 存取。 如果您啟用 SSH，[您應儘速再次加以停用](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines)。
 
 1. 使用 Azure 入口網站或 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 來尋找虛擬機器的名稱和公用 IP 位址。 例如︰
 
@@ -454,8 +454,8 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 若要進一步修改遠端監視解決方案中的呈現方式和視覺效果層級，您可以編輯程式碼。 相關的 GitHub 存放庫為：
 
-* [適用於 Azure IoT 解決方案的設定微服務 (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/) \(英文\)
-* [適用於 Azure IoT 解決方案的設定微服務 (Java)](https://github.com/Azure/pcs-ui-config-java/) \(英文\)
+* [適用於 Azure IoT 解決方案的設定微服務 (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config) \(英文\)
+* [適用於 Azure IoT 解決方案的設定微服務 (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config) \(英文\)
 * [Azure IoT PCS 遠端監視 Web UI](https://github.com/Azure/pcs-remote-monitoring-webui) \(英文\)
 
 ## <a name="next-steps"></a>後續步驟

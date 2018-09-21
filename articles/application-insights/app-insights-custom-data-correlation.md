@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 31e37efc1aad3d355bdd8391535f317ec137f5d7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6d19c64c74a01a012bac3d867e2d65393ae21cd3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161600"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577766"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>使自訂資料來源與 Application Insights 資料相互關聯
 
@@ -51,7 +51,7 @@ Application Insights 會收集數個不同的資料類型：例外狀況、追�
 
 ## <a name="correlating-data"></a>使資料相互關聯
 
-Application Insights 會以 Log Analytics 資料平台作為基礎。 因此我們可以使用[跨資源聯結](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search)，讓內嵌至 Log Analytics 的所有資料與 Application Insights 資料相互關聯。
+Application Insights 會以 Log Analytics 資料平台作為基礎。 因此我們可以使用[跨資源聯結](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)，讓內嵌至 Log Analytics 的所有資料與 Application Insights 資料相互關聯。
 
 例如，我們可以將實驗室詳細目錄和位置內嵌至名為 “LabLocations_CL” 的資料表 (位於名為 “myLA” 的 Log Analytics 工作區中)。 如果我們接著要檢閱在 Application Insights 應用程式 "myAI" 中追蹤的要求，並使處理要求的機器名稱與先前所述自訂資料表中儲存的這些機器位置相互關聯，我們可以從Application Insights 或 Log Analytics 環境中執行下列查詢：
 
@@ -66,4 +66,4 @@ app('myAI').requests
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱[資料收集器 API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) 參考。
-- 取得[跨資源聯結](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search)的詳細資訊。
+- 取得[跨資源聯結](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)的詳細資訊。

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 068e9a3379bd2762455aade1761592fa70a09a20
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3c12e98137f44ac094adaae282b5d56d30061e60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144373"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719846"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>使用事件方格來觸發動作以回應 IoT 中樞事件
 
@@ -34,12 +34,11 @@ ms.locfileid: "43144373"
 | 事件類型 | 說明 |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | 向 IoT 中樞註冊裝置時發佈。 |
-| Microsoft.Devices.DeviceDeleted | 從 IoT 中樞刪除裝置時發佈。 | 
-| Microsoft.Devices.DeviceConnected | 在裝置連線至 IoT 中樞時發佈。 | 
-| Microsoft.Devices.DeviceDisconnected | 在裝置從 IoT 中樞中斷連線時發佈。 | 
-請注意，加拿大東部和美國東部區域即將啟用裝置連線和裝置中斷連線事件。
+| Microsoft.Devices.DeviceDeleted | 從 IoT 中樞刪除裝置時發佈。 |
+| Microsoft.Devices.DeviceConnected | 在裝置連線至 IoT 中樞時發佈。 |
+| Microsoft.Devices.DeviceDisconnected | 在裝置從 IoT 中樞中斷連線時發佈。 |
 
-請使用 Azure 入口網站或 Azure CLI 來設定要從每個 IoT 中樞發佈哪些事件。 例如，請試試[使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知](../event-grid/publish-iot-hub-events-to-logic-apps.md)教學課程。 
+請使用 Azure 入口網站或 Azure CLI 來設定要從每個 IoT 中樞發佈哪些事件。 例如，請試試[使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知](../event-grid/publish-iot-hub-events-to-logic-apps.md)教學課程。
 
 ## <a name="event-schema"></a>結構描述
 

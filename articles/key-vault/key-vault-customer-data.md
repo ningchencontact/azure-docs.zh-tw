@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 807b8a17570dfdcefa07a42719b7b0b24e4f31d7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146152"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297157"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 客戶資料功能
 
@@ -37,7 +37,7 @@ Azure Key Vault 會在建立或更新保存庫、金鑰、祕密、憑證及受�
 - 憑證連絡人可能包含使用者電子郵件地址、名稱或電話號碼
 - 憑證簽發者可能包含電子郵件地址、名稱、電話號碼、帳戶認證以及組織詳細資料
 - 任意標記可以套用至 Azure Key Vault 中的物件。 這些物件包含保存庫、金鑰、祕密、憑證和儲存體帳戶。 使用的標記可能包含個人資料
-- Azure Key Vault 存取記錄包含每個 REST API 呼叫的物件識別碼、[UPN](../active-directory/connect/active-directory-aadconnect-userprincipalname.md) 及 IP 位址
+- Azure Key Vault 存取記錄包含每個 REST API 呼叫的物件識別碼、[UPN](../active-directory/hybrid/plan-connect-userprincipalname.md) 及 IP 位址
 - Azure Key Vault 診斷記錄可能包含 REST API 呼叫的物件識別碼和 IP 位址
 
 ## <a name="deleting-customer-data"></a>刪除客戶資料

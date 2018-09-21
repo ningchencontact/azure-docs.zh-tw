@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: ecc5948c84f7659e950c360c3b19d1985b0ab81c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3c671fe6dcb1af25bfb0aa09fecf8ad5e5ceb97b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521484"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732255"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
 
@@ -256,7 +256,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
 -   請使用共用存取簽章 (SAS) 權杖來提供資源的存取權。 
 
--   將儲存體帳戶的主要或次要金鑰提供給使用者。 如需詳細資訊，請參閱[管理您的儲存體帳戶](storage-create-storage-account.md#manage-your-storage-account)。
+-   將儲存體帳戶的主要或次要金鑰提供給使用者。 如需詳細資訊，請參閱[管理您的儲存體帳戶](storage-account-manage.md#access-keys)。
 
 -   變更存取原則，以允許匿名存取。 如需詳細資訊，請參閱[授與容器和 Blob 的匿名使用者權限](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)。
 

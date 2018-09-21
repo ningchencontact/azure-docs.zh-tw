@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42145512"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982972"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure 自動化中的 Runbook 執行
 
@@ -59,7 +59,7 @@ ms.locfileid: "42145512"
 
 在所選自動化帳戶的右邊，您可以在 [作業統計資料] 圖格下方，看到所選自動化帳戶的所有 Runbook 作業摘要。
 
-![[作業統計資料] 圖格](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![[作業統計資料] 圖格](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 這個圖格會針對所有已執行的作業顯示作業狀態的計數和圖形表示。
 

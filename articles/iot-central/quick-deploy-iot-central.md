@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 51c6753b1e4f2b08e93214abfcd7e18cb2e66613
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318308"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465600"
 ---
 # <a name="create-an-azure-iot-central-application"></a>建立 Azure IoT Central 應用程式
 
@@ -52,78 +52,6 @@ ms.locfileid: "36318308"
 1. 然後選擇 [建立]。
 
 ![Azure IoT Central 的建立應用程式頁面](media/quick-deploy-iot-central/iotcentralcreate.png)
-
-## <a name="navigate-to-the-application"></a>瀏覽至應用程式
-
-當您的應用程式就緒時，即會顯示應用程式的**首頁**。 您可以切換右上方的「設計模式」，以編輯首頁。 應用程式 URL 是您在上一個步驟中指定的 URL：
-
-![應用程式建置者頁面](media/quick-deploy-iot-central/apphome.png)
-
-使用_左側導覽功能表_，可存取新的 Azure IoT Central 應用程式的不同區域：
-
-![左側導覽功能表](media/quick-deploy-iot-central/navbar.png)
-
-若要檢視應用程式中的裝置範本和裝置，請選擇左側導覽功能表上的 [裝置總管]。 範例應用程式中包含**冷飲自動販賣機**裝置範本。 已有三個從這個範本建立的模擬裝置：
-
-![裝置總管](media/quick-deploy-iot-central/deviceexplorer.png)
-
-## <a name="view-the-device-template-and-devices"></a>檢視裝置範本和裝置
-
-請使用下列步驟，檢視從**冷飲自動販賣機**裝置範本建立的冰箱裝置。 裝置範本會定義：
-
-* 從裝置傳送的_測量_，例如溫度遙測資料。
-* 可讓您控制裝置的_設定_，例如風扇速度。
-* 儲存裝置相關資訊的_屬性_，例如序號。
-* 可讓您根據裝置的行為自動執行動作的[規則](howto-create-telemetry-rules.md)。
-* 顯示裝置相關資訊的可自訂_儀表板_。
-
-您可以從裝置範本建立模擬和實際裝置。
-
-### <a name="measurements"></a>測量
-
-顯示 [冰箱 1] 裝置的 [測量] 頁面。 您可以檢視從模擬裝置傳送的測量清單。 頁面中也會顯示可見測量的可自訂圖表：
-
-![測量頁面](media/quick-deploy-iot-central/measurements.png)
-
-您可以切換個別項目的可見性，並自訂圖表。 目前的圖表顯示來自模擬裝置的遙測資料。 如果您有適當權限，則可以將新的測量新增至裝置範本。
-
-> [!NOTE]
-> 您可能需要稍加等待，模擬的資料才會出現在圖表上。
-
-### <a name="settings"></a>設定
-
-選擇 [設定]。 在 [設定] 頁面上，您可以控制裝置。 例如，您可以更新冰箱的風扇速度：
-
-![設定](media/quick-deploy-iot-central/settings.png)
-
-裝置確認變更時，會出現顯示為**同步**的設定。
-
-### <a name="properties"></a>properties
-
-選擇 [屬性]。 在 [屬性] 頁面上，您可以：
-
-* 維護裝置的相關資訊，例如客戶名稱。
-* 檢視裝置回報的屬性值，例如動態警示。
-
-![properties](media/quick-deploy-iot-central/properties.png)
-
-### <a name="dashboard"></a>儀表板
-
-選擇 [儀表板]。 儀表板是裝置相關資訊的可自訂檢視，例如測量、屬性和 KPI：
-
-![儀表板](media/quick-deploy-iot-central/dashboard.png)
-
-## <a name="view-analytics"></a>檢視分析
-
-上一節已說明如何檢視個別裝置的相關資訊。 您可以使用[裝置集合](howto-use-device-sets.md)和[分析](howto-create-analytics.md)，檢視來自多個裝置的彙總資訊。
-
-裝置集合會使用的查詢動態選取一組符合準則的裝置。 例如，**位於西雅圖的機器**裝置集合會選取位置為西雅圖的冰箱裝置。 若要檢視**位於西雅圖的機器**裝置集合，請選擇左側導覽功能表中的 [裝置集合]，然後選擇 [位於西雅圖的機器]：
-
-![位於西雅圖的機器裝置集合](media/quick-deploy-iot-central/deviceset.png)
-
-您可以在 [分析] 頁面上，檢視裝置集合中各項裝置的分析資料：
-
-![位於西雅圖的機器分析](media/quick-deploy-iot-central/analytics.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,23 +1,21 @@
 ---
 title: 商務持續性 - Microsoft Genomics | Microsoft Docs
 titleSuffix: Azure
-description: 深入了解 Microsoft Genomics 如何支援商務持續性
+description: 本概觀說明 Microsoft Genomics 針對商務持續性和災害復原所提供的功能。 深入了解可使用哪些選項，從可能造成資料遺失的干擾性事件 (例如 Azure 區域中斷) 復原。
 keywords: 商務持續性，災害復原
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 04/06/2018
-ms.openlocfilehash: cb3825cb89aff386c4f7c3f3b0d771d73fe637b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be678648ab93fcbdfd0a0baa1b01dcb273060ce2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426368"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729447"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>使用 Microsoft Genomics 的商務持續性概觀
 本概觀說明 Microsoft Genomics 針對商務持續性和災害復原所提供的功能。 深入了解可使用哪些選項，從可能造成資料遺失的干擾性事件 (例如 Azure 區域中斷) 復原。 

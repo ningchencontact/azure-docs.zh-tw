@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441437"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576862"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立記錄警示
 本文將說明如何透過 [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) 和 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)在 Azure 中使用 [Azure Resource Manager 範本](..//azure-resource-manager/resource-group-authoring-templates.md)，以程式設計方式管理大規模的[記錄警示](monitor-alerts-unified-log.md)。 Azure 警示目前支援來自 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 和 [Azure Application Insights](../application-insights/app-insights-analytics-tour.md) 查詢上的記錄警示。
@@ -35,12 +35,12 @@ Log Analytics 警示 REST API 是 RESTful，可透過 Azure Resource Manager RES
 深入了解[使用 REST API 建立及管理 Log Analytics 中的警示規則](../log-analytics/log-analytics-api-alerts.md)；包括從 Powershell 存取 API 的範例。
 
 ## <a name="managing-log-alert-on-application-insights"></a>管理 Application Insights 上的記錄警示
-我們已將 Azure Application Insights 的記錄警示引進 Azure 監視器，作為新 Azure 警示的一部分。 因此，其會作為[排程的查詢規則](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) REST 作業群組，執行於 Azure 監視器之下。
+我們已將 Azure Application Insights 的記錄警示引進 Azure 監視器，作為新 Azure 警示的一部分。 因此，其會作為[排程的查詢規則](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST 作業群組，執行於 Azure 監視器之下。
 
 ### <a name="using-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
-Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights/scheduledQueryRules/`。 如需有關此資源類型的詳細資訊，請參閱 [Azure 監視器 - 排程的查詢規則 API 參考](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/)。
+Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights/scheduledQueryRules/`。 如需有關此資源類型的詳細資訊，請參閱 [Azure 監視器 - 排程的查詢規則 API 參考](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)。
 
-以下結構用於根據資源範本[建立排程的查詢規則](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate)，其中使用資料集範例作為變數。
+以下結構用於根據資源範本[建立排程的查詢規則](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate)，其中使用資料集範例作為變數。
 
 ```json
 {
@@ -113,7 +113,7 @@ Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights
 }
 ```
 > [!IMPORTANT]
-> [排程的查詢規則](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API 呼叫或資源範本中，一定會使用具有目標資源隱藏連結的標籤欄位。 
+> [排程的查詢規則](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API 呼叫或資源範本中，一定會使用具有目標資源隱藏連結的標籤欄位。 
 
 基於本逐步解說的目的，上述 json 範例可儲存為 (假設) sampleScheduledQueryRule.json，而且可以使用 [Azure 入口網站中的 Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) 進行部署。
 

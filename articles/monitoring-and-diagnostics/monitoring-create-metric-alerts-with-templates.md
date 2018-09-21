@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 7289259214f90507c5b9cf527f19f0cf7026798c
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: be0ec31a05c0c1454e1af58b4a9c4ca959acbecf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391448"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577118"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立度量警示
 本文章將說明如何使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)在 Azure 監視器中設定[新版計量警示](monitoring-near-real-time-metric-alerts.md)。 Resource Manager 範本可讓您以程式設計方式，在環境中以一致且可重現的方式設定警示。 新版計量警示目前可在[這組資源類型](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)上使用。
@@ -184,7 +184,7 @@ ms.locfileid: "44391448"
 }
 ```
 
-警示規則的結構描述和屬性說明 [請見這裡](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate)。
+警示規則的結構描述和屬性說明 [請見這裡](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate)。
 
 您可以在命令列上或透過參數檔案，設定參數的值。 範例參數檔案如下所示。 
 

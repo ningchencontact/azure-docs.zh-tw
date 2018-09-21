@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785987"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984652"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>使用 Azure AD 驗證搭配 REST 存取 Azure 媒體服務 API
 
@@ -43,9 +43,9 @@ ms.locfileid: "33785987"
 > [!IMPORTANT]
 > 目前，媒體服務支援 Azure 存取控制服務驗證模型。 不過，存取控制驗證將在 2018 年 6 月 1 日被取代。 建議您儘速移轉至 Azure AD 驗證模型。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
+- 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 - [使用 Azure 入口網站建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)。
 - 請先複習＜[使用 AAD 驗證存取 Azure 媒體服務 API 概觀](media-services-use-aad-auth-to-access-ams-api.md)＞一文。
 - 安裝 [Postman](https://www.getpostman.com/) \(英文\) REST 用戶端，來執行在本文中示範的 REST API。 
@@ -60,7 +60,7 @@ ms.locfileid: "33785987"
 
 |設定|範例|說明|
 |---|-------|-----|
-|Azure Active Directory 租用戶網域|microsoft.onmicrosoft.com|Azure AD 即 Secure Token Service (STS) 端點會透過以下格式建立：https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD 會核發存取資源所需的 JWT (存取權杖)。|
+|Azure Active Directory 租用戶網域|microsoft.onmicrosoft.com|Azure AD 即 Secure Token Service (STS) 端點會透過以下格式建立： https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD 會核發存取資源所需的 JWT (存取權杖)。|
 |REST API 端點|https://amshelloworld.restv2.westus.media.azure.net/api/|您的應用程式中發出之所有媒體服務 REST API 呼叫，都是針對此端點。|
 |用戶端識別碼 (應用程式識別碼)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 應用程式 (用戶端) 識別碼。 需要用戶端識別碼，才能取得存取權杖。 |
 |用戶端密碼|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 應用程式金鑰 (用戶端秘密)。 需要用戶端秘密，才能取得存取權杖。|
@@ -97,7 +97,7 @@ ms.locfileid: "33785987"
     1. 選取應用程式。
     2. 從右側視窗取得**用戶端識別碼**。 
 
-    ![API 存取](./media/connect-with-rest/existing-client-id.png).
+    ![API 存取](./media/connect-with-rest/existing-client-id.png)
 
 7.  取得應用程式的**金鑰** (用戶端秘密)。 
 

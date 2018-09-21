@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035855"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578492"
 ---
 # <a name="determine-your-publishing-option"></a>決定您的發佈選項
 您為供應項目選擇的發佈選項，與資格需求和市集 GTM 權益直接相關。 更重要的是，Cloud Partner 入口網站中發佈選項和供應項目類型的選取項目，會定義使用者與市集供應項目互動的方式。
@@ -80,7 +80,7 @@ ms.locfileid: "39035855"
 
 單一供應項目類型可以在 Cloud Partner 入口網站中以不同方式設定，以啟用不同的發佈選項、呼籲行動、佈建或定價。 發佈選項和供應項目類型的組態，也會符合供應項目資格和技術需求。 
 
-在您建立供應項目之前，請務必檢閱此[發行者指南](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide)中的供應項目類型資格需求，以及技術發佈需求。
+在您建立供應項目之前，請務必檢閱此[發行者指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)中的供應項目類型資格需求，以及技術發佈需求。
 
 ## <a name="next-steps"></a>後續步驟
 

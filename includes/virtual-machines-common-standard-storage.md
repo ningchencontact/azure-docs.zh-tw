@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: 70f80b880fadaeb4d5859524b3ba3b55ececbdda
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ab085d6a5cb38c46cf46a51da6d294732e2fd879
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40260141"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979655"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>符合成本效益的標準儲存體及非受控和受控 Azure VM 磁碟
 
@@ -52,7 +52,7 @@ ms.locfileid: "40260141"
 
 **儲存體複寫︰** 在大部分區域，標準儲存體帳戶中的資料可以在本地複寫，或跨多個資料中心進行異地複寫。 可用的四種複寫包括本地備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。 標準儲存體中的受控磁碟目前只支援本地備援儲存體 (LRS)。 如需詳細資訊，請參閱[儲存體複寫](../articles/storage/common/storage-redundancy.md)。
 
-## <a name="scalability-and-performance-targets"></a>延展性和效能目標
+## <a name="scalability-and-performance-targets"></a>擴充和效能目標
 
 在本節中，我們說明使用標準儲存體時需要考慮的延展性和效能目標。
 
@@ -148,7 +148,7 @@ ms.locfileid: "40260141"
 
 * [Azure 儲存體簡介](../articles/storage/common/storage-introduction.md)
 
-* [建立儲存體帳戶](../articles/storage/common/storage-create-storage-account.md)
+* [建立儲存體帳戶](../articles/storage/common/storage-quickstart-create-account.md)
 
 * [受控磁碟概觀](../articles/virtual-machines/linux/managed-disks-overview.md)
 

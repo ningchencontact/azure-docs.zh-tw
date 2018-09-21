@@ -7,14 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: daredis
-ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: vanto
+ms.openlocfilehash: 220cda999c21e6b56546fe6d5dbe350675ad9691
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193456"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542392"
 ---
 # <a name="secure-your-azure-sql-database"></a>保護 Azure SQL Database
 
@@ -40,13 +41,13 @@ SQL Database 也具有複雜的監視、稽核和威脅偵測功能。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您具有下列項目︰
 
 - 已安裝最新版的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。 
 - 已安裝 Microsoft Excel
-- 已建立 Azure SQL Server 和 SQL Database - 請參閱[在 Azure 入口網站中建立 Azure SQL Database](sql-database-get-started-portal.md)、[使用 Azure CLI 建立單一 Azure SQL Database](sql-database-get-started-cli.md) 和[使用 PowerShell 建立單一 Azure SQL Database](sql-database-get-started-powershell.md)。 
+- 已建立 Azure SQL Server 和 SQL Database - 請參閱[在 Azure 入口網站中建立 Azure SQL Database](sql-database-get-started-portal.md)、[使用 Azure CLI 建立單一 Azure SQL Database](sql-database-cli-samples.md) 和[使用 PowerShell 建立單一 Azure SQL Database](sql-database-powershell-samples.md)。 
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 

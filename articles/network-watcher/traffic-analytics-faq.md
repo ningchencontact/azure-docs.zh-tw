@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903742"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578305"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -58,7 +58,7 @@ ms.locfileid: "37903742"
 
 3. 若要列出指派給指定使用者的所有角色，請使用 **Get-AzureRmRoleAssignment -SignInName [使用者電子郵件] -IncludeClassicAdministrators**。 
 
-如果看不到任何輸出，請聯絡個別訂用帳戶管理員，取得執行命令的權限。 如需詳細資料，請參閱[使用 Azure PowerShell 管理角色型存取控制](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)。
+如果看不到任何輸出，請聯絡個別訂用帳戶管理員，取得執行命令的權限。 如需詳細資料，請參閱[使用 Azure PowerShell 管理角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)。
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>在哪些 Azure 區域中可使用流量分析？
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 流量分析採計量付費。 計量是以服務處理的流量記錄資料來進行，並將所產生的加強型記錄儲存在 Log Analytics 工作區中。 
 
-例如，根據[定價方案](https://azure.microsoft.com/en-us/pricing/details/network-watcher/)，以美國中西部區域為例，如果儲存在儲存體帳戶且由流量分析處理的流量記錄資料為 10 GB，而內嵌於 Log Analytics 工作區的加強型記錄為 1 GB，則適用費用為：10 x 2.3$ + 1 x 2.76$ = 25.76$
+例如，根據[定價方案](https://azure.microsoft.com/pricing/details/network-watcher/)，以美國中西部區域為例，如果儲存在儲存體帳戶且由流量分析處理的流量記錄資料為 10 GB，而內嵌於 Log Analytics 工作區的加強型記錄為 1 GB，則適用費用為：10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>如何在地理地圖檢視中使用鍵盤來瀏覽？
 

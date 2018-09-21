@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 3e36d9202c578294609b01eaf2731b1551ae67af
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 138fbb64ca2d157059c952d9e82541cfac3ff597
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282325"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579049"
 ---
 # <a name="other-machine-learning-products-and-services-from-microsoft"></a>Microsoft 的其他機器學習產品和服務
 
@@ -36,7 +36,7 @@ ms.locfileid: "39282325"
 當您需要在內部部署或 Microsoft SQL Server 內定型或部署模型時，請使用 Microsoft Machine Learning Services。 使用機器學習服務建置的模型可使用 Azure Machine Learning 模型管理來部署。 
 
 ## <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning Server 
-[Microsoft Machine Learning 伺服器](https://docs.microsoft.com/en-us/machine-learning-server/what-is-machine-learning-server)是企業伺服器，用來裝載及管理 R 及 Python 處理程序的並行和分散式工作負載。 Microsoft Machine Learning 伺服器可在 Linux、Windows、Hadoop 和 Apache Spark 上執行。 也可在 [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/) 上取得。 它會為使用 [Microsoft Machine Learning 套件](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)建置的解決方案提供執行引擎，並利用對下列案例的支援延伸開放原始碼 R 和 Python：
+[Microsoft Machine Learning 伺服器](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)是企業伺服器，用來裝載及管理 R 及 Python 處理程序的並行和分散式工作負載。 Microsoft Machine Learning 伺服器可在 Linux、Windows、Hadoop 和 Apache Spark 上執行。 也可在 [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/) 上取得。 它會為使用 [Microsoft Machine Learning 套件](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)建置的解決方案提供執行引擎，並利用對下列案例的支援延伸開放原始碼 R 和 Python：
 
 - 高效能分析
 - 統計分析

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 104ef98aac3e34e30a86854a0d759cf11106b55b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414696"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575290"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace 諮詢服務
 Azure Marketplace 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用。 Azure Marketplace 可支援 Microsoft 系統整合商 (SI) 合作夥伴的諮詢服務供應項目清單。 
@@ -73,7 +73,7 @@ Azure Marketplace 中的諮詢服務會為 Microsoft 合作夥伴提供一個目
 Azure Marketplace 諮詢服務的將在特定地理位置推出。 首波推出區域將為：美國、加拿大、英國與澳洲。 在合作夥伴提交一定數量且極具吸引力的精選服務供應項目並經 Microsoft 核准後，其他國家/地區的目錄就會推出。
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>如何使用 Azure Marketplace 註冊諮詢服務
-首先請使用 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) 註冊您的諮詢服務。 如需完整的註冊需求清單，發行者可以參考[成為 Marketplace 中的發行者](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher)。 
+首先請使用 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) 註冊您的諮詢服務。 如需完整的註冊需求清單，發行者可以參考[成為 Marketplace 中的發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 
 
 **註冊後的預期事項**上線團隊將在 1-3 個工作日內寄送歡迎電子郵件與您連絡，該電子郵件內含您的 Cloud Partner 入口網站 (CPP) 登入資訊。 [Cloud Partner 入口網站](https://cloudpartner.azure.com)是供應項目清單入口網站，發行者可在其中提交清單資訊和提交內容。 
 
@@ -150,7 +150,7 @@ Azure Marketplace 諮詢服務的將在特定地理位置推出。 首波推出�
 |**概念證明**    |    清楚表達客戶可以預期參與後會有哪些工程變更、技術成品或其他成品     | 使用您的熱門搜尋引擎最佳化關鍵字來最佳化供應項目摘要        |
 |**研討會**    |   包含每日、每週或每月的詳細議程，依據您選擇的供應項目持續時間而定。 清楚表達工作坊的學習目標或其他交付成果     |   使用您的熱門搜尋引擎最佳化關鍵字來最佳化供應項目摘要      |
 
-在 Cloud Partner 入口網站內，您可以藉由使用 [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown) 將格式新增至您的清單。 這是輕量型設計語言，可協助讓您的清單更完善。 
+在 Cloud Partner 入口網站內，您可以藉由使用 [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown) 將格式新增至您的清單。 這是輕量型設計語言，可協助讓您的清單更完善。 
 
 **範例 Markdown 附註**
 *   在複本區塊的開頭和結尾加上 * - 不使用空格以建立斜體 (例如：*內容*)

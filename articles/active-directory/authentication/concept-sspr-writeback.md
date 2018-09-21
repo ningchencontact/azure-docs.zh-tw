@@ -10,22 +10,22 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4f4c2ada08c69b6602ff5a300a15c4ca57090a8e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816048"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295830"
 ---
 # <a name="what-is-password-writeback"></a>什麼是密碼回寫？
 
-能擁有雲端式密碼重設公用程式很棒，但大部分公司仍有供其使用者使用的內部部署目錄。 Microsoft 支援要如何讓傳統的內部部署 Active Directory (AD) 與雲端中的密碼變更保持同步？ 密碼回寫是透過 [Azure AD Connect](./../connect/active-directory-aadconnect.md) 所實現的功能，可將雲端中的密碼變更即時回寫至現有內部部署目錄。
+能擁有雲端式密碼重設公用程式很棒，但大部分公司仍有供其使用者使用的內部部署目錄。 Microsoft 支援要如何讓傳統的內部部署 Active Directory (AD) 與雲端中的密碼變更保持同步？ 密碼回寫是透過 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 所實現的功能，可將雲端中的密碼變更即時回寫至現有內部部署目錄。
 
 使用下列項目的環境可支援密碼回寫：
 
-* [Active Directory 同盟服務](../connect/active-directory-aadconnect-federation-management.md) \(英文\)
-* [密碼雜湊同步處理](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [傳遞驗證](../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Active Directory 同盟服務](../hybrid/how-to-connect-fed-management.md) \(英文\)
+* [密碼雜湊同步處理](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [傳遞驗證](../hybrid/how-to-connect-pta.md)
 
 密碼回寫提供：
 

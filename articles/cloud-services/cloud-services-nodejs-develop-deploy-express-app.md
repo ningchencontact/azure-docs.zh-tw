@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ac62baae2ececf257d22f8220d472c1bcb5ee082
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 260c63ed55b5cb2535567038f27626aa7a085550
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012176"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574601"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>在 Azure 雲端服務上使用 Express 建置和部署 Node.js Web 應用程式
 
@@ -119,7 +119,7 @@ Node.js 包含核心執行時期的一組最低功能。
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱 [Node.js 開發人員中心](https://docs.microsoft.com/en-us/javascript/azure/?view=azure-node-latest)。
+如需詳細資訊，請參閱 [Node.js 開發人員中心](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)。
 
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/

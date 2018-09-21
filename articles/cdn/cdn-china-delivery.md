@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 59788f301bb501103babd55a2ac37102932f4dcf
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 12a29e5af287c5cc68c3bd9d7069534ff16c496f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259569"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573224"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>在中國使用 Azure CDN 所傳遞的內容
 
@@ -34,17 +34,17 @@ ms.locfileid: "34259569"
 
 - 全球的 Azure CDN：
 
-     - 入口網站：https://portal.azure.com  
+     - 入口網站： https://portal.azure.com  
 
      - 執行中國以外的內容傳遞
 
      - 四個定價層：Microsoft 標準、Verizon 標準、Verizon 進階和 Akamai 標準
 
-     - [Documentation](https://docs.microsoft.com/en-us/azure/cdn/)
+     - [Documentation](https://docs.microsoft.com/azure/cdn/)
 
 - 中國的 Azure CDN：
 
-     - 入口網站：https://portal.azure.cn
+     - 入口網站： https://portal.azure.cn
 
      - 執行中國內部的內容傳遞
 
@@ -63,7 +63,7 @@ ms.locfileid: "34259569"
 
 - [使用 Azure 內容傳遞網路](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [中國的 Azure 服務可用性](https://docs.microsoft.com/en-us/azure/china/china-get-started-service-availability)
+- [中國的 Azure 服務可用性](https://docs.microsoft.com/azure/china/china-get-started-service-availability)
 
 
 

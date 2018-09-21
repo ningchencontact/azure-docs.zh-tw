@@ -11,12 +11,12 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 920b019640df9d2da174101e2b1b90dfd4da6f56
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034523"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578730"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的分散式超參數微調
 
@@ -35,7 +35,7 @@ ms.locfileid: "37034523"
 
 使用交叉驗證的網格搜尋可能很費時。 如果演算法有五個超參數，每個超參數有五個候選值，我們會使用 K=5 個折。 然後我們會透過訓練 5<sup>6</sup>=15625 個模型，以完成網格搜尋。 幸運的是，使用交叉驗證的網格搜尋是窘迫平行程序，而這些模型全都可以平行訓練。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 * 已安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 複本，請依照[安裝和建立快速入門](../service/quickstart-installation.md)安裝 Workbench 並建立帳戶。
@@ -157,7 +157,7 @@ ms.locfileid: "37034523"
 
 視您的網際網路連線而定，上傳檔案需要數分鐘的時間。 
 
-在我們的程式碼中，我們使用 [Azure 儲存體 SDK](https://docs.microsoft.com/en-us/python/azure/) 將資料集從 blob 儲存體下載到目前的執行環境。 下載會在 load_data.py 檔案的 load\_data() 函式中執行。 若要使用此程式碼，您必須以主控資料集之儲存體帳戶的名稱與主要金鑰取代 <ACCOUNT_NAME> and <ACCOUNT_KEY>。 您可以在您儲存體帳戶的 Azure 頁面左上角看到帳戶名稱。 若要取得帳戶，請在儲存體帳戶的 Azure 頁面中選取 [存取金鑰] (請參閱「資料擷取」一節中的第一個螢幕擷取畫面)，然後複製金鑰欄的第一列中的長字串：
+在我們的程式碼中，我們使用 [Azure 儲存體 SDK](https://docs.microsoft.com/python/azure/) 將資料集從 blob 儲存體下載到目前的執行環境。 下載會在 load_data.py 檔案的 load\_data() 函式中執行。 若要使用此程式碼，您必須以主控資料集之儲存體帳戶的名稱與主要金鑰取代 <ACCOUNT_NAME> and <ACCOUNT_KEY>。 您可以在您儲存體帳戶的 Azure 頁面左上角看到帳戶名稱。 若要取得帳戶，請在儲存體帳戶的 Azure 頁面中選取 [存取金鑰] (請參閱「資料擷取」一節中的第一個螢幕擷取畫面)，然後複製金鑰欄的第一列中的長字串：
  
 ![存取金鑰](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

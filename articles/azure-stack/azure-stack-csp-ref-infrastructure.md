@@ -3,7 +3,7 @@ title: Azure Stack 雲端服務提供者的使用量報告基礎結構 | Microso
 description: 當雲端服務提供者 (CSP) 服務的租用戶產生使用量時，Azure Stack 中的基礎結構可用來追蹤此用量並轉送至 Azure。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 5a38f504a881662c19fe881058622392cf1bced0
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9526385eaea8a88f0c22e6420ba39a33f7166f96
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576350"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633719"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>適月於雲端服務提供者的使用方式報告基礎結構
 

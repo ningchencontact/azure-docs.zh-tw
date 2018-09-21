@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: c5066d23705ca84febaa0ba527a01259134146c0
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358976"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580029"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>以儲存體快照集為基礎的 SAP HANA 備份
 
@@ -88,8 +88,8 @@ Azure 備份有四個主要階段︰
 
 如需複製這些指令碼的詳細資訊和 Azure 備份實際如何運作的詳細資訊，請參閱下列文章：
 
-- [在 Azure 中規劃 VM 備份基礎結構](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
-- [Azure Linux VM 的應用程式一致備份](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
+- [在 Azure 中規劃 VM 備份基礎結構](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+- [Azure Linux VM 的應用程式一致備份](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 
 

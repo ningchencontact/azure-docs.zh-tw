@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: b696325c19d4e1d9c9fe6b85a3c46add756340ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d99996bb4177a11342f0897d2cf69f82a5b81bf7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443506"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721223"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -84,7 +84,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 13. 按一下 [儲存] 以啟動 Azure AD 佈建服務。 
 14. 如果僅同步處理指派的使用者和群組 (建議選項)，請務必選取 [使用者和群組] 索引標籤，並且指派您想要同步處理的使用者和/或群組。
 
-一旦啟動初始同步處理，您可以使用 [稽核記錄] 索引標籤以監視進度，進步會顯示佈建服務在您的應用程式上執行的所有動作。 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+一旦啟動初始同步處理，您可以使用 [稽核記錄] 索引標籤以監視進度，進步會顯示佈建服務在您的應用程式上執行的所有動作。 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](check-status-user-account-provisioning.md)。
 
 >[!NOTE]
 >初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 
@@ -152,7 +152,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 13. 按一下 [儲存] 以啟動 Azure AD 佈建服務。 
 14. 如果僅同步處理指派的使用者和群組 (建議選項)，請務必選取 [使用者和群組] 索引標籤，並且指派您想要同步處理的使用者和/或群組。
 
-一旦啟動初始同步處理，您可以使用 [稽核記錄] 索引標籤以監視進度，進步會顯示佈建服務在您的應用程式上執行的所有動作。 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+一旦啟動初始同步處理，您可以使用 [稽核記錄] 索引標籤以監視進度，進步會顯示佈建服務在您的應用程式上執行的所有動作。 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](check-status-user-account-provisioning.md)。
 
 確認此範例的最後一個步驟是開啟 Windows 電腦上 \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug 資料夾中的 TargetFile.csv 檔案。 一旦執行佈建程序，此檔案會顯示所有指派和佈建的使用者和群組的詳細資料。
 
@@ -691,12 +691,11 @@ Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  
 圖 6：群組佈建和取消佈建順序
 
 ## <a name="related-articles"></a>相關文章
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../active-directory-apps-index.md)
-* [自動化 SaaS 應用程式使用者佈建/解除佈建](../active-directory-saas-app-provisioning.md)
-* [自訂使用者佈建的屬性對應](../active-directory-saas-customizing-attribute-mappings.md)
-* [撰寫屬性對應的運算式](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [適用於使用者佈建的範圍篩選器](../active-directory-saas-scoping-filters.md)
-* [帳戶佈建通知](../active-directory-saas-app-provisioning.md)
+* [自動化 SaaS 應用程式使用者佈建/解除佈建](user-provisioning.md)
+* [自訂使用者佈建的屬性對應](customize-application-attributes.md)
+* [撰寫屬性對應的運算式](functions-for-customizing-application-data.md)
+* [適用於使用者佈建的範圍篩選器](define-conditional-rules-for-provisioning-user-accounts.md)
+* [帳戶佈建通知](user-provisioning.md)
 * [如何整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
 
 <!--Image references-->

@@ -6,20 +6,18 @@ documentationcenter: na
 author: jeffhollan
 manager: jpconnock
 keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4da8ec3bb20f2af2b8172731bbf9f43c302ffa94
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 8b0681165fe84dd54f3b81f610c6698998e881de
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004744"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125488"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>使用 Java 和 Eclipse 建立您的第一個函式 (預覽)
 

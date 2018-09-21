@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: de3f23f58ef34bdd5f9769f820d64ed7e00ca7d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702056"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715069"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>訊息傳輸、鎖定和安置
 
@@ -62,7 +62,7 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 請務必注意，所有的非同步程式設計模型都會使用某種形式之以記憶體為基礎的隱藏工作佇列來保留暫止作業。 當 [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) 或 **Send** (Java) 傳回時，會將傳送工作排入該工作佇列，但通訊協定軌跡只會在工作開始執行之後開始。 對於傾向推送暴增訊息且必須考量可靠性的程式碼而言，應該謹慎地不要同時「在途中」放置太多訊息，因為所有傳送訊息都會佔據記憶體，直到確實地將它們放到線路上為止。
@@ -79,7 +79,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 應用程式**絕對不應**以「射後不理」的方式來起始非同步傳送作業，而不擷取作業的結果。 這樣做可以載入內部和不可見的工作佇列，直到記憶體耗盡，並防止應用程式偵測到傳送錯誤：
@@ -98,11 +98,11 @@ for (int i = 0; i < 100; i++)
 
 對於接收作業，服務匯流排 API 用戶端會啟用兩個不同的 Explicit 模式：「接收並刪除」和「查看鎖定」。
 
-「接收並刪除」[](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式會告知訊息代理程式，考慮它傳送給接收用戶端且在傳送時已安置的所有訊息。 那就表示訊息會被視為在訊息代理程式將其放在線路上之後立即取用。 如果訊息傳輸失敗，訊息就會遺失。
+[接收並刪除](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式會告知訊息代理程式，考慮它傳送給接收用戶端且在傳送時已安置的所有訊息。 那就表示訊息會被視為在訊息代理程式將其放在線路上之後立即取用。 如果訊息傳輸失敗，訊息就會遺失。
 
 此模式的優點是接收者不需對訊息採取進一步動作，同時也不會因為等候安置結果而變慢。 如果個別訊息中包含的資料值很低和 (或) 資料在極短時間內才有意義，則此模式是合理的選擇。
 
-「查看鎖定」[](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式會告知訊息代理程式，接收用戶端想要明確地安置已接收的訊息。 訊息可讓接收者用來加以處理，同時保留於服務的獨佔鎖定下，如此，其他競爭的接收者就無法看見該訊息。 鎖定的持續期間一開始會定義於佇列或訂用帳戶層級，可由擁有鎖定的用戶端透過 [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 作業來延長。
+[查看鎖定](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式會告知訊息代理程式，接收用戶端想要明確地安置已接收的訊息。 訊息可讓接收者用來加以處理，同時保留於服務的獨佔鎖定下，如此，其他競爭的接收者就無法看見該訊息。 鎖定的持續期間一開始會定義於佇列或訂用帳戶層級，可由擁有鎖定的用戶端透過 [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 作業來延長。
 
 當訊息鎖定時，從相同佇列或訂用帳戶接收的其他用戶端均可取得鎖定，並擷取下一個不是處於作用中鎖定的可用訊息。 明確釋放訊息上的鎖定或當鎖定到期時，訊息會在擷取順序的前端或附近重新出現以便重新傳遞。
 

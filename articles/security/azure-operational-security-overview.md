@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413404"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575213"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 [Azure 作業安全性](https://docs.microsoft.com/azure/security/azure-operational-security)是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制措施與功能。 它是一個架構，其中包含透過各種 Microsoft 特有功能所獲得的知識。 這些功能包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 程式，以及對網路安全性威脅環境的深層認知。
@@ -68,7 +68,7 @@ Azure AD 還隨附一套完整的[身分識別管理功能](https://docs.microso
 使用 Azure Active Directory 時，您為合作夥伴和客戶 (企業或消費者) 發佈的所有應用程式都可享有相同的身分識別與存取管理功能。 這可讓您大幅降低營運成本。
 
 ## <a name="azure-security-center"></a>Azure 資訊安全中心
-[Azure 資訊安全中心](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)有助於您利用加強對 Azure 資源安全性的可見度 (和控制權)，以預防、偵測並回應威脅。 它提供您訂用帳戶之間的整合式安全性監視和原則管理功能。 它有助於偵測可能會被忽視的威脅，並可搭配廣泛的安全性解決方案生態系統使用。
+[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)有助於您利用加強對 Azure 資源安全性的可見度 (和控制權)，以預防、偵測並回應威脅。 它提供您訂用帳戶之間的整合式安全性監視和原則管理功能。 它有助於偵測可能會被忽視的威脅，並可搭配廣泛的安全性解決方案生態系統使用。
 
 透過提供虛擬機器的安全性設定可見度並監視威脅，在 Azure 中[保護虛擬機器 (VM) 資料](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine)。 資訊安全中心可以監視虛擬機器以取得︰
 

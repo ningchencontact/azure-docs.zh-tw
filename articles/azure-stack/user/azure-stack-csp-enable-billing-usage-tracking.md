@@ -3,7 +3,7 @@ title: 讓雲端服務提供者能夠管理您的 Azure Stack 訂用帳戶 | Mic
 description: 讓服務提供者能夠存取 Azure Stack 中的訂用帳戶。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: f0cff8f575b87872c0032854f1916b140d7fd62b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fca08ef1d803c3bd47b0ae925c4dd12255175f2c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357838"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630710"
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>讓雲端服務提供者能夠管理您的 Azure Stack 訂用帳戶
 

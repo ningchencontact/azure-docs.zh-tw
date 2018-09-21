@@ -4,18 +4,18 @@ description: Azure Active Directory B2B 共同作業的程式碼與 PowerShell �
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: sample
 ms.date: 04/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d522649e9339611c56e9f2ae7e6feac067d2ab49
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267018"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985435"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B 共同作業程式碼與 PowerShell 範例
 
@@ -24,7 +24,7 @@ ms.locfileid: "34267018"
 
 1. 準備 .CSV 檔案 建立新的 CSV 檔案並將它命名為 invitations.csv。 在此範例中，檔案會儲存在 C:\data 中，並且包含下列資訊：
   
-  Name                  |  InvitedUserEmailAddress
+  名稱                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
   Gmail B2B 受邀者     | b2binvitee@gmail.com
   Outlook B2B 受邀者   | b2binvitee@outlook.com

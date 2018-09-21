@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160275"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297566"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -122,7 +122,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
 
 若要使用 NPS 擴充功能，內部部署使用者必須與 Azure Active Directory 保持同步並啟用 MFA。 本指南假設內部部署使用者已使用 Azure AD Connect 來與 Azure Active Directory 保持同步。 下面會提供為使用者啟用 MFA 的指示。
 
-如需 Azure AD Connect 的相關資訊，請參閱[整合您的內部部署目錄與 Azure Active Directory](../connect/active-directory-aadconnect.md)。 
+如需 Azure AD Connect 的相關資訊，請參閱[整合您的內部部署目錄與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)。 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID 識別碼 
 
@@ -453,5 +453,5 @@ Azure Multi-Factor Authentication 記錄中的相關事件顯示如下：
 
 [使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](howto-mfaserver-nps-rdg.md)
 
-[整合您的內部部署目錄與 Azure Active Directory](../connect/active-directory-aadconnect.md)
+[整合您的內部部署目錄與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

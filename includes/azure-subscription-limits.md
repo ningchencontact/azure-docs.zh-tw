@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 3daf0e214c2c10d682e908ca430f4852df105926
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6ef868d80e628f9120acc0775179e89ccd03674
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755645"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979494"
 ---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 每一[訂用帳戶](../articles/billing-buy-sign-up-azure-subscription.md)的 vCPU<sup>1</sup> |20 |10,000 |
 | [共同管理員](../articles/billing-add-change-azure-subscription-administrator.md)  |200 |200 |
-| 每一訂用帳戶每一區域的[儲存體帳戶](../articles/storage/common/storage-create-storage-account.md)<sup>2</sup> |200 |250 |
+| 每一訂用帳戶每一區域的[儲存體帳戶](../articles/storage/common/storage-quickstart-create-account.md)<sup>2</sup> |200 |250 |
 | [雲端服務](../articles/cloud-services/cloud-services-choose-me.md)  |20 |200 |
 | [區域網路](http://msdn.microsoft.com/library/jj157100.aspx)  |10 |500 |
 | 每一訂用帳戶的 SQL Database 伺服器 |6 |200 |

@@ -1,6 +1,7 @@
 ---
 title: 快速入門：使用適用於 Java 的 Bing Web 搜尋 SDK
-description: 了解如何使用適用於 Java 的 Bing Web 搜尋 SDK。
+titleSuffix: Azure Cognitive Services
+description: Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Java 應用程式。 在本快速入門中，您將了解如何傳送要求、接收 JSON 回應，以及篩選和剖析結果。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: erhopf
-ms.openlocfilehash: cc7335b9f8b5596edef895ff5a42a1018b06a381
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8db2f6a67f64216276ccdb0b16bbeb48565f6bc6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186722"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127596"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing Web 搜尋 SDK
 

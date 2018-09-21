@@ -7,18 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 4aee24150524c270084ae8ec22f09df94b6e9f36
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 123328010758eea6e7eadce29440e204f91dcef6
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831705"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632461"
 ---
 # <a name="supported-data-exports-for-this-preview"></a>適用於此預覽的支援資料匯出 
 您可匯出成幾個不同的格式。 可以先使用這些格式來保留資料準備的中繼結果，然後再將結果整合至其餘 Machine Learning 工作流程。

@@ -3,20 +3,20 @@ title: Azure SQL 登入與使用者 | Microsoft Docs
 description: 深入了解 SQL Database 和 SQL 資料倉儲安全性管理，特別是如何透過伺服器層級主體帳戶管理資料庫存取與登入安全性。
 keywords: sql 資料庫安全性, 資料庫安全性管理, 登入安全性, 資料庫安全性, 資料庫存取權
 services: sql-database
-author: CarlRabeler
+author: VanMSFT
 manager: craigg
 ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 08/15/2018
-ms.author: carlrab
-ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.date: 09/07/2018
+ms.author: vanto
+ms.openlocfilehash: d3f2e190dd2f3f29dc70e0d635fd1f8ef5b0bbf9
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144018"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717605"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制及授與 SQL Database 和 SQL 資料倉儲的資料庫存取權
 
@@ -49,7 +49,7 @@ ms.locfileid: "42144018"
 - 可以檢視 `sys.sql_logins` 系統資料表。
 
 ### <a name="configuring-the-firewall"></a>設定防火牆
-已設定個別 IP 位址或範圍的伺服器層級防火牆時，**SQL Database 管理員**和 **Azure Active Directory 管理員**可以連接到 master 資料庫和所有使用者資料庫。 透過 [Azure 入口網站](sql-database-get-started-portal.md) 並使用 [PowerShell](sql-database-get-started-powershell.md) 或使用 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) 即可設定初始伺服器層級防火牆。 建立連線之後，也可以藉由使用 [Transact-SQL](sql-database-configure-firewall-settings.md) 來設定其他伺服器層級防火牆規則。
+已設定個別 IP 位址或範圍的伺服器層級防火牆時，**SQL Database 管理員**和 **Azure Active Directory 管理員**可以連接到 master 資料庫和所有使用者資料庫。 透過 [Azure 入口網站](sql-database-get-started-portal.md) 並使用 [PowerShell](sql-database-powershell-samples.md) 或使用 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) 即可設定初始伺服器層級防火牆。 建立連線之後，也可以藉由使用 [Transact-SQL](sql-database-configure-firewall-settings.md) 來設定其他伺服器層級防火牆規則。
 
 ### <a name="administrator-access-path"></a>系統管理員存取路徑
 正確設定伺服器層級防火牆後，**SQL Database 管理員**和 **Azure Active Directory 管理員**可以使用用戶端工具 (例如 SQL Server Management Studio 或 SQL Server Data Tools) 進行連接。 只有最新的工具會提供所有的功能。 下圖顯示兩個系統管理員帳戶的一般組態。

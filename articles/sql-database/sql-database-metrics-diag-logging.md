@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: ba305b66d4b7230f2706136587c4183f81c5e9c3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aa031b87df51bd9f7dec40a6c3e56023e2d82d96
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525496"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579491"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
@@ -157,7 +157,7 @@ Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您
 
 ### <a name="rest-api"></a>REST API
 
-了解如何[使用 Azure 監視器 REST API 變更診斷設定](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)。 
+了解如何[使用 Azure 監視器 REST API 變更診斷設定](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)。 
 
 ### <a name="resource-manager-template"></a>Resource Manager 範本
 

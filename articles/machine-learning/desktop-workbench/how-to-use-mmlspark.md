@@ -7,16 +7,16 @@ ms.author: roastala
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 3c9bcce67bb802a8596416b55ef61a51ab2900bd
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 654b2559518cd52978153310fbb1e89a91838a8a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831525"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35633323"
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>如何使用適用於 Apache Spark 的 Microsoft Machine Learning 程式庫
 
@@ -27,7 +27,7 @@ ms.locfileid: "34831525"
  * 使用預先定型的深入學習模型來凸顯影像和文字
  * 使用隱含功能來為分類和迴歸模型定型和計分。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要逐步執行本作法指南，您需要：
 - [安裝 Azure Machine Learning Workbench](../service/quickstart-installation.md)

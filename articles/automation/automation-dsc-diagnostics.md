@@ -4,17 +4,17 @@ description: 這篇文章示範如何將 Desired State Configuration (DSC) 報�
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1b3c0cd71508aef9a608e0c41e32cd079e40d4e5
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 62d201e608864949c86e52d8ac8fbf9ce8538f11
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003461"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631458"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>將 Azure Automation State Configuration 報告資料轉送至 Log Analytics
 
@@ -190,11 +190,11 @@ Log Analytics 可以為您的 Automation State Configuration 資料提供更高�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需概觀，請參閱 [Azure Automation State Configuration](automation-dsc-overview.md)
-- 若要開始使用，請參閱[開始使用 Azure Automation State Configuration](automation-dsc-getting-started.md)
-- 若要了解如何編譯 DSC 組態，以將它們指派給目標節點，請參閱[編譯 Azure Automation State Configuration 中的組態](automation-dsc-compile.md)。
-- 如需 PowerShell Cmdlet 參考，請參閱 [Azure Automation State Configuration Cmdlet](/powershell/module/azurerm.automation/#automation)
-- 如需定價資訊，請參閱 [Azure Automation State Configuration 定價](https://azure.microsoft.com/pricing/details/automation/)
+- 如需概觀，請參閱 [Azure 自動化狀態設定](automation-dsc-overview.md)
+- 若要開始使用，請參閱[開始使用 Azure 自動化狀態設定](automation-dsc-getting-started.md)
+- 若要了解如何編譯 DSC 組態，以將它們指派給目標節點，請參閱[編譯 Azure Automation State Configuration 中的組態](automation-dsc-compile.md)
+- 如需 PowerShell Cmdlet 參考，請參閱 [Azure 自動化狀態設定 Cmdlet](/powershell/module/azurerm.automation/#automation)
+- 如需定價資訊，請參閱 [Azure 自動化狀態設定的定價](https://azure.microsoft.com/pricing/details/automation/)
 - 若要查看在持續部署管線中使用 Azure Automation State Configuration 的範例，請參閱[使用 Azure Automation State Configuration 和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)
 - 若要深入了解如何使用 Log Analytics 來建構不同的搜尋查詢及檢閱 Automation State Configuration 記錄，請參閱 [Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)
 - 若要深入了解 Log Analytics 和資料收集來源，請參閱[在 Log Analytics 中收集 Azure 儲存體資料概觀](../log-analytics/log-analytics-azure-storage.md)

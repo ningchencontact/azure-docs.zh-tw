@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42142288"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296391"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>運作方式：Azure AD 自助式密碼重設
 
@@ -42,9 +42,9 @@ ms.locfileid: "42142288"
    * 根據瀏覽器的地區設定，此體驗會以適當的語言呈現。 密碼重設體驗會當地語系化為 Office 365 支援的相同語言。
    * 若要檢視不同當地語系化語言中的密碼重設入口網站，請將 "?mkt=" 附加至密碼重設 URL 的結尾；後續範例中是當地語系化為西班牙文 [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)。
 2. 使用者輸入使用者識別碼並通過文字驗證。
-3. Azure AD 執行下列檢查，驗證使用者是否能夠使用此功能：
-   * 檢查使用者是否已啟用此功能，並已獲得 Azure AD 授權。
-     * 如果使用者未啟用此功能或未獲得授權，便會要求使用者連絡其管理員來重設其密碼。
+3. Azure AD 執行下列檢查，驗證使用者是否能夠使用這項功能：
+   * 檢查使用者是否已啟用這項功能，並已獲得 Azure AD 授權。
+     * 如果使用者未啟用這項功能或未獲得授權，便會要求使用者連絡其管理員來重設其密碼。
    * 檢查使用者是否已按照系統管理員原則，在其帳戶上定義正確的驗證方法。
      * 如果原則只需要一項方法，則表示使用者必定已針對管理員原則所啟用、至少一項驗證方法定義適當的資料。
        * 如果未設定驗證方法，便會建議使用者連絡其管理員來重設其密碼。
@@ -161,8 +161,8 @@ ms.locfileid: "42142288"
 此頁面提供內部部署回寫用戶端的快速狀態，系統會根據目前的設定顯示下列其中一個訊息：
 
 * 您的內部部署回寫用戶端已啟動並執行。
-* Azure AD 已上線，並已連線至您的內部部署回寫用戶端。 不過，Azure AD Connect 的已安裝版本似乎已過期。 請考慮[升級 Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md)，以確保您具有最新的連線功能及重要錯誤修正。
-* 抱歉，因為安裝的 Azure AD Connect 版本已過期，所以我們無法檢查您的內部部署回寫用戶端狀態。 請[升級 Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) 以檢查您的連線狀態。
+* Azure AD 已上線，並已連線至您的內部部署回寫用戶端。 不過，Azure AD Connect 的已安裝版本似乎已過期。 請考慮[升級 Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md)，以確保您具有最新的連線功能及重要錯誤修正。
+* 抱歉，因為安裝的 Azure AD Connect 版本已過期，所以我們無法檢查您的內部部署回寫用戶端狀態。 請[升級 Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) 以檢查您的連線狀態。
 * 抱歉，我們目前似乎無法連線至您的內部部署回寫用戶端。 請[對 Azure AD Connect 進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)以還原連線。
 * 抱歉，因為密碼回寫未正確設定，所以我們無法連線至您的內部部署回寫用戶端。 請[設定密碼回寫](howto-sspr-writeback.md)以還原連線。
 * 抱歉，我們目前似乎無法連線至您的內部部署回寫用戶端。 這可能是我們這端的暫時性問題所造成。 如果問題持續發生，請[對 Azure AD Connect 進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)以還原連線。

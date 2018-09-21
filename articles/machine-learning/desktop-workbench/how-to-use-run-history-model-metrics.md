@@ -7,16 +7,16 @@ ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: df29117235e890a9b20619744df6320f298a73b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831859"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632557"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>如何在 Azure Machine Learning Workbench 中使用執行歷程記錄和模型計量
 
@@ -25,7 +25,7 @@ Azure Machine Learning Workbench 透過其**執行歷程記錄**和**模型計�
 **模型計量**可從您指令碼的任何時間點進行記錄，以追蹤您資料科學實驗中最重要的值。
 本文說明如何有效地運用這些功能，來增加資料科學實驗的速率及品質。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要：
 * [建立與安裝 Azure Machine Learning](../service/quickstart-installation.md)
 - [建立專案](../service/quickstart-installation.md)

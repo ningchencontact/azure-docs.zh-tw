@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: a066d2a55f6949eea316eaf0a2956500667a996f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8a7346f884a065a21b6f0a822b2236fa7ce5dff0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340266"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732552"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>使用串流分析處理適用於事件中樞的 Apache Kafka 
 本文說明如何將資料串流至啟用的 Kafka 事件中樞，以及使用 Azure 串流分析處理該資料。 本文將逐步引導您完成下列步驟： 
@@ -38,7 +38,7 @@ ms.locfileid: "43340266"
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 * [下載](http://maven.apache.org/download.cgi)及[安裝](http://maven.apache.org/install.html) Maven 二進位封存檔。
 * [Git](https://www.git-scm.com/)
-* **Azure 儲存體帳戶**。 如果您沒有 Azure 儲存體帳戶，請先[建立一個](../storage/common/storage-create-storage-account.md#create-a-storage-account)，再繼續執行。 本逐步解說中的作業作業會在 Azure blob 儲存體中儲存輸出資料。 
+* **Azure 儲存體帳戶**。 如果您沒有 Azure 儲存體帳戶，請先[建立一個](../storage/common/storage-quickstart-create-account.md)，再繼續執行。 本逐步解說中的作業作業會在 Azure blob 儲存體中儲存輸出資料。 
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>建立已啟用 Kafka 的事件中樞命名空間
@@ -114,7 +114,7 @@ ms.locfileid: "43340266"
     ![事件中樞 - 訊息](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## <a name="process-event-data-using-a-stream-analytics-job"></a>使用串流分析作業處理事件資料
-在這一節中，您會建立 Azure 串流分析作業。 Kafka 用戶端會將事件傳送到事件中樞。 您會建立串流分析作業，以將事件資料當作輸入並將它輸出至 Azure blob 儲存體。 如果您沒有 **Azure 儲存體帳戶**，請[建立一個](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+在這一節中，您會建立 Azure 串流分析作業。 Kafka 用戶端會將事件傳送到事件中樞。 您會建立串流分析作業，以將事件資料當作輸入並將它輸出至 Azure blob 儲存體。 如果您沒有 **Azure 儲存體帳戶**，請[建立一個](../storage/common/storage-quickstart-create-account.md)。
 
 串流分析作業中的查詢會通過資料，而不執行任何分析。 您可以建立可轉換輸入資料的查詢，以產生不同格式或有所見解的輸出資料。  
 

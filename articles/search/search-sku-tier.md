@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210919"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576115"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
@@ -36,14 +36,14 @@ ms.locfileid: "36210919"
 
 ### <a name="capacity"></a>Capacity
 
-容量是由「複本」和「資料分割」所構成。 複本是搜尋服務的執行個體，每個複本都會裝載一份經過負載平衡的索引。 例如，具有 6 個複本的服務，會有 6 份已在服務中載入的每個索引。 資料分割會儲存索引並自動將可搜尋的資料分割：兩個資料分割會將索引對半分割、三個資料分割會將索引分割成三等份，依此類推。 就容量來說，「資料分割大小」是定價層的主要區分功能。
+容量是由「複本」和「資料分割」所構成。 
+
++ 複本是搜尋服務的執行個體，每個複本都會裝載一份經過負載平衡的索引。 例如，具有 6 個複本的服務，會有 6 份已在服務中載入的每個索引。 
+
++ 資料分割會儲存索引並自動將可搜尋的資料分割：兩個資料分割會將索引對半分割、三個資料分割會將索引分割成三等份，依此類推。 就容量來說，「資料分割大小」是定價層的主要區分功能。
 
 > [!NOTE]
 > 所有**標準**層都支援[彈性組合複本和資料分割](search-capacity-planning.md#chart)，讓您可以藉由變更平衡來[讓系統偏向速度或儲存取向](search-performance-optimization.md)。 **Basic** 層最多可提供三個複本以實現高可用性，但只有一個資料分割。 **免費**層不會提供專用資源：其計算資源是由多個免費服務共用。
-
-### <a name="limits"></a>限制
-
-服務會裝載資源，例如索引、索引子等等。 每一個定價層都會對可以建立的資源數量施加[服務限制](search-limits-quotas-capacity.md)。 因此，索引 (和其他物件) 數目上限是定價層的第二個區分功能。 當您在入口網站中檢閱各個選項時，請注意索引數目限制。 索引子、資料來源和技能等其他資源則會與索引限制掛勾。
 
 ### <a name="search-units"></a>搜尋單位數
 
@@ -53,14 +53,17 @@ ms.locfileid: "36210919"
 
 計費的費率是每小時每 SU，而且每個定價層會有不同的費率。 如需每一層的費率，請參閱 [定價詳細資料](https://azure.microsoft.com/pricing/details/search/)。
 
+### <a name="limits"></a>限制
+
+服務會裝載資源，例如索引、索引子等等。 每一個定價層都會對可以建立的資源數量施加[服務限制](search-limits-quotas-capacity.md)。 因此，索引 (和其他物件) 數目上限是定價層的第二個區分功能。 當您在入口網站中檢閱各個選項時，請注意索引數目限制。 索引子、資料來源和技能等其他資源則會與索引限制掛勾。
+
 ## <a name="consumption-patterns"></a>耗用量模式
 
 大部分客戶一開始會使用**免費**服務，並且會無限期地保留下來，然後選擇其中一個**標準**層來供重要的開發或生產工作負載使用。 
 
 ![Azure 搜尋服務層](./media/search-sku-tier/tiers.png "Azure 搜尋服務定價層")
 
-在任一端都有**基本**和 **S3 HD** 可供重要但非典型的耗用量模式使用。 
-  **基本**適用於小型生產工作負載：其提供 SLA、專用資源、高可用性，但適量的儲存體，最多總共可達 2 GB。 此定價層是設計給一直未充分使用可用容量的客戶來使用。 針對 ISV、合作夥伴、[多租用戶解決方案](search-modeling-multitenant-saas-applications.md)或任何會呼叫大量小型索引的任何組態等典型工作負載，則適合使用另一端的 **S3 HD**。 如果**基本**或 **S3 HD** 層合用，情形通常很明顯，但如果您想要確認，請在 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) 張貼文章或[連絡 Azure支援](https://azure.microsoft.com/support/options/)以尋求進一步的指引。
+在任一端都有**基本**和 **S3 HD** 可供重要但非典型的耗用量模式使用。 **基本**適用於小型生產工作負載：其提供 SLA、專用資源、高可用性，但適量的儲存體，最多總共可達 2 GB。 此定價層是設計給一直未充分使用可用容量的客戶來使用。 針對 ISV、合作夥伴、[多租用戶解決方案](search-modeling-multitenant-saas-applications.md)或任何會呼叫大量小型索引的任何組態等典型工作負載，則適合使用另一端的 **S3 HD**。 如果**基本**或 **S3 HD** 層合用，情形通常很明顯，但如果您想要確認，請在 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) 張貼文章或[連絡 Azure支援](https://azure.microsoft.com/support/options/)以尋求進一步的指引。
 
 讓我們將焦點轉到更常見的標準層，**S1-S3** 是逐漸增加的容量層級，具有資料分割大小轉折點以及索引、索引子和推論資源數目上限：
 
@@ -87,7 +90,7 @@ ms.locfileid: "36210919"
 
 若要判斷索引的大小，您必須[建置一個](search-create-index-portal.md)索引。 Azure 搜尋服務中的資料結構主要是[反向索引](https://en.wikipedia.org/wiki/Inverted_index)，這種索引的特性不同於來源資料。 若為反向索引，其大小和複雜性取決於內容，而不一定是您送入的資料量。 具有大量重複內容的大型資料來源所產生的索引，可能會比內容變化極大的資料集所產生的索引還小。  因此，不太可能根據原始資料集的大小來推斷出索引大小。
 
-### <a name="preliminary-estimates-using-the-free-tier"></a>使用免費層的初步預估
+### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>步驟 1：使用免費層進行粗略預估
 
 其中一個預估容量的方法是從**免費**層開始。 請回想一下，**免費**服務最多可提供 3 個索引，50 MB 的儲存體，和 2 分鐘的索引時間。 使用這些條件約束來預估預計的索引大小並不容易，但下列範例會示範一個方法：
 
@@ -97,11 +100,11 @@ ms.locfileid: "36210919"
 
 假設這次取樣佔整個資料來源的 10% 且具有代表性，且如果所有文件都編製索引，則 30 MB 的索引會變成大約 300 MB。 有了這個初步的數字，您或許可以將該數量翻倍，來編列兩個索引 (開發和生產) 的預算，所以總共的儲存體需求是 600 MB。 **基本**層就能輕鬆滿足此需求，因此您可以從這一個定價層開始。
 
-### <a name="advanced-estimates-using-a-billable-tier"></a>使用可計費層的進階預估
+### <a name="step-2-develop-refined-estimates-using-a-billable-tier"></a>步驟 2：使用可計費層進行精簡預估
 
 有些客戶會想從使用專用資源來開始，以便因應較大的取樣和處理時間，然後在開發期間實際預估索引數量、大小和查詢量。 一開始，客戶會依據最可能的預估值來佈建服務，然後在開發專案成熟時，小組通常就會知道現有服務容量是超過預計的生產工作負載容量還是不足。 
 
-1. [檢閱每一個定價層的服務限制](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits)，以判斷較低定價層是否能支援您需要的索引數量。 橫跨**基本**-**S1**- **S2** 層的索引限制分別為 15-50-200。
+1. [檢閱每一個定價層的服務限制](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits)，以判斷較低定價層是否能支援您需要的索引數量。 橫跨**基本**-**S1**- **S2** 層的索引限制分別為 15-50-200。
 
 1. [在可計費的定價層建立服務](search-create-service-portal.md)：
 

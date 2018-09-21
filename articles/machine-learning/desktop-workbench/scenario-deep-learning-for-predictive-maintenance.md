@@ -7,18 +7,18 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 26b061c6bd6ff3ec9d1edbb7d99053d17db9b773
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 83e1f14db317f59ab2063a9d020adbdb6fe78e5f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832596"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35634001"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>深入學習預測性維護實際案例
 
@@ -46,7 +46,7 @@ ms.locfileid: "34832596"
 
 此案例會建立一個 LSTM 網路，以使用歷史感應器值來預測飛機引擎的剩餘使用年限 (RUL)。 此案例會使用 [Keras](https://keras.io/) 程式庫搭配 [Tensorflow](https://www.tensorflow.org/) 深入學習架構作為計算引擎。 此案例會使用一組引擎來訓練 LSTM，然後在一部隱形的引擎上測試網路。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 - [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 - Azure Machine Learning Workbench，並已建立工作區。
 - 針對模型操作化：已設定本機部署環境的「Azure Machine Learning 操作化」，以及 [Azure Machine Learning 模型管理帳戶](model-management-overview.md)。

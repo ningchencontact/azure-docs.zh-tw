@@ -4,18 +4,18 @@ description: Azure Active Directory B2B 共同作業支援多重要素驗證 (MF
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 196fa9e4b6e3ac805f9ae7ce7d53a3d12b250142
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 47d41884a50450399df6273502096e0e630dbcf3
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267005"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981757"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 共同作業使用者的條件式存取
 
@@ -37,7 +37,7 @@ ms.locfileid: "34267005"
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>方案兌換的 B2B 使用者 MFA 體驗
+### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>供應項目兌換的 B2B 使用者 MFA 體驗
 觀看下面的動畫以了解兌換體驗：
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]

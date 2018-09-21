@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/22/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 77940a52c0817b9eaf49cdf7d1a2d284c5e662e3
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 891032e9f0a40b2a9df19ed25ffc19dd81507cab
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42366095"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628943"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>建立服務主體以將應用程式存取權提供給 Azure Stack 資源
 

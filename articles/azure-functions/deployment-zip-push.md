@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347115"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717213"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions 的 ZIP 部署
 
@@ -89,9 +89,6 @@ az functionapp deployment source config-zip  -g myResourceGroup -n \
 ## <a name="run-functions-from-the-deployment-package"></a>從部署套件執行函式
 
 您也可以選擇直接從部署套件檔案執行函式。 這個方法會略過將套件中的檔案複製到函式應用程式 `wwwroot` 目錄的部署步驟。 相反地，套件檔案會由 Functions 執行階段掛接，而且 `wwwroot` 目錄的內容會變成唯讀狀態。  
-
-> [!NOTE]
-> 從部署套件執行函式應用程式的功能目前為預覽狀態。
 
 ZIP 部署會與這項功能整合，藉由將函式應用程式的設定 `WEBSITE_RUN_FROM_PACKAGE` 設定為值 `1` 即可加以啟用。 如需詳細資訊，請參閱[從部署套件檔案執行函式](run-functions-from-deployment-package.md)。
 

@@ -3,24 +3,25 @@ title: 使用 Visual Studio 部署 Azure Stack 中的範本 | Microsoft Docs
 description: 了解如何以 Visual Studio 部署 Azure Stack 中的範本。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 628da2ae-64cc-42e0-b8b7-a6a3724cb974
 ms.service: azure-stack
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
-ms.author: brenduns
+ms.date: 09/18/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 6cd722fedc0483e37ce6ee491d74a7c985111353
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 1d61313018b0cd16594772676172737a7d8fc2cd
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605118"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366688"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>使用 Visual Studio 部署 Azure Stack 中的範本
 

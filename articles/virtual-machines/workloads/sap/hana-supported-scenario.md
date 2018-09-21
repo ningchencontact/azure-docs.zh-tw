@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859947"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576488"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 大型執行個體的支援案例
 本文件說明 HANA 大型執行個體 (HLI) 的支援案例以及其架構詳細資料。
@@ -198,7 +198,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
-- 磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
+- 磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 
 ## <a name="3-single-node-with-dr-normal"></a>3.具有 DR (標準) 的單一節點
  
@@ -235,9 +235,9 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
-- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
+- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 - 在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
 
@@ -284,9 +284,9 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
-- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
+- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 - 在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
 - 在 DR 上：資料、記錄備份、記錄、QA 的共用磁碟區 (標示為「QA 執行個體安裝」) 已針對 QA 執行個體安裝進行設定。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
@@ -335,7 +335,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
-- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
+- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 - STONITH：已針對 STONITH 安裝程式設定 SBD。 不過，STONITH 的使用是選擇性的。
 
 
@@ -391,11 +391,11 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
-- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
+- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 - STONITH：已針對 STONITH 安裝程式設定 SBD。 不過，STONITH 的使用是選擇性的。
 - 在 DR 上：**需要兩組儲存體磁碟區**，以用於主要和次要節點複寫。
 - 在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
 - 在 DR 上：資料、記錄備份、記錄、QA 的共用磁碟區 (標示為「QA 執行個體安裝」) 已針對 QA 執行個體安裝進行設定。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
@@ -559,10 +559,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 -  在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
 
 ## <a name="next-steps"></a>後續步驟
-- 請參閱 HLI 的[基礎結構和連線能力](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- 請參閱 HLI 的[高可用性和災害復原](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
+- 請參閱 HLI 的[基礎結構和連線能力](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
+- 請參閱 HLI 的[高可用性和災害復原](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)

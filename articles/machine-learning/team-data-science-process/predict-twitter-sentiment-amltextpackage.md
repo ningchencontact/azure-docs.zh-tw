@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: deguhath
-ms.openlocfilehash: 559af47bcf41cd6af59f8ba1b27ff8e64e849925
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 9e5018bc4c7b90897f7f8c91169410284217b172
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296895"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576999"
 ---
 # <a name="twitter-sentiment-classification-with-azure-machine-learning-aml-package-for-text-analytics-amlpta-and-team-data-science-process-tdsp"></a>使用適用於文字分析的 Azure Machine Learning (AML) 套件 (AMLPTA) 和 Team Data Science Process (TDSP) 進行 Twitter 人氣分類
 
 ## <a name="introduction"></a>簡介
 結構的標準化和資料科學專案的記載 (錨定至已建立的[資料科學生命週期](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)) 是促進資料科學小組有效共同作業的關鍵。
 
-我們先前發行了[適用於 TDSP 專案結構和範本的 GitHub 存放庫](https://github.com/Azure/Azure-TDSP-ProjectTemplate)。 我們現在已能夠建立使用 [Azure Machine Learning 的 TDSP 結構和文件範本](https://github.com/amlsamples/tdsp)具現化的 Azure Machine Learning 專案。 [這裡](https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-tdsp-in-azure-ml)提供如何在 Azure Machine Learning 中使用 TDSP 結構和範本的指示。 
+我們先前發行了[適用於 TDSP 專案結構和範本的 GitHub 存放庫](https://github.com/Azure/Azure-TDSP-ProjectTemplate)。 我們現在已能夠建立使用 [Azure Machine Learning 的 TDSP 結構和文件範本](https://github.com/amlsamples/tdsp)具現化的 Azure Machine Learning 專案。 [這裡](https://docs.microsoft.com/azure/machine-learning/preview/how-to-use-tdsp-in-azure-ml)提供如何在 Azure Machine Learning 中使用 TDSP 結構和範本的指示。 
 
 在此範例中，我們會示範如何使用「適用於文字分析的 Azure Machine Learning 套件」和 TDSP 來開發和部署預測模型，以進行 Twitter 人氣分類。
 
@@ -56,7 +56,7 @@ GitHub 存放庫的連結[在此](https://github.com/Azure/MachineLearningSample
 此專案強調 Azure Machine Learning 的好幾項功能，例如 TDSP 結構具現化和使用、執行 Azure Machine Learning Workbench 中的程式碼，以及使用 Docker 和 Kubernetes 在 Azure Container Services 中輕易進行運算化。
 
 ## <a name="team-data-science-process-tds"></a>Team Data Science Process (TDSP)
-我們使用 TDSP 專案結構和文件範本來執行此範例。 此範例遵循 [TDSP 生命週期](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle)。 我們會根據[這裡](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md)提供的指示建立專案。
+我們使用 TDSP 專案結構和文件範本來執行此範例。 此範例遵循 [TDSP 生命週期](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle)。 我們會根據[這裡](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md)提供的指示建立專案。
 
 
 <img src="./media/predict-twitter-sentiment-amltextpackage/tdsp-lifecycle2.png" alt="tdsp-lifecycle" width="800" height="600">
@@ -100,17 +100,17 @@ Word2Vec 演算法和 Skip-gram 模型的詳細資料不在此範例的討論範
 
 
 ### <a name="deploymenthttpsgithubcomazuremachinelearningsamples-amltextpackage-twittersentimentpredictiontreemastercode03deployment"></a>[部署](https://github.com/Azure/MachineLearningSamples-AMLTextPackage-TwitterSentimentPrediction/tree/master/code/03_deployment)
-在這個部分，我們會提供指標來指示該如何讓預先定型的人氣預測模型，在 Azure Container Service (AKS) 中叢集上的 Web 服務中運作。 運算化環境會在叢集中佈建 Docker 和 Kubernetes，以管理 Web 服務部署。 您可以在[這裡](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy)找到有關運算化程序的進一步資訊。
+在這個部分，我們會提供指標來指示該如何讓預先定型的人氣預測模型，在 Azure Container Service (AKS) 中叢集上的 Web 服務中運作。 運算化環境會在叢集中佈建 Docker 和 Kubernetes，以管理 Web 服務部署。 您可以在[這裡](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy)找到有關運算化程序的進一步資訊。
 
 ## <a name="conclusion"></a>結論
 我們已詳細說明如何使用 Word2Vec 將字組內嵌模型定型，然後使用擷取的內嵌項目作為特徵將兩個不同的模型定型，以預測 Twitter 文字資料的人氣分數。 其中一個模型會部署在 Azure Container Service (AKS) 中。 
 
 ## <a name="next-steps"></a>後續步驟
-請進一步閱讀[適用於文字分析的 Azure Machine Learning 套件 (AMLPTA)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/textanalytics?view=azure-ml-py-latest) 和 [Team Data Science Process (TDSP)](https://aka.ms/tdsp) 上的文件來開始了解。
+請進一步閱讀[適用於文字分析的 Azure Machine Learning 套件 (AMLPTA)](https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics?view=azure-ml-py-latest) 和 [Team Data Science Process (TDSP)](https://aka.ms/tdsp) 上的文件來開始了解。
 
 ## <a name="references"></a>參考
-* [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
+* [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [如何在 Azure Machine Learning 中使用 Team Data Science Process (TDSP)](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Azure Machine Learning 的 TDSP 專案範本](https://aka.ms/tdspamlgithubrepo)
-* [Azure ML WorkBench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+* [Azure ML WorkBench](https://docs.microsoft.com/azure/machine-learning/preview/)
 * [Mikolov, Tomas 等人Distributed representations of words and phrases and their compositionality.Advances in neural information processing systems.2013.](https://arxiv.org/abs/1310.4546)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 384d0fa32b64706c9d9d9baa0e2e0bbb2ac3c522
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701529"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719591"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
@@ -54,12 +54,12 @@ ASP.NET Core 和 Service Fabric 應用程式可以在 .NET Core 以及完整的 
 
 不過，應用程式進入點不是在 Reliable Service 中建立 WebHost 的正確位置，因為應用程式進入點僅用來使用 Service Fabric 執行階段登錄服務類型，因此它可能會建立該服務類型的執行個體。 WebHost 應該建立在 Reliable Service 之內。 在服務主機處理序中，服務執行個體及/或複本可以通過多個生命週期。 
 
-Reliable Service 執行個體是由您衍生自 `StatelessService` 或 `StatefulService` 的服務類別代表。 服務的通訊堆疊包含在您服務類別中的 `ICommunicationListener` 實作。 `Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet 封裝包含 `ICommunicationListener` 的實作，可在 Reliable Service 中啟動和管理 Kestrel 或 HttpSys 的 ASP.NET Core WebHost。
+Reliable Service 執行個體是由您衍生自 `StatelessService` 或 `StatefulService` 的服務類別代表。 服務的通訊堆疊包含在您服務類別中的 `ICommunicationListener` 實作。 `Microsoft.ServiceFabric.AspNetCore.*` NuGet 封裝包含 `ICommunicationListener` 的實作，可在 Reliable Service 中啟動和管理 Kestrel 或 HttpSys 的 ASP.NET Core WebHost。
 
 ![在 Reliable Service 中裝載 ASP.NET Core][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Core ICommunicationListeners
-`Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet 套件中 Kestrel 和 HttpSys 的 `ICommunicationListener` 實作有類似的使用模式，但針對每個 web 伺服器執行的動作稍有不同。 
+`Microsoft.ServiceFabric.AspNetCore.*` NuGet 套件中 Kestrel 和 HttpSys 的 `ICommunicationListener` 實作有類似的使用模式，但針對每個 web 伺服器執行的動作稍有不同。 
 
 這兩種通訊接聽程式都會提供使用下列引數的建構函式︰
  - **`ServiceContext serviceContext`** 包含關於執行服務資訊的 `ServiceContext` 物件。
@@ -67,7 +67,7 @@ Reliable Service 執行個體是由您衍生自 `StatelessService` 或 `Stateful
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**：您所實作並在其中建立並傳回 `IWebHost` 的 lambda。 這可讓您以您通常會在 ASP.NET Core 應用程式的方式設定 `IWebHost`。 Lambda 提供為您根據 Service Fabric 整合選項所產生的 URL 和您提供的 `Endpoint` 組態。 然後該 URL 可以修改或依現狀使用以啟動 web 伺服器。
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 整合中介軟體
-`Microsoft.ServiceFabric.Services.AspNetCore` NuGet 套件包含 `IWebHostBuilder` 上的 `UseServiceFabricIntegration` 擴充方法，其會新增 Service Fabric 的中介軟體。 此中介軟體會設定 Kestrel 或 HttpSys `ICommunicationListener`，以使用 Service Fabric 命名服務註冊唯一服務 URL，然後驗證用戶端要求以確保用戶端連線至正確的服務。 這在共用主機環境 (例如 Service Fabric) 中是必要的，其中多個 web 應用程式可以在相同的實體或虛擬機器上執行，但請勿使用唯一的主機名稱，以避免用戶端不小心連線到錯誤的服務。 此案例會在下一節中詳細說明。
+`Microsoft.ServiceFabric.AspNetCore` NuGet 套件包含 `IWebHostBuilder` 上的 `UseServiceFabricIntegration` 擴充方法，其會新增 Service Fabric 的中介軟體。 此中介軟體會設定 Kestrel 或 HttpSys `ICommunicationListener`，以使用 Service Fabric 命名服務註冊唯一服務 URL，然後驗證用戶端要求以確保用戶端連線至正確的服務。 這在共用主機環境 (例如 Service Fabric) 中是必要的，其中多個 web 應用程式可以在相同的實體或虛擬機器上執行，但請勿使用唯一的主機名稱，以避免用戶端不小心連線到錯誤的服務。 此案例會在下一節中詳細說明。
 
 ### <a name="a-case-of-mistaken-identity"></a>誤用身分識別的案例
 不論通訊協定，服務複本會接聽唯一 IP:port 組合。 一旦服務複本開始在 IP:port 端點上接聽，它會向 Service Fabric 命名服務報告該端點位址，用戶端或其他服務可以在其中探索。 如果服務使用動態指派的應用程式連接埠，服務複本可能會針對先前碰巧位於相同實體或虛擬機器上的其他服務，而誤用其 IP:port 端點。 這可能會造成用戶端不小心連線至錯誤的服務。 如果以下一連串事件發生，則可能發生這個情況︰

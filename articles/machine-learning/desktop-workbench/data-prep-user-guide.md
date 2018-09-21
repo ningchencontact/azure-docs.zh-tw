@@ -7,18 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: f0ba579ab204e6636a986b054555ff431438d0a5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e4db8d70d2a96fe3ad24797d7a32d75e1a792e32
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830668"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632725"
 ---
 # <a name="data-preparations-user-guide"></a>資料準備使用者指南 
 Azure Machine Learning 資料準備體驗提供許多豐富的功能。 本文說明體驗最深的部分。

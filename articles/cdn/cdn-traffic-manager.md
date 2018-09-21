@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-deasim
 ms.custom: ''
-ms.openlocfilehash: b52cad1f32cc3d16cf70bb81640dcb1d9f8614bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 88739cb299e453e32c69f5d0d0189da849b345a7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133261"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573870"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>使用 Azure 流量管理員設定多個 Azure CDN 端點之間的容錯移轉
 
@@ -46,7 +46,7 @@ ms.locfileid: "37133261"
 
     針對 [路由方法]，選取 [優先順序]。
 
-2. 藉由遵循[新增流量管理員端點](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)中的步驟，在您的流量管理員設定檔中新增 CDN 端點
+2. 藉由遵循[新增流量管理員端點](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)中的步驟，在您的流量管理員設定檔中新增 CDN 端點
 
     針對 [類型]，選取 [外部端點]。 針對 [優先順序]，輸入數字。
 
@@ -92,7 +92,7 @@ ms.locfileid: "37133261"
 完成這些步驟之後，就會以 Azure 流量管理員設定具有容錯移轉功能的多 CDN 服務。 您將能夠從自訂網域存取測試 URL。 若要測試功能，請停用主要 CDN 端點，並確認該要求已正確移往次要 CDN 端點。 
 
 ## <a name="next-steps"></a>後續步驟
-您也可以設定其他路由方法 (例如地理)，來平衡不同 CDN 端點之間的負載。 如需詳細資訊，請參閱[使用流量管理員來設定地理流量路由方法](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)。
+您也可以設定其他路由方法 (例如地理)，來平衡不同 CDN 端點之間的負載。 如需詳細資訊，請參閱[使用流量管理員來設定地理流量路由方法](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)。
 
 
 

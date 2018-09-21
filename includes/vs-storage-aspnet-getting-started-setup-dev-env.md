@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 634143f56bc9134f240ff42b7b5989605c8bffde
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979011"
+---
 ## <a name="set-up-the-development-environment"></a>設定開發環境
 
 本節會逐步引導您設定開發環境。 內容包括建立 ASP.NET MVC 應用程式、新增已連接的服務連線、新增控制器，以及指定必要的命名空間指示詞。
@@ -29,7 +46,7 @@
 1. 在 [Azure 儲存體] 對話方塊中，選取要用於本教學課程的 Azure 儲存體帳戶。 若要建立新的 Azure 儲存體帳戶，請選取 [建立新的儲存體帳戶]，然後完成表單。 在選取現有儲存體帳戶或建立新的儲存體帳戶之後，選取 [新增]。 Visual Studio 會將 Azure 儲存體 NuGet 套件和儲存體連接字串安裝到 **Web.config**。
 
 > [!TIP]
-> 若要了解如何使用 [Azure 入口網站](https://portal.azure.com)建立儲存體帳戶，請參閱[建立儲存體帳戶](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)。
+> 若要了解如何使用 [Azure 入口網站](https://portal.azure.com)建立儲存體帳戶，請參閱[建立儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。
 >
 > 您也可以使用 [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md)、[Azure CLI](../articles/storage/common/storage-azure-cli.md) 或 [Azure Cloud Shell](../articles/cloud-shell/overview.md) 來建立儲存體帳戶。
 

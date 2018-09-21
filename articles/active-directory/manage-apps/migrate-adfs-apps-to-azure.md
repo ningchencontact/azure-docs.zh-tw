@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: d22b86ad33db600eb5273e3ab09e71a1b1fd527b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577491"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296461"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>將 AD FS 內部部署應用程式移轉至 Azure AD 
 
@@ -55,7 +55,7 @@ ms.locfileid: "39577491"
 - 身為 SaaS 應用程式的識別提供者，Azure AD 可支援額外的功能，例如：
   - 每一應用程式的權杖簽署憑證。
   - [可設定的憑證到期日](manage-certificates-for-federated-single-sign-on.md)。
-  - 根據 Azure AD 身分識別[自動佈建](../active-directory-saas-app-provisioning.md)使用者帳戶 (在主要的 Azure Marketplace 應用程式中)。
+  - 根據 Azure AD 身分識別[自動佈建](user-provisioning.md)使用者帳戶 (在主要的 Azure Marketplace 應用程式中)。
 
 **保留內部部署識別提供者的優點**
 - 在獲得 Azure AD 優點的同時，您可以繼續使用內部部署解決方案來進行驗證。 這樣一來，內部部署 Multi-Factor Authentication 解決方案、記錄和稽核等優點都會保留下來。 
@@ -98,7 +98,7 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 |應用程式組態元素|說明|AD FS 組態中的位置|Azure AD 組態中的相對應位置|SAML 權杖元素|
 |-----|-----|-----|-----|-----|
 |應用程式登入 URL|此應用程式的登入頁面 URL。 在 SP 所起始的 SAML 流程中，使用者會前往此處以登入應用程式。|N/A|在 Azure AD 中，登入 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為登入 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到登入 URL)。|N/A|
-|應用程式回覆 URL|以識別提供者 (IdP) 觀點看待的應用程式 URL。 使用者在 IdP 登入後，使用者和權杖會被送往此 URL。</br></br> 有時候，這稱為「SAML 判斷提示消費者端點」。|可在應用程式的 AD FS 信賴憑證者信任中找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|在 Azure AD 中，此回覆 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為回覆 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到回覆 URL)。|對應至 SAML 權杖中的 [目的地] 元素。</br></br> 值範例：https://contoso.my.salesforce.com|
+|應用程式回覆 URL|以識別提供者 (IdP) 觀點看待的應用程式 URL。 使用者在 IdP 登入後，使用者和權杖會被送往此 URL。</br></br> 有時候，這稱為「SAML 判斷提示消費者端點」。|可在應用程式的 AD FS 信賴憑證者信任中找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|在 Azure AD 中，此回覆 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為回覆 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到回覆 URL)。|對應至 SAML 權杖中的 [目的地] 元素。</br></br> 值範例： https://contoso.my.salesforce.com|
 |應用程式登出 URL|當使用者登出某個應用程式時，該 URL 會收到「登出清除」要求，也就是要從 IdP 讓使用者登入的其他所有應用程式登出。|可在 AD FS 管理的 [信賴憑證者信任] 下找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|N/A。 Azure AD 不支援「單一登出」(表示登出所有的應用程式)。 它只會讓使用者登出 Azure AD 本身。|N/A|
 |應用程式識別碼|以 IdP 觀點看待的應用程式識別碼。 登入 URL 值經常用於此識別碼 (但並不一定)。</br></br> 有時候，應用程式會將此稱為「實體識別碼」。|在 AD FS 中，這是信賴憑證者識別碼。 以滑鼠右鍵按一下信賴憑證者信任，選取 [屬性]，然後選取 [識別碼] 索引標籤。|在 Azure AD 中，此識別碼會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為 [網域及 URL] 之下的識別碼。 (您可能必須選取 [顯示進階 URL 設定] 核取方塊)。|對應到 SAML 權杖中的 [對象] 元素。|
 |應用程式同盟中繼資料|應用程式的同盟中繼資料位置。 IdP 會使用此位置來自動更新特定組態設定，例如端點或加密憑證。|在應用程式的 AD FS 信賴憑證者信任中尋找應用程式的同盟中繼資料 URL。 以滑鼠右鍵按一下信任，選取 [屬性]，然後選取 [監視] 索引標籤。|N/A。 Azure AD 不支援直接取用應用程式同盟中繼資料。|N/A|
@@ -232,10 +232,10 @@ SAML 2.0 應用程式可以透過 Marketplace 中的 Azure AD 應用程式資源
 ![選取 Azure AD 作為驗證服務](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>選用：在 Azure AD 中設定使用者佈建
-如果您想要讓 Azure AD 直接處理 SaaS 應用程式的使用者佈建，請參閱[自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](../active-directory-saas-app-provisioning.md)。
+如果您想要讓 Azure AD 直接處理 SaaS 應用程式的使用者佈建，請參閱[自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](user-provisioning.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [使用 Azure Active Directory 來管理應用程式](what-is-application-management.md)
 - [管理應用程式的存取權](what-is-access-management.md)
-- [Azure AD Connect 同盟](../active-directory-aadconnectfed-whatis.md)
+- [Azure AD Connect 同盟](../hybrid/how-to-connect-fed-whatis.md)

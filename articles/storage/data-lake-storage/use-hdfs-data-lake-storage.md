@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ef28468c7aa420c145f5e6d79e2b079bd1d094f4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c59331c772e140fccfefb89eef086a35837171e1
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523677"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576970"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>使用 HDFS CLI 搭配 Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 您
     hdfs dfs -rm [-skipTrash] URI [URI ...]
 
 
-現在讓我們利用 Linux 上的 HDInsight Hadoop 叢集作為範例。 若要使用 HDFS CLI，您必須先建立[對服務的遠端存取](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services)。 如果您挑選 [SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)，則範例 PowerShell 程式碼會看起來像這樣：
+現在讓我們利用 Linux 上的 HDInsight Hadoop 叢集作為範例。 若要使用 HDFS CLI，您必須先建立[對服務的遠端存取](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services)。 如果您挑選 [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)，則範例 PowerShell 程式碼會看起來像這樣：
 ```PowerShell
 #Connect to the cluster via SSH.
 ssh sshuser@clustername-ssh.azurehdinsight.net

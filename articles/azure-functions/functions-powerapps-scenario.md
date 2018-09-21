@@ -3,26 +3,21 @@ title: 從 PowerApps 呼叫函式 | Microsoft Docs
 description: 建立自訂連接器，然後使用該連接器來呼叫函式。
 services: functions
 keywords: 雲端應用程式, 雲端服務, PowerApps, 商務程序, 商務應用程式
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586971"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579118"
 ---
 # <a name="call-a-function-from-powerapps"></a>從 PowerApps 呼叫函式
 [PowerApps](https://powerapps.microsoft.com) 平台的設計是為了讓商務專家不需要傳統應用程式程式碼，就能建置應用程式。 專業開發人員可以使用 Azure Functions 來擴充 PowerApps 的功能，同時透過技術詳細資料來防護 PowerApps 應用程式建立器。
@@ -44,9 +39,9 @@ ms.locfileid: "38586971"
 > * 新增控制項以呼叫函式並顯示資料。
 > * 執行應用程式以判斷修復是否符合成本效益。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-+ 使用中的 [PowerApps 帳戶](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps)，其登入認證與您的 Azure 帳戶相同。 
++ 使用中的 [PowerApps 帳戶](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps)，其登入認證與您的 Azure 帳戶相同。 
 + Excel 以及要作為應用程式資料來源的 [Excel 範例檔案](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx)。
 + 完成[為函式建立 OpenAPI 定義](functions-openapi-definition.md)教學課程。
 

@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 8b6c8220bd009505f683ce888558e612aebdc0b3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048099"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579213"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>使用 SQL Server Integration Services (SSIS) 對 U-SQL 作業進行排程
 
@@ -63,7 +63,7 @@ Azure Data Lake Analytics 工作能讓使用者將 U-SQL 作業提交至 Azure D
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>設定 Azure Data Lake Store 檔案系統工作
 
 1. 將 [Operation] 設定為 [CopyFromADLS]。
-2. 設定 [AzureDataLakeConnection]，深入了解 [Azure Data Lake Store 連線管理員](https://docs.microsoft.com/en-us/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017)。
+2. 設定 [AzureDataLakeConnection]，深入了解 [Azure Data Lake Store 連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017)。
 3. 設定 [AzureDataLakeDirectory]。 指向儲存 U-SQL 指令碼的資料夾。 使用對應至 Azure Data Lake Store 帳戶根資料夾的相對路徑。
 4. 將 [Destination] 設定為會對已下載的 U-SQL 指令碼進行快取的資料夾。 此資料夾路徑將會在 Foreach 迴圈容器中用來進行 U-SQL 作業提交。 
 
@@ -106,7 +106,7 @@ Azure Data Lake Analytics 工作能讓使用者將 U-SQL 作業提交至 Azure D
 
 3. 將 [AzureDataLakeAnalyticsConnection] 設定為您想要提交作業的 Azure Data Lake Analytics 帳戶。 深入了解 [Azure Data Lake Analytics 連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017)。
 
-4. 設定其他作業組態。 [深入了解](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)。
+4. 設定其他作業組態。 [深入了解](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)。
 
 5. 使用**運算式**來以動態方式設定 U-SQL 作業：
 
@@ -119,7 +119,7 @@ Azure Data Lake Analytics 工作能讓使用者將 U-SQL 作業提交至 Azure D
 
 您可以透過使用 Azure Feature Pack 中的 **Azure Blob 下載工作**，來在 Azure Blob 儲存體中使用 U-SQL 檔案。 此方法可讓您使用雲端上的指令碼。
 
-其步驟與[案例 2：在 Azure Data Lake Store 中使用 U-SQL 檔案](#scenario-2-use-u-sql-files-in-azure-data-lake-store)類似。 將 Azure Data Lake Store 檔案系統工作變更為 Azure Blob 下載工作。 [深入了解 Azure Blob 下載工作](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017)。
+其步驟與[案例 2：在 Azure Data Lake Store 中使用 U-SQL 檔案](#scenario-2-use-u-sql-files-in-azure-data-lake-store)類似。 將 Azure Data Lake Store 檔案系統工作變更為 Azure Blob 下載工作。 [深入了解 Azure Blob 下載工作](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017)。
 
 控制流程如下所示。
 
@@ -164,11 +164,11 @@ Azure Data Lake Analytics 工作能讓使用者將 U-SQL 作業提交至 Azure D
 - 根據目前的日期和時間，以動態方式設定輸入和輸出檔案路徑變數。
 - 設定預存程序的參數。
 
-[深入了解如何設定 U-SQL 指令碼的參數](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration)。
+[深入了解如何設定 U-SQL 指令碼的參數](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration)。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [在 Azure 中執行 SSIS 套件](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [適用於 Integration Services (SSIS) 的 Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
-- [使用 Azure Data Factory 對 U-SQL 作業進行排程](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-data-lake-analytics)
+- [使用 Azure Data Factory 對 U-SQL 作業進行排程](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
 

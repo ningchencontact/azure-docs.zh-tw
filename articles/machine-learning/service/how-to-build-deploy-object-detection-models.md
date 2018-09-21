@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 65bcb92b8e97b09ca961aa02cd5891419c2cddb2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295255"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580645"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 來建置和部署物件偵測模型
 
@@ -126,7 +126,7 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 
 ## <a name="define-a-model"></a>定義模型
 
-在此範例中，會使用 Faster R-CNN 模型。 定義此模型時，可以使用各種參數。 在 CVTK 的 API 文件中或 [Tensorflow 物件偵測網站](https://github.com/tensorflow/models/tree/master/research/object_detection) \(英文\) 上，會說明這些參數及用來進行定型 (請參閱下一節) 的參數。 如需有關 Faster R-CNN 模型的詳細資訊，請參閱[這個連結](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details) \(英文\)。 此模型以 Fast R-CNN 為基礎，如需其相關詳細資訊，請參閱[這裡](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details) \(英文\)。
+在此範例中，會使用 Faster R-CNN 模型。 定義此模型時，可以使用各種參數。 在 CVTK 的 API 文件中或 [Tensorflow 物件偵測網站](https://github.com/tensorflow/models/tree/master/research/object_detection) \(英文\) 上，會說明這些參數及用來進行定型 (請參閱下一節) 的參數。 如需有關 Faster R-CNN 模型的詳細資訊，請參閱[這個連結](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details) \(英文\)。 此模型以 Fast R-CNN 為基礎，如需其相關詳細資訊，請參閱[這裡](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details) \(英文\)。
 
 
 ```python

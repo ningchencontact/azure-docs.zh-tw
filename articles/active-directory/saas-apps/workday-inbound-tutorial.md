@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445655"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298263"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>教學課程︰設定 Workday 來自動佈建使用者 (預覽)
 
@@ -27,7 +27,7 @@ ms.locfileid: "42445655"
 
 ## <a name="overview"></a>概觀
 
-[Azure Active Directory 使用者佈建服務](../active-directory-saas-app-provisioning.md)與 [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) 整合以佈建使用者帳戶。 Azure AD 使用此連接啟用下列使用者佈建工作流程：
+[Azure Active Directory 使用者佈建服務](../manage-apps/user-provisioning.md)與 [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) 整合以佈建使用者帳戶。 Azure AD 使用此連接啟用下列使用者佈建工作流程：
 
 * **將使用者佈建至 Active Directory** - 將選取的使用者集合從 Workday 同步至一或多個 Active Directory 樹系。
 
@@ -39,13 +39,13 @@ ms.locfileid: "42445655"
 
 Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，可讓下列人力資源和身分識別生命週期管理案例的自動化：
 
-* **雇用新員工** - 將新員工新增至 Workday 時，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](../active-directory-saas-app-provisioning.md)中自動建立使用者帳戶，並將電子郵件地址寫回 Workday。
+* **雇用新員工** - 將新員工新增至 Workday 時，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](../manage-apps/user-provisioning.md)中自動建立使用者帳戶，並將電子郵件地址寫回 Workday。
 
-* **員工屬性和設定檔更新** - 在 Workday 中更新員工記錄時 (例如姓名、職稱或經理)，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](../active-directory-saas-app-provisioning.md)中自動更新其使用者帳戶。
+* **員工屬性和設定檔更新** - 在 Workday 中更新員工記錄時 (例如姓名、職稱或經理)，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](../manage-apps/user-provisioning.md)中自動更新其使用者帳戶。
 
-* **員工離職** - 在 Workday 中將員工設定為離職時，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](../active-directory-saas-app-provisioning.md)中自動停用其使用者帳戶。
+* **員工離職** - 在 Workday 中將員工設定為離職時，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](../manage-apps/user-provisioning.md)中自動停用其使用者帳戶。
 
-* **重新雇用員工** - 在 Workday 中重新雇用員工時，系統會自動重新啟用其舊帳戶或將其重新佈建 (取決於您的喜好設定) 至 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](../active-directory-saas-app-provisioning.md)。
+* **重新雇用員工** - 在 Workday 中重新雇用員工時，系統會自動重新啟用其舊帳戶或將其重新佈建 (取決於您的喜好設定) 至 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](../manage-apps/user-provisioning.md)。
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>誰最適合使用此使用者佈建解決方案？
 
@@ -75,7 +75,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 * 可供測試和整合之用的 Workday 實作租用戶
 * 可供測試之用的 Workday 系統管理員權限，以建立系統整合使用者和進行變更以測試員工資料
 * 佈建至 Active Directory 的使用者，需要執行 Windows Service 2012 或更新版本的已加入網域伺服器，才能裝載[內部部署同步代理程式](https://go.microsoft.com/fwlink/?linkid=847801)
-* 可在 Active Directory 與 Azure AD 之間同步處理的 [Azure AD Connect](../connect/active-directory-aadconnect.md)
+* 可在 Active Directory 與 Azure AD 之間同步處理的 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 
 ### <a name="solution-architecture"></a>方案架構
 
@@ -327,7 +327,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
          * **常數** - 將靜態的常數字串值寫入 AD 屬性
 
-         * **運算式** – 可讓您根據一或多個 Workday 屬性，將自訂值寫入 AD 屬性。 [如需詳細資訊，請參閱這篇有關運算式的文章](../active-directory-saas-writing-expressions-for-attribute-mappings.md)。
+         * **運算式** – 可讓您根據一或多個 Workday 屬性，將自訂值寫入 AD 屬性。 [如需詳細資訊，請參閱這篇有關運算式的文章](../manage-apps/functions-for-customizing-application-data.md)。
 
       * **來源屬性** - 來自 Workday 的使用者屬性。 如果您要尋找的屬性不存在，請參閱[自訂 Workday 使用者屬性的清單](#customizing-the-list-of-workday-user-attributes)。
 
@@ -356,7 +356,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 -   Active Directory 中的 userPrincipalName 屬性會藉由串連 Workday 使用者識別碼和網域尾碼來產生
 
--   [此為有關撰寫運算式的文件](../active-directory-saas-writing-expressions-for-attribute-mappings.md)。 其中包含說明如何移除特殊字元的範例。
+-   [此為有關撰寫運算式的文件](../manage-apps/functions-for-customizing-application-data.md)。 其中包含說明如何移除特殊字元的範例。
 
   
 | WORKDAY 屬性 | ACTIVE DIRECTORY 屬性 |  比對識別碼？ | 建立/更新 |
@@ -490,7 +490,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 3. 這會啟動初始同步，取決於 Workday 中的使用者人數，其可能要花費數小時。
 
-4. 您可隨時檢查 Azure 入口網站中的 [稽核記錄] 索引標籤，查看佈建服務執行了哪些動作。 稽核記錄會列出佈建服務執行的所有個別同步處理事件，例如從 Workday 外部讀取了哪些使用者，接著又新增到或更新到 Active Directory 中。 **[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](../active-directory-saas-provisioning-reporting.md)**
+4. 您可隨時檢查 Azure 入口網站中的 [稽核記錄] 索引標籤，查看佈建服務執行了哪些動作。 稽核記錄會列出佈建服務執行的所有個別同步處理事件，例如從 Workday 外部讀取了哪些使用者，接著又新增到或更新到 Active Directory 中。 **[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](../manage-apps/check-status-user-account-provisioning.md)**
 
 1.  請檢查裝載代理程式的 Windows Server 機器上的 [Windows 事件記錄檔](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx)中，有哪些新錯誤或警告。 可透過在伺服器上啟動 **Eventvwr.msc** 並選取 [Windows 記錄檔 > 應用程式]，來檢視這些事件。 所有佈建相關的訊息都會記錄在來源 **AADSyncAgent** 底下。
 
@@ -504,11 +504,11 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 | 案例 | 解決方法 |
 | -------- | -------- |
-| **需要佈建至 Active Directory 和 Azure AD 的使用者** | 使用 **[AAD Connect](../connect/active-directory-aadconnect.md)** |
-| **只需要佈建至 Active Directory 的使用者** | 使用 **[AAD Connect](../connect/active-directory-aadconnect.md)** |
+| **需要佈建至 Active Directory 和 Azure AD 的使用者** | 使用 **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
+| **只需要佈建至 Active Directory 的使用者** | 使用 **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
 | **只需要佈建至 Azure AD 的使用者 (僅限雲端)** | 使用應用程式庫中的 **Workday to Azure Active Directory Provisioning** 應用程式 |
 
-如需有關設定 Azure AD Connect 的指示，請參閱 [Azure AD Connect 文件](../connect/active-directory-aadconnect.md)。
+如需有關設定 Azure AD Connect 的指示，請參閱 [Azure AD Connect 文件](../hybrid/whatis-hybrid-identity.md)。
 
 下列各節說明如何設定 Workday 與 Azure AD 之間的連接以佈建僅限雲端使用者。
 
@@ -581,7 +581,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
       * **常數** - 將靜態的常數字串值寫入 AD 屬性
 
-      * **運算式** – 可讓您根據一或多個 Workday 屬性，將自訂值寫入 AD 屬性。 [如需詳細資訊，請參閱這篇有關運算式的文章](../active-directory-saas-writing-expressions-for-attribute-mappings.md)。
+      * **運算式** – 可讓您根據一或多個 Workday 屬性，將自訂值寫入 AD 屬性。 [如需詳細資訊，請參閱這篇有關運算式的文章](../manage-apps/functions-for-customizing-application-data.md)。
 
    * **來源屬性** - 來自 Workday 的使用者屬性。 如果您要尋找的屬性不存在，請參閱[自訂 Workday 使用者屬性的清單](#customizing-the-list-of-workday-user-attributes)。
 
@@ -611,7 +611,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 3. 這會啟動初始同步，取決於 Workday 中的使用者人數，其可能要花費數小時。
 
-4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。**[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](../active-directory-saas-provisioning-reporting.md)**
+4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。**[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. 完成之後，其會寫入 [佈建] 索引標籤中的稽核摘要報告內，如下所示。
 
@@ -669,7 +669,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 3. 這會啟動初始同步，取決於 Workday 中的使用者人數，其可能要花費數小時。
 
-4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。**[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](../active-directory-saas-provisioning-reporting.md)**
+4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。**[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. 完成之後，其會寫入 [佈建] 索引標籤中的稽核摘要報告內，如下所示。
 
@@ -808,7 +808,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [瞭解如何針對佈建活動檢閱記錄和取得報告](../active-directory-saas-provisioning-reporting.md)
+* [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
 * [了解如何設定 Workday 與 Azure Active Directory 之間的單一登入](workday-tutorial.md)
 * [了解如何將其他 SaaS 應用程式與 Azure Active Directory 整合](tutorial-list.md)
 

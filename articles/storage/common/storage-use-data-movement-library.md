@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: ee24a055c6a3c53b9753728e13a7687e722c1c91
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e62023f5aeca73973598430ed357e8e9800a17f8
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526210"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732238"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>使用 Microsoft Azure 儲存體資料移動程式庫傳輸資料
 
@@ -35,10 +35,10 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 **您需要的項目：**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure 儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)
+* [Azure 儲存體帳戶](storage-quickstart-create-account.md)
 
 > [!NOTE]
-> 本指南假設您已熟悉 [Azure 儲存體](https://azure.microsoft.com/services/storage/)。 如果不熟悉，閱讀 [Azure 儲存體簡介](storage-introduction.md)說明文件會很有幫助。 最重要的是，您需要[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)才能開始使用資料移動程式庫。
+> 本指南假設您已熟悉 [Azure 儲存體](https://azure.microsoft.com/services/storage/)。 如果不熟悉，閱讀 [Azure 儲存體簡介](storage-introduction.md)說明文件會很有幫助。 最重要的是，您需要[建立儲存體帳戶](storage-quickstart-create-account.md)才能開始使用資料移動程式庫。
 > 
 > 
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: bc1f1dd577231f5b22474f6cd3dc622480209dd9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 1a7fcc11bf1b98d5feaeae07264e556acce2b14b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042913"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736067"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用適用於 IntelliJ 的 Azure 工具組透過 VPN 對 HDInsight 中的 Spark 應用程式進行遠端偵錯
 
@@ -132,7 +132,7 @@ ms.locfileid: "43042913"
     若要將這些檔案新增至專案，請在您專案樹狀結構的 **/src** 資料夾下複製這些檔案，例如 `<your project directory>\src`。
 1. 更新 `core-site.xml` 檔案以進行下列變更：
 
-   a. 取代加密的金鑰。 `core-site.xml` 檔案包含與叢集相關聯之儲存體帳戶的加密金鑰。 在您新增至專案的 `core-site.xml` 檔案中，以與預設儲存體帳戶相關聯的實際儲存體金鑰取代加密金鑰。 如需詳細資訊，請參閱[管理儲存體存取金鑰](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)。
+   a. 取代加密的金鑰。 `core-site.xml` 檔案包含與叢集相關聯之儲存體帳戶的加密金鑰。 在您新增至專案的 `core-site.xml` 檔案中，以與預設儲存體帳戶相關聯的實際儲存體金鑰取代加密金鑰。 如需詳細資訊，請參閱[管理儲存體存取金鑰](../../storage/common/storage-account-manage.md#access-keys)。
 
            <property>
                  <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1188ff040c12fd431cfcef5eea982647df6b9a71
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888427"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576386"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 建置及部署影像分類模型
 
@@ -38,7 +38,7 @@ ms.locfileid: "37888427"
 
 如需每個模組和類別的詳細參考資訊，請參閱[套件參考文件](https://aka.ms/aml-packages/vision) \(英文\)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -174,7 +174,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>增強影像
 
-[`augmentation`模組](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation)提供使用 [imgaug](https://github.com/aleju/imgaug) 程式庫中所述所有轉換增強資料集物件的功能。 影像轉換可以分組到單一管線中，在此情況下，每個影像都會同時套用管線中的所有轉換。 
+[`augmentation`模組](https://docs.microsoft.com/python/api/cvtk.augmentation)提供使用 [imgaug](https://github.com/aleju/imgaug) 程式庫中所述所有轉換增強資料集物件的功能。 影像轉換可以分組到單一管線中，在此情況下，每個影像都會同時套用管線中的所有轉換。 
 
 如果您想要個別套用不同的增強指定步驟，或以不同的方式套用，則可以定義多個管線，並將其傳遞至 *augment_dataset* 函式。 如需影像增強指定的詳細資訊和範例，請參閱 [imgaug 文件](https://github.com/aleju/imgaug) \(英文\)。
 

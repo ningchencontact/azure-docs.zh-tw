@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c0ad9f71665e503fe794c68200b90a8474750823
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b048509f38356b19d52507f4dfb5bfa61122f9f6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173620"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576420"
 ---
 # <a name="default-values-and-boundaries"></a>預設值和界限
 
@@ -35,8 +35,8 @@ ms.locfileid: "39173620"
 撰寫 API，每秒的 HTTP 呼叫次數上限 | 25
 工作階段 API，每月的 HTTP 呼叫次數上限 | 500K
 工作階段 API，每秒的 HTTP 呼叫次數上限 | 10
-每個模型的自訂 (非程式設計) 實體數目上限 | 請參閱 [LUIS 界限文件](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries) \(英文\)；實務上，實際數目可能會稍微低一點
-每個模型的預先建置實體數目上限 | 請參閱 [LUIS 界限文件](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries) \(英文\)
+每個模型的自訂 (非程式設計) 實體數目上限 | 請參閱 [LUIS 界限文件](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries) \(英文\)；實務上，實際數目可能會稍微低一點
+每個模型的預先建置實體數目上限 | 請參閱 [LUIS 界限文件](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries) \(英文\)
 每個模型的實體數目上限 (總計) | 100
 每個模型的動作數目上限 | 32
 每個模型的定型對話數目上限 | 1000

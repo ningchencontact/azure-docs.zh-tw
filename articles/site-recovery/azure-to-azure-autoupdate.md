@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922746"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574397"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>將 Azure 中的行動服務自動更新至 Azure 複寫
 
@@ -79,8 +79,8 @@ FREE UNITS INCLUDED (PER MONTH)**   PRICE Job run time    500 minutes ₹0.14/mi
 
  - **錯誤**：執行身分帳戶沒有存取復原服務資源的權限。
 
-    **建議的動作**：刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account)，或確定自動化執行身分帳戶的 Azure Active Directory 應用程式具有復原服務資源的存取權。
+    **建議的動作**：刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)，或確定自動化執行身分帳戶的 Azure Active Directory 應用程式具有復原服務資源的存取權。
 
 - **錯誤**：找不到執行身分帳戶。 下列其中一個項目已刪除或未建立：Azure Active Directory 應用程式、服務主體、角色、自動化憑證資產、自動化連線資產，或憑證與連線之間的指紋不相同。 
 
-    **建議的動作**：刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account)。
+    **建議的動作**：刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)。

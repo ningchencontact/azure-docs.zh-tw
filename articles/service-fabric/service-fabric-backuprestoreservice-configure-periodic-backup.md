@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 8cfa0e2a5aa1d7f560fe84f4eda18349f5d1d8b4
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992244"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575406"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>在 Azure Service Fabric 中了解定期備份設定
 
@@ -182,19 +182,19 @@ ms.locfileid: "38992244"
 ## <a name="suspend--resume-backup"></a>暫止與繼續備份
 有些情況可能會要求暫時擱置資料的定期備份。 在這種情況下，根據需求而定，可能會在應用程式、服務或分割區使用暫止備份 API。 定期備份擱置可從其套用點透過應用程式階層的樹狀子目錄轉移。 
 
-* 使用[暫止應用程式備份](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API 在應用程式套用擱置時，此應用程式之下的所有服務和分割區都會暫止資料的定期備份。
+* 使用[暫止應用程式備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API 在應用程式套用擱置時，此應用程式之下的所有服務和分割區都會暫止資料的定期備份。
 
-* 使用[暫止服務備份](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendservicebackup) API 在服務套用擱置時，此服務之下的所有分割區都會暫止資料的定期備份。
+* 使用[暫止服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) API 在服務套用擱置時，此服務之下的所有分割區都會暫止資料的定期備份。
 
-* 使用[暫止分割區備份](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API 在分割區套用擱置時，此服務之下的分割區都會暫止資料的定期備份。
+* 使用[暫止分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API 在分割區套用擱置時，此服務之下的分割區都會暫止資料的定期備份。
 
 擱置需求結束後，則可使用各自的繼續備份 API 來還原定期資料備份。 定期備份必須在暫止時的相同應用程式、服務或_分割區_上繼續進行。
 
-* 如果在應用程式套用擱置，則應該使用[繼續應用程式備份](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API 繼續進行。 
+* 如果在應用程式套用擱置，則應該使用[繼續應用程式備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API 繼續進行。 
 
-* 如果在服務套用擱置，則應該使用[繼續服務備份](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeservicebackup) API 繼續進行。
+* 如果在服務套用擱置，則應該使用[繼續服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API 繼續進行。
 
-* 如果在分割區套用擱置，則應該使用[繼續分割區備份](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API 繼續進行。
+* 如果在分割區套用擱置，則應該使用[繼續分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API 繼續進行。
 
 ## <a name="auto-restore-on-data-loss"></a>在資料遺失時自動還原
 服務分割區可能因為非預期的失敗而遺失資料。 例如，分割區的三分之二複本 (包括主要複本) 的磁碟損毀或抹除。
@@ -202,7 +202,7 @@ ms.locfileid: "38992244"
 當 Service Fabric 偵測到分割區遺失資料時，它會在分割區上叫用 `OnDataLossAsync` 介面方法，並預期分割區會採取必要的動作來擺脫資料遺失。 在此情況下，如果分割區的有效備份原則將其 `AutoRestoreOnDataLoss` 旗標設為 `true`，則會使用此分割區的最新可用備份自動觸發還原。
 
 ## <a name="get-backup-configuration"></a>取得備份組態
-已提供不同的 API，以便取得應用程式、服務和分割區範圍的備份組態資訊。 這些 API 分別是[取得應用程式備份組態資訊](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)、[取得服務備份組態資訊](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)，以及[取得分割區備份組態資訊](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo)。 這些 API 主要傳回適用的備份原則，此備份原則的套用範圍，以及備份擱置詳細資料。 以下是這些 API 所傳回結果的簡短說明。
+已提供不同的 API，以便取得應用程式、服務和分割區範圍的備份組態資訊。 這些 API 分別是[取得應用程式備份組態資訊](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)、[取得服務備份組態資訊](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)，以及[取得分割區備份組態資訊](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo)。 這些 API 主要傳回適用的備份原則，此備份原則的套用範圍，以及備份擱置詳細資料。 以下是這些 API 所傳回結果的簡短說明。
 
 - 應用程式備份組態資訊：提供在應用程式套用的備份原則詳細資料，以及在屬於該應用程式的服務和分割區覆寫的所有原則。 它也包含應用程式及其服務和分割區的擱置資訊。
 
@@ -218,11 +218,11 @@ ms.locfileid: "38992244"
 
 以下是關於支援變體的簡短資訊。
 
-- [取得應用程式備份清單](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackuplist)：傳回屬於所指定 Service Fabric 應用程式的每個分割區可用的備份清單。
+- [取得應用程式備份清單](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist)：傳回屬於所指定 Service Fabric 應用程式的每個分割區可用的備份清單。
 
-- [取得服務備份清單](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackuplist)：傳回屬於所指定 Service Fabric 服務的每個分割區可用的備份清單。
+- [取得服務備份清單](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist)：傳回屬於所指定 Service Fabric 服務的每個分割區可用的備份清單。
  
-- [取得分割區備份清單](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackuplist)：傳回指定的分割區可用的備份清單。
+- [取得分割區備份清單](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist)：傳回指定的分割區可用的備份清單。
 
 ## <a name="next-steps"></a>後續步驟
 - [備份還原 REST API 參考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

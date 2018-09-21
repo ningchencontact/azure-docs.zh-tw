@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c5621d5e16e31104ee28cc521386a5c0ca290a8b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187694"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716395"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 解決方案加速器的常見問題集
 
@@ -73,10 +73,6 @@ ms.locfileid: "39187694"
 > Microsoft Azure for DreamSpark 現在稱為 Microsoft Imagine 學生版。
 
 您目前無法使用 [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) 帳戶來建立解決方案加速器。 不過，您只需花幾分鐘即可建立 [Azure 免費試用帳戶](https://azure.microsoft.com/free/)，此帳戶可讓您建立解決方案加速器。
-
-### <a name="can-i-create-a-solution-accelerator-if-i-have-cloud-solution-provider-csp-subscription"></a>如果我有雲端解決方案提供者 (CSP) 訂用帳戶，是否可以建立解決方案加速器？
-
-您目前無法透過雲端解決方案提供者 (CSP) 訂用帳戶建立解決方案加速器。 不過，您只需花幾分鐘即可建立 [Azure 免費試用帳戶](https://azure.microsoft.com/free/)，此帳戶可讓您建立解決方案加速器。
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>如何刪除 AAD 租用戶？
 

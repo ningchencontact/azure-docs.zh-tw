@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/16/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6b58c95b918d820e207e801e62e7897c2ee366
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246224"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544272"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自動化執行身分帳戶
 
@@ -349,9 +349,8 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
     ![更新執行身分帳戶的憑證](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. 更新憑證時，您可以在功能表的 [通知] 底下追蹤進度。
+1. 更新憑證時，您可以在功能表的 [通知] 底下追蹤進度。 
 
-如果您無法更新執行身分憑證
 ## <a name="limiting-run-as-account-permissions"></a>限制執行身分帳戶的權限
 
 為了針對 Azure 自動化中的資源控制自動化目標，系統預設會將訂用帳戶中的參與者權限授予執行身分帳戶。 如果您需要限制執行身分服務主體可執行的動作，可以將帳戶從訂用帳戶的參與者角色中移除，並以參與者身分將它新增至您要指定的資源群組。

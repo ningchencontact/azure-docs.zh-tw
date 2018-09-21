@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4d8a79862dac53429acda14f81818f92a96df529
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5b0dbf5ad78ff345d386024ff873618a781917ac
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376845"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579032"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概觀
 
@@ -34,7 +34,7 @@ ms.locfileid: "44376845"
 為了讓系統獲得支援，您必須將 Azure Stack 更新為特定版本等級。 務必檢閱 [Azure Stack 服務原則](azure-stack-servicing-policy.md)。
 
 > [!NOTE]
-> 您無法將 Azure Stack 更新封裝套用於 Azure Stack 開發套件。 更新封裝專為整合系統所設計。 如需資訊，請參閱[重新部署 ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk)。
+> 您無法將 Azure Stack 更新封裝套用於 Azure Stack 開發套件。 更新封裝專為整合系統所設計。 如需資訊，請參閱[重新部署 ASDK](https://docs.microsoft.com/azure/azure-stack/asdk)。
 
 ## <a name="the-update-resource-provider"></a>更新資源提供者
 

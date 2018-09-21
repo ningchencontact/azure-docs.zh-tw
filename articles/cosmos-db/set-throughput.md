@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: andrl
-ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037991"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734466"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>設定及取得 Azure Cosmos DB 容器和資料庫的輸送量
 
@@ -61,7 +61,7 @@ Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載�
 2. 從左側導覽選取 [所有資源]，然後尋找 Azure Cosmos DB 帳戶。  
 3. 您可以在建立資料庫時設定輸送量，也可以更新現有資料庫的輸送量。  
 4. 若要在建立資料庫時指派輸送量，請開啟 [資料總管] 刀鋒視窗，然後選取 [新增資料庫]  
-5. 填寫 [資料庫識別碼] 值，勾選 [佈建輸送量] 選項，然後設定輸送量值。 資料庫至少必須佈建的輸送量值為 50000 RU/秒。  
+5. 填寫 [資料庫識別碼] 值，勾選 [佈建輸送量] 選項，然後設定輸送量值。  
 
    ![使用新增資料庫選項設定輸送量](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -74,7 +74,7 @@ Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載�
 1. 登入 [Azure 入口網站](https://portal.azure.com)。  
 2. 從左側導覽選取 [所有資源]，然後尋找 Azure Cosmos DB 帳戶。  
 3. 建立資料庫，並對其指派輸送量。 開啟 [資料總管] 刀鋒視窗，然後選取 [新增資料庫]  
-4. 填寫 [資料庫識別碼] 值，勾選 [佈建輸送量] 選項，然後設定輸送量值。 資料庫至少必須佈建的輸送量值為 50000 RU/秒。  
+4. 填寫 [資料庫識別碼] 值，勾選 [佈建輸送量] 選項，然後設定輸送量值。  
 
    ![使用新增資料庫選項設定輸送量](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -107,33 +107,6 @@ Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載�
 * 如果您的 Azure Cosmos DB 容器數量不多。  
 
 * 如果您想要在獲得 SLA 支援的指定容器上取得保證的輸送量。
-
-## <a name="throughput-ranges"></a>輸送量範圍
-
-下表列出容器可使用的輸送量：
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>單一資料分割容器</strong></p></td>
-            <td valign="top"><p><strong>已資料分割的容器</strong></p></td>
-            <td valign="top"><p><strong>一組容器</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>輸送量下限</p></td>
-            <td valign="top"><p>每秒 400 個要求單位</p></td>
-            <td valign="top"><p>每秒 1,000 個要求單位</p></td>
-            <td valign="top"><p>每秒 50,000 個要求單位</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>輸送量上限</p></td>
-            <td valign="top"><p>每秒 10,000 個要求單位</p></td>
-            <td valign="top"><p>無限</p></td>
-            <td valign="top"><p>無限</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a id="set-throughput-sdk"></a>
 

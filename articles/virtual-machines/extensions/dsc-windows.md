@@ -3,8 +3,8 @@ title: Azure 預期狀態設定擴充功能處理常式 | Microsoft Docs
 description: 在 Azure VM 上使用 DSC 擴充功能上傳並套用 PowerShell DSC 設定
 services: virtual-machines-windows
 documentationcenter: ''
-author: eshaparmar
-manager: jeconnoc
+author: bobbytreed
+manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
-ms.author: esparmar
-ms.openlocfilehash: b34314951980f7dbe2269119883dec52a90a0587
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: robreed
+ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944810"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630920"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 延伸模組
 
@@ -27,7 +27,7 @@ ms.locfileid: "33944810"
 
 Microsoft 已發佈並支援適用於 Windows 的 PowerShell DSC 擴充功能。 此擴充功能會在 Azure VM 上，上傳並套用 PowerShell DSC 設定。 DSC 擴充功能會呼叫 PowerShell DSC，以便在 VM 上套用所收到的 DSC 設定。 本文件詳述適用於 Windows 的 DSC 虛擬機器擴充功能所支援的平台、組態和部署選項。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -98,7 +98,7 @@ Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Ser
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | publisher | Microsoft.Powershell.DSC | 字串 |
@@ -107,7 +107,7 @@ Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Ser
 
 ### <a name="settings-property-values"></a>設定屬性值
 
-| Name | 資料類型 | 說明
+| 名稱 | 資料類型 | 說明
 | ---- | ---- | ---- |
 | settings.wmfVersion | 字串 | 指定應該安裝於 VM 的 Windows Management Framework 版本。 將此屬性設定為 'latest' 將會安裝最新版的 WMF。 此屬性目前只有下列可能值：‘4.0’、‘5.0’ 及 ‘latest’。 這些可能的值可能會更新。 預設值為 ‘latest’。 |
 | settings.configuration.url | 字串 | 指定要從中下載 DSC 組態 zip 檔的 URL 位置。 如果提供的 URL 需要 SAS 權杖才能存取，您必須將 protectedSettings.configurationUrlSasToken 屬性設定為 SAS 權杖的值。 如果已定義 settings.configuration.script 和/或 settings.configuration.function，則需要這個屬性。
@@ -121,7 +121,7 @@ Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Ser
 
 ### <a name="protected-settings-property-values"></a>受保護的設定屬性值
 
-| Name | 資料類型 | 說明
+| 名稱 | 資料類型 | 說明
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | 字串 | 定義任何您想要傳遞至 DSC 組態的參數。 此屬性將會經過加密。 |
 | protectedSettings.configurationUrlSasToken | 字串 | 指定 SAS 權杖，以存取 configuration.url 所定義的 URL。 此屬性將會經過加密。 |

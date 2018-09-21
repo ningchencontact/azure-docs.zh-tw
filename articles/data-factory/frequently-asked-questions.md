@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: ebe8745db06113d0508d86554bf031a4235c8e44
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045944"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577127"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文提供 Azure Data Factory 常見問題集的解答。  
@@ -82,11 +82,11 @@ Azure Data Factory (ADF) 視覺工具可讓您進行反覆式開發與偵錯。 
 -   含 VNet 服務端點的 Azure SQL DB
 -   受控執行個體 (MI)
 -   彈性集區
--   除了支援 Classic VNet 未來將遭到取代的 Classic VNet 以外，也支援 Azure Resource Manager 虛擬網路 (VNet)。這可讓您將 Azure-SSIS Integration Runtime (IR) 插入/加入 VNet，該 VNet 針對具有 服務端點/MI/內部部署資料存取權的 Azure SQL DB 進行設定，請參閱：https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
+-   除了支援 Classic VNet 未來將遭到取代的 Classic VNet 以外，也支援 Azure Resource Manager 虛擬網路 (VNet)。這可讓您將 Azure-SSIS Integration Runtime (IR) 插入/加入 VNet，該 VNet 針對具有 服務端點/MI/內部部署資料存取權的 Azure SQL DB 進行設定，請參閱： https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
 -   除了支援 SQL 驗證，也支援透過 Azure Active Directory (AAD) 驗證連線至 SSISDB。這可讓您使用 AAD 驗證證明您的 ADF 受控服務識別 (MSI)
 -   支援攜帶您自己的內部部署 SQL Server 授權，大幅節省採用 Azure Hybrid Benefit (AHB) 的成本
--   支援 Enterprise Edition of Azure-SSIS IR，讓您使用進階/高級功能、可安裝額外元件/擴充功能的自訂設定，以及第三方生態系統，請參閱：https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
--   SSIS 更深入地整合至 ADF ，這可讓您在 ADF 管線中叫用/觸發第一級 Execute SSIS Package 活動，並透過 SSMS 排程這些活動，請參閱：https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 
+-   支援 Enterprise Edition of Azure-SSIS IR，讓您使用進階/高級功能、可安裝額外元件/擴充功能的自訂設定，以及第三方生態系統，請參閱： https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
+-   SSIS 更深入地整合至 ADF ，這可讓您在 ADF 管線中叫用/觸發第一級 Execute SSIS Package 活動，並透過 SSMS 排程這些活動，請參閱： https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 
 
 
 ## <a name="what-is-integration-runtime"></a>什麼是整合執行階段？

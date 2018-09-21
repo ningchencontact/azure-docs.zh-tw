@@ -1,19 +1,21 @@
 ---
-title: 什麼是 Bing Web 搜尋？ | Microsoft Docs
-description: Bing Web 搜尋 API 是一項 RESTful 服務，可讓您的應用程式使用 Bing 的 Web 搜尋功能，包括網頁、影像、影片、新聞、實體、相關搜尋查詢、拼字校正、單位轉換、翻譯和計算等。
+title: 什麼是 Bing Web 搜尋？
+titleSuffix: Azure Cognitive Services
+description: Bing Web 搜尋 API 是一項可即時解答使用者查詢的 RESTful 服務。 搜尋結果可經由簡單的設定，將網頁、影像、影片、新聞、翻譯等項目包含在內。 結果會以 JSON 的形式提供，並以搜尋相關性和您的 Bing Web 搜尋訂用帳戶為基礎。
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
 ms.author: erhopf
-ms.openlocfilehash: ad1069a836a3ff9291ca8094fe86e19979bf7e32
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8482afae2889ccf2153e1864e4a65b635b6ab4c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42890046"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125233"
 ---
 # <a name="what-is-bing-web-search"></a>什麼是 Bing Web 搜尋？
 

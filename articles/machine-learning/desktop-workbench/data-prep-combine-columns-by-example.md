@@ -7,17 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: ecd2232dcf77715fdccd4e5518674500231f67ca
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 621601ad3576aad13f2f71062ee2351cf1a394c8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830256"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35633115"
 ---
 # <a name="combine-columns-by-example-transformation"></a>合併資料行實例化轉換
 此轉換可讓使用者藉由合併多個資料行的值以新增資料行。 使用者可以指定分隔符號，或提供組合值的範例以執行這項轉換。 當使用者提供合併範例時，轉換由**衍生資料行實例化**轉換中使用的相同**實例化**引擎處理。

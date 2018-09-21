@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9d6bf29909393846ec17a1bcc210fb989efd7f99
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 106e8f082d148ed9a8c58313177be81ee074a2c3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939734"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578458"
 ---
 # <a name="manage-budgets"></a>管理預算
 
@@ -83,5 +83,5 @@ ms.locfileid: "36939734"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您尚未完成成本管理的第一個教學課程，請閱讀[檢閱使用量和成本](https://docs.microsoft.com/en-us/azure/cost-management/tutorial-review-usage)。
+- 如果您尚未完成成本管理的第一個教學課程，請閱讀[檢閱使用量和成本](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage)。
 - 深入了解[成本管理中可用的報表](use-reports.md)。

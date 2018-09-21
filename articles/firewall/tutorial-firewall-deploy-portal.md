@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480878"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575984"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆
 
@@ -58,7 +58,7 @@ Azure 防火牆文件中的範例假設您已啟用 Azure 防火牆公開預覽�
 
 ![教學課程網路基礎結構](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-本教學課程會使用簡化的網路組態，讓您能輕鬆部署。 對於生產環境部署，建議您使用[中樞和支點模型](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中防火牆會位於自己的 VNet 中，而工作負載伺服器則位於相同區域中的對等互連 VNet 中，當中包含一個或多個子網路。
+本教學課程會使用簡化的網路組態，讓您能輕鬆部署。 對於生產環境部署，建議您使用[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中防火牆會位於自己的 VNet 中，而工作負載伺服器則位於相同區域中的對等互連 VNet 中，當中包含一個或多個子網路。
 
 
 
@@ -161,7 +161,7 @@ Azure 防火牆文件中的範例假設您已啟用 Azure 防火牆公開預覽�
    
    |設定  |值  |
    |---------|---------|
-   |Name     |Test-FW01|
+   |名稱     |Test-FW01|
    |訂用帳戶     |\<您的訂用帳戶\>|
    |資源群組     |**使用現有的**：Test-FW-RG |
    |位置     |選取您先前使用的相同位置|

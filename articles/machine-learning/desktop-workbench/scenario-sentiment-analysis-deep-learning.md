@@ -9,19 +9,19 @@ editor: miprasad
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: c780063074ec1cffbb2a667cb26ab1c86f820167
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97e3a621e291935db2e0c70eb2b596e77c7bffb7
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833575"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35633889"
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>在 Azure Machine Learning 中使用深度學習來進行情感分析
 
@@ -41,7 +41,7 @@ ms.locfileid: "34833575"
 
 為了從情感分析獲取價值，企業必須挖掘大量非結構化的社交資料以獲得可採取相應措施的深入剖析資訊。 在此範例中，我們會開發幾個深度學習模型，以使用 AMLWorkbench 對電影評論進行情感分析
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 

@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640960"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575289"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>對認知搜尋進行疑難排解的秘訣
 
@@ -33,7 +33,7 @@ ms.locfileid: "34640960"
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>秘訣 2：確定您的資料來源認證是正確的
 在您定義使用資料來源連線的索引子之前，該連線將沒有效用。 如果您發現有任何錯誤指出索引子無法取得資料，請確定：
 - 您的連接字串正確無誤。 特別是在您建立 SAS 權杖時，請務必使用 Azure 搜尋服務所預期的格式。 請參閱[如何指定認證](
-https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials)一節，以了解不同的支援格式。
+https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials)一節，以了解不同的支援格式。
 - 您在索引子中的容器名稱是正確的。
 
 ## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>祕訣 3：即使發生失敗的狀況，也請找出可行的部分

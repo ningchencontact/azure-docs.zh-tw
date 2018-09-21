@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 562fdc82e0b814fc759bda7b853492b47d073925
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190799"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603668"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Log Analytics 查詢中的彙總
 
 > [!NOTE]
 > 您應該先完成[開始使用 Analytics 入口網站](get-started-analytics-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此課程。
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 此文章說明 Log Analytics 查詢中提供實用方式來分析資料的彙總函式。 這些函式都可搭配 `summarize` 運算子使用，以產生具有輸入表格之彙總結果的表格。
 
@@ -35,13 +37,13 @@ ms.locfileid: "40190799"
 計算套用任何篩選之後結果集中的列數。 下列範例會傳回過去 30 分鐘內 _Perf_ 表中的總列數。 除非您指定特定欄名，否則結果會以名為 *count_* 的欄傳回：
 
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -49,7 +51,7 @@ Perf
 
 查看一段時間的趨勢時，時間表視覺效果很實用：
 
-```OQL
+```KQL
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -64,7 +66,7 @@ Perf
 ### <a name="dcount-dcountif"></a>dcount, dcountif
 使用 `dcount` 與 `dcountif` 來計算特定欄中的相異值。 下列查詢會評估過去一小時內傳送活動訊號的相異電腦數：
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -72,7 +74,7 @@ Heartbeat
 
 若只要計算傳送活動訊號的 Linux 電腦數，請使用 `dcountif`：
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -81,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>評估子群組
 若要為您資料中的子群組執行計算或其他彙總，請使用 `by` 關鍵字。 例如，若要計算在每個國家/地區傳送活動訊號的相異 Linux 電腦數目：
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -98,7 +100,7 @@ Heartbeat
 
 若要分析更小的資料子群組，請將額外欄名加到 `by` 區段。 例如，您可能想要計算每個國家/地區依 OSType 的相異電腦數：
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -110,7 +112,7 @@ Heartbeat
 ### <a name="percentile"></a>百分位數
 若要尋找中位數，請使用 `percentile` 函式搭配值來指定百分位數：
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -119,7 +121,7 @@ Perf
 
 您也可以指定不同的百分位數來取得每個值的彙總結果：
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -128,10 +130,10 @@ Perf
 
 這可能會顯示某些電腦 CPU 有相同的中位數，但某些電腦 CPU 都持續接近中位數，而其他電腦則回報低很多與高很多的 CPU 值，表示它們遇到峰值。
 
-### <a name="variance"></a>變異數
+### <a name="variance"></a>Variance
 若要直接評估值的變異數，請使用標準差與變異數方法：
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -140,7 +142,7 @@ Perf
 
 分析 CPU 使用狀況穩定性的一個好方式是結合 stdev 與中位數計算：
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

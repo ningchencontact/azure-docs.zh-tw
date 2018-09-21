@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
-ms.openlocfilehash: ec7eee36888d825d65335db590731103aabbf5c2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5352c76d2f41adef8fae29d3f60204fb05546ddc
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26731149"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298042"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>變更 Office 365 信賴憑證者信任的簽章雜湊演算法
 ## <a name="overview"></a>概觀
@@ -37,7 +37,7 @@ Active Directory 同盟服務 (AD FS) 會將其權杖簽署到 Microsoft Azure A
 2. 展開 AD FS 節點，然後按一下 [信賴憑證者信任] 。
 3. 在您的 Office 365/Azure 信賴憑證者信任上按一下滑鼠右鍵，然後選取 [屬性] 。
 4. 選取 [進階]  索引標籤，然後選取安全雜湊演算法 SHA256。
-5. 按一下 [SERVICEPRINCIPAL] 。
+5. 按一下 [確定]。
 
 ![SHA256 簽署演算法--MMC](./media/active-directory-aadconnectfed-sha256guidance/mmc.png)
 
@@ -48,5 +48,5 @@ Active Directory 同盟服務 (AD FS) 會將其權杖簽署到 Microsoft Azure A
    <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## <a name="also-read"></a>另請參閱
-* [使用 Azure AD Connect 修復 Office 365 信任](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
+* [使用 Azure AD Connect 修復 Office 365 信任](hybrid/how-to-connect-fed-management.md#repairthetrust)
 

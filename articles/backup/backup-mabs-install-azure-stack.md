@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970878"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576692"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安裝 Azure 備份伺服器
 
@@ -310,7 +310,7 @@ Azure 備份伺服器與 Data Protection Manager 共用程式碼。 您會在 Az
 
 ## <a name="add-backup-storage"></a>新增備份儲存體
 
-第一個備份複本會保存在連接至 Azure 備份伺服器機器的儲存體上。 如需新增磁碟的詳細資訊，請參閱[新增新式備份儲存體](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801)。
+第一個備份複本會保存在連接至 Azure 備份伺服器機器的儲存體上。 如需新增磁碟的詳細資訊，請參閱[新增新式備份儲存體](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801)。
 
 > [!NOTE]
 > 即使您打算將資料傳送至 Azure，也必須新增備份儲存體。 在「Azure 備份伺服器」架構中，復原服務保存庫會保存資料的*第二個*資料複本，而本機儲存體則是保存第一個 (必要的) 備份複本。
@@ -360,10 +360,10 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 ## <a name="next-steps"></a>後續步驟
 
-[準備您的 DPM 環境](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801)一文，包含關於支援之 Azure 備份伺服器組態的資訊。
+[準備您的 DPM 環境](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801)一文，包含關於支援之 Azure 備份伺服器組態的資訊。
 
 請參閱下列文章，以深入了解使用 Microsoft Azure 備份伺服器來保護工作負載。
 
-- [SQL Server 備份](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [SharePoint 伺服器備份](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL Server 備份](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint 伺服器備份](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [替代伺服器備份](backup-azure-alternate-dpm-server.md)

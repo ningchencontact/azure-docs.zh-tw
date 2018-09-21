@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1686c283b0aa9f0713317b22e2ef2abd16e6b187
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629679"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579902"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
 
@@ -105,7 +105,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>透過 REST API 封存診斷記錄
 
-[請參閱本文件](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)，以取得如何使用 Azure 監視器 REST API 設定診斷設定的資訊。
+[請參閱本文件](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)，以取得如何使用 Azure 監視器 REST API 設定診斷設定的資訊。
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>儲存體帳戶中的診斷記錄結構描述
 

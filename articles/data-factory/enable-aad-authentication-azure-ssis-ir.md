@@ -12,18 +12,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: 93d3e25957fb1f04400fa78423a5658d32f7d5fd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: aa06110a6f6fe668388c6aecd98c1ddeeae37edd
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749713"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576624"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS 整合執行階段的 Azure Active Directory 驗證
 
 本文說明如何使用 Azure Data Factory 服務識別建立 Azure-SSIS IR。 針對 Azure SSIS 整合執行階段使用受控服務識別 (MSI) 的 Azure Active Directory (Azure AD) 驗證，可讓您使用 Data Factory MSI 來建立 Azure-SSIS 整合執行階段，而不使用 SQL 驗證。
 
-如需 Data Factory MSI 的詳細資訊，請參閱 [Azure Data Factory 服務識別](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity)。
+如需 Data Factory MSI 的詳細資訊，請參閱 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)。
 
 > [!NOTE]
 > 如果您已建立使用 SQL 驗證的 Azure SSIS 整合執行階段，此時您無法將該 IR 重新設定為透過 PowerShell 使用 Azure AD 驗證。
@@ -53,7 +53,7 @@ ms.locfileid: "36749713"
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  將 Data Factory MSI 新增至群組。 您可以依照 [Azure Data Factory 服務識別](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity)來取得主體服務識別的識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc，但是不要將服務識別應用程式識別碼用於此用途)。
+3.  將 Data Factory MSI 新增至群組。 您可以依照 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)來取得主體服務識別的識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc，但是不要將服務識別應用程式識別碼用於此用途)。
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -71,7 +71,7 @@ Azure SQL Database 支援由 Azure AD 使用者建立資料庫。 因此，您�
 
 ### <a name="enable-azure-ad-authentication-for-the-azure-sql-database"></a>啟用 Azure SQL Database 的 Azure AD 驗證
 
-您可以使用下列步驟[為 SQL Database 設定 Azure AD 驗證](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure)：
+您可以使用下列步驟[為 SQL Database 設定 Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)：
 
 1.  在 Azure 入口網站中，選取左側導覽中的 [所有服務] -> [SQL 伺服器]。
 
@@ -93,7 +93,7 @@ Azure SQL Database 支援由 Azure AD 使用者建立資料庫。 因此，您�
 
 2.  在 [連線到伺服器] 對話方塊中，在 [伺服器名稱] 欄位中輸入您的 SQL 伺服器名稱。
 
-3.  在 [驗證] 欄位中，選取 [具 MFA 支援的 Active Directory - 通用]。 (您也可以使用其他兩種 Active Directory 驗證類型。 請參閱[設定及管理用於 SQL Database 和受控執行個體的 Azure Active Directory 驗證](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure)。)
+3.  在 [驗證] 欄位中，選取 [具 MFA 支援的 Active Directory - 通用]。 (您也可以使用其他兩種 Active Directory 驗證類型。 請參閱[設定及管理用於 SQL Database 和受控執行個體的 Azure Active Directory 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)。)
 
 4.  在 [使用者名稱] 欄位中，輸入您設為伺服器系統管理員的 Azure AD 帳戶名稱，例如 testuser@xxxonline.com。
 
@@ -119,11 +119,11 @@ Azure SQL Database 支援由 Azure AD 使用者建立資料庫。 因此，您�
 
     命令應該會順利完成，將建立資料庫的能力授與內含的使用者。
 
-## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體上啟用 Azure AD
+## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>為 Azure SQL Database 受控執行個體啟用 Azure AD
 
 Azure SQL Database 受控執行個體不支援由 AD 管理員以外的任何 Azure AD 使用者建立資料庫。因此，您必須將 Azure AD 群組設定為 Active Directory 管理員。您不需要建立內含的使用者。
 
-您可以使用下列步驟，[為 SQL Database 受控執行個體伺服器設定 Azure AD 驗證](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure)：
+您可以使用下列步驟，[為 SQL Database 受控執行個體伺服器設定 Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)：
 
 7.  在 Azure 入口網站中，選取左側導覽中的 [所有服務] -> [SQL 伺服器]。
 
@@ -141,7 +141,7 @@ Azure SQL Database 受控執行個體不支援由 AD 管理員以外的任何 Az
 
 當您使用 Azure 入口網站佈建 Azure-SSIS IR 時，請在 [SQL 設定] 頁面上勾選 [對您的 ADF MSI 使用 AAD 驗證] 選項。 (下列螢幕擷取畫面顯示 Azure SQL Database 的 IR 設定。 如果是受控執行個體的 IR，[類別目錄資料庫服務層] 會無法使用，其他設定則都相同。)
 
-如需關於如何建立 Azure-SSIS 整合執行階段的詳細資訊，請參閱[在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)。
+如需關於如何建立 Azure-SSIS 整合執行階段的詳細資訊，請參閱[在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)。
 
 ![Azure-SSIS 整合執行階段的設定](media/enable-aad-authentication-azure-ssis-ir/enable-aad-authentication.png)
 

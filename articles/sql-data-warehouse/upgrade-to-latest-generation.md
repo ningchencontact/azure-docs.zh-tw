@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306975"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580543"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>升級 SQL 資料倉儲可將效能發揮到極限
 將「Azure SQL 資料倉儲」升級至最新一代 Azure 硬體和儲存體架構。
@@ -34,7 +34,7 @@ ms.locfileid: "43306975"
 
 ## <a name="before-you-begin"></a>開始之前
 > [!NOTE]
-> 如果您現有的計算最佳化 Gen1 層資料倉儲不是位於可使用計算最佳化 Gen2 層的區域，您可以透過 PowerShell [異地還原](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region)到支援的區域。
+> 如果您現有的計算最佳化 Gen1 層資料倉儲不是位於可使用計算最佳化 Gen2 層的區域，您可以透過 PowerShell [異地還原](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region)到支援的區域。
 > 
 >
 

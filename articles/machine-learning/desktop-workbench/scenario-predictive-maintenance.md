@@ -7,17 +7,17 @@ ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a5531ae256a263f1c34496819ac435ce67156b49
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832691"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35633296"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>真實案例的預測性維護
 
@@ -38,7 +38,7 @@ ms.locfileid: "34832691"
 
 此模擬資料的企業問題是要預測元件故障所造成的問題。 企業問題是「機器因為元件故障而當機的機率有多高？」 這個問題會格式化為多類別分類問題 (每部機器多個元件)。 機器學習演算法會用來建立預測性模型。 我們會使用從機器收集到的歷史資料來訓練模型。 在此案例中，使用者會經歷各種步驟，以在 Machine Learning Workbench 環境中實作此模型。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 * 已安裝 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)。 請依照[快速入門安裝指南](../service/quickstart-installation.md)來安裝程式及建立工作區。

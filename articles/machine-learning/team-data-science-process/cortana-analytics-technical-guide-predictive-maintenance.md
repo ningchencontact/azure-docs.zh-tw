@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 985010457413c15622f85e8ce8c6955a64ae40e9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099651"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985893"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>航太與其他業務中預測性維護的 Cortana Intelligence 解決方案範本的技術指南
 
@@ -154,7 +154,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 1. 其中一個串流分析作業會將原始內送資料寫入 blob 儲存體。 如果您從成功部署解決方案的畫面按一下解決方案的 Blob 儲存體元件，然後在右窗格中按一下 [開啟]，系統就會帶您前往 [Azure 入口網站](https://portal.azure.com/)。 一旦在該網站中，按一下 Blobs。 在接下來的面板中，您會看到容器的清單。 按一下 [maintenancesadata]。 接下來的面板中會顯示 **rawdata** 資料夾。 在 rawdata 資料夾內則可以看到具有如 hour=17 和 hour=18 等名稱的資料夾。 出現這些資料夾表示原始資料已經在您的電腦上產生並儲存在 Blob 儲存體中。 您應該會在這些資料夾中看到具有有限大小 (MB) 的 csv 檔案。
 2. 管線的最後一個步驟是將資料 (例如來自機器學習的預測) 寫入至 SQL Database。 您可能必須等候最多三個小時，資料才會出現在 SQL Database。 監視您的 SQL Database 中有多少資料可用的其中一個方法是透過 [Azure 入口網站](https://portal.azure.com/)。 在左側面板找到 SQL DATABASES ![SQL 圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png)，然後按一下圖示。 接著找到您的資料庫 **pmaintenancedb** 並按一下它。 在下一個頁面的底部，按一下 [管理]
    
-    ![管理圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
+    ![管理圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
    
     您可以在這裡按一下 [新增查詢]，並查詢資料列的數目 (例如，select count(*) from PMResult)。 隨著您的資料庫成長，資料表中的資料列數目應該會增加。
 

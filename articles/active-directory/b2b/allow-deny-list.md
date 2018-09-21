@@ -4,22 +4,22 @@ description: 說明系統管理員如何使用 Azure 入口網站或 PowerShell 
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/19/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 3b4b57dd2299c6278fe823f59a4f2c7d8721f712
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 563b2d6393533a86305213b6cdec6ca901e53257
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259516"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985374"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>允許或封鎖對特定組織的 B2B 使用者的邀請
 
-您可以使用允許清單或拒絕清單，以允許或封鎖對特定組織的 B2B 使用者的邀請。 例如，如果您想要封鎖個人電子郵件地址網域，您可以設定包含 Gmail.com 和 Outlook.com 等網域的拒絕清單。或者，如果您的企業與其他企業 (如 Contoso.com、Fabrikam.com 和 Litware.com) 有合作關係，而您想要將邀請僅限定於這些組織，則您可以將 Contoso.com、Fabrikam.com 和 Litware.com 新增至您的允許清單中。
+您可以使用允許清單或拒絕清單，以允許或封鎖對特定組織的 B2B 使用者的邀請。 例如，如果您想要封鎖個人電子郵件地址網域，您可以設定包含 Gmail.com 和 Outlook.com 等網域的拒絕清單。 或者，如果您的企業與其他企業 (如 Contoso.com、Fabrikam.com 和 Litware.com) 有合作關係，而您想要將邀請僅限定於這些組織，則您可以將 Contoso.com、Fabrikam.com 和 Litware.com 新增至您的允許清單中。
   
 ## <a name="important-considerations"></a>重要考量︰
 

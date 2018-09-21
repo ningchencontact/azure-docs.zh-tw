@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440621"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736405"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -56,7 +56,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 * 建立含有 Spark 活動的管線，此活動會參考您所建立的 HDInsight 已連結服務。 此活動已使用您在上一個步驟中建立的資料集設定為輸出資料集。 輸出資料集是驅動排程 (每小時、每天) 的因子。 因此，即使活動並不會真的產生輸出，您仍然必須指定輸出資料集。
 
 ### <a name="prerequisites"></a>必要條件
-1. 依照[建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)中的指示，建立一般用途的儲存體帳戶。
+1. 依照[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)中的指示，建立一般用途的儲存體帳戶。
 
 1. 依照教學課程[在 HDInsight 中建立 Spark 叢集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)中的指示，在 HDInsight 中建立 Spark 叢集。 將您在步驟 1 中建立的儲存體帳戶與此叢集產生關聯。
 
@@ -109,7 +109,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. 將**帳戶名稱**和**帳戶金鑰**取代成您儲存體帳戶的名稱和存取金鑰。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)，以了解如何檢視、複製及重新產生儲存體存取金鑰。
+1. 將**帳戶名稱**和**帳戶金鑰**取代成您儲存體帳戶的名稱和存取金鑰。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../../storage/common/storage-account-manage.md#access-keys)，以了解如何檢視、複製及重新產生儲存體存取金鑰。
 
 1. 若要部署已連結的服務，請選取命令列上的 [部署]。 成功部署已連結的服務之後，[Draft-1] 視窗就會消失。 您會在左側的樹狀檢視中看到 **AzureStorageLinkedService**。
 

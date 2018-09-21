@@ -15,18 +15,20 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: de1ba8b8560e65586ac59f9a04165a93492f3e05
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2acdc2cc7397e169a32a0257c0fc6020338c944f
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190804"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604479"
 ---
 # <a name="working-with-strings-in-log-analytics-queries"></a>在 Log Analytics 查詢中處理字串
 
 
 > [!NOTE]
 > 您應該先完成[開始使用 Analytics 入口網站](get-started-analytics-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此教學課程。
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 此文章說明如何編輯、比較、搜尋字串，以及如何在字串上執行各種其他作業。 
 
@@ -36,13 +38,13 @@ ms.locfileid: "40190804"
 ## <a name="strings-and-escaping-them"></a>字串與字串逸出
 字串值是被單引號字元或雙引號字元括住。 反斜線 (\) 是用來逸出其後的字元，例如 \t 代表 tab、\n 代表新行，而 \" 代表引號字元本身。
 
-```OQL
+```KQL
 print "this is a 'string' literal in double \" quotes"
 ```
 
 若要防止 "\\" 被視為逸出字元，請將 \"\@\" 新增為字串的前置詞：
 
-```OQL
+```KQL
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
@@ -51,9 +53,9 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 運算子       |說明                         |區分大小寫|範例 (結果為 `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |等於                              |是           |`"aBc" == "aBc"`
-`!=`           |不等於                          |是           |`"abc" != "ABC"`
-`=~`           |等於                              |否            |`"abc" =~ "ABC"`
+`==`           |Equals                              |是           |`"aBc" == "aBc"`
+`!=`           |Not Equals                          |是           |`"abc" != "ABC"`
+`=~`           |Equals                              |否            |`"abc" =~ "ABC"`
 `!~`           |不等於                          |否            |`"aBc" !~ "xyz"`
 `has`          |右側是左側中的完整詞彙 |否|`"North America" has "america"`
 `!has`         |右側不是左側中的完整詞彙       |否            |`"North America" !has "amer"` 
@@ -106,7 +108,7 @@ countof(text, search [, kind])
 
 #### <a name="plain-string-matches"></a>純文字比對
 
-```OQL
+```KQL
 print countof("The cat sat on the mat", "at");  //result: 3
 print countof("aaa", "a");  //result: 3
 print countof("aaaa", "aa");  //result: 3 (not 2!)
@@ -116,7 +118,7 @@ print countof("ababa", "aba");  //result: 2
 
 #### <a name="regex-matches"></a>規則運算式比對
 
-```OQL
+```KQL
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
 print countof("ababa", "aba", "regex");  //result: 1
 print countof("abcabc", "a.c", "regex");  // result: 2
@@ -129,7 +131,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ### <a name="syntax"></a>語法
 
-```OQL
+```KQL
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
@@ -147,7 +149,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 ### <a name="examples"></a>範例
 
 下列範例會從活動訊號記錄擷取 *ComputerIP* 的最後一個八位元：
-```OQL
+```KQL
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -155,7 +157,7 @@ Heartbeat
 ```
 
 下列範例會擷取最後一個八位元並將它轉換為 *real* 型別 (數字) 並計算下一個 IP 值
-```OQL
+```KQL
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -165,7 +167,7 @@ Heartbeat
 ```
 
 在下面的範例中，會搜尋字串 *Trace* 以尋找「時間長度」定義。 相符項目會轉換為 *real* 並乘以時間常數 (1 秒) *，這會將「時間長度」轉換為型別時間戳記*。
-```OQL
+```KQL
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
 print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s);  //result: 00:09:27
@@ -186,7 +188,7 @@ isnotempty(value)
 
 ### <a name="examples"></a>範例
 
-```OQL
+```KQL
 print isempty("");  // result: true
 
 print isempty("0");  // result: false
@@ -211,7 +213,7 @@ parseurl(urlstring)
 
 ### <a name="examples"></a>範例
 
-```OQL
+```KQL
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
@@ -251,7 +253,7 @@ replace(regex, rewrite, input_text)
 
 ### <a name="examples"></a>範例
 
-```OQL
+```KQL
 SecurityEvent
 | take 1
 | project Activity 
@@ -282,7 +284,7 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="examples"></a>範例
 
-```OQL
+```KQL
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
 print split("aa_bb", "_");          // result: ["aa","bb"]
 print split("aaa_bbb_ccc", "_", 1); // result: ["bbb"]
@@ -301,7 +303,7 @@ strcat("string1", "string2", "string3")
 ```
 
 ### <a name="examples"></a>範例
-```OQL
+```KQL
 print strcat("hello", " ", "world") // result: "hello world"
 ```
 
@@ -316,7 +318,7 @@ strlen("text_to_evaluate")
 ```
 
 ### <a name="examples"></a>範例
-```OQL
+```KQL
 print strlen("hello")   // result: 5
 ```
 
@@ -337,7 +339,7 @@ substring(source, startingIndex [, length])
 - `length` - 可用來指定所要求傳回子字串長度的選擇性參數。
 
 ### <a name="examples"></a>範例
-```OQL
+```KQL
 print substring("abcdefg", 1, 2);   // result: "bc"
 print substring("123456", 1);       // result: "23456"
 print substring("123456", 2, 2);    // result: "34"
@@ -356,7 +358,7 @@ toupper("value")
 ```
 
 ### <a name="examples"></a>範例
-```OQL
+```KQL
 print tolower("HELLO"); // result: "hello"
 print toupper("hello"); // result: "HELLO"
 ```

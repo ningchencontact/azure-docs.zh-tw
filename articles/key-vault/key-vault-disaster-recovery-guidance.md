@@ -3,7 +3,7 @@ title: 發生影響 Azure 金鑰保存庫的 Azure 服務中斷事件時該怎�
 description: 了解發生影響「Azure 金鑰保存庫」的 Azure 服務中斷事件時該怎麼辦。
 services: key-vault
 documentationcenter: ''
-author: adamglick
+author: barclayn
 manager: mbaldwin
 editor: ''
 ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: key-vault
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
-ms.author: aglick
-ms.openlocfilehash: 11c2fe5d4b84f99c3b0e303d1abeea73442f57aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: barclayn
+ms.openlocfilehash: 5ab6fc207d8a7732062a51a6215c25a4a0fac006
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409335"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465838"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure 金鑰保存庫的可用性與備援
 Azure 金鑰保存庫具備多層備援功能，以確保您的金鑰和密碼會保持可供應用程式使用，甚至在服務的個別元件失敗時也是如此。

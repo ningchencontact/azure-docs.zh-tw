@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 833548a4bfca83a8ee6971f05a4f308cc54d5b5d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3a0e2b78de8cea3929ac457bab3d5e07a2b85401
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190863"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603374"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>在 Log Analytics 查詢中處理日期時間值
 
 > [!NOTE]
 > 您應該先完成[開始使用 Analytics 入口網站](get-started-analytics-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此課程。
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 此文章說明如何在 Log Analytics 查詢中處理日期和時間資料。
 
@@ -37,8 +39,8 @@ Log Analytics 查詢語言有兩個與日期和時間關聯的主要資料類型
 
 |縮寫   | 時間單位    |
 |:---|:---|
-|d           | 天          |
-|h           | 小時         |
+|d           | day          |
+|h           | hour         |
 |m           | 分鐘       |
 |s           | 秒       |
 |ms          | 毫秒  |
@@ -47,33 +49,33 @@ Log Analytics 查詢語言有兩個與日期和時間關聯的主要資料類型
 
 您可以透過使用 `todatetime` 運算子轉換字串來建立。 例如，若要檢閱在特定時間範圍內傳送的 VM 活動訊號，您可以使用 [between 運算子](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator)以方便地指定時間範圍。
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
 另一個常見案例是將日期時間與現在做比較。 例如，若要查看過去兩分鐘內的所有活動訊號，您可以使用 `now` 運算子結合代表兩分鐘的時間範圍：
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > now() - 2m
 ```
 
 也提供此函式的捷徑：
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
 然而，最快且最可讀的方法是使用 `ago` 運算子：
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
 假設您不知道開始與結束時間，但知道開始時間與時間長度。 您可以將查詢重寫為下面這樣：
 
-```OQL
+```KQL
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
 let duration = totimespan(25m);
 Heartbeat
@@ -84,7 +86,7 @@ Heartbeat
 ## <a name="converting-time-units"></a>轉換時間單位
 使用預設時間單位以外的時間單位來表示日期時間或時間範圍非常實用。 例如，假設您正在檢閱過去 30 分鐘內的錯誤事件，而且需要顯示事件在多久之前發生的計算結果欄：
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -93,7 +95,7 @@ Event
 
 您可以看到 _timeAgo_ 欄存放 "00:09:31.5118992" 之類的值，表示其格式為 hh:mm:ss.fffffff。 若您不想要將這些值的格式設定為從開始時間算起的分鐘數 _numver_，只要將該值除以「1 分鐘」即可：
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -107,7 +109,7 @@ Event
 
 使用下列查詢來取得過去半小時內每 5 分鐘發生的事件數目：
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(30m)
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
@@ -125,7 +127,7 @@ Event
 
 建立結果貯體的另一個方式是使用函式，例如 `startofday`：
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(4d)
 | summarize events_count=count() by startofday(TimeGenerated) 
@@ -145,7 +147,7 @@ Event
 ## <a name="time-zones"></a>時區
 因為所有日期時間值都是國際標準時間 (UTC) 表示，將這些時間轉換為當地時區時非常實用。 例如，使用此計算將國際標準時間 (UTC) 轉換為太平洋標準時間 (PST) 時間：
 
-```OQL
+```KQL
 Event
 | extend localTimestamp = TimeGenerated - 8h
 ```

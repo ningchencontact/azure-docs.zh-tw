@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 06/15/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bede78782154e014d4ffad949f9ebd1a44eb2c4c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365418"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35767166"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>建立有多個子網路的虛擬網路 (傳統)
 
@@ -39,7 +39,7 @@ ms.locfileid: "34365418"
 
 ## <a name="portal"></a>入口網站
 
-1. 在網際網路瀏覽器中，移至 [Azure 入口網站](https://portal.azure.com)。 使用您的 [Azure 帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)登入。 如果您沒有 Azure 帳戶，您可以註冊 [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)。
+1. 在網際網路瀏覽器中，移至 [Azure 入口網站](https://portal.azure.com)。 使用您的 [Azure 帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)登入。 如果您沒有 Azure 帳戶，您可以註冊[免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)。
 2. 在 Azure 入口網站中按一下 [建立資源]。
 3. 在出現的 [新增] 窗格頂端的 [搜尋市集] 方塊中，輸入 [虛擬網路]。 當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]。
 4. 在出現的 [虛擬網路] 窗格中，於 [選取部署模型] 方塊中選取 [傳統]，然後按一下 [建立]。 
@@ -47,7 +47,7 @@ ms.locfileid: "34365418"
 
     |設定|值|
     |---|---|
-    |Name|myVnet|
+    |名稱|myVnet|
     |位址空間|10.0.0.0/16|
     |子網路名稱|公開|
     |子網路位址範圍|10.0.0.0/24|

@@ -7,25 +7,25 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: b87d88a5bb7846894c425e701a073707ddd1f3be
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 89a30c070abe3b10414c7284bb33f2c8216ee0c8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831179"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35633009"
 ---
 # <a name="sample-of-custom-source-connections-python"></a>自訂來源連線的範例 (Python) 
 閱讀本附錄之前，請先參閱 [Python 擴充性概觀](data-prep-python-extensibility-overview.md)。
 
 ## <a name="load-data-from-dataworld"></a>從 data.world 載入資料
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 #### <a name="register-yourself-at-dataworld"></a>在 data.world 自行註冊
 您需要來自 data.world 網站的 API 權杖。

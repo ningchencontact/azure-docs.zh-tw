@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/7/2018
 ms.author: victorh
-ms.openlocfilehash: e95617664ee30f1b9253f1892176fd39649ee2c2
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174627"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574176"
 ---
 # <a name="what-is-azure-dns"></a>什麼是 Azure DNS？
 
 Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構提供名稱解析。 只要將您的網域裝載於 Azure，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具和計費方式來管理 DNS 記錄。
 
-您無法使用 Azure DNS 來購買網域名稱。 如果支付年費，則可以使用 [Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) 或第三方網域名稱註冊機構來購買網域名稱。 然後，便可以在 Azure DNS 中裝載您的網域以管理記錄。 如需詳細資訊，請參閱 [將網域委派給 Azure DNS](dns-domain-delegation.md) 。
+您無法使用 Azure DNS 來購買網域名稱。 如果支付年費，則可以使用 [Azure Web Apps](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) 或第三方網域名稱註冊機構來購買網域名稱。 然後，便可以在 Azure DNS 中裝載您的網域以管理記錄。 如需詳細資訊，請參閱 [將網域委派給 Azure DNS](dns-domain-delegation.md) 。
 
 Azure DNS 包含下列功能︰
 
@@ -30,11 +30,11 @@ Azure DNS 中的 DNS 網域裝載於 Azure 的 DNS 名稱伺服器全球網路�
 
 Azure DNS 服務是架構在 Azure Resource Manager 上。 因此，您會獲得如下的 Resource Manager 功能：
 
-* [角色型存取控制](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#access-control) - 用以控制哪些人能存取組織的特定動作。
+* [角色型存取控制](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) - 用以控制哪些人能存取組織的特定動作。
 
-* [活動記錄](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#activity-logs) - 用以監視組織中的使用者修改資源的情形，或在進行疑難排解時發現錯誤。
+* [活動記錄](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) - 用以監視組織中的使用者修改資源的情形，或在進行疑難排解時發現錯誤。
 
-* [資源鎖定](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources) - 用以鎖定訂用帳戶、資源群組或資源，以防止組織中的其他使用者不小心刪除或修改重要資源。
+* [資源鎖定](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) - 用以鎖定訂用帳戶、資源群組或資源，以防止組織中的其他使用者不小心刪除或修改重要資源。
 
 如需詳細資訊，請參閱[如何保護 DNS 區域和記錄](dns-protect-zones-recordsets.md)。 
 

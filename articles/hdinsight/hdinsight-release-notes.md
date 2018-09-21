@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jasonh
-ms.openlocfilehash: 5078ee68e559959390d439ed1ef9f8e199d2f083
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 898feee916168792c155190064200555b8331c0f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090145"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577236"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 的版本資訊
 
@@ -41,7 +41,7 @@ Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 
 
 3.  ***支援 Azure Data Lake Storage Gen2*** – HDInsight 將支援 Azure Data Lake Storage Gen2 的預覽版本。 在可用區域中，客戶能夠選擇 ADLS Gen2 帳戶作為其 HDInsight 叢集的主要或次要存放區。
 
-4.  HDInsight 企業安全性套件更新 (預覽) – (預覽) [虛擬網路服務端點](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview)支援 Azure Blob 儲存體、ADLS Gen1、Cosmos DB 及 Azure DB。
+4.  HDInsight 企業安全性套件更新 (預覽) – (預覽) [虛擬網路服務端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)支援 Azure Blob 儲存體、ADLS Gen1、Cosmos DB 及 Azure DB。
 
 ## <a name="component-versions"></a>元件版本
 
@@ -1420,6 +1420,6 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 ## <a name="upgrading"></a>升級中
 
-這些功能全都可在 HDInsight 3.6 中使用。 若要取得最新版本的 Spark、Kafka 和 R Server (機器學習服務)，請在[建立 HDInsight 3.6 叢集](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)時選擇 Spark、Kafka、ML 服務版本。 若要取得 ADLS 的支援，您可以選擇 ADLS 儲存體類型選項。 現有叢集不會自動升級為這些版本。
+這些功能全都可在 HDInsight 3.6 中使用。 若要取得最新版本的 Spark、Kafka 和 R Server (機器學習服務)，請在[建立 HDInsight 3.6 叢集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)時選擇 Spark、Kafka、ML 服務版本。 若要取得 ADLS 的支援，您可以選擇 ADLS 儲存體類型選項。 現有叢集不會自動升級為這些版本。
 
-在 2018 年 6 月之後建立的所有新叢集，會自動取得所有開放原始碼專案超過 1000 個以上的錯誤修正。 請遵循[這個](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-upgrade-cluster)指南，來取得關於升級至較新 HDInsight 版本的最佳做法。
+在 2018 年 6 月之後建立的所有新叢集，會自動取得所有開放原始碼專案超過 1000 個以上的錯誤修正。 請遵循[這個](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster)指南，來取得關於升級至較新 HDInsight 版本的最佳做法。

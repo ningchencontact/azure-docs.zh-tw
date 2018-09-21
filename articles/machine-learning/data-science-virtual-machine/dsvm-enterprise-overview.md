@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 8486b0be1fb5e1385da3c7ad55f6410a1059df93
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ea8d53ee71e9272167a045e2ea1780828f974d30
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309243"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573586"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>以資料科學虛擬機器為基礎的團隊分析和 AI 環境 
 [資料科學虛擬機器](overview.md) (DSVM) 在 Azure 平台中提供豐富的環境，其中包含了適用於人工智慧 (AI) 和資料分析的預先建立軟體。 
@@ -51,4 +51,4 @@ ms.locfileid: "36309243"
 * [加密](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [資料探索和控管](https://docs.microsoft.com/azure/data-catalog/)
 
-[Azure 架構中心](https://docs.microsoft.com/en-us/azure/architecture/)提供用於建置和管理雲端式分析基礎結構的詳細端對端架構和模式。 
+[Azure 架構中心](https://docs.microsoft.com/azure/architecture/)提供用於建置和管理雲端式分析基礎結構的詳細端對端架構和模式。 

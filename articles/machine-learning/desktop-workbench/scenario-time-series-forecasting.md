@@ -9,19 +9,19 @@ editor: anta
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 19e62364599ec9f1d0571e6f6e35205b0bb93b4b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3f32c9048c4b2002e7672b46a4f39e86ffa7b98e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832528"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632749"
 ---
 # <a name="energy-demand-time-series-forecasting"></a>能源需求時間序列預測
 
@@ -54,7 +54,7 @@ Azure Machine Learning Workbench 有助於每個步驟的模型化程序：
 
 此案例詳述機器學習能源需求預測解決方案的建構。 此解決方案是在 [New York Independent System Operator (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument) 的公用資料集進行訓練，該公司負責經營紐約州的電力網格。 此資料集包含紐約市過去五年的每小時電力需求資料。 另外包含紐約市同期每小時天氣狀況的資料集是取自 [darksky.net](https://darksky.net)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 - 遵循[快速入門安裝指南](../service/quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench。

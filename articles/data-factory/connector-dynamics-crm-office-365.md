@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444855"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574669"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics 365
 
@@ -279,7 +279,7 @@ ms.locfileid: "42444855"
 >[!NOTE]
 >接收 **writeBatchSize** 以及 Dynamics 接收的複製活動 **[parallelCopies](copy-activity-performance.md#parallel-copy)** 的預設值皆為 10。 因此，100 個記錄會同時提交到 Dynamics。
 
-Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations)。 如果超出該限制，則會在執行第一個要求之前，擲回「伺服器忙碌」錯誤。 讓「writeBatchSize」保持小於或等於 10，即可避免發生這類並行呼叫節流。
+Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations)。 如果超出該限制，則會在執行第一個要求之前，擲回「伺服器忙碌」錯誤。 讓「writeBatchSize」保持小於或等於 10，即可避免發生這類並行呼叫節流。
 
 **writeBatchSize** 和 **parallelCopies** 的最佳組合取決於實體的結構描述，例如資料行數目、資料列大小、連接到這些呼叫的外掛程式/工作流程/工作流程活動數目等等。10 個 writeBatchSize * 10 個 parallelCopies 的預設設定是根據 Dynamics 服務所提出的建議，雖適用於大部分 Dynamics 實體，但可能無法達到最佳效能。 您可以藉由調整複製活動設定中的組合來微調效能。
 

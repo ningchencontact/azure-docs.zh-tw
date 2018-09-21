@@ -3,7 +3,7 @@ title: 向 Azure 回報 Azure Stack 使用情況資料 | Microsoft Docs
 description: 了解如何在 Azure Stack 中設定使用情況資料報告。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603697"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630404"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 回報 Azure Stack 使用情況資料 
 
@@ -77,7 +77,7 @@ ms.locfileid: "34603697"
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>使用基礎結構 VM 是否需要付費？
 
-編號 某些 Azure Stack 資源提供者 VM 的使用量資料會回報給 Azure，但這些 VM 以及在部署期間為了啟用 Azure Stack 基礎結構所建立的 VM，都沒有費用。  
+否。 某些 Azure Stack 資源提供者 VM 的使用量資料會回報給 Azure，但這些 VM 以及在部署期間為了啟用 Azure Stack 基礎結構所建立的 VM，都沒有費用。  
 
 使用者只需針對在租用戶訂用帳戶下執行的 VM 付費。 必須將所有工作負載部署在租用戶訂用帳戶底下，才符合 Azure Stack 的授權條款。
 

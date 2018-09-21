@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617110"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579175"
 ---
 # <a name="back-up-files-on-azure-stack"></a>在 Azure Stack 上備份檔案
 您可以使用 Azure 備份在 Azure Stack 上保護 (或備份) 檔案和應用程式。 若要備份檔案和應用程式，請將 Microsoft Azure 備份伺服器安裝成為在 Azure Stack 上執行的虛擬機器。 您可以保護在相同虛擬網路中任何 Azure Stack 伺服器上的檔案。 在您安裝 Azure 備份伺服器後，請新增 Azure 磁碟，以增加可保存短期備份資料的本機存放區。 Azure 備份伺服器會使用 Azure 存放區進行長期保存。
@@ -49,7 +49,7 @@ ms.locfileid: "39617110"
 
     ![開啟新的保護群組精靈](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft 建議將所有共用保護原則的資料置於一個保護群組中。 如需規劃和部署保護群組的完整資訊，請參閱 System Center DPM 文章：[部署保護群組](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)。
+    Microsoft 建議將所有共用保護原則的資料置於一個保護群組中。 如需規劃和部署保護群組的完整資訊，請參閱 System Center DPM 文章：[部署保護群組](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)。
 
 4. 在 [選取資料保護方式] 畫面中，鍵入保護群組的名稱。 選取 [我想要使用下列項目進行短期保護：] 和 [我想要線上保護] 的核取方塊。 按 [下一步] 。
 
@@ -135,5 +135,5 @@ ms.locfileid: "39617110"
 
 ## <a name="see-also"></a>另請參閱
 如需使用 Azure 備份伺服器保護其他工作負載的資訊，請參閱下列文章：
-- [備份 SharePoint 伺服器陣列](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [備份 SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [備份 SharePoint 伺服器陣列](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [備份 SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

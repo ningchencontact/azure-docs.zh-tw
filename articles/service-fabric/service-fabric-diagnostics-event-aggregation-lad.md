@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: a8f58569618482ba94b0895b7e3149d77ef2f4fa
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: c7eb98eb2dbff05e67b6a60c413932ba51fdfdf7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849838"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573751"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>使用 Linux Azure 診斷的事件彙總和收集
 > [!div class="op_single_selector"]
@@ -52,5 +52,5 @@ Service Fabric 會透過 [LTTng](http://lttng.org) 發出少數的現成記錄�
 
 ## <a name="next-steps"></a>後續步驟
 
-1. 若要更仔細了解您在進行問題的疑難排解時應該調查哪些事件，請參閱 [LTTng 文件](http://lttng.org/docs)和[使用 LAD](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-linux)。
+1. 若要更仔細了解您在進行問題的疑難排解時應該調查哪些事件，請參閱 [LTTng 文件](http://lttng.org/docs)和[使用 LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux)。
 2. [設定 Log Analytics 代理程式](service-fabric-diagnostics-event-analysis-oms.md)以幫助收集度量、監視部署在您的叢集上的容器，以及視覺化您的記錄檔 
