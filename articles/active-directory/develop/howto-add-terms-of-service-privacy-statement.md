@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580129"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990496"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Azure Active Directory 註冊應用程式的服務條款和隱私權聲明
 
@@ -54,33 +54,37 @@ ms.locfileid: "39580129"
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>新增服務條款和隱私權聲明的連結
 
 準備好服務條款和隱私權聲明時，即可使用下列其中一種方法在應用程式中新增這些文件的連結：
+
 * [透過 Azure 入口網站](#registered-in-azure-portal)
 * [在應用程式註冊入口網站或開發人員中心](#registered-in-app-reg-portal)
 * [使用應用程式物件 JSON](#app-object-json)
 * [使用 MSGraph 搶鮮版 (Beta) REST API](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>如果您之前在 Azure 入口網站中註冊應用程式
+
 如果您之前在 Azure 入口網站中註冊應用程式，請遵循下列步驟。
 
 1. 登入  [Azure 入口網站](https://portal.azure.com/)。
-2. 瀏覽至 [應用程式註冊] ****  區段，然後選取應用程式。
+2. 瀏覽至  **[應用程式註冊]**  區段，然後選取應用程式。
 3. 開啟應用程式的  **[屬性]**  區段。
 4. 填寫  **[服務條款 URL]**  和  **[隱私權聲明 URL]**  欄位。
 5. 儲存您的變更。
 
-![具有服務條款和隱私權聲明 URL 的應用程式屬性區段](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![具有服務條款和隱私權聲明 URL 的應用程式屬性區段](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>如果您之前在應用程式註冊入口網站中註冊應用程式
+
 如果您之前在應用程式註冊入口網站或開發人員中心註冊應用程式，請遵循下列步驟。
 
 1. 登入 [應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
-2. 選取應用程式，然後捲動至 [設定檔] ****  區段。
+2. 選取應用程式，然後捲動至  **[設定檔]**  區段。
 3. 填寫  **[服務條款 URL]**  和  **[隱私權聲明 URL]**  欄位。
 4. 儲存您的變更。
 
-![具有服務條款和隱私權聲明 URL 的應用程式設定檔區段](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![具有服務條款和隱私權聲明 URL 的應用程式設定檔區段](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>使用應用程式物件 JSON
+
 如果您想要直接修改應用程式物件 JSON，則可以在 Azure 入口網站或應用程式註冊入口網站中使用資訊清單編輯器，以包含應用程式的服務條款和隱私權聲明連結。
 
 ```json
@@ -91,6 +95,7 @@ ms.locfileid: "39580129"
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>使用 MSGraph 搶鮮版 (Beta) REST API
+
 若要以程式設計方式更新所有應用程式，您可以使用 MSGraph 搶鮮版 (Beta) REST API 來更新所有應用程式，讓其包含服務條款和隱私權聲明文件的連結。
 
 ```

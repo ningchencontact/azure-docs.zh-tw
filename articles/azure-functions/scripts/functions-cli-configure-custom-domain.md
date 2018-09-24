@@ -4,24 +4,20 @@ description: Azure CLI 指令碼範例 - 在 Azure 中將自訂網域對應至�
 services: functions
 documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: azure-service-management
+manager: jeconnoc
 ms.assetid: d127e347-7581-47d7-b289-e0f51f2fbfbc
-ms.service: functions
-ms.workload: na
+ms.service: azure-functions
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0650fffeb54ebc4390c82fb2711d7c89e0ac4572
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 5299675656ea23b85f78b3dbfdc02814ab332a8b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989413"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979044"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>將自訂網域對應至函式應用程式
 
@@ -33,7 +29,7 @@ ms.locfileid: "38989413"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，您必須使用 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，您必須使用 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 
 ## <a name="sample-script"></a>範例指令碼

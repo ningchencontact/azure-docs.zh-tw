@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 421c4e0464eac22a7feba01e2e84660b02a32455
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174644"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958096"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站設定 Azure DNS 以進行名稱解析
 
@@ -24,7 +24,7 @@ ms.locfileid: "39174644"
 請務必了解本快速入門中使用的所有名稱和 IP 位址都只是範例，而不代表實際案例。 不過，在適當情況下也會說明實際案例。
 
 <!---
-You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
 DNS 區域用來包含特定網域的 DNS 項目。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 網域的每個 DNS 項目 (或記錄) 隨後會建立在此 DNS 區域內。 下列步驟說明如何執行這項操作。

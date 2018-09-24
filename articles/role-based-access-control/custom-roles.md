@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7554ef46289600cd15e4675a91f42a2cd735f18
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d3856a50be0c3f7bdfb947d55b09a3de2512698e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112656"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968119"
 ---
 # <a name="custom-roles-in-azure"></a>Azure 中的自訂角色
 
@@ -28,7 +28,7 @@ ms.locfileid: "39112656"
 
 ## <a name="custom-role-example"></a>自訂角色範例
 
-下列範例使用 Azure PowerShell 示範可監視和重新啟動虛擬機器的自訂角色：
+以下顯示自訂角色以 JSON 格式顯示時的外觀。 此自訂角色可用於監視和重新啟動虛擬機器。
 
 ```json
 {
@@ -65,7 +65,7 @@ ms.locfileid: "39112656"
 }
 ```
 
-建立自訂角色之後，它會以橙色資源圖示顯示在 Azure 入口網站中。
+建立自訂角色時，它會以橙色資源圖示顯示在 Azure 入口網站中。
 
 ![自訂角色圖示](./media/custom-roles/roles-custom-role-icon.png)
 
@@ -82,7 +82,9 @@ ms.locfileid: "39112656"
 
 3. 測試自訂角色
 
-    一旦具有自訂角色，您必須測試它來驗證是否如預期般運作。 如果需要進行調整，您可以更新自訂角色。
+    一旦具有自訂角色，您必須測試它來驗證是否如預期般運作。 稍後如需進行調整，您可以更新自訂角色。
+
+如需如何建立自訂角色的逐步教學課程，請參閱[教學課程：使用 Azure PowerShell 建立自訂角色](tutorial-custom-role-powershell.md)或[教學課程：使用 Azure CLI 建立自訂角色](tutorial-custom-role-cli.md)。
 
 ## <a name="custom-role-properties"></a>自訂角色屬性
 
@@ -98,16 +100,16 @@ ms.locfileid: "39112656"
 | `NotActions` | 否 | String[] | 字串陣列，指定從所允許 `Actions` 中排除的管理作業。 如需詳細資訊，請參閱 [NotActions](role-definitions.md#notactions)。 |
 | `DataActions` | 否 | String[] | 字串陣列，指定角色允許對物件內資料執行的管理作業。 如需詳細資訊，請參閱 [DataActions (預覽)](role-definitions.md#dataactions-preview)。 |
 | `NotDataActions` | 否 | String[] | 字串陣列，指定從所允許 `DataActions` 中排除的資料作業。 如需詳細資訊，請參閱 [NotDataActions (預覽)](role-definitions.md#notdataactions-preview)。 |
-| `AssignableScopes` | 是 | String[] | 字串陣列，指定自訂角色可用於指派的範圍。 不能設定為根目錄範圍 (`"/"`)。 如需詳細資訊，請參閱 [AssignableScopes](role-definitions.md#assignablescopes)。 |
+| `AssignableScopes` | 是 | String[] | 字串陣列，指定自訂角色可用於指派的範圍。 目前無法設定為根範圍 (`"/"`) 或管理群組範圍。 如需詳細資訊，請參閱 [AssignableScopes](role-definitions.md#assignablescopes) 和[使用 Azure 管理群組來組織資源](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)。 |
 
-## <a name="assignablescopes-for-custom-roles"></a>自訂角色的 AssignableScopes
+## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>誰可以建立、刪除、更新或檢視自訂角色
 
-就像內建角色一樣，`AssignableScopes` 屬性會指定角色可用於指派的範圍。 不過，您無法在自己的自訂角色中使用根目錄範圍 (`"/"`)。 如果您嘗試，則會收到授權錯誤。 自訂角色的 `AssignableScopes` 屬性也會控制誰可以建立、刪除、修改或檢視自訂角色。
+就像內建角色一樣，`AssignableScopes` 屬性會指定角色可用於指派的範圍。 自訂角色的 `AssignableScopes` 屬性也會控制誰可以建立、刪除、更新或檢視自訂角色。
 
 | Task | 作業 | 說明 |
 | --- | --- | --- |
 | 建立/刪除自訂角色 | `Microsoft.Authorization/ roleDefinition/write` | 獲得授權可對自訂角色的所有 `AssignableScopes` 執行此作業的使用者，可以建立 (或刪除) 用於這些範圍的自訂角色。 例如，訂用帳戶、資源群組和資源的[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。 |
-| 修改自訂角色 | `Microsoft.Authorization/ roleDefinition/write` | 獲得授權可對自訂角色的所有 `AssignableScopes` 執行此作業的使用者，可以在這些範圍中修改自訂角色。 例如，訂用帳戶、資源群組和資源的[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。 |
+| 更新自訂角色 | `Microsoft.Authorization/ roleDefinition/write` | 獲得授權可對自訂角色的所有 `AssignableScopes` 執行此作業的使用者，可以在這些範圍中更新自訂角色。 例如，訂用帳戶、資源群組和資源的[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。 |
 | 檢視自訂角色 | `Microsoft.Authorization/ roleDefinition/read` | 獲得授權可在範圍中執行此作業的使用者，可以檢視可指派給該範圍的自訂角色。 所有內建角色都允許指派自訂角色。 |
 
 ## <a name="next-steps"></a>後續步驟

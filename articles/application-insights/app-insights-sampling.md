@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: b1dd37c07f3c887005d87e3231f62a4bca2f4a3d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 893495a5c37495438d9620595719ca6e733df012
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093110"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958113"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -35,7 +35,7 @@ ms.locfileid: "43093110"
 * 您也可以手動設定取樣 (不論是透過入口網站的 [使用量和估計成本] 頁面；或是在 ASP.NET SDK 的 .config 檔案中；或是在 Java SDK 的 ApplicationInsights.xml 檔案中)，以便同時降低網路流量。
 * 如果您有記錄自訂事件，而且想要確定某組事件已一起保留下來還是遭到捨棄，請確定它們有相同的 OperationId 值。
 * 每個記錄的 `itemCount` 屬性中都會回報取樣除數 *n*，此屬性在 [搜尋] 中會出現在「要求計數」或「事件計數」等易記名稱之下。 當取樣不在作業中，則 `itemCount==1`。
-* 如果您要撰寫分析查詢，請 [考慮到取樣](app-insights-analytics-tour.md#counting-sampled-data)。 特別是，您應該使用 `summarize sum(itemCount)`，而非只計算記錄。
+* 如果您要撰寫分析查詢，請 [考慮到取樣](../log-analytics/query-language/aggregations.md)。 特別是，您應該使用 `summarize sum(itemCount)`，而非只計算記錄。
 
 ## <a name="types-of-sampling"></a>取樣類型
 有三個替代的取樣方法：

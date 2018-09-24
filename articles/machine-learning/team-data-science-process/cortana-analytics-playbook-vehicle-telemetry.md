@@ -4,6 +4,7 @@ description: 使用 Cortana Intelligence 具備的強大功能，取得關於車
 services: machine-learning
 documentationcenter: ''
 author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 09fad60b-2f48-488b-8a7e-47d1f969ec6f
@@ -14,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: fc8dfbbfc40db33f19d2b183546ed9c6df0159fa
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 02a12e917ed36367ffac1ac2e7a1fef1c6098ea7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836397"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985362"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>車輛遙測分析解決方案腳本
 此功能表連結至此腳本的章節： 

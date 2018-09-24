@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: d28065d7962ee660cafd4b3321abdd6a8f94abcb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 55583952df3b83331f1f622a4fce269713ecf2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368130"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966515"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>使用自訂的語音轉換文字端點
 您可以將要求傳送給「Azure 自訂語音服務」語音轉換文字端點，就像傳送給預設的「認知服務」語音端點那樣。 這些端點在功能上與「語音 API」的端點完全相同。 因此，可透過用戶端程式庫或 REST API 供「語音 API」使用的功能，同樣也可供自訂端點使用。

@@ -11,19 +11,23 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 712cdaa65487620b2f8af4a0ad57c01c24b9a965
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c59969d5a56bd2eb4eb8c490d4f1b5af20d7f056
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633674"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998690"
 ---
 # <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>在 Azure Machine Learning Workbench 中使用 Jupyter Notebook
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Azure Machine Learning Workbench 可透過與 Jupyter Notebook 的整合，支援互動式資料科學實驗。 本文說明如何有效運用此功能，來提升您互動式資料科學實驗的速率及品質。
 
 ## <a name="prerequisites"></a>先決條件
-- [建立 Azure Machine Learning 帳戶，並安裝 Azure Machine Learning Workbench](../service/quickstart-installation.md)。
+- [建立 Azure Machine Learning 帳戶，並安裝 Azure Machine Learning Workbench](quickstart-installation.md)。
 - 熟悉 [Jupyter Notebook](http://jupyter.org/) \(英文\)。 本文與學習如何使用 Jupyter 無關。
 
 ## <a name="jupyter-notebook-architecture"></a>Jupyter Notebook 架構

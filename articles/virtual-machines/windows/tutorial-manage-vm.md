@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/23/2018
+ms.date: 08/10/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d47981042fc13a96bdf5cb9690e4dc83a6aa0162
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: dc3bd6258d2da331c83d0aaa9c6c0e57b44f2930
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932546"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950075"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立和管理 Windows VM
 
@@ -40,7 +40,7 @@ Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課�
 
 ## <a name="create-resource-group"></a>建立資源群組
 
-使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令建立資源群組。 
+使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令建立資源群組。
 
 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 資源群組必須在虛擬機器之前建立。 在下列範例中，會在 *EastUS* 區域中建立名為 *myResourceGroupVM* 的資源群組：
 
@@ -54,7 +54,7 @@ New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastU
 
 建立虛擬機器時，有數個可用的選項，例如作業系統映像、網路組態和系統管理認證。 在此範例中，使用 *myVM* 名稱建立的虛擬機器會執行預設的最新版 Windows Server 2016 Datacenter。
 
-使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 設定虛擬機器上系統管理員帳戶所需的使用者名稱和密碼：
+使用 [Get-Credential](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6) 設定虛擬機器上系統管理員帳戶所需的使用者名稱和密碼：
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -94,11 +94,11 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="understand-vm-images"></a>了解 VM 映像
 
-Azure Marketplace 包含許多可用來建立新虛擬機器的虛擬機器映像。 在先前步驟中，已使用 Windows Server 2016 Datacenter 映像建立虛擬機器。 在此步驟中，PowerShell 模組用來搜尋 Marketplace 中的其他 Windows 映像，其也可用來作為新 VM 的基底。 這個程序包含尋找發行者、供應項目、SKU 和版本號碼 (選擇性) 來[識別](cli-ps-findimage.md#terminology)映像。 
+Azure Marketplace 包含許多可用來建立新虛擬機器的虛擬機器映像。 在先前步驟中，已使用 Windows Server 2016 Datacenter 映像建立虛擬機器。 在此步驟中，PowerShell 模組用來搜尋 Marketplace 中的其他 Windows 映像，其也可用來作為新 VM 的基底。 這個程序包含尋找發行者、供應項目、SKU 和版本號碼 (選擇性) 來[識別](cli-ps-findimage.md#terminology)映像。
 
 使用 [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 命令傳回映像發行者清單：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
@@ -110,14 +110,13 @@ Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServe
 
 ```azurepowershell-interactive
 Offer             PublisherName          Location
------             -------------          -------- 
-Windows-HUB       MicrosoftWindowsServer EastUS 
-WindowsServer     MicrosoftWindowsServer EastUS   
-WindowsServer-HUB MicrosoftWindowsServer EastUS   
+-----             -------------          --------
+Windows-HUB       MicrosoftWindowsServer EastUS
+WindowsServer     MicrosoftWindowsServer EastUS
+WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-
-  [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) 命令會接著根據發行者和供應項目名稱篩選，以傳回映像名稱清單。
+[Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) 命令會接著根據發行者和供應項目名稱篩選，以傳回映像名稱清單。
 
 ```azurepowershell-interactive
 Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -160,7 +159,6 @@ New-AzureRmVm `
 
 `-AsJob` 參數會以背景工作建立 VM，因此會傳回 PowerShell 提示。 您可以使用 `Get-Job` Cmdlet 檢視背景作業的詳細資料。
 
-
 ## <a name="understand-vm-sizes"></a>了解 VM 大小
 
 虛擬機器大小會決定可供虛擬機器使用的計算資源 (例如 CPU、GPU 和記憶體) 數量。 需要使用適合預期工作負載的大小來建立虛擬機器。 如果工作負載增加，可以調整現有虛擬機器的大小。
@@ -175,8 +173,7 @@ New-AzureRmVm `
 | [記憶體最佳化](sizes-memory.md)    | Esv3、Ev3、M、GS、G、DSv2、DS、Dv2、D   | 記憶體與核心的比例高。 適用於關聯式資料庫、中型到大型快取，以及記憶體內分析。                 |
 | [儲存體最佳化](sizes-storage.md)      | Ls                | 高磁碟輸送量及 IO。 適用於巨量資料、SQL 及 NoSQL 資料庫。                                                         |
 | [GPU](sizes-gpu.md)          | NV、NC            | 以大量圖形轉譯和視訊編輯為目標的特製化 VM。       |
-| [高效能](sizes-hpc.md) | H、A8-11          | 我們的最強大 CPU VM，可搭配選用的高輸送量網路介面 (RDMA)。 
-
+| [高效能](sizes-hpc.md) | H、A8-11          | 我們的最強大 CPU VM，可搭配選用的高輸送量網路介面 (RDMA)。 |
 
 ### <a name="find-available-vm-sizes"></a>尋找可用的 VM 大小
 
@@ -190,7 +187,7 @@ Get-AzureRmVMSize -Location "EastUS"
 
 在部署 VM 之後，可以調整其大小以增加或減少資源配置。
 
-在調整 VM 的大小之前，檢查目前的 VM 叢集上是否有所需的大小。 [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) 命令會傳回大小清單。 
+在調整 VM 的大小之前，檢查目前的 VM 叢集上是否有所需的大小。 [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) 命令會傳回大小清單。
 
 ```azurepowershell-interactive
 Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
@@ -204,7 +201,7 @@ $vm.HardwareProfile.VmSize = "Standard_D4"
 Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
 ```
 
-如果目前的叢集上沒有所需的大小，則必須在調整大小作業發生之前，解除配置 VM。 請注意，在 VM 重新開機後，暫存磁碟上的所有資料都會遭到移除，而公用 IP 位址會變更，除非正在使用靜態 IP 位址。 
+如果目前的叢集上沒有所需的大小，則必須在調整大小作業發生之前，解除配置 VM。 請注意，在 VM 重新開機後，暫存磁碟上的所有資料都會遭到移除，而公用 IP 位址會變更，除非正在使用靜態 IP 位址。
 
 ```azurepowershell-interactive
 Stop-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM" -Force
@@ -216,7 +213,7 @@ Start-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -Name $vm.name
 
 ## <a name="vm-power-states"></a>VM 電源狀態
 
-Azure VM 的電源狀態可以是許多電源狀態的其中一種。 這個狀態代表從 Hypervisor 的觀點來看，VM 的目前狀態。 
+Azure VM 的電源狀態可以是許多電源狀態的其中一種。 這個狀態代表從 Hypervisor 的觀點來看，VM 的目前狀態。
 
 ### <a name="power-states"></a>電源狀態
 
@@ -224,7 +221,7 @@ Azure VM 的電源狀態可以是許多電源狀態的其中一種。 這個狀�
 |----|----|
 | 啟動中 | 表示虛擬機器正在啟動。 |
 | 執行中 | 表示虛擬機器正在執行。 |
-| 停止中 | 表示虛擬機器正在停止。 | 
+| 停止中 | 表示虛擬機器正在停止。 |
 | 已停止 | 表示虛擬機器已停止。 請注意，處於已停止狀態的虛擬機器仍會產生計算費用。  |
 | 解除配置中 | 表示虛擬機器正在解除配置。 |
 | 已解除配置 | 表示虛擬機器已從 Hypervisor 中完全移除，但仍可在控制平面中使用。 處於已解除配置狀態的虛擬機器不會產生計算費用。 |
@@ -232,7 +229,7 @@ Azure VM 的電源狀態可以是許多電源狀態的其中一種。 這個狀�
 
 ### <a name="find-power-state"></a>尋找電源狀態
 
-若要擷取特定 VM 的狀態，請使用 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) 命令。 務必指定虛擬機器和資源群組的有效名稱。 
+若要擷取特定 VM 的狀態，請使用 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) 命令。 務必指定虛擬機器和資源群組的有效名稱。
 
 ```azurepowershell-interactive
 Get-AzureRmVM `

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 661ff7c07ba2bb17eb5830b38bb39e1c3e80bb55
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 288af0eae50634f44d6af8c787b56112bb3119ff
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45602900"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998588"
 ---
 # <a name="advanced-aggregations-in-log-analytics-queries"></a>Log Analytics 查詢中的進階彙總
 
@@ -34,7 +34,7 @@ ms.locfileid: "45602900"
 ## <a name="generating-lists-and-sets"></a>產生清單與集合
 您可以使用 `makelist` 依特定欄中的值順序瀏覽樞紐資料。 例如，您可能想要探索您的機器上發生的最長見訂購事件。 基本上，您能依每部機器上的事件識別碼順序來瀏覽樞紐資料。 
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -50,7 +50,7 @@ Event
 
 建立只包含相異值的清單也很實用。 這稱為「集合」，而且可以使用 `makeset` 來產生：
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -67,11 +67,12 @@ Event
 ## <a name="expanding-lists"></a>展開清單
 `makelist` 或 `makeset` 的反向作業是 `mvexpand`，它會展開值清單以分隔列。 它可以跨任何數目的動態欄 (包括 JSON 與陣列) 展開。 例如，您可以檢查「活動訊號」表格以了解過去一小時內從已傳送活動訊號之電腦傳送資料的解決方案：
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
 ```
+
 | 電腦 | 解決方案 | 
 |--------------|----------------------|
 | computer1 | 「安全性」、「更新」、「變更追蹤」 |
@@ -81,23 +82,28 @@ Heartbeat
 
 使用 `mvexpand` 以在個別列中顯示每個值，而不是顯示逗號分隔清單：
 
-Heartbeat | where TimeGenerated > ago(1h) | project Computer, split(Solutions, ",") | mvexpand Solutions
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(1h)
+| project Computer, split(Solutions, ",")
+| mvexpand Solutions
 ```
-| Computer | Solutions | 
+
+| 電腦 | 解決方案 | 
 |--------------|----------------------|
-| computer1 | "security" |
-| computer1 | "updates" |
-| computer1 | "changeTracking" |
-| computer2 | "security" |
-| computer2 | "updates" |
-| computer3 | "antiMalware" |
-| computer3 | "changeTracking" |
+| computer1 | 「安全性」 |
+| computer1 | 「更新」 |
+| computer1 | 「變更追蹤」 |
+| computer2 | 「安全性」 |
+| computer2 | 「更新」 |
+| computer3 | 「反惡意程式碼」 |
+| computer3 | 「變更追蹤」 |
 | ... | ... | ... |
-```
+
 
 接著，您可以再次使用 `makelist` 以將項目組成群組，而且這次您會看到每個解決方案的電腦清單：
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
@@ -115,7 +121,7 @@ Heartbeat
 ## <a name="handling-missing-bins"></a>處理遺失的間隔
 填寫遺失間隔的預設值是 `mvexpand` 的其中一個實用應用。例如，假設您正在透過探索特定機器的活動訊號以尋找其運作時間。 您可能也想要查看活動訊號來源，這位於「類別」欄。 一般而言，我們會使用簡單的 summarize 陳述式，如下所示：
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
@@ -131,7 +137,7 @@ Heartbeat
 
 在這些結果中，雖然與 "2017-06-06T19:00:00Z" 關聯的貯體遺失 (因為那一小時內沒有任何活動訊號資料)。 使用 `make-series` 函式來指派預設值給空白貯體。 這將會為每個類別產生一列，每一列都有四個額外的陣列欄，一個適用於值，而一個適用於比較時間貯體：
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
@@ -143,7 +149,7 @@ Heartbeat
 
 *count_* 陣列的第三個元素如預期是 0，而且 _TimeGenerated_ 陣列中有符合的時間戳記項目 "2017-06-06T19:00:00.0000000Z"。 但此陣列格式難以閱讀。 使用 `mvexpand` 來展開陣列，並產生與 `summarize`所產生之格式輸出相同的格式輸出：
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 | mvexpand TimeGenerated, count_
@@ -165,7 +171,7 @@ Heartbeat
 常見案例是根據一組條件選取某些特定實體的名稱，然後將不同的資料集篩選為該實體集合。 例如，您可以尋找已知缺少更新的電腦，並找出這些電腦的 IP：
 
 
-```KQL
+```Kusto
 let ComputersNeedingUpdate = toscalar(
     Update
     | summarize makeset(Computer)

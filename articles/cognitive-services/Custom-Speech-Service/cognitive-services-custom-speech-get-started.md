@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fe7a140f5ba2d712014f03663a88d516958d188e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: bf674261a58aab4fee37920d12ce6a2ac54b58b8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368083"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975778"
 ---
 # <a name="get-started-with-custom-speech-service"></a>開始使用自訂語音服務
 
@@ -23,10 +24,10 @@ ms.locfileid: "35368083"
 ## <a name="samples"></a>範例  
 我們會提供絕佳範例供您進行本課程，其位置在[這裡](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)。
 
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 
 ### <a name="subscribe-to-custom-speech-service-and-get-a-subscription-key"></a>訂閱自訂語音服務並取得訂用帳戶金鑰
-在進行上述範例之前，您必須先訂閱自訂語音服務，並取得訂用帳戶金鑰，請參閱[訂用帳戶](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech)或遵循[這裡](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md)的說明。 本教學課程可以同時使用主要金鑰和次要金鑰。 請務必採取最妥當的措施來存放以及保護您的 API 金鑰密碼。
+在進行上述範例之前，您必須先訂閱自訂語音服務，並取得訂用帳戶金鑰，請參閱[訂用帳戶](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech)或遵循[這裡](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md)的說明。 本教學課程可以同時使用主要金鑰和次要金鑰。 請務必遵循最佳做法以保護您的 API 金鑰祕密。
 
 ### <a name="get-the-client-library-and-example"></a>取得用戶端程式庫和範例
 您可以透過 [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk) 下載用戶端程式庫和範例。 下載的 zip 檔案必須解壓縮至您選擇的資料夾，大部分使用者選擇 Visual Studio 2015 資料夾。

@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 5c1a884ebe6216c4e8099f2ada2182ccff68b63e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 435ef29192682f1bf19a9a53923dd043676256ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450328"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954937"
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>使用資料收集來收集模型資料
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 您可以使用 Azure Machine Learning 中的模型資料收集功能，以封存來自 Web 服務的模型輸入和預測。
 
@@ -105,7 +108,7 @@ ms.locfileid: "39450328"
 您可以使用 Microsoft 軟體和開放原始碼工具，透過各種不同方式從 Azure Blob 取用資料。 這裡有一些範例：
 - Azure Machine Learning Workbench：藉由將 .csv 檔案新增為資料來源，在 Azure Machine Learning Workbench 中開啟 .csv 檔案。
 - Excel：開啟每日的 .csv 檔案作為試算表。
-- [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)：使用從 Blob 中之 .csv 資料提取的資料建立圖表。
+- [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)：使用從 Blob 中之 .csv 資料提取的資料建立圖表。
 - [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)：使用大部分的 .csv 資料建立資料框架。
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")

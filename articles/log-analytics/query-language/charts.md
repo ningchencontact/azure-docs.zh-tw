@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e63345c0265d52fdd80fe4542efb7f13324926cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605518"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989613"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>從 Log Analytics 查詢建立圖表
 
@@ -34,7 +34,7 @@ ms.locfileid: "45605518"
 ## <a name="charting-the-results"></a>製作結果圖表
 從檢閱過去一小時內每個作業系統類型中有多少部電腦開始：
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -52,7 +52,7 @@ Heartbeat
 ## <a name="timecharts"></a>時間表
 顯示 1 小時間隔中的處理器時間平均值、第 50 個百分位數與第 95 個百分位數。 查詢會產生多個查詢，而且您可以接著選取要在時間表上顯示哪些數列：
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -67,7 +67,7 @@ Perf
 
 參考線可協助您輕鬆地識別計量是否超過特定閾值。 若要將線條加到圖表中，請以常數欄延伸資料集：
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -80,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>多維度
 `summarize` 之 `by` 子句中的多個運算式會在結果中建立多列，每個值組合都各有一列。
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

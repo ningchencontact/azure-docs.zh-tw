@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ROBOTS: NOINDEX
+ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973170"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950615"
 ---
 # <a name="consuming-web-services"></a>取用 Web 服務
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 將模型部署為即時 Web 服務後，您就可以對它傳送資料，並從各種不同的平台和應用程式取得預測。 即時 Web 服務會公開用來取得預測的 REST API。 您可以透過單一資料列或多重資料列格式將資料傳送給 Web 服務，以便一次取得一或多個預測。
 
 使用 [Azure Machine Learning Web 服務](model-management-service-deploy.md)，外部應用程式會藉由對服務 URL 發出 HTTP POST 呼叫，來與預測模型進行同步通訊。 若要發出 Web 服務呼叫，用戶端應用程式必須指定您在部署預測時所建立的 API 金鑰，並將要求資料放入 POST 要求本文。

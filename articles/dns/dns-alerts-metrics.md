@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 17541cdc0fd017cf762c4af55e0a6be25dead9f1
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: de29c24556522abeaff8d942edc027c7444c3ed3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171859"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965007"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 計量與警示
 Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來提供名稱解析。 本文說明 Azure DNS 服務的計量與警示。
 
 ## <a name="azure-dns-metrics"></a>Azure DNS 計量
 
-Azure DNS 為客戶提供了計量，讓客戶監視其在服務中所託管 DNS 的特定層面。 此外，使用 Azure DNS 計量，您可以設定依據感興趣的條件來接收警示。 計量是透過 [Azure 監視器服務](../monitoring-and-diagnostics/index.yml)提供的。 Azure DNS 透過 Azure 監視器為您的 DNS 區域提供下列計量：
+Azure DNS 為客戶提供了計量，讓客戶監視其在服務中所託管 DNS 的特定層面。 此外，使用 Azure DNS 計量，您可以設定依據感興趣的條件來接收警示。 計量是透過 [Azure 監視器服務](../azure-monitor/index.yml)提供的。 Azure DNS 透過 Azure 監視器為您的 DNS 區域提供下列計量：
 
 -   QueryVolume
 -   RecordSetCount

@@ -14,14 +14,14 @@ ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: c5de91503ce49fd7c3dcbcacda7e39c7672b06a8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f1364435d2f7b50c642d1bb5b41708ec52bda533
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835843"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946199"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Azure Machine Learning Studio 功能的概觀圖
 **Microsoft Azure Machine Learning Studio 功能概觀** 圖表提供一些概觀，讓您了解如何使用 Machine Learning Studio 開發預測性分析模型，並使其在 Azure 雲端中運作。

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 18d9a2dade271e61fa3db423da610a7f982aa47b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949667"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>建立使用可用性區域的虛擬機器擴展集
 
@@ -65,7 +65,7 @@ ms.locfileid: "42140267"
 若要使用可用性區域，您必須在[支援的 Azure 區域](../availability-zones/az-overview.md#regions-that-support-availability-zones)中建立擴展集。 您可以使用下列其中一個方法，來建立使用可用性區域的擴展集：
 
 - [Azure 入口網站](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [Azure CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure 資源管理員範本](#use-azure-resource-manager-templates)
 
@@ -77,7 +77,7 @@ ms.locfileid: "42140267"
 
 擴展集和支援資源 (例如，Azure 負載平衡器和公用 IP 位址) 都會建立在您指定的單一區域中。
 
-## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
+## <a name="use-the-azure-cli"></a>使用 Azure CLI
 
 建立使用可用性區域之擴展集的流程，與[使用者入門文章](quick-create-cli.md)中所述的流程相同。 若要使用可用性區域，您必須在支援的 Azure 區域中建立擴展集。
 

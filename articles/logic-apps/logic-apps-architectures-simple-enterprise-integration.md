@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5ed6fa9f514bae3ea651edba6702714e2680091f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122490"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955940"
 ---
 # <a name="simple-enterprise-integration-architecture"></a>簡單的企業整合架構
 
@@ -22,7 +22,7 @@ ms.locfileid: "43122490"
 
 ![架構圖 - 簡單的企業整合](./media/logic-apps-architectures-simple-enterprise-integration/simple_arch_diagram.png)
 
-此系列說明了可重複使用的元件組件，而這類元件組件可應用於建置一般性整合應用程式。 因為整合技術有許多可能的應用程式，範圍從簡單的點對點應用程式到完整的企業 Azure 服務匯流排應用程式，所以請考慮您需要針對您的應用程式和基礎結構實作哪些元件。
+此系列說明可重複使用的元件組件，而這類元件組件可應用於建置一般性整合應用程式。 因為整合技術有許多可能的應用程式，範圍從簡單的點對點應用程式到完整的企業 Azure 服務匯流排應用程式，所以請考慮您需要針對應用程式和基礎結構實作哪些元件。
 
 ## <a name="architecture-components"></a>架構元件
 
@@ -32,7 +32,7 @@ ms.locfileid: "43122490"
 
 - **Azure API 管理**：[API 管理](https://docs.microsoft.com/azure/api-management/)是一個用於發佈、保護及轉換 HTTP API 的完全受控平台。
 
-- **Azure API 管理開發人員入口網站**：Azure API 管理的每個執行個體都提供[開發人員入口網站](../api-management/api-management-customize-styles.md)的存取權。 本入口網站可讓您存取文件和程式碼範例。 您也可以在開發人員入口網站中測試 API。
+- **Azure API 管理開發人員入口網站**：Azure API 管理的每個執行個體都提供[開發人員入口網站](../api-management/api-management-customize-styles.md)的存取權。 此入口網站可讓您存取文件和程式碼範例。 您也可以在開發人員入口網站中測試 API。
 
 - **Azure Logic Apps**：[Logic Apps](../logic-apps/logic-apps-overview.md) 是一個無伺服器平台，用於建置企業工作流程和整合。
 
@@ -48,7 +48,7 @@ ms.locfileid: "43122490"
 
 此架構會使用一些可作為作業基礎的模式：
 
-* 複合 API 的建置方式是使用邏輯應用程式，其可協調對下列三者的呼叫：軟體即服務 (SaaS) 系統、Azure 服務及任何發佈至 API 管理的 API 呼叫。 [Logic Apps 的發佈方式](../api-management/import-logic-app-as-api.md)也是透過 API 管理開發人員入口網站來進行。
+* 複合 API 的建置方式是使用邏輯應用程式，其可協調對下列三者的呼叫：軟體即服務 (SaaS) 系統、Azure 服務及任何發佈至 API 管理的 API 呼叫。 Logic Apps [也可透過 API 管理開發人員入口網站來發佈](../api-management/import-logic-app-as-api.md)。
 
 * 應用程式會使用 Azure AD 來[取得 OAuth 2.0 安全性權杖](../api-management/api-management-howto-protect-backend-with-aad.md)，此為取得 API 存取權所需的權杖。
 
@@ -100,7 +100,7 @@ Logic Apps 無伺服器模型代表系統管理員不需要針對服務延展性
 
 ## <a name="availability"></a>可用性
 
-* 對於基本、標準及進階層，適用於 Azure API 管理的服務等級協定 (SLA) 目前為 99.9%。 「進階」層組態搭配在兩個以上的區域中至少部署 1 個單位時，SLA 為 99.95%。
+* 對於基本、標準及進階層，適用於 Azure API 管理的服務等級協定 (SLA) 目前為 99.9%。 進階層組態使用於在兩個以上的區域中至少有 1 個單位的部署時，SLA 為 99.95%。
 
 * 適用於 Azure Logic Apps 的 SLA 目前為 99.9%。
 
@@ -162,7 +162,7 @@ API 管理中會使用名為「具名值」或「屬性」的物件來管理祕�
 
 ## <a name="diagnostics-and-monitoring"></a>診斷和監控
 
-您可以使用 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)在 [API 管理](../api-management/api-management-howto-use-azure-monitor.md)和 [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md) 中進行作業監視。 Azure 監視器預設會啟用，並且會根據針對每個服務所設定的計量來提供資訊。
+您可以使用 [Azure 監視器](../azure-monitor/overview.md)在 [API 管理](../api-management/api-management-howto-use-azure-monitor.md)和 [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md) 中進行作業監視。 Azure 監視器預設會啟用，並且會根據針對每個服務所設定的計量來提供資訊。
 
 每個服務也具有下列選項：
 

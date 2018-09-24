@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 2d9562582a94b7c7aac5b972a7ef57b84eb9aa9e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9c4ea529e8ca6dbb9b7321dc24468fad93435705
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35634121"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948191"
 ---
 # <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>連線到 Azure Cosmos DB 作為資料來源
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 此文章包含的 Python 範例可讓您連線到 Azure Machine Learning Workbench 中的 Cosmos DB。
 
 ## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>將 Azure Cosmos DB 資料載入資料準備

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049119"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954835"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -76,7 +76,7 @@ Azure 資源會發出兩種監視資料：
 這兩種資料都會使用資源診斷設定來傳送至事件中樞。 [遵循此指南](./monitoring-stream-diagnostic-logs-to-event-hubs.md)以在特定資源上設定資源診斷設定。 為每個要收集記錄的資源進行資源診斷設定。
 
 > [!TIP]
-> 您可以使用 Azure 原則以透過[在原則規則中使用 DeployIfNotExists 效果](../azure-policy/policy-definition.md#policy-rule)，來確保特定範圍內的每個資源一律會搭配診斷設定進行設定。 目前僅於內建原則上支援 DeployIfNotExists。
+> 您可以使用 Azure 原則以透過[在原則規則中使用 DeployIfNotExists 效果](../governance/policy/concepts/definition-structure.md#policy-rule)，來確保特定範圍內的每個資源一律會搭配診斷設定進行設定。
 
 ## <a name="guest-os-data"></a>客體 OS 資料
 

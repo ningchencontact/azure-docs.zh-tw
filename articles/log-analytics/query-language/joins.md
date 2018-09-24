@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: c24d79d6983f7c32f5c563192bcfe412da586ef2
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 39a461a27e8d9d6d1b9712449586bfabf6124d22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603482"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989442"
 ---
 # <a name="joins-in-log-analytics-queries"></a>Log Analytics 查詢中的聯結
 
@@ -32,7 +32,7 @@ ms.locfileid: "45603482"
 聯結可讓您在相同的查詢中分析多個資料表的資料。 它們會透過比對所指定資料行的值來合併兩個資料集的資料列。
 
 
-```KQL
+```Kusto
 SecurityEvent 
 | where EventID == 4624     // sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -64,7 +64,7 @@ on $left.key1 == $right.key2
 ## <a name="lookup-tables"></a>查閱資料表
 聯結的其中一個常用用途是使用值的靜態對應 (使用有助於將結果轉換為更易讀之格式的 `datatable`)。 例如，為每個事件識別碼加上事件名稱以讓安全性事件資料更豐富。
 
-```KQL
+```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",

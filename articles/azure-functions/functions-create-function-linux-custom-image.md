@@ -7,16 +7,16 @@ author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
 ms.topic: tutorial
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: cfowler
-ms.openlocfilehash: fab67b503d060c8c01b5a3692c8a07b24c425c78
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+manager: jeconnoc
+ms.openlocfilehash: eb03d2dae42d656e62b8f02eeccf1f7312f07732
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437401"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962431"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>在使用自訂映像 (預覽版) 的 Linux 上建立函式
 
@@ -146,7 +146,7 @@ v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 2422
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題需要 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本主題需要 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 

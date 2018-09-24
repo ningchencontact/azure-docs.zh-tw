@@ -4,24 +4,20 @@ description: Azure CLI 指令碼範例 - 在 Azure 中將自訂 SSL 憑證繫結
 services: functions
 documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: azure-service-management
+manager: jeconnoc
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
-ms.service: functions
-ms.workload: na
+ms.service: azure-functions
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9b6779ac7778b721ff566c8553433853dbadbf13
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 689764543f5d927273f92deecbfd43e282fc028c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988256"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961360"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>將自訂 SSL 憑證繫結至函式應用程式
 
@@ -37,7 +33,7 @@ ms.locfileid: "38988256"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，則必須執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，則必須執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>範例指令碼
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 09411ad3f0a27ba4d6d36342f9e298e177a021d8
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 29aea0171c767b2188e3eac23b1d61ffbda8e284
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324932"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986843"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS 保護：最佳做法與參考架構
 
@@ -126,7 +126,7 @@ Azure 基本 DDoS 保護服務可協助保護客戶，並防止對其他客戶�
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS 保護遙測、監視及警示
 
-標準 DDoS 保護在遭受 DDoS 攻擊持續期間，透過 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)公開豐富的遙測。 可設定 DDoS 保護所用的任何 Azure 監視器度計量的警示。 您可以透過 Azure 監視器診斷介面來與 Splunk (Azure 事件中樞)、Azure Log Analytics 及 Azure 儲存體整合，以進行進階分析。
+標準 DDoS 保護在遭受 DDoS 攻擊持續期間，透過 [Azure 監視器](../azure-monitor/overview.md)公開豐富的遙測。 可設定 DDoS 保護所用的任何 Azure 監視器度計量的警示。 您可以透過 Azure 監視器診斷介面來與 Splunk (Azure 事件中樞)、Azure Log Analytics 及 Azure 儲存體整合，以進行進階分析。
 
 ##### <a name="ddos-mitigation-policies"></a>DDoS 防護原則
 

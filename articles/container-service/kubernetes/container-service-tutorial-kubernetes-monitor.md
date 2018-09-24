@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 17398a9f74e40a7d513912d654fa609d9837d805
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d178fe3caa121c51ef081708ca440113871938e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165403"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996905"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>使用 Log Analytics 監視 Kubernetes 叢集
 
@@ -153,7 +153,7 @@ omsagent   3         3         3         0            3           <none>        
 
 同樣地，在 Azure 入口網站中，移至 [Log Analytics] 並選取您的工作區名稱。 若要查看 [Containers] 摘要圖格，請按一下 [解決方案] > [Containers]。 若要查看詳細資料，按一下圖格。
 
-請參閱 [Azure Log Analytics 文件](../../log-analytics/index.yml)，以取得查詢及分析監視資料的詳細指引。
+請參閱 [Azure Log Analytics 文件](../../log-analytics/log-analytics-queries.md)，以取得查詢及分析監視資料的詳細指引。
 
 ## <a name="next-steps"></a>後續步驟
 

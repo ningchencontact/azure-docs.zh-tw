@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 5c0726ea0da288d5306e28b101e4d3b59605b443
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894891"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953866"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>擴展集中的低優先順序 VM (預覽)
 
@@ -43,7 +43,7 @@ ms.locfileid: "33894891"
 
 若要在擴展集上部署低優先順序 VM，可將新的 Priority 旗標設為 Low。 擴展集中的所有 VM 都會設定為低優先順序。 若要建立使用低優先順序 VM 的擴展集，請使用下列其中一個方法︰
 - [Azure 入口網站](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [Azure CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure 資源管理員範本](#use-azure-resource-manager-templates)
 
@@ -51,7 +51,7 @@ ms.locfileid: "33894891"
 
 建立使用低優先順序虛擬機器之擴展集的程序，與[使用者入門文章](quick-create-portal.md)所述程序相同。 當您部署擴展集時，可以選擇設定低優先順序旗標和收回原則：![建立使用低優先順序 VM 的擴展集](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
-## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
+## <a name="use-the-azure-cli"></a>使用 Azure CLI
 
 建立使用低優先順序 VM 之擴展集的程序，與[使用者入門文章](quick-create-cli.md)中所述的程序相同。 只要在 CLI 呼叫中新增 '--priority' 參數，並將它設定為 Low，如下列範例所示：
 

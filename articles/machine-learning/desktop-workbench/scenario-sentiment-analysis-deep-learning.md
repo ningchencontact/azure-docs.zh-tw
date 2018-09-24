@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 97e3a621e291935db2e0c70eb2b596e77c7bffb7
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: e2fbb0b7b0dede198be0e57ffcd2b58a7da7fce7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633889"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947766"
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>在 Azure Machine Learning 中使用深度學習來進行情感分析
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 在自然語言處理的領域中，情感分析是眾所周知的工作。 在提供一組文字後，此工作的目的是要判斷該文字的情感。 此解決方案的目標是使用 Deep Learning 從電影評論來預測觀點。
 
@@ -45,7 +50,7 @@ ms.locfileid: "35633889"
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 
-* 遵循[快速入門安裝指南](../service/quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench。
+* 遵循[快速入門安裝指南](quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench。
 
 * 若要進行運作，您最好是在本機安裝並執行 Docker 引擎。 如果不是，您可以使用叢集選項。 不過，Azure Container Service (ACS) 的執行成本很高。
 

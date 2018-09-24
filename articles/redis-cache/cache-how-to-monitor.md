@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 14854960aa8db50507b407d4fab7c4113618235c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 03c6d45cb3a20244ddbb9c0aec693f7802a95b22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071541"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976353"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>如何監視 Azure Redis 快取
 Azure Redis Cache 使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)提供數個選項來監視您的快取執行個體。 您可以檢視度量、將度量圖表釘選到「開始面板」、自訂監視圖表的日期和時間範圍、新增和移除圖表中的度量，以及設定符合特定條件時的警示。 這些工具可讓您監視 Azure Redis 快取執行個體的健全狀況，並協助您管理快取應用程式。
@@ -61,7 +61,7 @@ Azure Redis Cache 執行個體的計量使用 Redis [INFO](http://redis.io/comma
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>匯出快取計量
-根據預設，Azure 監視器中的快取計量會[儲存 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)後刪除。 若要保留您的快取計量超過 30 天，您可以[指定儲存體帳戶](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，並指定快取計量的 [保留天數] 原則。 
+根據預設，Azure 監視器中的快取計量會[儲存 30 天](../monitoring/monitoring-data-collection.md#metrics)後刪除。 若要保留您的快取計量超過 30 天，您可以[指定儲存體帳戶](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，並指定快取計量的 [保留天數] 原則。 
 
 設定快取計量的儲存體帳戶：
 
@@ -75,11 +75,11 @@ Azure Redis Cache 執行個體的計量使用 Redis [INFO](http://redis.io/comma
 ![Redis 診斷](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->除了將快取計量封存至儲存體，您也可以[將它們串流處理至事件中樞或將它們傳送至 Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics)。
+>除了將快取計量封存至儲存體，您也可以[將它們串流處理至事件中樞或將它們傳送至 Log Analytics](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md#retrieve-metric-values)。
 >
 >
 
-若要存取計量，您可以如本文先前所述，在 Azure 入口網站中進行檢視，也可以使用 [Azure 監視器計量 REST API](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api) 存取計量。
+若要存取計量，您可以如本文先前所述，在 Azure 入口網站中進行檢視，也可以使用 [Azure 監視器計量 REST API](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) 存取計量。
 
 > [!NOTE]
 > 如果您變更儲存體帳戶，則先前設定之儲存體帳戶中的資料仍然可供下載，但不會顯示在 Azure 入口網站中。  

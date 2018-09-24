@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: a5531ae256a263f1c34496819ac435ce67156b49
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633296"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996208"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>真實案例的預測性維護
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 對所有企業來說，設備在非排程的時間停機將會造成不利影響。 讓現場設備保持運作以充分發揮使用率和效能，並將代價高昂的排程外停機時間降到最低，至關重要。 及早發現問題有助於以更符合成本效益的方式配置為數不多的維護資源，並增強品質和供應鏈流程。 
 
@@ -41,10 +46,10 @@ ms.locfileid: "35633296"
 ## <a name="prerequisites"></a>必要條件
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
-* 已安裝 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)。 請依照[快速入門安裝指南](../service/quickstart-installation.md)來安裝程式及建立工作區。
+* 已安裝 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)。 請依照[快速入門安裝指南](quickstart-installation.md)來安裝程式及建立工作區。
 * 「Azure Machine Learning 操作化」需要一個本機部署環境，以及一個 [Azure Machine Learning 模型管理帳戶](model-management-overview.md)。
 
-此範例可在任何 Machine Learning Workbench 計算環境中執行。 不過，建議至少以 16 GB 的記憶體來執行它。 此案例已在執行遠端 DS4_V2 標準[適用於 Linux (Ubuntu) 的資料科學虛擬機器 (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) 的 Windows 10 電腦上建置並測試。
+此範例可在任何 Machine Learning Workbench 計算環境中執行。 不過，建議至少以 16 GB 的記憶體來執行它。 此案例已在執行遠端 DS4_V2 標準[適用於 Linux (Ubuntu) 的資料科學虛擬機器 (DSVM)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) 的 Windows 10 電腦上建置並測試。
 
 模型的操作化已使用 0.1.0a22 版的 Azure Machine Learning CLI 來完成。
 
@@ -71,7 +76,7 @@ az login
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-最好是在[適用於 Linux (Ubuntu) 的 DSVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) 上執行，以符合記憶體和磁碟需求。 設定 DSVM 之後，請使用下列兩個命令來準備遠端 Docker 環境：
+最好是在[適用於 Linux (Ubuntu) 的 DSVM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) 上執行，以符合記憶體和磁碟需求。 設定 DSVM 之後，請使用下列兩個命令來準備遠端 Docker 環境：
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

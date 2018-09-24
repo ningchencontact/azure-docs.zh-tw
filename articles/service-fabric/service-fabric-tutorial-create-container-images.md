@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a2814ff299d1bfb003b6133e2b75b47a312f8728
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114035"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947528"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>教學課程：在 Linux Service Fabric 叢集上建立容器映像
 
@@ -41,10 +41,10 @@ ms.locfileid: "37114035"
 > * [建置與執行含容器的 Service Fabric 應用程式](service-fabric-tutorial-package-containers.md)
 > * [如何在 Service Fabric 中處理容錯移轉和調整](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 已針對 Service Fabric 設定的 Linux 開發環境。 請依照[這裡](service-fabric-get-started-linux.md)的指示來設定 Linux 環境。
-* 本教學課程需要您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+* 本教學課程需要您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 * 此外，它需要您具有可用的 Azure 訂用帳戶。 如需免費試用版的詳細資訊，請移至[這裡](https://azure.microsoft.com/free/)。
 
 ## <a name="get-application-code"></a>取得應用程式程式碼
@@ -68,6 +68,8 @@ cd service-fabric-containers/Linux/container-tutorial/
 ```bash
 docker build -t azure-vote-front .
 ```
+> [!Note]
+> 如果您遇到權限遭拒的狀況，請依照[這份](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user)文件的說明使用 Docker，而不使用 sudo。
 
 此命令可能需要一些時間，因為必須從 Docker Hub 提取所有必要的相依性。 完成時，使 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令來查看所建立的映像。
 

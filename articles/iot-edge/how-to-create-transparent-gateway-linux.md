@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: df1ca1358d1b111d8412d730575eb7bf66c8ebdf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247678"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950007"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>建立作為透明閘道的 Linux IoT Edge 裝置
 
@@ -188,6 +188,8 @@ IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像�
    ```
 
 請參閱[模組組合文章][lnk-module-composition]，以取得訊息路由的詳細資訊。
+
+[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>後續步驟
 [了解開發 IoT Edge 模組的需求和工具][lnk-module-dev]。

@@ -2,23 +2,24 @@
 title: 使用 Azure Resource Manager 範本建立 Azure Machine Learning 測試 | Microsoft Docs
 description: 本文會提供範例，說明如何使用 Azure Resource Manager 範本建立 Azure Machine Learning 測試帳戶。
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: jmartens, jasonwhowell, mldocs
+author: hning86
+ms.author: haining
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 65efee0eea5e2595ef8833788281c5ba60ca3a43
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 24ed164f4a1dfdb9a3913efa78fe58fab2b53696
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830777"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991958"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>設定 Azure Machine Learning 測試服務
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>概觀
 Azure Machine Learning 測試服務帳戶、工作區及專案都是 Azure 資源。 因此，您可以使用 Resource Manager 範本部署這些資源。 Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決方案部署的資源。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。
@@ -160,4 +161,4 @@ az group deployment create -n testdeploy -g <resource group name> --template-fil
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* [建立與安裝 Azure Machine Learning](../service/quickstart-installation.md)
+* [建立與安裝 Azure Machine Learning](quickstart-installation.md)

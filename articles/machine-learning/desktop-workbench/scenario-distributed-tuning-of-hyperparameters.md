@@ -11,14 +11,19 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 920b019640df9d2da174101e2b1b90dfd4da6f56
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ROBOTS: NOINDEX
+ms.openlocfilehash: f74889cdf727bc132723d16df295849769001ce9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578730"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951962"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的分散式超參數微調
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 這個案例示範如何使用 Azure Machine Learning Workbench，相應放大實作 scikit-learn API 之機器學習演算法的超參數微調。 我們示範如何設定及使用遠端 Docker 容器和 Spark 叢集作為微調超參數時的執行後端。
 
@@ -38,7 +43,7 @@ ms.locfileid: "45578730"
 ## <a name="prerequisites"></a>必要條件
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
-* 已安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 複本，請依照[安裝和建立快速入門](../service/quickstart-installation.md)安裝 Workbench 並建立帳戶。
+* 已安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 複本，請依照[安裝和建立快速入門](quickstart-installation.md)安裝 Workbench 並建立帳戶。
 * 此案例假設您在 Windows 10 或 MacOS (已於本機安裝 Docker 引擎) 上執行 Azure ML Workbench。 
 * 若要執行具有遠端 Docker 容器的案例，請依照[指示](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)佈建 Ubuntu 資料科學虛擬機器 (DSVM)。 我們建議使用至少 8 個核心和 28 GB 記憶體的虛擬機器。 虛擬機器的 D4 執行個體有此容量。 
 * 若要搭配 Spark 叢集執行此案例，請依照這些[指示](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)來佈建 Spark HDInsight 叢集。 建議使用一個在標頭和背景工作節點中採用下列設定的叢：集：

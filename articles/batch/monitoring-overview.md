@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 885deca5efbd72b3d641c8c94837851340d752b9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171250"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957824"
 ---
 # <a name="monitor-batch-solutions"></a>監視 Batch 解決方案
 
@@ -34,7 +34,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 ## <a name="batch-account-level-monitoring"></a>Batch 帳戶層級監視
 
-使用 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)的功能監視每個 Batch 帳戶。 Azure 監視器會收集 Batch 帳戶層級範圍內的資源[計量](../monitoring-and-diagnostics/monitoring-overview-metrics.md)和[診斷記錄 (選擇性)](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)，這些資源包括集區、作業和工作等。 以手動方式或程式設計方式收集和使用此資料，以監視您 Batch 帳戶中的活動並診斷問題。 如需詳細資料，請參閱[用於診斷評估和監視的 Batch 計量、警示和記錄](batch-diagnostics.md)。
+使用 [Azure 監視器](../azure-monitor/overview.md)的功能監視每個 Batch 帳戶。 Azure 監視器會收集 Batch 帳戶層級範圍內的資源[計量](../monitoring/monitoring-data-collection.md#metrics)和[診斷記錄 (選擇性)](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)，這些資源包括集區、作業和工作等。 以手動方式或程式設計方式收集和使用此資料，以監視您 Batch 帳戶中的活動並診斷問題。 如需詳細資料，請參閱[用於診斷評估和監視的 Batch 計量、警示和記錄](batch-diagnostics.md)。
  
 > [!NOTE]
 > 您的 Batch 帳戶中已預設可使用計量功能，無須其他設定，而且計量功能具有 30 天的累積記錄。 您必須啟用 Batch 帳戶的診斷記錄，但您可能需要為儲存或處理診斷記錄資料支付額外費用。 

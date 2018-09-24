@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: 7879cf1891e071da1a0ad3ddfc30f90fc7be8ca5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: d4cfb7067510ec06df3319035dee5e2195cb2f9d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633693"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997534"
 ---
 # <a name="customize-the-container-image-used-for-azure-ml-models"></a>自訂用於 Azure ML 模型的容器映像
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 此文章說明如何針對 Azure Machine Learning 模型自訂容器映像。  Azure ML Workbench 會使用容器來部署機器學習模型。 模型會隨著其相依性一起部署，而 Azure ML 會從模型、相依性和相關聯的檔案建置映像。
 

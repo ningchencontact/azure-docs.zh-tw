@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 76a7b2f8339798d9580ef989e8931a6776129885
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: bd05f1c5c2c8f4c4469a702b73341fd506c54815
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346620"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958776"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>建立、變更或刪除網路安全性群組
 
@@ -33,7 +33,7 @@ ms.locfileid: "39346620"
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
 - 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.4.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
-- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.28 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
+- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.28 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -128,7 +128,7 @@ ms.locfileid: "39346620"
     |通訊協定     | 選取 [任何]、[TCP] 或 [UDP]。        |         |
     |動作     | 選取 [允許] 或 [拒絕]。        |         |
     |優先順序     | 輸入一個介於 100 到 4096 且對網路安全性群組內的所有安全性規則而言具唯一性的值。 |規則會依照優先順序進行處理。 編號愈低，優先順序愈高。 建議您在建立規則時，於優先順序編號之間保留間距，例如 100、200、300。 保留間距可方便您未來新增比現有規則優先順序更高或更低的規則。         |
-    |Name     | 網路安全性群組內規則的唯一名稱。        |  此名稱最多可有 80 個字元。 它必須以字母或數字為開頭、以字母、數字或底線為結尾，且只能包含字母、數字、底線、句點或連字號。       |
+    |名稱     | 網路安全性群組內規則的唯一名稱。        |  此名稱最多可有 80 個字元。 它必須以字母或數字為開頭、以字母、數字或底線為結尾，且只能包含字母、數字、底線、句點或連字號。       |
     |說明     | 選擇性的描述。        |         |
 
 **命令**
@@ -195,7 +195,7 @@ ms.locfileid: "39346620"
 
     | 設定        | 值                                                   |
     | ---            | ---                                                     |
-    | Name           | 名稱在資源群組內必須是唯一的。        |
+    | 名稱           | 名稱在資源群組內必須是唯一的。        |
     | 訂用帳戶   | 選取您的訂用帳戶。                               |
     | 資源群組 | 選取現有資源群組或建立新群組。 |
     | 位置       | 選取位置                                       |
@@ -255,7 +255,7 @@ ms.locfileid: "39346620"
 
 ### <a name="network-security-group"></a>網路安全性群組
 
-| 動作                                                        |   Name                                                                |
+| 動作                                                        |   名稱                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   取得網路安全性群組                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   建立或更新網路安全性群組                             |
@@ -265,7 +265,7 @@ ms.locfileid: "39346620"
 
 ### <a name="network-security-group-rule"></a>網路安全性群組規則
 
-| 動作                                                        |   Name                                                                |
+| 動作                                                        |   名稱                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   取得規則                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   建立或更新規則                                               |
@@ -273,7 +273,7 @@ ms.locfileid: "39346620"
 
 ### <a name="application-security-group"></a>應用程式安全性群組
 
-| 動作                                                                     | Name                                                     |
+| 動作                                                                     | 名稱                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | 將 IP 設定加入至應用程式安全性群組|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 將安全性規則加入至應用程式安全性群組    |

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42142298"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965446"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -39,7 +39,7 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 
 2. **ValidationURL 交握 (手動交握)**：在某些情況下，您可能沒有端點原始程式碼的控制權，而無法實作以 ValidationCode 為基礎的交握。 例如，如果您使用第三方服務 (例如 [Zapier](https://zapier.com) 或 [IFTTT](https://ifttt.com/))，就可能無法以程式設計方式在回應中提供驗證碼。 因此，從 2018-05-01-preview 版開始，EventGrid 已可支援手動驗證交握。 如果您以採用這個新 API 版本 (2018-05-01-preview) 的 SDK/工具建立事件訂閱，EventGrid 會傳送 `validationUrl` 屬性 (除了 `validationCode` 屬性) 作為訂閱驗證事件資料部分的一部分。 若要完成交握，您只需透過 REST 用戶端或使用網頁瀏覽器，對該 URL 執行 GET 要求即可。 提供的驗證 URL 的有效期大約只有 10 分鐘。 在那段時間，事件訂閱的佈建狀態為 `AwaitingManualAction`。 如果您未在 10 分鐘內完成手動驗證，則會將佈建狀態設為 `Failed`。 您將必須重新嘗試建立事件訂閱，然後再次嘗試執行手動驗證。
 
-此一手動驗證機制目前為預覽狀態。 若要使用它，您必須為 [AZ CLI 2.0](/cli/azure/install-azure-cli) 安裝[事件格線延伸模組](/cli/azure/azure-cli-extensions-list)。 您可以使用 `az extension add --name eventgrid` 進行安裝。 如果您使用的是 REST API，請確定使用的是 `api-version=2018-05-01-preview`。
+此一手動驗證機制目前為預覽狀態。 若要使用它，您必須為 [Azure CLI](/cli/azure/install-azure-cli) 安裝[事件格線延伸模組](/cli/azure/azure-cli-extensions-list)。 您可以使用 `az extension add --name eventgrid` 進行安裝。 如果您使用的是 REST API，請確定使用的是 `api-version=2018-05-01-preview`。
 
 ### <a name="validation-details"></a>驗證詳細資料
 

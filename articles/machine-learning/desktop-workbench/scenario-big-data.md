@@ -16,14 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450668"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964696"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>資料的伺服器工作負載預測 (TB)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 本文說明資料科學家如何使用 Azure Machine Learning Workbench 來開發需要使用巨量資料的解決方案。 您可以從大型資料集的範例開始，經歷資料準備、特徵設計和機器學習，然後將此程序延伸至整個大型資料集。 
 
@@ -49,11 +52,11 @@ ms.locfileid: "39450668"
 要執行此範例所需符合的必要條件如下：
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
-* 已安裝 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)。 若要安裝程式並建立工作區，請參閱[快速入門安裝指南](../service/quickstart-installation.md)。 如果您有多個訂用帳戶，您可以[將所需訂用帳戶設定為目前作用中的訂用帳戶](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set)。
+* 已安裝 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)。 若要安裝程式並建立工作區，請參閱[快速入門安裝指南](quickstart-installation.md)。 如果您有多個訂用帳戶，您可以[將所需訂用帳戶設定為目前作用中的訂用帳戶](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set)。
 * Windows 10 (本範例中的指示大多與 macOS 系統通用)。
 * 適用於 Linux (Ubuntu) 的資料科學虛擬機器 (DSVM)，最好位於資料所在的美國東部區域。 您可以依照[這些指示](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)來佈建 Ubuntu DSVM。 您也可以參閱[這篇快速入門](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)。 我們建議使用至少 8 個核心和 32 GB 記憶體的虛擬機器。 
 
-請依照[指示](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present)為 AML Workbench 啟用虛擬機器上的無密碼 sudoer 存取。  您可以選擇使用[以 SSH 金鑰為基礎的驗證，以在 AML Workbench 中建立及使用虛擬機器](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)。 在此範例中，我們會使用密碼來存取虛擬機器。  儲存含有 DSVM 資訊的下列表格，以供後續步驟使用：
+請依照[指示](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present)為 AML Workbench 啟用虛擬機器上的無密碼 sudoer 存取。  您可以選擇使用[以 SSH 金鑰為基礎的驗證，以在 AML Workbench 中建立及使用虛擬機器](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)。 在此範例中，我們會使用密碼來存取虛擬機器。  儲存含有 DSVM 資訊的下列表格，以供後續步驟使用：
 
  欄位名稱| 值 |  
  |------------|------|

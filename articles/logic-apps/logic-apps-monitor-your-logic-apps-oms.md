@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.openlocfilehash: 1aa55728b222c2838026cf5b06175736c5c84194
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 75094ad17474cd07039724fb0b5e5e377808b51f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123285"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956640"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>透過 Log Analytics 監視邏輯應用程式執行並取得深入解析
 
@@ -135,7 +135,7 @@ ms.locfileid: "43123285"
      ![檢視邏輯應用程式執行的動作和詳細資料](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
      在這裡的 [Azure Log Analytics] 頁面上，您可以更新查詢並檢視資料表的結果。 
-     此查詢使用 [Kusto 查詢語言](https://docs.loganalytics.io/docs/Language-Reference)，如果您想要檢視不同的結果，可予以編輯。 
+     此查詢使用 [Kusto 查詢語言](https://aka.ms/LogAnalyticsLanguageReference)，如果您想要檢視不同的結果，可予以編輯。 
 
      ![Azure Log Analytics - 查詢檢視](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
