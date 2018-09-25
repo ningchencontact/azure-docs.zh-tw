@@ -11,8 +11,7 @@
 # 開始使用
 ## [使用 Azure 入口網站](data-lake-store-get-started-portal.md)
 ## [使用 Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [使用 Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-
+## [使用 Azure CLI](data-lake-store-get-started-cli-2.0.md)
 
 # 作法
 ## 載入和移動資料

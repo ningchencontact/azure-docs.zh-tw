@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0210e65c0859b00caac0fe66baa1c73063f644c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632961"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947936"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>使用 Azure Machine Learning 進行客戶流失預測
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 平均而言，維持現有客戶比招收新客戶的成本便宜五倍。 因此，行銷主管通常會發現自己需要評估客戶流失的可能性，並尋找必要的動作將流失率降到最低。
 
@@ -61,7 +66,7 @@ ms.locfileid: "35632961"
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (提供免費試用)
 
-* 遵循[快速入門安裝指南](../service/quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench
+* 遵循[快速入門安裝指南](quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench
 
 * 若要進行運作，您最好是執行在本機安裝並執行 Docker 引擎。 如果不是，您可以使用叢集選項，但請注意，Azure Container Service (ACS) 的執行成本會很高。
 

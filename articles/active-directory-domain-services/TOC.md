@@ -44,6 +44,7 @@
 ### [在受控網域上建立群組受控服務帳戶](active-directory-ds-create-gmsa.md)
 ### [受控網域中的管理群組](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [設定受控網域上的密碼原則](active-directory-ds-password-policy.md)
+### [在 Azure AD 中將保留範圍同步處理至受控網域](active-directory-ds-scoped-synchronization.md)
 ## [選取虛擬網路](active-directory-ds-networking.md)
 ## 部署應用程式
 ### [設定 SharePoint 伺服器設定檔同步處理的支援](active-directory-ds-enable-sharepoint-profile-sync.md)

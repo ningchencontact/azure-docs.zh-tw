@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 548c94ce502da8c6a8d208daafb5b0fb624de1e1
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b56a75074af239f60b82edbe1d074c6384c4aef1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603924"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982969"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>在 Log Analytics 中開始使用查詢
 
@@ -50,7 +50,7 @@ ms.locfileid: "45603924"
 ### <a name="table-based-queries"></a>以資料表為基礎的查詢
 Azure Log Analytics 會將資料組織到資料表中，每個資料表都包含多個資料行。 所有資料表和資料行都會顯示在 Analytics 入口網站中的 [結構描述] 窗格。 請找出您感興趣的資料表，然後看看其中的資料：
 
-```KQL
+```Kusto
 SecurityEvent
 | take 10
 ```
@@ -66,7 +66,7 @@ SecurityEvent
 ### <a name="search-queries"></a>搜尋查詢
 搜尋查詢的結構較鬆散，通常更適合用於尋找其資料行中包含特定值的記錄：
 
-```KQL
+```Kusto
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -79,7 +79,7 @@ search in (SecurityEvent) "Cryptographic"
 ## <a name="sort-and-top"></a>Sort 和 top
 雖然 **take** 適合用來取得一些記錄，但所選取和顯示的結果並沒有依特定順序來排列。 若要取得已排序的檢視，您可以依所慣用的資料行來**排序**：
 
-```
+```Kusto
 SecurityEvent   
 | sort by TimeGenerated desc
 ```
@@ -88,7 +88,7 @@ SecurityEvent
 
 若要只取得最近 10 筆記錄，最佳方法是使用 **top**，其會在伺服器端排序整個資料表，然後傳回排序在前的記錄：
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -103,7 +103,7 @@ SecurityEvent
 
 若要對查詢新增篩選，請使用 **where** 運算子，後面加上一或多個條件。 例如，下列查詢只會傳回 Level 等於 8 的 SecurityEvent 記錄：
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8
 ```
@@ -119,14 +119,14 @@ SecurityEvent
 
 若要依多個條件進行篩選，您可以使用 **and**：
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 也可以透過垂直線將多個 **where** 元素一個接一個串連在一起：
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -146,7 +146,7 @@ SecurityEvent
 ### <a name="time-filter-in-query"></a>查詢中的時間篩選
 您也可以對查詢新增時間篩選，藉以定義您自己的時間範圍。 時間篩選最好直接放在資料表名稱之後： 
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -158,7 +158,7 @@ SecurityEvent
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project 和 Extend：選取和計算資料行
 使用 **project** 可選取要包含在結果中的特定資料行：
 
-```KQL
+```Kusto
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -175,7 +175,7 @@ SecurityEvent
 * 建立名為 EventCode 的新資料行。 **substring()** 函式可用來僅取得 [活動] 欄位中的前四個字元。
 
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -183,7 +183,7 @@ SecurityEvent
 
 **extend** 會在結果集內保留所有原始資料行，並定義其他資料行。 下列查詢會使用 **extend** 來新增 localtime 資料行，其中包含當地語系化的 TimeGenerated 值。
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -193,7 +193,7 @@ SecurityEvent
 使用 **summarize** 可識別記錄群組 (根據一或多個資料行)，並對其套用彙總。 **summarize** 最常見的用法是 count，其會傳回每個群組中的結果數目。
 
 下列查詢會檢閱過去 1 小時的所有 Perf 記錄、依 ObjectName 將這些記錄分組，並計算每個群組中的記錄數目： 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -201,7 +201,7 @@ Perf
 
 依多個維度來定義群組有時很合理。 這些值的每個唯一組合可定義出不同的群組：
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -209,7 +209,7 @@ Perf
 
 另一個常見用途是針對每個群組進行數學或統計計算。 例如，下列運算式會計算每部電腦的 CounterValue 平均值：
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -217,7 +217,7 @@ Perf
 
 不幸的是，此查詢的結果並無意義，原因是我們混搭使用不同的效能計數器。 若要讓結果更有意義，我們應該針對 CounterName 和 Computer 的每個組合分別計算平均值：
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -228,7 +228,7 @@ Perf
 
 若要根據連續值建立群組，最好是使用 **bin** 將範圍分成可管理的單位。 下列查詢會分析 Perf 記錄，這些記錄會測量特定電腦上的可用記憶體 (可用的 MB 數)。 它會計算過去 2 天內每個期間 (假設為 1 小時) 的平均值：
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

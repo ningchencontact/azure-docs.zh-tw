@@ -13,14 +13,19 @@ ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 83e1f14db317f59ab2063a9d020adbdb6fe78e5f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d52433a32d8dc764c7535dacf5872e55f0082ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35634001"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995511"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>深入學習預測性維護實際案例
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 深入學習是機器學習的最熱門趨勢之一，並且可應用在許多領域，包括：
 - 無人駕駛車和機器人。
@@ -75,7 +80,7 @@ az login
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-最好是在[適用於 Linux (Ubuntu) 的資料科學虛擬機器 (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) 上執行，以符合記憶體和磁碟需求。 設定 DSVM 之後，請使用下列兩個命令來準備遠端 Docker 環境：
+最好是在[適用於 Linux (Ubuntu) 的資料科學虛擬機器 (DSVM)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) 上執行，以符合記憶體和磁碟需求。 設定 DSVM 之後，請使用下列兩個命令來準備遠端 Docker 環境：
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

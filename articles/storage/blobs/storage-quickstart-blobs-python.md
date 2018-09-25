@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: a1994f00715e8b3fb8a207de85ca5e2a1fdc3131
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: f9e39a8630302111f4646e085872399c6def6ab2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399149"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974488"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入門：使用 Python 上傳、下載及列出 Blob
 
@@ -27,7 +27,7 @@ ms.locfileid: "39399149"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 本快速入門使用的[範例應用程式](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git)是基本的 Python 應用程式。  

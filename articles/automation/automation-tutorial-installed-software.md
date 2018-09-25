@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: cb876a8d8019f5a2a7232c3093c6f64a7b2730e1
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: d8fb8ca84f68e6e8c503375b3b2fae1ce1eb72ba
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053805"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989204"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>探索您的 Azure 電腦和非 Azure 電腦上安裝了哪些軟體
 
@@ -31,7 +31,7 @@ ms.locfileid: "34053805"
 > * 檢視已安裝的軟體
 > * 搜尋已安裝軟體的清查記錄
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 
@@ -113,7 +113,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-若要深入了解在 Log Analytics 中執行和搜尋記錄檔，請參閱 [Azure Log Analytics](https://docs.loganalytics.io/index)。
+若要深入了解在 Log Analytics 中執行和搜尋記錄檔，請參閱 [Azure Log Analytics](../log-analytics/log-analytics-queries.md)。
 
 ### <a name="single-machine-inventory"></a>單一電腦清查
 

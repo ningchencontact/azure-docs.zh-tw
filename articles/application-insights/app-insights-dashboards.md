@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 72859f68fc1bb76a6c71bbd7b98cd713f1f0fe02
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8161fda80b5fa498f9321371c9ad2c8a2d97441a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296395"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962414"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 入口網站中的導覽與儀表板
 [在您的專案上設定 Application Insights](app-insights-overview.md) 之後，有關應用程式效能和使用情況的遙測資料會出現在 [Azure 入口網站](https://portal.azure.com)之專案的 Application Insights 資源中。
@@ -63,7 +63,7 @@ ms.locfileid: "35296395"
 * 超過 24 小時的時間範圍：(時間範圍)/60
 
 ### <a name="pin-any-query-in-analytics"></a>在分析中釘選任何查詢
-您也可以[釘選分析](app-insights-analytics-using.md#pin-to-dashboard)圖表到[共用](#share-dashboards-with-your-team)儀表板。 這可讓您新增任意查詢以及標準度量的圖表。 
+您也可以[釘選分析](../log-analytics/query-language/get-started-analytics-portal.md)圖表到[共用](#share-dashboards-with-your-team)儀表板。 這可讓您新增任意查詢以及標準度量的圖表。 
 
 系統會每小時自動重新計算結果。 按一下圖表上的 [重新整理] 圖示，即可立即重新計算。 (瀏覽器重新整理並不會重新計算)。
 

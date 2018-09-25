@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 3f32c9048c4b2002e7672b46a4f39e86ffa7b98e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 934d37783165c2e57dcabd0ff764747e1ab4b65e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632749"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946849"
 ---
 # <a name="energy-demand-time-series-forecasting"></a>能源需求時間序列預測
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 
 時間序列預測這項工作可在按時間排序的觀察值序列中預測未來值。 這是常見的問題，且運用於許多產業中。 例如，零售公司需要預測未來的產品銷售，以便有效地組織其供應鏈來滿足需求。 同樣地，包裹遞送公司需要評估其服務的需求，以便事先規劃人力需求和遞送路線。 在許多情況下，預測失準的財務風險可能很明顯。 因此，預測通常是商務關鍵活動。
@@ -57,7 +62,7 @@ Azure Machine Learning Workbench 有助於每個步驟的模型化程序：
 ## <a name="prerequisites"></a>必要條件
 
 - [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
-- 遵循[快速入門安裝指南](../service/quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench。
+- 遵循[快速入門安裝指南](quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench。
 - 此範例假設您在 Windows 10 (已於本機安裝 [Docker 引擎](https://www.docker.com/)) 上執行 Azure ML Workbench。 如果您是使用 macOS，指示大致相同。
 - 隨著本機部署環境設定安裝的 Azure Machine Learning Operationalization，以及依本[指南](./model-management-configuration.md)所述建立的模型管理帳戶。
 - 這個範例要求您將 Pandas 安裝更新為 0.20.3 版或更新版本，並且安裝 matplotlib。 從 Workbench 的 [檔案] 功能表按一下 [開啟命令提示字元]，並執行下列命令來安裝這些相依性：

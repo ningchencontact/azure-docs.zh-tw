@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f7594b7d1eb7d41508be435cdd0a6203433727c1
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603051"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958544"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>在 Log Analytics 中撰寫進階查詢
 
@@ -32,7 +32,7 @@ ms.locfileid: "45603051"
 ## <a name="reusing-code-with-let"></a>透過 let 重複使用程式碼
 使用 `let` 來指派結果給變數，並稍後在查詢中使用該變數：
 
-```KQL
+```Kusto
 // get all events that have level 2 (indicates warning level)
 let warning_events=
 Event
@@ -44,7 +44,7 @@ warning_events
 
 您也可以將常數值指派給變數。 這支援一種方法，讓您針對每次執行查詢時都必須變更的欄位設定參數。 視需要修改那些參數。 例如，若要計算給定時段內的可用磁碟空間與可用記憶體 (以百分位數表示)：
 
-```KQL
+```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
 let endDate = datetime(2018-08-02T13:21:35);
 let FreeDiskSpace =
@@ -65,7 +65,7 @@ union FreeDiskSpace, FreeMemory
 ### <a name="local-functions-and-parameters"></a>區域函式與參數
 使用 `let` 陳述式來建立可在相同查詢中使用的函式。 例如，定義一個會取得日期時間欄位值 (國際標準時間 (UTC) 格式) 並將它轉換為標準美國格式的函式。 
 
-```KQL
+```Kusto
 let utc_to_us_date_format = (t:datetime)
 {
   strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
@@ -80,7 +80,7 @@ Event
 ## <a name="functions"></a>Functions
 您可以使用函式別名來儲存查詢，以便它可以由其他查詢參考。 例如，下列標準查詢會傳回過去一天內所回報的所有缺少的安全性更新：
 
-```KQL
+```Kusto
 Update
 | where TimeGenerated > ago(1d) 
 | where Classification == "Security Updates" 
@@ -89,7 +89,7 @@ Update
 
 您可以將此查詢另存為函式並為它指定別名，例如 _security_updates_last_day_。 接著，您可以在另一個查詢中使用它來搜尋必要 SQL 相關安全性更新：
 
-```KQL
+```Kusto
 security_updates_last_day | where Title contains "SQL"
 ```
 
@@ -102,7 +102,7 @@ security_updates_last_day | where Title contains "SQL"
 ## <a name="print"></a>列印
 `print` 將會傳回具有單欄與單列的表格，顯示計算的結果。 這通常用於需要簡單計算的案例。 例如，尋找太平洋標準時間 (PST) 的目前時間並加上美國東部標準時間 (EST) 欄：
 
-```KQL
+```Kusto
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
@@ -110,7 +110,7 @@ print nowPst = now()-8h
 ## <a name="datatable"></a>Datatable
 `datatable` 可讓您定義資料集合。 您可以提供結構描述與一組值，然後以管道方式將該表格傳送到另一個查詢元素。 例如，建立 RAM 使用狀況表並每小時計算其平均值：
 
-```KQL
+```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
 [
   "2018-06-02T15:15:46.3418323Z", 15.5,
@@ -127,7 +127,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 
 建立查閱表時，Datatable 建構也很實用。 若要將表格資料 (例如來自 _SecurityEvent_ 表格的事件識別碼) 對應到任意處列出的事件型別，請使用 `datatable` 建立具有事件型別的查閱表，並將此 Datatable 與 _SecurityEvent_ 資料聯結：
 
-```KQL
+```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
 [
     4625, "Account activity",

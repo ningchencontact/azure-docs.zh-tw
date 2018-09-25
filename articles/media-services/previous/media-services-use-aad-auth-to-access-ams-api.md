@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 08b7f50c3051c174158cff0b4c591a2b22fb4ab4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d6fe69588c44e489f37ad0908df569c2b5a4b96c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502697"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967807"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>使用 Azure AD 驗證存取 Azure 媒體服務 API
  
@@ -146,7 +146,7 @@ Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存�
 
 下列文章是 Azure AD 驗證概念的概觀： 
 
-- [Azure AD 的驗證案例](../../active-directory/develop/authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [Azure AD 的驗證案例](../../active-directory/develop/authentication-scenarios.md)
 - [在 Azure AD 新增、更新或移除應用程式](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [使用 PowerShell 設定及 管理角色型存取控制](../../role-based-access-control/role-assignments-powershell.md)
 

@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8533023a16cb350828127d0603e6add0876b37a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142335"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948844"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>使用 Team Data Science Process (TDSP) 專案進行所得分類
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="introduction"></a>簡介
 
@@ -55,7 +60,7 @@ ms.locfileid: "42142335"
 1. Azure [訂用帳戶](https://azure.microsoft.com)。 您也可取得[免費訂用帳戶](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg)來執行這個範例。
 2. [Azure 資料科學虛擬機器 (DSVM) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm)、(VM 大小：[DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)具有 4 個虛擬 CPU 和 14 Gb 的 RAM)。 雖然是在 Azure DSVM 上測試，但有可能在任何 Windows 10 電腦上運作。
 3. 檢閱 Azure Machine Learning 及其相關服務的說明文件 (請參閱下面的連結)。
-4. 確定您已正確安裝由[快速入門安裝指南](../service/quickstart-installation.md)所提供的 Azure Machine Learning。
+4. 確定您已正確安裝由[快速入門安裝指南](quickstart-installation.md)所提供的 Azure Machine Learning。
 
 此範例的資料集來自 UCI ML 存放庫 [[連結]](https://archive.ics.uci.edu/ml/datasets/adult)。 它取自 1994 年美國人口普查資料庫，包含大約 50,000 個人的人口普查和所得資訊。 這是具有數值和分類特徵的結構化資料集，以及包含兩個所得類別的分類目標 ('>50 K' 或 '<=50 K')。 
 
@@ -65,7 +70,7 @@ ms.locfileid: "42142335"
 ### <a name="informational-about-azure-machine-learning"></a>告知性：關於 Azure Machine Learning
 * [常見問題集 - 如何開始使用](frequently-asked-questions.md)
 * [概觀](../service/overview-what-is-azure-ml.md)
-* [安裝](../service/quickstart-installation.md)
+* [安裝](quickstart-installation.md)
 * [執行](experimentation-service-configuration.md)
 * [使用 TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [讀取和寫入檔案](how-to-read-write-files.md)
@@ -89,7 +94,7 @@ ms.locfileid: "42142335"
 ## <a name="data-description"></a>資料說明
 如需資料的詳細資訊，請參閱 UCI 存放庫中的[說明](https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names)。 
 
-此資料擷取自美國人口普查局資料庫：https://www.census.gov/en.html。 
+此資料擷取自美國人口普查局資料庫： https://www.census.gov/en.html。 
 
 
 * 共有 48,842 個執行個體 (篩選之前)、混合連續和離散 (訓練=32,561，測試=16,281)

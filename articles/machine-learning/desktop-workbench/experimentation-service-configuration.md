@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: e79817ffad139e0a3bcb0ba32b9bc6e5666319d0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c5084e548bbb72fa38aae8b60aa46fb4d462dca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632222"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990343"
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>設定 Azure Machine Learning 測試服務
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>概觀
 Azure Machine Learning 測試服務可讓資料科學家使用 Azure Machine Learning 執行和執行管理功能來執行其測試。 它提供的架構可透過快速反覆項目進行敏捷式實驗。 Azure Machine Learning Workbench 可讓您開始在電腦上使用本機執行，以及提供相應增加和相應放大到其他環境 (例如具有 GPU 的遠端資料科學 VM 或執行 Spark 的 HDInsight 叢集) 的簡單路徑。
@@ -325,5 +328,5 @@ az ml experiment prepare -c remotevm
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* [建立與安裝 Azure Machine Learning](../service/quickstart-installation.md)
+* [建立與安裝 Azure Machine Learning](quickstart-installation.md)
 * [模型管理](model-management-overview.md)

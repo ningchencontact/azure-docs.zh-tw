@@ -3,25 +3,21 @@ title: Azure CLI 指令碼範例 - 在 App Service 方案中建立函式應用�
 description: Azure CLI 指令碼範例 - 在 App Service 方案中建立函式應用程式
 services: functions
 documentationcenter: functions
-author: syntaxc4
-manager: cfowler
-editor: ''
-tags: azure-service-management
+author: ggailey777
+manager: jeconnoc
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: c12297075e967446572898b94d3abbcaf79f9e84
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 0f0c8bbca6c93f68627308762f99fb57c8f397cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989055"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946099"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>在 App Service 方案中建立函式應用程式
 
@@ -31,7 +27,7 @@ ms.locfileid: "38989055"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>範例指令碼
 

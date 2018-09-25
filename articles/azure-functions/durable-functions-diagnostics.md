@@ -3,23 +3,19 @@ title: 長期函式中的診斷 - Azure
 description: 了解如何在 Azure Functions 的「長期函式」延伸模組中實作診斷問題。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ce5acda7e2beca1f3d6367708d5b96a5275b2c7f
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 1ebca858632a64b5822658182a3b83c48f310164
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340690"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953022"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>長期函式中的診斷 (Azure Functions)
 
@@ -84,7 +80,7 @@ Azure Functions 長期延伸模組也會發出「追蹤事件」，可讓您追�
 
 ### <a name="single-instance-query"></a>單一執行個體查詢
 
-下列查詢顯示 [Hello Sequence](durable-functions-sequence.md) 函式協調流程之單一執行個體的歷史追蹤資料。 它是使用 [Application Insights 查詢語言 (AIQL)](https://docs.loganalytics.io/docs/Language-Reference) 寫入的。 它會篩選重新執行，以便僅顯示「邏輯」執行路徑。 您可以藉由排序 `timestamp` 和 `sequenceNumber` 來排序事件，如下列查詢中所示： 
+下列查詢顯示 [Hello Sequence](durable-functions-sequence.md) 函式協調流程之單一執行個體的歷史追蹤資料。 它是使用 [Application Insights 查詢語言 (AIQL)](https://aka.ms/LogAnalyticsLanguageReference) 寫入的。 它會篩選重新執行，以便僅顯示「邏輯」執行路徑。 您可以藉由排序 `timestamp` 和 `sequenceNumber` 來排序事件，如下列查詢中所示： 
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";

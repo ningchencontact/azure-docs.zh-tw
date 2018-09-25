@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364007"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984223"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>診斷虛擬機器網路流量篩選問題
 
@@ -111,7 +111,7 @@ NetworkInterfaces
 
 ## <a name="diagnose-using-azure-cli"></a>使用 Azure CLI 進行診斷
 
-如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本文需要 Azure CLI 2.0.32 版或更新的版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，還需要執行 `az login` 並使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
+如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本文需要 Azure CLI 2.0.32 版或更新的版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，還需要執行 `az login` 並使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
 
 使用 [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) 來取得網路介面的有效安全性規則。 下列範例會取得 *myResourceGroup* 資源群組中 *myVMVMNic* 網路介面的有效安全性規則：
 
@@ -175,7 +175,7 @@ az vm show \
 | 通訊協定                | TCP                                                                                |
 | 動作                  | 允許                                                                              |
 | 優先順序                | 100                                                                                |
-| Name                    | Allow-HTTP-All                                                                     |
+| 名稱                    | Allow-HTTP-All                                                                     |
 
 當您建立規則之後，系統就會允許從網際網路經由連接埠 80 進行輸入，因為該規則的優先順序高於名為 *DenyAllInBound* 且會拒絕該流量的預設安全性規則。 了解如何[建立安全性規則](manage-network-security-group.md#create-a-security-rule)。 如果有不同的 NSG 同時關聯至網路介面和子網路，您就必須在那兩個 NSG 中建立相同的規則。
 

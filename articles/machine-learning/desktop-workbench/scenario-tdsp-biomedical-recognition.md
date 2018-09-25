@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145562"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973757"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>使用 Team Data Science Process (TDSP) 範本的生物醫學實體辨識
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 實體擷取是資訊擷取的子工作 (也稱為[具名實體辨識 (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition)、實體區塊化與實體識別)。 此真實案例的目的在於強調如何使用 Azure Machine Learning Workbench 來解決複雜的自然語言處理 (NLP) 工作，例如從非結構化文字擷取實體：
 
@@ -95,7 +100,7 @@ ms.locfileid: "42145562"
 ## <a name="prerequisites"></a>必要條件 
 
 * Azure [訂用帳戶](https://azure.microsoft.com/free/)
-* Azure Machine Learning Workbench. 請參閱[安裝指南](../service/quickstart-installation.md)。 Azure Machine Learning Workbench 目前只能安裝在下列作業系統上： 
+* Azure Machine Learning Workbench. 請參閱[安裝指南](quickstart-installation.md)。 Azure Machine Learning Workbench 目前只能安裝在下列作業系統上： 
     * Windows 10 或 Windows Server 2016
     * macOS Sierra (或更新版本)
 
@@ -118,7 +123,7 @@ ms.locfileid: "42145562"
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Azure Machine Learning (AML) Workbench 的基本指示
 * [概觀](../service/overview-what-is-azure-ml.md)
-* [安裝](../service/quickstart-installation.md)
+* [安裝](quickstart-installation.md)
 * [使用 TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [如何讀取和寫入檔案](how-to-read-write-files.md)
 * [如何使用 Jupyter Notebook](how-to-use-jupyter-notebooks.md)

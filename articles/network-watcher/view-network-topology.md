@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35771126"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992197"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>檢視 Azure 虛擬網路的拓撲
 
@@ -52,7 +52,7 @@ ms.locfileid: "35771126"
 
 您可以在下列步驟中執行命令：
 - 在 Azure Cloud Shell 中，選取位於任何命令右上方的**試試看**。 Azure Cloud Shell 是一個免費的互動式殼層，具有預先安裝和設定的通用 Azure 工具，可與您的帳戶搭配使用。
-- 從您的電腦執行 CLI。 如果您從電腦執行 CLI，則必須要使用 Azure CLI 2.0.31 版或更新版本，才能執行本文中的步驟。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
+- 從您的電腦執行 CLI。 如果您從電腦執行 CLI，則必須要使用 Azure CLI 2.0.31 版或更新版本，才能執行本文中的步驟。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 您所使用的帳戶必須具有必要的[權限](required-rbac-permissions.md)。
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293634"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999684"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>設定 Application Insights：追蹤相依性
 「相依性」  是由應用程式呼叫的外部元件。 這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。 [Application Insights](app-insights-overview.md) 會測量您應用程式等待相依性所花費的時間，以及相依性呼叫失敗的頻率。 您可以調查特定的呼叫，然後將它們與要求和例外狀況建立關聯。
@@ -133,7 +133,7 @@ ms.locfileid: "35293634"
 ![按一下要求類型，按一下執行個體以取得同一個執行個體的不同檢視，按一下執行個體以取得例外狀況的詳細資料。](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>分析
-您可以在 [Log Analytics 查詢語言](https://docs.loganalytics.io/)中追蹤相依性。 以下是一些範例。
+您可以在 [Log Analytics 查詢語言](https://aka.ms/LogAnalyticsLanguage)中追蹤相依性。 以下是一些範例。
 
 * 尋找任何失敗的相依性呼叫：
 
