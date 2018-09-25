@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 9b0a7047cf7e5eab55c8a56acae42dd95fd61d94
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 88394d7da1aab52b752aee68de60e638d0c7e7f0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398065"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992757"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入門：使用 Ruby 上傳、下載及列出 Blob
 
@@ -31,7 +31,7 @@ gem install azure-storage-blob
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 本快速入門中使用的[範例應用程式](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git)是基本的 Ruby 應用程式。  

@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 4cf86466d5fca4f5095c67a8400643bff29bb56c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: a2867545e454e2b13360d87f5282e684753d6476
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633629"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994491"
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>針對服務部署和環境設定進行疑難排解
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 下列資訊可協助判斷在設定模型管理環境時的錯誤原因。
 
 ## <a name="model-management-environment"></a>模型管理環境

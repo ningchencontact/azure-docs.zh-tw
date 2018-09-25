@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 18692fe631a7e1349ead6bc68a87934e6d030913
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8158d6faee5ec4d28f0c7e16963fc3d78392b857
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633269"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978948"
 ---
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>如何設定 Azure Machine Learning Workbench 搭配 IDE 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Azure Machine Learning Workbench 可設定為搭配熱門的 Python IDE (整合式開發環境)。 它能夠在資料準備、程式碼撰寫、執行追蹤及作業化之間，提供順暢的資料科學開發體驗。 目前支援的 IDE 如下：
 - Microsoft Visual Studio Code 

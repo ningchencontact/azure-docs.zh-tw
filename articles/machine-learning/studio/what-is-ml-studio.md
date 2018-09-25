@@ -14,14 +14,14 @@ ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 9911d56807a95a5f8199cecdff13ad06497fb33e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cfe7f1dd932da45ae057b73817acd6bc4f859edd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836948"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989833"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什麼是 Azure Machine Learning Studio？
 Microsoft Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 Machine Learning Studio 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125170"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948004"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>在 Azure Logic Apps 中監視 B2B 訊息並設定整合帳戶的診斷記錄
 
@@ -32,7 +32,7 @@ ms.locfileid: "43125170"
 
 ## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>開啟整合帳戶的診斷記錄
 
-您可以直接從整合帳戶或[透過 Azure 監視器服務](#azure-monitor-service)來開啟記錄。 Azure 監視器提供基礎結構層級資料的基本監視。 深入了解 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)。
+您可以直接從整合帳戶或[透過 Azure 監視器服務](#azure-monitor-service)來開啟記錄。 Azure 監視器提供基礎結構層級資料的基本監視。 深入了解 [Azure 監視器](../azure-monitor/overview.md)。
 
 ### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>直接從整合帳戶開啟診斷記錄
 

@@ -3,8 +3,8 @@ title: 使用 PowerShell 管理 Azure CDN | Microsoft Docs
 description: 了解如何使用 Azure PowerShell Cmdlet 管理 Azure CDN。
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
-ms.author: mazha
-ms.openlocfilehash: 15feb7b1d2873bc3f088eaad78079df2e063d73b
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.date: 09/13/2018
+ms.author: magattus
+ms.openlocfilehash: d6a67bef831028426dec660a1c79feb4ab9340d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114067"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957705"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>使用 PowerShell 管理 Azure CDN
 PowerShell 提供一種最具彈性的方法，以管理您的 Azure CDN 設定檔和端點。  您可以用互動方式使用 PowerShell 或透過撰寫指令碼來自動進行管理工作。  本教學課程會示範數個您可透過 PowerShell 完成的最常見工作，以管理 Azure CDN 設定檔和端點。
@@ -144,10 +144,8 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 - Premium_Verizon
 - Custom_Verizon
 - Standard_Akamai
+- Standard_Microsoft
 - Standard_ChinaCdn
-
-> [!NOTE]
-> 不支援目前為預覽狀態的 Standard_Microsoft SKU。
 
 ```powershell
 # Create a new profile

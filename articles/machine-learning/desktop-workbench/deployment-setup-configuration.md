@@ -11,14 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: 150114184f6f04f22aa9da409758daa6a0d175b5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 84068376f35bc4df6672cffcc0ac3438b12edbb5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368496"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979670"
 ---
 # <a name="model-management-setup"></a>模型管理安裝
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 本文件可讓您開始使用 Azure ML 模型管理部署機器學習模型作為 Web 服務並進行管理。 
 

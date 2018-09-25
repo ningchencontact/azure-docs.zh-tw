@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: e172b9d6a59f14f741a09450d31602b0d2d9ee5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 66c3da4f14141bdb5c357dbabfaec5dabf0ab521
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412622"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971372"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>適用於 Linux 的虛擬機器擴充功能和功能
 
@@ -83,7 +83,7 @@ Azure 虛擬機器擴充功能可以在現有的虛擬機器上執行，這在�
 
 下列方法可用來針對現有的虛擬機器執行擴充功能。
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Azure 虛擬機器擴充功能可以透過 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 命令，針對現有的虛擬機器執行。 下列範例會針對名為 *myResourceGroup*的資源群組中、名為 *myVM* 的虛擬機器，執行「自訂指令碼」擴充功能：
 

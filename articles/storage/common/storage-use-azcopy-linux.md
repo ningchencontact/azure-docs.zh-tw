@@ -8,19 +8,18 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: d674b0a6a16e22ed06577f7306ed6f4b9755dd0e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: d441176c55ceb75c3f44df90224647ded802aeb6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141472"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986624"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 AzCopy on Linux 傳送資料
 
 AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的簡單命令來將資料複製到/複製出 Microsoft Azure Blob 和檔案儲存體所設計。 您可以在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。  
 
-有兩個 AzCopy 版本可供您下載。 Linux 上的 AzCopy 以 Linux 平台為目標，提供 POSIX 樣式的命令列選項。 
-  [Windows 上的 AzCopy](../storage-use-azcopy.md) 提供了 Windows 樣式的命令列選項。 本文涵蓋之內容包括 AzCopy on Linux。 
+有兩個 AzCopy 版本可供您下載。 Linux 上的 AzCopy 以 Linux 平台為目標，提供 POSIX 樣式的命令列選項。 [Windows 上的 AzCopy](../storage-use-azcopy.md) 提供了 Windows 樣式的命令列選項。 本文涵蓋之內容包括 AzCopy on Linux。 
 
 > [!NOTE]  
 > 從 AzCopy 7.2 版開始，.NET Core 相依項目會與 AzCopy 套件一起封裝。 如果您使用 7.2 版本或更新版本，您不再需要安裝作為先決條件的 .NET Core。
@@ -707,7 +706,7 @@ azcopy \
 * [Azure 儲存體簡介](../storage-introduction.md)
 * [建立儲存體帳戶](../storage-create-storage-account.md)
 * [使用儲存體總管來管理 Blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) \(英文\)
-* [使用 Azure CLI 2.0 搭配 Azure 儲存體](../storage-azure-cli.md)
+* [使用 Azure CLI 搭配 Azure 儲存體](../storage-azure-cli.md)
 * [如何使用 C++ 的 Blob 儲存體](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [如何使用 Java 的 Blob 儲存體](../blobs/storage-java-how-to-use-blob-storage.md)
 * [如何使用 Node.js 的 Blob 儲存體](../blobs/storage-nodejs-how-to-use-blob-storage.md)
