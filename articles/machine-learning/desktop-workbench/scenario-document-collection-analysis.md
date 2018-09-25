@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861104"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947212"
 ---
 # <a name="document-collection-analysis"></a>文件集合分析
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 此案例示範如何摘要及分析大型文件集合，包括片語學習、主題模型化，以及使用 Azure ML Workbench 的主題模型分析等技術。 Azure Machine Learning Workbench 為非常大型的文件集合提供簡單的相應增加功能，並提供一些機制來訓練及調整各種計算內容中的模型，範圍從本機計算到資料科學虛擬機器以至 Spark 叢集。 透過 Azure Machine Learning Workbench 內的 Jupyter Notebook 提供簡易的開發。
 
@@ -56,11 +61,11 @@ ms.locfileid: "37861104"
 
 1. 主題趨勢和異常偵測
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 要執行此範例所需符合的必要條件如下：
 
-* 確定您已依照[安裝和建立快速入門](../service/quickstart-installation.md)，正確地安裝 [Azure Machine Learing Workbench](../service/overview-what-is-azure-ml.md)。
+* 確定您已依照[安裝和建立快速入門](quickstart-installation.md)，正確地安裝 [Azure Machine Learing Workbench](../service/overview-what-is-azure-ml.md)。
 
 * 此範例可在任何計算環境中執行。 不過，建議將它執行於多核心機器上，且該機器至少有 16 GB 的記憶體和 5 GB 的磁碟空間。
 
@@ -90,12 +95,12 @@ ms.locfileid: "37861104"
 | `ID` | 字串 | 法案/決議案的識別碼。 此欄位的格式為 [bill_type][number]-[congress]。 例如，"hconres1-93" 表示法案類型為 "hconres" (代表 House Concurrent Resolution，請參閱[本文件](https://github.com/unitedstates/congress/wiki/bills#basic-information))，法案編號為 '1' 且國會屆次為 '93'。 | 否 |
 | `Text` | 字串 | 法案/決議案的內容。 | 否 |
 | `Date` | 字串 | 法案/決議案的最初提案日期。 格式為 'yyyy-mm-dd'。 | 否 |
-| `SponsorName` | 字串 | 提議法案/決議案的主要發起人名稱。 | yes |
-| `Type` | 字串 | 主要發起人的頭銜類型，'rep' (議員) 或 'sen' (參議員)。 | yes |
-| `State` | 字串 | 主要發起人的州別。 | yes |
-| `District` | 整數  | 主要發起人的轄區編號 (如果發起人的頭銜是議員的話)。 | yes |
-| `Party` | 字串 | 主要發起人的黨派。 | yes |
-| `Subjects` | 字串 | 由國會圖書館累積新增至法案的主題字詞。 字詞會以逗號串連。 這些字詞是由國會圖書館人員所轉寫，在首度發佈法案資訊時通常不存在。 可隨時加以新增。 因此，在法案的生命週期結束前，某些主題可能不再相關。 | yes |
+| `SponsorName` | 字串 | 提議法案/決議案的主要發起人名稱。 | 是 |
+| `Type` | 字串 | 主要發起人的頭銜類型，'rep' (議員) 或 'sen' (參議員)。 | 是 |
+| `State` | 字串 | 主要發起人的州別。 | 是 |
+| `District` | 整數  | 主要發起人的轄區編號 (如果發起人的頭銜是議員的話)。 | 是 |
+| `Party` | 字串 | 主要發起人的黨派。 | 是 |
+| `Subjects` | 字串 | 由國會圖書館累積新增至法案的主題字詞。 字詞會以逗號串連。 這些字詞是由國會圖書館人員所轉寫，在首度發佈法案資訊時通常不存在。 可隨時加以新增。 因此，在法案的生命週期結束前，某些主題可能不再相關。 | 是 |
 
 ## <a name="scenario-structure"></a>案例結構
 

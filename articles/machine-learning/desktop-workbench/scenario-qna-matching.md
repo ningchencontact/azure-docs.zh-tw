@@ -3,27 +3,28 @@ title: 使用 Azure Machine Learning Workbench 的問與答比對 | Microsoft Do
 description: 如何使用各種有效的機器學習方法，來比對開放式查詢與既存的常見問題集問/答組合。
 services: machine-learning
 documentationcenter: ''
-author: mezmicrosoft
-editor: mezmicrosoft
-ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: rastala
+ms.author: roastala
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: mez
-manager: tihazen
-ms.openlocfilehash: 3695657d819f52ef04468a0f1a44828403c65373
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: e0f6148e1fb28838bf99c63fbfbfbfe8cd127c8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835095"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973196"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的問與答比對
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 開放式問題不容易回答，因此通常需要由主題專家 (SME) 親自回覆。 為了減少對於內部 SME 的需求，各家公司通常會建立常見問題集 (FAQ) 清單來協助使用者。 此範例會展示各種有效的機器學習方法，以供您比對開放式查詢與既存的常見問題集問/答組合。 此範例會示範簡單的開發程序，讓您了解如何使用 Azure Machine Learning Workbench 來建置這類解決方案。 
 
 ## <a name="link-to-the-gallery-github-repository"></a>連結至資源庫 GitHub 存放庫
@@ -41,12 +42,12 @@ ms.locfileid: "34835095"
 4. 訓練文字分類模型，並評估模型的效能。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 要執行此範例所需符合的必要條件如下：
 
 1. [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
-2. 遵循[快速入門安裝指南](../service/quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench。
+2. 遵循[快速入門安裝指南](quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench。
 3. 此範例可在任何計算環境中執行。 不過，建議將它執行於多核心機器上，且該機器至少有 16 GB 的記憶體和 5 GB 的磁碟空間。
 
 ## <a name="create-a-new-workbench-project"></a>建立新的 Workbench 專案

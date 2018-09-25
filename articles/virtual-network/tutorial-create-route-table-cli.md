@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 3217524ccfd03184a93a4e6637696195b3f0bf16
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 9b7e66e6789c1f24bbd784c9c3533ee2e2d678dc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144207"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981418"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>使用 Azure CLI 以路由表路由網路流量
 
@@ -40,7 +40,7 @@ Azure 依預設會自動路由虛擬網路內所有子網路之間的流量。 �
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.28 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.28 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
 
 ## <a name="create-a-route-table"></a>建立路由表
 

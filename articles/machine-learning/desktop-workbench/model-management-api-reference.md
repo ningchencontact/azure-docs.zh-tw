@@ -13,14 +13,17 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07f8a31244acca48a0bbae8ad26b0c5b509f0c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633315"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959575"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning 模型管理帳戶 API 參考
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 如需設定部署環境的詳細資訊，請參閱[模型管理帳戶設定](deployment-setup-configuration.md)。
 
@@ -34,7 +37,7 @@ Azure Machine Learning 模型管理帳戶 API 可實作下列作業：
 您可以使用此映像，在本機或在遠端 Azure Container Service 叢集或您選擇的另一個 Docker 支援的環境中建立 Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
-確定您已完成[安裝和建立快速入門](../service/quickstart-installation.md)文件中的安裝步驟。
+確定您已完成[安裝和建立快速入門](quickstart-installation.md)文件中的安裝步驟。
 
 您必須先完成下列，才能繼續：
 1. 佈建模型管理帳戶

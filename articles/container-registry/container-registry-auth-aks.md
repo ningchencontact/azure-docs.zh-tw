@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: b56f2a8b2ae8cf04b8c27ab657be3f4d77ee7402
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: c9ade4d61a1b95d5041a13f9436f0d02a7951758
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205386"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981642"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 
@@ -21,7 +21,7 @@ ms.locfileid: "39205386"
 
 ## <a name="grant-aks-access-to-acr"></a>將 AKS 存取權授與 ACR
 
-當您建立 AKS 叢集時，Azure 也會建立服務主體來支援其他 Azure 資源的叢集可操作性。 您可以使用此自動產生的服務主體，向 ACR 登錄進行驗證。 若要這麼做，您需要建立 Azure AD [角色指派](../role-based-access-control/overview.md#role-assignment)，授與叢集的服務主體對容器登錄的存取權。
+當您建立 AKS 叢集時，Azure 也會建立服務主體來支援其他 Azure 資源的叢集可操作性。 您可以使用此自動產生的服務主體，向 ACR 登錄進行驗證。 若要這麼做，您需要建立 Azure AD [角色指派](../role-based-access-control/overview.md#role-assignments)，授與叢集的服務主體對容器登錄的存取權。
 
 使用以下指令碼，將 AKS 產生的服務主體存取權授與 Azure Container Registry。 請先為您的環境修改 `AKS_*` 和 `ACR_*` 變數，然後再執行指令碼。
 
@@ -72,7 +72,7 @@ echo "Service principal password: $SP_PASSWD"
 
 您現在可以將服務主體認證儲存在 Kubernetes [映像提取密碼][image-pull-secret]中，而且您的 AKS 叢集會在執行容器時予以參考。
 
-使用下列 **kubectl** 命令以建立 Kubernetes 密碼。 將 `<acr-login-server>` 取代為 Azure 容器登錄的完整格式名稱 (其格式為「acrname.azurecr.io」)。 將 `<service-principal-ID>` 和 `<service-principal-password>` 取代為執行先前指令碼獲取的值。
+使用下列 **kubectl** 命令以建立 Kubernetes 密碼。 將 `<acr-login-server>` 取代為 Azure 容器登錄的完整格式名稱 (其格式為「acrname.azurecr.io」)。 將 `<service-principal-ID>` 和 `<service-principal-password>` 取代為執行先前指令碼獲取的值。 以任何正確格式的電子郵件地址取代 `<email-address>`。
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>

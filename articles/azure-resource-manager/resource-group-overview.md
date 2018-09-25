@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d04625fe78c423c995460afa29a81d96c6ce9cfb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337968"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969286"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 Azure Resource Manager 可讓您將方案中的資源作為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。 
@@ -183,7 +183,7 @@ Resource Manager 提供標記的功能，可讓您根據管理或計費需求將
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-或是下列 Azure CLI 2.0 命令：
+或是下列 Azure CLI 命令：
 
 ```azurecli
 az resource list --tag costCenter=Finance

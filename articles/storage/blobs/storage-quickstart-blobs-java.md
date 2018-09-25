@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 7fc5b164792907644a0a41615436806f998a8b1e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 690b527f11fc47260635a09af6f9b4db97b42a7a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398704"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964868"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>快速入門：使用 Java SDK V7 上傳、下載及列出 Blob
 
@@ -31,7 +31,7 @@ ms.locfileid: "39398704"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 
@@ -208,7 +208,7 @@ sourceFile.deleteOnExit();
 
 > [!div class="nextstepaction"]
 > [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java) 
-> [API 參考](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-stable)
+> [API 參考](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 > [Java 的程式碼範例](../common/storage-samples-java.md)
 
 * 如需儲存體總管和 Blob 的詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。

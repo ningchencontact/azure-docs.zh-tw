@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: ff9929d8f2da66b8aa24160c321c9158c832dbc0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: bf2116d7fc143e66309e3bbbdefc50bfa33f1521
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815180"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974556"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>使用 Ansible 在 Azure 中建立 Linux 虛擬機器
 使用宣告式語言時，Ansible 可讓您透過 Ansible *腳本*自動建立、設定及部署 Azure 資源。 本文的各節將分別顯示 Ansible 腳本的各個區段在建立及設定 Linux 虛擬機器的不同層面時所呈現的樣貌。 [完整 Ansible 腳本](#complete-sample-ansible-playbook)會列在本文結尾處。

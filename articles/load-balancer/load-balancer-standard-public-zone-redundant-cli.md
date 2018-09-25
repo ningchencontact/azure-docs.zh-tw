@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: dbefe5324acb699abb0e06b8f3f464a91a6fa2e2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc8a0228c9b2a0c2ab54bc14dc911698593ba691
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431125"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948531"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>使用 Azure CLI 來進行跨所有可用性區域的 VM 負載平衡
 
@@ -32,7 +32,7 @@ ms.locfileid: "39431125"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.17 版或更新版本。  若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.17 版或更新版本。  若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 > [!NOTE]
 > 針對精選的 Azure 資源和區域及 VM 大小系列有提供「可用性區域」支援。 如需如何開始使用，以及有哪些 Azure 資源、區域和 VM 大小系列可供用來試用可用性區域，請參閱[可用性區域概觀](https://docs.microsoft.com/azure/availability-zones/az-overview)。 如需支援，您可以透過 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) 與我們聯繫或[開啟 Azure 支援票證](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  

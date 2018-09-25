@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 5fe292b92557b4786d638ac21c7adb1f50566feb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3edf49484e5bc05a297b8d8969632fb902aa1714
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633873"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953730"
 ---
 # <a name="split-column-by-example-transformation"></a>分割資料行實例化轉換
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 這項轉換可預測性地將資料列的內容分割為有意義的界限，而不需要使用者輸入。 分割演算法會在分析資料行的內容之後選取界限。 您可以透過下列定義這些界限：
 * 固定的分隔符號、
 * 特殊內容中出現的多個任意分隔符號；或是，
@@ -182,4 +187,4 @@ ms.locfileid: "35633873"
 
 ## <a name="technical-notes"></a>技術說明
 
-分割轉換功能是以**預測程式合成**技術為基礎。 在此技術中，會根據輸入資料自動學習資料轉換程式。 程式是利用網域特定語言合成。 DSL 是以特定規則運算式內容中出現的分隔符號和欄位為基礎。 有關此技術的詳細資訊可以在[本主題最新發佈](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/)中找到。 
+分割轉換功能是以**預測程式合成**技術為基礎。 在此技術中，會根據輸入資料自動學習資料轉換程式。 程式是利用網域特定語言合成。 DSL 是以特定規則運算式內容中出現的分隔符號和欄位為基礎。 有關此技術的詳細資訊可以在[本主題最新發佈](https://www.microsoft.com/research/publication/automated-data-extraction-using-predictive-program-synthesis/)中找到。 

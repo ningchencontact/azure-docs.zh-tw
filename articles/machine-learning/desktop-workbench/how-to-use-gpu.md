@@ -11,18 +11,22 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: f3b6c4f6af14615511400650662fe7a350c172ba
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8e8944a9bdfa2b75f6442e03d45dfb6977c2a122
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146401"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974352"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>如何在 Azure Machine Learning 中使用 GPU
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 圖形處理器 (GPU) 廣泛用於處理需進行大量運算的工作，因此適用於針對特定深度類神經網路的定型處理工作。 透過使用 GPU，您將能大幅降低模型的定型時間。 在本文件中，您將了解如何設定 Azure ML Workbench，以使用配備 GPU 的 [DSVM (資料科學虛擬機器)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) \(英文\) 作為執行目標。 
 
 ## <a name="prerequisites"></a>必要條件
-- 若要逐步執行本作法指南，您需要先[安裝 Azure ML Workbench](../service/quickstart-installation.md)。
+- 若要逐步執行本作法指南，您需要先[安裝 Azure ML Workbench](quickstart-installation.md)。
 - 您需要能夠存取配備 NVidia GPU 的電腦。
     - 您可以直接在具有 GPU 的本機電腦 (Windows 或 macOS) 上執行指令碼。
     - 您也可以在具 GPU 的 Linux 電腦上的 Docker 容器中執行指令碼。
@@ -86,7 +90,7 @@ C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "m
 ### <a name="configure-azure-ml-workbench-to-access-gpu"></a>設定 Azure ML Workbench 以存取 GPU
 返回專案並開啟 [檔案檢視]，然後點擊 [重新整理] 按鈕。 現在您會看到兩個新的設定檔：`my_dsvm.compute` 和 `my_dsvm.runconfig`。
  
-開啟 `my_dsvm.compute`。 將 `baseDockerImage` 變更為 `microsoft/mmlspark:plus-gpu-0.7.9`，並加入新的一行 `nvidiaDocker: true`。 如此一來，檔案應含有下列這兩行：
+開啟 `my_dsvm.compute`。 將 `baseDockerImage` 變更為 `microsoft/mmlspark:plus-gpu-0.9.9`，並加入新的一行 `nvidiaDocker: true`。 如此一來，檔案應含有下列這兩行：
  
 ```yaml
 ...
