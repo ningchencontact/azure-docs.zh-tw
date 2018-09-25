@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437643"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978330"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>檢視活動記錄檔中的各種 RBAC 變更
 
@@ -125,7 +125,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
    ![入口網站中的 [Log Analytics] 選項](./media/change-history-report/azure-log-analytics-option.png)
 
-1. 選擇性使用 [記錄搜尋](../log-analytics/log-analytics-log-search.md) 頁面或[進階分析入口網站](https://docs.loganalytics.io/docs/Learn)來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../log-analytics/log-analytics-log-search-portals.md)。
+1. 選擇性使用 [記錄搜尋](../log-analytics/log-analytics-log-search.md) 頁面或 [進階分析入口網站](../log-analytics/query-language/get-started-analytics-portal.md) 來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../log-analytics/log-analytics-log-search-portals.md)。
 
 以下查詢會傳回由目標資源提供者所組織的新角色指派：
 

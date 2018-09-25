@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 883e3d2c5945a38c8fbca5c9f0f5e8a1e4093be1
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633610"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968708"
 ---
 # <a name="model-management-setup"></a>模型管理安裝
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="overview"></a>概觀
 本文件可讓您開始使用 Azure ML 模型管理部署機器學習模型作為 Web 服務並進行管理。 
@@ -32,7 +37,7 @@ ms.locfileid: "35633610"
 CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 上。
 
 ## <a name="using-the-cli"></a>使用 CLI
-若要從 Workbench 使用命令列介面 (CLI)，請按一下 [檔案] -] [開啟命令列介面]。 
+若要從 Workbench 使用命令列介面 (CLI)，請按一下 [檔案] -] 開啟命令列介面。 
 
 在資料科學虛擬機器上，連接並開啟命令提示字元。 輸入 `az ml -h` 查看選項。 如需有關命令的詳細資訊，請使用 --help 旗標。
 
