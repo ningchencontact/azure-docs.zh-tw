@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 599302cbf614f800d35a9a8c6a401c9692fc2e39
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ROBOTS: NOINDEX
+ms.openlocfilehash: 29f5c5efb78e85e265b56cba9ba20daa123d334e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268275"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961037"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>教學課程：建立自訂語言模型
 
@@ -28,7 +29,7 @@ ms.locfileid: "36268275"
 
 如果您沒有認知服務帳戶，請在開始前建立[免費帳戶](https://cris.ai)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開啟[認知服務訂用帳戶](https://cris.ai/Subscriptions)頁面，確任您的認知服務帳戶已連線到訂用帳戶。
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 764c43a382442096a5d130334e54afdc135ba419
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603668"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966670"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Log Analytics 查詢中的彙總
 
@@ -37,13 +37,13 @@ ms.locfileid: "45603668"
 計算套用任何篩選之後結果集中的列數。 下列範例會傳回過去 30 分鐘內 _Perf_ 表中的總列數。 除非您指定特定欄名，否則結果會以名為 *count_* 的欄傳回：
 
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -51,7 +51,7 @@ Perf
 
 查看一段時間的趨勢時，時間表視覺效果很實用：
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -66,7 +66,7 @@ Perf
 ### <a name="dcount-dcountif"></a>dcount, dcountif
 使用 `dcount` 與 `dcountif` 來計算特定欄中的相異值。 下列查詢會評估過去一小時內傳送活動訊號的相異電腦數：
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -74,7 +74,7 @@ Heartbeat
 
 若只要計算傳送活動訊號的 Linux 電腦數，請使用 `dcountif`：
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -83,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>評估子群組
 若要為您資料中的子群組執行計算或其他彙總，請使用 `by` 關鍵字。 例如，若要計算在每個國家/地區傳送活動訊號的相異 Linux 電腦數目：
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -100,7 +100,7 @@ Heartbeat
 
 若要分析更小的資料子群組，請將額外欄名加到 `by` 區段。 例如，您可能想要計算每個國家/地區依 OSType 的相異電腦數：
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -112,7 +112,7 @@ Heartbeat
 ### <a name="percentile"></a>百分位數
 若要尋找中位數，請使用 `percentile` 函式搭配值來指定百分位數：
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -121,7 +121,7 @@ Perf
 
 您也可以指定不同的百分位數來取得每個值的彙總結果：
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -133,7 +133,7 @@ Perf
 ### <a name="variance"></a>Variance
 若要直接評估值的變異數，請使用標準差與變異數方法：
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -142,7 +142,7 @@ Perf
 
 分析 CPU 使用狀況穩定性的一個好方式是結合 stdev 與中位數計算：
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

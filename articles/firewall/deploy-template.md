@@ -8,18 +8,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: 1a732e22d72c36afe11030e42bae529baa35df1a
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d32e6e29c287d140c28206743e36dc025b26158b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992259"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991329"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>使用範本部署 Azure 防火牆
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Azure 防火牆文件中的範例假設您已啟用 Azure 防火牆公開預覽。 如需詳細資訊，請參閱[啟用 Azure 防火牆公用預覽](public-preview.md)。
 
 此範本會建立防火牆和測試網路環境。 網路有一個 VNet，包含三個子網路：AzureFirewallSubnet、ServersSubnet 及 JumpboxSubnet。 ServersSubnet 和 JumpboxSubnet 中各有一個 2 核心 Windows Server。
 

@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91f75fdbe7bc7c66bbe581e9d4b295467acd4cd5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504510"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989663"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>如何讓原生用戶端應用程式與 Proxy 應用程式互動
 
@@ -30,7 +30,7 @@ ms.locfileid: "39504510"
 
 ![使用者、Azure Active Directory 和已發佈應用程式之間的關係](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-請使用 Azure AD 驗證程式庫來發佈原生應用程式，該程式庫會處理驗證並支援許多用戶端環境。 應用程式 Proxy 融入 [原生應用程式到 Web API 案例](../develop/authentication-scenarios.md#native-application-to-web-api)。 
+請使用 Azure AD 驗證程式庫來發佈原生應用程式，該程式庫會處理驗證並支援許多用戶端環境。 應用程式 Proxy 融入 [原生應用程式到 Web API 案例](../develop/native-app.md)。 
 
 本文引導您完成使用應用程式 Proxy 和 Azure AD 驗證程式庫發佈原生應用程式的四個步驟。 
 
@@ -96,6 +96,6 @@ HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需原生應用程式流程的詳細資訊，請參閱[原生應用程式到 Web API](../develop/authentication-scenarios.md#native-application-to-web-api)。
+如需原生應用程式流程的詳細資訊，請參閱[原生應用程式到 Web API](../develop/native-app.md)。
 
 深入了解設定[應用程式 Proxy 的單一登入](application-proxy-single-sign-on.md)
