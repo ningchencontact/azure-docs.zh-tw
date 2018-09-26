@@ -36,6 +36,14 @@ items:
     href: azure-stack-subscribe-services.md
   - name: 從範本建立虛擬機器
     href: azure-stack-create-vm-template.md
+  - name: 建立邊緣機器學習解決方案
+    href: azure-stack-solution-machine-learning.md
+  - name: 建立暫存資料分析解決方案
+    href: azure-stack-solution-staged-data-analytics.md
+  - name: 使用 Azure 建立跨雲端縮放解決方案
+    href: azure-stack-solution-cloud-burst.md
+  - name: 建立地理位置分散的應用程式解決方案
+    href: azure-stack-solution-geo-distributed.md
 - name: 使用說明指南
   items:
   - name: 使用 Azure Stack 入口網站
@@ -138,9 +146,11 @@ items:
       - name: 使用 API 版本設定檔
         href: azure-stack-version-profiles.md
         items:
+        - name: .NET
+          href: azure-stack-version-profiles-net.md
         - name: PowerShell
           href: azure-stack-version-profiles-powershell.md
-        - name: Azure CLI 2.0
+        - name: Azure CLI
           href: azure-stack-version-profiles-azurecli2.md
         - name: GO
           href: azure-stack-version-profiles-go.md
@@ -196,9 +206,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 訓練與憑證
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 56bcdb6606c09c7d81d52a44e6e36f7900ec82e9
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c4571c10617033cdfec2e89e0dc0fe124ec515a2
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366891"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181094"

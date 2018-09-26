@@ -1,36 +1,63 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bec19b959aa2ce99a7237894a50c49666341827b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 81b8d6652c3c642ae761ee8971646864a3eb6330
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42440133"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182258"
 documentType: LandingData
-title: 語音服務和 SDK (預覽)
+title: 語音服務 SDK 文件
 metadata:
-  title: 語音服務文件 - 教學課程、快速入門、API 參考 - 認知服務 | Microsoft Docs
+  title: 語音服務 SDK 文件 - 教學課程、快速入門、API 參考 - 認知服務 | Microsoft Docs
   meta.description: >
     The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
 
     Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: nitinme
+  manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
   ms.component: speech-service
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/16/2018
-  ms.author: nolachar
+  ms.date: 09/24/2018
+  ms.author: nitinme
 abstract:
-  description: >
-    透過我們的語音 SDK，<a href="overview">語音服務</a>可以協助開發人員在應用程式中新增具備語音服務的功能。
-
-    這些功能包括：<i>語音轉換文字</i> (語音辨識/SR)、<i>意圖</i>、<i>轉譯</i>以及<i>文字轉換語音</i> (TTS) 等。
+  description: 了解如何使用語音服務與語音 SDK 將支援語音的功能新增到您的應用程式。 您可以使用與 SDK 來新增「語音轉換文字」<i></i>(語音辨識/SR)、意圖<i></i>、翻譯<i></i>與文字轉換語音<i></i> (TTS) 功能到您的應用程式。 語音服務也具有適用於任何程式設計語言的 REST API，可用來提出 HTTP 要求。
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/speech-landing-page-video.png
+      width: 250
+    title: 語音服務概觀 (10:34)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-overview-of-advanced-speech-capabilities/
+    width: 250
 sections:
-- title: 5 分鐘下載 SDK 和快速入門
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/speech-service/overview
+      html: <p>了解 Azure 語音服務。</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: 語音服務是什麼？
+    - href: /azure/cognitive-services/speech-service/get-started
+      html: <p>了解如何免費註冊語音服務。</p>
+      image:
+        src: ../media/index/i_get-started.svg
+      title: 註冊語音服務
+    - href: /azure/cognitive-services/speech-service/speech-devices-sdk
+      html: <p>了解支援語音功能的硬體參考。</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 語音裝置 SDK
+- title: 5 分鐘快速入門
   items:
   - type: paragraph
     text: 按一下下方所需項目的箭頭連結，了解如何下載、安裝及使用 <img src="media/index/link.jpg" height="15" width="15"></img> 。
@@ -48,6 +75,10 @@ sections:
     - image:
         src: media/index/logo_java.jpg
     - image:
+        src: media/index/logo_objc.jpg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
         src: media/index/logo_rest_sr.svg
     - image:
         src: media/index/logo_rest_tts.svg
@@ -61,12 +92,16 @@ sections:
       - href: quickstart-java-jre
       - href: 
       - href: 
+      - href: 
+      - href: 
     - title: Windows 10 (x86)
       values:
       - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
       - href: quickstart-cpp-windows
       - href: quickstart-csharp-dotnetcore-windows
+      - href: 
+      - href: 
       - href: 
       - href: 
       - href: 
@@ -79,11 +114,15 @@ sections:
       - href: quickstart-java-jre
       - href: 
       - href: 
+      - href: 
+      - href: 
     - title: Linux (x86)
       values:
       - href: 
       - href: 
       - href: quickstart-cpp-linux
+      - href: 
+      - href: 
       - href: 
       - href: 
       - href: 
@@ -97,6 +136,8 @@ sections:
       - href: quickstart-java-android
       - href: 
       - href: 
+      - href: 
+      - href: 
     - title: 裝置 SDK (ARM64)
       values:
       - href: 
@@ -106,6 +147,19 @@ sections:
       - href: speech-devices-sdk
       - href: 
       - href: 
+      - href: 
+      - href: 
+    - title: iOS (ARM64)
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: quickstart-objectivec-ios
+      - href: 
+      - href: 
+      - href: 
     - title: Web
       values:
       - href: 
@@ -113,49 +167,51 @@ sections:
       - href: 
       - href: 
       - href: 
+      - href: 
+      - href: quickstart-js-browser
       - href: rest-apis
       - href: rest-apis
-- title: 語音 SDK 範例與參考
+- title: 逐步教學課程
+  items:
+  - type: paragraph
+    text: 了解如何使用語音服務開發應用程式：
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="speech-to-text-sample.md">語音轉換文字 (SR)</a><br/>
+    - html: <a href="intent.md">意圖辨識</a><br/>
+    - html: <a href="translation.md">翻譯</a>
+- title: 範例
+  items:
+  - type: paragraph
+    text: 在 Github 上尋找語音服務範例：
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">服務 SDK 範例</a><br/>
+    - html: <a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">裝置 SDK 範例</a><br/>
+- title: 參考
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: 範例
+    - title: SDK 參考
       html: >
-        &nbsp;&#8226; <a href="speech-to-text-sample.md">語音轉文字 (SR)</a><br/>
+        <p><a href="https://aka.ms/csspeech/csharpref">C# API (UWP 與 .NET)</a></p>
 
-        &nbsp;&#8226; <a href="intent.md">意圖辨識</a><br/>
+        <p><a href="https://aka.ms/csspeech/cppref">C++ API</a></p>
 
-        &nbsp;&#8226; <a href="translation.md">轉譯</a>
-    - title: API 參考
+        <p><a href="https://aka.ms/csspeech/javaref">Java API</a></p>
+
+        <p><a href="https://aka.ms/csspeech/objectivecref">Objective-C API</a></p>
+
+        <p><a href="https://aka.ms/csspeech/javascriptref">JavaScript API</a></p>
+    - title: REST API
       html: >
-        &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">C# API (UWP 和 .NET)</a><br/>
-
-        &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">C++ API</a><br/>
-
-        &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
-    - title: 常見問題集
+        <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST API</a></p>
+    - title: PowerShell
       html: >
-        &nbsp;&#8226; <a href="faq-stt">語音轉文字</a><br/>
-
-        &nbsp;&#8226; <a href="faq-text-to-speech">文字轉語音</a><br/>
-
-        &nbsp;&#8226; <a href="https://www.microsoft.com/translator/faq.aspx">轉譯</a>
-  - type: paragraph
-    text: 透過您的訂用帳戶金鑰來使用上述範例與 API (請參閱<a href="get-started.md">免費試用語音服務</a>)。
-- title: 使用您的資料自訂語音
-  items:
-  - type: paragraph
-    text: >
-      我們的語音服務可讓您自訂模型，以便適應特殊詞彙、吵雜環境及不同的說話方式。<br/>
-
-      &nbsp;&#8226; <a href="how-to-customize-speech-models">自訂的語音轉換文字</a><br/>
-
-      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">自訂的語音轉譯</a><br/>
-
-      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">自訂的文字轉換語音</a>
-- title: 啟用語音的硬體參考設計
-  items:
-  - type: paragraph
-    text: 對於想要建置新語音功能的裝置硬體，請參閱我們的參考裝置：<a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>語音裝置 SDK</a>。
+        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

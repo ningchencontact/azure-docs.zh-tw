@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 0c5c400ec19423c697e194956b8d445350f37d7b
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9a1d5378ea5717514a2b247afad2db7d88986fb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186977"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033765"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -96,6 +96,7 @@ ms.locfileid: "43186977"
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/virtual-machines/linux/">Linux 虛擬機器</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/">Windows 虛擬機器</a></li>
+                                                    <li><a class="barLink" href="/azure/governance/blueprints/">Azure 藍圖</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -114,7 +115,7 @@ ms.locfileid: "43186977"
                                                     <li><a class="barLink" href="/azure/backup/">Azure 備份</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure 原則</a></li>
+                                                    <li><a class="barLink" href="/azure/governance/policy/">Azure 原則</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -247,6 +248,16 @@ Azure PowerShell </a>
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
                                                     <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+Azure DevOps </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops/pipelines/index">
+                                                            <img src="https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg" alt="">
+Azure Pipelines </a>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/azure/ansible/">
                                                             <img src="media/index/ansible.svg" alt="">
 Ansible </a>
@@ -267,19 +278,50 @@ Jenkins </a>
 Terraform </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Visual Studio Team Services </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-使用 Azure 了解 DevOps</a>
-                                                    </li>
-                                                    <li>
                                                         <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
 Azure DevOps Project </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>透過 Microsoft Learn 增進您的技巧</h3>
+                                                <ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                            <img src="/learn/achievements/tour-azure-services-and-features.svg" alt="">
+Azure 服務和功能導覽 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/principles-cloud-computing/">
+                                                            <img src="/learn/achievements/principles-cloud-computing.svg" alt="">
+雲端運算原則</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/build-a-serverless-web-app/">
+                                                            <img src="/learn/achievements/build-a-serverless-web-app.svg" alt="">
+建置無伺服器 Web 應用程式</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
+                                                            <img src="/learn/achievements/control-azure-services-with-cli.svg" alt="">
+使用 CLI 控制 Azure 服務 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/automate-azure-tasks-with-powershell/">
+                                                            <img src="/learn/achievements/automate-azure-tasks-with-powershell.svg" alt="">
+使用 PowerShell 指令碼將 Azure 工作自動化 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/browse/?products=azure">更多互動式學習...</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -387,6 +429,12 @@ Azure DevOps Project </a>
                                                 <p>Azure 上的 SAP HANA 大型執行個體</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/cyclecloud/">
+                                                <img src="media/index/logo_cyclecloud.svg" alt="" />
+                                                <p>CycleCloud</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>資料庫</h3>
                                     <ul>
@@ -448,6 +496,12 @@ Azure DevOps Project </a>
                                             <a href="/azure/mysql/">
                                                 <img src="media/index/MySQL.svg" alt="" />
                                                 <p>適用於 MySQL 的 Azure 資料庫</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/mariadb/">
+                                                <img src="media/index/MariaDB.svg" alt="" />
+                                                <p>適用於 MariaDB 的 Azure 資料庫</p>
                                             </a>
                                         </li>
                                         <li>
@@ -695,6 +749,12 @@ Azure DevOps Project </a>
                                             <a href="/azure/firewall/">
                                                 <img src="media/index/azure_firewall.svg" alt="" />
                                                 <p>Azure 防火牆</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/frontdoor/">
+                                                <img src="media/index/frontdoor.svg" alt="" />
+                                                <p>Azure Front Door Service</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1098,6 +1158,12 @@ Azure DevOps Project </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-explorer/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                <p>Azure 資料總管</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>串流分析</p>
@@ -1167,9 +1233,9 @@ Azure DevOps Project </a>
                                     <h3>DevOps</h3>
                                     <ul>
                                         <li>
-                                            <a href="/vsts/">
+                                            <a href="/azure/devops/">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1218,9 +1284,9 @@ Azure DevOps Project </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/vsts/">
+                                            <a href="/azure/devops/">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1403,6 +1469,12 @@ Azure DevOps Project </a>
                                             <a href="/azure/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
                                                 <p>API Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-signalr/">
+                                                <img src="media/index/azure-signalr.svg" alt="" />
+                                                <p>Azure SignalR 服務</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1652,9 +1724,21 @@ Azure DevOps Project </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-policy/">
+                                            <a href="/azure/governance/policy/">
                                                 <img src="media/index/governance.svg" alt="" />
                                                 <p>Azure 原則</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/governance/blueprints/">
+                                                <img src="media/index/blueprints.svg" alt="" />
+                                                <p>Azure 藍圖</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/governance/resource-graph/">
+                                                <img src="media/index/resource-graph.svg" alt="" />
+                                                <p>Azure Resource Graph</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1936,6 +2020,25 @@ Azure DevOps Project </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/cyclecloud/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_cyclecloud.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>CycleCloud</h3>
+                                                    <p>建立、管理及操作任何規模的 HPC 和大型計算叢集，並予以最佳化</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2182,6 +2285,25 @@ Azure DevOps Project </a>
                                                 <div class="cardText">
                                                     <h3>虛擬 WAN</h3>
                                                     <p>建置安全的全域調整分支連線</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/frontdoor/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/frontdoor.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Front Door Service</h3>
+                                                    <p>可調整且安全的進入點，用以提供全球 Web 應用程式</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2553,6 +2675,25 @@ Azure DevOps Project </a>
                                                 <div class="cardText">
                                                     <h3>API Apps</h3>
                                                     <p>輕鬆建置和取用雲端 API</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-signalr">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-signalr.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure SignalR 服務</h3>
+                                                    <p>輕鬆地新增即時 Web 功能</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3031,6 +3172,25 @@ Azure DevOps Project </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/mariadb/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MariaDB.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>適用於 MariaDB 的 Azure 資料庫</h3>
+                                                    <p>適用於應用程式開發人員的受控 MariaDB 資料庫服務</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/dms/dms-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3124,6 +3284,25 @@ Azure DevOps Project </a>
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
                                                     <p>編排和管理資料轉換與移動</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-explorer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_azure.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 資料總管</h3>
+                                                    <p>一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4498,7 +4677,7 @@ Azure DevOps Project </a>
                         <a href="#devops">DevOps</a>
                         <ul id="devops" class="cardsA">
                             <li>
-                                <a href="/vsts/">
+                                <a href="/azure/devops/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4508,7 +4687,7 @@ Azure DevOps Project </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>供團隊分享程式碼、追蹤工作及送出軟體的服務</p>
                                                 </div>
                                             </div>
@@ -4655,7 +4834,7 @@ Azure DevOps Project </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/vsts/">
+                                <a href="/azure/devops/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4665,7 +4844,7 @@ Azure DevOps Project </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>供團隊分享程式碼、追蹤工作及送出軟體的服務</p>
                                                 </div>
                                             </div>
@@ -5097,7 +5276,7 @@ Azure DevOps Project </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-policy/">
+                                <a href="/azure/governance/policy/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5109,6 +5288,44 @@ Azure DevOps Project </a>
                                                 <div class="cardText">
                                                     <h3>Azure 原則</h3>
                                                     <p>對 Azure 資源大規模實作公司控管及標準</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/governance/blueprints/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blueprints.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 藍圖</h3>
+                                                    <p>使用可組合的成品，以可重複的方式部署及更新雲端環境</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/governance/resource-graph/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/resource-graph.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Resource Graph</h3>
+                                                    <p>使用豐富的查詢語言大規模探索資源</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5770,7 +5987,7 @@ Docker </h3>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">針對 Visual Studio Code 下載</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">針對 Team Services 下載</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">下載 Azure DevOps</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5928,7 +6145,7 @@ Service Fabric SDK 和工具 </h3>
                                                 <h3>
 SQL 工具 </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL 作業 Studio <sup>預覽</sup></a>
+                                                    <a href="/sql/azure-data-studio/download">Azure Data Studio <sup>預覽</sup></a>
                                                 </p>
                                                 <p>
                                                     <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
