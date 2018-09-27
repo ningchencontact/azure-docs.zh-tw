@@ -9,6 +9,8 @@ items:
     href: about-iot-hub.md
 - name: 快速入門
   items:
+  - name: 傳送遙測 (C)
+    href: quickstart-send-telemetry-c.md
   - name: 傳送遙測 (Node.js)
     href: quickstart-send-telemetry-node.md
   - name: 傳送遙測 (.NET)
@@ -67,18 +69,21 @@ items:
     - name: 傳送及接收訊息
       href: iot-hub-devguide-messaging.md
       items:
-      - name: 將裝置到雲端訊息傳送至 IoT 中樞
+      - name: 使用訊息路由來傳送裝置到雲端訊息
         href: iot-hub-devguide-messages-d2c.md
-      - name: 從內建端點讀取裝置對雲端訊息
-        href: iot-hub-devguide-messages-read-builtin.md
+        items:
+        - name: 建立及讀取 IoT 中樞訊息
+          href: iot-hub-devguide-messages-construct.md
+        - name: 從內建端點讀取裝置對雲端訊息
+          href: iot-hub-devguide-messages-read-builtin.md
+        - name: 使用適用於裝置對雲端訊息的自訂端點和路由規則
+          href: iot-hub-devguide-messages-read-custom.md
+        - name: 新增查詢到訊息路由
+          href: iot-hub-devguide-routing-query-syntax.md
       - name: 回應 IoT 中樞事件
         href: iot-hub-event-grid.md
-      - name: 使用適用於裝置對雲端訊息的自訂端點和路由規則
-        href: iot-hub-devguide-messages-read-custom.md
       - name: 從 IoT 中樞傳送雲端到裝置訊息
         href: iot-hub-devguide-messages-c2d.md
-      - name: 建立及讀取 IoT 中樞訊息
-        href: iot-hub-devguide-messages-construct.md
       - name: 選擇通訊協定
         href: iot-hub-devguide-protocols.md
     - name: 從裝置上傳檔案
@@ -271,24 +276,14 @@ items:
     - name: 使用實體裝置
       href: iot-hub-get-started-physical.md
       items:
-      - name: Raspberry Pi with Python
-        href: iot-hub-raspberry-pi-kit-python-get-started.md
       - name: Raspberry Pi with Node.js
         href: iot-hub-raspberry-pi-kit-node-get-started.md
       - name: Raspberry Pi with C
         href: iot-hub-raspberry-pi-kit-c-get-started.md
       - name: MXChip IoT DevKit with Arduino
         href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-      - name: Intel Edison with Node.js
-        href: iot-hub-intel-edison-kit-node-get-started.md
-      - name: Intel Edison with C
-        href: iot-hub-intel-edison-kit-c-get-started.md
       - name: Adafruit Feather HUZZAH ESP8266 with Arduino
         href: iot-hub-arduino-huzzah-esp8266-get-started.md
-      - name: Sparkfun ESP8266 Thing Dev with Arduino
-        href: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
-      - name: Adafruit Feather M0 with Arduino
-        href: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
     - name: 使用 MXChip IoT DevKit
       items:
       - name: 使用 Azure 認知服務翻譯語音訊息
@@ -303,8 +298,6 @@ items:
       items:
       - name: 使用適用於 VS Code 的 Azure IoT 工具組管理雲端裝置傳訊
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-      - name: 將 IoT 中樞訊息儲存至 Azure Blob 儲存體
-        href: iot-hub-store-data-in-azure-table-storage.md
       - name: Power BI 中的資料視覺效果
         href: iot-hub-live-data-visualization-in-power-bi.md
       - name: Web Apps 的資料視覺效果
@@ -313,7 +306,7 @@ items:
         href: iot-hub-weather-forecast-machine-learning.md
       - name: 使用適用於 VS Code 的 Azure IoT 工具組管理裝置
         href: iot-hub-device-management-iot-toolkit.md
-      - name: 透過適用於 Azure CLI 2.0 的 IoT 延伸模組進行裝置管理
+      - name: 使用適用於 Azure CLI 的 IoT 延伸模組來進行裝置管理
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: 搭配 Logic Apps 進行遠端監視和通知
         href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
@@ -417,9 +410,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 2e2057fc75b808bf5989d263ce561d3cec4b8e2c
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 584ef2dd30e8107fd1675a5376707fe10d40f4a1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160978"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395418"

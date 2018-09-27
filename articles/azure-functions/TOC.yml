@@ -23,24 +23,12 @@ items:
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: 觸發程序
     items:
-    - name: Blob 儲存體
-      href: functions-create-storage-blob-triggered-function.md
-    - name: Azure Cosmos DB
-      href: functions-create-cosmos-db-triggered-function.md
     - name: 計時器
       href: functions-create-scheduled-function.md
-    - name: 一般 Webhook
-      href: functions-create-generic-webhook-triggered-function.md
-    - name: GitHub webhook
-      href: functions-create-github-webhook-triggered-function.md
-    - name: 佇列儲存體
-      href: functions-create-storage-queue-triggered-function.md
   - name: 整合
     items:
     - name: 儲存體
       href: functions-integrate-storage-queue-output-binding.md
-    - name: Azure Cosmos DB
-      href: functions-integrate-store-unstructured-data-cosmosdb.md
   expanded: true
 - name: 教學課程
   items:
@@ -70,7 +58,7 @@ items:
     href: https://docs.microsoft.com/sandbox/functions-recipes/
 - name: 概念
   items:
-  - name: 比較 1.x 和 2.x
+  - name: 比較版本 1.x 和 2.x
     href: functions-versions.md
   - name: 調整和託管
     href: functions-scale.md
@@ -180,6 +168,8 @@ items:
       href: set-runtime-version.md
     - name: 停用函式
       href: disable-function.md
+    - name: 針對儲存體進行疑難排解
+      href: functions-recover-storage-account.md
   - name: 監視
     href: functions-monitoring.md
   - name: 整合
@@ -248,6 +238,8 @@ items:
       href: functions-bindings-sendgrid.md
     - name: 服務匯流排
       href: functions-bindings-service-bus.md
+    - name: SignalR Service
+      href: functions-bindings-signalr-service.md
     - name: 表格儲存體
       href: functions-bindings-storage-table.md
     - name: 計時器
@@ -262,6 +254,8 @@ items:
     href: functions-api-definition.md
 - name: 資源
   items:
+  - name: 透過 Microsoft Learn 增進您的技巧
+    href: /learn/browse/?products=azure-functions
   - name: Azure 藍圖
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: 價格
@@ -282,9 +276,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: 服務更新
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: a9ce01ee4e195439c81c674a2d37eef44820e4e2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: cf5f18b386f6a9e4182c62d17b8c62249e3d4c7b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718316"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391652"

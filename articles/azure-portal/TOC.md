@@ -5,7 +5,7 @@
 # 概念
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [鍵盤快速鍵](azure-portal-keyboard-shortcuts.md)
-## [支援的瀏覽器和裝置](../azure-preview-portal-supported-browsers-devices.md)
+## [支援的瀏覽器和裝置](azure-portal-supported-browsers-devices.md)
 ## [Azure 儀表板結構](azure-portal-dashboards-structure.md)
 # 使用說明指南
 ## 部署

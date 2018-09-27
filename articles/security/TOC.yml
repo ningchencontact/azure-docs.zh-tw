@@ -5,16 +5,20 @@ items:
   href: azure-security.md
   items:
   - name: 進階威脅偵測
+    displayName: vulnerability, virus, ids, incident
     href: azure-threat-detection.md
   - name: Azure 記錄與稽核
+    displayName: incident
     href: azure-log-audit.md
   - name: Azure 網路安全性
+    displayName: firewall, ssl, vpn, ids
     href: abstract-azure-network-security.md
   - name: Azure 無伺服器平台安全性
     href: abstract-serverless-platform-security.md
   - name: Azure 中的容器安全性
     href: abstract-container-security-microsoft-azure.md
   - name: 啟用作業安全性
+    displayName: policy, policies
     href: abstract-azure-operational-security.md
   - name: Azure 雲端中的隔離
     href: azure-isolation.md
@@ -43,6 +47,7 @@ items:
     - name: 為 IaaS 虛擬機器進行磁碟加密
       items:
       - name: 有關 Azure 磁碟加密
+        displayName: bitlocker
         href: azure-security-disk-encryption-overview.md
       - name: 快速入門
         items:
@@ -90,6 +95,7 @@ items:
     - name: 元件和界線
       href: azure-infrastructure-components.md
     - name: 網路架構
+      displayName: ssl
       href: azure-infrastructure-network.md
     - name: 生產網路
       href: azure-production-network.md
@@ -104,11 +110,13 @@ items:
     - name: 資料保護
       href: azure-protection-of-customer-data.md
   - name: Microsoft Antimalware
+    displayName: virus
     href: azure-security-antimalware.md
   - name: IaaS 安全性
     href: security-virtual-machines-overview.md
     items:
     - name: 最佳做法 - IaaS 工作負載
+      displayName: patch
       href: azure-security-iaas.md
     - name: Azure 市集映像
       href: security-recommendations-azure-marketplace-images.md
@@ -128,6 +136,7 @@ items:
       displayName: identity
       href: azure-security-global-admin.md
   - name: 網路安全性
+    displayName: firewall, ssl, vpn, ids
     href: security-network-overview.md
     items:
     - name: 最佳作法
@@ -169,6 +178,7 @@ items:
   - name: 稽核和記錄
     items:
     - name: 安全性管理
+      displayName: vulnerability, incident, virus,
       href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: 遠端管理安全性
       href: azure-security-management.md
@@ -196,17 +206,17 @@ items:
     - name: 安全性檢查清單
       href: azure-operational-security-checklist.md
 - name: 治理和合規性
-  displayName: blueprint
+  displayName: blueprint, privacy
   items:
   - name: 受保護的 AU
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: IaaS Web 應用程式
       href: ./blueprints/au-protected-iaaswa-overview.md
     - name: PaaS Web 應用程式
       href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: 資料分析
       href: ./blueprints/fedramp-analytics-overview.md
@@ -217,7 +227,7 @@ items:
     - name: PaaS Web 應用程式
       href: ./blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: 資料分析
       href: ./blueprints/ffiec-analytics-overview.md
@@ -228,7 +238,7 @@ items:
     - name: PaaS Web 應用程式
       href: ./blueprints/ffiec-paaswa-overview.md
   - name: GDPR
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: 資料分析
       href: ./blueprints/gdpr-analytics-overview.md
@@ -239,12 +249,12 @@ items:
     - name: PaaS Web 應用程式
       href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: 健康情況資料和 AI
       href: ./blueprints/azure-health.md
   - name: NIST SP 800-171
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: 資料分析
       href: ./blueprints/nist171-analytics-overview.md
@@ -255,7 +265,7 @@ items:
     - name: PaaS Web 應用程式
       href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: 資料分析
       href: ./blueprints/pcidss-analytics-overview.md
@@ -266,12 +276,12 @@ items:
     - name: PaaS Web 應用程式
       href: ./blueprints/pcidss-paaswa-overview.md
   - name: TIC
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: 受信任的 Azure 網際網路連線
       href: ./compliance/compliance-tic.md
   - name: UK NHS
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: 資料分析
       href: ./blueprints/uknhs-analytics-overview.md
@@ -282,7 +292,7 @@ items:
     - name: PaaS Web 應用程式
       href: ./blueprints/uknhs-paaswa-overview.md
   - name: 英國官方
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: IaaS Web 應用程式
       href: ./blueprints/ukofficial-iaaswa-overview.md
@@ -307,6 +317,7 @@ items:
   - name: 滲透測試
     href: azure-security-pen-testing.md
   - name: Microsoft 威脅模型化工具
+    displayName: stride
     href: azure-security-threat-modeling-tool.md
     items:
     - name: 開始使用
@@ -338,9 +349,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: 工作階段管理
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: 99ff7a6ba5a2289855739ce8b269c4b3aae10e61
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 21b41c50165ab4effa803cc0736b7fc64f252c43
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364851"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222126"
