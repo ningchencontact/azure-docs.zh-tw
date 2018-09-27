@@ -40,6 +40,8 @@ items:
     items:
     - name: 安裝 Terraform Visual Studio Code 擴充功能
       href: terraform-vscode-extension.md
+    - name: 使用 Yeoman 建立 Terraform 基底範本
+      href: terraform-vscode-module-generator.md
 - name: 概念
   items:
   - name: Azure Cloud Shell 整合
@@ -48,6 +50,14 @@ items:
   items:
   - name: 設定範本
     href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
+- name: 概念
+  items:
+  - name: Azure Cloud Shell 整合
+    href: terraform-cloud-shell.md
+- name: 使用說明指南
+  items:
+  - name: Azure 儲存體中的儲存狀態
+    href: terraform-backend.md
 - name: 參考
   items:
   - name: Azure 模組登錄
@@ -60,9 +70,9 @@ items:
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Azure 藍圖
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: e6c4637618d794f96db8ed9ca8eb063a62f704a1
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 996f032cce0b0d45c559a584ce364c3561675470
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43663531"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395316"
