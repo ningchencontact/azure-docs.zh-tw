@@ -37,6 +37,9 @@ items:
     - name: 使用者說明
       tocHref: /azure/active-directory/user-help/
       topicHref: /azure/active-directory/user-help/
+    - name: B2B
+      tocHref: /azure/active-directory/b2b/
+      topicHref: /azure/active-directory/b2b/
     - name: B2C
       tocHref: /azure/active-directory-b2c/
       topicHref: /azure/active-directory-b2c/
@@ -46,10 +49,10 @@ items:
     - name: 使用者、群組及角色
       tocHref: /azure/active-directory/users-groups-roles/
       topicHref: /azure/active-directory/users-groups-roles/
-    - name: 存取權檢閱
+    - name: 身分識別治理
       tocHref: /azure/active-directory/governance/
       topicHref: /azure/active-directory/governance/
-    - name: 管理應用程式
+    - name: 應用程式管理
       tocHref: /azure/active-directory/manage-apps/
       topicHref: /azure/active-directory/manage-apps/
     - name: 報告和監視
@@ -90,15 +93,27 @@ items:
   - name: 應用程式閘道
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
-  - name: Application Insights
-    tocHref: /azure/application-insights/
-    topicHref: /azure/application-insights/
   - name: 自動化
     tocHref: /azure/automation/
     topicHref: /azure/automation/
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
+  - name: Azure 資料總管
+    tocHref: /azure/data-explorer/
+    topicHref: /azure/data-explorer/
+  - name: Azure 監視器
+    tocHref: /azure/application-insights/
+    topicHref: /azure/azure-monitor/
+  - name: Azure 監視器
+    tocHref: /azure/log-analytics/
+    topicHref: /azure/azure-monitor/
+  - name: Azure 監視器
+    tocHref: /azure/monitoring/
+    topicHref: /azure/azure-monitor/
+  - name: Azure 監視器
+    tocHref: /azure/monitoring-and-diagnostics/
+    topicHref: /azure/azure-monitor/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -126,6 +141,9 @@ items:
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+  - name: SignalR Service
+    tocHref: /azure/azure-signalr/
+    topicHref: /azure/azure-signalr/
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
@@ -250,7 +268,7 @@ items:
     - name: Speech API
       tocHref: /azure/cognitive-services/Speech/
       topicHref: /azure/cognitive-services/Speech/home
-    - name: 語音服務 (預覽)
+    - name: 語音服務
       tocHref: /azure/cognitive-services/Speech-Service/
       topicHref: /azure/cognitive-services/Speech-Service/
     - name: 文字分析
@@ -296,6 +314,12 @@ items:
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: 資料箱
+    tocHref: /azure/databox/
+    topicHref: /azure/databox/
+  - name: 資料箱邊緣/資料箱閘道
+    tocHref: /azure/databox-online/
+    topicHref: /azure/databox-online/
   - name: 資料目錄
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -326,6 +350,25 @@ items:
   - name: 防火牆
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: 前端服務
+    tocHref: /azure/frontdoor/
+    topicHref: /azure/frontdoor/
+  - name: 控管
+    tocHref: /azure/governance/
+    topicHref: /azure/governance/
+    items:
+    - name: 藍圖
+      tocHref: /azure/governance/blueprints/
+      topicHref: /azure/governance/blueprints/
+    - name: 管理群組
+      tocHref: /azure/governance/management-groups/
+      topicHref: /azure/governance/management-groups/
+    - name: 原則
+      tocHref: /azure/governance/policy/
+      topicHref: /azure/governance/policy/
+    - name: Resource Graph
+      tocHref: /azure/governance/resource-graph/
+      topicHref: /azure/governance/resource-graph/
   - name: 指引
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
@@ -394,9 +437,6 @@ items:
   - name: 負載平衡器
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
-  - name: Log Analytics
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/log-analytics/
   - name: Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -404,7 +444,7 @@ items:
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
     items:
-    - name: 服務 (預覽)
+    - name: 服務
       tocHref: /azure/machine-learning/service
       topicHref: /azure/machine-learning/service/
     - name: Studio
@@ -438,9 +478,6 @@ items:
   - name: 行動服務
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: 監視和診斷
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/monitoring-and-diagnostics/
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/
@@ -463,31 +500,6 @@ items:
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: 原則文件
-    tocHref: /azure/azure-policy/
-    topicHref: /azure/azure-policy/
-    items:
-    - name: Azure 原則的概觀
-      tocHref: /azure/azure-policy/azure-policy-introduction/
-      topicHref: /azureazure-policy/azure-policy-introduction/
-    - name: 指派原則 - 入口網站
-      tocHref: /azure/azure-policy/assign-policy-definition/
-      topicHref: /azureazure-policy/assign-policy-definition/
-    - name: 指派原則 - PowerShell
-      tocHref: /azure/azure-policy/assign-policy-definition-ps/
-      topicHref: /azureazure-policy/assign-policy-definition-ps/
-    - name: 指派原則 - Azure CLI
-      tocHref: /azure/azure-policy/assign-policy-definition-cli/
-      topicHref: /azureazure-policy/assign-policy-definition-cli/
-    - name: 建立和管理 Azure 原則
-      tocHref: /azure/azure-policy/create-manage-polic/
-      topicHref: /azureazure-policy/create-manage-polic/
-    - name: 原則範本
-      tocHref: /azure/azure-policy/json-samples/
-      topicHref: /azureazure-policy/json-samples/
-    - name: Azure 原則定義結構
-      tocHref: /azure/azure-policy/policy-definition/
-      topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/
@@ -610,9 +622,9 @@ items:
   - name: VPN 閘道
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: 9acef41cc94d59fb48a77cf5dadbbde67186673d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c2588f63135e0c52657b469945b005c13e863418
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365234"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163523"

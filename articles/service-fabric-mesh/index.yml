@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e7347b521bf490f1148fb1c7ca7e94d502be9019
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 14938e25cc41ea11baef94b6a9e01e070ffac654
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281726"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158185"
 documentType: LandingData
 title: Azure Service Fabric Mesh 文件
 metadata:
@@ -40,11 +40,12 @@ sections:
 - title: 逐步教學課程
   items:
   - type: paragraph
-    text: 了解如何建立、偵錯及部署多服務 Azure Service Fabric Mesh 應用程式。
+    text: 了解如何使用 Visual Studio 或 Azure CLI 來建置及部署 Mesh 應用程式。
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">建立、偵錯並將多服務 Web 應用程式部署至 Service Fabric Mesh</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">使用 Visual Studio 建立、偵錯、部署及將多服務應用程式升級為 Service Fabric Mesh。</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app">使用範本來部署、調整及升級 Service Fabric Mesh 應用程式。</a>
 - title: 參考
   items:
   - type: list

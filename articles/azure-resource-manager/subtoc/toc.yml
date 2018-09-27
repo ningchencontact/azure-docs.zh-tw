@@ -273,10 +273,10 @@ items:
   - name: 磁碟
     href: /azure/templates/Microsoft.Compute/disks
     maintainContext: true
-  - name: 資源庫
+  - name: 共用映像庫
     href: /azure/templates/Microsoft.Compute/galleries
     items:
-    - name: 映像
+    - name: 映像定義
       href: /azure/templates/Microsoft.Compute/galleries/images
       items:
       - name: 版本
@@ -974,22 +974,6 @@ items:
   - name: 搜尋服務
     href: /azure/templates/Microsoft.Search/searchServices
     maintainContext: true
-- name: 伺服器管理
-  items:
-  - name: 閘道
-    href: /azure/templates/Microsoft.ServerManagement/gateways
-    maintainContext: true
-  - name: 節點
-    href: /azure/templates/Microsoft.ServerManagement/nodes
-    items:
-    - name: 工作階段
-      href: /azure/templates/Microsoft.ServerManagement/nodes/sessions
-      items:
-      - name: PS 工作階段
-        href: /azure/templates/Microsoft.ServerManagement/nodes/sessions/features/pssessions
-        maintainContext: true
-      maintainContext: true
-    maintainContext: true
 - name: 服務匯流排
   items:
   - name: 命名空間
@@ -1040,18 +1024,77 @@ items:
   - name: 伺服器
     href: /azure/templates/Microsoft.Sql/servers
     items:
+    - name: 系統管理員
+      href: /azure/templates/Microsoft.Sql/servers/administrators
+      maintainContext: true
+    - name: 建議程式
+      href: /azure/templates/Microsoft.Sql/servers/advisors
+      maintainContext: true
+    - name: 稽核原則
+      href: /azure/templates/Microsoft.Sql/servers/auditingPolicies
+      maintainContext: true
+    - name: 備份長期保留保存庫
+      href: /azure/templates/Microsoft.Sql/servers/backupLongTermRetentionVaults
+      maintainContext: true
+    - name: 通訊連結
+      href: /azure/templates/Microsoft.Sql/servers/communicationLinks
+      maintainContext: true
+    - name: 連線原則
+      href: /azure/templates/Microsoft.Sql/servers/connectionPolicies
+      maintainContext: true
     - name: 資料庫
       href: /azure/templates/Microsoft.Sql/servers/databases
       items:
+      - name: 建議程式
+        href: /azure/templates/Microsoft.Sql/servers/databases/advisors
+        maintainContext: true
+      - name: 稽核原則
+        href: /azure/templates/Microsoft.Sql/servers/databases/auditingPolicies
+        maintainContext: true
       - name: 稽核設定
         href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings
         maintainContext: true
       - name: 備份長期保留原則
         href: /azure/templates/Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies
         maintainContext: true
+      - name: 連線原則
+        href: /azure/templates/Microsoft.Sql/servers/databases/connectionPolicies
+        maintainContext: true
+      - name: 資料遮罩原則
+        href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies
+        items:
+        - name: 規則
+          href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies/rules
+          maintainContext: true
+        maintainContext: true
+      - name: 擴充的稽核設定
+        href: /azure/templates/Microsoft.Sql/servers/databases/extendedAuditingSettings
+        maintainContext: true
+      - name: 擴充功能
+        href: /azure/templates/Microsoft.Sql/servers/databases/extensions
+        maintainContext: true
+      - name: 異地備份原則
+        href: /azure/templates/Microsoft.Sql/servers/databases/geoBackupPolicies
+        maintainContext: true
+      - name: 安全性警訊原則
+        href: /azure/templates/Microsoft.Sql/servers/databases/securityAlertPolicies
+        maintainContext: true
+      - name: 同步群組
+        href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups
+        items:
+        - name: 同步成員
+          href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups/syncMembers
+          maintainContext: true
+        maintainContext: true
       - name: 透明資料加密
         href: /azure/templates/Microsoft.Sql/servers/databases/transparentDataEncryption
         maintainContext: true
+      maintainContext: true
+    - name: 災害復原設定
+      href: /azure/templates/Microsoft.Sql/servers/disasterRecoveryConfiguration
+      maintainContext: true
+    - name: DNS 別名
+      href: /azure/templates/Microsoft.Sql/servers/dnsAliases
       maintainContext: true
     - name: 彈性集區
       href: /azure/templates/Microsoft.Sql/servers/elasticPools
@@ -1059,14 +1102,43 @@ items:
     - name: 加密保護裝置
       href: /azure/templates/Microsoft.Sql/servers/encryptionProtector
       maintainContext: true
+    - name: 擴充的稽核設定
+      href: /azure/templates/Microsoft.Sql/servers/extendedAuditingSettings
+      maintainContext: true
     - name: 容錯移轉群組
       href: /azure/templates/Microsoft.Sql/servers/failoverGroups
       maintainContext: true
     - name: 防火牆規則
       href: /azure/templates/Microsoft.Sql/servers/firewallRules
       maintainContext: true
+    - name: 作業代理程式
+      href: /azure/templates/Microsoft.Sql/servers/jobAgents
+      items:
+      - name: 認證
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/credentials
+        maintainContext: true
+      - name: 工作
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs
+        items:
+        - name: 執行
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/executions
+          maintainContext: true
+        - name: 步驟
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/steps
+          maintainContext: true
+        maintainContext: true
+      - name: 目標群組
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/targetgroups
+        maintainContext: true
+      maintainContext: true
     - name: 金鑰
       href: /azure/templates/Microsoft.Sql/servers/keys
+      maintainContext: true
+    - name: 安全性警訊原則
+      href: /azure/templates/Microsoft.Sql/servers/securityAlertPolicies
+      maintainContext: true
+    - name: 同步代理程式
+      href: /azure/templates/Microsoft.Sql/servers/syncAgents
       maintainContext: true
     - name: 虛擬網路規則
       href: /azure/templates/Microsoft.Sql/servers/virtualNetworkRules
@@ -1232,9 +1304,9 @@ items:
         maintainContext: true
       maintainContext: true
     maintainContext: true
-ms.openlocfilehash: f54d4b1a72752571605a894a3be94025e8fce451
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b635a83e709da5ea4ff91d5bb4d6914059ea23a8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984419"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166107"
