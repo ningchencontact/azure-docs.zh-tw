@@ -21,8 +21,10 @@ items:
     href: stream-analytics-with-azure-functions.md
   - name: 3 - 執行 Javascript UDF
     href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - 使用 VSTS 中的 CI/CD 部署
+  - name: 4 - 在 Aure Pipelines 中使用 CI/CD 部署
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - name: 5 - 在邊緣上執行 C# UDF
+    href: stream-analytics-edge-csharp-udf.md
 - name: 範例
   items:
   - name: 程式碼範例
@@ -41,6 +43,10 @@ items:
     items:
     - name: 輸出至 Cosmos DB
       href: stream-analytics-documentdb-output.md
+    - name: 輸出到 Azure SQL DB
+      href: stream-analytics-sql-output-perf.md
+    - name: Blob 自訂路徑模式
+      href: stream-analytics-custom-path-patterns-blob-storage-output.md
   - name: 視窗函式
     href: stream-analytics-window-functions.md
   - name: GeoSpatial 函式
@@ -73,6 +79,8 @@ items:
       href: stream-analytics-clean-up-your-job.md
     - name: 配對作業以獲得較高的可靠性
       href: stream-analytics-job-reliability.md
+    - name: 使用受控識別進行驗證
+      href: stream-analytics-managed-identities-adls.md
   - name: 建置解決方案
     items:
     - name: Twitter 情緒分析
@@ -122,14 +130,18 @@ items:
     items:
     - name: 安裝工具
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: 在本機測試作業
+    - name: 使用範例資料來測試
       href: stream-analytics-vs-tools-local-run.md
+    - name: 使用實際資料來測試
+      href: stream-analytics-live-data-local-testing.md
     - name: 檢視 Visual Studio 中的作業
       href: stream-analytics-vs-tools.md
     - name: 開發 Edge 作業
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: 設定 CI/CD 管線
       href: stream-analytics-tools-for-visual-studio-cicd.md
+    - name: 針對邊緣撰寫 .NET UDF
+      href: stream-analytics-edge-csharp-udf-methods.md
   - name: 疑難排解
     items:
     - name: 疑難排解步驟
@@ -186,9 +198,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: 白皮書 - 即時事件處理
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 6598121e8405a60c64490fda179c22f34ac86455
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 28f7acf4db96fd8c839eaff288cee9a19559c201
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695315"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408930"

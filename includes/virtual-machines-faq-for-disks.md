@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40238183"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060766"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -101,7 +101,7 @@ ms.locfileid: "40238183"
 
 是，受控磁碟和非受控磁碟都受到支援。 我們建議您使用受控磁碟來處理新的工作負載，並將您目前的工作負載移轉至受控磁碟。
 
-**如果我建立大小為 128 GB 的磁碟，然後將大小增加至 130 GB，我是否必須支付下一個磁碟大小 (256 GB) 的費用？**
+**如果我建立大小為 128 GB 的磁碟，然後將大小增加至 130 GiB，我是否必須支付下一層級磁碟大小 (256 GiB) 的費用？**
 
 是。
 
@@ -137,10 +137,10 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 就受控磁碟而言，您無法將其重新命名。 不過，針對非受控磁碟，只要該磁碟目前未連接至 VHD 或 VM，您便可以將其重新命名。
 
-## <a name="standard-ssd-disks-preview"></a>標準 SSD 磁碟 (預覽)
+## <a name="standard-ssd-disks"></a>標準 SSD 磁碟
 
 **Azure 標準 SSD 磁碟是什麼？**
-標準 SSD 磁碟是受固態媒體支援的標準磁碟，針對在較低 IOPS 層級中需要一致效能的工作負載，最佳化為符合成本效益的儲存體。 在預覽中，它們僅適用於有限的區域，具有有限的管理性 (可透過 Resource Manager 範本取得)。
+標準 SSD 磁碟是受固態媒體支援的標準磁碟，針對在較低 IOPS 層級中需要一致效能的工作負載，最佳化為符合成本效益的儲存體。
 
 <a id="standard-ssds-azure-regions"></a>**目前支援標準 SSD 磁碟的區域有哪些？**
 所有 Azure 區域現在都支援「標準 SSD」磁碟。
@@ -275,7 +275,7 @@ Microsoft 負責管理加密金鑰。
 
 **我可以從磁碟快取取得的 IOPS 和輸送量有何限制？**
 
-DS 系列的快取和本機 SSD 合併限制是每個核心 4,000 IOPS，以及每個核心每秒 33 MB。 GS 系列提供每個核心 5,000 IOPS，以及每個核心每秒 50 MB。
+DS 系列的快取和本機 SSD 合併限制是每個核心 4,000 IOPS，以及每個核心每秒 33 MiB。 GS 系列提供每個核心 5000 IOPS，以及每個核心每秒 50 MiB。
 
 **受控磁碟 VM 是否支援本機 SSD？**
 
@@ -287,38 +287,60 @@ DS 系列的快取和本機 SSD 合併限制是每個核心 4,000 IOPS，以及�
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>新磁碟大小：受控和非受控
 
-**作業系統和資料磁碟支援的最大磁碟大小是多少？**
+**作業系統和資料磁碟支援的最大受控磁碟大小是多少？**
 
-Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (MBR)。 MBR 格式支援的磁碟大小上限為 2 TB。 Azure 針對作業系統磁碟支援的大小上限為 2 TB。 Azure 支援最大 4 TB 的資料磁碟。 
+Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (MBR)。 MBR 格式支援的磁碟大小上限為 2 TiB。 Azure 針對作業系統磁碟支援的大小上限為 2 TiB。 Azure 支援最大 32 TiB 的受控資料磁碟。 大於 4 TiB 的受控的磁碟大小目前為預覽版。 如需詳細資訊，請閱讀我們的[部落格文章](http://aka.ms/azure-large-disk-32TB-preview-blog)。
+
+**作業系統和資料磁碟支援的最大非受控磁碟大小是多少？**
+
+Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (MBR)。 MBR 格式支援的磁碟大小上限為 2 TiB。 Azure 針對作業系統非受控磁碟支援的大小上限為 2 TiB。 Azure 支援最大 4 TiB 的非受控資料磁碟。
 
 **支援的分頁 Blob 大小上限是多少？**
 
-Azure 支援的分頁 Blob 大小上限是 8 TB (8,191 GB)。 連結至虛擬機器作為資料或作業系統磁碟時，頁面部落格大小最大值是 4 TB (4,095 GB)。
+Azure 支援的分頁 Blob 大小上限是 8 TiB (8,191 GiB)。 連結至虛擬機器作為資料或作業系統磁碟時，頁面部落格大小最大值是 4 TiB (4,095 GiB)。
 
-**我是否需要使用新版 Azure 工具來建立磁碟、連結磁碟、調整磁碟大小及上傳大於 1 TB 的磁碟？**
+**我是否需要使用新版 Azure 工具來建立磁碟、連結磁碟、調整磁碟大小及上傳大於 1 TiB 的磁碟？**
 
-您不需要升級現有的 Azure工具來建立磁碟、連結磁碟或調整大於1 TB 的磁碟大小。 若要將 VHD 檔案從內部部署直接上傳到 Azure 作為分頁 Blob 或非受控磁碟，您需要使用最新的工具集：
+您不需要升級現有的 Azure工具來建立磁碟、連結磁碟或調整大於1 TiB 的磁碟大小。 若要將 VHD 檔案從內部部署直接上傳到 Azure 作為分頁 Blob 或非受控磁碟，您需要使用下表所列的最新工具集。 我們僅支援最多 8 TiB 的 VHD 上傳。
 
 |Azure 工具      | 支援的版本                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | 版本號碼 4.1.0：2017 年 6 月發行或更新版本|
 |Azure CLI v1     | 版本號碼 0.10.13：2017 年 5 月發行或更新版本|
+|Azure CLI v2     | 版本號碼 2.0.12：2017 年 7 月發行或更新版本|
 |AzCopy           | 版本號碼 6.1.0：2017 年 6 月發行或更新版本|
-
-即將支援 Azure CLI v2 和 Azure 儲存體總管。 
 
 **針對非受控磁碟或分頁 Blob，是否支援 P4 和 P6 磁碟大小？**
 
-否。 只有受控磁碟才支援 P4 (32 GB) 和 P6 (64 GB) 磁碟大小。 即將支援非受控磁碟和分頁 Blob。
+非受控磁碟和分頁 Blob 的預設磁碟層不支援 P4 (32 GiB) 和 P6 (64 GiB) 磁碟大小。 您需要明確地[將 Blob 層設為](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) P4 和 P6，才能讓磁碟對應至這些層。 若您以小於 32 GitB 或介於 32 GiB 到 64 GiB 之間的磁碟大小或內容長度來部署非受控磁碟或分頁 Blob，但並未先設定 Blob 層，則您會持續使用 P10 搭配 500 IOPS 和每秒 100 MiB，以及對應的定價層。
 
-**如果小於 64 GB 的現有進階受控磁碟，是在啟用小型磁碟 (2017 年 6 月 15 日前後) 之前建立，該如何計費？**
+**如果小於 64 GiB 的現有進階受控磁碟，是在啟用小型磁碟 (2017 年 6 月 15 日前後) 之前建立，該如何計費？**
 
-根據 P10 定價層，小於 64 GB 的現有小型進階磁碟繼續計費。 
+根據 P10 定價層，小於 64 GiB 的現有小型進階磁碟繼續計費。
 
-**我要如何將小於 64 GB 的小型進階磁碟的磁碟層，從 P10 切換到 P4 或 P6？**
+**我要如何將小於 64 GiB 的小型進階磁碟的磁碟層，從 P10 切換到 P4 或 P6？**
 
-您可以為小型磁碟建立快照集，然後建立一個磁碟，根據佈建大小自動將定價層切換為 P4 或 P6。 
+您可以為小型磁碟建立快照集，然後建立一個磁碟，根據佈建大小自動將定價層切換為 P4 或 P6。
 
+**您可以將現有的受控磁碟從目前小於 4 TiB 的大小，重新調整為最近導入的最多 32 TiB 磁碟大小嗎？**
+
+新的 8 TiB、16 TiB 和 32 Tib 受控磁碟大小目前處於預覽狀態。 我們尚不支援將現有磁碟大小重新調整為新的磁碟大小。
+
+**Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為何？**
+
+Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB。
+
+**針對大型磁碟大小 (大於 4 TiB) 的標準 SSD 和標準 HDD 磁碟，你們建議使用哪些 VM 大小，才能擁有最佳化的磁碟 IOPS 和頻寬？**
+
+若要達到標準 SSD 和標準 HDD 大型磁碟大小 (大於 4 TiB) 的 500 IOPS 和每秒 60 MiB 的磁碟輸送量，您應該使用下列其中一種 VM 大小，讓您的效能最佳化：B-series、DSv2-series、Dsv3-Series、ESv3-Series、Fs-series、Fsv2-series、M-series、GS-series、NCv2-series、NCv3-series 或 Ls-Series VM。
+
+**有哪些區域支援超過 4 TiB 的受控磁碟大小？**
+
+在目前的預覽版中，只有美國中西部支援此受控磁碟大小。
+
+**是否支援在較新的磁碟大小上啟用主機快取？**
+
+我們在小於 4 TiB 的磁碟大小上支援唯讀和讀取/寫入的主主機快取。 針對超過 4 TiB 的磁碟大小，我們只支援設定為「無」的快取選項。 建議您利用快取較小型磁碟大小的方式，以便您透過快取到 VM 的資料增進效能。
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果這裡沒有解答我的問題該怎麼辦？
 

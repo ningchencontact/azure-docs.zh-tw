@@ -55,6 +55,8 @@ items:
       href: module-edgeagent-edgehub.md
   - name: 部署
     href: module-deployment-monitoring.md
+  - name: 離線功能
+    href: offline-capabilities.md
   - name: 將 IoT Edge 裝置設定為閘道
     href: iot-edge-as-gateway.md
   - name: 安全性
@@ -95,7 +97,9 @@ items:
       href: how-to-auto-provision-simulated-device-linux.md
     - name: Windows
       href: how-to-auto-provision-simulated-device-windows.md
-  - name: 開發模組並對其進行偵錯
+  - name: 在 VS 2017 中開發模組及針對模組進行偵錯
+    href: how-to-visual-studio-develop-csharp-module.md
+  - name: 在 VS Code 中開發模組及針對模組進行偵錯
     items:
     - name: Azure Functions
       href: how-to-develop-csharp-function.md
@@ -135,6 +139,12 @@ items:
       href: how-to-create-transparent-gateway-windows.md
     - name: Modbus 通訊協定閘道
       href: deploy-modbus-gateway.md
+  - name: 設定 Proxy 支援
+    href: how-to-configure-proxy-support.md
+  - name: 在 Edge 中儲存資料
+    items:
+    - name: IoT Edge 上的 Azure Blob 儲存體
+      href: how-to-store-data-blob.md
   - name: Azure DevOps 中的 CI/CD
     href: how-to-ci-cd.md
   - name: 疑難排解
@@ -207,9 +217,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: d2dcc4e642e997903c01b6b375505e88e412d57b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 79223f7d33eae68f5af8a143bbe2f86d208f8f6f
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294470"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407037"

@@ -18,32 +18,40 @@ items:
   items:
   - name: 避免非預期成本
     href: billing-getting-started.md
-  - name: 設定帳務警示
-    href: billing-set-up-alerts.md
-  - name: 計算價格
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: 使用資源標籤
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+  - name: 開始分析成本 - 僅限 EA
+    href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
+  - name: 建立及管理預算 - 僅限 EA
+    href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
+  - name: 最佳化建議 - 僅限 EA
+    href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: 計算價格
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: 了解消費限制
     href: billing-spending-limit.md
-  - name: 分析成本
-    href: billing-cost-analysis.md
   - name: Azure 保留項目為您節省成本
     items:
     - name: 什麼是 Azure 保留項目？
       href: billing-save-compute-costs-reservations.md
     - name: 購買保留項目
       items:
-      - name: 虛擬機器
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Cosmos DB
+        href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SUSE Linux 軟體
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+      - name: 虛擬機器
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: 如何套用折扣
       items:
       - name: 保留的 VM 執行個體
         href: billing-understand-vm-reservation-charges.md
+      - name: SQL Database 保留容量
+        href: billing-understand-reservation-charges.md
+      - name: Cosmos DB 保留容量
+        href: billing-understand-cosmosdb-reservation-charges.md
       - name: SUSE Linux 軟體方案
         href: billing-understand-suse-reservation-charges.md
     - name: 並未包含軟體成本
@@ -170,9 +178,9 @@ items:
     items:
     - name: Enterprise 報表 REST API
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 52efe9fa438aea7b47f1fb32568ffcb2eb6bfd0a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ee136fceb3febfbda2d0f18982544fd90d32832b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302383"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422689"

@@ -11,7 +11,7 @@ items:
     displayName: incident
     href: azure-log-audit.md
   - name: Azure 網路安全性
-    displayName: firewall, ssl, vpn, ids, gateway
+    displayName: firewall, ssl, vpn, ids, gateway, https, application gateway, azure application gateway, ips, waf
     href: abstract-azure-network-security.md
   - name: Azure 無伺服器平台安全性
     href: abstract-serverless-platform-security.md
@@ -21,8 +21,10 @@ items:
     displayName: policy, policies, azure monitor, soc
     href: abstract-azure-operational-security.md
   - name: Azure 雲端中的隔離
+    displayName: trust boundary
     href: azure-isolation.md
   - name: 安全混合式網路架構
+    displayName: trust boundary
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: 安全性技術功能
     href: azure-security-technical-capabilities.md
@@ -47,7 +49,7 @@ items:
     - name: 為 IaaS 虛擬機器進行磁碟加密
       items:
       - name: 有關 Azure 磁碟加密
-        displayName: bitlocker
+        displayName: bitlocker, bek
         href: azure-security-disk-encryption-overview.md
       - name: 快速入門
         items:
@@ -95,7 +97,7 @@ items:
     - name: 元件和界線
       href: azure-infrastructure-components.md
     - name: 網路架構
-      displayName: ssl
+      displayName: ssl, https
       href: azure-infrastructure-network.md
     - name: 生產網路
       href: azure-production-network.md
@@ -124,7 +126,7 @@ items:
     href: security-identity-management-overview.md
     items:
     - name: 選擇 Azure AD 驗證
-      displayName: identity, active directory
+      displayName: identity, active directory, seamless sso
       href: azure-ad-choose-authn.md
     - name: 安全性檢查清單
       displayName: identity, active directory, password
@@ -136,7 +138,7 @@ items:
       displayName: identity
       href: azure-security-global-admin.md
   - name: 網路安全性
-    displayName: firewall, ssl, vpn, ids, gateway
+    displayName: firewall, ssl, vpn, ids, gateway, https, azure application gateway, application gateway, ips, waf
     href: security-network-overview.md
     items:
     - name: 最佳作法
@@ -192,6 +194,7 @@ items:
         displayName: active directory
         href: security-azure-log-integration-ad.md
       - name: 整合資訊安全中心警示
+        displayName: splunk
         href: ../security-center/security-center-export-data-to-siem.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: 整合 Key Vault 中的記錄
         displayName: keyvault
@@ -350,9 +353,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: 工作階段管理
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: 35ebaad2a1024ede0b1b020eacee43241909cc6a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a5f78762baad4cf7f6173076bbb9a9e8f7e877f0
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391950"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423046"
