@@ -125,6 +125,8 @@ items:
     href: infrastructure-automation.md
   - name: 安全性與原則
     href: security-policy.md
+  - name: 狀態和生命週期
+    href: states-lifecycle.md
   - name: 監視
     href: monitor.md
   - name: 備份與復原
@@ -239,7 +241,7 @@ items:
       href: prepay-reserved-vm-instances.md
     - name: 預付 SUSE 軟體
       href: prepay-suse-software-charges.md
-    - name: 什麼是 Azure 保留項目？
+    - name: 什麼是 Azure 保留？
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM 執行個體大小彈性
       href: reserved-vm-instance-size-flexibility.md
@@ -498,55 +500,7 @@ items:
       - name: 常見問題集
         href: migration-classic-resource-manager-faq.md
   - name: 疑難排解
-    items:
-    - name: SSH 連線
-      href: troubleshoot-ssh-connection.md
-      items:
-      - name: 詳細的疑難排解步驟
-        href: detailed-troubleshoot-ssh-connection.md
-    - name: 重設 Linux VM 密碼
-      href: reset-password.md
-    - name: 了解系統重新開機
-      href: understand-vm-reboot.md
-    - name: 開機診斷
-      href: boot-diagnostics.md
-    - name: 序列主控台
-      href: serial-console.md
-      items:
-      - name: 序列主控台 GRUB/單一使用者模式
-        href: serial-console-grub-single-user-mode.md
-      - name: 序列主控台 NMI/SysRq
-        href: serial-console-nmi-sysrq.md
-    - name: 應用程式存取
-      href: troubleshoot-app-connection.md
-    - name: 配置失敗
-      href: allocation-failure.md
-    - name: 配置失敗 - 傳統 VM
-      href: allocation-failure-classic.md
-    - name: 部署問題
-      href: troubleshoot-deploy-vm.md
-    - name: 建立 VM
-      href: troubleshoot-deployment-new-vm.md
-    - name: 裝置名稱已變更
-      href: troubleshoot-device-names-problems.md
-    - name: 將 VM 重新部署至新的 Azure 節點
-      href: redeploy-to-new-node.md
-    - name: 常見的錯誤訊息
-      href: error-messages.md
-    - name: VM 復原存取
-      items:
-      - name: Azure CLI
-        href: troubleshoot-recovery-disks.md
-      - name: Azure 入口網站
-        href: troubleshoot-recovery-disks-portal.md
-    - name: 連結的 VHD
-      items:
-      - name: 儲存體資源刪除發生錯誤
-        href: storage-resource-deletion-errors.md
-      - name: 包含連結 VHD 的 VM 非預期重新開機
-        href: unexpected-reboots-attached-vhds.md
-    - name: 節流處理錯誤
-      href: troubleshooting-throttling-errors.md
+    href: ../troubleshooting/index.md
 - name: 參考
   items:
   - name: Azure CLI
@@ -583,9 +537,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: 常見問題集
     href: faq.md
-ms.openlocfilehash: 5ac900d783b72689759bdfe5d2ba47c11aa2157c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9887abf2965b7122c6d0fda1954cc249d67f3380
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035584"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408992"

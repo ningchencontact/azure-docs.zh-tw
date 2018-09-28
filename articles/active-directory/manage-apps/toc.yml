@@ -94,8 +94,6 @@ items:
         href: adding-non-gallery-app-common-problems.md
     - name: 變更名稱或標誌
       href: change-name-or-logo-portal.md
-    - name: SaaS 應用程式教學課程
-      href: /azure/active-directory/saas-apps/tutorial-list?context=azure/active-directory/manage-apps/context/manage-apps-context
   - name: 內部部署應用程式整合
     items:
     - name: 啟用應用程式 Proxy
@@ -284,9 +282,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 8bd998373a65aa1ef171c665f3b9fbd38acadfa2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 53f0550d8ed4bd183a035e51771d872c2d12ff15
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737068"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419503"
