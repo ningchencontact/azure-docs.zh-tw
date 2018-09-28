@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 2.0 將網域區域檔案匯入和匯出至 Azure DNS | Microsoft Docs
-description: 了解如何使用 Azure CLI 2.0 將 DNS 區域檔案匯入和匯出至 Azure DNS
+title: 使用 Azure CLI 將網域區域檔案匯入和匯出至 Azure DNS | Microsoft Docs
+description: 了解如何使用 Azure CLI 匯入和匯出 DNS 區域檔案至 Azure DNS
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 7578d078b147b5c4bf42f5343d3fdfdf6f0bc42e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171600"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956348"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 匯入和匯出 DNS 區域檔案 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>使用 Azure CLI 匯入及匯出 DNS 區域檔案 
 
-本文會引導您了解如何使用 Azure CLI 2.0，來匯入和匯出適用於 Azure DNS 的 DNS 區域檔案。
+本文會引導您了解如何使用 Azure CLI 來匯入和匯出適用於 Azure DNS 的 DNS 區域檔案。
 
 ## <a name="introduction-to-dns-zone-migration"></a>DNS 區域移轉簡介
 
@@ -30,7 +30,7 @@ DNS 區域檔案是一個文字檔，其中包含區域中每筆網域名稱系�
 
 Azure DNS 支援使用 Azure 命令列介面 (CLI) 匯入和匯出區域檔案。 目前並「不」支援透過 Azure PowerShell 或 Azure 入口網站進行區域檔案匯入。
 
-Azure CLI 2.0 是用來管理 Azure 服務的跨平台命令列工具。 它可從 [Azure 下載頁面](https://azure.microsoft.com/downloads/)取得，且適用於 Windows、Mac 及 Linux 平台。 跨平台支援對於匯入和匯出區域檔案十分重要，因為最常見的名稱伺服器軟體 [BIND](https://www.isc.org/downloads/bind/) 通常會在 Linux 上執行。
+Azure CLI 是用來管理 Azure 服務的跨平台命令列工具。 它可從 [Azure 下載頁面](https://azure.microsoft.com/downloads/)取得，且適用於 Windows、Mac 及 Linux 平台。 跨平台支援對於匯入和匯出區域檔案十分重要，因為最常見的名稱伺服器軟體 [BIND](https://www.isc.org/downloads/bind/) 通常會在 Linux 上執行。
 
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>取得現有的 DNS 區域檔案

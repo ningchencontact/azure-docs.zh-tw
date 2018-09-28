@@ -9,22 +9,22 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 45558e25f2f61090cfb3ddb5c382170ab40792d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523439"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999035"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本設定 IoT 中樞裝置佈建服務
 
-您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)，以程式設計方式設定佈建裝置所需的 Azure 雲端資源。 下列步驟示範如何使用 Azure Resource Manager 範本來建立 IoT 中樞、新的 IoT 中樞裝置佈建服務，以及將這兩項服務連結在一起。 本快速入門使用 [Azure CLI 2.0](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) 來執行建立資源群組及部署範本所需的程式設計步驟，但您可以輕鬆使用 [Azure 入口網站](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal)[PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).NET、Ruby 或其他程式設計語言來執行這些步驟及部署您的範本。 
+您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)，以程式設計方式設定佈建裝置所需的 Azure 雲端資源。 下列步驟示範如何使用 Azure Resource Manager 範本來建立 IoT 中樞、新的 IoT 中樞裝置佈建服務，以及將這兩項服務連結在一起。 本快速入門使用 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) 來執行建立資源群組及部署範本所需的程式設計步驟，但您可以輕鬆使用 [Azure 入口網站](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal)、[PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)、.NET、Ruby 或其他程式設計語言來執行這些步驟及部署您的範本。 
 
 
 ## <a name="prerequisites"></a>必要條件
 
 - 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-- 此快速入門需要您在本機執行 Azure CLI。 您必須安裝 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+- 此快速入門需要您在本機執行 Azure CLI。 您必須安裝 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>登入 Azure 並建立資源群組

@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 5e79cfa2c428323d8531bec7eab875a2dace4ff2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: aa1891ecec139746d6051dcabdb3c9db4f6062c6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934210"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996344"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>在 Azure 中安裝和設定遠端桌面，以連接至 Linux VM
 在 Azure 中的 Linux 虛擬機器 (VM) 通常是使用安全殼層 (SSH) 連接從命令列管理。 如果是 Linux 的新手，或者是快速疑難排解的案例，使用遠端桌面可能會比較容易。 本文將詳細說明如何使用 Resource Manager 部署模型為您的 Linux VM 安裝和設定桌面環境 ([xfce](https://www.xfce.org)) 和遠端桌面 ([xrdp](http://www.xrdp.org))。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文需要在 Azure 中有現有的 Ubuntu 16.04 LTS VM。 如果您需要建立 VM，請使用下列其中一個方法︰
 
-- [Azure CLI 2.0](quick-create-cli.md)
+- [Azure CLI](quick-create-cli.md)
 - [Azure 入口網站](quick-create-portal.md)
 
 
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>建立遠端桌面流量的網路安全性群組規則
 若要允許遠端桌面流量觸達您的 Linux VM，必須建立網路安全性群組規則，允許連接埠 3389 上的 TCP 觸達您的 VM。 如需有關網路安全性群組規則的詳細資訊，請參閱[什麼是網路安全性群組？](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 您也可以[使用 Azure 入口網站建立網路安全性群組規則](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-下列範例會使用 [az vm open-port](/cli/azure/vm#az-vm-open-port) 在連接埠 3389 上建立網路安全性群組規則。 從 Azure CLI 2.0 (而非您 VM 的 SSH 工作階段)，開啟下列網路安全性群組規則：
+下列範例會使用 [az vm open-port](/cli/azure/vm#az-vm-open-port) 在連接埠 3389 上建立網路安全性群組規則。 從 Azure CLI (而非您 VM 的 SSH 工作階段) 開啟下列網路安全性群組規則：
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

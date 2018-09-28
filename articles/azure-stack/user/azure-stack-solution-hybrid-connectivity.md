@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/25/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 72c5c4b0f0ab752bb02e6bee7cd038afca44ee1b
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 652d39b4d15569b9365543e02f170664a88715fa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953254"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 設定混合式雲端連線
 
@@ -33,7 +33,14 @@ ms.locfileid: "34605190"
 > - 使內部部署資料符合隱私權或法規需求，但具有全域 Azure 資源的存取權。
 > - 在全域 Azure 中使用雲端調整應用程式部署和資源的同時，維護舊版系統。
 
-## <a name="prerequisites"></a>先決條件
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack 是 Azure 的延伸模組。 Azure Stack 可將雲端運算的靈活性和創新能力導入您的內部部署環境中，並啟用獨特的混合式雲端，讓您能夠隨處建置及部署混合式應用程式。  
+> 
+> [混合式應用程式的設計考量](https://aka.ms/hybrid-cloud-applications-pillars)技術白皮書檢閱了設計、部署和操作混合式應用程式時的軟體品質要素 (放置、延展性、可用性、復原能力、管理性和安全性)。 這些設計考量有助於您設計出最佳的混合式應用程式，讓生產環境遇到最少的挑戰。
+
+
+## <a name="prerequisites"></a>必要條件
 
 建置混合式連線部署時需要幾項元件。 其中有些元件可能需要一些時間來準備，所以您必須進行規劃。
 
@@ -89,7 +96,7 @@ Azure Stack 操作員必須部署 App Service、建立方案和供應項目、�
 
 網路和子網路 IP 位址：
 
-| Azure/Azure Stack 連線 | Name | 子網路 | IP 位址 |
+| Azure/Azure Stack 連線 | 名稱 | 子網路 | IP 位址 |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |

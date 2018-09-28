@@ -1,27 +1,22 @@
 ---
-title: 教學課程 - 監視 Azure 防火牆記錄
-description: 在本教學課程中，您會了解如何啟用及管理 Azure 防火牆記錄。
+title: 教學課程 - 監視 Azure 防火牆記錄和計量
+description: 在本教學課程中，您會了解如何啟用及管理 Azure 防火牆記錄和計量。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/11/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: a4922fda80b957138a9929090f9d3c349348185d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991838"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991040"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs"></a>教學課程：監視 Azure 防火牆記錄
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>教學課程：監視 Azure 防火牆記錄和計量
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Azure 防火牆文件中的範例假設您已啟用 Azure 防火牆公開預覽。 如需詳細資訊，請參閱[啟用 Azure 防火牆公用預覽](public-preview.md)。
-
-您可以使用防火牆記錄來監視 Azure 防火牆。 您也可以使用活動記錄來稽核 Azure 防火牆資源上的作業。
+您可以使用防火牆記錄來監視 Azure 防火牆。 您也可以使用活動記錄來稽核 Azure 防火牆資源上的作業。 使用計量，您可以在入口網站中檢視效能計數器。 
 
 您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)、儲存體和事件中樞，並在 Log Analytics 中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
 
@@ -32,69 +27,12 @@ Azure 防火牆文件中的範例假設您已啟用 Azure 防火牆公開預覽�
 > * 使用 PowerShell 啟用記錄
 > * 檢視和分析活動記錄檔
 > * 檢視及分析網路和應用程式規則記錄
+> * 檢視計量
 
-## <a name="diagnostic-logs"></a>診斷記錄檔
+## <a name="prerequisites"></a>必要條件
 
- 下列診斷記錄可供 Azure 防火牆使用：
+在開始本教學課程之前，您應該閱讀 [Azure 防火牆記錄和計量](logs-and-metrics.md)，以取得適用於 Azure 防火牆的診斷記錄和計量概觀。
 
-* **應用程式規則記錄**
-
-   只有當您針對每個 Azure 防火牆加以啟用時，應用程式規則記錄才會儲存到儲存體帳戶、串流至事件中樞及/或傳送至 Log Analytics。 符合其中一個已設定應用程式規則的每個新連線，都會產生接受/拒絕連線的記錄。 資料會以 JSON 格式記錄下來，如下列範例所示：
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-   {
-    "category": "AzureFirewallApplicationRule",
-    "time": "2018-04-16T23:45:04.8295030Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallApplicationRuleLog",
-    "properties": {
-        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
-    }
-   }
-   ```
-
-* **網路規則記錄**
-
-   只有當您針對每個 Azure 防火牆加以啟用時，網路規則記錄才會儲存到儲存體帳戶、串流至事件中樞及/或傳送至 Log Analytics。 符合其中一個已設定網路規則的每個新連線，都會產生接受/拒絕連線的記錄。 資料會以 JSON 格式記錄下來，如下列範例所示：
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-  {
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallNetworkRuleLog",
-    "properties": {
-        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
-    }
-   }
-
-   ```
-
-您有三個選項可用來排序您的記錄：
-
-* **儲存體帳戶**：如果記錄會儲存一段較長的持續期間，並在需要時加以檢閱，則最好針對記錄使用儲存體帳戶。
-* **事件中樞**：如果要整合其他安全性資訊和事件管理 (SEIM) 工具以便在資源上取得警示，則事件中樞是絕佳的選項。
-* **Log Analytics**：Log Analytics 最適合用來進行應用程式的一般即時監視，或查看趨勢。
-
-## <a name="activity-logs"></a>活動記錄
-
-   預設會收集活動記錄，您可在 Azure 入口網站中檢視它們。
-
-   您可以使用 [Azure 活動記錄](../azure-resource-manager/resource-group-audit.md) (之前稱為「作業記錄和稽核記錄」) 來檢視提交至您 Azure 訂用帳戶的所有作業。
 
 ## <a name="enable-diagnostic-logging-through-the-azure-portal"></a>透過 Azure 入口網站啟用診斷記錄
 
@@ -105,8 +43,8 @@ Azure 防火牆文件中的範例假設您已啟用 Azure 防火牆公開預覽�
 
    針對 Azure 防火牆，可以使用兩個服務特定的記錄：
 
-   * 應用程式規則記錄
-   * 網路規則記錄
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. 若要開始收集資料，請按一下 [開啟診斷]。
 4. [診斷設定] 頁面中提供診斷記錄的設定。 
@@ -163,6 +101,8 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 > [!TIP]
 > 如果您熟悉 Visual Studio 以及在 C# 中變更常數和變數值的基本概念，您可以使用 GitHub 所提供的[記錄檔轉換器工具 (英文)](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
 
+## <a name="view-metrics"></a>檢視計量
+瀏覽至 Azure 防火牆，在 [監視] 之下按一下 [計量]。 若要檢視可用的值，請選取 [計量] 下拉式清單。
 
 ## <a name="next-steps"></a>後續步驟
 

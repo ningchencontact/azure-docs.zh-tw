@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2018
+ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: 0e513cc4f6a7d5d030ded807870de9eb0fdc0ed8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973180"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955238"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log Analytics 中的資料擷取時間
-Azure Log Analytics 是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料的上千名客戶。 而在 Log Analytics 收集資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
+Azure Log Analytics 是 Azure 監視器中的高階資料服務，服務對象為每月需傳送數 TB 資料的上千名客戶。 而在 Log Analytics 收集資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
 
 ## <a name="typical-latency"></a>一般延遲
-延遲是指在受監控的系統中建立資料所需的時間，以及轉變為可在 Log Analytics 中進行分析的時間。 將資料內嵌至 Log Analytics 的一般延遲是 3 到 10 分鐘，95% 的資料內嵌時間不到 7 分鐘。 任何特定資料的某種延遲會因為下列所述的各種因素而有所不同。
+延遲是指在受監控的系統中建立資料所需的時間，以及轉變為可在 Log Analytics 中進行分析的時間。 將資料內嵌至 Log Analytics 的延遲通常介於 2 到 5 分鐘之間。 任何特定資料的某種延遲會因為下列所述的各種因素而有所不同。
 
-## <a name="sla-for-log-analytics"></a>Log Analytics 的 SLA
-[Log Analytics 服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) 是合法的繫結協定，用於定義當服務未達其目標時，Microsoft 退款給客戶的時間。 這不是根據系統的一般效能，而是根據其最差的案例，而這類情形可視為潛在的災難性情況。
 
 ## <a name="factors-affecting-latency"></a>影響延遲的因素
 特定資料集的擷取時間總計可以細分成下列高階領域。 
@@ -60,7 +58,7 @@ Azure Log Analytics 是一種大規模的資料服務，服務對象為每月需
 請參閱每個解決方案的文件以確定其收集頻率。
 
 ### <a name="pipeline-process-time"></a>管理處理程序時間
-將記錄檔記錄擷取至 Log Analytics 管道後，會將其寫入暫存儲存體，以確保租用戶隔離，並確保資料不會遺失。 此程序通常會增加 5-15 秒。 某些管理解決方案會實作更繁重的演算法以彙總資料，並在資料流入時獲得見解。 例如，網路效能監控會每 3 分鐘彙總傳入資料，有效地增加 3 分鐘的延遲。
+將記錄檔記錄擷取至 Log Analytics 管道後，會將其寫入暫存儲存體，以確保租用戶隔離，並確保資料不會遺失。 此程序通常會增加 5-15 秒。 某些管理解決方案會實作更繁重的演算法以彙總資料，並在資料流入時獲得見解。 例如，網路效能監控會每 3 分鐘彙總傳入資料，有效地增加 3 分鐘的延遲。 另一個會增加延遲的程序是處理自訂記錄的程序。 在某些情況下，對於代理程式收集自檔案的記錄，此程序可能會增加數分鐘的延遲。
 
 ### <a name="new-custom-data-types-provisioning"></a>新的自訂資料類型佈建
 從[自訂記錄](../log-analytics/log-analytics-data-sources-custom-logs.md)或[資料收集器 API](../log-analytics/log-analytics-data-collector-api.md) 建立新類型的自訂資料時，系統會建立專用的儲存體容器。 這是一次性的額外負荷，僅在第一次出現此資料類型時發生。

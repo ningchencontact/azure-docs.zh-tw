@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: d554cdf5e89898874811ea113985fac4b332fac6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948112"
 ---
 # <a name="scale-hdinsight-clusters"></a>調整 HDInsight 叢集
 
@@ -28,11 +28,13 @@ HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的�
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* 若要透過 [Azure CLI](hdinsight-administer-use-command-line.md) 調整叢集：
+* 若要透過 [Azure 傳統 CLI](hdinsight-administer-use-command-line.md) 調整叢集：
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
     
 * 若要透過 [Azure 入口網站](https://portal.azure.com)調整叢集，請開啟 [HDInsight 叢集] 窗格，選取左側功能表中的 [調整叢集]，然後在 [調整叢集] 窗格中輸入背景工作節點數，再選取 [儲存]。
 

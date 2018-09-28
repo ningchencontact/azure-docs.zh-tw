@@ -1,5 +1,6 @@
 ---
-title: 使用 C#，使用 Bot Builder SDK 來整合 LUIS 與聊天機器人 - Azure 認知服務 | Microsoft Docs
+title: 使用 C# 的 LUIS Bot - Web 應用程式 Bot - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: 使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。
 services: cognitive-services
 author: diberry
@@ -7,18 +8,18 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2779c4109201cf40a8771f9e339d60680cb3ef31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42093861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950995"
 ---
-# <a name="web-app-bot-using-the-luis-template-for-c"></a>使用適用於 C# 之 LUIS 範本的 Web 應用程式 Bot
+# <a name="luis-bot-in-c"></a>使用 C# 的 LUIS Bot
 
-使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。 
+使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。 此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。
 
 ## <a name="prerequisite"></a>必要條件
 
@@ -46,7 +47,10 @@ ms.locfileid: "42093861"
 4. 在 [Bot 服務] 中提供必要資訊，然後按一下 [建立]。 這會建立 Bot 服務和 LUIS 應用程式，並將其部署到 Azure。 如果您想要使用[語音促發](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，請先檢閱[區域需求](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming)，再建立您的 Bot。 
     * 將 [應用程式名稱] 設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * 選取訂用帳戶、[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)、App Service 方案，以及[位置](https://azure.microsoft.com/regions/)。
-    * 針對 [Bot 範本] 欄位，選取 [Language Understanding (C#)] 範本。
+    * 針對 [Bot 範本]，請選取：
+        * **SDK v3**
+        * **C#**
+        * **語言理解**
     * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域](luis-reference-regions.md)。
     * 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
 

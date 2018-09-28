@@ -1,6 +1,6 @@
 ---
 title: 將存取重設為 Azure Linux VM | Microsoft Docs
-description: 如何使用 VMAccess 擴充功能和 Azure CLI 2.0 在 Linux VM 上管理系統管理使用者及重設存取
+description: 如何使用 VMAccess 擴充功能和 Azure CLI 在 Linux VM 上管理系統管理使用者及重設存取
 services: virtual-machines-linux
 documentationcenter: ''
 author: zroiy
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415891"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998622"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>使用 VMAccess 擴充功能搭配 Azure CLI 2.0 在 Linux VM 上管理系統管理使用者、SSH 及檢查或修復磁碟
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>使用 VMAccess 擴充功能搭配 Azure CLI 在 Linux VM 上管理系統管理使用者、SSH 及檢查或修復磁碟
 ## <a name="overview"></a>概觀
 Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，或不小心刪除了 SSH 私密金鑰。 如果是過去資料中心的時代發生此狀況，您必須親赴現場，然後再開啟 KVM 才能存取伺服器主控台。 請將 Azure VMAccess 擴充功能想成 KVM 交換器，在此可以存取主控台重設 Linux 存取或執行磁碟等級維護。
 
@@ -47,10 +47,10 @@ Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，�
 ## <a name="ways-to-use-the-vmaccess-extension"></a>使用 VMAccess 擴充功能的方式
 您可以透過兩種方式在 Linux VM 上使用「VMAccess 擴充功能」：
 
-* 使用 Azure CLI 2.0 和必要的參數。
+* 使用 Azure CLI 和必要的參數。
 * [使用 VMAccess 擴充功能會處理然後作為行動依據的原始 JSON 檔案](#use-json-files-and-the-vmaccess-extension)。
 
-下列範例會使用 [az vm user](/cli/azure/vm/user) 命令。 若要執行這些步驟，您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
+下列範例會使用 [az vm user](/cli/azure/vm/user) 命令。 若要執行這些步驟，您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
 
 ## <a name="update-ssh-key"></a>更新 SSH 金鑰
 下列範例會更新名為 `myVM` 的 VM 上使用者 `azureuser` 的 SSH 金鑰：

@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/13/2018
 ms.author: magattus
-ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141886"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997264"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>在 Azure CDN 中壓縮檔案以改善效能
 檔案壓縮是簡單且有效的方法，可提升檔案傳輸速度，並且在檔案從伺服器傳送出去之前先減少其大小，以增加頁面載入效能。 檔案壓縮可降低頻寬成本，並提供回應速度更快的體驗給使用者。
@@ -102,13 +102,14 @@ ms.locfileid: "42141886"
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>來自 Microsoft 的標準 Azure CDN
 
-若為**來自 Microsoft 的標準 Azure CDN** 設定檔，所有檔案都符合壓縮資格。 然而，檔案必須為已[設定壓縮](#enabling-compression)的 MIME 類型。
+如果是**來自 Microsoft 的標準 Azure CDN** 設定檔，只會壓縮符合資格的檔案。 若要符合壓縮的資格，檔案必須：屬於已[設定壓縮](#enabling-compression)的 MIME 類型。
+- 大於 1 KB - 小於 8 MB
 
 這些設定檔支援下列壓縮編碼：
 - gzip (GNU zip)
 - brotli 
  
-如果該要求支援多種壓縮類型，那些壓縮類型的優先順序均高於 brotli 壓縮。
+如果該要求支援多種壓縮類型，優先使用 brotli 壓縮。
 
 當資產的要求指定 gzip 壓縮且快取中的要求結果遺失時，Azure CDN 會在原始伺服器上對資產執行 gzip 壓縮。 之後會從快取提供壓縮的檔案。
 

@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b799cde0a696b4a764893c545a8d55d363a4800
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188235"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989017"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>整合應用程式與 Azure Active Directory
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 企業開發人員和軟體即服務 (SaaS) 提供者可以開發可與 Azure Active Directory (Azure AD) 整合的商業雲端服務或企業營運應用程式，以提供安全的登入和授權給其服務。 若要整合應用程式或服務與 Azure AD，開發人員必須先向 Azure AD 註冊應用程式。
 
@@ -33,9 +34,11 @@ ms.locfileid: "43188235"
 若要深入了解代表已註冊應用程式的兩個 Azure AD 物件與其間的關係，請參閱[應用程式物件和服務主體物件](app-objects-and-service-principals.md)；若要深入了解利用 Azure Active Directory 開發應用程式時應使用的商標指導方針，請參閱[整合應用程式的商標指導方針](howto-add-branding-in-azure-ad-apps.md)。
 
 ## <a name="adding-an-application"></a>新增應用程式
+
 任何想要使用 Azure AD 功能的應用程式都必須先在 Azure AD 租用戶中註冊。 此登錄程序牽涉到提供 Azure AD 應用程式的相關詳細資料，例如其所在的 URL、要在使用者驗證之後傳送回應的 URL，以及會識別應用程式的 URI 等。
 
 ### <a name="to-register-a-new-application-using-the-azure-portal"></a>使用 Azure 入口網站註冊新的應用程式
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 如果您的帳戶可讓您存取多個帳戶，請在右上角按一下您的帳戶，並將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
 3. 在左側導覽窗格中，依序按一下 [Azure Active Directory] 服務、[應用程式註冊] 和 [新增應用程式註冊]。
@@ -59,10 +62,9 @@ ms.locfileid: "43188235"
 
   > [!NOTE]
   > 根據預設，新註冊的 Web 應用程式會設定為**只**允許相同租用戶的使用者登入您的應用程式。
-  > 
-  > 
 
 ## <a name="updating-an-application"></a>更新應用程式
+
 一旦您的應用程式已向 Azure AD 註冊，它可能需要更新，以提供 web API 的存取權、供其他組織使用等等。 本節說明您可以用來進一步設定應用程式的各種方式。 我們先從同意架構的概觀來開始，在建置必須供其他使用者或應用程式使用的應用程式時，務必要了解同意架構。
 
 ### <a name="overview-of-the-consent-framework"></a>同意架構的概觀
@@ -93,16 +95,17 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
    
   ![使用者同意體驗](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-5. 使用者同意後，授權碼會傳回您的應用程式，藉以兌換取得存取權杖和重新整理權杖。 如需此流程的詳細資訊，請參閱 [Azure AD 的驗證案例中的 Web 應用程式到 Web API 一節](authentication-scenarios.md#web-application-to-web-api)。
+5. 使用者同意後，授權碼會傳回您的應用程式，藉以兌換取得存取權杖和重新整理權杖。 如需此流程的詳細資訊，請參閱 [Web API]](web-api.md)。
 
 6. 身為系統管理員，您也可以代表租用戶中的所有使用者，同意應用程式的委派權限。 系統管理員同意可避免對租用戶的每個使用者都顯示同意對話方塊，並且可由具有系統管理員角色的使用者在 [Azure 入口網站](https://portal.azure.com)中完成。 在應用程式的 [設定] 頁面中，按一下 [所需的權限]，然後按一下 [授與權限] 按鈕。 
 
   ![授與明確的系統管理員同意權限](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
-  > 使用 ADAL.js 的單一頁面應用程式 (SPA) 目前必須使用 [授與權限] 按鈕來授與明確的同意。 否則，應用程式會在要求存取權杖時失敗。 
+  > 使用 ADAL.js 的單頁應用程式 (SPA) 目前必須使用 [授與權限] 按鈕來授與明確的同意。 否則，應用程式會在要求存取權杖時失敗。 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>設定用戶端應用程式以存取 Web API
+
 為了讓 Web/機密用戶端應用程式能夠參與需要驗證的授權授與流程 (及取得存取權杖)，用戶端必須建立安全的憑證。 Azure 入口網站支援的預設驗證方法為用戶端識別碼 + 祕密金鑰。 本節會討論使用用戶端的認證提供秘密金鑰所需的設定步驟。
 
 此外，同意架構要先確保用戶端取得必要的權限授與 (根據所要求的權限)，用戶端才可以存取資源應用程式所公開的 Web API (例如 Microsoft Graph API)。 根據預設，所有應用程式都可以從「Windows Azure Active Directory」(圖形 API) 和「Windows Azure 服務管理 API」選擇權限。 依預設也會選取[圖形 API「登入及讀取使用者設定檔」權限](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails)。 如果您的用戶端將會註冊在擁有已訂閱 Office 365 之帳戶的租用戶中，則也可選取 SharePoint 與 Exchange Online 的 Web API 和權限。 針對每一個所要的 Web API，您可以從[兩種權限類型](developer-glossary.md#permissions)中做選擇：
@@ -115,6 +118,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
   > 新增對應用程式的委派權限並不會自動將同意授與租用戶內的使用者。 使用者仍必須手動同意在執行階段新增的委派權限，除非者系統管理員代表所有使用者授與同意。
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>新增用來存取 Web API 的應用程式認證或權限
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 如果您的帳戶可讓您存取多個帳戶，請在右上角按一下您的帳戶，並將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
 3. 在左側導覽窗格中，依序按一下 [Azure Active Directory] 服務和 [應用程式註冊]，然後尋找/按一下您要設定的應用程式。
@@ -213,8 +217,6 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
 
 > [!NOTE]
 > 由於目前的限制，如果原生用戶端應用程式使用「存取組織的目錄」權限，它們只能呼叫 Azure AD 圖形 API。 這項限制不適用於 web 應用程式。
-> 
-> 
 
 ### <a name="configuring-multi-tenant-applications"></a>設定多租用戶應用程式
 
@@ -260,9 +262,9 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
 - [多租用戶程式碼範例](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant)的清單。 
 - [快速入門：在 Azure AD 中將公司商標新增至登入頁面](../fundamentals/customize-branding.md)
 
-### <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>啟用單一頁面應用程式的 OAuth 2.0 隱含授權
+### <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>啟用單頁應用程式的 OAuth 2.0 隱含授權
 
-單一頁面應用程式 (SPA) 通常會利用執行於瀏覽器中的 JavaScript-heavy 前端進行結構化，此前端會呼叫應用程式的 web API 後端以執行其商務邏輯。 針對裝載於 Azure AD 中的 SPA，您會使用 OAuth 2.0 隱含授權驗證具備 Azure AD 的使用者，並取得您可以使用的權杖以保護從應用程式的 JavaScript 用戶端到其後端 web API 的呼叫。 
+單頁應用程式 (SPA) 通常會利用執行於瀏覽器中的 JavaScript-heavy 前端進行結構化，此前端會呼叫應用程式的 web API 後端以執行其商務邏輯。 針對裝載於 Azure AD 中的 SPA，您會使用 OAuth 2.0 隱含授權驗證具備 Azure AD 的使用者，並取得您可以使用的權杖以保護從應用程式的 JavaScript 用戶端到其後端 web API 的呼叫。 
 
 使用者授與同意權之後，這個相同的驗證通訊協定可用來取得權杖以保護用戶端和其他為應用程式設定之 web API 資源之間的呼叫。 若要深入了解隱含授權授與，並協助您決定其是否適合您的應用程式案例，請參閱 [了解 Azure Active Directory 中的 OAuth2 隱含授與流程](v1-oauth2-implicit-grant-flow.md)。
 
@@ -272,7 +274,6 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
 
 > [!NOTE]
 > 如需如何編輯應用程式資訊清單的詳細資訊，請務必先檢閱上一節[設定資源應用程式以公開 Web API](#configuring-a-resource-application-to-expose-web-apis)。
->
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 如果您的帳戶可讓您存取多個帳戶，請在右上角按一下您的帳戶，並將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
@@ -285,12 +286,15 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
 5. 儲存更新後的資訊清單。 儲存之後，您的 Web API 現在已設定為使用 OAuth 2.0 隱含授權來驗證使用者。
 
 ## <a name="removing-an-application"></a>移除應用程式
+
 本節說明如何從 Azure AD 租用戶移除應用程式的註冊。
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>移除您的組織所編寫的應用程式
+
 您的組織已註冊的應用程式會顯示在租用戶主要 [應用程式註冊] 頁面的 [我的應用程式] 篩選器底下。 這些應用程式是您透過 Azure 入口網站以手動方式註冊的應用程式，或透過 PowerShell 或圖形 API 以程式設計方式註冊的應用程式。 更具體來說，它們會由您租用戶中的應用程式與服務主體物件所表示。 如需詳細資訊，請參閱 [應用程式物件和服務主體物件](app-objects-and-service-principals.md)。
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>從您的目錄移除單一租用戶應用程式
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 如果您的帳戶可讓您存取多個帳戶，請在右上角按一下您的帳戶，並將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
 3. 在左側導覽窗格中，依序按一下 [Azure Active Directory] 服務和 [應用程式註冊]，然後尋找/按一下您要設定的應用程式。 系統會將您帶往應用程式的主要註冊頁面，以開啟應用程式的 [設定] 頁面。
@@ -298,6 +302,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
 5. 在確認訊息處按一下 [是]  。
 
 #### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>從主目錄移除多租用戶應用程式
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 如果您的帳戶可讓您存取多個帳戶，請在右上角按一下您的帳戶，並將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
 3. 在左側導覽窗格中，依序按一下 [Azure Active Directory] 服務和 [應用程式註冊]，然後尋找/按一下您要設定的應用程式。 系統會將您帶往應用程式的主要註冊頁面，以開啟應用程式的 [設定] 頁面。
@@ -306,15 +311,16 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式
 6. 在確認訊息處按一下 [是]  。
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>移除其他組織授權的多租用戶應用程式
+
 在租用戶的主要 [應用程式註冊] 頁面上的 [所有應用程式] 篩選器 (不包括 [我的應用程式] 註冊) 底下顯示的應用程式子集，都是多租用戶應用程式。 就技術上來說，這些多租用戶應用程式是來自其他租用戶，且已在同意程序期間註冊到您的租用戶中。 更具體來說，它們僅由您租用戶中的服務主體物件表示，而沒有對應的應用程式物件。 如需有關應用程式物件與服務主體物件之差異的詳細資訊，請參閱 [Azure AD 中的應用程式和服務主體物件](app-objects-and-service-principals.md)。
 
 為了移除多租用戶應用程式對您的目錄的存取權 (在授與同意之後)，公司系統管理員必須移除其服務主體。 系統管理員必須擁有全域系統管理員存取權，才能透過 Azure 入口網站移除或使用 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151) 來移除存取權。
 
 ## <a name="next-steps"></a>後續步驟
+
 - 如需如何在 Azure AD 中進行驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](authentication-scenarios.md)。
 - 如需應用程式視覺化導引的祕訣，請參閱[整合應用程式的商標指導方針](howto-add-branding-in-azure-ad-apps.md)。
 - 如需有關應用程式之「應用程式」和「服務主體」物件之間關係的詳細資訊，請參閱[應用程式物件和服務主體物件](app-objects-and-service-principals.md)。
 - 若要深入了解應用程式資訊清單所扮演的角色，請參閱[了解 Azure Active Directory 應用程式資訊清單](reference-app-manifest.md)
 - 如需核心 Azure AD 開發人員概念的一些定義，請參閱 [Azure AD 開發人員詞彙](developer-glossary.md)。
 - 如需所有開發人員相關內容的概觀，請瀏覽 [Active Directory 開發人員指南](azure-ad-developers-guide.md)。
-

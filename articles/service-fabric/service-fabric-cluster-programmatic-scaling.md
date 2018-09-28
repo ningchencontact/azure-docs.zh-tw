@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: dcf4721012fb8ec39bcd1de02c294747357b3539
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213056"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949605"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>以程式設計方式調整 Service Fabric 叢集 
 
 在 Azure 中執行的 Service Fabric 叢集是建立在虛擬機器擴展集之上。  [叢集調整](./service-fabric-cluster-scale-up-down.md)描述可如何以手動方式或使用自動調整規則來調整 Service Fabric 叢集。 本文描述如何使用 Fluent Azure 計算 SDK 來管理認證及相應縮小或相應放大叢集，這是更進階的案例。 如需概觀，請閱讀[以程式設計方式協調 Azure 調整作業](service-fabric-cluster-scaling.md#programmatic-scaling)。 
 
 ## <a name="manage-credentials"></a>管理認證
-撰寫服務來處理調整的其中一項挑戰是，服務必須能夠不經互動式登入程序就存取虛擬機器擴展集資源。 如果調整服務是要修改自己的 Service Fabric 應用程式，存取 Service Fabric 叢集是很容易的事，但需要有認證才能存取擴展集。 若要登入，您可以使用以 [Azure CLI 2.0](https://github.com/azure/azure-cli) 建立的[服務主體](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)。
+撰寫服務來處理調整的其中一項挑戰是，服務必須能夠不經互動式登入程序就存取虛擬機器擴展集資源。 如果調整服務是要修改自己的 Service Fabric 應用程式，存取 Service Fabric 叢集是很容易的事，但需要有認證才能存取擴展集。 若要登入，您可以使用以 [Azure CLI](https://github.com/azure/azure-cli) 建立的[服務主體](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)。
 
 您可以透過下列步驟來建立服務主體︰
 

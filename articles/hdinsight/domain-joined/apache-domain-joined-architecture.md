@@ -1,6 +1,6 @@
 ---
-title: 已加入網域的 Azure HDInsight 架構
-description: 了解如何規劃已加入網域的 HDInsight。
+title: 使用企業安全性套件的 Azure HDInsight 架構
+description: 了解如何使用企業安全性套件規劃 HDInsight 安全性。
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
@@ -8,15 +8,15 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 09/24/2018
+ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297262"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998914"
 ---
-# <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>規劃 HDInsight 中已加入網域的 Azure Hadoop 叢集
+# <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
 標準的 Azure HDInsight 叢集是一個單一使用者叢集。 它適合大部分以小型應用程式團隊建置大型資料工作負載的公司。 每個使用者都可依需求建立專用的不同叢集，並且在不再需要時加以終結。 
 
@@ -29,7 +29,7 @@ HDInsight 中的虛擬機器 (VM) 會加入您提供的網域。 因此，經過
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>整合 HDInsight 與 Active Directory
 
-開放原始碼 Hadoop 須依賴 Kerberos 來提供驗證和安全性。 因此，HDInsight 叢集節點都會加入由 Azure AD DS 管理的網域。 針對叢集上的 Hadoop 元件，會設定 Kerberos 安全性。 
+開放原始碼 Hadoop 須依賴 Kerberos 來提供驗證和安全性。 因此，有企業安全性套件 (ESP) 的 HDInsight 叢集節點都會加入由 Azure AD DS 管理的網域。 針對叢集上的 Hadoop 元件，會設定 Kerberos 安全性。 
 
 系統會自動為每個 Hadoop 元件建立一個服務主體。 此外，針對每部已加入網域的電腦也會建立對應的電腦主體。 若要儲存這些服務和電腦主體，您必須在網域控制站 (Azure AD DS) 內提供組織單位 (OU)，用來放置這些主體。 
 
@@ -45,7 +45,7 @@ HDInsight 中的虛擬機器 (VM) 會加入您提供的網域。 因此，經過
 
 以下螢幕擷取畫面顯示在 contoso.com 中建立的 OU。 它也會顯示一些服務主體和電腦主體。
 
-![已加入網域之 HDInsight 叢集的組織單位](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
+![有 ESP 的 HDInsight 叢集所用的組織單位](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>設定不同的網域控制站
 HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集使用 Kerberos 通訊。 但您仍然可以使用其他複雜的 Active Directory 設定，只要這類設定能夠讓 Azure AD DS 進行 HDInsight 存取即可。
@@ -55,7 +55,7 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 
 使用者、群組和密碼都會從 Azure Active Directory (Azure AD) 中同步。 從您的 Azure AD 執行個體單向同步到 Azure AD DS 可讓使用者利用相同的公司認證登入叢集。 
 
-如需詳細資訊，請參閱[使用 Azure AD DS 設定已加入網域的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
+如需詳細資訊，請參閱[使用 Azure AD DS 設定有 ESP 的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
 
 ### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>內部部署 Active Directory 或在 IaaS VM 上的 Active Directory
 
@@ -63,9 +63,10 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 
 因為 Kerberos 依賴密碼雜湊，您必須[對 Azure AD DS 啟用密碼雜湊同步](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)。 如果您使用與 Active Directory 同盟服務 (AD FS) 同盟，則可以視需要設定密碼雜湊同步來作為 AD FS 基礎結構失敗時的備用方式。 如需詳細資訊，請參閱[透過 Azure AD Connect 同步啟用密碼雜湊同步](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。 
 
-已加入網域的 HDInsight 叢集，不支援單獨使用內部部署 Active Directory 或 IaaS VM 上的 Active Directory，而不使用 Azure AD 和 Azure AD DS 的設定。
+對於有 ESP 的 HDInsight 叢集，不支援單獨使用內部部署 Active Directory 或 IaaS VM 上的 Active Directory，必須同時使用 Azure AD 和 Azure AD DS 的設定。
 
 ## <a name="next-steps"></a>後續步驟
-* [設定已加入網域的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md)
-* [為已加入網域的 HDInsight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)
-* [管理已加入網域的 HDInsight 叢集](apache-domain-joined-manage.md) 
+
+* [設定有 ESP 的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md)
+* [為有 ESP 的 HDInsight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)
+* [管理有 ESP 的 HDInsight 叢集](apache-domain-joined-manage.md) 

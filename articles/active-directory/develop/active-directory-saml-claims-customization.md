@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 4d7c9246b694fc1b5623ecd198e4ced330e78dde
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579413"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956956"
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>如何：針對 Azure AD 中的企業應用程式自訂 SAML 權杖中發出的宣告
+
 現在，Azure Active Directory 已支援大部分企業應用程式的單一登入，包括 Azure AD 資源庫中預先整合的應用程式，以及自訂應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含關於使用者的資訊片段 (稱為「宣告」)。
 
 在身分識別交談中，「宣告」是身分識別提供者在為使用者發出的權杖中關於使用者說明的資訊。 在 [SAML 權杖](http://en.wikipedia.org/wiki/SAML_2.0)中，此資料通常包含在 SAML 屬性陳述式中。 使用者的唯一識別碼通常在 SAML Subject 中表示，也稱為「名稱識別碼」。
@@ -73,7 +74,7 @@ ms.locfileid: "39579413"
 > 如果指定的使用者沒有針對選取的屬性儲存的值，則權杖中不會發出該宣告。
 
 > [!TIP]
-> 只有在使用 [Azure AD Connect 工具](../active-directory-aadconnect.md)從內部部署的 Active Directory 同步處理使用者資料時，才支援 **user.onpremisesecurityidentifier** 和 **user.onpremisesamaccountname**。
+> 只有在使用 [Azure AD Connect 工具](../hybrid/whatis-hybrid-identity.md)從內部部署的 Active Directory 同步處理使用者資料時，才支援 **user.onpremisesecurityidentifier** 和 **user.onpremisesamaccountname**。
 
 ## <a name="restricted-claims"></a>受限制的宣告
 
@@ -129,8 +130,8 @@ SAML 有一些受限制的宣告。 如果您新增這些宣告，則 Azure AD �
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>後續步驟
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../active-directory-apps-index.md)
-* [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Azure Active Directory 中的應用程式管理](../manage-apps/what-is-application-management.md)
+* [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [對 SAML 型單一登入進行疑難排解](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

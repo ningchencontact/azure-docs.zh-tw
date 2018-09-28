@@ -16,14 +16,15 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6dc156e94ee8b30bef8c25b3dcaa1d70f76e26e5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bd9d3a677d9fea54331200258d4b9b8e07a54312
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580265"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956892"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式
+
 Azure Active Directory (Azure AD) 使用 OAuth 2.0 讓您授權存取 Azure AD 租用戶中的 Web 應用程式和 Web API。 本指南不限於特定語言，其中說明如何在不使用任何[開放原始碼程式庫](active-directory-authentication-libraries.md)的情況下，傳送和接收 HTTP 訊息。
 
 如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](https://tools.ietf.org/html/rfc6749#section-4.1)。 在大多數的應用程式類型中，其用於執行驗證與授權，包括 Web Apps 和原始安裝的應用程式。
@@ -31,11 +32,13 @@ Azure Active Directory (Azure AD) 使用 OAuth 2.0 讓您授權存取 Azure AD �
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## <a name="oauth-20-authorization-flow"></a>OAuth 2.0 授權流程
+
 概括而言，應用程式的整個授權流程看起來有點像這樣：
 
 ![OAuth 授權碼流程](./media/v1-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>要求授權碼
+
 授權碼流程始於用戶端將使用者導向 `/authorize` 端點。 在這項要求中，用戶端會指出必須向使用者索取的權限。 您可以選取 Azure 入口網站中的 [應用程式註冊] > [端點]，以取得租用戶的 OAuth 2.0 授權端點。
 
 ```
@@ -56,15 +59,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |必要 |向 Azure AD 註冊應用程式時，指派給您應用程式的應用程式識別碼。 您可以在 Azure 入口網站中找到這個值。 按一下服務側邊欄的 [Azure Active Directory]，再按一下 [應用程式註冊]，然後選擇應用程式。 |
 | response_type |必要 |授權碼流程必須包含 `code`。 |
 | redirect_uri |建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 對於原生和行動應用程式，請使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。 |
-| response_mode |建議使用 |指定將產生的權杖送回到應用程式所應該使用的方法。 可以是 `query`、`fragment` 或 `form_post`。 `query` 會提供程式碼，以作為重新導向 URI 的查詢字串參數。 如果您要求可使用隱含流程的識別碼權杖，就無法使用 [OpenID 規格](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)中指定的 `query`。如果您只要求程式碼，您可以使用 `query`、`fragment` 或 `form_post`。 `form_post` 會執行 POST，其中包含您重新導向 URI 的程式碼。 |
+| response_mode |選用 |指定將產生的權杖送回到應用程式所應該使用的方法。 可以是 `query`、`fragment` 或 `form_post`。 `query` 會提供程式碼，以作為重新導向 URI 的查詢字串參數。 如果您要求可使用隱含流程的識別碼權杖，就無法使用 [OpenID 規格](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)中指定的 `query`。如果您只要求程式碼，您可以使用 `query`、`fragment` 或 `form_post`。 `form_post` 會執行 POST，其中包含您重新導向 URI 的程式碼。 預設值是程式碼流程的 `query`。  |
 | state |建議使用 |要求中包含的值，也會隨權杖回應傳回。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](http://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
 | resource | 建議使用 |目標 Web API (受保護的資源) 應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，再按一下 [應用程式註冊]，開啟應用程式的 [設定] 頁面，再按一下 [屬性]。 其也可能是外部的資源，例如 `https://graph.microsoft.com`。 授權或權杖要求會需要此 URI。 為盡量減少授權提示次數，請將之放置於授權要求內，以確保收到使用者的同意。 |
 | scope | **已忽略** | 若為 v1 Azure AD 應用程式，請務必前往 Azure 入口網站，至應用程式 [設定] 下方的 [所需權限]，以統計方式設定範圍。 |
 | prompt |選用 |表示需要的使用者互動類型。<p> 有效值為： <p> *login*：應提示使用者重新驗證。 <p> select_account：使用者會收到選取帳戶的提示，中斷單一登入。 使用者可以選取現有登入帳戶、為已記住的帳戶輸入認證，或者選擇使用完全不同的帳戶。 <p> *consent*：已授與使用者同意，但需要更新。 應提示使用者同意。 <p> *admin_consent*：應提示管理員代表其組織內的所有使用者同意 |
 | login_hint |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，並已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
 | domain_hint |選用 |提供有關使用者應該用來登入之租用戶或網域的提示。 domain_hint 的值是租用戶的註冊網域。 如果租用戶與內部部署目錄結成同盟，AAD 會重新導向至指定的租用戶同盟伺服器。 |
-| code_challenge_method | 選用    | 用來為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可以是 `plain` 或 `S256` 其中一個。 如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。 Azure AAD v1.0 同時支援 `plain` 和 `S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
-| code_challenge        | 選用    | 用於透過來自原生用戶端或公開用戶端之代碼交換的證明金鑰 (PKCE) 保護授權碼授與。 如果包含 `code_challenge_method`，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| code_challenge_method | 建議使用    | 用來為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可以是 `plain` 或 `S256` 其中一個。 如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。 Azure AAD v1.0 同時支援 `plain` 和 `S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| code_challenge        | 建議使用    | 用於透過來自原生用戶端或公開用戶端之代碼交換的證明金鑰 (PKCE) 保護授權碼授與。 如果包含 `code_challenge_method`，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 
 > [!NOTE]
 > 如果使用者隸屬於組織，組織的系統管理員可以代表使用者同意或拒絕，或允許使用者自行同意。 只有當系統管理員允許時，使用者才會獲得同意的選項。
@@ -149,7 +152,7 @@ grant_type=authorization_code
 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，再按一下 [應用程式註冊]，開啟應用程式的 [設定] 頁面，再按一下 [屬性]。
 
 ### <a name="successful-response"></a>成功回應
-Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端應用程式和與其相關延遲的網路呼叫，用戶端應用程式應該快取存取權杖達 OAuth 2.0 回應中所指定的權杖存留期。 若要判斷權杖存留期，請使用 `expires_in` 或 `expires_on` 參數值。
+Azure AD 在成功回應時會傳回[存取權杖](access-tokens.md)。 為了減少來自用戶端應用程式和與其相關延遲的網路呼叫，用戶端應用程式應該快取存取權杖達 OAuth 2.0 回應中所指定的權杖存留期。 若要判斷權杖存留期，請使用 `expires_in` 或 `expires_on` 參數值。
 
 如果 Web API 資源傳回 `invalid_token` 錯誤碼，這可能表示資源判定權杖已過期。 如果用戶端和資源的時鐘時間不同 (稱為「時間偏差」)，在從用戶端快取中清除權杖之前，資源可能會將權杖視為已過期。 如果發生這種情況，請從快取中清除權杖，即使它仍在其計算的存留期內，也是如此。
 
@@ -171,59 +174,16 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 
 | 參數 | 說明 |
 | --- | --- |
-| access_token |為帶正負號之 JSON Web 權杖 (JWT) 的已要求存取權杖。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。 |
+| access_token |要求的[存取權杖](access-tokens.md)，其形式為帶正負號的 JSON Web 權杖 (JWT)。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。 |
 | token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需持有人權杖的詳細資訊，請參閱 [OAuth2.0 授權架構︰持有人權杖用法 (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |存取權杖的有效期 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
 | resource |Web API (受保護的資源) 應用程式識別碼 URI。 |
 | scope |授與用戶端應用程式的模擬權限。 預設權限為 `user_impersonation`。 受保護資源的擁有者可以在 Azure AD 中註冊其他的值。 |
 | refresh_token |OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。 重新整理權杖的有效期很長，而且可以用來長期保留資源存取權。 |
-| id_token |不帶正負號的 JSON Web Token (JWT)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。 |
+| id_token |不帶正負號的 JSON Web 權杖 (JWT)，代表[識別碼權杖](id-tokens.md)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。 |
 
-### <a name="jwt-token-claims"></a>JWT 權杖宣告
-`id_token` 參數值中的 JWT 權杖可以解碼為下列宣告︰
-
-```
-{
- "typ": "JWT",
- "alg": "none"
-}.
-{
- "aud": "2d4d11a2-f814-46a7-890a-274a72a7309e",
- "iss": "https://sts.windows.net/7fe81447-da57-4385-becb-6de57f21477e/",
- "iat": 1388440863,
- "nbf": 1388440863,
- "exp": 1388444763,
- "ver": "1.0",
- "tid": "7fe81447-da57-4385-becb-6de57f21477e",
- "oid": "68389ae2-62fa-4b18-91fe-53dd109d74f5",
- "upn": "frank@contoso.com",
- "unique_name": "frank@contoso.com",
- "sub": "JWvYdCWPhhlpS1Zsf7yYUxShUwtUm5yzPmw_-jX3fHY",
- "family_name": "Miller",
- "given_name": "Frank"
-}.
-```
-
-如需 JSON Web 權杖的詳細資訊，請參閱 [JWT IETF 草稿規格](http://go.microsoft.com/fwlink/?LinkId=392344)。 如需有關權杖類型及宣告的詳細資訊，請參閱[支援的權杖和宣告類型](v1-id-and-access-tokens.md)
-
-`id_token` 參數包含下列宣告類型：
-
-| 宣告類型 | 說明 |
-| --- | --- |
-| aud |權杖的對象。 向用戶端應用程式發出權杖時，對象是用戶端的 `client_id` 。 |
-| exp |到期時間。 權杖的到期時間。 權杖若要有效，目前的日期/時間必須小於或等於 `exp` 值。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖有效時間到期的秒數。|
-| family_name |使用者的姓氏。 應用程式可以顯示這個值。 |
-| given_name |使用者的名字。 應用程式可以顯示這個值。 |
-| iat |發出時間。 發出 JWT 的時間。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖發出時間的秒數。 |
-| iss |識別權杖簽發者 |
-| nbf |生效時間。 權杖生效的時間。 權杖若要有效，目前的日期/時間必須大於或等於 Nbf 值。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖發出時間的秒數。 |
-| oid |Azure AD 中使用者物件的物件識別碼 (ID)。 |
-| sub |權杖主旨識別碼。 這是權杖所描述之使用者的持續性和不可變的識別碼。 請在快取邏輯中使用此值。 |
-| tid |發出權杖之 Azure AD 租用戶的租用戶識別碼 (ID)。 |
-| unique_name |可以對使用者顯示的唯一識別碼。 這通常是使用者主體名稱 (UPN)。 |
-| upn |使用者的使用者主體名稱。 |
-| ver |版本。 JWT 權杖的版本，通常為 1.0。 |
+如需 JSON Web 權杖的詳細資訊，請參閱 [JWT IETF 草稿規格](http://go.microsoft.com/fwlink/?LinkId=392344)。   若要深入了解 `id_tokens`，請參閱 [v1.0 OpenID Connect 流程](v1-protocols-openid-connect-code.md)。
 
 ### <a name="error-response"></a>錯誤回應
 權杖發行端點錯誤是 HTTP 錯誤碼，因為用戶端會直接呼叫權杖發行端點。 除了 HTTP 狀態碼，Azure AD 權杖發行端點也會傳回 JSON 文件與描述錯誤的物件。
@@ -313,6 +273,7 @@ RFC 6750 規格會針對在回應中使用 WWW 驗證標頭和持有人配置的
 | 403 |insufficient_access |權杖的主體沒有存取資源所需的權限。 |提示使用者使用不同的帳戶，或要求所指定資源的權限。 |
 
 ## <a name="refreshing-the-access-tokens"></a>重新整理存取權杖
+
 存取權杖有效期很短，到期後必須重新整理，才能繼續存取資源。 您可以重新整理 `access_token`，方法是向 `/token` 端點送出另一個 `POST` 要求，但這次提供 `refresh_token`，而不提供 `code`。
 
 重新整理權杖並沒有指定的存留期。 一般而言，重新整理權杖的存留期相當長。 不過，在某些情況下，重新整理權杖會過期、遭到撤銷或對要執行的動作缺乏足夠的權限。 應用程式必須預期並正確處理權杖發行端點所傳回的錯誤。

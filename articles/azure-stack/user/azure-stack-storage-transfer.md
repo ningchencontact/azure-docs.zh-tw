@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46bc043681bbba37a2dfb6476e1dd0784e1abf10
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "43050427"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966678"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 儲存體的資料傳輸工具
 
@@ -246,7 +246,7 @@ Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 您可以將它安�
 
 Azure CLI 已針對以下作業進行最佳化：從命令列管理 Azure 資源進行，以及建置可用於 Azure Resource Manager 的自動化指令碼。 它提供許多與 Azure Stack 入口網站相同的功能，包括眾多資料存取功能。
 
-Azure Stack 需要有 Azure CLI 2.0 版。 如需有關安裝和設定用於 Azure Stack 的 Azure CLI 詳細資訊，請參閱[安裝和設定 Azure Stack CLI](azure-stack-version-profiles-azurecli2.md)。 如需有關如何搭配 Azure Stack 儲存體帳戶中的資源使用 Azure CLI 2.0 執行多種工作的詳細資訊，請參閱[使用 Azure CLI2.0 搭配 Azure 儲存體](../../storage/storage-azure-cli.md)
+Azure Stack 需要有 Azure CLI 2.0 版或更新版本。 如需有關安裝和設定用於 Azure Stack 的 Azure CLI 詳細資訊，請參閱[安裝和設定 Azure Stack CLI](azure-stack-version-profiles-azurecli2.md)。 如需有關如何搭配 Azure Stack 儲存體帳戶中的資源使用 Azure CLI 執行多種工作的詳細資訊，請參閱[使用 Azure CLI 搭配 Azure 儲存體](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>適用於 Azure Stack 的 Azure CLI 範例指令碼
 

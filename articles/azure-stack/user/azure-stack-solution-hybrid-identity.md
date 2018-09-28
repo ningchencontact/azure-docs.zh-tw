@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/22/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a57afb4a90da5877879afddc35545e0bfef622a7
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: bed67c0213ed5715b8b3d8fd393d8d856e0ea15b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808157"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964985"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教學課程：為 Azure 和 Azure Stack 應用程式設定混合式雲端身分識別
 
@@ -37,10 +37,17 @@ ms.locfileid: "34808157"
 在本教學課程中，您將建置範例環境，用以：
 
 > [!div class="checklist"]
-> * 在全域 Azure 與 Azure Stack 中建立混合式身分識別
-> * 擷取用以存取 Azure Stack API 的權杖。
+> - 在全域 Azure 與 Azure Stack 中建立混合式身分識別
+> - 擷取用以存取 Azure Stack API 的權杖。
 
 您必須具有 Azure Stack 操作員權限，才能執行本教學課程中的步驟。
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack 是 Azure 的延伸模組。 Azure Stack 可將雲端運算的靈活性和創新能力導入您的內部部署環境中，並啟用獨特的混合式雲端，讓您能夠隨處建置及部署混合式應用程式。  
+> 
+> [混合式應用程式的設計考量](https://aka.ms/hybrid-cloud-applications-pillars)技術白皮書檢閱了設計、部署和操作混合式應用程式時的軟體品質要素 (放置、延展性、可用性、復原、管理性和安全性)。 這些設計考量有助於您設計出最佳的混合式應用程式，讓生產環境遇到最少的挑戰。
+
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>在入口網站中為 Azure AD 建立服務主體
 
@@ -58,7 +65,7 @@ ms.locfileid: "34808157"
 
 [在 Azure Stack 中透過 PowerShell 啟動並執行](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart)快速入門會引導您完成安裝 Azure PowerShell 並連線至 Azure Stack 安裝所需的步驟。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 使用您可以存取的訂用帳戶連線至 Azure Active Directory 的 Azure Stack 安裝。 如果您沒有 Azure Stack 安裝，您可以依照這些指示設定 [Azure Stack 開發套件](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)。
 

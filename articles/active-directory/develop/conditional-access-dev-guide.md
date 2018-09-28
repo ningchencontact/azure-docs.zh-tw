@@ -5,22 +5,21 @@ services: active-directory
 keywords: ''
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 229f74367262e07128fa9ea6c895d448b854ae0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145550"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958249"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
@@ -40,14 +39,14 @@ ms.locfileid: "42145550"
 
 ### <a name="app-types-impacted"></a>受影響的應用程式類型
 
-在最常見的案例中，條件式存取不會變更應用程式的行為，或是需要從開發人員進行任何變更。 只有當應用程式以間接或無訊息方式要求權杖提供服務的特定案例中，應用程式才會要求程式碼變更，以處理條件式存取「挑戰」。 這有如執行互動式登入要求一樣簡單。 
+在最常見的案例中，條件式存取不會變更應用程式的行為，或是需要從開發人員進行任何變更。 只有當應用程式以間接或無訊息方式要求權杖提供服務的特定案例中，應用程式才會要求程式碼變更，以處理條件式存取「挑戰」。 這有如執行互動式登入要求一樣簡單。
 
-具體而言，下列情節需要程式碼來處理條件式存取「挑戰」： 
+具體而言，下列情節需要程式碼來處理條件式存取「挑戰」：
 
 * 存取 Microsoft Graph 的應用程式
 * 執行代理者流程的應用程式
 * 存取多個服務/資源的應用程式
-* 使用 ADAL.js 的單一頁面應用程式
+* 使用 ADAL.js 的單頁應用程式
 * 呼叫資源的 Web Apps
 
 條件式存取原則可以套用至應用程式，也可套用至您應用程式存取的 web API。 若要深入了解如何設定條件式存取原則，請參閱[快速入門：利用 Azure Active Directory 條件式存取來要求特定應用程式需使用 MFA](../conditional-access/app-based-mfa.md)。
@@ -87,7 +86,7 @@ Azure AD 條件式存取是 [Azure AD Premium](https://docs.microsoft.com/azure/
 * 存取 Microsoft Graph 的應用程式
 * 執行代理者流程的應用程式
 * 存取多個服務/資源的應用程式
-* 使用 ADAL.js 的單一頁面應用程式
+* 使用 ADAL.js 的單頁應用程式
 
 下列各節會討論更複雜的常見案例。 核心作業的原則是在要求權杖提供已套用條件式存取原則的服務時評估條件式存取原則，除非它是透過 Microsoft Graph 進行存取。
 
@@ -147,7 +146,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>情節：執行代理者流程的應用程式
 
-在此情節中，我們會逐步解說原生應用程式呼叫 web 服務/API 的案例。 接著，此服務會執行[「代理者」流程](authentication-scenarios.md#application-types-and-scenarios)來呼叫下游服務。 在我們的案例中，已將我們的條件式存取原則套用至下游服務 (Web API 2)，且是使用原生應用程式，而不是伺服器/精靈應用程式。 
+在此情節中，我們會逐步解說原生應用程式呼叫 web 服務/API 的案例。 接著，此服務會執行「代理者」流程來呼叫下游服務。 在我們的案例中，已將我們的條件式存取原則套用至下游服務 (Web API 2)，且是使用原生應用程式，而不是伺服器/精靈應用程式。 
 
 ![執行代理者流程圖的應用程式](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -190,9 +189,9 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 如果應用程式是使用 ADAL 程式庫，就一律會以互動方式重試取得權杖失敗。 當此互動式要求出現時，使用者就有機會遵守條件式存取。 這個是通用情況，除非要求為 `AcquireTokenSilentAsync` 或 `PromptBehavior.Never`，在此情況下，應用程式必須執行互動式 ```AcquireToken``` 要求，讓使用者有機會遵守原則。 
 
-## <a name="scenario-single-page-app-spa-using-adaljs"></a>情節：使用 ADAL.js 的單一頁面應用程式 (SPA)
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>案例：使用 ADAL.js 的單頁應用程式 (SPA)
 
-在此情節中，我們會逐步解說具有單一頁面應用程式 (SPA) 時的案例，使用 ADAL.js 來呼叫受條件式存取保護的 web API。 這是簡單的架構，但在對條件式存取進行開發時，有一些需要加以考量的細微差別。
+在此案例中，我們會逐步解說具有單頁應用程式 (SPA) 時的案例，使用 ADAL.js 來呼叫受條件式存取保護的 Web API。 這是簡單的架構，但在對條件式存取進行開發時，有一些需要加以考量的細微差別。
 
 在 ADAL.js 中，有幾個函式可取得權杖：`login()`、`acquireToken(...)`、`acquireTokenPopup(…)` 和 `acquireTokenRedirect(…)`。 
 
@@ -202,7 +201,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 當應用程式需要存取權杖來呼叫 Web API 時，它會嘗試 `acquireToken(…)`。 如果權杖工作階段已過期，或是我們必須遵守條件式存取原則，acquireToken 函式就會失敗，且應用程式會使用 `acquireTokenPopup()` 或 `acquireTokenRedirect()`。
 
-![使用 ADAL 的單一頁面應用程式流程圖](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
+![使用 ADAL 的單頁應用程式流程圖](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
 我們會使用條件式存取情節來步解說範例。 使用者只需登陸網站，且沒有工作階段。 我們執行 `login()` 呼叫時，無需進行多重要素驗證即可取得 ID 權杖。 然後使用者會叫用按鈕，要求應用程式向 web API 要求資料。 應用程式嘗試執行 `acquireToken()` 呼叫但失敗，因為使用者尚未執行多重要素驗證，且必須遵守條件式存取原則。
 

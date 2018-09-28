@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 069815888c04506c10a28a3d5c32e52b2a940f84
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e9aa3939d0fd36ec55d1156d8a5fd38a1cee4279
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580254"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985034"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Azure 安全性與合規性藍圖：適用於 FFIEC 財務服務的 PaaS Web 應用程式
 
@@ -35,7 +35,7 @@ ms.locfileid: "45580254"
 
 此「Azure 安全性與合規性藍圖自動化」會針對具有 Azure SQL Database 後端的 PaaS Web 應用程式，部署參考架構。 Web 應用程式裝載在隔離的 Azure App Service 環境中，其為 Azure 資料中心內的私人專用環境。 環境會在 Azure 管理的虛擬機器之間對 Web 應用程式流量進行負載平衡。 此架構也包含網路安全性群組、應用程式閘道、Azure DNS 和 Load Balancer。
 
-若要加強分析和報告，您可以使用資料行存放區索引來設定 Azure SQL Database。 根據客戶的使用情況，Azure SQL Database 可進行相應增加或減少，或甚至是完全關閉。 所有 SQL 流量都會使用 SSL 透過內含的自我簽署憑證來加密。 Azure 建議的最佳做法是使用受信任的憑證授權單位，來增強安全性。
+若要加強分析和報告，您可以使用資料行存放區索引來設定 Azure SQL 資料庫。 根據客戶的使用情況，Azure SQL 資料庫可進行相應增加或減少，或甚至是完全關閉。 所有 SQL 流量都會使用 SSL 透過內含的自我簽署憑證來加密。 Azure 建議的最佳做法是使用受信任的憑證授權單位，來增強安全性。
 
 解決方案會使用 Azure 儲存體帳戶，客戶可加以設定，以便使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的資料中心內儲存三份資料以供復原之用。 異地備援儲存體可確保資料會複寫到數百英哩遠的次要資料中心，並在該資料中心儲存為三份複本，防止客戶主要資料中心內的不良事件導致資料遺失。
 

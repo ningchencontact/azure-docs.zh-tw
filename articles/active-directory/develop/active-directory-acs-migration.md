@@ -1,6 +1,6 @@
 ---
 title: 從 Azure 存取控制服務移轉 | Microsoft Docs
-description: 搬移 Azure 存取控制服務中應用程式和服務的選項
+description: 深入了解搬移 Azure 存取控制服務 (ACS) 中應用程式和服務的選項。
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 09/07/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.reviewer: jlu, annaba, hirsin
+ms.openlocfilehash: 2c7dc650109ecc3844ee2ae90e50b2267f5716c4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698055"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996514"
 ---
-# <a name="migrate-from-the-azure-access-control-service"></a>從 Azure 存取控制服務移轉
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>操作說明：從 Azure 存取控制服務遷移
 
-「Azure 存取控制」是 Azure Active Directory (Azure AD) 的一項服務，將於 2018 年 11 月 7 日淘汰。 目前使用存取控制的應用程式和服務，必須在淘汰前完全移轉到其他驗證機制。 本文說明給目前客戶的建議移轉選項，協助您規劃汰換存取控制的事宜。 如果您目前未使用存取控制，不需要採取任何動作。
-
+Microsoft Azure 存取控制服務 (ACS) 是 Azure Active Directory (Azure AD) 的一項服務，將於 2018 年 11 月 7 日淘汰。 目前使用存取控制的應用程式和服務，必須在淘汰前完全移轉到其他驗證機制。 本文說明給目前客戶的建議移轉選項，協助您規劃汰換存取控制的事宜。 如果您目前未使用存取控制，不需要採取任何動作。
 
 ## <a name="overview"></a>概觀
 
@@ -38,7 +37,7 @@ ms.locfileid: "43698055"
 - 新增驗證方式至自訂和預先封裝 (如 SharePoint) 的 Web 應用程式。 透過存取控制的「被動」驗證方式，Web 應用程式支援以 Microsoft 帳戶 (前身為 Live ID)，以及 Google、Facebook、Yahoo、Azure AD 及 Active Directory 同盟服務 (AD FS) 等帳戶進行單一登入。
 - 使用存取控制簽發的權杖保護自訂 Web 服務。 透過「主動」驗證方式，Web 服務可確保惟有通過存取控制之驗證的已知用戶端能存取自身服務。
 
-每個使用案例及其建議的移轉策略會在後續各節中討論。 
+每個使用案例及其建議的移轉策略會在後續各節中討論。
 
 > [!WARNING]
 > 在大部分情況下，將現有應用程式和服務移轉至較新的技術需要大幅變更程式碼。 建議您立即開始規劃及執行移轉作業，以避免任何可能的中斷或停機。
@@ -73,7 +72,6 @@ https://<mynamespace>.accesscontrol.windows.net
 - **2018 年 4 月 2 日**：Azure 傳統入口網站已完全淘汰，這意謂著透過任何 URL 都無法進行「存取控制」命名空間管理。 屆時，您將無法停用或啟用、刪除或列舉存取控制命名空間。 不過，「存取控制」管理入口網站將會在 `https://\<namespace\>.accesscontrol.windows.net` 運作並提供完整功能。 存取控制的其他所有元件都將繼續正常運作。
 - **2018 年 11 月 7 日**：所有「存取控制」元件將永久關閉。 這包括存取控制管理入口網站、管理服務、STS 和權杖轉換規則引擎。 屆時，所有傳送給存取控制 (網指 \<namespace\>.accesscontrol.windows.net) 的要求都會失敗。 在那之前，請確實將所有現有的應用程式和服務移轉至其他技術。
 
-
 ## <a name="migration-strategies"></a>移轉策略
 
 下列各節說明從存取控制移轉到其他 Microsoft 技術的初略建議。
@@ -98,7 +96,6 @@ https://<mynamespace>.accesscontrol.windows.net
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
-
 
 ### <a name="sharepoint-customers"></a>SharePoint 客戶
 
@@ -175,26 +172,14 @@ Azure AD 租用戶也可以透過 AD FS，與內部部署 Active Directory 的�
 - 您有 Azure AD 權杖自訂的完整彈性。 您可以自訂 Azure AD 簽發的宣告，使其符合存取控制簽發的宣告， 尤以使用者識別碼或名稱識別碼宣告最為重要。 若要在變更技術後繼續接收您使用者的一致使用者識別碼，請確認 Azure AD 簽發的使用者識別碼與存取控制簽發的識別碼相符。
 - 您可以為您的應用程式設定專用的權杖簽署憑證與存留期。
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > 此方法需要 Azure AD Premium 授權。 如果您是存取控制客戶，而且需要 Premium 授權來為應用程式設定單一登入，請與我們連絡。 我們很樂意提供開發人員授權予您使用。
 
 另一個方法是參考[此程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation)，當中的 WS-同盟設定指示稍有不同。 此程式碼範例不使用 WIF，而是使用 ASP.NET 4.5 OWIN 中介軟體。 不過，應用程式註冊指示適用於使用 WIF 的應用程式，而且不需要 Azure AD Premium 授權。 
 
-如果您選擇此方法，請參閱並理解 [Azure AD 中的簽署金鑰變換](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)一文。 這個方法會使用 Azure AD 全域簽署金鑰來簽發權杖。 根據預設，WIF 不會自動重新整理簽署金鑰。 當 Azure AD 轉換其全域簽署金鑰時，您的 WIF 實作必須準備好接受變更。
+如果您選擇此方法，請參閱並理解 [Azure AD 中的簽署金鑰變換](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)一文。 這個方法會使用 Azure AD 全域簽署金鑰來簽發權杖。 根據預設，WIF 不會自動重新整理簽署金鑰。 當 Azure AD 轉換其全域簽署金鑰時，您的 WIF 實作必須準備好接受變更。 如需詳細資訊，請參閱 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx)。
 
 如果您可以透過 OpenID Connect 或 OAuth 通訊協定與 Azure AD 整合，建議採用該方法。 我們的 [Azure AD 開發人員指南](https://aka.ms/aaddev)有許多關於如何將 Azure AD 整合至 Web 應用程式的文件和指導。
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>移轉至 Azure Active Directory B2C
 
@@ -237,7 +222,6 @@ Possible nameIdentifiers from Access Control (via AAD or AD FS):
 - [Azure AD B2C 自訂原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Azure AD B2C 價格](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### <a name="migrate-to-ping-identity-or-auth0"></a>移轉至 Ping Identity 或 Auth0
 
 在某些情況下，您可能會發現若不大幅變更程式碼，Azure AD 與 Azure AD B2C 便無法取代 Web 應用程式中的存取控制。 幾個常見的範例可能包括：
@@ -249,8 +233,6 @@ Possible nameIdentifiers from Access Control (via AAD or AD FS):
 - 使用 ACS 來集中管理與許多不同識別提供者之同盟的多租用戶 Web 應用程式
 
 在這些情況下，您可能會想考慮將 Web 應用程式移轉至另一個雲端驗證服務。 我們建議您探索下列選項。 以下每個選項均提供類似存取控制的功能：
-
-
 
 |     |     | 
 | --- | --- |

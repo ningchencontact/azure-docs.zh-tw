@@ -2,32 +2,39 @@
 title: 定價 & 計費 - Azure Logic Apps | Microsoft Docs
 description: 了解 Azure Logic Apps 的定價和計費方式
 services: logic-apps
-author: kevinlam1
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/11/2018
+ms.suite: logic-apps
+author: kevinlam1
 ms.author: klam
-ms.openlocfilehash: e1702de42be8510412a6479b594a198a84d15ae2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: estfan, LADocs
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
+ms.topic: article
+ms.date: 09/24/2018
+ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299251"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974301"
 ---
-# <a name="logic-apps-pricing-model"></a>Logic Apps 的定價模式
+# <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
 您可以使用 Azure Logic Apps，在雲端建立和執行可調整規模的自動化整合工作流程。 以下是關於 Logic Apps 計費和定價運作方式的詳細資料。 
 
+<a name="consumption-pricing"></a>
+
 ## <a name="consumption-pricing-model"></a>取用量定價模式
 
-透過新建立的邏輯應用程式，您只需支付您使用的項目。 新的邏輯應用程式會使用取用量方案和定價模型，這表示由邏輯應用程式執行個體所執行的所有動作執行都會納入計量。 邏輯應用程式定義中的每個步驟都是一個動作，包括觸發程序、控制流程步驟、呼叫內建動作，以及呼叫連接器。 如需詳細資訊，請參閱 [Logic Apps 價格](https://azure.microsoft.com/pricing/details/logic-apps)。
+對於使用公用或「全域」Logic Apps 服務建立的新邏輯應用程式，您只需針對您使用的部分付費。 這些邏輯應用程式會使用取用量方案和定價模型，這表示由邏輯應用程式所執行的所有動作執行都會納入計量。 邏輯應用程式定義中的每個步驟都是一個動作，包括觸發程序、控制流程步驟、呼叫內建動作，以及呼叫連接器。 如需詳細資訊，請參閱 [Logic Apps 價格](https://azure.microsoft.com/pricing/details/logic-apps)。
+
+<a name="fixed-pricing"></a>
+
+## <a name="fixed-pricing-model"></a>固定定價模式
+
+> [!NOTE]
+> 整合服務環境目前為*個人預覽版*。 若要要求存取，請在[這裡建立您的加入要求](https://aka.ms/iseprivatepreview)。
+
+您透過[*整合服務環境* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 建立的新邏輯應用程式是隔離的私人 Logic Apps 執行個體，使用專用的資源，對於這個新的邏輯應用程式，您每個月會支付固定的費用來使用其內建的動作與標準 ISE 標示的連接器。 您的 ISE 免費隨附一個企業連接器，如需額外的企業連接器，則會根據企業使用量價格計費。 如需詳細資訊，請參閱 [Logic Apps 價格](https://azure.microsoft.com/pricing/details/logic-apps)。
 
 <a name="triggers"></a>
 

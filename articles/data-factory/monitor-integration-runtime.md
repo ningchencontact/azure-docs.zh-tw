@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 59c2f865ae5e056b0fabb360712f6eb622943145
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4f1e6e7e61cdfd72251120f3c03df7a689aecafe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574615"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997449"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中監視整合執行階段  
 **整合執行階段**是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的各種資料整合功能。 Data Factory 提供三種類型的整合執行階段：
@@ -168,10 +168,10 @@ Azure SSIS 整合執行階段是完全受控的 Azure 虛擬機器 (或節點) �
 | NodeSize | Azure SSIS 整合執行階段之每個節點的大小。 |
 | NodeCount | Azure SSIS 整合執行階段中的節點數目。 |
 | MaxParallelExecutionsPerNode | Azure SSIS 整合執行階段中每個節點的平行執行數目。 |
-| CatalogServerEndpoint | 裝載 SSISDB 的現有 Azure SQL Database/受控執行個體 (預覽) 伺服器的端點。 |
-| CatalogAdminUserName | 現有 Azure SQL Database/受控執行個體 (預覽) 伺服器的管理員使用者名稱。 Data Factory 服務會使用此資訊，代表您準備及管理 SSISDB。 |
-| CatalogAdminPassword | 現有 Azure SQL Database/受控執行個體 (預覽) 伺服器的管理員密碼。 |
-| CatalogPricingTier | 現有 Azure SQL Database 伺服器所裝載的 SSISDB 定價層。  不適用於裝載 SSISDB 的 Azure SQL 受控執行個體 (預覽)。 |
+| CatalogServerEndpoint | 至主機 SSISDB 的現有 Azure SQL Database/受控執行個體伺服器的端點。 |
+| CatalogAdminUserName | 現有 Azure SQL Database/受控執行個體伺服器之管理者的使用者名稱。 Data Factory 服務會使用此資訊，代表您準備及管理 SSISDB。 |
+| CatalogAdminPassword | 現有 Azure SQL Database/受控執行個體伺服器之管理者密碼。 |
+| CatalogPricingTier | 現有 Azure SQL Database 伺服器所裝載的 SSISDB 定價層。  不適用於裝載 SSISDB 的 Azure SQL Database 受控執行個體。 |
 | VNetId | Azure SSIS 整合執行階段要加入的虛擬網路資源識別碼。 |
 | 子網路 | Azure SSIS 整合執行階段要加入的子網路名稱。 |
 | ID | Azure SSIS 整合執行階段的資源識別碼。 |
@@ -223,7 +223,7 @@ Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Na
 
 - [Azure SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 本文提供整合執行階段的一般概念性資訊，包括 Azure-SSIS IR。 
 - [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL Database 裝載 SSIS 目錄。 
-- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL 受控執行個體 (預覽)，以及將 IR 加入虛擬網路的指示。 
+- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL Database 受控執行個體，以及將 IR 加入虛擬網路的指示。 
 - [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會示範如何將更多節點新增至 IR，藉此相應放大 Azure-SSIS IR。 
 - [將 Azure-SSIS IR 加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路的概念資訊。 它也提供使用 Azure 入口網站來設定虛擬網路，好讓 Azure SSIS IR 可加入虛擬網路的步驟。 
 

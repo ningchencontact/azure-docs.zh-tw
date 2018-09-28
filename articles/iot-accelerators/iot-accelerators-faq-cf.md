@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248582"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966539"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>連線處理站解決方案加速器的常見問題集
 
@@ -31,12 +31,12 @@ ms.locfileid: "39248582"
 
 * 基礎結構
 * 規格
-* 技術
+* Technology
 * 處理序
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Microsoft 為什麼選擇 OPC UA 作為連線的處理站解決方案加速器？
 
-Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平台無關、業界認同且經實證的標準。 它是 Industrie 4.0 (RAMI4.0) 參考架構解決方案的必要項目，以確保一組廣泛製造程序與設備之間的互通性。 Microsoft 看到客戶有建置 Industrie 4.0 解決方案的需求。 OPC UA 支援可協助降低客戶達到其目標的障礙物，並對他們提供即時商務價值。
+Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平台無關、業界認同且已核准的標準。 它是 Industrie 4.0 (RAMI4.0) 參考架構解決方案的必要項目，以確保一組廣泛製造程序與設備之間的互通性。 Microsoft 看到客戶有建置 Industrie 4.0 解決方案的需求。 OPC UA 支援可協助降低客戶達到其目標的障礙物，並對他們提供即時商務價值。
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>如何將公用 IP 位址新增至模擬虛擬機器？
 
@@ -111,7 +111,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-您可以使用 [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 或 [Azure CLI 2.0 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)工具，檢查哪些裝置已向解決方案正在使用的 IoT 中樞註冊。 若要使用裝置總管，將需要您部署中 IoT 中樞的連接字串。 若要使用 Azure CLI 2.0 的 IoT 擴充功能，您需要 IoT 中樞名稱。
+您可以使用 [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 或 [Azure CLI 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)工具，檢查哪些裝置已向解決方案正在使用的 IoT 中樞註冊。 若要使用裝置總管，將需要您部署中 IoT 中樞的連接字串。 若要使用 Azure CLI 的 IoT 擴充功能，您需要 IoT 中樞名稱。
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>如何從模擬元件取得記錄資料？
 

@@ -15,18 +15,18 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2360c5a672975cec48f5c17b098125b8287799c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493691"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950143"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 
-Azure CLI 2.0 是管理 Azure 資源的 Azure 命令列體驗。 它可以用於 macOS、Linux 和 Windows。 Azure CLI 2.0 已針對從命令列管理 Azure 資源進行最佳化。 您可以使用 Azure CLI 來管理 Azure Batch 帳戶，以及管理集區、作業和工作等資源。 許多使用 Batch API、Azure 入口網站和 Batch PowerShell Cmdlet 執行的工作，也都可以使用 Azure CLI 來撰寫指令碼。
+Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 它可以用於 macOS、Linux 和 Windows。 Azure CLI 已針對從命令列管理 Azure 資源進行最佳化。 您可以使用 Azure CLI 來管理 Azure Batch 帳戶，以及管理集區、作業和工作等資源。 許多使用 Batch API、Azure 入口網站和 Batch PowerShell Cmdlet 執行的工作，也都可以使用 Azure CLI 來撰寫指令碼。
 
-本文概述如何使用搭配 [Azure CLI 2.0 版](https://docs.microsoft.com/cli/azure) 與 Batch。 如需搭配使用 CLI 與 Azure 的概觀，請參閱[開始使用 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
+本文概述如何使用搭配 [Azure CLI 2.0 版](https://docs.microsoft.com/cli/azure) 與 Batch。 如需 CLI 與 Azure 搭配使用的概觀，請參閱[開始使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
 
 ## <a name="set-up-the-azure-cli"></a>設定 Azure CLI
 
@@ -47,12 +47,9 @@ Azure CLI 2.0 是管理 Azure 資源的 Azure 命令列體驗。 它可以用於
 
 如有疑問，請使用 `-h` 命令列選項來取得任何 Azure CLI 命令的說明。
 
-> [!NOTE]
-> 舊版的 Azure CLI 使用 `azure` 加在 CLI 命令的前面。 在 2.0 版中，所有命令的前面現在都會加上 `az`。 請務必更新您的指令碼，才能使用 2.0 版的新語法。
->
->  
 
-此外，請參閱 Azure CLI 參考文件，以取得[適用於 Batch 的 Azure CLI 命令](https://docs.microsoft.com/cli/azure/batch)詳細資訊。 
+
+此外，請參閱 Azure CLI 參考文件，以取得[適用於 Batch 的 Azure CLI 命令](/cli/azure/batch)詳細資訊。 
 
 ## <a name="log-in-and-authenticate"></a>登入和驗證
 
@@ -63,7 +60,7 @@ Azure CLI 2.0 是管理 Azure 資源的 Azure 命令列體驗。 它可以用於
 
 ### <a name="log-in-to-azure"></a>登入 Azure
 
-如 [登入 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) 中詳細說明，有幾種不同方式可登入 Azure：
+如 [登入 Azure CLI](/cli/azure/authenticate-azure-cli) 中的詳細描述，有幾種不同方式可登入 Azure：
 
 1. [以互動方式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in)。 當您自行從命令列執行 Azure CLI 命令時以互動方式登入。
 2. [使用服務主體來登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal)。 當您從指令碼或應用程式執行 Azure CLI 命令時，使用服務主體來登入。
@@ -87,7 +84,7 @@ az login
 
 您有兩個對 Batch 帳戶進行驗證的選項︰
 
-- **使用 Azure Active Directory (Azure AD) 驗證。** 
+- **使用 Azure Active Directory (Azure AD) 驗證** 
 
     當您搭配使用 Azure CLI 與 Batch 時，使用 Azure AD 進行驗證是預設值，建議使用大部分的情況。 
     
@@ -101,9 +98,9 @@ az login
     az batch account login -g myresource group -n mybatchaccount
     ```
 
-- **使用共用金鑰驗證。**
+- **使用共用金鑰驗證**
 
-    [共用金鑰驗證](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key)會使用帳戶存取金鑰來驗證 Batch 服務的 Azure CLI 命令。
+    [共用金鑰驗證](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key)會使用帳戶存取金鑰來驗證 Batch 服務的 Azure CLI 命令。
 
     如果您要建立 Azure CLI 指令碼來自動呼叫 Batch 命令，您可以使用共用金鑰驗證或 Azure AD 服務主體。 在某些情況下，使用共用金鑰驗證可能會比建立服務主體簡單。  
 
@@ -173,7 +170,6 @@ az batch task list --job-id job001
 * 使用 `-v` 和 `-vv` 來顯示 **verbose** 命令輸出。 包含 `-vv` 旗標後，Azure CLI 會顯示實際的 REST 要求和回應。 這些參數方便用於顯示完整的錯誤輸出。
 * 您可以使用 `--json` 選項檢視 **JSON 格式的命令輸出**。 例如， `az batch pool show pool001 --json` 會以 JSON 格式顯示 pool001 的屬性。 您可以接著複製並修改此輸出，以便用於 `--json-file` (請參閱本文前面的 [JSON 檔案](#json-files) )。
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-
 
 ## <a name="next-steps"></a>後續步驟
 

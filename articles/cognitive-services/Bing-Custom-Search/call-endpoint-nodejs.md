@@ -9,43 +9,40 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 73c31c7175bd4dfcb182fb76784937c176ac7702
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858454"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977871"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>呼叫 Bing 自訂搜尋端點 (Node.js)
 
 本快速入門說明如何使用 Node.js 呼叫自訂的 Bing 搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
+
 若要完成本快速入門，您需要：
 
-- 自訂搜尋執行個體。 請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
-
+- 已經可以使用的自訂搜尋執行個體。 請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
 - 已安裝 [Node.js](https://www.nodejs.org/)。
-
--  具有 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)即足以供本快速入門使用。 您必須要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+- 訂用帳戶金鑰。 您可以在啟用[免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)時取得訂用帳戶金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰 (請參閱[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account))。    
 
 ## <a name="run-the-code"></a>執行程式碼
 
-若要呼叫 Bing 自訂搜尋端點，請遵循下列步驟：
+若要執行此範例，請遵循下列步驟：
 
-1. 建立程式碼的資料夾。
-
-2. 從命令提示字元或終端機，瀏覽至您剛剛建立的資料夾。
-
+1. 建立程式碼的資料夾。  
+  
+2. 從命令提示字元或終端機，瀏覽至您剛剛建立的資料夾。  
+  
 3. 安裝**要求**節點模組：
     <pre>
     npm install request
-    </pre>
+    </pre>  
     
-4. 建立 BingCustomSearch.js 檔案，並將下列程式碼複製到該檔案。
-
-5. 將 **YOUR-SUBSCRIPTION-KEY** 和 **YOUR-CUSTOM-CONFIG-ID** 取代為您的金鑰和設定識別碼 (請參閱步驟 1)。
-
+4. 在您建立的資料夾中建立名為 BingCustomSearch.js 的檔案，然後將下列程式碼複製到檔案中。 將 **YOUR-SUBSCRIPTION-KEY** 與 **YOUR-CUSTOM-CONFIG-ID** 取代為您的訂用帳戶金鑰與設定識別碼。  
+  
     ``` javascript
     var request = require("request");
     
@@ -74,11 +71,13 @@ ms.locfileid: "37858454"
             console.log();
         }
     })
-    ```
-6. 使用下列命令來執行程式碼。
+    ```  
+  
+6. 使用下列命令來執行程式碼：  
+  
     ```    
     node BingCustomSearch.js
-   ``` 
+    ``` 
 
 ## <a name="next-steps"></a>後續步驟
 - [設定託管的 UI 體驗](./hosted-ui.md)

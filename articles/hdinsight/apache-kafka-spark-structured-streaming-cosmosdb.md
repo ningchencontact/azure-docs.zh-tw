@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: jasonh
-ms.openlocfilehash: c18234e50711b2496b793263ca8d314f16347cbe
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8f0a16320091f8b2efa98ee96a63801e841c082e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107790"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971309"
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>搭配 Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
 
@@ -104,7 +104,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 此文件中使用的專案會將資料儲存在 Cosmos DB 中。 執行程式碼之前，您必須先在您的 Cosmos DB 執行個體中建立「資料庫」與「集合」 。 您也必須擷取用於向 Cosmos DB 驗證要求的文件端點與「索引鍵」。 
 
-執行此動作的其中一種方式是使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。 下列指令碼將會建立名為 `kafkadata` 的資料庫與名為 `kafkacollection` 的集合。 接著，它會傳回主索引鍵。
+執行此動作的其中一種方式是使用 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。 下列指令碼將會建立名為 `kafkadata` 的資料庫與名為 `kafkacollection` 的集合。 接著，它會傳回主索引鍵。
 
 ```azurecli
 #!/bin/bash

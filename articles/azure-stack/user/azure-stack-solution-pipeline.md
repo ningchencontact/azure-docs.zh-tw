@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697742"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951996"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>教學課程：將應用程式部署至 Azure 和 Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "43697742"
 在本教學課程中，您會建立環境範例，用以：
 
 > [!div class="checklist"]
-> * 根據 Visual Studio Team Services (VSTS) 存放庫的程式碼認可起始新的組建。
+> * 根據對 Azure DevOps Services 存放庫的程式碼認可起始新的組建。
 > * 自動將應用程式部署至全域 Azure 以進行使用者驗收測試。
 > * 在程式碼通過測試時，自動將應用程式部署至 Azure Stack。
 
@@ -47,6 +47,12 @@ ms.locfileid: "43697742"
 
 * [什麼是持續整合？](https://www.visualstudio.com/learn/what-is-continuous-integration/)
 * [什麼是持續傳遞？](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack 是 Azure 的延伸模組。 Azure Stack 可將雲端運算的靈活性和創新能力導入您的內部部署環境中，並啟用獨特的混合式雲端，讓您能夠隨處建置及部署混合式應用程式。  
+> 
+> [混合式應用程式的設計考量](https://aka.ms/hybrid-cloud-applications-pillars)技術白皮書檢閱了設計、部署和操作混合式應用程式時的軟體品質要素 (放置、延展性、可用性、復原能力、管理性和安全性)。 這些設計考量有助於您設計出最佳的混合式應用程式，讓生產環境遇到最少的挑戰。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -81,30 +87,30 @@ ms.locfileid: "43697742"
  * 在 Azure Stack 中建立[方案/供應項目](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview)。
  * 在 Azure Stack 中建立[租用戶訂用帳戶](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm)。
  * 在租用戶訂用帳戶中建立 Web 應用程式。 記下新的 Web 應用程式 URL，以供後續使用。
- * 在租用戶訂用帳戶中部署 VSTS 虛擬機器。
+ * 在租用戶訂用帳戶中部署 Windows Server 2012 虛擬機器。 您將以此伺服器作為組建伺服器，並用它來執行 Azure DevOps Services。
 * 對虛擬機器 (VM) 提供附有 .NET 3.5 的 Windows Server 2016 映像。 此 VM 會建置在 Azure Stack 上，作為私用組建代理程式。
 
 ### <a name="developer-tool-requirements"></a>開發人員工具需求
 
-* 建立 [VSTS 工作區](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces)。 註冊程序會建立名為 **MyFirstProject** 的專案。
-* [安裝 Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 並[登入 VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)。
+* 建立 [Azure DevOps Services 工作區](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces)。 註冊程序會建立名為 **MyFirstProject** 的專案。
+* [安裝 Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 並[登入 Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)。
 * 連線至專案並[在本機複製](https://www.visualstudio.com/docs/git/gitquickstart)。
 
  > [!Note]
  > Azure Stack 環境需要同步發佈正確的映像以執行 Windows Server 和 SQL Server。 此環境也必須部署 App Service。
 
-## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>準備 Visual Studio Team Services 整合所需的私用組建或版本代理程式
+## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>準備私人 Azure Pipelines 代理程式以進行 Azure DevOps Services 整合
 
 ### <a name="prerequisites"></a>必要條件
 
-Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manager 進行驗證。 VSTS 必須要有**參與者**角色，才能在 Azure Stack 訂用帳戶中佈建資源。
+Azure DevOps Services 會使用服務主體對 Azure Resource Manager 進行驗證。 Azure DevOps Services 必須要有**參與者**角色，才能在 Azure Stack 訂用帳戶中佈建資源。
 
 下列步驟說明要設定驗證所必要進行的工作：
 
 1. 建立服務主體，或使用現有服務主體。
 2. 建立服務主體的驗證金鑰。
 3. 透過角色型存取控制來驗證 Azure Stack 訂用帳戶，讓服務主體名稱 (SPN) 成為參與者角色的一部分。
-4. 使用 Azure Stack 端點和 SPN 資訊在 VSTS 中建立新的服務定義。
+4. 使用 Azure Stack 端點和 SPN 資訊在 Azure DevOps Services 中建立新的服務定義。
 
 ### <a name="create-a-service-principal"></a>建立服務主體
 
@@ -122,7 +128,7 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 
     ![選取應用程式](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2. 記下 [應用程式識別碼] 的值。 在 VSTS 中設定服務端點時，將會使用該值。
+2. 記下 [應用程式識別碼] 的值。 在 Azure DevOps Services 中設定服務端點時，將會使用該值。
 
     ![應用程式識別碼](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
@@ -144,7 +150,7 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 
 ### <a name="get-the-tenant-id"></a>取得租用戶識別碼
 
-在設定服務端點的過程中，VSTS 需要將**租用戶識別碼**對應至 Azure Stack 戳記已部署到的 AAD 目錄。 使用下列步驟來取得租用戶識別碼。
+在設定服務端點的過程中，Azure DevOps Services 需要將**租用戶識別碼**對應至 Azure Stack 戳記已部署到的 AAD 目錄。 使用下列步驟來取得租用戶識別碼。
 
 1. 選取 **Azure Active Directory**。
 
@@ -194,20 +200,21 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 
 ‎Azure 角色型存取控制 (RBAC) 提供 Azure 的更細緻存取權管理。 藉由使用 RBAC，您可以控制使用者執行其作業所需的存取層級。 如需角色型存取控制的詳細資訊，請參閱[管理對 Azure 訂用帳戶資源的存取](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json)。
 
-### <a name="vsts-agent-pools"></a>VSTS 代理程式集區
+### <a name="azure-devops-services-agent-pools"></a>Azure DevOps Services 代理程式集區
 
-您可以將代理程式組織到代理程式集區中，而不要分開管理每個代理程式。 代理程式集區會定義該集區中所有代理程式的共用界限。 在 VSTS 中，代理程式集區的範圍限於 VSTS 帳戶，這表示您可以在 Team 專案間共用代理程式集區。 若要深入了解代理程式集區，請參閱[建立代理程式集區和佇列](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts)。
+您可以將代理程式組織到代理程式集區中，而不要分開管理每個代理程式。 代理程式集區會定義該集區中所有代理程式的共用界限。 在 Azure DevOps Services 中，代理程式集區的範圍限於 Azure DevOps Services 組織，這表示您可以在專案間共用代理程式集區。 若要深入了解代理程式集區，請參閱[建立代理程式集區和佇列](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts)。
 
 ### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>新增 Azure Stack 的個人存取權杖 (PAT)
 
-建立個人存取權杖來存取 VSTS。
+建立個人存取權杖來存取 Azure DevOps Services。
 
-1. 登入您的 VSTS 帳戶，並選取帳戶設定檔名稱。
+1. 登入您的 Azure DevOps Services 組織，並選取您的組織設定檔名稱。
+
 2. 選取 [管理安全性] 以存取權杖建立頁面。
 
     ![使用者登入](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![選取 Team 專案](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![選取專案](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![新增個人存取權杖](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
@@ -220,7 +227,7 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 
     ![個人存取權杖](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
-### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>在裝載 Azure Stack 的組建伺服器上安裝 VSTS 組建代理程式
+### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>在裝載 Azure Stack 的組建伺服器上安裝 Azure DevOps Services 組建代理程式
 
 1. 連線至您在 Azure Stack 主機上部署的組建伺服器。
 2. 下載組建代理程式並使用您的個人存取權杖 (PAT) 以服務的形式加以部署，然後以 VM 管理員帳戶執行。
@@ -237,17 +244,17 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 
     ![組建代理程式資料夾更新](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    您可以在 VSTS 資料夾中看到代理程式。
+    您可以在 Azure DevOps Services 資料夾中看到代理程式。
 
 ## <a name="endpoint-creation-permissions"></a>端點建立權限
 
-藉由建立端點，Visual Studio Online (VSTO) 組建可以將 Azure 服務應用程式部署到 Azure Stack。 VSTS 會連線至組建代理程式，後者再連線至 Azure Stack。
+藉由建立端點，Visual Studio Online (VSTO) 組建可以將 Azure 服務應用程式部署到 Azure Stack。 Azure DevOps Services 會連線至組建代理程式，後者再連線至 Azure Stack。
 
 ![VSTO 中的 NorthwindCloud 應用程式範例](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. 登入 VSTO 並瀏覽至 [應用程式設定] 頁面。
 2. 在 [設定] 上，選取 [安全性]。
-3. 在 [VSTS 群組] 中，選取 [端點建立者]。
+3. 在 [Azure DevOps Services 群組] 中，選取 [端點建立者]。
 
     ![NorthwindCloud 端點建立者](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -257,7 +264,7 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 
 5. 在 [新增使用者和群組] 中，輸入使用者名稱，然後從使用者清單中選取該使用者。
 6. 選取 [儲存變更]。
-7. 在 [VSTS 群組] 清單中，選取 [端點管理員]。
+7. 在 [Azure DevOps Services 群組] 清單中，選取 [端點管理員]。
 
     ![NorthwindCloud 端點管理員](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -265,6 +272,7 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 9. 在 [新增使用者和群組] 中，輸入使用者名稱，然後從使用者清單中選取該使用者。
 10. 選取 [儲存變更]。
 
+端點資訊已存在，所以 Azure DevOps Services 對 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 Azure DevOps Services 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
 ## <a name="create-an-azure-stack-endpoint"></a>建立 Azure Stack 端點
 
 您可以依照[以現有的服務主體建立 Azure Resource Manager 服務連線](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) (英文) 一文中的指示，使用現有的服務主體建立服務連線，並使用下列對應：
@@ -285,18 +293,18 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 
 在教學課程的這個部分中，您會：
 
-* 將程式碼新增至 VSTS 專案。
+* 將程式碼新增至 Azure DevOps Services 專案。
 * 建立獨立的 Web 應用程式部署。
 * 設定持續部署程序
 
 > [!Note]
  > Azure Stack 環境需要同步發佈正確的映像以執行 Windows Server 和 SQL Server。 此環境也必須部署 App Service。 檢閱 App Service 文件的「必要條件」一節，以取得 Azure Stack 運算子需求。
 
-混合式 CI/CD 可同時套用至應用程式程式碼和基礎結構程式碼。 請使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/) (例如來自 VSTS 的 Web 應用程式程式碼) 以部署至這兩個雲端。
+混合式 CI/CD 可同時套用至應用程式程式碼和基礎結構程式碼。 請使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/) (例如來自 Azure DevOps Services 的 Web 應用程式程式碼) 以部署至這兩個雲端。
 
-### <a name="add-code-to-a-vsts-project"></a>將程式碼新增至 VSTS 專案
+### <a name="add-code-to-an-azure-devops-services-project"></a>將程式碼新增至 Azure DevOps Services 專案
 
-1. 使用在 Azure Stack 上具有專案建立權限的帳戶登入 VSTS。 下一個螢幕擷取畫面顯示如何連線至 HybridCICD 專案。
+1. 使用在 Azure Stack 上具有專案建立權限的組織登入 Azure DevOps Services。 下一個螢幕擷取畫面顯示如何連線至 HybridCICD 專案。
 
     ![連線到專案](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -310,37 +318,38 @@ Visual Studio Team Services (VSTS) 會使用服務主體對 Azure Resource Manag
 
     ![設定 Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. 使用 Team Explorer 將程式碼簽入 VSTS。
+2. 使用 Team Explorer 將程式碼簽入 Azure DevOps Services 中。
 
-3. 確認應用程式程式碼已簽入 Visual Studio Team Services 中。
+3. 確認應用程式程式碼已簽入 Azure DevOps Services 中。
 
-### <a name="create-the-build-definition"></a>建立組建定義
+### <a name="create-the-build-pipeline"></a>建立組建管線
 
-1. 使用可以建立組建定義的帳戶來登入 VSTS。
-2. 巡覽至專案的 [組建 Web 應用程式] 頁面。
+1. 使用可建立組建管線的組織登入 Azure DevOps Services。
+
+2. 瀏覽至專案的 [建置 Web 應用程式] 頁面。
 
 3. 在 [引數] 中，新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
 
-    ![新增引數組建定義](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![新增引數組建管線](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. 執行組建。 [獨立的部署組建](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)程序將會發佈可在 Azure 和 Azure Stack 上執行的成品。
 
 ### <a name="use-an-azure-hosted-build-agent"></a>使用 Azure 託管的組建代理程式
 
-在 VSTS 中使用託管的組建代理程式，是建置及部署 Web 應用程式的便利選項。 Microsoft Azure 會自動執行代理程式的維護和升級，以支援持續而不間斷的開發週期。
+在 Azure DevOps Services 中使用託管的組建代理程式，是建置及部署 Web 應用程式的便利選項。 Microsoft Azure 會自動執行代理程式的維護和升級，以支援持續而不間斷的開發週期。
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>設定持續部署 (CD) 程序
 
-Visual Studio Team Services (VSTS) 和 Team Foundation Server (TFS) 提供具有高度設定和管理能力的管線，可用於對多個環境的發行 (例如開發、暫存、品質保證 (QA) 和生產環境)。 此程序中可以包括在應用程式生命週期的特定階段要求核准。
+Azure DevOps Services 和 Team Foundation Server (TFS) 提供具有高度設定和管理能力的管線，可用於對多個環境的發行 (例如開發、暫存、品質保證 (QA) 和生產環境)。 此程序中可以包括在應用程式生命週期的特定階段要求核准。
 
-### <a name="create-release-definition"></a>建立發行定義
+### <a name="create-release-pipeline"></a>建立發行管線
 
-建立發行定義是應用程式建置程序的最後一個步驟。 這個發行定義可用來建立發行並部署組建。
+建立發行管線是應用程式建置程序的最後一個步驟。 這個發行管線可用來建立發行並部署組建。
 
-1. 登入 VSTS，並瀏覽至專案的 [建置與發行]。
+1. 登入 Azure DevOps Services，並瀏覽至 **Azure Pipelines** 以找出您的專案。
 2. 在 [發行] 索引標籤上，選取 **\[ + ]**，然後挑選 [建立發行定義]。
 
-   ![建立發行定義](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![建立發行管線](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. 在 [選取範本] 中，選擇 [Azure App Service 部署]，然後選取 [套用]。
 
@@ -427,11 +436,11 @@ Visual Studio Team Services (VSTS) 和 Team Foundation Server (TFS) 提供具有
 23. 儲存您的所有變更。
 
 > [!Note]
-> 發行工作的某些設定可能已在您從範本建立發行定義時自動定義為[環境變數](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables)。 您無法在工作設定中修改這些設定。 不過，您可以在父環境項目中編輯這些設定。
+> 發行工作的某些設定可能已在您從範本建立發行管線時自動定義為[環境變數](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables)。 您無法在工作設定中修改這些設定。 不過，您可以在父環境項目中編輯這些設定。
 
 ## <a name="create-a-release"></a>建立發行
 
-現在，您已完成對發行定義的修改，接著即可開始進行部署。 若要這樣做，您可以從發行定義建立發行。 發行可能會建立自動；例如，持續部署觸發程序會設定於發行定義中。 這表示修改原始程式碼將會啟動新的建置，繼而產生新發行。 但在本節中，您將手動建立新發行。
+現在，您已完成對發行管線的修改，接著即可開始進行部署。 若要這樣做，您可以從發行管線建立發行。 發行可能會建立自動；例如，持續部署觸發程序會設定於發行管線中。 這表示修改原始程式碼將會啟動新的建置，繼而產生新發行。 但在本節中，您將手動建立新發行。
 
 1. 在 [管線] 索引標籤上，開啟 [發行] 下拉式清單，然後選擇 [建立發行]。
 

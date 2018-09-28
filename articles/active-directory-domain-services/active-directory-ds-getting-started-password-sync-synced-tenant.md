@@ -31,7 +31,7 @@ ms.locfileid: "46293994"
 | **使用者帳戶類型** | **要執行的步驟** |
 | --- | --- |
 | **已從內部部署目錄同步使用者帳戶** |**&#x2713;** [依照本文的指示](active-directory-ds-getting-started-password-sync-synced-tenant.md#task-5-enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad) | 
-| **已在 Azure AD 中建立雲端使用者帳戶** |           **&#x2713;**[將僅限雲端使用者帳戶的密碼同步到受控網域](active-directory-ds-getting-started-password-sync.md) |
+| **已在 Azure AD 中建立雲端使用者帳戶** |**&#x2713;** [將僅限雲端使用者帳戶的密碼同步到受控網域](active-directory-ds-getting-started-password-sync.md) |
 <br>
 
 > [!TIP]
