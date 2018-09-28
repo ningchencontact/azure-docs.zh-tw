@@ -12,27 +12,32 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/27/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 735c5a3645f5e2e0f31bac4d4b2f61d73dfe069e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 93bc3db2b7cf3002efc93f1e8006c5362eddab9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128774"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959966"
 ---
-# <a name="permissions-in-azure-active-directory"></a>Azure Active Directory 中的權限
+# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 端點中的權限和同意
 
-Azure Active Directory (Azure AD) 廣泛使用 OAuth 和 OpenID Connect (OIDC) 流程的權限。 當應用程式收到來自 Azure AD 的存取權杖時，它會納入宣告來描述應用程式對特定資源的權限。 權限 (也稱為範圍) 因為只需要確認權杖包含應用程式所呼叫 API 的適當權限，所以會讓資源的授權變輕鬆。 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Azure Active Directory (Azure AD) 廣泛使用 OAuth 和 OpenID Connect (OIDC) 流程的權限。 當應用程式收到來自 Azure AD 的存取權杖時，它會納入宣告來描述應用程式對特定資源的權限。
+
+*權限* (也稱為*範圍*) 因為只需要確認權杖包含應用程式所呼叫 API 的適當權限，所以會讓資源的授權變輕鬆。
 
 ## <a name="types-of-permissions"></a>權限的類型
 
-Azure AD 定義兩種權限： 
-* **委派權限** - 供已有登入使用者的應用程式使用。 針對這些應用程式，使用者或系統管理員要同意應用程式所要求的權限，然後對應用程式委派權限，讓其在呼叫 API 時以登入使用者的身分行事。 視 API 而定，使用者不一定能直接同意 API，而會[需要系統管理員提供「系統管理員同意」。](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
-* **應用程式權限** - 供沒有登入使用者的應用程式在執行時使用；例如，當作背景服務或精靈來執行的應用程式。 應用程式權限通常很強大，允許跨使用者界限存取資料，或存取僅限系統管理員存取的資料，因此這種權限只能[由系統管理員同意](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)。 
+Azure AD 定義兩種權限：
+
+* **委派權限** - 供已有登入使用者的應用程式使用。 針對這些應用程式，使用者或系統管理員要同意應用程式所要求的權限，然後對應用程式委派權限，讓其在呼叫 API 時以登入使用者的身分行事。 視 API 而定，使用者不一定能直接同意 API，而會[需要系統管理員提供「管理員同意」](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)。
+* **應用程式權限** - 供沒有登入使用者的應用程式在執行時使用；例如，當作背景服務或精靈來執行的應用程式。 應用程式權限通常很強大，允許跨使用者界限存取資料，或存取僅限系統管理員存取的資料，因此這種權限只能[由系統管理員同意](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)。
 
 有效權限是應用程式向 API 提出要求時會具備的權限。 
 

@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6a375da3c97790bd6a7a6fa505de82b2fc298385
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 250eddb043ccf9fa0b1bb92a298900f8ad820140
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144234"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992264"
 ---
 # <a name="search-queries-in-log-analytics"></a>Log Analytics 中的搜尋查詢
 
 > [!NOTE]
-> 請先完成[在 Log Analytics 中開始使用查詢](get-started-queries.md)再完成本教學課程。
+> 請先完成[在 Log Analytics 中開始使用查詢](get-started-queries.md)再完成本課程。
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Azure Log Analytics 查詢可以透過資料表名稱或 search 命令來開始。 本教學課程涵蓋以搜尋為基礎的查詢。 每種方法各有其優點。
 
@@ -34,7 +36,7 @@ Azure Log Analytics 查詢可以透過資料表名稱或 search 命令來開始�
 ## <a name="search-a-term"></a>搜尋字詞
 **search** 命令通常用來搜尋特定字詞。 在下列範例中，所有資料表中的所有資料行都會進行掃描，查看其中是否有「error」字詞：
 
-```OQL
+```Kusto
 search "error"
 | take 100
 ```
@@ -44,13 +46,13 @@ search "error"
 ### <a name="table-scoping"></a>界定資料表範圍
 若要在特定資料表中搜尋字詞，請在 **search** 運算子正後方新增 `in (table-name)`：
 
-```OQL
+```Kusto
 search in (Event) "error"
 | take 100
 ```
 
 或者，在多個資料表中：
-```OQL
+```Kusto
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -58,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>界定資料表和資料行的範圍
 根據預設，**search** 會評估資料集內的所有資料行。 若只想搜尋特定資料行，請使用此語法：
 
-```OQL
+```Kusto
 search in (Event) Source:"error"
 | take 100
 ```
@@ -69,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>區分大小寫
 根據預設，字詞搜尋不會區分大小寫，因此，搜尋 "dns" 可能會產生 "DNS"、"dns" 或 "Dns" 等結果。 若要讓搜尋區分大小寫，請使用 `kind` 選項：
 
-```OQL
+```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -78,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 **search** 命令支援在字詞開頭、結尾或中間使用萬用字元。
 
 若要搜尋開頭為 "win" 的字詞：
-```OQL
+```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
 若要搜尋結尾為 ".com" 的字詞：
-```OQL
+```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
 若要搜尋包含 "www" 的字詞：
-```OQL
+```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
 若要搜尋開頭為 "corp"、結尾為 ".com" 的字詞，例如 "corp.mydomain.com""
 
-```OQL
+```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -110,21 +112,21 @@ search in (Event) "corp*.com"
 ## <a name="add-and--or-to-search-queries"></a>對搜尋查詢新增 and / or
 使用 **and** 可搜尋包含多個字詞的記錄：
 
-```OQL
+```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
 使用 **or** 可取得包含至少一個字詞的記錄：
 
-```OQL
+```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
 如果您有多個搜尋條件，則可以使用括號將其合併到相同查詢：
 
-```OQL
+```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -134,7 +136,7 @@ search in (Event) "error" and ("register" or "marshal*")
 ## <a name="pipe-search-queries"></a>垂直線搜尋查詢
 和任何其他命令一樣，**search** 也可以使用垂直線，以便對搜尋結果進行篩選、排序和彙總。 例如，若要取得包含「win」的 Event 記錄數目：
 
-```OQL
+```Kusto
 search in (Event) "win"
 | count
 ```
@@ -144,4 +146,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱關於 [Log Analytics 查詢語言網站](https://docs.loganalytics.io)的進階教學課程
+- 請參閱關於 [Log Analytics 查詢語言網站](https://aka.ms/LogAnalyticsLanguage)的進階教學課程。

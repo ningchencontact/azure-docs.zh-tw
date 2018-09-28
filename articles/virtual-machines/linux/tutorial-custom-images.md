@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 使用 Azure CLI 建立自訂的 VM 映像 | Microsoft Docs
-description: 在本教學課程中，您會了解如何使用 Azure CLI 2.0 在 Azure 中建立自訂虛擬機器映像
+description: 在本教學課程中，您會了解如何使用 Azure CLI 在 Azure 中建立自訂虛擬機器映像
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 68c0dec2ff9d5da2d4e4abeab435bdb70c33ba48
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: d8e6afb61fd9fa25b220f3267ee718f0859ae9a4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810186"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948786"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 建立 Azure VM 的自訂映像
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立 Azure VM 的自訂映像
 
 自訂映像類似 Marketplace 映像，但您要自行建立它們。 自訂映像可用於啟動程序設定，例如，預先載入應用程式、應用程式設定和其他 OS 設定。 在本教學課程中，您將建立自己的 Azure 虛擬機器自訂映像。 您會了解如何：
 
@@ -36,7 +36,7 @@ ms.locfileid: "42810186"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="before-you-begin"></a>開始之前
 

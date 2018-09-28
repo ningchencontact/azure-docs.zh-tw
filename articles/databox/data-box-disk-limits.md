@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782020"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960612"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure 資料箱磁碟限制 (預覽)
 
@@ -87,3 +87,7 @@ ms.locfileid: "43782020"
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 區塊 Blob 和分頁 Blob 的容器名稱 | 必須是長度介於 3 到 63 個字元的有效 DNS 名稱。 <br>  必須以字母或數字開頭。 <br> 只能包含小寫字母、數字和連字號 (-)。 <br> 每個連字號 (-) 的前後都必須緊鄰字母或數字。 <br> 名稱中不允許連續的連字號。 |
 | 區塊 Blob 和分頁 Blob 的 Blob 名稱      | Blob 名稱會區分大小寫，而且可以包含字元的任意組合。 <br> Blob 名稱長度必須介於 1 到 1,024 個字元之間。 <br> 保留的 URL 字元必須正確逸出。 <br>構成 Blob 名稱的路徑區段數目不可超過 254 個。 路徑線段是連續分隔符號字元 (例如，正斜線 '/') 之間的字串，會對應到虛擬目錄的名稱。 |
+
+
+## <a name="next-steps"></a>後續步驟
+* 檢閱[資料箱系統需求](data-box-system-requirements.md)

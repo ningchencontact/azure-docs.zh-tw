@@ -1,161 +1,106 @@
 ---
-title: 什麼是 Azure Machine Learning？ | Microsoft Docs
-description: 說明雲端中的機器學習服務基本概念，描述它的使用用途，並定義機器學習服務詞彙。 Azure Machine Learning 的概觀 - 這是一套整合的端對端資料科學解決方案，可供專業資料科學家用來以雲端規模開發、測試及部署進階分析應用程式。
+title: 什麼是 Azure Machine Learning 服務？
+description: 說明雲端中的機器學習服務基本概念，描述它的使用用途，並定義機器學習服務詞彙。 Azure Machine Learning 概觀 - 一整合的端對端資料科學解決方案，可供專業資料科學家進行雲端規模的開發、實驗及部署先進的分析應用程式。
 services: machine-learning
-author: mwinkle
-ms.author: mwinkle
-manager: cgronlun
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
 ms.topic: overview
-ms.date: 09/21/2017
-ms.openlocfilehash: 3e744b0e4a7ccebcdedac5a822ff717bed6b1f72
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.reviewer: jmartens
+author: garyericson
+ms.author: garye
+ms.date: 09/24/2018
+ms.openlocfilehash: dddda5a222bf4e9fd81a3e13987ccdf443302083
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268411"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978892"
 ---
-# <a name="what-is-machine-learning"></a>什麼是機器學習服務？
+# <a name="what-is-azure-machine-learning-service-preview"></a>什麼是 Azure Machine Learning 服務 (預覽)？
+
+Azure Machine Learning 服務 (預覽) 是一項雲端服務，您可用其開發及部署機器學習服務模型。 您可以使用 Azure Machine Learning 服務，一路在建置、定型、部署及管理模型期間，進行追蹤以及管理，廣泛到涵蓋雲端所提供的範圍。
+
+## <a name="what-is-machine-learning"></a>什麼是機器學習？
 
 機器學習是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。 使用機器學習，電腦不需要明確進行程式設計就能學習。
 
-機器學習的預測可讓應用程式和裝置更聰明。 當您線上購物時，機器學習服務可根據您已經購買的產品，協助推薦其他產品。 當您的信用卡被刷過時，機器學習服務可將該筆交易與交易資料庫進行比對，協助偵測詐騙。 當您的真空吸塵器機器人清潔房間時，機器學習服務可協助它判斷作業是否完成。
+機器學習的預測可讓應用程式和裝置更聰明。 例如，當您線上購物時，機器學習服務可根據您已經購買的產品，協助推薦其他產品。 或是當您的信用卡被刷過時，機器學習服務可將該筆交易與交易資料庫進行比對，協助偵測詐騙。 而且，當您的吸塵器機器人清潔房間時，機器學習服務可協助它判斷作業是否已完成。
 
 ## <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
-Azure Machine Learning 是整合、端對端的資料科學和進階分析解決方案。 它可讓資料科學家用來以雲端規模準備資料、開發測試及部署模型。
 
-Azure Machine Learning 的主要元件包括：
-- Azure Machine Learning Workbench
-- Azure Machine Learning 測試服務
-- Azure Machine Learning 模型管理服務
-- 適用於 Apache Spark 的 Microsoft Machine Learning 程式庫 (MMLSpark 程式庫)
-- 適用於 AI 的 Visual Studio Code Tools
+Azure Machine Learning 服務提供雲端架構的環境，可用於開發、定型、測試、部署、管理及追蹤機器學習服務模型。
 
-這些應用程式和服務共同協助您大幅加速資料科學專案的開發和部署。 
+[ ![Azure 機器學習服務工作流程](./media/overview-what-is-azure-ml/aml.png) ] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
-![Azure Machine Learning 概念](./media/overview-what-is-azure-ml/aml-concepts.png)
+Azure Machine Learning 服務完全支援開放原始碼技術，因此您可以使用數以萬計的開放原始碼 Python 套件，與像是 TensorFlow 與 scikit-learn 等機器學習服務元件。
+工具相當豐富 (例如 [Jupyter notebook](http://jupyter.org) 或 [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/))，可輕鬆地以互動方式瀏覽資料及加以轉換，然後再開發及測試模型。
+Azure Machine Learning 服務也包含[自動產生模型與微調](tutorial-auto-train-models.md)的功能，可協助您輕鬆且具效率地正確建立模型。
 
+您可利用 Azure Machine Learning 服務，開始訓練您的本機電腦，然後向外延展到雲端。 具備 [Azure Batch AI](https://azure.microsoft.com/services/batch-ai/) 的原生支援，以及[先進的超參數微調服務](how-to-tune-hyperparameters.md)，使用雲端的威力，您可更快速地建置更佳的模型。 
 
-## <a name="open-source-compatible"></a>開放原始碼相容
+當您有正確的模型時，即可輕鬆地將其部署在像是 Docker 等容器中。 這表示很容易即可部署到 [Azure Container Instances](how-to-deploy-to-aci.md) 或是 [Azure Kubernetes Service](how-to-deploy-to-aks.md)，或在您自己的部署中，於內部部署或雲端內使用該容器。
+您可管理已部署的模型，並在進行實驗以找出最佳解決方案的過程中，追蹤多次回合。
 
-Azure Machine Learning 完全支援開放原始碼技術。 您可以使用數以萬計的開放原始碼 Python 封裝，例如下列機器學習架構：
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
-- [scikit-learn](http://scikit-learn.org/)
-- [TensorFlow](https://www.tensorflow.org/)
-- [Microsoft 辨識工具組](https://www.microsoft.com/en-us/cognitive-toolkit/)
-- [Spark ML](https://spark.apache.org/docs/2.1.1/ml-pipeline.html)
+## <a name="what-can-i-do-with-azure-machine-learning-service"></a>可利用 Azure Machine Learning 服務做什麼？
 
-您可以在受控環境，例如 Docker 容器和 Spark 叢集中執行您的測試。 您也可以使用進階硬體，例如[在 Azure 虛擬機器中啟用 GPU](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) 來加速執行。
+Azure Machine Learning 服務可自動產生模型及為您自動調整。
+例如，請參閱[教學課程：使用自動化的 Azure Machine Learning 自動定型分類模型](tutorial-auto-train-models.md)。
 
-Azure Machine Learning 以下列開放原始碼技術為建置基礎：
+或者，使用開放原始碼 Python 套件時，搭配適用於 Python 的 Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>，即可自行於 Azure Machine Learning 工作區中，建置及定型高精確度的機器學習服務與深度學習模型。
+您可選擇開放原始碼 Python 套件中所提供的許多機器學習服務元件，如下所示：
 
-- [Jupyter Notebook](http://jupyter.org/)
-- [Apache Spark](https://spark.apache.org/)
-- [Docker](https://www.docker.com/)
-- [Kubernetes](https://kubernetes.io/)
-- [Python](https://www.python.org/)
-- [Conda](https://conda.io/docs/)
+- <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
+- <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
+- <a href="https://pytorch.org" target="_blank">PyTorch</a>
+- <a href="https://www.microsoft.com/cognitive-toolkit/" target="_blank">CNTK</a>
+- <a href="http://mxnet.io" target="_blank">MXNet</a>
 
-它也包括 Microsoft 的開放原始碼技術，例如[適用於 Apache Spark 的 Microsoft Machine Learning 程式庫](https://github.com/Azure/mmlspark)和辨識工具組。
+有了模型之後，即可使用該模型建立容器 (例如 Docker)，於本機部署進行測試，然後再到 [Azure Container Instances](how-to-deploy-to-aci.md) 或 [Azure Kubernetes Service](how-to-deploy-to-aks.md) 中的生產 Web 環境中。
 
-此外，您也可以從部分 Microsoft 開發，設計目的是要解決大規模問題的最進階、經證實的機器學習技術獲益。 它們實際上可在許多 Microsoft 產品中派上用場，例如：
+接著，您可以使用 [Azure 入口網站](https://portal.azure.com/)或 [Azure Machine Learning CLI 延伸模組](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli) 管理所部署的模型。
+您可以評估模型計量、重新定型及重新部署新版本的模型，還能同時追蹤模型的實驗。
 
-- Windows
-- Bing
-- Xbox
-- Office
-- SQL Server
+若要開始使用 Azure Machine Learning 服務，請參閱以下的[後續步驟](#next-steps)。
 
-下列是一些 Azure Machine Learning 隨附的一些 Microsoft Machine Learning 技術：
+## <a name="how-is-azure-machine-learning-service-different-from-studio"></a>Azure Machine Learning 服務與 Studio 有何不同？
 
-- [PROSE](https://microsoft.github.io/prose/) (PROgram Synthesis using Examples)
-- [microsoftml](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)
-- [revoscalepy](https://docs.microsoft.com/r-server/python-reference/revoscalepy/revoscalepy-package)
+Azure Machine Learning Studio 是可進行共同作業的拖放式視覺化工作區，您可於該處建置、測試及部署機器學習解決方案，而無須撰寫任何程式碼。 其會使用預先建置且預先設定的機器學習演算法，以及資料處理模組。
 
-## <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
-Azure Machine Learning Workbench 是桌面應用程式加上命令列工具，同時支援 Windows 和 macOS。 它可讓您管理整個資料科學生命週期的機器學習解決方案：
+當您想要快速且輕鬆地實驗機器學習模型，而內建的機器學習演算法即已足夠您用於解決方案時，請使用 Machine Learning Studio。
 
-- 資料內嵌和準備
-- 模型開發和測試管理
-- 各種目標環境中的模型部署
+若在 Python 環境中運作，而想要更充分掌控您的機器學習演算法，或是想要使用開放原始碼機器學習程式庫，請使用 Machine Learning 服務。
 
-以下是 Azure Machine Learning Workbench 所提供的核心功能：
+> [!NOTE]
+> 在 Azure Machine Learning Studio 中所建立的模型，無法由 Azure Machine Learning 服務進行部署或管理。
 
-- 可以透過範例了解資料轉換邏輯的資料準備工具。
-- 資料來源抽象可透過 UX 和 Python 程式碼存取。
-- Python SDK 用於叫用以視覺化方式建構的資料準備封裝。
-- 內建 Jupyter Notebook 服務與用戶端 UX。
-- 透過執行歷程記錄檢視測試監視及管理。
-- 角色型存取控制，允許透過 Azure Active Directory 的共用及協同作業。
-- 由原生的 Git 整合所啟用的每個執行的自動專案快照集，以及明確的版本控制。 
-- 與受歡迎 Python IDE 的整合。
-
-如需詳細資訊，請參考下列文章：
-- [資料準備使用者指南](../desktop-workbench/data-prep-user-guide.md)
-- [使用 Git 搭配 Azure Machine Learning](../desktop-workbench/using-git-ml-project.md)
-- [在 Azure Machine Learning 中使用 Jupyter Notebook](../desktop-workbench/how-to-use-jupyter-notebooks.md)
-- [漫遊及共用](../desktop-workbench/roaming-and-collaboration.md)
-- [執行歷程記錄指南](../desktop-workbench/how-to-use-run-history-model-metrics.md)
-- [IDE 整合](../desktop-workbench/how-to-configure-your-ide.md)
-
-## <a name="azure-machine-learning-experimentation-service"></a>Azure Machine Learning 測試服務
-測試服務可處理機器學習測試的執行。 藉由提供專案管理、Git 整合、存取控制、漫遊以及共用，它也支援 Workbench。 
-
-透過簡單的設定，您可以利用廣泛的運算環境選項執行您的測試：
-
-- 本機原生
-- 本機 Docker 容器
-- 遠端 VM 上的 Docker 容器
-- 在 Azure 中相應放大 Spark 叢集
-
-測試服務會建構虛擬環境，以確保您的指令碼可以隔離執行但具有可重現的結果。 它會記錄執行歷程記錄資訊，並以視覺化方式將歷程記錄呈現給您。 您可以從您的測試執行輕鬆選取最佳的模型。 
-
-如需詳細資訊，請參考[測試服務組態](../desktop-workbench/experimentation-service-configuration.md)。
-
-## <a name="azure-machine-learning-model-management-service"></a>Azure Machine Learning 模型管理服務
-
-模型管理服務可讓資料科學家和 DevOps 小組將預測模型部署到各種不同的環境。 從定型執行到部署均會追蹤模型版本和歷程。 模型會在雲端中儲存、登錄及管理。 
-
-使用簡單的 CLI 命令，您可以將模型、評分指令碼和相依性容器化為 Docker 映像。 這些映像會在您裝載於 Azure 的 Docker 登錄中登錄 (Azure Container Registry)。 可以可靠地將它們部署至下列目標：
-
-- 本機電腦
-- 內部部署伺服器
-- 雲端
-- IoT Edge 裝置
-
-執行於 Azure Container Service (ACS) 中的 Kubernete 可用於雲端向外延展部署。 模型執行遙測會在 AppInsights 中擷取，以進行視覺化的分析。 
-
-如需有關模型管理服務的詳細資訊，請參考[模型管理概觀](../desktop-workbench/model-management-overview.md)
-
-
-## <a name="microsoft-machine-learning-library-for-apache-spark"></a>適用於 Apache Spark 的 Microsoft Machine Learning 程式庫
-
-[MMLSpark](https://github.com/Azure/mmlspark) (適用於 Apache Spark 的 Microsoft Machine Learning 程式庫) 是提供 Apache Spark 深入學習及資料科學工具的開放原始碼 Spark 封裝。 它整合 [Spark Machine Learning 管線](https://spark.apache.org/docs/2.1.1/ml-pipeline.html)與 [Microsoft 辨識工具組](https://www.microsoft.com/en-us/cognitive-toolkit/)和 [OpenCV](http://opencv.org/) 程式庫。 它可讓您快速為大型影像和文字資料集建立功能強大、具備高度靈活調整能力的預測和分析模型。 一些重點包括：
-
-- 輕鬆地將映像從 HDFS 內嵌到 Spark 資料框架
-- 從 OpenCV 使用轉型預先處理映像資料
-- 使用 Microsoft 辨識工具組利用預先定型的深入類神經網路將影像特徵化 
-- 對醫療實體擷取使用來自 Keras 預先定型的雙向 LSTM
-- 在 Azure 上的 N 系列 GPU VM 上定型以 DNN 為基礎的影像分類模型
-- 特色是在 SparkML 的基本項目上透過單一轉換程式使用便利 API 的自由格式文字資料
-- 輕鬆地透過資料的隱含功能定型分類和迴歸模型
-- 計算一組豐富的評估度量，包括每個執行個體的度量
-
-如需詳細資訊，請參考[在 Azure Machine Learning 中使用 MMLSpark](../desktop-workbench/how-to-use-mmlspark.md)。
-
-## <a name="visual-studio-code-tools-for-ai"></a>適用於 AI 的 Visual Studio Code Tools
-適用於 AI 的 Visual Studio Code Tools 是 Visual Studio Code 中的延伸模組，可建置、測試及部署深入學習和 AI 解決方案。 它的特色在於與 Azure Machine Learning 的許多整合點，包括：
-- 執行歷程記錄檢視，顯示定型執行的效能以及記錄的度量。
-- 圖庫檢視，讓使用者能夠使用 Microsoft 辨識工具組、TensorFlow 與許多其他深入學習架構瀏覽並啟動新專案。 
-- 用於選取計算目標讓指令碼執行的總管檢視。
- 
-
-## <a name="what-are-the-machine-learning-options-from-microsoft"></a>Microsoft 提供的機器學習選項有哪些？
-除了 Azure Machine Learning，Azure 中有各種不同的選項可用來建置、部署及管理機器學習模型。 [請從這裡了解這些選項。](../desktop-workbench/overview-more-machine-learning.md)
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+## <a name="free-trial"></a>免費試用
+如果您不是訂閱者，可以[免費申請 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)。 即可取得用於 Azure 服務的點數。 信用額度用完之後，您可以保留帳戶並使用[免費的 Azure 服務](https://azure.microsoft.com/free/)。 除非您明確變更您的設定且同意付費，否則我們絕對不會從您的信用卡收取任何費用。 或者，您也可以[啟用 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)：您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
 
 ## <a name="next-steps"></a>後續步驟
-* [安裝與建立 Azure Machine Learning](quickstart-installation.md)
+
+- 運用[使用 Azure 入口網站開始入門](quickstart-get-started.md)一文，建立機器學習服務工作區
+ 
+- 完成整個教學課程，[利用 Azure Machine Learning 定型影像分類模型](tutorial-train-models-with-aml.md)，以了解如何利用 Azure Machine Learning 服務，定型及部署模型
+
+- 如需允許 Azure Machine Learning 自動產生及自動調整模型的相關資訊，請參閱[教學課程：利用自動化的 Azure Machine Learning 定型分類模型](tutorial-auto-train-models.md)
+
+- 如需服務的技術與深入解析，請參閱 [Azure Machine Learning 服務架構與概念](concept-azure-machine-learning-architecture.md)
+
+- 如需 Microsoft 其他機器學習產品的詳細資訊，請參閱[其他 Microsoft 機器學習產品](./overview-more-machine-learning.md)
+
+
+<!-- 
+
+An intro to AML or an end-to-end quickstart video could go here.
+
+In this 9-minute video, learn how you can benefit your app. You'll learn about key features and what a typical workflow looks like. 
+
+>[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
+ 
++ 0-3 minutes covers key features and use-cases.
++ 3-4 minutes covers service provisioning. 
++ 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
+
+-->

@@ -16,14 +16,18 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 48d03b590d718cf82d692dc177a69f6d54de43d1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495912"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966379"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>自通用 Windows 平台應用程式 (XAML) 呼叫 Microsoft Graph API
+
+
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 本指南說明原生通用 Windows 平台 (UWP) 應用程式如何要求存取權杖，然後呼叫 Microsoft Graph API。 本指南也適用於需要來自 Azure Active Directory v2 端點之存取權杖的其他 API。
 
@@ -71,11 +75,14 @@ ms.locfileid: "39495912"
 2. 在 [套件管理器主控台] 視窗中，複製並貼上下列命令：
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > 此命令會安裝 [Microsoft 驗證程式庫](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)。 MSAL 會取得、快取並重新整理使用者權杖，以存取受 Azure Active Directory v2 保護的 API。
+
+> [!NOTE]
+> 本教學課程還不會使用最新版的 MSAL.NET，但我們正努力加以更新。
 
 ## <a name="initialize-msal"></a>將 MSAL 初始化
 此步驟可協助您建立類別來處理與 MSAL 的互動，例如處理權杖。

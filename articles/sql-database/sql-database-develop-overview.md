@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1986c19e6625df7c281f7de9b322124da6a12c45
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140059"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973828"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 應用程式開發概觀
 本文將逐步解說開發人員在撰寫程式碼以連接到 Azure SQL Database 時應注意的基本考量事項。

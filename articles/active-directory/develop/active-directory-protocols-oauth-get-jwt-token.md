@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: eb26101229ad60abae7a8a84f8dfa496488e84ba
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578998"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981792"
 ---
 # <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>使用 OAuth 2.0 來要求存取權杖，以存取受 Azure Active Directory 保護的 Web API 和應用程式
 
@@ -75,12 +75,12 @@ POST https://{tenant}/oauth2/v2.0/token?client_id={client-id}
 ```
 | 參數     | 說明                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| access_token  | 所要求的存取權杖。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。                                                                                                                                                                                                                                                                                                                                    |
+| access_token  | 所要求的[存取權杖](access-tokens.md)。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。                                                                                                                                                                                                                                                                                                                                    |
 | token_type    | 表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | 存取權杖的有效期 (以秒為單位)。                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | access_token 有效的範圍。                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。 Refresh_token 的有效期很長，而且可以用來延長保留資源存取權的時間。 如需詳細資訊，請參閱 [v2.0 權杖參考](v2-id-and-access-tokens.md)。 <br> **注意：** 只在要求 `offline_access` 範圍時提供。                                               |
-| id_token      | 不帶正負號的 JSON Web Token (JWT)。 應用程式可以將這個權杖的區段解碼，來要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。 如需有關 id_token 的詳細資訊，請參閱 [v2.0 端點權杖參考](v2-id-and-access-tokens.md)。 <br> **注意：** 只在要求 `openid` 範圍時提供。 |
+| refresh_token | OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。 Refresh_token 的有效期很長，而且可以用來延長保留資源存取權的時間。 如需詳細資訊，請參閱 [v2.0 程式碼授與參考](v2-oauth2-auth-code-flow.md#refresh-the-access-token)。 <br> **注意：** 只在要求 `offline_access` 範圍時提供。                                               |
+| id_token      | 不帶正負號的 JSON Web Token (JWT)。 應用程式可以將這個權杖的區段解碼，來要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。 如需有關 id_token 的詳細資訊，請參閱 [`id_token reference`](id-tokens.md)。 <br> **注意：** 只在要求 `openid` 範圍時提供。 |
 
 
 
