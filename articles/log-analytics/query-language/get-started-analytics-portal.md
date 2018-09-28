@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 入口網站中開始使用 Log Analytics 頁面 | Microsoft Docs
-description: 本文提供教學課程來說明如何使用 Log Analytics 頁面來撰寫查詢。
+title: 在 Azure 入口網站中開始使用 Log Analytics | Microsoft Docs
+description: 本文提供教學課程來說明如何在 Analytics 入口網站中使用 Log Analytics 撰寫查詢。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,16 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42140093"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978194"
 ---
-# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>在 Azure 入口網站中開始使用 Log Analytics 頁面
+# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>在 Azure 入口網站中開始使用 Log Analytics
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 在本教學課程中，您會了解如何在 Azure 入口網站中使用 Log Analytics 頁面 (目前為預覽功能) 來撰寫 Log Analytics 查詢。 它會告訴您如何：
 
@@ -45,7 +47,7 @@ Log Analytics 頁面是一種 Web 工具，可用來撰寫及執行 Azure Log An
 ## <a name="basic-queries"></a>基本查詢
 查詢可用來搜尋字詞、識別趨勢、分析模式，以及提供許多其他以資料為基礎的深入解析。 請從基本查詢來開始：
 
-```OQL
+```Kusto
 Event | search "error"
 ```
 
@@ -55,7 +57,7 @@ Event | search "error"
 
 另一種撰寫該相同查詢的方式會是：
 
-```OQL
+```Kusto
 search in (Event) "error"
 ```
 
@@ -79,7 +81,7 @@ search in (Event) "error"
 ## <a name="filter-the-results"></a>篩選結果
 一開始請先取得「Event」資料表中的所有項目。
 
-```OQL
+```Kusto
 Event
 ```
 
@@ -133,7 +135,7 @@ Log Analytics 頁面會自動根據下列條件來限制結果的範圍：
 ## <a name="charts"></a>圖表
 除了在資料表中傳回結果外，查詢結果還可以透過視覺化格式來呈現。 請使用下列查詢作為範例：
 
-```OQL
+```Kusto
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

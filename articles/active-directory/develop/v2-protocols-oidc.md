@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4c7b46972a8c07675e1318a900c1f07043beb3de
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591930"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971445"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory 2.0 和 OpenID Connect 通訊協定
 
@@ -139,7 +139,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | 參數 | 說明 |
 | --- | --- |
-| id_token |應用程式所要求的識別碼權杖。 您可以使用 `id_token` 參數來確認使用者的身分識別，並開始與使用者的工作階段。 如需識別碼權杖及其內容的詳細資訊，請參閱 [v2.0 端點權杖參考](v2-id-and-access-tokens.md)。 |
+| id_token |應用程式所要求的識別碼權杖。 您可以使用 `id_token` 參數來確認使用者的身分識別，並開始與使用者的工作階段。 如需識別碼權杖及其內容的詳細資料，請參閱 [`id_tokens` 參考](id-tokens.md)。 |
 | state |如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
 ### <a name="error-response"></a>錯誤回應
@@ -175,20 +175,18 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 ## <a name="validate-the-id-token"></a>驗證識別碼權杖
 
-收到識別碼權杖並不足以驗證使用者。 您必須一併驗證識別碼權杖的簽章，並依照您應用程式的需求確認權杖中的宣告。 v2.0 端點使用 [JSON Web Tokens (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 和公開金鑰加密簽署權杖及驗證其是否有效。
+僅接收 id_token 不足以驗證使用者，您必須驗證 id_token 簽章，並依照應用程式的需求確認權杖中的宣告。 v2.0 端點使用 [JSON Web Tokens (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 和公開金鑰加密簽署權杖及驗證其是否有效。
 
-您可以選擇在用戶端程式碼中驗證識別碼權杖，但是常見的做法是將識別碼權杖傳送到後端伺服器，並在該處執行驗證。 當您驗證識別碼權杖的簽章之後，您將必須驗證幾個宣告。 如需詳細資訊 (包括有關[驗證權杖](v2-id-and-access-tokens.md#validating-tokens)和[簽署金鑰變換的相關重要資訊](v2-id-and-access-tokens.md)的詳細資訊)，請參閱 [v2.0 權杖參考](v2-id-and-access-tokens.md#validating-tokens)。 建議您使用程式庫來剖析及驗證權杖。 大多數語言和平台至少會有這些程式庫其中之一可用。
+您可以選擇驗證用戶端程式碼中的 `id_token`，但是常見的作法是將 `id_token` 傳送至後端伺服器，並且在那裡執行驗證。 一旦驗證了 id_token 的簽章，就會有數項宣告需要驗證。 如需詳細資訊，請參閱 [`id_token`參考](id-tokens.md)，其中包括[驗證權杖](id-tokens.md#validating-idtokens)和[有關簽署金鑰變換的重要資訊](active-directory-signing-key-rollover.md)。 我們建議利用程式庫來剖析和驗證權杖 - 對於大部分語言和平台至少有一個可用。
 <!--TODO: Improve the information on this-->
 
-視您的案例而定，您可能也會想要驗證其他宣告。 一些常見的驗證包括：
+您可能也希望根據自己的案例驗證其他宣告。 一些常見的驗證包括：
 
-* 確保使用者或組織已針對應用程式註冊。
-* 確保使用者具備必要的授權或權限。
-* 確保已進行特定強度的驗證，例如多重要素驗證。
+* 確保使用者/組織已註冊應用程式。
+* 確保使用者擁有正確的授權/權限
+* 確保驗證具有特定強度，例如多重要素驗證。
 
-如需有關識別碼權杖中宣告的詳細資訊，請參閱 [v2.0 端點權杖參考](v2-id-and-access-tokens.md)。
-
-當您驗證過識別碼權杖之後，便可開始關於該使用者的工作階段。 請使用識別碼權杖中的宣告來取得應用程式中使用者的相關資訊。 您可以使用這項資訊來顯示、記錄、授權等等。
+一旦驗證完畢 id_token，即可利用使用者開始工作階段，並使用 id_token 中的宣告來取得應用程式中的使用者相關資訊。 這項資訊可以用於顯示、記錄、個人化等等。
 
 ## <a name="send-a-sign-out-request"></a>傳送登出要求
 
@@ -257,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | 參數 | 說明 |
 | --- | --- |
-| id_token |應用程式所要求的識別碼權杖。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 如需有關識別碼權杖及其內容的更多詳細資料，請參閱 [v2.0 端點權杖參考](v2-id-and-access-tokens.md)。 |
+| id_token |應用程式所要求的識別碼權杖。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 如需有關識別碼權杖及其內容的更多詳細資料，請參閱 [`id_tokens` 參考](id-tokens.md)。 |
 | code |應用程式所要求的授權碼。 應用程式可以使用授權碼要求目標資源的存取權杖。 授權碼的存留期很短。 授權碼的有效期通常大約是 10 分鐘。 |
 | state |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
@@ -280,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 如需可能的錯誤碼說明及建議的用戶端回應，請參閱[授權端點錯誤的錯誤碼](#error-codes-for-authorization-endpoint-errors)。
 
-在您取得授權碼和識別碼權杖之後，您可以將使用者登入並代表他們取得存取權杖。 若要將使用者登入，您必須[完全依照所述的方式](#validate-the-id-token)驗證識別碼權杖。 若要取得存取權杖，請依照 [OAuth 通訊協定文件](v2-oauth2-auth-code-flow.md#request-an-access-token)中所述的步驟操作。
+在您取得授權碼和識別碼權杖之後，您可以將使用者登入並代表他們取得存取權杖。 若要將使用者登入，您必須[完全依照所述的方式](id-tokens.md#validating-idtokens)驗證識別碼權杖。 若要取得存取權杖，請依照 [OAuth 程式碼流程文件](v2-oauth2-auth-code-flow.md#request-an-access-token)中所述的步驟操作。

@@ -298,7 +298,7 @@ action().outputs.body.<property>
 
 | 參數 | 必要 | 類型 | 說明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*property*> | 否 | 字串 | 您需要其值的動作物件屬性名稱：**name**、**startTime****endTime****inputs****outputs****status****code****trackingId** 和 **clientTrackingId**。 在 Azure 入口網站中，您可以藉由檢閱特定執行歷程記錄的詳細資料來找出這些屬性。 如需詳細資訊，請參閱 [REST API - 工作流程執行動作](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get)。 | 
+| <*property*> | 否 | 字串 | 您需要其值的動作物件屬性名稱：**name**、**startTime** **endTime** **inputs** **outputs** **status** **code** **trackingId** 和 **clientTrackingId**。 在 Azure 入口網站中，您可以藉由檢閱特定執行歷程記錄的詳細資料來找出這些屬性。 如需詳細資訊，請參閱 [REST API - 工作流程執行動作](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get)。 | 
 ||||| 
 
 | 傳回值 | 類型 | 說明 | 
@@ -431,7 +431,7 @@ actions('<actionName>').outputs.body.<property>
 | 參數 | 必要 | 類型 | 說明 | 
 | --------- | -------- | ---- | ----------- | 
 | <*actionName*> | 是 | 字串 | 您需要其輸出的動作物件名稱  | 
-| <*property*> | 否 | 字串 | 您需要其值的動作物件屬性名稱：**name**、**startTime****endTime****inputs****outputs****status****code****trackingId** 和 **clientTrackingId**。 在 Azure 入口網站中，您可以藉由檢閱特定執行歷程記錄的詳細資料來找出這些屬性。 如需詳細資訊，請參閱 [REST API - 工作流程執行動作](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get)。 | 
+| <*property*> | 否 | 字串 | 您需要其值的動作物件屬性名稱：**name**、**startTime** **endTime** **inputs** **outputs** **status** **code** **trackingId** 和 **clientTrackingId**。 在 Azure 入口網站中，您可以藉由檢閱特定執行歷程記錄的詳細資料來找出這些屬性。 如需詳細資訊，請參閱 [REST API - 工作流程執行動作](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get)。 | 
 ||||| 
 
 | 傳回值 | 類型 | 說明 | 
@@ -3991,7 +3991,7 @@ workflow().<property>
 
 | 參數 | 必要 | 類型 | 說明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*property*> | 否 | 字串 | 您需要其值的工作流程屬性名稱 <p>工作流程物件具有下列屬性：**name**、**type****id****location** 和 **run**。 **run** 屬性值也是具有這些屬性的物件：**name**、**type**和 **id**。 | 
+| <*property*> | 否 | 字串 | 您需要其值的工作流程屬性名稱 <p>工作流程物件具有下列屬性：**name**、**type** **id** **location** 和 **run**。 **run** 屬性值也是具有這些屬性的物件：**name**、**type**和 **id**。 | 
 ||||| 
 
 *範例*

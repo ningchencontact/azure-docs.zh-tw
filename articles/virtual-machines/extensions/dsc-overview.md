@@ -85,7 +85,7 @@ Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure
 Resource Manager DSC 延伸模組 Cmdlet 相關的重要資訊：
 
 - Azure Resource Manager Cmdlet 是同步的。
-- *ResourceGroupName**VMName**ArchiveStorageAccountName**Version*及 *Location* 全都是必要參數。
+- *ResourceGroupName* *VMName* *ArchiveStorageAccountName* *Version* 及 *Location* 全都是必要參數。
 - *ArchiveResourceGroupName* 是選擇性參數。 當您儲存體帳戶所屬的資源群組與建立 VM 的資源群組不同時，您可以指定此參數。
 - 使用 **AutoUpdate** 參數以在有最新版本可用時，自動將延伸模組處理常式更新至最新版本。 此參數有可能導致虛擬機器在新版 WMF 發行時重新啟動。
 

@@ -14,16 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667645"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974318"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>教學課程：Azure SignalR 服務驗證
-
-Microsoft Azure SignalR 服務目前處於[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)狀態。
 
 本教學課程會以快速入門中所介紹的聊天室應用程式為基礎。 如果您尚未完成[使用 SignalR 服務建立聊天室](signalr-quickstart-dotnet-core.md)，請先完成該項練習。 
 
@@ -396,7 +394,7 @@ Microsoft Azure SignalR 服務目前處於[公開預覽](https://azure.microsoft
 
 在本節中，您會從 Azure Cloud Shell 使用 Azure 命令列介面 (CLI) 來建立新的 [Azure Web 應用程式](https://docs.microsoft.com/azure/app-service/)，以在 Azure 中裝載您的 ASP.NET 應用程式。 您會將 Web 應用程式設定為使用本機 Git 部署。 您也會使用您的 SignalR 連接字串、GitHub OAuth 應用程式祕密和部署使用者來設定 Web 應用程式。
 
-本節中的步驟會使用適用於 Azure CLI 的 signalr 擴充功能。 執行下列命令以安裝適用於 Azure CLI 2.0 的 signalr 擴充功能：
+本節中的步驟會使用適用於 Azure CLI 的 signalr 擴充功能。 執行下列命令以安裝適用於 Azure CLI 的 signalr 擴充功能：
 
 ```azurecli-interactive
 az extension add -n signalr

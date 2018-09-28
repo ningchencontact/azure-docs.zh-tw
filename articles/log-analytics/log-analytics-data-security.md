@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 4cf04ceeb8650b2978389cefb561ae31e88bc853
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b91b906db1307343a50ffc3be07d562091f2e335
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282431"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978776"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 資料安全性
-本文件旨在提供 Azure Log Analytics 的特定資訊，以補充 [Azure 信任中心](../security/security-microsoft-trust-center.md)上的資訊。  
+本文件旨在提供 Log Analytics (Azure 監視器的功能) 的特定資訊，以補充 [Azure 信任中心](../security/security-microsoft-trust-center.md)上的資訊。  
 
 本文說明 Log Analytics 資料收集、處理和保全的方式。 您可以使用代理程式連接到 Web 服務、使用 System Center Operations Manager 來收集操作資料，或從 Azure 診斷擷取資料供 Log Analytics 使用。 
 
@@ -46,14 +46,14 @@ Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的
 
 除非有絕對必要，否則我們不建議將代理程式明確地設定為只使用 TLS 1.2，因為這樣可能會中斷平台層級的安全性功能，此功能可在更安全的較新通訊協定 (例如 TLS 1.3) 推出時，自動偵測並加以運用。 
 
-### <a name="platform-specific-guidance"></a>平台的特定指引
+### <a name="platform-specific-guidance"></a>平台專屬的指引
 
 |平台/語言 | 支援 | 相關資訊 |
 | --- | --- | --- |
 |Linux | Linux 發行版本通常會依賴 [OpenSSL](https://www.openssl.org) 來取得 TLS 1.2 支援。  | 請檢查 [OpenSSL 變更記錄](https://www.openssl.org/news/changelog.html)來確認支援的 OpenSSL 版本。|
-| Windows 8.0 - 10 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings)。  |
-| Windows Server 2012 - 2016 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 和 Windows Server 2008 R2 SP1 | 支援，但預設為不啟用。 | 請參閱[傳輸層安全性 (TLS) 登錄設定](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings)頁面，了解詳細的啟用方式。  |
+| Windows 8.0 - 10 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)。  |
+| Windows Server 2012 - 2016 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 和 Windows Server 2008 R2 SP1 | 支援，但預設為不啟用。 | 請參閱[傳輸層安全性 (TLS) 登錄設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)頁面，了解詳細的啟用方式。  |
 | Windows Server 2008 SP2 | TLS 1.2 支援需要更新。 | 請在 Windows Server 2008 SP2 中參閱[新增 TLS 1.2 支援的更新](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)。 |
 
 ## <a name="data-segregation"></a>資料隔離
@@ -86,7 +86,7 @@ Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的
 | State |StateChangeEventId、StateId、NewHealthState、OldHealthState、Context、TimeGenerated、TimeAdded、StateId2、BaseManagedEntityId、MonitorId、HealthState、LastModified、LastGreenAlertGenerated、DatabaseTimeModified |
 
 ## <a name="physical-security"></a>實體安全性
-Log Analytics 服務是由 Microsoft 人員所管理，所有活動都有記錄並且可供稽核。 Log Analytics 會作為 Azure 服務操作，並符合所有 Azure 合規性與安全性需求。 您可以在 [Microsoft Azure 安全性概觀](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)的第 18 頁上檢視 Azure 資產之實體安全性的詳細資料。 不再負責管理 Log Analytics 服務的人員，其用來確保區域安全的實體存取權限 (包括傳輸和終止) 將會在一個工作天內變更。 若要了解我們使用的全域實體基礎結構，請參閱 [Microsoft 資料中心](https://azure.microsoft.com/en-us/global-infrastructure/)。
+Log Analytics 服務是由 Microsoft 人員所管理，所有活動都有記錄並且可供稽核。 Log Analytics 會作為 Azure 服務操作，並符合所有 Azure 合規性與安全性需求。 您可以在 [Microsoft Azure 安全性概觀](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)的第 18 頁上檢視 Azure 資產之實體安全性的詳細資料。 不再負責管理 Log Analytics 服務的人員，其用來確保區域安全的實體存取權限 (包括傳輸和終止) 將會在一個工作天內變更。 若要了解我們使用的全域實體基礎結構，請參閱 [Microsoft 資料中心](https://azure.microsoft.com/global-infrastructure/)。
 
 ## <a name="incident-management"></a>事件管理
 Log Analytics 具備所有 Microsoft 服務都會遵守的事件管理程序。 總結來說，我們：
@@ -117,7 +117,7 @@ Log Analytics 軟體開發和服務小組的資訊安全性及治理程式可支
 
 每個開發小組成員都會獲得正式的應用程式安全性訓練。 在內部，我們使用版本控制系統來開發軟體。 每個軟體專案都受到版本控制系統的保護。
 
-Microsoft 備有會監看及評估 Microsoft 中所有服務的安全性和法規遵循小組。 資訊安全人員會組成小組，且他們與開發 Log Analytics 的工程部門並無關聯。 安全人員有他們自己的管理鏈，並且會獨立評估產品和服務，以確保安全性與法規遵循。
+Microsoft 備有會監看及評估 Microsoft 中所有服務的安全性和法規遵循小組。 資訊安全人員會組成小組，且他們與開發 Log Analytics 的工程小組並無關聯。 安全人員有他們自己的管理鏈，並且會獨立評估產品和服務，以確保安全性與法規遵循。
 
 Microsoft 的董事會會收到有關 Microsoft 所有資訊安全程式的年度報表通知。
 
@@ -176,7 +176,7 @@ Windows 或管理伺服器代理程式的快取資料會受到作業系統的認
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3.Log Analytics 服務接收和處理資料
 Log Analytics 服務會確保內送資料是來自信任的來源，方法是驗證憑證和與 Azure 驗證的資料完整性。 接著，未經處理的資料會儲存在 Azure 事件中樞，在資料最終會待用儲存的區域中。 所儲存的資料類型取決於匯入和用來收集資料的解決方案類型。 然後，Log Analytics 服務會處理未經處理的資料，並將這些資料內嵌至資料庫內。
 
-儲存在資料庫中已收集資料的保留期，會取決於所選的定價方案。 對於*免費*層，收集的資料可使用 7 天。 對於「付費」層，收集的資料根據預設可供使用 31 天，但可以延長為 730 天。 資料會以加密方式靜態儲存在 Azure 儲存體中，以確保資料機密性。 過去兩週的資料也會儲存在以 SSD 為基礎的快取，而且此快取目前未加密。  我們計劃在 2018 年後半年支援這類加密。  
+儲存在資料庫中已收集資料的保留期，會取決於所選的定價方案。 對於「免費」層，收集的資料可使用七天。 對於「付費」層，收集的資料根據預設可供使用 31 天，但可以延長為 730 天。 資料會以待用加密的形式儲存在 Azure 儲存體，以確保資料機密性，並使用本地備援儲存體 (LRS) 在本地區域內複寫資料。 過去兩週的資料也會儲存在以 SSD 為基礎的快取，而且此快取目前未加密。  我們目前正致力於支援加密以 SSD 為基礎的快取。      
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4.使用 Log Analytics 來存取資料
 如需存取 Log Analytics 工作區，請使用組織帳戶或您先前設定的 Microsoft 帳戶來登入 Azure 入口網站。 入口網站與 Log Analytics 服務之間的所有流量都會透過安全的 HTTPS 通道傳送。 在使用入口網站時，使用者用戶端 (網頁瀏覽器) 上會產生工作階段識別碼，且資料會儲存在本機快取中，直到工作階段終止為止。 終止時便會刪除快取。 未包含個人識別資訊的用戶端 Cookie 不會自動移除。 工作階段 Cookie 會標示為 HTTPOnly，並受到保護。 經過預先決定的閒置時間後，Azure 入口網站工作階段就會終止。

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302291"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950160"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -66,15 +66,25 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 >新的 ExpressRoute 線路已停用公用對等互連。 Azure 服務可以使用 Microsoft 對等互連。
 >
 
+* Power BI
+* Dynamics 365 for Finance and Operations (先前稱為 Dynamics AX Online)
+* 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br>
+  不支援下列服務：
+    * CDN
+    * Azure DevOps Services 負載測試
+    * 多因素驗證
+    * 流量管理員
+
 ### <a name="microsoft-peering"></a>Microsoft 對等互連
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Visual Studio Team Services 負載測試 
+* Azure DevOps Services 負載測試
 * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br>**不支援**下列服務：
     * CDN
+    * Azure DevOps Services 負載測試
     * 多因素驗證
     * 流量管理員
 
@@ -337,3 +347,11 @@ ExpressRoute Premium 是下列功能的集合：
 * 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。
 
 * 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連，不會公告任何首碼，直到路由篩選連結至線路為止。 根據預設，您不會看見任何首碼。
+
+## <a name="globalreach"></a>ExpressRoute Direct (預覽)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Global Reach (預覽)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

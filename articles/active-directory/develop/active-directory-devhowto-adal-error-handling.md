@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593038"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974777"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 
@@ -182,7 +182,7 @@ AcquireToken 是用來取得權杖的預設 ADAL 方法。 在需要使用者身
 
 - 原生用戶端應用程式 (iOS、Android、.NET Desktop 或 Xamarin)
 - 呼叫資源 API (.NET) 的 Web 應用程式
-- 單一頁面應用程式 (JavaScript)
+- 單頁應用程式 (JavaScript)
 - 服務對服務應用程式 (.NET、Java)
   - 所有案例 (包括代表性案例)
   - 代表性特有案例

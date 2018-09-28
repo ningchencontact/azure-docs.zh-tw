@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8f7c6c2bef747d00188cac2c3601fdad739b92a8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: eb43589b04be8b2b9c3be45d33c94592e97d308e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580206"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948259"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>使用用戶端認證 (共用密碼或憑證) 的服務對服務呼叫
 OAuth 2.0 用戶端認證授與流程可允許 Web 服務 (「機密用戶端」) 在呼叫另一個 Web 服務時，使用它自己的認證來進行驗證，而不是模擬使用者。 在此案例中，用戶端通常是中介層 Web 服務、精靈服務或網站。 對於較高層級的保證，Azure AD 也可讓呼叫服務使用憑證 (而非共用密碼) 做為認證。
@@ -61,7 +61,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 | resource |必要 |輸入接收端 Web 服務的應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，並按一下 [應用程式註冊]，再按一下服務應用程式，接著按一下 [設定] 和 [屬性]。 |
 
 #### <a name="example"></a>範例
-下列 HTTP POST 會要求提供 https://service.contoso.com/ Web 服務的存取權杖。 `client_id` 會識別要求存取權杖的 Web 服務。
+下列 HTTP POST 會要求提供 https://service.contoso.com/ Web 服務的[存取權杖](access-tokens.md)。 `client_id` 會識別要求存取權杖的 Web 服務。
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1

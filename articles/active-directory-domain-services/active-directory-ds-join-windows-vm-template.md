@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2b94496895c0ab06127b6c556b1240e3279e572f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 40eb0e8133626e77a1f61ddfc5df69ecf1b958f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504408"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950789"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>使用 Resource Manager 範本將 Windows Server 虛擬機器加入受控網域
 本文示範如何使用 Resource Manager 範本，將 Windows Server 虛擬機器加入至 Azure Active Directory Domain Services 之受控網域。
@@ -39,7 +39,7 @@ ms.locfileid: "39504408"
 ## <a name="install-and-configure-required-tools"></a>安裝並設定必要的工具
 您可以使用下列選項之一來執行這份文件所述的步驟：
 * **Azure PowerShell**：[安裝和設定](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure 跨平台命令列介面**：[安裝和設定](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure CLI**：[安裝及設定](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>選項 1：佈建新的 Windows Server VM，並將它加入至受控網域
