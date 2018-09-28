@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982132"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970289"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本設定檔
 
@@ -79,8 +79,8 @@ API 設定檔可與使用 Azure Resource Manager 的工具搭配運作，例如 
 
 - **PowerShell**  
 您可以使用可透過「PowerShell 資源庫」取得的 **AzureRM.Bootstrapper** 模組，來取得使用 API 版本設定檔所需的 PowerShell Cmdlet。 如需資訊，請參閱[使用適用於 PowerShell 的 API 版本設定檔](azure-stack-version-profiles-powershell.md)。
-- **Azure CLI 2.0**  
-您可以將環境組態更新為使用 Azure Stack 專屬的 API 版本設定檔。 如需資訊，請參閱[使用適用於 Azure CLI 2.0 的 API 版本設定檔](azure-stack-version-profiles-azurecli2.md)。
+- **Azure CLI**  
+您可以將環境組態更新為使用 Azure Stack 專屬的 API 版本設定檔。 如需資訊，請參閱[使用適用於 Azure CLI 的 API 版本設定檔](azure-stack-version-profiles-azurecli2.md)。
 - **GO**  
 在 GO SDK 中，設定檔結合了不同服務不同版本的不同資源類型。 設定檔可於 profiles/ 路徑下取得，而其版本採用 **YYYY-MM-DD** 格式。 如需資訊，請參閱[使用適用於 GO 的 API 版本設定檔](azure-stack-version-profiles-go.md)。
 - **Ruby**  

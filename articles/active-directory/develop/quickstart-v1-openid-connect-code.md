@@ -1,5 +1,5 @@
 ---
-title: Azure AD Node.js Web 應用程式快速入門 | Microsoft Docs
+title: 建置 Node.js Express Web 應用程式與 Azure Active Directory 整合以進行登入和登出 |Microsoft Docs
 description: 了解如何建立可整合 Azure AD 以進行登入的 Node.js Express MVS Web 應用程式。
 services: active-directory
 documentationcenter: nodejs
@@ -12,65 +12,75 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 04/20/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 1f8f19944f64a5dfd5421a99734c5fd0fc3be1bc
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 19563f76c261fda1fca53babcb553f2dceeaa345
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42140910"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990088"
 ---
-# <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 應用程式快速入門
-在此我們使用 Passport 來執行下列動作：
+# <a name="quickstart-build-a-nodejs-express-web-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>快速入門：建置 Node.js Express Web 應用程式與 Azure Active Directory 整合以進行登入和登出
 
-* 使用 Azure Active Directory (Azure AD) 將使用者登入應用程式。
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Passport 是 Node.js 的驗證中介軟體。 Passport 極具彈性且模組化，您可以暗中將它放入任何 Express 架構或 Resitify Web 應用程式。 一組完整的策略可支援使用使用者名稱和密碼、Facebook、Twitter 及其他驗證方法。 針對 Azure Active Directory (Azure AD)，我們可以安裝此模組，然後新增 Azure AD `passport-azure-ad` 外掛程式。
+
+在此快速入門中，您將了解如何使用 Passport 以：
+
+* 使用 Azure AD 將使用者登入應用程式。
 * 顯示使用者的相關資訊。
 * 讓使用者登出 App。
 
-Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且模組化的 Passport 放入任何 Express 架構或 resitify Web 應用程式。 一組完整的策略可支援使用使用者名稱和密碼、Facebook、Twitter 及其他驗證方法。 我們已為 Microsoft Azure Active Directory 開發一項策略。 我們將安裝此模組，然後加入 Microsoft Azure Active Directory `passport-azure-ad` 外掛程式。
-
-若要這麼做，遵循下列步驟：
+若要建置完整且可運作的應用程式，您必須：
 
 1. 註冊應用程式。
 2. 設定應用程式為使用 `passport-azure-ad` 策略。
 3. 使用 Passport，向 Azure AD 發出登入和登出要求。
 4. 列印使用者的相關資料。
 
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS)。 若要遵循執行，您可以[下載應用程式基本架構的 .zip 檔](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)，或複製基本架構：
+## <a name="prerequisites"></a>必要條件
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
+若要開始，請完成以下必要條件：
 
-本教學課程最後也會提供完整的應用程式。
+* [下載應用程式基本架構的 .zip 檔](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)
+  
+    * 複製基本架構：
+
+        ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
+
+    本快速入門的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS) 上。 本快速入門最後也會提供完整的應用程式。
+
+* 您需要一個可以建立使用者並註冊應用程式的 Azure AD 租用戶。 如果您還沒有租用戶， [了解如何取得租用戶](quickstart-create-new-tenant.md)。
 
 ## <a name="step-1-register-an-app"></a>步驟 1：註冊應用程式
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在頁面頂端的功能表中，選取您的帳戶。 在 [目錄] 清單下，選擇您要註冊應用程式的 Active Directory 租用戶。
+1. 選取畫面左側功能表中的 [所有服務]，然後選取 [Azure Active Directory]。
+1. 選取 [應用程式註冊]，然後選取 [新增]。
+1. 遵照提示建立 **Web 應用程式**和/或 **Web API**。
 
-2. 在頁面頂端的功能表中，選取您的帳戶。 在 [目錄] 清單下，選擇您要註冊應用程式的 Active Directory 租用戶。
+    * 應用程式的 [名稱] 對使用者說明您的應用程式。
+    * [ **登入 URL** ] 是指應用程式的基底 URL。 基本架構的預設值是 `http://localhost:3000/auth/openid/return`。
 
-3. 選取畫面左側功能表中的 [所有服務]，然後選取 [Azure Active Directory]。
+1. 註冊之後，Azure AD 會指派唯一的應用程式識別碼給您的應用程式。 您會在後續章節中用到這個值，所以請從應用程式頁面中複製此值。
+1. 從應用程式的 [設定] > [屬性] 頁面，更新應用程式識別碼 URI。 
+    
+    [ **應用程式識別碼 URI** ] 是指應用程式的唯一識別碼。 慣例是使用 `https://<tenant-domain>/<app-name>` 格式，例如：`https://contoso.onmicrosoft.com/my-first-aad-app`。
 
-4. 選取 [應用程式註冊]，然後選取 [新增]。
-
-5. 遵照提示建立 **Web 應用程式**和/或 **Web API**。
-  * 應用程式的 [名稱] 對使用者說明您的應用程式。
-
-  * [ **登入 URL** ] 是指應用程式的基底 URL。 基本架構的預設值是 `http://localhost:3000/auth/openid/return`。
-
-6. 註冊之後，Azure AD 會指派唯一的應用程式識別碼給您的應用程式。 您會在後續章節中用到這個值，所以請從應用程式頁面中複製此值。
-7. 從應用程式的 [設定]  ->  [屬性] 頁面，更新應用程式識別碼 URI。 [ **應用程式識別碼 URI** ] 是指應用程式的唯一識別碼。 慣例是使用 `https://<tenant-domain>/<app-name>` 格式，例如：`https://contoso.onmicrosoft.com/my-first-aad-app`。
-
-8. 從應用程式的 [設定] -> [回覆 URL] 頁面上，新增步驟 5 登入 URL 中新增的 URL，然後按一下 [儲存]。
-
-9. 若要建立祕密金鑰，請遵循[新增用來存取 Web API 的應用程式認證或權限](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis)中的步驟 4。
+1. 從應用程式的 [設定] > [回覆 URL] 頁面上，新增步驟 5 登入 URL 中新增的 URL，然後選取 [儲存]。
+1. 若要建立祕密金鑰，請遵循[新增用來存取 Web API 的應用程式認證或權限](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis)中的步驟 4。
 
    > [!IMPORTANT]
    > 複製應用程式金鑰值。 這是 `clientSecret` 的值，您在下方的**步驟 3** 中需要此值。 
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>步驟 2︰在目錄中新增必要條件
+
 1. 從命令列中，將目錄位置變更為根資料夾 (若目錄位置原本不在該處)，然後執行下列命令：
 
     * `npm install express`
@@ -82,23 +92,23 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
     * `npm install assert-plus`
     * `npm install passport`
 
-2. 此外，您需要 `passport-azure-ad`：
+1. 您也需要 `passport-azure-ad`，所以請執行下列命令：
+
     * `npm install passport-azure-ad`
 
 這會安裝 `passport-azure-ad` 所仰賴的程式庫。
 
 ## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>步驟 3︰設定應用程式使用 passport-node-js 策略
-在這裡，我們將設定 Express 使用 OpenID Connect 驗證通訊協定。 Passport 用來做許多事，包括發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊。
 
-1. 若要開始，開啟專案根目錄中的 `config.js` 檔案，並在 `exports.creds` 區段中輸入應用程式的組態值。
+在這裡，您將設定 Express 使用 OpenID Connect 驗證通訊協定。 Passport 用來做許多事，包括發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊。
 
-  * `clientID` 是在註冊入口網站中指派給應用程式的**應用程式識別碼**。
+1. 開啟專案根目錄中的 `config.js` 檔案，並在 `exports.creds` 區段中輸入應用程式的設定值。
 
-  * `returnURL` 是您在入口網站中輸入的 [回覆 URL]。
+    * `clientID` 是在註冊入口網站中指派給應用程式的**應用程式識別碼**。
+    * `returnURL` 是您在入口網站中輸入的 [回覆 URL]。
+    * `clientSecret` 是您在入口網站中輸入的密碼。
 
-  * `clientSecret` 是您在入口網站中輸入的密碼。
-
-2. 接下來，開啟專案根目錄中的 `app.js` 檔案。 然後新增下列呼叫來叫用 `passport-azure-ad` 隨附的 `OIDCStrategy` 策略。
+1. 接下來，開啟專案根目錄中的 `app.js` 檔案。 然後新增下列呼叫來叫用 `passport-azure-ad` 隨附的 `OIDCStrategy` 策略。
 
     ```JavaScript
     var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -110,7 +120,7 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
     });
     ```
 
-3. 之後，使用我們剛才提及的策略來處理登入要求。
+1. 之後，使用我們剛才提及的策略來處理登入要求。
 
     ```JavaScript
     // Use the OIDCStrategy within Passport. (Section 2)
@@ -155,8 +165,7 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
    > [!IMPORTANT]
    > 先前程式碼會讓所有使用者經歷伺服器的驗證。 這就是所謂的自動註冊。 建議不要讓任何使用者未先透過您所決定的程序進行註冊，就向生產伺服器進行驗證。 此模式通常見於消費者應用程式，可允許您向 Facebook 進行註冊，但接著會要求您提供其他資訊。 如果這不是一個範例應用程式，我們就會從所傳回的權杖物件中擷取使用者的電子郵件地址，然後要求該使用者填寫其他資訊。 由於這是一部測試伺服器，因此我們會將它們新增到記憶體內部資料庫。
 
-
-4. 接下來，我們會新增方法，讓我們可以如 Passport 所要求追蹤已登入的使用者。 這些方法包括將使用者資訊序列化和還原序列化。
+1. 新增方法，讓我們可以如 Passport 所要求追蹤已登入的使用者。 這些方法包括將使用者資訊序列化和還原序列化。
 
     ```JavaScript
     // Passport session setup. (Section 2)
@@ -190,7 +199,7 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
     };
     ```
 
-5. 接下來，加入可載入 Express 引擎的程式碼。 在此處可看到我們使用 Express 所提供的預設 /views 和 /routes 模式。
+1. 加入可載入 Express 引擎的程式碼。 在此處可看到我們使用 Express 所提供的預設 /views 和 /routes 模式。
 
     ```JavaScript
     // configure Express (section 2)
@@ -213,7 +222,7 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
     });
     ```
 
-6. 最後，新增路由以將實際的登入要求遞交給 `passport-azure-ad` 引擎：
+1. 最後，新增路由以將實際的登入要求遞交給 `passport-azure-ad` 引擎：
 
     ```JavaScript
     // Our Auth routes (section 3)
@@ -256,11 +265,11 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
       });
     ```
 
-
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>步驟 4：使用 Passport，向 Azure AD 發出登入和登出要求
+
 您的應用程式現在已正確設定，將使用 OpenID Connect 驗證通訊協定與端點通訊。 `passport-azure-ad` 已經處理有關製作驗證訊息、驗證 Azure AD 的權杖及維護使用者工作階段的所有細節。 剩下的工作就是讓使用者有辦法登入和登出，以及收集關於已登入使用者的其他資訊。
 
-1. 首先，在 `app.js` 檔案中加入預設、登入、帳戶和登出方法：
+1. 在 `app.js` 檔案中加入預設、登入、帳戶和登出方法：
 
     ```JavaScript
     //Routes (section 4)
@@ -286,14 +295,14 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
     });
     ```
 
-2. 讓我們詳細檢閱這些方法：
+1. 詳細檢閱這些方法：
 
-  * `/` 路由將重新導向至 index.ejs 檢視，並在要求中傳遞使用者 (若有的話)。
-  * `/account` 路由會先「確定我們已通過驗證」 (我們將在以下範例中實作)，然後在要求中傳遞使用者，讓我們能夠取得關於該使用者的其他資訊。
-  * `/login` 路由會從 `passport-azuread` 呼叫我們的 azuread openidconnect 驗證器。 如果沒有成功，路由便會將使用者重新導向回 /login。
-  * `/logout` 路由會直接呼叫 logout.ejs (和路由)，後者會清除 Cookie，然後讓使用者返回 index.ejs。
+    * `/` 路由將重新導向至 index.ejs 檢視，並在要求中傳遞使用者 (若有的話)。
+    * `/account` 路由會先「確定我們已通過驗證」 (我們將在以下範例中實作)，然後在要求中傳遞使用者，讓我們能夠取得關於該使用者的其他資訊。
+    * `/login` 路由會從 `passport-azuread` 呼叫我們的 azuread openidconnect 驗證器。 如果沒有成功，路由便會將使用者重新導向回 /login。
+    * `/logout` 路由會直接呼叫 logout.ejs (和路由)，後者會清除 Cookie，然後讓使用者返回 index.ejs。
 
-3. 針對 `app.js` 的最後一個部分，加入在 `/account` 中使用的 **EnsureAuthenticated** 方法，如先前所述。
+1. 針對 `app.js` 的最後一個部分，加入在 `/account` 中使用的 **EnsureAuthenticated** 方法，如先前所述。
 
     ```JavaScript
     // Simple route middleware to ensure user is authenticated. (section 4)
@@ -308,15 +317,15 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
     }
     ```
 
-4. 最後，在 `app.js` 中建立伺服器本身：
+1. 最後，在 `app.js` 中建立伺服器本身：
 
-```JavaScript
-app.listen(3000);
-```
-
+    ```JavaScript
+    app.listen(3000);
+    ```
 
 ## <a name="step-5-to-display-our-user-in-the-website-create-the-views-and-routes-in-express"></a>步驟 5︰若要在網站中顯示使用者，在 Express 中建立檢視與路由
-現在，`app.js` 已經完成。 我們只需新增路由和檢視即可，這兩者會向使用者顯示我們取得的資訊，以及控制我們建立的 `/logout` 和 `/login` 路由。
+
+現在，`app.js` 已經完成。 您只需新增路由和檢視即可，這兩者會向使用者顯示我們取得的資訊，以及控制我們建立的 `/logout` 和 `/login` 路由。
 
 1. 在根目錄下方建立 `/routes/index.js` 路由。
 
@@ -330,7 +339,7 @@ app.listen(3000);
     };
     ```
 
-2. 在根目錄下方建立 `/routes/user.js` 路由。
+1. 在根目錄下方建立 `/routes/user.js` 路由。
 
     ```JavaScript
     /*
@@ -342,9 +351,9 @@ app.listen(3000);
     };
     ```
 
- 這些會將要求傳遞到我們的檢視，包括使用者 (如果有的話)。
+    這些會將要求傳遞到我們的檢視，包括使用者 (如果有的話)。
 
-3. 在根目錄底下建立 `/views/index.ejs` 檢視。 這是簡單網頁，可呼叫我們的登入和登出方法，且讓我們能夠抓取帳戶資訊。 請注意，我們可以使用條件式 `if (!user)`，因為在要求中傳遞使用者就證實我們擁有已登入的使用者。
+1. 在根目錄底下建立 `/views/index.ejs` 檢視。 這是簡單網頁，可呼叫我們的登入和登出方法，且讓我們能夠抓取帳戶資訊。 請注意，我們可以使用條件式 `if (!user)`，因為在要求中傳遞使用者就證實我們擁有已登入的使用者。
 
     ```JavaScript
     <% if (!user) { %>
@@ -357,7 +366,7 @@ app.listen(3000);
     <% } %>
     ```
 
-4. 在根目錄下方建立 `/views/account.ejs` 檢視，如此即可檢視 `passport-azure-ad` 放置於使用者要求的其他資訊。
+1. 在根目錄下方建立 `/views/account.ejs` 檢視，如此即可檢視 `passport-azure-ad` 放置於使用者要求的其他資訊。
 
     ```Javascript
     <% if (!user) { %>
@@ -369,14 +378,14 @@ app.listen(3000);
     <p>familyName: <%= user.name.familyName %></p>
     <p>UPN: <%= user._json.upn %></p>
     <p>Profile ID: <%= user.id %></p>
-  ##Next steps  <p>Full Claimes</p>
+    <p>Full Claimes</p>
     <%- JSON.stringify(user) %>
     <p></p>
     <a href="/logout">Log Out</a>
     <% } %>
     ```
 
-5. 新增版面配置，使它看起來更美觀。 在根目錄底下建立 `/views/layout.ejs` 檢視。
+1. 新增版面配置來加強網頁的外觀。 在根目錄底下建立 `/views/layout.ejs` 檢視。
 
     ```HTML
 
@@ -403,17 +412,20 @@ app.listen(3000);
     </html>
     ```
 
+## <a name="step-6-build-and-run-your-app"></a>步驟 6：建置並執行您的應用程式
+
+1. 執行 `node app.js`，然後前往 `http://localhost:3000`。
+1. 使用個人 Microsoft 帳戶或是公司或學校帳戶登入。
+
+    請注意使用者的身分識別如何反映在 /account 清單中。 您的 Web 應用程式現在使用業界標準的通訊協定保護，可以使用個人與工作/學校帳戶來驗證使用者。
+
+    [這裡以 .zip 檔案提供](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/master.zip)完整範例 (不含您的設定值) 供您參考。 或者，您也可以從 Github 複製它：
+
+    ```git clone --branch master https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
+
 ## <a name="next-steps"></a>後續步驟
-最後，建置並執行您的應用程式。 執行 `node app.js`，然後前往 `http://localhost:3000`。
 
-使用個人的 Microsoft 帳戶或工作或學校帳戶登入，並注意 /account 清單中使用者身分識別的反映狀態。 您的 Web 應用程式現在使用業界標準的通訊協定保護，可以使用個人與工作/學校帳戶來驗證使用者。
+您現在可以繼續試用其他案例：
 
-[這裡以 .zip 檔案提供](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/master.zip)完整範例 (不含您的設定值) 供您參考。 或者，您也可以從 Github 複製它：
-
-```git clone --branch master https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
-
-您現在可以進入更進階的主題。 您可能想嘗試：
-
-[使用 Azure AD 保護 Web API](quickstart-v1-nodejs-webapi.md)
-
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+> [!div class="nextstepaction"]
+> [使用 Azure AD 保護 Web API](quickstart-v1-nodejs-webapi.md)

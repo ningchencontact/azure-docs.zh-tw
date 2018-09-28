@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41946568"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995251"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 
@@ -27,8 +27,8 @@ ms.locfileid: "41946568"
 
 使用本文中的指引在 Azure Stack 中部署 App Service。
 
->[!IMPORTANT]  
->在部署 Azure App Service 1.3 之前，請先將 1807 更新套用到您的 Azure Stack 整合式系統，或部署最新的「Azure Stack 開發套件」(ASDK)。
+> [!IMPORTANT]  
+> 在部署 Azure App Service 1.3 之前，請先將 1807 更新套用到您的 Azure Stack 整合式系統，或部署最新的「Azure Stack 開發套件」(ASDK)。
 
 您可以讓使用者具有建立 Web 和 API 應用程式的能力。 若要讓使用者能夠建立這些應用程式，您需要：
 
@@ -97,7 +97,7 @@ ms.locfileid: "41946568"
 8. 輸入檔案共用的資訊，然後選取 [下一步]。 檔案共用的位址必須使用完整網域名稱 (FQDN) 或是檔案伺服器的 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites。
 
    >[!NOTE]
-   >在繼續進行之前，安裝程式會先嘗試測試是否能夠與檔案共用連線。 不過，如果您要部署到現有的虛擬網路，可能會提出此連線能力測試。 您會收到警告和繼續的提示。 如果檔案共用資訊正確，請繼續部署。
+   >在繼續進行之前，安裝程式會先嘗試測試是否能夠與檔案共用連線。 不過，如果您要部署到現有的虛擬網路，此連線能力測試可能失敗。 您會收到警告和繼續的提示。 如果檔案共用資訊正確，請繼續部署。
 
    ![App Service 安裝程式][7]
 
@@ -228,7 +228,7 @@ ms.locfileid: "41946568"
 
 若要建立測試 Web 應用程式，請遵循下列步驟：
 
-1. 在 Azure Stack 租用戶入口網站中，選取 [新增] > [Web + 行動] > [Web 應用程式]。
+1. 在 Azure Stack 使用者入口網站中，選取 [建立資源] >  [Web + 行動] > [Web 應用程式]。
 
 2. 在 [Web 應用程式] 底下，輸入 **Web 應用程式**名稱。
 

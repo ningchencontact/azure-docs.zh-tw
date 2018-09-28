@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 81959159d4860512c184ada25930da814b5ae044
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106792"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946573"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>使用 Jenkins 設定 Azure App Service 的持續整合和部署
 
@@ -35,7 +35,7 @@ ms.locfileid: "43106792"
 
 * 已設定 JDK 和 Maven 工具的 [Jenkins](https://jenkins.io/)。 如果您沒有 Jenkins 系統，請立即從 [Jenkins 解決方案範本](/azure/jenkins/install-jenkins-solution-template)在 Azure 中建立一個。
 * [GitHub](https://github.com) 帳戶。
-* [Azure CLI 2.0](/cli/azure)，從本機命令列或在 [Azure Cloud Shell](/azure/cloud-shell/overview) 中
+* [Azure CLI](/cli/azure) (不論是從本機命令列，還是在 [Azure Cloud Shell](/azure/cloud-shell/overview) 中)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

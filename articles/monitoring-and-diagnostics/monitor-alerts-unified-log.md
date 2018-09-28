@@ -8,33 +8,31 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e2db54f4c356a754144e17b11cf25fdf3f12d9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440424"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993998"
 ---
-# <a name="log-alerts-in-azure-monitor---alerts"></a>Azure 監視器中的記錄警示 - 警示 
-此文章提供記錄警示的詳細資料，記錄警示是新的 [Azure 警示](monitoring-overview-unified-alerts.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
+# <a name="log-alerts-in-azure-monitor"></a>Azure 監視器中的記錄警示
+此文章提供記錄警示的詳細資料，記錄警示是 [Azure 警示](monitoring-overview-unified-alerts.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
 
+記錄警示包含針對 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 或 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events) 所建立的記錄搜尋規則。 若要深入了解其使用方式，請參閱[在 Azure 中建立記錄警示](alert-log.md)
 
-記錄警示包含針對 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 或 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events) 所建立的記錄搜尋規則。 您可以在 [Azure 監視器價格](https://azure.microsoft.com/en-us/pricing/details/monitor/)頁面找到記錄警示的定價詳細資料。 在 Azure 帳單中，記錄警示是以類型 `microsoft.insights/scheduledqueryrules` 搭配下列項目來表示：
-- 隨著警示名稱與資源群組警示內容顯示的 Application Insights 上的記錄警示
-- 隨著警示名稱 (`<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`) 與資源群組和警示內容顯示的 Log Analytics 上的記錄警示
+> [!NOTE]
+> [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 中常用的記錄資料現在也會提供在 Azure 監視器的計量平台上。 如需詳細資料檢視，請參閱[記錄的計量警示](monitoring-metric-alerts-logs.md)
 
-    > [!NOTE]
-    > Log Analytics API 所建立並儲存的所有搜尋、排程和動作，都必須使用小寫名稱。 若使用無效的字元 (例如 `<, >, %, &, \, ?, /`) - 它們在帳單中將會被取代為 `_`。
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>記錄搜尋警示規則 - 定義和類型
 
 Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄查詢。  如果記錄查詢的結果符合特定準則，則會建立警示的記錄。 規則接著可自動使用[動作群組](monitoring-action-groups.md)來執行一或多個動作。 
 
 記錄搜尋規則會由下列詳細資料定義：
-- **記錄查詢**。  每次引發警示規則都會執行的查詢。  此查詢所傳回的記錄將是用來判斷是否要建立警示。 *Azure Application Insights* 查詢也可以包含[跨應用程式呼叫](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery)，但前提是使用者具有外部應用程式的存取權限。 
+- **記錄查詢**。  每次引發警示規則都會執行的查詢。  此查詢所傳回的記錄將是用來判斷是否要建立警示。 Analytics 查詢也可以包含[跨應用程式呼叫](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery)跨工作區呼叫，以及[跨資源呼叫](../log-analytics/log-analytics-cross-workspace-search.md)但前提是使用者具有外部應用程式的存取權限。 
 
     > [!IMPORTANT]
-    > [Application Insights 的跨應用程式查詢](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery)支援目前為預覽版 - 其功能僅限 2 個以上的應用程式使用，而且使用者體驗可能會有變動。 Azure 警示目前**不支援**使用[跨工作區查詢](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery)和 [Log Analytics 的跨資源查詢](../log-analytics/log-analytics-cross-workspace-search.md)方式。
+    > 使用者必須擁有[Azure 監視參與者](monitoring-roles-permissions-security.md)角色以便在 Azure 監視器中來建立、修改和更新記錄警示；還要加上在警示規則或警示查詢中存取及查詢分析目標的執行權限。 如果執行建立的使用者沒有警示規則或警示查詢中所有分析目標的存取權 - 則規則建立會失敗，或者會以部分結果來執行記錄警示規則。
 
 - **時間週期**。  指定查詢的時間範圍。 查詢只會傳回在此目前時間範圍內建立的記錄。 時間週期會限制為了查詢記錄所能擷取的資料以防濫用，並可規避記錄查詢中所使用的任何時間命令 (例如 ago)。 <br>*例如，如果時間週期設定為 60 分鐘，且查詢會在下午 1:15 執行，則只會傳回在下午 12:15 與下午 1:15 之間所建立的記錄以執行記錄查詢。現在，如果記錄查詢使用 ago (7d) 之類的時間命令，則只會對下午 12:15 與下午 1:15 之間的資料執行記錄查詢 - 彷彿只有過去 60 分鐘有資料。而不是記錄查詢中所指定的七天資料。*
 - **頻率**。  指定應執行查詢的頻率。 可以是介於 5 分鐘與 24 小時之間的任何值。 應等於或小於此時間週期。  如果值大於時間週期，則您可能有遺漏記錄的風險。<br>*例如，請考慮 30 分鐘的時間週期，以及 60 分鐘的頻率。如果在 1:00 執行查詢，它會傳回 12:30 到下午 1:00 之間的記錄。下一次執行查詢就是 2:00 時，它會傳回 1:30 至 2:00 之間的記錄。1:00 和 1:30 之間建立的任何記錄一律不會評估。*
@@ -59,7 +57,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 
 在某些情況下，您可能想在某個事件不存在時建立警示。  例如，處理序可能會記錄一般事件，表示運作正常。  如果它不在特定的時間週期內記錄一個事件，則應建立警示。  在此情況下，您會將閾值設定為**小於 1**。
 
-#### <a name="example"></a>範例
+#### <a name="example-of-number-of-records-type-log-alert"></a>記錄數目類型記錄警示的範例
 請考慮一個情境，您想要知道您的 Web 架構應用程式何時向使用者回應程式碼 500 (亦即) 內部伺服器錯誤。 您可以建立詳細資料如下的警示規則：  
 - **查詢：** 要求 | 其中 resultCode =="500"<br>
 - **時間週期：** 30 分鐘<br>
@@ -80,14 +78,14 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 - **間隔**：定義用來彙總資料的時間間隔。  例如，如果您指定 **5 分鐘**，則系統會為群組欄位的每個執行個體建立記錄，而這些執行個體是在針對警示所指定的時間週期內以每 5 分鐘為間隔進行彙總的。
 
     > [!NOTE]
-    > 查詢中必須使用 Bin 函式來指定間隔。 由於 bin() 可能會導致時間間隔不相等，警示會在執行階段自動使用適當時間將 bin 命令轉換為 bin_at 命令，以確保結果有固定時間點
+    > 查詢中必須使用 Bin 函式來指定間隔。 由於 bin() 可能會導致時間間隔不相等，警示會在執行階段自動使用適當時間將 bin 命令轉換為 bin_at 命令，以確保結果有固定時間點。 警示記錄的計量測量類型的設計宗旨是搭配具有單一 bin() 命令的查詢使用
     
 - **閾值**：計量測量警示規則的閾值是由彙總值與若干違規所定義。  如果記錄搜尋中的任何資料點超過此值，系統就會將其視為違規。  如果結果中任何物件的違規數目超過指定值，系統舊會為該物件建立警示。
 
-#### <a name="example"></a>範例
+#### <a name="example-of-metric-measurement-type-log-alert"></a>計量測量類型記錄警示的範例
 假設您想要在任何電腦於過去 30 分鐘內發生三次處理器使用率超過 90% 時收到警示。  您可以建立詳細資料如下的警示規則：  
 
-- **查詢：** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
+- **查詢：** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **時間週期：** 30 分鐘<br>
 - **警示頻率：** 5 分鐘<br>
 - **彙總值︰** 大於 90<br>
@@ -97,45 +95,31 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 
 ![查詢結果範例](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
 
-在此範例中，系統會為 srv02 和 srv03 建立個別警示，因為它們在時間週期內違反 90% 閾值 3 次。  如果**警示觸發依據︰** 變更為**連續**，則系統只會為 srv03 建立警示，因為它違反了 3 個連續取樣的閾值。
+在此範例中，系統會為 srv02 和 srv03 建立個別警示，因為它們在時間週期內違反 90% 閾值三次。  如果**警示觸發依據︰** 變更為**連續**，則系統只會為 srv03 建立警示，因為它違反了 3 個連續取樣的閾值。
+
+## <a name="log-search-alert-rule---firing-and-state"></a>記錄搜尋警示規則 - 引發與狀態
+記錄搜尋警示規則適用於使用者根據組態和所使用的自訂分析查詢所決定的邏輯。 由於應該觸發警示規則的確切條件或原因的邏輯是封裝在 Analytics 查詢中 - 因此每個記錄警示規則可能各不相同。 當符合或超過記錄搜索警示規則的閾值條件時，Azure 警示幾乎沒有關於記錄結果內特定基礎根本原因的資訊。 因此，記錄警示稱為無狀態，而且每當記錄搜尋結果足以超過*結果數目*或*計量測量*類型的條件時，將會引發記錄警示。 而且，只要提供的自訂分析查詢結果符合警示條件，記錄警示規則就會持續引發；沒有一個警示獲得解決。 由於監視失敗的確切根本原因邏輯在使用者提供的分析查詢中受到遮掩；因此 Azure 警示無法明確推論不符合閾值的記錄搜尋結果是否表示問題已解決。
+
+現在假設我們有一個名為 *Contoso-Log-Alert* 的記錄警示規則，根據的是[結果數目類型記錄警示提供的範例](#example-of-number-of-records-type-log-alert)中的組態。 
+- 下午 1:05，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果產生 0 個記錄；低於閾值，因此不引發警示。 
+- 下午 1:10 的下一個反覆項目，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果提供了 5 個記錄；超過閾值並在觸發相關聯的[動作群組](monitoring-action-groups.md)之後不久引發警示。 
+- 下午 1:15，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果提供了 2 個記錄；超過閾值並在觸發相關聯的[動作群組](monitoring-action-groups.md)之後不久引發警示。
+- 現在，下午 1:20 的下一個反覆項目，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果再次提供 0 個記錄；低於閾值，因此不引發警示。
+
+但在上述所列的情況中，下午 1:15 - Azure 警示無法判斷下午 1:10 發現的基本問題是否仍存在，以及是否有完全新的失敗；因為使用者提供的查詢可能會算在較早的記錄中 - 這是 Azure 警示可以確定的。 因此，為了謹慎起見，Contoso-Log-Alert 會在下午 1:15 透過設定[動作群組](monitoring-action-groups.md)再引發一次。 現在，下午 1:20 沒有看到任何記錄 - Azure 警示無法確定記錄的原因是否已經解決；因此，Contoso-Log-Alert 不會在 Azure 儀表板中和/或已發出表示解決警示的通知中變更為已解決。
 
 
-## <a name="log-search-alert-rule---creation-and-modification"></a>記錄搜尋警示規則 - 建立和修改
+## <a name="pricing-and-billing-of-log-alerts"></a>記錄警示的價格和計費
+在 [Azure 監視器價格](https://azure.microsoft.com/en-us/pricing/details/monitor/)頁面有說明適用於記錄警示的價格。 在 Azure 帳單中，記錄警示是以類型 `microsoft.insights/scheduledqueryrules` 搭配下列項目來表示：
+- 隨著警示名稱與資源群組警示內容顯示的 Application Insights 上的記錄警示
+- 隨著警示名稱 (`<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`) 與資源群組和警示內容顯示的 Log Analytics 上的記錄警示
 
-記錄警示及其組成記錄搜尋警示規則可透過下列項目來檢視、建立或修改：
-- Azure 入口網站
-- REST API (包括透過 PowerShell)
-- Azure Resource Manager 範本
-
-### <a name="azure-portal"></a>Azure 入口網站
-由於[新 Azure 警示](monitoring-overview-unified-alerts.md)的推出，現在使用者可以在 Azure 入口網站中透過單一位置和類似的使用步驟管理所有類型的警示。 深入了解如何[使用新的 Azure 警示](monitor-alerts-unified-usage.md)。
-
-此外，使用者可在 Azure 中選擇的 Analytics平台中完成理想的查詢後，*藉著儲存查詢來匯入它們以便在警示中使用*。 要遵循的步驟如下：
-- 針對 Application Insights：前往 Analytics 入口網站，驗證查詢及其結果。 然後使用唯一名稱儲存到 [共用的查詢]中。
-- 針對 Log Analytics：前往記錄搜尋，驗證查詢及其結果。 然後使用唯一名稱儲存到任何類別中。
-
-然後，[在警示中建立記錄警示時](monitor-alerts-unified-usage.md)，您會看到儲存的查詢列在 [記錄 (已儲存的查詢)] 訊號類型；如下列範例所示：![已儲存的查詢匯入至警示](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
-
-> [!NOTE]
-> 使用 [記錄 (已儲存的查詢)] 會造成匯入到警示。 因此，在 Analytics 中完成後的任何變更不會反映到記錄搜尋警示規則中，反之亦然。
-
-### <a name="rest-apis"></a>REST API
-針對記錄警示所提供的 API 是 RESTful，可透過 Azure Resource Manager REST API 來存取。 因此可以透過 PowerShell 以及其他選項來存取，以利用 API。
-
-如需詳細資訊以及 REST API 的使用範例，請參閱：
-- [Log Analytics 警示 REST API](../log-analytics/log-analytics-api-alerts.md) - 以建立和管理 Azure Log Analytics 的記錄搜尋警示規則
-- [Azure 監視器排程的查詢規則 REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) - 以建立和管理 Azure Application Insights 的記錄搜尋警示規則
-
-### <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
-使用者也可以使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 所提供的彈性來建立和更新資源 - 用於建立或更新記錄警示。
-
-如需詳細資訊以及 Resource Manager 範本的使用範例，請參閱：
-- [已儲存的搜尋和警示管理](monitor-alerts-unified-log-template.md#managing-log-alert-on-log-analytics)，適用於以 Azure Log Analytics 為基礎的記錄警示
-- [排程的查詢規則](monitor-alerts-unified-log-template.md#managing-log-alert-on-application-insights)，適用於以 Azure Application Insights 為基礎的記錄警示
- 
+    > [!NOTE]
+    > Log Analytics API 所建立並儲存的所有搜尋、排程和動作，都必須使用小寫名稱。 若使用無效的字元 (例如 `<, >, %, &, \, ?, /`) - 它們在帳單中將會被取代為 `_`。
 
 ## <a name="next-steps"></a>後續步驟
+* 了解[在 Azure 警示中的記錄警示中建立](alert-log.md)。
 * 了解 [Azure 中記錄警示中的 Webhook](monitor-alerts-unified-log-webhook.md)。
-* 了解新的 [Azure 警示](monitoring-overview-unified-alerts.md)。
+* 了解 [Azure 警示](monitoring-overview-unified-alerts.md)。
 * 深入了解 [Application Insights](../application-insights/app-insights-analytics.md)。
 * 深入了解 [Log Analytics](../log-analytics/log-analytics-overview.md)。    

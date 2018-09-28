@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b71c1d75dc9d988c7b26f9720cc03d9fee9109b1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287337"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970306"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.locfileid: "43287337"
 在本文中使用 Service Fabric RM Powershell 或 Azure CLI 模組來部署叢集：
 
 * [Azure PowerShell 4.1 和更新版本][azure-powershell]
-* [Azure CLI 2.0 和更新版本][azure-CLI]
+* [Azure CLI 2.0 版與更新版本][azure-CLI]
 
 您可以在此找到 Service Fabric 模組的參考文件：
 * [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)

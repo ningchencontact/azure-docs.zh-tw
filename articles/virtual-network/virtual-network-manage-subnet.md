@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 26e01ccab3693c672130462104078c16526aa921
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992251"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954308"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>加入、變更或刪除虛擬網路子網路
 
@@ -32,8 +32,8 @@ ms.locfileid: "38992251"
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
-- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 此教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 此教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -49,6 +49,7 @@ ms.locfileid: "38992251"
     - **網路安全性群組**：您可以將零個或一個現有網路安全性群組與子網路建立關聯，以篩選子網路的輸入和輸出網路流量。 網路安全性群組必須與虛擬網路位於相同的訂用帳戶和位置當中。 深入了解[網路安全性群組](security-overview.md)與[如何建立網路安全性群組](tutorial-filter-network-traffic.md)。
     - **路由表︰** 您可以將零個或一個現有路由表和子網路建立關聯，以控制路由至其他網路的網路流量。 路由表必須與虛擬網路位於相同的訂用帳戶和位置當中。 深入了解 [Azure 路由](virtual-networks-udr-overview.md)與[如何建立路由表](tutorial-create-route-table-portal.md)
     - **服務端點：** 您可為子網路啟用零個或多個服務端點。 若要啟用服務的服務端點，請選取服務或從 [服務] 清單中選取您想要啟用服務端點的服務。 系統會自動設定端點的位置。 根據預設，系統會將服務端點設定為虛擬網路的區域。 如果是 Azure 儲存體，為了支援區域性容錯移轉案例，系統會自動將端點設定為 [Azure 配對區域](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)。
+    - **子網路委派：** 子網路可以有零或多個為它啟用的委派。 子網路委派提供明確的權限給服務以在部署服務時使用唯一識別碼在子網路中建立服務特定資源。 若要為服務進行委派，請從 [服務] 清單選取您要委派到的服務。 
 
     若要移除服務端點，請取消選取您想要移除其服務端點的服務。 若要深入了解服務端點，以及可以啟用服務端點的服務，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。 一旦您啟用服務的服務端點，您也必須為以服務建立的資源啟用子網路的網路存取權。 例如，如果您啟用 *Microsoft.Storage* 的服務端點，您也必須對想要授與網路存取權的所有 Azure 儲存體帳戶啟用網路存取權。 如需如何為已啟用服務端點的子網路啟用網路存取權的詳細資訊，請參閱您啟用其服務端點之個別服務的服務文件。
 
@@ -71,7 +72,8 @@ ms.locfileid: "38992251"
     - **使用者**︰您可以使用內建角色或自有的自訂角色來控制子網路的存取。 若要深入了解如何指派角色和使用者以存取子網路，請參閱[使用角色指派來管理 Azure 資源的存取權](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access)。
     - **網路安全性群組**和**路由表**：請參閱[新增子網路](#add-a-subnet)的步驟 5。
     - **服務端點**：請參閱[新增子網路](#add-a-subnet)的步驟 5 中的服務端點。 當啟用現有子網路的服務端點時，請確定子網路中的任何資源上都沒有重要的工作正在執行。 服務端點會將子網路中每個網路介面上的路由，從使用預設路由 (使用 *0.0.0.0/0* 位址前置詞和*網際網路*的下一個躍點類型) 切換為使用新的路由 (使用服務的位址前置詞和 *VirtualNetworkServiceEndpoint* 的下一個躍點類型)。 在切換期間，任何開啟的 TCP 連接都可能會終止。 直到流量流向服務時，服務端點才會啟用，以便所有網路介面都使用新的路由進行更新。 若要深入了解路由，請參閱[路由概觀](virtual-networks-udr-overview.md)。
-5. 選取 [ **儲存**]。
+    - **子網路委派：** 請參閱[新增子網路](#add-a-subnet)之步驟 5 中的服務端點。 子網路委派可以修改為有零或多個為它啟用的委派。 若服務的資源已在子網路中部署，則在移除服務的所有資源之前，無法移除子網路委派。 若要為不同的服務進行委派，請從 [服務] 清單選取您要委派到的服務。 
+5. 選取 [儲存]。
 
 **命令**
 
@@ -97,7 +99,7 @@ ms.locfileid: "38992251"
 
 若要針對子網路執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色或為已指派下表所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-|動作                                                                   |   Name                                       |
+|動作                                                                   |   名稱                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   讀取虛擬網路子網路              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   建立或更新虛擬網路子網路  |

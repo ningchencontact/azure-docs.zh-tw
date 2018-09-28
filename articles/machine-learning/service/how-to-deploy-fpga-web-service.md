@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure Machine Learning 在 FPGA 上將模型部署為 Web 服務
+title: 使用 Azure Machine Learning 在 FPGA 上將模型部署為 Web 服務
 description: 了解如何使用 Azure Machine Learning 以 FPGA 上執行的模型來部署 Web 服務。
 services: machine-learning
 ms.service: machine-learning
@@ -8,119 +8,165 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 05/07/2018
-ms.openlocfilehash: f3237980a1ad1969b5cf8d42d547ddf96608dd97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 09/24/2018
+ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784467"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971479"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>使用 Azure Machine Learning 在 FPGA 上將模型部署為 Web 服務
 
-在本文件中，您會了解如何設定工作站環境，並在[現場可程式化閘陣列 (FPGA)](concept-accelerate-with-fpgas.md) 上，將模型部署為 Web 服務。 Web 服務會使用 Project Brainwave，在 FPGA 上執行模型。
+您可以將模型部署為[現場可程式化邏輯閘陣列 (FPGA)](concept-accelerate-with-fpgas.md) 上的 Web 服務。  使用 FPGA 時，即使是透過單一批次大小，也提供超低延遲推斷。   
 
-使用 FPGA 時，即使是透過單一批次大小，也提供超低延遲推斷。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="create-an-azure-machine-learning-model-management-account"></a>建立 Azure Machine Learning 模型管理帳戶
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-1. 移至 [Azure 入口網站](https://aka.ms/aml-create-mma)上的「模型管理帳戶」建立頁面。
+- 已安裝 Azure Machine Learning 工作區與適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
+ 
+  - 您的工作區必須位於*美國東部 2* 區域。
 
-2. 在入口網站的 [美國東部 2] 區域中，建立「模型管理帳戶」。
+  - 安裝 contrib extras：
 
-   ![[建立模型管理帳戶] 畫面的影像](media/how-to-deploy-fpga-web-service/azure-portal-create-mma.PNG)
+    ```shell
+    pip install --upgrade azureml-sdk[contrib]
+    ```  
 
-3. 為您的「模型管理帳戶」指定名稱、選擇訂用帳戶，然後選擇資源群組。
+## <a name="create-and-deploy-your-model"></a>建立及部署您的模型
+建立管道以預先處理輸入映像、在 FPGA 上使用 ResNet 50 將它功能化，然後透過在 ImageNet 資料集上定型的分類器執行功能。
 
-   >[!IMPORTANT]
-   >在 [位置] 中，您必須選擇 [美國東部 2] 作為區域。  目前沒有其他可用的區域。
+依照指示執行以：
 
-4. 選擇定價層 (S1 已足夠，但 S2 和 S3 也可以)。  不支援 DevTest 層。  
-
-5. 按一下 [選取] 以確認定價層。
-
-6. 在左側的 [ML 模型管理] 上，按一下 [建立]。
-
-## <a name="get-model-management-account-information"></a>取得「模型管理帳戶」資訊
-
-若要取得「模型管理帳戶」(MMA) 的相關資訊，請按一下 Azure 入口網站上的 [模型管理帳戶]。
-
-複製下列項目的值︰
-
-+ 「模型管理帳戶」名稱 (位於左上角)
-+ 資源群組名稱
-+ 訂用帳戶識別碼
-+ 位置 (使用 "eastus2")
-
-![「模型管理帳戶」資訊](media/how-to-deploy-fpga-web-service/azure-portal-mma-info.PNG)
-
-## <a name="set-up-your-machine"></a>設定您的電腦
-
-若要設定用於 FPGA 部署的工作站，請使用下列步驟：
-
-1. 下載並安裝最新版的 [Git](https://git-scm.com/downloads)。
-
-2. 安裝 [Anaconda (Python 3.6)](https://conda.io/miniconda.html)。
-
-3. 若要下載 Anaconda 環境，請從 Git 提示字元使用下列命令：
-
-    ```
-    git clone https://aka.ms/aml-real-time-ai
-    ```
-
-4. 若要建立環境，請開啟 **Anaconda 提示字元** (非 Azure Machine Learning Workbench 提示字元)，然後執行下列命令：
-
-    > [!IMPORTANT]
-    > `environment.yml` 檔案位於您在上一個步驟所複製的 git 存放庫中。 視需要變更路徑，以指向您工作站上的檔案。
-
-    ```
-    conda env create -f environment.yml
-    ```
-
-5. 若要啟用環境，請使用下列命令：
-
-    ```
-    conda activate amlrealtimeai
-    ```
-
-6. 若要啟動 Jupyter Notebook 伺服器，請使用下列命令：
-
-    ```
-    jupyter notebook
-    ```
-
-    此命令的輸出類似下列文字：
-
-    ```text
-    Copy/paste this URL into your browser when you connect for the first time, to login with a token:
-        http://localhost:8888/?token=bb2ce89cc8ae931f5df50f96e3a6badfc826ff4100e78075
-    ```
-
-    > [!TIP]
-    > 每次執行命令時，您都會取得不同的權杖。
-
-    如果您的瀏覽器不會自動開啟至 Jupyter Notebook，請使用前一個命令所傳回的 HTTP URL 來開啟頁面。
-
-    ![Jupyter Notebook 網頁的影像](./media/how-to-deploy-fpga-web-service/jupyter-notebook.png)
-
-## <a name="deploy-your-model"></a>部署模型
-
-從 Jupyter Notebook 開啟 `notebooks/resnet50` 目錄中的 `00_QuickStart.ipynb` Notebook。 依照 Notebook 中的指示進行下列操作：
-
-* 定義服務
+* 定義模型管道
 * 部署模型
 * 取用已部署的模型
 * 刪除已部署的服務
 
 > [!IMPORTANT]
-> 若要將延遲和輸送量最佳化，您的工作站應該與端點位於相同 Azure 區域中。  目前 API 是在美國東部的 Azure 區域中建立的。
+> 若要將延遲和輸送量最佳化，您的用戶端應該位於與端點相同 Azure 區域中。  目前 API 是在美國東部的 Azure 區域中建立的。
 
-## <a name="ssltls-and-authentication"></a>SSL/TLS 和驗證
+### <a name="get-the-notebook"></a>取得 Notebook
 
-Azure Machine Learning 提供 SSL 支援和金鑰型驗證。 這可讓您限制對服務的存取，並保護用戶端所提交的資料。
+為了方便起見，此教學課程以 Jupyter Notebook 形式提供。 使用這些方法的其中一種方法來執行 `project-brainwave/project-brainwave-quickstart.ipynb` Notebook :
 
-> [!NOTE]
-> 本節中的步驟僅適用於 Azure Machine Learning 硬體加速模型。 如需標準 Azure Machine Learning 服務，請參閱[如何在 Azure Machine Learning 計算叢集上設定 SSL](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) 文件。
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+
+### <a name="preprocess-image"></a>預先處理映像
+管道的第一個步驟是預先處理映像。
+
+```python
+import os
+import tensorflow as tf
+
+# Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
+import azureml.contrib.brainwave.models.utils as utils
+in_images = tf.placeholder(tf.string)
+image_tensors = utils.preprocess_array(in_images)
+print(image_tensors.shape)
+```
+### <a name="add-featurizer"></a>加入功能化器
+初始化模型並下載要做為功能化器之 ResNet50 量化版本的 TensorFlow 檢查點。
+
+```python
+from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+model_path = os.path.expanduser('~/models')
+model = QuantizedResnet50(model_path, is_frozen = True)
+feature_tensor = model.import_graph_def(image_tensors)
+print(model.version)
+print(feature_tensor.name)
+print(feature_tensor.shape)
+```
+
+### <a name="add-classifier"></a>新增分類器
+此分類器已在 ImageNet 資料集上定型。
+
+```python
+classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+```
+
+### <a name="create-service-definition"></a>建立服務定義
+您現在已定義映像預先處理、功能化器與在服務上執行的分類器，您可以建立服務定義。 服務定義是從部署到 FPGA 服務之模型產生的一組檔案。 服務定義由管道組成。 管道是依序執行的一系列階段。  支援 TensorFlow 階段、Keras 階段與 BrainWave 階段。  階段會在服務上依序執行，而且每個階段的輸出會做為後續階段的輸入。
+
+若要建立 TensorFlow 階段，請指定包含圖形 (在此案例中會使用預設圖形) 和此階段之輸入與輸出 tensors 的工作階段。  此資訊會用來將儲存圖形，以便它可以在服務上執行。
+
+```python
+from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
+
+save_path = os.path.expanduser('~/models/save')
+model_def_path = os.path.join(save_path, 'service_def.zip')
+
+model_def = ModelDefinition()
+with tf.Session() as sess:
+    model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
+    model_def.pipeline.append(BrainWaveStage(sess, model))
+    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.save(model_def_path)
+    print(model_def_path)
+```
+
+### <a name="deploy-model"></a>部署模型
+從服務定義建立服務。  您的工作區必須位於 美國東部 2 位置。
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+
+from azureml.core.model import Model
+model_name = "resnet-50-rtai"
+registered_model = Model.register(ws, model_def_path, model_name)
+
+from azureml.core.webservice import Webservice
+from azureml.exceptions import WebserviceException
+from azureml.contrib.brainwave import BrainwaveWebservice, BrainwaveImage
+service_name = "imagenet-infer"
+service = None
+try:
+    service = Webservice(ws, service_name)
+except WebserviceException:
+    image_config = BrainwaveImage.image_configuration()
+    deployment_config = BrainwaveWebservice.deploy_configuration()
+    service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
+    service.wait_for_deployment(true)
+```
+
+### <a name="test-the-service"></a>測試服務
+若要將影像傳送到 API 並測試回應，請新增從輸出類別識別碼到 ImageNet 類別名稱的對應。
+
+```python
+import requests
+classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
+```
+
+呼叫您的服務並將下面的 "your-image.jpg" 檔案名稱取代為來自您電腦的影像。 
+
+```python
+with open('your-image.jpg') as f:
+    results = service.run(f)
+# map results [class_id] => [confidence]
+results = enumerate(results)
+# sort results by confidence
+sorted_results = sorted(results, key=lambda x: x[1], reverse=True)
+# print top 5 results
+for top in sorted_results[:5]:
+    print(classes_entries[top[0]], 'confidence:', top[1])
+``` 
+
+### <a name="clean-up-service"></a>清除服務
+刪除服務。
+
+```python
+service.delete()
+    
+registered_model.delete()
+```
+
+## <a name="secure-fpga-web-services"></a>保護 FPGA Web 服務
+
+在 FPGA 上執行的 Azure Machine Learning 模型提供 SSL 支援和金鑰型驗證。 這可讓您限制對服務的存取，並保護用戶端所提交的資料。
 
 > [!IMPORTANT]
 > 系統只會針對已經提供 SSL 憑證和金鑰的服務來啟用驗證。 
@@ -161,7 +207,7 @@ SSL 會加密在用戶端與服務之間傳送的資料。 用戶端也會使用
 > 如果您使用自我簽署的憑證，請參閱[使用自我簽署的憑證取用服務](#self-signed)一節的特定指示。
 
 > [!WARNING]
-> 要求憑證時，您必須提供打算用於服務的位址完整網域名稱 (FQDN)。 例如，www.contoso.com。驗證服務的身分識別時，會比較憑證上的位址戳記和用戶端所使用的位址。
+> 要求憑證時，您必須提供打算用於服務的位址完整網域名稱 (FQDN)。 例如，www.contoso.com。 驗證服務的身分識別時，會比較憑證上的位址戳記和用戶端所使用的位址。
 >
 > 如果位址不相符，用戶端就會收到錯誤。 
 
@@ -200,7 +246,7 @@ with open('cert.pem','r') as cert_file:
 > [!NOTE]
 > 根據註冊機構以及針對網域名稱所設定的存留時間 (TTL)，可能需要等待數分鐘到數小時的時間，用戶端才能解析網域名稱。
 
-### <a name="consuming-authenticated-services"></a>取用已驗證的服務
+### <a name="consume-authenticated-services"></a>取用已驗證的服務
 
 下列範例會示範如何使用 Python 和 C# 來取用已驗證的服務：
 
@@ -224,7 +270,7 @@ using (var content = File.OpenRead(image))
     }
 ```
 
-其他 gRPC 用戶端可以藉由設定授權標頭來驗證要求。 一般方法是建立結合 `SslCredentials` 與 `CallCredentials` 的 `ChannelCredentials` 物件。 這會新增至要求的授權標頭。 如需有關如何為特定標頭實作支援的詳細資訊，請參閱 [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html)。
+其他 gRPC 用戶端可以透過設定授權標頭來驗證要求。 一般方法是建立結合 `SslCredentials` 與 `CallCredentials` 的 `ChannelCredentials` 物件。 這會新增至要求的授權標頭。 如需有關如何為特定標頭實作支援的詳細資訊，請參閱 [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html)。
 
 下列範例示範如何使用 C# 與 Go 來設定標頭：
 
@@ -270,4 +316,4 @@ func (c *authCreds) RequireTransportSecurity() bool {
 使用任一種方法都會導致 gRPC 使用憑證作為根憑證。
 
 > [!IMPORTANT]
-> gRPC 將不會接受未受信任的憑證。 使用未受信任的憑證將會失敗，並顯示 `Unavailable` 狀態碼。 失敗的詳細資料包含 `Connection Failed`。
+> gRPC 不會接受未受信任的憑證。 使用未受信任的憑證將會失敗，並顯示 `Unavailable` 狀態碼。 失敗的詳細資料包含 `Connection Failed`。

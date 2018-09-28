@@ -10,30 +10,37 @@ ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "43185415"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958861"
 ---
 # <a name="branding-guidelines-for-applications"></a>應用程式的商標指導方針
 
-本文討論您在使用 Azure Active Directory (Azure AD) 開發應用程式時所應使用的商標指導方針。 當客戶想要使用其工作或學校帳戶 (在 Azure AD 中管理) 或其個人帳戶來註冊和登入您的應用程式時，這些指導方針可協助引導客戶。
+使用 Azure Active Directory (Azure AD) 開發應用程式時，您需要在客戶想使用其公司或學校帳戶 (在 Azure AD 中管理)，或使用其個人帳戶來註冊和登入您的應用程式時，為他們提供引導。
+
+在本文中，您將：
+
+- 了解由 Microsoft 管理的兩種使用者帳戶類型，以及如何在應用程式中參考 Azure AD 帳戶
+- 了解如何在應用程式中加入並使用 Microsoft 標誌
+- 下載官方**登入**或**使用 Microsoft 登入**影像，以在應用程式中使用
+- 了解和品牌與導覽相關的可行與禁止事項
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>個人帳戶與 Microsoft 提供的工作或學校帳戶的比較
 
 Microsoft 管理兩種類型的使用者帳戶：
 
-* **個人帳戶** (之前稱為 Windows Live ID)。 這些帳戶代表 *個別* 使用者和 Microsoft 之間的關聯性，用於存取來自 Microsoft 的消費型裝置和服務。 這些帳戶主要供個人使用。
-* **工作或學校帳戶。** 這些是使用 Azure Active Directory 的組織交由 Microsoft 代為管理的帳戶。 這些帳戶用來從 Microsoft 登入 Office 365 和其他商務服務。
+- **個人帳戶** (之前稱為 Windows Live ID)。 這些帳戶代表 *個別* 使用者和 Microsoft 之間的關聯性，用於存取來自 Microsoft 的消費型裝置和服務。 這些帳戶主要供個人使用。
+- **工作或學校帳戶。** 這些是使用 Azure Active Directory 的組織交由 Microsoft 代為管理的帳戶。 這些帳戶用來從 Microsoft 登入 Office 365 和其他商務服務。
 
 Microsoft 工作或學校帳戶通常由其組織 (公司、 學校、政府機構) 指派給使用者 (員工、學生、聯邦員工)。 這些帳戶可直接在雲端 (在 Azure AD 平台) 中管理，或從內部部署目錄 (例如 Windows Server Active Directory) 同步處理到 Azure AD。 Microsoft 是工作或學校帳戶的 *保管者* ，但這些帳戶由組織擁有和控制。
 
@@ -41,8 +48,8 @@ Microsoft 工作或學校帳戶通常由其組織 (公司、 學校、政府機�
 
 Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，所以您也不應該如此。
 
-* 當使用者登入之後，盡可能使用組織的名稱和標誌。 這比使用「您的組織」之類的通稱更好。
-* 當使用者未登入時，將他們的帳戶稱為「工作或學校帳戶」，並使用 Microsoft 標誌來表達 Microsoft 會管理這些帳戶。 請勿使用「企業帳戶」、「商務帳戶」或「公司帳戶」之類的詞彙，這會造成使用者混淆。
+- 當使用者登入之後，盡可能使用組織的名稱和標誌。 這比使用「您的組織」之類的通稱更好。
+- 當使用者未登入時，將他們的帳戶稱為「工作或學校帳戶」，並使用 Microsoft 標誌來表達 Microsoft 會管理這些帳戶。 請勿使用「企業帳戶」、「商務帳戶」或「公司帳戶」之類的詞彙，這會造成使用者混淆。
 
 ## <a name="user-account-pictogram"></a>使用者帳戶象形圖
 
@@ -94,7 +101,6 @@ Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，
 | 使用 Microsoft 登入 (淺色佈景主題) | ![[登入] 按鈕淺色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![[使用 Microsoft 登入] 按鈕淺色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
 | 登入 (深色佈景主題)                 | ![[登入] 簡短按鈕深色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![[登入] 簡短按鈕深色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
 | 登入 (淺色佈景主題)                | ![[登入] 簡短按鈕淺色佈景主題 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![[登入] 簡短按鈕淺色佈景主題 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
-
 
 ## <a name="branding-dos-and-donts"></a>商標的建議與禁忌
 

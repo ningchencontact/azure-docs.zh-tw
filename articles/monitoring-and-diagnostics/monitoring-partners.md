@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 8/08/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: b21afecc27f1550cf557305ef069278ed66acaf0
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a15cfeb39cea31a24d27fd8b350d7e8a6696f31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005312"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955362"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 | 合作夥伴 |  |  |
 | --- | --- | --- |
 | [**AlertLogic**<br/>![合作夥伴標誌][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![合作夥伴標誌][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![合作夥伴標誌][atlassian-logo]][atlassian-anchor] 
 | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![合作夥伴標誌][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![合作夥伴標誌][cloudhealth-logo]][cloudhealth-anchor] 
-| [**CloudMonix**<br/> ![合作夥伴標誌][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![合作夥伴標誌][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![合作夥伴標誌][datadog-logo]][datadog-anchor] 
-| [**Dynatrace** <br/> ![合作夥伴標誌][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![合作夥伴標誌][grafana-logo]][grafana-anchor] | [**Logic Monitor**<br/>![合作夥伴標誌][logicmonitor-logo]][logicmonitor-anchor] 
-| [**Moogsoft**<br/>![合作夥伴標誌][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![合作夥伴標誌][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![合作夥伴標誌][opsgenie-logo]][opsgenie-anchor] 
+| [**CloudMonix** <br/>![合作夥伴標誌][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![合作夥伴標誌][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![合作夥伴標誌][datadog-logo]][datadog-anchor] 
+| [**Dynatrace** <br/>![合作夥伴標誌][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![合作夥伴標誌][grafana-logo]][grafana-anchor] | [**Influxdata**<br/>![合作夥伴標誌][influxdata-logo]][influxdata-anchor]
+| [**Logic Monitor**<br/>![合作夥伴標誌][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![合作夥伴標誌][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![合作夥伴標誌][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![合作夥伴標誌][opsgenie-logo]][opsgenie-anchor] 
 | [**PagerDuty**<br/>![合作夥伴標誌][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![合作夥伴標誌][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![合作夥伴標誌][sciencelogic-logo]][sciencelogic-anchor] 
 | [**SignalFx**<br/>![合作夥伴標誌][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![合作夥伴標誌][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
-| [**Splunk** <br/> ![合作夥伴標誌][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![合作夥伴標誌][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![合作夥伴標誌][turbonomic-logo]][turbonomic-anchor] 
+| [**Splunk** <br/>![合作夥伴標誌][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![合作夥伴標誌][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![合作夥伴標誌][turbonomic-logo]][turbonomic-anchor] 
 
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
@@ -82,6 +82,12 @@ Grafana 是開放原始碼應用程式，可讓您以視覺化方式檢視時間
 
 [請移至文件。][grafana-doc]
 
+## <a name="influxdata"></a>InfluxData
+InfluxData (InfluxDB 建立者) 提供從頭建立的新式開放原始碼平台，可用來分析 DevOps 與 IoT 應用程式的計量與事件 (時間序列資料)。 不論資料來自人類、感應器或機器，InfluxData 都能讓開發人員更快速、輕鬆地建置下一代監視、分析及 IoT 應用程式，並能更快速提供真正商業價值。 總部在舊金山的 InfluxData，其客戶超過 420 個，包括 Cisco、eBay、IBM 與 Siemens。
+
+[移至文件。][influxdata-doc]
+
+
 ## <a name="logic-monitor"></a>Logic Monitor
 LogicMonitor® 是領先業界的 SaaS 型效能監視平台，適用於複雜的 IT 基礎結構。 LogicMonitor 涵蓋了上千種技術，可在基礎結構和應用程式效能上提供更細微的可見度。 LM Cloud 的全面性 Azure 監視功能可讓使用者將 Azure 雲端、內部部署和混合式雲端資源的效能相互關聯，且全部都只在一個平台上執行。 自動化資源探索、內建監視範本、預先設定的警示閾值，以及可自訂的儀表板，結合起來可以為 IT 提供成功所需的速度、彈性和可見度。
 
@@ -94,7 +100,10 @@ Microsoft Azure 自動化與控制工具為 Azure 中部署的應用程式和微
 
 Moogsoft AIOps 會自動化補救事件工作流程，而不需要變更現有的程序和組織結構。 
 
-Moogsoft 會在您的 Azure 不動產中執行，並整合混合式網狀架構中的監視和自動化工具。 它可主動且提早地偵測影響事件的應用程式、以動態方式協調適當的資源以讓它們感知情況，並且減少補救的平均時間，以及降低客戶體驗上的不良影響。 
+Moogsoft 會在您的 Azure 不動產中執行，並整合混合式網狀架構中的監視和自動化工具。 Moogsoft 
+ - 可主動且提早地偵測影響事件的應用程式 
+ - 以動態方式協調適當的資源以讓它們感知情況 
+ - 減少補救的平均時間，以及降低客戶體驗上的不良影響。 
 
 [請移至文件。][moogsoft-doc]
 
@@ -107,7 +116,7 @@ OpsGenie 作為由 Azure 所產生警示發送器。 OpsGenie 會根據待命排
 [請移至文件。][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty 是業界領先的事件管理解決方案，針對 Azure 度量警示提供第一級支援。 PagerDuty 支援「Azure 監視器警示」、「自動調整規模通知」、「稽核記錄事件」和 Azure 服務的平台層級計量的通知。 這些增強功能會提供您增加的核心 Azure 平台可見度。 您可以完整利用 PagerDuty 的事件管理功能，以即時回應。 可以透過 Webhook 擴展 Azure 整合。 Webhook 可讓您快速且輕鬆地設定及自訂解決方案。
+PagerDuty 是業界領先的事件管理解決方案，針對 Azure 度量警示提供第一級支援。 PagerDuty 支援 Azure 監視器警示、自動調整規模通知、活動記錄事件與 Azure 服務的平台層級計量的通知。 這些增強功能會提供您增加的核心 Azure 平台可見度。 您可以完整利用 PagerDuty 的事件管理功能，以即時回應。 可以透過 Webhook 擴展 Azure 整合。 Webhook 可讓您快速且輕鬆地設定及自訂解決方案。
 
 [請移至文件。][pagerduty-doc]
 
@@ -144,7 +153,7 @@ Sumo Logic 是安全、雲端原生的電腦資料分析服務，能橫跨整個
 [深入了解。][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
-Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，為混合式雲端傳遞工作負載自動化。 Turbonomic 可透過持續最佳化 Azure 資產，確保應用程式可一直取得實現其 SLA 所需的資源，藉此協助組織在使用資產上具有彈性，而且只需透過 IaaS 和 PaaS 層的計算、儲存體和網路就可完成。 組織可模擬移轉、適切調整工作負載及淘汰資料中心資源，以負責地準時移轉至 Azure，而且在不超支預算的情況下還同時保有效能與合規性。 Turbonomicu 由 API 驅動，在 Azure 與內部部署以無代理程式 VM 的形式執行。
+Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，為混合式雲端傳遞工作負載自動化。 Turbonomic 可透過持續最佳化 Azure 資產，確保應用程式可一直取得履行其 SLA 所需的資源，藉此協助組織在使用資產上具有彈性，而且只需透過 IaaS 與 PaaS 層的計算、儲存體與網路就可完成。 組織可模擬移轉、適切調整工作負載及淘汰資料中心資源，以負責地準時移轉至 Azure，而且在不超支預算的情況下還同時保有效能與合規性。 Turbonomicu 由 API 驅動，在 Azure 與內部部署以無代理程式 VM 的形式執行。
 
 [深入了解。][turbonomic-doc]
 
@@ -168,6 +177,7 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
+[influxdata-anchor]: #Influxdata "Influxdata"
 [logicmonitor-anchor]: #logic-monitor "Logic Monitor"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
@@ -193,6 +203,7 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
+[influxdata-logo]: ./media/partner-logos/influxdata.png
 [logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
 [moogsoft-logo]: ./media/partner-logos/moogsoft.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
@@ -217,6 +228,7 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 文件。"
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 文件。"
 [grafana-doc]: ./monitor-send-to-grafana.md "Azure 監視器 Grafana 整合。"
+[influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Azure 監視器 Influxdata Telegraf 整合。"
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor 文件。"
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft 文件。"
 [newrelic-doc]: https://newrelic.com/azure "NewRelic 文件。"

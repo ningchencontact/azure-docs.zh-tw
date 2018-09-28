@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811908"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978898"
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -105,13 +105,13 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 
 下一個躍點類型的顯示和參照名稱在 Azure 入口網站和命令列工具之間是不同的，以及在 Azure Resource Manager 和傳統部署模型之間也不同。 下表列出的名稱可用來參照使用不同工具和[部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的每種下一個躍點類型：
 
-|下一個躍點類型                   |Azure CLI 2.0 和 PowerShell (Resource Manager) |Azure CLI 1.0 和 PowerShell (傳統)|
+|下一個躍點類型                   |Azure CLI 和 PowerShell (Resource Manager) |Azure 傳統 CLI 和 PowerShell (傳統)|
 |-------------                   |---------                                       |-----|
 |虛擬網路閘道         |VirtualNetworkGateway                           |VPNGateway|
-|虛擬網路                 |VNetLocal                                       |VNETLocal (不適用於 asm 模式中的 CLI 1.0)|
-|Internet                        |Internet                                        |Internet (不適用於 asm 模式中的 CLI 1.0)|
+|虛擬網路                 |VNetLocal                                       |VNETLocal (不適用於 asm 模式下的傳統 CLI)|
+|Internet                        |Internet                                        |Internet (不適用於 asm 模式下的傳統 CLI)|
 |虛擬設備               |VirtualAppliance                                |VirtualAppliance|
-|None                            |None                                            |Null (不適用於 asm 模式中的 CLI 1.0)|
+|None                            |None                                            |Null (不適用於 asm 模式下的傳統 CLI)|
 |虛擬網路對等互連         |VNet 對等互連                                    |不適用|
 |虛擬網路服務端點|VirtualNetworkServiceEndpoint                   |不適用|
 

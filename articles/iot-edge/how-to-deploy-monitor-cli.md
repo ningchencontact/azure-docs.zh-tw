@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b90c26eaa36c906dda904106b104c3dbf04a55ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257975"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998503"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大規模部署與監視 IoT Edge 模組
 
@@ -24,20 +24,20 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 您可以管理個別裝置，且一次一個對其部署模組。 不過，如果您想要大規模地變更裝置，可以建立 **IoT Edge 自動部署**，這是 IoT 中樞內裝置自動管理的一部分。 部署是動態程序，可讓您一次將多個模組部署到多個裝置、追蹤模組的狀態和健康情況，並視需要進行變更。 
 
-在本文中，您會設定 Azure CLI 2.0 和 IoT 擴充功能。 然後了解如何使用可用的 CLI 命令，將模組部署到一組 IoT Edge 裝置並監視進度。
+在本文中，您會設定 Azure CLI 和 IoT 擴充功能。 然後了解如何使用可用的 CLI 命令，將模組部署到一組 IoT Edge 裝置並監視進度。
 
 ## <a name="cli-prerequisites"></a>CLI 先決條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-using-cli.md)。 
 * 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device-cli.md)。
-* 您環境中的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 您的 Azure CLI 2.0 版本至少必須是 2.0.24 或更新版本。 使用 `az –-version` 進行驗證。 這個版本支援 az 擴充命令並引進 Knack 命令架構。 
-* [Azure CLI 2.0 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)。
+* 您環境中的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 您的 Azure CLI 版本至少必須是 2.0.24 或更新版本。 使用 `az –-version` 進行驗證。 這個版本支援 az 擴充命令並引進 Knack 命令架構。 
+* [適用於 Azure CLI 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension) \(英文\)。
 
 ## <a name="configure-a-deployment-manifest"></a>設定部署資訊清單
 
 部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 如需部署資訊清單的功能，以及如何建立此類清單的詳細資訊，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md) (英文)。
 
-若要使用 Azure CLI 2.0 部署模組，請在本機上將部署資訊清單儲存成 .txt 檔案。 若要執行命令以將設定套用至裝置，您會使用到下一節中的檔案路徑。 
+若要使用 Azure CLI 部署模組，請在本機上將部署資訊清單儲存成 .txt 檔案。 若要執行命令以將設定套用至裝置，您會使用到下一節中的檔案路徑。 
 
 下面以具有一個模組的基本部署資訊清單為例：
 

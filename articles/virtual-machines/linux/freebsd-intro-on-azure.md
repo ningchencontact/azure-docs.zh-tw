@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: dfbdc9e3091255267afe6c60363b7f93c4623e02
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 0eab96d85aa9cc8bea8d30c5a36c8489b8ea652e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140263"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974165"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure 上的 FreeBSD 簡介
 本文提供在 Azure 中執行 FreeBSD 虛擬機器的概觀。
@@ -45,8 +45,8 @@ Microsoft Corporation 目前在 Azure 上提供已預先設定 [Azure VM 客體�
 - [Azure Marketplace 上的 FreeBSD 10.4](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeBSD104)
 - [Azure Marketplace 上的 FreeBSD 11.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
-### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>透過 Azure CLI 2.0 在 FreeBSD 上建立 FreeBSD VM
-首先，您必須透過下列命令在 FreeBSD 電腦上安裝 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
+### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>透過 Azure CLI 在 FreeBSD 上建立 FreeBSD VM
+首先，您必須透過下列命令在 FreeBSD 電腦上安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
@@ -87,11 +87,11 @@ az vm create --name myFreeBSD11 \
 ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
 ```   
 
-## <a name="vm-extensions-for-freebsd"></a>適用於 FreeBSD 的 VM 擴充功能
-以下為 FreeBSD VM 中支援的 VM 擴充功能。
+## <a name="vm-extensions-for-freebsd"></a>適用於 FreeBSD 的 VM 延伸模組
+以下為 FreeBSD VM 中支援的 VM 延伸模組。
 
 ### <a name="vmaccess"></a>VMAccess
-[VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) 擴充功能可以：
+[VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) 延伸模組可以：
 
 * 重設原始 sudo 使用者的密碼。
 * 建立新的 sudo 使用者並指定密碼。
@@ -103,7 +103,7 @@ ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
 * 修復新增的磁碟。
 
 ### <a name="customscript"></a>CustomScript
-[CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) 擴充功能可以：
+[CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) 延伸模組可以：
 
 * 如果提供，可從 Azure 儲存體或外部公用儲存體 (例如 GitHub) 下載自訂的指令碼。
 * 執行進入點指令碼。
@@ -131,7 +131,7 @@ $ sudo <COMMAND>
 您可以視需要使用 `sudo -s` 來取得 root shell。
 
 ## <a name="known-issues"></a>已知問題
-[Azure VM 客體代理程式](https://github.com/Azure/WALinuxAgent/) 2.2.2 版有一個[已知問題] (https://github.com/Azure/WALinuxAgent/pull/517)，此問題會導致 Azure 上的 FreeBSD VM 佈建失敗。 [Azure VM 客體代理程式](https://github.com/Azure/WALinuxAgent/) 2.2.3 版和更新版本已包含這項修正。 
+[Azure VM 客體代理程式](https://github.com/Azure/WALinuxAgent/) 2.2.2 版有一個[已知問題] (https://github.com/Azure/WALinuxAgent/pull/517)，此問題會導致 Azure 上的 FreeBSD VM 佈建失敗。 [Azure VM 客體代理程式](https://github.com/Azure/WALinuxAgent/) 2.2.3 版和更新版本已包含此修正。 
 
 ## <a name="next-steps"></a>後續步驟
 * 前往 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) 以建立 FreeBSD VM。

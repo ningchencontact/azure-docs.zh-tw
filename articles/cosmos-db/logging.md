@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857094"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963384"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -29,9 +29,9 @@ ms.locfileid: "37857094"
 
 ![不同種類的 Azure 記錄](./media/logging/azurelogging.png)
 
-在上圖中，**計算資源**代表您可以存取其 Microsoft 客體 OS 的 Azure 資源。 例如，Azure 虛擬機器、虛擬機器擴展集、Azure Container Service 等皆被視為計算資源。 計算資源會產生「活動記錄」、「診斷記錄」及「應用程式記錄」。 若要深入了解，請參閱 [Azure 監視：計算資源](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset)一文。
+在上圖中，**計算資源**代表您可以存取其 Microsoft 客體 OS 的 Azure 資源。 例如，Azure 虛擬機器、虛擬機器擴展集、Azure Container Service 等皆被視為計算資源。 計算資源會產生「活動記錄」、「診斷記錄」及「應用程式記錄」。 若要深入了解，請參閱 [Azure 中的監視資料來源](../monitoring/monitoring-data-sources.md#)一文。
 
-**非計算資源**係指您無法存取基礎 OS 並直接使用資源的資源。 例如，網路安全性群組、Logic Apps 等。 Azure Cosmos DB 是非計算資源。 您可以在「活動記錄」中檢視非計算資源的記錄，或是在入口網站中啟用 [診斷記錄] 選項。 若要深入了解，請參閱 [Azure 監視：非計算資源](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else)一文。
+**非計算資源**係指您無法存取基礎 OS 並直接使用資源的資源。 例如，網路安全性群組、Logic Apps 等。 Azure Cosmos DB 是非計算資源。 您可以在「活動記錄」中檢視非計算資源的記錄，或是在入口網站中啟用 [診斷記錄] 選項。 若要深入了解，請參閱 [Azure 監視器中的資源來源](../monitoring/monitoring-data-sources.md)一文。
 
 「活動記錄」會記錄 Azure Cosmos DB 的訂用帳戶層級作業。 像是 ListKeys、Write DatabaseAccounts 等作業，都會記錄。 「診斷記錄」提供更細微的記錄功能，並可讓您記錄 DataPlaneRequests (Create、Read、Query 等) 和 MongoRequests。
 

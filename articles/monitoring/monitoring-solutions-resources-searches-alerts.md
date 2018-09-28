@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c29d6cb0da2e394912a2584b0d3c3cedf13f054c
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304069"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999506"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
@@ -32,7 +32,7 @@ ms.locfileid: "36304069"
 > [!NOTE]
 > 本文中的範例使用管理解決方案所需或通用的參數和變數，如[在 Azure 中設計和建置管理解決方案](monitoring-solutions-creating.md)所述。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已經熟悉如何[建立管理解決方案](monitoring-solutions-creating.md)，以及 [Resource Manager 範本](../resource-group-authoring-templates.md)和解決方案檔案的結構。
 
 
@@ -90,7 +90,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 [Azure 記錄警示](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)是由 Azure 警示規則所建立，以定期執行指定的記錄查詢。  如果查詢的結果符合指定的準則，就會建立警示記錄，並使用[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)執行一或多個動作。  
 
 > [!NOTE]
-> 從 2018 年 5 月 14 日開始，工作區中的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
+> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
 
 管理解決方案中的警示規則是由下列三個不同資源所組成。
 
@@ -130,9 +130,9 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 已啟用       | yes | 指定在建立警示時是否要加以啟用。 |
-| interval      | yes | 查詢的執行頻率，以分鐘為單位。 |
-| queryTimeSpan | yes | 評估結果的時間長度，以分鐘為單位。 |
+| 已啟用       | 是 | 指定在建立警示時是否要加以啟用。 |
+| interval      | 是 | 查詢的執行頻率，以分鐘為單位。 |
+| queryTimeSpan | 是 | 評估結果的時間長度，以分鐘為單位。 |
 
 排程資源應該相依於儲存的搜尋，如此就會在排程之前建立該資源。
 
@@ -146,7 +146,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 動作可以使用 [動作群組] 資源或動作資源來定義。
 
 > [!NOTE]
-> 從 2018 年 5 月 14 日開始，工作區中的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
+> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
 
 
 **Type** 屬性會指定兩種類型的動作資源。  排程需要一個**警示**動作，其會定義警示規則的詳細資料，以及建立警示時要採取哪些動作。 動作資源具有 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions` 類型。  
@@ -190,10 +190,10 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 類型 | yes | 動作的類型。  這是適用於警示動作的**警示**。 |
-| Name | yes | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
+| 類型 | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
+| 名稱 | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
 | 說明 | 否 | 警示的選擇性描述。 |
-| 嚴重性 | yes | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
+| 嚴重性 | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>閾值
@@ -201,8 +201,8 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 運算子 | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | yes | 要比較結果的值。 |
+| 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| 值 | 是 | 要比較結果的值。 |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。  加入此區段以供計量計量警示使用。
@@ -212,9 +212,9 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| TriggerCondition | yes | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
-| 運算子 | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | yes | 必須符合準則以觸發警示的次數。 |
+| TriggerCondition | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
+| 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| 值 | 是 | 必須符合準則以觸發警示的次數。 |
 
 
 #### <a name="throttling"></a>節流
@@ -232,7 +232,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| AzNsNotification | yes | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
+| AzNsNotification | 是 | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
 | CustomEmailSubject | 否 | 電子郵件的自訂主旨列，該電子郵件會傳送到相關聯動作群組中指定的所有地址。 |
 | CustomWebhookPayload | 否 | 針對相關動作群組中定義的所有 Webhook 端點，要傳送到端點的自訂酬載。 格式取決於 Webhook 所預期的內容，而且必須是已序列化的有效 JSON。 |
 
@@ -242,15 +242,15 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 每個排程都會有一個**警示**動作。  這會定義警示的詳細資料，以及選擇性地定義通知和修復動作的詳細資料。  通知會將電子郵件傳送到一或多個地址。  修復會在 Azure 自動化中啟動 Runbook，以嘗試修復偵測到的問題。
 
 > [!NOTE]
-> 從 2018 年 5 月 14 日開始，工作區中的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
+> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
 
 ##### <a name="emailnotification"></a>EmailNotification
  此為選擇性區段  如果您想要警示將郵件傳送給一或多位收件者，請包含此區段。
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 收件者 | yes | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| 主體 | yes | 郵件的主旨列。 |
+| 收件者 | 是 | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| 主體 | 是 | 郵件的主旨列。 |
 | 附件 | 否 | 目前不支援附件。  如果包含此元素，就應該是 **None**。 |
 
 
@@ -259,8 +259,8 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| RunbookName | yes | 要啟動的 Runbook 名稱。 |
-| WebhookUri | yes | Runbook 的 Webhook 的 Uri。 |
+| RunbookName | 是 | 要啟動的 Runbook 名稱。 |
+| WebhookUri | 是 | Runbook 的 Webhook 的 Uri。 |
 | Expiry | 否 | 補救到期的日期和時間。 |
 
 ##### <a name="webhook-actions"></a>Webhook 動作
@@ -289,9 +289,9 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| type | yes | 動作的類型。  這適用於 Webhook 動作的 **Webhook**。 |
-| name | yes | 動作的顯示名稱。  這不會顯示在主控台中。 |
-| wehookUri | yes | Webhook 的 Uri。 |
+| type | 是 | 動作的類型。  這適用於 Webhook 動作的 **Webhook**。 |
+| name | 是 | 動作的顯示名稱。  這不會顯示在主控台中。 |
+| wehookUri | 是 | Webhook 的 Uri。 |
 | customPayload | 否 | 要傳送至 webhook 的自訂內容。 格式取決於 Webhook 需要的內容。 |
 
 

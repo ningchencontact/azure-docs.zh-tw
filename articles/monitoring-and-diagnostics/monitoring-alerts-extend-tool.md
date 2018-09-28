@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301026"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990230"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>將警示從 Log Analytics 延伸至 Azure 警示
 Azure Log Analytics 中的警示功能已由 Azure 警示取代。 作為此轉換的一部分，您最初在 Log Analytics 中設定的警示將會延伸至 Azure。 如果不想等警示自動移動到 Azure 中，您可以起始此程序：
@@ -22,7 +22,7 @@ Azure Log Analytics 中的警示功能已由 Azure 警示取代。 作為此轉�
 - 使用 AlertsVersion API 以程式設計方式執行。  
 
 > [!NOTE]
-> Microsoft 自 2018 年 5 月 14 日起，會定期自動將在 Log Analytics 建立的警示擴充至 Azure 警示，直到完成作業。 Microsoft 會排程將警示移轉至 Azure，在此轉換期間，您可以從 Operations Management Suite 入口網站和 Azure 入口網站管理警示。 此程序並非破壞性，也不會造成中斷。  
+> Microsoft 自 2018 年 5 月 14 日起，會定期自動將在 Log Analytics 公用雲端執行個體中建立的警示擴充至 Azure 警示，直到完成作業。 如果您建立[動作群組](monitoring-action-groups.md)時遇到問題，請使用[這些補救步驟](monitoring-alerts-extend-tool.md#troubleshooting)讓系統自動建立動作群組。 2018 年 7 月 5 日之前，您可以使用這些步驟。 *不適用於 Log Analytics 的 Azure Goverment and Soveriegn 雲端使用者*。 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>選項 1：從 Operations Management Suite 入口網站起始
 下列步驟說明如何從 Operations Management Suite 入口網站延伸工作區的警示。  
@@ -457,7 +457,7 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 在延伸警示的程序中，問題可能導致系統無法建立所需的[動作群組](monitoring-action-groups.md)。 在這種情況下，您會在 Operations Management Suite 入口網站 [警示] 區段的橫幅中看到錯誤訊息，或在對 API 執行的 GET 呼叫中看到。
 
 > [!IMPORTANT]
-> 若未在 2018 年 7 月 5 日之前採取下列修復步驟，警示會在 Azure 中執行，但不會觸發任何動作或通知。 若要取得警示通知，您必須手動編輯並新增[動作群組](monitoring-action-groups.md)，或使用先前的[自訂 PowerShell 指令碼](#option-3---using-custom-powershell-script)。
+> 若 Azure 公用雲端的 Log Analytics 使用者未在 2018 年 7 月 5 日之前採取下列修復步驟，警示會在 Azure 中執行，但不會觸發任何動作或通知。 若要取得警示通知，您必須手動編輯並新增[動作群組](monitoring-action-groups.md)，或使用先前的[自訂 PowerShell 指令碼](#option-3---using-custom-powershell-script)。
 
 以下是每個錯誤的修復步驟：
 - **錯誤：寫入作業的訂用帳戶/資源群組層級出現範圍鎖定**：![Operations Management Suite 入口網站 [警示設定] 頁面的螢幕擷取畫面，其中反白顯示範圍鎖定錯誤訊息](./media/monitor-alerts-extend/ErrorScopeLock.png)

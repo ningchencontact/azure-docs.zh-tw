@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576316"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995364"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模組
 
@@ -33,7 +33,11 @@ IoT Edge 模組映像包含應用程式，該應用程式會利用 IoT Edge 執�
 
 ![雲端中的模組映像 - 裝置上的模組執行個體][1]
 
-在實作中，容器映像在存放庫中存在為容器映像，而容器執行個體是裝置上的容器。 隨著 Azure IoT Edge 的使用案例成長，將會建立新類型的模組映像和執行個體。 例如，限制資源裝置無法執行容器，因此可能需要存在為動態連結程式庫和可執行檔執行個體的模組映像。 
+在實作中，容器映像在存放庫中存在為容器映像，而容器執行個體是裝置上的容器。 
+
+<!--
+As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+-->
 
 ## <a name="module-identities"></a>模組身分識別
 
@@ -63,7 +67,7 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>離線功能
 
-Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前受到限制，而其他案例正在開發中。 
+Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前會受到限制。 
 
 只要符合下列需求，即可延長 IoT Edge 模組的離線使用期間： 
 
@@ -71,6 +75,8 @@ Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前受到
 * **模組在離線時不需要對 IoT Edge 中樞進行重新驗證**。 模組只能對與 IoT 中樞連線中的 Edge 中樞進行驗證。 模組因任何原因而重新啟動後，則必須重新驗證。 模組在其 SAS 權杖到期後仍可傳送訊息至 Edge 中樞。 連線能力恢復後，Edge 中樞會要求模組提供新權杖，並且對 IoT 中樞驗證該權杖。 如果成功，Edge 中樞將會轉送它所儲存的模組訊息，即使是模組的權杖過期後所傳送的訊息，仍會轉送。 
 * **在離線期間傳送訊息的模組，在連線能力恢復後仍可運作**。 重新連線至 IoT 中樞時，Edge 中樞必須驗證新的模組權杖 (如果舊的已過期)，才能轉送模組訊息。 如果模組無法提供新權杖，Edge 中樞就無法對模組已儲存的訊息執行動作。 
 * **Edge 中樞具有可儲存訊息的磁碟空間**。 根據預設，訊息會儲存在 Edge 中樞容器的檔案系統中。 您也可以透過組態選項指定用來儲存訊息的已掛接磁碟區。 無論如何，都必須要有空間可用來儲存要延遲傳遞至 IoT 中樞的訊息。  
+
+其他離線功能可於公開預覽中取得。 如需詳細資訊，請參閱[了解適用於 IoT Edge 裝置、模組及子裝置的擴充離線功能](offline-capabilities.md)。
 
 ## <a name="next-steps"></a>後續步驟
  - [了解 Azure IoT Edge 執行階段和架構][lnk-runtime]

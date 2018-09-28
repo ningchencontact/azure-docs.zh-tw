@@ -6,21 +6,21 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b00d774ec59755288b8660d238c7b8dfc9a89eab
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ef1422db799db6d635ad9f03908e3a34f312e408
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089888"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974233"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什麼是 Azure 診斷延伸模組
-Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程式收集診斷資料。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](monitoring-overview.md)。 
+Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程式收集診斷資料。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](monitoring-overview.md)。
 
 ## <a name="linux-agent"></a>Linux 代理程式
-[延伸模組的 Linux 版本](../virtual-machines/linux/diagnostic-extension.md)適用於執行 Linux 的虛擬機器。 收集的統計資料和行為與 Windows 版本有所不同。 
+[延伸模組的 Linux 版本](../virtual-machines/linux/diagnostic-extension.md)適用於執行 Linux 的虛擬機器。 收集的統計資料和行為與 Windows 版本有所不同。
 
 ## <a name="data-you-can-collect"></a>您可以收集的資料
 Azure 診斷延伸模組可以收集下列類型的資料：
@@ -37,13 +37,20 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 | 自訂錯誤記錄檔 |您的應用程式或服務所建立的記錄檔 |
 | Azure 診斷基礎結構記錄檔 |診斷本身的相關資訊 |
 
-(1) 若要取得 ETW 提供者的清單，請在您要從中收集資訊的電腦上，在主控台視窗中執行 `c:\Windows\System32\logman.exe query providers`。 
+(1) 若要取得 ETW 提供者的清單，請在您要從中收集資訊的電腦上，在主控台視窗中執行 `c:\Windows\System32\logman.exe query providers`。
 
 ## <a name="data-storage"></a>資料儲存體
-延伸模組會將其資料儲存在您指定的 [Azure 儲存體帳戶](azure-diagnostics-storage.md)中。 
+延伸模組會將其資料儲存在您指定的 [Azure 儲存體帳戶](azure-diagnostics-storage.md)中。
 
-您也可以將它傳送到 [Application Insights](../application-insights/app-insights-cloudservices.md)。 另一個選項是將資料串流到[事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)，以便讓您將資料傳送到非 Azure 監視的服務。 
+您也可以將它傳送到 [Application Insights](../application-insights/app-insights-cloudservices.md)。 另一個選項是將資料串流到[事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)，以便讓您將資料傳送到非 Azure 監視的服務。
 
+### <a name="azure-monitor"></a>Azure 監視器
+您也可以選擇將資料傳送至 Azure 監視器。 此時，這個接收只適用於效能計數器。 它可讓您將在 VM、VMSS 或雲端服務上收集的效能計數器，傳送到 Azure 監視器作為自訂計量。 Azure 監視器接收支援：
+* 擷取透過 [Azure 監視器計量 API](https://docs.microsoft.com/rest/api/monitor/) 傳送到 Azure 監視器的所有效能計數器。
+* 透過 Azure 監視器中新的[統一的警示體驗](monitoring-overview-unified-alerts.md)，對傳送到 Azure 監視器的所有效能計數器設定警示
+* 將效能計數器中的萬用字元運算子視為計量上的「執行個體」維度。  例如，如果您收集了 "LogicalDisk(\*)/DiskWrites/sec" 計數器，就能夠為 VM 上每個邏輯磁碟 (C:、D: 等等)，針對 Disk Writes/sec 在「執行個體」維度上進行繪製或建立警示。
+
+若要深入了解如何設定此接收，請參閱 [Azure 診斷結構描述文件](azure-diagnostics-schema-1dot3-and-later.md)。
 
 ## <a name="versioning-and-configuration-schema"></a>版本控制和設定結構描述
 請參閱 [Azure 診斷版本歷程記錄和結構描述](azure-diagnostics-versioning-history.md)。

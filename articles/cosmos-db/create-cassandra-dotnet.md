@@ -1,22 +1,21 @@
 ---
-title: 快速入門：Cassandra API 與 .NET - Azure Cosmos DB | Microsoft Docs
+title: 快速入門：Cassandra API 與 .NET - Azure Cosmos DB
 description: 本快速入門示範如何使用 Azure Cosmos DB Cassandra API，以使用 Azure 入口網站和 .NET 建立設定檔應用程式
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
+author: SnehaGunda
+ms.author: sngun
 ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 6ab7c0fa5f7e4d10b38ecee8f75372dda3b11a1c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 09/24/2018
+ms.openlocfilehash: 3708027b766ff9070831dd3677e821565e0dd4fa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700575"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994950"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>快速入門：使用 .NET 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -27,7 +26,7 @@ ms.locfileid: "43700575"
 > * [Python](create-cassandra-python.md)
 >  
 
-本快速入門示範如何使用 .NET 與 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)，以藉由從 GitHub 複製範例來建置設定檔應用程式。 本快速入門也會逐步引導您使用網頁型 Azure 入口網站建立 Azure Cosmos DB 帳戶。   
+本快速入門示範如何使用 .NET 與 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)，以藉由從 GitHub 複製範例來建置設定檔應用程式。 本快速入門也會示範如何使用 Web 型 Azure 入口網站來建立 Azure Cosmos DB 帳戶。
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、資料表、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
@@ -35,9 +34,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]或者，您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。
 
-Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申請存取權，請[立即註冊](cassandra-introduction.md#sign-up-now)。
-
-此外： 
+此外，您需要： 
 * 如果尚未安裝 Visual Studio 2017，您可以下載並使用「免費的」[Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
 * 安裝 [Git](https://www.git-scm.com/) 來複製範例。
 
@@ -51,7 +48,7 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
 
 現在讓我們切換為使用程式碼。 讓我們從 GitHub 複製 Cassandra API 應用程式、設定連接字串，然後加以執行。 您會看到，以程式設計方式來處理資料有多麼的容易。 
 
-1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
+1. 開啟命令提示字元。 建立名為 `git-samples` 的新資料夾。 接著，關閉命令提示字元。
 
     ```bash
     md "C:\git-samples"
@@ -69,11 +66,11 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
     ```
 
-3. 然後在 Visual Studio 中開啟 CassandraQuickStartSample 解決方案檔案。 
+4. 接下來，在 Visual Studio 中開啟 CassandraQuickStartSample 方案檔。 
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 這些程式碼片段皆是取自以下資料夾中安裝的 Program.cs 檔案：C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。
+此為選用步驟。 如果您有興趣了解程式碼如何建立資料庫資源，您可以檢閱下列程式碼片段。 此程式碼片段全都取自安裝在 `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample` 資料夾中的 `Program.cs` 檔案。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。
 
 * 連線到 Cassandra 叢集端點以初始化工作階段。 Azure Cosmos DB 上的 Cassandra API 僅支援 TLSv1.2。 
 
@@ -121,7 +118,7 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 連接字串資訊可讓您的應用程式與託管資料庫進行通訊。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [連接字串]。 
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，選取 [連接字串]。
 
     使用 ![[複製] 按鈕](./media/create-cassandra-dotnet/copy.png) 位於螢幕右側的按鈕來複製 [使用者名稱] 值。
 
@@ -149,9 +146,9 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
 
 5. 儲存 Program.cs 檔案。
     
-## <a name="run-the-app"></a>執行應用程式
+## <a name="run-the-net-app"></a>執行 .Net 應用程式
 
-1. 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。
+1. 在 Visual Studio 中，選取 [工具]  >  [NuGet 套件管理員]  >  [套件管理員主控台]。
 
 2. 在命令提示字元中，使用下列命令來安裝 .NET 驅動程式的 NuGet 套件。 
 
@@ -164,7 +161,7 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
 
     按 CTRL + C 來停止執行程式，並關閉主控台視窗。 
     
-    您現在可在 Azure 入口網站中開啟 [資料總管]，以查看、查詢、修改及使用這項新資料。 
+4. 在 Azure 入口網站中，開啟 [資料總管] 以查詢、修改及使用這項新資料。
 
     ![在資料總管中檢視資料](./media/create-cassandra-dotnet/data-explorer.png)
 

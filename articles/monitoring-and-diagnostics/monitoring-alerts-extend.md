@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6484142eafa8388117c1e96ab31eefeab188e488
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 13a84b7254207a9cfcfff4af43283130a0f6c587
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998469"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>將 Log Analytics 警示擴充到 Azure 警示
 直到最近，Azure Log Analytics 剛剛加入了自己的警示功能，可根據 Log Analytics 資料主動通知您情況。 您之前可在 Microsoft Operations Management Suite 中管理警示規則。 全新警示體驗現已整合 Microsoft Azure 中各種服務之間的警示。 此功能即為 Azure 入口網站中的 Azure 監視器下的 **[警示]**，支援 Log Analytics 和 Azure Application Insights 中活動記錄、計量和記錄的警示。 
@@ -30,7 +30,7 @@ ms.locfileid: "36750267"
 將警示從 Log Analytics 移至 Azure 警示的程序不包含以任何方式變更您的警示定義、查詢或設定。 唯一需要的變更是，在 Azure 中使用動作群組執行所有動作。 如果動作群組已經與警示相關聯，警示擴充至 Azure 時就會包含在內。
 
 > [!NOTE]
-> Microsoft 自 2018 年 5 月 14 日起，會定期自動將在 Log Analytics 建立的警示擴充至 Azure 警示，直到完成作業。 如果您建立[動作群組](monitoring-action-groups.md)時遇到問題，請使用[這些補救步驟](monitoring-alerts-extend-tool.md#troubleshooting)讓系統自動建立動作群組。 2018 年 7 月 5 日之前，您可以使用這些步驟。 
+> Microsoft 自 2018 年 5 月 14 日起，會定期自動將在 Log Analytics 公用雲端執行個體中建立的警示擴充至 Azure 警示，直到完成作業。 如果您建立[動作群組](monitoring-action-groups.md)時遇到問題，請使用[這些補救步驟](monitoring-alerts-extend-tool.md#troubleshooting)讓系統自動建立動作群組。 2018 年 7 月 5 日之前，您可以使用這些步驟。 *不適用於 Log Analytics 的 Azure Goverment and Soveriegn 雲端使用者*。 
 > 
 
 當您排程將 Log Analytics 工作區中的警示擴充至 Azure 以後，這些警示會繼續運作，且不會以任何方式妨礙您的設定。 當排程時，您的警示可能暫時無法進行修改，但您可以在這段時間內繼續建立新的 Azure 警示。 如果您嘗試編輯或從 Operations Management Suite 入口網站建立警示，您可以選擇繼續從 Log Analytics 工作區建立警示。 您也可以選擇在 Azure 入口網站中透過 Azure 警示建立警示。

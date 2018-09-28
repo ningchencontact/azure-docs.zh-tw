@@ -1,6 +1,6 @@
 ---
-title: 將 Kubernetes 叢集部署至 Azure Stack | Microsoft Docs
-description: 了解如何將 Kubernetes 叢集部署至 Azure Stack。
+title: 將 Kubernetes 部署至 Azure Stack | Microsoft Docs
+description: 了解如何將 Kubernetes 部署至 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,28 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 67e82a4809253123e15305b5f2ecd8cc5f7ee4ed
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046845"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977531"
 ---
-# <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>將 Kubernetes 叢集部署至 Azure Stack
+# <a name="deploy-kubernetes-to-azure-stack"></a>將 Kubernetes 部署至 Azure Stack
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 > [!Note]  
-> Azure Stack 上的 Azure Kubernetes Services (AKS) Kubernetes 目前為個人預覽版。 要執行本文中指示的作業，您的 Azure Stack 操作員必須要求對 Kubernetes Marketplace 項目的存取權。
+> Azure Stack 上的 Kubernetes 處於預覽狀態。 若要執行本文中指示的作業，您的 Azure Stack 操作員必須要求對 Kubernetes 叢集 Marketplace 項目的存取權。
 
-以下文章說明如何使用 Azure Resource Manager 解決方案範本，在單一協調作業中部署和佈建 Kubernetes 的資源。 您將必須收集 Azure Stack 安裝所需的相關資訊、產生範本，然後部署至您的雲端。
+以下文章說明如何使用 Azure Resource Manager 解決方案範本，在單一協調作業中部署和佈建 Kubernetes 的資源。 您將必須收集 Azure Stack 安裝所需的相關資訊、產生範本，然後部署至您的雲端。 請注意，此範本不是全域 Azure 中提供的同一個受控 AKS 服務，而是較接近 ACS 服務。
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 和容器
 
-您可以在 Azure Stack 上，使用 Azure Kubernetes Services (AKS) 引擎所產生的 Azure Resource Manager 範本來安裝 Kubernetes。 [Kubernetes](https://kubernetes.io) 是一種開放原始碼系統，可進行自動化部署、調整和管理容器中的應用程式。 [容器](https://www.docker.com/what-container)包含類似於 VM 的映像中。 不同於 VM，容器映像只會包含其執行應用程式所需的資源，例如程式碼、執行程式碼的執行階段、特定程式庫和設定等。
+您可以在 Azure Stack 上，使用ACS 引擎產生的 Azure Resource Manager 範本來安裝 Kubernetes。 [Kubernetes](https://kubernetes.io) 是一種開放原始碼系統，可進行自動化部署、調整和管理容器中的應用程式。 [容器](https://www.docker.com/what-container)包含類似於 VM 的映像中。 不同於 VM，容器映像只會包含其執行應用程式所需的資源，例如程式碼、執行程式碼的執行階段、特定程式庫和設定等。
 
 使用 Kubernetes 可執行下列作業：
 
@@ -59,7 +59,11 @@ ms.locfileid: "43046845"
 ## <a name="create-a-service-principal-in-azure-ad"></a>在 Azure AD 中建立服務主體
 
 1. 登入全域 [Azure 入口網站](http://portal.azure.com)。
-1. 確認您已使用與 Azure Stack 執行個體相關聯的 Azure AD 租用戶登入。
+
+1. 確認您已使用與 Azure Stack 執行個體相關聯的 Azure AD 租用戶登入。 您可以按一下 Azure 工具列中的篩選圖示切換登入。
+
+    ![選取您的 AD 租用戶](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
+
 1. 建立 Azure AD 應用程式。
 
     a. 選取 [Azure Active Directory] > [+ 應用程式註冊] > [新應用程式註冊]。
@@ -83,34 +87,33 @@ ms.locfileid: "43046845"
     c. 選取 [ **儲存**]。 請記下金鑰字串。 您在建立叢集時將需要用到此金鑰字串。 系統會將此金鑰參考為 [服務主體用戶端密碼]。
 
 
-
 ## <a name="give-the-service-principal-access"></a>指定服務主體存取權
 
 指定對訂用帳戶的服務主體存取權，讓主體能夠建立資源。
 
 1.  登入 [Azure Stack 入口網站](https://portal.local.azurestack.external/)。
 
-1. 選取 [更多服務] > [訂用帳戶]。
+1. 選取 [所有服務] > [訂用帳戶]。
 
-1. 選取您所建立的訂用帳戶。
+1. 選取操作員建立要使用 Kubernetes 叢集的訂用帳戶。
 
 1. 選取 [存取控制 (IAM)] > 選取 [+ 新增]。
 
-1. 選取 [擁有者] 角色。
+1. 選取 [參與者] 角色。
 
 1. 選取為您的服務主體建立的應用程式名稱。 您可能需要在搜尋方塊中輸入名稱。
 
 1. 按一下 [檔案] 。
 
-## <a name="deploy-a-kubernetes-cluster"></a>部署 Kubernetes 叢集
+## <a name="deploy-a-kubernetes"></a>部署 Kubernetes
 
 1. 開啟 [Azure Stack 入口網站](https://portal.local.azurestack.external)。
 
-1. 選取 [+ 新增] > [計算] > [Kubernetes 叢集]。 按一下頁面底部的 [新增] 。
+1. 選取 [+ 建立資源] > [計算] > [Kubernetes 叢集]。 按一下頁面底部的 [新增] 。
 
     ![部署解決方案範本](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. 在 [建立 Kubernetes 叢集] 中選取 [基本資料]。
+1. 在 [建立 Kubernetes] 中選取 [基本]。
 
     ![部署解決方案範本](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
@@ -145,7 +148,6 @@ ms.locfileid: "43046845"
 
 1. 輸入**租用戶 ARM 端點**。 這是要連線以建立 Kubernetes 叢集之資源群組的 Azure Resource Manager 端點。 您必須向 Azure Stack 操作員取得整合系統的端點。 如需 Azure Stack 開發套件 (ASDK)，您可以使用 `https://management.local.azurestack.external`。
 
-1. 輸入租用戶的**租用戶識別碼**。 如果您需要相關尋找此值的說明，請參閱[取得租用戶識別碼](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id)。 
 
 ## <a name="connect-to-your-cluster"></a>連線至您的叢集
 
@@ -155,6 +157,6 @@ ms.locfileid: "43046845"
 
 ## <a name="next-steps"></a>後續步驟
 
-[將 Kubernetes 叢集新增至 Marketplace (適用於 Azure Stack 操作員)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[將 Kubernetes 新增至 Marketplace (適用於 Azure Stack 操作員)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Azure 上的 Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

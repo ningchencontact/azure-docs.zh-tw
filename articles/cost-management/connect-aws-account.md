@@ -1,38 +1,38 @@
 ---
-title: 將 Amazon Web Services 帳戶連線到 Azure 成本管理 | Microsoft Docs
-description: 連線 Amazon Web Services 帳戶以在「成本管理」報表中檢視成本和使用方式資料。
+title: 將 Amazon Web Services 帳戶連線至 Azure 中的 Cloudyn | Microsoft Docs
+description: 連線 Amazon Web Services 帳戶以在 Cloudyn 報告中檢視成本和使用情況資料。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 08/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: c2c7ea043d2da41442829321ac663325f30ff066
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 44bf1d9cd270394720aee71862c1e65118084259
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297323"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978214"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>連線 Amazon Web Services 帳戶
 
-您有兩個選項可以將您的 Amazon Web Services (AWS) 帳戶連線到 Azure 成本管理。 您可以與 IAM 角色或唯讀 IAM 使用者帳戶連線。 建議項目是 IAM 角色，因為它可以讓您將具有已定義權限的存取權委派給信任的實體。 IAM 角色不需要您共用長期存取金鑰。 將 AWS 帳戶連線到成本管理之後，成本和使用方式資料可以在「成本管理」報表中取得。 這份文件會引導您進行這兩個選項。
+您有兩個選項可將 Amazon Web Services (AWS) 帳戶連線至 Cloudyn。 您可以與 IAM 角色或唯讀 IAM 使用者帳戶連線。 建議項目是 IAM 角色，因為它可以讓您將具有已定義權限的存取權委派給信任的實體。 IAM 角色不需要您共用長期存取金鑰。 將 AWS 帳戶連線至 Cloudyn 之後，Cloudyn 報告便會提供成本和使用情況資料。 這份文件會引導您進行這兩個選項。
 
 如需 AWS IAM 身分識別的詳細資訊，請參閱[身分識別 (使用者、群組和角色)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html)。
 
-此外，您會啟用 AWS 詳細帳單報告，並且將資訊儲存在 AWS 簡單儲存體服務 (S3) 貯體。 詳細帳單報告包含按時數計算的標記和資源資訊費用。 儲存報告可以讓「成本管理」從您的貯體擷取這些報告，並且在其報告中顯示資訊。
+此外，您會啟用 AWS 詳細帳單報告，並且將資訊儲存在 AWS 簡單儲存體服務 (S3) 貯體。 詳細帳單報告包含按時數計算的標記和資源資訊費用。 儲存報告可讓 Cloudyn 從您的貯體擷取這些報告，並在其報告中顯示資訊。
 
 
 ## <a name="aws-role-based-access"></a>AWS 角色型存取
 
-下列各節會引導您完成建立唯讀 IAM 角色以提供成本管理的存取權。
+下列各節會引導您完成建立唯讀 IAM 角色以提供 Cloudyn 存取權的程序。
 
-### <a name="get-your-cost-management-account-external-id"></a>取得您的成本管理帳戶外部 ID
+### <a name="get-your-cloudyn-account-external-id"></a>取得您的 Cloudyn 帳戶外部 ID
 
-第一個步驟是從 Azure 成本管理入口網站取得唯一的連線複雜密碼。 它在 AWS 中用來作為**外部 ID**。
+第一個步驟是從 Cloudyn 入口網站取得唯一的連線複雜密碼。 它在 AWS 中用來作為**外部 ID**。
 
 1. 從 Azure 入口網站中開啟 Cloudyn 入口網站，或瀏覽至 [https://azure.cloudyn.com](https://azure.cloudyn.com) 並登入。
 2. 按一下齒輪符號，然後選取 [雲端帳戶]。
@@ -44,16 +44,16 @@ ms.locfileid: "35297323"
 
 1. 登入 AWS 主控台 (位於 https://console.aws.amazon.com/iam/home )，然後選取 [角色]。
 2. 按一下 [建立角色]，然後選取 [另一個 AWS 帳戶]。
-3. 在 [帳戶識別碼] 方塊中，貼上 `432263259397`。 此帳戶識別碼是由 AWS 指派給 Cloudyn 服務的「成本管理」資料收集器帳戶。 使用顯示的確切帳戶識別碼。
-4. 在 [選項] 旁邊，選取 [需要外部識別碼]。 貼上先前從「成本管理」中 [外部識別碼] 欄位複製的唯一值。 然後按 [下一步：權限]。  
+3. 在 [帳戶識別碼] 方塊中，貼上 `432263259397`。 這個「帳戶識別碼」是 AWS 指派給 Cloudyn 服務的 Cloudyn 資料收集器帳戶。 使用顯示的確切帳戶識別碼。
+4. 在 [選項] 旁邊，選取 [需要外部識別碼]。 貼上先前從 Cloudyn 中 [外部識別碼] 欄位複製的唯一值。 然後按 [下一步：權限]。  
     ![建立角色](./media/connect-aws-account/create-role01.png)
 5. 在 [附加權限原則] 底下的 [原則類型] 篩選方塊搜尋中，輸入 `ReadOnlyAccess`，選取 [ReadOnlyAccess]，然後按 [下一步：檢閱]。  
     ![唯讀存取](./media/connect-aws-account/readonlyaccess.png)
-6. 在 [檢閱] 分頁中，確定您的選擇正確無誤，然後輸入**角色名稱**。 例如，*Azure-Cost-Mgt*。輸入**角色描述**。 例如，_Azure 成本管理的角色指派_，然後按一下 [建立角色]。
-7. 在 [角色] 清單中，按一下您建立的角色，然後從 [摘要] 分頁中複製 **角色 ARN** 值。 稍後當您在 Azure 成本管理中註冊設定時，使用角色 ARN (Amazon Resource Name) 值。  
+6. 在 [檢閱] 分頁中，確定您的選擇正確無誤，然後輸入**角色名稱**。 例如，*Azure-Cost-Mgt*。輸入**角色描述**。 例如，_Cloudyn 的角色指派_，然後按一下 [Create role] \(建立角色\)。
+7. 在 [角色] 清單中，按一下您建立的角色，然後從 [摘要] 分頁中複製 **角色 ARN** 值。 稍後當您在 Cloudyn 中註冊設定時，請使用 [Role ARN] \(角色 ARN\) (Amazon Resource Name) 值。  
     ![角色 ARN](./media/connect-aws-account/role-arn.png)
 
-### <a name="configure-aws-iam-role-access-in-cost-management"></a>在成本管理中設定 AWS IAM 角色存取
+### <a name="configure-aws-iam-role-access-in-cloudyn"></a>在 Cloudyn 中設定 AWS IAM 角色存取
 
 1. 從 Azure 入口網站中開啟 Cloudyn 入口網站，或瀏覽至 https://azure.cloudyn.com/ 並登入。
 2. 按一下齒輪符號，然後選取 [雲端帳戶]。
@@ -64,16 +64,16 @@ ms.locfileid: "35297323"
     ![新增 AWS 帳戶方塊](./media/connect-aws-account/add-aws-account-box.png)
 
 
-您的 AWS 帳戶會出現在帳戶清單中。 列出的**擁有者 ID** 與您的角色 ARN 值相符。 您的 [帳戶狀態] 應該會有綠色核取記號符號，表示「成本管理」可以存取您的 AWS 帳戶。 在您啟用詳細 AWS 帳單之前，您的彙總狀態會顯示為「獨立」。
+您的 AWS 帳戶會出現在帳戶清單中。 列出的**擁有者 ID** 與您的角色 ARN 值相符。 您的 [Account Status] \(帳戶狀態\) 應該會有綠色核取記號符號，表示 Cloudyn 可以存取您的 AWS 帳戶。 在您啟用詳細 AWS 帳單之前，您的彙總狀態會顯示為「獨立」。
 
 ![AWS 帳戶狀態](./media/connect-aws-account/aws-account-status01.png)
 
-成本管理會開始收集資料並填入報表。 接下來，[啟用詳細 AWS 帳單](#enable-detailed-aws-billing)。
+Cloudyn 會開始收集資料並填入報告。 接下來，[啟用詳細 AWS 帳單](#enable-detailed-aws-billing)。
 
 
 ## <a name="aws-user-based-access"></a>AWS 以使用者為基礎的存取
 
-下列各節會引導您完成建立唯讀使用者以提供成本管理的存取權。
+下列各節會引導您完成建立唯讀使用者以提供 Cloudyn 存取權的程序。
 
 ### <a name="add-aws-read-only-user-based-access"></a>新增 AWS 唯讀以使用者為基礎的存取
 
@@ -86,11 +86,11 @@ ms.locfileid: "35297323"
 6. 在 [附加權限原則] 底下的 [原則類型] 篩選方塊搜尋中，輸入 `ReadOnlyAccess`，選取 [ReadOnlyAccess]，然後按 [下一步：檢閱]。  
     ![設定使用者的權限](./media/connect-aws-account/set-permission-for-user.png)
 7. 在 [檢閱] 分頁中，確定您的選擇正確無誤，然後按一下 [建立使用者]。
-8. 在 [完成] 分頁中，會顯示您的存取金鑰 ID 和密碼存取金鑰。 您使用此資訊在成本管理中設定註冊。
+8. 在 [完成] 分頁中，會顯示您的存取金鑰 ID 和密碼存取金鑰。 您需使用此資訊在 Cloudyn 中設定註冊。
 9. 按一下 [下載 .csv] 以將 credentials.csv 檔案儲存到安全的位置。  
     ![下載認證](./media/connect-aws-account/download-csv.png)
 
-### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>在成本管理中設定 AWS IAM 以使用者為基礎的存取
+### <a name="configure-aws-iam-user-based-access-in-cloudyn"></a>在 Cloudyn 中設定 AWS IAM 使用者型存取
 
 1. 從 Azure 入口網站中開啟 Cloudyn 入口網站，或瀏覽至 https://azure.cloudyn.com/ 並登入。
 2. 按一下齒輪符號，然後選取 [雲端帳戶]。
@@ -102,7 +102,7 @@ ms.locfileid: "35297323"
 
 您的 AWS 帳戶會出現在帳戶清單中。 您的**帳戶狀態**應該有一個綠色核取符號。
 
-成本管理會開始收集資料並填入報表。 接下來，[啟用詳細 AWS 帳單](#enable-detailed-aws-billing)。
+Cloudyn 會開始收集資料並填入報告。 接下來，[啟用詳細 AWS 帳單](#enable-detailed-aws-billing)。
 
 ## <a name="enable-detailed-aws-billing"></a>啟用詳細 AWS 帳單
 
@@ -185,7 +185,7 @@ ms.locfileid: "35297323"
 3. 選取全部 4 個報告細微性選項，然後按一下 [儲存喜好設定]。  
     ![啟用報告](./media/connect-aws-account/enable-reports.png)
 
-「成本管理」會從您的 S3 貯體擷取詳細帳單資訊，然後在啟用詳細帳單之後填入報告。 可能需要多達 24 小時才能讓詳細帳單資料出現在 Cloudyn 主控台。 詳細帳單資料可用時，您的帳戶彙總狀態會顯示為「已彙總」。 帳戶狀態會顯示為「已完成」。
+Cloudyn 會從您的 S3 貯體擷取詳細帳單資訊，然後在啟用詳細帳單功能之後填入報告。 可能需要多達 24 小時才能讓詳細帳單資料出現在 Cloudyn 主控台。 詳細帳單資料可用時，您的帳戶彙總狀態會顯示為「已彙總」。 帳戶狀態會顯示為「已完成」。
 
 ![帳戶彙總狀態](./media/connect-aws-account/consolidated-status.png)
 
@@ -193,4 +193,4 @@ ms.locfileid: "35297323"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解 Azure 成本管理，請繼續進行「成本管理」的[檢閱使用量和成本](tutorial-review-usage.md)教學課程。
+- 若要深入了解 Cloudyn，請繼續進行 Cloudyn 的[檢閱使用量和成本](tutorial-review-usage.md)教學課程。

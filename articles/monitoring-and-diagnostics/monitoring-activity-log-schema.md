@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003826"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998218"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
 透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./monitoring-diagnostic-logs-schema.md)的對應。
@@ -193,6 +193,95 @@ ms.locfileid: "40003826"
 ```
 請參閱[服務健康情況通知](./monitoring-service-notifications.md)一文，以取得關於屬性中之值的文件。
 
+## <a name="resource-health"></a>資源健康情況
+此類別包含 Azure 資源已發生的任何資源健康情況事件的記錄。 「虛擬機器健康情況已變更為無法使用」是您可能在此類別中看到的事件類型。 資源健康情況事件可以代表四個健康情況的其中一個：可用、無法使用、已降級、未知。 此外，資源健康情況事件可分類為「平台起始」或「使用者起始」。
+
+### <a name="sample-event"></a>範例事件
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>屬性描述
+| 元素名稱 | 說明 |
+| --- | --- |
+| 通道 | 一律是 “Admin, Operation” |
+| correlationId | 字串格式的 GUID。 |
+| 說明 |警示事件的靜態文字描述。 |
+| eventDataId |警示事件的唯一識別碼。 |
+| category | 一律為 "ResourceHealth" |
+| eventTimestamp |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
+| 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」、「資訊」與「詳細資訊」 |
+| operationId |對應至單一作業的事件共用的 GUID。 |
+| operationName |作業名稱。 |
+| resourceGroupName |包含資源的資源群組名稱。 |
+| resourceProviderName |一律為 "Microsoft.Resourcehealth/healthevent/action"。 |
+| resourceType | 受資源健康情況事件影響的資源類型。 |
+| ResourceId | 受影響資源之資源識別碼的名稱。 |
+| status |描述健康情況事件狀態的字串。 值可以是：作用中、已解決、正在進行、已更新。 |
+| subStatus | 針對警示通常為 null。 |
+| submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
+| subscriptionId |Azure 訂用帳戶識別碼。 |
+| properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。|
+| properties.title | 描述資源健康情況狀態的使用者易記字串。 |
+| properties.details | 進一步描述事件詳細資料的使用者易記字串。 |
+| properties.currentHealthStatus | 資源的目前健康情況狀態。 下列其中一個值：「可用」、「無法使用」、「已降級」與「未知」。 |
+| properties.previousHealthStatus | 資源先前的健康情況狀態。 下列其中一個值：「可用」、「無法使用」、「已降級」與「未知」。 |
+| properties.type | 描述資源健康情況事件的類型。 |
+| properties.cause | 描述資源健康情況事件的原因。 "UserInitiated" 或 "PlatformInitiated"。 |
+
+
 ## <a name="alert"></a>警示
 此類別包含所有 Azure 警示的啟用記錄。 您可能會在此類別中看到的事件類型範例為「myVM 上的 CPU 百分比在過去 5 分鐘內已超過 80」。 各種 Azure 系統都有警示概念，您可以定義某種類型的規則，並在條件符合該規則時接收通知。 每次支援的 Azure 警示類型「啟動」時，或產生通知的條件符合時，該啟用記錄會也會推送至此類別的活動記錄。
 
@@ -260,16 +349,16 @@ ms.locfileid: "40003826"
 ### <a name="property-descriptions"></a>屬性描述
 | 元素名稱 | 說明 |
 | --- | --- |
-| 呼叫者 | 一律是 Microsoft.Insights/alertRules |
-| 通道 | 一律是 “Admin, Operation” |
+| caller | 一律是 Microsoft.Insights/alertRules |
+| channels | 一律是 “Admin, Operation” |
 | claims | 具有警示引擎的 SPN (服務主體名稱) 或資源類型的 JSON Blob。 |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |警示事件的靜態文字描述。 |
+| description |警示事件的靜態文字描述。 |
 | eventDataId |警示事件的唯一識別碼。 |
-| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning” 和 “Informational” |
+| level |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning” 與 “Informational” |
 | resourceGroupName |如果為計量警示，這是受影響資源的資源群組名稱。 針對其他警示類型，這是包含警示本身的資源群組名稱。 |
 | resourceProviderName |如果為計量警示，這是受影響資源的資源提供者名稱。 針對其他警示類型，這是警示本身的資源提供者名稱。 |
-| ResourceId | 如果為計量警示，這是受影響資源的資源識別碼名稱。 針對其他警示類型，這是警示資源本身的資源識別碼。 |
+| resourceId | 如果為計量警示，這是受影響資源的資源識別碼名稱。 針對其他警示類型，這是警示資源本身的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
 | operationName |作業名稱。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |

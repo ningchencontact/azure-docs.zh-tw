@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858607"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950041"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>在 Microsoft Azure SUSE Linux VM 上執行 SAP NetWeaver
 這篇文章描述在 Microsoft Azure SUSE Linux 虛擬機器 (VM) 上執行 SAP NetWeaver 時應考量的各種事項。 自 2016 年 5 月 19 日起，在 Azure 的 SUSE Linux VM 上已正式支援 SAP NetWeaver。 如需有關 Linux 版本、SAP 核心版本的所有詳細資料及其他必要條件，請參閱 SAP 附註 1928533＜Azure 上的 SAP 應用程式︰支援的產品和 Azure VM 類型＞。
@@ -119,7 +119,7 @@ SAP「增強型監視」是在 Azure 上執行 SAP 的必要先決條件。 請�
    ```
 如需有關 JSON 範本檔案的更多詳細資料，請參閱[編寫 Azure Resource Manager 範本](../../../resource-group-authoring-templates.md)和 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
 
-如需有關 CLI 和 Azure Resource Manager 的更多詳細資料，請參閱[搭配使用 Mac、Linux 和 Windows 適用的 Azure CLI 與 Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md)。
+如需有關 Azure 傳統 CLI 與 Azure Resource Manager 的詳細資訊，請參閱[搭配 Azure Resource Manager 使用適用於 Mac、Linux 與 Windows 的 Azure 傳統 CLI](../../../xplat-cli-azure-resource-manager.md)。
 
 ## <a name="sap-license-and-hardware-key"></a>SAP 授權與硬體金鑰
 針對官方的 SAP-Azure 憑證，已經有新的機制可以計算 SAP 授權使用的 SAP 硬體金鑰。 要使用新的演算法，必須調整 SAP 核心。 Linux 先前的 SAP 核心版本不包括此程式碼變更。 因此，在某些情況下 (例如 Azure VM 調整大小)，SAP 硬體金鑰已發生變更，而 SAP 授權已不再有效 使用較新的 SAP Linux 核心提供解決方案。  詳細的 SAP 核心修補程式會記載於 SAP 附註 1928533。

@@ -1,78 +1,184 @@
 ---
-title: Microsoft Azure 和 Azure 監視器中的傳統警示概觀
-description: 警示可讓您監視 Azure 資源度量、事件或記錄檔，並在您所指定條件符合時收到通知。
+title: Azure 中的警示與通知監視概觀
+description: Azure 中的警示概觀。 警示、傳統警示、警示介面。
 author: rboucher
-services: azure-monitor
+services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: a0abcbdaa7e998413efb717be6e0addc5607ec5c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7565c536b5d24c859b164a960f74bd1e2ce97b63
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114006"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960629"
 ---
-# <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
+# <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
-> [!NOTE]
-> 本文說明如何建立舊版傳統計量警示。 Azure 監視器現已支援[新版的近乎即時計量警示和新的警示體驗](monitoring-overview-unified-alerts.md)。 
->
-
-藉由使用警示，您可以對資料設定條件，並在最新的監視資料符合條件時收到通知。
+本文章說明何謂警示、其優點，以及如何開始使用它們。  
 
 
-## <a name="alerts-on-azure-monitor-data"></a>Azure 監視器資料的相關警示
-可用的傳統警示類型有兩種：計量警示和活動記錄警示。
+## <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示是什麼？
+當您的監視資料中發現重要條件時，警示會主動通知您。 它們可讓您在系統使用者注意到問題之前，找出並解決問題。 
 
-* **傳統計量警示**：當指定的計量值超出您指派的閾值時，就會觸發此警示。 當警示「已啟動」(超過閾值且符合警示條件) 時，會產生通知。 當警示「已解決」 (再次超出閾值但不再符合條件) 時，它也會產生警示。 
+本文討論 Azure 監視器中統一的警示體驗，此體驗現在包含 Log Analytics 和 Application Insights。 [先前的警示體驗](monitoring-overview-alerts.md)和警示類型稱為「傳統警示」。 您可以透過按一下警示頁面上方的 [檢視傳統警ˋ] 來檢視此舊版體驗和舊版警示類型。 
 
-* **傳統活動記錄警示**：當符合您指派之篩選準則的活動記錄產生時，會觸發此資料流記錄警示。 這些警示只有「已啟動」這個狀態，因為警示引擎會直接將篩選準則套用至任何新的事件。 當新的服務健康狀態事件發生時，或當使用者或應用程式在您的訂用帳戶中執行諸如「刪除虛擬機器」作業時，這些警示可以通知您。
 
-若要接收可透過 Azure 監視器取得的診斷記錄資料，請將資料路由傳送到 Log Analytics (先前稱為 Operations Management Suite)，並使用 Log Analytics 查詢警示。 Log Analytics 現在使用[新的警示方法](monitoring-overview-unified-alerts.md)。 
+## <a name="overview"></a>概觀
 
-下圖摘要顯示 Azure 監視器中的資料來源，並建議您可以如何設定這些資料的警示。
+下表顯示一般條款和警示流程。 
 
-![警示的說明](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
+![警示流程](media/monitoring-overview-alerts/Azure-Monitor-Alerts.svg)
 
-## <a name="taxonomy-of-azure-monitor-alerts-classic"></a>Azure 監視器警示的分類法 (傳統)
-Azure 使用下列詞彙來描述傳統警示及其功能：
-* **警示**：符合時會啟動之準則 (一或多個規則或條件) 的定義。
-* **啟動**：符合傳統警示所定義的準則時會發生的狀態。
-* **已解決**：先前符合傳統警示所定義的準則，但之後已不再符合時會發生的狀態。
-* **通知**：當傳統警示變成啟動時會採取的動作。
-* **動作**：傳送給通知接收者的特定呼叫 (例如，電子郵件或張貼到 Webhook URL)。 通知通常可觸發多個動作。
+警示規則分成警示和警示引發時所採取的動作。 
 
-## <a name="how-do-i-receive-notifications-from-an-azure-monitor-classic-alert"></a>如何接收來自 Azure 監視器傳統警示的通知？
-在過去，Azure 的警示來自不同的服務，各自使用其專屬的內建通知方法。 
+- **警示規則** - 警規則會擷取用於警示的目標和準則。 警示規則可處於已啟用或已停用狀態。 警示只有在啟用時才會引發。 警示規則的索引鍵屬性包括：
+    - **目標資源** - 目標可以是任何 Azure 資源。 目標資源定義可用於警示的範圍和訊號。 範例目標：虛擬機器、儲存體帳戶、虛擬機器擴展集、Log Analytics 工作區或 Application Insights 資源。 對於某些資源 (例如虛擬機器)，您可以將多個資源指定為警示規則的目標。
+    - **訊號** - 訊號是由目標資源所發出並可以是數種類型。 計量、Activity log、Application Insights 及記錄。
+    - **準則** - 準則是目標資源上所套用訊號和邏輯的組合。 範例： 
+         - 百分比 CPU > 70%
+         - 伺服器回應時間 > 4 ms 
+         - 記錄查詢的結果計數 > 100
+- **警示名稱** – 使用者所設定的警示規則特定名稱
+- **警示描述** – 使用者所設定的警示規則描述
+- **嚴重性** – 符合警示規則中指定的準則時的警示嚴重性。 嚴重性的範圍可從 0 到 4。
+- **動作** - 引發警示時所採取的動作。 如需詳細資訊，請參閱「動作群組」。
 
-現在，Azure 監視器提供可重複使用的通知群組，稱為「動作群組」。 動作群組可指定一組通知接受者。 當參考動作群組的警示啟動時，所有接收者都會接收到該通知。 此功能可讓您在許多警示物件之間重複使用一個接收者群組 (例如您隨時待命的工程師清單)。 動作群組支援透過各種方法的通知。 這些方法可包括張貼到 Webhook URL、傳送電子郵件、SMS 訊息，以及數個其他動作。 如需詳細資訊，請參閱[在 Azure 入口網站中建立和管理動作群組](monitoring-action-groups.md)。 
+## <a name="what-you-can-alert-on"></a>您可以發出警示的對象
 
-舊版傳統活動記錄警示會使用動作群組。
+您可以針對計量和記錄發出警示，如[監視資料來源](monitoring-data-sources.md)中所述。 包含但不限於：
+- 計量值
+- 記錄搜尋查詢
+- 活動記錄事件
+- 基礎 Azure 平台健康情況
+- 網站可用性測試
 
-不過，舊版計量警示不會使用動作群組。 您可以改為設定下列動作： 
-* 將電子郵件通知傳送至服務管理員、共同管理員或您指定的其他電子郵件地址。
-* 呼叫 Webhook，它可讓您啟動其他自動化動作。
 
-Webhook 可讓您使用自動化和補救措施，例如，使用以下服務：
-- Azure 自動化 Runbook
-- Azure Functions
-- Azure 邏輯應用程式
-- 第三方服務
+
+## <a name="manage-alerts"></a>管理警示
+您可以設定警示的狀態來指定警示在解決流程中的位置。 當符合警示規則中指定的準則時，會建立或引發警示，該警示具有 [新] 狀態。 當您認可警示並將它關閉時，您可以變更狀態。 任何狀態變更都會儲存在警示的記錄中。
+
+支援下列警示狀態：
+
+| State | 說明 |
+|:---|:---|
+| 新增 | 已經偵測到問題，但尚未檢閱。 |
+| 已認可 | 系統管理員已檢閱警示，且已開始處理。 |
+| 關閉 | 已解決問題。 關閉警示之後，您可以將警示變更為另一個狀態以重新開啟它。 |
+
+警示的狀態與監視器條件不同。 警示狀態是由使用者設定，而與監視器條件無關。 當引發的警示的根本條件清除時，該警示的監視條件會設定為已解決。 即使系統可能將監視條件設定為已解決，在使用者變更警示狀態前，警示狀態不會變更。 了解[如何變更警示與智慧群組的狀態](https://aka.ms/managing-alert-smart-group-states)。
+
+## <a name="smart-groups"></a>智慧群組 
+智慧群組目前為預覽階段。 
+
+智慧群組是根據機器學習演算法的警示彙總，有助於減少警示干擾，並協助疑難排解。 [深入了解智慧群組](https://aka.ms/smart-groups)和[如何管理智慧群組](https://aka.ms/managing-smart-groups)。
+
+
+## <a name="alerts-experience"></a>警示體驗 
+對於特定時間內建立的警示，預設的 [警示] 頁面提供警示的摘要。 它會顯示每個嚴重性的警示總計，且有欄顯示每個嚴重性和每個狀態的警示總數。 選取任何嚴重性以開啟依照該嚴重性篩選的 [所有警示](#all-alerts-page) 頁面。
+
+它不會顯示或追蹤舊版[傳統警示](#classic-alerts)。 您可以變更訂用帳戶或篩選參數來更新頁面。 
+
+![警示頁面](media/monitoring-overview-alerts/alerts-page.png)
+
+您可以選取頁面頂端下拉式功能表中的值來篩選此檢視。
+
+| 欄 | 說明 |
+|:---|:---|
+| 訂用帳戶 | 選取最多五個 Azure 訂用帳戶。 檢視僅會包含所選訂用帳戶中出現的警示。 |
+| 資源群組 | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
+| 時間範圍 | 只有在所選時間範圍內引發的警示才會包含在檢視中。 支援的值為過去 1 小時、過去 24 小時、過去 7 天和過去 30 天。 |
+
+選取 [警示] 頁面頂端的下列值以開啟另一個頁面。
+
+| 值 | 說明 |
+|:---|:---|
+| 警示總計 | 符合所選準則的警示總數。 選取此值以開啟沒有任何篩選的 [所有警示] 檢視。 |
+| 智慧群組 | 從符合所選準則之警示建立的智慧群組總數。 選取此值將開啟 [所有警示] 檢視中的智慧群組清單。
+| 警示規則總計 | 所選訂用帳戶和資源群組中的警示規則總數。 選取此值以開啟在選取的訂用帳戶與資源群組上篩選的 [規則] 檢視。
+
+
+## <a name="manage-alert-rules"></a>管理警示規則
+按一下 [管理警示規則] 以顯示 [規則]頁面。 [規則] 是可管理各個 Azure 訂用帳戶之所有警示規則的單一位置。 它會列出所有警示規則，並可根據目標資源、資源群組、規則名稱或狀態來排序。 您也可以從這個頁面編輯、啟用或停用警示規則。  
+
+ ![警示規則](./media/monitoring-overview-alerts/alerts-preview-rules.png)
+
+
+## <a name="create-an-alert-rule"></a>建立警示規則
+不論監視服務或訊號類型為何，都能以一致的方式編寫警示。 所有引發的警示和相關的詳細資料都在單一頁面中提供。
+ 
+您可以使用下列三個步驟建立新的警示規則：
+1. 挑選警示的_目標_。
+1. 從目標的可用訊號中選取_訊號_。
+1. 從訊號指定套用於資料的_邏輯_。
+ 
+這個簡化的編寫程序讓您不再需要先知道監視來源或支援的訊號，就能選取 Azure 資源。 可用訊號的清單是根據您選取的目標資源而自動篩選，而且它會逐步引導您定義警示規則的邏輯。
+
+您可以參閱[使用 Azure 監視器來建立、檢視及管理警示](monitor-alerts-unified-usage.md)，深入了解如何建立警示規則。
+
+警示可跨數個 Azure 監視服務使用。 如需如何和何時使用每個服務的資訊，請參閱[監視 Azure 應用程式和資源](./monitoring-overview.md)。 下表提供可在整個 Azure 使用的警示規則類型清單。 它也列出警示體驗所支援的項目。
+
+之前，Azure 監視器、Application Insights、Log Analytics 和服務健康狀態具有個別的警示功能。 隨著時間進展，Azure 改善並結合使用者介面與不同的警示方法。 這樣的整併仍在持續進行中。 因此，新的警示系統中仍可能沒有某些警示功能。  
+
+| **監視來源** | **訊號類型**  | **說明** | 
+|-------------|----------------|-------------|
+| 服務健康情況 | 活動記錄檔  | 不支援。 請參閱[建立服務通知的活動記錄警示](monitoring-activity-log-alerts-on-service-notifications.md)。  |
+| Application Insights | Web 可用性測試 | 不支援。 請參閱 [Web 測試警示](../application-insights/app-insights-monitor-web-app-availability.md)。 可供任何經檢測可傳送資料給 Application Insights 的網站使用。 當網站的可用性或回應能力低於預期時收到通知。 |
+
+
+## <a name="all-alerts-page"></a>[所有警示] 頁面 
+按一下 [警示總計] 可查看所有警示頁面。 您可在此處檢視在所選時間範圍內建立的警示清單。 您可以檢視個別警示的清單，或包含警示的智慧群組清單。 選取頁面頂端的橫幅以切換檢視。
+
+![[所有警示] 頁面](media/monitoring-overview-alerts/all-alerts-page.png)
+
+您可以透過在頁面頂端的下拉式功能表中選取下列值來篩選檢視。
+
+| 欄 | 說明 |
+|:---|:---|
+| 訂用帳戶 | 選取最多五個 Azure 訂用帳戶。 檢視僅會包含所選訂用帳戶中出現的警示。 |
+| 資源群組 | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
+| 資源類型 | 選取一個或多個資源類型。 檢視僅會包含所選類型目標之具目標的警示。 指定資源群組之後，才可使用此欄。 |
+| 資源 | 選取資源。 只有以該資源作為目標的警示才會包含在檢視中。 指定資源類型之後，才可使用此欄。 |
+| 嚴重性 | 選取警示嚴重性，或選取 [所有] 以包含所有嚴重性的警示。 |
+| 監視器條件 | 選取監視器條件，或選取 [所有] 以包含條件的警示。 |
+| 警示狀態 | 選取警示狀態，或選取 [所有] 以包含狀態的警示。 |
+| 監視器服務 | 選取服務，或選取 [所有] 以包含所有服務。 只會包含由使用服務作為目標之規則所建立的警示。 |
+| 時間範圍 | 只有在所選時間範圍內引發的警示才會包含在檢視中。 支援的值為過去 1 小時、過去 24 小時、過去 7 天和過去 30 天。 |
+
+選取頁面頂端的 [欄] 以選取要顯示的欄。 
+
+## <a name="alert-detail-page"></a>警示詳細資料頁面
+當您選取警示時，隨即顯示 [警示詳細資料] 頁面。 它會提供警示的詳細資料，且可讓您變更其狀態。
+
+![警示詳細資料](media/monitoring-overview-alerts/alert-detail2.png)
+
+[警示詳細資料] 頁面包含下列區段。
+
+| 區段 | 說明 |
+|:---|:---|
+| 基本資訊 | 顯示警示的內容和其他重要資訊。 |
+| 歷程記錄 | 列出警示採取的每個動作，以及對警示所做的任何變更。 這目前僅限於狀態變更。 |
+| 智慧群組 | 內含警示之智慧群組的相關資訊。 「警示計數」是指智慧群組中包含的警示數目。 這包含相同智慧群組中於過去 30 天內所建立的其他警示。  這與警示清單頁面中的時間篩選條件無關。 選取警示以檢視其詳細資料。 |
+| 其他詳細資訊 | 對於建立警示的來源類型一般特定的警示，顯示其他內容相關資訊。 |
+
+
+## <a name="classic-alerts"></a>傳統警示 
+
+2018 年 6 月之前的 Azure 監視器計量和活動記錄警示功能稱為「警示 (傳統)」。 
+
+如需詳細資訊，請參閱[警示傳統](./monitoring-overview-alerts-classic.md)
+
 
 ## <a name="next-steps"></a>後續步驟
-使用以下文件來取得警示規則和如何設定它們的相關資訊：
 
-* 深入了解[計量](monitoring-overview-metrics.md)
-* [使用 Azure 入口網站設定傳統計量警示](insights-alerts-portal.md)
-* [使用 PowerShell 設定傳統計量警示](insights-alerts-powershell.md)
-* [使用 Azure CLI 設定傳統計量警示](insights-alerts-command-line-interface.md)
-* [使用 Azure 監視器 REST API 設定傳統計量警示](https://msdn.microsoft.com/library/azure/dn931945.aspx) \(英文\)
-* 深入了解[活動記錄](monitoring-overview-activity-logs.md)
-* [使用 Azure 入口網站設定活動記錄警示](monitoring-activity-log-alerts.md)
-* [使用 Resource Manager 設定活動記錄警示](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-* 檢閱[活動記錄警示 Webhook 結構描述](monitoring-activity-log-alerts-webhook.md)
-* 深入了解[動作群組](monitoring-action-groups.md)
-* 設定[新版警示](monitor-alerts-unified-usage.md)
+- [深入了解智慧群組](https://aka.ms/smart-groups)
+- [深入了解動作群組](monitoring-action-groups.md)
+- [在 Azure 中管理警示](https://aka.ms/managing-alert-instances)
+- [管理智慧群組](https://aka.ms/managing-smart-groups)
+
+
+
+
+

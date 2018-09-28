@@ -3,30 +3,31 @@ title: 使用 Team Data Science Process 範本來建構專案 | Microsoft Docs
 description: 如何在 Azure Machine Learning 中將 Team Data Science Process (TDSP) 範本具現化，以建構專案來進行共同作業
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: bradsev
-ms.openlocfilehash: 5b53bd3ec479ba6e096b4d00089f968e37f0135c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831763"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970918"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>使用 Team Data Science Process 範本來建構專案
 
-本文件說明如何在 Azure Machine Learning 中使用 Team Data Science Process (TDSP) 範本來建立資料科學專案。 這些範本可協助建構專案來進行共同作業和提供重現性。 
+本文件說明如何在較早版本的 Azure Machine Learning 中使用 Team Data Science Process (TDSP) 範本來建立資料科學專案。 這些範本可協助建構專案來進行共同作業和提供重現性。 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## <a name="what-is-the-team-data-science-process"></a>什麼是 Team Data Science Process？
 TDSP 是一個靈活、反覆的資料科學程序，可用於執行和提供進階的分析解決方案。 其設計目的是要改善企業組織中資料科學小組的共同作業與效率。 它透過四個主要元件來支援這些目標：
@@ -52,7 +53,7 @@ TDSP 是一個靈活、反覆的資料科學程序，可用於執行和提供進
 * 檢閱 TDSP Machine Learning [範本](https://aka.ms/tdspamlgithubrepo) \(英文\)。
 * 內容 ([docs] 資料夾中既有的內容除外) 大小必須小於 25 MB。 請參閱本清單後面的附註。
 * [sample\_data] 資料夾只適用於小型資料檔案 (小於 5 MB)，您可以使用這類檔案來測試程式碼或進行早期開發。
-* 儲存檔案 (例如 Word 和 PowerPoint 檔案) 會大幅增加 [docs] 資料夾的大小。 建議您尋找一個共同作業的 Wiki、[SharePoint](https://products.office.com/en-us/sharepoint/collaboration) 或其他共同作業資源來儲存這類檔案。
+* 儲存檔案 (例如 Word 和 PowerPoint 檔案) 會大幅增加 [docs] 資料夾的大小。 建議您尋找一個共同作業的 Wiki、[SharePoint](https://products.office.com/sharepoint/collaboration) 或其他共同作業資源來儲存這類檔案。
 * 若要了解如何處理 Machine Learning 中的大型檔案和輸出，請參閱[保存變更和處理大型檔案](http://aka.ms/aml-largefiles)。
 
 > [!NOTE]

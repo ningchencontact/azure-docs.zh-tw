@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426688"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989289"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
-[在 Azure 中建立警示](monitor-alerts-unified-usage.md)後，您可以選擇[使用動作群組設定](monitoring-action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
+[在 Azure 中建立記錄警示](alert-log.md)後，您可以選擇[使用動作群組設定](monitoring-action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
 
 
 ## <a name="webhook-actions"></a>Webhook 動作
 
-Webhook 動作可讓您透過單一 HTTP POST 要求叫用外部處理序。  被呼叫的服務應支援 Webhook，並判斷它將如何使用所接收的承載。   使用 Webhook 來回應警示的範例會在 [Slack](http://slack.com) 中傳送訊息，或在 [PagerDuty](http://pagerduty.com/) 中建立事件。  
+Webhook 動作可讓您透過單一 HTTP POST 要求叫用外部處理序。  被呼叫的服務應支援 Webhook，並判斷它將如何使用所接收的承載。    
 
 Webhook 動作需要下表中的屬性：
 
 | 屬性 | 說明 |
 |:--- |:--- |
 | Webhook URL |Webhook 的 URL。 |
-| 自訂 JSON 承載 |自訂在警示建立期間選擇此選項時使用 Webhook 傳送承載。 如需詳細資料，請參閱[使用 Azure 警示管理警示](monitor-alerts-unified-usage.md) |
+| 自訂 JSON 承載 |自訂在警示建立期間選擇此選項時使用 Webhook 傳送承載。 您可以在[管理記錄警示](alert-log.md)找到詳細資料 |
 
 > [!NOTE]
-> 記錄警示的 [包含 webhook 的自訂 JSON 承載] 選項旁的 [測試 Webhook] 按鈕會觸發虛擬呼叫來測試 Webhook URL。 它不包含實際資料，也不包含用於記錄警示的代表性 JSON 結構描述。 
+> 記錄警示的 [包含 Webhook 的自訂 JSON 承載] 選項旁的 [檢視 Webhook] 按鈕，會顯示所提供自訂的範例 Webhook 承載。 它不包含實際資料，也不包含用於記錄警示的代表性 JSON 結構描述。 
 
 Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務的資料)。  根據預設，裝載包含下表中的值：您可以選擇將此承載取代為您自己的自訂承載。  在此情況下，您可以使用下表中每個參數的變數，將其值包含在您的自訂承載中。
 
@@ -54,7 +54,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 | 訂用帳戶識別碼 |#subscriptionid |搭配 Application Insights 使用之 Azure 訂用帳戶的識別碼。 
 
 > [!NOTE]
-> LinkToSearchResults 會將參數 (例如 SearchQuery、URL 中的搜尋間隔開始時間和搜尋間隔結束時間) 傳遞至 Azure 入口網站，以便在 Analytics 區段中檢視。 Azure 入口網站有大約 2000 個字元的 URI 大小限制，如果參數值超過該限制，則會開啟。 使用者可以手動輸入詳細資料，以在 Analytics 入口網站中檢視結果，或使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](https://dev.loganalytics.io/reference) 以程式設計方式擷取結果 
+> LinkToSearchResults 會將參數 (例如 SearchQuery、URL 中的搜尋間隔開始時間和搜尋間隔結束時間) 傳遞至 Azure 入口網站，以便在 Analytics 區段中檢視。 Azure 入口網站有大約 2000 個字元的 URI 大小限制，如果參數值超過該限制，則「不會」開啟警示中提供的連結。 使用者可以手動輸入詳細資料，以在 Analytics 入口網站中檢視結果，或使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](https://dev.loganalytics.io/reference) 以程式設計方式擷取結果 
 
 例如，您可以指定下列自訂承載，其中包含稱為 text 的單一參數。  此 Webhook 所呼叫的服務需要有這個參數。
 
@@ -198,6 +198,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 [Azure 警示中的記錄警示](monitor-alerts-unified-log.md)
+- 了解[管理 Azure 中的記錄警示](alert-log.md)
 - 建立和管理 [Azure 中的動作群組](monitoring-action-groups.md)
 - 深入了解 [Application Insights](../application-insights/app-insights-analytics.md)
 - 深入了解 [Log Analytics](../log-analytics/log-analytics-overview.md)。 
