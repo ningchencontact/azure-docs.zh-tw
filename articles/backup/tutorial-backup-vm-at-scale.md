@@ -9,12 +9,12 @@ ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 4fb8d45c285ee3c1651039619808b8964c5313cd
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: dfe561e7a7231c8e7f9465819a01cd4b0a35f47c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983075"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434531"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 入口網站備份多部虛擬機器
 
@@ -42,9 +42,9 @@ ms.locfileid: "45983075"
 
     ![開啟保存庫功能表](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
-3. 在 [復原服務保存庫] 功能表中， 
+3. 在 [復原服務保存庫] 功能表中，
 
-    - 在 [名稱] 中鍵入 *myRecoveryServicesVault*，
+    - 在 [名稱] 中鍵入 *myRecoveryServicesVault*。
     - 目前的訂用帳戶識別碼會出現在 [訂用帳戶] 中。 如果您有其他的訂用帳戶，可為新的保存庫選擇其他訂用帳戶。
     - 針對**資源群組**：選取 [使用現有] 並選擇 [myResourceGroup]。 如果 [myResourceGroup] 不存在，請選取 [新建] 並鍵入 *myResourceGroup*。
     - 從 [位置] 下拉式功能表中，選擇 [西歐]。
@@ -76,7 +76,7 @@ ms.locfileid: "45983075"
 
     ![選取工作負載](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
-5. 在 [備份原則] 功能表上，針對 [原則名稱] 鍵入 *Finance*。 輸入備份原則的下列變更： 
+5. 在 [備份原則] 功能表上，針對 [原則名稱] 鍵入 *Finance*。 輸入備份原則的下列變更：
     - 針對 [備份頻率]將時區設定為 [美國中部時間]。 因為運動休閒中心位在德州，所以業主希望使用本地時間。 [備份頻率] 保持設定為 [每天] 上午 3:30 執行。
     - 針對 [每日備份點保留期]，將期限設定為 90 天。
     - 針對 [每週備份點保留期]，還原點使用 [星期一] 並保留 52 週。
@@ -84,21 +84,21 @@ ms.locfileid: "45983075"
     - 取消選取 [每年備份點保留期] 選項。 財務部主管不希望資料保留期限超過 36 個月。
     - 按一下 [確定] 可建立備份原則。
 
-    ![選取工作負載](./media/tutorial-backup-vm-at-scale/set-new-policy.png) 
+    ![選取工作負載](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
     建立備份原則之後，再建立該原則與虛擬機器的關聯性。
 
-6. 在 [選取虛擬機器] 對話方塊中選取 [myVM]，然後按一下 [確定] 將備份原則部署到虛擬機器。 
+6. 在 [選取虛擬機器] 對話方塊中選取 [myVM]，然後按一下 [確定] 將備份原則部署到虛擬機器。
 
     所有位於相同地點且未與備份原則相關聯的虛擬機器都會出現。 已選取 *myVMH1* 和 *myVMR1* 要與 *Finance* 原則建立關聯性。
 
-    ![選取工作負載](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png) 
+    ![選取工作負載](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png)
 
     完成部署之後，您會收到已順利完成部署的通知。
 
 ## <a name="initial-backup"></a>初始備份
 
-您已啟用復原服務保存庫的備份，但尚未建立初始備份。 災害復原的最佳做法是觸發第一個備份，這樣可以保護資料。 
+您已啟用復原服務保存庫的備份，但尚未建立初始備份。 災害復原的最佳做法是觸發第一個備份，這樣可以保護資料。
 
 執行隨選備份作業：
 
@@ -130,10 +130,10 @@ ms.locfileid: "45983075"
 
     部署通知可讓您知道已觸發備份工作，而且您可以在 [備份工作] 頁面上監視作業的進度。 視您虛擬機器的大小而定，建立初始備份可能需要花一點時間。
 
-    初始備份作業完成後，您會在 [備份作業] 功能表中看到它的狀態。 隨選備份作業已建立 *myVM* 的初始還原點。 如果您想要備份其他虛擬機器，請為每部虛擬機器重複這些步驟。 
+    初始備份作業完成後，您會在 [備份作業] 功能表中看到它的狀態。 隨選備份作業已建立 *myVM* 的初始還原點。 如果您想要備份其他虛擬機器，請為每部虛擬機器重複這些步驟。
 
     ![備份工作圖格](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
-  
+
 ## <a name="clean-up-resources"></a>清除資源
 
 如果您打算繼續進行後續的教學課程，請勿清除在此教學課程中建立的資源。 如果您不打算繼續，請使用下列步驟，在 Azure 入口網站中刪除本教學課程所建立的所有資源。
@@ -153,15 +153,15 @@ ms.locfileid: "45983075"
 
     ![設定圖示](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. 在操作功能表上選取 [停止備份] 開啟 [停止備份] 功能表。 
+4. 在操作功能表上選取 [停止備份] 開啟 [停止備份] 功能表。
 
     ![設定圖示](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
 5. 在 [停止備份] 功能表上，選取上方的下拉式功能表，然後選擇 [刪除備份資料]。
 
 6. 在 [Type the name of the Backup item] \(鍵入備份項目的名稱) 對話方塊中鍵入 *myVM*。
- 
-7. 確認備份項目後 (核取記號會出現)，即啟用 [停止備份] 按鈕。 按一下 [停止備份] 停止原則並刪除還原點。 
+
+7. 確認備份項目後 (核取記號會出現)，即啟用 [停止備份] 按鈕。 按一下 [停止備份] 停止原則並刪除還原點。
 
     ![按一下 [停止備份] 刪除保存庫](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
@@ -183,7 +183,7 @@ ms.locfileid: "45983075"
 > * 指派原則以保護多部虛擬機器
 > * 觸發虛擬機器的隨選備份
 
-繼續下一個教學課程，從磁碟還原 Azure 虛擬機器。 
+繼續下一個教學課程，從磁碟還原 Azure 虛擬機器。
 
 > [!div class="nextstepaction"]
 > [使用 CLI 還原 VM](./tutorial-restore-disk.md)

@@ -2,13 +2,13 @@
 author: tomarcher
 ms.service: ansible
 ms.topic: include
-ms.date: 08/23/2018
+ms.date: 09/28/2018
 ms.author: tarcher
-ms.openlocfilehash: f6e763f3220205ee00a80db70802cb30fd896998
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: fe747500f19284f019ab6512581a6eea67816f94
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819083"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454600"
 ---
- 此外 - 如果您沒有 Linux 虛擬機器的存取權 - 請[使用 Ansible 建立虛擬機器](/azure/virtual-machines/linux/ansible-create-vm.md)。
+ 此外 - 如果您沒有 Linux 虛擬機器的存取權 - 請[使用 Ansible 建立虛擬機器](/azure/virtual-machines/linux/ansible-create-vm)。

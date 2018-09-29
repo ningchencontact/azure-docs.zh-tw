@@ -3,7 +3,7 @@ title: Azure 上的 OpenShift 部署後工作 | Microsoft Docs
 description: 在部署 OpenShift 叢集之後的其他工作。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
+author: haroldwongms
 manager: najoshi
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bdfd075b9438ee12e940f3ec4fddebf467c93ca8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796154"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434886"
 ---
 # <a name="post-deployment-tasks"></a>部署後工作
 
@@ -39,15 +39,15 @@ ms.locfileid: "31796154"
 這些步驟使用 Azure CLI 建立應用程式註冊，以及使用 GUI (入口網站) 設定權限。 若要建立應用程式註冊，您需要下列五項資訊：
 
 - 顯示名稱：應用程式註冊名稱 (例如 OCPAzureAD)
-- 首頁：OpenShift 主控台 URL (例如，https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- 識別碼 URI：OpenShift 主控台 URL (例如，https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- 回覆 URL：主要公用 URL 及應用程式註冊名稱 (例如，https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- 首頁：OpenShift 主控台 URL (例如， https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- 識別碼 URI：OpenShift 主控台 URL (例如， https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- 回覆 URL：主要公用 URL 及應用程式註冊名稱 (例如， https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - 密碼：安全密碼 (使用強式密碼)
 
 下列範例將會使用上述資訊建立應用程式註冊：
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
 ```
 
 如果命令成功，您會獲得類似以下的 JSON 輸出：
@@ -65,7 +65,7 @@ az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
   "replyUrls": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD"
   ]
 }
 ```

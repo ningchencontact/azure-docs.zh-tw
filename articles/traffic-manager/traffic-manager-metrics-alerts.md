@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 424782be2d814df6d598591198b5005fb494d3da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fe4cc3c06af6868396f5db6fd88804022f5f9793
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302363"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432469"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>流量管理員的計量與警示
 
@@ -46,7 +46,7 @@ ms.locfileid: "35302363"
 圖 2：顯示所傳回每個端點查詢量的分割檢視
 
 ## <a name="endpoint-status-by-endpoint"></a>依端點的端點狀態
-使用[此計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)來了解設定檔中端點的健全狀態。 它採用兩個值：
+使用[此計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles)來了解設定檔中端點的健全狀態。 它採用兩個值：
  - 如果端點已啟動，使用 **1**。
  - 如果端點已關閉，使用 **0**。
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b816d94c8d85ad7d28dfc76072627423a30f6704
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a4c389d063bb63f2fa2293d54236f99d7035e0e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293738"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060725"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>從 JavaScript 單一頁面應用程式 (SPA) 呼叫 Microsoft Graph API
 
@@ -47,6 +47,7 @@ ms.locfileid: "46293738"
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript 預覽|
 
 > [!NOTE]
-> msal.js 的目標是 Azure Active Directory v2 端點 - 它會啟用個人、學校及公司帳戶以登入和取得權杖。 Azure Active Directory v2 端點具有[一些限制](..\articles\active-directory\develop\active-directory-v2-limitations.md)。 如果您只對於學校和公司帳戶感到興趣，請使用 adal.js 和 V1 端點。 若要了解 v1 和 v2 端點之間的差異，請參閱 [v1-v2 比較](../articles/active-directory/develop/azure-ad-endpoint-comparison.md)。
+> msal.js 的目標是 Azure Active Directory v2 端點 - 它會啟用個人、學校及公司帳戶以登入和取得權杖。 Azure Active Directory v2 端點具有[一些限制](..\articles\active-directory\develop\active-directory-v2-limitations.md)。
+> 若要了解 v1 和 v2 端點之間的差異，請參閱 [v1-v2 比較](../articles/active-directory/develop/azure-ad-endpoint-comparison.md)。
 
 <!--end-collapse-->
