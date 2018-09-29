@@ -2,27 +2,22 @@
 title: PowerShell 範例 - 稽核 - 威脅偵測 - Azure SQL Database |Microsoft 文件
 description: 在 Azure SQL Database 中設定稽核與威脅偵測的 Azure PowerShell 指令碼範例
 services: sql-database
-documentationcenter: sql-database
-author: giladmit
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: mvc,security
+ms.subservice: threat-detection
+ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: giladmit
 ms.author: giladm
 ms.reviewer: carlrab
-ms.openlocfilehash: bea62b9d7b884aca1d64db27cd09a115ebf0bdba
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 6942577c2bf6d031ded9ba6af93a2ab592fe9976
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633288"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47053804"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>使用 PowerShell 設定 SQL Database 稽核與威脅偵測
 

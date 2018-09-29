@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0df1170079e66bda95e38bcf17dcce738269eeb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436314"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039372"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>了解和使用 IoT 中樞的模組對應項
 
@@ -168,7 +168,7 @@ ms.locfileid: "37436314"
 
     - properties
 
-    | Name | 值 |
+    | 名稱 | 值 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  傳送通知的時間 |
@@ -250,7 +250,7 @@ ms.locfileid: "37436314"
     }
     ```
 
-* 所有字串值的最大長度為 4 KB。
+* 所有字串值的最大長度為 512 個位元組。
 
 ## <a name="module-twin-size"></a>模組對應項大小
 「IoT 中樞」會對 `tags`、`properties/desired` 和 `properties/reported` 的個別總計值 (排除唯讀元素) 分別強制執行 8 KB 大小的限制。

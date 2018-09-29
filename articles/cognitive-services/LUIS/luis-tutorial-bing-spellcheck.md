@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: 將 Bing 拼字檢查 API V7 新增至 LUIS 端點查詢，可更正語句中拼錯的字組。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: diberry
-ms.openlocfilehash: 19774d2a87e9c74f291f030aab09cb21fe4a931b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1f698a17ee6f4f654ba9d1e3741b190baf318e00
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525217"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031062"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>使用 Bing 拼字檢查更正拼錯的字組
 

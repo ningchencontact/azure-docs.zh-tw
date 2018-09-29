@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: 預先建立的定義域參考是從 Language Understanding Intelligent Service (LUIS) 預先建立的意圖和實體集合。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238891"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040035"
 ---
 # <a name="prebuilt-domain-reference"></a>預先建置的網域參考
 此參考提供[預先建立的定義域](luis-how-to-use-prebuilt-domains.md)相關資訊，這是 LUIS 提供之預先建立的意圖和實體集合。
@@ -154,7 +154,7 @@ Entertainment 定義域提供與搜尋電影、音樂、遊戲和電視節目相
 | ContentRating | 媒體內容分級，例如電影的 G 或 R。|適合兒童的視訊。<br/>分級為 PG。|
 | Genre | 電影、遊戲、應用程式或歌曲的內容類型。|喜劇<br/>戲劇<br/>有趣|
 | 關鍵字| 一般搜尋關鍵字，指定更明確的媒體位置中不存在的屬性。|原聲帶<br/>Moon River<br/>Amelia Earhart|
-| 語言 | 媒體中所使用的語言，例如，電影或歌曲的口語語言。|法文<br/>英文<br/>韓文|
+| 語言 | 媒體中所使用的語言，例如，電影或歌曲的口語語言。|法文<br/>English<br/>韓文|
 | MediaFormat | 用來格式化媒體的其他特殊技術類型。|HD 電影<br/>3D 電影<br/>可下載|
 | MediaSource | 取得媒體的網上商店或市集。|Netflix<br/>Prime|
 | MediaSubTypes| 小於電影和遊戲的媒體類型。|示範<br/>Dlc<br/>預告片|
@@ -178,7 +178,7 @@ Events 定義域提供與預約演唱會、慶典、運動賽事和喜劇表演�
 | 實體名稱 | 說明 | 範例 |
 | ---------------- |-----------------------|----|
 | 位址 | 活動位置或地址。 |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
-| Name | 活動的標題。|公園莎士比亞表演|
+| 名稱 | 活動的標題。|公園莎士比亞表演|
 | PlaceName| 活動位置名稱。|羅浮宮<br/>歌劇院<br/>百老匯|
 | PlaceType | 活動舉辦位置的類型。|咖啡廳<br/>劇院<br/>程式庫|
 | 類型 | 活動的類型。|演唱會<br/>運動賽事|

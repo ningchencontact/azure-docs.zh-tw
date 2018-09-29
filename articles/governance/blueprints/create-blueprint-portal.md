@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ca3f689ef91c0a1bcb751c78d4fa1d799ed3888b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984620"
+ms.locfileid: "47056432"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>在入口網站中定義和指派 Azure 藍圖
 
@@ -119,7 +119,7 @@ ms.locfileid: "46984620"
 
 ## <a name="edit-a-blueprint"></a>編輯藍圖
 
-在[建立藍圖](#create_a_blueprint) 時，並未提供描述，也未在新的資源群組內新增角色指派。 執行下列步驟可修正這兩者：
+在[建立藍圖](#create-a-blueprint) 時，並未提供描述，也未在新的資源群組內新增角色指派。 執行下列步驟可修正這兩者：
 
 1. 在左邊的頁面選取 [藍圖定義]。
 
@@ -229,4 +229,4 @@ ms.locfileid: "46984620"
 - 了解如何自訂[藍圖排序順序](./concepts/sequencing-order.md) (英文)
 - 了解如何使用[藍圖資源鎖定](./concepts/resource-locking.md) (英文)
 - 瞭解如何[更新現有的指派](./how-to/update-existing-assignments.md) (英文)
-- 使用[一般疑難排解](./troubleshoot/general.md) (英文) 解決藍圖指派期間發生的問題
+- 使用[一般疑難排解](./troubleshoot/general.md)來解決藍圖指派期間發生的問題

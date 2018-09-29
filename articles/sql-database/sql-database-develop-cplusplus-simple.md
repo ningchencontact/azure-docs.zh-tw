@@ -2,20 +2,22 @@
 title: 使用 C 和 C++ 連接到 SQL Database | Microsoft Docs
 description: 使用這個快速入門中的範例程式碼建置現代應用程式，這個應用程式使用 C++，並受到具有 Azure SQL Database 的雲端中之強大關聯式資料庫的支援。
 services: sql-database
-author: edmacauley
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
 ms.devlang: cpp
 ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
+manager: craigg
 ms.date: 04/01/2018
-ms.author: edmacauley
-ms.openlocfilehash: c37fdaa9f7aa2a0d243fe6cbc175060156967c61
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: caa61b4cecce3f0f4c37a0b945b0ca5a2fc619c1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644693"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063639"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 連接到 SQL Database
 這篇文章是以嘗試連接到 Azure SQL DB 的 C 和 C++ 開發人員為目標。 它會分成區段，讓您可以跳到您最感興趣的區段。 

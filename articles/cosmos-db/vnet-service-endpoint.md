@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109737"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037130"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>使用 Azure 虛擬網路服務端點保護 Azure Cosmos DB 帳戶的存取權
 
@@ -25,9 +25,6 @@ Azure Cosmos DB 是全域散發的多模型資料庫服務。 您可以將 Azure
 ![虛擬網路服務端點架構](./media/vnet-service-endpoint/vnet-service-endpoint-architecture.png)
 
 對 Azure Cosmos DB 帳戶設定虛擬網路服務端點後，您只能從指定的子網路存取該帳戶，所有公用/網際網路存取都會遭到移除。 若要深入了解服務端點，請參閱 Azure [虛擬網路服務端點概觀](../virtual-network/virtual-network-service-endpoints-overview.md)一文。
-
-> [!NOTE]
-> 目前，您可以對 Azure Cosmos DB SQL API 或 Mongo API 帳戶設定虛擬網路服務端點。 可對其他 API 和主權雲端 (例如 Azure 德國或 Azure Government ) 設定服務端點的功能將在近期推出。 如果您的 Azure Cosmos DB 帳戶已設定 IP 防火牆，則須注意防火牆組態，請移除 IP 防火牆，然後設定服務端點 ACL。 服務端點設定好之後，您可以重新啟用 IP 防火牆 (如有需要)。
 
 ## <a name="configure-service-endpoint-by-using-azure-portal"></a>使用 Azure 入口網站來設定服務端點
 ### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>對現有的 Azure 虛擬網路和子網路設定服務端點

@@ -2,21 +2,22 @@
 title: 使用 Visual Studio 和 .NET 查詢 Azure SQL Database | Microsoft Docs
 description: 本主題說明如何使用 Visual Studio 來建立連線到 Azure SQL Database 的程式，並使用 Transact-SQL 陳述式查詢。
 services: sql-database
-ms.workload: azure-vs
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: devcenter, vs-azure
+ms.subservice: development
+ms.custom: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 1e56d3160e42e3f722f3f9ccb8a6de82ac3bfb83
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e6eaaa67914579edd5c3b53362835aa1ad168eca
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186053"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064028"
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>使用 .NET (C#) 搭配 Visual Studio 連線及查詢 Azure SQL database
 
@@ -28,7 +29,7 @@ ms.locfileid: "43186053"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 在此快速入門中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+- 在此快速入門中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
 
 - 安裝 [Visual Studio Community 2017、Visual Studio Professional 2017 或 Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/)。
 
@@ -45,7 +46,7 @@ ms.locfileid: "43186053"
     ![ADO.NET 連接字串](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
-> 在您執行本教學課程的電腦上，公用 IP 位址必須有防火牆規則。 如果您在不同電腦上或有不同的公用 IP 位址，請建立[使用 Azure 入口網站的伺服器層級防火牆規則](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。 
+> 在您執行本教學課程的電腦上，公用 IP 位址必須有防火牆規則。 如果您在不同電腦上或有不同的公用 IP 位址，請建立[使用 Azure 入口網站的伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。 
 >
   
 ## <a name="create-a-new-visual-studio-project"></a>建立新的 Visual Studio 專案
