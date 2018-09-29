@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3559a25f3073f88e99379e98bc4562209b0c0825
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42108439"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432184"
 ---
 # <a name="about-the-speech-translation-api"></a>關於語音翻譯 API
 
@@ -32,7 +32,7 @@ Microsoft 語音 API 可讓您將端對端、即時、多國語言翻譯的語�
 
 根據 Microsoft 翻譯引擎的基礎，有兩種不同的方法：統計機器翻譯 (SMT) 和類神經機器翻譯 (NMT)。 後者，採用類神經網路的人工智慧方法是較新的機器翻譯方式。 NMT 提供更好的翻譯；不只更為精確，也更為流暢和自然。 這項流暢性的主要原因在於 NMT 使用句子的完整內容來翻譯文字。
 
-現在，針對最受歡迎的語言，Microsoft 已遷移至 NMT，而且只會針對不常使用的語言採用 SMT。 所有[可用於語音轉換語音翻譯的語言](supported-languages.md#speech-translation)都是採用 NMT 技術。 根據語言配對，語音轉換文字翻譯可能會使用 SMT 或 NMT。 若 NMT 支援目標語言，則完整翻譯採用 NMT 技術。 若 NMT 不支援目標語言，則翻譯是 NMT 與 SMT 兩者的混合，並使用英文作為兩種語言之間的「樞紐」。
+現在，針對最受歡迎的語言，Microsoft 已遷移至 NMT，而且只會針對不常使用的語言採用 SMT。 所有[可用於語音轉換語音翻譯的語言](language-support.md#speech-translation)都是採用 NMT 技術。 根據語言配對，語音轉換文字翻譯可能會使用 SMT 或 NMT。 若 NMT 支援目標語言，則完整翻譯採用 NMT 技術。 若 NMT 不支援目標語言，則翻譯是 NMT 與 SMT 兩者的混合，並使用英文作為兩種語言之間的「樞紐」。
 
 模型之間的差異在於內部翻譯引擎。 終端使用者只會注意到改善的翻譯品質，特別是中文、日文和阿拉伯文。
 

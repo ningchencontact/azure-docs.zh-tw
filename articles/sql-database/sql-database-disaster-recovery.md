@@ -2,20 +2,22 @@
 title: SQL Database 災害復原 | Microsoft Docs
 description: 了解如何使用 Azure SQL Database 的作用中異地複寫和異地還原功能，從區域資料中心中斷或失敗情況復原資料庫。
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dba78d3fb63ed6b2f867539fc471199ab72afe6a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: f04b17ec052e4d55ccb39c803b2d690589cb27d2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092591"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161670"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
 Azure SQL Database 提供下列功能，以從中斷復原：
@@ -38,7 +40,7 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 * 識別並選擇性地建立登入，新主要伺服器的 master 資料庫中必須有這些登入，並確保這些登入在 master 資料庫中有適當的權限 (如果有的話)。 如需詳細資訊，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)
 * 識別需要更新成對應至新主要資料庫的警示規則。
 * 將目前主要資料庫上的稽核設定整理成文件
-* 執行 [災害復原演練](sql-database-disaster-recovery-drills.md)。 若要模擬異地還原中斷，您可以刪除或重新命名來源資料庫，讓應用程式連線失敗。 若要使用容錯移轉群組模擬中斷，您可以停用 Web 應用程式或連線到資料庫的虛擬機器，或是容錯移轉資料庫，讓應用程式連線失敗。
+* 執行 [災害復原演練](sql-database-disaster-recovery-drills.md)。 若要模擬異地還原中斷，您可以刪除或重新命名來源資料庫，讓應用程式連線失敗。 若要使用容錯移轉群組模擬中斷，您可以停用 Web 應用程式或連線到資料庫的的虛擬機器，或是容錯移轉資料庫，讓應用程式連線失敗。
 
 ## <a name="when-to-initiate-recovery"></a>何時起始復原
 復原作業會影響應用程式。 它需要變更 SQL 連接字串，或使用 DNS 重新導向，並且可能會導致永久的資料遺失。 因此，只有在中斷情況可能持續超過應用程式的復原時間目標時，才應該執行這項作業。 將應用程式部署至生產環境之後，您應該定期監視應用程式健全狀況，並利用下列資料點判斷是否需要復原：

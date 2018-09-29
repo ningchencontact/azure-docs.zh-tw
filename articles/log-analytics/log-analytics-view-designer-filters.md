@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: dcdc84f100ce534ea517f0201b0c090c3059a318
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131405"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160923"
 ---
 # <a name="filters-in-log-analytics-views"></a>Log Analytics 檢視中的篩選
 [Log Analytics 檢視](log-analytics-view-designer.md)中的**篩選**可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  例如，您可以允許檢視的使用者篩選檢視，只顯示來自某個特定電腦或一組電腦的資料。  您可以在單一檢視上建立多個篩選，以允許使用者依多個屬性進行篩選。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。
@@ -49,7 +49,7 @@ ms.locfileid: "37131405"
 | 設定 | 說明 |
 |:---|:---|
 | 欄位名稱 | 用於篩選的欄位名稱。  這必須與 [查詢值] 中的 summarize 欄位相符。 |
-| 查詢值 | 所要執行以填入使用者篩選下拉式清單的查詢。  這必須使用 [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 或 [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) 來為特定欄位提供獨特的值，並且必須與 [欄位名稱]相符。  您可以使用 [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) 來排序對使用者顯示的值。 |
+| 查詢值 | 所要執行以填入使用者篩選下拉式清單的查詢。  這必須使用 [summarize](/azure/kusto/query/summarizeoperator) 或 [distinct](/azure/kusto/query/distinctoperator) 來為特定欄位提供獨特的值，並且必須與 [欄位名稱]相符。  您可以使用 [sort](/azure/kusto/query/sortoperator) 來排序對使用者顯示的值。 |
 | Tag | 支援篩選之查詢中使用的欄位名稱，此名稱也會對使用者顯示。 |
 
 ### <a name="examples"></a>範例

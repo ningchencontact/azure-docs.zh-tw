@@ -15,12 +15,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b5d7b71b76eebc0c14fe1403791c3d4b6cefd7f4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391326"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161032"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>檢視或分析以 Log Analytics 記錄搜尋所收集的資料
 
@@ -85,7 +85,7 @@ Syslog | where (SeverityLevel == "err")
 
 只有在將滑鼠移至上方時，名稱是藍色的屬性才會有 [篩選] 選項。  這些是可搜尋的欄位，已針對搜尋條件編列索引。  灰色的欄位是「自然語言檢索搜尋旗標」欄位，只有 [顯示參考] 選項。  此選項會傳回在任何屬性中具有該值的記錄。
 
-您可以選取記錄功能表中的 [分組依據] 選項，在單一屬性上群組結果。  這會將[摘要](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator)運算子新增到查詢中，可在圖表中顯示結果。  您可以群組一個以上的屬性，但需要直接編輯查詢。  選取**電腦**屬性旁的記錄功能表，並選取 [Group by 'Computer'] \(依「電腦」分組\)。  
+您可以選取記錄功能表中的 [分組依據] 選項，在單一屬性上群組結果。  這會將[摘要](/azure/kusto/query/summarizeoperator)運算子新增到查詢中，可在圖表中顯示結果。  您可以群組一個以上的屬性，但需要直接編輯查詢。  選取**電腦**屬性旁的記錄功能表，並選取 [Group by 'Computer'] \(依「電腦」分組\)。  
 
 ![依電腦分組](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
@@ -130,7 +130,7 @@ Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time
 
 ![處理器使用率](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-這可讓資料限制在特定的計數器，但仍無法以非常實用的形式來呈現資料。  您可透過折線圖顯示資料，但首先需要以 [電腦] 與 [TimeGenerated] 進行群組。  若要群組多個欄位，您需要直接修改查詢，因此，請將查詢修改如下。  這是在 **CounterValue** 屬性上使用 [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) 函式來計算每小時的平均值。
+這可讓資料限制在特定的計數器，但仍無法以非常實用的形式來呈現資料。  您可透過折線圖顯示資料，但首先需要以 [電腦] 與 [TimeGenerated] 進行群組。  若要群組多個欄位，您需要直接修改查詢，因此，請將查詢修改如下。  這是在 **CounterValue** 屬性上使用 [avg](/azure/kusto/query/avg-aggfunction) 函式來計算每小時的平均值。
 
 ```
 Perf  
@@ -140,7 +140,7 @@ Perf
 
 ![效能資料圖表](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-資料既已適當分組，您可以新增[轉譯](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator)運算子，以視覺圖表來顯示資料。  
+資料既已適當分組，您可以新增[轉譯](/azure/kusto/query/renderoperator)運算子，以視覺圖表來顯示資料。  
 
 ```
 Perf  

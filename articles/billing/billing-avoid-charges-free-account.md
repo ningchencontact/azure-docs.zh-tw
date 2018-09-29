@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 8803a4c0f1be3a3407e5e90bbdadeddbfcb1ab9c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060999"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394160"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>避免產生 Azure 免費帳戶的費用
 
@@ -51,7 +51,7 @@ Azure 免費帳戶提供使用量有限的每個月免費服務。 免費使用�
 
 2.  在左側導覽區域中，選取 [所有服務]。
 
-3.  選取 [訂用帳戶]。
+3.  選取 **訂用帳戶** 。
 
 4.  選取您註冊免費帳戶時建立的訂用帳戶。
 

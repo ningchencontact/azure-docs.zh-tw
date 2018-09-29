@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 100559f86a72cd5a5148d1db99764e5b04f3e3b1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 636b48f409c1a86f7da87c38b6250610026d4547
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702471"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392596"
 ---
 # <a name="messages-payloads-and-serialization"></a>訊息、承載和序列化
 
@@ -36,7 +36,7 @@ Microsoft Azure 服務匯流排的功能就是處理訊息。 訊息會以索引
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (content-type)           | 選擇性地說明訊息的承載，並提供遵循 RFC2045 第 5 節格式的描述項；例如 `application/json`。                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (correlation-id)       | 讓應用程式能夠指定訊息的內容以供相互關聯之用；例如，反映正要回覆之訊息的 **MessageId**。                                                                                                                                                                                                                                                                  |
-| [DeadLetterSource](/dotnet/api/microsoft.azure.servicebus.message.deadlettersource)                      | 只會設定於已成為無效信件且後續會從無效信件佇列自動轉送到另一個實體的訊息中。 指示其中訊息已成為無效信件的實體。 這個屬性是唯讀的。                                                                                                                                                                                                                                  |
+| [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource)                      | 只會設定於已成為無效信件且後續會從無效信件佇列自動轉送到另一個實體的訊息中。 指示其中訊息已成為無效信件的實體。 這個屬性是唯讀的。                                                                                                                                                                                                                                  |
 | [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount)                         | 針對此訊息嘗試進行的傳遞次數。 當訊息鎖定到期時或接收者明確放棄此訊息時，這個計數就會遞增。 這個屬性是唯讀的。                                                                                                                                                                                                                                                  |
 | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber)                | 對於已自動轉送的訊息，此屬性會反映訊息原始提交時首次指派給訊息的序號。 這個屬性是唯讀的。                                                                                                                                                                                                                                                                |
 | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc)                       | 在實體中接受並儲存訊息的 UTC 時刻。 當接收者不想信任傳送者的時鐘時，這個值可用來作為權威且中立的抵達時間指標。 這個屬性是唯讀的。                                                                                                                                                                                                   |

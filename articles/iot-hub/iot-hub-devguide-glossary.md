@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954393"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227141"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
 本文會列出 IoT 中樞文章中使用的一些常見術語。
@@ -219,7 +219,7 @@ IoT 中樞的[作業監視](iot-hub-operations-monitoring.md)可讓您即時監�
 [Azure Resource Manager](#azure-resource-manager) 會使用資源群組將相關的資源群組在一起。 您可以使用資源群組，同時對群組中的所有資源執行作業。
 
 ## <a name="retry-policy"></a>重試原則
-當您連接到雲端服務時，您可以使用重試原則來處理[暫時性錯誤](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx)。
+當您連接到雲端服務時，您可以使用重試原則來處理[暫時性錯誤](/azure/architecture/best-practices/transient-faults)。
 
 ## <a name="routing-rules"></a>路由規則
 您必須在 IoT 中樞設定[路由規則](iot-hub-devguide-messages-read-custom.md)，以將裝置到雲端訊息路由傳送到[內建端點](#built-in-endpoints)或[自訂端點](#custom-endpoints)，以由您的解決方案後端處理。

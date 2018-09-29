@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 2157af8d6c3b8eea372c060a70c78559d8ffe6ad
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 30ef00fa1bfd2933df5e5c966cb8266d7c598a47
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632522"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162163"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 世代
 
@@ -110,7 +110,7 @@ ms.locfileid: "35632522"
 
     * 查詢區段，可讓您使用分析查詢定義世代。
 
-    在查詢區段中，您可以[撰寫分析查詢](https://docs.loganalytics.io/index)。 查詢會選取特定的幾列來說明您要定義的世代。 然後，「世代」工具會隱含地在查詢中加入 “| summarize by user_Id” 子句。 您可以在查詢下方的資料表中預覽此資料，以確定您的查詢會傳回結果。
+    在查詢區段中，您可以[撰寫分析查詢](/azure/kusto/query)。 查詢會選取特定的幾列來說明您要定義的世代。 然後，「世代」工具會隱含地在查詢中加入 “| summarize by user_Id” 子句。 您可以在查詢下方的資料表中預覽此資料，以確定您的查詢會傳回結果。
 
     > [!NOTE]
     > 如果未看見查詢，請嘗試調高區段的高度，以呈現查詢。 此區段的開頭會以動畫 .gif 說明調整大小的行為。

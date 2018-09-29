@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c99186d73886041d92bea38b0dd4dc17f55001e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a42c13bc0b441074829b1753c1d3cab8fbfaccf
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977854"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407564"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
 許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您擁有專門從事監視 (技術支援工程師、devops 工程師) 的團隊成員，或如果您使用受控服務提供者，則您可能只要授與他們監視資料的存取權，同時限制他們建立、修改或刪除資源的能力。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
@@ -181,14 +181,8 @@ Azure 監視器需要存取您的 Azure 資源，才能提供您啟用的服務�
 監視資料通常會寫入到儲存體帳戶。 您可能想要確定未經授權的使用者無法存取複製到儲存體帳戶的資料。 為了增加安全性，您可以限制儲存體帳戶使用「選取的網路」來鎖定網路存取權，只允許已授權的資源與信任的 Microsoft 服務存取儲存體帳戶。
 ![Azure 儲存體設定對話方塊](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure 監視器可視為「信任的 Microsoft 服務」之一。如果您允許信任的 Microsoft 服務存取受保護儲存體，Azure 監視器會擁有受保護儲存體帳戶的存取權，能在受保護情況下，將 Azure 監視器診斷記錄、活動記錄與計量寫入到您的儲存體帳戶。 這也會讓 Log Analytics 讀取來自受保護儲存體的記錄。   
 
+
 如需詳細資訊，請參閱[網路安全性與 Azure 儲存體](../storage/common/storage-network-security.md)
- 
-### <a name="secured-virtual-networks-with-service-endpoints"></a>含有服務端點的受保護虛擬網路 
-
-虛擬網路 (VNet) 可讓您限制流量，只允許指定的流量與您的 Azure 資源進行通訊。 您可以指定服務端點以擴擴充 VNet 來包含 Azure 監視器；這可讓您的資源繼續安全地將虛擬網路中的記錄與計量資訊傳送至 Azure 監視器。  
-
-如需詳細資訊，請參閱[虛擬網路端點](../virtual-network/virtual-network-service-endpoints-overview.md)。 
-
 
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 RBAC 和 Resource Manager 中的權限](../role-based-access-control/overview.md)

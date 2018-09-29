@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/11/2018
-ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.date: 09/27/2018
+ms.openlocfilehash: c390f6cbc9f7ced8113b4e6053dec1adcaf761a1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173668"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422589"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -45,7 +45,7 @@ ms.locfileid: "39173668"
 
 | **Azure 區域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|
-| 美國中部 | X |  |
+| 美國中部 | X | X |
 | 美國東部 | X | X |
 | 美國東部 2 | X | X |
 | 美國中北部 | X | X |
@@ -73,6 +73,11 @@ ms.locfileid: "39173668"
 | 日本西部 | X | X |
 | 南韓中部 |  | X |
 | 南韓南部 |  | X |
+| 德國中部 |  | X |
+| 美國國防部中央  | X |  |
+| 美國 DoD 東部  | X |  |
+| 美國政府亞利桑那州 |  | X |
+| 美國政府德克薩斯州 |  | X |
 
 ## <a name="storage"></a>儲存體
 

@@ -2,18 +2,18 @@
 title: 如何探索 Azure 資料目錄中的資料資產
 description: 本文著重在說明如何探索已註冊 Azure 資料目錄的資料資產，包括搜尋、篩選 Azure 資料目錄入口網站，以及使用其結果醒目提示功能。
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f8e722073db967752747511e47921aec3c4a281a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 11216640a4f4f78e0b0de850f32f0ff85bbc9ef2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053266"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407054"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>如何探索 Azure 資料目錄中的資料資產
 ## <a name="introduction"></a>簡介

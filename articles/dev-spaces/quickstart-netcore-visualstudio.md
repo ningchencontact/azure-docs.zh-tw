@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 91302f21f3b3f9db50dc0c930a4cdfc02749d151
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0e58fb23aded66a44deb0d520151c98903cffe18
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951000"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433322"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>快速入門：使用 Azure Dev Spaces 建立 Kubernetes 開發人員空間 (.NET Core 和 Visual Studio)
 
@@ -29,9 +29,9 @@ ms.locfileid: "37951000"
 > [!Note]
 > **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節，或在此頁面上張貼留言。 您也可以嘗試進行更詳細的[教學課程](get-started-netcore-visualstudio.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 在 EastUS、CentralUS、WestUS2、WestEurope、CanadaCentral 或 CanadaEast 區域中執行 Kubernetes 1.10.3、並且已啟用 HTTP 應用程式路由的 Kubernetes 叢集。
+- 在 EastUS、CentralUS、WestUS2、WestEurope、CanadaCentral 或 CanadaEast 區域中執行 Kubernetes 1.9.6 或更新版本、並且已啟用 HTTP 應用程式路由的 Kubernetes 叢集。
 
   ![請務必啟用 HTTP 應用程式路由。](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -39,7 +39,7 @@ ms.locfileid: "37951000"
 
 ## <a name="set-up-azure-dev-spaces"></a>設定 Azure Dev Spaces
 
-安裝[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-azds-visualstudio)。
+安裝[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-vsk8stools)。
 
 ## <a name="connect-to-a-cluster"></a>連接到叢集
 

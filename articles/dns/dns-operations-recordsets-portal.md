@@ -15,20 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: victorh
-ms.openlocfilehash: b95ec9b4b5077b236c5f3a7183820552b7ccac49
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e24aa8d0fb72147b0ac30e7c495b598d6e9ea96f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174309"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451387"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 DNS 記錄和記錄集
-
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
 
 本文說明如何使用 Azure 入口網站管理 DNS 區域的記錄集和記錄。
 
@@ -95,7 +89,7 @@ ms.locfileid: "39174309"
 
 1. 在記錄集的 [記錄集屬性] 刀鋒視窗中，按一下 [刪除]。
 
-    ![刪除記錄集](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+    ![刪除記錄集](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. 隨即會出現訊息，詢問您是否要刪除記錄集。
 3. 確認該名稱符合您想要刪除的記錄集，然後按一下 [是] 。

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: df049a87763f3aae8da2db153f876b88ed39b988
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061311"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47390233"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>檢查 Azure 免費帳戶隨附的免費服務使用量 
 
@@ -31,7 +31,7 @@ ms.locfileid: "37061311"
 
 2.  在左側導覽區域中，選取 [所有服務]。
 
-3.  選取 [訂用帳戶]。
+3.  選取 **訂用帳戶** 。
 
 4.  選取您註冊免費帳戶時建立的訂用帳戶。
 

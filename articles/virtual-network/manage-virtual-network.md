@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8d92c5d01e977fc64e823a0229b5f2ede944743
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72faa99c15fdbebb299e416fd902bae261f31f9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985632"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221174"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
@@ -89,7 +89,7 @@ ms.locfileid: "46985632"
     - **屬性**︰顯示虛擬網路的相關設定，包括虛擬網路的資源識別碼及其所在的訂用帳戶。
     - **圖表**︰此圖表會以視覺方式來呈現所有連線到虛擬網路的裝置。 此圖表包含有關裝置的一些重要資訊。 若要在此檢視中管理裝置，請在圖表中選取裝置。
     - **一般 Azure 設定**：若要深入了解 Azure 的一般設定，請參閱下列資訊：
-        *   [活動記錄檔](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+        *   [活動記錄檔](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
         *   [存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

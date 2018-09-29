@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.openlocfilehash: 5cfa82067d28b05f32bd87e0e83d55a03da8d508
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663856"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095424"
 ---
 # <a name="connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>使用 Visual Studio 中的連線服務連線到 Bing 新聞搜尋 API
 
@@ -23,7 +23,7 @@ ms.locfileid: "38663856"
 
 本文提供使用 Visual Studio 連線服務功能進行 Bing 新聞搜尋的詳細資料。 此功能適用於已安裝的認知服務擴充功能的 Visual Studio 2017 15.7 或更新版本。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 - Visual Studio 2017 15.7 版，並且已安裝網頁程式開發工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
@@ -32,7 +32,7 @@ ms.locfileid: "38663856"
 
 ## <a name="add-support-to-your-project-for-bing-news-search-api"></a>對您的專案新增 Bing 新聞搜尋 API 的支援
 
-1. 建立名為 MyWebApplication 的新 ASP.NET Core Web 專案。 使用 [Web 應用程式 (模型-檢視-控制器)] 專案範本，使用所有預設設定。 請務必將專案命名為 MyWebApplication，如此當您將程式碼複製到專案時，命名空間才會相符。 
+1. 建立名為 MyWebApplication 的新 ASP.NET Core Web 專案。 使用 [Web 應用程式 (模型-檢視-控制器)] 專案範本，使用所有預設設定。 請務必將專案命名為 MyWebApplication，這樣當您將程式碼複製到專案時，命名空間才會相符。 
 
 1. 在 [方案總管] 中，選擇 [新增] > [連線服務]。
    [連線服務] 頁面隨即出現，並顯示您可新增至專案的服務。
@@ -260,7 +260,7 @@ ms.locfileid: "38663856"
            
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要資源群組時，您可以將它刪除。 這會刪除認知服務及相關資源。 若要透過入口網站刪除資源群組：
+當不再需要資源群組時，您可以將它刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
 
 1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 選取您想要刪除的資源群組。
 2. 選取 [刪除資源群組]。

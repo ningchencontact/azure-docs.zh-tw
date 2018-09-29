@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 161207b96deb2f7bd605d845a9207393f9f59c23
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 517926a3c78e9c95a9ecef9ae058c33e47566adb
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444737"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432602"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>針對用於容器的 Web 應用程式使用自訂 Docker 映像
 
@@ -559,4 +559,4 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式](tutorial-docker-python-postgresql-app.md)
+> [在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式](tutorial-python-postgresql-app.md)

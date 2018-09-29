@@ -1,21 +1,22 @@
 ---
-title: Azure 上的自訂語音服務概觀 | Microsoft Docs
+title: 什麼是自訂語音服務？
+titlesuffix: Azure Cognitive Services
 description: 自訂語音服務是一種雲端式服務，可讓使用者自訂語音模型以進行語音轉文字的轉譯。
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 02/07/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: da88989753069f7ba8ca2c2e2806a648f3df4e3c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948361"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222738"
 ---
 # <a name="what-is-custom-speech-service"></a>什麼是自訂語音服務？
 

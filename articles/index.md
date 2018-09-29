@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ace2178ac4e1d76d561800d94b07780c3579f1f4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 424e3ba5c630a626b6d8d07967fb7c24b8169c61
+ms.sourcegitcommit: 04bd54e97ec580224ffe2e18d72c58dc2221d42b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166974"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47447245"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -304,11 +304,6 @@ Azure 服務和功能導覽 </a>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
                                                             <img src="/learn/achievements/principles-cloud-computing.svg" alt="">
 雲端運算原則</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="barLink" href="/learn/modules/build-a-serverless-web-app/">
-                                                            <img src="/learn/achievements/build-a-serverless-web-app.svg" alt="">
-建置無伺服器 Web 應用程式</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">

@@ -62,8 +62,6 @@ items:
         href: troubleshooting-creating-ml-workspace.md
       - name: 使用 ARM 部署
         href: deploy-with-resource-manager-template.md
-      - name: 在另一個區域中建立
-        href: multi-geo.md
       - name: 檢視和刪除 Studio 帳戶資料
         href: export-delete-personal-data-dsr.md
   - name: 獲得並瞭解資料
@@ -222,6 +220,8 @@ items:
       href: ai-gallery-control-personal-data-dsr.md
 - name: 資源
   items:
+  - name: R 開發人員指南
+    href: ../r-developers-guide.md
   - name: Azure 藍圖
     href: https://azure.microsoft.com/roadmap/
   - name: Net# 神經網路語言
@@ -238,9 +238,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: 影片
     href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-ms.openlocfilehash: ee8df2f7c2e73127a71d75374661f727858f1815
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b7c5cea35e8b1441bc8a08e8d8582141cd430868
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781664"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431520"
