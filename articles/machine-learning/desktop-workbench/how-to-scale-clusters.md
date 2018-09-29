@@ -65,7 +65,7 @@ az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>調整叢集中 Kubernetes Pod 複本的數目
  
-您可以使用 Azure Machine Learning CLI 或 [Kubernetes 儀表板] 來調整指派給叢集的 Pod 複本數目 (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)。
+您可以使用 Azure Machine Learning CLI 或 [Kubernetes 儀表板] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)來調整指派給叢集的 Pod 複本數目 。
 
 如需有關 Kubernetes 複本 Pod 的詳細資訊，請參閱 [Kubernetes Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/) 文件。
 
