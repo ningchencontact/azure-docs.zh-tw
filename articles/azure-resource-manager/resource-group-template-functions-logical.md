@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359062"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164782"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的邏輯函式
 
@@ -40,8 +40,8 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |布林值 |要檢查是否為 ture 的第一個值。 |
-| arg2 |yes |布林值 |要檢查是否為 ture 的第二個值。 |
+| arg1 |是 |布林值 |要檢查是否為 ture 的第一個值。 |
+| arg2 |是 |布林值 |要檢查是否為 ture 的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -75,7 +75,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -102,7 +102,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |字串或整數 |要轉換為布林值的值。 |
+| arg1 |是 |字串或整數 |要轉換為布林值的值。 |
 
 ### <a name="return-value"></a>傳回值
 轉換值的布林值。
@@ -139,7 +139,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -167,9 +167,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| condition |yes |布林值 |要檢查是否為 ture 的值。 |
-| trueValue |yes | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
-| falseValue |yes | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
+| condition |是 |布林值 |要檢查是否為 ture 的值。 |
+| trueValue |是 | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
+| falseValue |是 | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -239,6 +239,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
         "noOutput": {
             "type": "string",
             "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
         }
     }
 }
@@ -246,10 +250,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | yesOutput | 字串 | 是 |
 | noOutput | 字串 | no |
+| objectOutput | Object | { "test": "value1" } |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -272,7 +277,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |布林值 |要轉換的值。 |
+| arg1 |是 |布林值 |要轉換的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -306,7 +311,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -342,7 +347,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -367,8 +372,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |布林值 |要檢查是否為 ture 的第一個值。 |
-| arg2 |yes |布林值 |要檢查是否為 ture 的第二個值。 |
+| arg1 |是 |布林值 |要檢查是否為 ture 的第一個值。 |
+| arg2 |是 |布林值 |要檢查是否為 ture 的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -402,7 +407,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
