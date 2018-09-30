@@ -4,29 +4,25 @@ description: 了解 Azure Functions 的最佳作法與模式。
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, 模式, 最佳作法, 函數, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b11d4ab7188141b36b998e16429329c33f09cee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbb21e63a25d6e357287f2f91181f2326850a898
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599563"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952846"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
-本文提供指引來改善[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式應用程式的效能和可靠性。 
+此文章提供指引來改善[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式應用程式的效能和可靠性。 
 
 ## <a name="general-best-practices"></a>一般最佳作法
 
@@ -77,6 +73,10 @@ ms.locfileid: "34599563"
 ## <a name="scalability-best-practices"></a>延展性最佳做法
 
 有數個因素會影響應用程式函式執行個體的調整方式。 [函式調整](functions-scale.md)文件中會提供詳細資料。  以下是一些最佳做法，可確保函式應用程式的最佳延展性。
+
+### <a name="share-and-manage-connections"></a>共用及管理連線
+
+儘可能重複使用與外部資源的連線。  請參閱[如何管理 Azure Functions 中的連線](./manage-connections.md)。
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>不要在相同函式應用程式中混用測試和實際執行程式碼
 

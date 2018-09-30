@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
 ms.custom: hdinsightactive
-ms.openlocfilehash: db460c6ebe934fa9ca9b6b42d517f39acbecf0c9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 54e5a5b72627dc9cd2d842ccb24d10e2f9ab9dce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105308"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957171"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>在 HDInsight 上安裝或更新 Mono
 
@@ -44,7 +44,7 @@ __需求__：
 
 ## <a name="to-use-the-script"></a>使用指令碼
 
-如需如何搭配 HDInsight 使用此指令碼的資訊，請參閱[使用指令碼動作來自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文件。 您可以透過 Azure 入口網站、Azure PowerShell 或 Azure CLI 來使用指令碼。
+如需如何搭配 HDInsight 使用此指令碼的資訊，請參閱[使用指令碼動作來自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文件。 您可以透過 Azure 入口網站、Azure PowerShell 或 Azure 傳統 CLI 來使用指令碼。
 
 遵循指令碼動作文件時，請使用下列 URI：
 

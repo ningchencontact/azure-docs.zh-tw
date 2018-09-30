@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: aa031b87df51bd9f7dec40a6c3e56023e2d82d96
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 55274b08695bacf0b63b937f9e8e21c8565f1715
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579491"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967382"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
 
 * **Azure 儲存體**：用於封存大量遙測資料，價格低廉。
 * **Azure 事件中樞**：用於整合 SQL Database 遙測與自訂監視解決方案或管線。
-* **Azure Log Analytics**：用於具有報告、警示及緩和功能的現成監視解決方案。 這是 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 的功能
+* **Azure Log Analytics**：用於具有報告、警示及緩和功能的現成監視解決方案。 Azure Log Analytics 是 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 的功能
 
     ![架構](./media/sql-database-metrics-diag-logging/architecture.png)
 

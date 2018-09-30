@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a214aa51bcd4b7aab7a65cf2989edd9e9dd3dc6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ebc4c918745e273700a0efb54db4408bb702c75e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044886"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991363"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>搭配使用 C# 使用者定義函數與 HDInsight 的 Hadoop 上的 Hive 和 Pig 串流處理。
 
@@ -31,7 +31,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
     * 使用您想要的任何 IDE。 建議您使用 [Visual Studio](https://www.visualstudio.com/vs) 2015、2017 或 [Visual Studio Code](https://code.visualstudio.com/)。 本文件中的步驟使用 Visual Studio 2017。
 
-* 將 .exe 檔案上傳至叢集並執行 Pig 和 Hive 作業所採取的方式。 建議使用 Data Lake Tools for Visual Studio、Azure PowerShell 和 Azure CLI。 本文件中的步驟使用 Data Lake Tools for Visual Studio 上傳檔案並執行範例 Hive 查詢。
+* 將 .exe 檔案上傳至叢集並執行 Pig 和 Hive 作業所採取的方式。 建議使用 Data Lake Tools for Visual Studio、Azure PowerShell 與 Azure 傳統 CLI。 此文件中的步驟使用 Data Lake Tools for Visual Studio 上傳檔案並執行範例 Hive 查詢。
 
     如需執行 Hive 查詢和 Pig 作業之其他方式的詳細資訊，請參閱下列文件︰
 

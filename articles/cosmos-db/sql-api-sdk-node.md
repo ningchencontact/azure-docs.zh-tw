@@ -2,22 +2,21 @@
 title: Azure Cosmos DB：SQL Node.js API、SDK 和資源 | Microsoft Docs
 description: 了解所有 SQL Node.js API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos DB Node.js SDK 每個版本之間所做的變更。
 services: cosmos-db
-author: rnagpal
-manager: kfile
+author: deborahc
 editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 5/3/2018
+ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b6983b49135b5a8adbef1d0cfc5a407cb7b0c7ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594346"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960544"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -40,12 +39,16 @@ ms.locfileid: "39594346"
 |API 文件  |  [JavaScript SDK 參考文件](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
 |SDK 安裝指示  |  [安裝指示](https://github.com/Azure/azure-cosmos-js#installation)
 |參與 SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
-| 範例 | [Node.js 程式碼範例](sql-api-nodejs-samples-preview.md)
-| 入門教學課程 | [開始使用 JavaScript SDK](sql-api-nodejs-get-started-preview.md)
-| Web 應用程式教學課程 | [使用 Azure Cosmos DB 來建置 Node.js Web 應用程式](sql-api-nodejs-application-preview.md)
+| 範例 | [Node.js 程式碼範例](sql-api-nodejs-samples.md)
+| 入門教學課程 | [開始使用 JavaScript SDK](sql-api-nodejs-get-started.md)
+| Web 應用程式教學課程 | [使用 Azure Cosmos DB 來建置 Node.js Web 應用程式](sql-api-nodejs-application.md)
 | 目前支援的平台 | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK 2.0.0 版和更新版本的必要項目。<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="2.0.0"/>2.0.0</a>
+* JavaScript SDK 2.0.0 版的公開推出
+* 已新增對多重區域寫入的支援。
 
 ### <a name="2.0.0-3"/>2.0.0-3</a>
 * JavaScript SDK 2.0.0 版的 RC1 (用於公開預覽)。

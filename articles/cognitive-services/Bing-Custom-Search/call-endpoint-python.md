@@ -9,45 +9,43 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 3666e92372e9bed80e5c0c7991dcac730cebb588
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504962"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967586"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>呼叫 Bing 自訂搜尋端點 (Python)
 
-本快速入門說明如何使用 Python 呼叫自訂的 Bing 搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。 
+此快速入門說明如何使用 Python 呼叫 Bing 自訂搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。 
 
 ## <a name="prerequisites"></a>必要條件
+
 若要完成本快速入門，您需要：
 
-- 自訂搜尋執行個體。 請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
+- 已經可以使用的自訂搜尋執行個體。 請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
+- 已安裝 [Python](https://www.python.org/)。
+- 訂用帳戶金鑰。 您可以在啟用[免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)時取得訂用帳戶金鑰，或者可以從 Azure 儀表板使用付費訂用帳戶金鑰 (請參閱[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account))。    
 
--  已安裝 [Python](https://www.python.org/)。
-
-- 具有 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。 
 
 ## <a name="run-the-code"></a>執行程式碼
 
-若要呼叫 Bing 自訂搜尋端點，請遵循下列步驟：
+若要執行此範例，請遵循下列步驟：
 
-1. 建立程式碼的資料夾。
-
-2. 從管理員命令提示字元或終端機，瀏覽至您剛剛建立的資料夾。
-
-3. 安裝**要求** Python 模組：
-
+1. 建立程式碼的資料夾。  
+  
+2. 從管理員命令提示字元或終端機，瀏覽至您剛剛建立的資料夾。  
+  
+3. 安裝**要求** Python 模組：  
+  
     <pre>
     pip install pipenv
     pipenv install requests
-    </pre>
-    
-7. 建立 BingCustomSearch.py 檔案，並將下列程式碼複製到該檔案。
-
-8. 將 **YOUR-SUBSCRIPTION-KEY** 和 **YOUR-CUSTOM-CONFIG-ID** 取代為您的金鑰和組態識別碼 (請參閱步驟 1)。
-
+    </pre>  
+      
+4. 在您建立的資料夾中建立名為 BingCustomSearch.py 的檔案，然後將下列程式碼複製到該檔案中。 將 **YOUR-SUBSCRIPTION-KEY** 與 **YOUR-CUSTOM-CONFIG-ID** 取代為您的訂用帳戶金鑰與設定識別碼。  
+  
     ``` Python
     import json
     import requests
@@ -59,8 +57,10 @@ ms.locfileid: "39504962"
     url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
-    ```
-9. 使用下列命令來執行程式碼。
+    ```  
+  
+7. 使用下列命令來執行程式碼。  
+  
     ```
     python BingCustomSearch.py
     ```

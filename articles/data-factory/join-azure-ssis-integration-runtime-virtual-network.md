@@ -13,19 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d89abfd0ec2ae5de8366a12bb38d9358aa8ab76d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a9a4b7728eff3057b9677d12df51cc8c477744ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145321"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953934"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路： 
 
 - 您想要從 Azure-SSIS 整合執行階段上執行的 SSIS 套件連線至內部部署資料存放區。 
 
-- 您要將 SQL Server Integration Services (SSIS) 目錄資料庫裝載於具有虛擬網路服務端點/受控執行個體 (預覽) 的 Azure SQL Database 中。 
+- 您要將 SQL Server Integration Services (SSIS) 目錄資料庫裝載於具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 中。 
 
  Azure Data Factory 可讓您將 Azure-SSIS 整合執行階段加入透過傳統部署模型或 Azure Resource Manager 部署模型建立的虛擬網路。 
 
@@ -42,11 +42,11 @@ ms.locfileid: "42145321"
  
 - 如果在與 Azure-SSIS IR 不同的位置中有現有的 Azure Resource Manager 虛擬網路連線至您的內部部署網路，您可以先建立 Azure-SSIS IR 要加入的 [Azure Resource Manager 虛擬網路](../virtual-network/quick-create-portal.md##create-a-virtual-network)。 然後，設定 Azure Resource Manager 對 Azure Resource Manager 虛擬網路連線。 或者，您可以建立[傳統虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)，讓您的 Azure-SSIS IR 加入。 然後，設定[傳統對 Azure Resource Manager 虛擬網路](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)連線。 
 
-## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance-preview"></a>將 SSIS 目錄資料庫裝載於具有虛擬網路服務端點/受控執行個體 (預覽) 的 Azure SQL Database 中
-如果 SSIS 目錄已裝載於具有虛擬網路服務端點或受控執行個體 (預覽) 的 Azure SQL Database 中，您可以將 Azure-SSIS IR 加入至： 
+## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance"></a>將 SSIS 目錄資料庫裝載於具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 中
+如果 SSIS 目錄已裝載於具有虛擬網路服務端點或受控執行個體的 Azure SQL Database 中，您可以將 Azure-SSIS IR 加入至： 
 
 - 相同虛擬網路 
-- 具有網路對網路連線的虛擬網路，不同於處理具有虛擬網路服務端點/受控執行個體 (預覽) 的 Azure SQL Database 時所用的虛擬網路 
+- 具有網路對網路連線的虛擬網路，不同於處理具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 時所用的虛擬網路 
 
 如果您將 Azure-SSIS IR 加入至受控執行個體所在的虛擬網路上，請確定 Azure-SSIS IR 和受控執行個體分屬不同的子網路。 如果 Azure-SSIS IR 並不是加入至受控執行個體所在的虛擬網路，我們建議虛擬網路對等互連 (限制為相同的區域) 或虛擬網路對虛擬網路連線。 請參閱[將您的應用程式連線到 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-connect-app.md)。
 
@@ -72,7 +72,7 @@ ms.locfileid: "42145321"
 
 -   確定您選取的子網路有足夠的可用位址空間，以供 Azure-SSIS IR 使用。 在可用的 IP 位址中保留至少 2 * IR 節點數目。 Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使用。 子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外 3 個位址。 如需詳細資訊，請參閱[在這些子網路內使用 IP 位址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) 
 
--   請勿使用由其他 Azure 服務所獨佔的子網路，這類 Azure 服務包括 SQL Database 受控執行個體 (預覽)、App Service 等。 
+-   請勿使用由其他 Azure 服務 (例如 SQL Database 受控執行個體、App Service 等) 所獨佔的子網路。 
 
 ### <a name="dns_server"></a> 網域名稱服務伺服器 
 若需要在 Azure-SSIS 整合執行階段所加入的虛擬網路中使用自己的網域名稱服務 (DNS) 伺服器，請確認該伺服器可以解析公用 Azure 主機名稱 (例如，`<your storage account>.blob.core.windows.net` Azure 儲存體 blob 名稱)。 
@@ -81,7 +81,7 @@ ms.locfileid: "42145321"
 
 -   設定自訂 DNS 將要求轉送至 Azure DNS。 您可以在自己的 DNS 伺服器上，將無法解析的 DNS 記錄轉送至 Azure 遞迴解析程式的 IP 位址 (168.63.129.16)。 
 
--   將虛擬網路的主要 DNS 設為自訂 DNS，次要 DNS 設為 Azure DNS。 將 Azure 遞迴解析程式的 IP 位址 (168.63.129.16) 註冊為次要 DNS 伺服器，以便您自己的 DNS 伺服器無法使用時可備援。 
+-   將虛擬網路的主要 DNS 設定為自訂 DNS，並將次要 DNS 設定為 Azure DNS。 將 Azure 遞迴解析程式的 IP 位址 (168.63.129.16) 註冊為次要 DNS 伺服器，以便您自己的 DNS 伺服器無法使用時可備援。 
 
 如需詳細資訊，請參閱[使用自有 DNS 伺服器的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。 
 
@@ -92,7 +92,7 @@ ms.locfileid: "42145321"
 |---|---|---|---|---|---|---|
 | 輸入 | TCP | Internet | * | VirtualNetwork | 29876、29877 (如果您將 IR 加入 Azure Resource Manager 虛擬網路) <br/><br/>10100、20100、30100 (如果您將 IR 加入傳統虛擬網路)| Data Factory 服務會使用這些連接埠與虛擬網路中的 Azure SSIS 整合執行階段節點進行通訊。 <br/><br/> 無論您是否有建立子網路層級的 NSG，Data Factory 一律會在連結至 Azure-SSIS IR 主控虛擬機器的網路介面卡 (NIC) 的層級上設定 NSG。 該 NIC 層級的 NSG 僅允許來自指定連接埠上 Data Factory IP 位址的輸入流量。 即使您在子網路層級上對網際網路流量開啟這些連接埠，只要流量不是來自 Data Factory 的 IP 位址，就會在 NIC 層級上遭到封鎖。 |
 | 輸出 | TCP | VirtualNetwork | * | Internet | 443 | 虛擬網路中的 Azure-SSIS 整合執行階段節點會使用此連接埠來存取 Azure 服務，例如 Azure 儲存體和 Azure 事件中樞。 |
-| 輸出 | TCP | VirtualNetwork | * | 網際網路或 Sql | 1433、11000-11999、14000-14999 | 您在虛擬網路中的 Azure-SSIS 整合執行階段節點會使用這些連接埠，來存取 Azure SQL Database 伺服器所裝載的 SSISDB - 此用途不適用於受控執行個體 (預覽) 所裝載的 SSISDB。 |
+| 輸出 | TCP | VirtualNetwork | * | 網際網路或 Sql | 1433、11000-11999、14000-14999 | 您在虛擬網路中的 Azure-SSIS 整合執行階段節點會使用這些連接埠，來存取 Azure SQL Database 伺服器所裝載的 SSISDB，此用途不適用於受控執行個體所裝載的 SSISDB。 |
 ||||||||
 
 ### <a name="route"></a> 使用 Azure ExpressRoute 或使用者定義的路由
@@ -355,8 +355,8 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure-SSIS 執行階段的詳細資訊，請參閱下列主題： 
-- [Azure-SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 本文提供整合執行階段的一般概念性資訊，包括 Azure-SSIS IR。 
-- [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文將逐步說明如何建立 Azure-SSIS IR。 它會使用 Azure SQL Database 來裝載 SSIS 目錄。 
-- [建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。 本文會詳述教學課程，並提供使用具有虛擬網路服務端點/受控執行個體 (預覽) 的 Azure SQL Database 來裝載 SSIS 目錄並將 IR 加入虛擬網路的指示。 
-- [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
-- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 此外也會說明如何藉由新增節點來相應放大 Azure-SSIS IR。 
+- [Azure-SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 此文章提供整合執行階段的一般概念性資訊，包括 Azure-SSIS IR。 
+- [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 此文章將逐步說明如何建立 Azure-SSIS IR。 它會使用 Azure SQL Database 來裝載 SSIS 目錄。 
+- [建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。 此文章會詳述教學課程，並提供使用具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 來裝載 SSIS 目錄並將 IR 加入虛擬網路的指示。 
+- [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 此文章示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
+- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 此文章示範如何停止、啟動或移除 Azure-SSIS IR。 此外也會說明如何藉由新增節點來相應放大 Azure-SSIS IR。 

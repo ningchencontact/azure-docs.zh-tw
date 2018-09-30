@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a48b3ff9769e2757ac7930feb14d6537d96fae3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109233"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961309"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 範本在 HDInsight 中建立 Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "43109233"
 若要依照本文中的指示，您需要：
 
 * [Azure 訂用帳戶](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* Azure PowerShell 和/或 Azure CLI。
+* Azure PowerShell 和/或 Azure 傳統 CLI。
 
 ### <a name="resource-manager-templates"></a>Resource Manager 範本
 Resource Manager 範本可讓您輕鬆地在單一、協調的作業中為您的應用程式建立下列資源：
@@ -49,7 +49,7 @@ Resource Manager 可讓您使用不同工具，從您的訂用帳戶中現有的
 
 - Azure 入口網站：請參閱[從現有資源匯出 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-export-template.md)。
 - Azure PowerShell：請參閱[使用 PowerShell 來匯出 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-export-template-powershell.md)。
-- Azure CLI：請參閱[使用 Azure CLI 來匯出 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-export-template-cli.md)。
+- Azure 傳統 CLI：請參閱[使用 Azure 傳統 CLI 來匯出 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-export-template-cli.md)。
 
 
 ## <a name="deploy-using-the-portal"></a>使用入口網站進行部署
@@ -60,9 +60,9 @@ Resource Manager 可讓您使用不同工具，從您的訂用帳戶中現有的
 
 您可以使用 Azure PowerShell 部署 Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../azure-resource-manager/resource-group-template-deploy.md)和[使用 SAS 權杖和 Azure PowerShell 部署私用 Resource Manager 範本](../azure-resource-manager/resource-manager-powershell-sas-token.md)。
 
-## <a name="deploy-using-cli"></a>使用 CLI 進行部署
+## <a name="deploy-using-azure-cli"></a>使用 Azure CLI 部署
 
-您可以使用 Azure CLI 部署 Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 權杖和 Azure CLI 部署私用 Resource Manager 範本](../azure-resource-manager/resource-manager-cli-sas-token.md)。
+您可以使用傳統 CLI 來部署 Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 權杖和 Azure CLI 部署私用 Resource Manager 範本](../azure-resource-manager/resource-manager-cli-sas-token.md)。
 
 ## <a name="deploy-using-the-rest-api"></a>使用 REST API 進行部署
 您可以使用 REST API 部署 Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Resource Manager REST API 來部署資源](../azure-resource-manager/resource-group-template-deploy-rest.md)。

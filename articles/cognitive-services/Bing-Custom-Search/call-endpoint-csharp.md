@@ -9,44 +9,45 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ed00b75fa956d0197d3672d84b097f99ec3c35ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814858"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956371"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>呼叫 Bing 自訂搜尋端點 (C#)
 
-本快速入門說明如何使用 C# 呼叫 Bing 自訂搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。 
+此快速入門說明如何使用 C# 呼叫 Bing 自訂搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。 
 
 ## <a name="prerequisites"></a>必要條件
 
--  已經可以使用的自訂搜尋執行個體。 請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
--  已安裝 [.Net Core](https://www.microsoft.com/net/download/core)。
-- 具有 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。  
+若要完成本快速入門，您需要：
 
-  >[!NOTE]  
-  >現有的 Bing 自訂搜尋客戶如果擁有在 2017 年 10 月 15 日 (含) 以前佈建的預覽版金鑰，將能夠使用其金鑰到 2017 年 11 月 30 日，或用完允許的最大查詢數目為止。 之後，這些客戶必須遷移到 Azure 上的正式運作版本。 
- 
+- 已經可以使用的自訂搜尋執行個體。 請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
+- 已安裝 [.Net Core](https://www.microsoft.com/net/download/core)。
+- 訂用帳戶金鑰。 您可以在啟用[免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)時取得訂用帳戶金鑰，或者可以從 Azure 儀表板使用付費訂用帳戶金鑰 (請參閱[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account))。    
+
+
 ## <a name="run-the-code"></a>執行程式碼
 
 若要執行此範例，請遵循下列步驟：
 
-1. 建立程式碼的資料夾。
-2. 從命令提示字元或終端機，巡覽至您剛剛建立的資料夾。
+1. 建立程式碼的資料夾。  
+  
+2. 從命令提示字元或終端機，巡覽至您剛剛建立的資料夾。  
+  
 3. 執行下列命令：
     ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-   ```
+    ```
+  
+4. 將下列程式碼複製到 Program.cs。 將 **YOUR-SUBSCRIPTION-KEY** 與 **YOUR-CUSTOM-CONFIG-ID** 取代為您的訂用帳戶金鑰與設定識別碼。
 
-4. 將下列程式碼複製到 Program.cs。
-5. 將 **YOUR-SUBSCRIPTION-KEY** 和 **YOUR-CUSTOM-CONFIG-ID** 取代為您的金鑰和組態識別碼。
-
-    ``` CSharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -118,13 +119,13 @@ ms.locfileid: "42814858"
         }
     }
     ```
-6. 使用下列命令建置應用程式。 記下命令輸出所參考的 dll 路徑。
+6. 使用下列命令建置應用程式。 記下命令輸出所參考的 DLL 路徑。
 
     <pre>
     dotnet build 
     </pre>
     
-7. 使用下列命令，將 **PATH TO OUTPUT** 取代為建置步驟所參考的路徑，執行應用程式。
+7. 使用下列命令，將 **PATH TO OUTPUT** 取代為步驟 6 中參考的 DLL 路徑，執行應用程式。
 
     <pre>    
     dotnet **PATH TO OUTPUT**

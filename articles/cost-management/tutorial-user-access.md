@@ -1,29 +1,29 @@
 ---
-title: 教學課程 - 在 Azure 成本管理中指派存取權 | Microsoft Docs
-description: 在本教學課程中，您會了解如何透過定義實體存取層級的使用者帳戶，指派成本管理資料的存取權。
+title: 教學課程 - 在 Azure 中使用 Cloudyn 指派存取權 | Microsoft Docs
+description: 在此教學課程中，您會了解如何透過定義實體存取層級的使用者帳戶，來指派對 Cloudyn 資料的存取權。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/10/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188177"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957461"
 ---
-# <a name="tutorial-assign-access-to-cost-management-data"></a>教學課程：指派成本管理資料的存取權
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>教學課程：指派對 Cloudyn 資料的存取權
 
-成本管理資料的存取權是由使用者或實體管理所提供。 Cloudyn 使用者帳戶可決定「實體」和系統管理功能的存取權。 存取權的類型有兩種：系統管理員和使用者。 除非依照使用者進行修改，否則系統管理員存取權允許使用者無限制使用 Cloudyn 入口網站中的所有功能，包括：使用者管理、收件者清單管理，以及所有實體資料的根實體存取權。 使用者存取權主要可供使用者檢視報告，以及使用其擁有的實體資料存取權來建立報告。
+對 Cloudyn 資料的存取權是由使用者或實體管理所提供的。 Cloudyn 使用者帳戶可決定「實體」和系統管理功能的存取權。 存取權的類型有兩種：系統管理員和使用者。 除非依照使用者進行修改，否則系統管理員存取權允許使用者無限制使用 Cloudyn 入口網站中的所有功能，包括：使用者管理、收件者清單管理，以及所有實體資料的根實體存取權。 使用者存取權主要可供使用者檢視報告，以及使用其擁有的實體資料存取權來建立報告。
 
 實體用來反映您企業組織的階層式結構。 其可在 Cloudyn 中識別貴組織的部門、事業部和小組。 實體階層可協助您精確地追蹤各實體的支出。
 
-在您註冊 Azure 合約或帳戶後，就會在 Cloudyn 中建立具有系統管理員權限的帳戶，以便您執行本教學課程中的所有步驟。 本教學課程涵蓋成本管理資料 (包括使用者管理與實體管理) 的存取權。 您會了解如何：
+在您註冊 Azure 合約或帳戶後，就會在 Cloudyn 中建立具有系統管理員權限的帳戶，以便您執行此教學課程中的所有步驟。 此教學課程涵蓋對 Cloudyn 資料 (包括使用者管理與實體管理) 的存取權。 您會了解如何：
 
 > [!div class="checklist"]
 > * 建立具有系統管理員存取權的使用者
@@ -38,7 +38,7 @@ ms.locfileid: "39188177"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須具有 Azure 帳號。
-- 您必須有 Azure 成本管理的試用版註冊或付費訂用帳戶。
+- 您必須具有 Cloudyn 的試用版註冊或付費訂用帳戶。
 
 ## <a name="create-a-user-with-admin-access"></a>建立具有系統管理員存取權的使用者
 
@@ -50,7 +50,7 @@ ms.locfileid: "39188177"
   ![新增具有系統管理員存取權的使用者](.\media\tutorial-user-access\new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>建立具有使用者存取權的使用者
-需要成本管理資料 (如儀表板和報告) 存取權的一般使用者，應該具有使用者存取權才能檢視這些資料。 建立具有使用者存取權的新使用者，類似於您建立具有系統管理員存取權的使用者，但有下列差異：
+需要 Cloudyn 資料 (如儀表板與報告) 存取權的一般使用者，應該具有使用者存取權才能檢視這些資料。 建立具有使用者存取權的新使用者，類似於您建立具有系統管理員存取權的使用者，但有下列差異：
 
 - 清除 [允許使用者管理]、[允許收件者清單管理]，並清除 [使用者具有系統管理員存取權] 清單中的所有項目。
 - 在 [使用者具有使用者存取權] 清單中選取使用者需要存取的實體。
@@ -58,7 +58,7 @@ ms.locfileid: "39188177"
 
 ![新增具有使用者存取權的使用者](.\media\tutorial-user-access\new-user-access.png)
 
-若要觀看有關新增使用者的教學課程影片，請看[將使用者新增至 Azure 成本管理](https://youtu.be/Nzn7GLahx30)。
+若要觀看有關新增使用者的教學課程影片，請觀看[將使用者新增至 Cloudyn](https://youtu.be/Nzn7GLahx30) \(英文\)。
 
 ## <a name="delete-a-user"></a>刪除使用者
 
@@ -114,13 +114,13 @@ ms.locfileid: "39188177"
 
 您也可以建立多個帳戶對一個實體的關聯性。 請選取帳戶，然後按一下 [移動]。 在 [移動帳戶] 方塊中，選取帳戶要移到的實體，然後按一下 [儲存]。 [移動帳戶] 方塊會要求您確認是否真的要移動帳戶。 按一下 [是]，然後按一下 [確定]。
 
-若要觀看建立成本實體階層的教學課程影片，請參閱[在 Azure 成本管理中建立成本實體階層](https://youtu.be/dAd9G7u0FmU)。
+若要觀看有關建立成本實體階層的教學課程影片，請寬看[在 Cloudyn 中建立成本實體階層](https://youtu.be/dAd9G7u0FmU) \(英文\)。
 
-如果您是 Azure Enterprise 合約使用者，請看[使用 Azure 成本管理連線至 Azure Resource Manager](https://youtu.be/oCIwvfBB6kk) 中有關將帳戶和訂用帳戶與實體建立關聯的教學課程影片。
+如果您是 Azure Enterprise 合約使用者，請關看[使用 Cloudyn 連線至 Azure Resource Manager](https://youtu.be/oCIwvfBB6kk) \(英文\) 中將帳戶與訂用帳戶關聯至實體的教學課程影片。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 建立具有系統管理員存取權的使用者

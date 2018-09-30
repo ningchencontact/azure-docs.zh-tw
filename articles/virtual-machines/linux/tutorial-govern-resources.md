@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 使用 Azure CLI 2.0 控管 Azure 虛擬機器 | Microsoft Docs
-description: 在本教學課程中，您會了解如何使用 Azure CLI 2.0 來套用 RBAC、原則、鎖定和標籤以管理 Azure 虛擬機器
+title: 教學課程 - 使用 Azure CLI 控管 Azure 虛擬機器 | Microsoft Docs
+description: 在此教學課程中，您將了解如何使用 Azure CLI，透過套用 RBAC、原則、鎖定與標籤來管理 Azure 虛擬機器
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -14,26 +14,26 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 18ea9920ef3f3602721bc27001a66bcd2fc2b0fd
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 2d19488d9b4d6ae6c71610788345b45c38e51cfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205692"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968810"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>教學課程：了解如何使用 Azure CLI 2.0 來控管 Linux 虛擬機器
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教學課程：了解如何使用 Azure CLI 控管 Linux 虛擬機器
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，此教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="understand-scope"></a>了解範圍
 
 [!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
-在本教學課程中，您會將所有的管理設定套用到資源群，讓您可以在完成後輕易地移除這些設定。
+在此教學課程中，您會將所有的管理設定套用到資源群，讓您可以在完成後輕易地移除這些設定。
 
 先來建立該資源群組。
 
@@ -69,17 +69,17 @@ adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-通常您需要針對網路參與者和儲存體帳戶參與者重複進行此程序，以確保已指派使用者來管理已部署的資源。 在本文中，您可以略過這些步驟。
+通常您需要針對網路參與者和儲存體帳戶參與者重複進行此程序，以確保已指派使用者來管理已部署的資源。 在此文章中，您可以略過這些步驟。
 
 ## <a name="azure-policy"></a>Azure 原則
 
-[Azure 原則](../../azure-policy/azure-policy-introduction.md)會協助您確認訂用帳戶中的所有資源均符合公司標準。 您的訂用帳戶已經有數個原則定義。 若要查看可用的原則定義，請使用 [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) 命令：
+[Azure 原則](../../azure-policy/azure-policy-introduction.md)可協助您確認訂用帳戶中的所有資源均符合公司標準。 您的訂用帳戶已經有數個原則定義。 若要查看可用的原則定義，請使用 [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) 命令：
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
 ```
 
-您會看到現有的原則定義。 原則類型不是**內建**就是**自訂**。 查看定義，尋找符合您要指派之條件的定義。 在本文中，您指派的原則要：
+您會看到現有的原則定義。 原則類型不是**內建**就是**自訂**。 查看定義，尋找符合您要指派之條件的定義。 在此文章中，您指派的原則要：
 
 * 限制所有資源的位置。
 * 限制虛擬機器的 SKU。
@@ -231,7 +231,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-您在本教學課程中建立了自訂 VM 映像。 您已了解如何︰
+您在此教學課程中建立了自訂 VM 映像。 您已了解如何︰
 
 > [!div class="checklist"]
 > * 將使用者指派給角色

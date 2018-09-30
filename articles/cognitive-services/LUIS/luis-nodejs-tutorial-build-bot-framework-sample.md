@@ -1,5 +1,6 @@
 ---
-title: 在 Azure 中使用適用於 Node.js 的 Bot 產生器 SDK 來整合 LUIS 與 Bot | Microsoft Docs
+title: 使用 Node.js 的 LUIS Bot - Web 應用程式 Bot - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: 使用 Bot Framework 來建置與 LUIS 應用程式整合的 Bot。
 services: cognitive-services
 author: diberry
@@ -7,18 +8,18 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 4967c6c8eb9f849006beb78cfd2e41eba53b6867
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224070"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952965"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>使用適用於 Node.js 的 Bot 產生器 SDK 來整合 LUIS 與 Bot
+# <a name="luis-bot-in-nodejs"></a>Node.js 中的 LUIS Bot
 
-本教學課程將引導您完成使用 [Bot Framework][BotFramework]來建置與 LUIS 應用程式整合之 Bot 的程序。
+使用 Node.js，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。 此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。
 
 ## <a name="prerequisite"></a>必要條件
 
@@ -45,7 +46,10 @@ Bot 會回應來自 LUIS 應用程式中 HomeAutomation 定義域的意圖。 �
 3. 在 [Bot 服務] 刀鋒視窗中提供必要資訊，然後選取 [建立]。 這會建立 Bot 服務和 LUIS 應用程式，並將其部署到 Azure。 如果您想要使用[語音促發](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，請先檢閱[區域需求](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming)，再建立您的 Bot。 
     * 將 [應用程式名稱] 設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * 選取訂用帳戶、[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)、App Service 方案，以及[位置](https://azure.microsoft.com/regions/)。
-    * 針對 [Bot 範本] 欄位，選取 [Language Understanding (Node.js)] 範本。
+    * 針對 [Bot 範本]，請選取：
+        * **SDK v3**
+        * **Node.js**
+        * **語言理解**
     * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域][LUIS]。
     * 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
 
@@ -68,7 +72,7 @@ Bot 會回應來自 LUIS 應用程式中 HomeAutomation 定義域的意圖。 �
 
 2. 一個新的第二瀏覽器視窗隨即開啟。 選取 [開啟線上程式碼編輯器]。
 
-3. 在頂端瀏覽列中，選取 Web 應用程式 Bot 名稱 `homeautomationluisbot`。 
+3. 在頂端導覽列中，選取 Web 應用程式 Bot 名稱 `homeautomationluisbot`。 
 
 4. 在下拉式清單中，選取 [開啟 Kudu 主控台]。
 
@@ -101,7 +105,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。 �
 
 3. 如果您尚未進行應用程式定型，請選取右上方的 [Train] \(定型\) 按鈕來進行應用程式定型。
 
-4. 如果您尚未發佈應用程式，請選取頂端瀏覽列中的 [PUBLISH] \(發佈\) 來開啟 [Publish] \(發佈\) 頁面。 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
+4. 如果您尚未發佈應用程式，請選取頂端導覽列中的 [PUBLISH] \(發佈\) 來開啟 [Publish] \(發佈\) 頁面。 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
 
 ## <a name="modify-the-bot-code"></a>修改 Bot 程式碼
 
