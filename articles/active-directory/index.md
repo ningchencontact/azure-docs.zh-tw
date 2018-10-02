@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: true
+hide_bc: false
 title: Azure Active Directory 文件 - 教學課程和 API 參考 | Microsoft Docs
 description: Azure Active Directory (Azure AD) 是 Microsoft 的多租用戶雲端式目錄，也是身分識別管理服務，將核心目錄服務、應用程式存取管理、身分識別保護結合在單一解決方案中。
 services: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: bf72b8fbe437971e6d621208c93c239c3c557f55
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 646d1639c7cdd4f9a21ec1c8ac65587cab4f4e12
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165053"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585198"
 ---
 <div id="main" class="v2">
     <div class="container">
