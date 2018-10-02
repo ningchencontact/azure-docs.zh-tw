@@ -63,7 +63,7 @@ Content-Type: application/json
     ]
 }
 ```
-對於每個輸出欄位對應，請設定擴充欄位的名稱 (sourceFieldName)，以及索引中參考的欄位名稱 (targetFieldName).
+對於每個輸出欄位對應，請設定擴充欄位的名稱 (sourceFieldName)，以及索引中參考的欄位名稱 (targetFieldName)。
 
 sourceFieldName 中的路徑可以代表一個元素或多個元素。 在上述範例中，```/document/content/sentiment``` 代表單一數值，而 ```/document/content/organizations/*/description``` 代表數個組織描述。 如果有數個元素，這些元素會「壓平合併」至包含每個元素的陣列。 更具體地說，對於 ```/document/content/organizations/*/description``` 範例，[描述] 欄位中的資料在進行編製索引之前，看起來像描述的平面陣列：
 
