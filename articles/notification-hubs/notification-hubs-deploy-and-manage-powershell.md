@@ -155,8 +155,7 @@ else
 * [服務匯流排 PowerShell 指令碼](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
 [購買選項]: http://azure.microsoft.com/pricing/purchase-options/
-
-  [成員供應項目]: http://azure.microsoft.com/pricing/member-offers/
+[成員供應項目]: http://azure.microsoft.com/pricing/member-offers/
 [免費試用版]: http://azure.microsoft.com/pricing/free-trial/
 [安裝並設定 Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [通知中樞的 .NET API]: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
