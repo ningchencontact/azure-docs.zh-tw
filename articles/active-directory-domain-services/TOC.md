@@ -22,6 +22,8 @@
 ## [檢查受控網域健康情況](active-directory-ds-check-health.md)
 ## [在 Azure CSP 訂用帳戶中使用 Azure AD Domain Services](active-directory-ds-csp.md)
 ## [使用 PowerShell 啟用 Azure AD Domain Services](active-directory-ds-enable-using-powershell.md)
+## [在 Azure AD 中將保留範圍同步處理至受控網域](active-directory-ds-scoped-synchronization.md)
+## [保護受控網域](active-directory-ds-secure-your-domain.md)
 ## 加入受控網域
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [來自範本的 Windows Server VM](active-directory-ds-join-windows-vm-template.md)
@@ -44,7 +46,6 @@
 ### [在受控網域上建立群組受控服務帳戶](active-directory-ds-create-gmsa.md)
 ### [受控網域中的管理群組](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [設定受控網域上的密碼原則](active-directory-ds-password-policy.md)
-### [在 Azure AD 中將保留範圍同步處理至受控網域](active-directory-ds-scoped-synchronization.md)
 ## [選取虛擬網路](active-directory-ds-networking.md)
 ## 部署應用程式
 ### [設定 SharePoint 伺服器設定檔同步處理的支援](active-directory-ds-enable-sharepoint-profile-sync.md)
