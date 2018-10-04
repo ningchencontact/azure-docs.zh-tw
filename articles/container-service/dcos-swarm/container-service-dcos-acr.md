@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 15bd452ad2b80334c3f6168e6dee89bdd7c5efc4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 81b5bd18ea367b68adfc41ee97768b3b28967a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424400"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986622"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>搭配使用 ACR 與 Azure DC/OS 叢集以部署應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "39424400"
 
 您需要有 ACS DC/OS 叢集，才能完成本教學課程中的步驟。 如有需要，[此指令碼範例](./../kubernetes/scripts/container-service-cli-deploy-dcos.md)可為您建立一個叢集。
 
-本教學課程需要 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+本教學課程需要 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

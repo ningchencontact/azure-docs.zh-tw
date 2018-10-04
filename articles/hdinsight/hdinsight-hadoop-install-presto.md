@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 1569b5931a24048fa7a88c4a546bbf88547208d1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b9ac9c49e633906e47244eedcb18a4cda4a6228d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109611"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978944"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Presto
 
@@ -61,7 +61,7 @@ ms.locfileid: "43109611"
 4. 繼續如 [佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-portal.md)中所述佈建叢集。
 
     > [!NOTE]
-    > Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 範本也可用來套用指令碼動作。 您也可以將指令碼動作套用到執行中的叢集上。 如需詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+    > Azure PowerShell、Azure 傳統 CLI、HDInsight .NET SDK 或 Azure Resource Manager 範本也可用來套用指令碼動作。 您也可以將指令碼動作套用到執行中的叢集上。 如需詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
     > 
     > 
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 網路監看員安全性群組檢視分析網路安全性 - Azure CLI 2.0 | Microsoft Docs
-description: 本文會描述如何使用 Azure CLI 2.0，利用安全性群組檢視分析虛擬機器的安全性。
+title: 使用 Azure 網路監看員安全性群組檢視分析網路安全性 - Azure CLI | Microsoft Docs
+description: 本文會說明如何使用 Azure CLI，利用安全性群組檢視分析虛擬機器的安全性。
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 82cd0d97a64819ae8528850ba9a44800bf960afc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2b96c82f92ea49fa5bcb35d180240eb939d29d04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090548"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962890"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>使用 Azure CLI 2.0，利用安全性群組檢視分析虛擬機器的安全性
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>使用 Azure CLI，利用安全性群組檢視分析虛擬機器的安全性
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
@@ -30,10 +30,7 @@ ms.locfileid: "39090548"
 
 安全性群組檢視會傳回套用至虛擬機器之已設定且有效的網路安全性規則。 這項功能可用來稽核及診斷 VM 所設定的網路安全性群組和規則，以確保會正確允許或拒絕流量。 在本文中，我們會說明如何使用 Azure CLI 來擷取虛擬機器所設定且有效的安全性規則
 
-
-本文使用 Azure CLI 2.0 (針對資源管理部署模型的新一代 CLI)，它適用於 Windows、Mac 和 Linux。
-
-若要執行本文的步驟，您需要[安裝適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2)。
+若要執行此文章中的步驟，您必須[安裝適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)](/cli/azure/install-azure-cli)。
 
 ## <a name="before-you-begin"></a>開始之前
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 8f4b1c1c66243c06d46ef3fddec8ea495163fa07
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782255"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999608"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service 教學課程 - 管理 DC/OS
 
@@ -30,7 +30,7 @@ DC/OS 所提供的分散式平台可執行現代及容器化的應用程式。 �
 > * DC/OS 的基本管理
 > * 刪除 DC/OS 叢集
 
-本教學課程需要 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+本教學課程需要 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 ## <a name="create-dcos-cluster"></a>建立 DC/OS 叢集
 

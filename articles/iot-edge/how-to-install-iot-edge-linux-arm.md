@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 3f4e914f12feab3c36fca604c1bb37ab1a61b66f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9007ee95dc25854a55006284ce6fc574fd8e7968
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127220"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948514"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段
 
@@ -78,7 +78,7 @@ sudo apt-get install -f
 
 ### <a name="option-1-manual-provisioning"></a>選項 1：手動佈建
 
-若要手動佈建裝置，您需要提供[裝置連接字串][ lnk-dcs]，在您的 IoT 中樞註冊新裝置即可建立該字串。
+若要手動佈建裝置，您需要提供[裝置連接字串][lnk-dcs]，在您的 IoT 中樞註冊新裝置即可建立該字串。
 
 
 開啟組態檔。 
@@ -145,7 +145,6 @@ sudo nano /etc/iotedge/config.yaml
 sudo systemctl restart iotedge
 ```
 
-
 ## <a name="verify-successful-installation"></a>確認安裝成功
 
 如果您在上一節中使用**手動設定**步驟，IoT Edge 執行階段應會在您的裝置上成功佈建並執行。 如果您使用**自動設定**步驟，則必須完成一些額外的步驟，讓執行階段可代表您向您的 IoT 中樞註冊裝置。 如需後續步驟，請參閱[在 Linux 虛擬機器上建立及佈建模擬 TPM Edge 裝置](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)。
@@ -173,6 +172,8 @@ sudo iotedge list
 您必須要有提高的權限才能執行 `iotedge` 命令。 安裝執行階段之後，請登出您的電腦並重新登入，以自動更新您的權限。 在那之前，請在任何 `iotedge` 命令前面使用 **sudo**。
 
 在資源受限的裝置上，強烈建議將 OptimizeForPerformance 環境變數設定為 false，如[疑難排解指南][lnk-trouble]中的指示所述。
+
+如果您的網路具有 Proxy 伺服器，請遵循[設定您的 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中的步驟。
 
 ## <a name="next-steps"></a>後續步驟
 
