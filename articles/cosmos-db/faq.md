@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702590"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722198"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -118,6 +118,10 @@ PreferredLocations 值可以設定為任何提供 Cosmos DB 的 Azure 區域。 
 
 目前，您可以使用 .Net SDK 的 [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) 方法或使用 [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create)，透過分割區索引鍵的輸送量來建立集合。 目前不支援使用 Azure 入口網站建立固定集合。  
 
+### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB 是否支援時間序列分析？ 
+是的，Azure CosmosDB 支援時間序列分析，請參考這裡的[時間序列模式範例](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns)。 此範例會顯示如何使用變更摘要來建置經過一段時間的資料彙總檢視。 您可以使用 Spark 串流或其他串流資料處理器來延伸方法的使用範圍。
+
+
 ## <a name="sql-api"></a>SQL API
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>如何開始針對 SQL API 進行開發？
@@ -208,6 +212,10 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或容器集的輸送量，或重試一次。 |
 | ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>範例：*&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>適用於 MongoDB 的 Simba 驅動程式是否支援與 Azure CosmosDB MongoDB API 搭配使用？
+是的，您可以使用 Simba 的 Mongo ODBC 驅動程式搭配 Azure CosmosDB MongoDB API
+
 
 ## <a id="table"></a>資料表 API
 
@@ -441,15 +449,132 @@ Azure 資料表儲存體和 Azure Cosmos DB 資料表 API 使用相同的 SDK，
 Azure Cosmos DB 是 SLA 型系統，可提供延遲、輸送量、可用性及一致性的保證。 由於它是佈建的系統，因此會保留資源以保證這些需求。 系統會偵測到快速建立的資料表，並加以節流。 我們建議您查看資料表的建立速率，並降低為低於每分鐘 5 個。 請記住，資料表 API 是佈建的系統。 只要您一佈建，就必須開始支付費用。 
 
 ## <a name="gremlin-api"></a>Gremlin API
-### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>如何將 Gremlin API 的功能套用到 Azure Cosmos DB？
-您可以使用擴充程式庫套用 Gremlin API 的功能。 這個程式庫稱為 Microsoft Azure Graphs，並可在 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs) \(英文\) 上取得。 
 
-### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>看來你們支援 Gremlin 圖形周遊語言。 您們是否計劃加入更多形式的查詢？
-是，我們計劃在未來加入其他查詢機制。 
+### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>若是使用 C#/.NET 開發，應該使用 Microsoft.Azure.Graphs 套件或 Gremlin.NET？ 
 
-### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>如何使用新的 Gremlin API 供應項目？ 
-若要開始使用，請完成 [Gremlin API](../cosmos-db/create-graph-dotnet.md) 快速入門文章。
+Azure Cosmos DB Gremlin API 利用開放原始碼驅動程式作為服務的主要連接器。 因此，建議使用受 [ Apache Tinkerpop 支援的驅動程式](http://tinkerpop.apache.org/)。
 
+### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>在圖形資料庫中執行查詢時，每秒的 RU 如何計費？ 
+
+包括頂點及邊線的所有圖形物件，都會以 JSON 文件形式於後端呈現。 由於一個 Gremlin 查詢一次可以修正一或多個圖形物件，因此與其相關的成本會與這些由查詢處理的物件及邊線有直接關係。 Azure Cosmos DB 使用相同流程處理其他所有的 API。 如需詳細資訊，請參閱 [Azure Cosmos DB 中的要求單位](request-units.md)。
+
+RU 計費是根據周遊的運作資料庫計算，並不是根據結果集計算。 比方說，若查詢的目標是要獲得單一頂點作為結果，但需要同時周遊其他多個物件，則會依計算單一結果頂點所需的所有圖形物件來計算成本。
+
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 中圖形資料庫所能容納的級別上限為何？ 
+
+Azure Cosmos DB 使用[水平資料分割](partition-data.md)，自動處理儲存體和輸送量需要增加的問題。 工作負載的輸送量和儲存體容量上限根據給定集合相關的資料分割數量而定。 不過，Gremlin API 集合具備一組特定的指導方針，確保能提供良好的大規模效能體驗。 如需詳資訊和最佳做法，請參閱[資料分割最佳做法](partition-data.md#best-practices-when-choosing-a-partition-key)文件。 
+
+### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>如何防止透過 Gremlin 驅動程式發動的資料隱碼攻擊？ 
+
+多數原生 Tinkerpop Gremlin 驅動程式均允許提供參數字典執行查詢。 這裡提供使用 [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) 和 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js) 兩種方法的執行範例。
+
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>為什麼我會收到「Gremlin 查詢編譯錯誤：找不到任何方法」錯誤？
+
+Azure Cosmos DB Gremlin API 會實作一個在 Gremlin 介面區定義的功能子集。 如需支援的步驟和詳細資訊，請參閱 [Gremlin 支援](gremlin-support.md)一文。
+
+最好的解決方法，是以支援的功能重新寫入必要的 Gremlin 步驟，因為 Azure Cosmos DB 支援所有必要的 Gremlin 步驟。
+
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>為什麼我會收到「WebSocketException：伺服器在預期傳回狀態碼 ’101’ 的情況下傳回了狀態碼 '200'」錯誤？
+
+系統會在使用了錯誤的端點時擲回此錯誤。 產生此錯誤的端點模式如下：
+
+`https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/` 
+
+這是供您圖形資料庫使用的文件端點。  正確的端點是 Gremlin Endpoint，其格式如下： 
+
+`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
+
+### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>為什麼我會收到「RequestRateIsTooLarge」錯誤？
+
+此錯誤表示，已配置的每秒要求單位不足以提供查詢之所用。 通常您會在執行會獲得所有頂點的查詢時看到此錯誤：
+
+```
+// Query example:
+g.V()
+```
+
+此查詢會嘗試從圖形中擷取所有頂點。 因此，此查詢的成本至少等於 RU 的頂點數目。 您應該調整每秒 RU 的設定，才能處理此查詢。
+
+### <a name="why-do-my-gremlin-driver-connections-get-dropped-eventually"></a>為什麼我的 Gremlin 驅動程式連線最後還是失敗？
+
+Gremlin 連線是透過 WebSocket 連線而產生的。 雖然 WebSocket 連線並沒有特定的存留時間，Azure Cosmos DB Gremlin API 仍然會在 30 分鐘的非使用狀態之後終止閒置的連線。 
+
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>為什麼不能在原生 Gremlin 驅動程式中使用 Fluent API 呼叫？
+
+Azure Cosmos DB Gremlin API 尚未支援 Fluent API 呼叫。 Fluent API 呼叫需要稱為位元組程式碼支援的內部格式化功能，目前 Azure Cosmos DB Gremlin API 不支援此功能。 由於相同的原因，最新的 Gremlin-JavaScript 驅動程式目前也不受支援。 
+
+### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>如何評估 Gremlin 查詢的效率？
+
+**executionProfile()** 預覽步驟可提供查詢執行計畫的分析。 您需要將此步驟新增至任何 Gremlin 查詢的結尾，如以下範例所示：
+
+**查詢範例**
+
+```
+g.V('mary').out('knows').executionProfile()
+```
+
+**範例輸出**
+
+```json
+[
+  {
+    "gremlin": "g.V('mary').out('knows').executionProfile()",
+    "totalTime": 8,
+    "metrics": [
+      {
+        "name": "GetVertices",
+        "time": 3,
+        "annotations": {
+          "percentTime": 37.5
+        },
+        "counts": {
+          "resultCount": 1
+        }
+      },
+      {
+        "name": "GetEdges",
+        "time": 5,
+        "annotations": {
+          "percentTime": 62.5
+        },
+        "counts": {
+          "resultCount": 0
+        },
+        "storeOps": [
+          {
+            "partitionsAccessed": 1,
+            "count": 0,
+            "size": 0,
+            "time": 0.6
+          }
+        ]
+      },
+      {
+        "name": "GetNeighborVertices",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      },
+      {
+        "name": "ProjectOperator",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      }
+    ]
+  }
+]
+```
+
+以上設定檔的輸出顯示了獲得 Vertex 和 Edge 物件需要花費的時間，及為此運作的資料集大小。 這與 Azure Cosmos DB 查詢的標準成本量值相關。
 
 ## <a id="cassandra"></a> Cassandra API
 
