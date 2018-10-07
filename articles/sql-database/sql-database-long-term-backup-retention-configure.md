@@ -2,20 +2,22 @@
 title: 管理 Azure SQL Database 長期備份保留 | Microsoft Docs
 description: 了解如何在 SQL Azure 儲存體中儲存自動備份，然後將它們還原
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6f0d8a3a09ce000ddff078614c4febfc44ac941f
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264938"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164985"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL Database 長期備份保留
 
@@ -29,7 +31,7 @@ ms.locfileid: "39264938"
 
 您可以將 Azure SQL Database 設定為[保留自動備份](sql-database-long-term-retention.md)的期間比您服務層的保留期限還要長。 
 
-1. 在 Azure 入口網站中，選取您的 SQL Server，然後按一下 [管理備份]。 在 [設定原則] 索引標籤上，選取您要設定或修改長期備份保留原則的資料庫。
+1. 在 Azure 入口網站中，選取您的 SQL Server，然後按一下 [管理備份]。 在 [設定原則] 索引標籤上，針對您要設定或修改長期備份保留原則的資料庫選取其核取方塊。
 
    ![管理備份連結](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
@@ -125,20 +127,20 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Dat
 # The backups are grouped by the logical database id.
 # Within each group they are ordered by the timestamp, the earliest
 # backup first.  
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location 
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location 
 
 # Get the list of LTR backups from the Azure region under 
 # the named server. 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
 
 # Get the LTR backups for a specific database from the Azure region under the named server 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -DatabaseName $dbName
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # List LTR backups only from live databases (you have option to choose All/Live/Deleted)
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -DatabaseState Live
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
 # Only list the latest LTR backup for each database 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -OnlyLatestPerDatabase
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
 ### <a name="delete-ltr-backups"></a>刪除 LTR 備份

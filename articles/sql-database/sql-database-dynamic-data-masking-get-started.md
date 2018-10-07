@@ -2,19 +2,22 @@
 title: Azure SQL Database 動態資料遮罩 | Microsoft Docs
 description: SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用者無法看見機密資料
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: ronitr
 ms.author: ronitr
-ms.openlocfilehash: 714fe94d295157f0d4d90139da98254f46794731
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144212"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165546"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database 動態資料遮罩
 
@@ -52,5 +55,5 @@ DDM 建議引擎會將您資料庫中的特定欄位標示為潛在敏感性欄�
 請參閱 [Azure SQL Database Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql)。
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>使用 REST API 為您的資料庫設定動態資料遮罩
-請參閱 [Azure SQL Database 的作業](https://msdn.microsoft.com/library/dn505719.aspx)。
+請參閱 [Azure SQL Database 的作業](https://msdn.microsoft.com/library/dn505719.aspx) \(英文\)。
 

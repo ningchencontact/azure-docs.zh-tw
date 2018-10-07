@@ -2,24 +2,26 @@
 title: 建立及管理 Azure SQL Server 和單一資料庫 | Microsoft Docs
 description: 深入了解如何建立及管理邏輯伺服器和單一資料庫。
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 483ac248619a6d8a0f403592b1b4e55ad5e973da
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: c2855a9cdbb2abc01b3d3b55b12b979a2dbbf8bb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841850"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165352"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL Database 中建立及管理邏輯伺服器和單一資料庫 
 
-您可以使用 Azure 入口網站、PowerShell、Azure CLI、REST API 和 Transact-SQL，建立及管理 Azure SQL Database 邏輯伺服器和單一資料庫。
+您可以使用 Azure 入口網站、PowerShell、Azure CLI、REST API 和 Transact-SQL，來建立及管理 Azure SQL 資料庫邏輯伺服器與單一資料庫。
 
 ## <a name="azure-portal-manage-logical-servers-and-databases"></a>Azure 入口網站：管理邏輯伺服器和資料庫
 
@@ -38,7 +40,7 @@ ms.locfileid: "43841850"
 > [!IMPORTANT]
 > 如需選取資料庫定價層的資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 
-若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)
+若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)
 
 ### <a name="manage-an-existing-sql-server"></a>管理現有的 SQL Server
 
@@ -85,30 +87,30 @@ ms.locfileid: "43841850"
 若要使用 [Azure CLI](/cli/azure) 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 [Azure CLI SQL Database](/cli/azure/sql/db) 命令。 使用 [Cloud Shell](/azure/cloud-shell/overview) 在您的瀏覽器中執行 CLI，或在 macOS、Linux 或 Windows 中[安裝](/cli/azure/install-azure-cli)。 如需建立和管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 
 > [!TIP]
-> 如需 Azure CLI 快速入門，請參閱[使用 Azure CLI 建立單一 Azure SQL 資料庫](sql-database-get-started-cli.md)。 如需 Azure CLI 範例指令碼，請參閱[使用 CLI 建立單一 Azure SQL Database 並設定防火牆規則](scripts/sql-database-create-and-configure-database-cli.md)和[使用 CLI 監視和調整單一 SQL Database](scripts/sql-database-monitor-and-scale-database-cli.md)。
+> 如需 Azure CLI 快速入門，請參閱[使用 Azure CLI 建立單一 Azure SQL 資料庫](sql-database-cli-samples.md)。 如需 Azure CLI 範例指令碼，請參閱[使用 CLI 建立單一 Azure SQL Database 並設定防火牆規則](scripts/sql-database-create-and-configure-database-cli.md)和[使用 CLI 監視和調整單一 SQL Database](scripts/sql-database-monitor-and-scale-database-cli.md)。
 >
 
 | Cmdlet | 說明 |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |建立資料庫|
-|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|列出伺服器中的所有資料庫和資料倉儲，或彈性集區中的所有資料庫|
-|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|列出可用的服務目標與儲存體限制|
-|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|傳回資料庫使用方式|
-|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|取得資料庫或資料倉儲|
-|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|更新資料庫|
-|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|移除資料庫|
-|[az group create](/cli/azure/group#az_group_create)|建立資源群組|
-|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|建立伺服器|
-|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|列出伺服器|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|傳回伺服器使用方式|
-|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|取得伺服器|
-|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|更新伺服器|
-|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|刪除伺服器|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|建立伺服器防火牆規則|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|列出伺服器上的防火牆規則|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|顯示防火牆規則的詳細資料|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|更新防火牆規則|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|刪除防火牆規則|
+|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |建立資料庫|
+|[az sql db list](/cli/azure/sql/db#az-sql-db-list)|列出伺服器中的所有資料庫和資料倉儲，或彈性集區中的所有資料庫|
+|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|列出可用的服務目標與儲存體限制|
+|[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|傳回資料庫使用方式|
+|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|取得資料庫或資料倉儲|
+|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|更新資料庫|
+|[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)|移除資料庫|
+|[az group create](/cli/azure/group#az-group-create)|建立資源群組|
+|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|建立伺服器|
+|[az sql server list](/cli/azure/sql/server#az-sql-server-list)|列出伺服器|
+|[az sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|傳回伺服器使用方式|
+|[az sql server show](/cli/azure/sql/server#az-sql-server-show)|取得伺服器|
+|[az sql server update](/cli/azure/sql/server#az-sql-server-update)|更新伺服器|
+|[az sql server delete](/cli/azure/sql/server#az-sql-server-delete)|刪除伺服器|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|建立伺服器防火牆規則|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|列出伺服器上的防火牆規則|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|顯示防火牆規則的詳細資料|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|更新防火牆規則|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|刪除防火牆規則|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL：管理邏輯伺服器和資料庫
 

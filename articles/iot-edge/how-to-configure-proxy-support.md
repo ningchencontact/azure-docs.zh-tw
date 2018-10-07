@@ -4,16 +4,16 @@ description: 如何設定 Azure IoT Edge 執行階段及任何網際網路對應
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/13/2018
+ms.date: 09/24/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf8f6197c65b0169e2bc61f46ab4a22f212512a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996718"
+ms.locfileid: "47037451"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊
 
@@ -21,9 +21,25 @@ IoT Edge 裝置會傳送 HTTPS 要求以和 IoT 中樞通訊。 如果您的裝�
 
 設定 IoT Edge 裝置以搭配 Proxy 伺服器運作的基本步驟如下： 
 
-1. 設定您裝置上的 Docker 精靈及 IoT Edge 精靈以使用 Proxy 伺服器。
-2. 設定您裝置上 config.yaml 中的 edgeAgent 屬性。
-3. 設定部署資訊清單中 IoT Edge 執行階段和其他 IoT Edge 模組的環境變數。 
+1. 在裝置上安裝 IoT Edge 執行階段。 
+2. 設定您裝置上的 Docker 精靈及 IoT Edge 精靈以使用 Proxy 伺服器。
+3. 設定您裝置上 config.yaml 中的 edgeAgent 屬性。
+4. 設定部署資訊清單中 IoT Edge 執行階段和其他 IoT Edge 模組的環境變數。 
+
+## <a name="install-the-runtime"></a>安裝執行階段
+
+若您正於 Linux 裝置上安裝 IoT Edge 執行階段，請設定套件管理員以 Proxy 伺服器存取安裝套件。 例如，[設定 apt-get 以使用 http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy) \(英文\)。 設定您的套件管理員之後，請依照[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)或[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)中的指示執行。 
+
+若您正於 Windows 裝置上安裝 IoT Edge 執行階段，您必須透過 Proxy 伺服器存取安裝套件。 您可以在 Windows 設定中設定 Proxy 資訊，或直接在安裝指令碼中包含您的 Proxy 資訊。 下列 PowerShell 指令碼是使用 `-proxy` 引數的 Wndows 安裝範例：
+
+```powershell
+. {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
+Install-SecurityDaemon -Manual -ContainerOs Windows
+```
+
+如需詳細資訊與安裝選項，請參閱[在 Windows 上安裝 Azure IoT Edge 執行階段以搭配 Windows 容器使用](how-to-install-iot-edge-windows-with-windows.md)或[在 Windows 上安裝 Azure IoT Edge 執行階段以搭配 Linux 容器使用](how-to-install-iot-edge-windows-with-linux.md)。
+
+安裝 IoT Edge 執行階段之後，請使用下一節中的指示以您的 Proxy 資訊設定它。 
 
 ## <a name="configure-the-daemons"></a>設定精靈
 

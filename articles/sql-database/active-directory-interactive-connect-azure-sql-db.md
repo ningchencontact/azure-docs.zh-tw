@@ -2,20 +2,22 @@
 title: ActiveDirectoryInteractive 連線至 SQL | Microsoft Docs
 description: C# 程式碼範例 (具有說明)，使用 SqlAuthenticationMethod.ActiveDirectoryInteractive 模式來連線到 Azure SQL Database。
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
 ms.custom: active directory
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/06/2018
+author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.date: 04/06/2018
+manager: craigg
+ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238263"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055521"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>使用 ActiveDirectoryInteractive 模式以連線到 Azure SQL Database
 
@@ -122,13 +124,13 @@ C# 程式會依賴命名空間 **Microsoft.IdentityModel.Clients.ActiveDirectory
 
 C# 範例所依賴的一個命名空間是 **System.Data.SqlClient**。 特別引人興趣的是列舉 **SqlAuthenticationMethod**。 這個列舉具有下列值：
 
-- **SqlAuthenticationMethod.ActiveDirectory\*互動式**\*：&nbsp;與 Azure AD 使用者名稱搭配使用，以達成多重要素驗證 MFA。
+- **SqlAuthenticationMethod.ActiveDirectory *互動式***：&nbsp;  與 Azure AD 使用者名稱搭配使用，以達成多重要素驗證 MFA。
     - 這個值是目前文章的焦點。 它會透過顯示對話方塊來要求輸入使用者密碼，接著若強制對此使用者執行 MFA，則會要求進行 MFA 驗證，來產生互動式體驗。
     - 此值從 .NET Framework 4.7.2 版開始可供使用。
 
-- **SqlAuthenticationMethod.ActiveDirectory\*整合式**\*：&nbsp;針對同盟帳戶使用此值。 針對同盟帳戶，Windows 網域已知使用者名稱。 這個方法不支援 MFA。
+- **SqlAuthenticationMethod.ActiveDirectory *整合式***：&nbsp;  針對同盟帳戶使用此設定。 針對同盟帳戶，Windows 網域已知使用者名稱。 這個方法不支援 MFA。
 
-- **SqlAuthenticationMethod.ActiveDirectory\*密碼**\*：&nbsp;針對需要 Azure AD 使用者和使用者密碼的驗證使用。 Azure SQL Database 會執行驗證。 這個方法不支援 MFA。
+- **SqlAuthenticationMethod.ActiveDirectory *密碼***：&nbsp;  針對需要 Azure AD 使用者和使用者密碼的驗證使用此設定。 Azure SQL Database 會執行驗證。 這個方法不支援 MFA。
 
 
 

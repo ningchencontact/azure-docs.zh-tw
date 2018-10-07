@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700838"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222687"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 在當今大幅互連的社會當中，您的生活或多或少都成為 **社交網路**的一部分。 您會使用社交網路與朋友、同事、家人保持連絡，有時候還可以跟擁有共同興趣的人交流這份愛好。
@@ -39,7 +39,7 @@ ms.locfileid: "43700838"
 當然，您還是可以使用一個有足夠強大功能的龐大 SQL 執行個體，以解決數千個含有這些眾多聯結的查詢來提供內容，但如果有較簡單的解決方案，何須如此大費周章？
 
 ## <a name="the-nosql-road"></a>NoSQL 的方法
-本文將引導您如何以具成本效益的方式使用 Azure 的 NoSQL 資料庫 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)，將社交平台的資料模型化，同時利用 [Gremlin API](../cosmos-db/graph-introduction.md) 等其他 Azure Cosmos DB 功能。 如果使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法，將資料以 JSON 格式儲存並套用[反正規化](https://en.wikipedia.org/wiki/Denormalization)時，即可將之前複雜的貼文轉換成單一[文件](https://en.wikipedia.org/wiki/Document-oriented_database)：
+此文章將引導您如何以具成本效益的方式使用 Azure 的 NoSQL 資料庫 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)，將社交平台的資料模型化，同時利用 [Gremlin API](../cosmos-db/graph-introduction.md) 等其他 Azure Cosmos DB 功能。 如果使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法，將資料以 JSON 格式儲存並套用[反正規化](https://en.wikipedia.org/wiki/Denormalization)時，即可將之前複雜的貼文轉換成單一[文件](https://en.wikipedia.org/wiki/Document-oriented_database)：
 
 
     {
@@ -99,7 +99,7 @@ Azure Cosmos DB 可利用自身的自動索引編製作業，確保所有屬性�
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-您可以有一個其中貼文依建立日期排序的「最新」串流、一個其中貼文在過去 24 小時內獲得較多讚的「最熱門」串流，甚至可以依據邏輯 (例如關注者與興趣) 為每位使用者實作自訂串流，而這仍然會是一個文章清單。 關鍵在於如何建立這些清單，而且讀取效能不會受到影響。 在取得這其中一份清單之後，您便可以使用 [IN 運算子](sql-api-sql-query.md#WhereClause)向 Cosmos DB 發出單一查詢，一次取得貼文的頁面。
+您可以有一個其中貼文依建立日期排序的「最新」串流、一個其中貼文在過去 24 小時內獲得較多讚的「最熱門」串流，甚至可以依據邏輯 (例如關注者與興趣) 為每位使用者實作自訂串流，而其仍然是一個貼文清單。 關鍵在於如何建立這些清單，而且讀取效能不會受到影響。 在取得這其中一份清單之後，您便可以使用 [IN 運算子](sql-api-sql-query.md#WhereClause)向 Cosmos DB 發出單一查詢，一次取得貼文的頁面。
 
 您可以使用 [Azure App Service](https://azure.microsoft.com/services/app-service/) 的背景處理序 [Webjobs](../app-service/web-sites-create-web-jobs.md) 來建置摘要串流。 建立貼文之後，即可使用 [Azure 儲存體](https://azure.microsoft.com/services/storage/)[佇列](../storage/queues/storage-dotnet-how-to-use-queues.md)來觸發背景處理，以及使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 來觸發 WebJobs，其中會根據您自己的自訂邏輯，在串流內實作貼文傳播。 
 
@@ -139,7 +139,7 @@ Azure Cosmos DB 可利用自身的自動索引編製作業，確保所有屬性�
 
 為了能更快速地查詢，您會造成資料重複情況。 這個副作用的問題在於，如果因某個動作而導致某位使用者的資料變更，您就必須找出該使用者進行過的所有活動，並全數更新。 聽起來不太實際，對吧？
 
-您將識別應用程式中針對每項活動顯示的使用者關鍵屬性，來解決此問題。 如果您在應用程式中以視覺方式顯示某篇貼文，且只顯示建立者的名稱和圖片，那麼，為何要在 “createdBy” 屬性中儲存所有使用者資料？ 如果針對每個回應，您都只顯示使用者的圖片，就不需要該使用者資訊的其餘部分。 這時就可以用到我所謂的「階梯模式」。
+您將識別應用程式中針對每項活動顯示的使用者關鍵屬性，來解決此問題。 如果您在應用程式中以視覺方式顯示某篇貼文，且只顯示建立者的名稱和圖片，那麼，為何要在 "createdBy" 屬性中儲存所有使用者資料？ 如果針對每個回應，您都只顯示使用者的圖片，就不需要該使用者資訊的其餘部分。 這時就可以用到我所謂的「階梯模式」。
 
 讓我們以使用者資訊當作範例︰
 
@@ -157,11 +157,11 @@ Azure Cosmos DB 可利用自身的自動索引編製作業，確保所有屬性�
         "totalPosts":24
     }
 
-藉由查看此資訊，您可以快速偵測出哪些是重要資訊而哪些不是，藉此建立出一道「階梯」：
+透過查看此資訊，您可以快速偵測出哪些是重要資訊而哪些不是，藉此建立出一道「階梯」：
 
 ![階梯模式的圖表](./media/social-media-apps/social-media-apps-ladder.png)
 
-最小的一階稱為「使用者區塊」，其為可識別使用者並為資料重複使用的最基本部分。 藉由將重複資料的大小縮減成僅限您將「顯示」的資訊，即可降低需要大量更新的機率。
+最小的一階稱為「使用者區塊」，其為可識別使用者並為資料重複使用的最基本部分。 透過將重複資料的大小縮減成僅限您將「顯示」的資訊，即可降低需要大量更新的機率。
 
 中間的階梯稱為「使用者」，其為在 Cosmos DB 中大多數與效能相依之查詢會用到的完整資料，也是最重要與最常存取的資料。 它包含「使用者區塊」所代表的資訊。
 
@@ -190,7 +190,7 @@ Azure Cosmos DB 可利用自身的自動索引編製作業，確保所有屬性�
         }
     }
 
-如果影響到其中一個區塊屬性之處發生編輯，您也可以使用指向索引屬性的查詢 (SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”)，然後更新區塊，即可輕鬆找到受影響的文件。
+如果影響到其中一個區塊屬性之處發生編輯，您也可以使用指向索引屬性的查詢 (SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id")，然後更新區塊，即可輕鬆找到受影響的文件。
 
 ## <a name="the-search-box"></a>搜尋方塊
 使用者將可幸運地產生許多內容。 而您應該能夠提供功能來搜尋和尋找可能未直接在其內容串流中的內容，這些內容未直接在其內容串流中的原因可能是您未關注建立者，也可能是您只是想要尋找 6 個月前所發的舊貼文。
@@ -240,7 +240,7 @@ Cosmos DB 可讓您按幾下就能透明地[將資料複寫至全球](../cosmos-
 ![為您的社交平台加入全球涵蓋範圍](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>結論
-本篇文章嘗試探討以低成本的服務在 Azure 上完整建立社交網路的替代方案，並鼓勵使用多層次儲存體解決方案和稱為「階梯」的資料分散方式，提供更好的結果。
+此文張嘗試探討以低成本的服務在 Azure 上完整建立社交網路的替代方案，並鼓勵使用多層次儲存體解決方案和稱為「階梯」的資料分散方式，提供更好的結果。
 
 ![Azure 服務之間社交網路互動的圖表](./media/social-media-apps/social-media-apps-azure-solution.png)
 

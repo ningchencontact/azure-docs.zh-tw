@@ -1,21 +1,23 @@
 ---
 title: 監視多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能 | Microsoft Docs
 description: 監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能
-keywords: SQL Database Azure
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753436"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055940"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能
 
@@ -44,9 +46,9 @@ Wingtip Tickets SaaS 多租用戶資料庫應用程式會使用分區化多租�
 ### <a name="performance-management-strategies"></a>效能管理策略
 
 * 若要避免手動監視效能，最有效的方式是**設定在資料庫偏離正常範圍時觸發的警示**。
-* 若要回應資料庫效能層級中的短期波動，**DTU 層級可以相應增加或減少**。 如果這樣的波動是以定期或可預測的方式發生，則**可排定自動調整資料庫**。 例如，當您知道夜間或者週末期間工作負載較輕時，就可以相應減少。
+* 若要回應資料庫計算大小的短期波動，可以**相應增加或減少 DTU 層級**。 如果這樣的波動是以定期或可預測的方式發生，則**可排定自動調整資料庫**。 例如，當您知道夜間或者週末期間工作負載較輕時，就可以相應減少。
 * 若要回應長期波動或租用戶中的變更，**個別租用戶可以移至其他租用戶**。
-* 若要回應「個別」租用戶負載中的短期增加，**可由資料庫中取出個別租用戶並指派個別效能等級**。 一旦負載降低後，就可以讓租用戶返回到多租用戶資料庫。 事先知道時，則能預先移動租用戶以確保資料庫一律擁有它所需的資源，和避免影響多租用戶資料庫中的其他租用戶。 如果可預測此需求，例如場地因熱門活動而發生票券銷售熱潮，則此管理行為可以與應用程式整合。
+* 若要回應「個別」租用戶負載中的短期增加，**可由資料庫中取出個別租用戶並指派個別計算大小**。 一旦負載降低後，就可以讓租用戶返回到多租用戶資料庫。 事先知道時，則能預先移動租用戶以確保資料庫一律擁有它所需的資源，和避免影響多租用戶資料庫中的其他租用戶。 如果可預測此需求，例如場地因熱門活動而發生票券銷售熱潮，則此管理行為可以與應用程式整合。
 
 [Azure 入口網站](https://portal.azure.com)提供大部分資源的內建監視與警示功能。 針對 SQL Database，可使用資料庫監視與警示功能。 這個內建的監視與警示功能是資源特定，因此針對少數資源使用很方便，但是搭配許多資源使用時則不方便。
 

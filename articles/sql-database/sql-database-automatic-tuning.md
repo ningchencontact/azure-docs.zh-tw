@@ -2,20 +2,22 @@
 title: Azure SQL Database - 自動調整 | Microsoft Docs
 description: Azure SQL Database 會分析 SQL 查詢，並自動針對使用者的工作負載調整。
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 931e0f2c6be51c78187413d638259237f98bd9b0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189253"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063348"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
@@ -27,7 +29,7 @@ Azure SQL Database 自動調整是您可以啟用以提供穩定且執行良好�
 
 ## <a name="what-can-automatic-tuning-do-for-you"></a>自動調整可以為您做什麼？
 
-- Azure SQL Database 的自動效能調整
+- Azure SQL Database 的自動化效能調整
 - 自動驗證效能提升
 - 自動復原與自我修正
 - 調整歷程記錄
@@ -38,7 +40,7 @@ Azure SQL Database 自動調整是您可以啟用以提供穩定且執行良好�
 
 ## <a name="safe-reliable-and-proven"></a>安全、可靠且經過實證
 
-套用到 Azure SQL Databases 的調整作業，對於您最密集之工作負載的效能是完全安全的。 系統已經精心設計成不會干擾使用者工作負載。 自動調整建議只會在低使用率的時段套用。 系統也可以暫時地停用自動調整作業，以保護工作負載效能。 在這種情況下，「被系統停用」的訊息會顯示在 Azure 入口網站中。 自動調整會將工作負載考慮為具有最高資源優先順序。
+套用到 Azure SQL Database 的調整作業，對於您最密集之工作負載的效能是完全安全的。 系統已經精心設計成不會干擾使用者工作負載。 自動調整建議只會在低使用率的時段套用。 系統也可以暫時地停用自動調整作業，以保護工作負載效能。 在這種情況下，「被系統停用」的訊息會顯示在 Azure 入口網站中。 自動調整會將工作負載考慮為具有最高資源優先順序。
 
 自動調整是成熟的機制，且已在數百萬個於 Azure 上執行的資料庫上達到完美。 已套用的自動調整作業都會進行自動驗證，以確保對工作負載效能有正面的改進。 系統會動態地偵測迴歸的效能建議，並迅速地做出還原。 透過已記錄的調整歷程記錄，使用者可清楚查看對每個 Azure SQL Database 所做出的調整改進。 
 
@@ -81,5 +83,5 @@ Azure SQL Database 中可用的自動調整選項有：
 - 若要手動檢閱及套用自動調整建議，請參閱[尋找及套用效能建議](sql-database-advisor-portal.md)。
 - 若要了解如何使用 T-SQL 來套用和檢視自動調整建議，請參閱[透過 T-SQL 管理自動調整](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)。
 - 若要了解如何對自動調整建議建置電子郵件通知，請參閱[自動調整的電子郵件通知](sql-database-automatic-tuning-email-notifications.md)。
-- 若要了解自動調整中使用的內建智慧機制，請參閱[透過人工智慧調整 Azure SQL Database](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)。
+- 若要了解自動調整中使用的內建智慧機制，請參閱[透過人工智慧調整 Azure SQL Database](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/) \(英文\)。
 - 若要了解自動調整在 Azure SQL Database 和 SQL Server 2017 中運作的方式，請參閱 [SQL Server 自動調整](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)。

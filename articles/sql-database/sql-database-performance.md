@@ -1,21 +1,22 @@
 ---
 title: 監視並改善效能 - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database 會提供可協助您找出可改善目前查詢效能區域的效能工具。
-services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 8a458af27bd517be7c3ce0b5ad30c6d575d494c0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 35af3a926ab3c3a3046eab921e86b6610edc309c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522436"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162949"
 ---
 # <a name="monitor-and-improve-performance"></a>監視並改善效能
 Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧型微調動作和建議來建議可以改善工作負載效能的動作。
@@ -56,7 +57,7 @@ Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧�
 在[尋找和套用效能建議](sql-database-advisor-portal.md)文章中，了解如何找到和套用效能建議。
 
 ## <a name="automatic-tuning"></a>自動微調
-Azure SQL Databases 能透過套用[效能建議](sql-database-advisor.md)來自動微調資料庫效能。 若要深入了解，請參閱[自動調整文章](sql-database-automatic-tuning.md)。 若要啟用它，請參閱[如何啟用自動調整](sql-database-automatic-tuning-enable.md)。
+Azure SQL 資料庫能透過套用[效能建議](sql-database-advisor.md)來自動調整資料庫效能。 若要深入了解，請參閱[自動調整文章](sql-database-automatic-tuning.md)。 若要啟用它，請參閱[如何啟用自動調整](sql-database-automatic-tuning-enable.md)。
 
 ## <a name="query-performance-insight"></a>查詢效能深入解析
 [查詢效能深入解析](sql-database-query-performance.md) 提供了下列各項，讓您得以花費較少的時間來針對資料庫效能進行疑難排解：

@@ -1,28 +1,23 @@
 ---
 title: PowerShell - 移除 TDE 保護裝置 - Azure SQL Database| Microsoft Docs
 description: 本操作指南說明 Azure SQL Database 或資料倉儲若是使用具有「攜帶您自己的金鑰」(BYOK) 支援的 TDE，在其 TDE 保護裝置可能遭破壞時，應如何因應。
-keywords: ''
 services: sql-database
-documentationcenter: ''
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: ''
-ms.suite: sql
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
+ms.subservice: security
 ms.custom: ''
-ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/07/2017
+author: becczhang
 ms.author: rebeccaz
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: feb187101ec02d6e765d6b025f518dc416f55b8b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 08/07/2017
+ms.openlocfilehash: f965a008ed5973a544dba686e54e041ca6ef7673
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043277"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165988"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 移除透明資料加密 (TDE) 保護裝置
 ## <a name="prerequisites"></a>必要條件
@@ -40,8 +35,8 @@ ms.locfileid: "40043277"
 請切記，在 Key Vault 中刪除 TDE 保護裝置後，**系統會封鎖該伺服器下所有與已加密資料庫的連線；這些資料庫會離線，並在 24 小時內遭到捨棄**。 以遭破壞的金鑰加密的舊備份，將不再可供存取。
 
 本操作指南會根據事件回應之後的所需結果討論兩種方法：
-- 將 Azure SQL Database/資料倉儲保持為**可供存取**
-- 使 Azure SQL Database/資料倉儲變得**無法存取**
+- 將 Azure SQL 資料庫/資料倉儲保持為**可供存取**
+- 使 Azure SQL 資料庫/資料倉儲變成**無法存取**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>將加密資源保持為可供存取
 1. 建立 [Key Vault 中的新金鑰](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0)。 請務必將此新金鑰建立在與可能遭破壞的 TDE 保護裝置不同的金鑰保存庫中，因為存取控制佈建於保存庫層級上。 

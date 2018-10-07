@@ -1,21 +1,23 @@
 ---
 title: 每一租用戶一個資料庫 SaaS 教學課程 - Azure SQL Database | Microsoft Docs
 description: 部署及探索 Wingtip Tickets SaaS 多租用戶應用程式，其使用 Azure SQL Database 示範每一租用戶一個資料庫模式和其他 SaaS 模式。
-keywords: SQL Database Azure
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 77e3cdcbd18a4a5313160b947ce278a75f3e3de3
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423538"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056381"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>部署及探索搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式
 
@@ -242,7 +244,7 @@ Demo-LoadGenerator.ps1 會模擬客戶交易的作用中工作負載。 下列�
 - 第一個圖表 (標示為**資源使用率**) 顯示集區的 eDTU 使用率。
 - 第二個圖表顯示集區中五個最常使用之資料庫的 eDTU 使用率。
 
-這兩個圖表說明彈性集區和 SQL Database 非常適合無法預期的 SaaS 應用程式工作負載。 圖表顯示這 4 個資料庫的使用率均爆增至 40 eDTU，不過所有資料庫都受到一個 50-eDTU 集區的支援，所以不需擔心。 50-eDTU 集區甚至能支援更繁重的工作負載。 如果這些資料庫是以獨立資料庫佈建，則它們都必須是 S2 (50 DTU) 才能支援暴增的工作負載。 4 個獨立 S2 資料庫的成本幾乎是集區價格的 3 倍。 在現實情況下，SQL Database 客戶會在 200 eDTU 集區中執行多達 500 個資料庫。 如需詳細資訊，請參閱[效能監視教學課程](saas-dbpertenant-performance-monitoring.md)。
+這兩個圖表說明彈性集區和 SQL Database 非常適合無法預期的 SaaS 應用程式工作負載。 圖表顯示這 4 個資料庫的使用率均爆增至 40 eDTU，不過所有資料庫都受到一個 50-eDTU 集區的支援，所以不需擔心。 50-eDTU 集區甚至能支援更繁重的工作負載。 如果這些資料庫是以單一資料庫形式佈建，則它們每個都必須是 S2 (50 DTU) 才能支援高載。 4 個獨立 S2 資料庫的成本幾乎是集區價格的 3 倍。 在現實情況下，SQL Database 客戶會在 200 eDTU 集區中執行多達 500 個資料庫。 如需詳細資訊，請參閱[效能監視教學課程](saas-dbpertenant-performance-monitoring.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

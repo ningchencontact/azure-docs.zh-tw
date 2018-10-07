@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/03/2018
+ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: 90a28162fb1f455c154ad4d2da7beac6bc785bc7
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301031"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220460"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>為叢集設定 Log Analytics
 
@@ -76,117 +76,22 @@ ms.locfileid: "36301031"
 
 使用 Resource Manager 範本部署叢集時，該範本會建立新的 Log Analytics 工作區、將 Service Fabric 解決方案新增至此工作區，並將它設定為讀取適當儲存體資料表中的資料。
 
-您可以使用和修改[這個範例範本](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms)以符合您的需求。
+您可以使用和修改[這個範例範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure)以符合您的需求。 此範本將會執行下列動作：
 
-進行下列修改：
-1. 將以下程式碼片段新增至 template.json 檔案中定義的參數，進而將 `omsWorkspaceName` 和 `omsRegion` 新增至您的參數。 可自由將預設值設定為您覺得合適的值。 此外，在 parameters.json 檔案中新增兩個新參數，以針對資源部署定義其值：
-    
-    ```json
-    "omsWorkspacename": {
-        "type": "string",
-        "defaultValue": "sfomsworkspace",
-        "metadata": {
-            "description": "Name of your Log Analytics Workspace"
-        }
-    },
-    "omsRegion": {
-        "type": "string",
-        "defaultValue": "East US",
-        "allowedValues": [
-            "West Europe",
-            "East US",
-            "Southeast Asia"
-        ],
-        "metadata": {
-            "description": "Specify the Azure Region for your Log Analytics workspace"
-        }
-    }
-    ```
+* 建立 5 個節點的 Service Fabric 叢集
+* 建立 Log Analytics 工作區與 Service Fabric 解決方案
+* 設定 OMS 代理程式以收集並傳送 2 個範例效能計數器到工作區
+* 設定 WAD 以收集 Service Fabric 並將其傳送到 Azure 儲存體資料表 (WADServiceFabric*EventTable)
+* 設定 Log Analytics 工作區以從這些資料表讀取事件
 
-    `omsRegion` 值必須符合一組特定的值。 選擇最接近叢集部署的值。
 
-2. 如果要將任何應用程式記錄傳送至 Log Analytics，請先確認 `applicationDiagnosticsStorageAccountType` 和 `applicationDiagnosticsStorageAccountName` 已納入成為您範本中的參數。 如果尚未納入，請將它們新增至 variables 區段，並視需要編輯其值。 您也可以按照前面的格式，將它們納入成為參數。
+您可以在 AzureRM PowerShell 模組中使用 `New-AzureRmResourceGroupDeployment` API，以 Resource Manager 升級的方式將範本部署至您的叢集。 範例命令可能像這樣：
 
-    ```json
-    "applicationDiagnosticsStorageAccountType": "Standard_LRS",
-    "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]"
-    ```
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -TemplateFile "<templatefile>.json" 
+``` 
 
-3. 將 Service Fabric Log Analytics 解決方案新增至您的範本變數：
-
-    ```json
-    "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
-    "solutionName": "ServiceFabric"
-    ```
-
-4. 將下列命令新增至 resources 區段的結尾，在宣告 Service Fabric 叢集資源的位置之後：
-
-    ```json
-    {
-        "apiVersion": "2015-11-01-preview",
-        "location": "[parameters('omsRegion')]",
-        "name": "[parameters('omsWorkspacename')]",
-        "type": "Microsoft.OperationalInsights/workspaces",
-        "properties": {
-            "sku": {
-                "name": "Free"
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "2015-11-01-preview",
-                "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('omsWorkspacename'))]",
-                "type": "storageinsightconfigs",
-                "dependsOn": [
-                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]",
-                    "[concat('Microsoft.Storage/storageAccounts/', parameters('applicationDiagnosticsStorageAccountName'))]"
-                ],
-                "properties": {
-                    "containers": [ ],
-                    "tables": [
-                        "WADServiceFabric*EventTable",
-                        "WADWindowsEventLogsTable",
-                        "WADETWEventTable"
-                    ],
-                    "storageAccount": {
-                        "id": "[resourceId('Microsoft.Storage/storageaccounts/', parameters('applicationDiagnosticsStorageAccountName'))]",
-                        "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "apiVersion": "2015-11-01-preview",
-        "location": "[parameters('omsRegion')]",
-        "name": "[variables('solution')]",
-        "type": "Microsoft.OperationsManagement/solutions",
-        "id": "[resourceId('Microsoft.OperationsManagement/solutions/', variables('solution'))]",
-        "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('OMSWorkspacename'))]"
-        ],
-        "properties": {
-            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
-        },
-        "plan": {
-            "name": "[variables('solution')]",
-            "publisher": "Microsoft",
-            "product": "[Concat('OMSGallery/', variables('solutionName'))]",
-            "promotionCode": ""
-        }
-    }
-    ```
-    
-    > [!NOTE]
-    > 如果您加入 `applicationDiagnosticsStorageAccountName` 作為變數，請務必將其每項參考修改為 `variables('applicationDiagnosticsStorageAccountName')`，而不是 `parameters('applicationDiagnosticsStorageAccountName')`。
-
-5. 在 AzureRM PowerShell 模組中使用 `New-AzureRmResourceGroupDeployment` API，以 Resource Manager 升級的方式將範本部署至您的叢集。 範例命令可能像這樣：
-
-    ```powershell
-    New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
-    ``` 
-
-    Azure Resource Manager 會偵測到此命令是現有資源的更新。 它只會處理驅動現有部署之範本和提供之新範本之間的變更。
+Azure Resource Manager 會偵測到此命令是現有資源的更新。 它只會處理驅動現有部署之範本和提供之新範本之間的變更。
 
 ## <a name="deploy-log-analytics-by-using-azure-powershell"></a>使用 Azure PowerShell 部署 Log Analytics
 

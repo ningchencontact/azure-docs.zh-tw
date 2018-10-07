@@ -2,24 +2,26 @@
 title: Azure SQL Database 的資料探索與分類 | Microsoft Docs
 description: Azure SQL Database 的資料探索與分類
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/10/2018
+author: giladmit
 ms.author: giladm
-ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: d34bb54729fe0adc4b26d213bfaa4ad4fb210ab7
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140065"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064170"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 的資料探索與分類
 資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
-對於最具敏感性的資料 (商業/財務、醫療保健及 PII 等) 進行探索與分類，可在組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
+對於最具敏感性的資料 (商業、財務、醫療保健與個人識別資料 (PII) 等) 進行探索與分類，在組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
 * 協助符合資料隱私標準和法規合規性需求。
 * 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
 * 控制對包含高度敏感性資料之資料庫的存取，並強化安全性。
@@ -42,6 +44,17 @@ ms.locfileid: "42140065"
 分類包含兩個中繼資料屬性：
 * 標籤：主要分類屬性，用來定義儲存在資料行中的資料敏感度等級。  
 * 資訊類型：為儲存在資料行中的資料類型提供額外的細微性。
+
+## <a name="define-and-customize-your-classification-taxonomy"></a>定義及自訂您的類別分類法
+
+SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的資訊類型和探索邏輯。 您現在可以自訂此分類法，並定義專門針對您的環境建構之類別的集合和順位。
+
+類別分類法的定義及自訂會在您整個 Azure 租用戶的一個集中位置完成。 該位置位於 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)中，做為您的安全性原則的一部分。 只有具備租用戶根管理群組系統管理權限的人可以執行此工作。
+
+作為資訊保護原則管理的一部分，您可以定義自訂標籤、對它們進行排名，並將它們與一組選取的資訊類型相關聯。 您也可以新增自己的自訂資訊類型，並使用字串模式對其進行設定，字串模式將新增至探索邏輯中，以便在資料庫中識別此類型的資料。
+在[資訊保護原則操作指南](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409) \(英文\) 中深入了解有關自訂及管理您原則的詳細資訊。
+
+一旦定義整個租用戶的原則，您就可以使用您的自訂原則，繼續對個別資料庫進行分類。
 
 ## <a name="classify-your-sql-database"></a>將您的 SQL Database 分類
 
@@ -104,9 +117,9 @@ ms.locfileid: "42140065"
 > [!NOTE]
 > 使用 T-SQL 管理標籤時，系統不會驗證新增到資料行的標籤是否存在於組織資訊保護原則 (顯示於入口網站建議中的那組標籤)。 因此，這項驗證會由您執行。
 
-* 新增/更新一或多個資料行的分類：[ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* 從一或多個資料行移除分類：[DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* 檢視資料庫上的所有分類：[sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* 新增/更新一或多個資料行的分類：[ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* 從一或多個資料行移除分類：[DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* 檢視資料庫上的所有分類：[sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 您也可以使用 REST API 以程式設計方式管理分類。 已發行的 REST API 支援下列作業：
 * [建立或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 建立或更新指定資料行的敏感度標籤

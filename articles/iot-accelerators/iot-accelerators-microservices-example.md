@@ -1,19 +1,18 @@
 ---
 title: 變更並重新部署微服務 | Microsoft Docs
 description: 本教學課程示範如何在遠端監視中變更並重新部署微服務
-author: giyeh
-manager: hegate
-ms.author: giyeh
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: e15e17a499ad33a270b220fa7483d96c2945f6bb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338072"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219409"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>自訂和重新部署微服務
 
@@ -47,28 +46,29 @@ ms.locfileid: "43338072"
 2. 找出您已下載的 Postman 並開啟它。
 3. 在 Postman 中，於 GET 中輸入下列內容： http://localhost:8080/iothubmanager/v1/status。
 4. 檢視傳回內容，您應該會看到 "Status": "OK:Alive and Well"。
-![Alive and Well 的 Postman訊息](./media/iot-accelerators-microservices-example/postman-alive-well.png)
+
+    ![活躍的 Postman 訊息](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
 ## <a name="change-the-status-and-build-the-image"></a>變更狀態並建置映像
 
 現在將 IoT 中樞管理員微服務的狀態訊息變更為 "New Edits Made Here!"， 然後使用這個新的狀態重新建置 Docker 映像。 如果您在此處遇到問題，請參閱我們的[疑難排解](#Troubleshoot)一節。
 
 1. 確定您的終端機已開啟，並變更為您已在其中複製遠端監視解決方案的目錄。 
-2. 將目錄變更為 "..azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/WebService/v1/Controllers"。
+2. 將目錄變更為 "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers"。
 3. 以您偏好的任何文字編輯器或 IDE 開啟 StatusController.cs。 
 4. 找出下列程式碼：
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "Alive and well");
     ```
 
     將它變更為下列程式碼，然後加以儲存。
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "New Edits Made Here!");
     ```
 
-5. 返回您的終端機，但現在變更為下列目錄："...azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/scripts/docker"。
+5. 返回您的終端機，但現在變更為下列目錄："azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker"。
 6. 若要建置新的 Docker 映像，請輸入
 
     ```cmd/sh
@@ -113,24 +113,24 @@ ms.locfileid: "43338072"
 ## <a name="update-your-remote-monitoring-solution"></a>更新遠端監視解決方案
 您現在需要更新本機 docker-compose.yml，以便從 Docker Hub 提取新的 Docker 映像。 如果您在此處遇到問題，請參閱我們的[疑難排解](#Troubleshoot)一節。
 
-1. 返回終端機並變更為下列目錄："..azure-iot-pcs-remote-monitoring-dotnet/scripts/local"。
+1. 返回終端機並變更為下列目錄："azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local"。
 2. 以您偏好的任何文字編輯器或 IDE 開啟 docker-compose.yml。
 3. 找出下列程式碼：
 
     ```docker
-    image: azureiotpcs/pcs-auth-dotnet:testing
+    image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     變更它以使其看起來如下圖，然後加以儲存。
 
     ```cmd/sh
-    image: [docker ID]/pcs-auth-dotnet:testing
+    image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
 ## <a name="view-the-new-response-status"></a>檢視新的回應狀態
 最後，請重新部署遠端監視解決方案的本機執行個體，並在 Postman 中檢視新的狀態回應。
 
-1. 返回終端機並變更為下列目錄："..azure-iot-pcs-remote-monitoring-dotnet/scripts/local"。
+1. 返回您的終端機並變更為下列目錄："azure-iot-pcs-remote-monitoring-dotnet/scripts/local"。
 2. 藉由在終端機輸入下列命令，來啟動遠端監視解決方案的本機執行個體：
 
     ```cmd/sh

@@ -2,56 +2,58 @@
 title: 使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解 | Microsoft Docs
 description: Intelligent Insights 可協助您針對 Azure SQL Database 效能問題進行疑難排解。
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/04/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: bcc33eb7e5050c991c89b7f0998eec3707f62ebb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751338"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222449"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
-此頁面提供透過 [Intelligent Insights](sql-database-intelligent-insights.md) 資料庫效能診斷記錄偵測到之 Azure SQL Database 效能問題的相關資訊。 此診斷記錄可以傳送給 [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)、[Azure 事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)、[Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案，以取得自訂的 DevOps 警示和報告功能。
+此頁面提供透過 [Intelligent Insights](sql-database-intelligent-insights.md) 資料庫效能診斷記錄偵測到之 Azure SQL Database 和受控執行個體效能問題的相關資訊。 診斷記錄遙測資料可以串流到 [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)、[Azure 事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)、[Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案，以取得自訂的 DevOps 警示和報告功能。
 
 > [!NOTE]
-> 如需透過 Intelligent Insights 進行快速 SQL Database 效能疑難排解的指南，請參閱本文件中的[建議的疑難排解流程](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow)流程圖。
+> 如需使用 Intelligent Insights 進行快速 SQL Database 效能疑難排解的指南，請參閱此文件中的[建議的疑難排解流程](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow)流程圖。
 >
 
 ## <a name="detectable-database-performance-patterns"></a>可偵測的資料庫效能模式
 
-Intelligent Insights 能根據查詢執行等候時間、錯誤或逾時，自動偵測 SQL Database 的效能問題。 然後它便會將偵測到的效能模式輸出至診斷記錄。 下表摘要說明可偵測的效能模式：
+Intelligent Insights 能根據查詢執行等候時間、錯誤或逾時，自動偵測 SQL Database 與受控執行個體資料庫的效能問題。 它會將偵測到的效能模式輸出到診斷記錄。 下表摘要說明可偵測的效能模式。
 
-| 可偵測的效能模式 | 輸出的詳細資料 |
-| :------------------- | ------------------- |
-| [達到資源限制](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | 可用資源 (DTU)、資料庫背景工作執行緒或被監視訂用帳戶上可用之資料庫登入工作階段的使用量已達到限制，因而導致 SQL Database 效能問題。 |
-| [工作負載增加](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | 在資料庫上偵測到工作負載增加或工作負載持續累積，因而導致 SQL Database 效能問題。 |
-| [記憶體壓力](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | 要求記憶體授與的背景工作角色必須針對記憶體配置等待就統計而言明顯增加的時間長度。 或是存在要求記憶體授與之背景工作角色的持續累積，因而影響 SQL Database 效能。 |
-| [鎖定](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | 偵測到過多的資料庫鎖定，因而影響 SQL Database 效能。 |
-| [MAXDOP 增加](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | 平行處理原則的最大程度 (MAXDOP) 選項已變更，因而影響查詢執行效率。 |
-| [頁面閂鎖爭用](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | 偵測到頁面閂鎖爭用，因而影響 SQL Database 效能。 多個執行緒同時嘗試存取相同的記憶體內部資料緩衝區頁面。 這導致等候時間的提升，因而影響 SQL Database 效能。 |
-| [遺漏索引](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | 偵測到遺漏索引問題，因而影響 SQL Database 效能。 |
-| [新查詢](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | 偵測到新查詢，因而影響整體 SQL Database 效能。 |
-| [不尋常的等候統計資料](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | 偵測到不尋常的資料庫等候時間，因而影響 SQL Database 效能。 |
-| [TempDB 爭用](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | 多個執行緒嘗試存取相同的 tempDB 資源，因而造成影響 SQL Database 效能的瓶頸。 |
-| [彈性集區 DTU 不足](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | 彈性集區中的可用 eDTU 不足，因而影響 SQL Database 效能。 |
-| [計畫迴歸](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | 偵測到新計畫或是現有計畫的工作負載發生變更，因而影響 SQL Database 效能。 |
-| [資料庫範圍設定值變更](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | 資料庫上的設定發生變更，因而影響 SQL Database 效能。 |
-| [用戶端執行速度太慢](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | 偵測到應用程式用戶端執行速度太慢，取用 SQL Database 的輸出時速度不夠快，因而影響 SQL Database 效能。 |
-| [定價層降級](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 定價層降級動作減少了可用的資源，因而影響 SQL Database 效能。 |
+| 可偵測的效能模式 | Azure SQL Database 與彈性集區的描述 | 受控執行個體中資料庫的描述 |
+| :------------------- | ------------------- | ------------------- |
+| [達到資源限制](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | 可用資源 (DTU)、資料庫背景工作執行緒或被監視訂用帳戶上可用之資料庫登入工作階段的使用量已達到限制。 這會影響 SQL Database 效能。 | CPU 資源使用量已達到受控執行個體限制。 這會影響資料庫效能。 |
+| [工作負載增加](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | 偵測到工作負載增加或資料庫上工作負載的持續累積。 這會影響 SQL Database 效能。 | 偵測到工作負載增加。 這會影響資料庫效能。 |
+| [記憶體壓力](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | 要求記憶體授與的背景工作角色必須針對記憶體配置等待就統計而言明顯增加的時間長度。 或是存在要求記憶體授與之背景工作角色的持續累積。 這會影響 SQL Database 效能。 | 要求記憶體授與的背景工作角色，在統計上來說花了很長的時間等待記憶體配置。 這會影響資料庫效能。 |
+| [鎖定](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | 偵測到過多的資料庫鎖定，這會影響 SQL Database 效能。 | 偵測到過多的資料庫鎖定，這會影響資料庫效能。 |
+| [MAXDOP 增加](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | 平行處理原則的最大程度 (MAXDOP) 選項已變更，因而影響查詢執行效率。 這會影響 SQL Database 效能。 | 平行處理原則的最大程度 (MAXDOP) 選項已變更，因而影響查詢執行效率。 這會影響資料庫效能。 |
+| [分頁閂鎖爭用](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | 多個執行緒同時嘗試存取相同的記憶體內資料緩衝區分頁，因而導致等候時間增加，且造成分頁閂鎖爭用。 這會影響 SQL 資料庫的效能。 | 多個執行緒同時嘗試存取相同的記憶體內資料緩衝區分頁，因而導致等候時間增加，且造成分頁閂鎖爭用。 這會影響資料庫的效能。 |
+| [遺漏索引](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | 偵測到遺漏索引，這會影響 SQL 資料庫效能。 | 偵測到遺漏索引，這會影響資料庫效能。 |
+| [新查詢](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | 偵測到新查詢，這會影響整體 SQL Database 效能。 | 偵測到新查詢，這會影響整體資料庫效能。 |
+| [增加的等候統計資料](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | 偵測到增加的資料庫等候時間，這會影響 SQL 資料庫效能。 | 偵測到增加的資料庫等候時間，這會影響資料庫效能。 |
+| [TempDB 爭用](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | 多個執行緒嘗試存取相同的 TempDB 資源，因而造成瓶頸。 這會影響 SQL Database 效能。 | 多個執行緒嘗試存取相同的 TempDB 資源，因而造成瓶頸。 這會影響資料庫效能。 |
+| [彈性集區 DTU 不足](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | 彈性集區中的可用 eDTU 不足，因而影響 SQL Database 效能。 | 不適用於受控執行個體，因為它使用 vCore 模型。 |
+| [計畫迴歸](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | 偵測到新的計畫或現有計畫中的工作負載變更。 這會影響 SQL Database 效能。 | 偵測到新的計畫或現有計畫中的工作負載變更。 這會影響資料庫效能。 |
+| [資料庫範圍設定值變更](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | 偵測到 SQL Database 上的設定變更，這會影響資料庫效能。 | 偵測到資料庫上的設定變更，這會影響資料庫效能。 |
+| [用戶端執行速度太慢](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | 緩慢的應用程式用戶端無法以夠快的速度取用來自資料庫的輸出。 這會影響 SQL Database 效能。 | 緩慢的應用程式用戶端無法以夠快的速度取用來自資料庫的輸出。 這會影響資料庫效能。 |
+| [定價層降級](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 定價層降級動作減少了可用資源。 這會影響 SQL Database 效能。 | 定價層降級動作減少了可用資源。 這會影響資料庫效能。 |
 
 > [!TIP]
 > 如需 SQL Database 的持續效能最佳化，請啟用 [Azure SQL Database 自動調整](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫、自動調整索引，以及套用查詢執行計畫更正。
 >
 
-下節將以更詳細的方式說明先前列出的可偵測效能模式。
+下一節詳細說明可偵測的效能模式。
 
 ## <a name="reaching-resource-limits"></a>達到資源限制
 
@@ -59,11 +61,11 @@ Intelligent Insights 能根據查詢執行等候時間、錯誤或逾時，自�
 
 這個可偵測的效能模式結合了與達到可用資源限制、背景工作角色限制及工作階段限制有關的效能問題。 偵測到此效能問題之後，診斷記錄的描述欄位就會指出效能問題是否與資源、背景工作角色，或是工作階段限制相關。
 
-SQL Database 上的資源通常稱為 [DTU 資源](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu)。 它們包含 CPU 和 IO (資料和交易記錄 IO) 資源的混合量值。 當偵測到導致查詢效能降低的原因是達到所測量的任何資源限制時，就會認定達到資源限制的模式。
+SQL Database 上的資源通常是指 [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) 或是 [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) 資源。 當偵測到導致查詢效能降低的原因是達到所測量的任何資源限制時，就會認定達到資源限制的模式。
 
 工作階段限制資源代表針對 SQL 資料庫的可用並行登入數。 當連線到 SQL 資料庫的應用程式已達到針對該資料庫的可用並行登入數時，就會認定此效能模式。 當應用程式嘗試使用的工作階段數超出資料庫上可用的工作階段數時，就會影響查詢效能。
 
-達到背景工作角色限制是達到資源限制的特定案例，因為 DTU 使用量中並未計入可用的背景工作角色數。 達到資料庫上的背景工作角色限制會造成資源特定的等候時間增加，因而降低查詢效能。
+達到背景工作角色限制是達到資源限制的特定案例，因為 DTU 或 vCore 使用量中並未計入可用的背景工作角色數。 達到資料庫上的背景工作角色限制會造成資源特定的等候時間增加，因而降低查詢效能。
 
 ### <a name="troubleshooting"></a>疑難排解
 
@@ -201,17 +203,17 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 
 請考慮使用 [Azure SQL Database 查詢效能深入解析](sql-database-query-performance.md)。
 
-## <a name="unusual-wait-statistic"></a>不尋常的等候統計資料
+## <a name="increased-wait-statistic"></a>增加的等候統計資料
 
 ### <a name="what-is-happening"></a>發生的情況
 
 這個可偵測的效能模式表示與過去七天的工作負載基準相比，工作負載效能降低，其中發現有效能不佳的查詢。
 
-在此情況中，系統無法將效能不佳的查詢歸類至任何其他標準的可偵測效能類別，但它偵測到等候統計資料是造成迴歸的原因。 因此，系統會將那些查詢判斷為具有*不尋常的等候統計資料*，並同時公開造成迴歸的不尋常等候統計資料。 
+在此情況中，系統無法將效能不佳的查詢歸類至任何其他標準的可偵測效能類別，但它偵測到等候統計資料是造成迴歸的原因。 因此，系統會將那些查詢判斷為具有「增加的等候統計資料」，並同時公開造成迴歸的等候統計資料。 
 
 ### <a name="troubleshooting"></a>疑難排解
 
-診斷記錄會輸出有關不尋常等候時間詳細資料的資訊、受影響之查詢的查詢雜湊，以及等候時間。
+診斷記錄會輸出有關增加之等候時間的詳細資料和受影響查詢之查詢雜湊的資訊。
 
 由於系統無法順利識別出效能不佳查詢的根本原因，因此診斷資訊是進行手動疑難排解的理想起點。 您可以對這些查詢的效能進行最佳化。 理想的做法是僅擷取所需的資料，然後將複雜的查詢簡化並拆解成較小的查詢。 
 

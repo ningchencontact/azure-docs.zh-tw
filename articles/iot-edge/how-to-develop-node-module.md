@@ -6,25 +6,25 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/26/2018
+ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6976314929ac2e0e099e8c2f07da32970bc57509
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: a1459e3cbd433e2997ffd822b961ac781a72ca90
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382502"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423522"
 ---
-# <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure IoT Edge 來開發 Node.js 模組以及針對其進行偵錯
+# <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 Node.js 模組以及針對其進行偵錯
 
 您可以將商務邏輯轉換成 Azure IoT Edge 的模組，以將商務邏輯傳送到 Edge 運作。 本文提供詳細指示，說明如何使用 Visual Studio Code (VS Code) 作為主要開發工具來開發 Node.js 模組。
 
 ## <a name="prerequisites"></a>必要條件
-本文假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 您的 IoT Edge 裝置可以是其他實體裝置，或是您也可以在開發機器上模擬 IoT Edge 裝置。
+本文假設您使用執行 Windows、macOS 或 Linux 的電腦或虛擬機器作為開發電腦。 您的 IoT Edge 裝置可以是另一部實體裝置。
 
 > [!NOTE]
-> 本偵錯教學課程說明如何在模組容器中附加一個流程，並使用 VS Code 進行偵錯。 您可以在 linux-amd64、windows 和 arm32 容器中針對 Node.js 模組進行偵錯。 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。 
+> 此偵錯文章會示範兩種在 VS Code 中針對您的 Node.js 模組進行偵錯的常用方式。 其中一個方式在模組容器中附加程序，而另一個則是在偵錯模式中啟動模組程式碼。 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。
 
 因為本文使用 Visual Studio Code 作為主要開發工具，因此請安裝 VS Code，然後新增必要的擴充：
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -37,7 +37,13 @@ ms.locfileid: "43382502"
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 或 [Docker 中樞](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * 您可以使用本機 Docker 登錄作為原型並用於測試，而非使用雲端登錄。 
 
-若要在裝置上測試您的模組，您需要一個作用中 IoT 中樞，而且該中樞內至少必須有一個 IoT Edge 裝置。 如果要使用您的電腦作為 IoT Edge 裝置，您可以遵循 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 教學課程中的步驟執行。 
+若要設定本機開發環境以偵錯、執行及測試您的 IoT Edge 解決方案，您需要 [Azure IoT EdgeHub Dev 工具](https://pypi.org/project/iotedgehubdev/)。 安裝 [Python (2.7/3.6) 與 Pip](https://www.python.org/)。 Pip 隨附於 Python 安裝程式。 接著，在您的終端機中執行下列命令以安裝 **iotedgehubdev**。
+
+   ```cmd
+   pip install --upgrade iotedgehubdev
+   ```
+
+若要在裝置上測試您的模組，您需要一個有效的 IoT 中樞，而且該中樞中至少必須已建立一個 IoT Edge 裝置識別碼。 如果您在開發電腦上執行 IoT Edge 精靈，您可能必須先停止 EdgeHub 與 EdgeAgent 後，再移至下一個步驟。 
 
 ## <a name="create-a-new-solution-template"></a>建立新的解決方案範本
 
@@ -49,6 +55,7 @@ ms.locfileid: "43382502"
    ```cmd/sh
    npm install -g yo generator-azure-iot-edge-module
    ```
+
 3. 在 Visual Studio Code 中，選取 [檢視] > [命令選擇區]。 
 4. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge Solution**。
 
@@ -80,38 +87,88 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
 當您準備要使用自己的程式碼自訂 Node.js 範本時，請使用 [Azure IoT 中樞 SDK](../iot-hub/iot-hub-devguide-sdks.md) 以建置模組，該模組會解決 IoT 解決方案的主要需求，例如安全性、裝置管理和可靠性。 
 
-## <a name="build-and-deploy-your-module-for-debugging"></a>建置及部署您的模組來進行偵錯
+Visual Studio Code 支援 Node.js。 深入了解[如何在 VS Code 中使用 Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial) \(英文\)。
 
-在每個模組資料夾中，有不同容器類型的多個 Docker 檔案。 您可以使用任何副檔名為 **.debug** 的檔案來建置測試用模組。 Node.js 模組目前只支援在 linux-amd64、windows-amd64 及 linux-arm32v7 容器中進行偵錯。
+## <a name="launch-and-debug-module-code-without-container"></a>啟動並偵錯模組程式碼，而不需要容器
+
+IoT Edge Node.js 模組相依於 Azure IoT Node.js 裝置 SDK。 在預設模組程式碼中，您應使用環境設定和輸入名稱來初始化 **ModuleClient**，這表示 IoT Edge Node.js 模組需要環境設定才能啟動並執行，而且您也需要將訊息傳送或路由傳送至輸入通道。 您的預設 Node.js 模組只包含一個輸入通道，且其名稱為 **input1**。
+
+### <a name="setup-iot-edge-simulator-for-single-module-app"></a>設定單一模組應用程式的 IoT Edge 模擬器
+
+1. 若要設定並啟動模擬器，請在 VS Code 命令選擇區中輸入並選取 [Azure IoT Edge：啟動單一模組的 IoT Edge 中樞模擬器]。 您也須指定單一模組應用程式的輸入名稱；請輸入 **input1**，然後按 Enter 鍵。 此命令將會觸發 **iotedgehubdev** CLI，並啟動 IoT Edge 模擬器和測試公用程式模組容器。 如果模擬器已在單一模組模式中順利啟動，您就會在整合式終端機中看到下列輸出。 您也可以查看 `curl` 命令，以利傳送訊息。 稍後您將會用到此資訊。
+
+   ![設定單一模組應用程式的 IoT Edge 模擬器](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
+
+   您可以移至 Docker 總管，並查看模組的執行狀態。
+
+   ![模擬器模組狀態](media/how-to-develop-csharp-module/simulator-status.png)
+
+   **edgeHubDev** 容器是本機 IoT Edge 模擬器的核心。 它無需 IoT Edge 安全性精靈即可在您的開發電腦上執行，並可為您的原生模組應用程式或模組容器提供環境設定。 **輸入**容器公開的 restAPI 可協助橋接器訊息在您的模組上設定輸入通道的目標。
+
+2. 在 VS Code 命令選擇區中輸入並選取 [Azure IoT Edge：將模組認證設定為使用者設定]，在使用者設定中將模組環境設定設為 `azure-iot-edge.EdgeHubConnectionString` 和 `azure-iot-edge.EdgeModuleCACertificateFile`。 您會發現這些環境設定在 **.vscode** > **launch.json** 和 [VS Code 使用者設定](https://code.visualstudio.com/docs/getstarted/settings)中受到參考。
+
+### <a name="debug-nodejs-module-in-launch-mode"></a>在啟動模式中針對 Node.js 模組進行偵錯
+
+1. 在整合式終端機中，將目錄切換至 **NodeModule** 資料夾，並執行下列命令以安裝 Node 套件
+
+   ```cmd
+   npm install
+   ```
+
+2. 瀏覽至 `app.js`。 在此檔案中新增中斷點。
+
+3. 瀏覽至 VS Code 偵錯檢視。 選取偵錯組態 **ModuleName 本機偵錯 (Node.js)**。 
+
+4. 按一下 [開始偵錯]，或按 **F5**。 您會啟動偵錯工作階段。
+
+5. 在 VS Code 整合式終端機中執行下列命令，將 **Hello World** 訊息傳送至您的模組。 這是先前的步驟中在 IoT Edge 模擬器設定成功時所顯示的命令。 如果目前的終端機被封鎖，您可能需要建立或切換至另一個整合式終端機。
+
+    ```cmd
+    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
+    ```
+
+   > [!NOTE]
+   > 如果您使用 Windows，請確定 VS Code 整合式終端機的殼層是 **Git Bash** 或 **WSL Bash**。 您無法在 PowerShell 或命令提示字元中執行 `curl` 命令。 
+   
+   > [!TIP]
+   > 您也可以使用 [PostMan](https://www.getpostman.com/) 或其他 API 工具來傳送訊息，而不使用 `curl`。
+
+6. 在 VS Code 偵錯檢視中，您可以在左面板中看到變數。 
+
+7. 若要停止偵錯工作階段中，請按一下 [停止] 按鈕，或按 **Shift + F5**。 在 VS Code 命令選擇區中，輸入並選取 [Azure IoT Edge：停止 IoT Edge 模擬器]，以停止並清除模擬器。
+
+
+## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>建置要偵錯的模組容器，並在附加模式中偵錯
+
+您的預設解決方案包含兩個模組，一個是模擬的溫度感應器模組，另一個則是 Node.js 管道模組。 模擬的溫度感應器會持續將訊息傳送到 Node.js 管道模組，然後訊息會透過管道傳送到 IoT 中樞。 在您已建立的模組資料夾中，會有不同容器類型的多個 Docker 檔案。 請使用任何副檔名為 **.debug** 的檔案來建置測試用模組。 Node.js 模組目前只支援在 linux-amd64、windows-amd64 及 linux-arm32v7 容器中進行偵錯。
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>設定 IoT Edge 解決方案的 IoT Edge 模擬器
+
+在您的開發電腦中，您可以透過啟動 IoT Edge 模擬器來執行 IoT Edge 解決方案，而不安裝 IoT Edge 安全性精靈。 
+
+1. 在左側的裝置總管中，以滑鼠右鍵按一下您的 IoT Edge 裝置識別碼，然後選取 [設定 IoT Edge 模擬器] 以使用裝置連接字串啟動模擬器。
+
+2. 您可以在整合式終端機中看到 IoT Edge 模擬器已成功設定。
+
+### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>建置並執行要偵錯的容器，並在附加模式中偵錯
 
 1. 在 VS Code 中，瀏覽至 `deployment.template.json` 檔案。 在結尾加上 **.debug**，以更新您的模組映像 URL。
+
 2. 將 **deployment.template.json** 中的 Node.js 模組 createOptions 取代為以下內容並儲存此檔案： 
     ```json
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```
 
-2. 在 VS Code 命令選擇區中，輸入並執行命令 **Azure IoT Edge: Build IoT Edge solution**。
-3. 從命令選擇區中，為您的解決方案選取 `deployment.template.json` 檔案。 
-4. 在 Azure IoT 中樞裝置總管中，以滑鼠右鍵按一下 IoT Edge 裝置識別碼，然後選取 [建立單一裝置的部署]。 
-5. 開啟解決方案的 **config** 資料夾，然後選取 `deployment.json` 檔案。 按一下 [選取 Edge 部署資訊清單]。 
+3. 瀏覽至 VS Code 偵錯檢視。 為您的模組選取偵錯組態檔。 偵錯選項名稱應該類似於 **ModuleName 遠端偵錯 (Node.js)** 或 **ModuleName 遠端偵錯 (Windows 容器中的 Node.js)**，該名稱會視開發電腦上的容器類型而定。
 
-接著，您可以看到已順利建立部署，而且 VS Code 整合式終端機中會有部署識別碼。
+4. 選取 [開始偵錯] 或選取 **F5**。 選取所要連結的流程。
 
-您可以在 VS Code Docker 總管中檢查您的容器狀態，或透過在終端機中執行 `docker ps` 命令來檢查。
+5. 在 VS Code 偵錯檢視中，您可以在左面板中看到變數。
 
-## <a name="start-debugging-nodejs-module-in-vs-code"></a>開始在 VS Code 中針對 Node.js 模組進行偵錯
+6. 若要停止偵錯工作階段中，請按一下 [停止] 按鈕，或按 **Shift + F5**。 在 VS Code 命令選擇區中，輸入並選取 [Azure IoT Edge：停止 IoT Edge 模擬器]。
 
-VS Code 會將偵錯設定資訊保留在您工作區中之 `.vscode` 資料夾的 `launch.json` 檔案中。 這個 `launch.json` 檔案在您建立新 IoT Edge 解決方案時產生。 每當您新增支援偵錯的模組時，此檔案都會更新。 
-
-1. 瀏覽至 VS Code 偵錯檢視並選取模組的偵錯組態檔。
-
-2. 瀏覽至 `app.js`。 在此檔案中新增中斷點。
-
-3. 按一下 [開始偵錯] 按鈕或按 **F5**，然後選取要附加至的處理序。
-
-4. 在 VS Code 偵錯檢視中，您可以在左面板中看到變數。 
-
-上述範例說明如何針對容器上的 Node.js IoT Edge 模組進行偵錯。 這樣會在您的模組容器 createOptions 中新增公開連接埠。 完成 Node.js 模組偵錯之後，建議您針對已可供生產環境使用的 IoT Edge 模組，移除這些公開連接埠。
+> [!NOTE]
+> 上述範例說明如何針對容器上的 Node.js IoT Edge 模組進行偵錯。 這樣會在您的模組容器 createOptions 中新增公開連接埠。 完成 Node.js 模組偵錯之後，建議您針對已可供生產環境使用的 IoT Edge 模組，移除這些公開連接埠。
 
 ## <a name="next-steps"></a>後續步驟
 

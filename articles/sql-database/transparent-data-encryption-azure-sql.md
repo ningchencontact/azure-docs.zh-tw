@@ -2,27 +2,26 @@
 title: Azure SQL Database 和資料倉儲的透明資料加密 | Microsoft Docs
 description: 概述 SQL Database 和資料倉儲的透明資料加密。 本文件說明其優點和設定選項，其中包括服務管理的透明資料加密和「攜帶您自己的金鑰」。
 services: sql-database
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: carlrab
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
-ms.tgt_pltfrm: ''
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/09/2018
+author: becczhang
 ms.author: aliceku
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 0ed05fd2d55f1c4c80bec9f64925be2eddddc067
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 07/09/2018
+ms.openlocfilehash: 50b433c65dec1f667f32aaf60148a6e393c67320
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043374"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165921"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 和資料倉儲的透明資料加密
 
-透明資料加密 (TDE) 可協助 Azure SQL Database 和 Azure 資料倉儲抵禦惡意活動的威脅。 它會對資料庫、相關聯的備份和待用的交易記錄檔執行即時加密和解密，而不需變更應用程式。 依預設會為所有新部署的 Azure SQL Database 啟用 TDE。 TDE 無法用來加密 SQL Database 中的邏輯**主要**資料庫。  **主要**資料庫包含在使用者資料庫上執行 TDE 作業所需的物件。
+透明資料加密 (TDE) 可協助 Azure SQL Database 和 Azure 資料倉儲抵禦惡意活動的威脅。 它會對資料庫、相關聯的備份和待用的交易記錄檔執行即時加密和解密，而不需變更應用程式。 根據預設，會為所有新部署的 Azure SQL 資料庫啟用 TDE。 TDE 無法用來加密 SQL Database 中的邏輯**主要**資料庫。  **主要**資料庫包含在使用者資料庫上執行 TDE 作業所需的物件。
 
 對於較舊的資料庫或 Azure SQL 資料倉儲，TDE 必須以手動方式啟用。  
 
@@ -128,7 +127,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需透明資料加密的一般描述，請參閱 [透明資料加密]((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption)。
+- 如需透明資料加密的一般描述，請參閱[透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)。
 - 若要深入了解如何將具有「攜帶您自己的金鑰」支援的透明資料加密用於 Azure SQL Database 和資料倉儲，請參閱[具有攜帶您自己的金鑰支援的透明資料加密](transparent-data-encryption-byok-azure-sql.md)。
 - 若要開始使用具有「攜帶您自己的金鑰」支援的透明資料加密，請參閱[透過 PowerShell 從 Key Vault 使用您自己的金鑰開啟透明資料加密](transparent-data-encryption-byok-azure-sql-configure.md)操作指南。
 - 如需 Key Vault 的詳細資訊，請參閱 [Key Vault 文件頁面](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)。

@@ -2,26 +2,29 @@
 title: 對不同結構描述的雲端資料庫執行查詢 | Microsoft Docs
 description: 如何透過垂直資料分割設定跨資料庫查詢
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 6b4dd9017c336c2034bac81ba92d219b511a38a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 3d94a52aaafca91d45d7f1a6406d3f998fbffe9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645750"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161755"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>對不同結構描述的雲端資料庫執行查詢 (預覽)
 ![在不同資料庫中跨資料表查詢][1]
 
 垂直資料分割資料庫使用在不同資料庫的不同資料表集。 這表示不同資料庫的結構描述不同。 比方說，庫存的所有資料表都位於一個資料庫上，而所有會計相關資料表則位於另一個資料庫上。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 使用者必須擁有 ALTER ANY EXTERNAL DATA SOURCE 權限。 這個權限包含在 ALTER DATABASE 權限中。
 * 需有 ALTER ANY EXTERNAL DATA SOURCE 權限，才能參考基礎資料來源。
 
@@ -45,7 +48,7 @@ ms.locfileid: "34645750"
     [;]
 
 > [!NOTE]
-> 請確定 `<username>` 不包含任何 **"@servername"** 後置詞。 
+> 請確定 `<username>` 不包含任何 **"\@servername"** 尾碼。 
 >
 
 ## <a name="create-external-data-sources"></a>建立外部資料來源

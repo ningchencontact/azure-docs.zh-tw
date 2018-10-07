@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3856a50be0c3f7bdfb947d55b09a3de2512698e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968119"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405609"
 ---
 # <a name="custom-roles-in-azure"></a>Azure 中的自訂角色
 
-如果[內建角色](built-in-roles.md)不符合組織的特定需求，您可以建立自己的自訂角色。 就像內建角色一樣，您可以將自訂角色指派給訂用帳戶、資源群組和資源範圍的使用者、群組和服務主體。 自訂角色會儲存在 Azure Active Directory (Azure AD) 租用戶中，而且可在訂用帳戶之間共用。 每個租用戶可以有最多 2000 個自訂角色。 可以使用 Azure PowerShell、Azure CLI 和 REST API 建立自訂角色。
+如果[內建角色](built-in-roles.md)不符合組織的特定需求，您可以建立自己的自訂角色。 就像內建角色一樣，您可以將自訂角色指派給訂用帳戶、資源群組和資源範圍的使用者、群組和服務主體。 自訂角色是存放在 Azure Active Directory (Azure AD) 目錄中，而且可以跨訂用帳戶共用。 每個目錄最多可以有 2000 個自訂角色。 可以使用 Azure PowerShell、Azure CLI 和 REST API 建立自訂角色。
 
 ## <a name="custom-role-example"></a>自訂角色範例
 
@@ -92,7 +92,7 @@ ms.locfileid: "46968119"
 
 | 屬性 | 必要 | 類型 | 說明 |
 | --- | --- | --- | --- |
-| `Name` | 是 | 字串 | 自訂角色的顯示名稱。 對於您的租用戶而言必須是唯一的。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 128。 |
+| `Name` | 是 | 字串 | 自訂角色的顯示名稱。 當角色定義是訂用帳戶層級資源時，角色定義可在多個共用相同 Azure AD 目錄的訂用帳戶中使用。 此顯示名稱在 Azure AD 目錄範圍中必須是唯一的。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 128。 |
 | `Id` | 是 | 字串 | 自訂角色的唯一識別碼。 針對 Azure PowerShell 和 Azure CLI，當您建立新角色時，會自動產生這個識別碼。 |
 | `IsCustom` | 是 | 字串 | 表示這是否為自訂角色。 若為自訂角色，請設定為 `true`。 |
 | `Description` | 是 | 字串 | 自訂角色的描述。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 1024。 |
@@ -100,7 +100,7 @@ ms.locfileid: "46968119"
 | `NotActions` | 否 | String[] | 字串陣列，指定從所允許 `Actions` 中排除的管理作業。 如需詳細資訊，請參閱 [NotActions](role-definitions.md#notactions)。 |
 | `DataActions` | 否 | String[] | 字串陣列，指定角色允許對物件內資料執行的管理作業。 如需詳細資訊，請參閱 [DataActions (預覽)](role-definitions.md#dataactions-preview)。 |
 | `NotDataActions` | 否 | String[] | 字串陣列，指定從所允許 `DataActions` 中排除的資料作業。 如需詳細資訊，請參閱 [NotDataActions (預覽)](role-definitions.md#notdataactions-preview)。 |
-| `AssignableScopes` | 是 | String[] | 字串陣列，指定自訂角色可用於指派的範圍。 目前無法設定為根範圍 (`"/"`) 或管理群組範圍。 如需詳細資訊，請參閱 [AssignableScopes](role-definitions.md#assignablescopes) 和[使用 Azure 管理群組來組織資源](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)。 |
+| `AssignableScopes` | 是 | String[] | 字串陣列，指定自訂角色可用於指派的範圍。 目前無法設定為根範圍 (`"/"`) 或管理群組範圍。 如需詳細資訊，請參閱 [AssignableScopes](role-definitions.md#assignablescopes) 和[使用 Azure 管理群組來組織資源](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)。 |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>誰可以建立、刪除、更新或檢視自訂角色
 

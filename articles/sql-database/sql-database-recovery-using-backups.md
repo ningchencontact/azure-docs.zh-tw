@@ -2,20 +2,22 @@
 title: 從備份還原 Azure SQL Database | Microsoft Docs
 description: 了解還原時間點，其可讓您復原 Azure SQL Database 到先前的時間 (最多 35 天)。
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 75805cad43f015f1741193ec5a1ead1fa7603f41
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139882"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161330"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL Database
 SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.md)和[長期保留備份](sql-database-long-term-retention.md)進行資料庫復原，提供以下選項。 您可從資料庫備份還原至︰
@@ -32,7 +34,7 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 - 如果資料庫大小上限大於 500 GB，會將 P11–P15 還原至 S4-S12 或 P1–P6。
 - 如果資料庫大小上限大於 250 GB，會將 P1–P6 還原至 S4-S12。
 
-額外成本是因為還原的資料庫大小上限大於該效能層級所含的儲存體數量，而佈建的任何額外儲存體若大於內含量則會產生額外費用。  如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。  如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。  
+額外成本是因為還原的資料庫大小上限大於該計算大小所含的儲存體數量，而佈建的任何額外儲存體若大於內含量則會產生額外費用。  如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。  如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。  
 
 > [!NOTE]
 > 當您建立[資料庫複本](sql-database-copy.md)時，會使用[自動資料庫備份](sql-database-automated-backups.md)。 
@@ -43,7 +45,7 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 使用自動資料庫備份還原資料庫的復原時間會受到一些因素所影響： 
 
 * 資料庫的大小
-* 資料庫的效能層級
+* 資料庫的計算大小
 * 相關的交易記錄檔數目
 * 需要重新執行以復原到還原點的活動數目
 * 還原到不同區域的網路頻寬 
@@ -72,11 +74,11 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 > 如需示範如何執行資料庫還原時間點的 PowerShell 指令碼範例，請參閱[使用 PowerShell 還原 SQL 資料庫](scripts/sql-database-restore-database-powershell.md)。
 >
 
-資料庫可以還原到任何服務層或效能層級，以及以單一資料庫的形式還原或還原到彈性集區中。 請確定在作為您資料庫還原目的地的邏輯伺服器上或彈性集區中有足夠的資源。 完成之後，還原的資料庫會是一般、完全可供存取的線上資料庫。 還原的資料庫會根據其服務層和效能層級依一般費率計費。 在完成資料庫還原之前，不會產生任何費用。
+資料庫可以還原到任何服務層或計算大小，以及以單一資料庫的形式還原或還原到彈性集區中。 請確定在作為您資料庫還原目的地的邏輯伺服器上或彈性集區中有足夠的資源。 完成之後，還原的資料庫會是一般、完全可供存取的線上資料庫。 還原的資料庫會根據其服務層和計算大小依一般費率計費。 在完成資料庫還原之前，不會產生任何費用。
 
 基於復原目的，您通常會將資料庫還原到較早的時間點。 當您執行此動作時，可以將還原的資料庫視為原始資料庫的替代品，或用它來從原始資料庫擷取資料並將其更新。 
 
-* ***資料庫取代：*** 如果要使用還原資料庫做為原始資料庫的替代品，您應該確認效能層級及/或服務層適當，並在必要時調整資料庫大小。 您可以重新命名原始資料庫，然後使用 T-SQL 中的 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) 命令提供原始名稱給還原的資料庫。 
+* ***資料庫取代：*** 如果要使用已還原的資料庫作為原始資料庫的替代品，您應該確認計算大小和/或服務層是適當的，並在必要時調整資料庫大小。 您可以重新命名原始資料庫，然後使用 T-SQL 中的 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) 命令提供原始名稱給還原的資料庫。 
 * ***資料復原︰*** 如果您打算從還原的資料庫擷取資料，以便從使用者或應用程式錯誤中復原，您就必須撰寫並執行所需的資料復原指令碼，以從還原的資料庫中擷取資料到原始資料庫。 雖然還原作業可能要花很長的時間才能完成，但還原中的資料庫在整個還原過程中都會顯示在資料庫清單上。 如果您在還原期間刪除該資料庫，系統便會取消還原作業，而且不會針對未完成還原的資料庫向您收費。 
 
 ### <a name="azure-portal"></a>Azure 入口網站
@@ -146,10 +148,10 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 |  | |
 
 ## <a name="summary"></a>總結
-自動備份可在發生使用者和應用程式錯誤、意外刪除資料庫和長時間中斷時保護您的資料庫。 這項內建的功能適用於所有服務層和效能層級。 
+自動備份可在發生使用者和應用程式錯誤、意外刪除資料庫和長時間中斷時保護您的資料庫。 所有服務層和計算大小都可以取得此內建功能。 
 
 ## <a name="next-steps"></a>後續步驟
-* 如需商務持續性概觀和案例，請參閱 [商務持續性概觀](sql-database-business-continuity.md)。
+* 如需商務持續性概觀和案例，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 * 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
 * 若要深入了解長期保留，請參閱[長期保留](sql-database-long-term-retention.md)。
 * 若要了解更快速的復原選項，請參閱[容錯移轉群組和主動式異地複寫](sql-database-geo-replication-overview.md)。  

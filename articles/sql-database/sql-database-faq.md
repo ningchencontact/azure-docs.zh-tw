@@ -2,19 +2,22 @@
 title: Azure SQL Database 常見問題集 | Microsoft Docs
 description: 客戶詢問有關雲端資料庫與 Azure SQL Database、Microsoft 的關聯式資料庫管理系統 (RDBMS) 以及資料庫作為雲端中服務的一般問題的解答。
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: reference
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8aaf89426cf392faaf6339f49300bf7d2b7dcfcd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286327"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166617"
 ---
 # <a name="sql-database-faq"></a>SQL Database 常見問題集
 
@@ -41,7 +44,7 @@ ms.locfileid: "43286327"
 以 DTU 和 vCore 為基礎的模型將繼續並存。 我們推出以虛擬核心為基礎的模型是為了回應客戶的要求，使其資料庫資源更透明，並且能夠分開調整其計算和儲存資源。 以 vCore 為基礎的模型也能讓擁有有效軟體保證的客戶透過適用於 SQL Server 的 Azure Hybrid Benefit 節省更多成本。
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>如何在以 DTU 為基礎的購買模型和以 vCore 為基礎的購買模型之間做出選擇？ 
-資料庫交易單位 (DTU) 是以 CPU、記憶體、讀取和寫入的混合量值為基礎。 以 DTU 為基礎的效能等級代表已預先設定的資源組合，以期達成不同等級的應用程式效能。 如果客戶不想煩惱基礎資源的事，偏好簡單的預先設定資源組合，並且每個月支付固定金額，以 DTU 為基礎的模型可能較符合其需求。 然而，如果客戶需要深入了解基礎資源的情況，或是需要個別調整資源以達到最佳效能，以 vCore 為基礎的模型將是最佳選擇。  此外，如果客戶的 SQL Server 具有有效的軟體保證 (SA)，則運用其現有的投資，透過[適用於 SQL Server 的 Azure Hybrid Ese Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 節省成本，最多可達 30%。  這兩種購買模型內的選項皆提供完全受控服務的權益，例如自動備份、軟體更新和修補程式。 
+資料庫交易單位 (DTU) 是以 CPU、記憶體、讀取和寫入的混合量值為基礎。 DTU 型計算大小代表已預先設定的資源組合，以期達成不同等級的應用程式效能。 如果客戶不想煩惱基礎資源的事，偏好簡單的預先設定資源組合，並且每個月支付固定金額，以 DTU 為基礎的模型可能較符合其需求。 然而，如果客戶需要深入了解基礎資源的情況，或是需要個別調整資源以達到最佳效能，以 vCore 為基礎的模型將是最佳選擇。  此外，如果客戶的 SQL Server 具有有效的軟體保證 (SA)，則運用其現有的投資，透過[適用於 SQL Server 的 Azure Hybrid Ese Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 節省成本，最多可達 30%。  這兩種購買模型內的選項皆提供完全受控服務的權益，例如自動備份、軟體更新和修補程式。 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>什麼是適用於 SQL Server 的 Azure Hybrid Benefit？ 
 [適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 有助您充分發揮目前授權投資的價值，並加快移轉到雲端的速度。 適用於 SQL Server 的 Azure Hybrid Benefit 是以 Azure 為基礎的權益，可讓您搭配使用 SQL Server 授權與軟體保證，以較低的費率 (「基本費率」) 支付 SQL Database。 適用於 SQL Server 的 Azure Hybrid Benefit 適用於 SQL Database 單一資料庫和彈性集區以 vCore 為基礎的購買模型的公開預覽版。 即使是使用中的 SKU，您仍可以套用此權益，但是請注意，一旦您在 Azure 入口網站中加以選取，便會開始向您收取基本費率。 點數的核發不溯及既往。
@@ -71,17 +74,17 @@ SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benef
 計算成本會反映已為應用程式佈建的總計算容量。 在業務關鍵服務層中，我們會自動配置至少 3 個 Always On 複本。 為了反映這項額外的計算資源配置，「業務關鍵」中的 vCore 價格大約會高出 2.7 倍。 基於相同原因，業務關鍵層中較高的每一 GB 儲存體價格，則是反映 SSD 儲存體的高 IO 和低延遲性。 同時，備份儲存體的成本並無不同，因為在這兩種情況下，我們都使用相同類別的標準儲存體。
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>我的儲存體是如何收費的 - 根據預先的設定還是資料庫的用量？
-不同類型的儲存體會以不同方式計費。 對於資料儲存體，您必須根據您所選取的資料庫或集區大小上限，為佈建的儲存體支付費用。 除非您減少或增加此最大值，否則成本不會變更。 備份儲存體與您執行個體的自動化備份有所關聯。 增加您的備份保留期限，即會增加執行個體所取用的備份儲存體。 備份儲存體在未達已佈建的伺服器儲存體總計的 100% 之前，無須額外付費。 備份儲存體的額外使用量，會按月以 GB 為單位收費。 例如，若您的資料庫儲存體大小為 100 GB，則在 100 GB 的備份範圍內，無需額外的費用。 但若備份達到 110 GB，則需支付額外 10 GB 的費用。
+不同類型的儲存體會以不同方式計費。 對於資料儲存體，您必須根據您所選取的資料庫或集區大小上限，為佈建的儲存體支付費用。 除非您減少或增加此最大值，否則成本不會變更。 備份儲存體與您執行個體的自動備份相關聯，而且是動態配置的。 增加您的備份保留期限，即會增加執行個體所取用的備份儲存體。 備份儲存體在未達已佈建的伺服器儲存體總計的 100% 之前，無須額外付費。 備份儲存體的額外使用量，會按月以 GB 為單位收費。 例如，若您的資料庫儲存體大小為 100 GB，則在 100 GB 的備份範圍內，無需額外的費用。 但若備份達到 110 GB，則需支付額外 10 GB 的費用。 
 
 對於單一資料庫的備份儲存體，您必須根據配置給資料庫備份的儲存體減去資料庫大小所得出的差額，按比例支付其費用。 對於彈性集區的備份儲存體，您必須根據為集區中所有資料庫的資料庫備份配置的儲存體減去彈性集區的資料大小上限所得出的差額，按比例支付其費用。 只要增加資料庫大小或彈性集區，或是增加交易速率，就需要更多儲存體，而使您的備份儲存體費用連帶提高。  當您提高資料大小上限時，這個新數量將會從計費的備份儲存體大小中扣除。
 
 ## <a name="how-do-i-select-the-right-sku-when-converting-an-existing-database-to-the-new-service-tiers"></a>將現有的資料庫轉換為新的服務層時，要如何選取正確的 SKU？ 
 如果是現有的 SQL Database 應用程式，且使用以 DTU 為基礎的模型，一般目的服務層會相當於標準層。 業務關鍵服務層會相當於進階層。 在這兩種情況下，對於您的應用程式在以 DTU 為基礎的模型中使用的每 100 個 DTU，您均應配置至少 1 個 vCore。
 
-## <a name="do-the-new-vcore-based-service-tiers-offer-the-performance-levels-compatible-with-all-existing-service-level-objectives-slos"></a>以 vCore 為基礎的新服務層是否提供與所有現有的服務等級目標 (SLO) 相容的效能等級？
-以 vCore 為基礎的新服務層對於所有使用 100 個或更多 DTU 的彈性集區或資料庫，都會提供相當的效能選項。  我們將持續新增更多 SLO，以支援低於 100 DTU 的工作負載。
+## <a name="do-the-new-vcore-based-service-tiers-offer-the-compute-sizes-compatible-with-all-existing-compute-sizes"></a>新的 vCore 型服務層是否提供與所有現有計算大小都相容的計算大小？
+vCore 型的新服務層對於所有使用 100 個或更多 DTU 的彈性集區或資料庫，都會提供相當的效能選項。  我們將持續新增更多計算大小，以支援低於 100 DTU 的工作負載。
 
-## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>以 DTU 為基礎的現有服務層和以 vCore 為基礎的新服務層之間，是否有任何資料庫功能方面的差異？ 
+## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>DTU 型的現有服務層和以 vCore 為基礎的新服務層之間，是否有任何資料庫功能方面的差異？ 
 新的服務層支援目前以 DTU 為基礎的供應項目所提供的功能超集。 額外的功能包括一組附加的動態管理檢視 (DMV) 和附加的資源組態選項。 
 
 ## <a name="if-my-database-is-cpu-bound-and-does-not-use-much-storage-can-i-increase-the-compute-without-paying-for-extra-storage"></a>如果資料庫的效能依存於 CPU，且不會使用太多儲存體，我是否可增加計算容量而不需支付額外的儲存體費用？
@@ -110,7 +113,7 @@ SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benef
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>每一集區的資源多久可調整一次？
 視您所需，不限次數。 請參閱[管理彈性集區](sql-database-elastic-pool.md)。
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>變更單一資料庫的服務層次或效能等級，或將資料庫移入和移出彈性集區需要多久的時間？
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>變更單一資料庫的服務層或計算大小，或將資料庫移入和移出彈性集區需要多久的時間？
 變更資料庫的服務層和移入和移出集區需要在平台上複製資料庫做為背景作業。 視資料庫的大小而定，變更服務層可能需要數分鐘到數小時的時間不等。 在這兩種情況下，在移動期間，資料庫將維持完全連線且可供使用的狀態。 如需變更單一資料庫的詳細資訊，請參閱 [變更資料庫的服務層](sql-database-service-tiers-dtu.md)。 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>何時應該使用單一資料庫與彈性資料庫？
@@ -120,7 +123,7 @@ SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benef
 SQL Database 會根據[購買模型](sql-database-service-tiers-dtu.md)以可預期的每小時費率來計費。 實際使用量會每小時依比例分配的方式計算，因此有可能會出現不滿一小時的帳單。 例如，如果資料庫在一個月內的存在時間是 12 個小時，則您的帳單會顯示 0.5 天的使用量。 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>如果單一資料庫作用中的時間少於一小時，或使用更高服務層的時間少於一小時，會發生什麼情況？
-您需要支付使用最高服務層資料庫存在的時數 + 在該小時適用的效能等級，不論使用方式或資料庫是否在作用中少於一小時。 例如，假設您建立了單一資料庫並在五分鐘後刪除，您的帳單就會反映一個資料庫時數的費用。 
+您需要支付使用最高服務層資料庫存在的時數 + 在該小時適用的計算大小，不論使用狀況或資料庫是否在作用中少於一小時。 例如，假設您建立了單一資料庫並在五分鐘後刪除，您的帳單就會反映一個資料庫時數的費用。 
 
 範例：
 
@@ -141,8 +144,8 @@ SQL Database 會根據[購買模型](sql-database-service-tiers-dtu.md)以可預
 彈性集區會依據下列特性計費：
 
 * 彈性集區在建立時就會開始計費，即使集區中沒有資料庫也一樣。
-* 彈性集區會以每小時計費。 這和單一資料庫效能等級的計量頻率相同。
-* 如果彈性集區的大小經過調整，則在調整作業完成之前，將不會根據新的資源數量來計算集區費用。 這會遵循與變更單一資料庫的效能等級相同的模式。
+* 彈性集區會以每小時計費。 此計量頻率和單一資料庫計算大小的相同。
+* 如果彈性集區的大小經過調整，則在調整作業完成之前，將不會根據新的資源數量來計算集區費用。 這樣可允許和變更單一資料庫計算大小之模式相同的模式。
 * 彈性集區的價格是以集區資源作為計算基礎。 彈性集區的價格與其中之彈性資料庫的數目和使用量無關。
 
 如需詳細資訊，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)、[DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。

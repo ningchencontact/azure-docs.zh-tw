@@ -8,30 +8,30 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/12/2018
-ms.openlocfilehash: b514f23f2e8a43f99fd5bf5c3afb5ed625ad4472
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046570"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042358"
 ---
 # <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>使用擴充的 Spark 記錄伺服器對 Spark 應用程式進行偵錯和診斷
 
-本文將說明如何使用擴充的 Spark 記錄伺服器，對已完成和執行中的 Spark 應用程式進行偵錯及診斷。 此擴充版本目前包含 [資料] 索引標籤和 [圖表] 索引標籤。在 [資料] 索引標籤中，使用者可以檢查 Spark 作業的輸入和輸出。 在 [圖表] 索引標籤中，使用者可以檢查資料流程，並重新執行作業圖表。
+此文章將說明如何使用擴充的 Spark 記錄伺服器，對已完成和執行中的 Spark 應用程式進行偵錯及診斷。 此延伸模組包含 [資料] 索引標籤和 [圖表] 索引標籤和 [診斷] 索引標籤。在 [資料] 索引標籤上，使用者可以檢查 Spark 作業的輸入與輸出。 在 [圖表] 索引標籤上，使用者可以檢查資料流程，並重新執行作業圖表。 在 [診斷] 索引標籤上，使用者可以參考 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
 
-## <a name="open-the-spark-history-server"></a>開啟 Spark 歷程記錄伺服器
+## <a name="get-access-to-spark-history-server"></a>存取 Spark 歷程記錄伺服器
 
 「Spark 記錄伺服器」是已完成和執行中 Spark 應用程式的 Web UI。 
 
-### <a name="to-open-the-spark-history-server-web-ui-from-azure-portal"></a>從 Azure 入口網站開啟 Spark 記錄伺服器 Web UI
+### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>從 Azure 入口網站開啟 Spark 歷程記錄伺服器 Web UI
 
 1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟 Spark 叢集。 如需詳細資訊，請參閱[列出和顯示叢集](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
 2. 從 [快速連結]，按一下 [叢集儀表板]，然後按一下 [Spark 記錄伺服器]。 出現提示時，輸入 Spark 叢集的系統管理員認證。 
 
     ![Spark 歷程記錄伺服器](./media/apache-azure-spark-history-server/launch-history-server.png "Spark 歷程記錄伺服器")
 
-### <a name="to-open-the-spark-history-server-web-ui-by-url"></a>透過 URL 開啟 Spark 記錄伺服器 Web UI
+### <a name="open-the-spark-history-server-web-ui-by-url"></a>透過 URL 開啟 Spark 記錄伺服器 Web UI
 藉由瀏覽至下列 URL 來開啟 Spark 記錄伺服器，並以客戶的 Spark 叢集名稱取代 <ClusterName>。
 
    ```
@@ -43,7 +43,7 @@ ms.locfileid: "43046570"
 ![HDInsight Spark 記錄伺服器](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
 
-## <a name="open-the-data-tab-from-spark-history-server"></a>從 Spark 記錄伺服器開啟 [資料] 索引標籤
+## <a name="data-tab-in-spark-history-server"></a>Spark 歷程記錄伺服器中的 [資料] 索引標籤
 選取作業識別碼，然後按一下工具功能表上的 [資料]，以取得資料檢視。
 
 + 您可以分別選取 [輸入]、[輸出]和 [資料表作業] 索引標籤來檢查這些項目。
@@ -87,7 +87,7 @@ ms.locfileid: "43046570"
     ![圖表的意見反應](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="open-the-graph-tab-from-spark-history-server"></a>從 Spark 記錄伺服器開啟 [圖表] 索引標籤
+## <a name="graph-tab-in-spark-history-server"></a>Spark 歷程記錄伺服器中的 [圖表] 索引標籤
 選取作業識別碼，然後按一下工具功能表上的 [圖表]，以取得作業圖表檢視。
 
 + 透過產生的作業圖表來檢查您的作業概觀。 
@@ -108,16 +108,19 @@ ms.locfileid: "43046570"
 
     + 綠色表示成功：作業已順利完成。
     + 橘色表示重試：失敗但不會影響作業最終結果的工作執行個體。 這些工作有之後可能會成功的重複或重試執行個體。
-    + 紅色表示失敗：工作失敗。
     + 藍色表示執行中：工作正在執行中。
-    + 白色表示已略過或等候中：工作在等候執行，或已略過該階段。
+    + 白色表示等候中或已略過：工作在等候執行，或已略過該階段。
+    + 紅色表示失敗：工作失敗。
 
     ![正在執行的圖表色彩範例](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
+    已略過的階段會以白色顯示。
+    ![圖表色彩範例，略過](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+
     ![失敗的圖表色彩範例](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
     > [!NOTE]
-    > 每個作業都可播放。 如果作業沒有任何階段或尚未完成，則不支援播放。
+    > 每個作業都可播放。 針對不完整的作業，不支援播放。
 
 
 + 捲動滑鼠滾輪可縮放作業圖表，或按一下 [縮放至適當比例]，以調整成符合螢幕的大小。
@@ -127,6 +130,12 @@ ms.locfileid: "43046570"
 + 如果有失敗的工作，將滑鼠停留在圖表節點上方可查看工具提示，然後按一下階段可開啟階段頁面。
 
     ![圖表工具提示](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+
++ 在 [作業圖表] 索引標籤中，若階段有符合以下條件的工作，將會顯示工具提示與小圖示：
+    + 資料扭曲：資料讀取大小 > 此階段中所有工作的平均資料讀取大小 * 2 與資料讀取大寫 > 10 MB
+    + 時間扭曲：執行時間 > 此階段中包含之所有工作的平均執行時間 * 2 與執行時間 > 2 分鐘
+
+    ![圖表扭曲圖示](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + 作業圖表節點會顯示每個階段的下列資訊：
     + 識別碼。
@@ -147,6 +156,47 @@ ms.locfileid: "43046570"
 + 按一下 [提供意見反應給我們]，可將意見反應和問題傳送給我們。
 
     ![圖表的意見反應](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+
+
+## <a name="diagnosis-tab-in-spark-history-server"></a>Spark 歷程記錄伺服器中的 [診斷] 索引標籤
+選取作業識別碼，然後按一下工具功能表上的 [診斷]，以取得作業診斷檢視。 [診斷] 所有標籤包括 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
+    
++ 透過選取對應的索引標籤以查看 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
+
+    ![[診斷] 索引標籤](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+
+### <a name="data-skew"></a>資料扭曲
+按一下 [資料扭曲] 索引標籤，即會根據指定的參數顯示對應的扭曲工作。 
+
++ **指定參數** - 第一個區段會顯示用來偵測資料扭曲的參數。 內建規則是：工作資料讀取大於平均工作資料讀取的 3 倍，而工作資料讀取超過 10MB。 若要為扭曲工作定義您的自己的規則，您可以選擇您的參數，[扭曲階段] 與 [扭曲字元] 區段將相應重新整理。
+
++ **扭曲階段** - 第二個區段會顯示具有符合上面指定條件之扭曲工作的階段。 若階段中有多個扭曲工作，扭曲階段表格只會顯示最扭曲的工作 (例如要用於資料扭曲的最大資料)。
+
+    ![資料扭曲區段 2](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+
++ **扭曲圖表** – 當扭曲階段表格中的列已被選取時，扭曲表格會根據資料讀取與執行時間來顯示更多工作分派詳細資料。 扭曲工作會標示為紅色，且正常工作會標示為藍色。 針對效能考量，圖表只會顯示最多 100 個範例工作。 工作詳細資料會顯示在右下角的窗格中。
+
+    ![資料扭曲區段 3](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+
+### <a name="time-skew"></a>時間扭曲
+[時間扭曲] 索引標籤會根據工作執行時間來顯示扭曲工作。 
+
++ **指定參數** - 第一個區段會顯示用來偵測時間扭曲的參數。 偵測時間扭曲的預設條件：工作執行時間大於平均執行時間 3 倍，而工作執行時間大於 30 秒。 您可以根據您的需求來變更參數。 [扭曲階段] 與 [扭曲圖表] 會顯示對應的階段與工作資序，就像上面的 [資料扭曲] 索引標籤一樣。
+
++ 按一下 [時間扭曲]，然後系統會根據在 [指定參數] 區段中設定的參數在 [扭曲階段] 區段中顯示篩選的結果。 按一下 [扭曲階段] 區段中的某個項目，接著對應的圖表會在區段 3 中顯示為草稿，而且工作詳細資料會顯示在右下角的窗格。
+
+    ![匙時間扭曲區段 2](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+
+### <a name="executor-usage-analysis"></a>執行程式使用狀況分析
+執行程式使用狀況圖表會將 Spark 作業實際執行程式配置與執行狀態視覺化。  
+
++ 按一下 [執行程式使用狀況分析]，接著會顯示四個關於執行程式使用狀況的類型曲線草稿，包括 [已配置的執行程式]、[執行中的執行程式]、[閒置執行程式] 與 [執行程式執行個體上限] 。 關於已配置的執行程式，「已新增執行程式」或「已移除執行程式」事件將會使得已配置的執行程式數目增加或減少，您可以查看「作業」中的「事件時間表」以取得更多比較。
+
+    ![[執行程式] 索引標籤](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+
++ 按一下色彩圖示以選取或取消選取所有草稿中的對應內容。
+
+    ![選取圖表](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 
 ## <a name="faq"></a>常見問題集
@@ -247,7 +297,7 @@ ms.locfileid: "43046570"
 
 **範例**：
 
-`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar` 
 
 **從 Azure 入口網站中使用 Bash 檔案**
 
@@ -268,7 +318,7 @@ ms.locfileid: "43046570"
     ![上傳記錄或升級 hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
-## <a name="known-issue"></a>已知問題
+## <a name="known-issues"></a>已知問題
 
 1.  目前，此功能只適用於 Spark 2.3 叢集。
 

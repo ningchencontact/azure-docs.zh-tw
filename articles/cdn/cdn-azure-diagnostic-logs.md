@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: v-deasim
-ms.openlocfilehash: 98a7fc5c4607115811e17a7cf6acd4e867663833
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0baa43977099af9c6c0d9c2e4c03abc121ec279d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261299"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47097001"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
@@ -117,8 +117,6 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 9. 選取 [確定] 來完成設定。
 
-    ![入口網站 - 診斷記錄](./media/cdn-diagnostics-log/08_Workspace-resource.png)
-
 10. 建立工作區之後，您就會返回 [診斷記錄] 頁面。 確認新的 Log Analytics 工作區名稱。
 
     ![入口網站 - 診斷記錄](./media/cdn-diagnostics-log/09_Return-to-logging.png)
@@ -127,7 +125,7 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 12. 若要檢視新的 Log Analytics 工作區，請從您的 CDN 端點頁面選取 [核心分析]。
 
-    ![入口網站 - 診斷記錄](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
+    ![入口網站 - 診斷記錄](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
     您的 Log Analytics 工作區現在已經可以記錄資料。 若要取用該資料，您必須使用 [Log Analytics 解決方案](#consuming-diagnostics-logs-from-a-log-analytics-workspace) (本文稍後會有說明)。
 
@@ -168,17 +166,16 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 2.  找到儲存體帳戶
 3.  展開此儲存體帳戶下方的 [Blob 容器] 節點。
 4.  選取名為 *insights-logs-coreanalytics* 的容器。
-5.  結果會顯示在右側窗格，開頭的第一層會顯示 *resourceId=*。 繼續選取每個層級，直到您找到 *PT1H.json* 檔案為止。 如需路徑的說明，請參閱下列＜Blob 路徑格式＞注意事項。
+5.  結果會顯示在右側窗格，開頭的第一層會顯示 *resourceId=*。 繼續選取每個層級，直到您找到 *PT1H.json* 檔案為止。 如需路徑的說明，請參閱 [Blob 路徑格式](cdn-azure-diagnostic-logs.md#blob-path-format)。
 6.  每個 Blob *PT1H.json* 檔案均代表特定 CDN 端點或其自訂網域一小時的分析記錄。
 7.  此 JSON 檔案內容的結構描述如＜核心分析記錄結構描述＞一節所述。
 
 
-> [!NOTE]
-> **Blob 路徑格式**
-> 
-> 每個小時會產生 Core Analytics 記錄，且會收集資料並加以儲存在單一 Azure blob 作為 JSON 承載。 因為儲存體總管工具會將 '/' 解譯為目錄分隔符號並示範階層，會如同階層結構及代表 blob 名稱顯示 Azure blob 的路徑。 此 blob 名稱會遵循下列命名慣例： 
-    
-    resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
+#### <a name="blob-path-format"></a>Blob 路徑格式
+
+每個小時會產生 Core Analytics 記錄，且會收集資料並加以儲存在單一 Azure blob 作為 JSON 承載。 因為儲存體總管工具會將 '/' 解譯為目錄分隔符號並示範階層，會如同階層結構及代表 blob 名稱顯示 Azure blob 的路徑。 此 blob 名稱會遵循下列命名慣例：   
+
+```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
 **欄位說明：**
 
@@ -318,38 +315,38 @@ Microsoft 目前僅提供核心分析記錄，其中包含的計量會顯示 HTT
 
 |計量                     | 說明 | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | 這段期間要求命中總數。 | yes | yes |yes |
-| RequestCountHttpStatus2xx | 產生 2xx HTTP 代碼 (例如 200、202) 的所有要求計數。 | yes | yes |yes |
-| RequestCountHttpStatus3xx | 產生 3xx HTTP 代碼 (例如 300、302) 的所有要求計數。 | yes | yes |yes |
-| RequestCountHttpStatus4xx | 產生 4xx HTTP 代碼 (例如 400、404) 的所有要求計數。 | yes | yes |yes |
-| RequestCountHttpStatus5xx | 產生 5xx HTTP 代碼 (例如 500、504) 的所有要求計數。 | yes | yes |yes |
-| RequestCountHttpStatusOthers | 所有其他 HTTP 代碼 (2xx-5xx 以外) 的計數。 | yes | yes |yes |
-| RequestCountHttpStatus200 | 產生 200 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
-| RequestCountHttpStatus206 | 產生 206 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
-| RequestCountHttpStatus302 | 產生 302 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
-| RequestCountHttpStatus304 | 產生 304 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
-| RequestCountHttpStatus404 | 產生 404 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
-| RequestCountCacheHit | 產生快取命中之所有要求的計數。 資產是從 POP 直接提供給用戶端。 | yes | yes | 否  |
-| RequestCountCacheMiss | 產生快取遺漏之所有要求的計數。 快取遺漏表示在最靠近用戶端的 POP 上找不到資產，因此會從來源擷取。 | yes | yes | 否 |
-| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。 | yes | yes | 否 |
-| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求。 | yes | yes | 否 |
-| RequestCountCacheOthers | 非上述快取狀態的所有要求計數。 | 否 | yes | 否  |
-| EgressTotal | 輸出資料傳輸 (單位 GB) | yes |yes |yes |
-| EgressHttpStatus2xx | 狀態代碼為 2xx HTTP 之回應的輸出資料傳輸* (單位為 GB)。 | yes | yes | 否  |
-| EgressHttpStatus3xx | 狀態代碼為 3xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | yes | yes | 否  |
-| EgressHttpStatus4xx | 狀態代碼為 4xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | yes | yes | 否  |
-| EgressHttpStatus5xx | 狀態代碼為 5xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | yes | yes | 否 |
-| EgressHttpStatusOthers | 狀態代碼為其他 HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | yes | yes | 否  |
-| EgressCacheHit | 直接從 CDN POP/邊緣上 CDN 快取所傳遞回應的輸出資料傳輸。 | yes | yes | 否 |
-| EgressCacheMiss。 | 在最靠近的 POP 伺服器上找不到和從原始伺服器擷取之回應的輸出資料傳輸。 | yes | yes | 否 |
-| EgressCacheNoCache | 因為邊緣上使用者組態之故而無法予以快取的資產輸出資料傳輸。 | yes | yes | 否 |
-| EgressCacheUncacheable | 無法由資產的 Cache-Control 和/或 Expires 標頭快取的資產輸出資料傳輸。 表示應該不會在 POP 上加以快取或由 HTTP 用戶端進行快取。 | yes | yes | 否 |
-| EgressCacheOthers | 其他快取案例的輸出資料傳輸。 | 否 | yes | 否 |
+| RequestCountTotal         | 這段期間要求命中總數。 | 是 | yes |是 |
+| RequestCountHttpStatus2xx | 產生 2xx HTTP 代碼 (例如 200、202) 的所有要求計數。 | 是 | yes |是 |
+| RequestCountHttpStatus3xx | 產生 3xx HTTP 代碼 (例如 300、302) 的所有要求計數。 | 是 | yes |是 |
+| RequestCountHttpStatus4xx | 產生 4xx HTTP 代碼 (例如 400、404) 的所有要求計數。 | 是 | yes |是 |
+| RequestCountHttpStatus5xx | 產生 5xx HTTP 代碼 (例如 500、504) 的所有要求計數。 | 是 | yes |是 |
+| RequestCountHttpStatusOthers | 所有其他 HTTP 代碼 (2xx-5xx 以外) 的計數。 | 是 | yes |是 |
+| RequestCountHttpStatus200 | 產生 200 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
+| RequestCountHttpStatus206 | 產生 206 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
+| RequestCountHttpStatus302 | 產生 302 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
+| RequestCountHttpStatus304 | 產生 304 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
+| RequestCountHttpStatus404 | 產生 404 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
+| RequestCountCacheHit | 產生快取命中之所有要求的計數。 資產是從 POP 直接提供給用戶端。 | 是 | yes | 否  |
+| RequestCountCacheMiss | 產生快取遺漏之所有要求的計數。 快取遺漏表示在最靠近用戶端的 POP 上找不到資產，因此會從來源擷取。 | 是 | yes | 否 |
+| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。 | 是 | 是 | 否 |
+| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求。 | 是 | 是 | 否 |
+| RequestCountCacheOthers | 非上述快取狀態的所有要求計數。 | 否 | 是 | 否  |
+| EgressTotal | 輸出資料傳輸 (單位 GB) | 是 |yes |是 |
+| EgressHttpStatus2xx | 狀態代碼為 2xx HTTP 之回應的輸出資料傳輸* (單位為 GB)。 | 是 | yes | 否  |
+| EgressHttpStatus3xx | 狀態代碼為 3xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 是 | yes | 否  |
+| EgressHttpStatus4xx | 狀態代碼為 4xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 是 | yes | 否  |
+| EgressHttpStatus5xx | 狀態代碼為 5xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 是 | yes | 否 |
+| EgressHttpStatusOthers | 狀態代碼為其他 HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 是 | yes | 否  |
+| EgressCacheHit | 直接從 CDN POP/邊緣上 CDN 快取所傳遞回應的輸出資料傳輸。 | 是 | yes | 否 |
+| EgressCacheMiss。 | 在最靠近的 POP 伺服器上找不到和從原始伺服器擷取之回應的輸出資料傳輸。 | 是 | yes | 否 |
+| EgressCacheNoCache | 因為邊緣上使用者組態之故而無法予以快取的資產輸出資料傳輸。 | 是 | yes | 否 |
+| EgressCacheUncacheable | 無法由資產的 Cache-Control 和/或 Expires 標頭快取的資產輸出資料傳輸。 表示應該不會在 POP 上加以快取或由 HTTP 用戶端進行快取。 | 是 | yes | 否 |
+| EgressCacheOthers | 其他快取案例的輸出資料傳輸。 | 否 | 是 | 否 |
 
 *輸出資料傳輸是指從 CDN POP 伺服器傳遞到用戶端的流量。
 
 
-### <a name="schema-of-the-core-analytics-logs"></a>核心分析記錄結構描述 
+### <a name="schema-of-the-core-analytics-logs"></a>Core Analytics 記錄結構描述 
 
 所有記錄都以 JSON 格式儲存，且每個項目都有根據下列結構描述的字串欄位：
 

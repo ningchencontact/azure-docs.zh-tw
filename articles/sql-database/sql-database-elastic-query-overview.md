@@ -2,19 +2,22 @@
 title: Azure SQL Database 彈性查詢概觀 | Microsoft Docs
 description: 彈性查詢可讓您執行跨多個資料庫的 Transact-SQL 查詢。
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8a7962866b70ae0ec99b8425a365575fbd4e5913
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435758"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164362"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
 
@@ -28,7 +31,7 @@ ms.locfileid: "37435758"
 
 ### <a name="available-on-standard-tier"></a>適用於標準層
 
-標準和進階效能層都支援彈性查詢。 請參閱下面「預覽限制」一節中較低效能層級的效能限制。
+標準和進階服務層上都支援彈性查詢。 請參閱下面＜預覽限制＞一節中較低服務層的效能限制。
 
 ### <a name="push-parameters-to-remote-databases"></a>將參數推送到遠端資料庫
 
@@ -101,7 +104,7 @@ ms.locfileid: "37435758"
 
 > [!NOTE]
 > 彈性查詢資料庫 (前端節點) 可以是個別的資料庫，或是裝載分區對應的相同資料庫。
-> 無論您選擇哪一個設定，請確定該資料庫的服務和效能層級夠高，可處理預期的登入/查詢要求數量。
+> 無論您選擇哪一個設定，都應該確定該資料庫的服務層和計算大小夠高，可處理預期的登入/查詢要求數量。
 
 下列步驟會針對水平資料分割案例設定彈性資料庫查詢，這些案例需要存取 (通常) 位於數個遠端 SQL Database 上的一組資料表：
 
@@ -133,7 +136,7 @@ ms.locfileid: "37435758"
 
 ## <a name="preview-limitations"></a>預覽限制
 
-* 在標準效能層上執行第一個彈性查詢最多可能需要幾分鐘的時間。 需要這些時間才能載入彈性查詢功能；較高效能層級改善了載入效能。
+* 在標準服務層上執行第一個彈性查詢最多可能需要幾分鐘的時間。 需要這些時間才能載入彈性查詢功能；較高的服務層和計算大小可改善載入效能。
 * 尚未支援來自 SSMS 或 SSDT 的外部資料來源或外部資料表的指令碼。
 * SQL DB 匯入/匯出還不支援外部資料來源和外部資料表。 如果您需要使用匯入/匯出，請在匯出前卸除這些物件，然後在匯入後予以重新建立。
 * 彈性查詢目前僅支援以唯讀方式存取外部資料表。 不過，您可以在定義外部資料表的資料庫上使用完整的 T-SQL 功能。 例如，在使用 SELECT <column_list> INTO <local_table> (舉例而言) 保存暫存結果時，或在彈性查詢資料庫上定義預存程序來參考外部資料表時，這可能有其效用。

@@ -1,21 +1,23 @@
 ---
 title: 使用 SQL Database 異地複寫進行 SaaS 應用程式的災害復原 | Microsoft Docs
 description: 了解在發生中斷的狀況時如何使用 Azure SQL Database 異地複寫復原多租用戶 SaaS 應用程式
-keywords: SQL Database Azure
 services: sql-database
-author: AyoOlubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2018
+author: AyoOlubeko
 ms.author: ayolubek
-ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/09/2018
+ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34645788"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056330"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>使用資料庫異地複寫進行多租用戶 SaaS 應用程式的災害復原
 
@@ -51,9 +53,9 @@ ms.locfileid: "34645788"
 這三方面都必須審慎考量，尤其是在大規模運作時。 整體來說，此計畫必須完成數個目標：
 
 * 設定
-    * 在復原區域中建立及維護鏡像映像環境。 在此復原環境中建立彈性集區並複寫任何獨立資料庫，可保留復原區域中的容量。 維護此環境的工作，包括在新的租用戶資料庫佈建時加以複寫。  
+    * 在復原區域中建立及維護鏡像映像環境。 在此復原環境中建立彈性集區並複寫任何單一資料庫，可保留復原區域中的容量。 維護此環境的工作，包括在新的租用戶資料庫佈建時加以複寫。  
 * 復原
-    * 使用相應減少復原環境來降低日常成本時，必須相應增加集區和獨立資料庫，以達到復原區域中的完整運作容量
+    * 使用相應減少的復原環境來降低日常成本時，必須相應增加集區與單一資料庫，以達到復原區域中的完整運作容量
     * 讓新的租用戶盡快佈建於復原區域中  
     * 以最佳化方式依優先順序還原租用戶
     * 在可行的情況下平行執行步驟，以最佳化方式儘速將租用戶上線
@@ -158,7 +160,7 @@ ms.locfileid: "34645788"
 
 1. 將復原目錄中的所有現有租用戶都標示為離線，以防止租用戶資料庫在容錯移轉之前受到存取。
 
-1. 更新復原區域中所有彈性集區和已複寫的獨立資料庫的組態，以鏡像其在原始區域中的組態。 (只有在正常作業期間相應減少復原環境中的集區或複寫資料庫以降低成本時，才需要執行此工作)。
+1. 更新復原區域中所有彈性集區與已複寫的單一資料庫的設定，以鏡像其在原始區域中的設定。 (只有在正常作業期間相應減少復原環境中的集區或複寫資料庫以降低成本時，才需要執行此工作)。
 
 1. 啟用復原區域中的 Web 應用程式的流量管理員端點。 啟用此端點可讓應用程式佈建至新的租用戶。 在此階段中，現有的租用戶仍處於離線狀態。
 

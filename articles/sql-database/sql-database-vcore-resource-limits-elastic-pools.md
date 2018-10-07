@@ -2,19 +2,22 @@
 title: Azure SQL Database 以虛擬核心為基礎的資源限制 - 彈性集區 | Microsoft Docs
 description: 此頁面將針對 Azure SQL Database 中的彈性集區，說明一些以虛擬核心為基礎的常見資源限制。
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 068ecf8283b92873542a7cb9ab2202212fd2ad2c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495504"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161559"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>針對彈性集區，Azure SQL Database 虛擬核心形式的購買模型限制
 
@@ -25,17 +28,17 @@ ms.locfileid: "39495504"
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>彈性集區：儲存體大小與效能層級
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>彈性集區：儲存體大小與計算大小
 
-對於 SQL Database 彈性集區，下表顯示了每個服務層和效能層級的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，設定服務層、效能層級和儲存體數量。
+針對 SQL Database 彈性集區，下表顯示每個服務層與計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，來設定服務層、計算大小與儲存體數量。
 
 > [!NOTE]
-> 彈性集區中個別資料庫的資源限制通常與集區外部具有相同效能層級的單一資料庫資源限制相同。 例如，GP_Gen4_1 資料庫的並行背景工作上限是 200 個背景工作。 因此，GP_Gen4_1 集區中資料庫的並行背景工作上限也是 200 個背景工作。 請注意，GP_Gen4_1 集區中的並行背景工作總數為 210。
+> 彈性集區中個別資料庫的資源限制通常與集區外部具有相同計算大小的單一資料庫資源限制相同。 例如，GP_Gen4_1 資料庫的並行背景工作上限是 200 個背景工作。 因此，GP_Gen4_1 集區中資料庫的並行背景工作上限也是 200 個背景工作。 請注意，GP_Gen4_1 集區中的並行背景工作總數為 210。
 
 ### <a name="general-purpose-service-tier"></a>一般用途服務層
 
 #### <a name="generation-4-compute-platform"></a>第 4 代計算平台
-|效能等級|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|計算大小|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W 產生|4|4|4|4|4|4|
 |虛擬核心|1|2|4|8|16|24|
@@ -50,8 +53,8 @@ ms.locfileid: "39495504"
 |IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
 |並行背景工作 (要求) 數上限|210|420|840|1680|3360|5040|
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|
-|集區密度上限|100|200|500|500|500|500|
-|最小/最大彈性集區點擊停止|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|每個集區的最大 DB 數|100|200|500|500|500|500|
+|每個資料庫最小/最大彈性集區虛擬核心選項|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |複本數目|1|1|1|1|1|1|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -59,7 +62,7 @@ ms.locfileid: "39495504"
 |||
 
 #### <a name="generation-5-compute-platform"></a>第 5 代計算平台
-|效能等級|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|計算大小|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W 產生|5|5|5|5|5|5|5|5|
 |虛擬核心|2|4|8|16|24|32|40|80|
@@ -74,8 +77,8 @@ ms.locfileid: "39495504"
 |IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
 |並行背景工作 (要求) 數上限|210|420|840|1680|2520|3360|4200|8400
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|30000|30000|
-|集區密度上限|100|200|500|500|500|500|500|500|
-|最小/最大彈性集區點擊停止|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|每個集區的最大 DB 數|100|200|500|500|500|500|500|500|
+|每個資料庫最小/最大彈性集區虛擬核心選項|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |複本數目|1|1|1|1|1|1|1|1|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -85,7 +88,7 @@ ms.locfileid: "39495504"
 ### <a name="business-critical-service-tier"></a>業務關鍵服務層
 
 #### <a name="generation-4-compute-platform"></a>第 4 代計算平台
-|效能等級|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|計算大小|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W 產生|4|4|4|4|4|4|
 |虛擬核心|1|2|4|8|16|24|
@@ -100,8 +103,8 @@ ms.locfileid: "39495504"
 |IO 延遲 (大約)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|
 |並行背景工作 (要求) 數上限|210|420|840|1680|3360|5040|
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|
-|集區密度上限|N/A|50|100|100|100|100|
-|最小/最大彈性集區點擊停止|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|每個集區的最大 DB 數|只有單一 DB 才支援此計算大小|50|100|100|100|100|
+|每個資料庫最小/最大彈性集區虛擬核心選項|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |複本數目|3|3|3|3|3|3|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |讀取向外延展|是|yes|yes|yes|yes|是|
@@ -109,7 +112,7 @@ ms.locfileid: "39495504"
 |||
 
 #### <a name="generation-5-compute-platform"></a>第 5 代計算平台
-|效能等級|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|計算大小|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W 產生|5|5|5|5|5|5|5|5|
 |虛擬核心|2|4|8|16|24|32|40|80|
@@ -124,8 +127,8 @@ ms.locfileid: "39495504"
 |目標 IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |並行背景工作 (要求) 數上限|210|420|840|1680|2520|3360|5040|8400|
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|30000|30000|
-|集區密度上限|N/A|50|100|100|100|100|100|100|
-|最小/最大彈性集區點擊停止|N/A|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|每個集區的最大 DB 數|N/A|50|100|100|100|100|100|100|
+|每個資料庫最小/最大彈性集區虛擬核心選項|N/A|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |複本數目|3|3|3|3|3|3|3|3|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |讀取向外延展|是|yes|yes|yes|yes|yes|yes|是|

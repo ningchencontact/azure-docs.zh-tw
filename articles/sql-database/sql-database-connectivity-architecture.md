@@ -2,19 +2,22 @@
 title: Azure SQL Database 連線架構 | Microsoft Docs
 description: 本文件說明 Azure 內外部的 Azure SQLDB 連線架構。
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: DhruvMsft
+ms.author: dhruv
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 01/24/2018
-ms.author: carlrab
-ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493667"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064125"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 連線架構 
 
@@ -51,13 +54,16 @@ ms.locfileid: "39493667"
 ![架構概觀](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> 搭配 Azure SQL Database 使用服務端點時，您的預設原則會是 **Proxy**。 若要從 Vnet 內進行連線，請允許對以下清單中指定的 Azure SQL Database 閘道 IP 位址進行輸出連線。 使用服務端點時，強烈建議將您的連線原則變更為 [重新導向] 以達到更佳的效能。 如果您將連線原則變更為 [重新導向]，則不足以允許在您的 NSG 上輸出至下面所列的 Azure SQLDB 閘道 IP，您就必須允許輸出至所有 Azure SQLDB IP。 透過 NSG (網路安全性群組) 服務標籤可以完成此作業。 如需詳細資訊，請參閱[服務標籤](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags)。
+> 搭配 Azure SQL Database 使用服務端點時，您的預設原則會是 **Proxy**。 若要從 VNet 內進行連線，您必須允許對以下清單中指定的 Azure SQL Database 閘道 IP 位址進行連出連線。 使用服務端點時，強烈建議將您的連線原則變更為 [重新導向] 以達到更佳的效能。 如果您將連線原則變更為 [重新導向]，則不足以允許在您的 NSG 上輸出至下面所列的 Azure SQLDB 閘道 IP，您就必須允許輸出至所有 Azure SQLDB IP。 透過 NSG (網路安全性群組) 服務標籤可以完成此作業。 如需詳細資訊，請參閱[服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 閘道 IP 位址
 
 若要從內部部署資源連線到 Azure SQL Database，您必須允許輸出網路流量流到 Azure 區域的 Azure SQL Database 閘道。 在從內部部署資源連線時的預設 Proxy 模式中連線時，您只能透過閘道連線。
 
 下表列出所有資料區之 Azure SQL Database 閘道的主要和次要 IP。 對於某些區域，會有兩個 IP 位址。 在這些區域中，主要 IP 位址是閘道目前的 IP 位址，而次要 IP 位址為容錯移轉 IP 位址。 容錯移轉位址是指可能會移動伺服器以讓服務保持高可用性的位址。 對於這些區域，建議您針對這兩個 IP 位址允許輸出。 次要 IP 位址為 Microsoft 所有，在由 Azure SQL Database 啟動以接受連線之前，並不會接聽任何服務。
+
+> [!IMPORTANT]
+> 如果從 Azure 內部連線，則根據預設連線原則將為 [重新導向] (除非您使用的是服務端點)。 它不足以允許下列 IP。 您必須允許所有 Azure SQL Database IP。 如果您是從 VNet 內進行連線，透過 NSG (網路安全性群組) 服務標籤可以完成此作業。 如需詳細資訊，請參閱[服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
 
 | 區域名稱 | 主要 IP 位址 | 次要 IP 位址 |
 | --- | --- |--- |
@@ -91,7 +97,7 @@ ms.locfileid: "39493667"
 | 美國西部 2 | 13.66.226.202  | |
 ||||
 
-\* **注意：** [美國東部 2] 也有第三 IP 位址 `52.167.104.0`。
+\* **注意：**[美國東部 2] 也有第三 IP 位址 `52.167.104.0`。
 
 ## <a name="change-azure-sql-database-connection-policy"></a>變更 Azure SQL Database 連線原則
 
@@ -160,10 +166,10 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>透過 Azure CLI 2.0 變更連線設定的指令碼
+## <a name="script-to-change-connection-settings-via-azure-cli"></a>透過 Azure CLI 變更連線設定的指令碼
 
 > [!IMPORTANT]
-> 此指令碼需要 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+> 此指令碼需要 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 >
 
 下列 CLI 指令碼會示範如何變更連線原則。
