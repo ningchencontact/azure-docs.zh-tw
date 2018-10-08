@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 620a2bf9221bdb7c46dc36a2b3ed23d853faff35
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702171"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031704"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>關於點對站 VPN 路由
 
@@ -148,7 +148,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 在此範例中，點對站 VPN 閘道連線是用於 VNet1。 VNet1 未與任何其他虛擬網路建立連線/對等互連，但已透過未執行 BGP 的站對站 VPN 連線與內部部署站台建立連線。
 
-Windows 用戶端可以存取 VNet1 和分公司 (Site1)，但必須手動將 Site1 的路由新增至用戶端。 非 Windows 用戶端可以存取 VNet1，也可以存取內部部署的 Site1。
+Windows 和非 Windows 用戶端只能存取 VNet1。
 
 ![VNet 和分公司的相關路由](./media/vpn-gateway-about-point-to-site-routing/5.jpg "VNet 和分公司的相關路由")
 
@@ -162,7 +162,7 @@ Windows 用戶端可以存取 VNet1 和分公司 (Site1)，但必須手動將 Si
 
 * 新增至 Windows 用戶端的路由：10.1.0.0/16、192.168.0.0/24
 
-* 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.101.0.0/16、192.168.0.0/24
+* 新增至非 Windows 用戶端的路由：10.1.0.0/16、192.168.0.0/24
 
 ### <a name="access"></a>Access
 

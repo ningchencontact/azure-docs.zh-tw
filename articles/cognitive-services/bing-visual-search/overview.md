@@ -1,21 +1,21 @@
 ---
-title: Bing 圖像式搜尋 API 概觀 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: 說明如何取得影像的相關詳細資料或深入解析，例如類似影像或購物來源。
+title: 什麼是 Bing 圖像式搜尋？
+titleSuffix: Azure Cognitive Services
+description: Bing 圖像式搜尋可提供影像的相關詳細資料或深入解析，例如類似影像或購物來源。
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: overview
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: aa563d89b1834f5be952f13c31a2451d809709b1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2ab73281eb050a52b596504ea9cc0e478144ff24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006524"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226756"
 ---
 # <a name="what-is-bing-visual-search-api"></a>什麼是 Bing 圖像式搜尋 API？
 

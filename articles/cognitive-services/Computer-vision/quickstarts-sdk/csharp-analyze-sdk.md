@@ -1,25 +1,27 @@
 ---
-title: 電腦視覺 API C# 快速入門 SDK 分析影像 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您會在認知服務中使用電腦視覺 Windows C# 用戶端程式庫，分析影像。
+title: 快速入門：分析影像 - SDK、C# - 電腦視覺
+titleSuffix: Azure Cognitive Services
+description: 在本快速入門中，您會使用電腦視覺 Windows C# 用戶端程式庫，分析影像。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 3ff3a4702ab0b1fb663ee896f268065caf043809
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/14/2018
+ms.author: nolachar
+ms.openlocfilehash: 0315b1c90eeae27d30a237aea76e66465818fba4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750625"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056067"
 ---
-# <a name="quickstart-analyze-an-image---sdk-c35"></a>快速入門：分析影像 - SDK、C&#35;
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>本快速入門：使用電腦視覺 SDK 和 C# 來分析影像
 
 在本快速入門中，您使用電腦視覺 Windows 用戶端程式庫，來分析要擷取視覺功能的本機與遠端影像。
+
+此範例的原始程式碼位於 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -47,8 +49,8 @@ ms.locfileid: "43750625"
     1. 按一下 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中，鍵入 "Microsoft.Azure.CognitiveServices.Vision.ComputerVision"。
     1. 顯示時選取 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision]，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
 1. 使用以下程式碼來取代 `Program.cs`。
-1. 將 `<Subscription Key>` 取代為您的有效訂用帳戶金鑰。
-1. 必要時，請將 `computerVision.AzureRegion = AzureRegions.Westcentralus` 變更為您取得訂用帳戶金鑰的位置。
+1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
+1. 必要時，請將 `computerVision.Endpoint` 變更為與您的訂用帳戶金鑰相關聯的 Azure 區域。
 1. 使用本機影像的路徑和檔案名稱來取代 `<LocalImage>`。
 1. (選擇性) 將 `remoteImageUrl` 設為不同的影像。
 1. 執行程式。
@@ -86,33 +88,33 @@ namespace ImageAnalyze
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
-                new ApiKeyServiceClientCredentials(subscriptionKey), 
+            ComputerVisionClient computerVision = new ComputerVisionClient(
+                new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...");
             var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
             var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Analyze a remote image
         private static async Task AnalyzeRemoteAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -128,7 +130,7 @@ namespace ImageAnalyze
 
         // Analyze a local image
         private static async Task AnalyzeLocalAsync(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
@@ -159,9 +161,9 @@ namespace ImageAnalyze
 
 成功的回應會顯示每個影像的最相關標題。
 
-請參閱 [API 快速入門：使用 C# 分析本機影像](../QuickStarts/CSharp-analyze.md#analyze-image-response)，以取得未經處理 JSON 輸出的範例。
+請參閱 [API 快速入門：使用 C# 分析本機影像](../QuickStarts/CSharp-analyze.md#examine-the-response)，以取得未經處理 JSON 輸出的範例。
 
-```cmd
+```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```
