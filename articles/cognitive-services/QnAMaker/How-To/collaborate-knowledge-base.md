@@ -1,25 +1,25 @@
 ---
-title: 對知識庫進行共同作業 - Azure 認知服務 | Microsoft Docs
-titleSuffix: Azure
-description: 如何對 QnA Maker 知識庫進行共同作業
+title: 在知識庫上共同作業 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker 可讓多位使用者對知識庫進行共同作業。 這項功能是連同 Azure 角色型存取控制一起提供。
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: e18d656236276595fc5186a6656349bf28974ead
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: bb074b1f256275c26889a30435dff28c86060a7b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369555"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035227"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>對知識庫進行共同作業
 
-QnA Maker 可讓多位使用者對知識庫進行共同作業。 這項功能是連同 Azure [角色型存取控制](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure)一起提供。 
+QnA Maker 可讓多位使用者對知識庫進行共同作業。 這項功能是連同 Azure [角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)一起提供。 
 
 執行下列步驟，與他人共用 QnA Maker 服務：
 

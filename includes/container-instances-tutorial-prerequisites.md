@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 95a8cf4eca7969631d069a31c9d08ba52c8b02b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: be61695cc57eca3ddf2c03aeb4912348e9535741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30193477"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060775"
 ---
 您必須滿足下列需求，才能完成本教學課程：
 
-**Azure CLI**：您必須在本機電腦上安裝 Azure CLI 2.0.29 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0][azure-cli-install]。
+**Azure CLI**：您必須在本機電腦上安裝 Azure CLI 2.0.29 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 **Docker**：本教學課程假設使用者對核心 Docker 概念有基本認識，像是容器、容器映像和基本 `docker` 命令。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀][docker-get-started]。
 

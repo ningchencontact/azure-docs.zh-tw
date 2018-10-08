@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 661c757cda2f70b03d136f3726c7afe633fbbe04
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42024024"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032224"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器簡介
 
@@ -137,3 +137,5 @@ ms.locfileid: "42024024"
 * 如需如何建立和使用 Ubuntu DSVM 的詳細資訊，請參閱[佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器](dsvm-ubuntu-intro.md)。 如需如何建立和使用 CentOS DSVM 的詳細資訊，請參閱[在 Azure 上佈建 Linux CentOS 資料科學虛擬機器](linux-dsvm-intro.md)。
 * 如需為您示範如何使用 Linux VM (CentOS 和 Ubuntu) 執行數個常見資料科學工作的逐步解說，請參閱 [Linux 資料科學虛擬機器上的資料科學](linux-dsvm-walkthrough.md)。
 
+## <a name="next-steps"></a>後續步驟
+[Azure 的 R 開發人員指南](../r-developers-guide.md)

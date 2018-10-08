@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 5/8/2018
+ms.date: 9/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a79c1951fb8cfbfc208942835ee87b91b763c44
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 8bfe815b9664e499f7ae458dfc42b88199e0ecb4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798180"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037927"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -36,13 +36,13 @@ ms.locfileid: "34798180"
 
 <table>
 
-<tr><td>**下載 SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**下載 SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API 文件**</td><td>[Python API 參考文件](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
+<tr><td>**API 文件**</td><td>[Python API 參考文件](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
 
-<tr><td>**SDK 安裝指示**</td><td>[SDK 安裝指示](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**SDK 安裝指示**</td><td>[SDK 安裝指示](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**參與 SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**參與 SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
 <tr><td>**開始使用**</td><td>[開始使用 Python SDK](sql-api-python-application.md)</td></tr>
 
@@ -50,6 +50,12 @@ ms.locfileid: "34798180"
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
+* 多重區域寫入支援。
+* 命名空間已變更為 azure.cosmos。
+* 集合及文件概念已重新命名為容器及項目，document_client 已重新命名為 cosmos_client。 
+
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
 * 已新增對連線問題預設重試次數的支援。
 

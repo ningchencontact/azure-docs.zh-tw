@@ -1,26 +1,24 @@
 ---
-title: 將語音 C# SDK 搭配 LUIS 使用 - Azure | Microsoft Docs
-titleSuffix: Azure
-description: 使用語音 C# SDK 範例對麥克風說話，並取得傳回的 LUIS 意圖與實體預測。
+title: 使用語音 C# SDK 搭配 LUIS
+titleSuffix: Azure Cognitive Services
+description: 語音服務可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 NuGet 封裝 (已隨附提供參考)。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124391"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042069"
 ---
 # <a name="integrate-speech-service"></a>整合語音服務
-[語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。
-
-在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 封裝 (已隨附提供參考)。 
+[語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 封裝 (已隨附提供參考)。 
 
 為了操作本文的作業，您需要免費的 [LUIS][LUIS] 網站帳戶才能匯入應用程式。
 
@@ -32,12 +30,13 @@ ms.locfileid: "43124391"
 
 此應用程式具有與人力資源領域相關的意圖、實體和語句。 語句範例包括：
 
-```
-Who is John Smith's manager?
-Who does John Smith manage?
-Where is Form 123456?
-Do I have any paid time off?
-```
+|範例語句|
+|--|
+|Who is John Smith's manager?|
+|Who does John Smith manage?|
+|Where is Form 123456?|
+|Do I have any paid time off?|
+
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>新增 KeyPhrase 預先建置的實體
 匯入應用程式後，選取 [實體]，然後再選取 [管理預先建立的實體]。 新增 **KeyPhrase** 實體。 KeyPhrase 實體會從語句中擷取金鑰主題。
@@ -45,19 +44,18 @@ Do I have any paid time off?
 ## <a name="train-and-publish-the-app"></a>訓練和發佈應用程式
 1. 在頂端右側的導覽列中，選取 [訓練] 按鈕以訓練 LUIS 應用程式。
 
-2. 選取 [發佈] 以移至 [發佈] 頁面。 
+2. 選取右上列中的 [管理]，然後選取左側導覽列中的 [金鑰和端點]。 
 
-3. 在 [發佈] 頁面底部，新增在[建立 LUIS 端點金鑰](#create-luis-endpoint-key)一節中建立的 LUIS 金鑰。
+3. 在 [金鑰和端點] 頁面上，指派在[建立 LUIS 端點金鑰](#create-luis-endpoint-key)一節中建立的 LUIS 金鑰。
 
-4. 選取 [發佈] 位置右側的 [發佈] 按鈕，發佈 LUIS 應用程式。 
-
-  在 [發佈] 頁面上，收集在[建立 LUIS 端點金鑰](#create-luis-endpoint-key)一節中所建立 LUIS 金鑰的應用程式識別碼、發佈區域和訂閱識別碼。 您必須修改程式碼，以在本文後半部使用這些值。 
-
-  這些值全都包含在您所建立金鑰的 [發佈] 頁面底部的端點 URL 中。 
+  在此頁面上，收集在[建立 LUIS 端點金鑰](#create-luis-endpoint-key)一節中所建立 LUIS 金鑰的應用程式識別碼、發佈區域和訂閱識別碼。 您必須修改程式碼，以在本文後半部使用這些值。 
   
   **請勿**使用免費的入門版金鑰進行此練習。 只有在 Azure 入口網站中建立的 **Language Understanding** 金鑰適用於此練習。 
 
   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+
+
+4. 選取右上列中的 [發佈] 按鈕，發佈 LUIS 應用程式。 
 
 ## <a name="audio-device"></a>音訊裝置
 本文將需要您使用電腦上的音訊裝置。 像是有麥克風的耳機，或是內建的音訊裝置。 檢查音訊輸入量，以了解您得音量是否應該比平常說話大聲，才能讓音訊裝置偵測到您的語音。 

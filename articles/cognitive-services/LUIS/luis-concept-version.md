@@ -1,20 +1,21 @@
 ---
-title: 了解 LUIS 中的版本設定 - Azure | Microsoft Docs
+title: 了解 LUIS 中的版本設定
+titleSuffix: Azure Cognitive Services
 description: 了解如何在 Language Understanding (LUIS) 中使用版本來管理變更
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5d78172ae441300cdc39df8b911fd7ecaa42df9f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225722"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032687"
 ---
 # <a name="versions"></a>版本
 使用[版本](luis-how-to-manage-versions.md)來建立相同應用程式的不同模型。 

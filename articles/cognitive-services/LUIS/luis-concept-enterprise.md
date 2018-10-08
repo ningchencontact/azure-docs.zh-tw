@@ -1,20 +1,21 @@
 ---
-title: LUIS 應用程式的企業概念 - Azure | Microsoft Docs
+title: LUIS 應用程式的企業概念 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: 了解大型 LUIS 應用程式的設計概念。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3782874ac69b299e24cf1555b290a9d2d86b6285
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224855"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038335"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 應用程式的企業策略
 檢閱您企業應用程式的這些設計策略。
@@ -50,9 +51,7 @@ ms.locfileid: "39224855"
 
 ![分派架構的概念圖](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-父定義域在 LUIS 稱為 **V 分派**應用程式。 
-
-![含分派工具所建立 LUIS 應用程式之 LUIS 應用程式清單的螢幕擷取畫面](./media/luis-concept-enterprise/dispatch.png)
+父代網域會在 LUIS 的應用程式清單中以名為 `Dispatch` 的版本註明。 
 
 Chatbot 會接收語句，然後將其傳送給父 LUIS 應用程式來進行預測。 來自父應用程式的最高分預測意圖會決定下一個要呼叫的子 LUIS 應用程式。 Chatbot 會將語句傳送給子應用程式來進行更具體的預測。
 
@@ -66,4 +65,4 @@ Chatbot 會接收語句，然後將其傳送給父 LUIS 應用程式來進行預
 * 了解如何[測試批次](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

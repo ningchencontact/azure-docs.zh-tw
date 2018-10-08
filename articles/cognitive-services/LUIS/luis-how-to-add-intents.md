@@ -1,25 +1,26 @@
 ---
-title: 在 LUIS 應用程式中新增意圖 | Microsoft Docs
-description: 使用 Language Understanding (LUIS) 來新增意圖，協助應用程式理解使用者要求並適當地進行回應。
+title: 在 LUIS 應用程式中新增意圖
+titleSuffix: Azure Cognitive Services
+description: 將意圖新增至 LUIS 應用程式，以識別具有相同用意的問題或命令群組。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225881"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036077"
 ---
 # <a name="manage-intents"></a>管理意圖 
 將[意圖](luis-concept-intent.md)新增至 LUIS 應用程式，以識別具有相同意圖的問題或命令群組。 
 
-您可以從 LUIS 左面板中的 [意圖] 存取 [意圖] 頁面，以便新增及管理意圖。 
+從頂端工具列中的 [建置] 區段管理意圖。 您可以從左面板中的 [意圖] 頁面新增及管理意圖。 
 
 下列程序示範如何在 TravelAgent 應用程式中新增 "Bookflight" 意圖。
 
@@ -28,7 +29,6 @@ ms.locfileid: "39225881"
 1. 在 [我的應用程式] 頁面上按一下您的應用程式名稱加以開啟 (例如，TravelAgent)，然後按一下左方面板中的 [意圖]。 
 2. 在 [意圖] 頁面上，按一下 [建立新意圖]。
 
-    ![意圖清單](./media/luis-how-to-add-intents/IntentsList.png)
 3. 在 [建立新的意圖] 對話方塊中，輸入意圖名稱 "BookFlight"，然後按一下 [完成]。
 
     ![新增意圖](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -105,7 +105,7 @@ ms.locfileid: "39225881"
 2. 選取 [刪除語句?] 快顯對話方塊中的 [完成]。
 
 ## <a name="search-in-utterances-on-intent-page"></a>在意圖頁面上搜尋語句
-在意圖中，您可以搜尋包含文字 (字組或片語) 的語句。 例如，您可能會注意到牽涉特定單字的錯誤，而想要尋找包含該特定單字的所有範例。 
+您可以在意圖的語句清單中搜尋包含文字 (字組或片語) 的語句。 例如，您可能會注意到牽涉特定單字的錯誤，而想要尋找包含該特定單字的所有範例。 
 
 1. 在工具列中選取放大鏡圖示。
 

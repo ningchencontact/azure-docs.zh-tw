@@ -1,20 +1,21 @@
 ---
-title: 使用 Microsoft Azure 流量管理員增加 Language Understanding (LUIS) 中的端點配額 - Azure | Microsoft Docs
-description: 使用 Microsoft Azure 流量管理員將端點配額分散到 Language Understanding (LUIS) 中的幾個訂用帳戶來增加端點配額
+title: 使用 Microsoft Azure 流量管理員增加 Language Understanding (LUIS) 中的端點配額
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 909c32452db216f79633b94c31f39350b7a6ee20
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248623"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042171"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理員管理幾個金鑰之間的端點配額
 Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。 
@@ -24,7 +25,7 @@ Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一�
 本文說明如何使用 Azure [流量管理員][traffic-manager-marketing]管理這些金鑰之間的流量。 您必須有已定型和發佈的 LUIS 應用程式。 如果還沒有，請遵循預先建置的領域[快速入門](luis-get-started-create-app.md)。 
 
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>在 Azure 入口網站中連線到 PowerShell
-在 [Azure][azure-portal] 入口網站中，開啟 PowerShell 視窗。 PowerShell 視窗的圖示是上方瀏覽列中的 **>_**。 從入口網站使用 PowerShell，可以取得最新的 PowerShell 版本，而且您會經過驗證。 入口網站中的 PowerShell 需要 [Azure 儲存體](https://azure.microsoft.com/services/storage/)帳戶。 
+在 [Azure][azure-portal] 入口網站中，開啟 PowerShell 視窗。 PowerShell 視窗的圖示是上方導覽列中的 **>_**。 從入口網站使用 PowerShell，可以取得最新的 PowerShell 版本，而且您會經過驗證。 入口網站中的 PowerShell 需要 [Azure 儲存體](https://azure.microsoft.com/services/storage/)帳戶。 
 
 ![Azure 入口網站中開啟 Powershell 視窗的螢幕擷取畫面](./media/traffic-manager/azure-portal-powershell.png)
 
@@ -44,9 +45,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Azure 入口網站的 luis-traffic-manager 資源群組中有兩個 LUIS 金鑰的螢幕擷取畫面](./media/traffic-manager/luis-keys.png)
 
-2. 在 [LUIS][LUIS] 網站的 [發佈] 頁面上，將金鑰加入應用程式，並重新發佈應用程式。 
-
-    ![LUIS 入口網站的 [發佈] 頁面上有兩個 LUIS 金鑰的螢幕擷取畫面](./media/traffic-manager/luis-keys-in-luis.png)
+2. 在 [LUIS][LUIS] 網站的 [管理] 區段中，請在 [金鑰和端點] 頁面上，將金鑰指派給應用程式，然後選取右上方功能表中的 [發佈] 按鈕來重新發佈應用程式。 
 
     [端點] 欄中的範例 URL 使用 GET 要求搭配端點金鑰作為查詢參數。 複製兩個新的金鑰端點 URL。 本文稍後的流量管理員設定會用到這些 URL。
 
@@ -350,7 +349,7 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 
 LUIS 端點成功的回應為：
 
-```cmd
+```json
 [
     {
         value: 'westus.api.cognitive.microsoft.com', 

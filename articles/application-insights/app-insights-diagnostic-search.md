@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136895"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038761"
 ---
 # <a name="using-search-in-application-insights"></a>在 Application Insights 中使用搜尋
 「搜尋」是 [Application Insights](app-insights-overview.md) 的一項功能，可用來尋找及探索個別遙測項目，例如頁面檢視、例外狀況或 Web 要求。 而您可以檢視所編寫的記錄追蹤和事件。
@@ -123,8 +123,8 @@ ms.locfileid: "39136895"
 | 範例查詢 | 效果 |
 | --- | --- |
 | `apple` |在日期範圍中尋找欄位含有 "apple" 這個字的所有事件 |
-| `apple AND banana` |尋找同時含有這兩個字的事件。 請使用大寫 "AND"，而不是 "and"。 |
-| `apple OR banana`<br/>`apple banana` |尋找含有任一單字的事件。 請使用 "OR"，而不是 "or"。<br/>簡短格式。 |
+| `apple AND banana` <br/>`apple banana` |尋找同時含有這兩個字的事件。 請使用大寫 "AND"，而不是 "and"。 <br/>簡短格式。 |
+| `apple OR banana` |尋找含有任一單字的事件。 請使用 "OR"，而不是 "or"。 |
 | `apple NOT banana` |尋找含有一個字但不含另一個字的事件。 |
 
 ## <a name="sampling"></a>取樣
@@ -133,13 +133,13 @@ ms.locfileid: "39136895"
 [了解取樣](app-insights-sampling.md)。
 
 ## <a name="create-work-item"></a>建立工作項目
-您可以利用來自任何遙測項目的詳細資料，在 GitHub 或 Visual Studio Team Services 中建立 Bug。 
+您可以利用來自任何遙測項目的詳細資料，在 GitHub 或 Azure DevOps 中建立 Bug。 
 
 ![按一下 [新增工作項目]、編輯欄位，然後按一下 [確定]。](./media/app-insights-diagnostic-search/42.png)
 
-當您第一次執行此動作時，系統會要求您設定與您 Team Services 帳戶和專案的連結。
+當您第一次執行此動作時，系統會要求您設定與 Azure DevOps 組織和專案的連結。
 
-![填入 Team Services 伺服器的 URL 和專案名稱，然後按一下 [授權]](./media/app-insights-diagnostic-search/41.png)
+![填入 Azure DevOps Services 的 URL 和專案名稱，然後按一下 [授權]](./media/app-insights-diagnostic-search/41.png)
 
 (您也可以在 [工作項目] 刀鋒視窗上設定連結)。
 

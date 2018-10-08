@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/08/2018
 ms.author: wolfma
-ms.openlocfilehash: dcb65e365fdd51a56afc65814a153593e2f7d0f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6a77303bc1810d72001f119223b7490299ed497a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "47019736"
+ms.locfileid: "47060911"
 ---
 區域| 文字轉換語音端點
 -|-
@@ -23,4 +23,4 @@ ms.locfileid: "47019736"
 西歐|    `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
-> 如果您已建立自訂語音字型，請使用您為它建立的端點，而不是上述端點。
+> 如果您已建立自訂語音字型，請使用您為它建立的端點，而不是這裡的端點。

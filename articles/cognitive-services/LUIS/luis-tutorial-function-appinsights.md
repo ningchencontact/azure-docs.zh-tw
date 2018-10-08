@@ -1,24 +1,26 @@
 ---
-title: 使用 Node.js 將 LUIS 資料新增至 Application Insights | Microsoft Docs
-titleSuffix: Azure
+title: 使用 C# 取自 LUIS 的 Application Insights 資料
+titleSuffix: Azure Cognitive Services
 description: 使用 Node.js 建置與 LUIS 應用程式和 Application Insights 整合的 Bot。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 342c4f98d854d94426c3e4a1eb79bb2a6adffaad
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236834"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037995"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>從 Web 應用程式 Bot 將 LUIS 結果新增至 Application Insights
+# <a name="add-luis-results-to-application-insights"></a>將 LUIS 結果新增至 Application Insights
 本教學課程將 LUIS 要求和回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 在您擁有該資料之後，即可使用 Kusto 語言或 PowerBi 查詢它，以即時分析、彙總以及報告意圖和語句實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
+
+此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。
 
 在本教學課程中，您了解如何：
 
@@ -151,7 +153,7 @@ Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/ap
     ![分析最上層意圖](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-深入了解 [Kusto 查詢語言](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries)或[將資料匯出至 PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)。 
+深入了解 [Kusto 查詢語言](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)或[將資料匯出至 PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)。 
 
 ## <a name="next-steps"></a>後續步驟
 

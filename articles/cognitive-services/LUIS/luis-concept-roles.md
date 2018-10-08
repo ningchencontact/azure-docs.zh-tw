@@ -1,20 +1,21 @@
 ---
-title: 理解如何在以模式為基礎的實體中使用角色 - Azure | Microsoft Docs
-description: 了解如何在以模式為基礎的實體中使用角色，為內容實體子類型提供名稱。
+title: 了解如何在以模式為基礎的實體中使用角色
+titleSuffix: Azure Cognitive Services
+description: 角色是實體的具名內容子類型，只能使用於模式中。 例如，在 buy a ticket from New York to London 語句中，New York 和 London 都是城市，但是在句子中各有不同的意義。 紐約是出發城市，而輪多是目的地城市。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d2692cdce9da7428bd7b30c4feaf7347792618f5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222698"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035193"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>模式中的實體角色為內容子類型
 角色是實體的具名內容子類型，只能使用於[模式](luis-concept-patterns.md)中。
@@ -31,9 +32,10 @@ ms.locfileid: "39222698"
 ## <a name="how-are-roles-used-in-patterns"></a>如何在模式中使用角色？
 在模式的範本語句中，角色會使用於語句內： 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|模式與實體角色|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## <a name="role-syntax-in-patterns"></a>模式中的角色語法
 實體和角色都會以大括號 `{}` 括住。 實體與角色是以冒號隔開。 

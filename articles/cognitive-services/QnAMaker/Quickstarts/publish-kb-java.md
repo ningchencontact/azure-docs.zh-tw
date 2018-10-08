@@ -1,24 +1,27 @@
 ---
-title: 發佈知識庫，Java 快速入門 - Azure 認知服務 | Microsoft Docs
+title: 快速入門：Java 發佈知識庫 - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: 如何使用 Java 發佈 QnA Maker 的知識庫。
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: fd815802643a67fe340098e97687fc6438a18ea0
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: a625151a0f6595e02ed899f2f8f7273c8e4f5cde
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750189"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036917"
 ---
 # <a name="publish-a-knowledge-base-in-java"></a>使用 Java 發佈知識庫
 
 以下程式碼使用 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 方法來發行現有的知識庫。
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 1. 在您偏好的 IDE 中建立新的 JAVA 專案。
 2. 新增下方提供的程式碼。

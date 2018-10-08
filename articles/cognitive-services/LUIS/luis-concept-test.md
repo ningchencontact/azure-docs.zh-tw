@@ -1,22 +1,23 @@
 ---
-title: 測試您的 LUIS 應用程式 - Azure | Microsoft Docs
-description: 使用 Language Understanding (LUIS) 來持續調整您的應用程式，以改善應用程式及提升其語言理解能力。
+title: 測試 LUIS 應用程式
+titleSuffix: Azure Cognitive Services
+description: 測試是一個程序，其中您會將範例語句提供給 LUIS，然後獲得 LUIS 所辨識意圖和實體的回應。 您可以一次使用一個語句，或是提供一批語句來反覆測試 LUIS。 藉由測試，您便可以將目前作用中模型與已發佈的模型做比較。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7999f25d9c8bd9a8e44bd858d2860d94be16a62f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224342"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033221"
 ---
-# <a name="testing-in-luis"></a>LUIS 中的測試
+# <a name="testing-example-utterances-in-luis"></a>在 LUIS 中測試範例語句
 
 測試是一個程序，其中您會將範例語句提供給 LUIS，然後獲得 LUIS 所辨識意圖和實體的回應。 
 
@@ -25,6 +26,7 @@ ms.locfileid: "39224342"
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
+
 ## <a name="what-is-a-score-in-testing"></a>什麼是測試分數？
 請參閱[預測分數](luis-concept-prediction-score.md)概念，以深入了解預測分數。
 

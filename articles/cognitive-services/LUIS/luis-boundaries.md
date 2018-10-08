@@ -1,21 +1,21 @@
 ---
-title: Language Understanding (LUIS) 界線 | Microsoft Docs
-titleSuffix: Azure
-description: 本文包含 LUIS 的已知限制。
+title: Language Understanding (LUIS) 的界線和限制
+titleSuffix: Azure Cognitive Services
+description: 本文包含 Azure 認知服務 Language Understanding (LUIS) 的已知限制。 LUIS 句有數個界線領域。 模型界線可控制 LUIS 中的意圖、實體和特性。 以金鑰類型為基礎的配額限制。 鍵盤組合可控制 LUIS 網站。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b7a2d1554d668b4000b87b210a69b290def9b19e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399826"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035431"
 ---
 # <a name="luis-boundaries"></a>LUIS 界線
 LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)，其控制 LUIS 中的意圖、實體和功能。 第二個領域是以金鑰類型為基礎的[配額限制](#key-limits)。 第三個界線領域是用來控制 LUIS 網站的[鍵盤組合](#keyboard-controls)。 第四個領域是 LUIS 撰寫網站和 LUIS [端點](luis-glossary.md#endpoint) API 之間的[世界區域對應](luis-reference-regions.md)。 
@@ -30,7 +30,7 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 | **[複合](./luis-concept-entity-types.md)|100 個，最多 10 個子系 |
 | 明確清單 | 每個應用程式 50 個|
 | **[階層式](./luis-concept-entity-types.md) |100 個，最多 10 個子系 |
-| [意圖][intents]|每個應用程式 500 個<br>[發送型](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) \(英文\) 應用程式具有相對應的 500 個發送來源|
+| [意圖][intents]|每個應用程式 500 個<br>[發送型](https://aka.ms/dispatch-tool) \(英文\) 應用程式具有相對應的 500 個發送來源|
 | [清單實體](./luis-concept-entity-types.md) | 父系：50 個項目，子系：20,000 個項目。 正式名稱為*預設字元上限。同義值沒有長度限制。 |
 | [模式](luis-concept-patterns.md)|每個應用程式 500 個模式。<br>模式的長度上限為 400 個字元。<br>每個模式 3 個 pattern.any 實體<br>模式中最多有 2 個巢狀選擇性文字|
 | [Pattern.any](./luis-concept-entity-types.md)|每個應用程式 100 個，每個模式 3 個 pattern.any 實體 |
@@ -51,7 +51,7 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 ## <a name="intent-and-entity-naming"></a>意圖和實體命名
 請不要在意圖和實體名稱中使用下列字元：
 
-|Character|Name|
+|Character|名稱|
 |--|--|
 |`{`|左大括號|
 |`}`|右大括號|

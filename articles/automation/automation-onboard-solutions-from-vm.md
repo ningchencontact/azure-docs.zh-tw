@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f270b2ccea51e83bc6475051b8667bf73d7fd717
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 039e2d3c70493868ca2f79e89fc82d8970ec6865
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221507"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032383"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>從 Azure 虛擬機器讓更新管理、變更追蹤和清查解決方案上線
 
@@ -59,7 +59,7 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 移至工作區。 在 [一般] 下，選取 [已儲存的搜尋]。 下表會顯示這些解決方案所使用的兩個已儲存搜尋：
 
-|Name     |類別  |Alias  |
+|名稱     |類別  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 更新        | Updates__MicrosoftDefaultComputerGroup         |
@@ -67,6 +67,43 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 選取任一個已儲存的搜尋，以檢視用來填入群組的查詢。 下圖顯示查詢與其結果：
 
 ![已儲存的搜尋](media/automation-onboard-solutions-from-vm/logsearch.png)
+
+## <a name="unlink-workspace"></a>取消連結工作區
+
+下列解決方案相依於 Log Analytics 工作區：
+
+* [更新管理](automation-update-management.md)
+* [變更追蹤](automation-change-tracking.md)
+* [於下班時間啟動/停止 VM](automation-solution-vm-management.md)
+
+若決定不想再讓自動化帳戶與 Log Analytics 整合，您可以直接從 Azure 入口網站將您的帳戶取消連結。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
+
+移除這些解決方案之後，您可以執行下列步驟以將您的自動化帳戶取消連結。
+
+> [!NOTE]
+> 某些包含舊版 Azure SQL 監視解決方案的解決方案可能已建立自動化資產，在取消連結工作區之前，可能也需要先加以移除。
+
+1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源] 區段下選取 [已取消連結的工作區]。
+
+1. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
+
+   ![取消連結工作區頁面](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
+
+   您會收到提示，確認您想要繼續。
+
+1. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
+
+若使用「更新管理」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
+
+* 更新排程 - 每個都會有符合您建立的更新部署名稱
+
+* 針對解決方案建立的混合式背景工作角色群組 - 每個都會具有如下名稱：machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8。
+
+若使用「於下班時間啟動/停止 VM」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
+
+* 啟動及停止 VM Runbook 排程
+* 啟動及停止 VM Runbook
+* 變數
 
 ## <a name="next-steps"></a>後續步驟
 

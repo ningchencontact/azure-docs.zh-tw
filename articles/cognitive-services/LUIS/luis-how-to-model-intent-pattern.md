@@ -1,21 +1,21 @@
 ---
-title: 在 LUIS 應用程式中新增模式範本 | Microsoft Docs
-titleSuffix: Azure
+title: 在 LUIS 應用程式中新增模式範本而非更多語句
+titleSuffix: Azure Cognitive Services
 description: 了解如何在 Language Understanding (LUIS) 應用程式中新增模式範本，以改善預測準確度。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 8926ce48a8426aa667787f7bbe104e27e1a68669
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c97092385cdc28ba6e4d916ae8039f065f97d31d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124679"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030807"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式以改善預測準確度
 在 LUIS 應用程式收到端點語句之後，請使用模式的[概念](luis-concept-patterns.md)，以針對在字組順序和字組選擇中顯露模式的語句，改善預測準確度。 模式使用[實體](luis-concept-entity-types.md)及其角色，擷取使用特定模式語法的資料。 

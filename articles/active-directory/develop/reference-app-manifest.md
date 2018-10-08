@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 16841b927142572a40685940038eaf1cc6fc12ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 74bcd1e795186eba652d2da986c290e1989dd1d1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962328"
+ms.locfileid: "47041569"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 應用程式資訊清單
 
@@ -41,7 +41,7 @@ ms.locfileid: "46962328"
 | `accessTokenAcceptedVersion` | 可為 null 的 Int32 | 指定目前 API 資源可接受的存取權杖版本。 可能的值為 1、2、null。 預設值是 null，系統會將此值視為 2。 | `2` |
 | `allowPublicClient` | 布林值 | 指定後援應用程式類型。 根據預設，Azure AD 會從 replyUrlsWithType 推斷應用程式類型。 在某些情況中，Azure AD 無法判斷用戶端應用程式類型 (例如 [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) 流程，其會發生沒有 URL 重新導向的 HTTP 要求)。 在這些情況下，Azure AD 會根據這個屬性的值來解譯應用程式類型。 如果此值設為 true，後援應用程式類型就會設定為公用用戶端，例如在行動裝置上執行的已安裝應用程式。 預設值為 false，這表示後援應用程式類型是機密用戶端，例如 Web 應用程式。 | `false` |
 | `appId` | 識別碼字串 | 針對由 Azure AD 指派給應用程式的應用程式，指定唯一識別碼。 | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
-| `appRoles` | 陣列類型 | 指定應用程式可以宣告的角色集合。 這些角色可以指派給使用者、群組或服務主體。 | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
+| `appRoles` | 陣列類型 | 指定應用程式可以宣告的角色集合。 這些角色可以指派給使用者、群組或服務主體。 如需更多範例和資訊，請參閱[在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
 | `groupMembershipClaims` | 字串 | 此為位元遮罩，可設定應用程式所需使用者或 OAuth 2.0 存取權杖中所發出的 `groups` 宣告。 位元遮罩值如下：<br>0：無<br>1：安全性群組和 Azure AD 角色<br>2：已保留<br>4：已保留<br>將位元遮罩設為 7，則可以取得登入使用者所屬的所有安全性群組、通訊群組及 Azure AD 目錄角色。 | `1` |
 | `optionalClaims` | 字串 | 由此特定應用程式的安全性權杖服務在權杖中傳回的選擇性宣告。 如需詳細資訊，請參閱[選用宣告](active-directory-optional-claims.md)。 | `null` |
 | `id` | 識別碼字串 | 目錄中應用程式的唯一識別碼。 此識別碼不是用來在任何通訊協定交易中識別應用程式的識別碼。 它是用來參考目錄查詢中的物件。 | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
@@ -52,7 +52,7 @@ ms.locfileid: "46962328"
 | `logoUrl` | 字串 | 此為唯讀值，會指向入口網站中已上傳標誌的 CDN URL。 | `https://MyRegisteredAppLogo` |
 | `logoutUrl` | 字串 | 用於登出應用程式的 URL。 | `https://MyRegisteredAppLogout` |
 | `name` | 字串 | 應用程式的顯示名稱。 | `MyRegisteredApp` |
-| `oauth2AllowImplicitFlow` | 布林值 | 指定此 Web 應用程式可否要求 OAuth2.0 隱含流程存取權杖。 預設值為 false。 此旗標用於瀏覽器型應用程式，例如 JavaScript 單頁應用程式。 | `false` |
+| `oauth2AllowImplicitFlow` | 布林值 | 指定此 Web 應用程式可否要求 OAuth2.0 隱含流程存取權杖。 預設值為 false。 此旗標用於瀏覽器型應用程式，例如 JavaScript 單頁應用程式。 若要進一步了解，請在目錄中輸入 `OAuth 2.0 implicit grant flow` 並查看隱含流程相關主題。 | `false` |
 | `oauth2AllowIdTokenImplicitFlow` | 布林值 | 指定此 Web 應用程式可否要求 OAuth2.0 隱含流程識別碼權杖。 預設值為 false。 此旗標用於瀏覽器型應用程式，例如 JavaScript 單頁應用程式。 | `false` |
 | `oauth2Permissions` | 陣列類型 | 指定 Web API (資源) 應用程式公開給用戶端應用程式的 OAuth 2.0 權限範圍集合。 這些權限範圍可能會在同意過程中授與用戶端應用程式。 | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"u| 指定 Web API (資源) 應用程式公開給用戶端應用程式的 OAuth 2.0 權限範圍集合。 這些權限範圍可能會在同意過程中授與用戶端應用程式。 ser_impersonation"<br>&nbsp;&nbsp;}<br>]</code> |
 | `oauth2RequiredPostResponse` | 布林值 | 指定 Azure AD 在 OAuth 2.0 權杖要求期間是否允許 POST 要求 (相對於 GET 要求)。 預設值為 false，亦即指定只允許 GET 要求。 | `false` |

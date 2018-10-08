@@ -1,20 +1,21 @@
 ---
-title: LUIS 應用程式在 Azure 中的語句 | Microsoft Docs
-description: 在 Language Understanding Intelligent Service (LUIS) 應用程式中新增語句。
+title: LUIS 應用程式中的語句
+titleSuffix: Azure Cognitive Services
+description: 語句是應用程式需要解譯的使用者輸入。 收集您認為使用者會輸入的片語。 納入意義相同但以不同單字長度和單字位置建構的語句。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 39c99cc35f4c2549efc9c20af0680b77483325c5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224410"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038930"
 ---
 # <a name="utterances-in-luis"></a>LUIS 中的語句
 
@@ -35,12 +36,14 @@ ms.locfileid: "39224410"
 您會發現即使努力建立各種的句子模式，有些詞彙仍會不斷重複。
 
 以下面這些範例語句為例：
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|範例語句|
+|--|
+|如何取得電腦？|
+|何處取得電腦？|
+|我想要取得電腦，如何著手呢？|
+|我何時可擁有電腦？| 
+
 這裡不變的核心字詞為「電腦」。 它們可稱為桌上型電腦、膝上型電腦、工作站，甚至只稱為機器。 LUIS 可運用智慧從上下文推斷出同義字，但當在建立用於定型的語句時，最好還是更改用字。
 
 ## <a name="example-utterances-in-each-intent"></a>每個意圖的範例語句

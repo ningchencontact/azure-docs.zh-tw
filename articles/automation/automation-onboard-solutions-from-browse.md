@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0a624d850b8c3260acb24cb17566090e8ad0043e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233932"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039423"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>在多個 VM 上啟用更新管理、變更追蹤和清查解決方案
 
@@ -43,17 +43,62 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 虛擬機器清單會加以篩選，只顯示位在相同訂用帳戶及位置中的虛擬機器。 如果您的虛擬機器位於三個以上的資源群組中，則會選取前三個資源群組。
 
+### <a name="resource-group-limit"></a> 上線限制
+
+您可用於上線的資源群組數目受限於 [Resource Manager 部署限制](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md)。 Resource Manager 部署 (不要與更新部署混淆) 受限於每個部署 5 個資源群組。 為了確保上線的完整性，系統會保留其中 2 個資源群組來設定 Log Analytics 工作區、自動化帳戶和相關資源。 這讓您有 3 個資源群組可選取以供部署。
+
 使用篩選控制項從不同訂用帳戶、位置和資源群組中選取虛擬機器。
 
 ![讓更新管理解決方案上架](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-檢閱 Log Analytics 工作區與自動化帳戶的選項。 預設會選取新的工作區及自動化帳戶。 如果您想使用現有的 Log Analytics 工作區與自動化帳戶，請按一下 [變更]，然後從 [組態] 頁面中選取。 完成時，按一下 [儲存]。
+檢閱 Log Analytics 工作區與自動化帳戶的選項。 預設會選取現有的工作區及自動化帳戶。 如果您想使用不同的 Log Analytics 工作區和自動化帳戶，請按一下 [自訂]，從 [自訂組態] 頁面中選取。 當您選擇 Log Analytics 工作區時，系統會進行檢查，以判斷它是否與自動化帳戶連結。 如果找到連結的自動化帳戶，您會看到下列畫面。 完成時，按一下 [確定]。
 
 ![選取工作區和帳戶](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+如果所選的工作區並未連結到自動化帳戶，您會看到下列畫面。 選取自動化帳戶，然後在完成時按一下 [確定]。
+
+![沒有工作區](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 針對您不想啟用的虛擬機器，取消選取它旁邊的核取方塊。 無法啟用的虛擬機器已取消選取。
 
 按一下 [啟用] 以啟用解決方案。 啟用解決方案最多需要 15 分鐘。
+
+## <a name="unlink-workspace"></a>取消連結工作區
+
+下列解決方案相依於 Log Analytics 工作區：
+
+* [更新管理](automation-update-management.md)
+* [變更追蹤](automation-change-tracking.md)
+* [於下班時間啟動/停止 VM](automation-solution-vm-management.md)
+
+若決定不想再讓自動化帳戶與 Log Analytics 整合，您可以直接從 Azure 入口網站將您的帳戶取消連結。 繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
+
+移除這些解決方案之後，您可以執行下列步驟以將您的自動化帳戶取消連結。
+
+> [!NOTE]
+> 某些包含舊版 Azure SQL 監視解決方案的解決方案可能已建立自動化資產，在取消連結工作區之前，可能也需要先加以移除。
+
+1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源] 區段下選取 [已取消連結的工作區]。
+
+1. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
+
+   ![取消連結工作區頁面](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+
+   您會收到提示，確認您想要繼續。
+
+1. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
+
+若使用「更新管理」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
+
+* 更新排程 - 每個都會有符合您建立的更新部署名稱
+
+* 針對解決方案建立的混合式背景工作角色群組 - 每個都會具有如下名稱：machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8。
+
+若使用「於下班時間啟動/停止 VM」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
+
+* 啟動及停止 VM Runbook 排程
+* 啟動及停止 VM Runbook
+* 變數
 
 ## <a name="troubleshooting"></a>疑難排解
 

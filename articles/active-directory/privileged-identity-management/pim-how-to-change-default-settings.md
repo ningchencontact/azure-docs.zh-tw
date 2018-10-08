@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665429"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038987"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>在 PIM 中設定 Azure AD 目錄角色設定
 
@@ -63,24 +63,23 @@ ms.locfileid: "43665429"
 * 使用 Microsoft 帳戶作為電子郵件地址 (通常是 @outlook.com，但不一定) 的使用者無法註冊 Azure MFA。 如果您想要將角色指派給使用 Microsoft 帳戶的使用者，您應該將他們設為永久系統管理員，或是停用該角色的 MFA。
 * 您無法將 Azure AD 和 Office365 中高特殊權限角色的 MFA 停用。 這是一項安全功能，因為這些角色應該嚴密地受到保護：  
   
-  * 應用程式管理員
-  * 應用程式 Proxy 伺服器管理員
-  * 計費管理員  
-  * 規範管理員  
+  * 計費管理員
+  * 雲端應用程式系統管理員
+  * 規範管理員
+  * 條件式存取系統管理員
   * CRM 服務管理員
   * 客戶 LockBox 存取核准者
-  * 目錄寫入器  
-  * Exchange 系統管理員  
+  * 目錄撰寫者
+  * Exchange 系統管理員
   * 全域管理員
+  * 資訊保護管理員
   * Intune 服務管理員
-  * 信箱管理員  
-  * 合作夥伴第 1 層支援  
-  * 合作夥伴第 2 層支援  
+  * Power BI 服務管理員
   * 特殊權限角色管理員
-  * 安全性系統管理員  
-  * SharePoint 管理員  
-  * 商務用 Skype 的管理員  
-  * 使用者帳戶管理員  
+  * 安全性系統管理員
+  * SharePoint 服務管理員
+  * 商務用 Skype 管理員
+  * 使用者管理員
 
 如需詳細資訊，請參閱[多重要素驗證 (MFA) 和 PIM](pim-how-to-require-mfa.md)。
 

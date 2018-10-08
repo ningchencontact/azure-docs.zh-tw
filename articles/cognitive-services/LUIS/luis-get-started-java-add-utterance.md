@@ -1,36 +1,37 @@
 ---
-title: 使用 Java 來變更模型並且定型 LUIS 應用程式的快速入門 - Azure 認知服務 | Microsoft Docs
+title: Java 快速入門 - 變更模型及訓練 LUIS 應用程式
+titleSuffix: Azure Cognitive Services
 description: 在此 Java 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。 範例語句是對應到意圖的交談使用者文字。 您可以藉由提供與意圖相關的範例語句，教導 LUIS 哪些種類的使用者提供文字屬於哪種意圖。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2554854507d127a7cf3ce016ed38310049b2c958
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8500dfdd639b4f1de46a0b79b87a8564d338b6ab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43750338"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042019"
 ---
 # <a name="quickstart-change-model-using-java"></a>快速入門：使用 Java 來變更模型 
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
-[!include[Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+[!INCLUDE [Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (英文) (Java 開發套件，標準版)
 * [Google 的 GSON JSON 文件庫](https://github.com/google/gson)。
 
-[!include[Quickstart note about code repository](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Quickstart note about code repository](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>範例語句 JSON 檔案
 
-[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 ## <a name="create-quickstart-code"></a>建立快速入門程式碼
 
@@ -83,7 +84,7 @@ ms.locfileid: "43750338"
 
 此命令列會顯示呼叫新增語句 API 的結果。 
 
-[!include[Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
+[!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
 ## <a name="clean-up-resources"></a>清除資源
 當您完成快速入門時，請移除在本快速入門中建立的所有檔案。 

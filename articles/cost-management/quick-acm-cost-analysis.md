@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 09/21/2018s
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0e94392b882d111d925c864feb9aaeb54bae4e2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980401"
+ms.locfileid: "47041535"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：利用成本分析探索及分析成本
 
@@ -23,7 +23,7 @@ ms.locfileid: "46980401"
 
 在本快速入門中，您可以使用成本分析來探索及分析組織成本。 您可依組織檢視彙總的成本，以了解經過一段時間所產生的成本，並找出費用趨勢。 您可以檢視經過一段時間累積的成本，對照預算來預估每月、每季，或甚至每年的成本趨勢。 預算則有助於提供者能遵循財務的約束。 預算同時也能用於檢視每天或每月的成本，以找出費用的異常情況。 此外，您可以下載目前報表的資料以供進一步分析，或在外部系統中使用。
 
-在此快速入門中，您將了解如何：
+在此快速入門中，您可了解如何：
 
 - 在成本分析中檢閱成本
 - 自訂成本檢視
@@ -32,11 +32,15 @@ ms.locfileid: "46980401"
 
 ## <a name="prerequisites"></a>必要條件
 
-成本分析適用於所有 Enterprise 合約 (EA) 客戶。 您必須具備下列至少一個範圍的讀取權限，才能檢視成本資料。
+成本分析適用於所有 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。
 
-- Azure EA 計費帳戶 (註冊)
-- Azure EA 訂用帳戶
-- Azure EA 訂用帳戶資源群組
+- 計費帳戶
+- department
+- 註冊帳戶
+- 管理群組
+- 訂用帳戶
+- 資源群組
+
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -44,7 +48,11 @@ ms.locfileid: "46980401"
 
 ## <a name="review-costs-in-cost-analysis"></a>在成本分析中檢閱成本
 
-若要使用成本分析來檢閱成本，請開啟 Azure 入口網站，然後瀏覽至 [成本管理 + 計費] &gt; [計費帳戶] &gt; 選取您的 EA 計費帳戶 &gt; 在 [成本管理] 底下選取 [成本分析]。
+若要使用成本分析來檢閱成本，請在 Azure 入口網站中瀏覽至 [成本管理 + 計費] &gt; [成本帳戶] &gt; [變更範圍]，選擇範圍，然後按一下 [選取]。
+
+您選取的範圍使用於成本管理，可提供資料彙總，以及控制成本資訊的存取權。 當您使用範圍時，您不會多重選取。 然而，您可以選取其他人所彙總至的較大範圍，然後篩選出您想要的範圍。 請務必了解因為有些人不得存取子範圍所彙總至的父代範圍。
+
+按一下 [開啟成本分析]。
 
 最初的成本分析檢視包含下列區域：
 

@@ -1,20 +1,21 @@
 ---
-title: 了解 LUIS 應用程式共同作業 - Azure | Microsoft Docs
+title: LUIS 應用程式共同作業 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: LUIS 應用程式要求只能有一個擁有者，共同作業者則為選擇性。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 38fc33a6fb823e0435a9c96979c5a9a4539cd6ba
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399566"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038763"
 ---
 # <a name="collaborating"></a>共同作業
 
@@ -30,6 +31,11 @@ LUIS 帳戶會與單一 [Microsoft Live](https://login.live.com/) 帳戶關聯�
 ## <a name="luis-app-owner"></a>LUIS 應用程式擁有者
 建立應用程式的帳戶即為擁有者。 每個應用程式都有單一擁有者。 該擁有者會列在應用程式 [[Settings](luis-how-to-collaborate.md)] \(設定\) 上。 這是可以刪除應用程式的帳戶。 這也是端點配額達到每月限制的 75% 時，會收到電子郵件通知的帳戶。 
 
+## <a name="authorization-roles"></a>授權角色
+對於擁有者和共同作業者，LUIS 不支援不同的角色，但有一個例外。 擁有者是可以刪除應用程式的唯一帳戶。
+
+如果您想要控制模型的存取權，請考慮將模型切割成較小的 LUIS 應用程式，其中每個較小的應用程式都有更加受限的共同作業者集合。 使用[分派](https://aka.ms/dispatch-tool)來允許父代 LUIS 應用程式管理父代和子系應用程式之間的協調。
+
 ## <a name="transfer-ownership"></a>轉送擁有權
 LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用程式，然後再將其匯入來建立應用程式。 請注意，新應用程式會有不同的應用程式識別碼。 您必須將新應用程式定型、發佈，然後使用新端點。
 
@@ -41,7 +47,7 @@ LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用
 ## <a name="managing-multiple-authors"></a>管理多個作者
 [LUIS](luis-reference-regions.md#luis-website) 網站目前不提供交易層級撰寫。 您可以允許作者在來自基底版本的獨立版本上作業。 下列各節將說明兩種不同的方法。
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>管理相同應用程式內的多個版本
+## <a name="manage-multiple-versions-inside-the-same-app"></a>管理相同應用程式內的多個版本
 針對每個作者，一開始先從基底版本[複製](luis-how-to-manage-versions.md#clone-a-version)。 
 
 每個作者對自己的應用程式版本進行變更。 在每個作者對模型感到滿意之後，請將新版本匯出成 JSON 檔案。  
@@ -50,7 +56,7 @@ LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用
 
 此方法可讓您有一個作用中版本、一個預備版本，以及一個已發佈版本。 您可以在互動式測試窗格中比較這三種版本的結果。
 
-### <a name="manage-multiple-versions-as-apps"></a>以應用程式方式管理多個檔案
+## <a name="manage-multiple-versions-as-apps"></a>以應用程式方式管理多個檔案
 [匯出](luis-how-to-manage-versions.md#export-version)基底版本。 每個作者都匯入版本。 匯入應用程式的人即為該版本的擁有者。 當他們修改完應用程式時，請匯出版本。 
 
 匯出的應用程式會是 JSON 格式的檔案，可用來與基底匯出版本比較變更。 結合檔案以建立新版本的單一 JSON 檔案。 變更 JSON 中的 **versionId** 屬性，以表示新的合併版本。 將該版本匯入至原始應用程式。

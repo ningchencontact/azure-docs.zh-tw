@@ -1,23 +1,24 @@
 ---
-title: 了解 LUIS 中的資料轉換概念 - Azure | Microsoft Docs
+title: LUIS 中的資料轉換概念 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: 了解在 Language Understanding (LUIS) 中的預測之前如何改變語句
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05a02191af171936dd9f5c4bf469b9c84aa144a3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3862a0dbd94b5764cf506b05201d8dc60430fc7d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223696"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038964"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>LUIS 中的資料轉換概念
-LUIS 提供了在預測之前將口頭語句轉換成文字語句的方法。 
+LUIS 會使用認知服務語音服務，在預測之前將口語語句轉換成文字語句。 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>語音意圖轉換概念
 LUIS 的語音轉換文字功能可讓您將口頭語句傳送到端點並接收 LUIS 預測回應。 此流程整合了[語音](https://docs.microsoft.com/azure/cognitive-services/Speech)服務與 LUIS。 

@@ -1,20 +1,21 @@
 ---
-title: Microsoft QnA Maker API (V4) 的 C# 快速入門 - Azure 認知服務 | Microsoft Docs
+title: 快速入門：適用於 QnA Maker API (V4) 的 C#
+titleSuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用 Microsoft 認知服務中的 Microsoft Translator Text API。
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 7c79a5c1b65391be1a100efa9e0dcf4e4a0d12ae
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866078"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040274"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>搭配使用 Microsoft QnA Maker API 與 C# 的快速入門 
 <a name="HOLTop"></a>
@@ -36,7 +37,9 @@ ms.locfileid: "37866078"
 - [取得目前的文字變異形式集合。](#GetAlterations)
 - [取代目前的文字變異形式集合。](#PutAlterations)
 
-## <a name="prerequisites"></a>先決條件
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+
+## <a name="prerequisites"></a>必要條件
 
 您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 

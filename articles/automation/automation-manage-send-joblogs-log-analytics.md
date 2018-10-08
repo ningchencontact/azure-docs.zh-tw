@@ -9,15 +9,16 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 12628b5a552b864784d780e5f2adc00aac579911
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215028"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035465"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>從「自動化」將工作狀態和工作資料流轉送到 Log Analytics
-「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 作業記錄和作業串流會顯示於 Azure 入口網站中，或是使用 PowerShell，針對個別作業，而這可讓您執行簡單的調查。 現在透過 Log Analytics，您可以：
+
+「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 此程序不會涉及工作區連結且完全獨立。 作業記錄和作業串流會顯示於 Azure 入口網站中，或是使用 PowerShell，針對個別作業，而這可讓您執行簡單的調查。 現在透過 Log Analytics，您可以：
 
 * 取得您「自動化」作業的相關深入解析。
 * 根據您的 Runbook 作業狀態 (例如失敗或已暫止) 觸發電子郵件或警示。
@@ -26,12 +27,12 @@ ms.locfileid: "39215028"
 * 以視覺化方式呈現一段時間的工作歷程記錄。
 
 ## <a name="prerequisites-and-deployment-considerations"></a>先決條件和部署考量
+
 若要開始將自動化記錄傳送到 Log Analytics，您必須擁有：
 
 * 2016 年 11 月或更新版本的 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0)。
 * Log Analytics 工作區。 如需詳細資訊，請參閱[開始使用 Log Analytics](../log-analytics/log-analytics-get-started.md)。 
 * 您「Azure 自動化」帳戶的 ResourceId。
-
 
 尋找您「Azure 自動化」帳戶的 ResourceId：
 
@@ -159,7 +160,18 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
 <br> ![Log Analytics 歷史工作狀態圖表](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+## <a name="remove-diagnostic-settings"></a>移除診斷設定
+
+若要從自動化帳戶中移除診斷設定，請執行下列命令：
+
+```powershell-interactive
+$automationAccountId = "[resource id of your automation account]"
+
+Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```
+
 ## <a name="summary"></a>總結
+
 藉由將自動化作業狀態和串流資料傳送到 Log Analytics，您就能透過下列方式，更深入了解自動化作業的狀態：
 + 設定警示以在發生問題時通知您。
 + 使用自訂檢視和搜尋查詢，以視覺化方式檢視您的 Runbook 結果、Runbook 作業狀態，以及其他相關的關鍵指標或計量。  

@@ -1,20 +1,21 @@
 ---
-title: 在 Azure 的 LUIS 應用程式中使用預建網域 | Microsoft Docs
-description: 了解如何在 Language Understanding Intelligent Service (LUIS) 應用程式中使用預建網域。
+title: 使用預先建置的網域在 LUIS 應用程式中更快速地建置應用程式
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) 提供預先建置的網域，這是預先建置的意圖和實體集合，可針對網域或常見的用戶端應用程式類別一起運作。 預建網域已經過預先訓練，並準備好讓您新增至 LUIS 應用程式。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1aa7e1bf9c1a584803a60a5061b4ae4cc8664ff4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224172"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037366"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>在 LUIS 應用程式中使用預建網域  
 

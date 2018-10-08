@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 06b30d1381d8fba1d6f053576f6556e6d02f2ae9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d873d28ec772735b8f21551cde1c7d0eab79a18c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949157"
+ms.locfileid: "47035134"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
 此 Microsoft 常見問題集是 Microsoft Azure 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -69,6 +69,10 @@ Azure 入口網站中的新 Logs 體驗是以[進階分析入口網站](https://
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>問： 為何在 Logs 中看不到「檢視設計工具」項目？ 
 答：Logs 中的「檢視設計工具」僅適用於獲派「參與者」權限或更高權限的使用者。
+
+### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>問： 我仍可在 Azure 外部使用 Analytics 入口網站嗎？
+A. 是，Azure 中的 Logs 頁面和[進階 Analytics 入口網站](https://portal.loganalytics.io)是以相同的程式碼為基礎。 Log Analytics 會整合為 Azure 監視器中的功能，以提供更加統一的監視體驗。 您仍然可以使用以下 URL 存取 Analytics 入口網站： https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}。
+
 
 
 ## <a name="general"></a>一般

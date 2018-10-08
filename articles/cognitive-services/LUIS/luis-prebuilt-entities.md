@@ -1,22 +1,23 @@
 ---
-title: LUIS 中預先建置的實體 | Microsoft Docs
-description: 本文包含 Language Understanding Intelligent Services (LUIS) 中所包含預先建置的實體清單。
+title: Language Understanding (LUIS) 預先建置的實體
+titleSuffix: Azure Cognitive Services
+description: LUIS 包含一組預先建置的實體，用於辨識常見的資訊類型，例如日期、時間、數字、計量及貨幣。 預先建置的實體支援會因 LUIS 應用程式的文化特性而異。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e3bd203c9ab1d6daaae04866cf195b3ca28c3078
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248232"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041552"
 ---
-# <a name="prebuilt-entities"></a>預先建置的實體
+# <a name="prebuilt-entities-to-recognize-common-data-types"></a>預先建置的實體可辨識常見的資料類型
 
 LUIS 包含一組預先建置的實體，用於辨識常見的資訊類型，例如日期、時間、數字、計量及貨幣。 預先建置的實體支援會因 LUIS 應用程式的文化特性而異。 如需 LUIS 所支援預先建置實體的完整清單，包括文化特性支援的實體在內，請參閱[預先建置的實體參考](./luis-reference-prebuilt-entities.md)。
 
@@ -28,7 +29,6 @@ LUIS 包含一組預先建置的實體，用於辨識常見的資訊類型，例
 1. 在 [我的應用程式] 頁面上按一下應用程式名稱來開啟應用程式，然後按一下左側的 [實體]。 
 2. 在 [實體] 頁面上，按一下 [管理預先建置的實體]。
 
-    ![實體頁面 - 管理預先建置的實體](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
 3. 在 [新增預先建置的實體] 對話方塊中，按一下想要新增的預先建置實體 (例如 "datetimeV2")。 然後按一下 [儲存] 。
 
     ![新增預先建置的實體對話方塊](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7a4e4b487c324bada818d4815f253110f7f7a60
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234711"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060518"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>適用於 Azure 虛擬機器工作負載的標準 SSD 受控磁碟
 
@@ -30,7 +30,7 @@ ms.locfileid: "40234711"
 
 **快照集**：與所有「受控磁碟」相同，「標準 SSD」也支援建立快照集。 快照集類型可以是「標準 (HDD)」或「進階 (SSD)」。 為了節省成本，建議您針對所有 Azure 磁碟類型都使用「標準 (HDD)」快照集類型。 這是因為當您從快照集建立受控磁碟時，一律可以選擇更高的階層，例如「標準 SSD」或「進階 SSD」。
 
-## <a name="scalability-and-performance-targets"></a>延展性和效能目標
+## <a name="scalability-and-performance-targets"></a>擴充和效能目標
 
 下表包含目前針對「標準 SSD」提供的磁碟大小。
 
@@ -39,9 +39,12 @@ ms.locfileid: "40234711"
 |E10     |128 GB         |最多 500         |每秒最多 60 MiB         |
 |E15     |256 GiB         |最多 500         |每秒最多 60 MiB         |
 |E20     |512 GB         |最多 500         |每秒最多 60 MiB         |
-|E30     |1024 GiB         |最多 500         |每秒最多 60 MiB         |
-|E40     |2048 GiB         |最多 500         |每秒最多 60 MiB         |
-|E50     |4095 GiB         |最多 500         |每秒最多 60 MiB         |
+|E30     |1,024 GiB       |最多 500         |每秒最多 60 MiB         |
+|E40     |2,048 GiB       |最多 500         |每秒最多 60 MiB         |
+|E50     |4,095 GiB       |最多 500         |每秒最多 60 MiB         |
+|E60     |8,192 GiB       |最多 1,300       |每秒最多 300 MiB        |
+|E70     |16,384 GiB      |最多 2,000       |每秒最多 500 MiB        |
+|E80     |32,767 GiB      |最多 2,000       |每秒最多 500 MiB        |
 
 「標準 SSD」已設計成針對大多數 IO 作業均可提供個位數的毫秒延遲，並可提供高達上表所述限制的 IOPS 和輸送量。 實際的 IOPS 和輸送量有時可能會依流量模式而有所不同。 與 HDD 磁碟相比，「標準 SSD」將可提供延遲更低的更一致效能。
 

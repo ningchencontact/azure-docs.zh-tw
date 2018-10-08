@@ -1,21 +1,21 @@
 ---
-title: 在 LUIS 應用程式中新增範例語句 | Microsoft Docs
-titleSuffix: Azure
+title: 在 LUIS 應用程式中新增範例語句
+titleSuffix: Azure Cognitive Services
 description: 了解如何在 Language Understanding (LUIS) 應用程式中新增語句。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: cf6fc131a1ae2ba0a77bdbeda942c9f85aadd189
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226282"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036485"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>使用實體新增範例語句和標籤
 

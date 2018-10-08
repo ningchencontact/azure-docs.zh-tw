@@ -1,20 +1,21 @@
 ---
-title: 批次測試 LUIS 應用程式 - Azure | Microsoft Docs
+title: LUIS 應用程式批次測試 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: 使用批次測試持續調整您的應用程式，改良應用程式及其語言理解能力。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 414862d7ba1956f9449fde3ba063906fae6ef01b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222648"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041603"
 ---
 # <a name="batch-testing-in-luis"></a>LUIS 的批次測試
 

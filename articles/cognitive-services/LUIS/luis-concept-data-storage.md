@@ -1,22 +1,23 @@
 ---
-title: 了解 LUIS 中的資料儲存 - Azure | Microsoft Docs
-description: 了解 Language Understanding (LUIS) 中的資料儲存方式
+title: LUIS 中的資料儲存 - Language Understanding
+titleSuffix: Azure Cognitive Services
+description: 了解 Language Understanding (LUIS) 中的資料儲存方式。 LUIS 會將資料以加密方式儲存在與金鑰所指定區域對應的 Azure 資料存放區中。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e4e289db0803a127bdbff5122095ae2125cdbb38
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6d42246b3078e0f4684dfe29bca720e8f8d779cd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226187"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034700"
 ---
-# <a name="data-storage-and-removal"></a>資料儲存和移除
+# <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Language Understanding (LUIS) 認知服務中的資料儲存和移除
 LUIS 會將資料以加密方式儲存在與金鑰所指定區域對應的 Azure 資料存放區中。 此資料會儲存 30 天。 
 
 ## <a name="export-and-delete-app"></a>匯出及刪除應用程式
@@ -31,7 +32,7 @@ LUIS 會將資料以加密方式儲存在與金鑰所指定區域對應的 Azure
 ## <a name="accounts"></a>帳戶
 若您刪除帳戶，則會刪除所有應用程式，以及其範例語句和記錄。 資料會保留 60 天，之後系統就會將帳戶和資料永久刪除。
 
-刪除帳戶時，是從 [Settings] \(設定\) 頁面執行刪除。 請選取右上方瀏覽列中您的帳戶名稱，以移至 [Settings] \(設定\) 頁面。
+刪除帳戶時，是從 [Settings] \(設定\) 頁面執行刪除。 請選取右上方導覽列中您的帳戶名稱，以移至 [Settings] \(設定\) 頁面。
 
 ## <a name="data-inactivity-as-an-expired-subscription"></a>資料非作用中狀態視為過期訂用帳戶
 基於資料保留和刪除的目的，非作用中 LUIS 應用程式可能「由 Microsoft 斟酌決定」視為過期的訂用帳戶。 應用程式如果在過去 90 天符合下列條件，即可視為非作用中： 

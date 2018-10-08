@@ -1,5 +1,5 @@
 ---
-title: 適用於 Windows 的 Azure N 系列驅動程式設定 | Microsoft Docs
+title: 適用於 Windows 的 Azure N 系列 GPU 驅動程式設定 | Microsoft Docs
 description: 如何針對 Azure 中執行 Windows Server 或 Windows 的 N 系列虛擬機器設定 NVIDIA GPU 驅動程式
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50d9ea88afc0e7d96d71b2ab26c8a8489ae41fee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719640"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033240"
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>為執行 Windows 的 N 系列虛擬機器設定 GPU 驅動程式 
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>在執行 Windows 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式 
+
 若要利用 Azure N 系列 VM (執行 Windows) 的 GPU 功能，您必須安裝 NVIDIA GPU 驅動程式。 [NVIDIA GPU 驅動程式擴充功能](../extensions/hpccompute-gpu-windows.md)會在 N 系列 VM 上安裝適當的 NVIDIA CUDA 或 GRID 驅動程式。 使用 Azure 入口網站或者 Azure PowerShell 或 Azure Resource Manager 範本之類的工具，安裝或管理擴充功能。 如需支援的作業系統和部署步驟，請參閱 [NVIDIA GPU 驅動程式擴充功能文件](../extensions/hpccompute-gpu-windows.md)。
 
 如果您選擇手動安裝 GPU 驅動程式，本文提供支援的作業系統、驅動程式，以及安裝和驗證步驟。 驅動程式手動設定資訊也適用於 [Linux VM](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -38,7 +39,7 @@ ms.locfileid: "38719640"
 
 2. 下載、擷取及安裝 Windows 作業系統支援的驅動程式。
 
-在 Azure NV VM 上，安裝驅動程式之後必須重新啟動。 在 NC VM 上，則不需要重新啟動。
+在 VM 上安裝 GRID 驅動程式之後，必須重新啟動。 在安裝 CUDA 驅動程式之後，不需要重新啟動。
 
 ## <a name="verify-driver-installation"></a>確認驅動程式安裝
 
@@ -64,7 +65,7 @@ ms.locfileid: "38719640"
   ```
   如需詳細資訊，請參閱[適用於 Windows 的虛擬機器擴充功能和功能](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-RDMA 網路可針對使用 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) 或 Intel MPI 5.x 執行的應用程式，支援訊息傳遞介面 (MPI) 流量。 
+RDMA 網路可針對使用 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) 或 Intel MPI 5.x 執行的應用程式，支援訊息傳遞介面 (MPI) 流量。 
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,20 +1,21 @@
 ---
-title: JAVA 的 Microsoft QnA Maker API (v4) 快速入門 - Azure 認知服務 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用 Microsoft 認知服務中的 Microsoft 翻譯工具文字 API。
+title: 快速入門：適用於 QnA Maker API (V4) 的 Java
+titleSuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用 Microsoft 認知服務中的 Microsoft Translator Text API。
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 8cf9df5130f11fd07dbf468ad0ad93dff4584b21
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868393"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031474"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>使用 JAVA 搭配 Microsoft QnA Maker API 的快速入門 
 <a name="HOLTop"></a>
@@ -36,7 +37,9 @@ ms.locfileid: "37868393"
 - [取得目前的文字變異形式集合。](#GetAlterations)
 - [取代目前的文字變異形式集合。](#PutAlterations)
 
-## <a name="prerequisites"></a>先決條件
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
+## <a name="prerequisites"></a>必要條件
 
 您將需要有 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
 

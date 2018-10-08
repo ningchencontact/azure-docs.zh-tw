@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 7619056ace5d9b3cf083a40a6cfa06a0cac0561e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2668279b33d2d8d1c0adf92c138cc6347c95bd4d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949684"
+ms.locfileid: "47035346"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure 資料箱閘道預覽版本資訊
 
@@ -53,8 +53,10 @@ ms.locfileid: "46949684"
 | **5.** |複製| 如果唯讀檔案已複製到裝置，則不會保留唯讀屬性。 | |
 | **6.** |記錄檔| 由於此版本有錯誤，您可能會在 error.xml 看到錯誤碼 110 的執行個體 (具有無法辨識的項目名稱)。 | |
 | **7.** |上傳 | 由於此版本有錯誤，您可能會在特定檔案上傳期間看到錯誤碼 2003 的執行個體。 | |
-| **8.** |刪除 | 由於此版本有錯誤，如果已刪除 NFS 共用，則無法刪除此共用。 共用狀態會顯示「刪除中」。  |當共用使用不支援的檔案名稱時，才會發生這種情況。 |
-| **9.** |線上說明 |Azure 入口網站中的說明連結不會連結至文件。|說明連結將會在公開上市版本中運作。 |
+| **8.** |檔案類型 | 不支援下列 Linux 檔案類型：字元檔案、區塊檔案、通訊端、管道、符號連結。  |複製這些檔案會導致在 NFS 共用上建立長度為 0 的檔案。 這些檔案處於錯誤狀態，也會在 error.xml 中回報。 |
+| **9.** |刪除 | 由於此版本有錯誤，如果已刪除 NFS 共用，則無法刪除此共用。 共用狀態會顯示「刪除中」。  |當共用使用不支援的檔案名稱時，才會發生這種情況。 |
+| **10.** |重新整理 | 權限和存取控制清單 (ACL) 不會保留在重新整理作業中。  | |
+| **11.** |線上說明 |Azure 入口網站中的說明連結不會連結至文件。|說明連結將會在公開上市版本中運作。 |
 
 
 

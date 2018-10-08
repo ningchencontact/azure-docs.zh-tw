@@ -1,28 +1,28 @@
 ---
-title: 如何匯入知識庫 - Azure 認知服務 | Microsoft Docs
-titleSuffix: Azure
+title: 遷移預覽知識庫 - Qna Maker
+titleSuffix: Azure Cognitive Services
 description: 如何匯入知識庫
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce8f98f9bdb37d5f326e942fe5b5e815e5272c56
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370879"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031623"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>使用匯出-匯入移轉知識庫
 QnA Maker 於 2018 年 5 月 7 日在 \\\build\ 會議宣佈了公開上市。 QnA Maker GA 具有在 Azure 上建置的新架構。 使用 QnA Maker 免費預覽建立的知識庫必須移轉至 QnA Maker GA。 QnA Maker 預覽版即將在 2018 年 11 月 淘汰。 如需 QnA Maker GA 變更的詳細資訊，請參閱 QnA Maker GA 公告[部落格文章](https://aka.ms/qnamakerga-blog)。
 
 QnA Maker 現在有[定價模型](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/)。
 
-先決條件
+必要條件
 > [!div class="checklist"]
 > * 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 > * 設定新的 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)

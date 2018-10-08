@@ -1,20 +1,21 @@
 ---
-title: 了解您的 LUIS 金鑰 - Azure | Microsoft Docs
-description: 使用 Language Understanding (LUIS) 金鑰來撰寫您的應用程式及查詢您的端點。
+title: 了解您的 LUIS 金鑰
+titleSuffix: Azure Cognitive Services
+description: LUIS 使用兩個金鑰：撰寫和端點。 當您建立 LUIS 帳戶時，系統會自動為您建立撰寫金鑰。 當您已做好發佈 LUIS 應用程式的準備時，必須建立端點金鑰、將它指派給 LUIS 應用程式，然後將它與端點查詢搭配使用。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225171"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034921"
 ---
 # <a name="keys-in-luis"></a>LUIS 中的金鑰
 LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)。 當您建立 LUIS 帳戶時，系統會自動為您建立撰寫金鑰。 當您已做好發佈 LUIS 應用程式的準備時，必須[建立端點金鑰](luis-how-to-azure-subscription.md#create-luis-endpoint-key)、[將它指派](luis-how-to-manage-keys.md#assign-endpoint-key)給 LUIS 應用程式，然後[將它與端點查詢搭配使用](#use-endpoint-key-in-query)。 
@@ -43,7 +44,7 @@ LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)�
 ## <a name="endpoint-key"></a>端點金鑰
  當您想要進行**生產環境端點查詢**時，請在 Azure 入口網站中建立 [LUIS 金鑰](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)。 請記住用來建立金鑰的名稱，當您將金鑰新增至應用程式時，將會需要它。
 
-LUIS 訂用帳戶程序完成時，請在 [Publish] \(發佈\) 頁面上[將金鑰新增](luis-how-to-manage-keys.md#assign-endpoint-key)至應用程式。 
+LUIS 訂用帳戶程序完成時，請[將金鑰指派](luis-how-to-manage-keys.md#assign-endpoint-key)給應用程式。 
 
 端點金鑰會根據您建立金鑰時所指定的使用量方案，來允許端點叫用次數配額。 如需定價資訊，請參閱[認知服務定價](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h)。
 
@@ -73,6 +74,10 @@ LUIS API 會使用 `Ocp-Apim-Subscription-Key` 標頭。 此標頭名稱並不�
 
 ## <a name="key-limit-errors"></a>金鑰限制錯誤
 如果您超出每秒配額，就會收到 HTTP 429 錯誤。 如果您超出每月配額，則會收到 HTTP 403 錯誤。 藉由取得 LUIS [端點](#endpoint-key)金鑰、在 [LUIS](luis-reference-regions.md#luis-website) 網站的 [發佈] 頁面上將金鑰[指派](luis-how-to-manage-keys.md#assign-endpoint-key)給應用程式，來修正這些問題。
+
+## <a name="automating-assignment-of-the-endpoint-key"></a>自動指派端點金鑰
+
+若要將端點金鑰指派給 LUIS 應用程式，您必須使用 LUIS 網站正確撰寫及發佈[區域](luis-reference-regions.md)。 不論是使用 Azure Resource Manager 指令碼、Azure CLI 程式設計 SDK 或使用 API 的機制，都**沒有**自動化方法可執行此作業。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,21 +1,21 @@
 ---
-title: Language Understanding (LUIS) 區域和端點 - Azure - 認知服務 LUIS | Microsoft Docs
-titleSuffix: Azure
+title: 發佈地區和端點 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 您發行 LUIS 應用程式的區域，會對應至您在建立 Azure LUIS 端點金鑰時於 Azure 入口網站中指定的區域或位置。 當您發行應用程式時，LUIS 會針對與該金鑰相關的區域自動產生端點 URL。 若要將 LUIS 應用程式發行至多個區域，針對每個區域，您至少需要有一個金鑰。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/11/2018
 ms.author: diberry
-ms.openlocfilehash: 7812ce37cb22c8774c785f5f645b8fef90b02a3e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 205a17a985986aab8039afe824e7e872a9885169
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815498"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039406"
 ---
 # <a name="regions-and-keys"></a>區域和金鑰
 
@@ -30,6 +30,11 @@ ms.locfileid: "42815498"
 |[au.luis.ai][au.luis.ai]|澳大利亞|
 |[eu.luis.ai][eu.luis.ai]|歐洲|
 
+## <a name="regions-and-azure-resources"></a>區域和 Azure 資源
+應用程式會發佈至與 LUIS 入口網站中新增的 LUIS 資源相關聯的所有區域。 例如，對於在 [www.luis.ai][www.luis.ai] 上建立的應用程式，如果您在 **westus** 中建立 LUIS 資源並將它當作資源新增至應用程式，則會在該區域中發佈應用程式。 
+
+## <a name="public-apps"></a>公開應用程式
+公用應用程式會在所有區域中發佈，以便具有區域型 LUIS 資源金鑰的使用者在與其資源金鑰相關聯的區域中存取應用程式。
 
 ## <a name="publishing-regions"></a>發行區域
 
@@ -37,20 +42,20 @@ ms.locfileid: "42815498"
 
 您只能將撰寫區域應用程式發行至相對應的發行區域。 若您的應用程式目前位於錯誤的撰寫區域，請匯出該應用程式，然後針對您的發行區域將它匯入至正確的撰寫區域。 
 
- 全球區域 | 撰寫區域 | 發行與查詢區域   |   LUIS 網站 | 端點 URL 格式   |
+ 全球區域 | 撰寫區域<br>`API region name` | 發行與查詢區域<br>`API region name`   |   LUIS 網站 | 端點 URL 格式   |
 |-----|------|------|------|------|
-| 亞洲 | 美國西部| 東亞     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| 亞洲 | 美國西部| 東南亞     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| *[澳大利亞](#publishing-to-australia) | 澳洲東部| 澳洲東部     |   [au.luis.ai][au.luis.ai] | https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| *[歐洲](#publishing-to-europe)| 西歐| 北歐     | [eu.luis.ai][eu.luis.ai]|  https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| *[歐洲](#publishing-to-europe) | 西歐| 西歐     | [eu.luis.ai][eu.luis.ai]|  https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| 北美洲 | 美國西部 | 美國東部      |[www.luis.ai][www.luis.ai] |   https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| 北美洲 | 美國西部 | 美國東部 2     | [www.luis.ai][www.luis.ai] |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| 北美洲 | 美國西部 | 美國中南部     | [www.luis.ai][www.luis.ai] |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| 北美洲 | 美國西部 | 美國中西部     |[www.luis.ai][www.luis.ai] |  https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| 北美洲 | 美國西部 | 美國西部 |  [www.luis.ai][www.luis.ai] | https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
-| 北美洲 | 美國西部 | 美國西部 2    | [www.luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
-| 南美洲 | 美國西部 | 巴西南部     | [www.luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 亞洲 | 美國西部<br>`westus`| 東亞<br>`eastasia`     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 亞洲 | 美國西部<br>`westus`| 東南亞<br>`souteastasia`     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| *[澳大利亞](#publishing-to-australia) | 澳洲東部<br>`australiaeast`| 澳洲東部<br>`australiaeast`     |   [au.luis.ai][au.luis.ai] | https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| *[歐洲](#publishing-to-europe)| 西歐<br>`westeurope`| 北歐<br>`northeurope`     | [eu.luis.ai][eu.luis.ai]|  https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| *[歐洲](#publishing-to-europe) | 西歐<br>`westeurope`| 西歐<br>`westeurope`     | [eu.luis.ai][eu.luis.ai]|  https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| 北美洲 | 美國西部<br>`westus` | 美國東部<br>`eastus`      |[www.luis.ai][www.luis.ai] |   https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 北美洲 | 美國西部<br>`westus` | 美國東部 2<br>`eastus2`     | [www.luis.ai][www.luis.ai] |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 北美洲 | 美國西部<br>`westus` | 美國中南部<br>`southcentralus`     | [www.luis.ai][www.luis.ai] |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| 北美洲 | 美國西部<br>`westus` | 美國中西部<br>`westcentralus`     |[www.luis.ai][www.luis.ai] |  https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 北美洲 | 美國西部<br>`westus` | 美國西部<br>`westus`  |  [www.luis.ai][www.luis.ai] | https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
+| 北美洲 | 美國西部<br>`westus` | 美國西部 2<br>`westus2`    | [www.luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
+| 南美洲 | 美國西部<br>`westus` | 巴西南部<br>`brazilsouth`     | [www.luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
 ## <a name="publishing-to-europe"></a>發行至歐洲
 

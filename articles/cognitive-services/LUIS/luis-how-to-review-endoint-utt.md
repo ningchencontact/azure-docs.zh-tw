@@ -1,20 +1,21 @@
 ---
-title: 使用 LUIS 標示建議的語句 | Microsoft Docs
-description: 使用 Language Understanding (LUIS) 來標示建議的語句，協助提升主動式機器學習。
+title: 檢閱 Language Understanding (LUIS) 的端點語句
+titleSuffix: Azure Cognitive Services
+description: LUIS 的突破性功能是主動式學習的概念。 一旦您的 LUIS 有端點查詢，主動式學習就會藉由選取不確定的語句來改善結果品質。 如果您要標示這些語句，進行訓練及發佈，則 LUIS 會更精確地識別語句。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224546"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030790"
 ---
 # <a name="review-endpoint-utterances"></a>檢閱端點語句
 
@@ -24,8 +25,6 @@ LUIS 的突破性功能是主動式學習的[概念](luis-concept-review-endpoin
 1. 在 [我的應用程式] 頁面上選取您的應用程式名稱加以開啟 (例如，TravelAgent)，然後選取頂端列中的 [建置]。
 
 2. 在 [改善應用程式效能] 之下，選取 [檢閱端點意圖]。
-
-    ![檢閱語句](./media/label-suggested-utterances/review.png)
 
 3. 在 [檢閱端點意圖] 頁面上，選取 [依意圖或實體篩選器清單] 文字方塊。 此下拉式清單包含 [意圖] 之下的所有意圖，以及 [實體] 之下的所有實體。
 

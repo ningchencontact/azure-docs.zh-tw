@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 虛擬機器 (VM) 上設定 SAP HANA 系統複寫 | Microsoft Docs
-description: 在 Azure 虛擬機器 (VM) 上，建立 SAP HANA 的高可用性。
+title: SUSE Linux Enterprise Server 上 Azure VM 的 SAP HANA 高可用性 | Microsoft Docs
+description: SUSE Linux Enterprise Server 上 Azure VM 的 SAP HANA 高可用性
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 7a0797d79da95db77174a3e067a1e84276f286a5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140482"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034632"
 ---
-# <a name="high-availability-of-sap-hana-on-azure-virtual-machines"></a>Azure 虛擬機器上 SAP HANA 的高可用性
+# <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server 上 Azure VM 的 SAP HANA 高可用性
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -68,6 +68,7 @@ ms.locfileid: "42140482"
 * SAP Note [1984787] 包含 SUSE LINUX Enterprise Server 12 的一般資訊。
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
+* [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [適用於 SAP on Linux 的 Azure 虛擬機器規劃和實作][planning-guide]指南。
 * [適用於 SAP on Linux 的 Azure 虛擬機器部署 (本文)][deployment-guide]。
 * [適用於 SAP on Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]指南。
@@ -110,9 +111,13 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
     - **系統可用性**選取 [HA]。
     - **管理員使用者名稱和管理員密碼**：會建立可用來登入機器的新使用者。
     - **新的或現有的子網路**︰決定應該建立新的虛擬網路和子網路，還是使用現有的子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
-    - **子網路識別碼**：虛擬機器應該連接的子網路識別碼。 若要將虛擬機器連線到內部部署網路，請選取 VPN 或 Azure ExpressRoute 虛擬網路的子網路。 識別碼通常如下所示：**/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>**。
+    - **子網路識別碼**：如果您想要將 VM 部署至您已定義應將 VM 指派到之目標子網路的現有 VNet，請提供該特定子網路的識別碼。 識別碼通常如下所示：**/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>**。
 
 ### <a name="manual-deployment"></a>手動部署
+
+> [!IMPORTANT]
+> 請確定您選取的作業系統在您所使用的特定 VM 類型上已獲得 SAP HANA 認證。 在 [SAP HANA 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 中可查閱 SAP HANA 認證的 VM 類型和作業系統版本清單。 請務必按一下所列 VM 類型的詳細資料，以取得 SAP HANA 針對特定 VM 類型支援的作業系統版本完整清單。
+>  
 
 1. 建立資源群組。
 1. 建立虛擬網路。
@@ -121,12 +126,10 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 1. 建立負載平衡器 (內部)。
    - 選取步驟 2 所建立的虛擬網路。
 1. 建立虛擬機器 1。
-   - 至少使用 SLES4SAP 12 SP1。 此範例使用 SLES4SAP 12 SP2 映像 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM。
-   - 使用 SLES for SAP 12 SP2 (Premium)。
+   - 您所選取的 VM 類型上使用 Azure 資源庫中 SAP HANA 支援的 SLES4SAP 映像。
    - 選取步驟 3 所建立的可用性設定組。
 1. 建立虛擬機器 2。
-   - 至少使用 SLES4SAP 12 SP1。 此範例使用 SLES4SAP 12 SP1 BYOS 映像 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM。
-   - 使用 SLES for SAP 12 SP2 (Premium)。
+   - 您所選取的 VM 類型上使用 Azure 資源庫中 SAP HANA 支援的 SLES4SAP 映像。
    - 選取步驟 3 所建立的可用性設定組。 
 1. 新增資料磁碟。
 1. 設定負載平衡器。 首先，建立前端 IP 集區：
@@ -677,6 +680,9 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 ### <a name="suse-tests"></a>SUSE 測試
 
+> [!IMPORTANT]
+> 請確定您選取的作業系統在您所使用的特定 VM 類型上已獲得 SAP HANA 認證。 在 [SAP HANA 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 中可查閱 SAP HANA 認證的 VM 類型和作業系統版本清單。 請務必按一下所列 VM 類型的詳細資料，以取得 SAP HANA 針對特定 VM 類型支援的作業系統版本完整清單。
+
 請根據您的使用案例，執行 SAP HANA SR 效能最佳化案例或 SAP HANA SR 成本最佳化案例指南中所列出的所有測試案例。 您可以在 [SLES for SAP 最佳做法頁面][sles-for-sap-bp]上找到這些指南。
 
 下列測試是 SAP HANA SR 效能最佳化案例 SUSE Linux Enterprise Server for SAP Applications 12 SP1 指南的測試描述複本。 如需最新版本，請一定還要閱讀指南本身。 請一定要確定 HANA 處於同步狀態再開始測試，也請確定 Pacemaker 的組態正確無誤。
@@ -969,7 +975,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker 會偵測到已停止的 HANA 執行個體，並在節點 hn1-db-1 上將資源標記為已失敗。 執行下列命令以清除失敗的狀態。 接著，Pacemaker 應該會自動重新啟動 HANA 執行個體。
+   Pacemaker 會偵測到已停止的 HANA 執行個體，並在節點 hn1-db-1 上將資源標記為已失敗。 Pacemaker 應該會自動重新啟動 HANA 執行個體。 執行下列命令以清除失敗的狀態。
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1

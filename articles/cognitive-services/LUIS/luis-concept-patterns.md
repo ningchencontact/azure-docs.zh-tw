@@ -1,24 +1,24 @@
 ---
-title: 了解模式如何提高預測精確度 | Microsoft Docs
-titleSuffix: Azure
-description: 了解如何設計模式來提高意圖預測分數，並尋找實體。
+title: 了解模式如何提高預測精確度
+titleSuffix: Azure Cognitive Services
+description: 模式設計用來改善數個語句非常類似時的精確度。 模式可讓您取得更精確的意圖，而不需提供更多的語句。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5ade15b3f80d725af4ece31a36ea0b670f5f5147
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225212"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031538"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可改善預測精確度
-模式設計用來改善數個語句非常類似時的精確度。 藉由提供語句的模式，LUIS 對於預測具有高度信心。 
+模式設計用來改善數個語句非常類似時的精確度。  模式可讓您取得更精確的意圖，而不需提供更多的語句。 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>模式可解決低意圖信賴度
 請考慮使用人力資源應用程式，該應用程式會報告與員工相關的組織圖。 若指定員工的名稱和關係，LUIS 就會傳回涉及的員工。 請考慮使用員工 Tom，其經理名字為 Alice，且其下小組名字為：Michael、Rebecca 和 Carl。
@@ -60,25 +60,25 @@ ms.locfileid: "39225212"
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>將實體新增至模式範本的語法
 若要將實體新增至模式範本，請用大括弧括住實體名稱，例如 `Who does {Employee} manage?`。 
 
-```
-Who does {Employee} manage?
-```
+|模式與實體|
+|--|
+|`Who does {Employee} manage?`|
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>將實體和角色新增至模式範本的語法
 實體角色以 `{entity:role}` 的形式表示，其格式為實體名稱後接冒號，然後接著角色名稱。 若要將具有角色的實體新增至模式範本，請用大括弧括住實體名稱和角色名稱，例如 `Book a ticket from {Location:Origin} to {Location:Destination}`。 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|模式與實體角色|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>將 Pattern.any 新增至模式範本的語法
 Pattern.any 實體可讓您將變動長度的實體新增至模式。 只要遵循模式範本，Pattern.any 就可以是任意長度。 
 
 若要將 **Pattern.any** 實體新增至模式範本，請用大括弧括住 Pattern.any 實體，例如 `How much does {Booktitle} cost and what format is it available in?`。  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|模式與 Pattern.any 實體|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |模式中的書名|
 |--|
@@ -107,9 +107,9 @@ How much does {Booktitle} cost and what format is it available in?
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>在範本語句中標記選用文字的語法
 您可以使用規則運算式的方括弧語法 `[]`，在語句中標記選用文字。 選用文字最多只能在方括弧中套嵌兩個大括弧。
 
-```
-[find] email about {subject} [from {person}]
-```
+|模式與選用文字|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 `.`、`!` 及 `?` 等標點符號可以使用方括弧加以忽略。 為了忽略這些符號，每個符號都必須位於不同的模式中。 選用語法目前不支援忽略多個項目清單中的項目。
 

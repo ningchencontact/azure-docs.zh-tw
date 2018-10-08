@@ -1,108 +1,66 @@
 ---
-title: 在 Azure 的 LUIS 應用程式中管理版本 | Microsoft Docs
-description: 了解如何在 Language Understanding (LUIS) 應用程式中管理版本。
+title: 在 LUIS 應用程式中管理版本
+titleSuffix: Azure Cognitive Services
+description: 版本可讓您建置及發佈不同的模型。 理想的做法是先將目前作用中的模型複製到不同的應用程式版本，再對模型進行變更。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: db461191b70aabc322e570ecc814a076c21206f2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226589"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033782"
 ---
 # <a name="manage-versions"></a>管理版本
 
-每次您使用模型工作時，都會建立不同的應用程式[版本](luis-concept-version.md)。 
+版本可讓您建置及發佈不同的模型。 理想的做法是先將目前作用中的模型複製到不同的應用程式[版本](luis-concept-version.md)，再對模型進行變更。 
 
-## <a name="set-active-version"></a>設定使用中版本
-若要使用版本，請在 [我的應用程式] 頁面上選取應用程式的名稱來開啟應用程式，然後選取頂端列中的 [設定]。
+若要使用版本，請在 [我的應用程式] 頁面上選取應用程式的名稱來開啟應用程式，接著選取頂端列中的 [管理]，然後選取左側導覽中的 [版本]。 
 
-![[版本] 頁面](./media/luis-how-to-manage-versions/settings.png)
+版本清單會顯示已發佈哪些版本，其發佈位置，以及目前作用中的版本。 
 
-[設定] 頁面可讓您設定整個應用程式的設定，包括版本和共同作業者。 
+[![](./media/luis-how-to-manage-versions/versions-import.png "[版本] 頁面的 [管理] 區段")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>複製版本
-1. 在 [設定] 頁面上，於 [應用程式設定] 和 [共同作業者] 區段之後，尋找有所要複製版本的資料列。 選取最右側的省略符號 (***...***) 按鈕。 
 
-    ![版本資料列屬性](./media/luis-how-to-manage-versions/version-section.png)
+1. 選取您要複製的版本，然後從工具列中選取 [複製]。 
 
-2. 從清單中選取 [複製]。
-
-    ![版本資料列屬性選項](./media/luis-how-to-manage-versions/version-three-dots-modal.png)
-
-3. 在 [複製版本] 對話方塊中，輸入新版本的名稱，例如 "0.2"。
+2. 在 [複製版本] 對話方塊中，輸入新版本的名稱，例如 "0.2"。
 
    ![[複製版本] 對話方塊](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
- > [!NOTE]
- > 版本識別碼只能包含字元、數字或 '.'，且長度不能超過 10 個字元。
+     > [!NOTE]
+     > 版本識別碼只能包含字元、數字或 '.'，且長度不能超過 10 個字元。
  
  隨即會建立具有指定名稱的新版本，並會設定為使用中版本。
- 
-  ![已建立版本並新增至清單中](./media/luis-how-to-manage-versions/new-version.png)
-
- > [!NOTE]
- > 如上圖所示，已發行的版本會有相關聯的彩色標記，以指出其發行時所在位置的類型：生產 (綠色)、暫存 (紅色)、兼具 (黑色)。 每個已發行的版本都會顯示訓練和發行日期。
 
 ## <a name="set-active-version"></a>設定使用中版本
-1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的省略符號 (***...***) 按鈕。
 
-2. 從快顯清單中，選取 [設定為使用中]。
+從清單中選取版本，然後從工具列中選取 [設成作用中]。 
 
-    ![設定使用中版本](./media/luis-how-to-manage-versions/set-active-version.png)
-
-    使用中的版本會以淺藍色醒目提示，如下列螢幕擷取畫面所示：
-
-    ![使用中的版本](./media/luis-how-to-manage-versions/set-active-version-done.png) 
-
+[![](./media/luis-how-to-manage-versions/versions-other.png "[版本] 頁面的 [管理] 區段")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>匯入版本
-您可以從 JSON 檔案匯入版本。 匯入版本之後，新版本就會變成使用中的版本。
 
-**若要匯入版本：**
+1. 從工具列中選取 [匯入版本]。 
 
-1. 在 [設定] 頁面上，選取 [匯入新版本] 按鈕。
+2. 在 [匯入新版本] 快顯視窗中，輸入新的版本名稱 (10 個字元)。 如果應用程式中已有 JSON 檔案中的版本，您就只需要設定版本識別碼。
 
-    ![[匯入] 按鈕](./media/luis-how-to-manage-versions/import-version.png)
+    ![[版本] 頁面的 [管理] 區段](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
-2. 選取 [瀏覽]，然後選擇 JSON 檔案。
+    匯入版本之後，新版本就會變成使用中的版本。
 
-    ![[匯入版本] 對話方塊](./media/luis-how-to-manage-versions/import-version-dialog.png)
+<a name = "export-version"></a>
 
-如果應用程式中已有 JSON 檔案中的版本，您就只需要設定版本識別碼。
+## <a name="other-actions"></a>其他動作
 
-## <a name="export-version"></a>匯出版本
-您可以將版本匯出到 JSON 檔案。
+* 若要**刪除**版本，請從清單中選取版本，然後從工具列中選取 [刪除]。 選取 [確定]。 
+* 若要**重新命名**版本，請從清單中選取版本，然後從工具列中選取 [重新命名]。 輸入新的名稱，然後選取 [完成]。 
+* 若要**匯出**版本，請從清單中選取版本，然後從工具列中選取 [匯出應用程式]。 檔案會下載到您的本機電腦。 
 
-**若要匯出版本：**
-
-1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的省略符號 (***...***) 按鈕。
-
-2. 在動作的快顯清單中選取 [匯出]，然後選取檔案的儲存位置。
-
-## <a name="delete-a-version"></a>刪除版本
-您可以刪除版本，但至少必須保留一個應用程式版本。 您可以刪除使用中版本以外的所有版本。 
-
-1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的省略符號 (***...***) 按鈕。
-
-2. 在動作的快顯清單中選取 [刪除]，然後選取檔案的儲存位置。
-
-    ![刪除版本確認](./media/luis-how-to-manage-versions/delete-menu.png) 
-
-
-## <a name="rename-a-version"></a>重新命名版本
-您可以重新命名版本 (只要該版本名稱還未使用)。  
-
-1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的省略符號 (***...***) 按鈕。
-
-2. 在動作的快顯清單中選取 [重新命名]。
-
-3. 輸入新的應用程式名稱，然後選取 [完成]。
-
-    ![重新命名版本確認](./media/luis-how-to-manage-versions/rename-popup.png) 

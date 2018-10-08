@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e449e6e457c4fa568b5a4de5823014b4dcea82d0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064350"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032983"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>部署 Windows 混合式 Runbook 背景工作角色
 
@@ -22,15 +22,15 @@ ms.locfileid: "37064350"
 
 ## <a name="installing-the-windows-hybrid-runbook-worker"></a>安裝 Windows 混合式 Runbook 背景工作角色
 
-若要安裝及設定「Windows 混合式 Runbook 背景工作角色」，您可以使用兩種方法。 建議的方法是使用「自動化」Runbook，將設定 Windows 電腦的程序完全自動化。 第二種方法採取逐步程序來手動安裝和設定角色。
+若要安裝及設定 Windows 混合式 Runbook 背景工作角色，您可以使用兩種方法。 建議的方法是使用自動化 Runbook，將設定 Windows 電腦的程序完全自動化。 第二種方法採取逐步程序來手動安裝和設定角色。
 
 > [!NOTE]
-> 若要使用 Desired State Configuration (DSC) 來管理支援「混合式 Runbook 背景工作角色」的伺服器設定，您必須將它們新增為 DSC 節點。
+> 若要使用 Desired State Configuration (DSC) 來管理支援混合式 Runbook 背景工作角色的伺服器設定，您必須將它們新增為 DSC 節點。
 
 「Windows 混合式 Runbook 背景工作角色」的最低需求如下：
 
 * Windows Server 2012 或更新版本。
-* Windows PowerShell 4.0 或更新版本 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))。 建議使用 Windows PowerShell 5.1 ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) 以增加可靠性。
+* Windows PowerShell 5.1 或更新版本 ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))。
 * .NET Framework 4.6.2 或更新版本。
 * 雙核心。
 * 4 GB 的 RAM。
@@ -41,7 +41,7 @@ ms.locfileid: "37064350"
 如需有關讓伺服器上線以透過 DSC 進行管理的詳細資訊，請參閱[讓機器上線以透過 Azure 自動化 DSC 進行管理](automation-dsc-onboarding.md)。
 如果您啟用[更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)，則任何連線到 Azure Log Analytics 工作區的 Windows 電腦都會自動設定為「混合式 Runbook 背景工作角色」，以支援此解決方案所包含的 Runbook。 不過，它不會向已在您「自動化」帳戶中定義的任何「混合式背景工作角色」群組註冊。 
 
-您可以將電腦新增到您「自動化」帳戶中的「混合式 Runbook 背景工作角色」群組來支援「自動化」Runbook，只要解決方案和「混合式 Runbook 背景工作角色」群組成員資格兩者使用相同的帳戶即可。 此功能已新增至 Hybrid Runbook Worker 7.2.12024.0 版。
+您可以將電腦新增至您自動化帳戶中的混合式 Runbook 背景工作角色群組來支援自動化 Runbook，只要解決方案和混合式 Runbook 背景工作角色群組成員資格兩者使用相同的帳戶即可。 此功能已新增至 Hybrid Runbook Worker 7.2.12024.0 版。
 
 在您成功部署 Runbook 背景工作角色後，請檢閱[在混合式 Runbook 背景工作角色上執行 Runbook](automation-hrw-run-runbooks.md)，以了解如何設定 Runbook 以將內部部署資料中心或其他雲端環境中的程序自動化。
 
@@ -49,13 +49,13 @@ ms.locfileid: "37064350"
 
 執行下列步驟，以將「Windows 混合式背景工作角色」的安裝和設定自動化：
 
-1. 直接從執行「混合式 Runbook 背景工作角色」的電腦，或從您環境中的另一部電腦，從[PowerShell 資源庫](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript)下載 New-OnPremiseHybridWorker.ps1 指令碼。 將指令碼複製到背景工作角色。
+1. 直接從執行「混合式 Runbook 背景工作角色」的電腦，或從您環境中的另一部電腦，從[PowerShell 資源庫](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker)下載 New-OnPremiseHybridWorker.ps1 指令碼。 將指令碼複製到背景工作角色。
 
    New-OnPremiseHybridWorker.ps1 指令碼在執行期間需要下列參數：
 
    * *AutomationAccountName* (必要)：您的「自動化」帳戶名稱。
    * *AAResourceGroupName* (必要)：與您的自動化帳戶相關聯的資源群組名稱。
-   * *OMSResourceGroupName* (選擇性)：Operations Management Suite 工作區的資源群組名稱。 若未指定此資源群組，將會使用 *AAResourceGroupName*。
+   * *OMSResourceGroupName* (選擇性)：Log Analytics 工作區的資源群組名稱。 若未指定此資源群組，將會使用 *AAResourceGroupName*。
    * *HybridGroupName* (必要)：您針對支援此案例的 Runbook，指定作為目標的「混合式 Runbook 背景工作角色」群組名稱。
    * *SubscriptionID* (必要)：您「自動化」帳戶所在的 Azure 訂用帳戶 ID。
    * *WorkspaceName* (選擇性)：Log Analytics 工作區名稱。 如果您沒有 Log Analytics 工作區，此指令碼就會建立並設定一個 Log Analytics 工作區。
@@ -63,8 +63,8 @@ ms.locfileid: "37064350"
      > [!NOTE]
      > 目前，支援與 Log Analytics 整合的「自動化」區域只有**澳大利亞東南部**、**美國東部 2**、**東南亞**和**西歐**。 如果您的「自動化」帳戶不在上述其中一個區域，指令碼會建立 Log Analytics 工作區，但會警告您，指出無法將它們連結在一起。
 
-1. 在您的電腦上，從 [開始] 畫面以系統管理員模式開啟 **Windows PowerShell**。
-1. 從 PowerShell 命令列殼層，瀏覽至包含您所下載指令碼的資料夾。 變更參數 *-AutomationAccountName*、*-AAResourceGroupName*、*-OMSResourceGroupName*、*-HybridGroupName*、*-SubscriptionId* 及 *-WorkspaceName* 的值。 然後執行指令碼。
+2. 在您的電腦上，從 [開始] 畫面以系統管理員模式開啟 **Windows PowerShell**。
+3. 從 PowerShell 命令列殼層，瀏覽至包含您所下載指令碼的資料夾。 變更參數 *-AutomationAccountName*、*-AAResourceGroupName*、*-OMSResourceGroupName*、*-HybridGroupName*、*-SubscriptionId* 及 *-WorkspaceName* 的值。 然後執行指令碼。
 
      > [!NOTE]
      > 執行指令碼之後，系統會提示您向 Azure 進行驗證。 您「必須」以「訂用帳戶管理員」角色成員和訂用帳戶共同管理員的帳戶登入。
@@ -75,9 +75,9 @@ ms.locfileid: "37064350"
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. 系統會提示您同意安裝 NuGet，也會提示使用您的 Azure 認證進行驗證。
+4. 系統會提示您同意安裝 NuGet，也會提示使用您的 Azure 認證進行驗證。
 
-1. 指令碼執行完成之後，[混合式背景工作角色群組] 頁面會顯示新的群組和成員數目。 如果這是現有群組，成員數目就會遞增。 您可以從 [Hybrid Worker 群組] 頁面上的清單中選取群組，然後選取 [Hybrid Worker] 圖格。 在 [Hybrid Worker] 頁面上，您會看到列出群組的每個成員。
+5. 指令碼執行完成之後，[混合式背景工作角色群組] 頁面會顯示新的群組和成員數目。 如果這是現有群組，成員數目就會遞增。 您可以從 [Hybrid Worker 群組] 頁面上的清單中選取群組，然後選取 [Hybrid Worker] 圖格。 在 [Hybrid Worker] 頁面上，您會看到列出群組的每個成員。
 
 ### <a name="manual-deployment"></a>手動部署
 

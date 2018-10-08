@@ -1,21 +1,21 @@
 ---
-title: 如何取得知識庫的分析 - Azure 認知服務 | Microsoft Docs
-titleSuffix: Azure
-description: 如何取得知識庫的分析
+title: 知識庫的分析
+titleSuffix: Azure Cognitive Services
+description: 如果您在 QnA Maker 服務建立期間啟用 App Insights，QnA Maker 會儲存所有交談記錄和其他遙測。 執行範例查詢，從 App Insights 取得您的交談記錄。
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 1588d0c5a8eaf4e161b5319c9f33a772dc56b247
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim88
+ms.openlocfilehash: dc363a3ba0d809a3307a6803993bdf500da45f1b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369587"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035403"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>取得知識庫的分析
 

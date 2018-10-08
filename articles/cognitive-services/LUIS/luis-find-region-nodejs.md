@@ -1,22 +1,23 @@
 ---
-title: 使用 Node.js 在 Language Understanding (LUIS) 界限中尋找 LUIS 區域 | Microsoft Docs
+title: 在 LUIS 中尋找使用 Node.js 的端點區域
+titleSuffix: Azure Cognitive Services
 description: 使用 LUIS 的端點金鑰和應用程式識別碼，以程式設計方式尋找發佈區域。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 66a34b5b611934ca531e7709b13e0c6d1c794206
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 193872d03dde1d5c620acca1b7aba99b60db238d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222506"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034071"
 ---
-# <a name="region-can-be-determined-from-api-call"></a>區域可經由 API 呼叫決定 
+# <a name="find-endpoint-region-with-nodejs"></a>尋找使用 Node.js 的端點區域
 如果您有 LUIS 應用程式識別碼和 LUIS 訂用帳戶識別碼，可以尋找哪個區域要用於端點查詢。
 
 > [!NOTE] 

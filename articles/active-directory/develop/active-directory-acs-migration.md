@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 2c7dc650109ecc3844ee2ae90e50b2267f5716c4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996514"
+ms.locfileid: "47036536"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>操作說明：從 Azure 存取控制服務遷移
 
@@ -61,6 +61,51 @@ https://<mynamespace>.accesscontrol.windows.net
 但所有進入 `https://accounts.accesscontrol.windows.net` 的流量除外。 進入此 URL 的流量已經由其他服務處理，因此**不**受「存取控制」的淘汰影響。 
 
 如需有關存取控制的詳細資訊，請參閱[存取控制服務 2.0 (已封存)](https://msdn.microsoft.com/library/hh147631.aspx)。
+
+## <a name="find-out-which-of-your-apps-will-be-impacted"></a>找出哪些應用程式會受影響
+
+遵循這一節中的步驟，找出哪些應用程式會受到 ACS 淘汰影響。
+
+### <a name="download-and-install-acs-powershell"></a>下載並安裝 ACS PowerShell
+
+1. 移至 PowerShell 資源庫並下載 [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2)。
+1. 藉由執行來安裝模組
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. 藉由執行來取得所有可能的命令
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    若要取得特定命令的說明，請執行：
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    其中 `[Command-Name]` 是 ACS 命令的名稱。
+
+### <a name="list-your-acs-namespaces"></a>列出您的 ACS 命名空間
+
+1. 使用 **Connect-AcsAccount** Cmdlet 連線至 ACS。
+  
+    您可能需要先執行 `Set-ExecutionPolicy -ExecutionPolicy Bypass`，才可以執行命令，而且成為這些訂用帳戶的管理員才能執行命令。
+
+1. 使用 **Get-AcsSubscription** Cmdlet 列出可用的 Azure 訂用帳戶。
+1. 使用 **Get-AcsNamespace** Cmdlet 列出您的 ACS 命名空間。
+
+### <a name="check-which-applications-will-be-impacted"></a>檢查哪些應用程式會受影響
+
+1. 使用上一個步驟中的命名空間並移至 `https://<namespace>.accesscontrol.windows.net`
+
+    例如，如果其中一個命名空間是 contoso-test，請移至 `https://contoso-test.accesscontrol.windows.net`
+
+1. 在 [信任關係] 之下，選取 [信賴憑證者應用程式] 以查看會受 ACS 淘汰影響的應用程式清單。
+1. 針對您擁有的任何其他 ACS 命名空間重複步驟 1-2。
 
 ## <a name="retirement-schedule"></a>淘汰排程
 

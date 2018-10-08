@@ -1,24 +1,27 @@
 ---
-title: 建立新的知識庫 - 快速入門 Java - 適用於 Microsoft QnA Maker API (v4) - Azure 認知服務 | Microsoft Docs
-description: 使用 Java 建立知識庫，以保存您的常見問題集或產品手冊，以便開始使用 QnA Maker。
+title: 快速入門：API Java - 建立知識庫 - QnA Maker
+titlesuffix: Azure Cognitive Services
+description: 本快速入門會逐步引導您，以程式設計方式建立範例 QnA Maker 知識庫，該知識庫會出現在認知服務 API 帳戶的 Azure 儀表板中。
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 3d637a4a046318a95eeeb532cbb7a9938cb1004d
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "43750265"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037604"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>使用 Java 建立新的知識庫
 
 本快速入門會逐步引導您，以程式設計方式建立範例 QnA Maker 知識庫，該知識庫會出現在認知服務 API 帳戶的 Azure 儀表板中。
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 以下提供兩個範例常見問題集 URL (**getKB()** 形式的 'kb.urls')，會提供內容。 QnA Maker 會從半結構化的內容 (就像常見問題集) 中自動擷取問題和答案，本[資料來源](../Concepts/data-sources-supported.md)文件中有更詳細的說明。 您也可以在此快速入門中，使用您自己的常見問題集 URL。
 

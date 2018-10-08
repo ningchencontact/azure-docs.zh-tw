@@ -1,20 +1,21 @@
 ---
-title: 如何測試知識庫 - QnA Maker - Azure 認知服務 | Microsoft Docs
-description: 在發佈知識庫前先加以測試。
+title: 如何測試知識庫 - QnA Maker
+titlesuffix: Azure Cognitive Services
+description: QnA Maker 知識庫測試，對於用以改善傳回回應正確度的互動流程而言，是相當重要的部分。 您可以透過增強的交談介面測試知識庫，也能以之進行編輯。
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: cffb63666edab25e1b3b0739d0e0f2f828600f3a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 6ce3fc774d23914ab150e1dc1371391fc9fc548b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369651"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034380"
 ---
 # <a name="test-your-knowledge-base"></a>測試您的知識庫
 

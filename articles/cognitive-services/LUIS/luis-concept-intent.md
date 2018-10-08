@@ -1,20 +1,21 @@
 ---
-title: 了解 Azure 中 LUIS 應用程式中的意圖 | Microsoft Docs
-description: 說明 Language Understanding Intelligent Service (LUIS) 應用程式中的意圖是什麼。
+title: 了解 LUIS 應用程式中的意圖
+titleSuffix: Azure Cognitive Services
+description: 意圖代表使用者想要執行的工作或動作。 它是使用者語句中表達的目的或目標。 請定義一組與使用者想要在您應用程式中執行之動作對應的意圖。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 456f28191161c9a2fac223bf2a31e62e54ae28ae
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cfad122b44944cfb637d8ef98931410d60c81ab8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225783"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041156"
 ---
 # <a name="intents-in-luis"></a>LUIS 中的意圖
 

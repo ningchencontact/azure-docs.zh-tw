@@ -1,44 +1,59 @@
 ---
-title: 建立複合實體來擷取複雜資料的教學課程 - Azure | Microsoft Docs
-description: 了解如何在您的 LUIS 應用程式中建立複合實體來擷取不同類型的實體資料。
+title: 教學課程 6：使用 LUIS 複合實體擷取複合資料
+titleSuffix: Azure Cognitive Services
+description: 新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5f11409ff49830be97d9a13a0ab7f033d9cc1041
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 99e0b22b663f6edab9646111b390186a6f89a90f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494460"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035176"
 ---
-# <a name="tutorial-6-add-composite-entity"></a>教學課程：6. 新增複合實體 
-在本教學課程中新增複合實體，以便將擷取的資料組合為包含實體。
+# <a name="tutorial-6-group-and-extract-related-data"></a>教學課程 6：將相關的資料組成群組並加以擷取
+在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 
-在本教學課程中，您了解如何：
+複合實體的用途是將相關實體群組為父類別實體。 在建立複合項目之前，這些資訊會以個別實體的形式存在。 它類似於階層式實體，但可包含不同類型的實體。 
+
+複合實體很適合用於這類資料，因為此資料：
+
+* 彼此相關。 
+* 使用各種實體類型。
+* 需要由用戶端應用程式當作一個資訊單位進行分組和處理。
+
+**在本教學課程中，您將了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 了解複合實體 
-> * 新增複合實體來擷取資料
-> * 訓練和發佈應用程式
-> * 查詢應用程式端點來查看 LUIS JSON 回應
+> * 使用現有的教學課程應用程式
+> * 新增複合實體 
+> * 定型
+> * 發佈
+> * 從端點取得意圖和實體
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>開始之前
-如果您沒有[階層式實體](luis-quickstart-intent-and-hier-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
+## <a name="use-existing-app"></a>使用現有的應用程式
+以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
 
-如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `composite`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。  
+如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
 
-## <a name="composite-entity-is-a-logical-grouping"></a>複合實體是一個邏輯群組 
-複合實體的用途是將相關實體群組為父類別實體。 在建立複合項目之前，這些資訊會以個別實體的形式存在。 它類似於階層式實體，但可包含更多類型的實體。 
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json)。
 
- 當個別實體可以邏輯方式組成群組，而此邏輯群組對用戶端應用程式有助益時，請建立複合實體。 
+2. 將 JSON 匯入新的應用程式中。
+
+3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `composite`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+
+
+## <a name="composite-entity"></a>複合實體
+當個別實體可以邏輯方式組成群組，而此邏輯群組對用戶端應用程式有助益時，請建立複合實體。 
 
 在此應用程式中，員工名稱會定義於 **Employee** 清單實體中，並包含名稱、電子郵件地址、公司電話分機、行動電話號碼和美國聯邦稅務識別碼的同義字。 
 
@@ -51,12 +66,38 @@ ms.locfileid: "39494460"
 |Move John W. Smith to a-2345 (將 John W. Smith 搬遷到 a-2345)|
 |shift x12345 to h-1234 tomorrow|
  
-搬遷要求至少應包含員工 (使用任何同義字)，以及最終的建築物和辦公室位置。 要求也可以包含原始辦公室，以及應進行搬遷的日期。 
+搬遷要求應包含員工 (使用任何同義字)，以及最終的建築物和辦公室位置。 要求也可以包含原始辦公室，以及應進行搬遷的日期。 
 
-從端點擷取的資料應該包含此資訊，並在 `RequestEmployeeMove` 複合實體中傳回它。 
+從端點擷取的資料應該包含此資訊，並在 `RequestEmployeeMove` 複合實體中傳回它：
 
-## <a name="create-composite-entity"></a>建立複合實體
-1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
+```JSON
+"compositeEntities": [
+  {
+    "parentType": "RequestEmployeeMove",
+    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+    "children": [
+      {
+        "type": "builtin.datetimeV2.datetime",
+        "value": "march 3 2 p.m"
+      },
+      {
+        "type": "Locations::Destination",
+        "value": "z - 2345"
+      },
+      {
+        "type": "Employee",
+        "value": "jill jones"
+      },
+      {
+        "type": "Locations::Origin",
+        "value": "a - 1234"
+      }
+    ]
+  }
+]
+```
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 在 [意圖] 頁面上，選取 [MoveEmployee] 意圖。 
 
@@ -75,17 +116,23 @@ ms.locfileid: "39494460"
     [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
-6. 接著，立即選取語句中的最後一個實體 `datetimeV2`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `RequestEmployeeMove`，然後在快顯功能表中選取 [建立新的複合]。 
+6. 接著，立即選取語句中的最後一個實體 `datetimeV2`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `RequestEmployeeMove`，然後選取 Enter。 
 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示的最後一個實體和建立實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. 在 [您想要建立何種類型的實體?] 中，幾乎所有所需的欄位都位於清單中。 只會遺漏原始位置。 選取 [新增子實體]，從現有實體清單中選取 [Locations::Origin]，然後選取 [完成]。 
 
+    請注意，預先建置的實體、數字會新增至複合實體。 如果您讓預先建置的實體出現在複合實體的開頭與結尾語彙基元之間，則複合實體必須包含這些預先建置的實體。 如果未包含預先建置的實體，則無法正確預測複合實體，但可正確預測每個個別的元素。
+
     ![在 'MoveEmployee' 意圖上於快顯視窗中新增另一個實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 8. 選取工具列上的放大鏡來移除篩選條件。 
 
+9. 從篩選條件中移除 `tomorrow` 這個字，您便可再度看見所有範例語句。 
+
 ## <a name="label-example-utterances-with-composite-entity"></a>使用複合實體來標示範例語句
+
+
 1. 在每個範例語句中，選取應該出現在複合中的最左邊實體。 接著，選取 [包裝於複合實體中]。
 
     [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
@@ -98,17 +145,17 @@ ms.locfileid: "39494460"
 
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "'MoveEmployee' 上已標示所有語句的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
-## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
+## <a name="train"></a>定型
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
+## <a name="publish"></a>發佈
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint"></a>查詢端點 
+## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體 
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`。 最後一個查詢字串參數是 `q`，也就是語句查詢。 
 
@@ -247,7 +294,7 @@ ms.locfileid: "39494460"
         },
         {
           "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "requestemployeemove",
+          "type": "RequestEmployeeMove",
           "startIndex": 5,
           "endIndex": 54,
           "score": 0.4027723
@@ -255,7 +302,7 @@ ms.locfileid: "39494460"
       ],
       "compositeEntities": [
         {
-          "parentType": "requestemployeemove",
+          "parentType": "RequestEmployeeMove",
           "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
           "children": [
             {
@@ -276,28 +323,19 @@ ms.locfileid: "39494460"
             }
           ]
         }
-      ],
-      "sentimentAnalysis": {
-        "label": "neutral",
-        "score": 0.5
-      }
+      ]
     }
     ```
 
   這個語句會傳回複合實體陣列。 系統會為每個實體指定類型和值。 若要針對每個子實體獲取更高的精確度，請使用來自複合陣列項目的類型和值組合，來尋找實體陣列中的對應項目。  
 
-## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成果？
-此應用程式已識別出自然語言查詢意圖，並傳回所擷取的資料作為具名群組。 
-
-您的聊天機器人現在有足夠資訊可判斷主要動作和語句中的相關詳細資料。 
-
-## <a name="where-is-this-luis-data-used"></a>此 LUIS 資料用於何處？ 
-LUIS 在此要求的工作已完成。 呼叫應用程式 (例如 Chatbot) 可以採用 topScoringIntent 結果和來自實體的資料，來進行下一個步驟。 LUIS 不會為 Bot 或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的意圖為何。 
-
 ## <a name="clean-up-resources"></a>清除資源
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
+
+本教學課程建立了複合實體，以便封裝現有的實體。 這可讓用戶端應用程式在不同的資料類型中尋找一組相關資料，以便繼續交談。 此人力資源應用程式的用戶端應用程式可以詢問需要開始及結束搬遷的日期和時間。 也可以詢問搬遷的其他搬運事宜，例如實體電話。 
+
 > [!div class="nextstepaction"] 
 > [了解如何新增簡單實體和片語清單](luis-quickstart-primary-and-secondary-data.md)  

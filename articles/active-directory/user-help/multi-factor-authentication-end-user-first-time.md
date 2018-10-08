@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343724"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041950"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>對我的帳戶進行雙步驟驗證設定
 雙步驟驗證是額外的安全性步驟，可協助保護您的帳戶使其他人更難以破解。 如果您正在閱讀這篇文章，可能會收到一封來自您工作或學校的系統管理員關於 Multi-Factor Authentication 的電子郵件。 或者也許您嘗試登入並收到訊息，要求您設定其他安全性驗證。 如果是這個情況，**則您在完成自動註冊程序之前將無法登入**。
@@ -47,6 +47,9 @@ ms.locfileid: "39343724"
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>使用行動應用程式做為連絡方式
 使用此方法會要求您在手機或平板電腦上安裝驗證器應用程式。 本文中的步驟是根據 Microsoft Authenticator 應用程式，適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
+
+>[!NOTE]
+>您不必使用 Microsoft Authenticator 應用程式。 如果您已在使用另一個驗證器應用程式，則可繼續使用它。
 
 1. 從下拉式清單中選取**行動應用程式**。
 2. 選取 [接收驗證的通知] 或 [使用驗證碼]，然後選取 [設定]。

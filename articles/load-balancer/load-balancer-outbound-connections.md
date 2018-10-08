@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842250"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036985"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -69,7 +69,7 @@ Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 當多個�
 
 SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 它們是可能耗盡的有限資源。 請務必了解[取用](#pat)它們的方式。 若要了解如何針對此取用方式進行設計及視需要降低風險，請檢閱[管理 SNAT 耗盡](#snatexhaust)。
 
-當[多個 (公用) IP 位址與 Load Balancer Basic 關聯](load-balancer-multivip-overview.md)時，這些公用 IP 位址中的任一位址都是[輸出流程的候選項](#multivipsnat)，且其中一個位址會被選取。  
+當[多個公用 IP 位址與 Load Balancer Basic 建立關聯](load-balancer-multivip-overview.md)時，這些公用 IP 位址中的任一位址都是[輸出流程的候選項目](#multivipsnat)，且會隨機選取其中一個位址。  
 
 若要使用 Load Balancer Basic 來監視輸出連線的健康情況，您可以使用 [Load Balancer 的 Log Analytics](load-balancer-monitor-log.md) 和[警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)，來監視是否有 SNAT 連接埠耗盡訊息。
 

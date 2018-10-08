@@ -1,21 +1,21 @@
 ---
-title: 在 LUIS 應用程式中新增實體 | Microsoft Docs
-titleSuffix: Azure
+title: 在 LUIS 應用程式中新增實體
+titleSuffix: Azure Cognitive Services
 description: 在 Language Understanding (LUIS) 應用程式中新增實體 (您應用程式定義域中的關鍵資料)。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e82955da24e127e5536c2e40ad2cccf07c5fa173
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224121"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031997"
 ---
 # <a name="manage-entities"></a>管理實體
 識別出應用程式的[意圖](luis-concept-intent.md)之後，您需要使用[實體](luis-concept-entity-types.md)來[標示範例語句](luis-concept-utterance.md)。 實體是命令或問題的重要部分，對於您的用戶端應用程式執行其工作而言可能是不可或缺的。 
@@ -31,8 +31,6 @@ ms.locfileid: "39224121"
  
 2. 在 [實體] 頁面上，選取 [管理預先建置的實體]。
 
-    ![在 [實體] 頁面上新增預先建置的實體螢幕擷取畫面](./media/add-entities/manage-prebuilt-entities-button.png)
-
 3. 在 [新增或移除預先建置的實體] 對話方塊中，選取 [number] 和 [datetimeV2] 預先建置的實體。 然後選取 [完成]。
 
     ![[新增預先建置的實體] 對話方塊的螢幕擷取畫面](./media/add-entities/list-of-prebuilt-entities.png)
@@ -43,8 +41,6 @@ ms.locfileid: "39224121"
 簡單實體是描述單一概念的一般實體。 
 
 1. 在應用程式的 [建置] 區段中，接著按一下左面板中的 [實體]，然後選取 [建立新實體]。
-
-    ![已醒目提示 [建立新實體] 按鈕的 [實體] 頁面螢幕擷取畫面](./media/add-entities/create-new-entity-button.png)
 
 2. 在快顯對話方塊中，於 [實體名稱] 方塊中輸入 `Airline`、從 [實體類型] 清單中選取 [簡單]，然後選取 [完成]。
 
@@ -80,7 +76,7 @@ ms.locfileid: "39224121"
 
 3. 選取 [新增子系]，然後在 [第一個子系] 方塊中輸入 "Origin" (出發地)。 
 
-4. 選取 [新增子系]，然後在 [第二個子系] 方塊中輸入 "Destination" (目的地)。 選取 [完成]。
+4. 選取 [新增子系]，然後在 [第二個子系] 方塊中輸入 "Destination" (目的地)。 選取 [完成] 。
 5. 
     >[!NOTE]
     >若要刪除子系，請選取它旁邊的垃圾桶圖示。
@@ -111,7 +107,7 @@ ms.locfileid: "39224121"
 
 8. 在 [第三個子系] 中，從清單選取實體 **Location::Destination**。 
 
-9. 選取 [完成]。
+9. 選取 [完成] 。
 
     ![建立複合實體的對話方塊影像](./media/add-entities/ticketsorder-composite-entity.png)
 
@@ -171,7 +167,7 @@ ms.locfileid: "39224121"
 
 1. 在應用程式的 [建置] 區段中，接著按一下左面板中的 [實體]，然後選取 [建立新實體]。
 
-2. 在 [新增實體] 對話方塊中，於 [實體名稱] 方塊中輸入 `Drinks`，然後選取 [清單] 作為**實體類型**。 選取 [完成]。
+2. 在 [新增實體] 對話方塊中，於 [實體名稱] 方塊中輸入 `Drinks`，然後選取 [清單] 作為**實體類型**。 選取 [完成] 。
  
     ![建立 Drinks 清單實體的對話方塊影像](./media/add-entities/menu-list-dialog.png)
   

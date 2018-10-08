@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 28e6158a3dcd4cee98c380c53a1a345983bdf4f7
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1d42280935c406a7af0e632434749b2b082ea8b8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090814"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039662"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "39090814"
 
 如果您不熟悉自動佈建程序，請務必也要檢閱[自動佈建概念](concepts-auto-provisioning.md)。 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>準備開發環境 
@@ -68,7 +68,7 @@ ms.locfileid: "39090814"
 
 4. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的佈建服務。
 
-5. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 
+5. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
 
 6. 在 [新增註冊] 面板之下，輸入下列資訊：
     - 選取 [X.509] 作為身分識別證明「機制」。
@@ -79,7 +79,7 @@ ms.locfileid: "39090814"
         - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
     - 完成後，按一下 [儲存] 按鈕。 
 
-    [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png#lightbox)
+    [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
     
    註冊成功時，您的 X.509 註冊項目會在 [個別註冊] 索引標籤下的 [註冊識別碼] 資料行中顯示為 **iothubx509device1**。 
 
@@ -87,7 +87,7 @@ ms.locfileid: "39090814"
 
 1. 從您佈建服務的 [概觀] 刀鋒視窗中，記下 [識別碼範圍] 值。
 
-    ![從入口網站刀鋒視窗擷取 DPS 端點資訊](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
+    ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
 
 
 2. 輸入下列命令以建置並執行 X.509裝置佈建範例。 使用佈建服務的識別碼範圍取代 `<IDScope>` 值。 
@@ -102,7 +102,7 @@ ms.locfileid: "39090814"
 
 4. 確認裝置已佈建好。 模擬裝置成功佈建到與佈建服務連結的 IoT 中樞時，裝置識別碼會出現在中樞的 [IoT 裝置] 刀鋒視窗上。 
 
-    ![已向 IoT 中樞註冊裝置](./media/quick-create-simulated-device-x509-csharp/hub-registration.png) 
+    ![已向 IoT 中樞註冊裝置](./media/quick-create-simulated-device-x509-csharp/registration.png) 
 
     如果您在裝置的註冊項目中變更了*初始裝置對應項狀態* (變更自預設值)，它即可從中樞提取所需的對應項狀態並採取適當的動作。 如需詳細資訊，請參閱[了解和使用 Azure IoT 中樞的裝置對應項](../iot-hub/iot-hub-devguide-device-twins.md)
 

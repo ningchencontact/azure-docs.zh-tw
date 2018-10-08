@@ -1,22 +1,23 @@
 ---
-title: 使用 Azure Bot Service 建立 QnA Bot - Azure 認知服務 | Microsoft Docs
+title: QnA Bot 與 Azure Bot 服務 - QnA Maker
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: fc430bf3aa7cad279d7a93bb6892aa19abee3378
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 74c7bc5c601cd36a8dd2454506745406bc00dac0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109264"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031283"
 ---
-# <a name="create-a-qna-bot-with-azure-bot-service"></a>使用 Azure Bot Service 建立 QnA Bot
-本教學課程會逐步引導您在 Azure 入口網站上使用 Azure Bot Service 建置 QnA Bot。
+# <a name="create-a-qna-bot-with-azure-bot-service-v3"></a>使用 Azure Bot 服務 v3 建立 QnA Bot
+本教學課程會逐步引導您在 Azure 入口網站上使用 Azure Bot 服務 v3 建置 QnA Bot。
 
 ## <a name="prerequisite"></a>必要條件
 建立之前，請依照[建立知識庫](../How-To/create-knowledge-base.md)中的步驟建立含有問題和解答的 QnA Maker 服務。
@@ -32,16 +33,24 @@ Bot 會透過 QnAMakerDialog，從您建立的知識庫回應問題。
 
     ![Bot 服務選取](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
 
-3. 在 [Bot 服務] 刀鋒視窗中提供必要資訊，然後選取 [建立]。 這會使用 QnAMakerDialog 建立 Bot 服務，並將它部署到 Azure。
+3. 在 [Bot 服務] 刀鋒視窗中提供必要資訊：
 
-    - 將 [應用程式名稱] 設定為您的 Bot 名稱。 當您的 Bot 部署到雲端 (例如，mynotesbot.azurewebsites.net) 時，此名稱會當作子網域使用。
+    - 將 [應用程式名稱] 設定為您 Bot 的名稱。 當您的 Bot 部署到雲端 (例如，mynotesbot.azurewebsites.net) 時，此名稱會當作子網域使用。
     - 選取訂用帳戶、資源群組和 App Service 方案和位置。
-    - 選取 Bot 範本欄位的 [問答] (Node.js 或 C#) 範本。
-    - 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
 
-        ![Bot 服務選取](../media/qnamaker-tutorials-create-bot/bot-service-qna-template.PNG)
+4. 若要查看使用 SDK v4 建立 QnA Bot 的指示，請參閱 [QnA v4 Bot 範本](https://aka.ms/qna-bot-v4)。 若要使用 v3 範本，請選取 **SDK v3** 的 SDK 版本以及 **C#** 或 **Node.js** 的 SDK 語言。
 
-4. 確認已部署 Bot 服務。
+    ![bot sdk 設定](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+
+5. 選取 Bot 範本欄位的 [問答] 範本，然後選取 [選取] 以儲存範本設定。
+
+    ![Bot 服務選取](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+
+6. 檢閱您的設定，然後選取 [建立]。 這會使用 QnAMakerDialog 建立 Bot 服務，並將它部署到 Azure。
+
+    ![Bot 服務選取](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+
+7. 確認已部署 Bot 服務。
 
     - 選取 [通知] (位於 Azure 入口網站頂邊的鈴鐺圖示)。 通知會 [部署開始] 變更為 [部署成功]。
     - 在通知變更為 [部署成功] 之後，選取該通知上的 [移至資源]。

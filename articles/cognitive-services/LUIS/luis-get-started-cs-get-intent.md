@@ -1,24 +1,25 @@
 ---
-title: 使用 C# 來分析 Language Understanding (LUIS) 中的自然語言文字 - Azure 認知服務 | Microsoft Docs
+title: C# 快速入門 - 預測意圖 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的意圖。 使用 C#，以文字形式將使用者的意圖傳送至公用應用程式的 HTTP 預測端點。 在端點，LUIS 會套用公用應用程式的模型來分析自然語言文字的意義、判斷整體意圖，並擷取與應用程式主體網域相關的資料。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 676546a215bbb8964f1cb2d26ae0fb9fd2ed9289
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43750306"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035839"
 ---
-# <a name="quickstart-analyze-text-using-c"></a>快速入門：使用 C# 來分析文字
+# <a name="quickstart-get-intent-using-c"></a>快速入門：使用 C# 來取得意圖
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 <a name="create-luis-subscription-key"></a>
 
@@ -29,17 +30,17 @@ ms.locfileid: "43750306"
 * 公用應用程式識別碼：df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## <a name="get-luis-key"></a>取得 LUIS 金鑰
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>使用瀏覽器來分析文字
+## <a name="get-intent-with-browser"></a>使用瀏覽器取得意圖
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-c"></a>使用 C# 來分析文字 
+## <a name="get-intent-programmatically"></a>以程式設計方式取得意圖
 
 使用 C# 來查詢預測端點 GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) (英文)，以取得與您在上一節中瀏覽器視窗所見的相同結果。 
 
@@ -63,7 +64,7 @@ ms.locfileid: "43750306"
 
 ## <a name="luis-keys"></a>LUIS 金鑰
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>清除資源
 

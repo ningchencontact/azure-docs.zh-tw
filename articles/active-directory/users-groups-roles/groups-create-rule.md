@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9a2eb8ab4e3ee65e97de578c825bf106aee1b829
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480335"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040596"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>建立動態群組並檢查狀態
 
@@ -29,7 +29,7 @@ ms.locfileid: "39480335"
 
 ## <a name="to-create-a-group-membership-rule"></a>建立群組成員資格規則
 
-1. 使用具備全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
+1. 使用具備租用戶中「全域管理員」、「Intune 服務管理員」或「使用者帳戶管理員」身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
 2. 選取 [群組]。
 3. 選取 [所有群組]，然後選取 [新增群組]。
 

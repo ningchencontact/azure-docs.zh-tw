@@ -1,23 +1,24 @@
 ---
-title: 了解 LUIS 中的資料變更概念 - Azure | Microsoft Docs
+title: LUIS 中的資料變動概念 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: 了解如何在於 Language Understanding (LUIS) 中進行預測之前變更資料
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8421114bb5a7416ad2523fe9b0353f03f672619
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1aad540086764b1e2315d3b3e195c55ba5931e07
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223978"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036045"
 ---
-# <a name="data-alterations"></a>資料變更
-LUIS 提供可在預測之前或預測期間操作語句的方法。 
+# <a name="data-alterations"></a>資料變動
+LUIS 提供可在預測之前或預測期間操作語句的方法。 這些包括修正拼字，以及修正重新建置 datetimeV2 的時區問題。 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>校正語句中的拼字錯誤
 LUIS 使用 [Bing 拼字檢查 API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 來校正語句中的拼字錯誤。 LUIS 需要與該服務相關的金鑰。 請建立金鑰，然後在[端點](https://aka.ms/luis-endpoint-apis)新增該金鑰作為查詢字串參數。 
@@ -47,6 +48,9 @@ LUIS 使用 [Bing 拼字檢查 API V7](https://azure.microsoft.com/services/cogn
 }
 ```
  
+### <a name="whitelist-words"></a>將字組列入白名單
+LUIS 中使用的 Bing 拼字檢查 API 不支援要在拼字檢查變動期間忽略的字組白名單。 如果您需要將字組或縮寫列入白名單，請在將語句傳送至 LUIS 進行意圖預測之前，利用白名單處理用戶端應用程式中的語句。
+
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>變更預先建置 datetimeV2 實體的時區
 當 LUIS 應用程式使用預先建置的 datetimeV2 實體時，可以在預測回應中傳回日期時間值。 要求的時區會用來判斷要傳回的正確日期時間。 如果要求來自 Bot 或另一個集中式應用程式，請在其抵達 LUIS 之前，先更正 LUIS 使用的時區。 
 

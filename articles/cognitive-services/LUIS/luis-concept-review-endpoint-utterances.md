@@ -1,23 +1,24 @@
 ---
-title: 檢閱端點語句以在 Language Understanding (LUIS) 中使用主動式學習 | Microsoft Docs
-description: 使用名為 [檢閱端點語句] 的主動式學習功能，更快改善效能預測。
+title: 檢閱端點語句以在 Language Understanding (LUIS) 中使用主動式學習
+titleSuffix: Azure Cognitive Services
+description: 主動式學習是改善預測精確度且最簡單實作的三種策略之一。 使用主動式學習，您可檢閱端點語句中正確的意圖和實體。 LUIS 會選擇不確定的端點語句。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 78cc2a8a2b9295654d0c6264cbf4a4d634b16544
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222608"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038165"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>檢閱端點語句以啟用主動式學習
-主動式學習是改善預測精確度且最簡單實作的三種策略之一。 
+主動式學習是改善預測精確度且最簡單實作的三種策略之一。 使用主動式學習，您可檢閱端點語句中正確的意圖和實體。 LUIS 會選擇不確定的端點語句。
 
 ## <a name="what-is-active-learning"></a>何謂主動式學習
 主動式學習是一個兩步驟程序。 首先，LUIS 會選取它在需要驗證的應用程式端點收到的語句。 第二個步驟是由應用程式擁有者或共同作業者來驗證可供[檢閱](luis-how-to-review-endoint-utt.md)的所選語句，包括正確的意圖和意圖內的任何實體。 在檢閱語句之後，訓練並重新發佈應用程式。 

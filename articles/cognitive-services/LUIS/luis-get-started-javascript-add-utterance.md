@@ -1,35 +1,36 @@
 ---
-title: 了解如何使用 JavaScript 在 LUIS 應用程式中新增語句的快速入門  - Azure 認知服務 | Microsoft Docs
+title: JavaScript 快速入門 - 變更模型及訓練 LUIS 應用程式
+titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您會了解如何使用 JavaScript 來呼叫 LUIS 應用程式。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ffc19d12c1d3fbb24c514ac87f298d1a52d23eb8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 38e25b0634b53f4fcc0507091e78ab49b29c8d38
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43750339"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033391"
 ---
 # <a name="quickstart-change-model-using-javascript"></a>快速入門：使用 JavaScript 來變更模型
 
-[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
-[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [Visual Studio Code](https://code.visualstudio.com/)。
 
-[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>範例語句 JSON 檔案
 
-[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 
 ## <a name="create-quickstart-code"></a>建立快速入門程式碼

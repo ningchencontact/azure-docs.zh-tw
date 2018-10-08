@@ -1,22 +1,23 @@
 ---
-title: 批次測試 LUIS 應用程式 - Azure | Microsoft Docs
-description: 使用 Language Understanding (LUIS) 批次測試以找出具有錯誤意圖和實體的語句。
+title: 使用 1000 個範例語句的批次測試
+titleSuffix: Azure Cognitive Services
+description: 使用 Language Understanding (LUIS) 批次測試集，找出具有錯誤意圖和實體的語句。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888621"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032116"
 ---
-# <a name="batch-testing"></a>批次測試
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>使用一組範例語句的批次測試
  批次測試是針對您目前已定型模型的完整測試，以測量其於 LUIS 中的效能。 
 
 <a name="batch-testing"></a>
@@ -27,8 +28,6 @@ ms.locfileid: "42888621"
     ![批次測試連結](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. 選取 [匯入資料集]。 [匯入新資料集] 對話方塊隨即出現。 選取 [選擇檔案]，並找出具備正確 [JSON 格式](luis-concept-batch-test.md#batch-file-format)且包含*不超過 1,000 個*要測試語句的 JSON 檔案。
-
-    ![匯入資料集檔案](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     若有匯入錯誤，系統會在瀏覽器頂端的紅色通知列中回報。 當匯入發生錯誤時，將不會建立任何資料集。 如需詳細資訊，請參閱[常見錯誤](luis-concept-batch-test.md#common-errors-importing-a-batch)。
 

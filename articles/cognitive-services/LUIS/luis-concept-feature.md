@@ -1,20 +1,21 @@
 ---
-title: 理解 LUIS 應用程式在 Azure 中的特性 | Microsoft Docs
-description: 了解有助於改善 LUIS 應用程式效能的特性。 這些特性包括片語清單和用於辨識規則運算式的模式。
+title: Azure 認知服務中的 LUIS 應用程式特性
+titleSuffix: Azure Cognitive Services
+description: 將特性新增至語言模型，以針對如何辨識您想要標示或分類的輸入，提供相關提示。 特性可協助 LUIS 辨識意圖和實體。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8d3f006f27d1d728f89458deba27e1c1a63b6de5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 015679b6020e9d2a4d702f9d6e723ecd9499d8dc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224923"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034462"
 ---
 # <a name="phrase-list-features-in-luis"></a>LUIS 中的片語清單功能
 
@@ -34,7 +35,7 @@ ms.locfileid: "39224923"
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 ## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>片語清單有助於識別簡單的可交換實體
-可交換的片語清單是調整 LUIS 應用程式效能的好方法。 如果您的應用程式無法將語句預測為正確的意圖，或辨識實體，請思考語句是否包含不尋常的字組，或意義可能會模稜兩可的字組。 這些文字是要包含在片語清單中的理想候選項目。
+可交換的片語清單是調整 LUIS 應用程式效能的好方法。 如果您的應用程式無法將語句預測為正確的意圖，或辨識實體，請思考語句是否包含不尋常的字組，或意義可能會模稜兩可的字組。 這些字組是要包含在片語清單中的理想候選項目。
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>片語清單有助於以更加理解的內容來識別意圖
 片語清單不會指示 LUIS 執行嚴格的比對，或一律標示片語清單中完全相同的所有字詞。 這只是一個提示。 例如，您可能有一個指出 "Patti" 和 "Selma" 都是名稱的片語清單，但 LUIS 仍可使用內容資訊來將它們認定為在 "Make a reservation for 2 at Patti's Diner for dinner" (在 Patti's Diner 預訂兩人份的晚餐) 和 "Find me driving directions to Selma, Georgia" (為我指引到 Selma, Georgia 的行車路線) 中有不同的意義。 

@@ -1,21 +1,21 @@
 ---
-title: 從 v1 到 v2 的 API 移轉指南 | Microsoft Docs
-titleSuffix: Azure
+title: 從 v1 到 v2 的 API 移轉指南
+titleSuffix: Azure Cognitive Services
 description: 了解如何移轉至最新的 API 設定。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e7460a0eaf51e839accf08b6f8b07a112033af17
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b936b42671c15a77a901f321ed3c51f1ba3639cd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43130480"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036587"
 ---
 # <a name="api-v2-migration-guide"></a>API v2 移轉指南
 第 1 版的[端點](https://aka.ms/v1-endpoint-api-docs)和[編寫](https://aka.ms/v1-authoring-api-docs) API 將被取代。 使用本指南可了解如何移轉到第 2 版的[端點](https://aka.ms/luis-endpoint-apis)和[編寫](https://aka.ms/luis-authoring-apis) API。 

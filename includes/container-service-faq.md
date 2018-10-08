@@ -32,13 +32,13 @@ Azure Container Service 是具有 SLA 保證的 Azure 服務，其功能可在 A
 
 您可以在作業系統上使用標準工具來建立 SSH RSA 公用和私用金鑰組，以針對叢集的 Linux 虛擬機器進行驗證。 如需相關步驟，請參閱 [OS X 及 Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) 或 [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) 指引。 
 
-如果您使用 [Azure CLI 2.0 命令](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)部署容器服務叢集，系統會自動為叢集產生 SSH 金鑰。
+如果您使用 [Azure CLI 命令](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)部署容器服務叢集，系統會自動為叢集產生 SSH 金鑰。
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>如何為 Kubernetes 叢集建立服務主體？
 
 另外需要 Azure Active Directory 服務主體識別碼和密碼，才能在 Azure Container Service 中建立 Kubernetes 叢集。 如需詳細資訊，請參閱[關於 Kubernetes 叢集的服務主體](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md)。
 
-如果您使用 [Azure CLI 2.0 命令](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)部署 Kubernetes 叢集，系統會自動為叢集產生服務主體認證。
+如果您使用 [Azure CLI 命令](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)部署 Kubernetes 叢集，系統會自動為叢集產生服務主體認證。
 
 ### <a name="how-large-a-cluster-can-i-create"></a>可以建立多大的叢集？
 您可以建立含有 1、3 或 5 個主要節點的叢集。 您最多可以選擇 100 個代理程式節點。
@@ -105,4 +105,4 @@ Windows 上有一些其修正仍在主動地慢慢淘汰的已知 DNS 問題。�
 ## <a name="next-steps"></a>後續步驟
 
 * [深入了解](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) Azure Container Service。
-* 使用[入口網站](../articles/container-service/dcos-swarm/container-service-deployment.md)或 [Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) 部署容器服務叢集。
+* 使用[入口網站](../articles/container-service/dcos-swarm/container-service-deployment.md)或 [Azure CLI ](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) 部署容器服務叢集。

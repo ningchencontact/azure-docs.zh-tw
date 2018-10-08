@@ -1,24 +1,25 @@
 ---
-title: 使用 Node.js 來分析 Language Understanding (LUIS) 中的自然語言文字 - 認知服務 - Azure 認知服務 | Microsoft Docs
+title: Node.js 快速入門 - 預測意圖 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的意圖。 使用 Node.js，以文字形式將使用者的意圖傳送至公用應用程式的 HTTP 預測端點。 在端點，LUIS 會套用公用應用程式的模型來分析自然語言文字的意義、判斷整體意圖，並擷取與應用程式主體網域相關的資料。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d7067041ae8e413675de3c95ca4ba0c1b987f47a
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43750312"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038913"
 ---
-# <a name="quickstart-analyze-text-using-nodejs"></a>快速入門：使用 Node.js 來分析文字
+# <a name="quickstart-get-intent-using-nodejs"></a>快速入門：使用 Node.js 來取得意圖
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 <a name="create-luis-subscription-key"></a>
 
@@ -34,13 +35,13 @@ ms.locfileid: "43750312"
 
 ## <a name="get-luis-key"></a>取得 LUIS 金鑰
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>使用瀏覽器來分析文字
+## <a name="get-intent-with-browser"></a>使用瀏覽器取得意圖
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-nodejs"></a>使用 Node.js 來分析文字
+## <a name="get-intent-programmatically"></a>以程式設計方式取得意圖
 
 您可以使用 Node.js 來存取您在上一個步驟的瀏覽器視窗中看到的相同結果。
 
@@ -63,7 +64,7 @@ ms.locfileid: "43750312"
 
 ## <a name="luis-keys"></a>LUIS 金鑰
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>清除資源
 

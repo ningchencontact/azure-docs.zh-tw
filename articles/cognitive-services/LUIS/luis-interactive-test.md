@@ -1,24 +1,25 @@
 ---
-title: 定型並測試您的 LUIS 應用程式 - Azure | Microsoft Docs
+title: 在 LUIS 入口網站中測試您的 LUIS 應用程式
+titleSuffix: Azure Cognitive Services
 description: 使用 Language Understanding (LUIS) 來持續調整您的應用程式，以改善應用程式及提升其語言理解能力。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 925b96b61de876d40105c89556fd6dcb600d1b1a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6bb03975e36e93c2496eb4c6013be21ebc891ed1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223645"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039696"
 ---
 # <a name="test-your-luis-app"></a>測試 LUIS 應用程式
 <a name="train-your-app"></a>
-[定型](luis-how-to-train.md)和[測試](luis-concept-test.md)應用程式是一種反覆程序。 在您定型 LUIS 應用程式之後，請使用範例語句來測試它，查看它是否能正確地辨識意圖和實體。 如果為否，請更新 LUIS 應用程式，然後重新進行定型和測試。 
+[測試](luis-concept-test.md)應用程式是一種反覆程序。 在您定型 LUIS 應用程式之後，請使用範例語句來測試它，查看它是否能正確地辨識意圖和實體。 如果為否，請更新 LUIS 應用程式，然後重新進行定型和測試。 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>

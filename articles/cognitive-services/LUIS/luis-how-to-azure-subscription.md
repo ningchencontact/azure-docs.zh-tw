@@ -1,20 +1,21 @@
 ---
-title: 管理 Azure 端點訂用帳戶 | Microsoft Docs
+title: LUIS 中的端點訂用帳戶管理
+titleSuffix: Azure Cognitive Services
 description: 在本文中，您會為 LUIS 帳戶建立計量端點金鑰，以遵循付款方案對您的端點提供不受限的流量。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223274"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040375"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>管理 Azure 端點訂用帳戶金鑰
 
@@ -26,7 +27,7 @@ ms.locfileid: "39223274"
 <a name="create-luis-service"></a>
 ## <a name="create-luis-endpoint-key"></a>建立 LUIS 端點金鑰
 
-1. 登入 **[Microsoft Azure](https://ms.portal.azure.com/)** 
+1. 登入 **[Microsoft Azure](https://ms.portal.azure.com/)**。 
 2. 按一下左上方面板中的綠色 **+** 號並且在市集中搜尋 "LUIS"，然後按一下 [Language Understandin] 並遵循**建立體驗**來建立 LUIS 訂用帳戶。 
 
     ![Azure 搜尋服務](./media/luis-azure-subscription/azure-search.png) 
@@ -40,8 +41,7 @@ ms.locfileid: "39223274"
     ![Azure 金鑰](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * 登入您地區的 [LUIS](luis-reference-regions.md) 網站並[新增 LUIS 端點金鑰](luis-how-to-manage-keys.md#assign-endpoint-key)。 
-    > * 您必須記住建立的 Azure 服務名稱，以便在區域的 [LUIS](luis-reference-regions.md) 發佈頁面上加以選取。  
+    > 登入您區域的 [LUIS](luis-reference-regions.md) 網站並[指派新的 LUIS 端點金鑰](luis-how-to-manage-keys.md#assign-endpoint-key)。 您需要步驟 3 的 LUIS 訂用帳戶名稱。
 
 ## <a name="change-luis-pricing-tier"></a>變更 LUIS 定價層
 
