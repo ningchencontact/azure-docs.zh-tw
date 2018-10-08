@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e325335d43ef31c44ac812aca66309132f5372a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951605"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409995"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure 監視器建立、檢視及管理計量警示
+# <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>使用 Azure 監視器建立、檢視及管理傳統計量警示
 
 想在其中一個計量超過閾值時收到通知，可以利用 Azure 監視器中的傳統計量警示。 傳統計量警示是較舊的功能，允許只針對無維度計量發出警示。 現有的較新功能稱為計量警示，和傳統計量警示相比，功能更強。 您可以在[計量警示概觀](alert-metric-overview.md)深入了解新的計量警示功能。 在此文章中，我們將會說明如何透過 Azure 入口網站、Azure CLI 與 Powershell 建立、檢視及管理傳統計量警示規則。
 
-## <a name="create-a-classic-metric-alert-rule-using-azure-portal"></a>使用 Azure 入口網站建立傳統計量警示規則
+## <a name="with-azure-portal"></a>使用 Azure 入口網站
 
 1. 在[入口網站](https://portal.azure.com/)中，找出您想要監視的資源，然後選取它。
 
@@ -46,15 +46,13 @@ ms.locfileid: "46951605"
 
 在幾分鐘之內，警示會開始作用，且先前所述觸發。
 
-## <a name="manage-your-classic-metric-alert-rules-using-azure-portal"></a>使用 Azure 入口網站管理傳統計量警示規則
-
 建立警示之後，您可以選取此警示，然後進行下列其中一個工作：
 
 * 檢視圖表，其中顯示計量閾值與前一天的實際值。
 * 編輯或刪除警示。
 * 如果您想要暫時停止或恢復接收警示的通知，可以**停用**或**啟用**警示。
 
-## <a name="creating-and-managing-classic-metric-alert-rule-using-azure-cli"></a>使用 Azure CLI 建立及管理傳統計量警示規則
+## <a name="with-azure-cli"></a>透過 Azure CLI
 
 先前幾節說明如何使用 Azure 入口網站建立、檢視及管理計量警示規則。 此節說明如何使用跨平台 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) 執行相同的作業。 開始使用 Azure CLI 最快的方式就是透過 [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest)。
 
@@ -86,7 +84,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-### <a name="create-view-and-manage-classic-metric-alerts-using-powershell"></a>使用 PowerShell 建立、檢視及管理傳統計量警示
+## <a name="with-powershell"></a>透過 PowerShell
 
 此節示範如何使用 PowerShell 命令建立、檢視及管理傳統計量警示。文章中的範例說明針對傳統計量警示使用 Azure 監視器 Cmdlet 的方式。
 

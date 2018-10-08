@@ -1,21 +1,22 @@
 ---
-title: 從 Azure 上的自訂語音服務移轉端點的定價層 | Microsoft Docs
-description: 了解如何將「認知服務」中「自訂語音服務」端點的部署從 S0 和 S1 層移轉成 S2 層。
+title: 遷移端點的定價層 - 自訂語音服務
+titlesuffix: Azure Cognitive Services
+description: 了解如何將「自訂語音服務」端點的部署從 S0 和 S1 層移轉成 S2 層。
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 44411e0c92f4e24e274761821dd99efbe60c5f5d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 560aa0a7b9748f75cdde99691db7f33e2fc10221
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964968"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224846"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>將部署移轉成新的定價模式
 從 2017 年 7 月起，「自訂語音服務」提供[新的定價模式](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/)。 新模式「更容易了解」、「成本計算更簡單」，且在規模調整上「更具有彈性」。 針對規模調整，Microsoft 導入了縮放單位的概念。 每個縮放單位可以處理五個並行要求。 在舊模式中，並行要求的規模是針對 S0 層設定為 5 個並行要求，針對 S1 層設定為 12 個並行要求。 我們已開放這些限制，以便在您的使用案例需求上，提供更大的彈性。

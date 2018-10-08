@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1b63a75a2505ecbd82896932018ef4f0936b9b37
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970289"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182887"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本設定檔
 
@@ -67,7 +67,7 @@ Azure Stack 不會使用全域 Azure 中所找到的最新版 API。 當您在�
 
 API 設定檔可與使用 Azure Resource Manager 的工具搭配運作，例如 PowerShell、Azure CLI、SDK 所提供的程式碼，以及 Microsoft Visual Studio。 工具和 SDK 可使用設定檔來讀取建置應用程式時所納入的模組和程式庫版本。
 
-例如，如果使用 PowerShell 以支援 api-version 2016-03-30 的 **Microsoft.Storage** 資源提供者建立儲存體帳戶，並使用 api-version 為 2015-12-01 的 Microsoft.Compute 資源提供者建立 VM，您就必須查看哪個 PowerShell 模組支援使用 2016-03-30 來進行儲存，以及哪個模組支援使用 2015-02-01 來進行計算，然後安裝這兩個模組。 但您也可以改為使用設定檔。 使用 Cmdlet **Install-Profile *profilename**\*，然後 PowerShell 就會載入正確的模組版本。
+例如，如果使用 PowerShell 以支援 api-version 2016-03-30 的 **Microsoft.Storage** 資源提供者建立儲存體帳戶，並使用 api-version 為 2015-12-01 的 Microsoft.Compute 資源提供者建立 VM，您就必須查看哪個 PowerShell 模組支援使用 2016-03-30 來進行儲存，以及哪個模組支援使用 2015-02-01 來進行計算，然後安裝這兩個模組。 但您也可以改為使用設定檔。 使用 Cmdlet **Install-Profile \*profilename**\*，然後 PowerShell 就會載入正確的模組版本。
 
 同樣地，在使用 Python SDK 來建置以 Python 為基礎的應用程式時，您也可以指定設定檔。 SDK 會為指令碼所指定的資源提供者載入正確模組。
 
@@ -77,6 +77,7 @@ API 設定檔可與使用 Azure Resource Manager 的工具搭配運作，例如 
 
 您可以找到程式碼範例，來協助您使用設定檔整合解決方案與您在 Azure Stack 慣用的語言。 目前，您可以找到下列語言的指引和範例：
 
+- **.NET** 您可以使用 .NET API 設定檔，取得資源提供者套件中每個資源類型的最新、最穩定版本。 如需詳細資訊，請參閱[在 Azure Stack 中搭配使用 API 版本設定檔與 .NET](azure-stack-version-profiles-net.md)。
 - **PowerShell**  
 您可以使用可透過「PowerShell 資源庫」取得的 **AzureRM.Bootstrapper** 模組，來取得使用 API 版本設定檔所需的 PowerShell Cmdlet。 如需資訊，請參閱[使用適用於 PowerShell 的 API 版本設定檔](azure-stack-version-profiles-powershell.md)。
 - **Azure CLI**  
@@ -86,7 +87,7 @@ API 設定檔可與使用 Azure Resource Manager 的工具搭配運作，例如 
 - **Ruby**  
 適用於 Azure Stack Resource Manager 的 Ruby SDK 會提供工具，以協助您建置及管理您的基礎結構。 SDK 中的資源提供者包括運算、虛擬網路和使用 Ruby 語言的儲存體。 如需資訊，請參閱[使用 API 版本設定檔與 Ruby](azure-stack-version-profiles-ruby.md)
 - **Python**  
-- Python SDK 支援 API 版本設定檔以不同雲端平台 (例如，Azure Stack 和全域 Azure) 作為目標。 您可以使用 API 設定檔來建立混合式雲端的解決方案。 如需資訊，請參閱[使用 API 版本設定檔與 Python](azure-stack-version-profiles-python.md)
+Python SDK 支援 API 版本設定檔以不同雲端平台 (例如，Azure Stack 和全域 Azure) 作為目標。 您可以使用 API 設定檔來建立混合式雲端的解決方案。 如需資訊，請參閱[使用 API 版本設定檔與 Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: f57dc1707a9e25e4ea308142e804cdbc80d4308a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984937"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227417"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>將「使用 Microsoft 登入」新增至 ASP.NET Core Web 應用程式
 
@@ -39,17 +39,17 @@ ms.locfileid: "46984937"
 > #### <a name="step-1-register-your-application"></a>步驟 1：註冊您的應用程式
 > 
 > 1. 移至 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/portal/register-app)。
-> 1. 請為應用程式輸入名稱，確定已取消選取 [引導式設定] 選項，然後按一下 [建立]。
+> 1. 輸入應用程式的名稱，確定未選取 [引導式設定] 選項，然後按一下 [建立]。
 > 1. 按一下 `Add Platform`，然後選取 `Web`。
-> 1. 確定 [允許隱含流程] 保持勾選。
+> 1. 請確定已*選取* [允許隱含流程]。
 > 1. 在 [重新導向 URL] 中，輸入 `https://localhost:3110/`。
-> 1. 向下捲動到頁面底部，然後按一下 [儲存]。
+> 1. 向下捲動至頁面底部，然後按一下 [儲存]。
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>步驟 1：在 Azure 入口網站中設定您的應用程式
-> 若要讓此快速入門中的程式碼範例正常運作，您需要將回覆 URL 新增為 `http://localhost:3110/`。
+> 若要讓本快速入門中的程式碼範例能正常運作，您需要新增 `http://localhost:3110/` 作為回覆 URL。
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [為我進行這項變更]()
+> > [為我進行此變更]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![已設定](media/quickstart-v2-aspnet-core-webapp/green-check.png) 您的應用程式已設定了這個屬性
@@ -72,7 +72,7 @@ ms.locfileid: "46984937"
 
 ## <a name="more-information"></a>詳細資訊
 
-本節概述登入使用者所需的程式碼。 這有助於了解程式碼的運作方式、主要引數，以及如何將登入新增至現有的 ASP.NET Core 應用程式。
+本節會概述登入使用者所需的程式碼。 這有助於了解程式碼的運作方式、主要引數，以及如何將登入新增至現有的 ASP.NET Core 應用程式。
 
 ### <a name="startup-class"></a>啟始類別
 

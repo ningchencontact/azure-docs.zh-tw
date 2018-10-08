@@ -7,17 +7,17 @@ manager: carmonm
 editor: tysonn
 ms.service: monitoring
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: d71dc77eac89fef3ae7f8aeb69a05197456ac865
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962925"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406035"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>監視 Azure 監視器所收集的資料
 [Azure 監視器](../azure-monitor/overview.md)是一項服務，可協助您監視應用程式及其所依賴的資源。 此功能的核心是儲存來自受監視資源的遙測和其他資料。 本文提供如何透過 Azure 監視器來儲存和使用此資料的完整說明。
@@ -155,7 +155,7 @@ Log Analytics 可以在 Azure 中及內部部署資源的各種來源收集資�
 您可以使用記錄來執行的工作包括下列各項：
 
 - 在 Azure 入口網站中，使用 [Log Analytics 頁面](../log-analytics/query-language/get-started-analytics-portal.md)來撰寫分析記錄資料的查詢。  將轉譯為表格或圖表的結果釘選到 [Azure 儀表板](../azure-portal/azure-portal-dashboards.md)。
-- 設定[記錄警示規則](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)，在查詢結果符合特定結果時，傳送通知或採取[自動化動作](../monitoring-and-diagnostics/monitoring-action-groups.md)。
+- 設定[記錄警示規則](../monitoring-and-diagnostics/alert-log.md)，在查詢結果符合特定結果時，傳送通知或採取[自動化動作](../monitoring-and-diagnostics/monitoring-action-groups.md)。
 - 使用 [Logic Apps]()，根據 Log Analytics 中的資料建置工作流程。
 - 將查詢的結果匯出到 [Power BI](../log-analytics/log-analytics-powerbi.md) 以使用不同的視覺效果，並與 Azure 外部的使用者共用。
 - 使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) 或 [REST API](https://dev.loganalytics.io/)，從命令列或自訂應用程式中存取計量值。
@@ -175,7 +175,7 @@ Log Analytics 可以在 Azure 中及內部部署資源的各種來源收集資�
 ### <a name="logs-to-metrics"></a>計量至記錄
 如上所述，計量比記錄更有回應，因此您能以較低成本建立延遲較低的警示。 Log Analytics 會收集大量數值資料，這些資料適合用於計量，但不會儲存於 Azure 計量存放區。  常見範例是從代理程式和管理解決方案收集的效能資料。 您可以將這其中一些值複製到計量存放區，以便用於警示以及透過計量瀏覽器進行分析。
 
-在[適用於記錄的更快速計量警示現在處於有限的公開預覽狀態](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/)可取得這項功能的說明。 在[新計量警示支援的計量和建立方法](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)可取得值清單支援。
+這項功能的說明位於[為 Azure 監視器中的記錄建立計量警示](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)。 值的支援清單位於[支援 Azure 監視器的計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)。
 
 ## <a name="stream-data-to-external-systems"></a>將資料串流處理到外部系統
 除了使用 Azure 中的工具來分析監視資料，您可能也有將監視資料轉送到外部工具的需求，例如安全性資訊和事件管理 (SIEM) 產品。 此轉送通常是透過 [Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs/)，直接從受監視的資源來完成。 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b1f1c85cea9aa7c48478ef6ee1c9a4609a3df8e0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045121"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222162"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>教學課程：設定適用於受控網域的混合式 Azure Active Directory Join
 
@@ -160,7 +160,7 @@ ms.locfileid: "43045121"
 
 - `https://device.login.microsoftonline.com`
 
-- `https://autologon.microsoftazuread-sso.com`。
+- `https://autologon.microsoftazuread-sso.com` 。
 
 此外，您必須在使用者的近端內部網路區域中啟用 [允許透過指令碼更新狀態列]。
 

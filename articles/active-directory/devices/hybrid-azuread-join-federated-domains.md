@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047337"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391795"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>教學課程：設定適用於同盟網域的混合式 Azure Active Directory Join
 
@@ -122,7 +122,7 @@ ms.locfileid: "43047337"
 
     a. 選取樹系。
 
-    b. 選取驗證服務。
+    b. 選取驗證服務。 除非貴組織有獨佔 Windows 10 用戶端，否則您必須選取 AD FS 伺服器。
 
     c. 按一下 [新增]，並輸入企業系統管理員認證。
 

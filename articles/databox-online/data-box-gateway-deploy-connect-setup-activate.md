@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: e2fe7c375525389da865a3c85b52fad4dd11e333
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77ccc6ebbb48ab3d7ce22d6c593bd62aa8dec3ac
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957467"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419470"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>教學課程：連線、設定、啟用 Azure 資料箱閘道 (預覽) 
 
@@ -122,7 +122,7 @@ ms.locfileid: "46957467"
        
          ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
     
-    3. 這會重新啟動裝置。 您可能需要等待 2 至 3 分鐘，裝置才會成功啟動。 裝置重新啟動之後，您將會看到登入頁面。
+    3. 您可能需要等待一分鐘，裝置才會成功啟動。 啟用之後，此頁面會更新，並指出裝置已成功啟動。
 
 
 ## <a name="next-steps"></a>後續步驟

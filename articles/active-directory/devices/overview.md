@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 456b28c50bd5e7d69c3f16dd3e76a9ced20112f9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3baa48113022bed1bdc7caa5854a231334c975af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048857"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224625"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的裝置管理？
 
@@ -121,7 +121,7 @@ Azure AD 加入裝置的目標是簡化：
 
 通常，具有內部部署使用量的組織依賴映像處理方法來佈建裝置，且通常使用 **System Center Configuration Manager (SCCM)** 或**群組原則 (GP)** 加以管理。
 
-如果您的環境具有內部部署 AD 使用量，而且您也想要從 Azure Active Directory 所提供的功能受益，您可以實作混合式 Azure AD 已加入裝置。 這些裝置既可以加入您的內部部署 Active Directory，也可以加入 Azure Active Directory。
+如果您的環境具有內部部署 AD 使用量，而且您也想要從 Azure Active Directory 所提供的功能受益，您可以實作混合式 Azure AD 已加入裝置。 這些裝置已加入內部部署 Active Directory 並已向 Azure Active Directory 註冊。
 
 ![Azure AD 註冊裝置](./media/overview/01.png)
 

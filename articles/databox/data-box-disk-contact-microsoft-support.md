@@ -5,19 +5,19 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 09/27/2018
 ms.author: alkohli;
 ms.component: ''
-ms.openlocfilehash: afb7de78a30367b0cc12e621019f1e8be975e63f
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9bab8a55301a5eb40b38bec984205fff2a52559e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191517"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422808"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>開啟 Azure 資料箱的支援票證 
 
-如果您在 Azure 資料箱服務上遇到任何問題，便可以建立技術支援服務要求。 本文將引導您：
+本文適用於 Azure 資料箱和 Azure 資料箱磁碟，這兩者都是由 Azure 資料箱服務所管理。 如果您在 Azure 資料箱服務上遇到任何問題，便可以建立技術支援服務要求。 本文將引導您：
 
 * 如何建立支援要求。
 * 如何在入口網站上管理支援要求的生命週期。

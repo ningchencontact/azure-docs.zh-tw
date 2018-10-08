@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841500"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452610"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
@@ -30,17 +30,14 @@ ms.locfileid: "43841500"
 
 > [!div class="checklist"]
 > * 將資料複製到資料箱磁碟
-> * 確認資料完整性
+> * 驗證資料
 
 ## <a name="prerequisites"></a>必要條件
 
 在您開始前，請確定：
 - 您已完成[教學課程：安裝及設定您的 Azure 資料箱磁碟](data-box-disk-deploy-set-up.md)。
-- 您的磁碟已打開包裝並且開啟。
-- 您具有主機電腦，以將資料複製到磁碟。 您的主機電腦必須符合下列條件：
-    - 執行[支援的作業系統](data-box-disk-system-requirements.md)。
-    - 已[安裝 Windows PowerShell 4](https://www.microsoft.com/download/details.aspx?id=40855)。
-    - 已[安裝 .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)。
+- 您的磁碟已解除鎖定，並連線到用戶端電腦。
+- 您用來將資料複製到磁碟的用戶端電腦必須執行[支援的作業系統](data-box-disk-system-requirements.md)。
 
 
 ## <a name="copy-data-to-disks"></a>將資料複製到磁碟
@@ -59,6 +56,7 @@ ms.locfileid: "43841500"
 
     針對容器和 Blob 名稱請遵循 Azure 命名需求。
 
+    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>容器和 Blob 名稱的 Azure 命名慣例
     |實體   |慣例  |
     |---------|---------|
     |容器會為區塊 Blob 和分頁 Blob 命名     |必須以字母或數字開頭，且只能包含小寫字母、數字和連字號 (-)。 每個連字號 (-) 字元的前面和後面必須緊接著字母或數字。 名稱中不允許連續的連字號。 <br>必須是有效的 DNS 名稱，也就是 3 到 63 個字元的長度。          |
@@ -165,17 +163,21 @@ ms.locfileid: "43841500"
 > -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱磁碟限制](data-box-disk-limits.md)中所述的大小限制。 
 > - 如果資料 (由資料箱磁碟上傳) 同時由資料箱磁碟以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
 
-## <a name="verify-data-integrity"></a>確認資料完整性
+## <a name="verify-data"></a>驗證資料 
 
-若要確認資料完整性，請執行下列步驟。
+若要確認資料，請執行下列步驟。
 
-1. 執行 `AzureExpressDiskService.ps1` 以進行總和檢查碼驗證。 在 [檔案總管] 中，移至磁碟機的 AzureImportExport 資料夾。 以滑鼠右鍵按一下並選取 [使用 PowerShell 執行]。 
+1. 在磁碟機的 AzureImportExport 資料夾中執行 `DataBoxDiskValidation.cmd` 以驗證總和檢查碼。 
+    
+    ![資料箱磁碟驗證工具的輸出](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-    ![執行總和檢查碼](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
-
-2. 視您的資料大小而定，此步驟可能需要一段時間。 指令碼完成時，會顯示資料完整性檢查程序摘要以及完成程序的時間。 您可以按下 **Enter** 鍵結束命令視窗。
+2. 請選擇適當的選項。 **我們建議您選取選項 2，一律驗證檔案並產生總和檢查碼**。 視您的資料大小而定，此步驟可能需要一段時間。 指令碼完成之後，結束命令視窗。 如果在驗證和產生總和檢查碼期間發生任何錯誤，您會收到通知及錯誤記錄檔的連結。
 
     ![總和檢查碼輸出](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    > [!TIP]
+    > - 請在兩次的執行之間重設工具。
+    > - 只在處理包含小檔案 (~KB) 的大型資料集時，使用選項 1 來驗證檔案。 在這些情況下，產生總和檢查碼可能需要很長的時間，而且效能可能會變得非常慢。
 
 3. 如果使用了多個磁碟，請對每個磁碟執行命令。
 

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989850"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419537"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>教學課程：在 VMware 中佈建 Azure 資料箱閘道 (預覽)
 
@@ -34,7 +34,7 @@ ms.locfileid: "46989850"
 
 > [!div class="checklist"]
 > * 確定主機符合最低裝置需求
-> * 在 Hypervisor 中佈建虛擬裝置
+> * 在 VMware 中佈建虛擬裝置
 > * 啟動虛擬裝置，並取得 IP 位址
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -198,7 +198,7 @@ ms.locfileid: "46989850"
 
 6. 步驟 5 至 7 僅適用於在非 DHCP 環境中開機的情況。 如果您是在 DHCP 環境中，請略過這些步驟並前往步驟 8。 如果您是在非 DHCP 環境中將裝置開機，則會看到效果通知：**使用 Set-HcsIPAddress Cmdlet 以設定網路**。 
    
-7. 若要設定網路，請在命令提示字元中使用 `Get-HcsIpAddress` 命令來列出虛擬裝置上已啟用的網路介面。 如果您的裝置有已啟用的單一網路介面，系統指派給該介面的預設名稱會是 `DATA1`。
+7. 若要設定網路，請在命令提示字元中使用 `Get-HcsIpAddress` 命令來列出虛擬裝置上已啟用的網路介面。 如果您的裝置有已啟用的單一網路介面，系統指派給該介面的預設名稱會是 `Ethernet`。
 
 8. 使用 `Set-HcsIpAddress` Cmdlet 來設定網路。 範例如下所示：
 
@@ -208,7 +208,7 @@ ms.locfileid: "46989850"
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。 您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。 然後您就可以將裝置重新啟動，並連線到該裝置。 請參閱 [步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)中的最低組態需求。
+如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。 您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。 然後您就可以將裝置重新啟動，並連線到該裝置。 請參閱[確認主機系統符合最低虛擬裝置需求](#check-the-host-system)中的最低組態需求。
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -221,7 +221,7 @@ ms.locfileid: "46989850"
 
 > [!div class="checklist"]
 > * 確定主機符合最低裝置需求
-> * 在 Hypervisor 中佈建虛擬裝置
+> * 在 VMware 中佈建虛擬裝置
 > * 啟動虛擬裝置，並取得 IP 位址
 
 前進至下一個教學課程，以了解如何連線、設定及啟動您的虛擬裝置。

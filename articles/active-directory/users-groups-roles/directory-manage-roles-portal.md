@@ -1,5 +1,5 @@
 ---
-title: 檢視 Azure Active Directory 中的系統管理員角色和角色權限成員 | Microsoft Docs
+title: 在 Azure Active Directory 中檢視和指派系統管理員角色權限 | Microsoft Docs
 description: 您現在可以查看和管理入口網站中的 Azure AD 系統管理員角色成員。 針對經常管理角色指派的人員。
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5a42f48e85eea95211b36e0c08dcb0edb4928a20
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cb2e5286eb8e910b555e221242a735f00dff4778
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38489917"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182819"
 ---
-# <a name="view-members-and-descriptions-of-administrator-roles-in-azure-active-directory"></a>檢視 Azure Active Directory 中的系統管理員角色成員和描述
+# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中檢視和指派系統管理員角色
 
 您現在可以查看和管理 Azure Active Directory 入口網站中的所有系統管理員角色成員。 如果您經常管理角色指派，則可能會偏好這項體驗。 而且，如果您曾經想過「這些角色的實際作用到底為何？」，則可以查看每個 Azure AD 系統管理員角色的詳細權限清單。
 
@@ -29,13 +29,13 @@ ms.locfileid: "38489917"
 
 ![Azure AD 入口網站中的角色清單](./media/directory-manage-roles-portal/role-list.png)
 
-選取整個資料列，以檢視所指派成員的清單。 您可以選取 [Manage in PIM] \(在 PIM 中管理\)，以取得額外的管理功能。 特殊權限角色管理員可以將「永久」(一律在角色中為作用中) 指派變更為「合格」(只有在提高權限時才在角色中)。 如果您沒有 PIM，則仍然可以選取 [Manage in PIM] \(在 PIM 中管理\) 來註冊試用版。 Privileged Identity Management 需要 [Azure AD Premium P2 授權方案](../privileged-identity-management/subscription-requirements.md)。
+選取某個角色的資料列可檢視指派給該角色的使用者。 您可以選取 [Manage in PIM] \(在 PIM 中管理\)，以取得額外的管理功能。 特殊權限角色管理員可以將「永久」(一律在角色中為作用中) 指派變更為「合格」(只有在提高權限時才在角色中)。 如果您沒有 PIM，則仍然可以選取 [Manage in PIM] \(在 PIM 中管理\) 來註冊試用版。 Privileged Identity Management 需要 [Azure AD Premium P2 授權方案](../privileged-identity-management/subscription-requirements.md)。
 
 ![管理員角色成員清單](./media/directory-manage-roles-portal/member-list.png)
 
-如果您是全域管理員或特殊權限角色管理員，則可以輕鬆地新增或移除成員、篩選清單，或選取要移至使用者頁面的成員，以查看其作用中獲指派角色。 
+如果您是全域管理員或特殊權限角色管理員，則可以輕鬆地新增或移除成員、篩選清單，或選取成員以查看其作用中獲指派角色。
 
-## <a name="detailed-role-permissions-in-the-portal"></a>入口網站中的詳細角色權限
+## <a name="view-role-permissions"></a>檢視角色權限
 
 當您檢視角色的成員時，請選取 [描述] 以查看角色指派所授與權限的完整清單。 此頁面包括相關文件的連結，協助引導您管理目錄角色。
 

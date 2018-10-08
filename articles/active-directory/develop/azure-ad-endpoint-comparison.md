@@ -3,7 +3,7 @@ title: 比較 Azure AD v2.0 端點與 v1.0 端點 | Microsoft Docs
 description: 了解 Azure AD v2.0 端點與 v1.0 端點之間的差異
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948948"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406527"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>比較 Azure AD v2.0 端點與 v1.0 端點
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>比較 Azure AD v2.0 端點與 v1.0 端點
 
 在開發新的應用程式時，務必知道 v1.0 與 v2.0 端點之間的差異。 以下是主要的差異，以及 v2.0 端點的一些現有限制。
 
 > [!NOTE]
-> v2.0 端點並未支援每個 Azure AD 案例和功能。 若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](#limitations)。
+> v2.0 端點並非支援每個 Azure Active Directory (Azure AD) 案例和功能。 若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](#limitations)。
 
 ## <a name="who-can-sign-in"></a>誰可以登入
 
@@ -37,7 +37,7 @@ ms.locfileid: "46948948"
 
 * v1.0 端點只允許使用公司和學校帳戶登入您的應用程式 (Azure AD)
 
-* V2.0 端點則允許使用公司和學校帳戶 (Azure Active Directory) 及個人帳戶 (MSA) (hotmail.com、outlook.com、msn.com) 進行登入。
+* V2.0 端點則允許使用公司和學校帳戶 (Azure AD) 及個人帳戶 (MSA) (hotmail.com、outlook.com、msn.com) 進行登入。
 
 * 對於設定為[單一租用戶](single-and-multi-tenant-apps.md)的應用程式，或對於設定為指向租用戶專用端點的多租用戶應用程式 (`https://login.microsoftonline.com/{TenantId_or_Name}`)，V1.0 與 v2.0 端點也都接受 Azure AD 目錄的[來賓使用者](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)登入。
 
@@ -214,15 +214,13 @@ v2.0 端點目前不支援下列類型的應用程式。 如需所支援應用�
 
 v2.0 端點不支援 SAML 或 WS-同盟，只支援 Open ID Connect 和 OAuth 2.0。 v2.0 端點中並未納入 OAuth 通訊協定的所有功能與特性。
 
-v2.0 端點中目前「並未提供」下列通訊協定功能與特性：
+v2.0 端點中目前「並未提供」或「並未支援」下列通訊協定功能與特性：
 
-* 目前，只有在已設定選擇性宣告，以及範圍是要求中指定的 scope=email 時，才會傳回 `email` 宣告。 不過，當 v2.0 端點更新為進一步遵循 Open ID Connect 和 OAuth2.0 標準時，此行為也會變更。
+* 只有在已設定選擇性宣告，以及範圍是要求中指定的 scope=email 時，才會傳回 `email` 宣告。 不過，除此之外，變更為 v2.0 端點的行為已更新為進一步遵循 Open ID Connect 和 OAuth2.0 標準。
 
 * v2.0 端點不支援在識別碼權杖中發出角色或群組宣告。
 
 * v2.0 端點不支援 [OAuth 2.0 資源擁有者密碼認證授與 (英文)](https://tools.ietf.org/html/rfc6749#section-4.3)。
-
-此外，v2.0 端點不支援任何形式的 SAML 或 WS-同盟通訊協定。
 
 若要進一步了解 v2.0 端點中支援的通訊協定功能範圍，請參閱我們的 [OpenID Connect 與 OAuth 2.0 通訊協定參考](active-directory-v2-protocols.md)。
 

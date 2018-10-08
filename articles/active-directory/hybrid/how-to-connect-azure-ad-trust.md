@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 4eeb716e4eeae8dc560f9588c6c3ce252daf741e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309757"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432047"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>使用 Azure AD Connect 管理與 Azure AD 的 AD FS 信任
 
@@ -41,7 +41,7 @@ Azure AD Connect **只**會管理與 Azure AD 信任相關的設定。 Azure AD 
 | 設定 | 說明 |
 | :--- | :--- |
 | 權杖簽署憑證 | Azure AD Connect 可以用來重設並重新建立與 Azure AD 的信任。 Azure AD Connect 會針對 AD FS 進行權杖簽署憑證的單次立即變換，並更新 Azure AD 網域同盟設定。|
-| 權杖簽署演算法 | Microsoft 建議使用 SHA-256 作為權杖簽署演算法。 Azure AD Connect 可以偵測是否將權杖簽署演算法設定為比 SHA-256 更不安全的值。 它將在下一個可能的設定作業中將設定更新為 SHA-256。 |
+| 權杖簽署演算法 | Microsoft 建議使用 SHA-256 作為權杖簽署演算法。 Azure AD Connect 可以偵測是否將權杖簽署演算法設定為比 SHA-256 更不安全的值。 它將在下一個可能的設定作業中將設定更新為 SHA-256。 必須更新其他信賴憑證者信任，才能使用新的權杖簽署憑證。 |
 | Azure AD 信任識別碼 | Azure AD Connect 會針對 Azure AD 信任設定正確的識別碼值。 AD FS 可以使用識別碼值來唯一識別 Azure AD 信任。 |
 | Azure AD 端點 | Azure AD Connect 確保針對 Azure AD 信任所設定的端點一律會根據每個最新的建議值來取得彈性與效能。 |
 | 發行轉換規則 | 有數個可在同盟設定中用來取得 Azure AD 功能最佳效能所需的宣告規則。 Azure AD Connect 確保一律會使用一組正確的建議宣告規則來設定 Azure AD 信任。 |

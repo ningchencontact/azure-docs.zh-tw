@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 9/24/2018
+ms.date: 9/26/2018
 ms.author: victorh
-ms.openlocfilehash: 2961f6cc8607ba7ec670b297a1858bf433c3ec89
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1527ed9c0a83577da9a231cb91a93ad7f182061c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960782"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392684"
 ---
 # <a name="what-is-azure-firewall"></a>何謂 Azure 防火牆？
 
@@ -41,7 +41,7 @@ Azure 防火牆可以隨著您的需求相應增加，以容納多變的網路�
 
 您可以依據來源和目的地 IP 位址、連接埠及通訊協定，集中建立「允許」或「拒絕」網路篩選規則。 Azure 防火牆是完全具狀態的，因此能夠分辨不同連線類型的合法封包。 規則會橫跨多個訂用帳戶和虛擬網路強制執行及記錄。
 
-### <a name="fqdn-tags"></a>FQDN 標籤
+### <a name="fqdn-tags"></a>FQDN 標記
 
 FQDN 標籤讓您輕鬆就能允許已知的 Azure 服務網路流量通過您的防火牆。 例如，假設您想要允許 Windows Update 網路流量通過您的防火牆。 您可以建立應用程式規則並包含 Windows Update 標籤。 來自 Windows Update 的網路流量現在就能通過您的防火牆。
 
@@ -68,7 +68,9 @@ Azure 防火牆有下列已知問題：
 |具有全域對等互連的中樞和輪輻無法運作|不支援中樞和輪輻模型 (其中中樞和防火牆是部署在某個 Azure 區域，而輪輻是部署在另一個 Azure 區域) 透過全域 VNet 對等互連連線到中樞。|如需詳細資訊，請參閱[建立、變更或刪除虛擬網路對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
 非 TCP/UDP 通訊協定 (例如 ICMP) 的網路篩選規則，不適用於流向網際網路的流量|非 TCP/UDP 通訊協定的網路篩選規則，無法與 SNAT 搭配用於您的公用 IP 位址。 在輪輻子網路與 VNet 之間支援非 TCP/UDP 通訊協定。|Azure 防火牆會使用 Standard Load Balancer，[目前針對 IP 通訊協定不支援 SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations)。 我們正在探索選項，以在未來的版本中支援這種案例。|
 |目的地 NAT (DNAT) 在連接埠 80 與 22 上無法運作。|NAT 規則集合中的 [目的地連接埠] 欄位不能包含連接埠 80 或連接埠 22。|我們會在不久的將來修正此問題。 同時，請使用任何其他連接埠作為 NAT 規則中的目的地連接埠。 連接埠 80 或 22 仍可用來當作轉譯連接埠 (例如，您可以將公用 IP:81 對應到私人 IP:80)。|
-|
+|對於 ICMP 缺少 PowerShell 和 CLI 支援|Azure PowerShell 和 CLI 不支援在網路規則中將 ICMP 作為有效的通訊協定。|您仍可透過入口網站和 REST API 來使用 ICMP 作為通訊協定。 我們正努力盡快在 PowerShell 和 CLI 中新增 ICMP。|
+|FQDN 標籤需要設定「通訊協定:連接埠」|具有 FQDN 標籤的應用程式規則需要「連接埠:通訊協定」定義。|您可以使用 **https** 作為「連接埠:通訊協定」值。 我們正努力讓此欄位在使用 FQDN 標籤時可作為選擇性欄位。|
+|不支援將防火牆移動到不同的資源群組或訂用帳戶。|不支援將防火牆移動到不同的資源群組或訂用帳戶。|在我們的規劃中，會支援這項功能。 若要將防火牆移動到不同的資源群組或訂用帳戶，您必須刪除目前的執行個體，並將其重新建立在新的資源群組或訂用帳戶中。|
 
 ## <a name="next-steps"></a>後續步驟
 

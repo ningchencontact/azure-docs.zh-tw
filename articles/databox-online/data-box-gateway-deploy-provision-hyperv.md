@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: bf744d2aaab168b8ce918f7b776d8855cdc5ad16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975236"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419690"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>教學課程：在 Hyper-V 中佈建 Azure 資料箱閘道 (預覽)
 
@@ -33,7 +33,7 @@ ms.locfileid: "46975236"
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 請確定主機符合最低裝置需求
+> * 確定主機符合最低裝置需求
 > * 在 Hypervisor 中佈建虛擬裝置
 > * 啟動虛擬裝置，並取得 IP 位址
 
@@ -87,7 +87,7 @@ ms.locfileid: "46975236"
 
     * 至少 4 顆核心。
     * 至少 8 GB 的 RAM。
-    * 網路介面，且已連線到能夠將流量路由至網際網路的網路。 .
+    * 網路介面，且已連線到能夠將流量路由至網際網路的網路。 
     * 250 GB 的 OS 磁碟。
     * 供系統資料使用的 2 TB 虛擬磁碟。
 
@@ -105,9 +105,6 @@ ms.locfileid: "46975236"
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. 在「新增虛擬機器精靈」的「開始之前」頁面上，按 [下一步]。
 5. 在「指定名稱和位置」頁面上，提供您虛擬裝置的「名稱」。 按 [下一步] 。
-   
-   > [!IMPORTANT]
-   > 在此版本中，您只能使用大寫字母當作虛擬裝置的名稱。
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. 在 [指定世代] 頁面上，選擇 [第二代] 作為 .vhdx 裝置映像類型，然後按 [下一步]。    
@@ -171,17 +168,10 @@ ms.locfileid: "46975236"
 3. 您可能需要等待 10 至 15 分鐘，裝置才會準備就緒。 主控台會顯示狀態訊息以表明進度。 裝置就緒之後，請前往 [動作] 。 按 `Ctrl + Alt + Delete` 來登入虛擬裝置。 預設使用者為 EdgeUser，預設密碼為 Password1。
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. 基於安全性理由，裝置系統管理員密碼會在第一次登入時過期。 系統會提示您變更密碼。
-
-   請輸入至少包含 8 個字元的密碼。 密碼必須至少符合下列 4 個需求中的 3 個：大寫、小寫、數字和特殊字元。 請重新輸入密碼來加以確認。 系統會通知您密碼已經變更。
    
-5. 密碼變更成功之後，裝置可能會重新啟動。 請等待裝置啟動。  畫面會出現裝置的 Windows PowerShell 主控台及進度列。
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. 步驟 6 至 8 僅適用於在非 DHCP 環境中開機的情況。 如果您是在 DHCP 環境中，請略過這些步驟並前往步驟 9。 如果您是在非 DHCP 環境中讓裝置開機，您會看到此效果的訊息。
+6. 步驟 5 至 7 僅適用於在非 DHCP 環境中開機的情況。 如果您是在 DHCP 環境中，請略過這些步驟。 如果您是在非 DHCP 環境中讓裝置開機，您會看到此效果的訊息。
     
-7. 若要設定網路，請使用 `Get-HcsIpAddress` 命令來列出虛擬裝置上已啟用的網路介面。 如果您的裝置有已啟用的單一網路介面，系統指派給該介面的預設名稱會是 `DATA1`。
+7. 若要設定網路，請使用 `Get-HcsIpAddress` 命令來列出虛擬裝置上已啟用的網路介面。 如果您的裝置有已啟用的單一網路介面，系統指派給該介面的預設名稱會是 `Ethernet`。
 
 8. 使用 `Set-HcsIpAddress` Cmdlet 來設定網路。 請參閱下列範例：
 
@@ -192,7 +182,7 @@ ms.locfileid: "46975236"
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息。 請修改裝置設定，讓電腦有足夠的資源符合最低需求。 然後您就可以將裝置重新啟動，並連線到該裝置。 請參閱 [步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements)中的最低組態需求。
+如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息。 請修改裝置設定，讓電腦有足夠的資源符合最低需求。 然後您就可以將裝置重新啟動，並連線到該裝置。 請參閱[確認主機系統符合最低虛擬裝置需求](#check-the-host-system)中的最低組態需求。
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -204,7 +194,7 @@ ms.locfileid: "46975236"
 在本教學課程中，您已了解資料箱閘道的相關主題，像是：
 
 > [!div class="checklist"]
-> * 請確定主機符合最低裝置需求
+> * 確定主機符合最低裝置需求
 > * 在 Hypervisor 中佈建虛擬裝置
 > * 啟動虛擬裝置，並取得 IP 位址
 

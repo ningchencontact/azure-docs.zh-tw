@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0055968e4333f5ac7653a37fcd728b040024ee55
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e44b68a2ed2786b449e2680ca4a8ca531058b85c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629842"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432788"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -64,7 +64,7 @@ ms.locfileid: "39629842"
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio Team Services
+- Azure DevOps
 
 - Microsoft Teams
 
@@ -148,7 +148,7 @@ ms.locfileid: "39629842"
 |    |    |
 |--- | ---|
 |Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|Name | 1 |
+|名稱 | 1 |
 |類型 | REG_SZ (字串) |
 |資料 | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
@@ -157,7 +157,7 @@ ms.locfileid: "39629842"
 |    |    |
 |--- | ---|
 |Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|Name | 1 |
+|名稱 | 1 |
 |類型 | REG_SZ (字串) |
 |資料 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
@@ -192,7 +192,7 @@ ms.locfileid: "39629842"
 |Outlook 行動應用程式|Office 365 Exchange Online|Android、iOS|
 |PowerBI 應用程式|PowerBI service|Windows 10、Windows 8.1、Windows 7、Android 和 iOS|
 |商務用 Skype|Office 365 Exchange Online|Android、iOS |
-|Visual Studio Team Services 應用程式|Visual Studio Team Services|Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
+|Azure DevOps 應用程式|Azure DevOps|Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
 
 
 
@@ -223,6 +223,9 @@ ms.locfileid: "39629842"
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word
+- Microsoft To-Do
+- Microsoft Stream
+- Microsoft Edge
 
 
 

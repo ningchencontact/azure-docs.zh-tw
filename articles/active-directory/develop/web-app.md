@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: ea1117e202868465e3ea4004d21cf62d175a357a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0eec1100c5246bb9f5c281971453ac60abc0339f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963912"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225012"
 ---
 # <a name="web-apps"></a>Web 應用程式
 
@@ -44,7 +44,7 @@ Web 應用程式是向 Web 應用程式驗證 Web 瀏覽器中使用者的應用
 
 ## <a name="app-registration"></a>應用程式註冊
 
-若要註冊 Web 應用程式，請參閱[向 Azure AD v2.0 端點註冊應用程式](quickstart-v2-register-an-app.md)。
+若要註冊 Web 應用程式，請參閱[向 Azure AD v1.0 端點註冊應用程式](quickstart-v1-add-azure-ad-app.md)。
 
 * 單一租用戶 - 如果您只要為組織建置一個應用程式，則必須使用 Azure 入口網站，將它註冊在公司的目錄中。
 * 多租用戶 - 如果您要建置的應用程式可供組織外的使用者使用，它必須註冊在公司的目錄中，但也必須在每個將會使用該應用程式的組織的目錄中註冊。 若要讓您的應用程式出現在他們的目錄中，您可以為客戶加上註冊程序，讓他們同意應用程式。 當他們註冊您的應用程式時，他們會看到對話方塊顯示應用程式所需的權限，以及是否同意的選項。 根據所需的權限，其他組織的系統管理員可能必須同意。 當使用者或系統管理員同意時，應用程式就會註冊在他們的目錄中。

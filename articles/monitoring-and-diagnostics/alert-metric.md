@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 479fd902ef68bf24306bcd699da0be08415592a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ac31818a68aa2b4624410b423b7559b84275777
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956984"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409366"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure 監視器建立、檢視及管理計量警示
 
@@ -20,7 +20,7 @@ ms.locfileid: "46956984"
 
 您可以從[計量警示概觀](alert-metric-overview.md)深入了解計量警示工作的運作方式。
 
-## <a name="create-a-metric-alert-rule-using-azure-portal"></a>使用 Azure 入口網站建立計量警示規則
+## <a name="create-with-azure-portal"></a>使用 Azure 入口網站建立
 
 下列程序說明如何在 Azure 入口網站建立計量警示規則：
 
@@ -58,7 +58,7 @@ ms.locfileid: "46956984"
 > [!NOTE]
 > 透過入口網站建立的計量警示規則，會在與目標資源相同的資源群組中建立。
 
-## <a name="view-and-manage-metric-alert-rules-using-azure-portal"></a>使用 Azure 入口網站檢視及管理計量警示規則
+## <a name="view-and-manage-with-azure-portal"></a>使用 Azure 入口網站檢視及管理
 
 您可以使用 [警示] 下的 [管理規則] 刀鋒視窗來檢視及管理計量警示規則。 下面的程序示範如何檢視您的計量警示規則及進行編輯。
 
@@ -80,7 +80,7 @@ ms.locfileid: "46956984"
 
 6. 按一下 [完成] 以儲存您的編輯。
 
-## <a name="create-view-and-manage-metric-alert-rules-using-azure-cli"></a>使用 Azure CLI 建立、檢視及管理計量警示規則
+## <a name="with-azure-cli"></a>透過 Azure CLI
 
 先前幾節說明如何使用 Azure 入口網站建立、檢視及管理計量警示規則。 此節說明如何使用跨平台 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) 執行相同的作業。 開始使用 Azure CLI 最快的方式就是透過 [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest)。 針對此文章，我們將會使用 Cloud Shell。
 

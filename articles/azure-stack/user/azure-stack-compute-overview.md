@@ -6,15 +6,15 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a0d75b13369cff4e99bef6f57a3b01f3d8eee6e4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050437"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227158"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虛擬機器簡介
 
@@ -99,7 +99,7 @@ VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功�
 |資源|必要|說明|
 |---------|---------|---------|
 |資源群組|是|VM 必須包含在資源群組中。|
-|儲存體帳戶|是|VM 需要儲存體帳戶儲存其虛擬硬碟。|
+|儲存體帳戶|否|如果使用受控磁碟，VM 就不需要有儲存體帳戶來儲存其虛擬硬碟。 <br>如果使用非受控磁碟，VM 就需要有儲存體帳戶來儲存其虛擬硬碟。|
 |虛擬網路|是|VM 必須是虛擬網路的成員。|
 |公用 IP 位址|否|可以有公用 IP 位址指派給 VM，以從遠端存取它。|
 |Linux|是|VM 需要網路介面以在網路中進行通訊。|

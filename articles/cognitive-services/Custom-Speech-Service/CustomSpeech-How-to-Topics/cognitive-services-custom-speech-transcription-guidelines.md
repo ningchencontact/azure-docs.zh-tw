@@ -1,21 +1,22 @@
 ---
-title: Azure 上自訂語音服務中的轉譯指導方針 | Microsoft Docs
-description: 了解如何針對「認知服務」中的「自訂語音服務」準備您的資料。
+title: 轉譯指導方針 - 自訂語音服務
+titlesuffix: Azure Cognitive Services
+description: 了解如何準備「自訂語音服務」的資料。
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2772665107f94a273731d2147154e546225b22dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a5daca2dbb3fc792850264bca7d8b0c59e7c8faa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999727"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220613"
 ---
 # <a name="transcription-guidelines"></a>轉譯指導方針
 若要確保充分利用您的文字資料來自訂原音和語言模型，應該依循下列轉譯指導方針。 這些指導方針是語言特有的。

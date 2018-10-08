@@ -1,21 +1,22 @@
 ---
-title: 開始使用 Azure 自訂語音服務 | Microsoft Docs
+title: 開始使用自訂語音服務
+titlesuffix: Azure Cognitive Services
 description: 訂閱自訂語音服務，並將服務活動連結至 Azure 訂用帳戶，以將模型定型並執行部署。
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: bf674261a58aab4fee37920d12ce6a2ac54b58b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975778"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225237"
 ---
 # <a name="get-started-with-custom-speech-service"></a>開始使用自訂語音服務
 
@@ -51,7 +52,7 @@ ms.locfileid: "46975778"
 您可以在[這裡](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md)找到如何建立自訂語音轉文字端點的詳細說明。
 
 ## <a name="using-a-custom-speech-endpoint"></a>使用自訂的語音端點
-您可以使用和預設 Microsoft 認知服務語音端點極為類似的方式，將要求傳送至 CRIS 語音轉文字端點。 請注意，這些端點的功能與「語音 API」的預設端點相同。 因此，可透過用戶端程式庫或 REST API 供「語音 API」使用的功能，同樣也可供自訂端點使用。
+您可以使用和預設 Azure 認知服務語音端點極為類似的方式，將要求傳送至 CRIS 語音轉文字端點。 請注意，這些端點的功能與「語音 API」的預設端點相同。 因此，可透過用戶端程式庫或 REST API 供「語音 API」使用的功能，同樣也可供自訂端點使用。
 
 您可以在[這裡](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md)找到如何使用自訂語音轉文字端點的詳細說明。
 

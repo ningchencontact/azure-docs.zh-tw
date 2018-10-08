@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cd89c41b43be1da339ca7dcc64110e7145a93903
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 72cf094dc6206fcb156a3e4dae6e89662e2085d8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857325"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434852"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：Azure 點對站連線問題
 
@@ -51,7 +51,7 @@ ms.locfileid: "37857325"
     | Azuregateway-*GUID*.cloudapp.net  | 目前的使用者\受信任的根憑證授權單位|
     | AzureGateway-*GUID*.cloudapp.net、AzureRoot.cer    | 本機電腦\受信任的根憑證授權單位|
 
-3. 移至 Users\<使用者名稱>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>，在使用者和電腦的存放區中手動安裝憑證 (*.cer 檔案)。
+3. 移至 C:\Users\<使用者名稱>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>，在使用者和電腦的存放區中手動安裝憑證 (*.cer 檔案)。
 
 如需如何安裝用戶端憑證的詳細資訊，請參閱[產生並匯出點對站連線的憑證](vpn-gateway-certificates-point-to-site.md)。
 
@@ -276,7 +276,7 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 ### <a name="solution"></a>解決方法
 
-若要解決此問題，請從 **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** 中刪除舊的 VPN 用戶端設定檔，然後重新執行 VPN 用戶端安裝程式。
+若要解決此問題，請從 **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** 中刪除舊的 VPN 用戶端設定檔，然後重新執行 VPN 用戶端安裝程式。
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>點對站 VPN 用戶端無法解析本機網域中資源的 FQDN
 
@@ -361,7 +361,7 @@ Azure VPN 閘道類型必須是 VPN，且 VPN 類型必須是 **RouteBased**。
 
 ### <a name="solution"></a>解決方法
 
-從 **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** 刪除舊的 VPN 用戶端設定檔，然後重新執行 VPN 用戶端安裝程式。 
+從 **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** 刪除舊的 VPN 用戶端設定檔，然後重新執行 VPN 用戶端安裝程式。 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN 用戶端會在一段時間後休眠或睡眠
 

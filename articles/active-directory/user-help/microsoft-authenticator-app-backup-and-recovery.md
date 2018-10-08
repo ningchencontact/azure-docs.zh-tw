@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 39ec7c979294860967deb3307f5d87112b762257
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144247"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406119"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 應用程式保來備份和復原帳戶認證
 
@@ -78,12 +78,12 @@ Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程�
 
     ![Microsoft Authenticator 應用程式，其中顯示可用的帳戶及其相關聯的下拉式箭號](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
 
-2.  選取 [掃描 QR 代碼進行復原]，然後掃描系統管理員所提供的 QR 代碼。
+2.  選取 [掃描 QR 代碼進行復原]，然後掃描 QR 代碼。
 
     ![Microsoft Authenticator 應用程式，可讓您掃描您的 QR 代碼](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >如需如何取得 QR 代碼的詳細資訊，請參閱[＜開始使用 Microsoft Authenticator 應用程式＞一文的「如何新增帳戶」一節](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app)。
+    >如需如何取得 QR 代碼的詳細資訊，請參閱[開始使用 Microsoft Authenticator 應用程式](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app)或[將安全性資訊設定為使用驗證器應用程式](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app) (取決於系統管理員是否已開啟安全性資訊)。
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>針對備份和復原問題進行疑難排解
 您的備份無法使用的可能原因如下：

@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 1ec47ddf5769dd8ed624277a86db57f449581b90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948684"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405915"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
-Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計量可能是平台計量、自訂計量 (預覽版)、來自 Log Analytics 轉換為計量的常用記錄、Application Insights 標準計量。 計量警示會定期評估，檢查某計量或計量時間序列上的條件是否為真，並在評估符合時通知您。 計量警示具狀態，也就是說只會在狀態變更時傳送通知。
+Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計量可能是平台計量、[自訂計量](metrics-custom-overview.md)、[來自 Log Analytics 轉換為計量的常用記錄](monitoring-metric-alerts-logs.md)、Application Insights 標準計量。 計量警示會定期評估，檢查一或多個計量時間序列上的條件是否為真，並在評估符合時通知您。 計量警示具狀態，也就是說只會在狀態變更時傳送通知。
 
 ## <a name="how-do-metric-alerts-work"></a>計量警示的運作方式
 
@@ -75,11 +75,17 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 此規則會自動監視執行個體的所有值，也就是說 您可以在執行個體顯示時監視，而不需要再次修改計量警示規則。
 
-### <a name="monitoring-multiple-resource-using-metric-alerts"></a>使用計量警示監視多個資源
+### <a name="monitoring-multiple-resources-using-metric-alerts"></a>使用計量警示監視多個資源
 
-如您在上一節所見，能以單一計量警示規則監視每個個別的維度組合 (也就是 計量時間序列)。 不過，仍限制一次只能對一個資源執行。 在預覽階段，計量警示現在也支援以一個規則監視多個資源。 如果您的訂用帳戶中有 100 個 VM，這個新功能有助於快速地為其設定監視功能。 
+如您在上一節所見，能以單一計量警示規則監視每個個別的維度組合 (也就是 計量時間序列)。 不過，以前仍限制一次只能對一個資源執行。 Azure 監視器也支援以單一計量警示規則監視多個資源。 這項功能目前為預覽版，僅在虛擬機器上支援使用。 此外，單一計量警示也可以監視一個 Azure 區域中的資源。
 
-此功能目前為預覽狀態。 目前不支援透過 Azure 入口網站來建立監視多個資源的計量警示規則。 您可以透過 Azure Resource Manager 範本建立這些規則。
+您可以透過下列三種方式之一，指定單一計量警示所監視的範圍：
+
+- 作為訂用帳戶中的一系列虛擬機器 (位於一個 Azure 區域)
+- 作為訂用帳戶中一或多個資源群組的所有虛擬機器 (位於一個 Azure 區域)
+- 作為訂用帳戶中的所有虛擬機器 (位於一個 Azure 區域)
+
+目前不支援透過 Azure 入口網站來建立監視多個資源的計量警示規則。 您可以透過 [Azure Resource Manager 範本](monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources)建立這些規則。 您會收到每個虛擬機器的個別通知。 
 
 ## <a name="typical-latency"></a>一般延遲
 

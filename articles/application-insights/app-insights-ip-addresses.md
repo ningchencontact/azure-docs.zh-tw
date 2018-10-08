@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 724cdb82f601805ffd93f1afd0c27983cc1ef96b
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 3be6448dcb3ab927cc4dca9ead305923b8d3e736
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389468"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225458"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 位址
 [Azure Application Insights](app-insights-overview.md) 服務會使用一些 IP 位址。 如果您所監視的應用程式裝載於防火牆後面，您可能需要知道這些位址。
@@ -276,11 +276,17 @@ East US
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | 動態 | 80,443 |
 | Application Insights Java SDK | aijavasdk.blob.core.windows.net | 動態 | 80,443 |
 
+## <a name="alert-webhooks"></a>警示 Webhook
+
+| 目的 | IP | 連接埠
+| --- | --- | --- | --- |
+| 警示 | 23.96.11.4 | 443 |
+
 ## <a name="profiler"></a>分析工具
 
 | 目的 | URI | IP | 連接埠 |
 | --- | --- | --- | --- |
-| 代理程式 | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
+| 代理程式 | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 40.68.32.221<br/>40.85.246.0<br/>40.85.246.57<br/>40.117.252.0<br/>40.117.253.100<br/>51.140.140.162<br/>51.140.140.184<br/>51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.147.66<br/>52.178.149.106<br/>52.230.122.9<br/>52.230.124.46<br/>104.40.217.71<br/>104.211.89.26<br/>104.211.90.232 | 443
 | 入口網站 | gateway.azureserviceprofiler.net | 動態 | 443
 | 儲存體 | *.core.windows.net | 動態 | 443
 
@@ -291,6 +297,6 @@ East US
 
 | 目的 | URI | IP | 連接埠 |
 | --- | --- | --- | --- |
-| 代理程式 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
+| 代理程式 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 40.68.32.221<br/>40.85.246.0<br/>40.85.246.57<br/>40.117.252.0<br/>40.117.253.100<br/>51.140.140.162<br/>51.140.140.184<br/>51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.147.66<br/>52.178.149.106<br/>52.230.122.9<br/>52.230.124.46<br/>104.40.217.71<br/>104.211.89.26<br/>104.211.90.232 | 443
 | 入口網站 | ppe.gateway.azureserviceprofiler.net | 動態 | 443
 | 儲存體 | *.core.windows.net | 動態 | 443

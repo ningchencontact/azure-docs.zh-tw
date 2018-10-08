@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9cdb608505e594e0020eb33abc869c6bf4b6b263
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 00889717e0c22477b9933725bccc7de05c82bc4f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30326508"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454592"
 ---
 | **廠商** | **裝置系列** | **韌體版本** |
 | --- | --- | --- |
@@ -27,5 +27,5 @@ ms.locfileid: "30326508"
 |Ubiquiti| EdgeRouter| EdgeOS v1.10x RouteBased BGP|
 
 > [!NOTE]
-> (*) 必要：NarrowAzureTrafficSelectors 和 CustomAzurePolicies (IKE/IPsec)
+> (*) 必要：NarrowAzureTrafficSelectors (啟用 UsePolicyBasedTrafficSelectors 選項) 和 CustomAzurePolicies (IKE/IPsec)
 >

@@ -7,19 +7,16 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 536c0915cae17aa6f4201c62eae5f5b077805274
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6dc7d20d31d9399355b2b3de90ea90f2f3e07af5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999472"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224642"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 標籤概觀
 
 FQDN 標籤代表一群與知名 Microsoft 服務相關聯的完整網域名稱 (FQDN)。 您可以在應用程式規則中使用 FQDN 標籤，以允許必要的輸出網路流量通過防火牆。
-
->[!NOTE]
->FQDN 標籤功能目前僅適用於 Azure PowerShell 和 REST。
 
 例如，若要手動允許 Windows Update 網路流量通過防火牆，您需要根據 Microsoft 文件建立多個應用程式規則。 使用 FQDN 標籤，您可以建立應用程式規則、納入 **Windows Update** 標籤，而且現在流向 Microsoft Windows Update 端點的網路流量可以通過防火牆。
 
@@ -36,6 +33,9 @@ FQDN 標籤代表一群與知名 Microsoft 服務相關聯的完整網域名稱 
 |Microsoft Active Protection Service (MAPS)|允許對 [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/) 進行輸出存取。|
 |App Service Environment (ASE)|允許對 ASE 平台流量進行輸出存取。 此標籤未涵蓋客戶專屬的儲存體和 ASE 所建立的 SQL 端點。 這些項目應該透過[服務端點](../virtual-network/tutorial-restrict-network-access-to-resources.md)來啟用，或以手動方式新增。|
 |Azure 備份|允許對 Azure 備份服務進行輸出存取。
+
+> [!NOTE]
+> 選取應用程式規則中的 FQDN 標籤時，[通訊協定:連接埠] 欄位必須設定為 [https]。
 
 ## <a name="next-steps"></a>後續步驟
 

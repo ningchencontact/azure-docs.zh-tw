@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 532a37c5de7b69c44f0f8502613ac534f57c8ef9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306437"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405983"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -124,9 +124,9 @@ ms.locfileid: "46306437"
 
     結果如下所示：
 
-    值: https://autologon.microsoftazuread-sso.com
+    值名稱： https://autologon.microsoftazuread-sso.com
   
-    Data 1
+    值 (資料)：1
 
    >[!NOTE]
    > 如果您想要禁止部分使用者使用無縫 SSO (例如，如果這些使用者在共用 Kiosk 上登入)，請將先前的值設定為 **4**。 此動作會將 Azure AD URL 新增至限制區域，而且隨時讓無縫 SSO 失敗。

@@ -10,15 +10,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: conceptual
+ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 97cc6d6e922ab0bedd729eddca754ae016f041bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958011"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220970"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -47,7 +47,7 @@ Log Analytics 查詢語言適合用於簡單的記錄查詢，但也包含進階
 ![記錄檔](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Azure 監視器會收集哪些資料？
-Log Analytics 可以從各種來源收集資料。 您可以考慮為各層中的應用程式監視資料，範圍從您的應用程式、它所倚賴的任何作業系統和服務，以至平台本身。 Azure 監視器會從下列各層收集資料：
+Azure 監視器可以從各種來源收集資料。 您可以考慮為各層中的應用程式監視資料，範圍從您的應用程式、它所倚賴的任何作業系統和服務，以至平台本身。 Azure 監視器會從下列各層收集資料：
 
 - **應用程式監視資料：** 您所撰寫程式碼的效能和功能相關資料 (不論其平台為何)。
 - **客體 OS 監視資料：** 有關應用程式執行所在作業系統的資料。 這可以在 Azure、其他雲端或內部部署中執行。 
@@ -145,9 +145,6 @@ Azure 監視器中的警示規則會使用[動作群組](../monitoring-and-diagn
 ## <a name="next-steps"></a>後續步驟
 深入了解：
 
-* [Azure 監視器](https://azure.microsoft.com/services/monitor/)，以開始使用核心監視計量和警示。
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/)，如果您正嘗試診斷 App Service Web 應用程式中的問題。
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)，以分析所收集的監視資料和記錄。
-
-
-
+* Azure 監視器所收集資料的[計量和記錄](../monitoring/monitoring-data-collection.md)。
+* [資料來源](../monitoring/monitoring-data-sources.md)，以了解應用程式的不同元件如何傳送遙測。
+* [Log Analytics](../log-analytics/log-analytics-queries.md)，以分析所收集的資料。

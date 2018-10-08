@@ -1,21 +1,22 @@
 ---
-title: 使用自訂語音服務建立原音模型的教學課程 - Microsoft 認知服務 | Microsoft Docs
-description: 在本教學課程中，您將了解如何使用 Microsoft 認知服務中的自訂語音服務來建立原音模型。
+title: 教學課程：建立原音模型 - 自訂語音服務
+titlesuffix: Azure Cognitive Services
+description: 在本教學課程中，您將了解如何使用自訂語音服務來建立原音模型。
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 60fea175e8dffeefeb9cb3ecaadad5d8fc7caeb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971532"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220207"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>教學課程：建立自訂原音模型
 

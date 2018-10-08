@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: ''
+ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363138"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423505"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics 中的自訂記錄檔
 Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。  在收集之後，您就可以使用 Log Analytics 的[自訂欄位](log-analytics-custom-fields.md)功能將記錄中的每一筆記錄剖析成個別欄位。
@@ -40,6 +40,10 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 >如果記錄檔中有重複的項目，Log Analytics 會收集這些項目。  不過，搜尋結果會不一致，篩選結果所顯示的事件會比結果計數更多。  您必須驗證記錄，以判定建立該記錄的應用程式是否導致此行為，若可以的話，請先處理此問題，再建立自訂記錄集合定義。  
 >
   
+>[!NOTE]
+> 如果您的應用程式每天建立新記錄檔，或記錄檔已到達特定大小，則適用於 Linux 的 Log Analytics 代理程式在重新啟動之前，並不會探索記錄檔。 這是因為代理程式只會在啟動時，針對有指定記錄的模式進行列舉及開始監視，因此，您必須藉由讓代理程式自動重新啟動來因應此狀況。  適用於 Windows 的 Log Analytics 代理程式沒有此限制。  
+>
+
 ## <a name="defining-a-custom-log"></a>定義自訂記錄檔
 使用下列程序來定義自訂記錄檔。  如需新增自訂記錄檔之範例的逐步解說，請捲動到本文結尾處。
 
@@ -66,9 +70,13 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 5. 按 [下一步] 。
 
 ### <a name="step-3-add-log-collection-paths"></a>步驟 3. 新增記錄檔收集路徑
-您必須在代理程式上定義一個或多個它可以在其中找到自訂記錄檔的路徑。  您可以提供該記錄檔的特定路徑和名稱，或者您可以使用萬用字元為該名稱指定路徑。  這可支援每天會建立一個新檔案的應用程式或在一個檔案到達特定大小時提供支援。  您也可以為單一記錄檔提供多個路徑。
+您必須在代理程式上定義一個或多個它可以在其中找到自訂記錄檔的路徑。  您可以提供該記錄檔的特定路徑和名稱，或者您可以使用萬用字元為該名稱指定路徑。 這可支援每天會建立一個新檔案的應用程式或在一個檔案到達特定大小時提供支援。 您也可以為單一記錄檔提供多個路徑。
 
 例如，應用程式可能會每天建立一個記錄檔，且名稱中會包含日期，如同 log20100316.txt。 這類記錄檔的模式可能是 *log\*.txt*，而這會套用到任何遵循應用程式命名配置的記錄檔。
+
+>[!NOTE]
+> 如果您的應用程式每天建立新記錄檔，或記錄檔已到達特定大小，則適用於 Linux 的 Log Analytics 代理程式在重新啟動之前，並不會探索記錄檔。 這是因為代理程式只會在啟動時，針對有指定記錄的模式進行列舉及開始監視，因此，您必須藉由讓代理程式自動重新啟動來因應此狀況。  適用於 Windows 的 Log Analytics 代理程式沒有此限制。  
+>
 
 下表提供可用來指定不同記錄檔的有效模式範例。
 

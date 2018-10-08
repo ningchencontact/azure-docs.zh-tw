@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977531"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409349"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>將 Kubernetes 部署至 Azure Stack
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 > [!Note]  
-> Azure Stack 上的 Kubernetes 處於預覽狀態。 若要執行本文中指示的作業，您的 Azure Stack 操作員必須要求對 Kubernetes 叢集 Marketplace 項目的存取權。
+> Azure Stack 上的 Kubernetes 處於預覽狀態。
 
-以下文章說明如何使用 Azure Resource Manager 解決方案範本，在單一協調作業中部署和佈建 Kubernetes 的資源。 您將必須收集 Azure Stack 安裝所需的相關資訊、產生範本，然後部署至您的雲端。 請注意，此範本不是全域 Azure 中提供的同一個受控 AKS 服務，而是較接近 ACS 服務。
+以下文章說明如何使用 Azure Resource Manager 解決方案範本，在單一協調作業中部署和佈建 Kubernetes 的資源。 您將必須收集 Azure Stack 安裝所需的相關資訊、產生範本，然後部署至您的雲端。 請注意，此範本不是全域 Azure 中提供的同一個受控 AKS 服務。
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 和容器
 
@@ -54,7 +54,9 @@ ms.locfileid: "46977531"
 
 1. 確認您在 Azure Stack 租用戶入口網站中具有有效的訂用帳戶，且您有足夠的公用 IP 位址可用來新增應用程式。
 
-    叢集無法部署至 Azure Stack 的**系統管理員**訂用帳戶。 您必須使用「使用者」訂用帳戶。 
+    叢集無法部署至 Azure Stack 的**系統管理員**訂用帳戶。 您必須使用「**使用者**」訂用帳戶。 
+
+1. 如果您的市集中沒有 Kubernetes 叢集，請連絡 Azure Stack 的系統管理員。
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>在 Azure AD 中建立服務主體
 
@@ -113,9 +115,23 @@ ms.locfileid: "46977531"
 
     ![部署解決方案範本](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. 在 [建立 Kubernetes] 中選取 [基本]。
+### <a name="1-basics"></a>1.基本概念
+
+1. 在 [建立 Kubernetes 叢集] 中選取 [基本資料]。
 
     ![部署解決方案範本](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+
+1. 選取**訂用帳戶**識別碼。
+
+1. 輸入新資源群組的名稱，或選取現有的資源群組。 資源名稱必須是小寫的英數字元。
+
+1. 選取資源群組的 [位置]。 這是您選擇用來安裝 Azure Stack 的區域。
+
+### <a name="2-kubernetes-cluster-settings"></a>2.Kubernetes 叢集設定
+
+1. 在 [建立 Kubernetes 叢集] 中選取 [Kubernetes 叢集設定]。
+
+    ![部署解決方案範本](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
 
 1. 輸入 **Linux VM 系統管理員使用者名稱**。 這是屬於 Kubernetes 叢集和 DVM 的 Linux 虛擬機器的使用者名稱。
 
@@ -126,28 +142,29 @@ ms.locfileid: "46977531"
     > [!Note]  
     > 對於每個叢集，都應使用全新且唯一的主要設定檔 DNS 前置詞。
 
-1. 輸入**代理程式集區設定檔計數**。 此計數包含叢集中的代理程式數目。 可能的值介於 1 到 4 之間。
+1. 選取 [Kubernetes 主要集區設定檔計數]。 此計數包含主要集區中的節點數目。 可能的值介於 1 到 7 之間。 此值應該是奇數。
 
-1. 輸入**服務主體 ClientId**。Kubernetes Azure 雲端提供者會使用此識別碼。
+1. 選取 [Kubernetes 主要 VM 的 VM 大小]。
 
-1. 輸入您在建立服務主體應用程式時所建立的**服務主體用戶端密碼**。
+1. 選取 [Kubernetes 節點集區設定檔計數]。 此計數包含叢集中的代理程式數目。 
+
+1. 選取 [儲存體設定檔]。 您可以選擇 **Blob 磁碟**或**受控磁碟**。 這會指定 Kubernetes 節點 VM 的 VM 大小。 
+
+1. 輸入**服務主體 ClientId**。Kubernetes Azure 雲端提供者會使用此識別碼。 當您建立服務主體時，用戶端識別碼已識別為應用程式識別碼。
+
+1. 輸入您在建立服務主體時所建立的**服務主體用戶端密碼**。
 
 1. 輸入 **Kubernetes Azure 雲端提供者版本**。 這是 Kubernetes Azure 提供者的版本。 Azure Stack 會為每個 Azure Stack 版本發行一個自訂 Kubernetes 組建。
 
-1. 選取**訂用帳戶**識別碼。
+### <a name="3-summary"></a>3.總結
 
-1. 輸入新資源群組的名稱，或選取現有的資源群組。 資源名稱必須是小寫的英數字元。
+1. 選取總結。 刀鋒視窗會顯示您 Kubernetes 叢集組態設定的驗證訊息。
 
-1. 選取資源群組的 [位置]。 這是您選擇用來安裝 Azure Stack 的區域。
+    ![部署解決方案範本](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-### <a name="specify-the-azure-stack-settings"></a>指定 Azure Stack 設定
+2. 檢閱您的設定。
 
-1. 選取 [Azure Stack 戳記設定]。
-
-    ![部署解決方案範本](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
-
-1. 輸入**租用戶 ARM 端點**。 這是要連線以建立 Kubernetes 叢集之資源群組的 Azure Resource Manager 端點。 您必須向 Azure Stack 操作員取得整合系統的端點。 如需 Azure Stack 開發套件 (ASDK)，您可以使用 `https://management.local.azurestack.external`。
-
+3. 選取 [確定] 以部署叢集。
 
 ## <a name="connect-to-your-cluster"></a>連線至您的叢集
 
