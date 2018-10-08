@@ -131,8 +131,6 @@ items:
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
     - name: 活動記錄警示
       href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
-    - name: 將警示從 Log Analytics 延伸至 Azure
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
   - name: 顯現資料
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: 合作夥伴整合
@@ -225,7 +223,7 @@ items:
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json
         - name: VM 擴展集來賓至計量存放區
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json
-        - name: 傳統 VM 來賓至計量存放區
+        - name: VM 傳統來賓至計量存放區
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json
         - name: 雲端服務來賓至計量存放區
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json
@@ -708,8 +706,6 @@ items:
           href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
         - name: 使用 Azure PowerShell 設定傳統警示
           href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
-        - name: 將警示從 OMS 入口網站複製到 Azure 入口網站
-          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
       - name: 使用計量警示
         items:
         - name: 在 Azure 監視器中建立、檢視及管理計量警示
@@ -912,6 +908,14 @@ items:
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+  - name: 警示
+    items:
+    - name: 將警示從 Log Analytics 延伸至 Azure
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
+    - name: 將警示從 OMS 入口網站複製到 Azure 入口網站
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+    - name: 停用傳統警示與監視
+      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure PowerShell
@@ -977,9 +981,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: ecb930a1dc50b1a613533068846be2d7cfaeb748
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 50c8eac84be9df29bc15ea9b1fb177ad99cc77e8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018888"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815955"

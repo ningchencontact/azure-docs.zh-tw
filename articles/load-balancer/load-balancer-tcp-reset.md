@@ -1,5 +1,5 @@
 ---
-title: Load Balancer 閒置逾時 TCP 重設 | Microsoft Docs
+title: 負載平衡器閒置 TCP 重設 | Microsoft Docs
 description: 具有閒置逾時雙向 TCP RST 封包的 Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2018
+ms.date: 09/26/2018
 ms.author: kumud
-ms.openlocfilehash: 6ec8754e9a6e1afb9dcb400215570d08ebd4342b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0b533a48e94db880f23d42decc5c3fb39a27e5ac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973723"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395639"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-timeout-public-preview"></a>具有閒置逾時 TCP 重設的 Load Balancer (公開預覽)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>具有閒置 TCP 重設的負載平衡器 (公開預覽)
 
 您可以使用 [Standard Load Balancer](load-balancer-standard-overview.md)，以在具有每個可設定閒置逾時的雙向 TCP 重設 (TCP RST 封包) 時，建立更容易預測的應用程式行為。  Load Balancer 的預設行為是在達到流程的閒置逾時時，以無訊息模式卸除流程。
+
+![負載平衡器 TCP 重設](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
 >具有閒置逾時 TCP 重設的 Load Balancer 功能目前為公開預覽版，而且只有有限的一組[區域](#regions)時才提供。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -73,6 +75,8 @@ ms.locfileid: "46973723"
 
 | 區域 |
 |---|
+| 東南亞 |
+| 西歐 |
 | 美國東部 2 |
 | 英國北部 |
 | 美國西部 |
@@ -87,4 +91,4 @@ ms.locfileid: "46973723"
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解 [Standard Load Balancer](load-balancer-standard-overview.md)。
-- 深入了解[輸出規則](https://aka.ms/lboutboundrules)。
+- 深入了解[輸出規則](load-balancer-outbound-rules-overview.md)。

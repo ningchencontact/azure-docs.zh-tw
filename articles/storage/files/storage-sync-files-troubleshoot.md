@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 4434b67393d34c3418e44e82681a586c268a37e5
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746991"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409468"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -125,6 +125,16 @@ Set-AzureRmStorageSyncServerEndpoint `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
 ```
+<a id="server-endpoint-noactivity"></a>**伺服器端點的健康狀態為 [無活動] 或 [擱置中]，且 [已註冊的伺服器] 刀鋒視窗上的伺服器狀態為 [顯示為離線]**  
+
+如果儲存體同步監視器程序未執行，或伺服器因 Proxy 或防火牆而無法與 Azure 檔案同步服務進行通訊，即可能發生此問題。
+
+若要解決此問題，請執行下列步驟：
+
+1. 在伺服器上開啟工作管理員，並確認儲存體同步監視器 (AzureStorageSyncMonitor.exe) 程序正在執行。 如果此程序未執行，先嘗試重新啟動伺服器。 如果重新啟動伺服器無法解決此問題，請先解除安裝 Azure 檔案同步代理程式，再加以重新安裝 (注意：解除安裝並重新安裝代理程式時，會保留伺服器設定)。
+2. 確認防火牆和 Proxy 設定已正確設定：
+    - 如果伺服器位於防火牆後方，請確認允許連接埠 443 輸出。 如果防火牆限制僅允許對特定網域的流量，請確認您可以存取防火牆[文件](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall)中列出的網域。
+    - 如果伺服器位於 Proxy 後方，請依照 Proxy [文件](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)中的步驟設定整部電腦或應用程式專屬的 Proxy 設定。
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**如果我直接在我的 Azure 檔案共用中透過 SMB 建立檔案，或是透過入口網站建立檔案，要等多久檔案才會同步至同步群組中的伺服器？**  
@@ -226,14 +236,13 @@ PerItemErrorCount: 1006.
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 檔案在同步期間有所變更，因此需要再次同步。 | 不需要任何動作。 |
 
 #### <a name="handling-unsupported-characters"></a>處理不支援的字元
-如果 **FileSyncErrorsReport.ps1** PowerShell 指令碼因不支援的字元而失敗 (錯誤碼 0x7b 和 0x8007007b)，您應從個別檔案中移除或重新命名錯誤的字元。 由於這些字元大多沒有標準的視覺編碼，PowerShell 可能會將這些字元列印為問號或空的矩形。
+如果 **FileSyncErrorsReport.ps1** PowerShell 指令碼因不支援的字元而失敗 (錯誤碼 0x7b 和 0x8007007b)，您應從個別檔案中移除或重新命名錯誤的字元。 由於這些字元大多沒有標準的視覺編碼，PowerShell 可能會將這些字元列印為問號或空的矩形。 [評估工具](storage-sync-files-planning.md#evaluation-tool)可用來識別不受支援的字元。
 
 下表列出 Azure 檔案同步尚不支援的所有 Unicode 字元。
 
 | 字元集 | 字元計數 |
 |---------------|-----------------|
 | <ul><li>0x0000009D (osc 作業系統命令)</li><li>0x00000090 (dcs 裝置控制字串)</li><li>0x0000008F (ss3 單一移位三)</li><li>0x00000081 (高八位元組前置)</li><li>0x0000007F (del 刪除)</li><li>0x0000008D (ri 反向換行)</li></ul> | 6 |
-| <ul><li>0x0000200F (由右至左標記)</li><li>0x0000200E (‎由左至右標記)</li><li>0x0000202E (由右至左覆寫)</li><li>0x0000202D (由左至右覆寫)</li><li>0x0000202C (快顯方向格式)</li><li>0x0000202B (由右至左內嵌)</li><li>0x0000202A (由左至右內嵌)</li></ul> | 7 |
 | 0x0000FDD0 - 0x0000FDEF (阿拉伯文表現形式-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (特殊符號) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2 (非字元)</li><li>0x0002FFFE - 0x0002FFFF = 2 (非字元)</li><li>0x0003FFFE - 0x0003FFFF = 2 (非字元)</li><li>0x0004FFFE - 0x0004FFFF = 2 (非字元)</li><li>0x0005FFFE - 0x0005FFFF = 2 (非字元)</li><li>0x0006FFFE - 0x0006FFFF = 2 (非字元)</li><li>0x0007FFFE - 0x0007FFFF = 2 (非字元)</li><li>0x0008FFFE - 0x0008FFFF = 2 (非字元)</li><li>0x0009FFFE - 0x0009FFFF = 2 (非字元)</li><li>0x000AFFFE - 0x000AFFFF = 2 (非字元)</li><li>0x000BFFFE - 0x000BFFFF = 2 (非字元)</li><li>0x000CFFFE - 0x000CFFFF = 2 (非字元)</li><li>0x000DFFFE - 0x000DFFFF = 2 (非字元)</li><li>0x000EFFFE - 0x000EFFFF = 2 (未定義)</li><li>0x000FFFFE - 0x000FFFFF = 2 (補充專用區)</li></ul> | 30 |

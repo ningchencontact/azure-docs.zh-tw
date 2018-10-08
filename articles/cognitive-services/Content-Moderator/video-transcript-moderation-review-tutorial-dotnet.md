@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator - 在.NET 中審核影片及文字記錄 | Microsoft Docs
+title: 教學課程：在 .NET 中仲裁影片及文字記錄 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator 在 .NET 中審核影片及文字記錄。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0f851c030a05880d79a998ed4b4a941082c057b9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865466"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227566"
 ---
-# <a name="video-and-transcript-moderation-tutorial"></a>影片及文字記錄審核教學課程
+# <a name="tutorial-video-and-transcript-moderation"></a>教學課程：影片及文字記錄仲裁
 
 Content Moderator 的影片 API 可讓您審核影片，以及在人工審核工具中建立影片檢閱。 
 
@@ -40,7 +41,7 @@ Content Moderator 的影片 API 可讓您審核影片，以及在人工審核工
 - [影片檢閱](#video-review-default-view)
 - [文字記錄檢閱](#video-review-transcript-view)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. 註冊 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)網站，並[建立自訂標記](Review-Tool-User-Guide/tags.md)，C# 主控台應用程式會從程式碼內指派這些標記。 自訂標記如下列畫面所示。
 

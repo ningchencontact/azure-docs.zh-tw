@@ -1,22 +1,23 @@
 ---
 title: 建立和管理彈性集區 - Azure SQL Database | Microsoft Docs
 description: 建立和管理 Azure SQL 彈性集區。
-keywords: 多個資料庫, 資料庫資源, 資料庫效能
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
-ms.date: 08/01/2018
-ms.author: ninarn
+subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: oslake
+ms.author: moslake
 ms.reviewer: carlrab
-ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 6418694097c472afd6a2c706e55a9026ab03dcff
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842018"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162708"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>建立和管理 Azure SQL Database 中的彈性集區
 
@@ -70,12 +71,12 @@ ms.locfileid: "43842018"
 
 | Cmdlet | 說明 |
 | --- | --- |
-|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|建立彈性集區。|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|傳回將伺服器中的彈性集區列出的清單。|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|傳回將彈性集區中的資料庫列出的清單。|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|也包含可用的集區 DTU 設定、儲存體限制，以及個別資料庫設定。 為了減少繁複度，額外的儲存空間限制和個別資料庫設定預設為隱藏。|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|更新彈性集區。|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|刪除彈性集區。|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|建立彈性集區。|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|傳回將伺服器中的彈性集區列出的清單。|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|傳回將彈性集區中的資料庫列出的清單。|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|也包含可用的集區 DTU 設定、儲存體限制，以及個別資料庫設定。 為了減少繁複度，額外的儲存空間限制和個別資料庫設定預設為隱藏。|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|更新彈性集區。|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|刪除彈性集區。|
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL：管理集區資料庫
 

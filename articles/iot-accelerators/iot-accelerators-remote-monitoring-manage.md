@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b1e12ad837def690e55fc501c67d8b2ed5e3cd4d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284606"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222144"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>教學課程：設定和管理連線到監視解決方案的裝置
 
@@ -144,7 +144,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ## <a name="next-steps"></a>後續步驟
 
-本教學課程已示範如何設定和管理連線到遠端監視解決方案加速器的裝置。 若要了解如何使用解決方案加速器來找出並修正已連線裝置的問題，請繼續進行下一個教學課程。
+本教學課程已示範如何設定和管理連線到遠端監視解決方案加速器的裝置。 若要了解如何使用解決方案加速器來執行非預期警示的根本原因分析，請繼續到下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [使用裝置警示來找出並修正與監視解決方案連線的裝置問題](iot-accelerators-remote-monitoring-maintain.md)
+> [進行警示的根本原因分析](iot-accelerators-remote-monitoring-root-cause-analysis.md)

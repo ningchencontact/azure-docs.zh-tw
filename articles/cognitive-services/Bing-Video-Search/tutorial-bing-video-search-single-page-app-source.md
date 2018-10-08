@@ -1,22 +1,23 @@
 ---
-title: Bing 影片搜尋單頁 Web 應用程式 (原始程式碼) | Microsoft Docs
+title: 教學課程：建置單頁 Web 應用程式 - Bing 影片搜尋
+titlesuffix: Azure Cognitive Services
 description: 這是示範如何在單頁 Web 應用程式中使用 Bing 影片搜尋 API 的教學課程的原始程式碼。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: rosh
+ms.openlocfilehash: b0856be88382e1bb7a4cc65f5fd05910b814e152
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112455"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223282"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>教學課程：單頁影片搜尋應用程式
+# <a name="tutorial-single-page-bing-video-search-app"></a>教學課程：單頁 Bing 影片搜尋應用程式
 
 這是 Bing 影片搜尋[單頁應用程式教學課程](tutorial-bing-video-search-single-page-app.md)中所探討的完整原始程式碼。 若要執行應用程式，請將原始程式碼複製到記事本或另一個文字編輯器，儲存為 `bing.html`。 然後在 Microsoft Edge 或另一個常用的瀏覽器中開啟儲存的檔案。
 

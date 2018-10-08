@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2f0d3c592cf8e265c215c49c291d3ef420112a15
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 9eb80b085f979208999b6764d6e4014cdbcfd2a0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090855"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159120"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>快速入門：使用 Azure IoT C SDK 佈建 X.509 模擬裝置
 
@@ -30,7 +30,7 @@ ms.locfileid: "39090855"
 ## <a name="prerequisites"></a>必要條件
 
 * 啟用[「使用 C++ 進行桌面開發」](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載的 Visual Studio 2015 或 [Visual Studio 2017](https://www.visualstudio.com/vs/)。
-* 已安裝最新版 [Git](https://git-scm.com/download/)。
+* 已安裝最新版的 [Git](https://git-scm.com/download/)。
 
 
 <a id="setupdevbox"></a>
@@ -39,22 +39,30 @@ ms.locfileid: "39090855"
 
 在本節中，您會準備開發環境，以用來建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)，其中包括 X.509 開機順序的範例程式碼。
 
-1. 下載 [CMake 建置系統](https://cmake.org/download/)的最新發行版本。 從同一個網站中，查閱所選二進位散發版本的密碼編譯雜湊值。 請確認下載的二進位檔使用相對應密碼編譯雜湊值。 下列範例使用 Windows PowerShell 來驗證 x64 MSI 散發版 3.11.4 的密碼編譯雜湊：
+1. 下載 [CMake 建置系統](https://cmake.org/download/)的 3.11.4 版。 請確認下載的二進位檔使用對應的密碼編譯雜湊值。 下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.11.4 的密碼編譯雜湊：
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
     ```
+    
+    在撰寫本文時，CMake 網站上列出了3.11.4 版的下列雜湊值：
 
-    在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在必要條件皆已就緒，並且驗證過下載項目之後，請安裝 CMake 建置系統。
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    ```
 
-2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令來複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
+    在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
+
+2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    此存放庫的大小目前約 220 MB。 應預期此作業需要幾分鐘的時間才能完成。
+    此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
 
 
 3. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 
@@ -73,7 +81,7 @@ ms.locfileid: "39090855"
     
     如果 `cmake` 找不到 C++ 編譯，您在執行上述命令時，可能會收到建置錯誤。 如果發生這種情況，請嘗試在 [Visual Studio 命令提示字元](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)中執行此命令。 
 
-    建置成功後，最後幾行輸出會看起來類似下列輸出：
+    建置成功後，最後幾行輸出會類似於下列輸出：
 
     ```cmd/sh
     $ cmake -Duse_prov_client:BOOL=ON ..
@@ -95,22 +103,22 @@ ms.locfileid: "39090855"
 
 ## <a name="create-a-self-signed-x509-device-certificate"></a>建立自我簽署的 X.509 裝置憑證
 
-在本節中，您會使用自我簽署的 X.509 憑證，請務必記住下列事項：
+在本節中，您會使用自我簽署 X.509 憑證，請務必記住下列幾點：
 
 * 自我簽署憑證僅適用於測試，不應該用於生產環境。
-* 自我簽署憑證的預設到期日為 1 年。
+* 自我簽署憑證的預設到期日為一年。
 
 您會使用 Azure IoT C SDK 中的範例程式碼建立憑證，以便與模擬裝置的個別註冊項目搭配使用。
 
-1. 啟動 Visual Studio 並開啟名為 `azure_iot_sdks.sln` 的新方案檔。 此方案檔位於您先前在 azure-iot-sdk-c git 存放庫根目錄中建立的 `cmake` 資料夾。
+1. 啟動 Visual Studio 並開啟名為 `azure_iot_sdks.sln` 的新方案檔。 此解決方案檔案位於您先前在 azure-iot-sdk-c git 存放庫根目錄中建立的 `cmake` 資料夾內。
 
 2. 在 Visual Studio 功能表中，選取 [建置] > [建置解決方案]，以建置方案中的所有專案。
 
 3. 在 Visual Studio 的 [方案總管] 視窗中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **dice\_device\_enrollment** 專案，然後選取 [設為起始專案]。 
 
-4. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 在輸出視窗中，當出現提示時，針對個別註冊輸入 **i**。 
+4. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 在輸出視窗中，當出現提示時，針對個別註冊輸入 **i**。 
 
-    輸出視窗會顯示本機為模擬裝置產生的自我簽署 X.509 憑證。 將輸出複製到剪貼簿 (從 **-----BEGIN CERTIFICATE-----** 開始並以第一個 **-----END CERTIFICATE-----** 作為結束)，請確定包含這兩行文字。 請注意，您只需要輸出視窗中的第一個憑證。
+    輸出視窗會顯示本機為模擬裝置產生的自我簽署 X.509 憑證。 將輸出複製到剪貼簿 (從 **-----BEGIN CERTIFICATE-----** 開始並以第一個 **-----END CERTIFICATE-----** 作為結束)，請確定包含這兩行文字。 您只需要輸出視窗中的第一個憑證。
  
 5. 使用文字編輯器，將憑證儲存為名為 **_X509testcert.pem_** 的新檔案。 
 
@@ -127,7 +135,7 @@ ms.locfileid: "39090855"
     - **主要 .pem 或 .cer 憑證檔案：** 按一下 [選取檔案] 以選取在先前建立的 X509testcert.pem 憑證檔案。
     - **IoT 中樞裝置識別碼：** 輸入 **test-docs-cert-device** 作為裝置的識別碼。
 
-    [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509/individual-enrollment.png)](./media/quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
+    [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
     註冊成功時，您的 X.509 裝置會在 [個別註冊] 索引標籤之下的 [註冊識別碼] 資料行中顯示為 **riot-device-cert**。 
 
@@ -143,7 +151,7 @@ ms.locfileid: "39090855"
 
 1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀] 索引標籤，並記下 [識別碼範圍] 值。
 
-    ![從入口網站刀鋒視窗擷取 DPS 端點資訊](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
 2. 在 Visual Studio 的 [方案總管] 視窗中，瀏覽至 **Provision\_Samples** 資料夾。 展開名為 **prov\_dev\_client\_sample** 的範例專案。 展開 [來源檔案]，然後開啟 **prov\_dev\_client\_sample.c**。
 
@@ -163,7 +171,7 @@ ms.locfileid: "39090855"
 
 5. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 
 
-6. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
+6. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
 
     下列輸出範例指出佈建裝置用戶端範例已成功啟動，並且已連線至佈建服務執行個體，可取得 IoT 中樞資訊並進行註冊：
 
@@ -180,7 +188,7 @@ ms.locfileid: "39090855"
     test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device    
     ```
 
-7. 在入口網站中，瀏覽到連結至您佈建服務的 IoT 中樞，並按一下 [IoT 裝置] 索引標籤。X.509 模擬裝置成功佈建到 IoT 中樞時，其裝置識別碼會出現在 [IoT 裝置] 刀鋒視窗上，且 [狀態] 顯示為 [已啟用]。 請注意，您可能會需要按一下頂端的 [重新整理] 按鈕。 
+7. 在入口網站中，瀏覽到連結至您佈建服務的 IoT 中樞，並按一下 [IoT 裝置] 索引標籤。X.509 模擬裝置成功佈建到 IoT 中樞時，其裝置識別碼會出現在 [IoT 裝置] 刀鋒視窗上，且 [狀態] 顯示為 [已啟用]。 您可能需要按一下頂端的 [重新整理] 按鈕。 
 
     ![已向 IoT 中樞註冊裝置](./media/quick-create-simulated-device/hub-registration.png) 
 
@@ -190,8 +198,8 @@ ms.locfileid: "39090855"
 如果您打算繼續使用並探索裝置用戶端範例，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟來刪除本快速入門建立的所有資源。
 
 1. 在您的電腦上關閉裝置用戶端範例輸出視窗。
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的裝置佈建服務。 開啟您服務的 [管理註冊]，然後按一下 [個別註冊] 索引標籤。選取您在本快速入門中註冊的裝置之 [註冊識別碼]，然後按一下頂端的 [刪除] 按鈕。 
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 開啟您中樞的 [IoT 裝置]，選取您在本快速入門中註冊之裝置的 [裝置識別碼]，然後按一下頂端的 [刪除] 按鈕。
+1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的裝置佈建服務。 為您的服務開啟 [管理註冊]，然後按一下 [個別註冊] 索引標籤。選取您在本快速入門中註冊的裝置之 [註冊識別碼]，然後按一下頂端的 [刪除] 按鈕。 
+1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 為您的中樞開啟 [IoT 裝置]，選取您在本快速入門中註冊的裝置 [裝置識別碼]，然後按一下頂端的 [刪除] 按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

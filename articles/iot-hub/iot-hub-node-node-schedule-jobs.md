@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 2161cd12f8bdb6aa3018d81a7864816a97ed122a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 69469d6b302f951301c92c0ee7984df95911624e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187745"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221293"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>排定及廣播作業 (Node)
 
@@ -115,7 +115,7 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 8. 儲存並關閉 **simDevice.js** 檔案。
 
 > [!NOTE]
-> 為了簡單起見，本教學課程不會實作任何重試原則。 在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。
+> 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)一文中所建議，實作重試原則 (例如指數型輪詢)。
 > 
 > 
 
@@ -268,4 +268,3 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

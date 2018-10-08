@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: a4824cadfaad2115a64427df618bac5e6c6df6ee
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382292"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410216"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -28,15 +28,20 @@ ms.locfileid: "43382292"
 
 這項功能會在下列 Azure 服務和區域中提供：
 
+**正式推出**
+
 - **[Azure 儲存體](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**：已在所有 Azure 區域正式推出。
 - **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 區域正式推出。
+- **[適用於 PostgreSQL 伺服器的 Azure 資料庫](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
+- **[適用於 MySQL 伺服器的 Azure 資料庫](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。
 - **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)** (英文)：已在所有 Azure 公用雲端區域正式推出。
+
+<bpt id="p1">**</bpt>Preview<ept id="p1">**</ept>
+
 - **[Azure SQL 資料倉儲](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在所有 Azure 公用雲端區域以預覽版提供。
 - **[Azure 服務匯流排](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在預覽版中提供。
 - **[Azure 事件中樞](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在預覽版中提供。
-- **[適用於 PostgreSQL 伺服器的 Azure 資料庫](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
-- **[適用於 MySQL 伺服器的 Azure 資料庫](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
 
 如需最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 

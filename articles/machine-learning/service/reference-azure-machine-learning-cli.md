@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 5d14373b265ea30d235cc5bc7b87ee13c4fd8105
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991788"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158898"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>什麼是 Azure Machine Learning CLI？
 
@@ -42,6 +42,8 @@ az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-
 az extension remove -n azure-cli-ml
 ```
 
+您可以使用上述的**移除**和**新增**步驟來更新 CLI。
+
 ## <a name="using-the-cli-vs-the-sdk"></a>使用 CLI 與 SDK 的比較
 CLI 較適合開發營運人員的自動化，或適用於連續整合和交貨管線。 已經過最佳化處理，可處理不頻繁而且高度參數化的工作。 
 
@@ -54,6 +56,8 @@ CLI 較適合開發營運人員的自動化，或適用於連續整合和交貨�
 建議資料科學家使用 Azure ML SDK。
 
 ## <a name="common-machine-learning-cli-commands"></a>常見的機器學習 CLI 命令
+> [!NOTE]
+> 可用來成功執行下列命令的檔案範例可於[這裡](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)找到。
 
 在任何命令列環境中使用多樣化的 `az ml` 命令，包括 Azure 入口網站雲端殼層。
 
@@ -62,16 +66,16 @@ CLI 較適合開發營運人員的自動化，或適用於連續整合和交貨�
 ### <a name="workspace-creation--compute-setup"></a>工作區建立和計算設定
 
 + 建立 Azure Machine Learning 工作區，也就是機器學習的最上層資源。
-  ```AzureCLI
-  az ml workspace create -n myworkspace -g myresourcegroup
-  ```
+   ```AzureCLI
+   az ml workspace create -n myworkspace -g myresourcegroup
+   ```
 
 + 設定 CLI 預設使用此工作區。
-```AzureCLI
-az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-```
+   ```AzureCLI
+   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+   ```
 
-+ 建立 DSVM (資料科學虛擬機器) 用於訓練模型。 您也可以建立分散式訓練的 BatchAI 叢集。
++ 建立 DSVM (資料科學 VM)。 您也可以建立 BatchAI 叢集來用於分散式訓練，或建立 AKS 叢集來用於部署。
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -82,9 +86,10 @@ az configure --defaults aml_workspace=myworkspace group=myresourcegroup
   az ml project attach --experiment-name myhistory
   ```
 
-+ 在您選擇的計算目標上 (此範例使用資料科學虛擬機器)，提交對 Azure Machine Learning 服務的實驗
++ 在您選擇的計算目標上，提交對 Azure Machine Learning 服務的實驗。 此範例會針對本機計算環境來執行。 請確定 Conda 環境檔案會擷取 Python 相依性。
+
   ```AzureCLI
-  az ml run submit -c mydsvm train.py
+  az ml run submit -c local train.py
   ```
 
 + 檢視已提交的實驗清單。
@@ -96,17 +101,17 @@ az ml history list
 
 + 向 Azure Machine Learning 註冊模型。
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + 建立映像，以納入您的機器學習模型和相依性。 
   ```AzureCLI
-  az ml image create -n myimage -r python -m rfmodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + 將封裝的模型部署到包括 ACI 和 AKS 的目標。
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## <a name="full-command-list"></a>完整命令清單

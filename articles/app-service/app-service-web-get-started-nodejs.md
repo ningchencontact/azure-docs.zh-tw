@@ -3,8 +3,8 @@ title: 在 Azure 中建立 Node.js Web 應用程式
 description: 短短幾分鐘內在 Azure App Service Web Apps 中部署第一個 Node.js Hello World。
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/24/2018
-ms.author: cephalin;cfowler
+ms.date: 09/27/2018
+ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 63e65ffc17ba71a5d2cf00cb5f04e3e0f87c1bfe
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184375"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433458"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "43184375"
 > 本文會將應用程式部署至 Windows 上的 App Service。 若要部署至 _Linux_ 上的 App Service，請參閱[在 Linux 上的 Azure App Service 中建立 Node.js Web 應用程式](./containers/quickstart-nodejs.md)。
 >
 
-[Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。  本快速入門會顯示如何將 Node.js 應用程式部署至 Azure Web Apps。 您可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)建立 Web 應用程式，而且使用 Git 將範例 Node.js 程式碼部署至 Web 應用程式。
+[Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。  本快速入門會顯示如何將 Node.js 應用程式部署至 Azure Web Apps。 您可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)建立 Web 應用程式，並使用 ZipDeploy 將範例 Node.js 程式碼部署至 Web 應用程式。
 
 ![在 Azure 中執行的範例應用程式](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -47,6 +47,9 @@ ms.locfileid: "43184375"
 從 [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) 下載範例 Node.js 專案並將 ZIP 封存檔解壓縮。
 
 在終端機視窗中，瀏覽至 Node.js 專案範例的根目錄 (包含 _index.js_ 的目錄)。
+
+> [!NOTE]
+> 您不需要使用我們的範例應用程式，您可以依需求使用自己的 Node 程式碼。 但請注意，在執行階段 Azure 將會為您的應用程式設定 PORT，並使其成為可用的 `process.env.PORT`。 如果您要使用 Express，請確定您對 `process.env.PORT || 3000` 設有啟動檢查 (`app.listen`)。 若未這麼做，且您的連接埠與 Azure 在執行階段設定的不相符，您將會看到 `Service Unavailable` 訊息。 
 
 ## <a name="run-the-app-locally"></a>在本機執行應用程式
 
@@ -71,21 +74,19 @@ npm start
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-scus.md)] 
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-scus.md)] 
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
 在 Cloud Shell 中，使用 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 命令，在 `myAppServicePlan` App Service 方案中建立 Web 應用程式。 
 
-在下列範,了中，使用全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`) 取代 `<app_name>`。 執行階段設定為 `NODE|6.9`。 若要查看所有支援的執行階段，請執行 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)。 
+在下列範,了中，使用全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`) 取代 `<app_name>`。
 
 ```azurecli-interactive
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+# Bash and Powershell
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
 ```
 
 建立 Web 應用程式後，Azure CLI 會顯示類似下列範例的輸出：
@@ -104,6 +105,15 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 }
 ```
 
+### <a name="set-nodejs-runtime"></a>設定 Node.js 執行階段
+
+將 Node 執行階段設定為 8.11.1。 <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+
+```azurecli-interactive
+# Bash and Powershell
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+```
+
 瀏覽至您剛建立的 Web 應用程式。 以唯一的應用程式名稱取代 _&lt;app name>_。
 
 ```bash
@@ -112,7 +122,7 @@ http://<app name>.azurewebsites.net
 
 新的 Web 應用程式看起來應該像這樣：
 
-![空的 Web 應用程式頁面](media/app-service-web-get-started-php/app-service-web-service-created.png)
+![空的 Web 應用程式頁面](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
@@ -148,7 +158,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-使用[上傳 ZIP 檔案](#upload-the-zip-file)中的相同步驟，將這個新的 ZIP 檔案部署至 App Service。
+使用[部署 ZIP 檔案](#deploy-zip-file)中的相同步驟，將這個新的 ZIP 檔案部署至 App Service。
 
 切換回在**瀏覽至應用程式**步驟中開啟的瀏覽器視窗，然後重新整理頁面。
 

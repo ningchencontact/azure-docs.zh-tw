@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4af2e570b498e496e80b6aeee2b8aeae23c582cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952404"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452292"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>選取並使用計算目標將您的模型定型
 
@@ -90,6 +90,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+如需在使用者管理環境中示範定型的 Jupyter Notebook，請參閱 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb)。
   
 ### <a name="system-managed-environment"></a>系統管理的環境
 
@@ -110,6 +112,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+如需在系統管理環境中示範定型的 Jupyter Notebook，請參閱 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb)。
+
 ## <a id="dsvm"></a>資料科學虛擬機器
 
 您的本機電腦可能沒有將模型定型時所需的計算或 GPU 資源。 此時可以透過新增額外的計算目標 (例如資料科學虛擬機器 (DSVM)) 來相應增加或相應放大定型程序。
@@ -190,6 +195,8 @@ run_config_system_managed.environment.python.conda_dependencies = CondaDependenc
     dsvm_compute.delete()
     ```
 
+如需在資料科學虛擬機器上示範定型的 Jupyter Notebook，請參閱 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb)。
+
 ## <a id="batch"></a>Azure Batch AI
 
 如果將模型定型時需要花費很長的時間，可以使用 Azure Batch AI 將定型作業分散到雲端中的整個計算資源叢集。 也可以設定 Batch AI 以啟用 GPU 資源。
@@ -232,14 +239,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-若要附加現有的 Batch AI 叢集作為計算目標，必須提供 Azure 資源識別碼。若要從 Azure 入口網站取得資源識別碼，您將需要：
+若要附加現有的 Batch AI 叢集作為計算目標，必須提供 Azure 資源識別碼。 若要從 Azure 入口網站取得資源識別碼，請使用下列步驟：
 1. 在 [所有服務]底下搜尋 `Batch AI` 服務
 1. 按一下您的叢集所屬工作區的名稱
 1. 選取叢集
 1. 按一下 [屬性]
 1. 複製**識別碼**
 
-下列範例會使用 SDK 將叢集附加到您的工作區。 在範例中，請以計算的任何名稱取代 `<name>`。 這不需要與叢集名稱相符。 請以上述 Azure 資源識別碼取代 `<resource-id>`：
+下列範例會使用 SDK 將叢集附加到您的工作區。 在範例中，請以計算的任何名稱取代 `<name>`。 此名稱不需要與叢集名稱相符。 以上述 Azure 資源識別碼取代 `<resource-id>`：
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -253,7 +260,9 @@ BatchAiCompute.attach(workspace=ws,
 - 檢查叢集狀態。 您可以查看有多少節點使用 `az batchai cluster list` 執行。
 - 檢查作業狀態。 您可以查看有多少作業使用 `az batchai job list` 執行。
 
-需要大約 5 分鐘的時間建立 Batch AI 叢集
+需要大約 5 分鐘的時間建立 Batch AI 叢集。
+
+如需在 Batch AI 叢集中示範定型的 Jupyter Notebook，請參閱 [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)。
 
 ## <a name='aci'></a>Azure 容器執行個體 (ACI)
 
@@ -296,6 +305,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 可能需要幾秒鐘至幾分鐘的時間建立 ACI 計算目標。
+
+如需在 Azure 容器執行個體中示範定型的 Jupyter Notebook，請參閱 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb)。
 
 ## <a id="hdinsight"></a>附加 HDInsight 叢集 
 
@@ -352,6 +363,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+如需使用 HDInsight 上的 Spark 示範定型的 Jupyter Notebook，請參閱 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb)。
+
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>使用 Azure 入口網站來檢視及設定計算
 
 您可以從 Azure 入口網站檢視有哪些計算目標與您的工作區關聯。 若要取得清單，請使用下列步驟：
@@ -372,7 +385,7 @@ run.wait_for_completion(show_output = True)
 1. 輸入計算目標的名稱。
 1. 選取要附加以進行__定型__的計算類型。 
 1. 選取 [建立新項目] 並填寫必要表單。 
-1. 選取 [建立]
+1. 選取 [建立] 
 1. 您可以從清單選取計算目標以檢視狀態建立作業。
 
     ![檢視計算清單](./media/how-to-set-up-training-targets/View_list.png) 您接著將會看到該計算的詳細資料。
@@ -403,6 +416,7 @@ run.wait_for_completion(show_output = True)
 下列 Notebook 示範了此文章中說明的概念：
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

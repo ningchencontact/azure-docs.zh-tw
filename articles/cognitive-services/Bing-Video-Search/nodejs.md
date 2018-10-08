@@ -1,30 +1,31 @@
 ---
-title: Azure 認知服務，Bing 影片搜尋 API 的 Node.js 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing 影片搜尋 API。
+title: 快速入門：Bing 影片搜尋 API (Node.js)
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 影片搜尋 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: be9cbd56a1db1f9df78ec6f1c378d803c0a37151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a4ee4b0c0f4ce46110cebf95cdf927f8df3567d0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369943"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220370"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-nodejs"></a>Bing 影片搜尋 API 的 Node.js 快速入門
+# <a name="quickstart-bing-video-search-api-with-nodejs"></a>快速入門：使用 Node.js 的 Bing 影片搜尋 API
 
 本文說明如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 影片搜尋 API。 雖然本文使用 Node.js，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求及剖析 JSON。 
 
 範例是以 JavaScript 撰寫的，並且在 Node.js 6 下執行。
 
-請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 以了解關於 API 的技術詳細資料。
+請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)了解 API 的技術詳細資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您需要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
 
@@ -34,7 +35,7 @@ ms.locfileid: "35369943"
 
 1. 在您最愛的 IDE 或編輯器中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `subscriptionKey` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `subscriptionKey` 值。
 4. 執行程式。
 
 ```javascript
@@ -97,7 +98,7 @@ bing_video_search(term);
 
 **回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -213,4 +214,4 @@ bing_video_search(term);
 
 ## <a name="see-also"></a>另請參閱 
 
- [搜尋網路上的影片](search-the-web.md) [試試看](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [搜尋網路上的影片](search-the-web.md) (英文) [Bing 影片搜尋](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

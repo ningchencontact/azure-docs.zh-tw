@@ -1,25 +1,27 @@
 ---
-title: 電腦視覺 API C# 快速入門 SDK 手寫文字 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您會在認知服務中使用電腦視覺 Windows C# 用戶端程式庫，擷取影像中的手寫文字。
+title: 快速入門：擷取文字 - SDK、C# - 電腦視覺
+titleSuffix: Azure Cognitive Services
+description: 在本快速入門中，您會使用電腦視覺 Windows C# 用戶端程式庫，擷取影像中的文字。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 7eb87e3d4b1703bf1ee0e30c930b0bc724b7f22f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/27/2018
+ms.author: nolachar
+ms.openlocfilehash: 86808756721b2dc983df6eaf8a9e643a12d73969
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750344"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409006"
 ---
-# <a name="quickstart-extract-handwritten-text---sdk-c35"></a>快速入門：擷取手寫文字 - SDK、C&#35;
+# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>快速入門：使用電腦視覺 SDK 和 C# 擷取文字
 
-在本快速入門中，您會使用電腦視覺 Windows 用戶端程式庫，擷取影像中的手寫文字。
+在本快速入門中，您會使用電腦視覺 Windows 用戶端程式庫，擷取影像中的手寫或列印文字。
+
+此範例的原始程式碼位於 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +31,7 @@ ms.locfileid: "43750344"
 
 ## <a name="recognizetextasync-method"></a>RecognizeTextAsync 方法
 
-`RecognizeTextAsync` 和 `RecognizeTextInStreamAsync` 方法可分別針對遠端和本機影像包裝[辨識文字 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (英文)。 `GetTextOperationResultAsync` 方法會包裝[取得辨識文字作業結果 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (英文)。  您可以使用這些方法來偵測影像中的手寫文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
+`RecognizeTextAsync` 和 `RecognizeTextInStreamAsync` 方法可分別針對遠端和本機影像包裝[辨識文字 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (英文)。 `GetTextOperationResultAsync` 方法會包裝[取得辨識文字作業結果 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (英文)。  您可以使用這些方法來偵測影像中的文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 
 若要執行範例，請執行下列步驟：
 
@@ -39,8 +41,9 @@ ms.locfileid: "43750344"
     1. 按一下 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中，鍵入 "Microsoft.Azure.CognitiveServices.Vision.ComputerVision"。
     1. 顯示時選取 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision]，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
 1. 使用以下程式碼來取代 `Program.cs`。
-1. 將 `<Subscription Key>` 取代為您的有效訂用帳戶金鑰。
-1. 必要時，請將 `computerVision.AzureRegion = AzureRegions.Westcentralus` 變更為您取得訂用帳戶金鑰的位置。
+1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
+1. 必要時，請將 `computerVision.Endpoint` 變更為與您的訂用帳戶金鑰相關聯的 Azure 區域。
+1. 選擇性地將 `textRecognitionMode` 設定為 `TextRecognitionMode.Printed`。
 1. 使用本機影像的路徑和檔案名稱來取代 `<LocalImage>`。
 1. (選擇性) 將 `remoteImageUrl` 設為不同的影像。
 1. 執行程式。
@@ -53,12 +56,16 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace ImageHandText
+namespace ExtractText
 {
     class Program
     {
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string subscriptionKey = "<SubscriptionKey>";
+
+        // For printed text, change to TextRecognitionMode.Printed
+        private const TextRecognitionMode textRecognitionMode =
+            TextRecognitionMode.Handwritten;
 
         // localImagePath = @"C:\Documents\LocalImage.jpg"
         private const string localImagePath = @"<LocalImage>";
@@ -72,33 +79,33 @@ namespace ImageHandText
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+            ComputerVisionClient computerVision = new ComputerVisionClient(
                 new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...");
-            var t1 = ExtractRemoteHandTextAsync(computerVision, remoteImageUrl);
-            var t2 = ExtractLocalHandTextAsync(computerVision, localImagePath);
+            var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);
+            var t2 = ExtractLocalTextAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Recognize text from a remote image
-        private static async Task ExtractRemoteHandTextAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+        private static async Task ExtractRemoteTextAsync(
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -108,15 +115,16 @@ namespace ImageHandText
             }
 
             // Start the async process to recognize the text
-            RecognizeTextHeaders textHeaders = await computerVision.RecognizeTextAsync(
-                    imageUrl, TextRecognitionMode.Handwritten);
+            RecognizeTextHeaders textHeaders =
+                await computerVision.RecognizeTextAsync(
+                    imageUrl, textRecognitionMode);
 
             await GetTextAsync(computerVision, textHeaders.OperationLocation);
         }
 
         // Recognize text from a local image
-        private static async Task ExtractLocalHandTextAsync(
-            ComputerVisionAPI computerVision, string imagePath)
+        private static async Task ExtractLocalTextAsync(
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
@@ -130,7 +138,7 @@ namespace ImageHandText
                 // Start the async process to recognize the text
                 RecognizeTextInStreamHeaders textHeaders =
                     await computerVision.RecognizeTextInStreamAsync(
-                        imageStream, TextRecognitionMode.Handwritten);
+                        imageStream, textRecognitionMode);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
             }
@@ -138,7 +146,7 @@ namespace ImageHandText
 
         // Retrieve the recognized text
         private static async Task GetTextAsync(
-            ComputerVisionAPI computerVision, string operationLocation)
+            ComputerVisionClient computerVision, string operationLocation)
         {
             // Retrieve the URI where the recognized text will be
             // stored from the Operation-Location header
@@ -165,7 +173,7 @@ namespace ImageHandText
             // Display the results
             Console.WriteLine();
             var lines = result.RecognitionResult.Lines;
-            foreach(Line line in lines)
+            foreach (Line line in lines)
             {
                 Console.WriteLine(line.Text);
             }
@@ -179,7 +187,7 @@ namespace ImageHandText
 
 成功的回應會顯示每個影像的可辨識文字行數。
 
-請參閱 [API 快速入門：使用 C# 擷取手寫文字](../QuickStarts/CSharp-hand-text.md#recognize-text-response)，以取得未經處理 JSON 輸出的範例。
+請參閱[快速入門：擷取手寫文字 - REST、C#](../QuickStarts/CSharp-hand-text.md#examine-the-response)，以取得原始 JSON 輸出的範例。
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()

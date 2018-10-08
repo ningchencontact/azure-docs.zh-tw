@@ -2,20 +2,22 @@
 title: Azure SQL 資料同步 | Microsoft Docs
 description: 本概觀介紹 Azure SQL 資料同步
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: data-sync
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+manager: craigg
+ms.date: 08/09/2018
+ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140879"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161976"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 

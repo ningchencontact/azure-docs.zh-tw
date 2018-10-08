@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 3b35f78d66a6ae66b0a56818f5d4be455ce00de5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181935"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433219"
 ---
 # <a name="design-process-overview"></a>設計流程概觀
-您可以在 Project Acoustics 工作流程的所有三個階段中表達您的設計意圖：製作前設計、聲音來源位置，以及製作後設計。 此流程在放置殘響音量方面所需的標記較少，同時又保留了設計人員對場景音效的控制。
+您可以在 Project Acoustics 工作流程的所有三個階段中表達您的設計意圖：製作前場景設定、聲音來源位置，以及製作後設計。 此流程在放置殘響音量方面所需的標記較少，同時又保留了設計人員對場景音效的控制。
 
 ## <a name="pre-bake-design"></a>製作前設計
-製作前設計流程會產生用於聲波模擬的場景和中繼資料，其中包括選取哪些場景元素將參與模擬來提供遮蔽、反射及殘響。 場景的中繼資料是為每個場景元素選取的聲場材質。 聲場材質會控制從每個表面反射回來的聲音能量多寡。
+製作前場景設定流程會產生用於聲波模擬的場景和中繼資料，其中包括選取哪些場景元素將參與模擬來提供遮蔽、反射及殘響。 場景的中繼資料是為每個場景元素選取的聲場材質。 聲場材質會控制從每個表面反射回來的聲音能量多寡。
 
 所有表面的預設吸收係數都是 0.04，具有高反射性。 您可以4透過調整整個場景不同材質的吸收係數來達到美學和遊戲效果，當聆聽者聽到從場景的一個區域到另一個區域的轉換時，感受會特別明顯。 例如，從黑暗有殘響的室內轉換到明亮無殘響的室外場景時，可增強轉換的影響。 若要達到此效果，請將室外場景材質上的吸收係數調高。
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 84eb1c08cc3f9ef104e2eb0b96ed397315c3f374
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 57869de8a99c65810da0c75f81c75d93eac88412
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937564"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090811"
 ---
 # <a name="validate-azure-registration"></a>驗證 Azure 註冊 
 使用 Azure Stack 整備檢查程式工具 (AzsReadinessChecker) 來驗證 Azure 訂用帳戶是否已準備好與 Azure Stack 搭配使用。 開始部署 Azure Stack 之前，請先驗證註冊。 整備檢查程式會驗證：
@@ -32,7 +32,7 @@ ms.locfileid: "33937564"
 ## <a name="get-the-readiness-checker-tool"></a>取得整備檢查程式工具
 下載最新版的 Azure Stack 整備檢查程式工具 (AzsReadinessChecker)，其位於 [PSGallery](https://aka.ms/AzsReadinessChecker)。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 必須具備下列先決條件。
 
 **執行這個工具的電腦：**

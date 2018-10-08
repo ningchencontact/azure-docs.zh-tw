@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 6fcc7823a7e2f2f1e280622a1fa05d4417a71546
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143477"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161522"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教學課程：針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
 
@@ -30,7 +30,9 @@ ms.locfileid: "43143477"
 
 > [!div class="checklist"]
 > * 打開資料箱磁碟的包裝
-> * 連接資料箱磁碟並解除鎖定。
+> * 連接到磁碟並取得通行金鑰
+> * 將 Windows 用戶端上的磁碟解除鎖定
+> * 將 Linux 用戶端上的磁碟解除鎖定
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,12 +40,9 @@ ms.locfileid: "43143477"
 
 1. 您已完成[教學課程：訂購 Azure 資料箱磁碟](data-box-disk-deploy-ordered.md)。
 2. 您已收到磁碟，入口網站中的作業狀態會更新為**已交付**。
-3. 您有主機電腦，可以在上面安裝資料箱磁碟解除鎖定工具。 您的主機電腦必須符合下列條件：
-    - 執行[支援的作業系統](data-box-disk-system-requirements.md)。
-    - 已[安裝 Windows PowerShell 4](https://www.microsoft.com/download/details.aspx?id=40855)。
-    - 已[安裝 .NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653)。
-    - 已[啟用 BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server)。
-    - 已[安裝 Windows Management Framework 4](https://www.microsoft.com/en-us/download/details.aspx?id=40855)。 
+3. 您有一部用戶端電腦，可以在上面安裝資料箱磁碟解除鎖定工具。 您的用戶端電腦必須：
+    - 執行[支援的作業系統](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)。
+    - 安裝其他[必要軟體](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) (如果是 Windows 用戶端)。  
 
 ## <a name="unpack-your-disks"></a>打開磁碟的包裝
 
@@ -60,22 +59,31 @@ ms.locfileid: "43143477"
 
 4. 請保留包裹及包裝發泡材料，以便將磁碟退回。
 
-## <a name="connect-and-unlock-your-disks"></a>連接磁碟並解除鎖定
+## <a name="connect-to-disks-and-get-the-passkey"></a>連接到磁碟並取得通行金鑰 
 
-請執行下列步驟，以連接磁碟並解除鎖定。
-
-1. 使用內含的纜線將磁碟連接到執行支援作業系統的 Windows 電腦，如同必要條件中所述。 
+1. 使用內含的纜線將磁碟連接到執行支援作業系統的用戶端電腦，如同必要條件中所述。 
 
     ![資料箱磁碟連線](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)    
     
-2. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 
-3. 按一下 [下載資料箱磁碟解除鎖定工具]。 
+2. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 使用複製圖示來複製通行金鑰。 此通行金鑰用來將磁碟解除鎖定。
 
-    ![資料箱磁碟解除鎖定工具下載](media/data-box-disk-deploy-set-up/data-box-disk-unload1.png)     
+    ![資料箱磁碟解除鎖定通行金鑰](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png) 
 
-4. 在您用來複製資料的相同電腦上將工具解壓縮。
-5. 在相同電腦上以系統管理員的身分，開啟 [命令提示字元] 視窗或執行 Windows PowerShell。
-6. (選擇性) 若要確認您用來將磁碟解除鎖定的電腦符合作業系統需求，請執行系統檢查命令。 下方顯示一項範例輸出。 
+視您連線至 Windows 或 Linux 用戶端，用來解除鎖定磁碟的步驟會有所不同。
+
+## <a name="unlock-disks-on-windows-client"></a>將 Windows 用戶端上的磁碟解除鎖定
+
+請執行下列步驟，以連接磁碟並解除鎖定。
+     
+1. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 
+2. 下載對應至 Windows 用戶端的資料箱磁碟工具組。 
+
+    > [!div class="nextstepaction"]
+    > [下載適用於 Windows 的資料箱磁碟工具組](http://aka.ms/databoxdisktoolswin)         
+
+3. 在您用來複製資料的相同電腦上將工具解壓縮。
+4. 在相同電腦上以系統管理員的身分，開啟 [命令提示字元] 視窗或執行 Windows PowerShell。
+5. (選擇性) 若要確認您用來將磁碟解除鎖定的電腦符合作業系統需求，請執行系統檢查命令。 下方顯示一項範例輸出。 
 
     ```powershell
     Windows PowerShell
@@ -86,13 +94,12 @@ ms.locfileid: "43143477"
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-7. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 使用複製圖示來複製通行金鑰。
-8. 請執行 `DataBoxDiskUnlock.exe` 並提供通行金鑰。 指派給磁碟的磁碟機代號隨即顯示。 下方顯示一項範例輸出。
+6. 執行 `DataBoxDiskUnlock.exe` 並提供您在[連接到磁碟並取得通行金鑰](#Connect-to-disks-and-get-the-passkey)中取得的通行金鑰。 指派給磁碟的磁碟機代號隨即顯示。 下方顯示一項範例輸出。
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
     PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe
-    Enter the passkeys (format: passkey1;passkey2;passkey3):
+    Enter the passkey :
     testpasskey1
     
     Following volumes are unlocked and verified.
@@ -101,26 +108,155 @@ ms.locfileid: "43143477"
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```
 
-9. 針對日後任何磁碟重新插入請重複步驟 6-8。 如果您需要資料箱磁碟解除鎖定工具的說明，請使說明命令。   
+7. 請針對日後任何磁碟重新插入重複解除鎖定步驟。 如果您需要資料箱磁碟解除鎖定工具的說明，請使 `help` 命令。   
 
     ```powershell
     PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /help
     USAGE:
-    DataBoxUnlock /PassKeys:<passkey_list_separated_by_semicolon>
+    DataBoxUnlock /PassKey:<passkey_from_Azure_portal>
     
-    Example: DataBoxUnlock /PassKeys:<your passkey>
+    Example: DataBoxUnlock /PassKey:<your passkey>
     Example: DataBoxUnlock /SystemCheck
     Example: DataBoxUnlock /Help
     
-    /PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
+    /PassKey:        Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
     /SystemCheck:    This option checks if your system meets the requirements to run the tool.
     /Help:           This option provides help on cmdlet usage and examples.
     
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```  
-10. 將磁碟解除鎖定之後，您就可以檢視磁碟的內容。    
+8. 將磁碟解除鎖定之後，您就可以檢視磁碟的內容。    
 
     ![資料箱磁碟內容](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+
+## <a name="unlock-disks-on-linux-client"></a>將 Linux 用戶端上的磁碟解除鎖定
+
+1. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 
+2. 下載對應至 Linux 用戶端的資料箱磁碟工具組。  
+
+    > [!div class="nextstepaction"]
+    > [下載適用於 Linux 的資料箱磁碟工具組](http://aka.ms/databoxdisktoolslinux) 
+
+3. 在您的 Linux 用戶端上開啟終端機。 瀏覽至您下載軟體的資料夾。 變更檔案權限，以便執行這些檔案。 輸入以下命令： 
+
+    `chmod +x DataBoxDiskUnlock_x86_64` 
+    
+    `chmod +x DataBoxDiskUnlock_Prep.sh` 
+ 
+    下方顯示一項範例輸出。 執行 chmod 命令後，您可藉由執行 `ls` 命令來確認檔案權限已變更。 
+ 
+    ```
+        [user@localhost Downloads]$ chmod +x DataBoxDiskUnlock_x86_64  
+        [user@localhost Downloads]$ chmod +x DataBoxDiskUnlock_Prep.sh   
+        [user@localhost Downloads]$ ls -l  
+        -rwxrwxr-x. 1 user user 1152664 Aug 10 17:26 DataBoxDiskUnlock_x86_64  
+        -rwxrwxr-x. 1 user user 795 Aug 5 23:26 DataBoxDiskUnlock_Prep.sh
+    ```
+4. 執行指令碼，以便安裝資料箱磁碟解除鎖定軟體需要的所有二進位檔。 使用 `sudo` 以 root 身分執行命令。 成功安裝二進位檔後，您會在終端機上看到該該效果的附註。
+
+    `sudo ./DataBoxDiskUnlock_Prep.sh`
+
+    此指令碼會先檢查您的用戶端電腦是否執行支援的作業系統。 下方顯示一項範例輸出。 
+ 
+    ```
+    [user@localhost Documents]$ sudo ./DataBoxDiskUnlock_Prep.sh 
+        OS = CentOS Version = 6.9 
+        Release = CentOS release 6.9 (Final) 
+        Architecture = x64 
+    
+        The script will install the following packages and dependencies. 
+        epel-release 
+        dislocker 
+        ntfs-3g 
+        fuse-dislocker 
+        Do you wish to continue? y|n :|
+    ```
+    
+ 
+5. 輸入 `y` 繼續安裝。 指令碼安裝的套件如下︰ 
+    - **epel-release** - 包含下列三個套件的存放庫。 
+    - **dislocker 和 fuse-dislocker** - 此公用程式可協助將 BitLocker 加密磁碟解密。 
+    - **ntfs-3g** - 可協助掛接 NTFS 磁碟區的套件。 
+ 
+    成功安裝套件後，終端機會顯示該效果的通知。     
+    ```
+    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+    ruby-libs.x86 64 0:1.8.7.374-5.el6 
+    Complete! 
+    Loaded plugins: fastestmirror, refresh-packagekit, security 
+    Setting up Remove Process 
+    Resolving Dependencies 
+    --> Running transaction check 
+    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+    Dependencies Resolved 
+    Package        Architecture        Version        Repository        Size 
+    Removing:  epel-release        noarch         6-8        @extras        22 k 
+    Transaction Summary                                 
+    Remove        1 Package(s) 
+    Installed size: 22 k 
+    Downloading Packages: 
+    Running rpmcheckdebug 
+    Running Transaction Test 
+    Transaction Test Succeeded 
+    Running Transaction 
+    Erasing : epel-release-6-8.noarch 
+    Verifying : epel-release-6-8.noarch 
+    Removed: 
+    epel-release.noarch 0:6-8 
+    Complete! 
+    Dislocker is installed by the script. 
+    OpenSSL is already installed.
+    ```
+
+6. 執行資料箱磁碟解除鎖定工具。 在 Azure 入口網站中提供您在[連接到磁碟並取得通行金鑰](#Connect-to-disks-and-get-the-passkey)中取得的通行金鑰。 選擇性地指定要解除鎖定的 BitLocker 加密磁碟區清單。 通行金鑰和磁碟區清單應該指定於單引號內。 
+
+    輸入下列命令。
+ 
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+
+    範例輸出如下所示。 
+ 
+    ```
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    
+    START: Mon Aug 13 14:25:49 2018 
+    Volumes: /dev/sdbl 
+    Passkey: qwerqwerqwer 
+    
+    Volumes for data copy : 
+    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
+    END: Mon Aug 13 14:26:02 2018
+    ```
+    您可將資料複製到的磁碟區掛接點隨即顯示。
+
+7. 請針對日後任何磁碟重新插入重複解除鎖定步驟。 如果您需要資料箱磁碟解除鎖定工具的說明，請使 `help` 命令。 
+    
+    `sudo ./DataBoxDiskUnlock_x86_64 /Help` 
+
+    範例輸出如下所示。 
+ 
+    ```
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Help  
+    START: Mon Aug 13 14:29:20 2018 
+    USAGE: 
+    sudo DataBoxDiskUnlock /PassKey:’<passkey from Azure_portal>’ 
+    
+    Example: sudo DataBoxDiskUnlock /PassKey:’passkey’ 
+    Example: sudo DataBoxDiskUnlock /PassKey:’passkey’ /Volumes:’/dev/sdbl’ 
+    Example: sudo DataBoxDiskUnlock /Help Example: sudo DataBoxDiskUnlock /Clean 
+    
+    /PassKey: This option takes a passkey as input and unlocks all of your disks. 
+    Get the passkey from your Data Box Disk order in Azure portal. 
+    /Volumes: This option is used to input a list of BitLocker encrypted volumes. 
+    /Help: This option provides help on the tool usage and examples. 
+    /Unmount: This option unmounts all the volumes mounted by this tool. 
+   
+    END: Mon Aug 13 14:29:20 2018 [user@localhost Downloads]$
+    ```
+    
+8. 將磁碟解除鎖定之後，您可以移至掛接點並檢視磁碟的內容。 您現在已準備好將資料複製到 *BlockBlob* 或 *PageBlob* 資料夾。 
+
+    ![資料箱磁碟內容](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -128,7 +264,9 @@ ms.locfileid: "43143477"
 
 > [!div class="checklist"]
 > * 打開資料箱磁碟的包裝
-> * 連接資料箱磁碟並解除鎖定
+> * 連接到磁碟並取得通行金鑰
+> * 將 Windows 用戶端上的磁碟解除鎖定
+> * 將 Linux 用戶端上的磁碟解除鎖定
 
 
 請前進到下一個教學課程，以了解如何複製資料箱磁碟上的資料。

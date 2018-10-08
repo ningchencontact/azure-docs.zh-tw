@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/22/2018
+ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f795333e8af2f09800dedc0b65030c42165d6bbb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068898"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410012"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>教學課程：將安全的 Service Fabric Windows 叢集部署到 Azure 虛擬網路
 
@@ -43,7 +43,7 @@ ms.locfileid: "39068898"
 > * 在 Azure 上建立安全叢集
 > * [將叢集相應縮小或相應放大](service-fabric-tutorial-scale-cluster.md)
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
-> * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
+> * [刪除叢集](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -81,10 +81,10 @@ Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。
 
 下載下列 Resource Manager 範本檔案：
 
-* [vnet-cluster.json][template]
-* [vnet-cluster.parameters.json][parameters]
+* [azuredeploy.json][template]
+* [azuredeploy.parameters.json][parameters]
 
-[vnet-cluster.json][template] 會部署多項資源，其中包括：
+此範本會將一個由五部部虛擬機器組成並屬於單一節點類型的安全叢集部署到虛擬網路和網路安全性群組中。  您可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates) 上找到其他範例範本。  [azuredeploy.json][template] 會部署多項資源，包括下列各項。
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 叢集
 
@@ -97,7 +97,7 @@ Windows 叢集的部署具有下列特性：
 * 啟用[反向 Proxy](service-fabric-reverseproxy.md)
 * 啟用 [DNS 服務](service-fabric-dnsservice.md)
 * Bronze 的[耐久性層級](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (可在範本參數中設定)
- * Silver 的[可靠性層級](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (可在範本參數中設定)
+* Silver 的[可靠性層級](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (可在範本參數中設定)
 * 用戶端連線端點：19000 (可在範本參數中設定)
 * HTTP 閘道端點：19080 (可在範本參數中設定)
 
@@ -135,15 +135,15 @@ Windows 叢集的部署具有下列特性：
 
 ## <a name="set-template-parameters"></a>設定範本參數
 
-[vnet-cluster.parameters.json][parameters] 參數檔案會宣告多個用來部署叢集和相關資源的值。 您可能需要為自己的部署修改某些參數：
+[azuredeploy.parameters.json][parameters] 參數檔案會宣告多個用來部署叢集和相關聯資源的值。 您可能需要為自己的部署修改某些參數：
 
 |參數|範例值|注意|
 |---|---||
-|adminUserName|vmadmin| 叢集虛擬機器的管理員使用者名稱。[虛擬機器的使用者名稱需求](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
-|adminPassword|Password#1234| 叢集 VM 的系統管理員密碼。 [虛擬機器的密碼需求](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|adminUserName|vmadmin| 叢集虛擬機器的管理員使用者名稱。[虛擬機器的使用者名稱需求](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| 叢集 VM 的系統管理員密碼。 [虛擬機器的密碼需求](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
 |clusterName|mysfcluster123| 叢集的名稱。 只能包含字母和數字。 長度可介於 3 到 23 個字元之間。|
 |location|southcentralus| 叢集的位置。 |
-|certificateThumbprint|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證指紋值。 例如 "6190390162C988701DB5676EB81083EA608DCCF3"</p>. |
+|certificateThumbprint|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 SHA1 指紋值。 例如 "6190390162C988701DB5676EB81083EA608DCCF3"</p>. |
 |certificateUrlValue|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。 </p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 URL。 例如，"https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346"。</p>|
 |sourceVaultValue||<p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入來源保存庫值。 例如 "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT"。</p>|
 
@@ -151,7 +151,7 @@ Windows 叢集的部署具有下列特性：
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>部署虛擬網路和叢集
 
-接下來，請設定網路拓撲並部署 Service Fabric 叢集。 [vnet-cluster.json][template] Resource Manager 範本會建立虛擬網路 (VNET)，同時也會建立適用於 Service Fabric 的子網路與網路安全性群組 (NSG)。 範本也會部署啟用憑證安全性的叢集。  對於生產叢集，請使用憑證授權單位 (CA) 提供的憑證作為叢集憑證。 自我簽署憑證可用來保護測試叢集。
+接下來，請設定網路拓撲並部署 Service Fabric 叢集。 [azuredeploy.json][template] Resource Manager 範本會建立虛擬網路 (VNET)，同時也會建立適用於 Service Fabric 的子網路與網路安全性群組 (NSG)。 範本也會部署啟用憑證安全性的叢集。  對於生產叢集，請使用憑證授權單位 (CA) 提供的憑證作為叢集憑證。 自我簽署憑證可用來保護測試叢集。
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>使用現有的憑證建立叢集
 
@@ -178,8 +178,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
@@ -209,8 +209,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```
@@ -228,7 +228,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 您現在即可連線到您安全的叢集。
 
-**Service Fabric** PowerShell 模組提供許多 Cmdlet 來管理 Service Fabric 叢集、應用程式和服務。  使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) Cmdlet 連接到安全的叢集。 在上一個步驟的輸出中找到憑證指紋和連線端點詳細資訊。
+**Service Fabric** PowerShell 模組提供許多 Cmdlet 來管理 Service Fabric 叢集、應用程式和服務。  使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) Cmdlet 連接到安全的叢集。 在上一個步驟的輸出中找到憑證 SHA1 指紋和連線端點詳細資料。
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
@@ -246,14 +246,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>清除資源
 
-此教學課程系列的其他文章會使用您建立的叢集。 如果您現在不打算繼續閱讀下一篇文章，您可能要刪除該叢集和金鑰保存庫以避免產生費用。 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
-
-使用 [Remove-AzureRMResourceGroup Cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) 刪除資源群組和所有叢集資源。  也會刪除包含金鑰保存庫的資源群組。
-
-```powershell
-Remove-AzureRmResourceGroup -Name $groupname -Force
-Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
-```
+本教學課程系列的其他文章會使用您剛才建立的叢集。 如果您現在不打算繼續閱讀下一篇文章，您可能要[刪除該叢集](service-fabric-cluster-delete.md)以避免產生費用。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -271,5 +264,5 @@ Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
 > [!div class="nextstepaction"]
 > [調整叢集](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.json
-[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.parameters.json

@@ -2,24 +2,26 @@
 title: Multi-Factor Authentication - Azure SQL | Microsoft Docs
 description: Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」，從 SQL Server Management Studio (SSMS) 連線。
 services: sql-database
-documentationcenter: ''
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
-ms.openlocfilehash: f3c94f41a4f5d7947b862054263ee07ff8ccd98c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 90d4756c251103275fe0a37b0c36562b69a0e035
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650004"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166651"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)
 Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」 ，從 SQL Server Management Studio (SSMS) 連線。 
-**下載最新的 SSMS** - 在用戶端電腦上，從[下載 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下載最新版的 SSMS。 對於本主題中的所有功能，至少使用 2017 年 7 月的 17.2 版。  最新的連線對話方塊，看起來像這樣：![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "完成 [使用者名稱] 方塊。")  
+**下載最新的 SSMS** - 在用戶端電腦上，從[下載 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下載最新版的 SSMS。 對於本文中的所有功能，至少使用 2017 年 7 月的 17.2 版。  最新的連線對話方塊，看起來像這樣：![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "完成 [使用者名稱] 方塊。")  
 
 ## <a name="the-five-authentication-options"></a>五個驗證選項  
 - Active Directory 通用驗證支援兩種非互動式驗證方法 (`Active Directory - Password` 驗證和 `Active Directory - Integrated` 驗證)。 非互動式 `Active Directory - Password` 和 `Active Directory - Integrated` 驗證方法，可以在許多不同的應用程式 (ADO.NET、JDBC、ODBC 等) 中使用。 這兩種方法絕對不會產生快顯對話方塊。

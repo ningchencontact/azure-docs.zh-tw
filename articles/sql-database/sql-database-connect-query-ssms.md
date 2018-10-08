@@ -3,19 +3,22 @@ title: 'SSMS: 在 Azure SQL Database 中連接和查詢資料 | Microsoft Docs'
 description: 了解如何使用 SQL Server Management Studio (SSMS) 在 Azure 上連接到 SQL Database。 然後，執行 TRANSACT-SQL (T-SQL) 陳述式來查詢和編輯資料。
 keywords: 連接到 sql database,sql server management studio
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 08/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 9177ad9cc4cbb668599d35b295ab939cea148a5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: 4c8b8a609fe5aa531570805d7a58141a6df84090
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412809"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063212"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database：使用 SQL Server Management Studio 連接及查詢資料
 
@@ -26,6 +29,8 @@ ms.locfileid: "39412809"
 本快速入門可作為在其中一個快速入門中所建立資源的起點︰
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+本快速入門也需要您設定伺服器層級的防火牆規則。 如需示範如何執行這項操作的快速入門，請參閱[建立伺服器層級的防火牆規則](sql-database-get-started-portal-firewall.md)。
 
 #### <a name="install-the-latest-ssms"></a>安裝最新的 SSMS
 

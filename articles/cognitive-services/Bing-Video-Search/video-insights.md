@@ -1,21 +1,21 @@
 ---
-title: 取得影片深入解析 | Microsoft Docs
+title: 取得影片深入解析 - Bing 影片搜尋
+titlesuffix: Azure Cognitive Services
 description: 示範如何使用 Bing 影片搜尋 API 來取得更多視訊的相關資訊。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 30ECF4E2-E4F0-491B-9FA8-971BC96AB7B6
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 4e804f168307ca8f206152b11e59652497678e42
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: af6056507cb70ab33bee5955ddf7bd0f77fd04eb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369923"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219986"
 ---
 # <a name="get-insights-about-a-video"></a>取得影片深入解析
 

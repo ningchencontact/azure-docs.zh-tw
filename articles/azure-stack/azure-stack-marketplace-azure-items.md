@@ -3,7 +3,7 @@ title: Azure Stack 可用的 Azure Marketplace 項目清單 | Microsoft Docs
 description: 這些 Azure Marketplace 項目可用於 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
-ms.author: brenduns
-ms.reviewer: jeffgo
-ms.openlocfilehash: bb2dc0d5500778372de674c749b44267fb512a2e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 09/27/2018
+ms.author: sethm
+ms.reviewer: ''
+ms.openlocfilehash: 8e9d40451cd0d9c3a6505ee24ca02852d9d4c527
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701148"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423468"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -43,6 +43,8 @@ ms.locfileid: "43701148"
 | ![適用於 Windows 的 Acronis Backup 延伸模組](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Windows 的 Acronis Backup 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Windows |
 | ![適用於 Linux 的 CloudLink SecureVM 延伸模組](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Linux 的 CloudLink SecureVM 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC | Linux |
 | ![適用於 Windows 的 CloudLink SecureVM 延伸模組](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Windows 的 CloudLink SecureVM 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC | Windows |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [適用於 Windows 的 Kaspersky Hybrid Cloud Security Agent](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | 使用 Kaspersky Hybrid Cloud Security 時，您可以透過 Azure 擴充功能直接在雲端工作負載中佈建網路安全性功能。 | Kaspersky 實驗室 | Windows |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [適用於 Linux 的 Kaspersky Hybrid Cloud Security Agent](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | 使用 Kaspersky Hybrid Cloud Security 時，您可以透過 Azure 擴充功能直接在雲端工作負載中佈建網路安全性功能。 | Kaspersky 實驗室 | Linux |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft 虛擬機器映像和解決方案範本
 
@@ -101,6 +103,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 
 |  | 項目名稱 | 說明 | 發行者 |
 | --- | --- | --- | --- |
+| ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS Router 是一種多功能、多雲端、多重 Hypervisor 的虛擬路由器，可讓企業和雲端提供者建立具有一致性和高度安全性的可調整混合式網路。 | Arista Networks |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | 開放原始碼電子商務購物車。 | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | JAVA 中的開放原始碼訊息代理程式。 | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | 功能強大的 PIM，旨在簡化管理流程。 | Bitnami |
@@ -139,6 +142,8 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![JRuby](media/azure-stack-marketplace-azure-items/jruby.png) | [JRuby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jrubystack) | Ruby 的高效能 JAVA 實作。 | Bitnami |
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | 功能強大的分散式發佈訂閱傳訊系統。 | Bitnami |
 | ![Kafka 叢集](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka 叢集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka 是一種「發佈-訂閱」訊息系統，可視為一種分散式認可記錄。 這個解決方案能佈建多個 Kafka 訊息代理程式和 Zookeeper 執行個體，以此改善 Kafka 叢集的可靠性。 **這個解決方案範本還需要 Debian 8 和 Custom Script for Linux 2.0 Extension。** | Bitnami |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security 可支援能夠順暢地協調且具彈性的網路安全性生態系統。 | Kaspersky 實驗室 |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | 此解決方案會使用以 ACS-Engine 產生的範本來部署 Kubernetes 叢集，並以獨立叢集的形式執行。<br>**此解決方案範本還需要 Ubuntu Server 16.04 LTS 和 Custom Script for Linux 2.0。**| Microsoft |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | 完全整合且隨時可執行的開發環境。 | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | 完整的 PHP、PostgreSQL 和 Apache 開發環境。 | Bitnami |
 | ![Let's Chat](media/azure-stack-marketplace-azure-items/letschat.png) | [Let's Chat](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | 開放原始碼的持續傳訊應用程式。 | Bitnami |
@@ -156,6 +161,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![Memcached 多個執行個體](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached 多個執行個體](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached-multipleinstances) | Memcached 是一種高效能、分散式記憶體物件快取系統。 這個解決方案會佈建多個 Memcached 節點，為您的應用程式建立高效能、抗故障的分散式快取。 **這個解決方案範本還需要 Debian 8 和 Custom Script for Linux 2.0 Extension。** | Bitnami |
 | ![MODX](media/azure-stack-marketplace-azure-items/modx.png) | [MODX](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.modx) | 直覺式 Web CMS。 | Bitnami |
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | 以 C++ 撰寫的高效能開放原始碼 NoSQL 資料庫。 | Bitnami |
+| ![MongoDB with Replication](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | 以 C++ 撰寫的高效能開放原始碼 NoSQL 資料庫。 **要使用此解決方案範本，您的 Azure Stack 必須是 1807 或更新版本，此外還需要 Debian 8 和 Custom Script for Linux 2.0 Extension。** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | 針對線上學習社群設計的有效 CMS。 | Bitnami |
 | ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Minecraft 伺服器裝載解決方案和控制台。 | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | 免費的開放原始碼論壇軟體。 | Bitnami |
@@ -194,6 +200,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![RabbitMQ 叢集](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ 叢集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ 是一種訊息代理程式，為您的應用程式提供一個通用平台來傳送和接收訊息，而且在訊息抵達目的地之前，是一個安全的暫存中心。 這個解決方案使用多個 VM，在單個 RabbitMQ 叢集中佈建多個節點，從而形成一個邏輯訊息代理程式。 **這個解決方案範本還需要 Debian 8 和 Custom Script for Linux 2.0 Extension。** | Bitnami |
 | ![Re:dash](media/azure-stack-marketplace-azure-items/redash.png) | [Re:dash](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | 開放原始碼的資料視覺效果和共同作業平台。 | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | 功能強大的開放原始碼機碼值組存放區。 | Bitnami |
+| ![Redis High Availability](media/azure-stack-marketplace-azure-items/redis.png) | [Redis High Availability](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-redis) | 功能強大的開放原始碼機碼值組存放區。 **要使用此解決方案範本，您的 Azure Stack 必須是 1807 或更新版本，此外還需要 Debian 8 和 Custom Script for Linux 2.0 Extension。** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | 功能強大的專案管理 Web 應用程式 | Bitnami |
 | ![Redmine+Agile](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine+Agile](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | 已預先設定使用敏捷式外掛程式的專案管理應用程式。 | Bitnami |
 | ![ReportServer Community](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer Community](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | 開放原始碼商業智慧平台。 | Bitnami |
@@ -201,6 +208,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![ResourceSpace](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.resourcespace) | 已改善共同作業的數位資產管理系統。 | Bitnami |
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | 以瀏覽器為基礎的 IMAP 用戶端，具有 MIME 支援等功能。 | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | 便於使用的 Ruby on Rails 開發環境。 | Bitnami |
+| ![Service Fabric 叢集](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric 叢集](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | 此解決方案會部署在虛擬機器擴展集上以獨立叢集的形式執行的 Service Fabric。 <br>**要使用此解決方案範本，您還必須下載 Windows Server 2016 Datacenter**| Microsoft |
 | ![SEO Panel](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | 開放原始碼 SEO 管理應用程式，可追蹤多個網站。 | Bitnami |
 | ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | 開放原始碼電子商務平台。 | Bitnami |
 | ![Simple Machines Forum](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Simple Machines Forum](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | 簡易論壇軟體，可組建您自己的線上社群。 | Bitnami |
@@ -224,6 +232,8 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![Barracuda Application Security Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 應用程式安全性控制中心](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | 集中管理多個 Barracuda Web 應用程式防火牆 (WAF)。 | Barracuda Networks, Inc. |
 | ![Barracuda Email Security Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 電子郵件安全性閘道](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | 電子郵件安全性閘道可用來防止輸入電子郵件所夾帶的威脅。 | Barracuda Networks, Inc. |
 | ![Barracuda Web Application Firewall (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web 應用程式防火牆 (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | 抵禦自動化和鎖定目標攻擊的安全性與 DDoS 保護。 | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen Firewall Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Firewall Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | 可集中管理數百個 Barracuda CloudGen 防火牆，不論其位置和外型規格為何。 | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen Firewall for Azure](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Firewall for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | 在應用程式和資料的所在位置提供防火牆保護，而不是僅保護連線的終止端。 | Barracuda Networks, Inc. |
 | ![Check Point vSEC Security Management](media/azure-stack-marketplace-azure-items/checkpoint.png) | [檢查點 vSEC 安全性管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 檢查點 vSEC 提供進階、多層式威脅防護，可保護客戶 Azure 中的資產免於惡意程式碼和複雜威脅的攻擊。 **下載兩個 Check Point vSEC 市集項目。** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 使用 Chef Automate (連續自動化平台) 進行建置、部署及管理。 **下載兩個 Chef 市集項目** | Chef Software, Inc |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 **下載所有 CloudLink SecureVM 項目。** | Dell EMC |
@@ -233,9 +243,10 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![KEMP LoadMaster 負載平衡器 ADC 內容切換](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 負載平衡器 ADC 內容切換](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 第 4-7 層應用程式傳遞控制器 (ADC) 負載平衡器、內容切換和流量管理員。 | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite - Multi-Cloud Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multi-Cloud Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 可用來監視、設定、佈建、自動化及治理任何工作負載或雲端的單一虛擬管理介面。 | NRI |
 | ![NooBaa Hybrid AWS S3 相容 - 社群版](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybird AWS S3 相容 - 社群版](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | 橫跨公用和內部部署容量資源的 S3 相容存體服務。 | NooBaa |
+| ![NetFoundry Gateway for Multipoint、Zero Trust Azure Stack Connections](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway for Multipoint、Zero Trust Azure Stack Connections](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | 透過領先業界的「零信任」安全性、5 倍的 VPN 輸送量，和不限數目的並行使用者，在 Azure Stack 與任何位置之間，使用任何網路連線進行僅限軟體的多點連線。 | NetFoundry |
 | ![Palo Alto VM-Series Next Generation Firewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series Next Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-Series 新一代防火牆可讓客戶安全地將其應用程式和資料移轉至 Azure Stack，藉由應用程式白名單功能和威脅防護原則保護它們免於已知和未知的威脅。 **此映像必須要有範本才能部署；請參閱這篇[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以取得重要資訊。**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall 會偵測已知和未知的漏洞，並防止 Web 應用程式上的攻擊。 **請同時下載兩個 PT Marketplace 項目。** | Positive Technologies |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise 可讓您將整個 Azure Stack 基礎結構的生命週期自動化。 **下載兩個 Puppet Marketplace 項目。** | Puppet |
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rapid Recovery 進階資料保護以一個易於使用的軟體解決方案來整合備份、複寫及復原。 | Quest Software |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | 同級產品中最佳的開放原始碼基礎結構管理。 | SUSE |
-| ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Business Continuity as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® Software 技術可讓企業透過其 Business Continuity as a Service (BCaaS)™ 架構持續存取它們的公司資料，此架構可在發生通常會讓企業陷入癱瘓的網路中斷時，保護應用程式和交易。 | ZeroDown Software |
+| ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Business Continuity as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® Software 技術可讓企業透過其 Business Continuity as a Service (BCaaS)™ 架構持續存取公司資料，此架構可在發生通常會讓企業陷入癱瘓的網路中斷時，保護應用程式和交易。 | ZeroDown Software |

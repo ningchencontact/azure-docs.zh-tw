@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: e61b4457cd88c236145ce7595ee7db4340538465
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330537"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451766"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多重租用
 
@@ -101,6 +101,19 @@ Register-AzSWithMyDirectoryTenant `
 > 若您的 Azure Stack 系統管理員在未來安裝新的服務或更新，您可能需要再次執行此指令碼。
 >
 > 隨時再次執行此指令碼以檢查您目錄中的 Azure Stack 應用程式狀態。
+> 
+> 如果您發現在受控磁碟 (於 1808 更新引進) 中建立 VM 有問題，我們已新增**磁碟資源提供者**，但需要再次執行這個指令碼。
+
+### <a name="activate-the-administrator-and-tenant-portals"></a>啟用系統管理員和租用戶入口網站
+使用 Azure AD 部署之後，您必須啟用 Azure Stack 系統管理員和租用戶入口網站。 此啟用同意將所有目錄使用者的正確權限 (列在同意頁面上) 提供給 Azure Stack 入口網站和 Azure Resource Manager。
+
+- 若是系統管理員入口網站，瀏覽至 https://adminportal.local.azurestack.external/guest/signup、閱讀資訊，然後按一下 [接受]。 接受之後，您即可新增同時不是目錄租用戶管理員的服務管理員。
+- 若是租用戶入口網站，瀏覽至 https://portal.local.azurestack.external/guest/signup、閱讀資訊，然後按一下 [接受]。 接受之後，目錄中的使用者可以登入租用戶入口網站。 
+ 
+> [!NOTE] 
+> 如果未啟用入口網站，則只有目錄管理員可以登入並使用入口網站。 如果其他使用者登入，他們會看到一項錯誤，告知系統管理員尚未授與權限給其他使用者。 當系統管理員原本不屬於 Azure Stack 註冊至的目錄時，Azure Stack 目錄必須附加到啟用 URL。 例如，如果 Azure Stack 註冊至 fabrikam.onmicrosoft.com 且管理使用者是 admin@contoso.com，請瀏覽至 https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com 以啟動入口網站。
+
+
 
 ### <a name="direct-users-to-sign-in"></a>將使用者導向登入
 

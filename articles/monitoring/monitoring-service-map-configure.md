@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: faf4e06b714714fce206ef8227a934df8c290447
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: a68c35ba2f740720e3d7940d6fafa2dcfe183589
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42141928"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064368"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉以檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -41,12 +41,14 @@ ms.locfileid: "42141928"
 >
 
 ### <a name="windows-server"></a>Windows Server
+- Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
 ### <a name="windows-desktop"></a>Windows 桌面
+- Windows 10 1803
 - Windows 10
 - Windows 8.1
 - Windows 8
@@ -123,8 +125,8 @@ ms.locfileid: "42141928"
 
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
 ## <a name="connected-sources"></a>連接的來源
 服務對應會從 Microsoft Dependency Agent 取得它的資料。 Dependency Agent 須憑藉 Log Analytics 代理程式才能連線至 Log Analytics。 這表示，伺服器必須先安裝 Log Analytics 代理程式，並設定 Dependency Agent。  下表描述服務對應解決方案支援的連線來源。
@@ -164,7 +166,7 @@ ms.locfileid: "42141928"
 Dependency Agent 一般會耗用 0.1% 的系統記憶體和 0.1% 的系統 CPU。
 
 ## <a name="diagnostic-and-usage-data"></a>診斷和使用量資料
-當您使用服務對應服務時，Microsoft 會自動收集使用量和效能資料。 Microsoft 使用此資料來提供和改進服務對應服務的品質、安全性和完整性。 此資料包含軟體組態 (如作業系統和版本) 的相關資訊。 它也會包含 IP 位址、DNS 名稱和工作站名稱，以便能夠正確且有效率地進行疑難排解。 我們不會收集姓名、地址或其他連絡資訊。
+當您使用服務對應服務時，Microsoft 會自動收集使用量和效能資料。 Microsoft 使用這項資料來提供和改進服務對應服務的品質、安全性和完整性。 這項資料包含軟體組態 (如作業系統和版本) 的相關資訊。 它也會包含 IP 位址、DNS 名稱和工作站名稱，以便能夠正確且有效率地進行疑難排解。 我們不會收集姓名、地址或其他連絡資訊。
 
 如需有關資料收集與使用方式的詳細資訊，請參閱 [Microsoft 線上服務隱私權聲明](https://go.microsoft.com/fwlink/?LinkId=512132)。
 

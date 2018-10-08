@@ -1,76 +1,56 @@
 ---
-title: 使用模式來改善 LUIS 預測的教學課程 - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: 在本教學課程中，您將針對意圖使用模式來改善 LUIS 意圖和實體預測。
+title: 教學課程 3：改善 LUIS 預測的模式
+titleSuffix: Azure Cognitive Services
+description: 提供較少的語句範例時，使用模式來提升意圖和實體預測使用模式。 模式可透過範本語句範例的方式來提供，其中包含用來識別實體及可忽略文字的語法。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 355c1edd4fa7433e68a9c0e903f4f782203326fe
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365873"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166396"
 ---
-# <a name="tutorial-improve-app-with-patterns"></a>教學課程：使用模式來改善應用程式
+# <a name="tutorial-3-add-common-utterance-formats"></a>教學課程 3：新增通用的語句格式
 
-在本教學課程中，您將使用模式來提升意圖和實體預測準確性。  
+在本教學課程中，您將在提供較少的語句範例時，使用模式來提升意圖和實體預測使用模式。 模式可透過範本語句範例的方式來提供，其中包含用來識別實體及可忽略文字的語法。 模式是運算式比對與機器學習的組合。  範本語句範例搭配意圖語句，可讓 LUIS 更容易理解哪些語句符合意圖。 
+
+**在本教學課程中，您將了解如何：**
 
 > [!div class="checklist"]
-* 如何識別模式是否可協助您的應用程式
-* 如何建立模式
-* 如何確認模式預測改進情況
+> * 使用現有的教學課程應用程式 
+> * 建立意圖
+> * 定型
+> * 發佈
+> * 從端點取得意圖和實體
+> * 建立模式
+> * 確認模式預測改進情況
+> * 將文字標示為可忽略並在模式中建立巢狀結構
+> * 使用測試面板來確認模式已成功
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>開始之前
+## <a name="use-existing-app"></a>使用現有的應用程式
 
-如果您沒有[批次測試](luis-tutorial-batch-testing.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 您可以在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) GitHub 存放庫中找到要匯入的應用程式。
+以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
 
-如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `patterns`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
+如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>模式使用較少的範例來教導 LUIS 常見的語句
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json)。
 
-由於人力資源定義域的本質，因此有一些常見的方式來詢問組織中的員工關係。 例如︰
+2. 將 JSON 匯入新的應用程式中。
 
-|表達方式|
-|--|
-|Jill Jones 的上司是誰？|
-|Jill Jones 是誰的上司？|
-
-這些語句太相似，以致若不提供許多語句範例，便無法判斷各個語句中內容相關的唯一性。 藉由為意圖新增模式，無須提供許多語句範例，LUIS 便可學習意圖的常見語句模式。 
-
-此意圖的範例範本語句包括：
-
-|範本語句的範例|
-|--|
-|{Employee} 的上司是誰？|
-|{Employee} 是誰的上司？|
-
-模式可透過範本語句範例的方式來提供，其中包含用來識別實體及可忽略文字的語法。 模式是規則運算式比對與機器學習的組合。  範本語句範例搭配意圖語句，可讓 LUIS 更容易理解哪些語句符合意圖。
-
-為了讓模式與語句進行比對，語句內的實體必須先比對範本語句中的實體。 不過，此範本無助於預測實體，只適用於意圖。 
-
-**當模式可讓您提供較少的範例語句時，如果偵測不到實體，模式就不會進行比對。**
-
-請記住，員工是在[清單實體教學課程](luis-quickstart-intent-and-list-entity.md)中建立的。
+3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `patterns`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
 ## <a name="create-new-intents-and-their-utterances"></a>建立新意圖及其語句
 
-新增兩個新意圖：`OrgChart-Manager` 和 `OrgChart-Reports`。 當 LUIS 將預測傳回用戶端應用程式之後，意圖名稱就可用來作為用戶端應用程式中的函式名稱，而員工實體可用來作為該函式的參數。
-
-```Javascript
-OrgChart-Manager(employee){
-    ///
-}
-```
-
-1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 在 [意圖] 頁面上，選取 [建立新意圖]。 
 
@@ -110,19 +90,19 @@ OrgChart-Manager(employee){
 
 ## <a name="caution-about-example-utterance-quantity"></a>關於範例語句數量的注意事項
 
-在這些意圖中，範例語句的數量不足以正確地將 LUIS 定型。 在真實世界的應用程式中，每個意圖至少應該有 15 個語句，並具備各種不同的文字選擇和語句長度。 這幾個語句是特別選取來醒目提示模式。 
+[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
+## <a name="train"></a>定型
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
+## <a name="publish"></a>發佈
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
+## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `Who is the boss of Jill Jones?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
@@ -215,13 +195,53 @@ OrgChart-Manager(employee){
 
 讓這裡的第二個瀏覽器視窗保持開啟。 您稍後會在本教學課程中使用到它。 
 
-## <a name="add-the-template-utterances"></a>新增範本語句
+## <a name="template-utterances"></a>範本語句
+由於人力資源定義域的本質，因此有一些常見的方式來詢問組織中的員工關係。 例如︰
+
+|表達方式|
+|--|
+|Jill Jones 的上司是誰？|
+|Jill Jones 是誰的上司？|
+
+這些語句太相似，以致若不提供許多語句範例，便無法判斷各個語句中內容相關的唯一性。 藉由為意圖新增模式，無須提供許多語句範例，LUIS 便可學習意圖的常見語句模式。 
+
+此意圖的範本語句範例包括：
+
+|範本語句的範例|語法意義|
+|--|--|
+|{Employee} 的上司是誰[？]|可交換的 {Employee}，略過 [?]}|
+|{Employee} 是誰的上司[？]|可交換的 {Employee}，略過 [?]}|
+
+`{Employee}` 語法不僅會標示是哪一個實體，也會標示實體在範本語句內的位置。 選擇性的語法 `[?]` 會標記選擇性的單字或標點符號。 LUIS 會比對語句，並略過括號內的選擇性文字。
+
+雖然語法看起來像是規則運算式，但它不是規則運算式。 只支援大括號 `{}` 和方括號 `[]` 語法。 它們的巢狀結構最多可以有兩個層級。
+
+為了讓模式與語句進行比對，語句內的實體必須先比對範本語句中的實體。 不過，此範本無助於預測實體，只適用於意圖。 
+
+**當模式可讓您提供較少的範例語句時，如果偵測不到實體，模式就不會進行比對。**
+
+本教學課程中新增兩個意圖：`OrgChart-Manager` 和 `OrgChart-Reports`。 
+
+|意圖|語句|
+|--|--|
+|OrgChart-Manager|Jill Jones 的上司是誰？|
+|OrgChart-Reports|Jill Jones 是誰的上司？|
+
+當 LUIS 將預測傳回用戶端應用程式之後，意圖名稱就可用來作為用戶端應用程式中的函式名稱，而員工實體可用來作為該函式的參數。
+
+```Javascript
+OrgChartManager(employee){
+    ///
+}
+```
+
+請記住，員工是在[清單實體教學課程](luis-quickstart-intent-and-list-entity.md)中建立的。
 
 1. 在上方功能表中，選取 [建置]。
 
 2. 在左導覽窗格中的 [Improve app performance] \(改善應用程式效能\) 底下，選取 [Patterns] \(模式\)。
 
-3. 選取 [OrgChart-Manager] 意圖，然後以一次一句的方式輸入下列範本語句，在每個範本語句之後選取 Enter：
+3. 選取 [OrgChart-Manager] 意圖，然後輸入下列範本語句：
 
     |範本語句|
     |:--|
@@ -232,17 +252,13 @@ OrgChart-Manager(employee){
     |{Employee}[的]主管是誰[？]|
     |{Employee} 的老闆是誰[？]|
 
-    `{Employee}` 語法不僅會標示是哪一個實體，也會標示實體在範本語句內的位置。 
-
     含有角色的實體會使用包含角色名稱的語法，並在[角色的個別教學課程](luis-tutorial-pattern-roles.md)中加以說明。 
-
-    選擇性的語法 `[]` 會標記選擇性的單字或標點符號。 LUIS 會比對語句，並略過括號內的選擇性文字。
 
     如果您輸入範本語句，LUIS 會在您輸入左大括號 `{` 時，協助您填入實體。
 
     [![為意圖輸入範本語句的螢幕擷取畫面](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. 選取 [OrgChart-Reports] 意圖，然後以一次一句的方式輸入下列範本語句，在每個範本語句之後選取 Enter：
+4. 選取 [OrgChart-Reports] 意圖，然後輸入下列範本語句：
 
     |範本語句|
     |:--|
@@ -424,9 +440,11 @@ OrgChart-Manager(employee){
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
+
+本教學課程中新增兩個語句意圖，這兩個意圖若沒有許多範例語句，則難以極準確地進行預測。 對這些意圖新增模式，可讓 LUIS 以明顯偏高的分數來更準確地預測意圖。 標記實體及可忽略的文字可讓 LUIS 對更廣泛的語句套用模式。
 
 > [!div class="nextstepaction"]
 > [了解如何將角色與模式搭配使用](luis-tutorial-pattern-roles.md)

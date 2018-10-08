@@ -2,20 +2,22 @@
 title: Azure SQL Database 受控執行個體自訂 DNS | Microsoft Docs
 description: 本主題描述 Azure SQL Database 受控執行個體的自訂 DNS 設定選項。
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/23/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 2d1bb7e8522da32dd33933261ea41b578f8afac1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949480"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224268"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>設定 Azure SQL Database 受控執行個體的自訂 DNS
 
@@ -36,7 +38,7 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路 (VNet)]
    ![自訂 DNS 選項](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > 若沒有在 DNS 清單中設定 Azure 的遞迴解析程式，會導致受控執行個體進入錯誤狀態。 要從該狀態復原，您可能需要在 VNet 中以相容網路原則建立新的執行個體、重新建立執行個體層級資料，並復原您的資料庫。 請參閱 [VNet 設定](sql-database-managed-instance-vnet-configuration.md)。
+   > 未在 DNS 清單中設定 Azure 的遞迴解析程式，可能會導致受控執行個體在自訂 DNS 伺服器因故無法使用時進入錯誤狀態。 要從該狀態復原，您可能需要在 VNet 中以相容網路原則建立新的執行個體、重新建立執行個體層級資料，並復原您的資料庫。 將 Azure 的遞迴解析程式設定為 DNS 清單中的最後一個項目，可確保即使在所有自訂 DNS 伺服器都失敗時，仍然可解析公用名稱。 請參閱 [VNet 設定](sql-database-managed-instance-vnet-configuration.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

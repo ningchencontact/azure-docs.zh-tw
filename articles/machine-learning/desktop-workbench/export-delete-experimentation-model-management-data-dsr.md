@@ -11,16 +11,18 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 05/22/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7daa3bdf9fb51fee6b0e190625f07e0d14c3d1f4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8c5b20bf837491e8b15f7bc8baa018ead584616b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995137"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159171"
 ---
 # <a name="export-or-delete-your-experimentation-or-model-management-data-in-machine-learning"></a>在機器學習服務中探索或刪除實驗或模型管理資料
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+>[!Note]
+>**此文章已過時。** 針對這個服務之舊版本的支援將逐漸終止。 [檢視支援時間表](../service/overview-what-happened-to-workbench.md#timeline)。 閱讀關於此主題的[最新文章](../service/how-to-export-delete-data.md)。
+
 
 在 Azure Machine Learning 中，您可以使用已驗證的 REST API 來探索或刪除與實驗或模型管理相關的帳戶資料。 本文會說明做法。
 

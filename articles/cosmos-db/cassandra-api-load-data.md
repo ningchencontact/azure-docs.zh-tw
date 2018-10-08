@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d659004e94c51f173bc1e9ae42fd9c62ae45912f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 662d4b8812ca4b92c1130b9c2c38771e7ec30a06
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972533"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393979"
 ---
 # <a name="load-sample-data-into-an-azure-cosmos-db-cassandra-api-table"></a>將範例資料載入至 Azure Cosmos DB Cassandra API 資料表
 
-本教學課程說明如何使用 Java 應用程式，將範例使用者資料載入至 Azure Cosmos DB Cassandra API 帳戶中的資料表。 Java 應用程式會使用 [Datastax Java 驅動程式](https://github.com/datastax/java-driver)並載入使用者資料，例如使用者識別碼、使用者名稱、使用者所在城市。 
+本教學課程說明如何使用 Java 應用程式，將範例使用者資料載入至 Azure Cosmos DB Cassandra API 帳戶中的資料表。 Java 應用程式會使用 [Java 驅動程式](https://github.com/datastax/java-driver)並載入使用者資料，例如使用者識別碼、使用者名稱、使用者所在城市。 
 
 本教學課程涵蓋下列工作：
 

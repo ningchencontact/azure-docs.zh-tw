@@ -1,25 +1,26 @@
 ---
-title: 在多租用戶應用程式中管理 Azure SQL Database 結構描述 | Microsoft Docs
-description: 在使用 Azure SQL Database 的多租用戶應用程式中，管理多租用戶的結構描述
-keywords: SQL Database Azure
+title: 在單一租用戶應用程式中管理 Azure SQL Database 結構描述 | Microsoft Docs
+description: 在使用 Azure SQL Database 的單一租用戶應用程式中管理多個租用戶的結構描述
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 2e4af3e3e1ef1d9da7c66b929885e3ec749b462f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054841"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>使用每一租用戶一個資料庫的模式，透過 Azure SQL Database 管理 SaaS 應用程式中的結構描述
-
+ 
 隨著資料庫應用程式的進化，勢必要對資料庫結構描述或參考資料進行變更。  並且需要定期執行資料庫維護工作。 若要對採用每一租用戶一個資料庫模式的應用程式進行管理，您需要將這些變更和維護工作套用至多個租用戶資料庫。
 
 本教學課程會探討兩種案例：為所有租用戶部署參考資料更新，以及針對包含參考資料的資料表重建索引。 在所有租用戶資料庫及建立新租用戶資料庫所用的範本資料庫上，[彈性作業](sql-database-elastic-jobs-overview.md)功能會用來執行這些動作。

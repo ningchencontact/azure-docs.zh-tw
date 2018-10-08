@@ -1,20 +1,21 @@
 ---
-title: 在 Azure Content Moderator 中執行內容審核作業 | Microsoft Docs
+title: 使用 API 主控台執行內容仲裁作業 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 了解如何在 API 主控台中執行內容審核作業。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6f741be1001ae70d5fdbf6f374204aaad1601abe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367982"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227096"
 ---
 # <a name="start-a-moderation-job-from-the-api-console"></a>從 API 主控台啟動審核作業
 
@@ -24,7 +25,7 @@ ms.locfileid: "35367982"
 
 在人力審核者審查自動指派的標記和預測資料並提交最終審核決策之後，審查 API 會將所有資訊提交至您的 API 端點。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 瀏覽至[檢閱工具](https://contentmoderator.cognitive.microsoft.com/)。 如果您尚未註冊，請註冊。 在檢閱工具內，[定義自訂工作流程](Review-Tool-User-Guide/Workflows.md)以在 `Job` 操作中使用。
 

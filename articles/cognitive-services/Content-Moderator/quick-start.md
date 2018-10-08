@@ -1,27 +1,28 @@
 ---
-title: Azure Content Moderator 入門 | Microsoft Docs
-description: 如何開始使用 Azure Content Moderator。
+title: 開始使用 Content Moderator
+titlesuffix: Azure Cognitive Services
+description: 如何開始使用 Content Moderator。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: sajagtap
-ms.openlocfilehash: ae4333047ebd95733c7baaed0323a0c2c477d323
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c2ac0ccd89b5f1436a151e3d69c5d7423090f244
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368631"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225289"
 ---
 # <a name="get-started-with-content-moderator"></a>開始使用 Content Moderator
 
-您可透過下列方式開始使用 Content Moderator API 和檢閱工具：
+您可透過下列方式開始使用 Content Moderator：
 
-- [開始使用審核工具](#start-with-the-review-tool)以建立 API 金鑰和檢閱小組。 探索審核工具及了解如何使用 Content Moderator API 進行整合。
-- 在 Azure 入口網站中[訂閱 Content Moderator](#start-with-the-apis)。 您仍然需要上線登入，才能建立檢閱小組。
+- [開始使用審核工具](#start-with-the-review-tool)取得 API 金鑰及建立審核小組。 其優點是，您可以使用 API 金鑰來呼叫仲裁 API 進行內容掃描，以及呼叫審核 API 以產生審核項目，而不需要額外的步驟。
+- 在 Azure 入口網站中[訂閱 Content Moderator](#start-with-the-apis) 以取得 API 金鑰。 請參閱 [API 參考](api-reference.md)和 [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net)。 您仍然需要上線登入，才能建立檢閱小組。
 - 透過方便使用的設計工具，[使用流程連接器和範本](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/)來嘗試各種不同的整合。
 
 不論您選擇什麼選項，請參閱[管理認證](review-tool-user-guide/credentials.md)文章來尋找您的 API 認證。
@@ -55,9 +56,9 @@ ms.locfileid: "35368631"
 
 ### <a name="use-the-apis"></a>使用 API
 
-現在您已探索過內容審核和審核工具的體驗，接著可了解如何將 Content Moderator 與您的商務應用程式整合。 使用下一節來深入探索和快速追蹤您對 SDK 與範例的了解。
+了解如何整合 Content Moderator 與您的商務應用程式。 請參閱 [API 參考](api-reference.md)和 [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net)。
 
-## <a name="start-with-the-apis"></a>從 API 開始
+## <a name="subscribe-in-the-azure-portal"></a>在 Azure 入口網站中訂閱
 
 在 Azure 入口網站中[訂閱 Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)。 開始使用下列其中一個 API：
 
@@ -85,4 +86,4 @@ ms.locfileid: "35368631"
 
 ## <a name="next-steps"></a>後續步驟
 
-從[影像審核 API](image-moderation-api.md) 開始，深入了解內容審核。
+請參閱 [API 參考](api-reference.md)和 [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net)。 快速啟動 [.NET SDK 範例](sdk-and-samples.md#net-sdk-samples)、[C# 中的 REST API 範例](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c)與[教學課程](sdk-and-samples.md#tutorials)的整合。

@@ -1,21 +1,21 @@
 ---
-title: 如何逐頁瀏覽可用的影片 | Microsoft Docs
+title: 如何逐頁瀏覽可用的影片 - Bing 影片搜尋
+titlesuffix: Azure Cognitive Services
 description: 示範如何逐頁瀏覽 Bing 可傳回的所有影片。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 910A485F-BCF3-42B9-958D-DD48BDEDA965
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 00476825eb3fc1008c3f2172b591d8b7a2f35884
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367875"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225560"
 ---
 # <a name="paging-videos"></a>逐頁瀏覽影片
 

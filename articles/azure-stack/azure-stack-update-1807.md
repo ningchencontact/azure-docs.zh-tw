@@ -3,7 +3,7 @@ title: Azure Stack 1807 更新 | Microsoft Docs
 description: 了解 Azure Stack 整合系統 1807 更新的新功能，包括已知問題和更新下載位置。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: afbe3ff2e6be4e03f8de8ac2490922c3ec788733
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 951c012dd22cf83741211b9601a5e7502de33be6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091375"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393021"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
@@ -143,7 +143,11 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安裝來裝載關鍵基�
   > - Atom： https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
 
 
-- 開始安裝更新 1807 之前，請先執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 來驗證 Azure Stack 的狀態，並解決所發現的一切運作問題。 也請檢閱作用中警示，並將所有需要採取動作的警示解決。
+- 開始安裝此更新之前，請先執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 與下列參數來驗證 Azure Stack 的狀態，並解決所發現的一切運作問題，包括所有警告和失敗。 也請檢閱作用中警示，並將所有需要採取動作的警示解決。  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ### <a name="known-issues-with-the-update-process"></a>關於更新程序的已知問題
 
@@ -154,20 +158,21 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安裝來裝載關鍵基�
 - <!-- 2830461 - IS --> 在某些情況下，當需要注意某個更新時，可能並不會產生對應的警示。 入口網站仍然會反映正確的狀態而不受影響。
 
 ### <a name="post-update-steps"></a>更新後步驟
+在安裝此更新之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。 
+- [KB 4464231 – Azure Stack Hotfix Azure Stack Hotfix 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-- <!-- 2933866 – IS --> **改進失敗的更新安裝狀態。** 此版本導入兩個新的 STATE 類別，可向操作員提供更多與失敗更新安裝相關的詳細資料。 這兩個類別為 *PreparationFailed* 和 *InstallationFailed*。 安裝此版本之後，您可能會看到先前更新安裝失敗的資訊已修訂成反映這些新的類別。 
-
-<!-- *There are no post-update steps for update 1807.* -->
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> 安裝此更新後，您可能會看到**改進失敗的更新安裝狀態。** 其中可能包含已修訂成反映這兩個新 STATE 類別的先前更新安裝失敗相關資訊。 新的 STATE 類別為 *PreparationFailed* 和 *InstallationFailed*。  
 
 ## <a name="known-issues-post-installation"></a>已知問題 (安裝後)
 
 以下是此組建版本的安裝後已知問題。
 
 ### <a name="portal"></a>入口網站
+
+- Azure Stack 技術文件會以最新版本為主。 由於各版本的入口網站會有所變更，您在使用 Azure Stack 入口網站時所看到的項目，可能與您在文件中所看到的內容不同。 
+
+- 無法在系統管理員入口網站內，[從下拉式清單開啟新的支援要求](azure-stack-manage-portals.md#quick-access-to-help-and-support)。 針對 Azure Stack 整合式系統，應使用下列連結：[https://aka.ms/newsupportrequest](https://aka.ms/newsupportrequest)。
+
 - <!-- 2931230 – IS  ASDK --> 無法刪除以附加方案形式新增至使用者訂用帳戶的方案 (即使您從使用者訂用帳戶中移除此方案)。 此方案會持續保留，直到參考附加方案的訂用帳戶也遭到刪除為止。 
 
 - <!--2760466 – IS  ASDK --> 當您安裝執行此版本的新 Azure Stack 環境時，可能不會顯示指出「需要啟用」的警示。 必須[啟用](azure-stack-registration.md)，才能使用市集摘要整合。  

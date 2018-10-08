@@ -1,21 +1,21 @@
 ---
-title: Bing 影像搜尋單頁 Web 應用程式 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: 說明如何在單頁 Web 應用程式中使用 Bing 影像搜尋 API。
+title: 教學課程：建置單頁 Web 應用程式 - Bing 圖像式搜尋
+titleSuffix: Azure Cognitive Services
+description: 說明如何在單頁 Web 應用程式中使用 Bing 圖像式搜尋 API。
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-brapel
-ms.openlocfilehash: 303d7745167d2ea25fda083ed99881ac4e0a7ec7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e3cd36d799256406b3ae12f35303bd2406468b3c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369679"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227175"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>教學課程：圖像式搜尋單頁 Web 應用程式
 

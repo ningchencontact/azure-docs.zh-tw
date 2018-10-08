@@ -1,20 +1,23 @@
 ---
 title: 使用 Azure 入口網站建立 SQL Database 警示 | Microsoft Docs
 description: 使用 Azure 入口網站建立 SQL Database 的警示，在符合指定條件時觸發通知或自動化。
-author: aamalvea
-manager: craigg
 services: sql-database
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: aamalvea
 ms.author: aamalvea
-ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648018"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159307"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 入口網站建立 Azure SQL Database 和資料倉儲警示
 
@@ -108,7 +111,7 @@ ms.locfileid: "34648018"
 | SQL 資料倉儲 | connection_successful | 成功的連線 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | connection_failed | 失敗的連線 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | blocked_by_firewall | 遭到防火牆封鎖 | 總計 | 10 分鐘 |
-| SQL 資料倉儲 | service_level_objective | 資料庫的服務等級目標 | 總計 | 10 分鐘 |
+| SQL 資料倉儲 | service_level_objective | 資料庫的服務層 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | dwu_limit | dwu 限制 | 最大值 | 10 分鐘 |
 | SQL 資料倉儲 | dwu_consumption_percent | DWU 百分比 | 平均值 | 10 分鐘 |
 | SQL 資料倉儲 | dwu_used | 已使用 DWU | 平均值 | 10 分鐘 |

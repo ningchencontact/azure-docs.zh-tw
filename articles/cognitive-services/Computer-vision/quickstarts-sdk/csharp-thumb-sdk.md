@@ -1,25 +1,27 @@
 ---
-title: 電腦視覺 API C# 快速入門 SDK 建立縮圖 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您會在認知服務中使用電腦視覺 Windows C# 用戶端程式庫，從影像產生縮圖。
+title: 快速入門：產生縮圖 - SDK、C# - 電腦視覺
+titleSuffix: Azure Cognitive Services
+description: 在本快速入門中，您會使用電腦視覺 Windows C# 用戶端程式庫，從影像產生縮圖。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: e26d2da8f068b3b23b8211dc88cd21ca4a049018
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/14/2018
+ms.author: nolachar
+ms.openlocfilehash: 8fdbcf5bfe4d4fe60a2858b34b38c01d66e75d99
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750380"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054807"
 ---
-# <a name="quickstart-generate-a-thumbnail---sdk-c35"></a>快速入門：產生縮圖 - SDK、C&#35;
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>快速入門： 使用電腦視覺 SDK 和 C# 產生縮圖
 
 在本快速入門中，您會使用電腦視覺 Windows 用戶端程式庫，從影像產生縮圖。
+
+此範例的原始程式碼位於 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +31,7 @@ ms.locfileid: "43750380"
 
 ## <a name="generatethumbnailasync-method"></a>GenerateThumbnailAsync 方法
 
-`GenerateThumbnailAsync` 和 `GenerateThumbnailInStreamAsync` 方法可分別針對遠端和本機影像包裝[取得縮圖 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (英文)。  您可以使用這些方法來產生影像的縮圖。 您指定高度和寬度，可能與輸入影像的外觀比例不同。 電腦視覺會使用智慧型裁剪以智慧方式識別感興趣的區域，並且根據該區域產生裁剪的座標。
+`GenerateThumbnailAsync` 和 `GenerateThumbnailInStreamAsync` 方法可分別針對遠端和本機影像包裝[取得縮圖 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (英文)。  您可以使用這些方法來產生影像的縮圖。 您指定高度和寬度，可能與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別感興趣的區域，並且根據該區域產生裁剪的座標。
 
 若要執行範例，請執行下列步驟：
 
@@ -39,8 +41,8 @@ ms.locfileid: "43750380"
     1. 按一下 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中，鍵入 "Microsoft.Azure.CognitiveServices.Vision.ComputerVision"。
     1. 顯示時選取 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision]，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
 1. 使用以下程式碼來取代 `Program.cs`。
-1. 將 `<Subscription Key>` 取代為您的有效訂用帳戶金鑰。
-1. 必要時，請將 `computerVision.AzureRegion = AzureRegions.Westcentralus` 變更為您取得訂用帳戶金鑰的位置。
+1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
+1. 必要時，請將 `computerVision.Endpoint` 變更為與您的訂用帳戶金鑰相關聯的 Azure 區域。
 1. (選擇性) 使用本機影像的路徑和檔案名稱來取代 `<LocalImage>` (若未設定則會忽略)。
 1. (選擇性) 將 `remoteImageUrl` 設為不同的影像。
 1. (選擇性) 將 `writeThumbnailToDisk` 設為 `true`，以將縮圖儲存至磁碟。
@@ -48,7 +50,6 @@ ms.locfileid: "43750380"
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 using System;
 using System.IO;
@@ -74,33 +75,33 @@ namespace ImageThumbnail
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+            ComputerVisionClient computerVision = new ComputerVisionClient(
                 new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...\n");
             var t1 = GetRemoteThumbnailAsync(computerVision, remoteImageUrl);
             var t2 = GetLocalThumbnailAsnc(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Create a thumbnail from a remote image
         private static async Task GetRemoteThumbnailAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -124,7 +125,7 @@ namespace ImageThumbnail
 
         // Create a thumbnail from a local image
         private static async Task GetLocalThumbnailAsnc(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {

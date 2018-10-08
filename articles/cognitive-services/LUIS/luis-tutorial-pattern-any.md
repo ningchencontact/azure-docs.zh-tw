@@ -1,42 +1,29 @@
 ---
-title: 使用 pattern.any 實體來改善 LUIS 預測的教學課程 - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: 在本教學課程中，使用 pattern.any 實體來改善 LUIS 意圖和實體預測。
+title: 教學課程 5：適用於自由格式文字的 Pattern.any 實體
+titleSuffix: Azure Cognitive Services
+description: 針對語句已正確格式化，但資料結尾可能會因為語句中其餘字組而容易造成混淆的語句，使用 pattern.any 實體來從中擷取資料。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527359"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164390"
 ---
-# <a name="tutorial-improve-app-with-patternany-entity"></a>教學課程：使用 pattern.any 實體來改善應用程式
+# <a name="tutorial-5-extract-free-form-data"></a>教學課程 5：擷取自由格式的資料
 
-在本教學課程中，使用 pattern.any 實體來提高意圖和實體預測。  
+在此教學課程中，您將針對語句已正確格式化，但資料結尾可能會因為語句中其餘字組而容易造成混淆的語句，使用 pattern.any 實體來從中擷取資料。 
 
-> [!div class="checklist"]
-* 了解何時及如何使用 pattern.any
-* 建立使用 pattern.any 的模式
-* 如何確認預測改善
-
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>開始之前
-如果您沒有來自[模式角色](luis-tutorial-pattern-roles.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 您可以在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub 存放庫中找到要匯入的應用程式。
-
-如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `patt-any`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
-
-## <a name="the-purpose-of-patternany"></a>Pattern.any 的用途
 Pattern.any 實體可讓您尋找自由格式的資料，其中實體的用字方式使其很難從語句的剩餘部分判斷實體的結尾。 
 
-這個人力資源應用程式可協助員工尋找公司表單。 表單已在[規則運算式教學課程](luis-quickstart-intents-regex-entity.md)中新增。 來自該教學課程的表單名稱使用規則運算式來擷取已正確格式化的表單名稱，例如，下列語句表格中以粗體顯示的表單名稱：
+這個人力資源應用程式可協助員工尋找公司表單。 
 
 |語句|
 |--|
@@ -54,11 +41,38 @@ Pattern.any 實體可讓您尋找自由格式的資料，其中實體的用字�
 |**「新進員工要求調職 2018 年第 5 版」** 的作者是誰？|
 |**新進員工要求調職 2018 年第 5 版**是以法文發行的嗎？|
 
-這個變動長度包含可能造成 LUIS 無法正確辨識實體結束位置的片語。 在模式中使用 Pattern.any 實體可讓您指定表單名稱的開頭和結尾，讓 LUIS 能夠正確擷取表單名稱。
+這個變動長度包含可能造成 LUIS 無法正確辨識實體結束位置的字組。 在模式中使用 Pattern.any 實體可讓您指定表單名稱的開頭和結尾，讓 LUIS 能夠正確擷取表單名稱。
 
-**當模式可讓您提供較少的範例語句時，如果偵測不到實體，模式就不會進行比對。**
+|範本語句的範例|
+|--|
+|{FormName} 在哪裡[?]|
+|{FormName} 的作者是誰[?]|
+|{FormName} 是以法文發行的嗎[?]|
 
-## <a name="add-example-utterances-to-the-existing-intent-findform"></a>將範例語句新增到現有意圖 FindForm 
+**在本教學課程中，您將了解如何：**
+
+> [!div class="checklist"]
+> * 使用現有的教學課程應用程式
+> * 將範例語句新增至現有實體
+> * 建立 Pattern.any 實體
+> * 建立模式
+> * 定型
+> * 測試新模式
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>使用現有的應用程式
+以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
+
+如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json)。
+
+2. 將 JSON 匯入新的應用程式中。
+
+3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `patt-any`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+
+## <a name="add-example-utterances"></a>新增範例語句 
 如果很難建立和標示 FormName 實體，請移除預先建置的 keyPhrase 實體。 
 
 1. 從上方瀏覽列中選取 [建置]，然後從左方瀏覽列中選取 [意圖]。
@@ -108,7 +122,7 @@ Pattern.any 實體可擷取各種不同長度的實體。 它僅適用於模式�
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>測試新模式以擷取自由格式資料
 1. 從頂端列選取 [Test] \(測試\) 來開啟測試面板。 
@@ -125,9 +139,11 @@ Pattern.any 實體可擷取各種不同長度的實體。 它僅適用於模式�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
+
+本教學課程已將範例語句新增至現有意圖，然後為表單名稱建立新的 Pattern.any。 然後本教學課程以新的語句範例和實體，為現有意圖建立模式。 互動式測試顯示已對模式和其意圖做出預測，因為已找到實體。 
 
 > [!div class="nextstepaction"]
 > [了解如何將角色與模式搭配使用](luis-tutorial-pattern-roles.md)

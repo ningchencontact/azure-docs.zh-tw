@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd96a6cfebe44bd02e3f44a44d91119ad1c2c5a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598747"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094212"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 
@@ -78,12 +78,21 @@ ms.locfileid: "34598747"
 |**動作**  |**說明**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|讀取授權。|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|讀取混合式 Runbook 背景工作角色資源。|
 |Microsoft.Automation/automationAccounts/jobs/read|列出 Runbook 的作業。|
 |Microsoft.Automation/automationAccounts/jobs/resume/action|繼續執行暫停的作業。|
 |Microsoft.Automation/automationAccounts/jobs/stop/action|取消進行中的作業。|
 |Microsoft.Automation/automationAccounts/jobs/streams/read|讀取「作業串流」和「輸出」。|
+|Microsoft.Automation/automationAccounts/jobs/output/read|取得作業的輸出。|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|暫停進行中的作業。|
 |Microsoft.Automation/automationAccounts/jobs/write|建立作業。|
+|Microsoft.Automation/automationAccounts/jobSchedules/read|取得 Azure 自動化作業排程。|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|建立 Azure 自動化作業排程。|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|取得連結至自動化帳戶的工作區。|
+|Microsoft.Automation/automationAccounts/read|取得 Azure 自動化帳戶。|
+|Microsoft.Automation/automationAccounts/runbooks/read|取得 Azure 自動化 Runbook。|
+|Microsoft.Automation/automationAccounts/schedules/read|取得 Azure 自動化排程資產。|
+|Microsoft.Automation/automationAccounts/schedules/write|建立或更新 Azure 自動化排程資產。|
 |Microsoft.Resources/subscriptions/resourceGroups/read      |讀取角色和角色指派。         |
 |Microsoft.Resources/deployments/*      |建立和管理資源群組部署。         |
 |Microsoft.Insights/alertRules/*      | 建立和管理警示規則。        |

@@ -1,20 +1,20 @@
 ---
-title: Bing 圖像式搜尋 SDK 裁剪區域結果教學課程 | Microsoft Docs
+title: 教學課程：影像裁剪區域和結果 - Bing 圖像式搜尋
 description: 如何使用 Bing 圖像式搜尋 SDK，以取得類似已上傳影像裁剪區域的影像 URL。
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: dd51ed7c710cc51a9fe0e63e55aa0d2c4ea24bee
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574484"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226905"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>教學課程：Bing 圖像式搜尋 SDK 影像裁剪區域和結果
 圖像式搜尋 SDK 包含一個選項，可讓您選取影像的某個區域，並於線上尋找類似該較大影像之裁剪區域的影像。  此範例會從包含數個人員的影像中，指定一個顯示單一人員的裁剪區域。  程式碼會傳送裁剪區域及較大影像的 URL，並傳回包含 Bing 搜尋 URL 及於線上找到類似影像之 URL 的結果。

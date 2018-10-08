@@ -4,17 +4,17 @@ description: 在本教學課程中，將 Azure Function 當作模組部署至邊
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cf973899a6f56010c47588bdd506418a3d9a7cd8
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 66dcb3347741c4826fc62cc258c67b85f3939ff7
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744037"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422757"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>教學課程：將 Azure Functions 部署為 IoT Edge 模組 (預覽)
 
@@ -45,7 +45,7 @@ Azure IoT Edge 裝置：
 
 雲端資源：
 
-* Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免費層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
 
 開發資源：
 

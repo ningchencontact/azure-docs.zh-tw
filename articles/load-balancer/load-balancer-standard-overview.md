@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005870"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161636"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard 概觀
 
@@ -232,6 +232,8 @@ Load Balancer Standard 目前已在所有公用雲端地區推出。
 - 了解[標準 Load Balancer 診斷](load-balancer-standard-diagnostics.md)。
 - 參閱[支援的多維度計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)，以了解 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)中的診斷。
 - 了解如何使用 [Load Balancer 來進行輸出連線](load-balancer-outbound-connections.md)。
+- 深入了解[輸出規則](load-balancer-outbound-rules-overview.md)。
+- 深入了解[閒置時重設 TCP](load-balancer-tcp-reset.md)。
 - 了解[具有 HA 連接埠負載平衡規則的標準 Load Balancer](load-balancer-ha-ports-overview.md)。
 - 了解如何搭配使用 [Load Balancer 與多個前端](load-balancer-multivip-overview.md)。
 - 了解[虛擬網路](../virtual-network/virtual-networks-overview.md)。

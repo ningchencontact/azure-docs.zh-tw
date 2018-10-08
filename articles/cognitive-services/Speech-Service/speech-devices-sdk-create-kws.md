@@ -1,7 +1,7 @@
 ---
 title: 建立自訂喚醒字
-description: 為 Speech Devices SDK 建立自訂的喚醒字。
-titleSuffix: Microsoft Cognitive Services
+description: 了解如何為 Speech Devices SDK 建立自訂的喚醒字。
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
@@ -9,26 +9,26 @@ ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 615a901c70fff92141442699ea6e4b8fce1c9ace
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7ba62ce0cc2d391c96c31795aabaac9c8796f6d5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282568"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165529"
 ---
-# <a name="create-a-custom-wake-word-using-speech-service"></a>使用語音服務來建立自訂的喚醒字
+# <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>使用語音服務來建立自訂的喚醒字
 
-您的裝置隨時聆聽等候喚醒字 (或片語)。 例如，「嗨 Cortana」是 Cortana 助理的喚醒字。 當使用者說出喚醒字時，裝置便開始將所有後續的音訊傳送到雲端，直到使用者停止說話。 自訂您的喚醒字是區隔裝置並強化品牌的有效方法。
+您的裝置隨時聆聽等候喚醒字 (或片語)。 例如，「嗨 Cortana」是 Cortana 助理的喚醒字。 當使用者說出喚醒字時，裝置便會將所有後續的音訊傳送到雲端，直到使用者停止說話。 自訂您的喚醒字是區隔裝置並強化品牌的有效方法。
 
 在本文中，您將了解如何為裝置建立自訂的喚醒字。
 
-## <a name="choosing-an-effective-wake-word"></a>選擇有效的喚醒字
+## <a name="choose-an-effective-wake-word"></a>選擇有效的喚醒字
 
-在選擇喚醒字時，請考慮以下指導方針。
+在選擇喚醒字時，請考慮以下指導方針：
 
 * 您的喚醒字應是英文單字或片語。 說出喚醒字所需的時間不應超過兩秒。
 
-* 由 4 - 7 個音節所構成的單字，是效果最佳的喚醒字。 例如 "Hey, Computer" 是不錯的喚醒字，若只有 "Hey" 則不好。
+* 由 4 到 7 個音節所構成的單字，是效果最佳的喚醒字。 例如 "Hey, Computer" 是不錯的喚醒字。 只有 "Hey" 則不好。
 
 * 喚醒字應遵循一般英文發音規則。
 
@@ -36,16 +36,16 @@ ms.locfileid: "39282568"
 
 * 請勿選擇一般單字。 例如，"eat" 和 "go" 是一般對話中常說的單字。 它們可能會不小心觸發您的裝置。
 
-* 避免使用可能有其他發音的喚醒字。 使用者將必須知道讓裝置回應的「正確」發音。 例如，"509" 可以讀為 "five zero nine"、"five oh nine"或 "five hundred and nine"。 "R.E.I." 可以讀為 "R E I" 或 "Ray"。 "Live" 可以讀為 [līv] 或 [liv]。
+* 避免使用可能有其他發音的喚醒字。 使用者將必須知道讓裝置回應的「正確」發音。 例如，"509" 可能會讀為 "five zero nine"、"five oh nine" 或 "five hundred and nine"。 "R.E.I." 可能會讀為 "r-e-i" 或 "ray"。 "Live" 可能會讀為"/līv/" 或 "/liv/"。
 
 * 請勿使用特殊字元、符號或數字。 例如，"Go#" 和 "20 + cats" 不是好的喚醒字。 不過，"go sharp" 或 "twenty plus cats" 是可用的喚醒字。 您仍然可以使用品牌中的符號，並使用行銷管道和文件來強調適當的發音。
 
 > [!NOTE]
-> 如果您使用註冊商標單字作為喚醒字，請務必確認擁有該商標，或者取得該商標擁有者的使用許可。 Microsoft 無須對您選擇喚醒字而產生的任何法律問題負擔任何責任。
+> 如果您使用註冊商標單字作為喚醒字，請務必確認您擁有該商標，或者已從該商標擁有者取得使用該字組的權限。 Microsoft 無須對您選擇喚醒字而產生的任何法律問題負擔任何責任。
 
-## <a name="creating-your-wake-word"></a>建立您的喚醒字
+## <a name="create-your-wake-word"></a>建立您的喚醒字
 
-您必須先使用「Microsoft 自訂喚醒字產生」服務來建立喚醒字，才能將它和您的裝置搭配使用。 當您提供喚醒字之後，服務會產生可部署到開發套件上的檔案，以在裝置上啟用您的喚醒字。
+您必須先使用「Microsoft 自訂喚醒字產生」服務來建立喚醒字，才能將自訂喚醒字和您的裝置搭配使用。 當您提供喚醒字之後，服務會產生可部署到開發套件上的檔案，以在裝置上啟用您的喚醒字。
 
 1. 移至[自訂語音服務入口網站](https://cris.ai/) \(英文\)。
 
@@ -53,25 +53,26 @@ ms.locfileid: "39282568"
 
     ![建立新帳戶](media/speech-devices-sdk/wake-word-1.png)
  
-3.  登入之後，請填寫表單，然後按一下 [Start the journey] \(開始旅程\)。
+3.  登入之後，填妥表單，然後選取 [開始我的旅程]。
 
-    ![成功登入](media/speech-devices-sdk/wake-word-3.png)
+    ![已順利登入](media/speech-devices-sdk/wake-word-3.png)
  
-4. [Custom Wake Word] \(自訂喚醒字\) 頁面並未提供給大眾使用，因此沒有可連至該頁面的連結。 請改為按一下或貼上此連結：https://cris.ai/customkws。
+4. [Custom Wake Word] \(自訂喚醒字\) 頁面並未提供給大眾使用，因此沒有可直接連至該頁面的連結。 自訂語音功能需要 Azure 訂用帳戶，但自訂喚醒字功能並不需要。 如果出現「找不到任何訂用帳戶」 錯誤頁面，請直接將 **"Subscriptions?errorMessage=No%20Subscriptions%20found"** 取代為 URL 中的 "**customkws**"，然後點按 ENTER。 URL 應該是以下其中一個： https://westus.cris.ai/customkws、 https://eastasia.cris.ai/customkws 或 https://northeurope.cris.ai/customkws，這取決於您的地區在哪。   
 
-    ![隱藏的頁面](media/speech-devices-sdk/wake-word-4.png)
+
+    ![自訂喚醒字頁面為隱藏狀態](media/speech-devices-sdk/wake-word-4.png)
  
-6. 輸入您選擇的喚醒字，然後選擇**提交**。
+6. 輸入您選擇的喚醒字，然後選擇 [提交字組]。
 
     ![輸入您的喚醒字](media/speech-devices-sdk/wake-word-5.png)
  
-7. 產生檔案可能需要數分鐘。 您應該會在瀏覽器的索引標籤上看到旋轉的圓圈。隨後，會出現資訊列要求您下載 `.zip` 檔案。
+7. 產生檔案可能需要數分鐘。 您應該會在瀏覽器視窗中看到旋轉的圓圈。 隨後，會出現資訊列要求您下載 .zip 檔案。
 
     ![接收 .zip 檔案](media/speech-devices-sdk/wake-word-6.png)
 
-8. 將 `.zip` 檔案儲存到您的電腦。 您需要此檔案以將自訂喚醒字部署到開發套件，請遵循[開始使用 Speech Devices SDK](speech-devices-sdk-qsg.md) 中的指示。
+8. 將 .zip 檔案儲存到您的電腦。 您需要此檔案來將自訂喚醒字部署到開發套件。 若要部署自訂喚醒字，請遵循[開始使用 Speech Devices SDK](speech-devices-sdk-qsg.md) 中的指示。
 
-9. 您現在可以**登出**。
+9. 選擇 [登出]。
 
 ## <a name="next-steps"></a>後續步驟
 

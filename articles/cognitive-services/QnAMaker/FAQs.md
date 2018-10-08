@@ -1,21 +1,21 @@
 ---
-title: 常見問題集 - Microsoft 認知服務 | Microsoft Docs
-titleSuffix: Azure
-description: 常見問題集
+title: 常見問題集 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: 列出 QnA Maker 服務的的常見問題集
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: a6bf32549715d0357771b3f3b0ff72f64788ec20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: efefd595c43d7f46ff1ead91577d070cf8fb90e4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369642"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164611"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -87,6 +87,6 @@ ms.locfileid: "35369642"
 依照以下步驟，將 QnA Maker 服務作為網站聊天控制項內嵌至您的網站中：
 
 1. 依照[這裡](./Tutorials/create-qna-bot.md)的指示建立您的常見問題集 Bot。
-2. 依照[這裡](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat)的步驟啟用網路聊天
+2. 依照[這裡](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)的步驟啟用網路聊天
 
 

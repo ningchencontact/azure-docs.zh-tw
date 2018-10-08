@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/26/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5766f9708d2439f42f9ad77169fd1fe7f7dc451e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0a32f925aa1ff4066a893fb107f4d785bd1fd8f8
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439107"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423556"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Python IoT Edge 模組並部署到您的模擬裝置
 
@@ -37,11 +37,11 @@ ms.locfileid: "39439107"
 Azure IoT Edge 裝置：
 
 * 您可以遵循 [Linux](quickstart-linux.md) 快速入門中的步驟，使用開發電腦或虛擬機器作為邊緣裝置。
-* 適用於 IoT Edge 的 Python 模組不支援 ARM 處理器或 Windows 裝置。
+* 適用於 IoT Edge 的 Python 模組不支援 Windows 裝置。
 
 雲端資源：
 
-* Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免費層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
 
 開發資源：
 
@@ -51,6 +51,9 @@ Azure IoT Edge 裝置：
 * [Docker CE](https://docs.docker.com/engine/installation/)。 
 * [Python](https://www.python.org/downloads/)。
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) 用於安裝 Python 套件 (通常包含在您的 Python 安裝中)。
+
+>[!Note]
+>請確認您的 `bin` 資料夾位於您平台的路徑上。 這通常是 `~/.local/` (在 UNIX 和 macOS 上) 或 `%APPDATA%\Python` (在 Windows 上)。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 在本教學課程中，您會使用適用於 VS Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
@@ -78,6 +81,8 @@ Azure IoT Edge 裝置：
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
+   >[!Note]
+   >請確定將用來安裝 cookiecutter 的目錄位於環境的 `Path` 中，如此才能從命令提示字元加以叫用。
 
 3. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
 
@@ -91,7 +96,13 @@ Azure IoT Edge 裝置：
    4. 將模組命名為 **PythonModule**。 
    5. 將您在上一節所建立的 Azure 容器登錄，指定為第一個模組的映像存放庫。 將 **localhost:5000** 取代為您所複製的登入伺服器值。 最終字串看起來如下：\<登錄名稱\>.azurecr.io/pythonmodule.
  
-VS Code 視窗會載入您的 IoT Edge 解決方案工作區：模組資料夾、部署資訊清單範本檔案，以及 \.env 檔案。 
+   ![提供 Docker 映像存放庫](./media/tutorial-python-module/repository.png)
+
+VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區包含五個最上層元件。 您在本教學課程中不會編輯 **\.gitignore** 檔案。 **modules** 資料夾包含您的模組所需的 Python 程式碼，以及用來將模組建置為容器映像的 Dockerfile。 **\.env** 檔案會儲存您的容器登錄認證。 **Deployment.template.json** 檔案包含 IoT Edge 執行階段用來在裝置上部署模組的資訊。 
+
+如果您在建立解決方案時未指定容器登錄，但接受了預設的 localhost:5000 值，則不會有 \.env 檔案。 
+
+   ![Python 解決方案工作區](./media/tutorial-python-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>新增登錄認證
 
@@ -200,7 +211,7 @@ VS Code 視窗會載入您的 IoT Edge 解決方案工作區：模組資料夾�
 
 4. 儲存這個檔案。
 
-5. 在 VS Code 總管中，以滑鼠右鍵按一下 deployment.template.json 檔案，然後選取 [建置 IoT Edge 解決方案]。 
+5. 在 VS Code 總管中，以滑鼠右鍵按一下 deployment.template.json 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。 
 
 當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於名為 **config** 的新資料夾中，產生 deployment.json 檔案。然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將 Python 程式碼容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄。 
 
@@ -208,23 +219,21 @@ VS Code 視窗會載入您的 IoT Edge 解決方案工作區：模組資料夾�
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 
-您可以使用 Azure 入口網站將 Python 模組部署到 IoT Edge 裝置，如同您在快速入門中所做的一樣。 您也可以從 Visual Studio Code 內部署和監視模組。 下列幾節會使用先決條件中所列的「適用於 VS Code 的 Azure IoT Edge 擴充功能」。 請立即安裝擴充功能 (如果您尚未安裝)。 
+在您用來設定 IoT Edge 裝置的快速入門文章中，您使用 Azure 入口網站部署了模組。 您可以使用 Visual Studio Code 的 Azure IoT 工具組擴充功能來部署模組。 您已備妥您的案例所需的部署資訊清單，即 **deployment.json** 檔案。 現在您只需選取要接收部署的裝置即可。
 
-1. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。
+1. 在 VS Code 命令選擇區中，執行 [Azure IoT 中樞：選取 IoT 中樞]。 
 
-2. 搜尋並執行命令 **Azure: Sign in**。 依照指示登入 Azure 帳戶。 
+2. 選擇您要設定的 IoT Edge 裝置所屬的訂用帳戶和 IoT 中樞。 
 
-3. 在命令選擇區中，搜尋並執行命令 **Azure IoT Hub: Select IoT Hub**。 
+3. 在 VS Code 總管中，展開 [Azure IoT 中樞裝置] 區段。 
 
-4. 選取 IoT 中樞所在的訂用帳戶，然後選取您要存取的 IoT 中樞。
+4. 以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [建立單一裝置的部署]。 
 
-5. 在 VS Code 總管中，展開 [Azure IoT 中樞裝置] 區段。 
+   ![建立單一裝置的部署](./media/tutorial-python-module/create-deployment.png)
 
-6. 以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [建立 IoT Edge 裝置的部署]。 
+5. 選取 **config** 資料夾中的 **deployment.json** 檔案，然後按一下 [選取 Edge 部署資訊清單]。 請勿使用 deployment.template.json 檔案。 
 
-7. 瀏覽至 **PythonModule** 所在的解決方案資料夾。 開啟 config 資料夾、選取 deployment.json 檔案，然後選擇 [選取 Edge 部署資訊清單]。
-
-8. 重新整理 [Azure IoT 中樞裝置] 區段。 您應該會看到新的 **PythonModule** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 
+6. 按一下 [重新整理] 按鈕。 您應該會看到新的 **PythonModule** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 
 
 ## <a name="view-generated-data"></a>檢視產生的資料
 
@@ -236,32 +245,42 @@ VS Code 視窗會載入您的 IoT Edge 解決方案工作區：模組資料夾�
 
 ## <a name="clean-up-resources"></a>清除資源 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。
+如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。 
 
 否則，可以刪除您在本文中建立的本機組態和 Azure 資源，以避免產生費用。 
 
-> [!IMPORTANT]
-> 刪除 Azure 資源和資源群組是無法回復的動作。 當您刪除這些項目時，資源群組和其中包含的所有資源都將永久刪除。 請確定您不會誤刪錯誤的資源群組或資源。 如果您在現有的資源群組內建立了 IoT 中樞，而該群組中包含您想要保留的資源，則您只需刪除 IoT 中樞資源本身即可，而不要刪除資源群組。
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-若只要刪除 IoT 中樞，請使用中樞名稱和資源群組名稱執行下列命令：
+### <a name="delete-local-resources"></a>刪除本機資源
 
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
+如果您想要從裝置中移除 IoT Edge 執行階段和相關資源，請使用下列命令。 
 
+移除 IoT Edge 執行階段。
 
-若要依名稱刪除整個資源群組：
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後選取 [資源群組]。
+IoT Edge 執行階段移除後，它所建立的容器隨即停止，但仍會存在於您的裝置上。 檢視所有容器。
 
-2. 在 [依名稱篩選] 文字方塊中，輸入包含 IoT 中樞的資源群組名稱。 
+   ```bash
+   sudo docker ps -a
+   ```
 
-3. 在結果清單中資源群組的右側，選取省略符號 (**...**)，然後選取 [刪除資源群組]。
+刪除已在您的裝置上建立的執行階段容器。
 
-4. 系統將會要求您確認是否刪除資源群組。 重新輸入您資源群組的名稱以進行確認，然後選取 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+   ```bash
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+
+藉由參照容器名稱，刪除在 `docker ps` 輸出中列出的任何其他容器。 
+
+移除容器執行階段。
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 

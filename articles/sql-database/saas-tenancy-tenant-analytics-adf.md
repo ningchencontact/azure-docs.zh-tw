@@ -1,26 +1,23 @@
 ---
 title: 使用 Azure SQL 資料倉儲對租用戶資料庫執行分析查詢 | Microsoft Docs
-description: 使用從多個 Azure SQL Database 資料庫擷取的資料執行跨租用戶分析查詢。
-keywords: SQL Database Azure
+description: 使用從 Azure SQL Database、SQL 資料倉儲、Azure Data Factory 或 Power BI 擷取的資料，進行跨租用戶分析查詢。
 services: sql-database
-documentationcenter: ''
-author: anumjs
-manager: craigg
-editor: MightyPen
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: ''
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/08/2017
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: c7580e5481288695d3b5dea8fd0547f5f2c4c2b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643996"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056586"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>使用 Azure SQL Database、SQL 資料倉儲、Data Factory 及 Power BI 探索 SaaS 分析
 
@@ -68,7 +65,7 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
 
 ## <a name="setup"></a>設定
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 > [!NOTE]
 > 本教學課程會使用目前處於有限預覽 (連結的服務參數化) 的 Azure Data Factory 功能。 如果想要進行本教學課程，請[在此](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu)提供訂用帳戶識別碼。 只要您的訂用帳戶一啟用，我們就會寄送確認函給您。
@@ -142,7 +139,7 @@ Azure Data Factory 可用來協調擷取、載入及轉換資料。 在本教學
 
 ![adf_overview](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
-在 [概觀] 頁面中，切換至左側面板的 **建立者** 索引標籤，並觀察有三個 [管線](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 和三個已建立的 [資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。
+在 [概觀] 頁面中，切換至左側面板的 [建立者] 索引標籤，並觀察有三個 [管線](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 和三個已建立的 [資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
 三個巢狀管道為：SQLDBToDW、DBCopy 及 TableCopy。
@@ -230,7 +227,7 @@ SQL 資料倉儲可做為分析存放區使用，以便彙總租用戶資料。 
 
 Contoso Concert Hall 經過一段時間為每個活動累積的票證銷售繪圖顯示，並非所有事件都發生搶購熱潮。 試用篩選選項，以探索其他地點的銷售趨勢。
 
-票證銷售模式的深入解析可能會引導 Wingtip Tickets 最佳化其商務模型。 並非對所有租用戶平均收費，Wingtip 或許應該引進不同效能層級的服務層。 可以為需要每日銷售更多票證的較大地點，提供具有較高服務等級協定 (SLA) 的較高層級。 這些地點可以將其資料庫放在具有較高每個資料庫資源限制的集區中。 每個服務層可以有每小時銷售配置，針對超過的配置收取額外費用。 具有定期銷售爆發的較大地點可以從較高的層級獲益，Wingtip Tickets 也可以更有效率地從其服務創造營收。
+票證銷售模式的深入解析可能會引導 Wingtip Tickets 最佳化其商務模型。 Wingtip 或許應該引進不同計算大小的服務層，而非對所有租用戶平均收費。 可以為需要每日銷售更多票證的較大地點，提供具有較高服務等級協定 (SLA) 的較高層級。 這些地點可以將其資料庫放在具有較高每個資料庫資源限制的集區中。 每個服務層可以有每小時銷售配置，針對超過的配置收取額外費用。 具有定期銷售爆發的較大地點可以從較高的層級獲益，Wingtip Tickets 也可以更有效率地從其服務創造營收。
 
 同時，有些 Wingtip Tickets 客戶抱怨，他們在銷售足夠票證以攤平服務成本方面有難處。 或許在這些深入解析中，有機會可以為表現不佳的地點促進票證銷售。 較高的銷售會增加服務的認知值。 以滑鼠右鍵按一下 fact_Tickets，然後選取 [新的量值]。 針對稱為 **AverageTicketsSold** 的新量值輸入下列運算式：
 

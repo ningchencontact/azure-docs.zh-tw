@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41917535"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166872"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -45,8 +45,6 @@ ms.locfileid: "41917535"
    * 選擇性地提供有意義的設定檔描述
    * 平台：**Windows 10 和更新版本**
    * 設定檔類型：**自訂**
-
-   ![CreateProfile][CreateProfile]
 
 3. 配置 [設定]
    * **新增**下列 OMA-URI 設定來啟用 [重設密碼] 連結
@@ -100,7 +98,6 @@ ms.locfileid: "41917535"
 ![LoginScreen][LoginScreen]
 
 現在，使用者在嘗試登入時即會看到 [重設密碼] 連結，該連結可開啟登入畫面上的自助式密碼重設體驗。 這項功能可讓使用者重設其密碼，而不需使用另一個裝置來存取網頁瀏覽器。
-現在，使用者在嘗試登入時即會看到 [重設密碼] 連結，該連結可開啟登入畫面上的自助式密碼重設體驗。 這項功能可讓使用者重設其密碼，而不需使用另一個裝置來存取網頁瀏覽器。
 
 您的使用者將在[重設您的工作或學校密碼](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)中發現使用這項功能的指引
 
@@ -116,6 +113,10 @@ ms.locfileid: "41917535"
 
 如果使用登錄機碼或群組原則停用 Windows 鎖定畫面，將無法使用 [重設密碼]。
 
+Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 ClientType。
+
+![Azure AD 稽核記錄中的範例登入畫面密碼重設](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
 ## <a name="clean-up-resources"></a>清除資源
 
 如果您決定不再使用您在本教學課程中設定的功能，請刪除您所建立的 Intune 裝置組態設定檔或登錄機碼。
@@ -127,6 +128,5 @@ ms.locfileid: "41917535"
 > [!div class="nextstepaction"]
 > [在登入時評估風險](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "建立 Intune 裝置組態設定檔，以便在 Windows 10 登入畫面上啟用重設密碼連結"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "將 Intune 裝置設定原則指派給 Windows 10 裝置群組"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Windows 10 登入畫面上的重設密碼連結"

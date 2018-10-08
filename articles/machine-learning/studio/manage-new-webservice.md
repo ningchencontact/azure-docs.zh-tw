@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: d6d40b1918422dc7e435c020a368f256c859ae27
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4e1444f385859044b2dadd83c8e9841d8fc78bb0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835044"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096406"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>使用 Azure Machine Learning Web 服務入口網站管理 Web 服務
 您可以使用 Microsoft Azure Machine Learning Web 服務入口網站，管理 Machine Learning 新式和傳統 Web 服務。 因為傳統 Web 服務和新式 Web 服務是根據不同的基礎技術，所以各有稍微不同的管理功能。
@@ -45,7 +45,7 @@ ms.locfileid: "34835044"
 
 如需建立工作區的詳細資訊，請參閱[建立和共用 Azure Machine Learning 工作區](create-workspace.md)。
 
-如需設定存取權限的詳細資訊，請參閱[在 Azure 入口網站 - 公開預覽中檢視存取使用者和群組的工作分派](../../role-based-access-control/role-assignments-users.md)。
+如需如何設定存取權限的詳細資訊，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../../role-based-access-control/role-assignments-portal.md)。
 
 
 ## <a name="manage-new-web-services"></a>管理新式 Web 服務

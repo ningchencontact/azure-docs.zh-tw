@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128740"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410148"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>在 Azure Logic Apps 中傳送、接收及批次處理訊息
 
@@ -60,7 +60,7 @@ ms.locfileid: "43128740"
    |----------|-------------|
    | **批次模式** | - **內嵌**：用來定義批次觸發程序內的發行準則 <br>- **整合帳戶**：透過[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，可定義多個發行準則組態。 透過整合帳戶，您可以在同一個地方維護上述所有組態，而不是在個別的邏輯應用程式中進行維護。 | 
    | **批次名稱** | 您的批次名稱 (在此範例中為 "TestBatch")，只適用於 [內嵌] 批次模式 |  
-   | **發行準則** | 僅適用於 [內嵌] 批次模式，可指定在處理每個批次之前要先符合的準則： <p>- **以訊息計數為基礎**：要在批次中收集的訊息數目，例如 10 則訊息 <br>- **以容量大小為基礎**：批次大小上限 (以位元組為單位)，例如 100 MB <br>- **以排程為基礎**：批次發行之間的間隔和頻率，例如 10 分鐘。 您也可以指定開始日期和時間。 <br>- **全選**：使用所有指定的準則。 | 
+   | **發行準則** | 僅適用於 [內嵌] 批次模式，可選取在處理每個批次之前要先符合的準則： <p>- **以訊息計數為基礎**：要在批次中收集的訊息數目，例如 10 則訊息 <br>- **以容量大小為基礎**：批次大小上限 (以位元組為單位)，例如 100 MB <br>- **以排程為基礎**：批次發行之間的間隔和頻率，例如 10 分鐘。 最小週期是 60 秒或 1 分鐘。 小數的分鐘值會無條件進位至 1 分鐘。 若要指定開始日期和時間，請選擇 [顯示進階選項]。 <br>- **全選**：使用所有指定的準則。 | 
    ||| 
    
    此範例會選取所有準則：
@@ -107,9 +107,7 @@ ms.locfileid: "43128740"
 
    * 在 [內文] 方塊中，當動態內容清單出現時，請選取 [訊息識別碼] 欄位。 
 
-     Logic Apps 設計工具會自動在傳送電子郵件動作前後新增 "For each" 迴圈，因為該動作接受以陣列作為輸入。 
-     此迴圈會針對批次中的每則訊息傳送一封電子郵件。 
-     所以，當批次觸發程序設定為 10 則訊息時，您會在每次觸發程序引發時收到 10 封電子郵件。
+     Logic Apps 設計工具會自動在傳送電子郵件動作前後新增 "For each" 迴圈，因為該動作會將上一個動作的輸出視為集合，而非批次。 
 
      ![對於 [內文]，選取 [訊息識別碼]](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
@@ -216,6 +214,7 @@ ms.locfileid: "43128740"
 
 ## <a name="next-steps"></a>後續步驟
 
+* [批次處理並傳送 EDI 訊息](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [使用 JSON 建置於邏輯應用程式定義上](../logic-apps/logic-apps-author-definitions.md)
 * [在 Visual Studio 中使用 Azure Logic Apps 和 Functions 建置邏輯應用程式](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [適用於邏輯應用程式的例外狀況處理與記錄錯誤](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f9147035c07bbe4fb3f38b74025015e70dd87b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974301"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159548"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
@@ -54,7 +54,7 @@ ms.locfileid: "46974301"
 
 ## <a name="actions"></a>動作
 
-內建動作 (例如，呼叫 HTTP、Azure Functions 或 API 管理的動作，以及控制流程步驟) 會以原生動作來計量，而且其具有其各自的類型。 呼叫[連接器](https://docs.microsoft.com/connectors) \(英文\) 的動作具有 "ApiConnection" 類型。 這些連接器會歸類為標準或企業連接器，並以其各自的[定價][pricing]來計量。 
+內建動作 (例如，呼叫 HTTP、Azure Functions 或 API 管理的動作，以及控制流程步驟) 會以原生動作來計量，而且其具有其各自的類型。 呼叫[連接器](https://docs.microsoft.com/connectors) \(英文\) 的動作具有 "ApiConnection" 類型。 這些連接器會歸類為標準或企業連接器，並以其各自的[定價][pricing]來計量。 預覽版的企業連接器會依標準連接器的標準收費。
 
 所有成功和失敗的執行動作都會納入計算，並以動作執行來計量。 不過，因為條件不符而略過的動作，或因為邏輯應用程式在完成之前就終止而未執行的動作，均不會當成動作執行來計算。 停用的邏輯應用程式無法將新的執行個體具現化，因此，停用它們時，就不會針對它們進行收費。
 

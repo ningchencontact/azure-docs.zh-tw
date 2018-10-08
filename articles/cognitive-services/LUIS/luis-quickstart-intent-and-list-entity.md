@@ -1,75 +1,63 @@
 ---
-title: 教學課程：建立 LUIS 應用程式以取得全文相符的所列資料 - Azure | Microsoft Docs
-description: 在本教學課程中，了解如何使用意圖和清單實體建立簡單的 LUIS 應用程式，以在本快速入門中擷取資料。
+title: 教學課程 4：完全相符的文字項目 - LUIS 清單實體
+titleSuffix: Azure Cognitive Services
+description: 取得符合預先定義項目清單的資料。 清單上的每個項目可以擁有也完全相符的同義字
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 04411f415b7cfe07d893c43e758bd2a4a226472a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162193"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162078"
 ---
-# <a name="tutorial-4-add-list-entity"></a>教學課程：4. 新增清單實體
-在本教學課程中，建立一個應用程式，示範如何取得與預先定義的清單相符的資料。 
+# <a name="tutorial-4-extract-exact-text-matches"></a>教學課程 4：擷取完全相符的文字項目
+在本教學課程中，了解如何取得與預先定義的項目清單相符的資料。 清單上的每個項目可以包含同義字清單。 在人力資源應用程式中，員工的識別可以透過數個關鍵資訊來實現，例如姓名、電子郵件、電話號碼和美國聯邦稅務識別碼。 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * 了解清單實體 
-> * 使用 MoveEmployee 意圖為人力資源 (HR) 領域建立新的 LUIS 應用程式
-> * 新增要從語句中擷取員工項目的清單實體
-> * 訓練和發佈應用程式
-> * 查詢應用程式端點來查看 LUIS JSON 回應
+人力資源應用程式必須判斷哪些員工會在不同大樓間移動。 針對關於員工移動的語句，LUIS 會判斷意圖並擷取員工，讓用戶端應用程式可以建立用來移動員工的標準順序。
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>開始之前
-如果您沒有[規則運算式實體](luis-quickstart-intents-regex-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
-
-如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `list`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
-
-## <a name="purpose-of-the-list-entity"></a>清單實體的用途
-此應用程式會預測有關將員工從一個建築物移到不同建築物的語句。 此應用程式會使用清單實體來擷取員工。 使用名稱、電話號碼、電子郵件或美國聯邦社會安全碼即可參考員工。 
-
-清單實體可以保存許多項目，而每個項目都有同義字。 對於中小型公司，清單實體用來擷取員工資訊。 
-
-每個項目的正式名稱都是員工編號。 在此領域中，同義字的範例如下： 
-
-|同義字用途|同義字值|
-|--|--|
-|名稱|John W. Smith|
-|電子郵件地址|john.w.smith@mycompany.com|
-|電話分機|x12345|
-|個人行動電話號碼|425-555-1212|
-|美國聯邦社會安全碼|123-45-6789|
+此應用程式會使用清單實體來擷取員工。 使用姓名、公司電話分機號碼、行動電話號碼、電子郵件或美國聯邦社會安全號碼即可參考員工。 
 
 在下列情況下，清單實體是這類資料的好選擇：
 
 * 資料值是一組已知的值。
 * 此組合不會超過此實體類型的最大 LUIS [界限](luis-boundaries.md)。
-* 語句中的文字是完全相符的同義字。 
+* 語句中的文字是與同義字或正式名稱完全相符的項目。 
 
-LUIS 擷取員工的方式如下：用戶端應用程式可以建立移動員工的標準順序。
-<!--
-## Example utterances
-Simple example utterances for a `MoveEmployee` inent:
+**在本教學課程中，您將了解如何：**
 
-```
-move John W. Smith from B-1234 to H-4452
-mv john.w.smith@mycompany from office b-1234 to office h-4452
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * 使用現有的教學課程應用程式
+> * 新增 MoveEmployee 意圖
+> * 新增清單實體 
+> * 定型 
+> * 發佈
+> * 從端點取得意圖和實體
 
-```
--->
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="add-moveemployee-intent"></a>新增 MoveEmployee 意圖
+## <a name="use-existing-app"></a>使用現有的應用程式
+以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
 
-1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
+如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json)。
+
+2. 將 JSON 匯入新的應用程式中。
+
+3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `list`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。 
+
+
+## <a name="moveemployee-intent"></a>MoveEmployee 意圖
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 選取 [Create new intent] \(建立新意圖\)。 
 
@@ -94,8 +82,23 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![醒目提示新語句的意圖頁面螢幕擷取畫面](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## <a name="create-an-employee-list-entity"></a>建立員工清單實體
-現在 **MoveEmployee** 意圖具有語句，LUIS 必須了解員工是什麼。 
+    請記住，先前的教學課程中已新增 number 和 datetimeV2，系統會將任何語句範例中所找到的這兩個項目自動標記。
+
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="employee-list-entity"></a>員工清單實體
+現在 **MoveEmployee** 意圖已具有語句範例，LUIS 接著必須了解員工是什麼。 
+
+每個項目的主要「正式」名稱都是員工編號。 在此領域中，每個正式名稱同義字的範例如下： 
+
+|同義字用途|同義字值|
+|--|--|
+|名稱|John W. Smith|
+|電子郵件地址|john.w.smith@mycompany.com|
+|電話分機|x12345|
+|個人行動電話號碼|425-555-1212|
+|美國聯邦社會安全碼|123-45-6789|
+
 
 1. 在左側面板中選取 [實體]。
 
@@ -133,15 +136,15 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |個人行動電話號碼|425-555-0000|
     |美國聯邦社會安全碼|234-56-7891|
 
-## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
+## <a name="train"></a>定型
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
+## <a name="publish"></a>發佈
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
+## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -259,22 +262,12 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
   找到員工並以 `Employee` 類型傳回，其解析值是 `Employee-24612`。
 
-## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>自然語言在 [清單] 實體中的何處處理？ 
-因為清單實體是全文相符的項目，所以不會依賴自然語言處理 (或機器學習)。 LUIS 會使用自然語言處理 (或機器學習) 來選取正確的最高評分意圖。 此外，語句可以混合多個實體或甚至是多種實體。 每個語句都會針對應用程式中的所有實體進行處理，包括自然語言處理 (或機器學習) 實體。
-
-## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成果？
-此應用程式使用清單實體，擷取了正確的員工。 
-
-您的聊天機器人現在有足夠資訊可判斷主要動作 `MoveEmployee`，以及要移動的員工。 
-
-## <a name="where-is-this-luis-data-used"></a>此 LUIS 資料用於何處？ 
-LUIS 在此要求的工作已完成。 呼叫應用程式 (例如 Chatbot) 可以採用 topScoringIntent 結果和來自實體的資料，來進行下一個步驟。 LUIS 不會為 Bot 或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的意圖為何。 
-
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
+本教學課程已建立新的意圖、新增語句範例，接著建立了清單實體以從語句中擷取完全相符的文字項目。 定型和發佈應用程式之後，端點的查詢識別了意圖並傳回擷取的資料。
 
 > [!div class="nextstepaction"]
 > [在應用程式中新增階層式實體](luis-quickstart-intent-and-hier-entity.md)

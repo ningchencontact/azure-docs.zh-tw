@@ -1,20 +1,21 @@
 ---
-title: 了解 Azure 中 LUIS 應用程式的實體類型 | Microsoft Docs
+title: LUIS 應用程式中的實體類型 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: 在 Language Understanding Intelligent Service (LUIS) 應用程式中新增實體 (您應用程式定義域中的關鍵資料)。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282274"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042443"
 ---
 # <a name="entities-in-luis"></a>LUIS 中的實體
 
@@ -45,10 +46,10 @@ ms.locfileid: "39282274"
 
 下列語句中的 `fair` 一字是一個同形異義字。 其拼字相同，但意義不同：
 
-```
-What kind of county fairs are happening in the Seattle area this summer?
-Is the current rating for the Seattle review fair?
-```
+|語句|
+|--|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
 
 如果您想要讓事件實體尋找所有事件資料，請標記第一個語句中的 `fair` 一字，但不要標記第二個語句中的該字。
 
@@ -63,7 +64,7 @@ Is the current rating for the Seattle review fair?
 ## <a name="types-of-entities"></a>實體類型
 LUIS 提供許多類型的實體；預先建置的實體、自訂的機器學習實體及清單實體。
 
-| Name | 可標記 | 說明 |
+| 名稱 | 可標記 | 說明 |
 | -- |--|--|
 | **預先建置** <br/>[自訂](#prebuilt)| |  **定義**<br>代表常見概念的內建類型。 <br><br>**清單**<br/>關鍵片語號碼、序數、溫度、維度、金額、年齡、百分比、電子郵件、URL、電話號碼及關鍵片語。 <br><br>預先建置的實體名稱為保留名稱。 <br><br>所有已新增至應用程式的預先建置實體都會在[端點](luis-glossary.md#endpoint)查詢中傳回。 如需詳細資訊，請參閱[預先建置的實體](./luis-prebuilt-entities.md)。 <br/><br/>[實體的範例回應](luis-concept-data-extraction.md#prebuilt-entity-data)|
 |<!-- added week of 3/21/08 --> **規則運算式**<br/>[RegEx](#regex)||**定義**<br>已格式化原始語句文字的自訂規則運算式。 這會忽略大小寫並忽略文化特性變體。  <br><br>此實體適用於以任何一致的變化來一致地格式化的單字或片語。<br><br>在拼字檢查修改之後，才會套用規則運算式比對。 <br><br>如果規則運算式太複雜 (例如使用許多方括號)，您便無法將運算式新增到模型中。 <br><br>**範例**<br>`kb[0-9]{6,}` 會比對出 kb123456。<br/><br/>[快速入門](luis-quickstart-intents-regex-entity.md)<br>[實體的範例回應](luis-concept-data-extraction.md)|

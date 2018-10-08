@@ -3,7 +3,7 @@ title: 適用於 SysRq 和 NMI 呼叫的 Azure 序列主控台 | Microsoft Docs
 description: 在 Azure 虛擬機器中使用適用於 SysRq 和 NMI 呼叫的序列主控台。
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: ac3e01756ad66dcb44869556bb103eb20bc2658c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885234"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221480"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>使用適用於 SysRq 和 NMI 呼叫的序列主控台
 

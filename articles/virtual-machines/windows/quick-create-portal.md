@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 692d8c0a1a427fa65a94d474f78792b1a071de46
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916110"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219714"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Windows 虛擬機器
 
@@ -37,23 +37,28 @@ ms.locfileid: "37916110"
 
 1. 選擇 Azure 入口網站左上角的 [建立資源]。
 
-2. 在 Azure Marketplace 資源清單上方的搜尋方塊中，搜尋並選取**Windows Server 2016 Datacenter**，然後選擇 [建立]。
+1. 在 Azure Marketplace 資源清單上方的搜尋方塊中，搜尋並選取**Windows Server 2016 Datacenter**，然後選擇 [建立]。
 
-3. 提供 VM 名稱 (例如 *myVM*)，將磁碟類型保留為 *SSD*，然後提供使用者名稱 (例如 *azureuser*)。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
+1. 在 [基本資料] 索引標籤中的 [專案詳細資料] 底下，確認已選取正確的訂用帳戶，然後選擇 [新建] 資源群組。 輸入 myResourceGroup 作為名稱。 
 
-    ![在入口網站刀鋒視窗中輸入 VM 的基本資訊](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
+    ![為您的 VM 建立新的新資源群組](./media/quick-create-portal/project-details.png)
 
-5. 選擇 [新建] 資源群組，然後提供名稱 (例如 *myResourceGroup*)。 選擇您的 [位置]，然後選取 [確定]。
+1. 在 [執行個體詳細資料] 底下，輸入 myVM 作為 [虛擬機器名稱]，然後選擇 [美國東部] 作為您的 [位置]。 其他部分保留預設值。
 
-4. 選取 VM 的大小。 您可以依 [計算類型] 或 [磁碟類型] 進行篩選 (舉例而言)。 建議的 VM 大小為 *D2s_v3*。 在您選擇大小之後，按一下 [選取]。
+    ![執行個體詳細資料區段](./media/quick-create-portal/instance-details.png)
 
-    ![顯示 VM 大小的螢幕擷取畫面](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
+1. 在 [系統管理員帳戶] 底下提供使用者名稱 (例如 azureuser) 和密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 
-5. 在 [設定] 頁面的 [網路] > [網路安全性群組] > [選取公用輸入連接埠] 中，選取下拉式清單中的 [HTTP] 和 [RDP (3389)]。 保留其餘的預設值，然後選取 [確定]。
+    ![輸入您的使用者名稱和密碼](./media/quick-create-portal/administrator-account.png)
 
-6. 在 [摘要] 頁面上選取 [建立]，以開始進行 VM 部署。
+1. 在 [輸入連接埠規則] 底下，選擇 [允許選取的連接埠]，然後從下拉式清單中選取 [RDP (3389)] 和 [HTTP]。
 
-7. VM 會釘選到 Azure 入口網站儀表板。 一旦完成部署後，VM 摘要就會自動開啟。
+    ![開啟 RDP 和 HTTP 的連接埠](./media/quick-create-portal/inbound-port-rules.png)
+
+1. 保留其餘預設值，然後在頁面底部選取 [檢閱 + 建立] 按鈕。
+
+    ![檢閱並建立](./media/quick-create-portal/review-create.png)
+
 
 ## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
 
@@ -61,7 +66,7 @@ ms.locfileid: "37916110"
 
 1. 按一下虛擬機器屬性頁面上的 [連線] 按鈕。 
 
-    ![從入口網站連線至 Azure VM](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+    ![從入口網站連線至 Azure VM](./media/quick-create-portal/portal-quick-start-9.png)
     
 2. 在 [連線至虛擬機器] 頁面中，保留以 DNS 名稱透過連接埠 3389 進行連線的預設選項，然後按一下 [下載 RDP 檔案]。
 

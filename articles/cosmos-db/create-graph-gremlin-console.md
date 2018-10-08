@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 905873a695635ba80de258cbf458c8dd3e18d443
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700333"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422961"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB︰在 Gremlin 主控台中建立、查詢和周遊圖形
 
@@ -90,21 +90,16 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 5. 接下來，執行 `:remote console` 以將所有主控台命令重新導向至遠端伺服器。
 
+   > [!NOTE]
+   > 如果您不執行 `:remote console` 命令，但想要將所有主控台命令重新導向至遠端伺服器，則應在命令前面加上 `:>` 前置詞，例如，您應以 `:> g.V().count()` 的形式執行此命令。 此前置詞是命令的一部分，在搭配使用 Gremlin 主控台與 Azure Cosmos DB 時務必要使用。 省略此前置詞會指示主控台在本機執行命令，通常是針對記憶體中的圖形。 使用此前置詞 `:>` 會指示主控台要執行遠端命令，在此案例中是針對 Azure Cosmos DB (localhost 模擬器或 Azure 執行個體)。
+
 太棒了！ 現在已完成安裝程式，讓我們開始執行一些主控台命令。
 
 我們來試試簡單的 count() 命令。 在提示字元中，將下列內容輸入到主控台：
-```
-:> g.V().count()
-```
 
-> [!TIP]
-> 請注意，`:>` 位於 `g.V().count()` 文字前面？ 
->
-> 這是您需要輸入之命令的一部分。 使用 Gremlin 主控台時請務必搭配 Azure Cosmos DB。  
->
-> 省略此 `:>` 前置詞會指示主控台在本機執行命令，通常是針對記憶體中的圖形。
-> 使用此 `:>` 會告訴主控台要執行遠端命令，在此案例中是針對 Cosmos DB (localhost 模擬器或是 > Azure 執行個體)。
-
+```
+g.V().count()
+```
 
 ## <a name="create-vertices-and-edges"></a>建立頂點和邊緣
 
@@ -113,7 +108,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Thomas)：
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 輸出：
@@ -124,7 +119,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Mary Kay)：
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
 
 ```
 
@@ -138,7 +133,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Robin)：
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 輸出：
@@ -150,7 +145,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Ben)：
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
 
 ```
 
@@ -163,7 +158,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Jack)：
 
 ```
-:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
 ```
 
 輸出：
@@ -178,7 +173,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Thomas -> Mary Kay)：
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
 輸出：
@@ -190,7 +185,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Thomas -> Robin)：
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
 輸出：
@@ -202,7 +197,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Robin -> Ben)：
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
+g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
 輸出：
@@ -217,7 +212,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 輸入：
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
+g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 輸出：
 
@@ -234,7 +229,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (篩選查詢)︰
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40))
+g.V().hasLabel('person').has('age', gt(40))
 ```
 
 輸出：
@@ -248,7 +243,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (篩選 + 預測查詢)：
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40)).values('firstName')
+g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
 輸出：
@@ -264,7 +259,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Thomas 的朋友)：
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
 輸出： 
@@ -279,7 +274,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (Thomas 朋友的朋友)：
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 輸出：
 
@@ -294,7 +289,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入 (置放 Jack 頂點)：
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
+g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## <a name="clear-your-graph"></a>清除圖形
@@ -304,8 +299,8 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 輸入：
 
 ```
-:> g.E().drop()
-:> g.V().drop()
+g.E().drop()
+g.V().drop()
 ```
 
 恭喜！ 您已經完成此 Azure Cosmos DB：Gremlin API 教學課程！

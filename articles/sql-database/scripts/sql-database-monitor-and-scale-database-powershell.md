@@ -2,36 +2,35 @@
 title: PowerShell 範例 - 監視 - 調整 - 單一 SQL Database | Microsoft Docs
 description: 監視和調整單一 Azure SQL Database 的 Azure PowerShell 範例指令碼
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: performance
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 981c9bc56abbfc1feeff5b010d0eee7c52ed48cc
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8586a4eb5c4325f258ad8f461b05e7368750d17a
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362800"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056116"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>使用 PowerShell 來監視和調整單一 SQL 資料庫
 
-此 PowerShell 指令碼範例會監視資料庫的效能計量、將其調整為較高的效能等級，並對其中一個效能計量建立警示規則。 
+此 PowerShell 指令碼範例會監視資料庫的效能計量、將其調整為較高計算大小，並對其中一個效能計量建立警示規則。 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
 
 > [!TIP]
 > 使用 [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 來取得資料庫作業的狀態，已及使用 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) 來取消資料庫的更新作業。

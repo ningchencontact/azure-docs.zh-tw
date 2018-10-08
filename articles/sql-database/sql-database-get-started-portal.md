@@ -1,25 +1,27 @@
 ---
 title: Azure 入口網站：建立 SQL Database | Microsoft Docs
 description: 在 Azure 入口網站中建立 SQL Database 邏輯伺服器、伺服器層級防火牆規則和資料庫，並對其進行查詢。
-keywords: sql database 教學課程, 建立 sql database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 07/16/2018
+author: sachinpMSFT
 ms.author: sachinp
-ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090525"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165002"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure SQL Database
 
-本快速入門將逐步解說如何使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)在 Azure 中建立 SQL 資料庫。 Azure SQL Database 是可讓您在雲端中執行及調整高可用性 SQL Server 資料庫的「資料庫即服務」供應項目。 此快速入門說明如何使用 Azure 入口網站建立 SQL 資料庫以開始使用產品。
+本快速入門將逐步解說如何使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)在 Azure 中建立 SQL 資料庫。 Azure SQL Database 是可讓您在雲端中執行及調整高可用性 SQL Server 資料庫的「資料庫即服務」供應項目。 此快速入門說明如何開始使用 Azure 入口網站建立 SQL 資料庫並進行查詢。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -96,36 +98,6 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 
      ![通知](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>建立伺服器層級防火牆規則
-
-SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程式和工具連線到伺服器或伺服器上的任何資料庫，除非建立防火牆規則以針對特定的 IP 位址開啟防火牆。 請遵循下列步驟來為您用戶端的 IP 位址建立 [SQL Database 伺服器層級防火牆規則](sql-database-firewall-configure.md)，並讓外部連線僅能夠穿過您 IP 位址的 SQL Database 防火牆。
-
-> [!NOTE]
-> SQL Database 會透過連接埠 1433 通訊。 如果您嘗試從公司網路進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 若情況如此，除非 IT 部門開啟連接埠 1433，否則您無法連線至 Azure SQL Database 伺服器。
->
-
-1. 部署完成之後，按一下左側功能表中的 [SQL Database]，然後按一下 [SQL Database] 頁面上的 [mySampleDatabase]。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20170824.database.windows.net**)，並提供進一步的組態選項。
-
-2. 在後續的快速入門中，請複製此完整伺服器名稱，才能用來連線到伺服器及其資料庫。
-
-   ![伺服器名稱](./media/sql-database-get-started-portal/server-name.png)
-
-3. 如先前映像所示，按一下工具列上的 [設定伺服器防火牆]。 SQL Database 伺服器的 [防火牆設定] 頁面隨即開啟。
-
-   ![伺服器防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule.png)
-
-4. 按一下工具列上的 [新增用戶端 IP]，將目前的 IP 位址新增至新的防火牆規則。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
-
-5. 按一下 [檔案] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
-
-6. 依序按一下 [確定]，然後關閉 [防火牆設定] 頁面。
-
-您現在可以利用 SQL Server Management Studio 或選擇的其他工具，使用先前建立的伺服器管理帳戶從這個 IP 位址連線至 SQL Database 伺服器及其資料庫。
-
-> [!IMPORTANT]
-> 根據預設，已對所有 Azure 服務啟用透過 SQL Database 防火牆存取。 按一下此頁面上的 [關閉] 即可對所有 Azure 服務停用。
->
-
 ## <a name="query-the-sql-database"></a>查詢 SQL Database
 
 您現在已在 Azure 中建立範例資料庫，讓我們使用 Azure 入口網站內建的查詢工具來確認您可以連線到資料庫並查詢資料。
@@ -161,7 +133,9 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 您現在具有資料庫，您可使用任何一個慣用工具或語言進行[連線和查詢](sql-database-connect-query.md)。 
-- 若要了解如何設計您的第一個資料庫、建立資料表及插入資料，請參閱下列其中一個教學課程：
- - [使用 SSMS 設計您的第一個 Azure SQL 資料庫](sql-database-design-first-database.md)
-  - [設計 Azure SQL Database 並連接 C# 和 ADO.NET](sql-database-design-first-database-csharp.md)
+- 現在，您已經有一個資料庫，您需要建立伺服器層級的防火牆規則，以從您內部部署工具連線到此資料庫。 請參閱[建立伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)
+- 如果要建立伺服器層級的防火牆規則，您可以使用其中一種慣用的工具或語言來進行[連線及查詢](sql-database-connect-query.md)，例如：
+  - [使用 SQL Server Management Studio 進行連線和查詢](sql-database-connect-query-ssms.md)
+  - [使用 Azure Data Studio 進行連線及查詢](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- 若要使用 Azure CLI 建立資料庫，請參閱 [Azure CLI 範例](sql-database-cli-samples.md)
+- 若要使用 Azure PowerShell 建立資料庫，請參閱 [Azure PowerShell 範例](sql-database-powershell-samples.md)

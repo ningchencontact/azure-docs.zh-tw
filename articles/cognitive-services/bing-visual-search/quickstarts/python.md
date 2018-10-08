@@ -1,23 +1,23 @@
 ---
-title: Bing 圖像式搜尋 API 的 Python 快速入門 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: 快速入門：建立圖像式搜尋查詢 (Python) - Bing 圖像式搜尋
+titleSuffix: Azure Cognitive Services
 description: 示範如何將影像上傳到 Bing 圖像式搜尋 API，並取回影像的相關見解。
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 96bd94e37c75d10726245fbcea7044d4ae2ed07e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 145749f52f64adf565eb33ab7fe92dd5494f9354
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070370"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223709"
 ---
-# <a name="your-first-bing-visual-search-query-in-python"></a>使用 Python 的第一個 Bing 圖像式搜尋查詢
+# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>快速入門：使用 Python 的第一個 Bing 圖像式搜尋查詢
 
 Bing 圖像式搜尋 API 會傳回您所提供影像的相關資訊。 您可以使用影像的 URL、見解權杖，或上傳影像來提供影像。 如需這些選項的資訊，請參閱[什麼是 Bing 圖像式搜尋 API？](../overview.md) 本文將示範如何上傳影像。 在拍攝知名地標的照片並取回其相關資訊的行動裝置案例中，上傳影像可能很有用。 例如，見解可能包含關於地標的雜項。 
 

@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator - 影片審核 | Microsoft Docs
+title: 使用人工審核進行影片仲裁 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 使用電腦輔助影片審核和人力審查工具來審核不當的內容
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: fb26c9af55381c80a3f520b1a0068d8f72c91061
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 33956e1986265b36f6df9a2d19909cb974bd3197
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35367942"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222075"
 ---
-# <a name="video-moderation"></a>影片仲裁
+# <a name="video-moderation-with-human-review"></a>使用人工審核進行影片仲裁
 
 使用 Content Moderator 的電腦輔助[影片審核](video-moderation-api.md)和[人力審查工具](Review-Tool-User-Guide/human-in-the-loop.md)來審核成人 (明確) 和不雅 (暗示性) 內容的影片和文字記錄，以取得適合您業務的最佳結果。
 
-## <a name="video-trained-classifier"></a>經過影片訓練的分類器
+## <a name="video-trained-classifier-preview"></a>經過影片訓練的分類器 (預覽)
 
 利用經過影像訓練的模型或經過影片訓練的模型來進行電腦輔助影片分類。 與經過影像訓練的分類器不同，Microsoft 的成人和不雅影片分類器是以影片進行訓練。 這個方法會產生較佳的相符品質。
 

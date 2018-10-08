@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: bccc2dcad8e326cd29cfe031a95a7c2d0cf5ec7f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.reviewer: quying
+ms.openlocfilehash: b11ce8bbbf4b270f7a3b9689f95b0cbfca3b14c9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38302307"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408873"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>為 SMySQL 資源提供者新增主控伺服器
 
 您可以使用 [Azure Stack](azure-stack-poc.md) 內 VM 上的 MySQL 執行個體，或 Azure Stack 環境外 VM 上的執行個體，只要 MySQL 資源提供者能夠連線到該執行個體均可。
+
+> [!NOTE]
+> MySQL 資料庫應建立在 MySQL 資源提供者伺服器上。 MySQL 資源提供者應建立在預設提供者訂用帳戶中，而 MySQL 主控伺服器則應建立在可計費的使用者訂用帳戶中。 資源提供者伺服器不應該用來裝載使用者資料庫。
 
 MySQL 5.6、5.7 和 8.0 版可用於您的主控伺服器。 MySQL RP 不支援 caching_sha2_password 驗證；將下一個版本中加入。 MySQL 8.0 伺服器必須設定為使用 mysql_native_password。 也支援 MariaDB。
 
@@ -32,8 +35,8 @@ MySQL 5.6、5.7 和 8.0 版可用於您的主控伺服器。 MySQL RP 不支援 
 確定您擁有具備系統管理員權限之帳戶的認證。 若要新增主控伺服器，請遵循下列步驟：
 
 1. 以服務管理員身分登入 Azure Stack 操作員入口網站。
-2. 選取 [更多服務]。
-3. 選取 [系統管理資源] > [MySQL 主控伺服器] > [+新增]。 這會開啟 [新增 MySQL 主控伺服器] 對話方塊，如下列螢幕擷取畫面所示。
+2. 選取 [所有服務]。
+3. 在 [管理資源] 類別下方，選取 [MySQL 主控伺服器] > [+新增]。 這會開啟 [新增 MySQL 主控伺服器] 對話方塊，如下列螢幕擷取畫面所示。
 
    ![設定主控伺服器](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 

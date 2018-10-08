@@ -1,24 +1,26 @@
 ---
-title: Azure Content Moderator - 使用 .NET 來審核影像 | Microsoft Docs
-description: 如何使用 Azure Content Moderator SDK for .NET 來審核影像
+title: 快速入門：使用 .NET 來仲裁影像 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: 如何使用 Content Moderator SDK for .NET 來仲裁影像
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/04/2018
+ms.topic: quickstart
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: cc2329c233029a1ff6bd82da3d090c4e98a8bac8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d89d9b8a2e3b00155e82cc28105007ab39fc549c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368059"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226159"
 ---
-# <a name="moderate-images-using-net"></a>使用 .NET 來審核影像
+# <a name="quickstart-moderate-images-using-net"></a>快速入門：使用 .NET 來仲裁影像
 
-本文提供資訊和範例程式碼，可協助您開始使用 Content Moderator SDK for .NET 來執行下列操作： 
+本文提供資訊和範例程式碼，可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 來執行下列操作： 
+
 - 檢查影像中是否有成人或猥褻內容
 - 從影像中偵測和擷取文字
 - 偵測影像中的人臉
@@ -27,8 +29,8 @@ ms.locfileid: "35368059"
 
 ## <a name="sign-up-for-content-moderator-services"></a>註冊 Content Moderator 服務
 
-您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。
-請參考[快速入門](quick-start.md)，以了解如何取得金鑰。
+您必須有 API 金鑰和 API 帳戶的區域，才能透過 REST API 或 SDK 使用 Content Moderator 服務。
+請參考[快速入門](quick-start.md)，以了解如何註冊 Content Moderator 以取得這兩個項目。
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
@@ -38,7 +40,6 @@ ms.locfileid: "35368059"
 
 1. 選取此專案作為解決方案的單一啟始專案。
 
-1. 新增對您在 [Content Moderator 用戶端協助程式快速入門](content-moderator-helper-quickstart-dotnet.md)中所建立 **ModeratorHelper** 專案組件的參考。
 
 ### <a name="install-required-packages"></a>安裝必要的套件
 
@@ -52,14 +53,63 @@ ms.locfileid: "35368059"
 
 修改程式的 using 陳述式。
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>建立 Content Moderator 用戶端
+
+新增下列程式碼，為您的訂用帳戶建立 Content Moderator 用戶端。
+
+> [!IMPORTANT]
+> 以您的區域識別碼和訂用帳戶訂用帳戶的值更新 **AzureRegion** 和 **CMSubscriptionKey** 欄位。
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="initialize-application-specific-settings"></a>將應用程式特定的設定初始化
 
@@ -403,4 +453,4 @@ ms.locfileid: "35368059"
 
 ## <a name="next-steps---get-the-source-code"></a>後續步驟 - 取得原始程式碼
 
-針對這個及其他適用於 .NET 的 Content Moderator 快速入門，[下載 Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，並開始進行您的整合。
+針對這個及其他適用於 .NET 的 Content Moderator 快速入門取得 [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 和 [Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，並開始進行您的整合。

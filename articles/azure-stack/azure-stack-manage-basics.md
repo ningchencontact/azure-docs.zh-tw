@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 283d1c2a7ef3484cb4fd4d9a53b543a093e9baf8
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 39dc48b1357b07932efbccaf002f54ca58edae24
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850298"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093291"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本指南提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們快速上手。
@@ -122,8 +122,7 @@ Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及�
 
 如果使用 PowerShell，使用者可能需要先註冊資源提供者，才能使用服務。 (資源提供者負責管理服務。 例如，網路資源提供者負責管理如虛擬網路、網路介面和負載平衡器等資源。)他們必須[安裝](user/azure-stack-powershell-install.md) PowerShell、[下載](user/azure-stack-powershell-download.md) 其他模組，並[設定](user/azure-stack-powershell-configure-user.md) PowerShell (其中包含資源提供者註冊)。
 
-
-  **訂閱供應項目**
+**訂閱供應項目**
 
 使用者必須先[訂閱供應項目](azure-stack-subscribe-plan-provision-vm.md) (您以操作員身分所建立)，才能存取服務。
 

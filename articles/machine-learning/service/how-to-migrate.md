@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 2182a39836f02596d22168722e6ece7a2872dccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969474"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158559"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>移轉至最新版的 Azure Machine Learning 服務 
 
@@ -54,13 +54,13 @@ ms.locfileid: "46969474"
 
 在 [Azure 入口網站](quickstart-get-started.md)中建立 Azure Machine Learning 工作區，以開始使用最新版本。 只有在 Edge、Chrome 和 Firefox 上才支援入口網站的工作區儀表板。
 
-這個新的工作區是最上層服務資源，並可讓您使用 Azure Machine Learning 服務的所有最新功能。 [深入了解此工作區和架構](concept-azure-machine-learning-architecture.md)。
+這個新的工作區是最上層服務資源，並可讓您使用 Azure Machine Learning 服務的所有最新功能。 深入了解此[工作區和架構](concept-azure-machine-learning-architecture.md)。
 
 <a name="projects"></a>
 
 ## <a name="projects"></a>專案
 
-專案現在是在最新版本中本機電腦的目錄中，而不是專案位在雲端的工作區中。 [請參閱最新架構的圖表](concept-azure-machine-learning-architecture.md)。 
+專案現在是在最新版本中本機電腦的目錄中，而不是專案位在雲端的工作區中。 請參閱[最新架構](concept-azure-machine-learning-architecture.md)的圖表。 
 
 若要繼續使用包含您檔案和指令碼的本機目錄，請在 ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python 命令中或使用 'az ml project attach' CLI 命令指定目錄的名稱。
 

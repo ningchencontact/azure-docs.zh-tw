@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: bb3df82e66024b49e399ab2f7795a27932f7559e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bfc87a30250dd98c1b26616f680b5981070623f5
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953968"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182547"
 ---
-#  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>使用 AzCopy 將內部部署資料移轉至雲端儲存體
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>教學課程：使用 AzCopy 將內部部署資料移轉至雲端儲存體
 
 AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、Azure 檔案和 Azure 資料表儲存體來回複製資料。 這些命令的設計目的是獲得最佳效能。 您可以在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。  
 

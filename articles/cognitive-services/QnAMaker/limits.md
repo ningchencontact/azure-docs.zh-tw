@@ -1,27 +1,28 @@
 ---
-title: QnA Maker 限制 - Microsoft 認知服務 | Microsoft Docs
-description: QnA Maker 限制
+title: 限制和界限 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker 的完整限制清單。
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 93471faab9aac94616c770cbee21fb0364f73639
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: efdcf57fb0f175be51e6b9f8e72e4a02fcbeb5f3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501855"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162316"
 ---
 # <a name="qna-maker-limits"></a>QnA Maker 限制
 QnA Maker 的完整限制清單。
 
 ## <a name="knowledge-bases"></a>知識庫
 
-* 以 [Azure 搜尋服務層限制](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)為基礎的知識庫數目上限
+* 以 [Azure 搜尋服務層限制](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)為基礎的知識庫數目上限
 
 |**Azure 搜尋服務層** | **免費** | **基本** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -32,7 +33,7 @@ QnA Maker 的完整限制清單。
 * 可以從常見問題集 HTML 頁面搜耙，以便擷取 QnAs 的深層連結數目上限：20
 
 ## <a name="metadata-limits"></a>中繼資料限制
-* 每個知識庫的中繼資料欄位數目上限 (以 [Azure 搜尋服務層限制](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)為基礎)
+* 每個知識庫的中繼資料欄位數目上限 (以 [Azure 搜尋服務層限制](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)為基礎)
 
 |**Azure 搜尋服務層** | **免費** | **基本** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|

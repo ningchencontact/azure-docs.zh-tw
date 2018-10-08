@@ -1,24 +1,25 @@
 ---
-title: 使用 Azure Content Moderator 中的人力審查來審核內容 | Microsoft Docs
+title: 透過 API 主控台使用人力審查來審核內容 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 了解如何在 Content Moderator API 主控台中建立人力審查。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 214695ed3e23d1f501d6d4691104b3f8a91f6efc
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866503"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219748"
 ---
 # <a name="create-reviews-from-the-api-console"></a>從 API 主控台建立審查
 
-使用審查 API 的[審查作業](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)，建立影像或文字審核以便進行人力審核。 人力審核者會使用審查工具來審查內容。 根據您的審核後商務邏輯，使用此作業。 請在您使用任何 Content Moderator 影像或文字 API，或其他認知服務 API 掃描您的內容之後，使用此作業。 
+使用審查 API 的[審查作業](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)，建立影像或文字審核以便進行人力審核。 人力審核者會使用審查工具來審查內容。 根據您的審核後商務邏輯，使用這項作業。 請在您使用任何 Content Moderator 影像或文字 API，或其他認知服務 API 掃描您的內容之後，使用這項作業。 
 
 在人力審核者審查自動指派的標記和預測資料並提交最終審核決策之後，審查 API 會將所有資訊提交至您的 API 端點。
 

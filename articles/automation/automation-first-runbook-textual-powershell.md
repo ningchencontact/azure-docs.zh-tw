@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f5d2f3634545001dc6dc1419530223b5a1a85a3
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 8f3185a2c7633ba0cb5a9b266bcddf023d3c36e1
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435786"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166447"
 ---
 # <a name="my-first-powershell-runbook"></a>我的第一個 PowerShell Runbook
 
@@ -27,7 +27,7 @@ ms.locfileid: "37435786"
 
 本教學課程將逐步引導您在 Azure 自動化中建立 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 。 您先從測試和發佈的簡單 Runbook 開始，同時了解如何追蹤 Runbook 作業的狀態。 接著您會修改 Runbook 以實際管理 Azure 資源，在此情況下會啟動 Azure 虛擬機器。 最後您藉由新增 Runbook 參數，讓 Runbook 更穩固。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成此教學課程，您需要下列項目：
 
 * Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
@@ -83,7 +83,17 @@ ms.locfileid: "37435786"
 12. 您可以按一下此作業，以開啟您啟動 Runbook 時所檢視的相同 [作業] 窗格。 這可讓您回到過去的時間並檢視針對特定 Runbook 所建立的任何工作的詳細資料。
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>步驟 5 - 加入驗證來管理 Azure 資源
-您已測試並發行您的 Runbook，但是到目前為止，它似乎並不實用。 您想要讓它管理 Azure 資源。 不過它無法辦到這點，除非您使用在[必要條件](#prerequisites)中提及的認證對其進行驗證。 您必須利用 **Connect-AzureRmAccount** Cmdlet 來執行。
+您已測試並發行您的 Runbook，但是到目前為止，它似乎並不實用。 您想要讓它管理 Azure 資源。 不過它無法辦到這點，除非您使用在[必要條件](#prerequisites)中提及的認證對其進行驗證。 您必須利用 **Connect-AzureRmAccount** Cmdlet 來執行。 如果您要管理橫跨多個訂用帳戶的資源，您需要使用 **-AzureRmContext** 參數搭配 [Get-azurermcontext](/powershell/module/azurerm.profile/get-azurermcontext)。
+
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $AzureContext
+   ```
 
 1. 按一下 MyFirstRunbook-PowerShell 分頁上的 [編輯] 來開啟文字式編輯器。
 2. 您不再需要 **Write-Output** 行，因此可以放心刪除。

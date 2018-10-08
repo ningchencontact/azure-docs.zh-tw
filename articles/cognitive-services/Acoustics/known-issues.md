@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: b0dd5e0c365c65fc7b29752f7885acb71bdb3df8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181936"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431971"
 ---
 # <a name="known-issues"></a>已知問題
 使用 Project Acoustics 的「設計人員預覽」時，您可能會遇到下列已知問題。
@@ -27,7 +27,7 @@ ms.locfileid: "40181936"
 
 此路徑應該預設為相對路徑，如此才能更容易在共同作業者之間共用專案。 若要解決此問題，請將路徑變更為專案目錄的相對路徑。
 
-## <a name="runtime-voxels-are-a-different-size-than-design-time-voxels"></a>執行階段體素的大小與設計階段體素的大小不同
+## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>執行階段體素的大小與場景預覽體素的大小不同
 
 如果您在 [Probes] \(探查\) 索引標籤上執行**計算**並檢視體素，然後針對相同的場景，在執行階段執行製作並檢視體素，體素的大小就會不同。 製作前顯示的體素是模擬中使用的體素。 在執行階段顯示的體素是用於探查點之間的插補。 這可能會造成實際上未開啟的門戶在執行階段顯示為開啟的不一致情況。
 

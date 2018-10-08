@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: kgremban
-ms.openlocfilehash: 588ee4b7d728aa16201cbe9c325d25a9cc5c9884
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 831b1c12514e57d378e22d007c75d8a3715f7276
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185453"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219918"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>排程及廣播作業 (Python)
 
@@ -149,7 +149,7 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 1. 儲存並關閉 **simDevice.py** 檔案。
 
 > [!NOTE]
-> 為了簡單起見，本教學課程不會實作任何重試原則。 在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。
+> 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)一文所建議，實作重試原則 (例如指數型輪詢)。
 > 
 > 
 
@@ -334,7 +334,6 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 [lnk-python-download]: https://www.python.org/downloads/
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[lnk-transient-faults]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 
 [1]: ./media/iot-hub-python-python-schedule-jobs/1.png
 [2]: ./media/iot-hub-python-python-schedule-jobs/2.png

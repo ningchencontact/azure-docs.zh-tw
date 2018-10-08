@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8914391a586bb508192200beaba7f591649a1e99
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "43050400"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452270"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
 了解如何在 Azure Stack 中管理儲存體帳戶，以便根據業務需求來尋找、復原及回收儲存體容量。
@@ -28,19 +27,19 @@ ms.locfileid: "43050400"
 ## <a name="find"></a>尋找儲存體帳戶
 區域中的儲存體帳戶清單可在 Azure Stack 中，透過下列方式檢視：
 
-1. 在網際網路瀏覽器中，瀏覽至 https://adminportal.local.azurestack.external。
-2. 以雲端操作員身分 (使用您在部署期間所提供的認證)，登入 Azure Stack 系統管理入口網站
-3. 在預設儀表板上，尋找 [區域管理] 清單，然後選取您想要探索的區域，例如 **(local**)。
+1. 登入[管理入口網站](https://adminportal.local.azurestack.external)。
+
+2. 在 [系統管理]底下選取 [所有服務]  >  [區域管理]。
+
+3. 從 [資源提供者] 清單中選取 [儲存體]。
    
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. 從 [資源提供者] 清單中選取 [儲存體]。
+   ![儲存體資源提供者](media/azure-stack-manage-storage-accounts/image1.png)
+
+5. 在 [儲存體] 中選取 [儲存體帳戶]。
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. 現在，在儲存體資源提供者系統管理員窗格中，向下捲動至 [儲存體帳戶] 索引標籤，並加以選取。
    
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   所產生的頁面就是在該區域中的儲存體帳戶清單。
+   所顯示的刀鋒視窗就是在該區域中的儲存體帳戶清單。
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -76,7 +75,7 @@ ms.locfileid: "43050400"
 
 在 Azure Stack 中，有一個很簡單的方式可以執行此作業：
 
-1. 瀏覽至儲存體帳戶清單。 如需詳細資訊，請參閱本主題中的[尋找儲存體帳戶](#find)。
+1. 瀏覽至儲存體帳戶清單。 如需詳細資訊，請參閱本文中的[尋找儲存體帳戶](#find)。
 2. 在清單中找出該特定帳戶。 您可能需要篩選。
 3. 請檢查帳戶的 [狀態]。 它應該指出 [已刪除]。
 4. 選取可開啟 [帳戶詳細資料] 窗格的帳戶。
@@ -97,19 +96,18 @@ ms.locfileid: "43050400"
   超出保留期表示已刪除的帳戶已超出保留期限，可能無法復原。
 * 已刪除的帳戶未顯示在帳戶清單中。
   
-  如果已刪除的帳戶已經被記憶體回收，您的帳戶就不會顯示在帳戶清單中。 在此情況下，便無法復原該帳戶。 請參閱本主題中的[回收容量](#reclaim)。
+  如果已刪除的帳戶已經被記憶體回收，您的帳戶就不會顯示在帳戶清單中。 在此情況下，便無法復原該帳戶。 請參閱本文中的[回收容量](#reclaim)。
 
 ## <a name="set-the-retention-period"></a>設定保留期限
 保留期限設定可讓雲端操作員指定時間間隔天數 (介於 0 到 9999 天)，在此期間，任何已刪除的帳戶都可能復原。 預設保留期限設定為 0 天。 將值設定為 "0" 表示立即不保留任何已刪除的帳戶，並標示供定期記憶體回收。
 
 **變更保留期限：**
 
-1. 在網際網路瀏覽器中，瀏覽至 https://adminportal.local.azurestack.external。
-2. 以雲端操作員身分 (使用您在部署期間所提供的認證)，登入 Azure Stack 系統管理入口網站
-3. 在預設儀表板上，尋找 [區域管理] 清單，然後選取您想要探索的區域，例如 **(local**)。
-4. 從 [資源提供者] 清單中選取 [儲存體]。
-5. 選取頂端的 [設定]，以開啟 [設定] 窗格。
-6. 選取 [設定]，然後編輯保留期限值。
+1. 登入[管理入口網站](https://adminportal.local.azurestack.external)。
+2. 在 [系統管理]底下選取 [所有服務]  >  [區域管理]。
+3. 從 [資源提供者] 清單中選取 [儲存體]。
+4. 選取頂端的 [設定]，以開啟 [設定] 窗格。
+5. 選取 [設定]，然後編輯保留期限值。
 
    設定天數，然後加以儲存。
    
@@ -142,7 +140,7 @@ ms.locfileid: "43050400"
    如需有關 Azure Resource Manager Cmdlet 的詳細資訊，請參閱[搭配使用 Azure PowerShell 與 Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
 2. 執行下列 Cmdlet：
 
-> [!NOTE]
+> [!NOTE]  
 > 如果您執行這些 Cmdlet，將會永久刪除帳戶及其內容。 無法復原。 使用時請務必小心。
 
 ```PowerShell  

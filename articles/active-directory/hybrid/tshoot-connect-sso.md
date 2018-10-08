@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2b6bd3b04dfbc7446e92dfcb16db64cc3c693c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310617"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055895"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
@@ -36,7 +36,7 @@ ms.locfileid: "46310617"
 - 如果使用者是 Active Directory 中過多群組的成員之一，該使用者的 Kerberos 票證可能會太大而無法處理，並且會導致無縫式 SSO 失敗。 Azure AD HTTPS 要求可以有大小上限為 50 KB 的標頭；Kerberos 票證必須小於該限制，才能容納其他 Azure AD 成品 (通常是 2 - 5 KB)，例如 Cookie。 建議您降低使用者的群組成員資格，然後再試一次。
 - 如果您正在同步處理 30 個或更多的 Active Directory 樹系，便無法透過 Azure AD Connect 啟用無縫 SSO。 您可以在租用戶上[手動啟用](#manual-reset-of-the-feature)此功能，以解決這個問題。
 - 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com)) 新增至「信任的網站區域」而非「近端內部網路區域」，會「阻止使用者登入」。
-- 針對您 Active Directory 設定中的 Kerberos 停用 **RC4_HMAC_MD5** 加密類型會中斷「無縫 SSO」。 在您的「群組原則管理編輯器」工具中，請確定在 [電腦設定] -> [Windows 設定] -> [安全性設定] -> [本機原則] -> [安全性選項] -> [網路安全性: 設定 Kerberos 允許的加密類型] 底下，[RC4_HMAC_MD5] 的原則值為 [已啟用]。
+- 無縫 SSO 會使用適用於 Kerberos 的 **RC4_HMAC_MD5** 加密類型。 在 Active Directory 設定中停用 **RC4_HMAC_MD5** 加密類型會中斷無縫 SSO。 在您的「群組原則管理編輯器」工具中，請確定在 [電腦設定] -> [Windows 設定] -> [安全性設定] -> [本機原則] -> [安全性選項] -> [網路安全性: 設定 Kerberos 允許的加密類型] 底下，[RC4_HMAC_MD5] 的原則值為 [已啟用]。 此外，無縫 SSO 無法使用其他加密類型，因此請確定它們**已停用**。
 
 ## <a name="check-status-of-feature"></a>檢查功能的狀態
 

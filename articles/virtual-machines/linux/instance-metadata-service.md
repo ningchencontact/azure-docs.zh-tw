@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f2b6ba4b7faaeb7092c24d964d32c69946264906
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 229f3dd11a90c4f6d65c9cae2a5dd3447eedf83e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023288"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225254"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -382,7 +382,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>取得 VM 執行所在的 Azure 環境 
 
-Azure 有多種不同的主權雲端 (例如 [Azure Government](https://azure.microsoft.com/overview/clouds/government/))，有時候您必須以 Azure 環境來進行一些執行階段決策。 下列範例將說明如何達成此目的
+Azure 有各種不同的主權雲端，例如 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)。 有時候您會需要 Azure 環境來進行一些執行階段決策。 下列範例將說明如何達成此目的。
 
 **要求**
 

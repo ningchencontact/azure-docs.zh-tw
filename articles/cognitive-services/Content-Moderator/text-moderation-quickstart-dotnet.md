@@ -1,24 +1,26 @@
 ---
-title: Azure Content Moderator - 使用 .NET 來仲裁文字 | Microsoft Docs
-description: 如何使用 Azure Content Moderator SDK for .NET 來仲裁文字
+title: 仲裁文字 - Content Moderator (.NET)
+titlesuffix: Azure Cognitive Services
+description: 如何使用 Content Moderator SDK for .NET 來仲裁文字
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/04/2018
+ms.topic: conceptual
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6db97231b2dc8905f1a3b3a6bc63580e9f371f84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049876"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227260"
 ---
 # <a name="moderate-text-using-net"></a>使用 .NET 來仲裁文字
 
-本文提供資訊和範例程式碼，可協助您開始使用 Content Moderator SDK for .NET 來執行下列操作：
+本文提供資訊和範例程式碼，可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 來執行下列操作：
+
 - 使用字詞型篩選來偵測文字中可能的粗話
 - 使用機器學習型模型模型將[文字分類](text-moderation-api.md#classification)成三種類別。
 - 偵測個人識別資訊 (PII)，例如美國和英國電話號碼、電子郵件地址及美國郵寄地址。
@@ -39,8 +41,6 @@ ms.locfileid: "39049876"
 
 1. 選取此專案作為解決方案的單一啟始專案。
 
-1. 新增對您在 [Content Moderator 用戶端協助程式快速入門](content-moderator-helper-quickstart-dotnet.md)中所建立 **ModeratorHelper** 專案組件的參考。
-
 ### <a name="install-required-packages"></a>安裝必要的套件
 
 安裝下列 NuGet 封裝：
@@ -53,15 +53,64 @@ ms.locfileid: "39049876"
 
 修改程式的 using 陳述式。
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
 
+### <a name="create-the-content-moderator-client"></a>建立 Content Moderator 用戶端
+
+新增下列程式碼，為您的訂用帳戶建立 Content Moderator 用戶端。
+
+> [!IMPORTANT]
+> 以您的區域識別碼和訂用帳戶訂用帳戶的值更新 **AzureRegion** 和 **CMSubscriptionKey** 欄位。
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="initialize-application-specific-settings"></a>將應用程式特定的設定初始化
 
@@ -71,13 +120,13 @@ ms.locfileid: "39049876"
     /// The name of the file that contains the text to evaluate.
     /// </summary>
     /// <remarks>You will need to create an input file and update this path
-    /// accordingly. Relative paths are ralative the execution directory.</remarks>
+    /// accordingly. Relative paths are relative to the execution directory.</remarks>
     private static string TextFile = "TextFile.txt";
 
     /// <summary>
     /// The name of the file to contain the output from the evaluation.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private static string OutputFile = "TextModerationOutput.txt";
 
 我們已使用下列文字來產生本快速入門的輸出：
@@ -95,6 +144,8 @@ ms.locfileid: "39049876"
 
     // Load the input text.
     string text = File.ReadAllText(TextFile);
+    Console.WriteLine("Screening {0}", TextFile);
+
     text = text.Replace(System.Environment.NewLine, " ");
 
     // Save the moderation results to a file.
@@ -103,8 +154,8 @@ ms.locfileid: "39049876"
         // Create a Content Moderator client and evaluate the text.
         using (var client = Clients.NewClient())
         {
-            // Screen the input text: check for profanity, classify the text into three categories
-                // do autocorrect text, and check for personally identifying 
+            // Screen the input text: check for profanity, classify the text into three categories,
+                // do autocorrect text, and check for personally identifying
                 // information (PII)
                 outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
                 var screenResult =
@@ -211,4 +262,4 @@ ms.locfileid: "39049876"
 
 ## <a name="next-steps"></a>後續步驟
 
-針對這個及其他適用於 .NET 的 Content Moderator 快速入門，[下載 Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，並開始進行您的整合。
+針對這個及其他適用於 .NET 的 Content Moderator 快速入門取得 [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 和 [Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，並開始進行您的整合。

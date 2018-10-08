@@ -2,19 +2,22 @@
 title: Azure 入口網站︰SQL Database 異地複寫 | Microsoft Docs
 description: 在 Azure 入口網站中為 Azure SQL Database 設定異地複寫，並起始容錯移轉
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.author: carlrab
-ms.openlocfilehash: 27fb8f369ad23592902c05fe5275fc54bc6cf148
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 592e4c2dc375da34b3a6039bef7ea4da0fa3315b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090464"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163965"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 入口網站中為 Azure SQL Database 設定主動式異地複寫，並起始容錯移轉
 
@@ -34,7 +37,7 @@ ms.locfileid: "39090464"
 
 若要新增次要資料庫，您必須是訂用帳戶擁有者或共同擁有者。
 
-次要資料庫的名稱會與主要資料庫相同，並且預設會具有相同的服務層級。 次要資料庫可以是單一資料庫或彈性集區中的資料庫。 如需詳細資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
+次要資料庫的名稱會與主要資料庫相同，並且預設會具有相同的服務層和計算大小。 次要資料庫可以是單一資料庫或彈性集區中的資料庫。 如需詳細資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 建立並植入次要複本之後，就會開始從主要資料庫將資料複寫到新的次要資料庫。
 
 > [!NOTE]

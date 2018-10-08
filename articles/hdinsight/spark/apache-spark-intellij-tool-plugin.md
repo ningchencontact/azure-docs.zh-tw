@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: ed0118584d51f08d64a88dc1e7e6e2ba5f95cb0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 07c2b506007daccd53a8b06a43064e6e274ac43b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042586"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433353"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 IntelliJ 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -181,8 +181,12 @@ ms.locfileid: "43042586"
 
         ![[選取主要類別] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 
-      * 此範例中的應用程式程式碼不需要命令列引數或是參考 JAR 或檔案，因此您可以將其餘的方塊保留空白。 提供所有資訊之後，對話方塊應該如下圖所示。
+      * 您可以提供您想要的資訊。 關於 [作業設定]，我們已有預設值。 如需金鑰的詳細資訊，您可以參閱 [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)。 [命令列引數]、[參考 JAR]與 [參考檔案] 看起來應如下圖所示。 如需 [參考 JAR] 與 [參考檔案] 的詳細資訊，請參閱 [Spark 設定](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。 若要讓 [參考 JAR] 與 [參考檔案] 正常運作，您應該先將資源上傳到您提交的叢集。 請參閱[如何上傳資源至叢集](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)。[提交] 對話方塊看起來應該如下圖所示。
         
+        ![[提交 Spark] 對話方塊的作業設定說明](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+
+        ![[提交 Spark] 對話方塊的 jar 檔案說明](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
         ![[提交 Spark] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
    c. 視窗底部的 [Spark Submission (提交 Spark)]  索引標籤應會開始顯示進度。 您也可以選取 [提交 Spark] 視窗中的紅色按鈕，即可將應用程式停止。

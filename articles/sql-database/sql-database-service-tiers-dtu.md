@@ -1,24 +1,27 @@
 ---
 title: Azure SQL Database 服務層 - DTU | Microsoft Docs
-description: 深入了解單一和集區資料庫的服務層，以提供效能層級和儲存體大小。
+description: 深入了解單一和集區資料庫的服務層，以提供計算大小和儲存體大小。
 services: sql-database
-author: sachinpMSFT
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
 manager: craigg
-ms.author: carlrab
-ms.openlocfilehash: d0250d508ca6d21ee09c9402e10d2fdb025529ac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.date: 09/14/2018
+ms.openlocfilehash: 2f9362a6d771df3cdb11855844025bc8d9ea732e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145359"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162367"
 ---
-# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>選擇以 DTU 為基礎的服務層、效能等級和儲存體資源 
+# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>選擇以 DTU 為基礎的服務層、計算大小和儲存體資源 
 
-服務層是以一系列效能等級來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 所有服務層皆可彈性變更效能等級而不需停機。 單一資料庫和彈性集區會根據服務層和效能等級，以每小時為單位來計費。
+服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 所有服務層皆可彈性變更計算大小而不需停機。 單一資料庫和彈性集區會根據服務層和計算大小，以每小時為單位來計費。
 
 > [!IMPORTANT]
 > SQL Database 受控執行個體 (目前為公開預覽版) 不支援以 DTU 為基礎的購買模型。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。 
@@ -40,7 +43,7 @@ ms.locfileid: "42145359"
 
 ## <a name="single-database-dtu-and-storage-limits"></a>單一資料庫 DTU 和儲存空間限制
 
-單一資料庫的效能層級會以資料庫交易單位 (DTU) 表示，而彈性集區的效能層級則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[什麼是 DTU 和 eDTU？](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)
+單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[什麼是 DTU 和 eDTU？](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)
 
 ||基本|標準|進階|
 | :-- | --: | --: | --: | --: |
@@ -73,7 +76,7 @@ ms.locfileid: "42145359"
 我們會使用模擬現實資料庫工作負載的基準，來校準與每個 DTU 量值相關聯的實體特性 (CPU、記憶體、IO)。
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>建立基準測試結果與實際案例資料庫效能之間的關聯
-請務必了解，所有基準測試都只具備代表性與指標性。 利用基準測試應用程式達成的交易速率與利用其他應用程式可能達成的交易速率不同。 基準測試是由不同的交易類型集合所組成，這些類型是針對包含某個範圍的資料表和資料類型的結構描述來執行。 雖然基準測試會執行所有 OLTP 工作負載常見的相同基本作業，但是它不代表任何特定類別的資料庫或應用程式。 基準測試的目標是提供資料庫相對效能的合理指南，在效能等級之間向上或向下調整時可預期此目標。 實際上，資料庫的大小和複雜度都不一樣，會遭遇到不同的工作負載混合，並以不同的方式回應。 例如，IO 密集的應用程式可能會更快達到 IO 臨界值，或者 CPU 密集應用程式可能會更快達到 CPU 限制。 任何特定的資料庫並不保證能夠在增加負載的情況下使用和基準測試相同的方式調整。
+請務必了解，所有基準測試都只具備代表性與指標性。 利用基準測試應用程式達成的交易速率與利用其他應用程式可能達成的交易速率不同。 基準測試是由不同的交易類型集合所組成，這些類型是針對包含某個範圍的資料表和資料類型的結構描述來執行。 雖然基準測試會執行所有 OLTP 工作負載常見的相同基本作業，但是它不代表任何特定類別的資料庫或應用程式。 基準測試的目標是提供資料庫相對效能的合理指南，在計算大小之間向上或向下調整時可預期此目標。 實際上，資料庫的大小和複雜度都不一樣，會遭遇到不同的工作負載混合，並以不同的方式回應。 例如，IO 密集的應用程式可能會更快達到 IO 臨界值，或者 CPU 密集應用程式可能會更快達到 CPU 限制。 任何特定的資料庫並不保證能夠在增加負載的情況下使用和基準測試相同的方式調整。
 
 基準測試和其方法會在以下詳細描述。
 
@@ -155,5 +158,5 @@ ASDB 可測量基本資料庫作業混合的效能，這些作業最常發生在
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需特定效能等級的詳細資訊和單一資料庫可用的儲存體大小選項，請參閱[單一資料庫 SQL Database 以 DTU 為基礎的資源限制](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)。
-- 如需特定效能等級的詳細資訊和彈性集區可用的儲存體大小選項，請參閱 [SQL Database 以 DTU 為基礎的資源限制](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels)。
+- 如需特定計算大小的詳細資訊和單一資料庫可用的儲存體大小選項，請參閱[單一資料庫 SQL Database 以 DTU 為基礎的資源限制](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)。
+- 如需特定計算大小的詳細資訊和彈性集區可用的儲存體大小選項，請參閱 [SQL Database 以 DTU 為基礎的資源限制](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)。

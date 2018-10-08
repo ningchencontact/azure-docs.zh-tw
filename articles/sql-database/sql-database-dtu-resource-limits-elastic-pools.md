@@ -2,19 +2,22 @@
 title: Azure SQL Database 以 DTU 為基礎的資源限制 - 彈性集區 | Microsoft Docs
 description: 此頁面將針對 Azure SQL Database 中的彈性集區，說明一些以 DTU 為基礎的常見資源限制。
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pools
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 0920489daf99445a9d715d0858cf68ae45e6a178
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: b2efdf0b1a8abe91589f56ecbb6dc01f7606f305
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140258"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158982"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的彈性集區資源限制 
 
@@ -25,9 +28,9 @@ ms.locfileid: "42140258"
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>彈性集區：儲存體大小與效能層級
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>彈性集區：儲存體大小與計算大小
 
-對於 SQL Database 彈性集區，下表顯示了每個服務層和效能層級的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，設定服務層、效能層級和儲存體數量。
+針對 SQL Database 彈性集區，下表顯示每個服務層與計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，來設定服務層、計算大小與儲存體數量。
 
 > [!NOTE]
 > 根據 DTU 和服務層，彈性集區中個別資料庫的資源限制通常與集區外部之單一資料庫的資源限制相同。 例如，S2 資料庫的並行背景工作數上限是 120 個背景工作。 因此，如果集區中每個資料庫的最大 DTU 是 50 DTU (這相當於 S2)，標準集區中的資料庫最大並行背景工作數上限也會是 120 個背景工作。
@@ -108,7 +111,7 @@ ms.locfileid: "42140258"
 ||||||||
 
 > [!IMPORTANT]
-> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：美國中西部、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、德國東北部、US Gov (愛荷華州)、中國北部。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：美國中西部、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、德國東北部、US Gov (愛荷華州)、中國北部。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 
 如果彈性集區的所有 DTU 均已使用，則集區中的每個資料庫會收到等量的資源以處理查詢。 SQL Database 服務藉由確保運算時間的均等配量，提供資料庫之間的資源共用公平性。 彈性集區資源共用公平性不包括任何資源數量，否則當每個資料庫的最小 DTU 數設為非零的值時，便會對每個資料庫保證資源數量。
 

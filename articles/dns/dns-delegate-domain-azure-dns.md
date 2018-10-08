@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205436"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452289"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>教學課程：在 Azure DNS 中裝載您的網域
 
@@ -70,6 +70,9 @@ Azure DNS 會自動在您的區域中為指派的名稱伺服器建立權威 NS 
 現已建立 DNS 區域且您擁有名稱伺服器，您必須使用 Azure DNS 名稱伺服器來更新父系網域。 每個註冊機構都有自己的 DNS 管理工具，可變更網域的名稱伺服器記錄。 在註冊機構的 DNS 管理頁面中，請編輯 NS 記錄，並將 NS 記錄取代為 Azure DNS 名稱伺服器。
 
 委派網域給 Azure DNS 時，您必須使用 Azure DNS 所提供的名稱伺服器。 不論您的網域名稱為何，都建議將四個名稱伺服器全部用上。 網域委派不需要名稱伺服器，即可使用相同的最上層網域作為您的網域。
+
+> [!NOTE]
+> 當您複製每個名稱伺服器位址時，請務必複製位址結尾的句點。 結尾句點表示完整網域名稱結束。 有些註冊機構可能會在 NS 名稱不含結尾句點時附加句點。 但若要符合 DNS RFC，請務必包含結尾句點，因為您不能假設每個註冊機構都會為您附加句點。
 
 Azure DNS 目前不支援使用您區域中名稱伺服器的委派 (有時稱為*虛名名稱伺服器*)。
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 5b0dbf5ad78ff345d386024ff873618a781917ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579032"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222491"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概觀
 
@@ -45,6 +45,13 @@ Azure Stack 包含協調 Microsoft 軟體應用程式更新的更新資源提供
 ## <a name="plan-for-updates"></a>規劃更新
 
 強烈建議您向使用者通知任何維護工作，並且盡可能將一般的維護期間安排在非上班時間。 維護作業可能會影響租用戶工作負載和入口網站作業。
+
+
+- 開始安裝此更新之前，請先執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 與下列參數來驗證 Azure Stack 的狀態，並解決所發現的一切運作問題，包括所有警告和失敗。 也請檢閱作用中警示，並將所有需要採取動作的警示解決。  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ## <a name="using-the-update-tile-to-manage-updates"></a>[更新] 圖格可用來管理更新
 您要從系統管理員入口網站管理更新。 身為 Azure Stack 操作員，您可以使用儀表板中的 [更新] 圖格進行下列操作：

@@ -2,19 +2,22 @@
 title: Azure SQL Database 記憶體內部技術 | Microsoft Docs
 description: SQL Database 記憶體內部技術大幅提升交易和分析工作負載的效能。
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092398"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166923"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>使用 SQL Database 中的記憶體內部技術將效能最佳化
 
@@ -72,7 +75,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 記憶體內部 OLTP 包含記憶體最佳化資料表，以用來儲存使用者資料。 這些資料表必須可容納於記憶體。 因為您是直接在 SQL Database 服務中管理記憶體，我們有使用者資料配額的概念。 這個概念稱為「記憶體內部 OLAP 儲存體」。
 
-每個受支援的獨立資料庫定價層以及每個彈性集區定價層都包含一定數量的記憶體內部 OLTP 儲存體。 請參閱[以 DTU 為基礎的資源限制 - 單一資料庫](sql-database-dtu-resource-limits-single-databases.md)、[以 DTU 為基礎的資源限制 - 彈性集區](sql-database-dtu-resource-limits-elastic-pools.md)、[以虛擬核心為基礎的資源限制 - 單一資料庫](sql-database-vcore-resource-limits-single-databases.md)及[以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
+每個受支援的單一資料庫定價層以及每個彈性集區定價層都包含一定數量的記憶體內部 OLTP 儲存體。 請參閱[以 DTU 為基礎的資源限制 - 單一資料庫](sql-database-dtu-resource-limits-single-databases.md)、[以 DTU 為基礎的資源限制 - 彈性集區](sql-database-dtu-resource-limits-elastic-pools.md)、[以虛擬核心為基礎的資源限制 - 單一資料庫](sql-database-vcore-resource-limits-single-databases.md)及[以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
 
 下列項目計入記憶體內部 OLTP 儲存體容量上限︰
 

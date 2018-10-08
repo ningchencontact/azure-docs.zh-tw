@@ -1,23 +1,23 @@
 ---
-title: 影片搜尋 SDK Python 快速入門 | Microsoft Docs
+title: 快速入門：影片搜尋 SDK (Python)
+titleSuffix: Azure Cognitive Services
 description: 設定影片搜尋 SDK 主控台應用程式。
-titleSuffix: Azure Video Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1c4769a6ca3391fa595cc078651beff330bbfd60
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370442"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225645"
 ---
-# <a name="video-search-sdk-python-quickstart"></a>影片搜尋 SDK Python 快速入門
+# <a name="quickstart-bing-video-search-sdk-with-python"></a>快速入門：使用 Python 的 Bing 影片搜尋 SDK
 
 Bing 影像搜尋 SDK 包含用於 Web 查詢以及剖析結果的 REST API 功能。
 
@@ -25,7 +25,7 @@ Bing 影像搜尋 SDK 包含用於 Web 查詢以及剖析結果的 REST API 功�
 
 
 ## <a name="application-dependencies"></a>應用程式相依性
-如果還沒有 Python，請安裝。 SDK 可與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。
+若還沒有 Python，請安裝。 SDK 可與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。
 
 Python 開發的一般建議是使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv) 安裝和初始化虛擬環境。 安裝適用於 Python 2.7 的 virtualenv。
 ```

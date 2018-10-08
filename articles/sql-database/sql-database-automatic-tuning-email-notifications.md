@@ -1,21 +1,23 @@
 ---
 title: 自動調整電子郵件通知操作說明指南 - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database 會分析 SQL 查詢，並自動針對使用者的工作負載調整。
+description: 啟用 Azure SQL Database 自動查詢調整的電子郵件通知。
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/05/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 643740ea76769f857e8c99ebaa6d27eceed99067
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644326"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064096"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>針對自動調整的電子郵件通知
 
@@ -205,12 +207,12 @@ Write-Output $table
 1. 建立動作來執行 PowerShell 指令碼，以擷取調整建議
 - 在 [週期] 流程窗格內選取 [+新增步驟]，然後選取 [加入動作]
 - 在搜尋欄位中輸入「自動化」，並從搜尋結果中選取 [Azure 自動化 – 建立工作]
-- 在 [建立工作] 窗格中，設定工作屬性。 針對此設定，您將需要先前在 [自動化帳戶] 窗格中記錄的 Azure 訂用帳戶識別碼、資源群組和自動化帳戶的詳細資料。 若要深入了解此區段所提供的選項，請參閱 [Azure 自動化 - 建立工作](https://docs.microsoft.com/connectors/azureautomation/#Create_job) \(英文\)。
+- 在 [建立工作] 窗格中，設定工作屬性。 針對此設定，您將需要先前在 [自動化帳戶] 窗格中記錄的 Azure 訂用帳戶識別碼、資源群組和自動化帳戶的詳細資料。 若要深入了解此區段所提供的選項，請參閱 [Azure 自動化 - 建立工作](https://docs.microsoft.com/connectors/azureautomation/#create-job) \(英文\)。
 - 按一下 [儲存流程] 以完成建立此動作
 
 2. 建立動作以從已執行的 PowerShell 指令碼擷取輸出
 - 在 [週期] 流程窗格內選取 [+新增步驟]，然後選取 [加入動作]
-- 在搜尋欄位中輸入「自動化」，並從搜尋結果中選取 [Azure 自動化 – 取得工作輸出]。 若要深入了解此區段所提供的選項，請參閱 [Azure 自動化 – 取得工作輸出](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output) \(英文\)。
+- 在搜尋欄位中輸入「自動化」，並從搜尋結果中選取 [Azure 自動化 – 取得工作輸出]。 若要深入了解此區段所提供的選項，請參閱 [Azure 自動化 – 取得工作輸出](https://docs.microsoft.com/connectors/azureautomation/#get-job-output) \(英文\)。
 - 填入必要欄位 (與建立先前的工作類似) - 填入 Azure 訂用帳戶識別碼、資源群組及自動化帳戶 (如同在 [自動化帳戶] 窗格中所輸入的)
 - 在 [工作識別碼] 欄位內按一下，以顯示 [動態內容] 功能表。 從這個功能表內，選取 [工作識別碼] 選項。
 - 按一下 [儲存流程] 以完成建立此動作

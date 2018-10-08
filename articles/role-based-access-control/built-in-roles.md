@@ -1,6 +1,6 @@
 ---
-title: Azure 中的內建角色 | Microsoft Docs
-description: 描述 Azure 角色型存取控制 (RBAC) 的內建角色。 列出 Actions、NotActions、DataActions 和 NotDataActions。
+title: 適用於 Azure 資源的內建角色 | Microsoft Docs
+description: 說明角色型存取控制 (RBAC) 和 Azure 資源的內建角色。 列出 Actions、NotActions、DataActions 和 NotDataActions。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/19/2018
+ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: e03b2ab45edd57a124dcc960ff518ece4902d2fa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048363"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410267"
 ---
-# <a name="built-in-roles-in-azure"></a>Azure 中的內建角色
+# <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 [角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
 
 內建角色不斷發展。 若要取得最新角色定義，請使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 或 [az role definition list](/cli/azure/role/definition#az-role-definition-list)。
@@ -43,7 +43,7 @@ ms.locfileid: "43048363"
 | [API 管理服務操作員角色](#api-management-service-operator-role) | 可管理服務，但無法管理 API |
 | [API 管理服務讀取者角色](#api-management-service-reader-role) | 具有服務與 API 的唯讀存取權 |
 | [Application Insights 元件參與者](#application-insights-component-contributor) | 可以管理 Application Insights 元件 |
-| [Application Insights 快照集偵錯工具](#application-insights-snapshot-debugger) | 給予使用者權限，以便檢視及下載使用 Application Insights 快照偵錯工具所收集的偵錯快照。 請注意，[擁有者](#owner)或[參與者](#contributor)角色均不包含這個角色。 |
+| [Application Insights 快照集偵錯工具](#application-insights-snapshot-debugger) | 給予使用者權限，以便檢視及下載使用 Application Insights 快照偵錯工具所收集的偵錯快照。 請注意，[擁有者](#owner)或[參與者](#contributor)角色未包含這些權限。 |
 | [自動化作業運算子](#automation-job-operator) | 使用「自動化 Runbook」來建立及管理作業。 |
 | [自動化運算子](#automation-operator) | 「自動化運算子」能夠啟動、停止、暫止及繼續作業 |
 | [自動化 Runbook 運算子](#automation-runbook-operator) | 讀取 Runbook 屬性 - 以便能夠建立 Runbook 的作業。 |
@@ -62,16 +62,21 @@ ms.locfileid: "43048363"
 | [傳統網路參與者](#classic-network-contributor) | 可讓您管理傳統網路，但無法存取它們。 |
 | [傳統儲存體帳戶參與者](#classic-storage-account-contributor) | 可讓您管理傳統儲存體帳戶，但無法存取它們。 |
 | [傳統儲存體帳戶金鑰操作員服務角色](#classic-storage-account-key-operator-service-role) | 「傳統儲存體帳戶金鑰操作員」可以列出及重新產生「傳統儲存體帳戶」的金鑰 |
-| [傳統虛擬機器參與者](#classic-virtual-machine-contributor) | 可讓您管理傳統虛擬機器 (不含虛擬機器所連線的虛擬網路或儲存體帳戶)，但無法存取它們。|
+| [傳統虛擬機器參與者](#classic-virtual-machine-contributor) | 可讓您管理傳統虛擬機器 (不含虛擬機器所連線的虛擬網路或儲存體帳戶)，但無法存取它們。 |
+| [認知服務參與者](#cognitive-services-contributor) | 可讓您建立、讀取、更新、刪除及管理認知服務的金鑰。 |
+| [認知服務使用者](#cognitive-services-user) | 可讓您讀取和列出認知服務的金鑰。 |
 | [Cosmos DB 帳戶讀者角色](#cosmos-db-account-reader-role) | 可以讀取 Azure Cosmos DB 帳戶資料。 請參閱 [DocumentDB 帳戶參與者](#documentdb-account-contributor)以管理 Azure Cosmos DB 帳戶。 |
+| [成本管理參與者](#cost-management-contributor) | 可檢視成本和管理成本組態 (例如預算、匯出) |
+| [成本管理讀者](#cost-management-reader) | 可檢視成本資料和組態 (例如預算、匯出) |
 | [資料箱參與者](#data-box-contributor) | 可讓您管理資料箱服務下的所有項目，為他人賦予存取權除外。 |
-| [資料箱操作員](#data-box-operator) | 可讓您管理資料箱服務，建立訂單或編輯訂單詳細資料和為他人賦予存取權除外。 |
+| [資料箱讀者](#data-box-reader) | 可讓您管理資料箱服務，建立訂單或編輯訂單詳細資料和為他人賦予存取權除外。 |
 | [Data Factory 參與者](#data-factory-contributor) | 可讓您管理 Data Factory，但無法加以存取。 |
 | [Data Lake Analytics 開發人員](#data-lake-analytics-developer) | 可讓您提交、監視及管理您自己的作業，但無法建立或刪除 Data Lake Analytics 帳戶。 |
 | [資料清除者](#data-purger) | 可清除分析資料 |
 | [DevTest Labs 使用者](#devtest-labs-user) | 可讓您連線、啟動、重新啟動及關閉 Azure DevTest Labs 中的虛擬機器。 |
 | [DNS 區域參與者](#dns-zone-contributor) | 可讓您管理 Azure DNS 中的 DNS 區域與記錄集，但無法讓您控制誰可存取它們。 |
 | [DocumentDB 帳戶參與者](#documentdb-account-contributor) | 可以管理 Azure Cosmos DB 帳戶。 Azure Cosmos DB 先前稱為 DocumentDB。 |
+| [HDInsight 網域服務參與者](#hdinsight-domain-services-contributor) | 可讀取、建立、修改和刪除 HDInsight 企業安全性套件所需的網域服務相關作業 |
 | [Intelligent Systems 帳戶參與者](#intelligent-systems-account-contributor) | 可讓您管理「智慧型系統」帳戶，但無法存取它們。 |
 | [Key Vault 參與者](#key-vault-contributor) | 可讓您管理金鑰保存庫，但無法存取它們。 |
 | [實驗室建立者](#lab-creator) | 可讓您在「Azure 實驗室帳戶」下建立、管理、刪除您的受控實驗室。 |
@@ -80,6 +85,7 @@ ms.locfileid: "43048363"
 | [邏輯應用程式參與者](#logic-app-contributor) | 可讓您管理邏輯應用程式，但無法存取它們。 |
 | [邏輯應用程式運算子](#logic-app-operator) | 可讓您讀取、啟用及停用邏輯應用程式。 |
 | [受控應用程式操作員角色](#managed-application-operator-role) | 可讓您讀取受控應用程式資源及對其執行動作 |
+| [受控應用程式讀者](#managed-applications-reader) | 可讓您讀取受控應用程式中的資源及要求 JIT 存取權。 |
 | [受控身分識別參與者](#managed-identity-contributor) | 建立、讀取、更新及刪除使用者指派的身分識別 |
 | [受控身分識別操作員](#managed-identity-operator) | 讀取及指派使用者指派的身分識別 |
 | [管理群組參與者](#management-group-contributor) | 管理群組參與者角色 |
@@ -89,6 +95,7 @@ ms.locfileid: "43048363"
 | [監視讀取器](#monitoring-reader) | 可以讀取所有監視資料 (計量、記錄檔等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。 |
 | [網路參與者](#network-contributor) | 可讓您管理網路，但無法存取它們。 |
 | [New Relic APM 帳戶參與者](#new-relic-apm-account-contributor) | 可讓您管理 New Relic Application Performance Management 帳戶及應用程式，但無法存取它們。 |
+| [PowerApps 系統管理員測試](#powerapps-administrator-test) | 可讓您管理 Azure DNS 中的 DNS 區域與記錄集，但無法讓您控制誰可存取它們。 |
 | [讀取者及資料存取](#reader-and-data-access) | 可讓您檢視所有內容，但無法讓您刪除或建立儲存體帳戶或內含的資源。 也可透過存取儲存體帳戶金鑰，對儲存體帳戶中內含的所有資料進行讀取/寫入存取。 |
 | [Redis 快取參與者](#redis-cache-contributor) | 可讓您管理 Redis 快取，但無法存取它們。 |
 | [資源原則參與者 (預覽)](#resource-policy-contributor-preview) | (預覽) 從 EA 回填的使用者，有權建立/修改資源原則、建立支援票證及讀取資源/階層。 |
@@ -259,7 +266,7 @@ ms.locfileid: "43048363"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 賦予使用者使用「Application Insights 快照集偵錯工具」功能的權限 |
+> | **說明** | 給予使用者權限，以便檢視及下載使用 Application Insights 快照偵錯工具所收集的偵錯快照。 請注意，[擁有者](#owner)或[參與者](#contributor)角色未包含這些權限。 |
 > | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
@@ -371,6 +378,7 @@ ms.locfileid: "43048363"
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.Network/virtualNetworks/read | 取得虛擬網路定義 |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | 管理備份管理上作業的結果 |
@@ -391,14 +399,13 @@ ms.locfileid: "43048363"
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | 取得復原服務保存庫的警示。 |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | 「取得保存庫」作業會取得物件，此物件代表 'vault' 類型的 Azure 資源 |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | 管理擷取新建立容器的探索作業 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 重新整理容器清單 |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | 建立和管理註冊的身分識別 |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | 建立和管理復原服務保存庫的使用方式 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
-> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="backup-operator"></a>備份操作員
@@ -504,9 +511,10 @@ ms.locfileid: "43048363"
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.Billing/*/read | 讀取帳單資訊 |
-> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Commerce/*/read |  |
+> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | 列出已驗證之使用者的管理群組。 |
+> | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="biztalk-contributor"></a>BizTalk 參與者
@@ -653,6 +661,52 @@ ms.locfileid: "43048363"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
+## <a name="cognitive-services-contributor"></a>認知服務參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您建立、讀取、更新、刪除及管理認知服務的金鑰。 |
+> | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **動作** |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.CognitiveServices/* |  |
+> | Microsoft.Features/features/read | 取得訂用帳戶的功能。 |
+> | Microsoft.Features/providers/features/read | 取得給定資源提供者中某個訂用帳戶的功能。 |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Insights/diagnosticSettings/* | 建立、更新或讀取 Analysis Server 的診斷設定 |
+> | Microsoft.Insights/logDefinitions/read | 讀取記錄定義 |
+> | Microsoft.Insights/metricdefinitions/read | 讀取計量定義 |
+> | Microsoft.Insights/metrics/read | 讀取計量 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/deployments/operations/read | 取得或列出部署作業。 |
+> | Microsoft.Resources/subscriptions/operationresults/read | 取得訂用帳戶作業結果。 |
+> | Microsoft.Resources/subscriptions/read | 取得訂用帳戶清單。 |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+
+## <a name="cognitive-services-user"></a>認知服務使用者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您讀取和列出認知服務的金鑰。 |
+> | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | **動作** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | Microsoft.CognitiveServices/accounts/listkeys/action | 列出金鑰 |
+> | Microsoft.Insights/metricdefinitions/read | 讀取計量定義 |
+> | Microsoft.Insights/metrics/read | 讀取計量 |
+> | Microsoft.Insights/alertRules/read | 讀取傳統計量警示 |
+> | Microsoft.Insights/diagnosticSettings/read | 讀取資源診斷設定 |
+> | Microsoft.Insights/logDefinitions/read | 讀取記錄定義 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Microsoft.Resources/deployments/operations/read | 取得或列出部署作業。 |
+> | Microsoft.Resources/subscriptions/operationresults/read | 取得訂用帳戶作業結果。 |
+> | Microsoft.Resources/subscriptions/read | 取得訂用帳戶清單。 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+
 ## <a name="cosmos-db-account-reader-role"></a>Cosmos DB 帳戶讀者角色
 > [!div class="mx-tableFixed"]
 > | | |
@@ -665,6 +719,34 @@ ms.locfileid: "43048363"
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | 讀取資料庫帳戶的唯讀金鑰。 |
 > | Microsoft.Insights/MetricDefinitions/read | 讀取計量定義 |
 > | Microsoft.Insights/Metrics/read | 讀取計量 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+
+## <a name="cost-management-contributor"></a>成本管理參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可檢視成本和管理成本組態 (例如預算、匯出) |
+> | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | **動作** |  |
+> | Microsoft.Consumption/* |  |
+> | Microsoft.CostManagement/* |  |
+> | Microsoft.Billing/billingPeriods/read | 列出可用的計費週期 |
+> | Microsoft.Resources/subscriptions/read | 取得訂用帳戶清單。 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+
+## <a name="cost-management-reader"></a>成本管理讀者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可檢視成本資料和組態 (例如預算、匯出) |
+> | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **動作** |  |
+> | Microsoft.Consumption/*/read |  |
+> | Microsoft.CostManagement/*/read |  |
+> | Microsoft.Billing/billingPeriods/read | 列出可用的計費週期 |
+> | Microsoft.Resources/subscriptions/read | 取得訂用帳戶清單。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
@@ -682,7 +764,7 @@ ms.locfileid: "43048363"
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | Microsoft.Databox/* |  |
 
-## <a name="data-box-operator"></a>資料箱操作員
+## <a name="data-box-reader"></a>資料箱讀者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -690,9 +772,12 @@ ms.locfileid: "43048363"
 > | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.Databox/*/read |  |
+> | Microsoft.Databox/jobs/listsecrets/action |  |
+> | Microsoft.Databox/jobs/listcredentials/action | 列出與訂單相關的未加密認證。 |
+> | Microsoft.Databox/locations/availableSkus/action | 此方法會傳回可用的 SKU 清單。 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
-> | Microsoft.Databox/jobs/listsecrets/action | 列出與訂單相關的未加密祕密。 |
 
 ## <a name="data-factory-contributor"></a>Data Factory 參與者
 > [!div class="mx-tableFixed"]
@@ -822,6 +907,17 @@ ms.locfileid: "43048363"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
+## <a name="hdinsight-domain-services-contributor"></a>HDInsight 網域服務參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讀取、建立、修改和刪除 HDInsight 企業安全性套件所需的網域服務相關作業 |
+> | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **動作** |  |
+> | Microsoft.AAD/*/read |  |
+> | Microsoft.AAD/domainServices/*/read |  |
+> | Microsoft.AAD/domainServices/oucontainer/* |  |
+
 ## <a name="intelligent-systems-account-contributor"></a>Intelligent Systems 帳戶參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -864,7 +960,8 @@ ms.locfileid: "43048363"
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | 在實驗室帳戶中建立實驗室。 |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | 取得在實驗室帳戶下設定的每個大小類別的區域可用性資訊 |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
+> | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | 取得在實驗室帳戶下設定的每個大小類別的區域可用性資訊 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
@@ -964,6 +1061,17 @@ ms.locfileid: "43048363"
 > | **動作** |  |
 > | Microsoft.Solutions/applications/read | 擷取應用程式清單。 |
 
+## <a name="managed-applications-reader"></a>受控應用程式讀者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您讀取受控應用程式中的資源及要求 JIT 存取權。 |
+> | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
+> | **動作** |  |
+> | */read | 讀取密碼以外的所有類型的資源。 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Solutions/jitRequests/* |  |
+
 ## <a name="managed-identity-contributor"></a>受控身分識別參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1045,7 +1153,8 @@ ms.locfileid: "43048363"
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | 擷取工作區的共用金鑰。 這些金鑰可用來將 Microsoft Operational Insights 代理程式連線到工作區。 |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | 讀取/寫入/刪除 Log Analytics 儲存體深入解析設定。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
-> | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/monitors/* |  |
+> | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>監視計量發行者
@@ -1101,6 +1210,21 @@ ms.locfileid: "43048363"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | NewRelic.APM/accounts/* |  |
+
+## <a name="powerapps-administrator-test"></a>PowerApps 系統管理員測試
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您管理 Azure DNS 中的 DNS 區域與記錄集，但無法讓您控制誰可存取它們。 |
+> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
+> | **動作** |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Network/dnsZones/* |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="reader-and-data-access"></a>讀取者及資料存取
 > [!div class="mx-tableFixed"]
@@ -1387,6 +1511,7 @@ ms.locfileid: "43048363"
 > | Microsoft.Sql/servers/read | 傳回伺服器清單，或取得指定伺服器的屬性。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 無法編輯稽核原則 |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | 無法編輯稽核設定 |
 > | Microsoft.Sql/servers/databases/auditRecords/read | 擷取資料庫 Blob 稽核記錄 |
@@ -1414,6 +1539,7 @@ ms.locfileid: "43048363"
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 建立和管理 SQL Server 稽核原則 |
 > | Microsoft.Sql/servers/auditingSettings/* | 建立和管理 SQL Server 稽核設定 |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 建立和管理 SQL Server 資料庫稽核原則 |
@@ -1453,6 +1579,7 @@ ms.locfileid: "43048363"
 > | Microsoft.Sql/servers/* | 建立和管理 SQL Server |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 無法編輯 SQL Server 稽核原則 |
 > | Microsoft.Sql/servers/auditingSettings/* | 無法編輯 SQL Server 稽核設定 |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 無法編輯 SQL Server 資料庫稽核原則 |
@@ -1632,10 +1759,10 @@ ms.locfileid: "43048363"
 > | Microsoft.Network/virtualNetworks/read | 取得虛擬網路定義 |
 > | Microsoft.Network/virtualNetworks/subnets/join/action | 加入虛擬網路 |
 > | Microsoft.RecoveryServices/locations/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | 建立備份保護用途 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | 傳回受保護項目的物件詳細資料 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 建立備用的受保護項目 |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | 建立備份保護用途 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 傳回所有保護原則 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/write | 建立保護原則 |
 > | Microsoft.RecoveryServices/Vaults/read | 「取得保存庫」作業會取得物件，此物件代表 'vault' 類型的 Azure 資源 |
@@ -1644,6 +1771,7 @@ ms.locfileid: "43048363"
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.SqlVirtualMachine/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | 傳回指定儲存體帳戶的存取金鑰。 |
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |

@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7e27b5117f5f0ea98916ecfefcbb0dac9323e1d9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181921"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431783"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
-## <a name="what-is-project-acoustics"></a>什麼是 Project Acoustics？
+## <a name="what-is-project-acoustics"></a>何謂 Project Acoustics？
 
-Project Acoustics Unity 外掛程式是一個聲場系統，會計算執行階段前的聲波行為，類似於靜態光照。 雲端會執行設計階段的繁重波動物理學工作，因此執行階段 CPU 成本很低。  
+Project Acoustics Unity 外掛程式是一個聲場系統，會計算執行階段前的聲波行為，類似於靜態光照。 雲端可執行繁重的波動物理學計算，因此執行階段 CPU 成本很低。  
 
 ## <a name="where-can-i-download-the-plugin"></a>我可以從哪裡下載外掛程式？
 
@@ -28,7 +28,7 @@ Project Acoustics Unity 外掛程式是一個聲場系統，會計算執行階�
 
 ## <a name="is-azure-used-at-runtime"></a>在執行階段是否會使用 Azure？
 
-否，只有在設計階段的計算前階段期間，才會使用雲端整合。
+否，只有在場景設定的計算前階段期間，才會使用雲端整合。
  
 ## <a name="what-is-simulation-input"></a>什麼是模擬輸入？ 
 

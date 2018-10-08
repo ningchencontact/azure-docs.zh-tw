@@ -1,23 +1,30 @@
 ---
 title: 管理相應放大的雲端資料庫 | Microsoft Docs
 description: 使用彈性資料庫工作服務，跨資料庫群組執行指令碼。
-metakeywords: azure sql database elastic databases
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 649a76fad8f54339a6b1e429b3966945410573f7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646080"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166787"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>管理相應放大的雲端資料庫
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+**彈性資料庫作業**是客戶裝載的 Azure 雲端服務，可以執行臨機操作和排程的管理作業，稱為**作業**。 利用工作，您可以執行 Transact-SQL 指令碼來執行管理作業，進而輕鬆又可靠地管理大量 Azure SQL 資料庫群組。 
+
 若要管理相應放大的共用資料庫，**彈性資料庫作業**功能 (預覽) 可讓您在一組資料庫中可靠地執行 TRANSACT-SQL (T-SQL) 指令碼，其中包括：
 
 * 自訂的資料庫集合 (如下所述)
@@ -28,9 +35,9 @@ ms.locfileid: "34646080"
 * [安裝彈性資料庫工作元件](sql-database-elastic-jobs-service-installation.md)。 
 * [開始使用彈性資料庫工作](sql-database-elastic-jobs-getting-started.md)。
 * [使用 Powershell 建立和管理工作](sql-database-elastic-jobs-powershell.md)。
-* [建立和管理相應放大的 Azure SQL Database](sql-database-elastic-jobs-getting-started.md)
+* [建立和管理相應放大的 Azure SQL 資料庫](sql-database-elastic-jobs-getting-started.md)
 
-**彈性資料庫作業**目前是客戶裝載的 Azure 雲端服務，可以執行臨機操作和排程的管理作業，稱為**作業**。 利用工作，您可以執行 Transact-SQL 指令碼來執行管理作業，進而輕鬆又可靠地管理大量 Azure SQL Database 群組。 
+
 
 ![彈性資料庫工作服務][1]
 
@@ -41,11 +48,11 @@ ms.locfileid: "34646080"
 
 **報告**
 
-將 Azure SQL Database 集合中的資料彙總到單一目的地資料表中。
+將 Azure SQL 資料庫集合中的資料彙總到單一目的地資料表中。
 
 **減少額外負荷**
 
-通常，您必須個別連接到每個資料庫，以執行 Transact-SQL 陳述式或執行其他管理工作。 工作會處理登入目標群組中每個資料庫的工作。 您也要定義、維護及保存要在 Azure SQL Database 的群組中執行的 Transact-SQL 指令碼。
+通常，您必須個別連接到每個資料庫，以執行 Transact-SQL 陳述式或執行其他管理工作。 工作會處理登入目標群組中每個資料庫的工作。 您也要定義、維護及保存要在 Azure SQL 資料庫群組中執行的 Transact-SQL 指令碼。
 
 **資料記錄**
 
@@ -53,7 +60,7 @@ ms.locfileid: "34646080"
 
 **彈性**
 
-定義 Azure SQL Database 的自訂群組，並定義排程以執行工作。
+定義 Azure SQL 資料庫的自訂群組，並定義排程以執行作業。
 
 > [!NOTE]
 > 在 Azure 入口網站中，只有一小組受限為 SQL Azure 彈性集區的函式可供使用。 使用 PowerShell API 來存取目前功能的完整集合。

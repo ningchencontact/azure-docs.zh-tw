@@ -1,24 +1,25 @@
 ---
-title: Azure Content Moderator - 使用 .NET 來啟動審核作業 | Microsoft Docs
-description: 如何使用 Azure Content Moderator SDK for .NET 來起始審核作業
+title: 快速入門：使用 .NET 啟動仲裁作業 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: 如何使用 Azure Content Moderator SDK for .NET 起始仲裁作業。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/06/2018
+ms.topic: quickstart
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: a103875607355993e216ce1ddea02009fc8fa1c4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6045d6daf2abace6e2b38bd6fd6e22516e3a60a0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368050"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227418"
 ---
-# <a name="start-moderation-jobs-using-net"></a>使用 .NET 來啟動審核作業
+# <a name="quickstart-start-moderation-jobs-using-net"></a>快速入門：使用 .NET 啟動仲裁作業
 
-本文提供資訊和範例程式碼，可協助您開始使用 Content Moderator SDK for .NET 來執行下列操作：
+本文提供資訊和範例程式碼，可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 來執行下列操作：
  
 - 啟動審核作業以掃描和建立人工審核者的檢閱
 - 取得擱置中檢閱的狀態
@@ -27,10 +28,22 @@ ms.locfileid: "35368050"
 
 本文假設您已經熟悉 Visual Studio 和 C#。
 
-## <a name="sign-up-for-content-moderator-services"></a>註冊 Content Moderator 服務
+## <a name="sign-up-for-content-moderator"></a>註冊 Content Moderator
 
 您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。
 請參考[快速入門](quick-start.md)，以了解如何取得金鑰。
+
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>如果未在上一個步驟中完成審核工具帳戶的註冊，請於此時註冊
+
+如果您是從 Azure 入口網站取得 Content Moderator，也請[註冊審核工具帳戶](https://contentmoderator.cognitive.microsoft.com/)，並建立審核小組。 您需要小組識別碼和審核工具才能呼叫審核 API，以在審核工具中啟動作業及檢視審核項目。
+
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>請確定您的 API 金鑰可呼叫審核 API 以建立審核項目
+
+完成前述步驟後，如果您是從 Azure 入口網站開始作業的，您可能會獲得兩個 Content Moderator 金鑰。 
+
+如果您打算在 SDK 範例中使用 Azure 提供的 API 金鑰，請依照[搭配使用 Azure 金鑰與審核 API](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 一節中說明的步驟操作，以允許應用程式呼叫審核 API 並建立審核項目。
+
+如果您使用審核工具所產生的免費試用版金鑰，則您的審核工具帳戶已知悉金鑰，因此不需執行額外的步驟。
 
 ## <a name="define-a-custom-moderation-workflow"></a>定義自訂審核工作流程
 
@@ -47,8 +60,6 @@ ms.locfileid: "35368050"
 
 1. 選取此專案作為解決方案的單一啟始專案。
 
-1. 新增對您在 [Content Moderator 用戶端協助程式快速入門](content-moderator-helper-quickstart-dotnet.md)中所建立 **ModeratorHelper** 專案組件的參考。
-
 ### <a name="install-required-packages"></a>安裝必要的套件
 
 安裝下列 NuGet 封裝：
@@ -61,14 +72,64 @@ ms.locfileid: "35368050"
 
 修改程式的 using 陳述式。
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>建立 Content Moderator 用戶端
+
+新增下列程式碼，為您的訂用帳戶建立 Content Moderator 用戶端。
+
+> [!IMPORTANT]
+> 以您的區域識別碼和訂用帳戶訂用帳戶的值更新 **AzureRegion** 和 **CMSubscriptionKey** 欄位。
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="initialize-application-specific-settings"></a>將應用程式特定的設定初始化
 
@@ -78,7 +139,7 @@ ms.locfileid: "35368050"
 > 您可以將 TeamName 常數設定為建立 Content Moderator 訂用帳戶時所使用的名稱。 您可以從 [Content Moderator 網站](https://westus.contentmoderator.cognitive.microsoft.com/)擷取 TeamName。
 > 登入後，請從 [設定] (齒輪) 功能表選取 [認證]。
 >
-> 您小組的名稱會是 [API] 區段中 [識別碼] 欄位的值。
+> 小組名稱會是 [API] 區段中 [Id] 欄位的值。
 
 
     /// <summary>
@@ -92,7 +153,7 @@ ms.locfileid: "35368050"
     /// </summary>
     /// <remarks>This must be the team name you used to create your 
     /// Content Moderator account. You can retrieve your team name from
-    /// the Conent Moderator web site. Your team name is the Id associated 
+    /// the Content Moderator web site. Your team name is the Id associated 
     /// with your subscription.</remarks>
     private const string TeamName = "***";
 
@@ -105,7 +166,7 @@ ms.locfileid: "35368050"
     /// <summary>
     /// The name of the log file to create.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private const string OutputFile = "OutputLog.txt";
 
     /// <summary>
@@ -117,7 +178,7 @@ ms.locfileid: "35368050"
     /// <summary>
     /// The callback endpoint for completed reviews.
     /// </summary>
-    /// <remarks>Revies show up for reviewers on your team. 
+    /// <remarks>Reviews show up for reviewers on your team. 
     /// As reviewers complete reviews, results are sent to the
     /// callback endpoint using an HTTP POST request.</remarks>
     private const string CallbackEndpoint = "";
@@ -136,7 +197,7 @@ ms.locfileid: "35368050"
             writer.WriteLine("Create review job for an image.");
             var content = new Content(ImageUrl);
         
-            // The WorkflowName contains the nameof the workflow defined in the online review tool.
+            // The WorkflowName contains the name of the workflow defined in the online review tool.
             // See the quickstart article to learn more.
             var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
                     TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
@@ -260,4 +321,4 @@ ms.locfileid: "35368050"
 
 ## <a name="next-steps"></a>後續步驟
 
-針對這個及其他適用於 .NET 的 Content Moderator 快速入門，[下載 Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，並開始進行您的整合。
+針對這個及其他適用於 .NET 的 Content Moderator 快速入門取得 [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 和 [Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，並開始進行您的整合。

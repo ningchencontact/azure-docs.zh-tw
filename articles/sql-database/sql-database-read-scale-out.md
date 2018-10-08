@@ -2,19 +2,22 @@
 title: Azure SQL Database - 複本的讀取查詢 |Microsoft 文件
 description: Azure SQL Database 可讓您使用唯讀複本功能 (稱為讀取相應放大)，對唯讀工作負載進行負載平衡。
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 8/27/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: d82f4e03176911804702db2ea18a5bc9a95583a3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124812"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158694"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)
 
@@ -26,7 +29,7 @@ ms.locfileid: "43124812"
 
 ![唯讀複本](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-這些複本會使用與一般資料庫連線所使用的讀寫複本相同的效能等級進行佈建。 **讀取相應放大**功能可讓您使用其中一個唯讀複本功能對 SQL Database 的唯讀工作負載進行負載平衡，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此可在不需額外費用的情況下使用這個額外容量獲得效能優勢。
+這些複本會使用與一般資料庫連線所使用的讀寫複本相同的計算大小進行佈建。 **讀取相應放大**功能可讓您使用其中一個唯讀複本功能對 SQL Database 的唯讀工作負載進行負載平衡，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此可在不需額外費用的情況下使用這個額外容量獲得效能優勢。
 
 若要對特定資料庫使用讀取相應放大功能，您必須在建立資料庫時或者以後明確地啟用它，方法是藉由使用 PowerShell 叫用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 或 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) Cmdlet，或者透過 Azure Resource Manager REST API 使用[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)方法來改變它的組態。 
 
@@ -119,7 +122,7 @@ Body:
 如果您要使用讀取縮放對異地複寫資料庫上的唯讀工作負載進行負載平衡 (例如作為容錯移轉群組的成員)，請確定主要與異地複寫的次要資料庫上都已啟用讀取縮放。 這可確保當您的應用程式在容錯移轉後連線到新的主要時，會有相同的負載平衡效果。 如果您要連線到啟用讀取縮放的異地複寫次要資料庫，則會使用與路由傳送主要資料庫上連線的相同方式，將設定 `ApplicationIntent=ReadOnly` 的工作階段路由傳送至其中一個複本。  未設定 `ApplicationIntent=ReadOnly` 的工作階段會路由傳送至異地複寫次要的主要複本，這也是唯讀狀態。 由於異地複寫的次要資料庫具有與主要資料庫不同的端點，因此在過去若要存取次要，不需要設定 `ApplicationIntent=ReadOnly`。 為了確保回溯相容性，`sys.geo_replication_links` DMV 會顯示 `secondary_allow_connections=2` (允許所有用戶端連線)。
 
 > [!NOTE]
-> 在預覽期間，我們不會在次要資料庫的本機複本之間執行循環配置資源或任何其他負載平衡路由。 
+> 預覽期間不支援在次要資料庫的本機複本之間執行循環配置資源或任何其他負載平衡路由。 
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -6,27 +6,27 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b1c6209c4d589093d7a29cd8a883d3e5d4ca12f9
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 88659d31b64b4a98043606a71602f7c29316a31e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782297"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423284"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 C# 模組以及針對其進行偵錯
 
 您可以將商務邏輯轉換成 Azure IoT Edge 的模組。 本文說明如何使用 Visual Studio Code (VS Code) 作為主要工具，來開發 C# 模組並對其進行偵錯。
 
 ## <a name="prerequisites"></a>必要條件
-本文假設您使用執行 Windows、macOS 或 Linux 的電腦或虛擬機器作為開發電腦。 您的 IoT Edge 裝置可以是另一部實體裝置。
 
-> [!NOTE]
-> 此偵錯文章會示範兩種在 VS Code 中對您的 C# 模組進行偵錯的常用方式。 其中一個方式在模組容器中附加程序，而另一個則是在偵錯模式中啟動模組程式碼。 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。
+您可以使用執行 Windows、macOS 或 Linux 的電腦或虛擬機器作為開發電腦。 IoT Edge 裝置可以是另一部實體裝置。
 
-因為本文使用 Visual Studio Code 作為主要開發工具，所以請安裝 VS Code。 然後新增必要的擴充功能：
+有兩種方式可讓您在 VS Code 中對 C# 模組進行偵錯。 第一個方式在模組容器中附加程序，另一個方式則是在偵錯模式中啟動模組程式碼。 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。
+
+請先安裝 Visual Studio Code，然後新增下列必要的擴充功能：
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [C# 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
@@ -38,29 +38,29 @@ ms.locfileid: "43782297"
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 或 [Docker 中樞](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * 您可以使用本機 Docker 登錄作為原型並用於測試，而非使用雲端登錄。 
 
-若要設定本機開發環境以偵錯、執行和測試您的 IoT Edge 解決方案，您需要 [Azure IoT EdgeHub Dev 工具](https://pypi.org/project/iotedgehubdev/)。請安裝 [Python (2.7/3.6) 和 Pip](https://www.python.org/)。 然後，在您的終端機中執行下列命令，以安裝 **iotedgehubdev**。
+若要設定本機開發環境以偵錯、執行及測試您的 IoT Edge 解決方案，您需要 [Azure IoT EdgeHub Dev 工具](https://pypi.org/project/iotedgehubdev/)。 安裝 [Python (2.7/3.6) 與 Pip](https://www.python.org/)。 然後，在您的終端機中執行下列命令，以安裝 **iotedgehubdev**。
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
-若要在裝置上測試模組，您需要一個有效的 IoT 中樞，而且該中樞中至少必須有一個 IoT Edge 裝置。 若要使用您的電腦作為 IoT Edge 裝置，請遵循 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 快速入門中的步驟。 
+若要在裝置上測試您的模組，您需要一個有效的 IoT 中樞，而且該中樞中至少必須已建立一個 IoT Edge 裝置識別碼。 如果您在開發電腦上執行 IoT Edge 精靈，您可能必須先停止 EdgeHub 與 EdgeAgent 後，再移至下一個步驟。 
 
 ## <a name="create-a-new-solution-with-c-module"></a>使用 C# 模組建立新的解決方案
 
-採取這些步驟以使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，來建立以 .NET Core 2.0 為基礎的 IoT Edge 模組。 首先要建立解決方案，然後在該解決方案中產生第一個模組。 每個解決方案都可以包含多個模組。 
+採取這些步驟以使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，來建立以 .NET Core 2.1 為基礎的 IoT Edge 模組。 首先要建立解決方案，然後在該解決方案中產生第一個模組。 每個解決方案都可以包含多個模組。 
 
 1. 在 Visual Studio Code 中，選取 [檢視] > [整合式終端機]。
-3. 選取 [檢視] > [命令選擇區]。 
-4. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge Solution**。
+2. 選取 [檢視] > [命令選擇區]。 
+3. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge Solution**。
 
    ![執行新的 IoT Edge 解決方案](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. 瀏覽至要用來建立新解決方案的資料夾。 選擇 [選取資料夾]。 
-6. 輸入解決方案的名稱。 
-7. 選取 [C# 模組] 作為解決方案中第一個模組的範本。
-8. 輸入模組的名稱。 選擇容器登錄內唯一的名稱。 
-9. 提供模組映像存放庫的名稱。 VS Code 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。
+4. 瀏覽至要用來建立新解決方案的資料夾。 選擇 [選取資料夾]。 
+5. 輸入解決方案的名稱。 
+6. 選取 [C# 模組] 作為解決方案中第一個模組的範本。
+7. 輸入模組的名稱。 選擇容器登錄內唯一的名稱。 
+8. 提供模組映像存放庫的名稱。 VS Code 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。
 
    ![提供 Docker 映像存放庫](./media/how-to-develop-csharp-module/repository.png)
 
@@ -69,6 +69,7 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
    ![檢視 IoT Edge 方案](./media/how-to-develop-csharp-module/view-solution.png)
 
 解決方案中有四個項目： 
+
 * 一個包含偵錯組態的 **.vscode** 資料夾。
 * 一個 **modules** 資料夾，其中包含每個模組的子資料夾。 此時，您只有一個資料夾。 但是您可以在命令選擇區中使用 **Azure IoT Edge: Add IoT Edge Module** 命令來新增更多項目。 
 * 一個 **.env** 檔案，會列出您的環境變數。 如果您的登錄是 Azure Container Registry，您會有 Azure Container Registry 使用者名稱和密碼。 
@@ -87,7 +88,8 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 VS Code 中的 C# 支援已針對跨平台 .NET Core 開發進行最佳化。 深入了解[如何在 VS Code 中使用 C#](https://code.visualstudio.com/docs/languages/csharp)。
 
 ## <a name="launch-and-debug-module-code-without-container"></a>啟動並偵錯模組程式碼，而不需要容器
-IoT Edge C# 模組是 .Net Core 應用程式。 而且，此模組依存於 Azure IoT C# 裝置 SDK。 在預設模組程式碼中，您應使用環境設定和輸入名稱來初始化 **ModuleClient**，這表示 IoT Edge C# 模組需要環境設定才能啟動並執行，而且您也需要將訊息傳送或路由至輸入通道。 您的預設 C# 模組僅包含一個輸入通道，且其名稱為 **input1**。
+
+IoT Edge C# 模組是 .Net Core 應用程式。 而且，此模組依存於 Azure IoT C# 裝置 SDK。 IoT C# 模組需要環境設定才能啟動並執行，因此在預設模組程式碼中，您應使用環境設定和輸入名稱來初始化 **ModuleClient**。 您也需要將訊息傳送或路由至輸入通道。 您的預設 C# 模組僅包含一個輸入通道，且其名稱為 **input1**。
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>設定單一模組應用程式的 IoT Edge 模擬器
 
@@ -111,14 +113,16 @@ IoT Edge C# 模組是 .Net Core 應用程式。 而且，此模組依存於 Azur
     dotnet build
     ```
 
-   > [!TIP]
-   > 您也可以使用 [PostMan](https://www.getpostman.com/) 或其他 API 工具來傳送訊息，而不使用 `curl`。
-
 2. 瀏覽至 `program.cs`。 在此檔案中新增中斷點。
 
-3. 瀏覽至 VS Code 偵錯檢視。 選取偵錯組態 **ModuleName 本機偵錯 (.NET Core)**。 
+3. 瀏覽至 VS Code 偵錯檢視：[檢視] > [偵錯]。 從下拉式清單中選取偵錯組態 **ModuleName 本機偵錯 (.NET Core)**。 
+
+  ![在 VS Code 中進入偵錯模式](media/how-to-develop-csharp-module/debug-view.png)
 
 4. 按一下 [開始偵錯]，或按 **F5**。 您會啟動偵錯工作階段。
+
+   > [!NOTE]
+   > 如果您的 .Net Core `TargetFramework` 與 `launch.json` 中的程式路徑不一致， 您必須手動更新 `launch.json` 中的程式路徑，以遵循 .csproj 檔案中的 `TargetFramework`。 如此，VS Code 才能成功啟動此程式。
 
 5. 在 VS Code 整合式終端機中執行下列命令，將 **Hello World** 訊息傳送至您的模組。 這是先前的步驟中在 IoT Edge 模擬器設定成功時所顯示的命令。
 
@@ -136,11 +140,11 @@ IoT Edge C# 模組是 .Net Core 應用程式。 而且，此模組依存於 Azur
 
     ![觀察變數](media/how-to-develop-csharp-module/single-module-variables.png)
 
-7. 若要停止偵錯工作階段中，請按一下 [停止] 按鈕，或按 **Shift + F5**。 在 VS Code 命令選擇區中，輸入並選取 [Azure IoT Edge：停止 IoT Edge 模擬器]。
+7. 若要停止偵錯工作階段中，請按一下 [停止] 按鈕，或按 **Shift + F5**。 在 VS Code 命令選擇區中，輸入並選取 [Azure IoT Edge：停止 IoT Edge 模擬器]，以停止並清除模擬器。
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>建置要偵錯的模組容器，並在附加模式中偵錯
 
-您的預設解決方案包含兩個模組，一個是模擬溫度感應器模組，另一個則是 C# 管道模組。 模擬溫度感應器會持續將訊息傳送至 C# 管道模組，然後訊息會輸送至 IoT 中樞。 在您已建立的模組資料夾中，會有不同容器類型的多個 Docker 檔案。 請使用任何副檔名為 **.debug** 的檔案來建置測試用模組。 目前，C# 模組僅支援在附加模式中對 Linux amd64 容器進行偵錯。 
+您的預設解決方案包含兩個模組，一個是模擬溫度感應器模組，另一個則是 C# 管道模組。 模擬溫度感應器會持續將訊息傳送至 C# 管道模組，然後訊息會輸送至 IoT 中樞。 在您已建立的模組資料夾中，會有不同容器類型的多個 Docker 檔案。 請使用任何副檔名為 **.debug** 的檔案來建置測試用模組。 目前，C# 模組僅支援在附加模式中對 Linux amd64 容器進行偵錯。
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>設定 IoT Edge 解決方案的 IoT Edge 模擬器
 
@@ -157,22 +161,24 @@ IoT Edge C# 模組是 .Net Core 應用程式。 而且，此模組依存於 Azur
    ![請將 **.debug** 新增至映像名稱](./media/how-to-develop-csharp-module/image-debug.png)
 
 2. 瀏覽至 `program.cs`。 在此檔案中新增中斷點。
+
 3. 在 VS Code 檔案總管中，在內容功能表中為您的解決方案選取 `deployment.template.json` 檔案，然後按一下 [在模擬器中建置並執行 IoT Edge 解決方案]。 您可以在相同的視窗中查看所有模組容器記錄。 您也可以瀏覽至 Docker 總管以查看容器狀態。
 
    ![觀察變數](media/how-to-develop-csharp-module/view-log.png)
 
-5. 瀏覽至 VS Code 偵錯檢視。 為您的模組選取偵錯組態檔。 偵錯選項名稱應該類似 **ModuleName 遠端偵錯 (.NET Core)**
+4. 瀏覽至 VS Code 偵錯檢視。 為您的模組選取偵錯組態檔。 偵錯選項名稱應該類似 **ModuleName 遠端偵錯 (.NET Core)**
 
    ![選取組態](media/how-to-develop-csharp-module/debug-config.png)
 
-6. 選取 [開始偵錯] 或選取 **F5**。 選取所要連結的流程。
+5. 選取 [開始偵錯] 或選取 **F5**。 選取所要連結的流程。
 
-7. 在 VS Code 偵錯檢視中，您可以在左面板中看到變數。
+6. 在 VS Code 偵錯檢視中，您可以在左面板中看到變數。
 
-8. 若要停止偵錯工作階段中，請按一下 [停止] 按鈕，或按 **Shift + F5**。 在 VS Code 命令選擇區中，輸入並選取 [Azure IoT Edge：停止 IoT Edge 模擬器]。
+7. 若要停止偵錯工作階段中，請按一下 [停止] 按鈕，或按 **Shift + F5**。 在 VS Code 命令選擇區中，輸入並選取 [Azure IoT Edge：停止 IoT Edge 模擬器]。
 
-> [!NOTE]
-> 這個範例說明如何針對容器上的 .Net Core IoT Edge 模組進行偵錯。 它是以 `Dockerfile.debug` 的偵錯版本為基礎，其中包含建置它時容器映像中的 .NET Core 命令列偵錯工具 VSDBG。 針對 C# 模組進行偵錯之後，建議您針對已可供生產環境使用的 IoT Edge 模組，直接使用 `Dockerfile` 或將其自訂成不含 VSDBG。
+    > [!NOTE]
+    > 這個範例說明如何針對容器上的 .Net Core IoT Edge 模組進行偵錯。 它是以 `Dockerfile.debug` 的偵錯版本為基礎，其中包含建置它時容器映像中的 Visual Studio .NET Core 命令列偵錯工具 VSDBG。 針對 C# 模組進行偵錯之後，建議您針對已可供生產環境使用的 IoT Edge 模組，直接使用 `Dockerfile` 或將其自訂成不含 VSDBG。
+
 
 ## <a name="next-steps"></a>後續步驟
 

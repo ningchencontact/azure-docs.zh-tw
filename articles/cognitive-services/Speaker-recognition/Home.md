@@ -1,24 +1,25 @@
 ---
-title: 說話者辨識 API | Microsoft Docs
-description: 透過認知服務中的說話者辨識 API，使用最先進的演算法進行說話者驗證和說話者識別。
+title: 什麼是說話者辨識？
+titlesuffix: Azure Cognitive Services
+description: 透過說話者辨識 API，使用最先進的演算法進行說話者驗證和說話者識別。
 services: cognitive-services
 author: dwlin
-manager: zhang
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speaker-recognition
-ms.topic: article
+ms.topic: overview
 ms.date: 03/20/2016
 ms.author: dwlin
-ms.openlocfilehash: 6d5e4e4bbe0cb5e57d2556f680ffcf8d16ee1818
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 13a95aff8b2b0d5dad0574e6107958a20576702a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368366"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227328"
 ---
 # <a name="speaker-recognition-api"></a>說話者辨識 API
 
-歡迎使用 Microsoft 說話者辨識 API。 說話者辨識 API 是雲端式 API，提供最先進的演算法進行說話者驗證和說話者識別。 說話者辨識可以分為兩類：說話者驗證和說話者識別。
+歡迎使用說話者辨識 API。 說話者辨識 API 是雲端式 API，提供最先進的演算法進行說話者驗證和說話者識別。 說話者辨識可以分為兩類：說話者驗證和說話者識別。
 
 
 ## <a name="speaker-verification"></a>說話者驗證

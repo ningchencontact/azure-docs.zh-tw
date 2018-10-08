@@ -9,14 +9,14 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: 7abd251751613224d062da5578e9c91a525599c9
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: d50291a33a9456fad20382d8e646bf6a19d6179e
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399027"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180876"
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>使用 Azure 儲存體讓應用程式資料具有高可用性
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>教學課程：使用 Azure 儲存體讓應用程式資料具有高可用性
 
 本教學課程是一個系列的第一部分，會說明如何讓應用程式資料在 Azure 中具有高可用性。 當您完成本教學課程，就會擁有主控台應用程式，可將 Blob 上傳和擷取到[讀取權限異地備援](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 儲存體帳戶。 RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複寫程序可保證次要區域中的資料是最終一致的。 該應用程式會使用[斷路器](/azure/architecture/patterns/circuit-breaker)模式來決定要連線到哪一個端點。 在模擬失敗狀況時，應用程式會切換到次要端點。
 
@@ -134,7 +134,7 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 
 ![主控台應用程式執行中](media/storage-create-geo-redundant-storage/figure3.png)
 
-在程式碼範例中，系統會使用 `Program.cs` 檔案中的 `RunCircuitBreakerAsync` 工作，透過 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) 方法從儲存體帳戶下載影像。 在下載之前，系統會先定義 [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)。 作業內容會定義事件處理常式，當下載作業成功完成，或下載作業失敗而正在重試時，便會引發這些處理常式。
+在程式碼範例中，系統會使用 `Program.cs` 檔案中的 `RunCircuitBreakerAsync` 工作，透過 [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法從儲存體帳戶下載影像。 在下載之前，系統會先定義 [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)。 作業內容會定義事件處理常式，當下載作業成功完成，或下載作業失敗而正在重試時，便會引發這些處理常式。
 
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 若要在終端機或命令提示字元上執行應用程式，請移至 **circuitbreaker.py** 目錄，然後輸入 `python circuitbreaker.py`。 此應用程式會將 **HelloWorld.png** 影像從解決方案上傳到儲存體帳戶。 此應用程式會進行檢查，以確保影像已複寫到次要 RA-GRS 端點。 之後，則會開始下載影像，最多會下載 999 次。 每次的讀取都會以 **P** 或 **S** 來表示。其中，**P** 代表主要端點，**S** 則代表次要端點。

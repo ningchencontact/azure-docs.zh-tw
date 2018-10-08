@@ -1,26 +1,27 @@
 ---
-title: Azure 內容仲裁 - 影片仲裁 | Microsoft Docs
+title: 影片仲裁 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 使用影片仲裁掃描有無可能的成人和猥褻內容。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: sajagtap
-ms.openlocfilehash: ef58f5990d4a0a19ab2b8c61b42ab2a0754dc6fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b6240ef0883e1a523c50c9b641065deb2669d53
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370319"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226530"
 ---
 # <a name="video-moderation"></a>影片仲裁
 
 今日，線上檢視器會在熱門的區域社交媒體網站之間產生數十億個影片觀看次數，而且不斷在增加。 藉由套用機器學習服務以預測成人和猥褻內容，您可以降低仲裁工作的成本。
 
-## <a name="sign-up-for-the-content-moderator-media-processor-public-preview"></a>註冊內容仲裁媒體處理器 (公開預覽)
+## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>註冊 Content Moderator 媒體處理器 (預覽)
 
 ### <a name="create-a-free-azure-account"></a>建立 Azure 免費帳戶
 

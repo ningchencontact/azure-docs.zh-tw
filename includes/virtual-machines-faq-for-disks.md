@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7208eb112b5f4a5b458c0374541dff113906aa0c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060766"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47186154"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -144,6 +144,9 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 <a id="standard-ssds-azure-regions"></a>**目前支援標準 SSD 磁碟的區域有哪些？**
 所有 Azure 區域現在都支援「標準 SSD」磁碟。
+
+**使用標準 SSD 時，可使用 Azure 備份嗎？**
+否，Azure 備份尚無法使用。
 
 **如何建立標準 SSD 磁碟？**
 您可以使用 Azure Resource Manager 範本、SDK、PowerShell 或 CLI 來建立「標準 SSD」磁碟。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：

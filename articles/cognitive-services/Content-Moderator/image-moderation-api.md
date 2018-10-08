@@ -1,20 +1,21 @@
 ---
-title: Azure 內容仲裁 - 影像仲裁 | Microsoft Docs
+title: 影像仲裁 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 使用影像仲裁來審核不適當的影像
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: c7cbc343c6e9113642d0ac79f4a4d60a404e8171
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370306"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219646"
 ---
 # <a name="image-moderation"></a>影像仲裁
 

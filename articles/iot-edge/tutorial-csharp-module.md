@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 991113b4e3e501d6d058a83baa795a5d7cbaa585
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9ef2edf5741d87a90af64bcda7182ccee230daed
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439674"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423335"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 C# IoT Edge 模組並部署至模擬裝置
 
@@ -40,7 +40,7 @@ Azure IoT Edge 裝置：
 
 雲端資源：
 
-* Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免費層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
 
 開發資源：
 
@@ -66,8 +66,14 @@ Azure IoT Edge 裝置：
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
 下列步驟會使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，建立以 .NET Core 2.0 SDK 為基礎的 IoT Edge 模組專案。
 
+### <a name="create-a-new-solution"></a>建立新解決方案
+
+建立您可以使用自己的程式碼自訂的 C# 解決方案範本。 
+
 1. 在 Visual Studio Code 中，選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
+
 2. 請在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
+
 3. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
 
    1. 選取要用來建立解決方案的資料夾。 
@@ -76,7 +82,25 @@ Azure IoT Edge 裝置：
    4. 將預設模組名稱取代為 **CSharpModule**。 
    5. 將您在上一節所建立的 Azure 容器登錄，指定為第一個模組的映像存放庫。 將 **localhost:5000** 取代為您所複製的登入伺服器值。 最終字串看起來會類似於：\<登錄名稱\>.azurecr.io/csharpmodule。
 
-4.  VS Code 視窗會載入您的 IoT Edge 解決方案工作區：模組資料夾、\.vscode 資料夾、部署資訊清單範本檔案，以及 \.env 檔案。 請在 VS Code 總管中，開啟 [modules] > [CSharpModule] > [Program.cs]。
+   ![提供 Docker 映像存放庫](./media/tutorial-csharp-module/repository.png)
+
+VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區包含五個最上層元件。 您在本教學課程中將不會編輯 **\.vscode** 資料夾或 **\.gitignore** 檔案。 **modules** 資料夾包含您的模組所需的 C# 程式碼，以及用來將模組建置為容器映像的 Dockerfile。 **\.env** 檔案會儲存您的容器登錄認證。 **Deployment.template.json** 檔案包含 IoT Edge 執行階段用來在裝置上部署模組的資訊。 
+
+如果您在建立解決方案時未指定容器登錄，但接受了預設的 localhost:5000 值，則不會有 \.env 檔案。 
+
+   ![C# 解決方案工作區](./media/tutorial-csharp-module/workspace.png)
+
+### <a name="add-your-registry-credentials"></a>新增登錄認證
+
+環境檔案會儲存容器登錄的認證，並與 IoT Edge 執行階段共用這些認證。 執行階段需要有這些認證才能將私人映像提取到 IoT Edge 裝置。 
+
+1. 在 VS Code 總管中，開啟 .env 檔案。 
+2. 使用從 Azure Container Registry 複製過來的 [使用者名稱] 和 [密碼] 值來更新欄位。 
+3. 儲存這個檔案。 
+
+### <a name="update-the-module-with-custom-code"></a>使用自訂程式碼來更新模組
+
+1. 請在 VS Code 總管中，開啟 [modules] > [CSharpModule] > [Program.cs]。
 
 5. 在 **CSharpModule** 命名空間頂端，為稍後會用到的類型新增三個 **using** 陳述式：
 
@@ -253,26 +277,29 @@ Azure IoT Edge 裝置：
 
 4. 儲存這個檔案。
 
-5. 在 VS Code 總管中，以滑鼠右鍵按一下 deployment.template.json 檔案，然後選取 [建置 IoT Edge 解決方案]。 
+5. 在 VS Code 總管中，以滑鼠右鍵按一下 deployment.template.json 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。 
 
-當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於名為 **config** 的新資料夾中產生 deployment.json 檔案。然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將 CSharpModule.dll 容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄中。 
+當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於名為 **config** 的新資料夾中，產生 deployment.json 檔案。然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將 CSharpModule.dll 容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄中。 
 
 您可以在 VS Code 整合式終端機中檢視完整容器映像位址。 系統會根據 module.json 檔案中的資訊建置映像位址，其格式如下：\<存放庫\>：\<版本\>-\<平台\>。 在本教學課程中，它會顯示為：registryname.azurecr.io/csharpmodule:0.0.1-amd64。
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 
-1. 使用 IoT 中樞連接字串來設定 Azure IoT Toolkit 擴充功能： 
+在您用來設定 IoT Edge 裝置的快速入門文章中，您使用 Azure 入口網站部署了模組。 您可以使用 Visual Studio Code 的 Azure IoT 工具組擴充功能來部署模組。 您已備妥您的案例所需的部署資訊清單，即 **deployment.json** 檔案。 現在您只需選取要接收部署的裝置即可。
 
-    1. 選取 [檢視] > [檔案總管] 來開啟 VS Code 檔案總管。
+1. 在 VS Code 命令選擇區中，執行 [Azure IoT 中樞：選取 IoT 中樞]。 
 
-    1. 在 [總管] 中，選取 [Azure IoT 中樞裝置]、選取省略符號 (**...**)，然後選擇 [選取 IoT 中樞]。 請依照指示登入您的 Azure 帳戶，然後選擇 IoT 中樞。 
+2. 選擇您要設定的 IoT Edge 裝置所屬的訂用帳戶和 IoT 中樞。 
 
-       > [!Note]
-       > 您也可以選擇 [設定 IoT 中樞連接字串] 來完成設定。 在快顯視窗中，輸入與您的 IoT Edge 裝置連線的 IoT 中樞所使用的連接字串。
+3. 在 VS Code 總管中，展開 [Azure IoT 中樞裝置] 區段。 
 
-2. 在 Azure IoT 中樞裝置總管中，以滑鼠右鍵按一下 IoT Edge 裝置，然後選取 [針對 IoT Edge 裝置建立部署]。 選取 config 資料夾中的 deployment.json 檔案，然後選擇 [選取 Edge 部署資訊清單]。
+4. 以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [建立單一裝置的部署]。 
 
-3. 重新整理 [Azure IoT 中樞裝置] 區段。 您應該會看到新的 **CSharpModule** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 
+   ![建立單一裝置的部署](./media/tutorial-csharp-module/create-deployment.png)
+
+5. 選取 **config** 資料夾中的 **deployment.json** 檔案，然後按一下 [選取 Edge 部署資訊清單]。 請勿使用 deployment.template.json 檔案。 
+
+6. 按一下 [重新整理] 按鈕。 您應該會看到新的 **CSharpModule** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。  
 
 ## <a name="view-generated-data"></a>檢視產生的資料
 
@@ -284,33 +311,13 @@ Azure IoT Edge 裝置：
  
 ## <a name="clean-up-resources"></a>清除資源 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。
+如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。 
 
 否則，可以刪除您在本文中建立的本機組態和 Azure 資源，以避免產生費用。 
 
-> [!IMPORTANT]
-> 刪除 Azure 資源和資源群組是無法回復的動作。 當您刪除這些項目時，資源群組和其中包含的所有資源都將永久刪除。 請確定您不會誤刪錯誤的資源群組或資源。 如果您在現有的資源群組內建立了 IoT 中樞，而該群組中包含您想要保留的資源，則您只需刪除 IoT 中樞資源本身即可，而不要刪除資源群組。
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-若只要刪除 IoT 中樞，請使用中樞名稱和資源群組名稱執行下列命令：
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-若要依名稱刪除整個資源群組：
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後選取 [資源群組]。
-
-2. 在 [依名稱篩選] 文字方塊中，輸入包含 IoT 中樞的資源群組名稱。 
-
-3. 在結果清單中資源群組的右側，選取省略符號 (**...**)，然後選取 [刪除資源群組]。
-
-4. 系統將會要求您確認是否刪除資源群組。 重新輸入您資源群組的名稱以進行確認，然後選取 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
-
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>後續步驟

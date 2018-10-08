@@ -1,21 +1,26 @@
 ---
 title: 適用於 Azure Machine Learning 硬體加速的 FPGA 套件
 description: 了解適用於 Azure Machine Learning 使用者的 Python 套件。
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42144046"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162180"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 硬體加速套件
+
+>[!Note]
+>**此文章已過時。** 已淘汰此 FPGA 套件。 Azure ML SDK 已新增此功能的支援。 此套件的支援將會逐漸結束。 [檢視支援時間表](overview-what-happened-to-workbench.md#timeline)。 了解已更新的 [FPGA 支援](concept-accelerate-with-fpgas.md)。
 
 Azure Machine Learning 硬體加速套件是適用於 Azure Machine Learning 的 Python 可安裝 pip 的延伸模組，可讓資料科學家和 AI 開發人員快速：
 
@@ -29,7 +34,7 @@ Azure Machine Learning 硬體加速套件是適用於 Azure Machine Learning 的
 
 1. 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-1. 您必須建立 Azure Machine Learning 模型管理帳戶。 如需有關建立帳戶的詳細資訊，請參閱 [Azure Machine Learning 快速入門和 Workbench 安裝](../service/quickstart-installation.md)文件。 
+1. Azure Machine Learning 模型管理帳戶。 如需有關建立帳戶的詳細資訊，請參閱 [Azure Machine Learning 快速入門和 Workbench 安裝](../desktop-workbench/quickstart-installation.md)文件。 
 
 1. 您必須安裝此套件。 
 

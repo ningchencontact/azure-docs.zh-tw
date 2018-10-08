@@ -3,20 +3,22 @@ title: 使用 Azure SQL Database 設計全域可用的服務 | Microsoft Docs
 description: 了解使用 Azure SQL Database 對高可用性服務的應用程式設計。
 keywords: cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning,雲端災害復原,災害復原方案,應用程式資料備份,異地複寫,商務持續性計劃
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/26/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264649"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064263"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>使用 Azure SQL Database 設計全域可用的服務
 

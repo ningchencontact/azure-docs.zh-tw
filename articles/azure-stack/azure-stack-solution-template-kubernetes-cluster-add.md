@@ -11,26 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 978cce4642dc61143bd829fcae03357fd8c969c2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994559"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405507"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>將 Kubernetes 新增至 Azure Stack Marketplace
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 > [!note]  
-> Azure Stack 上的 Kubernetes 處於預覽狀態。 若要要求執行本文中指示所需 Kubernetes 叢集 Marketplace 項目的存取權，請[提交要求以取得存取權](https://aka.ms/azsk8)。
+> Azure Stack 上的 Kubernetes 處於預覽狀態。
 
 您能以 Marketplace 項目的方式向使用者提供 Kubernetes。 您的使用者可以在單一協調作業中部署 Kubernetes。
 
-以下文章說明如何使用 Azure Resource Manager 範本來部署及佈建獨立 Kubernetes 叢集的資源。 開始之前，請檢查您的 Azure Stack 和全域的 Azure 租用戶設定。 收集有關您 Azure Stack 的必要資訊。 將必要的資源新增到您的租用戶及 Azure Stack Marketplace。 叢集仰賴 Ubuntu 伺服器、自訂指令碼和會在 Marketplace 中的 Kubernetes 項目。
+以下文章說明如何使用 Azure Resource Manager 範本來部署及佈建獨立 Kubernetes 叢集的資源。 Kubernetes Cluster Marketplace 項目 0.3.0 需要 Azure Stack 1808 版。 開始之前，請檢查您的 Azure Stack 和全域的 Azure 租用戶設定。 收集有關您 Azure Stack 的必要資訊。 將必要的資源新增到您的租用戶及 Azure Stack Marketplace。 叢集仰賴 Ubuntu 伺服器、自訂指令碼和會在 Marketplace 中的 Kubernetes 項目。
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>建立方案、供應項目和訂用帳戶
 
@@ -127,14 +127,20 @@ ms.locfileid: "46994559"
 
 移除 Kubernetes 項目：
 
-1. 請記下目前項目的名稱，例如 `Microsoft.AzureStackKubernetesCluster.0.2.0`
+1. 以操作員的身分使用 PowerShell 連線到 Azure Stack。 如需指示，請參閱[以操作員的身分使用 PowerShell 連線到 Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-admin)。
 
-1. 使用 PowerShell 連線到 Azure Stack。
-
-1. 使用以下 PowerShell Cmdlet 來移除項目：
+2. 在資源庫中尋找目前的 Kubernetes 叢集項目。
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
+    Get-AzsGalleryItem | Select Name
+    ```
+    
+3. 請記下目前項目的名稱，例如 `Microsoft.AzureStackKubernetesCluster.0.2.0`
+
+4. 使用以下 PowerShell Cmdlet 來移除項目：
+
+    ```PowerShell  
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```

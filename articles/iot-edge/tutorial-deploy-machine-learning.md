@@ -4,17 +4,17 @@ description: 在本教學課程中，將 Azure Machine Learning 當作模組部�
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ddc5adbb5b6bc7f04a893b05df3601714ed85eec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c9350704943bebada217338488e51b97acc550ca
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991448"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423607"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
 
@@ -45,7 +45,7 @@ Azure IoT Edge 裝置：
 
 雲端資源：
 
-* Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免費層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
 * Azure Machine Learning 帳戶。 請遵循[建立 Azure Machine Learning 帳戶，並安裝 Azure Machine Learning Workbench](../machine-learning/desktop-workbench/quickstart-installation.md) 中的指示。 您不需要針對此教學課程安裝 Workbench 應用程式。 
 
 開發資源：

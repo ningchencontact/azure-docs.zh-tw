@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093837"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404303"
 ---
-# <a name="shipping-an-application"></a>寄送應用程式
+# <a name="ship-an-application"></a>交付應用程式
 
-在散發認知服務語音 SDK 時，請觀察[語音 SDK 授權](license.md)及[第三方軟體聲明](third-party-notices.md)。 此外，請檢閱 [Microsoft 隱私權聲明](https://aka.ms/csspeech/privacy)。
+在散發 Azure 認知服務語音 SDK 時，請查看[語音 SDK 授權](https://aka.ms/csspeech/license201809)及[第三方軟體聲明](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html)。 此外，請檢閱 [Microsoft 隱私權聲明](https://aka.ms/csspeech/privacy)。
 
 視平台而定，有不同的相依性存在以執行您的應用程式。
 

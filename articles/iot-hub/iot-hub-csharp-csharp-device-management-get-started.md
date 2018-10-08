@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
-ms.openlocfilehash: ed591007e6ad83dfbafe13db0bd3d8b53fc216f3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bca25f5e7a6fd7685d20236033a5a225c5183a2d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106364"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225339"
 ---
 # <a name="get-started-with-device-management-netnet"></a>開始使用裝置管理 (.NET/.NET)
 
@@ -131,7 +131,7 @@ ms.locfileid: "43106364"
     
 2. 在 [方案總管] 中，於 [SimulateManagedDevice] 專案上按一下滑鼠右鍵，然後按一下 [管理 NuGet 套件]。
 
-3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) (英文) NuGet 套件與其相依項目，並新增對它的參考。
+3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 套件與其相依性，並新增對它的參考。
    
     ![NuGet 套件管理員視窗用戶端應用程式](./media/iot-hub-csharp-csharp-device-management-get-started/clientsdknuget.png)
     
@@ -213,7 +213,7 @@ ms.locfileid: "43106364"
 8. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案...]選取 [單一啟始專案]，然後選取下拉式功能表中的 [SimulateManagedDevice] 專案。 建置方案。       
 
 > [!NOTE]
-> 為了簡單起見，本教學課程不會實作任何重試原則。 在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理](https://msdn.microsoft.com/library/hh680901.aspx)所建議，實作重試原則 (例如指數型輪詢)。
+> 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)一文中所建議，實作重試原則 (例如指數型輪詢)。
 
 ## <a name="run-the-apps"></a>執行應用程式
 

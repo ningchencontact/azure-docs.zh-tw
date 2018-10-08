@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e9c09d31af1b6ea214ae2d0fc6fd7399c07fd8c0
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577815"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434533"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 本文說明適用於 Azure 串流分析作業的不同輸出類型。 輸出可讓您存放並儲存串流分析作業的結果。 透過使用輸出資料，您可以對資料進行進一步的商務分析及資料倉儲處理。 
@@ -63,7 +63,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 ![授權 Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 做為資料輸出。 串流分析作業會寫入至 Azure SQL Database 中的現有資料表。  資料表結構描述必須完全符合作業輸出的欄位及其類型。 您也可以透過 SQL Database 輸出選項，將 [Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)指定為輸出。 下表列出屬性名稱及其描述以建立 SQL Database 輸出。
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 做為資料輸出。 串流分析作業會寫入至 Azure SQL Database 中的現有資料表。  資料表結構描述必須完全符合作業輸出的欄位及其類型。 您也可以透過 SQL Database 輸出選項，將 [Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)指定為輸出。 若要深入了解如何改善寫入輸送量，請參閱[使用 Azure SQL DB 作為輸出的串流分析](stream-analytics-sql-output-perf.md)一文。 下表列出屬性名稱及其描述以建立 SQL Database 輸出。
 
 | 屬性名稱 | 說明 |
 | --- | --- |
@@ -71,7 +71,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 資料庫 | 您傳送輸出的目標資料庫名稱。 |
 | 伺服器名稱 | SQL Database 伺服器名稱。 |
 | 使用者名稱 | 具有寫入資料庫存取權限的使用者名稱。 |
-| 密碼 | 連線到資料庫的密碼。 |
+| 密碼 | 連接到資料庫的密碼 |
 | 資料表 | 要在其中寫入輸出的資料表名稱。 資料表名稱會區分大小寫，且資料表的結構描述應該完全符合作業輸出所產生的欄位數目和其類型。 |
 
 > [!NOTE]
@@ -297,7 +297,7 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Az
 | 輸出類型 | 支援分割 | 資料分割索引鍵  | 輸出寫入器數目 | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | 是 | 在路徑前置詞模式中使用 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 | 
-| 連接字串 | 否 | None | 不適用。 | 
+| 連接字串 | 是 | 以查詢中的 PARTITION BY 子句為依據 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 | 
 | Azure Blob 儲存體 | 是 | 使用來自路徑模式中事件欄位的 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 在[預覽](https://aka.ms/ASAPreview)當中，可依照單一自訂事件屬性 {fieldname} 或 {datetime:\<specifier>} 分割 Blob 輸出。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 | 
 | Azure 事件中樞 | 是 | 是 | 根據分割區對齊方式而有所不同。</br> 當輸出事件中樞分割區索引鍵與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和輸出事件中樞分割區的數目相同。 每個寫入器都會使用事件中樞的 [EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)來將事件傳送至特定的分割區。 </br> 當輸出事件中樞分割區索引鍵沒有與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和先前步驟中的分割區數目相同。 每個寫入器會使用 EventHubClient [SendBatchAsync 類別](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) \(英文\) 來將事件傳送至所有輸出分割區。 |
 | Power BI | 否 | None | 不適用。 | 

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 06/15/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2f974b7773e7a4cbc0eda32a267bb5ab939644d8
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714896"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095111"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>將儲存體總管連線到 Azure Stack 訂用帳戶或儲存體帳戶
 
@@ -65,9 +65,9 @@ ms.locfileid: "34714896"
 
     ![確保已選取目標 Azure Stack](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
-## <a name="connect-to-an-azure-stack-subscription"></a>連線到 Azure Stack 訂用帳戶
+## <a name="connect-to-an-azure-stack-subscription-with-azure-ad"></a>使用 Azure AD 連線到 Azure Stack 訂用帳戶
 
-使用下列步驟將儲存體總管連線到 Azure Stack 訂用帳戶。
+使用下列步驟將儲存體總管連線到 Azure Stack 訂用帳戶，其屬於 Azure Active Directory (Azure AD) 帳戶。
 
 1. 在儲存體總管的左側窗格中，選取 [管理帳戶]。 
     您已登入的所有 Microsoft 訂用帳戶隨即顯示。
@@ -87,6 +87,44 @@ ms.locfileid: "34714896"
     左窗格會顯示與所選 Azure Stack 訂用帳戶相關聯的儲存體帳戶。
 
     ![包含 Azure Stack 訂用帳戶的儲存體帳戶清單](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
+
+## <a name="connect-to-an-azure-stack-subscription-with-ad-fs-account"></a>使用 AD FS 帳戶連線到 Azure Stack 訂用帳戶
+
+> [!Note]  
+> Azure 同盟服務 (AD FS) 登入體驗支援具有 Azure Stack 1804 或更新更新的儲存體總管 1.2.0 或更新版本。
+使用下列步驟將儲存體總管連線到 Azure Stack 訂用帳戶，其屬於 AD FS 帳戶。
+
+1. 選取 [管理帳戶]。 總管會列出您已登入的 Microsoft 訂用帳戶。
+2. 選取 [新增帳戶] 以連線到 Azure Stack 訂用帳戶。
+
+    ![新增帳戶](media/azure-stack-storage-connect-se/add-an-account.png)
+
+3. 選取 [下一步] 。 在 [連線至 Azure 儲存體] 對話方塊的 [Azure 環境] 底下，選取 [使用自訂環境]，然後按 [下一步]。
+
+    ![連線到 Azure 儲存體](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+
+4. 輸入 Azure Stack 自訂環境的必要資訊。 
+
+    | 欄位 | 注意 |
+    | ---   | ---   |
+    | 環境名稱 | 使用者可以自訂此欄位。 |
+    | Azure Resource Manager 端點 | Azure Stack 開發套件的 Azure Resource Manager 資源端點範例。<br>針對操作人員： https://adminmanagement.local.azurestack.external <br> 針對使用者： https://management.local.azurestack.external |
+
+    如果您使用 Azure Stack 整合式系統且不知道您的管理端點，請連絡您的操作人員。
+
+    ![新增帳戶](./media/azure-stack-storage-connect-se/custom-environments.png)
+
+5. 選取 [登入]，以連線至與至少一個作用中 Azure Stack 訂用帳戶相關聯的 Azure Stack 帳戶。
+
+
+
+6. 選取您想要使用的 Azure Stack 訂用帳戶。 選取 [套用] 。
+
+    ![帳戶管理](./media/azure-stack-storage-connect-se/account-management.png)
+
+    左窗格會顯示與所選 Azure Stack 訂用帳戶相關聯的儲存體帳戶。
+
+    ![相關聯的訂用帳戶清單](./media/azure-stack-storage-connect-se/list-of-associated-subscriptions.png)
 
 ## <a name="connect-to-an-azure-stack-storage-account"></a>連線到 Azure Stack 儲存體帳戶
 

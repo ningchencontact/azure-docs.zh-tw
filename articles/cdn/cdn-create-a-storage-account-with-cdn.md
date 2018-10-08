@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 05ce8c932e9d3d812e34e23c082d459c3193ea40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608496"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096236"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>快速入門：整合 Azure 儲存體帳戶與 Azure CDN
 在本快速入門中，您可以啟用 [Azure 內容傳遞網路 (CDN)](cdn-overview.md)，從 Azure 儲存體快取內容。 Azure CDN 提供開發人員一套傳遞高頻寬內容的全域解決方案。 在北美洲、歐洲、亞洲、澳洲及南美洲的實體節點上，皆可快取 blob 和計算執行個體的靜態內容。
@@ -84,7 +84,7 @@ ms.locfileid: "34608496"
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>啟用儲存體帳戶的 Azure CDN
 
-您可以直接從儲存體帳戶啟用儲存體帳戶的 Azure CDN。 如果想要指定 CDN 端點的進階組態設定，例如最佳化類型，則您可以改用 [Azure CDN 擴充功能](cdn-create-new-endpoint.md)建立 CDN 設定檔或 CDN 端點。
+您可以直接從儲存體帳戶啟用儲存體帳戶的 Azure CDN。 如果想要指定 CDN 端點的進階組態設定 (例如[大型檔案下載最佳化](cdn-optimization-overview.md#large-file-download))，您可以改用 [Azure CDN 擴充功能](cdn-create-new-endpoint.md)建立 CDN 設定檔或端點。
 
 1. 從儀表板選取儲存體帳戶，然後在左窗格中選取 [Azure CDN]。 如果 [Azure CDN] 按鈕沒有立即顯示，您可以在左窗格的 [搜尋] 方塊中輸入 CDN 來尋找。
     
@@ -109,6 +109,9 @@ ms.locfileid: "34608496"
 在儲存體帳戶 [Azure CDN] 頁面中，選取清單內的 CDN 端點，以開啟 CDN 端點組態頁面。 從此頁面中，您可以為傳遞啟用其他的 CDN 功能，例如[壓縮](cdn-improve-performance.md)、[查詢字串快取](cdn-query-string.md)和[地區篩選](cdn-restrict-access-by-country.md)。 
     
 ![儲存體 CDN 端點設定](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+
+## <a name="enable-sas"></a>啟用 SAS
+如果您想要授與有限的私人儲存體容器存取權，便可以使用 Azure 儲存體帳戶的「共用存取簽章」(SAS) 功能。 SAS 是一個 URI，可在不公開您帳戶金鑰的情況下，授與對「Azure 儲存體」資源的有限存取權限。 如需詳細資訊，請參閱[搭配使用 Azure CDN 與 SAS](cdn-sas-storage-support.md)。
 
 ## <a name="access-cdn-content"></a>存取 CDN 內容
 若要存取 CDN 上快取的內容，請使用入口網站中提供的 CDN URL。 快取 blob 的位址格式如下：
@@ -139,8 +142,8 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 3. 若要刪除儲存體帳戶，請從儀表板中選取該帳戶，然後從頂端功能表中選取 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
-若要了解如何將自訂網域新增至您的 CDN 端點，請參閱下列教學課程：
+若要了解如何在 CDN 端點上新增自訂網域並啟用 HTTPS，請參閱下列教學課程：
 
 > [!div class="nextstepaction"]
-> [教學課程：將自訂網域新增至 Azure CDN 端點](cdn-map-content-to-custom-domain.md)
+> [教學課程：使用 Azure CDN 自訂網域透過 HTTPS 存取儲存體 Blob](cdn-storage-custom-domain-https.md)
 

@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.reviewer: quying
+ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842493"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407901"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>為 SQL 資源提供者新增主控伺服器
 
 您可以使用 [Azure Stack](azure-stack-poc.md) 內 VM 上的 SQL 執行個體，或 Azure Stack 環境外的執行個體，只要資源提供者能夠連線到該執行個體均可。
+
+> [!NOTE]
+> SQL 資料庫應建立在 SQL 資源提供者伺服器上。 SQL 資源提供者應建立在預設提供者訂用帳戶中，而 SQL 主控伺服器則應建立在可計費的使用者訂用帳戶中。 資源提供者伺服器不應該用來裝載使用者資料庫。
 
 ## <a name="overview"></a>概觀
 
@@ -45,6 +48,9 @@ ms.locfileid: "43842493"
 您可以透過 Marketplace 管理功能取得 SQL IaaS 虛擬機器映像。 這些映像與 Azure 中提供的 SQL VM 相同。
 
 在使用 Marketplace 項目部署 SQL VM 前，務必先下載最最版的 **SQL IaaS 擴充功能**。 IaaS 擴充功能和對應的入口網站增強功能可提供自動修補和備份之類的其他功能。 如需此擴充功能的詳細資訊，請參閱[使用 SQL Server 代理程式延伸模組 (Resource Manager) 自動化 Azure 虛擬機器上的管理工作](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)。
+
+> [!NOTE]
+> Marketplace 中所有位於 Windows 上的 SQL 映像都_需要_ SQL IaaS 延伸模組；若未下載此延伸模組，VM 將無法進行部署。 它無法與以 Linux 為基礎的 SQL 虛擬機器映像搭配使用。
 
 有其他選項可用於部署 SQL VM，包含 [Azure Stack 快速入門資源庫](https://github.com/Azure/AzureStack-QuickStart-Templates)中的範本。
 
@@ -125,7 +131,7 @@ ms.locfileid: "43842493"
   GO
   ```
 
-請注意，可用性群組必須以方括弧括住。
+可用性群組必須以方括弧括住。
 
 在次要節點上，執行下列 SQL 命令：
 

@@ -1,30 +1,31 @@
 ---
-title: Azure 認知服務 Bing 影片搜尋 API 的 PHP 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing 影片搜尋 API。
+title: 快速入門：Bing 影片搜尋 (PHP)
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 影片搜尋 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 2e7dc1fc82f143b51461595f9c92294a359bdc62
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4e64771802564da1e1cb9efccef1ef63b38c2b80
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369939"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224710"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-php"></a>Bing 影片搜尋 API 的 PHP 快速入門
+# <a name="quickstart-bing-video-search-api-with-php"></a>快速入門：使用 PHP 的 Bing 影片搜尋 API
 
-本文示範如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 影片搜尋 API。 雖然本文是以 PHP 部署，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
+本文說明如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 影片搜尋 API。 雖然本文是以 PHP 部署，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
 
 程式碼範例已撰寫為可在 PHP 5.6 下運作。
 
 請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)了解 API 的技術詳細資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您需要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
 
@@ -33,9 +34,9 @@ ms.locfileid: "35369939"
 [Bing 影片搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 會從 Bing 搜尋引擎傳回影片結果。
 
 1. 請確定 `php.ini` 中已啟用安全 HTTP 支援，如程式碼註解中所述。
-2. 在您愛用的 IDE 或編輯器中建立新的 PHP 專案。
+2. 在您最愛的 IDE 或編輯器中建立新的 PHP 專案。
 3. 新增下方提供的程式碼。
-4. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
+4. 以訂用帳戶有效的存取金鑰來取代 `accessKey` 值。
 5. 執行程式。
 
 ```php
@@ -100,7 +101,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
 **回應**
 
-會以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {

@@ -3,7 +3,7 @@ title: 適用於 Windows 的 Azure Log Analytics 虛擬機器擴充功能 | Micr
 description: 使用虛擬機器擴充功能在 Windows 虛擬機器上部署 Log Analytics 代理程式。
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 2c228784e7a0a78f6dfdb93ce632bf340dea0ee9
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 02fa19cad56f1a31ad60c597df1b004710cb5b50
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414737"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452083"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>適用於 Windows 的 Log Analytics 虛擬機器擴充功能
 
@@ -68,14 +68,16 @@ Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作�
 ```
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 |
+| 名稱 | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| workspaceId (例如) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceId (例如)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (例如) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+\* workspaceId 在 Log Analytics API 中稱為 consumerId。
 
 ## <a name="template-deployment"></a>範本部署
 

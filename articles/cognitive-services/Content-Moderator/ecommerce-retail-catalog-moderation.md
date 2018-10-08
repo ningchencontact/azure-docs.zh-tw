@@ -1,22 +1,23 @@
 ---
-title: 使用 Azure 內容仲裁與機器學習和 AI 來產生合適的電子商務目錄 | Microsoft Docs
-description: 使用機器學習和 AI 自動產生合適的電子商務目錄
+title: 教學課程：電子商務目錄仲裁 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: 使用機器學習和 AI 自動產生合適的電子商務目錄。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2405ba9087e63b57c7bd6bc6f290cdafacaf7a49
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095746"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227345"
 ---
-# <a name="ecommerce-catalog-moderation-with-machine-learning"></a>使用機器學習產生合適的電子商務目錄
+# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>教學課程：使用機器學習產生合適的電子商務目錄
 
 在本教學課程中，我們會了解如何結合機器輔助 AI 技術和人力合適性做法來實作機器學習型智慧電子商務目錄合適性機制，以提供智慧型目錄系統。
 

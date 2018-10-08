@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 56a8da6d39e39ab68b2b854c6899b88a3618d223
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 620d8b370b050a4d91ee6d94cba2c133b4313aed
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997721"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159979"
 ---
 # <a name="what-happened-to-workbench-in-azure-machine-learning-preview"></a>Azure Machine Learning (預覽) 中的 Workbench 發生什麼事？
 
@@ -67,9 +67,9 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 
 您現有的資料準備檔案無法攜帶到最新的版本，因為我們已經沒有 Workbench。 不過您仍然可以準備模型化要用的資料。  
 
-對於較小的資料集，您可以在模型化之前，使用 [Azure Machine Learning 資料準備 SDK](https://docs.microsoft.com/python/api/azureml_dataprep/?view=azure-dataprep-py)來快速準備您的資料。 
+對於較小的資料集，您可以在模型化之前，使用 <a href="http://aka.ms/aml-sdk" target="_blank">Azure Machine Learning 資料準備 SDK</a> 來快速準備您的資料。 
 
-您可以將這個相同的 SDK 用於較大的資料集，或使用 Azure Databricks 來準備大型資料集。 [了解如何取得資料準備 SDK](how-to-data-prep.md)。 
+您可以將這個相同的 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 用於較大的資料集，或使用 Azure Databricks 來準備大型資料集。 
 
 ## <a name="will-projects-persist"></a>專案是否會保存？
 
@@ -77,13 +77,13 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 
 因為大部分專案的內容都已經在您的本機電腦上，所以您只需要在該目錄中建立設定檔，並在您的程式碼中參照它，就能連線到您的工作區。 [了解如何遷移您現有的專案。](how-to-migrate.md#projects)
 
-了解如何[透過 SDK 開始使用 Python](quickstart-get-started.md)。
+了解如何[透過主要 SDK 開始使用 Python](quickstart-get-started.md)。
 
 ## <a name="what-about-my-registers-models-and-images"></a>那麼我的註冊模型和映像呢？
  
 如果您要繼續使用在舊模型登錄中註冊的模型，您必須將它們遷移到新工作區。 若要這麼做，您可以[下載模型並在新的工作區中重新註冊它們](how-to-migrate.md)。 
 
-您在舊映像登錄中建立的映像，必須在新工作區中重新建立才能繼續使用它們。 若要這麼做，您可以按照[建立 Docker 映像](how-to-deploy-to-aci.md)一節中的步驟來操作。 
+您在舊映像登錄中建立的映像，必須在新工作區中重新建立才能繼續使用它們。 若要這麼做，您可以按照[建立 Docker 映像](how-to-deploy-to-aci.md#configure-an-image)一節中的步驟來操作。 
 
 ## <a name="what-about-deployed-web-services"></a>那麼已部署的 Web 服務呢？
 

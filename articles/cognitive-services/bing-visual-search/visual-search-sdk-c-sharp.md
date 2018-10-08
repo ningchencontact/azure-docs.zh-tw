@@ -1,23 +1,23 @@
 ---
-title: 圖像式搜尋 SDK C# 快速入門 | Microsoft Docs
-description: 設定圖像式搜尋 SDK C# 主控台應用程式。
+title: 快速入門：使用 Bing 圖像式搜尋 SDK (C#)
 titleSuffix: Azure Cognitive Services
+description: 設定圖像式搜尋 SDK C# 主控台應用程式。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: e9b93c46cf0702dc58398e247fef79c3f31bb50c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 938768ad366611b8651adc3d554c44c16a3830ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213100"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224523"
 ---
-# <a name="visual-search-sdk-c-quickstart"></a>圖像式搜尋 SDK C# 快速入門
+# <a name="quickstart-bing-visual-search-sdk-c"></a>快速入門：Bing 圖像式搜尋 SDK C#
 
 Bing 圖像式搜尋 SDK 使用 Web 要求和剖析結果的 REST API 功能。
 [C# Bing 圖像式搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch)可從 Git Hub 取得。
@@ -32,9 +32,9 @@ Bing 圖像式搜尋 SDK 使用 Web 要求和剖析結果的 REST API 功能。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Visual Studio 2017。 如有需要，您可從下列位置下載免費的社群版本：https://www.visualstudio.com/vs/community/。
+* Visual Studio 2017。 如有需要，您可從下列位置下載免費的社群版本： https://www.visualstudio.com/vs/community/。
 * 必須要有認知服務 API 金鑰才能驗證 SDK 呼叫。 註冊[免費試用金鑰](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)。 試用金鑰可讓您以每秒 1 個呼叫的頻率使用 7 天。 針對生產案例，請[購買存取金鑰](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)。 另請參閱[定價資訊](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/)。
-* 能夠執行 .NET Core SDK，也就是 .NET Core 1.1 應用程式。 您可以從下列位置取得 CORE、架構和執行階段：https://www.microsoft.com/net/download/。
+* 能夠執行 .NET Core SDK，也就是 .NET Core 1.1 應用程式。 您可以從下列位置取得 CORE、架構和執行階段： https://www.microsoft.com/net/download/。
 
 ## <a name="application-dependencies"></a>應用程式相依性
 

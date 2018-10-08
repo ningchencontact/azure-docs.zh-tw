@@ -1,6 +1,6 @@
 ---
-title: Azure 認知服務語音服務
-description: 了解如何使用語音服務認知服務自訂發音。
+title: 使用 Azure 認知服務中的語音服務自訂發音
+description: 了解如何使用 Azure 認知服務中的語音服務自訂發音。
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 93fec1ea78263798588a43b2314ffdea736cdbbc
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a608d1e48112fbb2adb56191eeb7f168de507e77
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745346"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423199"
 ---
 # <a name="enable-custom-pronunciation"></a>啟用自訂發音
 藉由使用自訂發音，您可以定義語音形式和顯示字組或字詞。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 (簡單的 .txt 檔)。
@@ -33,7 +33,7 @@ Display form <Tab> Spoken form <Newline>
 | CNTK | see n tea k|
 
 ## <a name="requirements-for-the-spoken-form"></a>口語形式的需求
-口語形式必須是小寫，您可以在匯入期間強制執行此規定。 此外，您必須在資料匯入工具內提供檢查。 口語形式和顯示形式中都不允許定位點。 不過，顯示形式中可以有更多受到禁止的字元 (例如，~ 和 ^)。
+口語形式必須是小寫，您可以在匯入期間強制執行此規定。 您也必須在資料匯入工具中提供檢查。 口語形式和顯示形式中都不允許定位點。 不過，顯示形式中可以有更多受到禁止的字元 (例如，~ 和 ^)。
 
 每個 .txt 檔案都可以有數個項目，如下圖所示：
 
@@ -47,7 +47,7 @@ Display form <Tab> Spoken form <Newline>
 | 語言 | 字元 |
 |---------- |----------|
 | 美式英文 (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
-| 德文 (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
+| 德文 (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 
 > [!NOTE]
 > 字詞的顯示形式 (在發音檔中) 應該以相同方式撰寫於語言適應資料集。

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 355f80479ba7c6d6399bb25f7ba1511c6b18599b
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 7067a71eea3ffbfadf006a102ee926fb15347f63
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285222"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423641"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -35,28 +35,25 @@ ms.locfileid: "43285222"
 </tr>
 </table>
   
-Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環境做為開發之用。 您可以使用 Azure Cosmos DB 模擬器在本機開發及測試應用程式，不需建立 Azure 訂用帳戶，也不會產生任何費用。 如果您滿意應用程式在 Azure Cosmos DB 模擬器中的運作方式，就可以切換成使用雲端的 Azure Cosmos DB 帳戶。
-
-> [!NOTE]
-> 模擬器中的資料總管目前只完整支援 SQL API 集合和 MongoDB 集合。 不會完整支援資料表、Graph 和 Cassandra 容器。 
+Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環境做為開發之用。 您可以使用 Azure Cosmos DB 模擬器在本機開發及測試應用程式，不需建立 Azure 訂用帳戶，也不會產生任何費用。 如果您滿意應用程式在 Azure Cosmos DB 模擬器中的運作方式，就可以切換成使用雲端的 Azure Cosmos DB 帳戶。 Azure Cosmos DB 模擬器可與所有 API 搭配使用：SQL、MongoDB、Cassandra、Gremlin 和資料表。
 
 本文涵蓋下列工作： 
 
 > [!div class="checklist"]
 > * 安裝模擬器
 > * 驗證要求
-> * 在模擬器中使用的資料總管
+> * 在模擬器中使用資料總管
 > * 匯出 SSL 憑證
 > * 從命令列呼叫模擬器
-> * 在 Docker for Windows 上執行模擬器
+> * 在適用於 Windows 的 Docker 執行模擬器
 > * 收集追蹤檔案
 > * 疑難排解
 
 ## <a name="how-the-emulator-works"></a>模擬器的運作方式
 
-Azure Cosmos DB 模擬器提供 Azure Cosmos DB 服務的高逼真度模擬。 它支援與 Azure Cosmos DB 完全相同的功能，包括支援建立和查詢 JSON 文件、佈建和擴充集合，以及執行預存程序和觸發程序。 您可以使用 Azure Cosmos DB 模擬器來開發及測試應用程式，並且只需對 Azure Cosmos DB 的連接端點進行單一組態變更，就能將它們部署至全球規模的 Azure。
+Azure Cosmos DB 模擬器提供 Azure Cosmos DB 服務的高逼真度模擬。 它支援與 Azure Cosmos DB 完全相同的功能，包括支援建立和查詢 JSON 文件、佈建和擴充集合，以及執行預存程序和觸發程序。 您可以使用 Azure Cosmos DB 模擬器來開發及測試應用程式，並且只需對 Azure Cosmos DB 的連接端點進行單一組態變更，就能將應用程式部署到範圍遍及全球的 Azure。
 
-當 Azure Cosmos DB 服務的模擬準確可靠時，模擬器的實作會與服務不同。 例如，模擬器會使用標準的作業系統元件，例如使用本機檔案系統以獲得持續性，以及使用 HTTPS 通訊協定堆疊進行連線。 依賴 Azure 基礎結構的功能，例如全域複寫、讀取/寫入的個位數毫秒延遲，以及可調式的一致性層級等，都無法使用。
+雖然 Azure Cosmos DB 服務的模擬很可靠，但模擬器的實作會與服務有所不同。 例如，模擬器會使用標準的作業系統元件，比如使用本機檔案系統以獲得持續性，以及使用 HTTPS 通訊協定堆疊進行連線。 依賴 Azure 基礎結構的功能，例如全域複寫、讀取/寫入的個位數毫秒延遲，以及可調式的一致性層級等，都無法使用。
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>模擬器和服務之間的差異 
 因為 Azure Cosmos DB 模擬器是在本機開發人員工作站上提供一個執行的模擬環境，所以模擬器和雲端 Azure Cosmos DB 帳戶之間會有一些功能上的差異：
@@ -79,7 +76,7 @@ Azure Cosmos DB 模擬器的硬體和軟體需求如下︰
   * 10-GB 可用硬碟空間
 
 ## <a name="installation"></a>安裝
-您可以從 [Microsoft 下載中心](https://aka.ms/cosmosdb-emulator)下載並安裝 Azure Cosmos DB 模擬器，或執行 Emulator on Docker for Windows。 如需有關使用 Emulator on Docker for Windows 的指示，請參閱[在 Docker 上執行](#running-on-docker)。 
+您可以從 [Microsoft 下載中心](https://aka.ms/cosmosdb-emulator)下載並安裝 Azure Cosmos DB 模擬器，或執行 Emulator on Docker for Windows。 如需在適用於 Window 的 Docker 使用模擬器的指示，請參閱[在 Docker 上執行](#running-on-docker)。 
 
 > [!NOTE]
 > 若要安裝、設定和執行 Azure Cosmos DB 模擬器，您必須具備電腦的系統管理權限。
@@ -145,7 +142,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 > [!NOTE] 
 > 如果您使用 /Key 選項啟動模擬器，則請使用產生的金鑰，而不要使用 "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
 
-使用 Azure Cosmos DB 模擬器，根據預設您可以建立最多 25 個單一分割區集合，或 1 個已分割集合。 如需變更此值的詳細資訊，請參閱[設定 PartitionCount 值](#set-partitioncount)。
+根據預設，您可以使用 Azure Cosmos DB 模擬器建立最多 25 個單一分割區的集合，或 1 個分割集合。 如需變更此值的詳細資訊，請參閱[設定 PartitionCount 值](#set-partitioncount)。
 
 ## <a name="export-the-ssl-certificate"></a>匯出 SSL 憑證
 
@@ -298,7 +295,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 
 ## <a id="set-partitioncount"></a>變更集合的數目
 
-根據預設，您可以使用 Azure Cosmos DB 模擬器建立最多 25 個單一分割區集合，或 1 個已分割集合。 藉由修改 **PartitionCount** 值，您可以建立最多 250 個單一分割區集合或是 10 個已分割的集合，或是這兩種的任何組合 (不超過 250 個單一分割區，其中 1 個已分割集合 = 25 個單一分割區集合)。
+根據預設，您可以使用 Azure Cosmos DB 模擬器建立最多 25 個單一分割區的集合，或 1 個分割集合。 藉由修改 **PartitionCount** 值，您可以建立最多 250 個單一分割區集合或是 10 個已分割的集合，或是這兩種的任何組合 (不超過 250 個單一分割區，其中 1 個已分割集合 = 25 個單一分割區集合)。
 
 如果您在目前的分割計數超過限制後嘗試建立集合，模擬器會擲回 ServiceUnavailable 例外狀況，並隨附下列訊息。
 
@@ -314,11 +311,11 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 2. 刪除以下資料夾中所有的模擬器資料：C:\Users\user_name\AppData\Local\CosmosDBEmulator。
 3. 結束所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器] 圖示，然後按一下 [結束]。 結束所有執行個體可能需要數分鐘的時間。
 4. 安裝最新版的 [Azure Cosmos DB Emulator 模擬器](https://aka.ms/cosmosdb-emulator)。
-5. 啟動具有 PartitionCount 旗標的模擬器，方法是設定值 <= 250。 例如： `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100` 。
+5. 啟動具有 PartitionCount 旗標的模擬器，方法是設定值 <= 250。 例如： `C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100` 。
 
 ## <a name="controlling-the-emulator"></a>控制模擬器
 
-模擬器隨附 PowerShell 模組，可啟動、停止、解除安裝及擷取服務的狀態。 使用方式：
+模擬器隨附 PowerShell 模組，可用於執行服務的啟動、停止、解除安裝和狀態擷取。 使用方式：
 
 ```powershell
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
@@ -402,7 +399,7 @@ docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\Cosmos
 回應如下所示：
 
 ```
-Starting Emulator
+Starting emulator
 Emulator Endpoint: https://172.20.229.193:8081/
 Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 Exporting SSL Certificate
@@ -438,9 +435,9 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 使用下列秘訣可協助您對使用 Azure Cosmos DB 模擬器時遇到的問題進行疑難排解︰
 
-- 如果您已安裝新版本的模擬器並發生錯誤，請確定重設您的資料。 您可以在系統匣上的 [Azure Cosmos DB 模擬器] 圖示上按一下滑鼠右鍵，然後按一下 [重設資料...]，以重設資料。 如果無法修正錯誤，您可以解除安裝，然後重新安裝應用程式。 如需相關指示，請參閱[解除安裝本機模擬器](#uninstall)。
+- 如果您已安裝新版本的模擬器但發生了錯誤，請務必重設您的資料。 您可以在系統匣上的 [Azure Cosmos DB 模擬器] 圖示上按一下滑鼠右鍵，然後按一下 [重設資料...]，以重設資料。 如果無法修正錯誤，您可以解除安裝，然後重新安裝應用程式。 如需相關指示，請參閱[解除安裝本機模擬器](#uninstall)。
 
-- 如果 Azure Cosmos DB 模擬器當機，請從 c:\Users\user_name\AppData\Local\CrashDumps 資料夾中收集傾印檔案，壓縮檔案後，再附加到電子郵件寄至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
+- 如果 Azure Cosmos DB 模擬器當機，請從 c:\Users\user_name\AppData\Local\CrashDumps 資料夾中收集傾印檔案，壓縮檔案後附加到電子郵件，然後寄到 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
 
 - 如果 CosmosDB.StartupEntryPoint.exe 發生損毀，請從系統管理員命令提示字元執行下列命令︰`lodctr /R` 
 
@@ -448,12 +445,14 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 - 如果您收到**服務無法使用**訊息，模擬器可能無法初始化網路堆疊。 由於 Pulse 安全用戶端或 Juniper 網路用戶端的網路篩選驅動程式可能會造成問題，因此請檢查是否已安裝這些驅動程式。 解除安裝協力廠商網路篩選驅動程式通常便會修正問題。
 
+- 當模擬器執行時，如果您的電腦進入睡眠模式或執行任何作業系統更新，您應該會看見**服務目前無法使用**的訊息。 請重設模擬器，方法是以滑鼠右鍵按一下出現在視窗通知匣的圖示，然後選取 [重設資料]。
+
 ### <a id="trace-files"></a>收集追蹤檔案
 
 若要收集偵錯追蹤，請從系統管理命令提示字元執行下列命令︰
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown`。 監看系統匣，確認程式已經關閉，這可能需要一分鐘的時間。 您也可以在 Azure Cosmos DB 模擬器使用者介面中，按一下 [結束]。
+2. `CosmosDB.Emulator.exe /shutdown` 。 監看系統匣，確認程式已經關閉，這可能需要一分鐘的時間。 您也可以直接按一下 Azure Cosmos DB 模擬器使用者介面中的 [結束]。
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
 5. 重現問題。 如果資料總管無法運作，您只需要等候數秒鐘的時間，等到瀏覽器開啟即可攔截錯誤。
@@ -461,12 +460,12 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 6. 瀏覽至 `%ProgramFiles%\Azure Cosmos DB Emulator` 並尋找 docdbemulator_000001.etl 檔案。
 7. 將 .etl 檔案以及重現步驟傳送至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) 進行偵錯。
 
-### <a id="uninstall"></a>解除安裝本機模擬器
+### <a id="uninstall"></a>將本機模擬器解除安裝
 
-1. 結束本機模擬器之所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器] 圖示，然後按一下 [結束]。 結束所有執行個體可能需要數分鐘的時間。
+1. 結束本機模擬器所有已開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 Azure Cosmos DB 模擬器圖示，然後按一下 [結束]。 結束所有執行個體可能需要數分鐘的時間。
 2. 在 Windows 搜尋方塊中，輸入 **App 與功能**，然後按一下 [App 與功能 (系統設定)] 結果。
 3. 在應用程式清單中，捲動至 [Azure Cosmos DB 模擬器] 並將其選取，按一下 [解除安裝]，然後確認並再按一下 [解除安裝]。
-4. 解除安裝應用程式時，瀏覽至 C:\Users\<user>\AppData\Local\CosmosDBEmulator，然後刪除資料夾。 
+4. 當應用程式已解除安裝時，請瀏覽至 `C:\Users\<user>\AppData\Local\CosmosDBEmulator` 然後刪除該資料夾。 
 
 ## <a name="change-list"></a>變更清單
 
@@ -474,11 +473,11 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 ### <a name="1220-released-on-april-20-2018"></a>1.22.0. 於 2018 年 4 月 20 日發行
 
-除了更新與 Cosmos DB 雲端服務進行同位檢查的模擬器服務，我們還加入改良過 PowerShell 文件和幾個各式各樣的錯誤修正。
+除了更新與 Cosmos DB 雲端服務同等的模擬器服務以外，我們還加入了改良過的 PowerShell 文件和幾個各式各樣的 Bug 修正。
 
 ### <a name="12106-released-on-march-27-2018"></a>已於 2018 年 3 月 27 日發行 1.21.0.6 版
 
-除了更新與 Cosmos DB 雲端服務進行同位檢查的模擬器服務，我們還在此版本中包含了一項新功能和兩個錯誤修正。
+除了更新與 Cosmos DB 雲端服務同等的模擬器服務以外，我們還在這個版本中加入了一項新功能與兩項 Bug 修正。
 
 #### <a name="features"></a>特性
 
@@ -510,7 +509,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 #### <a name="features"></a>特性
 
-許多與我們談過的客戶提到：如果模擬器可編寫指令碼應該會不錯。 因此在這個版本中，我們新增了某些指令碼功能。 模擬器現在包含 PowerShell 模組，可啟動、停止、取得狀態及解除安裝其本身：`Microsoft.Azure.CosmosDB.Emulator`。 
+許多與我們談過的客戶提到：如果模擬器可編寫指令碼應該會不錯。 因此在這個版本中，我們新增了某些指令碼功能。 模擬器現在包含 PowerShell 模組，可用於執行模擬器的啟動、停止、狀態取得及解除安裝：`Microsoft.Azure.CosmosDB.Emulator`。 
 
 ### <a name="120911-released-on-january-26-2018"></a>已於 2018 年 1 月 26 日發行 1.20.91.1 版
 

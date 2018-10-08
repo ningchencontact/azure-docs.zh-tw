@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 07/30/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 31560cbd4d8b4572ce930db7ffb8753f3e4a4bc0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b9cebfa9c826c5be7c84feb5953b8d2c446953aa
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425913"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423250"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 C IoT Edge 模組並部署至模擬裝置
 
@@ -37,10 +37,11 @@ ms.locfileid: "39425913"
 Azure IoT Edge 裝置：
 
 * 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。
+* 適用於 Azure IoT Edge 的 C 模組不支援 Windows 容器。 如果您的 IoT Edge 裝置是 Windows 機器，將它設定為[使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 雲端資源：
 
-* Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免費層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
 
 開發資源：
 
@@ -49,7 +50,11 @@ Azure IoT Edge 裝置：
 * 適用於 Visual Studio Code 的 [Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。
 * [Docker CE](https://docs.docker.com/install/)。 
 
+>[!Note]
+>適用於 Azure IoT Edge 的 C 模組不支援 Windows 容器。 
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 在本教學課程中，您會使用適用於 VS Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
@@ -72,21 +77,48 @@ Azure IoT Edge 裝置：
 
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
 下列步驟說明如何使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，建立以 .NET Core 2.0 為基礎的 IoT Edge 模組專案。
-1. 在 Visual Studio Code 中，選取 [檢視] > [整合式終端機] 以開啟 VS Code 整合式終端機。
-2. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
-3. 在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
-4. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
+
+### <a name="create-a-new-solution"></a>建立新解決方案
+
+建立您可以使用自己的程式碼自訂的 C 解決方案範本。 
+
+1. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
+
+2. 在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
+
+3. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
+
    1. 選取要用來建立解決方案的資料夾。 
    2. 為解決方案提供名稱，或是接受預設值 **EdgeSolution**。
    3. 選擇 [C 模組] 作為模組範本。 
    4. 將模組命名為 **CModule**。 
-   5. 將您在上一節所建立的 Azure Container Registry 指定為第一個模組的映像存放庫。 將 **localhost:5000** 取代為您所複製的登入伺服器值。 最終字串的樣貌如下：**\<登錄名稱\>.azurecr.io/cmodule**。
- 
-4. VS Code 視窗會載入您的 IoT Edge 方案工作區。 裡面會有 **modules** 資料夾、**.vscode** 資料夾、部署資訊清單範本檔案和 **.env** 檔案。 預設模組程式碼會以管道模組形式實作。 
+   5. 將您在上一節所建立的 Azure Container Registry 指定為第一個模組的映像存放庫。 將 **localhost:5000** 取代為 **\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。 
 
-5. 若要以 JSON 格式篩選訊息，必須匯入適用於 C 的 JSON 程式庫。 您可以選擇任何 JSON 程式庫，或在您的 C 模組中撰寫自己的程式庫來剖析 JSON。 下列步驟使用 [Parson](https://github.com/kgabis/parson) 作為範例。
-   1. 從 [Parson Github 存放庫](https://github.com/kgabis/parson)下載 **parson.c** 和 **parson.h**。 然後將這兩個檔案複製並貼到 **CModule** 資料夾中。
-   2. 開啟 [模組] > [CModule] > [CMakeLists.txt]。 新增下列幾行，匯入 parson 程式庫作為 my_parson。
+   ![提供 Docker 映像存放庫](./media/tutorial-c-module/repository.png)
+
+VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區包含五個最上層元件。 您在本教學課程中將不會編輯 **\.vscode** 資料夾或 **\.gitignore** 檔案。 **modules** 資料夾包含您的模組所需的 C 程式碼，以及用來將模組建置為容器映像的 Dockerfile。 **\.env** 檔案會儲存您的容器登錄認證。 **Deployment.template.json** 檔案包含 IoT Edge 執行階段用來在裝置上部署模組的資訊。 
+
+如果您在建立解決方案時未指定容器登錄，但接受了預設的 localhost:5000 值，則不會有 \.env 檔案。 
+
+   ![C 解決方案工作區](./media/tutorial-c-module/workspace.png)
+
+### <a name="add-your-registry-credentials"></a>新增登錄認證
+
+環境檔案會儲存容器登錄的認證，並與 IoT Edge 執行階段共用這些認證。 執行階段需要有這些認證才能將私人映像提取到 IoT Edge 裝置。 
+
+1. 在 VS Code 總管中，開啟 .env 檔案。 
+2. 使用從 Azure Container Registry 複製過來的 [使用者名稱] 和 [密碼] 值來更新欄位。 
+3. 儲存這個檔案。 
+
+### <a name="update-the-module-with-custom-code"></a>使用自訂程式碼來更新模組
+
+將程式碼新增至您的 C 模組，使其能夠從感應器讀取資料、檢查回報的機器溫度是否超過安全閾值，並將該資訊傳至 IoT 中樞。 
+
+5. 在此案例中，來自感應器的資料會以 JSON 格式傳入。 若要篩選 JSON 格式的訊息，請匯入適用於 C 的 JSON 程式庫。本教學課程使用 Parson。
+
+   1. 下載 [Parson Github 存放庫](https://github.com/kgabis/parson)。 將 **parson.c** 和 **parson.h** 檔案複製到 **CModule** 資料夾中。
+
+   2. 開啟 [模組] > [CModule] > [CMakeLists.txt]。 在檔案頂端匯入 Parson 檔案，作為名為 **my_parson** 的程式庫。
 
       ```
       add_library(my_parson
@@ -95,20 +127,23 @@ Azure IoT Edge 裝置：
       )
       ```
 
-   3. 在 **CMakeLists.txt** 的 `target_link_libraries` 中，新增 `my_parson`。
-   4. 開啟 [模組] > [CModule] > [main.c]。 在 include 區段的底部，新增以下程式碼以包含 `parson.h` 進行 JSON 支援：
+   3. 在 CMakeLists.txt 的 **target_link_libraries** 函式中，將 **my_parson** 新增至程式庫清單。
+
+   4. 儲存 **CMakeLists.txt** 檔案。
+
+   5. 開啟 [模組] > [CModule] > [main.c]。 在 Include 陳述式清單底部新增包含 `parson.h` 的新陳述式，以支援 JSON：
 
       ```c
       #include "parson.h"
       ```
 
-6. 在 include 區段之後新增全域變數 `temperatureThreshold`。 此變數會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。 
+6. 在 **main.c** 檔案中的 Include 區段後面，新增名為 `temperatureThreshold` 的全域變數。 此變數會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。 
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-7. 使用以下程式碼來取代整個 `CreateMessageInstance` 函式。 此函式會配置回呼的內容。 
+7. 將整個 `CreateMessageInstance` 函式取代為下列程式碼。 此函式會配置回呼的內容。 
 
     ```c
     static MESSAGE_INSTANCE* CreateMessageInstance(IOTHUB_MESSAGE_HANDLE message)
@@ -142,7 +177,7 @@ Azure IoT Edge 裝置：
     }
     ```
 
-8. 使用以下程式碼來取代整個 `InputQueue1Callback` 函式。 此函式會實作實際的傳訊篩選條件。 
+8. 將整個 `InputQueue1Callback` 函式取代為下列程式碼。 此函式會實作實際的傳訊篩選條件。 
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -222,7 +257,7 @@ Azure IoT Edge 裝置：
     }
     ```
 
-10. 在 `SetupCallbacksForModule` 函式中新增 `moduleTwinCallback` 的回呼。 使用以下程式碼來取代整個 `SetupCallbacksForModule` 函式。
+10. 將 `SetupCallbacksForModule` 函式取代為下列程式碼。 
 
     ```c
     static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
@@ -248,13 +283,15 @@ Azure IoT Edge 裝置：
     }
     ```
 
-11. 儲存這個檔案。
+11. 儲存 **main.c** 檔案。
 
 ## <a name="build-your-iot-edge-solution"></a>建置 IoT Edge 解決方案
 
-在上一節中，您已建立 IoT Edge 解決方案，並在 CModule 中新增了程式碼，來篩選出所回報機器溫度低於可接受閾值的訊息。 現在，您需要建置容器映像形式的解決方案，並將它推送到容器登錄。 
+在上一節中，您已建立 IoT Edge 解決方案，並在 CModule 中新增了程式碼，以篩選出回報的機器溫度在可接受限制內的訊息。 現在，您需要建置容器映像形式的解決方案，並將它推送到容器登錄。 
 
-1. 透過在 Visual Studio Code 整合式終端機中輸入下列命令來登入 Docker，以便將模組映像推送到 ACR： 
+1. 選取 [檢視] > [整合式終端機]，以開啟 VS Code 整合式終端機。 
+
+1. 透過在 Visual Studio Code 整合式終端機中輸入下列命令，來登入 Docker。 您必須使用 Azure Container Registry 認證登入，才可將您的模組映像推送至登錄。 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -263,9 +300,8 @@ Azure IoT Edge 裝置：
 
 2. 在 VS Code 總管中，於 IoT Edge 解決方案工作區中開啟 **deployment.template.json** 檔案。 此檔案會指示 `$edgeAgent` 部署兩個模組：**tempSensor** 和 **CModule**。 `CModule.image` 值會設定為映像的 Linux amd64 版本。 若要深入了解部署資訊清單，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
 
-3. 在 **deployment.template.json** 檔案中會有一個 **registryCredentials** 區段，其中儲存您的 Docker 登錄認證。 實際的使用者名稱和密碼組會儲存在 git 忽略的 .env 檔案中。
-
 4. 在部署資訊清單中新增 CModule 模組對應項。 在 `moduleContent` 區段底部，於 `$edgeHub` 模組對應項後面插入下列 JSON 內容： 
+
     ```json
         "CModule": {
             "properties.desired":{
@@ -274,23 +310,34 @@ Azure IoT Edge 裝置：
         }
     ```
 
-4. 儲存這個檔案。
-5. 在 VS Code 總管中，以滑鼠右鍵按一下 **deployment.template.json** 檔案，然後選取 [建置 IoT Edge 解決方案]。 
+   ![將 CModule 對應項新增至部署範本](./media/tutorial-c-module/module-twin.png)
 
-當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於新的 **config** 資料夾中產生 `deployment.json` 檔案。 然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將 `CModule.dll` 容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄。 
+4. 儲存 **deployment.template.json** 檔案。
+5. 在 VS Code 總管中，以滑鼠右鍵按一下 **deployment.template.json** 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。 
 
-您可以在 VS Code 整合式終端機中檢視完整容器映像位址。 系統會根據 `module.json` 檔案中的資訊建置映像位址，其格式如下：**\<存放庫\>:\<版本\>-\<平台\>**。 在此教學課程中，其樣貌如下：**registryname.azurecr.io/cmodule:0.0.1-amd64**。
+當您指示 Visual Studio Code 建置解決方案時，它會先在新的 **config** 資料夾中產生 `deployment.json` 檔案。 deployment.json 檔案的資訊收集自您已更新的範本檔案、您用來儲存容器登錄認證的 .env 檔案，以及 CModule 資料夾中的 module.json 檔案。 
+
+然後，Visual Studio Code 會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將 `CModule.dll` 容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄。 
+
+您可以在 VS Code 整合式終端機中檢視完整容器映像位址。 系統會根據 `module.json` 檔案中的資訊建置映像位址，其格式如下：**\<存放庫\>:\<版本\>-\<平台\>**。 在本教學課程中，它應會顯示為 **myregistry.azurecr.io/cmodule:0.0.1-amd64**。
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 
-1. 使用 IoT 中樞連接字串來設定 Azure IoT Toolkit 擴充功能： 
-    1. 選取 [檢視] > [檔案總管] 來開啟 VS Code 檔案總管。 
-    2. 在檔案總管中，按一下 [AZURE IOT HUB DEVICES]，然後按一下 [...]。按一下 [選取 IoT 中樞]。 請依照指示登入您的 Azure 帳戶，然後選擇 IoT 中樞。 
-       請注意，您也可以按一下 [設定 IoT 中樞連接字串] 以進行設定。 在快顯視窗中，輸入與您的 IoT Edge 裝置連線的 IoT 中樞所使用的連接字串。
+在您用來設定 IoT Edge 裝置的快速入門文章中，您使用 Azure 入口網站部署了模組。 您可以使用 Visual Studio Code 的 Azure IoT 工具組擴充功能來部署模組。 您已備妥您的案例所需的部署資訊清單，即 **deployment.json** 檔案。 現在您只需選取要接收部署的裝置即可。
 
-2. 在 Azure IoT 中樞裝置總管中，以滑鼠右鍵按一下 IoT Edge 裝置，然後按一下 [建立 IoT Edge 裝置的部署]。 選取 **config** 資料夾中的 **deployment.json** 檔案，然後按一下 [選取 Edge 部署資訊清單]。
+1. 在 VS Code 命令選擇區中，執行 [Azure IoT 中樞：選取 IoT 中樞]。 
 
-3. 按一下 [重新整理] 按鈕。 您應該會看到新的 **CModule** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 
+2. 選擇您要設定的 IoT Edge 裝置所屬的訂用帳戶和 IoT 中樞。 
+
+3. 在 VS Code 總管中，展開 [Azure IoT 中樞裝置] 區段。 
+
+4. 以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [建立單一裝置的部署]。 
+
+   ![建立單一裝置的部署](./media/tutorial-c-module/create-deployment.png)
+
+5. 選取 **config** 資料夾中的 **deployment.json** 檔案，然後按一下 [選取 Edge 部署資訊清單]。 請勿使用 deployment.template.json 檔案。 
+
+6. 按一下 [重新整理] 按鈕。 您應該會看到新的 **CModule** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 
 
 ## <a name="view-generated-data"></a>檢視產生的資料
 
@@ -302,27 +349,13 @@ Azure IoT Edge 裝置：
  
 ## <a name="clean-up-resources"></a>清除資源 
 
-如果您將繼續閱讀下一篇建議的文章，則可以保留您已建立的資源和設定，並加以重複使用。
+如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。 
 
-否則，您可以刪除在本文中建立的本機組態和 Azure 資源，以避免產生費用。 
+否則，可以刪除您在本文中建立的本機組態和 Azure 資源，以避免產生費用。 
 
-> [!IMPORTANT]
-> 刪除 Azure 資源群組是無法回復的動作。 一旦刪除，資源群組和其中包含的所有資源都將永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您在現有的資源群組內建立了 IoT 中樞，而該群組中包含您想要保留的資源，則您只需刪除 IoT 中樞本身即可，而不要刪除資源群組。
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-若只要刪除 IoT 中樞，請使用中樞名稱和資源群組名稱執行下列命令：
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-若要依名稱刪除整個資源群組：
-
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources 
-   ```
-
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>後續步驟

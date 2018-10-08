@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: magoedte
-ms.openlocfilehash: c03adc239ea7025fe154db315daa17b26f8237f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 819c3e74355cf80c7a998abb8b02b10c9e077059
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980192"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47062763"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>適用於 VM 的 Azure 監視器已知問題
 
@@ -39,3 +39,6 @@ ms.locfileid: "46980192"
 - 某些 Windows 健康情況準則 (例如 DNS 用戶端服務健康情況) 的閾值無法修改，因為其狀況良好狀態已根據內容鎖定為服務或實體的 [執行中]、[可用] 狀態。  反之，值會以數字 4 代表，它在未來的版本中會轉換成實際的顯示字串。  
 - 某些 Linux 健康情況準則 (例如邏輯磁碟健康情況) 的閾值無法修改，因為它們已設定為在狀況不良的狀態下觸發。  這些閾值會指示項目是上線/離線 (或開啟還是關閉)，且會顯示 1 或 0 的值來代表及表示相同內容。
 - 更新任何資源群組中的 [資源群組] 篩選條件，同時使用大規模 [Azure 監視器] -> [虛擬機器] -> [健康情況] -> [任何] 清單檢視，並包含預先選取的訂用帳戶和資源群組，會導致清單檢視顯示 [沒有結果]。  請返回 [Azure 監視器] -> [虛擬機器] -> [健康情況] 索引標籤，並選取所需的訂用帳戶和資源群組，然後瀏覽至清單檢視。
+
+## <a name="next-steps"></a>後續步驟
+檢閱[將適用於 VM 的 Azure 監視器上線](monitoring-vminsights-onboard.md)，了解啟用虛擬機器監視的需求和方法。

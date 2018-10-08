@@ -3,7 +3,7 @@ title: 將存取重設為 Azure Linux VM | Microsoft Docs
 description: 如何使用 VMAccess 擴充功能和 Azure CLI 在 Linux VM 上管理系統管理使用者及重設存取
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,18 +15,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998622"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452049"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>使用 VMAccess 擴充功能搭配 Azure CLI 在 Linux VM 上管理系統管理使用者、SSH 及檢查或修復磁碟
 ## <a name="overview"></a>概觀
 Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，或不小心刪除了 SSH 私密金鑰。 如果是過去資料中心的時代發生此狀況，您必須親赴現場，然後再開啟 KVM 才能存取伺服器主控台。 請將 Azure VMAccess 擴充功能想成 KVM 交換器，在此可以存取主控台重設 Linux 存取或執行磁碟等級維護。
 
 本文將說明在這些項目以 Azure Resource Manager 虛擬機器的形式執行時，如何使用 Azure VMAccess 擴充功能來檢查或修復磁碟、重設使用者存取、管理系統管理使用者帳戶或更新 Linux 上的 SSH 組態。 如果您需要管理傳統虛擬機器，您可以依照[傳統 VM 文件](../linux/classic/reset-access-classic.md)中的指示操作。 
+ 
+> [!NOTE]
+> 如果您在安裝 AAD 登入擴充功能之後，使用 VMAccess 擴充功能重設 VM 的密碼，則您必須重新執行 AAD 登入擴充功能以便為您的機器重新啟用 AAD 登入。
 
 ## <a name="prerequisites"></a>必要條件
 ### <a name="operating-system"></a>作業系統

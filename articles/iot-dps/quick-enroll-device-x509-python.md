@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: c98de2d2c59ae625d274c3d6cf914e4c8c37b13f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 84ec165a78f873f6378e840d7f339cb7590dc098
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205709"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227379"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>快速入門：使用 Python 向裝置佈建服務註冊 X.509 裝置
 
@@ -117,7 +117,7 @@ ms.locfileid: "39205709"
 
 ## <a name="run-the-sample-group-enrollment"></a>執行範例群組註冊
 
-1. 開啟命令提示字元並執行下列命令，以安裝 [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client.)
+1. 開啟命令提示字元並執行下列命令，以安裝 [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client)。
 
     ```cmd/sh
     pip install azure-iothub-provisioningserviceclient    

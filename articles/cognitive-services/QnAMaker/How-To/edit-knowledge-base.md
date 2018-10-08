@@ -1,21 +1,21 @@
 ---
-title: 如何編輯知識庫 - Azure 認知服務 | Microsoft Docs
-titleSuffix: Azure
-description: 如何編輯知識庫
+title: 編輯知識庫 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的內容。
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: eaa65bf3d257399fceadaa42f0d9ddbbf8afe234
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369650"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451879"
 ---
 # <a name="edit-a-knowledge-base"></a>編輯知識庫
 
@@ -30,8 +30,24 @@ QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的�
     ![我的知識庫](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. 選取特定的知識庫進行編輯。
+ 
+3. 按一下 [設定] 。
 
-3. 變更知識庫完成之後，按一下頁面右上角的 [Save and train]\(儲存並訓練\) 維持變更。    
+   您可以在這裡編輯必要的欄位：[服務名稱]。
+  
+   您可以藉由按一下 [管理知識庫] -> [+ 新增 URL] 連結來新增 URL，以便將新的常見問題集內容新增至知識庫。
+   
+   您可以藉由按一下**刪除圖示**，來刪除現有的 URL。
+   
+   如果您想要讓知識庫對現有 URL 的最新內容進行編目，請選取名為 [重新整理] 的核取方塊，這樣會以最新的 URL 內容來更新知識庫。
+   
+您可以藉由按一下 [管理知識庫] -> [+ 新增檔案]，將支援的檔案文件新增為知識庫的一部分
+
+您也可以藉由按一下 [匯入知識庫] 按鈕，匯入任何現有的知識庫。 
+   
+知識庫的更新取決於當建立與知識庫相關聯的 QnA Maker 服務時，所使用的**管理定價層**。 如有需要，您也可以從 Azure 入口網站更新管理層。
+
+4. 變更知識庫完成之後，按一下頁面右上角的 [Save and train]\(儲存並訓練\) 維持變更。    
 
     ![儲存並訓練](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

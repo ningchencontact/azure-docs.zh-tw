@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db0d796a407c8e33501b0a312c78e8508f17297d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075152"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406908"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 SQL Server Azure 虛擬機器 DBMS 部署
 
@@ -381,8 +381,10 @@ SQL Server 2014 及更新版本可以直接在 Azure Blob Store上儲存資料�
 
 * 所使用之儲存體帳戶所在的 Azure 區域必須與用來部署 SQL Server 執行所在之 VM 的相同。
 * 稍早列出有關將 VHD 分散到不同 Azure 儲存體帳戶的考量，也適用於這種部署方法。 表示對 Azure 儲存體帳戶限制的 I/O 作業計數。
-* 不要針對 VM 的儲存體 I/O 配額來結算，那些針對儲存體 blob (代表 SQL Server 資料和記錄檔) 所產生的流量，都將計入特定 VM 類型的 VM 網路頻寬。 針對特定的 VM 類型的網路頻寬，請參閱文章[Azure 中 Windows 虛擬機器的大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) \(機器翻譯\)。
+* 不要針對 VM 的儲存體 I/O 配額來結算，那些針對儲存體 blob (代表 SQL Server 資料和記錄檔) 所產生的流量，都將計入特定 VM 類型的 VM 網路頻寬。 針對特定的 VM 類型的網路和儲存頻寬，請參閱 [Azure 中 Windows 虛擬機器的大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)一文。
+* 由於透過網路配額推送檔案 I/O 的關係，您大部分的儲存體配額都已耗損，因此 VM 的整體頻寬僅部分使用。
 * Azure 進階儲存體針對不同磁碟大小所設定的 IOPS 和 I/O 輸送量效能目標，不會再套用。 即便您建立的 blob 是位於「Azure 進階儲存體」也是如此。 [VM 高效能進階儲存體與受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets) \(機器翻譯\) 文章有相關目標的記載。 由於將 SQL Server 資料檔案和記錄檔直接放在 Azure 進階儲存體所儲存的 blob 上，因此相較於 Azure 進階儲存體上的 VHD，效能特性會不一樣。
+* 將 SQL Server 資料檔案直接放置在 Azure Blob 上時，適用於 Azure 進階儲存體磁碟的主機型快取將無法使用。
 * 在 M 系列 VM 上，無法使用 Azure Write Accelerator 來支援 SQL Server 交易記錄檔的子毫秒寫入。 
 
 如需這項功能的詳細資料，請參閱[Microsoft Azure 中的 SQL Server 資料檔案](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017) \(機器翻譯\)

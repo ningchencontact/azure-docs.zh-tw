@@ -2,19 +2,22 @@
 title: Azure SQL Database 檔案空間管理 | Microsoft Docs
 description: 此頁面說明如何使用 Azure SQL Database 管理檔案空間，以及提供如何判斷您是否需要壓縮資料庫和如何執行資料庫壓縮作業的程式碼範例。
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/15/2018
+author: oslake
 ms.author: moslake
-ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146172"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159936"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>以 Azure SQL Database 管理檔案空間
 本文說明 Azure SQL Database 中不同類型的儲存空間，以及需要明確管理為資料庫與彈性集區配置的檔案空間時所能採取的步驟。
@@ -27,7 +30,7 @@ ms.locfileid: "42146172"
 - T-SQL：[sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL：[sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-在某些工作負載模式中，資料庫的基礎資料檔案配置可能會逐漸大於已使用資料頁數。  當使用的空間增加，隨後卻將資料刪除時，就會發生這種情況。  這是因為在資料刪除後，並不會自動回收已配置的檔案空間。  在此情況下，為資料庫或集區配置的空間可能會超過支援的限制，而妨礙到資料成長或使效能層級無法變更，因此需要壓縮資料檔案來因應此狀況。
+在某些工作負載模式中，資料庫的基礎資料檔案配置可能會逐漸大於已使用資料頁數。  當使用的空間增加，隨後卻將資料刪除時，就會發生這種情況。  這是因為在資料刪除後，並不會自動回收已配置的檔案空間。  在此情況下，為資料庫或集區配置的空間可能會超過支援的限制，而妨礙到資料成長或使服務層和計算大小無法變更，因此需要壓縮資料檔案來因應此狀況。
 
 由於可能會對資料庫效能造成影響，因此 SQL DB 服務不會自動壓縮資料檔案，以回收未使用的配置空間。  不過，客戶可以依照[回收未使用的配置空間](#reclaim-unused-allocated-space)中說明的步驟，在其選擇的時間自行壓縮資料檔案。 
 

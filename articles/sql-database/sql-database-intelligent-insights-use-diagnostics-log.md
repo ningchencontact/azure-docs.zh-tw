@@ -2,20 +2,22 @@
 title: Intelligent Insights 效能診斷記錄 - Azure SQL Database | Microsoft Docs
 description: Intelligent Insights 會提供 Azure SQL Database 效能問題的診斷記錄
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/04/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 3d1a9045ed89bd3e5714762add7cb9568c46e44f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/04/2018
+ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648236"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166889"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>使用 Intelligent Insights Azure SQL Database 效能診斷記錄
 

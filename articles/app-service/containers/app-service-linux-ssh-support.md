@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 63fdf2cc82438fe55792b12244dd697721adda15
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 631933647e27428349fc1efeb17f62f4614f7f64
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579573"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423301"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -93,7 +93,7 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
 Dockerfile 會使用 [`ENTRYPOINT` 指示](https://docs.docker.com/engine/reference/builder/#entrypoint)來執行指令碼。
 
     ```docker
-    COPY startup /opt/startup
+    COPY init_container.sh /opt/startup
     ...
     RUN chmod 755 /opt/startup/init_container.sh
     ...
@@ -122,10 +122,10 @@ az extension add --name webapp
 az extension update --name webapp
 ```
 
-使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 指定您應用程式的 _\<subscription\_id>_、_\<group\_name>_ 和 \_<app\_name>_，並將 \<port> 取代為本機連接埠號碼。
+使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 為您的應用程式指定 _\<subscription\_id>_、_\<group\_name>_ 和 \_<app\_name>_。
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> -p <port> &
+az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> &
 ```
 
 > [!TIP]

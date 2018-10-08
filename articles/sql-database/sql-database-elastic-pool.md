@@ -1,22 +1,23 @@
 ---
 title: 使用彈性集區管理多個 SQL Database - Azure | Microsoft Docs
 description: 管理及調整多個 SQL Database - 成百上千 - 使用彈性集區。 可視需要散發的資源只有一個價格。
-keywords: 多個資料庫, 資料庫資源, 資料庫效能
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.subservice: elastic-pool
-ms.custom: DBs & servers
-ms.date: 07/27/2018
-ms.author: ninarn
+subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: ffc74eafed81c3dad836cfe70050244cb66a820b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+author: oslake
+ms.author: moslake
+ms.reviewer: ninarn, carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 71269b4888d1b5c9724248ac91f0818d7f8f5bf5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003734"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162350"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
@@ -55,7 +56,7 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
    ![適合某個集區的單一資料庫](./media/sql-database-elastic-pool/one-database.png)
 
-針對上述的五分鐘期間，DB1 尖峰最高達 90 個 DTU，但其整體平均使用量小於 5 個 DTU。 需要 S3 效能層級，才能在單一資料庫中執行此工作負載，但這會在活動較少的期間保留大多數的資源未使用。
+針對上述的五分鐘期間，DB1 尖峰最高達 90 個 DTU，但其整體平均使用量小於 5 個 DTU。 需要 S3 計算大小，才能在單一資料庫中執行此工作負載，但這會在活動較少的期間保留大多數的資源未使用。
 
 集區可讓這些未使用的 DTU 跨多個資料庫共用，並因此減少需要的 DTU 和整體成本。
 
@@ -65,7 +66,7 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
    ![使用量模式適合某個集區的 20 個資料庫](./media/sql-database-elastic-pool/twenty-databases.png)
 
-在上圖中，黑色線條說明跨所有 20 個資料庫的彙總 DTU 使用量。 這顯示彙總的 DTU 使用量永遠不會超過 100 個 DTU，並指出 20 個資料庫可以在這段期間共用 100 個 eDTU。 相較於將每個資料庫放在單一資料庫的 S3 效能層級，這會導致 DTU 減少 20 倍且價格降低 13 倍。
+在上圖中，黑色線條說明跨所有 20 個資料庫的彙總 DTU 使用量。 這顯示彙總的 DTU 使用量永遠不會超過 100 個 DTU，並指出 20 個資料庫可以在這段期間共用 100 個 eDTU。 相較於將每個資料庫放在單一資料庫的 S3 計算大小，這會導致 DTU 減少 20 倍且價格降低 13 倍。
 
 由於以下原因，此範例很理想：
 
@@ -75,21 +76,21 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 集區的價格是集區 eDTU 的函式。 雖然集區的 eDTU 單價較單一資料庫的 DTU 單價高 1.5 倍，但是**集區 eDTU 可由多個資料庫共用，而需要的 eDTU 總數會比較少**。 價格方面和 eDTU 共用的這些差異是集區可以提供價格節約潛力的基礎。
 
-下列資料庫計數和資料庫使用量相關規則的經驗法則，可協助確保集區可提供相較於使用單一資料庫的效能層級降低的成本。
+下列資料庫計數和資料庫使用量相關規則的經驗法則，可協助確保集區可提供相較於使用單一資料庫的計算大小降低的成本。
 
 ### <a name="minimum-number-of-databases"></a>資料庫的最小數目
 
 如果單一資料庫的資源彙總數量大於集區所需資源的 1.5 倍，則彈性集區會更符合成本效益。
 
 ***以 DTU 為基礎的購買模型範例***<br>
-100 個 eDTU 集區需要至少 2 個 S3 資料庫或至少 15 個 S0 資料庫，才能較使用單一資料庫的效能層級更具成本效益。
+100 個 eDTU 集區需要至少 2 個 S3 資料庫或至少 15 個 S0 資料庫，才能較使用單一資料庫的計算大小更具成本效益。
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>並行尖峰資料庫的最大數目
 
 藉由共用資源，並非集區中的所有資料庫都能同時使用資源達到單一資料庫的最大限制。 同時尖峰的資料庫愈少，可以設定的集區資源愈低，集區就能更符合成本效益。 一般而言，集區中應該不能有超過 2/3 (或 67%) 的資料庫同時達到其資源限制的尖峰。
 
 ***以 DTU 為基礎的購買模型範例***<br>
-為了降低 200 個 eDTU 集區中 3 個 S3 資料庫的成本，最多可以有 2 個資料庫同時到達其使用量尖峰。 否則，如果 4 個 S3 資料庫中超過 2 個同時尖峰，則必須將集區調整為超過 200 個 eDTU。 如果將集區調整大小為超過 200 個 eDTU，則需要加入更多的 S3 資料庫至集區，以使成本保持低於單一資料庫的效能層級。
+為了降低 200 個 eDTU 集區中 3 個 S3 資料庫的成本，最多可以有 2 個資料庫同時到達其使用量尖峰。 否則，如果 4 個 S3 資料庫中超過 2 個同時尖峰，則必須將集區調整為超過 200 個 eDTU。 如果將集區調整大小為超過 200 個 eDTU，則需要加入更多的 S3 資料庫至集區，以使成本保持低於單一資料庫的計算大小。
 
 請注意，此範例不考慮集區中其他資料庫的使用量。 如果所有資料庫在任何指定的時間點都有一些使用量，則可同時到達尖峰的資料庫會少於 2/3 (或 67%)。
 
@@ -123,7 +124,7 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。
 3. 針對以 DTU 為基礎的購買模型，採用步驟 1 和步驟 2 中較大的 eDTU 估計值。 針對以虛擬核心為基礎的購買模型，採用步驟 1 中的虛擬核心估計值。
 4. 請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)並尋找大於步驟 3 估計值的最小集區大小。
-5. 將步驟 5 的集區價格與單一資料庫適當效能層級的價格相比較。
+5. 將步驟 5 的集區價格與單一資料庫適當計算大小的價格相比較。
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>搭配彈性集區使用其他的 SQL Database 功能
 
@@ -140,8 +141,7 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 
 - **異地還原**：異地還原會在資料庫因裝載區域中的事件而無法使用時，提供預設復原選項。 請參閱 [還原 Azure SQL Database 或容錯移轉到次要資料庫](sql-database-disaster-recovery.md)
 
-- 
-  **作用中異地複寫**：針對較異地還原需要更主動復原的應用程式，設定[作用中異地複寫](sql-database-geo-replication-overview.md)。
+- **作用中異地複寫**：針對較異地還原需要更主動復原的應用程式，設定[作用中異地複寫](sql-database-geo-replication-overview.md)。
 
 ## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>使用 Azure 入口網站建立新的 SQL Database 彈性集區
 
@@ -152,7 +152,7 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 > [!NOTE]
 > 您可以在伺服器上建立多個集區，但無法將來自不同伺服器的資料庫新增到相同的集區。
 
-集區的服務層決定了集區中彈性資料庫可用的功能，以及每個資料庫可用的資源數目上限。 如需詳細資訊，請參閱 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels)中彈性集區的資源限制。 如需彈性集區以虛擬核心為基礎的資源限制，請參閱[以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
+集區的服務層決定了集區中彈性資料庫可用的功能，以及每個資料庫可用的資源數目上限。 如需詳細資訊，請參閱 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)中彈性集區的資源限制。 如需彈性集區以虛擬核心為基礎的資源限制，請參閱[以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
 
 若要設定集區的資源和定價，請按一下 [設定集區]。 然後選取服務層、將資料庫新增至集區，以及為集區及其資料庫設定資源限制。
 

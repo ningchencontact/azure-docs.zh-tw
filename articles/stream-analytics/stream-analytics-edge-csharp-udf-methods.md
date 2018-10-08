@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9aa61e95eb808c38646fa9b8cefd4004f5477ee6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2b6dfe7c8f8ac8d7207659b848abecd04f56c232
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974658"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181437"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>針對 Azure 串流分析 Edge 作業開發 .NET Standard 使用者定義的函式 (預覽)
 
@@ -31,7 +31,7 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
 ## <a name="package-path"></a>封裝路徑
 
-任何 UDF 封裝格式的路徑皆為 `/UserCustomCode/CLR/*`。 動態連結程式庫 (DLL) 與資源會複製到 `/UserCustomCode/CLR/*` 資料夾下方，這可幫助將使用者 DLL 與系統和 Azure 串流分析 DLL 隔離。
+任何 UDF 封裝格式的路徑皆為 `/UserCustomCode/CLR/*`。 動態連結程式庫 (DLL) 與資源會複製到 `/UserCustomCode/CLR/*` 資料夾下方，這可幫助將使用者 DLL 與系統和 Azure 串流分析 DLL 隔離。 此套件路徑用於所有函式，而不論用來運用它們的方法為何。
 
 ## <a name="supported-types-and-mapping"></a>支援的型別與對應
 
@@ -59,10 +59,10 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
 1. 在您的解決方案中建立新的類別庫。
 2. 在您的類別中撰寫程式碼。 請記住，類別必須定義成*公用*，物件必須定義成*靜態公用*。 
-3. 建置您的專案。
+3. 建置您的專案。 工具會將 bin 資料夾中的所有成品封裝為 ZIP 檔案，並將 ZIP 檔案上傳至儲存體帳戶。 針對外部參考，請使用組件參考，而不要使用 NuGet 套件。
 4. 在您的 Azure 串流分析專案中參照新類別。
 5. 在您的 Azure 串流分析專案中新增新的函式。
-6. 在工作組態檔案中設定組件路徑，`EdgeJobConfig.json`。
+6. 在工作組態檔案中設定組件路徑，`JobConfig.json`。 將組件路徑設定為 [本機專案參考或 CodeBehind]。
 7. 重建函式專案與 Azure 串流分析專案。  
 
 ### <a name="example"></a>範例
@@ -109,19 +109,19 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
 當組件 zip 封裝已上傳到您的 Azure 儲存體帳戶後，您可以使用 Azure 串流分析查詢中的函式。 您只需在串流分析 Edge 作業設定中加入儲存體資訊。 您無法使用此選項在本機上測試函式，因為 Visual Studio 工具不會下載您的封裝。 系統會直接對服務剖析封裝路徑。 
 
-若要在工作設定檔「EdgeJobConfig.json」中設定組件路徑：
+在工作設定檔 `JobConfig.json` 中設定組件路徑：
 
 展開 [使用者定義的程式碼設定] 區段，然後在設定中填入以下建議的值：
 
  |**設定**  |**建議的值**  |
  |---------|---------|
- |組件來源  |  本機專案參照或 CodeBehind   |
+ |組件來源  | 來自雲端的現有組件套件    |
  |資源  |  選擇目前帳戶中的資料   |
  |訂用帳戶  |  選擇您的訂用帳戶。   |
  |儲存體帳戶  |  選擇儲存體帳戶   |
  |容器  |  選擇在您的儲存體帳戶中建立的容器。   |
 
-    ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+![Visual Studio 中的 Azure 串流分析 Edge 工作設定](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
 ## <a name="limitations"></a>限制
 UDF 預覽目前有以下限制：

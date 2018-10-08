@@ -3,19 +3,18 @@ title: 限制和設定 - Azure Logic Apps | Microsoft Docs
 description: 適用於 Azure Logic Apps 的服務限制和設定值
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 49b8efe6b5d56c3edaf8b311ff3c6667a8952536
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.topic: article
+ms.date: 09/26/2018
+ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141696"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452442"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -305,8 +304,13 @@ ms.locfileid: "42141696"
 若要支援[連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，設定您的防火牆設定，使其包含下列輸出 IP 位址。
 
 > [!IMPORTANT]
->
 > 如果您有現有的設定，請**在 2018 年 9 月 1 日前儘快**更新這些設定，使其包含並符合此清單中您邏輯應用程式所在區域的 IP 位址。 
+> 
+> Logic Apps 不支援透過防火牆直接連線至 Azure 儲存體帳戶。 若要存取這些儲存體帳戶，請使用以下任一個選項： 
+>
+> * 建立[整合服務環境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，以連線至 Azure 虛擬網路中的資源。 
+> 
+> * 如果您已經使用 API 管理，可以針對這個案例使用這個服務。 如需詳細資訊，請參閱[簡單的企業整合架構](http://aka.ms/aisarch)。
 
 | Logic Apps 區域 | 輸出 IP | 
 |-------------------|-------------|  

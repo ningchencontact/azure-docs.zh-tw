@@ -1,20 +1,21 @@
 ---
-title: 使用 Azure Content Moderator 中的文字仲裁 API 來仲裁文字 | Microsoft Docs
+title: 使用文字仲裁 API 來仲裁文字 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 使用線上主控台中的「文字仲裁 API」來試用文字仲裁。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: ed696c31a886626819414c45eb7995edaf161fff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95fd5507287a9294f4fca6af9cc5f01f0ea9fe1c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368735"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219782"
 ---
 # <a name="moderate-text-from-the-api-console"></a>從 API 主控台仲裁文字
 
@@ -75,7 +76,7 @@ ms.locfileid: "35368735"
 - `Category2` 代表可能有在特定情況下被視為具性暗示或成人內容的語言存在。
 - `Category3` 代表可能有在特定情況下被視為具冒犯性的語言存在。
 - `Score` 介於 0 到 1 之間。 分數越高，模型預測為適用該類別的可能性就越高。 此預覽版功能倚賴統計模型，而不是手動編碼的結果。 建議您使用自己的內容進行測試，以判斷每個類別如何符合您的需求。
-- `ReviewRecommended`會是 true 或 false，視內部分數閾值而定。 客戶應該評估是要使用此值，還是根據其內容原則決定自訂閾值。
+- `ReviewRecommended` 會是 true 或 false，視內部分數閾值而定。 客戶應該評估是要使用此值，還是根據其內容原則決定自訂閾值。
 
 ### <a name="analyze-the-response"></a>分析回應
 以下回應顯示來自 API 的各種深入解析。 它包含可能的粗話、PII、分類 (預覽版) 及自動校正後的版本。

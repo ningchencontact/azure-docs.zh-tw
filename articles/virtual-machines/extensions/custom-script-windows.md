@@ -3,7 +3,7 @@ title: Windows 的 Azure 自訂指令碼延伸模組 | Microsoft Docs
 description: 使用「自訂指令碼擴充功能」來自動執行 Windows VM 組態工作
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: c00d4d481c992e90597276d0ce8655aef2be731f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1201e7ec232a5bd45351072949dc0b9c19af434f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038073"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452168"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows 的自訂指令碼延伸模組
 
@@ -106,7 +106,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | publisher | Microsoft.Compute | 字串 |
@@ -139,7 +139,8 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
 
-`Set-AzureRmVMCustomScriptExtension` 命令可以用來將自訂指令碼擴充功能新增至現有的虛擬機器。 如需詳細資訊，請參閱 [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension)。
+`Set-AzureRmVMCustomScriptExtension` 命令可以用來將自訂指令碼擴充功能新增至現有的虛擬機器。 如需詳細資訊，請參閱 [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension)。
+
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `

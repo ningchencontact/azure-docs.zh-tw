@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5f9bae34dabba71861adc9b2aeb0d33b8a1e226
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195942"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091401"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>使用清查收集來管理 Azure 虛擬機器
 
@@ -88,6 +88,24 @@ ms.locfileid: "34195942"
 |遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
 |使用 Sudo     | 此設定會決定在檢查項目時是否使用 sudo。         |
 |連結     | 此設定會決定在周遊目錄時處理符號連結的方式。<br> **忽略** - 忽略符號連結，而不包含參考的檔案/目錄<br>**遵循** - 遵循遞迴期間的符號連結，而且包含參考的檔案/目錄<br>**管理** - 遵循符號連結並允許變更所傳回內容的處理方式      |
+
+## <a name="manage-machine-groups"></a>管理電腦群組
+
+清查可讓您在 Log Analytics 中建立和檢視電腦群組。 電腦群組是由 Log Analytics 中的查詢所定義的電腦集合。
+
+若要檢視您的電腦群組，請選取 [清查] 頁面上的 [電腦群組] 索引標籤。
+
+![在清查頁面上檢視電腦群組](./media/automation-vm-inventory/inventory-machine-groups.png)
+
+從清單中選取電腦群組，就會開啟 [電腦群組] 頁面。 此頁面會顯示電腦群組的相關詳細資料。 這些詳細資料包括用來定義群組的 Log Analytics 查詢。 頁面底部是屬於該群組的電腦分頁清單。
+
+![檢視電腦群組頁面](./media/automation-vm-inventory/machine-group-page.png)
+
+按一下 [+ 複製] 按鈕以複製電腦群組。 您必須在此提供群組的新名稱和別名。 在這個階段可以改變定義。 變更查詢之後，按下 [驗證查詢] 可預覽所要選取的電腦。 當您滿意群組時，請按一下 [建立] 以建立電腦群組。
+
+如果您想建立新的資源群組，請選取 [+ 建立電腦群組]。 這個按鈕會開啟 [建立電腦群組] 頁面，您可在其中定義新的群組。 按一下 [建立]  以建立群組。
+
+![建立新的電腦群組](./media/automation-vm-inventory/create-new-group.png)
 
 ## <a name="disconnect-your-virtual-machine-from-management"></a>讓虛擬機器脫離管理
 

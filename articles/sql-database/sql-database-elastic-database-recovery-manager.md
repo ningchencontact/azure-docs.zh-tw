@@ -2,19 +2,22 @@
 title: 使用復原管理員修正分區對應問題 | Microsoft Docs
 description: 使用 RecoveryManager 類別來解決分區對應的問題
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 6257edbb567be3ebb3151724e7e50ca81905ad40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 09eb2312ef2268169535b644470a754e46b51b18
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646230"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166855"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>使用 RecoveryManager 類別來修正分區對應問題
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 類別提供 ADO.Net 應用程式輕鬆偵測，並修正分區化資料庫環境中全域分區對應 (GSM) 和本機分區對應 (LSM) 中任何不一致的能力。 
@@ -122,7 +125,7 @@ GSM 和 LSM 可能因為以下原因變成不同步：
 如果發生異地容錯移轉，次要資料庫會變成可供寫入存取，並成為新的主要資料庫。 伺服器的名稱和可能的資料庫 (根據您的設定而定)，可能會將原始主要複本的不同。 因此，必須修正 GSM 和 LSM 分區的對應項目。 同樣地，如果資料庫還原至不同的名稱或位置，或到較早的時間點，這可能會在分區對應中造成不一致。 分區對應管理員會處理開啟連接到正確資料庫的散發。 分配時，會根據分區對應中的資料和作為應用程式要求目標之分區化金鑰的值，進行分配。 異地複寫容錯移轉之後，必須以正確的伺服器名稱、資料庫名稱和修復資料庫的分區對應更新這項資訊。 
 
 ## <a name="best-practices"></a>最佳作法
-異地容錯移轉和復原是一般由應用程式的雲端系統管理員管理的作業，刻意利用 Azure SQL Database 其中一個商務持續性功能。 商務持續性計劃需要處理程序、程序和措施以確保商務運作能持續而不會中斷。 應該在此工作流程中使用隨著 RecoveryManager 類別提供的方法，以確保根據採取的修復動作，GSM 和 LSM 都處於最新狀態。 在 5 個基本步驟可正確確保 GSM 和 LSM 在容錯移轉事件之後反映正確的資訊。 執行這些步驟的應用程式程式碼可以整合至現有的工具和工作流程。 
+異地容錯移轉和復原是一般由應用程式的雲端系統管理員管理的作業，刻意利用 Azure SQL 資料庫其中一個商務持續性功能。 商務持續性計劃需要處理程序、程序和措施以確保商務運作能持續而不會中斷。 應該在此工作流程中使用隨著 RecoveryManager 類別提供的方法，以確保根據採取的修復動作，GSM 和 LSM 都處於最新狀態。 在 5 個基本步驟可正確確保 GSM 和 LSM 在容錯移轉事件之後反映正確的資訊。 執行這些步驟的應用程式程式碼可以整合至現有的工具和工作流程。 
 
 1. 從 ShardMapManager 擷取 RecoveryManager。 
 2. 從分區對應卸離舊分區。

@@ -1,23 +1,23 @@
 ---
-title: 影片搜尋 SDK C# 快速入門 | Microsoft Docs
-description: 設定影片搜尋 SDK 主控台應用程式。
-titleSuffix: Azure cognitive services setup News search SDK C# console application
+title: 快速入門：Bing 影片 Aearch SDK (C#)
+titleSuffix: Azure Cognitive Services
+description: 設定 Bing 影片搜尋 SDK 主控台應用程式。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: f53e2d0f0052ccfabb6d750556cb532f069c9121
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370450"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219935"
 ---
-# <a name="video-search-sdk-c-quickstart"></a>影片搜尋 SDK C# 快速入門
+# <a name="quickstart-bing-video-search-sdk-with-c"></a>快速入門：使用 C# 的 Bing 影片搜尋 SDK 
 
 Bing 影片搜尋 SDK 包含用於 Web 要求以及剖析結果的 REST API 功能。
 

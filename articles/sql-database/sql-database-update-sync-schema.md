@@ -2,20 +2,22 @@
 title: 在 Azure SQL 資料同步中自動執行結構描述變更複寫 | Microsoft Docs
 description: 了解如何在「Azure SQL 資料同步」中自動執行結構描述變更複寫。
 services: sql-database
-ms.date: 06/19/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
-ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/20/2018
+ms.openlocfilehash: 3137b86dd186e628508111a932140fd9c1f59b5d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434953"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161418"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>在 Azure SQL 資料同步中自動執行結構描述變更複寫
 
@@ -30,7 +32,7 @@ ms.locfileid: "39434953"
 本文使用 ALTER TABLE 作為結構描述變更的範例，但此解決方案也適用於其他類型的結構描述變更。
 
 > [!IMPORTANT]
-> 建議您先仔細閱讀本文，特別是有關[疑難排解](#troubleshooting)和[其他考量](#other)的小節，再開始在您的同步環境中實作自動化結構描述變更複寫。 此外，也建議您閱讀[使用 SQL 資料同步跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)。有些資料庫作業可能導致本文所述的解決方案無法運作。 您可能需要具備額外的 SQL Server 和 Transact-SQL 網域知識，才能針對這些問題進行疑難排解。
+> 建議您先仔細閱讀本文，特別是有關[疑難排解](#troubleshoot)和[其他考量](#other)的小節，再開始在您的同步環境中實作自動化結構描述變更複寫。 此外，也建議您閱讀[使用 SQL 資料同步跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)。有些資料庫作業可能導致本文所述的解決方案無法運作。 您可能需要具備額外的 SQL Server 和 Transact-SQL 網域知識，才能針對這些問題進行疑難排解。
 
 ![自動執行結構描述變更複寫](media/sql-database-update-sync-schema/automate-schema-changes.png)
 

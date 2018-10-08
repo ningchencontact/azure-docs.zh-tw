@@ -1,20 +1,21 @@
 ---
-title: Bing 單頁影片搜尋應用程式 | Microsoft Docs
+title: 教學課程：建置單頁 Bing 影片搜尋應用程式
+titlesuffix: Azure Cognitive Services
 description: 說明如何在單頁 Web 應用程式中使用 Bing 影片搜尋 API。
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: 55f662721e007e03c8f43f19d8b905e755cfe1d8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369999"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226597"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>教學課程：單頁影片搜尋應用程式
 Bing 影片搜尋 API 可讓您搜尋網頁，並取得與搜尋查詢相關的影片結果。 在本教學課程中，我們會建置單頁 Web 應用程式，以使用 Bing 影片搜尋 API 在頁面中顯示搜尋結果。 該應用程式包含 HTML、CSS 和 JavaScript 元件。
@@ -61,7 +62,7 @@ HTML 也包含顯示搜尋結果的區域 (HTML `<div>` 標籤)。
 
 ## <a name="managing-subscription-key"></a>管理訂用帳戶金鑰
 
-為了避免必須在程式碼中包含 Bing 搜尋 API 訂用帳戶金鑰，我們使用瀏覽器的永續性儲存體來儲存金鑰。 儲存此金鑰之前，我們會提示輸入使用者的金鑰。 如果 API 稍後拒絕金鑰，我們會讓儲存的金鑰失效，以便再次提示使用者。
+為了避免必須在程式碼中包含 Bing 搜尋 API 訂用帳戶金鑰，我們使用瀏覽器的永續性儲存體來儲存金鑰。 儲存此金鑰之前，我們會提示輸入使用者的金鑰。 若 API 稍後拒絕金鑰，我們會讓儲存的金鑰失效，以便再次提示使用者。
 
 我們會定義 `storeValue` 和 `retrieveValue` 函式，以使用 `localStorage` 物件 (並非所有瀏覽器都支援它) 或 Cookie。 `getSubscriptionKey()` 函式使用這些函式來儲存及擷取使用者的金鑰。
 
@@ -86,7 +87,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-HTML `<form>` 標籤 `onsubmit` 會呼叫 `bingWebSearch` 函式來傳回搜尋結果。 `bingWebSearch` 使用 `getSubscriptionKey()` 來驗證每個查詢。 如先前的定義所示，如果尚未輸入金鑰，`getSubscriptionKey` 就會提示使用者輸入金鑰。 其後應儲存金鑰，以供應用程式繼續使用。
+HTML `<form>` 標籤 `onsubmit` 會呼叫 `bingWebSearch` 函式來傳回搜尋結果。 `bingWebSearch` 使用 `getSubscriptionKey()` 來驗證每個查詢。 如先前的定義所示，若尚未輸入金鑰．`getSubscriptionKey` 就會提示使用者輸入金鑰。 其後應儲存金鑰，以供應用程式繼續使用。
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
@@ -105,12 +106,12 @@ HTML 表單包含具有下列名稱的項目：
 | `query` | 要輸入搜尋字詞的文字欄位。 |
 | `modules` | 可供升級特定結果模組、所有結果或相關影片的核取方塊。 |
 | `when` | 可選擇性地將搜尋限定為最近一天、一週或一個月的下拉式功能表。 |
-| `safe` | 指出是否要使用 Bing 安全搜尋功能來篩選掉「成人」結果的核取方塊。 |
+| `safe` | 指明是否要使用 Bing 安全搜尋功能來篩選掉「成人」結果的核取方塊。 |
 | `count` | 隱藏的欄位。 毎個要求要傳回的搜尋結果數目。 變更為每頁顯示更多或更少結果。 |
 | `offset`|  隱藏的欄位。 要求中第一個搜尋結果的位移；用於分頁。 它會在新要求執行時重設為 `0`。 |
 
 > [!NOTE]
-> Bing Web 搜尋提供了其他查詢參數。 我們在這裡只使用了其中一些參數。
+> Bing Web 搜尋提供其他查詢參數。 我們在這裡只使用了其中一些參數。
 
 ``` javascript
 // build query options from the HTML form
@@ -266,7 +267,7 @@ function handleOnLoad() {
 |提出要求|網路錯誤、已中止連線|`error` 和 `abort` 事件處理常式|
 |執行搜尋|無效的要求、無效的 JSON、速率限制|`load` 事件處理常式中的測試|
 
-錯誤是透過呼叫 `renderErrorMessage()` 來處理，並提供有關錯誤的任何已知詳細資料。 如果回應通過錯誤測試的所有挑戰，我們會呼叫 `renderSearchResults()` 在頁面中顯示搜尋結果。
+錯誤是透過呼叫 `renderErrorMessage()` 來處理，並提供有關錯誤的任何已知詳細資料。 若回應通過錯誤測試的所有挑戰，我們會呼叫 `renderSearchResults()` 在頁面中顯示搜尋結果。
 
 ## <a name="displaying-search-results"></a>顯示搜尋結果
 用於顯示搜尋結果的主要函式是 `renderSearchResults()`。 此函式會接受 Bing 新聞搜尋服務所傳回的 JSON，並轉譯新聞結果和相關的搜尋 (若有的話)。
@@ -309,10 +310,10 @@ Bing 新聞搜尋 API 最多傳回四種不同的相關結果，每個都出現�
 
 |關聯|說明|
 |-|-|
-|`pivotSuggestions`|將原始搜尋中的樞紐字組取代為不同樞紐字組的查詢。 比方說，如果您搜尋「紅色花卉」，樞紐字組可能是「紅色」，而樞紐建議可能是「黃色花卉」。|
-|`queryExpansions`|藉由新增多個字詞以縮小原始搜尋範圍的查詢。 比方說，如果您搜尋 "Microsoft Surface"，可能是查詢擴充可能是 "Microsoft Surface Pro"。|
-|`relatedSearches`|也已由輸入原始搜尋的其他使用者輸入的查詢。 比方說，如果您搜尋「雷尼爾山」，相關搜尋可能是「 聖海倫山」。|
-|`similarTerms`|與原始搜尋的意義類似的查詢。 例如，如果您搜尋「學校」，類似的字詞可能是「教育」。|
+|`pivotSuggestions`|將原始搜尋中的樞紐字組取代為不同樞紐字組的查詢。 比方說，若您搜尋「紅色花卉」，樞紐字組可能是「紅色」，而樞紐建議可能是「黃色花卉」。|
+|`queryExpansions`|藉由新增多個字詞以縮小原始搜尋範圍的查詢。 比方說，若您搜尋 "Microsoft Surface"，可能是查詢擴充可能是 "Microsoft Surface Pro"。|
+|`relatedSearches`|也已由輸入原始搜尋的其他使用者輸入的查詢。 比方說，若您搜尋「雷尼爾山」，相關搜尋可能是「 聖海倫山」。|
+|`similarTerms`|與原始搜尋的意義類似的查詢。 例如，若您搜尋「學校」，類似的字詞可能是「教育」。|
 
 如 `renderSearchResults()` 先前所示，我們只會轉譯 `relatedItems` 建議，並將產生的連結置於頁面的資訊看板中。
 
@@ -375,11 +376,11 @@ searchItemRenderers = {
 縮圖大小用於這兩個 `<img>` 標籤，以及縮圖 URL 中的 `h` 和 `w` 欄位。 [Bing 縮圖服務](resize-and-crop-thumbnails.md)接著會提供完全符合該大小的縮圖。
 
 ## <a name="persisting-client-id"></a>保存用戶端識別碼
-來自 Bing 搜尋 API 的回應可能會在後續要求中包含應該傳回 API 的 `X-MSEdge-ClientID` 標頭。 如果使用多個 Bing 搜尋 API，請盡可能對所有 API 使用相同的用戶端識別碼。
+來自 Bing 搜尋 API 的回應可能會在後續要求中包含應該傳回 API 的 `X-MSEdge-ClientID` 標頭。 若使用多個 Bing 搜尋 API，請盡可能對所有 API 使用相同的用戶端識別碼。
 
 提供 `X-MSEdge-ClientID` 標頭可讓 Bing API 建立所有使用者搜尋的關聯，這有兩個重要的優點。
 
-首先，它可讓 Bing 搜尋引擎將過去內容套用至搜尋結果，以尋找更符合使用者的結果。 例如，如果使用者之前搜尋與航行相關的字詞，稍後搜尋「節」可能會優先傳回航行中所使用節數的相關資訊。
+首先，它可讓 Bing 搜尋引擎將過去內容套用至搜尋結果，以尋找更符合使用者的結果。 例如，若使用者之前搜尋與航行相關的字詞，稍後搜尋「節」可能會優先傳回航行中所使用節數的相關資訊。
 
 其次，Bing 可能會隨機選取使用者來體驗新功能，再廣泛提供這些功能。 在每個要求中提供相同的用戶端識別碼，可確保看到功能的使用者一律會看到該功能。 若沒有用戶端識別碼，使用者可能會在其搜尋結果中看到功能出現並消失，似乎很隨機。
 
@@ -390,7 +391,7 @@ searchItemRenderers = {
 
 若要進行開發，您可以透過 CORS Proxy 提出 Bing Web 搜尋 API 要求。 來自這類 Proxy 的回應包含 `Access-Control-Expose-Headers` 標頭，可將回應標頭列入白名單並提供給 JavaScript 使用。
 
-您可以輕鬆地安裝 CORS Proxy，讓我們的教學課程應用程式存取用戶端識別碼標頭。 首先，請[安裝 Node.js](https://nodejs.org/en/download/) (如果尚未安裝)。 然後在命令視窗中發出下列命令：
+您可以輕鬆安裝 CORS Proxy，讓我們的教學課程應用程式存取用戶端識別碼標頭。 首先，請[安裝 Node.js](https://nodejs.org/en/download/) (若尚未安裝)。 然後在命令視窗中發出下列命令：
 
     npm install -g cors-proxy-server
 
@@ -402,7 +403,7 @@ searchItemRenderers = {
 
     cors-proxy-server
 
-當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開之 [HTTP 標頭] 區段的搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
+當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開的 [HTTP 標頭] 區段搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]

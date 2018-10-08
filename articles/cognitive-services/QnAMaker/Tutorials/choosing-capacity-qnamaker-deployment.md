@@ -1,21 +1,21 @@
 ---
-title: 選擇 QnA Maker 部署的容量 - Microsoft 認知服務 | Microsoft Docs
-titleSuffix: Azure
+title: 部署的資源容量 - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: 為您的 QnA Maker 部署選擇容量的指南
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: b0219b9f7dbbee52406dab9d808134fa2e2a689d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 01548cf2de8db8f4dc9984598a5e5544bf97fd49
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369630"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432642"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>選擇 QnA Maker 部署的容量
 
@@ -27,7 +27,7 @@ QnA Maker 服務會採用對三項 Azure 資源的相依性：
 在建立 QnA Maker 服務之前，您應決定您適合使用上述服務的哪幾層。 
 
 一般而言，您有三個參數必須考量：
-1. **您所需的服務輸送量**：根據您的需求為您的應用程式服務選取適當的[應用程式方案](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/)。 您可以[相應增加](https://docs.microsoft.com/en-us/azure/app-service/web-sites-scale)或相應減少應用程式。 這應該也會影響您的 Azure 搜尋服務 SKU 選取，請參閱[這裡](https://docs.microsoft.com/en-us/azure/search/search-sku-tier)以取得更多詳細資訊。
+1. **您所需的服務輸送量**：根據您的需求為您的應用程式服務選取適當的[應用程式方案](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/)。 您可以[相應增加](https://docs.microsoft.com/azure/app-service/web-sites-scale)或相應減少應用程式。 這應該也會影響您的 Azure 搜尋服務 SKU 選取，請參閱[這裡](https://docs.microsoft.com/azure/search/search-sku-tier)以取得更多詳細資訊。
 
 2. **知識庫的大小和數量**：針對您的案例選擇適當的 [Azure 搜尋服務 SKU](https://azure.microsoft.com/en-in/pricing/details/search/)。 您可以在特定層中發佈 N-1 個知識庫，其中，N 是該層中允許的索引數上限。 同時也請檢查每個層允許的大小上限和文件數目。
 
@@ -38,7 +38,7 @@ QnA Maker 服務會採用對三項 Azure 資源的相依性：
 |                        | QnA Maker 管理 | App Service 方案 | Azure 搜尋服務 | 限制                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | 測試        | 免費 SKU             | 免費層   | 免費層    | 最多發佈 2 個 KB，大小為 50 MB  |
-| 開發/測試環境   | 標準 SKU         | 共用      | 基本        | 最多發佈 4 個 KB，大小為 2 GB    |
+| 開發/測試環境   | 標準 SKU         | 共用      | 基本        | 最多發佈 14 KB，大小為 2 GB    |
 | 生產環境 | 標準 SKU         | 基本       | 標準     | 最多發佈 49 個 KB，大小為 25 GB |
 
 如要升級 QnA Maker 堆疊，請參閱[升級 QnA Maker 服務](../How-To/upgrade-qnamaker-service.md)。

@@ -1,23 +1,23 @@
 ---
-title: 影片搜尋 API 快速入門 | Microsoft Docs
+title: 快速入門：Bing 影片搜尋 API
+titlesuffix: Azure Cognitive Services
 description: 示範如何開始使用 Bing 影片搜尋 API。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 7E59692A-83A8-4F4C-B122-1F0EDC8E5C86
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0bd0f067d64cac3ebac342ebadcfcc010a47af7b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: abeeec95755a566216ac65b2edf5c831a8ab93b6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369951"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225509"
 ---
-# <a name="your-first-video-search-query"></a>第一個影片搜尋查詢
+# <a name="quickstart-your-first-video-search-query"></a>快速入門：第一個影片搜尋查詢
 
 第一次進行呼叫之前，您需要取得 Bing 搜尋認知服務訂用帳戶金鑰。 若要取得金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api)。
 

@@ -9,19 +9,19 @@ ms.author: estfan
 ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
-ms.date: 09/24/2018
-ms.openlocfilehash: fd92b093b70dba2df3ec645b3ecb77233d3ebd5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 36e8161eb8be16b75d843a2b7a65fc3dd70d9c02
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958351"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405283"
 ---
 # <a name="create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>建立及管理自動化邏輯應用程式工作流程 - Visual Studio Code
 
 使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 與 Visual Studio Code，您可以建立及管理有助於自動化工作、工作流程與程序的邏輯應用程式，以便整合各組織與企業的應用程式、資料、系統與服務。 此文章說明如何運用程式碼式體驗，來建立及編輯邏輯應用程式工作流程定義。 您也可以使用已部署至雲端 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> 的邏輯應用程式。 
 
-雖然您可以在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>與 Visual Studio 中執行這些相同的工作，但當您想要直接使用程式碼時，在 Visual Studio Code 中可更快開始使用。 例如，您也可以停用、啟用、刪除及重新整理已建立的邏輯應用程式。
+雖然您可以在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>與 Visual Studio 中執行這些相同的工作，但當您想要直接使用程式碼時，在 Visual Studio Code 中可更快開始使用。 例如，您也可以停用、啟用、刪除及重新整理已建立的邏輯應用程式。 此外，您也可以從 Visual Studio Code 執行所在的任何開發平台 (例如 Linux、Windows、和 Mac) 來處理邏輯應用程式和整合帳戶。
 
 在此文章中，您可以如[在 Azure 入口網站中建立邏輯應用程式的快速入門](../logic-apps/quickstart-create-first-logic-app-workflow.md)中所述，建立相同的邏輯應用程式，該文章比較著重在說明基本概念。 在 Visual Studio Code 中，邏輯應用程式看起來會像以下範例：
 
@@ -37,13 +37,13 @@ ms.locfileid: "46958351"
 
 * 可存取網路以登入 Azure 與您的 Azure 訂用帳戶
 
-* 如果您還沒有以下這些工具，請下載並安裝它們： 
+* 如果您還沒有以下這些工具，請加以下載並安裝： 
 
   * <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code 1.25.1 版或更新版本</a> (免費)
 
   * 適用於 Azure Logic Apps 的 Visual Studio Code 延伸模組
 
-    您可以從 Visual Studio Code 內安裝此擴充功能。 
+    您可以從 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) 或直接從 Visual Studio Code 內安裝此擴充功能。 
     請務必在安裝之後重新載入 Visual Studio Code。 
 
     ![尋找「適用於 Azure Logic Apps 的 Visual Studio Code 擴充功能」](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
@@ -52,7 +52,7 @@ ms.locfileid: "46958351"
 
     ![已安裝延伸模組](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
-    如需詳細資訊，請參閱<a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">延伸模組市集</a> \(英文\)。 
+    如需詳細資訊，請參閱<a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">延伸模組市集</a> \(英文\)。 您也可以瀏覽 [GitHub 上 Visual Studio Code 的 Azure Logic Apps 擴充功能](https://github.com/Microsoft/vscode-azurelogicapps)，以檢視並提交對此擴充功能的開放原始碼版本的貢獻。 
 
 <a name="sign-in-azure"></a>
 

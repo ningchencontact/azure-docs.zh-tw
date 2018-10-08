@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972378"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221701"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>適用於預測性維護解決方案的 AI 指南
 
@@ -426,19 +426,19 @@ PdM 有另一個實用的技巧，就是使用可偵測資料異常的演算法�
 
 ## <a name="training-resources-for-predictive-maintenance"></a>預測性維護的訓練資源
 
-[預測性維護的 Azure AI 學習路徑](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md)提供訓練資料，以便更深入了解 PdM 問題中所用的演算法和技巧背後的概念和數學邏輯。 
-
-Microsoft Azure 會提供有關一般 AI 概念和實務的免費內容及訓練。
+除了一般 AI 概念和做法的內容與訓練，Microsoft Azure 提供 PdM 技術後方的基本概念學習路徑。
 
 | 訓練資源  | 可用性 |
 |:-------------------|--------------|
+| [使用樹狀結構和隨機樹系的 PdM 學習路徑](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | 公開 | 
+| [使用深度學習的 PdM 學習路徑](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | 公開 |
 | [使用 Azure 的 AI 開發人員](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | 公開 |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | 公開 |
 | [GitHub 中的 Azure AI 學習](https://github.com/Azure/connectthedots/blob/master/readme.md) | 公開 |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | 公開 |
 | [Microsoft AI Youtube 網路研討會](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | 公開 |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | 公開 |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | 適用於 Microsoft 合作夥伴 |
-| [Microsoft 合作夥伴網路](http://learningportal.microsoft.com) | 適用於 Microsoft 合作夥伴 |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | 合作夥伴 |
+| [Microsoft 合作夥伴網路](http://learningportal.microsoft.com) | 合作夥伴 |
 
 此外，有些學術機構 (如史丹佛大學和 MIT) 和其他教育公司會在線上提供有關 AI 的免費 MOOCS (大規模開放式線上課程)。

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/19/2018
 ms.author: magoedte
-ms.openlocfilehash: e8723bd8e26eb66d9333c2093b5ada8bc78ca14b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 308a447ff99cd11ad6a28df0bdb515764b0f546b
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989596"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063450"
 ---
 # <a name="azure-monitor-for-vms-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器常見問題集
 此 Microsoft 常見問題集是 Microsoft Azure 中適用於 VM 的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -93,3 +93,6 @@ ms.locfileid: "46989596"
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>[效能] 索引標籤上的網路圖表為什麼看起來與 [Azure VM 概觀] 頁面上的網路圖表不同呢？
 
 適用於 Azure 虛擬機器的概觀頁面會根據客體 VM 中主機的活動量值來顯示圖表。  至於 [Azure VM 概觀] 上的網路圖表，它只會顯示將收費的網路流量。  這不包括虛擬網路間的流量。  針對適用於 VM 的 Azure 監視器顯示的資料和圖表，會以來自客體 VM 的資料為基礎，而網路圖表會顯示輸入和輸出到該 VM (包括虛擬網路間) 的所有 TCP/IP 流量。
+
+## <a name="next-steps"></a>後續步驟
+檢閱[將適用於 VM 的 Azure 監視器上線](monitoring-vminsights-onboard.md)，了解啟用虛擬機器監視的需求和方法。

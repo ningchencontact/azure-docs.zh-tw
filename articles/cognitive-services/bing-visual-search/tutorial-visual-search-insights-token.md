@@ -1,28 +1,29 @@
 ---
-title: Bing 圖像式搜尋 SDK ImageInsightsToken 教學課程 | Microsoft Docs
+title: 教學課程：ImageInsightsToken - Bing 圖像式搜尋
+titlesuffix: Azure Cognitive Services
 description: 如何使用 Bing 圖像式搜尋 SDK 來取得 ImageInsightsToken 所指定影像的 URL。
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 8f6e7f7e88ae78fe7e8a9be4adefd689dd26d0f9
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bda4bdeea019d8cf3ae677d5eaf81e631ca38d16
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42093822"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222568"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>教學課程：Bing 圖像式搜尋 SDK ImageInsightsToken 和結果
 圖像式搜尋 SDK 有選項可供從先前傳回 `ImageInsightsToken` 的搜尋中，線上尋找影像。  此範例可取得 `ImageInsightsToken`，並在後續搜尋中使用權杖。  程式碼會將 `ImageInsightsToken` 傳送到 Bing 並傳回結果，結果中包含 Bing 搜尋 URL 和線上所找到類似影像的 URL。
 
 ## <a name="prerequisites"></a>必要條件
-Visual Studio 2017。 如有需要，您可從下列位置下載免費的社群版本：https://www.visualstudio.com/vs/community/。
+Visual Studio 2017。 如有需要，您可從下列位置下載免費的社群版本： https://www.visualstudio.com/vs/community/。
 必須要有認知服務 API 金鑰才能驗證 SDK 呼叫。 申請免費試用金鑰。 試用金鑰可讓您以每秒 1 個呼叫的頻率使用 7 天。 針對生產案例，請購買存取金鑰。 另請參閱定價資訊。
-要能夠執行 .NET Core SDK，也就是 .NET Core 1.1 應用程式。 您可以從下列位置取得 CORE、架構和執行階段：https://www.microsoft.com/net/download/。
+要能夠執行 .NET Core SDK，也就是 .NET Core 1.1 應用程式。 您可以從下列位置取得 CORE、架構和執行階段： https://www.microsoft.com/net/download/。
 
 ##<a name="application-dependencies"></a>應用程式相依性
 若要使用 Bing Web 搜尋 SDK 來設定主控台應用程式，請在 Visual Studio 中瀏覽至 [方案總管] 的 [管理 NuGet 套件] 選項。 新增：

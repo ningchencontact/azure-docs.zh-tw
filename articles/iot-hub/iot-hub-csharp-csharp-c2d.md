@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: e744ffe9eb6e58c9226802f0196cb5acf1427bdf
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2dca04cadd4c5b904c752ac8a01af8bcb7c6ae33
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047714"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220103"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中樞將訊息從雲端傳送至裝置 (.NET)
 
@@ -200,7 +200,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
    ![正在接收訊息的應用程式](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如 MSDN 文章 [暫時性錯誤處理](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx)所建議，實作重試原則 (例如指數型輪詢)。
+> 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)一文所建議，實作重試原則 (例如指數型輪詢)。
 > 
 
 ## <a name="next-steps"></a>後續步驟

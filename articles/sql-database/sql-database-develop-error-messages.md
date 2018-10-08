@@ -3,19 +3,22 @@ title: SQL 錯誤碼 - 資料庫連線錯誤 | Microsoft Docs
 description: '了解 SQL Database 用戶端應用程式的 SQL 錯誤碼，例如常見的資料庫連線錯誤、資料庫副本問題，以及一般錯誤。 '
 keywords: sql error code,access sql,database connection error,sql error codes,sql 錯誤碼,存取 sql,資料庫連線錯誤,sql 錯誤碼
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: d5b98f573b60115002e813ebbef59eb7983ce3c2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092523"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064385"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
@@ -111,7 +114,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 40857 |EX_USER |找不到伺服器 '%ls' 的彈性集區，彈性集區名稱: '%ls'。 |伺服器名稱、彈性集區名稱 |指定的彈性集區不存在於指定的伺服器中。 |請提供有效的彈性集區名稱。 |
 | 40858 |EX_USER |彈性集區 '%ls' 已存在於伺服器 '%ls' 中 |彈性集區名稱、伺服器名稱 |指定的彈性集區已存在於指定的邏輯伺服器中。 |請提供新的彈性集區名稱。 |
 | 40859 |EX_USER |彈性集區不支援服務層 '%ls'。 |彈性集區服務層 |指定的服務層不支援彈性集區佈建。 |請提供正確的版本，或者將服務層保留空白，以使用預設的服務層。 |
-| 40860 |EX_USER |彈性集區 '%ls' 和服務目標 '%ls' 的組合無效。 |彈性集區名稱、服務層級目標名稱 |如果服務目標指定為 'ElasticPool'，才能同時指定彈性集區和服務目標。 |請指定正確的彈性集區和服務目標組合。 |
+| 40860 |EX_USER |彈性集區 '%ls' 和服務目標 '%ls' 的組合無效。 |彈性集區名稱; 服務層 |如果資源類型指定為 'ElasticPool'，才能同時指定彈性集區和服務層。 |請指定正確的彈性集區和服務層組合。 |
 | 40861 |EX_USER |資料庫版本 '%.ls' 不能和彈性集區服務層 ('%.ls') 不同。 |資料庫版本、彈性集區服務層 |資料庫版本和彈性集區服務層不同。 |請勿指定與彈性集區服務層不同的資料庫版本。  請注意，不需要指定資料庫版本。 |
 | 40862 |EX_USER |指定彈性集區服務目標時，必須指定彈性集區名稱。 |None |彈性集區服務目標不是彈性集區的唯一識別依據。 |使用彈性集區服務目標時，請指定彈性集區名稱。 |
 | 40864 |EX_USER |服務層 '%.*ls' 的彈性集區 DTU 數必須至少為 (%d) 個 DTU。 |彈性集區的 DTU 數、彈性集區服務層。 |試圖將彈性集區的 DTU 數設為低於最小限制。 |請重試將彈性集區的 DTU 數至少設為等於最小限制。 |

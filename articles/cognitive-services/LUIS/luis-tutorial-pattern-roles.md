@@ -1,80 +1,70 @@
 ---
-title: 使用模式角色來改善 LUIS 預測的教學課程 - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: 在本教學課程中，使用適用於內容相關實體的模式角色來改善 LUIS 預測。
+title: 教學課程 4：內容相關資料的模式角色
+titleSuffix: Azure Cognitive Services
+description: 使用模式來從正確格式的語句範本擷取資料。 語句範本會使用簡單的實體和角色來擷取相關資料，例如原始位置和目的地位置。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161929"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160242"
 ---
-# <a name="tutorial-improve-app-with-pattern-roles"></a>教學課程：使用模式角色來改善應用程式
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>教學課程 4：擷取內容相關的模式
 
-在本教學課程中，使用含有已與模式合併之角色的簡單實體來提高意圖和實體預測。  使用模式時，需要針對意圖使用較少的範例語句。
+在本教學課程中，使用模式來從正確格式的語句範本擷取資料。 語句範本會使用簡單的實體和角色來擷取相關資料，例如原始位置和目的地位置。  使用模式時，需要針對意圖使用較少的範例語句。
 
-> [!div class="checklist"]
-* 了解模式角色
-* 使用含有角色的簡單實體 
-* 使用含有角色的簡單實體來建立適用於語句的模式
-* 如何確認模式預測改進情況
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>開始之前
-如果您沒有來自[模式](luis-tutorial-pattern.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 您可以在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub 存放庫中找到要匯入的應用程式。
-
-如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `roles`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
-
-## <a name="the-purpose-of-roles"></a>角色的用途
 角色的用途是在語句中擷取內容相關的實體。 在 `Move new employee Robert Williams from Sacramento and San Francisco` 語句中，來源城市與目的地城市的值彼此相關，並使用通用語言來表示每個位置。 
 
-使用模式時，必須在模式比對語句「之前」，先在模式中偵測到任何實體。 
 
-當您建立模式時，第一個步驟是選取適用於模式的意圖。 藉由選取意圖，如果模式相符，一律會傳回最高分 (通常是 99-100%) 的正確意圖。 
-
-### <a name="compare-hierarchical-entity-to-simple-entity-with-roles"></a>比較階層式實體與含有角色的簡單實體
-
-在[階層式教學課程](luis-quickstart-intent-and-hier-entity.md)中，**MoveEmployee** 意圖偵測到現有員工從某一棟建築物和辦公室搬遷另一棟的時機。 範例語句含有來源和目的地位置，但未使用角色。 相反地，來源和目的地都是階層式實體的子系。 
-
-在本教學課程中，人力資源應用程式會偵測將新員工從某個城市搬遷到另一個的相關語句。 這兩種類型的語句很類似，但使用不同的 LUIS 能力來解決。
-
-|教學課程|範例語句|來源和目的地位置|
-|--|--|--|
-|[階層式 (沒有角色)](luis-quickstart-intent-and-hier-entity.md)|將 Jill Jones 從 **a-2349** 搬遷到 **b-1298**|a-2349、b-1298|
-|本教學課程 (含有角色)|將 Billy Patterson 從 **Yuma** 搬遷到 **Denver**。|Yuma、Denver|
-
-您無法在模式中使用階層式實體，因為在模式中只會使用階層式父代。 若要傳回來源和目的地的具名位置，您必須使用模式。
-
-### <a name="simple-entity-for-new-employee-name"></a>適用於新員工名稱的簡單實體
 新進員工的名稱 Billy Patterson 尚不屬於**員工**清單實體的一部分。 先擷取新的員工名稱，才能將該名稱傳送到外部系統來建立公司認證。 建立公司認證之後，會將員工認證新增到**員工**清單實體。
 
-**員工**清單已在[清單教學課程](luis-quickstart-intent-and-list-entity.md)中建立。
-
-**NewEmployee** 實體是沒有角色的簡單實體。 
-
-### <a name="simple-entity-with-roles-for-relocation-cities"></a>適用於調職城市且含有角色的簡單實體
 新進員工和家人需要從目前的城市搬遷到虛構公司所在的城市。 由於新進員工可能來自任何城市，因此，必須先探索位置。 諸如清單實體之類的集合清單不會有任何作用，因為只會擷取清單中的城市。
 
-與來源和目的地城市相關聯的角色名稱在所有實體中必須是唯一的。 確定角色是唯一的簡單方式是透過命名策略，將它們繫結至包含實體。 **NewEmployeeRelocation** 實體是一個簡單實體且含有兩個角色：**NewEmployeeReloOrigin** 和 **NewEmployeeReloDestination**。
+與來源和目的地城市相關聯的角色名稱在所有實體中必須是唯一的。 確定角色是唯一的簡單方式是透過命名策略，將它們繫結至包含實體。 **NewEmployeeRelocation** 實體是一個簡單實體且含有兩個角色：**NewEmployeeReloOrigin** 和 **NewEmployeeReloDestination**。 Relo 是 relocation (重新配置) 的簡寫。
 
-### <a name="simple-entities-need-enough-examples-to-be-detected"></a>簡單實體需要足夠的範例才能被偵測到
 由於範例語句 `Move new employee Robert Williams from Sacramento and San Francisco` 只具備機器學習的實體，因此，請務必為意圖提供足夠的範例語句，如此才能偵測到實體。  
 
 **當模式可讓您提供較少的範例語句時，如果偵測不到實體，模式就不會進行比對。**
 
 如果您因為簡單實體是名稱 (例如城市) 而難以偵測簡單實體，請考慮新增類似值的片語清單。 這可藉由為 LUIS 提供關於該類型字組或片語的其他信號，來協助偵測城市名稱。 片語清單只能藉由協助偵測實體來為模式提供協助，對於要比對的模式而言，實體偵測是必要的。 
 
+**在本教學課程中，您將了解如何：**
+
+> [!div class="checklist"]
+> * 使用現有的教學課程應用程式
+> * 建立新實體
+> * 建立新意圖
+> * 定型
+> * 發佈
+> * 從端點取得意圖和實體
+> * 使用角色建立模式
+> * 建立城市的片語清單
+> * 從端點取得意圖和實體
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>使用現有的應用程式
+以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
+
+如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json)。
+
+2. 將 JSON 匯入新的應用程式中。
+
+3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `roles`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+
 ## <a name="create-new-entities"></a>建立新實體
-1. 在上方功能表中，選取 [建置]。
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 從左側瀏覽列中，選取 [實體]。 
 
@@ -124,15 +114,15 @@ ms.locfileid: "44161929"
 
     如果您移除了 keyPhrase 實體，請立即將它新增回應用程式。
 
-## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
+## <a name="train"></a>定型
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
+## <a name="publish"></a>發佈
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-without-pattern"></a>不使用模式來查詢端點
+## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -224,9 +214,12 @@ ms.locfileid: "44161929"
 
 意圖預測分數大約只有 50%。 如果您的用戶端應用程式需要較高的數字，則需要修正此項目。 此外，也無法預測實體。
 
+會擷取其中一個位置，但不會擷取另一個。 
+
 模式將協助預測分數，不過，必須先正確預測實體之後，模式才會比對語句。 
 
-## <a name="add-a-pattern-that-uses-roles"></a>新增使用角色的模式
+## <a name="pattern-with-roles"></a>具有角色的模式
+
 1. 在上方瀏覽列中，選取 [建置]。
 
 2. 在左側瀏覽列中，選取 [模式]。
@@ -237,8 +230,8 @@ ms.locfileid: "44161929"
 
     如果您針對端點進行定型、發佈及查詢，則您可能會因為看到找不到實體而感到失望，因此，模式不會進行比對，因而不會改善預測。 這是因為沒有足夠的範例語句含有已標示實體而導致的結果。 不要新增更多範例，而是新增片語清單來修正此問題。
 
-## <a name="create-a-phrase-list-for-cities"></a>建立適用於城市的片語清單
-城市就像人名一樣很棘手，因為它們可以是字組與標點符號的任意組合。 但區域和世界的城市都是已知的，因此 LUIS 需要城市的片語清單，才能開始學習。 
+## <a name="cities-phrase-list"></a>城市片語清單
+城市就像人名一樣很棘手，因為它們可以是字組與標點符號的任意組合。 區域和世界的城市都是已知的，因此 LUIS 需要城市的片語清單，才能開始學習。 
 
 1. 從左側功能表的 [改善應用程式效能] 區段中，選取 [片語清單]。 
 
@@ -255,18 +248,15 @@ ms.locfileid: "44161929"
     |邁阿密|
     |達拉斯|
 
-    請勿新增世界上的每個城市，也不要新增區域中的每個城市。 LUIS 必須能夠從清單中推論出城市的概況。 
-
-    請務必讓 [這些值是可交換的] 保持選取狀態。 此設定表示清單上的字組會被視為同義字。 這就是應該如何在模式中處理它們的方式。
-
-    請記住，[最近一次](luis-quickstart-primary-and-secondary-data.md)建立片語清單的教學課程系列，也有助於進行簡單實體的實體偵測。  
+    請勿新增世界上的每個城市，也不要新增區域中的每個城市。 LUIS 必須能夠從清單中推論出城市的概況。 請務必讓 [這些值是可交換的] 保持選取狀態。 此設定表示清單上的字組會被視為同義字。 
 
 3. 訓練和發佈應用程式。
 
-## <a name="query-endpoint-for-pattern"></a>適用於模式的查詢端點
-1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 此動作會開啟另一個瀏覽器視窗，其中網址列會顯示端點 URL。 
+## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體
 
-2. 移至位址中的 URL 尾端並輸入 `Move wayne berry from miami to mount vernon`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+
+2. 移至位址中的 URL 結尾並輸入 `Move wayne berry from miami to mount vernon`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
     ```JSON
     {
@@ -380,11 +370,24 @@ ms.locfileid: "44161929"
 
 意圖分數現在會高出許多，而且角色名稱為實體回應的一部分。
 
+## <a name="hierarchical-entities-versus-roles"></a>階層式實體與角色
+
+在[階層式教學課程](luis-quickstart-intent-and-hier-entity.md)中，**MoveEmployee** 意圖偵測到現有員工從某一棟建築物和辦公室搬遷另一棟的時機。 範例語句含有來源和目的地位置，但未使用角色。 相反地，來源和目的地都是階層式實體的子系。 
+
+在本教學課程中，人力資源應用程式會偵測將新員工從某個城市搬遷到另一個的相關語句。 語句的這兩種類型相同，但會使用不同的 LUIS 能力來加以解決。
+
+|教學課程|範例語句|來源和目的地位置|
+|--|--|--|
+|[階層式 (沒有角色)](luis-quickstart-intent-and-hier-entity.md)|將 Jill Jones 從 **a-2349** 搬遷到 **b-1298**|a-2349、b-1298|
+|本教學課程 (含有角色)|將 Billy Patterson 從 **Yuma** 搬遷到 **Denver**。|Yuma、Denver|
+
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
+
+本教學課程已新增具有角色的實體和具有語句範例的意圖。 正確使用實體的第一個端點預測已預測出意圖但信賴分數不高。 只偵測到兩個實體的其中一個。 接下來，本教學課程新增了一種使用實體角色的模式，以及用來提升語句中城市名稱價值的片語清單。 第二個端點預測傳回了高信賴分數，並找到這兩個實體角色。 
 
 > [!div class="nextstepaction"]
 > [了解 LUIS 應用程式的最佳做法](luis-concept-best-practices.md)

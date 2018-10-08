@@ -2,21 +2,22 @@
 title: Azure SQL Database 自動、異地備援備份 | Microsoft Docs
 description: SQL Database 每隔幾鐘會自動建立一個本機資料庫備份，並使用 Azure 讀取權限異地備援儲存體來進行異地備援。
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.workload: Active
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce7c41730bec4e014225fb8c744d029493f5ec2c
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+manager: craigg
+ms.date: 09/25/2018
+ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246781"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181136"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
@@ -26,7 +27,7 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 ## <a name="what-is-a-sql-database-backup"></a>什麼是 SQL Database 備份？
 
-針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server)及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 根據效能層級和資料庫活動量的頻率，交易記錄備份通常每隔 5-10 分鐘會進行一次，而差異備份通常每隔 12 小時進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 儲存在 RA-GRS 儲存體 Blob 中的備份會複寫到[配對的資料中心](../best-practices-availability-paired-regions.md)，以防止發生資料中心中斷的情況。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
+針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server)及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 根據計算大小和資料庫活動量的頻率，交易記錄備份通常每隔 5-10 分鐘會進行一次，而差異備份通常每隔 12 小時進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 儲存在 RA-GRS 儲存體 Blob 中的備份會複寫到[配對的資料中心](../best-practices-availability-paired-regions.md)，以防止發生資料中心中斷的情況。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
 
 
 您可以使用這些備份︰
@@ -66,7 +67,7 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 ## <a name="how-often-do-backups-happen"></a>備份頻率是？
 ### <a name="backups-for-point-in-time-restore"></a>時間點還原的備份
-SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 根據效能層級和資料庫活動量的頻率，完整資料庫備份會每週建立，差異資料庫備份通常每隔 12 小時建立，而交易記錄備份通常每隔 5-10 分鐘建立。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 比方說，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 第一次完整備份之後，將會自動排程進一步的備份，並在背景中以無訊息方式管理。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。
+SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 根據計算大小和資料庫活動量的頻率，完整資料庫備份會每週建立，差異資料庫備份通常每隔 12 小時建立，而交易記錄備份通常每隔 5-10 分鐘建立。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 比方說，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 第一次完整備份之後，將會自動排程進一步的備份，並在背景中以無訊息方式管理。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。
 
 PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)保護
 
@@ -82,6 +83,10 @@ SQL Database 提供選項讓您在 Azure Blob 儲存體中設定完整備份的�
 ## <a name="are-backups-encrypted"></a>備份經過加密？
 
 如果您的資料庫使用 TDE 加密，則備份會在靜止時自動加密 (包括 LTR 備份)。 Azure SQL 資料庫啟用 TDE 時，也會加密備份。 所有新的 Azure SQL Database 預設都會設定為啟用 TDE。 如需 TDE 的詳細資訊，請參閱 [Azure SQL Database 的透明資料加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。
+
+## <a name="how-does-microsoft-ensure-backup-integrity"></a>Microsoft 如何確保備份完整性
+
+Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，進行自動資料庫備份的還原測試。 一旦還原，資料庫也會收到使用 DBCC CHECKDB 的完整性檢查。 在完整性檢查期間找到的任何問題都會對工程小組發出警示。 如需有關 Azure SQL Database 中資料完整性的詳細資訊，請參閱 [Azure SQL Database 中的資料完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)。
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>自動化備份對合規性的影響為何？
 

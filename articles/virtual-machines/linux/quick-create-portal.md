@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108801"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227277"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Linux 虛擬機器
 
@@ -49,26 +49,27 @@ ssh-keygen -t rsa -b 2048
 
 1. 選擇 Azure 入口網站左上角的 [建立資源]。
 
-2. 在 Azure Marketplace 資源清單上方的搜尋方塊中，依 Canonical 搜尋並選取**Ubuntu Server 16.04 LTS**，然後選擇 [建立]。
+1. 在 Azure Marketplace 資源清單上方的搜尋方塊中，依 Canonical 搜尋並選取**Ubuntu Server 16.04 LTS**，然後選擇 [建立]。
 
-3. 提供 VM 名稱 (例如 *myVM*)，將磁碟類型保留為 *SSD*，然後提供使用者名稱 (例如 *azureuser*)。
+1. 在 [基本資料] 索引標籤中的 [專案詳細資料] 底下，確認已選取正確的訂用帳戶，然後在 [資源群組] 下方選擇 [新建]。 在快顯視窗中輸入 *myResourceGroup* 作為資源群組的名稱，然後選擇 [*確定]。 
 
-4. 針對 [驗證類型] 選取 [SSH 公開金鑰]，然後將您的公開金鑰貼到文字方塊中。 請謹慎地移除公開金鑰中的任何前置或尾端的空白字元。
+    ![為您的 VM 建立新的資源群組](./media/quick-create-portal/project-details.png)
 
-    ![在入口網站刀鋒視窗中輸入 VM 的基本資訊](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. 在 [執行個體詳細資料] 底下，輸入 myVM 作為 [虛擬機器名稱]，然後選擇 [美國東部] 作為您的 [區域]。 其他部分保留預設值。
 
-5. 選擇 [新建] 資源群組，然後提供名稱 (例如 *myResourceGroup*)。 輸入您所需的 [位置]，然後選取 [確定]。
+    ![執行個體詳細資料區段](./media/quick-create-portal/instance-details.png)
 
-4. 選取 VM 的大小。 您可以依 [計算類型] 或 [磁碟類型] 進行篩選 (舉例而言)。 建議的 VM 大小為 *D2s_v3*。
+1. 在 [系統管理員帳戶] 下方選取 [SSH 公開金鑰]，輸入您的使用者名稱，然後將您的公開金鑰貼到文字方塊中。 請移除公開金鑰中的任何前置或尾端的空白字元。
 
-    ![顯示 VM 大小的螢幕擷取畫面](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![系統管理員帳戶](./media/quick-create-portal/administrator-account.png)
 
-5. 在 [設定] 頁面的 [網路] > [網路安全性群組] > [選取公用輸入連接埠] 中，選取 [HTTP] 和 [SSH (22)]。 保留其餘的預設值，然後選取 [確定]。
+1. 在 [輸入連接埠規則] > [公用輸入連接埠] 下方，選擇 [允許選取的連接埠]，然後從下拉式清單中選取 [SSH (22)] 和 [HTTP (80)]。 
 
-6. 在 [摘要] 頁面上選取 [建立]，以開始進行 VM 部署。
+    ![開啟 RDP 和 HTTP 的連接埠](./media/quick-create-portal/inbound-port-rules.png)
 
-7. VM 會釘選到 Azure 入口網站儀表板。 一旦完成部署後，VM 摘要就會自動開啟。
+1. 保留其餘預設值，然後在頁面底部選取 [檢閱 + 建立] 按鈕。
 
+    
 ## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
 
 建立與 VM 的 SSH 連線。

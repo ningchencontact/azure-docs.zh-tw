@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 79f507c342f5a13c4d3784cf312f0bf8aeffa3e3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26fcc3eb78af53360cca57382b4c06b017f36c0e
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957242"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063263"
 ---
-## <a name="what-is-azure-monitor-for-vms"></a>適用於 VM 的 Azure 監視器是什麼？
+# <a name="what-is-azure-monitor-for-vms"></a>適用於 VM 的 Azure 監視器是什麼？
 
 適用於 VM 的 Azure 監視器可藉由分析 Windows 和 Linux VM 的效能和健康情況 (包括其不同的程序以及其他資源和外部程序的互連相依性)，大規模監視 Azure 虛擬機器 (VM)。 此解決方案包含針對在內部部署環境或其他雲端提供者上裝載的 VM，監視效能和應用程式相依性的支援。  它包含三個主要功能，以提供此深入解析：
 
@@ -57,4 +57,4 @@ ms.locfileid: "46957242"
 記錄大小會因計數器的字串長度而異，而且可以增加邏輯磁碟和網路介面卡數目。  如果您已經有工作區，並且收集這些計數器，則不會收取任何重複費用。  如果您已經使用服務對應，您會看到的唯一變更是傳送到 Azure 監視器的額外連線資料。
 
 ## <a name="next-steps"></a>後續步驟
-[將適用於 VM 的 Azure 監視器上線](monitoring-vminsights-onboard.md)以開始監視您的 Azure 虛擬機器。
+檢閱[將適用於 VM 的 Azure 監視器上線](monitoring-vminsights-onboard.md)，了解啟用虛擬機器監視的需求和方法。

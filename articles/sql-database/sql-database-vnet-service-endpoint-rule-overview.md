@@ -3,20 +3,21 @@ title: Azure SQL Database 的虛擬網路服務端點和規則 | Microsoft Docs
 description: 將子網路標示為虛擬網路服務端點。 然後將端點標示為虛擬網路規則，以列在 Azure SQL Database 的 ACL 中。 您的 SQL Database 將會接受來自子網路上所有虛擬機器和其他節點的通訊。
 services: sql-database
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-author: DhruvMsft
-manager: craigg
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/28/2018
-ms.reviewer: carlrab
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.reviewer: vanto, genemi
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143805"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166804"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>對 Azure SQL Database 和 SQL 資料倉儲使用虛擬網路服務端點和規則
 
@@ -125,7 +126,7 @@ RBAC 替代方案：
 
 對於 Azure SQL Database，虛擬網路規則功能具有下列限制：
 
-- Web 應用程式可以對應到 VNet/子網路中的私人 IP。 即使服務端點已從指定的 VNet/子網路上開啟，從 Web 應用程式至伺服器的連線仍具有 Azure 公用 IP 來源，而非 VNet/子網路來源。 若要啟用從 Web 應用程式到具有 VNet 防火牆規則之伺服器的連線，您必須在伺服器上 [允許所有 Azure 服務]。
+- Web 應用程式可以對應到 VNet/子網路中的私人 IP。 即使服務端點已從指定的 VNet/子網路上開啟，從 Web 應用程式至伺服器的連線仍具有 Azure 公用 IP 來源，而非 VNet/子網路來源。 若要啟用從 Web 應用程式到具有 VNet 防火牆規則伺服器的連線，您必須在伺服器上 [允許 Azure 服務存取伺服器]。
 
 - 在針對 SQL Database 的防火牆中，每個虛擬網路規則都會參考一個子網路。 裝載所有這些參考子網路的地理區域，必須和裝載 SQL Database 的地理區域相同。
 
@@ -157,23 +158,23 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>移除「允許所有 Azure 服務」的影響
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>移除 [允許 Azure 服務存取伺服器] 的影響。
 
-許多使用者想要從他們的 Azure SQL 伺服器中移除**允許所有 Azure 服務**，並取代為 VNet 防火牆規則。
+許多使用者想要從他們的 Azure SQL 伺服器中移除 [允許 Azure 服務存取伺服器]，並取代為 VNet 防火牆規則。
 不過移除這個會影響下列 Azure SQLDB 功能：
 
 #### <a name="import-export-service"></a>匯入匯出服務
-Azure SQLDB 匯入匯出服務是在 Azure 中的 VM 上執行。 這些 VM 不在您的 VNet 中，因此連線到您的資料庫時會得到一組 Azure IP。 若移除**允許所有 Azure 服務**，這些 VM 將無法存取您的資料庫。
+Azure SQLDB 匯入匯出服務是在 Azure 中的 VM 上執行。 這些 VM 不在您的 VNet 中，因此連線到您的資料庫時會得到一組 Azure IP。 若移除 [允許 Azure 服務存取伺服器]，這些 VM 將無法存取您的資料庫。
 您可以解決這個問題。 使用 DACFx API 直接在您的程式碼中執行 BACPAC 匯入或匯出。 請確定在您已設定防火牆規則的 VNet 子網路中的 VM 上，已部署這個 API。
 
 #### <a name="sql-database-query-editor"></a>SQL Database 查詢編輯器
-Azure SQL Database 的查詢編輯器會部署在 Azure 中的 VM 上。 這些 VM 不在您的 VNet 中。 因此，連線到您的資料庫時，VM 會得到一組 Azure IP。 若移除**允許所有 Azure 服務**，這些 VM 將無法存取您的資料庫。
+Azure SQL Database 的查詢編輯器會部署在 Azure 中的 VM 上。 這些 VM 不在您的 VNet 中。 因此，連線到您的資料庫時，VM 會得到一組 Azure IP。 若移除 [允許 Azure 服務存取伺服器]，這些 VM 將無法存取您的資料庫。
 
 #### <a name="table-auditing"></a>資料表稽核
 目前有兩種做法可以啟用 SQL Database 的稽核。 當您在您的 Azure SQL Server 上啟用服務端點之後，資料表稽核會失敗。 這裡的解決之道是改用 Blob 稽核。
 
 #### <a name="impact-on-data-sync"></a>資料同步的影響
-Azure SQLDB 擁有使用 Azure IP 連線到資料庫的資料同步功能。 使用服務端點時，您可能會關閉**允許所有 Azure 服務**存取您的邏輯伺服器。 這項動作將會中斷資料同步功能。
+Azure SQLDB 擁有使用 Azure IP 連線到資料庫的資料同步功能。 使用服務端點時，您可能會關閉邏輯伺服器的 [允許 Azure 服務存取伺服器] 存取權。 這項動作將會中斷資料同步功能。
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>使用 VNet 服務端點搭配 Azure 儲存體的影響
 
@@ -184,7 +185,7 @@ Azure 儲存體已實作功能，可讓您限制連線至儲存體帳戶的連�
 PolyBase 通常用於將資料從儲存體帳戶載入 Azure SQLDW。 如果您正在載入資料的來源儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 目前沒有方法可降低此風險，您可以連絡 Microsoft 支援服務以了解詳細資訊。
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 稽核
-Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這個儲存體帳戶使用 VENT 服務端點功能，則 Azure SQLDB 與儲存體帳戶的連線將會中斷。
+Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這個儲存體帳戶使用 VNet 服務端點功能，則 Azure SQLDB 與儲存體帳戶的連線將會中斷。
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>在不開啟 VNET 服務端點的情況下將 VNET 防火牆規則新增至伺服器
 

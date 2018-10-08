@@ -3,23 +3,26 @@ title: SQL Server 資料庫移轉至 Azure SQL Database | Microsoft Docs
 description: 了解將 SQL Server 資料庫移轉至雲端 Azure SQL Database 的相關做法。
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database,資料庫移轉,sql server 資料庫移轉,資料庫移轉工具,移轉資料庫,移轉 sql database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/16/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: a9acff6f2b3e668707a6ef4cc3c736ebd28b4d3a
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 65258622c006cc384df24898c18b154b4c523a7f
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309376"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064283"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>將 SQL Server 資料庫移轉至 Azure SQL Database
 
-在本文中，您將了解用來將 SQL Server 2005 或更新版本的資料庫移轉至 Azure SQL Database 中單一或集區資料庫的主要方法。 如需有關移轉至「受控執行個體」的資訊，請參閱[將 SQL Server 執行個體移轉至 Azure SQL Database 受控執行個體 (預覽)](sql-database-managed-instance-migrate.md)。 
+在本文中，您將了解用來將 SQL Server 2005 或更新版本的資料庫移轉至 Azure SQL Database 中單一或集區資料庫的主要方法。 如需移轉至受控執行個體的資訊，請參閱[將 SQL Server 執行個體移轉至 Azure SQL Database 受控執行個體](sql-database-managed-instance-migrate.md)。 
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>移轉至單一資料庫或集區資料庫
 將 SQL Server 2005 或更新版本的資料庫移轉至 Azure SQL Database 中單一或集區資料庫的主要方法有兩種。 第一種方法比較簡單，但在移轉期間需要一些可能較長期的停機時間。 第二種方法比較複雜，但可大幅免去移轉期間的停機時間。
@@ -51,7 +54,7 @@ ms.locfileid: "36309376"
 
 下列清單包含可在匯入程序期間獲得最佳效能的建議。
 
-* 選擇預算許可的最高服務層級和效能層級，以獲得最大傳輸效能。 移轉完成後，您可以相應減少層級以節省成本。 
+* 選擇預算許可的最高服務層和計算大小，以獲得最大傳輸效能。 移轉完成後，您可以相應減少層級以節省成本。 
 * 盡量縮短 BACPAC 檔案和目的地資料中心之間的距離。
 * 在移轉期間停用自動統計資料
 * 分割資料表和索引

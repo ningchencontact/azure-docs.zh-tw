@@ -3,18 +3,18 @@ title: 設定 Azure 虛擬網路中的 HBase 叢集複寫
 description: 了解如何針對負載平衡、高可用性、零停機時間移轉和更新，以及災害復原來設定 HDInsight 版本之間的 HBase 複寫。
 services: hdinsight,virtual-network
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: jasonh
-ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/15/2018
+ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047478"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224371"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 HBase 叢集複寫
 
@@ -109,6 +109,7 @@ ms.locfileid: "43047478"
 2. 選取 [資源群組] > [資源群組名稱] > [vnet1DNS] 來開啟 DNS 虛擬機器。  資源群組名稱是您在上一個程序中所建立的名稱。 預設 DNS 虛擬機器名稱是 vnet1DNS 和 vnet2NDS。
 3. 選取 [屬性] 以開啟虛擬網路的屬性頁面。
 4. 記下 [公用 IP 位址]，並另外確認 [私人 IP 位址]。  私人 IP 位址應該是 **10.1.0.4** (如果是 vnet1DNS) 和 **10.2.0.4** (如果是 vnet2DNS)。  
+5. 變更兩個虛擬網路的 DNS 伺服器，使用預設 (Azure 提供) 的 DNS 伺服器，以允許對內及對外存取，在下列步驟中下載套件來安裝 Bind。
 
 若要安裝 Bind，請使用下列程序：
 
@@ -135,7 +136,7 @@ ms.locfileid: "43047478"
     sudo apt-get install bind9 -y
     ```
 
-3. 若要將 Bind 設定為將名稱解析要求轉寄到您的內部部署 DNS 伺服器，請使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
+3. 將 Bind 設定為把名稱解析要求轉送到您的內部 DNS 伺服器。 若要這樣做，請使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
 
     ```
     acl goodclients {
@@ -151,7 +152,7 @@ ms.locfileid: "43047478"
         allow-query { goodclients; };
 
         forwarders {
-            168.63.129.16 #This is the Azure DNS server
+            168.63.129.16; #This is the Azure DNS server
         };
 
         dnssec-validation auto;
@@ -217,7 +218,7 @@ ms.locfileid: "43047478"
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]
@@ -277,7 +278,7 @@ sudo service bind9 status
 
 ## <a name="enable-replication"></a>啟用複寫
 
-下列步驟會說明如何從 Azure 入口網站呼叫指令碼動作指令碼。 如需了解如何使用 Azure PowerShell 和 Azure 命令列介面 (Azure CLI) 來執行指令碼動作，請參閱[使用指令碼動作來自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-linux.md)。
+下列步驟會說明如何從 Azure 入口網站呼叫指令碼動作指令碼。 如需了解如何使用 Azure PowerShell 和 Azure 傳統 CLI 來執行指令碼動作，請參閱[使用指令碼動作來自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-linux.md)。
 
 **從 Azure 入口網站啟用 HBase 複寫**
 

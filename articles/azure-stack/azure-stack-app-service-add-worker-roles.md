@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 04a93bc841d553296dca7635151c14892970121c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: abfc75e40e146b1cf7cb237f18a1ff08626e5be1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357787"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092895"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service on Azure Stack：新增更多基礎結構或背景工作角色
 

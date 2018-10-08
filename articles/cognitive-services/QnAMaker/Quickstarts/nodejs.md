@@ -1,20 +1,21 @@
 ---
-title: Node.js 的 Microsoft QnA Maker API (V4) 快速入門 - Azure 認知服務 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用 Microsoft 認知服務中的 Microsoft 翻譯工具文字 API。
+title: 快速入門：適用於 QnA Maker API 的 Node.js (V4)
+titleSuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用 Microsoft 認知服務中的 Microsoft Translator Text API。
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 6da1ec00e04ea993923a97c4641880a5f31d18fa
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 05a15ddf8d7668896052c38afc549bc7b3cb056a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868169"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434325"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>使用 Node.js 搭配 Microsoft QnA Maker API 的快速入門 
 <a name="HOLTop"></a>
@@ -36,7 +37,9 @@ ms.locfileid: "37868169"
 - [取得目前的文字變異形式集合。](#GetAlterations)
 - [取代目前的文字變異形式集合。](#PutAlterations)
 
-## <a name="prerequisites"></a>先決條件
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
+## <a name="prerequisites"></a>必要條件
 
 您將需要 [Node.js 6](https://nodejs.org/en/download/) 才能執行此程式碼。
 
@@ -106,7 +109,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -305,7 +308,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -506,7 +509,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -618,7 +621,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -894,7 +897,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Authorization' : 'EndpointKey ' + endpoint_key,
         }
     };
@@ -1256,7 +1259,7 @@ let http_delete = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1469,7 +1472,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1699,7 +1702,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };

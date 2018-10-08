@@ -1,20 +1,20 @@
 ---
-title: Azure Content Moderator - 文字仲裁 | Microsoft Docs
+title: 文字仲裁 - Content Moderator
 description: 針對可能不想要的文字、PII 及自訂字詞清單使用文字仲裁。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 4c4a0ccfc93a6a48a0178183b94cc03cb576930a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085754"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226563"
 ---
 # <a name="text-moderation"></a>文字仲裁
 
@@ -72,8 +72,8 @@ Content Moderator 的電腦輔助**文字分類功能**支援的語言**僅限�
 - `Category1` 指的是可能有在特定情況下被視為明顯色情或成人內容的語言存在。
 - `Category2` 指的是可能有在特定情況下被視為具性暗示或成人內容的語言存在。
 - `Category3` 指的是可能有在特定情況下被視為具冒犯性的語言存在。
-- `Score` 介於 0 到 1 之間。 分數越高，模型預測為適用該類別的可能性就越高。 此預覽版功能倚賴統計模型，而不是手動編碼的結果。 建議您使用自己的內容進行測試，以判斷每個類別如何符合您的需求。
-- `ReviewRecommended`會是 true 或 false，視內部分數閾值而定。 客戶應該評估是要使用此值，還是根據其內容原則決定自訂閾值。
+- `Score` 介於 0 到 1 之間。 分數越高，模型預測為適用該類別的可能性就越高。 此功能須倚賴統計模型，而不是手動編碼的結果。 建議您使用自己的內容進行測試，以判斷每個類別如何符合您的需求。
+- `ReviewRecommended` 會是 true 或 false，視內部分數閾值而定。 客戶應該評估是要使用此值，還是根據其內容原則決定自訂閾值。
 
 ## <a name="personally-identifiable-information-pii"></a>個人識別資訊 (PII)
 

@@ -3,7 +3,7 @@ title: 適用於 Windows 的 Azure VM 擴充功能和功能 | Microsoft Docs
 description: 了解哪些擴充功能適用於 Azure 虛擬機器，並依它們提供或改善的內容來分組。
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783095"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452491"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>適用於 Windows 的虛擬機器擴充功能和功能
 
@@ -66,7 +66,7 @@ Windows 客體代理程式可在多種 OS 上執行，但具有擴充功能的 O
 擴充功能套件可從 Azure 儲存體擴充功能存放庫下載，且擴充功能狀態上傳會發佈至 Azure 儲存體。 如果您使用[支援](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)版本的代理程式，就不需要允許存取虛擬機器區域中的 Azure 儲存體，因為可以使用代理程式將通訊重新導向至代理程式通訊的 Azure 網狀架構控制器。 如果您使用不受支援的代理程式版本，則必須允許從虛擬機器對該區域中的 Azure 儲存體進行存取。
 
 > [!IMPORTANT]
-> 如果您已使用客體防火牆封鎖對 168.63.129.1 的存取，則無論前述條件為何，擴充功能都會故障。
+> 如果您已使用客體防火牆封鎖對 168.63.129.16 的存取，則無論前述條件為何，擴充功能都會故障。
 
 代理程式只能用來下載擴充功能套件和報告狀態。 例如，如果需要從 GitHub 下載指令碼 (自訂指令碼)，或需要存取 Azure 儲存體 (Azure 備份) 才能安裝擴充功能，則必須開啟其他防火牆/網路安全性群組連接埠。 不同的擴充功能有不同需求，因為它們是自成一格的應用程式。 對於需要存取 Azure 儲存體的擴充功能，您可以允許使用[儲存體](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)適用的 Azure NSG 服務標記進行存取。
 

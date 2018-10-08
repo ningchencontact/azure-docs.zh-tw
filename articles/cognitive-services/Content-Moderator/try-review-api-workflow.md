@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator - API 主控台中的內容審核工作流程 | Microsoft Docs
+title: 從 API 主控台中使用內容審核工作流程 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 了解如何從 API 主控台中使用內容審核工作流程。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: sajagtap
-ms.openlocfilehash: 700b2bea5e902141659266a94d61ceb810c1b802
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368103"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223845"
 ---
 # <a name="workflows-from-the-api-console"></a>API 主控台中的工作流程
 
 在 Azure Content Moderator 中使用[工作流程作業](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)，以使用檢閱 API 來建立或更新工作流程，或取得工作流程詳細資料。 您可以使用此 API 為工作流程定義簡單、複雜甚至是巢狀的運算式。 工作流程會出現在審核工具中，以供您的小組使用。 工作流程也會由檢閱 API 的作業使用。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. 移至[審核工具](https://contentmoderator.cognitive.microsoft.com/)。 如果您尚未註冊，請先註冊。 
 2. 在審核工具的 [設定] 下，選取 [工作流程] 索引標籤，如審核工具的[工作流程教學課程](Review-Tool-User-Guide/Workflows.md)中所述。

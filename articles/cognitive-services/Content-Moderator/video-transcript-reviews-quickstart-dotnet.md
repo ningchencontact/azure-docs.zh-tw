@@ -1,42 +1,54 @@
 ---
-title: Azure Content Moderator - 使用 .NET 來建立影片文字記錄審核項目 | Microsoft Docs
-description: 如何使用 Azure Content Moderator SDK for .NET 來建立影片文字記錄審核項目
+title: 使用 .NET 來建立影片文字記錄審核項目 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: 使用 Content Moderator SDK for .NET 來建立影片文字記錄審核項目
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: sajagtap
-ms.openlocfilehash: 3286da6e38f0fba02386d877a835fb694ed0fdec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4e862a8b74339bc8dd1de6c0b231ddb15425974c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35368554"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220935"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 來建立影片文字記錄審核項目
 
-本文提供資訊和範例程式碼，可協助您以 C# 快速開始使用 Content Moderator SDK 來執行下列操作：
+本文提供資訊和範例程式碼，可協助您[以 C# 快速開始使用 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 來執行下列操作：
 
 - 建立給人工仲裁者的影片審核項目
 - 將仲裁過的文字記錄新增至審核項目
 - 發佈審核項目
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您已[仲裁影片](video-moderation-api.md)，並已在審核工具中[建立影片審核項目](video-reviews-quickstart-dotnet.md)以供進行人工決策。 您現在想要在審核工具中新增仲裁過的影片文字記錄。
 
 本文同時也假設您已經熟悉 Visual Studio 和 C#。
 
-### <a name="sign-up-for-content-moderator-services"></a>註冊 Content Moderator 服務
+## <a name="sign-up-for-content-moderator"></a>設定 Content Moderator
 
 您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。
+請參考[快速入門](quick-start.md)，以了解如何取得金鑰。
 
-在「Content Moderator 儀表板」中，您可以在 [設定] > [認證] > [API] > [試用 Ocp-Apim-Subscription-Key] 中，找到您的訂用帳戶金鑰。 如需詳細資訊，請參閱[概觀](overview.md)。
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>如果未在上一個步驟中完成審核工具帳戶的註冊，請於此時註冊
 
-### <a name="prepare-your-video-for-review"></a>準備影片以供審核
+如果您是從 Azure 入口網站取得 Content Moderator，也請[註冊審核工具帳戶](https://contentmoderator.cognitive.microsoft.com/)，並建立審核小組。 您需要小組識別碼和審核工具才能呼叫審核 API，以在審核工具中啟動作業及檢視審核項目。
+
+## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>請確定您的 API 金鑰可呼叫審核 API (作業建立)
+
+完成前述步驟後，如果您是從 Azure 入口網站開始作業的，您可能會獲得兩個 Content Moderator 金鑰。 
+
+如果您打算在 SDK 範例中使用 Azure 提供的 API 金鑰，請依照[搭配使用 Azure 金鑰與審核 API](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 一節中說明的步驟操作，以允許應用程式呼叫審核 API 並建立審核項目。
+
+如果您使用審核工具所產生的免費試用版金鑰，則您的審核工具帳戶已知悉金鑰，因此不需執行額外的步驟。
+
+## <a name="prepare-your-video-for-review"></a>準備影片以供審核
 
 將文字記錄新增至影片審核項目。 影片必須在線上發佈。 您需要其串流端點。 串流端點可讓審核工具影片播放程式播放影片。
 
@@ -105,9 +117,9 @@ ms.locfileid: "35368554"
             /// </summary>
             /// <remarks>This must be the team name you used to create your 
             /// Content Moderator account. You can retrieve your team name from
-            /// the Conent Moderator web site. Your team name is the Id associated 
+            /// the Content Moderator web site. Your team name is the Id associated 
             /// with your subscription.</remarks>
-            public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+            private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
             /// <summary>
             /// The base URL fragment for Content Moderator calls.
@@ -137,7 +149,7 @@ ms.locfileid: "35368554"
     {
         return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-            BaseUrl = AzureBaseURL
+            Endpoint = AzureBaseURL
         };
     }
 
@@ -342,7 +354,7 @@ ms.locfileid: "35368554"
 
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
-            Console.Read();
+            Console.ReadKey();
         }
     }
 
@@ -370,8 +382,8 @@ ms.locfileid: "35368554"
 
 ## <a name="next-steps"></a>後續步驟
 
+針對這個及其他適用於 .NET 的 Content Moderator 快速入門取得 [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 和 [Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)。
+
 了解如何在審核工具中產生[影片審核項目](video-reviews-quickstart-dotnet.md)。
 
-查看有關如何開發[完整影片仲裁解決方案](video-transcript-moderation-review-tutorial-dotnet.md)的詳細教學課程。
-
-針對這個及其他適用於 .NET 的 Content Moderator 快速入門，[下載 Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)。
+查看有關如何開發[完整影片審查解決方案](video-transcript-moderation-review-tutorial-dotnet.md)的詳細教學課程。

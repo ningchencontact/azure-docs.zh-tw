@@ -8,14 +8,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 5b262204fafa84d72f571e4551ecfd793d865040
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a8f04f39568816252175fc9e0893f1ab3e2cdc6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993879"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224812"
 ---
-# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Kafka 原則
+# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Kafka 原則 (預覽)
 
 了解如何對企業安全性套件 (ESP) Kafka 叢集設定 Apache Ranger 原則。 ESP 叢集連線到網域，讓使用者使用網域認證進行驗證。 在此教學課程中，您會建立兩個 Ranger 原則來限制 `sales*` 和 `marketingspend` 主題的存取權。
 

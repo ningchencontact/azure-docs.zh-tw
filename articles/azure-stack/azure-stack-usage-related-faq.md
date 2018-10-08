@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ac22ba34bff1d5321c05bc0a0a1b14ca742079a7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051488"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406000"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 使用量 API 的常見問題集
 
@@ -29,7 +28,7 @@ ms.locfileid: "37051488"
 ## <a name="what-meter-ids-can-i-see"></a>我可以看到哪個計量識別碼？
 系統會針對下列資源提供者回報使用情況：
 
-**網路**  
+### <a name="network"></a>網路
   
 **計量識別碼**：F271A8A388C44D93956A063E1D2FA80B  
 **計量名稱**：靜態 IP 位址使用情況  
@@ -41,7 +40,7 @@ ms.locfileid: "37051488"
 **單位**：IP 位址  
 **附註**：已使用的 IP 位址計數。 如果您以每日規模呼叫使用情況 API，計量會傳回 IP 位址乘以時數。  
   
-**儲存體**  
+### <a name="storage"></a>儲存體
   
 **計量識別碼**：B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **計量名稱**：TableCapacity  
@@ -107,22 +106,8 @@ ms.locfileid: "37051488"
 **計量名稱**：QueueDataTransOut  
 **單位**：輸出 (GB)  
 **附註**：佇列服務資料輸出 (GB)  
-  
-**Sql RP**  
-  
-**計量識別碼**：CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
-**計量名稱**：DatabaseSizeHourSqlMeter  
-**單位**：MB\*小時  
-**附註**：建立時的資料庫容量總計。 如果您以每日規模呼叫使用情況 API，計量會傳回 MB 乘以時數。  
-  
-**MySql RP**  
-  
-**計量識別碼**：E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
-**計量名稱**：DatabaseSizeHourMySqlMeter  
-**單位**：MB\*小時  
-**附註**：建立時的資料庫容量總計。 如果您以每日規模呼叫使用情況 API，計量會傳回 MB 乘以時數。  
-  
-**計算**  
+
+### <a name="compute"></a>計算 
   
 **計量識別碼**：FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **計量名稱**：基礎 VM 大小小時  
@@ -139,7 +124,122 @@ ms.locfileid: "37051488"
 **單位**：VM 小時  
 **附註**：同時擷取基本與 VM。 不針對核心調整。  
   
-**金鑰保存庫**  
+### <a name="managed-disks"></a>受控磁碟
+
+**計量識別碼**：5d76e09f-4567-452a-94cc-7d1f097761f0   
+**計量名稱**：S4   
+**單位**：磁碟計數   
+**注意**：標準受控磁碟 – 32 GB 
+
+**計量識別碼**：dc9fc6a9-0782-432a-b8dc-978130457494   
+**計量名稱**：S6   
+**單位**：磁碟計數   
+**注意**：標準受控磁碟 – 64 GB 
+
+**計量識別碼**：e5572fce-9f58-49d7-840c-b168c0f01fff   
+**計量名稱**：S10   
+**單位**：磁碟計數   
+**注意**：標準受控磁碟 – 128 GB 
+
+**計量識別碼**：9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
+**計量名稱**：S15   
+**單位**：磁碟計數   
+**注意**：標準受控磁碟 – 256 GB 
+
+**計量識別碼**：5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
+**計量名稱**：S20   
+**單位**：磁碟計數      
+**注意**：標準受控磁碟 – 512 GB 
+
+**計量識別碼**：7705a158-bd8b-4b2b-b4c2-0782343b81e6   
+**計量名稱**：S30   
+**單位**：磁碟計數   
+**注意**：標準受控磁碟 – 1024 GB 
+
+**計量識別碼**：d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
+**計量名稱**：S40   
+**單位**：磁碟計數   
+**注意**：標準受控磁碟 – 2048 GB 
+
+**計量識別碼**：a54899dd-458e-4a40-9abd-f57cafd936a7   
+**計量名稱**：S50   
+**單位**：磁碟計數   
+**注意**：標準受控磁碟 – 4096 GB 
+
+**計量識別碼**：5c105f5f-cbdf-435c-b49b-3c7174856dcc   
+**計量名稱**：P4   
+**單位**：磁碟計數   
+**注意**：進階受控磁碟 – 32 GB 
+
+**計量識別碼**：518b412b-1927-4f25-985f-4aea24e55c4f   
+**計量名稱**：P6   
+**單位**：磁碟計數   
+**注意**：進階受控磁碟 – 64 GB 
+
+**計量識別碼**：5cfb1fed-0902-49e3-8217-9add946fd624   
+**計量名稱**：P10   
+**單位**：磁碟計數   
+**注意**：進階受控磁碟 – 128 GB  
+
+**計量識別碼**：8de91c94-f740-4d9a-b665-bd5974fa08d4   
+**計量名稱**：P15  
+**單位**：磁碟計數   
+**注意**：進階受控磁碟 – 256 GB 
+
+**計量識別碼**：c7e7839c-293b-4761-ae4c-848eda91130b   
+**計量名稱**：P20   
+**單位**：磁碟計數   
+**注意**：進階受控磁碟 – 512 GB 
+
+**計量識別碼**：9f502103-adf4-4488-b494-456c95d23a9f   
+**計量名稱**：P30   
+**單位**：磁碟計數   
+**注意**：進階受控磁碟 – 1024 GB 
+
+**計量識別碼**：043757fc-049f-4e8b-8379-45bb203c36b1   
+**計量名稱**：P40   
+**單位**：磁碟計數    
+**注意**：進階受控磁碟 – 2048 GB 
+
+**計量識別碼**：c0342c6f-810b-4942-85d3-6eaa561b6570   
+**計量名稱**：P50   
+**單位**：磁碟計數   
+**注意**：進階受控磁碟 – 4096 GB 
+
+**計量識別碼**：8a409390-1913-40ae-917b-08d0f16f3c38   
+**計量名稱**：ActualStandardDiskSize   
+**單位**：位元組      
+**注意**：標準受控磁碟的實際磁碟大小  
+
+**計量識別碼**：1273b16f-8458-4c34-8ce2-a515de551ef6  
+**計量名稱**：ActualPremiumDiskSize   
+**單位**：位元組      
+**注意**：進階受控磁碟的實際磁碟大小 
+
+**計量識別碼**：89009682-df7f-44fe-aeb1-63fba3ddbf4c  
+**計量名稱**：ActualStandardSnapshotSize   
+**單位**：位元組   
+**注意**：受控標準快照集的實際磁碟大小。  
+
+**計量識別碼**：95b0c03f-8a82-4524-8961-ccfbf575f536   
+**計量名稱**：ActualPremiumSnapshotSize   
+**單位**：位元組   
+**注意**：受控進階磁碟的實際大小。   
+
+### <a name="sql-rp"></a>Sql RP
+  
+**計量識別碼**：CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
+**計量名稱**：DatabaseSizeHourSqlMeter  
+**單位**：MB\*小時  
+**附註**：建立時的資料庫容量總計。 如果您以每日規模呼叫使用情況 API，計量會傳回 MB 乘以時數。  
+  
+### <a name="mysql-rp"></a>MySql RP   
+  
+**計量識別碼**：E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
+**計量名稱**：DatabaseSizeHourMySqlMeter  
+**單位**：MB\*小時  
+**附註**：建立時的資料庫容量總計。 如果您以每日規模呼叫使用情況 API，計量會傳回 MB 乘以時數。    
+### <a name="key-vault"></a>Key Vault   
   
 **計量識別碼**：EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
 **計量名稱**：Key Vault 交易  
@@ -151,7 +251,7 @@ ms.locfileid: "37051488"
 **單位**：10000 個交易  
 **附註**：RSA 3K/4K、ECC 金鑰交易。 (預覽)。  
   
-*App Service**  
+### <a name="app-service"></a>App Service   
   
 **計量識別碼**：190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **計量名稱**：App Service  
@@ -193,7 +293,7 @@ ms.locfileid: "37051488"
 **單位**：1 小時  
 **附註**：根據執行個體的大小和數目來計算。  
   
-**自訂的背景工作層**  
+### <a name="custom-worker-tiers"></a>自訂的背景工作層   
   
 **計量識別碼**：「自訂的背景工作層」  
 **計量名稱**：自訂背景工作層  
@@ -221,10 +321,10 @@ ms.locfileid: "37051488"
 **附註**：連入要求回應位元組總數 + 連出要求位元組總數 + 連入 FTP 要求回應位元組總數 + 連入 Web 部署要求回應位元組總數。  
   
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Azure Stack 使用情況 API 與 [Azure 使用情況 API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (目前為公開預覽版) 相較有何異同？
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Azure Stack 使用情況 API 與 [Azure 使用情況 API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (目前為公開預覽版) 相較有何異同？
 * 租用戶使用量 API 與 Azure API 相同，但有一點除外：Azure Stack 目前不支援 *showDetails* 旗標。
 * 提供者使用量 API 只適用於 Azure Stack。
-* 目前，Azure Stack 不提供 Azure 中提供的 [RateCard API](https://msdn.microsoft.com/library/azure/mt219004.aspx)。
+* 目前，Azure Stack 不提供 Azure 中提供的 [RateCard API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview)。
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>「使用時間」與「回報時間」之間有何差異？
 使用情況資料報告有兩個主要時間值：

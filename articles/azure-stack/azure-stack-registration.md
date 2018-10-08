@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841925"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452525"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
@@ -45,18 +45,20 @@ ms.locfileid: "43841925"
 
 使用 Azure 註冊 Azure Stack 之前，您必須：
 
-- Azure 訂用帳戶的訂用帳戶 ID。 若要取得 ID，請登入 Azure 並按一下 [更多服務]  >  [訂用帳戶]，然後按一下您要使用的訂用帳戶，便可在 [基本資訊] 下找到 [訂用帳戶 ID]。
+- Azure 訂用帳戶的訂用帳戶 ID。 只有 EA、CSP 或 CSP 共用服務訂用帳戶支援註冊。 CSP 必須決定要[使用 CSP 或 CSPSS 訂用帳戶](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription)。<br><br>若要取得識別碼，請登入 Azure，按一下 [所有服務]。 然後在 [一般] 分類底下，選取 [訂用帳戶]，按一下您要使用的訂用帳戶，便可在 [基本資訊] 下找到 [訂用帳戶識別碼]。
 
   > [!Note]  
   > 目前不支援德國雲端訂用帳戶。
 
-- 訂用帳戶擁有者的帳戶使用者名稱和密碼 (支援 MSA/2FA 帳戶)。
+- 訂用帳戶擁有者的帳戶使用者名稱和密碼。
 
-- 使用者帳戶必須是 Azure Stack 已向其註冊之 Azure AD 租用戶 (例如 `yourazurestacktenant.onmicrosoft.com`) 中的「系統管理員」。
+- 使用者帳戶必須具有 Azure 訂用帳戶的存取權，而且有權在與該訂用帳戶相關聯的目錄中建立身分識別應用程式和服務主體。
 
 - 註冊 Azure Stack 資源提供者 (請參閱下面的「註冊 Azure Stack 資源提供者」一節以取得詳細資料)。
 
-  如果您沒有符合這些需求的 Azure 訂用帳戶，則可以[在這裡建立免費的 Azure 帳戶](https://azure.microsoft.com/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。
+註冊之後，就不需要 Azure Active Directory 全域管理員權限。 不過，某些作業可能需要全域管理員認證。 例如，需要獲派權限的資源提供者安裝程式指令碼或新功能。 您可以暫時恢復帳戶的全域管理員權限，或使用擁有「預設提供者訂用帳戶」的個別全域管理員帳戶。
+
+如果您沒有符合這些需求的 Azure 訂用帳戶，則可以[在這裡建立免費的 Azure 帳戶](https://azure.microsoft.com/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。
 
 ### <a name="powershell-language-mode"></a>PowerShell 語言模式
 
@@ -93,6 +95,19 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
  使用與 Azure 中斷連線的部署選項，您可以在沒有網際網路連線的情況下，部署和使用 Azure Stack。 不過，若使用已中斷連線的部署，您會受限於 AD FS 身分識別儲存和以容量為基礎的計費模型。
     - [使用「容量」計費模型來註冊已中斷連線的 Azure Stack](#register-disconnected-with-capacity-billing)
 
+### <a name="determine-a-unique-registration-name-to-use"></a>決定要使用的唯一註冊名稱 
+當您向 Azure 註冊 Azure Stack 時，您必須提供唯一的註冊名稱。 讓 Azure Stack 訂用帳戶與 Azure 註冊產生關聯的簡單方法，是使用您的 Azure Stack **雲端識別碼**。 
+
+> [!NOTE]
+> 若 Azure Stack 註冊使用容量型計費模型，在這些年度訂用帳戶到期之後，須於重新註冊時變更唯一名稱。
+
+若要為您的 Azure Stack 部署決定雲端識別碼，請以電腦上可以存取特殊權限端點的系統管理員身分開啟 PowerShell，執行下列命令，然後記錄 **CloudID** 值： 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
+
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>使用隨用隨付計費來註冊已連線的環境
 
 使用這些步驟，向 Azure 註冊「使用時付費」計費模型的 Azure Stack。
@@ -104,7 +119,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
 1. 若要向 Azure 註冊 Azure Stack 資源提供者，請以系統管理員身分啟動 PowerShell ISE，然後使用下列 PowerShell Cmdlet，其中將 **EnvironmentName** 參數設定為適當的 Azure 訂用帳戶類型 (請參閱下面的參數)。
 
-2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 全域系統管理員帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。
+2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -164,7 +179,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
 1. 若要向 Azure 註冊 Azure Stack 資源提供者，請以系統管理員身分啟動 PowerShell ISE，然後使用下列 PowerShell Cmdlet，其中將 **EnvironmentName** 參數設定為適當的 Azure 訂用帳戶類型 (請參閱下面的參數)。
 
-2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 全域系統管理員帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。
+2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -255,7 +270,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 若要取得啟用金鑰，請執行下列 PowerShell Cmdlet：  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -284,7 +299,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 使用下列步驟確認 Azure Stack 已成功向 Azure 註冊。
 
 1. 登入 Azure Stack [系統管理員入口網站](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal)：https&#58;//adminportal.*&lt;region>.&lt;fqdn>*。
-2. 按一下 [更多服務] > [Marketplace 管理] > [從 Azure 新增]。
+2. 選取 [所有服務]，然後在 [系統管理] 分類下，選取 [Marketplace 管理]  >  [從 Azure 新增]。
 
 如果您看到 Azure 提供的項目清單 (例如 WordPress)，則表示啟用已成功。 不過，在已中斷連線的環境中，您不會在Azure Stack 市集中看到 Azure 市集項目。
 
@@ -349,7 +364,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 或者，您可以使用註冊名稱：
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 

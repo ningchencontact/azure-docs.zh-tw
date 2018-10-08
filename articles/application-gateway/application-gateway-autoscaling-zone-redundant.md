@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5d051ed049964af708056e2963f04cb478c15906
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951503"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165224"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>自動調整規模和區域備援應用程式閘道 (公開預覽)
 
@@ -42,7 +42,7 @@ ms.locfileid: "46951503"
 自動調整規模 SKU 適用區域包括美國東部 2、美國中部、美國西部 2、法國中部、西歐及東南亞。
 
 ## <a name="pricing"></a>價格
-在預覽版期間，沒有任何費用。 將向您收取的是應用程式閘道以外資源 (例如 Key Vault、虛擬機器等) 的費用。 
+預覽期間無須付費。 將向您收取的是應用程式閘道以外資源 (例如 Key Vault、虛擬機器等) 的費用。 
 
 ## <a name="known-issues-and-limitations"></a>已知問題與限制
 
@@ -54,6 +54,7 @@ ms.locfileid: "46951503"
 |Web 應用程式防火牆自動調整規模|WAF 不支援自動調整規模模式。 支援固定容量模式。|
 
 ## <a name="next-steps"></a>後續步驟
+- [使用 Azure PowerShell 建立具有保留虛擬 IP 位址的自動調整規模、區域備援應用程式閘道](tutorial-autoscale-ps.md)
 - 深入了解[應用程式閘道](overview.md)。
 - 深入了解 [Azure 防火牆](../firewall/overview.md)。 
 

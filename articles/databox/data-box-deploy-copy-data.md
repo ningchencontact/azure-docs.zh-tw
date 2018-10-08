@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957666"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161925"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>教學課程：將資料複製到 Azure 資料箱 
 
@@ -233,7 +233,7 @@ ms.locfileid: "46957666"
 
 如果您使用 Linux 主機電腦，請使用類似於 Robocopy 的複製公用程式。 在 Linux 中有替代工具可供使用，包括 [rsync](https://rsync.samba.org/)、[FreeFileSync](https://www.freefilesync.org/)、[Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 或 [Ultracopier](https://ultracopier.first-world.info/)。  
 
-cp 命令是複製目錄的最佳選項之一。 如需其使用方式的詳細資訊，請移至 [cp 手冊頁](http://man7.org/linux/man-pages/man1/cp.1.html)。
+`cp` 命令是複製目錄的最佳選項之一。 如需其使用方式的詳細資訊，請移至 [cp 手冊頁](http://man7.org/linux/man-pages/man1/cp.1.html)。
 
 如果使用 rsync 選項進行多執行緒複製，請遵循下列指導方針：
 
@@ -273,7 +273,7 @@ cp 命令是複製目錄的最佳選項之一。 如需其使用方式的詳細�
    
     ![準備寄送 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. 如果未啟用總和檢查碼，您會看到啟用總和檢查碼的選項。 基於資料的完整性，建議您執行總和檢查碼驗證。 選取 [啟用總和檢查碼] 後將會觸發總和檢查碼計算，這可能需要一些時間，視您的資料大小而定。 按一下 [開始準備]。
+2. 根據預設，在準備寄送期間會計算內嵌的總和檢查碼。 視您的資料大小而定，計算總和檢查碼可能需要一些時間。 按一下 [開始準備]。
     1. 在我們準備寄送時，裝置共用會離線，且裝置會鎖定。
         
         ![準備寄送 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 

@@ -1,21 +1,9 @@
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
 ---
-title: 臉部 API 服務的 API 參考 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: API 參考提供 Person Management、LargePersonGroup/PersonGroup Management、LargeFaceList/FaceList Management 和 Face Algorithms API 的資訊。
-services: cognitive-services
-author: SteveMSFT
-manager: corncar
-ms.service: cognitive-services
-ms.component: face-api
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 94c03d4f07a18c0c63d76965b1b31dce66388843
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370511"
+標題：API 參考 - 臉部 API titleSuffix：Azure 認知服務描述：API 參考提供 Person Management、LargePersonGroup/PersonGroup Management、LargeFaceList/FaceList Management 和 Face Algorithms API 的資訊。
+services: cognitive-services author: SteveMSFT manager: cgronlun
+
+ms.service: cognitive-services ms.component: face-api ms.topic: reference ms.date: 03/01/2018 ms.author: sbowles
 ---
 # <a name="api-reference"></a>API 參考
 

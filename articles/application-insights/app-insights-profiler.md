@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 839e462522be4f492010ca1c22631cb4dd6affe4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521878"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064419"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Web 應用程式
 
-Azure Application Insights 的這項功能在 Azure App Service 的 Web Apps 功能中已是正式運作版，但在 Azure 計算資源中則是預覽版。 您可在這裡找到有關[在內部部署伺服器上啟用 Profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers) 的資訊。
+Azure Application Insights 的這項功能在 Azure App Service 的 Web Apps 功能和 Azure 計算資源中已是正式運作版。 您可在這裡找到有關[在內部部署伺服器上啟用 Profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers) 的資訊。
 
 本文討論當您使用 [Application Insights](app-insights-overview.md) 時，即時 Web 應用程式的各個方法所花費的時間量。 Application Insights Profiler 工具會針對由您的應用程式所處理的即時要求來顯示詳細設定檔。 Profiler 會醒目提示使用最多時間的最忙碌路徑。 系統會根據取樣來分析具有不同回應時間的要求。 您可以使用各種技術來將應用程式相關的額外負荷降到最低。
 
@@ -45,9 +45,9 @@ Profiler 目前適用於在 Web Apps 上執行的 ASP.NET 和 ASP.NET Core Web �
 
     ![Profiler 的應用程式設定][profiler-app-setting]
 
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>啟用 Azure 計算資源的 Profiler (預覽)
+### <a name="enable-profiler-for-azure-compute-resources"></a>啟用 Azure 計算資源的 Profiler
 
-如需詳細資訊，請參閱 [Azure 計算資源的 Profiler 預覽版](https://go.microsoft.com/fwlink/?linkid=848155)。
+如需詳細資訊，請參閱 [Azure 計算資源的 Profiler 版本](https://go.microsoft.com/fwlink/?linkid=848155)。
 
 ## <a name="view-profiler-data"></a>檢視分析工具資料
 
@@ -204,7 +204,7 @@ Profiler 會在 Web 應用程式中以連續性 Web 作業的形式執行。 您
 
 目錄尚有資料 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
-如果您從指令碼或從「Visual Studio Team Services 部署管線」執行 Web Deploy，就會發生此錯誤。 解決方法是將下列額外的部署參數新增至 Web Deploy 工作：
+如果您從指令碼或從 Azure DevOps 部署管線執行 Web Deploy，就會發生此錯誤。 解決方法是將下列額外的部署參數新增至 Web Deploy 工作：
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

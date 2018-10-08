@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: dobett
-ms.openlocfilehash: eb7b4c4c6228818f78e002f4a06a000e9aa34a3a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 0e0c398311c5826f8b6c72bf0f39ad2bfde306b2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109632"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223037"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>排程及廣播作業 (.NET/.NET)
 
@@ -66,7 +66,7 @@ ms.locfileid: "43109632"
     
 2. 在方案總管中，以滑鼠右鍵按一下 **SimulateDeviceMethods** 專案，然後按一下 [管理 NuGet 套件...]
 
-3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **microsoft.azure.devices.client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 套件與其相依性，並新增對它的參考。
+3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 套件與其相依性，並新增對它的參考。
    
     ![NuGet 套件管理員視窗用戶端應用程式](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
@@ -140,7 +140,7 @@ ms.locfileid: "43109632"
 9. 儲存您的工作，並建置您的解決方案。         
 
 > [!NOTE]
-> 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如 MSDN 文章[暫時性錯誤處理](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults)所建議，實作重試原則 (例如連線重試)。
+> 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)一文中所建議，實作重試原則 (例如連線重試)。
 > 
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>排程呼叫直接方法及傳送裝置對應項更新的作業
@@ -153,7 +153,7 @@ ms.locfileid: "43109632"
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ScheduleJob** 專案，然後按一下 [管理 NuGet 套件...]。
 
-3. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此步驟會下載及安裝 [Azure IoT 服務 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet 套件與其相依性，並加入對它的參考。
+3. 在 [NuGet 套件管理員] 視窗中選取 [瀏覽]、搜尋 **Microsoft.Azure.Devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用條款。 此步驟會下載及安裝 [Azure IoT 服務 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet 套件與其相依性，並加入對它的參考。
 
     ![NuGet 封裝管理員視窗](./media/iot-hub-csharp-csharp-schedule-jobs/servicesdknuget.png)
 

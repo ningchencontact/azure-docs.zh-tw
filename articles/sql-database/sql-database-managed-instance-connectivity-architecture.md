@@ -1,23 +1,23 @@
 ---
 title: Azure SQL Database 受控執行個體連線架構 | Microsoft Docs
 description: 此文章提供 Azure SQL Database 受控執行個體通訊概觀並說明連線架構，以及不同的元件如何運作以將流量導向到受控執行個體。
-keywords: ''
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.subservice: managed instance
+ms.subservice: managed-instance
 ms.custom: ''
-ms.date: 08/16/2018
+ms.devlang: ''
+ms.topic: conceptual
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.topic: conceptual
-ms.openlocfilehash: 54917c6548c7f0bfacad6408732c5619e6346683
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+manager: craigg
+ms.date: 08/16/2018
+ms.openlocfilehash: 312425d3ea02d15a992b9a694f09cb2be73b6221
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177445"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161585"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database 受控執行個體連線架構 
 
@@ -73,7 +73,7 @@ Microsoft 管理與部署服務是在虛擬網路外部執行，因此受控執�
 - 如需概觀，請參閱 [受控執行個體是什麼](sql-database-managed-instance.md)。 
 - 如需 VNet 設定的詳細資訊，請參閱 [受控執行個體 VNet 設定](sql-database-managed-instance-vnet-configuration.md)。 
 - 如需快速入門，請參閱＜如何建立受控執行個體＞： 
-  - 從 [Azure 入口網站](sql-database-managed-instance-create-tutorial-portal.md) 
+  - 從 [Azure 入口網站](sql-database-managed-instance-get-started.md) 
   - 使用 [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 
   - 使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/) 
   - 使用 [Azure Resource Manager 範本 (包含 SSMS)](https://portal.azure.com/) 

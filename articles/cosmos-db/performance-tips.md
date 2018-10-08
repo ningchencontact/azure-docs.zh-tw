@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 47896b681c2ba43d4ca41682ec51e0dfd167c9d5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a805294ecb416d18f3ce13981d26a7d25cd5a204
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700951"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432846"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
    * 直接模式
 
-     直接模式支援透過 TCP 和 HTTPS 通訊協定連線。 目前，只有適用於 Windows 平台的 .NET Standard 2.0 支援直接模式。 使用直接模式時，有兩個可用的通訊協定選項：
+     直接模式支援透過 TCP 和 HTTPS 通訊協定連線。 目前，只有 .NET Standard 2.0 支援直接模式。 使用直接模式時，有兩個可用的通訊協定選項：
 
     * TCP
     * HTTPS

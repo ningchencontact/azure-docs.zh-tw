@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b5b3a96991a2150e553af01e3fda73e04116d7fb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140691"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452406"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教學課程：使用 Power BI 連接器將資料視覺化
 [PowerBI.com](https://powerbi.microsoft.com/) 是一項線上服務，您可以在其中建立及共用具有您和組織之重要資料的儀表板和報告。  Power BI Desktop 是一項專用的報告撰寫工具，可讓您從各種資料來源擷取資料、合併和轉換資料、建立功能強大的報告和視覺效果，以及將報告發佈至 Power BI。  有了最新版的 Power BI Desktop，您現在可以透過 Power BI 的 Azure Cosmos DB 連接器連線到 Azure Cosmos DB 帳戶。   
@@ -34,7 +34,7 @@ ms.locfileid: "42140691"
 > 適用於 Azure Cosmos DB 的 Power BI 連接器會連線到 Power BI Desktop 以擷取和轉換資料。 在 Power BI Desktop 中建立的報告接著可以發行至 PowerBI.com。 您無法在 PowerBI.com 中直接擷取和轉換 Azure Cosmos DB 資料。 
 
 > [!NOTE]
-> 目前僅支援 Azure Cosmos DB SQL 和 MongoDB API 帳戶的 Azure Cosmos DB 與 Power BI 連接器連線。 若要使用 MongoDB API 將 Azure Cosmos DB 連線至 Power BI，您必須使用 [Simba MongoDB ODBC 驅動程式](http://www.simba.com/drivers/mongodb-odbc-jdbc/)。
+> 目前僅支援 Azure Cosmos DB SQL API 和 Gremlin API 帳戶的 Azure Cosmos DB 與 Power BI 連接器連線。
 
 ## <a name="prerequisites"></a>必要條件
 在依照本 Power BI 教學課程中的指示進行之前，請先確定您可以存取下列資源：

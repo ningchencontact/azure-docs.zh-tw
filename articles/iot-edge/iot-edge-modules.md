@@ -4,16 +4,16 @@ description: 深入了解 Azure IoT Edge 模組及其設定方式
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995364"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423386"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模組
 
@@ -79,6 +79,7 @@ Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前會受
 其他離線功能可於公開預覽中取得。 如需詳細資訊，請參閱[了解適用於 IoT Edge 裝置、模組及子裝置的擴充離線功能](offline-capabilities.md)。
 
 ## <a name="next-steps"></a>後續步驟
+ - [了解開發 IoT Edge 模組的需求和工具][lnk-mod-dev]
  - [了解 Azure IoT Edge 執行階段和架構][lnk-runtime]
 
 <!-- Images -->
@@ -89,3 +90,4 @@ Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前會受
 [lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-runtime]: iot-edge-runtime.md
+[lnk-mod-dev]: module-development.md

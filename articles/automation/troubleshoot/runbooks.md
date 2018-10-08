@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140497"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163897"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -93,11 +93,18 @@ The subscription named <subscription name> cannot be found.
 
 如要判斷您是否已正確地向 Azure 驗證自己的身分，以及您是否有嘗試選取之訂用帳戶的存取權，請執行下列步驟：  
 
-1. 確認您在執行 **Select-AzureSubscription** Cmdlet 之前，已經執行 **Add-AzureAccount**。  
-2. 如果您仍然看到此錯誤訊息，請修改您的程式碼，方法是在 **Add-AzureAccount** Cmdlet 之後新增 **Get-AzureSubscription** Cmdlet，然後執行此程式碼。 現在，請確認 Get-AzureSubscription 的輸出是否包含您的訂用帳戶詳細資料。  
+1. 確認您在執行 **Select-AzureSubscription** Cmdlet 之前，已經執行 **Add-AzureAccount** Cmdlet。  
+2. 如果您仍然看到此錯誤訊息，請在 **Add-AzureAccount** Cmdlet 之後新增 **-AzureRmContext** 參數，以修改您的程式碼，然後執行此程式碼。
 
-   * 如果您在輸出中未看到任何訂用帳戶詳細資料，這表示訂用帳戶尚未初始化。  
-   * 如果您的確在輸出中看到訂用帳戶詳細資料，請利用 **Select-AzureSubscription** Cmdlet 來確認您使用的是正確的訂用帳戶名稱或 ID。
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>案例：對 Azure 的驗證失敗，因為已啟用多重要素驗證
 
@@ -151,7 +158,7 @@ Exception: A task was canceled.
 
 #### <a name="resolution"></a>解決方案
 
-在使用多個訂用帳戶時，若叫用子 Runbook，可能會遺失訂用帳戶內容。 若要確保訂用帳戶的內容會傳遞至子 Runbook，請將 `DefaultProfile` 參數新增至 Cmdlet，並將內容傳遞給它。
+在使用多個訂用帳戶時，若叫用子 Runbook，可能會遺失訂用帳戶內容。 若要確保訂用帳戶的內容會傳遞至子 Runbook，請將 `AzureRmContext` 參數新增至 Cmdlet，並將內容傳遞給它。
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -171,7 +178,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 
@@ -216,17 +223,19 @@ The job was tried three times but it failed
 
 1. 記憶體限制。 配置給沙箱[自動化服務限制](../../azure-subscription-service-limits.md#automation-limits)的記憶體數量具有已知限制，因此如果使用超過 400 MB 的記憶體，作業可能就會失敗。
 
-2. 模組不相容。 如果模組相依性不正確，可能會發生這個錯誤。不正確時，您的 Runbook 通常會傳回「找不到命令」或「無法繫結參數」訊息。
+1. 網路通訊端。 Azure 沙箱受限於如[自動化服務限制](../../azure-subscription-service-limits.md#automation-limits)所述的 1000 個並存網路通訊端。
+
+1. 模組不相容。 如果模組相依性不正確，可能會發生這個錯誤。不正確時，您的 Runbook 通常會傳回「找不到命令」或「無法繫結參數」訊息。
 
 #### <a name="resolution"></a>解決方案
 
 下列任何一個解決方案都可以修正此問題：
 
-* 在記憶體限制內運作的建議方法是分割多個 Runbook 之間的工作負載、不要處理記憶體中的太多資料、不要寫入來自 Runbook 的不必要輸出，或考慮您寫入 PowerShell 工作流程 Runbook 的檢查點數目。  
+* 在記憶體限制內運作的建議方法是分割多個 Runbook 之間的工作負載、不要處理記憶體中的太多資料、不要寫入來自 Runbook 的不必要輸出，或考慮您寫入 PowerShell 工作流程 Runbook 的檢查點數目。 您可以使用 clear 方法 (例如 `$myVar.clear()`) 來清除變數，並使用 `[GC]::Collect()` 立即執行記憶體回收，這會減少您的 Runbook 在執行階段的記憶體使用量。
 
 * 遵循[如何更新 Azure 自動化中的 Azure PowerShell 模組](../automation-update-azure-modules.md)步驟來更新 Azure 模組。  
 
-* 另一個解決方案是在[混合式 Runbook 背景工作角色](../automation-hrw-run-runbooks.md)上執行 Runbook。 混合式背景工作角色未受限於 Azure 沙箱的[公平共用](../automation-runbook-execution.md#fair-share)限制。
+* 另一個解決方案是在[混合式 Runbook 背景工作角色](../automation-hrw-run-runbooks.md)上執行 Runbook。 混合式背景工作角色未受限於 Azure 沙箱的記憶體和網路限制。
 
 ### <a name="fails-deserialized-object"></a>案例：Runbook 因還原序列化物件而失敗
 

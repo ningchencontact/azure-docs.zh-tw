@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: e5421ca791ae9d0059639000f33b77be57f4d891
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2f0568064eed556429675ffb34c84d588ac670d5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968028"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064351"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms"></a>如何將適用於 VM 的 Azure 監視器上線 
 本文說明如何設定適用於 VM 的 Azure 監視器來監視 Azure 虛擬機器的作業系統健康情況，以及探索和對應可能裝載於其上的應用程式相依性。  
@@ -52,23 +52,90 @@ ms.locfileid: "46968028"
 
 ### <a name="supported-operating-systems"></a>受支援的作業系統
 
-適用於 VM 的 Azure 監視器正式支援下列 Windows 和 Linux 作業系統版本：
+下表列出適用於 VM 的 Azure 監視器支援的 Windows 和 Linux 作業系統。  這一節稍後會提供詳列支援的主要和次要 Linux OS 版本及核心版本的完整清單。
 
 |作業系統版本 |效能 |地圖 |健康情況 |  
 |-----------|------------|-----|-------|  
+|Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |  
 |Windows Server 2012 R2 | X | X | |  
 |Windows Server 2012 | X | X | |  
 |Windows Server 2008 R2 | X | X| |  
 |RHEL 7、6| X | X| X |  
-|Ubuntu 18.04、16.04、14.04 | X | X| X |  
-|Cent OS Linux 7、6 | X | X| X |  
+|Ubuntu 18.04、16.04、14.04 | X | X | X |  
+|Cent OS Linux 7、6 | X | X | X |  
 |SLES 12 | X | X | X |  
 |Oracle Linux 7 | X<sup>1</sup> | | X |  
 |Oracle Linux 6 | X | X | X |  
 |Debian 9.4、8 | X<sup>1</sup> | | X | 
 
 <sup>1</sup> 適用於 VM 的 Azure 監視器的效能功能只可從 Azure 監視器取得，當您從 Azure VM 的左側窗格直接存取它時則不適用。  
+
+>[!NOTE]
+>下列資訊適用於 Linux 作業系統的支援：  
+> - 只支援預設版本和 SMP Linux 核心版本。  
+> - 所有 Linux 散發套件皆不支援非標準的核心版本 (例如 PAE 和 Xen)。 舉例來說，版本字串為「2.6.16.21-0.8-xen」的系統就不受支援。  
+> - 不支援自訂核心，包括重新編譯的標準核心。  
+> - 不支援 CentOSPlus 核心。  
+
+
+#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
+
+| 作業系統版本 | 核心版本 |
+|:--|:--|
+| 7.0 | 3.10.0-123 |
+| 7.1 | 3.10.0-229 |
+| 7.2 | 3.10.0-327 |
+| 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
+
+#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
+
+| 作業系統版本 | 核心版本 |
+|:--|:--|
+| 6.0 | 2.6.32-71 |
+| 6.1 | 2.6.32-131 |
+| 6.2 | 2.6.32-220 |
+| 6.3 | 2.6.32-279 |
+| 6.4 | 2.6.32-358 |
+| 6.5 | 2.6.32-431 |
+| 6.6 | 2.6.32-504 |
+| 6.7 | 2.6.32-573 |
+| 6.8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
+
+#### <a name="ubuntu-server"></a>Ubuntu Server
+
+| 作業系統版本 | 核心版本 |
+|:--|:--|
+| Ubuntu 18.04 | 核心 4.15.* |
+| Ubuntu 16.04.3 | 核心 4.15.* |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
+
+#### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>搭載 Unbreakable Enterprise Kernel 的 Oracle Enterprise Linux 6
+| 作業系統版本 | 核心版本
+|:--|:--|
+| 6.2 | Oracle 2.6.32-300 (UEK R1) |
+| 6.3 | Oracle 2.6.39-200 (UEK R2) |
+| 6.4 | Oracle 2.6.39-400 (UEK R2) |
+| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
+| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
+
+#### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>搭載 Unbreakable Enterprise Kernel 的 Oracle Enterprise Linux 5
+
+| 作業系統版本 | 核心版本
+|:--|:--|
+| 5.10 | Oracle 2.6.39-400 (UEK R2) |
+| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+
+#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
+
+| 作業系統版本 | 核心版本
+|:--|:--|
+|12 SP2 | 4.4.* |
+|12 SP3 | 4.4.* |
 
 ### <a name="hybrid-environment-connected-sources"></a>混合式環境連線的來源
 適用於 VM 的 Azure 監視器對應功能會從 Microsoft Dependency Agent 取得它的資料。 Dependency Agent 須憑藉 Log Analytics 代理程式才能連線至 Log Analytics。 這表示，系統必須安裝 Log Analytics 代理程式並使用 Dependency Agent 加以設定。  下表說明對應功能在混合式環境中支援的連線來源。
@@ -89,8 +156,8 @@ ms.locfileid: "46968028"
 
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
 ## <a name="diagnostic-and-usage-data"></a>診斷和使用量資料
 當您使用 Azure 監視器服務時，Microsoft 會自動收集使用量和效能資料。 Microsoft 會使用此資料來提供並改進服務的品質、安全性和完整性。 為了提供正確且有效率的疑難排解功能，來自對應功能的資料會包含軟體設定的相關資訊，例如作業系統與版本、IP 位址、DNS 名稱和工作站名稱。 Microsoft 不會收集姓名、地址或其他連絡資訊。
@@ -152,7 +219,7 @@ ms.locfileid: "46968028"
 5. 在 [將 Azure 監視器 Insights 上線] 頁面上，如果您目前在同一個訂用帳戶中有 Log Analytics 工作區，請在下拉式清單中選取它。  此清單會預先選取已在訂用帳戶中部署虛擬機器的預設工作區和位置。 
 
     >[!NOTE]
-    >如果您想要建立新的 Log Analytics 工作區以儲存來自 VM 的監視資料，請遵循[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)中的指示。 請務必於 VM 部署所在的相同訂用帳戶中建立工作區。 
+    >如果您想要建立新的 Log Analytics 工作區以儲存來自 VM 的監視資料，請遵循在先前所列的其中一個支援區域中[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)中的指示。   
 
 啟用監視之後，可能需要約 10 分鐘的時間才能檢視虛擬機器的健康情況計量。 
 

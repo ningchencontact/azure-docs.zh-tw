@@ -3,7 +3,7 @@ title: Azure AD v2 JavaScript 快速入門 | Microsoft Docs
 description: 深入了解 JavaScript 應用程式如何呼叫需要來自 Azure Active Directory v2.0 端點存取權杖的 API
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: navyasric
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/21/2018
-ms.author: andret
+ms.date: 09/24/2018
+ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 4c64552ab23331755bf1d292bede61e78b339df0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1b884571707aab71e8a8d124ba68f938e5a63a43
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987419"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063739"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>快速入門：登入使用者及從 JavaScript 應用程式取得存取權杖
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-在本快速入門中，您會了解如何使用程式碼範例，該範例示範 JavaScript 單頁應用程式 (SPA) 如何登入個人帳戶、公司和學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API。
+在本快速入門中，您會了解如何使用程式碼範例，該範例示範 JavaScript 單頁應用程式 (SPA) 如何登入個人帳戶、公司和學校帳戶、取得存取權杖以呼叫 Microsoft Graph API 或任何 Web API。
 
-![此快速入門所產生範例應用程式的運作方式](media/quickstart-v2-javascript/javascriptspa-intro.png)
+![本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-your-application-and-download-your-quickstart-app"></a>註冊您的應用程式，並下載您的快速入門應用程式
@@ -55,40 +55,41 @@ ms.locfileid: "46987419"
 #### <a name="step-2-download-the-project"></a>步驟 2：下載專案
 
 您可以選擇適合您開發環境的其中一個選項。
-* [下載核心專案檔案 - 適用於網頁伺服器，例如 Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip)
-* [下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+* [下載核心專案檔案 - 適用於網頁伺服器，例如 Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
+* [下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 將 zip 檔案解壓縮至本機資料夾 (例如 **C:\Azure-Samples**)。
 
 #### <a name="step-3-configure-your-javascript-app"></a>步驟 3：設定您的 JavaScript 應用程式
 
 > [!div renderon="docs"]
-> 編輯 `msalconfig.js`，並且使用您剛剛所註冊應用程式的應用程式識別碼取代 `Enter_the_Application_Id_here`。 您可以在 [概觀] 頁面上找到 [應用程式識別碼]。
+> 編輯 `index.html`，並且使用您剛註冊應用程式的應用程式識別碼取代 `applicationConfig` 之下的 `Enter_the_Application_Id_here`。
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 編輯 `msalconfig.js`，並且以下列項目取代 msalconfig：
+> 編輯 `index.html` 並將 `applicationConfig` 取代為：
 
 ```javascript
-var msalconfig = {
+var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
-    redirectUri: location.origin
+    graphScopes: ["user.read"],
+    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
 > [!NOTE]
-> 如果您使用 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)，則重新導向 URI 將會設為 `http://localhost:30662/`，因為已在程式碼範例的專案中設定。 如果您使用 [Node.js](https://nodejs.org/en/download/) 或其他任何網頁伺服器，請將重新導向 URI 設為 `http://localhost:30662/`，然後將伺服器設為開始在此連接埠上接聽。
+>如果您使用 [Node.js](https://nodejs.org/en/download/)，則會針對伺服器設定 *server.js* 檔案以開始在連接埠 30662 上接聽。
+> 如果您使用 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)，則會針對伺服器設定程式碼範例的 *.csproj* 檔案以開始在連接埠 30662 上接聽。
 >
 
 #### <a name="step-4-run-the-project"></a>步驟 4：執行專案
-
-如果使用 Visual Studio，請按 **F5** 來執行專案。
 
 如果使用 Node.js，您可以在命令列上從專案目錄執行下列命令，以啟動伺服器：
  ```batch
  npm install
  node server.js
  ```
-開啟 web 瀏覽器並巡覽至 `http://localhost:30662/`。 按一下 [呼叫 Microsoft Graph API] 按鈕以啟動登入。
+開啟 web 瀏覽器並巡覽至 `http://localhost:30662/`。 按一下 [登入] 按鈕開始登入，然後呼叫 Microsoft Graph API。
 
+如果您使用 Visual Studio，請務必選取專案解決方案，然後按 **F5** 來執行專案。
 
 ## <a name="more-information"></a>相關資訊
 
@@ -98,7 +99,7 @@ MSAL 是程式庫，用來登入使用者並要求權杖，該權杖是用來存
 
 ```html
 <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.min.js"></script>
-````
+```
 
 或者，如果您已安裝節點，可以透過 npm 下載它：
 
@@ -111,32 +112,33 @@ npm install msal
 快速入門程式碼也會示範如何初始化程式庫：
 
 ```javascript
-var userAgentApplication = new Msal.UserAgentApplication(msalconfig.clientID, null, loginCallback, {
-    redirectUri: msalconfig.redirectUri
-});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Where  |  |
 > |---------|---------|
 > |`ClientId`     |來自註冊於 Azure 入口網站中應用程式的應用程式識別碼|
 > |`authority`    |它是授權單位 URL。 傳遞 Null 會將預設授權單位設為 `https://login.microsoftonline.com/common`。 如果您的應用程式是單一租用戶 (目標僅限於單一目錄中的帳戶)，請將此值設為 `https://login.microsoftonline.com/<tenant name or ID>`|
-> |`loginCallBack`| 在驗證重新導向回到應用程式之後所呼叫的回呼方法|
-> |`redirectUri`  |在使用 Azure AD 進行驗證之後，將使用者重新導回的 URL|
+> |`tokenReceivedCallback`| 在驗證重新導向回到應用程式之後所呼叫的回呼方法。 此處已傳遞 `acquireTokenRedirectCallBack`。 如果使用 loginPopup，這是 null 值。|
+> |`options`  |選擇性參數的集合。 在此情況下，`storeAuthStateInCookie` 和 `cacheLocation` 都是選擇性組態。 如需選項的詳細資訊，請參閱 [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options)。 |
 
 ### <a name="sign-in-users"></a>登入使用者
 
 下列程式碼片段顯示如何登入使用者：
 
 ```javascript
-userAgentApplication.loginRedirect(graphAPIScopes);
+myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
+    //Callback code here
+})
 ```
 
 > |Where  |  |
 > |---------|---------|
-> | `graphAPIScopes`   | (選擇性) 包含在登入時針對使用者同意所要求的範圍 (例如：適用於 Microsoft Graph 的 `[ "user.read" ]`，或適用於自訂 Web API 的 `[ "api://<Application ID>/access_as_user" ]`)。 |
+> | `scopes`   | (選擇性) 包含在登入時針對使用者同意所要求的範圍 (例如：適用於 Microsoft Graph 的 `[ "user.read" ]`，或適用於自訂 Web API 的 `[ "<Application ID URL>/scope" ]`，也就是 `api://<Application ID>/access_as_user`)。 此處已傳遞 `applicationConfig.graphScopes`。 |
 
 > [!TIP]
-> 或者，您可以使用 `loginPopup` 方法，顯示快顯視窗以登入使用者。
+> 或者，您可以使用 `loginRedirect` 方法，將目前頁面重新導向至登入頁面 (而非快顯視窗)。
+
 
 ### <a name="request-tokens"></a>要求權杖
 
@@ -147,13 +149,14 @@ MSAL 有三種取得權杖的方法，`acquireTokenRedirect`、`acquireTokenPopu
 `acquireTokenSilent` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 在第一次執行 `loginRedirect` 或 `loginPopup` 方法之後，`acquireTokenSilent` 就會成為用來取得權杖的常用方法，以在後續呼叫中使用那些權杖存取受保護的資源。 以無訊息方式進行要求或更新權杖的呼叫。
 
 ```javascript
-// Try to acquire the token used to query Graph API silently first:
-userAgentApplication.acquireTokenSilent(graphAPIScopes)
+myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (accessToken) {
+    // Callback code here
+})
 ```
 
 > |Where  |  |
 > |---------|---------|
-> | `graphAPIScopes`   | 包含要在 API 存取權杖中傳回的所要求範圍 (例如：`[ "user.read" ]` 適用於 Microsoft Graph，或 `[ "api://<Application ID>/access_as_user" ]` 適用於自訂 Web API)。 |
+> | `scopes`   | 包含要在 API 存取權杖中傳回的所要求範圍 (例如：適用於 Microsoft Graph 的 `[ "user.read" ]`，或適用於自訂 Web API的 `[ "<Application ID URL>/scope" ]`，也就是 `api://<Application ID>/access_as_user`)。 此處已傳遞 `applicationConfig.graphScopes`。|
 
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
@@ -164,11 +167,16 @@ userAgentApplication.acquireTokenSilent(graphAPIScopes)
 
 大部分應用程式的一般建議模式是先呼叫 `acquireTokenSilent`、捕捉例外狀況，然後呼叫 `acquireTokenRedirect` (或 `acquireTokenPopup`) 以啟動互動式要求。
 
-呼叫 `acquireTokenRedirect(scope)` 會導致將使用者重新導向至 Azure Active Directory v2.0 端點 (或者呼叫 `acquireTokenPopup(scope)` 會導致快顯視窗)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
+呼叫 `acquireTokenPopup(scope)` 會導致要登入的快顯視窗 (或者呼叫 `acquireTokenRedirect(scope)` 會導致將使用者重新導向至 Azure AD v2.0 端點)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
 
 ```javascript
-userAgentApplication.acquireTokenRedirect(graphAPIScopes);
+myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {
+    // Callback code here
+})
 ```
+
+> [!NOTE]
+> 如果因為 Internet Explorer 瀏覽器處理快顯視窗相關[已知問題](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)，而使用 Internet Explorer 瀏覽器，則本快速入門會使用 `loginRedirect` 和 `acquireTokenRedirect` 方法。
 
 ## <a name="next-steps"></a>後續步驟
 
