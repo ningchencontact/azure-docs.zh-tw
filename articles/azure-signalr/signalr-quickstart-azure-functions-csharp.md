@@ -64,7 +64,7 @@ Azure SignalR 服務可讓您輕鬆地新增即時功能到您的應用程式。
     - **GetSignalRInfo** - 使用 *SignalRConnectionInfo* 輸入繫結來產生並傳回有效的連線資訊。
     - **SendMessage** - 在要求主體中接收聊天訊息，並使用 *SignalR* 輸出繫結來將訊息廣播給所有已連線的用戶端應用程式。
 
-1. 菜 [偵錯] 功能表中，選取 [開始偵錯] 以執行應用程式。
+1. 在 [偵錯] 功能表中，選取 [開始偵錯] 以執行應用程式。
 
     ![偵錯應用程式](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 
