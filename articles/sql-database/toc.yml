@@ -89,12 +89,16 @@ items:
     items:
     - name: 虛擬核心與 DTU
       href: sql-database-service-tiers.md
-    - name: 虛擬核心模型
-      href: sql-database-service-tiers-vcore.md
-    - name: DTU 模型
+    - name: 以虛擬核心為基礎的購買模型
+      items:
+      - name: 選擇虛擬核心服務層
+        href: sql-database-service-tiers-vcore.md
+      - name: 一般用途/業務關鍵
+        href: sql-database-service-tiers-general-purpose-business-critical.md
+      - name: 超大規模
+        href: sql-database-service-tier-hyperscale.md
+    - name: DTU 服務層
       href: sql-database-service-tiers-dtu.md
-    - name: 超大規模服務層
-      href: sql-database-hyperscale.md
     - name: 預付保留容量
       href: sql-database-reserved-capacity.md
   - name: 邏輯伺服器
@@ -588,7 +592,7 @@ items:
   - name: SQLCMD
     href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
-    href: https://msdn.microsoft.com/hh550080.aspx
+    href: https://docs.microsoft.com/sql/tools/sqlpackage
   - name: SQL Database 管理程式庫套件
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL Server 驅動程式
@@ -626,9 +630,9 @@ items:
     href: /azure/architecture/
   - name: 客戶案例
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 0f6a269c31089b52b2dca16ca31e1c229efc70fb
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: abafd9d9022b306ce090b618ecc9477cd95c714e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042490"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869239"

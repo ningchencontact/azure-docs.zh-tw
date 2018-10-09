@@ -146,7 +146,7 @@
 ## 整合
 ### [如何在 Azure 上使用 SendGrid 傳送電子郵件](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [匯出至 PowerApps 和 Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [使用受控服務識別](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [使用受控識別](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 疑難排解
 ### Mobile Apps 的一般疑難排解

@@ -11,6 +11,8 @@ items:
     href: quickstart-create-first-logic-app-workflow.md
   - name: 建立邏輯應用程式 - Visual Studio
     href: quickstart-create-logic-apps-with-visual-studio.md
+  - name: 建立邏輯應用程式 - Visual Studio Code
+    href: quickstart-create-logic-apps-visual-studio-code.md
   expanded: true
 - name: 教學課程
   items:
@@ -28,6 +30,8 @@ items:
     href: logic-apps-serverless-overview.md
   - name: B2B 整合與 EDI 處理
     href: logic-apps-enterprise-integration-overview.md
+  - name: 存取 Azure 虛擬網路 (VNET)
+    href: connect-virtual-network-vnet-isolated-environment-overview.md
 - name: 使用說明指南
   items:
   - name: 開發
@@ -68,8 +72,12 @@ items:
       href: logic-apps-exception-handling.md
     - name: 處理大型訊息
       href: logic-apps-handle-large-messages.md
-    - name: 保護邏輯應用程式
-      href: logic-apps-securing-a-logic-app.md
+    - name: 安全
+      items:
+      - name: 保護邏輯應用程式
+        href: logic-apps-securing-a-logic-app.md
+      - name: 使用受控識別進行驗證
+        href: create-managed-service-identity.md
     - name: 開發自訂連接器
       href: custom-connector-overview.md
     - name: 開發自訂 API
@@ -139,6 +147,8 @@ items:
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
     - name: 建置災害復原方案
       href: logic-apps-enterprise-integration-b2b-business-continuity.md
+  - name: 連線到具有隔離環境的虛擬網路
+    href: connect-virtual-network-vnet-isolated-environment.md
   - name: 存取內部部署資料
     items:
     - name: 安裝資料閘道
@@ -227,14 +237,18 @@ items:
       href: ../connectors/connectors-create-api-rss.md
     - name: Salesforce
       href: ../connectors/connectors-create-api-salesforce.md
-    - name: SAP
+    - name: SAP (新)
       href: logic-apps-using-sap-connector.md
+    - name: SAP
+      href: logic-apps-using-sap-connector-old.md
     - name: 排程
       href: ../connectors/connectors-native-recurrence.md
     - name: SendGrid
       href: ../connectors/connectors-create-api-sendgrid.md
     - name: SFTP
       href: ../connectors/connectors-create-api-sftp.md
+    - name: SFTP - SSH
+      href: ../connectors/connectors-sftp-ssh.md
     - name: SharePoint
       href: ../connectors/connectors-create-api-sharepoint.md
     - name: Slack
@@ -357,9 +371,9 @@ items:
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: 影片
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-ms.openlocfilehash: 2b3670c807d02531e5b868f554eb3b80f65250f2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 40d1fe669313e946d41d0a31dec5e7390d711c57
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123996"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855284"

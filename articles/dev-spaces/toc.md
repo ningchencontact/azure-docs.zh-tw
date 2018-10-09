@@ -22,6 +22,7 @@
 #### [2 - 小組開發](team-development-nodejs.md)
 
 ## 作法
+### [使用 Azure Cloud Shell 建立 Kubernetes 叢集](how-to/create-cluster-cloud-shell.md)
 ### [分享 Azure 開發人員空間](how-to/share-dev-spaces.md)
 ### [管理祕密](how-to/manage-secrets.md)
 ### [使用自訂 NuGet 摘要](how-to/use-custom-nuget-feed.md)
