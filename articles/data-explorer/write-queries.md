@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>Join
 
-[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator)：透過比對每個資料表中所指定資料行的值，來合併兩個資料表的資料列，以形成新的資料表。 Kusto 支援全系列的聯結類型：**fullouter****inner**、**innerunique****leftanti****leftantisemi****leftouter**、**leftsemi**、**rightanti**、**rightantisemi****rightouter****rightsemi**。
+[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator)：透過比對每個資料表中所指定資料行的值，來合併兩個資料表的資料列，以形成新的資料表。 Kusto 支援全系列的聯結類型：**fullouter** **inner**、**innerunique** **leftanti** **leftantisemi** **leftouter**、**leftsemi**、**rightanti**、**rightantisemi** **rightouter** **rightsemi**。
 
 下列範例使用內部聯結來聯結兩個資料表。
 
@@ -728,7 +728,7 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-資料列集合如果是以下運算子的結果，則也視為佇列化：**sort****top** 或 **range** 運算子，後面可選擇性加上 **project****project-away****extend**、**where****parse****mvexpand** 或 **take** 運算子。
+資料列集合如果是以下運算子的結果，則也視為佇列化：**sort** **top** 或 **range** 運算子，後面可選擇性加上 **project** **project-away** **extend**、**where** **parse** **mvexpand** 或 **take** 運算子。
 
 **\[**[**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA)**\]**
 
