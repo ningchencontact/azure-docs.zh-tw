@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Machine Learning 服務 (預覽) 中針對分類鳶尾花教學課程準備資料 | Microsoft Docs
-description: 這個完整的教學課程會示範如何使用 Azure Machine Learning 服務 (預覽) 端對端。 這是第一個部分，會討論資料準備工作。
+title: 在 Azure Machine Learning 服務 (預覽) 中準備鳶尾花分類教學課程所需的資料 | Microsoft Docs
+description: 這個完整的教學課程將說明如何使用端對端 Azure Machine Learning 服務 (預覽)。 這是第一個部分，會討論資料準備工作。
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,18 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 56f1d26d5d687982366b9a8fb20235ff338a9573
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722978"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990156"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>教學課程 1：分類鳶尾花 - 準備資料
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家以雲端規模準備資料、開發測試以及部署模型。
 
-本教學課程是**三部分系列的第一部分**。 在本教學課程，您可逐步了解 Azure Machine Learning 服務 (預覽) 的基本概念，以及了解如何：
+本教學課程是**三部分系列的第一部分**。 在本教學課程中，您可逐步了解 Azure Machine Learning 服務 (預覽) 的基本概念，以及了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure Machine Learning Workbench 中建立專案
@@ -32,7 +35,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 本教學課程使用不受時間影響的[鳶尾花資料集](https://en.wikipedia.org/wiki/Iris_flower_data_set)。 
 
-## <a name="prerequisites"></a>先決條件
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -40,11 +45,11 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 - Azure Machine Learning 測試帳戶
 - 已安裝 Azure Machine Learning Workbench
 
-如果您尚未備妥上述必要條件，請遵循[快速入門：安裝和啟動](../service/quickstart-installation.md)一文中的指示來設定此帳戶，以及安裝 Azure Machine Learning Workbench 應用程式。 
+如果您尚未備妥上述必要條件，請遵循[快速入門：安裝和啟動](quickstart-installation.md)一文中的指示來設定此帳戶，以及安裝 Azure Machine Learning Workbench 應用程式。 
 
 ## <a name="create-a-new-project-in-workbench"></a>在 Workbench 中建立新的專案
 
-如果您遵循了[快速入門：安裝和啟動](../service/quickstart-installation.md)一文中的步驟，您應該已經有這個專案，所以可以跳至下一節。
+如果您遵循了[快速入門：安裝和啟動](quickstart-installation.md)一文中的步驟，您應該已經有這個專案，所以可以跳至下一節。
 
 1. 開啟 Azure Machine Learning Workbench 應用程式，並登入 (如果需要)。 
    
@@ -62,7 +67,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    專案名稱 | myIris |輸入可識別您帳戶的唯一名稱。 您可以使用您自己的名稱，或最能識別測試的部門或專案名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 
    專案目錄 | c:\Temp\ | 指定要在其中建立專案的目錄。
    專案描述 | _保留空白_ | 適合用於描述專案的選擇性欄位。
-   Visualstudio.com GIT 存放庫 URL |_保留空白_ | 選擇性欄位。 您可以在 Visual Studio Team Services 上讓專案與 Git 存放庫相關聯，以便進行原始檔控制和共同作業。 [了解如何進行設定](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo)。 
+   Visualstudio.com GIT 存放庫 URL |_保留空白_ | 選擇性欄位。 您可以在 Azure DevOps 上讓專案與 Git 存放庫相關聯，以便進行原始檔控制和共同作業。 [了解如何進行設定](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo)。 
    選取的工作區 | IrisGarden (如果存在的話) | 選擇您在 Azure 入口網站中針對測試帳戶建立的工作區。 <br/>如果您已遵循快速入門，您應該有名稱為 IrisGarden 的工作區。 如果沒有，請選取您建立測試帳戶時所建立的工作區，或任何您想使用的其他工作區。
    專案範本 | 分類鳶尾花 | 範本包含您可用來瀏覽產品的指令碼和資料。 此範本包含您在本快速入門及此文件網站中的其他教學課程中需要使用的指令碼和資料。 
 

@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 06/11/2018
-ms.openlocfilehash: 8a997c88943b0273d3136dbf02a784fbdb982527
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.date: 09/08/2018
+ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666802"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960238"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 [Azure Kubernetes Service (AKS)](/azure/aks/) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
@@ -32,7 +32,7 @@ ms.locfileid: "43666802"
 
 - **設定 Terraform**：請遵循 [Terraform 和設定 Azure 的存取](/azure/virtual-machines/linux/terraform-install-configure)一文中的指示
 
-- **Azure 服務主體**：請遵循[使用 Azure CLI 2.0 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal)一文中**建立服務主體**一節的指示。 記下 appId、displayName、密碼和租用戶欄位內的值。
+- **Azure 服務主體**：請遵循[使用 Azure CLI 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal)一文中**建立服務主體**一節的指示。 記下 appId、displayName、密碼和租用戶欄位內的值。
 
 ## <a name="create-the-directory-structure"></a>建立目錄結構
 第一個步驟是先建立目錄，用來存放供練習使用的 Terraform 組態檔。
@@ -76,7 +76,7 @@ ms.locfileid: "43666802"
 
     ```JSON
     provider "azurerm" {
-        version = "=1.5.0"
+        version = "~>1.5"
     }
 
     terraform {
@@ -129,7 +129,7 @@ ms.locfileid: "43666802"
         agent_pool_profile {
             name            = "default"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_D2"
+            vm_size         = "Standard_DS2_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
@@ -295,7 +295,14 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
     ![「terraform 初始化」結果範例](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. 執行 `terraform plan` 命令以建立用來定義基礎結構元素的 Terraform 方案。 此命令要求以下兩個值：**var.client_id** 和 **var.client_secret**。 針對 **var.client_id** 變數，請輸入與您服務主體相關的 **appId** 值。 針對 **var.client_secret** 變數，請輸入與您服務主體相關的 **password** 值。
+1. 匯出服務主體認證。 將 &lt;your-client-id> 和 &lt;your-client-secret> 預留位置分別取代為與您服務主體相關聯的**應用程式識別碼**和**密碼**。
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. 執行 `terraform plan` 命令以建立用來定義基礎結構元素的 Terraform 方案。 
 
     ```bash
     terraform plan -out out.plan

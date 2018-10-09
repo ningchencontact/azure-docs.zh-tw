@@ -1,6 +1,6 @@
 ---
 title: 教學課程：在 Azure 中使用 SSL 憑證來保護 Linux 網頁伺服器 | Microsoft Docs
-description: 在本教學課程中，您將了解如何搭配使用 Azure CLI 2.0 與 Azure Key Vault 中儲存的 SSL 憑證，來保護執行 NGINX 網頁伺服器的 Linux 虛擬機器。
+description: 在本教學課程中，您將了解如何搭配使用 Azure CLI 與 Azure Key Vault 中儲存的 SSL 憑證，來保護執行 NGINX 網頁伺服器的 Linux 虛擬機器。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 11d884d9f1e7f805dd0796696152dda063ed7755
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a0156167142e87ffb7935828de1000a302f12e31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886126"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981681"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教學課程：在 Azure 中使用 Key Vault 內儲存的 SSL 憑證，來保護 Linux 虛擬機器上的網頁伺服器
 若要保護網頁伺服器，您可以使用安全通訊端層 (SSL) 憑證將 Web 流量加密。 這些 SSL 憑證可儲存在 Azure Key Vault，並且能夠讓您將憑證安全地部署到 Azure 中的 Linux 虛擬機器 (VM)。 在本教學課程中，您將了解如何：
@@ -34,7 +34,7 @@ ms.locfileid: "42886126"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 
 ## <a name="overview"></a>概觀

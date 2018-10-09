@@ -1,28 +1,32 @@
 ---
-title: 教學課程 - 在 Azure 成本管理中檢閱使用量和成本 | Microsoft Docs
+title: 教學課程 - 在 Azure 中使用 Cloudyn 檢閱使用量和成本 | Microsoft Docs
 description: 在本教學課程中，檢閱使用量和成本，以追蹤趨勢、偵測效率不足的情況並建立警示。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35627810"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987708"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>教學課程：檢閱使用量和成本
 
-Azure 成本管理會顯示使用量和成本，讓您可以追蹤趨勢、偵測效率不足的情況並建立警示。 所有使用量和成本資料都會顯示在 Cloudyn 儀表板和報表中。 本教學課程中的範例將引導您使用儀表板和報表來檢閱使用量和成本。 在本教學課程中，您了解如何：
+Cloudyn 會顯示使用量和成本，讓您可以追蹤趨勢、偵測效率不足的情況並建立警示。 所有使用量和成本資料都會顯示在 Cloudyn 儀表板和報表中。 本教學課程中的範例將引導您使用儀表板和報表來檢閱使用量和成本。
+
+「Azure 成本管理」提供與 Cloudyn 類似的功能。 「Azure 成本管理」是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱最佳化建議並依據這些建議採取動作來節省成本。 如需詳細資訊，請參閱 [Azure 成本管理](overview-cost-mgt.md)。
+
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 追蹤使用量和成本趨勢
@@ -32,10 +36,10 @@ Azure 成本管理會顯示使用量和成本，讓您可以追蹤趨勢、偵�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您必須具有 Azure 帳號。
-- 您必須有 Azure 成本管理的試用版註冊或付費訂用帳戶。
+- 您必須具有 Cloudyn 的試用版註冊或付費訂用帳戶。
 
 ## <a name="open-the-cloudyn-portal"></a>開啟 Cloudyn 入口網站
 
@@ -59,7 +63,7 @@ Azure 成本管理會顯示使用量和成本，讓您可以追蹤趨勢、偵�
 
 在此範例中，您清楚看到 Azure 儲存體成本自 2017年 8 月 31 日起會降低，而其他 Azure 服務的消費則持平。 造成消費降低的原因為何？ 在此範例中，有些員工休假而未使用儲存體服務。
 
-若要觀看有關追蹤使用量和成本趨勢的教學指導影片，請參閱[使用 Azure 成本管理分析您的雲端計費資料與時間](https://youtu.be/7LsVPHglM0g)。
+若要觀看有關追蹤使用量和成本趨勢的教學指導影片，請參閱[使用 Cloudyn 分析您的雲端計費資料與時間](https://youtu.be/7LsVPHglM0g)。
 
 ## <a name="detect-usage-inefficiencies"></a>偵測使用效率不足的情況
 
@@ -83,7 +87,7 @@ Azure 成本管理會顯示使用量和成本，讓您可以追蹤趨勢、偵�
 
 ![候選項目清單](./media/tutorial-review-usage/sizing03.png)
 
-若要觀看有關偵測使用效益不彰情形的教學指導影片，請參閱[在 Azure 成本管理中最佳化 VM 大小](https://youtu.be/1xaZBNmV704)。
+若要觀看有關偵測使用效益不彰情形的教學指導影片，請參閱[在 Cloudyn 中最佳化 VM 大小](https://youtu.be/1xaZBNmV704)。
 
 ## <a name="create-alerts-for-unusual-spending"></a>針對不尋常的消費建立警示
 

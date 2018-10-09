@@ -10,14 +10,18 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41919501"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967892"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>教學課程：使用命令列介面分類 Iris
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
 
 在本教學課程中，您會了解如何使用 Azure Machine Learning 預覽功能中的命令列介面 (CLI)，以進行： 
@@ -34,7 +38,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
   
   如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-- 如[快速入門：安裝及啟動 Azure Machine Learning 服務](../service/quickstart-installation.md)所述，安裝 Azure Machine Learning Workbench 應用程式。 
+- 如[快速入門：安裝及啟動 Azure Machine Learning 服務](quickstart-installation.md)所述，安裝 Azure Machine Learning Workbench 應用程式。 
 
   >[!IMPORTANT]
   >請勿建立 Azure Machine Learning 服務帳戶，因為您會使用本文中的 CLI 來執行該作業。
@@ -139,16 +143,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>建立與雲端 Git 儲存機制相關聯的新專案
-您可以建立與 VSTS (Visual Studio Team Service) Git 存放庫相關聯的新專案。 每次提交測試時，整個專案資料夾中的快照集就會認可至遠端 Git 存放庫。 如需詳細資料，請參閱[將 Git 儲存機制與 Azure Machine Learning Workbench 專案搭配使用](using-git-ml-project.md)。
+您可以建立與 Azure DevOps Git 存放庫相關聯的新專案。 每次提交測試時，整個專案資料夾中的快照集就會認可至遠端 Git 存放庫。 如需詳細資料，請參閱[將 Git 儲存機制與 Azure Machine Learning Workbench 專案搭配使用](using-git-ml-project.md)。
 
 > [!NOTE]
-> Azure Machine Learning 僅支援在 VSTS 中建立的 Git 存放庫。
+> Azure Machine Learning 僅支援在 Azure DevOps 中建立的 Git 存放庫。
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> 如果您收到錯誤訊息「存放庫 URL 可能無效或使用者可能沒有存取權」，您可以在 VSTS (在_安全性_、_新增個人存取權杖_功能表底下) 中建立安全性權杖，並在建立專案時，使用 `--vststoken` 引數。 
+> 如果您收到錯誤訊息「存放庫 URL 可能無效或使用者可能沒有存取權」，您可以在 Azure DevOps (在_安全性_、_新增個人存取權杖_功能表底下) 中建立安全性權杖，並在建立專案時，使用 `--vststoken` 引數。 
 
 ### <a name="sample_create"></a>從範例建立新專案
 在此範例中，您會使用範例專案作為範本來建立新專案。

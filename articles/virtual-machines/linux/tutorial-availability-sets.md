@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - Azure 中 Linux VM 的高可用性 | Microsoft Docs
-description: 在本教學課程中，您會了解如何使用 Azure CLI 2.0 在可用性設定組中部署高可用性的虛擬機器
+description: 在本教學課程中，您會了解如何使用 Azure CLI 在可用性設定組中部署高可用性的虛擬機器
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a31ca4dc326eb6ada37813cacd8bb1dc337c7fdc
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ee1c3cb079d77fe8e510695514e77c8ae9795c30
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044237"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950500"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 建立及部署高可用性的虛擬機器
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及部署高可用性的虛擬機器
 
 在本教學課程中，您會學到如何使用稱為「可用性設定組」的功能，增加 Azure 虛擬機器解決方案的可用性和可靠性。 可用性設定組可確保您在 Azure 上部署的 VM 會分散到多個各自獨立的硬體叢集中。 這麼做可以確保當 Azure 發生硬體或軟體故障時，受到影響的只會是一部分的 VM 子集，您整體的解決方案則會維持可用且正常運作。
 
@@ -36,7 +36,7 @@ ms.locfileid: "43044237"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="availability-set-overview"></a>可用性設定組概觀
 

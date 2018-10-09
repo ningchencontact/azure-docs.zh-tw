@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 建立和管理適用於 Linux VM 的 Azure 虛擬網路 | Microsoft Docs
-description: 在本教學課程中，了解如何使用 Azure CLI 2.0 來建立及管理 Linux 虛擬機器的 Azure 虛擬網路
+description: 在本教學課程中，您將了解如何使用 Azure CLI 來建立及管理 Linux 虛擬機器的 Azure 虛擬網路
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e214e60cf61f809d8bc4a541c2f4ecf544feccd9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928653"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988509"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 來建立和管理 Linux 虛擬機器的 Azure 虛擬網路
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>教學課程：使用 Azure CLI 來建立和管理 Linux 虛擬機器的 Azure 虛擬網路
 
 Azure 虛擬機器會使用 Azure 網路進行內部和外部的網路通訊。 本教學課程會逐步部署兩部虛擬機器 (VM)，並設定這兩部 VM 的 Azure 網路功能。 本教學課程中的範例假設 VM 已裝載 Web 應用程式與資料庫後端，不過應用程式的部署不在本教學課程範圍中。 在本教學課程中，您了解如何：
 
@@ -36,7 +36,7 @@ Azure 虛擬機器會使用 Azure 網路進行內部和外部的網路通訊。 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="vm-networking-overview"></a>VM 網路概觀
 

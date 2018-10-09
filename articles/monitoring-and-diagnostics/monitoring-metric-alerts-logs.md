@@ -58,7 +58,7 @@ Azure 監視器支援的[計量警示類型](monitoring-near-real-time-metric-al
 - 為所選取「Log Analytics 工作區」的計量警示選擇的訊號是 [計量] 類型
 - 使用維度篩選篩選特定條件或資源；記錄的計量是多維度的
 - 當設定「訊號邏輯」時，可建立訊號警示，以延伸維度 (像是電腦) 的多個值
-- 如果**未**使用 Azure 入口網站來為選取的「Log Analytics 工作區」** 建立計量警示，則使用者必須使用 [Azure 監視器 - 排程的查詢規則](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
+- 如果**未**使用 Azure 入口網站來為選取的*Log Analytics 工作區*建立計量警示，則使用者必須使用 [Azure 監視器 - 排程的查詢規則](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
 ) \(英文\)，先建立將記錄資料轉換為計量的明確規則。
 
 > [!NOTE]

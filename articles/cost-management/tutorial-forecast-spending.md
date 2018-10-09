@@ -1,35 +1,35 @@
 ---
-title: 教學課程 - 利用 Azure 成本管理預測花費 | Microsoft Docs
+title: 教學課程 - 在 Azure 中使用 Cloudyn 預測費用 | Microsoft Docs
 description: 在本教學課程中，使用歷程記錄的使用方式及花費資料來預測花費。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 411b4797510b26dec43ea7f2232457199808c857
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162189"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953679"
 ---
 # <a name="tutorial-forecast-future-spending"></a>教學課程：預測未來的花費
 
-Azure 成本管理使用歷程記錄的使用方式及花費資料，協助您預測未來的花費。 您可以使用 Cloudyn 報告來檢視所有成本預估的資料。 本教學課程中的範例會引導您使用報告來檢閱成本預估。 在本教學課程中，您了解如何：
+Cloudyn 會使用歷程記錄的使用方式及費用資料，協助您預測未來的費用。 您可以使用 Cloudyn 報告來檢視所有成本預估的資料。 本教學課程中的範例會引導您使用報告來檢閱成本預估。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 預測未來的花費
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您必須具有 Azure 帳號。
-- 您必須有 Azure 成本管理的試用版註冊或付費訂用帳戶。
+- 您必須具有 Cloudyn 的試用版註冊或付費訂用帳戶。
 
 ## <a name="forecast-future-spending"></a>預測未來的花費
 

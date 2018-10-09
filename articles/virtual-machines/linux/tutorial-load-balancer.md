@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 在 Azure 中平衡 Linux 虛擬機器的負載 | Microsoft Docs
-description: 在本教學課程中，您會了解如何使用 Azure CLI 2.0 來建立負載平衡器，以在三個 Linux 虛擬機器之間獲得高可用性和安全的應用程式
+description: 在本教學課程中，您會了解如何使用 Azure CLI 來建立負載平衡器，以在三個 Linux 虛擬機器之間獲得高可用性和安全的應用程式
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c6ca58fb901be416a2640091862724dbc1611390
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 58af3e2e1eab80120bbd97e8c2588b6a0678a4b5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931944"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970824"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 平衡 Azure 中 Linux 虛擬機器的負載以建立高可用性應用程式
+# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>教學課程：使用 Azure CLI 平衡 Azure 中 Linux 虛擬機器的負載以建立高可用性應用程式
 
 負載平衡會將傳入要求分散到多部虛擬機器，藉此提供高可用性。 在本教學課程中，您會了解 Azure Load Balancer 的不同元件，以分散流量並提供高可用性。 您會了解如何：
 
@@ -38,7 +38,7 @@ ms.locfileid: "37931944"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="azure-load-balancer-overview"></a>Azure Load Balancer 概觀
 Azure Load Balancer 是 Layer-4 (TCP、UDP) 負載平衡器，可將連入流量分散於狀況良好的 VM 來提供高可用性。 負載平衡器健康狀態探查會監視每部 VM 上指定的連接埠，且只會將流量分散至作業 VM。

@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: 4e6a1a1488b7d7222ca9b0353b9eba697dd594ce
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c04eede63df50359af55f3956041df10fa2d075e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031204"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982336"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>教學課程：使用 Azure CLI 來設計適用於 PostgreSQL 的 Azure 資料庫 
 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：
@@ -29,11 +29,11 @@ ms.locfileid: "37031204"
 > * 更新資料
 > * 還原資料
 
-您可以在瀏覽器中使用 Azure Cloud Shell 或在自己的電腦上[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)，以執行本教學課程中的命令。
+您可以在瀏覽器中使用 Azure Cloud Shell 或在自己的電腦上[安裝 Azure CLI]( /cli/azure/install-azure-cli)，以執行本教學課程中的命令。
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 如果您有多個訂用帳戶，請選擇資源所在或作為計費對象的適當訂用帳戶。 使用 [az account set](/cli/azure/account#az_account_set) 命令來選取您帳戶底下的特定訂用帳戶 ID。
 ```azurecli-interactive

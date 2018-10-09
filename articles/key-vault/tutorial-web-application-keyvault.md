@@ -9,32 +9,32 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 91e2047998d6e743691821c631e15c94cd63cf15
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918585"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948878"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>教學課程：設定 Azure 網路應用程式，以從 Key Vault 讀取祕密
 
-在本教學課程中，我們將引導您完成讓 Azure Web 應用程式使用受控服務識別從 Key Vault 讀取資訊所需的步驟。 您會了解如何：
+在本教學課程中，我們將引導您完成讓 Azure Web 應用程式使用 Azure 資源受控識別從 Key Vault 讀取資訊所需的步驟。 您會了解如何：
 
 > [!div class="checklist"]
 > * 建立 Key Vault。
 > * 將密碼儲存在 Key Vault 中。
 > * 建立 Azure Web 應用程式。
-> * 啟用受控服務識別
+> * 啟用 Web 應用程式的受控識別。
 > * 授與應用程式從 Key Vault 讀取資料所需的權限。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 若要使用 CLI 登入 Azure，您可以輸入：
 
@@ -218,9 +218,9 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 >[!IMPORTANT]
 > 瀏覽器視窗隨即開啟，您將會看見「502.5 - 處理失敗」訊息。 這是預期行為。 您必須授與應用程式識別從 Key Vault 讀取祕密的權限。
 
-## <a name="enable-managed-service-identity"></a>啟用受控服務識別
+## <a name="enable-a-managed-identity-for-the-web-app"></a>啟用 Web 應用程式的受控識別
 
-Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 受控服務身分識別 (MSI) 可以輕易地解決此問題，因為 MSI 可在 Azure Active Directory (Azure AD) 中提供自動受控身分識別給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
+Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 [Azure 資源受控識別概觀](../active-directory/managed-identities-azure-resources/overview.md)可在 Azure Active Directory (Azure AD) 中將受控識別自動提供給 Azure 服務，而降低解決此問題的難度。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
 
 1. 返回 Azure CLI
 2. 執行 assign-identity 命令來建立此應用程式的識別：
@@ -230,7 +230,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->此命令等同於前往入口網站，並在 Web 應用程式屬性中將 [受控服務識別] 切換為 [開啟]。
+>此命令等同於前往入口網站，並在 Web 應用程式屬性中將 [身分識別/系統指派] 設定切換為 [開啟]。
 
 ## <a name="grant-rights-to-the-application-identity"></a>將權限授與應用程式識別
 

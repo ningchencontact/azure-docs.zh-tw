@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: faa213caf415f98c230af741822e17a511b6fe43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: aa2613f7cb73c2c338189aaaa48587c49a3093f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696290"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962177"
 ---
 # <a name="build-a-java-application-by-using-azure-cosmos-db-async-java-sdk"></a>使用 Azure Cosmos DB Async Java SDK 建置 Java 應用程式 
 
@@ -26,7 +26,6 @@ ms.locfileid: "43696290"
 > * [Java](sql-api-java-get-started.md)
 > * [非同步 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Azure Cosmos DB 是全域散發的多模型資料庫。 本教學課程說明如何透過非同步 Java 應用程式，使用 Azure Cosmos DB SQL API 帳戶來儲存和存取資料。 
@@ -101,7 +100,7 @@ public class AccountSettings
 ![NoSQL 教學課程用來建立 Java 主控台應用程式之 Azure 入口網站的螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，內含反白顯示的 [主動式] 中樞、[Azure Cosmos DB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
 
 ## <a name="step-4-initialize-the-client-object"></a>步驟 4：初始化用戶端物件
-使用 “AccountSettings.java” 檔案中定義的主機 URI 和主要金鑰值，來初始化用戶端物件
+使用 "AccountSettings.java" 檔案中定義的主機 URI 和主要金鑰值，來初始化用戶端物件
 
 ```java
 client = new AsyncDocumentClient.Builder()
@@ -201,7 +200,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 
 ## <a id="CreateDoc"></a>步驟 7：建立 JSON 文件
 
-您可以使用 DocumentClient 類別的 createDocument 方法建立[文件](sql-api-resources.md#documents)。 文件會是使用者定義的 (任意) JSON 內容。 現在可插入一或多份文件。 “src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java” 檔案會定義系列 JSON 文件 
+您可以使用 DocumentClient 類別的 createDocument 方法建立[文件](sql-api-resources.md#documents)。 文件會是使用者定義的 (任意) JSON 內容。 現在可插入一或多份文件。 "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" 檔案會定義系列 JSON 文件 
 
 ```java
 public static Family getJohnsonFamilyDocument() {

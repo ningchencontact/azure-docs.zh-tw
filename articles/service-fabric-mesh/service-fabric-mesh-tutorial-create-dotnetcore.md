@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 建立、偵錯並將多服務 Web 應用程式部署至 Service Fabric Mesh | Microsoft Docs
+title: 教學課程 - 建立、偵錯、部署及監視 Service Fabric Mesh 的多服務應用程式 | Microsoft Docs
 description: 在本教學課程中，您會建立有 ASP.NET Core 網站可與後端 Web 服務進行通訊的多服務 Azure Service Fabric Mesh 應用程式、在本機加以偵錯，然後將其發佈至 Azure。
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185664"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979188"
 ---
-# <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>教學課程：建立、偵錯並將多服務 Web 應用程式部署至 Service Fabric Mesh
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>教學課程：建立、偵錯、部署及升級多服務的 Service Fabric Mesh 應用程式
 
-本教學課程是一個系列的第一部分。 您將了解如何建立具有 ASP.NET Web 前端和 ASP.NET Core Web API 後端服務的 Azure Service Fabric Mesh 應用程式。 接著，您將在本機開發叢集上偵錯應用程式，並將應用程式發佈至 Azure。 當您完成作業時，您將會有簡單的待辦事項應用程式，示範在 Azure Service Fabric Mesh 中執行的 Service Fabric Mesh 應用程式中的服務對服務呼叫。
+本教學課程是一個系列的第一部分。 您將了解如何使用 Visual Studio 建立具有 ASP.NET Web 前端和 ASP.NET Core Web API 後端服務的 Azure Service Fabric Mesh 應用程式。 接著，您將在本機開發叢集上偵錯應用程式。 您會將應用程式發佈至 Azure，然後變更組態和程式碼並升級應用程式。 最後，您將會清除未使用的 Azure 資源，讓您不需支付未使用的資源。
+
+完成時，您將逐步進行應用程式生命週期管理的大部分階段，並且建置應用程式，以示範 Service Fabric Mesh 應用程式中的服務對服務呼叫。
 
 如果您不想以手動方式建立待辦事項應用程式，您可以針對已完成的應用程式[下載原始程式碼](https://github.com/azure-samples/service-fabric-mesh)，並直接跳到[在本機對應用程式偵錯](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)。
 
 在系列的第一部分中，您將了解如何：
 
 > [!div class="checklist"]
-> * 建立包含 ASP.NET Web 前端的 Service Fabric Mesh 應用程式。
+> * 使用 Visual Studio 建立包含 ASP.NET Web 前端的 Service Fabric Mesh 應用程式。
 > * 建立用來代表待辦事項項目的模型。
 > * 建立後端服務並從中擷取資料。
 > * 為後端服務新增控制器和 DataContext，作為該模型檢視控制器模式的一部分。
@@ -40,9 +42,11 @@ ms.locfileid: "39185664"
 
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
-> * 建置 Service Fabric Mesh 應用程式
-> * [在本機對應用程式偵錯](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [將應用程式發佈至 Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * 在 Visual Studio 中建立 Service Fabric Mesh 應用程式
+> * [偵錯在本機開發叢集中執行的 Service Fabric Mesh 應用程式](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [部署 Service Fabric Mesh 應用程式](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [升級 Service Fabric Mesh 應用程式](service-fabric-mesh-tutorial-upgrade.md)
+> * [清除 Service Fabric Mesh 資源](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -54,9 +58,7 @@ ms.locfileid: "39185664"
 
 * 確定您已[設定開發環境](service-fabric-mesh-howto-setup-developer-environment-sdk.md)，包括安裝 Service Fabric 執行階段、SDK、Docker 和 Visual Studio 2017。
 
-* 就目前而言，本教學課程中的應用程式必須使用英文地區設定來建置。
-
-## <a name="create-a-service-fabric-mesh-project"></a>建立 Service Fabric Mesh 專案
+## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>在 Visual Studio 中建立 Service Fabric Mesh 專案
 
 執行 Visual Studio，然後選取 [檔案] > [新增] > [專案...]。
 
@@ -212,10 +214,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -227,7 +226,7 @@ public static class DataContext
 
 ### <a name="add-a-controller"></a>新增控制器
 
-在建立 **ToDoService** 專案時，範本提供了會處理 HTPP 要求和建立 HTTP 回應的預設控制器。 在 [方案總管] 中的 **ToDoService** 下，開啟 [控制器] 資料夾，以檢視 **ValuesController.cs** 檔案。 
+在建立 **ToDoService** 專案時，範本提供了會處理 HTTP 要求和建立 HTTP 回應的預設控制器。 在 [方案總管] 中的 **ToDoService** 下，開啟 [控制器] 資料夾，以檢視 **ValuesController.cs** 檔案。 
 
 以滑鼠右鍵按一下 **ValuesController.cs**，然後按一下 [重新命名]。 將檔案重新命名為 `ToDoController.cs`。 如果出現將所有參考重新命名的提示，請按一下 [是]。
 
@@ -314,7 +313,8 @@ public class ToDoController : Controller
 </div>
 ```
 
-依序開啟 **Index.cshtml** 和 **Index.cshtml.cs**，以在 [方案總管] 中開啟 [索引] 頁面的程式碼。 在 **Index.cshtml.cs** 頂端，加入 `using System.Net.Http;`
+依序開啟 **Index.cshtml** 和 **Index.cshtml.cs**，以在 [方案總管] 中開啟 [索引] 頁面的程式碼。
+在 **Index.cshtml.cs** 頂端，加入 `using System.Net.Http;`
 
 將 `public class IndexModel` 的內容取代為：
 
@@ -336,7 +336,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -346,7 +346,7 @@ public class IndexModel : PageModel
 必須要有後端服務的 URL，才能與該服務進行通訊。 依據本教學課程的目的，下列程式碼摘錄 (在先前定義為 IndexModel 的一部分) 會讀取環境變數以撰寫 URL：
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 
@@ -367,6 +367,7 @@ private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.G
 
 > [!IMPORTANT]
 > 您必須使用空格 (而非定位字元) 來縮排 service.yaml 檔案中的變數，否則檔案將無法編譯。 Visual Studio 可能會在您建立環境變數時插入定位字元。 請將所有定位字元取代為空格。 雖然您會在**建置**偵錯輸出中看到錯誤，但應用程式仍會啟動。 但在您將定位字元轉換為空格之前，應用程式將無法運作。 若要確保 service.yaml 檔案中沒有定位字元，您可以透過 [編輯]  > [進階]  > [檢視空白字元]，在 Visual Studio 編輯器中顯示空白字元。
+> 請注意，service.yaml 檔案會使用英文的地區設定來處理。  比方說，如果您需要使用小數點，便要使用句號，而不是逗號。
 
 **WebFrontEnd** 專案的 **service.yaml** 檔案應會顯示如下內容，但您的 `ApiHostPort` 值可能會不同：
 
@@ -388,4 +389,4 @@ private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.G
 
 前進到下一個教學課程：
 > [!div class="nextstepaction"]
-> [對本機執行的 Service Fabric Mesh 應用程式進行偵錯](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [對在本機開發叢集中執行的 Service Fabric Mesh 應用程式進行偵錯](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

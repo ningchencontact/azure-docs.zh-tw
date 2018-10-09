@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 對 Azure Service Fabric Mesh Web 應用程式進行偵錯 | Microsoft Docs
+title: 教學課程 - 對在本機開發叢集中執行的 Azure Service Fabric Mesh 應用程式進行偵錯 | Microsoft Docs
 description: 在本教學課程中，您可以對在本機叢集上執行的 Azure Service Fabric Mesh 應用程式進行偵錯。
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186733"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997007"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>教學課程：對 Service Fabric Mesh Web 應用程式進行偵錯
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>教學課程：對在本機開發叢集中執行的 Service Fabric Mesh 應用程式進行偵錯
 
-本教學課程是系列中的第二部分，說明如何對您本機開發叢集上的 Azure Service Fabric Mesh Web 應用程式進行偵錯。
+本教學課程是系列中的第二部分，說明如何在您的本機開發叢集上建置 Azure Service Fabric Mesh Web 應用程式，和執行其偵錯。
 
 在本教學課程中，您將了解：
 
@@ -34,9 +34,11 @@ ms.locfileid: "39186733"
 
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
-> * [建置 Service Fabric Mesh 應用程式](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * 在本機對應用程式偵錯
-> * [將應用程式發佈至 Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [在 Visual Studio 中建立 Service Fabric Mesh 應用程式](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * 對在本機開發叢集中執行的 Service Fabric Mesh 應用程式進行偵錯
+> * [部署 Service Fabric Mesh 應用程式](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [升級 Service Fabric Mesh 應用程式](service-fabric-mesh-tutorial-upgrade.md)
+> * [清除 Service Fabric Mesh 資源](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -74,9 +76,17 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 
 **偵錯秘訣**
 
-* 如果出現**沒有執行中的 Service Fabric 本機叢集**錯誤，請確定服務本機叢集管理員 (SLCM) 正在執行，並以滑鼠右鍵按一下工作列上的 SLCM 圖示，然後按一下 [啟動本機叢集]。 在其啟動後，回到 Visual Studio，然後按 **F5**。
-* 如果在應用程式啟動時出現 **404** 錯誤，這可能表示您在 **service.yaml** 中的環境變數不正確。 請確定 `ApiHostPort` 和 `ServiceName` 都已根據[建立環境變數](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables)中的指示正確設定。
-* 如果 **service.yaml** 中出現建置錯誤，請確定用來縮排各行的是空格，而不是定位字元。 此外，目前您必須使用英文地區設定來建置應用程式。
+目前有問題會導致對 `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` 的呼叫無法連線至服務。 當您的主機 IP 位址變更時，就可能發生此問題。 若要解決這個問題：
+
+1. 從本機叢集中移除應用程式 (在 Visual Studio 中，選取 [組建] > [清除解決方案])。
+2. 在 Service Fabric 本機叢集管理員中選取 [停止本機叢集]，然後選取 [啟動本機叢集]。
+3. 重新部署應用程式 (在 Visual Studio 中，按 **F5**)。
+
+如果出現**沒有執行中的 Service Fabric 本機叢集**錯誤，請確定 Service Fabric 本機叢集管理員 (LCM) 正在執行，並以滑鼠右鍵按一下工作列上的 LCM 圖示，然後按一下 [啟動本機叢集]。 在其啟動後，回到 Visual Studio，然後按 **F5**。
+
+如果在應用程式啟動時出現 **404** 錯誤，這可能表示您在 **service.yaml** 中的環境變數不正確。 請確定 `ApiHostPort` 和 `ToDoServiceName` 都已根據[建立環境變數](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables)中的指示正確設定。
+
+如果 **service.yaml** 中出現建置錯誤，請確定用來縮排各行的是空格，而不是定位字元。 此外，目前您必須使用英文地區設定來建置應用程式。
 
 ### <a name="debug-in-visual-studio"></a>在 Visual Studio 中偵錯
 
@@ -97,4 +107,4 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 
 前進到下一個教學課程：
 > [!div class="nextstepaction"]
-> [發佈 Service Fabric Mesh Web 應用程式](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [部署 Service Fabric Mesh 應用程式](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

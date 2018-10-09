@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9fbbbb4f73b5295b648008878c8145fe926fbaad
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007000"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974386"
 ---
 # <a name="create-a-snapshot"></a>建立快照集 
 
@@ -26,7 +26,7 @@ ms.locfileid: "39007000"
 
 ## <a name="use-azure-cli"></a>使用 Azure CLI 
 
-下列範例會要求您使用 [Cloud Shell](https://shell.azure.com/bash) 或已安裝 Azure CLI 2.0。 執行 **az --version** 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
+下列範例會要求您使用 [Cloud Shell](https://shell.azure.com/bash) 或已安裝 Azure CLI。
 
 下列步驟說明如何使用 **az snapshot create** 命令搭配 **--source-disk** 參數製作快照集。 下列範例假設 myResourceGroup 資源群組中有一個名為 myVM 的 VM。
 

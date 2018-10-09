@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 583400dba7077ebab3ce80d6a03b26f13a659b35
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b6654afa27255b0ebd0cc80b94212f44bbf16f34
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696865"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960062"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 4 部分：使用 Azure CLI 建立 Azure Cosmos DB 帳戶
 
@@ -37,7 +37,7 @@ ms.locfileid: "43696865"
 
 開始本教學課程的這個部分之前，請確定您已完成本教學課程[第 3 部分](tutorial-develop-mongodb-nodejs-part3.md)中的步驟。 
 
-在本教學課程區段中，您可以使用 Azure Cloud Shell (在您的網際網路瀏覽器中) 或本機上安裝的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 如果您在本機使用 Azure CLI，請確定您是執行 Azure CLI 2.0 版或更新版本。 在命令提示字元執行 `az --version` 來檢查您的版本。 
+在本教學課程區段中，您可以使用 Azure Cloud Shell (在您的網際網路瀏覽器中) 或本機上安裝的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

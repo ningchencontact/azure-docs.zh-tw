@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 在 Azure 中建立 Linux 的虛擬機器擴展集 | Microsoft Docs
-description: 在本教學課程中，您會了解如何使用 Azure CLI 2.0 在 Linux VM 上使用虛擬機器擴展集，建立及部署高可用性應用程式
+description: 在本教學課程中，您會了解如何使用 Azure CLI 在 Linux VM 上使用虛擬機器擴展集，建立及部署高可用性應用程式
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b8e25934dfd1bfa9d94d3452044443e7a5002534
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e3354abb400530bc5aa18288408b1052cd3575c4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932665"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992230"
 ---
-# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 在 Linux 上建立虛擬機器擴展集及部署高可用性應用程式
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>教學課程：使用 Azure CLI 在 Linux 上建立虛擬機器擴展集及部署高可用性應用程式
 
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據如 CPU、記憶體需求或網路流量的資源使用量來自動調整。 在本教學課程中，您將會在 Azure 部署虛擬機器擴展集。 您會了解如何：
 
@@ -37,7 +37,7 @@ ms.locfileid: "37932665"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="scale-set-overview"></a>擴展集概觀
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 擴展集中的 VM 會分散於一或多個放置群組中的邏輯容錯網域和更新網域。 這些是類似設定 VM 的群組，類似於[可用性設定組](tutorial-availability-sets.md)。
@@ -156,7 +156,7 @@ az network public-ip show \
 
 
 ## <a name="management-tasks"></a>管理工作
-在擴展集生命週期中，您可能需要執行一或多個管理工作。 此外，您可以建立指令碼來自動化各種生命週期工作。 Azure CLI 2.0 提供快速的方式來執行這些工作。 以下是一些常見工作。
+在擴展集生命週期中，您可能需要執行一或多個管理工作。 此外，您可以建立指令碼來自動化各種生命週期工作。 Azure CLI 提供快速的方式來執行這些工作。 以下是一些常見工作。
 
 ### <a name="view-vms-in-a-scale-set"></a>檢視擴展集中的 VM
 若要檢視在擴展集中執行的 VM 清單，請使用 [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances)，如下所示︰

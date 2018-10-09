@@ -11,14 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a2dff4dd57bdb0b010bbb4568d796f1e197a728
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906324"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971496"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>保存變更和處理大型檔案
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 利用 Azure Machine Learning 測試服務，您可以設定各種不同的執行目標。 某些目標屬於本機，例如本機電腦或本機電腦上的 Docker 容器。 其他則是遠端，例如在遠端電腦或在 HDInsight 叢集上的 Docker 容器。 如需詳細資訊，請參閱 [Azure Machine Learning 實驗執行服務概觀](experimentation-service-configuration.md)。 
 
 在您可於目標上執行之前，您必須將專案資料夾複製到計算目標。 您必須這麼做，即使是利用針對此用途使用本機暫存資料夾的本機執行。 
@@ -48,6 +52,9 @@ ms.locfileid: "37906324"
 * Training a model
 * 建立資料集
 * 隨著模型定型執行將圖形繪製為影像檔 
+
+>[!Note]
+> 執行之後，outputs 資料夾中的追蹤檔案大小上限是 512 MB。 這表示如果指令碼在 outputs 資料夾中產生大於 512 MB 的檔案，就不會在那裡收集該檔案。 
 
 此外，您想要跨執行比較這些輸出，請選取輸出檔 (例如模型)，然後將它用於後續作業 (例如計分)。
 

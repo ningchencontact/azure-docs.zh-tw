@@ -11,16 +11,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 11/29/2017
 ms.author: sngun
-ms.openlocfilehash: 42cfe71210b95732b4b69f7ca21a8b647e187a38
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a6c6f61f9aa3e821ec048c1516c0e433c3c64e30
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858855"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963963"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 Azure CLI 範例
 
-下表包含適用於 Azure Cosmos DB 之範例 Azure CLI 指令碼的連結。 您可以在 [Azure CLI 2.0 參考](https://docs.microsoft.com/cli/azure/cosmosdb)中取得所有 Azure Cosmos DB CLI 命令的參考頁面。
+下表包含適用於 Azure Cosmos DB 之範例 Azure CLI 指令碼的連結。 您可以在 [Azure CLI 參考](https://docs.microsoft.com/cli/azure/cosmosdb)中取得所有 Azure Cosmos DB CLI 命令的參考頁面。
 
 | |  |
 |---|---|

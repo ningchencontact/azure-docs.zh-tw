@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 透過 Azure CLI 2.0 使用擴展集中的自訂 VM 映像 | Microsoft Docs
-description: 了解如何使用 Azure CLI 2.0 來建立可用於部署虛擬機器擴展集的自訂 VM 映像
+title: 教學課程 - 透過 Azure CLI 使用擴展集中的自訂 VM 映像 | Microsoft Docs
+description: 了解如何使用 Azure CLI 來建立可用於部署虛擬機器擴展集的自訂 VM 映像
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d5ee37b8ab79e29efcb4d12f36e927b2ed9e9e71
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5eee55846bd6f5821be1e40b969a35f5e50bd205
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41917665"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967365"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 建立及使用虛擬機器擴展集的自訂映像
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及使用虛擬機器擴展集的自訂映像
 當您建立擴展集時，您會指定部署 VM 執行個體時所要使用的映像。 若要減少部署 VM 執行個體後的工作數量，您可以使用自訂的 VM 映像。 此自訂 VM 映像包括任何必要的應用程式安裝或組態。 在擴展集中建立的任何 VM 執行個體都會使用自訂 VM 映像，並已可以處理您的應用程式流量。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ ms.locfileid: "41917665"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，則在本教學課程中，您必須執行 Azure CLI 2.0.29 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，則在本教學課程中，您必須執行 Azure CLI 2.0.29 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 
 ## <a name="create-and-configure-a-source-vm"></a>建立並設定來源 VM
@@ -160,7 +160,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解如何使用 Azure CLI 2.0 來建立及使用擴展集的自訂 VM 映像：
+在本教學課程中，您已了解如何使用 Azure CLI 來建立及使用擴展集的自訂 VM 映像：
 
 > [!div class="checklist"]
 > * 建立及自訂 VM

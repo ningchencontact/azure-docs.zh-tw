@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 使用 Azure CLI 2.0 自動調整擴展集 |Microsoft Docs
-description: 了解如何使用 Azure CLI 2.0 隨著 CPU 需求的增加和減少自動調整虛擬機器擴展集
+title: 教學課程 - 使用 Azure CLI 自動調整擴展集 | Microsoft Docs
+description: 了解如何使用 Azure CLI 隨著 CPU 需求的增加和減少自動調整虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4dedf4a84d5eaa47018fe0cd1cb6fd9a92d8ef7e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c3d536cd4fb99d6d83b973989279d289e8434a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630147"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995362"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>教學課程：如何使用 Azure CLI 2.0 自動調整虛擬機器擴展集
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>教學課程：如何使用 Azure CLI 自動調整虛擬機器擴展集
 
 當建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。 在本教學課程中，您將了解如何：
 
@@ -37,7 +37,7 @@ ms.locfileid: "38630147"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.32 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.32 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-scale-set"></a>建立擴展集
 
@@ -216,7 +216,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用 Azure CLI 2.0 自動相應縮小或放大擴展集：
+在此教學課程中，您已了解如何使用 Azure CLI 自動相應縮小或相應放大擴展集：
 
 > [!div class="checklist"]
 > * 使用擴展集的自動調整
@@ -224,7 +224,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > * 對 VM 執行個體進行壓力測試，並觸發自動調整規則
 > * 在需求降低時重新自動相應縮小
 
-如需有效虛擬機器擴展集的更多範例，請參閱下列 Azure CLI 2.0 範例指令碼：
+如需有效虛擬機器擴展集的更多範例，請參閱下列 Azure CLI 範例指令碼：
 
 > [!div class="nextstepaction"]
-> [Azure CLI 2.0 的擴展集指令碼範例](cli-samples.md)
+> [Azure CLI 的擴展集指令碼範例](cli-samples.md)

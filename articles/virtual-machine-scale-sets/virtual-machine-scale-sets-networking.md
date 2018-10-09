@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: abad57856db63c954f963a28b1dbd3c95395c9bd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8b3956860a38057771770b965006606ffb3e24f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652581"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963776"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的網路
 
 透過入口網站部署 Azure 虛擬機器擴展集時，特定的網路屬性為預設，例如具有輸入 NAT 規則的 Azure Load Balancer。 本文說明如何使用某些您可以使用擴展集設定的更進階網路功能。
 
-本文所討論的所有概念都可以使用 Azure Resource Manager 範本來設定。 選取的功能也會包含 Azure CLI 和 PowerShell 範例。 使用 CLI 2.10 和 PowerShell 4.2.0 或更新版本。
+本文所討論的所有概念都可以使用 Azure Resource Manager 範本來設定。 選取的功能也會包含 Azure CLI 和 PowerShell 範例。 使用 Azure CLI 2.0.10 或更新版本和 PowerShell 4.2.0 或更新版本。
 
 ## <a name="accelerated-networking"></a>加速網路
 Azure 加速網路可以對虛擬機器啟用 Single Root I/O Virtualization (SR-IOV)，大幅提升網路效能。 若要深入了解如何使用加速網路，請參閱 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 或 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 虛擬機器的加速網路。 若要搭配擴展集使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將 enableAcceleratedNetworking 設為 **true**。 例如︰
@@ -48,7 +48,7 @@ Azure 加速網路可以對虛擬機器啟用 Single Root I/O Virtualization (SR
 ```
 
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>建立參考現有 Azure Load Balancer 的擴展集
-使用 Azure 入口網站建立擴展集時，大部分的設定選項會建立新的負載平衡器。 如果您要建立需要參考現有負載平衡器的擴展集，您可以使用 CLI 來達成。 下列範例指令碼會先建立負載平衡器，並接著建立參考該負載平衡器的擴展集：
+使用 Azure 入口網站建立擴展集時，大部分的設定選項會建立新的負載平衡器。 如果您要建立需要參考現有負載平衡器的擴展集，可以使用 CLI 來達成。 下列範例指令碼會先建立負載平衡器，並接著建立參考該負載平衡器的擴展集：
 ```bash
 az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
 
@@ -79,7 +79,7 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 根據預設，擴展集會採取 VNET 和它們建立於該子網路的特定 DNS 設定。 不過，您可以直接設定擴展集的 DNS 設定。
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>使用可設定的 DNS 伺服器建立擴展集
-若要使用 CLI 2.0 搭配自訂的 DNS 設定建立擴展集，將 **--dns-servers** 引數新增至 **vmss create** 命令，後面接以空格分隔的伺服器 IP 位址。 例如︰
+若要使用 Azure CLI 搭配自訂的 DNS 設定建立擴展集，將 **--dns-servers** 引數新增至 **vmss create** 命令，後面接以空格分隔的伺服器 IP 位址。 例如︰
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
@@ -91,7 +91,7 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>使用可設定的虛擬機器網域名稱建立擴展集
-若要使用 CLI 2.0 搭配自訂的虛擬機器 DNS 名稱建立擴展集，將 **--vm-domain-name** 引數新增至 **vmss create** 命令，後面接著代表網域名稱的字串。
+若要使用 CLI 搭配自訂的虛擬機器 DNS 名稱建立擴展集，將 **--vm-domain-name** 引數新增至 **vmss create** 命令，後面接著代表網域名稱的字串。
 
 若要在 Azure 範本中設定網域名稱，請將 **dnsSettings** 屬性新增至擴展集 **networkInterfaceConfigurations** 區段。 例如︰
 
@@ -136,7 +136,7 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 但是，某些情況會要求擴展集虛擬機器具備自己的公用 IP 位址。 例如遊戲，其中主控台需要直接連線至雲端虛擬機器，進而執行遊戲實體流程。 另一個範例是虛擬機器需要對另一個分散式資料庫中跨區域的虛擬機器進行外部連線。
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>使用公用 IP 每虛擬機器建立擴展集
-若要使用 CLI 2.0 建立將公用 IP 位址指派給每個虛擬機器的擴展集，請將 **--public-ip-per-vm** 參數新增至 **vmss create** 命令。 
+若要使用 CLI 建立將公用 IP 位址指派給每個虛擬機器的擴展集，請將 **--public-ip-per-vm** 參數新增至 **vmss create** 命令。 
 
 若要使用 Azure 範本建立擴展集，請確定 Microsoft.Compute/virtualMachineScaleSets 資源的 API 版本至少為 **2017-03-30**，並將 **publicIpAddressConfiguration** JSON 屬性新增至擴展集 ipConfigurations 區段。 例如︰
 
@@ -151,7 +151,7 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 範本範例：[201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>查詢擴展集中虛擬機器的公用 IP 位址
-若要列出使用 CLI 2.0 指派給擴展集虛擬機器的公用 IP 位址，請使用 **az vmss list-instance-public-ips** 命令。
+若要列出使用 CLI 指派給擴展集虛擬機器的公用 IP 位址，請使用 **az vmss list-instance-public-ips** 命令。
 
 若要使用 PowerShell 列出擴展集公用 IP 位址，請使用 _Get-AzureRmPublicIpAddress_ 命令。 例如︰
 ```PowerShell
@@ -165,7 +165,7 @@ PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 
 若要使用 [Azure 資源總管](https://resources.azure.com)，或 Azure REST API 版本 **2017-03-30** 或更高版本，來查詢指派給擴展集虛擬機器的公用 IP 位址。
 
-若要使用資源總管檢視擴展集的公用 IP 位址，請查看擴展集下的 **publicipaddresses** 區段。 例如：https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+若要使用資源總管檢視擴展集的公用 IP 位址，請查看擴展集下的 **publicipaddresses** 區段。 例如： https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
 
 ```
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30

@@ -1,41 +1,41 @@
 ---
-title: 在 Azure 中建立從 Visual Studio Team Services 部署的函式 | Microsoft Docs
-description: 建立函式應用程式和從 Visual Studio Team Services 部署函式程式碼
+title: 在 Azure 中建立從 Azure DevOps 部署的函式 | Microsoft Docs
+description: 建立函式應用程式和從 Azure DevOps 部署函式程式碼
 services: functions
 keywords: ''
-author: syntaxc4
+author: ggailey777
 ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
-ms.openlocfilehash: 1b54cfebd3ae36fc8025aeb4ea9c91d336bc5343
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fdc2f50be035c3fe4039c48c09436215d2f5bcc3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988947"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956603"
 ---
-# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>建立函式應用程式並從 Visual Studio Team Services 部署函式程式碼
+# <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>建立函式應用程式和從 Azure DevOps 部署函式程式碼
 
-本主題示範如何使用 Azure Functions，以使用[使用情況方案](../functions-scale.md#consumption-plan)來建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函數應用程式。 函數應用程式 (即您函式的容器) 是從 Visual Studio Team Services (VSTS) 存放庫持續部署。 
+本主題示範如何使用 Azure Functions，以使用[使用情況方案](../functions-scale.md#consumption-plan)來建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函數應用程式。 函式應用程式 (即您函式的容器) 是從 Azure DevOps 存放庫持續部署。 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 若要完成本主題，您必須具備：
 
-* 包含您函數應用程式專案且您具有系統管理權限的 VSTS 存放庫。
-* 存取 VSTS 存放庫的[個人存取權杖 (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate)。
+* 包含函式應用程式專案且您具有系統管理權限的 Azure DevOps 存放庫。
+* 存取 Azure DevOps 存放庫的[個人存取權杖 (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您不是在本機使用 Azure CLI，則必須安裝和使用 2.0 版或更新版本。 若要判斷 Azure CLI 版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您不是在本機使用 Azure CLI，則必須安裝和使用 2.0 版或更新版本。 若要判斷 Azure CLI 版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>範例指令碼
 
-此指令碼範例會建立 Azure 函數應用程式，並從 Visual Studio Team Services 部署函式程式碼。
+此指令碼範例會建立 Azure 函式應用程式，並從 Azure DevOps 部署函式程式碼。
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 

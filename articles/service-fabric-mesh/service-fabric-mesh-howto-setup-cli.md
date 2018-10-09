@@ -9,12 +9,12 @@ ms.date: 07/26/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 567f2afdea44f439779212c61fb3a129f4f979be
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5e8eaca7f759842a8097184dafc1f3ea183b898c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281567"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993182"
 ---
 # <a name="set-up-the-service-fabric-mesh-cli"></a>設定 Service Fabric Mesh CLI
 您需要 Service Fabric Mesh CLI，才能在 Service Fabric 網格中部署及管理資源。 
@@ -23,18 +23,19 @@ ms.locfileid: "39281567"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-如果您選擇在本機安裝和使用 CLI，則必須安裝 Azure CLI 2.0.35 版或更新版本。 執行 `az --version` 以尋找版本。 若要安裝或升級至最新版本的 CLI，請參閱[安裝 Azure CLI 2.0][azure-cli-install]。
-
-請移除任何先前安裝的 Azure Service Fabric Mesh CLI 模組。
-
-```azurecli-interactive
-az extension remove --name mesh
-```
+## <a name="install-the-service-fabric-mesh-cli-locally"></a>本機安裝 Service Fabric Mesh CLI
+如果您選擇在本機安裝和使用 CLI，則必須安裝 Azure CLI 2.0.43 版或更新版本。 執行 `az --version` 以尋找版本。 若要安裝或升級至最新版本的 CLI，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 請使用下列命令安裝 Azure Service Fabric Mesh CLI 擴充功能模組。 
 
 ```azurecli-interactive
-az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.9.1-py2.py3-none-any.whl
+az extension add --name mesh
+```
+
+若要更新現有的 Azure Service Fabric Mesh CLI 模組，請執行下列命令。
+
+```azurecli-interactive
+az extension update --name mesh
 ```
 
 您也可以設定 [Windows 開發環境](service-fabric-mesh-howto-setup-developer-environment-sdk.md)。

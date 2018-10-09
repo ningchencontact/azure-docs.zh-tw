@@ -1,6 +1,6 @@
 ---
 title: 建置 Azure Machine Learning 服務 (預覽) 的模型教學課程 | Microsoft Docs
-description: 這個完整的教學課程會示範如何使用 Azure Machine Learning 服務 (預覽) 端對端。 這是第二部分，會討論測試。
+description: 這個完整的教學課程將說明如何使用端對端 Azure Machine Learning 服務 (預覽)。 這是第二部分，會討論測試。
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919747"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997301"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>教學課程 2：分類鳶尾花：建立模型
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning 服務 (預覽) 是一套整合式資料科學及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
 
 本教學課程是**三部分系列的第二部分**。 在本教學課程中，您可以使用 Azure Machine Learning 服務來：
@@ -39,7 +43,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合式資料科學及進階�
 
 若要完成本教學課程，您需要：
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
-- 如本[快速入門](../service/quickstart-installation.md)所述安裝的測試帳戶和 Azure Machine Learning Workbench。
+- 如本[快速入門](quickstart-installation.md)所述安裝的測試帳戶和 Azure Machine Learning Workbench。
 - [教學課程第 1 部分](tutorial-classifying-iris-part-1.md)中的專案和備妥鳶尾花資料
 - 在本機安裝並執行的 Docker 引擎。 Docker 的 Community 版本就足夠了。 了解如何在此安裝 Docker： https://docs.docker.com/engine/installation/。
 

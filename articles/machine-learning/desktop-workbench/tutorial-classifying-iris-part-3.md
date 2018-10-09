@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445531"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946607"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>教學課程 3：分類鳶尾花：部署模型
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
 
 本教學課程是**三部分系列的第三部分**。 在本教學課程中，您可使用 Machine Learning (預覽) 來：
@@ -38,7 +42,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 若要完成本教學課程，您需要：
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
-- 如本[快速入門](../service/quickstart-installation.md)所述安裝的測試帳戶和 Azure Machine Learning Workbench。
+- 如本[快速入門](quickstart-installation.md)所述安裝的測試帳戶和 Azure Machine Learning Workbench。
 - [教學課程第 2 部分](tutorial-classifying-iris-part-2.md)中的分類模型
 - 在本機安裝並執行的 Docker 引擎
 
@@ -224,9 +228,9 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 1. 如需建立即時 Web 服務，請使用下列命令：
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   此命令會產生您可以在稍後使用的 Web 服務識別碼。
+   此命令會產生您可以在稍後使用的 Web 服務識別碼。 如果是在 Notebook 中，請省略輸出目錄。
 
    下列參數會搭配 **az ml service create realtime** 命令使用：
 
@@ -247,7 +251,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    >[!IMPORTANT]
    >服務名稱 (這也是新的 Docker 映像名稱) 必須全為小寫。 否則，您會收到錯誤。 
 
-1. 執行命令時，模型及評分檔案會上傳到在環境設定時所建立的儲存體帳戶。 部署程序會建置 Docker 映像，其中含有您的模型、結構描述、評分檔案，然後將其推送至 Azure Container Registry：**\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**。 
+1. 執行命令時，模型及評分檔案會上傳到在環境設定時所建立的儲存體帳戶。 部署程序會建置 Docker 映像，其中含有您的模型、結構描述、評分檔案，然後將其推送至 Azure Container Registry：**\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>**。 
 
    命令會提取該映像到您的電腦本機，然後會啟動以該映像為基礎的 Docker 容器。 如果您的環境是在叢集模式中設定，Docker 容器會改為部署到 Azure 雲端服務 Kubernete 叢集。
 
@@ -276,9 +280,9 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    若要建立資訊清單，請使用下列命令，並提供來自前一個步驟的模型識別碼輸出：
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   此命令會產生資訊清單識別碼。
+   此命令會產生資訊清單識別碼。  如果是在 Notebook 中，請省略輸出目錄。
 
 1. 建立 Docker 映像。
 
@@ -313,7 +317,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 1. 若要測試服務，請執行傳回的服務執行命令：
     
    ```azurecli
-   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d '{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}'
    ```
 
    輸出是 **"Iris-setosa"**，這是預測的類別。 (您的結果可能不同。) 

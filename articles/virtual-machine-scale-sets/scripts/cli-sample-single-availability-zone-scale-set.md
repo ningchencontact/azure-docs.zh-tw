@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 範例 - 單一區域擴展集 | Microsoft Docs
-description: Azure CLI 2.0 範例
+title: Azure CLI 範例 - 單一區域擴展集 | Microsoft Docs
+description: Azure CLI 範例
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 007e9b9c7d7124e4cb836e0f4b9404207a36293d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4a46398b975f94ea4cff010273b7fe3471885e1a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971887"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 建立單一區域虛擬機器擴展集
 此指令碼會建立在單一可用性區域中執行 Ubuntu 的虛擬機器擴展集。 執行指令碼之後，您可以透過 RDP 存取虛擬機器。
@@ -50,6 +50,6 @@ az group delete --name myResourceGroup
 | [az group delete](/cli/azure/ad/group#delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
-如需有關 Azure CLI 2.0 的詳細資訊，請參閱 [Azure CLI 2.0 文件](https://docs.microsoft.com/cli/azure/overview)。
+如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 
-您可以在 [Azure 虛擬機器擴展集文件](../cli-samples.md)中找到其他虛擬機器擴展集的 Azure CLI 2.0 指令碼範例。
+您可以在 [Azure 虛擬機器擴展集文件](../cli-samples.md)中找到其他虛擬機器擴展集的 Azure CLI 指令碼範例。

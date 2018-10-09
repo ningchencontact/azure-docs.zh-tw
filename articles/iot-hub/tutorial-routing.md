@@ -6,21 +6,21 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287245"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946930"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教學課程：使用 IoT 中樞設定訊息路由
 
-訊息路由可讓您將遙測資料從 IoT 裝置傳送至內建事件中樞相容端點或自訂端點 (例如 Blob 儲存體、服務匯流排佇列、服務匯流排主題和事件中樞)。 設定訊息路由時，您可以建立路由規則來自訂符合特定規則的路由。 設定好之後，IoT 中樞就會自動將內送資料路由至端點。 
+[訊息路由](iot-hub-devguide-messages-d2c.md)可讓您將遙測資料從 IoT 裝置傳送至內建事件中樞相容端點或自訂端點 (例如 Blob 儲存體、服務匯流排佇列、服務匯流排主題和事件中樞)。 設定訊息路由時，您可以建立[路由查詢](iot-hub-devguide-routing-query-syntax.md)來自訂符合特定條件的路由。 設定好之後，IoT 中樞就會自動將內送資料路由至端點。 
 
-在本教學課程中，您將了解如何透過 IoT 中樞設定和使用路由規則。 您會將訊息從 IoT 裝置路由至多個服務的其中一個，包括 Blob 儲存體和服務匯流排佇列。 邏輯應用程式將會挑選傳送至服務匯流排佇列的訊息，並透過電子郵件傳送。 沒有特別設定路由的訊息會傳送至預設端點，並在 Power BI 視覺效果中加以檢視。
+在本教學課程中，您將了解如何透過 IoT 中樞設定和使用路由查詢。 您會將訊息從 IoT 裝置路由至多個服務的其中一個，包括 Blob 儲存體和服務匯流排佇列。 邏輯應用程式將會挑選傳送至服務匯流排佇列的訊息，並透過電子郵件傳送。 沒有特別設定路由的訊息會傳送至預設端點，並在 Power BI 視覺效果中加以檢視。
 
 在本教學課程中，您會執行下列工作：
 
@@ -39,58 +39,35 @@ ms.locfileid: "43287245"
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-- 安裝 [Visual Studio for Windows](https://www.visualstudio.com/)。 
+- 安裝 [Visual Studio](https://www.visualstudio.com/)。 
 
 - PowerBI 帳戶，用來分析預設端點的串流分析。 ([免費試用 Power BI](https://app.powerbi.com/signupredirect?pbi_source=web)。)
 
 - 用來傳送通知電子郵件的 Office 365 帳戶。 
 
-您需要 Azure CLI 或 Azure PowerShell 來執行本教學課程中的設定步驟。 
-
-雖然您可以在本機安裝 Azure CLI 來加以使用，但我們建議您使用 Azure Cloud Shell。 Azure Cloud Shell 是免費的互動式殼層，可讓您用來執行 Azure CLI 指令碼。 Cloud Shell 中已預先安裝和設定共用 Azure 工具，以便您搭配自己的帳戶使用，因此您不必在本機進行安裝。 
-
-若要使用 PowerShell，請使用下列指示在本機進行安裝。 
-
-### <a name="azure-cloud-shell"></a>Azure Cloud Shell
-
-以下有幾種開啟 Cloud Shell 的方式：
-
-|  |   |
-|-----------------------------------------------|---|
-| 選取程式碼區塊右上角的 [試試看]。 | ![本文中的 Cloud Shell](./media/tutorial-routing/cli-try-it.png) |
-| 在您的瀏覽器中開啟 Cloud Shell。 | [![https://shell.azure.com/bash](./media/tutorial-routing/launchcloudshell.png)](https://shell.azure.com) |
-| 選取 [Azure 入口網站](https://portal.azure.com)右上角功能表上的 [Cloud Shell] 按鈕。 |    ![入口網站中的 Cloud Shell](./media/tutorial-routing/cloud-shell-menu.png) |
-|  |  |
-
-### <a name="using-azure-cli-locally"></a>在本機使用 Azure CLI
-
-如果您不想使用 Cloud Shell，而是想在本機使用 CLI，您必須擁有 Azure CLI 模組 2.0.30.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
-
-### <a name="using-powershell-locally"></a>在本機使用 PowerShell
-
-本教學課程需要 Azure PowerShell 模組 5.7 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-resources"></a>設定資源
 
-在此教學課程中，您需要 IoT 中樞、儲存體帳戶和服務匯流排佇列。 這些資源皆可使用 Azure CLI 或 Azure PowerShell 來建立。 請將所有資源建立在相同的資源群組和位置。 如此一來，您就可以在結束時，透過刪除資源群組的單一步驟來移除所有項目。
+在此教學課程中，您需要 IoT 中樞、儲存體帳戶和服務匯流排佇列。 這些資源可使用 Azure CLI 或 Azure PowerShell 來建立。 請將所有資源建立在相同的資源群組和位置。 如此一來，您就可以在結束時，透過刪除資源群組的單一步驟來移除所有項目。
 
 下列各節會說明如何執行這些必要步驟。 請遵循 CLI 或 PowerShell 指示。
 
 1. 建立[資源群組](../azure-resource-manager/resource-group-overview.md)。 
 
-    <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
+2. 在 S1 層建立 IoT 中樞。 將取用者群組新增至 IoT 中樞。 Azure 串流分析會在擷取資料時使用取用者群組。
 
-1. 在 S1 層建立 IoT 中樞。 將取用者群組新增至 IoT 中樞。 Azure 串流分析會在擷取資料時使用取用者群組。
+3. 透過 Standard_LRS 複寫來建立標準 V1 儲存體帳戶。
 
-1. 透過 Standard_LRS 複寫來建立標準 V1 儲存體帳戶。
+4. 建立服務匯流排命名空間與佇列。 
 
-1. 建立服務匯流排命名空間與佇列。 
+5. 為傳送訊息至中樞的模擬裝置建立裝置身分識別。 儲存測試階段的金鑰。
 
-1. 為傳送訊息至中樞的模擬裝置建立裝置身分識別。 儲存測試階段的金鑰。
+### <a name="set-up-your-resources-using-azure-cli"></a>使用 Azure CLI 設定資源
 
-### <a name="azure-cli-instructions"></a>Azure CLI 指示
+複製此指令碼並貼到 Cloud Shell。 如果您已登入，它會一次執行一行指令碼。 
 
-使用此指令碼最簡單的方式是將其複製並貼到 Cloud Shell。 如果您已登入，它會一次執行一行指令碼。 
+必須是全域唯一的變數會與 `$RANDOM` 串連。 執行指令碼並設定變數時，系統會產生隨機數字字串，並將其串連至固定字串的結尾，使其成為唯一。
 
 ```azurecli-interactive
 
@@ -182,9 +159,11 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ```
 
-### <a name="powershell-instructions"></a>PowerShell 指示
+### <a name="set-up-your-resources-using-azure-powershell"></a>使用 Azure PowerShell 設定資源
 
-使用此指令碼最簡單的方式是開啟 [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6)，將指令碼複製到剪貼簿，並將整個指令碼貼到指令碼視窗。 然後您可以變更資源名稱的值 (如有需要)，並執行整個指令碼。 
+複製此指令碼並貼到 Cloud Shell。 如果您已登入，它會一次執行一行指令碼。
+
+必須是全域唯一的變數會與 `$(Get-Random)` 串連。 執行指令碼並設定變數時，系統會產生隨機數字字串，並將其串連至固定字串的結尾，使其成為唯一。
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -265,15 +244,15 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)並登入您的 Azure 帳戶。
 
-1. 按一下 [資源群組] 來選取資源群組。 本教學課程使用 **ContosoResources**。
+2. 按一下 [資源群組] 來選取資源群組。 本教學課程使用 **ContosoResources**。
 
-1. 在資源清單中，按一下您的 IoT 中樞。 本教學課程使用 **ContosoTestHub**。 在 [中樞] 窗格中選取 [IoT 裝置]。
+3. 在資源清單中，按一下您的 IoT 中樞。 本教學課程使用 **ContosoTestHub**。 在 [中樞] 窗格中選取 [IoT 裝置]。
 
-1. 按一下 [+ 新增]。 在 [新增裝置] 窗格中，填入裝置識別碼。 本教學課程使用 **Contoso-Test-Device**。 金鑰的部分保留空白，並勾選 [自動產生金鑰]。 請確定 [將裝置連線到 IoT 中樞] 已啟用。 按一下 [檔案] 。
+4. 按一下 [+ 新增]。 在 [新增裝置] 窗格中，填入裝置識別碼。 本教學課程使用 **Contoso-Test-Device**。 金鑰的部分保留空白，並勾選 [自動產生金鑰]。 請確定 [將裝置連線到 IoT 中樞] 已啟用。 按一下 [檔案] 。
 
    ![顯示新增裝置畫面的螢幕擷取畫面。](./media/tutorial-routing/add-device.png)
 
-1. 現在金鑰已建立，請按一下裝置來查看產生的金鑰。 按一下主要金鑰上的 [複製] 圖示，並將它儲存在「記事本」之類的位置中，以便在本教學課程的測試階段中使用。
+5. 現在金鑰已建立，請按一下裝置來查看產生的金鑰。 按一下主要金鑰上的 [複製] 圖示，並將它儲存在「記事本」之類的位置中，以便在本教學課程的測試階段中使用。
 
    ![顯示裝置詳細資訊 (包括金鑰) 的螢幕擷取畫面。](./media/tutorial-routing/device-details.png)
 
@@ -289,69 +268,85 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 ### <a name="routing-to-a-storage-account"></a>路由至儲存體帳戶 
 
-現在來設定儲存體帳戶的路由。 定義端點，並設定該端點的路由。 其 **level** 屬性設定為 **storage** 的訊息會自動寫入儲存體帳戶。
+現在來設定儲存體帳戶的路由。 移至 [訊息路由] 窗格，然後新增路由。 在新增路由時，定義新的路由端點。 設定好之後，其 **level** 屬性設定為 **storage** 的訊息會自動寫入儲存體帳戶。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [資源群組]，然後選取您的資源群組。 本教學課程使用 **ContosoResources**。 按一下資源清單下方的 [IoT 中樞]。 本教學課程使用 **ContosoTestHub**。 按一下 [端點] 。 在 [端點] 窗格中，按一下 [+ 新增]。 輸入以下資訊：
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [資源群組]，然後選取您的資源群組。 本教學課程使用 **ContosoResources**。 
 
-   **名稱**：輸入端點的名稱。 本教學課程使用 **StorageContainer**。
+2. 按一下資源清單下方的 [IoT 中樞]。 本教學課程使用 **ContosoTestHub**。 
+
+3. 按一下 [訊息路由]。 在 [訊息路由] 窗格中，按一下 [+新增]。 在 [新增路由] 窗格中，按一下 [端點] 欄位旁的 [+新增]，如下圖所示：
+
+   ![顯示如何開始對路由新增端點的螢幕擷取畫面。](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+
+4. 選取 [Blob 儲存體]。 您會看到 [新增儲存體端點] 窗格。 
+
+   ![顯示新增端點的螢幕擷取畫面。](./media/tutorial-routing/message-routing-add-storage-ep.png)
+
+5. 輸入端點的名稱。 本教學課程使用 **StorageContainer**。
+
+6. 按一下 [挑選容器]。 這會帶您前往儲存體帳戶清單。 選取您在準備步驟中設定的帳戶。 本教學課程使用 **contosostorage**。 它會顯示該儲存體帳戶中的容器清單。 選取您在準備步驟中設定的容器。 本教學課程使用 **contosoresults**。 按一下 [選取] 。 您會返回 [新增端點] 窗格。 
+
+7. 對其餘欄位使用預設值。 按一下 [建立] 來建立儲存體端點，並將它新增至路由。 您會返回 [新增路由] 窗格。
+
+8.  現在，請完成其餘路由查詢資訊。 此查詢會指定準則，來規範如何將訊息傳送至您剛才新增為端點的儲存體容器。 填寫畫面上的欄位。 
+
+   **名稱**：輸入路由查詢的名稱。 本教學課程使用 **StorageRoute**。
+
+   **端點**：這會顯示您剛才設定的端點。 
    
-   **端點類型**：從下拉式清單選取 [Azure 儲存體容器]。
+   **資料來源**：從下拉式清單選取 [裝置遙測訊息]。
 
-   按一下 [挑選容器] 以查看儲存體帳戶清單。 選取您的儲存體帳戶。 本教學課程使用 **contosostorage**。 然後選取容器。 本教學課程使用 **contosoresults**。 按一下 [選取]，回到 [新增端點] 窗格。 
+   **啟用路由**：務必啟用此選項。
    
-   ![顯示新增端點的螢幕擷取畫面。](./media/tutorial-routing/add-endpoint-storage-account.png)
-   
-   按一下 [確定] 完成新增端點。
-   
-1. 按一下 IoT 中樞中上的 [路由]。 您將建立路由規則，將訊息路由至您剛才新增為端點的儲存體容器。 按一下 [路由] 窗格頂端的 [+ 新增]。 填寫畫面上的欄位。 
+   **路由查詢**：輸入 `level="storage"` 作為查詢字串。 
 
-   **名稱**：輸入路由規則的名稱。 本教學課程使用 **StorageRule**。
-
-   **資料來源**：從下拉式清單選取 [裝置訊息]。
-
-   **端點**：選取您剛才設定的端點。 本教學課程使用 **StorageContainer**。 
+   ![顯示建立儲存體帳戶路由查詢的螢幕擷取畫面。](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
-   **查詢字串**：輸入 `level="storage"` 作為查詢字串。 
-
-   ![顯示建立儲存體帳戶路由規則的螢幕擷取畫面。](./media/tutorial-routing/create-a-new-routing-rule-storage.png)
-   
-   按一下 [檔案] 。 完成時會返回 [路由] 窗格，您可以在其中看到儲存體的新路由規則。 關閉 [路由] 窗格即會返回 [資源群組] 頁面。
+   按一下 [檔案] 。 完成時會返回 [訊息路由] 窗格，您可以在其中看到儲存體的新路由查詢。 關閉 [路由] 窗格即會返回 [資源群組] 頁面。
 
 ### <a name="routing-to-a-service-bus-queue"></a>路由至服務匯流排佇列 
 
-現在來設定服務匯流排佇列的路由。 定義端點，並設定該端點的路由。 其 **level** 屬性設定為 **critical** 的訊息會寫入至服務匯流排佇列中，然後觸發邏輯應用程式，並以電子郵件傳送資訊。 
+現在來設定服務匯流排佇列的路由。 移至 [訊息路由] 窗格，然後新增路由。 在新增路由時，定義新的路由端點。 設定好之後，其 **level** 屬性設定為 **critical** 的訊息會寫入至服務匯流排佇列中，然後觸發邏輯應用程式，並以電子郵件傳送資訊。 
 
-1. 在 [資源群組] 頁面上，按一下您的 IoT 中樞，然後按一下 [端點]。 在 [端點] 窗格中，按一下 [+ 新增]。 輸入以下資訊：
+1. 在 [資源群組] 頁面上，按一下 IoT 中樞，然後按一下 [訊息路由]。 
 
-   **名稱**：輸入端點的名稱。 本教學課程使用 **CriticalQueue**。 
+2. 在 [訊息路由] 窗格中，按一下 [+新增]。 
 
-   **端點類型**：從下拉式清單選取 [服務匯流排佇列]。
+3. 在 [新增路由] 窗格中，按一下 [端點] 欄位旁的 [+新增]。 選取 [服務匯流排佇列]。 您會看到 [新增服務匯流排端點] 窗格。 
 
-   **服務匯流排命名空間**：從下拉式清單選取此教學課程所用的服務匯流排命名空間。 本教學課程使用 **ContosoSBNamespace**。
+   ![新增服務匯流排端點的螢幕擷取畫面](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
-   **服務匯流排佇列**：從下拉式清單選取服務匯流排佇列。 本教學課程使用 **contososbqueue**。
+4. 填寫欄位：
 
-   ![顯示新增服務匯流排佇列端點的螢幕擷取畫面。](./media/tutorial-routing/add-endpoint-sb-queue.png)
-
-   按一下 [確定] 以儲存端點。 完成之後，關閉 [端點] 窗格。 
-    
-1. 按一下 IoT 中樞上的 [路由]。 您將建立路由規則，將訊息路由至您剛才新增為端點的服務匯流排佇列。 按一下 [路由] 窗格頂端的 [+ 新增]。 填寫畫面上的欄位。 
-
-   **名稱**：輸入路由規則的名稱。 本教學課程使用 **SBQueueRule**。 
-
-   **資料來源**：從下拉式清單選取 [裝置訊息]。
-
-   **端點**：選取您剛才設定的端點 **CriticalQueue**。
-
-   **查詢字串**：輸入 `level="critical"` 作為查詢字串。 
-
-   ![顯示建立服務匯流排佇列路由規則的螢幕擷取畫面。](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
+   **端點名稱**：輸入端點的名稱。 本教學課程使用 **CriticalQueue**。
    
-   按一下 [檔案] 。 返回 [路由] 窗格中時，您會看到兩個新的路由規則顯示於此處。
+   **服務匯流排命名空間**：按一下此欄位以顯示下拉式清單；選取您在準備步驟中設定的服務匯流排命名空間。 本教學課程使用 **ContosoSBNamespace**。
 
-   ![顯示剛才設定的路由螢幕擷取畫面。](./media/tutorial-routing/show-routing-rules-for-hub.png)
+   **服務匯流排佇列**：按一下此欄位以顯示下拉式清單；從下拉式清單選取服務匯流排佇列。 本教學課程使用 **contososbqueue**。
 
-   關閉 [路由] 窗格即會返回 [資源群組] 頁面。
+5. 按一下 [建立] 以新增服務匯流排佇列端點。 您會返回 [新增路由] 窗格。 
+
+6.  現在，請完成其餘路由查詢資訊。 此查詢會指定準則，來規範如何將訊息傳送至您剛才新增為端點的服務匯流排佇列。 填寫畫面上的欄位。 
+
+   **名稱**：輸入路由查詢的名稱。 本教學課程使用 **SBQueueRoute**。 
+
+   **端點**：這會顯示您剛才設定的端點。
+
+   **資料來源**：從下拉式清單選取 [裝置遙測訊息]。
+
+   **路由查詢**：輸入 `level="critical"` 作為查詢字串。 
+
+   ![顯示建立服務匯流排佇列路由查詢的螢幕擷取畫面。](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+
+7. 按一下 [檔案] 。 返回 [路由] 窗格中時，您會看到兩個新的路由顯示於此處。
+
+   ![顯示剛才設定的路由螢幕擷取畫面。](./media/tutorial-routing/message-routing-show-both-routes.png)
+
+8. 您可以按一下 [自訂端點] 索引標籤，以看到您所設定的自訂端點。
+
+   ![顯示剛才設定的自訂端點螢幕擷取畫面。](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+
+9. 關閉 [訊息路由] 窗格即會返回 [資源群組] 窗格。
 
 ## <a name="create-a-logic-app"></a>建立邏輯應用程式  
 
