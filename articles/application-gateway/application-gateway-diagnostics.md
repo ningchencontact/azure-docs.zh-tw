@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 563194ea0b3e4bda2021c75c544d068f00d74ba7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293616"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963827"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -58,7 +58,7 @@ ms.locfileid: "36293616"
 Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-### <a name="view-back-end-health-through-azure-cli-20"></a>透過 Azure CLI 2.0 檢視後端健康情況
+### <a name="view-back-end-health-through-azure-cli"></a>透過 Azure CLI 檢視後端健康情況
 
 ```azurecli
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
@@ -312,7 +312,11 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 > 
 > 
 
-## <a name="metrics"></a>度量
+#### <a name="analyzing-access-logs-through-goaccess"></a>透過 GoAccess 分析存取記錄
+
+我們已發佈會安裝並執行常用 [GoAccess](https://goaccess.io/) 記錄分析器的 Resource Manager 範本，該分析器適用於應用程式閘道存取記錄。 GoAccess 提供實用的 HTTP 流量統計資料，例如非重複訪客、要求的檔案、主機、作業系統、瀏覽器、HTTP 狀態碼等等。 如需詳細資訊，請參閱 [GitHub 中 Resource Manager 範本資料夾中的讀我檔案](https://aka.ms/appgwgoaccessreadme) \(英文\)。
+
+## <a name="metrics"></a>計量
 
 計量是某些 Azure 資源的功能，可供您在入口網站中檢視效能計數器。 應用程式閘道可使用下列計量：
 

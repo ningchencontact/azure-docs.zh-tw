@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142309"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976749"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>如何輪替 X.509 裝置憑證
 
@@ -41,7 +41,7 @@ ms.locfileid: "42142309"
 
 如果您從第三方取得您的憑證，您必須研究它們如何輪替其憑證。 此程序可能包含在您與他們的約定中，或者可能是他們所提供的個別服務。 
 
-如果您要管理自己的裝置憑證，您必須建置自己的管線，以便更新憑證。 請確定舊的和新的分葉憑證具有相同的一般名稱 (CN)。 具有相同的 CN，裝置本身即可重新佈建，而不需要建立重複的註冊記錄。
+如果您要管理自己的裝置憑證，您必須建置自己的管線，以便更新憑證。 請確定舊的和新的分葉憑證具有相同的一般名稱 (CN)。 具有相同的 CN，裝置本身即可重新佈建，而不需要建立重複的註冊記錄。 
 
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>在 IoT 中樞輪替憑證
@@ -78,10 +78,13 @@ ms.locfileid: "42142309"
 
     ![管理個別註冊](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. 從佈建服務中移除遭入侵的憑證後，請瀏覽至您的 IoT 中樞並移除與遭入侵憑證相關聯的裝置註冊。     
+3. 將遭到入侵的憑證從佈建服務移除之後，只要服務中有憑證的裝置註冊存在，就仍可以使用該憑證建立裝置與 IoT 中樞的連線。 您可以透過兩種方式解決此問題： 
+
+    第一種方式為手動瀏覽至 IoT 中樞，並立即移除與遭入侵憑證關聯的裝置註冊。 接著，使用已更新的憑證再次佈建裝置，此時將會建立新的裝置註冊。     
 
     ![移除 IoT 中樞裝置註冊](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
+    第二種方式為利用重新佈建支援將裝置重新佈建到相同的 IoT 中樞。 此方法可用來取代 IoT 中樞上裝置註冊的憑證。 如需詳細資訊，請參閱[如何重新佈建裝置](how-to-reprovision.md)。
 
 ## <a name="individual-enrollments-and-certificate-expiration"></a>個別註冊和憑證到期
 
@@ -118,9 +121,14 @@ ms.locfileid: "42142309"
 
     ![選取新的根 CA 憑證](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. 從佈建服務中移除遭入侵的憑證後，請瀏覽至含有遭入侵裝置註冊的已連結 IoT 中樞，並移除與遭入侵憑證相關聯的註冊。
+6. 將遭到入侵的憑證從佈建服務移除之後，只要服務中有憑證的裝置註冊存在，就仍可以使用該憑證建立裝置與 IoT 中樞的連線。 您可以透過兩種方式解決此問題： 
+
+    第一種方式為手動瀏覽至 IoT 中樞，並立即移除與遭入侵憑證關聯的裝置註冊。 接著，使用已更新的憑證再次佈建裝置，此時將會為每個裝置建立新的裝置註冊。     
 
     ![移除 IoT 中樞裝置註冊](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    第二種方式為利用重新佈建支援將裝置重新佈建到相同的 IoT 中樞。 此方法可用來取代 IoT 中樞上裝置註冊的憑證。 如需詳細資訊，請參閱[如何重新佈建裝置](how-to-reprovision.md)。
+
 
 
 #### <a name="update-compromised-intermediate-certificates"></a>更新遭入侵的中繼憑證
@@ -134,9 +142,13 @@ ms.locfileid: "42142309"
     ![管理個別註冊](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
-3. 從佈建服務中移除遭入侵的憑證後，請瀏覽至含有裝置註冊的已連結 IoT 中樞，並移除與遭入侵憑證相關聯的註冊。
+3. 將遭到入侵的憑證從佈建服務移除之後，只要服務中有憑證的裝置註冊存在，就仍可以使用該憑證建立裝置與 IoT 中樞的連線。 您可以透過兩種方式解決此問題： 
+
+    第一種方式為手動瀏覽至 IoT 中樞，並立即移除與遭入侵憑證關聯的裝置註冊。 接著，使用已更新的憑證再次佈建裝置，此時將會為每個裝置建立新的裝置註冊。     
 
     ![移除 IoT 中樞裝置註冊](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    第二種方式為利用重新佈建支援將裝置重新佈建到相同的 IoT 中樞。 此方法可用來取代 IoT 中樞上裝置註冊的憑證。 如需詳細資訊，請參閱[如何重新佈建裝置](how-to-reprovision.md)。
 
 
 ## <a name="enrollment-groups-and-certificate-expiration"></a>註冊群組與憑證到期

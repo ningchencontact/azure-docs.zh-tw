@@ -1,22 +1,24 @@
 ---
 title: 使用 C# 服務程式庫來開始使用 Microsoft 語音辨識 API | Microsoft Docs
-description: 使用 Microsoft 語音辨識服務程式庫將口語轉換成文字。
+titlesuffix: Azure Cognitive Services
+description: 使用 Bing 語音辨識服務程式庫將口語轉換成文字。
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0320f41658a7ac4d6bf9e88ed998c853b665d485
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5716f7a0af16bd3e40dea4468e2fae884f911718
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368439"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967552"
 ---
-# <a name="get-started-with-the-speech-recognition-service-library-in-c35-for-net-windows"></a>以適用於 .NET Windows 的 C&#35; 開始使用語音辨識服務程式庫
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>快速入門：以適用於 .NET Windows 的 C&#35; 開始使用 Bing 語音辨識服務程式庫
 
 此服務程式庫適用於已有自己的雲端服務而想要從其服務呼叫「語音服務」的開發人員。 如果您想要從裝置繫結應用程式呼叫語音辨識服務，則請勿使用此 SDK。 (請使用其他用戶端程式庫或 REST API 來達到該目的)。
 
@@ -24,7 +26,7 @@ ms.locfileid: "35368439"
 
 下列各節說明如何使用 C# 服務程式庫來安裝、建置及執行 C# 範例應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="platform-requirements"></a>平台需求
 

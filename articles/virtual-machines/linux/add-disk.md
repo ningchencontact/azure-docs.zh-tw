@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 在 Linux VM 中新增資料磁碟 | Microsoft Docs
-description: 了解如何使用 Azure 在 Linux VM 中新增永續性資料磁碟
+description: 了解如何使用 Azure CLI 在 Linux VM 中新增永續性資料磁碟
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 578488163482dd0b7b486ca152455ff9686f1a43
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331218"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949208"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>在 Linux VM 中新增磁碟
 本文說明如何將持續性磁碟連結到您的 VM，以便您保留資料 - 即使您的 VM 會由於維護或調整大小而重新佈建。 

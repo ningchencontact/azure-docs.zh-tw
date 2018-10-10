@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133558"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47006468"
 ---
 <a name="virtual-networking-limits-classic"></a>下列限制僅適用於透過每個訂用帳戶的傳統部署模型所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -60,6 +60,8 @@ ms.locfileid: "40133558"
 | 使用者定義的路由表 |200 |
 | 每個路由表的使用者定義路由 |400 |
 | 每個 VPN 閘道的點對站根憑證 |20 |
+| 虛擬網路 TAP |100 |
+| 每個虛擬網路 TAP 的網路介面 TAP 設定 |100 |
 
 #### <a name="publicip-address"></a>公用 IP 位址限制
 
@@ -75,17 +77,17 @@ ms.locfileid: "40133558"
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 負載平衡器 | 100 | 1000 |
-| 每個資源的規則，基本 | 150 | 250 |
-| 每個資源的規則，標準 | 1250 | 1500 |
+| 每個資源的規則，基本 | 250 | 250 |
+| 每個資源的規則，標準 | 1500 | 1500 |
 | 每個 IP 設定的規則 | 299 |299 |
 | 前端 IP 設定，基本 | 10 | 200 |
 | 前端 IP 設定，標準 | 10 | 600 |
 | 後端集區，基本 | 100，單一可用性設定組 | 100，單一可用性設定組 |
 | 後端集區，標準 | 1000，單一 VNet | 1000，單一 VNet |
-| 每個 Load Balancer 的後端資源，標準 &ast; | 50 | 150 |
+| 每個 Load Balancer 的後端資源，標準 * | 150 | 150 |
 | HA 連接埠，標準 | 每個內部前端 1 個 | 每個內部前端 1 個 |
 
-&ast; 最多 150 個資源，獨立虛擬機器、可用性設定組及虛擬機器擴展集的任意組合。
+** 最多 150 個資源，獨立虛擬機器、可用性設定組與虛擬機器擴展集的任意組合。
 
 如果您需要增加預設值以外的限制，請[連絡支援服務](../articles/azure-supportability/resource-manager-core-quotas-request.md )。
 

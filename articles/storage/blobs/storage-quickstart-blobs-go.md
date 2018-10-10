@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 93dc651767fc2be815fb706f71386ce72b382a37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398571"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981710"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>快速入門：使用 Go 上傳、下載及列出 Blob
 
@@ -23,11 +23,14 @@ ms.locfileid: "39398571"
 
 若要完成本快速入門： 
 * [安裝 Go 1.8 或更新版本](https://golang.org/dl/)
-* 使用 `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob` 下載並安裝 [Azure Storage Blov SDK for Go](https://github.com/azure/azure-storage-blob-go/)。 
+* 使用 `go get -u github.com/Azure/azure-storage-blob-go/2016-05-31/azblob` 下載並安裝 [Azure Storage Blov SDK for Go](https://github.com/azure/azure-storage-blob-go/)。 
+
+> [!WARNING]
+> 務必將 URL 中的 Azure 變成大寫。 使用 SDK 時，若未這麼做可能會造成與大小寫相關的匯入問題。 您也需要將 Import 陳述式中的 Azure 變成大寫。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 本快速入門中使用的[範例應用程式](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git)是基本的 Go 應用程式。  

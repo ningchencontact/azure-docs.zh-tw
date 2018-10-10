@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 982a6807ccaf393c3aea42f39f7e60bb7e0d3ac3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a7733468ec082c8954f623f3ebe2cea1fbad561
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633237"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976213"
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>在 Azure Machine Learning 計算 (MLC) 叢集上啟用 SSL 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 這些指示可讓您在 Azure Machine Learning 計算 (MLC) 叢集上設定評分呼叫的安全通訊端層 (SSL)。 
 
@@ -51,7 +55,7 @@ az ml env create -c -g <resource group name> -n <cluster name> --cert-cname <CNA
 
 如果您的目標叢集在建立時未附加 SSL，您可以使用 Azure PowerShell Cmdlet 新增憑證。
 
-您需要提供原始 PEM 格式的金鑰和憑證。 上述項目可讀入為 PowerShell 變數：
+您必須提供原始 PEM 格式的金鑰與憑證。 上述項目可讀入為 PowerShell 變數：
 
 ```
 $keyValueInPemFormat = [IO.File]::ReadAllText('<path to key.pem file>')

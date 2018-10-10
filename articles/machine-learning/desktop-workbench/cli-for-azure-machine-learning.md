@@ -11,16 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: 0e37e1839d2248507a30de08e2ac4c975bd3b859
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 06e85845d41b240638a5b5b4d75d64fd460a99bf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632976"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953322"
 ---
 # <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>為 Azure Machine Learning 中常用的工作安裝及使用機器學習 CLI
 
-Azure Machine Learning 服務是整合式端對端的資料科學和進階分析解決方案。 專業資料科學家可使用 Azure Machine Learning 服務以雲端規模準備資料、開發測試及部署模型。 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning 服務是整合式端對端的資料科學與進階分析解決方案。 專業資料科學家可以使用 Azure Machine Learning 服務以雲端規模準備資料、開發實驗及部署模型。 
 
 Azure Machine Learning 提供命令列介面 (CLI)，讓您可以：
 + 管理工作區和專案
@@ -201,7 +204,7 @@ az ml env set -n <environment name> -g <resource group name>
 ## <a name="next-steps"></a>後續步驟
 
 從下列其中一篇文章著手： 
-+ [安裝及開始使用 Azure Machine Learning](../service/quickstart-installation.md)
++ [安裝及開始使用 Azure Machine Learning](quickstart-installation.md)
 + [分類 Iris 資料教學課程：第一部分](tutorial-classifying-iris-part-1.md)
 
 從下列其中一篇文章進階：

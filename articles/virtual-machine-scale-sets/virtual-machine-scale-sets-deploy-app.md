@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718976"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979430"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虛擬機器擴展集上部署您的應用程式
 若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 本文介紹如何在擴展集中建置執行個體的自訂 VM 映像，或在現有的 VM 執行個體上自動執行安裝指令碼。 您也將了解如何跨擴展集管理應用程式或作業系統更新。
@@ -31,14 +31,14 @@ ms.locfileid: "38718976"
 
 若要減少組態管理和佈建 VM 的時間，您可以建立自訂的 VM 映像，以便在擴展集中佈建執行個體後立即準備好執行應用程式。 若要進一步了解如何建立及使用含擴展集的自訂 VM 映像，請參閱下列教學課程：
 
-- [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+- [Azure CLI](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>安裝包含自訂指令碼延伸模組的應用程式
 自訂指令碼擴充功能會在 Azure VM 上下載並執行指令碼。 此擴充功能適用於部署後組態、軟體安裝或其他任何組態/管理工作。 您可以從 Azure 儲存體或 GitHub 下載指令碼，或是在擴充功能執行階段將指令碼提供給 Azure 入口網站。 若要進一步了解如何建立及使用含擴展集的自訂 VM 映像，請參閱下列教學課程：
 
-- [Azure CLI 2.0](tutorial-install-apps-cli.md)
+- [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Azure Resource Manager 範本](tutorial-install-apps-template.md)
 
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>安裝應用程式與作業系統更新
 當新的作業系統版本可用時，您可以使用或建立新的自訂映像，並[將作業系統升級部署到](virtual-machine-scale-sets-upgrade-scale-set.md)擴展集。 每個 VM 執行個體會升級為您指定的最新映像。 您可以使用預先安裝應用程式的自訂映像、自訂指令碼延伸模組，或 PowerShell，以便在執行升級時自動開放使用應用程式。 執行此程序時可能需要規劃應用程式維護，確認不存在任何版本相容性問題。
 
-如果您使用預先安裝應用程式的自訂 VM 映像，您可以整合應用程式更新與部署管線來建立新映像，並跨擴展集部署作業系統升級。 這個方法可讓管線挑選最新的應用程式組建、建立及驗證 VM 映像，然後在擴展集中升級 VM 執行個體。 若要執行部署管線，跨自訂 VM 映像來建立和部署應用程式更新，您可以[使用 Visual Studio Team Services 建立 Packer 映像及進行部署](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset)，或使用另一個平台，例如 [Spinnaker](https://www.spinnaker.io/) 或 [Jenkins](https://jenkins.io/)。
+如果您使用預先安裝應用程式的自訂 VM 映像，您可以整合應用程式更新與部署管線來建立新映像，並跨擴展集部署作業系統升級。 這個方法可讓管線挑選最新的應用程式組建、建立及驗證 VM 映像，然後在擴展集中升級 VM 執行個體。 若要執行部署管線，跨自訂 VM 映像來建立和部署應用程式更新，您可以[使用 Azure DevOps Services 建立 Packer 映像及進行部署](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)，或使用另一個平台，例如 [Spinnaker](https://www.spinnaker.io/) 或 [Jenkins](https://jenkins.io/)。
 
 
 ## <a name="next-steps"></a>後續步驟

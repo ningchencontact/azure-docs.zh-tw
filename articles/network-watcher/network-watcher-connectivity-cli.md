@@ -1,6 +1,6 @@
 ---
-title: 利用 Azure 網路監看員進行連線疑難排解 - Azure CLI 2.0 | Microsoft Docs
-description: 了解如何運用 Azure CLI 2.0，來使用 Azure 網路監看員的連線疑難排解功能。
+title: 使用 Azure 網路監看員進行連線疑難排解 - Azure CLI | Microsoft Docs
+description: 了解如何使用 Azure CLI，來使用 Azure 網路監看員的連線疑難排解功能。
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 1ce5856a5ee2c37d96483df82836d2e8b2a61d4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ee7aff0256cf5567b4b29e6140ffb57b3717631a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182101"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978041"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 利用 Azure 網路監看員進行連線疑難排解
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>使用 Azure CLI 利用 Azure 網路監看員進行連線疑難排解
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 了解如何使用連線疑難排解，來確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。

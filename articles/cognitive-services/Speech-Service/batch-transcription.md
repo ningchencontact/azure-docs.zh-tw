@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 5af829ca076b39758973c28a44d918b9ba5782b1
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42351245"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981367"
 ---
 # <a name="batch-transcription"></a>批次轉譯
 
@@ -59,36 +59,38 @@ wav |  立體聲  |
 
 ## <a name="authorization-token"></a>授權權杖
 
-如同統一語音服務的所有功能，您可從 [Azure 入口網站](https://portal.azure.com)建立訂用帳戶金鑰。 此外，您可從語音入口網站取得 API 金鑰： 
+如同統一語音服務的所有功能，您可以從 [Azure 入口網站](https://portal.azure.com)依照我們的[快速入門指南](get-started.md)建立訂用帳戶金鑰。 如果您打算從我們的基準模型取得轉譯，就需要這樣做。 
+
+如果打算自訂並使用自訂模型，則需要將此訂用帳戶金鑰新增到自訂語音入口網站，如下所示：
 
 1. 登入[自訂語音](https://customspeech.ai)。
 
 2. 選取 **訂用帳戶** 。
 
-3. 選取 [產生 API 金鑰]。
+3. 選取 [連線現有的訂用帳戶]。
+
+4. 在快顯檢視中輸入訂用帳戶金鑰和別名
 
     ![自訂語音訂用帳戶頁面的螢幕擷取畫面](media/stt/Subscriptions.jpg)
 
-4. 複製該金鑰並貼到下列範例的用戶端程式碼中。
+5. 複製該金鑰並貼到下列範例的用戶端程式碼中。
 
 > [!NOTE]
-> 如果您打算使用自訂模型，您也需要該模型的識別碼。 請注意，這不是您在 [端點詳細資料] 檢視中所找到的部署或端點識別碼。 這是您選取該模型的詳細資料時可擷取的模型識別碼。
+> 如果您打算使用自訂模型，您也需要該模型的識別碼。 請注意，這不是您在 [端點詳細資料] 檢視中所找到的端點識別碼。 這是您選取該模型的詳細資料時可擷取的模型識別碼。
 
 ## <a name="sample-code"></a>範例程式碼
 
 使用訂用帳戶金鑰和 API 金鑰來自訂下列範例程式碼。 這可讓您取得持有人權杖。
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```
@@ -98,61 +100,76 @@ wav |  立體聲  |
 ```cs
    static async Task TranscribeAsync()
         { 
+            private const string SubscriptionKey = "<your Speech subscription key>";
+            private const string HostName = "westus.cris.ai";
+            private const int Port = 443;
+    
             // Creating a Batch transcription API Client
-            var client = 
-                await CrisClient.CreateApiV1ClientAsync(
-                    "<your msa>", // MSA email
-                    "<your api key>", // API key
-                    "stt.speech.microsoft.com",
-                    443).ConfigureAwait(false);
+            var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
-            var newLocation = 
-                await client.PostTranscriptionAsync(
-                    "<selected locale i.e. en-us>", // Locale 
-                    "<your subscription key>", // Subscription Key
-                    new Uri("<SAS URI to your file>")).ConfigureAwait(false);
+            var transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
-            var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
+            var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
+
+            // get the transcription Id from the location URI
+            var createdTranscriptions = new List<Guid>();
+            createdTranscriptions.Add(new Guid(transcriptionLocation.ToString().Split('/').LastOrDefault()))
 
             while (true)
             {
-                transcription = await client.GetTranscriptionAsync(transcription.Id).ConfigureAwait(false);
+                // get all transcriptions for the user
+                transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+                completed = 0; running = 0; notStarted = 0;
 
-                if (transcription.Status == "Failed" || transcription.Status == "Succeeded")
+                // for each transcription in the list we check the status
+                foreach (var transcription in transcriptions)
                 {
-                    Console.WriteLine("Transcription complete!");
-
-                    if (transcription.Status == "Succeeded")
+                    switch(transcription.Status)
                     {
-                        var resultsUri = transcription.ResultsUrls["channel_0"];
+                        case "Failed":
+                        case "Succeeded":
 
-                        WebClient webClient = new WebClient();
-
-                        var filename = Path.GetTempFileName();
-                        webClient.DownloadFile(resultsUri, filename);
-
-                        var results = File.ReadAllText(filename);
-                        Console.WriteLine(results);
+                            // we check to see if it was one of the transcriptions we created from this client.
+                            if (!createdTranscriptions.Contains(transcription.Id))
+                            {
+                                // not creted form here, continue
+                                continue;
+                            }
+                            
+                            completed++;
+                            
+                            // if the transcription was successfull, check the results
+                            if (transcription.Status == "Succeeded")
+                            {
+                                var resultsUri = transcription.ResultsUrls["channel_0"];
+                                WebClient webClient = new WebClient();
+                                var filename = Path.GetTempFileName();
+                                webClient.DownloadFile(resultsUri, filename);
+                                var results = File.ReadAllText(filename);
+                                Console.WriteLine("Transcription succedded. Results: ");
+                                Console.WriteLine(results);
+                            }
+                            break;
+                        case "Running":
+                            running++;
+                            break;
+                        case "NotStarted":
+                            notStarted++;
+                            break;
                     }
-
-                    await client.DeleteTranscriptionAsync(transcription.Id).ConfigureAwait(false);
-
-                    break;
                 }
-                else
-                {
-                    Console.WriteLine("Transcription status: " + transcription.Status);
-                }
+
+                Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
 
                 await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
             }
 
-            Console.ReadLine();
+            Console.WriteLine("Press any key...");
         }
 ```
 
 > [!NOTE]
-> 在上述程式碼中，訂用帳戶金鑰來自您在 Azure 入口網站上建立的語音 (預覽) 資源。 從自訂語音服務資源取得的金鑰無法運作。
+> 在上述程式碼中，訂用帳戶金鑰來自您在 Azure 入口網站上建立的語音資源。 從自訂語音服務資源取得的金鑰無法運作。
 
 請注意，張貼音訊和接收轉譯狀態是非同步設定。 建立的用戶端是 .NET HTTP 用戶端。 您可以使用 `PostTranscriptions` 方法來傳送音訊檔案詳細資料，並使用 `GetTranscriptions` 方法來接收結果。 `PostTranscriptions` 會傳回控制代碼，而 `GetTranscriptions` 會使用此控制代碼來建立控制代碼，以取得轉譯狀態。
 

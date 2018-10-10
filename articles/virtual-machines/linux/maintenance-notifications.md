@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1ac965896dc3356f33e6461cf390e4345663c3d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068622"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982081"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>處理 Linux 虛擬機器預定進行的維修作業通知
 
@@ -108,7 +108,7 @@ az vm perform-maintenance -g rgName -n vmName
 
 ## <a name="classic-deployments"></a>傳統部署
 
-如果您仍有使用傳統部署模型部署的舊版 VM，可以使用 CLI 1.0 查詢 VM 並起始維護。
+如果您仍有使用傳統部署模型部署的舊版 VM，可以使用 Azure 傳統 CLI 查詢 VM 並起始維護。
 
 請鍵入下列項目，以確認您使用傳統 VM 的模式正確：
 

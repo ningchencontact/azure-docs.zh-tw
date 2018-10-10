@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 3446488a5dc2bdd1bb01b39bc25b60137fcbc331
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 353ab846c576a9b133cf640bbc856ec6eddf73f4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040042"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982884"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
@@ -84,7 +84,7 @@ Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsig
 
   如需詳細資訊，請參閱[使用 Ambari Web UI 管理 HDInsight](../hdinsight-hadoop-manage-ambari.md)和[使用 Storm UI 進行監視和管理](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui)文件。
 
-* __Azure PowerShell 和 CLI__︰PowerShell 和 CLI 兩者都提供您可以從用戶端系統使用的命令列公用程式，以便搭配 HDInsight 和其他 Azure 服務運作。
+* __Azure PowerShell 與傳統CLI__︰PowerShell 與傳統 CLI 兩者都提供您可以從用戶端系統使用的命令列公用程式，以使用 HDInsight 與其他 Azure 服務。
 
 * __Visual Studio 整合__：Azure Data Lake Tools for Visual Studio 包含可供使用 SCP.Net 架構建立 C# Storm 拓撲的專案範本。 Data Lake Tools 也提供一些工具，以利用 Storm on HDInsight 來部署、監視和管理解決方案。
 

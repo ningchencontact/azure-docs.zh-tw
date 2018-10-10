@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9df3b20cd72236d7001aac94bae302b5a6f9eb8d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110567"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983135"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝自訂 Hadoop 應用程式
 
@@ -66,7 +66,7 @@ HDInsight 應用程式可以在您建立叢集時安裝，或安裝至現有的 
     此按鈕會在 Azure 入口網站上開啟 Resource Manager 範本。  Resource Manager 範本位於 [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json)。  若要了解如何撰寫此 Resource Manager 範本，請參閱 [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)。
 2. 請依照指示來建立叢集和安裝 Hue。 如需建立 HDInsight 叢集的詳細資訊，請參閱 [在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-除了 Azure 入口網站，您也可以使用 [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) 和 [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-cli) 來呼叫 Resource Manager 範本。
+除了 Azure 入口網站，您也可以使用 [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) 與 [Azure 傳統 CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-azure-cli) 來呼叫 Resource Manager 範本。
 
 ## <a name="validate-the-installation"></a>驗證安裝
 您可以在 Azure 入口網站上檢查應用程式狀態以驗證應用程式安裝。 此外，您也可以驗證所有如預期般出現的 HTTP 端點及網頁 (如果有的話)︰
@@ -117,8 +117,8 @@ HDInsight 應用程式可以在您建立叢集時安裝，或安裝至現有的 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 使用 Azure PowerShell，您就可以刪除叢集或刪除資源群組。 請參閱 [使用 Azure PowerShell 刪除叢集](hdinsight-administer-use-powershell.md#delete-clusters)。
 
-### <a name="use-azure-cli"></a>使用 Azure CLI
-使用 Azure CLI，您就可以刪除叢集或刪除資源群組。 請參閱 [使用 Azure CLI 刪除叢集](hdinsight-administer-use-command-line.md#delete-clusters)。
+### <a name="use-azure-classic-cli"></a>使用 Azure 傳統 CLI
+使用 Azure 傳統 CLI，您就可以刪除叢集或刪除資源群組。 請參閱[使用 Azure 傳統 CLI 刪除叢集](hdinsight-administer-use-command-line.md#delete-clusters)。
 
 ## <a name="next-steps"></a>後續步驟
 * [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何開發 Resource Manager 範本以供部署 HDInsight 應用程式。

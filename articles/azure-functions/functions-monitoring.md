@@ -3,31 +3,26 @@ title: 監視 Azure Functions
 description: 了解如何使用 Azure Application Insights 搭配 Azure Functions 來監視函式執行。
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: ba820c594b5afb34c050c74de30300b0dfc8c3a6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344050"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966838"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
 ## <a name="overview"></a>概觀 
 
-
-  [Azure Functions](functions-overview.md) 提供與 [Azure Application Insights](../application-insights/app-insights-overview.md) 的內建整合來監視函式。 本文示範如何設定 Functions，以將遙測資料傳送至 Application Insights。
+[Azure Functions](functions-overview.md) 提供與 [Azure Application Insights](../application-insights/app-insights-overview.md) 的內建整合來監視函式。 本文示範如何設定 Functions，以將遙測資料傳送至 Application Insights。
 
 ![Application Insights 計量瀏覽器](media/functions-monitoring/metrics-explorer.png)
 
@@ -239,7 +234,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 
 *Host.json* 中的類別值會控制以相同值開頭之所有類別的記錄。 例如，*host.json* 中的 "Host" 會控制 "Host.General"、"Host.Executor"、"Host.Results" 等的記錄。
 
-如果 *host.json* 包含多個以相同字串開頭的類別，則會先比對較長的類別。 例如，假設您想要取得執行階段在 `Error` 層級上記錄的所有項目，但 "Host.Aggregator" 除外，儘管 "Host.Aggregator" 記錄於 `Information` 層級也一樣：
+如果 *host.json* 包含多個以相同字串開頭的類別，則會先比對較長的類別。 例如，假設您想要取得執行階段在 `Error` 層級上記錄的所有項目 ("Host.Aggregator" 除外)，但您想要 "Host.Aggregator" 記錄於 `Information` 層級：
 
 ```json
 {
@@ -303,7 +298,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 
 ## <a name="configure-sampling"></a>設定取樣
 
-Application Insights 具有[取樣](../application-insights/app-insights-sampling.md)功能，可以提供保護，避免在尖峰負載的情況下產生過多的遙測資料。 當遙測項目數超過指定的比率時，Application Insights 就會開始隨機忽略部分傳入的項目。 每秒的項目數上限的預設值為 5。 您可以在 *host.json* 中設定取樣。  以下是範例：
+Application Insights 具有[取樣](../application-insights/app-insights-sampling.md)功能，可以提供保護，避免在尖峰負載的情況下產生過多的遙測資料。 當內送遙測速率超過指定的閾值時，Application Insights 就會開始隨機忽略部分傳入的項目。 每秒的項目數上限的預設值為 5。 您可以在 *host.json* 中設定取樣。  以下是範例：
 
 ```json
 {
@@ -462,11 +457,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
@@ -504,18 +494,6 @@ module.exports = function (context, req) {
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
     context.done();
 };
 ```
@@ -552,9 +530,9 @@ module.exports = function (context, req) {
 
 ### <a name="real-time-monitoring"></a>即時監視
 
-您可以使用 [Azure 命令列介面 (CLI) 2.0](/cli/azure/install-azure-cli) 或 [Azure PowerShell](/powershell/azure/overview)，在本機工作站上將記錄檔串流處理至命令列工作階段。  
+您可以使用 [Azure 命令列介面 (CLI)](/cli/azure/install-azure-cli) 或 [Azure PowerShell](/powershell/azure/overview)，在本機工作站上將記錄檔串流處理至命令列工作階段。  
 
-如果您使用 Azure CLI 2.0，請使用下列命令來登入、選擇訂用帳戶及串流處理記錄檔：
+針對 Azure CLI，請使用下列命令來登入、選擇訂用帳戶及串流處理記錄檔：
 
 ```
 az login

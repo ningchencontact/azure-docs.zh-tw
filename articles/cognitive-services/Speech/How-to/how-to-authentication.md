@@ -1,24 +1,26 @@
 ---
-title: 向 Microsoft 語音服務進行驗證 | Microsoft Docs
-description: 要求驗證以使用 Microsoft Speech API
+title: 向 Bing 語音進行驗證 |Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: 要求驗證以使用 Bing 語音 API
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e36168cf3ff938af44f1028c2d26fd475d60b148
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4d4b9f43b6b3a4127d70989414d467f724f6ec28
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368394"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972788"
 ---
-# <a name="authenticate-to-the-speech-api"></a>向 Speech API 進行驗證
+# <a name="authenticate-to-the-speech-api"></a>向語音 API 進行驗證
 
-「語音服務」支援使用下列方式進行驗證：
+「Bing 語音」支援使用下列方式進行驗證：
 
 - 訂用帳戶金鑰。
 - 授權權杖。
@@ -31,7 +33,7 @@ ms.locfileid: "35368394"
 
 若要使用「語音 REST API」，您必須在要求標頭的 `Ocp-Apim-Subscription-Key` 欄位中傳遞訂用帳戶金鑰。
 
-Name| 格式| 說明
+名稱| 格式| 說明
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 

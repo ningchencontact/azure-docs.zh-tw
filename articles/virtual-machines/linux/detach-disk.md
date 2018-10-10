@@ -1,6 +1,6 @@
 ---
 title: 從 Linux VM 中斷資料磁碟連結 | Microsoft Docs
-description: 了解如何使用 CLI 2.0 或 Azure 入口網站，從 Azure 中的虛擬機器中斷資料磁碟連結。
+description: 了解如何使用 Azure CLI 或 Azure 入口網站，從 Azure 中的虛擬機器中斷資料磁碟連結。
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: cynthn
-ms.openlocfilehash: 0225c6605109489c4b9b599918dc09983ae25ac8
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b087040e5d219941ec0b2ee0f58dfe0058a1ad04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144069"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968337"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>如何從 Linux 虛擬機器中斷資料磁碟連結
 
@@ -99,7 +99,7 @@ sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## <a name="detach-a-data-disk-using-cli-20"></a>使用 CLI 2.0 中斷資料磁碟連結
+## <a name="detach-a-data-disk-using-azure-cli"></a>使用 Azure CLI 中斷資料磁碟連結 
 
 此範例會使 myDataDisk 磁碟與 myResourceGroup 中名為 myVM 的 VM 中斷連結。
 

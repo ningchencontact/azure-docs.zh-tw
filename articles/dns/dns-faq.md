@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 747b2e2499a9bafcf7a7b03bc2ce144828c55c75
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 66e04e7f0b272f19788e79805ef06d11e2eda572
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172495"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948021"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常見問題集
 
@@ -63,6 +63,10 @@ DNS 區域用來裝載特定網域的 DNS 記錄。 例如，網域 'contoso.com
 
 ## <a name="azure-dns-features"></a>Azure DNS 功能
 
+### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>使用流量管理員針對網域名稱頂點使用別名記錄時，是否有任何限制？
+
+是。 您必須使用靜態公用 IP 位址來搭配流量管理員。 使用靜態 IP 位址設定**外部端點**目標。 
+
 ### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>Azure DNS 是否支援 DNS 型流量路由或端點容錯移轉？
 
 DNS 型流量路由和端點容錯移轉是由「Azure 流量管理員」所提供。 Azure 流量管理員是一項可以與 Azure DNS 一起使用的個別 Azure 服務。 如需詳細資訊，請參閱[流量管理員概觀](../traffic-manager/traffic-manager-overview.md)。
@@ -93,13 +97,41 @@ DNSSEC 是我們目前正在 Azure DNS 待辦項目上追蹤的功能。 您可�
 
 我們目前正在 Azure DNS 待辦項目上追蹤「URL 重新導向」功能。 您可以使用意見反應網站來[註冊此功能的支援](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape) \(英文\)。
 
-### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>Azure DNS 支援在 TXT 資料錄集中使用延伸的 ASCII 編碼集 (8 位元) 嗎？
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset"></a>Azure DNS 是否支援在 TXT 資料錄集中使用延伸的 ASCII 編碼集 (8 位元)？
 
-是。 如果您使用最新版本的 Azure REST API、SDK、PowerShell、CLI ，Azure DNS 支援在 TXT 資料錄集中使用延伸的 ASCII 編碼集 (2017-10-01 以前的版本或 SDK 2.1 不支援延伸的 ASCII 集)。 例如，如果使用者提供字串作為 TXT 記錄的值，而此字串具有延伸的 ASCII 字元 \128 (例如："abcd\128efgh")，則 Azure DNS 在內部表示中會使用這個字元的位元組值 (即 128)。 而且在 DNS 解析時，會在回應中傳回此位元組的值。 也請注意，就解析而言，"abc" 和 "\097\098\099" 是可互換的。 
+是。 如果您使用最新版本的 Azure REST API、SDK、PowerShell 與 CLI，Azure DNS 支援在 TXT 資料錄集中使用延伸的 ASCII 編碼集 (2017-10-01 以前的版本或 SDK 2.1 不支援延伸的 ASCII 集)。 例如，如果使用者提供字串作為 TXT 記錄的值，而此字串具有延伸的 ASCII 字元 \128 (例如："abcd\128efgh")，則 Azure DNS 在內部表示中會使用這個字元的位元組值 (即 128)。 而且在 DNS 解析時，會在回應中傳回此位元組的值。 也請注意，就解析而言，"abc" 和 "\097\098\099" 是可互換的。 
 
 針對 TXT 記錄，我們遵循 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 中的區域檔案主要格式逸出規則。 例如，根據 RFC，'\' 現在實際上會逸出所有東西。 如果您指定 "A\B" 作為 TXT 記錄的值，它就只會表示及解析為 "AB"。 如果您真的想讓 TXT 記錄解析成 "A\B"，則需要將 "\" 再次逸出，也就是 指定為 "A\\B"。 
 
-請注意，這項支援目前不適用於從 Azure 入口網站所建立的 TXT 記錄。 
+此支援目前不適用於從 Azure 入口網站所建立的 TXT 記錄。 
+
+## <a name="alias-records"></a>別名記錄
+
+### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>別名記錄可在哪些案例中派上用場？
+請參閱 [Azure DNS 別名記錄概觀](dns-alias.md)中的案例一節。
+
+### <a name="what-record-types-are-supported-for-alias-record-sets"></a>別名記錄集支援哪些記錄類型？
+Azure DNS 區域中的下列記錄類型支援別名記錄集：A、AAAA 與 CNAME。 
+
+### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>哪些資源可支援作為別名記錄集的目標？
+- **從 DNS A/AAAA 記錄集指向公用 IP 資源**。 您可以建立 A/AAAA 記錄集，並使其成為別名記錄集來指向公用 IP 資源。
+- **從 DNS A/AAAA/CNAME 記錄集指向流量管理員設定檔**。 除了能夠從 DNS CNAME 記錄集指向流量管理員設定檔的 CNAME (例如：contoso.trafficmanager.net) 之外，您現在也可以從 DNS 區域中的 A 或 AAAA 記錄集指向具有外部端點的流量管理員設定檔。
+- **指向相同區域中的另一個 DNS 記錄集**。 別名記錄可以參考其他相同類型的記錄集。 例如，DNS CNAME 記錄集可以是相同類型的另一個 CNAME 記錄集所用的別名。 如果想要在行為方面將一些記錄集設為別名，有些設為非別名，這種方式相當有用。
+
+### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>我是否可從 Azure 入口網站建立及更新別名記錄？
+是。 除了使用 Azure REST API、Azure PowerShell、CLI 與 SDK 之外，您也可以在 Azure 入口網站中建立或管理別名。
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>當刪除底層公用 IP 時，別名記錄是否會協助確保我的 DNS 記錄集也會刪除？
+是。 事實上，這是別名記錄的核心功能之一。 它們會協助您避免應用程式使用者發生可能的中斷。
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>當底層公用 IP 位址變更時，別名記錄是否會協助確保我的 DNS 記錄集更新為正確的 IP 位址？
+是。 如同上一個問題，這是別名記錄的核心功能之一，可協助您避免應用程式可能發生的中斷或安全性風險。
+
+### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-an-a-or-aaaa-records-to-point-to-traffic-manager"></a>針對 A 或 AAAA 記錄指向流量管理員使用別名記錄集時是否有任何限制？
+是。 如果您想要指向流量管理員設定檔，作為來自 A 或 AAAA 記錄集的別名，您必須確定流量管理員設定檔只使用外部端點。 當您在流量管理員中建立外部端點時，請務必提供端點的實際 IP 位址。
+
+### <a name="is-there-an-additional-charge-for-using-alias-records"></a>使用別名記錄需要額外付費嗎？
+別名記錄是 DNS 記錄集上的限定性條件，使用別名記錄無需額外付費。
 
 ## <a name="using-azure-dns"></a>使用 Azure DNS
 
@@ -179,7 +211,7 @@ Azure DNS 的管理是透過 Azure Resource Manager，因此享有 Azure Resourc
 是。 客戶可以將最多 10 個解析虛擬網路關聯至單一私人區域。
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>是否可以將屬於不同訂用帳戶的虛擬網路，作為解析虛擬網路新增至私人區域？ 
-是，前提是使用者在這兩個虛擬網路及私人 DNS 區域上皆擁有寫入作業權限。 請注意，寫入權限可以被指派給多個 RBAC 角色。 例如，傳統網路參與者 RBAC 角色便具有虛擬網路的寫入權限。 如需 RBAC 角色的詳細資訊，請參閱[角色型存取控制](../role-based-access-control/overview.md)
+是，前提是使用者在這兩個虛擬網路及私人 DNS 區域上皆擁有寫入作業權限。 寫入權限可能配置給多個 RBAC 角色。 例如，傳統網路參與者 RBAC 角色便具有虛擬網路的寫入權限。 如需 RBAC 角色的詳細資訊，請參閱[角色型存取控制](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>當客戶刪除虛擬機器時，是否也會自動刪除私人區域中之自動註冊的虛擬機器 DNS 記錄？
 是。 如果您刪除註冊虛擬網路內的虛擬機器，基於此為註冊虛擬網路的原因，我們將會自動刪除註冊至區域的 DNS 記錄。 
@@ -190,10 +222,10 @@ Azure DNS 的管理是透過 Azure Resource Manager，因此享有 Azure Resourc
 ### <a name="what-happens-when-we-attempt-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>當我嘗試在具有和註冊虛擬網路中 (自動註冊的) 現有虛擬機器相同之主機名稱的私人區域中手動建立新的 DNS 記錄時，會發生什麼事？ 
 如果您嘗試在具有和註冊虛擬網路中現有 (自動註冊的) 虛擬機器相同之主機名稱的私人區域中手動建立新的 DNS 記錄，我們將會允許新的 DNS 記錄覆寫自動註冊的虛擬機器記錄。 此外，如果您隨後嘗試從區域刪除此手動建立的 DNS 記錄，只要虛擬機器仍然存在且有附加私人 IP，刪除將會成功，且自動註冊將會再次發生 (DNS 記錄將會在區域中自動重新建立)。 
 
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone--would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>當我解除註冊虛擬網路和私人區域之間的連結時，會發生什麼事？ 來自虛擬網路的自動註冊虛擬機器記錄是否也會從區域中移除？
+### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>當我取消註冊虛擬網路和私人區域之間的連結時，會發生什麼事？ 來自虛擬網路的自動註冊虛擬機器記錄是否也會從區域中移除？
 是。 如果您解除註冊虛擬網路及私人區域之間的連結 (更新 DNS 區域以移除相關聯的註冊虛擬網路)，Azure 將會從區域移除所有自動註冊的虛擬機器記錄。 
 
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone--do-we-have-to-manually-update-the-private-zone-to-un-link-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>當我刪除已連結至私人區域的註冊 (或解析) 虛擬網路時，會發生什麼事？ 我是否需要手動更新私人區域，以解除作為註冊 (或解析) 虛擬網路的虛擬網路與區域之間的連結？
+### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>當我刪除已連結至私人區域的註冊 (或解析) 虛擬網路時，會發生什麼事？ 我是否需要手動更新私人區域，以取消作為註冊 (或解析) 虛擬網路的虛擬網路與區域之間的連結？
 是。 當您在沒有先解除註冊 (或解析) 虛擬網路與私人區域間連結的情況下便刪除該虛擬網路時，Azure 將會允許您進行該刪除作業，但系統將不會自動解除虛擬網路與任何先前已連結之私人區域之間的連結。 您需要手動解除虛擬網路與私人區域之間的連結。 基於這個原因，我們建議在刪除虛擬網路之前，先解除它和您私人區域之間的連結。
 
 ### <a name="would-dns-resolution-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>在私人區域 (例如 contoso.local) 已連結至虛擬網路的情況下，使用預設 FQDN (internal.cloudapp.net) 的 DNS 解析是否能持續運作？ 
@@ -204,7 +236,7 @@ Azure DNS 的管理是透過 Azure Resource Manager，因此享有 Azure Resourc
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>此預覽期間的私人區域功能是否有任何限制？
 是。 在公開預覽其間，將會存在下列限制：
-* 每個私人區域只能有 1 個註冊虛擬網路
+* 每個私人區域都只能有一個註冊虛擬網路
 * 每個私人區域最多可以有 10 個解析虛擬網路
 * 特定虛擬網路只能連結到單一私人區域作為註冊虛擬網路
 * 特定虛擬網路可以連結到最多 10 個私人區域作為解析虛擬網路

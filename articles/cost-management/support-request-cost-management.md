@@ -1,23 +1,23 @@
 ---
-title: 建立 Azure 成本管理的支援要求 | Microsoft Docs
-description: 這篇文章會逐步解說建立成本管理支援要求所需的步驟。
+title: 在 Azure 中建立 Cloudyn 的支援要求 | Microsoft Docs
+description: 本文會逐步解說建立 Cloudyn 之支援要求所需的步驟。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 35d3153cb485f11fe17689f1ff1d3d88961878d3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d074b263d11c6b12a4283d2ff479a5b3dc1d6908
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296686"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952438"
 ---
-# <a name="create-a-support-request-for-cost-management"></a>建立成本管理的支援要求
+# <a name="create-a-support-request-for-cloudyn"></a>建立 Cloudyn 的支援要求
 
 如果您找不到要尋找的資訊， 或者懷疑問題是服務中斷或錯誤時，您可以開啟支援要求。 開啟支援票證時，請務必一個問題開啟一個支援票證。 這有助於快速傳送回報的問題。
 
@@ -48,4 +48,4 @@ ms.locfileid: "35296686"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解 Azure 成本管理，請繼續進行「成本管理」的[檢閱使用量和成本](tutorial-review-usage.md)教學課程。
+- 若要深入了解 Cloudyn，請繼續進行 Cloudyn 的[檢閱使用量和成本](tutorial-review-usage.md)教學課程。

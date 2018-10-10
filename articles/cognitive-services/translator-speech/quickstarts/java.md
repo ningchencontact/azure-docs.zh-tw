@@ -1,25 +1,27 @@
 ---
-title: Azure 認知服務、Microsoft Translator Speech API 的 Java 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用「Microsoft 認知服務」中的 Microsoft Translator Speech API。
+title: 快速入門：翻譯工具語音 API Java
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用翻譯工具語音 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0db55f4064d3415cb647519ea9030936012a8446
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ROBOTS: NOINDEX
+ms.openlocfilehash: dde7d3dc7c1a744da9a22c0e4c0a483a186aa327
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42093830"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969456"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>搭配 Java 使用 Microsoft Translator Speech API 的快速入門 
+# <a name="quickstart-translator-speech-api-with-java"></a>快速入門：翻譯工具語音 API (使用 Java) 
 <a name="HOLTop"></a>
 
-本文說明如何使用 Microsoft Translator Speech API 來翻譯 .wav 檔案中所說的話語。
+此文章說明如何使用翻譯工具語音 API 來翻譯 .wav 檔案中所說的話語。
 
 ## <a name="prerequisites"></a>必要條件
 

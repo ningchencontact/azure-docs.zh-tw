@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b0ded0fb274f6b64935ddaba75abf23a94063120
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c84470936dfc9610f23dacb55d8d8643a2651f71
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452646"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948395"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入門：將 Linux 容器部署至 Service Fabric
 
@@ -65,7 +65,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 Service Fabric 提供了數項可用來管理叢集及其應用程式的工具：
 
 - Service Fabric Explorer，此為以瀏覽器為基礎的工具。
-- Service Fabric 命令列介面 (CLI)，此 CLI 會在 Azure CLI 2.0 之上執行。
+- Service Fabric 命令列介面 (CLI)，此 CLI 會在 Azure CLI 之上執行。 
 - PowerShell 命令。
 
 在此快速入門中，您會在 Cloud Shell 和 Service Fabric Explorer 中使用 Service Fabric CLI。 以下幾節將說明如何安裝使用這些工具連線至安全叢集所需的憑證。

@@ -1,22 +1,22 @@
 ---
-title: 已加入網域的 Azure HDInsight 叢集中的 Apache Hadoop Oozie 工作流程
-description: 在已加入網域的 Linux 型 HDInsight 企業安全性套件中使用 Hadoop Oozie。 了解如何定義 Oozie 工作流程，以及提交 Oozie 作業。
+title: 具有企業安全性套件之 Azure HDInsight 叢集中的 Apache Hadoop Oozie 工作流程
+description: 在 Linux 型 HDInsight 企業安全性套件中使用 Hadoop Oozie。 了解如何定義 Oozie 工作流程，以及提交 Oozie 作業。
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: 69bf885ad5d6244997c7ce9cf61bdee9e05c1826
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048969"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947483"
 ---
-# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>在已加入網域的 HDInsight Hadoop 叢集中執行 Apache Oozie
+# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie
 Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 Oozie 已與 Hadoop 堆疊整合，並支援下列作業：
 - Apache MapReduce
 - Apache Pig
@@ -26,12 +26,12 @@ Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 Oozie 已與 H
 您也可以使用 Oozie 來排程系統的特定作業，例如 Java 程式或 Shell 指令碼。
 
 ## <a name="prerequisite"></a>必要條件
-- 已加入網域的 Azure HDInsight Hadoop 叢集。 請參閱[設定已加入網域的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
+- 具有企業安全性套件 (ESP) 的 Azure HDInsight Hadoop 叢集。 請參閱[設定具有 ESP 的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
 
     > [!NOTE]
-    > 如需在未加入網域的叢集上使用 Oozie 的詳細指示，請參閱[在 Linux 型 Azure HDInsight 中使用 Hadoop Oozie 工作流程](../hdinsight-use-oozie-linux-mac.md)。
+    > 如需在非 ESP 的叢集上使用 Oozie 的詳細指示，請參閱[在 Linux 型 Azure HDInsight 中使用 Hadoop Oozie 工作流程](../hdinsight-use-oozie-linux-mac.md)。
 
-## <a name="connect-to-a-domain-joined-cluster"></a>連線至已加入網域的叢集
+## <a name="connect-to-an-esp-cluster"></a>連線到 ESP 叢集
 
 如需安全殼層 (SSH) 的詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -262,7 +262,7 @@ nano workflow.xml
     ```
 
 ## <a name="submit-oozie-jobs"></a>提交 Oozie 作業
-為已加入網域的叢集提交 Oozie 作業，類似於在未加入網域的叢集中提交 Oozie 作業。
+針對 ESP 叢集提交 Oozie 作業，類似於在非 ESP 的叢集中提交 Oozie 作業。
 
 如需詳細資訊，請參閱[在 Linux 型 Azure HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](../hdinsight-use-oozie-linux-mac.md)。
 
@@ -311,7 +311,7 @@ Oozie 本身即具有使用者授權設定，可以防止使用者停止或刪�
 針對無法使用或不支援 Ranger 外掛程式的元件 (例如 Hive server 1)，則只能進行粗略的 HDFS 授權。 細微的授權僅透過 Ranger 外掛程式提供。
 
 ## <a name="get-the-oozie-web-ui"></a>取得 Oozie Web UI
-Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 若要取得 Web UI，請在已加入網域的叢集中執行下列步驟：
+Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 若要取得 Web UI，請在 ESP 叢集中執行下列步驟：
 
 1. 新增[邊緣節點](../hdinsight-apps-use-edge-node.md)，並啟用 [SSH Kerberos 驗證](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 

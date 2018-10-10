@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 1009a7a1d9f354f7a41b0e3a0fbc49d57992bc31
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 034731ac2c965d6b9b682c62b9866870e558ff6d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42916465"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964662"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>快速入門：建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶
 
@@ -49,7 +49,7 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 
 ### <a name="install-the-cli-locally"></a>在本機安裝 CLI
 
-您也可以在本機安裝及使用 Azure CLI。 此快速入門需要您執行 Azure CLI 2.0.38 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+您也可以在本機安裝及使用 Azure CLI。 此快速入門需要您執行 Azure CLI 2.0.38 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 帳戶的建立概觀
 
@@ -58,7 +58,7 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 > [!NOTE]
 > 您必須建立 **StorageV2 (general-purpose V2)** 類型的新儲存體帳戶，才能利用 Data Lake Storage Gen2 功能。  
 
-如需儲存體帳戶類型的詳細資訊，請參閱 [Azure 儲存體帳戶選項](../common/storage-account-options.md)。
+如需儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md)。
 
 為您的儲存體帳戶命名時，請記住這些規則：
 

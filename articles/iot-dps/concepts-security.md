@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 82548ef8fd3f992eedd77c93be47cb5328a584c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92a30f0754decc3052bf53a64da13325ddc4f954
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628635"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946556"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT 中樞裝置佈建服務的安全性概念 
 
@@ -26,9 +26,11 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 > [!NOTE]
 > IoT 中樞會針對該服務中的類似概念使用「驗證配置」。
 
-裝置佈建服務支援兩種形式的證明：
+裝置佈建服務支援下列形式的證明：
 * 以標準 X.509 憑證驗證流程為基礎的 **X.509 憑證**。
-* **信賴平台模組 (TPM)** 是以 nonce 挑戰為基礎，使用金鑰的 TPM 標準，提供已簽署的共用存取簽章 (SAS) 權杖。 使用此種形式時，裝置不需要有實體 TPM 即可執行此動作，但該服務會因為 [TPM 規格](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)的需求，而預期裝置使用簽署金鑰進行證明。
+* **信賴平台模組 (TPM)** 是以 nonce 挑戰為基礎，使用金鑰的 TPM 標準，提供已簽署的共用存取簽章 (SAS) 權杖。 使用此證明形式時，裝置不需要有實體 TPM，但該服務會根據 [TPM 規格](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)，而預期裝置使用簽署金鑰進行證明。
+* 以共用存取簽章 (SAS) [安全性權杖](../iot-hub/iot-hub-devguide-security.md#security-tokens)為基礎的**對稱金鑰**，其包含雜湊簽章與內嵌到期日。 如需詳細資訊，請參閱[對稱金鑰證明](concepts-symmetric-key-attestation.md)。
+
 
 ## <a name="hardware-security-module"></a>硬體安全模組
 
@@ -55,7 +57,7 @@ TPM 證明是以 nonce 挑戰為基礎，會使用簽署和儲存根金鑰來出
 
 ## <a name="x509-certificates"></a>X.509 憑證
 
-使用 X.509 憑證作為證明機制是調整生產環境並簡化裝置佈建的絕佳方式。 X.509 憑證通常會排列在信任鏈結中，其中每個憑證是由下一個較高憑證的私密金鑰簽署，依此類推，於自我簽署的根憑證終止。 這樣會從受信任根憑證授權單位 (CA) 產生的根憑證，透過每個中繼 CA 將委派的信任鏈結建立至裝置上安裝之終端實體「分葉」憑證。 若要深入了解，請參閱[使用 X.509 CA 憑證進行裝置驗證](/azure/iot-hub/iot-hub-x509ca-overview)。 
+使用 X.509 憑證作為證明機制是調整生產環境並簡化裝置佈建的絕佳方式。 X.509 憑證通常會排列在信任鏈結中，其中每個憑證是由下一個較高憑證的私密金鑰簽署，依此類推，於自我簽署的根憑證終止。 這種方式會從受信任根憑證授權單位 (CA) 產生的根憑證，透過每個中繼 CA 將委派的信任鏈結建立至裝置上安裝之終端實體「分葉」憑證。 若要深入了解，請參閱[使用 X.509 CA 憑證進行裝置驗證](/azure/iot-hub/iot-hub-x509ca-overview)。 
 
 通常憑證鏈結代表與裝置相關聯的某些邏輯或實體階層。 例如，製造商可能：
 - 發出自我簽署根 CA 憑證

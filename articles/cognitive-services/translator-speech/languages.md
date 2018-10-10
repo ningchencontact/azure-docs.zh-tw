@@ -1,22 +1,24 @@
 ---
-title: Microsoft Translator 語音 API 支援的語言 | Microsoft Docs
-description: 檢視 Microsoft Translator 語音 API 支援的語言。
+title: 支援的語言 - Translator Speech API
+titlesuffix: Azure Cognitive Services
+description: 檢視翻譯工具語音 API 支援的語言。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0d33033442a012290baa78d80f1b8bde0499b3f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c0d0e17026dc0c970138c30f83dc9eb98db4228
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370694"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950177"
 ---
-# <a name="languages-supported-by-the-microsoft-translator-speech-api"></a>Microsoft Translator 語音 API 支援的語言
+# <a name="languages-supported-by-the-translator-speech-api"></a>翻譯工具語音 API 支援的語言
 語音翻譯支援以下語言。 如果語音翻譯兩種語言都支援，則可以使用語音轉換語音或語音轉換文字。 如果語音翻譯不支援目標語言，則只能使用語音轉換文字翻譯。 
 
 | 語音語言    |
@@ -32,7 +34,7 @@ ms.locfileid: "35370694"
 | 俄文      |
 | 西班牙文      | 
 
-Microsoft Translator 語音 API 支援以下語言作為語音轉換文字翻譯的目標語言。 
+翻譯工具語音 API 支援以下語言作為語音轉換文字翻譯的目標語言。 
 
 | 文字語言    | 語言代碼 |
 |:----------- |:-------------:|
@@ -102,7 +104,7 @@ Microsoft Translator 語音 API 支援以下語言作為語音轉換文字翻譯
 
 ## <a name="access-the-list-programmatically"></a>以程式設計方式存取清單
 
-您可以使用語言資源以程式設計方式存取支援的語言清單。 此清單提供語言代碼，以及該語言的英文名稱或任何其他受支援語言的名稱。 當我們提供新語言時，Microsoft Translator 服務會自動更新此清單。
+您可以使用語言資源以程式設計方式存取支援的語言清單。 此清單提供語言代碼，以及該語言的英文名稱或任何其他受支援語言的名稱。 當我們提供新語言時，翻譯工具語音服務會自動更新此清單。
 
 語言資源會傳回語音、文字和文字轉換語音的支援語言清單。 語言資源不需要驗證。
 

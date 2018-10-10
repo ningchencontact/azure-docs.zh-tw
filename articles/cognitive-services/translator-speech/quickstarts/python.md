@@ -1,25 +1,27 @@
 ---
-title: Azure 認知服務、Microsoft Translator Speech API 的 Python 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用「Microsoft 認知服務」中的 Microsoft Translator Speech API。
+title: 快速入門：翻譯工具語音 API Python
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用翻譯工具語音 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a24ccd456df533542e7cbd2315fc1050cd82afbf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ROBOTS: NOINDEX
+ms.openlocfilehash: 601e8473482cf6d90151b221309aef4d48d368d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42093814"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979010"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>搭配 Python 使用 Microsoft Translator Speech API 的快速入門 
+# <a name="quickstart-translator-speech-api-with-python"></a>快速入門：翻譯工具語音 API (使用 Python)
 <a name="HOLTop"></a>
 
-本文說明如何使用 Microsoft Translator Speech API 來翻譯 .wav 檔案中所說的話語。
+此文章說明如何使用翻譯工具語音 API 來翻譯 .wav 檔案中所說的話語。
 
 ## <a name="prerequisites"></a>必要條件
 

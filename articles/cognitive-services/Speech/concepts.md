@@ -1,5 +1,6 @@
 ---
-title: 概念 | Microsoft Docs
+title: Bing 語音概念 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: 用於 Microsoft 語音服務的基本概念。
 services: cognitive-services
 author: zhouwangzw
@@ -7,14 +8,15 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bc23f4fb7dfc045a0f8cc87155c31875c4de8450
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08790d73dd4fd182d8129c755a291fd99b6136a2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368459"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954104"
 ---
 # <a name="basic-concepts"></a>基本概念
 
@@ -73,14 +75,14 @@ ms.locfileid: "35368459"
 Microsoft 語音辨識服務為開發人員提供兩種可將語音新增到應用程式的方式。
 
 - [REST API](GetStarted/GetStartedREST.md)：開發人員可以從自己的應用程式中對服務使用 HTTP 呼叫，來取得語音辨識服務。
-- [用戶端程式庫](GetStarted/GetStartedClientLibraries.md)：如需進階功能，開發人員可以下載 Microsoft 語音用戶端程式庫，並連結至他們的應用程式。  用戶端程式庫可用於使用不同語言 (C#、Java、JavaScript、ObjectiveC) 的各種平台 (Windows、Android、iOS)。
+- [用戶端程式庫](GetStarted/GetStartedClientLibraries.md)：如需進階功能，開發人員可以下載 Microsoft Speech 用戶端程式庫，並連結至他們的應用程式。  用戶端程式庫可用於使用不同語言 (C#、Java、JavaScript、ObjectiveC) 的各種平台 (Windows、Android、iOS)。
 
 | 使用案例 | [REST APIs](GetStarted/GetStartedREST.md) | [用戶端程式庫](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| 轉換簡短的口說音訊，例如命令 (音訊長度 < 15 秒)，並且不含中期結果 | yes | yes |
-| 轉換長音訊 (> 15 秒) | 否 | yes |
-| 串流音訊，並且包含所需的中期結果 | 否 | yes |
-| 使用 LUIS 了解從音訊轉換的文字 | 否 | yes |
+| 轉換簡短的語音，例如命令 (音訊長度 < 15 秒)，但不提供中期結果 | 是 | 是 |
+| 轉換長音訊 (> 15 秒) | 否 | 是 |
+| 串流音訊並提供所需的中期結果 | 否 | 是 |
+| 使用 LUIS 來理解從音訊轉換的文字 | 否 | 是 |
 
  如果您的語言或平台還沒有 SDK，您可以根據[通訊協定文件](API-Reference-REST/websocketprotocol.md)建立您自己的實作。
 

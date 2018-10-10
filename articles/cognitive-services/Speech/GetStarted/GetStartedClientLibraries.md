@@ -1,20 +1,22 @@
 ---
-title: 使用 Bing 語音用戶端程式庫來開始使用 Microsoft 語音辨識 API | Microsoft Docs
-description: 使用 Microsoft 認知服務中的 Microsoft 語音服務用戶端程式庫，來開發將語音轉換成文字的應用程式。
+title: 使用用戶端程式庫來開始使用 Bing 語音辨識 API | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: 使用 Microsoft 認知服務中的 Bing 語音用戶端程式庫，來開發將語音轉換成文字的應用程式。
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ROBOTS: NOINDEX
+ms.openlocfilehash: e9d1bf1a6a2383a58a890ce9add816f9e9060273
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048452"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948130"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>開始使用 Bing 語音服務用戶端程式庫
 
@@ -43,3 +45,4 @@ ms.locfileid: "43048452"
 ## <a name="license"></a>授權
 
 所有「認知服務 SDK」和範例都是透過 MIT 授權來獲得授權的。 如需詳細資訊，請參閱[授權](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md) \(英文\)。
+

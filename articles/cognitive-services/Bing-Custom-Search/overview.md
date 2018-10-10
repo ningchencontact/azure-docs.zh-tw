@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7cd61fc63d0d7734b842ed222c67c6753da9a418
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368842"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948072"
 ---
 # <a name="what-is-bing-custom-search"></a>什麼是 Bing 自訂搜尋？
 
@@ -30,18 +30,34 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
 
 ![圖片替代文字](./media/bcs-overview.png "Bing 自訂搜尋如何運作。")
 
-## <a name="customize-search-suggestions"></a>自訂搜尋建議
+## <a name="adding-custom-search-box-suggestions"></a>新增自訂搜尋方塊建議
 
-如果您訂閱了適當等級的自訂搜尋 (請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/))，就可以自訂在您的自訂搜尋體驗中所做的搜尋建議。 自訂自動建議 API 會根據使用者提供的部分查詢字串，傳回一份建議的查詢清單。 有了自訂自動建議，您可以提供有助於搜尋體驗的自訂搜尋建議。 您可以指定只傳回自訂的建議，或者要包含 Bing 的建議。 如果包含 Bing 的建議，自訂的建議會在 Bing 提供的建議前面出現。 Bing 的建議會受限於您自訂搜尋執行個體的內容。
+您可以運用自訂搜尋方塊建議提供更豐富的自訂搜尋體驗。 此功能可讓您提供與搜尋體驗有關的自訂搜尋建議。 當使用者在搜尋方塊中輸入時，下拉式清單中會根據使用者輸入的部分查詢字串包含建議的查詢字串。 您可以指定只傳回您自訂的建議，或者也包含 Bing 的建議。 [閱讀更多資訊](define-custom-suggestions.md)。
+
+## <a name="adding-custom-image-search-experience"></a>新增自訂影像搜尋體驗
+
+您可以運用影像提供更豐富的自訂搜尋體驗。 與 Web 結果類似，自訂搜尋支援搜尋執行個體之網站清單中的影像。 [閱讀更多資訊](get-images-from-instance.md)。
+
+## <a name="adding-custom-video-search-experience"></a>新增自訂影片搜尋體驗
+
+您可以運用影片提供更豐富的自訂搜尋體驗。 與 Web 結果類似，自訂搜尋支援搜尋執行個體之網站清單中的影片。 [閱讀更多資訊](get-videos-from-instance.md)。
+
+## <a name="sharing-your-custom-search-instance-with-others"></a>與他人共用自訂搜尋執行個體
+
+將執行個體分享給小組成員，輕鬆就能共同編輯和測試。 [閱讀更多資訊](share-your-custom-search.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
 若要快速開始，請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
 
-如需自訂搜尋執行個體可用選項的詳細資訊，請參閱[定義自訂搜尋執行個體](define-your-custom-view.md)。
+如需有關自訂搜尋執行個體的詳細資，請參閱[定義自訂搜尋執行個體](define-your-custom-view.md)。
 
-請熟悉[自訂搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) 參考。 此參考包含端點、標頭，以及您用來要求搜尋結果的查詢參數清單。 它也包含回應物件的定義。
+讓自己熟悉每個自訂搜尋端點的內容。 此參考包含端點、標頭，以及您用來要求搜尋結果的查詢參數。 它也包含回應物件的定義。
 
-若要了解如何自訂建議，請參閱[定義自訂搜尋建議](define-custom-suggestions.md)。
+- [自訂搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [自訂影像 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [自訂影片 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [自訂自動建議 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+
 
 務必閱讀 [Bing 使用和顯示需求](./use-and-display-requirements.md)，您才不會違反任何有關使用搜尋結果的規則。

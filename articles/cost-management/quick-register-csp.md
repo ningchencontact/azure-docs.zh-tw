@@ -1,25 +1,25 @@
 ---
-title: 使用 CSP 合作夥伴資訊向 Azure 成本管理進行註冊 | Microsoft Docs
-description: 使用您的 CSP 合作夥伴資訊向 Azure 成本管理進行註冊。
+title: 使用 CSP 合作夥伴資訊向 Azure中的 Cloudyn 註冊 | Microsoft Docs
+description: 使用您的 CSP 合作夥伴資訊向 Cloudyn 註冊。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/06/2018
+ms.date: 09/18/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: e97ac06d5740a793d5f811e1a7ac01fef1a32806
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 698ddab4f5bca5aacf79cb952a51c385a67eee32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578053"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985425"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>註冊 CSP 合作夥伴計劃並檢視成本資料
 
-如果您是 CSP 合作夥伴，可以向 Azure 成本管理進行註冊。 註冊將可提供 Cloudyn 入口網站的存取權。 本快速入門詳細說明建立 Cloudyn 試用訂用帳戶並登入 Cloudyn 入口網站所需的註冊程序。 它也會示範如何立即開始檢視成本資料。
+如果您是 CSP 合作夥伴，可以向 Cloudyn 註冊。 註冊將可提供 Cloudyn 入口網站的存取權。 本快速入門詳細說明建立 Cloudyn 試用訂用帳戶並登入 Cloudyn 入口網站所需的註冊程序。 它也會示範如何立即開始檢視成本資料。
 
 
 >[!NOTE]
@@ -35,12 +35,12 @@ ms.locfileid: "39578053"
 
 - 在 http://portal.azure.com 登入 Azure 入口網站。
 
-## <a name="register-with-azure-cost-management"></a>註冊 Azure 成本管理
+## <a name="register-with-cloudyn"></a>向 Cloudyn 註冊
 
 1. 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。
-2. 在 [概觀] 底下，按一下 [成本管理]  
-    ![成本管理頁面](./media/quick-register-csp/cost-mgt-billing-service.png)
-3. 在 [成本管理] 頁面上，按一下 [移至成本管理] 以在新視窗開啟 Cloudyn 註冊頁面。
+2. 在 [概觀] 下，按一下 [Cloudyn]  
+    ![Cloudyn 頁面](./media/quick-register-csp/cost-mgt-billing-service.png)
+3. 在 [Cloudyn] 頁面上，按一下 [前往 Cloudyn] 以在新視窗開啟 Cloudyn 註冊頁面。
 4. 在 Cloudyn 入口網站試用註冊頁面上，輸入您的公司名稱，選取 [Microsoft CSP 合作夥伴計劃管理員]，然後按一下 [下一步]。  
 5. 輸入 [應用程式識別碼]、[商務識別碼]、[應用程式祕密金鑰 ]，並選取 [預設定價方案]。 如果您無法立即取得該資訊，請使用您的主要系統管理員帳戶從 [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) 登入合作夥伴中心入口網站，並執行下列步驟：
   1. 移至 [儀表板]，然後依序按一下 [設定] 符號、[合作夥伴設定] 和 [應用程式管理]。
@@ -62,7 +62,7 @@ ms.locfileid: "39578053"
 若要啟用間接 CSP 客戶或合作夥伴的存取，依照[建立試用版註冊](#create-a-trial-registration)中的的步驟設定試用版註冊。 接下來，使用 Cloudyn 實體群組，完成下列步驟以分割間接 CSP 的資料。 然後，將適當的使用者權限指派給實體群組。
 
 1. 在[建立實體](tutorial-user-access.md#create-and-manage-entities)提供資訊建立實體群組。
-2. 遵循[將訂用帳戶指派給成本實體](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities)的步驟。 將間接 CSP 客戶的帳戶及其 Azure 訂用帳戶，與您先前建立的實體產生關聯。
+2. 遵循[將訂用帳戶指派給成本實體](https://support.cloudyn.com/hc/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities)的步驟。 將間接 CSP 客戶的帳戶及其 Azure 訂用帳戶，與您先前建立的實體產生關聯。
 3. 依照[建立具有系統管理員存取權的使用者](tutorial-user-access.md#create-a-user-with-admin-access)的步驟，建立具有系統管理員存取權的使用者帳戶。 接著，確定此使用者帳戶具有特定實體 (您先前為間接帳戶建立) 的系統管理員存取權。
 
 間接 CSP 夥伴使用您為他們建立的帳戶登入 Cloudyn 入口網站。
@@ -72,7 +72,7 @@ ms.locfileid: "39578053"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您使用 CSP 訂用帳戶資訊向「成本管理」進行註冊。 您也登入了 Cloudyn 入口網站，並開始檢視成本資料。 若要深入了解 Azure 成本管理，請繼續進行成本管理的教學課程。
+在此快速入門中，您會使用 CSP 資訊向 Cloudyn 註冊。 您也登入了 Cloudyn 入口網站，並開始檢視成本資料。 若要深入了解 Cloudyn，請繼續 Cloudyn 的教學課程。
 
 > [!div class="nextstepaction"]
 > [檢閱使用量和成本](./tutorial-review-usage.md)

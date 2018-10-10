@@ -1,6 +1,6 @@
 ---
-title: 設定 VM (傳統) 的私人 IP 位址 - Azure CLI 1.0 | Microsoft Docs
-description: 了解如何使用 Azure 命令列介面 (CLI) 1.0 設定虛擬機器 (傳統) 的私人 IP 位址。
+title: 設定 VM (傳統) 的私人 IP 位址 - Azure 傳統 CLI | Microsoft Docs
+description: 了解如何使用 Azure 傳統命令列介面 (CLI) 設定虛擬機器 (傳統) 的私人 IP 位址。
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a18877167d04fdb039070d5315390a846925fd29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f340b9843ed5763a20d2035e3add86123a1298e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791802"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971139"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 設定虛擬機器 (傳統) 的私人 IP 位址
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 設定虛擬機器 (傳統) 的私人 IP 位址
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -33,12 +33,12 @@ ms.locfileid: "31791802"
 
 本文涵蓋之內容包括傳統部署模型。 您也可以 [管理資源管理員部署模型中的靜態私人 IP 位址](virtual-networks-static-private-ip-arm-cli.md)。
 
-下列範例 Azure CLI 命令會預期已經建立簡單的環境。 如果您想要執行如本文件中所顯示的命令，請先建置 [建立 vnet](virtual-networks-create-vnet-classic-cli.md)中所說明的測試環境。
+下列範例 Azure 傳統 CLI 命令會預期已經建立簡單的環境。 如果您想要執行如本文件中所顯示的命令，請先建置 [建立 vnet](virtual-networks-create-vnet-classic-cli.md)中所說明的測試環境。
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>建立 VM 時如何指定靜態私人 IP 位址
 若要根據上述案例，在名為 TestService 的雲端服務中建立名為 DNS01 的新 VM，請遵循下列步驟：
 
-1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
+1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](/cli/azure/install-cli-version-1.0) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
 2. 執行 **azure service create** 命令來建立雲端服務。
    
         azure service create TestService --location uscentral
@@ -124,4 +124,3 @@ ms.locfileid: "31791802"
 * 深入了解 [保留的公用 IP](virtual-networks-reserved-public-ip.md) 位址。
 * 深入了解 [執行個體層級公用 IP (ILPIP)](virtual-networks-instance-level-public-ip.md) 位址。
 * 請參閱 [保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
-

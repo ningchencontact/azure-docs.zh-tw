@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714446"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956501"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>什麼是角色型存取控制 (RBAC)？
 
@@ -89,7 +89,7 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 - 如果您將[讀者](built-in-roles.md#reader)角色指派給訂用帳戶範圍的群組，則該群組的成員可以檢視訂用帳戶中的每個資源群組和資源。
 - 如果您將[參與者](built-in-roles.md#contributor)角色指派給資源群組範圍的應用程式，則該應用程式可以管理該資源群組中所有類型的資源，但是無法管理訂用帳戶中的其他資源群組。
 
-### <a name="role-assignment"></a>角色指派
+### <a name="role-assignments"></a>角色指派
 
 「角色指派」是一個繫結程序，其為了授與存取權，而將角色定義繫結至特定範圍的使用者、群組或服務主體。 建立角色指派可授與存取權，而移除角色指派則可撤銷存取權。
 
@@ -98,6 +98,32 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 ![角色指派可控制存取權](./media/overview/rbac-overview.png)
 
 您可以使用 Azure 入口網站、Azure CLI、Azure PowerShell、Azure SDK 或 REST API 建立角色指派。 您在每個訂用帳戶中可以有最多 2000 個角色指派。 若要建立和移除角色指派，您必須具有 `Microsoft.Authorization/roleAssignments/*` 權限。 此權限是透過[擁有者](built-in-roles.md#owner)或[使用者存取管理員](built-in-roles.md#user-access-administrator)角色來授與。
+
+## <a name="deny-assignments"></a>拒絕指派
+
+在以前，RBAC 為不含拒絕的僅允許模型，但現在，RBAC 會以有限方式支援拒絕指派。 與角色指派相同，「拒絕指派」也會基於拒絕存取權的目的來繫結一組在特定範圍內拒絕使用者、群組或服務主體的動作。 角色指派會定義一組「允許」的動作，而拒絕指派會定義一組「不允許」的動作。 換句話說，拒絕指派會封鎖使用者執行指定的動作，即使角色指派授與他們存取權也一樣。 拒絕指派的優先順序高於角色指派。
+
+目前，拒絕指派是**唯讀的**，而且只能由 Azure 設定。 即使您無法建立自己的拒絕指派，還是可以列出拒絕指派，因為它們可能會影響您的有效權限。 若要取得拒絕指派的相關資訊，您必須擁有 `Microsoft.Authorization/denyAssignments/read` 權限，此權限包含於大部分的[內建角色](built-in-roles.md#owner)中。 如需詳細資訊，請參閱[了解拒絕指派](deny-assignments.md)。
+
+## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>RBAC 如何判斷使用者是否有權存取資源
+
+以下是 RBAC 在管理平面上用來判斷您是否有權存取資源的概要步驟。 這有助於了解您是否正嘗試對存取問題進行疑難排解。
+
+1. 使用者 (或服務主體) 會取得適用於 Azure Resource Manager 的權杖。
+
+    權杖包含使用者的群組成員資格 (包括可轉移的群組成員資格)。
+
+1. 使用者可以使用附加的權杖，來對 Azure Resource Manager 進行 REST API 呼叫。
+
+1. Azure Resource Manager 會擷取所有角色指派和拒絕指派，以套用到要據以採取動作的資源。
+
+1. Azure Resource Manager 會縮小要套用到此使用者或其群組之角色指派的範圍，並判斷使用者針對此資源需具備哪些角色。
+
+1. Azure Resource Manager 會判斷 API 呼叫中的動作是否包含於使用者針對此資源所具備的角色中。
+
+1. 如果使用者在要求範圍內不具含有該動作的角色，則不會授與存取權。 否則，Azure Resource Manager 會檢查拒絕指派是否適用。
+
+1. 如果拒絕指派適用，則會封鎖存取。 否則會授與存取權。
 
 ## <a name="next-steps"></a>後續步驟
 

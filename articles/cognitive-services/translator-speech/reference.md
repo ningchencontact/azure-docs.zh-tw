@@ -1,45 +1,46 @@
 ---
-title: Microsoft Translator Speech API 參考 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Microsoft Translator Speech API 參考文件。
+title: 翻譯工具語音 API 參考
+titleSuffix: Azure Cognitive Services
+description: 翻譯工具語音 API 參考文件。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: be8faddf56158de3399713c41638c0b913b4627e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370682"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978704"
 ---
-# <a name="microsoft-translator-speech-api"></a>Microsoft Translator Speech API
+# <a name="translator-speech-api"></a>Translator Speech API
 
-此服務提供串流處理 API，將交談語音從某種語言謄寫為另一種語言的文字。 此 API 也會整合文字轉換語音功能，以說出翻譯的文字。 Microsoft Translator Speech API 會啟用 Skype Translator 中即時翻譯交談這類情節。
+此服務提供串流處理 API，將交談語音從某種語言謄寫為另一種語言的文字。 此 API 也會整合文字轉換語音功能，以說出翻譯的文字。 翻譯工具語音 API 會啟用 Skype Translator 中即時翻譯交談這類情節。
 
-使用 Microsoft Translator Speech API，用戶端應用程式會將語音音訊串流處理至服務，並收回以文字為基礎之結果的資料流，包括來源語言中的已辨識文字以及它在目標語言中的翻譯。 文字結果的產生是透過將採用深度類神經網路技術的自動語音辨識 (ASR) 套用至內送音訊資料流。 原始 ASR 輸出使用稱為 TrueText 的新技術進一步改善，以更密切地反映使用者意圖。 例如，TrueText 會移除言語上的不流利 (嗯和咳嗽)，並還原適當的標點符號和大小寫。 也會包括遮罩或排除粗話的能力。 會特別訓練辨識和翻譯引擎，以處理交談語音。 Speech Translation 服務使用無回應偵測來判斷語句結束。 暫停語音活動之後，服務會串流處理回已完成語句的最終結果。 此服務也可以送回部分結果，以提供進行中語句的中繼辨識和翻譯。 在最終結果中，此服務提供以目標語言從口語文字合成語音 (文字轉換語音) 的能力。 會以用戶端指定的格式建立文字轉換語音音訊。 有 WAV 和 MP3 格式可用。
+使用翻譯工具語音 API，用戶端應用程式會將語音音訊串流處理至服務，並接收以文字為基礎之結果的資料流，包括來源語言中的已辨識文字以及它在目標語言中的翻譯。 產生文字結果時，是透過將採用深度類神經網路技術的「自動語音辨識」(ASR) 套用至傳入的音訊資料流來產生。 原始 ASR 輸出使用稱為 TrueText 的新技術進一步改善，以更密切地反映使用者意圖。 例如，TrueText 會移除言語上的不流利 (嗯和咳嗽)，並還原適當的標點符號和大小寫。 也會包括遮罩或排除粗話的能力。 辨識和翻譯引擎皆特別經過訓練來處理交談語音。 「語音翻譯」服務使用無聲偵測來判斷語句的結束。 在語音活動暫停之後，服務會串流來傳回已完成語句的最終結果。 此服務也可以送回部分結果，以提供進行中語句的中繼辨識和翻譯。 在最終結果中，此服務提供以目標語言從口語文字合成語音 (文字轉換語音) 的能力。 會以用戶端指定的格式建立文字轉換語音音訊。 可用的格式包括 WAV 和 MP3。
 
-Microsoft Translator Speech API 利用 WebSocket 通訊協定來提供用戶端與伺服器之間的全雙工通訊通道。 應用程式將需要這些步驟，才能使用服務：
+翻譯工具語音 API 利用 WebSocket 通訊協定來提供用戶端與伺服器之間的全雙工通訊通道。 應用程式將需要這些步驟，才能使用服務：
 
 ## <a name="1-getting-started"></a>1.開始使用
-若要存取 Microsoft Translator Text API，您需要[註冊 Microsoft Azure](translator-speech-how-to-signup.md)。
+若要存取翻譯工具語音 API，您需要[註冊 Microsoft Azure](translator-speech-how-to-signup.md)。
 
 ## <a name="2-authentication"></a>2.驗證
 
-使用訂用帳戶金鑰驗證。 Microsoft Translator Speech API 支援兩種驗證模式：
+使用訂用帳戶金鑰驗證。 翻譯工具語音 API 支援兩種驗證模式：
 
-* **使用存取權杖：** 在應用程式中，從權杖服務取得存取權杖。 使用 Microsoft Translator Speech API 訂用帳戶金鑰，從認知服務驗證服務取得存取權杖。 存取權杖的有效時間為 10 分鐘。 每隔 10 分鐘取得新的存取權杖一次，並在這 10 分鐘內針對重複的要求持續使用相同的存取權杖。
+* **使用存取權杖：** 在應用程式中，從權杖服務取得存取權杖。 使用翻譯工具語音 API 訂用帳戶金鑰，從 Azure 認知服務驗證服務取得存取權杖。 存取權杖的有效時間為 10 分鐘。 每隔 10 分鐘取得新的存取權杖一次，並在這 10 分鐘內針對重複的要求持續使用相同的存取權杖。
 
 * **直接使用訂用帳戶金鑰：** 在應用程式中，將訂用帳戶金鑰傳遞為 `Ocp-Apim-Subscription-Key` 標頭中的值。
 
 將您的訂用帳戶金鑰和存取權杖作為應該隱藏不予檢視的祕密。
 
 ## <a name="3-query-languages"></a>3.查詢語言
-**查詢目前這組受支援語言的 Languages 資源。** [languages 資源](languages-reference.md)會公開可用於語音辨識、文字翻譯和文字轉換語音的這組語言和語音。 每種語言或語音都會獲指定一個識別碼，而 Microsoft Translator Speech API 使用它來識別相同的語言或語音。
+**查詢目前這組受支援語言的 Languages 資源。** [languages 資源](languages-reference.md)會公開可用於語音辨識、文字翻譯和文字轉換語音的這組語言和語音。 每種語言或語音都會獲指定一個識別碼，而翻譯工具語音 API 使用它來識別相同的語言或語音。
 
 ## <a name="4-stream-audio"></a>4.資料流音訊
 **開啟連線，然後開始將音訊串流處理至服務。** 服務 URL 是 `wss://dev.microsofttranslator.com/speech/translate`。 在下面，透過 `/speech/translate` 作業描述服務所需要的屬性和音訊格式。 使用其中一個參數傳遞上述步驟 2 中的存取權杖。
@@ -47,7 +48,7 @@ Microsoft Translator Speech API 利用 WebSocket 通訊協定來提供用戶端�
 ## <a name="5-process-the-results"></a>5.處理結果
 **處理從服務串流處理回的結果。** 下面的 `/speech/translate` 作業文件描述局部結果、最終結果和文字轉換語音音訊區段的格式。
 
-您可以從 [Microsoft Translator Github 網站](https://github.com/MicrosoftTranslator)取得示範使用 Microsoft Translator Speech API 的程式碼範例。
+您可以從 [Microsoft Translator Github 網站](https://github.com/MicrosoftTranslator)取得示範翻譯工具語音 API 使用方式的程式碼範例。
 
 ## <a name="implementation-notes"></a>實作附註
 
@@ -184,7 +185,7 @@ GET /speech/translate 建立語音翻譯的工作階段
 |HTTP 狀態碼|原因|回應模型|headers|
 |:--|:--|:--|:--|
 |101    |WebSocket 升級。|模型範例值 <br/> 物件 {}|X-RequestId<br/>值，識別進行疑難排解的要求。<br/>字串|
-|400    |錯誤的要求。 請檢查輸入參數，確保其有效。 回應物件包括錯誤的更詳細描述。|||
+|400    |不正確的要求。 請檢查輸入參數，以確保參數有效。 回應物件包括錯誤的更詳細描述。|||
 |401    |未經授權。 確定已設定認證、認證有效，而且您的 Azure Data Market 訂用帳戶具有可用餘額。|||
 |500    |發生錯誤。 若錯誤仍然存在，請使用用戶端追蹤識別碼 (X-ClientTraceId) 或要求識別碼 (X-RequestId) 予以回報。|||
 |503    |暫時無法使用伺服器。 請重試要求。 若錯誤仍然存在，請使用用戶端追蹤識別碼 (X-ClientTraceId) 或要求識別碼 (X-RequestId) 予以回報。|||

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jasonh
-ms.openlocfilehash: e12379dbb63e57ee12e1cebb1761f0b103d50ef1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110522"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978024"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
@@ -89,7 +89,7 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
 * 在叢集節點上以**根層級權限**執行。
 
-* 可以透過 **Azure 入口網站**、**Azure PowerShell**、**Azure CLI v1.0** 或 **HDInsight .NET SDK** 使用。
+* 可以透過 **Azure 入口網站**、**Azure PowerShell**、**Azure 傳統 CLI** 或 **HDInsight .NET SDK** 使用
 
 叢集會保留所有已執行指令碼的歷程記錄。 當您需要尋找升級或降級作業之指令碼的識別碼時，歷程記錄就很有用。
 
@@ -147,20 +147,20 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
 * Azure 入口網站
 * Azure PowerShell
-* Azure CLI v1.0
+* Azure 傳統 CLI
 * HDInsight .NET SDK
 
 HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 | 名稱 | 指令碼 |
 | --- | --- |
-| **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。請參閱 [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
-| **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
-| **安裝 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh。請參閱 [在 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
-| **安裝 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
-| **安裝 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
-| **預先載入 Hive 程式庫** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
-| **安裝或更新 Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash。 請參閱 [在 HDInsight 上安裝或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
+| **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh 。請參閱 [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
+| **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 。請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
+| **安裝 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh 。請參閱 [在 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
+| **安裝 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh 。請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
+| **安裝 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh 。請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
+| **預先載入 Hive 程式庫** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh 。請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
+| **安裝或更新 Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash 。 請參閱 [在 HDInsight 上安裝或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在建立叢集期間使用指令碼動作
 
@@ -292,10 +292,9 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>從 Azure CLI 將指令碼動作套用到執行中的叢集
 
-在繼續之前，請確認您已安裝和設定 Azure CLI。 如需詳細資訊，請參閱 [安裝 Azure CLI 1.0](../cli-install-nodejs.md)。
+在繼續之前，請確認您已安裝和設定 Azure CLI。 如需詳細資訊，請參閱[安裝 Azure 傳統 CLI](../cli-install-nodejs.md)。
 
-> [!IMPORTANT]
-> HDInsight 需要 Azure CLI 1.0。 目前 Azure CLI 2.0 並未提供可與 HDInsight 搭配運作的命令。
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 1. 若要切換至 Azure Resource Manager 模式，請於命令列使用下列命令：
 
@@ -380,7 +379,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
-### <a name="using-the-azure-cli"></a>使用 Azure CLI
+### <a name="using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI
 
 | 使用下列... | 來 ... |
 | --- | --- |

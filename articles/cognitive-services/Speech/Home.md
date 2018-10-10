@@ -1,5 +1,6 @@
 ---
 title: Microsoft Bing 語音服務 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: 使用 Microsoft Speech API 將語音導向動作新增至您的應用程式，包括與使用者的即時互動。
 services: cognitive-services
 author: zhouwangzw
@@ -7,16 +8,17 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: d58642b95a60d4f1c83dfd969d0c76511dca4653
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b4ab55f4bd8bbd66f2edc8c262524169c79d7f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097390"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975628"
 ---
-# <a name="microsoft-bing-speech-api-overview"></a>Microsoft Bing 語音 API 概觀
+# <a name="what-is-bing-speech"></a>什麼是 Bing 語音？
 
 雲端式 Microsoft Bing 語音 API 可讓開發人員在其應用程式中輕鬆建立支援語音的強大功能，例如語音命令控制、使用自然語音轉換的使用者對話，以及語音文字記錄和聽寫。 Microsoft Speech API 同時支援「語音轉換文字」和「文字轉換語音」轉換。
 

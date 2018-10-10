@@ -16,16 +16,19 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 33b0b2b4148a8cfbe97413bf3cdec23d375206bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930234"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983882"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 範本建立 Linux 虛擬機器
-本文示範如何使用 Azure Resource Manager 範本和 Azure CLI，快速部署 Linux 虛擬機器 (VM)。 
 
+本文示範如何使用 Azure Resource Manager 範本和 Azure CLI，快速部署 Linux 虛擬機器 (VM)。 您也可以使用 [Azure 傳統 CLI](create-ssh-secured-vm-from-template-nodejs.md) 來執行這些步驟。
+
+
+本文示範如何使用 Azure Resource Manager 範本和 Azure CLI，快速部署 Linux 虛擬機器 (VM)。 
 
 ## <a name="templates-overview"></a>範本概觀
 Azure Resource Manager 範本是 JSON 檔案，檔案中定義您的 Azure 解決方案的基礎結構和組態。 透過範本，您可以在整個生命週期中重複部署方案，並確信您的資源會以一致的狀態部署。 若要深入了解範本格式和其建構方式，請參閱[建立第一個 Azure Resource Manager 範本](../../azure-resource-manager/resource-manager-create-first-template.md)。 若要檢視資源類型的 JSON 語法，請參閱[在 Azure Resource Manager 範本中定義資源](/azure/templates/)。

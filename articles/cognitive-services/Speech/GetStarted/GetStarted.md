@@ -1,5 +1,6 @@
 ---
 title: 開始使用 Microsoft 語音服務 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: 使用 Microsoft 語音服務。
 services: cognitive-services
 author: zhouwangzw
@@ -7,16 +8,17 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 9f9058706e2504b8c9ee8a7509e7380c415074a3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2752a8f1db82890e738b65a1c4f646d7749bf7dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368362"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961874"
 ---
-# <a name="get-started-with-speech-service"></a>開始使用語音服務
+# <a name="get-started-with-bing-speech"></a>開始使用 Bing 語音
 
 若要使用 Microsoft 語音辨識服務來將音訊轉換成文字，請參閱語音辨識 [REST API](GetStartedREST.md) 或[用戶端程式庫](GetStartedClientLibraries.md)。
 

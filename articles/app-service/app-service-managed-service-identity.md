@@ -1,6 +1,6 @@
 ---
-title: App Service 和 Azure Functions 中的受控服務識別 | Microsoft Docs
-description: Azure App Service 和 Azure Functions 中受控服務識別支援的概念參考和設定指南
+title: App Service 和 Azure Functions 中的受控身分識別 | Microsoft Docs
+description: Azure App Service 和 Azure Functions 中受控身分識別的概念參考和設定指南
 services: app-service
 author: mattchenderson
 manager: cfowler
@@ -11,22 +11,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: fc1251cafcb2a535ccaf8354cb5c7c8b6a4afd33
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337529"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983637"
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>如何在 App Service 和 Azure Functions 中使用 Azure 受控服務識別
+# <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
 > [!NOTE] 
-> 在 Linux 和用於容器的 Web App 上，App Service 目前不支援受控服務識別。
+> 在 Linux 和用於容器的 Web App 上，App Service 目前不支援受控身分識別。
 
 > [!Important] 
-> 如果您跨越訂用帳戶/租用戶遷移應用程式，App Service 和 Azure Functions 的受控服務識別將無法正常運作。 應用程式將必須取得新的身分識別，這可透過停用並重新啟用功能來實現。 請參閱下方的[移除身分識別](#remove)。 下游資源也必須更新存取原則，才能使用新的身分識別。
+> 如果您跨越訂用帳戶/租用戶移轉應用程式，App Service 和 Azure Functions 的受控身分識別將無法正常運作。 應用程式將必須取得新的身分識別，這可透過停用並重新啟用功能來實現。 請參閱下方的[移除身分識別](#remove)。 下游資源也必須更新存取原則，才能使用新的身分識別。
 
-本主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控服務識別，可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需受控服務識別的詳細資訊，請參閱[受控服務識別概觀](../active-directory/managed-service-identity/overview.md)。
+此主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控身分識別，可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (例如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需有關 ADD 中受控身分識別的詳細資訊，請參閱 [Azure 資源的受控身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
 
 ## <a name="creating-an-app-with-an-identity"></a>建立採用身分識別的應用程式
 
@@ -34,25 +34,25 @@ ms.locfileid: "43337529"
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
 
-若要在入口網站中設定受控服務識別，您需要先像平常一樣建立應用程式，然後再啟用功能。
+若要在入口網站中設定受控身分識別，您需要先像平常一樣建立應用程式，然後再啟用此功能。
 
 1. 像平常一樣在入口網站中建立應用程式。 在入口網站中瀏覽至該應用程式。
 
 2. 如果您使用函式應用程式，請瀏覽至 [平台功能]。 若使用類型的應用程式，請在左側導覽列中向下捲動到 [設定]。
 
-3. 選取 [受控服務識別]。
+3. 選取 [受控身分識別]。
 
 4. 將 [向 Azure Active Directory 註冊應用程式] 切換為 [開啟]。 按一下 [檔案] 。
 
-![App Service 中的受控服務識別](media/app-service-managed-service-identity/msi-blade.png)
+![App Service 中的受控身分識別](media/app-service-managed-service-identity/msi-blade.png)
 
 ### <a name="using-the-azure-cli"></a>使用 Azure CLI
 
-若要使用 Azure CLI 設定受控服務識別，您必須對現有的應用程式使用 `az webapp identity assign` 命令。 有三個選項可供您執行本節中的範例︰
+若要使用 Azure CLI 設定受控身分識別，您必須對現有的應用程式使用 `az webapp identity assign` 命令。 有三個選項可供您執行本節中的範例︰
 
 - 從 Azure 入口網站使用 [Azure Cloud Shell](../cloud-shell/overview.md)。
 - 請透過下方每個程式碼區塊右上角的 [立即試用] 按鈕，使用內嵌的 Azure Cloud Shell。
-- 如果您偏好使用本機 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 或更新版本)。 
+- 如果您偏好使用本機 CLI 主控台，請[安裝最新版的 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 或更新版本)。 
 
 下列步驟將逐步引導您建立 web 應用程式，並使用 CLI 指派身分識別給它：
 
@@ -151,13 +151,13 @@ ms.locfileid: "43337529"
 應用程式可以使用自己的身分識別來取得權杖，存取其他受 AAD 保護的資源 (如 Azure Key Vault)。 這些權杖代表存取資源的應用程式，而不是任何特定的應用程式使用者。 
 
 > [!IMPORTANT]
-> 您可能需要設定目標資源，讓應用程式得以存取。 例如，如果您要求 Key Vault 的權杖，便需要確認是否已新增含有應用程式身分識別的存取原則。 否則即使呼叫含有權杖，依然會遭到拒絕。 若要深入了解哪些資源支援受控服務識別權杖，請參閱[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-service-identity/services-support-msi.md#azure-services-that-support-azure-ad-authentication)。
+> 您可能需要設定目標資源，讓應用程式得以存取。 例如，如果您要求 Key Vault 的權杖，便需要確認是否已新增含有應用程式身分識別的存取原則。 否則即使呼叫含有權杖，依然會遭到拒絕。 若要深入了解哪些資源支援 Azure Active Directory 權杖，請參閱[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)。
 
 有一個簡單的 REST 通訊協定可用來在 App Service 和 Azure Functions 中取得權杖。 對於 .NET 應用程式，Microsoft.Azure.Services.AppAuthentication 程式庫提供讓應用程式透過此通訊協定進行提取的功能，也能支援本機部署經驗。
 
 ### <a name="asal"></a>將 Microsoft.Azure.Services.AppAuthentication 程式庫運用在 .NET 上
 
-對於 .NET 應用程式和函式來說，採用受控服務識別最簡單的方法就是透過 Microsoft.Azure.Services.AppAuthentication 套件。 該程式庫還能讓您使用來自 Visual Studio、[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 或 Active Directory 整合式驗證的使用者帳戶，在部署機器上以本機方式測試程式碼。 如需使用此程式庫之本機開發選項的詳細資訊，請參閱 [Microsoft.Azure.Services.AppAuthentication 參考]。 本節示範如何在您的程式碼中開始使用程式庫。
+對於 .NET 應用程式和函式來說，採用受控身分識別最簡單的方法就是透過 Microsoft.Azure.Services.AppAuthentication 套件。 該程式庫還能讓您使用來自 Visual Studio、[Azure CLI](/cli/azure) 或 Active Directory 整合式驗證的使用者帳戶，在部署機器上以本機方式測試程式碼。 如需使用此程式庫之本機開發選項的詳細資訊，請參閱 [Microsoft.Azure.Services.AppAuthentication 參考]。 本節示範如何在您的程式碼中開始使用程式庫。
 
 1. 將 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 和 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 套件的參考新增至應用程式。
 
@@ -168,7 +168,7 @@ using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
 // OR
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
@@ -177,7 +177,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 ### <a name="using-the-rest-protocol"></a>使用 REST 通訊協定
 
-採用受控服務識別的應用程式有兩個已定義的環境變數：
+採用受控身分識別的應用程式有兩個已定義的環境變數：
 - MSI_ENDPOINT
 - MSI_SECRET
 
@@ -205,7 +205,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 該回應與 [AAD 服務對服務存取權杖要求的回應](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)。
 
 > [!NOTE] 
-> 環境變數會在程序初次啟動時進行設定，因此您在應用程式上啟用受控服務識別前，可能需要重新啟動應用程式或重新部署其程式碼，才可讓您的程式碼使用 `MSI_ENDPOINT` 和 `MSI_SECRET`。
+> 環境變數會在程序初次啟動時進行設定，因此您在應用程式上啟用受控身分識別前，可能需要重新啟動應用程式或重新部署其程式碼，才可讓您的程式碼使用 `MSI_ENDPOINT` 和 `MSI_SECRET`。
 
 ### <a name="rest-protocol-examples"></a>REST 通訊協定範例
 範例要求如下所示：
@@ -276,11 +276,11 @@ $accessToken = $tokenResponse.access_token
 以這種方式將身分識別移除也會從 AAD 刪除主體。 當您刪除應用程式資源時，系統指派的身分識別會自動從 AAD 移除。
 
 > [!NOTE] 
-> 還可以設定另一個應用程式設定：WEBSITE_DISABLE_MSI，這只會停用本機權杖服務。 不過，系統會將身分識別留在原地，且工具仍會將 MSI 顯示為「開啟」或「已啟用」。 因此，不建議使用這個設定。
+> 還可以設定另一個應用程式設定：WEBSITE_DISABLE_MSI，這只會停用本機權杖服務。 不過，系統會將身分識別留在原地，且工具仍會將受控身分識別顯示為「開啟」或「已啟用」。 因此，不建議使用這個設定。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用受控服務識別安全地存取 SQL Database](app-service-web-tutorial-connect-msi.md)
+> [使用受控身分識別安全地存取 SQL Database](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication 參考]: https://go.microsoft.com/fwlink/p/?linkid=862452

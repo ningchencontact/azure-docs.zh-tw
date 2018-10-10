@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: de0d6ee32380367bfba4a27958c9c1e739b5dba3
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e73fe4929d889da768328be22a3e23603dab5be6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173421"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970748"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 PostgreSQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -31,7 +31,7 @@ ms.locfileid: "39173421"
  
 
 > [!IMPORTANT]
-> 本操作說明指南會要求您使用 Azure CLI 2.0 版或更新版本。 若要確認版本，請在 Azure CLI 命令提示字元中輸入 `az --version`。 若要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+> 本操作說明指南會要求您使用 Azure CLI 2.0 版或更新版本。 若要確認版本，請在 Azure CLI 命令提示字元中輸入 `az --version`。 若要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="set-backup-configuration"></a>設定備份組態
 
@@ -84,7 +84,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 完成還原程序後，找出新的伺服器，確認資料如預期般還原。
 
-在還原期間建立的新伺服器不會有原始伺服器中的防火牆規則。 此新伺服器的防火牆規則必須另外設定。
+在還原期間建立的新伺服器不會有原始伺服器中的防火牆規則。 新伺服器的防火牆規則必須另外設定。
 
 ## <a name="geo-restore"></a>異地還原
 如果您已將伺服器設定為使用異地備援備份，則可以從現有伺服器的備份建立新的伺服器。 您可以在任何可使用「適用於 PostgreSQL 的 Azure 資料庫」的區域中建立這個新伺服器。  

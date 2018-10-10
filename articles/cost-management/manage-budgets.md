@@ -1,31 +1,33 @@
 ---
-title: 在 Azure 成本管理中管理預算 | Microsoft Docs
-description: 本文將協助您在成本管理中建立和管理預算。
+title: 在 Azure 中管理 Cloudyn 預算 | Microsoft Docs
+description: 本文可協助您在 Cloudyn 中建立和管理預算。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2018
+ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 106e8f082d148ed9a8c58313177be81ee074a2c3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: bbd232c819a11de691c4d3c3209273b064eddf62
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578458"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963422"
 ---
 # <a name="manage-budgets"></a>管理預算
 
-設定預算及以預算為基礎的警示，有助於改善您雲端的控管和責任歸屬。 本文可協助您在成本管理中快速建立預算，並開始管理這些預算。
+設定預算及以預算為基礎的警示，有助於改善您雲端的控管和責任歸屬。 本文可協助您在 Cloudyn 中快速建立預算，並開始管理這些預算。
 
 如果您有企業帳戶或 MSP 帳戶，您可以使用您的階層式成本實體結構，將每月預算配額指派給不同的業務單位、部門或任何其他成本實體。 如果您有進階帳戶，您可以使用預算管理功能，然後將其套用至整個雲端支出。 所有預算皆為手動指派。
 
 藉由指派的預算，您可以根據耗用的預算百分比來設定閾值警示，並定義每個閾值的嚴重性。
 
 預算報表會顯示指派的預算。 使用者可以檢視他們的支出何時超過、低於或等於一段時間中的耗用量。 當您選取預算報表頂端的 [顯示/隱藏欄位] 時，您可以檢視成本、預算、累積成本或總預算。
+
+「Azure 成本管理」提供與 Cloudyn 類似的功能。 「Azure 成本管理」是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱最佳化建議並依據這些建議採取動作來節省成本。 如需有關成本管理中預算的詳細資訊，請參閱[建立及管理預算](tutorial-acm-create-budgets.md)。
 
 ## <a name="create-budgets"></a>建立預算
 
@@ -83,5 +85,5 @@ ms.locfileid: "45578458"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您尚未完成成本管理的第一個教學課程，請閱讀[檢閱使用量和成本](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage)。
-- 深入了解[成本管理中可用的報表](use-reports.md)。
+- 如果您尚未完成 Cloudyn 的第一個教學課程，請閱讀[檢閱使用量和成本](tutorial-review-usage.md)。
+- 深入了解 [Cloudyn中可用的報表](use-reports.md)。

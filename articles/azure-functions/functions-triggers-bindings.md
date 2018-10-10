@@ -4,23 +4,19 @@ description: 了解如何在 Azure Functions 中使用觸發程序和繫結，�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: 85b7248c9b4c61e29ce3c29b9432f94934255819
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346597"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969422"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
@@ -164,7 +160,7 @@ function generateRandomId() {
 |使用 Visual Studio 2017 的 C# 類別庫|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|
 |使用 Visual Studio Code 的 C# 類別庫|N/A|[使用 .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-下列繫結類型是例外狀況，不需要明確註冊，因為這些類型會在所有版本和環境中自動註冊：HTTP、計時器和 Azure 儲存體 (blob、佇列和資料表)。 
+下列繫結類型是例外，不需要明確註冊，因為這些類型會在所有版本和環境中自動註冊：HTTP 與計時器。
 
 ### <a name="azure-portal-development"></a>Azure 入口網站開發
 

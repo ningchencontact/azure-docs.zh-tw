@@ -1,24 +1,26 @@
 ---
-title: 如何選擇辨識模式 | Microsoft Docs
-description: 如何選擇最佳的辨識模式。
+title: 如何選擇 Bing 語音辨識模式 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: 如何在 Bing 語音中選擇最佳辨識模式。
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f02b683dde16b537ae5554e6435c068f0fcb808
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: a39b357a26823e322d4e902f2d99b67488bbf2df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368370"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950874"
 ---
-# <a name="speech-recognition-modes"></a>語音辨識模式
+# <a name="bing-speech-recognition-modes"></a>Bing 語音辨識模式
 
-Microsoft 的「語音轉換文字」API 支援多種語音辨識模式。 請為您的應用程式選擇會產生最佳辨識結果的模式。
+Bing 語音轉換文字 API 支援多種語音辨識模式。 請為您的應用程式選擇會產生最佳辨識結果的模式。
 
 | Mode | 說明 |
 |---|---|

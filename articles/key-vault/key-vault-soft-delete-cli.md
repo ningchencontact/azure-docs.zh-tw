@@ -5,16 +5,16 @@ description: 以 CLI 程式碼片段進行虛刪除的使用案例範例
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
-ms.openlocfilehash: c328726dfd6f6682e40ad8ff302bb23b78cac7db
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145724"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951775"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>如何以 CLI 使用金鑰保存庫虛刪除
 
@@ -25,9 +25,9 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure CLI 2.0 - 如果您沒有為您的環境進行此安裝，請參閱[使用 CLI 2.0 管理金鑰保存庫](key-vault-manage-with-cli2.md)。
+- Azure CLI - 如果您沒有為環境進行此設定，請參閱[使用 Azure CLI 管理 Key Vault](key-vault-manage-with-cli2.md)。
 
-如需 CLI 的金鑰保存庫特定參考資訊，請參閱 [Azure CLI 2.0 金鑰保存庫參考](https://docs.microsoft.com/cli/azure/keyvault)。
+如需 CLI 的 Key Vault 特定參考資訊，請參閱 [Azure CLI Key Vault 參考](https://docs.microsoft.com/cli/azure/keyvault) \(英文\)。
 
 ## <a name="required-permissions"></a>所需的權限
 

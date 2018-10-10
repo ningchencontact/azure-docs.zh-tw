@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525462"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954546"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>如何從 Azure IoT 中樞裝置佈建服務中取消註冊裝置
 
@@ -34,9 +34,12 @@ ms.locfileid: "39525462"
 2. 在資源清單中，選取您要從中將裝置列入封鎖清單的佈建服務。
 3. 在您的佈建服務中，選取 [管理註冊]，然後選取 [個別註冊] 索引標籤。
 4. 選取您想要列入封鎖清單之裝置的註冊項目。 
-5. 捲動到底部，並選取 [啟用項目] 切換開關上的 [停用]，然後選取 [儲存]。  
 
-   [![在入口網站中停用個別註冊項目](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![選取個別註冊](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. 在註冊頁面上，捲動到底部，並在 [啟用項目] 切換開關選取 [停用]，然後選取 [儲存]。  
+
+   ![在入口網站中停用個別註冊項目](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 刪除裝置的註冊項目以將裝置永久列入封鎖清單：
 
@@ -47,7 +50,8 @@ ms.locfileid: "39525462"
 5. 選取視窗頂端的 [刪除]，然後選取 [是] 以確認您要移除該註冊。 
 
    ![在入口網站中刪除個別註冊項目](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 完成此程序之後，您應該會看到您的項目已從個別註冊清單中移除。  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>使用註冊群組將 X.509 中繼或根 CA 憑證列入封鎖清單
@@ -91,14 +95,18 @@ X.509 憑證通常會配置在信任的信任鏈結中。 如果憑證在鏈結�
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
 2. 從資源清單中，選取包含您要列入封鎖清單之裝置註冊群組的佈建服務。
 3. 在您的佈建服務中，選取 [管理註冊]，然後選取 [個別註冊] 索引標籤。
-4. 選取位於頂端的 [新增] 按鈕。 
-5. 選取 [X.509] 作為裝置的證明機制，然後上傳裝置憑證。 這是安裝在裝置上的已簽署終端實體憑證。 裝置會使用它來產生用於進行驗證的憑證。
-6. 針對 [IoT 中樞裝置識別碼]，輸入裝置的識別碼。 
-7. 選取 [啟用項目] 切換開關上的 [停用]，然後選取 [儲存]。 
+4. 選取頂端的 [新增個別註冊] 按鈕。 
+5. 在 [新增註冊] 頁面上，選取 [X.509] 作為裝置的證明**機制**。
+
+    上傳裝置憑證，然後輸入要列於封鎖清單之裝置的識別碼。 針對憑證，請使用裝置上所安裝的已簽署終端實體憑證。 裝置使用已簽署的終端實體憑證進行驗證。
+
+    ![設定列於封鎖清單之裝置的裝置屬性](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. 捲動到 [新增註冊] 頁面底部，並在 [啟用項目] 切換開關選取 [停用]，然後選取 [儲存]。 
 
     [![在入口網站中，使用停用的個別註冊項目來停用群組註冊中的裝置](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-成功建立註冊時，您應該會看到裝置出現在 [個別註冊] 索引標籤上。
+成功建立註冊之後，您應該會看到已停用的裝置註冊列在 [個別註冊] 索引標籤上。 
 
 ## <a name="next-steps"></a>後續步驟
 

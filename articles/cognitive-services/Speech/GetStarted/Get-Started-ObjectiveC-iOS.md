@@ -1,28 +1,30 @@
 ---
-title: 針對 iOS 以 Objective-C 開始使用 Microsoft 語音辨識 API | Microsoft Docs
-description: 使用「Microsoft 語音辨識 API」來開發將語音轉換成文字的 iOS 應用程式。
+title: 開始在 iOS 上於 Objective-C 中使用 Bing 語音辨識 API | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: 使用「Bing 語音辨識 API」來開發將語音轉換成文字的 iOS 應用程式。
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bbb8d3975cdab537135b97ca9bbf6e845aa3fa0e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: a12c9b5325898afe508398f67939c39e591eb1cc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368414"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954495"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-objective-c-on-ios"></a>針對 iOS 以 Objective-C 開始使用語音辨識 API
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>快速入門：在 iOS 上於 Objective-C 中使用 Bing 語音辨識 API
 
 使用「語音辨識 API」時，您可以開發使用雲端式「語音服務」將語音轉換成文字的 iOS 應用程式。 此 API 支援即時串流，因此您的應用程式能夠在將音訊傳送給服務的同時，以同時且非同步方式接收部分辨識結果。
 
 本文會使用範例應用程式來示範基本概念，說明如何開始使用「語音辨識 API」來開發 iOS 應用程式。 如需完整的 API 參考，請參閱[語音 SDK 用戶端程式庫參考](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html) \(英文\)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="platform-requirements"></a>平台需求
 

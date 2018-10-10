@@ -1,6 +1,6 @@
 ---
-title: 建立 Azure 應用程式閘道 - Azure CLI 1.0 | Microsoft Docs
-description: 了解如何使用 Resource Manager 中的 Azure CLI 1.0 建立應用程式閘道
+title: 建立 Azure 應用程式閘道 - Azure 傳統 CLI | Microsoft Docs
+description: 了解如何使用 Resource Manager 中的 Azure 傳統 CLI 建立應用程式閘道
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633181"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974420"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 建立應用程式閘道
 
@@ -29,8 +29,8 @@ ms.locfileid: "35633181"
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 傳統 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 範本](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+> * [Azure 傳統 CLI](application-gateway-create-gateway-cli.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
 > 
 > 
 
@@ -38,10 +38,10 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 ## <a name="prerequisite-install-the-azure-cli"></a>必要條件：安裝 Azure CLI
 
-若要執行本文的步驟，您需要[安裝適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (Azure CLI)](../xplat-cli-install.md)，而且需要[登入 Azure](/cli/azure/authenticate-azure-cli)。 
+若要執行此文章中的步驟，您需要[安裝 Azure CLI](../xplat-cli-install.md)，而且您需要[登入 Azure](/cli/azure/authenticate-azure-cli)。 
 
 > [!NOTE]
-> 如果您沒有 Azure 帳戶，就需要申請一個。 請 [在此處註冊免費試用](../active-directory/fundamentals/sign-up-organization.md)。
+> 如果您沒有 Azure 帳戶，就需要申請一個。 請[在這裡註冊免費試用](../active-directory/fundamentals/sign-up-organization.md)。
 
 ## <a name="scenario"></a>案例
 
@@ -151,9 +151,9 @@ azure network application-gateway create \
 
 ## <a name="next-steps"></a>後續步驟
 
-參閱 [建立自訂健康狀態探查](application-gateway-create-probe-portal.md)
+請參閱[建立自訂健康狀態探查](application-gateway-create-probe-portal.md)以了解如何建立自訂健康情況探查
 
-參閱 [設定 SSL 卸載](application-gateway-ssl-arm.md)
+請參閱[設定 SSL 卸載](application-gateway-ssl-arm.md)以設定 SSL 卸載並從您的 Web 伺服器移除成本高昂的 SSL 解密
 
 <!--Image references-->
 

@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: sngun
-ms.openlocfilehash: 9fcc03721d410d4d7b8cfed0f8fa5b0ae8cf80ae
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 00824dc7a4fa7589fd01568b82351a68e1d44faa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698089"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983560"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB︰移轉現有的 Node.js MongoDB Web 應用程式 
 
@@ -40,7 +40,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 ## <a name="prerequisites"></a>必要條件 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
@@ -95,7 +95,7 @@ az login
 
 如果您是使用已安裝的 Azure CLI，請檢查是否已安裝 `cosmosdb` 元件，方法是執行 `az` 命令。 如果 `cosmosdb` 位於基底命令清單中，請繼續進行下一個命令。 如果您是使用 Azure Cloud Shell，可以跳過此步驟。
 
-如果 `cosmosdb` 不在基底命令的清單中，請重新安裝 [Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果 `cosmosdb` 不在基底命令的清單中，請重新安裝 [Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -124,7 +124,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 建立 Azure Cosmos DB 帳戶之後，Azure CLI 會顯示類似下列範例的資訊。 
 
 > [!NOTE]
-> 此範例會使用 JSON 作為 Azure CLI 輸出格式，這是預設值。 若要使用另一種輸出格式，請參閱 [Azure CLI 2.0 命令的輸出格式](https://docs.microsoft.com/cli/azure/format-output-azure-cli)。
+> 此範例會使用 JSON 作為 Azure CLI 輸出格式，這是預設值。 若要使用另一種輸出格式，請參閱 [Azure CLI 命令的輸出格式](https://docs.microsoft.com/cli/azure/format-output-azure-cli)。
 
 ```json
 {

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bd8a9e651c3b2369ae29be966ba4c9cbe0ae579b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697359"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972907"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 對虛擬機器指派多個 IP 位址
 
@@ -34,7 +34,7 @@ ms.locfileid: "38697359"
 
 後續步驟說明如何建立具有多個 IP 位址的範例虛擬機器，如案例中所述。 視您的實作而定，變更 "" 中的變數值和 IP 位址類型。 
 
-1. 如果尚未安裝 [Azure CLI 2.0](/cli/azure/install-az-cli2)，請先安裝此軟體。
+1. 如果尚未安裝 [Azure CLI](/cli/azure/install-azure-cli)，請先安裝它。
 2. 完成[建立 Linux VM 的 SSH 公用和私用金鑰組](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)中的步驟，為 Linux VM 建立 SSH 公用和私用金鑰組。
 3. 從命令殼層使用命令 `az login` 進行登入，然後選取您使用的訂用帳戶。
 4. 在 Linux 或 Mac 電腦上執行後續的指令碼以建立 VM。 該指令碼會建立資源群組、一個虛擬網路 (VNet)、一個具有三個 IP 組態的 NIC，以及連接了兩個 NIC 的 VM。 NIC、公用 IP 位址、虛擬網路和 VM 資源必須全都位於相同的位置和訂用帳戶。 雖然資源不需要全都位於相同的資源群組中，但在下列指令碼中，它們卻是如此。
@@ -157,7 +157,7 @@ az vm create \
 
 除了建立具有 NIC (其中含有 3 個 IP 組態) 的 VM 之外，該指令碼還會建立：
 
-- 單一的進階受控磁碟 (預設)，但有其他選項可讓您選擇可以建立的磁碟類型。 如需詳細資料，請閱讀[使用 Azure CLI 2.0 建立 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
+- 單一的進階受控磁碟 (預設)，但有其他選項可讓您選擇可以建立的磁碟類型。 如需詳細資訊，請閱讀[使用 Azure CLI 建立 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
 - 具有一個子網路和兩個公用 IP 位址的虛擬網路。 或者，您可以使用「現有」虛擬網路、子網路、NIC 或公用 IP 位址資源。 若要了解如何使用現有網路資源，而不是另外建立資源，請輸入 `az vm create -h`。
 
 公用 IP 位址需要少許費用。 若要深入了解 IP 位址定價，請閱讀 [IP 位址定價](https://azure.microsoft.com/pricing/details/ip-addresses) 頁面。 訂用帳戶中可使用的公用 IP 位址數目有限制。 若要深入了解限制，請參閱 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)文章。
@@ -170,7 +170,7 @@ az vm create \
 
 您可以完成後續步驟，將其他私人和公用 IP 位址新增至現有的 Azure 網路介面。 範例以本文章所述的[案例](#Scenario)為基礎。
 
-1. 開啟命令殼層，並在單一工作階段內完成本章節的其餘步驟。 如果您尚未安裝和設定 Azure CLI，請完成 [Azure CLI 2.0 安裝](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json)文章中的步驟，並使用 `az-login` 命令登入 Azure 帳戶。
+1. 開啟命令殼層，並在單一工作階段內完成本章節的其餘步驟。 如果您尚未安裝並設定 Azure CLI，請完成 [Azure CLI 安裝](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json)一文中的步驟，並使用 `az-login` 命令登入您的 Azure 帳戶。
 
 2. 根據您的需求，完成下列其中一個章節中的步驟︰
 

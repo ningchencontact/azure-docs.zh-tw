@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 827c80a70047fd0f1ad67e4f19cb2300e45b2c6b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 804b7c0ff31575e6d62497fd5166e1a38a273076
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606201"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965569"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>詳細步驟：在 Azure 中建立和管理對 Linux VM 進行驗證所需的 SSH 金鑰 
 您可以利用安全殼層 (SSH) 金鑰組，在 Azure 上建立依預設使用 SSH 金鑰進行驗證的 Linux 虛擬機器，而免除登入密碼的需求。 使用 Azure 入口網站、Azure CLI、Resource Manager 範本或其他工具建立的 VM，可以將 SSH 公開金鑰納入部署中，以設定 SSH 連線的 SSH 金鑰驗證。 
@@ -130,13 +130,13 @@ ls -al ~/.ssh
 
 ## <a name="generate-keys-automatically-during-deployment"></a>在部署期間自動產生金鑰
 
-如果您使用 [Azure CLI 2.0](/cli/azure) 來建立您的 VM，您可以執行 [az vm create](/cli/azure/vm#az_vm_create) 命令加上 `--generate-ssh-keys` 選項，即可選擇性地產生 SSH 公開金鑰和私密金鑰檔案。 金鑰儲存在 ~/.ssh 目錄中。 請注意，如果金鑰已經存在於該位置，則此命令選項不會覆寫金鑰。
+如果您使用 [Azure CLI](/cli/azure) 來建立您的 VM，便可以執行 [az vm create](/cli/azure/vm#az_vm_create) 命令加上 `--generate-ssh-keys` 選項，以選擇性地產生 SSH 公開金鑰與私密金鑰檔案。 金鑰儲存在 ~/.ssh 目錄中。 請注意，如果金鑰已經存在於該位置，則此命令選項不會覆寫金鑰。
 
 ## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>部署 VM 時，提供 SSH 公開金鑰
 
-若要建立使用 SSH 金鑰進行驗證的 Linux VM，請在使用 Azure 入口網站、CLI、Resource Manager 範本或其他方法建立 VM 時，提供您的 SSH 公開金鑰。 使用入口網站時，您必須輸入公用金鑰本身。 如果您使用 [Azure CLI 2.0](/cli/azure) 搭配現有公開金鑰來建立 VM，可執行 [az vm create](/cli/azure/vm#az_vm_create) 命令加上 `--ssh-key-value` 選項，來指定這個公開金鑰的值或位置。 
+若要建立使用 SSH 金鑰進行驗證的 Linux VM，請在使用 Azure 入口網站、CLI、Resource Manager 範本或其他方法建立 VM 時，提供您的 SSH 公開金鑰。 使用入口網站時，您必須輸入公用金鑰本身。 如果您使用 [Azure CLI](/cli/azure) 搭配現有公開金鑰來建立 VM，可執行 [az vm create](/cli/azure/vm#az_vm_create) 命令加上 `--ssh-key-value` 選項，以指定這個公開金鑰的值或位置。 
 
-如果您不熟悉 SSH 公開金鑰的格式，您可以如下所示執行 `cat`，並以自己的公開金鑰檔案位置取代 `~/.ssh/id_rsa.pub`，即可看到公開金鑰：
+如果您不熟悉 SSH 公開金鑰的格式，則可以如下所示執行 `cat`，並以自己的公開金鑰檔案位置取代 `~/.ssh/id_rsa.pub`，即可看到公開金鑰：
 
 ```bash
 cat ~/.ssh/id_rsa.pub
