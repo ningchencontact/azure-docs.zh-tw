@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 117e73c35bb66578976ef990e61eea606e2e8e36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9661722c5d35e4336d5e42374a1444cf50734fba
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736876"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998333"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>設定內部負載平衡器的高可用性連接埠
 
@@ -45,7 +45,7 @@ ms.locfileid: "34736876"
 
 若要設定高可用性連接埠，請在後端集區中設定具有 NVA 的內部負載平衡器。 設定對應的負載平衡器健全狀況探查設定，以偵測高可用性連接埠的 NVA 健全狀況和負載平衡器規則。 [開始使用](load-balancer-get-started-ilb-arm-portal.md)中會說明一般負載平衡器的相關組態。 本文主要在說明高可用性連接埠組態。
 
-設定過程基本上涉及將前端連接埠和後端連接埠值設定為 **0**。 將通訊協定值設定為 **All**。 本文說明如何使用 Azure 入口網站、PowerShell 和 Azure CLI 2.0 來設定高可用性連接埠。
+設定過程基本上涉及將前端連接埠和後端連接埠值設定為 **0**。 將通訊協定值設定為 **All**。 此文章說明如何使用 Azure 入口網站、PowerShell 與 Azure CLI 來設定高可用性連接埠。
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>使用 Azure 入口網站設定高可用性連接埠負載平衡器規則
 
@@ -95,7 +95,7 @@ ms.locfileid: "34736876"
 lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli-20"></a>使用 Azure CLI 2.0 設定高可用性連接埠負載平衡器規則
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>使用 Azure CLI 設定高可用性連接埠負載平衡器規則
 
 在[建立內部負載平衡器集合](load-balancer-get-started-ilb-arm-cli.md)的步驟 4 中，使用下列命令來建立高可用性連接埠負載平衡器規則：
 

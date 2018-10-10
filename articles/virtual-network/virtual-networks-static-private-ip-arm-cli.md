@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ffcf483b2852ec87c263573a97b4508d5b5d39c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561123"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997466"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 設定虛擬機器的私人 IP 位址
 
@@ -42,13 +42,13 @@ ms.locfileid: "38561123"
 
 若要在名為 *TestVNet* 之 VNet 的 *FrontEnd* 子網路中建立名為 *DNS01* 的 VM，且其靜態私人 IP 為 *192.168.1.101*，請完成下列步驟：
 
-1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。 
+1. 安裝並設定最新的 [Azure CLI](/cli/azure/install-azure-cli) (若您尚未這樣做)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
 
 2. 使用 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 命令來建立 VM 的公用 IP。 輸出後顯示的清單可說明所使用的參數。
 
     > [!NOTE]
     > 視您的環境而定，您可能會想要或需要為此步驟和後續步驟中的引數使用不同的值。
-   
+
     ```azurecli
     az network public-ip create \
     --name TestPIP \
@@ -58,7 +58,7 @@ ms.locfileid: "38561123"
     ```
 
     預期的輸出：
-   
+
    ```json
    {
         "publicIp": {

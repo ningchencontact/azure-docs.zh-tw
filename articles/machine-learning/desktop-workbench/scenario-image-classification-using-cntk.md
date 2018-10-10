@@ -12,14 +12,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 83d6f529330a05e6a7c46ad45b19f0338f93bfc7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "35633288"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995086"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 進行影像分類
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 影像分類方法可用來解決大量電腦視覺問題。
 其中包括建置模型，用來回答下列問題，例如：*影像中是否有物件？* 其中物件舉例來說可能是「狗」、「汽車」或「船艦」。 或是更複雜的問題，像是：「此病患的視網膜掃描顯示的眼睛疾病嚴重性等級為何？」。
@@ -51,7 +56,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 要執行此範例所需符合的必要條件如下：
 
 1. [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
-2. 遵循[快速入門安裝指南](../service/quickstart-installation.md)的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝此程式並建立 Workbench。  
+2. 遵循[快速入門安裝指南](quickstart-installation.md)的 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 版本，以便安裝此程式並建立 Workbench。  
 3. 一部 Windows 電腦。 Windows 作業系統是必要項目，因為 Workbench 僅支援 Windows 和 MacOS，而 Microsoft 的 Cognitive Toolkit (我們使用它作為深入學習程式庫) 只支援 Windows 和 Linux。
 4. 不需要專用 GPU 來執行第 1 部分的 SVM 訓練，但需要它來進行第 2 部分所描述的 DNN 調整作業。 如果您缺乏強大的 GPU、想要在多個 GPU 上訓練或沒有一部 Windows 電腦，請考慮搭配使用 Azure 的深度學習虛擬機器與 Windows 作業系統。 請參閱[這裡](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)以取得一鍵部署指南。 一旦部署之後，請透過遠端桌面連線連接到 VM，在該處安裝 Workbench，並在 VM 的本機上執行程式碼。
 5. 需要安裝各種 Python 程式庫，例如 OpenCV。 從 Workbench 的 [檔案] 功能表按一下 [開啟命令提示字元]，並執行下列命令來安裝這些相依性：  
@@ -95,7 +100,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 
 ## <a name="data-description"></a>資料說明
 
-本教學課程使用最多由 428 個影像所組成的上衣紋理資料集作為執行範例。 每個影像都會標註為三種不同紋理 (圖點、條紋、豹紋) 的其中一個。 我們將影像數目保持在少量，以便可以快速執行本教學課程。 不過，程式碼已經過完整測試，可處理數以萬計的影像或更多影像。 所有影像已依照[第 3 部分](#using-a-custom-dataset)的說明，使用 Bing 圖片搜尋擷取並手動標註。 影像 URL 及其各自屬性都列在 */resources/fashionTextureUrls.tsv* 檔案中。
+本教學課程使用最多由 428 個影像所組成的上衣紋理資料集作為執行範例。 每個影像都會標註為三種不同紋理 (圖點、條紋、豹紋) 的其中一個。 我們將影像數目保持在少量，以便可以快速執行本教學課程。 不過，程式碼已經過完整測試，可處理數以萬計的影像或更多影像。 所有影像都已手動標註，如[第 3 部分](#using-a-custom-dataset)中所述。 影像 URL 及其各自屬性都列在 */resources/fashionTextureUrls.tsv* 檔案中。
 
 指令碼 `0_downloadData.py` 會將所有影像下載到 *DATA_DIR/images/fashionTexture/* 目錄。 428 個 URL 中可能有某些 URL 已中斷。 這不構成問題，而只表示我們進行訓練和測試的影像稍微較少。 此範例中提供的所有指令碼必須在本機執行，而不是在像 Docker 這樣的遠端環境中執行。
 
@@ -263,11 +268,11 @@ Azure Machine Learning Workbench 會儲存 Azure上每次執行的歷程記錄�
 
 ## <a name="part-3---custom-dataset"></a>第 3 部分 - 自訂資料集
 
-在第 1 和 2 部分中，我們已使用提供的上衣紋理影像來訓練和評估影像分類模型。 現在，我們會示範如何改為使用自訂的使用者提供資料集。 或者在未提供資料集時，示範如何使用 Bing 圖片搜尋來產生並標註這類資料集。
+在第 1 和 2 部分中，我們已使用提供的上衣紋理影像來訓練和評估影像分類模型。 現在，我們會示範如何改為使用自訂的使用者提供資料集。 
 
 ### <a name="using-a-custom-dataset"></a>使用自訂資料集
 
-首先，讓我們看一下服裝紋理資料的資料夾結構。 請注意，不同屬性的所有影像如何位在 *DATA_DIR/images/fashionTexture/* 的個別子資料中；*dotted*、*leopard 和 *striped*。 另請注意，影像資料夾名稱如何同時出現在 `PARAMETERS.py` 檔案中：
+首先，讓我們看一下服裝紋理資料的資料夾結構。 請注意不同屬性的所有影像如何位在 *DATA_DIR/images/fashionTexture/* 的個別子資料中；*dotted*、*leopard* 和 *striped*。 另請注意影像資料夾名稱如何同時出現在 `PARAMETERS.py` 檔案中：
 ```python
 datasetName = "fashionTexture"
 ```
@@ -280,14 +285,23 @@ datasetName = "fashionTexture"
 
 ### <a name="image-scraping-and-annotation"></a>影像擷取和註解
 
-收集夠大量的標註影像來進行訓練和測試可能相當困難。 解決這個問題的方法之一是從網際網路擷取影像。 例如，請參閱以下 *t-shirt stripe* 查詢的 Bing 圖片搜尋結果。 如預期般，大部分的影像確實是條紋 T 恤。 您可以輕鬆地識別並移除幾個不正確或模稜兩可的影像 (例如資料行 1 的資料列 1；或資料行 3 的資料列 2)：
+收集夠大量的標註影像來進行訓練和測試可能相當困難。 解決這個問題的方法之一是從網際網路擷取影像。
+
+> [!IMPORTANT] 
+> 針對您使用的任何影像，請確定您沒有違反影像的著作權與授權。 
+
+<!--
+For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
+-->
 
 若要產生大量的各種資料集，應該使用多個查詢。 例如，使用服裝項目 {blouse、hoodie、pullover、sweater、shirt、t-shirt、vest} 和 {striped、dotted、leopard} 屬性的所有組合，可以自動合成 7\*3 = 21 個查詢。 下載每個查詢的前 50 個影像則會導致最多 21 * 50 = 1050 個影像。
 
-比起以手動方式從 Bing 圖片搜尋下載影像，改用[認知服務 Bing 圖片搜尋 API](https://www.microsoft.com/cognitive-services/bing-image-search-api) 更為簡單，它會傳回指定查詢字串的一組影像 URL。
+<!--
+Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
+-->
 
 一些下載的影像是確切的重複項目或接近重複項目 (例如，只是影像解析度或 jpg 成品不同)。 應移除這些重複項目，讓訓練集和測試分割不會包含相同的影像。 移除重複的影像可以使用以雜湊為基礎的方法來達成，它分成兩個步驟：(i) 首先，針對所有影像計算雜湊字串；(i) 在影像的第二個階段中，只保留尚未看到雜湊字串的那些影像。 所有其他影像都會被捨棄。 我們發現 Python 程式庫 `imagehash` 和此[部落格](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html)中說明的 `dhash` 方法，只要將參數 `hash_size` 設定為 16 就能正確執行。 錯誤地移除一些非重複影像也沒有關係，只要移除大部分的實際重複項目即可。
 

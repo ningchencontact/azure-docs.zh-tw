@@ -1,26 +1,26 @@
 ---
-title: Translator Speech 教學課程 (C#) | Microsoft Azure
-titleSuffix: Cognitive Services
-description: 了解如何使用 Translator Speech 服務來即時翻譯文字。
+title: 教學課程：翻譯工具語音 API C#
+titleSuffix: Azure Cognitive Services
+description: 使用翻譯工具語音 API 來即時翻譯文字。
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e82c5c5ccfa6b7de8a9ec111140dad1a40ad44f6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2de56366c3204e77eb2e6775ddd88b6fc4f0c219
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368446"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993862"
 ---
-# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>教學課程：以 C# 撰寫的 Microsoft Translator WPF 應用程式
+# <a name="tutorial-translator-speech-application-in-c"></a>教學課程：翻譯工具語音應用程式 (C#)
 
-本教學課程是一個互動式語音翻譯工具的導覽，此工具使用 Microsoft Translator Speech 翻譯服務 (Azure 中「Microsoft 認知服務」的組件)。 您會了解如何：
+此教學課程是一個互動式語音翻譯工具的導覽，此工具使用翻譯工具語音 API (Azure 認知服務」的組件)。 您將了解如何：
 
 > [!div class="checklist"]
 > * 要求一份服務所支援語言的清單
@@ -30,7 +30,7 @@ ms.locfileid: "35368446"
 
 此應用程式的 Visual Studio 解決方案檔[可在 GitHub 上找到](https://github.com/MicrosoftTranslator/SpeechTranslator)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要進行本教學課程，您需要有任何一版的 Visual Studio 2017，包括 Community Edition。 
 
@@ -42,7 +42,7 @@ Visual Studio 解決方案也會建置應用程式的安裝程式。 您需要 [
 
 ## <a name="trying-the-translation-app"></a>試用翻譯應用程式
 
-在 Visual Studio 中開啟「Microsoft 語音翻譯工具」解決方案 (`SpeechTranslator.sln`) 之後，請按 F5 來建置並啟動應用程式。  程式的主視窗隨即出現。
+在 Visual Studio 中開啟翻譯工具語音方案 (`SpeechTranslator.sln`) 之後，請按 F5 來建置並啟動應用程式。  程式的主視窗隨即出現。
 
 ![[「語音翻譯工具」主視窗]](media/speech-translator-main-window.png)
 
@@ -50,7 +50,7 @@ Visual Studio 解決方案也會建置應用程式的安裝程式。 您需要 [
 
 ![[「語音翻譯工具」主視窗]](media/speech-translator-settings-window.png)
 
-將您的 Microsoft Translator Speech 訂用帳戶金鑰貼到此視窗中，然後按一下 [儲存]。 您的金鑰會在各個執行之間儲存下來。
+將您的翻譯工具語音訂用帳戶金鑰貼到此視窗中，然後按一下 [儲存]。 您的金鑰會在各個執行之間儲存下來。
 
 請返回主視窗，選擇要使用的音訊輸入和輸出裝置，以及 [從] 和 [到] 語言。 如果您想要聽到翻譯的音訊，請務必勾選 [TTS] (文字轉換語音) 選項。 如果您想要在說話時看到推測性的部分翻譯，請啟用 [部分結果] 選項。
 
@@ -58,7 +58,7 @@ Visual Studio 解決方案也會建置應用程式的安裝程式。 您需要 [
 
 ## <a name="obtaining-supported-languages"></a>取得支援的語言
 
-在撰寫這份文件時，Microsoft Translator 服務支援超過 60 種文字翻譯語言。 支援較少數的語音翻譯語言。 這類語言需要同時支援文字記錄 (語音辨識) 和合成 (文字轉換語音輸出)。
+在撰寫這份文件時，翻譯工具語音服務支援超過 60 種文字翻譯語言。 支援較少數的語音翻譯語言。 這類語言需要同時支援文字記錄 (語音辨識) 和合成 (文字轉換語音輸出)。
 
 換句話說，若要進行語音翻譯，來源語言必須支援文字記錄。 如果您想要文字結果，則輸出語言可以是任何一種支援文字翻譯的語言。 如果您想要語音輸出，則只能翻譯成支援文字轉換語音的語言。
 
@@ -357,7 +357,7 @@ private void Connect()
 }
 ```
 
-`Connect()` 的主要部分涉及建立 `SpeechClientOptions` 執行個體 (請參閱 `SpeechClientOptions.cs`) 來保存翻譯選項。 選項包括連線至服務所需的資訊 (例如驗證金鑰和主機名稱)，以及用於翻譯的功能。 這裡的欄位會對應至 [Translator Speech API](http://docs.microsofttranslator.com/speech-translate.html) 所公開的標頭欄位和 HTTP 參數。
+`Connect()` 的主要部分涉及建立 `SpeechClientOptions` 執行個體 (請參閱 `SpeechClientOptions.cs`) 來保存翻譯選項。 選項包括連線至服務所需的資訊 (例如驗證金鑰和主機名稱)，以及用於翻譯的功能。 這裡的欄位會對應至 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference) 所公開的標頭欄位和 HTTP 參數。
 
 `Connect()` 也會建立作為要翻譯之語音來源的音訊輸入裝置 (`sampleProvider` 變數) 並將其初始化。 此裝置會是硬體輸入裝置 (例如麥克風) 或包含 WAVE 音訊資料的檔案。
 
@@ -431,4 +431,4 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
 此程式碼範例是一個富含功能、示範 Translator Speech API 使用方式的應用程式。 因此，有為數眾多的移動組件需要了解。 您已經逐步完成最重要的部分。 針對其餘部分，建議您在 Visual Studio 中設定幾個中斷點，並逐步完成翻譯程序。 當您了解範例應用程式時，便已具備在自己的應用程式中使用 Translator Speech 服務的能力。
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Speech API 參考](http://docs.microsofttranslator.com/speech-translate.html)
+> [Microsoft Translator Speech API 參考](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

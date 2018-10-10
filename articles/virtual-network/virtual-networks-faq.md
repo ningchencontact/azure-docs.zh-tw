@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141110"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999863"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -259,3 +259,24 @@ VNet 對等互連 (或虛擬網路對等互連) 可讓您將虛擬網路連線�
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>對等互連連線是否有任何頻寬限制？
 否。 VNet 對等互連 (不論本機或全域) 並未施加任何頻寬限制。 頻寬僅受限於 VM 或計算資源。
 
+## <a name="virtual-network-tap"></a>虛擬網路 TAP
+
+### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>哪些 Azure 區域可用於虛擬網路 TAP？
+在開發人員預覽期間，該功能可在美國中西部區域使用。 受監視的網路介面、 虛擬網路 TAP 資源以及收集器或分析解決方案，都必須部署在相同的區域。
+
+### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>虛擬網路 TAP 是否支援鏡像封包的任何篩選功能？
+虛擬網路 TAP 預覽版不支援篩選功能。 將 TAP 設定新增到網路介面時，網路介面上所有連入和連出流量的深層複本將會串流處理到 TAP 目的地。
+
+### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>是否可以將多個 TAP 設定新增到受監視的網路介面？
+受監視的網路介面只能有一個 TAP 設定。 請查看個別的[合作夥伴解決方案](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions)，以了解將 TAP 流量的多個複本串流處理到您所選擇之分析工具的功能。
+
+### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>相同的虛擬網路 TAP 資源，是否可以彙總來自多個虛擬網路中受監視的網路介面的流量？
+是。 相同的虛擬網路 TAP 資源可用來在相同訂用帳戶或不同訂用帳戶中，彙總對等互連虛擬網路中之受監視的網路介面的鏡像流量。 虛擬網路 TAP 資源和目的地負載平衡器或目的地網路介面，必須位於相同的訂用帳戶中。 所有訂用帳戶都必須位於相同的 Azure Active Directory 租用戶下。
+
+### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>如果我啟用網路介面上的虛擬網路 TAP 設定，是否有任何關於生產流量的效能考量？
+
+虛擬網路 TAP 為開發人員預覽狀態。 在預覽期間，沒有任何服務等級協定。 該功能不應該用於生產工作負載。 使用 TAP 設定來啟用虛擬機器網路介面時，Azure 主機上已配置給虛擬機器以傳送生產流量的相同資源會用來執行鏡像功能並傳送鏡像封包。 選取正確的 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器大小，以確保有足夠的資源可供虛擬機器傳送生產流量和鏡像流量。
+
+### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>虛擬網路 TAP 是否支援 [Linux](create-vm-accelerated-networking-cli.md) 或 [Windows](create-vm-accelerated-networking-powershell.md) 的加速網路？
+
+您將能夠在連結到已啟用加速網路之虛擬機器上的網路介面上，新增 TAP 設定。 但是，新增 TAP 設定會影響虛擬機器的效能與延遲，因為 Azure 加速網路目前不支援鏡像流量的卸載。

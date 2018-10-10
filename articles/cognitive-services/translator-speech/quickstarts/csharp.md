@@ -1,25 +1,27 @@
 ---
-title: Azure 認知服務、Microsoft Translator Speech API 的 C# 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用「Microsoft 認知服務」中的 Microsoft Translator Speech API。
+title: 快速入門：翻譯工具語音 API C#
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用翻譯工具語音 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c8c1945d8343ad966fe4b09f67099bccdae4be29
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7d1f5968fe6ddffce3194f070b6a17aca4d3d9ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128532"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995035"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>搭配 C# 使用 Microsoft Translator Speech API 的快速入門 
+# <a name="quickstart-translator-speech-api-with-c"></a>快速入門：翻譯工具語音 API (使用 C#) 
 <a name="HOLTop"></a>
 
-本文說明如何使用 Microsoft Translator Speech API 來翻譯 .wav 檔案中所說的話語。
+此文章說明如何使用翻譯工具語音 API 來翻譯 .wav 檔案中所說的話語。
 
 ## <a name="prerequisites"></a>必要條件
 

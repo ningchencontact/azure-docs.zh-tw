@@ -1,5 +1,6 @@
 ---
 title: 針對 Android 以 Java 開始使用 Microsoft 語音辨識 API | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: 使用 Microsoft Speech API 來開發將語音轉換成文字的 Android 應用程式。
 services: cognitive-services
 author: zhouwangzw
@@ -7,22 +8,23 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a10f7be1c36fb431016a9867f606e26be858069e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b1e82d65a3eafb9e41277a18569270ef02cd8e5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368419"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989034"
 ---
-# <a name="get-started-with-speech-recognition-in-java-on-android"></a>針對 Android 以 Java 開始使用語音辨識
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>快速入門：在 Android 上於 Java 中使用 Bing 語音辨識 API
 
-使用「語音辨識 API」時，您可以開發使用雲端式「語音服務」將語音轉換成文字的 Android 應用程式。 此 API 支援即時串流，因此您的應用程式能夠在將音訊傳送給服務的同時，以同時且非同步方式接收部分辨識結果。
+使用「Bing 語音辨識 API」時，您可以開發使用雲端式「Bing 語音服務」將語音轉換成文字的 Android 應用程式。 此 API 支援即時串流，因此您的應用程式能夠在將音訊傳送給服務的同時，以同時且非同步方式接收部分辨識結果。
 
 本文使用範例應用程式來示範如何使用適用於 Android 的語音用戶端程式庫，以 Java 為 Android 裝置開發語音轉換文字應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="platform-requirements"></a>平台需求
 

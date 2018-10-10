@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 07352a5d7c8b465440efab17c654979662a95f8e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702635"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994712"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>診斷虛擬機器路由問題
 
@@ -30,7 +30,7 @@ ms.locfileid: "34702635"
 
 您嘗試連線至 VM，但連線失敗。 若要判斷為何無法連線至 VM，您可以使用 Azure [入口網站](#diagnose-using-azure-portal)、[PowerShell](#diagnose-using-powershell) 或 [Azure CLI](#diagnose-using-azure-cli) 來檢視網路介面的有效路由。
 
-下列步驟假設您具有可檢視有效路由的現有 VM。 如果您沒有現有的 VM，請先部署 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM，用以完成本文中的工作。 本文中的範例使用名為 *myVM* 的 VM，且該 VM 具有名為 *myVMVMNic* 的網路介面。 VM 和網路介面皆屬於名為 *myResourceGroup* 的資源群組，且位於*美國東部*區域。 請針對您要診斷問題的 VM，適當地變更步驟中的值。
+下列步驟假設您具有可檢視有效路由的現有 VM。 如果您沒有現有的 VM，請先部署 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM，用以完成本文中的工作。 本文中的範例適用於名為 *myVM* 的 VM，且該 VM 具有名為 *myVMVMNic* 的網路介面。 VM 和網路介面皆位於名為 *myResourceGroup* 的資源群組，且位於「美國東部」區域。 請針對您要診斷問題的 VM，適當地變更步驟中的值。
 
 ## <a name="diagnose-using-azure-portal"></a>使用 Azure 入口網站進行診斷
 
@@ -54,7 +54,7 @@ ms.locfileid: "34702635"
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 進行診斷
 
-您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您從電腦執行 PowerShell，您必須要有 *AzureRM* PowerShell 模組 6.0.1 或更新版本。 請在您的電腦上執行 `Get-Module -ListAvailable AzureRM`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則還需要執行 `Login-AzureRmAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從電腦執行 PowerShell，便需要 *AzureRM* PowerShell 模組 6.0.1 版或更新的版本。 請在您的電腦上執行 `Get-Module -ListAvailable AzureRM`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則還需要執行 `Login-AzureRmAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
 
 使用 [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 取得網路介面的有效路由。 下列範例會取得名為 *myVMVMNic* 的網路介面 (位於資源群組 *myResourceGroup* 中) 的有效路由：
 
@@ -87,7 +87,7 @@ NetworkInterfaces
 
 ## <a name="diagnose-using-azure-cli"></a>使用 Azure CLI 進行診斷
 
-您可以執行 [Azure Cloud Shell](https://shell.azure.com/bash) 中採用的命令，或從您的電腦執行 CLI。 本文需要 Azure CLI 2.0.32 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則還需要執行 `az login` 並使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/bash) 中採用的命令，或從您的電腦執行 CLI。 本文需要 Azure CLI 2.0.32 版或更新的版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，還需要執行 `az login` 並使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
 
 使用 [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) 取得網路介面的有效路由。 下列範例會取得位於資源群組 *myResourceGroup* 中的網路介面 *myVMVMNic* 的有效路由：
 

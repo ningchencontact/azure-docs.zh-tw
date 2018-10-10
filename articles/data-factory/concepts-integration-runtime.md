@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: a9df3d9d181ed210a7c6aaec7974fa719b4f072e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: dafbfb959e70563f8619f7aea877a3aa1c380453
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086877"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997398"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -90,14 +90,14 @@ Azure 整合執行階段提供原生計算，能夠以安全、可靠且高效�
 Azure-SSIS IR 可以佈建在公用網路或私人網路中。  將 Azure-SSIS IR 加入已連線至內部網路的虛擬網路，即可支援內部部署資料存取。  
 
 ### <a name="azure-ssis-ir-compute-resource-and-scaling"></a>Azure-SSIS IR 計算資源和調整規模
-Azure-SSIS IR 是一個完全受控的 Azure VM 叢集，專門用來執行您的 SSIS 套件。 您可以自備 Azure SQL Database 或受控執行個體 (預覽) 伺服器，以裝載要附加至伺服器的 SSIS 專案/套件 (SSISDB) 目錄。 指定節點大小可以相應增加計算能力，指定叢集的節點數目可以相應放大計算能力。 您可以依需求來停止和啟動 Azure-SSIS 整合執行階段，以掌控其執行成本。
+Azure-SSIS IR 是一個完全受控的 Azure VM 叢集，專門用來執行您的 SSIS 套件。 您可以自備 Azure SQL Database 或受控執行個體伺服器，以裝載要附加至伺服器的 SSIS 專案/套件 (SSISDB) 目錄。 指定節點大小可以相應增加計算能力，指定叢集的節點數目可以相應放大計算能力。 您可以依需求來停止和啟動 Azure-SSIS 整合執行階段，以掌控其執行成本。
 
 如需詳細資訊，請參閱操作說明指南中的＜如何建立和設定 Azure-SSIS IR＞一文。  建立之後，您可以使用熟悉的工具，例如 SQL Server Data Tools (SSDT) 和 SQL Server Management Studio (SSMS)，就像在內部部署環境中使用 SSIS 一樣，不太需要變更就能部署和管理現有的 SSIS 套件。
 
 如需 Azure-SSIS 執行階段的詳細資訊，請參閱下列文章： 
 
 - [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL Database 裝載 SSIS 目錄。 
-- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL 受控執行個體 (預覽)，以及將 IR 加入虛擬網路的指示。 
+- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL Database 受控執行個體，以及將 IR 加入虛擬網路的指示。 
 - [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
 - [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會示範如何將更多節點新增至 IR，藉此相應放大 Azure-SSIS IR。 
 - [將 Azure-SSIS IR 加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路的概念資訊。 它也提供使用 Azure 入口網站來設定虛擬網路，好讓 Azure SSIS IR 可加入虛擬網路的步驟。 
@@ -128,9 +128,9 @@ Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道�
 ### <a name="azure-ssis-ir-location"></a>Azure-SSIS IR 位置
 為了在擷取、轉換和下載 (ETL) 工作流程中達到高效能，務必選取正確的 Azure-SSIS IR 位置。
 
-- Azure-SSIS IR 的位置並不需要與資料處理站的位置相同，但應該與您自己的 Azure SQL Database/受控執行個體 (預覽) 伺服器 (要裝載 SSISDB) 的位置相同。 如此一來，您的 Azure-SSIS 整合執行階段就可以輕易存取 SSISDB，而不會在不同的位置之間產生過多流量。
-- 如果您沒有現有的 Azure SQL Database/受控執行個體 (預覽) 伺服器來裝載 SSISDB，但有內部部署資料來源/目的地，您應該在已連線至內部部署網路之虛擬網路的相同位置中，建立新的 Azure SQL Database/受控執行個體 (預覽) 伺服器。  如此一來，您就可以使用新的 Azure SQL Database/受控執行個體 (預覽) 伺服器並加入該虛擬網路，以建立 Azure-SSIS IR，全部都在相同的位置中，能儘量避免在不同位置之間移動資料。
-- 如果要裝載 SSISDB 的現有 Azure SQL Database/受控執行個體 (預覽) 伺服器的位置，與連線至內部部署網路的虛擬網路的位置不相同，請先在相同位置使用現有的 Azure SQL Database/受控執行個體 (預覽) 伺服器並加入另一個，以建立您的 Azure-SSIS IR，然後設定不同位置之間的虛擬網路對虛擬網路連線。
+- Azure-SSIS IR 的位置不需要與資料處理站的位置相同，但應該與您自己的 Azure SQL Database/受控執行個體伺服器 (要裝載 SSISDB) 的位置相同。 如此一來，您的 Azure-SSIS 整合執行階段就可以輕易存取 SSISDB，而不會在不同的位置之間產生過多流量。
+- 如果您沒有現有的 Azure SQL Database/受控執行個體伺服器來裝載 SSISDB，但有內部部署資料來源/目的地，您應該在已連線至內部部署網路之虛擬網路的相同位置中，建立新的 Azure SQL Database/受控執行個體伺服器。  如此一來，您就可以使用新的 Azure SQL Database/受控執行個體伺服器並加入該虛擬網路，以建立 Azure-SSIS IR，全部都在相同的位置中，能儘量避免在不同位置之間移動資料。
+- 如果要裝載 SSISDB 的現有 Azure SQL Database/受控執行個體伺服器的位置，與連線至內部部署網路的虛擬網路的位置不相同，請先在相同位置使用現有的 Azure SQL Database/受控執行個體伺服器並加入另一個，以建立您的 Azure-SSIS IR，然後設定不同位置之間的虛擬網路對虛擬網路連線。
 
 下圖顯示 Data Factory 及其整合執行階段的位置設定：
 
@@ -158,4 +158,4 @@ Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道�
 請參閱下列文章：
 
 - [建立自我裝載整合執行階段](create-self-hosted-integration-runtime.md)
-- [建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL 受控執行個體 (預覽)，以及將 IR 加入虛擬網路的指示。 
+- [建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL Database 受控執行個體，以及將 IR 加入虛擬網路的指示。 

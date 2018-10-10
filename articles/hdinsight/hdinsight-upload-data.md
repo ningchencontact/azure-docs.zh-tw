@@ -1,7 +1,7 @@
 ---
 title: 在 HDInsight 上將 Hadoop 工作的資料上傳
-description: 了解如何使用 Azure CLI、Azure 儲存體總管、Azure PowerShell、Hadoop 命令列或 Sqoop 在 HDInsight 中上傳及存取 Hadoop 工作。
-keywords: etl hadoop、將資料上傳到 hadoop、hadoop 載入資料
+description: 了解如何使用 Azure 傳統 CLI、Azure 儲存體總管、Azure PowerShell、Hadoop 命令列或 Sqoop 在 HDInsight 中上傳及存取 Hadoop 作業的資料。
+keywords: etl hadoop, 將資料上傳到 hadoop, hadoop 載入資料
 services: hdinsight
 author: jasonwhowell
 ms.reviewer: jasonh
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 838444898500ce7127e1a9e999d0b5ee7b1e3687
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051819"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985974"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 上將 Hadoop 工作的資料上傳
 
@@ -38,22 +38,22 @@ Microsoft 提供下列公用程式來使用 Azure 儲存體：
 
 | 工具 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure 命令列介面][azurecli] |✔ |✔ |✔ |
+| [Azure 傳統 CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop 命令](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> 雖然 Azure CLI、Azure PowerShell 與 AzCopy 都可從外部 Azure 使用，但是 Hadoop 命令只能在 HDInsight 叢集上使用。 此命令只允許從本機檔案系統將資料載入 Azure 儲存體中。
+> 雖然 Azure 傳統 CLI、Azure PowerShell 與 AzCopy 都可從外部 Azure 使用，但是 Hadoop 命令只能在 HDInsight 叢集上使用。 此命令只允許從本機檔案系統將資料載入 Azure 儲存體中。
 >
 >
 
-#### <a id="xplatcli"></a>Azure CLI
-Azure CLI 是可讓您管理 Azure 服務的跨平台工具。 使用以下步驟將資料上傳至 Azure 儲存體：
+#### <a id="xplatcli"></a>Azure 傳統 CLI
+Azure 傳統 CLI 是可讓您管理 Azure 服務的跨平台工具。 使用以下步驟將資料上傳至 Azure 儲存體：
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [安裝和設定適用於 Mac、Linux 和 Windows 的 Azure CLI](../cli-install-nodejs.md)。
+1. [安裝並設定適用於 Mac、Linux 與 Windows 的 Azure 傳統 CLI](../cli-install-nodejs.md)。
 2. 開啟命令提示字元、Bash 或其他殼層，然後使用以下命令驗證您的 Azure 訂用帳戶。
 
     ```cli

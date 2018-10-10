@@ -1,25 +1,26 @@
 ---
-title: Microsoft 翻譯工具語音 API 語言方法 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: 使用 Microsoft 翻譯工具語音 API 語言方法。
+title: 翻譯工具語音 API 語言方法
+titleSuffix: Azure Cognitive Services
+description: 翻譯工具語音 API 語言方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: 5396e3be17345c3c36197a9b6cbace86e1f574c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9fbbba7ed5e81cae1d30c5a480b9f7f7a13342c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370722"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986416"
 ---
-# <a name="speech-api-languages"></a>語音 API：語言
+# <a name="translator-speech-api-languages"></a>翻譯工具語音 API：語言
 
-Microsoft Translator 持續擴充其服務所支援的語言清單。 使用此 API 來探索目前可和語音翻譯工具服務搭配使用的語言集合。
+翻譯工具語音持續擴充其服務所支援的語言清單。 使用此 API 來探索目前可和翻譯工具語音服務搭配使用的語言集合。
 
 示範使用 API 取得可用語言的程式碼範例，可在 [Microsoft Translator Github 網站](https://github.com/MicrosoftTranslator) \(英文\) 取得。
 
@@ -35,7 +36,7 @@ GET /languages
 * **文字翻譯：** 使用查詢參數 `scope=text` 來擷取可供翻譯繕寫之文字的語言集合。
 * **文字轉換語音：** 使用查詢參數 `scope=tts` 來擷取可供將翻譯的文字合成回語音的語言和語音集合。
 
-用戶端可以透過指定所選的逗號分隔清單，同時擷取多個集合。 例如：`scope=speech,text,tts`。
+用戶端可以透過指定所選的逗號分隔清單，同時擷取多個集合。 例如： `scope=speech,text,tts`。
 
 成功的回應是 JSON 物件，其中的屬性包含每個所要求集合。
 
@@ -127,9 +128,9 @@ ModelExample 值：
 
 Langagues { speech (object, optional), text (object, optional), tts (object, optional) }
 
-### <a name="headers"></a>標頭
+### <a name="headers"></a>headers
 
-|標頭|說明|類型|
+|頁首|說明|類型|
 :--|:--|:--|
 X-RequestId|伺服器產生用來識別要求的值，並作為疑難排解之用。|字串|
 
@@ -137,10 +138,10 @@ X-RequestId|伺服器產生用來識別要求的值，並作為疑難排解之�
 
 |參數|說明|參數類型|資料類型|
 |:--|:--|:--|:--|
-|api-version    |用戶端要求的 API 版本。 允許的值包括：`1.0`。|查詢|字串|
-|scope  |要傳回至用戶端的支援語言或語音集合。 此參數是以關鍵字的逗號分隔清單來指定。 可使用以下關鍵字：<ul><li>`speech`：提供支援繕寫語音的語言集合。</li><li>`tts`：提供支援文字語音轉換的語音集合。</li><li>`text`：提供支援翻譯文字的語言集合。</li></ul>如果沒有指定值，則 `scope` 的值預設為 `text`。|查詢|字串|
-|X-ClientTraceId    |用來追蹤要求的用戶端產生 GUID。 為了協助對問題進行疑難排解，用戶端應該隨著每個要求提供新的值並予以記錄。|標頭|字串|
-|Accept-Language    |回應中的某些欄位是語言或區域名稱。 使用此參數來定義傳回這些名稱的語言。 語言是透過提供語式正確的 BCP 47 語言標記來指定的。 從使用 `text` 範圍傳回的語言識別碼清單選取標籤。 對於不支援的語言，會以英文提供其名稱。<br/>例如，使用值 `fr` 要求法文名稱，或使用值 `zh-Hant` 要求繁體中文名稱。|標頭|字串|
+|api-version    |用戶端要求的 API 版本。 允許的值包括：`1.0`。|query|字串|
+|scope  |要傳回至用戶端的支援語言或語音集合。 此參數是以關鍵字的逗號分隔清單來指定。 可使用以下關鍵字：<ul><li>`speech`：提供支援繕寫語音的語言集合。</li><li>`tts`：提供支援文字語音轉換的語音集合。</li><li>`text`：提供支援翻譯文字的語言集合。</li></ul>如果沒有指定值，則 `scope` 的值預設為 `text`。|query|字串|
+|X-ClientTraceId    |用來追蹤要求的用戶端產生 GUID。 為了協助對問題進行疑難排解，用戶端應該隨著每個要求提供新的值並予以記錄。|頁首|字串|
+|Accept-Language    |回應中的某些欄位是語言或區域名稱。 使用此參數來定義傳回這些名稱的語言。 語言是透過提供語式正確的 BCP 47 語言標記來指定的。 從使用 `text` 範圍傳回的語言識別碼清單選取標籤。 對於不支援的語言，會以英文提供其名稱。<br/>舉例而言，值 `fr` 可要求傳回法文名稱，使用值 `zh-Hant` 則可要求繁體中文的名稱。|頁首|字串|
     
 ### <a name="response-messages"></a>回應訊息
 
@@ -148,5 +149,5 @@ X-RequestId|伺服器產生用來識別要求的值，並作為疑難排解之�
 |:--|:--|
 |400|不正確的要求。 請檢查輸入參數，以確保參數有效。 回應物件包括錯誤的更詳細描述。|
 |429|太多要求。|
-|500|發生錯誤。 如果錯誤持續發生，請使用用戶端追蹤識別碼 (X-ClientTraceId) 或要求識別碼 (X-RequestId) 予以回報。|
-|503|伺服器暫時無法使用。 請重試要求。 如果錯誤持續發生，請使用用戶端追蹤識別碼 (X-ClientTraceId) 或要求識別碼 (X-RequestId) 予以回報。|
+|500|發生錯誤。 若錯誤仍然存在，請使用用戶端追蹤識別碼 (X-ClientTraceId) 或要求識別碼 (X-RequestId) 予以回報。|
+|503|暫時無法使用伺服器。 請重試要求。 若錯誤仍然存在，請使用用戶端追蹤識別碼 (X-ClientTraceId) 或要求識別碼 (X-RequestId) 予以回報。|

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e3852ffc01312f01843a90de5f5565784b1c0b5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 7fcf0b924868d755bc76f7d1e695e73afc4eae6a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114246"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993386"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>快速入門：將 Java 可靠服務應用程式部署至 Service Fabric
 
@@ -37,7 +37,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 * 將應用程式部署到 Azure 中的叢集
 * 跨多個節點相應放大應用程式
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門：
 
@@ -66,8 +66,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![本機叢集狀況良好](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. 開啟 Eclipse。
-3. 按一下 [檔案] -> [從檔案系統中開啟專案...]。
-4. 按一下目錄，然後在您從 Github 資料夾複製的 `service-fabric-java-quickstart` 資料夾中選擇 `Voting` 目錄。 按一下 [完成] (Finish)。
+3. 按一下 [檔案] -> [匯入] -> [Gradle]-> [現有的 Gradle 專案]，然後依照精靈的指示操作。
+4. 按一下目錄，然後在您從 Github 資料夾複製的 `service-fabric-java-quickstart` 資料夾中選擇 `Voting` 目錄。 按一下 [完成] (Finish)。 
 
     ![Eclipse 匯入對話方塊](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -101,7 +101,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 Service Fabric 提供了數項可用來管理叢集及其應用程式的工具：
 
 * Service Fabric Explorer，此為以瀏覽器為基礎的工具。
-* Service Fabric 命令列介面 (CLI)，此 CLI 會在 Azure CLI 2.0 之上執行。
+* Service Fabric 命令列介面 (CLI)，此 CLI 會在 Azure CLI 之上執行。
 * PowerShell 命令。
 
 在此快速入門中，您會使用 Service Fabric CLI 和 Service Fabric Explorer。

@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 在 DevTest Labs 中建立和管理虛擬機器 | Microsoft Docs
-description: 了解如何使用 Azure CLI 2.0 在 Azure DevTest Labs 中建立和管理虛擬機器
+description: 了解如何使用 Azure CLI 在 Azure DevTest Labs 中建立及管理虛擬機器
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5e50bc3c6804a6f3d3dafd07b2918605c4cbc6ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ccf9b08856fcc652e3ad4b2b31587d43d7ef9cca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434674"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995942"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>使用 Azure CLI 在 DevTest Labs 中建立和管理虛擬機器
 本快速入門會引導您完成建立、啟動、連線、更新和清理實驗室中的開發電腦。 
@@ -27,7 +27,7 @@ ms.locfileid: "39434674"
 
 * 若尚未建立實驗室，請參閱[這裡](devtest-lab-create-lab.md)的指示。
 
-* [安裝 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 若要開始，請執行 az login 建立 Azure 連線。 
+* [安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 若要開始，請執行 az login 建立 Azure 連線。 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>建立並確認虛擬機器 
 使用 SSH 驗證從 Marketplace 映像建立 VM。

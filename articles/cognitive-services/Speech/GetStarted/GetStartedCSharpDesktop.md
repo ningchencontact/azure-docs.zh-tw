@@ -1,22 +1,24 @@
 ---
-title: 使用 C# 傳統型程式庫來開始使用 Microsoft 語音辨識 API | Microsoft Docs
-description: 開發使用「Microsoft 語音辨識 API」將語音轉換成文字的基本 Windows 應用程式。
+title: 使用 C# 傳統型程式庫來開始使用 Bing 語音辨識 API | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: 開發使用「Bing 語音辨識 API」將語音轉換成文字的基本 Windows 應用程式。
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e59b0e25401fb5182edd52f82985ffed9052286d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5b85a548d692b06a6da009432678d9c02242cb50
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368418"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996820"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-c35-for-net-on-windows"></a>針對 Windows 以適用於 .NET 的 C&#35; 開始使用語音辨識 API
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>快速入門：針對 Windows 以適用於 .NET 的 C&#35; 使用 Bing 語音辨識 API
 
 本頁說明如何開發一個使用「語音辨識 API」將語音轉換成文字的基本 Windows 應用程式。 使用用戶端程式庫可允許進行即時串流，這意謂著當您的用戶端應用程式將音訊傳送給服務時，會以同時且非同步方式接收部分辨識結果。
 
@@ -24,7 +26,7 @@ ms.locfileid: "35368418"
 
 下列各節說明如何使用 C# 傳統型程式庫來安裝、建置及執行 C# 範例應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="platform-requirements"></a>平台需求
 

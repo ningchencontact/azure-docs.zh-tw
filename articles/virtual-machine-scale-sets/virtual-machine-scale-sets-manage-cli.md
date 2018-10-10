@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 2.0 管理虛擬機器擴展集 | Microsoft Docs
-description: 管理虛擬機器擴展集 (例如如何啟動和停止執行個體，或變更擴展集容量) 的一般 Azure CLI 2.0 命令。
+title: 使用 Azure CLI 管理虛擬機器擴展集 | Microsoft Docs
+description: 用於管理虛擬機器擴展集 (例如如何啟動和停止執行個體，或變更擴展集容量) 的一般 Azure CLI 命令。
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 014e6ff2bc769675e47743cfdd4fbf7fc6234974
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42142086"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999829"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理虛擬機器擴展集
-在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 此外，您可以建立指令碼來自動化各種生命週期工作。 本文詳述一些可讓您執行這些工作的一般 Azure CLI 2.0 命令。
+# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>使用 Azure CLI 管理虛擬機器擴展集
+在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 此外，您可以建立指令碼來自動化各種生命週期工作。 此文章詳述一些可讓您執行這些工作的一般 Azure CLI 命令。
 
-若要完成這些管理工作，您需要最新的 Azure CLI 2.0。 如需相關資訊，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您需要建立虛擬機器擴展集，可以[使用 Azure CLI 2.0 建立擴展集](quick-create-cli.md)。
+若要完成這些管理工作，您需要最新的 Azure CLI。 如需相關資訊，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您需要建立虛擬機器擴展集，可以[使用 Azure CLI 建立擴展集](quick-create-cli.md)。
 
 
 ## <a name="view-information-about-a-scale-set"></a>檢視擴展集的相關資訊

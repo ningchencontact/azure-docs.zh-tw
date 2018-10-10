@@ -1,21 +1,21 @@
 ---
-title: 在 Azure 成本管理中檢視重要計量 | Microsoft Docs
-description: 本文說明如何在 Azure 成本管理中透過儀表板檢視重要計量。
+title: 在 Azure 中使用 Cloudyn 儀表板檢視主要計量 | Microsoft Docs
+description: 此文章說明如何在 Cloudyn 中使用儀表板來檢視主要計量。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/05/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1dc2e2eca900ca0ae72329c3c373b2d24f1b2e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1d2b4a0cd78f3d68a76bd9186be4174f2dd1d86c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302316"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999688"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>透過儀表板檢視重要成本計量
 
@@ -34,7 +34,7 @@ Cloudyn 中的儀表板可提供高階的報告檢視。 儀表板可讓您在�
 
 儀表板可用性取決於檢視儀表板時所用的雲端服務提供者帳戶類型。 Cloudyn 可用及所收集的資訊類型會影響儀表板中的報告。 例如，如果您沒有 AWS 帳戶，您就看不到 S3 Tracker 儀表板。 同樣地，如果您未針對 Cloudyn 啟用 Azure Resource Manager 存取，您在 [最佳化工具] 儀表板小工具中就看不到任何 Azure 特定資訊。
 
-您可以使用任何預製的儀表板，也可以使用自訂的報告來建立自己的儀表板。 如果您不熟悉 Cloudyn 報告，請參閱[使用成本管理報告](use-reports.md)。
+您可以使用任何預製的儀表板，也可以使用自訂的報告來建立自己的儀表板。 如果您不熟悉 Cloudyn 報告，請參閱[使用 Cloudyn 報告](use-reports.md)。
 
 ## <a name="create-a-custom-dashboard"></a>建立自訂儀表板
 
@@ -284,7 +284,7 @@ S3 Tracker 儀表板可協助您尋找、分析及顯示您目前的儲存體使
 ![雲端比較儀表板](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>Azure 中每個執行個體類型的 EC2 成本
-這個小工具會醒目提示過去 30 天的使用量 (以隨選比率表示)。 它會比較目前的 Amazon EC2 成本與 Azure 中可能的成本。
+這個小工具會醒目提示過去 30 天的使用量 (以隨選比率表示)。 它會比較目前的 Amazon EC2 成本與 Azure 中的潛在成本。
 - 將滑鼠停留在長條上，以比較每個執行個體類型的成本。
 - 按一下這個小工具可開啟「移轉您的部署 – 成本分析」報告。
 
@@ -295,3 +295,6 @@ S3 Tracker 儀表板可協助您尋找、分析及顯示您目前的儲存體使
 ### <a name="ec2azure-instance-type-mapping"></a>EC2/Azure 執行個體類型對應
 這個小工具會醒目提示 Amazon EC2 與 Azure 之間的彈性計算單位最佳對應。
 - 按一下這個小工具可開啟「執行個體類型對應」報告。
+
+## <a name="next-steps"></a>後續步驟
+- 閱讀[使用 Cloudyn 報告](use-reports.md)一文以深入了解報告。

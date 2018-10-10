@@ -1,24 +1,26 @@
 ---
-title: 支援 | Microsoft Docs
-description: Microsoft 語音服務的支援。
+title: Bing 語音支援 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing 語音支援。
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 09/08/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1cca2008b879e51434f3d3bde839e9ab68f796d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: cbeaa8f1c0a950bf3941de775a2d62584e5f5dfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368363"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986399"
 ---
 # <a name="support"></a>支援
 
-如果您有關於「語音服務」的問題、意見反應或建議，可以透過 GitHub 與我們聯繫。 
+如果您有關於「Bing 語音」的問題、意見反應或建議，可以透過 GitHub 與我們聯繫。 
  - [REST API 相關問題](https://github.com/Azure-Samples/SpeechToText-REST/issues) \(英文\)
  - [JavaScript 程式庫](https://github.com/Azure-Samples/Cognitive-Speech-STT-JavaScript/issues)
  - [C# 傳統型程式庫相關問題](https://github.com/Azure-Samples/Cognitive-Speech-STT-Windows/issues) \(英文\)

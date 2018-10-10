@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: efd512395b49d3c274bb5aa409d1cbd527673659
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781882"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989374"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>適用於 Linux 的網路監看員代理程式虛擬機器擴充功能
 
@@ -87,7 +87,7 @@ ms.locfileid: "43781882"
 
 您可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 若要部署網路監看員代理程式擴充功能，請在範本中使用上述的 json 結構描述。
 
-## <a name="azure-cli-10-deployment"></a>Azure CLI 1.0 部署
+## <a name="azure-classic-cli-deployment"></a>Azure 傳統 CLI 部署
 
 以下範例會將網路監看員代理程式 VM 擴充功能，部署到透過傳統部署模型部署的現有 VM：
 
@@ -96,7 +96,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Azure CLI 2.0 部署
+## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
 以下範例會將網路監看員代理程式 VM 擴充功能，部署到透過資源管理員部署的現有 VM：
 
@@ -110,7 +110,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 您可以使用 Azure 入口網站或 Azure CLI 擷取有關擴充功能部署狀態的資料。
 
-以下範例會使用 Azure CLI 1.0，顯示以傳統部署模型所部署之 VM 其擴充功能的部署狀態：
+下列範例會使用 Azure 傳統 CLI，顯示透過傳統部署模型部署之 VM 的延伸模組部署狀態：
 
 ```azurecli
 azure config mode asm
@@ -122,7 +122,7 @@ azure vm extension get myVM1
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-以下範例會使用 Azure CLI 2.0，顯示以資源管理員所部署之 VM 其 NetworkWatcherAgentLinux 擴充功能的部署狀態：
+下列範例會使用 Azure CLI，顯示透過資源管理員部署之 VM 的 NetworkWatcherAgentLinux 延伸模組部署狀態：
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1

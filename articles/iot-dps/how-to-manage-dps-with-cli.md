@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 70ce30bdc5a12aec198a2bb1b78c9bdfa8a18882
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: cfbebf8570ee044698b0f4e0abdd58370b04f759
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145543"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992859"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>如何使用 Azure CLI 和 IoT 擴充功能來管理 IoT 中樞裝置佈建服務
 
@@ -29,7 +29,7 @@ IoT 擴充功能以裝置管理和完整 IoT Edge 功能來擴充 Azure CLI 的�
 
 需要 [Python 2.7x 或 Python 3.x](https://www.python.org/downloads/)。
 
-### <a name="step-2---install-azure-cli"></a>步驟 2 - 安裝 Azure CLI
+### <a name="step-2---install-the-azure-cli"></a>步驟 2 - 安裝 Azure CLI
 
 請遵循[安裝指示](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)在您的環境中設定 Azure CLI。 您的 Azure CLI 版本至少必須是 2.0.24 或更新版本。 使用 `az –version` 進行驗證。 這個版本支援 az 擴充命令並引進 Knack 命令架構。 在 Windows 上進行安裝的最簡單方式就是下載並安裝 [MSI](https://aka.ms/InstallAzureCliWindows)。
 

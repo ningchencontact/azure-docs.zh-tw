@@ -1,29 +1,31 @@
 ---
-title: Azure 快速入門 - 使用 Azure 儲存體總管在物件儲存體中建立 Blob | Microsoft Docs
-description: 在本快速入門中，您會在物件 (Blob) 儲存體中使用 Azure 儲存體總管。 然後使用儲存體總管，將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
+title: 快速入門：使用 Azure 儲存體總管在物件儲存體中建立 Blob
+description: 在本快速入門中，您將了解如何使用 Azure 儲存體總管來建立容器和 Blob。 接下來，您要了解如何將 Blob 下載到本機電腦，以及如何檢視容器中的所有 Blob。 您也將了解如何建立 Blob 的快照集、管理容器存取原則，以及建立共用的存取簽章。
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 08/27/2018
 ms.author: tamram
-ms.openlocfilehash: 83698abd3006671c5edce37e3cada26d07d25b8f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399631"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996123"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>快速入門：使用 Azure 儲存體總管上傳、下載及列出 Blob
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>快速入門：使用 Azure 儲存體總管在物件儲存體中建立 Blob
 
-[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)是多重平台使用者介面，可用來管理儲存體帳戶的內容。 本指南詳細說明如何使用 Azure 儲存體總管在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。
+在本快速入門中，您將了解如何使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來建立容器和 Blob。 接下來，您要了解如何將 Blob 下載到本機電腦，以及如何檢視容器中的所有 Blob。 您也將了解如何建立 Blob 的快照集、管理容器存取原則，以及建立共用的存取簽章。
+
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-本快速入門需要安裝 Azure 儲存體總管。 如果您需要進行安裝，請瀏覽 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)，下載適用於 Windows、Macintosh 或 Linux 的項目。
+本快速入門會要求您安裝 Azure 儲存體總管。 若要安裝適用於 Windows、Macintosh 或 Linux 的 Azure 儲存體總管，請參閱 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>登入儲存體總管
 

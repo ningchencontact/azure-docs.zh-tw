@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933950"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993556"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -35,7 +35,7 @@ ms.locfileid: "37933950"
   - 藉由減少您對本機系統管理員帳戶的依賴，您無須再擔心認證遺失/遭竊、使用者設定弱式認證等問題。
   - 針對 Azure AD 目錄而設定的密碼複雜性及密碼存留期原則，也有助於保護 Linux VM。
   - 若要進一步保護 Azure 虛擬機器的登入，您可以設定多因素驗證。
-  - 使用 Azure Active Directory 登入 Linux 虛擬機器的能力，也適用於使用[同盟服務](../../active-directory/connect/active-directory-aadconnectfed-whatis.md)的客戶。
+  - 使用 Azure Active Directory 登入 Linux 虛擬機器的能力，也適用於使用[同盟服務](../../active-directory/hybrid/how-to-connect-fed-whatis.md)的客戶。
 
 - **無縫式共同作業：** 透過角色型存取控制 (RBAC)，您可以指定哪些人能夠以一般使用者的身分或系統管理員權限登入指定的 VM。 當使用者加入或退出您的小組時，您可以更新 VM 的 RBAC 原則，以授與適當的存取權。 這項體驗遠比經由刪除 VM 移除非必要的 SSH 公開金鑰來得容易。 當員工離開您的組織時，其使用者帳戶會從 Azure AD 中停用或移除，且他們將無法再存取您的資源。
 
@@ -59,7 +59,7 @@ ms.locfileid: "37933950"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-linux-virtual-machine"></a>建立 Linux 虛擬機器
 
@@ -117,7 +117,7 @@ az role assignment create \
 > [!NOTE]
 > 如果 AAD 網域和登入使用者名稱網域不相符，您必須以 --assignee-object-id 指定使用者帳戶的物件識別碼，而不只是以 -assignee 指定使用者名稱。 您可以使用 [az ad user list](/cli/azure/ad/user#az-ad-user-list) 取得使用者帳戶的物件識別碼。
 
-如需關於如何使用 RBAC 來管理 Azure 訂用帳戶資源存取權的詳細資訊，請參閱使用 [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md)、[Azure 入口網站](../../role-based-access-control/role-assignments-portal.md)或 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)。
+如需關於如何使用 RBAC 來管理 Azure 訂用帳戶資源存取權的詳細資訊，請參閱使用 [Azure CLI](../../role-based-access-control/role-assignments-cli.md)、[Azure 入口網站](../../role-based-access-control/role-assignments-portal.md)或 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)。
 
 您也可以設定 Azure AD，以要求特定使用者需要進行多因素驗證才能登入 Linux 虛擬機器。 如需詳細資訊，請參閱[開始在雲端中使用 Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)。
 
@@ -179,4 +179,4 @@ Access denied
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure Active Directory 的詳細資訊，請參閱[什麼是 Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 和[如何開始使用 Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)。
+如需有關 Azure Active Directory 的詳細資訊，請參閱[什麼是 Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

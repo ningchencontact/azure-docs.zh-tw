@@ -1,22 +1,24 @@
 ---
-title: 疑難排解 |Microsoft Docs
-description: 如何解決使用「Microsoft 語音服務」時的問題。
+title: 針對 Bing 語音進行疑難排解 |Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: 如何解決使用「Bing 語音」時的問題。
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04f3da19939d523d201d357b2b0293db1508431d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 532916106f62e0236b8dd53cf7988a648355aef4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368378"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991856"
 ---
-# <a name="troubleshooting"></a>疑難排解
+# <a name="troubleshooting-bing-speech"></a>針對 Bing 語音進行疑難排解
 
 ## <a name="error-http-403-forbidden"></a>錯誤 `HTTP 403 Forbidden`
 

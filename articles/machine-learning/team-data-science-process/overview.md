@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e6e6b8e03102825a15035adbea80ac5e9f3fa404
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125754"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996446"
 ---
 # <a name="what-is-the-team-data-science-process"></a>什麼是 Team Data Science Process？
 
@@ -71,7 +71,7 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 
 ## <a name="standardized-project-structure"></a>標準化專案結構
 
-使所有專案共用目錄結構，並使用專案文件的範本讓小組成員能輕易找到其專案的資訊。 Git、TFS 或 Subversion 之類的版本控制系統 (VCS) 儲存所有的程式碼和文件，有助於小組共同作業。 在 Jira、Rally、Visual Studio Team Services 之類的敏捷式軟體開發專案中追蹤工作和功能，追蹤系統，能夠更密切追蹤個別功能的程式碼。 這類追蹤也可讓小組獲得進一步的成本估計。 TDSP 建議在 VCS 上對於每個專案建立個別的儲存機制，以利版本控制、資訊安全和共同作業。 所有專案的標準化結構有助於累積整個組織的機構知識。
+使所有專案共用目錄結構，並使用專案文件的範本讓小組成員能輕易找到其專案的資訊。 Git、TFS 或 Subversion 之類的版本控制系統 (VCS) 儲存所有的程式碼和文件，有助於小組共同作業。 在 Jira、Rally 與 Azure DevOps 之類的敏捷式專案追蹤系統中的追蹤工作和功能，能夠更密切追蹤個別功能的程式碼。 這類追蹤也可讓小組獲得進一步的成本估計。 TDSP 建議在 VCS 上對於每個專案建立個別的儲存機制，以利版本控制、資訊安全和共同作業。 所有專案的標準化結構有助於累積整個組織的機構知識。
 
 我們提供資料夾結構提供範本和標準位置的必要文件。 此資料夾結構包括內含資料探索和功能擷取程式碼的檔案，以及記錄模型反覆項目的檔案。 這些範本讓小組成員更容易了解其他人完成的工作，並且更容易將新成員加入至小組中。 Markdown 格式的文件範本很容易檢視和更新。 範本可用來對於每個專案提供重要問題的檢查清單，確保問題獲得妥善定義，而且交付項目符合預期的品質。 範例包括：
 
@@ -89,10 +89,10 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 
 TDSP 提供管理共用分析和儲存體基礎結構的建議，例如：
 
-- 儲存資料集的雲端檔案系統、 
+- 儲存資料集的雲端檔案系統 
 - 資料庫
 - 巨量資料 (Hadoop 或 Spark) 叢集 
-- 機器學習服務。 
+- 機器學習服務 
 
 分析和儲存體基礎結構可以在雲端，也可以是內部部署。 這裡儲存著原始資料集和處理後的資料集。 這個基礎架構能夠進行可重現的分析。 它也可避免重複，重複可能會導致不一致和不必要的基礎結構成本。 提供的工具可用來佈建和追蹤共用的資源，並允許每個小組成員安全地連線到這些資源。 讓專案成員建立一致的計算環境也是個不錯的做法。 不同的小組成員可以複寫和驗證實驗。
 

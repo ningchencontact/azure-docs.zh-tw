@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445206"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996837"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>提高 Azure Active Directory 中全域管理員的存取權
 
@@ -37,7 +37,9 @@ ms.locfileid: "37445206"
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>使用 Azure 入口網站提高全域管理員的存取權
+## <a name="azure-portal"></a>Azure 入口網站
+
+遵循這些步驟，使用 Azure 入口網站提高全域系統管理員的存取權。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)或 [Azure Active Directory 系統管理中心](https://aad.portal.azure.com)。
 
@@ -59,7 +61,9 @@ ms.locfileid: "37445206"
 
 1. 執行您需要以更高存取權完成的工作。 當您完成時，將開關設回 [否]。
 
-## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>使用 PowerShell 列出根目錄範圍 (/) 的角色指派
+## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="list-role-assignment-at-the-root-scope-"></a>列出根目錄範圍 (/) 的角色指派
 
 若要列出某位使用者在根目錄範圍 (`/`) 的使用者存取系統管理員角色指派，請使用 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) 命令。
 
@@ -79,7 +83,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>使用 PowerShell 來移除根目錄範圍 (/) 的角色指派
+### <a name="remove-a-role-assignment-at-the-root-scope-"></a>移除根目錄範圍 (/) 的角色指派
 
 若要移除根目錄範圍 (`/`) 某位使用者的「使用者存取系統管理員」角色指派，請使用 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 命令。
 
@@ -88,7 +92,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>使用 REST API 提高全域管理員的存取權
+## <a name="rest-api"></a>REST API
+
+### <a name="elevate-access-for-a-global-administrator"></a>提高全域系統管理員的存取權
 
 若要使用 REST API 提高全域管理員的存取權，請使用下列基本步驟。
 
@@ -117,7 +123,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 
 1. 移除您的「使用者存取系統管理員」權限，直到再次需要這些權限為止。
 
-## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>使用 REST API 來列出根目錄範圍 (/) 的角色指派
+### <a name="list-role-assignments-at-the-root-scope-"></a>列出根目錄範圍 (/) 的角色指派
 
 您可以列出根目錄範圍 (`/`) 某個使用者的所有角色指派。
 
@@ -127,7 +133,17 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## <a name="remove-elevated-access-using-the-rest-api"></a>使用 REST API 來移除已提高的存取權
+### <a name="list-deny-assignments-at-the-root-scope-"></a>列出根範圍 (/) 內的拒絕指派
+
+您可以列出根目錄範圍 (`/`) 某個使用者的所有拒絕指派。
+
+- 呼叫 GET denyAssignments，其中 `{objectIdOfUser}` 是您想要其擷取拒絕指派之使用者的物件識別碼。
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### <a name="remove-elevated-access"></a>移除已提高的存取權
 
 當您呼叫 `elevateAccess` 時，會為自己建立角色指派，因此若要撤銷這些權限，您必須移除這項指派。
 
