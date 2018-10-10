@@ -25,7 +25,7 @@
 # 作法
 ## 規劃和設計
 ### [了解 Azure AD 架構](fundamentals/active-directory-architecture.md)
-### [Azure Active Directory 中的宣告對應](active-directory-claims-mapping.md)
+### [Azure Active Directory 中的宣告對應](develop/active-directory-claims-mapping.md)
 ### [部署混合式身分識別解決方案](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### 判斷需求
 ##### [身分識別](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -200,7 +200,7 @@
 #### [租用戶限制](manage-apps/tenant-restrictions.md)
 #### [使用 SCIM 佈建使用者](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [了解 Azure AD 應用程式同意體驗](application-consent-experience.md)
+### [了解 Azure AD 應用程式同意體驗](develop/application-consent-experience.md)
 
 ### 疑難排解
 
@@ -323,7 +323,7 @@
 
 ### [使用 Azure AD Connect 整合內部部署身分識別](hybrid/whatis-hybrid-identity.md)
 
-### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
+### [設定權杖存留期](develop/active-directory-configurable-token-lifetimes.md)
 
 ## 保護您的身分識別
 
