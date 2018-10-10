@@ -7,27 +7,33 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: b587f5dcc9558ec52b85e4b53dae0e31ad475a4e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983713"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>在 Azure Machine Learning Workbench 中漫遊及共同作業
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 本文說明如何使用 Azure Machine Learning Workbench 設定專案，以在電腦之間漫遊以及和小組成員共同作業。 
 
 當您建立具有遠端 Git 存放庫連結 的 Azure Machine Learning 專案時，專案中繼資料和快照集會儲存在雲端。 您可以使用雲端連結從不同的電腦存取專案 (漫遊)。 也可以提供專案存取權給小組成員，來和他們共同作業。 
 
-## <a name="prerequisites"></a>先決條件
-1. 安裝 Machine Learning Workbench 應用程式。 確定您擁有 Azure Machine Learning 測試帳戶的存取權。 如需詳細資訊，請參閱[安裝指南](../service/quickstart-installation.md)。
+## <a name="prerequisites"></a>必要條件
+1. 安裝 Machine Learning Workbench 應用程式。 確定您擁有 Azure Machine Learning 測試帳戶的存取權。 如需詳細資訊，請參閱[安裝指南](quickstart-installation.md)。
 
-2. 存取 [Visual Studio Team Services](https://www.visualstudio.com) (Team Services)，然後建立要連結專案的存放庫。 如需詳細資訊，請參閱[使用 Git 存放庫搭配 Machine Learning Workbench 專案](using-git-ml-project.md)。
+2. 存取 [Azure DevOps](https://www.visualstudio.com)，並建立要連結專案的存放庫。 如需詳細資訊，請參閱[使用 Git 存放庫搭配 Machine Learning Workbench 專案](using-git-ml-project.md)。
 
 ## <a name="create-a-new-machine-learning-project"></a>建立新的 Machine Learning 專案
-開啟 Machine Learning Workbench，然後建立新的專案 (例如，名為鳶尾花的專案)。 在 [Visualstudio.com GIT 存放庫 URL] 方塊中，輸入 Team Services Git 存放庫的有效 URL。 
+開啟 Machine Learning Workbench，然後建立新的專案 (例如，名為鳶尾花的專案)。 在 [Visualstudio.com GIT 存放庫 URL] 方塊中，輸入 Azure DevOps Git 存放庫的有效 URL。 
 
 > [!IMPORTANT]
 > 如果選擇空白的專案範本，您選擇使用的 Git 存放庫可能會已具有 master 分支。 Machine Learning 只會在本機複製 master 分支。 它會將 aml_config 資料夾與其他專案中繼資料檔案新增至本機專案資料夾。 
@@ -60,7 +66,7 @@ $ git push origin master
 <a name="roaming"></a>
 
 ### <a name="open-machine-learning-workbench-on-a-second-computer"></a>在第二部電腦上開啟 Machine Learning Workbench
-Team Services Git 存放庫與您的專案連結後，就可以從已安裝 Machine Learning Workbench 的任何電腦上存取鳶尾花專案。 
+Azure DevOps Git 存放庫與您的專案連結後，就可以從已安裝 Machine Learning Workbench 的任何電腦上存取鳶尾花專案。 
 
 若要從另一部電腦上存取鳶尾花專案，必須使用建立專案時所使用的相同認證來登入應用程式。 您也需要使用相同的 Machine Learning 測試帳戶與工作區。 鳶尾花專案會依字母順序與工作區內的其他專案一起列出。 
 
@@ -82,11 +88,11 @@ Team Services Git 存放庫與您的專案連結後，就可以從已安裝 Mach
 
 
 ### <a name="work-on-the-downloaded-project"></a>使用下載的專案 
-新下載的專案會反映專案中上次執行的專案狀態。 每次提交執行時，專案狀態的快照集會自動認可到 Team Services Git 存放庫中的執行歷程記錄分支。 在第二部電腦上具現化專案時，會使用與最新執行相關聯的快照集。 
+新下載的專案會反映專案中上次執行的專案狀態。 每次提交執行時，專案狀態的快照集會自動認可到 Azure DevOps Git 存放庫中的執行歷程記錄分支。 在第二部電腦上具現化專案時，會使用與最新執行相關聯的快照集。 
  
 
 ## <a name="collaboration"></a>共同作業
-您可以在連結至 Team Services Git 存放庫的專案上和小組成員共同作業。 您可以針對 Machine Learning 測試帳戶、工作區及專案，將權限指派給使用者。 目前您可以使用 Azure CLI 執行 Azure Resource Manager 命令。 您也可以使用 [Azure 入口網站](https://portal.azure.com)。 如需詳細資訊，請參閱[使用 Azure 入口網站新增使用者](#portal)。    
+您可以在連結至 Azure DevOps Git 存放庫的專案上和小組成員共同作業。 您可以針對 Machine Learning 測試帳戶、工作區及專案，將權限指派給使用者。 目前您可以使用 Azure CLI 執行 Azure Resource Manager 命令。 您也可以使用 [Azure 入口網站](https://portal.azure.com)。 如需詳細資訊，請參閱[使用 Azure 入口網站新增使用者](#portal)。    
 
 ### <a name="use-the-command-line-to-add-users"></a>使用命令列新增使用者
 舉例來說，Alice 為鳶尾花專案的擁有者。 Alice 想要和 Bob 共用該專案的存取權。 
@@ -127,16 +133,16 @@ Machine Learning 測試帳戶、工作區及專案都是 Azure Resource Manager 
 ## <a name="sample-collaboration-workflow"></a>共同作業工作流程範例
 讓我們透過範例來了解共同作業的流程。 Contoso 員工 Alice 和 Bob 想要透過使用 Machine Learning Workbench，來在某個資料科學專案上共同作業。 他們的身分識別屬於相同的 Contoso Azure Active Directory (Azure AD) 租用戶。 Alice 和 Bob 採取的步驟如下：
 
-1. Alice 在 Team Services 專案中建立一個空白的 Git 存放庫。 該 Team Services 專案應位於在 Contoso Azure AD 租用戶之下建立的 Azure 訂用帳戶中。 
+1. Alice 在 Azure DevOps 專案中建立一個空白的 Git 存放庫。 該 Azure DevOps 專案應位於在 Contoso Azure AD 租用戶之下建立的 Azure 訂用帳戶中。 
 
-2. Alice 在她的電腦上建立 Machine Learning 測試帳戶、工作區，以及 Machine Learning Workbench 專案。 她在建立專案時輸入 Team Services Git 存放庫 URL。
+2. Alice 在她的電腦上建立 Machine Learning 測試帳戶、工作區，以及 Machine Learning Workbench 專案。 她在建立專案時輸入 Azure DevOps Git 存放庫 URL。
 
-3. Alice 開始在專案上工作。 她建立了一些指令碼並執行了幾個執行。 每個執行時，系統會將整個專案資料夾的快照集以認可的形式自動推送 Machine Learning Workbench 所建立之 Team Services Git 存放庫的執行歷程記錄分支。
+3. Alice 開始在專案上工作。 她建立了一些指令碼並執行了幾個執行。 每次執行時，系統會將整個專案資料夾的快照集以認可的形式自動推送 Machine Learning Workbench 所建立之 Azure DevOps Git 存放庫的執行歷程記錄分支。
 
-4. Alice 對於進行中的工作內容感到很滿意。 她想要認可她在本機 master 分支中所做的變更，並將該變更推送 Team Services Git 存放庫 master 分支中。 在 Machine Learning Workbench 中開啟該專案的情況下，她開啟 [命令提示字元] 視窗，然後輸入下列命令：
+4. Alice 對於進行中的工作內容感到很滿意。 她想要認可她在本機 master 分支中所做的變更，並將該變更推送 Azure DevOps Git 存放庫 master 分支中。 在 Machine Learning Workbench 中開啟該專案的情況下，她開啟 [命令提示字元] 視窗，然後輸入下列命令：
     
     ```sh
-    # Verify that the Git remote is pointing to the Team Services Git repo.
+    # Verify that the Git remote is pointing to the Azure DevOps Git repo.
     $ git remote -v
 
     # Verify that the current branch is master.
@@ -148,11 +154,11 @@ Machine Learning 測試帳戶、工作區及專案都是 Azure Resource Manager 
     # Commit changes with a comment.
     $ git commit -m "this is a good milestone"
 
-    # Push the commit to the master branch of the remote Git repo in Team Services.
+    # Push the commit to the master branch of the remote Git repo in Azure DevOps.
     $ git push
     ```
 
-5. Alice 將 Bob 作為參與者新增到工作區。 她可以在 Azure 入口網站中進行此作業，或使用較早之前所述的 `az role assignment` 命令。 Alice 也將 Team Services Git 存放庫的讀取/寫入權限授與 Bob。
+5. Alice 將 Bob 作為參與者新增到工作區。 她可以在 Azure 入口網站中進行此作業，或使用較早之前所述的 `az role assignment` 命令。 Alice 也將 Azure DevOps Git 存放庫的讀取/寫入權限授與 Bob。
 
 6. Bob 在他的電腦上登入 Machine Learning Workbench。 他可以看到 Alice 和他共用的工作區。 他可以看到列於工作區底下的鳶尾花專案。 
 
@@ -165,13 +171,13 @@ Machine Learning 測試帳戶、工作區及專案都是 Azure Resource Manager 
 9. Bob 想要取得 Alice 推送的最新變更，然後開始在不同的分支中作業。 Bob 在 Machine Learning Workbench 中開啟 [命令提示字元] 視窗，然後執行下列命令：
 
     ```sh
-    # Verify that the Git remote is pointing to the Team Services Git repo.
+    # Verify that the Git remote is pointing to the Azure DevOps Git repo.
     $ git remote -v
 
     # Verify that the current branch is master.
     $ git branch
 
-    # Get the latest commit in the Team Services Git master branch and overwrite current files.
+    # Get the latest commit in the Azure DevOps Git master branch and overwrite current files.
     $ git pull --force
 
     # Create a new local branch named "bob" so that Bob's work is done in the "bob" branch
@@ -192,7 +198,7 @@ Machine Learning 測試帳戶、工作區及專案都是 Azure Resource Manager 
     # Commit the changes with a comment.
     $ git commit -m "I found a cool new trick."
 
-    # Create a new branch on the remote Team Services Git repo, and then push the changes.
+    # Create a new branch on the remote Azure DevOps Git repo, and then push the changes.
     $ git push origin bob
     ```
 

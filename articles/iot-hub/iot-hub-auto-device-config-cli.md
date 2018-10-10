@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: f81ef3c231874f314d6fe023ba247a0bcff61e90
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 6535eee93b0fcaa2c0888fc6b647811c21e564d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140857"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971904"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大規模設定和監視 IoT 裝置
 
@@ -34,8 +34,8 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 ## <a name="cli-prerequisites"></a>CLI 先決條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-using-cli.md)。 
-* 您環境中的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 您的 Azure CLI 2.0 版本至少必須是 2.0.24 或更新版本。 使用 `az –-version` 進行驗證。 這個版本支援 az 擴充命令並引進 Knack 命令架構。 
-* [Azure CLI 2.0 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)。
+* 您環境中的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 您的 Azure CLI 版本至少必須是 2.0.24 或更新版本。 使用 `az –-version` 進行驗證。 這個版本支援 az 擴充命令並引進 Knack 命令架構。 
+* [適用於 Azure CLI 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension) \(英文\)。
 
 ## <a name="implement-device-twins-to-configure-devices"></a>實作裝置對應項來設定裝置
 
@@ -56,7 +56,7 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 
 ## <a name="define-the-target-content-and-metrics"></a>定義目標內容和計量
 
-目標內容和計量查詢是指定為 JSON 文件，它說明要設定的裝置對應項所需屬性和要測量的報告屬性。  若要使用 Azure CLI 2.0 建立自動裝置組態，請在本機將目標內容和計量儲存為.txt 檔案。 當您執行命令以將組態套用至您的裝置時，稍後會在下一節中使用檔案路徑。 
+目標內容和計量查詢是指定為 JSON 文件，它說明要設定的裝置對應項所需屬性和要測量的報告屬性。  若要使用 Azure CLI 建立自動裝置組態，請在本機上將目標內容和計量儲存為 .txt 檔案。 當您執行命令以將組態套用至您的裝置時，稍後會在下一節中使用檔案路徑。 
 
 以下是基本目標內容範例：
 

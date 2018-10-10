@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247777"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983662"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>管理 Azure Blob 儲存體生命週期 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "43247777"
 
 ## <a name="storage-account-support"></a>儲存體帳戶支援
 
-生命週期管理原則適用於一般用途 v2 (GPv2) 帳戶和 Blob 儲存體帳戶。 您可以透過 Azure 入口網站中簡單的單鍵程序，將現有的一般用途 (GPv1) 帳戶轉換成 GPv2 帳戶。 若要深入了解，請參閱 [Azure 儲存體帳戶選項](../common/storage-account-options.md)。  
+生命週期管理原則適用於一般用途 v2 (GPv2) 帳戶和 Blob 儲存體帳戶。 您可以透過 Azure 入口網站中簡單的單鍵程序，將現有的一般用途 (GPv1) 帳戶轉換成 GPv2 帳戶。 如需儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md)深入瞭解。  
 
 ## <a name="pricing"></a>價格 
 
@@ -54,7 +54,7 @@ Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 如果功能經核准且正確註冊，您應該會收到「已註冊」狀態。
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 若要提交要求： 
 ```cli
@@ -69,7 +69,7 @@ az feature show --namespace Microsoft.Storage --name DLM
 
 ## <a name="add-or-remove-policies"></a>新增或移除原則 
 
-您可以使用 Azure 入口網站、[PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview)、[REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) 或下列語言的用戶端工具，來新增、編輯或移除原則：[.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview)、[Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/)、[Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0)、[Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2)。 
+您可以使用 Azure 入口網站、[PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview)、[REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) 或下列語言的用戶端工具，來新增、編輯或移除原則：[.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview)、[Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/)、[Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0)、[Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2)。 
 
 ### <a name="azure-portal"></a>Azure 入口網站
 

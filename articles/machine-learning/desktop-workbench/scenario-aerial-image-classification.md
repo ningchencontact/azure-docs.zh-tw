@@ -7,18 +7,23 @@ manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: d34f25fd75816f0ae840b3cbb2e0e88cbc2bfd91
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832402"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967603"
 ---
 # <a name="aerial-image-classification"></a>空拍影像分類
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 此範例示範如何使用 Azure Machine Learning Workbench 來協調影像分類模型的分散式訓練和運作。 我們會使用兩個方法進行訓練：(i) 使用 [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU 叢集將深度類神經網路加以精簡，以及 (ii) 使用 [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) 套件，透過預先訓練好的 CNTK 模型建立影像特徵，並使用衍生出來的特徵來訓練分類器。 接著，我們會使用 [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) 叢集，以平行方式將定型的模型套用到雲端中的大型影像集合，透過新增或移除背景工作角色節點，讓我們可以調整訓練和實施的速度。
 
@@ -55,27 +60,27 @@ ms.locfileid: "34832402"
 
 下列指示會引導您完成為此範例設定執行環境的程序。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 - [Azure 帳戶](https://azure.microsoft.com/free/) (提供免費試用)
     - 您會建立具有 40 個背景工作節點 (總計 168 個核心) 的 HDInsight Spark 叢集。 請在 Azure 入口網站的訂用帳戶中檢閱 [使用量 + 配額] 索引標籤，以確定您的帳戶具有足夠的可用核心。
        - 如果您的可用核心較少，則可以修改 HDInsight 叢集範本，以減少佈建的背景工作數目。 這方面的指示會出現在 [建立 HDInsight Spark 叢集] 區段下。
     - 這個範例會建立具有兩個 NC6 (1 GPU，6 vCPU) VM 的 Batch AI 定型叢集。 請在 Azure 入口網站的訂用帳戶中檢閱 [使用量 + 配額] 索引標籤，以確定您在美國東部區域的帳戶具有足夠的可用核心。
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - 請遵循[安裝及建立快速入門](../service/quickstart-installation.md)，以安裝 Azure Machine Learning Workbench 並建立測試帳戶和模型管理帳戶。
-- [Batch AI](https://github.com/Azure/BatchAI) Python SDK 和 Azure CLI 2.0
+    - 請遵循[安裝及建立快速入門](../desktop-workbench/quickstart-installation.md)，以安裝 Azure Machine Learning Workbench 並建立測試帳戶和模型管理帳戶。
+- [Batch AI](https://github.com/Azure/BatchAI) Python SDK 和 Azure CLI
     - 完成 [Batch AI 配方讀我檔案](https://github.com/Azure/BatchAI/tree/master/recipes) \(英文\) 中的下列小節：
         - "Prerequisites"
         - "Create and get your Azure Active Directory (AAD) application"
-        - "Register BatchAI Resource Providers" (在 "Run Recipes Using Azure CLI 2.0" 之下)
+        - "Register BatchAI Resource Providers" (在 "Run Recipes Using Azure CLI" 之下)
         - "Install Azure Batch AI Management Client"
         - "Install Azure Python SDK"
     - 記錄指導您建立之 Azure Active Directory 應用程式的用戶端識別碼、祕密和租用戶識別碼。 您稍後將會在本教學課程中使用那些認證。
-    - 撰寫本文時，Azure Machine Learning Workbench 和 Azure Batch AI 會使用 Azure CLI 2.0 的不同分支。 為了清楚起見，我們將參考 CLI 的 Workbench 版本作為「從 Azure Machine Learning Workbench 啟動的 CLI」，以及一般發行版本 (包含 Batch AI) 作為「Azure CLI 2.0」。
+    - 撰寫本文時，Azure Machine Learning Workbench 和 Azure Batch AI 會使用 Azure CLI 的不同分支。 為了清楚起見，我們將參考 CLI 的 Workbench 版本作為「從 Azure Machine Learning Workbench 啟動的 CLI」，以及一般發行版本 (包含 Batch AI) 作為「Azure CLI」。
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)，可用來協調 Azure 儲存體帳戶之間檔案傳輸的免費公用程式
     - 請確定包含 AzCopy 可執行檔的資料夾位於您系統的 PATH 環境變數上。 ([這裡](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp)有提供如何修改環境變數的指示。)
 - 針對 SSH 用戶端；我們建議 [PuTTY](http://www.putty.org/)。
 
-此範例已在 Windows 10 電腦上進行過測試；您應該能夠從任何 Windows 機器 (包括 Azure 資料科學虛擬機器) 執行此範例。 根據[這些指示](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials)從 MSI 安裝 Azure CLI 2.0。 您可能需要稍做修改 (例如，變更 filepaths) 才能在 macOS 上執行此範例。
+此範例已在 Windows 10 電腦上進行過測試；您應該能夠從任何 Windows 機器 (包括 Azure 資料科學虛擬機器) 執行此範例。 根據[這些指示](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials)從 MSI 安裝 Azure CLI。 您可能需要稍做修改 (例如，變更 filepaths) 才能在 macOS 上執行此範例。
 
 ### <a name="set-up-azure-resources"></a>設定 Azure 資源
 
@@ -181,7 +186,7 @@ ms.locfileid: "34832402"
 
 ### <a name="set-up-batch-ai-resources"></a>設定 Batch AI 資源
 
-在等候您的儲存體帳戶檔案傳輸及 Spark 叢集部署完成時，您可以準備 Batch AI 網路檔案伺服器 (NFS) 和 GPU 叢集。 開啟 Azure CLI 2.0 命令提示字元並執行下列命令：
+在等候您的儲存體帳戶檔案傳輸及 Spark 叢集部署完成時，您可以準備 Batch AI 網路檔案伺服器 (NFS) 和 GPU 叢集。 開啟 Azure CLI 命令提示字元並執行下列命令：
 
 ```
 az --version 

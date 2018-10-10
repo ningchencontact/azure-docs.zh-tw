@@ -1,6 +1,6 @@
 ---
 title: 使用加速網路來建立 Azure 虛擬機器 | Microsoft Docs
-description: 了解如何使用加速網路建立 Linux 虛擬機器。
+description: 了解如何建立已啟用加速網路的 Linux 虛擬機器。
 services: virtual-network
 documentationcenter: na
 author: gsilva5
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 9ea843df4cf437b97f7fe1d62636a51f8201376e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414567"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990955"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>使用加速網路建立 Linux 虛擬機器
 
@@ -75,7 +75,7 @@ ms.locfileid: "39414567"
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-請安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myNic* 和 *myVm*。
+請安裝最新的 [Azure CLI](/cli/azure/install-azure-cli)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myNic* 和 *myVm*。
 
 使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 下列範例會在 *centralus* 位置建立名為 *myResourceGroup* 的資源群組：
 

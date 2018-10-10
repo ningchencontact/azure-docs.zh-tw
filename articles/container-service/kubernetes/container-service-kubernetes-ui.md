@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0680551d3a87c942574a4eac70fa380cc1e9b5d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163243"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998520"
 ---
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>搭配 Azure Container Service 使用 Kubernetes Web UI
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本逐步解說假設您已[使用 Azure Container Service 建立 Kubernetes 叢集](container-service-kubernetes-walkthrough.md)。
 
 
-同時也假設您已經安裝 Azure CLI 2.0 和 `kubectl` 工具。
+同時也假設您已經安裝 Azure CLI 和 `kubectl` 工具。
 
 您可以藉由執行下列操作來測試是否已安裝 `az` 工具：
 

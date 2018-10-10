@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 84766ba4cf9e844184752bc44d2e0a471b97db27
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159123"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963589"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙︰Azure 平台上的雲端術語字典
 
@@ -31,7 +31,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 
 ## <a name="account"></a>帳戶
 用來存取和管理 Azure 訂用帳戶的帳戶。 通常稱為 Azure 帳戶，雖然帳戶可以是以下任何一項：現有公司、學校或個人 Microsoft 帳戶，或 Office 365 使用者名稱和密碼。 當您註冊[免費試用版](https://azure.microsoft.com)時，也可以建立帳戶來管理 Azure 訂用帳戶。  
-請參閱[ Office 365 帳戶註冊 Azure 訂用帳戶](billing/billing-use-existing-office-365-account-azure-subscription.md)和[您可以用來登入的帳戶](active-directory/active-directory-how-subscriptions-associated-directory.md)。
+請參閱[ Office 365 帳戶註冊 Azure 訂用帳戶](billing/billing-use-existing-office-365-account-azure-subscription.md)和[您可以用來登入的帳戶](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
 ## <a name="api-app"></a>API 應用程式
 [App Service 應用程式](#app-service-app)的另一個名稱。
@@ -47,7 +47,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 您可以使用兩個 [部署模型](resource-manager-deployment-model.md) 之一來部署 Azure 中的資源 (新模型是 Azure Resource Manager)。 有些 Azure 服務僅支援 Resource Manager 部署模型、有些僅支援傳統部署模型，而有些則可支援兩個模型。 每個 Azure 服務的文件指定其支援的模型。
 
 ## <a name="cli"></a>Azure 命令列介面 (CLI)
-命令列介面，可用來從 Windows、macOS 和 Linux 電腦管理 Azure 服務。  某些服務或服務功能可以只透過 PowerShell 或 CLI 進行管理。 請參閱 [Azure CLI 2.0](/cli/azure)
+命令列介面，可用來從 Windows、macOS 和 Linux 電腦管理 Azure 服務。  某些服務或服務功能可以只透過 PowerShell 或 CLI 進行管理。 請參閱 [Azure CLI](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 命令列介面，可透過命令列從 Windows 電腦管理 Azure 服務。 某些服務或服務功能可以只透過 PowerShell 或 CLI 進行管理。
@@ -83,15 +83,15 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 ## <a name="mobile-app"></a>行動裝置應用程式
 [App Service 應用程式](#app-service-app)的另一個名稱。
 
-## <a name="offer"></a>提供項目
+## <a name="offer"></a>供應項目
 適用於 Azure 訂用帳戶的定價、信用額度及相關條款。  
-請參閱 [Azure 優惠詳細資料頁面](https://azure.microsoft.com/support/legal/offer-details/)
+請參閱 [Azure 供應項目詳細資料頁面](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>入口網站
 用來部署和管理 Azure 服務的安全 Web 入口網站。
 
 ## <a name="region"></a>region
-地理區域內不會跨越國界且包含一或多個資料中心的地區。 定價、區域性服務和優惠類型是在區域層級公開。 區域通常會與另一個區域配對，兩者可多達數百英哩遠。 區域配對可用來做為災害復原及高可用性案例的機制。 也稱為「位置」。  
+地理區域內不會跨越國界且包含一或多個資料中心的地區。 定價、區域性服務和供應項目類型是在區域層級公開。 區域通常會與另一個區域配對，兩者可多達數百英哩遠。 區域配對可用來做為災害復原及高可用性案例的機制。 也稱為「位置」。  
 請參閱 [Azure 區域](best-practices-availability-paired-regions.md)
 
 ## <a name="resource"></a>resource
@@ -126,8 +126,8 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 請參閱[關於 Azure 儲存體帳戶](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>訂用帳戶
-客戶與 Microsoft 的合約，可讓他們取得 Azure 服務。 訂用帳戶定價及相關條款是由針對訂用帳戶所選擇的優惠來控管。
-請參閱 [Microsoft 線上訂用帳戶合約](https://azure.microsoft.com/support/legal/subscription-agreement/)和 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory/active-directory-how-subscriptions-associated-directory.md)
+客戶與 Microsoft 的合約，可讓他們取得 Azure 服務。 訂用帳戶定價及相關條款是由針對訂用帳戶所選擇的供應項目來控管。
+請參閱 [Microsoft 線上訂用帳戶合約](https://azure.microsoft.com/support/legal/subscription-agreement/)和 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ## <a name="tag"></a>tag
 一個編製索引的詞彙，可讓您根據管理或計費需求將資源分類。 當您有複雜的資源集合時，您可使用標籤以最有利的方式將這些資產視覺化。 例如，您可以標記在組織中具有類似角色，或屬於相同部門的資源。  

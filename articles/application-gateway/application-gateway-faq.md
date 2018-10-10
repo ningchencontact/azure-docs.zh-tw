@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 8/10/2018
+ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038090"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986671"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -211,8 +211,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 | 平均後端頁面回應大小 | 小型 | 中 | 大型 |
 | --- | --- | --- | --- |
-| 6KB |7.5 Mbps |13 Mbps |50 Mbps |
-| 100KB |35 Mbps |100 Mbps |200 Mbps |
+| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > 這些值是應用程式閘道輸送量的近似值。 實際的輸送量會依據不同的環境詳細資料而有所不同，例如平均頁面大小、後端執行個體位置，以及提供一個頁面所需的處理時間。 如需實際效能數字，您需自行執行測試。 這些值僅供容量規劃指引使用。
@@ -333,7 +333,7 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 **問：WAF 是否也支援 DDoS 預防？**
 
-否，WAF 不提供 DDoS 預防。
+是。 您可以在部署應用程式閘道的 VNet 上，啟用 DDos 保護。 這可確保使用 Azure DDoS 保護服務保護應用程式閘道 VIP。
 
 ## <a name="diagnostics-and-logging"></a>診斷和記錄
 
@@ -360,6 +360,12 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 **問：是否可以設定應用程式閘道的警示？**
 
 是，應用程式閘道可以支援警示，並可將警示設定為關閉計量。 應用程式閘道目前有「輸送量」計量，這可設定用於警示。 若要深入了解警示，請瀏覽[接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
+
+**問：如何分析應用程式閘道的流量統計資料？**
+
+您可以透過一些機制 (例如 Azure Log Analytics、Excel、Power BI 等)，檢視及分析存取記錄。
+
+我們也發佈會安裝並執行常用 [GoAccess](https://goaccess.io/) 記錄分析器的 Resource Manager 範本，該分析器適用於應用程式閘道存取記錄。 GoAccess 提供實用的 HTTP 流量統計資料，例如非重複訪客、要求的檔案、主機、作業系統、瀏覽器、HTTP 狀態碼等等。 如需詳細資訊，請參閱 [GitHub 中 Resource Manager 範本資料夾中的讀我檔案](https://aka.ms/appgwgoaccessreadme)。
 
 **問：後端健康情況傳回不明狀態，什麼導致這個狀態？**
 

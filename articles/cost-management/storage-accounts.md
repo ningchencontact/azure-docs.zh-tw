@@ -1,39 +1,39 @@
 ---
-title: 為 Azure 成本管理設定儲存體帳戶 | Microsoft Docs
-description: 本文說明如何為「Azure 成本管理」設定 Azure 儲存體帳戶和 AWS 儲存體貯體。
+title: 在 Azure 中為 Cloudyn 設定儲存體帳戶 | Microsoft Docs
+description: 本文說明如何為 Cloudyn 設定 Azure 儲存體帳戶和 AWS 儲存體貯體。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 829995d40a73dc181a28a467e4d16fef0bdeb454
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297830"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990649"
 ---
-# <a name="configure-storage-accounts-for-cost-management"></a>為成本管理設定儲存體帳戶
+# <a name="configure-storage-accounts-for-cloudyn"></a>為 Cloudyn 設定儲存體帳戶
 
-<!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
+<!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-您可以將「成本管理」報表儲存在 Cloudyn 入口網站、Azure 儲存體或 AWS 儲存體貯體中。 將報表儲存至 Cloudyn 入口網站中是免費的。 但您也可以選擇將報表儲存至雲端服務提供者的儲存體，只是那會產生額外費用。 本文將協助您設定 Azure 儲存體帳戶和 Amazon Web Services (AWS) 儲存體貯體，以儲存您的報表。
+您可以將 Cloudyn 報表儲存在 Cloudyn 入口網站、Azure 儲存體或 AWS 儲存體貯體中。 將報表儲存至 Cloudyn 入口網站中是免費的。 但您也可以選擇將報表儲存至雲端服務提供者的儲存體，只是那會產生額外費用。 本文將協助您設定 Azure 儲存體帳戶和 Amazon Web Services (AWS) 儲存體貯體，以儲存您的報表。
 
 ## <a name="prerequisites"></a>先決條件
 
 您必須具有 Azure 儲存體帳戶或 Amazon 儲存體貯體。
 
-如果您沒有 Azure 儲存體帳戶，則需要建立一個。 如需有關建立 Azure 儲存體帳戶的詳細資訊，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+如果您沒有 Azure 儲存體帳戶，則需要建立一個。 如需有關建立 Azure 儲存體帳戶的詳細資訊，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
 
 如果您沒有 AWS Simple Storage Service (S3) 貯體，則需要建立一個。 如需有關建立 S3 貯體的詳細資訊，請參閱[建立貯體](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)。
 
 ## <a name="configure-your-azure-storage-account"></a>設定 Azure 儲存體帳戶
 
-設定 Azure 儲存體以供「成本管理」使用相當簡單。 請收集儲存體帳戶的相關詳細資料，然後將它們複製到 Cloudyn 入口網站中。
+設定 Azure 儲存體以供 Cloudyn 使用相當簡單。 請收集儲存體帳戶的相關詳細資料，然後將它們複製到 Cloudyn 入口網站中。
 
 1. 在 http://portal.azure.com 登入 Azure 入口網站。
 2. 按一下 [所有服務]，選取 [儲存體帳戶]，捲動至您想要使用的儲存體帳戶，然後選取該帳戶。
@@ -163,4 +163,4 @@ Cloudyn 會使用現有的 AWS 認證 (使用者或角色) 將報表儲存至您
 
 ## <a name="next-steps"></a>後續步驟
 
-- 檢閱[了解成本管理報表](understanding-cost-reports.md)，以了解成本管理報表的基本結構和功能。
+- 檢閱[了解 Cloudyn 報表](understanding-cost-reports.md)，以了解 Cloudyn 報表的基本結構和功能。
