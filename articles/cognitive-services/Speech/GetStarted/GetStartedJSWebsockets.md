@@ -1,22 +1,24 @@
 ---
-title: 以 JavaScript 開始使用 Microsoft 語音辨識 API | Microsoft Docs
-description: 使用「認知服務」中的「Microsoft 語音辨識 API」來開發將語音連續轉換成文字的應用程式。
+title: 開始在 JavaScript 中使用 Bing 語音辨識 API | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: 使用「認知服務」中的「Bing 語音辨識 API」開發將語音連續轉換成文字的應用程式。
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040533"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995341"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>以 JavaScript 開始使用語音辨識 API
+# <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>開始在 JavaScript 中使用語音辨識 API
 
 您可以使用「語音辨識 API」來開發將語音轉換成文字的應用程式。 JavaScript 用戶端程式庫使用[語音服務 WebSocket 通訊協定](../API-Reference-REST/websocketprotocol.md)，這可讓您在說話的同時接收轉譯的文字。 本文將協助您以 JavaScript 開始使用「語音辨識 API」。
 
@@ -38,7 +40,7 @@ Speech API 是「認知服務」的組件。 您可以從[認知服務訂用帳�
 
 ### <a name="open-the-sample-directly"></a>直接開啟範例
 
-如以上所述，取得訂用帳戶金鑰。 然後開啟 [範例連結](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)。 這會將頁面載入您的預設瀏覽器 (使用 [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com) 來轉譯)。
+如以上所述，取得訂用帳戶金鑰。 然後開啟[範例連結](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)。 這會將頁面載入您的預設瀏覽器 (使用 [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com) 來轉譯)。
 
 ### <a name="open-the-sample-from-a-local-copy"></a>從本機複本開啟範例
 

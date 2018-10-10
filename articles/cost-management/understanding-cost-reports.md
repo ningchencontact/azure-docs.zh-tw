@@ -1,23 +1,23 @@
 ---
-title: 在 Azure 成本管理中了解成本管理報告 | Microsoft Docs
+title: 在 Azure 中了解 Cloudyn 成本管理報告 | Microsoft Docs
 description: 本文可協助您了解 Cloudyn 成本管理報告的基本結構和功能。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/18/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e4d4c2115ddae592e9ca7bdf119b36d0ccee2da4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064407"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998707"
 ---
-# <a name="understanding-cost-management-reports"></a>了解成本管理報告
+# <a name="understanding-cloudyn-cost-management-reports"></a>了解 Cloudyn 成本管理報告
 
 本文可協助您了解 Cloudyn 成本管理報告的基本結構和功能。 大部分 Cloudyn 報告是直覺式的，並且具有一致的外觀及操作。 閱讀完本文之後，就做好了使用所有成本管理報告的準備。 各種不同的報告提供了許多標準功能，讓您可以輕鬆瀏覽報告。 報告可自訂，而且可以選取數個選項來計算和呈現結果。
 
@@ -203,5 +203,5 @@ ms.locfileid: "37064407"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在 [使用成本管理報告][](use-reports.md) 中了解 Cloudyn 所含的報告。
-- 了解如何使用報告建立 [儀表板][](dashboards.md)。
+- 在 [使用 Cloudyn 報告](use-reports.md) 中了解 Cloudyn 所含的報告。
+- 了解如何使用報告建立 [儀表板](dashboards.md)。
