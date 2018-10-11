@@ -1,6 +1,4 @@
 items:
-- name: VM 啟動停滯在「Windows 正在就緒， 請勿關閉電腦。」
-  href: troubleshoot-vm-boot-configure-update.md
 - name: 針對 Azure VM 進行疑難排解
   href: index.md
 - name: 配置失敗
@@ -113,15 +111,19 @@ items:
     href: troubleshoot-check-disk-boot-error.md
   - name: 藍色畫面錯誤
     href: troubleshoot-common-blue-screen-error.md
+  - name: VM 啟動已停滯
+    href: troubleshoot-vm-boot-configure-update.md
+  - name: 重要服務已失敗
+    href: troubleshoot-critical-service-failed-boot-error.md
 - name: 節流處理錯誤
   href: troubleshooting-throttling-errors.md
 - name: 使用巢狀虛擬化
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: 了解系統重新開機
   href: understand-vm-reboot.md
-ms.openlocfilehash: 088840fcab2ae9d47098d9d2f06af87b88c93e4e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a2ef58c999d2d438a23fb9e3fd214c6bf677de00
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857443"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067397"
