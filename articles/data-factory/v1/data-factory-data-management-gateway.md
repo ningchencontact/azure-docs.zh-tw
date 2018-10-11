@@ -510,7 +510,7 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. 在 Azure PowerShell 中，切換至資料夾：**C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**。 執行與區域變數 **$Key** 相關聯的 **RegisterGateway.ps1**，如下列命令所示。 此指令碼會向您稍早建立的邏輯閘道註冊您機器上安裝的用戶端代理程式。
+1. 在 Azure PowerShell 中，切換至資料夾：**C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**。 執行與區域變數 **$Key** 相關聯的 **RegisterGateway.ps1**，如下列命令所示。 此指令碼會向您稍早建立的邏輯閘道註冊您機器上安裝的用戶端代理程式。
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

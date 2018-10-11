@@ -6,15 +6,15 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: ee94fd8a9dac17e4db180b05208df66f3d33b901
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: ac842507cc52c9677e755d32b09758f787c5a1fb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604561"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584555"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 網路服務簡介
 
@@ -30,7 +30,7 @@ Azure Stack 提供各種不同的網路服務功能，可以一起或分開使�
     經由網際網路透過虛擬私人網路 (VPN)，或透過與 Azure Stack 的專用連線，將內部部署網路連線至 Azure Stack 資源。
 - **負載平衡和流量方向**  
     將流量分散至相同位置中的伺服器以平衡負載，以及將流量導向不同位置的伺服器。
-- **Security**  
+- **安全性**  
     篩選網路子網路或個別虛擬機器 (VM) 之間的網路流量。
 - **路由**  
     在您的 Azure Stack 和內部部署資源之間使用預設路由或完全控制路由。

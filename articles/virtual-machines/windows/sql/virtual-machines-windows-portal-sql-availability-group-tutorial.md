@@ -296,7 +296,7 @@ Repeat these steps on the second SQL Server.
 
     ![新增 AG 精靈：選取初始資料同步處理](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. 在 [選取初始資料同步處理] 頁面中，選取 [完整]，然後指定一個共用網路位置。 針對位置，請使用[您所建立的備份共用](#backupshare)。 在此範例中是 **\\\\\<第一部 SQL Server\>\Backup\**。 按 [下一步] 。
+8. 在 [選取初始資料同步處理] 頁面中，選取 [完整]，然後指定一個共用網路位置。 針對位置，請使用[您所建立的備份共用](#backupshare)。 在此範例中是 **\\\\\<第一部 SQL Server\>\Backup\\**。 按 [下一步] 。
 
    >[!NOTE]
    >完整同步處理會完整備份第一個 SQL Server 執行個體上的資料庫，然後將它還原到第二個執行個體。 就大型資料庫而言，不建議進行完整同步處理，因為可能費時很久。 您可以手動備份並使用 `NO RECOVERY` 來還原備份，以縮短此時間。 如果在設定「可用性群組」之前已經使用 `NO RECOVERY` 在第二部 SQL Server 上還原資料庫，請選擇 [僅聯結]。 如果您想要在設定「可用性群組」之後進行備份，請選擇 [略過初始資料同步處理]。
