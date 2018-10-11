@@ -6,21 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e10b5271caef5530c94cca73b3e2e1d435080676
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990858"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49066916"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>將 Azure VM 複寫到另一個 Azure 區域
 
 [Azure Site Recovery](site-recovery-overview.md) 服務藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
 
-本快速入門說明如何將 Azure VM 複寫到不同的 Azure 區域。 
+本快速入門說明如何將 Azure VM 複寫到不同的 Azure 區域。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -62,8 +62,7 @@ ms.locfileid: "38990858"
 停止複寫，如下所示︰
 
 1. 選取 VM。
-2. 在 [災害復原] 中，按一下 [更多]。
-3. 按一下 [停用複寫]。
+2. 在 [災害復原] 中，按一下 [停用複寫]。
 
    ![停用複寫](media/azure-to-azure-quickstart/disable2-replication.png)
 

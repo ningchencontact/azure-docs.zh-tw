@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842442"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855420"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -101,7 +101,7 @@ ms.locfileid: "43842442"
 
 ## <a name="install-data-gateway"></a>安裝資料閘道
 
-1. [在本機電腦上下載、儲存並執行閘道安裝程式](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409)。
+1. [在本機電腦上下載、儲存並執行閘道安裝程式](https://aka.ms/on-premises-data-gateway-installer)。
 
 2. 接受預設安裝路徑，或指定您要用來安裝閘道的電腦位置。
 
@@ -182,7 +182,7 @@ ms.locfileid: "43842442"
 
 1. 從電腦的 [控制台]，移至 [程式和功能]。 在程式清單中，選取 [內部部署資料閘道]，然後選擇 [解除安裝]。
 
-2. [重新安裝內部部署資料閘道](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409)。
+2. [重新安裝內部部署資料閘道](https://aka.ms/on-premises-data-gateway-installer)。
 
 3. 安裝程式開啟後，以先前用來安裝閘道的同一個公司或學校帳戶進行登入。
 
@@ -211,7 +211,7 @@ ms.locfileid: "43842442"
 > [!NOTE]
 > 此命令只會測試網路連線和對 Azure 服務匯流排的連線。 這個命令和閘道或閘道雲端服務 (會加密並儲存認證和閘道詳細資料) 沒有任何關係。 
 >
-> 此外，這個命令僅適用於 Windows Server 2012 R2 或更新版本，以及 Windows 8.1 或更新版本。 對於較舊的作業系統版本，您可以使用 Telnet 來測試連線能力。 深入了解 [Azure 服務匯流排和混合式解決方案](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)。
+> 此外，這個命令僅適用於 Windows Server 2012 R2 或更新版本，以及 Windows 8.1 或更新版本。 對於較舊的作業系統版本，您可以使用 Telnet 來測試連線能力。 深入了解 [Azure 服務匯流排和混合式解決方案](../service-bus-messaging/service-bus-messaging-overview.md)。
 
 **TcpTestSucceeded** 設定為 **True** 的結果應該類似此範例：
 
@@ -232,7 +232,7 @@ TcpTestSucceeded       : True
 
 ## <a name="configure-ports"></a>設定連接埠
 
-閘道會建立對 [Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)的輸出連線，並與下列輸出連接埠進行通訊︰TCP 443 (預設)、5671、5672 和 9350 到 9354。 閘道不需要輸入連接埠。 深入了解 [Azure 服務匯流排和混合式解決方案](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)。
+閘道會建立對 [Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)的輸出連線，並與下列輸出連接埠進行通訊︰TCP 443 (預設)、5671、5672 和 9350 到 9354。 閘道不需要輸入連接埠。 深入了解 [Azure 服務匯流排和混合式解決方案](../service-bus-messaging/service-bus-messaging-overview.md)。
 
 閘道會使用這些完整的網域名稱：
 

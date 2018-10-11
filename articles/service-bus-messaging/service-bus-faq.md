@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e86471936ccf164bb1fd23450239be85e39dd60b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 87a6ccf61e10a6a8c7feeccad3690cdcb9b63641
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696654"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857851"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
 
@@ -115,7 +115,6 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 * [Azure 服務匯流排進階簡介 (部落格文章)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure 服務匯流排進階簡介 (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [服務匯流排概觀](service-bus-messaging-overview.md)
-* [Azure 服務匯流排架構概觀](service-bus-fundamentals-hybrid-solutions.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md

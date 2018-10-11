@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a741cb1c2643e48080018e5c9f4ada7038bce29e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b24b21ee5fc929d3e7bd026191ce8791d79f9abc
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434801"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870769"
 ---
 # <a name="glossary"></a>詞彙
 Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇到的字詞。
@@ -74,7 +74,7 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 ## <a name="endpoint"></a>端點
 
-[LUIS 端點](https://aka.ms/luis-endpoint-apis) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式的[金鑰和端點](/luis-how-to-manage-keys.md)頁面上找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
+[LUIS 端點](https://aka.ms/luis-endpoint-apis) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式的[金鑰和端點](luis-how-to-manage-keys.md)頁面上找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
 
 範例端點看起來像：
 

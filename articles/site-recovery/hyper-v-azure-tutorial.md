@@ -3,17 +3,18 @@ title: 使用 Azure Site Recovery 設定內部部署 Hyper-V VM (不含 VMM) 至
 description: 了解如何使用 Azure Site Recovery 服務來設定內部部署 Hyper-V VM (不含 VMM) 至 Azure 的災害復原。
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f09d66e069ac22e5b8203d9871d2e5645570086a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 978b79fbd35178191ff5c95b8897045d00c7a272
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917943"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078031"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>設定 Hyper-V VM 至 Azure 的災害復原
 

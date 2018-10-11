@@ -3,7 +3,7 @@ title: 在本文中，您會了解如何更新 Azure Stack 供應項目和方案
 description: 本文說明如何檢視及修改現有的 Azure Stack 供應項目和方案。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
 ms.date: 07/30/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a35ba993e6fd1162fa4a18bc0d6bc9351fe7dfa2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358252"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076785"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack 附加方案
 
@@ -58,5 +58,4 @@ ms.locfileid: "39358252"
     ![](media/create-add-on-plan/4.PNG)
 
 ## <a name="next-steps"></a>後續步驟
-
-  [建立供應項目](azure-stack-create-offer.md)
+[建立供應項目](azure-stack-create-offer.md)

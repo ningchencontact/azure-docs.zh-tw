@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4712c0b40209cd6d40703176f95a80f491d0364c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979095"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870311"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>快速入門：使用 Python 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -26,7 +26,7 @@ ms.locfileid: "46979095"
 > * [Python](create-cassandra-python.md)
 >  
 
-本快速入門示範如何使用 Python 與 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)，以藉由從 GitHub 複製範例來建置設定檔應用程式。 本快速入門也會示範如何使用 Web 型 Azure 入口網站來建立 Azure Cosmos DB 帳戶。
+本快速入門示範如何使用 Python 與 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)，以藉由從 GitHub 複製範例來建置設定檔應用程式。 此快速入門也會示範如何使用 Web 型 Azure 入口網站來建立 Azure Cosmos DB 帳戶。
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、資料表、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。
 
@@ -71,7 +71,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 此為選用步驟。 如果您有興趣了解程式碼如何建立資料庫資源，您可以檢閱下列程式碼片段。 此程式碼片段全都取自 pyquickstart.py 檔案。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
 
-* 使用者名稱和密碼值是使用 Azure 入口網站中的連接字串頁面所設定。 `path\to\cert` 可提供 X509 憑證的路徑。 
+* 使用者名稱與密碼值是使用 Azure 入口網站中的連接字串頁面所設定。 `path\to\cert` 提供 X509 憑證的路徑。 
 
    ```python
     ssl_opts = {
@@ -112,13 +112,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     ```Python
     insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
-    batch = BatchStatement()
-    batch.add(insert_data, (1, 'LyubovK', 'Dubai'))
-    batch.add(insert_data, (2, 'JiriK', 'Toronto'))
-    batch.add(insert_data, (3, 'IvanH', 'Mumbai'))
-    batch.add(insert_data, (4, 'YuliaT', 'Seattle'))
+    session.execute(insert_data, [1,'Lybkov','Seattle'])
+    session.execute(insert_data, [2,'Doniv','Dubai'])
+    session.execute(insert_data, [3,'Keviv','Chennai'])
+    session.execute(insert_data, [4,'Ehtevs','Pune'])
+    session.execute(insert_data, [5,'Dnivog','Belgaum'])
     ....
-    session.execute(batch)
+    
     ```
 
 * 用來取得所有索引鍵值的查詢。
@@ -201,7 +201,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     ![檢視並確認輸出](./media/create-cassandra-python/output.png)
     
-4. 在 Azure 入口網站中，開啟 [資料總管] 以查詢、修改及使用這項新資料。 
+4. 在 Azure 入口網站中，開啟 [資料總管] 以查詢、修改及使用這個新資料。 
 
     ![在資料總管中檢視資料](./media/create-cassandra-python/data-explorer.png)
 

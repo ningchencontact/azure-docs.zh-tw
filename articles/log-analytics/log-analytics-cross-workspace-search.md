@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 716f96b7723a947c35eb54acd67f13261363fd38
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: d3fb6557571042be7db1380010738bacd72e50f5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972873"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869495"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>在 Log Analytics 中執行跨資源記錄搜尋  
 
@@ -94,12 +94,13 @@ ms.locfileid: "46972873"
 您可以查詢任何資源執行個體的多個資源，資源執行個體可以是合併的工作區和應用程式。
     
 跨兩個工作區的查詢範例：    
-    ```
-    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
-    | where TimeGenerated >= ago(1h)
-    | where UpdateState == "Needed"
-    | summarize dcount(Computer) by Classification
-    ```
+
+```
+union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+| where TimeGenerated >= ago(1h)
+| where UpdateState == "Needed"
+| summarize dcount(Computer) by Classification
+```
 
 ## <a name="next-steps"></a>後續步驟
 

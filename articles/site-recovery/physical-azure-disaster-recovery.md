@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 173423c1a578500a990d6a7b43017d06ea96f6e7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6f2b4a83d4c13dcb866737d27c33b4f5a95c2f94
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704895"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078608"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 
@@ -30,7 +30,7 @@ ms.locfileid: "38704895"
 
 針對此災害復原案例[檢閱架構](concepts-hyper-v-to-azure-architecture.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
@@ -76,7 +76,7 @@ ms.locfileid: "38704895"
 
 ## <a name="set-up-an-azure-storage-account"></a>設定 Azure 儲存體帳戶
 
-設定 [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+設定 [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
 
 - Site Recovery 會將內部部署機器複寫至 Azure 儲存體。 容錯移轉發生後，會從儲存體建立 Azure VM。
 - 儲存體帳戶與復原服務保存庫必須位於相同的區域。

@@ -2,20 +2,22 @@
 title: Azure SQL Database 受控執行個體稽核 | Microsoft Docs
 description: 了解如何透過 T-SQL 開始使用 Azure SQL Database 受控執行個體稽核
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/28/2018
-ms.author: giladm
-ms.openlocfilehash: 7671b49921799e63b01d0eb85e90a8b75b2d5a48
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+author: ronitr
+ms.author: ronitr
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 1ff0df958e541d8dd4b70827ea8e064cd3100e50
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544289"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815081"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
@@ -104,7 +106,7 @@ ms.locfileid: "45544289"
     如果未指定，則 `RETENTION_DAYS` 預設為 0 (無限制的保留期)。
 
     如需其他資訊：
-    - [受控執行個體、Azure SQL DB 和 SQL Server 之間的稽核差異](#subheading-3)
+    - [受控執行個體、Azure SQL DB 和 SQL Server 之間的稽核差異](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 

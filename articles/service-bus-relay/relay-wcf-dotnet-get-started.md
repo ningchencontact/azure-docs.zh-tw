@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9701eae026522238424a21ae3ecf2baa40334fa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701760"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854111"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何使用 Azure 轉送 WCF 轉送搭配 .NET
 本文說明如何使用 Azure 轉送服務。 這些範例均以 C# 撰寫，並使用 Windows Communication Foundation (WCF) API 以及包含在服務匯流排組件中的擴充功能。 如需 Azure 轉送的詳細資訊，請參閱 [Azure 轉送概觀](relay-what-is-it.md)。
@@ -220,7 +220,6 @@ using (var ch = cf.CreateChannel())
 了解基本的 Azure 轉送之後，請參考下列連結以取得更多資訊。
 
 * [什麼是 Azure 轉送？](relay-what-is-it.md)
-* [Azure 服務匯流排架構概觀](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * 從 [Azure 範例][Azure samples]下載服務匯流排範例，或參閱[服務匯流排範例概觀][overview of Service Bus samples]。
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md

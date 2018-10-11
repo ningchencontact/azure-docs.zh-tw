@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 0b05dc17fc7ba567bf633c25a080fbf56903935c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: dab2dd2b1d020a7619b18f330640b7f555a1f8c1
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130321"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044377"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>在 Log Analytics 中收集並分析 Azure 活動記錄
 
@@ -59,7 +59,7 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 若要存取 Azure 活動記錄資訊，您必須有 Azure 訂用帳戶。
 

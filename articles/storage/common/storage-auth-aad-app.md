@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577699"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816373"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>從 Azure 儲存體應用程式中使用 Azure Active Directory 進行驗證 (預覽版)
 
@@ -25,10 +25,7 @@ ms.locfileid: "39577699"
 
 如需 OAuth 2.0 程式碼授與流程的概觀，請參閱[使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式](../../active-directory/develop/v1-protocols-oauth-code.md)。
 
-> [!IMPORTANT]
-> 此預覽僅適用於非生產環境。 Azure 儲存體的 Azure AD 整合宣告上市之前，無法使用生產服務等級協定 (SLA)。 如果您的案例尚未支援 Azure AD 整合，請繼續在應用程式中使用您的共用金鑰授權或 SAS 權杖。 如需預覽的詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。
->
-> 在預覽期間，RBAC 角色指派可能需要五分鐘的時間傳播。
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>向 Azure AD 租用戶註冊應用程式
 
@@ -36,7 +33,7 @@ ms.locfileid: "39577699"
 
 當您註冊應用程式時，會向 Azure AD 提供應用程式的相關資訊。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的用戶端識別碼 (也稱為「應用程式識別碼」)。 若要深入了解用戶端識別碼，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](../../active-directory/develop/app-objects-and-service-principals.md)。
 
-若要註冊 Azure 儲存體應用程式，請遵循[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) 中[新增應用程式](../../active-directory/active-directory-integrating-applications.md)一節的步驟。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 此值不需要是實際的端點。
+若要註冊 Azure 儲存體應用程式，請遵循[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 中[新增應用程式](../../active-directory/active-directory-integrating-applications.md)一節的步驟。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 此值不需要是實際的端點。
 
 ![顯示如何使用 Azure AD 註冊您儲存體應用程式的螢幕擷取畫面](./media/storage-auth-aad-app/app-registration.png)
 
@@ -176,7 +173,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入了解 Azure 儲存體的 RBAC 角色，請參閱[使用 RBAC 管理儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。
-- 若要深入了解如何搭配使用受控服務識別與 Azure 儲存體，請參閱[從 Azure 受控服務識別使用 Azure AD 進行驗證 (預覽)](storage-auth-aad-msi.md)。
+- 若要了解搭配 Azure 儲存體使用適用於 Azure 資源之受控身分識別的相關資訊，請參閱[使用適用於 Azure 資源的 Azure 受控身分識別驗證針對 Blob 與佇列的存取 (預覽)](storage-auth-aad-msi.md)。
 - 若要了解如何以 Azure AD 身分識別登入 Azure CLI 和 PowerShell，請參閱[使用 Azure AD 身分識別透過 CLI 或 PowerShell 來存取 Azure 儲存體 (預覽)](storage-auth-aad-script.md)。
 - 如需 Azure Blob 和佇列的 Azure AD 整合詳細資訊，請參閱 Azure 儲存體小組部落格文章，[宣告適用於 Azure 儲存體的 Azure AD 驗證預覽](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/)。
 

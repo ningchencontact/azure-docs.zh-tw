@@ -1,20 +1,21 @@
 ---
-title: 什麼是專案 URL 預覽？ - Microsoft 認知服務 | Microsoft Docs
+title: 什麼是專案 URL 預覽？
+titlesuffix: Azure Cognitive Services
 description: 專案 URL 預覽簡介。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 6b486e0ab4092bef4fe829a5f166311a572a2900
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 5d0b8260bf1c58af915c1be18c32cec678f4f09c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369579"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869426"
 ---
 # <a name="what-is-project-url-preview"></a>什麼是專案 URL 預覽？
 預覽 URL 端點使用 URL 查詢參數，並傳回 JSON 回應，其中包含目標資源的名稱、簡短描述，以及在預覽中顯示影像的連結。 回應也包含 [isFamilyFriendly](url-preview-reference.md#query-parameters) 旗標，指出 URL 是否包含成人、盜版或其他不合法的內容。 
@@ -61,7 +62,7 @@ URL 預覽 API 支援 Web 資源的簡短說明。 開發人員會使用它來�
 
 ## <a name="next-steps"></a>後續步驟
 - [C# 快速入門](csharp.md)
-- [Java 快速入門](java-quickstart.md)
+- [JAVA 快速入門](java-quickstart.md)
 - [JavaScript 快速入門](javascript.md)
 - [Node 快速入門](node-quickstart.md)
 - [Python 快速入門](python-quickstart.md)

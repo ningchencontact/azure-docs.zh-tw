@@ -2,19 +2,18 @@
 title: Azure Container Registry 教學課程 - 從 Azure Container Registry 部署 Web 應用程式
 description: 使用異地複寫的 Azure Container Registry 中的容器映像，部署以 Linux 為基礎的 Web 應用程式。 這是三段式教學課程的第二段。
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
-ms.author: marsma
+ms.date: 08/20/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d1924d730f2c2a64063496d4be759194cef99175
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582296"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853856"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>教學課程：從 Azure Container Registry 部署 Web 應用程式
 
@@ -42,11 +41,13 @@ Azure Container Registry 支援將容器化的應用程式直接部署至[用於
 
 登入 [Azure 入口網站](https://portal.azure.com)並瀏覽至您在上一個教學課程中建立的登錄。
 
-選取 [存放庫] > **[acr-helloworld]**，然後在 [標籤] 下的 [v1] 標籤上按一下滑鼠右鍵，接著選取 [部署至 Web 應用程式]。
+選取 [存放庫] > [acr-helloworld]，然後在 [標記] 下的 [v1] 標記上按一下滑鼠右鍵，接著選取 [部署至 Web 應用程式]：
 
 ![部署至 Azure 入口網站中的 App Service][deploy-app-portal-01]
 
-在顯示的 [用於容器的 Web App] 下，為每個設定指定下列值：
+如果 [部署至 Web 應用程式] 停用，表示您可能未依照第一個教學課程的[建立容器登錄](container-registry-tutorial-prepare-registry.md#create-a-container-registry)中的指示來啟用登錄管理員使用者。 您可以在 Azure 入口網站的 [設定] > [存取金鑰] 中啟用管理員使用者。
+
+在您選取 [部署至 Web 應用程式] 之後所顯示的 [適用於容器的 Web 應用程式] 下方，為每個設定指定下列值：
 
 | 設定 | 值 |
 |---|---|

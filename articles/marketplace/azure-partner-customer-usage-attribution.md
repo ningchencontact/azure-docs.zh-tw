@@ -3,7 +3,7 @@ title: Azure 合作夥伴與客戶使用狀況屬性
 description: 有關如何追蹤客戶 Azure Marketplace 解決方案使用狀況的概觀
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: ellacroi
+author: yijenj
 manager: nunoc
 editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/26/2018
-ms.author: ellacroi
-ms.openlocfilehash: c3690c9be940a69bd2f8745493d4e2648bac6d9b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.date: 10/05/2018
+ms.author: yijenj
+ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142125"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854995"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -73,7 +73,7 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 ![範例 GUID 格式](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!Note]
-> 此字串的格式很重要。 若未包括 **pid-** 前置詞，就無法查詢資料。 不同的 SDK 會以不同的方式追蹤。 若要實作此方法，請檢閱支援和適用於慣用 Azure SDK 的方法。 
+> 此字串的格式至關重要。 若未包括 **pid-** 前置詞，就無法查詢資料。 不同的 SDK 會以不同的方式追蹤。 若要實作此方法，請檢閱支援和適用於慣用 Azure SDK 的方法。 
 
 ### <a name="example-the-python-sdk"></a>範例：Python SDK
 
@@ -136,7 +136,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
    
    ![輸入另一個 GUID 與供應項目描述](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
    ![選取 [儲存]](media/marketplace-publishers-guide/guid-dev-center-save.png)
 
@@ -157,7 +157,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
 Param(
     [GUID][Parameter(Mandatory=$true)]$guid,
-    [string][Parameter(Mandatory=$true)]$resourceGroupName'
+    [string][Parameter(Mandatory=$true)]$resourceGroupName
 )
 
 # Get the correlationId of the pid deployment
@@ -204,11 +204,11 @@ GUID 是具有 32 個十六進位數字的參考號碼。 若要建立 GUID 來�
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Resource Manager 範本部署的通知
 
-當您部署此範本時，Microsoft 可以透過已部署的 Azure 資源來識別 \<PARTNER> 軟體的安裝。 Microsoft 可讓用來支援軟體的 Azure 資源相互關聯。 Microsoft 會收集此資訊，以透過其產品提供最佳體驗以及經營業務。 Microsoft 隱私權原則 (位於 https://www.microsoft.com/trustcenter) 規範此資料的收集與控管。 
+當您部署此範本時，Microsoft 可以透過已部署的 Azure 資源來識別 \<PARTNER> 軟體的安裝。 Microsoft 可讓用來支援軟體的 Azure 資源相互關聯。 Microsoft 會收集這項資訊，以透過其產品提供最佳體驗以及經營業務。 Microsoft 隱私權原則 (位於 https://www.microsoft.com/trustcenter) 規範此資料的收集與控管。 
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>SDK 或 API 部署的通知
 
-當您部署 \<PARTNER> 軟體時，Microsoft 可以透過已部署的 Azure 資源來識別 \<PARTNER> 軟體的安裝。 Microsoft 可讓用來支援軟體的 Azure 資源相互關聯。 Microsoft 會收集此資訊，以透過其產品提供最佳體驗以及經營業務。 Microsoft 隱私權原則 (位於 https://www.microsoft.com/trustcenter) 規範此資料的收集與控管。
+當您部署 \<PARTNER> 軟體時，Microsoft 可以透過已部署的 Azure 資源來識別 \<PARTNER> 軟體的安裝。 Microsoft 可讓用來支援軟體的 Azure 資源相互關聯。 Microsoft 會收集這項資訊，以透過其產品提供最佳體驗以及經營業務。 Microsoft 隱私權原則 (位於 https://www.microsoft.com/trustcenter) 規範此資料的收集與控管。
 
 ## <a name="get-support"></a>取得支援
 
@@ -244,7 +244,7 @@ GUID 是具有 32 個十六進位數字的參考號碼。 若要建立 GUID 來�
 
 Microsoft 為合作夥伴提供一個客戶部署範本檢視和受影響的使用量見解。 Microsoft 與合作夥伴也可以使用此資訊來加強與銷售團隊之間的合作關係。 Microsoft 與合作夥伴可以使用該資料來取得個別合作夥伴對 Azure 成長的更一致檢視。 
 
-**誰能將 GUID 加入至範本？**
+**何人能將 GUID 加入至範本？**
 
 追蹤資源的主要目的是將合作夥伴的解決方案連結到客戶的 Azure 使用量。 使用量資料會繫結到合作夥伴的 Microsoft 合作夥伴網路身分識別 (MPN ID)。 合作夥伴可以在 CPP 中取得回報資料。
 
@@ -256,7 +256,7 @@ Microsoft 為合作夥伴提供一個客戶部署範本檢視和受影響的使�
 
 報告搶鮮版 (Beta) 很快就會推出。 回報功能將會與 CPP 整合。
 
-**我是否可以從類似 GitHub 的非 Microsoft 存放庫追蹤部署的範本？**
+**我可以從類似 GitHub 的非 Microsoft 存放庫追蹤部署的範本嗎？**
 
 是，只要有 GUID，當範本部署時，都會追蹤使用量。 合作夥伴必須要在 CPP 中有設定檔，才能註冊在 Azure Marketplace 外部發佈的相關範本。 
 

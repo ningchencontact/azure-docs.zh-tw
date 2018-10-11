@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: b3ca7be647ff7db0d147eca57edb20e658a28130
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 782ddc3ebb7b3c533d0eb5c4b7735a13cbaf268c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919466"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077675"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>將複寫的 Hyper-V VM 容錯移轉及容錯回至次要內部部署網站
 
@@ -35,7 +35,7 @@ ms.locfileid: "37919466"
 3. 在計劃性容錯移轉後，選擇性地再次開始從主要網站複寫至次要網站。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 確定您已完成[災害復原演練](hyper-v-vmm-test-failover.md)，檢查一切是否如預期般運作。
 - 若要完成容錯回復，請確定主要和次要 VMM 伺服器已連線至 Site Recovery。

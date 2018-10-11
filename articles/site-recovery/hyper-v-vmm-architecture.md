@@ -2,16 +2,17 @@
 title: 使用 Azure Site Recovery 將 Hyper-V 複寫至次要網站架構 | Microsoft Docs
 description: 本文提供使用 Azure Site Recovery 將內部部署 Hyper-V VM 複寫至次要 System Center VMM 網站的架構概觀。
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 0319e4d1cdbd20c39772c659a3e5a1580d8b925b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 8f8b498164cc4a77cace470f7483aa572fefbaed
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919643"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078914"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V 複寫至次要網站
 

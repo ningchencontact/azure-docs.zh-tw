@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: ac64c73ac26c610c08dceff13cbd524916853146
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb28a3d165bcb6cc5e63162053029ce14b0d7f8f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916409"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078130"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute 搭配 Azure Site Recovery
 
@@ -30,8 +30,7 @@ ExpressRoute 線路代表您的內部部署基礎結構與 Microsoft 雲端服�
 
 ExpressRoute 線路有多個相關聯的路由網域：
 -   [Azure 私用對等互連](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)：部署於虛擬網路內的 Azure 計算服務 (也就是虛擬機器 (IaaS) 和雲端服務 (PaaS)) 可透過私用對等互連網域進行連線。 私用對等互連網域會被視為您的核心網路到 Microsoft Azure 的受信任延伸。
--   
-  [Azure 公用對等互連](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)：公用 IP 位址上提供如 Azure 儲存體、SQL Database 和網站等服務。 您可以透過公用對等互連路由網域，私人連線到在公用 IP 位址上託管的服務 (包括雲端服務的 VIP)。 在新的建立中，公用對等互連已被取代，應針對 Azure PaaS 服務改用 Microsoft 對等互連。
+-   [Azure 公用對等互連](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)：公用 IP 位址上提供如 Azure 儲存體、SQL Database 和網站等服務。 您可以透過公用對等互連路由網域，私人連線到在公用 IP 位址上託管的服務 (包括雲端服務的 VIP)。 在新的建立中，公用對等互連已被取代，應針對 Azure PaaS 服務改用 Microsoft 對等互連。
 -   [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)：與 Microsoft 線上服務 (Office 365、Dynamics 365 與 Azure PaaS 服務) 的連線會透過 Microsoft 對等互連進行。 Microsoft 對等互連是建議用來連線到 Azure PaaS 服務的路由網域。
 
 請在[這裡](../expressroute/expressroute-circuit-peerings.md#routing-domain-comparison)深入了解和比較 ExpressRoute 路由網域。
@@ -50,7 +49,7 @@ Azure Site Recovery 會啟用 [Azure 虛擬機器](azure-to-azure-architecture.m
 
 針對 Azure VM 災害復原，根據預設，不需要 ExpressRoute 即可進行複寫。 虛擬機器容錯移轉到目標 Azure 區域之後，您就可以使用[私用對等互連](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)存取它們。
 
-如果您已經使用 ExpressRoute 從內部部署資料中心連線到來源區域上的 Azure VM，則可以規劃在容錯移轉目標區域上重新建立 ExpressRoute 連線。 您可以透過新的虛擬網路連線，使用相同的 ExpressRoute 線路連線到目標區域，或利用不同的 ExpressRoute 線路和連線進行災害復原。 [這裡](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute)說明各種可能案例。
+如果您已經使用 ExpressRoute 從內部部署資料中心連線到來源區域上的 Azure VM，則可以規劃在容錯移轉目標區域上重新建立 ExpressRoute 連線。 您可以透過新的虛擬網路連線，使用相同的 ExpressRoute 線路連線到目標區域，或利用不同的 ExpressRoute 線路和連線進行災害復原。 [這裡](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute)說明各種可能案例。
 
 您可以將 Azure 虛擬機器複寫到相同地理叢集內的任何 Azure 區域，如[這裡](../site-recovery/azure-to-azure-support-matrix.md#region-support)所詳述。 如果選擇的目標 Azure 區域與來源位於不同的地緣政治區域內，則您可能需要啟用 ExpressRoute Premium。 如需詳細資訊，請參閱 [ExpressRoute 位置](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region)和 [ExpressRoute 價格](https://azure.microsoft.com/pricing/details/expressroute/)。
 

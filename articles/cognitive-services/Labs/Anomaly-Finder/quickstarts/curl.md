@@ -9,18 +9,20 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 3c1d791b8c0478715b4ffa93cd7dfa43f9be4586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 31049e24687192b1ea1030a7180299f57bc76771
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369131"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246325"
 ---
 # <a name="use-the-anomaly-finder-api-with-curl"></a>搭配 cURL 使用異常搜尋工具 API
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 本文提供資訊和程式碼範例，協助您快速開始搭配 cURL 使用異常搜尋工具 API，以便完成對於時間序列資料取得異常結果的工作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -53,7 +55,7 @@ curl -v -X POST "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/ano
 ```
 
 ### <a name="example-response"></a>範例回應
-以 JSON 傳回成功的回應。 範例回應如下所示：[!INCLUDE [Response](../includes/response.md)]
+成功的回應會以 JSON 的形式傳回。 範例回應如下所示：[!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

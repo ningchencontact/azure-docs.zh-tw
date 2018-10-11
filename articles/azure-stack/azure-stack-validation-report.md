@@ -3,7 +3,7 @@ title: Azure Stack 的驗證報告 | Microsoft Docs
 description: 使用 Azure Stack 整備檢查程式報告來檢閱驗證結果。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 06b5660a9428e98d2e99b5d447a05700968ec884
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 156b84e4941363716721b5cee6c19333ffe7594c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381908"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079441"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 驗證報告
 使用 Azure Stack 整備檢查程式工具來執行驗證，這些驗證支援 Azure Stack 環境的部署和維護。 此工具會將結果寫入 .json 報告檔案。 報告會針對 Azure Stack 部署的必要條件狀態，顯示相關的詳細和摘要資料。 報告也會顯示現有 Azure Stack 部署祕密輪替的相關資訊。  

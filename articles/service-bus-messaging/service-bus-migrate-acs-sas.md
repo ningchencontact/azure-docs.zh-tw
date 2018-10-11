@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: a94d606697b5ad2cd7f4ce545ebdfbd155dfa4e8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7045172fcd3c64cb0d979f5e3e8381c49579f1d2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696409"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855250"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>從 Azure Active Directory 存取控制服務移轉至共用存取簽章授權
 
@@ -66,5 +66,4 @@ SAS 規則並非要作為帳戶使用，而是與權限相關的具名簽署金�
 
 * [服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)
 * [使用共用存取簽章的服務匯流排驗證](service-bus-sas.md)
-* [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 

@@ -3,7 +3,7 @@ title: 使用 Azure Application Insights 的 Java Web 應用程式分析 | Micro
 description: '使用 Application Insights 針對 Java Web 應用程式進行應用程式效能監視。 '
 services: application-insights
 documentationcenter: java
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: mbullwin
-ms.openlocfilehash: 093124432314472da06065fad3a7cdff0f558d22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/09/2018
+ms.author: lagayhar
+ms.openlocfilehash: 216cebe74b7661e0ca336480774a56ea953ddc75
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999812"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069466"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
@@ -177,49 +177,60 @@ Application Insights SDK 會依此順序尋找此金鑰︰
 在您的組態類別中註冊 Application Insights `WebRequestTrackingFilter`：
 
 ```Java
-package devCamp.WebApp.configurations;
+package <yourpackagename>.configurations;
 
-    import javax.servlet.Filter;
+import javax.servlet.Filter;
 
-    import org.springframework.boot.web.servlet.FilterRegistrationBean;
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.core.Ordered;
-    import org.springframework.beans.factory.annotation.Value;
-    import org.springframework.context.annotation.Configuration;
-    import com.microsoft.applicationinsights.TelemetryConfiguration;
-    import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import com.microsoft.applicationinsights.TelemetryConfiguration;
+import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
 
+@Configuration
+public class AppInsightsConfig {
 
-    @Configuration
-    public class AppInsightsConfig {
-
-    //Initialize AI TelemetryConfiguration via Spring Beans
-        @Bean
-        public String telemetryConfig() {
-            String telemetryKey = System.getenv("APPLICATION_INSIGHTS_IKEY");
-            if (telemetryKey != null) {
-                TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
-            }
-            return telemetryKey;
+    @Bean
+    public String telemetryConfig() {
+        String telemetryKey = System.getenv("<instrumentation key>");
+        if (telemetryKey != null) {
+            TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
         }
-    
-    //Set AI Web Request Tracking Filter
-        @Bean
-        public FilterRegistrationBean aiFilterRegistration(@Value("${spring.application.name:application}") String applicationName) {
-           FilterRegistrationBean registration = new FilterRegistrationBean();
-           registration.setFilter(new WebRequestTrackingFilter(applicationName));
-           registration.setName("webRequestTrackingFilter");
-           registration.addUrlPatterns("/*");
-           registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
-           return registration;
-       } 
-
-    //Set up AI Web Request Tracking Filter
-        @Bean(name = "WebRequestTrackingFilter")
-        public Filter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
-            return new WebRequestTrackingFilter(applicationName);
-        }   
+        return telemetryKey;
     }
+
+    /**
+     * Programmatically registers a FilterRegistrationBean to register WebRequestTrackingFilter
+     * @param webRequestTrackingFilter
+     * @return Bean of type {@link FilterRegistrationBean}
+     */
+    @Bean
+    public FilterRegistrationBean webRequestTrackingFilterRegistrationBean(WebRequestTrackingFilter webRequestTrackingFilter) {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(webRequestTrackingFilter);
+        registration.addUrlPatterns("/*");
+        registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
+        return registration;
+    }
+
+
+    /**
+     * Creates bean of type WebRequestTrackingFilter for request tracking
+     * @param applicationName Name of the application to bind filter to
+     * @return {@link Bean} of type {@link WebRequestTrackingFilter}
+     */
+    @Bean
+    @ConditionalOnMissingBean
+
+    public WebRequestTrackingFilter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
+        return new WebRequestTrackingFilter(applicationName);
+    }
+
+
+}
 ```
 
 > [!NOTE]
@@ -232,7 +243,6 @@ package devCamp.WebApp.configurations;
 此類別會將 `WebRequestTrackingFilter` 設定為 http 篩選鏈結上的第一個篩選條件。 它也會從作業系統環境變數中提取可用的檢測金鑰。
 
 > 由於這是 Spring Boot 應用程式，而且它有其本身的 Spring MVC 組態，因此我們會使用 web http 篩選組態，而不是 Spring MVC 組態。 請參閱以下幾節，以了解 Spring MVC 特定組態。
-
 
 ### <a name="applications-using-webxml"></a>使用 Web.xml 的應用程式
 在您的專案中找到並開啟 web.xml 檔案，然後將下列程式碼合併至 Web 應用程式節點下，也就是應用程式篩選器設定的位置。
@@ -251,6 +261,11 @@ package devCamp.WebApp.configurations;
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+   <!-- This listener handles shutting down the TelemetryClient when an application/servlet is undeployed. -->
+    <listener>
+      <listener-class>com.microsoft.applicationinsights.web.internal.ApplicationInsightsServletContextListener</listener-class>
+    </listener>
 ```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>如果您使用 Spring Web MVC 3.1 或更新版本

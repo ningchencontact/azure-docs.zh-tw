@@ -8,18 +8,18 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: b35cbb65c32336b0021a2004f4237a9784db8ea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52be08006985ee2f2e1ea4427e0f63ebbeb6e8b2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969082"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900491"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料
 
 Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供兩個適用於 Python 的用戶端程式庫：[內嵌程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest)和[資料程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)。 這些程式庫可讓您將資料內嵌 (載入) 至叢集，並從您的程式碼查詢資料。 在本快速入門中，您先在測試叢集中建立資料表和資料對應。 然後，您將叢集的擷取排入佇列並驗證結果。
 
-本快速入門也可作為 [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb)。
+本快速入門也可用來作為 [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb) \(英文\)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -51,7 +51,7 @@ import pandas as pd
 import datetime
 ```
 
-若要驗證應用程式，Azure 資料總管會使用您的 AAD 租用戶識別碼。 若要尋找您的租用戶識別碼，請使用下列 URL，並以您的網域取代 YourDomain。
+若要驗證應用程式，Azure 資料總管會使用您的 AAD 租用戶識別碼。 若要尋找您的租用戶識別碼，請使用下列 URL，並以您的網域取代 *YourDomain*。
 
 ```
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
@@ -72,7 +72,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE  = "<DatabaseName>"
 ```
 
-現在，請建構連接字串。 本範例會使用裝置驗證來存取叢集。 您也可以使用 AAD 應用程式憑證、AAD 應用程式金鑰，以及 AAD 使用者和密碼。
+現在，請建構連接字串。 此範例使用服務驗證來存取叢集。 您也可以使用 AAD 應用程式憑證、AAD 應用程式金鑰，以及 AAD 使用者和密碼。
 
 您可以在稍後的步驟中建立目的地資料表和對應。
 
@@ -132,12 +132,15 @@ df_mapping_create_output
 將訊息放入佇列，以從 Blob 儲存體提取資料，並將該資料內嵌至 Azure 資料總管。
 
 ```python
-KUSTO_INGEST_CLIENT = KustoIngestClient(KCSB_INGEST)
+INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
+# All ingestion properties are documented here: https://docs.microsoft.com/en-us/azure/kusto/management/data-ingest#ingestion-properties
 INGESTION_PROPERTIES  = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-KUSTO_INGEST_CLIENT.ingest_from_multiple_blobs([BlobDescriptor(BLOB_PATH,FILE_SIZE)],delete_sources_on_success=False,ingestion_properties=INGESTION_PROPERTIES)
+BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)  # 10 is the raw size of the data in bytes
+INGESTION_CLIENT.ingest_from_blob(BLOB_DESCRIPTOR,ingestion_properties=INGESTION_PROPERTIES)
 
-print('Done queueing up ingestion with Kusto')
+print('Done queuing up ingestion with Azure Data Explorer')
+
 ```
 
 ## <a name="validate-that-data-was-ingested-into-the-table"></a>驗證已將資料內嵌至資料表
@@ -171,7 +174,7 @@ df
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您計劃遵循其他快速入門和教學課程，請保留您建立的資源。 否則，請在資料庫中執行下列命令，來清除 StormEvents 資料表。
+如果您打算按照其他快速入門和教學課程繼續進行，請保留您建立的資源。 否則，請在資料庫中執行下列命令，來清除 StormEvents 資料表。
 
 ```Kusto
 .drop table StormEvents

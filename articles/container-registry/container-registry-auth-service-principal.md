@@ -2,18 +2,17 @@
 title: 使用服務主體進行 Azure Container Registry 驗證
 description: 了解如何使用 Azure Active Directory 服務主體，提供您私人容器登錄中映像的存取權。
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: marsma
-ms.openlocfilehash: ffdf8af805ce7e5068ceef9a4b265ea00d36fc79
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: 30f0eb04b4b7d07785854e3079bc6656889edec6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448004"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854474"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服務主體進行 Azure Container Registry 驗證
 

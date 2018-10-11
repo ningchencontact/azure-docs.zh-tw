@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216256"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867044"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>建立會執行管線來回應事件的觸發程序
 
@@ -58,11 +58,11 @@ ms.locfileid: "39216256"
 
 ### <a name="map-trigger-properties-to-pipeline-parameters"></a>將觸發程序屬性對應到管線參數
 
-當事件觸發程序對特定 Blob 引發時，事件會擷取 Blob 的資料夾路徑和檔案名稱，變成 `@triggerBody().folderPath` 和 `@triggerBody().fileName`。 若要在管線中使用這些屬性的值，您必須將屬性對應到管線參數。 在將屬性對應到參數之後，您可在整個管線中透過 `@pipeline.parameters.parameterName` 運算式存取觸發程序所擷取的值。
+當事件觸發程序對特定 Blob 引發時，事件會擷取 Blob 的資料夾路徑和檔案名稱，變成 `@triggerBody().folderPath` 和 `@triggerBody().fileName`。 若要在管線中使用這些屬性的值，您必須將屬性對應到管線參數。 在將屬性對應到參數之後，您可在整個管線中透過 `@pipeline().parameters.parameterName` 運算式存取觸發程序所擷取的值。
 
 ![將屬性對應到管線參數](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-舉例來說，在上方的螢幕擷取畫面中， 觸發程序設為在儲存體帳戶中建立了結尾為 `.csv` 的 Blob 路徑時引發。 這樣一來，當儲存體帳戶中的任一處建立了副檔名為 `.csv` 的 Blob 時，`folderPath` 和 `fileName` 屬性就會擷取新 Blob 的位置。 例如，`@triggerBody().folderPath` 有一個 `/containername/foldername/nestedfoldername` 這樣的值，而 `@triggerBody().fileName` 有一個 `filename.csv` 這樣的值。 在範例中，這些值會對應到管線參數 `sourceFolder` 和 `sourceFile`。 您可以分別以 `@pipeline.parameters.sourceFolder` 和 `@pipeline.parameters.sourceFile` 形式在整個管線中加以使用。
+舉例來說，在上方的螢幕擷取畫面中， 觸發程序設為在儲存體帳戶中建立了結尾為 `.csv` 的 Blob 路徑時引發。 這樣一來，當儲存體帳戶中的任一處建立了副檔名為 `.csv` 的 Blob 時，`folderPath` 和 `fileName` 屬性就會擷取新 Blob 的位置。 例如，`@triggerBody().folderPath` 有一個 `/containername/foldername/nestedfoldername` 這樣的值，而 `@triggerBody().fileName` 有一個 `filename.csv` 這樣的值。 在範例中，這些值會對應到管線參數 `sourceFolder` 和 `sourceFile`。 您可以分別以 `@pipeline().parameters.sourceFolder` 和 `@pipeline().parameters.sourceFile` 形式在整個管線中加以使用。
 
 ## <a name="json-schema"></a>JSON 結構描述
 

@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 2ffb1f7edef0cf92cbbf7adc4314967858bcfeb1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128638"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855369"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>使用佇列和事件的企業整合架構
 
@@ -34,7 +34,7 @@ ms.locfileid: "43128638"
 
 - **Azure API 管理開發人員入口網站**：Azure API 管理的每個執行個體都提供[開發人員入口網站](../api-management/api-management-customize-styles.md)的存取權。 此入口網站可讓您存取文件和程式碼範例。 您也可以在開發人員入口網站中測試 API。
 
-- **Azure Logic Apps**：[Logic Apps](../logic-apps/logic-apps-overview.md) 是一個用於建置企業工作流程和整合的無伺服器平台。
+- **Azure Logic Apps**：[Logic Apps](../logic-apps/logic-apps-overview.md) 是一個無伺服器平台，用於建置企業工作流程和整合。
 
 - **連接器**：Logic Apps 會使用[連接器](../connectors/apis-list.md)來連線到常用的服務。 Logic Apps 提供數百個連接器，但您也可以建立自訂連接器。
 
@@ -46,7 +46,7 @@ ms.locfileid: "43128638"
 
 - **Azure DNS**：[Azure DNS](https://docs.microsoft.com/azure/dns/) 是一個適用於 DNS 網域的主機服務。 Azure DNS 採用 Microsoft Azure 基礎結構來提供名稱解析。 只要將您的網域裝載於 Azure，就可以使用您用於其他 Azure 服務的相同認證、API、工具和計費方式來管理 DNS 記錄。 若要使用自訂網域名稱 (例如 contoso.com)，請建立將自訂網域名稱對應至 IP 位址的 DNS 記錄。 如需詳細資訊，請參閱[在 API 管理中設定自訂網域名稱](../api-management/configure-custom-domain.md)。
 
-- **Azure Active Directory (Azure AD)**：使用 [Azure AD](https://docs.microsoft.com/azure/active-directory/) 或其他識別提供者來進行驗證。 Azure AD 藉由傳遞[適用於 API 管理的 JSON Web 權杖](../api-management/policies/authorize-request-based-on-jwt-claims.md)進行驗證，以提供用於存取 API 端點的驗證。 對於標準和進階層，Azure AD 可以保護 API 管理開發人員入口網站的存取權。
+- **Azure Active Directory (Azure AD)**：使用 [Azure AD](https://docs.microsoft.com/azure/active-directory/) 或其他識別提供者來進行驗證。 Azure AD 藉由傳遞[適用於 API 管理的 JSON Web 權杖](../api-management/policies/authorize-request-based-on-jwt-claims.md)進行驗證，以提供用於存取 API 端點的驗證。 對於標準和進階層，Azure AD 可以保護 API 管理開發人員入口網站的存取。
 
 ## <a name="patterns"></a>模式 
 
@@ -81,7 +81,7 @@ ms.locfileid: "43128638"
 
 ### <a name="use-peeklock-to-consume-service-bus-messages"></a>使用 PeekLock 來取用服務匯流排訊息
 
-當您建立邏輯應用程式以取用服務匯流排訊息時，請讓邏輯應用程式使用 [PeekLock](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#queues) 來存取訊息群組。 當您使用 PeekLock 時，邏輯應用程式可以先執行步驟來驗證每個訊息，然後再完成或放棄訊息。 此方法可防止意外的訊息遺失。
+當您建立邏輯應用程式以取用服務匯流排訊息時，請讓邏輯應用程式使用 [PeekLock](../service-bus-messaging/service-bus-messaging-overview.md#queues) 來存取訊息群組。 當您使用 PeekLock 時，邏輯應用程式可以先執行步驟來驗證每個訊息，然後再完成或放棄訊息。 此方法可防止意外的訊息遺失。
 
 ### <a name="check-for-multiple-objects-when-an-event-grid-trigger-fires"></a>引發事件格線觸發程序時，請檢查是否有多個物件
 

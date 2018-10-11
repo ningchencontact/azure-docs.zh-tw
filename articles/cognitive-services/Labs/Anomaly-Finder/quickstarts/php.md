@@ -9,18 +9,20 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f81c99b77f931b5b259633fa8fcd0bf3e358e281
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f5f055be584aa9c6afb66ff651fd3c01851afd76
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369139"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246390"
 ---
 # <a name="use-the-anomaly-finder-api-with-php"></a>搭配 PHP 使用異常搜尋工具 API
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 本文提供資訊和程式碼範例，協助您快速開始搭配 PHP 使用異常搜尋工具 API，以便完成對於時間序列資料取得異常結果的工作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -33,7 +35,7 @@ ms.locfileid: "35369139"
 
 ### <a name="analyze-data-and-get-anomaly-points-php-example"></a>分析資料，並取得異常點 PHP 範例
 1. 以有效的訂用帳戶金鑰取代 `[YOUR_SUBSCRIPTION_KEY]` 值。
-2. 使用範例或您自己的資料點取代 `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]`。
+2. 以範例或您自己的資料點取代 `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]`。
 3. 執行並檢查回應。
 
 ```PHP
@@ -74,7 +76,7 @@ catch (HttpException $ex)
 
 ### <a name="example-response"></a>範例回應
 
-在 JSON 中，會回傳成功的回應。 範例回應如下所示。
+成功的回應會以 JSON 的形式傳回。 範例回應如下所示。
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>後續步驟

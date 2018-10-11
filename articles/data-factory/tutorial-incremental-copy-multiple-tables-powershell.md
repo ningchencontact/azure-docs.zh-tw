@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: ce83be3b08a08223e34f8c366e863ceee8e5d7ac
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 0cec1fb09503d3cc685b718c2497a363dfd15824
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087594"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868389"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -604,7 +604,7 @@ END
                                 "referenceName": "SinkDataset",
                                 "type": "DatasetReference",
                                 "parameters": {
-                                    "SinkTableName": "@{item().TABLE_NAME}"
+                                    "SinkTableName": "@{item().TableType}"
                                 }
                             }]
                         },

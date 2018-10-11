@@ -2,21 +2,21 @@
 title: 使用 Azure 資料庫移轉服務進行 Azure SQL Database 受控執行個體移轉的網路拓撲 | Microsoft Docs
 description: 了解資料庫移轉服務的來源和目標設定。
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 9fcee103854209016d73e29b598c9f33d35c4b6c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 10/10/2018
+ms.openlocfilehash: 39bcea36f3599530413aa9fc4dbb308ee2fb1681
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316862"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49066848"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務進行 Azure SQL DB 受控執行個體移轉的網路拓樸
 本文會討論 Azure 資料庫移轉服務進行內部部署 SQL Server 到 Azure SQL Database 受控執行個體移轉時，用於提供全面移轉體驗的各種網路拓撲。

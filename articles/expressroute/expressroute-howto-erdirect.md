@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6bf2da140f53d39812fb475130471d49750b9f4b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0009791263c45e0172abcb4836aaadde26f3ace
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947783"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887184"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>如何設定 ExpressRoute Direct (預覽)
 
@@ -35,7 +35,7 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
 2. 列出支援 ExpressRoute Direct 的所有位置。
   
   ```powershell
-  Get-AzureRMExpressRoutePortLocations
+  Get-AzureRmExpressRoutePortsLocation
   ```
 
   **範例輸出**

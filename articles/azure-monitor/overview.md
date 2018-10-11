@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0f17cf7f2ef655f482b08b5c7163c0d85be77ce5
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220970"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068687"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -70,7 +70,7 @@ Azure 監視器可以使用[資料收集器 API](../log-analytics/log-analytics-
 如果監視資料可以提高您對於運算環境作業的可見性，監視資料才有用處。 Azure 監視器包含數個功能和工具，可對您的應用程式及其相依的其他資源提供寶貴的深入解析。 [監視解決方案](../monitoring/monitoring-solutions.md)和功能 (例如 [Application Insights](../application-insights/app-insights-overview.md) 和 Container Insights) 可為您的應用程式和特定 Azure 服務的不同層面提供深入解析。 
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) 可監視 Web 應用程式的可用性、效能及使用情況 (不論應用程式是裝載在雲端還是內部部署環境)。 它會利用 Log Analytics 中強大的資料分析平台，為您提供應用程式作業的深入解析以及診斷錯誤，毋需等待使用者回報錯誤。 Application Insights 包含各種開發工具的連接點，並與 Visual Studio 整合以支援您的 DevOps 程序。
+[Application Insights](../application-insights/app-insights-overview.md) 可監視 Web 應用程式的可用性、效能及使用情況 (不論應用程式是裝載在雲端還是內部部署環境)。 它會利用 Log Analytics 中強大的資料分析平台，為您提供應用程式作業的深入解析以及診斷錯誤，毋需等待使用者回報錯誤。 Application Insights 包含各種開發工具的連接點，並與 Visual Studio 整合以支援您的 DevOps 程序。
 
 ![應用程式情資](media/overview/app-insights.png)
 

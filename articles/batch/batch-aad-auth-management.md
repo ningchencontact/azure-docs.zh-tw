@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: 698212ce1f4e88cda741a78030023f3acdeee9f0
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a52dbdad3842760c447e22f4274ab944750840e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576078"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816781"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch Management 解決方案
 
@@ -36,7 +36,7 @@ Batch 管理 .NET 程式庫會公開使用 Batch 帳戶、帳戶金鑰、應用�
 
 Azure [Active Directory Authentication Library][aad_adal] (ADAL) 為 Azure AD 提供程式設計介面以供您的應用程式使用。 若要從您的應用程式呼叫 ADAL，您必須在 Azure AD 租用戶中註冊您的應用程式。 當您註冊應用程式時，要提供 Azure AD 有關您應用程式的資訊，包括 Azure AD 租用戶內的名稱。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的應用程式識別碼。 若要深入了解應用程式識別碼，請參閱[Azure Active Directory 中的應用程式物件和服務主體物件之間的關聯性討論](../active-directory/develop/app-objects-and-service-principals.md)。
 
-若要註冊 AccountManagement 範例應用程式，遵循[整合應用程式與 Azure Active Directory][aad_integrate] 之[新增應用程式](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application)一節中的步驟。 指定 [原生用戶端應用程式] 作為應用程式類型。 適用於**重新導向 URI** 的業界標準 OAuth 2.0 URI 是 `urn:ietf:wg:oauth:2.0:oob`。 不過，您可以針對**重新導向 URI** 指定任何有效的 URI (例如 `http://myaccountmanagementsample`)，因為它不需要是實際的端點：
+若要註冊 AccountManagement 範例應用程式，遵循[整合應用程式與 Azure Active Directory][aad_integrate] 之[新增應用程式](../active-directory/develop/quickstart-v1-add-azure-ad-app.md)一節中的步驟。 指定 [原生用戶端應用程式] 作為應用程式類型。 適用於**重新導向 URI** 的業界標準 OAuth 2.0 URI 是 `urn:ietf:wg:oauth:2.0:oob`。 不過，您可以針對**重新導向 URI** 指定任何有效的 URI (例如 `http://myaccountmanagementsample`)，因為它不需要是實際的端點：
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 

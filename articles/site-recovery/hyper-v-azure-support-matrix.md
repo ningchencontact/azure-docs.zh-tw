@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146154"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079203"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V 複寫至 Azure 的支援矩陣
 
@@ -59,16 +59,16 @@ VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#azure-vm-require
 
 **元件** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-主機網路：NIC 小組 | 是
-主機網路：VLAN | 是
-主機網路：IPv4 | 是
-主機網路：IPv6 | 否
-客體 VM 網路：NIC 小組 | 否
-客體 VM 網路：IPv4 | 是
-客體 VM 網路：IPv6 | 否
-客體 VM 網路：靜態 IP (Windows) | 是
-客體 VM 網路：靜態 IP (Linux) | 否
-客體 VM 網路：多重 NIC | 是
+主機網路：NIC 小組 | 是 | 是
+主機網路：VLAN | 是 | 是
+主機網路：IPv4 | 是 | 是
+主機網路：IPv6 | 否 | 否
+客體 VM 網路：NIC 小組 | 否 | 否
+客體 VM 網路：IPv4 | 是 | 是
+客體 VM 網路：IPv6 | 否 | 是
+客體 VM 網路：靜態 IP (Windows) | 是 | 是
+客體 VM 網路：靜態 IP (Linux) | 否 | 否
+客體 VM 網路：多重 NIC | 是 | 是
 
 
 

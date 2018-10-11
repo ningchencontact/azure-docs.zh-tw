@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
-ms.reviewer: brenduns
-ms.openlocfilehash: 80bd865b7a08d9488c0fb6a1a5b60445b9c6eaaa
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.reviewer: sethm
+ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34358076"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078710"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service on Azure Stack 更新 1 版本資訊
 
@@ -37,7 +37,7 @@ ms.locfileid: "34358076"
 
 App Service on Azure Stack 更新 1 組建編號是 **69.0.13698.9**
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 > [!IMPORTANT]
 > 新的 Azure App Service on Azure Stack 部署現在需要[三主體萬用字元憑證](azure-stack-app-service-before-you-get-started.md#get-certificates)，因為現在已改進在 Azure App Service 中處理 Kudu 之 SSO 的方式。 新主體為 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**

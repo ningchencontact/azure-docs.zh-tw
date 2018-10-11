@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 3ac97ac5e9ae0a7059d9c74c5918212f1ce02790
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959949"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816339"
 ---
 # <a name="application-types-in-v10"></a>v1.0 中的應用程式類型
 
@@ -69,7 +69,7 @@ Azure Active Directory (Azure AD) 支援各種新型應用程式架構的驗證�
 當您了解可以開發及與 Azure AD 整合的應用程式有兩種類別時，佈建就變得更清楚：
 
 * **單一租用戶應用程式** - 單一租用戶應用程式主要是供單一組織使用。 這些通常是由企業開發人員撰寫的企業營運 (LoB) 應用程式。 單一租用戶應用程式只需要由一個目錄中的使用者存取，因此，它只需要佈建在一個目錄中。 這些應用程式通常是由組織中的開發人員註冊。
-* **多租用戶應用程式** - 多租用戶應用程式可供許多組織使用，而不限單一組織。 這些通常是由獨立軟體廠商 (ISV) 撰寫的軟體即服務 (SaaS) 應用程式。 多租用戶應用程式需要佈建在將會用到它們的每個目錄中，而這需要使用者或系統管理員同意才能註冊。 當應用程式目錄中已在目錄中註冊並獲權存取 Graph API 或其他 Web API 時，此同意程序會啟動。 當不同組織的使用者或系統管理員註冊來使用應用程式時，他們會看到一個對話方塊顯示應用程式需要的權限。 使用者或系統管理員可以同意應用程式，讓應用程式存取所述的資料，最後將應用程式註冊在他們的目錄中。 如需詳細資訊，請參閱 [同意架構的概觀](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework)。
+* **多租用戶應用程式** - 多租用戶應用程式可供許多組織使用，而不限單一組織。 這些通常是由獨立軟體廠商 (ISV) 撰寫的軟體即服務 (SaaS) 應用程式。 多租用戶應用程式需要佈建在將會用到它們的每個目錄中，而這需要使用者或系統管理員同意才能註冊。 當應用程式目錄中已在目錄中註冊並獲權存取 Graph API 或其他 Web API 時，此同意程序會啟動。 當不同組織的使用者或系統管理員註冊來使用應用程式時，他們會看到一個對話方塊顯示應用程式需要的權限。 使用者或系統管理員可以同意應用程式，讓應用程式存取所述的資料，最後將應用程式註冊在他們的目錄中。 如需詳細資訊，請參閱 [同意架構的概觀](consent-framework.md)。
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>開發單一租用戶或多租用戶應用程式的其他考量
 

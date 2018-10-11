@@ -2,19 +2,18 @@
 title: 快速入門 - 使用 PowerShell 在 Azure 中建立私用的 Docker 登錄
 description: 快速了解如何在 Azure 中使用 PowerShell 建立私用的 Docker 容器登錄。
 services: container-registry
-author: marsma
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/08/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e6c3330519692eb829803af2582b711be2fb3efe
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fe21ab3e29b7a4cbf204be82246d37a4b91128e4
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092873"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856678"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>快速入門：使用 PowerShell 建立 Azure Container Registry
 
