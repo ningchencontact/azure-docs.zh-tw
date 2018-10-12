@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 76afc558048f1890e5e2440fd002361172acbea2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c1dab114ddd010daa88222f380ad7a47f1dd1767
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433823"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090700"
 ---
 <div class="content">
    <h1>Azure 上的 Docker</h1>   
@@ -38,7 +38,7 @@ Docker 是常用的容器管理和映像處理平台，能讓您在 Linux 和 Wi
 </ol>
 <h2>資源</h2>
 <p>如需運用 Azure 上的 Docker，請參閱其他參考資料與工具，連結如下。</p>
-<a href="https://www.docker.com/docker-azure">Docker Azure 網站</a><br/>
+<a href="https://docs.docker.com/docker-for-azure/why/">Docker Azure 網站</a><br/>
 <a href="https://docs.docker.com/machine/drivers/azure/">Docker Azure 驅動程式</a><br/>
 <a href="https://docker.com">了解 Docker</a><br/>
 </div>

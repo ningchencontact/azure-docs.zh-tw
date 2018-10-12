@@ -1,18 +1,18 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 81b8d6652c3c642ae761ee8971646864a3eb6330
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7bfa1becd3eed5bcf3e2d0bec160a4b4e2f254a3
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182258"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091874"
 documentType: LandingData
 title: 語音服務 SDK 文件
 metadata:
-  title: 語音服務 SDK 文件 - 教學課程、快速入門、API 參考 - 認知服務 | Microsoft Docs
+  title: 語音服務文件 - 教學課程、快速入門、API 參考 - 認知服務 | Microsoft Docs
   meta.description: >
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
+    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
 
-    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
+    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -26,15 +26,6 @@ metadata:
   ms.author: nitinme
 abstract:
   description: 了解如何使用語音服務與語音 SDK 將支援語音的功能新增到您的應用程式。 您可以使用與 SDK 來新增「語音轉換文字」<i></i>(語音辨識/SR)、意圖<i></i>、翻譯<i></i>與文字轉換語音<i></i> (TTS) 功能到您的應用程式。 語音服務也具有適用於任何程式設計語言的 REST API，可用來提出 HTTP 要求。
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ../media/index/speech-landing-page-video.png
-      width: 250
-    title: 語音服務概觀 (10:34)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-overview-of-advanced-speech-capabilities/
-    width: 250
 sections:
 - items:
   - type: list
@@ -60,7 +51,7 @@ sections:
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: 按一下下方所需項目的箭頭連結，了解如何下載、安裝及使用 <img src="media/index/link.jpg" height="15" width="15"></img> 。
+    text: 選取箭號連結，了解如何下載、安裝和使用 SDK <img src="media/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
