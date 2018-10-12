@@ -47,7 +47,7 @@ ms.locfileid: "47219782"
 >
 > 針對**粗話字詞**偵測，請使用本文中所列支援語言的 [ISO 639-3 代碼](http://www-01.sil.org/iso639-3/codes.asp)或將其保留空白。
 
-針對 **autocorrect****PII**及 **classify (預覽版)**，請選取 **true**。 將 [ListId] 欄位保留空白。
+針對 **autocorrect** **PII**及 **classify (預覽版)**，請選取 **true**。 將 [ListId] 欄位保留空白。
 
   ![[Text - Screen] \(文字 - 過濾\) 主控台查詢參數](images/text-api-console-inputs.PNG)
 

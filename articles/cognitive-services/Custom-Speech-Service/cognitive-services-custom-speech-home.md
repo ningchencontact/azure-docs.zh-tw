@@ -44,7 +44,7 @@ Microsoft 語音轉文字引擎具有世界級水準，並且適用於上述案�
 
 ## <a name="next-steps"></a>後續步驟
 
-如需關於如何使用自訂語音服務的詳細資訊，請參閱 [自訂語音服務入口網站] https://cris.ai)。
+如需關於如何使用自訂語音服務的詳細資訊，請參閱 [自訂語音服務入口網站] (https://cris.ai)。
 
 * [快速入門](cognitive-services-custom-speech-get-started.md)
 * [常見問題集](cognitive-services-custom-speech-faq.md)

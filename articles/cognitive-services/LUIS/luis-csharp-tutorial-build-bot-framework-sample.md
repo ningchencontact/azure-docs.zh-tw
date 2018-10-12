@@ -159,7 +159,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 
 ## <a name="next-steps"></a>後續步驟
 
-新增 LUIS 意圖和 Bot 服務對話方塊來處理 **Help****Cancel**及 **Greeting** 意圖。 請務必進行 Web 應用程式 Bot 定型、發佈及[建置](#build-the-bot)。 LUIS 與 Bot 兩者必須具有相同的意圖。
+新增 LUIS 意圖和 Bot 服務對話方塊來處理 **Help** **Cancel**及 **Greeting** 意圖。 請務必進行 Web 應用程式 Bot 定型、發佈及[建置](#build-the-bot)。 LUIS 與 Bot 兩者必須具有相同的意圖。
 
 > [!div class="nextstepaction"]
 > [新增意圖](./luis-how-to-add-intents.md)

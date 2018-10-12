@@ -5,16 +5,16 @@ description: 了解如何使用認知服務語音 SDK 在 Android 上以 Java �
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6428dbaabfe176e8d741818ee338bbc2a6bc70bb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432780"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883868"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 辨識語音
 
@@ -112,7 +112,7 @@ UI 的文字和圖形化表示法現在應會顯示如下。
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
-1. 開啟來源檔案 `MainActivity.java`。 將 `package` 陳述式後面的所有程式碼取代為下列內容。
+1. 開啟來源檔案 `MainActivity.java`。 以下列程式碼取代此檔案中的所有程式碼。
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
