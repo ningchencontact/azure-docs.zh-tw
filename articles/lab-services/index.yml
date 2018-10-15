@@ -1,6 +1,12 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: fbe7b703df033a3feacfa20e17868885e459c7e7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311129"
 documentType: LandingData
-title: Azure 實驗室服務 (先前稱為 DevTest 實驗室) 預覽文件
+title: Azure 實驗室服務預覽與 Azure DevTest Labs 文件
 metadata:
   title: Azure 實驗室服務文件 - 教學課程和 API 參考 | Microsoft Docs
   description: 了解如何使用 Azure 實驗室服務為雲端中的小組或學生，快速地設定開發、測試、Hackathon 或教室實驗室。 Azure 教學課程、範例等會示範如何建立、管理及保護實驗室。
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/06/2018
   ms.author: spelluru
-  ms.openlocfilehash: 1b37824b113fd9b1aaf225c5cb24b2dd27f1b47f
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: zh-TW
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34636693"
 abstract:
   description: 了解如何使用 Azure 實驗室服務為雲端中的小組或學生，快速地設定開發、測試、Hackathon 或教室實驗室。 Azure 教學課程、範例等會示範如何建立、管理及保護實驗室。
 sections:

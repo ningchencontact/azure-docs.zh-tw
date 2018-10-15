@@ -28,6 +28,7 @@
 ### [存取控制](data-lake-store-access-control.md)
 ### [保護儲存的資料](data-lake-store-secure-data.md)
 ### [加密](data-lake-store-encryption.md)
+### [虛擬網路整合 (預覽)](data-lake-store-network-security.md)
 
 ## 使用 Data Lake Storage Gen1 進行驗證
 ### [驗證選項](data-lakes-store-authentication-using-azure-active-directory.md)

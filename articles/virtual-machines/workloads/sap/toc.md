@@ -77,6 +77,7 @@
 #### [HA on Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [HA on Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-high-availability-guide-wsfc-file-share.md)
 #### [適用於 (A)SCS 執行個體的 HA on SUSE Linux](high-availability-guide-suse.md)
+#### [適用於 (A)SCS 執行個體的 HA on Red Hat Enterprise Linux](high-availability-guide-rhel.md)
 ### Azure 基礎結構準備
 #### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-high-availability-infrastructure-wsfc-file-share.md)

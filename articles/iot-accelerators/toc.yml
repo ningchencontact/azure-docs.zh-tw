@@ -81,6 +81,17 @@ items:
       href: iot-accelerators-remote-monitoring-deploy-simulated-device.md
     - name: 自訂 UI
       href: iot-accelerators-remote-monitoring-customize.md
+      items:
+      - name: 新增頁面
+        href: iot-accelerators-remote-monitoring-customize-page.md
+      - name: 新增服務
+        href: iot-accelerators-remote-monitoring-customize-service.md
+      - name: 新增格線
+        href: iot-accelerators-remote-monitoring-customize-grid.md
+      - name: 新增飛出視窗
+        href: iot-accelerators-remote-monitoring-customize-flyout.md
+      - name: 新增面板
+        href: iot-accelerators-remote-monitoring-customize-panel.md
     - name: 自訂和重新部署微服務
       href: iot-accelerators-microservices-example.md
     - name: 使用 CLI 進行部署
@@ -201,9 +212,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: IoT 解決方案加速器學習路徑
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: f0efa66bd9ed85ed4ab79f5937355bd19c404a64
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: e28f7e30378291c3384ddbd90af6fe02d1aa365b
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884322"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165330"
