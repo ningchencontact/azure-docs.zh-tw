@@ -22,28 +22,32 @@ items:
   expanded: true
 - name: 教學課程
   items:
-  - name: 建立高可用性 SQL 資料庫
-    href: azure-stack-tutorial-sql.md
-  - name: 建立高可用性 MySQL 資料庫
-    href: azure-stack-tutorial-mysql.md
-  - name: 將應用程式部署至 Azure 和 Azure Stack
-    href: azure-stack-solution-pipeline.md
-  - name: 設定混合式雲端身分識別
-    href: azure-stack-solution-hybrid-identity.md
-  - name: 設定混合式雲端連線
-    href: azure-stack-solution-hybrid-connectivity.md
-  - name: 訂閱供應項目
-    href: azure-stack-subscribe-services.md
-  - name: 從範本建立虛擬機器
-    href: azure-stack-create-vm-template.md
-  - name: 建立邊緣機器學習解決方案
-    href: azure-stack-solution-machine-learning.md
-  - name: 建立暫存資料分析解決方案
-    href: azure-stack-solution-staged-data-analytics.md
-  - name: 使用 Azure 建立跨雲端縮放解決方案
-    href: azure-stack-solution-cloud-burst.md
-  - name: 建立地理位置分散的應用程式解決方案
-    href: azure-stack-solution-geo-distributed.md
+  - name: 常見工作
+    items:
+    - name: 訂閱供應項目
+      href: azure-stack-subscribe-services.md
+    - name: 從範本建立虛擬機器
+      href: azure-stack-create-vm-template.md
+    - name: 建立高可用性 SQL 資料庫
+      href: azure-stack-tutorial-sql.md
+    - name: 建立高可用性 MySQL 資料庫
+      href: azure-stack-tutorial-mysql.md
+  - name: 混合式雲端模式
+    items:
+    - name: 將應用程式部署至 Azure 和 Azure Stack
+      href: azure-stack-solution-pipeline.md
+    - name: 設定混合式雲端身分識別
+      href: azure-stack-solution-hybrid-identity.md
+    - name: 設定混合式雲端連線
+      href: azure-stack-solution-hybrid-connectivity.md
+    - name: 建立邊緣機器學習解決方案
+      href: azure-stack-solution-machine-learning.md
+    - name: 建立暫存資料分析解決方案
+      href: azure-stack-solution-staged-data-analytics.md
+    - name: 使用 Azure 建立跨雲端縮放解決方案
+      href: azure-stack-solution-cloud-burst.md
+    - name: 建立地理位置分散的應用程式解決方案
+      href: azure-stack-solution-geo-distributed.md
 - name: 使用說明指南
   items:
   - name: 使用 Azure Stack 入口網站
@@ -76,6 +80,8 @@ items:
         href: azure-stack-managed-disk-considerations.md
       - name: 保護 VM
         href: azure-stack-manage-vm-protect.md
+      - name: VM 更新與管理
+        href: vm-update-management.md
       - name: SQL Server VM 考量
         href: azure-stack-sql-server-vm-considerations.md
     - name: 儲存體
@@ -125,8 +131,12 @@ items:
       items:
       - name: 部署 Service Fabric 叢集
         href: azure-stack-solution-template-service-fabric-cluster.md
-      - name: 部署 Kubernetes 叢集
-        href: azure-stack-solution-template-kubernetes-deploy.md
+      - name: 新增 Kubernetes 叢集
+        items:
+        - name: 部署 Kubernetes 叢集
+          href: azure-stack-solution-template-kubernetes-deploy.md
+        - name: 針對 Kubernetes 叢集進行疑難排解
+          href: azure-stack-solution-template-kubernetes-trouble.md
   - name: 建置應用程式
     items:
     - name: 開發 Azure Stack
@@ -208,9 +218,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 訓練與憑證
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: a67adb5f0b641f5f4eadfeb08c9802214d9f217b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5c4fec260e2b58aa7d34b9f3b7fcaa0d4755abf4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405405"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321643"

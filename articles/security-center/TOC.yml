@@ -5,6 +5,8 @@ items:
   items:
   - name: 關於資訊安全中心
     href: security-center-intro.md
+  - name: 資訊安全中心支援的平台及功能
+    href: security-center-os-coverage.md
 - name: 快速入門
   items:
   - name: Azure 訂用帳戶
@@ -117,10 +119,10 @@ items:
         href: security-center-enable-transparent-data-encryption.md
     - name: 監視身分識別和存取
       href: security-center-identity-access.md
-    - name: 管理及時存取
-      href: security-center-just-in-time.md
   - name: 套用雲端防禦
     items:
+    - name: 管理及時存取
+      href: security-center-just-in-time.md
     - name: 自適性應用程式控制
       href: security-center-adaptive-application.md
     - name: 檔案完整性監視
@@ -203,8 +205,6 @@ items:
     href: security-center-privacy.md
   - name: 常見問題集
     href: security-center-faq.md
-  - name: 支援的平台
-    href: security-center-os-coverage.md
   - name: 規劃與作業
     href: security-center-planning-and-operations-guide.md
   - name: Azure 安全性
@@ -225,9 +225,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: 區域可用性
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 77742b337a109bb1d9f81a16c9b614268859f35e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 60bb35519dec1dc08dd9ed82633c594c56fdd893
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041858"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318073"

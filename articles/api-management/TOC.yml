@@ -192,7 +192,7 @@ items:
       href: api-management-configuration-repository-git.md
     - name: 使用角色型存取控制
       href: api-management-role-based-access-control.md
-    - name: 使用受控服務識別
+    - name: 使用適用於 Azure 資源的受控識別
       href: api-management-howto-use-managed-service-identity.md
     - name: 與 Service Fabric 整合
       items:
@@ -232,9 +232,9 @@ items:
     href: http://aka.ms/apimblog
   - name: 功能要求
     href: http://aka.ms/apimwish
-ms.openlocfilehash: cb3b3579eea9bbac5bb8d7a04977ae7b8aef45c1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bbd98974e763ae98d7f754e9d8e690d0a8c62870
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43039342"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339385"

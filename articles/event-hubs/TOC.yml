@@ -19,6 +19,38 @@ items:
     href: event-hubs-quickstart-powershell.md
   - name: 串流至適用於 Apache Kafka 的事件中樞
     href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+  - name: 將事件傳送至事件中樞
+    items:
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: Java
+      href: event-hubs-java-get-started-send.md
+    - name: C
+      href: event-hubs-c-getstarted-send.md
+    - name: Go
+      href: event-hubs-go-get-started-send.md
+    - name: Python
+      href: event-hubs-python-get-started-send.md
+    - name: Node.js
+      href: event-hubs-node-get-started-send.md
+  - name: 從事件中樞接收事件
+    items:
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: Java
+      href: event-hubs-java-get-started-receive-eph.md
+    - name: Go
+      href: event-hubs-go-get-started-receive-eph.md
+    - name: Python
+      href: event-hubs-python-get-started-receive.md
+    - name: Node.js
+      href: event-hubs-node-get-started-receive.md
+    - name: Apache Storm
+      href: event-hubs-storm-getstarted-receive.md
   expanded: true
 - name: 教學課程
   items:
@@ -54,7 +86,7 @@ items:
   - name: 與事件方格整合
     href: ../event-grid/event-grid-event-hubs-integration.md
     maintainContext: true
-  - name: 受控服務識別 (預覽)
+  - name: 適用於 Azure 資源的受控服務識別
     href: event-hubs-managed-service-identity.md
   - name: 角色型存取控制 (預覽)
     href: event-hubs-role-based-access-control.md
@@ -77,38 +109,6 @@ items:
   items:
   - name: 建立事件中樞
     href: event-hubs-create.md
-  - name: 傳送事件
-    items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-send.md
-    - name: Java
-      href: event-hubs-java-get-started-send.md
-    - name: C
-      href: event-hubs-c-getstarted-send.md
-    - name: Go
-      href: event-hubs-go-get-started-send.md
-    - name: Python
-      href: event-hubs-python-get-started-send.md
-    - name: Node.js
-      href: event-hubs-node-get-started-send.md
-  - name: 接收事件
-    items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
-    - name: Java
-      href: event-hubs-java-get-started-receive-eph.md
-    - name: Go
-      href: event-hubs-go-get-started-receive-eph.md
-    - name: Python
-      href: event-hubs-python-get-started-receive.md
-    - name: Node.js
-      href: event-hubs-node-get-started-receive.md
-    - name: Apache Storm
-      href: event-hubs-storm-getstarted-receive.md
   - name: 適用於 Apache Kafka 的事件中樞
     items:
     - name: 建立啟用 Apache kafka 的事件中樞
@@ -186,9 +186,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: d2ceee656e4194bcf61b5e12a3992140dc02df66
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 31cee762ff6496d9cb22158315423509e728d87b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405949"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341271"
