@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: c8d7f1f5b793fcb684e9896bb93213a23d489860
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 163972329161f90ad364b25e7e60e9e5a04324d5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448538"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719999"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>使用 Azure AD 共用帳戶
 ## <a name="overview"></a>概觀
@@ -71,7 +71,7 @@ Azure AD 支援的共用帳戶適用於任何 Enterprise Mobility Suite (EMS)、
 使用 Azure AD，可以透過 Multi-Factor Authentication (MFA) 讓您的共用帳戶更安全 (深入了解[使用 Azure AD 保護應用程式](authentication/concept-mfa-whichversion.md))，並可使用 [Azure AD 自助式](users-groups-roles/groups-self-service-management.md)群組管理來委派管理誰有權存取應用程式。
 
 ## <a name="related-articles"></a>相關文章
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+* [Azure Active Directory 中的應用程式管理](manage-apps/what-is-application-management.md)
 * [使用條件式存取來保護應用程式](active-directory-conditional-access-azure-portal.md)
 * [自助式群組管理/SSAA](users-groups-roles/groups-self-service-management.md)
 

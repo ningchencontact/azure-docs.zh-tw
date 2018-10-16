@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918796"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162303"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -272,6 +272,11 @@ Azure 平台會提供適用於 VM 的數個不同 SLA。 如需確切的詳細�
 - VNet 內的 VM 具有私人 IP 位址的靜態配置。 請參考 [Azure 中的 IP 位址類型及配置方法](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)一文。
 - DBMS VM 的往返路由限制**不會**與安裝在本機 DBMS VM 上的防火牆一起設定。 流量路由反而會與 [Azure 網路安全性群組 (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview)一起定義
 - 為了區隔和隔離 DBMS VM 的流量，您可以將不同的 NIC 指派給此 VM。 其中的每個 NIC 有不同的 IP 位址，而每個 NIC 會指派給不同的 VNet 子網路，於是有不同的 NSG 規則。 請記住，隔離或區隔網路流量只是一種路由措施，不得設定網路輸送量的配額。
+
+> [!NOTE]
+> 您應該透過 Azure 方式將靜態 IP 位址指派給個別 vNIC。 您不應該將客體 OS 內的靜態 IP 位址指派給 vNIC。 某些 Azure 服務 (例如 Azure 備份服務) 依賴至少將主要 vNIC 設為 DHCP 的事實，而不是設為靜態 IP 位址。 另請參閱[針對 Azure 虛擬機器備份進行疑難排解](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking)文件。 如果您需要將多個靜態 IP 位址指派給 VM，必須將多個 vNIC 指派給 VM。
+>
+>
 
 將兩部 VM 使用於 Azure 可用性設定組內的生產 DBMS 部署，加上 SAP 應用程式層的個別路由，以及兩部 DBMS VM 的管理和操作流量，概略圖表如下所示：
 

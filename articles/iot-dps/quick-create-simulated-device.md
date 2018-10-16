@@ -1,5 +1,5 @@
 ---
-title: 本快速入門將說明如何使用 C 將模擬 TPM 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
+title: 使用 C 將模擬 TPM 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
 description: 在此快速入門中，您將使用適用於 Azure IoT 中樞裝置佈建服務的 C 裝置 SDK 來建立及佈建模擬 TPM 裝置
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15c0ce5a545b0bd6b2d1f320b50e9990f8278296
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 3f88da7e70ca62e14444fa742013c982daec3cc6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091460"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633262"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>快速入門：使用 Azure IoT C SDK 佈建模擬 TPM 裝置
 
@@ -38,12 +38,20 @@ ms.locfileid: "39091460"
 
 在本節中，您會準備用來建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 和 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 裝置模擬器範例的開發環境。
 
-1. 下載 [CMake 建置系統](https://cmake.org/download/)的最新發行版本。 從同一個網站中，查閱您所選二進位發行版本的密碼編譯雜湊值。 請確認下載的二進位檔使用對應的密碼編譯雜湊值。 下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.11.4 的密碼編譯雜湊：
+1. 下載 [CMake 建置系統](https://cmake.org/download/)的 3.11.4 版。 請確認下載的二進位檔使用對應的密碼編譯雜湊值。 下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.11.4 的密碼編譯雜湊：
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    在撰寫本文時，CMake 網站上列出了3.11.4 版的下列雜湊值：
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
@@ -147,7 +155,7 @@ ms.locfileid: "39091460"
 
 1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀] 索引標籤，並複製 [識別碼範圍] 值。
 
-    ![從入口網站擷取 DPS 端點資訊](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![從入口網站擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. 在 Visual Studio 的 [方案總管] 視窗中，瀏覽至 **Provision\_Samples** 資料夾。 展開名為 **prov\_dev\_client\_sample** 的範例專案。 展開 [來源檔案]，然後開啟 **prov\_dev\_client\_sample.c**。
 

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f6f443dfe637e68b0e1e13f7c3b9e718ae48a85d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: cce14d91509fe051beef87acdaeac9a92d998ef6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191321"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053773"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Framework Web 應用程式
 
@@ -32,11 +32,12 @@ ms.locfileid: "43191321"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程：
+若要完成此教學課程，請安裝 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> 和 **ASP.NET 以及 Web 開發**工作負載。
 
-安裝包含 **ASP.NET 和 Web 開發**工作負載的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>。
+您已安裝 Visual Studio 2017：
 
-如果您已安裝 Visual Studio，請按一下 [工具] > [取得工具和功能] 在 Visual Studio 中新增工作負載。
+- 按一下 [說明]  >  [檢查更新] 以安裝最新的 Visual Studio 更新。
+- 按一下 [工具]  >  [取得工具及功能]。
 
 ## <a name="create-an-aspnet-web-app"></a>建立 ASP.NET Web 應用程式
 
@@ -58,17 +59,15 @@ ms.locfileid: "43191321"
 
 ![在本機執行應用程式](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
-## <a name="publish-to-azure"></a>發佈至 Azure
+## <a name="launch-the-publish-wizard"></a>啟動發佈精靈
 
 在 [方案總管] 中，以滑鼠右鍵按一下 **myFirstAzureWebApp** 專案，然後選取 [發佈]。
 
 ![從方案總管發佈](./media/app-service-web-get-started-dotnet-framework/solution-explorer-publish.png)
 
-確定已選取 [Microsoft Azure App Service]，然後選取 [發佈]。
+發佈精靈會自動啟動。 選取 [App Service] >  [發佈] 以開啟 [建立 App Service] 對話方塊。
 
 ![從專案概觀頁面發佈](./media/app-service-web-get-started-dotnet-framework/publish-to-app-service.png)
-
-這會開啟 [建立 App Service] 對話方塊，協助您建立在 Azure 中執行 ASP.NET Web 應用程式所需的 Azure 資源。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -93,9 +92,9 @@ ms.locfileid: "43191321"
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-選取 [App Service 方案] 旁邊的 [新增]。 
+選取 [主控方案]旁的 [新增]。 
 
-在 [設定 App Service 方案] 對話方塊中，使用螢幕擷取畫面之後表格中的設定。
+在 [設定主控方案] 對話方塊中，使用螢幕擷取畫面之後表格中的設定。
 
 ![建立 App Service 方案](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
@@ -109,17 +108,17 @@ ms.locfileid: "43191321"
 
 ## <a name="create-and-publish-the-web-app"></a>建立和發佈 Web 應用程式
 
-在 [Web 應用程式名稱] 中，輸入唯一的應用程式名稱 (有效字元為 `a-z`、`0-9` 和 `-`)，或接受自動產生的唯一名稱。 Web 應用程式的 URL 是 `http://<app_name>.azurewebsites.net`，其中 `<app_name>` 是您的 Web 應用程式名稱。
+在 [應用程式名稱] 中，輸入唯一的應用程式名稱 (有效字元為 `a-z`、`0-9` 和 `-`)，或接受自動產生的唯一名稱。 Web 應用程式的 URL 是 `http://<app_name>.azurewebsites.net`，其中 `<app_name>` 是您的應用程式名稱。
 
 選取 [建立] 開始建立 Azure 資源。
 
-![設定 Web 應用程式名稱](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
+![設定應用程式名稱](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
 
 精靈完成後，它會將 ASP.NET Web 應用程式發佈至 Azure，然後在預設瀏覽器中啟動該應用程式。
 
 ![Azure 中已發佈的 ASP.NET Web 應用程式](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
-在[建立及發佈步驟](#create-and-publish-the-web-app)中指定的 Web 應用程式名稱會作為 URL 首碼，其格式為 `http://<app_name>.azurewebsites.net`。
+在[建立及發佈步驟](#create-and-publish-the-web-app)中指定的應用程式名稱會作為 URL 首碼，其格式為 `http://<app_name>.azurewebsites.net`。
 
 恭喜您，您的 ASP.NET Web 應用程式在 Azure App Service 中即時執行。
 

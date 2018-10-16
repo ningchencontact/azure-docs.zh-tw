@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 8254f6c72141f7a9babfc5af3c319e7e66f30bbf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7966705df2a352f2011d5f7611277e92d8e2d11a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448658"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294232"
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>設定 Azure Active Directory 進行自助服務群組管理
 使用者可以在 Azure Active Directory (Azure AD) 中建立及管理自己的安全性群組或 Office 365 群組。 使用者也可以要求安全性群組或 Office 365 群組成員資格，然後群組擁有者可以管理或拒絕成員資格。 您可以將群組成員資格的日常控制權委派給了解該成員資格的商務內容的人員。 自助式群組管理功能僅供安全性群組和 Office 365 群組使用，但具備郵件功能的安全性群組或通訊群組清單無法使用此功能。
@@ -46,6 +46,6 @@ ms.locfileid: "37448658"
 
 * [使用 Azure Active Directory 群組來管理資源的存取權](../fundamentals/active-directory-manage-groups.md)
 * [設定群組設定的 Azure Active Directory Cmdlet](groups-settings-cmdlets.md)
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../active-directory-apps-index.md)
+* [Azure Active Directory 中的應用程式管理](../manage-apps/what-is-application-management.md)
 * [什麼是 Azure Active Directory？](../fundamentals/active-directory-whatis.md)
-* [整合內部部署身分識別與 Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [整合內部部署身分識別與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

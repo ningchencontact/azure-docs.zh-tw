@@ -3,5 +3,5 @@
 * [將使用者指派給應用程式](../articles/active-directory/active-directory-applications-guiding-developers-assigning-users.md)
 * [將群組指派給應用程式](../articles/active-directory/active-directory-applications-guiding-developers-assigning-groups.md)
 * [整合應用程式與 Azure Active Directory](../articles/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../articles/active-directory/active-directory-apps-index.md)
+* [Azure Active Directory 中的應用程式管理](../articles/active-directory/manage-apps/what-is-application-management.md)
 

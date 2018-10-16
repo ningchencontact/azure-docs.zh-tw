@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82a5c57ce874e77a7912945a6fca07acee339197
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444482"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46293962"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>疑難排解群組的動態成員資格
 
@@ -42,6 +42,6 @@ ms.locfileid: "39444482"
 這些文章提供有關 Azure Active Directory 的其他資訊。
 
 * [使用 Azure Active Directory 群組來管理資源的存取權](../fundamentals/active-directory-manage-groups.md)
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../active-directory-apps-index.md)
+* [Azure Active Directory 中的應用程式管理](../manage-apps/what-is-application-management.md)
 * [什麼是 Azure Active Directory？](../fundamentals/active-directory-whatis.md)
-* [整合內部部署身分識別與 Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [整合內部部署身分識別與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

@@ -14,12 +14,12 @@ ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 8c04f2723466ea7abc8ea3c3cc1f1efb953da764
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5d8e6c0db2ce6c35935c2b00aa40de2a5d5a050f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448900"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297617"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>使用群組管理 SaaS 應用程式的存取權
 使用 Azure Active Directory (Azure AD) 搭配 Azure AD Premium 或 Azure AD Basic 授權，您可以使用群組指派與 Azure AD 整合之 SaaS 應用程式的存取權。 例如，如果您想要指派行銷部門使用五個不同 SaaS 應用程式的存取權，可以建立一個包含行銷部門中的使用者的群組，然後將該群組指派給行銷部門需要的這五個 SaaS 應用程式。 如此一來，您可以在同一個地方管理行銷部門的成員資格以節省時間。 接著當使用者新增為行銷群組的成員時，會將這些使用者指派給應用程式，並在使用者從行銷群組中移除時，從應用程式中移除其指派。 此功能可以搭配您能夠從 Azure AD 應用程式庫中新增的數百種應用程式使用。
@@ -40,7 +40,7 @@ ms.locfileid: "37448900"
 這些文章提供有關 Azure Active Directory 的其他資訊。
 
 * [使用 Azure Active Directory 群組來管理資源的存取權](../fundamentals/active-directory-manage-groups.md)
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../active-directory-apps-index.md)
+* [Azure Active Directory 中的應用程式管理](../manage-apps/what-is-application-management.md)
 * [設定群組設定的 Azure Active Directory Cmdlet](groups-settings-cmdlets.md)
 * [什麼是 Azure Active Directory？](../fundamentals/active-directory-whatis.md)
-* [整合內部部署身分識別與 Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [整合內部部署身分識別與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

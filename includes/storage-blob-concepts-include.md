@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 63593ff5f02f5e37fc25c988c4cef071a03a00b4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a934a1b75e85e03b6803be5c8afcd8fe74b0fad5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066028"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739193"
 ---
 Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 Blob 儲存體已針對儲存大量非結構化物件資料 (例如文字或二進位資料) 最佳化。
+
+極具調整彈性的物件儲存空間，適合非結構化資料
 
 Blob 儲存體是適合用於：
 
@@ -36,7 +38,7 @@ Blob 儲存體會公開三個資源：儲存體帳戶、帳戶中的容器以及
 
 ### <a name="storage-account"></a>儲存體帳戶
 
-所有對 Azure 儲存體中資料物件的存取都會透過儲存體帳戶進行。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+所有對 Azure 儲存體中資料物件的存取都會透過儲存體帳戶進行。 如需詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 ### <a name="container"></a>容器
 
