@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8a98b12a42dff186c9226df39ce02c71cbc40c7e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b592ac10d483bbf0ca058e87f819b8f67847c54e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113318"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296103"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>教學課程：使用 Application Insights 監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 
@@ -38,10 +38,10 @@ ms.locfileid: "37113318"
 > * [建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)
 > * [將應用程式部署到遠端叢集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [將 HTTPS 端點新增至 ASP.NET Core 前端服務](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [使用 Visual Studio Team Services 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [使用 Azure Pipelines 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * 設定應用程式的監視和診斷
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
@@ -100,7 +100,7 @@ Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來�
 3. 搜尋 `Microsoft.ApplicationInsights.ServiceFabric.Native`，然後按一下適當的 NuGet 套件。
 
 >[!NOTE]
->如果在安裝 Application Insights 套件之前未預先安裝 Microsoft.ServiceFabric.Diagnistics.Internal 套件，您可能需要以類似方式安裝該套件
+>如果在安裝 Application Insights 套件之前未預先安裝 Microsoft.ServiceFabric.Diagnostics.Internal 套件，您可能需要以類似方式安裝該套件
 
 4. 在右側，按一下應用程式中兩個服務 (**VotingWeb** 和 **VotingData**) 旁邊的兩個核取方塊，然後按一下 [安裝]。
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
@@ -113,7 +113,8 @@ Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來�
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. 在 *CreateServiceInstanceListeners()* 或 *CreateServiceReplicaListeners()* 的巢狀 *return* 陳述式中，在 *ConfigureServices* > *services* 之下宣告的兩個 Singleton 服務之間，新增：`.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`。這會將「服務內容」新增至您的遙測，讓您在 Application Insights 中更加了解遙測的來源。 *VotingWeb.cs*中的巢狀 *return* 陳述式看起來應該像這樣：
+    2. 在 *CreateServiceInstanceListeners()* 或 *CreateServiceReplicaListeners()* 的巢狀 *return* 陳述式中，在 *ConfigureServices* > *services* 之下宣告的兩個 Singleton 服務之間，新增：`.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`
+    這會將「服務內容」新增至您的遙測資料，讓您更充分了解 Application Insights 中的遙測資料來源。 *VotingWeb.cs*中的巢狀 *return* 陳述式看起來應該像這樣：
 
     ```csharp
     return new WebHostBuilder()

@@ -3,7 +3,7 @@ title: Azure 資訊安全中心快速入門 - 將您的 Windows 電腦上架到�
 description: 本快速入門說明如何在 Windows 電腦上佈建 Microsoft Monitoring Agent。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38702652"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022995"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入門：將 Windows 電腦上架到 Azure 資訊安全中心
 將 Azure 訂用帳戶上架之後，您可以透過佈建 Microsoft Monitoring Agent，為在 Azure 外 (例如，內部部署或其他雲端服務) 執行的資源啟用資訊安全中心。
 
 本快速入門說明如何在 Windows 電腦上安裝 Microsoft Monitoring Agent。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要開始使用資訊安全中心，您必須有 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 確認您是使用資訊安全中心的標準定價層之後，再開始按照本快速入門操作。 如需升級指示，請參閱[將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)。 您可以在前 60 天免費試用資訊安全中心標準的定價層。
@@ -39,14 +39,14 @@ ms.locfileid: "38702652"
 
  ![資訊安全中心概觀][2]
 
-3. 在 [資訊安全中心] 主功能表下，選取 [Onboarding to advanced security]\(上架到進階安全性\)。
-4. 選取 [要新增非 Azure 電腦嗎]。
+3. 在 [資訊安全中心] 主功能表下，選取 [開始使用]。
+4. 選取 [開始使用] 索引標籤。
 
-   ![開始使用進階安全性][3]
+   ![開始使用][3]
 
-5. [新增非 Azure 電腦] 上會顯示您的 Log Analytics 工作區清單。 清單中顯示啟用自動佈建之後，資訊安全中心為您建立的預設工作區 (如果適用)。 選取此工作區或其他您要使用的工作區。
+5. 按一下 [新增非 Azure 電腦] 下方的 [設定]。 隨即會顯示 Log Analytics 工作區清單。 清單中顯示啟用自動佈建之後，資訊安全中心為您建立的預設工作區 (如果適用)。 選取此工作區或其他您要使用的工作區。
 
-    ![新增非 Azure 電腦][4]
+    ![新增非 Azure 電腦](./media/quick-onboard-windows-computer/non-azure.png)
 
   [直接代理程式] 刀鋒視窗提供下載 Windows 代理程式的連結，以及用於設定代理程式的工作區識別碼金鑰。
 
@@ -104,7 +104,7 @@ ms.locfileid: "38702652"
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
-[3]: ./media/quick-onboard-windows-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-windows-computer/get-started.png
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
 [6]: ./media/quick-onboard-windows-computer/compute.png

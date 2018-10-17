@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9d3c063dab11f31b10762e8399a1f11f2c28c3cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226991"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377499"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 PowerShell 建立 Linux 伺服器虛擬機器
 
@@ -32,13 +31,15 @@ ms.locfileid: "36226991"
 * 安裝 NGINX 網頁伺服器，並且檢視預設首頁。
 * 清除未使用的資源。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure Stack 市集中的 Linux 映像**
 
-   Azure Stack 市集預設並未包含 Linux 映像。 請求 Azure Stack 操作員提供您所需的**Ubuntu Server 16.04 LTS** 映像。 運算子可以使用[將市集項目從 Azure 下載到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中所述的步驟。
+   Azure Stack 市集預設並未包含 Linux 映像。 請求 Azure Stack 操作員提供您所需的**Ubuntu Server 16.04 LTS** 映像。 操作員可以使用[將 Marketplace 項目從 Azure 下載到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中所述的步驟。
 
-* Azure Stack 需要特定版本的 Azure PowerShell，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 PowerShell ，請登入[開發套件](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登入以 Windows 為基礎的外部用戶端 (如果您[透過 VPN 連線](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)) 並遵循步驟來[安裝](azure-stack-powershell-install.md)和[設定](azure-stack-powershell-configure-user.md) PowerShell。
+* Azure Stack 需要特定版本的 Azure PowerShell，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 PowerShell，請依照步驟來[安裝](azure-stack-powershell-install.md) PowerShell。
+
+* 設定好 Azure Stack PowerShell 後，您必須連線到 Azure Stack 環境。 如需指示，請參閱[以使用者的身分使用 PowerShell 連線到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
 * 名稱為 id_rsa.pub 的公開 SSH 金鑰應儲存在 Windows 使用者設定檔的 .ssh 目錄中。 如需有關建立 SSH 金鑰的詳細資訊，請參閱[在 Windows 上建立 SSH 金鑰](../../virtual-machines/linux/ssh-from-windows.md)。
 

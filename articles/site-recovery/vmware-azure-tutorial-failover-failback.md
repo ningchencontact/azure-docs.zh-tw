@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f7856edef3bb93300fce0ff00d9434400e239f8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917036"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391363"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>將複寫的 VMware VM 和實體伺服器容錯移轉及容錯回復至 Azure
 
@@ -67,7 +67,7 @@ ms.locfileid: "37917036"
 1. 在 [設定] > [複寫的項目] 中，按一下 [VM] > [容錯移轉]。
 
 2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 您可以使用下列其中一個選項：
-   - **最新** (預設值)：此選項會先處理所有傳送至 Site Recovery 的資料。 它會提供最低的 RPO (復原點目標)，因為在容錯移轉後建立的 Azure VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
+   - **最新**：此選項會先處理所有傳送至 Site Recovery 的資料。 它會提供最低的 RPO (復原點目標)，因為在容錯移轉後建立的 Azure VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
    - **最近處理**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最新復原點。 此選項提供低 RTO (復原時間目標)，因為無須花費時間處理未處理的資料。
    - **最新應用程式一致**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最近應用程式一致復原點。
    - **自訂**：指定任何復原點。
@@ -82,11 +82,14 @@ ms.locfileid: "37917036"
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>連線到 Azure 中的容錯移轉虛擬機器
 
-1. 容錯移轉之後，請移至虛擬機器，並[連線](../virtual-machines/windows/connect-logon.md)至虛擬機器來進行驗證。
-2. 在驗證之後，按一下 [認可] 來完成容錯移轉後的虛擬機器復原點。 在認可之後，系統會刪除所有其他可用的復原點。 如此即完成容錯移轉活動。
+1. 如果您想要在容錯移轉後使用 RDP/SSH 連線到 Azure VM，請遵循資料表 ([這裡](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)) 中摘要說明的需求。
+2. 容錯移轉之後，請移至虛擬機器，並[連線](../virtual-machines/windows/connect-logon.md)至虛擬機器來進行驗證。
+3. 在驗證之後，按一下 [認可] 來完成容錯移轉後的虛擬機器復原點。 在認可之後，系統會刪除所有其他可用的復原點。 如此即完成容錯移轉活動。
 
 >[!TIP]
 > 如果您不滿意容錯移轉的虛擬機器，則**變更復原點**可協助您在容錯移轉之後選擇不同的復原點。 在**認可**之後，將無法再使用此選項。
+
+請依照[這裡](site-recovery-failover-to-azure-troubleshoot.md)所述的步驟，針對容錯移轉後的任何連線問題進行疑難排解。
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>準備重新保護 Azure VM
 

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114950"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024040"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>設定 App Service Environment 搭配強制通道
 
@@ -105,7 +105,7 @@ ASE 有一些外部相依性，[App Service Environment 網路架構][network]�
 
 3. 取得位址，該位址將使用於從您的 App Service Environment 至網際網路的所有輸出流量。 如果您將流量路由傳送至內部部署網路，則這些位址就是您的 NAT 或閘道 IP。 如果您想要透過 NVA 路由傳送 App Service Environment 連出流量，則輸出位址為 NVA 的公用 IP。
 
-4. _若要設定現有 App Service Environment 中的輸出位址：_ 移至 resource.azure.com，而後移至 Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>。 接著，您就可以看到描述您 App Service Environment 的 JSON。 確定最上方寫的是「讀取/寫入」。 選取 [編輯]。 向下捲動至底部。 將 **userWhitelistedIpRanges** 值從 **null** 變更為類似以下這樣。 使用您要設為輸出位址範圍的位址。 
+4. _若要設定現有 App Service Environment 中的輸出位址：_ 移至 resources.azure.com，而後移至 Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>。 接著，您就可以看到描述您 App Service Environment 的 JSON。 確定最上方寫的是「讀取/寫入」。 選取 [編輯]。 向下捲動至底部。 將 **userWhitelistedIpRanges** 值從 **null** 變更為類似以下這樣。 使用您要設為輸出位址範圍的位址。 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 

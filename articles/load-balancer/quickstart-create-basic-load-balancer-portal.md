@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304873"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378426"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立公用基本負載平衡器
 
@@ -36,7 +36,7 @@ ms.locfileid: "34304873"
 
 ## <a name="create-a-basic-load-balancer"></a>建立基本負載平衡器
 
-在本節中，您會使用入口網站建立公用基本負載平衡器。 當您使用入口網站建立公用 IP 和負載平衡器資源時，系統會將公用 IP 位址自動設定為負載平衡器的前端。 前端的名稱是 **LoadBalancerFrontend**。
+在本節中，您會使用入口網站建立公用基本負載平衡器。 當您使用入口網站建立公用 IP 和負載平衡器資源時，系統會將公用 IP 位址自動設定為負載平衡器的前端。 前端的名稱是 **myLoadBalancer**。
 
 1. 在入口網站的左上方，選取 [建立資源] > [網路] > [負載平衡器]。
 2. 在 [建立負載平衡器] 窗格中，輸入下列值：

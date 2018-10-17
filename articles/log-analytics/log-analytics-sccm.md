@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 611f3e70425cd6c80f8a976606dc6cd592571c6e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.component: ''
+ms.openlocfilehash: 433914bc4501b13ba65015d15b0c513a38bf1273
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503463"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041657"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>將 Configuration Manager 連線至 Log Analytics
 您可以將 System Center Configuration Manager 環境連線到 Azure Log Analytics，以同步處理裝置集合資料，並在 Log Analytics 和 Azure 自動化中參考這些集合。  
@@ -88,7 +88,7 @@ Log Analytics 支援 System Center Configuration Manager 目前分支，1606 版
 如果密碼或用戶端秘密金鑰過期或遺失，您必須手動更新 Log Analytics 連線屬性。
 
 1. 在 Configuration Manager 中瀏覽至 [雲端服務]，然後選取 [OMS 連接器] 以開啟 [OMS 連線屬性] 頁面。
-2. 在此頁面上按一下 [Azure Active Directory] 索引標籤，檢視 [租用戶]、[用戶端識別碼] 和 [用戶端秘密金鑰到期]。 **確認****用戶端秘密金鑰**是否已過期。
+2. 在此頁面上按一下 [Azure Active Directory] 索引標籤，檢視 [租用戶]、[用戶端識別碼] 和 [用戶端秘密金鑰到期]。 **確認** **用戶端秘密金鑰**是否已過期。
 
 ## <a name="import-collections"></a>匯入集合
 在 Configuration Manager 新增了 OMS 連線，並在執行 Configuration Manager 服務連線點網站系統角色的電腦上安裝了代理程式之後，下一個步驟是從 Configuration Manager 將集合匯入 Log Analytics 中作為電腦群組。

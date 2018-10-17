@@ -208,6 +208,13 @@ items:
   - name: Batch 帳戶
     href: /azure/templates/Microsoft.Batch/batchAccounts
     items:
+    - name: '[應用程式]'
+      href: /azure/templates/Microsoft.Batch/batchAccounts/applications
+      items:
+      - name: 版本
+        href: /azure/templates/Microsoft.Batch/batchAccounts/applications/versions
+        maintainContext: true
+      maintainContext: true
     - name: 憑證
       href: /azure/templates/Microsoft.Batch/batchAccounts/certificates
       maintainContext: true
@@ -226,6 +233,23 @@ items:
   - name: 工作
     href: /azure/templates/Microsoft.BatchAI/jobs
     maintainContext: true
+  - name: 工作區
+    href: /azure/templates/Microsoft.BatchAI/workspaces
+    items:
+    - name: 叢集
+      href: /azure/templates/Microsoft.BatchAI/workspaces/clusters
+      maintainContext: true
+    - name: 實驗
+      href: /azure/templates/Microsoft.BatchAI/workspaces/experiments
+      items:
+      - name: 工作
+        href: /azure/templates/Microsoft.BatchAI/workspaces/experiments/jobs
+        maintainContext: true
+      maintainContext: true
+    - name: 檔案伺服器
+      href: /azure/templates/Microsoft.BatchAI/workspaces/fileServers
+      maintainContext: true
+    maintainContext: true
 - name: 快取
   items:
   - name: Redis
@@ -236,6 +260,9 @@ items:
       maintainContext: true
     - name: 連結的伺服器
       href: /azure/templates/Microsoft.Cache/redis/linkedServers
+      maintainContext: true
+    - name: 修補程式排程
+      href: /azure/templates/Microsoft.Cache/redis/patchschedules
       maintainContext: true
     maintainContext: true
 - name: CDN
@@ -404,6 +431,10 @@ items:
       maintainContext: true
     - name: 觸發程序
       href: /azure/templates/Microsoft.DataFactory/factories/triggers
+      items:
+      - name: 重新執行觸發程序
+        href: /azure/templates/Microsoft.DataFactory/factories/triggers/rerunTriggers
+        maintainContext: true
       maintainContext: true
     maintainContext: true
 - name: 資料湖分析
@@ -609,8 +640,22 @@ items:
   - name: 元件
     href: /azure/templates/Microsoft.insights/components
     maintainContext: true
+  - name: 計量警示
+    href: /azure/templates/microsoft.insights/metricalerts
+    maintainContext: true
+  - name: 來賓診斷設定
+    href: /azure/templates/microsoft.insights/guestdiagnosticsettings
+    maintainContext: true
+  - name: 已排程查詢規則
+    href: /azure/templates/microsoft.insights/scheduledqueryrules
+    maintainContext: true
   - name: Web 測試
     href: /azure/templates/Microsoft.insights/webtests
+    maintainContext: true
+- name: IoT 中心
+  items:
+  - name: IoT 應用程式
+    href: /azure/templates/Microsoft.IotCentral/IotApps
     maintainContext: true
 - name: Key Vault
   items:
@@ -661,10 +706,58 @@ items:
   - name: Web 服務
     href: /azure/templates/Microsoft.MachineLearning/webServices
     maintainContext: true
+- name: MariaDB
+  items:
+  - name: 伺服器
+    href: /azure/templates/microsoft.dbformariadb/servers
+    items:
+    - name: 組態
+      href: /azure/templates/microsoft.dbformariadb/servers/configurations
+      maintainContext: true
+    - name: 資料庫
+      href: /azure/templates/microsoft.dbformariadb/servers/databases
+      maintainContext: true
+    - name: 防火牆規則
+      href: /azure/templates/microsoft.dbformariadb/servers/firewallrules
+      maintainContext: true
+    - name: 安全性警訊原則
+      href: /azure/templates/microsoft.dbformariadb/servers/securityalertpolicies
+      maintainContext: true
+    maintainContext: true
 - name: 媒體
   items:
   - name: 媒體服務
     href: /azure/templates/Microsoft.Media/mediaservices
+    items:
+    - name: Assets
+      href: /azure/templates/microsoft.media/mediaservices/assets
+      maintainContext: true
+    - name: 內容金鑰原則
+      href: /azure/templates/microsoft.media/mediaservices/contentkeypolicies
+      maintainContext: true
+    - name: 即時活動
+      href: /azure/templates/microsoft.media/mediaservices/liveevents
+      items:
+      - name: 即時輸出
+        href: /azure/templates/microsoft.media/mediaservices/liveevents/liveoutputs
+        maintainContext: true
+      maintainContext: true
+    - name: 串流端點
+      href: /azure/templates/microsoft.media/mediaservices/streamingendpoints
+      maintainContext: true
+    - name: 串流定位器
+      href: /azure/templates/microsoft.media/mediaservices/streaminglocators
+      maintainContext: true
+    - name: 串流原則
+      href: /azure/templates/microsoft.media/mediaservices/streamingpolicies
+      maintainContext: true
+    - name: 轉換
+      href: /azure/templates/microsoft.media/mediaservices/transforms
+      items:
+      - name: 工作
+        href: /azure/templates/microsoft.media/mediaservices/transforms/jobs
+        maintainContext: true
+      maintainContext: true
     maintainContext: true
 - name: MySQL
   items:
@@ -1040,6 +1133,9 @@ items:
     - name: 災難復原組態
       href: /azure/templates/Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs
       maintainContext: true
+    - name: 移轉組態
+      href: /azure/templates/Microsoft.ServiceBus/namespaces/migrationconfigurations
+      maintainContext: true
     - name: 佇列
       href: /azure/templates/Microsoft.ServiceBus/namespaces/queues
       items:
@@ -1066,6 +1162,17 @@ items:
   items:
   - name: 叢集
     href: /azure/templates/Microsoft.ServiceFabric/clusters
+    maintainContext: true
+- name: Service Fabric Mesh
+  items:
+  - name: '[應用程式]'
+    href: /azure/templates/microsoft.servicefabricmesh/applications
+    maintainContext: true
+  - name: 網路
+    href: /azure/templates/microsoft.servicefabricmesh/networks
+    maintainContext: true
+  - name: 磁碟區
+    href: /azure/templates/microsoft.servicefabricmesh/volumes
     maintainContext: true
 - name: SQL
   items:
@@ -1359,9 +1466,9 @@ items:
         maintainContext: true
       maintainContext: true
     maintainContext: true
-ms.openlocfilehash: 47f6e2d53e2bb7de5b1be13de03cb5378be96948
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 773ae8c38cb98e9c8daff6ef2819d4a3dc687739
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419707"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353946"

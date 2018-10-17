@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f45cb6a47756fae7b75d8c3df80a0bc754742063
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815108"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298994"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷執行階段例外狀況
 
@@ -101,6 +101,15 @@ Application Insights 收集的所有資料都會儲存在 Azure Log Analytics �
     ![代碼](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. 按一下 [分析影響] 以開啟 Application Insights 分析。  它已填入數個查詢，提供失敗要求的詳細資料，例如受影響的使用者、瀏覽器和區域。<br><br>![分析](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+
+## <a name="add-work-item"></a>新增工作項目
+如果您將 Application Insights 與追蹤系統 (例如 Azure DevOps 或 GitHub) 連結，即可直接從 Application Insights 建立工作項目。
+
+1. 返回 Application Insights 中的 [例外狀況屬性] 面板。
+2. 按一下 [新增工作項目]。
+3. [新增工作項目] 面板隨即開啟，並顯示關於例外狀況的詳細資料。  您可以新增任何額外的資訊，然後再將它儲存。
+
+    ![新增工作項目](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>後續步驟
 由於您已學會如何識別執行階段例外狀況，請前進到下一個教學課程，了解如何識別並診斷效能問題。

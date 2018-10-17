@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: dbc1cc4a72d0346c92d506358c39a66a4d780b32
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aecb9a1819060e0da6338e8e16bf681fad42dd22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309740"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161912"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>快速入門：將遙測從裝置傳送到 IoT 中樞 (iOS)
 
@@ -28,21 +28,15 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 從 [Azure 範例](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)下載程式碼範例 
 - 最新版的 [XCode](https://developer.apple.com/xcode/)，其執行最新版的 iOS SDK。 本快速入門已使用 XCode 9.3 和 iOS 11.3 進行測試。
 - 最新版的 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)。
-- iothub-explorer CLI 公用程式，其可從 IoT 中樞讀取遙測。 若要安裝，請先安裝 [Node.js](https://nodejs.org) v4.x.x 或更高版本，然後執行下列命令： 
-
-   ```sh
-   sudo npm install -g iothub-explorer
-   ```
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
-
 
 ## <a name="register-a-device"></a>註冊裝置
 
@@ -64,14 +58,6 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
    ```
 
    記下裝置連接字串，它看似 `Hostname=...=`。 您稍後會在本文中使用此值。
-
-1. 您也需要_服務連接字串_，讓後端應用程式能夠連接到 IoT 中樞並擷取裝置到雲端的訊息。 下列命令可擷取 IoT 中樞的服務連接字串：
-
-   ```azurecli-interactive
-   az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-   ```
-
-   記下服務連接字串，它看似 `Hostname=...=`。 您稍後會在本文中使用此值。
 
 ## <a name="send-simulated-telemetry"></a>傳送模擬的遙測
 
@@ -119,19 +105,19 @@ pod install
 
 ## <a name="read-the-telemetry-from-your-hub"></a>從您的中樞讀取遙測
 
-您在 XCode 模擬器上執行的範例應用程式會顯示裝置所傳送訊息的相關資料。 您也可以透過 IoT 中樞檢視所收到的資料。 `iothub-explorer` CLI 公用程式會連線到您 IoT 中樞上的服務端 [事件] 端點。 
+您在 XCode 模擬器上執行的範例應用程式會顯示裝置所傳送訊息的相關資料。 您也可以透過 IoT 中樞檢視所收到的資料。 IoT 中樞 CLI 擴充功能可以連線到 IoT 中樞上的服務端**事件**端點。 擴充功能會接收模擬裝置所傳送的「裝置到雲端」訊息。 IoT 中樞後端應用程式通常在雲端中執行，以接收和處理「裝置到雲端」訊息。
 
-開啟新的終端機視窗。 執行下列命令，以您在本文開頭擷取的服務連接字串取代 {您的中樞服務連接字串}：
+執行下列 Azure CLI 命令，以您的 IoT 中樞名稱取代 `{YourIoTHubName}`：
 
-```sh
-iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id myiOSdevice --hub-name {YourIoTHubName}
 ```
+
+下列螢幕擷取畫面顯示由模擬裝置傳送遙測至中樞時，擴充功能接收遙測的輸出：
 
 下列螢幕擷取畫面顯示您在終端機視窗中看到的遙測類型：
 
 ![檢視遙測](media/quickstart-send-telemetry-ios/view-telemetry.png)
-
-如果您在執行 iothub-explorer 命令時收到錯誤，請重複檢查您是使用 IoT 中樞的*服務連接字串*，而非 IoT 裝置的*裝置連接字串*。 這兩個連接字串的開頭都是 **Hostname={iothubname}**，但服務連接字串包含 **SharedAccessKeyName** 屬性，而裝置連接字串包含 **DeviceID**。 
 
 ## <a name="clean-up-resources"></a>清除資源
 

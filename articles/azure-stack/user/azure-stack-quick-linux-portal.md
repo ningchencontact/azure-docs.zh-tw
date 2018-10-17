@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: c692bc461c116b4c0497c2378ae4e21e1b841c8f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43775124"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025405"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入門：使用 Azure Stack 入口網站建立 Linux 伺服器虛擬機器
 
@@ -27,6 +27,10 @@ ms.locfileid: "43775124"
 * 使用遠端用戶端連線到虛擬機器。
 * 安裝 NGINX 網頁伺服器。
 * 清除資源。
+
+> [!NOTE]  
+> 本文中的螢幕影像會更新為符合 Azure Stack 1808 版所導入的變更。 除了非受控磁碟之外，1808 加入對使用「受控磁碟」的支援。 若您使用較早的版本，某些工作影像 (例如磁碟選取) 將會與本文所顯示的影像不同。  
+
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -66,7 +70,9 @@ ms.locfileid: "43775124"
 1. 按一下 Azure Stack 入口網站左上角的 [建立資源]。
 
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
-3. 按一下頁面底部的 [新增] 。
+   
+   ![選取 Linux 伺服器](media/azure-stack-quick-linux-portal/select.png)
+1. 按一下頁面底部的 [新增] 。
 
 4. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰]。 貼入您儲存的 SSH 公開金鑰，然後按一下 [確定]。
 
@@ -75,24 +81,28 @@ ms.locfileid: "43775124"
 
    ![基本資訊面板 - 設定虛擬機器](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. 針對虛擬機器，選取 [D1_V2]。
+5. 針對虛擬機器，選取 [D1]。
 
    ![大小面板 - 選擇虛擬機器大小](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
-6. 在 [設定] 頁面上，保留預設值並按一下 [確定]。
+6. 在 [設定] 頁面上，進行任何想要的變更以變更預設值。
+   
+    - 從 Azure Stack 1808 版開始，您可以在選擇使用 [受控磁碟] 時設定 [儲存體]。 在 1808 版之前，只能使用非受控磁碟。    
+      ![設定受控磁碟的儲存體](media/azure-stack-quick-linux-portal/linux-03.PNG)
+    
+    當您的設定就緒時，請選取 [確定] 以繼續。
 
-7. 在 [摘要] 頁面上，按一下 [確定] 來開始進行虛擬機器部署。
+7. 在 [摘要] 頁面上，按一下 [確定] 來開始進行虛擬機器部署。  
+   ![部署](media/azure-stack-quick-linux-portal/deploy.png)
 
 ## <a name="connect-to-the-virtual-machine"></a>連接至虛擬機器
 
-1. 在虛擬機器頁面上，按一下 [連接]。 這會顯示連線到虛擬機器所需的 SSH 連接字串。
-
-   ![連接虛擬機器](media/azure-stack-quick-linux-portal/linux-03.PNG)
+1. 在虛擬機器頁面上，按一下 [連接]。 這會顯示連線到虛擬機器所需的 SSH 連接字串。 
 
 2. 開啟 PuTTY。
-3. 在 [PuTTY Configuration] \(PuTTY 組態\) 畫面上，您會使用 [Category] \(類別\) 視窗向上或向下捲動。 向下捲動至 [SSH]，依序展開 [SSH]，然後按一下 [Auth]。按一下 [Browse] \(瀏覽\)，然後挑選您所儲存的私密金鑰檔案。
 
-   ![選取 PuTTY 私密金鑰](media/azure-stack-quick-linux-portal/Putty03.PNG)
+3. 在 [PuTTY Configuration] \(PuTTY 組態\) 畫面上，您會使用 [Category] \(類別\) 視窗向上或向下捲動。 向下捲動至 [SSH]，依序展開 [SSH]，然後按一下 [Auth]。按一下 [Browse] \(瀏覽\)，然後挑選您所儲存的私密金鑰檔案。
+   ![連接虛擬機器](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. 在 [Category] \(類別\) 視窗中向上捲動，然後按一下 [Session] \(工作階段\)。
 5. 在 [Host Name (or IP address)] \(主機名稱 (或 IP 位址)\) 方塊中，貼上 Azure Stack 入口網站中顯示的連接字串。 在此範例中，該字串為 ```asadmin@192.168.102.34```。
@@ -136,7 +146,7 @@ sudo apt-get -y install nginx
 
 請開啟網頁瀏覽器，然後瀏覽至 ```http://<public IP address>```。
 
-![NGINX 網頁伺服器歡迎頁面](media/azure-stack-quick-linux-portal/linux-04.PNG)
+![NGINX 網頁伺服器歡迎頁面](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
 ## <a name="clean-up-resources"></a>清除資源
 

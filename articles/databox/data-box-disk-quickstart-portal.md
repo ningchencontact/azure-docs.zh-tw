@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143418"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378341"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱磁碟 (預覽)
 
@@ -68,12 +68,12 @@ ms.locfileid: "43143418"
 
 這個步驟需要大約 5 分鐘。
 
-1. 使用內含的纜線將磁碟連接到執行支援版本的 Windows 電腦。 如需有關支援作業系統版本的詳細資訊，請移至 [Azure 資料箱磁碟系統需求](data-box-disk-system-requirements.md)。 
+1. 使用內含的纜線將磁碟連接到執行支援版本的 Windows/Linux 電腦。 如需有關支援作業系統版本的詳細資訊，請移至 [Azure 資料箱磁碟系統需求](data-box-disk-system-requirements.md)。 
 2. 若要將磁碟解除鎖定：
 
     1. 在 Azure 入口網站中，前往 [一般] > [裝置詳細資料] 並取得通行金鑰。
-    2. 在用來將資料複製到磁碟上的電腦上，下載及擷取資料箱碟解除鎖定工具。 
-    3. 執行 DataBoxDiskUnlock.exe，並提供通行金鑰。 若要執行磁碟重新插入，請再次執行解除鎖定工具，並提供通行金鑰。 **請勿使用 BitLocker 對話方塊或 BitLocker 金鑰來解除鎖定磁碟。** 
+    2. 在用來將資料複製到磁碟上的電腦上，下載及擷取作業系統特定的資料箱碟解除鎖定工具。 
+    3. 執行資料箱磁碟解除鎖定工具，並提供通行金鑰。 若要執行磁碟重新插入，請再次執行解除鎖定工具，並提供通行金鑰。 **請勿使用 BitLocker 對話方塊或 BitLocker 金鑰來解除鎖定磁碟。** 如需如何將磁碟解除鎖定的詳細資訊，請移至[解除鎖定 Windows 用戶端上的磁碟]()或[解除鎖定 Linux 用戶端上的磁碟]()。
     4. 指派給磁碟的磁碟機代號會由工具顯示。 請記下磁碟機代號。 這會用於後續的步驟。
 
 ## <a name="copy-data-and-verify"></a>複製資料並加以確認
@@ -86,9 +86,9 @@ ms.locfileid: "43143418"
 
     > [!NOTE] 
     > - 所有容器和 Blob 都應符合 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)。 如果未遵循這些規則，則將資料上傳至 Azure 會失敗。
-    > - 請確定檔案的區塊 Blob 不超過約 4.7 TB，而分頁 Blob 不超過約 8 TB。
+    > - 請確定檔案的區塊 Blob 不超過約 4.75 TiB，而分頁 Blob 不超過約 8 TiB。
 
-2. (選擇性) 複製完成之後，建議您執行 AzureImportExport 資料夾中提供的 `AzureExpressDiskService.cmd`，以產生驗證的總和檢查碼。 視資料大小而定，此步驟可能需要一段時間。 
+2. (選擇性) 複製完成之後，建議您執行 AzureImportExport 資料夾中提供的 `DataBoxDiskValidation.cmd`，以產生驗證的總和檢查碼。 視資料大小而定，此步驟可能需要一段時間。 
 3. 拔除磁碟機。 
 
 

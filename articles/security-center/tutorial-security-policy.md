@@ -3,7 +3,7 @@ title: Azure 資訊安全中心教學課程 - 定義和評估安全性原則 | M
 description: Azure 資訊安全中心教學課程 - 定義和評估安全性原則
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358603"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027056"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>教學課程：定義和評估安全性原則
 資訊安全中心可讓您使用安全性原則來定義工作負載所需的設定，協助確保符合公司或法規安全性需求。 您為 Azure 訂用帳戶定義原則，並針對工作負載類型或資料敏感性進行調整後，資訊安全中心即可對您的計算、應用程式、網路、資料和儲存體以及身分識別和存取資源，提供安全性建議。 在本教學課程中，您將了解如何：
@@ -42,8 +42,7 @@ ms.locfileid: "39358603"
 
   ![安全性原則](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. 在 [原則元件] 之下，選取 [安全性原則]
-4. 對於您要監視的每個安全性設定，選取 [開啟]。 資訊安全中心會持續評估環境的設定，當有弱點存在時，資訊安全中心就會產生安全性建議。 如果不建議使用此安全性設定或此安全性設定不相關，請選取 [關閉]。 例如，在開發/測試環境中，您可能不需要與生產環境相同層級的安全性。 選取您的環境適用的原則之後，按一下 [儲存]。
+3. 在 [計算和應用程式]、[網路] 和 [資料] 底下，將您想要監視的每個安全性組態設定為 [開啟]。 資訊安全中心會持續評估環境的設定，當有弱點存在時，資訊安全中心就會產生安全性建議。 如果不建議使用此安全性設定或此安全性設定不相關，請選取 [關閉]。 例如，在開發/測試環境中，您可能不需要與生產環境相同層級的安全性。 選取您的環境適用的原則之後，按一下 [儲存]。
 
   ![安全性組態](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 
@@ -58,7 +57,7 @@ ms.locfileid: "39358603"
 
 2. 在您處理所有計算相關建議之後，您應該繼續處理下一個工作負載：網路。 在 [資訊安全中心] 儀表板上，按一下 [概觀]，然後按一下 [網路]。
 
-  ![網路](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
+  ![網路功能](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
 
   [網路建議] 頁面中有網路設定、網際網路面向端點和網路拓撲的安全性問題清單。 就如同 [計算及應用程式]，有些網路建議會提供整合式補救措施，而其他網路建議則不會提供補救措施。
 

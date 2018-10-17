@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 5e1d7a88e5a1a8ab60a01aea6ca42e850ac6e0e3
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0baab86c0cb76bfeecb30cdb62c968a476e402b9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41919102"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296766"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java 和 MySQL Web 應用程式
 
@@ -297,7 +297,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ```
 
 ### <a name="get-ftp-deployment-credentials"></a>取得 FTP 部署認證 
-您可以使用各種方式來將應用程式部署至 Azure Appservice，包括 FTP、本機 Git、GitHub、Visual Studio Team Services 和 BitBucket。 在此範例中，使用 FTP 將先前在您本機電腦上建置的 .WAR 檔案部署至 Azure App Service。
+您可以使用各種方式來將應用程式部署至 Azure Appservice，包括 FTP、本機 Git、GitHub、Azure DevOps 和 BitBucket。 在此範例中，使用 FTP 將先前在您本機電腦上建置的 .WAR 檔案部署至 Azure App Service。
 
 若要判斷哪些認證要在 ftp 命令中傳遞至 Web 應用程式，請在 Cloud Shell 中使用 [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) 命令： 
 

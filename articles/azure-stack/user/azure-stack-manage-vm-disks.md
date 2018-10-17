@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050396"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026513"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中佈建虛擬器的磁碟儲存體
 
@@ -30,9 +30,13 @@ ms.locfileid: "43050396"
 
 ## <a name="overview"></a>概觀
 
-Azure Stack 支援在虛擬機器上使用[非受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)作為作業系統 (OS) 和資料磁碟。
+從 1808 版開始，Azure Stack 支援在虛擬機器上使用受控磁碟和非受控磁碟作為作業系統 (OS) 和資料磁碟。 在 1808 版之前，只支援非受控磁碟。 
 
-為了使用非受控磁碟，您需要建立[儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)來保存磁碟。 您建立的磁碟就是 VM 磁碟，並且會儲存在儲存體帳戶的容器中。
+**[受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)** 會管理與 VM 磁碟相關的儲存體帳戶，從而簡化 Azure IaaS VM 的磁碟管理。 您只需要指定您需要的磁碟大小，Azure Stack 就會替您建立和管理磁碟。
+
+**[非受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)** 需要建立[儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)來儲存磁碟。 您建立的磁碟就是 VM 磁碟，並且會儲存在儲存體帳戶的容器中。
+
+ 
 
 ### <a name="best-practice-guidelines"></a>最佳做法指南
 

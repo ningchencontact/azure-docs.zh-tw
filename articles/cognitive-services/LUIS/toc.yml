@@ -10,7 +10,7 @@ items:
   items:
   - name: 建置預先建置的網域應用程式
     href: luis-get-started-create-app.md
-  - name: 使用 API
+  - name: 使用 REST API
     items:
     - name: 取得意圖
       items:
@@ -164,7 +164,7 @@ items:
       href: luis-how-to-add-example-utterances.md
     - name: 新增實體
       href: luis-how-to-add-entities.md
-    - name: 搭配 API
+    - name: 使用 REST API
       items:
       - name: 使用 Node.js 以程式設計方式建置應用程式
         href: luis-tutorial-node-import-utterances-csv.md
@@ -172,7 +172,7 @@ items:
         href: luis-tutorial-list-entity.md
   - name: 整合
     items:
-    - name: 搭配 Bing 拼字檢查 API v7
+    - name: 使用 Bing 拼字檢查 v7
       href: luis-tutorial-bing-spellcheck.md
     - name: 具有語音服務
       href: luis-tutorial-speech-to-intent.md
@@ -234,13 +234,13 @@ items:
         href: luis-how-to-manage-from-cloud-shell.md
       - name: 使用流量管理員在各索引鍵中分散端點配額
         href: luis-traffic-manager.md
-  - name: 移轉至 V2 API
+  - name: 遷移至 V2 REST API
     href: luis-migration-api-v1-to-v2.md
   - name: 以程式設計方式尋找區域
     items:
-    - name: 使用 C#
+    - name: 使用 REST API 與 C#
       href: luis-find-region-csharp.md
-    - name: 使用 Node.js
+    - name: 使用 REST API 與 Node.js
       href: luis-find-region-nodejs.md
 - name: 參考
   items:
@@ -286,16 +286,18 @@ items:
       href: luis-reference-prebuilt-url.md
   - name: 預先建置的網域參考
     href: luis-reference-prebuilt-domains.md
-  - name: 編寫 V2 API
-    href: https://aka.ms/luis-authoring-apis
-  - name: 端點 V2 API
-    href: https://aka.ms/luis-endpoint-apis
-  - name: HTTP 代碼
-    href: luis-reference-response-codes.md
   - name: Azure CLI
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: REST API
+    items:
+    - name: 製作 V2 REST API
+      href: https://aka.ms/luis-authoring-apis
+    - name: 端點 V2 REST API
+      href: https://aka.ms/luis-endpoint-apis
+    - name: HTTP 代碼
+      href: luis-reference-response-codes.md
   - name: SDK
     items:
     - name: C#
@@ -374,9 +376,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: 知識庫
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: bf82f62fac518c0442ad67c346c422b06aa73088
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: fe393a2c92cf9391dc620acae4878996d107a68e
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432762"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364535"

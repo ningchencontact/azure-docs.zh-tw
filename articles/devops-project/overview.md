@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: eef71aabaab71f908f950a4467da918dca1787fa
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 39dffad597b8382dea4df6fa1b0726d9582d67d1
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492539"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293621"
 ---
 # <a name="overview-of-azure-devops-project"></a>Azure DevOps Project 概觀
 
@@ -35,8 +35,8 @@ Azure DevOps Project 會執行 DevOps 管線初始組態設定的所有工作，
 您可以使用 Azure DevOps Project 進行以下作業：
 
 * 將應用程式快速部署至 Azure
-* 將 VSTS CI/CD 管線的設定自動化
-* 使用 DevOps Project 做為範本，以檢視及瞭解如何使用 VSTS 將 CI/CD 正確設定至 Azure
+* 將 Azure CI/CD 管線的設定自動化
+* 使用 DevOps Project 作為範本，以檢視及了解如何使用 Azure DevOps 將 CI/CD 正確設定至 Azure
 * 開始對 Azure 使用 CI/CD 管線，然後進一步依據您的特定情況自訂發行管線
 
 ## <a name="how-do-i-use-the-azure-devops-project"></a>如何使用 Azure DevOps Project？
@@ -49,16 +49,16 @@ Azure DevOps Project 可從 Azure 入口網站取得。  您可以從入口網�
 * 選取應用程式語言
 * 依據語言選擇應用程式架構
 * 選取 Azure 服務 (部署目標)
-* VSTS 帳戶 (新的或現有的)
-* 選擇您的 Azure 訂用帳戶
+* Azure DevOps 組織 (新的或現有的)
+* 選擇 Azure 訂用帳戶
 * 挑選 Azure 服務的位置
 * 從 Azure 服務的多種定價層中選擇
 
 使用 Azure DevOps Project 之後，您也可以在 Azure 入口網站上，從單一位置將所有資源從 Azure DevOps Project 儀表板中刪除。
 
-## <a name="azure-devops-project-and-vsts-integration"></a>Azure DevOps Project 與 VSTS 整合
+## <a name="azure-devops-project-and-azure-devops-integration"></a>Azure DevOps Project 與 Azure DevOps 整合
 
-DevOps Project 是由 VSTS 提供技術。  DevOps Project 可將 VSTS 中將 CI/CD 設定至 Azure 的所有所需工作自動化。  Git 儲存機制會以新的或現有的 VSTS 帳戶建立。  DevOps Project 可將範例應用程式，或您現有的程式碼認可至新的 Git 儲存機制。  自動化功能也會為組建建立一個 CI 觸發程序，讓每個新的程式碼認可都能起始組建。  DevOps Project 也會建立 CD 觸發程序，且將會把每個成功建立的新組建部署到您選擇的 Azure 服務中。  您可以自訂組建和發行定義以用於其他案例。  您也可以複製組建和發行定義以在其他專案中使用。
+DevOps Project 是由 Azure DevOps 提供技術。  DevOps Project 可將 Azure DevOps 中將 CI/CD 設定至 Azure 的所有所需工作自動化。  Git 儲存機制會以新的或現有的 Azure DevOps 組織建立。  DevOps Project 可將範例應用程式，或您現有的程式碼認可至新的 Git 儲存機制。  自動化功能也會為組建建立一個 CI 觸發程序，讓每個新的程式碼認可都能起始組建。  DevOps Project 也會建立 CD 觸發程序，且將會把每個成功建立的新組建部署到您選擇的 Azure 服務中。  您可以自訂組建和發行管線以用於其他案例。  您也可以複製組建和發行管線以在其他專案中使用。
 
 建立 DevOps Project 之後，您可以：
 

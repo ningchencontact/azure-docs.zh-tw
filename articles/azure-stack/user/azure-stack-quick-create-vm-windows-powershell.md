@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4795de2126a34907ecdec69e87a059dbadd0c3d0
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380381"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 PowerShell 建立 Windows Server 虛擬機器
 
@@ -34,11 +34,13 @@ ms.lasthandoff: 04/28/2018
 >[!NOTE]
  您可以從 Azure Stack 開發套件，或從 Windows 型外部用戶端 (如果您透過 VPN 連線) 來執行這篇文章中所述的步驟。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* 請確定您的 Azure Stack 操作員已將 “Windows Server 2016” 映像新增到 Azure Stack 市集。
+* 請確定您的 Azure Stack 操作員已將 **Windows Server 2016** 映像新增到 Azure Stack 市集。
 
-* Azure Stack 需要特定版本的 Azure PowerShell，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 PowerShell，請依照步驟來[安裝](azure-stack-powershell-install.md)和[設定](azure-stack-powershell-configure-user.md) PowerShell。
+* Azure Stack 需要特定版本的 Azure PowerShell，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 PowerShell，請依照步驟來[安裝](azure-stack-powershell-install.md) PowerShell。
+
+* 設定好 Azure Stack PowerShell 後，您必須連線到 Azure Stack 環境。 如需指示，請參閱[以使用者的身分使用 PowerShell 連線到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 

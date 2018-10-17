@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: aad7a24d8b0e0bc74815cad3604db1cc21a6db96
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302934"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163221"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>將巨量資料串流處理至資料倉儲
 
-Azure [Event Grid](overview.md) 是一項智慧型的事件路由服務，它能讓您針對應用程式和服務發出的通知做出反應。 [事件中樞擷取和 Event Grid 範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)示範如何使用 Azure 事件中樞擷取搭配 Azure Event Grid，將資料順暢地從事件中樞移轉到 SQL 資料倉儲。
+Azure [Event Grid](overview.md) 是一項智慧型的事件路由服務，它能讓您針對應用程式和服務發出的通知做出反應。 例如，它可以觸發 Azure 函式以處理已擷取至 Azure Blob 儲存體或 Data Lake Store 的事件中樞資料，並將資料移轉至其他資料存放庫。 此[事件中樞擷取和事件格線範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)說明如何使用事件中樞擷取搭配事件格線，將事件中樞資料順暢地從 Blob 儲存體移轉至 SQL 資料倉儲。
 
 ![應用程式概觀](media/event-grid-event-hubs-integration/overview.png)
 
@@ -65,7 +65,7 @@ Event Grid 會將事件資料散發給訂閱者。 以下範例展示用來建�
 ]
 ```
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您必須具備：
 
@@ -75,7 +75,7 @@ Event Grid 會將事件資料散發給訂閱者。 以下範例展示用來建�
 
 ## <a name="deploy-the-infrastructure"></a>部署基礎結構
 
-若要簡化本文章的內容，您可以利用 Resource Manager 範本部署必要的基礎結構。 若要查看已部署的資源，請檢視[範本](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)。 請使用其中一個[支援的區域](overview.md)作為資源群組位置。
+若要簡化本文章的內容，您可以利用 Resource Manager 範本部署必要的基礎結構。 若要查看已部署的資源，請檢視[範本](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)。
 
 對於 Azure CLI，請使用：
 
@@ -184,6 +184,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="next-steps"></a>後續步驟
 
+* 若要了解 Azure 傳訊服務的差異，請參閱[在傳遞訊息的 Azure 服務之間做選擇](compare-messaging-services.md)。
 * 如需 Event Grid 的簡介，請參閱[關於 Event Grid](overview.md)。
 * 如需事件中樞擷取的簡介，請參閱[使用 Azure 入口網站啟用事件中樞擷取](../event-hubs/event-hubs-capture-enable-through-portal.md)。
 * 如需設定及執行範例的詳細資訊，請參閱[事件中樞擷取和 Event Grid 範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)。

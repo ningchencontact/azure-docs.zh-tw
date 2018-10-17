@@ -22,7 +22,7 @@
 ### 虛擬機器擴展集
 #### [在可用性區域中建立擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Load Balancer
+### 負載平衡器
 #### [何謂負載平衡器？](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer 標準和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md)
 
@@ -38,7 +38,7 @@
 ### [公用 IP 位址](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
-#### [使用 SQL Database 的可用性區域](../sql-database/sql-database-high-availability.md#availability-zones)
+#### [使用 SQL Database 的可用性區域](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### 儲存體
 #### [區域備援儲存體](../storage/common/storage-redundancy-zrs.md)

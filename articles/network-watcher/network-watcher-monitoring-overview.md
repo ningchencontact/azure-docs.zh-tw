@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42024232"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390940"
 ---
 # <a name="what-is-azure-network-watcher"></a>什麼是 Azure 網路監看員？
 
@@ -36,6 +36,8 @@ Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資�
 如果端點變得無法連線，連線疑難排解會通知其原因。 可能的原因包括 DNS 名稱解析問題，VM 作業系統內的 CPU、記憶體或防火牆有問題，或是自訂路由的躍點類型、VM 的安全性規則或輸出連線的子網路有問題。 深入了解 Azure 中的[安全性規則](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules)和[路由躍點類型](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
 連線監視器也會提供在一段時間內觀察到的最小、平均和最大延遲。 在了解連線的延遲後，您或許就能藉由將 Azure 資源移至不同的 Azure 區域，而減少延遲。 深入了解如何判斷 [Azure 區域與網際網路服務提供者之間的相對延遲](#determine-relative-latencies-between-azure-regions-and-internet-service-providers)，以及如何使用[連線監視器](connection-monitor.md)來監視 VM 與端點之間的通訊。 如果您想要在某個時間點測試連線，而非在一段時間內監視連線，您可以比照使用連線監視器的方式，來使用[連線疑難排解](#connection-troubleshoot)功能。
+
+網路效能監視器是雲端式的混合網路監視解決方案，可協助您監視網路基礎結構中多個端點間的網路效能。 也可協助您監視服務和應用程式端點的網路連線能力，以及監視 Azure ExpressRoute 的效能。 網路效能監視器會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 深入了解[網路效能監視器](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>檢視虛擬網路中的資源及其關聯性
 

@@ -1,5 +1,5 @@
 ---
-title: 傳統訂用帳戶管理員角色 vs.Azure RBAC 角色 vs.Azure AD 管理員角色 | Microsoft Docs
+title: 傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色 | Microsoft Docs
 description: 描述 Azure 中不同的角色 - 傳統訂用帳戶管理員角色、Azure 角色型存取控制 (RBAC) 角色及 Azure Active Directory (Azure AD) 管理員角色
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 401c9a3df4cb132769e05cb0487a763f4080dd23
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714089"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304061"
 ---
-# <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>傳統訂用帳戶管理員角色 vs.Azure RBAC 角色 vs.Azure AD 管理員角色
+# <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色
 
 如果您不熟悉 Azure，您可能會發現要了解 Azure 中的所有不同角色有點挑戰。 本文協助說明下列角色，以及使用每個角色的時機：
 - 傳統訂用帳戶管理員角色
@@ -44,15 +44,15 @@ ms.locfileid: "39714089"
 
 | 傳統訂用帳戶管理員 | 限制 | 權限 | 注意 |
 | --- | --- | --- | --- |
-| 帳戶管理員 | 每個 Azure 帳戶 1 名 | <ul><li>存取 [Azure 帳戶中心](https://account.azure.com/Subscriptions)</li><li>管理帳戶中的所有訂用帳戶</li><li>建立新的訂用帳戶</li><li>取消訂用帳戶</li><li>變更訂用帳戶的計費</li><li>變更服務管理員</li></ul> | 在概念上，就是訂用帳戶的計費擁有者。|
-| 服務管理員 | 每個 Azure 訂用帳戶 1 名 | <ul><li>在 [Azure 入口網站](https://portal.azure.com)中管理服務</li><li>將使用者指派給共同管理員角色</li></ul> | 根據預設，新訂用帳戶的帳戶管理員也是服務管理員。<br>服務管理員與在訂用帳戶範圍獲派擁有者角色的使用者具有同等的存取權。 |
+| 帳戶管理員 | 每個 Azure 帳戶 1 名 | <ul><li>存取 [Azure 帳戶中心](https://account.azure.com/Subscriptions)</li><li>管理帳戶中的所有訂用帳戶</li><li>建立新的訂用帳戶</li><li>取消訂用帳戶</li><li>變更訂用帳戶的計費</li><li>變更服務管理員</li></ul> | 在概念上，就是訂用帳戶的計費擁有者。<br>帳戶管理員無法存取 Azure 入口網站。 |
+| 服務管理員 | 每個 Azure 訂用帳戶 1 名 | <ul><li>在 [Azure 入口網站](https://portal.azure.com)中管理服務</li><li>將使用者指派給共同管理員角色</li></ul> | 根據預設，新訂用帳戶的帳戶管理員也是服務管理員。<br>服務管理員與在訂用帳戶範圍獲派擁有者角色的使用者具有同等的存取權。<br>服務管理員可完整存取 Azure 入口網站。 |
 | 共同管理員 | 每個訂用帳戶 200 名 | <ul><li>具有與服務管理員相同的存取權限，但無法變更訂用帳戶與 Azure 目錄的關聯</li><li>將使用者指派給共同管理員角色，但無法變更服務管理員</li></ul> | 共同管理員與在訂用帳戶範圍獲派擁有者角色的使用者具有同等的存取權。 |
 
 在 Azure 入口網站中，您可以檢視您訂用帳戶的屬性，以查看獲派帳戶管理員和服務管理員的人員。
 
 ![Azure 入口網站中的帳戶管理員和服務管理員](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
 
-如需有關如何新增或變更訂用帳戶管理員的資訊，請參閱 Azure 計費文件中的[新增或變更 Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)。
+如需有關如何新增或變更傳統訂用帳戶管理員的資訊，請參閱 Azure 計費文件中的[新增或變更 Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)。
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Azure 帳戶與 Azure 訂用帳戶
 

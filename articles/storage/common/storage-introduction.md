@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 59e6f4126e8a39ab695015fae2a2013529383418
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920267"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027039"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -93,7 +93,7 @@ Azure 儲存體也包含虛擬機器所使用的受控和非受控磁碟功能�
 
 |**儲存體帳戶的類型**|**一般用途：標準**|**一般用途：進階**|**Blob 儲存體、經常性存取和非經常性存取層**|
 |-----|-----|-----|-----|
-|**支援的服務**| Blob、檔案、佇列服務 | Blob 服務 | Blob 服務|
+|**支援的服務**| Blob、檔案、佇列和資料表服務 | Blob 服務 | Blob 服務|
 |**支援的 Blob 類型**|區塊 Blob、分頁 Blob 及附加 Blob | 分頁 Blob | 區塊 Blob 和附加 Blob|
 
 ### <a name="general-purpose-storage-accounts"></a>一般用途的儲存體帳戶

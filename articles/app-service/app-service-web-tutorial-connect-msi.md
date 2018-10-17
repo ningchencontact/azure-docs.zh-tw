@@ -1,6 +1,6 @@
 ---
-title: 使用受控服務識別保護來自 App Service 的 Azure SQL Database 連線 | Microsoft Docs
-description: 了解如何使用受控服務識別，讓資料庫連線更加安全，以及如何將此受控服務識別套用到其他 Azure 服務。
+title: 使用受控識別保護來自 App Service 的 Azure SQL Database 連線 | Microsoft Docs
+description: 了解如何使用受控識別，讓資料庫連線更加安全，以及如何將此受控服務識別套用到其他 Azure 服務。
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -14,24 +14,24 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445556"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379922"
 ---
-# <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>教學課程：使用受控服務識別保護 SQL Database 連線
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教學課程：使用受控識別保護來自 App Service 的 Azure SQL Database 連線
 
-[App Service](app-service-web-overview.md) 可在 Azure 中提供可高度擴充、自我修復的 Web 主控服務。 它也為您的應用程式提供[受控服務識別](app-service-managed-service-identity.md)，這是用於保護 [Azure SQL Database](/azure/sql-database/) 和其他 Azure 服務存取權的周全解決方案。 App Service 中的受控服務識別可藉由從您的應用程式刪除祕密 (例如連接字串中的認證)，讓您的應用程式更加安全。 在本教學課程中，您會將受控服務識別新增至您在[教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式](app-service-web-tutorial-dotnet-sqldatabase.md)中建立的範例 ASP.NET Web 應用程式。 當您完成時，範例應用程式不需要使用者名稱和密碼，即可安全地連線到 SQL Database。
+[App Service](app-service-web-overview.md) 可在 Azure 中提供可高度擴充、自我修復的 Web 主控服務。 它也為您的應用程式提供[受控識別](app-service-managed-service-identity.md)，這是用於保護 [Azure SQL Database](/azure/sql-database/) 和其他 Azure 服務存取權的周全解決方案。 App Service 中的受控識別可藉由從應用程式刪除祕密 (例如連接字串中的認證)，讓應用程式更加安全。 在本教學課程中，您會將受控識別新增至您在[教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式](app-service-web-tutorial-dotnet-sqldatabase.md)中建立的範例 ASP.NET Web 應用程式。 當您完成時，範例應用程式不需要使用者名稱和密碼，即可安全地連線到 SQL Database。
 
 您會了解如何：
 
 > [!div class="checklist"]
-> * 啟用受控服務識別
-> * 將 SQL Database 存取權授與服務識別
+> * 啟用受控身分識別
+> * 將 SQL Database 存取權授與受控識別
 > * 設定應用程式程式碼，以使用 Azure Active Directory 驗證向 SQL Database 進行驗證
-> * 將 SQL Database 的最低權限授與服務識別
+> * 將 SQL Database 的最低權限授與受控識別
 
 > [!NOTE]
 > Azure Active Directory 驗證與內部部署 Active Directory (AD DS) 中的[整合式 Windows 驗證](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))_不同_。 AD DS 和 Azure Active Directory 使用完全不同的驗證通訊協定。 如需詳細資訊，請參閱 [Windows Server AD DS 與 Azure AD 之間的差異](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad)。
@@ -46,9 +46,9 @@ ms.locfileid: "39445556"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="enable-managed-service-identity"></a>啟用受控服務識別
+## <a name="enable-managed-identities"></a>啟用受控身分識別
 
-若要啟用 Azure 應用程式的服務識別，請在 Cloud Shell 中使用 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 命令。 在下列命令中，取代 *\<app name>*。
+若要啟用 Azure 應用程式的受控識別，請在 Cloud Shell 中使用 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 命令。 在下列命令中，取代 *\<app name>*。
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,13 +73,13 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>將資料庫存取權授與身分識別
 
-接下來，您將在 Cloud Shell 中使用 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) 命令，將資料庫存取權授與您應用程式的服務識別。 在下列命令中，取代 \<server_name> 和 <principalid_from_last_step>。 針對 \<admin_user> 輸入管理員名稱。
+接下來，您將在 Cloud Shell 中使用 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) 命令，將資料庫存取權授與您應用程式的受控識別。 在下列命令中，取代 \<server_name> 和 <principalid_from_last_step>。 針對 \<admin_user> 輸入管理員名稱。
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
-受控服務識別現在可以存取您的 Azure SQL Database 伺服器。
+受控識別現在可以存取 Azure SQL Database 伺服器。
 
 ## <a name="modify-connection-string"></a>修改連接字串
 
@@ -119,7 +119,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-這個建構函式會設定自訂 SqlConnection 物件，以便從 App Service 使用 Azure SQL Database 的存取權杖。 有了存取權杖，您的 App Service 應用程式可利用其受控服務識別向 Azure SQL Database 進行驗證。 如需詳細資訊，請參閱[取得 zure 資源的權杖](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)。 `if` 陳述式可讓您繼續使用 LocalDB 在本機測試應用程式。
+這個建構函式會設定自訂 SqlConnection 物件，以便從 App Service 使用 Azure SQL Database 的存取權杖。 有了存取權杖，您的 App Service 應用程式可利用其受控識別向 Azure SQL Database 進行驗證。 如需詳細資訊，請參閱[取得 zure 資源的權杖](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)。 `if` 陳述式可讓您繼續使用 LocalDB 在本機測試應用程式。
 
 > [!NOTE]
 > 目前只有.NET Framework 4.6 和以上版本支援 `SqlConnection.AccessToken` ，而 [.NET Core](https://www.microsoft.com/net/learn/get-started/windows) 不提供支援。
@@ -141,7 +141,7 @@ private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
 
 ![從方案總管發佈](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-在發佈頁面中，按一下 [發佈]。 當新的網頁顯示待辦事項清單時，表示您的應用程式正使用受控服務識別連線到資料庫。
+在發佈頁面中，按一下 [發佈]。 當新的網頁顯示待辦事項清單時，表示應用程式正使用受控識別連線到資料庫。
 
 ![Code First 移轉之後的 Azure Web 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
@@ -151,11 +151,11 @@ private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
 
 ## <a name="grant-minimal-privileges-to-identity"></a>將最小權限授與身分識別
 
-在先前步驟中，您可能會注意到您的受控服務識別會以 Azure AD 管理員身分連線到 SQL Server。 若要將最小權限授與您的受控服務識別，您需要以 Azure AD 管理員身分登入 Azure SQL Database 伺服器，然後新增包含服務識別的 Azure Active Directory 群組。 
+在先前步驟中，您可能會注意到受控識別會以 Azure AD 管理員身分連線到 SQL Server。 若要將最小權限授與受控識別，您需要以 Azure AD 管理員身分登入 Azure SQL Database 伺服器，然後新增包含受控識別的 Azure Active Directory 群組。 
 
-### <a name="add-managed-service-identity-to-an-azure-active-directory-group"></a>將受控服務識別新增至 Azure Active Directory 群組
+### <a name="add-managed-identity-to-an-azure-active-directory-group"></a>將受控識別新增至 Azure Active Directory 群組
 
-在 Cloud Shell 中，將您應用程式的受控服務識別新增到名為 myAzureSQLDBAccessGroup 的新 Azure Active Directory 群組，如下列指令碼所示：
+在 Cloud Shell 中，將您應用程式的受控識別新增到名為 myAzureSQLDBAccessGroup 的新 Azure Active Directory 群組，如下列指令碼所示：
 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -168,7 +168,7 @@ az ad group member list -g $groupid
 
 ### <a name="reconfigure-azure-ad-administrator"></a>重新設定 Azure AD 管理員
 
-先前，您將受控服務識別指派為 SQL Database 的 Azure AD 管理員。 您無法使用這個身分識別進行互動式登入 (以新增資料庫使用者)，所以您必須使用真實的 Azure AD 使用者。 若要新增 Azure AD 使用者，請遵循[為 Azure SQL Database 伺服器佈建 Azure Active Directory 管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)的步驟。 
+先前，您將受控識別指派為 SQL Database 的 Azure AD 管理員。 您無法使用這個身分識別進行互動式登入 (以新增資料庫使用者)，所以您必須使用真實的 Azure AD 使用者。 若要新增 Azure AD 使用者，請遵循[為 Azure SQL Database 伺服器佈建 Azure Active Directory 管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)的步驟。 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>將權限授與 Azure Active Directory 群組
 
@@ -204,10 +204,10 @@ GO
 您已了解如何︰
 
 > [!div class="checklist"]
-> * 啟用受控服務識別
-> * 將 SQL Database 存取權授與服務識別
+> * 啟用受控身分識別
+> * 將 SQL Database 存取權授與受控識別
 > * 設定應用程式程式碼，以使用 Azure Active Directory 驗證向 SQL Database 進行驗證
-> * 將 SQL Database 的最低權限授與服務識別
+> * 將 SQL Database 的最低權限授與受控識別
 
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
 

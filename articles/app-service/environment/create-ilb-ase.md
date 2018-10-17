@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436687"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378273"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -56,7 +56,7 @@ ms.locfileid: "39436687"
 
 若要建立 ILB ASE：
 
-1. 在 Azure 入口網站中，選取 [建立資源] > [Web + 行動] > [App Service 環境]。
+1. 在 Azure 入口網站中，選取 [建立資源] > [Web] > [App Service 環境]。
 
 1. 選取您的訂用帳戶。
 
@@ -209,7 +209,7 @@ SCM 網站名稱會帶您前往 Azure 入口網站中的 Kudu 主控台，稱為
 
 在多租用戶 App Service 和外部 ASE 中，Azure 入口網站與 Kudu 主控台之間有單一登入。 不過，對於 ILB ASE，您必須使用發佈認證來登入 Kudu 主控台。
 
-網際網路型的 CI 系統 (如 GitHub 和 Visual Studio Team Services)，依然可以搭配 ILB ASE 使用，前提是組建代理程式可以存取網際網路，而且位在與 ILB ASE 相同的網路中。 對於 Visual Studio Team Services，如果建立組建代理程式的 VNET 與 ILB ASE 相同 (子網路不同沒關係)，就能從 VSTS git 提取程式碼，並部署到 ILB ASE。 如果您不想要建立自己的組建代理程式，便需要使用採用提取模型的 CI 系統，如 Dropbox。
+網際網路型的 CI 系統 (如 GitHub 和 Azure DevOps)，依然可以搭配 ILB ASE 使用，前提是組建代理程式可以存取網際網路，而且位在與 ILB ASE 相同的網路中。 對於 Azure DevOps，如果建立組建代理程式的 VNET 與 ILB ASE 相同 (子網路不同沒關係)，就能從 Azure DevOps git 提取程式碼，並部署到 ILB ASE。 如果您不想要建立自己的組建代理程式，便需要使用採用提取模型的 CI 系統，如 Dropbox。
 
 ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。 在應用程式的發行設定檔中，以及應用程式的入口網站刀鋒視窗中可以看到這個網域 (在 [概觀]  >  [基本資訊] 以及 [屬性] 中)。 如果您的 ILB ASE 具有子網域 contoso.net，且應用程式名為 mytest，則要在 FTP 中使用 mytest.contoso.net，在 Web 部署中使用 mytest.scm.contoso.net。
 

@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 09/11/2018
+ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918081"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391465"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 將應用程式部署至 Azure。 本文說明如何將 Java 應用程式部署至 Azure 虛擬機器擴展集 (VMSS)。  
@@ -31,7 +31,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 ## <a name="get-host-information"></a>取得主機資訊
 
-本節說明如何使用 Ansible 擷取 Azure 虛擬機器群組的主機資訊。 以下是範例 Ansible 腳本。 下列程式碼會取得資源群組內指定的公用 IP 位址和負載平衡器，並在清查中建立名為 **saclesethosts** 的主機群組。 
+本節說明如何使用 Ansible 擷取 Azure 虛擬機器群組的主機資訊。 以下是範例 Ansible 腳本。 下列程式碼會取得資源群組內指定的公用 IP 位址和負載平衡器，並在清查中建立名為 **scalesethosts** 的主機群組。 
 
 請下列範例腳本儲存為 `get-hosts-tasks.yml`： 
 
