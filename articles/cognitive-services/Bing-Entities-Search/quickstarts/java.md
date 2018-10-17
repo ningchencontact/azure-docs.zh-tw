@@ -1,31 +1,31 @@
 ---
-title: Azure 認知服務 Bing 實體搜尋 API 的 Java 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing 實體搜尋 API。
+title: 快速入門：Bing 實體搜尋 API，Java
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 實體搜尋 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 9b11471e08360cb5fe92f1506516bf88dd5ee72a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0cf1103b37572b43585e4a977dc4d034e7a50e2f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370139"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814469"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-java"></a>搭配使用 Microsoft Bing 實體搜尋 API 與 Java 的快速入門 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-java"></a>搭配使用 Bing 實體搜尋 API 與 Java 的快速入門 
 
 本文說明如何搭配使用 [Bing 實體搜尋 API](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) 與 Java。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您將需要有 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)，才能編譯和執行此程式碼。 您也可以使用最愛的 Java IDE，但文字編輯器已足夠。
 
-您必須有具備 **Bing 實體搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)即足以供本快速入門使用。 您必須要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+您必須有具備 **Bing 實體搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
 
 ## <a name="search-entities"></a>搜尋實體
 
@@ -33,7 +33,7 @@ ms.locfileid: "35370139"
 
 1. 在您最愛的 IDE 中，建立新的 Java 專案。
 2. 新增下方提供的程式碼。
-3. 將 `key` 值取代為對您的訂用帳戶有效的存取金鑰。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```java
@@ -119,7 +119,7 @@ public class EntitySearch {
 
 **回應**
 
-會以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {

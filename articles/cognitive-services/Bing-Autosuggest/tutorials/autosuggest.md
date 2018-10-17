@@ -1,23 +1,23 @@
 ---
-title: 使用 Bing 自動建議 API (Azure 認知服務) 取得自動建議結果 | Microsoft Docs
+title: 教學課程：使用 Bing 自動建議 API 取得自動建議結果
+titlesuffix: Azure Cognitive Services
 description: 示範如何使用 Bing 自動建議。
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
-ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: f66af61ed06f4c6a7fe36cd44aa7781b71bb18ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b93ab8ebb4bb50723ec6ebae617fe9d95c6c7a47
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369978"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831429"
 ---
-# <a name="build-a-web-page-autosuggest-client"></a>建置網頁自動建議用戶端
+# <a name="tutorial-build-a-web-page-autosuggest-client"></a>教學課程：建置網頁自動建議用戶端
 
 在本教學課程中，我們將建置一個網頁，讓使用者查詢 Bing 自動建議 API。
 
@@ -27,7 +27,7 @@ ms.locfileid: "35369978"
 > - 對 Bing 自動建議 API 進行簡單查詢
 > - 顯示查詢結果
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要依照本教學課程，您需要 Bing 自動建議 API 的訂用帳戶金鑰。 如果您沒有金鑰，請[註冊免費試用](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api)。
 

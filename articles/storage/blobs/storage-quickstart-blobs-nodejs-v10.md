@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: cshoe
-ms.openlocfilehash: a325029ded60a1cd8274743a88f7a4d410466dea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e23e888a1c90e1c6c7eecf25491f048e9077f11
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987572"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857885"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>快速入門：使用適用於 JavaScript 的 Azure 儲存體 v10 SDK (預覽) 上傳、下載、列出及刪除 Blob
 
@@ -128,7 +128,7 @@ const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-由 API 所提出的要求可以設定為在一段指定時間間隔之後逾時。 *Aborter* 類別負責管理要求的逾時方式，而後續的常數則可用來定義此範例中所使用的逾時。
+由 API 所提出的要求可以設定為在一段指定時間間隔之後逾時。 [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) 類別負責管理要求的逾時方式，而後續的常數則可用來定義此範例中所使用的逾時。
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -163,13 +163,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 這個程式碼區塊中會使用下列類別：
 
-- *SharedKeyCredential* 類別負責包裝儲存體帳戶認證，以將其提供給要求管線。
+- [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) 類別負責包裝儲存體帳戶認證，以將其提供給要求管線。
 
-- *StorageURL* 類別負責建立新的管線。
+- [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) 類別負責建立新的管線。
 
-- *ServiceURL* 會為 REST API 中所使用的 URL 設定模型。 此類別的執行個體可讓您執行如下的動作：列出容器，並提供內容資訊來產生容器 URL。
+- [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview) 會為 REST API 中所使用的 URL 設定模型。 此類別的執行個體可讓您執行如下的動作：列出容器，並提供內容資訊來產生容器 URL。
 
-*ServiceURL* 的執行個體可與 *ContainerURL* 和 *BlockBlobURL* 執行個體搭配使用，以管理儲存體帳戶中的容器和 Blob。
+*ServiceURL* 的執行個體可與 [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) 和 [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) 執行個體搭配使用，以管理儲存體帳戶中的容器和 Blob。
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -202,7 +202,7 @@ Aborters 讓您能夠透過下列方式控制要求：
 - 針對要求批次指定給定的時間量
 - 指定個別的要求必須在批次中執行的時間長度
 - 讓您能夠取消要求
-- 使用 *Aborter.None* 靜態成員來防止您的要求全部一起逾時
+- 使用 Aborter.none 靜態成員來防止所有要求一起逾時
 
 ### <a name="show-container-names"></a>顯示容器名稱
 帳戶可以儲存大量容器。 下列程式碼示範如何以分段方式列出容器，讓您能夠循環瀏覽大量容器。 *showContainerNames* 函式是 *ServiceURL* 和 *Aborter* 的過時執行個體。

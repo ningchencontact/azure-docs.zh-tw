@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 10/09/2018
 ms.author: tamram
-ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 336fecf95dab36dcf00b5a0c92b700297622cc6d
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996123"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902972"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>快速入門：使用 Azure 儲存體總管在物件儲存體中建立 Blob
 
@@ -79,7 +79,7 @@ Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 用來備份 Iaa
 
 ## <a name="manage-snapshots"></a>管理快照集
 
-Azure 儲存體總管可讓您取得及管理 blob 的[快照集](storage-blob-snapshots.md)。 若要取得 blob 的快照集，請以滑鼠右鍵按一下 blob，然後選取 [製作快照集]。 若要檢視 blob 的快照集，請以滑鼠右鍵按一下 blob，然後選取 [管理快照集]。 Blob 的快照集清單會顯示在目前的索引標籤中。
+Azure 儲存體總管可讓您取得及管理 blob 的[快照集](storage-blob-snapshots.md)。 若要取得 blob 的快照集，請以滑鼠右鍵按一下 blob，然後選取 [建立快照集]。 若要檢視 blob 的快照集，請以滑鼠右鍵按一下 blob，然後選取 [管理快照集]。 Blob 的快照集清單會顯示在目前的索引標籤中。
 
 ![Microsoft Azure 儲存體總管 - 在容器中列出 blob](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 

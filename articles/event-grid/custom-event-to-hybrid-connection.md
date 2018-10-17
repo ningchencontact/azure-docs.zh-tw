@@ -5,19 +5,19 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/29/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 544f5210adbea6791f9224a1e2be0743ce9995d5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d56a07bf6fcb368f50e081a1f56b7cfb022c05ca
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434141"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042235"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 轉送混合式連線
 
-Azure Event Grid 是一項雲端事件服務。 Azure 轉送混合式連線是支援的事件處理常式之一。 當您需要從沒有公用端點的應用程式處理事件時，您可以使用混式連線作為事件處理常式。 這些應用程式可能位在您公司的企業網路中。 在本文中，您可使用 Azure CLI 建立自訂主題、訂閱主題，以及觸發事件來檢視結果。 您將事件傳送到混合式連線。
+Azure Event Grid 是一項雲端事件服務。 Azure 轉送混合式連線是支援的事件處理常式之一。 當您需要從沒有公用端點的應用程式處理事件時，您可以使用混式連線作為事件處理常式。 這些應用程式可能位在您公司的企業網路中。 在本文中，您可使用 Azure CLI 建立自訂主題、訂閱自訂主題，以及觸發事件來檢視結果。 您將事件傳送到混合式連線。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -39,7 +39,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>建立自訂主題
 
-Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目的地。 下列範例可在您的資源群組中建立自訂主題。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它由 DNS 項目表示。
+Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目的地。 下列範例可在您的資源群組中建立自訂主題。 以自訂主題的唯一名稱取代 `<topic_name>`。 事件方格的主題名稱必須是唯一的，因為它由 DNS 項目表示。
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -49,9 +49,9 @@ az extension add --name eventgrid
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
-## <a name="subscribe-to-a-topic"></a>訂閱主題
+## <a name="subscribe-to-a-custom-topic"></a>訂閱自訂主題
 
-您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的主題，以及傳遞端點的混合式連線資源識別碼。 混合式連線識別碼的格式為：
+您可訂閱事件方格主題，告知事件方格您想要追蹤的事件。下列範例可訂閱您所建立的自訂主題，以及傳遞端點的混合式連線資源識別碼。 混合式連線識別碼的格式為：
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
@@ -91,18 +91,18 @@ az eventgrid event-subscription create \
 
 讓我們觸發事件以了解 Event Grid 如何將訊息散發至您的端點。 本文說明如何使用 Azure CLI 來觸發事件。 或者，您可以使用 [Event Grid 發行者應用程式](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher)。
 
-首先，讓我們取得自訂主題的 URL 和金鑰。 再次，將您的主題名稱用於 `<topic_name>`。
+首先，讓我們取得自訂主題的 URL 和金鑰。 再次，將您的自訂主題名稱用於 `<topic_name>`。
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-若要簡化這篇文章，您可使用要傳送至主題的範例事件資料。 一般而言，應用程式或 Azure 服務就會傳送事件資料。 CURL 是可傳送 HTTP 要求的公用程式。 本文使用 CURL 將事件傳送到主題。  下列範例會將三個事件傳送至事件方格主題：
+若要簡化這篇文章，您可使用要傳送至自訂主題的範例事件資料。 一般而言，應用程式或 Azure 服務就會傳送事件資料。 CURL 是可傳送 HTTP 要求的公用程式。 本文使用 CURL 將事件傳送到自訂主題。
 
 ```azurecli-interactive
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 您的接聽項應用程式應該會收到事件訊息。

@@ -1,6 +1,6 @@
 ---
 title: 設定您的 Azure 資料箱 | Microsoft Docs
-description: 了解 Azure 資料箱的軟體和網路需求
+description: 深入了解如何連接 Azure 資料箱的纜線並且連線
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952302"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785627"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教學課程：連接 Azure 資料箱的纜線並且連線
 
@@ -36,13 +36,13 @@ ms.locfileid: "46952302"
 在您開始前，請確定：
 
 1. 您已完成[教學課程：訂購 Azure 資料箱](data-box-deploy-ordered.md)。
-2. 您已收到資料箱，且入口網站中的訂購狀態為 [已交付]。 
+2. 您已收到資料箱，且入口網站中的訂購狀態為 [已交付]。 黏貼到裝置目前標籤下的透明袋中有出貨標籤。 請妥善保存此標籤，您會在退貨時用到。
 3. 您已檢閱[資料箱安全指導方針](data-box-safety.md)。
 4. 您已收到一條用於 100 TB 儲存體裝置的接地電源線。
 5. 您有一部主機電腦，其中包含要複製到資料箱的資料。 您的主機電腦必須符合下列條件：
     - 執行[支援的作業系統](data-box-system-requirements.md)。
     - 連線至高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結，但是複製速度會受到影響。 
-6. 您必須能夠存取可以放置資料箱的平面。 如果您想要將裝置放在標準機架上，則資料中心機架必須要有 7U 插槽。 您可以將裝置平放或垂直放置在機架中。
+6. 您必須能夠進入放置資料箱所在的平坦表面。 如果您想要將裝置放在標準機架上，您的資料中心機架中需要有 7U 插槽。 您可以將裝置平放或垂直放置在機架中。
 7. 您已購買下列纜線，以將您的資料箱連線至主機電腦。
     - 兩條 10 GbE SFP+ Twinax 銅纜線 (與 DATA 1、DATA 2 網路介面搭配使用)
     - 一條 RJ-45 CAT 6 網路線 (與 MGMT 網路介面搭配使用)

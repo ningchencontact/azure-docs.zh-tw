@@ -1,37 +1,37 @@
 ---
-title: 以 C# 撰寫的 Bing 自動建議 API 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 認知服務中使用 Bing 自動建議 API 快速開始使用。
+title: 快速入門：Bing 自動建議 API (C#)
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 自動建議 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 8115950c3b6f3ad439f077847d6645ddaec88dc4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c735145724577f92e75079f550c99aa9e6656542
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370079"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829576"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-c"></a>以 C\# 撰寫的 Bing 自動建議 API 快速入門
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-autosuggest-api-with-c"></a>以 C# 撰寫的 Bing 自動建議 API 的快速入門
 
 本文示範如何使用以 C# 撰寫的 [Bing 自動建議 API](https://azure.microsoft.com/services/cognitive-services/autosuggest/)。 Bing 自動建議 API 會根據使用者在搜尋方塊中輸入的部分字串，傳回建議的查詢清單。 通常，每次使用者在搜尋方塊中鍵入新字元時，都會呼叫此 API，然後在搜尋方塊的下拉式清單中顯示建議。 本文示範如何傳送要求，以針對 *sail* 傳回建議的查詢字串。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
-您必須有具備 **Bing 自動建議 API v7** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/#search)即足以供本快速入門使用。 您必須要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+您必須有具備 **Bing 自動建議 API v7** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/#search)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
 
 ## <a name="get-autosuggest-results"></a>取得自動建議的結果
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 將 `subscriptionKey` 值取代為對您的訂用帳戶有效的存取金鑰。
+3. 以訂用帳戶有效的存取金鑰來取代 `subscriptionKey` 值。
 4. 執行程式。
 
 ```csharp
@@ -160,7 +160,7 @@ namespace AutosuggestSample1
 
 ### <a name="response"></a>Response
 
-會以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {

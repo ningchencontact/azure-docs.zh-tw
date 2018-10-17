@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434733"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249361"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>作法：管理 Azure AD 中的過時裝置
 
@@ -101,7 +101,7 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 ### <a name="disable-devices"></a>停用裝置
 
-我們不建議立即刪除似乎已過時的裝置，因為您無法復原因誤判而刪除的裝置。 最佳做法是在寬限期內先停用裝置，然後再刪除裝置。 在您的原則中，可以定義在刪除原則前先停用原則的時間範圍。
+我們不建議立即刪除似乎已過時的裝置，因為您無法復原因誤判而刪除的裝置。 最佳做法是在寬限期內先停用裝置，然後再刪除裝置。 在您的原則中，可以定義在刪除裝置前先停用的時間範圍。
 
 
 ### <a name="mdm-controlled-devices"></a>由 MDM 控制的裝置
@@ -111,7 +111,7 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 ### <a name="system-managed-devices"></a>由系統管理的裝置
 
-請勿刪除由系統管理的裝置。 這些通常是自動駕駛之類的裝置。 刪除之後，這些裝置將無法重新佈建。 新的 Get-MmsolDevice Cmdlet 會根據預設排除由系統管理的裝置。 
+請勿刪除由系統管理的裝置。 這些通常是自動駕駛之類的裝置。 刪除之後，這些裝置將無法重新佈建。 新的 `get-msoldevice` Cmdlet 會根據預設排除由系統管理的裝置。 
 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>混合式 Azure AD 已加入裝置
@@ -137,7 +137,7 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>在 Azure 入口網站中清除過時裝置  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>在 Azure 入口網站中清除過時裝置  
 
 雖然您可以在 Azure 入口網站中清除過時裝置，但使用 PowerShell 指令碼來處理此程序會更有效率。 若要使用時間戳記篩選，並篩選出由系統管理的裝置 (例如自動駕駛)，請使用最新的 PowerShell V1 模組。 目前尚不建議使用 PowerShell V2。
 
@@ -150,7 +150,9 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 3. 使用 [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) Cmdlet 停用裝置。 
 
-4. 使用 [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) Cmdlet 移除裝置。
+4. 須等到您選擇的寬限期 (無論多久) 結束，才能刪除裝置。
+
+5. 使用 [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) Cmdlet 移除裝置。
 
 ### <a name="get-the-list-of-devices"></a>取得裝置清單
 

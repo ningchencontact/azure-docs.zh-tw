@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 0b8de4d04d9cca47423634164e458e8699154f30
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10b73843e2ca2e0ee0af766ef1ad7ee9cbf61f94
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405303"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854591"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>教學課程：使用 Azure 虛擬 WAN 來建立 ExpressRoute 關聯 (預覽)
 
@@ -41,28 +41,12 @@ ms.locfileid: "47405303"
 
 ## <a name="register"></a>註冊此功能
 
-按一下 [TryIt] 即可輕鬆地使用 Azure Cloud Shell 註冊此功能。
+設定虛擬 WAN 之前，您必須先在預覽版中註冊訂用帳戶。 否則，您將無法在入口網站中使用虛擬 WAN。 若要註冊，您可以傳送電子郵件與訂用帳戶識別碼至 **azurevirtualwan@microsoft.com**。 當訂用帳戶註冊完成之後，您會收到電子郵件。
 
->[!NOTE]
->如果您未註冊此功能，將無法使用它，或在入口網站中看到它。
->
->
+**預覽考量：**
 
-按一下 [TryIt] 可開啟 Azure Cloud Shell，請複製並貼上下列命令：
-
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
- 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
-
-一旦該功能顯示為已註冊，請將訂用帳戶註冊到 Microsoft.Network 命名空間。
-
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+* 區域可用性：美國中西部
+* 必須在支援 [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported) 的國家/地區中啟用 ExpressRoute 線路
 
 ## <a name="vnet"></a>1.建立虛擬網路
 

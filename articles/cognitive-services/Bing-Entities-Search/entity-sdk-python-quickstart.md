@@ -1,23 +1,23 @@
 ---
-title: 實體搜尋 SDK Python 快速入門 | Microsoft Docs
-description: 設定實體搜尋 SDK 主控台應用程式。
-titleSuffix: Azure Entity Search SDK Python quickstart
+title: 快速入門：Bing 實體搜尋 SDK，Python
+titlesuffix: Azure Cognitive Services
+description: 設定 Bing 實體搜尋 SDK 主控台應用程式。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 95449fa3753291269e1a83d1431df3bf0cbe372f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 908373a216d0b14bb2dd41d3bb740b5582ac3ab1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370422"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814231"
 ---
-# <a name="entity-search-sdk-python-quickstart"></a>實體搜尋 SDK Python 快速入門
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>快速入門：搭配使用 Bing 實體搜尋 SDK 與 Python
 
 實體搜尋 SDK 包含用於 Web 查詢以及剖析結果的 REST API 功能。
 
@@ -26,7 +26,7 @@ ms.locfileid: "35370422"
 ## <a name="application-dependencies"></a>應用程式相依性
 若還沒有 Python，請安裝。 SDK 與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。
 
-Python 開發的一般建議是使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv)安裝和初始化虛擬環境。 您必須安裝適用於 Python 2.7 的 virtualenv。
+Python 開發的一般建議是使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv)來安裝和初始化虛擬環境。 您必須安裝適用於 Python 2.7 的 virtualenv。
 ```
 python -m venv mytestenv
 ```

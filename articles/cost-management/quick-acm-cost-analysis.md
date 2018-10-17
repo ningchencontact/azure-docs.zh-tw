@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041535"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079101"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：利用成本分析探索及分析成本
 
@@ -34,13 +34,21 @@ ms.locfileid: "47041535"
 
 成本分析適用於所有 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。
 
-- 計費帳戶
-- department
-- 註冊帳戶
-- 管理群組
-- 訂用帳戶
-- 資源群組
+- 「計費帳戶」範圍定義於 https://ea.azure.com，而且需要企業系統管理員存取權。 不需要任何事先的 EA 設定。 成本分析中的計費資訊會針對 Enterprise 合約中的所有訂用帳戶合併。 計費帳戶通常稱為「Enterprise 合約」或「註冊」。
 
+- 「部門」範圍定義於 https://ea.azure.com，而且需要部門系統管理員存取權。 EA 入口網站中啟用的 [DA 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對屬於部門所連結註冊帳戶的所有訂用帳戶合併。
+
+- 「註冊帳戶」範圍定義於 https://ea.azure.com，而且需要帳戶擁有者存取權。 EA 入口網站中啟用的 [AO 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對屬於註冊帳戶的所有訂用帳戶合併。 註冊帳戶通常稱為「帳戶擁有者」。
+
+- 「管理群組」範圍定義於 https://portal.azure.com，而且需要「成本管理讀者」(或「讀者」) 存取權。 EA 入口網站中啟用的 [AO 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對管理群組下面的所有訂用帳戶合併。
+
+- 「訂用帳戶」範圍定義於 https://portal.azure.com，而且需要「成本管理讀者」(或「讀者」) 存取權。 EA 入口網站中啟用的 [AO 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對訂用帳戶中的所有資源和資源群組合併。
+
+- 「資源群組」範圍定義於 https://portal.azure.com，而且需要「成本管理讀者」(或「讀者」) 存取權。 EA 入口網站中啟用的 [AO 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對資源群組中的所有資源合併。
+
+
+
+如需設定 [DA 檢視費用] 和 [AO 檢視費用] 設定的詳細資訊，請參閱[啟用成本存取權](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -94,6 +102,11 @@ ms.locfileid: "47041535"
 ![目前檢視的完整資料](./media/quick-acm-cost-analysis/full-data-set.png)
 
 上圖顯示資源群組名稱。 任何成本分析檢視、篩選或分組，都不提供資源的檢視標記。
+
+依照特定屬性進行成本分組時，會顯示排名前十個成本參與者 (最高至最低)。 如果有超過 10 個群組，則會顯示排名前九個成本參與者，以及 [其他] 群組，其中涵蓋了所有剩餘的群組。
+
+「傳統」 (Azure 服務管理或 ASM) 虛擬機器、網路和儲存體資源不會共用詳細的計費資料。 這些資源會在成本分組時合併成 [傳統服務]。
+
 
 ## <a name="download-cost-analysis-data"></a>下載成本分析資料
 

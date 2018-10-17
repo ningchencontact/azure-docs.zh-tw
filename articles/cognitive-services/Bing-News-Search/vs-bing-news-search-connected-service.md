@@ -1,23 +1,23 @@
 ---
-title: Bing 新聞搜尋 C# 教學課程 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 從 ASP.NET Core Web 應用程式連線至認知服務 Bing 新聞搜尋。
+title: 教學課程：Bing 新聞搜尋，C#
+titleSuffix: Azure Cognitive Services
+description: 從 ASP.NET Core Web 應用程式連線至 Bing 新聞搜尋。
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 5cfa82067d28b05f32bd87e0e83d55a03da8d508
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f1f5c590216975ce6b0813da6d9d98279d591454
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095424"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804339"
 ---
-# <a name="connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>使用 Visual Studio 中的連線服務連線到 Bing 新聞搜尋 API
+# <a name="tutorial-connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>教學課程：使用 Visual Studio 中的連線服務連線到 Bing 新聞搜尋 API
 
 使用 Bing 新聞搜尋，您可以讓應用程式與服務利用範圍限定在 Web 的無廣告搜尋引擎。 Bing 新聞搜尋是認知服務可供使用的搜尋服務之一。
 

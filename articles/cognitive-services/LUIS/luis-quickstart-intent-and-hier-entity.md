@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042120"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831019"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>教學課程 5：擷取內容相關的資料
 在本教學課程中，根據內容尋找相關的資料片段。 例如，從一個建築物和辦公室移到另一個建築物和辦公室的實體移動原點和目的地位置會相關。 若要產生一份工單，則需要這兩個資料片段，而且兩者彼此相關。  
@@ -61,7 +61,7 @@ ms.locfileid: "47042120"
 
 2. 從左側功能表中選取 [實體]。
 
-3. 選取清單中數字實體右邊的省略符號 (***...***) 按鈕。 選取 [刪除] 。 
+3. 選取清單中數字實體左邊的核取方塊。 選取 [刪除] 。 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>將語句新增至 MoveEmployee 意圖
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d314c04a40155fccc99660bacdb9f646ce77b22f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107583"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017802"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>使用複製資料工具複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -52,13 +52,9 @@ ms.locfileid: "43107583"
 1. 針對 [版本]，選取 [V2]。
 1. 針對 [位置]，選取資料處理站的位置。 
 
-   清單只會顯示支援的位置。 Data Factory 所使用的資料存放區 (如 Azure 儲存體和 Azure SQL Database) 和計算 (如 Azure HDInsight) 可位於其他位置/區域。
+   清單只會顯示 Data Factory 支援的位置，以及儲存您 Azure Data Factory 中繼資料的位置。 請注意，Data Factory 所使用的相關聯資料存放區 (如 Azure 儲存體和 Azure SQL Database) 和計算 (如 Azure HDInsight) 可在其他區域中執行。
 
-1. 選取 [釘選到儀表板]。     
 1. 選取 [建立] 。
-1. 在儀表板上，您會看到 [正在部署 Data Factory] 狀態的下列圖格︰ 
-
-    ![[部署 Data Factory] 圖格](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 1. 建立完成之後，您會看到 [Data Factory] 頁面。 選取 [編寫與監視] 圖格，以在個別的索引標籤上啟動 Azure Data Factory 使用者介面 (UI) 應用程式。
    
    ![資料處理站的首頁，具有 [編寫與監視] 圖格](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

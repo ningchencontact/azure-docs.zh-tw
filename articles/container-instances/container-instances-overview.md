@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 10/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160445"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802095"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -24,7 +24,7 @@ ms.locfileid: "39160445"
 
 ## <a name="fast-startup-times"></a>快速啟動時間
 
-容器提供比虛擬機器更多的啟動優點。 Azure Container Instances 可在幾秒內啟動 Azure 中的容器，而不需要佈建和管理 VM。
+容器提供比虛擬機器 (VM) 更多的啟動優點。 Azure Container Instances 可在幾秒內啟動 Azure 中的容器，而不需要佈建和管理 VM。
 
 ## <a name="public-ip-connectivity-and-dns-name"></a>公用 IP 連線能力和 DNS 名稱
 
@@ -54,9 +54,19 @@ Azure 容器執行個體支援以長期維護通道 (LTSC) 版本為基礎的 Wi
 
 Azure Container Instances 支援排程共用主機、區域網路、儲存體和生命週期的[多個容器群組](container-instances-container-groups.md)。 這可讓您合併主要應用程式容器與其他支援角色容器，例如記錄 Sidecar。
 
+## <a name="virtual-network-deployment-preview"></a>虛擬網路部署模型 (預覽)
+
+Azure 容器執行個體的這個功能 (目前處於預覽狀態) 可以[將容器執行個體部署至 Azure 虛擬網路](container-instances-vnet.md)。 藉由將容器執行個體部署至您虛擬網路內的子網路，這些執行個體可以安全地與虛擬網路中的其他資源通訊，包括內部部署的資源 (透過 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)或 [ExpressRoute](../expressroute/expressroute-introduction.md))。
+
+> [!IMPORTANT]
+> 將容器群組部署至虛擬網路目前處於預覽狀態，而且有一些[限制](container-instances-vnet.md#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]，即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+
 ## <a name="next-steps"></a>後續步驟
 
 使用我們的快速入門指南，嘗試使用單一命令將容器部署至 Azure。
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 快速入門](container-instances-quickstart.md)
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

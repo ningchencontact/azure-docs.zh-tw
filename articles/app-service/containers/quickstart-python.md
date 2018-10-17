@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/13/2018
+ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c3089ad11dc951d3105b25b6857b7697f8c38d1a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 52429d44c41d990fb0de4c01c63d4af9fe5863d4
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432061"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902887"
 ---
 # <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>在 Linux 上的 Azure App Service 中建立 Python Web 應用程式 (預覽)
 
@@ -172,13 +172,13 @@ git push azure master
 
 ## <a name="next-steps"></a>後續步驟
 
-在 Linux 上的 App Service 中，內建的 Python 映像目前處於預覽狀態。 您可以改用自訂容器來建立生產 Python 應用程式。
+在 Linux 上的 App Service 中，內建的 Python 映像目前處於預覽狀態，您可以自訂用來啟動應用程式的命令。 您也可以改用自訂容器來建立生產 Python 應用程式。
 
 > [!div class="nextstepaction"]
 > [Python with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [設定內建 Python 映像](how-to-configure-python.md)
+> [設定自訂啟動命令](how-to-configure-python.md#custom-startup-command)
 
 > [!div class="nextstepaction"]
 > [使用自訂映像](tutorial-custom-docker-image.md)

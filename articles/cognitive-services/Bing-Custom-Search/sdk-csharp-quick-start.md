@@ -1,23 +1,23 @@
 ---
-title: 自訂搜尋 SDK C# 快速入門 | Microsoft Docs
-titleSuffix: Cognitive Services
+title: 快速入門：自訂搜尋 SDK (C#)
+titleSuffix: Azure Cognitive Services
 description: 設定自訂搜尋 SDK C# 主控台應用程式。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6c9917e3a63515f36b386e444edcc53de07799fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949922"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816764"
 ---
-# <a name="c-sdk-quickstart"></a>C# SDK 快速入門
+# <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>快速入門：使用以 C# 撰寫的 Bing 自訂搜尋 SDK
 
 Bing 自訂搜尋 SDK 會提供比 Bing 自訂搜尋 REST API 更簡單的程式設計模型。 本節將引導您完成使用 C# SDK 進行第一個自訂搜尋呼叫的作業。
 
@@ -177,5 +177,5 @@ else
 * 開始使用 [Java 範例](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
     * 另請參閱 [Java 程式庫](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-customsearch)，以了解定義和相依性。
 * 開始使用 [Python 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
-    * 另請參閱 [Python 程式庫](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-customsearch)，以了解定義和相依性。
+    * 另請參閱 [Python 程式庫](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-customsearch) ，以了解定義和相依性。
 

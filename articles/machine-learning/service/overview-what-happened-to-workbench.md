@@ -9,28 +9,28 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 620d8b370b050a4d91ee6d94cba2c133b4313aed
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159979"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239249"
 ---
-# <a name="what-happened-to-workbench-in-azure-machine-learning-preview"></a>Azure Machine Learning (預覽) 中的 Workbench 發生什麼事？
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Azure Machine Learning (預覽) 中的 Workbench 發生什麼事？
 
-Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本中淘汰，以便為改善的[架構](concept-azure-machine-learning-architecture.md)做準備。 該版本中包含了許多由客戶意見反應所提示的重大更新，這些更新可改善您的體驗。 從實驗執行到模型部署的核心功能沒有變更，但您現在可以使用健全的 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 和 [CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。  
+Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本中遭到取代，以便為改善的[架構](concept-azure-machine-learning-architecture.md)做準備。 該版本中包含了許多由客戶意見反應所提示的重大更新，這些更新可改善您的體驗。 從實驗執行到模型部署的核心功能沒有變更，但您現在可以使用健全的 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 和 [CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。  
 
 在本文中，您將了解變更的項目為何，以及它們如何影響使用 Azure Machine Learning 服務的既有工作。
 
 ## <a name="what-changed"></a>變更的項目為何？
 
-最新版的 Azure Machine Learning 包括：
+最新版的 Azure Machine Learning 服務包括：
 + [簡化的 Azure 資源模型](concept-azure-machine-learning-architecture.md)
 + [新的入口網站 UI](how-to-track-experiments.md)，可管理您的實驗和計算目標
 + 全新且更全面的 Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
 + 全新且經過擴充的適用於機器學習的 [Azure CLI 擴充功能](reference-azure-machine-learning-cli.md)
 
-以容易使用為目標而重新設計的[架構](concept-azure-machine-learning-architecture.md)。 您只需要一個 [Azure Machine Learning 工作區](concept-azure-machine-learning-architecture.md#workspace)，而不是多個 Azure 資源和帳戶。  您可以在 [Azure 入口網站](quickstart-get-started.md)中快速建立工作區。  可以多個使用者將工作區用來儲存定型和部署計算目標、模型實驗、Docker 映像、已部署的模型等等。
+以容易使用為目標而重新設計的[架構](concept-azure-machine-learning-architecture.md)。 您只需要一個 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md#workspace)，而不是多個 Azure 資源和帳戶。  您可以在 [Azure 入口網站](quickstart-get-started.md)中快速建立工作區。  可以多個使用者將工作區用來儲存定型和部署計算目標、模型實驗、Docker 映像、已部署的模型等等。
 
 雖然目前的版本中有改善的新 CLI 和 SDK 用戶端，但桌面 Workbench 應用程式本身已被淘汰。 您現在可以[在 Azure 入口網站中的工作區儀表板](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)中監視您的實驗。 使用儀表板來取得實驗記錄、管理附加到工作區的計算目標、管理模型和 Docker 映像，甚至可以部署 Web 服務。
 
@@ -73,7 +73,7 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 
 ## <a name="will-projects-persist"></a>專案是否會保存？
 
-您不會遺失任何程式碼或作品。 在舊版中，專案是具有本機目錄的雲端實體。 在最新版中，您將使用本機設定檔將本機目錄附加到 Azure Machine Learning 工作區。 [請參閱最新架構的圖表](concept-azure-machine-learning-architecture.md)。
+您不會遺失任何程式碼或作品。 在舊版中，專案是具有本機目錄的雲端實體。 在最新版中，您將使用本機設定檔將本機目錄附加到 Azure Machine Learning 服務工作區。 [請參閱最新架構的圖表](concept-azure-machine-learning-architecture.md)。
 
 因為大部分專案的內容都已經在您的本機電腦上，所以您只需要在該目錄中建立設定檔，並在您的程式碼中參照它，就能連線到您的工作區。 [了解如何遷移您現有的專案。](how-to-migrate.md#projects)
 

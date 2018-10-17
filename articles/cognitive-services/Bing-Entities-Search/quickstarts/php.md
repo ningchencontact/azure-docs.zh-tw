@@ -1,27 +1,27 @@
 ---
-title: Azure 認知服務 Bing 實體搜尋 API 的 PHP 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing 實體搜尋 API。
+title: 快速入門：Bing 實體搜尋 API，PHP
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 實體搜尋 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 448064de764775c497de467b235837d66ef7093b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 30cfa98fc38f92d834e908b6d77306bed1d2b5cb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370150"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815523"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-php"></a>搭配使用 Microsoft Bing 實體搜尋 API 與 PHP 的快速入門 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-php"></a>搭配使用 Bing 實體搜尋 API 與 PHP 的快速入門
 
 本文說明如何搭配使用 [Bing 實體搜尋 API](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) 與 PHP。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您需要 [PHP 5.6.x](http://php.net/downloads.php) 以執行此程式碼。
 
@@ -33,7 +33,7 @@ ms.locfileid: "35370150"
 
 1. 在您最愛的 IDE 中建立新的 PHP 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```php
@@ -82,7 +82,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 **回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {

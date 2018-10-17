@@ -1,32 +1,34 @@
 ---
-title: 呼叫適用於影片的表情 API | Microsoft Docs
+title: 範例：呼叫影片的表情 API
+titlesuffix: Azure Cognitive Services
 description: 了解如何呼叫認知服務中適用於影片的表情 API。
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 0875013b2061a84e3e23ae90c1106382672fdca6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368551"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238602"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>如何呼叫適用於影片的表情 API
+# <a name="example-call-emotion-api-for-video"></a>範例：呼叫影片的表情 API
 
 > [!IMPORTANT]
-> 影片 API 預覽將於 2017 年 10 月 30 日結束。 請試用新的[影片索引器 API 預覽](https://azure.microsoft.com/services/cognitive-services/video-indexer/)，以輕鬆地從影片中擷取見解，並增強內容探索體驗，像是偵測話語、臉部、人物及表情而得來的搜尋結果。 [深入了解](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)。
+> 表情 API 將於 2019 年 2 月 15 日淘汰。 表情辨識功能現已公開推出，是[臉部 API](https://docs.microsoft.com/azure/cognitive-services/face/) 的一部分。 
 
 本指南示範如何呼叫適用於影片的表情 API。 這些範例是使用適用於影片的表情 API 用戶端程式庫以 C# 撰寫。
 
-### <a name="Prep">準備</a> 
+### <a name="Prep">準備</a>
 若要使用適用於影片的表情 API，您需要一段包含人員的影片，其中最好包含人員面對攝影機的片段。
 
-### <a name="Step1">步驟 1：授權 API 呼叫</a> 
+### <a name="Step1">步驟 1：授權 API 呼叫</a>
 每一個針對適用於影片的表情 API 的呼叫，都會需要訂用帳戶金鑰。 這個金鑰必須透過查詢字串參數傳遞，或是在要求標頭中指定。 若要透過查詢字串傳遞訂用帳戶密鑰，請以下列針對適用於影片的表情 API 的要求 URL 作為範例：
 
 ```
@@ -44,7 +46,7 @@ ocp-apim-subscription-key: <Your subscription key>
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-若要取得訂用帳戶金鑰，請參閱[訂閱] (https://azure.microsoft.com/try/cognitive-services/)。 
+若要取得訂用帳戶金鑰，請參閱[訂閱] (https://azure.microsoft.com/try/cognitive-services/)。
 
 ### <a name="Step2">步驟 2：將影片上傳至服務，然後檢查其狀態</a>
 針對適用於影片的表情 API，執行任何 呼叫的最基本方法便是直接上傳影片。 這是透過傳送 "POST" 要求並附上應用程式/八位元資料流內容類型，以及從影片檔案讀取的資料來完成。 影片的大小上限為 100MB。
@@ -71,7 +73,7 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-針對所有適用於影片的表情 API 而言，這個上傳方法都是一樣的。 
+針對所有適用於影片的表情 API 而言，這個上傳方法都是一樣的。
 
 上傳影片之後，您接下來應該檢查其狀態。 因為影片檔案通常較大，且比其他檔案更具多樣性，使得這個步驟通常需要很長的時間才能處理完畢。 時間的長短取決於檔案的大小和長度。
 

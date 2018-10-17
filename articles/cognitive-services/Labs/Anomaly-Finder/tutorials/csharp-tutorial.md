@@ -1,22 +1,25 @@
 ---
-title: 異常偵測 C# 應用程式 - Microsoft 認知服務 | Microsoft Docs
-description: 探索在 Microsoft 認知服務中使用異常偵測 API 的 C# 應用程式。 將原始資料點傳送到 API，並取得預期的值和異常點。
+title: 教學課程：異常偵測 C#
+titlesuffix: Azure Cognitive Services
+description: 探索會使用異常偵測 API 的 C# 應用程式。 將原始資料點傳送到 API，並取得預期的值和異常點。
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42093846"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887644"
 ---
-# <a name="anomaly-detection-c-application"></a>異常偵測 C# 應用程式
+# <a name="tutorial-anomaly-detection-with-c-application"></a>教學課程：使用 C# 應用程式進行異常偵測
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 瀏覽使用異常偵測 API 來偵測輸入異常的基本 Windows 應用程式。 此範例會使用您的訂用帳戶金鑰來將時間序列資料提交到異常偵測 API，然後從該 API 針對每個資料點取得所有異常點和預期的值。
 

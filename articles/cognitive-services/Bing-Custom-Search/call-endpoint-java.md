@@ -1,22 +1,23 @@
 ---
-title: 使用 Java 呼叫端點 - Bing 自訂搜尋 - Microsoft 認知服務
+title: 快速入門：使用 Java 呼叫端點 - Bing 自訂搜尋
+titlesuffix: Azure Cognitive Services
 description: 本快速入門說明如何使用 Java 呼叫自訂的 Bing 搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951809"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814105"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>呼叫 Bing 自訂搜尋端點 (Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>快速入門：呼叫 Bing 自訂搜尋端點 (Java)
 
 此快速入門說明如何使用 Java 呼叫 Bing 自訂搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。 
 
@@ -26,7 +27,7 @@ ms.locfileid: "46951809"
 
 - 已經可以使用的自訂搜尋執行個體。 請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
 - 未安裝 [Java](https://www.java.com)。
-- 訂用帳戶金鑰。 您可以在啟用[免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)時取得訂用帳戶金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰 (請參閱[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account))。    
+- 訂用帳戶金鑰。 您可以在啟用[免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)時取得訂用帳戶金鑰，或者可以從 Azure 儀表板使用付費訂用帳戶金鑰 (請參閱[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account))。    
 
 ## <a name="run-the-code"></a>執行程式碼
 

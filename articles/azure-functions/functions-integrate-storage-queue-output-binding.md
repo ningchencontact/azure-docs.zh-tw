@@ -4,24 +4,20 @@ description: 使用 Azure Functions 來建立無伺服器函式，該函式是�
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b90d3c77e4fc10c9ee95ced8d24e3045da315fe5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488551"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854519"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 在 Azure 儲存體佇列中新增訊息
 
@@ -29,7 +25,7 @@ ms.locfileid: "38488551"
 
 ![儲存體總管中顯示的佇列訊息](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門：
 
@@ -43,15 +39,19 @@ ms.locfileid: "38488551"
 
 1. 在 Azure 入口網站中，針對您在[從 Azure 入口網站建立您的第一個函式](functions-create-first-azure-function.md)中建立的函式應用程式，開啟函式應用程式分頁。 若要這樣做，請選取 [所有服務] > [函式應用程式]，然後選取您的函式應用程式。
 
-2. 選取您在稍早的快速入門中建立的函式。
+1. 選取您在稍早的快速入門中建立的函式。
 
 1. 選取 [整合 > 新的輸出 > Azure 佇列儲存體]。
 
 1. 按一下 [選取] 。
-    
+
     ![在 Azure 入口網站中對函式新增佇列儲存體輸出繫結。](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. 在 [Azure 佇列儲存體輸出] 底下，使用此螢幕擷取畫面後續的表格中所指定的設定： 
+1. 如果出現**延伸模組未安裝**訊息，請選擇 [安裝]，以在函式應用程式中安裝儲存體繫結延伸模組。 這可能需要數分鐘的時間。
+
+    ![安裝儲存體繫結延伸模組](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. 在 [Azure 佇列儲存體輸出] 底下，使用此螢幕擷取畫面後續的表格中所指定的設定： 
 
     ![在 Azure 入口網站中對函式新增佇列儲存體輸出繫結。](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -61,52 +61,58 @@ ms.locfileid: "38488551"
     | **儲存體帳戶連線** | AzureWebJobsStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |
     | **佇列名稱**   | outqueue    | 儲存體帳戶中的連線目標佇列名稱。 |
 
-4. 按一下 [儲存] 來新增繫結。
- 
+1. 按一下 [儲存] 來新增繫結。
+
 您已定義了輸出繫結，接下來您需要將程式碼更新為使用繫結來對佇列新增訊息。  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>新增會使用輸出繫結的程式碼
 
 在本節中，您會將撰寫訊息的程式碼新增至輸出佇列。 此訊息包含值，該值會傳遞至查詢字串中的 HTTP 觸發程序。 例如，如果查詢字串包含 `name=Azure`，則佇列訊息會是「Name passed to the function: Azure」。
 
-1. 選取函式以在編輯器中顯示函式程式碼。 
+1. 選取函式以在編輯器中顯示函式程式碼。
 
-2. 對於 C# 函式，針對繫結新增方法參數，並且撰寫程式碼以使用它：
+1. 根據您的函式語言更新函式程式碼：
 
-   將 **outputQueueItem** 參數新增至方法簽章，如下列範例所示。 參數名稱與您在建立繫結時為**訊息參數名稱**輸入的名稱相同。
+    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    將 **outputQueueItem** 參數新增至方法簽章，如下列範例所示。
 
-   在 `return` 陳述式前面之 C# 函式的本文中，新增使用參數的程式碼以建立佇列訊息。
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    在 `return` 陳述式前面的函式所包含的本文中，新增使用參數的程式碼以建立佇列訊息。
 
-3. 對於 JavaScript 函式，新增會使用 `context.bindings` 物件上之輸出繫結的程式碼以建立佇列訊息。 在 `context.done` 陳述式前面新增此程式碼。
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-4. 選取 [儲存] 來儲存變更。
- 
-## <a name="test-the-function"></a>測試函式 
+    新增會使用 `context.bindings` 物件上之輸出繫結的程式碼以建立佇列訊息。 在 `context.done` 陳述式前面新增此程式碼。
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. 選取 [儲存] 來儲存變更。
+
+## <a name="test-the-function"></a>測試函式
 
 1. 儲存程式碼的變更後，選取 [執行]。 
 
     ![在 Azure 入口網站中對函式新增佇列儲存體輸出繫結。](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   請注意，**要求本文**包含 `name` 值：Azure。 這個值會出現在叫用函式時建立的佇列訊息中。
-
-   除了在這裡選取 [執行] 之外，您可以呼叫函式，方法是在瀏覽器中輸入 URL，並且在查詢字串中指定 `name` 值。 瀏覽器方法會顯示在[先前的快速入門](functions-create-first-azure-function.md#test-the-function)中。
+    請注意，**要求本文**包含 `name` 值：Azure。 這個值會出現在叫用函式時建立的佇列訊息中。
+    
+    除了在這裡選取 [執行] 之外，您可以呼叫函式，方法是在瀏覽器中輸入 URL，並且在查詢字串中指定 `name` 值。 瀏覽器方法會顯示在[先前的快速入門](functions-create-first-azure-function.md#test-the-function)中。
 
 2. 檢查記錄以確定函式已成功。 
 

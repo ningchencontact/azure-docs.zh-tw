@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 09/07/2018
 ms.author: dobett
-ms.openlocfilehash: 7d5f2246eec20144a30e0abbc31038bdf04ab2b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2d851bc8d5af7f824512cc9f14e6b1120026dd07
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339271"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785150"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (Python)
 
@@ -33,7 +33,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 您在此快速入門中執行的兩個範例應用程式是使用 Python 所撰寫的。 您的開發電腦上需要 Python 2.7.x 或 3.5.x。
 
-您可以從 [Python.org](https://www.python.org/downloads/) 下載適用於多個平台的 Python。
+您可以從 [Python.org](https://www.python.org/downloads/) 下載適用於多個平台的 Python。您選擇的 Python 安裝程式應該要以您正在使用的系統架構為基礎。 如果您的系統 CPU 架構是 32 位元則下載 x86，這是 Python.org 上的預設安裝程式，若是 64 位元架構，則您需要下載 x86-64 安裝程式。
 
 您可以使用下列命令之一，以確認開發電腦上目前的 Python 版本：
 
@@ -46,20 +46,6 @@ python3 --version
 ```
 
 從 https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip 下載範例 Python 專案並將 ZIP 封存檔解壓縮。
-
-若要安裝從 IoT 中樞讀取遙測的 CLI 公用程式，請先在開發電腦上安裝 Node.js 4.x.x 版或更新版本。 您可以從 [nodejs.org](https://nodejs.org) 下載適用於多種平台的 Node.js。
-
-您可以使用下列命令，以確認開發電腦上目前的 Node.js 版本：
-
-```cmd/sh
-node --version
-```
-
-若要安裝 `iothub-explorer` CLI 公用程式，請執行下列命令：
-
-```cmd/sh
-npm install -g iothub-explorer
-```
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -85,14 +71,6 @@ npm install -g iothub-explorer
     ```
 
     記下裝置連接字串，它看似 `Hostname=...=`。 您稍後會在快速入門中使用此值。
-
-1. 您也需要_服務連接字串_，讓 `iothub-explorer` CLI 公用程式能夠連線到您的 IoT 中樞並擷取訊息。 下列命令可擷取 IoT 中樞的服務連接字串：
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
-
-    記下服務連接字串，它看似 `Hostname=...=`。 您稍後會在快速入門中使用此值。 服務連接字符串與裝置連接字串不同。
 
 ## <a name="send-simulated-telemetry"></a>傳送模擬的遙測
 
@@ -122,15 +100,15 @@ npm install -g iothub-explorer
 
 ## <a name="read-the-telemetry-from-your-hub"></a>從您的中樞讀取遙測
 
-`iothub-explorer` CLI 公用程式會連線到您 IoT 中樞上的服務端 [事件] 端點。 公用程式會接收您的模擬裝置所傳送的「裝置到雲端」訊息。 IoT 中樞後端應用程式通常在雲端中執行，以接收和處理「裝置到雲端」訊息。
+IoT 中樞 CLI 擴充功能可以連線到 IoT 中樞上的服務端**事件**端點。 擴充功能會接收模擬裝置所傳送的「裝置到雲端」訊息。 IoT 中樞後端應用程式通常在雲端中執行，以接收和處理「裝置到雲端」訊息。
 
-在另一個終端機視窗中，執行下列命令，並以先前所記錄的服務連接字串來取代 `{your hub service connection string}`：
+執行下列 Azure CLI 命令，以您的 IoT 中樞名稱取代 `{YourIoTHubName}`：
 
-```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id MyPythonDevice --hub-name {YourIoTHubName}
 ```
 
-下列螢幕擷取畫面顯示由模擬裝置傳送遙測至中樞時，公用程式接收遙測的輸出：
+下列螢幕擷取畫面顯示由模擬裝置傳送遙測至中樞時，擴充功能接收遙測的輸出：
 
 ![執行後端應用程式](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 

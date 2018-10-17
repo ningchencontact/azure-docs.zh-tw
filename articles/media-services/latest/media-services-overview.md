@@ -1,10 +1,10 @@
 ---
 title: Azure 媒體服務 v3 概觀 | Microsoft Docs
-description: 本文提供媒體服務的高階概觀，並提供詳細資訊的文章連結。
+description: 此文章提供媒體服務的高階概觀，並提供詳細資訊的文章連結。
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: Azure 媒體服務, 串流, 廣播, 即時, 離線
@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 07/14/2018
+ms.date: 09/25/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325926"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221924"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什麼是 Azure 媒體服務 v3？
 
@@ -54,9 +54,9 @@ v3 是會統一的 API 表面為基礎，併公開建置於 Azure Resource Manag
 
 此版本提供以下功能：  
 
-* **轉換**可協助您定義媒體處理或分析工作的簡單工作流程。 轉換是處理您的視訊和音訊檔案的配方。 然後藉由將工作提交至轉換，您可以重複地套用它來處理內容庫中的所有檔案。
-* **工作**可處理 (編碼或分析) 您的視訊。 可以使用 HTTP(S) URL、SAS URL 或 Azure Blob 儲存體中的檔案路徑，在工作上指定輸入的內容。 
-* **通知**可監視工作進度或狀態，或直播頻道開始/停止及錯誤事件。 通知會與 Azure Event Grid 通知系統整合。 您輕鬆就能在 Azure 媒體服務中的數個資源上訂閱活動。 
+* **轉換**可協助您定義媒體處理或分析工作的簡單工作流程。 轉換是處理您的視訊和音訊檔案的配方。 然後透過將工作提交至轉換，您可以重複地套用它來處理內容庫中的所有檔案。
+* **工作**可處理 (編碼或分析) 您的視訊。 您可以使用 HTTPS URL、SAS URL 或 Azure Blob 儲存體中的檔案路徑，在作業上指定輸入內容。 目前，AMS v3 不支援透過 HTTPS URL 的區塊傳輸編碼。
+* **通知**可監視工作進度或狀態，或直播頻道開始/停止及錯誤事件。 通知會與 Azure 事件方格通知系統整合。 您輕鬆就能在 Azure 媒體服務中的數個資源上訂閱活動。 
 * **Azure Resource Management** 範本可用於建立及部署轉換、串流端點、頻道等等。
 * **角色型存取控制**可以設定在資源層級，讓您能鎖定對特定資源 (如轉換、頻道等) 的存取。
 * **用戶端 SDK** 有多種語言：.NET、.NET Core、Python、Go、Java 和 Node.js。

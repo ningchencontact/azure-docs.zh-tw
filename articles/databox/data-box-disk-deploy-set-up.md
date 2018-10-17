@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161522"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068803"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教學課程：針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
 
@@ -76,12 +76,14 @@ ms.locfileid: "47161522"
 請執行下列步驟，以連接磁碟並解除鎖定。
      
 1. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 
-2. 下載對應至 Windows 用戶端的資料箱磁碟工具組。 
+2. 下載對應至 Windows 用戶端的資料箱磁碟工具組。 此工具組包含 3 個工具：資料箱磁碟解除鎖定工具、資料箱磁碟驗證工具及資料箱磁碟分割複製工具。 
+
+    在此程序中，您將只使用資料箱磁碟解除鎖定工具。 其他兩個工具會在稍後使用。
 
     > [!div class="nextstepaction"]
     > [下載適用於 Windows 的資料箱磁碟工具組](http://aka.ms/databoxdisktoolswin)         
 
-3. 在您用來複製資料的相同電腦上將工具解壓縮。
+3. 在您用來複製資料的相同電腦上將工具組解壓縮。 
 4. 在相同電腦上以系統管理員的身分，開啟 [命令提示字元] 視窗或執行 Windows PowerShell。
 5. (選擇性) 若要確認您用來將磁碟解除鎖定的電腦符合作業系統需求，請執行系統檢查命令。 下方顯示一項範例輸出。 
 

@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063025"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884328"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>教學課程：使用適用於 C# 的語音 SDK 從語音辨識意圖
 
@@ -123,7 +123,7 @@ static async Task RecognizeIntentAsync()
 辨識語音意圖的第一個步驟，是從 LUIS 端點金鑰和區域建立語音設定。 語音設定可用來建立語音 SDK 各種功能的辨識器。 語音設定有多種方式可指定您想要使用的訂用帳戶，在此我們使用 `FromSubscription`，其會採用訂用帳戶金鑰和區域。
 
 > [!NOTE]
-> 請使用 LUIS 訂用帳戶 (而非語音訂用帳戶) 的金鑰和區域。
+> 請使用 LUIS 訂用帳戶 (而非語音服務訂用帳戶) 的金鑰和區域。
 
 下一步，使用 `new IntentRecognizer(config)` 建立意圖辨識器。 因為設定已經知道所要使用的訂用帳戶，因此沒有必要在建立辨識器時再次指定訂用帳戶的金鑰和端點。
 
@@ -166,7 +166,7 @@ result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_Js
 
 ## <a name="specify-recognition-language"></a>指定辨識語言
 
-根據預設，LUIS 會辨識美式英文 (`en-us`) 的意圖。 藉由對語音設定的 `SpeechRecognitionLanguage` 屬性指派地區設定代碼，即可辨識其他語言的意圖。 例如，先在教學課程的應用程式 (application) 中新增 `config.SpeechRecognitionLanguage = "de-de";`，再建立辨識器來辨識德文意圖。 請參閱[支援的語言](supported-languages.md#speech-to-text)。
+根據預設，LUIS 會辨識美式英文 (`en-us`) 的意圖。 藉由對語音設定的 `SpeechRecognitionLanguage` 屬性指派地區設定代碼，即可辨識其他語言的意圖。 例如，先在教學課程的應用程式 (application) 中新增 `config.SpeechRecognitionLanguage = "de-de";`，再建立辨識器來辨識德文意圖。 請參閱[支援的語言](language-support.md#speech-to-text)。
 
 ## <a name="continuous-recognition-from-a-file"></a>從檔案進行連續辨識
 

@@ -1,23 +1,23 @@
 ---
-title: 將 Bing 拼字檢查 API 快速入門 | Microsoft Docs
+title: 快速入門：Bing 拼字檢查 API
+titlesuffix: Azure Cognitive Services
 description: 示範如何使用 Bing 拼字檢查 API 開始使用。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: AF8EB1F0-386D-4555-9354-735611435F04
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: cae8353e5be6e70eca90e5995b29b6774fc7d6a9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 29ee7cb4ee648d20b425939553ba31cd9ac150f0
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367922"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804186"
 ---
-# <a name="your-first-spell-check-request"></a>您的第一個拼字檢查要求
+# <a name="quickstart-your-first-spell-check-request"></a>快速入門：您的第一個拼字檢查要求
 
 第一次進行呼叫之前，您需要取得認知服務訂用帳戶金鑰。 若要取得金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)。
 
@@ -36,11 +36,11 @@ https://api.cognitive.microsoft.com/bing/v5.0/spellcheck
   
 要求必須使用 HTTPS 通訊協定。
 
-我們建議所有要求來自伺服器。 隨著用戶端應用程式散佈金鑰會讓惡意的第三方有更多機會存取該應用程式。 此外，從伺服器進行呼叫可為 API 的未來版本提供單一升級點。
+建議讓所有要求來自伺服器。 將金鑰作為用戶端應用程式的一部份散佈，會讓惡意第三方有更多機會存取到金鑰。 此外，從伺服器進行呼叫可為 API 的未來版本提供單一升級點。
 
-要求必須指定 [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text) 查詢參數，其包含要證明的文字字串。 雖然是選用項目，但要求應該也指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mkt) 查詢參數，其可識別您希望結果來自哪個市場。 如需選用查詢參數 (例如 `mode`) 的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#query-parameters)。 所有查詢參數值必須是 URL 編碼。  
+要求必須指定 [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text) 查詢參數，其包含要證明的文字字串。 雖然是選用項目，但要求應該也指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mkt) 查詢參數，其可識別您希望結果來自哪個市場。 如需選用查詢參數 (例如 `mode`) 的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#query-parameters)。 所有查詢參數值均須為 URL 編碼。  
   
-要求必須指定 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#subscriptionkey) 標頭。 雖然是選用的，但我們也鼓勵您指定以下標頭：  
+要求必須指定 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#subscriptionkey) 標頭。 雖然是選擇性的，但我們仍建議使用以下標頭：  
   
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#clientid)  

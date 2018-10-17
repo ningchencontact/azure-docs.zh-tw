@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410216"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239178"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -49,7 +49,7 @@ ms.locfileid: "47410216"
 
 服務端點可提供下列優點：
 
-- **改善 Azure 服務資源的安全性**：透過服務端點，可以將 Azure 服務資源放到虛擬網路保護。 將服務資源放到虛擬網路保護可透過完全移除資源的公用網際網路存取，而且只允許來自您虛擬網路的流量，藉此改善安全性。
+- **改善您 Azure 服務資源的安全性**：VNet 私人位址空間可以重疊，因此無法只用此項目來識別從您 VNet 輸出的流量。 服務端點藉由將 VNet 身分識別延伸至服務，提供能在虛擬網路中保護 Azure 服務資源的能力。 一旦在您的虛擬網路中啟用服務端點，即可將虛擬網路規則新增至資源，以將 Azure 服務資源放到虛擬網路保護。 這樣可以藉由完全移除這些資源的公用網際網路存取，而且只允許來自您虛擬網路的流量，來改善安全性。
 - **來自虛擬網路之 Azure 服務流量的最佳路由**：現在，虛擬網路中強制網際網路流量通過內部部署和 (或) 虛擬設備的任何路由 (也稱為強制通道)，也會強制 Azure 服務流量採用與網際網路流量相同的路由。 服務端點可提供 Azure 流量的最佳路由。 
 
   端點一律會直接採用從虛擬網路到 Microsoft Azure 骨幹網路上服務的服務流量。 Keeping traffic on the Azure backbone network 可讓您透過強制通道，繼續稽核和監視來自虛擬網路的輸出網際網路流量，而不會影響服務流量。 深入了解[使用者定義的路由和強制通道](virtual-networks-udr-overview.md)。

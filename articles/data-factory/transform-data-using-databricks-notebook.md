@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7fb94fa9a70faa238c54e7f5e7992ef8404d8de3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 6b0a4b7a8b2a30b9572ecfc488e2af7554b46346
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087542"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017733"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook
 
@@ -34,7 +34,7 @@ ms.locfileid: "43087542"
 
   - 監視管道執行。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
 如需此功能的簡介與示範，請觀看下列 11 分鐘長的影片：
 
@@ -48,15 +48,15 @@ ms.locfileid: "43087542"
 
 1.  啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 
-1.  選取左側功能表上的 [新增]、[資料 + 分析]，然後選取 [資料處理站]。
+1.  選取左側功能表上的 [建立資源]、選取 [分析]，然後選取 [資料處理站]。
 
-    ![建立新的資料處理站](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image1.png)
+    ![建立新的資料處理站](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
 1.  在 [新增資料處理站] 窗格的 [名稱] 下，輸入 **ADFTutorialDataFactory**。
 
     Azure Data Factory 的名稱必須是 *全域唯一的*。 如果您看到下列錯誤，請變更資料處理站的名稱。 (例如，使用 **\<yourname\>ADFTutorialDataFactory**)。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory - 命名規則](https://docs.microsoft.com/azure/data-factory/naming-rules)一文。
 
-    ![提供新資料處理站的名稱](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
+    ![提供新資料處理站的名稱](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
 1.  針對 [訂用帳戶]，選取您要用來建立資料處理站的 Azure 訂用帳戶。
 
@@ -73,14 +73,8 @@ ms.locfileid: "43087542"
 1.  針對 [位置]，選取資料處理站的位置。
 
     如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 Data Factory 所使用的資料存放區 (Azure 儲存體和 Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
-
-1.  選取 [釘選到儀表板]。
-
 1.  選取 [建立] 。
 
-1.  在儀表板上，您會看到 [正在部署 Data Factory] 狀態的下列圖格︰
-
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image3.png)
 
 1.  建立完成之後，您會看到 [Data Factory] 頁面。 選取 [編寫與監視] 圖格，以在個別的索引標籤上啟動 Data Factory UI 應用程式。
 
@@ -94,13 +88,13 @@ ms.locfileid: "43087542"
 
 1.  在 [現在就開始吧] 頁面上，切換至左面板中的 [編輯] 索引標籤。
 
-    ![編輯新的連結服務](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image5.png)
+    ![編輯新的連結服務](media/transform-data-using-databricks-notebook/get-started-page.png)
 
 1.  選取視窗底部的 [連線]，然後選取 [+ 新增]。
     
     ![建立新的連線](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  在 [新增連結服務] 視窗中，選取 [資料存放區] \> [Azure Databricks]，然後選取 [繼續]。
+1.  在 [新增連結服務] 視窗中，選取 [計算] \> [Azure Databricks]，然後選取 [繼續]。
     
     ![指定 Databricks 連結服務](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
@@ -108,21 +102,23 @@ ms.locfileid: "43087542"
     
     1.  針對 [名稱]，輸入 ***AzureDatabricks\_LinkedService***
     
-    1.  針對 [叢集]，選取 [新增叢集]
+    1.  選取您要在其中執行 Notebook 的適當 **Databricks 工作區**
+
+    1.  針對 [選取叢集]，選取 [新增作業叢集]
     
-    1.  針對 [網域/區域]，選取您的 Azure Databricks 工作區所在的區域。
-    
-    1.  在本教學課程中，針對 [叢集節點類型]，選取 [Standard\_D3\_v2]。
-    
+    1.  針對 [網域/區域]，資訊應該會自動填入
+
     1.  針對 [存取權杖]，從 Azure Databricks 工作區產生它。 您可以在[這裡](https://docs.databricks.com/api/latest/authentication.html#generate-token)找到步驟。
+
+    1.  針對 [叢集版本]，選取 [4.0] (含 Apache Spark 2.3.0、Scala 2.11)
+
+    1.  針對 [叢集節點類型]，請為本教學課程選取 [一般用途 (HDD)] 分類下的 [標準\_D3\_v2]。 
     
-    1.  針對 [叢集版本]，選取 [4.0 搶鮮版 (Beta)] (最新版)
-    
-    1.  針對 [背景工作節點的數目]，輸入 **2**。
+    1.  針對 [背景工作角色]，輸入 **2**。
     
     1.  選取 [完成]。
 
-        ![完成連結服務建立](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image8.png)
+        ![完成連結服務建立](media/transform-data-using-databricks-notebook/new-databricks-linkedservice.png)
 
 ## <a name="create-a-pipeline"></a>建立管線
 
@@ -138,15 +134,17 @@ ms.locfileid: "43087542"
 
 1.  在 [活動] 工具箱中，展開 [Databricks]。 將 [Notebook] 工具箱中的 [Spark] 活動拖到管線設計工具介面。
 
-    ![將 Notebook 拖曳至設計工具介面](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image12.png)
+    ![將 Notebook 拖曳至設計工具介面](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
 
 1.  在 [Databricks Notebook] 活動視窗底部的屬性中，完成下列步驟：
 
-    a. 切換到 [設定]  索引標籤。
+    a. 切換至 [Azure Databricks] 索引標籤。
 
-    b. 選取 **myAzureDatabricks\_LinkedService** (您在上一個程序中建立)。
+    b. 選取 **AzureDatabricks\_LinkedService** (已在上一個程序中建立)。
 
-    c. 選取 Databricks **Notebook 路徑**。 讓我們建立 Notebook 並在此指定路徑。 您可以依照下列步驟取得 Notebook 路徑。
+    c. 切換至 [設定] 索引標籤
+
+    c. 瀏覽以選取 Databricks **Notebook 路徑**。 讓我們建立 Notebook 並在此指定路徑。 您可以依照下列步驟取得 Notebook 路徑。
 
        1. 啟動您的 Azure Databricks 工作區
 
@@ -180,7 +178,7 @@ ms.locfileid: "43087542"
     
     a.  [新增參數] 至 Notebook 活動。 您可使用先前新增至 [管線] 的相同參數。
 
-       ![新增參數](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image17.png)
+       ![新增參數](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
     b.  將參數命名為 **input**，並提供此值作為 **@pipeline().parameters.name** 運算式。
 
@@ -224,7 +222,7 @@ ms.locfileid: "43087542"
 
 您可以按一下**作業名稱**並瀏覽以查看進一步的詳細資料。 對於成功的執行，您可以驗證所傳遞的參數和 Python Notebook 的輸出。
 
-![檢視執行詳細資料和輸出](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image25.png)
+![檢視執行詳細資料和輸出](media/transform-data-using-databricks-notebook/databricks-output.png)
 
 ## <a name="next-steps"></a>後續步驟
 

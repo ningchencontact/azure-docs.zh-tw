@@ -1,20 +1,19 @@
 ---
-title: 快速入門 - Azure Kubernetes 叢集入口網站快速入門
-description: 快速了解如何在 AKS 中使用 Azure 入口網站建立適用於 Linux 容器的 Kubernetes 叢集。
+title: 快速入門 - 在入口網站中建立 Azure Kubernetes 服務叢集
+description: 了解如何使用 Azure 入口網站快速建立 Azure Kubernetes Service (AKS) 叢集，然後部署和監視應用程式。
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aceddc2594065c9c36f8dbf63fce2ad03577a383
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d70f00294b1f08d2cc4cede6575efd3149599dd
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443362"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067445"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>快速入門：部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -40,15 +39,13 @@ ms.locfileid: "39443362"
     - 級別：選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
         - 選取要部署到叢集的節點數目。 本快速入門將 [節點計數] 設為「1」。 節點計數**可以**在叢集部署完畢後調整。
     
-    ![建立 AKS 叢集 - 提供基本資訊](media/kubernetes-walkthrough-portal/create-cluster-1.png)
+    ![建立 AKS 叢集 - 提供基本資訊](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     完成時，選取 [下一步: 驗證]。
 
 1. **驗證** - 設定下列選項：
     - 建立新的服務主體，或「設定」為使用現有服務主體。 使用現有的 SPN 時，您需要提供 SPN 用戶端識別碼和祕密。
     - 啟用 Kubernetes 角色型存取控制 (RBAC) 的選項。 這些控制項可針對 AKS 叢集中部署的 Kubernetes 資源提供更細部的存取控管。
-
-    ![建立 AKS 叢集 - 設定驗證](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
     完成時，請選取 [下一步: 網路功能]。
 
@@ -59,7 +56,7 @@ ms.locfileid: "39443362"
     
     完成時，選取 [下一步: 監視]。
 
-1. 部署 AKS 叢集時，可以設定 Azure Container Insights 來監視 AKS 叢集及在該叢集上所執行 Pod 的健康情況。 如需容器健康情況監視的詳細資訊，請參閱[監視 Azure Kubernetes 服務健康情況][aks-monitor]。
+1. 部署 AKS 叢集時，可以設定適用於容器的 Azure 監視器來監視 AKS 叢集及在該叢集上所執行 Pod 的健康情況。 如需容器健康情況監視的詳細資訊，請參閱[監視 Azure Kubernetes 服務健康情況][aks-monitor]。
 
     選取 [是] 來啟用容器監視，並選取現有的 Log Analytics 工作區，或是建立新的工作區。
     
@@ -93,7 +90,7 @@ kubectl get nodes
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
+aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ```
 
 ## <a name="run-the-application"></a>執行應用程式
@@ -117,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -145,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,13 +220,20 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 當您建立叢集時，容器的深入解析監視功能就已啟用。 此監視功能可針對 AKS 叢集和叢集上執行的 Pod 提供健康情況計量。 如需容器健康情況監視的詳細資訊，請參閱[監視 Azure Kubernetes 服務健康情況][aks-monitor]。
 
-可能需要幾分鐘，此資料才會填入至 Azure 入口網站。 若要查看 Azure 投票應用程式 Pod 的目前狀態、執行時間及資源使用量，請往回瀏覽到 Azure 入口網站中的 AKS 資源，例如 myAKSCluster。 選擇 [監視容器健康情況] > 選取 [預設] 命名空間 > 然後選取 [容器]。  此時會顯示 azure-vote-back 和 azure-vote-front 容器：
+可能需要幾分鐘，此資料才會填入至 Azure 入口網站。 若要查看 Azure 投票應用程式 Pod 的目前狀態、執行時間及資源使用量，請往回瀏覽到 Azure 入口網站中的 AKS 資源，例如 myAKSCluster。 然後，您可以存取健康狀態，如下所示：
+
+1. 在左側的 [監視] 底下，選擇 [深入解析 (\預覽)\]
+1. 在頂端選擇 [+ 新增篩選器]
+1. 選取 [命名空間] 作為屬性，然後選擇 \<除了 kube-system 以外的所有項目\>
+1. 選擇檢視**容器**。
+
+系統會顯示 azure-vote-back 和 azure-vote-front 容器，如下列範例所示：
 
 ![檢視 AKS 中執行的容器健康情況](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-若要查看 `azure-vote-front` Pod 的記錄，請選取容器清單右側的 [檢視記錄] 連結。 這些記錄包含來自容器的 stdout 和 stderr 資料流。
+若要查看 `azure-vote-front` Pod 的記錄，請選取容器清單右側的 [檢視容器記錄] 連結。 這些記錄包含來自容器的 stdout 和 stderr 資料流。
 
-![在 AKS 中檢視容器記錄](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
+![在 AKS 中檢視容器記錄](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>刪除叢集
 
@@ -224,6 +242,9 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
+
+> [!NOTE]
+> 當您刪除叢集時，不會移除 AKS 叢集所使用的 Azure Active Directory 服務主體。 如需有關如何移除服務主體的步驟，請參閱[AKS 服務主體的考量和刪除][sp-delete]。
 
 ## <a name="get-the-code"></a>取得程式碼
 
@@ -258,3 +279,4 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

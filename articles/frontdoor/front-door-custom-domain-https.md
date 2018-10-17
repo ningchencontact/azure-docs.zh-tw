@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 8e3bdd402cbd16469fb333cc470471629f85538c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3df96451838fe90b7d45d1aedd272fc10d798e57
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045394"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883970"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>教學課程：在 Front Door 自訂網域上設定 HTTPS
 
@@ -45,15 +45,14 @@ ms.locfileid: "47045394"
 
 您必須先建立 Front Door 和至少一個已上架的自訂網域，才能完成本教學課程中的步驟。 如需詳細資訊，請參閱[教學課程：將自訂網域新增至 Front Door](front-door-custom-domain.md)。
 
----
-
 ## <a name="ssl-certificates"></a>SSL 憑證
+
 若要啟用 HTTPS 通訊協定以在 Front Door 自訂網域上安全地傳遞內容，您必須使用 SSL 憑證。 您可以選擇使用 Azure Front Door Service 所管理的憑證，或使用您自己的憑證。
 
 
-# <a name="option-1-default-enable-https-with-an-afd-managed-certificatetaboption-1-default-enable-https-with-an-afd-managed-certificate"></a>[選項 1 (預設)：使用 AFD 受控憑證啟用 HTTPS](#tab/option-1-default-enable-https-with-an-afd-managed-certificate)
+### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>選項 1 (預設值)：使用 Front Door 所管理的憑證
 
-使用 AFD 受控憑證時，只要按幾下滑鼠就可以開啟 HTTPS 功能。 Azure Front Door Service 會完全處理憑證管理工作，例如購買和更新。 啟用此功能之後，程序就會立即啟動。 如果自訂網域已對應到 Front Door 的預設前端主機 (`{hostname}.azurefd.net`)，則不需要任何進一步的動作。 Front Door 會處理相關步驟並自動完成您的要求。 不過，如果您的自訂網域對應到其他位置，您就必須使用電子郵件來驗證您的網域擁有權。
+使用 Azure Front Door Service 所管理的憑證時，只要按幾下滑鼠就可以開啟 HTTPS 功能。 Azure Front Door Service 會完全處理憑證管理工作，例如購買和更新。 啟用此功能之後，程序就會立即啟動。 如果自訂網域已對應到 Front Door 的預設前端主機 (`{hostname}.azurefd.net`)，則不需要任何進一步的動作。 Front Door 會處理相關步驟並自動完成您的要求。 不過，如果您的自訂網域對應到其他位置，您就必須使用電子郵件來驗證您的網域擁有權。
 
 依照下列步驟啟用自訂網域的 HTTPS︰
 
@@ -68,11 +67,11 @@ ms.locfileid: "47045394"
 5. 繼續[驗證網域](#validate-the-domain)。
 
 
-# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[選項 2：使用您自己的憑證啟用 HTTPS](#tab/option-2-enable-https-with-your-own-certificate)
+### <a name="option-2-use-your-own-certificate"></a>選項 2：使用您自己的憑證
 
 您可以使用自己的憑證啟用 HTTPS 功能。 此程序會透過與 Azure Key Vault 的整合來進行，因為此一整合可讓您安全地儲存憑證。 Azure Front Door Service 使用此安全機制來取得您的憑證，為此您需要執行一些額外步驟。 當您建立 SSL 憑證時，您必須使用允許的憑證授權單位 (CA) 來加以建立。 否則，如果您使用非允許的 CA，系統會拒絕您的要求。 如需允許 CA 的清單，請參閱[可在 Azure Front Door Service 上啟用自訂 HTTPS 的允許憑證授權單位](front-door-troubleshoot-allowed-ca.md)。
 
-### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>準備您的 Azure Key Vault 帳戶和憑證
+#### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>準備您的 Azure Key Vault 帳戶和憑證
  
 1. Azure Key Vault：在與您想要啟用自訂 HTTPS 的 Front Door 相同訂用帳戶下，您必須有執行中的 Azure Key Vault 帳戶。 建立 Azure Key Vault 帳戶 (如果您還沒有的話)。
  
@@ -83,7 +82,7 @@ ms.locfileid: "47045394"
 > </br> - Azure Front Door Service 目前僅支援儲存在「祕密」區段下的 Key Vault 憑證。 若您將其儲存在「憑證」區段下，而非「祕密」區段，則憑證匯入將會失敗。
 > </br> - Azure Front Door Service 目前僅支援使用**不具**密碼 PFX 所上傳的憑證。
 
-### <a name="register-azure-front-door-service"></a>註冊 Azure Front Door Service
+#### <a name="register-azure-front-door-service"></a>註冊 Azure Front Door Service
 
 透過 PowerShell，在您的 Azure Active Directory 中將 Azure Front Door Service 的服務主體作為應用程式註冊。
 
@@ -93,7 +92,7 @@ ms.locfileid: "47045394"
 
      `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>授與 Azure Front Door Service 存取您的金鑰保存庫
+#### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>授與 Azure Front Door Service 存取您的金鑰保存庫
  
 授與 Azure Front Door Service 權限，存取您 Azure Key Vault 帳戶中「祕密」下的憑證。
 
@@ -108,7 +107,7 @@ ms.locfileid: "47045394"
 
     Azure Front Door Service 現在可以存取此金鑰保存庫和此金鑰保存庫中儲存的憑證 (祕密)。
  
-### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>選取讓 Azure Front Door Service 進行部署的憑證
+#### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>選取讓 Azure Front Door Service 進行部署的憑證
  
 1. 返回入口網站中的 Front Door。 
 
@@ -126,8 +125,6 @@ ms.locfileid: "47045394"
     - 可用的憑證版本。 
  
 5. 當您使用自己的憑證時，不需要進行網域驗證。 請繼續進行[等待傳播](#wait-for-propagation)。
-
----
 
 ## <a name="validate-the-domain"></a>驗證網域
 

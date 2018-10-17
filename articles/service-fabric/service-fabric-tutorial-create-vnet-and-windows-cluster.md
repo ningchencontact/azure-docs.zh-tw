@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2f503a534f79440e6e6c572b7fb29ce3048ee7bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410012"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831564"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>教學課程：將安全的 Service Fabric Windows 叢集部署到 Azure 虛擬網路
 
@@ -88,7 +88,7 @@ Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 叢集
 
-Windows 叢集的部署具有下列特性：
+在 **Microsoft.ServiceFabric/clusters** 資源中，Windows 叢集會以下列特性設定：
 
 * 單一節點類型
 * 屬於主要節點類型的五個節點 (可在範本參數中設定)
@@ -103,7 +103,7 @@ Windows 叢集的部署具有下列特性：
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-系統會為下列連接埠部署負載平衡器，並進行探查和規則的設定：
+在 **Microsoft.Network/loadBalancers** 資源中，會為下列連接埠設定負載平衡器，並進行探查和規則的設定：
 
 * 用戶端連線端點：19000
 * HTTP 閘道端點：19080
@@ -111,16 +111,16 @@ Windows 叢集的部署具有下列特性：
 * 應用程式連接埠：443
 * Service Fabric 反向 Proxy：19081
 
-如果需要其他應用程式連接埠，則您必須調整 Microsoft.Network/loadBalancers 資源和 Microsoft.Network/networkSecurityGroups 資源，以允許流量進入。
+如果需要其他應用程式連接埠，則您必須調整 **Microsoft.Network/loadBalancers** 資源和 **Microsoft.Network/networkSecurityGroups** 資源，以允許流量進入。
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>虛擬網路、子網路和網路安全性群組
 
-虛擬網路、子網路和網路安全性群組的名稱會在範本參數中宣告。  虛擬網路和子網路的位址空間也會在範本參數中宣告：
+虛擬網路、子網路和網路安全性群組的名稱會在範本參數中宣告。  虛擬網路和子網路的位址空間也會在範本參數中宣告，並設定於 **Microsoft.Network/virtualNetworks** 資源中：
 
 * 虛擬網路位址空間：172.16.0.0/20
 * Service Fabric 子網路位址空間：172.16.2.0/23
 
-網路安全性群組會啟用下列輸入流量規則。 您可以藉由變更範本變數來變更連接埠值。
+在 **Microsoft.Network/networkSecurityGroups** 資源中會啟用下列輸入流量規則。 您可以藉由變更範本變數來變更連接埠值。
 
 * ClientConnectionEndpoint (TCP)：19000
 * HttpGatewayEndpoint (HTTP/TCP)：19080
@@ -131,7 +131,7 @@ Windows 叢集的部署具有下列特性：
 * 應用程式連接埠範圍 – 49152 到 65534 (用於服務之間的通訊，但不會在負載平衡器上開啟)
 * 封鎖所有其他連接埠
 
-如果需要其他應用程式連接埠，則您必須調整 Microsoft.Network/loadBalancers 資源和 Microsoft.Network/networkSecurityGroups 資源，以允許流量進入。
+如果需要其他應用程式連接埠，則您必須調整 **Microsoft.Network/loadBalancers** 資源和 **Microsoft.Network/networkSecurityGroups** 資源，以允許流量進入。
 
 ## <a name="set-template-parameters"></a>設定範本參數
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: d1f638c9825ea5eedf6eaee0e0ca2ccfd5a491bc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 00e6f2ed866afd13343df37de625e2913f613dfa
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "33933702"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092398"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>自訂開發人員入口網站頁面的風格
 
@@ -29,7 +29,7 @@ ms.locfileid: "33933702"
 * 更新用於開發人員入口網站上頁面元素的樣式 (如本指南所述)
 * [修改入口網站所產生的網頁用範本](api-management-developer-portal-templates.md) (例如 API 文件、產品、使用者驗證)
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 自訂**開發人員**入口網站頁面的元素樣式
@@ -76,11 +76,10 @@ ms.locfileid: "33933702"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 自訂**開發人員**入口網站頁面的元素樣式
 > * 檢視變更
 
-> [!div class="nextstepaction"]
-> [使用範本自訂 Azure API 管理開發人員入口網站](api-management-developer-portal-templates.md)
+您可能想要了解[如何使用範本自訂 Azure API 管理開發人員入口網站](api-management-developer-portal-templates.md)。

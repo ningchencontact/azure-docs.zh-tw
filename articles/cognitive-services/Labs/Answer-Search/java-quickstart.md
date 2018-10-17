@@ -1,27 +1,28 @@
 ---
-title: 專案答案搜尋 Java 快速入門 - Microsoft 認知服務 | Microsoft Docs
+title: 快速入門：專案答案搜尋 Java
+titlesuffix: Azure Cognitive Services
 description: 在 Java 中開始使用專案答案搜尋。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4e1f606e1564981589e638e0e51a8b42633ca7b0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369547"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867020"
 ---
-# <a name="project-answer-search-query-in-java"></a>Java 中的專案答案搜尋查詢
+# <a name="quickstart-project-answer-search-query-in-java"></a>快速入門：Java 中的專案答案搜尋查詢
 本文使用 Java 示範如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 答案搜尋 API。 API 是一種與任何程式語言相容的 REST Web 服務，可產生 HTTP 要求及剖析 JSON。
  
 範例程式碼會使用 Java 和基本的外部相依性。  您也可以使用 Mono 在 Linux 或 Mac OS X 上加以執行。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
 

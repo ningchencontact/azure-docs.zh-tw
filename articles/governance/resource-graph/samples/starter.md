@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b0d8466f1deaa82260aaebee5398f1b8fbea851d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcc6c6e9d38948cb4be09c9f52049790ccd5ac7e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965546"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227022"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
 
-透過 Azure Resource Graph 了解查詢的第一個步驟是對[查詢語言](../concepts/query-language.md)進行基本的認識。 如果您還不熟悉 KQL，建議檢閱基本概念，以了解如何撰寫所需資源的要求。
+透過 Azure Resource Graph 了解查詢的第一個步驟是對[查詢語言](../concepts/query-language.md)進行基本的認識。 如果您還不熟悉 [Azure 資料總管](../../../data-explorer/data-explorer-overview.md)，建議檢閱基本概念，以了解如何撰寫所需資源的要求。
 
 我們將逐步解說下列入門查詢︰
 
@@ -52,7 +52,7 @@ summarize count()
 az graph query -q "summarize count()"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "summarize count()"
 ```
 
@@ -69,7 +69,7 @@ project name, type, location
 az graph query -q "project name, type, location | order by name asc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 ```
 
@@ -88,7 +88,7 @@ project name, location, type
 az graph query -q "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
@@ -106,7 +106,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
@@ -124,7 +124,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
@@ -140,7 +140,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
@@ -149,7 +149,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | 
 
 ## <a name="show-storage"></a>顯示包含儲存體的資源
 
-此範例查詢並非明確定義要比對的類型，而是尋找 `contains` 字組 **storage** 的任何 Azure 資源。
+此範例查詢並非明確定義要比對的類型，而是尋找 `contains` 單字 **storage** 的任何 Azure 資源。
 
 ```Query
 where type contains 'storage' | distinct type
@@ -159,13 +159,13 @@ where type contains 'storage' | distinct type
 az graph query -q "where type contains 'storage' | distinct type"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 ```
 
 ## <a name="list-publicip"></a>列出所有公用 IP 位址
 
-與上述查詢類似，尋找字組 **publicIPAddresses** 之類型的所有項目。 此查詢擴展該模式，以排除 **properties.ipAddress** 為 Null 的結果，僅傳回 **properties.ipAddress**，並將結果 `limit` 在前 100 個。 您可能需要逸出的引號，根據您所選擇的殼層而定。
+與上述查詢類似，尋找單字 **publicIPAddresses** 之類型的所有項目。 此查詢擴展該模式，以排除 **properties.ipAddress** 為 Null 的結果，僅傳回 **properties.ipAddress**，並將結果 `limit` 在前 100 個。 您可能需要逸出的引號，根據您所選擇的殼層而定。
 
 ```Query
 where type contains 'publicIPAddresses' and properties.ipAddress != ''
@@ -177,7 +177,7 @@ where type contains 'publicIPAddresses' and properties.ipAddress != ''
 az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
 ```
 
@@ -194,7 +194,7 @@ where type contains 'publicIPAddresses' and properties.ipAddress != ''
 az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
 ```
 
@@ -211,11 +211,11 @@ where tags.environment=~'internal'
 az graph query -q "where tags.environment=~'internal' | project name"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
-如果需要同時提供資源具有的標籤及其值，則可以藉由將屬性**標籤**加入 `project`。
+如果需要同時提供資源具有的標籤及其值，則可以透過將屬性**標籤**加入 `project`。
 
 ```Query
 where tags.environment=~'internal'
@@ -226,7 +226,7 @@ where tags.environment=~'internal'
 az graph query -q "where tags.environment=~'internal' | project name, tags"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, tags"
 ```
 
@@ -243,7 +243,7 @@ where type =~ 'Microsoft.Storage/storageAccounts'
 az graph query -q "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 

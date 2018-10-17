@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7eb17138f42cdada10edd5ef08873eb2afee91fe
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452610"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068973"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
@@ -163,7 +163,75 @@ ms.locfileid: "47452610"
 > -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱磁碟限制](data-box-disk-limits.md)中所述的大小限制。 
 > - 如果資料 (由資料箱磁碟上傳) 同時由資料箱磁碟以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
 
-## <a name="verify-data"></a>驗證資料 
+### <a name="split-and-copy-data-to-disks"></a>將資料分割並複製到磁碟
+
+如果您使用多個磁碟，而且具有必須加以分割並複製到所有磁碟上的大型資料集，則您可能會用到此選擇性程序。 「資料箱分割複製」工具可協助您分割和複製 Windows 電腦上的資料。
+
+1. 在您的 Windows 電腦上，請確定已下載「資料箱分割複製」工具，並且已在本機資料夾中解壓縮。 此工具會在您下載適用於 Windows 的資料箱磁碟工具組時一併下載。
+2. 開啟檔案總管。 請記下指派給資料箱磁碟的資料來源磁碟機和磁碟機代號。 
+
+     ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+ 
+3. 識別要複製的來源資料。 例如，在此案例中是：
+    - 已識別到下列區塊 Blob 資料。
+
+         ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+
+    - 已識別到下列分頁 Blob 資料。
+
+         ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+ 
+4. 請移至軟體解壓縮後所在的資料夾。 在該資料夾中，找出 SampleConfig.json 檔案。 這是您可以修改並儲存的唯讀檔案。
+
+   ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+ 
+5. 修改 SampleConfig.json 檔案。
+ 
+    - 提供作業名稱。 這會在資料箱磁碟中建立資料夾，而這最後會在與這些磁碟相關聯的 Azure 儲存體帳戶中成為容器。 作業名稱必須遵循 Azure 容器的命名慣例。 
+    - 提供來源路徑並記下 SampleConfigFile.json 中的路徑格式。 
+    - 輸入對應到目標磁碟的磁碟機代號。 資料會取自來源路徑，並複製到多個磁碟。
+    - 提供記錄檔的路徑。 根據預設，這會傳送到 .exe 目前所在的目錄。
+
+     ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+
+6. 若要驗證檔案格式，請移至 JSONlint。 將檔案儲存為 ConfigFile.json。 
+
+     ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+ 
+7. 開啟命令提示字元視窗。 
+
+8. 執行 DataBoxDiskSplitCopy.exe。 類型
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
+
+     ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+ 
+9. 按 Entert 後繼續執行指令碼。
+
+    ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+  
+10. 分割和複製資料集後，複製工作階段的分割複製工具摘要會隨即顯示。 下方顯示一項範例輸出。
+
+    ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+ 
+11. 請確認資料分散在目標磁碟上。 
+ 
+    ![分割複製資料](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![分割複製資料](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+     
+    如果您進一步檢查 n:磁碟機的內容，您會看到對應至區塊 Blob 和分頁 Blob 格式資料的兩個子資料夾已建立。
+    
+     ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+
+12. 如果複製工作階段動作失敗，則使用下列命令來復原並繼續：
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
+
+
+資料複製完成之後，下一個步驟是驗證資料。 
+
+
+## <a name="validate-data"></a>驗證資料 
 
 若要確認資料，請執行下列步驟。
 

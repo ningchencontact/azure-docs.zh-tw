@@ -1,20 +1,21 @@
 ---
-title: Project Acoustics 範例逐步解說 - 認知服務
+title: 範例：Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: 此逐步解說會說明 Unity 的 Project Acoustics 範例場景，包括對電腦和 VR 的部署。
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434087"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901153"
 ---
 # <a name="unity-sample-walkthrough"></a>Unity 範例逐步解說
 這是 Project Acoustics 範例的逐步解說。 如需有關什麼是 Project Acoustics 的詳細資訊，請參閱 [Project Acoustics 簡介](what-is-acoustics.md)。 如需有關將 Project Acoustics 套件新增至既有 Unity 專案的說明，請使用[使用者入門指南](getting-started.md)。

@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122864"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044411"
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>使用邏輯應用程式來管理郵寄清單要求
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>使用 Azure Logic Apps 來管理郵寄清單要求
 
 Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務、Microsoft 服務和其他軟體即服務 (SaaS) 應用程式與內部部署系統的資料。 本教學課程說明如何建立[邏輯應用程式](../logic-apps/logic-apps-overview.md)，以處理 [MailChimp](https://mailchimp.com/) 服務所管理之郵寄清單的訂閱要求。
 此邏輯應用程式會監視這些要求的電子郵件帳戶、傳送這些要求以供核准，並將已核准的成員新增至郵寄清單。

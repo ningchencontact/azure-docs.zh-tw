@@ -11,22 +11,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/25/2018
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: b2dafbcf0e41e7387157590e145f74430686321c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ef371447e851fece207d77fe656283abe3dc4164
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307114"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063858"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 建立 Xamarin.Forms 應用程式
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-本教學課程說明如何使用 Azure App Service 的 Mobile Apps 功能作為後端，將雲端型後端服務新增到 Xamarin.Forms 行動裝置應用程式。 您會同時建立新的 Mobile Apps 後端，以及可在 Azure 中儲存應用程式資料的簡易待辦事項清單 Xamarin.Forms 應用程式。
+此教學課程說明如何使用 Azure App Service 的 Mobile Apps 功能作為後端，將雲端型後端服務新增到 Xamarin.Forms 行動裝置應用程式。 您會同時建立新的 Mobile Apps 後端，以及可在 Azure 中儲存應用程式資料的簡易待辦事項清單 Xamarin.Forms 應用程式。
 
-完成本教學課程是所有其他 Xamarin.Forms 應用程式的行動應用程式教學課程的必要條件。
+完成此教學課程是所有其他 Xamarin.Forms 應用程式的行動應用程式教學課程的先決條件。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -181,7 +181,9 @@ ms.locfileid: "38307114"
 
 ## <a name="troubleshooting"></a>疑難排解
 
-如果在建置解決方案時發生問題，請執行 NuGet 套件管理員，並更新為最新版的 Xamarin.Forms，並在 Android 專案中，更新 Xamarin.Android 支援套件。 快速入門專案不一定會包含最新版本。
+如果在建置解決方案時發生問題，請執行 NuGet 套件管理員，並更新為最新版的 `Xamarin.Forms`，並在 Android 專案中，更新 `Xamarin.Android` 支援套件。 快速入門專案不一定會包含最新版本。
+
+請注意，您 Android 專案中參考的所有支援套件都必須有相同的版本。 [Azure Mobile Apps NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) 有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免衝突。
 
 ## <a name="next-steps"></a>後續步驟
 

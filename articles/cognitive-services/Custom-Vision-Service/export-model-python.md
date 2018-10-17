@@ -1,28 +1,29 @@
 ---
-title: 以 Python 執行 TensorFlow 模型 - 自訂視覺服務 - Azure 認知服務 | Microsoft Docs
-description: 以 Python 執行 TensorFlow 模型
+title: 教學課程：以 Python 執行 TensorFlow 模型 - 自訂視覺服務
+titlesuffix: Azure Cognitive Services
+description: 以 Python 執行 TensorFlow 模型。
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: d31036404604104ca28328b6c8bc5d3ca74d83ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370546"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247307"
 ---
-# <a name="run-tensorflow-model-in-python"></a>以 Python 執行 TensorFlow 模型
+# <a name="tutorial-run-tensorflow-model-in-python"></a>教學課程：以 Python 執行 TensorFlow 模型
 
 在您從自訂視覺服務[匯出 TensorFlow 模型](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)之後，本快速入門將示範如何在本機上使用此模型，來分類影像。
 
 ## <a name="install-required-components"></a>安裝必要的元件
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 若要使用教學課程，您需要執行下列動作：
 
@@ -189,8 +190,8 @@ with tf.Session() as sess:
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions:
-        truncated_probablity = np.float64(round(p,8))
+    for p in predictions[0]:
+        truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```

@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124013"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042286"
 ---
-# <a name="check-traffic-with-a-schedule-based-logic-app"></a>使用以排程為基礎的邏輯應用程式來檢查流量
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>使用 Azure Logic Apps 來檢查排程上的流量
 
 Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學課程說明如何建置具有排程器觸發程序的[邏輯應用程式](../logic-apps/logic-apps-overview.md)，而該觸發程序會在每個工作天早上執行並檢查兩地間的行進時間 (包括流量)。 如果時間超過特定限制，則邏輯應用程式會傳送包含行進時間和前往目的地所需額外時間的電子郵件。
 

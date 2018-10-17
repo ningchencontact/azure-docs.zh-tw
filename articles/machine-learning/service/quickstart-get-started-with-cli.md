@@ -9,12 +9,12 @@ author: rastala
 ms.author: roastala
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 296bbc12cb326c416c87948db0ce6d7b5ff114da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 856f9629e97f8cf7cf811e7d591cbcad6067f47a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972720"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237155"
 ---
 # <a name="quickstart-get-started-with-azure-machine-learning-using-the-cli-extension"></a>快速入門：以 CLI 擴充功能開始使用 Azure Machine Learning
 
@@ -83,7 +83,7 @@ az extension add azureml-sdk
 
 ## <a name="create-a-workspace-and-a-project-folder"></a>建立工作區和專案資料夾
 
-在命令列視窗中，於資源群組下建立 Azure Machine Learning 工作區。
+在命令列視窗中，於資源群組下建立 Azure Machine Learning 服務工作區。
 
 
    在本快速入門中：
@@ -132,7 +132,7 @@ az extension add azureml-sdk
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>後續步驟
-您現在已經建立了開始實驗和部署模型的必要資源。 您也建立了專案、執行指令碼，以及探索指令碼的執行歷程記錄。
+您現在已經建立了開始實驗和部署模型所需的資源。 您也建立了專案、執行指令碼，以及探索指令碼的執行歷程記錄。
 
 如需深入的工作流程體驗，請按照有關建置、定型和部署模型的 Azure Machine Learning 教學課程的步驟來操作。
 

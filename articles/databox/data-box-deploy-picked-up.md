@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: d649095a6b1b9f692a6795e96c9f15631d36e3e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05bfba9fffa7db75ef4e1a1167b3170a775e1d34
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974505"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785455"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>教學課程：送回 Azure 資料箱，並確認資料上傳至 Azure
 
@@ -39,7 +39,10 @@ ms.locfileid: "46974505"
 ## <a name="ship-data-box-back"></a>寄回資料箱
 
 1. 請確認裝置的電源已關閉，然後移除纜線。 纏繞裝置隨附的電源線，並將其安全地放在裝置背後。
-2. 請確定出貨標籤已顯示在電子筆墨顯示器上，並安排貨運業者取貨。 如果標籤損毀、遺失或未顯示在電子筆墨顯示器上，請從 Azure 入口網站下載出貨標籤，然後黏貼在裝置上。 移至 [概觀 > 下載出貨標籤]。
+2. 如果裝置是在美國運送，請確定出貨標籤已顯示在電子墨水顯示器上，並安排貨運業者取貨。 如果標籤損毀、遺失或未顯示在電子筆墨顯示器上，請從 Azure 入口網站下載出貨標籤，然後黏貼在裝置上。 移至 [概觀 > 下載出貨標籤]。 
+
+    如果裝置是在歐洲運送，電子墨水顯示器不會顯示出貨標籤。 相反地，回寄出貨標籤會在正面出貨標籤底下的透明袋中。 移除舊的出貨標籤，並確定出貨標籤清楚可見。
+    
 3. 如果是在美國辦理裝置退貨，請排程由 UPS 取貨。 如果是在歐洲經由 DHL 辦理裝置退貨，請造訪 DHL 的網站並且指定空運提單號碼，要求他們取貨。 移至該國家/地區的 DHL Express 網站，然後選擇 [Book a Courier Collection > eReturn Shipment] \(預約快遞收貨 > eReturn 出貨\)。 
 
     指定運貨單號碼，然後按一下 [Schedule Pickup] (排程取貨) 以安排取貨。

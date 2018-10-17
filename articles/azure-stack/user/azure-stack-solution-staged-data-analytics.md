@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b704db0b79d056f5c7081d3fed117e1d1f22b336
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978823"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237892"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 建立暫存資料分析解決方案 
 
@@ -29,7 +29,7 @@ ms.locfileid: "46978823"
 
 在此模式中，您的客戶將在收集點上收集需要分析的資料，以便快速做出決策。 此資料收集通常會在沒有網際網路存取時進行。 當連線建立時，您可能必須執行需要大量資源的資料分析，以獲取額外的深入解析。 公用雲端太慢或無法使用時，您仍可以分析資料。
 
-在本教學課程中，您將建置範例環境，用以：
+在本教學課程中建置範例環境，用以：
 
 > [!div class="checklist"]
 > - 建立原始資料儲存體 Blob。
@@ -41,7 +41,7 @@ ms.locfileid: "46978823"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的延伸模組。 Azure Stack 可將雲端運算的靈活性和創新能力引進您的內部部署環境中，並啟用獨特的混合式雲端，讓您能夠隨處建置及部署混合式應用程式。  
+> Microsoft Azure Stack 是 Azure 的延伸模組。 Azure Stack 可將雲端運算的靈活性和創新能力導入您的內部部署環境中，並啟用獨特的混合式雲端，讓您能夠隨處建置及部署混合式應用程式。  
 > 
 > [混合式應用程式的設計考量](https://aka.ms/hybrid-cloud-applications-pillars)技術白皮書檢閱了設計、部署和操作混合式應用程式時的軟體品質要素 (放置、延展性、可用性、復原、管理性和安全性)。 這些設計考量有助於您設計出最佳的混合式應用程式，讓生產環境遇到最少的挑戰。
 
@@ -55,7 +55,7 @@ ms.locfileid: "46978823"
 
 -   下載並安裝 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)。
 
--   這些函式處理的資料不能是提供的。 資料必須是產生的，並可供上傳至 Azure Stack 儲存體 Blob 容器。
+-   您必須提供您自己的資料，讓函式進行處理。 資料必須是產生的，並可供上傳至 Azure Stack 儲存體 Blob 容器。
 
 ## <a name="issues-and-considerations"></a>問題和考量
 
@@ -123,17 +123,11 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 建立新的 Azure Stack 函式，以將乾淨資料從 Azure Stack 移至 Azure。
 
-1.  按一下 [函式]，然後按一下 [+ 新增函式] 按鈕，即可建立新的函式。
+### <a name="create-the-azure-stack-function-app"></a>建立 Azure Stack 函式應用程式
 
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image3.png)
-
-2.  選取 [計時器觸發程序]。
-
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image4.png)
-
-3.  選取 [C\#] 作為語言，並將函式命名為：`upload-to-azure`  將排程設定為 `0 0 * * * *`，這在 CRON 標記法中是指一小時一次。
-
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image5.png)
+1. 登入 [Azure Stack 入口網站](https://portal.local.azurestack.external)。
+2. 選取 [所有服務]。
+3. 選取 [Web + 行動] 群組中的 [函式應用程式]。
 
 4.  請使用影像下方資料表中指定的設定建立函式應用程式。
 
@@ -148,7 +142,7 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
     | 取用方案 | 會定義如何將資源配置給函式應用程式的主控方案。 在預設取用方案中，您的函式會根據需要來動態新增資源。 在此無伺服器裝載中，您只需要針對函式有執行的時間來付費。 |  |
     | 位置 | 最接近您的區域 | 選擇的區域應靠近您或靠近函式將會存取的其他服務。 |
     | **儲存體帳戶** |  |  |
-    | \<上方所建立的儲存體帳戶> | 函式應用程式所使用之新儲存體帳戶的名稱。 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 您也可以使用現有帳戶。 |  |
+    | \<上方所建立的儲存體帳戶> | 函式應用程式所使用之新儲存體帳戶的名稱。 儲存體帳戶名稱長度必須介於 3 到 24 個字元之間。 名稱僅能使用數字和小寫字母。 您也可以使用現有帳戶。 |  |
 
     **範例：**
 
@@ -164,13 +158,25 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 ![已成功建立函式應用程式。](media\azure-stack-solution-staged-data-analytics\image8.png)
 
+### <a name="add-a-function-to-the-azure-stack-function-app"></a>將函式新增至 Azure Stack 函式應用程式
+
+1.  按一下 [函式]，然後按一下 [+ 新增函式] 按鈕，即可建立新的函式。
+
+    ![替代文字](media\azure-stack-solution-staged-data-analytics\image3.png)
+
+2.  選取 [計時器觸發程序]。
+
+    ![替代文字](media\azure-stack-solution-staged-data-analytics\image4.png)
+
+3.  選取 [C\#] 作為語言，並將函式命名為：`upload-to-azure`  將排程設定為 `0 0 * * * *`，這在 CRON 標記法中是指一小時一次。
+
+    ![替代文字](media\azure-stack-solution-staged-data-analytics\image5.png)
+
 ## <a name="create-a-blob-storage-triggered-function"></a>建立由 Blob 儲存體所觸發的函式
 
-1.  展開函式應用程式，然後選取 [函式] 旁的 [+] 按鈕。 如果這是函式應用程式中的第一個函式，請選取 [自訂函式]。 這會顯示一組完整的函式範本。
+1.  展開函式應用程式，然後選取 [函式] 旁的 [+] 按鈕。
 
-  ![Azure 入口網站中的 Functions 快速入門](media\azure-stack-solution-staged-data-analytics\image9.png)
-
-2.  在 [搜尋] 欄位中，輸入 blob，然後選擇需要的 Blob 儲存體觸發程序範本語言。
+2.  在 [搜尋] 欄位中，輸入 `blob`，然後選擇需要的 **Blob 觸發程序**範本語言。
 
   ![選擇 Blob 儲存體觸發程序範本。](media\azure-stack-solution-staged-data-analytics\image10.png)
 

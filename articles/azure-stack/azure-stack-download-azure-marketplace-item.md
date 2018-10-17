@@ -3,7 +3,7 @@ title: 從 Azure 下載市集項目 | Microsoft Docs
 description: 雲端操作者可以將市集項目從 Azure 下載到我的 Azure Stack 部署。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
-ms.author: brenduns
-ms.reviewer: jeffgo
-ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 10/09/2018
+ms.author: sethm
+ms.reviewer: ''
+ms.openlocfilehash: cf6bc980f6fd821056a987d0c830863bd15ba779
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412894"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902003"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
@@ -66,7 +66,7 @@ ms.locfileid: "39412894"
 
     下載完成之後，您可以用 Azure Stack 操作員或使用者身分來部署新市集項目。
 
-5. 若要部署已下載的項目，請選取 [+新增]，然後在類別中搜尋新的市集項目。 接下來選取項目以開始部署程序。 此程序會因不同的市集項目而有所不同。 
+5. 若要部署已下載的項目，請選取 [+ 建立資源]，然後在類別中搜尋新的市集項目。 接下來選取項目以開始部署程序。 此程序會因不同的市集項目而有所不同。 
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>已中斷連線或部分連線的案例
 
@@ -121,15 +121,15 @@ ms.locfileid: "39412894"
 
    ```
 
-5. 匯入摘要整合模組，然後執行下列指令碼來啟動工具。 使用一個位置取代「目的地資料夾路徑」，以儲存您從 Azure Marketplace 下載的檔案。   
+5. 匯入摘要整合模組，然後執行下列命令來啟動工具。 使用一個位置取代 `Destination folder path`，以儲存您從 Azure Marketplace 下載的檔案。   
 
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem `
-     -destination "Destination folder path" `
-     -AzureTenantID $AzureContext.Tenant.TenantId `
-     -AzureSubscriptionId $AzureContext.Subscription.Id  
+   Sync-AzSOfflineMarketplaceItem 
+      -Destination "Destination folder path in quotes" `
+      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
 6. 執行工具時，系統會提示您輸入 Azure 帳號認證。 登入您用來註冊 Azure Stack 的 Azure 帳戶。 登入成功之後，您應會看到如下圖所示的畫面，其中包含可用的市集項目清單。  
@@ -148,10 +148,10 @@ ms.locfileid: "39412894"
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>匯入下載並發佈至 Azure Stack Marketplace
 1. 您[先前下載的](#use-the-marketplace-syndication-tool-to-download-marketplace-items)虛擬機器映像檔案或解決方案範本檔案，必須可在本機提供給您的 Azure Stack 環境使用。  
 
-2. 使用管理入口網站，將市集項目套件 (.azpkg 檔案) 上傳至 Azure Stack Blob 儲存體。 上傳套件使其可供 Azure Stack 使用，以便您稍後將項目發佈至 Azure Stack Marketplace。
+2. 使用管理入口網站，將市集項目套件 (.azpkg 檔案) 和虛擬硬碟映像 (.vhd 檔案) 上傳至 Azure Stack Blob 儲存體。 上傳套件和磁碟檔案使其可供 Azure Stack 使用，以便您稍後將項目發佈至 Azure Stack Marketplace。
 
-   上傳時，您需要有具備可公開存取容器的儲存體帳戶 (請參閱這個案例的先決條件)   
-   1. 在 Azure Stack 管理入口網站中，前往 [更多服務] > [儲存體帳戶]。  
+   上傳時，您需要有具備可公開存取容器的儲存體帳戶 (請參閱這個案例的先決條件)。  
+   1. 在 Azure Stack 管理員入口網站中，移至 [所有服務]，然後在 [資料 + 儲存體] 類別下，選取 [儲存體帳戶]。  
    
    2. 從您的訂用帳戶選取儲存體帳戶，然後在 [Blob 服務] 之下選取 [容器]。  
       ![Blob 服務](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
@@ -159,7 +159,7 @@ ms.locfileid: "39412894"
    3. 選取您想要使用的容器，然後選取 [上傳] 以開啟 [上傳 blob] 窗格。  
       ![容器](media/azure-stack-download-azure-marketplace-item/container.png)  
    
-   4. 在 [上傳 blob] 窗格上，瀏覽至您想要載入儲存體中的檔案，然後選取 [上傳]。  
+   4. 在 [上傳 Blob] 窗格上，瀏覽至要載入到儲存體的套件和磁碟檔案，然後選取 [上傳]。  
       ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
 
    5. 您上傳的檔案會出現在 [容器] 窗格中。 選取檔案並從 [Blob 屬性] 窗格複製 URL。 當您將市集項目匯入 Azure Stack 時，您將在下一個步驟中使用此 URL。  在下圖中，容器是 blob-test-storage，而檔案是 Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg。  檔案 URL 是 *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*。  
@@ -169,7 +169,7 @@ ms.locfileid: "39412894"
 
    您可以從與 AZPKG 檔案一起下載的文字檔案中，取得映像的 publisher、offer 和 sku 值。 文字檔案會儲存在目的地位置。 version 值是在上一個程序中從 Azure 下載項目時所記下的版本。 
  
-   下列範例指令碼中會使用 Windows Server 2016 Datacenter - Server Core 虛擬機器的值。 以項目的 blob 儲存體位置路徑取代 URI_path。
+   下列範例指令碼中會使用 Windows Server 2016 Datacenter - Server Core 虛擬機器的值。 -Osuri 的值是項目的 Blob 儲存體位置路徑範例。
 
    ```PowerShell  
    Add-AzsPlatformimage `
@@ -178,7 +178,7 @@ ms.locfileid: "39412894"
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
-    -OsUri "URI_path"  
+    -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
    **關於解決方案範本：** 某些範本可以包含名稱為 **fixed3.vhd** 的小型 3 MB .VHD 檔案。 您不需要將該檔案匯入到 Azure Stack。 Fixed3.vhd。  這個檔案隨附於一些解決方案範本，以符合 Azure Marketplace 的發佈需求。
 
@@ -198,7 +198,7 @@ ms.locfileid: "39412894"
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. 發佈資源庫項目之後，您可以從 [更多服務] > [Marketplace] 檢視它。  如果您下載的是解決方案範本，請務必針對該解決方案範本新增任何相依的 VHD 映像。  
+5. 資源庫項目在發佈之後，現已可供使用。 若要確認是否已發佈資源庫項目，請移至 [所有服務]，然後在 [一般] 目錄下，選取 [Marketplace]。  如果您下載的是解決方案範本，請務必針對該解決方案範本新增任何相依的 VHD 映像。  
   ![檢視市集](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

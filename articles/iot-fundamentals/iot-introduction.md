@@ -1,19 +1,18 @@
 ---
-title: Azure 物聯網 (IoT) 簡介
-description: Azure IoT 及相關服務和技術概觀。
-author: BryanLa
-manager: timlt
+title: Azure 和物聯網 (IoT) 簡介
+description: Azure IoT 和內含服務的概觀
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: ed96181606e2db4102aa609973ade9ecbfde6c90
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: d7e5949be9ea09f94ff6ee86c9f996f2e203eac7
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187269"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069432"
 ---
 # <a name="introduction-to-azure-and-the-internet-of-things"></a>Azure 和物聯網簡介
 
@@ -28,10 +27,10 @@ IoT 解決方案需要裝置 (可能數以百萬計) 與解決方案後端之間
 * 其他企業營運應用程式。
 * 操作人員 (透過儀表板或其他簡報裝置)。
 
-![IoT 解決方案架構][img-solution-architecture]
+![IoT 解決方案架構](./media/iot-introduction/iot-reference-architecture.png)
 
 > [!NOTE]
-> 如需 IoT 架構的深入討論，請參閱 [Microsoft Azure IoT 參考架構][lnk-refarch]。
+> 如需 IoT 架構的深入討論，請參閱 [Microsoft Azure IoT 參考架構](https://aka.ms/iotrefarchitecture)。
 
 ### <a name="device-connectivity"></a>裝置連線能力
 
@@ -82,8 +81,10 @@ IoT 解決方案需要裝置 (可能數以百萬計) 與解決方案後端之間
 
 Azure IoT 簡化了 IoT 專案的複雜性，並解決了諸如安全性、基礎結構不相容以及調整 IoT 解決方案規模等挑戰。 方法說明如下：
 
-**敏捷** <br>
-加速您的 IoT 旅程
+### <a name="agile"></a>敏捷
+
+加速您的 IoT 旅程。
+
 * 規模：從小型專案開始，無論何處都可擴展到任何規模，涵蓋全球大多數地區的數百萬部裝置和以 TB 計的資料。
 
 * 開放：藉由連接到任何裝置、軟體或服務來使用您手邊所擁有的解決方案，或是進行現代化以供未來使用。
@@ -92,8 +93,9 @@ Azure IoT 簡化了 IoT 專案的複雜性，並解決了諸如安全性、基�
 
 * 步調：藉由 IoT 解決方案加速器和創新步伐的領先優勢，以加快部署、加速產品上市時間並保持競爭優勢。
 
-**完整** <br>
-為您的業務帶來影響力
+### <a name="comprehensive"></a>完整
+
+為您的業務帶來影響力。
 
 * 完整：只有 Microsoft 所提供的 IoT 解決方案能夠涵蓋裝置到雲端的完整平台，遍及大數據、進階分析，並具有受控服務。
 
@@ -103,8 +105,9 @@ Azure IoT 簡化了 IoT 專案的複雜性，並解決了諸如安全性、基�
 
 * 以裝置為中心：Microsoft IoT 允許您連線任何裝置，從傳統設備到通過認證的廣泛硬體生態系統，以及在 Edge、行動和內嵌系統中自行建置裝置的能力。
 
-**安全** <br>
-解決 IoT 中最難的部分，也就是安全性
+### <a name="secure"></a>安全
+
+解決 IoT 中最難的部分，也就是安全性。
 
 * 更多功能：您可以透過 Microsoft IoT，結合願景與技術、最佳作法和功能，以解決 IoT 最難的部分，也就是安全性。
 
@@ -116,69 +119,21 @@ Azure IoT 簡化了 IoT 專案的複雜性，並解決了諸如安全性、基�
 
 ## <a name="next-steps"></a>後續步驟
 
-探索下列各方面的技術和解決方案，或在左側的「目錄」中尋找 Azure IoT 服務清單。
+探索下列技術和解決方案領域。
 
-<ul class="panelContent cardsF">  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>解決方案</h3>
-                        <a href="/azure/iot-suite">IoT 解決方案加速器</a><br/>
-                        <a href="/azure/iot-central">IoT 中心</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>平台服務</h3>
-                        <a href="/azure/iot-hub">IoT 中心</a><br/>
-                        <a href="/azure/iot-dps">IoT 中樞裝置佈建服務</a><br/>
-                        <a href="/azure/azure-maps">地圖</a><br/>
-                        <a href="/azure/time-series-insights">時間序列深入解析</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Edge</h3>
-                        <a href="/azure/iot-edge">IoT Edge</a><br/>
-                        <a href="/azure/iot-edge/how-iot-edge-works">什麼是 IoT Edge？</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>      
-</ul>
+**解決方案**
 
-[img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
+* [IoT 解決方案加速器](/azure/iot-suite)
+* [IoT 中心](/azure/iot-central)
 
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
-[lnk-iot-dps-land]: /azure/iot-dps/index.yml
-[lnk-iot-edge-land]: /azure/iot-edge/index.yml
-[lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-maps-land]: /azure/maps/index.yml
-[lnk-iot-sa-land]: ../iot-accelerators/index.yml
-[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+**平台服務**
 
-[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
-[lnk-iot-sa]: ../iot-accelerators/about-iot-accelerators.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: https://aka.ms/iotrefarchitecture
+* [IoT 中心](/azure/iot-hub)
+* [IoT 中樞裝置佈建服務](/azure/iot-dps)
+* [Azure 地圖服務](/azure/azure-maps/)
+* [時間序列深入解析](/azure/time-series-insights)
 
+**Edge**
 
+* [IoT Edge 概觀](/azure/iot-edge)
+* [什麼是 IoT Edge](/azure/how-iot-edge-works)

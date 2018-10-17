@@ -3,7 +3,7 @@ title: 在本教學課程中，您會了解如何訂閱 Azure Stack 供應項目
 description: 本教學課程會示範如何建立新的 Azure Stack 服務訂用帳戶，並藉由建立測試虛擬機器來測試供應項目。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 96b82ede71e7957105dce25096d7873ee876211f
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236924"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076095"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>教學課程：建立和測試訂用帳戶
 本教學課程說明如何建立含有供應項目的訂用帳戶，然後進行測試。 為了進行測試，您會以雲端管理員的身分登入 Azure Stack 使用者入口網站，訂閱該供應項目，然後建立虛擬機器。
@@ -51,7 +51,7 @@ ms.locfileid: "35236924"
    > [!TIP]
    > 您必須立即重新整理使用者入口網站才可開始使用您的訂用帳戶。
 
-3. 若要檢視您剛建立的訂用帳戶，請按一下 [更多服務]、按一下 [訂用帳戶]，然後按一下您的新訂用帳戶。 在訂閱供應項目之後，請重新整理入口網站以查看新訂用帳戶中是否已納入新服務。 在此範例中，我們已新增**虛擬機器**。
+3. 若要檢視您所建立的訂用帳戶，請按一下 [所有服務]。  接著，選取 [一般] 類別之下的 [訂用帳戶]，然後選取您的新訂用帳戶。 在訂閱供應項目之後，請重新整理入口網站以查看新訂用帳戶中是否已納入新服務。 在此範例中，我們已新增**虛擬機器**。
 
    ![檢視訂用帳戶](media/azure-stack-subscribe-services/view-subscription.png)
 

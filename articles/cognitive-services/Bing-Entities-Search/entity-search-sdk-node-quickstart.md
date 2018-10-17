@@ -1,23 +1,23 @@
 ---
-title: 實體搜尋 SDK 節點快速入門 | Microsoft Docs
-description: 設定實體搜尋 SDK 主控台應用程式。
-titleSuffix: Azure cognitive services
+title: 快速入門：Bing 實體搜尋 SDK，Node
+titleSuffix: Azure Cognitive Services
+description: 使用 Node 設定實體搜尋 SDK 主控台應用程式。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2904ecfed33334458f9b6a9ca2500cd0bfef13bc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370746"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814877"
 ---
-# <a name="entity-search-sdk-node-quickstart"></a>實體搜尋 SDK 節點快速入門
+# <a name="quickstart-bing-entity-search-sdk-with-node"></a>快速入門：搭配使用 Bing 實體搜尋 SDK 與 Node
 
 Bing 實體搜尋 SDK 包含用於實體查詢和剖析結果的 REST API 功能。 
 

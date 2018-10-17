@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: v-deken
-ms.openlocfilehash: 030a8351a8f41c7404fa4ca8d243fff1ad818c2f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9a0acae20a6361f5a9b69e427d46dd1b9c7db05e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433594"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869341"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -61,7 +61,7 @@ ms.locfileid: "47433594"
 - 必須以 JPEG、PNG、GIF 或 BMP 格式呈現的影像
 - 影像的檔案大小必須小於 4 MB
 - 影像的維度必須大於 50 x 50 像素  
-  使用 OCR 時，影像的維度必須介於 50 x 50 與 4200 x 4200 像素之間，且影像大小不可超過 1000 萬像素。
+  針對 OCR，影像的大小必須介於 50 x 50 與 4200 x 4200 像素之間
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,14 +9,14 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/09/2018
 ms.author: barclayn
-ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171318"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079458"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>教學課程：從 Web 應用程式使用 Azure Key Vault
 
@@ -42,8 +42,7 @@ ms.locfileid: "39171318"
 
 完成[開始使用 Azure Key Vault](key-vault-get-started.md)中的步驟來取得祕密、用戶端識別碼、用戶端祕密的 URI，並註冊應用程式。 Web 應用程式會存取保存庫，而且必須在 Azure Active Directory 中註冊。 它還必須具有 Key Vault 的存取權限。 如果並非如此，請回到開始使用教學課程中的註冊應用程式，並重複列出的步驟。 如需有關建立 Azure Web Apps 的詳細資訊，請參閱 [Web Apps 概觀](../app-service/app-service-web-overview.md)。
 
-此範例取決於手動佈建 Azure Active Directory 身分識別。 但您應改用[受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview)。 MSI 可自動佈建 Azure AD 身分識別。 如需詳細資訊，請參閱 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 上的範例以及相關的 [MSI 與 App Service 及 Functions 教學課程](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)。 您也可以查看 Key Vault 的特定 [MSI 教學課程](tutorial-web-application-keyvault.md)
-
+此範例取決於手動佈建 Azure Active Directory 身分識別。 但您應該改用 [Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/overview.md)，它會自動佈建 Azure AD 身分識別。 如需詳細資訊，請參閱 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 上的範例以及相關的 [App Service 和 Functions 教學課程](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)。 您也可以查看 Key Vault 特定的[設定 Azure Web 應用程式以從 Key Vault 讀取祕密的教學課程](tutorial-web-application-keyvault.md)。
 
 ## <a id="packages"></a>新增 NuGet 套件
 
@@ -145,14 +144,19 @@ Utils.EncryptSecret = sec.Value;
 
 ```powershell
 #Create self-signed certificate and export pfx and cer files 
-$PfxFilePath = "c:\data\KVWebApp.pfx" 
-$CerFilePath = "c:\data\KVWebApp.cer" 
-$DNSName = "MyComputer.Contoso.com" 
-$Password ="MyPassword" 
+$PfxFilePath = 'KVWebApp.pfx'
+$CerFilePath = 'KVWebApp.cer'
+$DNSName = 'MyComputer.Contoso.com'
+$Password = 'MyPassword"'
+
+$StoreLocation = 'CurrentUser' #be aware that LocalMachine requires elevated privileges
+$CertBeginDate = Get-Date
+$CertExpiryDate = $CertBeginDate.AddYears(1)
+
 $SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
-$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
-Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
-Export-Certificate -cert $cert -FilePath $CerFilePath 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\$StoreLocation\My" -NotBefore $CertBeginDate -NotAfter $CertExpiryDate -KeySpec Signature
+Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
 記下 .pfx 的結束日期和密碼 (在此範例中為：2019 年 5 月 15 日和 MyPassword)。 您在下面的指令碼中會需要這些資訊。 
@@ -172,7 +176,7 @@ $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwe
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint
@@ -259,7 +263,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetA
 若不再需要，請刪除您用於本教學課程的應用程式服務、金鑰保存庫及 Azure AD 應用程式。  
 
 
-## <a id="next"></a>後續步驟
+## <a id="next"></a>接續步驟
 > [!div class="nextstepaction"]
 >[Azure Key Vault 管理 API 參考](/dotnet/api/overview/azure/keyvault/management)。
 

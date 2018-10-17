@@ -1,6 +1,6 @@
 ---
-title: 將 HTTPS 端點新增至 Azure 中的 Service Fabric 應用程式 | Microsoft Docs
-description: 在本教學課程中，您會了解如何將 HTTPS 端點新增至 ASP.NET Core 前端 Web 服務，以及將應用程式部署到叢集。
+title: 使用 Kestrel 將 HTTPS 端點新增至 Azure 中的 Service Fabric 應用程式 | Microsoft Docs
+description: 在本教學課程中，您將了解如何使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core 前端 Web 服務，以及將應用程式部署到叢集。
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 27167b011e23befda5d0c3703adeafc1581f4b98
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130045"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268930"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>教學課程：將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 
 本教學課程是一個系列課程的第三部分。  您將了解如何在 Service Fabric 上執行的 ASP.NET Core 服務中啟用 HTTPS。 當您完成時，您會有一個投票應用程式，其啟用 HTTPS 的 ASP.NET Core Web 前端會在連接埠 443 上接聽。 如果您不想要在[建置 .NET Service Fabric 應用程式](service-fabric-tutorial-deploy-app-to-party-cluster.md)中手動建立投票應用程式，可以針對已完成的應用程式[下載原始程式碼](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)。
 
@@ -41,10 +41,10 @@ ms.locfileid: "37130045"
 > * [建置 .NET Service Fabric 應用程式](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [將應用程式部署到遠端叢集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * 將 HTTPS 端點新增至 ASP.NET Core 前端服務
-> * [使用 Visual Studio Team Services 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [使用 Azure Pipelines 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
@@ -232,6 +232,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
 修改 Setup.bat 檔案屬性，以將 [複製到輸出目錄] 設為 [有更新時才複製]。
+
 ![設定檔案屬性][image1]
 
 在 [方案總管] 中，以滑鼠右鍵按一下 **VotingWeb**，選取 [新增]-> [新項目]，然後新增名為 "SetCertAccess.ps1" 的檔案。  編輯 SetCertAccess.ps1 檔案，然後新增下列指令碼：
@@ -265,7 +266,7 @@ if ($cert -eq $null)
     $hasPermissionsAlready = ($acl.Access | where {$_.IdentityReference.Value.Contains($userGroup.ToUpperInvariant()) -and $_.FileSystemRights -eq [System.Security.AccessControl.FileSystemRights]::FullControl}).Count -eq 1
 
     if ($hasPermissionsAlready){
-        Write-Host "Account $userGroupCertificate already has permissions to certificate '$subject'." -ForegroundColor Green
+        Write-Host "Account $userGroup already has permissions to certificate '$subject'." -ForegroundColor Green
         return $false;
     } else {
         Write-Host "Need add permissions to '$subject' certificate..." -ForegroundColor DarkYellow
@@ -281,8 +282,9 @@ if ($cert -eq $null)
     }
 }
 
-Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
+
+修改 SetCertAccess.ps1 檔案屬性，以將 [複製到輸出目錄] 設為 [有更新時才複製]。
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>以本機系統管理員身分執行設定指令碼
 
@@ -442,7 +444,7 @@ $slb | Set-AzureRmLoadBalancer
 
 前進到下一個教學課程：
 > [!div class="nextstepaction"]
-> [使用 Visual Studio Team Services 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [使用 Azure Pipelines 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png

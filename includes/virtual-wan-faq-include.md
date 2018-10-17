@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/10/2018
+ms.date: 10/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: de744a4a23b246223ed0f42f3d079b1ac2e5521a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008816"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874128"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 虛擬網路閘道 (VPN 閘道) 與 Azure 虛擬 WAN vpngateway 之間有什麼差異？
 
@@ -21,7 +21,11 @@ ms.locfileid: "47008816"
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>啟動時支援哪些裝置提供者 (虛擬 WAN 合作夥伴)？ 
 
-目前，Citrix 與 Riverbed 支援完全自動化的虛擬 WAN 體驗。 如需詳細資訊，請參閱[虛擬 WAN 合作夥伴](https://go.microsoft.com/fwlink/p/?linkid=2019615)。
+目前有許多合作夥伴支援完全自動化的虛擬 WAN 體驗。 如需詳細資訊，請參閱[虛擬 WAN 合作夥伴](https://go.microsoft.com/fwlink/p/?linkid=2019615)。 
+
+### <a name="what-are-the-virtual-wan-partner-automation-steps"></a>虛擬 WAN 合作夥伴自動化步驟是什麼？
+
+若要了解合作夥伴自動化步驟，請參閱[虛擬 WAN 合作夥伴自動化](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)。
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>我是否必須使用偏好的合作夥伴裝置？
 
@@ -41,7 +45,7 @@ ms.locfileid: "47008816"
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>有多少部 VPN 裝置可以連線到單一中樞？
 
-每個虛擬中樞支援多達 100 個連線。 每個連線都是由兩個通道所組成，其組態為主動-主動。 通道會在 Azure 虛擬中樞 vpngateway 內終止。
+每個虛擬中樞支援多達 1000 個連線。 每個連線是由兩個通道所組成，其組態為主動-主動。 通道會在 Azure 虛擬中樞 vpngateway 內終止。
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>內部部署 VPN 裝置是否可以連線到多個中樞？
 
@@ -65,8 +69,7 @@ ms.locfileid: "47008816"
 
 ### <a name="is-there-support-for-bgp"></a>是否支援 BGP？
 
-是，支援 BGP。 若要確保來自 NVA VNet 的路由會適當地公告，如果輪輻已連線至 NVA VNet，後者接著連線至虛擬中樞，則輪輻必須停用 BGP。 此外，請將輪輻 VNet 連線到虛擬中樞，以確保輪輻 VNet 路由會傳播到內部部署系統。
-是否可以使用虛擬中樞的 UDR 來引導流量？
+是，有支援 BGP。 若要確保來自 NVA VNet 的路由會適當地公告，如果輪輻已連線至 NVA VNet，後者接著連線至虛擬中樞，則輪輻必須停用 BGP。 此外，請將輪輻 VNet 連線到虛擬中樞，以確保輪輻 VNet 路由會傳播到內部部署系統。
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>是否可以使用虛擬中樞的 UDR 來引導流量？
 
@@ -94,7 +97,7 @@ ms.locfileid: "47008816"
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>虛擬 WAN 與現有的 Azure 虛擬網路閘道有何不同？
 
-虛擬網路閘道 VPN 限定為 30 個通道。 對於連線，您應將虛擬 WAN 用於大規模的 VPN。 您可以在中樞內連線到最多 100 個分支連線，中樞內的輸送量上限為每秒 2 Gb。 連線是從內部部署 VPN 裝置到虛擬中樞的主動-主動通道。 您可以在每個區域都有一個中樞，這表示您可以跨中樞連線到超過 100 個分支。
+虛擬網路閘道 VPN 限定為 30 個通道。 對於連線，您應將虛擬 WAN 用於大規模的 VPN。 您可以在所有區域 (中西部區域除外) 的中樞內以 2 Gbps 連線到最多 1000 個分支連線。 中西部區域可使用 20 Gbps。 未來我們會將 20 Gbps 推展到其他區域。 連線是從內部部署 VPN 裝置到虛擬中樞的主動-主動通道。 您可以在每個區域都有一個中樞，這表示您可以跨中樞連線到超過 1000 個分支。
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>此虛擬 WAN 是否需要來自每個網站的 ExpressRoute？
 
@@ -102,15 +105,15 @@ ms.locfileid: "47008816"
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>使用 Azure 虛擬 WAN 時是否有網路輸送量限制？
 
-每個中樞/區域的分支數目限制為 100 個連線，且中樞內的合併連線速度限制為 2 G。
+每個中樞/區域的分支數目限制為 1000 個連線，且中樞內的合併連線速度限制為 2 G。 美國中西部例外，其總計為 20 Gbps。 未來我們會將 20 Gbps 推展到其他區域。
 
-### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>虛擬 WAN 允許內部部署裝置以平行方式使用多個 ISP，還是一律為單一 VPN 通道？
+### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>虛擬 WAN 是否允許內部部署裝置以平行方式使用多個 ISP，還是一律為單一 VPN 通道？
 
 是，您可以根據分支裝置，使用來自單一分支的主動-主動通道 (2 個通道 = 1 個 Azure 虛擬 WAN 連線)。
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>流量在 Azure 骨幹上的路由傳送方式為何？
 
-流量會依循下列模式：分支裝置->ISP->Microsoft Edge->Microsoft DC->Microsoft Edge->ISP->分支裝置。
+流量會依循下列模式：分支裝置->ISP->Microsoft Edge->Microsoft DC->Microsoft Edge->ISP->分支裝置
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>在此模型中，每個站台需要什麼？ 有網際網路連線就可以嗎？
 

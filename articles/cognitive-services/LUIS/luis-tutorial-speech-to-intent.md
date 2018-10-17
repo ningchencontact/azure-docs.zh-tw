@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042069"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883919"
 ---
 # <a name="integrate-speech-service"></a>整合語音服務
 [語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 封裝 (已隨附提供參考)。 
@@ -26,7 +26,7 @@ ms.locfileid: "47042069"
 在 Azure 入口網站中，[建立 ](luis-how-to-azure-subscription.md#create-luis-endpoint-key)**Language Understanding** (LUIS) 金鑰。 
 
 ## <a name="import-human-resources-luis-app"></a>匯入 Human Resources LUIS 應用程式
-本文中的意圖和語句，皆來自位於 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github 存放庫中的 Human Resources LUIS 應用程式。 下載 [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) 檔案、以 *.json 副檔名儲存該檔案，然後將它[匯入](luis-how-to-start-new-app.md#import-new-app) LUIS。 
+本文中的意圖和語句，皆來自位於 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github 存放庫中的 Human Resources LUIS 應用程式。 下載 [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) 檔案、以 `.json` 副檔名儲存該檔案，然後將它[匯入](luis-how-to-start-new-app.md#import-new-app) LUIS。 
 
 此應用程式具有與人力資源領域相關的意圖、實體和語句。 語句範例包括：
 
@@ -68,57 +68,29 @@ ms.locfileid: "47042069"
 [![](./media/luis-tutorial-speech-to-intent/nuget-package.png "顯示 Microsoft.CognitiveServices.Speech NuGet 封裝的 Visual Studio 2017 螢幕擷取畫面")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>修改 C# 程式碼
-開啟 **LUIS_samples.cs** 檔案並變更下列變數：
+開啟 `Program.cs` 檔案，並變更下列變數：
 
 |變數名稱|目的|
 |--|--|
-|luisSubscriptionKey|從 [發佈] 頁面對應到端點 URL 的 subscription-key 值|
-|luisRegion|對應到端點 URL 的第一個子網域|
-|luisAppId|對應到 **apps/** 之後的端點 URL 的路由|
+|LUIS_assigned_endpoint_key|從 [發佈] 頁面對應到端點 URL 的指派 subscription-key 值|
+|LUIS_endpoint_key_region|對應到端點 URL 的第一個子網域，例如 `westus`|
+|LUIS_app_ID|對應到 **apps/** 之後的端點 URL 的路由|
 
-[![](./media/luis-tutorial-speech-to-intent/change-variables.png "顯示 LUIS_samples.cs variables 的 Visual Studio 2017 螢幕擷取畫面")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
-
-此檔案已經對應 Human Resources 意圖。
-
-[![](./media/luis-tutorial-speech-to-intent/intents.png "顯示 LUIS_samples.cs 意圖的 Visual Studio 2017 螢幕擷取畫面")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
+`Program.cs` 檔案已經對應 Human Resources 意圖。
 
 建置並執行應用程式。 
 
 ## <a name="test-code-with-utterance"></a>使用語句測試程式碼
-選取 [1]，然後對麥克風說出「Who is the manager of John Smith」(John Smith 的主管是誰)。
+對麥克風說「Redmond 的合格牙醫有誰？」。
 
-```cmd
-1. Speech recognition of LUIS intent.
-0. Stop.
-Your choice: 1
-LUIS...
-Say something...
-ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
-  "query": "Who is the manager of John Smith?",
-  "topScoringIntent": {
-    "intent": "GetEmployeeOrgChart",
-    "score": 0.617331
-  },
-  "entities": [
-    {
-      "entity": "manager of john smith",
-      "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 31
-    }
-  ]
-}
+[!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Recognition done. Your Choice:
-
-```
-
-系統找到正確意圖 **GetEmployeeOrgChart**，信賴度 61%。 系統傳回 keyPhrase 實體。 
+系統找到正確意圖 **GetEmployeeBenefits**，信賴度 85%。 系統傳回 keyPhrase 實體。 
 
 語音 SDK 會傳回整個 LUIS 回應。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要 LUIS HumanResources 應用程式，請予以刪除。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的省略符號 (***...***) 按鈕，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+若不再需要 LUIS HumanResources 應用程式，請予以刪除。 若要這樣做，請選取應用程式，然後在清單上方的內容相關工具列中，選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 用完範例程式碼後，請記得刪除 LUIS-Samples 目錄。
 

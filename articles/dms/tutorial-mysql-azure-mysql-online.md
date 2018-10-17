@@ -3,20 +3,20 @@ title: 使用 Azure 資料庫移轉服務在線上將 MySQL 移轉至適用於 M
 description: 了解如何使用 Azure 資料庫移轉服務，在線上將內部部署的 MySQL 移轉至適用於 MySQL 的 Azure 資料庫。
 services: dms
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/31/2018
-ms.openlocfilehash: c36a771266f595f6d8dc8575d100fa5bb9496584
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.date: 10/06/2018
+ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714917"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829846"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>使用 DMS 在線上將 MySQL 移轉至適用於 MySQL 的 Azure 資料庫
 您可以使用 Azure 資料庫移轉服務，在最短的停止運作時間內將資料庫從內部部署 MySQL 執行個體移轉至[適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)。 換句話說，移轉可在最短的應用程式停止運作時間內完成。 在本教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **Employees** 範例資料庫從內部部署的 MySQL 5.7 執行個體移轉至適用於 MySQL 的 Azure 資料庫。
@@ -50,13 +50,23 @@ ms.locfileid: "44714917"
 - 適用於 MySQL 的 Azure 資料庫僅支援 InnoDB 資料表。 若要將 MyISAM 資料表轉換為 InnoDB，請參閱[將資料表從 MyISAM 轉換為 InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 一文 
 
 - 使用下列組態，在來源資料庫的 my.ini (Windows) 或 my.cnf (Unix) 檔案中啟用二進位記錄：
+
+    - **server_id** = 1 或更大 (僅與 MySQL 5.6 有關)
+    - **log-bin** =<path> (僅與 MySQL 5.6 有關)
+
+        例如：log-bin = E:\MySQL_logs\BinLog
+    - **binlog_format** = row
+    - **Expire_logs_days** = 5 (建議不要使用零；僅與 MySQL 5.6 有關)
+    - **Binlog_row_image** = full (僅與 MySQL 5.6 有關)
+    - **log_slave_updates** = 1
+ 
 - 使用者必須有具備下列權限的 ReplicationAdmin 角色：
     - **REPLICATION CLIENT** - 只有變更處理工作需要此權限。 換句話說，「僅限完整載入」工作並不需要此權限。
     - **REPLICATION REPLICA** - 只有變更處理工作需要此權限。 換句話說，「僅限完整載入」工作並不需要此權限。
     - **SUPER** - 只有 MySQL 5.6.6 之前的版本需要此權限。
 
 ## <a name="migrate-the-sample-schema"></a>移轉範例結構描述
-若要完成所有資料表物件 (例如資料表結構描述、索引和預存程序)，我們必須從來源資料庫擷取結構描述，並套用至資料庫。 若要擷取結構描述，您可以使用 mysqldump 搭配 - - no-data 參數。
+若要完成所有資料表物件 (例如資料表結構描述、索引和預存程序)，我們必須從來源資料庫擷取結構描述，並套用至資料庫。 若要擷取結構描述，您可以使用 mysqldump 搭配 `--no-data` 參數。
  
 假設您在內部部署系統中有 MySQL 員工範例資料庫，則使用 mysqldump 命令進行結構描述移轉的命令將是：
 ```

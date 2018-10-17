@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346183"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078489"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教學課程：建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
 
@@ -40,10 +40,10 @@ ms.locfileid: "37346183"
 > * 建置 .NET Service Fabric 應用程式
 > * [將應用程式部署到遠端叢集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [將 HTTPS 端點新增至 ASP.NET Core 前端服務](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [使用 Visual Studio Team Services 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [使用 Azure Pipelines 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -455,6 +455,9 @@ namespace VotingData.Controllers
 對於您與可靠服務通訊的方式，Service Fabric 會提供完整的彈性。 在單一應用程式中，您可能有可透過 TCP 存取的服務。 可透過 HTTP 的 REST API 存取的其他服務以及其他任何服務可以透過 Web 通訊端存取。 如需可用選項和相關權衡取捨的背景，請參閱 [與服務進行通訊](service-fabric-connect-and-communicate-with-services.md)。
 
 此教學課程使用 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 與 [Service Fabric 反向 Proxy](service-fabric-reverseproxy.md)，讓 VotingWeb 前端 Web 服務能與後端 VotingData 服務通訊。 依預設，反向 Proxy 會設定為使用連接埠 19081，且應適用於本教學課程。 該連接埠會設定在用於設定叢集的 ARM 範本中。 若要尋找使用哪個連接埠，請查詢 **Microsoft.ServiceFabric/clusters** 資源中的叢集範本，或查看叢集資訊清單中的 HttpApplicationGatewayEndpoint 元素。
+
+> [!NOTE]
+> 只有執行 Windows 8 和更新版本或 Windows Server 2012 和更新版本的叢集支援反向 Proxy。
 
 <u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort resource</u>
 

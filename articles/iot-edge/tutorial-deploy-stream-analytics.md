@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: de856aed32b596209f7af2861b76ed6648d0caca
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422740"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067817"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>教學課程：將 Azure 串流分析部署為 IoT Edge 模組 (預覽)
 
@@ -139,7 +139,9 @@ Azure IoT Edge 裝置：
 
 若要準備將您的串流分析作業部署到 IoT Edge 裝置上，您必須將該作業與儲存體帳戶中的容器產生關聯。 當您部署作業時，作業定義即會匯出至儲存體容器。 
 
-1. 在 [設定] 下，選取 [IoT Edge 設定]。
+1. 在 [設定] 底下，選取 [儲存體帳戶設定]。
+
+1. 選取 [新增儲存體帳戶]。 
 
 1. 從下拉式功能表中選取您的 [儲存體帳戶]。
 

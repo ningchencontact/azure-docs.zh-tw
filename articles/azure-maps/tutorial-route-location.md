@@ -3,18 +3,18 @@ title: 使用 Azure 地圖服務尋找路線 | Microsoft Docs
 description: 使用 Azure 地圖服務的景點路線
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578932"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816713"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>使用 Azure 地圖服務的景點路線
 
@@ -126,14 +126,16 @@ ms.locfileid: "45578932"
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    **map.setCameraBounds** 會根據起點和終點座標來調整地圖視窗。 **map.addPins** API 會在地圖控制項中以視覺化元件的形式新增景點。
+    **map.setCameraBounds** 會根據起點和終點座標來調整地圖視窗。 **map.addEventListener** 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。 事件接聽程式內的 **map.addPins** API 會在地圖控制項中以視覺化元件的形式新增景點。
 
 3. 儲存 **MapRoute.html** 檔案並重新整理瀏覽器。 現在地圖會以西雅圖作為中心，而且您會看到以圓形藍色圖釘標示的起點，和以藍色圖釘標示的終點。
 
@@ -143,7 +145,7 @@ ms.locfileid: "45578932"
 
 ## <a name="get-directions"></a>取得指示
 
-本節說明如何使用地圖服務的路線規劃服務 API，尋找從給定起點到終點的路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」、「最短」、「最環保」或「驚心動魄」的路線。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱[取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。
+本節說明如何使用地圖服務的路線規劃服務 API，尋找從給定起點到終點的路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」、「最短」、「最環保」或「驚心動魄」的路線。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱[取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。 以下所有功能都應該新增至**地圖載入 eventListener 內**，以確保會在地圖完整載入之後載入。
 
 1. 首先，在地圖上新增一個圖層來顯示路線路徑 (亦即 linestring)。 在 script 區塊中新增下列 JavaScript 程式碼。
 
@@ -204,6 +206,10 @@ ms.locfileid: "45578932"
 > * 使用地圖控制項 API 建立新的網頁
 > * 設定地址座標
 > * 查詢路線規劃服務以了解如何前往景點
+
+您可以在這裡存取本教學課程的程式碼範例：
+
+> [使用 Azure 地圖服務尋找路線](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 下一個教學課程會示範如何建立具有限制 (例如，行進模式或貨物類型) 的路線查詢 ，然後在同一個地圖上顯示多條路線。
 

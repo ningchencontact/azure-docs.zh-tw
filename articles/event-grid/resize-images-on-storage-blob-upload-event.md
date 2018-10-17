@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 922c87f2d577aff86d51a1fde53f221ebd2fa82c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446685"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585572"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>使用 Event Grid 自動調整已上傳映像的大小
 
@@ -43,6 +43,16 @@ ms.locfileid: "39446685"
 您必須先完成上一個 Blob 儲存體教學課程：[使用 Azure 儲存體上傳雲端中的映像資料][previous-tutorial]。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+如果您先前未在訂用帳戶中註冊事件方格資源提供者，請務必註冊。
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
+```
+
+```azurecli-interactive
+az provider register --namespace Microsoft.EventGrid
+```
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -91,8 +101,10 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails
+myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
 ```
+
+`FUNCTIONS_EXTENSION_VERSION=~2` 設定會讓函式應用程式在 2.x 版的 Azure Functions 執行階段上執行。
 
 您現在可以將函式程式碼專案部署到此函式應用程式。
 
@@ -111,8 +123,7 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-範例 Node.js 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 命令，將此函式程式碼專案部署至函式應用程式。 
-
+範例 Node.js 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 命令，將此函式程式碼專案部署至函式應用程式。
 
 在下列命令中，`<function_app>` 是您先前建立的函式應用程式名稱。
 

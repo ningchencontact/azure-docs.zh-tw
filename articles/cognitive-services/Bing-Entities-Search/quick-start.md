@@ -1,25 +1,24 @@
 ---
-title: 實體搜尋 API 快速入門 | Microsoft Docs
+title: 快速入門：Bing 實體搜尋 API
 description: 示範如何使用 Bing 實體搜尋 API 開始使用。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: 12031d2447920c7e2d6180f35cf4fb29aa1b6150
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367938"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813952"
 ---
-# <a name="making-your-first-entities-request"></a>提出您的第一個實體要求
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>快速入門：進行您的第一次 Bing 實體搜尋要求
 
-實體搜尋 API 會將搜尋查詢傳送至 Bing，並取得包含實體和地點的結果。 地點結果包含餐廳、旅館或其他本地商家。 針對地點，查詢可指定本地商家名稱或要求清單 (例如，我附近的餐廳)。 實體結果包含人員、地點或事項。 此內容中的地點是觀光景點、州、國家/地區等。 
+Bing 實體搜尋 API 會將搜尋查詢傳送至 Bing，並取得包含實體和地點的結果。 地點結果包含餐廳、旅館或其他本地商家。 針對地點，查詢可指定本地商家名稱或要求清單 (例如，我附近的餐廳)。 實體結果包含人員、地點或事項。 此內容中的地點是觀光景點、州、國家/地區等。 
 
 ## <a name="first-steps"></a>第一個步驟
 
@@ -35,13 +34,13 @@ https://api.cognitive.microsoft.com/bing/v7.0/entities
 
 要求必須使用 HTTPS 通訊協定。
 
-我們建議所有要求來自伺服器。 隨著用戶端應用程式散佈金鑰會讓惡意的第三方有更多機會存取該應用程式。 此外，從伺服器進行呼叫可為 API 的未來版本提供單一升級點。
+我們建議所有要求均應來自伺服器。 隨著用戶端應用程式散佈金鑰，會讓惡意的第三方有更多機會存取該應用程式。 此外，從伺服器進行呼叫可為 API 的未來版本提供單一升級點。
 
 ## <a name="specifying-query-parameters-and-headers"></a>指定查詢參數和標頭
 
 要求必須指定 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) 查詢參數，其包含使用者的搜尋字詞。 要求也必須指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) 查詢參數，其可識別您希望結果來自哪個市場。 如需選用查詢參數的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters)。 對所有查詢參數進行 URL 編碼。  
   
-要求必須指定 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey) 標頭。 雖然是選用的，但我們也鼓勵您指定以下標頭：  
+要求必須指定 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey) 標頭。 雖然是選擇性的，但我們仍建議使用以下標頭：  
   
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientid)  

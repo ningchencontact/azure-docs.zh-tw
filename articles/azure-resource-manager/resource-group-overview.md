@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969286"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220881"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 Azure Resource Manager 可讓您將方案中的資源作為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。 
@@ -38,7 +38,7 @@ Resource Manager 會提供一致的管理層，以透過 Azure PowerShell、Azur
 
 * **資源** - 透過 Azure 提供的可管理項目。 部分常見資源有虛擬機器、儲存體帳戶、Web 應用程式、資料庫和虛擬網路，但這只是其中一小部分。
 * **資源群組** - 保留 Azure 方案相關資源的容器。 資源群組可以包含方案的所有資源，或只包含您要以群組方式管理的資源。 您可決定如何根據對組織最有利的方式，將資源配置到資源群組。 請參閱 [資源群組](#resource-groups)。
-* **資源提供者** - 提供可透過 Resource Manager 部署及管理之資源的一項服務。 每個資源提供者都會提供作業，以便能運用所部署的資源。 部分常見資源提供者有 Microsoft.Compute (提供虛擬機器資源)、Microsoft.Storage (提供儲存體帳戶資源) 和 Microsoft.Web (提供與 Web 應用程式相關的資源)。 請參閱 [資源提供者](#resource-providers)。
+* **資源提供者** - 提供可透過 Resource Manager 部署及管理之資源的一個服務。 每個資源提供者都會提供作業，以便能運用所部署的資源。 部分常見資源提供者有 Microsoft.Compute (提供虛擬機器資源)、Microsoft.Storage (提供儲存體帳戶資源) 和 Microsoft.Web (提供與 Web 應用程式相關的資源)。 請參閱 [資源提供者](#resource-providers)。
 * **Resource Manager 範本** - 定義一或多個要部署至資源群組之資源的 JavaScript 物件標記法 (JSON) 檔案。 它也會定義所部署資源之間的相依性。 範本可用來以一致性方式重複部署資源。 請參閱 [範本部署](#template-deployment)。
 * **宣告式語法** - 可讓您陳述「以下是我想要建立的項目」而不需要撰寫一連串程式設計命令來加以建立的語法。 Resource Manager 範本便是宣告式語法的其中一個範例。 在該檔案中，您可以定義要部署至 Azure 之基礎結構的屬性。 
 
@@ -126,7 +126,7 @@ REQUEST BODY
 }
 ```
 
-範本和資源群組的定義方式全由您決定，方案的管理方式也是如此。 比方說，您可以透過單一範本在單一資源群組中部署三層式應用程式。
+範本和資源群組的定義方式全由您決定，方案的管理方式也是如此。 例如，您可以透過單一範本在單一資源群組中部署三層式應用程式。
 
 ![三層式範本](./media/resource-group-overview/3-tier-template.png)
 
@@ -155,6 +155,12 @@ Azure Resource Manager 會分析相依性，確保以正確的順序建立資源
 * [使用 Resource Manager 範本與 Azure 入口網站來部署資源](resource-group-template-deploy-portal.md)
 * [使用 Resource Manager 範本和 Resource Manager REST API 部署資源](resource-group-template-deploy-rest.md)
 
+## <a name="safe-deployment-practices"></a>安全部署實務
+
+當您在將複雜的服務部署到 Azure 時，您可能需要將服務部署到多個區域，並且在進行下一步之前，先檢查其健康情況。 使用 [Azure 部署管理員](deployment-manager-overview.md)來協調服務的分段推出。 透過將服務分段推出，您可以在服務部署到所有區域之前，先找出潛在的問題。 如果您不需要這些預防措施，則上一節中的部署作業會是比較好的選項。
+
+「部署管理員」目前為公開預覽狀態。
+
 ## <a name="tags"></a>標記
 Resource Manager 提供標記的功能，可讓您根據管理或計費需求將資源分類。 當您有複雜的資源群組和資源集合，而且必須以對您最有意義的方式視覺化資產時，請使用標籤。 例如，您可以標記在組織中具有類似角色，或屬於相同部門的資源。 如果不使用標籤，貴組織中的使用者可建立多個資源，如此對於日後的身分識別及管理來說可能很困難。 例如，您可能想要刪除特定專案的所有資源。 如果未對此專案標記這些資源，您必須手動尋找它們。 標記是降低訂用帳戶不必要成本的重要方法。 
 
@@ -176,20 +182,6 @@ Resource Manager 提供標記的功能，可讓您根據管理或計費需求將
   }
 ]
 ```
-
-若要擷取所有具有標籤值的資源，請使用下列 PowerShell Cmdlet：
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-或是下列 Azure CLI 命令：
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-您也可以透過 Azure 入口網站檢視已加上標籤的資源。
 
 訂用帳戶的[使用報告](../billing/billing-understand-your-bill.md)包含標籤名稱和值，可讓您依標籤細分成本。 如需標記的詳細資訊，請參閱 [使用標記來組織您的 Azure 資源](resource-group-using-tags.md)。
 
@@ -228,29 +220,8 @@ Azure 也提供數個資源特有的角色。 一些常見的角色有︰
 
 您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](resource-group-lock-resources.md)。
 
-## <a name="activity-logs"></a>活動記錄
-Resource Manager 會記錄所有建立、修改或刪除資源的作業。 您可以使用活動記錄在進行疑難排解時發現錯誤，或是監視貴組織使用者修改資源的方式。 您可以透過許多不同的值篩選記錄，包括哪位使用者起始了作業。 如需使用活動記錄的相關資訊，請參閱[檢視活動記錄以管理 Azure 資源](resource-group-audit.md)。
-
 ## <a name="customized-policies"></a>自訂的原則
 Resource Manager 可讓您建立自訂的原則，以便管理您的資源。 您所建立的原則類型可以包含各種案例。 您可以強制執行資源的的命名慣例、限制可以部署的資源類型和執行個體，或限制可以裝載某個資源類型的區域。 您可以要求資源的標籤值，以便依照部門組織計費方式。 您可建立原則來協助降低成本，並維護訂用帳戶中的一致性。 
-
-您需要使用 JSON 來定義原則，然後將這些原則套用到您的訂用帳戶或資源群組內。 原則會套用到資源類型，因此不同於角色型存取控制。
-
-下列範例顯示了某個原則，其藉由指定所有資源都包含 costCenter 標籤，來確保標籤的一致性。
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 您還可以建立其他類型的原則。 如需詳細資訊，請參閱[何謂 Azure 原則？](../azure-policy/azure-policy-introduction.md)。
 
@@ -279,7 +250,7 @@ Azure SDK 可供多個語言和平台使用。 這些語言實作都是透過其
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何使用 Azure Resource Manager 在 Azure 上進行資源的部署、管理及存取控制。 請繼續前往下一篇文章，以了解如何建立第一個 Azure Resource Manager 範本。
+在此文章中，您已了解如何使用 Azure Resource Manager 在 Azure 上進行資源的部署、管理及存取控制。 請繼續前往下一篇文章，以了解如何建立第一個 Azure Resource Manager 範本。
 
 > [!div class="nextstepaction"]
 > [快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](./resource-manager-quickstart-create-templates-use-the-portal.md)

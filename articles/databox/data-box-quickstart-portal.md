@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 514b2a026ea34f4bd82f13ebc73c09f71637ce30
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978347"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784632"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱
 
@@ -34,18 +34,19 @@ ms.locfileid: "46978347"
 - 請確定您用於資料箱服務的訂用帳戶是下列其中一種類型：
     - Microsoft Enterprise 合約 (EA)。 深入了解 [EA 訂用帳戶](https://azure.microsoft.com/pricing/enterprise-agreement/)。
     - 雲端解決方案提供者 (CSP)。 深入了解 [Azure CSP 方案](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。
-    - 使用 - 隨用隨付。 關於 Azure [隨用隨付訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0003p/)的詳細資訊。
+    - 使用量 - 隨用隨付。 關於 Azure [隨用隨付訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0003p/)的詳細資訊。
+    - Microsoft Azure 贊助。 深入了解 [Azure 贊助方案](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/)。 
 
 - 請確定您有訂用帳戶的擁有者或參與者存取權，才能建立資料箱訂單。
 - 檢閱[資料箱的安全性指導方針](data-box-safety.md)。
-- 您有一台主機電腦，其中包含要複製到資料箱的資料。 您的主機電腦必須符合下列條件：
+- 您有一部主機電腦，其中包含要複製到資料箱的資料。 您的主機電腦必須符合下列條件：
     - 執行[支援的作業系統](data-box-system-requirements.md)。
-    - 連接到高速網路。 我們強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結，但是複製速度會受到影響。 
+    - 連線至高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結，但是複製速度會受到影響。 
 - 您必須能夠進入放置資料箱所在的平坦表面。 如果您想要將裝置放在標準機架上，您的資料中心機架中需要有 7U 插槽。 您可以將裝置平放或垂直放置在機架中。
-- 您已購買下列纜線，以將您的資料箱連接至主機電腦。
+- 您已購買下列纜線，以將您的資料箱連線至主機電腦。
     - 兩條 10 GbE SFP+ Twinax 銅纜線 (與 DATA 1、DATA 2 網路介面搭配使用)
-    - 一條 RJ-45 CAT 6 網路纜線 (與 MGMT 網路介面搭配使用)
-    - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路纜線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
+    - 一條 RJ-45 CAT 6 網路線 (與 MGMT 網路介面搭配使用)
+    - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 

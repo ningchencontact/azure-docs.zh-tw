@@ -1,22 +1,23 @@
 ---
-title: 專案答案搜尋實體查詢 - Microsoft 認知服務 | Microsoft Docs
+title: 快速入門：專案答案搜尋實體查詢
+titlesuffix: Azure Cognitive Services
 description: 使用專案答案搜尋進行實體查詢
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 2b8382b791c02514e5110097700e223d98fafd6a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 0845f491772b905599bb60e8ec555d14b6d6b15f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369574"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883596"
 ---
-# <a name="query-for-entities"></a>實體查詢
+# <a name="quickstart-query-for-entities"></a>快速入門：查詢實體
 
 如果查詢要求人員、位置或事項的相關資訊，則回應可能包含 `entities` 答案。  查詢一律會傳回網頁，且[事實](fact-queries.md)及/或[實體](entity-queries.md)會與查詢有關。
 

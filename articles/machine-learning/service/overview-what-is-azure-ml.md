@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 6e0294f99d1c2291e84bf2ac5d5b1f771222b551
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433407"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238501"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>什麼是 Azure Machine Learning 服務 (預覽)？
 
@@ -48,7 +48,7 @@ Azure Machine Learning 服務也包含[自動產生模型與微調](tutorial-aut
 Azure Machine Learning 服務可自動產生模型及為您自動調整。
 例如，請參閱[教學課程：使用自動化的 Azure Machine Learning 自動定型分類模型](tutorial-auto-train-models.md)。
 
-或者，使用開放原始碼 Python 套件時，搭配適用於 Python 的 Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>，即可自行於 Azure Machine Learning 工作區中，建置及定型高精確度的機器學習服務與深度學習模型。
+或者，使用開放原始碼 Python 套件時，搭配適用於 Python 的 Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>，即可自行於 Azure Machine Learning 服務工作區中，建置及定型高精確度的機器學習服務與深度學習模型。
 您可選擇開放原始碼 Python 套件中所提供的許多機器學習服務元件，如下所示：
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>

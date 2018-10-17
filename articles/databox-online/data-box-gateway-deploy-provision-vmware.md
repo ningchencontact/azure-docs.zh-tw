@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419537"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017443"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>教學課程：在 VMware 中佈建 Azure 資料箱閘道 (預覽)
 
@@ -96,7 +96,7 @@ ms.locfileid: "47419537"
 
 1. 複製您系統中的虛擬裝置映像。 您已透過 Azure 入口網站下載這個虛擬映像 (兩個檔案)。 請記下您複製映像的位置，因為稍後會在程序中使用此映像。
 
-2. 使用 vSphere 用戶端登入 ESXi 伺服器。 您需要有系統管理員權限，才能建立虛擬機器。
+2. 使用 vSphere Web 用戶端登入 ESXi 伺服器。 您需要有系統管理員權限，才能建立虛擬機器。
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -104,7 +104,10 @@ ms.locfileid: "47419537"
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. 在右窗格的 [資料存放區] 下方，選取您要上傳 VMDK 的資料存放區。 資料存放區的類型必須是 VMFS 5。 資料存放區也必須要有足夠的可用空間來容納作業系統和資料磁碟。
+4. 在右窗格的 [資料存放區] 下方，選取您要上傳 VMDK 的資料存放區。 
+
+    - 資料存放區的類型必須是 VMFS5。 
+    - 資料存放區也必須要有足夠的可用空間來容納作業系統和資料磁碟。
    
 5. 按一下滑鼠右鍵並選取 [瀏覽資料存放區]。
 
@@ -145,11 +148,11 @@ ms.locfileid: "47419537"
 15. 在 [選取儲存體]  頁面上，選取您要用來佈建虛擬機器的資料存放區。 按 [下一步] 。
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. 在 [自訂設定] 頁面上，將 [CPU] 設為 4、將 [記憶體] 設為 8192 MB (或以上)、將 [硬碟 1] 設為 2 TB (或以上)。 選擇新增 [SCSI 硬碟] 類型。 在此案例中，是 LSI Logic SAS。 **不支援靜態 IDE 磁碟。** [硬碟 1] 是虛擬資料磁碟。 請注意，佈建之後您無法縮小磁碟。
+16. 在 [自訂設定] 頁面上，將 [CPU] 設為 4、將 [記憶體] 設為 8192 MB (或以上)、將 [硬碟 1] 設為 2 TB (或以上)。 選擇要新增的 **SCSI 硬碟**。 在此案例中，是 LSI Logic SAS。 **不支援靜態 IDE 磁碟。** [硬碟 1] 是虛擬資料磁碟。 請注意，佈建之後您無法縮小磁碟。
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    在相同頁面上，按一下 [新增硬碟]，然後選取 [現有硬碟]。 這樣會新增 OS 磁碟。 
+    在相同頁面上，按一下 [新增硬碟]，然後選取 [現有硬碟]。 選取資料存放區中的 VMDK 檔案。 這樣會新增 OS 磁碟。 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

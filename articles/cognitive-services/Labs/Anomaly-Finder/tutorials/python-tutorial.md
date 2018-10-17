@@ -1,26 +1,29 @@
 ---
-title: 異常偵測 Python 應用程式 - Microsoft 認知服務 | Microsoft Docs
-description: 探索在 Microsoft 認知服務中使用異常偵測 API 的 Python Notebook。 將原始資料點傳送到 API，並取得預期的值和異常點。
+title: 教學課程：異常偵測 Python
+titlesuffix: Azure Cognitive Services
+description: 探索會使用異常偵測 API 的 Python Notebook。 將原始資料點傳送到 API，並取得預期的值和異常點。
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: d35f41ddab21aa155376ad52ff4084298dab8fc5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369546"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887746"
 ---
-# <a name="anomaly-detection-python-application"></a>異常偵測 Python 應用程式
+# <a name="tutorial-anomaly-detection-with-python-application"></a>教學課程：使用 Python 應用程式進行異常偵測
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 本教學課程說明如何使用以 Python 撰寫的異常偵測 API，以及如何使用常用程式庫，以視覺化方式呈現您的結果。 使用 Jupyter 執行本教學課程，然後利用您的訂用帳戶金鑰來試用您自己的資料。 若要了解如何開始使用互動式 Jupyter Notebook，請參考 [Jupyter 文件](http://jupyter.readthedocs.io/en/latest/index.html) \(英文\)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>訂閱異常偵測並取得訂用帳戶金鑰 
 

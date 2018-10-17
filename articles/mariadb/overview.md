@@ -9,12 +9,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 1ba4a9bd597473b71ac7561c41b81783b899766a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3649a173d5707179ca8547a8169b7d308c4f7f1c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971598"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249157"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>什麼是適用於 MariaDB 的 Azure 資料？
 「適用於 MariaDB 的 Azure 資料庫」是 Microsoft 雲端中以 [MariaDB Community Edition](https://mariadb.org/download/) 資料庫引擎為基礎的關聯式資料庫服務。 此服務目前為公開預覽狀態。 「適用於 MariaDB 的 Azure 資料庫」提供：
@@ -51,7 +51,7 @@ Azure 資料庫服務一向重視資料安全性，「適用於 MariaDB 的 Azur
 
 「適用於 MariaDB 的 Azure 資料庫」服務針對待用資料使用儲存體加密。 包含備份在內的資料會在磁碟上加密 (不包括執行查詢時由引擎所建立的暫存檔案)。 該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密，且金鑰是由系統進行管理。 儲存體加密會一律啟用，且無法停用。
 
-根據預設，「適用於 MariaDB 的 Azure 資料庫」服務已設為針對跨網路的動態資料需要 <!--[SSL connection security](./concepts-ssl-connection-security.md)-->SSL 連線安全性。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。 (選擇性) 如果您的用戶端應用程式不支援 SSL 連線能力，您可以停用需要 SSL 才能連接到您資料庫服務的功能。
+根據預設，「適用於 MariaDB 的 Azure 資料庫」服務已設為針對跨網路的動態資料需要 [SSL 連線安全性](./concepts-ssl-connection-security.md)。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。 (選擇性) 如果您的用戶端應用程式不支援 SSL 連線能力，您可以停用需要 SSL 才能連接到您資料庫服務的功能。
 
 ## <a name="contacts"></a>連絡人
 若您對「適用於 MariaDB 的 Azure 資料庫」有任何疑問或需要建議，請傳送電子郵件給「適用於 MariaDB 的 Azure 資料庫」小組 ([@Ask Azure DB for MariaDB](mailto:AskAzureDBforMariaDB@service.microsoft.com))。 請注意，這不是技術支援的別名。

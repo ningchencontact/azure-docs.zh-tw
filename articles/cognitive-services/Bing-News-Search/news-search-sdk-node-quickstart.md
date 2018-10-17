@@ -1,23 +1,23 @@
 ---
-title: 新聞搜尋 SDK 節點快速入門 | Microsoft Docs
-description: 設定新聞搜尋 SDK 主控台應用程式
-titleSuffix: Azure cognitive services
+title: 快速入門：Bing 新聞搜尋 SDK，Node
+titleSuffix: Azure Cognitive Services
+description: 設定 Bing 新聞搜尋 SDK 主控台應用程式
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4ae99aa100b697a0dd75863c6f0c3c556dfa3d21
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2279a6475ab8c39b3ff599f7244caea59d622651
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370443"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802996"
 ---
-# <a name="news-search-sdk-node-quickstart"></a>新聞搜尋 SDK 節點快速入門
+# <a name="quickstart-bing-news-search-sdk-with-node"></a>快速入門：搭配使用 Bing 新聞搜尋 SDK 與 Node
 
 Bing 新聞搜尋 SDK 包含用於新聞查詢以及剖析結果的 REST API 功能。 
 

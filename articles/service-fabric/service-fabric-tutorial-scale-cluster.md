@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2018
+ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 0c5081960345e84cf48cb1ec07713cdaec8833a5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008020"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238760"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中調整 Service Fabric 叢集
 
@@ -38,14 +38,14 @@ ms.locfileid: "39008020"
 > * 在 Azure 上，使用範本建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 > * 將叢集相應縮小或相應放大
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
-> * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
+> * [刪除叢集](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](/cli/azure/install-azure-cli)。
+* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI](/cli/azure/install-azure-cli)。
 * 在 Azure 上，建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * 如果您部署 Windows 叢集，請設定 Windows 開發環境。 安裝 [Visual Studio 2017](http://www.visualstudio.com) 和 **Azure 開發**、**ASP.NET 和 Web 開發**以及 **.NET Core 跨平台開發**工作負載。  然後設定 [.NET 開發環境](service-fabric-get-started.md)。
 * 如果您部署 Linux 叢集，請在 [Linux](service-fabric-get-started-linux.md) 或 [MacOS](service-fabric-get-started-mac.md) 上設定 Java 開發環境。  安裝 [Service Fabric CLI](service-fabric-cli.md)。
@@ -121,7 +121,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 > [!NOTE]
 > 此部分僅適用於 *Bronze* 持久性層。 如需持久性的詳細資訊，請參閱 [Service Fabric 叢集容量規劃][durability]。
 
-您相應縮小虛擬機器擴展集時，擴展集 (在大部分情況下) 會移除最後建立的虛擬機器執行個體。 因此，您需要尋找相符的最後建立 Service Fabric 節點。 您可以檢查 Service Fabric 節點上的最大 `NodeInstanceId` 屬性值，找出這個最後節點。 下列程式碼範例依照節點執行個體排序，並傳回最大識別碼值的執行個體有關的詳細資料。
+為了讓叢集節點在升級和容錯網域之間平均分配，因而讓它們的使用率更加平均，應該先移除最近建立的節點。 換句話說，節點的移除順序應該與建立順序相反。 最近建立的節點具有最大的 `virtual machine scale set InstanceId` 屬性值。 下列程式碼範例會傳回最近建立的節點。
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1

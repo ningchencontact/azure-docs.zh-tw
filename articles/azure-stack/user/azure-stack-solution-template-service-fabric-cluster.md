@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/08/2018
+ms.date: 09/12/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: 9feb2e538d3578fe259aa3fbc693a1e953f2f894
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440346"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804424"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
@@ -120,7 +120,7 @@ ms.locfileid: "39440346"
 
 ## <a name="deploy-the-marketplace-item"></a>部署 Marketplace 項目
 
-1. 在使用者入口網站中，移至 [新增] > [計算] > [Service Fabric 叢集]。 
+1. 在使用者入口網站中，移至 [+ 建立資源]  >  [計算]  >  [Service Fabric 叢集]。 
 
    ![選取 Service Fabric 叢集](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 

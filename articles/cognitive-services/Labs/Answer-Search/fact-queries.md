@@ -1,22 +1,23 @@
 ---
-title: 專案答案搜尋事實查詢 - Microsoft 認知服務 | Microsoft Docs
+title: 快速入門：專案答案搜尋事實查詢
+titlesuffix: Azure Cognitive Services
 description: 使用專案答案搜尋進行事實查詢
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: ae8a42b95df70cff9cb845d4d553fbbb33cbdec9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369559"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868328"
 ---
-# <a name="query-for-facts"></a>事實查詢
+# <a name="quickstart-query-for-facts"></a>快速入門：查詢事實
 
 如果查詢的是日期或可識別的知識之類的事實，回應可能包含 `facts` 答案。 事實答案包含從網路文件中的段落擷取的相關結果。  這些查詢一律回傳網頁，而且[事實](fact-queries.md)及/或[實體](entity-queries.md)與查詢有關。
 

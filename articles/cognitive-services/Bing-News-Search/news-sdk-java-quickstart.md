@@ -1,23 +1,23 @@
 ---
-title: Bing 新聞搜尋 SDK Java 快速入門 | Microsoft Docs
-description: 了解如何設定 Bing 新聞搜尋 SDK 主控台應用程式。
+title: 快速入門：Bing 新聞搜尋 SDK，Java
 titleSuffix: Azure Cognitive Services
+description: 了解如何設定 Bing 新聞搜尋 SDK 主控台應用程式。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: a6d4baf307fa3edcc0886d32204f2872fe310ce2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370431"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802472"
 ---
-# <a name="bing-news-search-sdk-java-quickstart"></a>Bing 新聞搜尋 SDK Java 快速入門
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>快速入門：搭配使用 Bing 新聞搜尋 SDK 與 Java
 
 Bing 新聞搜尋 SDK 提供用於新聞查詢以及剖析結果的 REST API 功能。 
 

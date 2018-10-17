@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 05/23/2018
-ms.openlocfilehash: c8ec39c6962c4044810d0ae65d2736043bdd4d72
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 82979adb3dd640c238bd4e5fcd1bc4d645f018fe
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620207"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069483"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>快速入門：建立 HDInsight 上的 Kafka 叢集
 
@@ -69,7 +69,7 @@ Kafka 是一個開放原始碼的分散式串流平台。 它通常會用來作�
     | 設定 | 值 |
     | --- | --- |
     | 叢集類型 | Kafka |
-    | 版本 | Kafka 1.0.0 (HDI 3.6) |
+    | 版本 | Kafka 1.1.0 (HDI 3.6) |
 
     使用 [選取] 按鈕來儲存叢集類型設定，然後返回 [基本]。
 

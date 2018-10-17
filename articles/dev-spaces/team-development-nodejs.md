@@ -11,16 +11,16 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: b4c355c864f83bcd76c310fecb0f26dd3372e760
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 215807798e6ae15f11302fa647e21238bdfb7751
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162745"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434259"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
 
-在本教學課程中，您將了解如何在不同的開發環境中使用多個開發人員空間同時工作，在相同叢集中將個別的工作保持在個別的開發人員空間。
+在此教學課程中，您將了解如何在不同的開發環境中使用多個開發人員空間同時工作，在相同叢集中將個別的工作保持在個別的開發人員空間。
 
 ## <a name="call-a-service-running-in-a-separate-container"></a>呼叫在個別容器中執行的服務
 
@@ -62,6 +62,7 @@ ms.locfileid: "44162745"
        });
     });
     ```
+ 4. 移除 `server.js` 結尾處的 `server.close()` 行
 
 上述程式碼範例會將傳入要求中的 `azds-route-as` 標頭轉送至傳出要求。 您稍後將了解這對小組的共同開發有何幫助。
 
@@ -76,7 +77,7 @@ ms.locfileid: "44162745"
 
 ## <a name="learn-about-team-development"></a>了解小組開發
 
-[!INCLUDE [](includes/team-development-1.md)]
+[!INCLUDE [](../../includes/team-development-1.md)]
 
 現在，請了解它是如何運作的：
 1. 請移至 `mywebapi` 的 VS Code 視窗，並對 GET `/` 處理常式進行程式碼編輯，例如：
@@ -87,11 +88,28 @@ ms.locfileid: "44162745"
     });
     ```
 
-[!INCLUDE [](includes/team-development-2.md)]
+[!INCLUDE [](../../includes/team-development-2.md)]
 
-[!INCLUDE [](includes/well-done.md)]
+### <a name="well-done"></a>做得好！
+您已經完成快速入門指南！ 您已了解如何︰
 
-[!INCLUDE [](includes/clean-up.md)]
+> [!div class="checklist"]
+> * 使用 Azure 中受管理的 Kubernetes 叢集，設定 Azure Dev Spaces。
+> * 在容器中反覆開發程式碼。
+> * 獨立開發兩種不同的服務，並且使用 Kubernetes 的 DNS 服務探索來呼叫另一個服務。
+> * 在小組環境中有效率地開發及測試您的程式碼。
+
+現在您已充分了解 Azure Dev Spaces，請[與小組成員共用您的開發人員空間](how-to/share-dev-spaces.md)，並協助他們了解共同作業有多麼容易。
+
+## <a name="clean-up"></a>清除
+若要完全刪除叢集上的 Azure Dev Spaces 執行個體，包括所有開發人員空間及其中正在執行的服務，請使用 `az aks remove-dev-spaces` 命令。 請記住此動作無法復原。 您可以在叢集上再次新增 Azure Dev Spaces 的支援，但會如同您再次開始執行。 將不會還原您的舊服務和空間。
+
+下列範例列出您使用中訂用帳戶中的 Azure Dev Spaces 控制項，然後刪除資源群組 'myaks-rg' 中與 AKS 叢集 'myaks' 相關聯的 Azure Dev Spaces 控制項。
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```
 
 
 

@@ -10,23 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097880"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419520"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>教學課程：建立用來部署加密儲存體帳戶的 Azure Resource Manager 範本
 
 了解如何尋找完成 Azure Resource Manager 範本所需的資訊。
 
-在本教學課程中，您會使用 Azure 快速入門範本中的基底範本，來建立 Azure 儲存體帳戶。  您可以使用範本參考文件來自訂基底範本，用以建立加密儲存體帳戶。
+在此教學課程中，您會使用 Azure 快速入門範本中的基底範本，來建立 Azure 儲存體帳戶。  您可以使用範本參考文件來自訂基底範本，用以建立加密儲存體帳戶。
 
-本教學課程涵蓋下列工作：
+此教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 開啟快速入門範本
@@ -36,16 +36,16 @@ ms.locfileid: "43097880"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要完成本文，您需要：
+若要完成此文章，您需要：
 
 * [Visual Studio Code](https://code.visualstudio.com/)。
 * Resource Manager Tools 擴充功能。 若要安裝，請參閱[安裝 Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
-本快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
+此快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
 
 1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
 2. 在 [檔案名稱] 中，貼上下列 URL：
@@ -109,12 +109,17 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
 ## <a name="edit-the-template"></a>編輯範本
 
-本教學課程的目標是要定義用來建立加密儲存體帳戶的範本。  範例範本只會建立基本的未加密儲存體帳戶。 若要尋找加密相關組態，您可以使用 Azure 儲存體帳戶的範本參考。
+此教學課程的目標是要定義用來建立加密儲存體帳戶的範本。  範例範本只會建立基本的未加密儲存體帳戶。 若要尋找加密相關組態，您可以使用 Azure 儲存體帳戶的範本參考。
 
 1. 瀏覽至 [Azure 範本](https://docs.microsoft.com/azure/templates/)。
-2. 從 TOC 左側，選取 [參考]->[儲存體]->[儲存體帳戶]。 您也可以在 [依標題篩選] 欄位中輸入**儲存體**。  頁面中包含定義儲存體帳戶資訊的結構描述。
-3. 瀏覽加密相關資訊。  
-4. 在儲存體帳戶資源定義的屬性元素內，新增下列 JSON：
+2. 在 [依標題篩選] 中，輸入**儲存體帳戶**。
+3. 選取 [參考/範本參考/儲存體/儲存體帳戶]，如下列螢幕擷取畫面所示：
+
+    ![Resource Manager 範本參考儲存體帳戶](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. 瀏覽加密相關資訊。  
+1. 在儲存體帳戶資源定義的屬性元素內，新增下列 JSON：
 
     ```json
     "encryption": {
@@ -142,7 +147,7 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
+不再需要 Azure 資源時，可透過刪除資源群組來清除您所部署的資源。
 
 1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
 2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。
@@ -151,7 +156,7 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用範本參考來自訂現有的範本。 本教學課程中使用的範本僅包含一個 Azure 資源。  在下一個教學課程中，您會開發具有多個資源的範本。 某些資源有相依的資源。
+在此教學課程中，您已了解如何使用範本參考來自訂現有的範本。 若要了解如何建立多個儲存體帳戶執行個體，請參閱：
 
 > [!div class="nextstepaction"]
-> [建立多個資源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [建立多個執行個體](./resource-manager-tutorial-create-multiple-instances.md)

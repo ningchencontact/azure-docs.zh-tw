@@ -1,20 +1,21 @@
 ---
-title: Bing 實體搜尋單頁 Web 應用程式 | Microsoft Docs
+title: 教學課程：Bing 實體搜尋單頁 Web 應用程式
+titlesuffix: Azure Cognitive Services
 description: 示範如何在單頁 Web 應用程式中使用 Bing 實體搜尋 API。
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370202"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815540"
 ---
 # <a name="tutorial-single-page-web-app"></a>教學課程：單頁 Web 應用程式
 
@@ -48,7 +49,7 @@ Bing 實體搜尋 API 可讓您搜尋網路上的「實體」和「地點」相�
 > * 處理 Bing 用戶端識別碼和 API 訂用帳戶金鑰
 > * 解決可能出現的任何錯誤
 
-本教學課程頁完全獨立，不會使用任何外部架構、樣式表或甚至影像檔。 它使用唯一且廣泛支援的 JavaScript 語言功能，適用於所有主要網頁瀏覽器的目前版本。
+本教學課程頁完全獨立，不會使用任何外部架構、樣式表或甚至影像檔。 其中僅使用廣受支援的 JavaScript 語言功能，並且與所有主要網頁瀏覽器的目前版本搭配使用。
 
 在本教學課程中，我們只會討論原始程式碼的特定部分。 完整的原始程式碼位於[另一個頁面上](tutorial-bing-entities-search-single-page-app-source.md)。 請將此程式碼複製並貼到文字編輯器中，然後另存為 `bing.html`。
 
@@ -66,13 +67,13 @@ Bing 實體搜尋 API 可讓您搜尋網路上的「實體」和「地點」相�
 
 本教學課程並未詳細說明大部分的 HTML 或 CSS，因為這些元件相當簡單。
 
-HTML 包含搜尋表單，使用者會在其中輸入查詢並選擇搜尋選項。 該表單會透過 `<form>` 標籤的 `onsubmit` 屬性，連接至實際執行搜尋的 JavaScript：
+HTML 包含搜尋表單，使用者可在其中輸入查詢並選擇搜尋選項。 該表單會透過 `<form>` 標籤的 `onsubmit` 屬性，連線至實際執行搜尋的 JavaScript：
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">
 ```
 
-`onsubmit` 處理常式會傳回 `false`，這可防止將表單提交給伺服器。 JavaScript 程式碼實際上會從表單收集所需的資訊，並執行搜尋。
+`onsubmit` 處理常式會傳回 `false`，這可防止表單提交至伺服器。 JavaScript 程式碼實際上會從表單收集所需的資訊，並執行搜尋。
 
 搜尋會分兩個階段完成。 首先，若使用者已輸入位置限制，則會執行 Bing 地圖服務將它轉換成座標。 此查詢的回呼會接著開始執行 Bing 實體搜尋查詢。
 
@@ -377,7 +378,7 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > 成功的 HTTP 要求「不」一定表示搜尋本身成功。 若搜尋作業中發生錯誤，Bing 實體搜尋 API 會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，若要求速率受到限制，API 會傳回空白回應。
 
-上述兩個函式中的大部分程式碼都是專用於錯誤處理。 下列階段可能會發生錯誤：
+上述兩個函式中大部分的程式碼都是專門用來處理錯誤的。 下列階段可能會發生錯誤：
 
 |階段|可能的錯誤|處理者|
 |-|-|-|
@@ -395,7 +396,7 @@ Bing 實體搜尋 API [要求您依指定順序顯示結果](use-display-require
 
 `rankingResponse` 最多可能包含三個搜尋結果集合，並已指定 `pole`、`mainline` 和 `sidebar`。 
 
-`pole` (若存在) 是最相關的搜尋結果，應該優先顯示。 `mainline` 是指大量搜尋結果。 Mainline 結果應該在 `pole` 之後立即顯示 (若 `pole` 不存在，則優先顯示)。 
+`pole` (若存在) 是最相關的搜尋結果，應該優先顯示。 `mainline` 會參照大量搜尋結果。 Mainline 結果應該在 `pole` 之後立即顯示 (若 `pole` 不存在，則優先顯示)。 
 
 最後， `sidebar` 是指輔助搜尋結果。 它們可能會在實際 sidebar 中顯示，或直接在 mainline 結果之後顯示。 我們已為教學課程應用程式選擇後者。
 
@@ -403,15 +404,15 @@ Bing 實體搜尋 API [要求您依指定順序顯示結果](use-display-require
 
 | | |
 |-|-|
-|`id`|`id` 看起來就像是 URL，但不應該用作連結。 排名結果的 `id` 類型符合回應集合中任一搜尋結果項目的 `id`，「或」整個回應集合 (例如`Entities`)。
-|`answerType`<br>`resultIndex`|`answerType` 是指包含結果的最上層回應集合 (例如 `Entities`)。 `resultIndex` 是指該集合內的結果索引。 若省略 `resultIndex`，排名結果是指整個集合。
+|`id`|`id` 看起來像是 URL，但不應該用於連結。 排名結果的 `id` 類型符合回應集合中任一搜尋結果項目的 `id`，「或」整個回應集合 (例如`Entities`)。
+|`answerType`<br>`resultIndex`|`answerType` 會參照包含結果的最上層答案集合 (例如 `Entities`)。 `resultIndex` 會參照該集合內的結果索引。 若省略 `resultIndex`，排名結果是指整個集合。
 
 > [!NOTE]
-> 如需搜尋回應這部分的詳細資訊，請參閱[排名結果](rank-results.md)。
+> 如需這部分搜尋回應的詳細資訊，請參閱[排名結果](rank-results.md)。
 
-您可以使用對您的應用程式最方便的任何方法來尋找參考的搜尋結果項目。 在我們的教學課程程式碼中，我們使用 `answerType` 和 `resultIndex` 來尋找每個搜尋結果。
+您可以使用對您的應用程式而言最方便的任何方法，來尋找參考的搜尋結果項目。 在我們的教學課程程式碼中，我們使用 `answerType` 和 `resultIndex` 來尋找每個搜尋結果。
 
-最後，讓我們來看函式 `renderSearchResults()`。 此函式會逐一查看三個 `rankingResponse` 集合，分別代表搜尋結果的三個區段。 針對每個區段，我們會呼叫 `renderResultsItems()` 以轉譯該區段的結果。
+最後，讓我們來看看函式 `renderSearchResults()`。 此函式會逐一查看三個 `rankingResponse` 集合，這分別代表搜尋結果的三個區段。 針對每個區段，我們會呼叫 `renderResultsItems()` 以轉譯該區段的結果。
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -446,7 +447,7 @@ searchItemRenderers = {
 |-|-|
 |`item`|JavaScript 物件，其中包含項目的屬性，例如其 URL 及其描述。|
 |`index`|集合內結果項目的索引。|
-|`count`|搜尋結果項目集合中的項目數。|
+|`count`|搜尋結果項目集合中的項目數目。|
 
 `index` 和 `count` 參數可用來編號結果、為集合開頭或結尾產生特殊 HTML、在特定數量的項目之後插入分行符號等。 若轉譯器不需要此功能，則不需要接受這兩個參數。 事實上，我們不會將其用於教學課程應用程式的轉譯器中。
 
@@ -513,7 +514,7 @@ searchItemRenderers = {
 
 ## <a name="persisting-client-id"></a>保存用戶端識別碼
 
-來自 Bing 搜尋 API 的回應可能會在後續要求中包含應該傳回 API 的 `X-MSEdge-ClientID` 標頭。 若使用多個 Bing 搜尋 API，請盡可能對所有 API 使用相同的用戶端識別碼。
+來自 Bing 搜尋 API 的回應可能會包含應在後續要求中傳回至 API 的 `X-MSEdge-ClientID` 標頭。 若使用多個 Bing 搜尋 API，請盡可能對所有 API 使用相同的用戶端識別碼。
 
 提供 `X-MSEdge-ClientID` 標頭可讓 Bing API 建立所有使用者搜尋的關聯，這有兩個重要的優點。
 
@@ -540,7 +541,7 @@ searchItemRenderers = {
 
     cors-proxy-server
 
-當您使用教學課程應用程式時，請保留開啟命令視窗；關閉視窗會停止 Proxy。 在可展開之 [HTTP 標頭] 區段的搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
+當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開的 [HTTP 標頭] 區段搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
 
 ## <a name="next-steps"></a>後續步驟
 

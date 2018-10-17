@@ -1,27 +1,28 @@
 ---
-title: 表情 API Python 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您搭配 Python 快速開始使用認知服務中的表情 API。
+title: 快速入門：辨識影像中的臉部表情 - 表情 API，Python
+description: 取得資訊和程式碼範例，以協助您搭配 Python 快速開始使用表情 API。
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
-ms.openlocfilehash: ff1f6b2ddc872d0ee63d9885b04b1f007bc86e33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: c7611628918cf40800d173dc9404b0948b9a68a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368007"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236562"
 ---
-# <a name="emotion-api-python-quickstart"></a>表情 API Python 快速入門
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入門：建置應用程式以辨識影像中的臉部表情。
 
 > [!IMPORTANT]
-> 影片 API 預覽版已於 2017 年 10 月 30 日結束。 請試用新的[影片索引器 API 預覽](https://azure.microsoft.com/services/cognitive-services/video-indexer/)，以輕鬆地從影片中擷取見解，並增強內容探索體驗，像是偵測話語、臉部、人物及表情而得來的搜尋結果。 [深入了解](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)。
+> 表情 API 將於 2019 年 2 月 15 日淘汰。 表情辨識功能現已公開推出，是[臉部 API](https://docs.microsoft.com/azure/cognitive-services/face/) 的一部分。 
 
-本逐步解說提供資訊和程式碼範例，以協助您搭配 Python 快速開始使用[表情 API 辨識方法](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) \(英文\) 來辨識出影像中一或多個人員所表現出來的表情。 
+本逐步解說提供資訊和程式碼範例，以協助您搭配 Python 快速開始使用[表情 API 辨識方法](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) \(英文\) 來辨識出影像中一或多個人員所表現出來的表情。
 
 您可以按一下 [launch Binder] \(啟動 Binder\) 徽章，在 [MyBinder](https://mybinder.org) \(英文\) 上以 Jupyter Notebook 執行此範例：[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
 
@@ -101,7 +102,7 @@ analysis
 
 
 
-所傳回的 JSON 物件包含已辨識出的臉部週框以及所偵測到的表情。 每個表情都會與介於 0 到 1 的分數相關聯，分數越高越表示這是表情。 
+所傳回的 JSON 物件包含已辨識出的臉部週框以及所偵測到的表情。 每個表情都會與介於 0 到 1 的分數相關聯，分數越高越表示這是表情。
 
 下列幾行程式碼已使用 `matplotlib` 程式庫偵測到影像中臉部的表情。 為了讓版面清楚，此處只顯示前三個表情。
 

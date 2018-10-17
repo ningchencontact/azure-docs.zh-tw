@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 045443637c06745472458dd9e33670875a33352b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193062"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068089"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -27,7 +27,38 @@ Azure 應用程式閘道是網路流量負載平衡器，可讓您管理 Web 應
 
 這類型的路由也稱為應用程式層 (OSI 層 7) 負載平衡。 Azure 應用程式閘道可以進行 URL 型路由等作業。 
 
-Azure 應用程式閘道包含下列功能︰ 
+Azure 應用程式閘道包含下列功能︰
+
+## <a name="autoscaling-public-preview"></a>自動調整公開預覽版
+
+除了本文所述的功能外，應用程式閘道也提供新 SKU [Standard_V2] 的公開預覽版，其中提供自動調整和其他重要效能的增強功能。
+
+- **自動調整** - 自動調整 SKU 下的「應用程式閘道」或 WAF 部署可以根據變動的流量負載模式來相應增加或相應減少。 自動調整規模也可讓您在佈建時，無須選擇部署大小或執行個體計數。 
+
+- **區域備援** - 「應用程式閘道」或 WAF 部署可以跨多個「可用性區域」，讓您無須使用「流量管理員」在每個區域中佈建及運轉個別的「應用程式閘道」執行個體。
+
+- **靜態 VIP** - 應用程式閘道 VIP 現已可獨佔地支援靜態 VIP 類型。 這可確保與應用程式閘道相關的 VIP 即使在重新啟動後也不會變更。
+
+- **更快速的部署和更新時間** (相較於正式運作的 SKU)。 
+
+- **提升 5 倍的 SSL 卸載效能** (相較於正式運作的 SKU)。
+
+如需應用程式閘道公開預覽版功能的詳細資訊，請參閱[自動調整和區域備援應用程式閘道 (公開預覽)](application-gateway-autoscaling-zone-redundant.md)。
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes Service (AKS) 輸入控制器預覽 
+
+應用程式閘道輸入控制器會以 Pod 的形式在 AKS 叢集中運作，並允許應用程式閘道作為 AKS 叢集的輸入。 
+
+如需詳細資訊，請參閱 [Azure 應用程式閘道輸入控制器](https://azure.github.io/application-gateway-kubernetes-ingress/)。
+
+## <a name="connection-draining"></a>清空連線
+
+清空連線可協助您在已規劃的服務更新期間，毫無錯誤地移除後端集區成員。 此設定會透過後端 http 設定啟用，而且可以在規則建立期間套用至後端集區的所有成員。 啟用之後，應用程式閘道可確保所有取消註冊的後端集區執行個體不會再接收任何新要求，但允許在已設定的時間限制內完成現有要求。 這適用於透過 API 呼叫從後端集區中確實移除的後端執行個體，以及根據健康情況探查的判斷，而回報為狀況不良的後端執行個體。
+
+## <a name="custom-error-pages"></a>自訂錯誤頁面
+應用程式閘道可讓您建立自訂的錯誤頁面，而不是顯示預設的錯誤頁面。 您可以使用自訂錯誤頁面來搭配您自己的商標和版面配置。
+
+如需詳細資訊，請參閱[建立應用程式閘道的自訂錯誤頁面](custom-error.md)。
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>安全通訊端層 (SSL) 終止
 

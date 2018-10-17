@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d606b7b536147b7e1d96bfb6cebf2522e5b4f85f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161925"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078843"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>教學課程：將資料複製到 Azure 資料箱 
 
@@ -88,11 +88,11 @@ ms.locfileid: "47161925"
     The command completed successfully.
     ```
 
-4. 按 Windows + R。在 [執行] 視窗中，指定 `\\<device IP address>`。 按一下 [確定]。 這會開啟 [檔案總管]。
+4. 按 Windows + R。在 [執行] 視窗中，指定 `\\<device IP address>`。 按一下 [確定]。 這會開啟 [檔案總管]。 此時，您應可看到以資料夾形式呈現的共用。
     
     ![透過檔案總管 2 連線至共用](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. 此時，您應可看到以資料夾形式呈現的共用。 為您想要複製的檔案建立資料夾 (在此案例中為 templates)。 這些資料夾有時候可能會顯示灰色叉號。 此叉號不代表錯誤狀況。 應用程式為這些資料夾加上要追蹤狀態的旗標。
+5.  **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 這些資料夾有時候可能會顯示灰色叉號。 此叉號不代表錯誤狀況。 應用程式為這些資料夾加上要追蹤狀態的旗標。
     
     ![透過檔案總管 2 連線至共用](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![透過檔案總管 2 連線至共用](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -239,11 +239,14 @@ ms.locfileid: "47161925"
 
  - 根據您的 Linux 用戶端所使用的檔案系統，安裝 **CIFS Utils** 或 **NFS Utils** 套件。
 
-    `sudo apt-get install cifs-utils` `sudo apt-get install nfs-utils`
+    `sudo apt-get install cifs-utils`
+
+    `sudo apt-get install nfs-utils`
 
  -  安裝 **Rsync** 和 **Parallel** (依 Linux 發行的版本而有所不同)。
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - 建立掛接點。

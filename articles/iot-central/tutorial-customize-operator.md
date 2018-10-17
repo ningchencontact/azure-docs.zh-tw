@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185846"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038284"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>教學課程：自訂 Azure IoT 中心操作員的檢視
 
-本教學課程將為建置者說明如何自訂應用程式的操作員檢視。 當您以建置者的身分對應用程式進行變更時，您可以在 Microsoft Azure IoT Central 應用程式中預覽操作員的檢視。
+此教學課程將為建置者說明如何自訂應用程式的操作員檢視。 當您以建置者的身分對應用程式進行變更時，您可以在 Microsoft Azure IoT Central 應用程式中預覽操作員的檢視。
 
-在本教學課程中，您會自訂應用程式，以對操作員顯示與連線的空調裝置有關的資訊。 您的自訂將使操作員能夠管理已連線至應用程式的空調裝置。
+在此教學課程中，您會自訂應用程式，以對操作員顯示與連線的空調裝置有關的資訊。 您的自訂將使操作員能夠管理已連線至應用程式的空調裝置。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 設定裝置儀表板
@@ -31,7 +31,7 @@ ms.locfileid: "43185846"
 > * 設定預設首頁
 > * 以操作員的身分預覽預設首頁
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始之前，您應先完成兩個先前的教學課程：
 
@@ -50,9 +50,9 @@ ms.locfileid: "43185846"
 
     ![選取連線的空調裝置](media/tutorial-customize-operator/selectdevice.png)
 
-    當您對裝置 (例如**連線的空調-1**) 進行變更時，您會變更基礎範本。 如需詳細資訊，請參閱[建立新的裝置範本版本](howto-version-devicetemplate.md)。
+    在裝置 (例如**連線的空調-1**) 中時，您可以選取 [編輯範本] 來對底層範本進行變更。 如需詳細資訊，請參閱[建立新的裝置範本版本](howto-version-devicetemplate.md)。
 
-3. 若要編輯儀表板，請選擇 [儀表板]：
+3. 若要編輯儀表板，請選擇 [儀表板]，然後選取 [編輯範本]：
 
     ![裝置範本儀表板頁面](media/tutorial-customize-operator/dashboard.png)
 
@@ -77,11 +77,13 @@ ms.locfileid: "43185846"
 
     ![編輯儀表板版面配置](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. 當您完成變更時，請按一下 [完成]。
+
 ## <a name="configure-your-settings-layout"></a>設定「設定」版面配置
 
 身為建置者，您也可以設定裝置設定的操作員檢視。 操作員可以使用裝置設定頁面來設定裝置。 例如，操作員可使用設定頁面來設定冰箱的目標溫度。
 
-1. 若要為連線的空調編輯設定版面配置，請選擇 [設定]：
+1. 若要為連線的空調編輯設定版面配置，請選擇 [設定]，然後選取 [編輯範本]：
 
     ![設定頁面](media/tutorial-customize-operator/settings.png)
 
@@ -89,14 +91,16 @@ ms.locfileid: "43185846"
 
     ![編輯設定版面配置](media/tutorial-customize-operator/settingslayout.png)
 
+3. 當您完成變更時，請按一下 [完成]。
+
 > [!NOTE]
-> 在 [設計模式] 中，您無法編輯設定的值。
+> 在 [編輯範本] 中，您無法編輯設定的值。
 
 ## <a name="configure-your-properties-layout"></a>設定屬性版面配置
 
 除了儀表板和設定以外，您也可以設定裝置屬性的操作員檢視。 操作員可以使用裝置屬性頁面來管理裝置中繼資料。 例如，操作員可使用屬性頁面來檢視裝置序號，或更新製造商的連絡詳細資料。
 
-1. 若要為連線的空調編輯屬性版面配置，請選擇 [屬性]：
+1. 若要為連線的空調編輯屬性版面配置，請選擇 [屬性]，然後選取 [編輯範本]：
 
     ![屬性頁面](media/tutorial-customize-operator/properties.png)
 
@@ -104,16 +108,18 @@ ms.locfileid: "43185846"
 
     ![編輯屬性版面配置](media/tutorial-customize-operator/propertieslayout.png)
 
+3. 當您完成變更時，請按一下 [完成]。
+
 > [!NOTE]
-> 在 [設計模式] 中，您無法編輯屬性的值。
+> 在 [編輯範本] 模式中，您無法編輯屬性的值。
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>以操作員身分預覽連線的空調裝置
 
-在 [設計模式] 中，您可以為操作員自訂儀表板、設定和屬性頁面。 如果您將 [設計模式] 切換為關閉，即可以操作員身分檢視應用程式。
+在 [編輯範本] 模式中，您可以為操作員自訂儀表板、設定與屬性頁面。 如果您並非處於 [編輯範本] 模式，您能以操作員的身分檢視應用程式。
 
-1. 若要以操作員身分檢視連線的空調裝置，您必須將 [設計模式] 切換為關閉。 若要將 [設計模式] 切換為關閉，請將頁面右上方的 [設計模式] 切換為關閉。
+1. 若要以操作員身分檢視連線的空調裝置，您必須按一下 [完成] 以停止編輯範本。 這將會帶您返回裝置的操作員檢視。
 
-2. 若要更新此裝置的序號，請編輯序號圖格中的值，然後選擇 [儲存]：
+2. 若要更新此裝置的位置，請編輯 [位置] 圖格中的值，然後選擇 [儲存]：
 
     ![編輯屬性值](media/tutorial-customize-operator/editproperty.png)
 
@@ -131,7 +137,7 @@ ms.locfileid: "43185846"
 
 當建置者或操作員登入 Azure IoT Central 應用程式時，他們會看到首頁。 身為建置者，您可以設定此首頁的內容，使其包含對操作員最有用和相關的內容。
 
-1. 若要自訂預設首頁，請瀏覽至 [首頁]，然後並將頁面右上方的 [設計模式] 切換為開啟。 在開啟 [設計模式] 時，將會從右側滑出一個面板，列出您可以新增至首頁的物件。
+1. 若要自訂預設首頁，請瀏覽到 [首頁]，然後選取頁面右上角的 [編輯]。 選取 [編輯] 之後，將會從右側滑出一個面板，列出您可以新增到首頁的物件。
 
     ![應用程式建置者頁面](media/tutorial-customize-operator/builderhome.png)
 
@@ -150,7 +156,7 @@ ms.locfileid: "43185846"
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>以操作員的身分預覽預設首頁
 
-若要以操作員的身分預覽首頁，請將頁面右上方的 [設計模式] 切換為關閉：
+若要以操作員的身分預覽首頁，請選取頁面右上角的 [完成]
 
 ![切換設計模式](media/tutorial-customize-operator/operatorviewhome.png)
 
@@ -158,7 +164,7 @@ ms.locfileid: "43185846"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何自訂應用程式的操作員檢視。
+在此教學課程中，您已了解如何自訂應用程式的操作員檢視。
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]

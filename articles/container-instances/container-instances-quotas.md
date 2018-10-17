@@ -2,18 +2,17 @@
 title: Azure Container Instances 配額和區域可用性
 description: Azure Container Instances 服務的預設配額和區域可用性。
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
-ms.author: marsma
-ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: danlep
+ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115270"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902345"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances 的配額和區域可用性
 
@@ -29,11 +28,11 @@ ms.locfileid: "39115270"
 
 | 位置 | 作業系統 | CPU | 記憶體 (GB) |
 | -------- | -- | :---: | :-----------: |
-| 美國西部、美國東部、西歐、北歐 | Linux | 4 | 14 |
-| 美國西部 2、東南亞 | Linux | 2 | 7 |
-| 澳大利亞東部、美國東部 2、美國中部 | Linux | 1 | 1.5 |
-| 美國西部、美國東部、西歐、北歐 | Windows | 4 | 14 |
-| 美國西部 2、東南亞 | Windows | 2 | 3.5 |
+| 美國東部、北歐、西歐、美國西部、美國西部 2 | Linux | 4 | 14 |
+| 澳大利亞東部、美國東部 2、東南亞 | Linux | 2 | 7 |
+| 印度中部、美國中南部 | Linux | 2 | 3.5 |
+| 美國東部、西歐、美國西部 | Windows | 4 | 14 |
+| 澳大利亞東部、印度中部、美國東部 2、北歐、美國中南部、東南亞、美國西部 2 | Windows | 2 | 3.5 |
 
 在這些資源限制下建立的容器執行個體都會受限於部署地區的可用性。 地區負載過重時，您在部署執行個體時可能會失敗。 若要減少這類的部署失敗，請嘗試部署 CPU 和記憶體設定較低階的執行個體，或過一段時間再部署。
 

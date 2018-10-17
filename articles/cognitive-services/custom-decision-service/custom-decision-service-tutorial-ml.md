@@ -1,21 +1,23 @@
 ---
-title: 機器學習 - Azure 認知服務 | Microsoft Docs
-description: 本教學課程說明如何透過 Azure 自訂決策服務進行機器學習，自訂決策服務是一種雲端式 API，用於處理內容相關的決策制定。
+title: 教學課程：特徵化和特徵規格 - 自訂決策服務
+titlesuffix: Azure Cognitive Services
+description: 自訂決策服務中教學課程特徵化和特徵規格的教學課程。
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
-ms.openlocfilehash: 50814d67ee39c6657954610358462d877843416e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369986"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869581"
 ---
-# <a name="machine-learning"></a>機器學習服務
+# <a name="tutorial-featurization-and-feature-specification"></a>教學課程：特徵化和特徵規格
 
 本教學課程介紹了自訂決策服務中的進階機器學習功能。 本教學課程包含兩個部分：[特徵化](#featurization-concepts-and-implementation)和[特徵規格](#feature-specification-format-and-apis)。 特徵化是指將您的資料呈現為機器學習的「特徵」。 特徵規格涵蓋 JSON 格式和指定功能的附屬 API。
 

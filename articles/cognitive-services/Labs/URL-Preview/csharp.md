@@ -1,25 +1,27 @@
 ---
-title: 專案 URL 預覽的 C# 快速入門 - Microsoft 認知服務 | Microsoft Docs
-description: 在 Azure 上的 Microsoft 認知服務中開始使用專案 URL 預覽。
+title: 快速入門：專案 URL 預覽 C#
+titlesuffix: Azure Cognitive Services
+description: 開始使用專案 URL 預覽與 C#。
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 17d44bd0c23d0a1e67da5a0e91248700d3166c1a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 8d31d3a83f9873ce550b9c78626eea0d96ac39bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369606"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867437"
 ---
-# <a name="url-preview-query-in-c"></a>C# 中的 URL 預覽查詢
+# <a name="quickstart-url-preview-query-in-c"></a>快速入門：C# 中的 URL 預覽查詢
 
-下列 C# 範例會建立 SwiftKey 網站的 URL 預覽：https://swiftkey.com/en。
+下列 C# 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
@@ -27,7 +29,7 @@ ms.locfileid: "35369606"
 
 ## <a name="code-scenario"></a>程式碼案例
 
-下列 C# 程式碼會建立 SwiftKey 網站的 URL 預覽：https://swiftkey.com/en。 
+下列 C# 程式碼會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。 
 
 其實作的步驟如下：
 1. 宣告變數以指定用於預覽的端點和查詢 URL。  
@@ -161,7 +163,7 @@ namespace UrlPrevCshp
 4. 執行程式。
 
 ## <a name="next-steps"></a>後續步驟
-- [Java 快速入門](java-quickstart.md)
+- [JAVA 快速入門](java-quickstart.md)
 - [JavaScript 快速入門](javascript.md)
 - [Node 快速入門](node-quickstart.md)
 - [Python 快速入門](python-quickstart.md)

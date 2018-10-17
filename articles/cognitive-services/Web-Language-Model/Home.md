@@ -1,22 +1,27 @@
 ---
-title: Web 語言模型 API 的概觀 - Azure 認知服務 | Microsoft Docs
+title: Web 語言模型 API 的概觀
+titleSuffix: Azure Cognitive Services
 description: Microsoft 認知服務中的 Web 語言模型 API 可提供最先進的工具來處理自然語言。
 services: cognitive-services
 author: piyushbehre
-manager: yanbo
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
-ms.openlocfilehash: dc5dc0519e33e024014033ac5260004482b419c2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ROBOTS: NOINDEX
+ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096950"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48039986"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>什麼是 Web 語言模型 API？ (預覽)
+
+> [!IMPORTANT]
+> Web 語言模型預覽已於 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
 
 Microsoft Web 語言模型 API 是 REST 架構的雲端服務，可提供最先進的工具來處理自然語言。 使用此 API，應用程式便可透過 Bing 在 en-US 市場所收集的 Web 規模語料庫將語言模型定型，以利用巨量資料的強大威力。
 

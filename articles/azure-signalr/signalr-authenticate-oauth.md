@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8751e3485b97b67fd8dd4821480fecd7735c08cd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974318"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268507"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>教學課程：Azure SignalR 服務驗證
 
@@ -29,7 +29,7 @@ ms.locfileid: "46974318"
 
 對於真實案例來說，快速入門的聊天室應用程式最初所使用的驗證服務過於簡單。 該應用程式可讓每個用戶端宣告其身分，而伺服器就只會接受該項宣告。 這個方法不太適用於真實應用程式，因為惡意使用者會模擬其他人來存取敏感性資料。 
 
-[GitHub](https://github.com/) 會根據常用的業界標準通訊協定 [OAuth](https://oauth.net/) 來提供驗證 API。 這些 API 可讓第三方應用程式驗證 GitHub 帳戶。 在本教學課程中，您會使用這些 API 透過 Github 帳戶實作驗證，接著再允許用戶端登入聊天室應用程式。 在驗證 GitHub 帳戶後，系統便會將帳戶資訊新增為 Cookie 以供 Web 用戶端用來驗證。
+[GitHub](https://github.com/) 會根據常用的業界標準通訊協定 [OAuth](https://oauth.net/) 來提供驗證 API。 這些 API 可讓第三方應用程式驗證 GitHub 帳戶。 在本教學課程中，您會使用這些 API 透過 GitHub 帳戶實作驗證，接著再允許用戶端登入聊天室應用程式。 在驗證 GitHub 帳戶後，系統便會將帳戶資訊新增為 Cookie 以供 Web 用戶端用來驗證。
 
 若要深入了解透過 GitHub 所提供的 OAuth 驗證 API，請參閱[驗證的基本概念](https://developer.github.com/v3/guides/basics-of-authentication/)。
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27600cd4656f70b4cd01745667c0e0fd2a2f4997
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405814"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831478"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>教學課程：將 Linux Service Fabric 叢集部署到 Azure 虛擬網路
 
@@ -85,7 +85,7 @@ Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 叢集
 
-Linux 叢集的部署具有下列特性：
+在 **Microsoft.ServiceFabric/clusters** Linux 叢集會以下列特性部署：
 
 * 單一節點類型
 * 屬於主要節點類型的五個節點 (可在範本參數中設定)
@@ -99,7 +99,7 @@ Linux 叢集的部署具有下列特性：
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-系統會為下列連接埠部署負載平衡器，並進行探查和規則的設定：
+在 **Microsoft.Network/loadBalancers** 資源中，會為下列連接埠設定負載平衡器，並進行探查和規則的設定：
 
 * 用戶端連線端點：19000
 * HTTP 閘道端點：19080
@@ -108,7 +108,7 @@ Linux 叢集的部署具有下列特性：
 
 ### <a name="virtual-network-and-subnet"></a>虛擬網路和子網路
 
-虛擬網路和子網路的名稱會在範本參數中宣告。  虛擬網路和子網路的位址空間也會在範本參數中宣告：
+虛擬網路和子網路的名稱會在範本參數中宣告。  虛擬網路和子網路的位址空間也會在範本參數中宣告，並設定於 **Microsoft.Network/virtualNetworks** 資源中：
 
 * 虛擬網路位址空間：10.0.0.0/16
 * Service Fabric 子網路位址空間：10.0.2.0/24

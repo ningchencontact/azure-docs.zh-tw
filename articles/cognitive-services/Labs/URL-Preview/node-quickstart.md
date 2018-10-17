@@ -1,25 +1,27 @@
 ---
-title: 專案 URL 預覽的 Node.js 快速入門 - Microsoft 認知服務 | Microsoft Docs
+title: 快速入門：專案 URL 預覽 Node.js
+titlesuffix: Azure Cognitive Services
 description: 在 Azure 的 Microsoft 認知服務中開始使用 URL 預覽。
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 195033d2740b11873baae095cec028dc8d19ce49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: b8410127ed9a0444ab400eb3242868a85bd5b2c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369595"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883562"
 ---
-# <a name="url-preview-node-quickstart"></a>URL 預覽 Node 快速入門
+# <a name="quickstart-url-preview-with-nodejs"></a>快速入門：使用 Node.js 進行 URL 預覽 
 
-下列 Node 範例會建立 SwiftKey 網站的 URL 預覽：https://swiftkey.com/en。
+下列 Node 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
 
@@ -27,7 +29,7 @@ ms.locfileid: "35369595"
 
 下列程式碼會取得 URL 預覽資料。
 實際進行步驟如下：
-1. 宣告變數來依主機及路徑指定端點。
+1. 宣告變數以依主機及路徑指定端點。
 2. 指定要預覽的查詢 URL，並加入查詢參數。  
 3. 建立回應的處理常式函式。
 4. 定義建立要求的搜尋函式，並加入 *Ocp-Apim-Subscription-Key* 標頭。

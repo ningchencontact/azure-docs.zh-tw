@@ -3,7 +3,7 @@ title: 在 Azure Stack 中建立供應項目 | Microsoft Docs
 description: 身為雲端系統管理員，您應該了解如何在 Azure Stack 中為使用者建立供應項目。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/20/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "43050411"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077335"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>在 Azure Stack 中建立優惠
 
 [供應項目](azure-stack-key-features.md)是一組提供者供使用者購買或訂閱的一或多個方案。 此文件將說明如何建立一個包含[所建立方案](azure-stack-create-plan.md)的供應項目。 此供應項目可讓訂閱者設定虛擬機器。
 
-1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external) ，然後選取 [新增] > [租用戶供應項目 + 方案] > [供應項目]。
+1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external)，然後選取 [+建立資源] > [租用戶供應項目 + 方案] > [供應項目]。
 
    ![建立供應項目](media/azure-stack-create-offer/image01.png)
   

@@ -1,27 +1,27 @@
 ---
-title: 搭配使用 Bing 自動建議 API 與 Python 的快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 認知服務中快速地開始使用 Bing 自動建議 API。
+title: 快速入門：Bing 自動建議 API (Python)
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 自動建議 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 721dba50e1d296066c06e0f00c9f36227391018d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60585b2d5884962d0f988597ef1e50107e548122
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370099"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830612"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-python"></a>搭配使用 Bing 自動建議 API 與 Python 的快速入門
-<a name="HOLTop"></a>
 
-本文說明如何使用搭配使用 [Bing 自動建議 API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) 與 Python。 Bing 自動建議 API 會根據使用者在搜尋方塊中輸入的部分字串，傳回建議的查詢清單。 通常，每次使用者在搜尋方塊中輸入新字元時，都會呼叫此 API，然後在搜尋方塊的下拉式清單中顯示建議。 本文說明如何傳送要求，以針對 *sail* 傳回建議的查詢字串。
+本文說明如何使用搭配使用 [Bing 自動建議 API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) 與 Python。 Bing 自動建議 API 會根據使用者在搜尋方塊中輸入的部分字串，傳回建議的查詢清單。 通常，每次使用者在搜尋方塊中鍵入新字元時，都會呼叫此 API，然後在搜尋方塊的下拉式清單中顯示建議。 本文示範如何傳送要求，以針對 *sail* 傳回建議的查詢字串。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您將需要有 [Python 3.x](https://www.python.org/downloads/)，才能執行此程式碼。
 
@@ -31,7 +31,7 @@ ms.locfileid: "35370099"
 
 1. 在您最愛的 IDE 中建立新的 Python 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `subscriptionKey` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `subscriptionKey` 值。
 4. 執行程式。
 
 ```python
@@ -69,7 +69,7 @@ print (json.dumps(json.loads(result), indent=4))
 
 ### <a name="response"></a>Response
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -138,7 +138,7 @@ print (json.dumps(json.loads(result), indent=4))
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 自動建議教學課程](../tutorials/autosuggest.md)
+> [Bing 自動建議教學課程l](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>另請參閱
 

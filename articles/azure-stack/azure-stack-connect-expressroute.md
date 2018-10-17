@@ -3,7 +3,7 @@ title: 使用 ExpressRoute 將 Azure Stack 連線至 Azure
 description: 了解如何使用 ExpressRoute 將 Azure Stack 中的虛擬網路連線至 Azure 中的虛擬網路。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050391"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078693"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 將 Azure Stack 連線至 Azure
 
@@ -98,7 +98,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>建立虛擬網路和 VM 子網路
 
 1. 以使用者 (租用戶) 帳戶來登入使用者入口網站。
-1. 在入口網站中，選取 [新增]。
+1. 在入口網站中，選取 [+ 建立資源]。
 
 1. 在 [Azure Marketplace] 底下，選取 [網路]。
 
@@ -131,7 +131,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 
 #### <a name="create-the-virtual-network-gateway"></a>建立虛擬網路閘道
 
-1. 在 Azure Stack 使用者入口網站中，選取 [新增]。
+1. 在 Azure Stack 使用者入口網站中，選取 [+ 建立資源]。
 1. 在 [Azure Marketplace] 底下，選取 [網路]。
 1. 從網路資源清單中選取 [虛擬網路閘道]。
 1. 在 [名稱] 欄位中，輸入 **GW1**。
@@ -146,7 +146,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 
 區域網路閘道資源可識別 VPN 連線另一端的遠端閘道。 在此範例中，連線的遠端是 ExpressRoute 路由器的 LAN 子介面。 圖 2 所示的租用戶 1 ，其遠端位址是 10.60.3.255。
 
-1. 以使用者帳戶登入 Azure Stack 使用者入口網站，然後選取 [新增]。
+1. 以使用者帳戶登入 Azure Stack 使用者入口網站，然後選取 [+ 建立資源]。
 1. 在 [Azure Marketplace] 底下，選取 [網路]。
 1. 從資源清單中選取 [區域網路閘道]。
 1. 在 [名稱] 欄位中輸入 **ER-Router-GW**。
@@ -163,7 +163,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 
 #### <a name="create-the-connection"></a>建立連線
 
-1. 在 Azure Stack 使用者入口網站中，選取 [新增]。
+1. 在 Azure Stack 使用者入口網站中，選取 [+ 建立資源]。
 1. 在 [Azure Marketplace] 底下，選取 [網路]。
 1. 從資源清單中選取 [連線]。
 1. 在 [基本] 底下，選擇 [站對站 (IPSec)] 作為 [連線類型]。
@@ -187,7 +187,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 
 若要測試透過 VPN 連線傳輸的資料流量，您需要有虛擬機器以在 Azure Stack Vnet 中傳送和接收資料。 建立虛擬機器，並將它部署到虛擬網路的 VM 子網路。
 
-1. 在 Azure Stack 使用者入口網站中，選取 [新增]。
+1. 在 Azure Stack 使用者入口網站中，選取 [+ 建立資源]。
 1. 在 [Azure Marketplace] 底下，選取 [計算]。
 1. 在虛擬機器映像清單中，選取 [Windows Server 2016 Datacenter 評估版] 映像。
 

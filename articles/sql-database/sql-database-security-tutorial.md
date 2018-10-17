@@ -2,20 +2,22 @@
 title: 保護 Azure SQL Database | Microsoft Docs
 description: 深入了解保護 Azure SQL Database 的技術和功能。
 services: sql-database
-author: DRediske
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
-ms.date: 09/07/2018
+author: DRediske
 ms.author: daredis
-ms.reviewer: vanto
-ms.openlocfilehash: 220cda999c21e6b56546fe6d5dbe350675ad9691
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: ceed69503900b38d7f6a29bbe116ab9a4d54e396
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542392"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857953"
 ---
 # <a name="secure-your-azure-sql-database"></a>保護 Azure SQL Database
 

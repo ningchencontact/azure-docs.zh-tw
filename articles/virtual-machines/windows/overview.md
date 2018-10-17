@@ -1,5 +1,5 @@
 ---
-title: Windows 虛擬機器概觀 | Microsoft Docs
+title: Windows 虛擬機器概觀 - Azure | Microsoft Docs
 description: 了解在 Azure 中建立及管理 Windows 虛擬機器。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e12b8153494eaefb1f7e2d27fc667ef0070c68d0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6ec151222bda3d87386cc3be4c54821775880795
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918877"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816832"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
@@ -31,8 +31,7 @@ Azure VM 讓您能夠有彈性地進行虛擬化，而不需購買並維護執�
 
 Azure 虛擬機器可用於許多用途。 部分範例如下：
 
-* 
-  **開發和測試** – Azure VM 提供了一個快速且簡單的方法，用以建立為應用程式撰寫程式碼並進行測試時所需之特定組態的電腦。
+* **開發和測試** – Azure VM 提供了一個快速且簡單的方法，用以建立為應用程式撰寫程式碼並進行測試時所需之特定組態的電腦。
 * **雲端中的應用程式** – 因為您應用程式的需求可能會變動，在 Azure VM 上執行它在經濟上是合理的。 當您需要 VM 時便支付額外的 VM，而當您不需要時便關閉這些 VM。
 * **擴充的資料中心** – 可輕鬆將 Azure 虛擬網路中的虛擬機器連線到您組織的網路。
 
@@ -84,9 +83,9 @@ Azure 提供許多 [Marketplace 映像](https://azure.microsoft.com/marketplace/
 | 方法 | 說明 |
 | --- | --- |
 | Azure 入口網站 |當您選取要使用的影像時，會自動為您指定值。 |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location *location*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API |[列出映像發行者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像供應項目](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location *location* --publisher *publisherName* --offer *offerName*|
 
 您可以選擇[上傳並使用您自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)，當您這麼做時，不會使用發行者名稱、供應項目和 SKU。
 
@@ -125,7 +124,7 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | REST API |[建立或更新 VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 | Azure CLI |[使用 Azure CLI 建立 VM](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
-您希望它絕對不會發生，但偶爾會發生錯誤。 如果您發生這種情況，請查看[疑難排解在 Azure 中建立 Windows 虛擬機器時發生的 Resource Manager 部署問題](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的資訊。
+您希望它絕對不會發生，但偶爾會發生錯誤。 如果您發生這種情況，請查看[疑難排解在 Azure 中建立 Windows 虛擬機器時發生的 Resource Manager 部署問題](../troubleshooting/troubleshoot-deployment-new-vm-windows.md)中的資訊。
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>如何管理我所建立的 VM？
 可以使用以瀏覽器為基礎的入口網站、支援指令碼處理的命令列工具，或直接透過 API 管理 VM。 您可能會執行的一些一般管理工作為取得 VM 的相關資訊、登入 VM、管理可用性，以及進行備份。
@@ -142,10 +141,10 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | Azure CLI |如需使用 Azure CLI 管理 VM 的詳細資訊，請參閱 [Azure CLI 參考](https://docs.microsoft.com/cli/azure/vm)。 |
 
 ### <a name="log-on-to-the-vm"></a>登入 VM
-您使用 Azure 入口網站中的 [連線] 按鈕[啟動遠端桌面 (RDP) 工作階段](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 嘗試使用遠端連線時，有時可能會出錯。 如果您發生這種情況，請參閱[疑難排解遠端桌面連線至執行 Windows 的 Azure 虛擬機器](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的說明資訊。
+您使用 Azure 入口網站中的 [連線] 按鈕[啟動遠端桌面 (RDP) 工作階段](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 嘗試使用遠端連線時，有時可能會出錯。 如果您發生這種情況，請參閱[疑難排解遠端桌面連線至執行 Windows 的 Azure 虛擬機器](../troubleshooting/troubleshoot-rdp-connection.md)中的說明資訊。
 
 ### <a name="manage-availability"></a>管理可用性
-請務必了解如何[確保應用程式的高可用性](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 此組態需要建立多個 VM 以確保至少有一個 VM 正在執行。
+請務必了解如何[確保應用程式的高可用性](manage-availability.md)。 此組態需要建立多個 VM 以確保至少有一個 VM 正在執行。
 
 為了讓您的部署符合 99.95 的 VM 服務等級協定資格，您必須部署兩個或更多在[可用性設定組](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)內執行工作負載的 VM。 此組態可確保您的 VM 會分散多個容錯網域，且部署至具有不同維護期間的主機。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 說明保證的 Azure 整體可用性。
 
@@ -153,5 +152,5 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 [復原服務保存庫](../../backup/backup-introduction-to-azure-backup.md)可用來保護 Azure 備份和 Azure Site Recovery 服務中的資料和資產。 您可以使用復原服務保存庫，[使用 PowerShell 部署和管理 Resource Manager 部署之 VM 的備份](../../backup/backup-azure-vms-automation.md)。 
 
 ## <a name="next-steps"></a>後續步驟
-* 如果您的目的是要使用 Linux VM，請查看 [Azure 與 Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-* 在[範例 Azure 基礎結構逐步解說](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中深入了解設定基礎結構的指導方針。
+* 如果您的目的是要使用 Linux VM，請查看 [Azure 與 Linux](../linux/overview.md)。
+* 在[範例 Azure 基礎結構逐步解說](infrastructure-example.md)中深入了解設定基礎結構的指導方針。

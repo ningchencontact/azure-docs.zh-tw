@@ -1,6 +1,6 @@
 ---
-title: 快速入門：建立 Machine Learning 工作區 - Azure
-description: 使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Azure Machine Learning services，來實驗、定型及部署機器學習服務模型的基礎區塊。
+title: 快速入門：在 Azure 入口網站中建立機器學習服務工作區 - Azure Machine Learning
+description: 使用 Azure 入口網站來建立 Azure Machine Learning 服務工作區。 此工作區是雲端中使用 Azure Machine Learning services，來實驗、定型及部署機器學習服務模型的基礎區塊。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: c1610291e06255e2c724268f63d740f7e4debea4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959983"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831325"
 ---
-# <a name="quickstart-get-started-with-azure-machine-learning-service"></a>快速入門：開始使用 Azure Machine Learning services
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning 服務
 
-在本快速入門中，您將使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Azure Machine Learning services，來實驗、定型及部署機器學習服務模型的基礎區塊。 
+在本快速入門中，您將使用 Azure 入口網站來建立 Azure Machine Learning 服務工作區。 此工作區是雲端中使用 Azure Machine Learning services，來實驗、定型及部署機器學習服務模型的基礎區塊。 
 
 在本教學課程中，您將：
 
@@ -28,7 +28,7 @@ ms.locfileid: "46959983"
 
 為了方便起見，當下列的 Azure 資源可在區域內取得時，會自動加入至您的工作區：[容器登錄](https://azure.microsoft.com/services/container-registry/)、[儲存體](https://azure.microsoft.com/services/storage/)、[Application Insights](https://azure.microsoft.com/services/application-insights/) 和 [Key Vault](https://azure.microsoft.com/services/key-vault/)。
 
-您所建立的資源可用來作為其他 Azure Machine Learning 教學課程和操作說明文章的必要條件。 如同使用其他 Azure 服務，對於特定資源有一些限制 (例如， BatchAI 叢集大小)，這類資源均與 Azure Machine Learning services 相關聯。 請閱讀[這篇](how-to-manage-quotas.md)文章，以了解預設限制及如何要求更多配額。
+您所建立的資源可用來作為其他 Azure Machine Learning 服務教學課程和操作說明文章的必要條件。 如同使用其他 Azure 服務，對於特定資源有一些限制 (例如， BatchAI 叢集大小)，這類資源均與 Azure Machine Learning services 相關聯。 請閱讀[這篇](how-to-manage-quotas.md)文章，以了解預設限制及如何要求更多配額。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -37,7 +37,7 @@ ms.locfileid: "46959983"
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-在工作區頁面上，按一下 `Explore your Azure Machine Learning Workspace`
+在工作區頁面上，按一下 `Explore your Azure Machine Learning service workspace`
 
  ![探索工作區](./media/quickstart-get-started/explore_aml.png)
 
@@ -69,9 +69,9 @@ Azure Notebooks 會為 Jupyter Notebook 提供免費的雲端平台，其會利�
 
 按一下 `01.run-experiment.ipynb` 來開啟 Notebook。
 
-您可以使用 `Shift`+`Enter`，一次執行一個儲存格。  或者，使用功能表 `Cells` > `Run All` 來執行整個 Notebook。
+您可以使用 `Shift`+`Enter`，一次執行一個儲存格。  或者，使用功能表 `Cells` > `Run All` 來執行整個 Notebook。  當您在資料格旁邊看到 [*] 時，表示它正在執行中。  該資料格的程式碼完成後，會出現一個數字。
 
-系統可能會提示您登入。  複製訊息中的程式碼，然後按一下連結，並將程式碼貼到新的視窗。  請確定不會複製程式碼前後的空格。
+系統會提示您登入。  複製訊息中的程式碼，然後按一下連結，並將程式碼貼到新的視窗。  請確定不會複製程式碼前後的空格。  請使用您在 Azure 入口網站中使用的相同帳戶登入。
 
  ![登入](./media/quickstart-get-started/login.png)
 

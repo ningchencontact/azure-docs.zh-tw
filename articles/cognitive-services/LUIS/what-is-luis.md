@@ -3,18 +3,18 @@ title: 什麼是 Language Understanding (LUIS) - Azure 認知服務 | Microsoft 
 description: Language Understanding Intelligent Service (LUIS) 是一種 API 雲端式服務，可將自訂機器學習智慧套用至使用者的對話、自然語言文字中，以預測整體意義，並找出相關的詳細資訊。 LUIS 的用戶端應用程式是任何對話應用程式，可與使用者透過自然語言溝通以完成工作。 用戶端應用程式的例子包括社群媒體應用程式、聊天機器人，以及具備語音功能的桌面應用程式。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 10/06/2018
 ms.author: diberry
-ms.openlocfilehash: aadf80df388a25e07051f6dd0a83cd4da7c2ef83
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 0520c00ab20ca7210b3bb13567f9998e7231be43
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629792"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867644"
 ---
 # <a name="what-is-language-understanding-luis"></a>何謂 Language Understanding Intelligent Service (LUIS)？
 
@@ -151,7 +151,7 @@ JSON 最基本的端點回應包含查詢語句和評分最高的意圖。 它�
 
 ## <a name="improve-model-prediction"></a>改善模型預測
 
-在發佈 LUIS 模型並接收到實際的使用者語句後，LUIS 有數種方法可提高預測準確度：端點語句的[主動學習](#active-learning)、包含領域字組的[片語清單](#phrase-lists)，以及[模式](#patterns)來減少所需的語句數。
+在發佈 LUIS 模型並接收到實際的使用者語句後，LUIS 有數種方法可提高預測準確度：端點語句的[主動學習](luis-concept-review-endpoint-utterances.md)、包含領域字組的[片語清單](luis-concept-feature.md)，以及[模式](luis-concept-patterns.md)來減少所需的語句數。
 <!--
 ### Active learning
 
@@ -171,25 +171,37 @@ Patterns allow you to simplify an intent's utterance collection into common [tem
 Author LUIS from the [authoring](https://aka.ms/luis-authoring-apis) APIs or from the LUIS portal. Query the published prediction endpoint of the model from the [endpoint](https://aka.ms/luis-endpoint-apis) APIs.
 -->
 
-## <a name="integrating-with-luis"></a>與 LUIS 整合
+## <a name="development-lifecycle"></a>開發生命週期
+LUIS 會提供工具、版本控制和與其他 LUIS 作者的共同作業，以便在用戶端應用程式和語言模型的層級整合到完整的開發生命週期。 
+
+## <a name="implementing-luis"></a>實作 LUIS
 LUIS 在作為 REST API 時，可以與任何會發出 HTTP 要求的產品、服務或架構搭配使用。 下列清單包含最常與 LUIS 搭配使用的 Microsoft 產品和服務。
 
-適用於 LUIS 的 Microsoft 用戶端應用程式包括：
+LUIS 最上層的用戶端應用程式是：
 * [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) 可快速建立具備 LUIS 功能的聊天機器人，以透過文字輸入與使用者交談。 使用 [Bot Framework][bot-framework] [3.x](https://github.com/Microsoft/BotBuilder) 或 [4.x](https://github.com/Microsoft/botbuilder-dotnet) 版可取得完整的 Bot 體驗。
-* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - 請透過這門 LUIS 的[混合實境課程](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303)深入了解。 
 
-搭配使用 LUIS 與 Bot 的 Microsoft 工具：
+可供快速且輕鬆地搭配使用 LUIS 與聊天機器人的工具：
+* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) NPM 套件可透過獨立命令列工具或匯入形式來提供撰寫和預測功能。 
+* [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen 工具可從匯出的 LUIS 模型中產生強型別的 C# 和 typescript 原始程式碼。
 * [分派](https://aka.ms/dispatch-tool)可讓您透過發送器模型從父應用程式使用數個 LUIS 和 QnA Maker 應用程式。
-* [對話學習模組](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)可讓您更快速地使用 LUIS 建置 Bot 對話。
-* [專案特質交談](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)可處理 Bot 的小型交談。
+* [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown 是一種命令列工具，可協助您管理聊天機器人的語言模型。
 
 其他可與 LUIS 搭配使用的認知服務包括：
 * [QnA Maker][qnamaker] 可讓數種文字類型合併為問題和答案知識庫。
 * [Bing 拼字檢查 API](../bing-spell-check/proof-text.md) 可在預測前提供文字更正。 
 * [語音服務](../Speech-Service/overview.md)可將口說語言要求轉換成文字。 
+* [對話學習模組](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)可讓您更快速地使用 LUIS 建置 Bot 對話。
+* [專案特質交談](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)可處理 Bot 的小型交談。
+<!--
+## Other ways of implementing LUIS
+
+A client application for LUIS is:
+* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
 
 
+Labs: 
 
+-->
 ## <a name="next-steps"></a>後續步驟
 
 使用[預先建立](luis-get-started-create-app.md)或[自訂](luis-quickstart-intents-only.md)領域撰寫新的 LUIS 應用程式。 對公用 IoT 應用程式[查詢預測端點](luis-get-started-cs-get-intent.md)。

@@ -1,23 +1,23 @@
 ---
-title: 自動建議 API 快速入門 | Microsoft Docs
+title: 快速入門：Bing 自動建議 API
+titlesuffix: Azure Cognitive Services
 description: 示範如何開始使用 Bing 自動建議 API。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 1482E781-7352-4A3F-B1D5-B896381348C4
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: a7b54a1fb0b7c76eb72097357a6b51aa02e6e2fd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369974"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830748"
 ---
-# <a name="making-your-first-autosuggest-query"></a>進行第一個自動建議查詢
+# <a name="quickstart-making-your-first-autosuggest-query"></a>快速入門：進行第一個自動建議查詢
 
 第一次進行呼叫之前，您需要取得認知服務訂用帳戶金鑰。 若要取得金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api)。
 

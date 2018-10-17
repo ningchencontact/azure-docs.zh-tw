@@ -1,22 +1,23 @@
 ---
-title: 適用於 Azure 認知服務、文字分析 API 的 PHP 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用 Microsoft 認知服務中的文字分析 API。
+title: 快速入門：使用 PHP 來呼叫文字分析 API
+titleSuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，協助您在 Azure上快速開始使用 Microsoft 認知服務中的文字分析 API。
 services: cognitive-services
-documentationcenter: ''
-author: ashmaka
+author: noellelacharite
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: 2f654736e998652ecaf8825b308c7ff3bf84a924
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.topic: quickstart
+ms.date: 10/01/2018
+ms.author: nolachar
+ms.openlocfilehash: 99761cf5105535105a7dd9576a32a79e0ae39768
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840765"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247785"
 ---
-# <a name="quickstart-for-text-analytics-api-with-php"></a>文字分析 API 與 PHP 的快速入門 
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 PHP 來呼叫文字分析認知服務
 <a name="HOLTop"></a>
 
 本文示範如何使用[文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711) 與 PHP 來[偵測語言](#Detect)、[分析情感](#SentimentAnalysis)、[擷取關鍵片語](#KeyPhraseExtraction)，以及[識別已連結實體](#Entities)。
@@ -52,7 +53,7 @@ ms.locfileid: "43840765"
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-$accessKey = 'ENTER KEY HERE';
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
@@ -63,7 +64,7 @@ $accessKey = 'ENTER KEY HERE';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/';
+$path = '/text/analytics/v2.0/languages';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
@@ -82,7 +83,7 @@ function DetectLanguage ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'languages', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -94,11 +95,12 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = DetectLanguage ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
 ```
 
 **語言偵測回應**
@@ -106,6 +108,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
+
 {
    "documents": [
       {
@@ -143,6 +146,8 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 
    ]
 }
+
+
 ```
 <a name="SentimentAnalysis"></a>
 
@@ -150,9 +155,36 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 
 情感分析 API 會使用[情感分析方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)，擷取出一組文字記錄中的情緒態度。 下列範例會為兩份文件進行評分，一份是英文，另一份則是西班牙文。
 
-將下列程式碼新增至[上一節](#Detect)中的程式碼。
+1. 在您最愛的 IDE 中建立新的 PHP 專案。
+2. 新增下方提供的程式碼。
+3. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
+4. 將 `host` 中的位置 (目前為 `westus`) 取代為您註冊的區域。
+5. 執行程式。
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.0/sentiment';
+
 function GetSentiment ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -170,7 +202,7 @@ function GetSentiment ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'sentiment', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -181,11 +213,12 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetSentiment ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
 ```
 
 **情感分析回應**
@@ -212,11 +245,38 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 
 ## <a name="extract-key-phrases"></a>擷取關鍵片語
 
-關鍵片語擷取 API 會使用[關鍵片語方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 以下範例會擷取英文和西班牙文文件的關鍵片語。
+關鍵片語擷取 API 會使用[關鍵片語方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 下列範例會擷取英文和西班牙文文件的關鍵片語。
 
-將下列程式碼新增至[上一節](#SentimentAnalysis)中的程式碼。
+1. 在您最愛的 IDE 中建立新的 PHP 專案。
+2. 新增下方提供的程式碼。
+3. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
+4. 將 `host` 中的位置 (目前為 `westus`) 取代為您註冊的區域。
+5. 執行程式。
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.0/keyPhrases';
+
 function GetKeyPhrases ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -234,7 +294,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'keyPhrases', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -246,16 +306,18 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
+
 ```
 
 **關鍵片語擷取回應**
 
-會以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -295,13 +357,40 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 
 <a name="Entities"></a>
 
-## <a name="identify-linked-entities"></a>識別已連結實體
+## <a name="identify-entities"></a>識別實體
 
-實體連結 API 會使用[實體連結方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) \(英文\) 來識別文字文件中的已知實體。 以下範例會識別英文文件的實體。
+實體 API 會使用[實體方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)來識別文字文件中的已知實體。 以下範例會識別英文文件的實體。
 
-將下列程式碼新增至[上一節](#KeyPhraseExtraction)中的程式碼。
+1. 在您最愛的 IDE 中建立新的 PHP 專案。
+2. 新增下方提供的程式碼。
+3. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
+4. 將 `host` 中的位置 (目前為 `westus`) 取代為您註冊的區域。
+5. 執行程式。
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.1-preview/entities';
+
 function GetEntities ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -319,86 +408,183 @@ function GetEntities ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'entities', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
 $data = array (
     'documents' => array (
-        array ( 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' ),
-        array ( 'id' => '2', 'language' => 'en', 'text' => 'The Seattle Seahawks won the Super Bowl in 2014.' )
+        array ( 'id' => '1', 'language' => 'en', 'text' => 'Jeff bought three dozen eggs because there was a 50% discount.' ),
+        array ( 'id' => '2', 'language' => 'en', 'text' => 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' )
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetEntities ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
+
 ```
 
-**實體連結回應**
+**實體擷取回應**
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
 

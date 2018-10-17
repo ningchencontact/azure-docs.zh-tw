@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 608d15afaaff15ad960a0fe8b7a56854f41662b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1cf20a4a93ef1b5bfb9c7818f35be5e75e45a3d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993403"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901085"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>使用 Azure CLI 建立第一個在 Linux 上執行的函式 (預覽)
 
-Azure Functions 可讓您在 Linux 上預設的 Azure App Service 容器中裝載函式。 您也可以[自備自訂容器](functions-create-function-linux-custom-image.md)。 這項功能目前為預覽狀態並且需要 [Functions 2.0 執行階段](functions-versions.md) (這也是預覽狀態)。
+Azure Functions 可讓您在 Linux 上預設的 Azure App Service 容器中裝載函式。 您也可以[自備自訂容器](functions-create-function-linux-custom-image.md)。 這項功能目前為預覽狀態並且需要 [Functions 2.0 執行階段](functions-versions.md)。
 
 本快速入門主題會逐步解說如何使用 Azure Functions 與 Azure CLI，在預設 App Service 容器裝載的 Linux 上建立第一個函式應用程式。 函式程式碼本身是從 GitHub 範例存放庫部署到映像。    
 
@@ -83,6 +83,18 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 
 >[!NOTE]  
 >範例存放庫目前包含兩個指令碼檔案，[deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) 和 [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment)。 .deployment 檔案會告知部署程序使用 deploy.sh 作為[自訂部署指令碼](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)。 在目前的預覽版本中，需要指令碼才能在 Linux 映像上部署函式應用程式。  
+
+## <a name="configure-the-function-app"></a>設定函式應用程式
+
+GitHub 存放庫中的專案需要 1.x 版的 Functions 執行階段。 將 `FUNCTIONS_WORKER_RUNTIME` 應用程式設定設為 `~1`，以將函式應用程式釘選至最新的 1.x 版本。 使用 [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) 命令設定應用程式設定。
+
+在下列 Azure CLI 命令中，`<app_name> 是函式應用程式的名稱。
+
+```azurecli-interactive
+az functionapp config appsettings set --name <app_name> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_WORKER_RUNTIME=~1
+```
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

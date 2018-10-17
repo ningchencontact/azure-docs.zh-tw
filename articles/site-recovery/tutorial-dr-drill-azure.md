@@ -2,16 +2,17 @@
 title: 深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練 | Microsoft 文件
 description: 深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/13/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3be3631d8d917fe9ff85e8471a35ac2ddece80b7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918046"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078149"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練
 
@@ -19,7 +20,7 @@ ms.locfileid: "41918046"
 
 這是一系列中的第四個教學課程，說明如何為內部部署 VMware VM 或 Hyper-V VM 設定 Azure 的災害復原。
 
-此教學課程假設您已完成前三個教學課程： 
+此教學課程假設您已完成前三個教學課程：
     - 在[第一個教學課程](tutorial-prepare-azure.md)中，我們針對 VMware 災害復原需求設定 Azure 元件。
     - 在[第二個教學課程](vmware-azure-tutorial-prepare-on-premises.md)中，我們為災害復原準備了內部部署元件，並檢閱必要條件。
     - 在[第三個教學課程](vmware-azure-tutorial.md)中，我們為內部部署 VMware VM 設定和啟用複寫。
@@ -44,6 +45,14 @@ ms.locfileid: "41918046"
 4. 您可以檢視及修改網路設定，包括在容錯移轉後 Azure VM 所在的網路/子網路，以及要指派給它的 IP 位址。
 5. 在 [磁碟] 中，您可以看見 VM 上作業系統和資料磁碟的相關資訊。
 
+## <a name="create-a-network-for-test-failover"></a>建立測試容錯移轉的網路
+
+我們建議針對測試容錯移轉所選擇的網路，是與每部 VM [計算與網路] 設定中特定實際執行復原網站網路隔離的網路。 根據預設，當您建立 Azure 虛擬網路時，它會與其他網路隔離。 此測試網路應模擬您的實際執行網路︰
+
+- 測試網路應該具有與實際執行網路相同數目的子網路。 子網路應具有相同的名稱。
+- 測試網路應使用相同的 IP 位址範圍。
+- 使用針對 [計算與網路] 設定中 DNS VM 指定的 IP 位址，來更新測試網路的 DNS。 如需詳細資訊，請參閱 [Active Directory 測試容錯移轉考量](site-recovery-active-directory.md#test-failover-considerations)。
+
 ## <a name="run-a-test-failover-for-a-single-vm"></a>執行單一 VM 測試容錯移轉
 
 當您執行測試容錯移轉時，會發生下列情況：
@@ -64,6 +73,12 @@ ms.locfileid: "41918046"
 7. 若要刪除測試容錯移轉期間建立的 Azure VM，請按一下 VM 上的 [清除測試容錯移轉]。 在 [記事] 中，記錄並儲存關於測試容錯移轉的任何觀察。
 
 在某些情況下，容錯移轉需要額外的處理，這會耗費約 8 到 10 分鐘的時間來完成。 您可能注意到下列項目的測試容錯移轉時間較久：VMware Linux 機器、未啟用 DHCP 服務的 VMware VM，以及沒有下列開機驅動程式的 VMware VM：storvsc、vmbus、storflt、intelide、atapi。
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>準備在容錯移轉後連接到 Azure VM
+
+如果您想要在容錯移轉後使用 RDP/SSH 連線到 Azure VM，請遵循資料表 ([這裡](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)) 中摘要說明的需求。
+
+請依照[這裡](site-recovery-failover-to-azure-troubleshoot.md)所述的步驟，針對容錯移轉後的任何連線問題進行疑難排解。
 
 ## <a name="next-steps"></a>後續步驟
 

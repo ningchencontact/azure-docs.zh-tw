@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222162"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855947"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>教學課程：設定適用於受控網域的混合式 Azure Active Directory Join
 
@@ -68,7 +68,7 @@ ms.locfileid: "47222162"
 - https://device.login.microsoftonline.com
 - https://autologon.microsoftazuread-sso.com (如果您正在使用或預計要使用無縫 SSO)
 
-如果您的組織需要透過輸出 Proxy 存取網際網路，自 Windows 10 1709 起，您可以使用群組原則物件 (GPO) 在電腦上設定 Proxy 設定。 如果您的電腦執行任何早於 Windows 10 1709 的版本，您就必須實作 Web Proxy 自動探索 (WPAD)，Windows 10 電腦才能向 Azure AD 進行裝置註冊。 
+如果您的組織需要透過輸出 Proxy 存取網際網路，自 Windows 10 1709 起，您可以[使用群組原則物件 (GPO) 在電腦上設定 Proxy 設定](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)。 如果您的電腦執行任何早於 Windows 10 1709 的版本，您就必須實作 Web Proxy 自動探索 (WPAD)，Windows 10 電腦才能向 Azure AD 進行裝置註冊。 
 
 如果您的組織需要透過已驗證的輸出 Proxy 存取網際網路，您就必須確定 Windows 10 電腦可以成功向輸出 Proxy 進行驗證。 Windows 10 電腦會使用電腦內容來執行裝置註冊，因此必須使用電腦內容來設定輸出 Proxy 驗證。 請向您的輸出 Proxy 提供者洽詢相關設定需求。 
 

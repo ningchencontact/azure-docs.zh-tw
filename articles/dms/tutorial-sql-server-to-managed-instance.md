@@ -2,27 +2,24 @@
 title: 使用 DMS 遷移至 Azure SQL Database 受控執行個體 | Microsoft Docs
 description: 了解如何使用 Azure 資料庫移轉服務，從內部部署 SQL Server 遷移至 Azure SQL Database 受控執行個體。
 services: dms
-author: edmacauley
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: dbf71b1fcc15743f4670c4072921f1a167a90e97
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 10/10/2018
+ms.openlocfilehash: 2e8e9706a9572b85030a636dd75d4809447eabbc
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887297"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067886"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>使用 DMS 將 SQL Server 離線移轉至 Azure SQL Database 受控執行個體
 您可以使用 Azure 資料庫移轉服務，將內部部署 SQL Server 執行個體的資料庫遷移至 [Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance.md)。 如需其他可能需要手動操作的方法，請參閱[將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-migrate.md)一文。
-
-> [!IMPORTANT]
-> 將專案從 SQL Server 移轉至 Azure SQL Database 受控執行個體目前為預覽狀態，而且必須遵循 [Microsoft Azure 預覽補充使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 在本教學課程中，您要使用 Azure 資料庫移轉服務，將 **Adventureworks2012** 資料庫從內部部署 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體。
 
@@ -173,7 +170,7 @@ ms.locfileid: "42887297"
     |**使用者名稱** | 請確定 Windows 使用者對於您先前提供的網路共用具有完整控制權限。 Azure 資料庫移轉服務將會模擬該使用者認證，以便將備份檔案上傳至 Azure 儲存體容器以進行還原作業。 如果選取已啟用 TDE 的資料庫進行移轉，則上述的 Windows 使用者必須是內建的系統管理員帳戶，且必須停用 Azure 資料庫移轉服務的[使用者帳戶控制](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview)，才能上傳及刪除憑證檔案。 |
     |**密碼** | 使用者的密碼。 |
     |**儲存體帳戶設定** | 此 SAS URI 會向 Azure 資料庫移轉服務提供您儲存體帳戶容器的存取權，此容器會作為服務上傳備份檔案時的目的地，且會用於將資料庫遷移至 Azure SQL Database 受控執行個體。 [了解如何取得 Blob 容器的 SAS URI](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container)。|
-    |**TDE 設定** | 如果您要移轉已啟用透明資料加密 (TDE) 的來源資料庫，您必須具備目標 Azure SQL DB 受控執行個體的寫入權限。  請從下拉式功能表中選取用來佈建 Azure SQL DB 受控執行個體的訂用帳戶。  在下拉式功能表中選取目標 Azure SQL DB 受控執行個體。 |
+    |**TDE 設定** | 如果您要移轉已啟用透明資料加密 (TDE) 的來源資料庫，您必須具備目標 Azure SQL 資料庫受控執行個體的寫入權限。  請從下拉式功能表中選取用來佈建 Azure SQL DB 受控執行個體的訂用帳戶。  在下拉式功能表中選取目標 **Azure SQL 資料庫受控執行個體**。 |
     
     ![設定移轉設定](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings3.png)
 

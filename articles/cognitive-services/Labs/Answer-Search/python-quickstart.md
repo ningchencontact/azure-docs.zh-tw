@@ -1,25 +1,27 @@
 ---
-title: Microsoft 認知服務的 Python 快速入門 - 專案答案搜尋 | Microsoft Docs
-description: 在 Azure 上開始使用 Microsoft 認知服務「專案答案搜尋」的 Python 範例。
+title: 快速入門：專案答案搜尋 Python
+titlesuffix: Azure Cognitive Services
+description: 開始使用專案答案搜尋的 Python 範例。
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9cb5406c616ed8e96d73c00c788a0d20f66dcabd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c33a88b65dcdf5ddddff9f5109afbe0cca7247c4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369542"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869823"
 ---
-# <a name="project-answer-search-python-quickstart"></a>專案答案搜尋 Python 快速入門
+# <a name="quickstart-project-answer-search-with-python"></a>快速入門：使用 Python 進行專案答案搜尋
 
 下列 Python 範例會建立並傳送「直布羅陀巨巖」相關資訊的要求。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452627"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888089"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](how-to-connect-install-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -156,12 +156,19 @@ ms.locfileid: "47452627"
 ### <a name="optional-features"></a>選用功能
 此畫面可讓您針對特定情況選取選用功能。
 
+>[!WARNING]
+>Azure AD Connect **1.0.8641.0** 版和較舊版本會依賴 Azure 存取控制服務來進行密碼回寫。  這項服務將於 **2018 年 11 月 7 日**淘汰。  如果您使用上述任何版本的 Azure AD Connect 並已啟用密碼回寫，當服務淘汰後，使用者可能會無法變更或重設其密碼。 我們不會在這些版本的 Azure AD Connect 上支援密碼回寫。
+>
+>如需 Azure 存取控制服務的詳細資訊，請參閱[操作說明：從 Azure 存取控制服務遷移](../develop/active-directory-acs-migration.md)
+>
+>若要下載最新版的 Azure AD Connect，請按一下[這裡](https://www.microsoft.com/en-us/download/details.aspx?id=47594)。
+
 ![選用功能](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > 如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能。
->
->
+
+
 
 | 選用功能 | 說明 |
 | --- | --- |
@@ -190,6 +197,9 @@ ms.locfileid: "47452627"
 
 ### <a name="directory-extension-attribute-sync"></a>目錄擴充屬性同步處理
 您可以使用組織新增的自訂屬性或 Active Directory 中的其他屬性在 Azure AD 中擴充結構描述。 若要使用這項功能，請選取 [選用功能] 頁面上的 [目錄擴充屬性同步處理]。 您可以在此頁面上選取更多要同步處理的屬性。
+
+>[!NOTE]
+>[可用屬性] 方塊會區分大小寫。
 
 ![目錄擴充](./media/how-to-connect-install-custom/extension2.png)
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 10/2/2018
 ms.author: victorh
-ms.openlocfilehash: 919051a945d423a104b286e9c5703c5b749cf026
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946454"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856066"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -134,6 +134,28 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
+## <a name="create-and-configure-the-onprem-vnet"></a>建立及設定內部部署 VNet
+
+定義要包含在 VNet 中的子網路：
+
+```azurepowershell
+$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
+```
+
+現在建立內部部署 VNet：
+
+```azurepowershell
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
+```
+要求一個公用 IP 位址，以配置給您將建立給 VNet 使用的閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的閘道。 
+
+  ```azurepowershell
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
+```
+
 ## <a name="configure-and-deploy-the-firewall"></a>設定及部署防火牆
 
 現在將防火牆部署到中樞 VNet 中。
@@ -154,11 +176,13 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>設定網路規則
 
+<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
+
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
-$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort *
+
 $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
@@ -182,7 +206,7 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>建立及連線 VPN 閘道
 
-中樞和內部部署 VNet 都是透過 VPN 閘道連線。
+中樞和內部部署 VNet 都是透過 VPN 閘道連線的。
 
 ### <a name="create-a-vpn-gateway-for-the-hub-vnet"></a>建立中樞 VNet 的 VPN 閘道
 
@@ -262,27 +286,7 @@ Get-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGro
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>建立及設定內部部署 VNet
 
-定義要包含在 VNet 中的子網路：
-
-```azurepowershell
-$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-現在建立內部部署 VNet：
-
-```azurepowershell
-$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-要求一個公用 IP 位址，以配置給您將建立給 VNet 使用的閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的閘道。 
-
-  ```azurepowershell
-  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
-```
 
 ## <a name="peer-the-hub-and-spoke-vnets"></a>對等互連中樞與輪輻 VNet
 
@@ -300,6 +304,9 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 接下來，建立幾個路由： 
 - 透過防火牆 IP 位址，從中樞閘道子網路到輪輻子網路的路由
 - 透過防火牆 IP 位址，從輪輻子網路開始的預設路由
+
+> [!NOTE]
+> Azure 防火牆會使用 BGP 學習您的內部部署網路。 其中可能包括會將網際網路流量路由回內部部署網路的預設路由。 如果您想要讓網際網路流量直接從防火牆傳送到網際網路，請在 AzureFirewallSubnet 上新增使用者定義的預設路由 (0.0.0.0/0)，並以**網際網路**作為下一個躍點類型。 您以內部部署為目的地的流量仍會使用從 BGP 學習到且更明確的路由，透過 VPN/ExpressRoute 閘道強制輸送。
 
 ```azurepowershell
 #Create a route table
@@ -397,8 +404,9 @@ Set-AzureRmVMExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
+```
 
-#Create a host firewall rule to allow ping in
+<!---#Create a host firewall rule to allow ping in
 Set-AzureRmVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -407,8 +415,8 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
-    -Location $Location1
-```
+    -Location $Location1--->
+
 
 ### <a name="create-the-onprem-virtual-machine"></a>建立內部部署虛擬機器
 這是一部簡單的虛擬機器，您可以使用遠端桌面連線到公用 IP 位址。 從該處，您可以透過防火牆接著連線到內部部署伺服器。 出現提示時，請輸入虛擬機器的使用者名稱和密碼。
@@ -431,10 +439,10 @@ $NIC.IpConfigurations.privateipaddress
 ```
 
 1. 從 Azure 入口網站，連線到 **VM-Onprem** 虛擬機器。
-2. 在 **VM-Onprem** 上開啟 Windows PowerShell 命令提示字元，然後 Ping **VM-spoke-01** 的私人 IP。
+<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   您應該取得回覆。
-1. 在 **VM-Onprem** 上開啟網頁瀏覽器，並瀏覽至 http://\<VM-spoke-01 private IP\>
+   You should get a reply.--->
+2. 在 **VM-Onprem** 上開啟網頁瀏覽器，並瀏覽至 http://\<VM-spoke-01 private IP\>
 
    您應該會看到 Internet Information Services 預設頁面。
 
@@ -444,7 +452,7 @@ $NIC.IpConfigurations.privateipaddress
 
 因此，現在您已確認防火牆規則正在運作：
 
-- 您可以 Ping 輪輻 VNet 上的伺服器。
+<!---- You can ping the server on the spoke VNet.--->
 - 您可以瀏覽輪輻 VNet 上的網頁伺服器。
 - 您可以使用 RDP 連線到輪輻 VNet 上的伺服器。
 

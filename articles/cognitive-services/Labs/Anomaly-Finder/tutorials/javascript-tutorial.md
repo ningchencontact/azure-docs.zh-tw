@@ -1,26 +1,29 @@
 ---
-title: 異常偵測 Javascript 應用程式 - Microsoft 認知服務 | Microsoft Docs
-description: 探索在 Microsoft 認知服務中使用異常偵測 API 的 Javascript Web 應用程式。 將原始資料點傳送到 API，並取得預期的值和異常點。
+title: 教學課程：使用 Javascript 進行異常偵測
+titlesuffix: Azure Cognitive Services
+description: 探索會使用異常偵測 API 的 Javascript Web 應用程式。 將原始資料點傳送到 API，並取得預期的值和異常點。
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 42c3941a05efe8b74f818cd99f3606b3073892a9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453164"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883698"
 ---
-# <a name="anomaly-detection-javascript-application"></a>異常偵測 Javascript 應用程式
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>教學課程：使用 Javascript 應用程式進行異常偵測
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 探索使用異常偵測 REST API 來偵測輸入異常的 Web 應用程式。 此範例會使用您的訂用帳戶金鑰來將時間序列資料提交到異常偵測 API，然後從該 API 針對每個資料點取得所有異常點和預期的值。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="platform-requirements"></a>平台需求
 

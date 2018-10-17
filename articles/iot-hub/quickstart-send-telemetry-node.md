@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: dc255a36e2347aac204f7bd32fe3e9cf25d54b19
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8a5a6ff2eab8a9ef5fb631ef81818a30db00078b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023566"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784934"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (Node.js)
 
@@ -49,44 +49,59 @@ node --version
 
 ## <a name="register-a-device"></a>註冊裝置
 
-裝置必須向的 IoT 中樞註冊，才能進行連線。 在本快速入門中，您會使用 Azure CLI 來註冊模擬的裝置。
+裝置必須向的 IoT 中樞註冊，才能進行連線。 在本快速入門中，您會使用 Azure Cloud Shell 來註冊模擬的裝置。
 
-1. 新增 IoT 中樞 CLI 擴充功能，並建立裝置身分識別。 使用您為 IoT 中樞所選擇的名稱來取代 `{YourIoTHubName}`：
+1. 在 Azure Cloud Shell 中執行下列命令，以新增 IoT 中樞 CLI 擴充功能和建立裝置身分識別。 
+
+   **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
 
     如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
-1. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
+1. 在 Azure Cloud Shell 中執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
+
+   **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
+    
+    記下裝置連接字串，它看起來如下：
 
-    記下裝置連接字串，它看似 `Hostname=...=`。 您稍後會在快速入門中使用此值。
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-1. 您也需要_服務連接字串_，讓後端應用程式能夠連線到您的 IoT 中樞並擷取訊息。 下列命令可擷取 IoT 中樞的服務連接字串：
+    您稍後會在快速入門中使用此值。
+
+1. 您也需要_服務連接字串_，讓後端應用程式能夠連線到您的 IoT 中樞以便擷取訊息。 下列命令可擷取 IoT 中樞的服務連接字串：
+   
+   **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --output table
+    az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
+     
+    記下服務連接字串，它看起來如下：
 
-    記下服務連接字串，它看似 `Hostname=...=`。 您稍後會在快速入門中使用此值。 服務連接字符串與裝置連接字串不同。
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+
+    您稍後會在快速入門中使用此值。 服務連接字符串與裝置連接字串不同。
+
 
 ## <a name="send-simulated-telemetry"></a>傳送模擬的遙測
 
 模擬裝置應用程式會連線到 IoT 中樞上的裝置特定端點，並且傳送模擬的溫度和溼度遙測。
 
-1. 在終端機視窗中，瀏覽至範例 Node.js 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\simulated-device** 資料夾。
+1. 開啟您的本機終端機視窗，瀏覽至範例 Node.js 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\simulated-device** 資料夾。
 
 1. 在您選擇的文字編輯器中開啟 **SimulatedDevice.js** 檔案。
 
     使用先前所記錄的裝置連接字串來取代 `connectionString` 變數的值。 然後將變更儲存到 **SimulatedDevice.js** 檔案。
 
-1. 在終端機視窗中，執行下列命令以安裝模擬的裝置應用程式所需的程式庫並執行模擬的裝置應用程式：
+1. 在本機終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的程式庫，並執行模擬裝置應用程式：
 
     ```cmd/sh
     npm install
@@ -101,13 +116,13 @@ node --version
 
 後端應用程式會連線到 IoT 中樞上的服務端**事件**端點。 應用程式會接收模擬裝置所傳送的「裝置到雲端」訊息。 IoT 中樞後端應用程式通常在雲端中執行，以接收和處理「裝置到雲端」訊息。
 
-1. 在另一個終端機視窗中，瀏覽至範例 Node.js 專案的根資料夾。 然後瀏覽至 **read-d2c-messages** 資料夾。
+1. 開啟另一個本機終端機視窗，瀏覽至範例 Node.js 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\read-d2c-messages** 資料夾。
 
-1. 在您選擇的文字編輯器中開啟 **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** 檔案。
+1. 在您選擇的文字編輯器中開啟 **ReadDeviceToCloudMessages.js** 檔案。
 
     使用先前所記錄的服務連接字串來取代 `connectionString` 變數的值。 然後將您的變更儲存到 **ReadDeviceToCloudMessages.js** 檔案。
 
-1. 在終端機視窗中，執行下列命令安裝所需的程式庫並執行後端應用程式：
+1. 在本機終端機視窗中，執行下列命令安裝所需的程式庫並執行後端應用程式：
 
     ```cmd/sh
     npm install

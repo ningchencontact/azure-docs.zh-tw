@@ -3,18 +3,18 @@ title: Azure 地圖服務的多個路線 | Microsoft Docs
 description: 使用 Azure 地圖服務尋找不同行進模式的路線
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 83ca46ecb8f0cce2ff8c749016eb3ad1ac7df7cf
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 340bf83f07b9e730cc43baccc60a39f5ba1f9942
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988964"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815302"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>使用 Azure 地圖服務尋找不同行進模式的路線
 
@@ -28,13 +28,13 @@ ms.locfileid: "38988964"
 
 ## <a name="prerequisites"></a>必要條件
 
-在繼續之前，請遵循第一個教學課程中的步驟來[建立 Azure 地圖服務帳戶](./tutorial-search-location.md#createaccount)，並[取得帳戶的訂用帳戶金鑰](./tutorial-search-location.md#getkey)。 
+在繼續之前，請遵循第一個教學課程中的步驟來[建立 Azure 地圖服務帳戶](./tutorial-search-location.md#createaccount)，並[取得帳戶的訂用帳戶金鑰](./tutorial-search-location.md#getkey)。
 
+## <a name="create-a-new-map"></a>建立新的地圖
 
-## <a name="create-a-new-map"></a>建立新的地圖 
-下列步驟顯示如何建立內嵌地圖控制項 API 的靜態 HTML 網頁。 
+下列步驟顯示如何建立內嵌地圖控制項 API 的靜態 HTML 網頁。
 
-1. 在您的本機機器上建立新檔案，並將其命名為 **MapTruckRoute.html**。 
+1. 在您的本機機器上建立新檔案，並將其命名為 **MapTruckRoute.html**。
 2. 在檔案中新增下列 HTML 元件：
 
     ```HTML
@@ -45,8 +45,9 @@ ms.locfileid: "38988964"
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Truck Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
         <style>
             html,
             body {
@@ -62,7 +63,7 @@ ms.locfileid: "38988964"
             }
         </style>
     </head>
-    
+
     <body>
         <div id="map"></div>
         <script>
@@ -73,13 +74,15 @@ ms.locfileid: "38988964"
     </html>
     ```
     HTML 標頭會內嵌 CSS 的資源位置和 Azure 地圖服務程式庫的 JavaScript 檔案。 HTML 主體中的 script 區段將會包含地圖的內嵌 JavaScript 程式碼。
-3. 在 HTML 檔案的 script 區塊中新增下列 JavaScript 程式碼。 將字串 **\<您的帳戶金鑰\>** 取代為您從地圖服務帳戶所複製的主要金鑰。
+3. 在 HTML 檔案的 script 區塊中新增下列 JavaScript 程式碼。 將字串 **\<您的帳戶金鑰\>** 取代為您從地圖服務帳戶所複製的主要金鑰。 如果您未告知地圖要聚焦在何處，您會看到全世界的視圖。 這段程式碼會設定地圖的中心點並宣告縮放層級，讓您可以預設聚焦在特定區域。
 
     ```JavaScript
     // Instantiate map to the div with id "map"
     var MapsAccountKey = "<your account key>";
     var map = new atlas.Map("map", {
         "subscription-key": MapsAccountKey
+         center: [-118.2437, 34.0522],
+         zoom: 12
     });
     ```
     **atlas.Map** 是 Azure 地圖控制項 API 的元件，可供控制視覺化互動式網路地圖。
@@ -90,27 +93,17 @@ ms.locfileid: "38988964"
 
 ## <a name="visualize-traffic-flow"></a>以視覺方式呈現流量
 
-1. 如果您未告知地圖要聚焦在何處，您會看到全世界的視圖。 若要能夠檢視流量資料，請在地圖上設定中心點和縮放層級。 將宣告 `new atlas.Map` 的程式碼取代為下列 JavaScript 程式碼： 
-    
-    ```JavaScript
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey,
-        center: [-118.2437,34.0522],
-        zoom: 12
-    });
-    ```
-
-    這段程式碼會設定地圖的中心點並宣告縮放層級，讓您可以預設聚焦在特定區域。 
-
-1. 在地圖上新增流量顯示：
+1. 在地圖上新增流量顯示。  **map.addEventListener** 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。
 
     ```JavaScript
-    // Add Traffic Flow to the Map
-    map.setTraffic({
-        flow: "relative"
+    map.addEventListener("load", function() {
+        // Add Traffic Flow to the Map
+        map.setTraffic({
+            flow: "relative"
+        });
     });
     ```
-    此程式碼將交通流量設定為 `relative`，這是相對於自由流量的道路速度。 您也可以將其設定為道路的 `absolute` 速度，或設定為 `relative-delay`，以顯示不同於自由流量的相對速度。 
+    此程式碼將交通流量設定為 `relative`，這是相對於自由流量的道路速度。 您也可以將其設定為道路的 `absolute` 速度，或設定為 `relative-delay`，以顯示不同於自由流量的相對速度。
 
 2. 儲存 **MapTruckRoute.html** 檔案，並重新整理瀏覽器頁面。 您應該會看到洛杉磯的街道及其目前的流量資料。
 
@@ -120,7 +113,7 @@ ms.locfileid: "38988964"
 
 ## <a name="set-start-and-end-points"></a>設定起點和終點
 
-在此教學課程中，將起點設在西雅圖的一家虛構公司 Fabrikam，並將終點設在 Microsoft 辦公室。 
+在此教學課程中，將起點設在西雅圖的一家虛構公司 Fabrikam，並將終點設在 Microsoft 辦公室。
 
 1. 新增下列 JavaScript 程式碼，以建立路線的起點和終點圖釘：
 
@@ -138,7 +131,7 @@ ms.locfileid: "38988964"
         icon: "pin-blue"
     });
     ```
-    此程式碼會建立兩個 [GeoJSON 物件](https://en.wikipedia.org/wiki/GeoJSON)，代表路線的起點和終點。 
+    此程式碼會建立兩個 [GeoJSON 物件](https://en.wikipedia.org/wiki/GeoJSON)，代表路線的起點和終點。
 
 2. 新增下列 JavaScript 程式碼，以在地圖中新增起點和終點：
 
@@ -152,27 +145,27 @@ ms.locfileid: "38988964"
         bounds: [swLon, swLat, neLon, neLat],
         padding: 100
     });
-
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    
+    map.addEventListener("load", function() { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
-    ``` 
-    **map.setCameraBounds** 呼叫會根據起點和終點座標來調整地圖視窗。 **map.addPins** API 會在地圖控制項中以視覺化元件的形式新增景點。
+    ```
+    **map.setCameraBounds** 呼叫會根據起點和終點座標來調整地圖視窗。 **map.addEventListener** 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。 **map.addPins** API 會在地圖控制項中以視覺化元件的形式新增景點。
 
-3. 儲存檔案並重新整理瀏覽器，以查看地圖上顯示的圖釘。 即使您已宣告地圖並將中心點設在洛杉磯，**map.setCameraBounds** 仍會移動視圖以顯示起點和終點。 
+3. 儲存檔案並重新整理瀏覽器，以查看地圖上顯示的圖釘。 即使您已宣告地圖並將中心點設在洛杉磯，**map.setCameraBounds** 仍會移動視圖以顯示起點和終點。
 
    ![檢視有起點和終點的地圖](./media/tutorial-prioritized-routes/pins-map.png)
-
 
 <a id="multipleroutes"></a>
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>轉譯依行進模式設定優先順序的路線
 
-本節說明如何使用地圖服務的路線規劃服務 API，根據運輸模式，尋找從給定起點到目的地的多條路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」、「最短」、「最環保」或「驚心動魄」的路線，並將即時路況考慮進去。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱[取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。
-
+本節說明如何使用地圖服務的路線規劃服務 API，根據運輸模式，尋找從給定起點到目的地的多條路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」、「最短」、「最環保」或「驚心動魄」的路線，並將即時路況考慮進去。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱[取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。  以下所有程式碼區塊都應該新增至**地圖載入 eventListener 內**，以確保會在地圖完整載入之後載入。
 
 1. 首先，在地圖上新增一個圖層來顯示路線路徑 (亦即 linestring)。 此教學課程有兩條不同的路線，分別是 **car-route** 和 **truck-route**，且各有自己的樣式。 在 script 區塊中新增下列 JavaScript 程式碼：
 
@@ -202,87 +195,63 @@ ms.locfileid: "38988964"
 2. 在 script 區塊中新增下列 JavaScript 程式碼，以要求卡車路線並將結果顯示在地圖上：
 
     ```JavaScript
-    // Perform a request to the route service and draw the resulting truck route on the map
-    var xhttpTruck = new XMLHttpRequest();
-    xhttpTruck.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
+    // Instantiate the service client  
+    var client = new atlas.service.Client(MapsAccountKey);
 
-            var route = response.routes[0];
-            var routeCoordinates = [];
-            for (var leg of route.legs) {
-                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                routeCoordinates = routeCoordinates.concat(legCoordinates);
-            }
+    // Construct the route query string
+    var routeQuery = startPoint.coordinates[1] +
+        "," +
+        startPoint.coordinates[0] +
+        ":" +
+        destinationPoint.coordinates[1] +
+        "," +
+        destinationPoint.coordinates[0];
 
-            var routeLinestring = new atlas.data.LineString(routeCoordinates);
-            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                name: truckRouteLayerName
-            });
-        }
-    };
+    // Execute the truck route query then add the route to the map once a response is received  
+    client.route.getRouteDirections(routeQuery, {
+        travelMode: "truck",
+        vehicleWidth: 2,
+        vehicleHeight: 2,
+        vehicleLength: 5,
+        vehicleLoadType: "USHazmatClass2"
+    }).then(response => {
+        // Parse the response into GeoJSON
+        var geoJsonResponse = new atlas.service.geojson
+            .GeoJsonRouteDirectionsResponse(response);
 
-    var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-    truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + MapsAccountKey;
-    truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-    truckRouteUrl += "&travelMode=truck";
-    truckRouteUrl += "&vehicleWidth=2";
-    truckRouteUrl += "&vehicleHeight=2";
-    truckRouteUrl += "&vehicleLength=5";
-    truckRouteUrl += "&vehicleLoadType=USHazmatClass2";
-
-    xhttpTruck.open("GET", truckRouteUrl, true);
-    xhttpTruck.send();
+        // Get the first in the array of routes and add it to the map
+        map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
+            name: truckRouteLayerName
+        });
+    });
     ```
-    此程式碼片段會建立 [XMLHttpRequest](https://xhr.spec.whatwg.org/)，並新增事件處理常式以剖析傳入的回應。 若是成功的回應，它會建立所傳回路線的座標陣列，並將它新增至地圖的 `truckRouteLayerName` 圖層。 
-    
-    此程式碼片段也會使用帳戶金鑰建立地圖服務路線規劃服務的查詢。 查詢中會包含起點座標、終點座標和選擇性參數，以指出該路線是重型卡車專用的。
+    上面這個程式碼片段會具現化服務用戶端，並建構路線查詢字串。 然後它會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 方法來查詢 Azure 地圖服務路線服務，然後使用 [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) 將回應剖析為 GeoJSON 格式。 接著會建立所傳回路線的座標陣列，並將它新增至地圖的 `truckRouteLayerName` 圖層。
 
-2. 新增下列 JavaScript 程式碼以要求卡車路線並顯示結果：
+3. 新增下列 JavaScript 程式碼以要求卡車路線並顯示結果：
 
     ```JavaScript
-    // Perform a request to the route service and draw the resulting car route on the map
-    var xhttpCar = new XMLHttpRequest();
-    xhttpCar.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
+    // Execute the car route query then add the route to the map once a response is received  
+    client.route.getRouteDirections(routeQuery).then(response => {
+        // Parse the response into GeoJSON
+        var geoJsonResponse = new tlas.service.geojson
+            .GeoJsonRouteDiraectionsResponse(response);
 
-            var route = response.routes[0];
-            var routeCoordinates = [];
-            for (var leg of route.legs) {
-                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                routeCoordinates = routeCoordinates.concat(legCoordinates);
-            }
-
-            var routeLinestring = new atlas.data.LineString(routeCoordinates);
-            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                name: carRouteLayerName
-            });
-        }
-    };
-
-    var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-    carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + MapsAccountKey;
-    carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-
-    xhttpCar.open("GET", carRouteUrl, true);
-    xhttpCar.send();
+        // Get the first in the array of routes and add it to the map 
+        map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
+            name: carRouteLayerName
+        });
+    });
     ```
-    此程式碼片段會建立另一個 [XMLHttpRequest](https://xhr.spec.whatwg.org/)，並新增事件處理常式以剖析傳入的回應。 若是成功的回應，它會建立所傳回路線的座標陣列，並將它新增至地圖的 `carRouteLayerName` 圖層。 
-    
-    此程式碼片段也會使用帳戶金鑰建立地圖服務路線規劃服務的查詢。 查詢中包含起點座標和終點座標。 因為未提供任何額外的參數，路線規劃服務會預設使用「汽車」行進模式。 
+    此程式碼片段會對汽車使用相同的卡車路線查詢。 它會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 方法來查詢 Azure 地圖服務路線服務，然後使用 [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) 將回應剖析為 GeoJSON 格式。 接著會建立所傳回路線的座標陣列，並將它新增至地圖的 `carRouteLayerName` 圖層。
 
-3. 儲存 **MapTruckRoute.html** 檔案並重新整理瀏覽器，以觀察結果。 如果您成功連線到地圖服務的 API，您應該會看到類似下面的地圖。 
+4. 儲存 **MapTruckRoute.html** 檔案並重新整理瀏覽器，以觀察結果。 如果您成功連線到地圖服務的 API，您應該會看到類似下面的地圖。
 
     ![使用 Azure 路線規劃服務設定優先順序的路線](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    卡車路線是較粗的藍色線，汽車路線則為較細的紫色線。 汽車路線會透過 I-90 穿越華盛頓湖，期間會經由隧道穿過住宅區底下，因此不得載運危險廢棄物貨物。 卡車路線 (指定了 USHazmatClass2 貨物類型) 則會正確引導使用不同的高速公路。 
+    卡車路線是較粗的藍色線，汽車路線則為較細的紫色線。 汽車路線會透過 I-90 穿越華盛頓湖，期間會經由隧道穿過住宅區底下，因此不得載運危險廢棄物貨物。 卡車路線 (指定了 USHazmatClass2 貨物類型) 則會正確引導使用不同的高速公路。
 
 ## <a name="next-steps"></a>後續步驟
+
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
@@ -291,6 +260,16 @@ ms.locfileid: "38988964"
 > * 建立會宣告行進模式的路線查詢
 > * 在地圖上顯示多條路線
 
-若要深入了解 Azure 地圖服務的涵蓋範圍和功能，請參閱[縮放層級和圖格格線](zoom-levels-and-tile-grid.md)以及其他概念文章。 
+您可以在這裡存取本教學課程的程式碼範例：
 
-如需更多程式碼範例和互動式編碼體驗，請參閱[如何使用地圖控制項](how-to-use-map-control.md)以及其他使用說明指南。 
+> [Azure 地圖服務的多個路線](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/truckRoute.html)
+
+若要深入了解 Azure 地圖服務的涵蓋範圍和功能：
+
+> [!div class="nextstepaction"]
+> [縮放層級和圖格格線](zoom-levels-and-tile-grid.md)
+
+若要查看更多程式碼範例和互動式編碼體驗：
+
+> [!div class="nextstepaction"]
+> [如何使用地圖控制項](how-to-use-map-control.md)

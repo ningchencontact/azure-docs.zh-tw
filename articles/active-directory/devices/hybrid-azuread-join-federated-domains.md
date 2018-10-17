@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391795"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855168"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>教學課程：設定適用於同盟網域的混合式 Azure Active Directory Join
 
@@ -78,7 +78,9 @@ ms.locfileid: "47391795"
 - 組織的 STS (同盟網域)
 - https://autologon.microsoftazuread-sso.com (如果您正在使用或預計要使用無縫 SSO)
 
-如果您的組織需要透過輸出 Proxy 存取網際網路，自 Windows 10 1709 起，您可以使用群組原則物件 (GPO) 在電腦上設定 Proxy 設定。 如果您的電腦執行任何早於 Windows 10 1709 的版本，您就必須實作 Web Proxy 自動探索 (WPAD)，Windows 10 電腦才能向 Azure AD 進行裝置註冊。 
+從 Windows 10 1803 開始，如果同盟網域 (例如 AD FS) 即時生效的混合式 Azure AD Join 失敗，我們將依賴 Azure AD Connect 來同步 Azure AD 中後續要用來為混合式 Azure AD Join 完成裝置註冊的電腦物件。
+
+如果您的組織需要透過輸出 Proxy 存取網際網路，自 Windows 10 1709 起，您可以[使用群組原則物件 (GPO) 在電腦上設定 Proxy 設定](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)。 如果您的電腦執行早於 Windows 10 1709 的版本，您就必須實作 Web Proxy 自動探索 (WPAD)，Windows 10 電腦才能向 Azure AD 進行裝置註冊。 
 
 如果您的組織需要透過已驗證的輸出 Proxy 存取網際網路，您就必須確定 Windows 10 電腦可以成功向輸出 Proxy 進行驗證。 Windows 10 電腦會使用電腦內容來執行裝置註冊，因此必須使用電腦內容來設定輸出 Proxy 驗證。 請向您的輸出 Proxy 提供者洽詢相關設定需求。 
 

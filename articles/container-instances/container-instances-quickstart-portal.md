@@ -1,26 +1,25 @@
 ---
-title: 快速入門 - 使用 Azure 入口網站建立您的第一個 Azure Container Instances 容器
-description: 在本快速入門中，您會使用 Azure 入口網站在 Azure Container Instances 中部署容器
+title: 快速入門 - 在 Azure Container Instances 中執行應用程式
+description: 在本快速入門中，您會使用 Azure 入口網站將 Docker 容器中所執行的應用程式部署至 Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6aa6fb27b2aa7c8b9614e5812fadc629b1e185f8
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076233"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857715"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>快速入門：在 Azure Container Instances 中建立您的第一個容器
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>快速入門：在 Azure Container Instances 中執行應用程式
 
-Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容器，不需要佈建虛擬機器或採用高階服務即可完成。 在本快速入門中，您會使用 Azure 入口網站在 Azure 中建立容器，並使用完整網域名稱 (FQDN) 向網際網路公開此容器。 在設定幾項設定後，您就能在瀏覽器中看到下列結果：
+使用 Azure Container Instances 在 Azure 中簡潔且快速地執行 Docker 容器。 您不需要部署虛擬機器，也不需要使用完整的容器協調流程平台，如 Kubernetes。 在本快速入門中，您會使用 Azure 入口網站在 Azure 中建立容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 在設定一些設定並部署容器之後，您可以瀏覽至執行中的應用程式：
 
-![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][aci-portal-07]
+![在瀏覽器中檢視部署至 Azure Container Instances 的應用程式][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -38,7 +37,7 @@ Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容
 
 * 容器名稱：`mycontainer`
 * 容器映像：`microsoft/aci-helloworld`
-* 資源群組：`myResourceGroup`
+* 資源群組：**建立新的** > `myResourceGroup`
 
 ![在 Azure 入口網站中設定新容器執行個體的基本設定][aci-portal-03]
 
@@ -54,11 +53,11 @@ Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容
 
 ![Azure 入口網站中新容器執行個體的設定摘要][aci-portal-05]
 
-當部署開始時，系統會在入口網站儀表板上顯示一個圖格，以指出部署正在進行中。 部署完成後，該圖格會顯示您新的容器執行個體。
+部署開始時會出現通知，指出部署正在進行中。 容器群組部署完成時，會顯示另一個通知。
 
 ![Azure 入口網站中新容器執行個體的建立進度][aci-portal-08]
 
-選取 **mycontainer** 容器執行個體以顯示其屬性。 請記下容器執行個體的 [FQDN] (完整網域名稱)，以及其 [狀態]。
+瀏覽至 [資源群組] > [myResourceGroup] > [mycontainer]，開啟容器群組的概觀。 請記下容器執行個體的 [FQDN] (完整網域名稱)，以及其 [狀態]。
 
 ![Azure 入口網站中的容器群組概觀][aci-portal-06]
 
@@ -88,7 +87,7 @@ Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已透過來自公用 Docker Hub 登錄中的映像建立 Azure 容器執行個體。 如果您想要自行建置容器映像，並從私人的 Azure 容器登錄將其部署至 Azure 容器執行個體，請繼續進行 Azure 容器執行個體教學課程。
+在本快速入門中，您已透過來自公用 Docker Hub 登錄中的映像建立 Azure 容器執行個體。 如果您想要建置容器映像，並從私人的 Azure 容器登錄進行部署，請繼續進行 Azure Container Instances 教學課程。
 
 > [!div class="nextstepaction"]
 > [Azure 容器執行個體教學課程](./container-instances-tutorial-prepare-app.md)

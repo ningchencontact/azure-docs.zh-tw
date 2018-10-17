@@ -6,17 +6,17 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: f7af86687a8a61fb7aed028d2868752faaa8045a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030249"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886522"
 ---
-# <a name="create-train-and-publish-your-knowledge-base"></a>建立、訓練及發佈您的知識庫
+# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>快速入門：建立、訓練及發佈知識庫
 
 您可以從自己的內容 (例如常見問題集或產品手冊) 建立 QnA Maker 知識庫 (KB)。 此範例中的 QnA Maker KB 是從簡單的常見問題集網頁建立而來，以回答 BitLocker 金鑰復原問題。
 

@@ -1,40 +1,45 @@
 ---
 title: Azure Stack 以太坊區塊鏈解決方案範本
-description: 使用自訂的解決方案範本，在 Azure Stack 上部署和設定聯盟以太坊區塊鏈網路
+description: 教學課程：使用自訂的解決方案範本，在 Azure Stack 上部署和設定聯盟以太坊區塊鏈網路
 services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/03/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
-ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: acfa94799f36728f4e0041f1a51403edf6ffe37e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446965"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239467"
 ---
-# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack 以太坊區塊鏈解決方案範本
+# <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>教學課程：使用 Azure Stack 以太坊區塊鏈解決方案範本
 
 以太坊解決方案範本的設計訴求是，讓您以最低限度的 Azure 和以太坊知識，更輕鬆且更快速地部署和設定多成員的聯盟以太坊區塊鏈網路。
 
 透過少數使用者輸入及 Azure Stack 租用戶入口網站中的一鍵部署，每個成員都可以佈建他們的網路應用。 每個成員的網路應用都會包含一組負載平衡的交易節點 (應用程式或使用者可透過與其互動來提交交易)、一組用來記錄交易的採礦節點和網路虛擬設備 (NVA)。 後續的連線步驟會與 NVA 連線，藉以建立已完整設定的多成員區塊鏈網路閘道。
 
-## <a name="prerequisites"></a>先決條件
+若要設定，您將必須：
 
-[從 Marketplace](azure-stack-download-azure-marketplace-item.md) 下載下列項目：
+> [!div class="checklist"]
+> * 選擇部署架構
+> * 部署獨立、聯盟領導者或聯盟成員網路
 
-* Ubuntu Server 16.04 LTS 16.04.201802220 版
-* Windows Server 2016 
-* Custom Script for Linux 2.0 
-* 自訂指令碼延伸模組 
+## <a name="prerequisites"></a>必要條件
 
-如需 Azure 區塊鏈案例的詳細資訊，請參閱[以太坊工作量證明聯盟解決方案範本](../blockchain-workbench/ethereum-deployment-guide.md)。
+[從 Marketplace](azure-stack-download-azure-marketplace-item.md) 下載最新項目：
 
-此程序需要可支援部署多個虛擬機器的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
+* Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Custom Script for Linux 2.0
+* Windows 的自訂指令碼延伸模組
+
+如需區塊鏈案例的詳細資訊，請參閱[以太坊工作量證明聯盟解決方案範本](../blockchain/templates/ethereum-deployment.md)。
 
 ## <a name="deployment-architecture"></a>部署架構
 
@@ -43,6 +48,7 @@ ms.locfileid: "37446965"
 ## <a name="deployment-use-cases"></a>部署使用案例
 
 範本可以透過各種方式來部署以太坊聯盟以供領導者和成員加入，以下是已完成測試的部署方式：
+
 - 在具有 Azure AD 或 AD FS 的多節點 Azure Stack 上，使用相同訂用帳戶或不同訂用帳戶部署領導者和成員。
 - 在單一節點 Azure Stack (具有 Azure AD) 上，使用相同訂用帳戶部署領導者和成員。
 
@@ -51,7 +57,7 @@ ms.locfileid: "37446965"
 聯盟領導者範本會在網路中設定第一個成員的配置。 
 
 1. [從 GitHub 下載領導者範本](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. 在 Azure Stack 系統管理入口網站中，選取 [新增] > [範本部署] 以從自訂範本進行部署。
+2. 在 Azure Stack 系統管理入口網站中，選取 [+ 建立資源] > [範本部署] 以從自訂範本進行部署。
 3. 選取 [編輯範本] 來編輯新的自訂範本。
 4. 在右側的編輯窗格中，複製並貼上您先前下載的領導者範本 JSON。
     
@@ -97,7 +103,7 @@ ms.locfileid: "37446965"
 
 部署可能需要 20 分鐘或更久的時間才能完成。
 
-部署完成之後，您可以在資源群組的 [部署] 區段中檢閱 **Microsoft.Template** 的部署摘要。 摘要中包含可用來加入聯盟成員的輸出值。
+部署完成之後，您可以檢閱 **Microsoft.Template** 的部署摘要，位於資源群組的部署區段中。 摘要中包含可用來加入聯盟成員的輸出值。
 
 若要確認領導者的部署，請瀏覽領導者的管理網站。 您可以在 **Microsoft.Template** 部署的 [輸出] 區段中找到管理網站位址。  
 
@@ -106,7 +112,7 @@ ms.locfileid: "37446965"
 ### <a name="joining-consortium-member-deployment"></a>加入聯盟成員部署
 
 1. [從 GitHub 下載聯盟成員範本](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. 在 Azure Stack 系統管理入口網站中，選取 [新增] > [範本部署] 以從自訂範本進行部署。
+2. 在 Azure Stack 系統管理入口網站中，選取 [+ 建立資源] > [範本部署] 以從自訂範本進行部署。
 3. 選取 [編輯範本] 來編輯新的自訂範本。
 4. 在右側的編輯窗格中，複製並貼上您先前下載的領導者範本 JSON。
 5. 選取 [ **儲存**]。
@@ -158,7 +164,7 @@ ms.locfileid: "37446965"
 此範本會建立從領導者到遠端成員的連線。 
 
 1. [從 GitHub 下載讓成員和領導者連線的範本](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. 在 Azure Stack 系統管理入口網站中，選取 [新增] > [範本部署] 以從自訂範本進行部署。
+2. 在 Azure Stack 系統管理入口網站中，選取 [+ 建立資源] > [範本部署] 以從自訂範本進行部署。
 3. 選取 [編輯範本] 來編輯新的自訂範本。
 4. 在右側的編輯窗格中，複製並貼上您先前下載的領導者範本 JSON。
     
@@ -199,5 +205,13 @@ ms.locfileid: "37446965"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解以太坊和 Azure，請參閱[區塊鏈技術與應用程式 | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/)。
-- 如需 Azure 區塊鏈案例的詳細資訊，請參閱[以太坊工作量證明聯盟解決方案範本](../blockchain-workbench/ethereum-deployment-guide.md)。
+在本教學課程中，您已了解如何：
+
+> [!div class="checklist"]
+> * 選擇部署架構
+> * 部署獨立、聯盟領導者或聯盟成員網路
+
+若要深入了解以太坊和 Azure，請參閱：
+
+> [!div class="nextstepaction"]
+> [區塊鏈技術與應用程式](https://azure.microsoft.com/solutions/blockchain/)

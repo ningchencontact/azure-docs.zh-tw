@@ -1,21 +1,23 @@
 ---
-title: Microsoft 認知服務的 C# 快速入門 - 專案答案搜尋 | Microsoft Docs
-description: 在 Azure 上開始使用 Microsoft 認知服務「專案答案搜尋」的程式碼範例。
+title: 快速入門：專案答案搜尋 C#
+titlesuffix: Azure Cognitive Services
+description: 開始使用專案答案搜尋與 C# 的程式碼範例。
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.author: rosh
+ms.openlocfilehash: bea98ac4c4f7da42d0b41a279508253b987ad9a6
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888318"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867216"
 ---
-# <a name="project-answer-search-query-in-c"></a>C# 中的專案答案搜尋查詢
+# <a name="quickstart-project-answer-search-query-in-c"></a>快速入門：C# 中的專案答案搜尋查詢
 
 下列 C# 範例會建立並傳送微積分第三規則相關資訊的查詢。
 

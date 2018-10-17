@@ -1,22 +1,21 @@
 ---
-title: Bing 拼字檢查 SDK 範例 - Azure 認知服務 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 範例：Bing 拼字檢查 SDK
+titleSuffix: Azure Cognitive Services
 description: 在應用程式中使用 Bing 拼字檢查 SDK 執行內容相關文法與拼字檢查的範例。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: ''
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: sample
 ms.date: 1/24/2018
 ms.author: v-gedod
-ms.openlocfilehash: 47326538146b328096dd4bb107057f97a36f70a3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 23edee53eb0f247c36f61878148877b40748a8b1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35368491"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802571"
 ---
 # <a name="bing-spell-check-sdk-samples"></a>Bing 拼字檢查範例
 Bing 拼字檢查範例包括下列案例：
@@ -34,4 +33,4 @@ Bing 拼字檢查 SDK 可讓您以下列程式語言快速存取內容文法與�
 * 開始使用 [Python 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * 另請參閱 [Python 程式庫](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-language-spellcheck)，以了解定義和相依性。
 
-每種語言的 SDK 範例都會包括讀我檔案，內含必要條件以及安裝/執行範例的詳細資料。
+每種語言的 SDK 範例都會包括讀我檔案，內含必要條件和安裝/執行範例的詳細資料。

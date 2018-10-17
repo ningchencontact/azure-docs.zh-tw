@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031232"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785336"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>教學課程 #2：在 Azure 容器執行個體 (ACI) 中部署影像分類模型
 
@@ -35,14 +35,14 @@ ACI 不適合用於生產環境部署，但非常適合用來測試及了解工�
 
 ## <a name="get-the-notebook"></a>取得 Notebook
 
-為了方便起見，此教學課程以 Jupyter Notebook 形式提供。 使用這些方法的其中一種方法來執行 `tutorials/02.deploy-models.ipynb` Notebook :
+為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 `02.deploy-models.ipynb` Notebook。
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 
 ## <a name="prerequisites"></a>必要條件
 
-完成[教學課程 #1：使用 Azure Machine Learning 定型影像分類模型](tutorial-train-models-with-aml.md)筆記本中的模型定型。  
+完成[教學課程 #1：使用 Azure Machine Learning 服務定型影像分類模型](tutorial-train-models-with-aml.md) Notebook中的模型定型。  
 
 
 ## <a name="set-up-the-environment"></a>設定 Azure 環境
@@ -374,7 +374,7 @@ service.delete()
 
 ## <a name="next-steps"></a>後續步驟
 
-在本 Azure Machine Learning 教學課程中，您使用了 Python 來：
+在本 Azure Machine Learning 服務教學課程中，您使用了 Python 來：
 
 > [!div class="checklist"]
 > * 設定您的測試環境
@@ -383,4 +383,4 @@ service.delete()
 > * 將模型部署至 ACI
 > * 測試已部署的模型
  
-您也可以試試[自動選取演算法]()教學課程，了解 Azure Machine Learning 為您模型自動選取及調整最佳演算法，並為您建置該模型的方式。
+您也可以試試[自動選取演算法]()教學課程，了解 Azure Machine Learning 服務為您模型自動選取及調整最佳演算法，並為您建置該模型的方式。

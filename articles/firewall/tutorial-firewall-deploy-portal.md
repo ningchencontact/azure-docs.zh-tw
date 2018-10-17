@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221637"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801874"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆
 
@@ -186,6 +186,10 @@ Azure 防火牆具有 NAT 規則、網路規則和應用程式規則。 若要�
 10. 按一下 [子網路]，然後按一下 [關聯]。
 11. 按一下 [虛擬網路]，然後選取 [Test-FW-VN]。
 12. 在 [子網路] 中，按一下 [Workload-SN]。
+
+    > [!IMPORTANT]
+    > 請確定您只為此路由選取 **Workload-SN** 子網路，否則您的防火牆無法正常運作。
+
 13. 按一下 [確定]。
 14. 按一下 [路由]，然後按一下 [新增]。
 15. 在 [路由名稱] 中，鍵入 **FW-DG**。
@@ -193,8 +197,8 @@ Azure 防火牆具有 NAT 規則、網路規則和應用程式規則。 若要�
 17. 在 [下一個躍點類型] 中，選取 [虛擬設備]。
 
     Azure 防火牆實際上是受控服務，但虛擬設備可在此情況下運作。
-1. 在 [下一個躍點位址] 中，鍵入您先前記下的防火牆私人 IP 位址。
-2. 按一下 [確定]。
+18. 在 [下一個躍點位址] 中，鍵入您先前記下的防火牆私人 IP 位址。
+19. 按一下 [確定]。
 
 
 ## <a name="configure-application-rules"></a>設定應用程式規則

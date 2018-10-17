@@ -8,18 +8,18 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0acb5bf18c078d8b7eb6a5c14a61fcef622f9f2d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958096"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831122"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站設定 Azure DNS 以進行名稱解析
 
  您可以設定 Azure DNS 以解析您公用網域中的主機名稱。 例如，如果您向網域名稱註冊機構購買了 contoso.com 網域名稱，您可以設定 Azure DNS 以裝載 contoso.com 網域，並將 www.contoso.com 解析為您的 Web 伺服器或 Web 應用程式的 IP 位址。
 
-在本快速入門中，您會建立一個測試網域，然後建立名為 'www'、而要解析為 IP 位址 10.10.10.10 的位址記錄。
+在本快速入門中，您將建立一個測試網域，然後建立名為 'www'、而要解析為 IP 位址 10.10.10.10 的位址記錄。
 
 請務必了解本快速入門中使用的所有名稱和 IP 位址都只是範例，而不代表實際案例。 不過，在適當情況下也會說明實際案例。
 
@@ -43,7 +43,7 @@ DNS 區域用來包含特定網域的 DNS 項目。 若要開始將網域裝載�
 
    | **設定** | **值** | **詳細資料** |
    |---|---|---|
-   |**名稱**|contoso.xyz|此範例中的 DNS 區域名稱。 在本快速入門中您可以使用任何值，只要尚未設定在 Azure DNS 伺服器中即可。 實際值將是您向網域名稱註冊機構購買的網域。|
+   |**名稱**|contoso.xyz|在本快速入門中，此範例的 DNS 區域名稱可以是任何值，只要尚未設定在 Azure DNS 伺服器中即可。 實際值將是您向網域名稱註冊機構購買的網域。|
    |**訂用帳戶**|[您的訂用帳戶]|選取要建立 DNS 區域的訂用帳戶。|
    |**資源群組**|**建立新的：** dns-test|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 |
    |**位置**|美國東部||
@@ -74,7 +74,7 @@ DNS 區域用來包含特定網域的 DNS 項目。 若要開始將網域裝載�
 
 ## <a name="test-the-name-resolution"></a>測試名稱解析
 
-現在您已有測試區域，內含測試 'A' 記錄，接下來您可以使用名為 nslookup 工具來測試名稱解析。 
+現在您已有測試區域，內含測試 'A' 記錄，接下來您可以使用名為 *nslookup* 的工具來測試名稱解析。 
 
 1. 首先，您必須留意要用於 nslookup 的 Azure DNS 名稱伺服器。 
 

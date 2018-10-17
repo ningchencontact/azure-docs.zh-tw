@@ -1,31 +1,32 @@
 ---
 title: 使用 Azure 媒體服務串流視訊檔案 - .NET | Microsoft Docs
-description: 按照本快速入門的步驟建立新的 Azure 媒體服務帳戶、對檔案進行編碼，然後將它串流到 Azure 媒體播放器。
+description: 按照此快速入門的步驟建立新的 Azure 媒體服務帳戶、對檔案進行編碼，然後將它串流到 Azure 媒體播放器。
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: Azure 媒體服務, 串流
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 48f85311f38d7e4ab1414dfc22c111b92163740e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023936"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223537"
 ---
 # <a name="quickstart-stream-video-files---net"></a>快速入門：串流視訊檔案 - .NET
 
 > [!NOTE]
-> Azure 媒體服務的最新版本處於預覽狀態，且會以 v3 稱呼它。 若要開始使用 v3 API，您應該建立新的媒體服務帳戶，如本快速入門中所述。 
+> Azure 媒體服務的最新版本處於預覽狀態，且會以 v3 稱呼它。 若要開始使用 v3 API，您應該建立新的媒體服務帳戶，如此快速入門中所述。 
 
-本快速入門說明使用 Azure 媒體服務開始在各種不同的瀏覽器和裝置上串流視訊是多麼容易。 本主題中的範例會將您可透過 HTTPS URL 存取的內容編碼。 
+此快速入門說明使用 Azure 媒體服務在各種不同的瀏覽器和裝置上編碼和開始串流視訊是多麼容易。 您可以使用 HTTP(S) URL、SAS URL 或 Azure Blob 儲存體中的檔案路徑來指定輸入內容。
+此主題中的範例會將您透過 HTTPS URL 提供的內容編碼。 請注意，目前 AMS v3 不支援透過 HTTPS URL 的區塊傳輸編碼。
 
 完成快速入門時，您將能夠串流視訊。  
 
@@ -33,7 +34,7 @@ ms.locfileid: "42023936"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果沒有安裝 Visual Studio，您可以取得 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)。
 
@@ -82,12 +83,12 @@ ms.locfileid: "42023936"
 
 ## <a name="test-with-azure-media-player"></a>使用 Azure 媒體播放器測試
 
-本文使用 Azure 媒體播放器測試串流。 
+此文章使用 Azure 媒體播放器測試串流。 
 
 > [!NOTE]
 > 如果播放程式裝載在 HTTPS 網站上，請務必將 URL 更新為 "https"。
 
-1. 開啟瀏覽器並巡覽至 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)。
+1. 開啟瀏覽器並瀏覽到 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)。
 2. 在 [URL:] 方塊中，貼上您在執行應用程式時取得的其中一個串流 URL 值。 
 3. 按一下 [更新播放程式]。
 

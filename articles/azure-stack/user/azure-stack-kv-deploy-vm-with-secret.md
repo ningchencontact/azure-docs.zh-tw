@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/07/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4239eb31afd4abc8b3555f0ee353f5d96716d623
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e35a63a36a84316815d609afa178f9a896415c2b
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068970"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584111"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>使用存放在 Azure Stack Key Vault 中的安全密碼建立虛擬機器
 
@@ -34,11 +33,11 @@ ms.locfileid: "34068970"
 * 您不需要在每次部署資源時手動輸入密碼。
 * 您可以指定哪些使用者或服務主體可以存取密碼。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 您必須訂閱包含 Key Vault 服務的供應項目。
 * [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
-* [設定 Azure Stack 使用者的 PowerShell 環境。](azure-stack-powershell-configure-user.md)
+* [設定您的 PowerShell 環境。](azure-stack-powershell-configure-user.md)
 
 下列步驟說明擷取存放在 Key Vault 中的密碼來建立虛擬機器所需的程序：
 
@@ -46,13 +45,14 @@ ms.locfileid: "34068970"
 2. 更新 azuredeploy.parameters.json 檔案。
 3. 部署範本。
 
->[NOTE] 您可以從 Azure Stack 開發套件，或從外部用戶端 (如果是透過 VPN 連線) 來使用這些步驟。
+> ![附註]  
+> 您可以從 Azure Stack 開發套件，或從外部用戶端 (如果是透過 VPN 連線) 來使用這些步驟。
 
 ## <a name="create-a-key-vault-secret"></a>建立 Key Vault 祕密
 
 下列指令碼會建立金鑰保存庫，並將密碼存放為金鑰保存庫中的祕密。 建立金鑰保存庫時，請使用 `-EnabledForDeployment` 參數。 此參數可確保您能夠從 Azure Resource Manager 範本參考金鑰保存庫。
 
-```powershell
+```PowerShell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -117,7 +117,7 @@ Set-AzureKeyVaultSecret `
 
 現在，使用下列 PowerShell 指令碼部署範本：
 
-```powershell
+```PowerShell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

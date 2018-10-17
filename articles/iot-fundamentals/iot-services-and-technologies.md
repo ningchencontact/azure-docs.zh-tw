@@ -1,27 +1,28 @@
 ---
 title: Azure 物聯網 (IoT) 技術與解決方案
 description: 提供一系列的 PaaS/SaaS 技術與解決方案，以供組建 Azure IoT 解決方案之用。
-author: BryanLa
-manager: timlt
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631406"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067329"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure 物聯網技術與解決方案：PaaS 與 SaaS
 
 Microsoft 已建立一個能支援所有客戶需求的產品組合，讓每個人都能享用數位轉換的優點。 Azure IoT 產品組合概述可用的 PaaS/SaaS 技術與解決方案。 它提供兩種途徑讓您建立自己的解決方案：
+
 - 平台即服務 (PaaS)：使用 [Azure IoT 解決方案加速器](https://www.azureiotsolutions.com/)建立您的應用程式，這些加速器是一系列企業級且預先設定的解決方案，可讓您加速開發自訂 IoT 解決方案。
+
 - 軟體即服務 (SaaS)：可讓您快速開始使用 [Azure IoT 中心](https://azure.microsoft.com/services/iot-central/)這個新的 SaaS 解決方案，來開發 IoT 應用程式，而無須接觸到複雜的 IoT 解決方案。 如果您的組織缺少資源而無法建立您自己的 IoT 解決方案，Azure IoT 中心是一種無程式碼的 IoT 解決方案，可以在數分鐘內建立裝置型號、儀表板和規則。
 
-![Azure IoT 技術和解決方案][img-paas-saas-technologies-solutions]
+![Azure IoT 技術和解決方案](./media/iot-comparison/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>解決方案
 
@@ -77,9 +78,9 @@ Azure 的 IoT 中心是完全受控的 SaaS 解決方案，讓您無須具備豐
 
 決定使用哪個產品來建置 IoT 解決方案的最重要因素如下：
 
-* 您的業務需求。
+* 您的業務需求
 * 您要建置的解決方案類型
-* 以長期來看，貴組織建置與維護解決方案的一套技能。
+* 以長期來看，貴組織建置與維護解決方案的一套技能
 
 ## <a name="technologies-paas"></a>技術 (PaaS)
 
@@ -96,20 +97,12 @@ Azure 的 IoT 中心是完全受控的 SaaS 解決方案，讓您無須具備豐
 ### <a name="edge"></a>Edge
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 是一個物聯網 (IoT) 服務。 這項服務提供客戶在裝置上分析資料的服務，也稱為 「就地型」。 將部分的工作負載就地化，便可減少延遲並能選擇離線情節。
 
-
 ### <a name="data-and-analytics"></a>資料與分析
 充分運用您 IoT 解決方案中一系列的 Azure 資料與分析 PaaS 供應項目，從透過 Azure 機器學讓雲端智慧就地化、使用 Azure Data Lake 以符合經濟效益的方法儲存 IoT 裝置資料，一直到使用 [Azure 時間序列深入解析](https://azure.microsoft.com/services/time-series-insights/)視覺化 IoT 裝置中的大量資料。
 
 ### <a name="visualization-and-integration"></a>視覺效果與整合
 Microsoft Azure 提供完整的雲端解決方案，其中結合了持續成長的整合式雲端服務集合，透過業界領先的承諾來為您的資料提供保護與隱私權。 深入了解 [Microsoft Azure](https://azure.microsoft.com/)。
 
-
-
-
-
 ## <a name="next-steps"></a>後續步驟
 
-參閱[開始使用](/azure/iot-hub/iot-hub-get-started) (英文) 一節快速輕鬆地體驗 IoT 功能。 如需更深入的實際操作體驗，請嘗試其中一個[教學課程](/azure/iot-edge/tutorial-simulate-device-windows) (英文)。
-
-[img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
-
+請參閱 [IoT 中樞文件的開始使用一節](/azure/iot-hub/iot-hub-get-started) (英文) 以快速輕鬆地體驗 IoT 功能。 如需更深入的實際操作體驗，請嘗試其中一個 [IoT Edge 教學課程](/azure/iot-edge/tutorial-simulate-device-windows) (英文)。

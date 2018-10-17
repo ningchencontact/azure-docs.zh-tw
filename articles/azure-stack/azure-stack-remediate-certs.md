@@ -3,7 +3,7 @@ title: 修復 Azure Stack 的憑證問題 | Microsoft Docs
 description: 使用 Azure Stack 整備檢查程式來檢閱及修復憑證問題。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,17 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0d2c4d848f861e4e07dbd0de4609344955ca26f7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937570"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078627"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修復 Azure Stack PKI 憑證的一般問題
 本文中的資訊可協助您了解並解決 Azure Stack PKI 憑證的一般問題。 當您使用 Azure Stack 整備檢查程式工具來[驗證 Azure Stack PKI 憑證](azure-stack-validate-pki-certs.md)時，可以探索到問題。 此工具會進行檢查，以確保憑證符合 Azure Stack 部署和 Azure Stack 祕密修復的 PKI 需求，並將結果記錄在 [report.json 檔案](azure-stack-validation-report.md)中。  
+
+## <a name="pfx-encryption"></a>PFX 加密
+**失敗** - PFX 加密不是 TripleDES-SHA1。   
+**補救** - 匯出採用 **TripleDES-SHA1** 加密的 PFX 檔案。 從憑證嵌入式管理單元匯出或使用 Export-PFXCertificate 時，這是所有 Windows 10 用戶端的預設值。 
 
 ## <a name="read-pfx"></a>讀取 PFX
 **警告** - 密碼只會保護憑證中的私人資訊。  
@@ -66,12 +70,13 @@ ms.locfileid: "33937570"
 
 ## <a name="fix-common-packaging-issues"></a>修正常見的封裝問題
 AzsReadinessChecker 可以匯入 PFX 檔案然後再加以匯出，來修正常見封裝問題，包括： 
+ - [PFX 加密] 不是 TripleDES-SHA1
  - 「私密金鑰」遺失本機電腦屬性。
  - 「憑證鏈結」不完整或錯誤。 (如果 PFX 套件不包含憑證鏈結，則本機電腦必須包含憑證鏈結)。 
  - 「其他憑證」。
 不過，如果您需要產生新的 CSR，然後重新發出憑證，AzsReadinessChecker 就幫不上忙。 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 執行此工具的電腦上必須先將下列先決條件準備就緒： 
  - Windows 10 或 Windows Server 2016，具有網際網路連線能力。
  - PowerShell 5.1 或更新版本。 若要檢查版本，請執行下列 PowerShell 命令，然後再檢閱「主要」版本和「次要」版本。

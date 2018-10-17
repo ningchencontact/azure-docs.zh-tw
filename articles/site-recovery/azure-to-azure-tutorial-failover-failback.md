@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 61b354dfd6f704eb0677991c02f28de08e49ee37
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917494"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067426"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 區域之間容錯移轉及容錯回復 Azure VM
 
@@ -30,7 +30,7 @@ ms.locfileid: "37917494"
 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 確定您已完成[災害復原演練](azure-to-azure-tutorial-dr-drill.md)，檢查一切是否如預期般運作。
 - 執行測試容錯移轉之前，請確認 VM 屬性。 VM 必須符合 [Azure 需求](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions)。
@@ -71,4 +71,4 @@ ms.locfileid: "37917494"
 
 ## <a name="fail-back-to-the-primary-region"></a>容錯回復至主要區域
 
-重新保護 VM 之後，您可視需要容錯回復到主要區域。 若要這樣做，請遵循[容錯移轉](#run-a-failover)指示。
+重新保護 VM 之後，您可視需要容錯回復到主要區域。 若要這樣做，請設定從次要到主要區域的容錯移轉，如本文所述。

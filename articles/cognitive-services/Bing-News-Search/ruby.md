@@ -1,20 +1,21 @@
 ---
-title: Azure 認知服務，Bing 新聞搜尋 API 的 Ruby 快速入門 | Microsoft Docs
-description: 取得資訊和程式碼範例，以協助您在 Azure 上的 Microsoft 認知服務中快速開始使用 Bing 新聞搜尋 API。
+title: 快速入門：Bing 新聞搜尋 API，Ruby
+titlesuffix: Azure Cognitive Services
+description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 新聞搜尋 API。
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 2c4074a5bf63a2b4d6301e81608c0cfafd9de8e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c6c004469b86e443dc1fcc04106d0c7b8b749334
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370147"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803812"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Bing 新聞搜尋 API 的 Ruby 快速入門
 
@@ -24,7 +25,7 @@ ms.locfileid: "35370147"
 
 請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)了解 API 的技術詳細資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您需要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
 
@@ -34,7 +35,7 @@ ms.locfileid: "35370147"
 
 1. 在您最愛的 IDE 或編輯器中建立新的 Ruby 專案。
 2. 新增下方提供的程式碼。
-3. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
+3. 以訂用帳戶有效的存取金鑰來取代 `accessKey` 值。
 4. 執行程式。
 
 ```ruby
@@ -84,7 +85,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 **回應**
 
-會以 JSON 傳回成功的回應，如下列範例所示：
+如以下範例所示，成功的回應會以 JSON 格式來傳回：
 
 ```json
 {

@@ -6,31 +6,31 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8df9054e069540398c137290e682bb4160b4a799
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036361"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392546"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>教學課程：使用 Batch Explorer 轉譯 Blender 場景
 
-本教學課程說明如何轉譯 Blender 示範場景的多個畫面格。 本教學課程會使用 Blender，因為這在用戶端和轉譯的 VM 兩端都可免費使用，但如果您使用 Maya 或 3ds Max 之類的其他應用程式，作業程序也十分類似。
+此教學課程說明如何轉譯 Blender 示範場景的多個畫面格。 此教學課程會使用 Blender，因為這在用戶端和轉譯的 VM 兩端都可免費使用，但如果您使用 Maya 或 3ds Max 之類的其他應用程式，作業程序也十分類似。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 > [!div class="checklist"]
 > * 將 Blend 場景上傳至 Azure 儲存體
 > * 建立含有多個節點的 Batch 集區以執行轉譯
 > * 轉譯多個畫面格
 > * 檢視和下載轉譯的畫面格檔案
 
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+## <a name="prerequisites"></a>先決條件
 
-## <a name="prerequisites"></a>必要條件
+您需要預付型訂用帳戶或其他 Azure 購買選項，以按使用量付費的方式，在 Batch 中使用轉譯應用程式。 如果您使用提供信用額度金額的免費 Azure 方案，則不支援按使用量付費授權。
 
-具有相關儲存體帳戶的 Azure Batch 帳戶。  請參閱任何 Batch 快速入門文章以建立 Batch 帳戶，例如 [CLI 文章](https://docs.microsoft.com/azure/batch/quick-create-cli)。
+您需要具有關聯之儲存體帳戶的 Azure Batch 帳戶。  請參閱任何 Batch 快速入門文章以建立 Batch 帳戶，例如 [CLI 文章](https://docs.microsoft.com/azure/batch/quick-create-cli)。
 
-本教學課程中指定的 VM 大小和 VM 數目至少需要 50 個核心的低優先順序核心配額；您可以使用預設配額，但將須使用較小的 VM 大小，而這意味著影像轉譯會較為耗時。 要求增加核心配額的程序詳述於[這篇文章](https://docs.microsoft.com/azure/batch/batch-quota-limit)中。
+此教學課程中指定的 VM 大小和 VM 數目至少需要 50 個核心的低優先順序核心配額；您可以使用預設配額，但將須使用較小的 VM 大小，而這意味著影像轉譯會較為耗時。 要求增加核心配額的程序詳述於[這篇文章](https://docs.microsoft.com/azure/batch/batch-quota-limit)中。
 
 最後，必須要安裝 [Batch Explorer](https://azure.github.io/BatchExplorer/)；它適用於 Windows、OSX 和 Linux。 它是選擇性的，但若安裝了 [Blender](https://www.blender.org/download/)，則可以檢視範例模型檔案。
 
@@ -87,7 +87,7 @@ ms.locfileid: "40036361"
 ![Blender 的集區範本](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_template.png)
 
 > [!WARNING]
-> 請注意，當集區中有 VM 存在時，您的 Azure 訂用帳戶將會產生這些 VM 的費用。 必須刪除集區或刪除 VM，才會停止計費。 在完成本教學課程後請刪除集區，以免繼續產生費用。
+> 請注意，當集區中有 VM 存在時，您的 Azure 訂用帳戶將會產生這些 VM 的費用。 必須刪除集區或刪除 VM，才會停止計費。 在完成此教學課程後請刪除集區，以免繼續產生費用。
 
 您可以在 [集區] 檢視中監視集區和 VM 的狀態；下列範例顯示三個都已配置的 VM，其中兩個已啟動但處於閒置狀態，另一個仍在啟動中：![集區熱度圖](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap.png)
 

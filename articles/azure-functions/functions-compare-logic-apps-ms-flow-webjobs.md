@@ -1,26 +1,23 @@
 ---
 title: 比較 Flow、Logic Apps、Functions 和 WebJob - Azure
 description: 比較已針對整合工作最佳化的 Microsoft 雲端服務：Flow、Logic Apps、Functions 和 WebJob。
-services: functions,app-service\logic
+services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-tags: ''
+manager: jeconnoc
 keywords: microsoft flow, 流程, logic apps, azure functions, 函數, azure webjobs, webjobs, 事件處理, 動態計算, 無伺服器架構
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9e79cba0b186ace97609409f49369ac89b5a1eeb
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346278"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817002"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>比較 Flow、Logic Apps、Functions 和 WebJob
 
@@ -56,7 +53,7 @@ Flow 可讓任何辦公室工作人員有能力執行簡單的整合 (例如，S
 
 Functions 和 Logic Apps 都是可啟用無伺服器工作負載的 Azure 服務。 Azure Functions 是無伺服器計算服務，而 Azure Logic Apps 可提供無伺服器工作流程。 兩者皆可建立複雜的「協調流程」。 協調流程是函式或步驟的集合，在 Logic Apps 中稱為「動作」，您可執行其來完成複雜工作。 例如處理命令批次，您可以平行執行許多函式執行個體、等待執行個體完成，然後執行函式來計算彙總結果。
 
-對於 Azure Functions，您可以透過撰寫程式碼和使用 [Durable Functions 擴充功能](durable-functions-overview.md) (目前為預覽狀態) 來開發協調流程。 對於 Logic apps，您可以使用 GUI 或編輯組態檔來建立協調流程。
+對於 Azure Functions，您可以透過撰寫程式碼和使用 [Durable Functions 擴充功能](durable-functions-overview.md)來開發協調流程。 對於 Logic apps，您可以使用 GUI 或編輯組態檔來建立協調流程。
 
 您可以在建置協調流程時混合搭配服務，從邏輯應用程式呼叫函式和從函式呼叫邏輯應用程式。 選擇如何建置每個協調流程，取決於服務的功能或您的個人喜好。 下表列出這些服務之間的一些主要差異：
  
@@ -65,7 +62,7 @@ Functions 和 Logic Apps 都是可啟用無伺服器工作負載的 Azure 服務
 | 開發 | Code First (命令式) | Designer First (宣告式) |
 | 連線能力 | [約有十幾個內建繫結類型](functions-triggers-bindings.md#supported-bindings)、撰寫自訂繫結的程式碼 | [連接器的大型集合](../connectors/apis-list.md)、[適用於 B2B 的企業整合套件案例](../logic-apps/logic-apps-enterprise-integration-overview.md)、[建置自訂連接器](../logic-apps/custom-connector-overview.md) |
 | 動作 | 每個活動都是 Azure 函式；撰寫活動函式的程式碼 |[現成動作的大型集合](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| 監視 | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)、[Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)、[Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| 監視 | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)，[Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | 管理性 | [REST API](durable-functions-http-api.md)、[Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)、[REST API](https://docs.microsoft.com/rest/api/logic/)[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0)[Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | 執行內容 | 可以在[本機](functions-runtime-overview.md)或雲端中執行。 | 只可在雲端中執行。|
 

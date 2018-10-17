@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 347fc291fc7357481bfdc88c9019c3d688925c2f
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433458"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067512"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 
@@ -46,10 +46,15 @@ ms.locfileid: "47433458"
 
 從 [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) 下載範例 Node.js 專案並將 ZIP 封存檔解壓縮。
 
-在終端機視窗中，瀏覽至 Node.js 專案範例的根目錄 (包含 _index.js_ 的目錄)。
+開啟 _index.js_ 並找到下列這一行：
 
-> [!NOTE]
-> 您不需要使用我們的範例應用程式，您可以依需求使用自己的 Node 程式碼。 但請注意，在執行階段 Azure 將會為您的應用程式設定 PORT，並使其成為可用的 `process.env.PORT`。 如果您要使用 Express，請確定您對 `process.env.PORT || 3000` 設有啟動檢查 (`app.listen`)。 若未這麼做，且您的連接埠與 Azure 在執行階段設定的不相符，您將會看到 `Service Unavailable` 訊息。 
+```javascript
+var port = process.env.PORT || 1337;
+```
+
+App Service 會將 process.env.PORT 插入您的應用程式中，讓程式碼使用變數來知道要接聽哪個通訊埠。 
+
+在終端機視窗中，瀏覽至 Node.js 專案範例的根目錄 (包含 _index.js_ 的目錄)。
 
 ## <a name="run-the-app-locally"></a>在本機執行應用程式
 
@@ -68,7 +73,7 @@ npm start
 在終端機視窗中，按 **Ctrl+C** 結束 web 伺服器。
 
 > [!NOTE]
-> 在 Azure App Service 中，應用程式會使用 [iisnode](https://github.com/tjanczuk/iisnode) 執行於 IIS 中。 為了讓應用程式可使用 iisnode 執行，應用程式的根目錄會包含 web.config 檔案。 此檔案可供 IIS 讀取，且 iisnode 相關設定記錄在 [iisnode GitHub 存放庫](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config)中。
+> 在 Azure App Service 中，應用程式會使用 [iisnode](https://github.com/Azure/iisnode) 執行於 IIS 中。 為了讓應用程式可使用 iisnode 執行，應用程式的根目錄會包含 web.config 檔案。 此檔案可供 IIS 讀取，且 iisnode 相關設定記錄在 [iisnode GitHub 存放庫](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config)中。
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: c6817fa20d4177efd3e38f1454f3142f6d40a07d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f1cc1b728a91c22f9b4b2062ed5c423314e561c8
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108613"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017579"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
@@ -30,10 +30,14 @@ ms.locfileid: "43108613"
 > * 觸發管線執行。
 > * 監視管道執行。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="prerequisites"></a>必要條件
 * **Azure 儲存體帳戶**。 您需要建立 Python 指令碼和輸入檔案，並上傳至 Azure 儲存體。 Spark 程式的輸出會儲存在這個儲存體帳戶中。 隨選 Spark 叢集與其主要儲存體是使用相同的儲存體帳戶。  
+
+> [!NOTE]
+> HdInsight 僅支援標準層的一般用途儲存體帳戶。 請確定帳戶不是進階或僅限 Blob 儲存體帳戶。
+
 * **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。
 
 
@@ -99,11 +103,9 @@ ms.locfileid: "43108613"
 1. 針對 [位置]，選取資料處理站的位置。 
 
    如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 Data Factory 所使用的資料存放區 (Azure 儲存體和 Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
-1. 選取 [釘選到儀表板]。     
-1. 選取 [建立] 。
-1. 在儀表板上，您會看到 [正在部署 Data Factory] 狀態的下列圖格︰ 
 
-   ![[部署 Data Factory] 圖格](media//tutorial-transform-data-spark-portal/deploying-data-factory.png)
+1. 選取 [建立] 。
+
 1. 建立完成之後，您會看到 [Data Factory] 頁面。 選取 [編寫與監視] 圖格，以在個別的索引標籤上啟動 Data Factory UI 應用程式。
 
     ![資料處理站的首頁，具有 [編寫與監視] 圖格](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
@@ -157,11 +159,11 @@ ms.locfileid: "43108613"
    
    h. 展開 [OS 類型]。
    
-   i. 輸入叢集使用者的名稱。 
+   i. 針對**叢集使用者名稱**輸入名稱。 
    
-   j. 輸入使用者的密碼。 
+   j. 輸入使用者的**叢集密碼**。 
    
-   k. 選取 [ **儲存**]。 
+   k. 選取 [完成]。 
 
    ![HDInsight 連結服務設定](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
 

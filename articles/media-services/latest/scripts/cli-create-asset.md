@@ -4,7 +4,7 @@ description: 本主題中的 Azure CLI 指令碼會示範如何建立內容上�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/15/2018
+ms.date: 10/09/2018
 ms.author: juliako
-ms.openlocfilehash: 89120daf971586e8c2e360e9b6b064b10b14f707
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d2fe1718999bcdc33fcde6891fa891373a9ea5cb
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723046"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069347"
 ---
-# <a name="cli-example-create-an-azure-media-services-account"></a>CLI 範例：建立 Azure 媒體服務帳戶
+# <a name="cli-example-create-an-asset"></a>CLI 範例：建立資產
 
 本文中的 Azure CLI 指令碼會示範如何建立內容上傳目標的媒體服務資產。
 

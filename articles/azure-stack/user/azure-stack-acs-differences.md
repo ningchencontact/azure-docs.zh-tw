@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 6c0c42763ec3d124850555500c3a322073af2479
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050404"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802316"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與考量
 
@@ -27,7 +27,7 @@ ms.locfileid: "43050404"
 
 「Azure Stack 儲存體」是 Microsoft Azure Stack 中的一組儲存體雲端服務。 「Azure Stack 儲存體」使用與 Azure 一致的語意來提供 Blob、資料表、佇列及帳戶管理功能。
 
-此文章摘要說明 Azure Stack 儲存體與 Azure 儲存體服務的已知差異。 也會列出部署 Azure Stack 時所要考量的事項。 若要了解全域 Azure 與 Azure Stack 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)主題。
+此文章摘要說明 Azure Stack 儲存體與 Azure 儲存體服務的已知差異。 也會列出部署 Azure Stack 時所要考量的事項。 若要了解全域 Azure 與 Azure Stack 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)一文。
 
 ## <a name="cheat-sheet-storage-differences"></a>速查表：儲存體差異
 
@@ -38,10 +38,9 @@ ms.locfileid: "43050404"
 |儲存體帳戶類型|一般用途和 Azure Blob 儲存體帳戶|僅限一般用途。
 |複寫選項|本地備援儲存體、異地備援儲存體、讀取權限異地備援儲存體，以及區域備援儲存體|本地備援儲存體。
 |進階儲存體|完全支援|可佈建，但無效能限制或保證。
-|受控磁碟|支援進階和標準|尚不支援。
+|受控磁碟|支援進階和標準|支援 1808 版或更新版本。
 |Blob 名稱|1,024 個字元 (2,048 個位元組)|880 個字元 (1,760 個位元組)
 |區塊 Blob 大小上限|4.75 TB (100 MB X 50,000 個區塊)|適用於 1802 更新或更新版本的 4.75 TB (100 MB x 50,000 個區塊)。 適用於舊版的 50,000 X 4 MB (大約 195 GB)。
-|分頁 blob 快照集複製|不支援對連結至執行中 VM 的 Azure 非受控 VM 進行備份|尚不支援。
 |分頁 Blob 增量快照複製|支援進階和標準 Azure 分頁 Blob|尚不支援。
 |Blob 儲存體的儲存層|經常性存取、非經常性存取和封存儲存層。|尚不支援。
 Blob 儲存體的虛刪除|預覽|尚不支援。

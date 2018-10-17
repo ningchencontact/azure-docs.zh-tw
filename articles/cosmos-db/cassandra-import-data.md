@@ -9,12 +9,12 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976171"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247845"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>將您的資料移轉至 Azure Cosmos DB Cassandra API 帳戶
 
@@ -62,7 +62,7 @@ ms.locfileid: "46976171"
 
 ## <a name="prerequisites-for-migration"></a>移轉的必要條件
 
-* **在 Azure Cosmos DB Cassandra API 帳戶中建立資料表：** 在您開始移轉資料之前，請先從 Azure 入口網站或從 cqlsh 預先建立所有資料表。
+* **在 Azure Cosmos DB Cassandra API 帳戶中建立資料表：** 在您開始移轉資料之前，請先從 Azure 入口網站或從 cqlsh 預先建立所有資料表。 如果您要遷移至具有資料庫層級輸送量的 Azure Cosmos DB 帳戶，請務必在建立 Azure Cosmos DB 容器時提供分割區索引鍵。
 
 * **增加輸送量︰** 資料移轉持續時間取決於您為 Azure Cosmos DB 中資料表佈建的輸送量多寡。 請針對移轉持續時間增加輸送量。 藉由較高的輸送量，您可以避免速率限制，並花費較少的時間進行移轉。 完成移轉之後，再降低輸送量以節省成本。 如需在有關增加輸送量的詳細資訊，請參閱為 Azure Cosmos DB 容器[設定輸送量](set-throughput.md)。 此外，也建議您使用相同區域中的 Azure Cosmos DB 帳戶作為您的來源資料庫。 
 

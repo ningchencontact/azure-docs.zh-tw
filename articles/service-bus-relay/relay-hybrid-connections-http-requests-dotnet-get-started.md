@@ -14,31 +14,31 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e66a1651a46cfaeb7fb8b232eeb7cf6a2fb8044d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918315"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451217"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>在 .NET 中開始使用轉送混合式連線 HTTP 要求
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-本教學課程會介紹 [Azure 轉送混合式連線](relay-what-is-it.md#hybrid-connections)。 了解如何使用 Microsoft .NET 來建立用戶端應用程式，以將要求傳送至對應的接聽程式應用程式。 
+此教學課程會介紹 [Azure 轉送混合式連線](relay-what-is-it.md#hybrid-connections)。 了解如何使用 Microsoft .NET 來建立用戶端應用程式，以將要求傳送至對應的接聽程式應用程式。 
 
 ## <a name="what-will-be-accomplished"></a>將會完成的工作
-混合式連線需要同時用到用戶端元件和伺服器元件。 在本教學課程中，您會完成下列步驟來建立兩個主控台應用程式：
+混合式連線需要同時用到用戶端元件和伺服器元件。 在此教學課程中，您會完成下列步驟來建立兩個主控台應用程式：
 
 1. 使用 Azure 入口網站建立轉送命名空間。
 2. 使用 Azure 入口網站，在該命名空間中建立混合式連線。
 3. 撰寫伺服器 (接聽端) 主控台應用程式來接收要求。
 4. 撰寫用戶端 (傳送端) 主控台應用程式來傳送要求。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要完成本教學課程，您需要下列必要條件：
+若要完成此教學課程，您需要下列先決條件：
 
-* [Visual Studio 2015 或更新版本](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017。
+* [Visual Studio 2015 或更新版本](http://www.visualstudio.com)。 此教學課程中的範例使用 Visual Studio 2017。
 * Azure 訂用帳戶。
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -64,9 +64,14 @@ ms.locfileid: "41918315"
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5.執行應用程式
-1. 執行伺服器應用程式。
-2. 執行用戶端應用程式並輸入一些文字。
-3. 確定伺服器應用程式主控台有顯示用戶端應用程式中所輸入的文字。
+1. 執行伺服器應用程式。 您會在主控台視窗中看到下列文字：
+
+    ```
+    Online
+    Server listening
+    ```
+1. 執行用戶端應用程式。 您會在用戶端視窗中看見 `hello!`。 用戶端會傳送 HTTP 要求給伺服器，而伺服器則會以 `hello!` 來回應。 
+3. 現在，若要關閉主控台視窗，請在這兩個主控台視窗中按 **ENTER**。 
 
 恭喜您，您已建立端對端混合式連線應用程式！
 

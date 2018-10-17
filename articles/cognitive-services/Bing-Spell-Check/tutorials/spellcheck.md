@@ -1,23 +1,23 @@
 ---
-title: 使用 Bing 拼字檢查 API 取得拼字檢查結果 (Azure 上的 Microsoft 認知服務) | Microsoft Docs
+title: 教學課程：開始使用 Bing 拼字檢查 API 對結果進行拼字檢查
+titlesuffix: Azure Cognitive Services
 description: 示範如何使用 Bing 拼字檢查。
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
-ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 4e4cdbb8a3d6ab01888d8f273083155c33eb06c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7afcd18e00e820ad63b8b12bbc352faaca24c84
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368498"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803591"
 ---
-# <a name="build-a-web-page-spell-check-client"></a>建置網頁拼字檢查用戶端
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>教學課程：建置網頁拼字檢查用戶端
 
 在本教學課程中，我們將建置一個網頁，讓使用者查詢 Bing 拼字檢查 API。
 
@@ -27,7 +27,7 @@ ms.locfileid: "35368498"
 > - 對 Bing 拼字檢查 API 進行簡單查詢
 > - 顯示查詢結果
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要依照本教學課程，您需要 Bing 拼字檢查 API 的訂用帳戶金鑰。 如果您沒有金鑰，請[註冊免費試用](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)。
 

@@ -1,25 +1,27 @@
 ---
-title: 專案 URL 預覽的 Java 快速入門 - Microsoft 認知服務 | Microsoft Docs
-description: 在 Azure 上的 Microsoft 認知服務中開始使用專案 URL 預覽的指令碼範例。
+title: 快速入門：專案 URL 預覽 Java
+titlesuffix: Azure Cognitive Services
+description: 開始使用專案 URL 預覽與 Java 的指令碼範例。
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369607"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867103"
 ---
-# <a name="url-preview-java-quickstart"></a>URL 預覽 Java 快速入門
+# <a name="quickstart-url-preview-with-java"></a>快速入門：使用 Java 進行 URL 預覽
 
-下列 Java 範例會建立 SwiftKey 網站的 URL 預覽：https://swiftkey.com/en。
+下列 Java 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
 

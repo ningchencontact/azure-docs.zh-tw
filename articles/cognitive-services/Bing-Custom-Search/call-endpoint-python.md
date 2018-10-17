@@ -1,22 +1,23 @@
 ---
-title: 使用 Python 呼叫端點 - Bing 自訂搜尋 - Microsoft 認知服務
+title: 快速入門：使用 Python 呼叫端點 - Bing 自訂搜尋
+titlesuffix: Azure Cognitive Services
 description: 本快速入門說明如何使用 Python 呼叫自訂的 Bing 搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 3666e92372e9bed80e5c0c7991dcac730cebb588
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d16b7354b0ef727ba3c670b97105e1bd6f99034e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967586"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815455"
 ---
-# <a name="call-bing-custom-search-endpoint-python"></a>呼叫 Bing 自訂搜尋端點 (Python)
+# <a name="quickstart-call-bing-custom-search-endpoint-python"></a>快速入門：呼叫 Bing 自訂搜尋端點 (Python)
 
 此快速入門說明如何使用 Python 呼叫 Bing 自訂搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。 
 

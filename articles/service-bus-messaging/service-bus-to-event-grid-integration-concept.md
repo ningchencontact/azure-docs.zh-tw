@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b6f46c10603e54f0f77a635b3233073aadac0cd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9e7e853ad7562bf5d449479ad730a5dabd6a97b8
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700118"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585419"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服務匯流排與 Event Grid 的整合概觀
 
@@ -129,9 +129,9 @@ Azure 服務匯流排已開始與 Azure Event Grid 進行全新整合。 此功�
 2. 在左窗格中，選取 [Event Grid]。 
 3. 選取 [事件訂用帳戶]。  
 
-   下圖顯示一個命名空間，而該命名空間有一些 Event Grid 訂用帳戶：
+   下圖顯示一個命名空間，而該命名空間有事件方格訂用帳戶：
 
-   ![20][]
+   ![事件方格訂用帳戶](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    下圖顯示如何在不使用任何特定篩選條件的情況下，訂閱函式或 Web Hook：
 
@@ -176,7 +176,7 @@ New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBS
 ## <a name="next-steps"></a>後續步驟
 
 * 取得服務匯流排和 Event Grid [範例](service-bus-to-event-grid-integration-example.md)。
-* 深入了解 [Event Grid](https://docs.microsoft.com/azure/azure-functions/)。
+* 深入了解 [Event Grid](https://docs.microsoft.com/azure/event-grid/)。
 * 深入了解 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)。
 * 深入了解 [Logic Apps](https://docs.microsoft.com/azure/logic-apps/)。
 * 深入了解[服務匯流排](https://docs.microsoft.com/azure/azure-functions/)。

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a23e9dc8fad52bac85de834c53d2c710423211c7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104977"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269236"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -102,6 +102,7 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 |區域  | 支援的方案 | 查詢複本 (僅限標準方案) |
 |---------|---------|:---------:|
 |澳大利亞東南部     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|澳洲東部     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
 |日本東部  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |東南亞     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |印度西部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |

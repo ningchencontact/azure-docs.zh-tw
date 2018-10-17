@@ -5,20 +5,23 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/27/2018
+ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 65a9b1afcc0e1e6d4fcbb60a38ab0764e6fe2f18
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226439"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888185"
 ---
 # <a name="what-is-service-fabric-mesh"></a>什麼是 Service Fabric Mesh？
 
-Azure Service Fabric Mesh 是一個完全受管理的服務，讓開發人員能夠部署微服務應用程式，而不需管理虛擬機器、儲存體或網路功能。 裝載於 Service Fabric Mesh 的 應用程式可適當地執行及擴充，您無須擔心其所需的基礎結構。  Service Fabric Mesh 包含由數千個機器組成的叢集。  所有叢集作業都不會對開發人員顯示。 您只需上傳程式碼，並指定您所需的資源、可用性需求和資源限制即可。  Service Fabric Mesh 會自動配置您的應用程式部署所要求的基礎結構，也會處理基礎結構失敗，以確保您的應用程式具備高可用性。 您只需留意應用程式的健康情況和回應性即可，而無須考量基礎結構。  
+這段影片提供 Service Fabric Mesh 的快速概觀。
+> [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
+
+Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員能夠部署微服務應用程式，而不需管理虛擬機器、儲存體或網路功能。 裝載於 Service Fabric Mesh 的 應用程式可適當地執行及擴充，您無須擔心其所需的基礎結構。  Service Fabric Mesh 包含由數千個機器組成的叢集。  所有叢集作業都不會對開發人員顯示。 您只需上傳程式碼，並指定您所需的資源、可用性需求和資源限制即可。  Service Fabric Mesh 會自動配置基礎結構並處理基礎結構失敗，以確保應用程式具備高可用性。 您只需留意應用程式的健康情況和回應性即可，而無須考量基礎結構。  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -30,7 +33,7 @@ Service Fabric Mesh 支援任何可在容器中執行的程式設計語言或架
 
 透過 Service Fabric Mesh，您可以：
 
-- 將現有的應用程式「隨即轉移」至容器中，以大規模現代化並執行您目前的應用程式。 
+- 將現有的應用程式「隨即轉移」至容器中，以大規模現代化並執行您目前的應用程式。
 - 在 Azure 中大規模建置並部署新的微服務應用程式。  與其他 Azure 服務或在容器中執行的現有應用程式整合。 每個微服務都是具安全性、與網路隔離，且已針對 CPU 核心、記憶體、磁碟空間等項目定義了資源管理原則的應用程式所包含的一部分。
 - 整合並擴充現有的應用程式，而不變更這些應用程式。 使用您自己的虛擬網路將現有應用程式連線至新的應用程式。  
 - 藉由移轉至 Service Fabric Mesh，將現有的雲端服務應用程式現代化。  
@@ -43,13 +46,10 @@ Service Fabric Mesh 支援任何可在容器中執行的程式設計語言或架
 
 - 部署及管理應用程式，而無須明確佈建和管理基礎結構。  Service Fabric Mesh 可為您佈建、升級、修補和維護基礎結構。
 - 使用整合式工具輕鬆地封裝及部署應用程式，以設定持續整合。
-- 充分運用 Azure Resource Manager 資源的所有功能 (例如，稽核記錄和[角色型存取控制 (RBAC)](/azure/role-based-access-control/overview))，因為您在 Azure 中部署至 SF Mesh 服務的所有資源 (例如應用程式、服務、秘密等) 都是 Azure Resource Manager 資源。 
+- 充分運用 Azure Resource Manager 資源的所有功能 (例如，稽核記錄和[角色型存取控制](/azure/role-based-access-control/overview))，因為您在 Azure 中部署至 Service Fabric Mesh 服務的所有資源 (例如應用程式、服務、秘密等) 都是 Azure Resource Manager 資源。
 - 使用 [Azure 入口網站](https://portal.azure.com)、Resource Manager 範本或 Azure CLI/PowerShell 程式庫來部署和管理資源。
-- 使用 [Application Insights](/azure/application-insights/) (或您選擇的工具) 設定作業監視和警示，以從平台擷取作業和診斷追蹤。 
+- 使用 [Application Insights](/azure/application-insights/) (或您選擇的工具) 設定作業監視和警示，以從平台擷取作業和診斷追蹤。
 - 使用 [Application Insights](/azure/application-insights/) 或您選擇的工具，從應用程式模型存取應用程式診斷資訊。
-- 在應用程式定義中指定服務的自動調整規則，以最佳化資源使用方式。  (敬請期待)
-- 為應用程式建立網路隔離和安全性界限，此為與 Hyper-V 容器結合時所產生的強大功能。 為每個服務使用多個 IP，並且讓每個應用程式使用隔離的虛擬網路，以隔離輸入和輸出服務的網路流量。  (敬請期待) 
-
 
 ## <a name="mission-critical-platform-capabilities"></a>任務關鍵性平台功能
 

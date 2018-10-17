@@ -1,20 +1,21 @@
 ---
-title: Bing 單頁新聞搜尋應用程式 | Microsoft Docs
+title: 教學課程：Bing 新聞搜尋單頁應用程式
+titlesuffix: Azure Cognitive Services
 description: 說明如何在單頁 Web 應用程式中使用 Bing 新聞搜尋 API。
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: fb8cd24dfdfb03500cc86ee1b1f0126ec044a873
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370191"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803642"
 ---
 # <a name="tutorial-single-page-news-search-app"></a>教學課程：單頁新聞搜尋應用程式
 Bing 新聞搜尋 API 可讓您搜尋網頁，並取得與搜尋查詢相關的新聞類型結果。 在本教學課程中，我們會建置單頁 Web 應用程式，以使用 Bing 新聞搜尋 API 在頁面中顯示搜尋結果。 該應用程式包含 HTML、CSS 和 JavaScript 元件。
@@ -87,7 +88,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-HTML `<form>` 標籤 `onsubmit` 會呼叫 `bingWebSearch` 函式來傳回搜尋結果。 `bingWebSearch` 會使用 `getSubscriptionKey()` 來驗證每個查詢。 如先前的定義所示，若尚未輸入金鑰．`getSubscriptionKey` 就會提示使用者輸入金鑰。 然後，儲存金鑰供應用程式繼續使用。
+HTML `<form>` 標籤 `onsubmit` 會呼叫 `bingWebSearch` 函式來傳回搜尋結果。 `bingWebSearch` 使用 `getSubscriptionKey()` 來驗證每個查詢。 如先前的定義所示，若尚未輸入金鑰．`getSubscriptionKey` 就會提示使用者輸入金鑰。 其後應儲存金鑰，以供應用程式繼續使用。
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
@@ -100,15 +101,15 @@ HTML `<form>` 標籤 `onsubmit` 會呼叫 `bingWebSearch` 函式來傳回搜尋�
 
 HTML 表單包含具有下列名稱的項目：
 
-|項目|說明|
+|元素|說明|
 |-|-|
 | `where` | 可供選取市場 (位置和語言) 以用於搜尋的下拉式功能表。 |
 | `query` | 要輸入搜尋字詞的文字欄位。 |
 | `category` | 用來升級特定種類結果的核取方塊。 例如，升級健康會提高健康新聞的等級。 |
 | `when` | 下拉式功能表可選擇性地將搜尋限制在最近一天、一週或一個月。 |
 | `safe` | 指明是否要使用 Bing 安全搜尋功能來篩選掉「成人」結果的核取方塊。 |
-| `count` | 隱藏的欄位。 毎個要求要傳回的搜尋結果數目。 變更為每頁顯示更多或更少的結果。 |
-| `offset`|  隱藏的欄位。 要求中第一個搜尋結果的位移；用於分頁。 它會在新要求時重設為 `0`。 |
+| `count` | 隱藏的欄位。 毎個要求要傳回的搜尋結果數目。 變更為每頁顯示更多或更少結果。 |
+| `offset`|  隱藏的欄位。 要求中第一個搜尋結果的位移；用於分頁。 它會在新要求執行時重設為 `0`。 |
 
 > [!NOTE]
 > Bing Web 搜尋提供其他查詢參數。 我們在這裡只使用了其中一些參數。
@@ -268,7 +269,7 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > 成功的 HTTP 要求「不」一定表示搜尋本身成功。 若搜尋作業中發生錯誤，Bing 新聞搜尋 API 會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，若要求速率受到限制，API 會傳回空白回應。
 
-上述兩個函式中的大部分程式碼都是專用於錯誤處理。 下列階段可能會發生錯誤：
+上述兩個函式中大部分的程式碼都是專門用來處理錯誤的。 下列階段可能會發生錯誤：
 
 |階段|可能的錯誤|處理者|
 |-|-|-|
@@ -380,7 +381,7 @@ searchItemRenderers = {
 > * 建置 HTML `<a>` 標籤，以連結至影像和內含影像的頁面。
 > * 建置描述，以顯示影像及執行所在網站的相關資訊。
 
-縮圖大小用於這兩個 `<img>` 標記，以及縮圖 URL 中的 `h` 和 `w` 欄位。 [Bing 縮圖服務](resize-and-crop-thumbnails.md)接著會提供完全符合該大小的縮圖。
+縮圖大小用於這兩個 `<img>` 標籤，以及縮圖 URL 中的 `h` 和 `w` 欄位。 [Bing 縮圖服務](resize-and-crop-thumbnails.md)接著會提供完全符合該大小的縮圖。
 
 ## <a name="persisting-client-id"></a>保存用戶端識別碼
 來自 Bing 搜尋 API 的回應可能會在後續要求中包含應該傳回 API 的 `X-MSEdge-ClientID` 標頭。 若使用多個 Bing 搜尋 API，請盡可能對所有 API 使用相同的用戶端識別碼。
@@ -410,7 +411,7 @@ searchItemRenderers = {
 
     cors-proxy-server
 
-當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開之 [HTTP 標頭] 區段的搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
+當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開的 [HTTP 標頭] 區段搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]

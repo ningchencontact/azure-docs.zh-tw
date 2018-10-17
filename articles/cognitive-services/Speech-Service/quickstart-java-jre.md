@@ -5,16 +5,16 @@ description: 了解如何以 Java 辨識語音 (Windows 或 Linux)
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 00603c467ec96e52fc2b7745263153a68d20f584
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: c0963fa8453dd51dfb05af20a5468e1eed1fc7cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053957"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885204"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 或 Linux 上以 Java 辨識語音
 
@@ -69,11 +69,11 @@ ms.locfileid: "47053957"
 
 1. 開啟 **pom.xml** 檔案並加以編輯。
 
-   * 在檔案結尾的 `</project>` 結尾標記之前，建立一個參考「語音 SDK」之 Maven 存放庫的存放庫區段，如下所示：
+   * 在檔案結尾的 `</project>` 結尾標記之前，建立 `repositories` 元素並讓其參考語音 SDK 的 Maven 存放庫，如下所示：
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * 此外，也在其後面新增一個以 1.0.0 版語音 SDK 作為相依性的相依性區段：
+  * 此外，再新增 `dependencies` 元素，並以 1.0.0 版語音 SDK 作為相依性：
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure Machine Learning 將影像分類模型定型
+title: 教學課程：使用 Azure Machine Learning 服務將影像分類模型定型
 description: 本教學課程會示範如何使用 Azure Machine Learning 服務，搭配 scikit-learn 在 Python Jupyter Notebook 中將影像分類模型定型。 本教學課程是兩部分系列的第一部分。
 services: machine-learning
 ms.service: machine-learning
@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181393"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785133"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>教學課程 #1：使用 Azure Machine Learning 將影像分類模型定型
+# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程 #1：使用 Azure Machine Learning 服務將影像分類模型定型
 
 在本教學課程中，您會在本機和遠端計算資源，將機器學習模型定型。 您將使用 Python Jupyter Notebook 中的 Azure Machine Learning 服務 (預覽) 定型和部署工作流程。  然後，您可以使用 Notebook 作為範本，以自己的資料將您自己的機器學習服務模型定型。 本教學課程是**兩部分教學課程系列的第一部分**。  
 
-本教學課程可讓您使用 [MNIST](http://yann.lecun.com/exdb/mnist/) 資料集，並搭配 [scikit-learn](http://scikit-learn.org) 與 Azure Machine Learning 定型簡單的羅吉斯迴歸。  MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像是 28x28 個像素的手寫數字，代表 0 至 9 的數字。 目標是要建立多類別分類器，來識別特定影像代表的數字。 
+本教學課程可讓您使用 [MNIST](http://yann.lecun.com/exdb/mnist/) 資料集，並搭配 [scikit-learn](http://scikit-learn.org) 與 Azure Machine Learning 服務定型簡單的羅吉斯迴歸。  MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像是 28x28 個像素的手寫數字，代表 0 至 9 的數字。 目標是要建立多類別分類器，來識別特定影像代表的數字。 
 
 了解如何：
 
@@ -37,7 +37,7 @@ ms.locfileid: "47181393"
 
 ## <a name="get-the-notebook"></a>取得 Notebook
 
-為了方便起見，此教學課程以 Jupyter Notebook 形式提供。 請使用其中一種下列方法來複製[機器學習範例 Notebook 的 GitHub 存放庫](https://github.com/Azure/MachineLearningNotebooks)並執行 `tutorials/01.train-models.ipynb`Notebook：
+為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 `01.train-models.ipynb` Notebook。
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>後續步驟
 
-在本 Azure Machine Learning 教學課程中，您使用了 Python 來：
+在本 Azure Machine Learning 服務教學課程中，您使用了 Python 來：
 
 > [!div class="checklist"]
 > * 設定開發環境

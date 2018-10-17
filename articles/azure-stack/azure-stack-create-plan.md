@@ -3,7 +3,7 @@ title: 在 Azure Stack 中建立方案 | Microsoft Docs
 description: 身為雲端系統管理員，您可以建立可供訂閱者佈建虛擬機器的方案。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 1fa01d23108ce92fbd7c854442c0474b19395d25
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248698"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077557"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>在 Azure Stack 中建立方案
 
@@ -30,7 +30,7 @@ ms.locfileid: "35248698"
 
 1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external) 。
 
-2. 若要建立使用者可訂閱的方案和供應項目，請選取 [新增] > [供應項目 + 方案] > [方案]。
+2. 若要建立使用者可訂閱的方案和供應項目，請選取 [+ 建立資源] > [供應項目 + 方案] > [方案]。
   
    ![選取方案](media/azure-stack-create-plan/select-plan.png)
 
@@ -72,5 +72,4 @@ ms.locfileid: "35248698"
 
 ## <a name="next-steps"></a>後續步驟
 
-
-  [建立供應項目](azure-stack-create-offer.md)
+[建立供應項目](azure-stack-create-offer.md)
