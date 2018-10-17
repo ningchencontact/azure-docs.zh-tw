@@ -1,21 +1,21 @@
 ---
-title: 翻譯工具文字搭配 PHP 從文字識別語言 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 PHP，以識別來源文字的語言。
+title: 快速入門：從文字識別語言 - 翻譯工具文字、PHP
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 PHP，識別來源文字的語言。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 2888ea96ac31d56f6870b2f2ccbb04ff8328a1b8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cb643503f72f9cf21c83f35477ca6878d8938339
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750239"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125964"
 ---
 # <a name="quickstart-identify-language-from-text-with-php"></a>快速入門：使用 PHP 從文字識別語言
 

@@ -1,22 +1,23 @@
 ---
-title: 如何在文字分析 REST API 中進行情感分析 (Azure 上的 Microsoft 認知服務) | Microsoft Docs
-description: 本逐步解說教學課程將示範如何使用 Azure 上 Microsoft 認知服務中的文字分析 REST API 來偵測情感。
+title: 範例：使用文字分析 REST API 分析情感
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用文字分析 REST API 偵測情感。
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 7ffd8bbe47409b459fdd308cd8d670d32f56649b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368411"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605890"
 ---
-# <a name="how-to-detect-sentiment-in-text-analytics"></a>如何在文字分析中偵測情感
+# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>範例：如何在文字分析中偵測情感
 
 [情感分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) \(英文\) 會評估文字輸入，並傳回每份文件的情感分數，範圍從 0 (負面) 到 1 (正面)。
 
@@ -98,7 +99,7 @@ ms.locfileid: "35368411"
 
 輸出會立即傳回。 您可以將結果串流處理到可接受 JSON 的應用程式，或將輸出儲存到本機系統上的檔案，然後將它匯入能讓您排序、搜尋和操作資料的應用程式。
 
-下列範例顯示本文中文件集合的回應。
+下列範例顯示此文章中文件集合的回應。
 
 ```
 {
@@ -130,7 +131,7 @@ ms.locfileid: "35368411"
 
 ## <a name="summary"></a>總結
 
-在本文中，您已了解使用認知服務中的文字分析進行情感分析的概念和工作流程。 摘要說明：
+在此文章中，您已了解使用認知服務中的文字分析進行情感分析的概念和工作流程。 摘要說明：
 
 + [情感分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) \(英文\) 僅針對特定語言提供。
 + 要求主體中的 JSON 文件包含識別碼、文字和語言代碼。

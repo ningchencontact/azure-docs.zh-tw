@@ -1,25 +1,25 @@
 ---
-title: 翻譯工具文字搭配 Ruby 轉換文字腳本 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Ruby，將文字轉換成另一種語言的腳本。
+title: 快速入門：轉換文字字集 - 翻譯工具文字、Ruby
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Ruby，將文字轉換成另一種語言的字集。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 56872ed6b6d7168fb1bf2c45de8104a592af34e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6595e486a93811fdded21050c39e99d4f7e5a760
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750236"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121748"
 ---
 # <a name="quickstart-transliterate-text-with-ruby"></a>快速入門：使用 Ruby 來音譯文字
 
-在本快速入門中，您可以使用翻譯工具文字 API，將文字轉換成另一種語言的腳本。
+在本快速入門中，您可以使用翻譯工具文字 API，將文字轉換成另一種語言的字集。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "43750236"
 
 ## <a name="transliterate-request"></a>Transliterate 要求
 
-下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的腳本。
+下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的字集。
 
 1. 在您慣用的程式碼編輯器中，建立新的 Ruby 專案。
 2. 新增下方提供的程式碼。

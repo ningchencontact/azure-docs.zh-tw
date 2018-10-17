@@ -1,21 +1,21 @@
 ---
-title: 臉部 API Go 快速入門 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的臉部 API 搭配 Go，偵測影像中的臉部。
+title: 快速入門：偵測影像中的人臉 - 臉部 API、Go
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用臉部 API 搭配 Go 偵測影像中的人臉。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: nolachar
-ms.openlocfilehash: e4d7f3f605b110f51488d9a7f483fc2832a149b9
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0c8a70153ac9a54f3e46e5fb1a2ee3404a960dd3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "43750246"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125420"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-go"></a>快速入門：使用 Go 偵測影像中的臉部
 

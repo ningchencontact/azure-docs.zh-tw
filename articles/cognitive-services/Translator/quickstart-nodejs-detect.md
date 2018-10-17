@@ -1,21 +1,21 @@
 ---
-title: 翻譯工具文字搭配 Node.js 從文字識別語言 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Node.js，以識別來源文字的語言。
+title: 快速入門：從文字識別語言 - 翻譯工具文字、Node.js
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Node.js，識別來源文字的語言。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 8e6fecf74d1291e9660076572d385bb234edc222
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: bb2118c9c05cff093bb5affe91a388986ba85a38
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750188"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126202"
 ---
 # <a name="quickstart-identify-language-from-text-with-nodejs"></a>快速入門：使用 Node.js 從文字識別語言
 

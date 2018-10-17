@@ -1,25 +1,25 @@
 ---
-title: 翻譯工具文字搭配 Python 翻譯文字 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Python，將文字翻譯成另一種語言。
+title: 快速入門：翻譯文字 - 翻譯工具文字、Python
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Python，將文字翻譯成另一種語言。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 8f70ffb77e21131990d6b77a1cb13c9d5c054d06
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: cd1941c0a815d959f3e2e98fdd809062f4e01014
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750195"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129177"
 ---
 # <a name="quickstart-translate-text-with-python"></a>快速入門：使用 Python 來翻譯文字
 
-在本快速入門中，您可以使用翻譯工具文字 API，將文字翻譯成另一種語言。
+在此快速入門中，您可以使用翻譯工具文字 API，將文字翻譯成另一種語言。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,7 +27,7 @@ ms.locfileid: "43750195"
 
 若要使用翻譯工具文字 API，您也需要有訂用帳戶金鑰；請參閱[如何註冊翻譯工具文字 API](translator-text-how-to-signup.md)。
 
-## <a name="translate-request"></a>翻譯要求
+## <a name="translate-request"></a>Translate 要求
 
 下列程式碼會使用 [Translate](./reference/v3-0-translate.md) 方法，將來源文字翻譯成另一種語言。
 
@@ -83,7 +83,7 @@ output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
 print (output)
 ```
 
-## <a name="translate-response"></a>翻譯回應
+## <a name="translate-response"></a>Translate 回應
 
 成功的回應會以 JSON 格式傳回，如下列範例所示：
 
@@ -110,7 +110,7 @@ print (output)
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽本快速入門及其他文件的範例程式碼，包括音譯和語言識別，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽此快速入門及其他文件的範例程式碼，包括音譯和語言識別，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Python 範例](https://aka.ms/TranslatorGitHub?type=&language=python) (英文)

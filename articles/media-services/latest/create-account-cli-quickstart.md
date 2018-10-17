@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767097"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735997"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>快速入門：建立 Azure 媒體服務帳戶
 
@@ -36,7 +36,7 @@ ms.locfileid: "38767097"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，此主題需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 ## <a name="set-the-azure-subscription"></a>設定 Azure 訂用帳戶
 
@@ -58,7 +58,7 @@ az group create -n <myresourcegroup> -l westus2
 
 當建立媒體服務帳戶時，您需要提供 Azure 儲存體帳戶資源的識別碼。 指定的儲存體帳戶會附加到您的媒體服務帳戶。 
 
-您只能有一個**主要**儲存體帳戶，而與您的媒體服務帳戶相關聯的**次要**儲存體帳戶可以有任意數量。 媒體服務支援**一般用途 v2** (GPv2) 或**一般用途 v1** (GPv1) 帳戶。 僅有 Blob 的帳戶不允許作為**主要**帳戶。 如果您要深入了解儲存體帳戶，請參閱 [Azure 儲存體帳戶選項](../../storage/common/storage-account-options.md)。 
+您只能有一個**主要**儲存體帳戶，而與您的媒體服務帳戶相關聯的**次要**儲存體帳戶可以有任意數量。 「媒體服務」支援**一般用途 v2** 或 **一般用途 v1** 帳戶。 Blob 儲存體帳戶不允許作為**主要**帳戶。 如需儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../../storage/common/storage-account-overview.md)。 
 
 以下命令會建立要與媒體服務帳戶 (主要) 相關聯的儲存體帳戶。 在以下的指令碼中，請取代 *storageaccountforams* 預留位置。 'account_name' 的長度必須少於 24。
 

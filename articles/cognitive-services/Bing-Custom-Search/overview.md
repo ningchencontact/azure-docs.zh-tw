@@ -1,20 +1,21 @@
 ---
-title: 什麼是 Bing 自訂搜尋？ | Microsoft Docs
-description: 提供 Bing 自訂搜尋的簡略概觀
+title: 什麼是 Bing 自訂搜尋？
+titlesuffix: Azure Cognitive Services
+description: 提供 Bing 自訂搜尋的高階概觀。
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: overview
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2483bf36bb18af21bc454e08f3321b33094c43c8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948072"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814299"
 ---
 # <a name="what-is-bing-custom-search"></a>什麼是 Bing 自訂搜尋？
 
@@ -32,19 +33,19 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
 
 ## <a name="adding-custom-search-box-suggestions"></a>新增自訂搜尋方塊建議
 
-您可以運用自訂搜尋方塊建議提供更豐富的自訂搜尋體驗。 此功能可讓您提供與搜尋體驗有關的自訂搜尋建議。 當使用者在搜尋方塊中輸入時，下拉式清單中會根據使用者輸入的部分查詢字串包含建議的查詢字串。 您可以指定只傳回您自訂的建議，或者也包含 Bing 的建議。 [閱讀更多資訊](define-custom-suggestions.md)。
+您可以運用自訂搜尋方塊建議提供更豐富的自訂搜尋體驗。 此功能可讓您提供與搜尋體驗有關的自訂搜尋建議。 當使用者在搜尋方塊中輸入時，下拉式清單中會根據使用者輸入的部分查詢字串包含建議的查詢字串。 您可以指定只傳回您自訂的建議，或者也包含 Bing 的建議。 [閱讀更多](define-custom-suggestions.md)。
 
 ## <a name="adding-custom-image-search-experience"></a>新增自訂影像搜尋體驗
 
-您可以運用影像提供更豐富的自訂搜尋體驗。 與 Web 結果類似，自訂搜尋支援搜尋執行個體之網站清單中的影像。 [閱讀更多資訊](get-images-from-instance.md)。
+您可以運用影像提供更豐富的自訂搜尋體驗。 與 Web 結果類似，自訂搜尋支援搜尋執行個體之網站清單中的影像。 [閱讀更多](get-images-from-instance.md)。
 
 ## <a name="adding-custom-video-search-experience"></a>新增自訂影片搜尋體驗
 
-您可以運用影片提供更豐富的自訂搜尋體驗。 與 Web 結果類似，自訂搜尋支援搜尋執行個體之網站清單中的影片。 [閱讀更多資訊](get-videos-from-instance.md)。
+您可以運用影片提供更豐富的自訂搜尋體驗。 與 Web 結果類似，自訂搜尋支援搜尋執行個體之網站清單中的影片。 [閱讀更多](get-videos-from-instance.md)。
 
 ## <a name="sharing-your-custom-search-instance-with-others"></a>與他人共用自訂搜尋執行個體
 
-將執行個體分享給小組成員，輕鬆就能共同編輯和測試。 [閱讀更多資訊](share-your-custom-search.md)。
+將執行個體分享給小組成員，輕鬆就能共同編輯和測試。 [閱讀更多](share-your-custom-search.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

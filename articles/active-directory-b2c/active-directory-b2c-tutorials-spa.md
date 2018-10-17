@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 47589b8cb8aa6e8d1cacaa028948242431f02c44
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343857"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604785"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>教學課程 - 讓單頁應用程式能夠使用 Azure Active Directory B2C 向帳戶進行驗證
 
-本教學課程將說明如何使用 Azure Active Directory (Azure AD) B2C 在單頁應用程式 (SPA) 中登入和註冊使用者。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定向社交帳戶、企業帳戶和 Azure Active Directory 帳戶進行驗證。
+此教學課程將說明如何使用 Azure Active Directory (Azure AD) B2C 在單頁應用程式 (SPA) 中登入和註冊使用者。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定向社交帳戶、企業帳戶和 Azure Active Directory 帳戶進行驗證。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在您的 Azure AD B2C 目錄中，註冊範例單頁應用程式。
@@ -30,7 +30,7 @@ ms.locfileid: "43343857"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 建立您自己的 [Azure AD B2C 目錄](active-directory-b2c-get-started.md)
 * 安裝包含 **ASP.NET 和 Web 開發**工作負載的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
@@ -41,7 +41,7 @@ ms.locfileid: "43343857"
 
 應用程式必須[註冊](../active-directory/develop/developer-glossary.md#application-registration)於您的目錄中，才能接收來自 Azure Active Directory 的[存取權杖](../active-directory/develop/developer-glossary.md#access-token)。 應用程式註冊會在您的目錄中建立應用程式的[應用程式識別碼](../active-directory/develop/developer-glossary.md#application-id-client-id)。 
 
-以 Azure AD B2C 目錄的全域管理員身分，登入 [Azure 入口網站](https://portal.azure.com/)。
+以 Azure AD B2C 目錄的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -58,7 +58,7 @@ ms.locfileid: "43343857"
     | **名稱** | 我們範例單頁應用程式 | 輸入向取用者描述您的應用程式的 [名稱]。 | 
     | **包含 Web 應用程式 / Web API** | 是 | 針對單頁應用程式選取 [是]。 |
     | **允許隱含流程** | 是 | 請選取 [是]，因為應用程式使用 [OpenID Connect 登入](active-directory-b2c-reference-oidc.md)。 |
-    | **回覆 URL** | `http://localhost:6420` | 回覆 URL 是 Azure AD B2C 傳回您應用程式要求之任何權杖的所在端點。 在本教學課程中，範例會在本機執行 (localhost)，並接聽連接埠 6420。 |
+    | **回覆 URL** | `http://localhost:6420` | 回覆 URL 是 Azure AD B2C 傳回您應用程式要求之任何權杖的所在端點。 在此教學課程中，範例會在本機執行 (localhost)，並接聽連接埠 6420。 |
     | **包含原生用戶端** | 否 | 這是單頁應用程式，而不是原生用戶端，因此選取 [否]。 |
     
 3. 按一下 [建立]  以註冊您的應用程式。
@@ -67,7 +67,7 @@ ms.locfileid: "43343857"
 
 ![單頁應用程式屬性](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
-請記下 [應用程式用戶端識別碼]。 此識別碼可唯一識別應用程式，後續在本教學課程中設定應用程式時將會用到。
+請記下 [應用程式用戶端識別碼]。 此識別碼可唯一識別應用程式，後續在此教學課程中設定應用程式時將會用到。
 
 ## <a name="create-policies"></a>建立原則
 
@@ -127,7 +127,7 @@ Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、
 
 ## <a name="update-single-page-app-code"></a>更新單頁應用程式程式碼
 
-現在，您已註冊應用程式並建立原則，接下來您必須將應用程式設定為使用您的 Azure AD B2C 目錄。 在本教學課程中，您會設定可從 GitHub 下載的範例 SPA JavaScript 應用程式。 
+現在，您已註冊應用程式並建立原則，接下來您必須將應用程式設定為使用您的 Azure AD B2C 目錄。 在此教學課程中，您會設定可從 GitHub 下載的範例 SPA JavaScript 應用程式。 
 
 [下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)，或從 GitHub 複製範例 Web 應用程式。
 
@@ -145,13 +145,13 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
     // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_<Sign-up or sign-in policy name>",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
     ```
 
-    本教學課程中使用的原則名稱是 **B2C_1_SiUpIn**。 如果您使用不同的原則名稱，請在 `authority` 值中使用您的原則名稱。
+    此教學課程中使用的原則名稱是 **B2C_1_SiUpIn**。 如果您使用不同的原則名稱，請在 `authority` 值中使用您的原則名稱。
 
 ## <a name="run-the-sample"></a>執行範例
 
@@ -169,9 +169,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
     Listening on port 6420...
     ```
 
-4. 使用瀏覽器巡覽至位址 `http://localhost:6420` 以檢視應用程式。
+4. 使用瀏覽器瀏覽至位址 `http://localhost:6420` 以檢視應用程式。
 
-範例應用程式支援註冊、登入、編輯設定檔和密碼重設。 本教學課程特別說明使用者如何以電子郵件地址註冊並使用應用程式。 您可以自行探索其他案例。
+範例應用程式支援註冊、登入、編輯設定檔和密碼重設。 此教學課程特別說明使用者如何以電子郵件地址註冊並使用應用程式。 您可以自行探索其他案例。
 
 ### <a name="sign-up-using-an-email-address"></a>使用電子郵件地址註冊
 
@@ -198,7 +198,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何建立 Azure AD B2C 目錄、建立原則，以及將範例單頁應用程式更新為使用您的 Azure AD B2C 目錄。 請繼續進行下一個教學課程，以了解如何從傳統型應用程式註冊、設定及呼叫受保護的 Web API。
+在此教學課程中，您已了解如何建立 Azure AD B2C 目錄、建立原則，以及將範例單頁應用程式更新為使用您的 Azure AD B2C 目錄。 請繼續進行下一個教學課程，以了解如何從傳統型應用程式註冊、設定及呼叫受保護的 Web API。
 
 > [!div class="nextstepaction"]
 > 

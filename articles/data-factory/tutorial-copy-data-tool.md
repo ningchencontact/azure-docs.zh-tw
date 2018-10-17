@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1be4769a8a07ac5d4a968ed5aa15ed2e0a2b6db2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c1f94c04db69ad44203ef1ada1c3b9fa3df2d779
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086821"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718079"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -28,14 +28,14 @@ ms.locfileid: "43086821"
 > [!NOTE]
 > 如果您不熟悉 Azure Data Factory，請參閱 [Azure Data Factory 簡介](introduction.md)。
 
-在本教學課程中，您會執行下列步驟：
+在此教學課程中，您會執行下列步驟：
 
 > [!div class="checklist"]
 > * 建立資料處理站。
 > * 使用複製資料工具建立管線。
 > * 監視管線和活動執行。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * **Azure 儲存體帳戶**：使用 Blob 儲存體作為「來源」資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)中的指示。
@@ -43,7 +43,7 @@ ms.locfileid: "43086821"
 
 ### <a name="create-a-blob-and-a-sql-table"></a>建立 Blob 和 SQL 資料表
 
-請執行下列步驟，為本教學課程準備 Blob 儲存體和您的 SQL 資料庫。
+請執行下列步驟，為此教學課程準備 Blob 儲存體和您的 SQL 資料庫。
 
 #### <a name="create-a-source-blob"></a>建立來源 Blob
 
@@ -72,13 +72,7 @@ ms.locfileid: "43086821"
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. 允許 Azure 服務存取 SQL Server。 確認您已為執行 SQL Server 的伺服器啟用 [允許存取 Azure 服務] 設定。 此設定可讓 Data Factory 將資料寫入 SQL Server 執行個體。 若要確認並開啟此設定，請採取下列步驟：
-
-    a. 從左側選取 [更多服務]，然後選取 [SQL Server]。
-
-    b. 選取您的伺服器，然後選取 [設定] > [防火牆]。
-
-    c. 在 [防火牆設定] 頁面上，將 [允許存取 Azure 服務] 選項設定為 [開啟]。
+2. 允許 Azure 服務存取 SQL Server。 確認已為執行 SQL Database 的伺服器啟用 [允許存取 Azure 服務] 設定。 此設定可讓 Data Factory 將資料寫入您的資料庫執行個體。 若要確認並開啟此設定，請前往您的 Azure SQL Server > [安全性] > [防火牆與虛擬網路] > 將 [允許存取 Azure 服務] 選項設定為 [開啟]。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
@@ -137,7 +131,7 @@ ms.locfileid: "43086821"
 
     ![設定 Azure 儲存體](./media/tutorial-copy-data-tool/configure-azure-storage.png)
 
-    d. 選取新建立的連結服務作為來源，然後按 [下一步]。
+    d. 選取新建立的連結服務作為來源，然後按一下 [下一步]。
 
     ![選取來源連結服務](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
@@ -147,7 +141,7 @@ ms.locfileid: "43086821"
 
     ![選擇輸入檔案或資料夾](./media/tutorial-copy-data-tool/specify-source-path.png)
 
-    b. 按 [下一步] 移至下一個步驟。
+    b. 按一下 [下一步] 移至下一個步驟。
 
 1. 在 [檔案格式設定] 頁面上，留意到此工具會自動偵測資料行和資料列分隔符號。 選取 [下一步] 。 您也可以預覽資料，並檢視這個頁面上的輸入資料結構描述。 
 
@@ -166,7 +160,7 @@ ms.locfileid: "43086821"
 
     ![設定 Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
-    d. 選取新建立的連結服務作為接收端，然後按 [下一步]。
+    d. 選取新建立的連結服務作為接收端，然後按一下 [下一步]。
 
     ![選取接收連結服務](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
 
@@ -196,7 +190,7 @@ ms.locfileid: "43086821"
 
     ![確認 SQL 輸出](./media/tutorial-copy-data-tool/verify-sql-output.png)
 
-1. 選取左側的 [作者] 索引標籤以切換至編輯器模式。 您可以使用編輯器更新透過此工具建立的連結服務、資料集和管線。 如需在 Data Factory 使用者介面中編輯這些實體的詳細資訊，請參閱[本教學課程的 Azure 入口網站版本](tutorial-copy-data-portal.md)。
+1. 選取左側的 [作者] 索引標籤以切換至編輯器模式。 您可以使用編輯器更新透過此工具建立的連結服務、資料集和管線。 如需在 Data Factory 使用者介面中編輯這些實體的詳細資訊，請參閱[教學課程的 Azure 入口網站版本](tutorial-copy-data-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 在此範例中，管線會將資料從 Blob 儲存體複製到 SQL 資料庫。 您已了解如何︰ 

@@ -1,6 +1,6 @@
 ---
-title: 設定 Azure Web 應用程式以從 Key Vault 讀取密碼的教學課程 | Microsoft Docs
-description: 教學課程：設定 Node.js 應用程式，以從 Key Vault 讀取祕密
+title: 快速入門 - 使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密 | Microsoft Docs
+description: 快速入門 - 使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -8,29 +8,32 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: cc43081463667eba06af6538f3d78f16544ed2a5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412237"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714389"
 ---
-# <a name="quickstart-how-to-set-and-read-a-secret-from-key-vault-in-a-node-web-app"></a>快速入門：如何在 Node Web 應用程式中進行設定並從 Key Vault 讀取祕密 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>快速入門：使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密 
 
-本快速入門示範如何將祕密儲存在 Key Vault 中，以及如何使用 Web 應用程式加以擷取。 此 Web 應用程式可以在本機或在 Azure 中執行。 本快速入門會使用 Node.js 和受控服務識別 (MSI)
+此快速入門說明如何將祕密儲存在 Key Vault 中，以及如何使用 Web 應用程式擷取它。 若要查看祕密值，您必須在 Azure 上執行此作業。 此快速入門使用 Node.js 與適用於 Azure 資源的受控識別。
 
 > [!div class="checklist"]
 > * 建立 Key Vault。
 > * 將密碼儲存在 Key Vault 中。
 > * 從 Key Vault 擷取祕密。
 > * 建立 Azure Web 應用程式。
-> * [啟用受控服務識別](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)。
+> * 啟用 Web 應用程式的[受控識別](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)。
 > * 授與 Web 應用程式從 Key Vault 讀取資料所需的權限。
 
 繼續之前，請先確定您已熟悉[基本概念](key-vault-whatis.md#basic-concepts)。
+
+>[!NOTE]
+若要了解以下教學課程何以是最佳做法，我們需要了解一些概念。 Key Vault 是一個中央存放庫，可透過程式設計方式儲存秘密。 但若要這樣做，應用程式/使用者必須要先向 Key Vault 進行驗證，也就是出具祕密。 為了遵循安全性最佳做法，第一個秘密也必定期輪替。 但是使用 [Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/overview.md)時，在 Azure 中執行的應用程式會被賦予一個自動由 Azure 管理的身分識別。 這有助於解決**祕密導入問題**，如此，使用者/應用程式即可遵循最佳做法，且不需要擔心輪替第一個祕密的問題
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -49,7 +52,7 @@ az login
 
 ## <a name="create-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
 請選取資源群組名稱，並填入預留位置。
 下列範例會在 eastus 位置建立名為 <YourResourceGroupName> 的資源群組。
@@ -63,7 +66,7 @@ az group create --name "<YourResourceGroupName>" --location "East US"
 
 ## <a name="create-an-azure-key-vault"></a>建立 Azure Key Vault
 
-接下來，您會使用在上一個步驟中建立的資源群組建立 Key Vault。 雖然 “ContosoKeyVault” 作為本文中的 Key Vault 名稱，但您必須使用唯一的名稱。 請提供下列資訊：
+接下來，您會使用在上一個步驟中建立的資源群組建立 Key Vault。 雖然 “ContosoKeyVault” 作為此文章中的 Key Vault 名稱，但您必須使用唯一的名稱。 請提供下列資訊：
 
 * Vault 名稱 - **在這裡選取 Key Vault 名稱**。
 * 資源群組名稱 - **在這裡選取資源群組名稱**。
@@ -91,7 +94,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 ```
 
-此命令會顯示祕密資訊，包括 URI。 完成這些步驟之後，您的 Azure Key Vault 中應該會有密碼的 URI。 記下這項資訊。 您在稍後的步驟中需要此資訊。
+此命令會顯示祕密資訊，包括 URI。 完成這些步驟之後，您的 Azure Key Vault 中應該會有密碼的 URI。 記下此資訊。 您在稍後的步驟中需要此資訊。
 
 ## <a name="clone-the-repo"></a>複製存放庫
 
@@ -123,8 +126,6 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     建立 Web 應用程式後，Azure CLI 會顯示類似下列範例的輸出：
     ```
@@ -149,15 +150,15 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
     上述命令也會建立具有 Git 功能的應用程式，讓您從本機 git 部署至 Azure。 
     本機 Git 已設定為使用 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git' 的 url
 
-- 在前一個命令完成後，建立部署使用者，您可以將 Azure 遠端新增至您的本機 Git 存放庫。 使用從「為應用程式啟用 Git」取得的 Git 遠端 URL 取代 <url>。
+- 在前一個命令完成後，建立部署使用者，您可以將 Azure 遠端新增到您的本機 Git 存放庫。 使用從「為應用程式啟用 Git」取得的 Git 遠端 URL 取代 <url>。
 
     ```
     git remote add azure <url>
     ```
 
-## <a name="enable-managed-service-identity"></a>啟用受控服務識別
+## <a name="enable-a-managed-identity-for-the-web-app"></a>啟用 Web 應用程式的受控識別
 
-Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 受控服務身分識別 (MSI) 可以輕易地解決此問題，因為 MSI 可在 Azure Active Directory (Azure AD) 中提供自動受控身分識別給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
+Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 [Azure 資源受控識別概觀](../active-directory/managed-identities-azure-resources/overview.md)可在 Azure Active Directory (Azure AD) 中將受控識別自動提供給 Azure 服務，而降低解決此問題的難度。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
 
 執行 assign-identity 命令來建立此應用程式的識別：
 
@@ -165,7 +166,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-此命令等同於前往入口網站，並在 Web 應用程式屬性中將 [受控服務識別] 切換為 [開啟]。
+此命令等同於前往入口網站，並在 Web 應用程式屬性中將 [身分識別/系統指派] 設定切換為 [開啟]。
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>將權限指派給您的應用程式，以便從 Key Vault 讀取秘密
 

@@ -1,25 +1,25 @@
 ---
-title: 翻譯工具文字搭配 Python 轉換文字腳本 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Python，將文字轉換成另一種語言的腳本。
+title: 快速入門：轉換文字字集 - 翻譯工具文字、Python
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Python，將文字轉換成另一種語言的字集。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 41fb0f72c5974a1ab034680a820dca6aa7bbdc6d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 24fe0dc23703bdca4ce74ba1a527990a70ac2ffc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750198"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122106"
 ---
 # <a name="quickstart-transliterate-text-with-python"></a>快速入門：使用 Python 來音譯文字
 
-在本快速入門中，您可以使用翻譯工具文字 API，將文字轉換成另一種語言的腳本。
+在本快速入門中，您可以使用翻譯工具文字 API，將文字轉換成另一種語言的字集。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,9 +27,9 @@ ms.locfileid: "43750198"
 
 若要使用翻譯工具文字 API，您也需要有訂用帳戶金鑰；請參閱[如何註冊翻譯工具文字 API](translator-text-how-to-signup.md)。
 
-## <a name="transliterate-request"></a>音譯要求
+## <a name="transliterate-request"></a>Transliterate 要求
 
-下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的腳本。
+下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的字集。
 
 1. 在您慣用的程式碼編輯器中，建立新的 Python 專案。
 2. 新增下方提供的程式碼。
@@ -84,7 +84,7 @@ output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
 print (output)
 ```
 
-## <a name="transliterate-response"></a>音譯回應
+## <a name="transliterate-response"></a>Transliterate 回應
 
 成功的回應會以 JSON 格式傳回，如下列範例所示：
 

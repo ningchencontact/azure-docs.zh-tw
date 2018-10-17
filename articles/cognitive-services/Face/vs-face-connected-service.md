@@ -1,21 +1,21 @@
 ---
-title: 臉部 API C# 教學課程 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 教學課程：臉部 API C#
+titleSuffix: Azure Cognitive Services
 description: 建立使用認知服務臉部 API 的簡單 Windows 應用程式，以偵測影像中的臉部特徵。
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: b51760f889db27aa25e54582070ee7d3adcf66f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663886"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129517"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>使用 Visual Studio 中的連線服務連線至認知服務臉部 API
 
@@ -23,7 +23,7 @@ ms.locfileid: "38663886"
 
 這篇文章和其附屬文件提供使用適用於認知服務臉部 API 的 Visual Studio 連線服務功能詳細資料。 此功能適用於已安裝認知服務擴充功能的 Visual Studio 2017 15.7 或更新版本。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **Azure 訂用帳戶**。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 - **Visual Studio 2017 版本 15.7**，並且已安裝**網頁程式開發**工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
@@ -237,9 +237,9 @@ ms.locfileid: "38663886"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要資源群組時，請加以刪除。 這會刪除認知服務及相關資源。 若要透過入口網站刪除資源群組：
+不再需要資源群組時，請將它刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
 
-1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請加以選取。
+1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請選取它。
 1. 選取 [刪除資源群組]。
 1. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
 

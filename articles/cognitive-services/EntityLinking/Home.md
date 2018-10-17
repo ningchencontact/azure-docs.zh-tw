@@ -1,24 +1,25 @@
 ---
-title: Entity Linking Intelligence 服務 API | Microsoft Docs
-description: 了解如何使用實體連結智慧服務 API 在認知服務中進行實體連結工作。
+title: 什麼是實體連結智慧服務 API？
+titlesuffix: Azure Cognitive Services
+description: 了解如何使用實體連結智慧服務 API 進行實體連結工作。
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: 662295c42a421fe76892e6e5aac7b7e7178d6155
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b0f839e8f33e9ff48d2ad526621167a89e3b9be8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367975"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366177"
 ---
-# <a name="entity-linking-intelligence-service-api"></a>實體連結智慧服務 API
+# <a name="what-is-the-entity-linking-intelligence-service-api"></a>什麼是實體連結智慧服務 API？
 
-歡迎使用 Microsoft 實體連結智慧服務，這是一項 Web 服務，可協助開發人員進行實體連結相關工作。
+歡迎使用實體連結智慧服務，這是一個 Web 服務，可協助開發人員進行實體連結相關工作。
 
 ## <a name="entity-linking"></a>實體連結
 

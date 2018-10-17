@@ -1,25 +1,25 @@
 ---
-title: 教學課程：使用 C# 撰寫適用於翻譯工具文字的 WPF 應用程式 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本教學課程中，您將了解如何藉由使用 C# 建置 WPF 應用程式，以使用翻譯工具文字 API 來翻譯文字、取得已當地語系化的支援語言清單等等。
+title: 教學課程：使用 C# 撰寫適用於翻譯工具文字的 WPF 應用程式
+titleSuffix: Azure Cognitive Services
+description: 在此教學課程中，您將了解如何透過使用 C# 建置 WPF 應用程式，以使用翻譯工具文字 API 來翻譯文字、取得已當地語系化的支援語言清單等等。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 97660985b275bbe4384acb3fc92be8aaa0b57881
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716367"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123958"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>教學課程：使用 C# 撰寫適用於翻譯工具文字的 WPF 應用程式
 
-在本教學課程中，您將使用翻譯工具文字 API (V3) (Azure 中的「Microsoft 認知服務」組件) 來建置互動式文字翻譯工具。 您將學習如何：
+在此教學課程中，您將使用翻譯工具文字 API (V3) (Azure 中的「Microsoft 認知服務」組件) 來建置互動式文字翻譯工具。 您將學習如何：
 
 > [!div class="checklist"]
 > * 取得服務所支援語言的清單
@@ -42,10 +42,10 @@ ms.locfileid: "39716367"
 
 「文字分析」和「Bing 拼字檢查」都提供免費試用，您可以在[試用認知服務](https://azure.microsoft.com/try/cognitive-services/)上註冊使用。 您也可以透過 Azure 儀表板為上述兩項服務其中之一建立訂用帳戶。 「文字分析」具有免費層。
 
-下方提供本教學課程的原始程式碼。 您的訂用帳戶金鑰必須複製到 `MainWindow.xaml.cs` 之原始程式碼中作為變數 `TEXT_TRANSLATION_API_SUBSCRIPTION_KEY` 等等。
+下方提供此教學課程的原始程式碼。 您的訂用帳戶金鑰必須複製到 `MainWindow.xaml.cs` 之原始程式碼中作為變數 `TEXT_TRANSLATION_API_SUBSCRIPTION_KEY` 等等。
 
 > [!IMPORTANT]
-> 多個區域都有提供「文字分析」服務。 本教學課程原始程式碼中的 URI 位於 `westus` 區域，這是供免費試用使用的區域。 如果您在另一個區域中有訂用帳戶，請依據該區域更新此 URI。
+> 多個區域都有提供「文字分析」服務。 此教學課程原始程式碼中的 URI 位於 `westus` 區域，這是供免費試用使用的區域。 如果您在另一個區域中有訂用帳戶，請依據該區域更新此 URI。
 
 ## <a name="source-code"></a>原始程式碼
 
@@ -371,7 +371,7 @@ namespace MSTranslatorTextDemo
 
 ## <a name="service-endpoints"></a>服務端點
 
-Microsoft Translator 服務有眾多端點，可提供各式各樣的翻譯功能。 在本教學課程中使用的是：
+Microsoft Translator 服務有眾多端點，可提供各式各樣的翻譯功能。 在此教學課程中使用的是：
 
 |||
 |-|-|
@@ -404,7 +404,7 @@ Microsoft Translator 服務有眾多端點，可提供各式各樣的翻譯功�
 ![[Visual Studio 設計工具中主視窗的加註檢視]](media/translator-text-csharp-xaml.png)
 
 > [!NOTE]
-> 本教學課程的原始程式碼包含此表單的 XAML 來源。 您可以在 Visual Studio 中將它貼到您的專案，而無須建置表單。
+> 此教學課程的原始程式碼包含此表單的 XAML 來源。 您可以在 Visual Studio 中將它貼到您的專案，而無須建置表單。
 
 * `FromLanguageComboBox` *(下拉式方塊)* - 顯示 Microsoft Translator 支援的文字翻譯語言清單。 使用者會選取其來源翻譯語言。
 * `ToLanguageComboBox` *(下拉式方塊)* - 顯示與 `FromComboBox` 相同的語言清單，但會用來選取使用者的目標翻譯語言。
@@ -476,11 +476,11 @@ public partial class MainWindow : Window
 
 應用程式執行的第一個程式碼是 `MainWindow` 建構函式。 首先，請先將 `HandleExceptions` 方法設定為全域錯誤處理常式。 如此一來，在有例外狀況未獲處理時，至少會出現錯誤警示。
 
-接著，請會檢查以確定 API 訂用帳戶金鑰的長度全部都正好 32 個字元。 如果不是，則最可能的原因會是「某人」尚未貼入其 API 金鑰。 在此情況下，將會顯示錯誤訊息並結束。(當然，通過這項測試並不代表金鑰有效)。
+接著，請會檢查以確定 API 訂用帳戶金鑰的長度全部都正好 32 個字元。 如果不是，則最可能的原因會是「某人」尚未貼入其 API 金鑰。 在此情況下，將會顯示錯誤訊息並結束。(當然，通過此測試並不代表金鑰有效)。
 
-如果金鑰至少長度正確，`InitializeComponent()` 呼叫就會藉由尋找、載入主應用程式視窗的 XAML 描述並將其具現化，讓使用者介面開始運作。
+如果金鑰至少長度正確，`InitializeComponent()` 呼叫就會透過尋找、載入主應用程式視窗的 XAML 描述並將其具現化，讓使用者介面開始運作。
 
-最後，請設定語言下拉式功能表。 這項工作需要三個不同的方法呼叫，其詳細說明請見後續幾節。
+最後，請設定語言下拉式功能表。 此工作需要三個不同的方法呼叫，其詳細說明請見後續幾節。
 
 ## <a name="get-supported-languages"></a>取得支援的語言
 
@@ -659,14 +659,14 @@ private async void TranslateButton_Click(object sender, EventArgs e)
 
 如果使用者尚未輸入任何文字，或 [目標] 和 [來源] 語言相同，則無須進行任何翻譯，並且可避免要求。
 
-用來執行翻譯要求的程式碼應該看起來都很類似：建置 URI、建立要求、加以傳送，以及剖析回應。 若要顯示文字，請將傳送至 `TranslatedTextLabel` 控制項。
+用來執行翻譯要求的程式碼應該看起來都很類似：建置 URI、建立要求、進行傳送，以及剖析回應。 若要顯示文字，請將傳送至 `TranslatedTextLabel` 控制項。
 
 接著，請在 POST 要求的本文中，以序列化 JSON 陣列將文字傳遞給 `Translate` API。 此 JSON 陣列可以包含多段要翻譯的文字，但在此處只需要一段文字。
 
-名為 `X-ClientTraceId` 的 HTTP 標頭是選擇性的。 其值應該是一個 GUID。 當程序未如預期般運作時，用戶端所提供的追蹤識別碼會是用來追蹤要求的有用資訊。 不過，用戶端必須記錄 X-ClientTraceID 的值，這項資訊才會有用。 用戶端追蹤識別碼和要求日期可協助 Microsoft 診斷可能發生的問題。
+名為 `X-ClientTraceId` 的 HTTP 標頭是選擇性的。 其值應該是一個 GUID。 當程序未如預期般運作時，用戶端所提供的追蹤識別碼會是用來追蹤要求的有用資訊。 不過，用戶端必須記錄 X-ClientTraceID 的值，此資訊才會有用。 用戶端追蹤識別碼和要求日期可協助 Microsoft 診斷可能發生的問題。
 
 > [!NOTE]
-> 本教學課程將焦點放在 Microsoft 翻譯工具服務，因此並不詳細說明 `DetectLanguage()` 和 `CorrectSpelling()` 方法。
+> 此教學課程將焦點放在 Microsoft 翻譯工具服務，因此並不詳細說明 `DetectLanguage()` 和 `CorrectSpelling()` 方法。
 
 ## <a name="next-steps"></a>後續步驟
 

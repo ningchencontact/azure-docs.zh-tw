@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 報告 | Microsoft Docs
+title: Azure Active Directory 報告是什麼？ | Microsoft Docs
 description: 提供 Azure Active Directory 報告的一般概觀。
 services: active-directory
 documentationcenter: ''
@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 96faeaefc6c58f03328a85b626528267396121a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 220f27ccf2d3eaefd8347e1d52824be2d601d9c9
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42144198"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364376"
 ---
-# <a name="azure-active-directory-reporting"></a>Azure Active Directory 報告
+# <a name="what-are-azure-active-directory-reports"></a>Azure Active Directory 報告是什麼？
 
-透過 Azure Active Directory 報告，您可以深入了解環境的運作情況。  
+使用 Azure Active Directory 報告時，您可以取得您的環境所執行工作的見解。  
 提供的資料可讓您：
 
 - 判斷使用者如何利用您的應用程式和服務
@@ -49,7 +49,8 @@ Azure Active Directory 中有兩種安全性報告：
 
 - **有風險的登入** - 透過[有風險的登入安全性報告](concept-risky-sign-ins.md)，取得非使用者帳戶合法擁有者的某人嘗試登入的指示器。 
 
-**您需要哪項 Azure AD 授權才能存取安全性報告？**  
+**您需要哪個 Azure AD 授權才能存取安全性報告？**  
+
 所有 Azure Active Directory 版本都可提供標幟為有風險的使用者和有風險的登入報告。  
 不過，報告細微性層級因版本而異： 
 
@@ -69,9 +70,7 @@ Azure Active Directory 中有兩種活動報告：
 - **登入** - 透過[登入活動報告](concept-sign-ins.md)，您可以判斷已執行稽核記錄報告所報告之工作的人員。
 
 
-
-**稽核記錄報告**會提供系統活動記錄以達到合規性。
-此外，所提供的資料可讓您解決常見的案例，例如：
+**稽核記錄報告**會提供系統活動記錄以達到合規性。 此資料可讓您解決常見的案例，例如：
 
 - 我的租用戶中有人已取得系統管理員群組的存取權。 誰提供存取權給他們？ 
 
@@ -80,11 +79,11 @@ Azure Active Directory 中有兩種活動報告：
 - 我想要知道我的租用戶中發生多少次密碼重設
 
 
-**您需要哪項 Azure AD 授權才能存取稽核記錄報告？**  
+**您需要哪個 Azure AD 授權才能存取稽核記錄報告？**  
+
 稽核記錄報告可用於您擁有授權的功能。 如果您有特定功能的授權，也可以存取其稽核記錄資訊。
 
 如需詳細資訊，請參閱 [Azure Active Directory 功能](https://www.microsoft.com/cloud-platform/azure-active-directory-features)中的**比較 Free、Basic 和 Premium 版本的正式推出功能**。   
-
 
 
 **登入活動報告**可讓您尋找以下問題的解答，例如：
@@ -94,9 +93,9 @@ Azure Active Directory 中有兩種活動報告：
 - 這些登入的狀態為何？
 
 
-**您需要哪項 Azure AD 授權才能存取登入活動報告？**  
-若要存取登入活動報告，租用戶必須有相關聯的 Azure AD Premium 授權。
+**您需要哪個 Azure AD 授權才能存取登入活動報告？**  
 
+若要存取登入活動報告，租用戶必須有相關聯的 Azure AD Premium 授權。
 
 ## <a name="programmatic-access"></a>以程式設計方式存取
 
@@ -105,17 +104,6 @@ Azure Active Directory 中有兩種活動報告：
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要深入了解 Azure Active Directory 中的各種報告類型，請參閱：
-
-- [標幟有風險的使用者報告](concept-user-at-risk.md)
 - [有風險的登入報告](concept-risky-sign-ins.md)
 - [稽核記錄報告](concept-audit-logs.md)
 - [登入記錄報告](concept-sign-ins.md)
-
-如果您想要深入了解如何使用報告 API 存取報告資料，請參閱： 
-
-- [透過 Azure Active Directory 報告 API 開始入門](concept-reporting-api.md)
-
-
-<!--Image references-->
-[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

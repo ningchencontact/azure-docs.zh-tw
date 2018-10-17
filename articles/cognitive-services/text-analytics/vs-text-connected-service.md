@@ -1,38 +1,38 @@
 ---
-title: 文字分析 C# 教學課程 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 教學課程：搭配 C# 使用文字分析
+titleSuffix: Azure Cognitive Services
 description: 從 ASP.NET Core Web 應用程式連線至文字分析。
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: conceptual
-ms.date: 06/01/2018
+ms.topic: tutorial
+ms.date: 09/12/2018
 ms.author: ghogen
-ms.openlocfilehash: eb9730f785b01a620e36a265216488c401eac63a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 95de174087fb2a73ad6c75a2e96caf872c351854
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068483"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605227"
 ---
-# <a name="connect-to-the-text-analytics-service-by-using-connected-services-in-visual-studio"></a>使用 Visual Studio 中的已連線的服務連線到文字分析服務
+# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>教學課程：使用 Visual Studio 中已連線的服務連線到文字分析認知服務
 
 您可以使用文字分析服務擷取豐富的資訊，進而分類及處理視覺化資料，並對影像進行機器輔助仲裁，以協助籌備您的服務。
 
-本文及其附屬文章提供使用適用於文字分析服務之 Visual Studio 已連線的服務功能的詳細資料。 此功能適用於已安裝認知服務擴充功能的 Visual Studio 2017 15.7 或更新版本。
+此文章及其附屬文章提供使用適用於文字分析服務之 Visual Studio 已連線的服務功能的詳細資料。 此功能適用於已安裝認知服務延伸模組的 Visual Studio 2017 15.7 或更新版本。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-- 已安裝網頁程式開發工作負載的 Visual Studio 2017 15.7 版。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
+- Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+- Visual Studio 2017 15.7 版，並且已安裝網頁程式開發工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>將文字分析服務的支援加入至您的專案中
 
-1. 建立一個稱為 TextAnalyticsDemo 的新 ASP.NET Core Web 專案。 使用具有所有預設設定的 [Web 應用程式 (模型-檢視-控制器)] 專案範本。 請務必將專案命名為 MyWebApplication，這樣當您將程式碼複製到專案時，命名空間才會相符。  本文中的範例使用 MVC，但您可以使用文字分析連線服務搭配任何 ASP.NET 專案類型。
+1. 建立一個稱為 TextAnalyticsDemo 的新 ASP.NET Core Web 專案。 使用具有所有預設設定的 [Web 應用程式 (模型-檢視-控制器)] 專案範本。 請務必將專案命名為 MyWebApplication，這樣當您將程式碼複製到專案時，命名空間才會相符。  此文章中的範例使用 MVC，但您可以使用文字分析連線服務搭配任何 ASP.NET 專案類型。
 
 1. 在 [方案總管] 中，按兩下 [連線服務] 項目。
    [連線服務] 頁面隨即出現，並顯示您可新增至專案的服務。
@@ -259,9 +259,9 @@ ms.locfileid: "39068483"
    
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要資源群組時，請加以刪除。 這會刪除認知服務與相關資源。 透過入口網站刪除資源群組：
+不再需要資源群組時，請將它刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
 
-1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本教學課程中使用的資源群組時，請加以選取。
+1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到此教學課程中使用的資源群組時，請加以選取。
 2. 選取 [刪除資源群組]。
 3. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
 

@@ -1,24 +1,25 @@
 ---
-title: 自訂視覺服務機器學習概觀 - Azure 認知服務 | Microsoft Docs
-description: 自訂視覺服務是一項 Microsoft 認知服務，可讓您在 Azure 平台上建置自訂影像分類器。
+title: 什麼是自訂視覺服務？
+titlesuffix: Azure Cognitive Services
+description: 自訂視覺服務可讓您在 Azure 雲端中建置自訂影像分類器。
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: d2daf7c211f9474f5636b6af69c5b700d597aa14
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1d3d1a82cf59b06625487fb241a63f51352e18e5
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285239"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365854"
 ---
 # <a name="what-is-the-custom-vision-service"></a>什麼是自訂視覺服務？
 
-自訂視覺服務是一項 Microsoft 認知服務，可讓您建置自訂影像分類器。 它可讓您輕鬆快速地建置、部署及改善影像分類器。 自訂視覺服務提供了 REST API 和 Web 介面供您上傳影像和訓練分類器。
+自訂視覺服務是一個 Azure 認知服務，可讓您建置自訂影像分類器。 它可讓您輕鬆快速地建置、部署及改善影像分類器。 自訂視覺服務提供了 REST API 與 Web 介面供您上傳影像和訓練分類器。
 
 ## <a name="what-does-custom-vision-service-do-well"></a>自訂視覺服務有何功用？
 

@@ -1,21 +1,21 @@
 ---
-title: 臉部 API Ruby 快速入門 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的臉部 API 搭配 Ruby，偵測影像中的臉部。
+title: 快速入門：偵測影像中的人臉 - 臉部 API、Ruby
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用臉部 API 搭配 Ruby 偵測影像中的人臉。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
-ms.openlocfilehash: b7fc23259475b7d165171ce42f1d0dff90d1069c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a76be6d6afa198762448cea7125b5c49e7fc1009
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "43750154"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124791"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-ruby"></a>快速入門：使用 Ruby 偵測影像中的臉部
 
@@ -38,7 +38,7 @@ ms.locfileid: "43750154"
 
 1. 請將下列程式碼複製到編輯器中。
 1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
-1. 必要時，將 `uri` 值變更為您取得訂用帳戶金鑰的位置。
+1. 必要時，請將 `uri` 值變更為您取得訂用帳戶金鑰的位置。
 1. (選擇性) 將 `imageUri` 設為您想要分析的影像。
 1. 以 `.rb` 副檔名儲存檔案。
 1. 開啟 Ruby 命令提示字元並執行檔案，例如：`ruby myfile.rb`。

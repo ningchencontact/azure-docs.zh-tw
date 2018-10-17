@@ -1,25 +1,27 @@
 ---
-title: 翻譯工具文字搭配 C# 翻譯文字 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 C#，將文字翻譯成另一種語言。
+title: 快速入門：翻譯文字 - 翻譯工具文字、C#
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 C#，將文字翻譯成另一種語言。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 7923cf3249beaf713b91ba0e5ea4f70f34841b3c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e60b2a9ea7c56352a1b4dfb65537ba6dc57fcb68
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43750165"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365956"
 ---
 # <a name="quickstart-translate-text-with-c35"></a>快速入門：使用 C# 來翻譯文字
 
 在本快速入門中，您可以使用翻譯工具文字 API，將文字翻譯成另一種語言。
+
+您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 

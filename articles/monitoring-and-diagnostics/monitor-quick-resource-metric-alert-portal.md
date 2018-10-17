@@ -9,12 +9,12 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263043"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982856"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>當計量值符合條件時收到通知
 
@@ -22,7 +22,7 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 如需計量和計量警示的詳細資訊，請參閱 [Azure 監視器計量概觀](./monitoring-overview-metrics.md)和 [Azure 監視器警示概觀](./monitoring-overview-alerts.md)。 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -47,7 +47,7 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 6. 設定您的值，如下圖所示。
 
-    ![在入口網站面板中設定邏輯應用程式觸發程序](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![在入口網站面板中設定邏輯應用程式觸發程序](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
 
 7. 在設計工具中，選取 [週期] 觸發程序。
 
@@ -79,7 +79,7 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>建立邏輯應用程式的計量警示
 
-1.  在計量面板的頂端部份，按一下 [新增計量警示] 按鈕。
+1.  在計量面板的頂端部分，按一下 [新增計量警示] 按鈕。
 
 2. 將計量警示命名為 'myLogicAppAlert'，並提供警示的簡短描述。
 

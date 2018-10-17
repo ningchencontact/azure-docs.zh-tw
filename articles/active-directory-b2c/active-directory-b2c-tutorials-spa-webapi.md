@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 使用 Azure Active Directory B2C 授與從單頁應用程式存取 ASP.NET Core Web API 的權限 | Microsoft Docs
-description: 關於如何使用 Active Directory B2C 來保護 .NET Core Web API，以及如何從單頁應用程式加以呼叫的教學課程。
+description: 關於如何使用 Active Directory B2C 來保護 .NET Core Web API，以及如何從單頁應用程式呼叫它的教學課程。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 54ddafbf0e4fe02bfc1445aad23ac3e20b42acb0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339381"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605754"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與從單頁應用程式存取 ASP.NET Core Web API 的權限
 
-本教學課程將說明如何從單頁應用程式呼叫 Azure Active Directory (Azure AD) B2C 所保護的 ASP.NET Core Web API 資源。
+此教學課程將說明如何從單頁應用程式呼叫 Azure Active Directory (Azure AD) B2C 所保護的 ASP.NET Core Web API 資源。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在您的 Azure AD B2C 租用戶中註冊 Web API
@@ -31,7 +31,7 @@ ms.locfileid: "43339381"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 完成[在單頁應用程式中使用 Azure Active Directory B2C 進行使用者驗證](active-directory-b2c-tutorials-spa.md)教學課程。
 * 安裝包含 **ASP.NET 和 Web 開發**工作負載的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
@@ -46,9 +46,9 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. 從 Azure 入口網站的服務清單中選取 [Azure AD B2C]。
+1. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。 您現在應使用在前一個教學課程中建立的租用戶。
 
-2. 在 B2C 設定中按一下 [應用程式]，然後按一下 [新增]。
+2. 選取 [應用程式]，然後選取 [新增]。
 
     若要在您的租用戶中註冊範例 Web API，請使用下列設定。
     
@@ -59,7 +59,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
     | **名稱** | Hello Core API | 輸入向開發人員描述您的 Web API 的 [名稱]。 |
     | **包含 Web 應用程式 / Web API** | 是 | 針對 Web API 選取 [是]。 |
     | **允許隱含流程** | 是 | 請選取 [是]，因為 API 使用 [OpenID Connect 登入](active-directory-b2c-reference-oidc.md)。 |
-    | **回覆 URL** | `http://localhost:44332` | 回覆 URL 是 Azure AD B2C 傳回您 API 要求之任何權杖的所在端點。 在本教學課程中，範例 Web API 會在本機執行 (localhost)，並接聽連接埠 5000。 |
+    | **回覆 URL** | `http://localhost:5000` | 回覆 URL 是 Azure AD B2C 傳回您 API 要求之任何權杖的所在端點。 在此教學課程中，範例 Web API 會在本機 (localhost) 執行，並在連接埠 5000 上進行接聽 (在此教學課程中稍後這麼設定之後)。 |
     | **應用程式識別碼 URI** | HelloCoreAPI | URI 可唯一識別租用戶中的 API。 這可讓您為每個租用戶註冊多個 API。 [範圍](../active-directory/develop/developer-glossary.md#scopes)可控管對受保護 API 資源的存取，並就個別的應用程式識別碼 URI 進行定義。 |
     | **原生用戶端** | 否 | 這是 Web API，而不是原生用戶端，因此請選取 [否]。 |
     
@@ -69,13 +69,13 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 ![Web API 屬性](./media/active-directory-b2c-tutorials-spa-webapi/b2c-web-api-properties.png)
 
-請記下 [應用程式用戶端識別碼]。 此識別碼可唯一識別 API，後續在本教學課程中設定 API 時將會用到。
+請記下 [應用程式用戶端識別碼]。 此識別碼可唯一識別 API，後續在此教學課程中設定 API 時將會用到。
 
 將您的 Web API 註冊至 Azure AD B2C，可定義信任關係。 由於 API 已註冊至 B2C，因此 API 此時得以信任其接收自其他應用程式的 B2C 存取權杖。
 
 ## <a name="define-and-configure-scopes"></a>定義及設定範圍
 
-[範圍](../active-directory/develop/developer-glossary.md#scopes)可用來控管對受保護資源的存取。 Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，有些使用者可能同時具有讀取和寫入權限，而有些則可能只有唯讀權限。 在本教學課程中，您會定義 Web API 的讀取權限。
+[範圍](../active-directory/develop/developer-glossary.md#scopes)可用來控管對受保護資源的存取。 Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，有些使用者可能同時具有讀取和寫入權限，而有些則可能只有唯讀權限。 在此教學課程中，您會定義 Web API 的讀取權限。
 
 ### <a name="define-scopes-for-the-web-api"></a>定義 Web API 的範圍
 
@@ -97,7 +97,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 ### <a name="grant-app-permissions-to-web-api"></a>為應用程式授與 Web API 的權限
 
-若要從應用程式呼叫受保護的 Web API，您必須為應用程式授與對 API 的權限。 在本教學課程中，使用[在單頁應用程式 (JavaScript) 中使用 Azure Active Directory B2C 進行使用者驗證](active-directory-b2c-tutorials-spa.md)教學課程中建立的單頁應用程式。
+若要從應用程式呼叫受保護的 Web API，您必須為應用程式授與對 API 的權限。 在此教學課程中，使用[在單頁應用程式 (JavaScript) 中使用 Azure Active Directory B2C 進行使用者驗證](active-directory-b2c-tutorials-spa.md)教學課程中建立的單頁應用程式。
 
 1. 在 Azure 入口網站中，從服務清單中選取 [Azure AD B2C]，然後按一下 [應用程式] 以檢視已註冊的應用程式清單。
 
@@ -111,11 +111,11 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 5. 按一下 [確定]。
 
-您的 [我的範例單頁應用程式] 會進行註冊以呼叫受保護的 [Hello Core API]。 使用者會透過 Azure AD B2C 進行[驗證](../active-directory/develop/developer-glossary.md#authentication)以使用 WPF 傳統型應用程式。 傳統型應用程式會取得 Azure AD B2C 的[授權授與](../active-directory/develop/developer-glossary.md#authorization-grant)，以存取受保護的 Web API。
+您的 [我的範例單頁應用程式] 會進行註冊以呼叫受保護的 [Hello Core API]。 使用者會向 Azure AD B2C 進行[驗證](../active-directory/develop/developer-glossary.md#authentication)以使用該單頁應用程式。 該單頁應用程式會從 Azure AD B2C 取得[授權授與](../active-directory/develop/developer-glossary.md#authorization-grant)，以存取受保護的 Web API。
 
 ## <a name="update-code"></a>更新程式碼
 
-現在，Web API 已註冊，且您已定義範圍，接下來您必須設定 Web API 程式碼以使用您的 Azure AD B2C 租用戶。 在本教學課程中，您會設定可從 GitHub 下載的範例 .NET Core Web 應用程式。 
+現在，Web API 已註冊，且您已定義範圍，接下來您必須設定 Web API 程式碼以使用您的 Azure AD B2C 租用戶。 在此教學課程中，您會設定可從 GitHub 下載的範例 .NET Core Web 應用程式。 
 
 [下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip)，或從 GitHub 複製範例 Web 應用程式。
 
@@ -158,7 +158,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-3. 開啟 [屬性] 下的 **launchSettings.json** 檔案，找出 *applicationURL* 設定，並將值記錄下來以供下一章節使用。
+3. 開啟 [屬性] 下的 [launchSettings.json] 檔案，找出 **iisSettings** *applicationURL* 設定，然後將連接埠號碼設定為已為 API 回覆 URL `http://localhost:5000` 註冊的連接埠號碼。
 
 ### <a name="configure-the-single-page-app"></a>設定單頁應用程式
 
@@ -174,7 +174,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:64791/api/values',
+        webApi: 'http://localhost:5000/api/values',
     };
     ```
 
@@ -204,7 +204,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
     Listening on port 6420...
     ```
 
-4. 使用瀏覽器巡覽至位址 `http://localhost:6420` 以檢視應用程式。
+4. 使用瀏覽器瀏覽至位址 `http://localhost:6420` 以檢視應用程式。
 5. 使用[在單頁應用程式 (JavaScript) 中使用 Azure Active Directory B2C 進行使用者驗證](active-directory-b2c-tutorials-spa.md)中使用的電子郵件地址和密碼進行登入。
 6. 按一下 [呼叫 API] 按鈕。
 
@@ -216,7 +216,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 ## <a name="next-steps"></a>後續步驟
 
-本文逐步說明如何在 Azure AD B2C 中註冊和定義範圍，以保護 Web API。 瀏覽可用的 Azure AD B2C 程式碼範例，深入了解相關資訊。
+此文章逐步說明如何在 Azure AD B2C 中註冊和定義範圍，以保護 Web API。 瀏覽可用的 Azure AD B2C 程式碼範例，深入了解相關資訊。
 
 > [!div class="nextstepaction"]
 > [Azure AD B2C 程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

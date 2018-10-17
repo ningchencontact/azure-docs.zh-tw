@@ -1,22 +1,24 @@
 ---
-title: 使用 C# 建置物件偵測專案 - 自訂視覺服務 - Azure 認知服務 | Microsoft Docs
-description: 探索使用 Microsoft 認知服務中自訂視覺 API 的基本 Windows 應用程式。 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
+title: 教學課程：以 C# 建置物件偵測專案 - 自訂視覺服務
+titlesuffix: Azure Cognitive Services
+description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "36301075"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366908"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>使用 C&#35; 利用自訂視覺 API 來建置物件偵測專案 
+# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>教學課程：使用 C# 利用自訂視覺 API 來建置物件偵測專案
+
 了解如何使用基本 Windows 應用程式，使用電腦視覺 API 來建立物件偵測專案。 建立它之後，您就可以新增標記的區域、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置您自己適用於 Windows 的應用程式。
 
 ## <a name="prerequisites"></a>必要條件

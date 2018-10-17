@@ -1,58 +1,53 @@
 ---
-title: 電腦視覺 API cURL 快速入門分析本機影像 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您會在認知服務中使用電腦視覺與 cURL，分析本機影像。
+title: 快速入門：分析本機影像 - REST、cURL - 電腦視覺
+titleSuffix: Azure Cognitive Services
+description: 在本快速入門中，您將搭配使用電腦視覺 API 與 cURL 來分析本機影像。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 93ca3ea6eee3743dfd0c25c9514375ae63a531ee
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1952d0045550362a242ce1c105c58bd65c815ea6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750637"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631237"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-curl"></a>快速入門：分析本機影像 - REST、cURL
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 cURL 分析本機影像
 
-在本快速入門中，您會使用「電腦視覺」來分析要擷取視覺功能的本機影像。 若要分析遠端影像，請參閱[使用 cURL 來分析遠端影像](curl-analyze.md)。
+在本快速入門中，您將使用電腦視覺的 REST API，來分析本機儲存的影像以擷取視覺功能。 您可以使用 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 方法，根據影像內容擷取視覺功能。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要使用「電腦視覺」，您需要訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須擁有 [cURL](https://curl.haxx.se/windows)。
+- 您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
 
-## <a name="analyze-a-local-image"></a>分析本機影像
+## <a name="create-and-run-the-sample-command"></a>建立和執行範例命令
 
-這個範例類似於[使用 cURL 分析遠端影像](curl-analyze.md)，不同之處在於要分析的影像是在本機從磁碟讀取。 需要進行三項變更：
+若要建立並執行範例，請執行下列步驟：
 
-- 將內容類型變更為 `"Content-Type: application/octet-stream"`。
-- 將 `-d` 參數變更為 `--data-binary`。
-- 使用下列語法指定要分析的影像：`@C:/Pictures/ImageToAnalyze.jpg`。
+1. 將下列命令複製到文字編輯器。
+1. 視需要在命令中進行下列變更：
+    1. 將 `<subscriptionKey>` 的值取代為您的訂用帳戶金鑰。
+    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將要求 URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) 取代為 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 方法的端點 URL。
+    1. 將 `<localImage>` 的值取代為要分析之影像的完整路徑和檔案名稱。 例如： `@C:/Pictures/ImageToAnalyze.jpg`。
+    1. (選擇性) 將要求 URL (`language=en`) 的語言參數變更為使用不同的支援語言。
+1. 開啟命令提示字元視窗。
+1. 將文字編輯器中的命令貼到命令提示字元視窗中，然後執行該命令。
 
-若要執行範例，請執行下列步驟：
-
-1. 請將下列程式碼複製到編輯器中。
-1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
-1. 必要時，請將要求 URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) 變更為使用您取得訂用帳戶金鑰的位置。
-1. 使用您想要分析的本機影像取代 `<Image To Analyze>`。
-1. (選擇性) 變更回應語言 (`language=en`)。
-1. 在已安裝 cURL 的電腦上開啟命令視窗。
-1. 將程式碼貼入視窗中，然後執行命令。
-
->[!NOTE]
->您必須在 REST 呼叫中使用與用來取得訂用帳戶金鑰相同的位置。 例如，如果您已從 westus 取得訂用帳戶金鑰，請將下列 URL 中的 "westcentralus" 取代為 "westus"。
-
-```json
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary <Image To Analyze>
+```console
+curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary "<localImage>"
 ```
 
-## <a name="analyze-image-response"></a>Analyze Image 回應
+## <a name="examine-the-response"></a>檢查回應
 
-成功的回應會以 JSON 格式傳回，例如：
+成功的回應會以 JSON 的形式傳回。 範例應用程式會在命令提示字元視窗中剖析並顯示成功的回應，如下列範例所示：
 
 ```json
 {
@@ -110,9 +105,13 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: applic
 }
 ```
 
+## <a name="clean-up-resources"></a>清除資源
+
+不再需要時，請關閉命令提示字元視窗和文字編輯器。
+
 ## <a name="next-steps"></a>後續步驟
 
-探索用來分析影像、偵測名人和地標、建立縮圖及擷取印刷和手寫文字的「電腦視覺 API」。 若要快速地試驗「電腦視覺 API」，請嘗試 [Open API 測試主控台](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) (英文)。
+探索用來分析影像、偵測名人和地標、建立縮圖，以及擷取印刷和手寫文字的電腦視覺 API。 若要快速地試驗電腦視覺 API，請嘗試 [Open API 測試主控台](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)。
 
 > [!div class="nextstepaction"]
-> [探索電腦視覺 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44) (英文)
+> [探索電腦視覺 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

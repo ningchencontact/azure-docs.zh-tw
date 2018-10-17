@@ -1,86 +1,89 @@
 ---
-title: Bing 影像搜尋單頁 Web 應用程式 | Microsoft Docs
-description: 說明如何在單頁 Web 應用程式中使用 Bing 影像搜尋 API。
+title: 教學課程：建立單頁 Web 應用程式 - Bing 影像搜尋 API
+titleSuffix: Azure cognitive services
+description: 「Bing 影像搜尋 API」可讓您搜尋 Web 來尋找高品質的相關影像。 您可以使用此教學課程來建置可將搜尋查詢傳送給該 API 並在網頁內顯示結果的單頁 Web 應用程式。
 services: cognitive-services
-author: v-jerkin
-manager: ehansen
+author: aahi
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 10/04/2017
-ms.author: v-jerkin
-ms.openlocfilehash: d0e1dc24513c8fc3a405cf1c18f531a0c58fad13
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: tutorial
+ms.date: 9/12/2018
+ms.author: aahi
+ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369987"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297446"
 ---
-# <a name="tutorial-single-page-web-app"></a>教學課程：單頁 Web 應用程式
+# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>教學課程：使用 Bing 影像搜尋 API 來建立單頁應用程式
 
-Bing 影像搜尋 API 可讓您搜尋網頁，並取得與搜尋查詢相關的結果。 在本教學課程中，我們會建置單頁 Web 應用程式，以使用 Bing 影像搜尋 API 直接在頁面中顯示搜尋結果。 該應用程式包含 HTML、CSS 和 JavaScript 元件。
+「Bing 影像搜尋 API」可讓您搜尋 Web 來尋找高品質的相關影像。 您可以使用此教學課程來建置可將搜尋查詢傳送給該 API 並在網頁內顯示結果的單頁 Web 應用程式。 此教學課程與「Bing Web 搜尋」的[相對應教學課程](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)類似。
 
-<!-- Remove until we can sanitize images
-![[Single-page Bing Image Search app]](media/cognitive-services-bing-images-api/image-search-spa-demo.png)
--->
-
-> [!NOTE]
-> 點按時，頁面底部的 JSON 和 HTTP 標題會顯示 JSON 回應和 HTTP 要求資訊。 這些詳細資料有助於探索服務。
-
-本教學課程應用程式說明如何：
+此教學課程應用程式說明如何：
 
 > [!div class="checklist"]
 > * 在 JavaScript 中執行 Bing 影像搜尋 API 呼叫
-> * 將搜尋選項傳遞給 Bing 影像搜尋 API
-> * 顯示搜尋結果
-> * 逐頁檢視搜尋結果
-> * 處理 Bing 用戶端識別碼和 API 訂用帳戶金鑰
-> * 處理可能會發生的錯誤
+> * 使用搜尋選項來改善搜尋結果
+> * 顯示搜尋結果並逐頁檢視
+> * 要求及處理 API 訂用帳戶金鑰和 Bing 用戶端識別碼。
 
-本教學課程頁面完全獨立，不會使用任何外部架構、樣式表甚或影像檔案。 其中僅使用廣受支援的 JavaScript 語言功能，並且與所有主要網頁瀏覽器的目前版本搭配使用。
+[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search) 上有此教學課程的完整原始程式碼。
 
-在本教學課程中，我們只會討論原始程式碼的特定部分。 完整的原始程式碼位於[另一個頁面上](tutorial-bing-image-search-single-page-app-source.md)。 將此程式碼複製並貼到文字編輯器，並儲存為 `bing.html`。
+## <a name="prerequisites"></a>先決條件
 
-> [!NOTE]
-> 本教學課程與[單頁 Bing Web 搜尋應用程式教學課程](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)非常類似，但只會處理影像搜尋結果。
+* 最新版的 [Node.js](https://nodejs.org/)。
+* 適用於 Node.js 的 [Express.js](https://expressjs.com/) 架構。 GitHub 範例讀我檔案中會提供原始程式碼的安裝指示。
 
-## <a name="app-components"></a>應用程式元件
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-如同任何單頁 Web 應用程式，本教學課程應用程式包含三個部分：
+## <a name="manage-and-store-user-subscription-keys"></a>管理及儲存使用者訂用帳戶金鑰
 
-> [!div class="checklist"]
-> * HTML - 定義頁面的結構和內容
-> * CSS - 定義頁面的外觀
-> * JavaScript - 定義頁面的行為
+此應用程式使用網頁瀏覽器的永續性儲存體來儲存 API 訂用帳戶金鑰。 如果未儲存任何金鑰，網頁將會提示使用者提供金鑰，並儲存該金鑰以供稍後使用。 如果該金鑰稍後被 API 拒絕，應用程式就會從儲存體中移除它。
 
-本教學課程並未詳細說明大部分的 HTML 或 CSS，因為這些元件相當簡單。
 
-HTML 包含搜尋表單，使用者可在其中輸入查詢並選擇搜尋選項。 該表單會透過 `<form>` 標籤的 `onsubmit` 屬性，連線至實際執行搜尋的 JavaScript：
-
-```html
-<form name="bing" onsubmit="return newBingImageSearch(this)">
-```
-
-`onsubmit` 處理常式會傳回 `false`，這可防止表單提交至伺服器。 JavaScript 程式碼會實際從表單收集所需的資訊，並執行搜尋。
-
-HTML 也包含顯示搜尋結果的區域 (HTML `<div>` 標籤)。
-
-## <a name="managing-subscription-key"></a>管理訂用帳戶金鑰
-
-為了避免必須在程式碼中包含 Bing 搜尋 API 訂用帳戶金鑰，我們使用瀏覽器的永續性儲存體來儲存金鑰。 若未儲存金鑰，我們會提示使用者提供金鑰，並加以儲存供後續使用。 如果 API 稍後拒絕金鑰，我們會讓儲存的金鑰失效，以再次提示使用者。
-
-我們會定義 `storeValue` 和 `retrieveValue` 函式，以使用 `localStorage` 物件 (如果瀏覽器支援的話) 或 Cookie。 我們的 `getSubscriptionKey()` 函式會使用這些函式來儲存及擷取使用者的金鑰。
+請定義 `storeValue` 和 `retrieveValue` 函式以使用 `localStorage` 物件 (如果瀏覽器支援此物件) 或 Cookie。
 
 ```javascript
-// cookie names for data we store
+// Cookie names for data being stored
 API_KEY_COOKIE   = "bing-search-api-key";
 CLIENT_ID_COOKIE = "bing-search-client-id";
-
+// The Bing Image Search API endpoint
 BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
 
-// ... omitted definitions of storeValue() and retrieveValue()
+try { //Try to use localStorage first
+    localStorage.getItem;   
 
-// get stored API subscription key, or prompt if it's not found
+    window.retrieveValue = function (name) {
+        return localStorage.getItem(name) || "";
+    }
+    window.storeValue = function(name, value) {
+        localStorage.setItem(name, value);
+    }
+} catch (e) {
+    //If the browser doesn't support localStorage, try a cookie
+    window.retrieveValue = function (name) {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var keyvalue = cookies[i].split("=");
+            if (keyvalue[0].trim() === name) return keyvalue[1];
+        }
+        return "";
+    }
+    window.storeValue = function (name, value) {
+        var expiry = new Date();
+        expiry.setFullYear(expiry.getFullYear() + 1);
+        document.cookie = name + "=" + value.trim() + "; expires=" + expiry.toUTCString();
+    }
+}
+```
+
+`getSubscriptionKey()` 函式會使用 `retrieveValue` 來嘗試擷取先前儲存的金鑰。 如果找不到任何金鑰，就會提示使用者提供其金鑰，並使用 `storeValue` 來儲存該金鑰。
+
+```javascript
+
+// Get the stored API subscription key, or prompt if it's not found
 function getSubscriptionKey() {
     var key = retrieveValue(API_KEY_COOKIE);
     while (key.length !== 32) {
@@ -92,39 +95,46 @@ function getSubscriptionKey() {
 }
 ```
 
-HTML `<form>` 標籤 `onsubmit` 會呼叫 `bingWebSearch` 函式來傳回搜尋結果。 `bingWebSearch` 會使用 `getSubscriptionKey` 來驗證每個查詢。 如先前的定義所示，如果尚未輸入金鑰，`getSubscriptionKey` 就會提示使用者輸入金鑰。 其後應儲存金鑰，以供應用程式繼續使用。
+HTML `<form>` 標籤 `onsubmit` 會呼叫 `bingWebSearch` 函式來傳回搜尋結果。 `bingWebSearch` 使用 `getSubscriptionKey` 來驗證每個查詢。 如先前的定義所示，若尚未輸入金鑰．`getSubscriptionKey` 就會提示使用者輸入金鑰。 其後應儲存金鑰，以供應用程式繼續使用。
 
 ```html
-<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
-    bingSearchOptions(this), getSubscriptionKey())">
+<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value,
+bingSearchOptions(this), getSubscriptionKey())">
 ```
 
-## <a name="selecting-search-options"></a>選取搜尋選項
+## <a name="send-search-requests"></a>傳送搜尋要求
+
+此應用程式會使用 HTML `<form>` 來一開始傳送使用者搜尋要求，其中會使用 `onsubmit` 屬性來呼叫 `newBingImageSearch()`。
+
+```html
+<form name="bing" onsubmit="return newBingImageSearch(this)">
+```
+
+`onsubmit` 處理常式預設會傳回 `false`，以防止提交表單。
+
+## <a name="select-search-options"></a>選取搜尋選項
 
 ![[Bing 影像搜尋表單]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-HTML 表單包含下列控制項：
+「Bing 影像搜尋 API」提供數個[篩選查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters)，可針對搜尋結果縮小範圍及進行篩選。 此應用程式中的 HTML 表單會使用及顯示下列參數選項：
 
-| | |
-|-|-|
-|`where`|可供選取市場 (位置和語言) 以用於搜尋的下拉式功能表。|
-|`query`|要在其中輸入搜尋字詞的文字欄位。|
-|`aspect`|選項按鈕用於選擇找到的映像比例：大致是方形、寬或高。|
-|`color`|選取彩色或黑白，或主要的顏色。
-|`when`|可選擇性地將搜尋限定為最近一天、一週或一個月的下拉式功能表。|
-|`safe`|指出是否要使用 Bing 的安全搜尋功能來篩選掉「成人」結果的核取方塊。|
-|`count`|隱藏的欄位。 毎個要求要傳回的搜尋結果數目。 變更為每頁顯示更多或更少結果。|
-|`offset`|隱藏的欄位。 要求中第一個搜尋結果的位移；用於分頁。 它會在新要求執行時重設為 `0`。|
-|`nextoffset`|隱藏的欄位。 收到搜尋結果後，此欄位會設為回應中的 `nextOffset` 值。 使用此欄位可避免連續頁面上的重複結果。|
-|`stack`|隱藏的欄位。 JSON 編碼之上一頁搜尋結果的位移清單，用於導覽回上一個頁面。|
+|              |                                                                                                                                                                                    |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `where`      | 可供選取市場 (位置和語言) 以用於搜尋的下拉式功能表。                                                                                             |
+| `query`      | 要在其中輸入搜尋字詞的文字欄位。                                                                                                                                 |
+| `aspect`     | 選項按鈕用於選擇找到的映像比例：大致是方形、寬或高。                                                                                     |
+| `color`      |                                                                                                                                                                                    |
+| `when`       | 下拉式功能表可選擇性地將搜尋限制在最近一天、一週或一個月。                                                                                          |
+| `safe`       | 指出是否要使用 Bing 的安全搜尋功能來篩選掉「成人」結果的核取方塊。                                                                                      |
+| `count`      | 隱藏的欄位。 毎個要求要傳回的搜尋結果數目。 變更為每頁顯示更多或更少結果。                                                            |
+| `offset`     | 隱藏的欄位。 要求中第一個搜尋結果的位移；用於分頁。 它會在新要求執行時重設為 `0`。                                                           |
+| `nextoffset` | 隱藏的欄位。 收到搜尋結果後，此欄位會設為回應中的 `nextOffset` 值。 使用此欄位可避免連續頁面上的重複結果。 |
+| `stack`      | 隱藏的欄位。 JSON 編碼之上一頁搜尋結果的位移清單，用於導覽回上一個頁面。                                                      |
 
-> [!NOTE]
-> Bing 影像搜尋提供更多查詢參數。 我們在此僅使用其中一些參數。
-
-我們的 JavaScript 函式 `bingSearchOptions()` 會將這些欄位轉換成 Bing 搜尋 API 所需格式的部分查詢字串。
+`bingSearchOptions()` 函式會將這些選項的格式製作成部分查詢字串，以供在應用程式的 API 要求中使用。  
 
 ```javascript
-// build query options from the HTML form
+// Build query options from the HTML form
 function bingSearchOptions(form) {
 
     var options = [];
@@ -146,11 +156,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-例如，安全搜尋功能可以是 `strict`、`moderate` 或 `off`，預設為 `moderate`。 但我們的表單使用只有兩種狀態的核取方塊。 JavaScript 程式碼會將此設定轉換成 `strict` 或 `off` (我們不使用 `moderate`)。
-
 ## <a name="performing-the-request"></a>執行要求
 
-假設有查詢、選項字串和 API 金鑰，`BingImageSearch`　函式會使用 `XMLHttpRequest` 物件向 Bing 影像搜尋端點提出要求。
+在使用搜尋查詢、選項字串及 API 金鑰的情況下，`BingImageSearch()` 函式會使用 XMLHttpRequest 物件向「Bing 影像搜尋」端點提出要求。
+
 
 ```javascript
 // perform a search given query, options string, and API key
@@ -169,7 +178,7 @@ function bingImageSearch(query, options, key) {
     // open the request
     try {
         request.open("GET", queryurl);
-    } 
+    }
     catch (e) {
         renderErrorMessage("Bad request (invalid URL)\n" + queryurl);
         return false;
@@ -180,10 +189,10 @@ function bingImageSearch(query, options, key) {
     request.setRequestHeader("Accept", "application/json");
     var clientid = retrieveValue(CLIENT_ID_COOKIE);
     if (clientid) request.setRequestHeader("X-MSEdge-ClientID", clientid);
-    
+
     // event handler for successful response
     request.addEventListener("load", handleBingResponse);
-    
+
     // event handler for erorrs
     request.addEventListener("error", function() {
         renderErrorMessage("Error completing request");
@@ -200,7 +209,7 @@ function bingImageSearch(query, options, key) {
 }
 ```
 
-HTTP 要求成功完成時，JavaScript 會呼叫我們的 `load` 事件處理常式 `handleBingResponse()` 函式，來處理成功傳遞至 API 的 HTTP GET 要求。 
+順利完成 HTTP 要求時，JavaScript 會呼叫「載入」事件處理常式 `handleBingResponse()` 來處理成功的 HTTP GET 要求。
 
 ```javascript
 // handle Bing search request results
@@ -219,7 +228,7 @@ function handleBingResponse() {
 
     // show raw JSON and HTTP request
     showDiv("json", preFormat(JSON.stringify(jsobj, null, 2)));
-    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " + 
+    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " +
         this.statusText + "\n" + this.getAllResponseHeaders()));
 
     // if HTTP response is 200 OK, try to render search results
@@ -267,21 +276,11 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> 成功的 HTTP 要求*不*一定表示搜尋本身成功。 如果搜尋作業中發生錯誤，Bing 影像搜尋 API 會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，如果要求速率受到限制，API 會傳回空白回應。
+> 成功的 HTTP 要求可能會包含失敗的搜尋資訊。 如果在進行搜尋作業時發生錯誤，「Bing 影像搜尋 API」將會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，若要求的速率受到限制，API 將會傳回空白回應。
 
-上述兩個函式中的大部分程式碼都是專用於錯誤處理。 下列階段可能會發生錯誤：
+## <a name="display-the-search-results"></a>顯示搜尋結果
 
-|階段|可能的錯誤|處理者|
-|-|-|-|
-|建置 JavaScript 要求物件|無效的 URL|`try`/`catch` 區塊|
-|提出要求|網路錯誤、已中止連線|`error` 和 `abort` 事件處理常式|
-|執行搜尋|無效的要求、無效的 JSON、速率限制|`load` 事件處理常式中的測試|
-
-錯誤是透過呼叫 `renderErrorMessage()` 來處理，並提供有關錯誤的任何已知詳細資料。 如果回應通過錯誤測試的所有挑戰，我們會呼叫 `renderSearchResults()` 在頁面中顯示搜尋結果。
-
-## <a name="displaying-search-results"></a>顯示搜尋結果
-
-用於顯示搜尋結果的主要函式是 `renderSearchResults()`。 此函式會接受 Bing 影像搜尋服務所傳回的 JSON，並轉譯影像和相關的搜尋 (如果有的話)。
+`renderSearchResults()` 函式會顯示搜尋結果，此函式會接受「Bing 影像搜尋」服務所傳回的 JSON，並針對所傳回的任何影像和相關搜尋，呼叫適當的轉譯器函式。
 
 ```javascript
 function renderSearchResults(results) {
@@ -290,14 +289,14 @@ function renderSearchResults(results) {
     var pagingLinks = renderPagingLinks(results);
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
-    
+
     showDiv("results", renderImageResults(results.value));
     if (results.relatedSearches)
         showDiv("sidebar", renderRelatedItems(results.relatedSearches));
 }
 ```
 
-主要的影像搜尋結果會傳回成 JSON 回應中的最上層 `value` 物件。 我們將這些結果傳遞給函式 `renderImageResults()`，它會逐一查看這些結果，並呼叫個別的函式將每個項目轉譯成 HTML。 產生的 HTML 將傳回給 `renderSearchResults()`，在其中它會插到頁面中的 `results` 區域。
+影像搜尋結果會包含在 JSON 回應內的最上層 `value` 物件中。 這些會傳遞給 `renderImageResults()`，它會逐一查看結果並將每個項目轉換成 HTML。
 
 ```javascript
 function renderImageResults(items) {
@@ -315,39 +314,42 @@ function renderImageResults(items) {
 }
 ```
 
-Bing 影像搜尋 API 最多傳回四種不同的相關結果，每個都出現在它自己的最上層物件中。 如下：
+「Bing 影像搜尋 API」可以傳回四種類型的搜尋建議來協助引導使用者的搜尋體驗，其中每種建議都在自己的最上層物件中：
 
-|||
-|-|-|
-|`pivotSuggestions`|將原始搜尋中的樞紐字組取代為不同樞紐字組的查詢。 比方說，如果您搜尋「紅色花卉」，樞紐字組可能是「紅色」，而樞紐建議可能是「黃色花卉」。|
-|`queryExpansions`|藉由新增多個字詞以縮小原始搜尋範圍的查詢。 比方說，如果您搜尋 "Microsoft Surface"，可能是查詢擴充可能是 "Microsoft Surface Pro"。|
-|`relatedSearches`|也已由輸入原始搜尋的其他使用者輸入的查詢。 比方說，如果您搜尋「雷尼爾山」，相關搜尋可能是「 聖海倫山」。|
-|`similarTerms`|與原始搜尋的意義類似的查詢。 例如，如果您搜尋「小貓」，類似的字詞可能是「可愛」。|
+| 建議         | 說明                                                                                                                                                                                                         |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `pivotSuggestions` | 將原始搜尋中的樞紐字組取代為不同樞紐字組的查詢。 比方說，若您搜尋「紅色花卉」，樞紐字組可能是「紅色」，而樞紐建議可能是「黃色花卉」。 |
+| `queryExpansions`  | 藉由新增多個字詞以縮小原始搜尋範圍的查詢。 比方說，若您搜尋 "Microsoft Surface"，可能是查詢擴充可能是 "Microsoft Surface Pro"。                                   |
+| `relatedSearches`  | 也已由輸入原始搜尋的其他使用者輸入的查詢。 比方說，若您搜尋「雷尼爾山」，相關搜尋可能是「 聖海倫山」。                       |
+| `similarTerms`     | 與原始搜尋的意義類似的查詢。 例如，如果您搜尋「小貓」，類似的字詞可能是「可愛」。                                                                   |
 
-如 `renderSearchResults()` 先前所示，我們只會轉譯 `relatedItems` 建議，並將產生的連結置於頁面的資訊看板中。
+此應用程式只會轉譯 `relatedItems` 建議，並將產生的連結置於頁面的資訊看板中。
 
-## <a name="rendering-result-items"></a>轉譯結果項目
+## <a name="rendering-search-results"></a>轉譯搜尋結果
 
-在我們的 JavaScript 程式碼中有一個物件 `searchItemRenderers`，其中包含 *renderers:* 函式，可為每種搜尋結果產生 HTML。
+在此應用程式中，`searchItemRenderers` 物件會包含可為每一種搜尋結果產生 HTML 的轉譯器函式。
 
 ```javascript
-searchItemRenderers = { 
+searchItemRenderers = {
     images: function(item, index, count) { ... },
     relatedSearches: function(item) { ... }
 }
 ```
 
-轉譯器函式可接受下列參數：
+這些轉譯器函式可接受下列參數：
 
-| | |
-|-|-|
-|`item`|JavaScript 物件，其中包含項目的屬性，例如其 URL 及其描述。|
-|`index`|集合內結果項目的索引。|
-|`count`|搜尋結果項目集合中的項目數目。|
+| 參數         | 說明                                                                                              |
+|---------|----------------------------------------------------------------------------------------------|
+| `item`  | JavaScript 物件，其中包含項目的屬性，例如其 URL 及其描述。 |
+| `index` | 集合內結果項目的索引。                                          |
+| `count` | 搜尋結果項目集合中的項目數目。                                  |
 
-`index` 和 `count` 參數可用來編號結果、為集合開頭或結尾產生特殊 HTML、在特定數量的項目之後插入分行符號等。 如果轉譯器不需要此功能，則不需要接受這兩個參數。
+`index` 和 `count` 參數可用來將結果編號、為集合產生 HTML，以及組織內容。 具體而言，它會：
 
-讓我們仔細看看 `images` 轉譯器：
+* 計算影像縮圖大小 (寬度變動，最小值為 120 像素，而高度固定為 90 像素)。
+* 建置 HTML `<img>` 標籤，以顯示影像縮圖。
+* 建置 HTML `<a>` 標籤，以連結至影像和內含影像的頁面。
+* 建置描述，以顯示影像及執行所在網站的相關資訊。
 
 ```javascript
     images: function (item, index, count) {
@@ -357,7 +359,7 @@ searchItemRenderers = {
         if (index === 0) html.push("<p class='images'>");
         var title = escape(item.name) + "\n" + getHost(item.hostPageDisplayUrl);
         html.push("<p class='images' style='max-width: " + width + "px'>");
-        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width + 
+        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width +
             "' height=" + height + " width=" + width + "'>");
         html.push("<br>");
         html.push("<nobr><a href='" + item.contentUrl + "'>Image</a> - ");
@@ -367,36 +369,26 @@ searchItemRenderers = {
     }, // relatedSearches renderer omitted
 ```
 
-影像轉譯器函式會：
-
-> [!div class="checklist"]
-> * 計算影像縮圖大小 (寬度變動，最小值為 120 像素，而高度固定為 90 像素)。
-> * 建置 HTML `<img>` 標籤，以顯示影像縮圖。 
-> * 建置 HTML `<a>` 標籤，以連結至影像和內含影像的頁面。
-> * 建置描述，以顯示影像及執行所在網站的相關資訊。
-
-我們會測試 `index` 變數，以便在第一個影像結果之前插入 `<p>` 標籤。 否則縮圖會在瀏覽器視窗中視需要彼此接合並圍繞。
-
-縮圖大小用於這兩個 `<img>` 標籤，以及縮圖 URL 中的 `h` 和 `w` 欄位。 [Bing 縮圖服務](resize-and-crop-thumbnails.md)接著會提供完全符合該大小的縮圖。
+縮圖影像的 `height` 和 `width` 會同時用於 `<img>` 標記及縮圖 URL 中的 `h` 和 `w` 欄位。 這讓 Bing 能夠傳回與該大小完全相同的[縮圖](resize-and-crop-thumbnails.md)。
 
 ## <a name="persisting-client-id"></a>保存用戶端識別碼
 
-來自 Bing 搜尋 API 的回應可能會在後續要求中包含應該傳回 API 的 `X-MSEdge-ClientID` 標頭。 如果使用多個 Bing 搜尋 API，請盡可能對所有 API 使用相同的用戶端識別碼。
+來自 Bing 搜尋 API 的回應可能會包含應在後續要求中傳回至 API 的 `X-MSEdge-ClientID` 標頭。 若使用多個 Bing 搜尋 API，請盡可能對所有 API 使用相同的用戶端識別碼。
 
-提供 `X-MSEdge-ClientID` 標頭可讓 Bing API 建立所有使用者搜尋的關聯，這有兩個重要的優點。
+提供 `X-MSEdge-ClientID` 標頭可讓 Bing API 將使用者的所有搜尋建立關聯，這在下列情況下相當有用：
 
-首先，它可讓 Bing 搜尋引擎將過去內容套用至搜尋結果，以尋找更符合使用者的結果。 例如，如果使用者之前搜尋與航行相關的字詞，稍後搜尋「節」可能會優先傳回航行中所使用節數的相關資訊。
+首先，它可讓 Bing 搜尋引擎將過去內容套用至搜尋結果，以尋找更符合使用者的結果。 例如，若使用者之前搜尋與航行相關的字詞，稍後搜尋「節」可能會優先傳回航行中所使用節數的相關資訊。
 
-其次，Bing 可能會隨機選取使用者來體驗新功能，再廣泛提供這些功能。 在每個要求中提供相同的用戶端識別碼，可確保已選擇看到功能的使用者一律會看到功能。 若沒有用戶端識別碼，使用者可能會在其搜尋結果中看到功能出現並消失，似乎很隨機。
+其次，Bing 可能會隨機選取使用者來體驗新功能，再廣泛提供這些功能。 在每個要求中提供相同的用戶端識別碼，可確保已選擇看到功能的使用者一律會看到功能。 若沒有用戶端識別碼，使用者可能會在其搜尋結果中隨機看到功能出現並消失。
 
-瀏覽器安全性原則 (CORS) 可防止將 `X-MSEdge-ClientID` 標頭提供給 JavaScript 使用。 當搜尋回應的來源與要求回應的頁面不同時，就會發生這項限制。 在生產環境中，您應該裝載伺服器端指令碼，在與網頁相同的網域上執行 API 呼叫，以處理此原則。 由於指令碼的來源與網頁相同，因此 `X-MSEdge-ClientID` 標頭會接著提供給 JavaScript 使用。
+瀏覽器安全性原則 (CORS) 可防止將 `X-MSEdge-ClientID` 標頭提供給 JavaScript 使用。 當搜尋回應的來源與要求回應的頁面不同時，就會發生此限制。 在生產環境中，您應該裝載伺服器端指令碼，在與網頁相同的網域上執行 API 呼叫，以處理此原則。 由於指令碼的來源與網頁相同，因此 `X-MSEdge-ClientID` 標頭會接著提供給 JavaScript 使用。
 
 > [!NOTE]
 > 在生產 Web 應用程式中，無論如何都應該執行要求伺服器端。 否則，您的 Bing 搜尋 API 金鑰必須包含在網頁中，以提供給檢視來源的任何人。 您會根據 API 訂用帳戶金鑰的所有使用量付費，即使是未經授權的合作對象所提出的要求，因此請務必不要公開您的金鑰。
 
 若要進行開發，您可以透過 CORS Proxy 提出 Bing Web 搜尋 API 要求。 來自這類 Proxy 的回應包含 `Access-Control-Expose-Headers` 標頭，可將回應標頭列入白名單並提供給 JavaScript 使用。
 
-您可以輕鬆地安裝 CORS Proxy，讓我們的教學課程應用程式存取用戶端識別碼標頭。 首先，請[安裝 Node.js](https://nodejs.org/en/download/) (如果尚未安裝)。 然後在命令視窗中發出下列命令：
+您可以輕鬆安裝 CORS Proxy，讓我們的教學課程應用程式存取用戶端識別碼標頭。 首先，請[安裝 Node.js](https://nodejs.org/en/download/) (若尚未安裝)。 然後在命令視窗中發出下列命令：
 
     npm install -g cors-proxy-server
 
@@ -408,10 +400,13 @@ searchItemRenderers = {
 
     cors-proxy-server
 
-當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開之 [HTTP 標頭] 區段的搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
+當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開的 [HTTP 標頭] 區段搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 影像搜尋 API 參考](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (英文)
+> [使用 Bing 影像搜尋 API 來擷取影像詳細資料](tutorial-image-post.md)
 
+## <a name="see-also"></a>另請參閱
+
+* [Bing 影像搜尋 API 參考](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

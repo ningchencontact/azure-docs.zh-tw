@@ -1,26 +1,27 @@
 ---
-title: 自訂視覺 ONNX 模型與 Windows ML - 認知服務 | Microsoft Docs
-description: 了解如何建立 Windows UWP 應用程式來使用從認知服務匯出的 ONNX 模型。
+title: 教學課程：搭配 Windows ML 使用 ONNX 模型 - 自訂視覺服務
+titlesuffix: Azure Cognitive Services
+description: 了解如何建立 Windows UWP 應用程式來使用從 Azure 認知服務匯出的 ONNX 模型。
 services: cognitive-services
 author: larryfr
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 0b128ba1800e74c20c09a9c5711c8473f1dd00d0
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3a9e9bc92ce38c4bb8d6d83c8017fa223342e7d2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939403"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365599"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>教學課程：搭配使用自訂視覺中的 ONNX 模型與 Windows ML (預覽)
 
 了解如何搭配使用從自訂視覺匯出的 ONNX 模型與 Windows ML (預覽)。
 
-本文件中的資訊會示範如何搭配使用從自訂視覺服務匯出的 ONNX 檔案與 Windows ML。 我們會提供 Windows UWP 的範例應用程式。 範例中會包含可辨識狗和貓的已訓練模型。 也會提供如何使用自有模型來搭配此範例的步驟。
+此文件中的資訊會示範如何搭配使用從自訂視覺服務匯出的 ONNX 檔案與 Windows ML。 我們會提供 Windows UWP 的範例應用程式。 範例中會包含可辨識狗和貓的已訓練模型。 也會提供如何使用自有模型來搭配此範例的步驟。
 
 > [!div class="checklist"]
 > * 關於範例應用程式
@@ -28,7 +29,7 @@ ms.locfileid: "36939403"
 > * 執行範例
 > * 使用自有模型
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 具備以下項目的 Windows 10 裝置：
 
@@ -57,7 +58,7 @@ ms.locfileid: "36939403"
 
 ### <a name="the-model"></a>模型
 
-範例提供的模型 (`cat-or-dog.onnx`) 會使用認知服務的自訂視覺服務來加以建立和訓練。 接著，已訓練的模型會匯出為 ONNX 模型。 如需有關使用此服務的詳細資訊，請參閱[如何建置分類器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)和[匯出您的模型以用於行動裝置](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)文件。
+範例提供的模型 (`cat-or-dog.onnx`) 會使用認知服務的自訂視覺服務來建立及定型。 接著，已訓練的模型會匯出為 ONNX 模型。 如需有關使用此服務的詳細資訊，請參閱[如何建置分類器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)和[匯出您的模型以用於行動裝置](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)文件。
 
 > [!IMPORTANT]
 > 我們會使用一小部分狗和貓的影像來訓練此範例提供的模型。 因此，這可能不是辨識狗和貓的最佳模型。
@@ -138,7 +139,7 @@ ms.locfileid: "36939403"
     var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/cat-or-dog.onnx"));
     ```
 
-    這項變更會在執行階段載入新的模型。
+    此變更會在執行階段載入新的模型。
 
 10. 建置並執行應用程式。 應用程式現在會使用新的模型來對影像進行計分。
 

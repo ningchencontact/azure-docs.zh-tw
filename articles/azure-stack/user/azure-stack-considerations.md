@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: a8d211992f52c9719cad76f16133e23eba24d422
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 9f229caa76059db403ced5b74c7a35ec2f0b8e9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43775080"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721875"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>關鍵考量：使用服務或為 Azure Stack 建置應用程式
 
-在使用服務或為 Azure Stack 建置應用程式之前，您必須先了解 Azure Stack 與 Azure 之間的差異。 本文指出當您以 Azure Stack 作為混合式雲端開發環境時的主要考量事項。
+在使用服務或為 Azure Stack 建置應用程式之前，您必須先了解 Azure Stack 與 Azure 之間的差異。 此文章指出當您以 Azure Stack 作為混合式雲端開發環境時的主要考量事項。
 
 ## <a name="overview"></a>概觀
 
@@ -33,7 +33,7 @@ Azure Stack 是混合式雲端平台，可讓您從您的公司或服務提供�
 
 Azure 技術內容會假設應用程式是為了 Azure 服務 (而不是 Azure Stack) 開發。 建置和部署應用程式到 Azure Stack 時，必須了解一些主要差異，例如：
 
-* Azure Stack 提供 Azure 中所提供服務和功能的子集。
+* Azure Stack 提供 Azure 中所提供服務和功能的**子集**。
 * 您的公司或服務提供者可以選擇他們想要提供的服務。 可用的選項可能包括自訂的服務或應用程式。 他們可能會提供自己的自訂文件。
 * 您必須使用正確的 Azure Stack 特定端點 (例如，入口網站位址的 URL 和 Azure Resource Manager 端點)。
 * 您必須使用 Azure Stack 所支援的 PowerShell 和 API 版本。 使用支援的版本可確保您的應用程式能在 Azure Stack 和 Azure 中運作。
@@ -52,7 +52,7 @@ Azure 技術內容會假設應用程式是為了 Azure 服務 (而不是 Azure S
 | 入口網站 URL* | [https://portal.azure.com](https://portal.azure.com) | 針對 Azure Stack 整合系統，請移至您 Azure Stack 操作員所提供的 URL。<br><br>如果是開發套件，請使用： https://portal.local.azurestack.external
 | 區域 | 您可以選取想要部署的目標區域。 | 如果是 Azure Stack 整合系統，請使用您系統上可用的區域。<br><br>若為開發套件，區域一律為**本機**。
 | 資源群組 | 資源群組可以跨區域。 | 就整合系統和開發套件兩者而言，只有一個區域。
-|支援的命名空間、資源類型和 API 版本 | 最新版本 (或未過時的較早版本)。 | Azure Stack 支援特定版本。 請參閱本文章的＜版本需求＞一節。
+|支援的命名空間、資源類型和 API 版本 | 最新版本 (或未過時的較早版本)。 | Azure Stack 支援特定版本。 請參閱此文章的＜版本需求＞一節。
 | | |
 
 *如果您是 Azure Stack 操作員，請參閱[使用系統管理員入口網站](../azure-stack-manage-portals.md)和[管理基本知識](../azure-stack-manage-basics.md)，以了解詳細資訊。
@@ -72,14 +72,14 @@ Azure 技術內容會假設應用程式是為了 Azure 服務 (而不是 Azure S
 
 Azure Stack 支援特定版本的 Azure PowerShell 和 Azure 服務 API。 使用支援的版本以確保您的應用程式可以同時部署至 Azure Stack 和 Azure。
 
-若要確定您使用的是正確版本的 Azure PowerShell，請使用 [API 版本設定檔](azure-stack-version-profiles.md)。 若要判斷您可以使用的最新 API 版本設定檔，請找出您所使用的 Azure Stack 組建。 您可以向您的 Azure Stack 系統管理員取得這項資訊。
+若要確定您使用的是正確版本的 Azure PowerShell，請使用 [API 版本設定檔](azure-stack-version-profiles.md)。 若要判斷您可以使用的最新 API 版本設定檔，請找出您所使用的 Azure Stack 組建。 您可以向您的 Azure Stack 系統管理員取得此資訊。
 
 >[!NOTE]
- 如果您使用 Azure Stack 開發套件，而且您具有管理存取權，請參閱[管理更新](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version)的＜判斷目前的版本＞一節來判斷 Azure Stack 組建。
+ 如果您使用 Azure Stack 開發套件，而且您具有管理存取權，請參閱[管理更新](../azure-stack-updates.md#determine-the-current-version)的＜判斷目前的版本＞一節來判斷 Azure Stack 組建。
 
 對於其他 API，執行下列 PowerShell 命令以輸出您的 Azure Stack 訂用帳戶中支援的命名空間、資源類型和 API 版本。 請注意，可能仍有屬性層級的差異。 (若要讓此命令運作，您必須已經為 Azure Stack 環境[安裝](azure-stack-powershell-install.md)和[設定](azure-stack-powershell-configure-user.md) PowerShell。 您也必須有 Azure Stack 供應項目的訂用帳戶。)
 
- ```powershell
+```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```

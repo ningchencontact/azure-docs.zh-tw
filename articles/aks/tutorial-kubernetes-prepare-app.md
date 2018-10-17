@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2bb187e5ad55b466da0b9b06ffbb047ac539717
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104994"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297055"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>教學課程：準備 Azure Kubernetes Service (AKS) 的應用程式
 
-在本教學課程 (七個章節的第一部分) 中，多容器應用程式已準備好用於 Kubernetes。 使用現有的開發工具 (例如 Docker Compose) 在本機建置和測試應用程式。 您會了解如何：
+在此教學課程 (七個章節的第一部分) 中，多容器應用程式已準備好用於 Kubernetes。 使用現有的開發工具 (例如 Docker Compose) 在本機建置和測試應用程式。 您會了解如何：
 
 > [!div class="checklist"]
 > * 從 GitHub 複製範例應用程式來源
@@ -33,15 +33,15 @@ ms.locfileid: "43104994"
 
 ## <a name="before-you-begin"></a>開始之前
 
-本教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和 `docker` 命令。 如需容器基本概念的入門參考資料，請參閱[開始使用 Docker][docker-get-started]。
+此教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和 `docker` 命令。 如需容器基本概念的入門參考資料，請參閱[開始使用 Docker][docker-get-started]。
 
-若要完成本教學課程，您需要本機 Docker 開發環境。 Docker 提供可在 [Mac][docker-for-mac]、[Windows][docker-for-windows] 或 [Linux][docker-for-linux] 系統上設定 Docker 的套件。
+若要完成此教學課程，您需要一個執行 Linux 容器的本機 Docker 開發環境。 Docker 提供可在 [Mac][docker-for-mac]、[Windows][docker-for-windows] 或 [Linux][docker-for-linux] 系統上設定 Docker 的套件。
 
 Azure Cloud Shell 不含完成這些教學課程中各個步驟所需的 Docker 元件。 因此，我們建議使用完整的 Docker 開發環境。
 
 ## <a name="get-application-code"></a>取得應用程式程式碼
 
-本教學課程中使用的範例應用程式是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。
+此教學課程中使用的範例應用程式是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。
 
 使用 [git][] 將範例應用程式複製到您的開發環境：
 
@@ -108,7 +108,7 @@ docker-compose down
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，應用程式已經過測試並已建立應用程式的容器映像。 您已了解如何︰
+在此教學課程中，應用程式已經過測試並已建立應用程式的容器映像。 您已了解如何︰
 
 > [!div class="checklist"]
 > * 從 GitHub 複製範例應用程式來源

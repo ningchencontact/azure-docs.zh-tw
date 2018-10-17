@@ -1,6 +1,6 @@
 ---
 title: 在 Azure IoT Central 中定義新的裝置類型 | Microsoft Docs
-description: 本教學課程將為建置者說明如何在 Azure IoT Central 應用程式中定義新的裝置類型。 您會定義類型的遙測、狀態、屬性和設定。
+description: 此教學課程將為建置者說明如何在 Azure IoT Central 應用程式中定義新的裝置類型。 您會定義類型的遙測、狀態、屬性和設定。
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
@@ -9,27 +9,27 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7121c83aea75f3b23820a7b0504fa704ec9f3016
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702539"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984300"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>教學課程：在 Azure IoT 中心應用程式中定義新的裝置類型
 
-本教學課程將為建置者說明如何使用裝置範本在 Microsoft Azure IoT Central 應用程式中定義新的裝置類型。 裝置範本會定義裝置類型的遙測、狀態、屬性和設定。
+此教學課程將為建置者說明如何使用裝置範本在 Microsoft Azure IoT Central 應用程式中定義新的裝置類型。 裝置範本會定義裝置類型的遙測、狀態、屬性和設定。
 
 為了讓您能夠先測試應用程式再連接實際裝置，Azure IoT Central 會在您建立裝置範本時，從範本產生模擬裝置。
 
-在本教學課程中，您會建立**連線的空調**裝置範本。 連線的空調裝置：
+在此教學課程中，您會建立**連線的空調**裝置範本。 連線的空調裝置：
 
 * 傳送遙測資料，例如溫度和濕度。
 * 回報狀態，例如裝置處於開啟還是關閉狀態。
 * 具有屬性，例如裝置的韌體版本和序號。
 * 具有設定，例如目標溫度和風扇速度。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立新的裝置範本
@@ -43,9 +43,9 @@ ms.locfileid: "43702539"
 > * 使用裝置設定
 > * 使用命令
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要完成本教學課程，您必須要有 Azure IoT 中心應用程式。 如果您已完成[建立 Azure IoT Central 應用程式](quick-deploy-iot-central.md)快速入門，則可以重複使用您在該快速入門中建立的應用程式。 否則，請完成下列步驟以建立空的 Azure IoT Central 應用程式：
+若要完成此教學課程，您必須要有 Azure IoT 中心應用程式。 如果您已完成[建立 Azure IoT Central 應用程式](quick-deploy-iot-central.md)快速入門，則可以重複使用您在該快速入門中建立的應用程式。 否則，請完成下列步驟以建立空的 Azure IoT Central 應用程式：
 
 1. 瀏覽至 Azure IoT Central 的[應用程式管理員](https://aka.ms/iotcentral)頁面。
 
@@ -327,13 +327,13 @@ ms.locfileid: "43702539"
 
 您可使用 _commands_ 讓操作員在裝置上直接執行命令。 在本節中，您會將命令新增至**連線的空調**裝置範本，可讓操作員回應連線空調顯示器上的特定訊息 (這可用於 MxChip 範例程式碼)。
 
-1. 巡覽至 [連線的空調] 裝置範本的 [命令] 頁面：
+1. 瀏覽至 [連線的空調] 裝置範本的 [命令] 頁面：
 
     ![準備新增設定](media/tutorial-define-device-type/commandsecho.png)
 
     您可以根據需求建立不同類型的命令。 
 
-1. 按一下 [新建命令]，將命令新增至您的裝置。
+1. 按一下 [新增命令]以將命令新增至您的裝置。
 
 1. 若要設定新的命令，請使用下表中的資訊：
 
@@ -427,7 +427,7 @@ ms.locfileid: "43702539"
     | 標題                   | 序號 |
     | 設定和屬性 | 序號 |
 
-    ![序號屬性設定](./media/tutorial-define-device-type/propertysettings1.png)
+    ![序號屬性設定](./media/tutorial-define-device-type/propertysettings3.png)
 
     然後，選擇 [儲存]。
 
@@ -442,7 +442,7 @@ ms.locfileid: "43702539"
     | 標題                   | 韌體版本 |
     | 設定和屬性 | 韌體版本 |
 
-    ![序號屬性設定](./media/tutorial-define-device-type/propertysettings2.png)
+    ![序號屬性設定](./media/tutorial-define-device-type/propertysettings3.png)
 
     然後，選擇 [儲存]。
 
@@ -450,7 +450,7 @@ ms.locfileid: "43702539"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]

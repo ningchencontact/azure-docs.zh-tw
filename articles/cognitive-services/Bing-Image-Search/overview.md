@@ -1,6 +1,7 @@
 ---
-title: 什麼是 Bing 影像搜尋？ | Microsoft Docs
-description: 了解如何使用 Bing 影像搜尋 API 來搜尋網路上的影像。
+title: 什麼是 Bing 影像搜尋？
+titleSuffix: Azure Cognitive Services
+description: Bing 影像搜尋 API 可讓您在應用程式中使用 Bing 的認知影像搜尋功能。 使用 API 傳送使用者搜尋查詢，您即可取得並顯示類似於 Bing 影像的相關高品質影像。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
-ms.openlocfilehash: ebf8c28b843768a9081a0086b10e4adf04572ea1
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5d5d69eea3a064679cbc5ddc41891a73e77e55ea
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42890044"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295354"
 ---
 # <a name="what-is-bing-image-search"></a>什麼是 Bing 影像搜尋？
 
@@ -32,7 +33,7 @@ Bing 影像搜尋 API 可讓您在應用程式中使用 Bing 的認知影像搜�
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [即時建議搜尋字詞](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#using-and-suggesting-search-terms) | 使用 [Bing 自動建議 API](../bing-autosuggest/get-suggested-search-terms.md) 隨著使用者的輸入顯示建議的搜尋字詞，以改善您的應用程式體驗。 |
 | [篩選及限制影像結果](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)                       | 藉由編輯查詢參數來篩選 Bing 所傳回的影像。                                                                                                       |
-| [裁剪縮圖及調整其大小，並加以顯示](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | 為 Bing 影像搜尋所傳回的影像編輯及顯示縮圖預覽。                                                                                      |
+| [裁剪縮圖及調整其大小，並顯示它縮圖](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | 為 Bing 影像搜尋所傳回的影像編輯及顯示縮圖預覽。                                                                                      |
 | [樞紐和擴充使用者搜尋查詢](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#pivoting-the-query)               | 在查詢中納入及顯示 Bing 建議的搜尋字詞，以擴充您的搜尋功能。                                                                    |
 | [取得趨勢影像](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | 自訂搜尋以尋找全球的趨勢影像。                                                                                                          |
 
@@ -40,9 +41,9 @@ Bing 影像搜尋 API 可讓您在應用程式中使用 Bing 的認知影像搜�
 
 Bing 影像搜尋 API 是一種 RESTful Web 服務，因此可輕易地從任何可發出 HTTP 要求及剖析 JSON 的程式設計語言呼叫。 您可以透過 [REST API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp?) 或 [SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart) 來使用此服務。
 
-1. 建立具備 Bing 搜尋 API 存取權的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果您沒有 Azure 訂用帳戶，可以[建立免費帳戶](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)。 
+1. 建立具備 Bing 搜尋 API 存取權的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果您沒有 Azure 訂用帳戶，可以[建立免費帳戶](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)。
 2. 使用有效的[搜尋查詢](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)，將要求傳送至 API。
-3. 剖析傳回的 JSON 訊息以處理 API 回應。 
+3. 剖析傳回的 JSON 訊息以處理 API 回應。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -64,4 +65,4 @@ Bing 影像搜尋 API 是一種 RESTful Web 服務，因此可輕易地從任何
 
 * [使用 Bing 影像搜尋 API 從 Web 取得影像](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)主題說明如何從 Web 搜尋及取得影像。
 
-* [傳送並使用搜尋查詢](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)主題說明如何建立、自訂和樞紐搜尋查詢。 
+* [傳送並使用搜尋查詢](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)主題說明如何建立、自訂和樞紐搜尋查詢。

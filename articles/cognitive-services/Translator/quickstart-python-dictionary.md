@@ -1,21 +1,21 @@
 ---
-title: 翻譯工具文字搭配 Python 尋找替代的翻譯 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Python，為內容中的字詞尋找替代的翻譯和範例。
+title: 快速入門：尋找替代的翻譯 - 翻譯工具文字、Python
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Python，為內容中的字詞尋找替代的翻譯與範例。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 4f7c91bfa6fe82f19e84e13b4b7442b59b126cb9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 9035f718dda4cd1a8b34aa72272cfa376be99cac
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750197"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122717"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-python"></a>快速入門：使用 Python 尋找替代的翻譯和使用方式
 

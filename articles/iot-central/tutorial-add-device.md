@@ -9,23 +9,23 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: dd68b65825c9c22453e0191d42a0fcce3b65ca64
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2e01f61ff915a8fe4327aa78c8867d666dc36fda
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236081"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983213"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT 中心應用程式
 
-本教學課程將說明如何在 Microsoft Azure IoT Central 應用程式中新增和設定實際裝置。
+此教學課程將說明如何在 Microsoft Azure IoT Central 應用程式中新增和設定實際裝置。
 
-本教學課程由兩個部分所組成：
+此教學課程由兩個部分所組成：
 
 1. 首先，身為操作員，您將了解如何在 Azure IoT Central 應用程式中新增和設定實際裝置。 在此部分結束時，您會擷取要在第二個單元中使用的連接字串。
 2. 其次，身為裝置開發人員，您將了解實際裝置中的程式碼。 您會將第一個單元中的連接字串新增至範例程式碼。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 新增實際裝置
@@ -56,7 +56,7 @@ ms.locfileid: "35236081"
 
    ![開始新增，實際的連線空調裝置：](media/tutorial-add-device/newreal.png)
 
-3. (選擇性) 您可以藉由選擇裝置名稱並編輯其值，將新裝置重新命名：
+3. 輸入裝置識別碼 (**應該是小寫**)，或使用建議的裝置識別碼。您也可以輸入新裝置的名稱。  
 
    ![將裝置重新命名](media/tutorial-add-device/rename.png)
 
@@ -68,27 +68,40 @@ ms.locfileid: "35236081"
 
     ![設定顯示同步中](media/tutorial-add-device/settingssyncing.png)
 
-2. 在新的實際連線空調裝置的 [屬性] 頁面上，將 [序號] 設定為 **rcac0010**，並將 [韌體版本] 設為 9.75。 然後，選擇 [儲存]：
+2. 在新的實際連線空調裝置的 [屬性] 頁面上，將 [序號] 設定為 **10001**，並將 [韌體版本] 設為 9.75。 然後，選擇 [儲存]：
 
     ![設定實際裝置的屬性](media/tutorial-add-device/setproperties.png)
 
 3. 身為建置者，您可以檢視實際裝置的 [測量]、[規則] 和 [儀表板] 頁面。
 
-## <a name="get-connection-string-for-real-device-from-application"></a>從應用程式取得適用於實際裝置的連接字串
+## <a name="get-connection-details-for-real-device-from-application"></a>從應用程式取得實際裝置的連線詳細資料
 
-裝置開發人員必須在執行於裝置上的程式碼中內嵌實際裝置的*連接字串*。 連接字串可讓裝置安全地連線至您的 Azure IoT Central 應用程式。 每個裝置執行個體都有唯一的連接字串。 下列步驟說明如何在您的應用程式中找出裝置執行個體的連接字串：
+裝置開發人員必須在於裝置上執行的程式碼中內嵌實際裝置的「裝置連線詳細資料」。 連接字串可讓裝置安全地連線至您的 Azure IoT Central 應用程式。 下列步驟說明如何在您的應用程式中找出裝置執行個體的連接字串：
 
 1. 在實際的連線空調裝置的 [裝置] 畫面上，選擇 [連接此裝置]：
 
     ![顯示檢視連線資訊連結的裝置頁面](media/tutorial-add-device/connectionlink.png)
 
-2. 在 [連接] 頁面上複製 [主要連接字串]，並加以儲存。 您將在本教學課程的後半段使用此值。 裝置開發人員會在執行於裝置上的用戶端應用程式中使用此值：
+2. 在 [連接] 頁面上，複製 [領域識別碼]、[裝置識別碼] 與 [主索引鍵] 並儲存。
 
-    ![連接字串值](media/tutorial-add-device/connectionstring.png)
+   ![連線詳細資料](media/tutorial-add-device/device-connect.PNG)
+
+   使用以下命令列工具來取得裝置連接字串  
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+    **使用量**
+    
+    為了建立連接字串，請在 bin/ 資料夾底下找出您的二進位檔
+    ```cmd/sh
+    dps_cstr <scope_id> <device_id> <Primary Key(for device)>
+    ```
+    深入了解[命令列工具](https://www.npmjs.com/package/dps-keygen)。
 
 ## <a name="prepare-the-client-code"></a>準備用戶端程式碼
 
-本文中的範例程式碼是以 [Node.js](https://nodejs.org/) 撰寫的，並顯示剛好足以執行下列作業的程式碼：
+此文章中的範例程式碼是以 [Node.js](https://nodejs.org/) 撰寫的，並顯示剛好足以執行下列作業的程式碼：
 
 * 以裝置連線至 Azure IoT Central 應用程式。
 * 以連線的空調裝置傳送溫度遙測資料。
@@ -130,14 +143,17 @@ ms.locfileid: "35236081"
 
 8. 將下列變數宣告新增至該檔案：
 
+ 
+
    ```javascript
    var connectionString = '{your device connection string}';
    var targetTemperature = 0;
    var client = clientFromConnectionString(connectionString);
    ```
+   
 
    > [!NOTE]
-   > 您會在稍後的步驟中更新預留位置 `{your device connection string}`。
+   > 您會在稍後的步驟中更新預留位置 `{your device connection string}`。 
 
 9. 儲存您到目前為止所做的變更，但將檔案保持為開啟。
 
@@ -248,8 +264,7 @@ ms.locfileid: "35236081"
 
 ## <a name="configure-client-code-for-the-real-device"></a>設定實際裝置的用戶端程式碼
 
-<!-- Add the connection string to the sample code, build, and run -->
-若要設定用戶端程式碼以連線至 Azure IoT Central 應用程式，您必須為您先前在本教學課程中記下的實際裝置新增連接字串。
+<!-- Add the connection string to the sample code, build, and run --> 若要設定用戶端程式碼以連線至 Azure IoT Central 應用程式，您必須新增稍早在此教學課程中記下的實際裝置連接字串。
 
 1. 在 **ConnectedAirConditioner.js** 檔案中，尋找以下這一行程式碼：
 
@@ -282,7 +297,7 @@ ms.locfileid: "35236081"
 
    ![設定已同步](media/tutorial-add-device/settingsynced.png)
 
-8. 在 [設定] 頁面上，將裝置溫度設定為 **95**，並選擇 [更新裝置]。 範例應用程式會接收並處理這項變更：
+8. 在 [設定] 頁面上，將裝置溫度設定為 **95**，並選擇 [更新裝置]。 範例應用程式會接收並處理此變更：
 
    ![接收並處理設定](media/tutorial-add-device/receivesetting.png)
 
@@ -295,7 +310,7 @@ ms.locfileid: "35236081"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="nextstepaction"]
 > * 新增實際裝置

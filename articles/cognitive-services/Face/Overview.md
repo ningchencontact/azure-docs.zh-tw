@@ -1,24 +1,24 @@
 ---
-title: 臉部 API 服務概觀 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 什麼是臉部 API 服務？
+titleSuffix: Azure Cognitive Services
 description: 此詞彙說明使用臉部 API 服務時可能遇到的字詞。
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: overview
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb1d14ff80bf53adc3008d79cc998739ffffde1b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 15de899be5ab85e9fe84ba1b6284bc9419fcf8a1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048664"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123465"
 ---
-# <a name="what-is-face-api"></a>什麼是臉部 API？
+# <a name="what-is-the-face-api-service"></a>什麼是臉部 API 服務？
 
-歡迎使用 Microsoft 臉部 API，這是提供更進階臉部演算法的雲端式服務。 臉部 API 包含兩個主要功能：使用屬性進行臉部偵測，以及臉部辨識。
+歡迎使用臉部 API 服務，這是提供更進階臉部演算法的雲端式服務。 臉部 API 包含兩個主要功能：使用屬性進行臉部偵測，以及臉部辨識。
 
 ## <a name="face-detection"></a>臉部偵測
 
@@ -71,7 +71,7 @@ ms.locfileid: "37048664"
 
 臉部儲存體可讓標準訂用帳戶在使用 LargePersonGroup/PersonGroup 人員物件 ([PersonGroup Person - Add Face (PersonGroup Person - 新增臉部)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)/[LargePersonGroup Person - Add Face (LargePersonGroup Person - 新增臉部)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)) 或 LargeFaceLists/FaceLists ([FaceList - Add Face (FaceList - 新增臉部)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)/[LargeFaceList - Add Face (LargeFaceList - 新增臉部)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)) 時儲存其他保存的臉部，以透過臉部 API 進行識別或相似度比對。 儲存影像的計費方式為每 1000 張人臉 $0.5，並會依使用天數按比例計算。 免費層訂用帳戶完全免費，但總人數僅限 1,000 名。
 
-臉部儲存體會依天數比例定價。 例如，若您的帳戶在前半個月持續每天使用 10,000 張人臉，後半個月完全未使用，您當月只需支付 10,000 張人臉的儲存天數。 或者，若您於該月期間每天保存 1,000 張人臉數小時並於每晚加以刪除，每天仍需支付所保存 1,000 張人臉的費用。
+臉部儲存體會依天數比例定價。 例如，若您的帳戶在前半個月持續每天使用 10,000 張人臉，後半個月完全未使用，您當月只需支付 10,000 張人臉的儲存天數。 或者，若您於該月期間每天保存 1,000 張人臉數小時並於每晚刪除，每天仍需支付所保存 1,000 張人臉的費用。
 
 ## <a name="getting-started-tutorials"></a>使用者入門教學課程
 

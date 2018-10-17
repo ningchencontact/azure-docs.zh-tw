@@ -1,22 +1,23 @@
 ---
-title: 從 C# 應用程式使用自訂視覺服務 - Azure 認知服務 | Microsoft Docs
-description: 探索在 Microsoft 認知服務中使用自訂視覺 API 的基本 C# 應用程式。 建立專案、新增標記、上傳影像、為您的專案定型，以及使用預設端點進行預測。
+title: 教學課程：使用 C# 建置自訂視覺服務的 Windows 應用程式
+titlesuffix: Azure Cognitive Services
+description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617429"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366636"
 ---
-# <a name="use-the-custom-vision-service-from-a-c35-application"></a>從 C&#35; 應用程式使用自訂視覺服務
+# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>教學課程：從 C# 應用程式使用自訂視覺服務
 
 了解如何從 C# 應用程式使用自訂視覺服務。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺服務 API，利用此開放原始碼範例作為範本，來建置您自己適用於 Windows 的應用程式。
 
@@ -42,7 +43,7 @@ ms.locfileid: "42617429"
 
 在 Visual Studio 中，開啟位於 SDK 專案 `Samples/CustomVision.Sample/` 目錄的專案。
 
-此應用程式會使用您稍早擷取的定型金鑰，來建立名為 __My New Project__ 的新專案。 然後上傳影像以便為分類器定型並加以測試。 分類器會識別樹是 __Hemlock__ 還是 __Japanese Cherry__。
+此應用程式會使用您稍早擷取的定型金鑰，來建立名為 __My New Project__ 的新專案。 接著，它會上傳影像以便為分類器定型並進行測試。 分類器會識別樹是 __Hemlock__ 還是 __Japanese Cherry__。
 
 下列程式碼片段會實作此範例的主要功能：
 

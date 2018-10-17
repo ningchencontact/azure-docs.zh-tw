@@ -1,21 +1,21 @@
 ---
-title: 電腦視覺快速入門摘要 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在這些快速入門中，您會在認知服務中使用「電腦視覺」，分析影像、建立縮圖，及擷取印刷文字和手寫文字。
+title: 電腦視覺快速入門摘要
+titleSuffix: Azure Cognitive Services
+description: 在這些快速入門中，您會使用電腦視覺 API，來分析影像、建立縮圖，以及擷取印刷文字和手寫文字。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 94424de3f175e82cf8490bad98f4a775761979e4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89502fe49f5eb4b9692d7ee4233c7c46d645b3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750619"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576879"
 ---
 # <a name="quickstart-summary"></a>快速入門：摘要
 

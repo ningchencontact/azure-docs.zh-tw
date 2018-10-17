@@ -1,22 +1,23 @@
 ---
-title: 電腦視覺 API Python 教學課程 | Microsoft Docs
-description: 藉由在「Microsoft 認知服務」中使用 Jupyter Notebook，了解如何將「電腦視覺 API」與 Python 搭配使用。 使用常用的程式庫以視覺方式呈現您的結果。
+title: 教學課程：電腦視覺 API Python
+titlesuffix: Azure Cognitive Services
+description: 了解如何透過使用 Jupyter Notebook，將「電腦視覺 API」與 Python 搭配使用。 使用常用的程式庫以視覺方式呈現您的結果。
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-ms.openlocfilehash: a093c2d066e70a8daf1fe1cd33ccf794ecb196af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 59e88ecb253bc6da803ddf34a4a02229b99e259d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368506"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981706"
 ---
-# <a name="computer-vision-api-python-tutorial"></a>電腦視覺 API Python 教學課程
+# <a name="tutorial-computer-vision-api-python"></a>教學課程：電腦視覺 API Python
 
 本教學課程說明如何使用以 Python 撰寫的「電腦視覺 API」，以及如何使用一些常用程式庫將您的結果以視覺化方式呈現。 使用 Jupyter 來執行教學課程。 若要了解如何開始使用互動式 Jupyter Notebook，請參考：[Jupyter 文件](http://jupyter.readthedocs.io/en/latest/index.html) \(英文\)。 
 
@@ -24,7 +25,7 @@ ms.locfileid: "35368506"
 
 1. 瀏覽至 [GitHub 中的教學課程筆記本](https://github.com/Microsoft/Cognitive-Vision-Python)。 
 2. 按一下綠色按鈕來複製或下載教學課程。 
-3. 開啟命令提示字元，然後移至 _Cognitive-Vision-Python-master\Jupyter Notebook_資料夾。 
+3. 開啟命令提示字元，然後移至 _Cognitive-Vision-Python-master\Jupyter Notebook_ 資料夾。 
 4. 從命令提示字元執行 **jupyter notebook** 命令。 這會啟動 Jupyter。
 5. 在 Jupyter 視窗中，按一下 [Computer Vision API Example.ipynb] \(電腦視覺 API Example.ipynb\) 以開啟教學課程 Notebook 
 

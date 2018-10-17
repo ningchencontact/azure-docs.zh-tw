@@ -1,28 +1,28 @@
 ---
 title: 管理 Azure Windows VM 的更新和修補程式
-description: 本文提供概觀，說明如何使用 Azure 自動化更新管理來管理 Azure Windows VM 的更新和修補程式。
+description: 此文章提供概觀，說明如何使用 Azure 自動化更新管理來管理 Azure Windows VM 的更新和修補程式。
 services: automation
 author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247363"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498516"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>使用 Azure 自動化來管理 Windows 更新
 
-您可以使用更新管理解決方案來管理虛擬機器的更新和修補程式。 在本教學課程中，您會了解如何快速評估可用更新的狀態、排程何時安裝必要的更新、檢閱部署結果，以及建立警示以確認更新已成功套用。
+您可以使用更新管理解決方案來管理虛擬機器的更新和修補程式。 在此教學課程中，您會了解如何快速評估可用更新的狀態、排程何時安裝必要的更新、檢閱部署結果，以及建立警示以確認更新已成功套用。
 
 如需價格資訊，請參閱[更新管理的自動化定價](https://azure.microsoft.com/pricing/details/automation/)。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 將 VM 上架以進行更新管理
@@ -31,9 +31,9 @@ ms.locfileid: "43247363"
 > * 排定更新部署
 > * 檢視部署的結果
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要完成本教學課程，您需要：
+若要完成此教學課程，您需要：
 
 * Azure 訂用帳戶。 如果您還沒有這類帳戶，可以[啟用 Visual Studio 訂閱者的每月 Azure 點數](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * [Azure 自動化帳戶](automation-offering-get-started.md)可保存監看員和動作 Runbook，以及監看員工作。
@@ -45,7 +45,7 @@ ms.locfileid: "43247363"
 
 ## <a name="enable-update-management"></a>啟用更新管理
 
-首先，在本教學課程中啟用 VM 的更新管理：
+首先，在此教學課程中啟用 VM 的更新管理：
 
 1. 在 Azure 入口網站的左側窗格中，選取 [虛擬機器]。 從清單中選取 VM。
 2. 在 VM 頁面的 [作業] 區段下，選取 [更新管理]。 [啟用更新管理] 頁面隨即開啟。
@@ -56,7 +56,7 @@ ms.locfileid: "43247363"
 
 驗證程序也會查看 VM 是否以 Microsoft Monitoring Agent (MMA) 和自動化混合式 Runbook 背景工作角色佈建。 此代理程式可用來與 Azure 自動化通訊，以及取得更新狀態的相關資訊。 此代理程式需要以開啟的連接埠 443 與 Azure 自動化服務通訊，以及下載更新。
 
-如果在上線期間遺漏下列任何必要條件，就會自動新增：
+如果在上線期間遺漏下列任何先決條件，就會自動新增：
 
 * [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區
 * [自動化帳戶](./automation-offering-get-started.md)
@@ -158,6 +158,8 @@ UpdateRunProgress
 
 * **作業系統**：選取要進行更新部署的目標 OS。
 
+* **要更新的群組 (預覽)**：根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建立要包含在您部署中的動態 Azure VM 群組。 若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)
+
 * **要更新的機器**：選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md)
 
 * **更新分類**：選取更新部署在部署中包含的軟體類型。 此教學課程中，將所有類型保留選取。
@@ -171,10 +173,13 @@ UpdateRunProgress
 
    如需分類類型的說明，請參閱[更新分類](automation-update-management.md#update-classifications)。
 
+* **要包含/排除的更新** - 這會開啟 [包含]/[排除] 頁面。 要包含或排除的更新會在個別的索引標籤上。 如需有關如何處理包含的額外資訊，請參閱[包含行為](automation-update-management.md#inclusion-behavior)
+
 * **排程設定**：[排程設定] 窗格隨即開啟。 預設開始時間為目前時間之後的 30 分鐘。 您可以將開始時間設為 10 分鐘以後的任何時間。
 
    您也可以指定部署是否為發生一次，或設定週期性排程。 在 [週期性] 下選取 [一次]。 將預設值保留為 1 天，然後選取 [確定]。 這樣會設定週期性的排程。
 
+* **前置指令碼 + 後置指令碼**：選取在部署前和部署後要執行的指令碼。 若要深入了解，請參閱[管理前置和後置指令碼](pre-post-scripts.md)。
 * **維護時間範圍 (分鐘)**：保留預設值。 您可以設定您希望發生更新部署的時間範圍。 此設定有助於確保在您定義的服務時段內執行變更。
 
 * **重新開機選項**：此設定會決定應該如何處理重新開機。 可用選項包括：
@@ -217,7 +222,7 @@ UpdateRunProgress
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 將 VM 上架以進行更新管理

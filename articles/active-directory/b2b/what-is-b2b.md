@@ -1,90 +1,85 @@
 ---
 title: 什麼是 Azure Active Directory B2B 共同作業？ | Microsoft Docs
-description: Azure Active Directory B2B 共同作業讓企業合作夥伴選擇性地存取您的公司應用程式，以支援公司間的關係。
+description: Azure Active Directory B2B 共同作業支援來賓使用者存取權，以便您可以安全地共用資源，並與外部夥伴共同作業。
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
-ms.date: 04/26/2018
-ms.author: twooley
-author: twooley
+ms.topic: overview
+ms.date: 09/14/2018
+ms.author: mimart
+author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: 2bc405e6356113e0423f833868c86890c0c3d5d2
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.reviewer: mal
+ms.openlocfilehash: 609f48d0c2ba41d658850ade367d9b225941b105
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259521"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982603"
 ---
-# <a name="what-is-azure-ad-b2b-collaboration"></a>什麼是 Azure AD B2B 共同作業？
+# <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>什麼是 Azure Active Directory B2B 中的來賓使用者存取權？
 
-Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業功能可讓任何使用 Azure AD 的組織 (不論規模大小)，安全地與來自任何其他組織的使用者共同作業。 這些組織不一定要具備 Azure AD，甚至不需要具有 IT 部門。
+Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您與來賓使用者和來自其他組織的外部夥伴安全地共用公司的應用程式與服務，同時持續控制貴公司的資料。 即使沒有 Azure AD 或 IT 部門，也可以安全地與外部合作夥伴 (無論大型或小型) 合作。 透過簡單的邀請和兌換程序，夥伴可以使用自己的認證來存取您的公司資源。 開發人員可以使用 Azure AD 企業對企業 API 來自訂邀請程序，或撰寫自助式註冊入口網站等應用程式。
 
-使用 Azure AD 的組織可以將文件、資源及應用程式的存取權提供給它們的合作夥伴，同時又保有其本身公司資料的完整控制權。 開發人員可以使用 Azure AD 企業對企業 API 來撰寫應用程式，以更安全的方式將兩個組織結合在一起。 還可讓使用者輕鬆地瀏覽。
+觀看影片以了解如何透過邀請來賓使用者使用自己的身分識別登入您的公司應用程式與服務，安全地與他們共同作業。
 
 下列影片提供實用的概觀。
+
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
-## <a name="key-benefits-of-azure-ad-b2b-collaboration"></a>Azure AD B2B 共同作業的主要優勢
-
-### <a name="work-with-any-user-from-any-partner"></a>可與來自任何合作夥伴的任何使用者共同作業
-
-- 合作夥伴可使用他們自己的認證
-- 合作夥伴不一定要使用 Azure AD
-- 不需要外部目錄或複雜的設定
-
-### <a name="simple-and-secure-collaboration"></a>簡單且安全的共同作業
-
-- 可提供對任何公司應用程式或資料的存取權，同時又套用精密、Azure AD 提供技術的授權原則
-- 方便使用者
-- 企業級的應用程式與資料安全性
-
-### <a name="no-management-overhead"></a>沒有任何額外的管理負荷
-
-- 不需要進行任何外部帳戶或密碼管理
-- 不需要進行任何同步處理或手動帳戶生命週期管理
-- 沒有任何額外的外部系統管理負荷
-
-## <a name="easily-add-b2b-collaboration-users"></a>輕鬆新增 B2B 共同作業使用者
-
-系統管理員可以在 [Azure 入口網站](https://portal.azure.com)中將 B2B 共同作業 (來賓) 使用者輕鬆地新增到您的組織。
-
-![新增來賓使用者](media/what-is-b2b/adding-b2b-users-admin.png)
-
-### <a name="enable-your-collaborators-to-bring-their-own-identity"></a>讓您的共同作業者使用自己的身分識別
-
-B2B 共同作業者可以使用自己選擇的身分識別來登入。 如果使用者沒有 Microsoft 帳戶或 Azure AD 帳戶 – 系統就會在他們兌換提供項目時為他們建立一個帳戶。
-
-### <a name="delegate-to-application-and-group-owners"></a>委派給應用程式和群組擁有者
-
-應用程式和群組擁有者可以將 B2B 使用者直接新增到您在意的任何應用程式，不論它是否為 Microsoft 應用程式。 系統管理員可以將新增 B2B 使用者的權限，委派給非系統管理員。 非系統管理員可以使用 [Azure AD 應用程式存取面板](https://myapps.microsoft.com)，將 B2B 共同作業使用者新增到應用程式或群組。
-
-![存取面板](media/what-is-b2b/access-panel.png)
+## <a name="collaborate-with-any-partner-using-their-identities"></a>使用他們的身分識別與任何夥伴共同作業
+使用 Azure AD B2B，夥伴可使用自己的身分識別管理解決方案，因此您的組織不會產生外部系統管理額外負荷。 
+- 夥伴使用他們自己的身分識別與認證；Azure AD 不是必需的。 
+- 您不需要管理外部帳戶或密碼。 
+- 您不需要同步處理帳戶或管理帳戶的生命週期。  
 
 ![新增成員](media/what-is-b2b/add-member.png)
 
-### <a name="authorization-policies-protect-your-corporate-content"></a>授權原則可保護您的公司內容
+## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>使用簡單的邀請與兌換程序邀請來賓使用者
+來賓使用者使用自己的公司、學校或社交身分識別登入您的應用程式與服務。 如果來賓使用者沒有 Microsoft 帳戶或 Azure AD 帳戶，系統就會在他們兌換其邀請時為他們建立一個帳戶。 
+- 使用來賓使用者選擇的電子郵件身分識別邀請他們。
+- 傳送應用程式的直接連結，或向來賓使用者本身的存取面板傳送邀請。 
+- 來賓使用者只需幾個簡單的兌換步驟即可登入。
 
-可以強制執行條件式存取原則，例如多重要素驗證：
-- 在租用戶層級
-- 在應用程式層級
-- 針對特定使用者來保護公司應用程式和資料
+![存取面板](media/what-is-b2b/consentscreen.png)
 
-### <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>使用 API 和範例程式碼來輕鬆建置要上架的應用程式
+## <a name="use-policies-to-securely-share-your-apps-and-services"></a>使用原則來安全地共用您的應用程式與服務
+您可以使用授權原則保護您的公司內容。 可以強制執行條件式存取原則，例如多重要素驗證：
+- 在租用戶層級。
+- 在應用程式層級。
+- 針對特定來賓使用者來保護公司應用程式與資料。
+
+![新增來賓使用者](media/what-is-b2b/tutorial-mfa-policy-2.png)
+
+
+## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>輕鬆地在 Azure AD 入口網站中新增來賓使用者
+
+系統管理員可以在 Azure 入口網站中輕鬆地將來賓使用者新增到您的組織。
+- 在 Azure AD 中建立新的來賓使用者，類似於加入新使用者的方式。
+- 來賓使用者會立即收到可自訂的邀請，讓他們登入存取面板。
+- 目錄中的來賓使用者可以指派至應用程式或群組。  
+
+![新增來賓使用者](media/what-is-b2b/adding-b2b-users-admin.png)
+
+## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>讓應用程式與群組擁有者管理自己的來賓使用者
+
+您可以將來賓使用者管理委派給應用程式擁有者，讓他們可以將來賓使用者直接新增到他們想要共用的任何應用程式，無論它是否為 Microsoft 應用程式。 
+ - 系統管理員可設定自助式應用程式與群組管理。
+ - 非系統管理員必須使用其[存取面板](https://myapps.microsoft.com)將來賓使用者新增到應用程式或群組。
+
+![新增來賓使用者](media/what-is-b2b/access-panel-manage-app.png)
+
+## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>使用 API 和範例程式碼來輕鬆建置要上架的應用程式
 
 讓您的外部合作夥伴以針對您組織需求量身打造的方式上線使用
-
-使用 [B2B 共同作業邀請 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) 來自訂上架體驗，包括建立自助式註冊入口網站。 我們[在 Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) 提供自助式入口網站的範例程式碼。
+- 使用 [B2B 共同作業邀請 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) 來自訂上架體驗，包括建立自助式註冊入口網站。 
+- 使用我們在 [Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) 提供自助式入口網站的範例程式碼。
 
 ![註冊入口網站](media/what-is-b2b/sign-up-portal.png)
 
-使用 Azure AD B2B 共同作業，您便可以運用 Azure AD 的完整強大功能，以使用者覺得簡單且直覺的方式來保護您的合作夥伴關係。
-
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者？](add-users-administrator.md)
-- [資訊工作者如何新增 B2B 共同作業使用者？](add-users-information-worker.md)
-- [B2B 共同作業邀請兌換](redemption-experience.md)
-- [Azure AD B2B 共同作業授權](licensing-guidance.md)
-- 一如往常，如有任何意見反應、討論及建議，請透過我們的 [Microsoft 技術社群 (英文)](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)，與產品小組聯繫。
+- [Azure AD B2B 共同作業授權指導方針](licensing-guidance.md)
+- [在入口網站中新增 B2B 共同作業來賓使用者](add-users-administrator.md)
+- [了解邀請兌換程序](redemption-experience.md)
+- 一如往常，如有任何意見反應、討論及建議，請透過我們的 [Microsoft 技術社群 ](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b) (英文) 與產品小組聯繫。

@@ -1,25 +1,27 @@
 ---
-title: 翻譯工具文字搭配 C# 取得句子長度 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 C#，了解文字中句子的長度。
+title: 快速入門：取得句子長度 - 翻譯工具文字 API、C#
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 C#，了解文字中句子的長度。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: b3e7f1099b1a7584435646fe3fae237cd458967f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4569a580dfdad3a71201e607ae5b7895d0d01099
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43750164"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364341"
 ---
 # <a name="quickstart-get-sentence-lengths-with-c35"></a>快速入門：使用 C# 取得句子長度
 
 在本快速入門中，您可以使用翻譯工具文字 API，了解文字中句子的長度。
+
+您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 

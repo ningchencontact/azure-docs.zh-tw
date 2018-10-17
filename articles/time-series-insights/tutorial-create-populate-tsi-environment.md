@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 7faec1608845d218a738c70f147f79248a549dde
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626767"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365684"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教學課程：建立 Azure 時間序列深入解析環境
 
-本教學課程將逐步引導您建立已從模擬裝置填入資料的時間序列深入解析 (TSI) 環境。 在本教學課程中，您了解如何：
+此教學課程將逐步引導您建立已從模擬裝置填入資料的時間序列深入解析 (TSI) 環境。 在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立 TSI 環境 
@@ -26,11 +26,17 @@ ms.locfileid: "39626767"
 > * 執行裝置模擬以將資料串流處理至 TSI 環境中
 > * 驗證模擬的遙測資料
 
-## <a name="prerequisites"></a>必要條件
+## <a name="video"></a>視訊： 
+
+### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>在此影片中，我們會說明如何使用「Azure IoT 解決方案加速器」來產生可用來開始使用「時間序列深入解析」的資料。</br>
+
+> [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
+
+## <a name="prerequisites"></a>先決條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。 
 
-您的 Azure 登入帳戶也必須是訂用帳戶的「擁有者」角色成員。 如需詳細資訊，請參閱[新增或變更 Azure 訂用帳戶系統管理員](/azure/billing/billing-add-change-azure-subscription-administrator)
+您的 Azure 登入帳戶也必須是訂用帳戶的「擁有者」角色成員。 如需詳細資料，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](/azure/role-based-access-control/role-assignments-portal)
 
 ## <a name="overview"></a>概觀
 
@@ -38,7 +44,7 @@ TSI 環境是收集及儲存裝置資料之處。 儲存在 TSI 環境中之後�
 
 和所有裝置一樣 (無論模擬或實體)，IoT 中樞也可作為連線點，供裝置安全地連線至 Azure 雲端並傳輸資料。 如 [TSI 概觀](time-series-insights-overview.md)中的討論，IoT 中樞也可作為事件來源，將資料串流處理至 TSI 環境中。 
 
-本教學課程也會使用 [IoT 解決方案加速器](/azure/iot-accelerators/)，以產生範例遙測資料並串流處理至 IoT 中樞。 IoT 解決方案加速器提供預先設定的企業級解決方案，可讓您加快自訂 IoT 解決方案的開發速度。 
+此教學課程也會使用 [IoT 解決方案加速器](/azure/iot-accelerators/)，以產生範例遙測資料並串流處理至 IoT 中樞。 IoT 解決方案加速器提供預先設定的企業級解決方案，可讓您加快自訂 IoT 解決方案的開發速度。 
 
 ## <a name="create-a-tsi-environment"></a>建立 TSI 環境
 
@@ -119,7 +125,7 @@ IoT 中樞提供多種可讓您與其他執行者共用功能的端點。 「事
 
    [![裝置模擬解決方案資源群組](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png#lightbox)
 
-   也請記下為該解決方案產生的 IoT 中樞資源的 [名稱]，因為您後續將會加以參照。
+   也請記下為該解決方案產生的 IoT 中樞資源的 [名稱]，因為您後續將會參照它。
 
 2. 向下捲動並選取 [端點] 頁面，然後選取 [事件] 端點。 在端點的 [屬性] 頁面上，在 $Default" 取用者群組下輸入端點的唯一名稱，然後按一下 [儲存]：
 
@@ -161,7 +167,7 @@ IoT 中樞提供多種可讓您與其他執行者共用功能的端點。 「事
 
 您可以回想在[建立裝置模擬區段](#create-a-device-simulation)時，加速器建立了數個 Azure 資源用以支援解決方案。 連同先前所討論的 IoT 中樞，也產生了 Azure App Service Web 應用程式，以建立及傳輸模擬裝置遙測資料。
 
-1. 返回您的[解決方案加速器儀表板](https://www.azureiotsolutions.com/Accelerators#dashboard)。 如有必要，請使用您在本教學課程中使用的相同 Azure 帳戶重新登入。 現在，您可以按一下「裝置模擬」解決方案下的 [啟動] 按鈕：
+1. 返回您的[解決方案加速器儀表板](https://www.azureiotsolutions.com/Accelerators#dashboard)。 如有必要，請使用您在此教學課程中使用的相同 Azure 帳戶重新登入。 現在，您可以按一下「裝置模擬」解決方案下的 [啟動] 按鈕：
 
      ![解決方案加速器儀表板](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)
 
@@ -213,7 +219,7 @@ IoT 中樞提供多種可讓您與其他執行者共用功能的端點。 「事
 
 ## <a name="clean-up-resources"></a>清除資源
 
-本教學課程建立了數個執行中的 Azure 服務，用以支援 TSI 環境和裝置模擬解決方案。 如果您想要放棄並 (或) 延遲完成本教學課程系列，建議您刪除所有資源，以避免產生不必要的成本。 
+此教學課程建立了數個執行中的 Azure 服務，用以支援 TSI 環境和裝置模擬解決方案。 如果您想要放棄並 (或) 延遲完成此教學課程系列，建議您刪除所有資源，以避免產生不必要的成本。 
 
 從 Azure 入口網站的左側功能表：
 
@@ -222,7 +228,7 @@ IoT 中樞提供多種可讓您與其他執行者共用功能的端點。 「事
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 建立 TSI 環境 

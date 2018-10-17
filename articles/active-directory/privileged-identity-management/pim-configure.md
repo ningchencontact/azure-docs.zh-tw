@@ -13,16 +13,16 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186206"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465855"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
-您可以利用 Azure Active Directory (AD) Privileged Identity Management 來管理、控制和監視組織內的存取行為。 這包括存取 Azure AD、Azure 資源 (預覽) 和其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 中的資源。
+使用 Azure Active Directory (Azure AD) Privileged Identity Management 時，您可以管理、控制及監視您組織內的存取。 這包括存取 Azure AD、Azure 資源與其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 中的資源。
 
 > [!NOTE]
 > 當您為租用戶啟用 Privileged Identity Management 時，每個與此服務互動或從此服務受益的使用者都必須具備有效 Azure AD Premium P2 或 Enterprise Mobility + Security E5 的付費或試用授權。 範例包括群組中符合下列條件的使用者：
@@ -39,11 +39,11 @@ ms.locfileid: "43186206"
 
 Azure AD Privileged Identity Management 可協助您的組織：
 
-- 查看哪些使用者已被指派特殊權限角色來管理 Azure 資源 (預覽)，以及哪些使用者在 Azure AD 中已被指派系統管理角色
-- 啟用隨選、「即時」的系統管理權限以存取 Microsoft 線上服務，如 Office 365 和 Intune，以及訂用帳戶、資源群組和個別資源 (如虛擬機器) 等 Azure 資源 (預覽) 
--   查看系統管理員啟用的記錄，包括系統管理員對 Azure 資源 (預覽) 所做變更
+- 查看哪些使用者已被指派特殊權限角色來管理 Azure 資源，以及哪些使用者在 Azure AD 中已被指派系統管理角色
+- 啟用隨選、「即時」的系統管理權限以存取 Microsoft 線上服務，如 Office 365 和 Intune，以及訂用帳戶、資源群組和個別資源 (如虛擬機器) 等 Azure 資源 
+- 查看系統管理員啟用的記錄，包括系統管理員對 Azure 資源所做變更
 - 取得系統管理員指派變更的警示
-- 需要核准才能啟用 Azure AD 特殊權限管理角色 (預覽) 
+- 需要核准才能啟用 Azure AD 特殊權限系統管理角色
 - 檢閱系統管理角色的成員資格，並要求使用者提供持續成員資格的證明
 
 在 Azure AD 中，Azure AD Privileged Identity Management 可以管理指派為內建 Azure AD 組織角色 (如全域管理員) 的使用者。 在 Azure 中，Azure AD Privileged Identity Management 可以管理透過 Azure RBAC 角色 (包括擁有者或參與者) 指派的使用者和群組。
@@ -100,17 +100,17 @@ Privileged Identity Management 支援下列案例：
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Privileged Identity Management 概觀 (進入點)
 
-Azure AD Privileged Identity Management 可支援 Azure AD 目錄角色和 Azure 資源 (預覽) 角色的管理。 Azure 資源角色與 Azure AD 中系統管理角色的功能不同。 Azure 資源角色提供針對指派的資源以及資源階層中所有從屬資源 (稱為繼承) 的細微權限。 [深入了解 RBAC、資源階層和繼承](../../role-based-access-control/role-assignments-portal.md)。 在 PIM [概觀] 進入點左側導覽功能表的 [管理] 區段下存取相應連結，即可管理適用於 Azure AD 目錄角色和 Azure 資源 (預覽) 的 PIM。
+Azure AD Privileged Identity Management 可支援 Azure AD 目錄角色與 Azure 資源角色的系統管理。 Azure 資源角色與 Azure AD 中系統管理角色的功能不同。 Azure 資源角色提供針對指派的資源以及資源階層中所有從屬資源 (稱為繼承) 的細微權限。 [深入了解 RBAC、資源階層和繼承](../../role-based-access-control/role-assignments-portal.md)。 在 PIM [概觀] 進入點左側導覽功能表的 [管理] 區段下存取相應連結，即可管理適用於 Azure AD 目錄角色與 Azure 資源的 PIM。
 
 PIM 提供方便的存取，以利啟用角色、檢視擱置的啟用/要求、擱置的核准 (適用於 Azure AD 目錄角色)，以及左側導覽功能表 [工作] 區段的待回應檢閱。
 
-從 [概觀] 進入點存取任何 [工作] 功能表項目時，產生的檢視會包含 Azure AD 目錄角色和 Azure 資源角色 (預覽) 的結果。
+從 [概觀] 進入點存取任何 [工作] 功能表項目時，產生的檢視會包含 Azure AD 目錄角色與 Azure 資源角色的結果。
 
 ![快速入門](./media/pim-configure/quick-start.png)
 
-[我的角色] 包含一份作用中和合格的角色指派清單，適用於 Azure AD 目錄角色和 Azure 資源角色 (預覽)。 [深入了解啟用合格的角色指派](pim-how-to-activate-role.md)。
+[我的角色] 包含一份作用中與合格的角色指派清單，適用於 Azure AD 目錄角色和 Azure 資源角色。 [深入了解啟用合格的角色指派](pim-how-to-activate-role.md)。
 
-啟用 Azure 資源 (預覽) 角色帶來了新的體驗，可讓合格的角色成員排程在未來日期/時間進行啟用，並可在系統管理員允許的最大範圍內選取特定的啟用持續時間。
+啟用 Azure 資源角色帶來了新的體驗，可讓合格的角色成員排程在未來日期/時間進行啟用，並可在系統管理員允許的最大範圍內選取特定的啟用持續時間。
 
 ![](./media/pim-configure/activations.png)
 
@@ -126,15 +126,15 @@ Azure AD Privileged Identity Manager 有一個管理員儀表板可提供重要�
 * 指派給每個特殊權限角色的使用者數目  
 * 合格和永久系統管理員的數目
 * 您的目錄中特殊權限角色啟用的圖表
-*   Azure 資源角色 (預覽) 的 Just-In-Time、時間繫結和永久指派數目
-*   過去 30 天內具有新角色指派的使用者和群組 (Azure 資源角色)
+* Azure 資源角色 的 Just-In-Time、時間繫結和永久指派數目
+* 過去 30 天內具有新角色指派的使用者與群組 (Azure 資源角色)
 
 
 ![PIM 儀表板 - 螢幕擷取畫面](./media/pim-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>特殊權限角色管理
 
-使用 Azure AD Privileged Identity Management，您便可透過新增或移除 Azure AD 目錄角色中每個角色的永久或合格系統管理員來管理這些系統管理員。 有了適用於 Azure 資源 (預覽) 的 PIM，擁有者、使用者存取系統管理員，和啟用其租用戶中訂用帳戶管理的全域管理員便可以將使用者或群組指派為合格的 (Just-In-Time 存取)，或具開始和結束日期/時間的時間繫結 (不需啟用) 存取，或永久的 (如果在角色設定中已啟用) Azure 資源角色。
+使用 Azure AD Privileged Identity Management，您便可透過新增或移除 Azure AD 目錄角色中每個角色的永久或合格系統管理員來管理這些系統管理員。 有了適用於 Azure 資源的 PIM，擁有者、使用者存取系統管理員，和啟用其租用戶中訂用帳戶管理的全域系統管理員便可以將使用者或群組指派為合格的 (Just-In-Time 存取)，或具開始和結束日期/時間的時間繫結 (不需啟用) 存取，或永久的 (如果在角色設定中已啟用) Azure 資源角色。
 
 ![PIM 新增/移除系統管理員 - 螢幕擷取畫面](./media/pim-configure/PIM_AddRemove.png)
 
@@ -146,13 +146,13 @@ Azure AD Privileged Identity Manager 有一個管理員儀表板可提供重要�
 * 角色啟用通知
 * 使用者在角色啟用程序期間所需提供的資訊
 * 服務票證或事件數目
-* [核准工作流程需求 - 預覽](./azure-ad-pim-approval-workflow.md)
+* [核准工作流程需求](./azure-ad-pim-approval-workflow.md)
 
 ![PIM 設定 - 系統管理員啟動 - 螢幕擷取畫面](./media/pim-configure/PIM_Settings_w_Approval_Disabled.png)
 
-請注意，此影像中已停用 [Multi-Factor Authentication]  的按鈕。 針對某些高特殊權限的角色，我們會要求使用 MFA 來增強防護。
+請注意，此影像中已停用 [Multi-Factor Authentication] 的按鈕。 針對某些高特殊權限的角色，我們會要求使用 MFA 來增強防護。
 
-Azure 資源角色 (預覽) 的角色設定允許系統管理員設定 Just-In-Time 和直接指派設定，包括：
+Azure 資源角色的角色設定允許系統管理員設定 Just-In-Time 及直接指派設定，包括：
 
 - 能夠將使用者或群組指派為沒有結束日期/時間 (永久指派) 的角色
 - 預設的指派持續時間 (非永久時)
@@ -163,7 +163,7 @@ Azure 資源角色 (預覽) 的角色設定允許系統管理員設定 Just-In-T
 
 ## <a name="role-activation"></a>角色啟用
 
-為了 [啟用角色](pim-how-to-activate-role.md)，合格系統管理員會為角色要求一個有時效性的「啟用」。 使用 Azure AD 特殊權限身分識別管理中的 [ **啟用我的角色** ] 選項，即可要求啟用。
+為了 [啟用角色](pim-how-to-activate-role.md)，合格系統管理員會為角色要求一個有時效性的「啟用」。 使用 Azure AD 特殊權限身分識別管理中的 [啟用我的角色] 選項，即可要求啟用。
 
 想要啟用角色的管理員必須在 Azure 入口網站中初始化 Azure AD Privileged Identity Management。
 
@@ -173,11 +173,11 @@ Azure 資源角色 (預覽) 的角色設定允許系統管理員設定 Just-In-T
 
 ## <a name="review-role-activity"></a>檢閱角色活動
 
-有兩種方式可以追蹤您的員工和系統管理員使用特殊權限角色的情況。 第一個選項是使用[目錄角色稽核歷程](pim-how-to-use-audit-log.md)。 稽核歷程記錄會追蹤特殊權限角色指派、角色啟用記錄的變更，以及 Azure 資源角色 (預覽) 設定的變更。 
+有兩種方式可以追蹤您的員工和系統管理員使用特殊權限角色的情況。 第一個選項是使用[目錄角色稽核歷程](pim-how-to-use-audit-log.md)。 稽核歷程記錄會追蹤特殊權限角色指派、角色啟用記錄的變更，以及 Azure 資源角色設定的變更。 
 
 ![PIM 啟動歷程記錄 - 螢幕擷取畫面](./media/pim-configure/PIM_ActivationHistory.png)
 
-第二個選項是設定標準 [存取檢閱](pim-how-to-start-security-review.md)。 這些存取檢閱可以由指派的檢閱者 (例如團隊經理) 來執行或者員工可以檢閱自己。 如此來監視誰仍需要或不再需要存取是最佳的方式。
+第二個選項是設定標準[存取檢閱](pim-how-to-start-security-review.md)。 這些存取檢閱可以由指派的檢閱者 (例如團隊經理) 來執行或者員工可以檢閱自己。 如此來監視誰仍需要或不再需要存取是最佳的方式。
 
 ## <a name="azure-ad-pim-at-subscription-expiration"></a>訂用帳戶過期時的 Azure AD PIM
 

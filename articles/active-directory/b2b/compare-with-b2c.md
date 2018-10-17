@@ -4,22 +4,28 @@ description: Azure Active Directory B2B 共同作業和 Azure AD B2C 有何不�
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: overview
 ms.date: 03/15/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b59dba541394c105370cfd3af0768a8477ddb4e6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 42fbb8b08a2dc24ced436c4a6104f03ae3bca1e9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347697"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982805"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>比較 Azure Active Directory 的 B2B 共同作業和 B2C
 
 Azure Active Directory (Azure AD) B2B 共同作業和 Azure AD B2C 皆可讓您在 Azure AD 中使用外部使用者進行操作。 但它們究竟差在哪兒？
+
+**Azure AD B2B** 適用於希望與外部使用者安全地共用檔案及資源，以便他們可以共同作業的企業。 Azure 系統管理員會在 Azure 入口網站中設定 B2B，而 Azure AD 會處理您的企業與外部夥伴之間的同盟。 使用者透過他們的公司或學校帳戶，或任何電子郵件帳戶，使用簡單的邀請與兌換程序登入共用資源。
+ 
+**Azure AD B2C** 主要適用於建立客戶面向之應用程式的開發人員。 使用 Azure AD B2C，開發人員可以將 Azure AD 作為完整的身分識別系統，同時讓客戶使用他們已經建立的身分識別 (例如 Facebook 或 Gmail) 登入。
+
+下表提供詳細的比較。
 
 
 B2B 共同作業 |     Azure AD B2C 獨立供應項目

@@ -1,19 +1,21 @@
 ---
-title: 快速入門：使用 Ruby 來呼叫 Bing Web 搜尋 API
+title: 快速入門：使用 Ruby 執行搜尋 - Bing Web 搜尋 API
+titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將學習如何使用 Ruby 來第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: a60bf0ef12272be3b224fdbf9f9819057fe4aa55
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e1819be51c339b302dbc1181e2a8f998170b2413
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888700"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127052"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>快速入門：使用 Ruby 來呼叫 Bing Web 搜尋 API  
 
@@ -21,7 +23,7 @@ ms.locfileid: "42888700"
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 以下是執行本快速入門之前的幾個必備項目：
 
@@ -134,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="sample-response"></a>範例回應
 
-來自 Bing Web 搜尋 API 的回應會以 JSON 格式傳回。 本範例回應已截斷而只顯示單一結果。
+來自 Bing Web 搜尋 API 的回應會以 JSON 格式傳回。 此範例回應已截斷而只顯示單一結果。
 
 ```json
 {

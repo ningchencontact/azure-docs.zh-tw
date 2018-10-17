@@ -1,30 +1,31 @@
 ---
-title: 電腦視覺 API JavaScript 教學課程 | Microsoft Docs
-description: 探索使用「Microsoft 認知服務」中「電腦視覺 API」的基本 JavaScript 應用程式。 在影像中執行 OCR、建立縮圖，以及處理視覺特徵。
+title: 教學課程：電腦視覺 API JavaScript
+titlesuffix: Azure Cognitive Services
+description: 探索使用「Azure 認知服務」中「電腦視覺 API」的基本 JavaScript 應用程式。 在影像中執行 OCR、建立縮圖，以及處理視覺特徵。
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 89bdc0524e07c1cb6a1473e0a52791fe20271e06
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368195"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984919"
 ---
-# <a name="computer-vision-api-javascript-tutorial"></a>電腦視覺 API JavaScript 教學課程
+# <a name="tutorial-computer-vision-api-javascript"></a>教學課程：電腦視覺 API JavaScript
 
-本教學課程將說明「Microsoft 認知服務電腦視覺 REST API」的功能。
+此教學課程將說明「Azure 認知服務電腦視覺 REST API」的功能。
 
 探索使用「電腦視覺 REST API」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的 JavaScript 應用程式。 此範例可讓您提交影像 URL 以供分析或處理。 您可以使用此開放原始碼範例作為範本來以 JavaScript 建置自己的應用程式，以使用「電腦視覺 REST API」。
 
 已經撰寫 JavaScript 表單應用程式，但還沒有任何「電腦視覺」功能。 在本教學課程中，您會新增「電腦視覺 REST API」特定的程式碼以完成應用程式的功能。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="platform-requirements"></a>平台需求
 
@@ -32,7 +33,7 @@ ms.locfileid: "35368195"
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>訂閱電腦視覺 API 並取得訂用帳戶金鑰 
 
-建立範例之前，您必須先訂閱「電腦視覺 API」，這是「Microsoft 認知服務」的組件。 如需訂用帳戶和金鑰管理詳細資料，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 在本教學課程中，主要金鑰和次要金鑰都是有可用的有效金鑰。 
+建立範例之前，您必須先訂閱「電腦視覺 API」，這是「Azure 認知服務」的組件。 如需訂用帳戶和金鑰管理詳細資料，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 在本教學課程中，主要金鑰和次要金鑰都是有可用的有效金鑰。 
 
 ## <a name="download-the-tutorial-project"></a>下載教學課程專案
 

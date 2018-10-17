@@ -1,27 +1,27 @@
 ---
-title: 臉部 API Python 教學課程 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 了解如何搭配 Python SDK 使用臉部 API 來偵測認知服務影像中的人臉。
+title: 教學課程：偵測並框出影像中的人臉 - 臉部 API、Python
+titleSuffix: Azure Cognitive Services
+description: 了解如何搭配 Python SDK 使用臉部 API 來偵測影像中的人臉。
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 90d74d8df2ed59e6f3313ef7c620284d1022a667
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049106"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127732"
 ---
-# <a name="getting-started-with-face-api-in-python-tutorial"></a>在 Python 中開始使用臉部 API 教學課程
+# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>教學課程：使用臉部 API 和 Python 偵測並框出人臉 
 
 在本教學課程中，您將了解如何透過 Python SDK 叫用臉部 API 來偵測影像中的人類。
 
-## <a name="prerequisites"></a> 必要條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用教學課程，您必須執行下列動作：
 
@@ -35,7 +35,7 @@ pip install cognitive_face
 
 - 取得 Microsoft 認知服務的[訂用帳戶金鑰](https://azure.microsoft.com/try/cognitive-services/)。 您可以在本教學課程中使用主要或次要金鑰 (請注意，若要使用任何臉部 API，您必須擁有有效的訂用帳戶金鑰)。
 
-## <a name="sdk-example"></a> 偵測影像中的臉部
+## <a name="detect-a-face-in-an-image"></a>偵測影像中的人臉
 
 ```python
 import cognitive_face as CF
@@ -93,7 +93,7 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a> 進一步探索
+## <a name="further-exploration"></a>進一步探索
 
 為了協助您進一步探索臉部 API，本教學課程提供 GUI 範例。 若要執行它，請先安裝 [wxPython](https://wxpython.org/pages/downloads/)，然後執行下列命令。
 
@@ -103,11 +103,11 @@ cd Cognitive-Face-Python
 python sample
 ```
 
-## <a name="summary"></a> 摘要
+## <a name="summary"></a>總結
 
 在本教學課程中，您已了解透過叫用 Python SDK 使用臉部 API 的基本程序。 如需 API 詳細資料的詳細資訊，請參閱操作說明和 [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (API 參考)。
 
-## <a name="related"></a> 相關主題
+## <a name="related-topics"></a>相關主題
 
 - [在 CSharp 中開始使用臉部 API](FaceAPIinCSharpTutorial.md)
 - [在適用於 Android 的 Java 中開始使用臉部 API](FaceAPIinJavaForAndroidTutorial.md)

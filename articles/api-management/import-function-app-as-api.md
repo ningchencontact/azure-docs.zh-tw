@@ -1,6 +1,6 @@
 ---
 title: 在 Azure API 管理中匯入 Azure 函式應用程式作為 API | Microsoft Docs
-description: 本教學課程說明如何將 Azure 函式應用程式匯入至 Azure API 管理作為 API。
+description: 此教學課程說明如何將 Azure 函式應用程式匯入至 Azure API 管理作為 API。
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246810"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129755"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>在 Azure API 管理中匯入 Azure 函式應用程式作為 API
 
 Azure API 管理支援將 Azure 函式應用程式匯入為新的 API，或將其附加至現有的 API。 此程序會在 Azure 函式應用程式中自動產生主機金鑰，而此金鑰接著會指派給 Azure API 管理中的具名值。
 
-本文將逐步說明如何在 Azure API 管理中匯入 Azure 函式應用程式作為 API。 此外也會說明其測試程序。
+此文章將逐步說明如何在 Azure API 管理中匯入 Azure 函式應用程式作為 API。 此外也會說明其測試程序。
 
 您將了解如何：
 
@@ -35,7 +35,7 @@ Azure API 管理支援將 Azure 函式應用程式匯入為新的 API，或將�
 > * 在 Azure 入口網站中測試 API
 > * 在開發人員入口網站中測試 API
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 完成[建立 Azure API 管理執行個體](get-started-create-service-instance.md)快速入門。
 * 確定您的訂用帳戶中有 Azure Functions 應用程式。 如需詳細資訊，請參閱[建立 Azure 函式應用程式](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)。 其中必須包含具有 HTTP 觸發程序的函式，且授權層級設定必須設為 [匿名] 或 [函式]。
@@ -71,9 +71,11 @@ Azure API 管理支援將 Azure 函式應用程式匯入為新的 API，或將�
     > [!NOTE]
     > 您只能匯入設有 HTTP 觸發程序、且授權層級設定設為 [匿名] 或 [函式] 的函式。
 
-7. 視需要編輯預先填入的欄位。 按一下頁面底部的 [新增] 。
+7. 切換至 [完整] 檢視，然後將 [產品] 指派給您的新 API。 視需要編輯其他預先填入的欄位。
 
     ![從函式應用程式新增](./media/import-function-app-as-api/add-06.png)
+
+8. 按一下頁面底部的 [新增] 。
 
 ## <a name="append-azure-function-app-to-api"></a>將 Azure 函式應用程式附加至現有的 API
 

@@ -1,21 +1,23 @@
 ---
-title: 文章個人化 - Azure 認知服務 | Microsoft Docs
-description: 本教學課程說明如何透過 Azure 自訂決策服務進行文章個人化，自訂決策服務是一種雲端式 API，用於處理內容相關的決策制定。
+title: 教學課程：文章個人化 - 自訂決策服務
+titlesuffix: Azure Cognitive Services
+description: 內容相關決策制訂的文章個人化教學課程。
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 35d0567f81a23d4726461059eb6fd31e04228697
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369979"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366330"
 ---
-# <a name="article-personalization"></a>文章個人化
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>教學課程：內容相關決策制訂的文章個人化教學課程
 
 本教學課程著重於網站首頁上精選文章的個人化。 例如，自訂決策服務會影響首頁上多個清單。 假設該頁面是僅提供政治和體育消息的新聞網站， 網站上會顯示三種等級的文章清單：政治、體育和最新消息。
 

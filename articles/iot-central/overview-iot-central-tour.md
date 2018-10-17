@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11112e01e38f85db9f71280c53c27b130275d86f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629366"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498261"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>開始導覽 Azure IoT 中心 UI
 
-本文為您介紹 Microsoft Azure IoT 中心 UI。 您可以使用此 UI 來建立、管理和使用 Azure IoT 中心解決方案及其連線的裝置。
+此文章為您介紹 Microsoft Azure IoT 中心 UI。 您可以使用此 UI 來建立、管理和使用 Azure IoT 中心解決方案及其連線的裝置。
 
 「建置者」可使用 Azure IoT 中心 UI 來定義 Azure IoT 中心解決方案。 您可以使用 UI：
 
@@ -39,7 +39,7 @@ ms.locfileid: "34629366"
 
 | 功能表 | 說明 |
 | ---- | ----------- |
-| ![左側導覽功能表](media/overview-iot-central-tour/navigationbar.png) | <ul><li>[首頁] 按鈕會顯示您應用程式的首頁。 建置者可以為操作員自訂此首頁。</li><li>[裝置總管] 按鈕可列出您應用程式中定義的裝置範本，以及與每個裝置範本相關聯的模擬和實際裝置。 操作員可使用 [裝置總管] 來管理已連線的裝置。</li><li>[裝置集合] 按鈕可讓您檢視和建立裝置集合。 操作員可以建立裝置集合，作為查詢所指定的裝置邏輯集合。</li><li>[分析] 按鈕可針對裝置和裝置集合，顯示衍生自裝置遙測的分析。 操作員可以根據裝置資料建立自訂檢視，以從您的應用程式衍生見解。</li><li>[應用程式建置者] 按鈕可顯示建置者所使用的工具，例如 [建立裝置範本] 工具。</li><li>[系統管理] 按鈕可顯示應用程式系統管理頁面，讓管理員可以管理應用程式設定、使用者和角色。</li></ul> |
+| ![左側導覽功能表](media/overview-iot-central-tour/navigationbar.png) | <ul><li>[首頁] 按鈕會顯示您應用程式的首頁。 建置者可以為操作員自訂此首頁。</li><li>[裝置總管] 按鈕可列出您應用程式中定義的裝置範本，以及與每個裝置範本相關聯的模擬和實際裝置。 操作員可使用 [裝置總管] 來管理已連線的裝置。</li><li>[裝置集合] 按鈕可讓您檢視和建立裝置集合。 操作員可以建立裝置集合，作為查詢所指定的裝置邏輯集合。</li><li>[分析] 按鈕可針對裝置和裝置集合，顯示衍生自裝置遙測的分析。 操作員可以根據裝置資料建立自訂檢視，以從您的應用程式衍生見解。</li><li>[作業] 按鈕可透過讓您建立及執行作業來執行大規模更新，以啟用大量服務管理。</li><li>[應用程式建置者] 按鈕可顯示建置者所使用的工具，例如 [建立裝置範本] 工具。</li><li>[系統管理] 按鈕可顯示應用程式系統管理頁面，讓管理員可以管理應用程式設定、使用者和角色。</li></ul> |
 
 ## <a name="search-help-and-support"></a>搜尋、說明及支援
 
@@ -81,6 +81,12 @@ ms.locfileid: "34629366"
 ![分析頁面](media/overview-iot-central-tour/analytics.png)
 
 分析頁面會顯示圖表，協助您了解連線到您應用程式的裝置行為。 操作員可使用此頁面來監視及調查已連線裝置的問題。 建置者可以定義在此頁面上顯示的圖表。 若要深入了解，請參閱[為 Azure IoT 中心應用程式建立自訂分析](howto-create-analytics.md)。
+
+## <a name="jobs"></a>工作
+
+![[工作] 頁面](media/overview-iot-central-tour/jobs.png)
+
+作業頁面可讓您在您的裝置上執行大量裝置管理作業。 建置者使用此頁面來更新裝置內容、設定與命令。 若要深入了解，請參閱[執行作業](howto-run-a-job.md)一文。
 
 ## <a name="application-builder"></a>應用程式建置者
 

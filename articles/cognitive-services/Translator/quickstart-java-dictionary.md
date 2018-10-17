@@ -1,21 +1,21 @@
 ---
-title: 翻譯工具文字搭配 Java 尋找替代的翻譯 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Java，為內容中的字詞尋找替代的翻譯和範例。
+title: 快速入門：尋找替代的翻譯 - 翻譯工具文字、Java
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Java，為內容中的字詞尋找替代的翻譯與範例。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 0abb9c1a39b8183730bacde285eff05607754191
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c0e7fc3d51772df40bd5da7c762c15c40ad5744f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750231"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127069"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-java"></a>快速入門：使用 Java 尋找替代的翻譯和使用方式
 

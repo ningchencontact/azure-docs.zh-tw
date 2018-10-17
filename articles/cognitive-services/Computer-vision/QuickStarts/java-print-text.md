@@ -1,65 +1,65 @@
 ---
-title: 電腦視覺 API Java 快速入門 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您會在認知服務中使用電腦視覺與 Java，擷取影像中的印刷文字。
+title: 快速入門：擷取印刷文字 (OCR) - REST、Java - 電腦視覺
+titleSuffix: Azure Cognitive Services
+description: 在本快速入門中，您將搭配使用電腦視覺 API 與 Java 來擷取影像中的印刷文字。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: a03652ab019730032ea02cfdc3ebc477379f8d03
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a0b5967e8796f494e14dde3728c785191c2882d5
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750374"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632495"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-java"></a>快速入門：擷取印刷文字 (OCR) - REST、Java
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Java 擷取印刷文字 (OCR)
 
-在本快速入門中，您會使用「電腦視覺」來擷取影像中的印刷文字，也稱為光學字元辨識 (OCR)。
+在本快速入門中，您將使用電腦視覺的 REST API，利用光學字元辨識 (OCR) 來擷取影像中的印刷文字。 使用 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) \(英文\) 方法，您可以偵測影像中的印刷文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 
-## <a name="prerequisites"></a>必要條件
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)。
 
-若要使用「電腦視覺」，您需要訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+## <a name="prerequisites"></a>先決條件
 
-## <a name="ocr-request"></a>OCR 要求
+- 您必須安裝 [Java&trade; Platform, Standard Edition Development Kit 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 或 8)。
+- 您必須擁有適用於電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
 
-您可以使用 [OCR 方法](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) (英文)，偵測影像中的印刷文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
+## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 
-若要執行範例，請執行下列步驟：
+若要建立並執行範例，請執行下列步驟：
 
-1. 建立新的命令列應用程式。
-1. 以下列程式碼取代主要類別 (保留任何 `package` 陳述式)。
-1. 將 `<Subscription Key>` 取代為您的有效訂用帳戶金鑰。
-1. 必要時，將 `uriBase` 值變更為您取得訂用帳戶金鑰的位置。
-1. (選擇性) 將 `imageToAnalyze` 值變更為其他影像。
-1. 將 Maven 存放庫中的這些程式庫，下載到您專案中的 `lib` 目錄：
-   * `org.apache.httpcomponents:httpclient:4.5.5`
-   * `org.apache.httpcomponents:httpcore:4.4.9`
-   * `org.json:json:20180130`
-1. 執行 'Main'。
+1. 在您最愛的 IDE 或編輯器中建立新的 Java 專案。 如果可使用此選項，請從命令列應用程式範本建立 Java 專案。
+1. 將下列程式庫匯入到您的 Java 專案中。 如果您使用 Maven，則會針對每個程式庫提供 Maven 座標。
+   - [Apache HTTP 用戶端](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
+   - [Apache HTTP 核心](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
+   - [JSON 程式庫](https://github.com/stleary/JSON-java) (org.json:json:20180130)
+1. 將下列 `import` 陳述式新增至您專案適用的 `Main` 公用類別所在的檔案。  
+
+   ```java
+   import java.net.URI;
+   import org.apache.http.HttpEntity;
+   import org.apache.http.HttpResponse;
+   import org.apache.http.client.methods.HttpPost;
+   import org.apache.http.entity.StringEntity;
+   import org.apache.http.client.utils.URIBuilder;
+   import org.apache.http.impl.client.CloseableHttpClient;
+   import org.apache.http.impl.client.HttpClientBuilder;
+   import org.apache.http.util.EntityUtils;
+   import org.json.JSONObject;
+   ```
+
+1. 將 `Main` 公用類別取代為下列程式碼，然後視需要在程式碼中進行下列變更：
+   1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
+   1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) \(英文\) 方法的端點 URL。
+   1. (選擇性) 將 `imageToAnalyze` 的值取代為您要從中擷取印刷文字之不同影像的 URL。
+1. 儲存，然後建置 Java 專案。
+1. 如果您使用 IDE，請執行 `Main`。 否則，請開啟命令提示字元視窗，然後使用 `java` 命令執行已編譯的類別。 例如： `java Main`。
 
 ```java
-// This sample uses the following libraries:
-//  - Apache HTTP client (org.apache.httpcomponents:httpclient:4.5.5)
-//  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
-//  - JSON library (org.json:json:20180130).
-
-import java.net.URI;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-
 public class Main {
     // **********************************************
     // *** Update or verify the following values. ***
@@ -68,12 +68,14 @@ public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // You must use the same region in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URI below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
     //
-    // Free trial subscription keys are generated in the westcentralus region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     private static final String uriBase =
             "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr";
 
@@ -103,7 +105,7 @@ public class Main {
                     new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
-            // Make the REST API call and get the response entity.
+            // Call the REST API method and get the response entity.
             HttpResponse response = httpClient.execute(request);
             HttpEntity entity = response.getEntity();
 
@@ -122,11 +124,9 @@ public class Main {
 }
 ```
 
-## <a name="ocr-response"></a>OCR 回應
+## <a name="examine-the-response"></a>檢查回應
 
-成功的回應會以 JSON 的形式傳回。 OCR 結果包含偵測到的區域、線條和文字的文字、週框方塊。
-
-程式應該會產生類似下列 JSON 的輸出：
+成功的回應會以 JSON 的形式傳回。 範例應用程式會在主控台視窗中剖析並顯示成功的回應，如下列範例所示：
 
 ```json
 REST Response:
@@ -217,9 +217,13 @@ REST Response:
 }
 ```
 
+## <a name="clean-up-resources"></a>清除資源
+
+不再需要 Java 專案時請將它刪除，包括已編譯的類別與匯入的程式庫。
+
 ## <a name="next-steps"></a>後續步驟
 
-探索使用「電腦視覺」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的 Java Swing 應用程式。 若要快速地試驗「電腦視覺 API」，請嘗試 [Open API 測試主控台](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) (英文)。
+探索使用「電腦視覺」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的 Java Swing 應用程式。 若要快速地試驗電腦視覺 API，請嘗試使用 [Open API 測試主控台](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) \(英文\)。
 
 > [!div class="nextstepaction"]
 > [電腦視覺 API Java 教學課程](../Tutorials/java-tutorial.md)

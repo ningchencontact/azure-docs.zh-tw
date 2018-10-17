@@ -1,22 +1,23 @@
 ---
-title: 開始使用實體連結 API | Microsoft Docs
-description: 在認知服務中使用實體連結 API 來分析文字，並將具名實體連結到知識庫中的相關項目。
+title: 教學課程：建置實體連結應用程式 - C#
+titlesuffix: Azure Cognitive Services
+description: 使用實體連結 API 來分析文字，並將具名實體連結到知識庫中的相關項目。
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 54c4a3bbb3637c248bd7705ed291633368b542c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368102"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365633"
 ---
-# <a name="get-started-with-entity-linking-api-in-c35"></a>開始在 C&#35; 中使用連結實體 API
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>教學課程：使用 C# 建置實體連結應用程式
 
 Microsoft 實體連結是自然語言處理工具，可用來分析文字並將具名實體連結至知識庫中的相關項目。 
 
@@ -49,7 +50,7 @@ Microsoft 實體連結是自然語言處理工具，可用來分析文字並將�
 
 接下來，搜尋 Newtonsoft.Json 並安裝。 如果出現要求您檢閱變更的提示，請按一下 [確定]。 如果出現實體連結的授權條款，請按一下 [我接受]。
 
-實體連結現在已安裝為應用程式的一部分。 您可以透過檢查 **Microsoft.ProjectOxford.EntityLinking** 參考是否已顯示為 [方案總管] 中專案的一部份來加以確認。
+實體連結現在已安裝為應用程式的一部分。 您可以透過檢查 **Microsoft.ProjectOxford.EntityLinking** 參考是否已顯示為 [方案總管] 中專案的一部分來確認。
 
  ![專案中已包含 nuget 程式庫](./Images/NugetLibraryInProject.png)
  

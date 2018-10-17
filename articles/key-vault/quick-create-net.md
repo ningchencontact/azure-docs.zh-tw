@@ -6,26 +6,26 @@ author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a9ae1fb3243c31eb92231320c5ced93d80301a0d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917429"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604173"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>快速入門：使用 .NET Web 應用程式從 Azure Key Vault 設定及擷取祕密
 
-在本快速入門中，您將執行讓 Azure Web 應用程式使用受控服務識別從 Azure Key Vault 讀取資訊所需的步驟。 您會了解如何：
+在此快速入門中，您將執行讓 Azure Web 應用程式使用 Azure 資源的受控識別從 Azure Key Vault 讀取資訊所需的步驟。 您會了解如何：
 
 > [!div class="checklist"]
 > * 建立金鑰保存庫。
 > * 將秘密儲存在金鑰保存庫中。
 > * 從金鑰保存庫擷取祕密。
 > * 建立 Azure Web 應用程式。
-> * [啟用受控服務識別](../active-directory/managed-service-identity/overview.md)。
+> * 啟用 Web 應用程式的[受控識別](../active-directory/managed-identities-azure-resources/overview.md)。
 > * 授與 Web 應用程式從金鑰保存庫讀取資料所需的權限。
 
 在我們繼續之前，請閱讀[基本概念](key-vault-whatis.md#basic-concepts)。
@@ -33,7 +33,7 @@ ms.locfileid: "42917429"
 >[!NOTE]
 >Key Vault 是一個中央存放庫，可透過程式設計方式儲存秘密。 但若要這樣做，應用程式和使用者必須要先向 Key Vault 進行驗證，也就是出具祕密。 為了遵循安全性最佳做法，第一個秘密必須要定期輪替。 
 >
->透過[受控服務識別](../active-directory/managed-service-identity/overview.md)，在 Azure 中執行的應用程式將會獲得一個由 Azure 自動管理的身分識別。 這有助於解決*祕密導入問題*，如此，使用者和應用程式即可遵循最佳做法，且不需要擔心輪替第一個祕密的問題。
+>使用 [Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/overview.md)時，在 Azure 中執行的應用程式將會獲得一個由 Azure 自動管理的身分識別。 這有助於解決*祕密導入問題*，如此，使用者和應用程式即可遵循最佳做法，且不需要擔心輪替第一個祕密的問題。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -71,7 +71,7 @@ az login
 az group create --name "<YourResourceGroupName>" --location "East US"
 ```
 
-本文將一律使用您剛才建立的資源群組。
+此文章將一律使用您剛才建立的資源群組。
 
 ## <a name="create-a-key-vault"></a>建立金鑰保存庫
 
@@ -139,9 +139,9 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 
 >[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
 
-## <a name="enable-managed-service-identities"></a>啟用受控服務識別
+## <a name="enable-a-managed-identity-for-the-web-app"></a>啟用 Web 應用程式的受控識別
 
-Azure Key Vault 可安全地儲存認證和其他金鑰及祕密，但是您的程式碼必須向 Azure Key Vault 進行驗證，才可擷取這些項目。 受控服務識別可以輕易地解決此問題，因為 MSI 可在 Azure Active Directory (Azure AD) 中將自動受控識別提供給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
+Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 [Azure 資源受控識別概觀](../active-directory/managed-identities-azure-resources/overview.md)可在 Azure Active Directory (Azure AD) 中將受控識別自動提供給 Azure 服務，而降低解決此問題的難度。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
 
 1. 返回 Azure CLI。
 2. 執行 assign-identity 命令來建立此應用程式的識別：
@@ -151,7 +151,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及祕密，但是您的�
    ```
 
 >[!NOTE]
->此程序中的命令等同於前往入口網站，並在 Web 應用程式屬性中將 [受控服務識別] 切換為 [開啟]。
+>此程式中的命令等同於前往入口網站，並在 Web 應用程式屬性中將 [身分識別/系統指派] 設定切換為 [開啟]。
 
 ## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>將權限指派給您的應用程式，以便從 Key Vault 讀取秘密
 
@@ -167,11 +167,11 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及祕密，但是您的�
 
 ```azurecli
 
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
 
 ```
 
-現在當您執行應用程式時，您應該會看到擷取的秘密值。
+現在當您執行應用程式時，您應該會看到擷取的秘密值。 在上面的命令中，您會被賦予 App Service 的身分識別 (MSI) 權限以在您的 Key Vault 上執行**取得**與**列出**作業
 
 ## <a name="next-steps"></a>後續步驟
 

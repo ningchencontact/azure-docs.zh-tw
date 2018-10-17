@@ -1,22 +1,23 @@
 ---
-title: 使用 Python 和自訂視覺 API 進行物件偵測 - Azure 認知服務 | Microsoft Docs
-description: 探索使用 Microsoft 認知服務中自訂視覺 API 的基本 Windows 應用程式。 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
+title: 教學課程：建立物件偵測專案 - 自訂視覺 API、Python
+titlesuffix: Azure Cognitive Services
+description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213576"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363695"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>使用 Python 利用自訂視覺 API 來建置物件偵測專案
+# <a name="tutorial-build-an-object-detection-project-with-python"></a>教學課程：使用 Python 建置物件偵測專案
 
 探索使用電腦視覺 API 來建立物件偵測專案的基本 Python 指令碼。 建立它之後，您就可以新增標記的區域、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置自己的應用程式。
 

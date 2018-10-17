@@ -1,25 +1,25 @@
 ---
-title: 翻譯工具文字搭配 Go 取得支援的語言 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以取得使用認知服務的翻譯工具文字 API 搭配 Go 來翻譯、音譯及查閱字典時，所支援的語言清單及範例。
+title: 快速入門：取得支援的語言 - 翻譯工具文字、Go
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以取得搭配 Go 使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 91ba39f072d97a87250a2d6284df8571905c1b0f
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 6f8725c834e4417321722f7d49e09765e19a3b6d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43750258"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127766"
 ---
 # <a name="quickstart-get-supported-languages-with-go"></a>快速入門：使用 Go 取得支援的語言
 
-在本快速入門中，您可以取得使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單及範例。
+在本快速入門中，您可以取得使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "43750258"
 
 ## <a name="languages-request"></a>Languages 要求
 
-下列程式碼會使用 [Languages](./reference/v3-0-languages.md) 方法取得在翻譯、音譯及查詢字典時，所支援的語言清單及範例。
+下列程式碼會使用 [Languages](./reference/v3-0-languages.md) 方法取得在翻譯、音譯及查詢字典時，所支援的語言清單與範例。
 
 1. 在您慣用的程式碼編輯器中，建立新的 Go 專案。
 2. 新增下方提供的程式碼。

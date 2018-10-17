@@ -1,116 +1,91 @@
 ---
-title: 快速入門：在 Python 中使用 SDK 來要求和篩選影像
-description: 在本快速入門中，您可以使用 Python 來要求和篩選 Bing 影像搜尋所傳回的影像。
-titleSuffix: Azure Image Search SDK Python quickstart
+title: 快速入門：使用適用於 Python 的 Bing 影像搜尋 SDK 來搜尋影像
+titleSuffix: Azure Cognitive Services
+description: Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以透過此快速入門，完成初次使用此 SDK 進行的影像搜尋。 這個簡單的 Python 應用程式會傳送影像搜尋查詢、剖析 JSON 回應，以及顯示第一個傳回影像的 URL。
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 02/14/2018
-ms.author: v-gedod
-ms.openlocfilehash: 4729f103bb9b50d4ff039907db8eb677f3dc290a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.topic: quickstart
+ms.date: 08/28/2018
+ms.author: aahi
+ms.openlocfilehash: 7afe19cf0167784a5c8b3e2751ec869a2664935d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42093802"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296612"
 ---
- # <a name="quickstart-request-and-filter-images-using-the-sdk-and-python"></a>快速入門：使用 SDK 和 Python 來要求和篩選影像
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>快速入門：使用 Bing 影像搜尋 SDK 和 Python 來搜尋影像
 
-Bing 影像搜尋 SDK 包含用於 Web 查詢以及剖析結果的 REST API 功能。 
+Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以透過此快速入門，完成初次使用此 SDK 進行的影像搜尋。 這個簡單的 Python 應用程式會傳送影像搜尋查詢、剖析 JSON 回應，以及顯示第一個傳回影像的 URL。
 
-[Python Bing 影像搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py)可從 Git Hub 取得。
+此範例的原始程式碼可從 [Github](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) 取得，其中含有其他錯誤處理和註釋。
 
-## <a name="application-dependencies"></a>應用程式相依性
-若還沒有 Python，請安裝。 SDK 可與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。
+## <a name="prerequisites"></a>先決條件
 
-Python 開發的一般建議是使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv)來安裝和初始化虛擬環境。 您必須安裝適用於 Python 2.7 的 virtualenv。
-```
-python -m venv mytestenv
-```
-安裝 Bing 影像搜尋 SDK 相依性：
-```
-cd mytestenv
-python -m pip install azure-cognitiveservices-search-imagesearch
-```
-## <a name="image-search-client"></a>影像搜尋用戶端
-在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。 新增匯入：
-```
-from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
-from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule
-from msrest.authentication import CognitiveServicesCredentials
+* [Python 2.7 或 3.4](https://www.python.org/) 和更新版本。
 
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-```
-建立 `CognitiveServicesCredentials` 的執行個體，並具現化用戶端：
-```
-client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
-```
-搜尋查詢 (約塞美提溪谷) 的影像，並篩選出動畫 gif 和寬型外觀。 驗證結果數目，然後列印出第一個結果的 insightsToken、縮圖 URL 和 Web URL。
-```
-image_results = client.images.search(
-        query="Yosemite",
-        image_type=ImageType.animated_gif, # Could be the str "AnimatedGif"
-        aspect=ImageAspect.wide # Could be the str "Wide"
-    )
-    print("\r\nSearch images for \"Yosemite\" results that are animated gifs and wide aspect")
+* 適用於 Python 的 [Azure 影像搜尋 SDK](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/)
+    * 使用 `pip install azure-cognitiveservices-search-imagesearch` 進行安裝
 
-    if image_results.value:
-        first_image_result = image_results.value[0]
-        print("Image result count: {}".format(len(image_results.value)))
-        print("First image insights token: {}".format(first_image_result.image_insights_token))
-        print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
-        print("First image web search url: {}".format(first_image_result.web_search_url))
-    else:
-        print("Couldn't find image results!")
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-```
-搜尋 (約塞美提溪谷) 的影像，並篩選出動畫 gif 和寬型外觀。  驗證結果數目。  列印出第一個結果的 `insightsToken`、`thumbnail url` 和 `web url`。
-```
-image_results = client.images.search(
-    query="Yosemite",
-    image_type=ImageType.animated_gif, # Could be the str "AnimatedGif"
-    aspect=ImageAspect.wide # Could be the str "Wide"
-)
-print("\r\nSearch images for \"Yosemite\" results that are animated gifs and wide aspect")
+## <a name="create-and-initialize-the-application"></a>建立並初始化應用程式
 
+1. 在您慣用的 IDE 或編輯器中建立新的 Python 專案以及下列匯入：
+
+    ```python
+    from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+    from msrest.authentication import CognitiveServicesCredentials
+    ```
+
+2. 針對您的訂用帳戶金鑰和搜尋字詞建立變數。
+
+    ```python
+    subscription_key = "Enter your key here"
+    search_term = "canadian rockies"
+    ```
+
+## <a name="create-the-image-search-client"></a>建立影像搜尋用戶端
+
+3. 建立 `CognitiveServicesCredentials` 的執行個體，並使用它來將用戶端具現化：
+
+    ```python
+    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
+    ```
+4. 將搜尋查詢傳送到 Bing 影像搜尋 API：
+    ```python
+    image_results = client.images.search(query=search_term)
+    ```
+## <a name="process-and-view-the-results"></a>處理並檢視結果
+
+剖析回應中所傳回的影像結果。
+
+
+如果回應包含搜尋結果，請儲存第一個結果並列印出其詳細資料，例如縮圖 URL、原始 URL 及傳回影像的總數。  
+
+```python
 if image_results.value:
     first_image_result = image_results.value[0]
-    print("Image result count: {}".format(len(image_results.value)))
-    print("First image insights token: {}".format(first_image_result.image_insights_token))
+    print("Total number of images returned: {}".format(len(image_results.value)))
     print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
-    print("First image web search url: {}".format(first_image_result.web_search_url))
+    print("First image content url: {}".format(first_image_result.content_url))
 else:
-    print("Couldn't find image results!")
-
-```
-
-取得趨勢結果：
-```
-trending_result = client.images.trending()
-print("\r\nSearch trending images")
-
-# Categorires
-if trending_result.categories:
-    first_category = trending_result.categories[0]
-    print("Category count: {}".format(len(trending_result.categories)))
-    print("First category title: {}".format(first_category.title))
-    if first_category.tiles:
-        first_tile = first_category.tiles[0]
-        print("Subcategory tile count: {}".format(len(first_category.tiles)))
-        print("First tile text: {}".format(first_tile.query.text))
-        print("First tile url: {}".format(first_tile.query.web_search_url))
-    else:
-        print("Couldn't find subcategory tiles!")
-    else:
-        print("Couldn't find categories!")
-
+    print("No image results returned!")
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-[認知服務 Python SDK 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+> [!div class="nextstepaction"]
+> [Bing 影像搜尋單頁應用程式教學課程](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) (英文)
 
+## <a name="see-also"></a>另請參閱
 
+* [什麼是 Bing 影像搜尋？](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [試用線上互動式示範](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [取得免費的認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Azure 認知服務 SDK 的 Python 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
+* [Azure 認知服務文件](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing 影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

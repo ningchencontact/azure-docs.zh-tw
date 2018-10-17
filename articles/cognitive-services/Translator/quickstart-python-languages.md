@@ -1,25 +1,25 @@
 ---
-title: 翻譯工具文字搭配 Python 取得支援的語言 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以取得使用認知服務的翻譯工具文字 API 搭配 Java 來翻譯、音譯及查閱字典時，所支援的語言清單及範例。
+title: 快速入門：取得支援的語言 - 翻譯工具文字、Python
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以取得使用翻譯工具文字 API 搭配 Java 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 3ae3c6be814f79541e39eddd3be137b71cc1a494
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a68a1b31cb844a4873bf34c6a292beeb2a4b61c0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750213"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121731"
 ---
 # <a name="quickstart-get-supported-languages-with-python"></a>快速入門：使用 Python 取得支援的語言
 
-在本快速入門中，您可以取得使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單及範例。
+在此快速入門中，您可以取得使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "43750213"
 
 ## <a name="languages-request"></a>Languages 要求
 
-下列程式碼會使用 [Languages](./reference/v3-0-languages.md) 方法取得在翻譯、音譯及查詢字典時，所支援的語言清單及範例。
+下列程式碼會使用 [Languages](./reference/v3-0-languages.md) 方法取得在翻譯、音譯及查詢字典時，所支援的語言清單與範例。
 
 1. 在您慣用的程式碼編輯器中，建立新的 Python 專案。
 2. 新增下方提供的程式碼。
@@ -164,7 +164,7 @@ f.close
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽本快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽此快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Python 範例](https://aka.ms/TranslatorGitHub?type=&language=python) (英文)

@@ -1,21 +1,21 @@
 ---
-title: 翻譯工具文字搭配 Java 取得句子長度 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 快速入門：取得句子長度 - 翻譯工具文字、Java
+titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Java，了解文字中句子的長度。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 1e68f6b888aa670644ef1e05e5f4f3e26cf70b18
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d0459b04bbd0dbbda3dab80623a39742a6f843b2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43750180"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122615"
 ---
 # <a name="quickstart-get-sentence-lengths-with-java"></a>快速入門：使用 Java 取得句子長度
 

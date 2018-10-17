@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 8/8/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fe84dfcef2a5dad1c170592f933638b984e16a05
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781175"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717024"
 ---
 # <a name="what-is-azure-virtual-network"></a>什麼是 Azure 虛擬網路？
 
@@ -37,14 +37,17 @@ Azure 虛擬網路可讓多種類型的 Azure 資源 (例如 Azure 虛擬機器 
 
 ## <a name="communicate-with-the-internet"></a>與網際網路通訊
 
-依預設，虛擬網路中的所有資源都能夠進行對網際網路的輸出通訊。 您可以藉由將公用 IP 位址指派給資源，對該項資源進行輸入通訊。 若要深入了解，請參閱[公用 IP 位址](virtual-network-public-ip-address.md)。
+依預設，虛擬網路中的所有資源都能夠進行對網際網路的輸出通訊。 您可以藉由指派公用 IP 位址或公用負載平衡器，對該項資源進行輸入通訊。 您也可以使用公用 IP 或公用負載平衡器來管理您的輸出連線。  若要深入了解 Azure 中的輸出連線，請參閱[輸出連線](../load-balancer/load-balancer-outbound-connections.md)、[公用 IP 位址](virtual-network-public-ip-address.md)和[負載平衡器](../load-balancer/load-balancer-overview.md)。
+
+>[!NOTE]
+>僅使用內部 [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) 時無法建立輸出連線，除非您定義[輸出連線](../load-balancer/load-balancer-outbound-connections.md)要如何與執行個體層級的公用 IP 或公用負載平衡器搭配運作。
 
 ## <a name="communicate-between-azure-resources"></a>Azure 資源之間的通訊
 
 Azure 資源可透過下列其中一種方式安全地相互通訊：
 
 - **透過虛擬網路**：您可以將虛擬機器和數種其他類型的 Azure 資源部署到虛擬網路，例如 Azure App Service Environment、Azure Kubernetes Service (AKS) 和 Azure 虛擬機器擴展集。 若要檢視可部署到虛擬網路中的 Azure 資源的完整清單，請參閱[虛擬網路服務整合](virtual-network-for-azure-services.md)。 
-- **透過虛擬網路服務端點**：透過直接連線，將您的虛擬網路私人位址空間和虛擬網路的身分識別擴充至 Azure 服務資源，例如 Azure 儲存體帳戶和 Azure SQL Database。 服務端點可讓您將重要的 Azure 服務資源限用於虛擬網路，而加以保護。 若要深入了解，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。
+- **透過虛擬網路服務端點**：透過直接連線，將您的虛擬網路私人位址空間與虛擬網路的身分識別延伸至 Azure 服務資源，例如 Azure 儲存體帳戶與 Azure SQL Database。 服務端點可讓您將重要的 Azure 服務資源限用於虛擬網路，而保護其安全。 若要深入了解，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。
  
 ## <a name="communicate-with-on-premises-resources"></a>與內部部署資源通訊
 

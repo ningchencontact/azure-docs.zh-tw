@@ -1,22 +1,23 @@
 ---
-title: 如何在文字分析 REST API 中進行語言偵測 (Azure 上的 Microsoft 認知服務) | Microsoft Docs
-description: 本逐步解說教學課程將示範如何使用 Azure 上 Microsoft 認知服務中的文字分析 REST API 來偵測語言。
+title: 範例：使用文字分析 REST API 進行語言偵測
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用文字分析 REST API 偵測語言。
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: f8e2d9a36533c298addcf42d3cb2061e9c2d1ac7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368407"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604547"
 ---
-# <a name="how-to-detect-language-in-text-analytics"></a>如何在文字分析中偵測語言
+# <a name="example-how-to-detect-language-in-text-analytics"></a>範例：如何在文字分析中偵測語言
 
 [語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 會針對每份文件評估文字輸入，並傳回語言識別項，其中含有指出分析強度的分數。 文字分析最多可辨識 120 種語言。
 
@@ -65,7 +66,7 @@ ms.locfileid: "35368407"
 
 + 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 
-+ 在要求主體中，提供您準備用於此分析的 JSON 文件集合
++ 在要求本文中，提供您準備用於此分析的 JSON 文件集合
 
 > [!Tip]
 > 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
@@ -201,7 +202,7 @@ ms.locfileid: "35368407"
 
 ## <a name="summary"></a>總結
 
-在本文中，您已了解使用認知服務中的文字分析進行語言偵測的概念和工作流程。 以下是先前所說明和示範之重點的快速提醒：
+在此文章中，您已了解使用認知服務中的文字分析進行語言偵測的概念和工作流程。 以下是先前所說明和示範之重點的快速提醒：
 
 + [語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 可供 120 種語言使用。
 + 要求主體中的 JSON 文件包含識別碼和文字。

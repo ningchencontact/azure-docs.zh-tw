@@ -1,20 +1,21 @@
 ---
-title: 適用於 Microsoft 認知服務的電腦視覺 API | Microsoft Docs
-description: 使用電腦視覺 API 中的進階演算法，可協助您處理影像並傳回 Microsoft 認知服務中的資訊。
+title: 什麼是電腦視覺 API？
+titlesuffix: Azure Cognitive Services
+description: 電腦視覺 API 可供開發人員存取進階演算法，以處理影像及傳回資訊。
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 86e0441c600162e479c678d3cb1dbeaad423ddb5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370083"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982074"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>什麼是電腦視覺 API 1.0 版？
 
@@ -48,7 +49,7 @@ ms.locfileid: "35370083"
 在上傳影像或指定影像 URL 之後，電腦視覺 API 的演算法會根據在影像中識別出的物件、生物和動作來輸出標記。 標記並未限定於主體 (例如前景中的人物)，而是包含周遭環境 (室內或室外)、家具、工具、植物、動物、配件和小工具等。
 
 ### <a name="example"></a>範例
-![House_Yard](./Images/house_yard.jpg) '
+![House_Yard](./Images/house_yard.png) '
 
 ```json
 Returned Json
@@ -95,15 +96,15 @@ Returned Json
 ### <a name="the-86-category-concept"></a>86 類別概念
 根據下圖中列出的 86 種概念，影像中的視覺功能可進行明確或特定範圍的分類。 如需文字格式的完整分類，請參閱[類別分類](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)。
 
-![分析類別](./Images/analyze_categories.jpg)
+![分析類別](./Images/analyze_categories.png)
 
-映像                                                  | Response
+影像                                                  | 回應
 ------------------------------------------------------ | ----------------
-![屋頂上的女人](./Images/woman_roof.jpg)                 | people
-![家人照片](./Images/family_photo.jpg)             | people_crowd
-![可愛的小狗](./Images/cute_dog.jpg)                     | animal_dog
-![戶外山景](./Images/mountain_vista.jpg)       | outdoor_mountain
-![視覺分析食物 (麵包)](./Images/bread.jpg)       | food_bread
+![屋頂上的女人](./Images/woman_roof.png)                 | people
+![家人照片](./Images/family_photo.png)             | people_crowd
+![可愛的小狗](./Images/cute_dog.png)                     | animal_dog
+![戶外山景](./Images/mountain_vista.png)       | outdoor_mountain
+![視覺分析食物 (麵包)](./Images/bread.png)       | food_bread
 
 ## <a name="identifying-image-types"></a>識別影像類型
 有數個方法可以將影像分類。 電腦視覺 API 可以設定布林值旗標，以指出影像是黑白還是彩色的。 它也可以設定用來指出影像是否為線圖的旗標。 它也可以指出影像是否為美工圖案，並以 0-3 的等級指出其品質。
@@ -120,21 +121,21 @@ Returned Json
 
 映像|Response
 ----|----
-![視覺分析起司美工圖案](./Images/cheese_clipart.jpg)|3 良好美工圖案
-![視覺分析住家庭院](./Images/house_yard.jpg)|0 非美工圖案
+![視覺分析起司美工圖案](./Images/cheese_clipart.png)|3 良好美工圖案
+![視覺分析住家庭院](./Images/house_yard.png)|0 非美工圖案
 
 ### <a name="line-drawing-type"></a>線圖類型
 偵測影像是否為線圖。
 
-映像|Response
+影像|回應
 ----|----
-![視覺分析獅子繪圖](./Images/lion_drawing.jpg)|True
-![視覺分析花朵](./Images/flower.jpg)|False
+![視覺分析獅子繪圖](./Images/lion_drawing.png)|True
+![視覺分析花朵](./Images/flower.png)|False
 
 ### <a name="faces"></a>臉部
 偵測圖片中的人臉，並產生臉部座標、臉部的矩形、性別和年齡。 這些視覺功能是為臉部產生的中繼資料所含的子集。 如需更多為臉部產生的中繼資料 (臉部識別、姿勢偵測等等)，請使用臉部 API。  
 
-映像|Response
+影像|回應
 ----|----
 ![視覺分析屋頂女人的臉部](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
 ![視覺分析母女的臉部](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
@@ -156,10 +157,10 @@ Returned Json
 進行分析，並提供與 86 類別分類中的類別有關的其他詳細資料。 此選項可運用在使用者除了一或多個特定領域模型中的詳細資料以外，還想要取得一般影像分析的應用程式中。 叫用此方法時，必須先呼叫 86 類別分類器。 如果有任何類別符合已知/比對模型的類別，則會繼續進行第二輪的分類器叫用。 例如，如果「詳細資料=全部」或「詳細資料」包含「名人」，則此方法會呼叫 86 類別分類器之後呼叫名人分類器。 其結果會包含開頭為 'people_' 的標記。
 
 ## <a name="generating-descriptions"></a>產生描述 
-電腦視覺 API 的演算法會分析影像中的內容。 此分析會形成「描述」的基礎，讓此描述顯示為完整句子中可供閱讀的語言。 描述會概略說明影像中的項目。 電腦視覺 API 的演算法會根據在影像中識別出來的物件產生各種描述。 這些描述會個別受到評估，並產生信賴分數。 接著會傳回一份清單，並依照信賴分數由高至低排序。 您可以在[這裡](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption)取得使用這項技術產生影像標題的 Bot 範例。  
+電腦視覺 API 的演算法會分析影像中的內容。 此分析會形成「描述」的基礎，讓此描述顯示為完整句子中可供閱讀的語言。 描述會概略說明影像中的項目。 電腦視覺 API 的演算法會根據在影像中識別出來的物件產生各種描述。 這些描述會個別受到評估，並產生信賴分數。 接著會傳回一份清單，並依照信賴分數由高至低排序。 您可以在[這裡](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption)取得使用此技術產生影像標題的 Bot 範例。  
 
 ### <a name="example-description-generation"></a>範例描述產生
-![B&W 建築](./Images/bw_buildings.jpg) '
+![B&W 建築](./Images/bw_buildings.png) '
 ```json
  Returned Json
 
@@ -200,29 +201,29 @@ Returned Json
 ## <a name="perceiving-color-schemes"></a>察覺色彩配置
 電腦視覺演算法會從影像中擷取色彩。 色彩會以三種不同的內容進行分析：前景、背景及整體。 色彩會分組為 12 種主要輔色。 這些輔色是黑色、藍色、棕色、灰色、綠色、橙色、粉紅色、紫色、紅色、藍綠色、白色和黃色。 根據影像中的色彩，簡單的黑白或輔色可用十六進位色彩代碼傳回。
 
-映像                                                       | 前景 |背景| 色彩
+影像                                                       | 前景 |背景| 色彩
 ----------------------------------------------------------- | --------- | ------- | ------
-![戶外山景](./Images/mountain_vista.jpg)            | 黑色     | 黑色   | 白色
-![視覺分析花朵](./Images/flower.jpg)               | 黑色     | 白色   | 白色、黑色、綠色
-![視覺分析火車站](./Images/train_station.jpg) | 黑色     | 黑色   | 黑色
+![戶外山景](./Images/mountain_vista.png)            | 黑色     | 黑色   | 白色
+![視覺分析花朵](./Images/flower.png)               | 黑色     | 白色   | 白色、黑色、綠色
+![視覺分析火車站](./Images/train_station.png) | 黑色     | 黑色   | 黑色
 
 ### <a name="accent-color"></a>輔色
 從影像中擷取的色彩，用以透過主色和飽和度的搭配向使用者呈現最鮮明的色彩。
 
-映像                                                       | Response
+影像                                                       | 回應
 ----------------------------------------------------------- | ----
-![戶外山景](./Images/mountain_vista.jpg)            | #BC6F0F
-![視覺分析花朵](./Images/flower.jpg)               | #CAA501
-![視覺分析火車站](./Images/train_station.jpg) | #484B83
+![戶外山景](./Images/mountain_vista.png)            | #BC6F0F
+![視覺分析花朵](./Images/flower.png)               | #CAA501
+![視覺分析火車站](./Images/train_station.png) | #484B83
 
 
 ### <a name="black--white"></a>黑白
 指出影像是否為黑白的布林值旗標。
 
-映像                                                      | Response
+影像                                                      | 回應
 ---------------------------------------------------------- | ----
-![視覺分析建築](./Images/bw_buildings.jpg)      | True
-![視覺分析住家庭院](./Images/house_yard.jpg)      | False
+![視覺分析建築](./Images/bw_buildings.png)      | True
+![視覺分析住家庭院](./Images/house_yard.png)      | False
 
 ## <a name="flagging-adult-content"></a>標示成人內容
 各種不同的視覺類別中包含成人和猥褻群組，可用來偵測成人內容及限制包含色情內容的影像顯示。 成人和猥褻內容偵測的篩選條件可用滑動標尺來設定，以配合使用者的喜好設定。
@@ -252,7 +253,7 @@ OCR 支援 25 種語言。 這些語言是：阿拉伯文、簡體中文、繁�
 限制：在主要由文字構成的相片上，誤判可能會來自於部分辨識的文字。 在某些相片 (特別是沒有任何文字的相片) 上，精確度可能會隨著影像的類型而有極大差異。
 
 ## <a name="recognize-handwritten-text"></a>辨識手寫文字
-這項技術可讓您偵測記事、信件、文章、白板、表格等的手寫文字並加以擷取，並且可在不同的介面及背景中運作，例如技術白皮書、黃色自黏便箋及白板。
+此技術可讓您偵測筆記、信件、文章、白板、表格等的手寫文字並加以擷取，並且可在不同的介面及背景中運作，例如技術白皮書、黃色自黏便箋及白板。
 
 您可透過手寫文字辨識擷取文字的影像而無須謄寫，進而節省時間及心力並更具生產力。 記事因此而得以數位化。 此一數位化可讓您實作快速且輕鬆的搜尋。 同時也可減少紙張用量。
 
@@ -261,7 +262,7 @@ OCR 支援 25 種語言。 這些語言是：阿拉伯文、簡體中文、繁�
 - 影像檔案大小必須小於 4 MB。
 - 影像尺寸必須介於 40 x 40 到 3200 x 3200 之間。
 
-附註：這項技術目前為預覽狀態，且只適用於英文文字。
+附註：此技術目前為預覽狀態，且只適用於英文文字。
 
 ## <a name="generating-thumbnails"></a>產生縮圖
 縮圖是完整大小影像的小型表示法。 手機、平板電腦和 PC 等不同裝置需要不同的使用者體驗 (UX) 配置和縮圖大小。 此電腦視覺 API 功能使用智慧裁剪，因此有助於解決此問題。

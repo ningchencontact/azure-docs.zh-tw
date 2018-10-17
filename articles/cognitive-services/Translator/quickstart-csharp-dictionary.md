@@ -1,25 +1,27 @@
 ---
-title: 翻譯工具文字搭配 C# 尋找替代的翻譯 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 C#，為內容中的字詞尋找替代的翻譯和範例。
+title: 快速入門：尋找替代的翻譯 - 翻譯工具文字 API、C#
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 C#，為內容中的字詞尋找替代的翻譯與範例。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 3f45e7281456f9ae09912a2ee665cb480dc5052f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 328f5996a9b830ea6c2ff4b4a535d5311f39e08e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43750167"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365251"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>快速入門：使用 C# 尋找替代的翻譯和使用方式
 
 在本快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
+
+您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 

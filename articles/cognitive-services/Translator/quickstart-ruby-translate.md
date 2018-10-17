@@ -1,21 +1,21 @@
 ---
-title: 翻譯工具文字搭配 Ruby 翻譯文字 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Ruby，將文字翻譯成另一種語言。
+title: 快速入門：翻譯文字 - 翻譯工具文字、Ruby
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Ruby，將文字翻譯成另一種語言。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: b4d2e04d67fea140148e626ee94b46fdfcd6bac7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 38b4ee3a2122e0151490ef1a29ee02d498a06b7d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750241"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126542"
 ---
 # <a name="quickstart-translate-text-with-ruby"></a>快速入門：使用 Ruby 來翻譯文字
 

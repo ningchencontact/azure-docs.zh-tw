@@ -1,25 +1,25 @@
 ---
-title: 翻譯工具文字搭配 Python 從文字識別語言 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Python，以識別來源文字的語言。
+title: 快速入門：從文字識別語言 - 翻譯工具文字、Python
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Python，識別來源文字的語言。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 07a16e419bfdd4d73108fcdaa12695e99fecabee
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 31fb36421dd2aef21f77b4941771e4d3db813730
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750194"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124995"
 ---
 # <a name="quickstart-identify-language-from-text-with-python"></a>快速入門：使用 Python 從文字識別語言
 
-在本快速入門中，您可以使用翻譯工具文字 API，識別來源文字的語言。
+在此快速入門中，您可以使用翻譯工具文字 API，識別來源文字的語言。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,7 +27,7 @@ ms.locfileid: "43750194"
 
 若要使用翻譯工具文字 API，您也需要有訂用帳戶金鑰；請參閱[如何註冊翻譯工具文字 API](translator-text-how-to-signup.md)。
 
-## <a name="detect-request"></a>偵測要求
+## <a name="detect-request"></a>Detect 要求
 
 下列程式碼會使用 [Detect](./reference/v3-0-detect.md) 方法，以識別來源文字的語言。
 
@@ -82,7 +82,7 @@ output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
 print (output)
 ```
 
-## <a name="detect-response"></a>偵測回應
+## <a name="detect-response"></a>Detect 回應
 
 成功的回應會以 JSON 格式傳回，如下列範例所示：
 
@@ -113,7 +113,7 @@ print (output)
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽本快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽此快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Python 範例](https://aka.ms/TranslatorGitHub?type=&language=python) (英文)

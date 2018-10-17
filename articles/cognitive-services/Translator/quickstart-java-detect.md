@@ -1,21 +1,21 @@
 ---
-title: 翻譯工具文字搭配 Java 從文字識別語言 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Java，以識別來源文字的語言。
+title: 快速入門：從文字識別語言 - 翻譯工具文字、Java
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Java，識別來源文字的語言。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: bf7d10e447fa536a4ff4310bacc14729f3c6b3b1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 244ba0bb3836923536cd77fa697b4250f751668e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43750179"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129415"
 ---
 # <a name="quickstart-identify-language-from-text-with-java"></a>快速入門：使用 Java 從文字識別語言
 

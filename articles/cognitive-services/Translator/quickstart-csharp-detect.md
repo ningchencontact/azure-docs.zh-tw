@@ -1,25 +1,27 @@
 ---
-title: 翻譯工具文字搭配 C# 從文字識別語言 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 C#，以識別來源文字的語言。
+title: 快速入門：從文字識別語言 - 翻譯工具文字 API、C#
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 C#，識別來源文字的語言。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 381478f3125371fbcb5f6466af68f63e4e04bb3f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b10072e01391da3845567c16fa7cc312ed23ceb2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43750166"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368047"
 ---
 # <a name="quickstart-identify-language-from-text-with-c35"></a>快速入門：使用 C# 從文字識別語言
 
 在本快速入門中，您可以使用翻譯工具文字 API，識別來源文字的語言。
+
+您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 

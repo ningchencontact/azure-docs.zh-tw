@@ -1,23 +1,25 @@
 ---
-title: 使用電腦視覺 API 進行即時影片分析 | Microsoft Docs
-description: 了解如何使用認知服務中的電腦視覺 API，針對從即時影片資料流中擷取的畫面，執行接近即時的分析。
+title: 範例：使用電腦視覺 API 進行即時影片分析
+titlesuffix: Azure Cognitive Services
+description: 了解如何使用電腦視覺 API，針對從即時影片資料流中擷取的畫面，執行近乎即時的分析。
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: d75b1a887e5e4557d5464d8062e1bde628e7adab
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 058f2ad58665a88d2d3cf3ce20b43ac0fad30000
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368558"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983190"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>如何即時分析影片
 本指南將示範如何在從即時視訊資料流擷取的畫面上，執行近乎即時的分析。 這類系統中的基本元件如下：
+
 - 從影片來源取得畫面
 - 選取要分析的畫面
 - 將這些畫面提交給 API
@@ -29,7 +31,7 @@ ms.locfileid: "35368558"
 在視訊資料流上執行近乎即時分析時，有多種方式可以解決所遇到的問題。 我們會先舉出其中的三種方法，並從複雜度較低的方法開始。
 
 ### <a name="a-simple-approach"></a>簡易方法
-針對接近即時的分析系統，最簡單的設計將會是無限迴圈，其中我們會在每個反覆項目中抓取一個畫面、分析它，然後取用其結果：
+針對近乎即時的分析系統，最簡單的設計即是無限迴圈，在其中的每一個反覆項目中，我們會抓取一個畫面、進行分析，然後取用結果：
 ```CSharp
 while (true)
 {
@@ -41,10 +43,10 @@ while (true)
     }
 }
 ```
-如果我們的分析包括輕量型的用戶端演算法，這個方法就很合適。 不過，當我們的分析是在雲端中進行，其涉及的延遲將會使 API 呼叫需要花費幾秒鐘的時間；在這段時間內，系統並不會擷取影像，因此我們的執行緒基本上不會執行任何操作。 因此，我們的畫面播放速率上限將會受限於 API 呼叫的延遲。
+如果我們的分析包含輕量型用戶端演算法，這個方法就很合適。 不過，當我們的分析是在雲端進行時，所涉及的延遲便意謂著 API 呼叫可能需要數秒鐘的時間。在這段期間內，我們不會擷取影像，而執行緒基本上也不執行任何動作。 因此，我們的畫面播放速率上限將會受限於 API 呼叫的延遲。
 
 ### <a name="parallelizing-api-calls"></a>平行處理 API 呼叫
-雖然簡易的單一執行緒迴圈很適合用於輕量型的用戶端演算法，它並不適用於雲端 API 呼叫所涉及的延遲情況。 解決這個問題的方式，就是讓長時間執行的 API 呼叫與畫面抓取平行執行。 在 C# 中，我們可以使用以工作為基礎的平行處理機制來達到這個目的，例如：
+雖然簡易的單一執行緒迴圈很適合用於輕量型的用戶端演算法，但在面對雲端 API 呼叫所涉及的延遲時，則無法很好地因應。 若要解決這個問題，就是讓長時間執行的 API 呼叫與畫面抓取平行執行。 在 C# 中，我們可以使用以工作為基礎的平行處理機制來達到這個目的，例如：
 ```CSharp
 while (true)
 {
@@ -59,10 +61,10 @@ while (true)
     }
 }
 ```
-這會在獨立的工作中啟動每一項分析，並在我們繼續抓取新畫面時於背景中執行。 這能在等候 API 呼叫傳回時避免封鎖主執行緒；不過，此方法將無法提供一些和簡易版本相同的保證，也就是多個 API 呼叫可能會以平行方式進行，並導致以錯誤的順序傳回結果。 這也可能會造成多個執行緒同時進入 ConsumeResult() 函式，這在函式沒有具備安全執行緒的情況下，是一件很危險的事。 最後，由於這個簡易的程式碼並不會追蹤所建立的工作，因此例外狀況會以無訊息方式消失。 因此，我們要新增的最後一個元素是「取用者」執行緒，它會追蹤分析工作、引發例外狀況、終止長時間執行的工作，以及確保系統會以正確的順序一次取用一個結果。
+此方法會讓每個分析在個別的工作中進行，而該工作可在我們繼續抓取新畫面時於背景執行。 它可避免在等候 API 呼叫返回時封鎖主執行緒。不過，我們已喪失簡易版本所提供的部分保證，也就是多個 API 呼叫可能會以平行方式進行，而所傳回的結果可能順序不正確。 此方法也可能造成多個執行緒同時進入 ConsumeResult() 函式。如果函式不是安全執行緒，此情況就會相當危險。 最後，這個簡易程式碼不會追蹤所建立的工作，因此例外狀況會以無訊息方式消失。 因此，我們要新增的最後一個要素是「取用者」執行緒。此執行緒會追蹤分析工作、引發例外狀況、終止長時間執行的工作，並確保依正確順序一次取用一個結果。
 
-### <a name="a-producer-consumer-design"></a>產生者-取用者設計
-在我們的最後一個「產生者-取用者」系統中，會有一個和前面的無限迴圈非常相似的產生者執行緒。 不過，和先前會立即取用分析結果不同，產生者只會將工作置於佇列中以進行追蹤。
+### <a name="a-producer-consumer-design"></a>「生產者-取用者」設計
+在我們的最後一個「產生者-取用者」系統中，會有一個看起來類似於前述無限迴圈的產生者執行緒。 不過，產生者不會在一有分析結果可用時便立即取用這些結果，而是只會將工作置於佇列中來進行追蹤。
 ```CSharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
@@ -97,7 +99,7 @@ while (true)
     }
 }
 ```
-此方法也包含一個取用者執行緒，它會從佇列取出工作並等候它們完成，並於之後顯示結果或引發所擲回的例外狀況。 藉由使用佇列，我們將能保證系統會按照正確的順序一次取用一個結果，而不會限制系統的畫面播放速率上限。
+我們還有一個取用者執行緒，會從佇列中取出工作、等候這些工作完成，然後顯示結果或引發被擲回的例外狀況。 我們可以使用佇列，以便能確保依正確順序一次取用一個結果，而無須限制系統的最大畫面播放速率。
 ```CSharp
 // Consumer thread. 
 while (true)
@@ -122,11 +124,11 @@ while (true)
 
 ## <a name="implementing-the-solution"></a>實作解決方案
 ### <a name="getting-started"></a>開始使用
-為了協助您儘快使應用程式開始運作並正常執行，我們已實作上述的系統，其已設計為能夠提供足夠的彈性以實作各種案例，同時非常容易上手。 若要存取其程式碼，請移至 [ https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis ](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis) \(英文\)。
+為了讓您的應用程式能夠儘快啟動並正常運作，我們已實作上述系統，目的在讓它既有足夠的彈性來實作許多案例，又能操作簡便。 若要存取其程式碼，請前往 [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis) \(英文\)。
 
-該程式庫包含 FrameGrabber 類別，它會實作上述的產生者-取用者系統，以處理來自網路攝影機的視訊畫面。 使用者可以指定 API 呼叫的確切形式，且該類別會使用事件來通知呼叫程式碼，以讓它能夠得知已取得新畫面或有新的分析結果可用的時機。
+此程式庫包含 FrameGrabber 類別，它會實作上述的「產生者-取用者」系統，以處理來自網路攝影機的影片畫面。 使用者可以指定 API 呼叫的確切形式，而該類別則會使用事件，在取得新畫面或有新分析結果可供使用時，通知呼叫程式碼。
 
-為了說明一些可能性，有兩個範例應用程式會使用該程式庫。 第一個範例是簡易的主控台應用程式，其簡化版本已重現於下方。 它會抓取預設網路攝影機的畫面，然後提交給臉部 API 以進行臉部偵測。
+為了說明一些可能性，以下列舉兩個使用此程式庫的範例應用程式。 第一個是一個簡易主控台應用程式，以下是重新產生的簡化版。 它會從預設的網路攝影機抓取畫面，然後提交給「臉部 API」來進行臉部偵測。
 ```CSharp
 using System;
 using VideoFrameAnalyzer;
@@ -171,39 +173,39 @@ namespace VideoFrameConsoleApplication
     }
 }
 ```
-第二個範例應用程式比較有趣一點，它可讓您選擇要針對視訊畫面呼叫的 API。 應用程式的左側會顯示即時視訊的預覽，在右側則會顯示疊加在對應畫面上的 API 最新結果。
+第二個範例應用程式比較有趣，它可讓您選擇要在影片畫面上呼叫的 API。 應用程式的左側會顯示即時影片的預覽，右側則會顯示疊加在對應畫面上的 API 最新結果。
 
-在大部分模式中，在左側的即時視訊和右側的視覺化分析之間，會存在明顯的延遲。 這個延遲是做出 API 呼叫所需的時間。 唯一的例外是 "EmotionsWithClientFaceDetect" 模式，此模式並不會出現延遲，因為它會在用戶端電腦上使用 OpenCV 執行本機臉部偵測，然後再將影像提交認知服務。 藉由這麼做，我們可以立即將偵測到的臉部視覺化，然後在 API 呼叫於稍後傳回時再更新表情。 這示範出「混合」方法的可能性，其中部分較簡易的處理可在用戶端上執行，並在必要時使用認知服務 API 以更高階的分析方式做出進一步調整。
+在大多數模式中，左側即時影片與右側視覺化分析之間會有明顯的延遲。 此延遲是進行 API 呼叫所需的時間。 此延遲現象有個例外，就是 "EmotionsWithClientFaceDetect" 模式。此模式會先使用 OpenCV 在用戶端電腦本機上執行臉部偵測，然後才將任何影像提交給「認知服務」。 藉由這個做法，我們便可立即以視覺方式呈現所偵測到的臉部，然後再於稍後 API 呼叫返回時更新表情。 這示範了一個「混合式」方法的可能性，其中可以在用戶端上執行一些簡單的處理，然後再視需要使用「認知服務 API」，以更進階的分析加強這個處理。
 
 ![HowToAnalyzeVideo](../../Video/Images/FramebyFrame.jpg)
 
-### <a name="integrating-into-your-codebase"></a>整合至您的程式碼基底
-若要開始進行此範例，請遵循下列步驟：
+### <a name="integrating-into-your-codebase"></a>整合至程式碼基底
+若要開始使用此範例，請按照以下步驟執行：
 
-1. 從[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)取得視覺 API 的 API 金鑰。 如需進行視訊畫面分析，適用的 API 為：
+1. 從[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)取得「視覺 API」的 API 金鑰。 若要進行影片畫面分析，適用的 API 包括：
     - [電腦視覺 API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
     - [表情 API](https://docs.microsoft.com/azure/cognitive-services/emotion/home) \(英文\)
     - [臉部 API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 2. 複製 [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) \(英文\) GitHub 存放庫
 
-3. 在 Visual Studio 2015 中開啟該範例，然後建置並執行範例應用程式：
-    - 針對 BasicConsoleSample，臉部 API 金鑰已直接硬式編碼於 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) \(英文\) 中。
-    - 針對 LiveCameraSample，金鑰應該要輸入至應用程式的 [設定] 窗格中。 它們會以使用者資料的形式跨工作階段保存。
+3. 在 Visual Studio 2015 中開啟範例，然後建置並執行範例應用程式：
+    - 就 BasicConsoleSample 而言，「臉部 API」金鑰會直接以硬式編碼編寫在 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) \(英文\) 中。
+    - 就 LiveCameraSample 而言，應該在應用程式的 [設定] 窗格中輸入金鑰。 這些金鑰會以使用者資料的形式跨工作階段保存。
         
 
-當您準備好進行整合的時候，您只需**參考自己專案中的 VideoFrameAnalyzer 程式庫**即可。 
+當您做好整合準備時，**只需從自己的專案參考 VideoFrameAnalyzer 程式庫**即可。 
 
 
 
 ## <a name="developer-code-of-conduct"></a>開發人員行為準則
-和所有認知服務一樣，使用我們的 API 和範例進行開發的開發人員都應當遵守[適用於 Microsoft 認知服務的開發人員管理辦法](https://azure.microsoft.com/support/legal/developer-code-of-conduct/) \(英文\)。 
+和所有「認知服務」一樣，使用我們的 API 和範例進行開發的開發人員必須遵守 [Microsoft 認知服務的開發人員管理辦法](https://azure.microsoft.com/support/legal/developer-code-of-conduct/) \(英文\)。 
 
 
-了解 VideoFrameAnalyzer 功能的影像、語音、視訊或文字都會使用 Microsoft 認知服務。 Microsoft 將會收到您 (透過此應用程式) 上傳的影像、音訊、視訊和其他資料，並可能會將它們用於改善服務的目的之上。 我們要求您協助保護由您的應用程式傳送至 Microsoft 認知服務之資料的所有人。 
+VideoFrameAnalyzer 的影像、語音、影片或文字理解功能會使用「Azure 認知服務」。 Microsoft 會收到您透過此應用程式上傳的影像、聲音、影片和其他資料，而且可能使用它們來改善服務。 當您的應用程式將使用者的資料傳送給「Azure 認知服務」時，請務必協助保護這些使用者。 
 
 
 ## <a name="summary"></a>總結
-在本指南中，您已學會如何使用臉部、電腦視覺和表情 API 在即時視訊資料流上執行接近即時的分析，以及如何使用我們的範例程式碼來開始進行。 您可以從 [Microsoft 認知服務註冊頁面](https://azure.microsoft.com/try/cognitive-services/)取得免費的 API 金鑰，來開始建置應用程式。 
+在本指南中，您已了解如何使用「臉部」、「電腦視覺」和「表情」API，在即時視訊資料流上執行近乎即時的分析，以及如何使用我們的範例程式碼來開始設計程式。 您可以使用 [Microsoft 認知服務註冊頁面](https://azure.microsoft.com/try/cognitive-services/)的免費 API 金鑰來開始建置應用程式。 
 
-歡迎您在 [GitHub 存放庫](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) \(英文\) 中提供意見反應和建議。針對其他更廣泛的 API 意見反應，請移至我們的 [UserVoice 網站](https://cognitive.uservoice.com/) \(英文\)。
+歡迎您在 [GitHub 存放庫](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) \(英文\) 中提供意見反應和建議。若要提供更多廣泛的 API 意見反應，請到我們的 [UserVoice 網站](https://cognitive.uservoice.com/) \(英文\)。
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698769"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575808"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器映像
 
@@ -54,7 +54,7 @@ ms.locfileid: "43698769"
 
    ![將 Blob 存取權設定為公用](./media/azure-stack-add-vm-image/image2.png)
 
-2. 以操作員身分登入 Azure Stack。 在功能表中選取 [更多服務]。 然後，選取 [計算] > [VM 映像] > [新增]。
+2. 以操作員身分登入 Azure Stack。 在功能表中，選取 [所有服務]。 接著，在 [系統管理] 類別底下，選取 [計算] > [VM 映像] > [新增]。
 
 3. 在 [新增 VM 映像] 底下，輸入虛擬機器映像的發行者、供應項目、SKU 及版本。 這些名稱區段指的是 Resource Manager 範本中的 VM 映像。 請務必正確選取 **osType** 值。 針對 [OS 磁碟 Blob URI]，輸入上傳映像所在的 Blob URI。 然後，選取 [建立] 以開始建立 VM 映像。
 
@@ -75,7 +75,7 @@ ms.locfileid: "43698769"
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>使用 PowerShell 將 VM 映像新增到 Marketplace
 
 > [!Note]  
-> 當您新增映像時，它只適用於以 Azure Resource Manger 為基礎的範本和 PowerShell 部署。 若要將映像當作 Marketplace 項目提供給使用者，請使用[建立及發佈 Marketplace 項目](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)一文中的步驟發佈 Marketplace 項目。
+> 當您新增映像時，它只適用於以 Azure Resource Manger 為基礎的範本和 PowerShell 部署。 若要將映像當作 Marketplace 項目提供給使用者，請使用[建立及發佈 Marketplace 項目](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)一文中的步驟發佈 Marketplace 項目。
 
 1. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。  
 
@@ -115,7 +115,7 @@ ms.locfileid: "43698769"
     如需詳細資訊，請參閱 [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) Cmdlet 和 [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) Cmdlet 的 PowerShell 參考。
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>使用 PowerShell 將自訂 VM 映像新增到 Marketplace
-
+ 
 1. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 
   ```PowerShell  

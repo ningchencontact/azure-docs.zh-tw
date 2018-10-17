@@ -1,22 +1,23 @@
 ---
-title: Bing 自訂搜尋：建立自訂搜尋網頁 | Microsoft Docs
-description: 描述如何設定自訂搜尋執行個體，並將它整合到網頁
+title: 教學課程：建立自訂搜尋網頁 - Bing 自訂搜尋
+titlesuffix: Azure Cognitive Services
+description: 描述如何設定自訂搜尋執行個體，並將它整合到網頁。
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8bc1520325afc256ac62cc1f1dfaf24c53da4b83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979993"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815370"
 ---
-# <a name="build-a-custom-search-web-page"></a>建置自訂搜尋網頁
+# <a name="tutorial-build-a-custom-search-web-page"></a>教學課程：建置自訂搜尋網頁
 
 Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋經驗。 例如，如果您的武術網站提供搜尋體驗，可以指定 Bing 搜尋的網域、子網站及網頁。 您的使用者會看到針對他們感興趣的內容而量身訂做的搜尋結果，不需要逐頁查看可能包含不相關內容的一般搜尋結果。 
 
@@ -78,7 +79,7 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
 
 ## <a name="add-pinned-entries"></a>加入已釘選的項目
 
-若要將特定網頁釘選到搜尋結果的頂端，請將網頁和查詢字詞加入到 [已釘選] 索引標籤。[已釘選] 索引標籤包含一份網頁與查詢字詞配對的清單，指定對於特定查詢要顯示為第一個結果的網頁。 只有當使用者的查詢字串符合釘選的查詢字串 (以釘選的比對狀況為基礎) 時，才會釘選網頁。 [閱讀更多資訊](../define-your-custom-view.md#pin-to-top)。
+若要將特定網頁釘選到搜尋結果的頂端，請將網頁和查詢字詞加入到 [已釘選] 索引標籤。[已釘選] 索引標籤包含一份網頁與查詢字詞配對的清單，指定對於特定查詢要顯示為第一個結果的網頁。 只有當使用者的查詢字串符合釘選的查詢字串 (以釘選的比對狀況為基礎) 時，才會釘選網頁。 [閱讀更多](../define-your-custom-view.md#pin-to-top)。
 
 1. 在 [設定] 頁面上，按一下 [已釘選] 索引標籤，並輸入網頁與應可傳回為第一個結果的查詢字詞。  
   
@@ -102,7 +103,7 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
   
   ![[託管的 UI] 選取色彩佈景主題的螢幕擷取畫面](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  若需要微調色彩佈景主題以便與您的 Web 應用程式完美整合，請按一下 [自訂佈景主題]。 並非所有色彩設定都會套用到所有配置佈景主題。 若要變更色彩，請在對應的文字方塊中輸入色彩的 RGB HEX 值 (例如 #366eb8)。 或者，按一下色彩按鈕並按一下適合您的陰影。 選取色彩時務必考慮可存取性。
+  若需要微調色彩佈景主題以便與您的 Web 應用程式完美整合，請按一下 [自訂佈景主題]。 並非所有色彩設定都會套用到所有版面配置佈景主題。 若要變更色彩，請在對應的文字方塊中輸入色彩的 RGB HEX 值 (例如 #366eb8)。 或者，按一下色彩按鈕並按一下適合您的陰影。 選取色彩時務必考慮可存取性。
   
   ![[託管的 UI] 自訂色彩佈景主題的螢幕擷取畫面](./media/custom-search-hosted-ui-customize-color-theme.png)  
 

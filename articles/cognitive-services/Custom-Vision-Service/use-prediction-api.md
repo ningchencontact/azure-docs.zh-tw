@@ -1,27 +1,28 @@
 ---
-title: 使用自訂視覺服務預測端點 - Azure 認知服務 | Microsoft Docs
+title: 範例：使用預測端點以程式設計方式利用分類器測試影像 - 自訂視覺
+titlesuffix: Azure Cognitive Services
 description: 了解如何使用 API，以程式設計方式利用您的自訂視覺服務分類器來測試影像。
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d7f9b90db06811e16cd0cd6ad2b32a27912cfee5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 3a81f3cef6aaeb5c98022d9fc93f4d84f3f58a6e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43341788"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363644"
 ---
 # <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>使用預測端點以程式設計方式利用自訂視覺服務分類器來測試影像
 
 為模型定型之後，您可以藉由送出影像到預測 API，以程式設計方式測試它們。 
 
 > [!NOTE]
-> 本文件示範如何使用 C#，送出影像到預測 API。 如需使用 API 的詳細資訊和範例，請參閱[預測 API 參考](https://go.microsoft.com/fwlink/?linkid=865445) \(英文\)。
+> 此文件示範如何使用 C#，送出影像到預測 API。 如需使用 API 的詳細資訊和範例，請參閱[預測 API 參考](https://go.microsoft.com/fwlink/?linkid=865445) \(英文\)。
 
 ## <a name="get-the-url-and-prediction-key"></a>取得 URL 和預測金鑰
 

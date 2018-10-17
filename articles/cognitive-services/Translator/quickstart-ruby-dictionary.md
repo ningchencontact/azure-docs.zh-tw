@@ -1,25 +1,25 @@
 ---
-title: 翻譯工具文字搭配 Ruby 尋找替代的翻譯 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的翻譯工具文字 API 搭配 Ruby，為內容中的字詞尋找替代的翻譯和範例。
+title: 快速入門：尋找替代的翻譯 - 翻譯工具文字、Ruby
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Ruby，為內容中的字詞尋找替代的翻譯與範例。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 6462a48c2f15c8ac4a6b9bce49d23ea3d38dcbd5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cd34e3482df666de8b974380302ee6b4c592496
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750222"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122802"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-ruby"></a>快速入門：使用 Ruby 尋找替代的翻譯和使用方式
 
-在本快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
+在此快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -224,7 +224,7 @@ puts json
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽本快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽此快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Ruby 範例](https://aka.ms/TranslatorGitHub?type=&language=ruby) (英文)
