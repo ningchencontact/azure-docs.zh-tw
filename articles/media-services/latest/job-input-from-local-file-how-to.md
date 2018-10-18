@@ -1,6 +1,6 @@
 ---
 title: 從本機檔案建立 Azure 媒體服務工作輸入 | Microsoft Docs
-description: 此主題說明如何從本機檔案建立工作輸入。
+description: 本主題說明如何從本機檔案建立工作輸入。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 66bd03b03289f568c019588f1b8ac1317ab9c076
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3b4c11c359c15f1275a16774b490c08b543572c3
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222008"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378698"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>從本機檔案建立工作輸入
 
-在媒體服務 v3 中，當您提交工作來處理視訊時，必須告知媒體服務到何處尋找輸入視訊。 輸入視訊可以儲存為媒體服務資產，在這種情況下，您會建立一個以檔案為基礎的輸入資產 (儲存在本機或 Azure Blob 儲存體)。 此主題說明如何從本機檔案建立工作輸入。 如需完整的範例，請參閱此 [github 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs)。
+在媒體服務 v3 中，當您提交工作來處理視訊時，必須告知媒體服務到何處尋找輸入視訊。 輸入視訊可以儲存為媒體服務資產，在這種情況下，您會建立一個以檔案為基礎的輸入資產 (儲存在本機或 Azure Blob 儲存體)。 本主題說明如何從本機檔案建立工作輸入。 如需完整的範例，請參閱此 [github 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs)。
 
 ## <a name="net-sample"></a>.NET 範例
 

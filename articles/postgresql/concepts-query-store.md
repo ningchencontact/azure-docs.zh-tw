@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393482"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379156"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查詢存放區監視效能
 
-**適用對象：** 適用於 PostgreSQL 的 Azure 資料庫 9.6 和 10
+**適用於：** 適用於 PostgreSQL 的 Azure 資料庫 9.6 和 10
 
 > [!IMPORTANT]
-> 查詢存放區功能僅在有限的區域處於公開預覽狀態。
+> 查詢存放區功能處於公開預覽狀態。
 
 
 適用於 PostgreSQL 的 Azure 資料庫查詢存放區功能提供的方法可追蹤一段時間的查詢效能。 查詢存放區可協助您快速找到執行時間最長又最耗資源的查詢，簡化效能疑難排解。 查詢存放區會自動擷取查詢的歷程記錄和執行階段統計資料，並予以保留以供您檢閱。 依時間範圍區分資料，以便查看資料庫使用模式。 所有使用者、資料庫及查詢的資料都會儲存在適用於 PostgreSQL 的 Azure 資料庫執行個體中名為 **azure_sys** 的資料庫。

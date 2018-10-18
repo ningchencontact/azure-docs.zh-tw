@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 文件
 description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。
-ms.openlocfilehash: db35de8eead8ce0242fd67fbcee8a43a3b2498cc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: e1f01a63de4d9b2eaf45fa2b83875db6b1770418
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056755"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388257"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -137,7 +137,7 @@ ms.locfileid: "47056755"
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/go/azure/">
-                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
                                                 </div>
@@ -1433,7 +1433,7 @@ ms.locfileid: "47056755"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>可容納巨量資料分析工作負載的超大規模存放庫</p>
+                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2180,7 +2180,7 @@ ms.locfileid: "47056755"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>可容納巨量資料分析工作負載的超大規模存放庫</p>
+                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2412,7 +2412,7 @@ ms.locfileid: "47056755"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>時間序列深入解析</h3>
+                                                    <h3>Time Series Insights</h3>
                                                     <p>立即探索及分析時間序列資料</p>
                                                 </div>
                                             </div>
@@ -3231,7 +3231,7 @@ ms.locfileid: "47056755"
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">

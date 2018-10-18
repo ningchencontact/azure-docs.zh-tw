@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: f613fb9bd3e9cf6d070b34403bab617e23261c56
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b52e491162dcf17eff2ca07bc067586358aa9a35
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226435"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393283"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -24,11 +24,11 @@ Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行
 > [!NOTE]
 > Virtual Kubelet 是實驗性開放原始碼專案，應該如此使用。 若要參與、提報問題，以及深入了解 Virtual Kubelet，請參閱[Virtual Kubelet GitHub 專案][vk-github]。
 
-此文件詳細說明如何在 AKS 上設定容器執行個體的 Virtual Kubelet。
+本文件詳細說明如何在 AKS 上設定容器執行個體的 Virtual Kubelet。
 
 ## <a name="prerequisite"></a>必要條件
 
-此文件假設您有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
+本文件假設您有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
 
 您也必須需要 Azure CLI 版本 **2.0.33** 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
@@ -45,7 +45,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -118,12 +118,15 @@ virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 建立名為 `virtual-kubelet-linux.yaml` 的檔案，然後將下列 YAML 複製進來。 使用 Linux Virtual Kubelet 節點名稱取代 `kubernetes.io/hostname` 值。 請注意 [nodeSelector][node-selector] 和 [toleration][toleration] 用於在節點上排定容器。
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aci-helloworld
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
@@ -163,12 +166,15 @@ aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.
 建立名為 `virtual-kubelet-windows.yaml` 的檔案，然後將下列 YAML 複製進來。 使用 Windows Virtual Kubelet 節點名稱取代 `kubernetes.io/hostname` 值。 請注意 [nodeSelector][node-selector] 和 [toleration][toleration] 用於在節點上排定容器。
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nanoserver-iis
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:

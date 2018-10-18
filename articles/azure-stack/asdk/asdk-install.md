@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 74a81901c8ad38a84357a9f3c2e1d948aa81e8bc
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084326"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718216"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安裝 Azure Stack 開發套件 (ASDK)
 [準備 ASDK 主機電腦](asdk-prepare-host.md)後，可以使用本文中的下列步驟將 ASDK 部署到 CloudBuilder.vhdx 映像。
@@ -38,7 +38,7 @@ ms.locfileid: "37084326"
     ![](media/asdk-install/1.PNG) 
 
 3. 在識別提供者 [類型] 下拉式方塊中，選取 [Azure 雲端] 或 [AD FS]。 在 [本機系統管理員密碼] 底下的 [密碼] 方塊中，輸入本機系統管理員密碼 (必須符合目前設定的本機系統管理員密碼)，然後按 [下一步]。
-    - **Azure 雲端**：將 Azure Active Directory (Azure AD) 設定為識別提供者。 若要使用此選項，您需有網際網路連線、Azure AD 目錄租用戶的完整名稱 (採用 *domainname*.onmicrosoft.com 形式或 Azure AD 驗證的自訂網域名稱)，以及所指定目錄的全域管理員認證。 
+    - **Azure 雲端**：將 Azure Active Directory (Azure AD) 設定為識別提供者。 若要使用此選項，您需有網際網路連線、Azure AD 目錄租用戶的完整名稱 (採用 *domainname*.onmicrosoft.com 形式或 Azure AD 驗證的自訂網域名稱)，以及所指定目錄的全域管理員認證。 部署之後，就不需要 Azure Active Directory 全域管理員權限。 不過，某些作業可能需要全域管理員認證。 例如，需要獲派權限的資源提供者安裝程式指令碼或新功能。 您可以暫時恢復帳戶的全域管理員權限，或使用擁有「預設提供者訂用帳戶」的個別全域管理員帳戶。
     - **AD FS**：預設戳記目錄服務會作為識別提供者。 用於登入的預設帳戶是 azurestackadmin@azurestack.local，而要使用的密碼是您在設定過程中所提供的密碼。
 
     ![](media/asdk-install/2.PNG) 

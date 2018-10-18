@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4ab3d0b74e8305d67af862020197c69b15221086
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227417"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830220"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>將「使用 Microsoft 登入」新增至 ASP.NET Core Web 應用程式
 
@@ -42,7 +42,7 @@ ms.locfileid: "47227417"
 > 1. 輸入應用程式的名稱，確定未選取 [引導式設定] 選項，然後按一下 [建立]。
 > 1. 按一下 `Add Platform`，然後選取 `Web`。
 > 1. 請確定已*選取* [允許隱含流程]。
-> 1. 在 [重新導向 URL] 中，輸入 `https://localhost:3110/`。
+> 1. 在 [重新導向 URL] 中，輸入 `http://localhost:3110/`。
 > 1. 向下捲動至頁面底部，然後按一下 [儲存]。
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -60,7 +60,7 @@ ms.locfileid: "47227417"
 
 #### <a name="step-3-configure-your-project"></a>步驟 3：設定您的專案
 
-1. 將 zip 檔案解壓縮至本機資料夾 (例如 **C:\Azure-Samples**)
+1. 將 ZIP 檔案解壓縮至根資料夾附近的本機資料夾 - 例如 **C:\Azure-Samples**
 1. 如果您使用 Visual Studio 2017，請在 Visual Studio 中開啟專案 (選用)
 1. 編輯 **appsettings.json**，並以您剛剛所註冊應用程式的識別碼取代 `ClientId` 值：
 

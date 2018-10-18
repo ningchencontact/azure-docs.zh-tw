@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 676d5e553e2929ae09d447141ca315fd1cc448e3
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e45954389c8dd1b484a7009460c541bf35266973
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448820"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713845"
 ---
 # <a name="permissions-on-the-azureiotsolutionscom-site"></a>azureiotsolutions.com 網站的權限
 
@@ -62,7 +62,7 @@ AAD 角色可控制佈建解決方案加速器的能力、管理使用者，以�
 
 Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AAD 租用戶的能力。
 
-在[如何新增或變更 Azure 共同管理員、服務管理員及帳戶管理員][lnk-admin-roles]一文中，進一步了解 Azure 系統管理員角色。
+您可以在[新增或變更 Azure 訂用帳戶管理員][lnk-admin-roles]一文中，找到更多有關 Azure 管理員角色的資訊。
 
 ## <a name="faq"></a>常見問題集
 
@@ -93,7 +93,7 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AAD 租用戶的�
 [img-flowchart]: media/iot-accelerators-permissions/flowchart.png
 
 [lnk-azureiotsolutions]: https://www.azureiotsolutions.com
-[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-rm-github-repo]: https://github.com/Azure/remote-monitoring-services-dotnet
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
@@ -102,6 +102,5 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AAD 租用戶的�
 [lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
-[lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-accelerators-remote-monitoring-customize.md

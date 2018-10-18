@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f3cf1232861239069894a8e5fa60c911053f038d
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841976"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719438"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署規劃考量
 在部署 Azure Stack 開發套件 (ASDK) 前，請確定您的開發套件主機電腦符合本文中所述的需求。
@@ -93,6 +93,8 @@ ms.locfileid: "43841976"
    | 具備有效的公用 Azure 訂用帳戶之 Microsoft 帳戶 |是 |
    | 具備有效中國 Azure 訂用帳戶的公司或學校帳戶 |是 |
    | 具備有效美國政府 Azure 訂用帳戶的公司或學校帳戶 |是 |
+
+部署之後，就不需要 Azure Active Directory 全域管理員權限。 不過，某些作業可能需要全域管理員認證。 例如，需要獲派權限的資源提供者安裝程式指令碼或新功能。 您可以暫時恢復帳戶的全域管理員權限，或使用擁有「預設提供者訂用帳戶」的個別全域管理員帳戶。
 
 ## <a name="network"></a>網路
 ### <a name="switch"></a>Switch

@@ -10,31 +10,31 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452151"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394403"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
-此文章說明如何將資源移至新的訂用帳戶或相同訂用帳戶中新的資源群組。 您可以使用入口網站、PowerShell、Azure CLI 或 REST API 來移動資源。 此文章中的移動作業可供您使用而不需要任何 Azure 支援的協助。
+本文說明如何將資源移至新的訂用帳戶或相同訂用帳戶中新的資源群組。 您可以使用入口網站、PowerShell、Azure CLI 或 REST API 來移動資源。 本文中的移動作業可供您使用而不需要任何 Azure 支援的協助。
 
 移動資源時，在此作業期間會同時鎖定來源群組和目標群組。 資源群組上的寫入和刪除作業將會封鎖，直到移動完成。 此鎖定表示您無法新增、更新或刪除資源群組中的資源，但不表示資源已遭到凍結。 例如，如果您將 SQL Server 和其資料庫移至新的資源群組，使用該資料庫的應用程式不會發生停機時間。 它仍可對資料庫讀取和寫入。
 
 您無法變更資源的位置。 移動資源只會將它移動到新的資源群組。 新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
 
 > [!NOTE]
-> 此文章說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您真的想要變更 Azure 帳戶供應項目 (例如，從隨用隨付升級為預付)，同時繼續使用現有的資源，請參閱 [切換至不同的 Azure 訂用帳戶供應項目](../billing/billing-how-to-switch-azure-offer.md)。
+> 本文說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您真的想要變更 Azure 帳戶供應項目 (例如，從隨用隨付升級為預付)，同時繼續使用現有的資源，請參閱 [切換至不同的 Azure 訂用帳戶供應項目](../billing/billing-how-to-switch-azure-offer.md)。
 >
 >
 
 ## <a name="checklist-before-moving-resources"></a>移動資源前的檢查清單
 
-在移動資源之前，要執行的重要步驟如下︰ 透過驗證這些條件，您可以避免錯誤。
+在移動資源之前，要執行的重要步驟如下︰ 藉由驗證這些條件，您可以避免錯誤。
 
 1. 來源和目的地的訂用帳戶必須存在於相同的 [Azure Active Directory 租用戶](../active-directory/develop/quickstart-create-new-tenant.md)內。 若要檢查這兩個訂用帳戶都有相同的租用戶識別碼，請使用 Azure PowerShell 或 Azure CLI。
 
@@ -94,11 +94,11 @@ ms.locfileid: "47452151"
 
 1. 可能的話，請將大型移動細分為個別的移動作業。 Resource Manager 在單一作業中嘗試移動超過 800 個資源會立即失敗。 不過，移動少於 800 個資源也可能因為逾時而失敗。
 
-1. 服務必須啟用移動資源的功能。 若要判斷移動是否會成功，請[驗證您的移動要求](#validate-move)。 請參閱此文章的以下小節，了解[哪些服務可移動資源](#services-that-can-be-moved)，以及[哪些服務無法移動資源](#services-that-cannot-be-moved)。
+1. 服務必須啟用移動資源的功能。 若要判斷移動是否會成功，請[驗證您的移動要求](#validate-move)。 請參閱本文的以下小節，了解[哪些服務可移動資源](#services-that-can-be-moved)，以及[哪些服務無法移動資源](#services-that-cannot-be-moved)。
 
 ## <a name="when-to-call-support"></a>呼叫支援的時機
 
-您可以透過此文章顯示的自助式作業，移動大部分資源。 使用自助式作業︰
+您可以透過本文顯示的自助式作業，移動大部分資源。 使用自助式作業︰
 
 * 移動 Resource Manager 資源。
 * 根據[傳統部署限制](#classic-deployment-limitations)移動傳統資源。
@@ -110,7 +110,7 @@ ms.locfileid: "47452151"
 
 ## <a name="validate-move"></a>驗證移動
 
-[驗證移動作業](/rest/api/resources/resources/validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用此作業來判斷移動是否會成功。 若要執行此作業，您需要：
+[驗證移動作業](/rest/api/resources/resources/resources_validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用這項作業來判斷移動是否會成功。 若要執行這項作業，您需要：
 
 * 來源資源群組的名稱
 * 目標資源群組的資源識別碼
@@ -442,7 +442,7 @@ Authorization: Bearer <access-token>
   }
   ```
 
-此作業可能需要幾分鐘的時間執行。
+這項作業可能需要幾分鐘的時間執行。
 
 ## <a name="recovery-services-limitations"></a>復原服務限制
 
