@@ -48,7 +48,7 @@ Azure Load Balancer 有兩種 SKU：基本和標準。 它們的規模、功能�
 
 ## <a name="what-are-load-balancer-resources"></a>什麼是 Load Balancer 資源？
 
-Load Balancer 資源可以公用 Load Balancer 或內部 Load Balancer 的形式存在。 Load Balancer 資源的運作方式可用前端、規則、健康情況探查和後端集區定義來表示。 從虛擬機器指定後端集區，藉以將虛擬機器放在後端集區中。
+Load Balancer 資源可以公用 Load Balancer 或內部 Load Balancer 的形式存在。 Load Balancer 資源的運作方式可用前端、規則、健康情況檢測和後端集區定義來表示。 從虛擬機器指定後端集區，藉以將虛擬機器放在後端集區中。
 
 Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如何對其多租用戶基礎結構設計程式，以達到您想要建立的案例。 Load Balancer 資源與實際的基礎結構之間沒有直接關聯性。 建立 Load Balancer 並不會建立執行個體，而且隨時都有容量可用。 
 
@@ -58,7 +58,7 @@ Load Balancer 為 TCP 和 UDP 應用程式提供下列基本功能：
 
 * **負載平衡**
 
-    有了 Azure Load Balancer，您就能建立負載平衡規則，將抵達前端的流量分送給各個後端集區執行個體。 Load Balancer 使用雜湊型演算法來分送輸入流程，並據以重寫流向後端集區執行個體的流程標頭。 當健康情況探查表示後端端點狀況良好時，伺服器便可以接收新的流程。
+    有了 Azure Load Balancer，您就能建立負載平衡規則，將抵達前端的流量分送給各個後端集區執行個體。 Load Balancer 使用雜湊型演算法來分送輸入流程，並據以重寫流向後端集區執行個體的流程標頭。 當健康情況檢測表示後端端點狀況良好時，伺服器便可以接收新的流程。
     
     Load Balancer 預設會使用 5-tuple 的雜湊 (由來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠、IP 通訊協定數目所組成)，將流程對應至可用的伺服器。 您可以選擇建立特定來源 IP 位址的親和性，做法是替指定規則加入 2-tuple 或 3-tuple 的雜湊。 相同封包流程的所有封包會抵達相同執行個體，執行個體位於已負載平衡的前端之後。 當用戶端從相同的來源 IP 起始新的流程時，來源連接埠會變更。 結果是產生的 5-tuple 可能會將流量送往不同的後端端點。
 
@@ -84,13 +84,13 @@ Load Balancer 為 TCP 和 UDP 應用程式提供下列基本功能：
 
     當您相應增加或減少執行個體時，Load Balancer 本身會立即重新設定。 從後端集區新增或移除 VM 會重新設定 Load Balancer，而不需要在 Load Balancer 資源上進行其他作業。
 
-* **健康情況探查**
+* **健康情況檢測**
 
-    若要判斷後端集區中執行個體的健康情況，Load Balancer 會使用您定義的健康情況探查。 當探查無法回應時，Load Balancer 會停止傳送新的連線至狀況不良的執行個體。 現有連線不會受到影響，會繼續維持連線直到應用程式終止流程、發生閒置逾時或 VM 關機。
+    若要判斷後端集區中執行個體的健康情況，Load Balancer 會使用您定義的健康情況檢測。 當檢測無法回應時，Load Balancer 會停止傳送新的連線至狀況不良的執行個體。 現有連線不會受到影響，會繼續維持連線直到應用程式終止流程、發生閒置逾時或 VM 關機。
      
-    Load Balancer 會為 TCP、HTTP 和 HTTPS 端點提供[不同的健康情況探查類型](load-balancer-custom-probe-overview.md#types)。
+    Load Balancer 會為 TCP、HTTP 和 HTTPS 端點提供[不同的健康情況檢測類型](load-balancer-custom-probe-overview.md#types)。
 
-    此外，使用傳統雲端服務時，允許使用其他類型：[客體代理程式](load-balancer-custom-probe-overview.md#guestagent)。  這應該被視為健康情況探查的最後手段，但不建議使用於有其他可行的選項時。
+    此外，使用傳統雲端服務時，允許使用其他類型：[客體代理程式](load-balancer-custom-probe-overview.md#guestagent)。  這應該被視為健康情況檢測的最後手段，但不建議使用於有其他可行的選項時。
     
 * **輸出連線 (SNAT)**
 
