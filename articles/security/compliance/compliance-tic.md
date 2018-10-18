@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505106"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388300"
 ---
 # <a name="trusted-internet-connections-guidance"></a>受信任網際網路連線指導方針
 
@@ -223,7 +223,7 @@ Azure 原則以訂用帳戶層級為目標。 服務提供集中式介面，您�
 
 ### <a name="network-watcher-traffic-analytics"></a>網路監看員流量分析
 
-網路監看員[流量分析](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)使用流量記錄資料和其他記錄來提供網路流量的高階概觀。 此資料可用於稽核 TIC 合規性並找出有問題的地方。 您可以使用高階儀表板來快速篩選與網際網路通訊的虛擬機器，並取得 TIC 路由重點清單。
+網路監看員[流量分析](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)使用流量記錄資料和其他記錄來提供網路流量的高階概觀。 此資料可用於稽核 TIC 合規性並找出有問題的地方。 您可以使用高階儀表板來快速篩選與網際網路通訊的虛擬機器，並取得 TIC 路由重點清單。
 
 ![流量分析](media/tic-traffic-analytics-1.png)
 

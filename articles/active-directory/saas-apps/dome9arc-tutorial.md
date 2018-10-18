@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746486"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387849"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>教學課程：Azure Active Directory 與 Dome9 Arc 整合
 
@@ -150,7 +150,7 @@ Dome9 Arc 與 Azure AD 整合提供下列優點：
     d. 按一下 [確定] 。
     
     > [!NOTE]
-    > 請參閱此[連結](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management)，以了解如何設定及安裝應用程式的角色。
+    > 請參閱此[連結](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)，以了解如何設定及安裝應用程式的角色。
 
 7. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 

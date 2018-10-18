@@ -3,8 +3,8 @@ title: 教學課程 - 在 Azure CDN 自訂網域上設定 HTTPS | Microsoft Docs
 description: 在本教學課程中，您將了解如何在 Azure CDN 端點自訂網域上啟用和停用 HTTPS。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c7540ed2715d13921f005ed9b217f7bfb9cd0a0a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342220"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092078"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
@@ -47,7 +47,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 > - 驗證網域
 > - 在您的自訂網域上停用 HTTPS 通訊協定。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須先建立 CDN 設定檔和至少一個 CDN 端點，才能完成本教學課程中的步驟。 如需詳細資訊，請參閱[快速入門：建立 Azure CDN 設定檔和端點](cdn-create-new-endpoint.md)。
 
@@ -171,7 +171,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 您的 CNAME 記錄應該採用下列格式，其中「名稱」是您的自訂網域名稱，而「值」則是您的 CDN 端點主機名稱：
 
-| Name            | 類型  | 值                 |
+| 名稱            | 類型  | 值                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 

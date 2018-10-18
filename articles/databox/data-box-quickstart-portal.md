@@ -2,24 +2,18 @@
 title: Microsoft Azure 資料箱的快速入門 | Microsoft Docs
 description: 了解如何在 Azure 入口網站中快速部署您的 Azure 資料箱
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784632"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385831"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱
 
@@ -35,7 +29,7 @@ ms.locfileid: "48784632"
     - Microsoft Enterprise 合約 (EA)。 深入了解 [EA 訂用帳戶](https://azure.microsoft.com/pricing/enterprise-agreement/)。
     - 雲端解決方案提供者 (CSP)。 深入了解 [Azure CSP 方案](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。
     - 使用量 - 隨用隨付。 關於 Azure [隨用隨付訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0003p/)的詳細資訊。
-    - Microsoft Azure 贊助。 深入了解 [Azure 贊助方案](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/)。 
+    - Microsoft Azure 贊助。 深入了解 [Azure 贊助方案](https://azure.microsoft.com/offers/ms-azr-0036p/)。 
 
 - 請確定您有訂用帳戶的擁有者或參與者存取權，才能建立資料箱訂單。
 - 檢閱[資料箱的安全性指導方針](data-box-safety.md)。

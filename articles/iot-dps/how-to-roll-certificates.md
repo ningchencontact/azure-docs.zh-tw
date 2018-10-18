@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976749"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387883"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>如何輪替 X.509 裝置憑證
 
@@ -52,7 +52,7 @@ ms.locfileid: "46976749"
 
 新的分葉憑證輪替至裝置後，便無法再連線到 IoT 中樞，因為它目前使用新的憑證進行連線。 IoT 中樞只會辨識使用舊憑證的裝置。 裝置的連線嘗試結果會是「未經授權」的連線錯誤。 若要解決這個錯誤，您必須更新裝置的註冊項目，以將裝置的新分葉憑證納入考量。 然後佈建服務可以在重新佈建裝置時，視需要更新 IoT 中樞裝置登錄資訊。 
 
-此連線失敗有一個可能的例外狀況：您已在佈建服務中為您的裝置建立[註冊群組](concepts-service.md#enrollment-group)。 在此情況下，如果您並未輪替裝置的信任鏈結中的根憑證或中繼憑證，只有新憑證屬於註冊群組中所定義的信任鏈結，就能辨識此裝置。 如果出現這種情況來反應安全性缺口，您應該至少將群組中被視為遭入侵的特定裝置憑證列入黑名單中。 如需詳細資訊，請參閱[將註冊群組中的特定裝置列入黑名單](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group)。
+此連線失敗有一個可能的例外狀況：您已在佈建服務中為您的裝置建立[註冊群組](concepts-service.md#enrollment-group)。 在此情況下，如果您並未輪替裝置的信任鏈結中的根憑證或中繼憑證，只有新憑證屬於註冊群組中所定義的信任鏈結，就能辨識此裝置。 如果出現這種情況來反應安全性缺口，您應該至少將群組中被視為遭入侵的特定裝置憑證列入黑名單中。 如需詳細資訊，請參閱[將註冊群組中的特定裝置列入黑名單](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group)。
 
 在 [管理註冊] 頁面上，可以完成已輪替憑證的註冊項目更新。 若要存取該頁面，請遵循下列步驟：
 

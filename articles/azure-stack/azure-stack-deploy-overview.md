@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/04/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.custom: mvc
-ms.openlocfilehash: a0e742ab3ac43cc7977761dd94c9689e3a7c2e0b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: bf07fe56c65e53f5485b9927e0d704f80842cf3a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235180"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338690"
 ---
 # <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>快速入門：評估 Azure Stack 開發套件
 
 [Azure Stack 開發套件 (ASDK)](.\asdk\asdk-what-is.md) 是一個測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 若要開始使用 ASDK，您需要準備主機電腦硬體，然後再執行一些指令碼 (安裝須花費數小時)。 之後，您就可以登入系統管理員或使用者入口網站，開始使用 Azure Stack。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="asdk-host-computer-requirements"></a>ASDK 主機電腦需求
 

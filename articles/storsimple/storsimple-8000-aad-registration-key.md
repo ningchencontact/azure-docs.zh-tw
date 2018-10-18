@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: e6e792c31f9856bcaf1d777e534dcac8d8be3dd3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113522"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387033"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>針對您的 StorSimple 使用新驗證
 
@@ -28,7 +28,7 @@ ms.locfileid: "37113522"
 StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多個 StorSimple 裝置。 到目前為止，StorSimple 裝置管理員服務一直都是使用存取控制服務 (ACS) 來驗證針對您 StorSimple 裝置的服務。 ACS 機制即將被 Azure Active Directory (AAD) 驗證取代。 如需詳細資訊，請參閱下列有關 ACS 的淘汰及使用 AAD 驗證的公告。
 
 - [Azure ACS 的未來為 Azure Active Directory](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/) \(英文\)
-- [即將對 Microsoft 存取控制服務進行的變更](https://azure.microsoft.com/en-in/blog/acs-access-control-service-namespace-creation-restriction/) \(英文\)
+- [即將對 Microsoft 存取控制服務進行的變更](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/) \(英文\)
 
 本文說明 AAD 驗證與相關新服務註冊金鑰的詳細資料，以及針對 StorSimple 裝置的防火牆規則所做出的修改。 本文所含資訊僅適用於 StorSimple 8000 系列裝置。
 

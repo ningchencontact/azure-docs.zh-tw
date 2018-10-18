@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036283"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319841"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>使用 PowerShell (傳統) 刪除虛擬網路閘道
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 入口網站](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [傳統 - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
->
 
 本文章會協助您使用 PowerShell 刪除傳統部署模型中的 VPN 閘道。 在刪除虛擬網路閘道之後，請修改網路設定檔，以移除您不再使用的項目。
 
-##<a name="connect"></a>步驟 1：連線到 Azure
+## <a name="connect"></a>步驟 1：連線到 Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1.安裝最新的 PowerShell Cmdlet。
 
@@ -101,7 +101,7 @@ Status : Successful
  </Gateway>
 ```
 
-###<a name="lns"></a>區域網路網站
+### <a name="lns"></a>區域網路網站
 
 移除所有您不再使用的區域網站。 根據您所建立的組態而定，您可能並未列出 **LocalNetworkSite**。
 

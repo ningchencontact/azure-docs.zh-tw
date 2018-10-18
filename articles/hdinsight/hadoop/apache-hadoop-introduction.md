@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 634abb107ce3578de4baccdfdec2c5bdde166f11
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 840ade08f7dffb23beb9541da63855c4ead374e7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668287"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386977"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>什麼是 Azure HDInsight 和 Hadoop 技術堆疊
 
@@ -117,13 +117,13 @@ HDInsight 叢集 (包括 Spark、HBase、Kafka、Hadoop 等) 支援許多種程�
 ## <a name="development-tools-for-hdinsight"></a>適用於 HDInsight 的開發工具 
 您可以使用 HDInsight 開發工具 (包括 IntelliJ、Eclipse、Visual Studio Code 和 Visual Studio)，透過與 Azure 的完美整合，以撰寫並提交 HDInsight 資料查詢和作業。
 
-* [適用於 IntelliJ 的 Azure 工具組](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
+* [適用於 IntelliJ 的 Azure 工具組](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
 
-* [適用於 Eclipse 的 Azure 工具組](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin)
+* [適用於 Eclipse 的 Azure 工具組](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin)
 
-* [適用於 VS Code 的 Azure HDInsight 工具](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-22999)
+* [適用於 VS Code 的 Azure HDInsight 工具](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-22999)
 
-* [適用於 Visual Studio 的 Azure Data Lake 工具](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
+* [適用於 Visual Studio 的 Azure Data Lake 工具](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
 
 ## <a name="business-intelligence-on-hdinsight"></a>HDInsight 上的商業智慧
 熟悉的商業智慧 (BI) 工具可使用 Power Query 增益集或 Microsoft Hive ODBC 驅動程式來擷取、分析和報告與 HDInsight 整合的資料：

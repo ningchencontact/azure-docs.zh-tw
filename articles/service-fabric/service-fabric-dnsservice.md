@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397521"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387933"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服務
 「DNS 服務」是一個選用的系統服務，您可以在叢集中啟用以使用 DNS 通訊協定來探索其他服務。 
@@ -132,7 +132,7 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
 
 ![服務端點](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-下列範例會將具狀態服務的 DNS 名稱設定為 `statefulsvc.app`。 服務會使用具名的資料配置。 請注意，分割區名稱採用小寫。 這是將在 DNS 查詢中作為目標的分割區所需符合的要求；如需詳細資訊，請參閱[對具狀態服務分割區進行 DNS 查詢](#making-dns-queries-on-a-stateful-service-partition)。
+下列範例會將具狀態服務的 DNS 名稱設定為 `statefulsvc.app`。 服務會使用具名的資料配置。 請注意，分割區名稱採用小寫。 這是將在 DNS 查詢中作為目標的分割區所需符合的要求；如需詳細資訊，請參閱[對具狀態服務分割區進行 DNS 查詢](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition)。
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />

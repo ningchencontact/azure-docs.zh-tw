@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 6acea70ca929310fe37f36fe98698e6adb76101b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 922e7ed5d55f50b2069dad71ead73d9ef4475ed0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997823"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389899"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體︰進階 (預覽)、經常性存取、非經常性存取和封存儲存層
 
@@ -113,7 +113,7 @@ Blob 層級的階層處理可讓您使用稱為[設定 Blob 層](/rest/api/stora
 進階存取層中儲存的資料無法使用[設定 Blob 層](/rest/api/storageservices/set-blob-tier)或使用 Azure Blob 儲存體生命週期管理分層至經常性存取、非經常性存取或封存。 若要移動資料，您必須使用 [Put Block From URL API](/rest/api/storageservices/put-block-from-url) 或支援此 API 的 AzCopy 版本，將 Blob 從進階存取同步複製到經常性存取。 *Put Block From URL* API 會同步複製伺服器上的資料，這表示只有將所有資料從原始伺服器位置移動到目標位置後，才會完成呼叫。
 
 ### <a name="blob-lifecycle-management"></a>Blob 生命週期管理
-Blob 儲存體生命週期管理 (預覽) 提供豐富、以規則為基礎的原則，可讓您用來將資料轉換到最佳存取層，並在其生命週期結束時使資料過期。 若要深入了解，請參閱[管理 Azure Blob 儲存體生命週期](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)。  
+Blob 儲存體生命週期管理 (預覽) 提供豐富、以規則為基礎的原則，可讓您用來將資料轉換到最佳存取層，並在其生命週期結束時使資料過期。 若要深入了解，請參閱[管理 Azure Blob 儲存體生命週期](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)。  
 
 ### <a name="blob-level-tiering-billing"></a>Blob 層級的階層處理計費
 

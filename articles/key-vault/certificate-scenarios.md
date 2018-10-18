@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: d5cc634451c5412f9a3339c8d2d26654c4d5c1b8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298908"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385629"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>開始使用 Key Vault 憑證
 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
@@ -83,7 +83,7 @@ ms.locfileid: "44298908"
       -   更新資訊 - > 例如 到期之前的 90 天  
 
   - 憑證建立流程通常為非同步流程，並且包含輪詢金鑰保存庫中的建立憑證作業狀態。  
-[取得憑證作業](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+[取得憑證作業](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
       -   狀態：已完成、失敗但有錯誤資訊，或已取消  
       -   因為延遲建立，所以可以起始取消作業。 取消不一定會有作用。  
 

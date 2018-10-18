@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
-ms.openlocfilehash: a741224508fb023a1587f318c2bd53d4446fef55
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 729338799fd8b0d143de7ee0a643bd71684b2789
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128956"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385918"
 ---
 # <a name="quickstart-use-go-to-call-the-bing-web-search-api"></a>快速入門：使用 Go 來呼叫 Bing Web 搜尋 API  
 
@@ -24,7 +24,7 @@ ms.locfileid: "46128956"
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 以下是執行本快速入門之前的幾個必備項目：
 
@@ -312,8 +312,8 @@ func main() {
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
 Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
-Cognitive Service Try experience | Microsoft Azure || https://azure.microsoft.com/en-us/try/cognitive-services/
-What is Microsoft Cognitive Services? | Microsoft Docs || https://docs.microsoft.com/en-us/azure/cognitive-services/Welcome
+Cognitive Service Try experience | Microsoft Azure || https://azure.microsoft.com/try/cognitive-services/
+What is Microsoft Cognitive Services? | Microsoft Docs || https://docs.microsoft.com/azure/cognitive-services/Welcome
 Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit/
 Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
 Microsoft Enterprise Services - Microsoft Enterprise || https://enterprise.microsoft.com/en-us/services/

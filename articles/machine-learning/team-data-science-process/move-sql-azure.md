@@ -4,7 +4,7 @@ description: 建立 SQL 資料表以及將資料載入 SQL 資料表
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: f9e456ec28695c63384f1c4fdd4b04ec37fefc14
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 99141b7542cc9adadadda6ada670b644d3aba5f3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728806"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393638"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>移動資料至 Azure 機器學習的 Azure SQL Database
 本主題概述從一般檔案 (CSV 或 TSV 格式) 或儲存在內部部署 SQL Server 中的資料，將資料移動至 Azure SQL 資料庫的選項。 將資料移到雲端的這些工作是 Team Data Science Process 的一部分。

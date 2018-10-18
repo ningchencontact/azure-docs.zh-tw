@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140681"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386292"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>將應用程式和服務視為 Azure Resource Manager 進行管理
 
@@ -264,7 +264,7 @@ ms.locfileid: "42140681"
 如果您的叢集已啟動，而且您已經將幾個要視為 Resource Manager 資源管理的應用程式部署在叢集之上，與其移除應用程式再重新部署，不如透過使用相同 API 的 PUT 呼叫讓應用程式獲得 Resource Manager 資源的認可。 
 
 > [!NOTE]
-> 若要讓叢集升級忽略狀況不良的應用程式，客戶可以在 “upgradeDescription/healthPolicy” 區段指定 “maxPercentUnhealthyApplications: 100”；所有設定的詳細說明位於 [Service Fabric REST API 叢集升級原則文件](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)中。
+> 若要讓叢集升級忽略狀況不良的應用程式，客戶可以在 “upgradeDescription/healthPolicy” 區段指定 “maxPercentUnhealthyApplications: 100”；所有設定的詳細說明位於 [Service Fabric REST API 叢集升級原則文件](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)中。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -2,18 +2,18 @@
 title: 快速入門：使用 Azure 資料總管 Python 程式庫查詢資料
 description: 在本快速入門中，您將了解如何使用 Python，從 Azure 資料總管查詢資料。
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: fee982812456548ed6d1e15d86151df88532389f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 17504cec6ddf98aca8ddfc6c91d21d34055902f6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956093"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394845"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>快速入門：使用 Azure 資料總管 Python 程式庫查詢資料
 
@@ -32,7 +32,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 安裝 *azure-kusto-data*。
 
 ```python
-pip install azure-kusto-data
+pip install azure-kusto-data==0.0.13
 ```
 
 ## <a name="add-import-statements-and-constants"></a>新增 Import 陳述式和常數
@@ -42,6 +42,7 @@ pip install azure-kusto-data
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
+from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
 ```
 
@@ -51,10 +52,10 @@ import pandas as pd
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
-例如，如果您的網域為 *contoso.com*，則 URL 會是：[https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/)。 按一下此 URL 來查看結果；第一行如下所示。 
+例如，如果您的網域為 *contoso.com*，則 URL 會是：[https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/)。 按一下此 URL 來查看結果；第一行如下所示。
 
 ```
-`"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"`
+"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
 在此案例中，租用戶識別碼為 `6babcaad-604b-40ac-a9d7-9fd97c0b779f`。 先設定 AAD_TENANT_ID 的值，然後再執行此程式碼。
@@ -80,7 +81,7 @@ KCSB.authority_id = AAD_TENANT_ID
 KUSTO_CLIENT  = KustoClient(KCSB)
 KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
 
-df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```
 
 ## <a name="explore-data-in-dataframe"></a>在 DataFrame 中探索資料
@@ -88,6 +89,7 @@ df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].
 當您進入登入之後，查詢會傳回結果，並將其儲存於資料框架中。 您可以像處理任何其他資料框架一樣來處理結果。
 
 ```python
+df = dataframe_from_result_table(RESPONSE.primary_results[0])
 df
 ```
 

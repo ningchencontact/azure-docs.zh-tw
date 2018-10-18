@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: cf21b11f76592f5df2d81e6bdc10413c79fe895e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979221"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343158"
 ---
 # <a name="chunked-transfer-encoding"></a>區塊傳輸編碼
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 為了將語音轉譯成文字，Microsoft 語音辨識 API 可讓您將音訊當作一整個區塊來傳送，也可以切割成小區塊來傳送。 為了讓音訊串流處理能夠有效率並縮短轉譯延遲，建議您使用[區塊傳輸編碼](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)將音訊串流至服務。 其他實作可能會讓使用者感覺到較長的延遲。 如需詳細資訊，請參閱[音訊資料流](../concepts.md#audio-streams)頁面。
 

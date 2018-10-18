@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "34630420"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319246"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>如何使用不同證明機制搭配適用於 C 的裝置佈建服務用戶端 SDK
 
 本文說明如何使用不同的[證明機制](concepts-security.md#attestation-mechanism)搭配適用於 C 的裝置佈建服務用戶端 SDK。您可以使用實體裝置或模擬器。 佈建服務支援兩種證明機制的驗證：X **.** 509 和信賴平台模組 (TPM)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 根據[建立及佈建模擬的裝置](./quick-create-simulated-device.md)指南中標題為「準備開發環境」一節，準備您的開發環境。
 
@@ -143,11 +143,12 @@ cmake -Ddps_auth_type=tpm_simulator ..
 如果您是使用 TPM，請遵循[「使用 IoT 中樞裝置佈建服務來建立及佈建模擬的裝置」](./quick-create-simulated-device.md)中的指示，在裝置佈建服務中建立裝置註冊項目，並模擬第一次開機。
 
 ### <a name="x509"></a>X **.** 509
+
 1. 若要在佈建服務中註冊裝置，您必須記下每個裝置的簽署金鑰和註冊 ID，這些都會顯示在用戶端 SDK 所提供的佈建工具中。 執行下列命令可列印出根 CA 憑證 (適用於註冊群組) 和分葉憑證 (適用於個別註冊)：
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟 DPS 服務。
+2. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。
    - X **.** 509 個別註冊：在佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 選取 **X**.**509** 作為身分識別證明機制，如刀鋒視窗所要求上傳分葉憑證。 完成後，按一下 [儲存] 按鈕。 
    - X **.** 509 群組註冊：在佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [群組註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 選取 **X**.**509** 作為身分識別證明機制，輸入群組名稱和憑證名稱，如刀鋒視窗所要求上傳 CA/中繼憑證。 完成後，按一下 [儲存] 按鈕。 
 
@@ -185,4 +186,3 @@ cmake -Ddps_auth_type=tpm_simulator ..
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

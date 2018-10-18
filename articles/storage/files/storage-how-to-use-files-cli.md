@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 07d1d1f7050437306d5c2737b9f62b5615753869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de48789c42ccd2d7e090af6f430f323b16416e9c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980418"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389780"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>使用 Azure CLI 管理 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 中易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows、Linux 和 macOS 中掛接。 本文會逐步說明透過 Azure CLI 來使用 Azure 檔案共用的基本概念。 了解如何： 
@@ -180,7 +180,7 @@ az storage file list \
 可使用 Azure 檔案共用來執行的另一項實用工作是建立共用快照集。 快照集會保留 Azure 檔案共用的時間點複本。 共用快照集類似於您可能已經很熟悉的一些作業系統技術：
 - Linux 系統的[邏輯磁碟區管理員 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照集
 - macOS 的 [Apple 檔案系統 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照集
-- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS
+- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS
 
 您可以使用 [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) 命令來建立共用快照集：
 

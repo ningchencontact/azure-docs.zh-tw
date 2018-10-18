@@ -3,8 +3,8 @@ title: 搭配 SAS 使用 Azure CDN | Microsoft Docs
 description: Azure CDN 支援使用「共用存取簽章」(SAS) 來授與有限的私人儲存體容器存取權。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
-ms.author: v-deasim
-ms.openlocfilehash: 15a4e0a8d62b38fa7aa542d95e53d29621965666
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: magattus
+ms.openlocfilehash: 7180e51a6ac1392e4a3f072097b1aeef3648c605
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316563"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093284"
 ---
 # <a name="using-azure-cdn-with-sas"></a>搭配 SAS 使用 Azure CDN
 
@@ -32,7 +32,7 @@ ms.locfileid: "36316563"
 ## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>設定 Azure CDN 以與儲存體 SAS 搭配運作
 以下是搭配 Azure CDN 使用 SAS 時的三個建議選項。 所有選項皆假設您已經建立一個可運作的 SAS (請參閱先決條件)。 
  
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 若要開始，請建立一個儲存體帳戶，然後為您的資產生 SAS。 您可以產生兩種類型的預存存取簽章：服務 SAS 或帳戶 SAS。 如需詳細資訊，請參閱[共用存取簽章的類型](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures)。
 
 產生 SAS 權杖之後，您可以將 `?sv=<SAS token>` 附加至您的 URL 來存取 Blob 儲存體檔案。 此 URL 的格式如下： 

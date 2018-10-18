@@ -5,21 +5,20 @@ services: azure-stack
 author: mattbriggs
 manager: femila
 cloud: azure-stack
-ms.assetid: D44641CB-BF3C-46FE-BCF1-D7F7E1D01AFA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: a70c736489b25f6e8fd0d838c4c7b4b4db96a4f2
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3f4dc6e4136d8d2e3eb1ca5e822306aae2217e3b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188260"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340846"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>執行 Azure Stack 的驗證測試
 
@@ -64,7 +63,7 @@ ms.locfileid: "39188260"
 
 | 參數               | 值           | 必要 | 預設值 |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | PSCredential    | 否       | FALSE   |
+| ServiceAdminCredentials | 字串    | 否       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | 否       | FALSE   |
 | AdminCredential         | PSCredential    | 否       | NA      |
 | 列出                    | SwitchParameter | 否       | FALSE   |
@@ -177,7 +176,7 @@ Test-AzureStack Cmdlet 支援一般參數：Verbose、Debug、ErrorAction、Erro
 
 下表摘要說明 **Test-AzureStack** 所執行的驗證測試。
 
-| Name                                                                                                                              |
+| 名稱                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | Azure Stack 雲端裝載基礎結構摘要                                                                                  |
 | Azure Stack 儲存體服務摘要                                                                                              |

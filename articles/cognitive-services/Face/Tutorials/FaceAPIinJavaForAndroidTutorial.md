@@ -3,19 +3,19 @@ title: 教學課程：偵測並框出影像中的人臉 - 臉部 API、適用於
 titleSuffix: Azure Cognitive Services
 description: 在此教學課程中，您會建立簡單的 Android 應用程式，以使用臉部 API 來偵測並框出影像中的人臉。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
 ms.date: 07/12/2018
-ms.author: nolachar
-ms.openlocfilehash: 50185588b77f01bced9462d5fd1ad67bb5de6e08
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: 08344e21d4f425a021bdefe840390ede8b3fb01e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129721"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342376"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教學課程：建立 Android 應用程式來偵測並框出影像中的臉部
 
@@ -43,9 +43,9 @@ ms.locfileid: "46129721"
 
 1. 開啟 Android Studio。 本教學課程使用 Android Studio 3.1。
 1. 選取 [啟動新的 Android Studio 專案]。
-1. 在 [建立 Android 專案] 畫面上，如有必要可修改預設欄位，然後按一下 [下一步]。
-1. 在 [目標 Android 裝置] 畫面上，使用下拉式選取器選擇 [API 22] 或更高版本，然後按一下 [下一步]。
-1. 選取 [空白活動]，然後按一下 [下一步]。
+1. 在 [建立 Android 專案] 畫面上，如有必要可修改預設欄位，然後按 [下一步]。
+1. 在 [目標 Android 裝置] 畫面上，使用下拉式選取器選擇 [API 22] 或更高版本，然後按 [下一步]。
+1. 選取 [空白活動]，然後按 [下一步]。
 1. 取消核取 [回溯相容性]，然後按一下 [完成]。
 
 ## <a name="create-the-ui-for-selecting-and-displaying-the-image"></a>建立用於選取和顯示影像的 UI
@@ -140,7 +140,7 @@ public class MainActivity extends Activity {
 
 ## <a name="configure-the-face-client-library"></a>設定臉部用戶端程式庫
 
-臉部 API 是您可使用 HTTPS 要求所呼叫的雲端 API。 此教學課程會使用臉部用戶端程式庫，由其封裝這些 Web 要求以簡化您的工作。
+臉部 API 是您可使用 HTTPS 要求所呼叫的雲端 API。 本教學課程會使用臉部用戶端程式庫，由其封裝這些 Web 要求以簡化您的工作。
 
 在 [專案] 窗格中，使用下拉式選取器來選取 [Android]。 展開 [Gradle 指令碼]，然後開啟 build.gradle (模組：應用程式)。
 

@@ -1,12 +1,25 @@
-<a name="-headarticlesvirtual-machinestroubleshootingtroubleshoot-recovery-disks-linuxmd"></a><<<<<<< HEAD:articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md
 ---
-
-title: 透過 Azure CLI 使用 Linux 疑難排解 VM | Microsoft Docs description: 了解如何使用 Azure CLI 將 OS 磁碟連線到復原 VM，以對 Linux VM 問題進行疑難排解 services: virtual-machines-linux documentationCenter: '' authors: genlin manager: jeconnoc editor: ''
-
-ms.service: virtual-machines-linux ms.devlang: azurecli ms.topic: troubleshooting ms.tgt_pltfrm: vm-linux ms.workload: infrastructure ms.date: 2017 年 2 月 16 日 ms.author: genli
-
+title: 透過 Azure CLI 使用 Linux 針對 VM 進行疑難排解 | Microsoft Docs
+description: 了解如何使用 Azure CLI 將 OS 磁碟連接至復原 VM，以針對 Linux VM 問題進行疑難排解
+services: virtual-machines-linux
+documentationCenter: ''
+authors: genlin
+manager: jeconnoc
+editor: ''
+ms.service: virtual-machines-linux
+ms.devlang: azurecli
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/16/2017
+ms.author: genli
+ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392397"
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>透過 Azure CLI 將 OS 磁碟連結到復原 VM，以對 Linux VM 進行疑難排解
 如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure CLI 將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。 
 

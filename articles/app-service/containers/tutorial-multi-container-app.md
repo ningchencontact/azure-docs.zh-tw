@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ff3659bd0f4001424ce27484f08a645f364c2ef6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c8002b10e2c7c0823cd59bf300283d04fca5ce2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054633"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390205"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>教學課程：在適用於容器的 Web 應用程式中建立多容器 (預覽) 應用程式
 
@@ -235,7 +235,7 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql_server_
 
 ### <a name="configure-database-variables-in-wordpress"></a>設定 WordPress 中的資料庫變數
 
-若要將 WordPress 應用程式連線至這個新的 MySQL 伺服器，您必須設定幾個 WordPress 專屬環境變數，包括 `MYSQL_SSL_CA` 所定義的 SSL CA 路徑。 下方的[自訂映像](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations)中提供來自 [DigiCert](http://www.digicert.com/) 的 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)。
+若要將 WordPress 應用程式連線至這個新的 MySQL 伺服器，您必須設定幾個 WordPress 專屬環境變數，包括 `MYSQL_SSL_CA` 所定義的 SSL CA 路徑。 下方的[自訂映像](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations)中提供來自 [DigiCert](http://www.digicert.com/) 的 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)。
 
 若要進行這些變更，請在 Cloud Shell 中使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 應用程式設定為區分大小寫和空格分隔。
 

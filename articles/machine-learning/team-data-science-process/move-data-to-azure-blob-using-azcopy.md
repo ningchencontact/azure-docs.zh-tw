@@ -4,7 +4,7 @@ description: 使用 AzCopy 從 Azure Blob 儲存體來回移動資料
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: c309ceb2-0e83-4a07-b16d-c997dcd62d5c
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: a25a35bc05781c6a52e21d697233ba1187ebeccf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 41e89aab65b19e22ad6f8fe0d3087c4e7f5430ab
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838410"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393399"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>使用 AzCopy 從 Azure Blob 儲存體來回移動資料
 AzCopy 是個命令列公用程式，專為上傳、下載，以及將資料複製到和複製出 Microsoft Azure Blob、檔案和表格儲存體所設計。
@@ -37,7 +37,7 @@ AzCopy 是個命令列公用程式，專為上傳、下載，以及將資料複�
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文件假設您擁有 Azure 訂用帳戶、儲存體帳戶和該帳戶的對應儲存體金鑰。 上傳/下載資料之前，您必須知道 Azure 儲存體帳戶名稱和帳戶金鑰。
 
 * 若要設定 Azure 訂用帳戶，請參閱 [免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。

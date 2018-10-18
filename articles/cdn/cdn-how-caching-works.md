@@ -3,8 +3,8 @@ title: 快取的運作方式 | Microsoft Docs
 description: 快取是在本機儲存資料的程序，以便未來可以更快速地存取對該資料的要求。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-deasim
-ms.openlocfilehash: bb0824995972b49febdb1695e41f45fbd0966cd1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765785"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092381"
 ---
 # <a name="how-caching-works"></a>快取的運作方式
 
@@ -126,7 +126,7 @@ Azure CDN 支援下列 HTTP 快取指示詞標頭，這些標頭會定義快取�
 
 |    | Microsoft：一般 Web 傳遞 | Verizon：一般 Web 傳遞 | Verizon：DSA | Akamai：一般 Web 傳遞 | Akamai：DSA | Akamai：大型檔案下載 | Akamai：一般或 VOD 媒體串流處理 |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **接受來源**       | yes    | yes   | 否   | yes    | 否   | yes   | yes    |
+| **接受來源**       | 是    | yes   | 否   | 是    | 否   | yes   | 是    |
 | **CDN 快取持續時間** | 2 天 |7 天 | None | 7 天 | None | 1 天 | 1 年 |
 
 **接受來源**：指定如果[支援的快取指示詞標頭](#http-cache-directive-headers)存在於原始伺服器的 HTTP 回應中，是否要加以接受。

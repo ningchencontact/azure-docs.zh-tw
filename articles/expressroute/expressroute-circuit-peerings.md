@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c1fbc99702e077e600f01959224f3321e7543e59
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8ef231982cfdc9a2c4387ee47e651fdf1af0baaf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044394"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388420"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 線路和路由網域
  您必須訂購 *ExpressRoute 線路* ，才能將內部部署基礎結構透過連線提供者連接到 Microsoft。 下圖所示的是 WAN 與 Microsoft 之間連線的邏輯表示法。
@@ -82,7 +82,7 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 ## <a name="expressroute-health"></a>ExpressRoute 健康情況
 您可能會基於可用性、與 VNet 的連線能力及頻寬使用率，使用[網路效能監控](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) 來監視 ExpressRoute 線路。
 
-NPM 會監視 Azure 私用對等互連和 Microsoft 對等互連的健康情況。  如需詳細資訊，請參閱我們的[文章](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) \(英文\)。
+NPM 會監視 Azure 私用對等互連和 Microsoft 對等互連的健康情況。  如需詳細資訊，請參閱我們的[文章](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 * 尋找服務提供者。 請參閱 [ExpressRoute 服務提供者和位置](expressroute-locations.md)。

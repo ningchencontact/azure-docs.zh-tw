@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 3c4c2d8f49fbddc4875d7a4abf5d7629bc8f942e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.component: ''
+ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145078"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319705"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)
 本文示範如何使用「HTTP 資料收集器 API」將資料從 REST API 用戶端傳送給 Log Analytics。  它說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Log Analytics 授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -101,7 +101,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ## <a name="request-body"></a>Request body
 訊息的主體必須採用 JSON。 其中必須包含一或多筆記錄，其屬性名稱和值組的格式如下︰
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -114,7 +114,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 您可以使用下列格式將多筆記錄分批放入單一要求中。 所有記錄都必須是相同的記錄類型。
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -218,7 +218,7 @@ HTTP 狀態碼 200 表示已經接受要求且正在處理。 這表示作業已
 或者，您可以變更記錄檔類型和 JSON 資料的變數。
 
 ### <a name="powershell-sample"></a>PowerShell 範例
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -228,8 +228,8 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# Specify a field with the created time for the records
-$TimeStampField = "DateValue"
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+$TimeStampField = ""
 
 
 # Create two records with the same set of properties to create
@@ -301,7 +301,7 @@ Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([Syst
 ```
 
 ### <a name="c-sample"></a>C# 範例
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -387,7 +387,7 @@ namespace OIAPIExample
 ```
 
 ### <a name="python-2-sample"></a>Python 2 範例
-```
+```python
 import json
 import requests
 import datetime

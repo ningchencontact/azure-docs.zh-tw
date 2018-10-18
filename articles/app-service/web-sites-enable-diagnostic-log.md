@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 0eefb8ecb7c9641b3e025054f54e2b7cf97b94bd
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205998"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365249"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
 ## <a name="overview"></a>概觀
@@ -82,7 +82,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 雖然以上三個儲存位置全都提供相同的基本資訊供您記錄事件，[資料表儲存體] 與 [Blob 儲存體] 會比 [檔案系統] 記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。
 
 > [!NOTE]
-> 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。 例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。 您也可以使用任何一項 [Azure SDK](https://azure.microsoft.com/en-us/downloads/)，撰寫可存取 Azure 儲存體的應用程式。
+> 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。 例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。 您也可以使用任何一項 [Azure SDK](https://azure.microsoft.com/downloads/)，撰寫可存取 Azure 儲存體的應用程式。
 >
 > [!NOTE]
 > 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂用帳戶，請參閱[安裝並設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)。
@@ -171,7 +171,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 若要檢視可用的路徑清單，請使用 -ListPath 參數。
 
 > [!NOTE]
-> 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
+> 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
 >
 >
 

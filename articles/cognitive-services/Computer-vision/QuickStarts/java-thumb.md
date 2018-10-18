@@ -3,41 +3,41 @@ title: 快速入門：產生縮圖 - REST、Java - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 Java，從影像產生縮圖。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 8627a3b2e5f0a1e250401bdddc1870381979dca8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: pafarley
+ms.openlocfilehash: a29fd161e788a0c10e5fcb5cd5cd735e1f2cf1b4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225906"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343567"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 Java 產生縮圖
 
-在本快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可以使用 [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 方法產生影像的縮圖。 您可指定高度和寬度，可以與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別感興趣的區域，並且根據該區域產生裁剪的座標。
+在本快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可以使用[取得縮圖](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)方法產生影像的縮圖。 您可指定高度和寬度，可以與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別感興趣的區域，並且根據該區域產生裁剪的座標。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) 。
 
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須已安裝 [Java&trade; Platform, Standard Edition Development Kit 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 或 8)。
-- 您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
 
 ## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 
 若要建立並執行範例，請執行下列步驟：
 
-1. 在您最愛的 IDE 或編輯器中建立新的 Java 專案。 如果可使用此選項，請從命令列應用程式範本建立 Java 專案。
+1. 在您最愛的 IDE 或編輯器中建立新的 Java 專案。 如果此選項可用，請從命令列應用程式範本建立 Java 專案。
 1. 將下列程式庫匯入您的 Java 專案中。 如果您使用 Maven，則會提供每個程式庫的 Maven 座標。
    - [Apache HTTP 用戶端](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Apache HTTP 核心](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
    - [JSON 程式庫](https://github.com/stleary/JSON-java) (org.json:json:20180130)
-1. 將下列 `import` 陳述式新增至您的專案適用的 `Main` 公用類別所在的檔案。  
+1. 將下列 `import` 陳述式新增到包含適用於您應用程式之公用類別的 `Main` 檔案。  
 
    ```java
    import java.awt.*;
@@ -168,7 +168,7 @@ public class Main {
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要時，請刪除 Java 專案，包括已編譯的類別和匯入的程式庫。
+不再需要 Java 專案時請將它刪除，包括已編譯的類別與匯入的程式庫。
 
 ## <a name="next-steps"></a>後續步驟
 

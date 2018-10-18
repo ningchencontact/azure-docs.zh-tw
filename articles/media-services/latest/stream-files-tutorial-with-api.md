@@ -4,20 +4,20 @@ description: 遵循此教學課程的步驟，使用 Azure 媒體服務來上傳
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0216a95a5209f5545b34e446904b3215950c6fbc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 404a40f8949add77153d3fbf53b5c68dfb866128
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638104"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377875"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>教學課程：使用 API 上傳、編碼和串流影片
 
@@ -38,7 +38,7 @@ ms.locfileid: "34638104"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果沒有安裝 Visual Studio，您可以取得 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)。
 

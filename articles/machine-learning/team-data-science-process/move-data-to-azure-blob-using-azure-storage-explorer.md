@@ -4,7 +4,7 @@ description: 使用 Azure 儲存體總管從 Azure Blob 儲存體來回移動資
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 10bd283f-0875-4c67-af63-6492270b7656
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 464290901959ee052059b092b737e369928bd19b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 295fadd69a86769f74ec45ed3e77e8a5b807e14f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837784"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392517"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>使用 Azure 儲存體總管從 Azure Blob 儲存體來回移動資料
 Azure 儲存體總管是 Microsoft 所提供的免費工具，可讓您在 Windows、MacOS 和 Linux 上使用 Azure 儲存體資料。 本主題說明如何使用它來於 Azure Blob 儲存體中上傳及下載資料。 您可以從 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)下載此工具。
@@ -35,7 +35,7 @@ Azure 儲存體總管是 Microsoft 所提供的免費工具，可讓您在 Windo
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文件假設您擁有 Azure 訂用帳戶、儲存體帳戶和該帳戶的對應儲存體金鑰。 上傳/下載資料之前，您必須知道 Azure 儲存體帳戶名稱和帳戶金鑰。 
 
 * 若要設定 Azure 訂用帳戶，請參閱 [免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。

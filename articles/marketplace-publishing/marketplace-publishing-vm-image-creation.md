@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 893b0ee70f577d9240d577e76062eea36b704058
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2a3c317dc9abdb861a007be9aaed714089e9f453
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989867"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388189"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 的虛擬機器映像的指南
 本文的 **步驟 2**會逐步引導您準備您將部署到 Azure Marketplace 的虛擬硬碟 (VHD)。 您的 VHD 是 SKU 的基礎。 這個程序會因為您是否提供以 Linux 或 Windows 為基礎的 SKU 而有所不同。 本文將探討這兩種狀況。 這個程序可與[帳戶建立和註冊][link-acct-creation]同步執行。
@@ -433,7 +433,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  從[這裡](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/)下載 Azure 傳統 CLI。 您也可以找到適用於 **[Windows](http://aka.ms/webpi-azure-cli)** 和 **[MAC OS](http://aka.ms/mac-azure-cli)** 的不同連結。
+1.  從[這裡](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)下載 Azure 傳統 CLI。 您也可以找到適用於 **[Windows](http://aka.ms/webpi-azure-cli)** 和 **[MAC OS](http://aka.ms/mac-azure-cli)** 的不同連結。
 
 2.  下載之後，請安裝
 

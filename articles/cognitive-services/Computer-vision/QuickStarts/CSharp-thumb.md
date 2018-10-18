@@ -3,30 +3,30 @@ title: 快速入門：產生縮圖 - REST、C# - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 C#，從影像產生縮圖。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: f6353f0f99d34121e29de46c62e6f840a69806ed
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: b3822fee5d729064375e5088cb207aebfa74f8ac
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630744"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342021"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c35-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 C&#35; 產生縮圖
 
-在本快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可以使用 [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 方法產生影像的縮圖。 您可指定高度和寬度，可以與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別感興趣的區域，並且根據該區域產生裁剪的座標。
+在本快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可以使用[取得縮圖](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)方法產生影像的縮圖。 您可指定高度和寬度，可以與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別感興趣的區域，並且根據該區域產生裁剪的座標。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 您必須具備 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更新版本。
-- 您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更新版本。
+- 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
 
 ## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 
@@ -39,7 +39,7 @@ ms.locfileid: "45630744"
     1. 顯示時選取 [Newtonsoft.Json]，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
 1. 將 `Program.cs` 中的程式碼取代為下列程式碼，然後視需要在程式碼中進行下列變更：
     1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
-    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為 [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 方法的端點 URL。
+    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為[取得縮圖](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)方法的端點 URL。
 1. 執行程式。
 1. 在系統提示時，輸入本機影像的路徑。
 
@@ -214,7 +214,7 @@ StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.Stre
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要 Visual Studio 解決方案時，請將它刪除。 若要這樣做，請開啟檔案總管、瀏覽至您在其中建立 Visual Studio 解決方案的資料夾，然後刪除該資料夾。
+不再需要 Visual Studio 解決方案時，請將它刪除。 若要這樣做，請開啟檔案總管、瀏覽到您在其中建立 Visual Studio 解決方案的資料夾，然後刪除該資料夾。
 
 ## <a name="next-steps"></a>後續步驟
 

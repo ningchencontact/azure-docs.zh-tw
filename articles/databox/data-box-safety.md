@@ -2,24 +2,18 @@
 title: Azure 資料箱的安全性 | Microsoft Docs
 description: 說明 Azure 資料箱的安全性慣例、指導方針和注意事項，並說明如何安全地安裝和操作您的 Azure 資料箱。
 services: databox
-documentationcenter: ''
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: na
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: f933da6d534d13a989b21b9cac6b47b41a81d79c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 65b111d74121b6a679883d480b9e1f19d41e334e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961802"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093553"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>安全地安裝和操作您的 Azure 資料箱
 ![警告圖示](./media/data-box-safety/warning_icon.png)

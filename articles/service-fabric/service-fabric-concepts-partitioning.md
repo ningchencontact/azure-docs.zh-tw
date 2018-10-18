@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ae7eba9997c4f567eb7b07e23ab42c9ac7740698
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146184"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388104"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>分割 Service Fabric 可靠服務
 這篇文章介紹分割 Azure Service Fabric 可靠服務的基本概念。 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)上也提供本文中使用的原始碼。
@@ -88,8 +88,7 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
 
 如果在執行中的叢集遇到資源限制，該怎麼辦？ 答案是您可以輕易地調相應放大群集來滿足新的需求。
 
-
-  [容量規劃指南](service-fabric-capacity-planning.md) 提供如何判斷叢集需要多少節點的指導方針。
+[容量規劃指南](service-fabric-capacity-planning.md) 提供如何判斷叢集需要多少節點的指導方針。
 
 ## <a name="get-started-with-partitioning"></a>開始進行分割
 本節描述如何開始分割您的服務。
@@ -366,7 +365,7 @@ Service Fabric 有三個資料分割配置可選擇：
 範例的完整原始程式碼位於 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)。
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services 和 Reliable Actor 分叉處理子程序
-Service Fabric 不支援 Reliable Services 和後續 Reliable Actors 分叉處理子程序。 舉例來說，不支援的原因是 [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) 無法用來註冊不支援的子程序，且取消 Token 只會傳送到已註冊的程序；在父程序收到取消 Token 之後，子程序並未關閉，因而導致各種問題，例如升級失敗。 
+Service Fabric 不支援 Reliable Services 和後續 Reliable Actors 分叉處理子程序。 舉例來說，不支援的原因是 [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) 無法用來註冊不支援的子程序，且取消 Token 只會傳送到已註冊的程序；在父程序收到取消 Token 之後，子程序並未關閉，因而導致各種問題，例如升級失敗。 
 
 ## <a name="next-steps"></a>後續步驟
 如需 Service Fabric 概念的資訊，請參閱下列項目：

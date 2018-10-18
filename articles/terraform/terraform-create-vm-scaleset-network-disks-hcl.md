@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7ae97274b03dda4dcf5150c8faacc7d406dad9fd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666190"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389610"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>使用 Terraform 來建立 Azure 虛擬機器擴展集
 
@@ -38,7 +38,7 @@ ms.locfileid: "43666190"
 
 - **安裝 Terraform**：請遵循 [Terraform 和設定 Azure 的存取](/azure/virtual-machines/linux/terraform-install-configure)一文中的指示
 
-- **建立 SSH 金鑰組**：如果您還沒有 SSH 金鑰組，請遵循[如何在 Azure 中建立和使用 Linux 虛擬機器的 SSH 公開和私密金鑰組](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)一文中的指示。
+- **建立 SSH 金鑰組**：如果您還沒有 SSH 金鑰組，請遵循[如何在 Azure 中建立和使用 Linux 虛擬機器的 SSH 公開和私密金鑰組](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)一文中的指示。
 
 ## <a name="create-the-directory-structure"></a>建立目錄結構
 

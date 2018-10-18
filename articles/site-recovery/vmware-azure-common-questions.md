@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344418"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388437"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -22,7 +22,7 @@ ms.locfileid: "43344418"
 
 ## <a name="general"></a>一般
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 是如何定價的？
-請檢閱[Azure Site Recovery 定價](https://azure.microsoft.com/en-in/pricing/details/site-recovery/)詳細資料。
+請檢閱[Azure Site Recovery 定價](https://azure.microsoft.com/pricing/details/site-recovery/)詳細資料。
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>如何支付 Azure VM 費用？
 在複寫期間，資料會複寫至 Azure 儲存體，您無須為任何 VM 變更付費。 當您容錯移轉到 Azure 時，Site Recovery 會自動建立 Azure IaaS 虛擬機器。 之後就會針對您在 Azure 中取用的運算資源進行計費。

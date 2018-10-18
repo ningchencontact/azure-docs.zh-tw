@@ -5,16 +5,16 @@ description: 了解如何使用認知服務語音 SDK 在 Windows 桌面上以 C
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: e6f8b8f2a3bcdf78de28bddc73502872e851da12
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2adad78760c1d12da688106c45e86c91a8b13f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434291"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339350"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上以 C++ 辨識語音
 
@@ -54,12 +54,12 @@ ms.locfileid: "47434291"
 
     ![方案總管的螢幕擷取畫面，其中 [管理解決方案的 NuGet 套件] 選項已醒目提示](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
-1. 在右上角的 [套件來源] 欄位中，選取 [Nuget.org]。搜尋 `Microsoft.CognitiveServices.Speech` 套件，然後將它安裝到 **helloworld** 專案。
+1. 在右上角的 [套件來源] 欄位中，選取 [nuget.org]。搜尋 `Microsoft.CognitiveServices.Speech` 套件，然後將它安裝到 **helloworld** 專案。
 
     ![管理解決方案套件對話方塊的螢幕擷取畫面](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > 認知服務語音 SDK 目前的版本為 `1.0.0`。
+    > 認知服務語音 SDK 目前的版本為 `1.0.1`。
 
 1. 接受顯示的授權，才會開始安裝 NuGet 套件。
 

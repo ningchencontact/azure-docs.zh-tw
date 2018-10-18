@@ -1,7 +1,7 @@
 # 概觀
 ## [關於 Azure 網路](networking-overview.md)
 ## 架構
-### [虛擬資料中心](networking-virtual-datacenter.md)
+### [虛擬資料中心](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [非對稱式路由與多個網路路徑](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [保護網路設計](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [中樞輪輻拓撲](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -17,7 +17,7 @@
 ##  概念
 ### [虛擬網路](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [網路負載平衡](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [應用程式負載平衡](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [應用程式負載平衡](../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS 流量散發](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [連接內部部署 - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)

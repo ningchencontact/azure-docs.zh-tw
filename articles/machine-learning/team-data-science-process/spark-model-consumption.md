@@ -4,7 +4,7 @@ description: 如何使用 Python 載入及評分儲存在 Azure Blob 儲存體 (
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 626305a2-0abf-4642-afb0-dad0f6bd24e9
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 9760144630cfce03471b3ae8fa4487e0392bfa7b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 95403e71367f111877c6f317c63811333bd054dd
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839668"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395185"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>實作 Spark 建置機器學習模型
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "34839668"
 若要修改此 Jupyter Notebook for Spark 1.6 來與 HDInsight Spark 2.0 叢集搭配使用，請使用[這個檔案](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)來取代 Python 程式碼檔案。 此程式碼示範如何使用 Spark 2.0 中所建立的模型。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. 您需要 Azure 帳戶和 Spark 1.6 (或 Spark 2.0) HDInsight 叢集，才能完成此逐步解說。 請參閱[使用 Azure HDInsight 上的 Spark 的資料科學概觀](spark-overview.md)以取得這些需求。 此主題也包括這裡使用的 NYC 2013 計程車資料的描述，以及如何從 Spark 叢集的 Jupyter Notebook 執行程式碼的指示。 
 2. 您也必須針對 Spark 1.6 叢集或 Spark 2.0 Notebook，透過[使用 Spark 資料探索和模型化](spark-data-exploration-modeling.md)主題運作，在這裡建立要評分的機器學習服務模型。 

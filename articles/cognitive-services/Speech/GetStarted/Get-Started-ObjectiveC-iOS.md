@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: a12c9b5325898afe508398f67939c39e591eb1cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954495"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338689"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>快速入門：在 iOS 上於 Objective-C 中使用 Bing 語音辨識 API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 使用「語音辨識 API」時，您可以開發使用雲端式「語音服務」將語音轉換成文字的 iOS 應用程式。 此 API 支援即時串流，因此您的應用程式能夠在將音訊傳送給服務的同時，以同時且非同步方式接收部分辨識結果。
 

@@ -3,41 +3,41 @@ title: 快速入門：擷取印刷文字 (OCR) - REST、Java - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 Java 來擷取影像中的印刷文字。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: a0b5967e8796f494e14dde3728c785191c2882d5
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 83675a146d6d43ce5bc25b24809924d7be1331dd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632495"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339962"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Java 擷取印刷文字 (OCR)
 
-在本快速入門中，您將使用電腦視覺的 REST API，利用光學字元辨識 (OCR) 來擷取影像中的印刷文字。 使用 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) \(英文\) 方法，您可以偵測影像中的印刷文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
+在本快速入門中，您將使用電腦視覺的 REST API，利用光學字元辨識 (OCR) 來擷取影像中的印刷文字。 使用 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，您可以偵測影像中的印刷文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 您必須安裝 [Java&trade; Platform, Standard Edition Development Kit 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 或 8)。
-- 您必須擁有適用於電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須已安裝 [Java&trade; Platform, Standard Edition Development Kit 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 或 8)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
 
 ## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 
 若要建立並執行範例，請執行下列步驟：
 
-1. 在您最愛的 IDE 或編輯器中建立新的 Java 專案。 如果可使用此選項，請從命令列應用程式範本建立 Java 專案。
-1. 將下列程式庫匯入到您的 Java 專案中。 如果您使用 Maven，則會針對每個程式庫提供 Maven 座標。
+1. 在您最愛的 IDE 或編輯器中建立新的 Java 專案。 如果此選項可用，請從命令列應用程式範本建立 Java 專案。
+1. 將下列程式庫匯入您的 Java 專案中。 如果您使用 Maven，則會提供每個程式庫的 Maven 座標。
    - [Apache HTTP 用戶端](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Apache HTTP 核心](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
    - [JSON 程式庫](https://github.com/stleary/JSON-java) (org.json:json:20180130)
-1. 將下列 `import` 陳述式新增至您專案適用的 `Main` 公用類別所在的檔案。  
+1. 將下列 `import` 陳述式新增到包含適用於您應用程式之公用類別的 `Main` 檔案。  
 
    ```java
    import java.net.URI;
@@ -54,7 +54,7 @@ ms.locfileid: "45632495"
 
 1. 將 `Main` 公用類別取代為下列程式碼，然後視需要在程式碼中進行下列變更：
    1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
-   1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) \(英文\) 方法的端點 URL。
+   1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法的端點 URL。
    1. (選擇性) 將 `imageToAnalyze` 的值取代為您要從中擷取印刷文字之不同影像的 URL。
 1. 儲存，然後建置 Java 專案。
 1. 如果您使用 IDE，請執行 `Main`。 否則，請開啟命令提示字元視窗，然後使用 `java` 命令執行已編譯的類別。 例如： `java Main`。
@@ -223,7 +223,7 @@ REST Response:
 
 ## <a name="next-steps"></a>後續步驟
 
-探索使用「電腦視覺」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的 Java Swing 應用程式。 若要快速地試驗電腦視覺 API，請嘗試使用 [Open API 測試主控台](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) \(英文\)。
+探索使用「電腦視覺」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的 Java Swing 應用程式。 若要快速地試驗電腦視覺 API，請嘗試 [Open API 測試主控台](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)。
 
 > [!div class="nextstepaction"]
 > [電腦視覺 API Java 教學課程](../Tutorials/java-tutorial.md)

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 6/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ecb9cfa08888a8998473a7f23f1b4de6d12c5808
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f8a5b1ceda77ef254ad0c2afb7d2316581d778e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477507"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376391"
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C：註冊您的應用程式
 
 本快速入門協助您在幾分鐘內於 Microsoft Azure Active Directory (Azure AD) B2C 租用戶中註冊應用程式。 當您完成時，應用程式就已註冊完成，以便在 Azure AD B2C 租用戶中使用。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要建置可接受取用者註冊與登入的應用程式，您必須先使用 Azure Active Directory B2C 租用戶註冊該應用程式。 使用 [建立 Azure AD B2C 租用戶](active-directory-b2c-get-started.md)中概述的步驟來建立您自己的租用戶。
 

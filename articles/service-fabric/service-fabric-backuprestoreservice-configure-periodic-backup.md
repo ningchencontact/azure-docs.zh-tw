@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575406"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387628"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>在 Azure Service Fabric 中了解定期備份設定
 
@@ -155,23 +155,23 @@ ms.locfileid: "45575406"
 
 為了解決這些資料備份需求，則會建立備份原則 BP_1 至 BP_5 並啟用備份，如下所示。
 1. MyApp_A
-    1. 建立備份原則 _BP_1_，採用以頻率為基礎的備份排程，其頻率設定為 24 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用應用程式備份](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API，針對應用程式 _MyApp_A_ 啟用此原則。 此動作可啟用資料備份，做法是針對屬於應用程式 _MyApp_A_ 的可靠具狀態服務和 Reliable Actors 的所有分割區，使用備份原則 _BP_1_。
+    1. 建立備份原則 _BP_1_，採用以頻率為基礎的備份排程，其頻率設定為 24 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用應用程式備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API，針對應用程式 _MyApp_A_ 啟用此原則。 此動作可啟用資料備份，做法是針對屬於應用程式 _MyApp_A_ 的可靠具狀態服務和 Reliable Actors 的所有分割區，使用備份原則 _BP_1_。
 
-    2. 建立備份原則 _BP_2_，採用以頻率為基礎的備份排程，其頻率設定為 1 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用服務備份](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup) API，針對服務 _SvcA3_ 啟用此原則。 對於 _SvcA3_ 服務的所有分割區，此動作會以明確啟用的備份原則 _BP_2_ 覆寫傳播的原則 _BP_1_，進而導致使用這些分割區的備份原則 _BP_2_ 來備份資料。
+    2. 建立備份原則 _BP_2_，採用以頻率為基礎的備份排程，其頻率設定為 1 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API，針對服務 _SvcA3_ 啟用此原則。 對於 _SvcA3_ 服務的所有分割區，此動作會以明確啟用的備份原則 _BP_2_ 覆寫傳播的原則 _BP_1_，進而導致使用這些分割區的備份原則 _BP_2_ 來備份資料。
 
-    3. 建立備份原則 _BP_3_，採用以頻率為基礎的備份排程，其頻率設定為 24 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore2_。 使用[啟用分割區備份](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API，針對分割區 _SvcA1_P2_ 啟用此原則。 對於分割區 _SvcA1_P2_，此動作會以明確啟用的備份原則 _BP_3_ 覆寫傳播的原則 _BP_1_。
+    3. 建立備份原則 _BP_3_，採用以頻率為基礎的備份排程，其頻率設定為 24 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore2_。 使用[啟用分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API，針對分割區 _SvcA1_P2_ 啟用此原則。 對於分割區 _SvcA1_P2_，此動作會以明確啟用的備份原則 _BP_3_ 覆寫傳播的原則 _BP_1_。
 
 2. MyApp_B
-    1. 建立備份原則 _BP_4_，採用以時間為基礎的備份排程，其排程頻率類型設定為每週，執行日設定為星期日，而執行時間設定為上午 8:00。 備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用服務備份](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup) API，針對服務 _SvcB1_ 啟用此原則。 此動作會使用備份原則 _BP_4_，對 _SvcB1_ 服務的所有分割區啟用資料備份。
+    1. 建立備份原則 _BP_4_，採用以時間為基礎的備份排程，其排程頻率類型設定為每週，執行日設定為星期日，而執行時間設定為上午 8:00。 備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API，針對服務 _SvcB1_ 啟用此原則。 此動作會使用備份原則 _BP_4_，對 _SvcB1_ 服務的所有分割區啟用資料備份。
 
-    2. 建立備份原則 _BP_5_，採用以時間為基礎的備份排程，其排程頻率類型設定為每日且執行時間設定為上午 8:00。 備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用分割區備份](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API，針對分割區 _SvcB2_P1_ 啟用此原則。 此動作會使用備份原則 _BP_5_，對分割區 _SvcB2_P1_ 啟用資料備份。
+    2. 建立備份原則 _BP_5_，採用以時間為基礎的備份排程，其排程頻率類型設定為每日且執行時間設定為上午 8:00。 備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API，針對分割區 _SvcB2_P1_ 啟用此原則。 此動作會使用備份原則 _BP_5_，對分割區 _SvcB2_P1_ 啟用資料備份。
 
 下圖描述明確啟用的備份原則和傳播的備份原則。
 
 ![Service Fabric 應用程式階層][0]
 
 ## <a name="disable-backup"></a>停用備份
-不需要備份資料時，可以停用備份原則。 在應用程式啟用的備份原則只能使用[停用應用程式備份](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API 在相同的應用程式停用，在服務啟用的備份原則可以使用[停用服務備份](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableservicebackup) API 在相同的服務停用，而在分割區啟用的備份原則可以使用[停用分割區備份](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API 在相同的分割區停用。
+不需要備份資料時，可以停用備份原則。 在應用程式啟用的備份原則只能使用[停用應用程式備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API 在相同的應用程式停用，在服務啟用的備份原則可以使用[停用服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) API 在相同的服務停用，而在分割區啟用的備份原則可以使用[停用分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API 在相同的分割區停用。
 
 * 停用應用程式的備份原則會阻止所有的定期資料備份發生，這是因為備份原則傳播到可靠具狀態服務分割區或 Reliable Actors 分割區。
 

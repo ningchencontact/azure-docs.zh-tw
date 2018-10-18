@@ -4,21 +4,21 @@ description: 本主題說明如何使用媒體服務的標準編碼器，根據�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 6e447c04f4a94f2fb534ecb0605595a90816431e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ec1b4b88e5b9639c3ee9debbd8ac7d48544344dc
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638291"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378953"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>使用自動產生的位元速率階梯進行編碼
 

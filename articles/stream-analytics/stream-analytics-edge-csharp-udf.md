@@ -9,18 +9,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: cad5ec059c88290b94919c58ff6bd1071a2b8fdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972094"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389063"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>教學課程：在 Visual Studio 中針對 Azure 串流分析 Edge 作業撰寫 C# 使用者定義的函式 (預覽)
 
 在 Visual Studio 中建立的 C# 使用者定義函式 (UDF)，可讓您使用自己的函式來延伸 Azure 串流分析查詢語言。 您可以重複使用現有的程式碼 (包括 DLL)，並利用 C# 來使用數學或複雜的邏輯。 有三種方式可用來實作 UDF：串流分析專案中的 CodeBehind 檔案、來自本機 C# 專案的 UDF 或來自儲存體帳戶之現有套件的 UDF。 此教學課程會使用 CodeBehind 方法來實作基本的 C# 函式。 適用於串流分析 Edge 作業的 UDF 功能目前為預覽狀態，不應該用於生產環境工作負載。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用 CodeBehind 來建立 C# 使用者定義的函式。
@@ -37,7 +37,7 @@ ms.locfileid: "46972094"
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>在 Azure 儲存體帳戶中建立容器
 
-您所建立的容器將用來儲存已編譯的 C# 套件，並將該套件部署到您的 IoT Edge 裝置。 針對每一個串流分析作業使用專用容器。 不支援針對多個串流分析 Edge 作業重複使用相同的容器。 如果您的儲存體帳戶已經內含現有容器，則您可以使用它們。 如果沒有，您必須[建立新的容器](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal)。 
+您所建立的容器將用來儲存已編譯的 C# 套件，並將該套件部署到您的 IoT Edge 裝置。 針對每一個串流分析作業使用專用容器。 不支援針對多個串流分析 Edge 作業重複使用相同的容器。 如果您的儲存體帳戶已經內含現有容器，則您可以使用它們。 如果沒有，您必須[建立新的容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)。 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>在 Visual Studio 中建立串流分析 Edge 專案
 
@@ -146,7 +146,7 @@ CodeBehind 檔案是與單一 ASA Edge 查詢指令碼相關聯的 C# 檔案。 
 ![從 Visual Studio 將您的串流分析 Edge 作業提交至 Azure](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>部署到 IoT Edge 裝置
-您的串流分析作業現在已準備好部署為 IoT Edge 模組。 請依照 [IoT Edge 快速入門](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart)來建立 IoT 中樞、註冊 IoT Edge 裝置，以及在您的裝置上安裝並啟動 IoT Edge 執行階段。 接著，依照[部署作業](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job)教學課程，以將您的串流分析作業部署為 IoT Edge 模組。 
+您的串流分析作業現在已準備好部署為 IoT Edge 模組。 請依照 [IoT Edge 快速入門](https://docs.microsoft.com/azure/iot-edge/quickstart)來建立 IoT 中樞、註冊 IoT Edge 裝置，以及在您的裝置上安裝並啟動 IoT Edge 執行階段。 接著，依照[部署作業](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job)教學課程，以將您的串流分析作業部署為 IoT Edge 模組。 
 
 ## <a name="next-steps"></a>後續步驟
 

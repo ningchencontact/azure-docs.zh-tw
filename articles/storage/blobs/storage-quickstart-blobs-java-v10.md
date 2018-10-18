@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: d3f7978f9aac2ced688e483ccdbece2d4d6a9808
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dfd04aa0c8f314327afaefa67f1c63b1ff605e9b
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986277"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387203"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>快速入門：使用 Java Storage SDK V10 (預覽) 上傳、下載及列出 Blob
 
@@ -116,16 +116,16 @@ Cleaning up the sample and exiting!
 
 1. 建立指向儲存體帳戶的 **StorageURL** 物件執行個體。
 
-    * [StorageURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) 物件代表您的儲存體帳戶。 您可以用它來產生新的管線。 
+    * [StorageURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) 物件代表您的儲存體帳戶。 您可以用它來產生新的管線。 
     * 管線是一組原則，用來處理授權、記錄和重試機制的要求和回應。 如需詳細資訊，請參閱 [HTTP 管線](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline)。  
-    * 藉由使用管線，建立 [ServiceURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview) 物件的執行個體。
-    * 藉由使用 **ServiceURL** 物件，建立 [ContainerURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) 的執行個體。
+    * 藉由使用管線，建立 [ServiceURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview) 物件的執行個體。
+    * 藉由使用 **ServiceURL** 物件，建立 [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) 的執行個體。
     * **ContainerURL** 是在 Blob 容器上執行作業的必要項目。
 
 2. 建立 **ContainerURL** 物件的執行個體，代表您要存取的容器。 容器會用來組織 Blob，就像在電腦上用資料夾來組織檔案一樣。
 
     * **ContainerURL** 可提供容器服務的存取點。 
-    * 您可以使用 [ContainerURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) 來建立 [BlobURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-preview) 物件的執行個體。
+    * 您可以使用 [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) 來建立 [BlobURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-preview) 物件的執行個體。
     * **BlobURL** 是建立 Blob 的必要項目。
 
 3. 建立 **BlobURL** 物件的執行個體，指向您所需的特定 Blob。 
@@ -137,7 +137,7 @@ Cleaning up the sample and exiting!
 
 在本節中，您會建立 **ContainerURL** 的執行個體。 此外，您會建立新容器。 範例中的容器名為 **quickstart**。 
 
-此範例使用 [containerURL.create](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview)，因此您可以在每次執行範例時建立新的容器。 或者，您可以事先建立容器，就不需要在程式碼中建立。
+此範例使用 [containerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview)，因此您可以在每次執行範例時建立新的容器。 或者，您可以事先建立容器，就不需要在程式碼中建立。
 
 ```java
 // Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
@@ -168,9 +168,9 @@ Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 最常使用區�
 1. 若要將檔案上傳至 Blob，請取得目標容器中的 Blob 參考。 
 2. 在取得 Blob 參考之後，您可以使用下列其中一個 API 將檔案上傳至該參考：
 
-    * 低階 API。 範例包括 **BlockBlobURL** 執行個體中的 [BlockBlobURL.upload](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview) (也稱為 PutBlob) 和 [BlockBlobURL.stageBlock](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_) (也稱為 PutBLock)。 
+    * 低階 API。 範例包括 **BlockBlobURL** 執行個體中的 [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview) (也稱為 PutBlob) 和 [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_) (也稱為 PutBLock)。 
 
-    * 高階 API 提供於 [TransferManager 類別](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview)中。 例如，[TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview) 方法。 
+    * 高階 API 提供於 [TransferManager 類別](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview)中。 例如，[TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview) 方法。 
 
     此作業會建立 Blob (如果尚不存在)。 若已存在，則會覆寫 Blob。
 
@@ -195,7 +195,7 @@ static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-您可以使用 [ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview) 取得容器中的物件清單。 如果在容器中要列出更多物件，此方法可藉由接續標記 (下一個標記) 一次傳回多達 5,000 個物件。 請建立 Helper 函式，並使其在先前的 **listBlobsFlatSegment** 回應中有下一個標記的情況下重複呼叫本身。
+您可以使用 [ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview) 取得容器中的物件清單。 如果在容器中要列出更多物件，此方法可藉由接續標記 (下一個標記) 一次傳回多達 5,000 個物件。 請建立 Helper 函式，並使其在先前的 **listBlobsFlatSegment** 回應中有下一個標記的情況下重複呼叫本身。
 
 ```java
 static void listBlobs(ContainerURL containerURL) {
@@ -253,7 +253,7 @@ private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(Conta
 
 ### <a name="download-blobs"></a>下載 Blob
 
-使用 [BlobURL.download](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-preview) 方法，將 Blob 下載至本機磁碟。
+使用 [BlobURL.download](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-preview) 方法，將 Blob 下載至本機磁碟。
 
 下列程式碼會下載前一節中上傳的 Blob。 它會將 **_DOWNLOADED** 新增為 Blob 名稱的尾碼，讓您可在本機磁碟上看到這兩個檔案。 
 
@@ -278,7 +278,7 @@ static void getBlob(BlockBlobURL blobURL, File sourceFile) {
 
 ### <a name="clean-up-resources"></a>清除資源
 
-如果您已不需要在本快速入門中上傳的 Blob，您可以使用 [ContainerURL.delete](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview) 刪除整個容器。 此方法也會刪除容器中的檔案。
+如果您已不需要在本快速入門中上傳的 Blob，您可以使用 [ContainerURL.delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview) 刪除整個容器。 此方法也會刪除容器中的檔案。
 
 ```java
 containerURL.delete(null).blockingGet();
@@ -290,5 +290,5 @@ containerURL.delete(null).blockingGet();
 
 > [!div class="nextstepaction"]
 > [適用於 Java 原始程式碼的 Storage SDK V10](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
-> [API 參考](https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client?view=azure-java-preview)
+> [API 參考](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview)
 > [深入了解 RxJava](https://github.com/ReactiveX/RxJava)

@@ -10,16 +10,17 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ROBOTS: NOINDEX
-ms.openlocfilehash: 533faeca37f021beb86148a4f11a0f04c631a30a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3db4e242ad630949533823c22a16587daa4f9786
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954580"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389695"
 ---
 # <a name="quickstart-translator-speech-api-with-nodejs"></a>快速入門：翻譯工具語音 API (使用 Node.js) 
 <a name="HOLTop"></a>
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 此文章說明如何使用翻譯工具語音 API 來翻譯 .wav 檔案中所說的話語。
 
@@ -29,7 +30,7 @@ ms.locfileid: "46954580"
 
 您需要安裝適用於 Node.js 的 [Websocket 套件](https://www.npmjs.com/package/websocket)。
 
-您需要將一個名為 "speak.wav" 的 .wav 檔案，放在與您從下方程式碼編譯之可執行檔相同的資料夾中。 這個 .wav 檔案應該採用標準 PCM 16 位元 16 kHz 單聲道格式。 您可以從[文字轉換語音 API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech) 取得此類 .wav 檔案。
+您需要將一個名為 "speak.wav" 的 .wav 檔案，放在與您從下方程式碼編譯之可執行檔相同的資料夾中。 這個 .wav 檔案應該採用標準 PCM 16 位元 16 kHz 單聲道格式。 您可以從[文字轉換語音 API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech) 取得此類 .wav 檔案。
 
 您必須擁有具備 **Microsoft Translator Speech API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您需要一個來自 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServices)的付費訂用帳戶金鑰。
 
@@ -67,7 +68,7 @@ let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
 You can obtain such a .wav file using the Text to Speech API. See:
-https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech
+https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech
 */
 let input_path = 'speak.wav';
 

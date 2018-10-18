@@ -2,18 +2,18 @@
 title: 快速入門：將資料從事件中樞內嵌至 Azure 資料總管
 description: 在本快速入門中，您會學習到如何將資料從事件中樞內嵌 (載入) 至 Azure 資料總管。
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: acc18b6414e62a1f8239562158b4b80219c5d7c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efaf551d134d339205d40966cb84f41b408559bd
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976817"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394173"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>快速入門：將資料從事件中樞內嵌至 Azure 資料總管
 

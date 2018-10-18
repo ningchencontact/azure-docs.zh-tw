@@ -2,18 +2,18 @@
 title: 使用 Site Recovery 和雲端解決方案提供者 (CSP) 方案在多租用戶環境中設定 VMware 到 Azure 的複寫 | Microsoft Docs
 description: 說明如何透過 CSP 建立和管理租用戶訂用帳戶，並在多租用戶設定中部署 Azure Site Recovery
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: d384a77054cdcab0305b9e6d3fe5bb824e49bb16
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916797"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354113"
 ---
 # <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>使用雲端解決方案提供者 (CSP) 方案在多租用戶環境中設定 VMware 複寫
 
@@ -23,7 +23,7 @@ ms.locfileid: "37916797"
 
 本文說明身為合作夥伴的您如何針對多租用戶 VMware 複寫案例，透過 CSP 建立和管理租用戶訂用帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 VMware 複寫，您需要執行下列作業：
 

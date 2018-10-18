@@ -3,8 +3,8 @@ title: 快速入門 - 建立 Azure CDN 設定檔和端點 | Microsoft Docs
 description: 此快速入門說明如何藉由建立新的 CDN 設定檔和 CDN 端點來啟用 Azure CDN。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: cf0a0b10d8df3b119f5abbd8060f8821d54172bb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b1e287ee949aedf084d4390fe672f0fe41899c34
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607866"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091756"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>快速入門：建立 Azure CDN 設定檔和端點
 在此快速入門中，您會藉由建立新的 CDN 設定檔和端點來啟用 Azure 內容傳遞網路 (CDN)。 在建立設定檔和端點後，您即可開始將內容傳遞給您的客戶。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 基於此快速入門的用途，您必須建立名為 *mystorageacct123* (作為原始主機名稱) 的儲存體帳戶。 如需詳細資訊，請參閱[整合 Azure 儲存體帳戶與 Azure CDN](cdn-create-a-storage-account-with-cdn.md)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站

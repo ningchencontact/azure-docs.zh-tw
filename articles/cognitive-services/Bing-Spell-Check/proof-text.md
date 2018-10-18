@@ -1,21 +1,21 @@
 ---
-title: Bing 拼字檢查 API 概觀 - Azure 認知服務 | Microsoft Docs
+title: 什麼是 Bing 拼字檢查 API？
+titlesuffix: Azure Cognitive Services
 description: Bing 拼字檢查 API 會使用機器學習服務和統計機器翻譯進行內容的拼字檢查。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
-ms.assetid: 64ABDFD4-0118-4B6C-A592-68E5EDDB8491
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 15c5f7eeb7d94d7e80533ee1fd12e33fa3bcd134
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107354"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361706"
 ---
 # <a name="what-is-bing-spell-check-api"></a>什麼是 Bing 拼字檢查 API？
 
@@ -36,7 +36,7 @@ Bing 拼字檢查 API 可讓您執行內容的文法與拼字檢查。
 
 ## <a name="spell-check-modes"></a>拼字檢查模式
 
-此 API 支援兩種校訂模式：`Proof` 和 `Spell`。  請看看[此處](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)的範例。
+此 API 支援兩種校訂模式：`Proof` 和 `Spell`。  請看看[此處](https://azure.microsoft.com/services/cognitive-services/spell-check/)的範例。
 ### <a name="proof---for-documents-scenario"></a>Proof - 適用於文件
 預設模式為 `Proof`。 `Proof` 拼字模式可提供最全面的檢查，並可新增大小寫、基本標點符號及其他功能，以利建立文件。 但此模式僅適用於 en-US (美式英文)、es-ES (西班牙文)、pt-BR (葡萄牙文) 市場 (附註：西班牙文和葡萄牙文僅限於 Beta 版)。 對於其他所有的市場，請將 mode 查詢參數設定為 Spell。 
 <br /><br/>**附註：** 查詢文字的長度若超過 4096，則會先截斷為 4096 個字元再進行處理。 

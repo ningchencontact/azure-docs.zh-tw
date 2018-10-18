@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 54bf38bf5a5858a2d7ac7237f58fc4db386dbac1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423318"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364110"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>教學課程：建立自訂語言模型
 
@@ -63,7 +63,7 @@ ms.locfileid: "47423318"
 
 ## <a name="language-support"></a>語言支援
 
-請參閱自訂[語音轉換文字](supported-languages.md)語言模型的完整**支援語言**清單。
+請參閱自訂[語音轉換文字](language-support.md#text-to-speech)語言模型的完整**支援語言**清單。
 
 
 
@@ -98,8 +98,6 @@ ms.locfileid: "47423318"
 在 [建立語言模型] 頁面上輸入「名稱」和「描述」，可協助您持續追蹤此模型的相關資訊，例如使用的資料集。 接下來，從下拉式功能表中選取 [基底語言模型]。 此模型是自訂的起點。 
 
 有兩種基底語言模型可選擇。 搜尋與聽寫模型適用於應用程式上的語音導向作業，例如命令、搜尋查詢或聽寫。 對話模型適用於辨識以對話形式說出的語音。 這類型的語音通常會指向另一個人，並且發生在話務中心或會議中。 
-
-在 [建立語言模型] 頁面上輸入「名稱」和「描述」，可協助您持續追蹤此模型的相關資訊，例如您所使用的資料集。 接下來，從下拉式功能表中選取 [基底語言模型]。 此模型是自訂的起點。 有兩種基底語言模型可選擇。 
 
 搜尋與聽寫模型適用於應用程式上的語音導向作業，例如命令、搜尋查詢或聽寫。 對話模型適用於辨識以對話形式說出的語音。 這類型的語音通常會指向另一個人，並且發生在話務中心或會議中。 稱為「通用」的新模型也已正式推出。 「通用」的目標是處理所有案例，並在最終取代搜尋、聽寫和交談模型。
 

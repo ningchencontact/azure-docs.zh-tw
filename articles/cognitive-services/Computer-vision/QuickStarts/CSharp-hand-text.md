@@ -3,19 +3,19 @@ title: 快速入門：擷取手寫文字 - REST、C# - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用電腦視覺 API 搭配 C# 擷取影像中的手寫文字。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: bf7eae1bc7d0b0db1eaa37b2ab84dc21ef9712b7
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: f63cebd7a4af5b2289470ef34a80c8680aa981fd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628570"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340336"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 C&#35; 擷取手寫文字
 
@@ -24,7 +24,7 @@ ms.locfileid: "45628570"
 > [!IMPORTANT]
 > 不同於 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，[辨識文字](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)方法會以非同步方式執行。 這個方法不會在成功回應的主體中傳回任何資訊。 「辨識文字」方法會改為在 `Operation-Content` 回應標頭欄位的值中傳回 URI。 您接著可以呼叫這個 URI (它代表[取得辨識文字作業結果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)方法) 來檢查狀態，並傳回「辨識文字」方法呼叫的結果。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) 。
 
 ## <a name="prerequisites"></a>必要條件
 

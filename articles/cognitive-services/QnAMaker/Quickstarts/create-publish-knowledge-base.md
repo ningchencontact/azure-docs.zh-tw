@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886522"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389661"
 ---
 # <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>快速入門：建立、訓練及發佈知識庫
 
@@ -41,7 +41,7 @@ ms.locfileid: "48886522"
 
 5. 在步驟 3 中，將您的 KB 命名為**我的範例 QnA KB**。
 
-6. 若要將內容新增至您的 KB，請選取三種類型的資料來源。 在步驟 4 的 [填入您的 KB] 之下，在 [URL] 方塊中新增 [BitLocker 修復常見問題集](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL。
+6. 若要將內容新增至您的 KB，請選取三種類型的資料來源。 在步驟 4 的 [填入您的 KB] 之下，在 [URL] 方塊中新增 [BitLocker 修復常見問題集](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL。
 
    ![選取 QnA 服務 KB](../media/qnamaker-quickstart-kb/add-datasources.png)
 

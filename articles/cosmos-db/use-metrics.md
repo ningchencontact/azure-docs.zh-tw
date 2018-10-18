@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: e4bc8af7533b3d18f9e04f431d6c9f97e0982ae5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 5c9dded95fe3ae36a716544368e3dc44c9b86afe
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286664"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365487"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的計量監控及偵錯
 
@@ -54,7 +54,8 @@ Azure Cosmos DB 為輸送量、儲存體、一致性、可用性和延遲提供�
 
 ## <a name="comparing-data-size-against-index-size"></a>比較資料大小與索引大小
 
-在 Azure Cosmos DB 中，已使用的總儲存體空間為資料大小和索引大小的加總。 一般來說，索引大小只佔資料大小的一小部分。 在 [Azure 入口網站](https://portal.azure.com)的 [計量] 刀鋒視窗中，[儲存體] 索引標籤顯示資料和索引使用之儲存體空間的細目。 影像 (暫定) 您也可以在 SDK 中，透過集合讀數尋找目前的儲存體使用量。
+在 Azure Cosmos DB 中，已使用的總儲存體空間為資料大小和索引大小的加總。 一般來說，索引大小只佔資料大小的一小部分。 在 [Azure 入口網站](https://portal.azure.com)的 [計量] 刀鋒視窗中，[儲存體] 索引標籤顯示資料和索引使用之儲存體空間的細目。 
+
 ```csharp
 // Measure the document size usage (which includes the index size)  
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 
@@ -69,7 +70,7 @@ ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentC
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
  UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
- “SELECT * FROM c WHERE c.city = ‘Seattle’”, 
+ "SELECT * FROM c WHERE c.city = 'Seattle'", 
  new FeedOptions 
  { 
  PopulateQueryMetrics = true, 

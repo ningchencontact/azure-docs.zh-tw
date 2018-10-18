@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 70b7af1701c13e6a5d7644f04e4502f76ef7743a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187840"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364280"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>教學課程：在 Azure 中建置 Node.js 和 MongoDB Web 應用程式
 
@@ -136,7 +136,7 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 ### <a name="create-a-cosmos-db-account"></a>建立 Cosmos DB 帳戶
 
 > [!NOTE]
-> 在本教學課程中，當您在自己的 Azure 訂用帳戶中建立 Azure Cosmos DB 資料庫時會產生費用。 若要使用為期七天的免費 Azure Cosmos DB 帳戶，您可以使用[免費試用 Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/) 的體驗。 直接按一下 [MongoDB] 圖格中的 [建立] 按鈕，在 Azure 上建立免費的 MongoDB 資料庫。 資料庫建立好之後，在入口網站中瀏覽至**連接字串**，並擷取 Azure Cosmos DB 連線字串以供在本教學課程稍後使用。
+> 在本教學課程中，當您在自己的 Azure 訂用帳戶中建立 Azure Cosmos DB 資料庫時會產生費用。 若要使用為期七天的免費 Azure Cosmos DB 帳戶，您可以使用[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 的體驗。 直接按一下 [MongoDB] 圖格中的 [建立] 按鈕，在 Azure 上建立免費的 MongoDB 資料庫。 資料庫建立好之後，在入口網站中瀏覽至**連接字串**，並擷取 Azure Cosmos DB 連線字串以供在本教學課程稍後使用。
 >
 
 在 Cloud Shell 中，使用 [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) 命令來建立 Cosmos DB 帳戶。

@@ -1,25 +1,19 @@
 ---
 title: Microsoft Azure 資料箱閘道的系統需求 | Microsoft Docs
 description: 了解 Azure 資料箱閘道的軟體和網路需求
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 915190f6f2773d22d14c75be1140f96b7dd40559
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f70cd5de29cc3050142dfff905acae2008dab115
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991567"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379117"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure 資料箱閘道的系統需求 (預覽)
 
@@ -114,11 +108,11 @@ ms.locfileid: "46991567"
 
 > [!NOTE]
 > - 裝置 (來源) IP 應該一律設定為所有啟用雲端功能的網路介面。
-> - 目的地 IP 應該設為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)。
+> - 目的地 IP 應該設定為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)。
 
 |     URL 模式                                                                                                                                                                                                                                                                                                                                                                                                                                       |     元件/功能                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.accesscontrol.windows.net/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure 資料箱閘道服務<br>存取控制服務<br>Azure 服務匯流排<br>驗證服務    |
+|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure 資料箱閘道服務<br>Azure 服務匯流排<br>驗證服務    |
 |    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    裝置啟用                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    憑證撤銷                                                                               |
 |    https://*.core.windows.net/*   https://*.data.microsoft.com   http://*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Azure 儲存體帳戶和監視                                                                |

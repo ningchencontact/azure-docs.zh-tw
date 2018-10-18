@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 9fa966999e220ea4357d5b5c37f0038c75fe2339
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607108"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393978"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用 Azure AD 使用規定。
@@ -242,4 +242,4 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure Active Directory 中條件式存取的最佳做法](../../cognitive-services/qnamaker/concepts/best-practices.md)
+- [Azure Active Directory 中條件式存取的最佳做法](../../active-directory/conditional-access/best-practices.md)

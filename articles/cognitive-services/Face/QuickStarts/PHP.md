@@ -3,19 +3,19 @@ title: 快速入門：偵測影像中的人臉 - 臉部 API、PHP
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用臉部 API 搭配 PHP 偵測影像中的人臉。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
-ms.author: nolachar
-ms.openlocfilehash: 976cd87ca5637f4ee9b517093b6fbb6b498c5471
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: 62434efdaf161463de7492535a49cf879da32e43
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126950"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339656"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-php"></a>快速入門：使用 PHP 偵測影像中的臉部
 

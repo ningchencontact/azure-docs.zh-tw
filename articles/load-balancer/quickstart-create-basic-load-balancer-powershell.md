@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: bc9883ee64f2d682a6b7b69bd1fb168cddd60001
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bfd0c8a60c909076809a6a727677cdc4f10046f2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539986"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320421"
 ---
 # <a name="get-started"></a>快速入門：使用 Azure PowerShell 建立公用負載平衡器
 本快速入門示範如何使用 Azure PowerShell 建立基本負載平衡器。 若要測試負載平衡器，您要部署兩部執行 Windows Server 的虛擬機器 (VM)，並平衡兩部 VM 間 Web 應用程式的負載。
@@ -206,7 +206,7 @@ $nsg = New-AzureRmNetworkSecurityGroup`
 -SecurityRules $rule1,$rule2
 ```
 
-###<a name="create-nics"></a>建立 NIC
+### <a name="create-nics"></a>建立 NIC
 使用 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) 建立虛擬 NIC。 下列範例會建立兩個虛擬 NIC。 (您在下列步驟中針對應用程式建立的每部 VM 都有一個虛擬 NIC)。 您可以隨時建立其他虛擬 NIC 和 VM，並將它們新增至負載平衡器︰
 
 ```azurepowershell-interactive

@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 9a3b801058a2614b9b484a3ebf414a9225c5371e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2646cc39197145e797f61d0c2d9e6d944ed19351
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033289"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388454"
 ---
 # <a name="create-a-new-knowledge-base-in-python"></a>使用 Python 建立新的知識庫
 
@@ -33,7 +33,7 @@ ms.locfileid: "47033289"
 
 ![Azure 儀表板服務金鑰](../media/sub-key.png)
 
-如需 Visual Studio 和 Python 的詳細說明：[在 Windows 上的 Visual Studio 中使用 Python](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio)。
+如需 Visual Studio 和 Python 的詳細說明：[在 Windows 上的 Visual Studio 中使用 Python](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)。
 
 ## <a name="create-knowledge-base"></a>建立知識庫
 
@@ -137,8 +137,8 @@ req = {
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }

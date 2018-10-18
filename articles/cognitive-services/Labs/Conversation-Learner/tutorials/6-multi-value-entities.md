@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173096"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321422"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用多重值實體
 本教學課程說明實體的「多重值」屬性。
@@ -24,7 +24,7 @@ ms.locfileid: "39173096"
 
 [![教學課程 6 預覽](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
-##<a name="requirements"></a>需求
+## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人
 
     npm run tutorial-general
@@ -58,13 +58,13 @@ ms.locfileid: "39173096"
 1. 按一下 [動作]，然後按一下 [新增動作]
 2. 在 [回應] 中，輸入「您想要哪些配料？」。
 3. 在 [不合格的實體] 中，輸入「配料」。
-3. Click Create
+3. 按一下 [建立專案]。
 
 然後建立第二個動作。
 
 1. 按一下 [動作]，然後按一下 [新增動作] 以建立第二個動作。
 3. 在 [回應] 中，輸入「以下是您的配料：$Toppings」。
-4. Click Create
+4. 按一下 [建立專案]。
 
 現在您有兩個動作。
 

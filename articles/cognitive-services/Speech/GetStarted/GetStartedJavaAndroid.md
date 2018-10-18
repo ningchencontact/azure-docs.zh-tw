@@ -10,14 +10,15 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3b1e82d65a3eafb9e41277a18569270ef02cd8e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c5243ec14a4494222168bb33b3e840b96f8465e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989034"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345249"
 ---
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>快速入門：在 Android 上於 Java 中使用 Bing 語音辨識 API
 
 使用「Bing 語音辨識 API」時，您可以開發使用雲端式「Bing 語音服務」將語音轉換成文字的 Android 應用程式。 此 API 支援即時串流，因此您的應用程式能夠在將音訊傳送給服務的同時，以同時且非同步方式接收部分辨識結果。

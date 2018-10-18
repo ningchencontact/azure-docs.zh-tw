@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411716"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387379"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure 虛擬機器的效能診斷
 
@@ -103,7 +103,7 @@ Azure 入口網站提供下列分析案例。 請根據您的效能問題，選�
 使用 [設定] 工具列按鈕來變更儲存體帳戶，其中可儲存診斷見解和輸出。 您可以將同一個儲存體帳戶用於多個使用效能診斷的 VM。 當您變更儲存體帳戶時，不會刪除舊的報告和見解。 不過，這些項目不會再顯示於 [診斷報告] 清單中。 
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>檢閱見解和效能診斷報告
-每個診斷執行都會包含見解和建議清單、受影響的資源、記錄檔，以及收集到的其他豐富診斷資訊，加上離線檢視的報告。 如需收集到的所有診斷資料完整清單，請參閱 [What kind of information is collected by PerfInsights?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) (PerfInsights 收集何種資訊？) 
+每個診斷執行都會包含見解和建議清單、受影響的資源、記錄檔，以及收集到的其他豐富診斷資訊，加上離線檢視的報告。 如需收集到的所有診斷資料完整清單，請參閱 [What kind of information is collected by PerfInsights?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) (PerfInsights 收集何種資訊？) 
 
 ### <a name="select-a-performance-diagnostics-report"></a>選取效能診斷報告
 您可以使用 [診斷報告] 清單，尋找所有執行的診斷報告。 此清單包含所使用的分析詳細資料、所發現的見解及其影響層級。 選取一列以檢視更多詳細資料。
@@ -123,7 +123,7 @@ Azure 入口網站提供下列分析案例。 請根據您的效能問題，選�
 ![效能診斷見解詳細資料的螢幕擷取畫面](media/performance-diagnostics/insight-detail.png)
 
 ### <a name="download-and-review-the-full-performance-diagnostics-report"></a>下載並檢閱完整的效能診斷報告
-您可以使用 [下載報告] 按鈕來下載 HTML 報告，其中包含其他豐富診斷資訊，例如儲存體和網路設定、效能計數器、追蹤、處理序清單和記錄。 其內容取決於選取的分析。 如需進階疑難排解，此報告可能包含有關高 CPU 使用量、高磁碟使用量和過度耗用記憶體之處理序的其他資訊和互動式圖表。 如需效能診斷報告的詳細資訊，請參閱 [Review diagnostics report](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report) (檢閱診斷報告)。
+您可以使用 [下載報告] 按鈕來下載 HTML 報告，其中包含其他豐富診斷資訊，例如儲存體和網路設定、效能計數器、追蹤、處理序清單和記錄。 其內容取決於選取的分析。 如需進階疑難排解，此報告可能包含有關高 CPU 使用量、高磁碟使用量和過度耗用記憶體之處理序的其他資訊和互動式圖表。 如需效能診斷報告的詳細資訊，請參閱 [Review diagnostics report](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report) (檢閱診斷報告)。
 
 ## <a name="manage-performance-diagnostics-reports"></a>管理效能診斷報告
 您可以使用 [刪除報告] 按鈕，刪除一或多個效能診斷報告。

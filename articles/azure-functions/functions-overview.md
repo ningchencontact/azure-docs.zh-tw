@@ -13,17 +13,17 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: bf3ebbf0c607bd87254ad7b9f8fae0a99ca66278
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f9b60b9365f8856db8ffd8e14d95d46af3808ffb
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392732"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116482"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 簡介  
-Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、F#、Node.js、Java 或 PHP。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發 [無伺服器](https://azure.microsoft.com/overview/serverless-computing/)應用程式。
+Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、F#、Node.js、Java 或 PHP。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發 [無伺服器](https://azure.microsoft.com/solutions/serverless/)應用程式。
 
-此主題提供 Azure Functions 的高階概觀。 如果您想要直接進入正題並開始使用 Functions，請從 [建立您的第一個 Azure Functions](functions-create-first-azure-function.md) 著手。 如果您要尋找更多有關 Functions 的技術資訊，請參閱 [開發人員參考](functions-reference.md)。
+本主題提供 Azure Functions 的高階概觀。 如果您想要直接進入正題並開始使用 Functions，請從 [建立您的第一個 Azure Functions](functions-create-first-azure-function.md) 著手。 如果您要尋找更多有關 Functions 的技術資訊，請參閱 [開發人員參考](functions-reference.md)。
 
 ## <a name="features"></a>特性
 以下是 Functions 的一些主要功能︰
@@ -58,7 +58,7 @@ Azure Functions 可以與各種 Azure 和協力廠商服務整合。 這些服�
 
 * Azure Cosmos DB
 * Azure 事件中心
-* Azure 事件方格
+* Azure Event Grid
 * Azure 通知中心
 * Azure 服務匯流排 (佇列和主題)
 * Azure 儲存體 (Blob、佇列和資料表)

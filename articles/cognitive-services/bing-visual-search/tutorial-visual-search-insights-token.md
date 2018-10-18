@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: bda4bdeea019d8cf3ae677d5eaf81e631ca38d16
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 06d6bc8e53276b5542210c2843d7221d6fd79c09
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222568"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386429"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>教學課程：Bing 圖像式搜尋 SDK ImageInsightsToken 和結果
 圖像式搜尋 SDK 有選項可供從先前傳回 `ImageInsightsToken` 的搜尋中，線上尋找影像。  此範例可取得 `ImageInsightsToken`，並在後續搜尋中使用權杖。  程式碼會將 `ImageInsightsToken` 傳送到 Bing 並傳回結果，結果中包含 Bing 搜尋 URL 和線上所找到類似影像的 URL。
@@ -25,7 +25,7 @@ Visual Studio 2017。 如有需要，您可從下列位置下載免費的社群�
 必須要有認知服務 API 金鑰才能驗證 SDK 呼叫。 申請免費試用金鑰。 試用金鑰可讓您以每秒 1 個呼叫的頻率使用 7 天。 針對生產案例，請購買存取金鑰。 另請參閱定價資訊。
 要能夠執行 .NET Core SDK，也就是 .NET Core 1.1 應用程式。 您可以從下列位置取得 CORE、架構和執行階段： https://www.microsoft.com/net/download/。
 
-##<a name="application-dependencies"></a>應用程式相依性
+## <a name="application-dependencies"></a>應用程式相依性
 若要使用 Bing Web 搜尋 SDK 來設定主控台應用程式，請在 Visual Studio 中瀏覽至 [方案總管] 的 [管理 NuGet 套件] 選項。 新增：
 * Microsoft.Azure.CognitiveServices.Search.VisualSearch
 * Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage 套件。
@@ -37,7 +37,8 @@ Visual Studio 2017。 如有需要，您可從下列位置下載免費的社群�
 * Newtonsoft.Json
 
 ## <a name="get-the-imageinsightstoken-from-image-search"></a>從影像搜尋取得 ImageInsightsToken
-此範例會使用下列方法所取得的 `ImageInsightsToken`。  如需此呼叫的詳細資訊，請參閱[影像搜尋 SDK C# 快速入門](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)。
+
+此範例會使用下列方法所取得的 `ImageInsightsToken`。  如需此呼叫的詳細資訊，請參閱[影像搜尋 SDK C# 快速入門](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)。
 
 程式碼會搜尋 'Canadian Rockies' 的查詢結果，並取得 ImageInsightsToken。 它會列印第一個影像的見解權杖、縮圖 URL 和影像內容 URL。  方法會傳回 `ImageInsightsToken` 以供後續的圖像式搜尋要求使用。
 
@@ -86,12 +87,15 @@ Visual Studio 2017。 如有需要，您可從下列位置下載免費的社群�
 ```
 
 ## <a name="specify-the-imageinsightstoken-for-visual-search-request"></a>指定圖像式搜尋要求的 ImageInsightsToken
+
 此範例會使用上一個方法所傳回的見解權杖。 下列程式碼會從 `ImageInsightsToken` 建立 `ImageInfo` 物件，並將 ImageInfo 物件載入至 `VisualSearchRequest`。 在 `ImageInfo` 中指定 `VisualSearchRequest` 的 `ImageInsightsToken`
 
 ```
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 ```
+
 ## <a name="use-visual-search-to-find-images-from-an-imageinsightstoken"></a>使用圖像式搜尋來尋找 ImageInsightsToken 中的影像
+
 `VisualSearchRequest` 包含 `ImageInfo` 物件中所要搜尋影像的相關資訊。  `VisualSearchMethodAsync` 方法會取得結果。
 ```
 // An image binary is not necessary here, as the image is specified by insights token.
@@ -135,7 +139,8 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
         }
     }
 ```
-如需這些資料類型的詳細資訊，請參閱[影像 - 圖像式搜尋](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)。
+如需這些資料類型的詳細資訊，請參閱[影像 - 圖像式搜尋](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)。
+
 ## <a name="complete-code"></a>完整程式碼
 
 下列程式碼會執行上述範例。 它會在 POST 要求中傳送 `ImageInsightsToken`。 然後，它會列印每個 ActionType 的 Bing 搜尋 URL。 如果 ActionType 是 `PagesIncluding`，程式碼會取得 `Data` 中的 `ImageObject` 項目。  `Data` 包含值清單，這些值是網頁上影像的 URL。  將 Visual Studio URL 複製並貼上至瀏覽器以顯示結果。 將 ContentUrl 項目複製並貼上至瀏覽器以顯示影像。
@@ -283,5 +288,6 @@ namespace VisualSearchFeatures
 }
 
 ```
+
 ## <a name="next-steps"></a>後續步驟
 [圖像式搜尋回應](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response) \(英文\)

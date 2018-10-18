@@ -1,24 +1,24 @@
 ---
-title: 常見問題集 - 自訂語音服務
-titlesuffix: Azure Cognitive Services
+title: Azure 上的自訂語音服務常見問題集 | Microsoft Docs
 description: 以下是自訂語音服務最熱門問題的解答。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: faq
+ms.topic: article
 ms.date: 11/21/2016
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 2de2efe3287cbb0b915434c2c9ad982fe162d741
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8e3d5e0e2b70d8f97099103ed369e48dd74d56e2
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223710"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341356"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>自訂語音服務常見問題集
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)] 
 
 如果在此常見問題集中找不到問題的解答，請嘗試詢問 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) 和 [UserVoice](https://cognitive.uservoice.com/) 上的自訂語音服務社群
 

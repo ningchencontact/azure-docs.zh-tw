@@ -4,20 +4,20 @@ description: 請遵循本教學課程的步驟，使用 Azure 媒體服務分析
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/28/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 96ed5c17501aeb195ee584ce6d41a84fc2118bac
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971993"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376647"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>教學課程：使用 Azure 媒體服務分析影片 
 
@@ -39,7 +39,7 @@ ms.locfileid: "38971993"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果沒有安裝 Visual Studio，您可以取得 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)。
 

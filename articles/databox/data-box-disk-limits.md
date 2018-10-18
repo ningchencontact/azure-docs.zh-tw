@@ -2,25 +2,18 @@
 title: Azure 資料箱磁碟限制 | Microsoft Docs
 description: 說明 Microsoft Azure 資料箱磁碟的系統限制和建議大小。
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a4fe30881f06d8af851a67f389a6faafbe3dfef
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960612"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389457"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure 資料箱磁碟限制 (預覽)
 
@@ -64,7 +57,7 @@ ms.locfileid: "46960612"
 
 ## <a name="azure-storage-account-size-limits"></a>Azure 儲存體帳戶大小限制
 
-以下是複製到儲存體帳戶中的資料在大小方面的限制。 請確定您上傳的資料符合這些限制。 如需關於這些限制的最新資訊，請移至 [Azure Blob 儲存體調整目標](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets)和 [Azure 檔案調整目標](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets)。
+以下是複製到儲存體帳戶中的資料在大小方面的限制。 請確定您上傳的資料符合這些限制。 如需關於這些限制的最新資訊，請移至 [Azure Blob 儲存體調整目標](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets)和 [Azure 檔案調整目標](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets)。
 
 | 複製到 Azure 儲存體帳戶中的資料大小                      | 預設限制          |
 |---------------------------------------------------------------------|------------------------|

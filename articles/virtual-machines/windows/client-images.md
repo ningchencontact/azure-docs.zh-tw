@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a2b9a06e8e3b1bda91050e1607c7265d6fe66bb1
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: eb227b4b4cbdc40a4e708726bbe0f5d0c7eacb74
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931784"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364660"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>在 Azure 中使用 Windows 用戶端進行開發/測試案例
 假設您有適當的 Visual Studio (先前稱為 MSDN) 訂閱，您可以在 Azure 中使用 Windows 7、Windows 8 或 Windows 10 企業版(x64) 進行開發/測試案例。 這篇文章概述在 Azure 中執行 Windows 7、Windows 8.1、Windows 10 企業版和使用下列「Azure 資源庫」映像的資格需求。
@@ -48,7 +48,7 @@ ms.locfileid: "37931784"
 | [Visual Studio Premium 含 MSDN (權益)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Visual Studio Enterprise 訂閱者](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Visual Studio Enterprise (BizSpark) 訂閱者](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Enterprise 開發/測試](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Enterprise 開發/測試](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>檢查您的 Azure 訂用帳戶
 如果您不知道您的供應項目識別碼，您可以透過 Azure 入口網站以下列兩種方式取得：  

@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 5716f7a0af16bd3e40dea4468e2fae884f911718
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967552"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343686"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>快速入門：以適用於 .NET Windows 的 C&#35; 開始使用 Bing 語音辨識服務程式庫
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 此服務程式庫適用於已有自己的雲端服務而想要從其服務呼叫「語音服務」的開發人員。 如果您想要從裝置繫結應用程式呼叫語音辨識服務，則請勿使用此 SDK。 (請使用其他用戶端程式庫或 REST API 來達到該目的)。
 

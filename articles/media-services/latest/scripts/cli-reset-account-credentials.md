@@ -4,7 +4,7 @@ description: 使用 Azure CLI 指令碼來重設您的帳戶認證，並還原�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 7f9868b0fb53eb75ccf4742c0bf522d35f6ff902
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f97cf87288f5efbeef11a27e98ab3fc2caf27b40
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723131"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376408"
 ---
 # <a name="cli-example-reset-the-account-credentials"></a>CLI 範例：重設帳戶認證
 

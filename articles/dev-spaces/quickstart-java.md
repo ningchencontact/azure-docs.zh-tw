@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: mmontwil
-ms.openlocfilehash: 3d7244144567b3303d383f0dc29a51af302b3bcf
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 7fcdd2d41f5fe76776acd5642cda11ef8a65f82d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585018"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353753"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>快速入門：使用 Azure Dev Spaces 建立 Kubernetes 開發人員空間 (Java 和 VS Code)
 
@@ -37,8 +37,8 @@ ms.locfileid: "47585018"
 - 在 EastUS、CentralUS、WestUS2、WestEurope、CanadaCentral 或 CanadaEast 區域中執行 Kubernetes 1.10.3 或更新版本、並且已啟用 **HTTP 應用程式路由**的 Kubernetes 叢集。
 
     ```cmd
-    az group create --name MyResourceGroup --region <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+    az group create --name MyResourceGroup --location <region>
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>設定 Azure Dev Spaces

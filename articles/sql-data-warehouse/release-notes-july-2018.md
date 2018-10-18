@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5c54505625f40d7c0bd00111e2ff260dc9afaf1c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287999"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318835"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 7 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 7 月導入的新功能和變更。
@@ -30,7 +30,7 @@ Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 7 月導入的新
 ![和 Amazon Redshift 相比，Azure SQL 資料倉儲更快速且更便宜](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>來源：[Gigaom 研究分析報告：雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> \(英文\)
 
-###<a name="query-concurrency"></a>查詢並行存取
+### <a name="query-concurrency"></a>查詢並行存取
 SQL 資料倉儲也可確保資料能夠跨組織存取。 Microsoft 已經增強服務以支援 128 個並行查詢，讓更多使用者能查詢相同的資料庫，而不會被其他要求封鎖。 相較之下，Amazon Redshift 的並行查詢數上限為 50 個，限制了組織內的資料存取。
 
 SQL 資料倉儲可提升這些查詢效能與查詢並行存取，而價格不變，並以低耦合的儲存體與計算建置其獨特的架構。

@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 87a6ccf61e10a6a8c7feeccad3690cdcb9b63641
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c851c8a9384acf909dc88d3565d49021e1ee67e9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857851"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362006"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
 
-本文討論 Microsoft Azure 服務匯流排的一些常見問題解集。 您也可以造訪 [Azure 支援常見問題集](https://azure.microsoft.com/en-us/support/faq/)，以取得一般的 Azure 價格和支援資訊。
+本文討論 Microsoft Azure 服務匯流排的一些常見問題解集。 您也可以造訪 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)，以取得一般的 Azure 價格和支援資訊。
 
 ## <a name="general-questions-about-azure-service-bus"></a>關於 Azure 服務匯流排的一般問題
 ### <a name="what-is-azure-service-bus"></a>什麼是 Azure 服務匯流排？
@@ -56,7 +56,7 @@ ms.locfileid: "48857851"
 
 [服務匯流排定價與計費](service-bus-pricing-billing.md)一文說明服務匯流排中的計費計量。 如需服務匯流排價格選項的特定資訊，請參閱[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。
 
-您也可以造訪 [Azure 支援常見問題集](https://azure.microsoft.com/en-us/support/faq/)，以取得一般 Azure 價格資訊。 
+您也可以造訪 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)，以取得一般 Azure 價格資訊。 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>服務匯流排的收費方式為何？
 如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格詳細資料][Pricing overview]。 除了註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。

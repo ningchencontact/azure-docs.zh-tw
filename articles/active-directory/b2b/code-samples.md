@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9d2fa8ec96f629ff85d785897398bc9af52ab3bc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985435"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165754"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B 共同作業程式碼與 PowerShell 範例
 
@@ -34,14 +34,14 @@ ms.locfileid: "45985435"
 
 3. 登入您的租用戶
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. 執行 PowerShell Cmdlet
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ ms.locfileid: "45985435"
 ## <a name="code-sample"></a>程式碼範例
 此處示範如何以僅限應用程式模式呼叫邀請 API，以取得您要邀請 B2B 使用者存取之資源的兌換 URL。 目標是傳送自訂邀請電子郵件。 電子郵件可使用 HTTP 用戶端來編寫，因此您可以自訂其外觀並透過圖形 API 傳送。
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;

@@ -3,7 +3,7 @@ title: Azure Stack 管理基本知識 | Microsoft Docs
 description: 了解要管理 Azure Stack 需要知道哪些事項。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
-ms.author: mabrigg
-ms.openlocfilehash: 39dc48b1357b07932efbccaf002f54ca58edae24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/15/2018
+ms.author: jeffgilb
+ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093291"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339945"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本指南提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們快速上手。
@@ -144,6 +144,6 @@ Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure Stack 中的區域管理](azure-stack-region-management.md)
+[Azure Stack 中的區域管理](azure-stack-region-management.md)
 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 124653f95dedbb1606e85cbfcd8229c026cf7341
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960646"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385510"
 ---
 # <a name="check-resource-usage-against-limits"></a>根據限制檢查資源使用量
 
@@ -49,7 +49,7 @@ ms.locfileid: "46960646"
 
 您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從電腦執行 PowerShell，便需要 *AzureRM* PowerShell 模組 6.0.1 版或更新的版本。 請在您的電腦上執行 `Get-Module -ListAvailable AzureRM`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，也需要執行 `Login-AzureRmAccount` 來登入 Azure。
 
-使用 [Get AzureRmNetworkUsage](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0) 來根據限制查看您的使用量。 下列範例所取得的資源使用量中，至少有一個資源是部署在美國東部地區：
+使用 [Get AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0) 來根據限制查看您的使用量。 下列範例所取得的資源使用量中，至少有一個資源是部署在美國東部地區：
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkUsage `

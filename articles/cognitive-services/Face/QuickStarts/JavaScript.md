@@ -3,19 +3,19 @@ title: 快速入門：偵測影像中的人臉 - 臉部 API、JavaScript
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用認知服務的臉部 API 搭配 JavaScript，偵測影像中的臉部。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: b5c2b5bb6e0a4507a294700a6de78a1498cbe961
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: eb860c054ddb18d6c26cc4853e1bf230739aa51d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129398"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340183"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-javascript"></a>快速入門：使用 JavaScript 偵測影像中的人臉
 

@@ -1,27 +1,20 @@
 ---
 title: 使用 Azure Data Box Edge 轉換資料 | Microsoft Docs
 description: 了解如何設定 Data Box Edge 上的計算角色，並使用它在資料傳送至 Azure 之前先轉換資料。
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/08/2018
 ms.author: alkohli
-ms.custom: ''
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: fd04c906f57a9378879ef6357e2724695533d370
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 4729e08399132243543c6f4e1cadd537d185e9e3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832609"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166248"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>教學課程：使用 Azure Data Box Edge 轉換資料 (預覽)
 

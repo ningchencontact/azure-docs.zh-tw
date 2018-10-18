@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 56df09f461458071093088159d3b468755b0e4ad
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 71d8bfa116fd4d0e824d80da26df7271121a595c
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434937"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311366"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>在 Azure Active Directory 中啟用企業狀態漫遊
 任何具有 Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權的組織都可以使用企業狀態漫遊。 如需有關如何取得 Azure AD 訂用帳戶的詳細資訊，請參閱 [Azure AD 產品頁面](https://azure.microsoft.com/services/active-directory)。
@@ -32,9 +32,9 @@ ms.locfileid: "47434937"
 
 1. 登入 [Azure AD 系統管理中心](https://aad.portal.azure.com/)。
 
-2. 選取 [Azure Active Directory] &gt; [裝置] &gt; [企業狀態漫遊]。
+1. 選取 [Azure Active Directory] &gt; [裝置] &gt; [企業狀態漫遊]。
 
-3. 選取 [使用者可以在裝置間同步設定及應用程式資料]。 如需詳細資訊，請參閱[如何進行裝置設定](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)。
+1. 選取 [使用者可以在裝置間同步設定及應用程式資料]。 如需詳細資訊，請參閱[如何進行裝置設定](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)。
   
   ![標示為 [使用者可以在裝置間同步設定及應用程式資料] 的裝置設定影像](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
@@ -57,15 +57,15 @@ EMEA 國家/地區，例如，法國或尚比亞 | 歐洲內的一個或多個 A
 
 1. 登入 [Azure AD 系統管理中心](https://aad.portal.azure.com/)。
 
-2. 選取 [Azure Active Directory] &gt; [使用者] &gt; [所有使用者]。
+1. 選取 [Azure Active Directory] &gt; [使用者] &gt; [所有使用者]。
 
-3. 選取使用者，然後選取 [裝置]。
+1. 選取使用者，然後選取 [裝置]。
 
-4. 在 [顯示] 底下，選取 [裝置同步設定和應用程式資料]，以顯示同步處理狀態。
+1. 在 [顯示] 底下，選取 [裝置同步設定和應用程式資料]，以顯示同步處理狀態。
   
   ![裝置同步處理資料設定的影像](./media/active-directory-windows-enterprise-state-roaming-enable/sync-status.png)
   
-5. 如果此使用者有裝置在同步處理，您會看到裝置，如下所示。
+1. 如果此使用者有裝置在同步處理，您會看到裝置，如下所示。
   
   ![裝置同步處理單欄式資料的影像](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 

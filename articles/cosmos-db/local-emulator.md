@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 7067a71eea3ffbfadf006a102ee926fb15347f63
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: ce42d30b816599f7eaf90ce5a92164c6b85cfa36
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423641"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094168"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -35,7 +35,9 @@ ms.locfileid: "47423641"
 </tr>
 </table>
   
-Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環境做為開發之用。 您可以使用 Azure Cosmos DB 模擬器在本機開發及測試應用程式，不需建立 Azure 訂用帳戶，也不會產生任何費用。 如果您滿意應用程式在 Azure Cosmos DB 模擬器中的運作方式，就可以切換成使用雲端的 Azure Cosmos DB 帳戶。 Azure Cosmos DB 模擬器可與所有 API 搭配使用：SQL、MongoDB、Cassandra、Gremlin 和資料表。
+Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環境做為開發之用。 您可以使用 Azure Cosmos DB 模擬器在本機開發及測試應用程式，不需建立 Azure 訂用帳戶，也不會產生任何費用。 如果您滿意應用程式在 Azure Cosmos DB 模擬器中的運作方式，就可以切換成使用雲端的 Azure Cosmos DB 帳戶。 
+
+模擬器中的資料總管目前只完整支援 SQL API 集合和 MongoDB 集合。 不會完整支援資料表、Graph 和 Cassandra 容器。 
 
 本文涵蓋下列工作： 
 
@@ -466,54 +468,6 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 2. 在 Windows 搜尋方塊中，輸入 **App 與功能**，然後按一下 [App 與功能 (系統設定)] 結果。
 3. 在應用程式清單中，捲動至 [Azure Cosmos DB 模擬器] 並將其選取，按一下 [解除安裝]，然後確認並再按一下 [解除安裝]。
 4. 當應用程式已解除安裝時，請瀏覽至 `C:\Users\<user>\AppData\Local\CosmosDBEmulator` 然後刪除該資料夾。 
-
-## <a name="change-list"></a>變更清單
-
-以滑鼠右鍵按一下工作列上的本機模擬器圖示，然後按一下關於功能表項目，以檢查版本號碼。
-
-### <a name="1220-released-on-april-20-2018"></a>1.22.0. 於 2018 年 4 月 20 日發行
-
-除了更新與 Cosmos DB 雲端服務同等的模擬器服務以外，我們還加入了改良過的 PowerShell 文件和幾個各式各樣的 Bug 修正。
-
-### <a name="12106-released-on-march-27-2018"></a>已於 2018 年 3 月 27 日發行 1.21.0.6 版
-
-除了更新與 Cosmos DB 雲端服務同等的模擬器服務以外，我們還在這個版本中加入了一項新功能與兩項 Bug 修正。
-
-#### <a name="features"></a>特性
-
-1. Start-CosmosDbEmulator 命令現在包含啟動選項。
-
-#### <a name="bug-fixes"></a>錯誤修正
-
-1. Microsoft.Azure.CosmosDB.Emulator PowerShell 模組現在可確保會載入 `ServiceControllerStatus` 列舉。
-
-2. Microsoft.Azure.CosmosDB.Emulator PowerShell 模組現在包含一個資訊清單；第一個版本中的遺漏項。
-
-### <a name="1201084-released-on-february-14-2018"></a>已於 2018 年 2 月 14 日發行 1.20.108.4 版
-
-此版本有一項新功能及兩個錯誤 (bug) 修正。 這點受惠協助我們找出並修正這些問題的客戶。
-
-#### <a name="bug-fixes"></a>錯誤修正
-
-1. 模擬器目前適用於具有 1 或 2 個核心 (或虛擬 CPU) 的電腦
-
-   Cosmos DB 會配置工作來執行各種服務。 配置的工作數是主機上核心數的倍數。 預設倍數適用於核心數很大的生產環境。 不過，在 1 或 2 個處理器的機器上套用這個倍數時，沒有工作會配置來執行這些服務。
-
-   我們的修正方法是新增模擬器設定覆寫。 我們現在套用 1 的倍數。 配置來執行各種服務的工作數目現在等於主機上的核心數。
-
-   如果我們未針對此版本執行其他動作，那麼我們已著重處理此問題。 我們發現裝載模擬器的許多開發/測試環境中有 1 或 2 個核心。
-
-2. 模擬器不再需要 Microsoft Visual C++ 2015 可轉散發套件才能進行安裝。
-
-   我們發現 Windows (桌面和伺服器版本) 的全新安裝不包含這個可轉散發套件。 因此，我們現在將可轉散發套件的二進位檔與模擬器組合在一起。
-
-#### <a name="features"></a>特性
-
-許多與我們談過的客戶提到：如果模擬器可編寫指令碼應該會不錯。 因此在這個版本中，我們新增了某些指令碼功能。 模擬器現在包含 PowerShell 模組，可用於執行模擬器的啟動、停止、狀態取得及解除安裝：`Microsoft.Azure.CosmosDB.Emulator`。 
-
-### <a name="120911-released-on-january-26-2018"></a>已於 2018 年 1 月 26 日發行 1.20.91.1 版
-
-* 依預設已啟用 MongoDB 彙總管線。
 
 ## <a name="next-steps"></a>後續步驟
 

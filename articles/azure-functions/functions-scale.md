@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4585b6d4e9e3f6c64e1c583b947f979b8edc5a74
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5f597425fc3813f243950b16f5debbd63ce3a805
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830251"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113932"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
-Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方案。 取用方案會在程式碼執行時自動配置計算能力。 您的應用程式會在需要處理負載時相應放大，並在程式碼未執行時相應減少。 您不必支付閒置虛擬機器的費用，或預先保留容量。 本文的重點是取用方案 ([無伺服器](https://azure.microsoft.com/overview/serverless-computing/)應用程式模型)。 如需專用 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
+Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方案。 取用方案會在程式碼執行時自動配置計算能力。 您的應用程式會在需要處理負載時相應放大，並在程式碼未執行時相應減少。 您不必支付閒置虛擬機器的費用，或預先保留容量。 本文的重點是取用方案 ([無伺服器](https://azure.microsoft.com/solutions/serverless/)應用程式模型)。 如需專用 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
 > [!NOTE]  
 > [Linux 裝載](functions-create-first-azure-function-azure-cli-linux.md)目前僅適用於 App Service 方案。
