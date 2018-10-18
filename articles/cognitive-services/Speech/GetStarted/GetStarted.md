@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 2752a8f1db82890e738b65a1c4f646d7749bf7dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 35f74630d7f784e7b661257a27ed9ea839b79325
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961874"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341322"
 ---
 # <a name="get-started-with-bing-speech"></a>開始使用 Bing 語音
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 若要使用 Microsoft 語音辨識服務來將音訊轉換成文字，請參閱語音辨識 [REST API](GetStartedREST.md) 或[用戶端程式庫](GetStartedClientLibraries.md)。
 

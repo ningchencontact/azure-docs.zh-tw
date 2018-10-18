@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7329b06171bd538cc6e9aa8172380a2d4dd47dae
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: cwatson
+ms.openlocfilehash: 623856f05eed44eca3752d56f047f9bb282bdc8e
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204117"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392072"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>使用角色型存取控制來管理對 Azure 帳單資訊的存取
 
@@ -71,7 +71,7 @@ ms.locfileid: "33204117"
 
 ## <a name="adding-users-to-other-roles"></a>將使用者新增到其他角色
 
-具備其他角色 (例如「擁有者」和「參與者」) 的使用者不僅可存取帳單資訊，還可存取 Azure 服務。 若要管理這些角色，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](billing-add-change-azure-subscription-administrator.md)。
+具備其他角色 (例如「擁有者」和「參與者」) 的使用者不僅可存取帳單資訊，還可存取 Azure 服務。 若要管理這些角色，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="who-can-access-the-account-centerhttpsaccountwindowsazurecom"></a>誰可以存取[帳戶中心](https://account.windowsazure.com)？
 

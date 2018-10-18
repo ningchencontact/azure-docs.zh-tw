@@ -14,23 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 4dc61258df2311c4e7ccd4c05ebe077b3e2343eb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919001"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222279"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源
 
 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)可讓您輕鬆地[一次新增一個 VM 至實驗室](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm)。 不過，如果環境包含多個 VM，則必須分別建立每個 VM。 針對多層式 Web 應用程式或 SharePoint 伺服器陣列的情況，需要有機制以允許在單一步驟中建立多個 VM。 使用 Azure Resource Manager 範本，您現在可以定義 Azure 方案的基礎結構和組態，並在一致的狀態中重複部署多個 VM。 此功能可提供下列優點：
 
-- Azure Resource Manager 範本會直接從您的原始檔控制儲存機制 (GitHub 或 Team Services Git) 載入。
-- 一旦設定後，您的使用者就可以藉由從 Azure 入口網站挑選 Azure Resource Manager 範本來建立環境，就像他們使用其他類型的 [VM 基底](./devtest-lab-comparing-vm-base-image-types.md)所做的一樣。
+- 載入 Azure Resource Manager 範本時，會直接從您的原始檔控制存放庫 (GitHub 或 Azure DevOps Services Git) 載入。
+- 一旦設定後，您的使用者就可以透過從 Azure 入口網站挑選 Azure Resource Manager 範本來建立環境，就像他們使用其他類型的 [VM 基底](./devtest-lab-comparing-vm-base-image-types.md)所做的一樣。
 - Azure PaaS 資源除了 IaaS VM 之外，可以從 Azure Resource Manager 範本的環境中佈建。
 - 除了其他類型基底所建立的個別 VM 之外，可在實驗室中追蹤環境的成本。
 - PaaS 資源會建立並出現在成本追蹤中；不過，VM 自動關機不適用於 PaaS 資源。
-- 使用者具有的環境 VM 原則控制與單一實驗室 VM 所具有的相同。
 
 深入了解許多[使用 Resource Manager 範本的優點](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager)，以透過單一作業部署、更新或刪除所有實驗室資源。
 
@@ -42,7 +41,7 @@ ms.locfileid: "42919001"
 Azure DevTest Labs 有 [Azure Resource Manager 範本的公用存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Environments)，您可以用來建立環境，而不需要自行連線到外部 GitHub 來源。 此存放庫包括常用範本，例如 Azure Web Apps、Service Fabric 叢集與開發 SharePoint 伺服器陣列環境。 此功能類似您建立之每個實驗室包含之成品的公用存放庫。 環境存放庫可讓您使用預先製作的環境範本在輸入參數最少的情況下開始，以在實驗室內為您提供順暢的 PaaS 資源開始使用體驗。 如需詳細資訊，請參閱[在 DevTest Labs 中設定及使用公用環境](devtest-lab-configure-use-public-environments.md)。
 
 ## <a name="configure-your-own-template-repositories"></a>設定您自己的範本存放庫
-做為基礎結構即程式碼與組態即程式碼的其中一個最佳作法，應在原始檔控制中管理環境範本。 Azure DevTest Labs 採用這種作法，並直接從您的 GitHub 或 VSTS Git 儲存機制載入所有 Azure Resource Manager 範本。 因此，可以在測試環境到生產環境的整個發行週期使用 Resource Manager 範本。
+做為基礎結構即程式碼與組態即程式碼的其中一個最佳作法，應在原始檔控制中管理環境範本。 Azure DevTest Labs 依循此作法，而會直接從您的 GitHub 或 Azure DevOps Services Git 存放庫載入所有 Azure Resource Manager 範本。 因此，可以在測試環境到生產環境的整個發行週期使用 Resource Manager 範本。
 
 請參閱[公用 GitHub 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Environments)中由 DevTest Labs 小組所建立的範本。 在公用存放庫中，您可以檢視其他人分享的範本，並且可以直接使用這些範本，或根據您的需求來自訂這些範本。 建立範本之後，請將它儲存在這個存放庫以與他人分享。 您也可以使用可用來在雲端中設定環境的範本，來設定您自己的 Git 存放庫。 
 
@@ -63,7 +62,7 @@ Azure DevTest Labs 有 [Azure Resource Manager 範本的公用存放庫](https:/
     }
     ```
 
-下列步驟將引導您使用 Azure 入口網站將儲存機制新增至您的實驗室。 
+下列步驟將引導您使用 Azure 入口網站將存放庫新增至您的實驗室。 
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
@@ -72,19 +71,19 @@ Azure DevTest Labs 有 [Azure Resource Manager 範本的公用存放庫](https:/
 
     ![組態和原則](./media/devtest-lab-create-environment-from-arm/configuration-and-policies-menu.png)
 
-1. 從 [組態和原則] 設定清單中，選取 [儲存機制]。 [存放庫] 窗格會列出已新增至實驗室的存放庫。 會為所有實驗室自動產生名為 `Public Repo` 的儲存機制，並連接到 [DevTest Labs GitHub 儲存機制](https://github.com/Azure/azure-devtestlab)，其中包含數個 VM 構件供您使用。
+1. 從 [組態和原則] 設定清單中，選取 [存放庫]。 [存放庫] 窗格會列出已新增至實驗室的存放庫。 會為所有實驗室自動產生名為 `Public Repo` 的存放庫，並連接到 [DevTest Labs GitHub 存放庫](https://github.com/Azure/azure-devtestlab)，其中包含數個 VM 構件供您使用。
 
-    ![公用儲存機制](./media/devtest-lab-create-environment-from-arm/public-repo.png)
+    ![公用存放庫](./media/devtest-lab-create-environment-from-arm/public-repo.png)
 
-1. 選取 [新增 +] 以新增您的 Azure Resource Manager 範本儲存機制。
+1. 選取 [新增 +] 以新增您的 Azure Resource Manager 範本存放庫。
 1. 當第二個 [存放庫] 窗格開啟時，輸入必要資訊，如下所示：
-    - **名稱** - 輸入在實驗室中使用的儲存機制名稱。
-    - **Git 複製 URL** - 輸入來自 GitHub 或 Visual Studio Team Services 的 Git HTTPS 複製 URL。  
+    - **名稱** - 輸入在實驗室中使用的存放庫名稱。
+    - **Git 複製 URL** - 輸入來自 GitHub 或 Azure DevOps Services 的 GIT HTTPS 複製 URL。  
     - **分支** - 輸入分支的名稱，以存取您的 Azure Resource Manager 範本定義。 
-    - **個人的存取權杖** - 個人的存取權杖用來安全地存取您的儲存機制。 若要從 Visual Studio Team Services 取得您的權杖，請選取 [YourName > > 我的設定檔 > 安全性 > 公用存取權杖]**&lt;**。 若要從 GitHub 取得權杖，請選取 avatar 然後選取 [設定 > 公用存取權杖]。 
+    - **個人的存取權杖** - 個人的存取權杖用來安全地存取您的存放庫。 若要從 Azure DevOps Services 取得您的權杖，請選取 [&lt;您的名稱] > > [我的設定檔] > [安全性] > [公用存取權杖]。 若要從 GitHub 取得權杖，請選取 avatar 然後選取 [設定 > 公用存取權杖]。 
     - **資料夾路徑** - 使用兩個輸入欄位其中之一、輸入資料夾路徑，其開頭為正斜線 - / - 且與 Git 複製 URI 相關，至構件定義 (第一個輸入欄位) 或您的 Azure Resource Manager 範本定義。   
     
-        ![公用儲存機制](./media/devtest-lab-create-environment-from-arm/repo-values.png)
+        ![公用存放庫](./media/devtest-lab-create-environment-from-arm/repo-values.png)
 
 
 1. 一旦輸入所有必要的欄位並通過驗證後，請選取 [儲存]。
@@ -93,7 +92,7 @@ Azure DevTest Labs 有 [Azure Resource Manager 範本的公用存放庫](https:/
 
 ## <a name="create-an-environment-from-a-resource-manager-template-using-the-azure-portal"></a>使用 Azure 入口網站從 Resource Manager 範本建立環境
 
-一旦在實驗室中設定 Azure Resource Manager 範本儲存機制之後，您實驗室的使用者可以使用 Azure 入口網站以下列步驟建立環境︰
+一旦在實驗室中設定 Azure Resource Manager 範本存放庫之後，您實驗室的使用者可以使用 Azure 入口網站以下列步驟建立環境︰
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。

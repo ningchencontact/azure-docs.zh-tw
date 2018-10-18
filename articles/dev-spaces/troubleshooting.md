@@ -6,17 +6,17 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841604"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226886"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -24,11 +24,15 @@ ms.locfileid: "43841604"
 
 ## <a name="enabling-detailed-logging"></a>啟用詳細記錄
 
-為了更有效地進行問題的疑難排解，建立更詳細的記錄以供檢閱可能會有幫助。
+為了更有效地針對問題進行疑難排解，建立更詳細的記錄以供檢閱可能會有幫助。
 
-針對 Visual Studio 擴充功能，您可以藉由將 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 環境變數設為 1 來執行此作業。 請務必重新啟動 Visual Studio，讓環境變數生效。 啟用之後，詳細記錄會寫入至您的 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 目錄。
+針對 Visual Studio 延伸模組，請將 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 環境變數設定為 1。 請務必重新啟動 Visual Studio，讓環境變數生效。 啟用之後，詳細記錄會寫入至您的 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 目錄。
 
-在命令執行期間，您可以在 CLI 中使用 `--verbose` 參數輸出更多資訊。
+在命令執行期間，您可以在 CLI 中使用 `--verbose` 參數輸出更多資訊。 您也可以在 `%TEMP%\Azure Dev Spaces` 中瀏覽更多詳細的記錄。 在 Mac 上，可以從終端機視窗執行 `echo $TMPDIR` 來找出 TEMP 目錄。 在 Linux 電腦上，TEMP 目錄通常是 `/tmp`。
+
+## <a name="debugging-services-with-multiple-instances"></a>針對具有多個執行個體的服務進行偵錯
+
+目前 Azure Dev Spaces 在針對單一執行個體 (Pod) 進行偵錯時效果最佳。 azds.yaml 檔案包含一個 replicaCount 設定，此設定會指出將為服務執行的 Pod 數目。 如果您變更 replicaCount 以將應用程式設定成針對指定的服務執行多個 Pod，偵錯工具將會連結至第一個 Pod (依字母順序列出時)。 如果該 Pod 因任何原因而發生回收，偵錯工具就會連結至不同的 Pod，而可能導致非預期的行為。
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>錯誤「無法建立 Azure Dev Spaces 控制器」
 
@@ -67,14 +71,14 @@ azds remove -g <resource group name> -n <cluster name>
 
 在 Visual Studio 中：
 
-1. 開啟 [工具 > 選項]，然後在 [專案和解決方案] 底下選擇 [建置並執行]。
+1. 開啟 [工具] > [選項]，然後在 [專案和解決方案] 底下選擇 [建置並執行]。
 2. 將 **MSBuild 專案建置輸出詳細資訊**的設定變更為 [詳細] 或 [診斷]。
 
     ![工具選項對話方塊的螢幕擷取畫面](media/common/VerbositySetting.PNG)
     
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>與 Dev Spaces 服務相關聯的公用 URL 進行 DNS 名稱解析失敗
 
-發生這種情況時，當您嘗試連線至與 Dev Spaces 服務相關聯的公用 URL 時，網頁瀏覽器中可能會出現「無法顯示頁面」或「無法存取此網站」錯誤。
+當您嘗試連線至與 Dev Spaces 服務相關聯的公用 URL 時，如果 DNS 名稱解析失敗，網頁瀏覽器中可能會出現「無法顯示頁面」或「無法存取此網站」錯誤。
 
 ### <a name="try"></a>請嘗試︰
 
@@ -84,7 +88,7 @@ azds remove -g <resource group name> -n <cluster name>
 azds list-uris
 ```
 
-如果 URL 處於「擱置」狀態，表示 Dev Spaces 仍在等候 DNS 註冊完成。 此作業有時需要數分鐘才能完成。 Dev Spaces 也會為每個服務開啟一個 localhost 通道，您在等候 DNS 登錄完成時可以使用此通道。
+如果 URL 處於「擱置」狀態，表示 Dev Spaces 仍在等候 DNS 註冊完成。 有時需要幾分鐘的時間才能完成註冊。 Dev Spaces 也會為每個服務開啟一個 localhost 通道，您在等候 DNS 登錄完成時可以使用此通道。
 
 如果 URL 處於「擱置」狀態超過 5 分鐘，可能表示建立公用端點的外部 DNS Pod 和/或取得公用端點的 nginx 輸入控制器 Pod 有問題。 您可以使用下列命令來刪除這些 Pod。 這些 Pod 將會自動重新建立。
 
@@ -121,7 +125,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 您仍可透過以其他語言撰寫的程式碼來使用 Azure Dev Spaces，但在第一次執行 *azds up* 之前，您將必須自行建立 Dockerfile。
 
 ### <a name="try"></a>請嘗試︰
-如果您的應用程式是以 Azure Dev Spaces 未原生支援的語言所撰寫，您就必須提供適當的 Dockerfile，建置用來執行程式碼的容器映像。 Docker 提供[撰寫 Dockerfile 的最佳做法清單](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)和 [Dockerfile 參考](https://docs.docker.com/engine/reference/builder/)，可協助您執行這項操作。
+如果您的應用程式是以 Azure Dev Spaces 未原生支援的語言所撰寫，您就必須提供適當的 Dockerfile，建置用來執行程式碼的容器映像。 Docker 提供[撰寫 Dockerfile 的最佳做法清單](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)及 [Dockerfile 參考](https://docs.docker.com/engine/reference/builder/)，可協助您撰寫符合需求的 Dockerfile。
 
 在您備妥適當的 Dockerfile 後，您即可繼續執行 *azds up*，以在 Azure Dev Spaces 中執行您的應用程式。
 
@@ -152,7 +156,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 1. 如果您在程式碼資料夾中沒有 _azds.yaml_ 檔案，請執行 `azds prep` 以產生 Docker、Kubernetes 及 Azure Dev Spaces 資產。
 
 ## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>錯誤：「管道程式 'azds' 非預期地結束，代碼 126」。
-啟動 VS Code 偵錯工具有時候可能會導致這個錯誤。 這是已知的問題。
+啟動 VS Code 偵錯工具有時候可能會導致這個錯誤。
 
 ### <a name="try"></a>請嘗試︰
 1. 請關閉 VS Code 然後重新開啟。
@@ -162,7 +166,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 執行 VS Code 偵錯工具會回報錯誤：`Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>原因
-您的開發機器上未安裝適用於 C# 的 VS Code 擴充功能，其中包含 .Net Core (CoreCLR) 的偵錯支援。
+您的開發機器上未安裝適用於 C# 的 VS Code 延伸模組。 C# 延伸模組包含對 .Net Core (CoreCLR) 的偵錯支援。
 
 ### <a name="try"></a>請嘗試︰
 安裝[適用於 C# 的 VS Code 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
@@ -185,7 +189,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 必須執行什麼動作：
 1. 修改 _azds.yaml_ 檔案以將建置內容設定到解決方案層級。
 2. 修改 _Dockerfile_ 和 _Dockerfile.develop_ 檔案，以相對於新建置內容的方式，正確參考專案 (_.csproj_) 檔案。
-3. 將 _.dockerignore_ 檔案放在 .sln 檔案旁邊，並且視需要加以修改。
+3. 將 _.dockerignore_ 檔案放在 .sln 檔案旁邊，並且視需要修改它。
 
 您可以在 https://github.com/sgreenmsft/buildcontextsample 中找到範例
 

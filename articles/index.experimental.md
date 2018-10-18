@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 文件
 description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。
-ms.openlocfilehash: 37b60b41859432543ed14b8529bebc15ec215115
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: db35de8eead8ce0242fd67fbcee8a43a3b2498cc
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189544"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056755"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -779,7 +779,7 @@ ms.locfileid: "43189544"
                                         <li>
                                             <a href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -902,12 +902,6 @@ ms.locfileid: "43189544"
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/mobile-engagement/">
-                                                <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Mobile Engagement</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1439,7 +1433,7 @@ ms.locfileid: "43189544"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
+                                                    <p>可容納巨量資料分析工作負載的超大規模存放庫</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1635,25 +1629,6 @@ ms.locfileid: "43189544"
                                                 <div class="cardText">
                                                     <h3>Search</h3>
                                                     <p>完全受控的搜尋即服務</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/mobile-engagement/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MobileEngagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Mobile Engagement</h3>
-                                                    <p>增加應用程式使用量與使用者回訪率</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2205,7 +2180,7 @@ ms.locfileid: "43189544"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
+                                                    <p>可容納巨量資料分析工作負載的超大規模存放庫</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2437,7 +2412,7 @@ ms.locfileid: "43189544"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Time Series Insights</h3>
+                                                    <h3>時間序列深入解析</h3>
                                                     <p>立即探索及分析時間序列資料</p>
                                                 </div>
                                             </div>
@@ -2737,7 +2712,7 @@ ms.locfileid: "43189544"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>供團隊分享程式碼、追蹤工作及送出軟體的服務</p>
                                                 </div>
                                             </div>
@@ -3313,12 +3288,12 @@ ms.locfileid: "43189544"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 </h3>
+                                                <h3>Azure CLI </h3>
                                                 <p>
                                                     <a href="/cli/azure">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">下載 Azure CLI 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">下載 Azure CLI</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">參考</a>
@@ -3363,7 +3338,7 @@ ms.locfileid: "43189544"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI </h3>
+                                                <h3>Azure 傳統 CLI </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">開始使用</a>
                                                 </p>
@@ -3433,7 +3408,7 @@ ms.locfileid: "43189544"
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">針對 Visual Studio Code 下載</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">針對 Team Services 下載</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">下載 Azure DevOps</a>
                                                 </p>
                                             </div>
                                         </div>

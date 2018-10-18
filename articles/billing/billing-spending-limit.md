@@ -13,19 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
-ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.author: cwatson
+ms.openlocfilehash: 614102d65407485d31963afa9185400938a7d95b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669990"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423080"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>了解 Azure 消費限制及如何移除此限制
 
 Azure 中消費限制的目的是避免您的花費超過點數額度。 根據預設，系統會針對所有註冊試用版或包含多月點數之供應項目的新客戶開啟消費限制。 消費限制是 $0。 此限制無法變更。 隨用隨付訂用帳戶和承諾方案之類的訂用帳戶類型無法使用消費限制。 請參閱[完整的 Azure 供應項目及消費限制可用性清單](https://azure.microsoft.com/support/legal/offer-details/)。
-
-**在尋找付款警示嗎？** 請參閱[為 Azure 訂用帳戶設定付款或點數額度警示](billing-set-up-alerts.md)。
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>達到消費限制時會發生什麼情況？
 
@@ -64,13 +62,13 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 消費限制會使您無法部署或使用某些協力廠商和 Microsoft 的服務。 以下是您應該移除訂用帳戶消費限制的情況。
 
-* 您打算部署第一方映像 (例如 Oracle) 或第一方服務 (例如 Visual Studio Team Services)。 此情況會讓您幾乎立即超過消費限制，而導致訂用帳戶遭停用。
+* 您打算部署第一方映像 (例如 Oracle) 和服務 (例如 Azure DevOps Services)。 此情況會讓您幾乎立即超過消費限制，而導致訂用帳戶遭停用。
 * 您有不可中斷的服務。
 * 您的服務及資源有您不想遺失的設定 (例如虛擬 IP 位址)。 這些設定在服務和資源解除配置時遺失。
 
 ### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>如何在移除消費限制之後再將其開啟？
 
-唯有無限期移除消費限制時，才能使用這項功能。 請將它變更為在下一個計費週期開始時自動開啟。
+唯有無限期移除消費限制時，才能使用此功能。 請將它變更為在下一個計費週期開始時自動開啟。
 
 1. 登入[帳戶中心](https://account.windowsazure.com/Subscriptions)。
 1. 按一下黃色橫幅以變更消費限制選項。
@@ -78,7 +76,7 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>如何設定自訂消費限制？
 
-目前不提供自訂消費限制。 不過，您可以加入[使用付款警示以控制消費額](billing-set-up-alerts.md)。
+無法使用自訂消費限制。
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>消費限制會阻擋 Azure 中產生的所有費用嗎？
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140865"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390018"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>如何整合 Azure API 管理與 Azure Application Insights
 
@@ -51,7 +51,7 @@ ms.locfileid: "42140865"
     ![App Insights 記錄器](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> 在幕後，[記錄器](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate)實體會建立於 API 管理執行個體，其中包含 Application Insights 執行個體的檢測金鑰。
+> 在幕後，[記錄器](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate)實體會建立於 API 管理執行個體，其中包含 Application Insights 執行個體的檢測金鑰。
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>為您的 API 啟用 Application Insights 記錄功能
 
@@ -68,7 +68,7 @@ ms.locfileid: "42140865"
 10. 按一下 [檔案] 。
 
 > [!NOTE]
-> 在幕後，名為 'applicationinsights' 的[診斷](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate)實體會建立於 API 層級。
+> 在幕後，名為 'applicationinsights' 的[診斷](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate)實體會建立於 API 層級。
 
 | 設定名稱                        | 值類型                        | 說明                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,5 +123,5 @@ Azure Application Insights 會接收：
 
 ## <a name="next-steps"></a>後續步驟
 
-+ 深入了解 [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/)。
++ 深入了解 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/)。
 + 考慮[使用 Azure 事件中樞來進行記錄](api-management-howto-log-event-hubs.md)。

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: c5445eb5e936fe73d51a41936b052f6495b1bcc6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632643"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227362"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>計費和成本管理自動化案例
 
@@ -83,7 +83,7 @@ ms.locfileid: "39632643"
 ### <a name="enterprise-consumption"></a>企業使用量
 (僅限所有企業 API)
 
--   **餘額摘要**：使用[餘額摘要 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) 來取得餘額、新購買項目、Azure Marketplace 服務費用、調整，以及超額部分費用的每月摘要資訊。 您可以取得目前計費期間或任何過去期間的這項資訊。 企業可以使用此資料來執行與手動計算之摘要費用的比較。 此 API 不提供資源特定資訊或成本的彙總檢視。
+-   **餘額摘要**：使用[餘額摘要 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) 來取得餘額、新購買項目、Azure Marketplace 服務費用、調整，以及超額部分費用的每月摘要資訊。 您可以取得目前計費期間或任何過去期間的此資訊。 企業可以使用此資料來執行與手動計算之摘要費用的比較。 此 API 不提供資源特定資訊或成本的彙總檢視。
 -   **使用量詳細資料**：使用[使用量詳細資料 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) 來取得目前月份、特定計費期間或自訂日期期間的第一方 Azure 使用量詳細資訊。 企業可以使用此資料根據費率和使用量來手動計算帳單，也可以使用存在的部門/組織資訊來歸類組織內的成本。 此資料提供使用量/成本的資源特定檢視。
 -   **Marketplace 網上商店費用**：使用 [Marketplace 網上商店費用 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) 來取得目前月份、特定計費期間或自訂日期期間的協力廠商 Azure 使用量詳細資訊。 企業可以使用此資料根據費率和使用量來手動計算帳單，也可以使用存在的部門/組織資訊來歸類組織內的成本。 Marketplace 商店費用 API 提供使用量/成本的資源特定檢視。
 -   **價位表**：[價位表 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) 可針對指定註冊和計費期間的每個計量提供適用的費率。 您可以使用此費率資訊搭配使用量詳細資料和 Marketplace 使用量資訊來手動計算預期的帳單。
@@ -95,7 +95,7 @@ ms.locfileid: "39632643"
 ### <a name="what-is-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>企業報告 API 與使用量 API 之間有何差異？ 各自的使用時機為何？
 這些 API 有一組類似的功能，並且可以回答同一組計費與成本管理空間相關問題。 不過，每個 API 的目標對象不同： 
 
-- **企業報告 API**：這類 API 適用於已經與 Microsoft 簽署 Enterprise 合約的客戶，該合約會授與他們存取協商承諾用量和自訂定價的權限。 這類 API 要求使用可透過[企業版入口網站](https://ea.azure.com)取得的金鑰。 如需這類 API 的說明，請參閱[適用於企業客戶的報告 API 概觀](billing-enterprise-api.md)。
+- **企業報告 API**：這類 API 適用於已經與 Microsoft 簽署 Enterprise 合約的客戶，該合約會授與他們存取協商承諾用量和自訂定價的權限。 這類 API 要求使用可透過[企業版入口網站](https://ea.azure.com)取得的金鑰。 如需這些 API 的說明，請參閱[適用於企業客戶的報告 API 概觀](billing-enterprise-api.md)。
 
 - **使用量 API**：這類 API 適用於所有的客戶，但有一些例外狀況。 如需詳細資訊，請參閱 [Azure 使用量 API 概觀](billing-consumption-api-overview.md)和[ Azure 使用量 API 參考](https://docs.microsoft.com/rest/api/consumption/)。 所提供的 API 是最新開發案例的建議解決方案。 
 

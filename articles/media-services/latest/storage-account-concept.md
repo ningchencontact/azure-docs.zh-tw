@@ -4,19 +4,19 @@ description: 本文討論媒體服務如何使用儲存體帳戶。
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 6d4c21867b0b46508f348300ae2b9553a75d23b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dbd8dea32bbd4cacefd64e91541ab20b1056731e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782567"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379022"
 ---
 # <a name="storage-accounts"></a>儲存體帳戶
 
@@ -27,7 +27,7 @@ ms.locfileid: "33782567"
 >[!NOTE]
 > 僅有 Blob 的帳戶不允許作為**主要**帳戶。 
 
-我們建議您使用 GPv2，這樣便能在經常性存取層與非經常性存取層之間做選擇。 若要深入了解儲存體帳戶，請參閱 [Azure 儲存體帳戶選項](../../storage/common/storage-account-options.md)。 
+我們建議您使用 GPv2，這樣便能在經常性存取層與非經常性存取層之間做選擇。 若要深入了解儲存體帳戶，請參閱 [Azure 儲存體帳戶概觀](../../storage/common/storage-account-overview.md)。 
 
 ## <a name="assets-in-a-storage-account"></a>儲存體帳戶中的資產
 

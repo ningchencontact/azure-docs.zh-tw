@@ -9,25 +9,25 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: 1822ac9b539aa196601c6c07ccc8d0544fd5f3dd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: daef00bc7b39326b79e5f56bf803dc6aad1ac0ff
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042423"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221929"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>開始在 Azure Data Lake Analytics 中使用 U-SQL
-U-SQL 是一種語言，結合了宣告式 SQL 與命令式 C#，可讓您處理任何規模的資料。 透過 U-SQL 的可調整分散式查詢功能，您可以有效率地分析各關聯式存放區 (Azure SQL Database) 中的資料。 使用 U-SQL，您可以藉由在讀取時套用結構描述並插入自訂邏輯和 UDF，來處理非結構化資料。 此外，U-SQL 所含有的擴充性可讓您細微控制如何大規模執行。 
+U-SQL 是一種語言，結合了宣告式 SQL 與命令式 C#，可讓您處理任何規模的資料。 透過 U-SQL 的可調整分散式查詢功能，您可以有效率地分析各關聯式存放區 (Azure SQL Database) 中的資料。 使用 U-SQL，您可以透過在讀取時套用結構描述並插入自訂邏輯和 UDF，來處理非結構化資料。 此外，U-SQL 所含有的擴充性可讓您細微控制如何大規模執行。 
 
 ## <a name="learning-resources"></a>學習資源
 
-* [U-SQL 教學課程](http://aka.ms/usqltutorial)提供大多數 U-SQL 語言的引導式逐步解說。 本文件的建議閱讀對象是所有想要學習 U-SQL 的開發人員。
+* [U-SQL 教學課程](http://aka.ms/usqltutorial)提供大多數 U-SQL 語言的引導式逐步解說。 此文件的建議閱讀對象是所有想要學習 U-SQL 的開發人員。
 * 如需 **U-SQL 語言語法**的詳細資訊，請參閱 [U-SQL 語言參考 (英文)](http://go.microsoft.com/fwlink/p/?LinkId=691348)。
 * 若要了解 U-SQL 的設計原理，請參閱 Visual Studio 部落格文章[簡介 U-SQL – 讓巨量資料的處理變簡單的語言 (英文)](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)。
 
 ## <a name="prerequisites"></a>必要條件
 
-在進行本文中的 U-SQL 範例前，請閱讀並完成[教學課程：使用適用於 Visual Studio 的 Data Lake 工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。 本教學課程說明將 U-SQL 搭配 Azure Data Lake Tools for Visual Studio 使用的機制。
+在進行此文章中的 U-SQL 範例前，請閱讀並完成[教學課程：使用適用於 Visual Studio 的 Data Lake 工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。 此教學課程說明將 U-SQL 搭配 Azure Data Lake Tools for Visual Studio 使用的機制。
 
 ## <a name="your-first-u-sql-script"></a>您的第一個 U-SQL 指令碼
 
@@ -226,4 +226,4 @@ U-SQL 的 HAVING 子句可以用來將輸出限制為符合 HAVING 條件的群�
 
 ## <a name="next-steps"></a>後續步驟
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)
-* [使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
+* [使用 Data Lake Tools for Visual Studio 來開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)

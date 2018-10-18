@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: e88198f8-2e16-409d-a0b0-a62e68c2f999
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: d2998e9fe264d7919c8f74a98aaf8da6d701c0da
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 18b7b1b3d2a74b6e3aeb671154de48bd7b7f1e00
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132356"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218049"
 ---
 # <a name="alert-confidence-score"></a>警示信賴分數 
 
 Azure 資訊安全中心可讓您檢視在 Azure 中執行的各項資源，並在它偵測到潛在的問題時警示您。 安全性作業小組要個別處理為數眾多的警示可能會十分困難，因此終究必須要排定調查警示的優先順序。 調查警示可能既複雜又耗時，因此會忽略某些警示。
 
-資訊安全中心的信賴分數可協助您的小組將警示分級，並排定其優先順序。 資訊安全中心會自動套用業界最佳做法、智慧型演算法和分析人員所使用的程序，以判斷某項威脅是否合法，並以信賴分數的形式為您提供有意義的深入解析。
+資訊安全中心的信賴分數可協助您的小組將警示分級，並排定其優先順序。 資訊安全中心會自動套用業界最佳做法、智慧型演算法和分析人員所使用的程序，以判斷某個威脅是否合法，並以信賴分數的形式為您提供有意義的深入解析。
 
 ## <a name="how-the-confidence-score-is-triggered"></a>信賴分數的觸發方式
 
@@ -51,7 +51,7 @@ Azure 資訊安全中心可讓您檢視在 Azure 中執行的各項資源，並�
 
 
 ## <a name="next-steps"></a>後續步驟
-本文說明了如何使用信賴分數來排定警示調查的優先順序。 如要深入了解資訊安全中心，請參閱下列主題：
+此文章說明了如何使用信賴分數來排定警示調查的優先順序。 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)-- 尋找有關使用服務的常見問題。
 * [Azure 資訊安全中心的安全性健康狀態監視](security-center-monitoring.md)--了解如何監視 Azure 資源的健康狀態。

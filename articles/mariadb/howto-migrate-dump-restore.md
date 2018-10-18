@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998741"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309530"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>使用傾印和還原來將 MariaDB 資料庫移轉至適用於 MariaDB 的 Azure 資料庫
 此文章將說明兩個常見方法，讓您可在適用於 MariaDB 的 Azure 資料庫中用來備份和還原資料庫
@@ -30,7 +30,9 @@ ms.locfileid: "46998741"
 使用一般公用程式和工具 (例如 MySQL Workbench、mysqldump、Toad 或 Navicat) 從遠端連線，然後將資料還原至適用於 MariaDB 的 Azure 資料庫。 在具有網際網路連接的用戶端電腦上使用這類工具，來連線到適用於 MariaDB 的 Azure 資料庫。 如需使用 SSL 加密連接的最佳安全性作法，請參閱[在適用於 MariaDB 的 Azure 資料庫中設定 SSL 連線能力](concepts-ssl-connection-security.md)。 在移轉到適用於 MariaDB 的 Azure 資料庫時，您不需要將傾印檔案移至任何特定的雲端位置。 
 
 ## <a name="common-uses-for-dump-and-restore"></a>傾印和還原的常見用途
-您可以在數個常見案例中使用 MySQL 公用程式 (例如 mysqldump 與 mysqlpump)，將資料庫傾印及載入至適用於 MariaDB 的 Azure 資料庫伺服器。 <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+您可以在數個常見案例中使用 MySQL 公用程式 (例如 mysqldump 與 mysqlpump)，將資料庫傾印及載入至適用於 MariaDB 的 Azure 資料庫伺服器。 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - 當您移轉整個資料庫時，使用資料庫傾印。 此建議在您移動大量資料，或當您想要將即時網站或應用程式的服務中斷時間降到最低時會保留。 
 -  將資料載入至適用於 MariaDB 的 Azure 資料庫時，請確定資料庫中的所有資料表都使用 InnoDB 儲存引擎。 適用於 MariaDB 的 Azure 資料庫僅支援 InnoDB 儲存引擎，因此不支援其他儲存引擎。 如果您的資料表是使用其他儲存引擎設定，請將它們轉換成 InnoDB 引擎格式，然後再移轉至適用於 MariaDB 的 Azure 資料庫。

@@ -7,20 +7,20 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11bb5bf132103bed9e154a12c0e628177ca6a57a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 23e44763b773835583d255104771d2329851aac8
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344919"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181409"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 QQ 帳戶登入
 
 > [!NOTE]
-> 這項功能處於預覽狀態。
+> 此功能處於預覽狀態。
 > 
 
 ## <a name="create-a-qq-application"></a>建立 QQ 應用程式
@@ -40,7 +40,7 @@ ms.locfileid: "43344919"
 1. 移至 [https://connect.qq.com/index.html](https://connect.qq.com/index.html)。
 2. 選取 [应用管理]\(應用程式管理\)。
 5. 選取 [创建应用]\(建立應用程式\)，然後輸入所需的資訊。
-7. 在 [授权回调域]\(回呼 URL\) 中，輸入 `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp`。 例如，如果您的 `tenant_name` 是 contoso，請將 URL 設為 `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`。
+7. 在 [授权回调域]\(回呼 URL\) 中，輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp`。 例如，如果您的 `tenant_name` 是 contoso，請將 URL 設為 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`。
 8. 選取 [创建应用]\(建立應用程式\)。
 9. 在 [確認] 頁面上，選取 [应用管理]\(應用程式管理\) 以返回應用程式管理頁面。
 10. 在您建立的應用程式旁邊，選取 [查看]\(檢視\)。
@@ -50,14 +50,7 @@ ms.locfileid: "43344919"
 ## <a name="configure-qq-as-an-identity-provider"></a>將 QQ 設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 Azure 入口網站的右上角切換到您的 Azure AD B2C 租用戶，確定您使用的目錄包含該租用戶。 選取您的訂用帳戶資訊，然後選取 [切換目錄]。 
-
-    ![切換為您的 Azure AD B2C 租用戶](./media/active-directory-b2c-setup-qq-app/switch-directories.png)
-
-    選擇包含您租用戶的目錄。
-
-    ![選取目錄](./media/active-directory-b2c-setup-qq-app/select-directory.png)
-
+2. 按一下頂端功能表中的**目錄和訂用帳戶篩選**，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 4. 選取 [識別提供者]，然後選取 [新增]。
 5. 提供 [名稱]。 例如，輸入 *QQ*。

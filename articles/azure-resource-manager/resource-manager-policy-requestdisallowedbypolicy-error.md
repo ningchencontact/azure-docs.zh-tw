@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 474400d92660b68fd7fef906216b8e37c6e8c94d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a9993942c20f2c33d944b74fb124a363d0663ced
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358909"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094628"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 資源原則產生的 RequestDisallowedByPolicy 錯誤
 
-本文說明 RequestDisallowedByPolicy 錯誤的原因，其中也會提供此錯誤的解決方案。
+此文章說明 RequestDisallowedByPolicy 錯誤的原因，其中也會提供此錯誤的解決方案。
 
 ## <a name="symptom"></a>徵狀
 
@@ -51,7 +51,7 @@ ms.locfileid: "34358909"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-在 Azure CLI 2.0 中，提供原則定義的名稱：
+在 Azure CLI 中，提供原則定義的名稱︰
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment

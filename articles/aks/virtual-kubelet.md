@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 6ff28443dda65e91fa69fececaff95aa8e872603
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f613fb9bd3e9cf6d070b34403bab617e23261c56
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604231"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226435"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -24,11 +24,11 @@ Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行
 > [!NOTE]
 > Virtual Kubelet 是實驗性開放原始碼專案，應該如此使用。 若要參與、提報問題，以及深入了解 Virtual Kubelet，請參閱[Virtual Kubelet GitHub 專案][vk-github]。
 
-本文件詳細說明如何在 AKS 上設定容器執行個體的 Virtual Kubelet。
+此文件詳細說明如何在 AKS 上設定容器執行個體的 Virtual Kubelet。
 
 ## <a name="prerequisite"></a>必要條件
 
-本文件假設您有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
+此文件假設您有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
 
 您也必須需要 Azure CLI 版本 **2.0.33** 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
@@ -36,7 +36,7 @@ Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行
 
 ### <a name="for-rbac-enabled-clusters"></a>對於已啟用 RBAC 的叢集
 
-如果已啟用 RBAC 的 AKS 叢集，您必須建立服務帳戶和角色繫結，以與 Tiller 搭配使用。 如需詳細資訊，請參閱 [Helm 角色型存取控制][helm-rbac]。 若要建立服務帳戶和角色繫結，請建立名為 rbac virtualkubelet.yaml 的檔案，並貼上下列定義：
+如果已啟用 RBAC 的 AKS 叢集，您必須建立服務帳戶和角色繫結，以與 Tiller 搭配使用。 如需詳細資訊，請參閱 [Helm 角色型存取控制][helm-rbac]。 若要建立服務帳戶和角色繫結，請建立名為 *rbac-virtual-kubelet.yaml* 的檔案，並貼上下列定義：
 
 ```yaml
 apiVersion: v1
@@ -59,7 +59,7 @@ subjects:
     namespace: kube-system
 ```
 
-使用 [kubectl apply][kubectl-apply] 套用服務帳戶和繫結，並指定您的 rbac-virtualkubelet.yaml 檔案，如下列範例所示：
+使用 [kubectl apply][kubectl-apply] 套用服務帳戶和繫結，並指定您的 *rbac-virtual-kubelet.yaml* 檔案，如下列範例所示：
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -182,7 +182,9 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 

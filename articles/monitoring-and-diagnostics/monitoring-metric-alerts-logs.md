@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: abfe7f0b39463a842b1eb167661af7da90bc9eca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980843"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388292"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>為 Azure 監視器中的記錄建立計量警示  
 
@@ -58,11 +58,11 @@ Azure 監視器支援的[計量警示類型](monitoring-near-real-time-metric-al
 - 為所選取「Log Analytics 工作區」的計量警示選擇的訊號是 [計量] 類型
 - 使用維度篩選篩選特定條件或資源；記錄的計量是多維度的
 - 當設定「訊號邏輯」時，可建立訊號警示，以延伸維度 (像是電腦) 的多個值
-- 如果**未**使用 Azure 入口網站來為選取的*Log Analytics 工作區*建立計量警示，則使用者必須使用 [Azure 監視器 - 排程的查詢規則](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
+- 如果**未**使用 Azure 入口網站來為選取的*Log Analytics 工作區*建立計量警示，則使用者必須使用 [Azure 監視器 - 排程的查詢規則](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
 ) \(英文\)，先建立將記錄資料轉換為計量的明確規則。
 
 > [!NOTE]
-> 透過 Azure 入口網站為 Log Analytics 工作區建立計量警示時，透過 [Azure 監視器 - 排程的查詢規則](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules) \(英文\) 將記錄資料轉換為計量的對應規則會在背景自動建立，完全不需要使用者介入或採取行動。 如需使用 Azure 入口網站以外的方法所建立記錄的計量警示，請參閱[記錄的計量警示所適用資源範本](#resource-template-for-metric-alerts-for-logs)一節中，在建立計量警示之前，對計量轉換規則建立 ScheduledQueryRule 記錄的示範方法，否則對記錄建立的計量警示不會有任何資料。
+> 透過 Azure 入口網站為 Log Analytics 工作區建立計量警示時，透過 [Azure 監視器 - 排程的查詢規則](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) \(英文\) 將記錄資料轉換為計量的對應規則會在背景自動建立，完全不需要使用者介入或採取行動。 如需使用 Azure 入口網站以外的方法所建立記錄的計量警示，請參閱[記錄的計量警示所適用資源範本](#resource-template-for-metric-alerts-for-logs)一節中，在建立計量警示之前，對計量轉換規則建立 ScheduledQueryRule 記錄的示範方法，否則對記錄建立的計量警示不會有任何資料。
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>記錄的計量警示所適用資源範本
 如稍早所述，從記錄建立計量警示的程序有二：

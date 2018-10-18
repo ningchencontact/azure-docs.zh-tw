@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190420"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423488"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 操作員快速入門
 
@@ -149,11 +149,11 @@ Azure 是在全球各地許多地區正式推出的全域雲端平台。 當您�
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure 入口網站位於 [Shell.Azure.com](https://portal.azure.com)。 它包含用於管理 Azure 資源的可自訂儀表板和工具。 它也提供帳單和訂用帳戶資訊。 如需詳細資訊，請參閱 [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/)和[透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)。
+Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure 入口網站位於 [portal.azure.com](https://portal.azure.com)。 它包含用於管理 Azure 資源的可自訂儀表板和工具。 它也提供帳單和訂用帳戶資訊。 如需詳細資訊，請參閱 [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/)和[透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)。
 
 ### <a name="resources"></a>資源
 
-Azure 資源是已部署至 Azure 訂用帳戶的個別計算、網路、資料或應用程式裝載服務。 虛擬機器、儲存體帳戶或 SQL 資料庫是一些常見的資源。 Azure 服務通常包含數個相關的 Azure 資源。 比方說，Azure 虛擬機器可能包含 VM、儲存體帳戶、網路介面卡和公用 IP 位址。 可以用個別或群組方式建立、管理和刪除這些資源。 本指南稍後會更詳細說明 Azure 資源。
+Azure 資源是已部署至 Azure 訂用帳戶的個別計算、網路、資料或應用程式裝載服務。 虛擬機器、儲存體帳戶或 SQL 資料庫是一些常見的資源。 Azure 服務通常包含數個相關的 Azure 資源。 例如，Azure 虛擬機器可能包含 VM、儲存體帳戶、網路介面卡和公用 IP 位址。 可以用個別或群組方式建立、管理和刪除這些資源。 本指南稍後會更詳細說明 Azure 資源。
 
 ### <a name="resource-groups"></a>資源群組
 
@@ -173,7 +173,7 @@ Azure PowerShell 是一套模組，提供用於管理 Azure 的 Cmdlet。 您可
 
 #### <a name="azure-command-line-interface"></a>Azure 命令列介面
 
-Azure 命令列介面是一項工具，可用來從命令列建立、管理和移除 Azure 資源。 Azure CLI 適用於 Linux、Mac OS X 和 Windows。 如需詳細資訊和技術詳細資料，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+Azure 命令列介面是一個工具，可用來從命令列建立、管理和移除 Azure 資源。 Azure CLI 適用於 Linux、Mac OS X 和 Windows。 如需詳細資訊和技術詳細資料，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 #### <a name="rest-apis"></a>REST API
 
@@ -185,7 +185,7 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
 
 ## <a name="azure-subscriptions"></a>Azure 訂用帳戶
 
-訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯分組。 單一 Azure 帳戶可以包含多個訂用帳戶。 Azure 服務是根據訂用帳戶計費。 Azure 訂用帳戶有可完全掌控訂用帳戶的帳戶管理員，以及可控制訂用帳戶中所有服務的服務管理員。 除了系統管理員，可以透過角色型存取控制 (RBAC) 授與個別帳戶對於 Azure 資源的細部控制。
+訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯分組。 單一 Azure 帳戶可以包含多個訂用帳戶。 Azure 服務是根據訂用帳戶計費。 Azure 訂用帳戶有可完全掌控訂用帳戶的「帳戶管理員」，以及可控制訂用帳戶中所有服務的「服務管理員」。 如需有關傳統訂用帳戶管理員的資訊，請參閱[新增或變更 Azure 訂用帳戶管理員](../../billing/billing-add-change-azure-subscription-administrator.md)。 除了系統管理員之外，也可以使用[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md) 對個別帳戶授與 Azure 資源的細部控制權。
 
 ### <a name="select-and-enable-an-azure-subscription"></a>選取並啟用 Azure 訂用帳戶
 
@@ -205,13 +205,9 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>將系統管理存取權授予 Azure 訂用帳戶
 
-可用的帳戶管理員角色有很多個，而且可以隨時變更。 兩個重要角色如下：
+RBAC 包含數個可供您用來指派權限的內建角色。 若要將使用者設定為 Azure 訂用帳戶的系統管理員，請在訂用帳戶範圍為其指派[擁有者](../../role-based-access-control/built-in-roles.md#owner)角色。 「擁有者」角色可授與使用者訂用帳戶中所有資源的完整存取權，包括將存取權委派給其他人的權限。
 
-- **服務管理員**：此角色經過授權，可管理 Azure 服務。 預設會將存取權授予與帳戶管理員相同的帳戶。
-
-- **共同管理員**：此角色具有與服務管理員相同的存取權。 不過，這個角色無法變更訂用帳戶與 Azure 目錄的關聯。
-
-如需詳細資訊，請參閱[如何新增或變更 Azure 管理員角色](../../billing/billing-add-change-azure-subscription-administrator.md)。
+如需詳細資料，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../../role-based-access-control/role-assignments-portal.md)。
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>在 Azure 入口網站中檢視帳單資訊
 
@@ -223,7 +219,7 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
 
 除了在入口網站中檢視計費資訊，您可以透過 Azure 計費 REST API 使用指令碼或程式來存取帳單資訊：
 
-- 您可以使用 Azure 使用量 API 來擷取您的使用量資料。 您可以藉由標記相關的 Azure 資源來微調使用量計費資訊。 例如，您可以使用部門名稱或專案名稱來標記資源群組中的每個資源，然後特別追蹤該標記的成本。
+- 您可以使用 Azure 使用量 API 來擷取您的使用量資料。 您可以透過標記相關的 Azure 資源來微調使用量計費資訊。 例如，您可以使用部門名稱或專案名稱來標記資源群組中的每個資源，然後特別追蹤該標記的成本。
 
 - 您可以使用 Azure Rate Card API 來列出所有可用的資源，以及每項資源的中繼資料和價格資訊。
 
@@ -232,10 +228,6 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>使用價格計算機預測成本
 
 Azure 中每項服務的價格不同。 許多 Azure 服務都提供基本、標準和進階層。 通常，每一層都有數個價格和效能層級。 使用[線上價格計算機](http://azure.microsoft.com/pricing/calculator)，您可以建立價格估計值。 此計算機具備估計單一資源或資源群組成本的彈性。
-
-### <a name="set-up-billing-alerts"></a>設定帳務警示
-
-在 Azure 上部署應用程式或解決方案之後，即可建立警示，其可在您接近警示中定義的消費限制時傳送電子郵件給您。 如需詳細資訊，請參閱[為您的 Microsoft Azure 訂用帳戶設定帳單通知](../../billing/billing-set-up-alerts.md)。
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -265,7 +257,7 @@ Resource Manager 會提供數個優點：
 
 - 資源群組中的所有資源應具有相同的存留期。
 
-- 您一次只能將一項資源指派給一個群組。
+- 您一次只能將一個資源指派給一個群組。
 
 - 您可以隨時在資源群組中新增或移除資源。 每項資源必須屬於一個資源群組。 因此，如果您從一個群組中移除資源，您必須將該資源新增至另一個群組。
 
@@ -307,7 +299,7 @@ Resource Manager 範本包含四個區段：
 
 若要授與存取權，請將角色指派給使用者或使用者群組。 有許多預先定義的角色。 您也可以定義自己的自訂角色。
 
-以下是 Azure 中內建的一些範例角色：
+以下是一些範例 [Azure 內建角色](../../role-based-access-control/built-in-roles.md)：
 
 - **擁有者**：擁有此角色的使用者可以管理所有項目，包括存取權。
 
@@ -319,9 +311,9 @@ Resource Manager 範本包含四個區段：
 
 - **SQL 安全性管理員**：擁有此角色的使用者可以管理 SQL Server 和資料庫的安全性相關原則。
 
-- **儲存體帳戶參與者**：擁有此角色的使用者可以管理儲存體帳戶，但是無法管理儲存體帳戶的存取權。
+- **儲存體帳戶參與者**：擁有此角色的使用者可以管理儲存體帳戶，但是無法管理對儲存體帳戶的存取權。
 
-如需詳細資訊，請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../../role-based-access-control/role-assignments-portal.md)。
+如需詳細資料，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="azure-virtual-machines"></a>Azure 虛擬機器
 
@@ -375,7 +367,7 @@ Azure 儲存體帳戶可以設定不同層級的備援性：
 
 - **異地備援儲存體**會在主要區域中為資料製作三份同步副本，以提供高可用性，然後在配對區域中以非同步方式製作三個複本，以便進行災害復原。
 
-- **讀取權限的異地備援儲存體**是異地備援儲存體，加上在次要區域中讀取資料的能力。 這項功能適合用於部分災害復原。 如果主要區域發生問題，您可以將應用程式變更為具有配對區域的唯讀存取權。
+- **讀取權限的異地備援儲存體**是異地備援儲存體，加上在次要區域中讀取資料的能力。 此功能適合用於部分災害復原。 如果主要區域發生問題，您可以將應用程式變更為具有配對區域的唯讀存取權。
 
 ### <a name="use-cases"></a>使用案例
 

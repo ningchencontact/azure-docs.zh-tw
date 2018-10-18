@@ -4,21 +4,21 @@ description: 說明為何及如何排除 VM 磁碟不要從 VMware 複寫到 Azu
 author: nsoneji
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: ea0e9f3572287139612256863ee28b72c83cd4ef
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921275"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092418"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>排除磁碟不要從 VMware 複寫到 Azure 案例
 
 本文說明如何在將 VMware VM 複寫至 Azure 時排除磁碟。 這種排除可以最佳化已使用的複寫頻寬，或最佳化此類磁碟使用的目標端資源。 如果您需要針對 Hyper-V 排除磁碟的詳細資訊，請參閱[這篇文章](hyper-v-exclude-disk.md)
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 依預設會複寫機器上的所有磁碟。 若要排除磁碟不要複寫，如果您是從 VMware 複寫至 Azure，您必須先在機器上手動安裝行動服務，然後才啟用複寫。
 

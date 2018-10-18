@@ -10,22 +10,24 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3c0d0e17026dc0c970138c30f83dc9eb98db4228
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd1c60a2c2ad88abf686e89972d29768ef600e4e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950177"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344552"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>翻譯工具語音 API 支援的語言
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 語音翻譯支援以下語言。 如果語音翻譯兩種語言都支援，則可以使用語音轉換語音或語音轉換文字。 如果語音翻譯不支援目標語言，則只能使用語音轉換文字翻譯。 
 
 | 語音語言    |
 |:----------- |
 | 阿拉伯文 (現代標準)      |
 | 中文 (普通話)      |
-| 英文      |
+| English      |
 | 法文      |
 | 德文      |
 | 義大利文      |
@@ -51,7 +53,7 @@ ms.locfileid: "46950177"
 | 捷克文      | `cs`          |
 | 丹麥文      | `da`          |
 | 荷蘭文      | `nl`          |
-| 英文      | `en`          |
+| English      | `en`          |
 | 愛沙尼亞文      | `et`          |
 | 斐濟文      | `fj`          |
 | 菲律賓文      | `fil`          |

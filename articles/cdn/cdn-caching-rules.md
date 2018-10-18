@@ -3,8 +3,8 @@ title: 使用快取規則來控制 Azure CDN 快取行為 | Microsoft Docs
 description: 您可以使用 CDN 快取規則，以全域及有條件 (例如 URL 路徑和副檔名) 的方式設定或修改預設快取到期行為。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: tbd
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: 4095ed763de378a673908d033d87b2aa6d72f13c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: 10275b2938ce66a2816b1d4a5589a5e88ee22e80
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260001"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093913"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>使用快取規則來控制 Azure CDN 快取行為
 

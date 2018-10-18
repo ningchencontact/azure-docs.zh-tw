@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ca1ea5fb95ba1c49b5c1e3660c598e8f1443b43c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666262"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432615"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 中的存取控制
 
-Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDFS 又衍生自 POSIX 存取控制模型。 本文摘要說明 Data Lake Storage Gen1 存取控制模型的基本概念。 若要深入了解 HDFS 存取控制模型，請參閱 [HDFS 權限指南](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)。
+Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDFS 又衍生自 POSIX 存取控制模型。 此文章摘要說明 Data Lake Storage Gen1 存取控制模型的基本概念。 
 
 ## <a name="access-control-lists-on-files-and-folders"></a>檔案和資料夾的存取控制清單
 
@@ -31,11 +31,8 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 
 * **預設 ACL**：與資料夾相關聯之 ACL 的「範本」，用以判斷再該資料夾下建立的任何子項目的存取 ACL。 檔案沒有預設 ACL。
 
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
 存取 ACL 和預設 ACL 有相同的結構。
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 
 
@@ -43,18 +40,6 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 > 變更父代的預設 ACL 並不會影響現存子項目的存取 ACL 或預設 ACL。
 >
 >
-
-## <a name="users-and-identities"></a>使用者和身分識別
-
-每個檔案和資料夾都有這些身分識別的不同權限︰
-
-* 檔案的擁有使用者
-* 擁有群組
-* 具名使用者
-* 具名群組
-* 所有其他使用者
-
-使用者和群組的身分識別皆為 Azure Active Directory (Azure AD) 身分識別。 因此，除非另有註明，否則 Data Lake Storage Gen1 中的「使用者」可能表示 Azure AD 使用者或 Azure AD 安全性群組。
 
 ## <a name="permissions"></a>權限
 
@@ -72,10 +57,10 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 
 | 數值形式 | 簡短形式 |      意義     |
 |--------------|------------|------------------------|
-| 7            | RWX        | 讀取 + 寫入 + 執行 |
-| 5            | R-X        | 讀取 + 執行         |
-| 4            | R--        | 讀取                   |
-| 0            | ---        | 沒有權限         |
+| 7            | `RWX`        | 讀取 + 寫入 + 執行 |
+| 5            | `R-X`        | 讀取 + 執行         |
+| 4            | `R--`        | 讀取                   |
+| 0            | `---`        | 沒有權限         |
 
 
 ### <a name="permissions-do-not-inherit"></a>不會繼承權限
@@ -86,27 +71,15 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 
 以下是一些常見的案例，可協助您了解在 Data Lake Storage Gen1 帳戶上執行某些作業所需的權限。
 
-### <a name="permissions-needed-to-read-a-file"></a>讀取檔案所需的權限
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
-
-* 對於要讀取的檔案，呼叫端需要 [讀取] 權限。
-* 對於資料夾結構中內含檔案的所有資料夾，呼叫端需要 [執行] 權限。
-
-### <a name="permissions-needed-to-append-to-a-file"></a>附加至檔案所需的權限
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
-
-* 對於要附加的檔案，呼叫端需要 [寫入] 權限。
-* 對於內含檔案的所有資料夾，呼叫端需要 [執行] 權限。
-
-### <a name="permissions-needed-to-delete-a-file"></a>刪除檔案所需的權限
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
-
-* 對於父資料夾，呼叫端需要 [寫入 + 執行] 權限。
-* 對於檔案路徑中的所有其他資料夾，呼叫端需要 [執行] 權限。
-
+|    作業             |    /    | Seattle/ | Portland/ | Data.txt     |
+|--------------------------|---------|----------|-----------|--------------|
+| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -114,48 +87,30 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 >
 >
 
-### <a name="permissions-needed-to-enumerate-a-folder"></a>列舉資料夾所需的權限
 
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
+## <a name="users-and-identities"></a>使用者和身分識別
 
-* 對於要列舉的資料夾，呼叫端需要 [讀取 + 執行] 權限。
-* 對於所有上階資料夾，呼叫端需要 [執行] 權限。
+每個檔案和資料夾都有這些身分識別的不同權限︰
 
-## <a name="viewing-permissions-in-the-azure-portal"></a>在 Azure 入口網站中檢視權限
+* 擁有使用者
+* 擁有群組
+* 具名使用者
+* 具名群組
+* 所有其他使用者
 
-從 Data Lake Storage Gen1 帳戶的 [資料總管] 刀鋒視窗中，按一下 [存取] 以查看正在資料總管中檢視的檔案或資料夾 ACL。 按一下 [存取] 以查看 **mydatastore** 帳戶之下的**目錄**資料夾。
+使用者和群組的身分識別皆為 Azure Active Directory (Azure AD) 身分識別。 因此，除非另有註明，否則 Data Lake Storage Gen1 中的「使用者」可能表示 Azure AD 使用者或 Azure AD 安全性群組。
 
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
+### <a name="the-super-user"></a>超級使用者
 
-在此刀鋒視窗中，上方區段會顯示擁有者權限。 (在螢幕擷取畫面中，擁有使用者是 Bob)。接下來，會顯示指派的存取 ACL。 
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-按一下 [進階檢視] 以查看更進階的檢視，其中顯示預設 ACL、遮罩和超級使用者的說明。  此刀鋒視窗也可讓您根據目前資料夾的權限，以遞迴方式設定子檔案和資料夾的存取與預設 ACL。
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
-
-## <a name="the-super-user"></a>超級使用者
-
-超級使用者具有 Data Lake Store 中所有使用者的大多數權限。 超級使用者：
+超級使用者具有 Data Lake Storage Gen1 帳戶中所有使用者的大多數權限。 超級使用者：
 
 * 具有**所有**檔案和資料夾的 RWX 權限。
 * 可以變更任何檔案或資料夾的權限。
 * 可以變更任何檔案或資料夾的擁有使用者或擁有群組。
 
-在 Azure 中，Data Lake Storage Gen1 帳戶具有數個 Azure 角色，包括︰
+身為 Data Lake Storage Gen1 帳戶 [擁有者] 角色成員的所有使用者都會自動成為超級使用者。
 
-* 擁有者
-* 參與者
-* 讀取者
-
-具備 Data Lake Storage Gen1 帳戶 [擁有者] 角色的每個人都會自動成為該帳戶的超級使用者。 若要深入了解，請參閱[角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
-如果您想要建立自訂的角色型存取控制 (RBAC) 角色並讓它具有超級使用者權限，它必須擁有下列權限︰
-- Microsoft.DataLakeStore/accounts/Superuser/action
-- Microsoft.Authorization/roleAssignments/write
-
-
-## <a name="the-owning-user"></a>擁有使用者
+### <a name="the-owning-user"></a>擁有使用者
 
 建立項目的使用者會自動成為項目的擁有使用者。 擁有使用者可以︰
 
@@ -167,16 +122,18 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 >
 >
 
-## <a name="the-owning-group"></a>擁有群組
+### <a name="the-owning-group"></a>擁有群組
 
-在 POSIX ACL 中，每個使用者都與「主要群組」相關聯。 例如，使用者 "alice" 可能屬於 "finance" 群組。 Alice 也可能屬於多個群組，但一定有一個群組指定為其主要群組。 在 POSIX 中，當 Alice 會建立檔案時，該檔案的擁有群組會設定為她的主要群組，在此案例中為 "finance"。
+**背景**
 
-建立新的檔案系統項目時，Data Lake Storage Gen1 會指派值給擁有群組。
+在 POSIX ACL 中，每個使用者都與「主要群組」相關聯。 例如，使用者 "alice" 可能屬於 "finance" 群組。 Alice 也可能屬於多個群組，但一定有一個群組指定為其主要群組。 在 POSIX 中，當 Alice 會建立檔案時，該檔案的擁有群組會設定為她的主要群組，在此案例中為 "finance"。 除此之外，擁有群組的作用類似於指派給其他使用者/群組的權限。
+
+**指派新檔案或資料夾的擁有群組**
 
 * **案例 1**：根資料夾 "/"。 建立 Data Lake Storage Gen1 帳戶時，會建立這個資料夾。 在此情況下，擁有群組會設定為建立帳戶的使用者。
 * **案例 2** (其他所有案例)：建立新項目時，會從父資料夾複製擁有群組。
 
-除此之外，擁有群組的作用類似於指派給其他使用者/群組的權限。
+**變更擁有群組**
 
 可以變更擁有群組的對象︰
 * 任何超級使用者。
@@ -185,9 +142,10 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 > [!NOTE]
 > 擁有群組「無法」變更檔案或資料夾的 ACL。  如果將擁有群組設定為在上述根資料夾案例 (**案例 1**) 中建立帳戶的使用者，則無法透過擁有群組提供權限給單一使用者帳戶。  您可以將此權限指派給有效的使用者群組 (如果適用的話)。
 
+
 ## <a name="access-check-algorithm"></a>存取檢查演算法
 
-以下的假程式碼代表 Data Lake Storage Gen1 帳戶的存取檢查演算法。
+以下的虛擬程式碼代表 Data Lake Storage Gen1 帳戶的存取檢查演算法。
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -197,119 +155,94 @@ def access_check( user, desired_perms, path ) :
   # path is the file or folder
   # Note: the "sticky bit" is not illustrated in this algorithm
   
-# Handle super users
-    if (is_superuser(user)) :
-      return True
+# Handle super users.
+  if (is_superuser(user)) :
+    return True
 
-  # Handle the owning user. Note that mask is not used.
-    if (is_owning_user(path, user))
-      perms = get_perms_for_owning_user(path)
-      return ( (desired_perms & perms) == desired_perms )
+  # Handle the owning user. Note that mask IS NOT used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & e.permissions) == desired_perms )
 
-  # Handle the named user. Note that mask is used.
-  if (user in get_named_users( path )) :
-      perms = get_perms_for_named_user(path, user)
-      mask = get_mask( path )
-      return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USER )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permmissions & mask) == desired_perms)
 
-  # Handle groups (named groups and owning group)
-  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
-  if (len(belongs_to_groups)>0) :
-    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
-    perms = 0
-    for p in group_perms : perms = perms | p # bitwise OR all the perms together
-    mask = get_mask( path )
-    return ( (desired_perms & perms & mask ) == desired_perms)
-
+  # Handle named groups and owning group
+  member_count = 0
+  perms = 0
+  entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+  for entry in entries:
+    if (user_is_member_of_group(user, entry.identity)) :
+      member_count += 1
+      perms | =  entry.permissions
+  if (member_count>0) :
+    return ((desired_perms & perms & mask ) == desired_perms)
+ 
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## <a name="the-mask-and-effective-permissions"></a>遮罩和「有效權限」
+### <a name="the-mask"></a>遮罩
 
-**遮罩**是一個 RWX 值，在執行存取檢查演算法時，用來限制**具名使用者**、**擁有群組**和**具名群組**的存取權。 以下是遮罩的重要概念。
-
-* 遮罩可建立「有效權限」。 也就是，它會在存取檢查時修改權限。
-* 檔案擁有者和任何超級使用者都可以直接編輯遮罩。
-* 遮罩能夠移除權限，以建立有效的權限。 遮罩*無法*將權限新增至有效的權限。
-
-讓我們看看一些範例。 在下列範例中，遮罩已設定為 **RWX**，這表示遮罩不會移除任何權限。 在存取檢查期間，不會改變具名使用者、擁有群組和具名群組的有效權限。
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
-
-在下列範例中，遮罩已設定為 **R-X**。 這表示它會在進行存取檢查時**關閉下列各項的寫入權限**：**具名使用者**、**擁有群組**和**具名群組**。
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
-
-以下是檔案或資料夾的遮罩出現在 Azure 入口網站中的位置，可供參考。
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+如＜存取檢查演算法＞所述，遮罩會限制**具名使用者**、**擁有群組**及**具名群組**的存取權。  
 
 > [!NOTE]
 > 對於新的 Data Lake Storage Gen1 帳戶，根資料夾 ("/") 的存取 ACL 遮罩會預設為 RWX。
 >
 >
 
-## <a name="permissions-on-new-files-and-folders"></a>新檔案和資料夾的權限
+### <a name="the-sticky-bit"></a>黏性位元
+
+黏性位元是 POSIX 檔案系統的更進階功能。 在 Data Lake Storage Gen1 的內容中，不太可能需要黏性位元。 總而言之，如果已在資料夾上啟用黏性位元，子項目便只能由子項目的擁有使用者刪除或重新命名。
+
+黏性位元不會顯示在 Azure 入口網站中。
+
+## <a name="default-permissions-on-new-files-and-folders"></a>新檔案和資料夾的預設權限
 
 在現有資料夾之下建立新檔案或資料夾時，父資料夾的預設 ACL 可決定︰
 
 - 子資料夾的預設 ACL 與存取 ACL。
 - 子檔案的存取 ACL (檔案沒有預設 ACL)。
 
-### <a name="the-access-acl-of-a-child-file-or-folder"></a>子檔案或資料夾的存取 ACL
+### <a name="umask"></a>umask
 
-建立子檔案或資料夾時，父項的預設 ACL 會複製成為子檔案或資料夾的存取 ACL。 此外，如果**其他**使用者具有父項的預設 ACL 的 RWX 權限，則會從子項目的存取 ACL 中將它移除。
+建立檔案或資料夾時，可使用 umask 來修改子項目上的預設 ACL 設定方式。 umask 是一個在父資料夾上的 9 位元值，其中包含一個用於**擁有使用者**、**擁有群組**及**其他**的 RWX 值。
 
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
+Azure Data Lake Storage Gen1 的 umask 是一個設定為 007 的常數值。 此值會轉譯成
 
-在大部分情況下，您只需要上述資訊，即可了解如何決定子項目的存取 ACL。 不過，如果您很熟悉 POSIX 系統，而且想要深入了解如何達成此轉換，請參閱本文後面的 [為新檔案和資料夾建立存取 ACL 時的 Umask 角色](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) 一節。
+| umask 元件     | 數值形式 | 簡短形式 | 意義 |
+|---------------------|--------------|------------|---------|
+| umask.owning_user   |    0         |   `---`      | 針對擁有使用者，將父系的「預設 ACL」複製到子系的「存取 ACL」 | 
+| umask.owning_group  |    0         |   `---`      | 針對擁有群組，將父系的「預設 ACL」複製到子系的「存取 ACL」 | 
+| umask.other         |    7         |   `RWX`      | 針對其他，移除子系「存取 ACL」上的所有權限 |
 
+Azure Data Lake Storage Gen1 所使用的 umask 值實際上意謂著不論「預設 ACL」的指示為何，預設一律不會在新子系上傳輸用於「其他」的值。 
 
-### <a name="a-child-folders-default-acl"></a>子資料夾的預設 ACL
+下列虛擬程式碼說明為子項目建立 ACL 時套用 umask 的方式。
 
-在父資料夾下建立子資料夾時，父資料夾的預設 ACL 會依照原狀複製到子資料夾的預設 ACL。
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
-
-## <a name="advanced-topics-for-understanding-acls-in-data-lake-storage-gen1"></a>可供了解 Data Lake Storage Gen1 中 ACL 的進階主題
-
-以下幾個進階主題可協助您了解如何決定 Data Lake Storage Gen1 檔案或資料夾的 ACL。
-
-### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>為新檔案和資料夾建立存取 ACL 時的 Umask 角色
-
-在 POSIX 相容系統中，一般概念是 umask 是父資料夾上的一個 9 位元值，用來轉換**擁有使用者**、**擁有群組**和**其他**使用者對於新的子檔案或資料夾之存取 ACL 的權限。 Umask 的位元可識別在子項目的存取 ACL 中所要關閉的位元。 因此可用來選擇性地防止**擁有使用者**、**擁有群組**和**其他使用者**的權限傳播。
-
-在 HDFS 系統中，umask 通常是由系統管理員所控制的全網站組態選項。 Data Lake Storage Gen1 會使用無法變更的 **全帳戶 umask**。 下表顯示 Data Lake Storage Gen1 的 unmask。
-
-| 使用者群組  | 設定 | 對新的子項目的存取 ACL 的影響 |
-|------------ |---------|---------------------------------------|
-| 擁有使用者 | ---     | 沒有影響                             |
-| 擁有群組| ---     | 沒有影響                             |
-| 其他       | RWX     | 移除讀取 + 寫入 + 執行         |
-
-下圖顯示此 umask 作用中。 實質效果是移除**其他**使用者的 [讀取 + 寫入 + 執行]。 由於 umask 未指定**擁有使用者**和**擁有群組**的位元，因此不會轉換這些權限。
-
-![Data Lake Storage Gen1 ACL](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
-
-### <a name="the-sticky-bit"></a>黏性位元
-
-黏性位元是 POSIX 檔案系統的更進階功能。 在 Data Lake Storage Gen1 的內容中，不太可能需要黏性位元。
-
-下表顯示黏性位元在 Data Lake Storage Gen1 中的運作方式。
-
-| 使用者群組         | 檔案    | 資料夾 |
-|--------------------|---------|-------------------------|
-| 黏性位元 **OFF** | 沒有影響   | 沒有影響。           |
-| 黏性位元 **ON**  | 沒有影響   | 防止任何人 (子項目的**超級使用者**和**擁有使用者**除外) 刪除或重新命名該子項目。               |
-
-黏性位元不會顯示在 Azure 入口網站中。
+```
+def set_default_acls_for_new_child(parent, child):
+    child.acls = []
+    for entry in parent.acls :
+        new_entry = None
+        if (entry.type == OWNING_USER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))
+        elif (entry.type == OWNING_GROUP) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_group))
+        elif (entry.type == OTHER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.other))
+        else :
+            new_entry = entry.clone(perms = entry.perms )
+        child_acls.add( new_entry )
+```
 
 ## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Data Lake Storage Gen1 中 ACL 的相關常見問題
-
-以下是有關 Data Lake Storage Gen1 中 ACL 的一些常見問題。
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>我必須啟用 ACL 的支援嗎？
 
@@ -349,31 +282,15 @@ ACL 中的項目會儲存為對應於 Azure AD 中使用者的 GUID。 API 會�
 
 否，但預設 ACL 可以用來為父資料夾下新建的子檔案和資料夾設定 ACL。  
 
-### <a name="what-is-the-difference-between-mask-and-umask"></a>遮罩與 umask 之間的差異為何？
-
-| 遮罩 | umask|
-|------|------|
-| **遮罩** 屬性適用於每個檔案和資料夾。 | **umask** 是 Data Lake Storage Gen1 帳戶的屬性。 因此，Data Lake Storage Gen1 中只有一個 umask。    |
-| 檔案的擁有使用者或擁有群組或超級使用者都可以改變檔案或資料夾的遮罩屬性。 | 任何使用者 (甚至是超級使用者) 都不能修改 umask 屬性。 這是不能變更的常數值。|
-| 在存取檢查演算法的執行階段，會使用遮罩屬性來判斷使用者是否具有在檔案或資料夾上執行作業的權限。 遮罩的角色就是在存取檢查時建立「有效權限」。 | 存取檢查期間完全不會使用 umask。 Umask 用來決定資料夾的新子項目的存取 ACL。 |
-| 遮罩是一個 3 位元的 RWX 值，在存取檢查時會套用至具名使用者、擁有群組及具名群組。| Umask 是一個 9 位元值，會套用至新子系的擁有使用者、擁有群組及**其他使用者**。|
-
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>何處可以進一步了解 POSIX 存取控制模型？
 
 * [Linux 上的 POSIX 存取控制清單](https://www.linux.com/news/posix-acls-linux)
-
 * [HDFS 權限指南](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-
 * [POSIX 常見問題集](http://www.opengroup.org/austin/papers/posix_faq.html)
-
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-
 * [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-
 * [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-
 * [Ubuntu 上的 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
-
 * [Linux 上使用存取控制清單的 ACL](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>另請參閱

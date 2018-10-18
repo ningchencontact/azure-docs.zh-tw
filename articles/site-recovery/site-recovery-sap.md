@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922736"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318685"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>使用 Site Recovery 保護多層式 SAP NetWeaver 應用程式部署
 
@@ -33,7 +33,7 @@ ms.locfileid: "37922736"
 
 本文說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 保護 SAP NetWeaver 應用程式部署。 本文涵蓋在 Azure 上保護三層式 SAP NetWeaver 部署的最佳做法，也就是使用 Site Recovery 來複寫至另一個 Azure 資料中心。 其說明支援的案例和組態，以及如何執行測試容錯移轉 (災害復原演練) 和實際的容錯移轉。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在開始之前，請確定您了解如何執行下列工作：
 
 * [將虛擬機器複寫至 Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -71,10 +71,10 @@ ms.locfileid: "37922736"
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>執行 SAP Web Dispatcher 集區的 VM 
 Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量的負載平衡器。 若要達到 Web Dispatcher 元件的高可用性，系統會使用 Azure Load Balancer，針對平衡器集區中可用 Web Dispatcher 之間的 HTTP(S) 流量分配，在循環配置資源組態中實作平行 Web Dispatcher 設定。 系統會使用 Azure Site Recovery(ASR) 進行其複寫，並使用自動化指令碼在災害復原區域上設定負載平衡器。 
 
-####<a name="vms-running-application-servers-pool"></a>執行應用程式伺服器集區的 VM
+#### <a name="vms-running-application-servers-pool"></a>執行應用程式伺服器集區的 VM
 若要管理 ABAP 應用程式伺服器的登入群組，請使用 SMLG 交易。 它會在中央服務的訊息伺服器內使用負載平衡函式，以針對 SAPGUI 和 RFC 流量，分配 SAP 應用程式伺服器集區之間的工作負載。 系統會使用 Azure Site Recovery 進行其複寫 
 
-####<a name="vms-running-sap-central-services-cluster"></a>執行 SAP 中央服務叢集的 VM
+#### <a name="vms-running-sap-central-services-cluster"></a>執行 SAP 中央服務叢集的 VM
 此參考架構會在應用程式層中的虛擬機器上執行中央服務。 部署到單一虛擬機器 (不需要高可用性時的典型部署) 時，中央服務是潛在的單一失敗點 (SPOF)。<br>
 
 若要實作高可用性解決方案，可以使用共用磁碟叢集或檔案共用叢集。若要設定共用磁碟叢集的 VM，請使用 Windows Server 容錯移轉叢集。 建議將雲端見證作為仲裁見證。 
@@ -110,7 +110,7 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 **Active Directory 虛擬機器** |  Active Directory 複寫 
 **SQL 資料庫伺服器** |  SQL Always On 複寫
 
-##<a name="replicate-virtual-machines"></a>複寫虛擬機器
+## <a name="replicate-virtual-machines"></a>複寫虛擬機器
 
 若要開始將所有 SAP 應用程式虛擬機器都複寫至 Azure 災害復原資料中心，請遵循[將虛擬機器複寫至 Azure](azure-to-azure-walkthrough-enable-replication.md) 中的指引。
 

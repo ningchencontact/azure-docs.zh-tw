@@ -1,6 +1,6 @@
 ---
 title: Azure 上的開發人員開始使用指南 | Microsoft Docs
-description: 本主題所提供的重要資訊適用於基於開發需求而想要開始使用 Microsoft Azure 平台的開發人員。
+description: 此主題所提供的重要資訊適用於基於開發需求而想要開始使用 Microsoft Azure 平台的開發人員。
 services: ''
 cloud: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424223"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423590"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -29,7 +29,7 @@ Azure 是一個完整雲端平台，可裝載現有應用程式、簡化新應�
 
 在 Azure 中裝載應用程式，即可從小規模著手，並隨著客戶需求的成長，輕鬆地調整應用程式。 Azure 也會提供高可用性應用程式所需的可靠性，甚至包括不同地區之間的容錯移轉。 [Azure 入口網站](https://portal.azure.com)可讓您輕鬆地管理您的所有 Azure 服務。 您也可以使用服務特定 API 和範本，以程式設計方式管理服務。
 
-**閱讀對象**：此指南是應用程式開發人員的 Azure 平台簡介。 它會提供下列作業所需的指引和指示：開始在 Azure 中建置新應用程式，或將現有應用程式移轉至 Azure。
+**閱讀對象**：此指南是應用程式開發人員的 Azure 平台簡介。 它會提供下列作業所需的指導方針和指示：開始在 Azure 中建置新應用程式，或將現有應用程式移轉至 Azure。
 
 ## <a name="where-do-i-start"></a>我該從哪裡開始？
 
@@ -58,7 +58,7 @@ Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供�
 
 因為所有三種應用程式類型都共用 App Service 執行階段，所以您可以架設網站、支援行動用戶端，並在 Azure 中公開 API，而全部都是來自相同的專案或解決方案。 若要深入了解 App Service，請參閱[什麼是 Azure Web Apps](../../app-service/app-service-web-overview.md)。
 
-請注意，已使用 DevOps 設計 App Service。 它支援用於發佈和持續整合部署的各種工具，包含 GitHub Webhook、Jenkins、Visual Studio Team Services、TeamCity 和其他工具。
+請注意，App Service 在設計時已將 DevOps 納入考量。 它支援各種用於發佈和持續整合部署的工具，包括 GitHub Webhook、Jenkins、Azure DevOps、TeamCity 等。
 
 您可以使用[線上移轉工具](https://www.migratetoazure.net/)，將現有應用程式移轉至 App Service。
 
@@ -111,8 +111,7 @@ Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 
 
     >**入門**：[建置 Azure Cosmos DB Web 應用程式](../../cosmos-db/create-sql-api-dotnet.md)。 如果您是 MongoDB 開發人員，請參閱[使用 Azure Cosmos DB 建置 MongoDB Web 應用程式](../../cosmos-db/create-mongodb-dotnet.md)。
 
--   
-  **Azure 儲存體**：提供 Blob、佇列、檔案和其他類型之非關聯式資料的持久性高可用性儲存體。 儲存體提供 VM 的儲存體基礎。
+-   **Azure 儲存體**：提供 Blob、佇列、檔案和其他類型之非關聯式資料的持久性高可用性儲存體。 儲存體提供 VM 的儲存體基礎。
 
     >**使用時機：** 當您的應用程式儲存非關聯式資料 (例如，鍵值組 (資料表)、Blob、檔案共用或訊息 (佇列)) 時。
 
@@ -187,7 +186,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
 ### <a name="devops-integration"></a>DevOps 整合
 
-不論使用持續整合佈建 VM 還是發佈 Web 應用程式，Azure 都會與大部分的熱門 DevOps 工具整合。 有了 Jenkins、GitHub、Puppet、Chef、TeamCity、Ansible、VSTS 等這類工具的支援之後，您可以使用您已經有的工具，並最大化您現有的體驗。
+不論使用持續整合佈建 VM 還是發佈 Web 應用程式，Azure 都會與大部分的熱門 DevOps 工具整合。 有的對 Jenkins、GitHub、Puppet、Chef、TeamCity、Ansible、Azure DevOps 等這類工具的支援之後，您便可以使用您既有的工具進行工作，並將現有的體驗發揮到極致。
 
 >**立即試用**：[試用數個 DevOps 整合](https://azure.microsoft.com/try/devops/)。
 
@@ -262,7 +261,7 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
 
 ### <a name="what-is-an-azure-account"></a>什麼是 Azure 帳戶？
 
-若要可以建立或使用 Azure 訂用帳戶，您必須擁有 Azure 帳戶。 Azure 帳戶就是 Azure AD 或目錄 (例如公司或學校組織) 中 Azure AD 所信任的身分識別。 如果您不屬於這類組織，則一律會使用 Azure AD 所信任的 Microsoft 帳戶來建立訂用帳戶。 若要深入了解整合內部部署 Windows Server Active Directory 與 Azure AD，請參閱[整合您的內部部署身分識別與 Azure Active Directory](../../active-directory/active-directory-aadconnect.md)。
+若要可以建立或使用 Azure 訂用帳戶，您必須擁有 Azure 帳戶。 Azure 帳戶就是 Azure AD 或目錄 (例如公司或學校組織) 中 Azure AD 所信任的身分識別。 如果您不屬於這類組織，則一律會使用 Azure AD 所信任的 Microsoft 帳戶來建立訂用帳戶。 若要深入了解整合內部部署 Windows Server Active Directory 與 Azure AD，請參閱[整合您的內部部署身分識別與 Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md)。
 
 每個 Azure 訂用帳戶都會與 Azure AD 執行個體有信任關係。 這表示它信任該目錄來驗證使用者、服務和裝置。 多個訂用帳戶可以信任相同的目錄，但是一個訂用帳戶只能信任一個目錄。 若要深入了解，請參閱 [Azure 訂用帳戶與 Azure Active Directory 建立關聯的方式](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
@@ -270,19 +269,7 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
 
 ### <a name="manage-your-subscriptions"></a>管理訂用帳戶
 
-訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯單元。 在訂用帳戶中，每個相關聯的帳戶都會有一個角色。 Azure 服務是根據訂用帳戶計費。 如需依類型的可用訂用帳戶供應項目清單，請參閱 [Microsoft Azure 供應項目詳細資料](https://azure.microsoft.com/support/legal/offer-details/)。
-
-#### <a name="administrator-roles"></a>系統管理員角色
-
-Azure 訂用帳戶有多個您隨時可指派的帳戶系統管理員角色。
-
--   **帳戶管理員**：此角色可完整控制訂用帳戶，而且是負責計費的帳戶。
-
--   **服務管理員**： 此角色可控制訂用帳戶中的所有服務。 這預設是與帳戶管理員相同的帳戶。
-
--   **共同管理員**：此角色的存取權與服務管理員相同，差異在於無法變更訂用帳戶與 Azure 目錄的關聯。
-
-若要深入了解系統管理員角色，請參閱[如何新增或變更 Azure 管理員角色](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription)。
+訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯分組。 單一 Azure 帳戶可以包含多個訂用帳戶。 Azure 服務是根據訂用帳戶計費。 如需依類型的可用訂用帳戶供應項目清單，請參閱 [Microsoft Azure 供應項目詳細資料](https://azure.microsoft.com/support/legal/offer-details/)。 Azure 訂用帳戶有可完全掌控訂用帳戶的「帳戶管理員」，以及可控制訂用帳戶中所有服務的「服務管理員」。 如需有關傳統訂用帳戶管理員的資訊，請參閱[新增或變更 Azure 訂用帳戶管理員](../../billing/billing-add-change-azure-subscription-administrator.md)。 除了系統管理員之外，也可以使用[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md) 對個別帳戶授與 Azure 資源的細部控制權。
 
 #### <a name="resource-groups"></a>資源群組
 
@@ -294,11 +281,11 @@ Azure 資源總管是很棒的工具，可用來以視覺化方式檢視您已�
 
 當您允許存取 Azure 資源時，最好一律為使用者提供執行指定工作所需的最低權限。
 
--   **角色型存取控制 (RBAC)**：在 Azure 中，您可以授與指定範圍的使用者帳戶 (主體) 存取權：訂用帳戶、資源群組或個別資源。 RBAC 可讓您將一組資源部署至資源群組，並將權限授與特定使用者或群組。 它也可讓您只限制對隸屬於目標資源群組之資源的存取。 您也可以授與對單一資源的存取，例如虛擬機器或虛擬網路。 若要授與存取權，請將角色指派給使用者、群組或服務主體。 有許多預先定義的角色，而且您也可以定義自己的自訂角色。
+-   **角色型存取控制 (RBAC)**：在 Azure 中，您可以授與指定範圍的使用者帳戶 (主體) 存取權：訂用帳戶、資源群組或個別資源。 RBAC 可讓您將一組資源部署至資源群組，並將權限授與特定使用者或群組。 它也可讓您只限制對隸屬於目標資源群組之資源的存取。 您也可以授與對單一資源的存取，例如虛擬機器或虛擬網路。 若要授與存取權，請將角色指派給使用者、群組或服務主體。 有許多預先定義的角色，而且您也可以定義自己的自訂角色。 若要深入了解，請參閱[什麼是角色型存取控制 (RBAC)？](../../role-based-access-control/overview.md)
 
-    >**使用時機**：當您需要使用者和群組的更細緻存取管理時。
+    >**使用時機**：當您需要使用者和群組的更細緻存取管理時，或當您需要將使用者設定為訂用帳戶的擁有者時。
 
-    >**開始使用**：若要深入了解，請參閱[開始在 Azure 入口網站中使用存取管理](../../role-based-access-control/overview.md)。
+    >**開始使用**：若要深入了解，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../../role-based-access-control/role-assignments-portal.md)。
 
 -   **服務主體物件**：除了提供對使用者主體和群組的存取之外，您還可以授與對服務主體的相同存取。
 
@@ -323,9 +310,3 @@ Azure 提供一組計費 REST API，可存取 Azure 訂用帳戶的資源使用�
 雖然事先預估成本極具挑戰，但是 Azure 具有您可在預估已部署資源成本時使用的[定價計算機](https://azure.microsoft.com/pricing/calculator/)。 您也可以使用入口網站中的 [計費] 刀鋒視窗和計費 REST API，以根據目前耗用量來預估未來成本。
 
 >**開始使用**：請參閱 [Azure 計費使用和 RateCard API 概觀](../../billing-usage-rate-card-overview.md)。
-
-#### <a name="set-up-billing-alerts"></a>設定帳務警示
-
-在 Azure 上部署應用程式或解決方案之後，即可建立警示，而警示可在您達到警示中所定義的消費限制時傳送給您電子郵件。
-
->**開始使用**：若要深入了解，請參閱[為您的 Microsoft Azure 訂用帳戶設定計費通知](../../billing-set-up-alerts.md)。

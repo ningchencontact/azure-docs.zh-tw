@@ -5,47 +5,47 @@ services: azure-migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/26/2018
 ms.author: raynew
-ms.openlocfilehash: 5407fd108315ed68b50d6ace1a317b4f007c56e7
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: bf2562f4772d20f099faec94794e0e908e6636d5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783384"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227532"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - 部署移轉基礎結構
 
 在本文中，Contoso 會準備其內部部署基礎結構以便進行移轉，並設定 Azure 基礎結構，以準備進行移轉，以及在混合式環境中執行業務。
 
 - 這是 Contoso 專用的範例架構。
-- 您是否需要本文所說明的所有元素，取決於您的移轉策略。 例如，如果您只是要在 Azure 中建置雲端原生應用程式，則可能需要較不複雜的網路結構。
+- 您是否需要此文章所說明的所有元素，取決於您的移轉策略。 例如，如果您只是要在 Azure 中建置雲端原生應用程式，則可能需要較不複雜的網路結構。
 
-本文是一系列文章中的一篇，描述 Contoso 這家虛構的公司如何將其內部部署資源遷移至 Microsoft Azure 雲端。 整個系列文章中包含背景資訊和一系列部署案例，說明如何設定移轉基礎結構、評定內部部署資源移轉的適合性，以及執行不同類型的移轉。 案例的複雜性會提高。 隨著時間的推移，此系列會新增其他文章。
+此文章是一系列文章中的一篇，描述 Contoso 這家虛構的公司如何將其內部部署資源移轉到 Microsoft Azure 雲端。 整個系列文章中包含背景資訊和一系列部署案例，說明如何設定移轉基礎結構、評定內部部署資源移轉的適合性，以及執行不同類型的移轉。 案例的複雜性會提高。 隨著時間的推移，此系列會新增其他文章。
 
 
 **文章** | **詳細資料** | **狀態**
 --- | --- | ---
 [文章 1：概觀](contoso-migration-overview.md) | 系列文章的概觀、Contoso 的移轉策略，以及此系列中所使用的應用程式範例。 | 可用
-文章 2：部署 Azure 基礎結構 | Contoso 會準備其內部部署基礎結構和其 Azure 基礎結構以進行移轉。 此系列中的所有移轉文章都使用相同的基礎結構。 | 本文
+文章 2：部署 Azure 基礎結構 | Contoso 會準備其內部部署基礎結構和其 Azure 基礎結構以進行移轉。 此系列中的所有移轉文章都使用相同的基礎結構。 | 此文章
 [文章 3：存取內部部署資源以移轉至 Azure](contoso-migration-assessment.md)  | Contoso 會評估其在 VMware 上執行的內部部署 SmartHotel360 應用程式。 Contoso 會使用 Azure Migrate 服務來評估應用程式 VM，並使用 Database Migration Assistant 來評估應用程式 SQL Server 資料庫。 | 可用
 [文章 4：在 Azure VM 和 SQL Database 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso 會為其內部部署 SmartHotel360 應用程式執行隨即移轉至 Azure 的作業。 Contoso 會使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式的前端 VM。 Contoso 會使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 Azure SQL Database 受控執行個體。 | 可用   
 [文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
 [文章 6：在 Azure VM 上和 SQL Server AlwaysOn 可用性群組中重新裝載應用程式](contoso-migration-rehost-vm-sql-ag.md) | Contoso 會使用 Site Recovery 來移轉應用程式 VM，以移轉應用程式，以及使用資料庫移轉服務，將應用程式資料庫移轉至受到 AlwaysOn 可用性群組保護的 SQL Server 叢集。 | 可用
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | Contoso 會使用 Site Recovery 服務，來完成將其 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業。 | 可用
-[文章 8：在 Azure VM 和適用於 MySQL 的 Azure 資料庫上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | Contoso 會藉由使用 Site Recovery 將其 Linux osTicket 應用程式遷移至 Azure VM。 它會使用 MySQL Workbench 將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫。 | 可用
+[文章 8：在 Azure VM 和適用於 MySQL 的 Azure 資料庫上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | Contoso 會透過使用 Site Recovery 將其 Linux osTicket 應用程式移轉到 Azure VM。 它會使用 MySQL Workbench 將應用程式資料庫移轉到適用於 MySQL 的 Azure 資料庫。 | 可用
 [文章 9：在 Azure Web 應用程式和 Azure SQL Database 中重構應用程式](contoso-migration-refactor-web-app-sql.md) | Contoso 會將其 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體。 | 可用    
-[文章 10：在 Azure Web 應用程式和適用於 MySQL 的 Azure 資料庫中重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso 會將其 Linux osTicket 應用程式遷移至多個網站上的 Azure Web 應用程式。 Web 應用程式會與 GitHub 整合以提供持續傳遞能力。 其會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 | 可用
-[文章 11：在 Visual Studio Team Services 上重構 Team Foundation Server](contoso-migration-tfs-vsts.md) | Contoso 會將其內部部署 Team Foundation Server 部署，移轉至 Azure 中的 Visual Studio Team Services。 | 可用
-[文章 12：在 Azure 容器和 Azure SQL Database 中重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel360 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的應用程式資料庫。 | 可用 
-[文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | Contoso 會藉由使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel360 應用程式。 | 可用  
+[文章 10：在 Azure Web 應用程式和適用於 MySQL 的 Azure 資料庫中重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso 會將其 Linux osTicket 應用程式移轉到多個網站上的 Azure Web 應用程式。 Web 應用程式會與 GitHub 整合以提供持續傳遞能力。 其會將應用程式資料庫移轉到適用於 MySQL 的 Azure 資料庫執行個體。 | 可用
+[文章 11：在 Azure DevOps Services 上重構 Team Foundation Server](contoso-migration-tfs-vsts.md) | Contoso 會將其內部部署 Team Foundation Server 部署移轉至 Azure 中的 Azure DevOps Services。 | 可用
+[文章 12：在 Azure 容器和 Azure SQL Database 中重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的應用程式資料庫。 | 可用    
+[文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | Contoso 會透過使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel 應用程式。 | 可用 
 
-在本文中，Contoso 會設定為了完成所有移轉案例，所需的所有基礎結構元素。 
+在此文章中，Contoso 會設定為了完成所有移轉案例，所需的所有基礎結構元素。 
 
 
 ## <a name="overview"></a>概觀
 
-Contoso 必須先將 Azure 基礎結構準備就緒，才能遷移至 Azure。  Contoso 通常有五大領域的事項需要考量：
+Contoso 必須先將 Azure 基礎結構準備就緒，才能移轉到 Azure。  Contoso 通常有五大領域的事項需要考量：
 
 **步驟 1：Azure 訂用帳戶**：Contoso 會如何購買 Azure，以及與 Azure 平台和服務互動？  
 **步驟 2：混合式身分識別**：在移轉之後，其會如何管理及控制對內部部署和 Azure 資源的存取？ Contoso 會如何將身分識別管理擴充或移至雲端？  
@@ -56,9 +56,9 @@ Contoso 必須先將 Azure 基礎結構準備就緒，才能遷移至 Azure。  
 
 ## <a name="before-you-start"></a>開始之前
 
-在我們開始探討基礎結構之前，您可以先閱讀與本文中討論的 Azure 功能有關的一些背景資訊：
+在我們開始探討基礎結構之前，您可以先閱讀與此文章中討論的 Azure 功能有關的一些背景資訊：
 
-- 有許多選項可用來購買 Azure 存取，包括預付型方案、Enterprise 合約 (EA)，或是 Microsoft 轉銷商提供的 Open 授權，或 Microsoft 合作夥伴提供的雲端解決方案提供者 (CSP)。 請了解[購買選項](https://azure.microsoft.com/pricing/purchase-options/)，並閱讀如何[組織 Azure 訂用帳戶](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/)的相關資訊。
+- 有一些選項可用來購買 Azure 存取權，包括預付型方案、Enterprise 合約 (EA)、Microsoft 轉銷商所提供的 Open 授權，或 Microsoft 合作夥伴 (稱為「雲端解決方案提供者」(CSP)) 所提供的 Open 授權。 請了解[購買選項](https://azure.microsoft.com/pricing/purchase-options/)，並閱讀如何[組織 Azure 訂用帳戶](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/)的相關資訊。
 - 取得 Azure [身分識別和存取管理](https://www.microsoft.com/trustcenter/security/identity)的概觀。 特別是，請了解 [Azure AD 以及將內部部署 AD 擴充至雲端](https://docs.microsoft.com/azure/active-directory/identity-fundamentals)的相關資訊。 您可以下載關於[混合式環境中的身分識別和存取管理 (IAM)](https://azure.microsoft.com/resources/hybrid-cloud-identity/) 的實用電子書。
 - Azure 透過混合式連線的選項提供穩健的網路基礎結構。 請取得[網路功能和網路存取控制](https://docs.microsoft.com/azure/security/security-network-overview)的概觀。
 - 取得 [Azure 安全性](https://docs.microsoft.com/azure/security/azure-security)的簡介，並閱讀如何建立[控管](https://docs.microsoft.com/azure/security/governance-in-azure)計劃的相關資訊。
@@ -96,8 +96,8 @@ Contoso 將使用 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/e
 
 向 Azure 支付費用後，Contoso 必須了解如何管理 Azure 訂用帳戶。 Contoso 具有 EA，因此在可設定的 Azure 訂用帳戶數目方面不受限制。
 
-- Azure Enterprise 註冊會定義 Azure 服務在公司內的形式和用途，並定義核心控管結構。
-- 在第一個步驟中，Contoso 決定 Enterprise 註冊的結構 (稱為企業 Scaffold)。 Contoso 使用了[本文](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance)來協助其了解和設計 Scaffold。
+- 「Azure Enterprise 註冊」會定義 Azure 服務在公司內的形式和用途，並定義核心治理結構。
+- 在第一個步驟中，Contoso 決定 Enterprise 註冊的結構 (稱為企業 Scaffold)。 Contoso 使用了[此文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance)來協助其了解和設計 Scaffold。
 - 現在，Contoso 已決定使用函式型方法來管理訂用帳戶。
     - 在企業內，其會以單一 IT 部門來控制 Azure 預算。 這將是唯一具有訂用帳戶的群組。
     - Contoso 會在未來擴充此模型，讓其他公司群組也可加入 Enterprise 註冊的部門。
@@ -108,13 +108,13 @@ Contoso 將使用 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/e
 
 ### <a name="examine-licensing"></a>檢查授權
 
-在設定訂用帳戶後，Contoso 可以查看 Microsoft 授權。 授權策略會取決於 Contoso 要遷移至 Azure 的資源，以及他們選取和部署 Azure VM 與服務的方式。 
+在設定訂用帳戶後，Contoso 可以查看 Microsoft 授權。 授權策略會取決於 Contoso 要移轉到 Azure 的資源，以及他們選取和部署 Azure VM 與服務的方式。 
 
 #### <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-在 Azure 中部署 VM 時，標準映像會包含將依分鐘數針對使用的軟體向 Contoso 收費的授權。 不過，Contoso 已是 Microsoft 的長期客戶，並已有 EA 和附有軟體保證 (SA) 的 Open 授權。 
+在 Azure 中部署 VM 時，標準映像會包含將依分鐘數針對使用的軟體向 Contoso 收費的授權。 不過，Contoso 一直是 Microsoft 的長期客戶，且已保有 EA 和附有「軟體保證」(SA) 的 Open 授權。 
 
-Azure Hybrid Benefit 為 Contoso 的移轉提供符合成本效益的方法，讓其能夠轉換或重複使用 Windows Server Datacenter 和軟體保證所涵蓋的標準版授權，而節省 Azure VM 和 SQL Server 工作量。 這將使 Contoso 能夠根據 VM 和 SQL Server 的計算費率支付較低費用。 [深入了解](https://azure.microsoft.com/pricing/hybrid-benefit/)。
+Azure Hybrid Benefit 會讓 Contoso 能夠轉換或重複使用 Windows Server Datacenter 和「軟體保證」所涵蓋的標準版授權，來節省 Azure VM 和 SQL Server 工作負載成本，藉此為 Contoso 的移轉提供符合成本效益的方法。 這將使 Contoso 能夠根據 VM 和 SQL Server 的計算費率支付較低費用。 [深入了解](https://azure.microsoft.com/pricing/hybrid-benefit/)。
 
 
 #### <a name="license-mobility"></a>授權流動性
@@ -137,8 +137,8 @@ Azure Hybrid Benefit 為 Contoso 的移轉提供符合成本效益的方法，�
 - Contoso 公司決定將其內部部署 Active Directory 擴充至雲端，而不是在 Azure 中建置新的個別系統。
 - 為此，其會建立以 Azure 為基礎的 Active Directory。
 - Contoso 並未安裝 Office 365，因此必須佈建新的 Azure AD。
-- Office 365 會使用 Azure AD 進行使用者管理。 如果 Contoso 使用 Office 365，即已有 Azure AD 租用戶，而會使用該 AD 作為其主要 AD。
-- [深入了解](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) Office 365 的 Azure AD，並了解[如何新增訂用帳戶](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory)至現有的 Azure AD。
+- Office 365 會使用 Azure AD 進行使用者管理。 如果 Contoso 過去使用 Office 365，即表示已有 Azure AD 租用戶，而可以使用該 AD 作為主要 AD。
+- [深入了解](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) Azure AD for Office 365，並了解[如何新增訂用帳戶](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory)至現有的 Azure AD 租用戶。
 
 ### <a name="create-an-azure-ad"></a>建立 Azure AD
 
@@ -154,16 +154,16 @@ Contoso 會使用 Azure 訂用帳戶隨附的 Azure AD Free 版本。 Contoso �
 
 ### <a name="add-the-domain-name"></a>新增網域名稱
 
-為了使用其標準網域名稱，Contoso 管理員必須將其新增作為 Azure AD 的自訂名稱。 此選項可讓他們指派熟悉的使用者名稱。 例如，使用者可以使用電子郵件地址 billg@contoso.com 登入，而不需要 billg@contosomigration.microsoft.com。 
+若要使用其標準網域名稱，Contoso 管理員必須將它以自訂網域名稱的形式新增至 Azure AD。 此選項可讓他們指派熟悉的使用者名稱。 例如，使用者可以使用電子郵件地址 billg@contoso.com 來登入，而不需要使用 billg@contosomigration.microsoft.com。 
 
-為了設定自訂名稱，他們將名稱新增至目錄、新增 DNS 項目，然後在 Azure AD 中確認名稱。
+為了設定自訂網域名稱，他們會將其新增至目錄、新增 DNS 項目，然後在 Azure AD 中驗證該名稱。
 
 1. 在 [自訂網域名稱] > [新增自訂網域] 中，他們新增網域。
-2. 為了在 Azure 中使用 DNS 項目，他們必須使用網域註冊機構加以註冊。 
+2. 為了在 Azure 中使用 DNS 項目，他們必須向網域註冊機構註冊。 
 
     - 在 [自訂網域名稱] 清單中，他們記下名稱的 DNS 資訊。 其會使用 MX 項目。
     - 為此，他們需要存取名稱伺服器。 他們會登入 Contoso.com 網域，並使用記下的詳細資料，為 Azure AD 所提供的 DNS 項目建立新的 MX 記錄。  
-1. 在 DNS 記錄傳播後，他們在網域的詳細名稱中按一下 [確認] 以檢查自訂名稱。
+1. 在 DNS 記錄傳播之後，他們會在網域的詳細名稱中按一下 [驗證]，以檢查自訂網域名稱。
 
      ![Azure AD DNS](./media/contoso-migration-infrastructure/azure-ad-dns.png) 
 
@@ -176,7 +176,7 @@ Contoso 會使用 Azure 訂用帳戶隨附的 Azure AD Free 版本。 Contoso �
 Azure 資源群組會將 Azure 資源收集在一起。 使用資源群組識別碼可讓 Azure 對群組內的資源執行作業。
 
 - Azure 訂用帳戶可以有多個資源群組，但一個資源群組只能存在於單一訂用帳戶內。
-- 此外，單一資源群組可以有多項資源，但是一項資源只能屬於單一群組。
+- 此外，單一資源群組可以有多個資源，但一個資源只能屬於單一資源群組。
 
 Contoso 管理員設定了 Azure 資源群組，如下表中的摘要所說明。
 
@@ -198,7 +198,7 @@ Contoso 管理員設定了 Azure 資源群組，如下表中的摘要所說明�
 
 ##### <a name="scaling-resource-groups"></a>調整資源群組
 
-日後，Contoso 會根據需求來新增其他資源群組。 例如，他們可以為每個應用程式或服務定義資源群組，以便能夠加以獨立管理和保護。
+日後，Contoso 會根據需求來新增其他資源群組。 例如，他們可以為每個應用程式或服務定義資源群組，以便能獨立管理和保護。
 
 #### <a name="create-matching-security-groups-on-premises"></a>在內部建立相符的安全性群組
 
@@ -224,7 +224,7 @@ Contoso 想要提供一般身分識別，用來存取內部部署和雲端中的
 
     ![下載 AD Connect](./media/contoso-migration-infrastructure/download-ad-connect.png) 
 
-2. 他們使用 [使用快速設定] 啟動 **AzureADConnect.msi** 安裝。 這是最常見的安裝，可用於以密碼雜湊同步處理進行驗證的單一樹系拓撲。
+2. 他們會使用 [使用快速設定] 來啟動 **AzureADConnect.msi** 安裝。 這是最常見的安裝，可用於以密碼雜湊同步處理進行驗證的單一樹系拓撲。
 
     ![AD Connect 精靈](./media/contoso-migration-infrastructure/ad-connect-wiz1.png) 
 
@@ -255,7 +255,7 @@ Azure [角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based
 現在，Contoso 管理員會將角色指派給他們從內部部署同步處理的 AD 群組。
 
 1. 在 **ControlCobRG** 資源群組中，他們按一下 [存取控制 (IAM)] > [新增]。
-2. 在 [新增權限] > [角色] 中，他們選取 [參與者]，然後從清單中選取 **ContosoCobRG** AD 群組。 接著，群組會出現在 [選取的成員] 清單中。 
+2. 在 [新增權限] > [角色] > [參與者] 中，他們會從清單中選取 [ContosoCobRG] AD 群組。 接著，群組就會出現在 [選取的成員] 清單中。 
 3. 他們以相同的權限對其他資源群組重複此步驟 (**ContosoAzureAdmins** 除外)，方法將參與者權限新增至符合資源群組的 AD 帳戶。
 4. 針對 **ContosoAzureAdmins** AD 群組，他們指派 [擁有者] 角色。
 
@@ -274,7 +274,7 @@ Azure 資源會部署在區域內。
 - 閱讀 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)的相關資訊，並了解[區域的配對方式](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
 
-Contoso 決定採用美國東部 2 (位於維吉尼亞州) 作為主要區域，並以美國中部作為次要區域。 其原因如下：
+Contoso 已決定採用 [美國東部 2] (位於維吉尼亞州) 作為主要區域，並以 [美國中部] (位於愛荷華州) 作為次要區域。 其原因如下：
 
 - Contoso 的資料中心位於紐約，Contoso 已考量過最近資料中心的延遲。
 - 美國東部 2 區域具有 Contoso 需要使用的所有服務和產品。 並非所有 Azure 區域都有相同的產品和服務可供使用。 您可以檢閱[不同區域的 Azure 產品](https://azure.microsoft.com/global-infrastructure/services/)。
@@ -282,7 +282,7 @@ Contoso 決定採用美國東部 2 (位於維吉尼亞州) 作為主要區域，
 
 Contoso 在考量混合式環境時，必須考量如何將復原能力和災害復原策略建置到區域設計中。 廣泛而言，策略的涵蓋範圍包括需依賴 Azure 平台功能 (例如復原所需的容錯網域和區域配對) 的單一區域部署，乃至於從兩個區域部署雲端服務和資料庫並為使用者提供服務的完整主動-主動模型。
 
-Contoso 決定採取折衷方式。 其會在主要區域中部署應用程式與資源，並在次要區域中保有完整的基礎結構，以備在應用程式完全損毀或區域失敗時作為完整備份。
+Contoso 決定採取折衷方式。 它會在主要區域中部署應用程式與資源，並在次要區域中保存一份基礎結構的完整複本，以便在發生全面性應用程式災害或區域性失敗時，可立即作為完整備份。
 
 ### <a name="set-up-availability-zones"></a>設定可用性區域
 
@@ -298,11 +298,11 @@ Contoso 決定採取折衷方式。 其會在主要區域中部署應用程式�
 
 ## <a name="step-4-design-a-network-infrastructure"></a>步驟 4：設計網路基礎結構
 
-在區域設計完成後，Contoso 即可考量網路策略。 其需要思考內部部署資料中心與 Azure 如何彼此連線與通訊，以及如何在 Azure 中設計網路基礎結構。 具體來說，Contoso 必須：
+在區域設計完成後，Contoso 即可考量網路策略。 它需要思考內部部署資料中心與 Azure 如何彼此進行連線和通訊，以及如何在 Azure 中設計網路基礎結構。 具體來說，Contoso 必須：
 
-**規劃混合式網路連線**：了解其會如何連接內部部署和 Azure 之間的網路。
-**設計 Azure 網路基礎結構**：決定其會如何跨區域部署網路。 相同區域內和跨區域的網路要如何通訊？
-**設計並設定 Azure 網路**：設定 Azure 網路和子網路，並決定哪些項目位於其中。
+- **規劃混合式網路連線**：了解其會如何連接內部部署和 Azure 之間的網路。
+- **設計 Azure 網路基礎結構**：決定其會如何跨區域部署網路。 相同區域內和跨區域的網路要如何通訊？
+- **設計並設定 Azure 網路**：設定 Azure 網路和子網路，並決定哪些項目位於其中。
 
 ### <a name="plan-hybrid-network-connectivity"></a>規劃混合式網路連線
 
@@ -333,7 +333,7 @@ Contoso 內部部署網路基礎結構目前包含位於紐約的資料中心，
 
 ### <a name="design-the-azure-network-infrastructure"></a>設計 Azure 網路基礎結構
 
-Contoso 必須以混合式部署兼具安全性和擴充性的方式，妥善設置網路。 為此，Contoso 採用長期的方法，並設計具有彈性且適合企業使用的虛擬網路 (VNet)。 [深入了解](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)如何規劃 VNet。
+Contoso 必須以混合式部署兼具安全性和擴充性的方式，妥善設置網路。 為此，Contoso 採用長期的方法，並設計具有復原能力且符合企業需求的虛擬網路 (VNet)。 [深入了解](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)如何規劃 VNet。
 
 為了連接兩個區域，Contoso 決定實作中樞對中樞網路模型：
 
@@ -378,7 +378,7 @@ Contoso 會在每個區域中部署中樞。 中樞是 Azure 中的虛擬網路 
 - 從 Contoso 資料中心：
     - 透過 VPN 站對站 (或 ExpressRoute) 傳入的流量會送達 Azure VPN 閘道的公用 IP 位址。
     - 流量會透過防火牆根據防火牆規則進行路由。
-    - 在套用規則之後，流量會轉送至受信任的內部區域子網路上的內部負載平衡器 (標準 SKU)。
+    - 在套用防火牆規則之後，流量會轉送至受信任內部區域子網路上的內部負載平衡器 (標準 SKU)。
     - 透過 VPN 從受信任的子網路輸出至內部部署資料中心的流量，會根據規則透過防火牆進行路由，然後再透過 VPN 站對站連線進行傳送。
 
 
@@ -404,7 +404,7 @@ Contoso 會在每個區域中部署中樞。 中樞是 Azure 中的虛擬網路 
     -  每個 VNet 都會有其本身的唯一位址空間，彼此不會重疊。 Contoso 想要設定不需要 NAT 的路由。
 - **子網路**：
     - 每個網路中都會有一個子網路供個別的應用程式層使用
-    - 生產網路中的每個子網路在開發 VNet 中都會有相符的子網路。
+    - 生產環境網路中的每個子網路在開發 VNet 中都會有對應的子網路。
     - 此外，生產網路會有網域控制站的子網路。
 
 下表摘要說明美國東部 2 中的 VNet。
@@ -431,7 +431,7 @@ Contoso 會在每個區域中部署中樞。 中樞是 Azure 中的虛擬網路 
 
 #### <a name="subnets-in-the-east-us-2-dev-network-vnet-dev-eus2"></a>美國東部 2 開發網路中的子網路 (VNET-DEV-EUS2)
 
-開發小組會將開發 VNet 作為生產試驗區域。 它有三子網路。
+開發小組會使用開發 VNet 作為生產環境試驗區域。 它有三子網路。
 
 **子網路** | **CIDR** | **位址** | **在子網路中**
 --- | --- | --- | ---
@@ -442,7 +442,7 @@ Contoso 會在每個區域中部署中樞。 中樞是 Azure 中的虛擬網路 
 
 #### <a name="subnets-in-the-east-us-2-production-network-vnet-prod-eus2"></a>美國東部 2 生產網路中的子網路 (VNET-PROD-EUS2)
 
-Azure IaaS 元件位於生產網路中。 每個應用程式層都有其本身的子網路。 子網路與開發網路中的子網路相符，但會多出一個網域控制站的子網路。
+Azure IaaS 元件位於生產網路中。 每個應用程式層都有其本身的子網路。 這些子網路會與開發網路中的子網路相符，但會多出一個網域控制站的子網路。
 
 **子網路** | **CIDR** | **位址** | **在子網路中**
 --- | --- | --- | ---
@@ -459,7 +459,7 @@ Azure IaaS 元件位於生產網路中。 每個應用程式層都有其本身�
 
 美國中部是 Contoso 的次要區域。 Contoso 會透過下列方式建構其中的網路：
 
-- **中樞**：美國東部 2 中的中樞 VNet 是內部部署資料中心連線的中心點，而美國東部 2 中的輪輻 VNet 可在必要時用來隔離工作負載，使其與其他輪輻個別受到管理。
+- **中樞**：「美國東部 2」中的中樞 VNet 是與內部部署資料中心之連線的中心點，而「美國東部 2」中的輪輻 VNet 則可在必要時用來隔離工作負載，與其他輪輻分開管理。
 - **VNet**：Contoso 在美國中部會有兩個 VNet：
     - VNET-PROD-CUS。 此 VNet 是生產網路，類似於 VNET-PROD_EUS2。 
     - VNET-ASR-CUS。 此 VNet 會作為從內部部署容錯移轉之後用來建立 VM 的位置，或作為從主要區域容錯移轉至次要區域的 Azure VM 所在的位置。 此網路類似於生產網路，但其上不會有任何網域控制站。
@@ -504,7 +504,7 @@ Azure IaaS 元件位於生產網路中。 每個應用程式層都有其本身�
 
 VNET-ASR-CUS 網路可用於在區域之間進行容錯移轉的用途。 Site Recovery 將用來在區域之間複寫和容錯移轉 Azure VM。 它也可供仍在內部部署上但容錯移轉至 Azure 以進行災害復原的受保護工作負載作為 Azure 網路的 Contoso 資料中心。
 
-VNET-ASR-CUS 是與美國東部 2 中的生產 VNET 相同的基本子網路，但不需要網域控制站子網路。
+VNET-ASR-CUS 是與「美國東部 2」中的生產環境 VNet 相同的基本子網路，但不需要網域控制站子網路。
 
 **子網路** | **CIDR** | **位址** | **在子網路中**
 --- | --- | --- | ---
@@ -535,7 +535,7 @@ VNET-ASR-CUS 是與美國東部 2 中的生產 VNET 相同的基本子網路，�
 
     ![對等互連](./media/contoso-migration-infrastructure/peering2.png)
 
-3. 在內部部署中，他們將設定會透過 VPN 通道將本機流量導向至 VNet 的靜態路由。 他們必須確認哪個閘道提供從 Contoso 到 Azure 的 VPN 通道，並在該閘道上完成此設定。 為此，他們會使用 Windows 路由及遠端存取。
+3. 在內部部署中，他們將設定會透過 VPN 通道將本機流量導向至 VNet 的靜態路由。 他們必須確認哪個閘道提供從 Contoso 到 Azure 的 VPN 通道，並在該閘道上完成此設定。 為此，他們會使用 RRAS。
 
     ![對等互連](./media/contoso-migration-infrastructure/peering3.png)
 
@@ -555,7 +555,7 @@ Contoso 管理員認為 Azure DNS 服務在混合式環境中並非理想的選�
 
 - 由於這是混合式網路，因此內部部署和 Azure 中的所有 VM 都必須能夠解析名稱，才可正常運作。 這表示，必須將自訂 DNS 設定套用至所有 VNet。
 - Contoso 目前已在 Contoso 資料中心和分公司部署 DC。 主要 DNS 伺服器為 CONTOSODC1(172.16.0.10) 和 CONTOSODC2(172.16.0.1)
-- 在部署 VNet 時，會將內部部署網域控制站設定作為網路中的 DNS 伺服器。 
+- 在部署 VNet 之後，內部部署網域控制站將設定成用來作為網路中的 DNS 伺服器。 
 - 若要進行此設定，在 VNet 上使用自訂 DNS 時，必須將 Azure 的遞迴解析程式 IP 位址 (例如 168.63.129.16) 新增至 DNS 清單。  為此，Contoso 會在每個 VNet 上設定 DNS 伺服器設定。 例如，VNET-HUB-EUS2 網路的自訂 DNS 設定會顯示如下：
     
     ![自訂 DNS](./media/contoso-migration-infrastructure/custom-dns.png)
@@ -607,7 +607,7 @@ CUS | CONTOSODC6 | VNET-PROD-CUS | PROD-DC-CUS | 10.255.42.4
 
     ![DNS 轉送子](./media/contoso-migration-infrastructure/dns-forwarder.png)
 
-10. 接下來應使用 VNet 區域的適當網域控制站更新每個 VNet 的自訂 DNS 設定。 他們將內部部署 DC 納入清單中。
+10. 現在，他們會使用 VNet 區域的適當網域控制站來更新每個 VNet 的自訂 DNS 設定。 他們將內部部署 DC 納入清單中。
 
 ### <a name="set-up-active-directory"></a>設定 Active Directory
 
@@ -642,13 +642,13 @@ Contoso 在設定身分識別和存取控制時，即已開始設立控管和安
 
 ### <a name="set-up-policies"></a>設定原則
 
-「Azure 原則」服務會評估您的資源，掃描出與您所擁有的原則定義不符的資源。 例如，可能會有某個原則僅允許特定類型的 VM，或要求資源必須具有特定標記。 
+「Azure 原則」服務會評估您的資源，掃描出與您所擁有的原則定義不符的資源。 例如，您的原則可能只允許特定類型的 VM，或要求資源必須具有特定標記。 
 
 Azure 原則會指定原則定義，而原則指派則會指定應套用原則的範圍。 從管理群組到資源群組皆可涵蓋於此範圍中。 [了解](https://docs.microsoft.com/azure/azure-policy/create-manage-policy)如何建立及管理原則。
 
-Contoso 想要從幾項原則開始著手：
+Contoso 想要從幾個原則開始著手：
 
-- 其想要透過一項原則來確保資源只能部署在 EUS2 和 CUS 區域中。
+- 其想要透過一個原則來確保資源只能部署在 EUS2 和 CUS 區域中。
 - 其想要將 VM SKU 限定為已核准的 SKU。 其目的是要確保不會使用昂貴的 VM SKU。
 
 #### <a name="limit-resources-to-regions"></a>將資源限定於區域
@@ -691,7 +691,7 @@ Contoso 一直都使用 ITIL 架構來管理其系統。 變更控制是此架�
 Contoso 將依照下列方式實作鎖定：
 
 - 任何生產或容錯移轉元件必須位於具有 ReadOnly 鎖定的資源群組中。  這表示，若要修改或刪除生產項目，必須先移除鎖定。 
-- 非生產資源群組將具有 CanNotDelete 鎖定。 這表示經過授權的使用者可以讀取或修改資源，但無法加以刪除。
+- 非生產資源群組將具有 CanNotDelete 鎖定。 這表示經過授權的使用者可以讀取或修改資源，但無法將它刪除。
 
 [深入了解](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)鎖定。
 
@@ -701,7 +701,7 @@ Contoso 將依照下列方式實作鎖定：
 
 除了提供資源和擁有者的相關資訊以外，標記亦可讓 Contoso 彙總和分組資源，並將該資料用於退款。
 
-Contoso 必須以對企業有意義的方式將 Azure 資產視覺化。 例如角色或部門。 請注意，資源不需要位於相同的資源群組即可共用標記。 為此，Contoso 將建立簡單的標記分類，讓每個人都使用相同的標記。
+Contoso 必須以對企業有意義的方式將 Azure 資產視覺化。 例如，依角色或部門。 請注意，資源不需要位於相同的資源群組即可共用標記。 Contoso 會建立一個簡單的標記分類，讓每個人都使用相同的標記。
 
 **標記名稱** | **值**
 --- | ---
@@ -724,7 +724,7 @@ ENV | 可能的值為 DEV、STG、PROD。 分別代表開發、預備和生產�
 
 安全性在雲端中至關重要，而 Azure 提供了豐富的安全性工具和功能。 這些工具和功能可協助您在安全的 Azure 平台上建立安全的解決方案。 請閱讀[受信任雲端的信賴度](https://azure.microsoft.com/overview/trusted-cloud/)，以深入了解 Azure 安全性。
 
-Contoso 有幾個主要層面需要考量：
+Contoso 有幾個需要考量的層面：
 
 - **Azure 資訊安全中心**：Azure 資訊安全中心可為混合式雲端工作負載提供統一的安全性管理和進階威脅防護。 使用資訊安全中心，您可以在工作負載中套用安全性原則、限制暴露於威脅的可能性，以及偵測和回應攻擊。  [深入了解](https://docs.microsoft.com/azure/security-center/security-center-intro)。
 - **網路安全性群組 (NSG)**：NSG 是一種篩選器 (防火牆)，其中包含安全性規則清單，經套用後可允許或拒絕對已連線至 Azure VNet 的資源傳輸網路流量。 [深入了解](https://docs.microsoft.com/azure/virtual-network/security-overview)。
@@ -761,11 +761,12 @@ Contoso 可以使用網路安全性群組，限制對虛擬網路中的資源所
 - 網路安全性群組包含一些安全性規則，可根據來源或目的地 IP 位址、連接埠和通訊協定允許或拒絕輸入或輸出網路流量。
 - 套用至子網路時，規則將會套用至子網路中的所有資源。 除了網路介面以外，這包括在子網路中部署的 Azure 服務執行個體。
 - 應用程式安全性群組 (ASG) 可讓您將網路安全性設定為應用程式結構的自然擴充功能，讓您將 VM 分組，並定義以這些群組為基礎的網路安全性原則。
-    - 應用程式安全性群組可讓您大規模重複使用您的安全性原則，而不需進行明確 IP 位址的手動維護。 此平台可處理明確 IP 位址和多個規則集的複雜性，讓您專注於商務邏輯。
-    - 您可以指定應用程式安全性群組作為安全性規則中的來源和目的地。 定義安全性原則之後，您可以建立 VM，並將 VM NIC 指派給群組。 
+    - 應用程式安全性群組意謂著 Contoso 可以大規模重複使用安全性原則，而無須手動維護明確的 IP 位址。 此平台可處理明確 IP 位址和多個規則集的複雜性，讓您專注於商務邏輯。
+    - Contoso 可以在指定應用程式安全性群組作為安全性規則中的來源和目的地。 定義安全性原則之後，Contoso 可以建立 VM，並將 VM NIC 指派給群組。 
 
 
-Contoso 會混合實作 NSG 與 ASG。 Contoso 對 NSG 管理有所顧慮。 其也擔心會過度使用 NSG，並讓作業人員的作業變得更加複雜。
+Contoso 會混合實作 NSG 與 ASG。 Contoso 對 NSG 管理有所顧慮。 其也擔心會過度使用 NSG，並讓作業人員的作業變得更加複雜。 以下是 Contoso 將採取的做法：
+
 - 進出於所有子網路的所有流量 (南-北) 都將受到 NSG 規則的規範，但中樞網路中的 GatewaySubnets 除外。
 - 任何防火牆或網域控制站均同時受到 NSG 子網路和 NIC NSG 的保護。
 - 所有生產應用程式都將套用 ASG。
@@ -795,7 +796,7 @@ Azure 磁碟加密可與 Azure Key Vault 整合，協助您控制及管理金鑰
 
 ## <a name="conclusion"></a>結論
 
-在本文中，Contoso 為 Azure 訂用帳戶、混合式身分識別、災害復原、網路、控管和安全性設定了 Azure 基礎結構和原則。 
+在此文章中，Contoso 為 Azure 訂用帳戶、混合式身分識別、災害復原、網路、控管和安全性設定了 Azure 基礎結構和原則。 
 
 在移轉至雲端的作業中，並不一定會用到 Contoso 在此處完成的所有步驟。 在此案例中，其想要規劃可用於所有移轉類型的網路基礎結構，且需兼具安全性、復原能力和可擴充性。 
 

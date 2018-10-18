@@ -4,24 +4,39 @@ description: 說明如何透過 Azure Migrate 服務使用機器相依性來建�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621074"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163421"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>使用機器相依性對應分組機器
 
-本文說明如何將機器相依性視覺化，建立機器群組以進行 [Azure Migrate](migrate-overview.md) 評量。 在執行評量前，若想要透過交叉檢查機器相依性的方式，對信心等級較高的虛擬機器群組進行評估，通常會使用此方法。 相依性視覺效果可協助您有效地規劃移轉至 Azure。 它可協助您確保不會遺留任何動作，且在您要移轉至 Azure 時，不會發生意外的中斷。 您可以探索所有需要一起移轉的交互相依系統，以及識別執行中的系統是否仍為使用者提供服務，還是應該解除委任而非移轉。
+此文章說明如何將機器相依性視覺化，建立機器群組以進行 [Azure Migrate](migrate-overview.md) 評量。 在執行評量前，若想要透過交叉檢查機器相依性的方式，對信心等級較高的虛擬機器群組進行評估，通常會使用此方法。 相依性視覺效果可協助您有效地規劃移轉至 Azure。 它可協助您確保不會遺留任何動作，且在您要移轉至 Azure 時，不會發生意外的中斷。 您可以探索所有需要一起移轉的交互相依系統，以及識別執行中的系統是否仍為使用者提供服務，還是應該解除委任而非移轉。
 
 
-## <a name="prepare-machines-for-dependency-mapping"></a>準備機器以進行相依性對應
-若要檢視機器的相依性，在待評估的每個內部部署機器上，您必須下載及安裝代理程式。 此外，如果您的機器沒有網際網路連線，則需要下載並安裝 [OMS 閘道](../log-analytics/log-analytics-oms-gateway.md)。
+## <a name="prepare-for-dependency-visualization"></a>準備相依性視覺效果
+Azure Migrate 運用 Log Analytics 的服務對應解決方案，提供機器相依性視覺效果。
+
+### <a name="associate-a-log-analytics-workspace"></a>與 Log Analytics 工作區建立關聯
+若要利用相依性視覺效果，您需要將新增或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。 您只能在建立移轉專案的相同訂用帳戶中，建立或連結工作區。
+
+- 若要將 Log Analytics 工作區連結至專案，請在 [概觀] 中，移至專案的 [基本資訊] 區段，按一下 [需要設定]
+
+    ![與 Log Analytics 工作區建立關聯](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- 建立新工作區時，您必須指定工作區的名稱。 然後會在和移轉專案相同的訂用帳戶中，以及在和移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中建立工作區。
+- [使用現有的] 選項列出的工作區，只以在提供服務對應的區域中建立者為限。 如果您的工作區位在無法使用服務對應的區域中，就不會列在下拉式清單中。
+
+> [!NOTE]
+> 您無法變更與移轉專案相關聯的工作區。
 
 ### <a name="download-and-install-the-vm-agents"></a>下載並安裝虛擬機器代理程式
+在您設定工作區之後，您必須在待評估的每個內部部署機器上，下載及安裝代理程式。 此外，如果您的機器沒有網際網路連線，則需要下載並安裝 [OMS 閘道](../log-analytics/log-analytics-oms-gateway.md)。
+
 1. 在 [概觀] 中，按一下 [管理] > [機器]，並選取所需的機器。
 2. 在 [相依性] 資料行中，按一下 [安裝代理程式]。
 3. 至 [相依性] 頁面，下載 Microsoft Monitoring Agent (MMA) 及相依性代理程式，安裝到要進行評估的每個虛擬機器上。
@@ -40,6 +55,7 @@ ms.locfileid: "39621074"
 4. 在 [代理程式安裝選項] 中，選取 [Azure Log Analytics] > [下一步]。
 5. 按一下 [新增] 以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 按 [下一步] 。
 
+[了解更多](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) MMA 支援的 Windows 作業系統清單。
 
 在 Linux 電腦上安裝代理程式：
 
@@ -48,6 +64,7 @@ ms.locfileid: "39621074"
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[了解更多](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) MMA 支援的 Linux 作業系統清單。
 
 ### <a name="install-the-dependency-agent"></a>安裝相依性代理程式
 1. 若要在 Windows 電腦上安裝相依性代理程式，請按兩下安裝檔案，並遵循精靈的指示。
@@ -87,5 +104,6 @@ ms.locfileid: "39621074"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [了解如何](how-to-create-group-dependencies.md)將群組相依性視覺化來調整群組
+- [深入了解](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization)相依性視覺效果常見問題集。
+- [了解如何](how-to-create-group-dependencies.md)將群組相依性視覺化來調整群組。
 - [深入了解](concepts-assessment-calculation.md)評定的計算方式。

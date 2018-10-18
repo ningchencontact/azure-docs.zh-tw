@@ -10,31 +10,31 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783333"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452151"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
-本文說明如何將資源移至新的訂用帳戶或相同訂用帳戶中新的資源群組。 您可以使用入口網站、PowerShell、Azure CLI 或 REST API 來移動資源。 本文中的移動作業可供您使用而不需要任何 Azure 支援的協助。
+此文章說明如何將資源移至新的訂用帳戶或相同訂用帳戶中新的資源群組。 您可以使用入口網站、PowerShell、Azure CLI 或 REST API 來移動資源。 此文章中的移動作業可供您使用而不需要任何 Azure 支援的協助。
 
 移動資源時，在此作業期間會同時鎖定來源群組和目標群組。 資源群組上的寫入和刪除作業將會封鎖，直到移動完成。 此鎖定表示您無法新增、更新或刪除資源群組中的資源，但不表示資源已遭到凍結。 例如，如果您將 SQL Server 和其資料庫移至新的資源群組，使用該資料庫的應用程式不會發生停機時間。 它仍可對資料庫讀取和寫入。
 
 您無法變更資源的位置。 移動資源只會將它移動到新的資源群組。 新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
 
 > [!NOTE]
-> 本文說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您真的想要變更 Azure 帳戶供應項目 (例如，從隨用隨付升級為預付)，同時繼續使用現有的資源，請參閱 [切換至不同的 Azure 訂用帳戶供應項目](../billing/billing-how-to-switch-azure-offer.md)。
+> 此文章說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您真的想要變更 Azure 帳戶供應項目 (例如，從隨用隨付升級為預付)，同時繼續使用現有的資源，請參閱 [切換至不同的 Azure 訂用帳戶供應項目](../billing/billing-how-to-switch-azure-offer.md)。
 >
 >
 
 ## <a name="checklist-before-moving-resources"></a>移動資源前的檢查清單
 
-在移動資源之前，要執行的重要步驟如下︰ 藉由驗證這些條件，您可以避免錯誤。
+在移動資源之前，要執行的重要步驟如下︰ 透過驗證這些條件，您可以避免錯誤。
 
 1. 來源和目的地的訂用帳戶必須存在於相同的 [Azure Active Directory 租用戶](../active-directory/develop/quickstart-create-new-tenant.md)內。 若要檢查這兩個訂用帳戶都有相同的租用戶識別碼，請使用 Azure PowerShell 或 Azure CLI。
 
@@ -94,11 +94,11 @@ ms.locfileid: "43783333"
 
 1. 可能的話，請將大型移動細分為個別的移動作業。 Resource Manager 在單一作業中嘗試移動超過 800 個資源會立即失敗。 不過，移動少於 800 個資源也可能因為逾時而失敗。
 
-1. 服務必須啟用移動資源的功能。 若要判斷移動是否會成功，請[驗證您的移動要求](#validate-move)。 請參閱本文的以下小節，了解[哪些服務可移動資源](#services-that-can-be-moved)，以及[哪些服務無法移動資源](#services-that-cannot-be-moved)。
+1. 服務必須啟用移動資源的功能。 若要判斷移動是否會成功，請[驗證您的移動要求](#validate-move)。 請參閱此文章的以下小節，了解[哪些服務可移動資源](#services-that-can-be-moved)，以及[哪些服務無法移動資源](#services-that-cannot-be-moved)。
 
 ## <a name="when-to-call-support"></a>呼叫支援的時機
 
-您可以透過本文顯示的自助式作業，移動大部分資源。 使用自助式作業︰
+您可以透過此文章顯示的自助式作業，移動大部分資源。 使用自助式作業︰
 
 * 移動 Resource Manager 資源。
 * 根據[傳統部署限制](#classic-deployment-limitations)移動傳統資源。
@@ -110,7 +110,7 @@ ms.locfileid: "43783333"
 
 ## <a name="validate-move"></a>驗證移動
 
-[驗證移動作業](/rest/api/resources/resources/validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用這項作業來判斷移動是否會成功。 若要執行這項作業，您需要：
+[驗證移動作業](/rest/api/resources/resources/validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用此作業來判斷移動是否會成功。 若要執行此作業，您需要：
 
 * 來源資源群組的名稱
 * 目標資源群組的資源識別碼
@@ -163,7 +163,7 @@ Authorization: Bearer <access-token>
 
 ## <a name="services-that-can-be-moved"></a>可以移動的服務
 
-啟用移動到新資源群組與訂用帳戶的服務有：
+下列清單提供可移至新資源群組和訂用帳戶之 Azure 服務的一般摘要。 如需更多詳細資料，請參閱[資源的移動作業支援](move-support-resources.md)。
 
 * Analysis Services
 * API 管理
@@ -173,6 +173,9 @@ Authorization: Bearer <access-token>
 * 自動化
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* 適用於 MySQL 的 Azure 資料庫
+* 適用於 PostgreSQL 的 Azure 資料庫
+* Azure DevOps - 購買非 Microsoft 延伸模組的 Azure DevOps 組織必須先[取消其購買](https://go.microsoft.com/fwlink/?linkid=871160)，才能在訂用帳戶之間移動帳戶。
 * Azure 地圖服務
 * Azure 轉送
 * Azure Stack - 註冊
@@ -193,6 +196,7 @@ Authorization: Bearer <access-token>
 * DNS
 * Event Grid
 * 事件中樞
+* Front Door
 * HDInsight 叢集 - 請參閱 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中心
 * IoT 中樞
@@ -201,44 +205,41 @@ Authorization: Bearer <access-token>
 * Log Analytics
 * Logic Apps
 * Machine Learning：Machine Learning Studio Web 服務可以移至相同訂用帳戶 (而非不同的訂用帳戶) 中的資源群組。 其他 Machine Learning 資源可以在訂用帳戶之間移動。
+* 受控磁碟 - 請參閱[虛擬機器的條件約束限制](#virtual-machines-limitations)
 * 受控識別 - 使用者指派
 * 媒體服務
-* Mobile Engagement
 * 通知中樞
 * Operational Insights
 * Operations Management
 * 入口網站儀表板
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
-* Redis 快取
+* Redis 快取 - 如果已為「Redis 快取」執行個體設定虛擬網路，該執行個體便無法移至不同的訂用帳戶。 請參閱[虛擬網路限制](#virtual-networks-limitations)。
 * 排程器
 * Search
 * 服務匯流排
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* 儲存體
+* 儲存體 - 不同區域中的儲存體帳戶無法在相同的作業中移動。 請改為針對每個區域使用個別的作業。
 * 儲存體 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 串流分析 - 無法移動執行中狀態的串流分析作業。
 * SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。
 * 時間序列深入解析
 * 流量管理員
-* 虛擬機器 - VM 具有無法移動的受控磁碟。 請參閱[虛擬機器限制](#virtual-machines-limitations)
+* 虛擬機器 - 針對具有受控磁碟的 VM，請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬機器 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 虛擬機器擴展集 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬網路 - 請參閱[虛擬網路限制](#virtual-networks-limitations)
-* Visual Studio Team Services - 購買非 Microsoft 擴充功能的 VSTS 帳戶必須先[取消其購買](https://go.microsoft.com/fwlink/?linkid=871160)，才能在訂用帳戶之間移動帳戶。
 * VPN 閘道
 
 ## <a name="services-that-cannot-be-moved"></a>無法移動的服務
 
-目前不啟用移動資源的服務有：
+下列清單提供無法移至新資源群組和訂用帳戶之 Azure 服務的一般摘要。 如需更多詳細資料，請參閱[資源的移動作業支援](move-support-resources.md)。
 
 * AD Domain Services
 * AD 混合式健康狀態服務
 * 應用程式閘道
-* 適用於 MySQL 的 Azure 資料庫
-* 適用於 PostgreSQL 的 Azure 資料庫
 * Azure 資料庫移轉
 * Azure Databricks
 * Azure Migrate
@@ -254,7 +255,6 @@ Authorization: Bearer <access-token>
 * 實驗室服務 - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * Load Balancer - 請參閱 [Load Balancer 限制](#lb-limitations)
 * 受控應用程式
-* 受控磁碟 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * Microsoft Genomics
 * NetApp
 * 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
@@ -267,22 +267,62 @@ Authorization: Bearer <access-token>
 
 ## <a name="virtual-machines-limitations"></a>虛擬機器限制
 
-不支援移動受控磁碟。 此限制表示數個相關的資源也無法移動。 您無法移動：
+自 2018 年 9 月 24 日起，支援移動受控磁碟。 
 
-* 受控磁碟
+1. 您必須註冊才能啟用此功能。
+
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. 註冊要求一開始會傳回 `Registering`狀態。 您可以使用下列方式來檢查目前狀態：
+
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. 稍候幾分鐘以讓狀態變更為 `Registered`。
+
+1. 註冊此功能之後，註冊 `Microsoft.Compute` 資源提供者。 即使先前已註冊過此資源提供者，仍請執行此步驟。
+
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
+
+此支援意謂著您也可以移動：
+
 * 具有受控磁碟的虛擬機器
-* 從受控磁碟建立的映像
-* 從受控磁碟建立的快照集
+* 受控映像
+* 受控快照集
 * 具有使用受控磁碟之虛擬機器的可用性設定組
 
-雖然您無法移動受控磁碟，但可以建立複本，再從現有的受控磁碟建立新的虛擬機器。 如需詳細資訊，請參閱
+以下是尚未支援的條件約束：
 
-* 使用 [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) 或 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md) 複製相同訂用帳戶或不同訂用帳戶中的受控磁碟
-* 使用現有受控 OS 磁碟搭配 [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) 或 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md) 以建立虛擬機器。
+* 憑證儲存在 Key Vault 中的虛擬機器可以移動至相同訂用帳戶中的新資源群組，但是無法跨訂用帳戶移動。
+* 已設定「Azure 備份」的虛擬機器。 請使用下列因應措施來移動這些虛擬機器
+  * 找出您虛擬機器的位置。
+  * 找出具有下列命名模式的資源群組：`AzureBackupRG_<location of your VM>_1`，例如 AzureBackupRG_westus2_1
+  * 如果是在 Azure 入口網站中，則請選取 [顯示隱藏的類型]
+  * 如果是在 PowerShell 中，請使用 `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` Cmdlet
+  * 如果是在 CLI 中，請使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
+  * 現在，找出類型為 `Microsoft.Compute/restorePointCollections` 且命名模式為 `AzureBackup_<name of your VM that you're trying to move>_###########` 的資源
+  * 刪除此資源
+  * 完成刪除之後，您便能夠移動您的虛擬機器
+* 具有標準 SKU 負載平衡器或標準 SKU 公用 IP 的虛擬機器擴展集無法移動
+* 從 Marketplace 資源建立且附加方案的虛擬機器無法在資源群組或訂用帳戶之間移動。 在目前的訂用帳戶中取消佈建虛擬機器，然後於新訂用帳戶中再次部署。
 
-從 Marketplace 資源建立且附加方案的虛擬機器無法在資源群組或訂用帳戶之間移動。 在目前的訂用帳戶中取消佈建虛擬機器，然後於新訂用帳戶中再次部署。
-
-憑證儲存在 Key Vault 中的虛擬機器可以移動至相同訂用帳戶中的新資源群組，但是無法跨訂用帳戶移動。
 
 ## <a name="virtual-networks-limitations"></a>虛擬網路限制
 
@@ -402,7 +442,7 @@ Authorization: Bearer <access-token>
   }
   ```
 
-這項作業可能需要幾分鐘的時間執行。
+此作業可能需要幾分鐘的時間執行。
 
 ## <a name="recovery-services-limitations"></a>復原服務限制
 

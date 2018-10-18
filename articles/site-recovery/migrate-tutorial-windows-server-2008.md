@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Site Recovery 將內部部署 Windows Server 2008 伺服器移轉至 Azure | Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 將內部部署 Windows Server 2008 機器移轉至 Azure。
+title: 使用 Azure Site Recovery 將內部部署 Windows Server 2008 伺服器移轉到 Azure | Microsoft Docs
+description: 此文章說明如何使用 Azure Site Recovery 將內部部署 Windows Server 2008 機器移轉到 Azure。
 services: site-recovery
 documentationcenter: ''
 author: bsiva
@@ -11,18 +11,18 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/23/2018
+ms.date: 09/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 6e5946f3f9dcf1c7d941054c844adcf683b485ab
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d15a5b62a148e971c0740f01744fce308e502340
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308638"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056031"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>將執行 Windows Server 2008 的伺服器移轉到 Azure
 
-本教學課程說明如何使用 Azure Site Recovery 將執行 Windows Server 2008 或 2008 R2 的內部部署伺服器移轉到 Azure。 在本教學課程中，您了解如何：
+此教學課程說明如何使用 Azure Site Recovery 將執行 Windows Server 2008 或 2008 R2 的內部部署伺服器移轉到 Azure。 在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 準備內部部署環境以便進行移轉
@@ -32,7 +32,7 @@ ms.locfileid: "39308638"
 > * 執行測試移轉，確定一切都沒問題
 > * 容錯移轉至 Azure 並完成移轉
 
-＜限制和已知問題＞一節會列出在將 Windows Server 2008 機器移轉至 Azure 時，所可能遇到的一些限制和已知問題的因應措施。 
+＜限制和已知問題＞一節會列出在將 Windows Server 2008 機器移轉到至 Azure 時，所可能遇到的一些限制和已知問題的因應措施。 
 
 
 ## <a name="supported-operating-systems-and-environments"></a>所支援的作業系統和環境
@@ -54,21 +54,18 @@ ms.locfileid: "39308638"
 
 若要移轉執行 Windows Server 2008 或 Windows Server 2008 R2 的 Hyper-V 虛擬機器，請遵循[將內部部署機器移轉至 Azure](migrate-tutorial-on-premises-azure.md) 教學課程中的步驟。
 
-本教學課程的其餘部分會說明如何移轉執行 Windows Server 2008 或 2008 R2 的內部部署 VMware 虛擬機器和實體伺服器。
+此教學課程的其餘部分會說明如何移轉執行 Windows Server 2008 或 2008 R2 的內部部署 VMware 虛擬機器和實體伺服器。
 
 
 ## <a name="limitations-and-known-issues"></a>限制與已知問題
 
-- 用來移轉 Windows Server 2008 SP2 伺服器的組態伺服器、其他處理序伺服器和行動服務，應該要執行 9.18.0.1 版的 Azure Site Recovery 軟體。 如需 9.18.0.1 版組態伺服器和處理序伺服器的整合安裝程式，可從下列位置下載：[https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)。
+- 用來移轉 Windows Server 2008 SP2 伺服器的組態伺服器、其他處理序伺服器和行動服務，應該要執行 9.19.0.0 版或更新版本的 Azure Site Recovery 軟體。
 
-- 現有的組態伺服器或處理序伺服器無法用來移轉執行 Windows Server 2008 SP2 的伺服器。 在佈建新的組態伺服器時，應使用 9.18.0.1 版的 Azure Site Recovery 軟體。 此組態伺服器只應用於將 Windows 伺服器移轉至 Azure。
-
-- 不支援使用應用程式一致復原點和多重 VM 一致性功能，來複寫執行 Windows Server 2008 SP2 的伺服器。 Windows Server 2008 SP2 伺服器應移轉至「當機時保持一致」復原點。 系統預設會每五分鐘產生一次當機時保持一致復原點。 搭配使用複寫原則與已設定的「應用程式一致的快照頻率」，會由於應用程式一致復原點不足，而讓複寫健康情況變得嚴重。 若要避免誤判，請將複寫原則中的「應用程式一致的快照頻率」設定為「關閉」。
+- 不支援使用應用程式一致復原點和多重 VM 一致性功能，來複寫執行 Windows Server 2008 SP2 的伺服器。 Windows Server 2008 SP2 伺服器應移轉到「當機時保持一致」復原點。 系統預設會每五分鐘產生一次當機時保持一致復原點。 搭配使用複寫原則與已設定的「應用程式一致的快照頻率」，會由於應用程式一致復原點不足，而讓複寫健康情況變得嚴重。 若要避免誤判，請將複寫原則中的「應用程式一致的快照頻率」設定為「關閉」。
 
 - 所要移轉的伺服器應該要有 .NET Framework 3.5 Service Pack 1，行動服務才會運作。
 
-
-- 如果伺服器有動態磁碟，您可能會注意到在某些設定中，這些磁碟在已容錯移轉的伺服器上會標記為離線或顯示為外部磁碟。 您可能也會注意到，跨動態磁碟鏡像磁碟區的鏡像集狀態會標記為「失敗的備援」。 您可以手動匯入這些磁碟並加以重新啟動，以從 diskmgmt.msc 修正此問題。
+- 如果伺服器有動態磁碟，您可能會注意到在某些設定中，這些磁碟在已容錯移轉的伺服器上會標記為離線或顯示為外部磁碟。 您可能也會注意到，跨動態磁碟鏡像磁碟區的鏡像集狀態會標記為「失敗的備援」。 您可以手動匯入這些磁碟並將其重新啟動，以從 diskmgmt.msc 修正此問題。
 
 - 所要移轉的伺服器應該要有 vmstorfl.sys 驅動程式。 如果所要移轉的伺服器內沒有此驅動程式，容錯移轉可能會失敗。 
   > [!TIP]
@@ -80,7 +77,7 @@ ms.locfileid: "39308638"
   > [!TIP]
   > 移轉伺服器之前，強烈建議您先測試容錯移轉。 請確定您已在您要移轉的每一部伺服器上，至少執行過一次成功的測試容錯移轉。 在測試容錯移轉期間，請連線至已測試容錯移轉的機器，並確定一切正常運作。
   >
-  >測試容錯移轉作業不會造成系統中斷，可協助您在自選的隔離網路中建立虛擬機器來測試移轉。 不同於容錯移轉作業，在測試容錯移轉作業進行期間，資料複寫會繼續進行。 您可以不限次數地執行測試容錯移轉，直到您準備好移轉。 
+  >測試容錯移轉作業不會造成系統中斷，可協助您在自選的隔離網路中建立虛擬機器來測試移轉。 不同於容錯移轉作業，在測試容錯移轉作業進行期間，資料複寫會繼續進行。 您可以不限次數地執行測試容錯移轉，直到您準備好進行移轉。 
   >
   >
 
@@ -109,48 +106,8 @@ ms.locfileid: "39308638"
 
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>準備內部部署環境以便進行移轉
 
-- 從下列位置下載組態伺服器安裝程式 (整合安裝程式)：[https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- 請遵循下列所述步驟，使用上一個步驟所下載的安裝程式檔案設定來源環境。
-
-> [!IMPORTANT]
-> - 請務必使用上面第一個步驟中所下載的安裝程式檔案，來安裝和註冊組態伺服器。 請勿從 Azure 入口網站下載安裝程式檔案。 [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) 所提供的安裝程式檔案，是唯一支援 Windows Server 2008 移轉的版本。
->
-> - 您無法使用現有組態伺服器來移轉執行 Windows Server 2008 的機器。 您必須使用上面提供的連結來設定新的組態伺服器。
->
-> - 請遵循下列步驟來安裝組態伺服器。 請勿嘗試直接執行統一安裝來使用以 GUI 為基礎的安裝程序。 這麼做會導致安裝失敗，並出現沒有網際網路連線的錯誤訊息。
-
- 
-1) 從入口網站下載保存庫認證檔案：在 Azure 入口網站中，選取在上一個步驟中建立的復原服務保存庫。 從保存庫頁面上的功能表中，選取 [Site Recovery 基礎結構] > [組態伺服器]。 然後按一下 [+伺服器]。 在開啟的頁面上，從下拉式清單中選取 [實體的組態伺服器]。 按一下步驟 4 中的 [下載] 按鈕，下載保存庫認證檔案。
-
- ![下載保存庫註冊金鑰](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
-
-2) 複製上一個步驟中下載的保存庫認證檔案，以及先前下載到組態伺服器機器 (要在其中安裝組態伺服器軟體的 Windows Server 2012 R2 或 Windows Server 2016 機器) 桌面的統一安裝檔。
-
-3) 請確定組態伺服器有網際網路連線，並已正確設定機器上的系統時鐘和時區設定。 下載 [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) 安裝程式，並將它放在 C:\Temp\ASRSetup (如果沒有此目錄，請建立一個)。 
-
-4) 以下列幾行建立 MySQL 認證檔案，並將它放在桌面上的 **C:\Users\Administrator\MySQLCreds.txt**。 使用適當的強式密碼取代下方的 "Password~1"：
-
-```
-[MySQLCredentials]
-MySQLRootPassword = "Password~1"
-MySQLUserPassword = "Password~1"
-```
-
-5) 執行下列命令，以將下載的統一安裝檔內容擷取到桌面：
-
-```
-cd C:\Users\Administrator\Desktop
-
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
-```
-  
-6) 執行下列命令，使用擷取的內容來安裝組態伺服器軟體：
-
-```
-cd C:\Users\Administrator\Desktop\9.18.1
-
-UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
-```
+- 若要移轉在 VMware 上執行的 Windows Server 2008 虛擬機器，[在 VMware 上安裝內部部署組態伺服器](vmware-azure-tutorial.md#set-up-the-source-environment)。
+- 如果組態伺服器無法設定為 VMware 虛擬機器，[在內部部署實體伺服器或虛擬機器上安裝組態伺服器](physical-azure-disaster-recovery.md#set-up-the-source-environment)。
 
 ## <a name="set-up-the-target-environment"></a>設定目標環境
 

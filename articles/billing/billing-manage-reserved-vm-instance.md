@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: yashesvi
-ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.author: cwatson
+ms.openlocfilehash: 0b19bb0d77bb600258596ce369713464641a7d2f
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382145"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423233"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>管理 Azure 資源的保留
 
@@ -28,7 +28,7 @@ ms.locfileid: "43382145"
 
 ## <a name="change-the-scope-for-a-reservation"></a>變更保留範圍
 
- 保留折扣適用於符合保留且執行於保留範圍內的虛擬機器、SQL 資料庫或其他資源。 保留的範圍可以是單一訂用帳戶或您的計費內容中的所有訂用帳戶。 如果您將範圍設定為單一訂用帳戶，此保留會對應至所選訂用帳戶中執行的資源。 如果您將範圍設定為共用，Azure 會將保留對應至計費內容中所有訂用帳戶上執行的資源。 計費內容取決於購買此保留所用的訂用帳戶。
+ 保留折扣適用於符合保留且在保留範圍內執行的虛擬機器、SQL 資料庫、Azure Cosmos DB 或其他資源。 保留的範圍可以是單一訂用帳戶或您的計費內容中的所有訂用帳戶。 如果您將範圍設定為單一訂用帳戶，此保留會對應至所選訂用帳戶中執行的資源。 如果您將範圍設定為共用，Azure 會將保留對應至計費內容中所有訂用帳戶上執行的資源。 計費內容取決於購買此保留所用的訂用帳戶。
 
 更新保留範圍：
 
@@ -91,9 +91,17 @@ ms.locfileid: "43382145"
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
+## <a name="cancellations-and-exchanges"></a>取消和交換
+
+視保留類型而定，您可能可以取消或交換保留。 如需詳細資訊，請參閱下列主題中的取消和交換小節：
+
+- [預付具有 Azure 保留 VM 執行個體的虛擬機器](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [從 Azure 保留預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>變更保留 VM 執行個體的最佳化設定
 
- 當您購買保留的 VM 執行個體時，您可以選擇執行個體大小的彈性或容量優先順序。 執行個體大小彈性會將保留項目折扣套用至同一個 [VM 大小群組](https://aka.ms/RIVMGroups)中的其他 VM。 容量優先順序會保留資料中心容量供您的部署使用。 此選項可讓您更加確信您能夠在需要時啟動 VM 執行個體。
+ 當您購買保留的 VM 執行個體時，您可以選擇執行個體大小的彈性或容量優先順序。 執行個體大小彈性會將保留項目折扣套用至同一個 [VM 大小群組](https://aka.ms/RIVMGroups)中的其他 VM。 容量優先順序會讓資料中心容量供您的部署優先使用。 此選項可讓您更加確信您能夠在需要時啟動 VM 執行個體。
 
 根據預設，當保留範圍為共用時，執行個體大小彈性就會啟用。 資料中心容量不會針對 VM 部署設定優先權。
 
@@ -109,18 +117,19 @@ ms.locfileid: "43382145"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Azure 保留，請參閱下列文章：
+若要深入了解 Azure 保留項目，請參閱下列文章：
 
-- [什麼是 Azure 保留？](billing-save-compute-costs-reservations.md)
+- [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md)
+- [以 Azure Cosmos DB 保留容量預先支付 Azure Cosmos DB 資源的費用](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [從 Azure 保留預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [了解 VM 保留折扣的套用方式](billing-understand-vm-reservation-charges.md)
 - [了解如何套用 SUSE Linux Enterprise 軟體方案折扣](../billing/billing-understand-suse-reservation-charges.md)
 - [了解其他保留折扣的套用方式](billing-understand-reservation-charges.md)
-- [了解預付型方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
-- [Windows 軟體的成本不包括在保留內](billing-reserved-instance-windows-software-costs.md)
+- [Windows 軟體成本不包含在 Reservations 內](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 

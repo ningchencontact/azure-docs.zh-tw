@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure 資料靜態加密 | Microsoft Docs
-description: 本文提供 Microsoft Azure 資料靜態加密概觀、整體功能及一般考量。
+description: 此文章提供 Microsoft Azure 資料靜態加密概觀、整體功能及一般考量。
 services: security
 documentationcenter: na
 author: barclayn
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 71351a979e8bb443864c975b91539c527bea7f2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294051"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033422"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
-Microsoft Azure 內有數項工具，可根據公司的安全性和合規性需求來保護資料。 本文著重於：
+Microsoft Azure 內有數項工具，可根據公司的安全性和合規性需求來保護資料。 此文章著重於：
 
 - 在整個 Microsoft Azure 中保護資料的方式
 - 討論參與資料保護實作的各種元件，
@@ -56,13 +56,13 @@ Microsoft 致力於提供跨雲端服務的靜態加密選項，以及為提供�
 
 ## <a name="azure-encryption-at-rest-components"></a>Azure 靜態加密元件
 
-如先前所述，靜態加密的目的，是使用祕密加密金鑰將保存在磁碟上的資料進行加密。 若要達到這個目標，就必須提供安全的金鑰建立、儲存、存取控制，以及加密金鑰管理。 儘管細節可能有所差異，但 Azure 服務「待用加密」實作可以下圖所示的術語來加以說明。
+如先前所述，靜態加密的目的，是使用祕密加密金鑰將保存在磁碟上的資料進行加密。 若要達到這個目標，就必須提供安全的金鑰建立、儲存、存取控制，以及加密金鑰管理。 儘管細節可能有所差異，但 Azure 服務「待用加密」實作能以下圖所示的術語來說明。
 
 ![元件](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
 ### <a name="azure-key-vault"></a>Azure 金鑰保存庫
 
-加密金鑰的儲存位置以及這些金鑰的存取控制是靜態加密模型的核心。 金鑰必須是高度安全的，但需可由指定使用者進行管理，且可用於特定服務。 針對 Azure 服務，Azure Key Vault 是建議的金鑰儲存體解決方案，並提供常見的跨服務管理體驗。 金鑰是儲存在金鑰保存庫並加以管理，可以將存取金鑰保存庫提供給使用者或服務。 Azure Key Vault 支援客戶建立金鑰或匯入客戶金鑰，可供在客戶管理的加密金鑰情節下使用。
+加密金鑰的儲存位置以及這些金鑰的存取控制是靜態加密模型的核心。 金鑰必須是高度安全的，但需可由指定使用者進行管理，且可用於特定服務。 針對 Azure 服務，Azure Key Vault 是建議的金鑰儲存體解決方案，並提供常見的跨服務管理體驗。 金鑰是儲存在金鑰保存庫並在其中管理，可以將存取金鑰保存庫提供給使用者或服務。 Azure Key Vault 支援客戶建立金鑰或匯入客戶金鑰，可供在客戶管理的加密金鑰情節下使用。
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -124,7 +124,7 @@ Azure 中支援的模型如先前所述區分成兩個主要群組：「用戶�
 
 #### <a name="server-side-encryption-using-service-managed-keys"></a>使用服務管理金鑰的伺服器端加密
 
-對許多客戶而言，基本需求就是確保在靜態時會將資料加密。 使用服務管理金鑰的伺服器端加密會啟用這個模型，方法是允許客戶標示特定的資源 (儲存體帳戶、SQL DB 等) 以進行加密，並將諸如金鑰發佈、輪替和備份等所有金鑰管理層面保留給 Microsoft。 大部分支援靜態加密的 Azure 服務通常會支援這個將加密金鑰管理卸載至 Azure 的模型。 Azure 資源提供者會建立金鑰、將它們放置在安全的儲存體，並在需要時加以擷取。 這表示服務具有金鑰的完整存取權，且服務可完整控制認證生命週期管理。
+對許多客戶而言，基本需求就是確保在靜態時會將資料加密。 使用服務管理金鑰的伺服器端加密會啟用這個模型，方法是允許客戶標示特定的資源 (儲存體帳戶、SQL DB 等) 以進行加密，並將諸如金鑰發佈、輪替和備份等所有金鑰管理層面保留給 Microsoft。 大部分支援靜態加密的 Azure 服務通常會支援這個將加密金鑰管理卸載至 Azure 的模型。 Azure 資源提供者會建立金鑰、將它們放置在安全的儲存體，並在需要時擷取它們。 這表示服務具有金鑰的完整存取權，且服務可完整控制認證生命週期管理。
 
 ![受控](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
@@ -153,7 +153,7 @@ Azure 中支援的模型如先前所述區分成兩個主要群組：「用戶�
 
 ##### <a name="key-access"></a>金鑰存取
 
-在 Azure Key Vault 中使用客戶管理金鑰的伺服器端加密模型所牽涉的服務，會視需要存取金鑰來加密和解密。 透過存取控制原則，服務可以存取靜態加密金鑰。 此原則授與服務身分識別存取，以接收金鑰。 代表相關聯的訂用帳戶所執行的 Azure 服務，可以使用該訂用帳戶中的身分識別來加以設定。 服務可以執行 Azure Active Directory 驗證，並接收驗證權杖，會將其本身識別為代表訂用帳戶的該服務。 接著會將該權杖提供給 Key Vault，從而取得已獲得存取權的金鑰。
+在 Azure Key Vault 中使用客戶管理金鑰的伺服器端加密模型所牽涉的服務，會視需要存取金鑰來加密和解密。 透過存取控制原則，服務可以存取靜態加密金鑰。 此原則授與服務身分識別存取，以接收金鑰。 代表相關聯的訂用帳戶所執行的 Azure 服務，可以使用該訂用帳戶中的身分識別來進行設定。 服務可以執行 Azure Active Directory 驗證，並接收驗證權杖，會將其本身識別為代表訂用帳戶的該服務。 接著會將該權杖提供給 Key Vault，從而取得已獲得存取權的金鑰。
 
 針對使用加密金鑰的作業，可以授與服務識別存取任何下列作業：解密、加密、解除包裝金鑰、包裝金鑰、驗證、簽署、取得、列出、更新、建立、匯入、刪除、備份和還原。
 
@@ -233,7 +233,7 @@ Azure 中支援的模型如先前所述區分成兩個主要群組：「用戶�
 
 ## <a name="azure-resource-providers-encryption-model-support"></a>Azure 資源提供者加密模型支援
 
-每個 Microsoft Azure 服務都支援一或多個靜態加密模型。 不過，針對某些服務，一或多個加密模型不可能適用。 支援客戶管理金鑰案例的服務所支援的金鑰類型，可能只有 Azure Key Vault 所支援用於金鑰加密金鑰的一小部分。 此外，這些服務可能會在不同的排程發行這些案例和金鑰類型的支援。 本章節針對每個主要 Azure 資料儲存體服務描述撰寫本文時的靜態加密支援。
+每個 Microsoft Azure 服務都支援一或多個靜態加密模型。 不過，針對某些服務，一或多個加密模型不可能適用。 支援客戶管理金鑰案例的服務所支援的金鑰類型，可能只有 Azure Key Vault 所支援用於金鑰加密金鑰的一小部分。 此外，這些服務可能會在不同的排程發行這些案例和金鑰類型的支援。 本章節針對每個主要 Azure 資料儲存體服務描述撰寫此文章時的靜態加密支援。
 
 ### <a name="azure-disk-encryption"></a>Azure 磁碟加密
 
@@ -259,28 +259,28 @@ Azure SQL Database 目前支援 Microsoft 受控服務端和用戶端加密等�
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **使用服務管理金鑰的伺服器端**     | **在 Key Vault 中使用客戶管理的伺服器端**             |  **在內部部署中使用客戶管理的伺服器端**                  | **使用用戶端管理的用戶端**      |
 | **儲存體和資料庫**        |                    |                    |                    |                    |                    |
-| 磁碟 (IaaS)                      | -                  | 是，RSA 2048 位元  | yes               | -                  |
-| SQL Server (IaaS)                | yes                | 是，RSA 2048 位元  | yes                | yes                |
-| Azure SQL Database (PaaS)        | yes                | 是，RSA 2048 位元  | -                  | yes                |
-| Azure 儲存體 (區塊/分頁 Blob) | yes                | 是，RSA 2048 位元  | -                  | yes                |
-| Azure 儲存體 (檔案)            | yes                | 是，RSA 2048 位元  | -                  | -                  |
-| Azure 儲存體 (資料表、佇列)   | yes                | -                  | -                  | yes                |
-| Cosmos DB (文件 DB)          | yes                | -                  | -                  | -                  |
-| StorSimple                       | yes                | -                  | -                  | yes                |
-| Backup                            | -                  | -                  | -                  | yes                |
+| 磁碟 (IaaS)                      | -                  | 是，RSA 2048 位元  | 是               | -                  |
+| SQL Server (IaaS)                | 是                | 是，RSA 2048 位元  | 是                | 是                |
+| Azure SQL (資料庫/資料倉儲) | 是                | 是，RSA 2048 位元  | -                  | 是                |
+| Azure 儲存體 (區塊/分頁 Blob) | 是                | 是，RSA 2048 位元  | -                  | 是                |
+| Azure 儲存體 (檔案)            | 是                | 是，RSA 2048 位元  | -                  | -                  |
+| Azure 儲存體 (資料表、佇列)   | 是                | -                  | -                  | 是                |
+| Cosmos DB (文件 DB)          | 是                | -                  | -                  | -                  |
+| StorSimple                       | 是                | -                  | -                  | 是                |
+| Backup                            | -                  | -                  | -                  | 是                |
 | **智慧和分析**   |                    |                    |                    |                    |
-| Azure Data Factory               | yes                | -                  | -                  | -                  |
+| Azure Data Factory               | 是                | -                  | -                  | -                  |
 | Azure Machine Learning           | -                  | 預覽，RSA 2048 位元 | -                  | -                  |
-| Azure 串流分析           | yes                | -                  | -                  | -                  |
-| HDInsight (Azure Blob 儲存體)   | yes                | -                  | -                  | -                  |
-| HDInsight (Data Lake 儲存體)    | yes                | -                  | -                  | -                  |
-| Azure Data Lake Store            | yes                | 是，RSA 2048 位元  | -                  | -                  |
-| Azure 資料目錄               | yes                | -                  | -                  | -                  |
-| Power BI                         | yes                | -                  | -                  | -                  |
+| Azure 串流分析           | 是                | -                  | -                  | -                  |
+| HDInsight (Azure Blob 儲存體)   | 是                | -                  | -                  | -                  |
+| HDInsight (Data Lake 儲存體)    | 是                | -                  | -                  | -                  |
+| Azure Data Lake Store            | 是                | 是，RSA 2048 位元  | -                  | -                  |
+| Azure 資料目錄               | 是                | -                  | -                  | -                  |
+| Power BI                         | 是                | -                  | -                  | -                  |
 | **IoT 服務**                 |                    |                    |                    |                    |
-| IoT 中樞                          | -                  | -                  | -                  | yes                |
-| 服務匯流排                      | yes                | -                  | -                  | yes                |
-| 事件中樞                       | yes                | -                  | -                  | -                  |
+| IoT 中樞                          | -                  | -                  | -                  | 是                |
+| 服務匯流排                      | 是                | -                  | -                  | 是                |
+| 事件中樞                       | 是                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>結論

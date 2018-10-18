@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574669"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406170"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics 365
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Microsoft Dynamics 365 或 Microsoft Dynamics CRM 複製資料以及複製資料至 Microsoft Dynamics 365 或 Microsoft Dynamics CRM。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+此文章概述如何使用 Azure Data Factory 中的「複製活動」，從 Microsoft Dynamics 365 或 Microsoft Dynamics CRM 複製資料以及複製資料至 Microsoft Dynamics 365 或 Microsoft Dynamics CRM。 此文章是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -158,7 +158,8 @@ ms.locfileid: "45574669"
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
 
 > [!IMPORTANT]
->- 從 Dynamics 複製資料時，Dynamics 資料集中需有 "structure" 區段。 它會定義您想要複製的 Dynamics 資料之資料行名稱和資料類型。 若要深入了解，請參閱[資料集結構](concepts-datasets-linked-services.md#dataset-structure)和 [Dynamics 的資料類型對應](#data-type-mapping-for-dynamics)。
+>- 從 Dynamics 複製資料時，"structure" 區段是選擇性區段，但建議在 Dynamics 資料集中需有此區段，以確保能有確定性的複製結果。 它會定義您想要複製的 Dynamics 資料之資料行名稱和資料類型。 若要深入了解，請參閱[資料集結構](concepts-datasets-linked-services.md#dataset-structure)和 [Dynamics 的資料類型對應](#data-type-mapping-for-dynamics)。
+>- 在撰寫 UI 中匯入結構描述時，ADF 會推斷結構描述，方法是從 Dynamics 查詢結果取前幾個資料列作為樣本來進行結構建構初始化，在此情況下，會省略沒有值的資料行。 您可以視需要檢閱及將更多資料行新增至 Dynamics 資料集結構描述/結構，在複製執行階段即會予以採用。
 >- 將資料複製到 Dynamics 時，Dynamics 資料集內不一定要有 "structure" 區段。 要複製到哪些資料行則由來源資料的結構描述決定。 如果來源是沒有標題的 CSV 檔案，在輸入資料集中使用資料行名稱和資料類型指定 "structure"。 它們會按順序一一對應至 CSV 檔案中的欄位。
 
 **範例：**
@@ -281,7 +282,7 @@ ms.locfileid: "45574669"
 
 Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations)。 如果超出該限制，則會在執行第一個要求之前，擲回「伺服器忙碌」錯誤。 讓「writeBatchSize」保持小於或等於 10，即可避免發生這類並行呼叫節流。
 
-**writeBatchSize** 和 **parallelCopies** 的最佳組合取決於實體的結構描述，例如資料行數目、資料列大小、連接到這些呼叫的外掛程式/工作流程/工作流程活動數目等等。10 個 writeBatchSize * 10 個 parallelCopies 的預設設定是根據 Dynamics 服務所提出的建議，雖適用於大部分 Dynamics 實體，但可能無法達到最佳效能。 您可以藉由調整複製活動設定中的組合來微調效能。
+**writeBatchSize** 和 **parallelCopies** 的最佳組合取決於實體的結構描述，例如資料行數目、資料列大小、連接到這些呼叫的外掛程式/工作流程/工作流程活動數目等等。10 個 writeBatchSize * 10 個 parallelCopies 的預設設定是根據 Dynamics 服務所提出的建議，雖適用於大部分 Dynamics 實體，但可能無法達到最佳效能。 您可以透過調整複製活動設定中的組合來微調效能。
 
 **範例：**
 

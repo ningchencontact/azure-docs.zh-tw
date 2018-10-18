@@ -5,18 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: eacad4acbae0565cbd894d3f51665d751eb9a6e2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 80234610eda264976f3ec20da2a0ef12c73ccba6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783129"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035703"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso 移轉：將內部部署應用程式重新建構至 Azure 容器和 Azure SQL Database
 
-本文說明 Contoso 如何在 Azure 中移轉及重新建構其 SmartHotel360 應用程式。 Contoso 會將應用程式前端 VM 遷移至 Azure Windows 容器，以及將應用程式資料庫遷移至 Azure SQL 資料庫中。
+此文章說明 Contoso 如何在 Azure 中移轉及重新建構其 SmartHotel360 應用程式。 Contoso 會將應用程式前端 VM 移轉到 Azure Windows 容器，以及將應用程式資料庫移轉移轉 Azure SQL 資料庫中。
 
 這份文件是系列文章中的其中一篇，說明 Contoso 這家虛構的公司如何將內部部署資源移轉至 Microsoft Azure 雲端。 整個系列文章中包含背景資訊和說明如何設定移轉基礎結構的案例、評估內部部署資源的移轉，以及執行不同類型的移轉。 案例的複雜性會提高。 將隨時間新增其他文章。
 
@@ -27,16 +27,16 @@ ms.locfileid: "43783129"
 [文章 3：存取內部部署資源以移轉至 Azure](contoso-migration-assessment.md)  | Contoso 會評估其在 VMware 上執行的內部部署 SmartHotel360 應用程式。 Contoso 會使用 Azure Migrate 服務來評估應用程式 VM，並使用 Database Migration Assistant 來評估應用程式 SQL Server 資料庫。 | 可用
 [文章 4：在 Azure VM 和 SQL Database 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso 會為其內部部署 SmartHotel360 應用程式執行隨即移轉至 Azure 的作業。 Contoso 會使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式的前端 VM。 Contoso 會使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 Azure SQL Database 受控執行個體。 | 可用   
 [文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
-[文章 6：在 Azure VM 上和 SQL Server AlwaysOn 可用性群組中重新裝載應用程式](contoso-migration-rehost-vm-sql-ag.md) | Contoso 會移轉 SmartHotel360 應用程式。 Contoso 會使用 Site Recovery 來遷移應用程式的 VM。 它會使用資料庫移轉服務，將應用程式資料庫遷移至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 可用 
+[文章 6：在 Azure VM 上和 SQL Server AlwaysOn 可用性群組中重新裝載應用程式](contoso-migration-rehost-vm-sql-ag.md) | Contoso 會移轉 SmartHotel360 應用程式。 Contoso 會使用 Site Recovery 來移轉應用程式的 VM。 它會使用資料庫移轉服務，將應用程式資料庫移轉到受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 可用 
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | Contoso 會使用 Site Recovery 服務，來完成將其 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業 | 可用
 [文章 8：在 Azure VM 和 Azure MySQL 上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | Contoso 會使用 Azure Site Recovery 將 Linux osTicket 應用程式移轉至 Azure VM，並使用 MySQL Workbench 將應用程式資料庫移轉至 Azure MySQL Server 執行個體。 | 可用
 [文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | Contoso 會將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
-[文章 10：在 Azure Web Apps 和 Azure MySQL 上重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 | 可用 
-[文章 11：在 VSTS 上重構 TFS](contoso-migration-tfs-vsts.md) | Contoso 會將其內部部署 Team Foundation Server 部署，移轉至 Azure 中的 Visual Studio Team Services。 | 可用
-文章 12：在 Azure 容器 和 Azure SQL Database 上重新建構應用程式 | Contoso 會將其 SmartHotel360 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 本文
-[文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | Contoso 會藉由使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel360 應用程式。 | 可用  
+[文章 10：在 Azure Web Apps 和 Azure MySQL 上重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫移轉到適用於 MySQL 的 Azure 資料庫執行個體。 | 可用 
+[文章 11：在 Azure DevOps Services 上重構 TFS](contoso-migration-tfs-vsts.md) | Contoso 會將其內部部署 Team Foundation Server 部署移轉至 Azure 中的 Azure DevOps Services。 | 可用
+文章 12：在 Azure 容器 和 Azure SQL Database 上重新建構應用程式 | Contoso 會將其 SmartHotel 應用程式移轉到 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 此文章
+[文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | Contoso 會透過使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel 應用程式。 | 可用 
 
-在本文中，Contoso 會遷移兩層式 Windows。 NET SmartHotel360 應用程式 (執行於 VMware VM)，移轉至 Azure。 如果您想使用此應用程式，您可以從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載其開放原始碼。
+在此文章中，Contoso 會將在 VMware VM 上執行的兩層 Windows WPF、XAML 表單 SmartHotel360 應用程式移轉至 Azure。 如果您想使用此應用程式，您可以從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載其開放原始碼。
 
 ## <a name="business-drivers"></a>商業動機
 
@@ -57,7 +57,7 @@ Contoso 雲端小組已針對此次移轉擬定好各項目標。 並用這些�
 **應用程式需求** | Azure 中的應用程式應與現在一樣重要。<br/><br/> 應具有目前 VMWare 中的相同效能功能。<br/><br/> Contoso 想要停止支援目前執行應用程式的 Windows Server 2008 R2，而且願意將心力投注在應用程式上。<br/><br/> Contoso 想要從 SQL Server 2008 R2 移動到現代的 PaaS 資料庫平台，這樣可減少管理需求。<br/><br/> Contoso 想要盡可能運用其在 SQL Server 授權及軟體保證中所做的投資。<br/><br/> Contoso 想要可以相應增加應用程式 Web 層。
 **限制** | 應用程式由相同 VM 上執行的 ASP.NET 應用程式和 WCF 服務所組成。 Contoso 想要將其分成兩個使用 Azure App Service 的 Web 應用程式。 
 **Azure 需求** | Contoso 想要將應用程式移至 Azure，並在容器中執行以延長應用程式的壽命。 其不想要完全從頭開始實作 Azure 中的應用程式。 
-**DevOps** | Contoso 想要改用 DevOps 模型，針對程式碼的建置和發行管線使用 Visual Studio Team Services (VSTS)。
+**DevOps** | Contoso 想要移轉至 DevOps 模型，使用 Azure DevOps Services 來處理程式碼的建置和發行管線。
 
 ## <a name="solution-design"></a>解決方案設計
 
@@ -76,13 +76,13 @@ Contoso 雲端小組已針對此次移轉擬定好各項目標。 並用這些�
 
 - 針對應用程式的資料庫層，Contoso 已透過[這篇文章](https://docs.microsoft.com/azure/sql-database/sql-database-features)來比較 Azure SQL Database 和 SQL Server。 因為下列幾個原因，其決定使用 Azure SQL Database：
     - Azure SQL Database 是由關聯式資料庫管理的服務。 其在多個服務層級上提供可預測的效能，而且幾乎免管理。 優點包括無須停機的動態延展性、內建智慧最佳化及全球延展性和可用性。
-    - Contoso 會利用輕量型 Data Migration Assistant (DMA) 來評估內部部署資料庫，並將其遷移到 Azure SQL。
+    - Contoso 會利用輕量型 Data Migration Assistant (DMA) 來評估內部部署資料庫，並將其移轉到 Azure SQL。
     - 透過軟體保證，Contoso 可以使用適用於 SQL Server 的 Azure Hybrid Benefit，以折扣優惠在 SQL Database 上交換其現有授權。 這可以提供最多 30% 的折扣。
     - SQL Database 提供多種安全性功能，包括永遠加密、動態資料遮罩和資料列層級的防護/威脅偵測。
-- 針對應用程式 Web 層，Contoso 已決定將其轉換成使用 Visual Studio 的 Windows 容器。
+- 針對應用程式 Web 層，Contoso 已決定使用 Azure DevOps Services 將其轉換成 Windows 容器。
     - Contoso 會使用 Azure Service Fabric 部署應用程式，並從 Azure Container Registry (ACR) 提取 Windows 容器映像。
     - 用來擴充應用程式以包含情感分析的原型會實作為 Service Fabric 中的另一個服務，並連線至 Cosmos DB。  這將會讀取推文中的資訊，並顯示在應用程式上。
-- 為了實作 DevOps 管線，Contoso 會使用 VSTS 搭配 Git 存放庫來進行原始程式碼管理 (SCM)。  其會使用自動化建置和發行來建置程式碼，並將程式碼部署至 Azure Container Registry 和 Azure Service Fabric。
+- 為了實作 DevOps 管線，Contoso 會使用 Azure DevOps 搭配 Git 存放庫來進行原始程式碼管理 (SCM)。  其會使用自動化建置和發行來建置程式碼，並將程式碼部署至 Azure Container Registry 和 Azure Service Fabric。
 
     ![案例架構](./media/contoso-migration-rearchitect-container-sql/architecture.png) 
 
@@ -93,7 +93,7 @@ Contoso 會透過比較一份優缺點清單，來評估建議設計。
 **考量** | **詳細資料**
 --- | ---
 **優點** | 必須變更 SmartHotel360 應用程式的程式碼才能移轉至 Azure Service Fabric。 不過，這很簡單，使用 Service Fabric SDK Tools 來執行變更即可。<br/><br/> 移轉到 Service Fabric 後，Contoso 可以開始開發微服務，並在一段時間後快速地將微服務新增至應用程式，而這完全不會對原始程式碼基底造成不良影響。<br/><br/> Windows 容器會提供與一般容器相同的優點。 其提升了靈活度、可攜性和控制能力。<br/><br/> Contoso 可以使用 SQL Server 和 Windows Server 的 Azure Hybrid Benefit 來妥善運用其在軟體保證中所做的投資。<br/><br/> 在移轉之後，其不會再需要支援 Windows Server 2008 R2。 [深入了解](https://support.microsoft.com/lifecycle)。<br/><br/> Contoso 可以使用多個執行個體來設定應用程式的 Web 層，使它不再是單一失敗點。<br/><br/> 其不會再依賴過時的 SQL Server 2008 R2。<br/><br/> SQL Database 可支援 Contoso 的技術需求。 Contoso 管理員使用 Data Migration Assistant 來評估內部部署資料庫，並發現其可相容。<br/><br/> SQL Database 擁有內建容錯功能，無須 Contoso 進行設定。 這可確保資料層不再是單一的容錯移轉點。
-**缺點** | 容器比其他移轉選項複雜得多。 容器上的學習曲線 (learning curve) 可能會是 Contoso 的難題。  儘管有曲線，容器還是會帶來新的複雜等級，以提供更多價值。<br/><br/> Contoso 的營運團隊必須提升能力，以了解和支援適用於應用程式的 Azure、容器和微服務。<br/><br/> 如果 Contoso 使用 Data Migration Assistant 來遷移資料庫，而不是使用 Data Migration Service，其不會有可進行大規模移轉的基礎結構。
+**缺點** | 容器比其他移轉選項複雜得多。 容器上的學習曲線 (learning curve) 可能會是 Contoso 的難題。  儘管有曲線，容器還是會帶來新的複雜等級，以提供更多價值。<br/><br/> Contoso 的營運團隊必須提升能力，以了解和支援適用於應用程式的 Azure、容器和微服務。<br/><br/> 如果 Contoso 使用 Data Migration Assistant 來移轉資料庫，而不是使用 Data Migration Service，其不會有可進行大規模移轉的基礎結構。
 
 
 
@@ -114,6 +114,7 @@ Contoso 會透過比較一份優缺點清單，來評估建議設計。
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | 提供完全受控的智慧型關聯式雲端資料庫服務。 | 根據功能、輸送量和大小計算費用。 [深入了解](https://azure.microsoft.com/pricing/details/sql-database/managed/)。
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | 儲存所有容器部署類型的映像。 | 根據功能、儲存體和使用期間計算費用。 [深入了解](https://azure.microsoft.com/pricing/details/container-registry/)。
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | 建置及操作全年持續運作，並能隨時調整的分散式應用程式 | 根據大小、位置和計算節點的持續時間計算費用。 [深入了解](https://azure.microsoft.com/pricing/details/service-fabric/)。
+[Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | 為應用程式開發提供持續整合和持續部署 (CI/CD) 管線。 管線一開始會有一個用於管理應用程式程式碼的 Git 存放庫、一個用於產生套件及其他建置成品的建置系統，以及一個用來在開發、測試及生產環境中部署變更的「發行管理」系統。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -121,7 +122,7 @@ Contoso 會透過比較一份優缺點清單，來評估建議設計。
 
 **需求** | **詳細資料**
 --- | ---
-**Azure 訂用帳戶** | Contoso 稍早已在本文章系列中建立訂用帳戶。 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。<br/><br/> 如果您建立免費帳戶，您就是訂用帳戶的管理員，並可執行所有動作。<br/><br/> 如果您使用現有訂用帳戶，而且您不是系統管理員，則需要與系統管理員合作，讓其指派擁有者或參與者權限給您。
+**Azure 訂用帳戶** | Contoso 稍早已在此文章系列中建立訂用帳戶。 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。<br/><br/> 如果您建立免費帳戶，您就是訂用帳戶的管理員，並可執行所有動作。<br/><br/> 如果您使用現有訂用帳戶，而且您不是系統管理員，則需要與系統管理員合作，讓其指派擁有者或參與者權限給您。
 **Azure 基礎結構** | [了解](contoso-migration-infrastructure.md) Contoso 先前如何設定 Azure 基礎結構。
 **開發人員必要條件** | 在開發人員工作站上，Contoso 需要下列工具：<br/><br/> - [Visual Studio 2017 Community 版本：15.5 版](https://www.visualstudio.com/)<br/><br/> - 已啟用.NET 工作負載。<br/><br/> - [Git](https://git-scm.com/)<br/><br/> - [Service Fabric SDK v 3.0 或更新版本](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)<br/><br/> 已設定為使用 Windows 容器的 - [Docker CE (Windows 10) 或 Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/)。
 
@@ -132,13 +133,13 @@ Contoso 會透過比較一份優缺點清單，來評估建議設計。
 以下是 Contoso 執行移轉的方式：
 
 > [!div class="checklist"]
-> * **步驟 1：在 Azure 中佈建 SQL Database 執行個體**：Contoso 會在 Azure 中佈建 SQL 執行個體。 將前端 Web VM 遷移至 Azure 容器後，應用程式前端 Web 的容器執行個體會指向這個資料庫。
+> * **步驟 1：在 Azure 中佈建 SQL Database 執行個體**：Contoso 會在 Azure 中佈建 SQL 執行個體。 將前端 Web VM 移轉到 Azure 容器後，應用程式前端 Web 的容器執行個體會指向這個資料庫。
 > * **步驟 2：建立 Azure Container Registry (ACR)**：Contoso 會為 Docker 容器映像佈建企業容器登錄。
 > * **步驟 3：佈建 Azure Service Fabric**：其會佈建 Service Fabric 叢集。
-> * **步驟 4：管理 Service Fabric 憑證**：Contoso 會設定憑證以供 VSTS 存取叢集。
-> * **步驟 5：使用 DMA 來遷移資料庫**：其會使用 Data Migration Assistant 來遷移應用程式資料庫。
-> * **步驟 6：設定 VSTS**：Contoso 會在 VSTS 中設定新的專案，並將程式碼匯入 Git 存放庫中。
-> * **步驟 7：轉換應用程式**：Contoso 會使用 Visual Studio 和 SDK Tools 來將應用程式轉換成容器。
+> * **步驟 4：管理 Service Fabric 憑證**：Contoso 會設定憑證以供 Azure DevOps Services 存取叢集。
+> * **步驟 5：使用 DMA 來移轉資料庫**：其會使用 Data Migration Assistant 來移轉應用程式資料庫。
+> * **步驟 6：設定 Azure DevOps Services**：Contoso 會在 Azure DevOps Services 中設定新的專案，並將程式碼匯入至 Git 存放庫。
+> * **步驟 7：轉換應用程式**：Contoso 會使用 Azure DevOps 和 SDK 工具將應用程式轉換成容器。
 > * **步驟 8：設定建置和發行**：Contoso 會設定建置和發行管線，以建立應用程式並發行至 ACR 和 Service Fabric 叢集。
 > * **步驟 9：擴充應用程式**：公開應用程式之後，Contoso會將其擴充以善用 Azure 功能，並使用管線將其重新發行至 Azure。
 
@@ -203,7 +204,7 @@ SmartHotel360 容器會在 Azure Service Fabric 叢集中執行。 Contoso 管�
 
      ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric1.png)
 
-2. 在 [基本資料] 中，他們會提供叢集的唯一 DS 名稱，用來存取內部部署 VM 的認證。 他們會將資源放在主要區域 (美國東部 2) 的生產資源群組 (**ContosoRG**) 中。
+2. 在 [基本] 中，他們會提供叢集的唯一 DS 名稱，以及用來存取內部部署 VM 的認證。 他們會將資源放在主要區域 (美國東部 2) 的生產資源群組 (**ContosoRG**) 中。
 
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric2.png) 
 
@@ -254,7 +255,7 @@ SmartHotel360 容器會在 Azure Service Fabric 叢集中執行。 Contoso 管�
 
 ## <a name="step-4-manage-service-fabric-certificates"></a>步驟 4：管理 Service Fabric 憑證
 
-Contoso 需要有叢集憑證才能讓 VSTS 存取叢集。 Contoso 管理員會就此進行設定。
+Contoso 必須有叢集憑證，才能允許 Azure DevOps Services 存取叢集。 Contoso 管理員會就此進行設定。
 
 1. 其會開啟 Azure 入口網站，並瀏覽至 KeyVault。
 2. 其會開啟憑證，並複製佈建程序進行期間所建立憑證的指紋。
@@ -262,7 +263,7 @@ Contoso 需要有叢集憑證才能讓 VSTS 存取叢集。 Contoso 管理員會
     ![複製指紋](./media/contoso-migration-rearchitect-container-sql/cert1.png)
  
 3. 其會將指紋複製到文字檔以供日後參考。
-4. 現在，其會新增用戶端憑證，從而作為管理員在叢集上的用戶端憑證。 這可讓 VSTS 連線到叢集，以便在發行管線中部署應用程式。 為了這麼做，其會在入口網站開啟 KeyVault，然後選取 [憑證] > [產生/匯入]。
+4. 現在，其會新增用戶端憑證，從而作為管理員在叢集上的用戶端憑證。 這可讓 Azure DevOps Services 連線到叢集，以便在發行管線中部署應用程式。 為了這麼做，其會在入口網站開啟 KeyVault，然後選取 [憑證] > [產生/匯入]。
 
     ![產生用戶端憑證](./media/contoso-migration-rearchitect-container-sql/cert2.png)
 
@@ -278,7 +279,7 @@ Contoso 需要有叢集憑證才能讓 VSTS 存取叢集。 Contoso 管理員會
 
      ![用戶端憑證指紋](./media/contoso-migration-rearchitect-container-sql/cert5.png)
 
-8. 為了部署 VSTS，他們需要判斷憑證的 Base64 值。 其會使用 PowerShell 在本機開發人員工作站上進行此作業。 其會將輸出貼到文字檔以供日後使用。
+8. 為了部署 Azure DevOps Services，他們需要判斷憑證的 Base64 值。 其會使用 PowerShell 在本機開發人員工作站上進行此作業。 其會將輸出貼到文字檔以供日後使用。
 
     ```
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
@@ -290,11 +291,11 @@ Contoso 需要有叢集憑證才能讓 VSTS 存取叢集。 Contoso 管理員會
 
      ![新增用戶端憑證](./media/contoso-migration-rearchitect-container-sql/cert7.png)
 
-10. 其會按一下 [新增] > [管理員用戶端]，然後貼上新用戶端憑證的指紋。 然後，其會按一下 [新增]。 這項作業可能需要 15 分鐘的時間。
+10. 其會按一下 [新增] > [管理員用戶端]，然後貼上新用戶端憑證的指紋。 然後，其會按一下 [新增]。 此作業可能需要 15 分鐘的時間。
 
      ![新增用戶端憑證](./media/contoso-migration-rearchitect-container-sql/cert8.png)
 
-## <a name="step-5-migrate-the-database-with-dma"></a>步驟 5：使用 DMS 遷移資料庫
+## <a name="step-5-migrate-the-database-with-dma"></a>步驟 5：使用 DMS 移轉資料庫
 
 Contoso 管理員現在可以使用 DMA 來移轉 SmartHotel360 資料庫。
 
@@ -319,7 +320,7 @@ Contoso 管理員現在可以使用 DMA 來移轉 SmartHotel360 資料庫。
 
 ### <a name="migrate"></a>移轉
 
-Contoso 管理員現在會遷移資料庫。
+Contoso 管理員現在會移轉資料庫。
 
 1. 在 DMA 中建立新專案 (**SmartHotelDB**)，然後選取 [移轉] 
 2. 他們將來源伺服器類型選取為 [SQL Server]，並以 **Azure SQL Database** 作為目標。 
@@ -359,21 +360,18 @@ Contoso 管理員現在會遷移資料庫。
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
 
 
-## <a name="step-6-set-up-vsts"></a>步驟 6：設定 VSTS
+## <a name="step-6-set-up-azure-devops-services"></a>步驟 6：設定 Azure DevOps Services
 
-Contoso 需要為應用程式建置 DevOps 基礎結構和管線。  為了這麼做，Contoso 管理員會建立新的 VSTS 專案、匯入其程式碼，然後建置並發行管線。
+Contoso 需要為應用程式建置 DevOps 基礎結構和管線。  為此，Contoso 管理員會建立新的 Azure DevOps 專案、匯入其程式碼，然後建置並發行管線。
 
-1.   Contoso 會在其 VSTS 帳戶中建立新的專案 (**ContosoSmartHotelRearchitect**)，然後選取 [Git] 來進行版本控制。
-
-    ![新增專案](./media/contoso-migration-rearchitect-container-sql/vsts1.png)
+1.   在 Contoso Azure DevOps 帳戶中，他們會建立一個新專案 (**ContosoSmartHotelRearchitect**)，然後選取 [Git] 來進行版本控制。
+![新增專案](./media/contoso-migration-rearchitect-container-sql/vsts1.png)
 
 2. 其會匯入目前保有其應用程式程式碼的 Git 存放庫。 此程式碼位於[公用存放庫](https://github.com/Microsoft/SmartHotel360-internal-booking-apps)，所以可供下載。
 
     ![下載應用程式程式碼](./media/contoso-migration-rearchitect-container-sql/vsts2.png)
 
 3. 其會在匯入程式碼後，將 Visual Studio 連線至存放庫，並使用 Team Explorer 複製程式碼。
-
-    ![連線至存放庫](./media/contoso-migration-rearchitect-container-sql/vsts3.png)
 
 4. 其會在將存放庫複製到開發人員的機器後，開啟應用程式的解決方案檔案。 Web 應用程式和 wcf 服務各在檔案中擁有不同的專案。
 
@@ -424,19 +422,19 @@ Contoso 管理員會使用 Visual Studio 和 SDK Tools 將應用程式轉換成�
 
     ![連接字串](./media/contoso-migration-rearchitect-container-sql/container8.png)
 
-10. 其會認可更新後的程式碼並推送至 VSTS。
+10. 他們會認可更新過的程式碼並推送至 Azure DevOps Services。
 
     ![認可](./media/contoso-migration-rearchitect-container-sql/container9.png)
 
-## <a name="step-8-build-and-release-pipelines-in-vsts"></a>步驟 8：VSTS 中的建置和發行管線
+## <a name="step-8-build-and-release-pipelines-in-azure-devops-services"></a>步驟 8：Azure DevOps Services 中的建置和發行管線
 
-Contoso 管理員現在會設定 VSTS，使其執行建置和發行程序以採取 DevOps 做法。
+Contoso 管理員現在會設定 Azure DevOps Services 來執行建置和發行程序，以實施 DevOps 做法。
 
-1. 在 VSTS 中，其會按一下 [建置和發行] > [新增管線]。
+1. 在 Azure DevOps Services 中，他們會按一下 [建置及發行] > [新增管線]。
 
     ![新增管線](./media/contoso-migration-rearchitect-container-sql/pipeline1.png)
 
-2. 其會選取 [VSTS Git] 和相關的存放庫。
+2. 他們會選取 [Azure DevOps Services Git] 及相關的存放庫。
 
     ![Git 和存放庫](./media/contoso-migration-rearchitect-container-sql/pipeline2.png)
 
@@ -444,25 +442,25 @@ Contoso 管理員現在會設定 VSTS，使其執行建置和發行程序以採�
 
      ![網狀架構和 Docker](./media/contoso-migration-rearchitect-container-sql/pipeline3.png)
     
-4. 其會將標記映像變更為建置映像，並設定工作來使用已佈建的 ACR。
+4. 他們會將 [動作] 從 [標記映像] 變更為 [建置映像]，並將工作設定成使用已佈建的 ACR。
 
      ![登錄](./media/contoso-migration-rearchitect-container-sql/pipeline4.png)
 
-5. 在 [推送映像] 工作中，其會將映像設定為推送至 ACR，並選取要包含最新的標記。
+5. 在 [推送映像] 工作中，他們會將映像設定成推送至 ACR，並選取要包含最新的標記。
 6. 在 [觸發程序] 中，其會啟用持續整合，並新增主要分支。
 
     ![觸發程序](./media/contoso-migration-rearchitect-container-sql/pipeline5.png)
 
 7. 其會按一下 [儲存並加入佇列] 以啟動建置作業。
-8. 建置成功之後，其會繼續處理發行管線。 在 VSTS 中，其會按一下 [發行] > [新增管線]。
+8. 建置成功之後，其會繼續處理發行管線。 在 Azure DevOps Services 中，他們會按一下 [發行] > [新增管線]。
 
     ![發行管線](./media/contoso-migration-rearchitect-container-sql/pipeline6.png)    
 
-9. 其會選取 [Azure Service Fabric 部署] 範本，並為環境命名 (**SmartHotelSF**)。
+9. 他們會選取 [Azure Service Fabric 部署] 範本，並為階段命名 (**SmartHotelSF**)。
 
     ![環境](./media/contoso-migration-rearchitect-container-sql/pipeline7.png)
 
-10. 其會提供管線名稱 (**ContosoSmartHotelRearchitect**)。 針對環境，其會按一下 [1 個階段 1 個工作] 以設定 Service Fabric 部署。
+10. 他們會提供管線名稱 (**ContosoSmartHotel360Rearchitect**)。 針對此階段，他們會按一下 [1 個作業, 1 個工作] 以設定 Service Fabric 部署。
 
     ![階段和工作](./media/contoso-migration-rearchitect-container-sql/pipeline8.png)
 
@@ -470,7 +468,7 @@ Contoso 管理員現在會設定 VSTS，使其執行建置和發行程序以採�
 
     ![新增連線](./media/contoso-migration-rearchitect-container-sql/pipeline9.png)
 
-12. 在 [新增 Service Fabric 服務連線] 中，其會設定連線以及 VSTS 會用來部署應用程式的驗證設定。 叢集端點可以在 Azure 入口網站中找到，而且其會新增 **tcp://** 以作為前置詞。
+12. 在 [新增 Service Fabric 服務連線] 中，他們會設定連線，以及將供 Azure DevOps Services 用來部署應用程式的驗證設定。 叢集端點可以在 Azure 入口網站中找到，而且其會新增 **tcp://** 以作為前置詞。
 13. 其所收集的憑證資訊會輸入到 [伺服器憑證指紋] 和 [用戶端憑證]。
 
     ![憑證](./media/contoso-migration-rearchitect-container-sql/pipeline10.png)
@@ -499,7 +497,7 @@ Contoso 管理員現在會設定 VSTS，使其執行建置和發行程序以採�
 
     ![發佈](./media/contoso-migration-rearchitect-container-sql/publish4.png)
 
-19. 為了連線至應用程式，其會將流量導向 Azure 負載平衡器的公用 IP 位址 (位於 Service Fabric 節點的前面)。
+19. 為了連線至應用程式，他們會將流量導向到 Service Fabric 節點前 Azure 負載平衡器的公用 IP 位址。
 
     ![發佈](./media/contoso-migration-rearchitect-container-sql/publish5.png)
 
@@ -580,7 +578,7 @@ Contoso 管理員現在會設定 VSTS，使其執行建置和發行程序以採�
 
 擴充應用程式之後，Contoso 管理員會使用管線將其重新發行到 Azure。
 
-1. 其會認可程式碼並推送至 VSTS。 這會啟動建置和發行管線。
+1. 他們會認可其程式碼並推送至 Azure DevOps Services。 這會啟動建置和發行管線。
 
 2. 建置和部署作業完成之後，SmartHotel360 現在會執行 Service Fabric。 Servie Fabric 管理主控台現在會顯示三個服務。
 
@@ -626,7 +624,7 @@ Contoso 管理員現在會設定 VSTS，使其執行建置和發行程序以採�
 
 ## <a name="conclusion"></a>結論
 
-在本文中，Contoso 已透過將應用程式前端 VM 移轉至 Service Fabric，來重構 SmartHotel360 應用程式。 應用程式資料庫已遷移至 Azure SQL Database。
+在此文章中，Contoso 已透過將應用程式前端 VM 移轉至 Service Fabric，來重構 SmartHotel360 應用程式。 應用程式資料庫已移轉到 Azure SQL Database。
 
 
 

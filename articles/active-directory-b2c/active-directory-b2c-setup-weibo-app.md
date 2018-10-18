@@ -7,20 +7,20 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 06a79250bac977fc4ade7853594c5307bb11d983
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4600ec9d76f682f0dedf8c802d23b32fd6126481
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336940"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181493"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以微博帳戶登入
 
 > [!NOTE]
-> 這項功能處於預覽狀態。
+> 此功能處於預覽狀態。
 > 
 
 ## <a name="create-a-weibo-application"></a>建立 Weibo 應用程式
@@ -45,20 +45,13 @@ ms.locfileid: "43336940"
 6. 選取 [保存以上信息]\(儲存\)。
 7. 選取 [高级信息]\(進階資訊\)。
 8. 選取 OAuth2.0 [授权设置] (\重新導向 URL\) 旁的 [编辑] \(編輯\)。
-9. 針對 OAuth2.0 [授权设置] \(重新導向 URL) 輸入 `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp`。 例如，如果您的 `tenant_name` 是 contoso，請將 URL 設為 `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`。
+9. 針對 OAuth2.0 [授权设置] \(重新導向 URL) 輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`。 例如，如果您的租用戶名稱是 contoso，請將 URL 設定為 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`。
 10. 選取 [提交]。  
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>將微博帳戶設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 Azure 入口網站的右上角切換到您的 Azure AD B2C 租用戶，確定您使用的目錄包含該租用戶。 選取您的訂用帳戶資訊，然後選取 [切換目錄]。 
-
-    ![切換為您的 Azure AD B2C 租用戶](./media/active-directory-b2c-setup-weibo-app/switch-directories.png)
-
-    選擇包含您租用戶的目錄。
-
-    ![選取目錄](./media/active-directory-b2c-setup-weibo-app/select-directory.png)
-
+2. 按一下頂端功能表中的**目錄和訂用帳戶篩選**，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 4. 選取 [識別提供者]，然後選取 [新增]。
 5. 提供 [名稱]。 例如，輸入*微博*。

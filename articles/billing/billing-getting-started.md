@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
-ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919121"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422995"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
-當您註冊 Azure 時，為了深入了解您的支出，有幾件事您可以做。 [定價計算機](https://azure.microsoft.com/pricing/calculator/)可以在您建立 Azure 資源之前提供成本估計值。 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)可為您提供目前的成本明細和您訂用帳戶的預測。 如果您需要將不同專案或小組的成本分組並加以了解，請查看[資源標記](../azure-resource-manager/resource-group-using-tags.md)。 如果您的組織有您偏好使用的報告系統，請查看[計費 API](billing-usage-rate-card-overview.md)。 
+當您註冊 Azure 時，為了深入了解您的支出，有幾件事您可以做。 [定價計算機](https://azure.microsoft.com/pricing/calculator/)可以在您建立 Azure 資源之前提供成本估計值。 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)可為您提供目前的成本明細和您訂用帳戶的預測。 如果您需要將不同專案或小組的成本分組並進行了解，請查看[資源標記](../azure-resource-manager/resource-group-using-tags.md)。 如果您的組織有您偏好使用的報告系統，請查看[計費 API](billing-usage-rate-card-overview.md)。 
 
 - 如果您的訂用帳戶屬於 Enterprise 合約 (EA)，可使用上線的 Azure 入口網站費用公開預覽功能。 如果您透過雲端解決方案提供者 (CSP) 或 Azure 贊助取得訂用帳戶，以下某些功能可能不適用於您。 如需詳細資訊，請參閱[適用於 EA、CSP 和贊助的其他資源](#other-offers)。
 
@@ -54,17 +54,6 @@ ms.locfileid: "42919121"
 一般而言，當您在 Azure 入口網站中新增服務時，會有一個檢視向您顯示類似的每月預估成本。 例如，當您選擇 Windows VM 的大小時，會看到計算時數的預估每月成本：
 
 ![範例︰A1 Windows VM 預估每月成本為 $66.96 美元](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>設定帳務警示
-
-設定帳務警示，以便在使用成本超過您指定的金額時，收到電子郵件通知。 如果您有每月信用額度，請依照您設定指定金額時的額度設定警示。 如需詳細資訊，請參閱[為您的 Microsoft Azure 訂用帳戶設定帳單通知](billing-set-up-alerts.md)。
-
-![帳務警示電子郵件的螢幕擷取畫面](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> 這項功能是仍處於預覽狀態，因此您應該定期檢查您的使用量。
-
-您可能需要使用價格計算機的成本估計當作您第一個警示的指導方針。
 
 ### <a name="spending-limit"></a> 檢查您是否開啟消費限制
 
@@ -124,7 +113,7 @@ ms.locfileid: "42919121"
 
 ### <a name="turn-on-and-check-out-azure-advisor-recommendations"></a>開啟並查看 Azure 建議程式的建議
 
-[Azure 建議程式](../advisor/advisor-overview.md)是一項功能，可協助您藉由找出低使用率的資源來降低成本。 在 Azure 入口網站中造訪 Adviso：
+[Azure 建議程式](../advisor/advisor-overview.md)是一個功能，可協助您透過找出低使用率的資源來降低成本。 在 Azure 入口網站中造訪 Adviso：
 
 ![Azure 入口網站中 Azure 建議程式按鈕的螢幕擷取畫面](./media/billing-getting-started/advisor-button.PNG)
 
@@ -166,7 +155,7 @@ ms.locfileid: "42919121"
     - 您是部門管理員且您的申請管理員已停用「DA 檢視費用」設定。  請連絡您的申請管理員以取得存取權。 
     - 您透過管道夥伴購買 Azure，且該夥伴未發佈價格資訊。  
 - 企業版入口網站中與費用存取權相關的設定更新後，Azure 入口網站會延遲幾分鐘才反映該變更。
-- 消費限制、付款警示和發票指引不適用於 EA 訂用帳戶。
+- 消費限制和發票指導方針不適用於 EA 訂用帳戶。
 
 ### <a name="check-your-subscription-and-access"></a>檢查訂用帳戶和存取權
 

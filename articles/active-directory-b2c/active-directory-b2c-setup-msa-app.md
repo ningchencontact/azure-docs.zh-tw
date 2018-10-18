@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e9c42429a8feb60ade27afe998cb9a267f1603dd
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43341078"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180898"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Microsoft 帳戶登入
 
@@ -25,23 +25,16 @@ ms.locfileid: "43341078"
 
 1. 請使用您的 Microsoft 帳戶認證登入 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)。
 2. 在右上角選取 [新增應用程式]。
-3. 為應用程式提供 [名稱]，然後按一下 [建立]。
-4. 在註冊頁面上，複製 [應用程式識別碼] 的值。您必須使用此值，在租用戶中將 Microsoft 帳戶設定為識別提供者。
+3. 輸入應用程式的**名稱**。 例如 *MSAapp1*。
+4. 選取 [產生新密碼]，並確定您會複製該密碼，以便在設定識別提供者時使用。 此外，還要複製**應用程式識別碼**。 
 5. 選取 [新增平台]，然後選擇 [Web]。
-6. 在 [重新導向 URL] 中，輸入 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c) 來取代 **{tenant}**。
-7. 在 [應用程式密碼] 下，選取 [產生新密碼]。 複製螢幕上顯示的新密碼。 您必須使用此值，在租用戶中將 Microsoft 帳戶設定為識別提供者。 此密碼是重要的安全性認證。
+4. 在 [重新導向 URL] 中，輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`。 以您的租用戶名稱取代 `your-tenant-name`。
+5. 選取 [ **儲存**]。
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>將 Microsoft 帳戶設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 Azure 入口網站的右上角切換到您的 Azure AD B2C 租用戶，確定您使用的目錄包含該租用戶。 選取您的訂用帳戶資訊，然後選取 [切換目錄]。 
-
-    ![切換為您的 Azure AD B2C 租用戶](./media/active-directory-b2c-setup-msa-app/switch-directories.png)
-
-    選擇包含您租用戶的目錄。
-
-    ![選取目錄](./media/active-directory-b2c-setup-msa-app/select-directory.png)
-
+2. 按一下頂端功能表中的**目錄和訂用帳戶篩選**，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 4. 選取 [識別提供者]，然後選取 [新增]。
 5. 提供 [名稱]。 例如，輸入 *MSA*。

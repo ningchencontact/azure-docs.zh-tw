@@ -1,26 +1,26 @@
 ---
 title: Azure 媒體服務 v3 版本資訊 | Microsoft Docs
-description: 為了讓您隨時掌握最新的開發訊息，本文提供 Azure 媒體服務 v3 最新資訊。
+description: 為了讓您隨時掌握最新的開發訊息，此文章提供 Azure 媒體服務 v3 最新資訊。
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: fc6c5ba6cd97c261dd44eade33bf21e8d1b74bf0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ed2550c1df4645933fb968c54ee536995c810136
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782637"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219317"
 ---
 # <a name="azure-media-services-v3-preview-release-notes"></a>Azure 媒體服務 v3 (預覽) 版本資訊 
 
-為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
+為了讓您隨時掌握最新的開發訊息，此文章提供下列相關資訊：
 
 * 最新版本
 * 已知問題
@@ -39,13 +39,11 @@ ms.locfileid: "33782637"
 3. **StreamingPolicies** 和 **ContentKeyPolicies**，當傳遞內容時，可設定金鑰傳遞和內容保護 (DRM)。
 4. **LiveEvents** 和 **LiveOutputs**，可設定內嵌和封存即時串流內容。
 5. **資產**，可在 Azure 儲存體中儲存及發佈媒體內容。 
-6. **StreamingEndpoint**，可設定和擴展動態封裝、 加密和串流處理實況和點播媒體內容。
+6. **StreamingEndpoint**，可設定和擴展動態套件、 加密和串流處理實況和點播媒體內容。
 
 ### <a name="known-issues"></a>已知問題
 
-已知問題︰
-
-當提交的工作有一個指向來源內容的 HTTPS URL (JobInputHttp) 時，請確定 HTTP 伺服器支援 'HEAD' 要求。 否則，會拒絕該工作。
+* 提交工作時，您可以使用 HTTPS URL、SAS URL 或位於 Azure Blob 儲存體中檔案的路徑來指定內嵌您的來源影片。 目前，AMS v3 不支援透過 HTTPS URL 的區塊傳送編碼。
 
 ## <a name="next-steps"></a>後續步驟
 

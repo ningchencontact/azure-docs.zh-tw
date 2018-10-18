@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure 雲端服務之連線能力和網路服務問題的常見問題集 | Microsoft Docs
-description: 本文列出 Microsoft Azure 雲端服務之連線能力和網路服務的相關常見問題集。
+description: 此文章列出 Microsoft Azure 雲端服務之連線能力和網路服務的相關常見問題集。
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -13,18 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: ab0fa22e9ba776db3d4af301499545f6e0822478
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 034d59c39628a08c389c5ceb67c5872bbea10d59
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070159"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223163"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之連線能力和網路服務問題：常見問題集 (FAQ)
 
-本文包含 [Azure 雲端服務](https://azure.microsoft.com/services/cloud-services)之連線能力和網路服務問題的相關常見問題集。 如需有關規模大小的資訊，請參閱[雲端服務 VM 大小頁面](cloud-services-sizes-specs.md)。
+此文章包含 [Azure 雲端服務](https://azure.microsoft.com/services/cloud-services)之連線能力和網路服務問題的相關常見問題集。 如需有關規模大小的資訊，請參閱[雲端服務 VM 大小頁面](cloud-services-sizes-specs.md)。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -38,7 +38,7 @@ ms.locfileid: "34070159"
 
 否，不能使用一般的 "ping"/ICMP 通訊協定來進行。 不允許透過 Azure Load Balancer 進行 ICMP 通訊協定。
 
-若要測試連線能力，建議您進行連接埠偵測。 當 Ping.exe 使用 ICMP 時，您可以使用諸如 PSPing、Nmap 及 telnet 等其他工具來測試對特定 TCP 通訊埠的連線。
+若要測試連線能力，建議您進行連接埠偵測。 當 Ping.exe 使用 ICMP 時，您可以使用諸如 PSPing、Nmap 及 telnet 等其他工具來測試對特定 TCP 連接埠的連線。
 
 如需詳細資訊，請參閱[使用連接埠偵測而非 ICMP 來測試 Azure VM 連線能力](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/)。
 
@@ -110,3 +110,19 @@ IIS 的 URL Rewrite 模組可用來將流向雲端服務 (例如，\*.cloudapp.n
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>如何使用 Azure Resource Manager 虛擬網路搭配雲端服務？ 
 
 雲端服務不能放在 Azure Resource Manager 虛擬網路中。 資源管理員虛擬網路和傳統部署虛擬網路都可以透過對等互連來連線。 如需詳細資訊，請參閱[虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md)。
+
+
+## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>如何取得我雲端服務所使用的公用 IP 清單？
+
+您可以使用下列 PS 指令碼來取得您訂用帳戶下雲端服務的公用 IP 清單
+
+    $services = Get-AzureService  | Group-Object -Property ServiceName
+
+    foreach ($service in $services) 
+    {
+        "Cloud Service '$($service.Name)'"
+
+        $deployment = Get-AzureDeployment -ServiceName $service.Name 
+        "VIP - " +  $deployment.VirtualIPs[0].Address
+        "================================="
+    }

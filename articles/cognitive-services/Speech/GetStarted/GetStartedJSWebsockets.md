@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995341"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342393"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>開始在 JavaScript 中使用語音辨識 API
+# <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>以 JavaScript 開始使用語音辨識 API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 您可以使用「語音辨識 API」來開發將語音轉換成文字的應用程式。 JavaScript 用戶端程式庫使用[語音服務 WebSocket 通訊協定](../API-Reference-REST/websocketprotocol.md)，這可讓您在說話的同時接收轉譯的文字。 本文將協助您以 JavaScript 開始使用「語音辨識 API」。
 

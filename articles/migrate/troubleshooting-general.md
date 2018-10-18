@@ -1,23 +1,23 @@
 ---
-title: 為 Azure Migrate 問題進行疑難排解 | Microsoft Docs
+title: 針對 Azure Migrate 問題進行疑難排解 | Microsoft Docs
 description: 概括介紹 Azure Migrate 服務的已知問題以及常見錯誤的疑難排解訣竅。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/28/2018
 ms.author: raynew
-ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126356"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433492"
 ---
-# <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
+# <a name="troubleshoot-azure-migrate"></a>針對 Azure Migrate 疑難排解
 
 ## <a name="troubleshoot-common-errors"></a>常見問題疑難排解
 
-[Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 本文可對 Azure Migrate 部署與使用方面的問題進行疑難排解。
+[Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 此文章可對 Azure Migrate 部署與使用方面的問題進行疑難排解。
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>移轉專案建立失敗，發生「要求必須包含使用者識別標頭」錯誤。
 
@@ -34,6 +34,12 @@ ms.locfileid: "43126356"
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>我已經安裝代理程式，並使用相依性視覺化建立群組。 現在，在容錯移轉後，機器會顯示「安裝代理程式」動作，而不是「檢視相依性」。
 * 在已規劃或未規劃的容錯移轉後，內部部署機器都會關閉，而且對等的機器會在 Azure 中啟動。 這些機器會取得不同的 MAC 位址。 根據使用者是否選擇保留內部部署 IP 位址，這些機器可能會取得不同的 IP 位址。 如果 MAC 及 IP 位址不同，Azure Migrate 不會使內部部署機器與任何服務對應相依性資料產生關聯，而會要求使用者安裝代理程式，而不是檢視相依性。
 * 在測試容錯移轉後，內部部署機器如預期保持開啟。 在 Azure 中啟動的對等機器會取得不同的 MAC 位址，而且可能會取得不同的 IP 位址。 除非使用者封鎖這些機器傳出的 Log Analytics 流量，否則 Azure Migrate 不會使內部部署機器與任何服務對應相依性資料產生關聯，而會要求使用者安裝代理程式，而不是檢視相依性。
+
+### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>我在建立移轉專案時指定了某個 Azure 地理位置，要如何找出將儲存所探索到中繼資料的確切 Azure 區域？
+
+您可以前往專案 [概觀] 頁面中的 [基本資訊] 區段，以識別中繼資料的確切儲存位置。 Azure Migrate 會隨機選取該地理位置內的位置，您無法予以修改。 如果您只想在特定區域中建立專案，則可以使用 REST API 來建立移轉專案並傳遞所需的區域。
+
+   ![專案位置](./media/troubleshooting-general/geography-location.png)
 
 ## <a name="collector-errors"></a>收集器錯誤
 
@@ -57,7 +63,7 @@ ms.locfileid: "43126356"
 
 **收集器無法使用我從入口網站複製的專案識別碼和金鑰連線到專案。**
 
-請確定已複製並貼上正確的資訊。 若要疑難排解，請安裝 Microsoft Monitoring Agent (MMA) 並確認 MMA 是否可以連線至專案，如下所示：
+請確定已複製並貼上正確的資訊。 若要進行疑難排解，請安裝 Microsoft Monitoring Agent (MMA) 並確認 MMA 是否可以連線至專案，如下所示：
 
 1. 在收集器虛擬機器上，下載 [MMA](https://go.microsoft.com/fwlink/?LinkId=828603)。
 2. 若要開始安裝，請按兩下下載的檔案。
@@ -78,7 +84,7 @@ ms.locfileid: "43126356"
 
 ### <a name="vmware-powercli-installation-failed"></a>VMware PowerCLI 安裝失敗
 
-Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 PowerCLI 安裝失敗可能是因為無法連線到 PowerCLI 儲存機制的端點。 若要解決問題，請試著使用下列步驟，在收集器 VM 中手動安裝 PowerCLI：
+Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 PowerCLI 安裝失敗可能是因為無法連線到 PowerCLI 存放庫的端點。 若要解決問題，請試著使用下列步驟，在收集器 VM 中手動安裝 PowerCLI：
 
 1. 在系統管理員模式下開啟 Windows PowerShell
 2. 移至目錄 C:\ProgramFiles\ProfilerService\VMWare\Scripts\
@@ -86,9 +92,11 @@ Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 Po
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>發生 Error UnhandledException Internal 錯誤: System.IO.FileNotFoundException
 
-這是收集器 1.0.9.5 以下版本所出現的問題。 如果您是使用收集器 1.0.9.2 版或 pre-GA 版本 (例如 1.0.8.59)，就會遇到這個問題。 請遵循[這裡提供的論壇連結以取得詳細的解答](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate)。
+如果 VMware PowerCLI 安裝發生問題，便可能發生此問題。 請依照下列步驟來解決問題：
 
-[升級收集器來修正這個問題](https://aka.ms/migrate/col/checkforupdates)。
+1. 如果您不是使用最新版的收集器設備，請[將您的收集器升級至最新版本](https://aka.ms/migrate/col/checkforupdates)，然後檢查此問題是否已解決。
+2. 如果您已經有最新的收集器版本，請手動安裝 [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016)，然後檢查此問題是否已解決。
+3. 如果上述步驟無法解決問題，請瀏覽至 C:\Program Files\ProfilerService 資料夾並移除資料夾中的 VMware.dll 和 VimService65.dll 檔案，然後在 [Windows 服務管理員] 中重新啟動 [Azure Migrate 收集器] 服務 (開啟 [執行] 並輸入 'services.msc' 以開啟 [Windows 服務管理員])。
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
@@ -103,7 +111,38 @@ Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 Po
 3. 識別連線至 vCenter 的正確連接埠號碼。
 4. 最後，請檢查 vCenter 伺服器是否啟動且正在執行。
 
-## <a name="troubleshoot-readiness-issues"></a>整備問題的疑難排解
+## <a name="troubleshoot-dependency-visualization-issues"></a>針對相依性視覺效果問題進行疑難排解
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>我在內部部署 VM 上安裝了 Microsoft Monitoring Agent (MMA) 和相依性代理程式，但相依性未出現在 Azure Migrate 入口網站中。
+
+在您安裝代理程式之後，Azure Migrate 通常需要 15-30 分鐘的時間，才會在入口網站中顯示相依性。 如果您等候的時間超過 30 分鐘，請依照下列步驟進行操作，以確定 MMA 代理程式能夠與 OMS 工作區溝通：
+
+針對 Windows VM：
+1. 移至 [控制台]，然後啟動 [Microsoft Monitoring Agent]
+2. 在 MMA 屬性快顯視窗中，移至 [Azure Log Analytics (OMS)] 索引標籤
+3. 確定工作區的 [狀態] 為綠色。
+4. 如果狀態不是綠色，請嘗試移除該工作區，然後再次新增至 MMA。
+        ![MMA 狀態](./media/troubleshooting-general/mma-status.png)
+
+針對 Linux VM，請確定 MMA 和相依性代理程式的安裝命令已成功。
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>MMA 支援哪些作業系統？
+
+MMA 所支援的 Windows 作業系統清單在[這裡](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)。
+MMA 所支援的 Linux 作業系統清單在[這裡](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems)。
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>相依性代理程式支援哪些作業系統？
+
+相依性代理程式所支援的 Windows 作業系統清單在[這裡](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems)。
+相依性代理程式所支援的 Linux 作業系統清單在[這裡](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)。
+
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>在 Azure Migrate 中將相依性視覺化的持續時間是否無法超過一小時？
+Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。 雖然 Azure Migrate 最多可讓您返回歷程記錄中過去一個月的特定日期，但您可將相依性視覺化的持續時間最多為 1 小時。 例如，您可以使用相依性對應中的持續時間功能來檢視昨天的相依性，但只能檢視它一小時。
+
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>如果群組所含的 VM 超過 10 個，是否無法將其相依性視覺化？
+針對所含 VM 在 10 個以內的群組，您可以[將群組的相依性視覺化](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies)，如果您的群組所含 VM 超過 10 個，則建議您先將群組分割成較小的群組，再將相依性視覺化。
+
+## <a name="troubleshoot-readiness-issues"></a>針對整備問題進行疑難排解
 
 **問題** | 修正
 --- | ---

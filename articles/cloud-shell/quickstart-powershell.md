@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (預覽) 中的 PowerShell 快速入門 | Microsoft Docs
+title: Azure Cloud Shell 中的 PowerShell 快速入門 | Microsoft Docs
 description: Cloud Shell 中 PowerShell 的快速入門
 services: Azure
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: cb4b7f8851c6c891ca43f6c215ba812a0c784d28
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 83fb07d718681a9d14176868d11b45a199f60543
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108133"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166182"
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell 中 PowerShell 的快速入門 (預覽)
+# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell 中 PowerShell 的快速入門
 
-本文件會詳細說明如何在 [Azure 入口網站](https://aka.ms/PSCloudPreview)中使用 Azure Cloud Shell 中的 PowerShell。
+此文件會詳細說明如何在 [Azure 入口網站](https://portal.azure.com/)中使用 Azure Cloud Shell 中的 PowerShell。
 
 > [!NOTE]
 > 也提供 [Azure Cloud Shell 中的 Bash](quickstart.md) 快速入門。
@@ -75,7 +75,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
  3. 檢視目前訂用帳戶下的所有 Azure 資源
 
-    鍵入 `dir`，以列出 Azure 資源的多個檢視。
+    輸入 `dir`，以列出 Azure 資源的多個檢視。
 
     ```azurepowershell-interactive
     PS Azure:\MySubscriptionName> dir
@@ -93,7 +93,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
 ### <a name="allresources-view"></a>AllResources 檢視
 
-在 `AllResources` 目錄下鍵入 `dir`，以檢視 Azure 資源。
+在 `AllResources` 目錄下輸入 `dir`，以檢視 Azure 資源。
 
 ```azurepowershell-interactive
 PS Azure:\MySubscriptionName> dir AllResources
@@ -119,7 +119,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 ```
 
 > [!NOTE]
-> 您可能會注意到，第二次鍵入 `dir` 時，Cloud Shell 可以更快速地顯示項目。
+> 您可能會注意到，第二次輸入 `dir` 時，Cloud Shell 可以更快速地顯示項目。
 > 原因是將子項目快取在記憶體中，以獲得較佳的使用者體驗。
 不過，您一律可以使用 `dir -Force` 來取得全新資料。
 
@@ -298,7 +298,7 @@ ssh azureuser@MyVM.Domain.Com
 
 ## <a name="get-help"></a>Get-Help
 
-鍵入 `Get-Help` 以取得 Azure Cloud Shell 中 PowerShell 的相關資訊。
+輸入 `Get-Help` 以取得 Azure Cloud Shell 中 PowerShell 的相關資訊。
 
 ```azurepowershell-interactive
 Get-Help
@@ -341,7 +341,7 @@ Hello World!
 
 ## <a name="exit-the-shell"></a>結束 Shell
 
-鍵入 `exit` 以終止工作階段。
+輸入 `exit` 以終止工作階段。
 
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/

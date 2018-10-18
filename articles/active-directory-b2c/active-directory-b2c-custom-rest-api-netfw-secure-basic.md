@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f157602ce3a9c5b6f15a03ad816d8aece4e22805
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339162"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409298"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>使用 HTTP 基本驗證保護 RESTful 服務
 
@@ -237,18 +237,18 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 6. 在 [密碼] 方塊中，輸入您先前定義的應用程式識別碼。
 
-7. 針對 [金鑰使用方法]，選取 [密碼]。
+7. 針對 [金鑰使用方法] 選取 [簽章]。
 
-8. 選取 [建立] 。
+8. 選取 [建立]。
 
 9. 確認您已建立 `B2C_1A_B2cRestClientId` 金鑰。
 
 ### <a name="step-32-add-a-restful-services-client-secret"></a>步驟 3.2：新增 RESTful 服務用戶端密碼
 1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。
 
-2. 選取**原則金鑰**以檢視您的租用戶中可用的金鑰。
+2. 選取 [原則金鑰] 以檢視您的租用戶中可用的金鑰。
 
-3. 選取 [新增] 。
+3. 選取 [新增]。
 
 4. 針對 [選項]，選取 [手動]。
 
@@ -257,9 +257,9 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 6. 在 [密碼] 方塊中，輸入您先前定義的應用程式密碼。
 
-7. 針對 [金鑰使用方法]，選取 [密碼]。
+7. 針對 [金鑰使用方法] 選取 [簽章]。
 
-8. 選取 [建立] 。
+8. 選取 [建立]。
 
 9. 確認您已建立 `B2C_1A_B2cRestClientSecret` 金鑰。
 
@@ -270,7 +270,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 3. 找出 `<Metadata>` 元素。
 
-4. 將 AuthenticationType 變更為 Basic，如下所示：
+4. 將 *AuthenticationType* 變更為 *Basic*，如下所示：
     ```xml
     <Item Key="AuthenticationType">Basic</Item>
     ```

@@ -4,18 +4,20 @@ description: 如何從 Azure IoT Central 應用程式匯出資料
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/3/2018
-ms.topic: article
-ms.prod: azure-iot-central
+ms.date: 09/18/2018
+ms.topic: conceptual
+ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 3ca2bc56c03e5bbabbd9b2f17edc621bdd94b02f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 86128abd82ee41459a84fc7d9169042179807793
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622478"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034904"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>匯出 Azure IoT Central 中的資料
+
+*此主題適用於系統管理員。*
 
 此文章說明如何使用 Azure IoT Central 中的連續資料匯出功能定期將資料匯出到您的 Azure Blob 儲存體帳戶。 您能以 [Apache AVRO](https://avro.apache.org/docs/current/index.html) 格式的檔案匯出**量測**、**裝置**和**裝置範本**。 所匯出的資料可用來進行冷路徑分析 (例如，在 Azure Machine Learning 中為模型定型) 或在 Microsoft Power BI 中進行長期趨勢分析。
 
@@ -33,10 +35,10 @@ ms.locfileid: "39622478"
 
 ### <a name="measurements"></a>量測
 
-裝置所傳送的量測每隔一分鐘就會匯出至您的儲存體帳戶。 該資料有 IoT Central 在該時段內從所有裝置接收的所有新訊息。 所匯出 AVRO 檔案的格式，會和 [IoT 中樞訊息路由](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)匯出至 Blob 儲存體的訊息檔案格式相同。
+裝置所傳送的量測每隔一分鐘就會匯出至您的儲存體帳戶。 該資料有 IoT Central 在該時段內從所有裝置接收的所有新訊息。 所匯出 AVRO 檔案的格式，會和 [IoT 中樞訊息路由](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)匯出至 Blob 儲存體的訊息檔案格式相同。
 
 > [!NOTE]
-> 傳送量測的裝置會以裝置識別碼來表示 (請參閱以下各節)。 若要取得裝置名稱，請匯出裝置快照集。 使用符合裝置識別碼的 **connectionDeviceId** 來建立每個訊息記錄。
+> 傳送量測的裝置會以裝置識別碼來表示 (請參閱以下各節)。 若要取得裝置名稱，請匯出裝置快照集。 請使用與裝置記錄之 **deviceId** 相符的 **connectionDeviceId** 來相互關聯每個訊息記錄。
 
 下列範例顯示已解碼之 AVRO 檔案中的範例：
 
@@ -45,9 +47,9 @@ ms.locfileid: "39622478"
     "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
     "Properties": {},
     "SystemProperties": {
-        "connectionDeviceId": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+        "connectionDeviceId": "<connectionDeviceId>",
         "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "636614021491644195",
+        "connectionDeviceGenerationId": "<generationId>",
         "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
     },
     "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
@@ -56,12 +58,13 @@ ms.locfileid: "39622478"
 
 ### <a name="devices"></a>裝置
 
-當第一次開啟「連續資料匯出」時，會匯出包含所有裝置的單一快照集。 快照集包括：
-- 裝置識別碼。
-- 裝置名稱。
-- 裝置範本識別碼。
-- 屬性值。
-- 設定值。
+當第一次開啟「連續資料匯出」時，會匯出包含所有裝置的單一快照集。 每個裝置包含：
+- IoT Central 中裝置的 `id`
+- 裝置的 `name`
+- 來自[裝置佈建服務](https://aka.ms/iotcentraldocsdps) 的 `deviceId`
+- 裝置範本資訊
+- 屬性值
+- 設定值
 
 系統每隔一分鐘就會寫入新的快照集。 快照集包括：
 
@@ -73,15 +76,16 @@ ms.locfileid: "39622478"
 >
 > 每個裝置所屬的裝置範本會以裝置範本識別碼來表示。 若要取得裝置範本的名稱，請匯出裝置範本快照集。
 
-已解碼 AVRO 檔案中的每個記錄看起來會像下面這樣：
+已解碼 AVRO 檔案中的記錄看起來可能像這樣：
 
 ```json
 {
-    "id": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+    "id": "<id>",
     "name": "Refrigerator 2",
     "simulated": true,
+    "deviceId": "<deviceId>",
     "deviceTemplate": {
-        "id": "c318d580-39fc-4aca-b995-843719821049",
+        "id": "<template id>",
         "version": "1.0.0"
     },
     "properties": {
@@ -104,8 +108,10 @@ ms.locfileid: "39622478"
 
 ### <a name="device-templates"></a>裝置範本
 
-當第一次開啟「連續資料匯出」時，會匯出包含所有裝置範本的單一快照集。 快照集包括： 
-- 裝置範本識別碼。
+當第一次開啟「連續資料匯出」時，會匯出包含所有裝置範本的單一快照集。 每個裝置範本包含：
+- 裝置範本的 `id`
+- 裝置範本的 `name`
+- 裝置範本的 `version`
 - 量測資料類型和最小值/最大值。
 - 屬性資料類型和預設值。
 - 設定資料類型和預設值。
@@ -118,11 +124,11 @@ ms.locfileid: "39622478"
 > [!NOTE]
 > 自上一個快照集以來所刪除的裝置範本則不會匯出。 目前，快照集沒有已刪除之裝置範本的指標。
 
-已解碼 AVRO 檔案中的每個記錄看起來會像下面這樣：
+已解碼 AVRO 檔案中的記錄看起來可能像這樣：
 
 ```json
 {
-    "id": "c318d580-39fc-4aca-b995-843719821049",
+    "id": "<id>",
     "name": "Refrigerated Vending Machine",
     "version": "1.0.0",
     "measurements": {
@@ -209,16 +215,16 @@ ms.locfileid: "39622478"
 
 4. 在 [系統管理] 下，選取 [資料匯出]。
 
-   ![設定連續資料匯出](media/howto-export-data/continuousdataexport.PNG)
-
 5. 在 [儲存體帳戶] 下拉式清單方塊中，選取您的儲存體帳戶。 在 [容器] 下拉式清單方塊中，選取您的容器。 在 [要匯出的資料] 下，透過將類型設定為 [開啟] 以指定每種要匯出的資料類型。
 
-6. 若要開啟連續資料匯出，請將 [資料匯出] 設定為 [開啟]。 選取 [儲存]。
+6. 若要開啟連續資料匯出，請將 [資料匯出] 設定為 [開啟]。 選取 [ **儲存**]。
+
+  ![設定連續資料匯出](media/howto-export-data/continuousdataexport.PNG)
 
 7. 在幾分鐘之後，您的資料就會出現在您的儲存體帳戶中。 瀏覽您的儲存體帳戶。 選取 [瀏覽 Blob] > 您的容器。 您會看到用於匯出資料的三個資料夾。 具有匯出資料之 AVRO 檔案的預設路徑是：
-    - 訊息：{container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - 裝置：{container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - 裝置範本：{container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - 訊息：{container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - 裝置：{container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - 裝置範本：{container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ## <a name="read-exported-avro-files"></a>讀取匯出的 AVRO 檔案
 
@@ -280,7 +286,7 @@ def parse(filePath):
     transformed = pd.DataFrame()
 
     # The device ID is available in the id column.
-    transformed["device_id"] = devices["id"]
+    transformed["device_id"] = devices["deviceId"]
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
@@ -395,7 +401,7 @@ public static async Task Run(string filePath)
                 {
                     // Get the field value directly. You can also yield return
                     // records and make the function IEnumerable<AvroRecord>.
-                    var deviceId = record.GetField<string>("id");
+                    var deviceId = record.GetField<string>("deviceId");
 
                     // The device template information is stored in a sub-record
                     // under the deviceTemplate field.
@@ -411,7 +417,7 @@ public static async Task Run(string filePath)
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
                     
                     Console.WriteLine(
-                        "ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
+                        "Device ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
                         deviceId,
                         templateId,
                         templateVersion,
@@ -524,8 +530,8 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device ID from the id property.
-        const deviceId = record.id;
+        // Fetch the device ID from the deviceId property.
+        const deviceId = record.deviceId;
 
         // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
@@ -535,7 +541,7 @@ async function parse(filePath) {
         const fanSpeed = record.settings.device.fanSpeed;
 
         // Log the retrieved device ID and humidity.
-        console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
+        console.log(`deviceID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 

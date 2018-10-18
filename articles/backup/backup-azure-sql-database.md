@@ -1,6 +1,6 @@
 ---
 title: 將 SQL Server 資料庫備份至 Azure | Microsoft Docs
-description: 本教學課程說明如何將 SQL Server 備份至 Azure。 本文也將說明 SQL Server 復原。
+description: 此教學課程說明如何將 SQL Server 備份至 Azure。 此文章也將說明 SQL Server 復原。
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433559"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434240"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>將 SQL Server 資料庫備份到 Azure
 
 SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要工作負載。 Azure 備份提供不需要任何基礎結構的 SQL Server 備份解決方案：您無需管理複雜的備份伺服器、管理代理程式和備份儲存體。 Azure 備份可針對在所有執行 SQL Server 的伺服器上或甚至不同工作負載上進行的備份，提供集中式管理。
 
-在本文中，您將了解：
+在此文章中，您將了解：
 
 > [!div class="checklist"]
 > * 將 SQL Server 執行個體備份至 Azure 的必要條件。
@@ -36,7 +36,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 > * 如何設定復原點的備份 (或保留) 原則。
 > * 如何還原資料庫。
 
-開始本文中的程序之前，您應該具有在 Azure 中執行的 SQL Server 執行個體。 [使用 SQL Marketplace 虛擬機器快速建立 SQL Server 執行個體](../sql-database/sql-database-get-started-portal.md)。
+開始此文章中的程序之前，您應該具有在 Azure 中執行的 SQL Server 執行個體。 [使用 SQL Marketplace 虛擬機器快速建立 SQL Server 執行個體](../sql-database/sql-database-get-started-portal.md)。
 
 ## <a name="public-preview-limitations"></a>公開預覽限制
 
@@ -108,7 +108,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 - 確認 [SQL 虛擬機器具有網路連線](backup-azure-sql-database.md#establish-network-connectivity)。
 
 > [!NOTE]
-> 您一次只能使用一個備份解決方案來備份 SQL Server 資料庫。 請先停用所有其他 SQL 備份再使用這項功能；否則，備份會受到影響並失敗。 您可以啟用適用於 IaaS VM 的 Azure 備份並搭配 SQL 備份，而不會有任何衝突。
+> 您一次只能使用一個備份解決方案來備份 SQL Server 資料庫。 請先停用所有其他 SQL 備份再使用此功能；否則，備份會受到影響並失敗。 您可以啟用適用於 IaaS VM 的 Azure 備份並搭配 SQL 備份，而不會有任何衝突。
 >
 
 如果環境中存在這些條件，請繼續[設定 SQL Server 資料庫的備份](backup-azure-sql-database.md#configure-backup-for-sql-server-databases)。 如有任何必要條件不存在，則請繼續閱讀。
@@ -265,7 +265,7 @@ Azure 備份會探索 SQL Server 執行個體上的所有資料庫。 您可以�
 Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備份工作。 管理和監視功能取決於您的復原服務保存庫。 
 
 > [!NOTE]
-> 您一次只能使用一個備份解決方案來備份 SQL Server 資料庫。 請先停用所有其他 SQL 備份再使用這項功能；否則，備份會受到影響並失敗。 您可以啟用適用於 IaaS VM 的 Azure 備份並搭配 SQL 備份，而不會有任何衝突。
+> 您一次只能使用一個備份解決方案來備份 SQL Server 資料庫。 請先停用所有其他 SQL 備份再使用此功能；否則，備份會受到影響並失敗。 您可以啟用適用於 IaaS VM 的 Azure 備份並搭配 SQL 備份，而不會有任何衝突。
 >
 
 若要為 SQL 資料庫設定保護：
@@ -284,7 +284,7 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
 
     [備份目標] 功能表會顯示兩個步驟：[探索 VM 中的 DB] 和 [設定備份]。
     
-    如果您已依序完成本文中的步驟，您即已探索到未受保護的虛擬機器，而且此保存庫已向虛擬機器註冊。 您現在可以設定 SQL 資料庫的保護。
+    如果您已依序完成此文章中的步驟，您即已探索到未受保護的虛擬機器，而且此保存庫已向虛擬機器註冊。 您現在可以設定 SQL 資料庫的保護。
     
 5. 在 [備份目標] 功能表中，選取 [設定備份]。
 
@@ -293,7 +293,7 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
     Azure 備份服務會顯示具有獨立資料庫的所有 SQL Server 執行個體，以及 SQL Server Always On 可用性群組。 若要檢視 SQL Server 執行個體中的獨立資料庫，請選取執行個體名稱左邊的＞形箭號。 下圖顯示獨立執行個體和 AlwaysOn 可用性群組的範例。
 
     > [!NOTE]
-    > SQL Server Always On 可用性群組可接受 SQL 備份喜好設定。 但是因為 SQL 平台的限制，完整和差異備份必須從主要節點進行。 備份喜好設定會決定是否記錄備份。 由於這項限制，必須一律為主要節點註冊可用性群組。
+    > SQL Server Always On 可用性群組可接受 SQL 備份喜好設定。 但是因為 SQL 平台的限制，完整和差異備份必須從主要節點進行。 備份喜好設定會決定是否記錄備份。 由於此限制，必須一律為主要節點註冊可用性群組。
     >
 
     ![SQL 執行個體中的資料庫清單](./media/backup-azure-sql-database/discovered-databases.png)
@@ -516,7 +516,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
         * 若要變更目的地伺服器上的還原位置，請在 [目標] 欄中輸入新的路徑。
         * 選取 [確定] 來核准設定。 關閉 [進階設定] 功能表。
 
-    5. 在 [還原] 功能表上，選取 [還原] 以啟動還原作業。 在 [通知] 區域中追蹤還原進度，或藉由選取資料庫功能表上的 [還原作業] 來加以追蹤。
+    5. 在 [還原] 功能表上，選取 [還原] 以啟動還原作業。 在 [通知] 區域中追蹤還原進度，或透過選取資料庫功能表上的 [還原作業] 來進行追蹤。
 
        ![還原作業進度](./media/backup-azure-sql-database/restore-job-notification.png)
 
@@ -544,7 +544,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
         * 若要變更目的地伺服器上的還原位置，請在 [目標] 欄中輸入新的路徑。
         * 選取 [確定] 來核准設定。 關閉 [進階設定] 功能表。
 
-    4. 在 [還原] 功能表上，選取 [還原] 以啟動還原作業。 在 [通知] 區域中追蹤還原進度，或藉由選取資料庫功能表上的 [還原作業] 來加以追蹤。
+    4. 在 [還原] 功能表上，選取 [還原] 以啟動還原作業。 在 [通知] 區域中追蹤還原進度，或透過選取資料庫功能表上的 [還原作業] 來進行追蹤。
 
        ![還原作業進度](./media/backup-azure-sql-database/restore-job-notification.png)
 
@@ -592,7 +592,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
         * 若要變更目的地伺服器上的還原位置，請在 [目標] 欄中輸入新的路徑。
         * 選取 [確定] 來核准設定。 關閉 [進階設定] 功能表。
 
-    5. 在 [還原] 功能表上，選取 [還原] 以啟動還原作業。 在 [通知] 區域中追蹤還原進度，或藉由選取資料庫功能表上的 [還原作業] 來加以追蹤。
+    5. 在 [還原] 功能表上，選取 [還原] 以啟動還原作業。 在 [通知] 區域中追蹤還原進度，或透過選取資料庫功能表上的 [還原作業] 來進行追蹤。
 
        ![還原作業進度](./media/backup-azure-sql-database/restore-job-notification.png)
 
@@ -620,7 +620,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
         * 若要變更目的地伺服器上的還原位置，請在 [目標] 欄中輸入新的路徑。
         * 選取 [確定] 來核准設定。 關閉 [進階設定] 功能表。
 
-    4. 在 [還原] 功能表上，選取 [還原] 以啟動還原作業。 在 [通知] 區域中追蹤還原進度，或藉由選取資料庫功能表上的 [還原作業] 來加以追蹤。
+    4. 在 [還原] 功能表上，選取 [還原] 以啟動還原作業。 在 [通知] 區域中追蹤還原進度，或透過選取資料庫功能表上的 [還原作業] 來進行追蹤。
 
        ![還原作業進度](./media/backup-azure-sql-database/restore-job-notification.png)
 
@@ -814,7 +814,7 @@ backup_size AS BackupSizeInBytes
 
 ### <a name="when-i-select-a-sql-server-instance-are-future-databases-automatically-added"></a>當我選取 SQL Server 執行個體時，系統是否會自動新增之後的資料庫？
 
-否。 在為 SQL Server 執行個體設定保護時，如果您選取伺服器層級選項，系統會新增所有資料庫。 如果在設定保護之後將資料庫新增至 SQL Server 執行個體，則必須手動新增新的資料庫來加以保護。 資料庫不會自動包含在已設定的保護中。
+否。 在為 SQL Server 執行個體設定保護時，如果您選取伺服器層級選項，系統會新增所有資料庫。 如果在設定保護之後將資料庫新增至 SQL Server 執行個體，則必須手動新增新的資料庫來保護它們。 資料庫不會自動包含在已設定的保護中。
 
 ### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>如果我變更復原模式，要如何重新啟動保護？
 
@@ -823,6 +823,10 @@ backup_size AS BackupSizeInBytes
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>是否可以保護主要複本位於內部部署環境的 SQL Always On 可用性群組？
 
 否。 Azure 備份會保護在 Azure 中執行的 SQL Server。 如果可用性群組 (AG) 分散在 Azure 與內部部署機器之間，則只有當主要複本是在 Azure 中執行時，才可保護 AG。 此外，Azure 備份只會保護與復原服務保存庫位於相同 Azure 區域中的執行中節點。
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>我是否可以保護散佈在各個 Azure 區域的 SQL Always On 可用性群組
+「Azure 備份復原服務保存庫」可以偵測並保護與「復原服務保存庫」位於相同區域中的所有節點。 如果您的「SQL Always On 可用性群組」跨多個 Azure 區域，您就必須從具有主要節點的區域設定備份。 「Azure 備份」將能夠依據備份喜好設定，偵測並保護可用性群組中的所有資料庫。 如果不符合備份喜好設定，備份就會失敗，而您將會收到失敗警示。
+
 
 ## <a name="next-steps"></a>後續步驟
 

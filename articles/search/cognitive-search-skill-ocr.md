@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 97d594a232c3576d0a0163b2d6847f06328bcd7b
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055459"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167506"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 認知技能
 
@@ -28,6 +28,8 @@ ms.locfileid: "37055459"
 + .BMP
 + .GIF
 
+> [!NOTE]
+> 認知搜尋目前為公開預覽狀態。 技能集執行、映像擷取及正規化目前為免費提供。 我們將在不久後宣告這些功能的定價。 
 
 ## <a name="skill-parameters"></a>技能參數
 
@@ -174,7 +176,7 @@ ms.locfileid: "37055459"
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

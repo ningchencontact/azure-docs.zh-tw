@@ -1,24 +1,25 @@
 ---
-title: 建立自訂語音端點 - 自訂語音服務
-titlesuffix: Azure Cognitive Services
-description: 了解如何使用「自訂語音服務」來建立自訂的語音轉文字端點。
+title: 使用 Azure 上的自訂語音服務來建立自訂語音端點 | Microsoft Docs
+description: 了解如何使用「認知服務」中的「自訂語音服務」來建立自訂的語音轉文字端點。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 958e97f708e7c6920bcb0d65d91656fcf00cd71a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7b7bbf89f04e4c8b12df46c2a7100a08001eb7d1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219018"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340796"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>建立自訂的語音轉文字端點
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 在您建立自訂原音模型或語言模型之後，您可以將這些模型部署至自訂的語音轉文字端點。 
 
 ## <a name="create-an-endpoint"></a>建立端點

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dbb21e63a25d6e357287f2f91181f2326850a898
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: aecd68734999c30f3dc8e7a2ea8c7d5e9cdfacb0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952846"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166333"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
-此文章提供指引來改善[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式應用程式的效能和可靠性。 
+本文提供指引來改善[無伺服器](https://azure.microsoft.com/solutions/serverless/)函式應用程式的效能和可靠性。 
 
 ## <a name="general-best-practices"></a>一般最佳作法
 

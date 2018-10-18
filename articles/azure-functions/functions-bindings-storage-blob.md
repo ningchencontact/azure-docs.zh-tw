@@ -5,26 +5,22 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: b9dcc4d7edd24d545722dde85e682a658d5ef2bc
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 40ed6105dca5ea14c64fb2b103c5623cd56333af
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667940"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393361"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
-本文說明如何在 Azure Functions 中使用 Azure Blob 儲存體繫結。 Azure Functions 支援適用於 Blob 的觸發程序、輸入和輸出繫結。 本文包含每個繫結的區段：
+此文章說明如何在 Azure Functions 中使用 Azure Blob 儲存體繫結。 Azure Functions 支援適用於 Blob 的觸發程序、輸入和輸出繫結。 此文章包含每個繫結的區段：
 
 * [Blob 觸發程序](#trigger)
 * [Blob 輸入繫結](#input)
@@ -33,7 +29,7 @@ ms.locfileid: "43667940"
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> 在僅限 Blob 的儲存體帳戶上以 Event Grid 觸發程序取代 Blob 儲存體觸發程序，可獲得高延展性，也能避免冷啟動延遲。 如需詳細資訊，請參閱[觸發程序](#trigger)一節。 
+> 針對 Blob 儲存體帳戶，請使用「事件方格」觸發程序而不要使用 Blob 儲存體觸發程序，以提升延展性，或避免發生冷啟動延遲。 如需詳細資訊，請參閱[觸發程序](#trigger)一節。 
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
@@ -57,13 +53,13 @@ ms.locfileid: "43667940"
 
 請使用 Event Grid 來因應以下情節的需求，避免使用 Blob 儲存體觸發程序：
 
-* 僅限 Blob 的儲存體帳戶
+* Blob 儲存體帳戶
 * 高延展性
 * 縮短冷啟動延遲
 
-### <a name="blob-only-storage-accounts"></a>僅限 Blob 的儲存體帳戶
+### <a name="blob-storage-accounts"></a>Blob 儲存體帳戶
 
-[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)支援 Blob 輸入和輸出繫結，但不支援 Blob 觸發程序。 Blob 儲存體觸發程序需要一般用途的儲存體帳戶。
+支援使用 [Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)進行 Blob 輸入和輸出繫結，但針對 Blob 觸發程序則不支援。 Blob 儲存體觸發程序需要一般用途的儲存體帳戶。
 
 ### <a name="high-scale"></a>高延展性
 
@@ -75,7 +71,7 @@ ms.locfileid: "43667940"
 
 ### <a name="queue-storage-trigger"></a>佇列儲存體觸發程序
 
-除了 Event Grid 之外，處理 Blob 的另一個替代方式是佇列儲存體觸發程序，不過其並未內建 Blob 事件支援。 在建立或更新 Blob 時，必須建立佇列訊息。 有些範例預設您已符合前述需求，可參閱[本文章後續的 Blob 輸入繫結範例](#input---example)。
+除了 Event Grid 之外，處理 Blob 的另一個替代方式是佇列儲存體觸發程序，不過其並未內建 Blob 事件支援。 在建立或更新 Blob 時，必須建立佇列訊息。 有些範例預設您已符合前述需求，可參閱[此文章後續的 Blob 輸入繫結範例](#input---example)。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
@@ -98,7 +94,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱此文章稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需有關 `BlobTrigger` 屬性的詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
 
@@ -123,7 +119,7 @@ Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建�
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱此文章稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需 *function.json* 檔案屬性的詳細資訊，請參閱[設定](#trigger---configuration)一節中這些屬性的說明。
 
@@ -170,7 +166,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱此文章稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需 *function.json* 檔案屬性的詳細資訊，請參閱[設定](#trigger---configuration)一節中這些屬性的說明。
 
@@ -285,10 +281,10 @@ module.exports = function(context) {
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `blobTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
-|**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 例外狀況在[使用方式](#trigger---usage)一節中會加以說明。 |
+|**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 例外狀況在[使用方式](#trigger---usage)一節中說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。 | 
 |**路徑** | **BlobPath** |要監視的容器。  可能是 [Blob 名稱模式](#trigger-blob-name-patterns)。 | 
-|**連接** | **連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。|
+|**連接** | **連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須是用於一般用途的儲存體帳戶，而不是[Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -310,7 +306,7 @@ module.exports = function(context) {
 
 如果您嘗試繫結至其中一個儲存體 SDK 類型，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
-由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string`、`Byte[]` 或 POCO。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱本文稍後的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
+由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string`、`Byte[]` 或 POCO。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱此文章稍後的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
 
 在 JavaScript 中，使用 `context.bindings.<name from function.json>` 存取 Blob 的輸入資料。
 
@@ -410,7 +406,7 @@ Azure Functions 會將 blob 回條儲存在您函數應用程式 (`AzureWebJobsS
 
 ## <a name="trigger---concurrency-and-memory-usage"></a>觸發程序 - 並行存取和記憶體使用量
 
-Blob 觸發程序會在內部使用佇列，因此並行函式叫用數上限由 [host.json 中的佇列組態](functions-host-json.md#queues)所控制。 預設設定會將並行存取限制為 24 個叫用。 這項限制會個別套用至使用 Blob 觸發程序的每個函式。
+Blob 觸發程序會在內部使用佇列，因此並行函式叫用數上限由 [host.json 中的佇列組態](functions-host-json.md#queues)所控制。 預設設定會將並行存取限制為 24 個叫用。 此限制會個別套用至使用 Blob 觸發程序的每個函式。
 
 [取用方案](functions-scale.md#how-the-consumption-plan-works)會限制一個虛擬機器 (VM) 上的一個函式應用程式可使用 1.5 GB 的記憶體。 每個並行執行的函式執行個體和函式執行階段本身都會使用記憶體。 如果 Blob 觸發的函式將整個 Blob 載入記憶體中，則該函式用於 Blob 的記憶體上限為 24 * Blob 大小上限。 例如，若某個函式應用程式有三個 Blob 觸發的函式，則預設的每一 VM 並行存取上限將是 3 * 24 = 72 個函式叫用。
 
@@ -603,10 +599,10 @@ public static void Run(
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `blob`。 |
-|**direction** | n/a | 必須設為 `in`。 例外狀況在[使用方式](#input---usage)一節中會加以說明。 |
+|**direction** | n/a | 必須設為 `in`。 例外狀況在[使用方式](#input---usage)一節中說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。|
 |**路徑** |**BlobPath** | blob 的路徑。 | 
-|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。|
+|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須是用於一般用途的儲存體帳戶，而不是[Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |n/a | **Access** | 指出您是否將讀取或寫入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -630,7 +626,7 @@ public static void Run(
 
 如果您嘗試繫結至其中一個儲存體 SDK 類型，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
-由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string` 或 `Byte[]`。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱本文稍早的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
+由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string` 或 `Byte[]`。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱此文章稍早的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
 
 在 JavaScript 中，使用 `context.bindings.<name from function.json>` 存取 Blob 資料。
 
@@ -649,7 +645,7 @@ public static void Run(
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
-下列範例是使用一個 Blob 觸發程序和兩個輸出 Blob 繫結的 [C# 函式](functions-dotnet-class-library.md)。 此函式是藉由在 *sample-images* 容器中建立映像 Blob 而觸發。 它會建立映像 Blob 的小型及中型複本。 
+下列範例是使用一個 Blob 觸發程序和兩個輸出 Blob 繫結的 [C# 函式](functions-dotnet-class-library.md)。 此函式是透過在 *sample-images* 容器中建立映像 Blob 而觸發。 它會建立映像 Blob 的小型及中型複本。 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -835,10 +831,10 @@ public static void Run(
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `blob`。 |
-|**direction** | n/a | 必須針對輸出繫結設定為 `out`。 例外狀況在[使用方式](#output---usage)一節中會加以說明。 |
+|**direction** | n/a | 必須針對輸出繫結設定為 `out`。 例外狀況在[使用方式](#output---usage)一節中說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。  設為 `$return` 以參考函式傳回值。|
 |**路徑** |**BlobPath** | blob 的路徑。 | 
-|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。|
+|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須是用於一般用途的儲存體帳戶，而不是[Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |n/a | **Access** | 指出您是否將讀取或寫入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -867,7 +863,7 @@ public static void Run(
 
 在非同步函式中，使用傳回值或 `IAsyncCollector`，而不是 `out` 參數。
 
-由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string` 或 `Byte[]`。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱本文稍早的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
+由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string` 或 `Byte[]`。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱此文章稍早的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
 
 
 在 JavaScript 中，使用 `context.bindings.<name from function.json>` 存取 Blob 資料。
@@ -882,8 +878,9 @@ public static void Run(
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [移至使用 Blob 儲存體觸發程序的快速入門](functions-create-storage-blob-triggered-function.md)
+* [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
+--->

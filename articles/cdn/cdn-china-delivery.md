@@ -3,8 +3,8 @@ title: 在中國使用 Azure CDN 所傳遞的內容 | Microsoft Docs
 description: 了解如何使用 Azure 內容傳遞網路 (CDN) 將內容傳遞給中國使用者。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 12a29e5af287c5cc68c3bd9d7069534ff16c496f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ce136a341809b1a485e86337f428b4685eba22f7
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573224"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093539"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>在中國使用 Azure CDN 所傳遞的內容
 

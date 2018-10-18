@@ -8,17 +8,17 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: 00955d5de314e6efb0e491e33708495fbdd14f3b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: efaca1b9506ada02c52ad0833139d3b4e441d456
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782585"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393608"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
-本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
+此文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 此文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
 
 請瀏覽 [Azure 定價一覽](https://azure.microsoft.com/pricing/) 以深入了解 Azure 定價。 您可以在那裡使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)或透過瀏覽服務 (例如，[Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)) 的定價詳細資料頁面來估計成本。 如需協助您管理成本的祕訣，請參閱[使用 Azure 計費與成本管理避免非預期的成本](billing/billing-getting-started.md)。
 
@@ -50,12 +50,14 @@ ms.locfileid: "43782585"
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [適用於 MySQL 的 Azure 資料庫](#azure-database-for-mysql)
 * [適用於 PostgreSQL 的 Azure 資料庫](#azure-database-for-postgresql)
-* [事件格線](#azure-event-grid-limits)
+* [事件方格](#azure-event-grid-limits)
 * [Azure 地圖服務](#azure-maps-limits)
+* [Azure 監視器](#monitor-limits)
 * [Azure 原則](#azure-policy-limits)
 * [Azure Redis 快取](#azure-redis-cache-limits)
 * [備份](#backup-limits)
-* [批次](#batch-limits)
+* [Batch](#batch-limits)
+* [Batch AI](#batch-ai-limits)
 * [BizTalk 服務](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [雲端服務](#cloud-services-limits)
@@ -69,6 +71,7 @@ ms.locfileid: "43782585"
 * [DNS](#dns-limits)
 * [事件中樞](#event-hubs-limits)
 * [Azure 防火牆](#azure-firewall-limits)
+* [Front Door](#azure-front-door-service-limits)
 * [IoT 中心](#iot-hub-limits)
 * [IoT 中樞裝置佈建服務](#iot-hub-device-provisioning-service-limits)
 * [金鑰保存庫](#key-vault-limits)
@@ -77,7 +80,6 @@ ms.locfileid: "43782585"
 * [媒體服務](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [行動服務](#mobile-services-limits)
-* [監視](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [網路功能](#networking-limits)
 * [網路監看員](#network-watcher-limits)
@@ -87,6 +89,7 @@ ms.locfileid: "43782585"
 * [排程器](#scheduler-limits)
 * [Search](#search-limits)
 * [服務匯流排](#service-bus-limits)
+* [SignalR 服務](#signalr-service-limits)
 * [站台復原](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL 資料倉儲](#sql-data-warehouse-limits)
@@ -156,11 +159,16 @@ ms.locfileid: "43782585"
 #### <a name="azure-firewall-limits"></a>Azure 防火牆限制
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
 
-### <a name="storage-limits"></a>儲存體限制
-如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage/common/storage-scalability-targets.md)。
+#### <a name="azure-front-door-service-limits"></a>Azure Front Door Service 限制
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
+### <a name="storage-limits"></a>儲存體限制
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage/common/storage-scalability-targets.md)。
+
+#### <a name="storage-resource-provider-limits"></a>儲存體資源提供者限制 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -211,6 +219,9 @@ ms.locfileid: "43782585"
 ### <a name="batch-limits"></a>Batch 限制
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
+### <a name="batch-ai-limits"></a>Batch AI 限制
+[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
+
 ### <a name="biztalk-services-limits"></a>BizTalk 服務限制
 下表顯示 Azure Biztalk 服務的限制。
 
@@ -224,9 +235,6 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 
 ### <a name="azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫
 如需適用於 PostgreSQL 的 Azure 資料庫限制詳細資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫中的限制](postgresql/concepts-limits.md)。
-
-### <a name="mobile-engagement-limits"></a>Mobile Engagement 限制
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### <a name="search-limits"></a>搜尋限制
 定價層會決定搜尋服務的容量和限制。 層級包括：
@@ -307,6 +315,9 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 
 ### <a name="backup-limits"></a>備份限制
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### <a name="signalr-service-limits"></a>SignalR 服務限制
+[!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### <a name="site-recovery-limits"></a>Site Recovery 限制
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]

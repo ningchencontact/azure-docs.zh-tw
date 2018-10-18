@@ -5,27 +5,23 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: c99ad77bba60a4573faae1c857b3e6dc0203c4ab
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747039"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434682"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
-本文說明如何針對 Azure Functions 使用 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)繫結。 Azure Functions 支援事件中樞的觸發程序和輸出繫結。
+此文章說明如何針對 Azure Functions 使用 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)繫結。 Azure Functions 支援事件中樞的觸發程序和輸出繫結。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -67,7 +63,7 @@ ms.locfileid: "42747039"
 
 * **再新增 N 個函式執行個體**：Functions 的規模調整邏輯判斷 `Function_0` 和 `Function_1` 所擁有的訊息數目都比它們可處理的還多。 系統會建立新的函式應用程式執行個體 `Function_2`...`Functions_N`，其中 `N` 大於事件中樞分割區的數目。 在本例中，事件中樞同樣會將分割區負載平衡，在此案例中，會跨執行個體 `Function_0`...`Functions_9` 來進行。 
 
-請注意，當 Functions 調整為 `N` 個執行個體時，也就是大於事件中樞分割區數目的數字。 這樣做是為了確保一律會有 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 執行個體可用來在分割區變成可從其他執行個體使用時，取得這些分割區的鎖定。 您只需針對函式執行個體執行時所使用的資源付費，不需要針對這個過度佈建付費。
+請注意 Functions 調整為 `N` 個 (也就是大於事件中樞分割區數目的數字) 執行個體的時候。 這樣做是為了確保一律會有 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 執行個體可用來在分割區變成可從其他執行個體使用時，取得這些分割區的鎖定。 您只需針對函式執行個體執行時所使用的資源付費，不需要針對這個過度佈建付費。
 
 當所有函式執行完成時 (不論有無錯誤)，系統就會在相關聯的儲存體帳戶中新增檢查點。 當檢查點檢查成功時，就永遠不會再次擷取所有的 1000 個訊息。
 
@@ -133,14 +129,15 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
 
-下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例說明 Functions 1.x，第二個範例說明 Functions 2.x。 
+下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -149,7 +146,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -207,14 +204,15 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
 
-下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例說明 Functions 1.x，第二個範例說明 Functions 2.x。 
+下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -223,7 +221,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -239,14 +237,15 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會讀取[事件中繼資料](#trigger---event-metadata)和記錄訊息。
 
-下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例說明 Functions 1.x，第二個範例說明 Functions 2.x。 
+下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -255,7 +254,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -273,14 +272,14 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-若要批次接收事件，請在 *function.json* 檔案中將 `cardinality` 設定為 `many`，如下列範例所示。 第一個範例說明 Functions 1.x，第二個範例說明 Functions 2.x。 
+若要批次接收事件，請在 *function.json* 檔案中將 `cardinality` 設定為 `many`，如下列範例所示。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -290,7 +289,7 @@ module.exports = function (context, eventHubMessage) {
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -343,7 +342,7 @@ public void eventHubProcessor(
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 屬性。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) 屬性。
 
 此屬性的建構函式接受事件中樞的名稱、取用者群組的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[觸發程序組態](#trigger---configuration)一節。 以下是 `EventHubTriggerAttribute` 屬性範例：
 
@@ -388,7 +387,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |`SequenceNumber`|`Int64`|事件的邏輯序號。|
 |`SystemProperties`|`IDictionary<String,Object>`|系統屬性，包括事件資料。|
 
-請參閱稍早在本文中使用這些屬性的[程式碼範例](#trigger---example)。
+請參閱稍早在此文章中使用這些屬性的[程式碼範例](#trigger---example)。
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
@@ -430,13 +429,13 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會將訊息寫入事件中樞。
 
-下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例說明 Functions 1.x，第二個範例說明 Functions 2.x。 
+下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -445,7 +444,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -480,13 +479,13 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式會將訊息寫入事件中樞。
 
-下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例說明 Functions 1.x，第二個範例說明 Functions 2.x。 
+下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -495,7 +494,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -514,13 +513,13 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會將訊息寫入事件中樞。
 
-下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例說明 Functions 1.x，第二個範例說明 Functions 2.x。 
+下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -529,7 +528,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }

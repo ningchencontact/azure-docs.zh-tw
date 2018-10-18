@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754181"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096769"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>威脅模型化工具使用者入門
 
 雲端和企業安全性工具小組今年稍早將威脅模型化工具預覽發行為免費的**[按一下即可下載](https://aka.ms/tmtpreview)**。 傳遞機制中的變更可讓我們在客戶每次開啟它時，將最新的增強功能和錯誤修正傳送給客戶，讓它更容易維護及使用。
-本文章會引導您開始使用 Microsoft SDL 威脅模型化方法的程序，並且示範如何使用工具來開發很棒的威脅模型，作為安全性程序的骨幹。
+此文章會引導您開始使用 Microsoft SDL 威脅模型化方法的程序，並且示範如何使用工具來開發很棒的威脅模型，作為安全性程序的骨幹。
 
 這篇文章是根據 SDL 威脅模型化方法的現有知識所建置的。 如需快速檢閱，請參閱**[威脅模型化 Web 應用程式](https://msdn.microsoft.com/library/ms978516.aspx)** 和 2006 年發佈的**[使用 STRIDE 方法發現安全性缺陷](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN 文件的封存版本。
 
@@ -86,7 +86,7 @@ Ricardo 剛剛為 Cristina 顯示的是 DFD，**[資料流程圖表](https://en.
 
 ## <a name="analyzing-threats"></a>分析威脅
 
-當他從圖示功能表選取項目按一下分析檢視 (具有放大鏡的檔案) 時，系統將他導向產生之威脅的清單，這些威脅是威脅模型化工具根據預設範本找到的，使用稱為**[STRIDE (詐騙、竄改、資訊洩漏、阻斷服務以及權限提高)](https://en.wikipedia.org/wiki/STRIDE_(security))** 的 SDL 方法。 這個概念是軟體來自可預測的一組威脅底下，可以使用這 6 個類別找到。
+當他從圖示功能表選取項目按一下分析檢視 (具有放大鏡的檔案) 時，系統將他導向產生之威脅的清單，這些威脅是威脅模型化工具根據預設範本找到的，使用稱為 **[STRIDE (詐騙、竄改、資訊洩漏、否認、阻斷服務以及權限提高)](https://en.wikipedia.org/wiki/STRIDE_(security))** 的 SDL 方法。 這個概念是軟體來自可預測的一組威脅底下，可以使用這 6 個類別找到。
 
 這個方法就像在新增警報系統或追趕竊賊之前，確定每個門窗都有就地鎖定機制，籍以保護您的家園。
 
@@ -119,7 +119,7 @@ Ricardo 進入 [資訊洩漏] 底下的威脅時，他理解到存取控制計�
 
 ![互動資訊](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-如果 Ricardo 想要改為共用檔案，他可以籍由在組織的 OneDrive 帳戶中儲存，來完成這項操作。 一旦他那樣做，就可以複製文件連結，並且與同事共用。 
+如果 Ricardo 想要改為共用檔案，他可以籍由在組織的 OneDrive 帳戶中儲存，來完成此操作。 一旦他那樣做，就可以複製文件連結，並且與同事共用。 
 
 ## <a name="threat-modeling-meetings"></a>威脅模型化會議
 
@@ -143,4 +143,4 @@ Ricardo 進入 [資訊洩漏] 底下的威脅時，他理解到存取控制計�
 
 ## <a name="next-steps"></a>後續步驟
 
-將您的問題、註解和考量傳送到 tmtextsupport@microsoft.com。**[下載](https://aka.ms/tmtpreview)** 威脅模型化工具來開始。
+將您的問題、註解和考量傳送到 tmtextsupport@microsoft.com。 **[下載](https://aka.ms/tmtpreview)** 威脅模型化工具來開始。

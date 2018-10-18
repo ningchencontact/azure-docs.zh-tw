@@ -3,8 +3,8 @@ title: 使用 Azure CDN 的大型檔案下載最佳化
 description: 本文說明如何將大型檔案下載最佳化。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: v-deasim
-ms.openlocfilehash: 2bdb6bdea7b6180e34458883d026161403e4cb58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766201"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094015"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>使用 Azure CDN 的大型檔案下載最佳化
 

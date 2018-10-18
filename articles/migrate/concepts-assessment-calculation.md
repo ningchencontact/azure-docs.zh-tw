@@ -4,18 +4,18 @@ description: 概括介紹 Azure Migrate 服務中的評量計算。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286268"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165682"
 ---
 # <a name="assessment-calculations"></a>評量計算
 
-[Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 本文提供評量計算方式的相關資訊。
+[Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 此文章提供評量計算方式的相關資訊。
 
 
 ## <a name="overview"></a>概觀
@@ -39,8 +39,8 @@ Azure Migrate 檢閱內部部署 VM 的下列屬性，以識別 VM 是否可以�
 **屬性** | **詳細資料** | **Azure 移轉整備程度狀態**
 --- | --- | ---
 **開機類型** | Azure 支援開機類型為 BIOS (而非 UEFI) 的 VM。 | 如果開機類型為 UEFI，便已有條件地就緒。
-**核心** | 機器的核心數目必須等於或小於 Azure VM 支援的核心數目上限 (32)。<br/><br/> 如果有提供效能記錄，則 Azure Migrate 會將已使用的核心納入考量，進行比較。 如果評量設定已指定緩和因數，則會將使用的核心數目乘以緩和因數。<br/><br/> 如果沒有效能記錄，Azure Migrate 會使用配置的核心，而不套用緩和因數。 | 小於或等於限制便就緒。
-**記憶體** | 機器的記憶體大小必須等於或小於 Azure VM 允許的記憶體上限 (Azure M 系列 Standard_M128m 上 3892 GB &nbsp;<sup>2</sup>)。 [深入了解](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)。<br/><br/> 如果有提供效能記錄，Azure Migrate 會將已使用的記憶體納入考量，進行比較。 如果已指定緩和因數，則會將使用的記憶體乘以緩和因數。<br/><br/> 如果沒有記錄，則會使用配置的記憶體，而不套用緩和因數。<br/><br/> | 在限制內便就緒。
+**核心** | 機器的核心數目必須等於或小於 Azure VM 支援的核心數目上限 (128 個核心)。<br/><br/> 如果有提供效能記錄，則 Azure Migrate 會將已使用的核心納入考量，進行比較。 如果評量設定已指定緩和因數，則會將使用的核心數目乘以緩和因數。<br/><br/> 如果沒有效能記錄，Azure Migrate 會使用配置的核心，而不套用緩和因數。 | 小於或等於限制便就緒。
+**記憶體** | 機器的記憶體大小必須等於或小於 Azure VM 允許的記憶體上限 (Azure M 系列 Standard_M128m 上 3892 GB &nbsp;<sup>2</sup>)。 [深入了解](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)。<br/><br/> 如果有提供效能記錄，Azure Migrate 會將已使用的記憶體納入考量，進行比較。 如果已指定緩和因數，則會將使用的記憶體乘以緩和因數。<br/><br/> 如果沒有記錄，則會使用配置的記憶體，而不套用緩和因數。<br/><br/> | 在限制內便就緒。
 **存放磁碟** | 已配置的磁碟大小必須小於或等於 4 TB (4096 GB)。<br/><br/> 附加至機器的磁碟數目必須小於或等於 65，作業系統磁碟亦包含在內。 | 在限制內便就緒。
 **網路功能** | 機器必須附加 32 個以內的網路介面卡。 | 在限制內便就緒。
 
@@ -61,7 +61,8 @@ Windows Server 2008 R2，含所有 SP | Azure 提供完整支援。| 可供 Azur
 Windows Server 2008 (32 位元和 64 位元) | Azure 提供完整支援。 | 可供 Azure 使用
 Windows Server 2003、2003 R2 | 這些作業系統已經過其支援結束的日期，需要[自訂支援合約 (CSA)](https://aka.ms/WSosstatement) 才能在 Azure 中獲得支援。 | 可有條件地供 Azure 使用，在移轉到 Azure 之前，請考慮升級作業系統。
 Windows 2000、98、95、NT、3.1、MS-DOS | 這些作業系統已經過其支援結束的日期，機器可能可以在 Azure 中開機，但 Azure 不會提供作業系統支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前升級作業系統。
-Windows Client 7、8 及 10 | Azure 僅對 Visual Studio 訂用帳戶提供支援。 | 可有條件地供 Azure 使用
+Windows Client 7、8 及 10 | Azure [僅對 Visual Studio 訂用帳戶](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)提供支援。 | 可有條件地供 Azure 使用
+Windows 10 專業版桌面 | Azure 對[多租用戶主機權限](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)提供支援。 | 可有條件地供 Azure 使用
 Windows Vista、XP Professional | 這些作業系統已經過其支援結束的日期，機器可能可以在 Azure 中開機，但 Azure 不會提供作業系統支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前升級作業系統。
 Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endorsed-distros.md)。 其他 Linux 作業系統可能可以在 Azure 中開機，但建議您在移轉至 Azure 之前，將作業系統升級為認同的版本。 | 如果版本受到認同，則可供 Azure 使用。<br/><br/>如果版本未受到認同，則有條件地可供使用。
 其他作業系統<br/><br/> 例如，Oracle Solaris、Apple Mac OS 等、FreeBSD 等。 | Azure 並未認同這些作業系統。 機器可能可以在 Azure 中開機，但 Azure 不會提供作業系統支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前安裝支援的作業系統。  
@@ -71,9 +72,6 @@ Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endors
 ## <a name="sizing"></a>調整大小
 
 將機器標示為可供 Azure 使用之後，Azure Migrate 會為 Azure 調整 VM 大小和其磁碟。 如果評估屬性中指定的大小調整準則是要執行以效能為基礎的大小調整，Azure Migrate 會考慮機器的效能歷程記錄以識別 Azure 中的 VM 大小和磁碟類型。 在您超額配置了內部部署 VM 但使用率很低，而您想要讓 Azure 中的 VM 有適當的大小來節省成本，則此方法會很有幫助。
-
-> [!NOTE]
-> Azure Migrate 會從 vCenter Server 收集內部部署 VM 的效能歷程記錄。 若要確保準確的調整大小，請確定 vCenter Server 中的統計資料設定設為等級 3，並等候至少一天再開始探索內部部署 VM。 如果 vCenter Server 中的統計資料設定低於等級 3，磁碟和網路的效能資料並未收集。
 
 如果不想要考慮 VM 調整大小的效能歷程記錄，並想要為將 VM 依原樣帶至 Azure，則可以將大小準則指定為*作為內部部署*，Azure Migrate 將會在不考慮使用量資料的情況下，以內部部署組態為基礎調整 VM 的大小。 在此情況下，將根據您在評估內容中指定的儲存類型 (標準磁碟或進階磁碟) 調整磁碟大小
 
@@ -119,14 +117,24 @@ Azure Migrate 中的每個效能型評量會與信賴評等相關聯，信賴評
    61%-80% | 4 顆星
    81%-100% | 5 顆星
 
-由於下列原因，評量可能沒有所有可用資料點：
-- vCenter Server 中統計資料設定未設為等級 3。 如果 vCenter Server 中的統計資料設定低於等級 3，磁碟和網路的效能資料並未從 vCenter Server 收集。 在此情況下，Azure Migrate 針對磁碟和網路所提供的建議是以使用率為基礎。 若不考量磁碟的 IOPS/輸送量，Azure Migrate 便無法識別磁碟在 Azure 中是否需要進階磁碟，因此在此情況下，Azure Migrate 會針對所有磁碟建議標準磁碟。
-- vCenter Server 中的統計資料設定會在開始探索前短期設定為等級 3。 例如，讓我們考慮以下案例：您今天將統計資料設定變更為等級 3，並在明天 (24 小時後) 使用收集器設備開始探索。 如果您要建立一天的評量，您可擁有所有資料點，且評量的信賴評等會是 5 顆星。 但如果您將評量屬性中的效能持續時間變更為一個月，信賴評等會關閉，因無法使用過去一個月的磁碟和網路效能資料。 如果您想考量過去一個月的效能資料，建議您將 vCenter Server 統計資料設定保留在等級 3 一個月，再開始進行探索。
-- 少數虛擬機器在評量計算期間關閉。 如果任何虛擬機器在某段期間內電源關閉，則 vCenter Server 不會有這段時間的效能資料。
-- 少數虛擬機器在評量計算期間才建立。 例如，如果您要建立過去一個月的效能記錄評量，但是少數虛擬機器在一週前才建立在環境中。 在這種情況下，新虛擬機器的效能記錄不會在整段期間中出現。
+   以下是關於評量會獲得低信賴評等的原因：
 
-> [!NOTE]
-> 如果任何評量的信賴評等低於 4 顆星，建議您將 vCenter Server 的統計資料設定等級變更為 3，等候您要評量的持續時間 (1 天/1 週/1 個月)，然後再執行探索及評量。 如果無法完成上述內容，則以效能為基礎的大小調整可能不可靠，建議您變更評量屬性以切換至*作為內部部署調整大小*。
+   **單次探索**
+
+   - vCenter Server 中統計資料設定未設為等級 3。 由於單次探索模型取決於 vCenter Server 的統計資料設定，如果 vCenter Server 中的統計資料設定低於等級 3，磁碟和網路的效能資料並未從 vCenter Server 收集。 在此情況下，Azure Migrate 針對磁碟和網路所提供的建議是以使用率為基礎。 若不考量磁碟的 IOPS/輸送量，Azure Migrate 便無法識別磁碟在 Azure 中是否需要進階磁碟，因此在此情況下，Azure Migrate 會針對所有磁碟建議標準磁碟。
+   - vCenter Server 中的統計資料設定會在開始探索前短期設定為等級 3。 例如，讓我們考慮以下案例：您今天將統計資料設定變更為等級 3，並在明天 (24 小時後) 使用收集器設備開始探索。 如果您要建立一天的評量，您可擁有所有資料點，且評量的信賴評等會是 5 顆星。 但如果您將評量屬性中的效能持續時間變更為一個月，信賴評等會關閉，因無法使用過去一個月的磁碟和網路效能資料。 如果您想考量過去一個月的效能資料，建議您將 vCenter Server 統計資料設定保留在等級 3 一個月，再開始進行探索。
+
+   **持續探索**
+
+   - 您未針對正在建立評量的持續時間剖析環境。 例如，如果您要建立的評量將效能持續時間設定為 1 天，您需要至少等待一天後，再開始探索才能收集到所有資料點。
+
+   **常見原因**  
+
+   - 少數虛擬機器在評量計算期間關閉。 如果任何虛擬機器在某段期間內電源關閉，則無法收集這段時間的效能資料。
+   - 少數虛擬機器在評量計算期間才建立。 例如，如果您要建立過去一個月的效能記錄評量，但是少數虛擬機器在一週前才建立在環境中。 在這種情況下，新虛擬機器的效能記錄不會在整段期間中出現。
+
+   > [!NOTE]
+   > 對於單次探索模型，如果任何評量的信賴評等低於 4 顆星，建議您將 vCenter Server 的統計資料設定等級變更為 3，等候您要評量的持續時間 (1 天/1 週/1 個月)，然後再執行探索及評量。 對於持續探索模型，至少等待一天後，再讓設備剖析環境，然後「重新計算」評量。 如果無法完成上述內容，則以效能為基礎的大小調整可能不可靠，建議您變更評量屬性以切換至「如內部部署大小調整」。
 
 ## <a name="monthly-cost-estimation"></a>每月成本預估
 

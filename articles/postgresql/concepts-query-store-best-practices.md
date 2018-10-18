@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4e133458476a61538c2bddaaeb2f6d56d4ea5a26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: c449aaff9741250cfcfaaa4ee490aafc857c4369
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954903"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395299"
 ---
 # <a name="best-practices-for-query-store"></a>查詢存放區的最佳做法
 
 **適用於：** 適用於 PostgreSQL 的 Azure 資料庫 9.6 和 10
 
 > [!IMPORTANT]
-> 查詢存放區功能處於公開預覽狀態。
+> 查詢存放區功能僅在有限的區域處於公開預覽狀態。
 
 
 此文章概述在適用於 PostgreSQL 的 Azure 資料庫中使用查詢存放區的最佳做法。

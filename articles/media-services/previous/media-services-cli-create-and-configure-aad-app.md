@@ -1,6 +1,6 @@
 ---
-title: 使用 CLI 2.0 建立 Azure AD 應用程式，並設定它以存取 Azure 媒體服務 API | Microsoft Docs
-description: 本主題示範如何使用 CLI 2.0 建立 Azure AD 應用程式，並設定它以存取 Azure 媒體服務 API。
+title: 使用 Azure CLI 來建立 Azure AD 應用程式，並設定它以存取 Azure 媒體服務 API | Microsoft Docs
+description: 此主題說明如何使用 Azure CLI 來建立 Azure AD 應用程式，並設定它以存取「Azure 媒體服務 API」。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 7685be97213f0b298499d474c0a6a772ca608fb2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fcd0ea10bd39f9e7252e114e8d6401a4fe0ecadb
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782727"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096543"
 ---
-# <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>使用 CLI 2.0 建立 AAD 應用程式，並設定它以存取 Azure 媒體服務 API
+# <a name="use-azure-cli-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>使用 Azure CLI 來建立 AAD 應用程式，並設定它以存取 Azure 媒體服務 API
 
-本主題示範如何使用 CLI 2.0 建立 Azure Active Directory (Azure AD) 應用程式和服務主體，以存取 Azure 媒體服務資源。 
+此主題說明如何使用 Azure CLI 來建立 Azure Active Directory (Azure AD) 應用程式和服務主體，以存取「Azure 媒體服務」資源。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
 - 媒體服務帳戶。 如需詳細資訊，請參閱[使用 Azure 入口網站建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)。
@@ -38,7 +38,7 @@ ms.locfileid: "33782727"
 
 如需詳細資訊，請參閱 [Azure Cloud Shell 概觀](../../cloud-shell/overview.md)。
 
-## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-cli-20"></a>建立 Azure AD 應用程式，並使用 CLI 2.0 設定媒體帳戶的存取權
+## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-azure-cli"></a>使用 Azure CLI 來建立 Azure AD 應用程式並設定對媒體帳戶的存取權
  
 ```azurecli
 az login
@@ -60,7 +60,7 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 * **資源群組**層級。
 * **資源**層級 (例如，媒體帳戶)。
 
-如需詳細資訊，請參閱[使用 Azure CLI 2.0 建立 Azure 服務主體](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)。
+如需詳細資訊，請參閱[使用 Azure CLI 來建立 Azure 服務主體](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
 另請參閱[使用 Azure 命令列介面管理角色型存取控制](../../role-based-access-control/role-assignments-cli.md)。 
 

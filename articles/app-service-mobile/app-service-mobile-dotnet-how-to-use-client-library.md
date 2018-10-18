@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: f0f28d4b6573e4e6fecf0e6dd84814d4fc66cd60
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5e399a237fe533b46997365c16b75dce14149dec
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050483"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064317"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何針對 Azure Mobile Apps 使用受控用戶端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "37050483"
 
 ## <a name="reference-documentation"></a>參考文件
 用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps .NET 用戶端參考資料][4]。
-您也可以在 [Azure 範例 GitHub 儲存機制][5]中找到數個用戶端範例。
+您也可以在 [Azure 範例 GitHub 存放庫][5]中找到數個用戶端範例。
 
 ## <a name="supported-platforms"></a>支援的平台
 .NET 平台支援下列平台︰
@@ -43,7 +43,7 @@ ms.locfileid: "37050483"
 「伺服器流程」驗證在呈現的 UI 中使用 WebView。  如果裝置無法呈現 WebView UI，您需要其他驗證方法。  因此，此 SDK 不適用於手錶類型或受到類似限制的裝置。
 
 ## <a name="setup"></a>設定和必要條件
-我們假設您已建立並發佈您的行動應用程式後端專案 (至少包含一個資料表)。  在本主題使用的程式碼中，資料表的名稱為 `TodoItem`，且其具有下列資料行：`Id`、`Text` 和 `Complete`。 此資料表與您完成 [Azure Mobile Apps 快速入門][1]時所建立的資料表相同。
+我們假設您已建立並發佈您的行動應用程式後端專案 (至少包含一個資料表)。  在此主題使用的程式碼中，資料表的名稱為 `TodoItem`，且其具有下列資料行：`Id`、`Text` 和 `Complete`。 此資料表與您完成 [Azure Mobile Apps 快速入門][1]時所建立的資料表相同。
 
 C# 中對應的具類型用戶端類型為下列類別：
 
@@ -64,7 +64,7 @@ public class TodoItem
 
 若要了解如何在 Mobile Apps 後端中建立資料表，請參閱 [.NET 伺服器 SDK 主題][7] 或 [Node.js 伺服器 SDK 主題][8]。 如果您已使用＜快速入門＞在 Azure 入口網站中建立行動應用程式後端，也可以使用 **Azure 入口網站** 中的 [Azure 入口網站]設定。
 
-### <a name="how-to-install-the-managed-client-sdk-package"></a>做法︰安裝受控用戶端 SDK 封裝
+### <a name="how-to-install-the-managed-client-sdk-package"></a>做法︰安裝受控用戶端 SDK 套件
 使用下列其中一種方法，從 [NuGet][9] 安裝適用於 Mobile Apps 的受控用戶端 SDK 套件：
 
 * **Visual Studio** 以滑鼠右鍵按一下您的專案、按一下 [管理 NuGet 套件]，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 [安裝]。
@@ -75,6 +75,9 @@ public class TodoItem
 ```
 using Microsoft.WindowsAzure.MobileServices;
 ```
+
+> [!NOTE]
+> 請注意，您 Android 專案中所參考的所有支援套件都必須具有相同版本。 此 SDK 具有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免發生衝突。
 
 ### <a name="symbolsource"></a>做法︰使用 Visual Studio 中的偵錯符號
 您可以從 [SymbolSource][10] 取得適用於 Microsoft.Azure.Mobile 命名空間的符號。  若要將 SymbolSource 與 Visual Studio 整合，請參閱 [SymbolSource 指示][11]。
@@ -89,7 +92,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 在上述程式碼中，以行動應用程式後端 URL 取代 `MOBILE_APP_URL` ，這位於 [Azure 入口網站]的行動應用程式後端刀鋒視窗中。 MobileServiceClient 物件應該是單一的。
 
 ## <a name="work-with-tables"></a>使用資料表
-下一節將詳細說明如何搜尋和擷取記錄，以及修改資料表中的資料。  本文涵蓋下列主題：
+下一節將詳細說明如何搜尋和擷取記錄，以及修改資料表中的資料。  此文章涵蓋下列主題：
 
 * [建立資料表參考](#instantiating)
 * [查詢資料](#querying)
@@ -282,7 +285,7 @@ TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6
 ```
 
 ### <a name="untypedqueries"></a>如何：執行不具類型的查詢
-使用不具類型的資料表物件執行查詢時，您必須藉由呼叫 [ReadAsync]來明確指定 OData 查詢字串，如下列範例所示：
+使用不具類型的資料表物件執行查詢時，您必須透過呼叫 [ReadAsync]來明確指定 OData 查詢字串，如下列範例所示：
 
 ```
 // Lookup untyped data using OData
@@ -299,7 +302,7 @@ await todoTable.InsertAsync(todoItem);
 ```
 
 如果插入期間沒有在 `todoItem` 包含唯一的自訂識別碼值，則會由伺服器產生 GUID。
-在呼叫傳回之後，您可以藉由檢查物件來擷取產生的識別碼。
+在呼叫傳回之後，您可以透過檢查物件來擷取產生的識別碼。
 
 若要插入不具類型的資料，您可以充份利用 Json.NET：
 
@@ -373,7 +376,7 @@ await table.DeleteAsync(jo);
 ### <a name="optimisticconcurrency"></a>做法：使用開放式並行存取來解決衝突
 兩個或多個用戶端可能會同時對相同項目寫入變更。 在沒有偵測到衝突的情況下，最後寫入將覆寫任何先前的更新。  會假設每筆交易都可以認可，因此不會使用任何資源鎖定。  在認可交易之前，開放式並行存取控制項會驗證沒有其他交易已修改此資料。 如果資料已修改，則會復原認可的交易。
 
-Mobile Apps 支援開放式並行存取控制項，方法是使用 `version` 系統屬性資料行來追蹤對每個項目的變更，該資料行是針對行動應用程式後端中的每個資料表所定義的。 每當更新記錄時，Mobile Apps 會將該筆記錄的 `version` 屬性設定為新值。 在每次更新要求期間，要求所提供的該筆記錄 `version` 屬性會與伺服器上該筆記錄的相同屬性進行比對。 如果隨著要求傳遞的版本與後端不符，則用戶端程式庫會引發 `MobileServicePreconditionFailedException<T>` 例外狀況。 例外狀況所提供的類型是來自包含該記錄之伺服器版本的後端記錄。 接著應用程式可以使用這項資訊，來決定是否要針對後端的正確 `version` 值來執行更新要求以認可變更。
+Mobile Apps 支援開放式並行存取控制項，方法是使用 `version` 系統屬性資料行來追蹤對每個項目的變更，該資料行是針對行動應用程式後端中的每個資料表所定義的。 每當更新記錄時，Mobile Apps 會將該筆記錄的 `version` 屬性設定為新值。 在每次更新要求期間，要求所提供的該筆記錄 `version` 屬性會與伺服器上該筆記錄的相同屬性進行比對。 如果隨著要求傳遞的版本與後端不符，則用戶端程式庫會引發 `MobileServicePreconditionFailedException<T>` 例外狀況。 例外狀況所提供的類型是來自包含該記錄之伺服器版本的後端記錄。 接著應用程式可以使用此資訊，來決定是否要針對後端的正確 `version` 值來執行更新要求以認可變更。
 
 在 `version` 系統屬性的資料表類別上定義資料行，以啟用開放式並行存取。 例如︰
 
@@ -495,9 +498,9 @@ MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => 
 await items.LoadMoreItemsAsync();
 ```
 
-當您使用藉由呼叫 `ToCollectionAsync` 或 `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。  此集合有分頁感知功能。  因為集合會從網路中載入資料，因此載入有時會失敗。 若要處理這類失敗，請覆寫 `MobileServiceIncrementalLoadingCollection` 上的 `OnException` 方法，以處理呼叫 `LoadMoreItemsAsync` 時所造成的例外狀況。
+當您使用透過呼叫 `ToCollectionAsync` 或 `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。  此集合有分頁感知功能。  因為集合會從網路中載入資料，因此載入有時會失敗。 若要處理這類失敗，請覆寫 `MobileServiceIncrementalLoadingCollection` 上的 `OnException` 方法，以處理呼叫 `LoadMoreItemsAsync` 時所造成的例外狀況。
 
-請思考一下如果您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。 您可以使用上述[選取特定資料欄](#selecting)一節中的指引，以選取要在 UI 中顯示的特定資料欄。
+請思考一下如果您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。 您可以使用上述[選取特定資料欄](#selecting)一節中的指導方針，以選取要在 UI 中顯示的特定資料欄。
 
 ### <a name="pagesize"></a>變更頁面大小
 Azure Mobile Apps 預設針對每個要求最多會傳回 50 個項目。  您可以增加用戶端和伺服器上的頁面大小上限，以變更分頁大小。  若要增加要求的頁面大小，請在使用 `PullAsync()`時指定 `PullOptions`：
@@ -515,12 +518,12 @@ PullOptions pullOptions = new PullOptions
 離線資料表會使用本機 SQLite 存放區來儲存資料供離線時使用。  所有資料表作業都是針對本機 SQLite 存放區而非遠端伺服器存放區完成。  若要建立離線資料表，先準備您的專案：
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下方案 > [管理方案的 NuGet 套件...]，然後為方案中的所有專案，尋找並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
-2. (選擇性) 若要支援 Windows 裝置，請安裝下列其中一個 SQLite 執行階段封裝︰
+2. (選擇性) 若要支援 Windows 裝置，請安裝下列其中一個 SQLite 執行階段套件︰
 
    * **Windows 8.1 執行階段：** 安裝[適用於 Windows 8.1 的 SQLite][3]。
    * **Windows Phone 8.1：** 安裝[適用於 Windows Phone 8.1 的 SQLite][4]。
    * **通用 Windows 平台：** 安裝[適用於通用 Windows 平台的 SQLite][5]。
-3. (選擇性)。 若為 Windows 裝置，請按一下 [參考]  >  [新增參考...]，展開 **Windows** 資料夾 > [擴充功能]，然後啟用適當的 **SQLite for Windows** SDK 及 **Visual C++ 2013 Runtime for Windows** SDK。
+3. (選擇性)。 針對 Windows 裝置，請按一下 [參考]  > [加入參考]，展開 **Windows** 資料夾 > [擴充功能]，然後啟用適當的 **SQLite for Windows** SDK 及 **Visual C++ 2013 Runtime for Windows** SDK。
     每個 Windows 平台的 SQLite SDK 名稱稍有差異。
 
 建立資料表參考之前，必須準備本機存放區：
@@ -649,7 +652,7 @@ Mobile Apps 支援使用各種外部識別提供者 (Facebook、Google、Microso
 您可以使用 Active Directory Authentication Library (ADAL)，從使用 Azure Active Directory 驗證的用戶端起始使用者驗證。
 
 1. 依照[如何針對 Active Directory 登入設定 App Service]教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。
-2. 在 Visual Studio 或 Xamarin Studio 中，開啟您的專案，然後新增對 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 封裝的參考。 搜尋時，包含發行前版本。
+2. 在 Visual Studio 或 Xamarin Studio 中，開啟您的專案，然後新增對 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 套件的參考。 搜尋時，包含發行前版本。
 3. 根據您使用的平台，將下列程式碼新增至您的應用程式。 在每個程式碼中，進行下列取代：
 
    * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com。 您可以從 [Azure 入口網站]之 Azure Active Directory 的 [網域] 索引標籤中複製這個值。
@@ -969,7 +972,7 @@ private async void InitNotificationsAsync()
 4. 使用您的 Microsoft 帳戶登入 [Windows 開發人員中心] 。 在 [我的應用程式] 底下，按一下您建立的應用程式註冊。
 5. 按一下 [應用程式管理]  >  [應用程式身分識別]，然後向下捲動找到您的 [套件 SID]。
 
-許多使用套件 SID 的情況會將其視為 URI，在這種情況下，您必須使用 *ms-app://* 作為配置。 記下您封裝 SID 的版本，封裝 SID 是由串連這個值作為首碼所形成。
+許多使用套件 SID 的情況會將其視為 URI，在這種情況下，您必須使用 *ms-app://* 作為配置。 記下您套件 SID 的版本，套件 SID 是由串連這個值作為首碼所形成。
 
 Xamarin 應用程式需要一些額外的程式碼，才能註冊執行於 iOS 或 Android 平台的應用程式。 如需詳細資訊，請參閱平台適用的主題：
 

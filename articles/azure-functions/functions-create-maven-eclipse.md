@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8b0681165fe84dd54f3b81f610c6698998e881de
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 3cab94744a2ab87dce0a145665e957e1fed0dd2f
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125488"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167540"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>使用 Java 和 Eclipse 建立您的第一個函式 (預覽)
 
 > [!NOTE] 
 > 適用於 Azure Functions 的 Java 目前為預覽版。
 
-本文示範如何使用 Eclipse IDEA 和 Apache Maven 建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式專案、測試此專案並加以偵錯，然後將它部署至 Azure Functions。 
+本文示範如何使用 Eclipse IDEA 和 Apache Maven 建立[無伺服器](https://azure.microsoft.com/solutions/serverless/)函式專案、測試此專案並加以偵錯，然後將它部署至 Azure Functions。 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 

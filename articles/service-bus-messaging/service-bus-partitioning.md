@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 821d9bf3c844da030d1d351e895704a81678fb4e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699466"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423165"
 ---
 # <a name="partitioned-queues-and-topics"></a>分割的佇列和主題
 
@@ -140,7 +140,7 @@ committableTransaction.Commit();
 
 目前服務匯流排會為分割的佇列和主題設定下列限制：
 
-* 進階傳訊層中不支援分割的佇列和主題。
+* 進階傳訊層中不支援分割的佇列和主題。 在進階層中支援使用 SessionId 的工作階段。 
 * 分割的佇列及主題不支援在單一交易中傳送屬於不同工作階段的訊息。
 * 服務匯流排目前每個命名空間允許最多 100 個分割佇列或主題。 每個分割佇列或主題的配額計數為每個命名空間 10,000 個實體 (不適用於高階層)。
 
