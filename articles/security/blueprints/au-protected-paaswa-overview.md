@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bd6ac05da5f60fdbe86897ce03ccd6646e6bf191
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300982"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390257"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 安全性與合規性藍圖 - 適用於 Australia PROTECTED 的 PaaS Web 應用程式
 
@@ -82,7 +82,6 @@ ms.locfileid: "44300982"
 -   [Azure 診斷擴充功能](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   使用 Azure Key Vault 的 [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 -   [自動關閉原則](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) \(英文\)，可減少不使用虛擬機器資源時的耗用量。
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) 已啟用，因此認證和其他祕密都會在受保護的環境中執行，且該環境會與正在執行的作業系統隔離
 
 **App Service 環境 v2**：[Azure App Service 環境](https://docs.microsoft.com/azure/app-service/environment/intro)是 App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。
 
@@ -202,7 +201,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 
 **Azure 監視器**：[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)藉由讓組織稽核、建立警示及封存資料，包括追蹤使用者 Azure 資源中的 API 呼叫，協助使用者追蹤效能、維護安全性和識別趨勢。
 
-Azure 網路監看員：[Azure 網路監看員]https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)提供了相關工具，可對 Azure 虛擬網路中的資源進行監視、診斷、檢視計量，以及啟用或停用記錄。  實體應該跟對 NSG 與虛擬機器實作網路監看員流量記錄。 這些記錄應該存放在只用來存放安全性記錄的專屬儲存體帳戶中，而且必須使用角色行存取控制來保護對該儲存體帳戶的存取。
+Azure 網路監看員：[Azure 網路監看員]https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)提供了相關工具，可對 Azure 虛擬網路中的資源進行監視、診斷、檢視計量，以及啟用或停用記錄。  實體應該跟對 NSG 與虛擬機器實作網路監看員流量記錄。 這些記錄應該存放在只用來存放安全性記錄的專屬儲存體帳戶中，而且必須使用角色行存取控制來保護對該儲存體帳戶的存取。
 
 ## <a name="threat-model"></a>威脅模型
 

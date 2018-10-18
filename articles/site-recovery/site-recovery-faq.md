@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 41fa742571b94505588172b94ea91f196e212a4c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 71d96d7e88404c1f8b617370ef5cc841aad882f8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920954"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390035"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
 本文包含有關 Azure Site Recovery 的常見問題集。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
@@ -70,7 +70,7 @@ Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體
 是。 當您使用 Site Recovery 來協調分公司中的複寫與容錯移轉時，會為您集中提供所有分公司工作負載的整合協調與檢視。 您不需要造訪分公司，就可以從總公司輕鬆執行所有分公司的容錯移轉及管理災害復原。
 
 ## <a name="pricing"></a>價格
-若有關於價格的疑問，請參閱 [Azure Site Recovery 價格](https://azure.microsoft.com/en-in/pricing/details/site-recovery/)中的常見問題集。
+若有關於價格的疑問，請參閱 [Azure Site Recovery 價格](https://azure.microsoft.com/pricing/details/site-recovery/)中的常見問題集。
 
 ## <a name="security"></a>安全性
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>複寫資料會傳送到 Site Recovery 服務嗎？

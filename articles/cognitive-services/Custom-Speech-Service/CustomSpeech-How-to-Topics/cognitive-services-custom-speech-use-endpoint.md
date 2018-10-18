@@ -1,24 +1,25 @@
 ---
-title: 使用自訂語音端點 - 自訂語音服務
-titlesuffix: Azure Cognitive Services
-description: 了解如何搭配「自訂語音服務」來使用自訂的語音轉文字端點。
+title: 搭配 Azure 上的自訂語音服務使用自訂語音端點 | Microsoft Docs
+description: 了解如何搭配「認知服務」中的「自訂語音服務」使用自訂的語音轉換文字端點。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223367"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341791"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>使用自訂的語音轉換文字端點
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 您可以將要求傳送給「Azure 自訂語音服務」語音轉換文字端點，就像傳送給預設的「認知服務」語音端點那樣。 這些端點在功能上與「語音 API」的端點完全相同。 因此，可透過用戶端程式庫或 REST API 供「語音 API」使用的功能，同樣也可供自訂端點使用。
 
 您使用此服務來建立的端點可以處理不同數量的並行要求。 此數量取決於與您訂用帳戶相關的訂價層。 如果收到的要求太多，就會發生錯誤。 免費層有每月的要求數限制。

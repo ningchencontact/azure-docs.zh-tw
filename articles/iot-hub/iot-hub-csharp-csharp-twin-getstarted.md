@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dobett
-ms.openlocfilehash: 340453448d38db66558e59edb845f2caf4454cf9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: defb9f72148e319b36954a8d448d5f441621fc43
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104145"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321575"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>開始使用裝置對應項 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -130,7 +130,7 @@ ms.locfileid: "43104145"
     
 2. 在方案總管中，以滑鼠右鍵按一下 **ReportConnectivity** 專案，然後按一下 [管理 NuGet 套件...]。
 
-3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) (英文) NuGet 套件與其相依項目，並新增對它的參考。
+3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 套件與其相依性，並新增對它的參考。
    
     ![NuGet 套件管理員視窗用戶端應用程式](./media/iot-hub-csharp-csharp-twin-getstarted/clientsdknuget.png)
 
@@ -236,4 +236,4 @@ ms.locfileid: "43104145"
 
 * 使用裝置對應項所需的屬性來設定裝置，請參閱[使用所需的屬性來設定裝置](tutorial-device-twins.md)教學課程，
 
-* 以互動方式控制裝置 (例如，從使用者控制的應用程式開啟風扇)，請參閱[使用直接方法](quickstart-control-device-node.md)教學課程。
+* 以互動方式控制裝置 (例如，從使用者控制的應用程式開啟風扇)，請參閱[使用直接方法](quickstart-control-device-dotnet.md)教學課程。

@@ -1,24 +1,25 @@
 ---
-title: 使用自訂發音 - 自訂語音服務
-titlesuffix: Azure Cognitive Services
-description: 了解如何使用自訂語音服務建立語言模型。
+title: 搭配 Azure 上的自訂語音服務使用自訂發音 | Microsoft Docs
+description: 了解如何在認知服務中使用自訂語音服務建立語言模型。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6442eec3e622282ecf6a3bf884110cd435fc18be
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1e9de9755ef4baee7e2a0e6c093e2cf27cb4281f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223469"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339809"
 ---
 # <a name="enable-custom-pronunciation"></a>啟用自訂發音
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 自訂發音可讓使用者定義語音形式和顯示字組或字詞。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 (簡單的 .txt 檔)。
 
 其運作方式如下。 您可以在單一 .txt 檔內輸入數個自訂的發音項目。 其結構如下所示：

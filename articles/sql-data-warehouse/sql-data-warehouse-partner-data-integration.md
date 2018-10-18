@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: f9a376b0a5b4bb573af1ec4d4e846fc08d4022d3
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: f3e45d62f5117ade9109733d3cc5aba629bf9c7d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734196"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389729"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 資料倉儲資料整合合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在具有可支援「Azure SQL 資料倉儲」之資料整合解決方案的 Microsoft 合作夥伴公司。
@@ -78,9 +78,9 @@ ms.locfileid: "45734196"
 
 <!--Marketplace Links -->
 [alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
-[attunity_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
+[attunity_marketplace]:https://azure.microsoft.com/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
 
-<!--[bryte_systems_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/bryte/bryteflow-cdc-free-trial/--> 
+<!--[bryte_systems_marketplace]:https://azure.microsoft.com/marketplace/partners/bryte/bryteflow-cdc-free-trial/--> 
 
 [informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/partners/informatica/informatica-cloud-services/
 

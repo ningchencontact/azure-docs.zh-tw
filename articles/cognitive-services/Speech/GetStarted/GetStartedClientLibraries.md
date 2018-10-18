@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: e9d1bf1a6a2383a58a890ce9add816f9e9060273
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2682236ae9f9256b91d1259248e72139c907c8e5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948130"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345011"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>開始使用 Bing 語音服務用戶端程式庫
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 除了透過 REST API 提出直接的 HTTP 要求外，Bing 語音服務還為開發人員提供了不同語言的語音用戶端程式庫。 語音用戶端程式庫：
 
@@ -33,9 +34,6 @@ ms.locfileid: "46948130"
 - [JavaScript 程式庫](GetStartedJSWebsockets.md)
 - [適用於 Android 的 JAVA 程式庫](GetStartedJavaAndroid.md)
 - [適用於 iOS 的 Objective-C 程式庫](Get-Started-ObjectiveC-iOS.md)
-
-> [!NOTE] 
-在 2018 年 5 月，我們也發行了新的[語音服務](../../speech-service/index.yml) (公開預覽狀態)。 我們鼓勵您[免費試用](../../speech-service/get-started.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

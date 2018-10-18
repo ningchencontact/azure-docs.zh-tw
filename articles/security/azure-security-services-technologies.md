@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093421"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384882"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure 可用的安全性服務與技術
 
@@ -48,7 +48,7 @@ ms.locfileid: "47093421"
 | [Azure 儲存體共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|共用存取簽章可提供您儲存體帳戶中資源的委派存取。  |
 |[Azure 儲存體帳戶金鑰](../storage/common/storage-create-storage-account.md)| Azure 儲存體的存取控制方法，用於在存取儲存體帳戶時進行驗證。 |
 |[採用 SMB 3.0 加密的 Azure 檔案共用](../storage/files/storage-files-introduction.md)|網路安全性技術，可啟用伺服器訊息區塊 (SMB) 檔案共用通訊協定的網路自動加密功能。 |
-|[Azure 儲存體分析](https://docs.microsoft.com/en-us/rest/api/storageservices/Storage-Analytics)| 記錄和度量產生技術，適用於儲存體帳戶中的資料。 |
+|[Azure 儲存體分析](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)| 記錄和度量產生技術，適用於儲存體帳戶中的資料。 |
 
 <!------>
 
@@ -58,8 +58,8 @@ ms.locfileid: "47093421"
 | [Azure&nbsp;SQL&nbsp;防火牆](../sql-database/sql-database-firewall-configure.md)|網路存取控制功能，可防止對資料庫的網路型攻擊。 |
 |[Azure&nbsp;SQL&nbsp;資料格&nbsp;層級加密](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| 可提供細微層級加密的資料庫安全性技術。  |
 | [Azure&nbsp;SQL&nbsp;連線加密](../sql-database/sql-database-control-access.md)|為了提供安全性，SQL Database 會透過以下機制來控制存取：依 IP 位址限制連線的防火牆規則、要求使用者證明其身分識別的驗證機制，以及將使用者限制在特定動作和資料的授權機制。 |
-| [Azure SQL 一律加密](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|可保護 Azure SQL Database 或 SQL Server 資料庫中儲存的敏感性資料，像是信用卡號碼或身分證號碼 (例如美國的社會安全號碼)。  |
-| [Azure&nbsp;SQL&nbsp;透明資料加密](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| 可將整個資料庫的儲存體加密的資料庫安全性功能。 |
+| [Azure SQL 一律加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|可保護 Azure SQL Database 或 SQL Server 資料庫中儲存的敏感性資料，像是信用卡號碼或身分證號碼 (例如美國的社會安全號碼)。  |
+| [Azure&nbsp;SQL&nbsp;透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| 可將整個資料庫的儲存體加密的資料庫安全性功能。 |
 | [Azure SQL Database 稽核](../sql-database/sql-database-auditing.md)|資料庫稽核功能，可追蹤資料庫事件，並將它們寫入至您 Azure 儲存體帳戶中的稽核記錄。  |
 
 

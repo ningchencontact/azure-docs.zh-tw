@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: c390f6cbc9f7ced8113b4e6053dec1adcaf761a1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422589"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091788"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -45,8 +45,8 @@ ms.locfileid: "47422589"
 
 | **Azure 區域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|
-| 美國中部 | X | X |
-| 美國東部 | X | X |
+| 美國中部 |  | X |
+| 美國東部 |  | X |
 | 美國東部 2 | X | X |
 | 美國中北部 | X | X |
 | 美國中南部 | X | X |

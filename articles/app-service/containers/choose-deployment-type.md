@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: 012f78fc07f237e8ed532246c81a3c86bb6ab4ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764337"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319433"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>自訂映像、多容器或內建平台映像？
 
@@ -30,7 +30,7 @@ ms.locfileid: "33764337"
 - **多容器部署**：使用 Docker Compose 或 Kubernetes 組態檔在多個容器中將您的應用程式「Docker 化」。 如需詳細資訊，請參閱[多容器應用程式](#multi-container-apps-supportability)。
 - **使用內建平台映像的應用程式部署**：我們的內建平台映像包含常用的 Web 應用程式執行階段和相依性，例如節點和 PHP。 使用任何一種 [Azure App Service 部署方法](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，將您的應用程式部署至 Web 應用程式的存放區，然後使用內建的平台映像執行應用程式。
 
-##<a name="which-method-is-right-for-your-app"></a>哪一種方法最適合您的應用程式？ 
+## <a name="which-method-is-right-for-your-app"></a>哪一種方法最適合您的應用程式？ 
 
 需要考量的主要因素如下：
 

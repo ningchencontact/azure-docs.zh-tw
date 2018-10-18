@@ -3,19 +3,19 @@ title: 利用 OCR 擷取文字 - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 使用電腦視覺 API 以光學字元辨識 (OCR) 擷取文字的相關概念。
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: 4cbc8ebcdd19aa65a37ffe0f82019a7681f1c6c5
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: pafarley
+ms.openlocfilehash: 52b6265722d5cfbf8baf54e1785ace627aa0892f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434869"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341662"
 ---
 # <a name="extracting-text-with-ocr"></a>利用 OCR 擷取文字
 
@@ -33,7 +33,7 @@ OCR 支援 25 種語言。 這些語言是：阿拉伯文、簡體中文、繁�
 
 * 必須以 JPEG、PNG、GIF 或 BMP 格式呈現的影像
 * 輸入影像的大小必須介於 50 x 50 與 4200 x 4200 像素之間
-* 影像不可大於 1000 萬像素
+
 
 輸入影像可以旋轉 90 度的任何倍數，並可輔以不超過 40 度的小角度旋轉。
 

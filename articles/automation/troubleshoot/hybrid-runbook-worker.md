@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cae7253a4bfcb4f83baf003a4d9d3c367d8f014
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 6c8dc240172451118fd75b042ba267740999882d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064250"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321762"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>混合式 Runbook 背景工作的疑難排解
 
@@ -24,7 +24,7 @@ ms.locfileid: "37064250"
 
 混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的代理程式，來註冊背景工作角色、接收 Runbook 作業及報告狀態。 Windows 的代理程式為 Microsoft Monitoring Agent。 Linux 的代理程式為適用於 Linux 的 OMS 代理程式。
 
-###<a name="runbook-execution-fails"></a>案例：Runbook 執行失敗
+### <a name="runbook-execution-fails"></a>案例：Runbook 執行失敗
 
 #### <a name="issue"></a>問題
 
@@ -62,7 +62,7 @@ Runbook 在嘗試執行三次後會馬上暫止。 在某些情況下，Runbook 
 
 Linux 混合式 Runbook 背景工作角色仰賴適用於 Linux 的 OMS 代理程式來與自動化帳戶通訊，以便註冊背景工作角色、接收 Runbook 作業和報告狀態。 如果註冊背景工作角色失敗，請參考以下一些可能的錯誤原因：
 
-###<a name="oms-agent-not-running"></a>案例：適用於 Linux 的 OMS 代理程式未執行
+### <a name="oms-agent-not-running"></a>案例：適用於 Linux 的 OMS 代理程式未執行
 
 如果適用於 Linux 的 OMS 代理程式未執行，就會讓 Linux 混合式 Runbook 背景工作角色無法與 Azure 自動化進行通訊。 輸入下列命令，確認代理程式正在執行：`ps -ef | grep python`。 您所看到的輸出應該會類似下列具有 **nxautomation** 使用者帳戶的 Python 處理序。 如果未啟用更新管理或 Azure 自動化解決方案，下列處理序都不會執行。
 
@@ -82,7 +82,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 如果適用於 Linux 的 OMS 代理程式未執行，請執行下列命令來啟動服務：`sudo /opt/microsoft/omsagent/bin/service_control restart`。
 
-###<a name="class-does-not-exist"></a>案例：指定的類別不存在
+### <a name="class-does-not-exist"></a>案例：指定的類別不存在
 
 如果您看到錯誤：**指定的類別不存在...** `/var/opt/microsoft/omsconfig/omsconfig.log` 中，表示適用於 Linux 的 OMS 代理程式需要更新。 請執行下列命令來重新安裝 OMS 代理程式：
 
@@ -94,7 +94,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Windows 混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的 Microsoft Monitoring Agent 來註冊背景工作角色、接收 Runbook 作業及報告狀態。 如果註冊背景工作角色失敗，請參考以下一些可能的錯誤原因：
 
-###<a name="mma-not-running"></a>案例：Microsoft Monitoring Agent 未執行
+### <a name="mma-not-running"></a>案例：Microsoft Monitoring Agent 未執行
 
 #### <a name="issue"></a>問題
 
@@ -108,7 +108,7 @@ Windows 混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的
 
 在 PowerShell 中輸入下列命令，確認代理程式正在執行：`Get-Service healthservice`。 如果服務已停止，在 PowerShell 中輸入下列命令可啟動服務：`Start-Service healthservice`。
 
-###<a name="event-4502"></a> Operations Manager 記錄中的事件 4502
+### <a name="event-4502"></a> Operations Manager 記錄中的事件 4502
 
 #### <a name="issue"></a>問題
 
@@ -130,4 +130,4 @@ Windows 混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果您需要其他協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

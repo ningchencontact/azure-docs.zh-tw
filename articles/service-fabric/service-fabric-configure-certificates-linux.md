@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 2d6d387ed12e7261d09669686c0710786a4302dd
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: aa84dc4cb23a0fa2fa854e1f3d6da1234ec00bd6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025182"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386632"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 叢集上的憑證和安全性
 
@@ -31,11 +31,11 @@ ms.locfileid: "37025182"
 
 針對 Linux 叢集，Service Fabric 的憑證通常會以包含憑證和私密金鑰的 .pem 檔案形式提供，或以包含憑證的 .crt 檔案和包含私密金鑰的 .key 檔案個別提供。 所有檔案均應為 PEM 格式。 
 
-如果您使用 [Resource Manager 範本](./service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template)或 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) 命令從 Azure Key Vault 安裝憑證，憑證將會以正確的格式安裝在每個節點的 */var/lib/sfcerts* 目錄中。 如果您透過其他方法安裝憑證，您必須確定憑證正確地安裝在叢集節點上。
+如果您使用 [Resource Manager 範本](./service-fabric-cluster-creation-create-template.md)或 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) 命令從 Azure Key Vault 安裝憑證，憑證將會以正確的格式安裝在每個節點的 */var/lib/sfcerts* 目錄中。 如果您透過其他方法安裝憑證，您必須確定憑證正確地安裝在叢集節點上。
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>應用程式資訊清單中參考的憑證
 
-應用程式資訊清單中指定的憑證 (例如，透過 [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 或 [**EndpointCertificate**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) 元素指定) 必須存在於 */var/lib/sfcerts* 目錄中。 用來在應用程式資訊清單中指定憑證的元素不會採用路徑屬性，因此憑證必須存在於預設目錄中。 這些元素會採用選用的 **X509StoreName** 屬性。 預設值為 "My"，會指向 Linux 節點上的 */var/lib/sfcerts* 目錄。 任何其他值都不會定義於 Linux 叢集上。 對於在 Linux 叢集上執行的應用程式，建議您省略 **X509StoreName** 屬性。 
+應用程式資訊清單中指定的憑證 (例如，透過 [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 或 [**EndpointCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) 元素指定) 必須存在於 */var/lib/sfcerts* 目錄中。 用來在應用程式資訊清單中指定憑證的元素不會採用路徑屬性，因此憑證必須存在於預設目錄中。 這些元素會採用選用的 **X509StoreName** 屬性。 預設值為 "My"，會指向 Linux 節點上的 */var/lib/sfcerts* 目錄。 任何其他值都不會定義於 Linux 叢集上。 對於在 Linux 叢集上執行的應用程式，建議您省略 **X509StoreName** 屬性。 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>組態套件 (Settings.xml) 中參考的憑證
 

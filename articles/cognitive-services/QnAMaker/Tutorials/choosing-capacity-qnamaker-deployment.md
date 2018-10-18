@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 01548cf2de8db8f4dc9984598a5e5544bf97fd49
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 582ace641cadbc7ad3a622def07f70ed51ccac53
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432642"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389797"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>選擇 QnA Maker 部署的容量
 
@@ -27,9 +27,9 @@ QnA Maker 服務會採用對三項 Azure 資源的相依性：
 在建立 QnA Maker 服務之前，您應決定您適合使用上述服務的哪幾層。 
 
 一般而言，您有三個參數必須考量：
-1. **您所需的服務輸送量**：根據您的需求為您的應用程式服務選取適當的[應用程式方案](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/)。 您可以[相應增加](https://docs.microsoft.com/azure/app-service/web-sites-scale)或相應減少應用程式。 這應該也會影響您的 Azure 搜尋服務 SKU 選取，請參閱[這裡](https://docs.microsoft.com/azure/search/search-sku-tier)以取得更多詳細資訊。
+1. **您所需的服務輸送量**：根據您的需求為您的應用程式服務選取適當的[應用程式方案](https://azure.microsoft.com/pricing/details/app-service/plans/)。 您可以[相應增加](https://docs.microsoft.com/azure/app-service/web-sites-scale)或相應減少應用程式。 這應該也會影響您的 Azure 搜尋服務 SKU 選取，請參閱[這裡](https://docs.microsoft.com/azure/search/search-sku-tier)以取得更多詳細資訊。
 
-2. **知識庫的大小和數量**：針對您的案例選擇適當的 [Azure 搜尋服務 SKU](https://azure.microsoft.com/en-in/pricing/details/search/)。 您可以在特定層中發佈 N-1 個知識庫，其中，N 是該層中允許的索引數上限。 同時也請檢查每個層允許的大小上限和文件數目。
+2. **知識庫的大小和數量**：針對您的案例選擇適當的 [Azure 搜尋服務 SKU](https://azure.microsoft.com/pricing/details/search/)。 您可以在特定層中發佈 N-1 個知識庫，其中，N 是該層中允許的索引數上限。 同時也請檢查每個層允許的大小上限和文件數目。
 
 3. **作為來源的文件數目**：QnA Maker 管理服務的免費 SKU 會將您可以透過入口網站和 API 管理的文件數目限制為 3 (每份文件的大小為 1 MB)。 標準 SKU 則不會限制您可管理的文件數目。 如需詳細資訊，請參閱[這裡](https://aka.ms/qnamaker-pricing)。
 

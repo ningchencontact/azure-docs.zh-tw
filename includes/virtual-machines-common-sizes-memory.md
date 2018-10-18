@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c3b9422ebdb0a5d93f92644d9fea5d9c5ba9fa29
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6308710a12e983ba35d9bd20d9926cba4ae27c5c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47186301"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400436"
 ---
 記憶體最佳化的虛擬機器大小的記憶體與 CPU 比例相當高，最適合關聯式資料庫伺服器、中型到大型快取，以及記憶體內部分析。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。 
 
@@ -26,7 +26,7 @@ ms.locfileid: "47186301"
 
 * Ev3 系列以超執行緒組態搭配 E5-2673 v4 2.3 GHz (Broadwell) 處理器，可為多數一般用途的工作負載提供更好的價值主張，並且讓 Ev3 更為符合其他多數雲端的一般用途 VM 的需求。  除了記憶體已擴充 (從 7 GiB/vCPU 到 8 GiB/vCPU)，磁碟和網路限制也已就個別核心進行調整，以符合移轉至超執行緒的需求。  Ev3 承襲了 D/Dv2 系列的高記憶體 VM 大小。
 
-* Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等元素的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。  請參閱下方的虛擬機器系列表格，了解您的隔離 VM 選項。
+* Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等元素的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。  請參閱下方的虛擬機器系列表格，了解您的隔離 VM 選項。
 
 ## <a name="esv3-series"></a>Esv3 系列 
 
@@ -97,7 +97,7 @@ ACU：160-180 <sup>1</sup>
 
 進階儲存體快取：支援
 
-寫入加速器：[支援](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+寫入加速器：[支援](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | 大小            | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|

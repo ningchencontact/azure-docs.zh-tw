@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: de67d71a209ea0889b4dc5c87fed254700cb9916
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722198"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395123"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -466,7 +466,7 @@ Azure Cosmos DB 使用[水平資料分割](partition-data.md)，自動處理儲�
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>如何防止透過 Gremlin 驅動程式發動的資料隱碼攻擊？ 
 
-多數原生 Tinkerpop Gremlin 驅動程式均允許提供參數字典執行查詢。 這裡提供使用 [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) 和 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js) 兩種方法的執行範例。
+多數原生 Tinkerpop Gremlin 驅動程式均允許提供參數字典執行查詢。 這裡提供使用 [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 和 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js) 兩種方法的執行範例。
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>為什麼我會收到「Gremlin 查詢編譯錯誤：找不到任何方法」錯誤？
 

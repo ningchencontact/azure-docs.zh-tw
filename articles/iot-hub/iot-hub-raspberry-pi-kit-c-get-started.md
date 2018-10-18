@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 8962f41d971ac88134f639a61ef0b42c60bbd419
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c8e2dcfef1db8bfe3d76ac917f8c14a4060e3968
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161487"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318753"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>將 Raspberry Pi 連接至 Azure IoT Hub (C)
 
@@ -61,10 +61,9 @@ ms.locfileid: "44161487"
 * 6 條 F/M 跳線。
 * 1 顆漫射型 10 mm LED。
 
-
 > [!NOTE] 
-這些項目都是選用項目，因為程式碼範例支援模擬感應器資料。
-
+> 這些項目都是選用項目，因為程式碼範例支援模擬感應器資料。
+>
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -97,7 +96,8 @@ ms.locfileid: "44161487"
    ![在 Raspberry Pi 上啟用 SPI 和 SSH](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-若要啟用 SSH 和 SPI，您可以在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和[RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) 找到更多參考文件。
+> 若要啟用 SSH 和 SPI，您可以在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和[RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) 找到更多參考文件。
+>
 
 ### <a name="connect-the-sensor-to-pi"></a>將感應器連接至 Pi
 
@@ -171,6 +171,7 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
 
    > [!NOTE] 
    > 如果您**沒有實體 BME280**，則可以使用 '--simulated-data' 做為命令列參數，以模擬溫度和溼度資料。 `sudo ./setup.sh --simulated-data`
+   >
 
 ### <a name="build-and-run-the-sample-application"></a>建置並執行範例應用程式
 
@@ -179,6 +180,7 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
    ```bash
    cmake . && make
    ```
+   
    ![建置輸出](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
 1. 執行下列命令，執行範例應用程式：
@@ -188,8 +190,8 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
    ```
 
    > [!NOTE] 
-   確定複製裝置連接字串，並貼到單引號中。
-
+   > 確定複製裝置連接字串，並貼到單引號中。
+   >
 
 您應該會看見下列輸出，顯示傳送至 IoT 中樞的感應器資料和訊息。
 

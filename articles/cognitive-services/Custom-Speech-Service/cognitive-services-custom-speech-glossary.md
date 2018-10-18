@@ -1,24 +1,24 @@
 ---
-title: 詞彙解釋 - 自訂語音服務
-titlesuffix: Azure Cognitive Services
+title: Azure 自訂語音服務的詞彙表 | Microsoft Docs
 description: 詞彙中的術語會定義使用自訂語音服務時會遇到的字詞。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6922244fa9a5d053e506120112759d29bc74a8af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222789"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344246"
 ---
 # <a name="glossary"></a>詞彙
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 ## <a name="a"></a>具有使用 
 

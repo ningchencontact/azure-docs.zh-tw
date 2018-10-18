@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: e24ad270996994a4061bbe7d71d79c7362e52406
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.component: ''
+ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091217"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389106"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
 
@@ -98,7 +98,7 @@ OMS 行動裝置應用程式將會連同 OMS 入口網站一併終止。 您不�
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 網路安全性群組分析
-[Azure 網路安全性群組分析解決方案](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)將由最近推出的[流量分析](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)所取代，讓您清楚掌握雲端網路上使用者和應用程式的活動。 流量分析可協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。 
+[Azure 網路安全性群組分析解決方案](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)將由最近推出的[流量分析](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)所取代，讓您清楚掌握雲端網路上使用者和應用程式的活動。 流量分析可協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。 
 
 此解決方案可分析 NSG 流程記錄，並提供下列深入見解。
 

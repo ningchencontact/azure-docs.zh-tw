@@ -11,23 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 6418694097c472afd6a2c706e55a9026ab03dcff
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162708"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351857"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>建立和管理 Azure SQL Database 中的彈性集區
 
-使用彈性集區，您可以判斷彈性集區處理其資料庫工作負載所需的資源數量，以及適用於每個集區資料庫的資源數量。 
+使用彈性集區，您可以判斷彈性集區處理其資料庫工作負載所需的資源數量，以及適用於每個集區資料庫的資源數量。
 
 ## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure 入口網站：管理彈性集區和集區資料庫
 
 所有集區設定都可以在一個位置找到：[設定集區] 刀鋒視窗。 若要前往該位置，請在入口網站中尋找彈性集區，然後從刀鋒視窗頂端或左側的資源功能表按一下 [設定集區]。
 
 您可以從這裡進行下列任何變更並將變更全部儲存在一個批次中：
+
 1. 變更集區的服務層
 2. 相應放大或縮小效能 (DTU 或虛擬核心) 和儲存體
 3. 在集區中新增或移除資料庫
@@ -36,7 +37,7 @@ ms.locfileid: "47162708"
 
 ![彈性集區組態刀鋒視窗](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
-## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell：管理彈性集區和集區資料庫 
+## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell：管理彈性集區和集區資料庫
 
 若要使用 Azure PowerShell 建立和管理 SQL Database 彈性集區和集區資料庫，請使用下列 PowerShell Cmdlet。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 若要建立及管理彈性集區的邏輯伺服器，請參閱[建立及管理邏輯伺服器](sql-database-logical-servers.md)。 若要建立及管理防火牆規則，請參閱[使用 PowerShell 建立及管理防火牆規則](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell)。
 
@@ -56,10 +57,8 @@ ms.locfileid: "47162708"
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|設定資料庫的屬性，或將現有資料庫移入彈性集區、移出彈性集區，或在彈性集區之間移動。|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|移除資料庫。|
 
-
 > [!TIP]
 > 使用入口網站或一次只建立單一資料庫的 PowerShell Cmdlet 在彈性集區中建立許多資料庫可能需要花費一些時間。 若要自動建立成彈性集區，請參閱 [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae)。
->
 
 ## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>Azure CLI：管理彈性集區和集區資料庫
 
@@ -100,18 +99,18 @@ ms.locfileid: "47162708"
 
 | 命令 | 說明 |
 | --- | --- |
-|[彈性集區 - 建立或更新](/rest/api/sql/elasticpools/createorupdate)|建立新的彈性集區或更新現有的彈性集區。|
-|[彈性集區 - 刪除](/rest/api/sql/elasticpools/delete)|刪除彈性集區。|
-|[彈性集區 - 取得](/rest/api/sql/elasticpools/get)|取得彈性集區。|
-|[彈性集區 - 依伺服器列出](/rest/api/sql/elasticpools/listbyserver)|傳回將伺服器中的彈性集區列出的清單。|
-|[彈性集區 - 更新](/rest/api/sql/elasticpools/update)|更新現有的彈性集區。|
-|[彈性集區活動](/rest/api/sql/elasticpoolactivities)|傳回彈性集區活動。|
-|[彈性集區資料庫活動](/rest/api/sql/elasticpooldatabaseactivities)|傳回資料庫內彈性集區上的活動。|
-|[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
-|[資料庫 - 取得](/rest/api/sql/databases/get)|取得資料庫。|
-|[資料庫 - 依彈性集區列出](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
-|[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
-|[資料庫 - 更新](/rest/api/sql/databases/update)|更新現有的資料庫。|
+|[彈性集區 - 建立或更新](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|建立新的彈性集區或更新現有的彈性集區。|
+|[彈性集區 - 刪除](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|刪除彈性集區。|
+|[彈性集區 - 取得](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|取得彈性集區。|
+|[彈性集區 - 依伺服器列出](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|傳回將伺服器中的彈性集區列出的清單。|
+|[彈性集區 - 更新](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|更新現有的彈性集區。|
+|[彈性集區活動](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|傳回彈性集區活動。|
+|[彈性集區資料庫活動](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|傳回資料庫內彈性集區上的活動。|
+|[資料庫 - 建立或更新](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|建立新的資料庫或更新現有資料庫。|
+|[資料庫 - 取得](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|取得資料庫。|
+|[資料庫 - 依彈性集區列出](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
+|[資料庫 - 依伺服器列出](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|傳回伺服器中的資料庫清單。|
+|[資料庫 - 更新](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|更新現有的資料庫。|
 
 ## <a name="next-steps"></a>後續步驟
 

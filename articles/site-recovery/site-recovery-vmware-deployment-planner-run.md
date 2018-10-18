@@ -2,24 +2,18 @@
 title: VMware 到 Azure 的 Azure Site Recovery Deployment Planner | Microsoft Docs
 description: 本文說明針對 VMware 到 Azure 的案例執行 Azure Site Recovery 部署規劃工具的模式。
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 8298f4a31db974f75e80aef7589bfd31fd7c7491
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f83ab78cae17859dc28349cf7c435d7101c5fa3b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921047"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093148"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>針對 VMware 到 Azure 執行 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -275,7 +269,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 ### <a name="example"></a>範例
 ```
-ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -Virtualization VMware -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 >[!NOTE]

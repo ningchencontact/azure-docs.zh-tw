@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 14607e01c0bd51ca9ae98f969c9cd6e1c8c62bb9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7fb69fd52c03300ee554fd903cba1670f2aa2421
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294266"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318600"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
 
@@ -47,12 +47,12 @@ Azure 的網路原則伺服器 (NPS) 擴充功能可讓客戶使用 Azure 以雲
 當 Azure 的 NPS 擴充功能與 NPS 和遠端桌面閘道整合時，成功的驗證流程如下所示：
 
 1. 遠端桌面閘道伺服器會收到遠端桌面使用者要連線到某項資源 (例如遠端桌面工作階段) 的驗證要求。 作為 RADIUS 用戶端的遠端桌面閘道伺服器，會將此要求轉換為 RADIUS Access-Request 訊息，並將此訊息傳送至 NPS 擴充功能安裝所在的 RADIUS (NPS) 伺服器。 
-2. 使用者名稱和密碼組合會在 Active Directory 中進行驗證，且使用者已經過驗證。
-3. 如果 NPS 連線要求與網路原則中所指定的所有條件 (例如，一天當中的時間或群組成員資格限制) 皆能符合，NPS 擴充功能就會觸發要求，以便使用 Azure MFA 進行第二項驗證。 
-4. Azure MFA 會與 Azure AD 通訊、擷取使用者的詳細資料，並使用使用者所設定的方法執行第二項驗證 (簡訊、行動裝置應用程式等等)。 
-5. 成功通過 MFA 挑戰後，Azure MFA 會將結果告知 NPS 擴充功能。
-6. 安裝擴充功能的 NPS 伺服器會將 RD CAP 原則的 RADIUS Access-Accept 訊息傳送至遠端桌面閘道伺服器。
-7. 使用者便取得透過 RD 閘道存取要求之網路資源的權限。
+1. 使用者名稱和密碼組合會在 Active Directory 中進行驗證，且使用者已經過驗證。
+1. 如果 NPS 連線要求與網路原則中所指定的所有條件 (例如，一天當中的時間或群組成員資格限制) 皆能符合，NPS 擴充功能就會觸發要求，以便使用 Azure MFA 進行第二項驗證。 
+1. Azure MFA 會與 Azure AD 通訊、擷取使用者的詳細資料，並使用使用者所設定的方法執行第二項驗證 (簡訊、行動裝置應用程式等等)。 
+1. 成功通過 MFA 挑戰後，Azure MFA 會將結果告知 NPS 擴充功能。
+1. 安裝擴充功能的 NPS 伺服器會將 RD CAP 原則的 RADIUS Access-Accept 訊息傳送至遠端桌面閘道伺服器。
+1. 使用者便取得透過 RD 閘道存取要求之網路資源的權限。
 
 ## <a name="prerequisites"></a>必要條件
 本節會詳述在整合 Azure MFA 與遠端桌面閘道之前所需具備的必要條件。 開始之前，您必須先具備下列必要條件。  
@@ -105,9 +105,9 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 在設定 NPS 擴充功能期間，您必須為 Azure AD 租用戶提供管理員認證和 Azure AD 識別碼。 下列步驟說明如何取得租用戶識別碼。
 
 1. 以 Azure 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。
-3. 選取 [屬性] 。
-4. 在 [屬性] 刀鋒視窗中，按一下 [目錄識別碼] 旁邊的 [複製] 圖示 (如下所示)，將識別碼複製到剪貼簿。
+1. 在左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。
+1. 選取 [屬性] 。
+1. 在 [屬性] 刀鋒視窗中，按一下 [目錄識別碼] 旁邊的 [複製] 圖示 (如下所示)，將識別碼複製到剪貼簿。
 
  ![properties](./media/howto-mfa-nps-extension-rdg/image1.png)
 
@@ -119,13 +119,13 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 > 
 
 1. 下載 [NPS 擴充功能](https://aka.ms/npsmfa)。 
-2. 將安裝程式可執行檔 (NpsExtnForAzureMfaInstaller.exe) 複製到 NPS 伺服器。
-3. 在 NPS 伺服器上按兩下 **NpsExtnForAzureMfaInstaller.exe**。 出現提示時，按一下 [執行]。
-4. 檢閱 [Azure MFA 安裝程式的 NPS 擴充功能] 對話方塊中的軟體授權條款，勾選 [我同意授權條款和條件]，然後按一下 [安裝]。
+1. 將安裝程式可執行檔 (NpsExtnForAzureMfaInstaller.exe) 複製到 NPS 伺服器。
+1. 在 NPS 伺服器上按兩下 **NpsExtnForAzureMfaInstaller.exe**。 出現提示時，按一下 [執行]。
+1. 檢閱 [Azure MFA 安裝程式的 NPS 擴充功能] 對話方塊中的軟體授權條款，勾選 [我同意授權條款和條件]，然後按一下 [安裝]。
  
   ![Azure MFA 設定](./media/howto-mfa-nps-extension-rdg/image2.png)
 
-5. 在 [Azure MFA 安裝程式的 NPS 擴充功能] 對話方塊中，按一下 [關閉]。 
+1. 在 [Azure MFA 安裝程式的 NPS 擴充功能] 對話方塊中，按一下 [關閉]。 
 
   ![Azure MFA 的 NPS 擴充功能](./media/howto-mfa-nps-extension-rdg/image3.png)
 
@@ -145,20 +145,20 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 若要使用此指令碼，請為擴充功能提供您的 Azure AD 系統管理認證以及您之前複製的 Azure AD 租用戶識別碼。 在已安裝 NPS 擴充功能的每個 NPS 伺服器上執行此指令碼。 然後執行以下動作：
 
 1. 開啟系統管理 Windows PowerShell 提示字元。
-2. 在 PowerShell 提示字元中，輸入 `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`，然後按 **ENTER** 鍵。
-3. 輸入 `.\AzureMfsNpsExtnConfigSetup.ps1`，然後按 **ENTER** 鍵。 此指令碼會檢查您是否已安裝 Azure Active Directory PowerShell 模組。 如果尚未安裝此模組，指令碼就會為您安裝。
+1. 在 PowerShell 提示字元中，輸入 `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`，然後按 **ENTER** 鍵。
+1. 輸入 `.\AzureMfsNpsExtnConfigSetup.ps1`，然後按 **ENTER** 鍵。 此指令碼會檢查您是否已安裝 Azure Active Directory PowerShell 模組。 如果尚未安裝此模組，指令碼就會為您安裝。
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
-4. 在指令碼確認您已安裝 PowerShell 模組後，它會顯示 [Azure Active Directory PowerShell 模組] 對話方塊。 在對話方塊中，輸入您的 Azure 系統管理認證和密碼，然後按一下 [登入]。
+1. 在指令碼確認您已安裝 PowerShell 模組後，它會顯示 [Azure Active Directory PowerShell 模組] 對話方塊。 在對話方塊中，輸入您的 Azure 系統管理認證和密碼，然後按一下 [登入]。
 
   ![開啟 Powershell 帳戶](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-5. 出現提示時，貼上您之前複製到剪貼簿的租用戶識別碼，然後按 **ENTER**。
+1. 出現提示時，貼上您之前複製到剪貼簿的租用戶識別碼，然後按 **ENTER**。
 
   ![輸入租用戶識別碼](./media/howto-mfa-nps-extension-rdg/image6.png)
 
-6. 此指令碼會建立自我簽署憑證，並進行其他的設定變更。 其輸出應類似下圖所示。
+1. 此指令碼會建立自我簽署憑證，並進行其他的設定變更。 其輸出應類似下圖所示。
 
   ![自我簽署憑證](./media/howto-mfa-nps-extension-rdg/image7.png)
 
@@ -171,22 +171,22 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 遠端桌面連線授權原則 (RD CAP) 會指定連線至遠端桌面閘道伺服器的需求。 RD CAP 可以儲存在本機 (預設值)，也可以儲存在執行 NPS 的中央 RD CAP 存放區中。 若要設定 Azure MFA 與 RDS 的整合，您必須指定使用中央存放區。
 
 1. 在 RD 閘道伺服器上，開啟 [伺服器管理員]。 
-2. 在功能表上，按一下 [工具]，指向 [遠端桌面服務]，然後按一下 [遠端桌面閘道管理員]。
+1. 在功能表上，按一下 [工具]，指向 [遠端桌面服務]，然後按一下 [遠端桌面閘道管理員]。
 
   ![遠端桌面服務問題](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. 在 [RD 閘道管理員] 中，以滑鼠右鍵按一下 **\[伺服器名稱\] (本機)**，然後按一下 [屬性]。
+1. 在 [RD 閘道管理員] 中，以滑鼠右鍵按一下 **\[伺服器名稱\] (本機)**，然後按一下 [屬性]。
 
   ![伺服器名稱](./media/howto-mfa-nps-extension-rdg/image9.png)
 
-4. 在 [屬性] 對話方塊中，選取 [RD CAP 存放區] 索引標籤。
-5. 在 [RD CAP 存放區] 索引標籤上，選取 [執行 NPS 的中央伺服器]。 
-6. 在 [輸入執行 NPS 之伺服器的名稱或 IP 位址] 欄位中，輸入您安裝 NPS 擴充功能之伺服器的 IP 位址或伺服器名稱。
+1. 在 [屬性] 對話方塊中，選取 [RD CAP 存放區] 索引標籤。
+1. 在 [RD CAP 存放區] 索引標籤上，選取 [執行 NPS 的中央伺服器]。 
+1. 在 [輸入執行 NPS 之伺服器的名稱或 IP 位址] 欄位中，輸入您安裝 NPS 擴充功能之伺服器的 IP 位址或伺服器名稱。
 
   ![輸入名稱或 IP 位址](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-7. 按一下 [新增] 。
-8. 在 [共用祕密] 對話方塊中，輸入共用祕密，然後按一下 [確定]。 務必記錄此共用祕密並安全地儲存記錄。
+1. 按一下 [新增] 。
+1. 在 [共用祕密] 對話方塊中，輸入共用祕密，然後按一下 [確定]。 務必記錄此共用祕密並安全地儲存記錄。
 
  >[!NOTE]
  >共用祕密用於建立 RADIUS 伺服器與用戶端之間的信任。 建立長而複雜的密碼。
@@ -194,45 +194,45 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 
  ![共用祕密](./media/howto-mfa-nps-extension-rdg/image11.png)
 
-9. 按一下 [確定] 關閉對話方塊。
+1. 按一下 [確定] 關閉對話方塊。
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>在遠端桌面閘道 NPS 上設定 RADIUS 逾時值
 若要確保有時間驗證使用者的認證，請執行雙步驟驗證、接收回應，然後回應 RADIUS 訊息，而且一定要調整 RADIUS 逾時值。
 
 1. 在 RD 閘道伺服器上，開啟 [伺服器管理員]。 在功能表中，按一下 [工具]，然後按一下 [網路原則伺服器]。 
-2. 在 [NPS (本機)] 主控台中，展開 [RADIUS 用戶端和伺服器]，然後選取 [遠端 RADIUS 伺服器]。
+1. 在 [NPS (本機)] 主控台中，展開 [RADIUS 用戶端和伺服器]，然後選取 [遠端 RADIUS 伺服器]。
 
  ![遠端 RADIUS 伺服器](./media/howto-mfa-nps-extension-rdg/image12.png)
 
-3. 在詳細資料窗格中，按兩下 [TS GATEWAY SERVER GROUP]。
+1. 在詳細資料窗格中，按兩下 [TS GATEWAY SERVER GROUP]。
 
  >[!NOTE]
  >設定 NPS 原則的中央伺服器時，已建立此 RADIUS 伺服器群組。 RD 閘道會將 RADIUS 訊息轉送到此伺服器或伺服器群組 (如果群組中超過一個伺服器)。
  >
 
-4. 在 [TS GATEWAY SERVER GROUP 屬性] 對話方塊中，選取您設定用來儲存 RD CAP 之 NPS 伺服器的 IP 位址或名稱，然後按一下 [編輯]。 
+1. 在 [TS GATEWAY SERVER GROUP 屬性] 對話方塊中，選取您設定用來儲存 RD CAP 之 NPS 伺服器的 IP 位址或名稱，然後按一下 [編輯]。 
 
  ![TS Gateway Server Group](./media/howto-mfa-nps-extension-rdg/image13.png)
 
-5. 在 [編輯 RADIUS 伺服器] 對話方塊中，選取 [負載平衡] 索引標籤。
-6. 在 [負載平衡] 索引標籤的 [要求被丟棄前，無回應的秒數] 欄位中，將預設值從 3 變更為介於 30 與 60 秒之間的值。
-7. 在 [伺服器被識別為無法使用時，要求之間的間隔秒數] 欄位中，將預設值 30 秒變更為等於或大於您在上一個步驟中指定的值。
+1. 在 [編輯 RADIUS 伺服器] 對話方塊中，選取 [負載平衡] 索引標籤。
+1. 在 [負載平衡] 索引標籤的 [要求被丟棄前，無回應的秒數] 欄位中，將預設值從 3 變更為介於 30 與 60 秒之間的值。
+1. 在 [伺服器被識別為無法使用時，要求之間的間隔秒數] 欄位中，將預設值 30 秒變更為等於或大於您在上一個步驟中指定的值。
 
  ![編輯 Radius 伺服器](./media/howto-mfa-nps-extension-rdg/image14.png)
 
-8.  按兩次 [確定] 以關閉對話方塊。
+1.  按兩次 [確定] 以關閉對話方塊。
 
 ### <a name="verify-connection-request-policies"></a>驗證連線要求原則 
 根據預設，當您將 RD 閘道設定為使用連線授權原則的中央原則存放區時，則 RD 閘道會被設定為將 CAP 要求轉送到 NPS 伺服器。 已安裝 Azure MFA 擴充功能的 NPS 伺服器，會處理 RADIUS 存取要求。 下列步驟顯示如何確認預設連線要求原則。 
 
 1. 在 RD 閘道上，於 [NPS (本機)] 主控台中展開 [原則]，然後選取 [連線要求原則]。
-2. 按兩下 [TS 閘道授權原則]。
-3. 在 [TS GATEWAY AUTHORIZATION POLICY 屬性] 對話方塊中，按一下 [設定] 索引標籤。
-4. 在 [設定] 索引標籤上，按一下 [轉送連線要求] 之下的 [驗證]。 RADIUS 用戶端會設定為轉送要求進行驗證。
+1. 按兩下 [TS 閘道授權原則]。
+1. 在 [TS GATEWAY AUTHORIZATION POLICY 屬性] 對話方塊中，按一下 [設定] 索引標籤。
+1. 在 [設定] 索引標籤上，按一下 [轉送連線要求] 之下的 [驗證]。 RADIUS 用戶端會設定為轉送要求進行驗證。
 
  ![驗證設定](./media/howto-mfa-nps-extension-rdg/image15.png)
  
-5. 按一下 [取消]。 
+1. 按一下 [取消]。 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>在安裝 NPS 擴充功能的伺服器上設定 NPS
 安裝 NPS 擴充功能的 NPS 伺服器必須能夠與遠端桌面閘道上的 NPS 伺服器交換 RADIUS 訊息。 若要啟用此訊息交換，您必須在安裝 NPS 擴充服務的伺服器上設定 NPS 元件。 
@@ -241,13 +241,13 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 若要讓 NPS 伺服器在本案例中正常運作，您必須在 Active Directory 中加以註冊。
 
 1. 在 NPS 伺服器上，開啟 [伺服器管理員]。
-2. 在 [伺服器管理員] 中按一下 [工具]，然後按一下 [網路原則伺服器]。 
-3. 在 [網路原則伺服器] 主控台中，以滑鼠右鍵按一下 [NPS (本機)]，然後按一下 [在 Active Directory 中註冊伺服器]。 
-4. 按 [確定] 兩次。
+1. 在 [伺服器管理員] 中按一下 [工具]，然後按一下 [網路原則伺服器]。 
+1. 在 [網路原則伺服器] 主控台中，以滑鼠右鍵按一下 [NPS (本機)]，然後按一下 [在 Active Directory 中註冊伺服器]。 
+1. 按 [確定] 兩次。
 
  ![在 AD 中註冊伺服器](./media/howto-mfa-nps-extension-rdg/image16.png)
 
-5. 讓主控台保持開啟以供下一個程序使用。
+1. 讓主控台保持開啟以供下一個程序使用。
 
 ### <a name="create-and-configure-radius-client"></a>建立及設定 RADIUS 用戶端 
 必須將遠端桌面閘道設定為 NPS 伺服器的 RADIUS 用戶端。 
@@ -256,39 +256,39 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 
  ![新增 RADIUS 用戶端](./media/howto-mfa-nps-extension-rdg/image17.png)
 
-2. 在 [新增 RADIUS 用戶端] 對話方塊中，提供易記的名稱 (例如 Gateway)，以及遠端桌面閘道伺服器的 IP 位址或 DNS 名稱。 
-3. 在 [共用祕密] 和 [確認共用祕密] 欄位中，輸入您之前使用的相同祕密。
+1. 在 [新增 RADIUS 用戶端] 對話方塊中，提供易記的名稱 (例如 Gateway)，以及遠端桌面閘道伺服器的 IP 位址或 DNS 名稱。 
+1. 在 [共用祕密] 和 [確認共用祕密] 欄位中，輸入您之前使用的相同祕密。
 
  ![名稱和位址](./media/howto-mfa-nps-extension-rdg/image18.png)
 
-4. 按一下 [確定] 關閉 [新增 RADIUS 用戶端] 對話方塊。
+1. 按一下 [確定] 關閉 [新增 RADIUS 用戶端] 對話方塊。
 
 ### <a name="configure-network-policy"></a>設定網路原則
 請記住，具備 Azure MFA 擴充功能的 NPS 伺服器是連線授權原則 (CAP) 的指定中央原則存放區。 因此，您需要在 NPS 伺服器上實作 CAP，才能授權有效的連線要求。  
 
 1. 在 NPS 伺服器上，開啟 [NPS (本機)] 主控台，展開 [原則]，然後按一下 [網路原則]。
-2. 以滑鼠右鍵按一下 [其他存取伺服器的連線]，然後按一下 [複製原則]。 
+1. 以滑鼠右鍵按一下 [其他存取伺服器的連線]，然後按一下 [複製原則]。 
 
  ![複製原則](./media/howto-mfa-nps-extension-rdg/image19.png)
 
-3. 以滑鼠右鍵按一下 [複製其他存取伺服器的連線]，然後按一下 [屬性]。
+1. 以滑鼠右鍵按一下 [複製其他存取伺服器的連線]，然後按一下 [屬性]。
 
  ![網路屬性](./media/howto-mfa-nps-extension-rdg/image20.png)
 
-4. 在 [複製其他存取伺服器的連線] 對話方塊的 [原則名稱] 中，輸入適當的名稱，例如 _RDG_CAP_。 勾選 [啟用原則]，然後選取 [授與存取權]。 (選擇性) 在 [網路存取伺服器類型] 中選取 [遠端桌面閘道]，您也可以將它保留為 [未指定]。
+1. 在 [複製其他存取伺服器的連線] 對話方塊的 [原則名稱] 中，輸入適當的名稱，例如 _RDG_CAP_。 勾選 [啟用原則]，然後選取 [授與存取權]。 (選擇性) 在 [網路存取伺服器類型] 中選取 [遠端桌面閘道]，您也可以將它保留為 [未指定]。
 
  ![複製連線](./media/howto-mfa-nps-extension-rdg/image21.png)
 
-5.  按一下 [條件約束] 索引標籤，然後勾選 [允許用戶端沒有交涉驗證方法仍然可以連線]。
+1.  按一下 [條件約束] 索引標籤，然後勾選 [允許用戶端沒有交涉驗證方法仍然可以連線]。
 
  ![允許用戶端連線](./media/howto-mfa-nps-extension-rdg/image22.png)
 
-6. (選擇性) 按一下 [條件] 索引標籤，並新增必須符合才能授權連線的條件，例如，特定 Windows 群組中的成員資格。
+1. (選擇性) 按一下 [條件] 索引標籤，並新增必須符合才能授權連線的條件，例如，特定 Windows 群組中的成員資格。
 
  ![條件](./media/howto-mfa-nps-extension-rdg/image23.png)
 
-7. 按一下 [確定]。 當系統提示您檢視對應的說明主題時，請按一下 [否]。
-8. 請確定新原則位於清單的頂端，已啟用原則，而且它會授與存取權。
+1. 按一下 [確定]。 當系統提示您檢視對應的說明主題時，請按一下 [否]。
+1. 請確定新原則位於清單的頂端，已啟用原則，而且它會授與存取權。
 
  ![網路原則](./media/howto-mfa-nps-extension-rdg/image24.png)
 

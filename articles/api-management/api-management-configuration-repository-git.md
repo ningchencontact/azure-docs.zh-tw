@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42146361"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387220"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 儲存和設定 API 管理服務組態
 
@@ -219,14 +219,14 @@ git push
 ### <a name="apis-folder"></a>apis 資料夾
 `apis` 資料夾包含服務執行個體中每個 API 的資料夾，其中包含下列項目。
 
-* `apis\<api name>\configuration.json` - 這是 API 的組態，而且包含後端服務 URL 和作業的相關資訊。 此資訊與當您以 `application/json` 格式的 `export=true` 呼叫[取得特定 API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) 時傳回的資訊相同。
-* `apis\<api name>\api.description.html` - 這是 API 的說明，並會對應至 [API 實體](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property)的 `description` 屬性。
-* `apis\<api name>\operations\` - 此資料夾包含 `<operation name>.description.html` 檔案，該檔案對應至 API 中的作業。 每個檔案包含 API 中單一作業的說明，其會對應至 REST API 中[作業實體](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties)的 `description` 屬性。
+* `apis\<api name>\configuration.json` - 這是 API 的組態，而且包含後端服務 URL 和作業的相關資訊。 此資訊與當您以 `application/json` 格式的 `export=true` 呼叫[取得特定 API](https://docs.microsoft.com/rest/api/apimanagement/api/get) 時傳回的資訊相同。
+* `apis\<api name>\api.description.html` - 這是 API 的說明，並會對應至 [API 實體](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property)的 `description` 屬性。
+* `apis\<api name>\operations\` - 此資料夾包含 `<operation name>.description.html` 檔案，該檔案對應至 API 中的作業。 每個檔案包含 API 中單一作業的說明，其會對應至 REST API 中[作業實體](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties)的 `description` 屬性。
 
 ### <a name="groups-folder"></a>群組資料夾
 `groups` 資料夾包含服務執行個體中定義的每個群組的資料夾。
 
-* `groups\<group name>\configuration.json` - 這是群組的組態。 此資訊與當您呼叫 [取得特定群組](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) 作業時傳回的資訊相同。
+* `groups\<group name>\configuration.json` - 這是群組的組態。 此資訊與當您呼叫 [取得特定群組](https://docs.microsoft.com/rest/api/apimanagement/group/get) 作業時傳回的資訊相同。
 * `groups\<group name>\description.html` - 這是群組的說明，並會對應至[群組實體](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)的 `description` 屬性。
 
 ### <a name="policies-folder"></a>原則資料夾
@@ -246,7 +246,7 @@ git push
 ### <a name="products-folder"></a>產品資料夾
 `products` 資料夾包含服務執行個體中定義的每個產品的資料夾。
 
-* `products\<product name>\configuration.json` - 這是產品的組態。 此資訊與當您呼叫 [取得特定產品](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) 作業時傳回的資訊相同。
+* `products\<product name>\configuration.json` - 這是產品的組態。 此資訊與當您呼叫 [取得特定產品](https://docs.microsoft.com/rest/api/apimanagement/product/get) 作業時傳回的資訊相同。
 * `products\<product name>\product.description.html` - 這是產品的說明，並會對應至 REST API 中[產品實體](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity)的 `description` 屬性。
 
 ### <a name="templates"></a>範本

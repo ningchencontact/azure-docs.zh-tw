@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962771"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341815"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing 語音 WebSocket 通訊協定
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing 語音是一個雲端架構的平台，具備適用於將語音轉換為文字的最先進演算法。 Bing 語音通訊協定會定義用戶端應用程式和服務之間的[連線設定](#connection-establishment)，以及在對應項目 ([用戶端產生的訊息](#client-originated-messages)和[服務產生的訊息](#service-originated-messages)) 之間交換的語音辨識訊息。 此外還會描述[遙測訊息](#telemetry-schema)和[錯誤處理](#error-handling)。
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616839"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387477"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器提出警示及監視 Data Factory
 雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
@@ -231,7 +231,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[更多資訊](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
+[更多資訊](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 
 ## <a name="schema-of-logs--events"></a>記錄和事件的結構描述
 
@@ -392,7 +392,7 @@ ADFV2 會發出下列計量
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | 成功的管線執行計量 | Count    | 總計                | 為期一分鐘的時間內成功的管線執行總計 |
 | PipelineFailedRuns   | 失敗的管線執行計量    | Count    | 總計                | 為期一分鐘的時間內失敗的管線執行總計    |
-| ActiviySucceededRuns | 成功的活動執行計量 | Count    | 總計                | 為期一分鐘的時間內成功的活動執行總計  |
+| ActivitySucceededRuns | 成功的活動執行計量 | Count    | 總計                | 為期一分鐘的時間內成功的活動執行總計  |
 | ActivityFailedRuns   | 失敗的活動執行計量    | Count    | 總計                | 為期一分鐘的時間內失敗的活動執行總計     |
 | TriggerSucceededRuns | 成功的觸發程序執行計量  | Count    | 總計                | 為期一分鐘的時間內成功的觸發程序執行總計   |
 | TriggerFailedRuns    | 失敗的觸發程序執行計量     | Count    | 總計                | 為期一分鐘的時間內失敗的觸發程序執行總計      |

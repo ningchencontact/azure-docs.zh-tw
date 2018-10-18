@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2018
-ms.openlocfilehash: b79d529822f2b1acca9c8a120202b4ce4010949e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411868"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365283"
 ---
 # <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>使用受控識別來向 Azure Data Lake Storage Gen1 輸出驗證 Azure 串流分析作業 (預覽)
 
 Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受控識別驗證。 身分識別是在 Azure Active Directory 中註冊的受控應用程式，代表了指定的串流分析作業，並可用來向指定的資源驗證。 受控識別消除了以使用者為基礎的驗證方法限制，比如因為密碼改變或使用者權杖每 90 天到期一次而需要重新驗證。 此外，受控識別有助於進行輸出至 Azure Data Lake Storage Gen1 的串流分析作業部署自動化。
 
-請瀏覽 [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) (Azure 串流分析的八個新功能) 部落格文章，註冊這項預覽功能，並閱讀更多關於新功能的內容。
+請瀏覽 [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) (Azure 串流分析的八個新功能) 部落格文章，註冊這項預覽功能，並閱讀更多關於新功能的內容。
 
 本文說明兩種方式，讓您用來為輸出至 Azure Data Lake Storage Gen1 的 Azure 串流分析作業啟用受控識別：透過 Azure 入口網站及透過 Azure Resource Manager 範本部署。
 
@@ -93,17 +93,17 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
    "outputs": [
          {
            "name": "string",
-           "properties": {
+           "properties":{
              "datasource": {        
-   "type": "Microsoft.DataLake/Accounts",
-                "properties": {     
-                  "accountName": “myDataLakeAccountName",
-              "filePathPrefix": “cluster1/logs/{date}/{time}",
-              "dateFormat": "YYYY/MM/DD",
-              "timeFormat": "HH",
-          "authenticationMode": "Msi"
-          }
-       }
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": “myDataLakeAccountName",
+                 "filePathPrefix": “cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+                 }
+                 
    }
    ```
   
