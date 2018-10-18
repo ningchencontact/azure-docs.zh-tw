@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: be8adf9779c2d168c0ac7a0ed7dbc3e85935df68
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579515"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293723"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 
@@ -48,7 +48,7 @@ az acr login --name <acrName>
 
   * *讀取者*：從登錄到協調流程系統 (包括 Kubernetes、DC/OS 及 Docker Swarm) 的容器部署。 您也可以從容器登錄提取到相關的 Azure 服務，例如 [AKS](../aks/index.yml)、[App Service](../app-service/index.yml)、[Batch](../batch/index.yml)、[Service Fabric](/azure/service-fabric/) 等。
 
-  * *參與者*：建立容器映像並將其推送到登錄的連續整合和部署解決方案 (例如 Visual Studio Team Services (VSTS) 或 Jenkins)。
+  * *參與者*：建立容器映像並將其推送到登錄的持續整合和部署解決方案 (例如 Azure DevOps 或 Jenkins)。
 
 > [!TIP]
 > 您可以執行 [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 命令來重新產生服務主體的密碼。

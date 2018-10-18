@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437030"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304436"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>使用 RBAC 管理外部使用者的存取權
 
@@ -42,7 +42,7 @@ ms.locfileid: "37437030"
 只有訂用帳戶的**擁有者**可以授與 RBAC 角色。 因此，管理員必須以已預先指派此角色或已建立 Azure 訂用帳戶的使用者身分登入。
 
 從 Azure 入口網站中，在您以管理員身分登入之後，請選取「訂用帳戶」，並選擇所需的訂用帳戶。
-![Azure 入口網站中的訂用帳戶刀鋒視窗](./media/role-assignments-external-users/0.png) 根據預設，如果管理使用者已購買 Azure 訂用帳戶，使用者就會顯示為**帳戶管理員**，這是訂用帳戶角色。 如需 Azure 訂用帳戶角色的詳細資訊，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](../billing/billing-add-change-azure-subscription-administrator.md)。
+![Azure 入口網站中的訂用帳戶刀鋒視窗](./media/role-assignments-external-users/0.png) 根據預設，如果管理使用者已購買 Azure 訂用帳戶，使用者就會顯示為**帳戶管理員**，這是訂用帳戶角色。 如需 Azure 訂用帳戶角色的詳細資訊，請參閱[新增或變更 Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)。
 
 在此範例中，使用者 "alflanigan@outlook.com" 是「預設租用戶 Azure」AAD 租用戶中的「免費試用版」訂用帳戶之**擁有者**。 由於此使用者是具有初始 Microsoft 帳戶 “Outlook” (Microsoft 帳戶 = Outlook、Live 等) 的 Azure 訂用帳戶建立者，因此這個租用戶中所新增其他所有使用者的預設網域名稱會是 **"\@alflaniganuoutlook.onmicrosoft.com"**。 根據設計，新網域的語法構成方式是，將建立租用戶的使用者之使用者名稱和網域名稱加以組合，並新增 **".onmicrosoft.com"** 延伸。
 此外，使用者在新增及驗證新租用戶的自訂網域名稱之後，即可使用租用戶中的自訂網域名稱進行登入。 如需有關如何驗證 Azure Active Directory 租用戶中自訂網域名稱的詳細資訊，請參閱[將自訂網域名稱新增至您的目錄](/active-directory/active-directory-add-domain)。

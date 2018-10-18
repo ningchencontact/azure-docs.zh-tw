@@ -8,27 +8,27 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 20aa842fb8168bc28a388c817f4e4eedbdd63ebd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: eb8db75a8ff5af11b98ee2c61628f923a8422153
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726643"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299928"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure 安全性與合規性藍圖：適用於 FedRAMP 的 PaaS Web 應用程式
 
 ## <a name="overview"></a>概觀
 
-[聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov/) 為美國政府層面的計劃，提供雲端產品與服務的安全評估、授權及持續監視的標準方法。 此 Azure 安全性和合規性藍圖提供如何實行 Microsoft Azure 平台即服務 (PaaS) 架構的指引，以協助實作部分 FedRAMP 高階控制項。 此解決方案提供一般參考架構的 Azure 資源部署和設定指引、示範客戶可符合特定安全性和合規性需求的方式，並且作為客戶在 Azure 上建置及設定其自有解決方案的基礎。
+[聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov/) 為美國政府層面的計劃，能為雲端產品與服務提供安全評估、授權及持續監視的標準方法。 此 Azure 安全性和合規性藍圖提供如何實行 Microsoft Azure 平台即服務 (PaaS) 架構的指引，以協助實作部分 FedRAMP 高階控制項。 此解決方案提供一般參考架構的 Azure 資源部署和設定指引、示範客戶可符合特定安全性和合規性需求的方式，並且作為客戶在 Azure 上建置及設定其自有解決方案的基礎。
 
 與控制項實作指南相關聯的此參考架構和威脅模型，主要是用來作為基礎，讓客戶進行調整以符合其特定需求，不應完全未經修改就用於生產環境中。 未經修改即將應用程式部署至此環境，會無法完全符合 FedRAMP 高階基準的需求。 請注意：
 - 架構提供了一個基準，可協助客戶以符合 FedRAMP 規範的方式來將工作負載部署至 Azure。
-- 客戶須負責為任何使用架構建置的解決方進行置適當的安全性與合規性評量，因為需求可能會隨每個客戶的實作細節而有所不同。
+- 客戶須負責為任何使用架構建置的解決方進行適當的安全性與合規性評量，因為需求可能會隨每個客戶的實作細節而有所不同。
 
 ## <a name="architecture-diagram-and-components"></a>架構圖表與元件
 此解決方案提供具有 Azure SQL Database 後端之 PaaS Web 應用程式的參考架構。 Web 應用程式裝載在隔離的 Azure App Service 環境中，其為 Azure 資料中心內的私人專用環境。 環境會在 Azure 管理的 VM 之間負載平衡 Web 應用程式流量。 此架構也包含網路安全性群組、應用程式閘道、Azure DNS 和 Load Balancer。 此外，Operations Management Suite 可提供系統健康情況與安全性的即時分析。 **Azure 會建議設定 VPN 或 ExpressRoute 連線，以便管理和將資料匯入參考架構子網路。**
 
-![適用於 FedRAMP 的 PaaS Web 應用程式參考架構圖表](images/fedramp-paaswa-architecture.png?raw=true) 「適用於 FedRAMP 的 PaaS Web 應用程式參考架構圖表」
+![適用於 FedRAMP 的 PaaS Web 應用程式參考架構圖表](images/fedramp-paaswa-architecture.png?raw=true "適用於 FedRAMP 的 PaaS Web 應用程式參考架構圖表")
 
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
@@ -73,7 +73,7 @@ ASE 已經過隔離，可僅執行單一客戶的應用程式，且一律會部�
 
 [指引與建議](#guidance-and-recommendations)一節包含關於 ASE 的其他資訊。
 
-**Azure Web 應用程式**：[Azure Web Apps](https://docs.microsoft.com/azure/app-service/) 可讓客戶以選定的程式設計語言來建置並託管 Web 應用程式，無需管理基礎結構。 它提供自動調整及高度可用性，支援 Windows 和 Linux，並可從 GitHub、Visual Studio Team Services 或任何 Git 存放庫啟用自動部署。
+**Azure Web 應用程式**：[Azure Web Apps](https://docs.microsoft.com/azure/app-service/) 可讓客戶以選定的程式設計語言來建置並託管 Web 應用程式，無需管理基礎結構。 它提供自動調整及高度可用性，支援 Windows 和 Linux，並可從 GitHub、Azure DevOps 或任何 Git 存放庫啟用自動部署。
 
 ### <a name="virtual-network"></a>虛擬網路
 此架構會定義位址空間為 10.200.0.0/16 的私人虛擬網路。

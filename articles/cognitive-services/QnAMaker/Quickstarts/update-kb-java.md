@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: f78e9bca7b1b4ce048826b887f99c6dc12f596b7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fc2792086d93e584535389c8c0f162fc1e592cbd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040001"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388240"
 ---
 # <a name="update-a-knowledge-base-in-java"></a>使用 Java 來更新知識庫
 
@@ -32,7 +32,7 @@ ms.locfileid: "47040001"
 
     ![QnA Maker 知識庫識別碼](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-1. 您需要 [apache httpclient](http://hc.apache.org/downloads.cgi) (英文) 程式庫。 例如，下載二進位 HttpClient 4.x.x.tar.gz，以尋找需要匯入至專案的所有 jar 檔案。
+1. 您需要 [apache httpclient](https://hc.apache.org/downloads.cgi) (英文) 程式庫。 例如，下載二進位 HttpClient 4.x.x.tar.gz，以尋找需要匯入至專案的所有 jar 檔案。
 1. 也需要 [GSON](https://github.com/google/gson) (英文) 程式庫。 無論是手動[建立](https://stackoverflow.com/questions/5258159/how-to-make-an-executable-jar-file) (英文) 並匯入 .jar 檔案，或者是將相依性新增至您慣用的專案管理工具 (例如 Maven) 皆可。
 1. 執行程式。
 
@@ -61,7 +61,7 @@ import com.google.gson.reflect.TypeToken;
 
 /**
  * Java does not natively support HTTP PATCH requests; Apache HttpClient is required.
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -215,14 +215,14 @@ public class UpdateKB {
         // HttpPatch implements HttpMessage, which includes addHeader.
         // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/
         // apache/http/client/methods/HttpPatch.html">HttpPatch</a>
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpMessage.html">HttpMessage</a>
         patch.addHeader("Content-Type", "application/json");
         // Note: Adding the Content-Length header causes the exception:
         // "Content-Length header already present."
         patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
         // HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpEntityEnclosingRequest.html">HttpEntityEnclosingRequest</a>
         HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
@@ -234,9 +234,9 @@ public class UpdateKB {
         // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/
         // client/methods/CloseableHttpResponse.html">CloseableHttpResponse</a>
         // Header implements NameValuePair.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html">
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html">
         // Header</a>
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // NameValuePair.html">NameValuePair</a>
         Map<String, List<String>> headers = new HashMap<String, List<String>>();
         for (Header header : response.getAllHeaders()) {
@@ -249,10 +249,10 @@ public class UpdateKB {
         }
 
         // CloseableHttpResponse implements HttpResponse, which includes getEntity.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpResponse.html">HttpResponse</a>
         // HttpEntity implements getContent, which returns an InputStream.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpEntity.html">HttpEntity</a>
         StringBuilder output = new StringBuilder ();
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity()
@@ -312,8 +312,8 @@ public class UpdateKB {
 
         req.add = new Add ();
         req.add.qnaList = new Question[]{q};
-        req.add.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services"
-        + "/qnamaker/faqs", "https://docs.microsoft.com/en-us/bot-framework/resources-bot-"
+        req.add.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services"
+        + "/qnamaker/faqs", "https://docs.microsoft.com/bot-framework/resources-bot-"
         + "framework-faq"};
 
         return req;

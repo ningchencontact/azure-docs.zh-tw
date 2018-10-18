@@ -3,8 +3,8 @@ title: Azure CDN 規則引擎功能 | Microsoft Docs
 description: Azure CDN 規則引擎功能的參考文件。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
-ms.openlocfilehash: 57648486e515b5438f937c4295b33843583e622e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.author: magattus
+ms.openlocfilehash: d5be292c66a07f43b40d12e10e4939d9d91559e1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140652"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395236"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 規則引擎功能
 本本會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用功能的詳細說明。
@@ -1256,7 +1256,7 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
         - 要求 URL (重新導向之後)：http:\//cdn.mydomain.com/resources/widgets.pdf  
     - 範例案例 2： 
         - 範例要求 (邊緣 CNAME URL)：http:\//marketing.mydomain.com/brochures/widgets.pdf 
-        - 要求 URL (重新導向之後)：http:\//cdn.mydomain.com/resources/widgets.pdf 範例案例
+        - 要求 URL (重新導向之後)：http:\//cdn.mydomain.com/resources/widgets.pdf
     - 範例案例 3： 
         - 範例要求 (邊緣 CNAME URL)：http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
         - 要求 URL (重新導向之後)：http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  

@@ -1,5 +1,5 @@
 ---
-title: 將 Azure 雲端服務應用程式轉換成微服務 | Microsoft Docs
+title: 將 Azure 雲端服務應用程式轉換成 Service Fabric | Microsoft Docs
 description: 本指南會比較雲端服務的 Web 角色和背景工作角色以及 Service Fabric 的無狀態服務，以協助您從雲端服務移轉到 Service Fabric。
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c6bdd6f88c9008a8d9c15d22bdcf263190424649
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206677"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049944"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>將 Web 角色和背景工作角色轉換成 Service Fabric 無狀態服務的指南
 本文說明如何將雲端服務的 Web 角色和背景工作角色移轉至 Service Fabric 無狀態服務。 對於整體架構會大致保持相同的應用程式來說，這是最簡單的雲端服務至 Service Fabric 移轉路徑。
@@ -44,7 +44,7 @@ ms.locfileid: "34206677"
 | ASP.NET Web Forms |否 |轉換為 ASP.NET Core 1 MVC |
 | ASP.NET MVC |移轉 |升級至 ASP.NET Core 1 MVC |
 | ASP.NET Web API |移轉 |使用自我裝載的伺服器或 ASP.NET Core 1 |
-| ASP.NET Core 1 |yes |N/A |
+| ASP.NET Core 1 |是 |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>進入點 API 和生命週期
 背景工作角色和 Service Fabric 服務 API 提供類似的進入點： 

@@ -1,24 +1,25 @@
 ---
-title: 取得訂用帳戶金鑰 - 自訂語音服務
-titlesuffix: Azure Cognitive Services
-description: 了解如何取得訂用帳戶金鑰以呼叫自訂語音服務。
+title: 取得 Azure 自訂語音服務的訂用帳戶金鑰 | Microsoft Docs
+description: 了解如何取得訂用帳戶金鑰以呼叫認知服務中的自訂語音服務。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: e4694928baf98bdb0d6aacead8dffec6bb73d6f7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 84ef657af2cc3dc4a7168a815b5e51d6f4f33fd7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224752"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338364"
 ---
 # <a name="obtain-subscription-keys"></a>取得訂用帳戶金鑰
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 若要開始使用 Azure 自訂語音服務，您必須先將使用者帳戶連結至 Azure 訂用帳戶。 您可以取得免費和付費層的訂用帳戶。 如需定價層的相關資訊，請參閱[定價頁面](https://www.microsoft.com/cognitive-services/en-us/pricing)。
 
 ## <a name="get-a-subscription-key"></a>取得訂用帳戶金鑰

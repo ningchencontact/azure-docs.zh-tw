@@ -2,24 +2,18 @@
 title: VMware 到 Azure 的 Azure Site Recovery Deployment Planner | Microsoft Docs
 description: 本文針對 VMware 到 Azure 案例說明 Azure Site Recovery 部署規劃工具所產生報告的分析。
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 2b4c603e9333f46498e3cd93f10208da2ed3c77b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e6aa3a8c788fe06a528a9c363a28faffa0a9ca88
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921242"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094083"
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery 部署規劃工具報告
 產生的 Microsoft Excel 報告包含下列工作表：

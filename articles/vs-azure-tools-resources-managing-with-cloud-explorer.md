@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: a4be3f063c51f26e1df9ecf4cca4ae0655554750
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 596db56a71d4cc73517b9a9cbfe9b97e536aa83a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140279"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378841"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>在 Visual Studio Cloud Explorer 中管理與 Azure 帳戶關聯的資源
 Cloud Explorer 可讓您從 Visual Studio 內檢視您的 Azure 資源和資源群組、檢查其屬性，以及執行重要的開發人員診斷動作。 
@@ -40,9 +40,9 @@ Cloud Explorer 可讓您從 Visual Studio 內檢視您的 Azure 資源和資源�
 
     ![Cloud Explorer 的 [Azure 帳戶設定] 圖示](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. 選取 [新增帳戶]。 
+1. 選取 [管理帳戶]。 
 
-    ![Cloud Explorer 的 [新增帳戶] 連結](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+    ![Cloud Explorer 的 [新增帳戶] 連結](media/vs-azure-tools-resources-managing-with-cloud-explorer/manage-accounts-link.png)
 
 1. 登入您想要瀏覽資源的 Azure 帳戶。 
 
@@ -56,13 +56,17 @@ Cloud Explorer 可讓您從 Visual Studio 內檢視您的 Azure 資源和資源�
 
 ## <a name="remove-an-azure-account-from-cloud-explorer"></a>從 Cloud Explorer 中移除 Azure 帳戶 
 
-1. 在 [Cloud Explorer] 中，選取 [Azure 帳戶設定]。
+1. 在 [Cloud Explorer] 中，選取 [帳戶管理]。
 
     ![Cloud Explorer 的 [Azure 帳戶設定] 圖示](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. 在您想要移除的帳戶旁邊，選取 [移除]。
+1. 在您要移除的帳戶旁邊，選取 [管理帳戶]。
 
     ![Cloud Explorer 的 [Azure 帳戶設定] 圖示](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
+
+1. 選擇 [移除] 以移除帳戶。
+
+    ![Cloud Explorer 管理帳戶對話方塊](media/vs-azure-tools-resources-managing-with-cloud-explorer/accountmanage.PNG)
 
 ## <a name="view-resource-types-or-resource-groups"></a>檢視資源類型或資源群組
 若要檢視您的 Azure 資源，您可以選擇 [資源類型] 或 [資源群組] 檢視。

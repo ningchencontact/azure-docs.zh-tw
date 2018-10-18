@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d0e7c3f7aeb42fd1525519b7908b1be6fc48aa65
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034921"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362512"
 ---
 # <a name="keys-in-luis"></a>LUIS 中的金鑰
 LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)。 當您建立 LUIS 帳戶時，系統會自動為您建立撰寫金鑰。 當您已做好發佈 LUIS 應用程式的準備時，必須[建立端點金鑰](luis-how-to-azure-subscription.md#create-luis-endpoint-key)、[將它指派](luis-how-to-manage-keys.md#assign-endpoint-key)給 LUIS 應用程式，然後[將它與端點查詢搭配使用](#use-endpoint-key-in-query)。 
@@ -60,7 +60,7 @@ LUIS 端點接受兩種樣式的查詢，兩者都使用端點金鑰，但使用
 |[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`subscription-key` 的查詢字串值<br><br>將 `subscription-key` 的端點查詢值從撰寫 (入門) 金鑰變更為新的端點金鑰，以便使用 LUIS 端點金鑰配額率。 如果您建立金鑰並指派金鑰，但沒有變更 subscription-key 的端點查詢值，便不會使用端點金鑰配額。|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> `Ocp-Apim-Subscription-Key` 的標頭值<br><br>將 `Ocp-Apim-Subscription-Key` 的端點查詢值從撰寫 (入門) 金鑰變更為新的端點金鑰，以便使用 LUIS 端點金鑰配額率。 如果您建立金鑰並指派金鑰，但沒有變更 `Ocp-Apim-Subscription-Key` 的端點查詢值，便不會使用端點金鑰配額。|
 
-先前 URL 中使用的應用程式識別碼 `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是適用於[互動式示範](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/)的公用 IoT 應用程式。 
+先前 URL 中使用的應用程式識別碼 `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是適用於[互動式示範](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)的公用 IoT 應用程式。 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>API 的 Ocp-Apim-Subscription-Key 使用方式
 LUIS API 會使用 `Ocp-Apim-Subscription-Key` 標頭。 此標頭名稱並不會根據您使用哪個金鑰及哪組 API 而有所變更。 請將此標頭設定為撰寫金鑰來撰寫 API。 如果您使用端點，則請將此標頭設定為端點金鑰。 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fefc508679a309262d07a582fc8f5bdf9f67cfe5
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34350860"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310108"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory 中企業應用程式管理的新功能 
 
@@ -53,19 +53,19 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 **若要開始新增自己的應用程式**：
 
 1. 按一下應用程式資源庫頂端的 [新增您自己的連結]。 
-2. 您的面前會出現兩個選項︰[部署現有的應用程式] 或 [開發新的應用程式]。 繼續閱讀，以了解這兩個選項之間的差異以及如何使用它們。
+1. 您的面前會出現兩個選項︰[部署現有的應用程式] 或 [開發新的應用程式]。 繼續閱讀，以了解這兩個選項之間的差異以及如何使用它們。
 
 ### <a name="deploying-existing-applications"></a>部署現有的應用程式
 
 1. 如果您已在執行應用程式，而只是想要將它整合至 Azure AD 中以便單一登入或佈建，選擇 [部署現有的應用程式] 選項。 挑選您應用程式的名稱，按一下 [新增]。
-2. 就這麼簡單！ 您不需要知道應用程式的所有詳細資料，您現在可以隨時瀏覽左側功能表並依照您的喜好設定應用程式，即可設定新應用程式的運作方式。
+1. 就這麼簡單！ 您不需要知道應用程式的所有詳細資料，您現在可以隨時瀏覽左側功能表並依照您的喜好設定應用程式，即可設定新應用程式的運作方式。
 
   ![按一下滑鼠即可新增現有的應用程式](./media/active-directory-enterprise-apps-whats-new-azure-portal/04.png)
  
 ### <a name="developing-new-applications"></a>開發新的應用程式
 
 1. 如果您正在開發新的應用程式，下列方法可讓您在資源庫中輕鬆取得 Application Registry︰
-2. 於 [應用程式資源庫] 按一下 [新增您自己的] 選項，選取 [開發現有的應用程式]，即會看到應用程式新增體驗的快速連結。
+1. 於 [應用程式資源庫] 按一下 [新增您自己的] 選項，選取 [開發現有的應用程式]，即會看到應用程式新增體驗的快速連結。
 
   ![按幾下滑鼠即可新增最近開發的應用程式](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
@@ -86,20 +86,20 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 
 
 ## <a name="updated-application-proxy-configuration"></a>已更新的應用程式 Proxy 組態
+
 現在，假設您新增的其中一個新應用程式正在內部部署環境中執行，而且您想要將它與 Azure AD 整合。  有關新的 Azure AD 入口網站中新應用程式設定體驗的其中一個酷炫新功能就是，藉由從應用程式 Proxy 組態中分割應用程式的登入模式，您現在即可輕鬆地將您公司網路中執行的密碼 SSO 或同盟應用程式直接公開至雲端，而不必建立多個應用程式執行個體。
 
 您也可以設定您新增的任何新應用程式 (包括支援原生 Windows 驗證經驗的應用程式)，以便直接從新的入口網站搭配 Azure AD 應用程式 Proxy 使用。
 
   ![設定應用程式以使用整合式 Windows 驗證登入選項](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
-
 若要開始設定採用應用程式 Proxy 的原生 Windows 驗證應用程式︰
 1. 在單一登入導覽項目上按一下，然後選擇登入設定下的 [整合式 Windows 驗證]，並設定您喜好的設定。
-2. 除了支援這些新的驗證模式以外，您現在也可以從自訂網域上傳憑證，以支援在組織內安全端點上執行的應用程式。  
+1. 除了支援這些新的驗證模式以外，您現在也可以從自訂網域上傳憑證，以支援在組織內安全端點上執行的應用程式。  
  
    ![上傳要搭配應用程式 Proxy 使用的憑證](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
 
-3. 若要針對您最愛的內部部署應用程式上傳新憑證，請按一下左側導覽功能表中的 [應用程式 Proxy] 選項，按一下 [憑證] 選取器，然後上傳憑證檔案，以便用來加密我們的雲端端點對您的應用程式的要求。
+1. 若要針對您最愛的內部部署應用程式上傳新憑證，請按一下左側導覽功能表中的 [應用程式 Proxy] 選項，按一下 [憑證] 選取器，然後上傳憑證檔案，以便用來加密我們的雲端端點對您的應用程式的要求。
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>進階同盟單一登入組態
 
@@ -107,10 +107,9 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
  
   ![自訂傳遞至同盟應用程式的 SAML 權杖使用者屬性](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
-
 若要查看新的同盟 SSO 組態︰
 1. 從左側導覽功能表開啟同盟應用程式的 [單一登入]，並確定已選取 [SAML 型登入] 模式。 
-2. 在那裡，啟用 [使用者屬性] 標題底下的核取方塊，以修改傳遞給該應用程式的 SAML 權杖中包含的所有屬性。
+1. 在那裡，啟用 [使用者屬性] 標題底下的核取方塊，以修改傳遞給該應用程式的 SAML 權杖中包含的所有屬性。
 
 您也可以建立、變換及管理用於同盟單一登入的憑證，以及編輯憑證即將到期時可取得通知的對象。 您會在相同單一登入窗格上的 [憑證] 標題之下看到這些新選項。
  
@@ -124,7 +123,7 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 **若要設定轉送狀態參數**：
 
 1. 在單一登入設定窗格上，啟用 [網域和 URL] 標題之下的 [顯示進階 URL 設定] 核取方塊。 
-2. 隨即會顯示一組新的 URL 輸入方塊，供您設定此參數和其他 SAML URL 設定。
+1. 隨即會顯示一組新的 URL 輸入方塊，供您設定此參數和其他 SAML URL 設定。
 
 ## <a name="bring-your-own-password-sso-applications"></a>自備密碼 SSO 應用程式
 
@@ -135,8 +134,8 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 **若要查看「自備應用程式」功能**：
 
 1. 為您已新增至 [密碼型登入] 的新自訂應用程式設定單一登入模式之後，輸入應用程式會呈現其登入畫面的 URL，並 
-2. 按一下 [檔案] 。  
-2. 這麼做之後，我們會自動擷取使用者名稱和密碼輸入方塊的該 URL，並可讓您使用 Azure AD 並利用存取面板瀏覽器擴充功能將密碼安全地傳輸到該應用程式。
+1. 按一下 [檔案] 。  
+1. 這麼做之後，我們會自動擷取使用者名稱和密碼輸入方塊的該 URL，並可讓您使用 Azure AD 並利用存取面板瀏覽器擴充功能將密碼安全地傳輸到該應用程式。
 
 ## <a name="configure-self-service-application-access"></a>設定自助式應用程式存取
 
@@ -147,7 +146,7 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 **若要設定和管理自助式應用程式存取**：
 
 1. 首先，您可以從應用程式的左側導覽功能表中選取 [自助式] 選項，並將 [允許使用者要求存取此應用程式？] 選項設定為 [是]。 
-2. 這可讓您設定允許誰核准此應用程式的存取權，以及哪個群組將會新增自助式使用者。 此外，如果已針對密碼單一登入設定應用程式，您也會看到另一個選項，可讓您選擇性地允許這些核准者管理指派給應用程式的密碼。
+1. 這可讓您設定允許誰核准此應用程式的存取權，以及哪個群組將會新增自助式使用者。 此外，如果已針對密碼單一登入設定應用程式，您也會看到另一個選項，可讓您選擇性地允許這些核准者管理指派給應用程式的密碼。
 
 ## <a name="feedback"></a>意見反應
 

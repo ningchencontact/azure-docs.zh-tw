@@ -3,8 +3,8 @@ title: Azure CDN 規則引擎的 HTTP 變數 | Microsoft Docs
 description: HTTP 變數可讓您擷取 HTTP 要求和回應中繼資料。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
-ms.openlocfilehash: 36c1b20219fabd1b7c02247d9a93bb7b7cfc898d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: magattus
+ms.openlocfilehash: 39084fd8408a123e8152ad96fa92025fd04ed42b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011453"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092808"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 HTTP 變數
 HTTP 變數能提供擷取 HTTP 要求和回應中繼資料的方法。 此中繼資料可以接著用來動態調整要求或回應。 HTTP 變數的使用，僅限於下列規則引擎功能：
@@ -34,7 +34,7 @@ HTTP 變數能提供擷取 HTTP 要求和回應中繼資料的方法。 此中�
 下表描述支援的 HTTP 變數。 在無法針對特定要求提供地理中繼資料 (例如郵遞區號) 時，系統將會傳回空白值。
 
 
-| Name | 變數 | 說明 | 範例值 |
+| 名稱 | 變數 | 說明 | 範例值 |
 | ---- | -------- | ----------- | ------------ |
 | ASN (要求者) | %{geo_asnum} | 表示要求者的 AS 號碼。 <br /><br />**已淘汰：**%{virt_dst_asnum}。 <br />此變數已由 %{geo_asnum} 取代。 雖然使用此已淘汰變數的規則仍然可以運作，您應該更新規則以使用新的變數。 | AS15133 |
 | 城市 (要求者) | %{geo_city} | 表示要求者的城市。 | 洛杉磯 |
@@ -96,13 +96,13 @@ HTTP 變數名稱僅支援字母字元和底線。 系統會將不支援的字�
 | --------- | ----------- |
 | := | 表示將會在變數滿足下列其中一個條件時，將預設值指派給變數： <br />- 遺漏 <br />- 設定為 NULL。 |
 | :+ | 表示在變數有指派值的情況下，將預設值指派給變數。 |
-| : | 表示將會展開變數指派值的子字串。 |
+| ： | 表示將會展開變數指派值的子字串。 |
 | # | 表示若在變數關聯值的開頭找到此分隔符號之後所指定的模式時，應該將該模式刪除。 |
 | % | 表示若在變數關聯值的尾端找到在此分隔符號之後所指定的模式時，應該將該模式刪除。 <br />只有在使用 % 符號作為分隔符號時才適用此定義。 |
 | / | 分隔 HTTP 變數或模式。 |
 | // | 尋找並取代指定模式的所有執行個體。 |
 | /= | 尋找，複製並重寫指定模式的所有發生案例。 |
-| , | 將 HTTP 變數關聯值轉換成小寫。 |
+| ， | 將 HTTP 變數關聯值轉換成小寫。 |
 | ^ | 將 HTTP 變數關聯值轉換成大寫。 |
 | ,, | 將 HTTP 變數關聯值中指定字元的所有執行個體轉換成小寫。 |
 | ^^ | 將 HTTP 變數關聯值中指定字元的所有執行個體轉換成大寫。 |

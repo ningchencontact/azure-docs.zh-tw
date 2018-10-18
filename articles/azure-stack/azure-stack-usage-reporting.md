@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630404"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090360"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 回報 Azure Stack 使用情況資料 
 
@@ -95,10 +95,6 @@ ms.locfileid: "45630404"
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>使用情況資料回報在主權雲端中是否能運作？
 
 在 Azure Stack 開發套件中，使用情況資料回報需要在全球 Azure 系統中建立的訂用帳戶。 在其中一個主權雲端 (Azure Government、Azure 德國與 Azure 中國雲端) 中建立的訂用帳戶無法向 Azure 註冊，因此它們不支援使用情況資料回報。
-
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>使用者如何在 Azure 計費入口網站中識別 Azure Stack 使用情況資料？
-
-使用者可以在使用情況詳細資料檔案中看到 Azure Stack 使用情況資料。 若要了解如何取得使用情況詳細資料檔案，請參閱[從 Azure 帳戶中心下載使用情況檔案](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv)文章。 使用情況詳細資料檔案包含可識別 Azure Stack 儲存體與 VM 的 Azure Stack 計量。 在 Azure Stack 中使用的所有資源都會在名為 “Azure Stack” 的區域下回報。
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>為何在 Azure Stack 中回報的使用情況與從 Azure 帳戶中心產生的報告不符？
 

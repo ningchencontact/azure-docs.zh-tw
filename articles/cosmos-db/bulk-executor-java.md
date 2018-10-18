@@ -10,18 +10,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859971"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050182"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用大量執行程式 Java 程式庫執行大量作業
 
 本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 容器。 匯入之後，您會大量更新文件的某些屬性。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。  
 
@@ -46,7 +46,7 @@ ms.locfileid: "37859971"
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
-複製的存放庫包含兩個與 "\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor" 資料夾相關的範例 “bulkimport” 和 “bulkupdate”。 “bulkimport” 應用程式會產生隨機文件，並將其匯入至 Azure Cosmos DB。 “bulkupdate” 應用程式會更新 Azure Cosmos DB 中的某些文件。 在後面幾節中，我們將檢閱這裡每一個範例應用程式中的程式碼。 
+複製的存放庫包含兩個與 "\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor" 資料夾相關的 "bulkimport" 和 "bulkupdate" 範例。 "bulkimport" 應用程式會產生隨機文件，並將其匯入至 Azure Cosmos DB。 "bulkupdate" 應用程式會更新 Azure Cosmos DB 中的某些文件。 在後面幾節中，我們將檢閱這裡每一個範例應用程式中的程式碼。 
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>將資料大量匯入至 Azure Cosmos DB
 
@@ -120,7 +120,7 @@ ms.locfileid: "37859971"
    |List<Exception> getErrors() |  如果提供給大量匯入 API 呼叫的批次中有部分文件無法插入，則會取得錯誤清單。       |
    |List<Object> getBadInputDocuments()  |    格式錯誤而未成功匯入大量匯入 API 呼叫的文件清單。 使用者應該修正傳回的文件，然後再次嘗試匯入。 格式錯誤的文件包含其識別碼值不是字串 (Null 或任何其他視為無效的資料類型) 的文件。     |
 
-5. 大量匯入應用程式已備妥之後，請使用 ‘mvn clean package’ 命令從來源建置命令列工具。 此命令會在目標資料夾中產生 jar 檔案：  
+5. 大量匯入應用程式已備妥之後，請使用 'mvn clean package' 命令從來源建置命令列工具。 此命令會在目標資料夾中產生 jar 檔案：  
 
    ```java
    mvn clean package
@@ -183,7 +183,7 @@ ms.locfileid: "37859971"
    |Duration getTotalTimeTaken()  |   大量更新 API 呼叫完成執行的時間總計。      |
    |List<Exception> getErrors()   |     如果提供給大量更新 API 呼叫的批次中有部分文件無法插入，則會取得錯誤清單。      |
 
-3. 大量更新應用程式已備妥之後，請使用 ‘mvn clean package’ 命令從來源建置命令列工具。 此命令會在目標資料夾中產生 jar 檔案：  
+3. 大量更新應用程式已備妥之後，請使用 'mvn clean package' 命令從來源建置命令列工具。 此命令會在目標資料夾中產生 jar 檔案：  
 
    ```
    mvn clean package

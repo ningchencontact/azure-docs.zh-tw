@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: abf9cd311af141a646c56f452ded77a914bc1d2f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093293"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387575"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>在 HDInsight 中使用 Hive 分析 Twitter 資料
 社群網站是驅使採用巨量資料的其中一個主要動力。 像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。
@@ -95,7 +95,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
 
 **取得推文**
 
-1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。 (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。 請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
+1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。 (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。 請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. 將下列指令碼複製到指令碼窗格中：
 
     ```powershell

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e449703dd8d012037af9540397ecd3b7bc0c7e7f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817002"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114630"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>比較 Flow、Logic Apps、Functions 和 WebJob
 
@@ -84,7 +84,7 @@ Azure Functions 是以 WebJobs SDK 為基礎，因此其共用許多相同的事
 
 |  | Functions | 搭配 WebJobs SDK 的 WebJobs |
 | --- | --- | --- |
-|[無伺服器應用程式模型](https://azure.microsoft.com/overview/serverless-computing/)與[自動調整](functions-scale.md#how-the-consumption-plan-works)|✔||
+|[無伺服器應用程式模型](https://azure.microsoft.com/solutions/serverless/)與[自動調整](functions-scale.md#how-the-consumption-plan-works)|✔||
 |[在瀏覽器中開發與測試](functions-create-first-azure-function.md) |✔||
 |[按使用次數付費的定價方式](functions-scale.md#consumption-plan)|✔||
 |[與 Logic Apps 整合](functions-twitter-email.md)|✔||

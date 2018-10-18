@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: da657404e4cb8b86d67f56084a6f5a261bad4de2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c08b30c0e59aac21d24f75d88530ba51b67d6b4
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367955"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023928"
 ---
 # <a name="human-in-the-loop"></a>人機互動
 
@@ -25,7 +25,7 @@ ms.locfileid: "35367955"
 人力審查工具搭配電腦輔助審核 API 使用時，可讓您完成與內容審核生命週期相關的重要工作。
 
 1. 從基礎審查 API 結果自動建立人力審核
-2. 使用一項工具 (審查工具和 API) 來審核多種格式 (文字、影像和影片 - 即將推出)
+2. 使用一項工具 (審查工具和 API) 來審查多種格式 (文字、影像和影片)
 3. 將內容審核指派或呈報給依照內容類別或經驗層級組織的多個審核小組。
 4. 使用預設工作流程或定義具有彈性規則的自訂工作流程，而不需撰寫任何程式碼。
 5. 只要建立連接器，即可將人力審查新增至任何 API 或商務程序。

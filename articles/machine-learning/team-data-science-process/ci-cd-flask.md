@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968786"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304283"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>人工智慧 (AI) 應用程式的 DevOps：使用 Docker 和 Kubernetes 在 Azure 上建立持續整合管線
 就 AI 應用程式而言，有兩個經常性的工作資料流：資料科學家建置機器學習模型，而應用程式開發人員則建置應用程式並將其公開給使用者取用。 在本文中，我們將示範如何實作 AI 應用程式的持續整合 (CI)/持續部署 (CD) 管線。 AI 應用程式是內嵌了預先定型機器學習 (ML) 模型的應用程式碼組合。 針對本文，我們會從私用的 Azure Blob 儲存體帳戶 (也可以是 AWS S3 帳戶) 中擷取一個預先定型的模型。 我們將針對本文使用一個簡單的 Python Flask Web 應用程式。
@@ -35,7 +35,7 @@ ms.locfileid: "38968786"
 
 ## <a name="pre-requisites"></a>先決條件
 以下是依循下述 CI/CD 管線的先決條件：
-* [Visual Studio Team Services 帳戶](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Azure DevOps 組織](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [執行 Kubernetes 的 Azure Container Service (AKS) 叢集](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [Azure Container Registy (ACR) 帳戶](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
@@ -53,19 +53,19 @@ ms.locfileid: "38968786"
 
 ## <a name="steps-of-the-cicd-pipeline"></a>CI/CD 管線的步驟
 1. 開發人員在其選擇的 IDE 上處理應用程式程式碼。
-2. 他們將程式碼認可至其選擇的原始檔控制 (VSTS 可對各種原始檔控制提供良好的支援)
+2. 他們將程式碼認可至其選擇的原始檔控制 (Azure DevOps 可對各種原始檔控制提供良好的支援)
 3. 資料科學家則是個別進行其模型開發。
 4. 在對模型滿意之後，他們便將模型發佈到存放庫，在此案例中，我們使用 Blob 儲存體帳戶。 您可以使用 Azure ML Workbench 的模型管理服務 (透過其 REST API) 來輕鬆取代此做法。
-5. 系統會根據 GitHub 中的認可來開始在 VSTS 中執行建置。
-6. VSTS 建置管線會從 Blob 容器中提取最新的模型，然後建立容器。
-7. VSTS 會將映像推送至 Azure Container Registry 中的私人映像存放庫
+5. 系統會根據 GitHub 中的認可開始在 Azure DevOps 中執行建置。
+6. Azure DevOps 組建管線會從 Blob 容器中提取最新的模型，然後建立容器。
+7. Azure DevOps 會將映像推送至 Azure Container Registry 中的私人映像存放庫
 8. 發行管線會根據已設定的排程 (每晚) 開始執行。
 9. 系統會從 ACR 中提取最新的映像，並部署至 ACS 上的整個 Kubernetes 叢集。
 10. 使用者對應用程式發出的要求會經過 DNS 伺服器。
 11. DNS 伺服器會將該要求傳遞給負載平衡器，然後將回應傳回給使用者。
 
 ## <a name="next-steps"></a>後續步驟
-* 請參考[教學課程]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md))來依照詳細資料進行操作，並實作您自己的應用程式 CI/CD 管線。
+* 請參考[教學課程](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)來依照詳細資料進行操作，並實作您自己的應用程式 CI/CD 管線。
 
 ## <a name="references"></a>參考
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)

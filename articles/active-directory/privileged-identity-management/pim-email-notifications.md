@@ -11,26 +11,36 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 07/24/2018
+ms.date: 09/07/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: de1d29d3ab1b370257c3a2d6b6ff9f677197fc2a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190171"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303059"
 ---
 # <a name="email-notifications-in-pim"></a>PIM 中的電子郵件通知
 
-當 Azure AD Privileged Identity Management (PIM) 中發生重要事件時，電子郵件通知就會傳送給相關的系統管理員或使用者。 例如，PIM 會傳送下列事件的電子郵件：
+當 Azure AD Privileged Identity Management (PIM) 中發生重要事件時，就會傳送電子郵件通知。 例如，PIM 會傳送下列事件的電子郵件：
 
 - 當特殊權限角色啟用正在等待核准時
-- 當特殊權限角色啟用要求已核准時
+- 當特殊權限角色啟用要求已完成時
 - 當啟動特殊權限角色時
 - 當指派特殊權限角色時
 - 當 Azure AD PIM 啟用時
+
+電子郵件通知會傳送給下列管理員：
+
+- 特殊權限角色管理員
+- 安全性系統管理員
+
+電子郵件通知也會傳送給對下列事件具有特殊權限角色的使用者：
+
+- 當特殊權限角色啟用要求已完成時
+- 當指派特殊權限角色時
 
 從 2018 年 7 月底開始，透過 PIM 傳送的電子郵件通知會有新的寄件者電子郵件地址，以及新的視覺化設計。 此更新會影響 Azure AD 的 PIM 和 Azure 資源的 PIM。 先前已觸發電子郵件通知的所有事件，都會繼續傳送電子郵件。 某些電子郵件將會有更新的內容，提供更精準的資訊。
 

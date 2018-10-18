@@ -30,6 +30,18 @@ items:
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: 概念
   items:
+  - name: 叢集與工作負載
+    href: concepts-clusters-workloads.md
+  - name: 存取與身分識別
+    href: concepts-identity.md
+  - name: 安全性
+    href: concepts-security.md
+  - name: 網路功能
+    href: concepts-network.md
+  - name: 儲存體
+    href: concepts-storage.md
+  - name: 調整
+    href: concepts-scale.md
   - name: 配額和區域限制
     href: container-service-quotas.md
   - name: 從 ACS 遷移至 AKS
@@ -71,12 +83,12 @@ items:
       href: azure-files-volume.md
   - name: 設定網路功能
     items:
-    - name: 網路概觀
-      href: networking-overview.md
-    - name: 靜態 IP 位址
-      href: static-ip.md
-    - name: 內部負載平衡器
+    - name: 建立或使用現有的虛擬網路
+      href: configure-advanced-networking.md
+    - name: 建立內部負載平衡器
       href: internal-lb.md
+    - name: 使用靜態 IP 位址
+      href: static-ip.md
     - name: 輸入
       items:
       - name: 建立基本控制項
@@ -182,9 +194,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: 常見問題集
     href: faq.md
-ms.openlocfilehash: a050be092d1216a00a7d73e383086709dc6d15fc
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5bce64990b8fbf9ad6bd5af01631544189f35a93
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405356"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376289"

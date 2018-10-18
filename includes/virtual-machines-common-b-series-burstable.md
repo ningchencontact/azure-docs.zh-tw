@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14feb7ad09a24904034f9ae90cf4a54cf786a44c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40183719"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369507"
 ---
 B 系列 VM 系列可讓您選擇能為您的工作負載提供所需基本層級效能的 VM 大小，並且能夠使 CPU 效能高載高達 Intel® Broadwell E5-2673 v4 2.3 GHz 或 Intel® Haswell 2.4 GHz E5-2673 v3 處理器 vCPU 的 100%。
 
-B 系列 VM 非常適合不需要持續性完整 CPU 效能的工作負載，例如 web 伺服器、小型資料庫和開發與測試環境。 這些工作負載通常具有高載的效能需求。 B 系列可讓您購買基準效能的 VM 大小，並在 VM 執行個體使用低於其基準時再向上建立點數。 當 VM 累積點數時，VM 可以在您的應用程式需要較高的 CPU 效能時，使用最多 100% 的 vCPU 來高載高於基準。
+B 系列 VM 非常適合不需要持續性完整 CPU 效能的工作負載，例如 Web 伺服器、概念證明、小型資料庫以及開發建置環境。 這些工作負載通常具有高載的效能需求。 B 系列可讓您購買基準效能的 VM 大小，並在 VM 執行個體使用低於其基準時再向上建立點數。 當 VM 累積點數時，VM 可以在您的應用程式需要較高的 CPU 效能時，使用最多 100% 的 vCPU 來高載高於基準。
 
 B 系列隨附下列六個 VM 大小：
 

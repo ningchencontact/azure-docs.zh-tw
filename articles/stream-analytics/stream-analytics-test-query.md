@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 63f9b98bcd70378ae02769298f0ffcd796378612
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140866"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027260"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>使用樣本資料測試串流分析查詢
 
@@ -29,7 +29,7 @@ ms.locfileid: "42140866"
 
 3. 在 [串流分析作業] 頁面上，[工作拓撲] 標題下方，選取 [查詢] 開啟 [查詢] 編輯器視窗。 
 
-4. 若要使用樣本輸入資料測試查詢，請以滑鼠右鍵按一下任何輸入資料。  然後選取 [從檔案上傳樣本資料]。 必須以 JSON、CSV 或 AVRO 將資料序列化。
+4. 若要使用樣本輸入資料測試查詢，請以滑鼠右鍵按一下任何輸入資料。  然後選取 [從檔案上傳樣本資料]。 必須以 JSON、CSV 或 AVRO 將資料序列化。 範例輸入必須以 UTF-8 編碼而且不壓縮。 在入口網站上測試 CSV 輸入時僅支援逗號 (,) 分隔符號。
 
     ![串流分析查詢編輯器的測試查詢](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

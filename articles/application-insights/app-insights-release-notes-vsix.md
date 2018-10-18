@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2017
-ms.author: mbullwin; aruna
-ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: aruna
+ms.author: mbullwin
+ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869541"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303739"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Developer Analytics 工具的版本資訊
 
@@ -193,7 +194,7 @@ Windows Forms 專案節點的內容功能表現在包含將組建上傳至 Hocke
 
 請注意，此精靈有一個新欄位可供指定應用程式的版本。 在通用 Windows 應用程式中，資訊會從資訊清單填入。 不幸的是，Windows Forms 應用程式沒有這項功能的對等項目。 您需要手動進行指定。
 
-流程的其餘部分與通用 Windows 應用程式類似：在 HockeyApp 入口網站中選擇組建和發行選項、新增版本資訊、上傳及管理。
+流程的其餘部分與通用 Windows 應用程式類似：在 HockeyApp 入口網站中選擇 Azure Pipelines 選項、新增版本資訊、上傳及管理。
 
 整個過程就是這麼簡單。 立即試試並與我們分享您的想法。
 

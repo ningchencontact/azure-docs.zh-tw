@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: cd7f8871cedb36157f3a16f093b09073576fe56e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 339c924fc03faddae6326b79cc376b59c567829e
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443846"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116550"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>教學課程：Azure Active Directory 與 Inkling 整合
 
@@ -48,7 +48,7 @@ Inkling 與 Azure AD 整合提供下列優點：
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則您不應使用生產環境，。
-- 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
+- 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 
 ## <a name="scenario-description"></a>案例描述
@@ -117,7 +117,7 @@ Inkling 與 Azure AD 整合提供下列優點：
     
     ![設定單一登入](./media/inkling-tutorial/tutorial_inkling_01.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://api.inkling.com/saml/v2/metadata/<user-id>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://api.inkling.com/saml/v2/metadata/<user-id>`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://api.inkling.com/saml/v2/acs/<user-id>`
 

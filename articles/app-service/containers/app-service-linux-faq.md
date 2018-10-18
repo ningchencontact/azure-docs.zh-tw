@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444584"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295713"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -74,7 +74,7 @@ ms.locfileid: "39444584"
 
 如果您的 Linux Web 應用程式無法部署 Git，請選擇下列其中一個選項來部署應用程式程式碼：
 
-- 使用持續傳遞 (預覽) 功能：您可以將您的應用程式原始程式碼儲存在 Team Services 的 Git 存放庫或 GitHub 存放庫來使用 Azure 連續傳遞。 如需詳細資訊，請參閱[如何設定 Linux Web 應用程式的持續傳遞](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)。
+- 使用持續傳遞 (預覽) 功能：您可以將您的應用程式原始程式碼儲存在 Azure DevOps 的 Git 存放庫或 GitHub 存放庫來使用 Azure 連續傳遞。 如需詳細資訊，請參閱[如何設定 Linux Web 應用程式的持續傳遞](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)。
 
 - 使用 [ZIP 部署 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)：若要使用此應用程式開發介面，[SSH 到您的 Web 應用程式](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection)，然後移至您要部署程式碼的資料夾。 執行下列程式碼：
 
@@ -147,14 +147,14 @@ SCM 網站是在個別的容器中執行。 您無法檢查應用程式容器的
 
 ## <a name="multi-container-with-docker-compose-and-kubernetes"></a>多重容器與 Docker Compose 和 Kubernetes
 
-**如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？** 
+**如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？**
 
 為了將 ACR 與多重容器一起使用，**所有容器映像**都必須裝載在相同的 ACR 登錄伺服器上。 一旦它們位於相同的登錄伺服器上，您必須建立應用程式設定，然後更新 Docker Compose 或 Kubernetes 組態檔，以包含 ACR 映像名稱。
 
 建立下列應用程式設定：
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (完整的 URL，例如：https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_URL (完整的 URL，例如： https://<server-name>.azurecr.io)
 - DOCKER_REGISTRY_SERVER_PASSWORD (啟用 ACR 設定中的系統管理員存取權)
 
 在組態檔中，參考您的 ACR 映像，如下列範例所示：

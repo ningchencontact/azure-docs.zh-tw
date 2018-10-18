@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb2ec0c0b77e71a54d1e7f852a22d82203abf7b6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424019"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091975"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>針對 Azure VM、Service Fabric 和 Azure 雲端服務啟用 Application Insights Profiler
 
@@ -48,7 +48,7 @@ ms.locfileid: "39424019"
 
    ![檢測金鑰的位置](./media/enable-profiler-compute/CopyAIKey.png)
 
-1. 若要為 Profiler 完成 Application Insights 執行個體的設定，請完成 [啟用 Profiler] 中所述的程序。 您不需要連結 Web 應用程式，因為步驟僅適用於應用程式服務資源。 請確定您已於 [設定 Profiler] 窗格中啟用 Profiler。
+1. 若要為 Profiler 完成 Application Insights 執行個體的設定，請完成[啟用 Profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler) 中所述的程序。 您不需要連結 Web 應用程式，因為步驟僅適用於應用程式服務資源。 請確定您已於 [設定 Profiler] 窗格中啟用 Profiler。
 
 
 ## <a name="set-up-the-application-source-code"></a>設定應用程式原始程式碼

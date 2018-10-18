@@ -3,30 +3,30 @@ title: 快速入門：分析本機影像 - REST、C# - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 C# 來分析本機影像。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: 572d352b04debca0ab3afdea6d86a7383370050f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 72b9663de0317620ca9760e3b1863ab60b37514a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634110"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343179"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c35-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 C&#35; 分析本機影像
 
-在本快速入門中，您將使用電腦視覺的 REST API，來分析本機儲存的影像以擷取視覺功能。 您可以使用 [Analyze Image ](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 方法，根據影像內容擷取視覺功能。
+在本快速入門中，您將使用電腦視覺的 REST API，來分析本機儲存的影像以擷取視覺功能。 您可以使用[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法，根據影像內容來擷取視覺功能。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 您必須具備 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更新版本。
-- 您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更新版本。
+- 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
 
 ## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 
@@ -39,7 +39,7 @@ ms.locfileid: "45634110"
     1. 顯示時選取 [Newtonsoft.Json]，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
 1. 將 `Program.cs` 中的程式碼取代為下列程式碼，然後視需要在程式碼中進行下列變更：
     1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
-    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 方法的端點 URL。
+    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法的端點 URL。
 1. 執行程式。
 1. 在系統提示時，輸入本機影像的路徑。
 
@@ -248,7 +248,7 @@ namespace CSHttpClientSample
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要 Visual Studio 解決方案時，請將它刪除。 若要這樣做，請開啟檔案總管、瀏覽至您在其中建立 Visual Studio 解決方案的資料夾，然後刪除該資料夾。
+不再需要 Visual Studio 解決方案時，請將它刪除。 若要這樣做，請開啟檔案總管、瀏覽到您在其中建立 Visual Studio 解決方案的資料夾，然後刪除該資料夾。
 
 ## <a name="next-steps"></a>後續步驟
 

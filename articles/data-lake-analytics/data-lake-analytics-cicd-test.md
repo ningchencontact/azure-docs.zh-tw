@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: ae34355485f7d5081cc11ce4dd36df5ba81ae320
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 82ffcc6f891a64650375121b9418daad33dc2628
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041223"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301687"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>測試 Azure Data Lake Analytics 程式碼
 
@@ -111,11 +111,11 @@ U-SQL 指令碼測試專案建置於 C# 單元測試架構之上。 建置專案
 
 建置測試專案後，您可以在 [測試總管] > [播放清單] 執行所有測試案例，或以滑鼠右鍵按一下 .cs 檔案，然後選擇 [執行測試]。
 
-## <a name="run-test-cases-in-visual-studio-team-service"></a>在 Visual Studio Team Services 中執行測試案例
+## <a name="run-test-cases-in-azure-devops"></a>在 Azure DevOps 中執行測試案例
 
-**U-SQL 指令碼測試專案**和 **C# UDO 測試專案**皆會繼承 C# 單元測試專案。 Visual Studio Team Service 中的 [Visual Studio 測試工作](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts)可執行這些測試案例。 
+**U-SQL 指令碼測試專案**和 **C# UDO 測試專案**皆會繼承 C# 單元測試專案。 Azure DevOps 中的 [Visual Studio 測試工作](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts)可執行這些測試案例。 
 
-### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>在 Visual Studio Team Services 中執行 U-SQL 測試案例
+### <a name="run-u-sql-test-cases-in-azure-devops"></a>在 Azure DevOps 中執行 U-SQL 測試案例
 
 若要進行 U-SQL 測試，請確定您已在組建電腦上載入 `CPPSDK`，然後將 `CPPSDK` 路徑傳至 USqlScriptTestRunner(cppSdkFolderFullPath: \@"")。
 
@@ -126,16 +126,16 @@ CPPSDK 是包含 Microsoft Visual C++ 14 和 Windows SDK 10.0.10240.0 的套件�
 - 在 Visual Studio 2015 中，其位於 `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
 - 在 Visual Studio 2017 中，其位於 `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK`
 
-**在 Visual Studio Team Service 組建代理程式中準備 CPPSDK**
+**在 Azure DevOps 組建代理程式中準備 CPPSDK**
 
-最常用來在 Visual Studio Team Service 中準備 CPPSDK 相依性的方法如下：
+最常用來在 Azure DevOps 中準備 CPPSDK 相依性的方法如下：
 
 1.  將包含 CPPSDK 程式庫的資料夾壓縮成 ZIP 檔案。
 2.  將 .zip 檔案簽入您的來源控制系統中。 (.zip 檔案可確保您會簽入 CPPSDK 資料夾下的所有程式庫，而使 ".gitignore" 不會忽略某些檔案。)   
 3.  在組建管線中解壓縮 .zip 檔案。
 4.  將 `USqlScriptTestRunner` 指向組建電腦上解壓縮的資料夾。
 
-### <a name="run-c-udo-test-cases-in-visual-studio-team-services"></a>在 Visual Studio Team Services 中執行 C# UDO 測試案例
+### <a name="run-c-udo-test-cases-in-azure-devops"></a>在 Azure DevOps 中執行 C# UDO 測試案例
 
 若要進行 C# UDO 測試，請確實參考 UDO 所需的下列組件。 如果您透過 [Nuget 套件 Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/) 參考組件，請務必在組建管線中新增 NuGet 還原工作。
 

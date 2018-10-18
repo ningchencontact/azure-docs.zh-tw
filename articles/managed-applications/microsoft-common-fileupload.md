@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059884"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021747"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 元素
 控制項可讓使用者指定要上傳的一個或多個檔案。
@@ -51,6 +51,7 @@ ms.locfileid: "37059884"
 - `constraints.accept` 會指定在瀏覽器的 [檔案] 對話方塊中顯示的檔案類型。 請參閱 [HTML5 規格](http://www.w3.org/TR/html5/forms.html#attr-input-accept) 以取得允許的值。 預設值為 **null**。
 - 如果將 `options.multiple` 設為 **true**，使用者就允許在瀏覽器的 [檔案] 對話方塊中選取一個以上的檔案。 預設值為 **false**。
 - 這個元素會根據 `options.uploadMode` 的值，支援兩種檔案上傳模式。 如果是指定 **file**，輸出就會包含檔案內容作為 Blob。 如果是指定 **URL**，檔案就會上傳至暫存位置，而輸出會包含 Blob 的 URL。 24 小時之後，就會清除暫存 blob。 預設值為 **file**。
+- 上傳的檔案已受保護。 輸出 URL 包含 [SAS 權杖](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)，可供在部署期間存取檔案。
 - `options.openMode` 的值會決定讀取檔案的方式。 如果預期是純文字檔案，則指定為 **text**；否則，指定為 **binary**。 預設值為 **text**。
 - 如果將 `options.uploadMode` 設為 **file**，且將 `options.openMode` 設為 **binary**，輸出就會是 base64 編碼。
 - `options.encoding` 會指定讀取檔案時要使用的編碼方式。 預設值為 **UTF-8**，且僅在 `options.openMode` 設為 **text** 時才會使用。

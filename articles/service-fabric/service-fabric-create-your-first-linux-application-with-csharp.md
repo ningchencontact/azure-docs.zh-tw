@@ -1,6 +1,6 @@
 ---
-title: 在 Linux 上使用 C# 建立您的第一個 Azure 微服務應用程式 | Microsoft Docs
-description: 使用 C# 建立和部署 Service Fabric 應用程式
+title: 在 Linux 上使用 C# 建立您的第一個 Azure Service Fabric 應用程式 | Microsoft Docs
+description: 了解如何使用 C# 和 .NET Core 2.0 建立和部署 Service Fabric 應用程式。
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: e917119e2d0f9b7b5cfa9ea145cc6e540486ac66
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020540"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052591"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>建立第一個 Azure Service Fabric 應用程式
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37020540"
 
 Service Fabric 提供了在 Linux 上建置服務的 .NET Core 和 Java SDK。 在本教學課程中，我們會探討如何建立適用於 Linux 的應用程式以及在 NET Core 2.0 上使用 C# 建置服務。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始之前，請確定您已 [設定 Linux 開發環境](service-fabric-get-started-linux.md)。 如果您使用 Mac OS X，您可以 [使用 Vagrant 在虛擬機器中設定 Linux 一整體環境](service-fabric-get-started-mac.md)。
 
 您也要安裝 [Service Fabric CLI](service-fabric-cli.md)
@@ -41,27 +41,19 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 
 1. 在電腦上安裝 nodejs 和 NPM
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4 (Service Fabric 預覽支援)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. 在電腦上從 NPM 安裝 [Yeoman](http://yeoman.io/) 範本產生器
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. 從 NPM 安裝 Service Fabric Yeoman C# 應用程式產生器
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## <a name="create-the-application"></a>建立應用程式

@@ -4,7 +4,7 @@ description: 資料科學的完整描述，可提供多個垂直產業的預測�
 services: machine-learning
 author: fboylu
 manager: cgronlun
-editor: ''
+editor: cgronlun
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221701"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394987"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>適用於預測性維護解決方案的 AI 指南
 

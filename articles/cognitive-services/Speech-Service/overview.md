@@ -3,18 +3,18 @@ title: 什麼是語音服務？
 description: 語音服務 (屬於 Microsoft 認知服務的一部分) 聯合了先前個別提供的數個 Azure 語音服務：Bing 語音 (包含語音辨識和文字轉換語音)、自訂語音和語音翻譯。
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b014144dd819aa354596175068bfb2c5905a4377
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: erhopf
+ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857987"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365453"
 ---
 # <a name="what-is-the-speech-service"></a>什麼是語音服務？
 
@@ -29,11 +29,10 @@ ms.locfileid: "48857987"
 
 |函式|特性|
 |-|-|
-|[語音轉換文字](speech-to-text.md)| <ul><li>連續的即時語音謄寫成文字。<li>可以分批謄寫錄音中的語音。 <li>支援的中繼結果、語音結束偵測、自動文字格式，和不雅內容遮罩。 <li>可呼叫 [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS)，從謄寫的語音衍生使用者意圖。\*|
-|[文字轉換語音](text-to-speech.md)| <ul><li>將文字轉換成自然發音語音。 <li>為多種支援的語言提供多個性別和/或方言。 <li>支援純文字輸入或語音合成標記語言 (SSML)。 |
-|[語音翻譯](speech-translation.md)| <ul><li>近乎即時地翻譯串流音訊。<li> 也可以處理錄製的語音。<li>提供文字或合成語音形式的結果。 |
+|[語音轉換文字](speech-to-text.md)| <li>連續的即時語音謄寫成文字。<li>可以分批謄寫錄音中的語音。 <li>支援的中繼結果、語音結束偵測、自動文字格式，和不雅內容遮罩。 <li>可呼叫 [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS)，從謄寫的語音衍生使用者意圖。\*|
+|[文字轉換語音](text-to-speech.md)| <li>將文字轉換成自然發音語音。 <li>為多種支援的語言提供多個性別和/或方言。 <li>支援純文字輸入或語音合成標記語言 (SSML)。 |
+|[語音翻譯](speech-translation.md)| <li>近乎即時地翻譯串流音訊。<li> 也可以處理錄製的語音。<li>提供文字或合成語音形式的結果。 |
 
-\* *意圖辨識需要 LUIS 訂用帳戶。*
 
 ## <a name="customize-speech-features"></a>自訂語音功能
 
@@ -69,41 +68,6 @@ ms.locfileid: "48857987"
 
 [語音裝置 SDK](speech-devices-sdk.md) 是支援語音的裝置開發人員所適用的整合式硬體和軟體平台。 我們的硬體合作夥伴會提供參考設計和開發單元。 Microsoft 提供可充分運用硬體功能的裝置最佳化 SDK。
 
-## <a name="why-move-to-the-speech-service"></a>為何要改用語音 (Speech) 服務？
-
-語音服務提供了比 Bing 語音 API 的所有功能還多的功能，並另外提供三個 Azure 語音服務：自訂語音 (Speech)、自訂語音 (Voice) 和翻譯工具語音。 我們鼓勵這些服務的使用者遷移至語音服務。
-
-語音服務納入了適用於這些其他服務的許多升級，包括：
-
-* 提高語音辨識準確度。 我們會定期改善服務中使用的模型。
-
-* 更具擴充性。 此服務更能夠處理多個同時的要求，因而能減少延遲。
-
-* 語音服務會使用以時間為基礎的定價模型。 如需詳細資訊，請參閱[語音服務定價](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
-
-* 語音服務會在[多個區域](regions.md)提供，以符合全球各地客戶的需求。 針對應用程式所使用的每個區域，您都需要有 [Azure 訂用帳戶](https://docs.microsoft.com/azure/cognitive-services/welcome)。
-
-* 單一的語音服務訂用帳戶金鑰即可授與下列功能的存取權。 每個功能會分開計量，因此您只需就使用的功能來付費。
-
-    * [語音轉文字](speech-to-text.md)
-    * [自訂語音轉換文字](https://cris.ai/CustomSpeech)
-    * [文字轉換語音](text-to-speech.md)
-    * [自訂文字轉換語音的語音](https://cris.ai/CustomVoice)
-    * [語音翻譯](speech-translation.md) (不包括[文字翻譯](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
-
-* 語音服務的語音轉換文字功能會與 [Language Understanding Intelligent Service](https://docs.microsoft.com/azure/cognitive-services/luis/) 整合以辨識說話者的意圖。 LUIS 端點金鑰也可用於語音服務。 如需詳細資訊，請參閱[意圖辨識教學課程](how-to-recognize-intents-from-speech-csharp.md)。
-
-* 語音轉換文字不再需要指定辨識模式。
-
-* 語音服務支援在文字轉換語音中使用 24-KHz 語音，以提升音訊品質。 本文撰寫當下有兩個這類語音 (僅限美式英文)：`Jessa24kRUS` 和 `Guy24kRUS`。
-
-* 語音服務的[批次轉譯](batch-transcription.md)可以將大量的錄製語音 (例如，話務中心的錄音) 有效率地轉譯成文字，以便輕鬆地分析和搜尋這些語音。
-
-* 在使用語音 SDK 時，語音轉換文字轉譯的串流沒有時間限制。
-
-* [語音 SDK](speech-sdk.md) 可在數個程式設計語言和執行環境 (包括 Windows 10、UWP 和 .NET Core) 之間對語音服務提供一致的 API，以方便進行開發 (尤其是在多個平台上)。
-
-* 語音服務可與其他 Azure 語音服務所使用的 REST API 和 WebSocket 通訊協定相容，方便您將現有用戶端應用程式遷移至語音服務。
 
 ## <a name="speech-scenarios"></a>語音案例
 
@@ -123,8 +87,6 @@ ms.locfileid: "48857987"
 若您的應用程式是在特定環境 (例如醫療或 IT 環境) 中使用，您可以建立[語言模型](how-to-customize-language-model.md)。 您可以使用此模型來教導語音服務有關您應用程式所使用的特殊術語。
 
 若您的應用程式在吵雜的環境 (例如工廠) 中使用，您可以建立自訂[原音模型](how-to-customize-acoustic-models.md)。 此模型可幫助語音服務分辨語音或噪音。
-
-開始使用相當簡單。 只要下載[語音 SDK](speech-sdk.md) 並依照相關[快速入門](quickstart-csharp-dotnet-windows.md)文章執行。
 
 ### <a name="call-center-transcription"></a>話務中心轉譯
 

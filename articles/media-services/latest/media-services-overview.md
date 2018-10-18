@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務 v3 概觀 | Microsoft Docs
-description: 此文章提供媒體服務的高階概觀，並提供詳細資訊的文章連結。
+description: 本文提供媒體服務的高階概觀，並提供詳細資訊的文章連結。
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -13,24 +13,17 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 09/25/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 66c9b8297254b41156131d795376857029424e97
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221924"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377894"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什麼是 Azure 媒體服務 v3？
-
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [第 2 版 - 正式推出](../previous/media-services-overview.md)
-> * [第 3 版 - 預覽](media-services-overview.md)
-
-> [!NOTE]
-> Azure 媒體服務的最新版本處於預覽狀態，且會以 v3 稱呼它。
 
 Azure 媒體服務是雲端式平台，可讓您建置的解決方案擁有廣播品質的視訊串流、增強協助工具和散佈、分析內容等等。 不論您是應用程式開發人員、話務中心、政府機構、娛樂公司，媒體服務都能協助您建立應用程式，為時下最熱門的行動裝置和瀏覽器上的廣大觀眾，傳遞優異品質的媒體體驗。 
 
@@ -54,9 +47,9 @@ v3 是會統一的 API 表面為基礎，併公開建置於 Azure Resource Manag
 
 此版本提供以下功能：  
 
-* **轉換**可協助您定義媒體處理或分析工作的簡單工作流程。 轉換是處理您的視訊和音訊檔案的配方。 然後透過將工作提交至轉換，您可以重複地套用它來處理內容庫中的所有檔案。
+* **轉換**可協助您定義媒體處理或分析工作的簡單工作流程。 轉換是處理您的視訊和音訊檔案的配方。 然後藉由將工作提交至轉換，您可以重複地套用它來處理內容庫中的所有檔案。
 * **工作**可處理 (編碼或分析) 您的視訊。 您可以使用 HTTPS URL、SAS URL 或 Azure Blob 儲存體中的檔案路徑，在作業上指定輸入內容。 目前，AMS v3 不支援透過 HTTPS URL 的區塊傳輸編碼。
-* **通知**可監視工作進度或狀態，或直播頻道開始/停止及錯誤事件。 通知會與 Azure 事件方格通知系統整合。 您輕鬆就能在 Azure 媒體服務中的數個資源上訂閱活動。 
+* **通知**可監視工作進度或狀態，或直播頻道開始/停止及錯誤事件。 通知會與 Azure Event Grid 通知系統整合。 您輕鬆就能在 Azure 媒體服務中的數個資源上訂閱活動。 
 * **Azure Resource Management** 範本可用於建立及部署轉換、串流端點、頻道等等。
 * **角色型存取控制**可以設定在資源層級，讓您能鎖定對特定資源 (如轉換、頻道等) 的存取。
 * **用戶端 SDK** 有多種語言：.NET、.NET Core、Python、Go、Java 和 Node.js。
@@ -133,6 +126,7 @@ Microsoft 產生並支援以下用戶端程式庫：
 |[Node.js 參考](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js 範例](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
 |[Python 參考](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
 |[Go 參考](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
+|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
 ## <a name="next-steps"></a>後續步驟
 

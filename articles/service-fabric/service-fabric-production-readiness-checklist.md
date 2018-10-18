@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 5092bf377f6ab213a2db52e01fb7b89ff0c218ce
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127465"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295865"
 ---
 # <a name="production-readiness-checklist"></a>實際執行整備檢查清單
 
@@ -45,7 +45,7 @@ ms.locfileid: "39127465"
 15. 為您的服務建立復原點目標 (RPO)，以及設定[災害復原程序](service-fabric-disaster-recovery.md)並加以測試。
 16. 規劃以手動方式或以程式設計方式[調整](service-fabric-cluster-scaling.md)您的叢集。
 17. 規劃[修補](service-fabric-patch-orchestration-application.md)您的叢集節點。 
-18. 建立 CI/CD 管線，以持續測試您的最新變更。 例如，使用 [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) 或 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)。
+18. 建立 CI/CD 管線，以持續測試您的最新變更。 例如，使用 [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) 或 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 19. 使用[錯誤分析服務](service-fabric-testability-overview.md)在低於負載的情況下測試您的開發與預備叢集，並引發受控制的[混亂](service-fabric-controlled-chaos.md)。 
 20. 規劃[調整](service-fabric-concepts-scalability.md)您的應用程式。 
 

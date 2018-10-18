@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: f5511486650d538bc136449c32babfd88efab86a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 99ed74a9664fbeeb65d90e51d0afcd97dd0b0ca0
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159629"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346486"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server
 
-通常，遠端桌面 (RD) 閘道會使用本機網路原則服務 (NPS) 來驗證使用者。 本文說明如何將 RADIUS 要求從遠端桌面閘道器 (透過本機 NPS) 傳送至 Multi-Factor Authentication Server。 Azure MFA 和 RD 閘道的組合表示使用者可以從任何地方存取其工作環境，同時執行強式驗證。 
+遠端桌面 (RD) 閘道通常會使用[本機網路原則服務 (NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) 來驗證使用者。 本文說明如何將 RADIUS 要求從遠端桌面閘道器 (透過本機 NPS) 傳送至 Multi-Factor Authentication Server。 Azure MFA 和 RD 閘道的組合表示使用者可以從任何地方存取其工作環境，同時執行強式驗證。 
 
 由於 Server 2012 R2 不支援終端機服務的 Windows 驗證，請使用 RD 閘道和 RADIUS 來與 MFA Server 整合。 
 
@@ -28,6 +28,7 @@ ms.locfileid: "39159629"
 ## <a name="prerequisites"></a>必要條件
 
 - 已加入網域的 Azure MFA Server。 如果尚未進行安裝，請遵循[開始使用 Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md)中的步驟。
+- 已設定的現有 NPS 伺服器。
 - 使用網路原則服務進行驗證的遠端桌面閘道。
 
 ## <a name="configure-the-remote-desktop-gateway"></a>設定遠端桌面閘道

@@ -9,17 +9,18 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 5a4d9debfcc48279bbb56df076a77a5c8b44e231
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 615dfc789db805e51ed3e7c11fed9da6d7079e96
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144215"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319093"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>透過 Python 後端和 Python 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 
 > [!NOTE]
 > [模組身分識別與模組對應項](iot-hub-devguide-module-twins.md)類似於 Azure IoT 中樞裝置身分識別與裝置對應項，但提供更精細的細微性。 雖然 Azure IoT 中樞裝置身分識別與裝置對應項可讓後端應用程式設定裝置並提供裝置狀況的可見性，但模組身分識別和模組對應項可提供裝置個別元件的上述功能。 在具備多個元件的可用裝置 (例如以作業系統為基礎的裝置或韌體裝置) 上，它允許每個元件有獨立的組態和狀況。
+>
 
 在本教學課程結尾，您將會有兩個 Python 應用程式：
 
@@ -28,13 +29,13 @@ ms.locfileid: "42144215"
 
 > [!NOTE]
 > 如需可用來建置兩個應用程式，以在裝置與您的解決方案後端執行之 Azure IoT SDK 的相關資訊，請參閱 [Azure IoT SDK][lnk-hub-sdks]。
+>
 
 若要完成此教學課程，您需要下列項目：
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。)
 * IoT 中樞。
 * 安裝最新的 [Python SDK](https://github.com/Azure/azure-iot-sdk-python)。
-
 
 您現在已經建立 IoT 中樞，因此您已具有完成本教學課程的其餘部分所需的主機名稱和 IoT 中樞連接字串。
 
@@ -44,7 +45,7 @@ ms.locfileid: "42144215"
 
 將下列程式碼新增至 Python 檔案：
 
-```Python
+```python
 import sys
 import iothub_service_client
 from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubError
@@ -78,6 +79,7 @@ except KeyboardInterrupt:
 
 > [!NOTE]
 > IoT 中樞身分識別登錄只會儲存裝置和模組身分識別，以啟用對 IoT 中樞的安全存取。 身分識別登錄會儲存裝置識別碼和金鑰，以作為安全性認證使用。 身分識別登錄也會儲存每個裝置的已啟用/已停用旗標，以便您用來停用該裝置的存取權。 如果您的應用程式需要儲存其他裝置特定的中繼資料，它應該使用應用程式專用的存放區。 模組身分識別沒有啟用/停用旗標。 如需詳細資訊，請參閱 [IoT 中樞開發人員指南][lnk-devguide-identity]。
+>
 
 ## <a name="update-the-module-twin-using-python-device-sdk"></a>使用 Python 裝置 SDK 更新模組對應項
 
@@ -85,11 +87,11 @@ except KeyboardInterrupt:
 
 1. **取得您的模組連接字串** - 如果您登入 [Azure 入口網站][lnk-portal]，請立即取得。 瀏覽至您的 IoT 中樞並按一下 IoT 裝置。 尋找 myFirstDevice 並加以開啟，您會看到已成功建立 myFirstModule。 複製模組連接字串。 在下一個步驟中需要用到它。
 
-    ![Azure 入口網站模組詳細資料][15]
+  ![Azure 入口網站模組詳細資料][15]
 
-2. **建立 UpdateModuleTwinReportedProperties 應用程式** 在 **Program.cs** 檔的頂端新增下列 `using` 陳述式：
+1. **建立 UpdateModuleTwinReportedProperties 應用程式** 在 **Program.cs** 檔的頂端新增下列 `using` 陳述式：
 
-    ```Python
+    ```python
     import sys
     import iothub_service_client
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubDeviceTwin, IoTHubError
@@ -122,9 +124,10 @@ except KeyboardInterrupt:
 此程式碼範例顯示如何擷取模組對應項，並使用 AMQP 通訊協定更新報告的屬性。 
 
 ## <a name="get-updates-on-the-device-side"></a>取得裝置端的更新
+
 除了上述程式碼以外，您也可以新增下列程式碼區塊，以在裝置上取得對應項更新訊息。
 
-```Python
+```python
 import random
 import time
 import sys
@@ -166,7 +169,7 @@ except KeyboardInterrupt:
 
 
 <!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]:./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

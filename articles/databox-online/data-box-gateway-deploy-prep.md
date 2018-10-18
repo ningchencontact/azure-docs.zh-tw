@@ -2,25 +2,18 @@
 title: 準備 Azure 入口網站以部署資料箱閘道的教學課程 | Microsoft Docs
 description: 部署 Azure 資料箱閘道的第一個教學課程說明如何準備 Azure 入口網站。
 services: databox-edge-gateway
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b8aac8a6a666bf3f360ef2867ff15933ad72dbd7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953407"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166979"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>教學課程：準備部署 Azure 資料箱閘道 (預覽)
 
@@ -89,7 +82,7 @@ ms.locfileid: "46953407"
 
 ## <a name="create-a-new-resource"></a>建立新的資源
 
-資料箱閘道資源的單一執行個體可管理多個資料箱閘道虛擬裝置。 請執行下列步驟，建立新的資料箱閘道資源。 
+請執行下列步驟，建立新的資料箱閘道資源。 
 
 如果您目前已有可用來管理虛擬裝置的資料箱閘道資源，請略過此步驟，並移至[取得啟用金鑰](#get-the-activation-key)。
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888078"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052538"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -68,7 +68,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
   您也可以使用下列命令，引導模擬器使用預設的 SQL Server 執行個體：
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   或者，您也可以使用下列命令，將資料庫重新初始化至預設 LocalDB 執行個體：
 
@@ -93,10 +93,10 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 您也可以使用 Azure PowerShell 來產生 SAS 權杖。 下列範例會產生 SAS 權杖且對 blob 容器具有完整權限：
 
 1. 安裝 Azure PowerShell (如果您尚未安裝，建議使用 Azure PowerShell Cmdlet 的最新版本)。 如需安裝指示，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)。
-2. 開啟 Azure PowerShell 並執行下列命令，使用您自己的認證來取代 `ACCOUNT_NAME` 和 `ACCOUNT_KEY==`，以及使用您選擇的名稱來取代 `CONTAINER_NAME`：
+2. 開啟 Azure PowerShell 並執行下列命令，使用您所選的名稱來取代 `CONTAINER_NAME`：
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -108,7 +108,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 針對新容器產生的共用存取簽章 URI 應該類似下列項目：
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 使用此範例建立的共用存取簽章的效期為一天。 簽章會將完整存取權限 (讀取、寫入、刪除、列出) 授與容器內的 Blob。

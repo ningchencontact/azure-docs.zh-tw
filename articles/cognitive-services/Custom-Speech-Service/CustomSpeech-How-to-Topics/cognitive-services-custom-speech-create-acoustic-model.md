@@ -1,24 +1,24 @@
 ---
-title: 教學課程：建立原音模型 - 自訂語音服務
-titlesuffix: Azure Cognitive Services
-description: 在本教學課程中，您將了解如何使用自訂語音服務來建立原音模型。
+title: 使用自訂語音服務建立原音模型的教學課程 - Microsoft 認知服務 | Microsoft Docs
+description: 在本教學課程中，您將了解如何使用 Microsoft 認知服務中的自訂語音服務來建立原音模型。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220207"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344569"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>教學課程：建立自訂原音模型
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 在本教學課程中，您將針對要讓應用程式辨識的語音資料建立自訂原音模型。 如果您的應用程式專用於特定環境 (例如吵雜的工廠)，或由特定使用者族群使用，那麼建立自訂原音模型就相當實用。
 
@@ -140,4 +140,4 @@ ms.locfileid: "47220207"
 在本教學課程中，您已開發自訂的原音模型來搭配使用音訊檔和文字記錄。 若要建立自訂語言檔案來搭配使用文字檔案，請繼續建立自訂語言模型的教學課程。
 
 > [!div class="nextstepaction"]
-> [建立自訂原音模型](cognitive-services-custom-speech-create-language-model.md)
+> [建立自訂語言模型](cognitive-services-custom-speech-create-language-model.md)

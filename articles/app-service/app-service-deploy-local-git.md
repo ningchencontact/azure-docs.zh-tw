@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42139817"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303688"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>本機 Git 部署至 Azure App Service
 
@@ -101,10 +101,10 @@ git push azure master
 
 瀏覽至您的應用程式以確認已部署內容。
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>使用 VSTS 組建從本機 Git 進行部署
+## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>使用 Azure DevOps Services 組建從本機 Git 進行部署
 
 > [!NOTE]
-> 若要讓 App Service 在 VSTS 帳戶中建立必要的組建並發行定義，您的 Azure 帳戶必須具備 Azure 訂用帳戶的**擁有者**角色。
+> 若要讓 App Service 在 Azure DevOps Services 組織中建立必要的 Azure Pipelines，您的 Azure 帳戶必須具備 Azure 訂用帳戶的**擁有者**角色。
 >
 
 若要使用 Kudu 組建伺服器為您的應用程式啟用本機 Git 部署，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至應用程式。
@@ -113,14 +113,14 @@ git push azure master
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-按一下 [VSTS 持續傳遞] > [繼續]。
+按一下 [Azure DevOps Services 持續傳遞] > [繼續]。
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-在 [設定] 頁面中，設定新的 VSTS 帳戶或指定現有的帳戶。 完成後，按一下 [繼續]。
+在 [設定] 頁面中，設定新的 Azure DevOps Services 組織或指定現有的組織。 完成後，按一下 [繼續]。
 
 > [!NOTE]
-> 如果您想要使用未列出的現有 VSTS 帳戶，則需要[將 VSTS 帳戶連結至 Azure 訂用帳戶](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App) \(英文\)。
+> 如果您想要使用未列出的現有 Azure DevOps Services 組織，則必須[將 Azure DevOps Services 組織連結至 Azure 訂用帳戶](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
 
 在 [測試] 頁面上，選擇是否要啟用負載測試，然後按一下 [繼續]。
 
@@ -128,7 +128,7 @@ git push azure master
 
 在 [摘要] 頁面上確認您的選項，然後按一下 [完成]。
 
-讓 VSTS 帳戶就緒需要幾分鐘的時間。 準備好時，複製部署中心內的 Git 儲存機制 URL。
+Azure DevOps Services 組織需要幾分鐘才會準備就緒。 準備好時，複製部署中心內的 Git 儲存機制 URL。
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -138,7 +138,7 @@ git push azure master
 git remote add vsts <url>
 ```
 
-推送到 Azure 遠端，使用下列命令來部署您的應用程式。 出現由 Git 認證管理員提供的提示時，請使用您的 visualstudio.com 使用者登入。 如需其他驗證方法，請參閱 [VSTS 驗證概觀](/vsts/git/auth-overview?view=vsts)。
+推送到 Azure 遠端，使用下列命令來部署您的應用程式。 出現由 Git 認證管理員提供的提示時，請使用您的 visualstudio.com 使用者登入。 如需其他驗證方法，請參閱 [Azure DevOps Services 驗證概觀](/vsts/git/auth-overview?view=vsts)。
 
 ```bash
 git push vsts master

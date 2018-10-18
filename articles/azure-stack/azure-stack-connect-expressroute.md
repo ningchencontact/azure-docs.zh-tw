@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: c30e70802d125744432f428f903f6ac6789f631e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078693"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389220"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 將 Azure Stack 連線至 Azure
 
@@ -313,7 +313,7 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
 
 Azure 網路基礎結構範例的設定方式如下：
 
-* 標準中樞 (192.168.2.0/24) 和輪輻 (10.100.0.0./16) VNet 模型。 如需中樞輪輻網路拓撲的詳細資訊，請參閱[在 Azure 中實作中樞輪輻網路拓撲](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)。
+* 標準中樞 (192.168.2.0/24) 和輪輻 (10.100.0.0./16) VNet 模型。 如需中樞輪輻網路拓撲的詳細資訊，請參閱[在 Azure 中實作中樞輪輻網路拓撲](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)。
 * 工作負載部署在輪輻 VNet 中，而 ExpressRoute 線路連線至中樞 VNet。
 * 使用 VNet 對等互連將兩個 VNet 連線。
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424546"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299095"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動執行 Azure Application Insights 程序
 
@@ -25,7 +25,7 @@ ms.locfileid: "39424546"
 
 有了此整合，您就能立即自動執行許多流程，而不需撰寫任何一行程式碼。 在您使用 Application Insights 動作建立流程後，此流程會自動執行 Application Insights Analytics 查詢。 
 
-您也可以新增額外的動作。 Microsoft Flow 提供數百個動作。 例如，您可以使用 Microsoft Flow 來自動傳送電子郵件通知，或是在 Visual Studio Team Services 中建立錯誤 (Bug)。 您也可以使用提供給適用於 Microsoft Flow 之連接器的任何一種[範本](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights)。 這些範本可加快建立流程的程序。 
+您也可以新增額外的動作。 Microsoft Flow 提供數百個動作。 例如，您可以使用 Microsoft Flow 自動傳送電子郵件通知，或是在 Azure DevOps 中建立 Bug。 您也可以使用提供給適用於 Microsoft Flow 之連接器的任何一種[範本](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights)。 這些範本可加快建立流程的程序。 
 
 <!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
 

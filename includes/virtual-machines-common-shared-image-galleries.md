@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a64d85cc476c7494a1730959b96e9480115cd90
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045903"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400401"
 ---
 共用映像庫服務可協助您圍繞自訂 VM 映像來建置結構和組織。 共用映像庫提供三個主要的價值主張
 - 簡易管理
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **問：** 是否可以從特製化磁碟建立映像版本？
 
- A. 否，目前不支援將特製化磁碟作為映像。 如果您有特製化磁碟，則需要將特製化磁碟連結至新的 VM 以[從 VHD 建立 VM](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk)。 擁有執行中 VM 後，就必須遵循指示從 [Windows VM] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) 或 [Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) 建立受控映像。 擁有一般化受控映像後，就可以開始建立共用映像描述和映像版本的程序。
+ A. 否，目前不支援將特製化磁碟作為映像。 如果您有特製化磁碟，則需要將特製化磁碟連結至新的 VM 以[從 VHD 建立 VM](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk)。 擁有執行中 VM 後，就必須遵循指示從 [Windows VM] (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) 或 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) 建立受控映像。 擁有一般化受控映像後，就可以開始建立共用映像描述和映像版本的程序。
 
 
 **問：** 是否可以透過 Azure 入口網站建立共用映像庫、映像定義和映像版本？

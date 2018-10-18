@@ -1,24 +1,24 @@
 ---
-title: 教學課程：建立語言模型 - 自訂語音服務
-titlesuffix: Azure Cognitive Services
-description: 在本教學課程中，您將了解如何使用自訂語音服務來建立語言模型。
+title: 使用自訂語音服務建立語言模型的教學課程 - Microsoft 認知服務 | Microsoft Docs
+description: 在本教學課程中，您將了解如何使用 Microsoft 認知服務中的自訂語音服務來建立語言模型。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: b7216688efb6a2124748cd08111d57b122085143
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219307"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339091"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>教學課程：建立自訂語言模型
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 在本教學課程中，您會針對文字查詢或您希望使用者在應用程式中說出或輸入的語句，建立自訂語言模型。 然後，您可以使用此自訂語言模型搭配 Microsoft 中現有的頂級語音模型，來為您的應用程式新增語音互動。
 

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859862"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163272"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -42,9 +42,7 @@ Cloud Shell 中的 Bash 可讓您執行稱為 `clouddrive` 的命令，以手動
 #### <a name="prerequisites-for-manual-mounting"></a>手動掛接的先決條件
 您可以使用 `clouddrive mount` 命令來更新與 Cloud Shell 關聯的檔案共用。
 
-如果您要掛接現有的檔案共用，儲存體帳戶必須為：
-* 可支援檔案共用的本地備援儲存體或異地備援儲存體。
-* 位於您的指派區域。 當您要上架時，您的指派區域會列在名為 `cloud-shell-storage-<region>` 的資源群組中。
+如果您要掛接現有的檔案共用，儲存體帳戶必須位在所選的 Cloud Shell 區域中： 藉由從 Bash 執行 `env` 和檢查 `ACC_LOCATION` 來擷取位置。
 
 #### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` 命令
 

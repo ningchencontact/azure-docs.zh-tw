@@ -3,23 +3,23 @@ title: 在 Azure Site Recovery 中對應兩個 Azure 區域間的虛擬網路 | 
 description: Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及復原作業。 了解如何容錯移轉到 Azure 或次要資料中心。
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 95e6a388d0638d2fd477d33aaf7c39cf120e29aa
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42142042"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353421"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>對應不同 Azure 區域中的虛擬網路
 
@@ -106,7 +106,7 @@ ms.locfileid: "42142042"
 已容錯移轉的 VM 將會被指派從子網路位址範圍結尾開始的下一個可用 IP，亦即 10.0.0.254。 </br>
 
 **注意：** 術語**生產 vNet** 指的是災害復原設定期間對應的「目標網路」。
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2.若選擇的目標網路不是生產 vNet 但有與生產網路相同的子網路範圍 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2.若選擇的目標網路不是生產 vNet 但有與生產網路相同的子網路範圍
 
 - 復原 IP (目標 IP) 將具有與針對容錯移轉保留之 **IP 位址** 相同的 IP 位址 (例如，已設定的靜態 IP 位址)。 假設相同的 IP 位址可用。
 - 若設定的靜態 IP 已指派給其他 VM/裝置，則復原 IP 將會是從子網路位址範圍結尾開始的下一個可用 IP。
@@ -116,7 +116,7 @@ ms.locfileid: "42142042"
     - 下一個可用的 IP：10.0.0.254，若 IP 位址 10.0.0.19 已在使用中。
 
 
-若要修改每個網路介面上的目標 IP，請移至虛擬機器的 [計算與網路] 設定。</br>
+若要修改各個網路介面上的目標 IP，請移至虛擬機器的 [計算與網路] 設定。</br>
 最佳做法是一律選擇測試網路以執行測試容錯移轉。
 ## <a name="next-steps"></a>後續步驟
 

@@ -64,6 +64,7 @@
 ##### [自訂媒體編碼器標準預設值](media-services-custom-mes-presets-with-dotnet.md)
 ##### [如何搭配 .NET 使用媒體編碼器標準產生縮圖](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [以 Media Encoder Standard 裁剪影片](media-services-crop-video.md)
+##### [產生縮圖原件](generate-thumbnail-sprite.md)
 #### MES 結構描述
 ##### [媒體編碼器標準結構描述](media-services-mes-schema.md)
 ##### [輸入中繼資料](media-services-input-metadata-schema.md)

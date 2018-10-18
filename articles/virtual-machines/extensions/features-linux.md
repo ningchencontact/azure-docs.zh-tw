@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 255fe84f0d155902b2a3ac477a1e677efef42bb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452253"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386649"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>適用於 Linux 的虛擬機器擴充功能和功能
 
@@ -65,7 +65,7 @@ Linux 代理程式可在多種作業系統上執行，但擴充功能作業系�
 > [!IMPORTANT]
 > 如果您已使用客體防火牆封鎖對 168.63.129.1 的存取，則無論前述條件為何，擴充功能都會故障。
 
-代理程式只能用來下載擴充功能套件和報告狀態。 例如，如果需要從 GitHub 下載指令碼 (自訂指令碼)，或需要存取 Azure 儲存體 (Azure 備份) 才能安裝擴充功能，則必須開啟其他防火牆/網路安全性群組連接埠。 不同的擴充功能有不同需求，因為它們是自成一格的應用程式。 對於需要存取 Azure 儲存體的擴充功能，您可以使用[儲存體](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags)適用的 Azure NSG 服務標記來允許存取。
+代理程式只能用來下載擴充功能套件和報告狀態。 例如，如果需要從 GitHub 下載指令碼 (自訂指令碼)，或需要存取 Azure 儲存體 (Azure 備份) 才能安裝擴充功能，則必須開啟其他防火牆/網路安全性群組連接埠。 不同的擴充功能有不同需求，因為它們是自成一格的應用程式。 對於需要存取 Azure 儲存體的擴充功能，您可以使用[儲存體](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)適用的 Azure NSG 服務標記來允許存取。
 
 Linux 代理程式必須有 Proxy 伺服器支援，才能重新導向代理程式流量要求。 不過，此 Proxy 伺服器支援不會套用擴充功能。 您必須個別設定每個擴充功能，才能與 Proxy 搭配使用。
 
@@ -259,7 +259,7 @@ Goal state agent: 2.2.18
 
 「目標狀態代理程式」是自動更新版本。
 
-強烈建議您一律讓代理程式自動更新，[AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent)。 未啟用這個項目即表示您必須保持手動更新代理程式，而且無法修正 Bug 和安全性。
+強烈建議您一律讓代理程式自動更新，[AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。 未啟用這個項目即表示您必須保持手動更新代理程式，而且無法修正 Bug 和安全性。
 
 #### <a name="extension-updates"></a>擴充功能更新
 
@@ -408,7 +408,7 @@ az vm extension delete \
 | Linux 的自訂指令碼擴充功能 |對「Azure 虛擬機器」執行指令碼 |[Linux 的自訂指令碼擴充功能](custom-script-linux.md) |
 | VM 存取擴充功能 |重新取得對「Azure 虛擬機器」的存取權 |[VM 存取擴充功能](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 診斷擴充功能 |管理「Azure 診斷」 |[Azure 診斷擴充功能](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM 存取擴充功能 |管理使用者和認證 |[適用於 Linux 的 VM 存取擴充功能](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM 存取擴充功能 |管理使用者和認證 |[適用於 Linux 的 VM 存取擴充功能](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>後續步驟
 

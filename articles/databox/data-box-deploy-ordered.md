@@ -2,24 +2,18 @@
 title: 訂購 Microsoft Azure 資料箱 | Microsoft Docs
 description: 深入了解部署必要條件以及如何訂購 Azure 資料箱
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 969f8cdf7b8cc406cd98bb5a4f30b5c395b0e8fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d02557ecd84ea14db297ee07f7055a08304e7fcd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989357"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091210"
 ---
 # <a name="tutorial-order-azure-data-box"></a>教學課程：訂購 Azure 資料箱
 

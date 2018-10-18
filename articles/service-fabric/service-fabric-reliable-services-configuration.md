@@ -1,5 +1,5 @@
 ---
-title: 設定可靠的 Azure 微服務 | Microsoft Docs
+title: 設定 Azure Service Fabric Reliable Services | Microsoft Docs
 description: 深入了解在 Azure Service Fabric 中設定具狀態的 Reliable Services。
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ee8010fbbadc011e04d6d43599d671a1f926bb5f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249014"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049651"
 ---
 # <a name="configure-stateful-reliable-services"></a>設定具狀態可靠服務
 有兩組組態設定可供 Reliable Services 使用。 一組是適用於叢集中的所有 Reliable Services，而另一組專屬於特定的 Reliable Services。
@@ -28,7 +28,7 @@ ms.locfileid: "39249014"
 在 KtlLogger 區段下，叢集的叢集資訊清單中所指定的全域 Reliable Service 組態。 它可設定共用記錄檔位置和大小，加上記錄器所使用的全域記憶體限制。 叢集資訊清單是單一 XML 檔案，可保留套用至叢集中所有節點和服務態的設定與組態。 此檔案通常稱為 ClusterManifest.xml。 您可以查看叢集的叢集資訊清單使用 Get-ServiceFabricClusterManifest powershell 命令。
 
 ### <a name="configuration-names"></a>組態名稱
-| Name | 單位 | 預設值 | 備註 |
+| 名稱 | 單位 | 預設值 | 備註 |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |KB |8388608 |以核心模式配置給記錄器寫入緩衝區記憶體集區的最小 KB 數。 此記憶體集區用於在寫入至磁碟之前快取狀態資訊。 |
 | WriteBufferMemoryPoolMaximumInKB |KB |沒有限制 |記錄器寫入緩衝區記憶體集區可以成長的的大小上限。 |
@@ -109,7 +109,7 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>組態名稱
-| Name | 單位 | 預設值 | 備註 |
+| 名稱 | 單位 | 預設值 | 備註 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |秒 |0.015 |次要複寫器收到作業後，將通知傳回給主要複寫器前所等待的時間間隔。 任何要在此間隔內傳送給作業處理的其他通知，會集中以一個回應傳送。 |
 | ReplicatorEndpoint |N/A |無預設值--必要的參數 |主要/次要複寫器將用於與複本集中其他複寫器通訊的 IP 位址與連接埠。 這應該參考服務資訊清單中的 TCP 資源端點。 請參閱 [服務資訊清單資源](service-fabric-service-manifest-resources.md) ，深入了解如何在服務資訊清單中定義端點資源。 |

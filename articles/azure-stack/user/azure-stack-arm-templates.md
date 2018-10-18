@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41946499"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161760"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 資源管理員範本
 
@@ -30,11 +30,11 @@ ms.locfileid: "41946499"
 
 可藉由 Microsoft Azure Stack 入口網站、PowerShell、命令列和 Visual Studio 部署這些範本。
 
-下列快速入門範本位於 [GitHub](http://aka.ms/azurestackgithub)。
+下列快速入門範本位於 [GitHub](http://aka.ms/azurestackgithub)：
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>部署 SharePoint Server (非高可用性部署)
 
-使用 PowerShell DSC 擴充功能來建立 SharePoint Server 2013 伺服器陣列，其中包含下列資源：
+使用 PowerShell DSC 擴充功能來[建立 SharePoint Server 2013 伺服器陣列](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha)，其中包含下列資源：
 
 * 虛擬網路
 * 三個儲存體帳戶
@@ -45,7 +45,7 @@ ms.locfileid: "41946499"
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>部署 AD (非高可用性部署)
 
-使用 PowerShell DSC 擴充功能來建立 AD 網域控制站伺服器，其中包含下列資源：
+使用 PowerShell DSC 擴充功能來[建立 AD 網域控制站伺服器](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha)，其中包含下列資源：
 
 * 虛擬網路
 * 一個儲存體帳戶
@@ -54,7 +54,7 @@ ms.locfileid: "41946499"
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>部署 AD/SQL (非高可用性部署)
 
-使用 PowerShell DSC 擴充功能來建立 SQL Server 2014 獨立伺服器，其中包含下列資源：
+使用 PowerShell DSC 擴充功能來[建立 SQL Server 2014 獨立伺服器](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha)，其中包含下列資源：
 
 * 虛擬網路
 * 兩個儲存體帳戶
@@ -68,15 +68,15 @@ ms.locfileid: "41946499"
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>從使用者映像建立虛擬機器
 
-從自訂使用者映像建立虛擬機器。 這個範本也會部署虛擬網路 (含 DNS)、公用 IP 位址及網路介面。
+[從自訂使用者映像建立虛擬機器](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image)。 這個範本也會部署虛擬網路 (含 DNS)、公用 IP 位址及網路介面。
 
 ## <a name="basic-virtual-machine"></a>基本虛擬機器
 
-部署一部 Windows VM，其中包含虛擬網路 (含 DNS)、公用 IP 位址及網路介面。
+[部署一部 Windows VM](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm)，其中包含虛擬網路 (含 DNS)、公用 IP 位址及網路介面。
 
 ## <a name="cancel-a-running-template-deployment"></a>取消執行中的範本部署
 
-若要取消執行中的範本部署，請使用 `Stop-AzureRmResourceGroupDeployment` PowerShell Cmdlet。
+若要取消執行中的範本部署，請使用 [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell Cmdlet。
 
 ## <a name="next-steps"></a>後續步驟
 

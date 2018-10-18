@@ -6,14 +6,14 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 888f7c3ced0ef48cff222bffdbf0f278fa5f42b3
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285724"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092626"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure 搜尋服務中的安全性和資料隱私權
 
@@ -23,9 +23,7 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 ## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>標準合規性：ISO 27001、SOC 2、HIPAA
 
-標準合規性的部分清單包括 SOC 2 Type 2 和 HIPAA，適用於正式運作的功能。 預覽功能會視為正式運作功能的一部分來認證，且不可用於具有特定標準需求的解決方案。 合規性憑證會記載於 [Microsoft Azure 合規性概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)和[信任中心](https://www.microsoft.com/en-us/trustcenter)。 
-
-下列標準的憑證已[在 2018年 6 月 宣布](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/)。
+如 [2018 年 6 月的公告](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/)，Azure 搜尋服務已通過下列標準的認證：
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [SOC 2 Type 2 合規性](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) 如需完整的報告，請移至 [Azure - 和 Azure Government SOC 2 Type II 報告](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) \(英文\)。 
@@ -35,13 +33,15 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 + [PCI DSS 層級 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
 + [澳洲 IRAP 的未分類 DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
+標準合規性適用於正式推出的功能。 預覽功能在轉換為正式推出的功能時會通過認證，且不得用於具有嚴格標準需求的解決方案。 合規性憑證會記載於 [Microsoft Azure 合規性概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)和[信任中心](https://www.microsoft.com/en-us/trustcenter)。 
+
 ## <a name="encrypted-transmission-and-storage"></a>加密的傳輸和儲存體
 
 加密會延伸至整個索引編製管線：從連線到傳輸，再到儲存在「Azure 搜尋服務」中已編製索引的資料。
 
 | 安全性階層 | 說明 |
 |----------------|-------------|
-| 傳輸中加密 | 「Azure 搜尋服務」會在 HTTPS 連接埠 443 上進行接聽。 在整個平台上，連至 Azure 服務的連線都會受到加密。 |
+| 傳輸中加密 <br>(HTTPS/SSL/TLS) | 「Azure 搜尋服務」會在 HTTPS 連接埠 443 上進行接聽。 在整個平台上，連至 Azure 服務的連線都會受到加密。 <br/><br/>用戶端對服務的所有 Azure 搜尋服務互動都支援 SSL/TLS 1.2。  請務必對服務的 SSL 連線使用 TLSv1.2。|
 | 待用加密 | 加密會完全在索引編製程序內進行，對索引編製完成時間或索引大小沒有任何重大的影響。 它會自動針對所有索引編製程序進行，包括針對未完全加密 (建立時間在 2018 年 1 月以前) 之索引的增量更新進行。<br><br>就內部而言，加密會根據 [Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) \(機器翻譯\)，使用的是 256 位元的 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(英文\)。|
 
 加密是在「Azure 搜尋服務」內部進行的，由 Microsoft 在內部管理憑證和加密金鑰，並且全面套用。 您無法在入口網站中或透過程式設計方式，開啟或關閉加密、管理或替代自己的金鑰，或是檢視加密設定。 

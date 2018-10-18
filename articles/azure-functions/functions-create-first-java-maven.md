@@ -6,26 +6,24 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3840d8d1e18e73c1f08c450859032c07e441cff2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7483ac4521b0b997111dcc5705ba8c28a8443299
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699170"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116397"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>使用 Java 和 Maven 建立您的第一個函式 (預覽)
 
 [!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
-本快速入門引導您使用 Maven 建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式專案、在本機進行測試，並將它部署到 Azure Functions。 當您完成時，就會有 HTTP 觸發的函式應用程式在 Azure 中執行。
+本快速入門引導您使用 Maven 建立[無伺服器](https://azure.microsoft.com/solutions/serverless/)函式專案、在本機進行測試，並將它部署到 Azure Functions。 當您完成時，就會有 HTTP 觸發的函式應用程式在 Azure 中執行。
 
 ![從命令列使用 cURL 存取 Hello World 函式](media/functions-create-java-maven/hello-azure.png)
 

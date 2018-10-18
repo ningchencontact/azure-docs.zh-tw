@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233839"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298942"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>持續部署至 Azure App Service
-本文將示範如何設定 [Azure App Service](app-service-web-overview.md) 的持續部署。 App Service 可從 BitBucket、GitHub 及 [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) 進行持續部署，方法是從這些其中一個服務的現有存放庫中提取最新更新。
+本文將示範如何設定 [Azure App Service](app-service-web-overview.md) 的持續部署。 App Service 可從 BitBucket、GitHub 及 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 進行持續部署，方法是從這些服務之一的現有存放庫中提取最新更新。
 
 若要了解如何從 Azure 入口網站未列出的雲端存放庫中手動設定持續部署 (例如 [GitLab](https://gitlab.com/))，請參閱[使用手動步驟設定持續部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-將備妥的存放庫發佈至其中一個支援的服務。 如需將專案發佈至這些服務的詳細資訊，請參閱[建立儲存機制 (GitHub)]、[建立儲存機制 (BitBucket)]及[開始使用 VSTS]。
+將備妥的存放庫發佈至其中一個支援的服務。 如需將專案發佈至這些服務的詳細資訊，請參閱[建立儲存機制 (GitHub)]、[建立儲存機制 (BitBucket)]及[開始使用 Azure DevOps Services]。
 
 ## <a name="deploy-continuously-from-github"></a>從 GitHub 持續部署
 
@@ -47,22 +47,22 @@ ms.locfileid: "35233839"
 
 在 [設定] 頁面上，選取您要從中持續部署的組織、存放庫與分支。 完成後，按一下 [繼續]。
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>選項 2：使用 VSTS 持續傳遞
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>選項 2：使用 Azure DevOps Services 持續傳遞
 
 > [!NOTE]
-> 若要讓 App Service 在 VSTS 帳戶中建立必要的組建並發行定義，您的 Azure 帳戶必須擁有 Azure 訂用帳戶的**擁有者**角色。
+> 若要讓 App Service 在 Azure DevOps Services 組織中建立必要的 Azure Pipelines，您的 Azure 帳戶必須具備 Azure 訂用帳戶的**擁有者**角色。
 >
 
 在 [設定] 頁面的 [程式碼] 區段中，選取您要從中持續部署的組織、存放庫與分支。 完成後，按一下 [繼續]。
 
-在 [設定] 頁面的 [建置] 區段中，設定新的 VSTS 帳戶或指定現有的帳戶。 完成後，按一下 [繼續]。
+在 [設定] 頁面的 [建置] 區段中，設定新的 Azure DevOps Services 組織或指定現有的組織。 完成後，按一下 [繼續]。
 
 > [!NOTE]
-> 如果您想要使用未列出的現有 VSTS 帳戶，您需要[將 VSTS 帳戶連結至 Azure 訂用帳戶](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
+> 如果您想要使用未列出的現有 Azure DevOps Services 組織，則必須[將 Azure DevOps Services 組織連結至 Azure 訂用帳戶](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
 
 在 [測試] 頁面上，選擇是否要啟用負載測試，然後按一下 [繼續]。
 
-視 App Service 方案的[定價層](/pricing/details/app-service/plans/)而定，您可能也會看到 [部署至預備環境] 頁面。 選擇是否要[啟用部署位置](web-sites-staged-publishing.md)，然後按一下 [繼續]。
+視 App Service 方案的[定價層](https://azure.microsoft.com/pricing/details/app-service/plans/)而定，您可能也會看到 [部署至預備環境] 頁面。 選擇是否要[啟用部署位置](web-sites-staged-publishing.md)，然後按一下 [繼續]。
 
 ### <a name="finish-configuration"></a>完成設定
 
@@ -90,11 +90,11 @@ ms.locfileid: "35233839"
 
 完成設定時，所選取存放庫中的新認可會持續部署到 App Service 應用程式。
 
-## <a name="deploy-continuously-from-vsts"></a>從 VSTS 持續部署
+## <a name="deploy-continuously-from-azure-devops-services"></a>從 Azure DevOps Services 持續部署
 
-若要啟用透過 VSTS 的持續部署，請巡覽至 [Azure 入口網站](https://portal.azure.com)中的 App Service 應用程式頁面。
+若要啟用透過 Azure DevOps Services 的持續部署，請瀏覽至 [Azure 入口網站](https://portal.azure.com)中的 App Service 應用程式頁面。
 
-在左側功能表中，按一下 [部署中心] > [VSTS] > [繼續]。 
+在左側功能表中，按一下 [部署中心] > [Azure DevOps Services] > [繼續]。 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
@@ -102,24 +102,24 @@ ms.locfileid: "35233839"
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>選項 1：使用 App Service Kudu 組建伺服器
 
-在 [設定] 頁面上，選取您要從中持續部署的 VSTS 帳戶、專案、存放庫與分支。 完成後，按一下 [繼續]。
+在 [設定] 頁面上，選取您要從中持續部署的 Azure DevOps Services 組織、專案、存放庫與分支。 完成後，按一下 [繼續]。
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>選項 2：使用 VSTS 持續傳遞
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>選項 2：使用 Azure DevOps Services 持續傳遞
 
 > [!NOTE]
-> 若要讓 App Service 在 VSTS 帳戶中建立必要的組建並發行定義，您的 Azure 帳戶必須擁有 Azure 訂用帳戶的**擁有者**角色。
+> 若要讓 App Service 在 Azure DevOps Services 組織中建立必要的 Azure Pipelines，您的 Azure 帳戶必須具備 Azure 訂用帳戶的**擁有者**角色。
 >
 
-在 [設定] 頁面的 [程式碼] 區段中，選取您要從中持續部署的 VSTS 帳戶、專案、存放庫與分支。 完成後，按一下 [繼續]。
+在 [設定] 頁面的 [程式碼] 區段中，選取您要從中持續部署的 Azure DevOps Services 組織、專案、存放庫與分支。 完成後，按一下 [繼續]。
 
 > [!NOTE]
-> 如果您想要使用未列出的現有 VSTS 帳戶，您需要[將 VSTS 帳戶連結至 Azure 訂用帳戶](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
+> 如果您想要使用未列出的現有 Azure DevOps Services 組織，則必須[將 Azure DevOps Services 組織連結至 Azure 訂用帳戶](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
 
-在 [設定] 頁面的 [建置] 區段中，指定 VSTS 應該用來為所選取存放庫執行建置工作的語言架構。 完成後，按一下 [繼續]。
+在 [設定] 頁面的 [建置] 區段中，指定 Azure DevOps Services 應該用來為選取的存放庫執行建置工作的語言架構。 完成後，按一下 [繼續]。
 
 在 [測試] 頁面上，選擇是否要啟用負載測試，然後按一下 [繼續]。
 
-視 App Service 方案的[定價層](/pricing/details/app-service/plans/)而定，您可能也會看到 [部署至預備環境] 頁面。 選擇是否要[啟用部署位置](web-sites-staged-publishing.md)，然後按一下 [繼續]。 
+視 App Service 方案的[定價層](https://azure.microsoft.com/pricing/details/app-service/plans/)而定，您可能也會看到 [部署至預備環境] 頁面。 選擇是否要[啟用部署位置](web-sites-staged-publishing.md)，然後按一下 [繼續]。 
 
 ### <a name="finish-configuration"></a>完成設定
 
@@ -131,7 +131,7 @@ ms.locfileid: "35233839"
 
 若要停用持續部署，請巡覽至 [Azure 入口網站](https://portal.azure.com)中的 App Service 應用程式頁面。
 
-在左側功能表中，按一下 [部署中心] > [GitHub] 或 [VSTS] 或 [BitBucket] > [中斷連線]。
+在左側功能表中，按一下 [部署中心] > [GitHub] 或 [Azure DevOps Services] 或 [BitBucket] > [中斷連線]。
 
 ![](media/app-service-continuous-deployment/disable.png)
 
@@ -153,4 +153,4 @@ ms.locfileid: "35233839"
 
 [建立儲存機制 (GitHub)]: https://help.github.com/articles/create-a-repo
 [建立儲存機制 (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[開始使用 VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[開始使用 Azure DevOps Services]: https://www.visualstudio.com/docs/vsts-tfs-overview

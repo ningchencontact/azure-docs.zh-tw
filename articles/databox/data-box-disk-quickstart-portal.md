@@ -2,25 +2,19 @@
 title: Microsoft Azure 資料箱磁碟的快速入門 | Microsoft Docs
 description: 使用此快速入門，在 Azure 入口網站中快速部署您的 Azure 資料箱磁碟
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378341"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365229"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱磁碟 (預覽)
 
@@ -28,7 +22,7 @@ ms.locfileid: "44378341"
 
 如需部署和追蹤的詳細逐步指示，請移至[教學課程：訂購 Azure 資料箱磁碟](data-box-disk-deploy-ordered.md)。 
 
-如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 > [!IMPORTANT]
 > 資料箱磁碟處於預覽狀態。 部署這個解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。

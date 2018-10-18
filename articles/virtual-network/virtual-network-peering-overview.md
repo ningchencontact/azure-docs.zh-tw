@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 493beb254852464765d506c61c7ae6ce3b3835d3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257866"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362886"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -77,7 +77,12 @@ ms.locfileid: "39257866"
 
 ## <a name="requirements-and-constraints"></a>需求和限制
 
-若要了解需求和限制，請參閱[虛擬網路對等互連需求和限制](virtual-network-manage-peering.md#requirements-and-constraints)。 若要了解您可為虛擬網路建立之對等互連數目的限制，請參閱 [Azure 網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 
+為虛擬網路建立全域的對等互連時，會受到下列限制：
+- 虛擬網路可以存在於任何的 Azure 公用雲端區域，但並非在 Azure 國家雲端。
+- 一個虛擬網路中的資源無法與全域對等互連虛擬網路中的 Azure 內部負載平衡器的前端 IP 位址通訊。 負載平衡器和與其通訊的資源必須位於相同的區域中。
+- 您無法使用遠端閘道，也無法允許閘道傳輸。 若要使用遠端閘道或允許閘道傳輸，對等互連的虛擬網路必須位於相同區域中。
+
+若要深入了解需求和限制，請參閱[虛擬網路對等互連需求和限制](virtual-network-manage-peering.md#requirements-and-constraints)。 若要了解您可為虛擬網路建立之對等互連數目的限制，請參閱 [Azure 網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 
 
 ## <a name="permissions"></a>權限
 
@@ -87,7 +92,7 @@ ms.locfileid: "39257866"
 
 我們會針對使用虛擬網路對等互連連線的輸入和輸出流量收取少許費用。 如需有關 VNet 對等互連和全域 VNet 對等互連定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
 
-閘道傳輸是一個對等互連的屬性，可讓虛擬網路利用對等虛擬網路中的 VPN 閘道，來進行跨部署或 VNet 對 VNet 連線。 在此案例中，通過遠端閘道的流量需收取 [VPN 閘道費用](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/)，且不會產生 [VNet 對等互連費用](https://azure.microsoft.com/pricing/details/virtual-network)。 例如，如果 VNetA 具有 VPN 閘道可供內部部署連線，且 VNetB 會對等互連至 VNetA，並設定適當的屬性，則從 VNetB 到內部部署的流量只會依 VPN 閘道輸出定價收費。 VNet 對等互連費用將不適用。 了解如何[為虛擬網路對等互連設定 VPN 閘道傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+閘道傳輸是一個對等互連的屬性，可讓虛擬網路利用對等虛擬網路中的 VPN 閘道，來進行跨部署或 VNet 對 VNet 連線。 在此案例中，通過遠端閘道的流量需收取 [VPN 閘道費用](https://azure.microsoft.com/pricing/details/vpn-gateway/)，且不會產生 [VNet 對等互連費用](https://azure.microsoft.com/pricing/details/virtual-network)。 例如，如果 VNetA 具有 VPN 閘道可供內部部署連線，且 VNetB 會對等互連至 VNetA，並設定適當的屬性，則從 VNetB 到內部部署的流量只會依 VPN 閘道輸出定價收費。 VNet 對等互連費用將不適用。 了解如何[為虛擬網路對等互連設定 VPN 閘道傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -102,3 +107,4 @@ ms.locfileid: "39257866"
 
 * 了解如何建立[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 * 了解所有[虛擬網路對等互連設定，以及如何變更它們](virtual-network-manage-peering.md)。
+* 透過我們的 [VNet 對等互連常見問題集](virtual-networks-faq.md#vnet-peering)，取得 VNet 對等互連和全域 VNet 對等互連常見問題的解答

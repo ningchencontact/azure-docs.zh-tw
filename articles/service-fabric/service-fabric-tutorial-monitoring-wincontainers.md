@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9eea0cabebb67095d4c6c813e7d13c885a447db4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 24b4cbe0eb13a41ccd6ae98db90d4bf0cf7d22a7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378885"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311213"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>教學課程：使用 Log Analytics 監視 Service Fabric 上的 Windows 容器
 
@@ -42,7 +42,7 @@ ms.locfileid: "44378885"
 
 ## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>在 Resource Manager 範本中，使用您的叢集設定 Log Analytics
 
-如果您使用本教學課程第一部分中[提供的範本](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial)，它應該會包含下列已新增至一般 Service Fabric Azure Resource Manager 範本的內容。 假如您有自己的叢集，而您想要設定該叢集以使用 Log Analytics 來監視容器：
+如果您使用本教學課程第一部分中[提供的範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure)，它應該會包含下列已新增至一般 Service Fabric Azure Resource Manager 範本的內容。 假如您有自己的叢集，而您想要設定該叢集以使用 Log Analytics 來監視容器：
 
 * 對您的 Resource Manager 範本進行下列變更。
 * 藉由[部署範本](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)，使用 PowerShell 部署它以升級您的叢集。 Azure Resource Manager 會解析該資源存在，因此將推出它作為升級。

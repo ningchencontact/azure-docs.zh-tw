@@ -3,19 +3,19 @@ title: 語言支援 - 語音服務 API
 description: 語音服務所支援的自然語言清單。
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 60a6061d6ac0998064897462c0e82db811bdc187
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: 5bf680d22f990e6a93c622271bbb8ccd4c19437e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435632"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166911"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>語音服務 API 支援的語言和區域
 
@@ -31,16 +31,16 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
  ca-ES | 加泰蘭文 (西班牙) | 否 | 否 | 否
  da-DK | 丹麥文 (丹麥) | 否 | 否 | 否
  de-DE | 德文 (德國) | 是 | yes | 否
- en-AU | 英文 (澳洲) | 是 | yes | 是
- en-CA | 英文 (加拿大) | 是 | yes | 是
- en-GB | 英文 (英國) | 是 | yes | 是
- en-IN | 英文 (印度) | 否 | yes | 是
- en-NZ | 英文 (紐西蘭) | 是 | yes | 是  
+ en-AU | 英文 (澳洲) | 否 | yes | 是
+ en-CA | 英文 (加拿大) | 否 | yes | 是
+ en-GB | 英文 (英國) | 否 | yes | 是
+ en-IN | 英文 (印度) | 是 | yes | 是
+ en-NZ | 英文 (紐西蘭) | 否 | yes | 是  
  zh-TW | 英文 (美國) | 是 | yes | 是
- es-ES | 西班牙文 (西班牙) | 是 | yes | 否
- es-MX | 西班牙文 (墨西哥) | 是 | yes | 否
+ es-ES | 西班牙文 (西班牙) | 否 | 是 | 否
+ es-MX | 西班牙文 (墨西哥) | 否 | 是 | 否
  fi-FI | 芬蘭文 (芬蘭) | 否 | 否 | 否
- fr-CA | 法文 (加拿大) | 是 | yes | 否
+ fr-CA | 法文 (加拿大) | 否 | 是 | 否
  fr-FR | 法文 (法國) | 是 | yes | 否
  hi-IN | 印地文 (印度) | 否 | 是 | 否
  it-IT | 義大利文 (義大利) | 是 | yes | 否
@@ -51,10 +51,10 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
  pl-PL | 波蘭文 (波蘭) | 否 | 否 | 否
  pt-BR | 葡萄牙文 (巴西) | 否 | 是 | 否
  pt-PT | 葡萄牙文 (葡萄牙) | 否 | 是 | 否
- ru-RU | 俄文 (俄羅斯) | 否 | 是 | 否
+ ru-RU | 俄文 (俄羅斯) | 是 | yes | 否
  sv-SE | 瑞典文 (瑞典) | 否 | 否 | 否
  zh-CN | 中文 (普通話，簡體) | 是 | yes | 否
- zh-HK | 中文 (國語，繁體) | 否 | 是 | 否
+ zh-HK | 中文 (普通話，繁體) | 否 | 是 | 否
  zh-TW | 中文 (繁體，國語) | 否 | 是 | 否
  th-TH | 泰文 (泰國) | 否 | 否 | 否
 
@@ -161,8 +161,6 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 ## <a name="speech-translation"></a>語音翻譯
 
 **語音翻譯** API 支援語音轉換語音和語音轉換文字翻譯的不同語言。 來源語言一律必須來自下面的語音語言表格。 可用的目標語言取決於翻譯目標是語音還是文字。
-
-您可以使用 REST API 的語言端點，透過程式設計方式來取得語言清單。 此清單提供每個語言代碼，以及該語言的英文名稱或任何其他受支援語言的名稱。 只要有新語言可用，Microsoft Translator 服務就會自動更新此清單。
 
 ### <a name="speech-languages"></a>語音語言
 

@@ -2,25 +2,18 @@
 title: Microsoft Azure 資料箱本機 Web UI 系統管理 | Microsoft Docs
 description: 說明如何使用本機 Web UI 來管理您的資料箱裝置
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/11/2018
 ms.author: alkohli
-ms.openlocfilehash: a5f3f1b4d0d67a12ee0ebaa40935b8494e53dab3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9dd519f8efc9700f7a747aa37a9c02414f3e1865
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956297"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093879"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>使用本機 Web UI 來管理您的資料箱
 
@@ -28,7 +21,7 @@ ms.locfileid: "46956297"
 
 您必須使用資料箱的本機 Web UI 來進行裝置的初始設定。 您也可以使用本機 Web UI 來將資料箱關機或重新啟動、執行診斷測試、更新軟體、檢視複製記錄，以及為 Microsoft 支援服務產生記錄套件。
 
-此文章包含下列教學課程：
+本文包含下列教學課程：
 
 - 產生支援套件
 - 關閉或重新啟動您的裝置
@@ -59,7 +52,7 @@ ms.locfileid: "46956297"
 
 ## <a name="shut-down-or-restart-your-device"></a>關閉或重新啟動您的裝置
 
-您可以使用本機 Web UI 來將資料箱關機或重新啟動。 我們建議在重新開機之前，先讓主機上的共用離線，然後再讓裝置離線。 這樣可以讓資料損毀的可能性降到最低。 將裝置關機時，請確保並未執行資料複製。
+您可以使用本機 Web UI 來將資料箱關機或重新啟動。 我們建議在重新開機之前，先讓主機上的共用離線，然後再讓裝置離線。 這樣可以讓資料損毀的可能性降至最低。 將裝置關機時，請確保並未執行資料複製。
 
 若要將資料箱關機，請執行下列步驟。
 
@@ -77,7 +70,7 @@ ms.locfileid: "46956297"
 若要將資料箱重新啟動，請執行下列步驟。
 
 1. 在本機 Web UI 中，移至 [關機或重新啟動]。
-2. 按一下 [重新啟動]。
+2. 按一下 [重新啟動] 。
 
     ![將資料箱重新啟動 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 

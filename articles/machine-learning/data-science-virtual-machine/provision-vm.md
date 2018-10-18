@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782649"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298195"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 Microsoft 資料科學虛擬機器 (DSVM) 是 Windows Azure 虛擬機器 (VM) 映像。 它會預先安裝並且以數個用於資料分析和機器學習的工具進行設定。 包含下列工具：
@@ -40,7 +40,7 @@ Microsoft 資料科學虛擬機器 (DSVM) 是 Windows Azure 虛擬機器 (VM) �
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/)。 Java 中的視覺化資料採礦和機器學習服務軟體。
   * [Apache Drill](https://drill.apache.org/)。 適用於 Hadoop、NoSQL 和雲端儲存體的無結構描述 SQL 查詢引擎。  可支援 ODBC 和 JDBC 介面，以便從 PowerBI、Microsoft Excel 和 Tableau 等標準 BI 工具查詢 NoSQL 和檔案。
 * R 和 Python 語言的程式庫，可用於 Azure Machine Learning 和其他 Azure 服務。
-* 包括 Git Bash 的 Git，可搭配原始程式碼存放庫 (包括 GitHub 和 Visual Studio Team Services) 運作。 Git 會提供數個可在 Git Bash 和命令提示字元上存取的熱門 Linux 命令列公用程式。 範例包括 awk、sed、perl、grep、find、wget 和 curl。
+* 包括 Git Bash 的 Git，可搭配原始程式碼存放庫 (包括 GitHub 和 Azure DevOps) 運作。 Git 會提供數個可在 Git Bash 和命令提示字元上存取的熱門 Linux 命令列公用程式。 範例包括 awk、sed、perl、grep、find、wget 和 curl。
 
 資料科學涉及反覆進行一連串的工作︰
 

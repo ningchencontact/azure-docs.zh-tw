@@ -3,26 +3,28 @@ title: 在 Azure 資訊安全中心設定安全性原則 | Microsoft Docs
 description: 本文章可協助您在「Azure 資訊安全中心」設定安全性原則。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: terrylan
-ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: c68b55beba445b7f5d30efe7155a47e7f6f76690
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756986"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161283"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>在 Azure 資訊安全中心設定安全性原則
 本文章可協助您在「資訊安全中心」設定安全性原則。
+
+如需如何使用 PowerShell 設定原則的指示：請參閱[快速入門：使用 Azure RM PowerShell 模組建立原則指派，以識別不符合規範的資源](../azure-policy/assign-policy-definition-ps.md)。
 
 ## <a name="how-security-policies-work"></a>安全性原則的運作方式
 資訊安全中心會為每個 Azure 訂用帳戶自動建立預設安全性原則。 您可以在資訊安全中心編輯原則並監視原則合規性。
@@ -37,13 +39,12 @@ ms.locfileid: "34756986"
 
 1. 登入 Azure 入口網站。
 
-2. 在 [資訊安全中心] 儀表板的 [一般] 底下，選取 [安全性原則]。
+2. 在 [資訊安全中心] 儀表板的 [原則與合規性] 底下，選取 [安全性原則]。
 
 3. 選取您要啟用安全性原則的訂用帳戶。
 
-4. 在 [原則元件] 區段中，選取 [安全性原則]。  
-    這是資訊安全中心所指派的預設原則。 您可以開啟或關閉可用的安全性建議。
-
+4. 開啟要為訂用帳戶啟用的原則。 您會收到以每個所選原則為基礎的建議。 
+  ![原則清單](./media/security-center-policies/policies.png)
 5. 編輯完成時，請選取 [儲存]。
 
 ## <a name="available-security-policy-definitions"></a>可用的安全性原則定義

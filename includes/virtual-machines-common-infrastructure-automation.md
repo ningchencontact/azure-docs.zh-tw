@@ -10,8 +10,7 @@
     - [Azure 自動化](#azure-automation)可在整個 Azure 和內部部署基礎結構內執行動作。
 
 - 將應用程式部署和傳遞自動化
-    - 範例包括 [Visual Studio Team Services](#visual-studio-team-services) 和 [Jenkins](#jenkins)。
-
+    - 範例包括 [Azure DevOps Services](#visual-studio-team-services) 和 [Jenkins](#jenkins)。
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) 是設定管理、建立 VM 或應用程式部署的自動化引擎。 Ansible 會使用無代理程式的模型，通常是使用 SSH 金鑰來驗證及管理目標電腦。 設定工作會定義在劇本中，並有幾個可用來執行特定工作的 Ansible 模組。 如需詳細資訊，請參閱 [Ansible 的運作方式](https://www.ansible.com/how-ansible-works)。
@@ -114,12 +113,12 @@ Azure 自動化也會提供預期狀態設定 (DSC) 服務，可讓您建立一�
 - [使用 Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md)。
 
 
-## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) 是一套工具，能協助您共用和追蹤程式碼、使用自動化的組建，並建立完整的持續整合及開發 (CI/CD) 管線。 Team Services 會與 Visual Studio 和其他編輯器整合，以簡化使用方式。 Team Services 還可以建立及設定 Azure VM，然後再將程式碼部署到這些 VM。
+## <a name="azure-devops-services"></a>Azure DevOps Services
+[Azure DevOps Services](https://www.visualstudio.com/team-services/) 是一套工具，能協助您共用和追蹤程式碼、使用自動化的組建，並建立完整的持續整合及開發 (CI/CD) 管線。 Azure DevOps Services 會與 Visual Studio 和其他編輯器整合，以簡化使用方式。 Azure DevOps Services 還可以建立及設定 Azure VM，然後再將程式碼部署到這些 VM。
 
 了解如何：
 
-- [使用 Team Services 建立持續整合管線](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md)。
+- [使用 Azure DevOps Services 建立持續整合管線](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md)。
 
 
 ## <a name="jenkins"></a>Jenkins

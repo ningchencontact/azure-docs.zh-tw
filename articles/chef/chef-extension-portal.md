@@ -8,17 +8,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 52f34361d7c1f3dff47f2571a714b8be7764cc6f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e121cd038b8becee1e9c4c12659dbbee0696a9f1
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259528"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378647"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>從 Azure 入口網站安裝 Chef 用戶端
 從 Azure 入口網站建立或修改 Linux 或 Windows 虛擬機器時，您可以將 Chef 擴充功能新增至虛擬機器。 這篇文章會逐步引導您進行使用新 Linux 虛擬機器的程序。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 - **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 - **Chef**：如果您沒有作用中 Chef 帳戶，請註冊[免費試用版託管 Chef](https://manage.chef.io/signup)。 若要依照本文章中的指示，您需要 Chef 帳戶的下列值： 
@@ -81,25 +81,25 @@ ms.locfileid: "34259528"
 
 1. 請在 [安裝擴充功能] 索引標籤上，指定下列值，然後選取 [確定]。
 
-    - **Chef 伺服器 URL** - 請輸入 Chef 伺服器 URL，其中包含組織名稱。 我使用 https://api.chef.io/organization/hessco 做示範。
+    - **Chef 伺服器 URL** - 請輸入包含組織名稱的 Chef 伺服器 URL，例如 *https://api.chef.io/organization/hessco*。
     - **Chef 節點名稱** - 請輸入 Chef 節點名稱。 可以是任何值。
-    - **執行清單** - 請輸入要新增至機器的 Chef 執行清單。 可以留空。
-    - **驗證用戶端名稱** - 請輸入 Chef 驗證用戶端名稱。 我使用 tarcher-validator 做示範。
+    - **執行清單** - 請輸入要新增至機器的 Chef 執行清單。 此項目可保留為空白。
+    - **驗證用戶端名稱** - 請輸入 Chef 驗證用戶端名稱。 例如 *tarcher-validator*。
     - **驗證金鑰** - 選取檔案，其中包含啟動載入您的機器時使用的驗證金鑰。 
-    - **用戶端組態檔** - 請選取 Chef 用戶端的組態檔。 可以留空。
-    - **Chef 用戶端版本** - 請輸入要安裝的 Chef 用戶端版本。 若保留空白值，則會安裝最新的版本。 可以留空。
-    - **SSL 驗證模式** - 請選取 [無] 或 [對等]。 我選取 [無] 做示範。
-    - **Chef 環境** - 請輸入這個節點所屬的 Chef 環境。 可以留空。
-    - **加密 Databag 祕密** - 請選取包含加密 Databag 祕密的檔案，讓這部機器存取。 可以留空。
-    - **Chef 伺服器 SSL 憑證** - 請選取指派給 Chef 伺服器的 SSL 憑證。 可以留空。
+    - **用戶端組態檔** - 請選取 Chef 用戶端的組態檔。 此項目可保留為空白。
+    - **Chef 用戶端版本** - 請輸入要安裝的 Chef 用戶端版本。 此項目可保留為空白。 若保留空白值，則會安裝最新的版本。 
+    - **SSL 驗證模式** - 請選取 [無] 或 [對等]。 在示範中我們選取 [無]。
+    - **Chef 環境** - 請輸入這個節點所屬的 Chef 環境。 此項目可保留為空白。
+    - **加密 Databag 祕密** - 請選取包含加密 Databag 祕密的檔案，讓這部機器存取。 此項目可保留為空白。
+    - **Chef 伺服器 SSL 憑證** - 請選取指派給 Chef 伺服器的 SSL 憑證。 此項目可保留為空白。
 
     ![在 Linux 虛擬機器上安裝 Chef 伺服器](./media/chef-extension-portal/install-extension.png)
 
-1. 回到 [擴充功能] 索引標籤時，請選取 [確定]。
+1. 返回 [擴充功能] 索引標籤後，選取 [確定]。
 
-1. 回到 [設定] 索引標籤時，請選取 [確定]。
+1. 返回 [設定] 索引標籤後，選取 [確定]。
 
-1. 回到 [建立] 索引標籤時 (顯示您選取及輸入的選項摘要)，請確認資訊以及**使用條款**，然後選取 [建立]。
+1. 返回 [建立] 索引標籤後 (顯示您選取及輸入的選項摘要)，請確認資訊以及**使用條款**，然後選取 [建立]。
 
 建立及部署具有 Chef 擴充功能的虛擬機器程序完成時，通知會指出作業成功或失敗。 此外，新虛擬機器的資源頁面一旦建立，就會在 Azure 入口網站中自動開啟。
 

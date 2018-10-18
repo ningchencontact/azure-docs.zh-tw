@@ -11,12 +11,12 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.openlocfilehash: a69c129d5ae1405462e3a54a24cd2edbad2a86a7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f5555d9a60934529bf8fed6db6a18dd783f46075
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126772"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297463"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>使用 Azure Logic Apps 和 Azure Functions 建置您的第一個無伺服器應用程式 - Visual Studio
 
@@ -122,7 +122,7 @@ ms.locfileid: "43126772"
 
 ## <a name="deploy-functions-from-visual-studio"></a>從 Visual Studio 部署函式
 
-您的部署範本會從 `azuredeploy.json` 檔案中變數所指定的 Git 存放庫，部署您解決方案中擁有的任何 Azure 函式。 如果您在解決方案中建立並撰寫 Functions 專案，您可以將該專案簽入 Git 原始檔控制 (例如 GitHub 或 Visual Studio Team Services)，然後更新 `repo` 變數，以便此範本部署 Azure 函式。
+您的部署範本會從 `azuredeploy.json` 檔案中變數所指定的 Git 存放庫，部署您解決方案中擁有的任何 Azure 函式。 如果您在解決方案中建立並撰寫 Functions 專案，您可以將該專案簽入 Git 原始檔控制 (例如 GitHub 或 Azure DevOps)，然後更新 `repo` 變數，以便此範本部署 Azure 函式。
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>管理邏輯應用程式及檢視執行歷程記錄
 

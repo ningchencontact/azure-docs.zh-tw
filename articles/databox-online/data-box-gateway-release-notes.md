@@ -1,25 +1,19 @@
 ---
 title: Azure 資料箱閘道預覽版本資訊 | Microsoft Docs
 description: 描述執行預覽版本的 Azure 資料箱重大未決問題和解決方式。
-services: databox-edge-gateway
-documentationcenter: ''
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 2668279b33d2d8d1c0adf92c138cc6347c95bd4d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f5e19d59dfddc3be849700f3678519179b5b39ba
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035346"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49164564"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure 資料箱閘道預覽版本資訊
 

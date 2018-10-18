@@ -8,20 +8,20 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047450"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302566"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 的持續整合與持續部署
 
-本文示範如何使用 Visual Studio Team Services (VSTS) 和 Microsoft Team Foundation Server (TFS) 的持續整合與持續部署功能，以快速且有效率地建置、測試應用程式，並且將其部署到您的 Azure IoT Edge。 
+本文示範如何使用 Azure DevOps Services 和 Microsoft Team Foundation Server (TFS) 的持續整合與持續部署功能，快速且有效率地建置、測試應用程式，並且將其部署到您的 Azure IoT Edge。 
 
 在本文中，您將了解如何：
 * 建立及簽入包含單元測試的範例 IoT Edge 解決方案。
-* 為您的 VSTS 安裝 Azure IoT Edge 擴充功能。
+* 為您的 Azure DevOps 安裝 Azure IoT Edge 擴充功能。
 * 設定持續整合 (CI)，以建置解決方案並執行單元測試。
 * 設定持續部署 (CD)，以部署解決方案並檢視回應。
 
@@ -277,31 +277,31 @@ ms.locfileid: "37047450"
 
     ![單元測試](./media/how-to-ci-cd/unit-test.png)
 
-7. 儲存這些專案，然後將其簽入您的 VSTS 或 TFS 存放庫。
+7. 儲存這些專案，然後將其簽入您的 Azure DevOps 或 TFS 存放庫中。
     
 
 > [!NOTE]
-> 如需有關使用 VSTS 程式碼存放庫的詳細資訊，請參閱[與 Visual Studio 和 VSTS Git 共用程式碼](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts)。
+> 如需使用 Azure Repos 的詳細資訊，請參閱[與 Visual Studio 和 Azure Repos 共用程式碼](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)。
 
 
 ## <a name="configure-continuous-integration"></a>設定持續整合
-在本節中，您會建立一個組建定義，它會設定為當您將任何變更簽入範例 IoT Edge 解決方案時自動執行，而且它也會自動執行其中所包含的單元測試。
+在本節中，您會建立一個組建管線，並將其設定為在您將任何變更簽入範例 IoT Edge 解決方案時自動執行，而且它也會自動執行其中包含的單元測試。
 
-1. 登入您的 VSTS 帳戶 (**https://**_your-account_**.visualstudio.com**)，然後開啟您簽入範例應用程式所在的專案。
+1. 登入您的 Azure DevOps 組織 (**https://**_your-account_**.visualstudio.com**)，然後開啟您簽入範例應用程式所在的專案。
 
     ![簽入程式碼](./media/how-to-ci-cd/init-project.png)
 
-1. 請造訪 VSTS Marketplace 上的 [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy)。 按一下 [免費取得]，並遵循精靈以將此擴充功能安裝至 VSTS 帳戶或下載到您的 TFS。
+1. 請造訪 Azure DevOps Marketplace 上的 [Azure IoT Edge For Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy)。 按一下 [免費取得]，並依照精靈指示將此擴充功能安裝至您的 Azure DevOps 組織或下載到您的 TFS。
 
     ![安裝擴充功能](./media/how-to-ci-cd/install-extension.png)
 
-1. 在您的 VSTS 中，開啟 [組建和發行] 中樞，然後在 [建置] 索引標籤上，選擇 [+ 新增定義]。 或者，如果您已經有組建定義，選擇 [+ 新增] 按鈕。 
+1. 在您的 Azure DevOps 中開啟 [組建與發行] 中樞，然後在 [建置] 索引標籤上選擇 [+ 新增管線]。 或者，如果您已經有組建管線，請選擇 [+ 新增] 按鈕。 
 
     ![新增組建](./media/how-to-ci-cd/add-new-build.png)
 
-1. 如果出現提示，請選取 [VSTS Git] 來源類型，然後選取您的程式碼所在的專案、存放庫及分支。 選擇 [繼續]。
+1. 如果出現提示，請選取 [Azure DevOps Git] 來源類型，然後選取您的程式碼所在的專案、存放庫及分支。 選擇 [繼續]。
 
-    ![選取 VSTS git](./media/how-to-ci-cd/select-vsts-git.png)
+    ![選取 Azure DevOps git](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. 在 [選取範本] 視窗中，選擇 [以空白的處理序開始]。
 
@@ -343,9 +343,9 @@ ms.locfileid: "37047450"
 
     ![觸發程序](./media/how-to-ci-cd/configure-trigger.png)
 
-1. 儲存新的組建定義，並且將新組建排入佇列。 按一下 [儲存並佇列] 按鈕。
+1. 儲存新的組建管線，並將新組建排入佇列。 按一下 [儲存並佇列] 按鈕。
 
-1. 在顯示的訊息列中選擇組建的連結。 或者移至組建定義，以查看最新佇列的組建作業。
+1. 在顯示的訊息列中選擇組建的連結。 或者移至組建管線，以查看最新排入佇列的組建作業。
 
     ![建置](./media/how-to-ci-cd/build-def.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 02b722feece5458a31e89e4041d51104b94e52c6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8747e597883d96756e676061bde04b920b13cadd
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505860"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023200"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。
@@ -96,6 +96,9 @@ Azure AD Domain Services 受控網域上的預設密碼存留期為 90 天。 �
 
 ### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>我能否暫停 Azure AD Domain Services 受控網域？ 
 否。 啟用 Azure AD Domain Services 受控網域後，您選取的虛擬網路中即有該服務可供使用，直到您停用/刪除受控網域為止。 無法暫停服務。 除非您刪除受控網域，否則會以每小時計費。
+
+### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>我可以針對 DR 事件將 Azure AD Domain Services 容錯移轉到另一個區域嗎？
+否。  Azure AD Domain Services 目前不提供異地備援部署模型。 它受限於 Azure 區域中的單一虛擬網路。 如果您想要利用多個 Azure 區域，您需要在 Azure IaaS VM 上執行 Active Directory 網域控制站。  [這裡](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain)可以找到架構指引。
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>我可以從 Enterprise Mobility Suite (EMS) 中取得 Azure AD 網域服務嗎？ 我是否需要 Azure AD Premium 才能使用 Azure AD 網域服務？
 否。 Azure AD 網域服務是隨用隨付的 Azure 服務，並不是 EMS 的一部分。 Azure AD Domain Services 可以與所有 Azure AD 版本 (免費、基本及進階) 搭配使用。 計費方式是每小時依據使用量計費。

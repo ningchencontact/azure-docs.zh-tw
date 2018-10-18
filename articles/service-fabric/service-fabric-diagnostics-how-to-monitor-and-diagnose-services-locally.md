@@ -1,5 +1,5 @@
 ---
-title: 在 Windows 中針對 Azure 微服務進行偵錯 | Microsoft Docs
+title: 在 Windows 中針對 Azure Service Fabric 應用程式進行偵錯 | Microsoft Docs
 description: 了解如何監視和診斷在本機開發電腦上使用 Microsoft Azure Service Fabric 所撰寫的服務。
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93cf4985e94c0af480d9f4e2e38b792cffe4df6e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206176"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054163"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>監視和診斷本機開發設定中的服務
 > [!div class="op_single_selector"]

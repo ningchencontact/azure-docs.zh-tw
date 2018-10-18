@@ -3,23 +3,19 @@ title: 在 Durable Functions 中處理錯誤 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 擴充中處理錯誤。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 944fab5ccc55bc9a697e870208338bd0e697672d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763300"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377900"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中處理錯誤
 
@@ -96,7 +92,7 @@ public static async Task Run(DurableOrchestrationContext context)
 * **輪詢係數**：用來決定輪詢增加速率的係數。 預設值為 1。
 * **最大重試間隔**：重試嘗試之間等候的最大時間量。
 * **重試逾時**：花費在重試的最大時間量。 預設行為是無限期地重試。
-* **自訂**：您可以指定使用者定義的回呼，以決定是否應該重試函式呼叫。
+* **控制代碼**：您可以指定使用者定義的回呼，以決定是否應該重試函式呼叫。
 
 ## <a name="function-timeouts"></a>函式逾時
 

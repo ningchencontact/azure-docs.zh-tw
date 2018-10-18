@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: acd9d9ff0b97bf0eaaca2f8ae9a6909e18e320d6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168237"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385901"
 ---
 # <a name="tutorial-luis-bot-in-nodejs"></a>教學課程：Node.js 中的 LUIS Bot
 使用 Node.js，您可以建置與 Language Understanding (LUIS) 整合的聊天機器人。 此 Bot 會使用 HomeAutomation 應用程式來實作 Bot 解決方案。 此 Bot 是使用 [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/) 和 [Bot Framework 第 4 版](https://github.com/Microsoft/botbuilder-js)所建置的。
@@ -67,7 +67,7 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
     
 5. 選取 [建立] 。 這會建立 Bot 服務，並將其部署到 Azure。 此程序中的一部份會為您建立名為 `luis-nodejs-bot-XXXX` 的 LUIS 應用程式。 此名稱會以上一節中的 Bot 和應用程式名稱為基礎。
 
-    [![建立 Web 應用程式 Bot](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
+    [ ![建立 Web 應用程式 Bot](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
 6. 讓此瀏覽器索引標籤保持開啟。 對於使用到 LUIS 入口網站的任何步驟，請開啟新的瀏覽器索引標籤。部署新的 Bot 服務後，請繼續下一節。
 
@@ -350,9 +350,9 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 ## <a name="learn-more-about-bot-framework"></a>深入了解 Bot Framework
 Azure Bot 服務會使用 Bot Framework SDK。 深入了解 SDK 和 Bot Framework：
 
-* [Azure Bot 服務](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 文件
+* [Azure Bot 服務](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 文件
 * [Bot Builder 範例](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder SDK](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [Bot Builder SDK](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Bot Builder 工具](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>後續步驟

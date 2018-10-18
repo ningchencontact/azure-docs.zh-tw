@@ -4,22 +4,21 @@ description: 本主題提供有關如何疑難排解即時資料流問題的建�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e6b135e14f06ecf4edfbb97913c411f55711854a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940919"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351447"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>為即時串流而設的疑難排解指南
 本文提供有關如何疑難排解某些即時串流問題的建議。
@@ -54,9 +53,6 @@ ms.locfileid: "33940919"
 > 如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 入口網站提交支援票證。
 > 
 > 
-
-## <a name="media-services-learning-paths"></a>媒體服務學習路徑
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

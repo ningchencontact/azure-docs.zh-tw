@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: d0c74bd2ba7a4a77a16d481ddb3b76f90a923254
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989504"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055306"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB MongoDB API 中的索引功能
 
@@ -41,7 +41,7 @@ Azure Cosmos DB MongoDB API 會運用 Azure Cosmos DB 的自動索引管理功�
 >[!important] 
 > 目前，只有在集合是空的 (不包含任何文件) 時，才能建立唯一索引。 
 
-下列命令可在 “student_id” 欄位上建立唯一索引：
+下列命令可在 "student_id" 欄位上建立唯一索引：
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} ) 

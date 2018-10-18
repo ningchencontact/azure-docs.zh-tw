@@ -3,8 +3,8 @@ title: 使用查詢字串來控制 Azure CDN 快取行為 - 標準層 | Microsof
 description: Azure CDN 查詢字串快取可控制當 Web 要求包含查詢字串時，要如何快取檔案。 本文說明標準 Azure CDN 產品中的查詢字串快取。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: aa553dfc04a755be1169fa117ec66dd10ea75b54
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: f0dab3dc81c626e3e7f8c79b4142e5eb4f2a1276
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260425"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093794"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>使用查詢字串來控制 Azure CDN 快取行為 - 標準層
 > [!div class="op_single_selector"]

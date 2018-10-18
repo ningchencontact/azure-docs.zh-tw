@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0c5cfaad096b5702f321eead1f3da0d9225f4b53
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951136"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302855"
 ---
-# <a name="platforms-and-tools-for-data-science-team-projects"></a>資料科學 Team 專案的平台和工具
+# <a name="platforms-and-tools-for-data-science-projects"></a>資料科學專案的平台和工具
 
 Microsoft 提供雲端或內部部署平台的完整範圍資料和分析服務與資源。 它們可以部署以有效率且可調整地執行資料科學專案。 [Team 資料科學程序](overview.md) (TDSP) 中提供小組以可追蹤、版本控制及共同作業的方式實作資料科學專案的指引。  如需人員角色的大綱，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
 
@@ -126,7 +126,7 @@ Microsoft 的 TDSP 小組已發佈兩個端對端逐步解說，示範如何在 
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>產生 Linux (CentOS) 機器的公開 SSH 金鑰
 
-如果您是使用 Linux (CentOS) 機器來執行 git 命令，您必須將機器的 SSH 金鑰新增至 VSTS 伺服器，讓此機器能夠被 VSTS 伺服器辨識。 首先，您必須產生公開 SSH 金鑰，並將金鑰新增至 VSTS 安全性設定分頁中的 SSH 公開金鑰。 
+如果您使用 Linux (CentOS) 機器來執行 git 命令，您必須將機器的公用 SSH 金鑰新增至 Azure DevOps Services，讓 Azure DevOps Services 能夠辨識此機器。 首先，您必須產生公開 SSH 金鑰，並將金鑰新增至 Azure DevOps Services 安全性設定頁面中的 SSH 公開金鑰。 
 
 - 若要產生 SSH 金鑰，請執行下列兩個命令： 
 
@@ -136,7 +136,7 @@ Microsoft 的 TDSP 小組已發佈兩個端對端逐步解說，示範如何在 
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - 複製整個 ssh 金鑰，包括 ssh-rsa。 
-- 登入 VSTS 伺服器。 
+- 登入您的 Azure DevOps Services。 
 - 在分頁右上角，按一下 [<您的名稱\>]，然後按一下 [安全性]。 
     
     ![](./media/platforms-and-tools/resources-2-user-setting.png)

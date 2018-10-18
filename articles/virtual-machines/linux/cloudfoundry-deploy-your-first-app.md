@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6e2fa77273ef35fae6c3b232cb36fa913faf879d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841413"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299044"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>將第一個應用程式部署到 Microsoft Azure 上的 Cloud Foundry
 
@@ -31,7 +31,7 @@ ms.locfileid: "30841413"
 
 有幾個選項可以用來在 Azure 上建立 Cloud Foundry 環境：
 
-- 使用 Azure Marketplace 中的 [Pivotal Cloud Foundry 優惠][pcf-azuremarketplace]以建立標準環境，其中包含 PCF OPS Manager 和 Azure Service Broker。 您可以在 Pivotal 文件中找到部署市集優惠的[完整指示][pcf-azuremarketplace-pivotaldocs]。
+- 使用 Azure Marketplace 中的 [Pivotal Cloud Foundry 供應項目][pcf-azuremarketplace]以建立標準環境，其中包含 PCF OPS Manager 和 Azure Service Broker。 您可以在 Pivotal 文件中找到部署市集供應項目的[完整指示][pcf-azuremarketplace-pivotaldocs]。
 - 建立自訂的環境，方法是[手動部署 Pivotal Cloud Foundry][pcf-custom]。
 - [直接部署開放原始碼 Cloud Foundry 套件][oss-cf-bosh]，方法是設定 [BOSH](http://bosh.io) 導向器，這是一個 VM，它會協調 Cloud Foundry 環境的部署。
 
@@ -145,7 +145,7 @@ cf scale -i 2 hello-spring-cloud
 ## <a name="next-steps"></a>後續步驟
 
 - [閱讀 Cloud Foundry 文件][cloudfoundry-docs]
-- [設定適用於 Cloud Foundry 的 Visual Studio Team Services 外掛程式][vsts-plugin]
+- [設定適用於 Cloud Foundry 的 Azure DevOps Services 外掛程式][vsts-plugin]
 - [設定適用於 Cloud Foundry 的 Microsoft Log Analytics Nozzle][loganalytics-nozzle]
 
 <!-- LINKS -->

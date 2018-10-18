@@ -4,29 +4,25 @@ description: 了解如何在 Azure Functions 中使用 Azure Cosmos DB 觸發程
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d408456373c8124e1a385879852d6198caf0813c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 62d675e4b91e3e22cf01e09d1a1a021f225310a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050185"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321881"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 Azure Cosmos DB 繫結
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [第 1 版 - 正式推出](functions-bindings-cosmosdb.md)
-> * [第 2 版 - 預覽](functions-bindings-cosmosdb-v2.md)
+> * [第 1 版](functions-bindings-cosmosdb.md)
+> * [第 2 版](functions-bindings-cosmosdb-v2.md)
 
 本文說明如何在 Azure Functions 中使用 [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) 繫結。 Azure Functions 支援適用於 Azure Cosmos DB 的觸發程序、輸入和輸出繫結。
 
@@ -1611,11 +1607,10 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [移至使用 Cosmos DB 觸發程序的快速入門](functions-create-cosmos-db-triggered-function.md)
+* [深入了解使用 Cosmos DB 的無伺服器資料庫](..\cosmos-db\serverless-computing-database.md)
+* [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [深入了解使用 Cosmos DB 的無伺服器資料庫](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+--->

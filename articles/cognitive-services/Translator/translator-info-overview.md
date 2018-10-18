@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: nolachar
-ms.openlocfilehash: 47ac3c81b85424a5cacab00863cd88fab9463fb9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124655"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385019"
 ---
 # <a name="what-is-translator-text-api"></a>什麼是翻譯工具文字 API？
 
@@ -25,15 +25,15 @@ ms.locfileid: "46124655"
 
 ## <a name="about-microsoft-translator"></a>關於 Microsoft Translator
 
-Microsoft Translator 是一個雲端式機器翻譯服務。 此服務的核心是 Translator Text API 和 [翻譯工具語音 API](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation)，這些 API 為各種 Microsoft 產品和服務提供技術支援，並由全球數千個企業運用在其應用程式和工作流程中，使其內容得以觸及全球用戶。
+Microsoft Translator 是一個雲端式機器翻譯服務。 此服務的核心是 Translator Text API 和 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation)，這些 API 為各種 Microsoft 產品和服務提供技術支援，並由全球數千個企業運用在其應用程式和工作流程中，使其內容得以觸及全球用戶。
 
-語音翻譯也可透過[認知服務語音預覽](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/)取得，其中包含現有的 Translator Speech API、Bing 語音 API 和 Custom Speech Service (預覽)，並結合成為統合並且可完整自訂的服務。  
+語音翻譯也可透過[認知服務語音預覽](https://docs.microsoft.com/azure/cognitive-services/speech-service/)取得，其中包含現有的 Translator Speech API、Bing 語音 API 和 Custom Speech Service (預覽)，並結合成為統合並且可完整自訂的服務。  
 
 深入了解 [Microsoft Translator 服務](https://www.microsoft.com/en-us/translator/home.aspx) \(英文\)
 
 ## <a name="language-customization"></a>自訂語言
 
-自訂翻譯工具是核心 Microsoft Translator 服務的延伸模組，與 Translator Text API 搭配使用時，可協助您自訂類神經翻譯系統以及改善特定術語和風格的翻譯。
+自訂翻譯工具是核心 Microsoft Translator 服務的擴充功能，與 Translator Text API 搭配使用時，可協助您自訂類神經翻譯系統以及改善特定術語和風格的翻譯。
 
 透過自訂翻譯工具，您將可建置翻譯系統，以處理您自己的企業或產業中使用的術語。 其後，您自訂的翻譯系統將可透過一般 Microsoft Translator Text API，使用類別參數跨多種類型的裝置輕易整合到您現有的應用程式、工作流程和網站中。 
 

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a69e8946c050cc69411f843b07e907a119c6edea
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4964b6d531d777ea5080e51fbff5a589efd5249d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522924"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386863"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 檔案共用 
 [Azure 檔案](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows、Linux 和 macOS 中掛接。 本指南會逐步說明透過 PowerShell 來使用 Azure 檔案共用的基本概念。 在本文中，您將了解如何：
@@ -55,7 +55,7 @@ $storageAcct = New-AzureRmStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
-現在，您可以建立第一個 Azure 檔案共用。 您可以使用 [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare) Cmdlet 來建立檔案共用。 此範例會建立名為 `myshare` 的共用。
+現在，您可以建立第一個 Azure 檔案共用。 您可以使用 [New-AzureStorageShare](https://docs.microsoft.com/powershell/module/servicemanagement/azure.storage/new-azurestorageshare) Cmdlet 來建立檔案共用。 此範例會建立名為 `myshare` 的共用。
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -75,7 +75,7 @@ New-AzureStorageShare `
 
 
 ### <a name="create-directory"></a>建立目錄
-若要在 Azure 檔案共用的根目錄建立名為 myDirectory 的新目錄，請使用 [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory) Cmdlet。
+若要在 Azure 檔案共用的根目錄建立名為 myDirectory 的新目錄，請使用 [New-AzureStorageDirectory](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragedirectory) Cmdlet。
 
 
 ```azurepowershell-interactive
@@ -165,7 +165,7 @@ Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "
 
 ## <a name="create-and-modify-share-snapshots"></a>建立及修改共用快照集
 可以使用 Azure 檔案共用來執行的另一項實用工作，是建立共用快照集。 快照集會保留 Azure 檔案共用的時間點。 共用快照集類似於您可能已經很熟悉的下列作業系統技術：
-- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS
+- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS
 - Linux 系統的[邏輯磁碟區管理員 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照集
 - macOS 的 [Apple 檔案系統 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照集。 
 

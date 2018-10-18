@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050644"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380211"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中設定檔所支援的資源提供者 API 版本
 
@@ -56,7 +56,7 @@ API 設定檔使用三種命名慣例：
 
 如需 API 設定檔中提供者之每個資源類型版本的更詳細清單，請參閱 [2018-03-01-hybrid 的詳細資料](#details-for-the-2018-03-01-hybrid)設定檔。
 
-## <a name="overview-of-2017-03-09-profile"></a>2017-03-09-profile 概觀
+## <a name="overview-of-2018-03-01-hybrid"></a>2018-03-01-hybrid 的概觀
 
 | 資源提供者 | API 版本 |
 |------------------------------------------------|------------------------------|
@@ -76,7 +76,7 @@ API 設定檔使用三種命名慣例：
 | Resources_Locks | 2016-09-01 |
 | 訂用帳戶 | 2016-06-1 |
 
-如需 API 設定檔中提供者之每個資源類型版本的更詳細清單，請參閱 [2017-03-09-profile 的詳細資料](#details-for-the-2017-03-09-profile)
+如需 API 設定檔中的提供者各種適用資源類型的詳細版本清單，請參閱 [2018-03-01-hybrid 的詳細資料](#details-for-the-2018-03-01-hybrid)
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-hybrid 的詳細資料
 
@@ -231,7 +231,7 @@ Azure Resource Manager 可讓您部署和管理 Azure 解決方案的基礎結�
 | 儲存體帳戶 | 2016-01-01 |
 | 使用方式 | 2016-01-01 |
 
-## <a name="details-for-the-2017-03-09-profile"></a>2017-03-09-profile 的詳細資料
+## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-hybrid 的詳細資料
 
 ### <a name="microsoft-authorization"></a>Microsoft 授權
 

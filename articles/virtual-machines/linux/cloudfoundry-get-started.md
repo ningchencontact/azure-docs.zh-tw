@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972286"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302464"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure 上的 Cloud Foundry
 
@@ -54,16 +54,15 @@ Pivotal Cloud Foundry 包含與 OSS 散發版本相同的核心平台，以及�
 
 ## <a name="azure-service-broker"></a>Azure Service Broker
 
-Cloud Foundry 鼓勵使用 ["twelve-factor app" (英文)](https://12factor.net/) 方法，明確區分無狀態應用程式程序和可設定狀態的備份服務。 
-  [Service Broker (英文)](https://docs.cloudfoundry.org/services/api.html) 提供一致的方式來佈建備份服務並繫結至應用程式。 [Azure Service Broker (英文)](https://github.com/Azure/meta-azure-service-broker) 會透過此管道提供一些主要的 Azure 服務，包括 Azure 儲存體和 Azure SQL。
+Cloud Foundry 鼓勵使用 ["twelve-factor app" (英文)](https://12factor.net/) 方法，明確區分無狀態應用程式程序和可設定狀態的備份服務。 [Service Broker (英文)](https://docs.cloudfoundry.org/services/api.html) 提供一致的方式來佈建備份服務並繫結至應用程式。 [Azure Service Broker (英文)](https://github.com/Azure/meta-azure-service-broker) 會透過此管道提供一些主要的 Azure 服務，包括 Azure 儲存體和 Azure SQL。
 
 如果您使用 Pivotal Cloud Foundry，您也可以從 Pivotal Network，[以圖格形式取得](https://docs.pivotal.io/azure-sb/installing.html)此 Service Broker。
 
 ## <a name="related-resources"></a>相關資源
 
-### <a name="visual-studio-team-services-plugin"></a>Visual Studio Team Services 外掛程式
+### <a name="azure-devops-services-plugin"></a>Azure DevOps Services 外掛程式
 
-Cloud Foundry 非常適合敏捷式軟體開發，包括使用持續整合 (CI) 和持續傳遞 (CD)。 如果您使用 Visual Studio Team Services (VSTS) 來管理專案，並且想要設定目標為 Cloud Foundry 的 CI/CD 管線，則可使用 [VSTS Cloud Foundry 組建擴充功能 (英文)](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension)。 此外掛程式讓您能夠簡單地設定和自動化部署至 Cloud Foundry，而不論是在 Azure 或另一個環境中執行。
+Cloud Foundry 非常適合敏捷式軟體開發，包括使用持續整合 (CI) 和持續傳遞 (CD)。 如果您使用 Azure DevOps Services 來管理專案，並且想要設定以 Cloud Foundry 為目標的 CI/CD 管線，您可以使用 [Azure DevOps Services Cloud Foundry 組建擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension)。 此外掛程式讓您能夠簡單地設定和自動化部署至 Cloud Foundry，而不論是在 Azure 或另一個環境中執行。
 
 ## <a name="next-steps"></a>後續步驟
 

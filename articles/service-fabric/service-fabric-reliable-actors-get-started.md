@@ -1,6 +1,6 @@
 ---
-title: 使用 C# 建立您的第一個動作項目型 Azure 微服務 | Microsoft Docs
-description: 本教學課程將引導您使用 Service Fabric Reliable Actors，建立、偵錯及部署簡易動作項目型服務的步驟。
+title: 在 Azure Service Fabric 上建立動作項目型服務 | Microsoft Docs
+description: 了解如何使用 Service Fabric Reliable Actors 在 C# 中建立、偵錯及部署第一個動作項目型服務。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 32d3fa09c863c47753267e97e7c4730dff869887
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211400"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054741"
 ---
 # <a name="getting-started-with-reliable-actors"></a>開始使用 Reliable Actors
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "34211400"
 
 本文將逐步說明如何在 Visual Studio 中建立一個簡單的 Reliable Actor 應用程式並進行偵錯。 如需 Reliable Actors 的相關詳細資訊，請參閱 [Service Fabric Reliable Actors 簡介](service-fabric-reliable-actors-introduction.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在開始之前，請確保您的電腦上已設定 Service Fabric 開發環境 (包括 Visual Studio)。 如需詳細資訊，請參閱[如何設定開發環境](service-fabric-get-started.md)。
 

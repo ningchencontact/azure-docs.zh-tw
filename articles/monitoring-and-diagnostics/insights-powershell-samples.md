@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: d7275bb0399ae5832e85089e44f4b9a1fe412747
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5566b169b3d4503746d12789addf4eb682d16733
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262414"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321609"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure 監視器 PowerShell 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的範例 PowerShell 命令。
@@ -27,7 +27,7 @@ ms.locfileid: "35262414"
 設定要在電腦上執行的 PowerShell (如果您還未設定)。 如需詳細資訊，請參閱[如何安裝及設定 PowerShell](/powershell/azure/overview)。
 
 ## <a name="examples-in-this-article"></a>本文中的範例
-本文中的範例將說明如何使用Azure 監視器 Cmdlet。 您也可以在 [Azure 監視器 Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx) 檢閱整個 Azure 監視器 PowerShell Cmdlet 清單。
+本文中的範例將說明如何使用Azure 監視器 Cmdlet。 您也可以在 [Azure 監視器 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights) 檢閱整個 Azure 監視器 PowerShell Cmdlet 清單。
 
 ## <a name="sign-in-and-use-subscriptions"></a>登入和使用訂用帳戶
 首先，登入您的 Azure 訂用帳戶。
@@ -142,7 +142,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 | 參數 | value |
 | --- | --- |
-| Name |simpletestdiskwrite |
+| 名稱 |simpletestdiskwrite |
 | 此警示規則的位置 |美國東部 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
@@ -200,12 +200,12 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 ```PowerShell
 
-$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
-$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equal 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equal 'Microsoft.Compute/virtualMachines/write'
 $additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
 $additionalWebhookProperties.Add('customProperty', 'someValue')
-$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
-Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId '/subscriptions/<subid>/providers/Microsoft.Insights/actiongr1' -WebhookProperty $additionalWebhookProperties
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/subscriptions/<subid>' -Action $actionGrp1 -Condition $condition1, $condition2
 
 ```
 

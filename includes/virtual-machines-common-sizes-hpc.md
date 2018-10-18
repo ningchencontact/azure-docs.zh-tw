@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ac8686d0ea5704492bfc2e08972a2f70c9b34c43
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 16e2a9cfbd9f08428fddade290117b27bc3401f7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37906814"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369301"
 ---
-Azure H 系列虛擬機器是最新的高效能運算 VM，以高端運算需求為目標，例如分子建模以及運算流體力學。 這些 8 與 16 vCPU VM 是以 Intel Haswell E5-2667 V3 處理器技術，搭載 DDR4 記憶體與 SSD 型暫存儲存體為基礎建置。 
+Azure H 系列虛擬機器是最新的高效能運算 VM，專門用來處理批次處理、分析、分子建模和流體力學等工作負載。 這些 8 與 16 vCPU VM 是以 Intel Haswell E5-2667 V3 處理器技術，搭載 DDR4 記憶體與 SSD 型暫存儲存體為基礎建置。 
 
 除了大量的 CPU 能力，H 系列使用 FDR InfiniBand 與數個記憶體組態，針對低延遲 RDMA 網路提供不同的選項，以支援記憶體大量運算需求。
 

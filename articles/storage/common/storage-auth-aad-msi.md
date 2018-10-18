@@ -1,57 +1,54 @@
 ---
-title: 從 Azure VM 受控服務識別使用 Azure AD 進行驗證 (預覽) | Microsoft Docs
-description: 從 Azure VM 受控服務識別使用 Azure AD 進行驗證 (預覽)。
+title: 使用 Azure 資源的 Azure Active Directory 受控識別來驗證 Blob 和佇列的存取權 (預覽) - Azure 儲存體 | Microsoft Docs
+description: Azure Blob 和佇列儲存體支援使用 Azure 資源的受控識別來進行 Azure Active Directory 驗證。 您可以使用 Azure 資源的受控識別，從執行於 Azure 虛擬機器、函式應用程式和虛擬機器擴展集等項目中的應用程式，驗證 Blob 和佇列的存取權。 藉由使用 Azure 資源的受控識別並利用 Azure AD 驗證的功能，您可以避免在執行於雲端中的應用程式內儲存認證。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 09/05/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6ddae66ee6408a3cab905826cd0d7c0831607d33
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67e0731c1f10bb635baa4e0d1a26dce0a336b555
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526380"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090350"
 ---
-# <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>從 Azure 受控服務識別使用 Azure AD 進行驗證 (預覽)
+# <a name="authenticate-access-to-blobs-and-queues-with-azure-managed-identities-for-azure-resources-preview"></a>使用 Azure 資源的 Azure 受控識別來驗證 Blob 和佇列的存取權 (預覽)
 
-Azure 儲存體支援使用[受控服務識別](../../active-directory/managed-service-identity/overview.md)來進行 Azure Active Directory (Azure AD) 驗證。 受控服務識別 (MSI) 會在 Azure Active Directory (Azure AD) 中提供自動管理的身分識別。 您可以使用 MSI，從 Azure 虛擬機器中執行的應用程式、函式應用程式和虛擬機器擴展集等項目向 Azure 儲存體進行驗證。 藉由使用 MSI 並利用 Azure AD 驗證的功能，您可以避免在執行於雲端中的應用程式內儲存認證。  
+Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)來進行 Azure Active Directory (Azure AD) 驗證。 您可以使用 Azure 資源的受控識別，從執行於 Azure 虛擬機器 (VM)、函式應用程式和虛擬機器擴展集等項目中的應用程式，驗證 Blob 和佇列的存取權。 藉由使用 Azure 資源的受控識別並利用 Azure AD 驗證的功能，您可以避免在執行於雲端中的應用程式內儲存認證。  
 
-若要對儲存體容器或佇列的受控服務識別授與權限，您可以對 MSI 指派含有儲存體權限的 RBAC 角色。 如需儲存體中 RBAC 角色的詳細資訊，請參閱[使用 RBAC 管理儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。 
+若要對 Blob 容器或佇列授與受控識別的權限，請將角色型存取控制 (RBAC) 角色 (包含該資源在適當範圍內的權限) 指派給該受控識別。 如需儲存體中 RBAC 角色的詳細資訊，請參閱[使用 RBAC 管理儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。 
 
-> [!IMPORTANT]
-> 此預覽僅適用於非生產環境。 Azure 儲存體的 Azure AD 整合宣告上市之前，無法使用生產服務等級協定 (SLA)。 如果您的案例尚未支援 Azure AD 整合，請繼續在應用程式中使用您的共用金鑰授權或 SAS 權杖。 如需預覽的詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。
->
-> 在預覽期間，RBAC 角色指派可能需要五分鐘的時間傳播。
+本文說明如何從 Azure VM 使用受控識別向 Azure Blob 或佇列儲存體進行驗證。  
 
-本文會說明如何使用 MSI 從 Azure VM 向 Azure 儲存體進行驗證。  
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
-## <a name="enable-msi-on-the-vm"></a>在 VM 上啟用 MSI
+## <a name="enable-managed-identities-on-a-vm"></a>在 VM 上啟用受控識別
 
-您必須先在 VM 上啟用 MSI，才可以使用 MSI 從 VM 向 Azure 儲存體進行驗證。 若要了解如何啟用 MSI，請參閱以下其中一篇文章：
+若要能夠從 VM 使用 Azure 資源的受控識別來驗證 Blob 和佇列的存取權，您必須先在該 VM 上啟用 Azure 資源的受控識別。 若要了解如何啟用 Azure 資源的受控識別，請參閱下列其中一篇文章：
 
 - [Azure 入口網站](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager 範本](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [Azure SDK](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Azure Resource Manager 範本](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="get-an-msi-access-token"></a>取得 MSI 存取權杖
+## <a name="get-a-managed-identity-access-token"></a>取得受控識別的存取權杖
 
-若要使用 MSI 進行驗證，應用程式或指令碼必須取得 MSI 存取權杖。 若要了解如何取得存取權杖，請參閱[如何使用 Azure 虛擬機器受控服務識別 (MSI) 來取得權杖](../../active-directory/managed-service-identity/how-to-use-vm-token.md)。
+若要使用受控識別進行驗證，應用程式或指令碼必須取得受控識別存取權杖。 若要了解如何取得存取權杖，請參閱[如何在 Azure VM 上使用 Azure 資源的受控識別來取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)。
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 程式碼範例：建立區塊 Blob
 
-此程式碼範例假設您有 MSI 存取權杖。 存取權杖可用來授權受控服務識別建立區塊 Blob。
+此程式碼範例假設您有受控識別存取權杖。 存取權杖可用來授權受控識別以建立區塊 Blob。
 
 ### <a name="add-references-and-using-statements"></a>新增參考並使用陳述式  
 
 在 Visual Studio 中，安裝 Azure 儲存體用戶端程式庫的預覽版本。 在 [工具] 功能表中，依序選取 [Nuget 套件管理員] 及 [套件管理員主控台]。 將下列命令輸入到主控台：
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
+Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
 ```
 
 將下列 using 陳述式新增至程式碼：
@@ -60,13 +57,13 @@ Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
-### <a name="create-credentials-from-the-msi-access-token"></a>從 MSI 存取權杖建立認證
+### <a name="create-credentials-from-the-managed-identity-access-token"></a>從受控識別存取權杖建立認證
 
-若要建立區塊 Blob，請使用預覽套件所提供的 **TokenCredentials** 類別。 建構 **TokenCredentials** 的新執行個體，並傳入您先前取得的 MSI 存取權杖：
+若要建立區塊 Blob，請使用預覽套件所提供的 **TokenCredentials** 類別。 建構 **TokenCredentials** 的新執行個體，並傳入您先前取得的受控識別存取權杖：
 
 ```dotnet
-// Create storage credentials from your MSI access token.
-TokenCredential tokenCredential = new TokenCredential(msiAccessToken);
+// Create storage credentials from your managed identity access token.
+TokenCredential tokenCredential = new TokenCredential(accessToken);
 StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
 // Create a block blob using the credentials.

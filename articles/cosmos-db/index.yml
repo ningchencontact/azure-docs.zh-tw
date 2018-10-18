@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b00d2c68748372c644a0966d76d5adb8e430e2d5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2fdd8a586c9c8dae0ab9cec1176b71a137893b17
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053596"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384970"
 documentType: LandingData
 title: Azure Cosmos DB 文件
 metadata:
@@ -91,7 +91,7 @@ sections:
         src: media/index/logo_gremlin.svg
       title: Gremlin
     - image:
-        src: https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg
+        src: https://docs.microsoft.com/media/logos/logo_gopher.svg
       title: Go
     - image:
         src: media/index/logo_xamarin.svg
@@ -101,7 +101,7 @@ sections:
       values:
       - href: /azure/cosmos-db/create-sql-api-java
       - href: /azure/cosmos-db/create-sql-api-dotnet
-      - href: /azure/cosmos-db/create-sql-api-nodejs-preview
+      - href: /azure/cosmos-db/create-sql-api-nodejs
       - href: /azure/cosmos-db/create-sql-api-python
       - href: 
       - href: 
@@ -155,6 +155,29 @@ sections:
     - html: 透過 Azure Cosmos DB 複寫全域資料庫：<a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a>
     - html: <a href="local-emulator">使用模擬器在本機開發應用程式</a>
     - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">使用 Azure Cosmos DB 輸入繫結建立 HTTP 觸發程序</a>
+- title: 透過 Microsoft Learn 增進您的技巧
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: " 建立可縮放的 Azure Cosmos DB 資料庫"
+      href: /learn/modules/create-cosmos-db-for-scale/
+      image:
+        src: /learn/achievements/create-cosmos-db-for-scale.svg
+        href: /learn/modules/create-cosmos-db-for-scale/
+    - title: 在 Azure Cosmos DB 資料庫中插入和查詢資料
+      href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+      image:
+        src: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
+        href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+    - title: 在 Visual Studio Code 中建置適用於 Azure Cosmos DB 的 .NET Core 應用程式
+      href: /learn/modules/build-cosmos-db-app-with-vscode
+      image:
+        src: /learn/achievements/build-cosmos-db-app-with-vscode.svg
+        href: /learn/modules/build-cosmos-db-app-with-vscode
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-cosmos-db">更多互動式學習...</a>
 - title: 參考
   items:
   - type: list

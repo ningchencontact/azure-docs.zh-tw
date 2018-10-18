@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e3d8a3951a42e448eff005b055b3cf5169179f1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: abc29480e5f5531857cbf973d5386727c3d7f2ac
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443444"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>教學課程：Azure Active Directory 與 FirmPlay - Employee Advocacy for Recruiting 整合
 
@@ -48,7 +48,7 @@ FirmPlay - Employee Advocacy for Recruiting 與 Azure AD 整合提供下列優�
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則您不應使用生產環境，。
-- 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
+- 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 
 ## <a name="scenario-description"></a>案例描述

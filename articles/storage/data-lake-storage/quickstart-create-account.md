@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 034731ac2c965d6b9b682c62b9866870e558ff6d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c3354786d7320caee0dfe2f0eca44909d77f2fe
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964662"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386846"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>快速入門：建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶
 
@@ -27,7 +27,7 @@ Azure Data Lake Storage Gen2 預覽版帳戶[支援階層式命名空間服務](
 
 ## <a name="prerequisites"></a>必要條件
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
 |           | 必要條件 |
 |-----------|--------------|
@@ -224,4 +224,4 @@ az group delete --name myResourceGroup
 
 在這個快速入門中，您已建立 Data Lake Storage Gen2 儲存體帳戶。 若要了解如何在您的儲存體帳戶之間上傳和下載 Blob，請繼續進行 Blob 儲存體快速入門。
 
-* [使用 AzCopy 從 Azure Blob 儲存體來回移動資料](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)
+* [使用 AzCopy 從 Azure Blob 儲存體來回移動資料](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

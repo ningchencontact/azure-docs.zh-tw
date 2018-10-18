@@ -3,8 +3,8 @@ title: Azure 診斷記錄 | Microsoft Docs
 description: 客戶可以啟用 Azure CDN 的記錄分析功能。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: v-deasim
-ms.openlocfilehash: 0baa43977099af9c6c0d9c2e4c03abc121ec279d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: magattus
+ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47097001"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093021"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
@@ -328,8 +328,8 @@ Microsoft 目前僅提供核心分析記錄，其中包含的計量會顯示 HTT
 | RequestCountHttpStatus404 | 產生 404 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
 | RequestCountCacheHit | 產生快取命中之所有要求的計數。 資產是從 POP 直接提供給用戶端。 | 是 | yes | 否  |
 | RequestCountCacheMiss | 產生快取遺漏之所有要求的計數。 快取遺漏表示在最靠近用戶端的 POP 上找不到資產，因此會從來源擷取。 | 是 | yes | 否 |
-| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。 | 是 | 是 | 否 |
-| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求。 | 是 | 是 | 否 |
+| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。 | 是 | yes | 否 |
+| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求。 | 是 | yes | 否 |
 | RequestCountCacheOthers | 非上述快取狀態的所有要求計數。 | 否 | 是 | 否  |
 | EgressTotal | 輸出資料傳輸 (單位 GB) | 是 |yes |是 |
 | EgressHttpStatus2xx | 狀態代碼為 2xx HTTP 之回應的輸出資料傳輸* (單位為 GB)。 | 是 | yes | 否  |

@@ -1,26 +1,19 @@
 ---
 title: Microsoft Azure Data Box Edge 概觀 | Microsoft Docs
 description: 說明 Azure Data Box Edge，這是針對 Azure 進行網路型傳輸使用實體裝置的儲存體解決方案。
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: b64489912725872db971c19965ac58c84cb2fc2e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6422482a31ad8022b795cb357c37ad8560781767
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993522"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166588"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>什麼是 Azure Data Box Edge (預覽)？ 
 
@@ -83,7 +76,7 @@ Data Box Edge 實體裝置具有下列功能：
 
 | 功能/規格                                          | 說明              |
 |---------------------------------------------------------|--------------------------|
-| 尺寸   | 寬度：17.25 英吋，深度：27.25 英吋，高度：1.75 英吋<br>(不含兩側固定片及 PSU 把手)  |            
+| 維度   | 寬度：17.25 英吋，深度：27.25 英吋，高度：1.75 英吋<br>(不含兩側固定片及 PSU 把手)  |            
 | 機架空間|置於機架中時為 1U|
 | 纜線| 2 條電源纜線<br>2 條 1 Gbps RJ45 纜線<br>2 條 10 Gbps SFP+ 銅纜線|
 | 元件|2 個內建電源供應器 (PSU)|
@@ -109,7 +102,7 @@ Data Box Edge 解決方案由 Data Box Edge 資源、Data Box Edge 實體裝置�
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    如需使用 Web 型 UI 的相關資訊，請移至[使用 Web 型 UI 來管理您的資料箱](http://aka.ms/dbe-docs)。
+    如需有關使用 Web 型 UI 的資訊，請移至[使用 Web 型 UI 來管理資料箱](http://aka.ms/dbe-docs)。
 
 
 ## <a name="region-availability"></a>區域可用性

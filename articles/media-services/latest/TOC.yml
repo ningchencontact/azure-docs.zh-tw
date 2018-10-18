@@ -34,32 +34,40 @@ items:
     href: cli-samples.md
 - name: 概念
   items:
-  - name: Assets
-    href: assets-concept.md
-  - name: 內容保護
-    items:
-    - name: 概觀
-      href: content-protection-overview.md
-    - name: 多 DRM 系統與存取控制
-      href: design-multi-drm-system-with-access-control.md
-  - name: 編碼
+  - name: 分析內容
+    href: analyzing-video-audio-files-concept.md
+  - name: 內容編碼
     items:
     - name: 概觀
       href: encoding-concept.md
     - name: Autogen 彈性位元速率階梯
       href: autogen-bitrate-ladder.md
+  - name: 檢查實體
+    items:
+    - name: Assets
+      href: assets-concept.md
+    - name: 內容金鑰原則
+      href: content-key-policy-concept.md
+    - name: 串流端點
+      href: streaming-endpoint-concept.md
+    - name: 串流定位器
+      href: streaming-locators-concept.md
+    - name: 串流原則
+      href: streaming-policy-concept.md
+    - name: 轉換和作業
+      href: transform-concept.md
+  - name: 檢查儲存體帳戶
+    href: storage-account-concept.md
+  - name: 處理事件方格事件
+    href: reacting-to-media-services-events.md
+  - name: 保護內容
+    items:
+    - name: 概觀
+      href: content-protection-overview.md
+    - name: 多 DRM 系統與存取控制
+      href: design-multi-drm-system-with-access-control.md
   - name: 即時串流
     href: live-streaming-overview.md
-  - name: 媒體智慧
-    href: intelligence-concept.md
-  - name: 回應事件
-    href: reacting-to-media-services-events.md
-  - name: 儲存體帳戶
-    href: storage-account-concept.md
-  - name: 串流端點
-    href: streaming-endpoint-concept.md
-  - name: 轉換和作業
-    href: transform-concept.md
 - name: 使用說明指南
   items:
   - name: 從 v2 遷移至 v3
@@ -68,17 +76,23 @@ items:
     href: create-account-cli-how-to.md
   - name: 存取 API - CLI
     href: access-api-cli-how-to.md
-  - name: 監視作業狀態事件 - CLI
-    href: job-state-events-cli-how-to.md
-  - name: 自訂轉換預設 - .NET Core
-    href: customize-encoder-presets-how-to.md
-  - name: 上傳內容
+  - name: 使用事件方格
     items:
-    - name: 從 HTTPS - .NET
+    - name: 監視事件 - 入口網站
+      href: monitor-events-portal-how-to.md
+    - name: 監視事件 - CLI
+      href: job-state-events-cli-how-to.md
+  - name: 編碼
+    items:
+    - name: 自訂轉換預設 - .NET Core
+      href: customize-encoder-presets-how-to.md
+  - name: 上傳
+    items:
+    - name: 從 HTTP(s) - .NET
       href: job-input-from-http-how-to.md
     - name: 從本機檔案 - .NET
       href: job-input-from-local-file-how-to.md
-  - name: 保護內容
+  - name: Protect
     items:
     - name: 使用 AES-128 - .NET
       href: protect-with-aes128.md
@@ -86,12 +100,10 @@ items:
       href: protect-with-drm.md
 - name: 參考
   items:
-  - name: OpenAPI 規格 (Swagger)
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview
-  - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref
   - name: REST
     href: https://aka.ms/ams-v3-rest-ref
+  - name: Azure CLI
+    href: https://aka.ms/ams-v3-cli-ref
   - name: .NET
     href: https://aka.ms/ams-v3-dotnet-ref
   - name: Java
@@ -136,15 +148,17 @@ items:
       href: https://aka.ms/ams-v3-python-sdk
     - name: Node .js
       href: https://aka.ms/ams-v3-nodejs-sdk
+    - name: Ruby
+      href: https://aka.ms/ams-v3-ruby-sdk
   - name: 版本資訊
     href: release-notes.md
   - name: 配額和限制
     href: limits-quotas-constraints.md
   - name: 常見問題集
     href: frequently-asked-questions.md
-ms.openlocfilehash: 48d64137b0a64479061a50e2015800a18eb126a6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bdbc91876dc08558881a44c52144d1c2ed28cc47
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226138"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378902"

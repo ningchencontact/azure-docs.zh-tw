@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: fd93f1ad83f6627f27534eca17f91c9fe9b2cc9f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: d9df71f6fa2f64544cbefc7d9aca8c153c86ac98
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667852"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094250"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>了解 Azure 虛擬機器使用情況
-分析您的 Azure 使用情況資料，可以深入了解使用量，以在整個組織內實現更妥善的成本管理與配置。 本文件會針對您的 Azure 計算使用量詳細資料，提供深入探討。 如需有關一般 Azure 使用情況的詳細資訊，請瀏覽至[了解您的帳單](/billing/billing-understand-your-bill.md)。
+分析您的 Azure 使用情況資料，可以深入了解使用量，以在整個組織內實現更妥善的成本管理與配置。 本文件會針對您的 Azure 計算使用量詳細資料，提供深入探討。 如需有關一般 Azure 使用情況的詳細資訊，請瀏覽至[了解您的帳單](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)。
 
 ## <a name="download-your-usage-details"></a>下載使用情況詳細資料
 若要開始，請[下載使用情況詳細資料](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv)。 下表針對透過 Azure Resource Manager 部署的虛擬機器，提供其使用情況的定義和範例值。 本文件不包含透過傳統模型部署之 VM 的詳細資訊。
@@ -143,5 +143,6 @@ Microsoft.ClassicCompute 代表透過 Azure Service Manager 部署的傳統資�
 支援進階儲存體的 VM 與不支援進階儲存體的 VM 都是以相同的費率計費。 只有儲存體成本有所差異。 如需詳細資訊，請瀏覽[儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/)。
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解使用情況詳細資料，請參閱[了解 Microsoft Azure 的計費](/billing/billing-understand-your-bill.md)。
+若要深入了解使用情況詳細資料，請參閱[了解 Microsoft Azure 的計費](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
+)。
 

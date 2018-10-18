@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/21/2018
-ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.date: 10/10/2018
+ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173702"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093436"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>適用於 PostgreSQL 的 Azure 資料庫定價層
 
@@ -46,8 +46,8 @@ ms.locfileid: "39173702"
 
 | **Azure 區域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|
-| 美國中部 | X |  |
-| 美國東部 | X | X |
+| 美國中部 |  | X |
+| 美國東部 |  | X |
 | 美國東部 2 | X | X |
 | 美國中北部 | X | X |
 | 美國中南部 | X | X |
@@ -74,6 +74,11 @@ ms.locfileid: "39173702"
 | 日本西部 | X | X |
 | 南韓中部 |  | X |
 | 南韓南部 |  | X |
+| 德國中部 |  | X |
+| 美國國防部中央  | X |  |
+| 美國 DoD 東部  | X |  |
+| 美國政府亞利桑那州 |  | X |
+| 美國政府德克薩斯州 |  | X |
 
 ## <a name="storage"></a>儲存體
 
@@ -120,4 +125,4 @@ ms.locfileid: "39173702"
 
 - 深入了解如何[在入口網站中建立 PostgreSQL 伺服器](tutorial-design-database-using-azure-portal.md)。
 - 了解如何[使用 Azure CLI 來監視和調整適用於 PostgreSQL 的 Azure 資料庫伺服器](scripts/sample-scale-server-up-or-down.md)。
-- 了解[服務限制](concepts-limits.md)。
+- 了解[服務限制](concepts-limits.md)。 

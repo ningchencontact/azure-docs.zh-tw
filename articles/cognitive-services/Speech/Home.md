@@ -10,23 +10,21 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3b4ab55f4bd8bbd66f2edc8c262524169c79d7f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975628"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340353"
 ---
 # <a name="what-is-bing-speech"></a>什麼是 Bing 語音？
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 雲端式 Microsoft Bing 語音 API 可讓開發人員在其應用程式中輕鬆建立支援語音的強大功能，例如語音命令控制、使用自然語音轉換的使用者對話，以及語音文字記錄和聽寫。 Microsoft Speech API 同時支援「語音轉換文字」和「文字轉換語音」轉換。
 
 - **語音轉換文字** API 會將人類語音轉換成可作為輸入或命令來控制應用程式的文字。
 - **文字轉換語音** API 會將文字轉換成可向應用程式使用者播放的音訊資料流。
-
-> [!NOTE] 
-> 在 2018 年 5 月，我們發行了新的[語音服務](../speech-service/overview.md) (公開預覽狀態)。 我們鼓勵您[免費試用](../speech-service/get-started.md)。
 
 ## <a name="speech-to-text-speech-recognition"></a>語音轉換文字 (語音辨識)
 

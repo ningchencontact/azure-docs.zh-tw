@@ -105,6 +105,7 @@
 #### [將活動記錄封存至 Azure 儲存體帳戶](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [使用 Azure 監視器整合活動記錄與 Splunk](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 #### [使用 Azure 監視器整合活動記錄與 SumoLogic](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
+#### [使用 Azure 監視器整合活動記錄與 Log Analytics](reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ### 參考
 #### [保留](reports-monitoring/reference-reports-data-retention.md)

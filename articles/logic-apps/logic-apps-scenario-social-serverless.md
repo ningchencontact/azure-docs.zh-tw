@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 9d6d74c4afb4d1cd62e5946b7e6f8c401e7ef2aa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6ba274bb3ff3679b4a44950db168215c54f3ade6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124639"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299741"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure Logic Apps 與 Azure Functions 來建立串流的客戶深入解析儀表板
 
@@ -103,7 +103,7 @@ Azure Logic Apps 在雲端中提供無伺服器工作流程引擎，讓您可以
 
 ## <a name="create-automated-deployment-templates"></a>建立自動部署範本
 
-建立邏輯應用程式解決方案之後，您可以擷取您的應用程式並將其當作 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md#template-deployment)，部署至世界上任何 Azure 區域。 您可以使用這項功能來修改參數，以建立應用程式的不同版本，以及將您的解決方案整合至建置與發行管線。 您也可以將 Azure Functions 納入部署範本中，以便將整個解決方案與所有相依性當作單一範本來管理。 了解[如何建立邏輯應用程式部署範本](../logic-apps/logic-apps-create-deploy-template.md)。
+建立邏輯應用程式解決方案之後，您可以擷取您的應用程式並將其當作 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md#template-deployment)，部署至世界上任何 Azure 區域。 您可以使用這項功能來修改參數，以建立應用程式的不同版本，以及將您的解決方案整合至 Azure Pipelines。 您也可以將 Azure Functions 納入部署範本中，以便將整個解決方案與所有相依性當作單一範本來管理。 了解[如何建立邏輯應用程式部署範本](../logic-apps/logic-apps-create-deploy-template.md)。
 
 如需 Azure 函式的部署範本範例，請查看 [Azure 快速入門範本存放庫](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic)。
 

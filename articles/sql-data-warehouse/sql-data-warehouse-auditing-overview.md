@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288249"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318532"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的稽核
 
@@ -76,8 +76,8 @@ SQL 資料倉儲資料庫稽核可讓您：
     > [!IMPORTANT]
     > 系統會將伺服器層級的稽核記錄寫入 Azure 訂用帳戶中 Azure Blob 儲存體的**附加 Blob**。
     >
-    > * 附加 Blob 目前**不支援****進階儲存體**。
-    > * 目前**不支援****VNet 中的儲存體**。
+    > * 附加 Blob 目前**不支援** **進階儲存體**。
+    > * 目前**不支援** **VNet 中的儲存體**。
 
 8. 按一下 [檔案] 。
 
@@ -112,7 +112,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 ## <a id="subheading-3"></a>分析稽核記錄和報告
 
-###<a name="server-level-policy-audit-logs"></a>伺服器層級原則稽核記錄
+### <a name="server-level-policy-audit-logs"></a>伺服器層級原則稽核記錄
 系統會將伺服器層級的稽核記錄寫入 Azure 訂用帳戶中 Azure Blob 儲存體的**附加 Blob**。 這些稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlogs** 的容器內。
 
 如需有關儲存體資料夾階層、命名慣例、記錄格式的進一步詳細資訊，請參閱 [Blob 稽核記錄格式參考](https://go.microsoft.com/fwlink/?linkid=829599)。
@@ -147,7 +147,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>資料庫層級原則稽核記錄
+### <a name="database-level-policy-audit-logs"></a>資料庫層級原則稽核記錄
 在安裝期間，會在所選擇的 Azure 儲存體帳戶中具有 **SQLDBAuditLogs** 首碼的 [儲存資料表] 集合中，彙總資料庫層級稽核記錄。 您可以使用工具 (例如 [Azure 儲存體總管](http://azurestorageexplorer.codeplex.com)) 來檢視記錄檔。
 
 預先設定的儀表板報告範本會以[可下載的 Excel 試算表](http://go.microsoft.com/fwlink/?LinkId=403540)形式提供，以協助您快速分析記錄資料。 若要在稽核記錄上使用範本，您需要 Excel 2013 (或更新版本) 和 Power Query (可從 [此處](http://www.microsoft.com/download/details.aspx?id=39379)下載)。

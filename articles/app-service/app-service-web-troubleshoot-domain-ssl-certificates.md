@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: genli
-ms.openlocfilehash: 59a9011edef49494288716ab16f30e28e440293b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5dd87c75638c3d084226becaace5c9454660c907
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195177"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303671"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>在 Azure Web Apps 中為網域和 SSL 憑證問題疑難排解
 
@@ -80,7 +80,7 @@ ms.locfileid: "34195177"
 
     **解決方案**：為訂用帳戶新增有效的信用卡。 
 
-- 訂用帳戶優惠不支援購買 Microsoft Student 之類的 App Service 憑證。  
+- 訂用帳戶供應項目不支援購買 Microsoft Student 之類的 App Service 憑證。  
 
     **解決方案**：升級您的訂用帳戶。 
 
@@ -167,7 +167,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 - 由於您不是訂用帳戶擁有者，因此沒有購買網域的權限。
 
-    **解決方案**：[將擁有者角色](../billing/billing-add-change-azure-subscription-administrator.md)新增至您的帳戶。 或是連絡訂用帳戶管理員，以取得購買網域的權限。
+    **解決方案**：[將擁有者角色](../role-based-access-control/role-assignments-portal.md)指派給您的帳戶。 或是連絡訂用帳戶管理員，以取得購買網域的權限。
 - 您的訂用帳戶已達到購買網域的上限。 目前的限制為 20 個。
 
     **解決方案**：若要申請提高限制，請連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
@@ -194,7 +194,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
     |記錄類型|Host|指向|
     |------|------|-----|
-    |A|@|Web 應用程式的 IP 位址|
+    |具有使用 |@|Web 應用程式的 IP 位址|
     |TXT|@|<app-name>.azurewebsites.net|
     |CNAME|www|<app-name>.azurewebsites.net|
 

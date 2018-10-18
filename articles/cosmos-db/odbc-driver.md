@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431635"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049995"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具搭配 ODBC 驅動程式連線到 Azure Cosmos DB
 
@@ -88,7 +88,7 @@ Azure Cosmos DB 是一種無結構描述的資料庫，因此它會透過讓應�
 1. 選取一或多個集合來採樣，然後按一下 [樣本]。 
 1. 在 [設計檢視] 索引標籤中，會顯示資料庫、結構描述和資料表。 在資料表檢視中，掃描會顯示與資料行名稱 (SQL 名稱、來源名稱等) 相關聯的屬性集。
     針對每個資料行，您可以修改資料行「SQL 名稱」、「SQL 類型」、「SQL 長度」(如果適用的話)、「小數位數」(如果適用的話)、「精確度」(如果適用的話)，以及「可為 Null」。
-    - 如果您想要將該資料行從查詢結果中排除，您可以將 [隱藏資料行] 設為 **true**。 雖然 [隱藏資料行] 標註為 true 的資料行仍屬於結構描述的一部份，它並不會針對選取和投影傳回。 例如，您可以隱藏開頭為 “_” 的所有 Azure Cosmos DB 系統必要屬性。
+    - 如果您想要將該資料行從查詢結果中排除，您可以將 [隱藏資料行] 設為 **true**。 雖然 [隱藏資料行] 標註為 true 的資料行仍屬於結構描述的一部份，它並不會針對選取和投影傳回。 例如，您可以隱藏開頭為 "_" 的所有 Azure Cosmos DB 系統必要屬性。
     - [識別碼] 資料行是唯一無法隱藏的欄位，因為它會在標準化結構描述中作為主索引鍵使用。 
 1. 當您完成定義結構描述時，按一下 [檔案]  |  [儲存]，瀏覽到要儲存結構描述的目錄，然後按一下 [儲存]。
 
@@ -173,7 +173,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 若要建立您的資料檢視，在 [結構描述編輯器] 視窗的 [檢視定義] 資料行中，在要取樣之集合的資料列上按一下 [新增]。 接著在 [檢視定義] 視窗中，執行下列動作︰
 1. 按一下 [新增]，輸入檢視的名稱 (例如 EmployeesfromSeattleView)，然後按一下 [確定]。
-1. 在 [編輯檢視] 視窗中，輸入 Azure Cosmos DB 查詢。 這必須是 Azure Cosmos DB SQL 查詢 (例如 `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`)，然後按一下 [確定]。
+1. 在 [編輯檢視] 視窗中，輸入 Azure Cosmos DB 查詢。 這必須是 Azure Cosmos DB SQL 查詢 (例如 `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`)，然後按一下 [確定]。
 
 您可以依需求建立多個檢視。 在您完成定義檢視後，您可以接著取樣資料。 
 

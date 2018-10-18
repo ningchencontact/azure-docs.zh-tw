@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: db26dd12d7c44f6079ee38364a4e9e240d2e7bc8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: cc4372a8a8a8f39bf4f77f637b459c5281b8852d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39717458"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299520"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>使用 Visual Studio 在本機測試串流分析查詢
 
@@ -76,5 +76,5 @@ ms.locfileid: "39717458"
 
 * [使用 Visual Studio 檢視 Azure 串流分析工作](stream-analytics-vs-tools.md)
 * [快速入門：使用 Visual Studio 建立串流分析工作](stream-analytics-quick-create-vs.md)
-* [教學課程：使用 VSTS 部署具有 CI/CD 的 Azure 串流分析工作](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [教學課程：使用 Azure DevOps 部署 CI/CD 的 Azure 串流分析作業](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [使用串流分析工具持續進行整合及開發](stream-analytics-tools-for-visual-studio-cicd.md)

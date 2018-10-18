@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48039986"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389933"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>什麼是 Web 語言模型 API？ (預覽)
 
 > [!IMPORTANT]
-> Web 語言模型預覽已於 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
+> Web 語言模型預覽已於 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
 
 Microsoft Web 語言模型 API 是 REST 架構的雲端服務，可提供最先進的工具來處理自然語言。 使用此 API，應用程式便可透過 Bing 在 en-US 市場所收集的 Web 規模語料庫將語言模型定型，以利用巨量資料的強大威力。
 

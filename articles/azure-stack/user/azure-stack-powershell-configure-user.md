@@ -1,6 +1,6 @@
 ---
-title: 設定 Azure Stack 使用者的 PowerShell 環境 | Microsoft Docs
-description: 設定 Azure Stack 使用者的 PowerShell 環境
+title: 以使用者的身分使用 PowerShell 連線到 Azure Stack | Microsoft Docs
+description: 連線到使用者 Azure Stack 執行個體的步驟。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: Balsu.G
-ms.openlocfilehash: d8b245666989552208f8cbcf0dddfdfc310f65e0
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: acdad9788737f4f552cedc1b5f42e03e2288dba8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41946606"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159074"
 ---
-# <a name="configure-the-azure-stack-users-powershell-environment"></a>設定 Azure Stack 使用者的 PowerShell 環境
+# <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>以使用者的身分使用 PowerShell 連線到 Azure Stack
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 

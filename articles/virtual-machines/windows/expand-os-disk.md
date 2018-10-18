@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
-ms.openlocfilehash: f7ff1f2f27806c92c1ac887ce3c3343b96339745
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 097aa128affb6a7ac0770c861ab70ec9d04e2d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888944"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319110"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>如何擴充虛擬機器的 OS 磁碟機
 
@@ -139,7 +139,7 @@ Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
 $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-Stop-AzureRMVM -ResourceGroupName $rgName -Name $vmName
+Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
 $disk.DiskSizeGB = 1023
 Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
@@ -210,9 +210,6 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 4.  在 **DISKPART** 提示處，鍵入 `extend [size=<size>]`。 如此會以 *size* (MB) 為單位，擴充選取的磁碟區。
 
 
-##<a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 您也可使用 [Azure 入口網站](attach-managed-disk-portal.md)連結磁碟。
-
-
-

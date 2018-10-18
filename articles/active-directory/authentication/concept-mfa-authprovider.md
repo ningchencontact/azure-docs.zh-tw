@@ -5,23 +5,23 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/01/2018
+ms.date: 09/06/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b601a3d23b23faa16925881a54e2ceba85c800f8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8e77a33667bd6794f667348958e0edb9c6a8fb0d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669060"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094972"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>何時使用 Azure Multi-Factor Authentication Provider
 
 依預設，擁有 Azure Active Directory 和 Office 365 使用者的全域管理員可以使用雙步驟驗證。 不過，如果您想要充分利用[進階功能](howto-mfa-mfasettings.md)，則應該購買完整版的 Azure Multi-Factor Authentication (MFA)。
 
-Azure Multi-Factor Auth Provider 可讓**沒有授權**的使用者能夠充分利用 Azure Multi-Factor Authentication 提供的功能。 
+Azure Multi-Factor Auth Provider 可讓**沒有授權**的使用者能夠充分利用 Azure Multi-Factor Authentication 提供的功能。
 
 如果您有涵蓋組織中所有使用者的授權，則不需要 Azure Multi-Factor Auth Provider。 只有在也需要為一些沒有授權的使用者提供雙步驟驗證時，才需建立 Azure Multi-Factor Authentication 提供者。
 
@@ -36,41 +36,16 @@ Azure Multi-Factor Auth Provider 可讓**沒有授權**的使用者能夠充分�
 
 ## <a name="what-is-an-mfa-provider"></a>什麼是 MFA Provider？
 
-如果您沒有 Azure Multi-factor Authentication 的授權，可以建立驗證提供者，為您的使用者要求雙步驟驗證。
-
 驗證提供者的類型有兩種，差異在於您 Azure 訂用帳戶的收費方式。 每次驗證選項會計算一個月中對您的租用戶執行之驗證數目。 如果您有許多使用者偶爾才會進行驗證，最好使用此選項。 每位使用者選項會計算您的租用戶中一個月執行雙步驟驗證之個人數目。 如果您的某些使用者已擁有授權，但是需要將 MFA 擴充至您授權限制之外的更多使用者，最好使用此選項。
-
-## <a name="create-an-mfa-provider"></a>建立 MFA Provider
-
-使用下列步驟，在 Azure 入口網站中建立 Azure Multi-Factor Authentication Provider：
-
-1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [Azure Active Directory] > [MFA Server] > [提供者]。
-
-   ![提供者][Providers]
-
-3. 選取 [新增] 。
-4. 填寫下列欄位，然後選取 [新增]：
-   - **名稱** – 提供者的名稱。
-   - **使用量模型** – 選擇兩個選項其中之一：
-      * 每次驗證 – 購買依每次驗證付費的模式。 通常用於在取用者導向應用程式中使用 Azure Multi-factor Authentication 的案例。
-      * 每個啟用的使用者 – 購買依每個啟用使用者付費的模式。 通常用於員工存取 Office 365 之類的應用程式。 如果某些使用者已擁有 Azure MFA 的授權，請選擇這個選項。
-   - **訂用帳戶** – 透過 Provider 針對雙步驟驗證活動計費的 Azure 訂用帳戶。
-   - **目錄** – 與 Provider 相關聯的 Azure Active Directory 租用戶。
-      * 您不需要 Azure AD 目錄即可建立 Provider。 如果您只打算下載 Azure Multi-Factor Authentication Server，請將方塊保留空白。
-      * Provider 必須與 Azure AD 目錄產生關聯，才能利用進階功能。
-      * 只有一個 Provider 可以與任何一個 Azure AD 目錄相關聯。
 
 ## <a name="manage-your-mfa-provider"></a>管理 MFA Provider
 
-建立 MFA 提供者之後，您就無法變更使用量模型 (依據已啟用的使用者或依據驗證)。 不過，您可以刪除 MFA 提供者，然後建立一個使用不同使用量模型的 MFA 提供者。
+建立 MFA 提供者之後，您就無法變更使用量模型 (依據已啟用的使用者或依據驗證)。
 
-如果目前的 Multi-Factor Auth Provider 與 Azure AD 目錄 (也稱為 Azure AD 租用戶) 相關聯，您就可以安全地將 MFA 提供者刪除，並建立連結至相同 Azure AD 租用戶的 MFA 提供者。 或者，如果您購買的授權已足夠讓啟用 MFA 的所有使用者使用，您可以一併刪除 MFA 提供者。
+如果您購買的授權已足夠讓啟用 MFA 的所有使用者使用，您可以一併刪除 MFA 提供者。
 
-如果您的 MFA 提供者未連結至 Azure AD 租用戶，或是您將新的 MFA 提供者連結至不同 Azure AD 租用戶，則使用者設定和組態選項並不會進行轉移。 此外，現有 Azure MFA 伺服器也需要使用新 MFA 提供者產生的啟用認證重新啟動。 重新啟用 MFA 伺服器以將其連結至新的 MFA 提供者，並不會影響電話和簡訊驗證，但所有使用者的行動裝置應用程式通知會停止運作，直到他們重新啟動行動裝置應用程式。
+如果您的 MFA 提供者未連結至 Azure AD 租用戶，或是您將新的 MFA 提供者連結至不同 Azure AD 租用戶，則使用者設定和組態選項並不會進行轉移。 此外，現有 Azure MFA 伺服器也需要使用 MFA 提供者產生的啟用認證重新啟動。 重新啟用 MFA 伺服器以將其連結至 MFA 提供者，並不會影響電話和簡訊驗證，但所有使用者的行動裝置應用程式通知會停止運作，直到他們重新啟動行動裝置應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 
 [進行 Multi-Factor Authentication 設定](howto-mfa-mfasettings.md)
-
-[Providers]: ./media/concept-mfa-authprovider/add-providers.png "新增 MFA 提供者"

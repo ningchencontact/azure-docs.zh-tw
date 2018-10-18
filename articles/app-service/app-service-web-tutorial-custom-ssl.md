@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: abd751cf867fea2e634161c4cf0b1e84acbe18c6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857919"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354099"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure Web Apps
 
@@ -64,45 +64,7 @@ Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本�
 > [!NOTE]
 > **橢圓曲線密碼編譯 (ECC) 憑證**可搭配 App Service 使用，但不在本文討論範圍內。 請洽詢您的憑證授權單位，了解建立 ECC 憑證的確切步驟。
 
-## <a name="prepare-your-web-app"></a>準備您的 Web 應用程式
-
-若要將自訂 SSL 憑證繫結至 Web 應用程式，[App Service 方案](https://azure.microsoft.com/pricing/details/app-service/)必須為**基本**、**標準**、**進階**或**隔離**層。 在此步驟中，您要確定 Web 應用程式在支援的定價層。
-
-### <a name="log-in-to-azure"></a>登入 Azure
-
-開啟 [Azure 入口網站](https://portal.azure.com)。
-
-### <a name="navigate-to-your-web-app"></a>瀏覽至您的 Web 應用程式
-
-按一下左側功能表中的 [應用程式服務]，然後按一下 Web 應用程式的名稱。
-
-![選取 Web 應用程式](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-您已經位於 Web 應用程式的管理頁面。  
-
-### <a name="check-the-pricing-tier"></a>檢查定價層
-
-在 Web 應用程式頁面的左側導覽中，捲動到 [設定] 區段，然後選取 [相應增加 (App Service 方案)]。
-
-![相應增加功能表](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-請檢查以確定您的 Web 應用程式不在 **F1** 或 **D1** 層中。 系統會以深藍色方塊醒目顯示 Web 應用程式目前的層。
-
-![檢查定價層](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-**F1** 或 **D1** 層中不支援自訂 SSL。 如果您需要相應增加，請遵循下一節中的步驟來進行。 否則，請關閉 [相應增加] 頁面，然後跳至[上傳並繫結 SSL 憑證](#upload)。
-
-### <a name="scale-up-your-app-service-plan"></a>相應增加您的 App Service 方案
-
-選取任何非免費層 (**B1**、**B2****B3**或「生產」類別中的任何一層)。 如需其他選項，請按一下 [查看其他選項]。
-
-按一下 [套用]。
-
-![選擇定價層](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-當您看見下列通知時，表示擴充作業已完成。
-
-![相應增加通知](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 

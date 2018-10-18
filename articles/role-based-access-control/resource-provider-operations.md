@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ee2a72a65902347a2e58f79d0f621c9d08178104
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410301"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354388"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -3346,8 +3346,6 @@ ms.locfileid: "47410301"
 > | 動作 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 加入負載平衡器的後端位址集區 |
 > | 動作 | Microsoft.Network/loadBalancers/backendAddressPools/read | 取得負載平衡器的後端位址集區定義 |
 > | 動作 | Microsoft.Network/loadBalancers/delete | 刪除負載平衡器 |
-> | 動作 | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | 加入 Load Balancer Frontend IP 設定。 |
-> | 動作 | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | 取得負載平衡器的前端 IP 組態定義 |
 > | 動作 | Microsoft.Network/loadBalancers/inboundNatPools/join/action | 加入負載平衡器的輸入 NAT 集區 |
 > | 動作 | Microsoft.Network/loadBalancers/inboundNatPools/read | 取得負載平衡器的輸入 NAT 集區定義 |
 > | 動作 | Microsoft.Network/loadBalancers/inboundNatRules/delete | 刪除負載平衡器的輸入 NAT 規則 |
@@ -3477,10 +3475,6 @@ ms.locfileid: "47410301"
 > | 動作 | Microsoft.Network/publicIPAddresses/dnsAliases/read | 取得公用 IP 位址 DNS 別名資源 |
 > | 動作 | Microsoft.Network/publicIPAddresses/dnsAliases/write | 建立公用 IP 位址 DNS 別名資源 |
 > | 動作 | Microsoft.Network/publicIPAddresses/join/action | 加入公用 IP 位址 |
-> | 動作 | Microsoft.Network/publicIPAddresses/loadBalancerPools/delete | 刪除公用 IP 位址負載平衡器後端集區 |
-> | 動作 | Microsoft.Network/publicIPAddresses/loadBalancerPools/join/action | 加入公用 IP 位址負載平衡器後端集區 |
-> | 動作 | Microsoft.Network/publicIPAddresses/loadBalancerPools/read | 取得公用 IP 位址負載平衡器後端集區定義 |
-> | 動作 | Microsoft.Network/publicIPAddresses/loadBalancerPools/write | 建立公用 IP 位址負載平衡器後端集區或更新現有的公用 IP 位址負載平衡器後端集區 |
 > | 動作 | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | 取得公用 IP 位址的診斷設定 |
 > | 動作 | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新公用 IP 位址的診斷設定 |
 > | 動作 | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | 取得公用 IP 位址的記錄定義 |

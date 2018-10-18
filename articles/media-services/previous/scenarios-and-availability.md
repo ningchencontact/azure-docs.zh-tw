@@ -4,21 +4,21 @@ description: 本主題概述跨資料中心的 Microsoft Azure 媒體服務功�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809272"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352800"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>跨資料中心的媒體服務功能情節和可用性
 
@@ -30,7 +30,7 @@ AMS 在世界各地多個資料中心運作。 這些資料中心會依據地理
 
 ## <a name="overview"></a>概觀
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 若要開始使用 Azure 媒體服務，您應該具備下列項目：
 
@@ -158,7 +158,7 @@ AMS 客戶可以使用其 AMS 帳戶來調整串流端點、媒體處理和儲�
     如需詳細資訊，請參閱[調整媒體處理](media-services-portal-scale-media-processing.md)。
 * 您也可以透過新增儲存體帳戶，來調整媒體服務帳戶。 每個儲存體帳戶的限制為 500 TB。 若想將儲存空間擴大為超過預設限制，您可以選擇將多個儲存體帳戶附加至單一媒體服務帳戶。 如需詳細資訊，請參閱[管理儲存體帳戶](meda-services-managing-multiple-storage-accounts.md)。
 
-##<a id="availability"></a> 跨資料中心的媒體服務功能可用性
+## <a id="availability"></a> 跨資料中心的媒體服務功能可用性
 
 本節詳述跨資料中心的媒體服務功能可用性。
 
@@ -174,7 +174,7 @@ AMS 客戶可以使用其 AMS 帳戶來調整串流端點、媒體處理和儲�
 
 #### <a name="availability"></a>可用性
 
-|Name|狀態|資料中心
+|名稱|狀態|資料中心
 |---|---|---|
 |標準|GA|全部|
 |進階|GA|全部|

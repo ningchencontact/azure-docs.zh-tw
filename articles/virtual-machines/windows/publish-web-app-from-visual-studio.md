@@ -13,12 +13,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 561de3ac9073fe5cfdfadf2dc61d3f7807bf9e46
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144239"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304075"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>從 Visual Studio 將 ASP.NET Web 應用程式發行到 Azure VM
 
@@ -114,7 +114,7 @@ ms.locfileid: "42144239"
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>設定 CI/CD 以自動化部署到 Azure VM
 
-若要以 Visual Studio Team Service 設定持續交付管線，請參閱[部署到 Windows 虛擬機器](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)。
+若要以 Azure Pipelines 設定持續傳遞管線，請參閱[部署到 Windows 虛擬機器](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)。
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

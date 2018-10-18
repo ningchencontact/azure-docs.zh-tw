@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/08/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: cbeaa8f1c0a950bf3941de775a2d62584e5f5dfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 710ba6596303bbbd46d95301bf10b0e6e434a4c1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986399"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343617"
 ---
 # <a name="support"></a>支援
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 如果您有關於「Bing 語音」的問題、意見反應或建議，可以透過 GitHub 與我們聯繫。 
  - [REST API 相關問題](https://github.com/Azure-Samples/SpeechToText-REST/issues) \(英文\)

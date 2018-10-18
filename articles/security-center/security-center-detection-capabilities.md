@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: 699903ff874ace4991c5c4b0584d4661d3e45f33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a0a218fc18c1c9ede71de590179b0c93221eb80c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894226"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161028"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure 資訊安全中心的偵測功能
 本文件討論 Azure 資訊安全中心的進階偵測功能，協助您識別以您的 Microsoft Azure 資源為目標的作用中威脅，並提供您快速回應所需的深入見解。
@@ -27,7 +27,7 @@ ms.locfileid: "33894226"
 在 Azure 資訊安全中心的標準層中可取得進階偵測。 提供 60 天的免費試用。 您可以在 [安全性原則](security-center-policies.md)中升級定價層選取項目。 若要深入了解價格，請瀏覽 [資訊安全中心](https://azure.microsoft.com/pricing/details/security-center/) 頁面。 
 
 > [!NOTE]
-> 資訊安全中心已向有限預覽發行一組新的偵測，可運用通用稽核架構的 auditd 記錄來偵測 Linux 電腦上的惡意行為。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_linuxdetections@microsoft.com)，以加入預覽。
+> 資訊安全中心已向有限預覽發行一組新的偵測，可運用通用稽核架構的已稽核記錄來偵測 Linux 機器上的惡意行為。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_linuxdetections@microsoft.com)，以加入預覽。
 
 ## <a name="responding-to-todays-threats"></a>回應現今的威脅
 威脅態勢在過去 20 年來已有重大變更。 在過去，公司通常只需擔心網站遭到大多想要查看「他們能做些什麼」的個別攻擊者竄改。 現今的攻擊者更加複雜且有組織性。 他們通常會有特定的財務和策略性目標。 他們也有更多的資源可供利用，因為它們可能是由民族國家或組織型犯罪所資助。

@@ -5,7 +5,7 @@ services: machine-learning
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
-editor: ''
+editor: cgronlun
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: 432f7b9bb27c1dee396677c54edf48d9fdb027a0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 89c4e6e6db087e27426598c3ead5142ad540c0c1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836329"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393876"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>使用 SQL 和 Python 對 SQL Server 中的資料建立功能
 本文件說明如何針對儲存在 Azure 上的 SQL Server VM 中資料產生特徵，以協助演算法更有效率地從資料學習。 若要完成這項工作，您可以使用 SQL 或程式設計語言 (例如 Python)。 以下示範這兩種方法。
@@ -34,10 +34,10 @@ ms.locfileid: "34836329"
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已經：
 
-* 建立 Azure 儲存體帳戶。 如需指示，請參閱[建立 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* 建立 Azure 儲存體帳戶。 如需指示，請參閱 [建立 Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
 * 將資料儲存在 SQL Server。 如果還沒這麼做，請參閱 [移動資料至 Azure 機器學習的 Azure SQL Database](move-sql-azure.md) ，以取得如何移動資料到該處的指示。
 
 ## <a name="sql-featuregen"></a>使用 SQL 的功能產生

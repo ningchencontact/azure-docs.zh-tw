@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a9a6e513d95df5dafba82556f74ec209529ff58d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294906"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298637"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>使用 Application Insights 深入診斷 Web 應用程式
 ## <a name="why-do-i-need-application-insights"></a>我為什麼需要 Application Insights 呢？
@@ -152,7 +152,7 @@ Visual Studio 和 Eclipse 提供工具，可為您正在開發的專案設定正
 偵錯期間，您可以選擇將遙測保留於開發電腦中，在 Visual Studio 中加以檢視，但不會將它傳送到入口網站。 此本機選項可避免與生產環境的遙測偵錯混合在一起。
 
 ### <a name="build-annotations"></a>建置註解
-如果您使用 Visual Studio Team Services 來建置和部署應用程式，則部署註解會出現在入口網站的圖表中。 如果您的最新版本會在計量上產生任何效果，則會變得很明顯。
+如果您使用 Azure DevOps 來建置和部署應用程式，則入口網站中的圖表上會顯示部署註解。 如果您的最新版本會在計量上產生任何效果，則會變得很明顯。
 
 ![建置註解](./media/app-insights-devops/070.png)
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 39d3913013d9528405191c5f052a943f1869048a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630751"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026851"
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
 本文將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
@@ -35,12 +35,12 @@ ms.locfileid: "39630751"
 * *密碼*- 包括網際網路密碼、Wi-Fi 設定檔等。
 * *語言喜好設定*- 包括鍵盤配置、系統語言、日期和時間等的設定。
 * *輕鬆存取功能*- 例如高對比佈景主題、朗讀程式及放大鏡。
-* *其他 Windows 設定*- 例如命令提示字元設定和應用程式清單。
+* *其他 Windows 設定*，例如滑鼠設定。
 
 **應用程式資料**：通用 Windows 應用程式可以將設定資料寫入漫遊資料夾中，而系統會對寫入這個資料夾中的任何資料自動進行同步處理。 由個別應用程式開發人員設計應用程式以充分利用這項功能。 如需有關如何開發使用漫遊功能之通用 Windows 應用程式的詳細資訊，請參閱 [AppData 儲存 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 和 [Windows 8 AppData 漫遊開發人員部落格](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)。
 
 ## <a name="what-account-is-used-for-settings-sync"></a>哪些帳戶用於設定同步處理？
-在 Windows 8 和 Windows 8.1 中，設定同步處理一律使用取用者 Microsoft 帳戶。 企業使用者有能力可以將 Microsoft 帳戶連接至 Active Directory 網域帳戶，以存取設定同步處理。在 Windows 10 中，這項連接的 Microsoft 帳戶功能將由主要/次要帳戶架構取代。
+在 Windows 8.1 中，設定同步處理一律使用取用者 Microsoft 帳戶。 企業使用者有能力可以將 Microsoft 帳戶連接至 Active Directory 網域帳戶，以存取設定同步處理。在 Windows 10 中，這項連接的 Microsoft 帳戶功能將由主要/次要帳戶架構取代。
 
 主要帳戶的定義是用來登入 Windows 的帳戶。 這可以是 Microsoft 帳戶、Azure Active Directory (Azure AD) 帳戶、內部部署 Active Directory 帳戶或本機帳戶。 除了主要帳戶，Windows 10 使用者可以將一或多個次要雲端帳戶新增至他們的裝置。 次要帳戶通常是 Microsoft 帳戶、Azure AD 帳戶或一些像是 Gmail 或 Facebook 的其他帳戶。 這些次要帳戶提供其他服務 (例如單一登入和 Windows 市集) 的存取權，但是無法進行設定同步處理。
 
@@ -59,7 +59,7 @@ ms.locfileid: "39630751"
 >
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>我該如何從 Windows 8 中的 Microsoft 帳戶設定同步處理升級至 Windows 10 中的 Azure AD 設定同步處理？
-如果您加入了執行 Windows 8 或 Windows 8.1 且具有已連接的 Microsoft 帳戶的 Active Directory 網域，您將會透過您的 Microsoft 帳戶來同步處理設定。 升級至 Windows 10 之後，只要您是已加入網域的使用者且 Active Directory 網域未與 Azure AD 連接，您就會繼續透過 Microsoft 帳戶來同步處理使用者設定。
+如果您加入了執行 Windows 8.1 且具有已連接的 Microsoft 帳戶的 Active Directory 網域，您將會透過您的 Microsoft 帳戶來同步處理設定。 升級至 Windows 10 之後，只要您是已加入網域的使用者且 Active Directory 網域未與 Azure AD 連接，您就會繼續透過 Microsoft 帳戶來同步處理使用者設定。
 
 如果內部部署 Active Directory 網域與 Azure AD 連接，您的裝置將會嘗試使用連接的 Azure AD 帳戶來同步處理設定。 如果 Azure AD 系統管理員未啟用「企業狀態漫遊」，連接的 Azure AD 帳戶將會停止同步處理設定。 如果您是 Windows 10 使用者且使用 Azure AD 身分識別來登入，則在您的系統管理員啟用透過 Azure AD 進行設定同步處理的功能之後，您將會立即開始同步處理 Windows 設定。
 
@@ -94,7 +94,7 @@ ms.locfileid: "39630751"
 在未來，Microsoft 可能會調查讓 UE-V 深度整合到 Windows 及透過 Azure AD 雲端擴充 UE-V 漫遊設定的方式。
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>我可以將同步處理的設定和資料儲存在內部部署環境中嗎？
-「企業狀態漫遊」會將所有同步處理的資料都儲存在 Azure 雲端。 UE-V 提供一個內部部署漫遊解決方案。
+「企業狀態漫遊」會將所有同步處理的資料儲存在 Microsoft 雲端。 UE-V 提供一個內部部署漫遊解決方案。
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>誰擁有正在進行漫遊的資料？
 企業擁有透過企業狀態漫遊來漫遊的資料。 資料會儲存在 Azure 資料中心。 在傳輸過程中和在雲端待用的所有使用者資料，都會使用來自 Azure 資訊保護的 Azure Rights Management 服務進行加密。 相較於以 Microsoft 帳戶為基礎的設定同步處理 (只會針對某些機密資料 (例如使用者認證) 在其離開裝置前進行加密)，這是一大改進。

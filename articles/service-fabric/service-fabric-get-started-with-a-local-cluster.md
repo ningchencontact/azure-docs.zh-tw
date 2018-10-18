@@ -1,5 +1,5 @@
 ---
-title: 在本機部署和升級 Azure 微服務 | Microsoft Docs
+title: 在本機部署和升級 Azure Service Fabric 服務 | Microsoft Docs
 description: 了解如何設定本機 Service Fabric 叢集、將現有的應用程式部署至該叢集，然後升級該應用程式。
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 244a26df25e39fd4000a8a2692edd8205e354582
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0243f6ca96b5e2c20b40bf6e0fc11e8d760db475
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643238"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053358"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>在您的本機叢集上開始部署和升級應用程式
 Azure Service Fabric SDK 包含完整的本機開發環境，可讓您快速地在本機叢集上開始部署和管理應用程式。 在本文中，您會從 Windows PowerShell 建立本機叢集、將現有的應用程式部署至該叢集，然後將應用程式升級為新版本。

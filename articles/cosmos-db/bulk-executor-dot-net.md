@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 842ec8f641fca80e469864dd4d81e14c863fd464
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cc0faa44501ea130309a02bb48d02f9c5b33febd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600052"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053375"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業
 
@@ -41,11 +41,11 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 複製的存放庫會包含兩個範例 "BulkImportSample" 和 "BulkUpdateSample"。 您可以開啟其中一個應用程式範例，使用 Azure Cosmos DB 帳戶的連接字串更新 App.config 檔案中的連接字串，然後建置解決方案並加以執行。 
 
-“BulkImportSample” 應用程式會產生隨機文件，並將其大量匯入至 Azure Cosmos DB。 “BulkUpdateSample” 應用程式會將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的文件。 在後面幾節中，您將檢閱這裡每一個範例應用程式中的程式碼。
+"BulkImportSample" 應用程式會產生隨機文件，並將其大量匯入至 Azure Cosmos DB。 "BulkUpdateSample" 應用程式會將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的文件。 在後面幾節中，您將檢閱這裡每一個範例應用程式中的程式碼。
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>將資料大量匯入至 Azure Cosmos DB
 
-1. 瀏覽至 "BulkImportSample" 資料夾，然後開啟 “BulkImportSample.sln” 檔案。  
+1. 瀏覽至 "BulkImportSample" 資料夾，然後開啟 "BulkImportSample.sln" 檔案。  
 
 2. Azure Cosmos DB 的連接字串會從 App.config 檔案中擷取，如下列程式碼所示：  
 
@@ -120,7 +120,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 您可以使用 BulkUpdateAsync API 來更新現有的文件。 在此範例中，您會將 [名稱] 欄位設為新的值，並移除現有文件中的 [描述] 欄位。 如需完整的支援欄位更新作業集，請參閱 [API 文件](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)。 
 
-1. 瀏覽至 “BulkUpdateSample” 資料夾，然後開啟 “BulkUpdateSample.sln” 檔案。  
+1. 瀏覽至 "BulkUpdateSample" 資料夾，然後開啟 "BulkUpdateSample.sln" 檔案。  
 
 2. 與相對應的欄位更新作業一起定義及更新項目。 在此範例中，您將使用 SetUpdateOperation 更新 [名稱] 欄位，以及使用 UnsetUpdateOperation 從所有文件中移除 [描述] 欄位。 您也可以執行其他作業，例如透過指定值來遞增文件欄位、將特定值推送至陣列欄位中，或是從陣列欄位中移除特定值。 若要了解大量更新 API 提供的不同方法，請參閱 [API 文件](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)。
 

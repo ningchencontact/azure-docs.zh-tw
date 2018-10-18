@@ -4,23 +4,19 @@ description: 了解如何設定 Azure Functions 應用程式設定。
 services: ''
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283797"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301478"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
 
@@ -115,14 +111,14 @@ Functions 支援「取用」主控方案和 App Service 主控方案。 如需�
 
 | | |
 |-|-|
-| ![Azure 入口網站中的函數應用程式部署選項](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions 可讓您在本機電腦上開發函數程式碼。 您可以接著將本機函數應用程式專案上傳到 Azure。 除了傳統 FTP 上傳之外，Functions 還可讓您使用常用的持續整合解決方案 (例如 GitHub、VSTS、Dropbox、Bitbucket 等) 來部署函數應用程式。 如需詳細資訊，請參閱 [Azure Functions 的持續部署](functions-continuous-deployment.md)。 若要使用 FTP 或本機 Git 來手動上傳，您還必須[設定您的部署認證](functions-continuous-deployment.md#credentials)。 |
+| ![Azure 入口網站中的函數應用程式部署選項](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions 可讓您在本機電腦上開發函數程式碼。 您可以接著將本機函數應用程式專案上傳到 Azure。 除了傳統 FTP 上傳之外，Functions 還可讓您使用常用的持續整合解決方案 (例如 GitHub、Azure DevOps、Dropbox、Bitbucket 等) 來部署函式應用程式。 如需詳細資訊，請參閱 [Azure Functions 的持續部署](functions-continuous-deployment.md)。 若要使用 FTP 或本機 Git 來手動上傳，您還必須[設定您的部署認證](functions-continuous-deployment.md#credentials)。 |
 
 
 ### <a name="cors"></a>CORS
 
 | | |
 |-|-|
-| ![Azure 入口網站中的函數應用程式 CORS](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | 為了防止惡意程式碼在您的服務中執行，App Service 會封鎖外部來源對您函數應用程式的呼叫。 Functions 支援跨原始來源資源共用 (CORS)，可讓您定義您函數可從中接受遠端要求的允許原始來源「允許清單」。  |
+| ![Azure 入口網站中的函數應用程式 CORS](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | 為了防止惡意程式碼在您的服務中執行，App Service 會封鎖外部來源對您函數應用程式的呼叫。 Functions 支援跨原始來源資源共用 (CORS)，可讓您定義您函數可從中接受遠端要求的允許原始來源「白名單」。  |
 
 ![設定函數應用程式的 CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 

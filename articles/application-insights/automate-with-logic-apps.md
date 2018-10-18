@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450438"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301186"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>使用 Logic Apps 自動執行 Application Insights 程序
 
@@ -25,7 +25,7 @@ ms.locfileid: "39450438"
 
 有了此整合，您就能自動執行許多流程，而不需撰寫任何一行程式碼。 您可以使用 Application Insights Connector 建立邏輯應用程式，以快速自動執行任何 Application Insights 程序。 
 
-您也可以新增額外的動作。 Azure App Service 的 Logic Apps 功能可讓您提供數百個動作。 例如，使用邏輯應用程式，您可以自動傳送電子郵件通知，或在 Visual Studio Team Services 中建立 Bug。 您也可以使用其中一個可用的[範本](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates)，加快建立邏輯應用程式的程序。 
+您也可以新增額外的動作。 Azure App Service 的 Logic Apps 功能可讓您提供數百個動作。 例如，藉由使用邏輯應用程式，您可以自動傳送電子郵件通知，或在 Azure DevOps 中建立 Bug。 您也可以使用其中一個可用的[範本](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates)，加快建立邏輯應用程式的程序。 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>建立 Application Insights 的邏輯應用程式
 

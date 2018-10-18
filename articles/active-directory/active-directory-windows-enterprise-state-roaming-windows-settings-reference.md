@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223662"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023346"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 漫遊設定參考
 以下是在 Windows 10 中進行漫遊或備份的所有設定的完整清單。 
@@ -44,10 +44,11 @@ ms.locfileid: "39223662"
 
 * 佈景主題：桌面背景、使用者圖格、工作列位置等 
 * Internet Explorer 設定：瀏覽歷程記錄、輸入的 URL、我的最愛等 
-* 密碼： [Windows 認證保險箱](https://technet.microsoft.com/library/jj554668.aspx)，包括 Wi-Fi 設定檔 
+* 密碼：Windows 認證管理員，包括 Wi-Fi 設定檔 
 * 語言喜好設定：拼字檢查字典、系統語言設定 
 * 輕鬆存取：朗讀程式、螢幕小鍵盤、放大鏡 
 * 其他 Windows 設定：請參閱 Windows 設定詳細資料
+* Edge 瀏覽器設定：Microsoft Edge 我的最愛、閱讀清單和其他設定
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,7 +74,7 @@ ms.locfileid: "39223662"
 | **應用程式資料**：個別應用程式可以同步處理資料 |同步處理備份 |同步處理備份 |內部 |
 | **應用程式清單**：已安裝應用程式的清單 |X |backup |其他 |
 | **藍牙**：所有藍牙設定 |X |X | |
-| **命令提示字元**：命令提示字元「預設值」設定 |sync |X | |
+| **命令提示字元**：命令提示字元「預設值」設定 |sync |X |內部 |
 | **認證**：認證保險箱 |sync |sync |password |
 | **日期、時間和區域**：自動時間 (網際網路時間同步處理) |sync |sync |語言 |
 | **日期、時間和區域**：24 小時制時鐘 |sync |X |語言 |

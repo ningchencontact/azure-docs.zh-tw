@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 35ae3d1a8a6de2d348f90e2f55b732421b879917
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 57bce631a570f549d46a9b0beefcb5adce4decfc
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307632"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380109"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>SQL 資料倉儲建議
 
@@ -37,6 +37,6 @@ SQL 資料倉儲提供的建議可確保為了效能持續最佳化資料倉儲�
 
 若只有次佳的統計資料，會造成 SQL 資料倉儲查詢最佳化工具產生次佳的查詢計劃，而嚴重影響查詢效能。 下列文件說明建立及更新統計資料的最佳做法：
 
-- [建立及更新資料表統計資料](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistic)
+- [建立及更新資料表統計資料](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
-Advisor 會針對這兩個建議，持續執行下列 [T-SQL 指令碼](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables)，以識別受到資料扭曲與統計資料建議影響的資料表。
+若要查看這些建議列出的受影響資料表，請執行下列 [T-SQL 指令碼](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables)。 Advisor 會持續執行相同的 T-SQL 指令碼，以產生這些建議。

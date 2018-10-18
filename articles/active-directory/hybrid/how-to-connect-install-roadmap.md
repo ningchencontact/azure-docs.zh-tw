@@ -12,14 +12,14 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1fdfea3ac6b84088002521700e1d50d17398be31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303089"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318634"
 ---
-#<a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 和 Azure AD Connect Health 安裝藍圖
+# <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 和 Azure AD Connect Health 安裝藍圖
 
 ## <a name="install-azure-ad-connect"></a>安裝 Azure AD Connect。
 
@@ -30,7 +30,7 @@ ms.locfileid: "46303089"
 
 | 解決方法 | 案例 |
 | --- | --- |
-| 開始之前 - [硬體和先決條件](how-to-connect-install-prerequisites.md) |<li>開始安裝 Azure AD Connect 之前所應完成的步驟。</li> |
+| 開始之前 - [硬體和必要條件](how-to-connect-install-prerequisites.md) |<li>開始安裝 Azure AD Connect 之前所應完成的步驟。</li> |
 | [快速設定](how-to-connect-install-express.md) |<li>如果您有單一樹系 AD，則這是建議使用的選項。</li> <li>使用密碼同步處理以相同的密碼進行使用者登入。</li> |
 | [自訂設定](how-to-connect-install-custom.md) |<li>有多個樹系時使用。 支援許多內部部署[拓撲](plan-connect-topologies.md)。</li> <li>自訂您登入的選項，例如傳遞驗證、同盟的 ADFS 或使用第三方識別提供者。</li> <li>自訂同步處理功能，例如篩選和回寫。</li> |
 | [從 DirSync 升級](how-to-dirsync-upgrade-get-started.md) |<li>在您有已在執行中的現有 DirSync 伺服器時使用。</li> |
@@ -44,7 +44,7 @@ ms.locfileid: "46303089"
 |下載 Azure AD Connect | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
 |使用快速設定進行安裝 | [快速安裝 Azure AD Connect](./how-to-connect-install-express.md)|
 |使用自訂設定進行安裝 | [自訂 Azure AD Connect 安裝](./how-to-connect-install-custom.md)|
-|從 DirSync 升級 | [從 Azure AD 同步作業工具 (DirSync) 升級](./how-to-dirsync-upgrade-get-started.md)|
+|從 DirSync 升級 | [從 Azure AD Sync 工具 (DirSync) 升級](./how-to-dirsync-upgrade-get-started.md)|
 |安裝後 | [驗證安裝和指派授權 ](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>深入了解安裝 Azure AD Connect
@@ -160,15 +160,14 @@ Azure AD Connect Health 入口網站會顯示警示、效能監視和使用情�
 
 * **快速入門**︰當您選取此選項時，[快速入門] 刀鋒視窗隨即開啟。 您可以選取 [取得工具] 下載 Azure AD Connect Health 代理程式。 您也可以存取文件，並提供意見反應。
 * **Azure Active Directory Connect (同步處理)**：此選項會顯示 Azure AD Connect Health 目前正在監視的 Azure AD Connect 伺服器。 [同步錯誤] 項目會依照類別顯示第一個上線同步處理服務的基本同步錯誤。 當您選取 [同步處理服務] 時，開啟的刀鋒視窗會顯示 Azure AD Connect 伺服器的相關資訊。 如需深入了解這些功能，請參閱[使用 Azure AD Connect Health 進行同步處理](how-to-connect-health-sync.md)。
-* **Active Directory Federation Services**：此選項會顯示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。 當您選取執行個體時，開啟的刀鋒視窗會顯示該服務執行個體的相關資訊。 此資訊包括概觀、屬性、警示、監視和使用情況分析。 如需深入了解這些功能，請參閱[搭配 AD FS 使用 Azure AD Connect Health](how-to-connect-health-adfs.md)。
-* **Active Directory Domain Services**：此選項會顯示 Azure AD Connect Health 目前正在監視的所有 AD DS 樹系。 當您選取樹系時，開啟的刀鋒視窗會顯示該樹系的相關資訊。 此資訊包括基本資訊概觀、網域控制站儀表板、複寫狀態儀表板、警示和監視。 如需深入了解這些功能，請參閱[在 AD DS 使用 Azure AD Connect Health](how-to-connect-health-adds.md)。
+* **Active Directory Federation Services**：此選項會顯示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。 當您選取執行個體時，開啟的刀鋒視窗會顯示該服務執行個體的相關資訊。 這項資訊包括概觀、屬性、警示、監視和使用情況分析。 如需深入了解這些功能，請參閱[搭配 AD FS 使用 Azure AD Connect Health](how-to-connect-health-adfs.md)。
+* **Active Directory Domain Services**：此選項會顯示 Azure AD Connect Health 目前正在監視的所有 AD DS 樹系。 當您選取樹系時，開啟的刀鋒視窗會顯示該樹系的相關資訊。 這項資訊包括基本資訊概觀、網域控制站儀表板、複寫狀態儀表板、警示和監視。 如需深入了解這些功能，請參閱[在 AD DS 使用 Azure AD Connect Health](how-to-connect-health-adds.md)。
 * **設定**︰本節包含開啟或關閉下列功能的選項︰
 
-  - [設定]  項目包含代理程式的基本組態。 自動升級設定可將 Azure AD Connect Health 代理程式自動更新為最新版本：您將會在發佈最新版的 Azure AD Connect Health 代理程式時，自動更新為最新版本。 此選項預設為啟用狀態。 僅允許 Microsoft 存取您的 Azure AD 目錄的健康狀況資料供疑難排解之用：如果啟用此選項，Microsoft 可以看到您所看到的相同資料。 此資訊可能有助於進行問題的疑難排解和協助。 此選項預設為停用狀態。
+  - [設定]  項目包含代理程式的基本組態。 自動升級設定可將 Azure AD Connect Health 代理程式自動更新為最新版本：您將會在發佈最新版的 Azure AD Connect Health 代理程式時，自動更新為最新版本。 此選項預設為啟用狀態。 僅允許 Microsoft 存取您的 Azure AD 目錄的健康狀況資料供疑難排解之用：如果啟用此選項，Microsoft 可以看到您所看到的相同資料。 這項資訊可能有助於進行問題的疑難排解和協助。 此選項預設為停用狀態。
 * **角色型存取控制 (IAM)** 是用來管理角色基底中 Connect Health 資料存取權的區段。 
 
 ## <a name="next-steps"></a>後續步驟
-
 
 - [硬體和先決條件](how-to-connect-install-prerequisites.md) 
 - [快速設定](how-to-connect-install-express.md)
@@ -178,6 +177,3 @@ Azure AD Connect Health 入口網站會顯示警示、效能監視和使用情�
 - [Azure AD Connect 和同盟](how-to-connect-fed-whatis.md)
 - [安裝 Azure AD Connect Health 代理程式](how-to-connect-health-agent-install.md) 
 - [Azure AD Connect 同步處理](how-to-connect-sync-whatis.md)
-
-
-

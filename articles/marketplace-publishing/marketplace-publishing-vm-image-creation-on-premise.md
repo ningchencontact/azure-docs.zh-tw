@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: d86f60c3d7ed28f435c2514e1ab77594079b399a
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145747"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390052"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>開發 Azure Marketplace 的內部部署虛擬機器映像
 強烈建議您使用遠端桌面通訊協定，在雲端中直接開發您的 Azure 虛擬硬碟 (VHD)。 不過如果需要，可以使用內部部署基礎結構來下載 VHD 並進行開發。  
@@ -113,11 +113,11 @@ ms.locfileid: "42145747"
   ![繪圖](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### <a name="create-a-storage-account-by-using-powershell"></a>使用 PowerShell 建立儲存體帳戶
-使用 PowerShell，執行 [New-AzureStorageAccount](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azurestorageaccount) Cmdlet 建立儲存體帳戶。
+使用 PowerShell，執行 [New-AzureStorageAccount](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azurestorageaccount) Cmdlet 建立儲存體帳戶。
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-然後可以使用 [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) Cmdlet，在該儲存體帳戶內建立容器。
+然後可以使用 [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) Cmdlet，在該儲存體帳戶內建立容器。
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 

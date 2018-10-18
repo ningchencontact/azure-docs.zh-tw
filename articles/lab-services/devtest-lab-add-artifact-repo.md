@@ -1,6 +1,6 @@
 ---
 title: 將 Git存放庫加入 Azure DevTest Labs 中的實驗室 | Microsoft Docs
-description: 了解如何在 Azure DevTest Labs 中為自訂構件來源新增 GitHub 或 Visual Studio Team Services Git 存放庫。
+description: 了解如何在 Azure DevTest Labs 中為自訂成品來源新增 GitHub 或 Azure DevOps Services Git 存放庫。
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: spelluru
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 80724a7d8d2b5cec19bdbce27cdafd4a9c09eb47
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e6c6f36d877f220bcc8d83b75750f54f85dcc198
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452493"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299877"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>新增可以存放自訂構件和 Resource Manager 範本的 Git 存放庫
 
-您可以在實驗室中為 VM [建立自訂構件](devtest-lab-artifact-author.md)，或[使用 Azure Resource Manager 範本來建立自訂測試環境](devtest-lab-create-environment-from-arm.md)。 您必須為小組所建立的構件或 Resource Manager 範本新增私人 Git 存放庫。 存放庫可以裝載在 [GitHub](https://github.com) 或 [Visual Studio Team Services](https://visualstudio.com) 上。
+您可以在實驗室中為 VM [建立自訂構件](devtest-lab-artifact-author.md)，或[使用 Azure Resource Manager 範本來建立自訂測試環境](devtest-lab-create-environment-from-arm.md)。 您必須為小組所建立的構件或 Resource Manager 範本新增私人 Git 存放庫。 存放庫可以裝載在 [GitHub](https://github.com) 或 [Azure DevOps Services](https://visualstudio.com) 上。
 
 我們提供了[構件的 Github 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)供您依原樣部署，或者，您也可以加以自訂以供實驗室使用。 當您自訂或建立構件時，您無法將構件儲存在公用存放庫。 您必須為自訂構件和您建立的構件建立您自己的私人存放庫。 
 
 建立 VM 時，您可以儲存 Resource Manager 範本，並依您的需求自訂，並在稍後使用範本來建立更多 VM。 您必須建立您自己的私人存放庫，來儲存您自訂的 Resource Manager 範本。  
 
 * 若要了解如何建立 GitHub 儲存機制，請參閱 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)。
-* 若要了解如何建立具有 Git 存放庫的 Team Services 專案，請參閱[連線到 Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)。
+* 若要了解如何建立具有 Git 存放庫的 Azure DevOps Services 專案，請參閱[連線到 Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)。
 
 下圖顯示具有構件的存放庫在 GitHub 中的可能外觀範例：  
 
 ![GitHub 構件儲存機制範例](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
 ## <a name="get-the-repository-information-and-credentials"></a>取得儲存機制資訊和認證
-若要將存放庫新增至實驗室，請取得存放庫中的重要資訊。 下列各節會說明如何取得 GitHub 或 Visual Studio Team Services 上所裝載之存放庫的所需資訊。
+若要將存放庫新增至實驗室，請取得存放庫中的重要資訊。 以下幾節將說明如何取得在 GitHub 或 Azure DevOps Services 上裝載的存放庫所需的資訊。
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>取得 GitHub 儲存機制複製 URL 和個人存取權杖
 
@@ -52,7 +52,7 @@ ms.locfileid: "38452493"
 9. 關閉 GitHub。   
 10. 繼續 [將您的實驗室連接至存放庫](#connect-your-lab-to-the-repository) 一節。
 
-### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>取得 Visual Studio Team Services 儲存機制複製 URL 和個人存取權杖
+### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>取得 Azure Repos 複製 URL 和個人存取權杖
 
 1. 移至您的小組集合首頁 (例如 https://contoso-web-team.visualstudio.com) ，然後選取專案。
 2. 在專案首頁上，選取 [程式碼] 。
@@ -79,9 +79,9 @@ ms.locfileid: "38452493"
     ![[新增存放庫] 按鈕](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. 在第二個 [存放庫] 頁面上，指定下列資訊︰
   1. **名稱**。 輸入存放庫的名稱。
-  2. **Git Clone URL**。 輸入您先前從 GitHub 或 Visual Studio Team Services 複製的 Git HTTPS 複製 URL。
+  2. **Git Clone URL**。 輸入您先前從 GitHub 或 Azure DevOps Services 複製的 Git HTTPS 複製 URL。
   3. **分支**。 若要取得您的定義，請輸入分支。
-  4. **個人存取權杖**。 輸入您先前從 GitHub 或 Visual Studio Team Services 取得的個人存取權杖。
+  4. **個人存取權杖**。 輸入您先前從 GitHub 或 Azure DevOps Services 取得的個人存取權杖。
   5. **資料夾路徑**。 輸入至少與複製 URL 相關的一個資料夾路徑，其中包含構件或 Resource Manager 範本。 指定子目錄時，請確定您有在資料夾路徑中包含斜線。
 
      ![存放庫區域](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)

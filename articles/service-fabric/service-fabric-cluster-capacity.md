@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617213"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348563"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -51,7 +51,7 @@ ms.locfileid: "42617213"
 
 Service Fabric 叢集可以包含一個以上的節點類型。 在這種情況下，叢集包含一個主要節點類型和一或多個非主要節點類型。
 
-單一節點類型不能只是每個虛擬機器擴展集超過 100 個節點。 您可能必須新增虛擬機器擴展集來達成目標的縮放，且自動縮放比例無法自動新增虛擬機器擴展集。 就地將虛擬機器擴展集新增至即時叢集是富有挑戰性的工作，而通常這會導致使用者利用建立時所佈建的適當節點類型來佈建新叢集。 
+針對 SF 應用程式，單一節點類型無法可靠地調整為每個虛擬機器擴展集超過 100 個節點；若要可靠地達到 100 個以上的節點，您必須新增更多虛擬機器擴展集。
 
 ### <a name="primary-node-type"></a>主要節點類型
 

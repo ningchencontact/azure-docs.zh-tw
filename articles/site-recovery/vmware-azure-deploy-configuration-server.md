@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666427"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025271"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 和實體伺服器災害復原到 Azure 時，便會部署內部部署設定伺服器。 設定伺服器會協調內部部署 VMware 與 Azure 之間的通訊。 它也會管理資料複寫。 本文會逐步引導您完成當您將 VMware VM 複寫至 Azure 時部署設定伺服器所需的步驟。 如果您必須設定實體伺服器複寫的設定伺服器，請[遵循這篇文章](physical-azure-set-up-source.md)。
 
 >[!TIP]
-您可以從[這裡](vmware-azure-architecture.md)了解設定伺服器在 Azure Site Recovery 架構中扮演的角色。
+您可以從[這裡](vmware-azure-architecture.md)了解組態伺服器在 Azure Site Recovery 架構中扮演的角色。
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>透過 OVA 範本部署設定伺服器
 
@@ -42,7 +42,7 @@ ms.locfileid: "43666427"
 | 12 個 vCPU (2 個插槽 * 6 核心 \@ 2.5GHz) |18 GB |600 GB |500 GB 至 1 TB |複寫 100-150 部機器。 |
 | 16 個 vCPU (2 個插槽 * 8 核心 \@ 2.5GHz) |32 GB |1 TB |1 TB 至 2 TB |複寫 150-200 部機器。 |
 
-如果您要複寫多個 VMware VM，請參閱[容量規劃考量](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware)。 執行用於 VMware 複寫的[部署規劃工具](site-recovery-deployment-planner.md)。
+如果您要複寫多個 VMware VM，請參閱[容量規劃考量](site-recovery-plan-capacity-vmware.md)。 執行用於 VMware 複寫的[部署規劃工具](site-recovery-deployment-planner.md)。
 
 ## <a name="download-the-template"></a>下載範本
 
@@ -119,21 +119,21 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
 
 ## <a name="faq"></a>常見問題集
 
-1. 是否可以將已安裝設定伺服器的 VM 用於不同用途？
+1. 是否可以將已安裝組態伺服器的 VM 用於不同用途？
 
-    **否**，建議您使用 VM 作為設定伺服器的唯一用途。 請務必遵循[上節](vmware-azure-deploy-configuration-server.md#Prerequisites)所述的所有規格，以有效管理嚴重損壞修復。
+    **否**，建議您使用 VM 作為設定伺服器的唯一用途。 請務必遵循[必要條件](#prerequisites)所述的所有規格，以便有效管理災害復原。
 2. 是否可以將已在設定伺服器中註冊的保存庫與新建立的保存庫交換？
 
     **否**，在保存庫向設定伺服器註冊之後，即無法變更。
 3. 是否可以使用同一部設定伺服器來保護實體和虛擬機器？
 
-    **是**，可以使用同一部設定伺服器來複寫實體和虛擬機器。 不過，實體機器只能容錯回復到 VMware VM。
-4. 設定伺服器的用途為何而其使用位置為何？
+    **是**，可以使用同一部組態伺服器來複寫實體和虛擬機器。 不過，實體機器只能容錯回復到 VMware VM。
+4. 組態伺服器的用途為何而其使用位置為何？
 
-    請參考[這裡](vmware-azure-architecture.md)的 Azure Site Recovery 架構，以深入了解設定伺服器及其功能。
+    請參考 [VMware 到 Azure 複寫架構](vmware-azure-architecture.md)，以深入了解組態伺服器及其功能。
 5. 哪裡可以找到最新版的設定伺服器？
 
-    請參閱文章中有關[透過入口網站](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)升級設定伺服器的步驟。 您也可以從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)直接下載。
+    如需透過入口網站升級組態伺服器的步驟，請參閱[升級組態伺服器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 您也可以從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)直接下載。
 6. 哪裡可以下載設定伺服器的複雜密碼？
 
     請參閱[本文](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)以下載複雜密碼。
@@ -143,7 +143,7 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
 
 ## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
 
-若要將組態伺服器升級為最新版本，請閱讀[此處](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)的步驟
+若要將組態伺服器升級為最新版本，請遵循[這裡](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)的步驟。
 
 ## <a name="manage-the-configuration-server"></a>管理組態伺服器
 

@@ -4,7 +4,7 @@ description: 本主題中的 Azure CLI 指令碼會示範如何使用 HTTPs URL 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0b11d095e1c4a5aa75936c0437cbeb5c65550937
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 3338fa32810b74deaf576d3eb966d5cac09eac1a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35762875"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376323"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI 範例：建立和提交作業
 

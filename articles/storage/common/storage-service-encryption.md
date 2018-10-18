@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520719"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094887"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體服務加密
-「待用資料的 Azure 儲存體服務加密」可協助您保護資料安全，以符合組織的安全性和合規性承諾。 使用此功能時，Azure 儲存體平台會先自動加密資料，再將資料保存到 Azure 受控磁碟、Azure Blob 儲存體、Azure 檔案服務或 Azure 佇列儲存體，然後在擷取資料之前將資料解密。 對使用者而言，「儲存體服務加密」中的加密、待用加密、解密及金鑰管理作業都是在背景中進行而看不見的。 所有寫入至 Azure 儲存體平台的資料都會透過 256 位元 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(可用的最強大區塊編碼器之一\) 進行加密。
+「待用資料的 Azure 儲存體服務加密」可協助您保護資料安全，以符合組織的安全性和合規性承諾。 使用此功能時，Azure 儲存體平台會先自動加密資料，再將資料保存到 Azure 受控磁碟；Azure Blob、佇列或資料表儲存體；或 Azure 檔案，然後在擷取資料之前將資料解密。 對使用者而言，「儲存體服務加密」中的加密、待用加密、解密及金鑰管理作業都是在背景中進行而看不見的。 所有寫入至 Azure 儲存體平台的資料都會透過 256 位元 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(可用的最強大區塊編碼器之一\) 進行加密。
 
 系統會針對所有新的和現有的儲存體帳戶啟用「儲存體服務加密」且無法停用。 由於預設會保護您的資料，因此無須修改您的程式碼或應用程式，即可利用「儲存體服務加密」。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782384"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053290"
 ---
 # <a name="introduction-to-auto-scaling"></a>自動調整簡介
 自動調整是 Service Fabric 的一項額外功能，可根據服務所回報的負載，或根據其資源使用情況，來動態調整服務。 自動調整提供絕佳的彈性，並可讓您依需求佈建額外的服務執行個體或分割區。 整個自動調整程序是自動化並在背景執行的，在您於服務上設定原則之後，即無須在服務層級進行手動調整作業。 您可以在建立服務時，或隨時藉由更新服務，來開啟自動調整功能。

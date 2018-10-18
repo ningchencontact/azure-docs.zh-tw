@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2b0a0bbc91115de22eda98df91fb104eb5972ed
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825888"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094938"
 ---
 # <a name="promote-your-business-with-microsoft"></a>透過 Microsoft 推廣您的業務  
 Microsoft 的目標是支援合作夥伴 (您)，以及簡化您應用程式或供應項目在市集店面中的銷售。 透過在市集上陳列，您便可以存取市集上的程式和資源。 
@@ -34,7 +34,7 @@ MPN 提供下列主題的相關指引。
 
 若要推廣您的供應項目或應用程式，請使用下表來存取更多權益和資源。 
 
-| 權益 | 資源 |  
+| 權益 | resources |  
 |:--- |:--- |  
 | 使用您的核心權益 | 加入「Microsoft 合作夥伴網路」，您就會收到一組核心權益，可幫助您節省時間和金錢。 這些權益也可幫助您增強能力、為客戶提供更好的服務，以及建立關係來完全發揮您的業務潛力。<ul> <li>如需有關核心權益的詳細資訊，請瀏覽「核心權益和要求條件」頁面：[partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits)。</li> </ul> |  
 | 獲得雲端平台專長認證 | 獲得專長認證有助於讓您從 Microsoft 合作夥伴中脫穎而出。 獲得專長認證也可協助您在市場中展現技術專業能力和客戶成功案例。 專長認證是許多重要合作夥伴方案 (例如「共同銷售」) 的必要條件。<ul> <li>如需有關「雲端平台」專長認證的詳細資訊，請瀏覽「雲端平台專長認證」頁面：[partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency)。</li> </ul> |  

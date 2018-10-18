@@ -10,15 +10,17 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: fd974d153e9db48b25c1b732b9719c21b16b5e01
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948769"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341135"
 ---
 # <a name="what-is-translator-speech-api"></a>什麼是翻譯工具語音 API？
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 您可以使用翻譯工具語音 API，為應用程式、工具或任何需要多語言語音翻譯的解決方案，新增端對端的即時語音翻譯，而無須考慮目標 OS 或開發語言為何。 此 API 同時適用於語音轉換語音及語音轉換文字翻譯。
 
 翻譯工具文字 API 是一個 Azure 服務，是由雲端中機器學習和 AI 演算法所組成之 [Azure 認知服務 API 集合](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)的一部分，隨時可供在您的開發專案中取用。

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: 11aac0ab4476494f74453ca64a1b77964197adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42751552"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053079"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>使用 Key Vault 來儲存及存取 Azure Cosmos DB 金鑰
 
@@ -56,7 +56,7 @@ ms.locfileid: "42751552"
 
 ## <a name="create-an-azure-web-application"></a>建立 Azure Web 應用程式
 
-1. 建立 Azure Web 應用程式，或是從 [GitHub 存放庫](https://github.com/rsarosh/CosmosDB-KeyVault)下載應用程式。 這是一個簡單的 MVC 應用程式。  
+1. 建立 Azure Web 應用程式，或是從 [GitHub 存放庫](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo)下載應用程式。 這是一個簡單的 MVC 應用程式。  
 
 2. 將所下載的應用程式解壓縮，並開啟 **HomeController.cs** 檔案。 更新下面這一行裡面的祕密識別碼：
 
@@ -87,11 +87,9 @@ ms.locfileid: "42751552"
 
 ![已部署且有存取權的應用程式](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-同樣地，您可以新增使用者來存取 Key Vault。 您需要按一下 [存取原則] 將自己新增至 Key Vault，然後提供要從 Visual studio 執行應用程式所需的所有權限。 此應用程式從桌面執行時，會擷取您的身分識別。
+同樣地，您可以新增使用者來存取 Key Vault。 您需要選取 [存取原則] 將自己新增至 Key Vault，然後授與要從 Visual studio 執行應用程式所需的所有權限。 此應用程式從桌面執行時，會擷取您的身分識別。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 若要設定 Azure Cosmos DB 的防火牆，請參閱[防火牆支援](firewall-support.md)一文。
 * 若要設定虛擬網路服務端點，請參閱[使用 VNet 服務端點來保護存取權](vnet-service-endpoint.md)一文。
-
-

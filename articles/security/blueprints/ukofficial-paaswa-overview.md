@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4b37a073f41295bf800d4e6c34681e0a06799c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450318"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297550"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -23,11 +23,11 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 ## <a name="overview"></a>概觀
 
-這篇 Azure 安全性與合規性藍圖提供指引和自動化指令碼，以提供 Microsoft Azure [平台即服務 (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) 託管 Web 應用程式架構，該架構適合處理許多已歸類為 [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf) 的工作負載。 此安全性分類涵蓋了公共部門所建立或處理的大部分資訊。 這包括例行商務作業和服務，這些作業和服務若在媒體中遺失、遭竊或發佈，則可能會有不利的影響。 OFFICIAL 分類與私人企業的典型威脅設定檔大致相同，均可提供寶貴的資訊和服務。 UK OFFICIAL 預期需要保護英國政府的資料或服務，以免遭受能力和資源有限的攻擊者威脅或入侵，例如 (但不限於) 激進駭客、單一議題壓力團體、調查記者、有能力的個別駭客，以及大多數的犯罪個體和集團。
+這篇 Azure 安全性與合規性藍圖提供指引和自動化指令碼，以提供 Microsoft Azure [平台即服務 (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) 託管 Web 應用程式架構，該架構適合處理許多已歸類為 [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf) 的工作負載。 此安全性分類涵蓋了公共部門所建立或處理的大部分資訊。 這包括例行商務作業和服務，這些作業和服務若在媒體中遺失、遭竊或發佈，則可能會有不利的影響。 OFFICIAL 分類與私人企業的典型威脅設定檔大致相同，均可提供寶貴的資訊和服務。 UK OFFICIAL 預期需要保護英國政府的資料或服務，以免遭受能力和資源有限的攻擊者威脅或入侵，例如 (但不限於) 激進駭客、單一議題壓力團體、調查記者、有能力的個別駭客，以及大多數的犯罪個體和集團。
 
 此藍圖會經由英國國家網路安 全中心 (National Cyber Security Centre，NCSC) 審閱並符合 NCSC 的 14 個雲端安全性準則。
 
-此較購使用[平台即服務](https://azure.microsoft.com/overview/what-is-paas/)元件來提供一個環境，讓客戶無須購買軟體授權、管理基礎應用程式基礎結構，以及中介軟體或開發工具及其他資源，避免其所帶來的花費及複雜性。 客戶會管理他們所開發的應用程式和服務，並將焦點放在實現商業價值，而 Microsoft Azure 會管理其他 Azure 資源 (例如虛擬機器、儲存體和網路功能)，並將更多的基礎結構管理[責任分工](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility)加諸於 Azure 平台。 [Azure App Service](https://azure.microsoft.com/services/app-service/) 會提供自動調整、高度可用性，支援 Windows 和 Linux，並可從 GitHub、Visual Studio Team Services 或任何 Git 存放庫作為預設服務來啟用自動化部署。 開發人員可以透過 App Service，專注於實現商業價值，而沒有管理基礎結構的額外負荷。 他們可以建置全新的 Java、PHP、Node.js、Python、HTML 或 C# Web 應用程式，或將現有的雲端或內部部署 Web 應用程式遷移至 Azure App Service (雖然需要徹底的實質審查和測試來確認效能)。
+此較購使用[平台即服務](https://azure.microsoft.com/overview/what-is-paas/)元件來提供一個環境，讓客戶無須購買軟體授權、管理基礎應用程式基礎結構，以及中介軟體或開發工具及其他資源，避免其所帶來的花費及複雜性。 客戶會管理他們所開發的應用程式和服務，並將焦點放在實現商業價值，而 Microsoft Azure 會管理其他 Azure 資源 (例如虛擬機器、儲存體和網路功能)，並將更多的基礎結構管理[責任分工](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility)加諸於 Azure 平台。 [Azure App Service](https://azure.microsoft.com/services/app-service/) 會提供自動調整、高度可用性，支援 Windows 和 Linux，並可從 GitHub、Azure DevOps 或任何 Git 存放庫作為預設服務來啟用自動化部署。 開發人員可以透過 App Service，專注於實現商業價值，而沒有管理基礎結構的額外負荷。 他們可以建置全新的 Java、PHP、Node.js、Python、HTML 或 C# Web 應用程式，或將現有的雲端或內部部署 Web 應用程式遷移至 Azure App Service (雖然需要徹底的實質審查和測試來確認效能)。
 
 此藍圖著重於為公用以及後台系統使用者佈建安全的基礎[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) Web 架構介面。 此藍圖設計案例會考慮使用 Azure 裝載 Web 架構服務，以便公開使用者安全地提交、檢視及管理敏感性資料；而且後台系統或政府操作員也可以安全地處理公用使用者所提交的敏感性資料。 此案例的使用案例包括：
 
@@ -103,7 +103,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure Web Apps 可為以 Java、PHP、Node.js Python、HTML 和 C# 開發的 Web 應用程式，提供完全受控的 Web 裝載環境，而不必管理基礎結構。 它提供自動調整及高度可用性，支援 Windows 和 Linux，並可從 [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/) 或任何 Git 存放庫啟用自動部署。
+Azure Web Apps 可為以 Java、PHP、Node.js Python、HTML 和 C# 開發的 Web 應用程式，提供完全受控的 Web 裝載環境，而不必管理基礎結構。 它提供自動調整及高度可用性，支援 Windows 和 Linux，並可從 [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/)或任何 Git 存放庫啟用自動部署。
 
 App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCenter/)並可使用 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) 或社交登入 ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication)、[Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication)、[Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) 和 [Microsoft 驗證](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)來驗證使用者。
 

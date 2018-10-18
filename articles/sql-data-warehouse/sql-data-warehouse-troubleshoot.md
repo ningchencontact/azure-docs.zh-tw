@@ -10,15 +10,15 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: befb4cc075841d45cae769b5ddf924434e65eff3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3500754c7e9cb14ea86e9c0e562ec5f98fc1fc94
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307242"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377763"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>針對 Azure SQL 資料倉儲問題進行疑難排解
-本主題列出常見的疑難排解問題。
+本文列出常見的疑難排解問題。
 
 ## <a name="connecting"></a>連接
 | 問題 | 解決方案 |
@@ -33,7 +33,7 @@ ms.locfileid: "43307242"
 | 問題 | 解決方案 |
 |:--- |:--- |
 | Visual Studio 物件總管中遺漏 AAD 使用者 |這是已知的問題。  解決方法是在 [sys.database_principals][sys.database_principals] 中檢視使用者。  若要深入了解使用 Azure Active Directory 與 SQL 資料倉儲，請參閱[適用於 Azure SQL 資料倉儲的驗證][Authentication to Azure SQL Data Warehouse]。 |
-|手動撰寫指令碼、使用指令碼精靈，或透過 SSMS 連線很緩慢、無回應或產生錯誤| 請確定使用者是在主要資料庫中建立。 在指令碼選項中，也請確定引擎版本已設定為 [Microsoft Azure SQL 資料倉儲版本]，且引擎類型為 [Microsoft Azure SQL Database]。|
+|手動撰寫指令碼、使用指令碼精靈，或透過 SSMS 連線很緩慢、無回應或產生錯誤| 請確定已在主要資料庫中建立使用者。 在指令碼選項中，也請確定引擎版本已設定為 [Microsoft Azure SQL 資料倉儲版本]，且引擎類型為 [Microsoft Azure SQL Database]。|
 
 ## <a name="performance"></a>效能
 | 問題 | 解決方案 |
@@ -102,7 +102,7 @@ ms.locfileid: "43307242"
 [Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: sql-data-warehouse-tables-overview.md
 [Data types]: sql-data-warehouse-tables-data-types.md
-[Distribute]:/sql-data-warehouse-tables-distribute.md
+[Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
 [Statistics]: sql-data-warehouse-tables-statistics.md

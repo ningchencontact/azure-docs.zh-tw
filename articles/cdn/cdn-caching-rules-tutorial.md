@@ -3,8 +3,8 @@ title: 教學課程：設定 Azure CDN 快取規則 | Microsoft Docs
 description: 在本教學課程中，您可以設定 Azure CDN 全域快取規則及自訂快取規則。
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: tbd
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a4b5a6a44fe9271f6ff9627c1c5623f0031f23ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608962"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094066"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>教學課程：設定 Azure CDN 快取規則
 
@@ -40,7 +40,7 @@ ms.locfileid: "34608962"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須先建立 CDN 設定檔和至少一個 CDN 端點，才能完成本教學課程中的步驟。 如需詳細資訊，請參閱[快速入門：建立 Azure CDN 設定檔和端點](cdn-create-new-endpoint.md)。
 
