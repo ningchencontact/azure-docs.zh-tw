@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 211d79f387697ce850ac645ef65338c216e2bd76
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382190"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294759"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自動化中排程 Runbook
 
@@ -50,7 +50,10 @@ ms.locfileid: "43382190"
 1. 在 Azure 入口網站中，從您的自動化帳戶選取左側 [共用資源] 區段底下的 [排程]。
 1. 在分頁的頂端按一下 [加入排程]。
 1. 在 [新增排程] 窗格中，為新排程輸入 [名稱] 並選擇性地輸入 [描述]。
-1. 選取 [一次] 或 [週期]，以選取排程將會執行一次或以週期性的排程執行。 如果選取 [一次]，請指定 [開始時間]，然後按一下 [建立]。 如果選取 [週期]，則請指定 [開始時間] 和所需的 Runbook 重複頻率：依 [小時]、[天]、[週] 還是 [月] 執行。 如果您在下拉式清單中選取 [週] 或 [月]，窗格會出現 [週期選項]，一經選取，就會顯示 [週期選項] 窗格，如果您選取了 [週]，將可以進一步選取星期幾。 如果您已選取 [月]，則可以在行事曆上選擇要依 [工作日] 或當月的特定幾天，最後則是您是否要在當月最後一天執行，然後按一下 [確定]。
+1. 透過選取 [一次] 或 [定期]，以決定排程僅執行一次或定期執行。 如果選取 [一次]，請指定 [開始時間]，然後按一下 [建立]。 如果您選取 [定期]，請指定 [開始時間]，並針對 [重複頻率] 選取所需的 Runbook 重複頻率：按 [小時]、[天]、[週] 或 [月] 執行。
+    1. 如果您選取 [週]，系統會提供該週的日期清單供您選擇。 選取您需要的天數。 首次執行排程的時間將會是開始時間後所選的第一天。
+    2. 如果您選取 [月]，系統會提供您不同選項。 若是 [每月發生次數] 選項，請選取 [日期] 或 [星期]。 如果您選取 [日期]，系統會顯示行事曆以便您選擇所需的天數。 如果您選擇的某個日期 (例如 31 日) 未出現在目前月份，則排程不會執行。 如果您希望在最後一天執行排程，請在 [在每月最後一天執行] 下選取 [是]。 如果您選擇 [星期]，系統會顯示 [重複頻率] 選項。 選擇 [第一週]、[第二週]、[第三週]、[第四週] 或 [最後一週]。 最後，請選擇重複執行的日期。
+1. 完成後，按一下 [建立]。
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>使用 Windows PowerShell 建立新排程
 
@@ -73,9 +76,9 @@ Runbook 可以連結至多個排程，而排程可以有多個與其連結的 Ru
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>使用 Azure 入口網站將排程連結至 Runbook
 
 1. 在 Azure 入口網站中，從您的自動化帳戶選取左側 [程序自動化] 區段底下的 [Runbook]。
-1. 按一下要排程的 Runbook 名稱。
-1. 如果 Runbook 目前未連結至排程，則將提供您建立新排程或連結至現有排程的選項。
-1. 如果 Runbook 有參數，您可以選取 [修改執行設定 (預設值: Azure)] 選項，隨即便會顯示 [參數] 窗格供您據以輸入資訊。
+2. 按一下要排程的 Runbook 名稱。
+3. 如果 Runbook 目前未連結至排程，則將提供您建立新排程或連結至現有排程的選項。
+4. 如果 Runbook 有參數，您可以選取 [修改執行設定 (預設值: Azure)] 選項，隨即便會顯示 [參數] 窗格供您據以輸入資訊。
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>使用 Windows PowerShell 將排程連結至 Runbook
 

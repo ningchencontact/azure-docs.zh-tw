@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 12b46b4abaa17fe9dd0e9055bca5463312bbd15d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 696843363bc6617bb11c01cdccb9dbbb7b719a82
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298195"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -72,6 +74,34 @@ Application Insights 資料模型會定義兩個欄位來解決這個問題：`r
 標準也定義了 `Request-Id` 產生的兩個結構描述 - 平面及階層。 利用一般的結構描述，會針對 `Correlation-Context` 集合定義已知的 `Id` 金鑰。
 
 Application Insights 會定義相互關聯 HTTP 通訊協定的[延伸](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md)。 它會使用 `Request-Context` 名稱值組，來傳播立即呼叫端或被呼叫端所使用的屬性集合。 Application Insights SDK 會使用此標頭來設定 `dependency.target` 和 `request.source` 欄位。
+
+### <a name="w3c-distributed-tracing"></a>W3C 分散式追蹤
+
+我們正在轉換至 (W3C 分散式追蹤格式) [https://w3c.github.io/distributed-tracing/report-trace-context.html]。 其定義：
+- `traceparent`：帶有全域唯一的作業識別碼和唯一的呼叫識別碼
+- `tracestate`：帶有追蹤系統的特定內容。
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-classic-apps"></a>啟用 ASP.NET Classic 應用程式的 W3C 分散式追蹤支援
+
+2.8.0-beta1 版開始的 Microsoft.ApplicationInsights.Web 和 Microsoft.ApplicationInsights.DependencyCollector 封裝會提供此功能。
+依預設為 [關閉]，若要啟用，請變更 `ApplicationInsights.config`：
+
+* 在 `RequestTrackingTelemetryModule` 下新增值設為 `true` 的 `EnableW3CHeadersExtraction` 元素
+* 在 `DependencyTrackingTelemetryModule` 下新增值設為 `true` 的 `EnableW3CHeadersInjection` 元素
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>啟用 ASP.NET Core 應用程式的 W3C 分散式追蹤支援
+
+2.5.0-beta1 版的 Microsoft.ApplicationInsights.AspNetCore 和 2.8.0-beta1 版的 Microsoft.ApplicationInsights.DependencyCollector 會提供此功能。
+依預設為 [關閉]，若要啟用，請將 `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` 設定為 `true`：
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(o => 
+        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    // ....
+}
+```
 
 ## <a name="open-tracing-and-application-insights"></a>Open Tracing 與 Application Insights
 
@@ -135,3 +165,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - 在 Application Insights 上將微服務的所有元件上架。 查看[支援的平台](app-insights-platforms.md)。
 - 如需 Application Insights 類型和資料模型，請參閱[資料模型](application-insights-data-model.md)。
 - 了解如何[擴充和篩選遙測](app-insights-api-filtering-sampling.md)。
+- [Application Insights confg 參考](app-insights-configuration-with-applicationinsights-config.md)
+

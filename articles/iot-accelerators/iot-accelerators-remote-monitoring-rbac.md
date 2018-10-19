@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886305"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364290"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>在遠端監視解決方案加速器中設定角色型存取控制
 
@@ -134,11 +134,11 @@ ms.locfileid: "42886305"
 
 ### <a name="define-a-policy-for-the-new-role"></a>定義新角色的原則
 
-若要將角色新增至 Azure 入口網站中的應用程式，您需要針對可指派管理裝置所需權限的角色，在 [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) 中定義原則。
+若要將角色新增至 Azure 入口網站中的應用程式，您需要針對可指派管理裝置所需權限的角色，在 [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) 中定義原則。
 
-1. 將[驗證和授權微服務](https://github.com/Azure/pcs-auth-dotnet)存放庫從 GitHub 複製到您的本機電腦。
+1. 從 GitHub 將[遠端監視微服務](https://github.com/Azure/remote-monitoring-services-dotnet)存放庫複製到本機電腦。
 
-1. 編輯 **Services/data/policies/roles.json** 檔案以新增 **ManageDevices** 角色的原則，如下列程式碼片段所示。 [識別碼] 和 [角色] 值必須符合上一節應用程式資訊清單中的角色定義。 允許的動作清單可讓擁有 **ManageDevices** 角色的人員建立、更新和刪除已連線至解決方案的裝置：
+1. 編輯 **auth/Services/data/policies/roles.json** 檔案，以新增 **ManageDevices** 角色的原則，如下列程式碼片段所示。 [識別碼] 和 [角色] 值必須符合上一節應用程式資訊清單中的角色定義。 允許的動作清單可讓擁有 **ManageDevices** 角色的人員建立、更新和刪除已連線至解決方案的裝置：
 
     ```json
     {
@@ -184,7 +184,7 @@ ms.locfileid: "42886305"
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Web UI 如何強制執行權限
 
-Web UI 使用[驗證和授權微服務](https://github.com/Azure/pcs-auth-dotnet)來判斷使用者得以採取哪些動作，以及 UI 中看得見哪些控制項。 例如，如果您的解決方案稱為 **contoso-rm4**，則 Web UI 會藉由傳送下列要求來擷取目前使用者允許的動作清單：
+Web UI 使用[驗證和授權微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth)來判斷使用者得以採取哪些動作，以及 UI 中看得見哪些控制項。 例如，如果您的解決方案稱為 **contoso-rm4**，則 Web UI 會藉由傳送下列要求來擷取目前使用者允許的動作清單：
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -226,7 +226,7 @@ Authorization: Bearer <JWT Token from ADAL>
 
 微服務也會檢查權限以防禦未經授權的 API 要求。 當微服務收到 API 要求時，它會解碼並驗證 JWT 權杖，以取得與使用者角色相關聯的使用者識別碼和權限。
 
-下列程式碼片段來自 [IoTHub 管理員微服務](https://github.com/Azure/iothub-manager-dotnet)中的 [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) 檔案，可顯示如何強制執行權限：
+下列程式碼片段來自 [IoTHub 管理員微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager)中的 [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) 檔案，可顯示如何強制執行權限：
 
 ```csharp
 [HttpDelete("{id}")]
@@ -240,6 +240,8 @@ public async Task DeleteAsync(string id)
 ## <a name="next-steps"></a>後續步驟
 
 在本文中，您已了解如何在遠端監視解決方案加速器中實作角色型存取控制。
+
+如需有關在遠端監視解決方案加速器中管理時間序列深入解析總管之存取權的資訊，請參閱[設定時間序列深入解析總館的存取控制](iot-accelerators-remote-monitoring-rbac-tsi.md)。
 
 如需關於遠端監視解決方案加速器的詳細概念資訊，請參閱[遠端監視架構](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

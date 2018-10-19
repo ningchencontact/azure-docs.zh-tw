@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206066"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731969"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中使用裝置集合
 
@@ -50,7 +50,7 @@ ms.locfileid: "39206066"
 
 1. 選擇 [儀表板] 索引標籤。
 
-1. 開啟 [設計模式]。
+1. 按一下 [編輯範本]。
 
     ![設計模式開啟](media/howto-use-device-sets/image3.png)
 
@@ -58,9 +58,6 @@ ms.locfileid: "39206066"
 
 1. 新增連結圖格：
     1. 選擇右窗格上的 [連結]。
-
-        ![選擇連結](media/howto-use-device-sets/image6.png)
-
     1. 為連結提供**標題**。
     1. 選擇要在按下連結時開啟的 URL。
     1. 為連結提供描述，此描述會顯示在**標題**下面。
@@ -87,38 +84,26 @@ ms.locfileid: "39206066"
     > [!NOTE]
     > 您可以新增多個影像、連結和格線。
   
-    1. 關閉 [設計模式]。
+    1. 按一下 [完成] 。
 
     ![設計模式關閉](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>在裝置集合儀表板中設定位置圖 
-您可以在地圖中新增位置圖，以將裝置集合位置視覺化。 
+您可以在地圖中新增位置圖，以將裝置集合位置視覺化。
 
 若要將位置圖新增到裝置集合儀表板，您必須先在 [裝置範本] 中設定好位置屬性，請參閱[建立位置屬性 (採用 Azure 地圖服務)](howto-set-up-template.md)。
 
 
-1. 在 [裝置集合儀表板] 上，從資源庫選取 [地圖]。 
+1. 在 [裝置集合儀表板] 上，從資源庫選取 [地圖]。
 
     ![裝置集合儀表板地圖](media/howto-use-device-sets/LocationMaps1.png)
 
-
 2. 提供標題，然後選擇您先前在 [裝置屬性] 中設定的位置屬性。
-
-    ![設定儀表板地圖](media/howto-use-device-sets/LocationMaps2.png)
-
 3. 儲存之後，就會在 [裝置集合] 中看到顯示您裝置位置的地圖磚。
-
-    ![儲存儀表板地圖](media/howto-use-device-sets/LocationMaps3.png)
-
-
-5. 現在，當操作員檢視裝置集合儀表板時，就可以看到您設定的所有磚 (包括位置圖格)，一眼就能看到以視覺化方式呈現的所有裝置位置！ 
-
-    ![儀表板地圖操作員檢視](media/howto-use-device-sets/LocationMaps4.png)
-
-    您可以將地圖調整為需要的大小。
-
-    按一下地圖中的大頭針，即會顯示裝置資訊、名稱和位置。 您可以按一下快顯視窗，然後開啟裝置屬性頁。  
+4. 現在，當操作員檢視裝置集合儀表板時，就可以看到您設定的所有磚 (包括位置圖格)，一眼就能看到以視覺化方式呈現的所有裝置位置！ 
+    
+[!NOTE] 您可以將地圖調整為需要的大小。 按一下地圖中的大頭針，即會顯示裝置資訊、名稱和位置。 您可以按一下快顯視窗，然後開啟裝置屬性頁。  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>設定裝置集合的清單

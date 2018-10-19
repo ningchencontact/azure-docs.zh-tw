@@ -7,12 +7,12 @@ ms.date: 06/24/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 571aa5a080ae4622a23fdb20d712327d4ec6fbf9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 5eb0ba659961d809d0ae471034b03263f87e3894
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145124"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985493"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>IoT 解決方案內的裝置設定最佳做法
 
@@ -55,7 +55,7 @@ Azure IoT 中樞內的自動裝置管理，可將管理大量裝置機群的許�
 
 以下是以 Azure 為基礎建置系統的 IoT 解決方案開發人員所適用的最佳做法︰
 
-* **實作[裝置對應項](iot-hub-devguide-device-twins.md)：** 裝置對應項可從雲端同步處理所需的組態，以及用來報告目前的組態和裝置屬性。 在雲端解決方案應用程式中實作裝置對應項的最佳方式，是透過 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks.) 來執行。裝置對應項是進行設定的最佳途徑，因為它們：
+* **實作[裝置對應項](iot-hub-devguide-device-twins.md)：** 裝置對應項可從雲端同步處理所需的組態，以及用來報告目前的組態和裝置屬性。 在雲端解決方案應用程式中實作裝置對應項的最佳方式，是透過 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) 來執行。 裝置對應項是進行設定的最佳途徑，因為它們：
 
     * 支援雙向通訊。
     * 允許連線和中斷連線的裝置狀態。 

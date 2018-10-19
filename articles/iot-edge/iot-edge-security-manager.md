@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b4801048c391aae6e95f4181464255ecf6151fc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359511"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126338"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 安全性管理員
 
@@ -109,7 +109,7 @@ IoT Edge 執行階段會追蹤並回報 IoT Edge 安全性精靈的版本。 版
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>硬體安全性模組平台抽象層 (HSM PAL)
 
-HSM PAL 將所有根信任硬體抽象化，以將 IoT Edge 開發人員或使用者從其複雜性中分離。  它提供應用程式開發介面 (API) 和資訊傳送網域通訊程序的整合，例如標準執行環境和安全性保護區之間的通訊。  HSM PAL 的實際實作取決於使用中的特定安全硬體而定。  它的存在使幾乎任何安全晶片硬體都能在整個 IoT 生態系統使用。
+HSM PAL 將所有根信任硬體抽象化，以將 IoT Edge 開發人員或使用者從其複雜性中分離。  其提供應用程式開發介面 (API) 和資訊傳送網域通訊程序的整合，例如標準執行環境和安全性保護區之間的通訊。  HSM PAL 的實際實作取決於使用中的特定安全硬體而定。  它的存在使幾乎任何安全晶片硬體都能在整個 IoT 生態系統使用。
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>安全晶片根信任硬體
 

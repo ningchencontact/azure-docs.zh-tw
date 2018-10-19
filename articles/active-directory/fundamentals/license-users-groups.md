@@ -1,97 +1,144 @@
 ---
-title: Azure AD 中的授權使用者 | Microsoft Docs
-description: 了解如何在 Azure Active Directory 中進行自身和使用者的授權。
+title: 如何指派或移除 Azure Active Directory 授權 | Microsoft Docs
+description: 使用 Azure Active Directory 指派或移除使用者或群組的 Azure Active Directory 授權。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: quickstart
-ms.date: 08/22/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: lizross
-ms.reviewer: jeffgilb
+ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856084"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603874"
 ---
-# <a name="quickstart-license-users-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中授權使用者
-以授權為基礎的 Azure AD 服務的運作方式，是在您的 Azure 租用戶中啟用 Azure Active Directory (Azure AD) 訂用帳戶。 在訂用帳戶啟用後，服務的功能便會由 Azure AD 系統管理員管理並供授權使用者使用。 當您購買 Enterprise Mobility + Security、Azure AD Premium 或 Azure AD Basic 時，您的租用戶會隨著訂用帳戶更新，包括其有效期間和預付授權。 您的訂用帳戶資訊，包括已指派或可使用的授權數目，可在 Azure 入口網站中 **Azure Active Directory** 底下藉由開啟 [授權] 圖格來取得。 [授權] 刀鋒視窗也是最適合用來管理授權指派的位置。
+# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>做法：指派或移除 Azure Active Directory 授權
+許多 Azure Active Directory (Azure AD) 服務會要求您啟用 Azure AD 產品，以及授權該產品的每個使用者或群組 (和相關聯的成員)。 只有擁有有效授權的使用者才能存取和使用授權 Azure AD 服務。
 
-雖然只要取得訂用帳戶就能設定付費功能，但您仍必須為付費 Azure AD 付費功能指派使用者授權。 應存取 Azure AD 付費功能或者透過 Azure AD 付費功能管理的人員，都必須獲得授權。 授權指派是一種使用者與購買的服務 (例如 Azure AD Premium、Basic 或 Enterprise Mobility + Security) 之間的對應。
+## <a name="available-product-editions"></a>可用的產品版本
+Azure AD 產品有數個可用版本。
 
-您可以使用[以群組為基礎的授權指派](active-directory-licensing-whatis-azure-portal.md)來設定規則，例如：
-* 目錄中的所有使用者都自動取得授權
-* 具有適當職稱的所有人員都取得授權
-* 您可以將決定權委派給組織中的其他管理員 (方法是使用[自助服務群組](../users-groups-roles/groups-self-service-management.md))
+- Azure AD Free
 
-> [!TIP]
-> 如需指派授權給群組的詳細討論，包括進階案例和 Office 365 授權案例，請參閱[在 Azure Active Directory 中透過群組成員資格對使用者指派授權](../users-groups-roles/licensing-groups-assign.md)。
+- Azure AD Basic
 
-## <a name="assign-licenses-to-users-and-groups"></a>將授權指派給使用者和群組
-使用有效的訂用帳戶，應該先將授權指派給自己並且重新整理瀏覽器，以確保您看到訂用帳戶所含的所有預期功能。 下一個步驟是將授權指派給需要存取 Azure AD 功能的使用者。 指派授權的簡單方法是將授權指派給使用者群組，而不是指派給個人。 當您對群組指派授權時，所有群組成員都會獲得授權。 如果在群組中新增或移除使用者，則系統也會自動指派或移除適當的授權。 
+- Azure AD Premium 1 (Azure AD P1)
 
-> [!NOTE]
-> 並非所有位置都可使用某些 Microsoft 服務。 系統管理員必須先指定使用者的 [使用位置] 屬性，才能將授權指派給使用者。 您可以在 Azure 入口網站的 [使用者] &gt; [設定檔] &gt; [設定] 下設定此屬性。 在使用群組授權指派時，未指定使用位置的使用者皆會繼承目錄的位置。
+- Azure AD Premium 2 (Azure AD P2)
 
-若要指派授權，請在 [Azure Active Directory] &gt; [授權] &gt; [所有產品] 下，選取一或多個產品，然後選取命令列上的 [指派]。
+如需每個產品版本和相關授權詳細資訊的具體資訊，請參閱[我需要什麼授權？](../authentication/concept-sspr-licensing.md)。
 
-![選取要指派的授權](./media/license-users-groups/select-license-to-assign.png)
+## <a name="view-your-product-edition-and-license-details"></a>檢視您的產品版本和授權詳細資訊
+您可以檢視可用的產品 (包括各自的授權)，檢查任何將至的到期日和可用的指派數目。
 
-您可以使用 [使用者和群組] 刀鋒視窗來選擇多個使用者或群組，也可以停用產品中的服務方案。 使用最上方的搜尋方塊來搜尋使用者和群組名稱。
+### <a name="to-find-your-product-and-license-details"></a>若要尋找您的產品和授權詳細資訊
+1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
 
-![選取要指派授權的使用者或群組](./media/license-users-groups/select-user-for-license-assignment.png)
+2. 選取 [Azure Active Directory]，然後選取 [授權]。
 
-在指派授權給群組時，所有使用者需要一些時間才能繼承授權，時間長短取決於群組的大小。 您可以在 [群組] 刀鋒視窗的 [授權] 圖格底下查看處理狀態。
+    [授權] 頁面隨即顯示。
 
-![授權指派狀態](./media/license-users-groups/license-assignment-status.png)
+    ![授權頁面上顯示已購買的產品及已指派的授權數目](media/license-users-groups/license-details-blade.png)
+    
+3. 選取 [已購買產品] 連結，即可檢視 [產品] 頁面，並查看每個特定產品版本的 [已指派]、[可用] 和 [即將過期] 詳細資訊。
 
-在 Azure AD 授權指派期間，可能會發生指派錯誤，但在管理 Azure AD 和 Enterprise Mobility + Security 產品時則相對較少發生。 可能發生的指派錯誤僅限於：
-- 指派衝突：使用者先前已被指派一個與最新授權不相容的授權。 在此情況下，若要指派新的授權，您必須先移除目前這一個授權。
-- 超過可用的授權數目：當指派群組中的使用者數目超過可用的授權數目時，使用者的指派狀態將會反映因缺少授權的指派失敗。
+    ![[產品] 頁面顯示產品版本與相關聯的授權資訊](media/license-users-groups/license-products-blade-with-products.png)
 
-### <a name="azure-ad-b2b-collaboration-licensing"></a>Azure AD B2B 共同作業授權
+4. 選取產品版本名稱以查看其經授權的使用者和群組。
 
-B2B 共同作業可讓您邀請來賓使用者加入您的 Azure AD 租用戶，讓他們能夠存取您開放使用的 Azure AD 服務與任何 Azure 資源。  
+## <a name="assign-licenses-to-users-or-groups"></a>指派授權給使用者或群組
+請確定需要授權 Azure AD 服務的所有人都擁有適當的授權。 要將授權的權限提供給個別使用者還是整個群組取決於您。
 
-邀請 B2B 使用者並將他們指派給 Azure AD 中的應用程式並無須付費。 B2B 共同作業使用者可以免費使用最多 10 個應用程式 (每位來賓使用者) 和 3 份基本報告。 如果來賓使用者在夥伴的 Azure AD 租用戶中獲得任何適當的授權，則他們也會在您的租用戶中獲得授權。
+>![Note] 群組型授權是 Azure AD 的公用預覽版功能，可與任何付費 Azure AD 授權方案搭配使用。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。<br><br>如需如何新增使用者的詳細資訊，請參閱[如何新增或刪除 Azure Active Directory 中的使用者](add-users-azure-active-directory.md)。 如需如何建立群組並新增成員的詳細資訊，請參閱[建立基本群組並新增成員](active-directory-groups-create-azure-portal.md)。
 
-雖非必要，但如果您想要讓他們存取 Azure AD 付費功能，那麼這些 B2B 來賓使用者必須獲得適當的 Azure AD 授權。 具有 Azure AD 付費授權的邀請方租用戶，可以將 B2B 共同作業使用者權限指派給另外五位受邀加入租用戶的來賓使用者。 如需這方面的案例和資訊，請參閱 [B2B 共同作業授權指引](../b2b/licensing-guidance.md)。
+### <a name="to-assign-a-license-to-a-specific-user"></a>若要將授權指派給特定使用者
+1. 在 [產品] 頁面上，選取您想要指派給使用者的版本名稱。 例如 _Azure Active Directory Premium Plan 2_。
 
-## <a name="view-assigned-licenses"></a>檢視已指派的授權
+    ![[產品] 頁面顯示反白的產品版本](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-已指派授權和可用授權的摘要檢視會顯示在 [Azure Active Directory] &gt; [授權] &gt; [所有產品] 下。
+2. 在 [Azure Active Directory Premium Plan 2] 頁面上，選取 [指派]。
 
-![檢視授權摘要](./media/license-users-groups/view-license-summary.png)
+    ![[產品] 頁面顯示反白的 [指派] 選項](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-選取特定產品時，會顯示可用的已指派使用者和群組的詳細清單。 [授權的使用者] 清單會顯示目前取用授權的所有使用者，以及授權是直接指派給使用者或是從群組繼承。
+3. 在 [指派] 頁面上，選取 [使用者和群組]，然後搜尋並選取您想指派授權的使用者。 例如 _Mary Parker_。
 
-![檢視授權詳細資料](./media/license-users-groups/view-license-detail.png)
+    ![指派授權頁面顯示反白的搜尋和 [選取] 選項](media/license-users-groups/assign-license-blade-with-highlight.png)
 
-同樣地，[授權的群組] 清單會顯示已指派授權的所有群組。 選取使用者或群組可開啟 [授權] 刀鋒視窗，其中會顯示已對該物件指派的所有授權。
+4. 選取 [指派] 選項，確認已開啟適當的授權選項，然後選取 [確定]。
+
+    ![授權選項頁面顯示適用於此版本的所有選項](media/license-users-groups/license-option-blade-assignments.png)
+
+    [指派授權] 頁面隨即更新，顯示已選取一名使用者且已設定指派。
+
+    >[!NOTE]
+    >某些位置無法使用部分 Microsoft 服務。 必須先指定 [使用位置]，才可以將授權指派給使用者。 您可以在 Azure AD 中的 [Azure Active Directory]&gt;[使用者]&gt;[設定檔]&gt;[設定] 區域中設定此值。
+
+5. 選取 [指派]。
+
+    系統會將使用者新增至授權使用者清單中，且該使用者擁有隨附 Azure AD 服務的存取權。
+
+### <a name="to-assign-a-license-to-an-entire-group"></a>若要指派授權給整個群組
+1. 在 [產品] 頁面上，選取您想要指派給使用者的版本名稱。 例如 _Azure Active Directory Premium Plan 2_。
+
+    ![[產品] 刀鋒視窗顯示反白的產品版本](media/license-users-groups/license-products-blade-with-product-highlight.png)
+
+2. 在 [Azure Active Directory Premium Plan 2] 頁面上，選取 [指派]。
+
+    ![[產品] 頁面顯示反白的 [指派] 選項](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+
+3. 在 [指派] 頁面上，選取 [使用者和群組]，然後搜尋並選取您想指派授權的群組。 例如 [MDM 原則 - 西部]。
+
+    ![指派授權頁面顯示反白的搜尋和 [選取] 選項](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+
+4. 選取 [指派] 選項，確認已開啟適當的授權選項，然後選取 [確定]。
+
+    ![授權選項頁面顯示適用於此版本的所有選項](media/license-users-groups/license-option-blade-group-assignments.png)
+
+    [指派授權] 頁面隨即更新，顯示已選取一名使用者且已設定指派。
+
+    >[!NOTE]
+    >某些位置無法使用部分 Microsoft 服務。 必須先為所有成員指定 [使用位置]，才可以將授權指派給群組。 您可以在 Azure AD 中的 [Azure Active Directory]&gt;[使用者]&gt;[設定檔]&gt;[設定] 區域中設定此值。 未指定使用位置的所有使用者皆會繼承租用戶的位置。
+
+5. 選取 [指派]。
+
+    系統會將群組新增至授權群組清單中，且所有成員均擁有隨附 Azure AD 服務的存取權。
+
 
 ## <a name="remove-a-license"></a>移除授權
+您可以從 [授權] 頁面移除使用者或群組的授權。
 
-若要移除授權，請移至使用者或群組，然後開啟 [授權] 圖格。 選取授權，並按一下 [移除]。
+### <a name="to-remove-a-license-from-a-specific-user"></a>若要移除特定使用者的授權
+1. 在產品版本的 [授權使用者] 頁面上，選取應失去授權的使用者。 例如 _Alain Charon_。
 
-![移除授權](./media/license-users-groups/remove-license.png)
+2. 選取 [移除授權]。
 
-您無法直接移除使用者從群組那裡繼承的授權。 反而是要將使用者從繼承授權的群組之中移除。
+    ![[授權使用者] 頁面顯示反白的 [移除] 授權選項](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
+### <a name="to-remove-a-license-from-a-group"></a>若要移除群組的授權
+1. 在產品版本的 [授權群組] 頁面上，選取應失去授權的群組。 例如 [MDM 原則 - 西部]。
+
+2. 選取 [移除授權]。
+
+    ![[授權群組] 頁面顯示反白的 [移除] 授權選項](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+
+>[!Important]
+>您無法直接移除使用者從群組那裡繼承的授權。 而是需將使用者從繼承授權的群組中移除。
 
 ## <a name="next-steps"></a>後續步驟
-在本快速入門中，您學習到如何將授權指派給 Azure AD 目錄中的使用者和群組。 
+指派授權後，您可以執行下列程序：
 
-您可以使用下列連結，從 Azure 入口網站設定 Azure AD 中的訂用帳戶授權指派。
+- [識別並解決授權指派問題](../users-groups-roles/licensing-groups-resolve-problems.md)
 
-> [!div class="nextstepaction"]
-> [指派 Azure AD 授權](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Overview) 
+- [將經授權的使用者新增至群組以進行授權](../users-groups-roles/licensing-groups-migrate-users.md)
+
+- [使用群組來管理 Azure Active Directory 授權的案例、限制及已知問題](../users-groups-roles/licensing-group-advanced.md)
+
+- [新增或變更設定檔資訊](active-directory-users-profile-azure-portal.md)

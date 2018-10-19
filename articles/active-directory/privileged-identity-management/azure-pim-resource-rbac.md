@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: aee172bc6fc77aaac8d2d52037a481fdb976d308
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188963"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465226"
 ---
 # <a name="view-who-has-azure-resource-roles-in-pim"></a>在 PIM 中檢視具有 Azure 資源角色的人員
 
@@ -38,11 +38,11 @@ ms.locfileid: "43188963"
 
 ## <a name="view-activation-and-azure-resource-activity"></a>檢視啟用與 Azure 資源活動
 
-如果您需要查看各種資源的特定使用者所採取了什麼動作，您可以檢閱與特定啟用期間相關聯的 Azure 資源活動 (適用於符合資格的使用者)。 若要開始，請從 [成員] 檢視或從特定角色的成員成員中選取使用者。 結果以圖表形式顯示，包含使用者在 Azure 資源上的動作 (依日期排序)，以及相同時間內最近的角色啟用。
+如果您需要查看特定使用者對各種資源所採取的動作，您可以檢閱與特定啟用期間相關聯的 Azure 資源活動 (適用於符合資格的使用者)。 若要開始，請從 [成員] 檢視或從特定角色的成員成員中選取使用者。 結果會以圖表形式顯示，包含使用者在 Azure 資源上的動作 (按日期排序)，以及相同時間內最近的角色啟用。
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 
-取選特定角色啟用會顯示角色啟用的詳細資料，以及使用者作用中時發生的相應的 Azure Resource 活動。
+選取特定角色啟用會顯示角色啟用的詳細資料，以及使用者作用中時發生的相應的 Azure Resource 活動。
 
 ![](media/azure-pim-resource-rbac/audits.png)
 

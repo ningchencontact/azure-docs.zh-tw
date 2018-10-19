@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205131"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734230"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (C#)
 
@@ -34,8 +34,8 @@ ms.locfileid: "39205131"
 
 從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Raspberry Pi**  裝置範本： 
 
-- 包含裝置**溼度**、**溫度**、**壓力**、**Magnometer** (沿著 X、Y、Z 軸測量)、**加速器** (沿著 X、Y、Z 軸測量) 和**陀螺儀** (沿著 X、Y、Z 軸測量) 等測量值的遙測。
-- 顯示**電壓**、**電流****風扇速度**和 **IR** 切換的設定。
+- 包含裝置**溼度**、**溫度**、**壓力**、**磁強計** (沿著 X、Y、Z 軸測量)、**加速計** (沿著 X、Y、Z 軸測量) 和**陀螺儀** (沿著 X、Y、Z 軸測量) 等測量值的遙測。
+- 顯示**電壓**、**電流**、**風扇速度**和 **IR** 切換的設定。
 - 包含裝置屬性**骰子數字**和**位置**雲端屬性的屬性。
 
 
@@ -262,6 +262,9 @@ ms.locfileid: "39205131"
 ## <a name="run-your-net-application"></a>執行 .NET 應用程式
 
 請將裝置專屬的連接字串新增至裝置的程式碼中，以便向 Azure IoT Central 進行驗證。 您在 Azure IoT Central 應用程式中新增真實裝置時，已記下此連接字串。
+
+  > [!NOTE]
+   > Azure IoT Central 已轉換為使用 Azure 物聯網中心裝置佈建服務 (DPS) 進行所有裝置連線，請遵循這些指示以[取得裝置連線字串](concepts-connectivity.md#getting-device-connection-string)，並繼續進行本教學課程的其餘部分。
 
 1. 將 **Program.cs** 檔案中的 `{your device connection string}` 取代為先前記下的連接字串。
 

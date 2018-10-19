@@ -1,26 +1,25 @@
 ---
-title: 如何使用 Azure AD 租用戶目錄概觀 | Microsoft Docs
-description: 說明 Azure AD 租用戶是什麼，以及如何使用 Azure Active Directory 管理 Azure
+title: 管理 Azure Active Directory 租用戶 | Microsoft Docs
+description: 了解什麼是 Azure AD 租用戶，以及如何使用 Azure Active Directory 管理 Azure。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+custom: it-pro
+ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767371"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297923"
 ---
-# <a name="manage-your-azure-ad-directory"></a>管理 Azure AD 目錄
+# <a name="manage-your-azure-active-directory-tenant"></a>管理 Azure Active Directory 租用戶
 
 ## <a name="what-is-an-azure-ad-tenant"></a>什麼是 Azure AD 租用戶？
 在 Azure Active Directory (Azure AD) 中，租用戶是您組織在註冊 Microsoft 雲端服務 (例如 Azure 或 Office 365) 時所收到的專屬 Azure AD 目錄執行個體。 每個 Azure AD 目錄都不同，並與其他 Azure AD 目錄分開。 就像公司辦公大樓是您組織特有的安全資產，Azure AD 目錄也是設計成僅供您組織使用的安全資產。 Azure AD 架構會隔離客戶資料和身分識別資訊，某個 Azure AD 目錄的使用者和系統管理員便無法意外或惡意存取另一個目錄中的資料。
@@ -43,7 +42,7 @@ Azure AD 提供大部分 Microsoft 雲端服務的核心目錄和身分識別管
 
 例如，如果您註冊 Microsoft Intune 訂用帳戶，然後進一步同步處理內部部署 Active Directory 與 Azure AD 目錄，則可以註冊另一項 Microsoft 服務 (例如 Office 365) 並輕鬆達成與 Microsoft Intune 相同的目錄整合優勢。
 
-如需整合內部部署目錄與 Azure AD 的詳細資訊，請參閱[透過 Azure AD Connect 進行目錄整合](../connect/active-directory-aadconnect.md)。
+如需整合內部部署目錄與 Azure AD 的詳細資訊，請參閱[透過 Azure AD Connect 進行目錄整合](../hybrid/whatis-hybrid-identity.md)。
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>關聯現有的 Azure AD 目錄與新的 Azure 訂用帳戶
 您可以關聯新的 Azure 訂用帳戶與驗證現有 Office 365 或 Microsoft Intune 訂用帳戶登入的相同目錄。 如需該案例的詳細資訊，請參閱[將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../../billing/billing-subscription-transfer.md)

@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1683321e23eff82e73dc9bb44941fc390633b8c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145155"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294215"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 報告常見問題集
 
@@ -169,3 +169,7 @@ ms.locfileid: "42145155"
 **問：所有登入報告中的原則名稱與 CA 中的原則名稱不符。原因為何？**
 
 **答：** 所有登入報告中的原則名稱是以登入時的 CA 原則名稱為基礎。 如果您稍後 (也就是登入之後) 更新原則名稱，這可能會與 CA 中的原則名稱不一致。
+
+**問：我的登入因條件式存取原則而受到封鎖，但登入活動報告顯示我已成功登入。原因為何？**
+
+**答：** 套用條件式存取後，目前的登入報告不會顯示 Exchange ActiveSync 案例的準確結果。 可能的情況為，當報告中的登入結果顯示成功登入時，實際卻因為條件式存取原則而造成登入失敗。 

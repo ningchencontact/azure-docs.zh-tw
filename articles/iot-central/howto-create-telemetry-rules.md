@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5913df2d4dc286fad63760c95f54e0dbc717acdc
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246524"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729302"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立遙測規則並設定通知
+
+*本文適用於操作員、建置員及系統管理員。*
 
 您可以使用 Azure IoT Central 來遠端監視連線的裝置。 Azure IoT Central 規則可讓您近乎即時地監視裝置，以及自動叫用動作，例如傳送電子郵件或觸發 Microsoft Flow。 只要按幾下，就可以定義條件來監視裝置資料以及設定對應的動作。 本文將說明如何建立規則來監視裝置所傳送的遙測。
 
@@ -36,9 +38,9 @@ ms.locfileid: "40246524"
 
     ![還沒有規則](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
 
-1. 在 [規則] 索引標籤上，按一下 [+ 新增規則] 來查看可建立的規則類型。
+1. 在 [規則] 索引標籤上，依序按一下 [編輯範本] 和 [+ 新增規則]，以查看您可以建立的規則類型。
 
-1. 按一下 [遙測] 圖格，以建立規則來監視裝置遙測。
+1. 按一下 [遙測]，以建立規則來監視裝置遙測。
 
     ![規則類型](media\howto-create-telemetry-rules\Rule_Types.png)
 
@@ -86,6 +88,8 @@ ms.locfileid: "40246524"
    ![設定動作](media\howto-create-telemetry-rules\Configure_Action.png)
 
 1. 若要儲存規則，請選擇 [儲存]。 幾分鐘內，規則就會生效，並開始監視傳送至應用程式的遙測。 當規則中指定的條件相符時，規則就會觸發所設定的電子郵件動作。
+
+1. 選擇 [完成] 以結束 [編輯範本] 模式。
 
 您可以將其他動作新增至規則，例如 Microsoft Flow 和 Webhook。 您可以針對每個規則最多新增 5 個動作。
 

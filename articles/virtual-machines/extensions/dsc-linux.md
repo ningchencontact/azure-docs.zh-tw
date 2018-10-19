@@ -1,10 +1,10 @@
 ---
-title: 適用於 Linux 的 Azure DSC 擴充功能 | Microsoft Docs
+title: 適用於 Linux 的 Azure DSC 擴充功能
 description: 安裝 OMI 和 DSC 套件，以允許使用「期望的狀態設定」來設定 Azure Linux VM。
 services: virtual-machines-linux
 documentationcenter: ''
-author: balukambala
-manager: jeconnoc
+author: bobbytreed
+manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: roiyz
-ms.openlocfilehash: 4a057b88d8d511965d694aaf4494f79bba88e47a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.author: robreed
+ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412642"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632852"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>適用於 Linux 的 DSC 擴充功能 (Microsoft.OSTCExtensions.DSCForLinux)
 

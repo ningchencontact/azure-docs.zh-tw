@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 18c05444c151a87048db71b039845e26796126b8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525938"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124145"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
@@ -108,6 +108,9 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 3. 選取 [確定] 。
 
+> [!NOTE]
+>若為 VM 啟用 JIT VM 存取，Azure 資訊安全中心會為網路安全性群組中與它相關聯的所選連接埠，建立拒絕所有輸入流量規則。 這些規則若非網路安全性群組的第一優先，就是優先順序低於已存在的現有規則。 這取決於 Azure 資訊安全中心所執行的分析判斷規則是否安全。
+>
 ## <a name="requesting-access-to-a-vm"></a>要求存取 VM
 
 若要要求存取 VM：
@@ -162,8 +165,6 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
   [活動記錄] 可提供篩選過的檢視，列出該 VM 先前的作業，以及時間、日期和訂用帳戶。
 
-  ![檢視活動記錄][5]
-
 選取 [按一下這裡，將所有項目下載為 CSV 格式] 即可下載記錄資訊。
 
 修改篩選條件，並選取 [套用] 以建立搜尋和記錄。
@@ -172,15 +173,62 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 Just-In-Time VM 存取功能可透過 Azure 資訊安全中心 API 使用。 您可以透過此 API 取得已設定 VM 的相關資訊、新增 VM、要求存取 VM，以及更多作業。 請參閱 [Jit 網路存取原則](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)，以深入了解 Just-In-Time REST API。
 
-### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>為 VM 設定 Just-In-Time 原則
+## <a name="using-just-in-time-vm-access-via-powershell"></a>透過 PowerShell 使用 Just-In-Time VM 存取 
 
-若要在特定 VM 上設定 Just-In-Time 原則，您需要在 PowerShell 工作階段中執行下列命令：Set-ASCJITAccessPolicy。
-如需詳細資訊，請參閱 Cmdlet 文件。
+若要透過 PowerShell 使用 Just-In-Time VM 存取解決方案，請使用官方 Azure 安全性中心 PowerShell Cmdlet，尤其是 `Set-AzureRmJitNetworkAccessPolicy`。
+
+下列範例會在特定 VM 上設定 Just-In-Time VM 存取原則，並設定下列項目：
+1.  關閉連接埠 22 和 3389。
+2.  分別為其設定時間範圍上限 3 小時，讓它們能針對每個核准的要求開啟。
+3.  允許要求存取的使用者控制來源 IP 位址，並允許使用者在系統核准 Just-In-Time 存取要求時建立成功的工作階段。
+
+若要完成這項作業，請在 PowerShell 中執行下列命令：
+
+1.  指派一個變數，為 VM 保留 Just-In-Time VM 存取原則：
+
+        $JitPolicy = (@{
+         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+             number=22;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"},
+             @{
+             number=3389;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"})})
+
+2.  將 VM Just-In-Time VM 存取原則插入陣列中：
+    
+        $JitPolicyArr=@($JitPolicy)
+
+3.  在所選的 VM 上設定 Just-In-Time VM 存取原則：
+    
+        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 ### <a name="requesting-access-to-a-vm"></a>要求存取 VM
 
-若要存取受 Just-In-Time 原則保護的特定 VM，您需要在 PowerShell 工作階段中執行下列命令：Invoke-ASCJITAccess。
-如需詳細資訊，請參閱 Cmdlet 文件。
+在下列範例中，您可以看到對特定 VM 發出的 Just-In-Time VM 存取要求，其中要求連接埠 22 對特定 IP 位址開啟具體的一段時間：
+
+在 PowerShell 中執行下列命令：
+1.  設定 VM 要求存取屬性
+
+        $JitPolicyVm1 = (@{
+          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+           number=22;
+           endTimeUtc="2018-09-17T17:00:00.3658798Z";
+           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
+2.  將 VM 存取要求參數插入陣列中：
+
+        $JitPolicyArr=@($JitPolicyVm1)
+3.  傳送要求存取 (使用您在步驟 1 中取得的資源識別碼)
+
+        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+
+如需詳細資訊，請參閱 PowerShell Cmdlet 文件。
+
 
 ## <a name="next-steps"></a>後續步驟
 您已透過本文了解到資訊安全中心中的 Just-In-Time VM 存取可如何協助您控制 Azure 虛擬機器的存取。

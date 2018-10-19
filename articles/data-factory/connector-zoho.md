@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 複製 Zoho 中的資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Zoho 複製資料 (預覽) | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，從 Zoho 將資料複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: aa87e111bad1af03e2778bcbfc452c291bc72a81
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1e052b656f12a9059a5ee9d3ea21d0fa20fc00c6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049208"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123057"
 ---
-# <a name="copy-data-from-zoho-using-azure-data-factory"></a>使用 Azure Data Factory 複製 Zoho 中的資料
+# <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Zoho 複製資料 (預覽)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Zoho 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
@@ -45,9 +45,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**Zoho** | yes |
-| endpoint | Zoho 伺服器的端點 (`crm.zoho.com/crm/private`)。 | yes |
-| accessToken | 用於 Zoho 驗證的存取權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | type 屬性必須設定為：**Zoho** | 是 |
+| endpoint | Zoho 伺服器的端點 (`crm.zoho.com/crm/private`)。 | 是 |
+| accessToken | 用於 Zoho 驗證的存取權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -101,8 +101,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**ZohoSource** | yes |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM Accounts"`。 | yes |
+| type | 複製活動來源的 type 屬性必須設定為：**ZohoSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 是 |
 
 **範例：**
 

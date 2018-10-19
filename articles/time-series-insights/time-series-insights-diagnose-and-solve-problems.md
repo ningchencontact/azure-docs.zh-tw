@@ -10,14 +10,22 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
-ms.openlocfilehash: b05b824d8d35351030ca466566f14e4249d4b99d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 399c7b000360a73a9bab06b046be21c9d93a1c70
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626615"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367115"
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>在 Time Series Insights 環境中診斷與解決問題
+
+本文說明您可能會在時間序列深入解析環境中看到的部分問題。 其提供可能的原因和解決方案以便於解析。
+
+## <a name="video"></a>視訊： 
+
+### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>在本影片中，我們將說明常見的 Time Series Insights 客戶挑戰和緩和措施。</br>
+
+> [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
 ## <a name="problem-1-no-data-is-shown"></a>問題 1：未顯示資料
 您無法在 [Azure 時間序列深入解析總管](https://insights.timeseries.azure.com) 中看到資料有幾個常見原因：
@@ -31,7 +39,7 @@ Azure 時間序列深入解析現在只支援 JSON 資料。 如需 JSON 範例�
    ![IoT 中樞服務連線權限](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    如上圖所示，iothubowner 與 service 原則都會運作，因為兩者皆有「服務連接」權限。
-   
+
 * 針對事件中樞，您必須提供具有「接聽」權限的索引鍵。
 
    ![事件中樞接聽權限](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)

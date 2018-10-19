@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 複製 Drill 中的資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 Drill 複製資料 (預覽) | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，從 Drill 將資料複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 31dcae5dde53a9a3933c15dcf3b6869ec943cbea
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 166dffc6f79784b9a62cea4cb545aee32001441d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050279"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124672"
 ---
-# <a name="copy-data-from-drill-using-azure-data-factory"></a>使用 Azure Data Factory 複製 Drill 中的資料
+# <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Drill 複製資料 (預覽)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Drill 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
@@ -45,8 +45,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**Drill** | yes |
-| connectionString | 連線到 Drill 的 ODBC 連接字串。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | type 屬性必須設定為：**Drill** | 是 |
+| connectionString | 連線到 Drill 的 ODBC 連接字串。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -101,8 +101,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**DrillSource** | yes |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | yes |
+| type | 複製活動來源的 type 屬性必須設定為：**DrillSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 是 |
 
 **範例：**
 

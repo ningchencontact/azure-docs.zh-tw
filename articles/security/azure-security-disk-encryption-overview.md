@@ -1,24 +1,18 @@
 ---
 title: IaaS VM 適用的 Azure 磁碟加密概觀 | Microsoft Docs
 description: 本文提供 IaaS VM 適用的 Microsoft Azure 磁碟加密概觀。
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 30324adb-e24c-433a-9214-2d1465cbdf45
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 88500be4bae83049e8a7060719f4f85e7622c645
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/14/2018
+ms.openlocfilehash: 193aa8f87a90eb7bbf1e2c49132ad480881d41fe
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886986"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633464"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM 適用的 Azure 磁碟加密 
 Microsoft Azure 致力於確保您的資料隱私權、資料主權，並透過一系列進階技術來加密、控制和管理加密金鑰、控制和稽核資料存取，讓您控制您的 Azure 託管資料。 此控制提供 Azure 客戶靈活度，可選擇最符合其商務需求的解決方案。 本文為您介紹技術解決方案「Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密」，以協助保護及保障您的資料，以便符合組織的安全性和符合性的承諾。 
@@ -84,7 +78,10 @@ Azure 磁碟加密解決方案支援下列客戶案例：
 * 使用傳統 VM 建立方法所建立的 IaaS VM
 * 在 Linux IaaS VM 客戶自訂映像上啟用加密
 * 與您的內部部署金鑰管理服務整合
-* Azure 檔案 (共用檔案系統)、網路檔案系統 (NFS)、動態磁碟區和以軟體型 RAID 系統所設定的 Windows VM
+* Azure 檔案 (共用檔案系統)
+* 網路檔案系統 (NFS)
+* 動態磁碟區
+* 使用以軟體為基礎之 RAID 系統設定的 Windows VM
 
 ## <a name="encryption-features"></a>加密功能
 為 Azure IaaS VM 啟用並部署 Azure 磁碟加密時，會啟用下列功能，視提供的組態而定：

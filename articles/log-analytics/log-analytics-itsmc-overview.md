@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: na
-ms.openlocfilehash: da37e7558f93bc5073cd4ee1726a409c7defe127
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 5f5b03090f374f936e03d487596ca0462feea348
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131713"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042423"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT Service Management Connector 將 Azure 連線到 ITSM 工具
 
@@ -173,7 +173,7 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 > 根據匯入 Log Analytics 的工作項目類型，**ServiceDesk_CL** 會包含下列欄位︰
 
-**工作項目︰****事件**  
+**工作項目︰** **事件**  
 ServiceDeskWorkItemType_s="Incident"
 
 **欄位**
@@ -200,7 +200,7 @@ ServiceDeskWorkItemType_s="Incident"
 - 電腦
 
 
-**工作項目︰****變更要求**
+**工作項目︰** **變更要求**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
