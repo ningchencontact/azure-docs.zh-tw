@@ -16,9 +16,9 @@ items:
   expanded: true
 - name: 教學課程
   items:
-  - name: 建立加密的儲存體帳戶
+  - name: 利用範本參考
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: 建立多個儲存體帳戶執行個體
+  - name: 建立多個資源執行個體
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: 設定資源部署順序
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
@@ -128,10 +128,6 @@ items:
       href: programmatically-create-subscription.md
     - name: 授與存取權以建立 EA 訂用帳戶
       href: grant-access-to-create-subscription.md
-    - name: 建立管理群組
-      href: management-groups-create.md
-    - name: 管理您的管理群組
-      href: management-groups-manage.md
   - name: 控制存取權
     items:
     - name: 建立服務主體
@@ -236,9 +232,9 @@ items:
     href: resource-manager-personal-data.md
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: c47c85917445330ed2fa2ec50541b6db3f676a27
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 3e7fc5f0e26bcfd0c52b874196eff1ac332b62bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585929"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403351"

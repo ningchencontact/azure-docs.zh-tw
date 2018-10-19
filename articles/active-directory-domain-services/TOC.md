@@ -34,6 +34,7 @@
 ## 管理受控網域
 ### [管理受控網域](active-directory-ds-admin-guide-administer-domain.md)
 ### [管理受控網域上的 DNS](active-directory-ds-admin-guide-administer-dns.md)
+### [更新電子郵件通知](active-directory-ds-notifications.md)
 ### 為受控網域設定安全 LDAP
 #### [工作 1 - 取得安全 LDAP 的憑證](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [工作 2 - 匯出安全 LDAP 憑證](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
