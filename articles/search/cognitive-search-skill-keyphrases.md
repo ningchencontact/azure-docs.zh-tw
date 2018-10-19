@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: a12efaa020e626e4a10a0708c9b84d8fe125588c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 694271115626c652523be34160ad6a07053f6387
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786807"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735793"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>關鍵片語擷取認知技能
 
@@ -23,11 +23,14 @@ ms.locfileid: "33786807"
 
 如果您需要快速識別記錄中的主要討論要點，此功能相當有用。 例如，假設輸入文字為「The food was delicious and there were wonderful staff」，服務會傳回「food」和「wonderful staff」。
 
+> [!NOTE]
+> 認知搜尋目前為公開預覽狀態。 技能集執行、映像擷取及正規化目前為免費提供。 我們將在不久後宣布這些功能的定價。 
+
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>資料限制
-根據 `String.Length` 測量，記錄的大小上限應該是 50,000 個字元。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能][](cognitive-search-skill-textsplit.md)。
+記錄的大小上限應該是 50,000 個字元 (以 `String.Length` 為測量單位)。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="skill-parameters"></a>技能參數
 
@@ -116,5 +119,5 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 ## <a name="see-also"></a>另請參閱
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md) (英文)
++ [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
