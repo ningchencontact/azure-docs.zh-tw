@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 293b6af1d591c0c9763c2914713fe892392ae7ea
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578135"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387424"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務來尋找地址
 
 地圖服務搜尋服務是一組 RESTful API，專門針對要搜尋地址、位置、景點、公司清單及其他地理資訊的開發人員所設計。 此服務會將經緯度指派給特定地址、交叉街道、地理功能或感景點 (POI)。 搜尋所傳回的緯度與經度值可用來作為其他地圖服務的參數 (例如路線和流量)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 如需建立帳戶和擷取金鑰的相關資訊，請參閱[如何管理 Azure 地圖服務帳戶和金鑰](how-to-manage-account-keys.md)。
 
-此文章使用 [Postman 應用程式](https://www.getpostman.com/apps)來建置 REST 呼叫。 您可以使用您偏好的任何 API 開發環境。
+本文使用 [Postman 應用程式](https://www.getpostman.com/apps)來建置 REST 呼叫。 您可以使用您偏好的任何 API 開發環境。
 
 ## <a name="using-fuzzy-search"></a>使用模糊搜尋
 
@@ -55,11 +55,11 @@ ms.locfileid: "45578135"
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
-    | query | pizza |
+    | query | 披薩 |
 
 4. 按一下 [傳送]，然後檢視回應本文。
 
-    「pizza」的模稜兩可查詢字串傳回了 10 個[景點](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) 結果，其類別分別落在「pizza」和「restaurant」。 每個結果都會傳回街道地址、緯度 / 經度值、檢視連接埠和位置的進入點。
+    「pizza」的模稜兩可查詢字串傳回了 10 個[景點](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) 結果，其類別分別落在「pizza」和「restaurant」。 每個結果都會傳回街道地址、緯度 / 經度值、檢視連接埠和位置的進入點。
   
     此查詢中的結果會有所不同，未繫結至任何特定的參考位置。 您可以使用 **countrySet** 參數來指定只有您的應用程式需要涵蓋範圍的國家/地區，因為預設行為是要搜尋全世界，可能會傳回不必要的結果。
 

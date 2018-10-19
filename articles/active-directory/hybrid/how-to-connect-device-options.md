@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect：裝置選項 |Microsoft Docs
-description: 此文件詳述 Azure AD Connect 中可用的裝置選項
+description: 本文件詳述 Azure AD Connect 中可用的裝置選項
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6993895b6f2b836308b8ed7c375212c3fae12768
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305917"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320555"
 ---
-#<a name="azure-ad-connect-device-options"></a>Azure AD Connect：裝置選項
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect：裝置選項
 
 下列文件提供與 Azure AD Connect 中的各種可用裝置選項有關的資訊。 您可以使用 Azure AD Connect 來設定下列兩項作業： 
 * **加入混合式 Azure AD**：如果您的環境具有內部部署 AD 使用量，而且您想要獲得 Azure AD 的好處，您可以實作已加入混合式 Azure AD 的裝置。 這些裝置會加入您的內部部署 Active Directory 和您的 Azure Active Directory。

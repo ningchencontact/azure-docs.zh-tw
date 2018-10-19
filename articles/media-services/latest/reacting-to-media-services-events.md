@@ -1,6 +1,6 @@
 ---
 title: 回應 Azure 媒體服務事件 | Microsoft Docs
-description: 使用 Azure 事件方格訂閱媒體服務事件。
+description: 使用 Azure 事件格線訂閱媒體服務事件。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465532"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377543"
 ---
-# <a name="reacting-to-media-services-events"></a>連線到媒體服務事件
+# <a name="handling-event-grid-events"></a>處理事件方格事件
 
-媒體服務事件可讓應用程式利用現代無伺服器架構，針對不同事件做出反應，例如，工作狀態變更事件。 它不需要複雜的程式碼或昂貴且無效率的輪詢服務來執行此動作。 而是改為透過 [Azure 事件方格](https://azure.microsoft.com/services/event-grid/)，將事件推送給事件處理常式，例如 [Azure Functions](https://azure.microsoft.com/services/functions/)、[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)，甚至推送到您自己的Webhook，而且只有使用時，才須支付相關費用。 如需價格的資訊，請參閱[事件方格價格](https://azure.microsoft.com/pricing/details/event-grid/)。
+媒體服務事件可讓應用程式利用現代無伺服器架構，針對不同事件做出反應，例如，工作狀態變更事件。 它不需要複雜的程式碼或昂貴且無效率的輪詢服務來執行此動作。 而是改為透過 [Azure 事件格線](https://azure.microsoft.com/services/event-grid/)，將事件推送給事件處理常式，例如 [Azure Functions](https://azure.microsoft.com/services/functions/)、[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)，甚至推送到您自己的Webhook，而且只有使用時，才須支付相關費用。 如需價格的資訊，請參閱[事件格線價格](https://azure.microsoft.com/pricing/details/event-grid/)。
 
-媒體服務事件的可用性會繫結至方格格線[可用性](../../event-grid/overview.md)，並且將在其他區域中變成可用狀態，就像事件方格所做的一樣。  
+媒體服務事件的可用性會繫結至事件格線[可用性](../../event-grid/overview.md)，並且將在其他區域中變成可用狀態，就像事件格線所做的一樣。  
 
 ## <a name="available-media-services-events"></a>可用的媒體服務事件
 
