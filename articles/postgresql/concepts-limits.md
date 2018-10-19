@@ -1,6 +1,6 @@
 ---
 title: 適用於 PostgreSQL 的 Azure 資料庫中的限制
-description: 本文描述適用於 PostgreSQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。
+description: 此文章描述適用於 PostgreSQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171767"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983736"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的限制
 下列各節說明資料庫服務中的容量和功能限制。
@@ -47,10 +47,7 @@ Azure 系統需要五個連線，以用於監控適用於 PostgreSQL 伺服器�
 - 目前不支援減少伺服器儲存體大小。
 
 ### <a name="server-version-upgrades"></a>伺服器版本升級
-- 目前不支援在主要資料庫引擎版本之間進行自動轉換。
-
-### <a name="subscription-management"></a>訂用帳戶管理
-- 目前不支援跨訂用帳戶和資源群組動態移動伺服器。
+- 目前不支援在主要資料庫引擎版本之間進行自動轉換。 如果您希望升級至下個主要版本，請將資料庫[備份和還原](./howto-migrate-using-dump-and-restore.md)至使用新引擎版本所建立的伺服器。
 
 ### <a name="vnet-service-endpoints"></a>VNet 服務端點
 - VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。

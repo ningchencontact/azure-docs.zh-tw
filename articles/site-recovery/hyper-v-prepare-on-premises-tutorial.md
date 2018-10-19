@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923486"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720764"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>準備內部部署 Hyper-V 伺服器以進行至 Azure 的災害復原
 
-本教學課程說明如何基於災害復原的目的，在您想要將 Hyper-V VM 複寫至 Azure 時，準備內部部署 Hyper-V 基礎結構。 Hyper-V 主機可由 System Center Virtual Machine Manager (VMM) 管理，但並非必要。  在本教學課程中，您將了解如何：
+此教學課程說明如何基於災害復原的目的，在您想要將 Hyper-V VM 複寫至 Azure 時，準備內部部署 Hyper-V 基礎結構。 Hyper-V 主機可由 System Center Virtual Machine Manager (VMM) 管理，但並非必要。  在此教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 檢閱 Hyper-V 需求和 VMM 需求 (如果適用)。
@@ -29,7 +29,7 @@ ms.locfileid: "37923486"
 
 
 
-## <a name="review-requirements-and-prerequisites"></a>檢閱需求和必要條件
+## <a name="review-requirements-and-prerequisites"></a>檢閱需求和先決條件
 
 確定 Hyper-V 主機和 VM 符合下列需求。
 
@@ -59,14 +59,16 @@ ms.locfileid: "37923486"
 
 ## <a name="verify-internet-access"></a>確認網際網路存取
 
-1. 對本教學課程來說，最簡單的設定是讓 Hyper-V 主機和 VMM 伺服器可直接存取網際網路，而不需使用 Proxy。 
-2. 確定 Hyper-V 主機和 VMM 伺服器 (如果相關) 可以存取這些 URL： 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+1. 對此教學課程來說，最簡單的設定是讓 Hyper-V 主機和 VMM 伺服器可直接存取網際網路，而不需使用 Proxy。 
+2. 確定 Hyper-V 主機和 VMM 伺服器 (如果相關) 可以存取以下必要的 URL。   
 3. 如果您要依據 IP 位址來控制存取，請確定：
     - 以 IP 位址為基礎的防火牆規則可以連線至 [Azure Datacenter IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)，以及 HTTPS (443) 連接埠。
     - 允許訂用帳戶之 Azure 區域的 IP 位址範圍。
+    
+### <a name="required-urls"></a>必要的 URL
+
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>準備在容錯移轉後連接到 Azure VM

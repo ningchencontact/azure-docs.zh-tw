@@ -10,20 +10,20 @@ ms.component: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: fcc3fd39f9ea4de64faa3a53af98ff9909dc32f3
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247948"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718277"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>在 Azure SQL Database 中使用彈性查詢存取 Azure SQL 資料倉儲中資料的最佳做法
 了解使用彈性查詢從 Azure SQL Database 存取 Azure SQL 資料倉儲中資料的最佳做法。 
 
 ## <a name="what-is-an-elastic-query"></a>什麼是彈性查詢？
-彈性查詢可讓您使用 T-SQL 和外部資料表來撰寫 Azure SQL 資料庫中的查詢，其會遠端傳送至 Azure SQL 資料倉儲。 視情況而定，使用這項功能可讓您節省成本並提供效能更高的架構。
+彈性查詢可讓您使用 T-SQL 和外部資料表來撰寫 Azure SQL 資料庫中的查詢，其會遠端傳送至 Azure SQL 資料倉儲。 視情況而定，使用此功能可讓您節省成本並提供效能更高的架構。
 
-這項功能實現兩個主要案例：
+此功能實現兩個主要案例：
 
 1. 網域隔離
 2. 遠端查詢執行
@@ -36,7 +36,7 @@ ms.locfileid: "43247948"
 2. 安全性隔離 - 透過某些結構描述選擇性區分授權的資料子集。
 3. 沙箱 - 提供一組範例資料來當做「遊樂場」，供使用者探索生產環境查詢等。
 
-彈性查詢能讓您輕鬆地選取 SQL 資料倉儲資料的子集，再將它們移動到 SQL Database 執行個體。 再者，這項隔離功能未排除同時啟用遠端查詢執行的能力，讓您得以建置更有趣的「快取」案例。
+彈性查詢能讓您輕鬆地選取 SQL 資料倉儲資料的子集，再將它們移動到 SQL Database 執行個體。 再者，此隔離功能未排除同時啟用遠端查詢執行的能力，讓您得以建置更有趣的「快取」案例。
 
 ### <a name="remote-query-execution"></a>遠端查詢執行
 
@@ -55,14 +55,14 @@ ms.locfileid: "43247948"
 
 如需 SQL Database 彈性查詢的詳細資訊，請參閱[Azure SQL Database 彈性查詢概觀][Azure SQL Database elastic query overview]。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 若要有效使用彈性查詢，請使用這些最佳做法。
 
 ### <a name="general"></a>一般
 
 - 使用遠端查詢執行時，請務必只選取必要的資料行及套用正確的篩選條件。 否則，不僅必要的計算負載會增加，連結果集的大小和需要在兩個執行個體之間移動的資料量也會增加。
 - 利用叢集化資料行存放區保存 SQL 資料倉儲和 SQL Database 中的分析用資料，以提升分析效率。
-- 確保來源資料表已針對查詢和資料移動等目的加以分割。
+- 確保來源資料表已針對查詢和資料移動等目的
 - 確保當做快取的 SQL Database 執行個體已經過分割，以便進行更精細的更新及簡化管理。 
 - 最理想的情況是使用 PremiumRS 資料庫，因為 Premium 資料庫的折扣讓它們能著重於 IO 密集的工作負載，進而提供叢集資料行存放區索引的分析優勢。
 - 載入後，使用載入或有效的日期識別資料行來 Upsert SQL Database 執行個體，維護快取和來源之間的完整。 
@@ -135,7 +135,7 @@ ms.locfileid: "43247948"
 
 問：彈性查詢是否涉及任何 DTU 限制？
 
-答：DTU 限制不會以任何不同方式加諸於彈性查詢。 標準原則是邏輯伺服器採用 DTU 限制來預防客戶意外過度使用。 如果您除了 SQL 資料倉儲之外另啟用好幾個資料庫來進行彈性查詢，可能會不經意地達到上限。 如果發生這種情況，請提交要求來提高邏輯伺服器的 DTU 限制。 您可以藉由[建立支援票證](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)，並選取 [配額] 做為要求類型來增加配額
+答：DTU 限制不會以任何不同方式加諸於彈性查詢。 標準原則是邏輯伺服器採用 DTU 限制來預防客戶意外過度使用。 如果您除了 SQL 資料倉儲之外另啟用好幾個資料庫來進行彈性查詢，可能會不經意地達到上限。 如果發生這種情況，請提交要求來提高邏輯伺服器的 DTU 限制。 您可以透過[建立支援票證](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)，並選取 [配額] 做為要求類型來增加配額
 
 問：我可以使用資料列層級安全性/動態資料遮罩來搭配彈性查詢嗎？
 
@@ -143,7 +143,7 @@ ms.locfileid: "43247948"
 
 問：我可以從 SQL Database 執行個體寫入資料倉儲執行個體嗎？
 
-答：這項功能目前不受支援。 如果這是您希望未來能問世的功能，請造訪我們的[意見反應頁面][Feedback page]來提議/投票。 
+答：此功能目前不受支援。 如果這是您希望未來能問世的功能，請造訪我們的[意見反應頁面][Feedback page]來提議/投票。 
 
 問：我可以使用幾何/地理之類的空間類型嗎？
 

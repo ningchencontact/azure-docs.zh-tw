@@ -11,13 +11,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/12/2017
+ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 89fb9d97acd5cb658b58f957d35d426ecdacc75d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391042"
 ---
 <a id="preparemachines"></a>
 
@@ -65,7 +66,7 @@ ms.lasthandoff: 05/16/2018
 * 至少 40 GB 的可用磁碟空間
 * 4 核心或更高的 CPU
 * 所有電腦的安全網路連線
-* Windows Server 2012 R2 或 Windows Server 2016
+* 已安裝 Windows Server 作業系統 (有效版本：2012 R2、2016、1709 或 1803)
 * [.NET Framework 4.5.1 或更高版本](https://www.microsoft.com/download/details.aspx?id=40773)，完整安裝
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * [RemoteRegistry 服務](https://technet.microsoft.com/library/cc754820) 應該在所有電腦上執行

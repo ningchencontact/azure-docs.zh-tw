@@ -1,25 +1,25 @@
 ---
 title: 部署 Java 遠端監視解決方案架構 - Azure | Microsoft Docs
-description: 本教學課程會示範如何使用 CLI 來佈建遠端監視解決方案加速器。
+description: 此教學課程會示範如何使用 CLI 來佈建遠端監視解決方案加速器。
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: dd696330c9ee78ef84ac9fcf85946c837ad5b824
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188003"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721614"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>使用 CLI 部署遠端監視解決方案加速器
 
-本教學課程示範如何佈建遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)。
+此教學課程示範如何佈建遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要部署遠端監視解決方案加速器，您需要一個有效的 Azure 訂用帳戶。
 
@@ -54,7 +54,7 @@ pcs login
 | SKU    | `basic`、`standard`, `local` | _basic_ 部署適用於測試和示範環境，它會將所有微服務部署至單一虛擬機器。 _standard_ 部署適用於生產環境，它會將微服務部署至多部虛擬機器。 _local_ 部署會將 Docker 容器設定為在本機電腦上執行微服務，並且使用雲端中的 Azure 服務 (例如儲存體和 Cosmos DB)。 |
 | 執行階段 | `dotnet`、`java` | 選取微服務的語言實作。 |
 
-若要了解如何使用本機部署，請參閱[在本機執行遠端監視解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables)。
+若要了解如何使用本機部署，請參閱[在本機執行遠端監視解決方案](iot-accelerators-remote-monitoring-deploy-local.md)。
 
 ## <a name="basic-vs-standard-deployments"></a>基本與標準部署
 
@@ -69,12 +69,19 @@ pcs login
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 虛擬機器](https://azure.microsoft.com/services/virtual-machines/) | 標準 D1 V2  | 裝載微服務 |
 | 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                  | S1 – 標準層 | 裝置管理與通訊 |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | 標準        | 儲存設定資料，以及規則、警示和訊息等裝置遙測 |  
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | 標準        | 儲存設定資料、規則、警示和其他冷儲存體 |  
 | 1     | [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | 標準        | 適用於 VM 和串流檢查點的儲存體 |
 | 1     | [Web 應用程式](https://azure.microsoft.com/services/app-service/web/)        |                 | 裝載前端 Web 應用程式 |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 管理使用者身分識別和安全性 |
+| 1     | [Azure 地圖服務](https://azure.microsoft.com/services/azure-maps/)        | 標準                | 檢視資產位置 |
+| 1     | [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)        |   3 個單位              | 提供即時分析 |
+| 1     | [Azure 裝置佈建服務](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 大規模佈建裝置 |
+| 1     | [Azure 時間序列深入解析](https://azure.microsoft.com/services/time-series-insights/)        |   S1 - 1 個單位              | 適用於訊息資料的儲存體，並能提供深入遙測分析 |
+
+
 
 ### <a name="standard"></a>標準
-標準部署是開發人員可自訂及擴充來符合其需求的可實際執行部署。 對於可靠性與調整，應用程式微服務會建置來作為 Docker 容器，並使用協調器 (依預設為 [Kubernetes](https://kubernetes.io/) \(英文\)) 加以部署。 協調器會負責部署、調整及管理應用程式。
+標準部署是開發人員可自訂及擴充來符合其需求的可實際執行部署。 針對可靠性與規模調整，應用程式微服務會建置來作為 Docker 容器，並使用協調器 (依預設為 [Kubernetes](https://kubernetes.io/) \(英文\)) 來部署。 協調器會負責部署、調整及管理應用程式。
 
 建立標準解決方案將會按定價在您的 Azure 訂用帳戶中佈建下列 Azure 服務:
 
@@ -82,10 +89,15 @@ pcs login
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Linux 虛擬機器](https://azure.microsoft.com/services/virtual-machines/)   | 標準 D2 V2  | 1 部主機和 3 個代理程式，以用於裝載含有備援的微服務 |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) \(英文\) 協調器 |
-| 1     | [Azure IoT 中樞][https://azure.microsoft.com/services/iot-hub/]                     | S2 – 標準層 | 裝置管理、命令和控制 |
+| 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                     | S2 – 標準層 | 裝置管理、命令和控制 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | 標準        | 儲存設定資料，以及規則、警示和訊息等裝置遙測 |
 | 5     | [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | 標準        | 4 個用於 VM 儲存體，1 個用於串流檢查點 |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 標準     | 透過 SSL 的應用程式閘道 |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 管理使用者身分識別和安全性 |
+| 1     | [Azure 地圖服務](https://azure.microsoft.com/services/azure-maps/)        | 標準                | 檢視資產位置 |
+| 1     | [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)        |   3 個單位              | 提供即時分析 |
+| 1     | [Azure 裝置佈建服務](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 大規模佈建裝置 |
+| 1     | [Azure 時間序列深入解析](https://azure.microsoft.com/services/time-series-insights/)        |   S1 - 1 個單位              | 適用於訊息資料的儲存體，並能提供深入遙測分析 |
 
 > 您可以在[這裡](https://azure.microsoft.com/pricing)找到這些服務的價格資訊。 訂用帳戶的使用量與計費詳細資料則可在 [Azure 入口網站](https://portal.azure.com/)中找到。
 
@@ -128,7 +140,7 @@ pcs -h
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 設定解決方案加速器

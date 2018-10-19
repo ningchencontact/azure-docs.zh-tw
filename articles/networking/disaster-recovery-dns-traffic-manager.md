@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ce3e8f31c7fee6afdeabf931485a49934e98f81b
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112981"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391346"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>使用 Azure DNS 和流量管理員進行災害復原
 
-災害復原著重在從應用程式功能的嚴重損失中復原。 若要選擇一個災害復原解決方案，企業和技術擁有者必須先決定災害發生時所需的功能運作層級，例如，完全無法運作、可透過降低的功能或延遲的可用性來部分運作、或是完全正常運作。
+災害復原著重在從應用程式功能的嚴重損失中復原。 為了選擇災害復原解決方案，企業和技術擁有者必須先決定災害發生時所需的功能運作層級，例如，不需運作、儘需部分運作 (透過降低功能或延遲可用性來實現)、或是需完全運作。
 大部分的企業客戶會選擇多區域架構，藉由應用程式或基礎結構層級的容錯移轉來恢復功能。 客戶可選擇多種方法來透過備援架構達到容錯移轉和高可用性。 以下是一些常見的方法：
 
 - **搭配冷待命的主動-被動**：在此容錯移轉解決方案中，在待命區域中執行的 VM 及其他設備，會等到需要進行容錯移轉時才開始運作。 不過，生產環境會以備份、VM 映像或 Resource Manager 範本的形式來複寫到不同區域。 此容錯移轉機制符合成本效益，但須耗費較長時間來進行完整的容錯移轉。
@@ -48,19 +48,20 @@ ms.locfileid: "37112981"
 如需有關容錯移轉和高可用性的詳細資訊，請參閱 [Azure 應用程式的災害復原](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)。
 
 
-## <a name="planning-your-disaster-recovery-architecture"></a>規劃您的災害復原架構
+## <a name="planning-your-disaster-recovery-architecture"></a>規劃災害復原架構
 
-設定您的災害復原架構涉及到兩個技術層面：
+設定災害復原架構涉及到兩個技術層面：
 -  使用部署機制在主要和待命環境之間複寫執行個體、資料和組態。 您可以藉由 Microsoft Azure 合作夥伴設備/服務，例如 Veritas 或 NetApp 等，透過 Azure Site-Recovery 以原生方式來完成此類災害復原。 
-- 開發解決方案來將網路/ Web 流量從主要站台轉向到待命站台。 此類災害復原可以透過 Azure DNS、Azure 流量管理員 (DNS) 或第三方全域負載平衡器來完成。
+- 開發解決方案來將網路/ Web 流量從主要站台轉移至待命站台。 此類災害復原可以透過 Azure DNS、Azure 流量管理員 (DNS) 或第三方全域負載平衡器來完成。
 
-本文僅適用透過網路與 Web 流量重新導向執行的方法。 如需設定 Azure Site Recovery 的指示，請參閱 [Azure Site Recovery 文件](https://docs.microsoft.com/azure/site-recovery/)。
-DNS 是轉向網路流量最有效率的機制之一，因為 DNS 通常是全球性且位於資料中心外部，並且與任何區域或可用性區域 (AZ) 層級的失敗隔離。 您可以使用 DNS 架構的容錯移轉機制，而且在 Azure 中，兩個 DNS 服務在某些形式上可達到相同成效 - Azure DNS (權威式 DNS) 和 Azure 流量管理員 (DNS 架構的智慧流量路由)。 
+本文所介紹的方法，僅能透過網路與 Web 流量的重新導向來實現。 如需設定 Azure Site Recovery 的指示，請參閱 [Azure Site Recovery 文件](https://docs.microsoft.com/azure/site-recovery/)。
+DNS 是轉移網路流量最有效率的機制之一，因為 DNS 通常是全球性的，且位於資料中心外部，不會受到任何區域性故障或可用性區域 (AZ) 層級的故障所影響。 除了能使用 DNS 架構的容錯移轉機制外，在 Azure 中還有另外兩個 DNS 服務能在某些形式上達到相同成效 - Azure DNS (權威式 DNS) 和 Azure 流量管理員 (DNS 架構的智慧流量路由)。 
 
 請務必了解 DNS 的一些概念，我們會廣泛地使用這些概念來討論本文中提供的解決方案：
 - **DNS A 記錄** – A 記錄是將網域指向 IPv4 位址的指標。 
 - **CNAME 或 Canonical 名稱** - 此記錄類型用來指向其他 DNS 記錄。 CNAME 不會以 IP 位址作為回應，而是以指標，其指向包含 IP 位址的記錄。 
-- **加權路由** – 您可以選擇使權重與服務端點相關聯，然後根據指派的權重分配流量。 此路由方法是流量管理員中四個可用流量路由機制的其中一個。 如需詳細資訊，請參閱 [加權路由方法](../traffic-manager/traffic-manager-routing-methods.md#weighted)。
+- **加權路由** – 您可以選擇為服務端點賦予特定的權重，然後再根據指派的權重分配流量。
+ 此路由方法是流量管理員中四個可用流量路由機制的其中一個。 如需詳細資訊，請參閱 [加權路由方法](../traffic-manager/traffic-manager-routing-methods.md#weighted)。
 - **優先順序路由** – 優先順序路由會以端點的健康情況檢查為基礎。 根據預設，Azure 流量管理員會將所有流量傳送到優先順序最高的端點，而在發生失敗或損毀時，流量管理員會將流量路由至次要端點。 如需詳細資訊，請參閱 [優先順序路由方法](../traffic-manager/traffic-manager-routing-methods.md#priority)。
 
 ## <a name="manual-failover-using-azure-dns"></a>使用 Azure DNS 進行手動容錯移轉
@@ -115,7 +116,7 @@ DNS 是轉向網路流量最有效率的機制之一，因為 DNS 通常是全�
 此步驟可以手動執行或透過自動化來執行。 手動執行可透過主控台或 Azure CLI。 Azure SDK 和 API 可用來自動化 CNAME 更新，如此則不需要手動介入。 您可以透過 Azure 函式或第三方監視應用程式，或甚至是從內部部署來建立自動化。
 
 ### <a name="how-manual-failover-works-using-azure-dns"></a>使用 Azure DNS 進行手動容錯移轉的運作方式
-由於 DNS 伺服器位在容錯移轉或災害區域外，因此與任何停機狀況隔離。 這可讓使用者建構符合成本效益的簡單容錯移轉案例，並在發生災害時持續運作 (假設運算子有網路連線)，而且可反轉為主要站台。 如果此解決方案以指令碼編寫，務必將執行指令碼的伺服器或服務與影響生產環境的問題隔離。 此外，請記住要針對區域設定低 TTL，如此一來，世界各地的解析程式就不會長期保留快取的端點，而客戶可在 RTO 內存取站台。 針對冷待命和指示燈方法，由於可能需要一些預先準備和其他系統管理活動，因此在進行反轉前應提供足夠的時間。
+由於 DNS 伺服器位在容錯移轉或災害區域外，因此不受任何停機狀況所影響。 這可讓使用者建構符合成本效益的簡單容錯移轉案例，並在發生災害時持續運作 (假設運算子有網路連線)，而且可反轉為主要站台。 如果此解決方案以指令碼編寫，務必將執行指令碼的伺服器或服務與影響生產環境的問題隔離。 此外，請記住要針對區域設定低 TTL，如此一來，世界各地的解析程式就不會長期保留快取的端點，而客戶可在 RTO 內存取站台。 針對冷待命和指示燈方法，由於可能需要一些預先準備和其他系統管理活動，因此在進行反轉前應提供足夠的時間。
 
 ## <a name="automatic-failover-using-azure-traffic-manager"></a>使用 Azure 流量管理員進行自動容錯移轉
 如果您有複雜的架構和能夠執行相同函式的多組資源，您可以設定 Azure 流量管理員 (以 DNS 為基礎) 來檢查您的資源健康情況，並將流量從狀況不好的資源路由到狀況良好的資源。 在下列範例中，主要區域和次要地區都有完整的部署。 此部署包括雲端服務和已同步處理的資料庫。 
@@ -140,7 +141,7 @@ DNS 是轉向網路流量最有效率的機制之一，因為 DNS 通常是全�
 使用名稱 contoso123 建立新的 Azure 流量管理員設定檔，並選取 [優先順序] 作為 [路由方式]。 如果您有想與之建立關聯的現有資源群組，則您可以選取現有的資源群組，否則請建立新的資源群組。
 
 ![建立流量管理員設定檔](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-*圖 - 建立流量管理員設定檔*
+圖 - 建立流量管理員設定檔**
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>步驟 2：在流量管理員設定檔中建立端點
 

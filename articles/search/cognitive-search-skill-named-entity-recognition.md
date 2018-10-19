@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 73ffcf5e2ced63fddaf0f5ef2ca7e72a7d94b966
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 653a4675d546432eea8478ba6203be1df71ec4f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786817"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731388"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>具名實體辨識認知技能
 
 **具名實體辨識**技能會從文字擷取具名實體。 可用實體包括下列類型：`person`、`location`以及 `organization`。
+
+> [!NOTE]
+> 認知搜尋目前為公開預覽狀態。 技能集執行、映像擷取及正規化目前為免費提供。 我們將在不久後宣布這些功能的定價。 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -139,5 +142,5 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="see-also"></a>另請參閱
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md) (英文)
++ [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

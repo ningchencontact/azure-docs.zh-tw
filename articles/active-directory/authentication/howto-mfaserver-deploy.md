@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b882f8d8ffc818de5ec459f504965015f55897a3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d69addac0647513e00663110ac82eef343b77983
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159721"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364613"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 
 <center>![MFA 內部部署](./media/howto-mfaserver-deploy/server2.png)</center>
 
-既然我們已經決定要使用內部部署 Multi-Factor Authentication Server，那麼我們就開始著手進行吧。 本頁面探討新伺服器安裝，以及透過內部部署 Active Directory 予以設定。 如果您已經安裝 MFA 伺服器，且想要升級，請參閱[升級至最新的 Azure Multi-factor Authentication Server](howto-mfaserver-deploy-upgrade.md)。 如果您想要尋找僅是安裝 Web 服務的資訊，請參閱[部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](howto-mfaserver-deploy-mobileapp.md)。
+既然我們已經決定要使用內部部署 Multi-Factor Authentication Server，那麼我們就開始著手進行吧。 此頁面探討新伺服器安裝，以及透過內部部署 Active Directory 予以設定。 如果您已經安裝 MFA 伺服器，且想要升級，請參閱[升級至最新的 Azure Multi-factor Authentication Server](howto-mfaserver-deploy-upgrade.md)。 如果您想要尋找僅是安裝 Web 服務的資訊，請參閱[部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](howto-mfaserver-deploy-mobileapp.md)。
 
 ## <a name="plan-your-deployment"></a>規劃您的部署
 
@@ -49,6 +49,7 @@ ms.locfileid: "39159721"
 |:--- |:--- |
 | 硬體 |<li>200 MB 的硬碟空間</li><li>具有 x32 或 x64 功能的處理器</li><li>1 GB 或更高的 RAM</li> |
 | 軟體 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008，SP1、SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003，SP1、SP2</li><li>Windows 10</li><li>Windows 8.1，所有版本</li><li>Windows 8，所有版本</li><li>Windows 7，所有版本</li><li>Windows Vista，所有版本，SP1、SP2</li><li>Microsoft .NET 4.0 Framework</li><li>如果安裝使用者入口網站或 Web 服務 SDK，則為 IIS 7.0 或更高版本</li> |
+| 權限 | 網域系統管理員或企業系統管理員以向 Active Directory 註冊 |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA Server 元件
 
@@ -104,7 +105,7 @@ ms.locfileid: "39159721"
 1. 按兩下可執行檔。
 2. 在 [選取安裝資料夾] 畫面中，請確認資料夾正確，然後按一下 [下一步]。
 3. 當安裝完成時，請按一下 [完成]。 組態精靈就會啟動。
-4. 在組態精靈歡迎畫面上，核取 [略過使用驗證設定精靈]，然後按 [下一步]。 精靈關閉然後伺服器啟動。
+4. 在組態精靈歡迎畫面上，核取 [略過使用驗證設定精靈]，然後按一下 [下一步]。 精靈關閉然後伺服器啟動。
 
    ![雲端](./media/howto-mfaserver-deploy/skip2.png)
 
@@ -114,7 +115,7 @@ ms.locfileid: "39159721"
 
 為了簡化推出，允許 MFA Server 與您的使用者通訊。 MFA Server 可以傳送電子郵件，通知他們已為其註冊雙步驟驗證。
 
-要傳送什麼電子郵件應取決於您如何為使用者設定雙步驟驗證。 比方說，假設您可以從公司目錄匯入電話號碼，則電子郵件中應該包含預設電話號碼，讓使用者知道應該會有什麼。 如果您未匯入電話號碼，或使用者將使用行動裝置應用程式，請對他們傳送可引導他們完成帳戶註冊的電子郵件。 在電子郵件中包含 Azure Multi-factor Authentication 使用者入口網站的超連結。
+要傳送什麼電子郵件應取決於您如何為使用者設定雙步驟驗證。 例如，假設您可以從公司目錄匯入電話號碼，則電子郵件中應該包含預設電話號碼，讓使用者知道應該會有什麼。 如果您未匯入電話號碼，或使用者將使用行動裝置應用程式，請對他們傳送可引導他們完成帳戶註冊的電子郵件。 在電子郵件中包含 Azure Multi-factor Authentication 使用者入口網站的超連結。
 
 電子郵件的內容也會隨著已為使用者設定的驗證方法而不同 (電話、簡訊或行動應用程式)。 例如，如果使用者驗證時需要使用 PIN，電子郵件會告訴他們已設定的初始 PIN。 使用者必須在第一次驗證時變更他們的 PIN。
 
@@ -184,7 +185,7 @@ ms.locfileid: "39159721"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>管理的 TLS/SSL 通訊協定和加密套件
 
-在您已安裝或升級至 MFA Server 8.x 版 或更高版本後，除非您的組織需要較舊的和較弱的加密套件，否則建議您加以停用或移除。 如需如何完成這項工作的相關資訊，請參閱[管理 AD FS 的 SSL/TLS 通訊協定和加密套件](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)一文
+在您已安裝或升級至 MFA Server 8.x 版 或更高版本後，除非您的組織需要較舊的和較弱的加密套件，否則建議您將它停用或移除。 如需如何完成此工作的相關資訊，請參閱[管理 AD FS 的 SSL/TLS 通訊協定和加密套件](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)一文
 
 ## <a name="next-steps"></a>後續步驟
 

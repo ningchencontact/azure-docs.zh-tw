@@ -4,18 +4,18 @@ description: 討論如何使用 O365 和 Azure Active Directory B2B 共同作業
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e0a65e4a5807cb9a6b39feecfd2d5b2643ea4a9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fc789283e56d220f0068277544cb6494e265ee39
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330656"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981901"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 外部共用與 Azure Active Directory B2B 共同作業
 
@@ -38,9 +38,14 @@ OneDrive/SharePoint Online 有個別的邀請管理員。 OneDrive/SharePoint On
 
 ![OneDrive/SharePoint Online 外部共用設定](media/o365-external-user/odsp-sharing-setting.png)
 
+在啟用外部共用之後，在 SharePoint Online (SPO) 人員選擇器中搜尋現有來賓使用者的功能預設為關閉，以符合舊版的行為。
+
+您可以使用租用戶和網站集合層級中的 'ShowPeoplePickerSuggestionsForGuestUsers' 設定來啟用此功能。 您可以使用 Set-SPOTenant 和 Set-SPOSite Cmdlet 來設定此功能，讓成員搜尋目錄中所有的現有來賓使用者。 租用戶範圍中的變更不會影響已佈建的 SPO 網站。
+
 ## <a name="next-steps"></a>後續步驟
 
 * [何謂 Azure AD B2B 共同作業？](what-is-b2b.md)
 * [將 B2B 共同作業使用者新增至角色](add-guest-to-role.md)
 * [委派 B2B 共同作業邀請](delegate-invitations.md)
 * [動態群組與 B2B 共同作業](use-dynamic-groups.md)
+* [針對 Azure Active Directory B2B 共同作業問題進行疑難排解](troubleshoot.md)

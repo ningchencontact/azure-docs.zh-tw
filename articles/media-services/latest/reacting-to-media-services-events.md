@@ -1,36 +1,45 @@
 ---
 title: 回應 Azure 媒體服務事件 | Microsoft Docs
-description: 使用 Azure 事件格線訂閱媒體服務事件。
+description: 使用 Azure 事件方格訂閱媒體服務事件。
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/19/2018
 ms.author: juliako
-ms.openlocfilehash: 969957d53824bd70440e5529b83bc830bb5d9cc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782687"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465532"
 ---
 # <a name="reacting-to-media-services-events"></a>連線到媒體服務事件
 
-媒體服務事件可讓應用程式利用現代無伺服器架構，針對不同事件做出反應，例如，工作狀態變更事件。 它不需要複雜的程式碼或昂貴且無效率的輪詢服務來執行此動作。 而是改為透過 [Azure 事件格線](https://azure.microsoft.com/services/event-grid/)，將事件推送給事件處理常式，例如 [Azure Functions](https://azure.microsoft.com/services/functions/)、[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)，甚至推送到您自己的Webhook，而且只有使用時，才須支付相關費用。 如需價格的資訊，請參閱[事件格線價格](https://azure.microsoft.com/pricing/details/event-grid/)。
+媒體服務事件可讓應用程式利用現代無伺服器架構，針對不同事件做出反應，例如，工作狀態變更事件。 它不需要複雜的程式碼或昂貴且無效率的輪詢服務來執行此動作。 而是改為透過 [Azure 事件方格](https://azure.microsoft.com/services/event-grid/)，將事件推送給事件處理常式，例如 [Azure Functions](https://azure.microsoft.com/services/functions/)、[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)，甚至推送到您自己的Webhook，而且只有使用時，才須支付相關費用。 如需價格的資訊，請參閱[事件方格價格](https://azure.microsoft.com/pricing/details/event-grid/)。
 
-媒體服務事件的可用性會繫結至事件格線[可用性](../../event-grid/overview.md)，並且將在其他區域中變成可用狀態，就像事件格線所做的一樣。  
+媒體服務事件的可用性會繫結至方格格線[可用性](../../event-grid/overview.md)，並且將在其他區域中變成可用狀態，就像事件方格所做的一樣。  
 
 ## <a name="available-media-services-events"></a>可用的媒體服務事件
 
-Event Grid 使用[事件訂閱](../../event-grid/concepts.md#event-subscriptions)將事件訊息路由至訂閱者。  目前，媒體服務事件訂閱可以包含下列事件類型：  
+Event Grid 使用[事件訂閱](../../event-grid/concepts.md#event-subscriptions)將事件訊息路由至訂閱者。  目前，媒體服務事件訂閱可以包含下列事件：  
 
 |活動名稱|說明|
 |----------|-----------|
 | Microsoft.Media.JobStateChange| 當工作的狀態變更時引發。 |
+| Microsoft.Media.LiveEventConnectionRejected | 編碼器的連線嘗試遭到拒絕。 |
+| Microsoft.Media.LiveEventEncoderConnected | 編碼器對即時事件建立連線。 |
+| Microsoft.Media.LiveEventEncoderDisconnected | 編碼器中斷連線。 |
+| Microsoft.Media.LiveEventIncomingDataChunkDropped | 媒體伺服器卸除資料區塊，原因是其來得太晚或有重疊的時間戳記 (新資料區塊的時間戳記小於先前資料區塊的結束時間)。 |
+| Microsoft.Media.LiveEventIncomingStreamReceived | 媒體伺服器收到資料流或連線中每個資料軌的第一個資料區塊。 |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 媒體伺服器偵測到音訊和視訊資料流未同步。可作為警告，原因是使用者體驗可能不受影響。 |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 媒體伺服器偵測到來自外部編碼器的兩個視訊資料流中，有任一個未同步。可作為警告，原因是使用者體驗可能不受影響。 |
+| Microsoft.Media.LiveEventIngestHeartbeat | 當即時事件執行時，會針對每個資料軌每 20 秒發佈一次。 提供內嵌健康情況摘要。 |
+| Microsoft.Media.LiveEventTrackDiscontinuityDetected | 媒體伺服器偵測到內送的資料軌發生中斷。 |
 
 ## <a name="event-schema"></a>事件結構描述
 

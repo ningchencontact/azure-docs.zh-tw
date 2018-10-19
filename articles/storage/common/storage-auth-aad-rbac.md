@@ -1,6 +1,6 @@
 ---
-title: 使用 RBAC 管理 Azure 儲存體容器和佇列的存取權限 (預覽) | Microsoft Docs
-description: 使用角色型存取控制 (RBA)，將存取 Azure 儲存體資料的權限指派給使用者、群組、應用程式服務主體或受控服務識別。 Azure 儲存體支援讓內建和自訂角色來取得容器和佇列的存取權限。
+title: 使用 RBAC 管理容器和佇列的存取權限 (預覽版) - Azure 儲存體 | Microsoft Docs
+description: 使用角色型存取控制 (RBA)，將存取 Blob 和佇列資料的角色指派給使用者、群組、應用程式服務主體或受控服務識別。 Azure 儲存體支援讓內建和自訂角色來取得容器和佇列的存取權限。
 services: storage
 author: tamram
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298670"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737289"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>使用 RBAC 來管理 Azure 儲存體資料的存取權限 (預覽)
 
 Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)，來授與存取受保護資源的權限。 Azure 儲存體會定義一組內建的 RBAC 角色，其中包含一般用來存取容器或佇列的權限集合。 當 RBAC 角色指派給 Azure AD 身分識別時，該身分識別會根據指定的範圍，獲得存取這些資源的權限。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 您可以使用 Azure 入口網站、Azure 命令列工具或 Azure 管理 API 來指派 Azure 儲存體資源的存取權限。 
 
-Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是「受控服務識別」。 安全性主體可以是使用者、群組或應用程式服務主體。 [受控服務識別](../../active-directory/managed-identities-azure-resources/overview.md)是自動的受控身分識別，用來在 Azure 虛擬機器中執行的應用程式、函式應用程式和虛擬機器擴展集等之中執行驗證。 如需 Azure AD 中的身分識別概觀，請參閱[了解 Azure 身分識別解決方案](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)。
+Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是 Azure 資源的受控識別。 安全性主體可以是使用者、群組或應用程式服務主體。 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)是自動受控識別，用來在 Azure 虛擬機器中執行的應用程式、函式應用程式和虛擬機器擴展集等之中執行驗證。 如需 Azure AD 中的身分識別概觀，請參閱[了解 Azure 身分識別解決方案](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)。
 
-## <a name="rbac-roles-for-azure-storage"></a>Azure 儲存體的 RBAC 角色
+## <a name="rbac-roles-for-blobs-and-queues"></a>適用於 Blob 和佇列的 RBAC 角色
 
-Azure 儲存體支援內建和自訂 RBAC 角色。 Azure 儲存體提供下列可與 Azure AD 搭配使用的內建 RBAC 角色：
+Azure 儲存體支援內建與自訂 RBAC 角色。 Azure 儲存體提供下列可與 Azure AD 搭配使用的內建 RBAC 角色：
 
 - [儲存體 Blob 資料參與者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
 - [儲存體 Blob 資料讀者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)

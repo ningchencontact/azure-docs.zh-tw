@@ -1,25 +1,25 @@
 ---
 title: 遠端監視解決方案架構選擇 - Azure | Microsoft Docs
-description: 本文說明在遠端監視中所做的架構及技術選擇
+description: 此文章說明在遠端監視中所做的架構及技術選擇
 author: timlaverty
 manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 04/30/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6c4bf0e4bf0a6c1a791cf762ec9bb44ed5c0b1bd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09c5981701ffdee5f2e5dba47cc98c91d5df7526
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627683"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603900"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>遠端監視架構選擇
 
 Azure IoT 遠端監視解決方案加速器是具備 MIT 授權的開放原始碼解決方案加速器，其會導入常見的 IoT 情節 (例如裝置連線能力、裝置管理及串流處理)，讓客戶可加速開發程序。  遠端監視解決方案會遵循在[這裡](https://aka.ms/iotrefarchitecture)發行的建議 Azure IoT 參考架構。  
 
-本文描述在適用於遠端監視解決方案的每個子系統中所做的架構及技術選擇，並討論要考量的替代方案。  請務必注意，在遠端監視解決方案中所做的技術選擇不是實作遠端監視 IoT 解決方案的唯一方式。  技術性實作是用於建置成功應用程式的基準，而且應進行修改以符合客戶解決方案實作需要的技能、體驗及垂直應用程式。
+此文章描述在適用於遠端監視解決方案的每個子系統中所做的架構及技術選擇，並討論要考量的替代方案。  請務必注意，在遠端監視解決方案中所做的技術選擇不是實作遠端監視 IoT 解決方案的唯一方式。  技術性實作是用於建置成功應用程式的基準，而且應進行修改以符合客戶解決方案實作需要的技能、體驗及垂直應用程式。
 
 ## <a name="architectural-choices"></a>架構選擇
 
@@ -29,7 +29,7 @@ Azure IoT 遠端監視解決方案加速器是具備 MIT 授權的開放原始�
 
 ## <a name="core-subsystem-technology-choices"></a>核心子系統技術選擇
 
-本節將詳細說明在遠端監視解決方案中針對每個核心子系統所做的技術選擇。
+此節將詳細說明在遠端監視解決方案中針對每個核心子系統所做的技術選擇。
 
 ![核心圖表](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png) 
 
@@ -40,10 +40,13 @@ Azure IoT 中樞可作為遠端監視解決方案雲端閘道。  IoT 中樞提�
 針對串流處理，遠端監視解決方案會使用 Azure 串流分析進行複雜的規則處理。  若客戶想要更簡單的規則，我們也提供自訂微服務來支援簡單規則的處理，即使此設定不屬於既有部署的一部分也一樣。 參考架構建議使用 Azure Functions 進行簡單的規則處理，以及使用 Azure 串流分析 (ASA) 進行複雜的規則處理。  
 
 ### <a name="storage"></a>儲存體
-針對儲存體，Azure Cosmos DB 適用於所有儲存體需求：冷儲存體、暖儲存體、規則儲存體和警示。 我們目前正在移至 Azure Blob 儲存體，如參考架構所建議。  Azure Cosmos DB 是針對 IoT 應用程式所建議的一般用途暖儲存體解決方案，即使 Azure 時間序列深入解析和 Azure Data Lake 等解決方案適用於多個使用案例也一樣。
+針對儲存體，遠端監視解決方案加速器會同時使用 Azure 時間序列深入解析和 Azure Cosmos DB。 Azure 時間序列深入解析會儲存來自您的已連線裝置並經由 IoT 中樞傳輸的訊息。 解決方案加速器會針對其他儲存體使用 Azure Cosmos DB，例如冷儲存體、規則定義、警示和組態設定。 Azure Cosmos DB 是針對 IoT 應用程式所建議的一般用途暖儲存體解決方案，即使 Azure 時間序列深入解析和 Azure Data Lake 等解決方案適用於多個使用案例也一樣。 透過 Azure 時間序列深入解析，您可以識別趨勢和異常狀況來針對時間序列感應器資料獲得更深入的見解，這使您得以分析根本原因，並避免代價高昂的停機時間。 
+
+> [!NOTE]
+> Azure 中國雲端目前不提供時間序列深入解析。 Azure 中國雲端中的新遠端監視解決方案加速器部署將 Cosmos DB 使用於所有的儲存體。
 
 ### <a name="business-integration"></a>商務整合
-遠端監視解決方案中的商務整合僅限於產生警示，其放置於暖儲存體中。 您可以藉由整合解決方案和 Azure Logic Apps，來執行進一步的商務整合。
+遠端監視解決方案中的商務整合僅限於產生警示，其放置於暖儲存體中。 您可以透過整合解決方案和 Azure Logic Apps，來執行進一步的商務整合。
 
 ### <a name="user-interface"></a>使用者介面
 Web UI 是利用 JavaScript React 所建置的。  React 提供業界常用的 Web UI 架構，而且類似於其他常用架構 (例如 Angular)。  

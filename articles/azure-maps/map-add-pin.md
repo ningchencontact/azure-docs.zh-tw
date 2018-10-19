@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0dafb09e1704e8e446b034975f0c25a740050599
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 35b22e28a6a339af6f6f6e8db0655f2ae6de0118
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382579"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122164"
 ---
 # <a name="add-pins-to-the-map"></a>在地圖上新增圖釘
 
-本文說明如何在地圖上新增圖釘。  
+此文章說明如何在地圖上新增圖釘。  
 
 ## <a name="understand-the-code"></a>了解程式碼
 
@@ -27,15 +27,19 @@ ms.locfileid: "43382579"
 
 在上述程式碼中，程式碼的第一個區塊會建構對應物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-程式碼的第二個區塊會建立圖釘並將其新增至地圖上。 圖釘是 [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 的一項[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest)，會以 [PinProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/models.pinproperties?view=azure-iot-typescript-latest) 作為其功能屬性。 使用 `new atlas.data.Feature(new atlas.data.Point())` 建立圖釘，並定義其屬性。 圖釘圖層是圖釘的陣列。 使用地圖類別的 [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins) 函式，在地圖中新增圖釘圖層並定義圖釘圖層的屬性。 請在 [PinLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.pinlayeroptions?view=azure-iot-typescript-latest) 查看圖釘圖層的屬性。 
+程式碼的第二個區塊會建立圖釘並將其新增至地圖上。 圖釘是 [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 的一個[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest)，會以 [PinProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/models.pinproperties?view=azure-iot-typescript-latest) 作為其功能屬性。 使用 `new atlas.data.Feature(new atlas.data.Point())` 建立圖釘，並定義其屬性。 圖釘圖層是圖釘的陣列。 使用地圖類別的 [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins) 函式，在地圖中新增圖釘圖層並定義圖釘圖層的屬性。 請在 [PinLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.pinlayeroptions?view=azure-iot-typescript-latest) 查看圖釘圖層的屬性。
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解本文使用的類別和方法： 
-* [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
-    
-如需更多可新增至地圖的程式碼範例，請參閱下列文章： 
-* [新增快顯](./map-add-popup.md)
-* [新增圖形](./map-add-shape.md)
+深入了解此文章使用的類別和方法：
 
+> [!div class="nextstepaction"]
+> [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+請參閱下列文章，以取得更多可新增至地圖的程式碼範例：
+
+> [!div class="nextstepaction"]
+> [新增快顯](./map-add-popup.md)
+
+> [!div class="nextstepaction"]
+> [新增圖形](./map-add-shape.md)

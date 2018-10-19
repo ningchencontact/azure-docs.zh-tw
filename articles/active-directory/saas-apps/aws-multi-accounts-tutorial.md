@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 55a271e49977feb6d8e5c188f1724b66db4cb4f5
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a7d77df4d6be1572d2076684cfa4702cb32b5ed6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141281"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>教學課程：Azure Active Directory 與多個 Amazon Web Services (AWS) 帳戶整合
 
@@ -317,6 +317,9 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 27. 群組建立後，請選取群組並指派給應用程式。
 
     ![設定單一登入的新增](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+
+> [!Note]
+> 指派群組時，不支援巢狀群組。
 
 28. 若要將角色指派給群組，請選取角色，然後按一下頁面底部的 [指派] 按鈕。
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 6c288e4492ac56436d40d1e3db98af8eb7b173c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436313"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391873"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 來授權開發人員帳戶
 
@@ -63,7 +63,7 @@ ms.locfileid: "39436313"
     [建立] 窗格會出現在右邊。 您可以在這裡輸入 Azure AD 應用程式的相關資訊。
 1. 輸入應用程式的名稱。
 1. 選取 [Web 應用程式/API] 作為應用程式類型。
-1. 輸入開發人員入口網站的登入 URL 作為登入 URL。 在此範例中，登入 URL 為 https://apimwithaad.portal.azure-api.net/signin。
+1. 輸入開發人員入口網站的登入 URL 作為登入 URL。 在此範例中，登入 URL 為 `https://apimwithaad.portal.azure-api.net/signin`。
 1. 選取 [建立] 來建立應用程式。
 1. 若要尋找您的應用程式，請選取 [應用程式註冊] 並依名稱搜尋。
 
@@ -79,7 +79,10 @@ ms.locfileid: "39436313"
 
     ![權限的核取方塊](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. 選取 [授與權限] 同意應用程式權限。
+
     如需應用程式權限和委派權限的詳細資訊，請參閱[存取 Graph API][Accessing the Graph API]。
+    
 1. 在左側窗格中，複製 [應用程式識別碼] 值。
 
     ![「應用程式識別碼」的值](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ ms.locfileid: "39436313"
     > 記下此金鑰。 關閉 Azure AD 設定窗格之後，即無法再次顯示金鑰。
     > 
     > 
+
 1. 切換回您的 API 管理應用程式。 
 
     在 [新增識別提供者] 視窗中，將金鑰貼入 [用戶端密碼] 文字方塊。
@@ -106,6 +110,7 @@ ms.locfileid: "39436313"
     > 請務必在金鑰到期之前，更新 [用戶端密碼]。 
     >  
     >
+
 1. [新增識別提供者] 視窗也包含 [允許的租用戶] 文字方塊。 請在該處指定 Azure AD 執行個體的網域，您將會對它授與 API 管理服務執行個體的 API 存取權。 您可以使用換行符號、空格或逗號來分隔多個網域。
 
     您可以在 [允許的租用戶] 區段中指定多個網域。 在使用者可透過與註冊應用程式之原始網域不同的網域登入前，不同網域的全域管理員必須授與權限，應用程式才能存取目錄資料。 若要授與權限，全域管理員應：
