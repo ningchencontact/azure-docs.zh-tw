@@ -104,6 +104,14 @@ items:
     href: prepare-transcription.md
   - name: 使用自訂的音訊串流
     href: how-to-use-audio-input-streams.md
+  - name: 移轉
+    items:
+    - name: 從 Bing 語音
+      href: how-to-migrate-from-bing-speech.md
+    - name: 從自訂語音服務
+      href: how-to-migrate-from-custom-speech-service.md
+    - name: 從翻譯工具語音 API
+      href: how-to-migrate-from-translator-speech-api.md
 - name: 概念
   items:
   - name: 語音轉換文字
@@ -117,7 +125,7 @@ items:
     href: speech-translation.md
 - name: 參考
   items:
-  - name: Powershell
+  - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
@@ -127,6 +135,8 @@ items:
     href: regions.md
   - name: REST API
     href: rest-apis.md
+  - name: Swagger 參考
+    href: https://westus.cris.ai/swagger/ui/index
   - name: 語音 SDK API
     displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
     href: speech-sdk-reference.md
@@ -178,19 +188,19 @@ items:
     - name: 協力廠商通知
       displayName: roobo, speech devices sdk
       href: devices-sdk-third-party-notices.md
-  - name: 疑難排解
+  - name: 針對語音 SDK 進行疑難排解
     href: troubleshooting.md
   - name: 支援
     href: support.md
-  - name: 價格
+  - name: 價格和限制
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Azure 藍圖
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: 隱私權與 Cookie
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 4398c418d42bb2585d9f7e12a2e9e0685fe6dd0b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 8ed6eb35bf8b3fcd8c6c2b30be2bb8281176b8b2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017999"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407991"
