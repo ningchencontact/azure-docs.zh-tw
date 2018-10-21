@@ -110,13 +110,13 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
     using Newtonsoft.Json;                // For JsonConvert
     ```
 
-6. 將 **temperatureThreshold** 變數新增至 [程式] 類別。 此變數會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。 
+6. 將 **temperatureThreshold** 變數新增至 [Program] 類別。 此變數會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-7. 將 [MessageBody]、[Machine] 和 [Ambient] 類別新增至 [程式] 類別。 這些類別會定義內送郵件本文的預期結構描述。
+7. 將 [MessageBody]、[Machine] 和 [Ambient] 類別新增至 [Program] 類別。 這些類別會定義內送郵件本文的預期結構描述。
 
     ```csharp
     class MessageBody
@@ -159,7 +159,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-9. 將 **onDesiredPropertiesUpdate** 方法新增至 [程式] 類別。 此方法會從模組對應項接收所需的屬性，並會更新 **temperatureThreshold** 變數以符合該屬性。 所有模組都具有自己的模組對應項，這可讓您直接從雲端設定於模組內執行的程式碼。
+9. 將 **onDesiredPropertiesUpdate** 方法新增至 [Program] 類別。 此方法會從模組對應項接收所需的屬性，並會更新 **temperatureThreshold** 變數以符合該屬性。 所有模組都具有自己的模組對應項，這可讓您直接從雲端設定於模組內執行的程式碼。
 
     ```csharp
     static Task OnDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
