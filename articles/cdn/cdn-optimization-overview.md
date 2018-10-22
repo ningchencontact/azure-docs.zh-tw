@@ -93,7 +93,7 @@ Microsoft 建議您測試不同提供者之間的效能變化，以選取最佳�
 
 Azure 媒體服務的客戶經常發生此狀況。 當您使用 Azure 媒體服務時，您會取得一個單一串流端點，可用於即時和隨選資料流處理。 有了這個案例，客戶就不需要在從即時變更為隨選資料流處理時，切換到另一個端點。 一般媒體串流處理最佳化支援這種情況。
 
-如**來自 Microsoft 的標準 Azure CDN****來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN**，使用一般 Web 傳遞最佳化類型，以提供一般串流媒體內容。
+如**來自 Microsoft 的標準 Azure CDN** **來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN**，使用一般 Web 傳遞最佳化類型，以提供一般串流媒體內容。
 
 如需媒體串流處理最佳化的詳細資訊，請參閱[媒體串流處理最佳化](cdn-media-streaming-optimization.md)。
 
