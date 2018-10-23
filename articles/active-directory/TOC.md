@@ -244,7 +244,6 @@
 
 #### 條件式存取
 ##### [客戶不符合裝置註冊預先要求](active-directory-conditional-access.md)
-##### [由於條件式存取原則設定不正確，因此封鎖租用戶。](active-directory-conditional-access-device-remediation.md)
 ##### [離線的公司網路規則會在何時生效，以及如何生效？](https://aka.ms/calocation)
 ##### [如何增加使用者允許在 Azure AD 中註冊的裝置數目？](active-directory-azureadjoin-setup.md)
 ##### [如何設定 Exchange Online 的條件式存取？](https://aka.ms/csforexchange)

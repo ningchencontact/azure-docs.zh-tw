@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f52c6be81f63e0481cd087ba6f5ff9502d450a7b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 3e73ed1e774b2054cc403598c227b48fc6c99c21
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376229"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645485"
 documentType: LandingData
 title: Azure 監視器文件
 metadata:
@@ -91,8 +91,8 @@ sections:
     items:
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">檢視或分析所收集的資料</a>
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">建立和共用儀表板</a>
-    - html: <a href="monitor-tutorial-autoscale-performance-schedule">根據排程或應用程式效能自動調整規模</a>
-    - html: <a href="monitor-tutorial-archive-monitoring-data">封存監視資料</a>
+    - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule">根據排程或應用程式效能自動調整規模</a>
+    - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data">封存監視資料</a>
   - type: paragraph
     text: 了解如何持續改善 Web 應用程式的效能和使用狀況。
   - type: list

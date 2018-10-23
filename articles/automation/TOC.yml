@@ -26,7 +26,7 @@ items:
     href: automation-tutorial-installed-software.md
   - name: 針對虛擬機器上變更雜行疑難排解
     href: automation-tutorial-troubleshoot-changes.md
-- name: 作法
+- name: 使用說明指南
   items:
   - name: 登入
     items:
@@ -95,7 +95,9 @@ items:
     - name: Runbook 輸出
       href: automation-runbook-output-and-messages.md
     - name: 原始檔控制整合
-      href: automation-source-control-integration.md
+      href: source-control-integration.md
+    - name: 原始檔控制整合 - 舊版
+      href: automation-source-control-integration-legacy.md
     - name: 使用圖形化 Runbook SDK 建立 Runbook
       href: graphical-runbook-sdk.md
   - name: 自動化
@@ -186,24 +188,24 @@ items:
     items:
     - name: 將 Azure 自動化作業資料轉送到 Log Analytics
       href: automation-manage-send-joblogs-log-analytics.md
-    - name: 從 Log Analytics 取消 Azure 自動化帳戶連結
-      href: automation-unlink-from-log-analytics.md
   - name: 移轉
     items:
     - name: 從 Orchestrator 移轉
       href: automation-orchestrator-migration.md
-  - name: 疑難排解
-    items:
-    - name: 登入
-      href: troubleshoot/onboarding.md
-    - name: Runbook
-      href: troubleshoot/runbooks.md
-    - name: 期望狀態設定 (DSC)
-      href: troubleshoot/desired-state-configuration.md
-    - name: Hybrid Runbook Worker
-      href: troubleshoot/hybrid-runbook-worker.md
-    - name: 更新管理
-      href: troubleshoot/update-management.md
+- name: 疑難排解
+  items:
+  - name: 登入
+    href: troubleshoot/onboarding.md
+  - name: Runbook
+    href: troubleshoot/runbooks.md
+  - name: 狀態組態 (DSC)
+    href: troubleshoot/desired-state-configuration.md
+  - name: Hybrid Runbook Worker
+    href: troubleshoot/hybrid-runbook-worker.md
+  - name: 更新管理
+    href: troubleshoot/update-management.md
+  - name: 針對更新代理程式問題進行疑難排解
+    href: troubleshoot/update-agent-issues.md
 - name: 參考
   items:
   - name: Azure PowerShell
@@ -236,9 +238,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: 4aee3acac6fa1446a186187048a2fe7dc8f3f530
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 37f9efb0c82a9ccefab1b492d45b9060a1a9312e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498669"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645417"

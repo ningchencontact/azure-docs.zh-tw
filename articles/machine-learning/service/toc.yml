@@ -4,6 +4,7 @@ items:
 - name: 概觀
   items:
   - name: 什麼是 Azure Machine Learning 服務？
+    displayName: AML, services
     href: overview-what-is-azure-ml.md
   - name: Workbench 的現況為何？
     href: overview-what-happened-to-workbench.md
@@ -25,10 +26,12 @@ items:
 - name: 範例
   items:
   - name: Jupyter Notebook (GitHub)
+    displayName: example, examples
     href: http://aka.ms/aml-notebooks
 - name: 概念
   items:
   - name: 服務 的運作方式
+    displayName: architecture
     href: concept-azure-machine-learning-architecture.md
   - name: 模型管理
     href: concept-model-management-and-deployment.md
@@ -43,6 +46,7 @@ items:
   - name: '設定開發環境 '
     items:
     - name: 選擇環境
+      displayName: local, remote
       href: how-to-choose-a-dev-environment.md
     - name: 設定環境
       href: how-to-configure-environment.md
@@ -53,6 +57,7 @@ items:
       - name: 定型與部署
         href: how-to-vscode-train-deploy.md
   - name: 準備資料
+    displayName: data prep, etl, elt
     href: how-to-data-prep.md
     items:
     - name: 載入資料
@@ -89,7 +94,7 @@ items:
       href: how-to-auto-train-remote.md
   - name: ONNX 模型
     items:
-    - name: 建立和部署 ONNX 模型
+    - name: 建立和部署
       href: how-to-build-deploy-onnx.md
   - name: 部署模型
     items:
@@ -115,8 +120,6 @@ items:
       href: how-to-enable-app-insights.md
   - name: 管理資源配額
     href: how-to-manage-quotas.md
-  - name: 匯出及刪除資料
-    href: how-to-export-delete-data.md
 - name: 參考
   items:
   - name: 機器學習 SDK
@@ -133,18 +136,21 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: 區域可用性
     href: https://azure.microsoft.com/regions/services/
-  - name: 匯出或刪除帳戶資料
-    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: 版本資訊
     href: azure-machine-learning-release-notes.md
   - name: 已知問題
     href: resource-known-issues.md
   - name: 取得支援
     href: support-for-aml-services.md
+  - name: 匯出及刪除資料
+    href: how-to-export-delete-data.md
   - name: 已被取代的文件
     items:
     - name: 如何移轉
+      displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md
+    - name: 匯出或刪除帳戶資料 (已取代)
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Workbench 快速入門
       href: ../desktop-workbench/quickstart-installation.md
     - name: 教學課程 1：準備資料
@@ -238,7 +244,7 @@ items:
         href: ../desktop-workbench/how-to-use-model-data-collection.md
       - name: 部署疑難排解指南
         href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: 真實操作說明
+    - name: 之前的範例
       items:
       - name: 文件集合分析
         href: ../desktop-workbench/scenario-document-collection-analysis.md
@@ -266,7 +272,7 @@ items:
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
       - name: 深入學習預測性維護
         href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: 參考
+    - name: 之前的參考
       items:
       - name: 資料準備的 Python 擴充功能
         href: ../desktop-workbench/data-prep-python-extensibility-overview.md
@@ -304,7 +310,7 @@ items:
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: 模型資料收集 API
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: 重要概念
+    - name: 之前的概念
       href: ../desktop-workbench/overview-general-concepts.md
     - name: 網域套件
       href: ../desktop-workbench/reference-python-package-overview.md
@@ -341,9 +347,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 舊的問題
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: e408b78c66ddbd809d36c4aa8451b53031ba4d5a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 56a72b437397c65777c5fd0955c5257d60f3a6a4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428261"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649239"
