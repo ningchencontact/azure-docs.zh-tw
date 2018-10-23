@@ -96,8 +96,8 @@ ms.locfileid: "47391916"
 
 1. 現在，建立[路由表](../virtual-network/manage-route-table.md)，您會將其與稍早建立的閘道子網路建立關聯。
 
-   1. 在 Azure 主功能表上，選取 [建立資源]**** > 
-   [網路]**** > [路由表]****。
+   1. 在 Azure 主功能表上，選取 **[建立資源]** > 
+    **[網路]** > **[路由表]**。
 
       ![建立路由表](./media/connect-virtual-network-vnet-isolated-environment/create-route-table.png)
 
