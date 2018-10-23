@@ -25,7 +25,7 @@ ms.locfileid: "42918737"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
-您可以使用 Azure Load Balancer 調整您的應用程式，並為您的服務建立高可用性。 對於所有 TCP 和 UDP 應用程式，Load Balancer 可支援傳入和傳出場景、提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。  
+您可以使用 Azure Load Balancer 調整您的應用程式，並為您的服務建立高可用性。 對於所有 TCP 和 UDP 應用程式，Load Balancer 可支援傳入和傳出的場合、提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。
 
 Load Balancer 會根據規則和健康情況探查，將抵達 Load Balancer 前端的新輸入流程，分送給各個後端集區執行個體。 
 
