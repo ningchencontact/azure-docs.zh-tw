@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 967e978518debb5aef071807b1482d6f225c062f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 82e051895bd5ba8542fa32aa147b050a25c43c84
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367707"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318385"
 ---
 # <a name="quickstart-get-supported-languages-with-c35"></a>快速入門：使用 C# 取得支援的語言
 
-在本快速入門中，您可以取得使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
-
-您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 上找到此範例的原始程式碼。
+在本快速入門中，您可以取得使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單及範例。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,7 +29,10 @@ ms.locfileid: "46367707"
 
 ## <a name="languages-request"></a>Languages 要求
 
-下列程式碼會使用 [Languages](./reference/v3-0-languages.md) 方法取得在翻譯、音譯及查詢字典時，所支援的語言清單與範例。
+> [!TIP]
+> 從 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 取得最新程式碼。
+
+下列程式碼會使用 [Languages](./reference/v3-0-languages.md) 方法取得在翻譯、音譯及查詢字典時，所支援的語言清單及範例。
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。

@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038284"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309455"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>教學課程：自訂 Azure IoT 中心操作員的檢視
 
-此教學課程將為建置者說明如何自訂應用程式的操作員檢視。 當您以建置者的身分對應用程式進行變更時，您可以在 Microsoft Azure IoT Central 應用程式中預覽操作員的檢視。
+本教學課程將為建置者說明如何自訂應用程式的操作員檢視。 當您以建置者的身分對應用程式進行變更時，您可以在 Microsoft Azure IoT Central 應用程式中預覽操作員的檢視。
 
-在此教學課程中，您會自訂應用程式，以對操作員顯示與連線的空調裝置有關的資訊。 您的自訂將使操作員能夠管理已連線至應用程式的空調裝置。
+在本教學課程中，您會自訂應用程式，以對操作員顯示與連線的空調裝置有關的資訊。 您的自訂將使操作員能夠管理已連線至應用程式的空調裝置。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 設定裝置儀表板
@@ -31,7 +31,7 @@ ms.locfileid: "47038284"
 > * 設定預設首頁
 > * 以操作員的身分預覽預設首頁
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在開始之前，您應先完成兩個先前的教學課程：
 
@@ -56,7 +56,7 @@ ms.locfileid: "47038284"
 
     ![裝置範本儀表板頁面](media/tutorial-customize-operator/dashboard.png)
 
-4. 若要將 KPI 圖格新增至儀表板，請選擇 [KPI]：
+4. 若要將關鍵效能指標 (KPI) 圖格新增至儀表板，請選擇 [KPI]：
 
     ![新增 KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "47038284"
 
 ## <a name="configure-your-settings-layout"></a>設定「設定」版面配置
 
-身為建置者，您也可以設定裝置設定的操作員檢視。 操作員可以使用裝置設定頁面來設定裝置。 例如，操作員可使用設定頁面來設定冰箱的目標溫度。
+身為建置者，您也可以設定裝置設定的操作員檢視。 操作員可以使用裝置設定頁面來設定裝置。 例如，操作員可使用設定頁面來設定連線空調的目標溫度。
 
 1. 若要為連線的空調編輯設定版面配置，請選擇 [設定]，然後選取 [編輯範本]：
 
@@ -117,7 +117,7 @@ ms.locfileid: "47038284"
 
 在 [編輯範本] 模式中，您可以為操作員自訂儀表板、設定與屬性頁面。 如果您並非處於 [編輯範本] 模式，您能以操作員的身分檢視應用程式。
 
-1. 若要以操作員身分檢視連線的空調裝置，您必須按一下 [完成] 以停止編輯範本。 這將會帶您返回裝置的操作員檢視。
+1. 若要以操作員身分檢視連線的空調裝置，請按一下 [完成] 以停止編輯範本，然後返回裝置的操作員檢視。
 
 2. 若要更新此裝置的位置，請編輯 [位置] 圖格中的值，然後選擇 [儲存]：
 
@@ -164,7 +164,7 @@ ms.locfileid: "47038284"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何自訂應用程式的操作員檢視。
+在本教學課程中，您已了解如何自訂應用程式的操作員檢視。
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]

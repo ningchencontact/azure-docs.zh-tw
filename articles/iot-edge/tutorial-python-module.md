@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0a32f925aa1ff4066a893fb107f4d785bd1fd8f8
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 1316dcaf32b709dbc7c07f7d82388082d8d6e6a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423556"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319637"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Python IoT Edge 模組並部署到您的模擬裝置
 
@@ -41,7 +41,7 @@ Azure IoT Edge 裝置：
 
 雲端資源：
 
-* Azure 中的免費層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
 
 開發資源：
 
@@ -82,7 +82,7 @@ Azure IoT Edge 裝置：
     pip install --upgrade --user cookiecutter
     ```
    >[!Note]
-   >請確定將用來安裝 cookiecutter 的目錄位於環境的 `Path` 中，如此才能從命令提示字元加以叫用。
+   >請確定將用來安裝 cookiecutter 的目錄位於環境的 `Path` 中，如此才能從命令提示字元加以叫用。 在一般情況下，在 Windows 中請新增 `%APPDATA%\Python\PythonVersion\Scripts`，此處包含您的 Python 版本，而不是 PythonVersion。
 
 3. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
 
@@ -236,6 +236,16 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 6. 按一下 [重新整理] 按鈕。 您應該會看到新的 **PythonModule** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 
 
 ## <a name="view-generated-data"></a>檢視產生的資料
+
+在您將部署資訊清單套用至 IoT Edge 裝置後，裝置的 IoT Edge 執行階段即會收集新的部署資訊，並開始在裝置上執行。 裝置上任何執行中、但未包含在部署資訊清單中的模組都會停止。 裝置中遺漏的任何模組都會啟動。 
+
+您可以使用 Visual Studio Code 總管的 [Azure IoT 中樞裝置] 區段，檢視 IoT Edge 裝置的狀態。 請展開裝置的詳細資料，以查看已部署且執行中的模組清單。 
+
+在 IoT Edge 裝置本身之中，您可以使用 `iotedge list` 命令查看部署模組的狀態。 您應該會看到四個模組：兩個 IoT Edge 執行階段模組、tempSensor 和您在本教學課程中建立的自訂模組。 啟動所有模組可能需要幾分鐘的時間，因此若您一開始未看到所有模組，請重新執行命令。 
+
+若要檢視任何模組所產生的訊息，請使用 `iotedge logs <module name>` 命令。 
+
+您可以在訊息送達 IoT 中樞時使用 Visual Studio Code 加以檢視。 
 
 1. 若要監視抵達 IoT 中樞的資料，請選取省略符號 (**...**)，然後選取 [開始監視 D2C 訊息]。
 2. 若要監視特定裝置的 D2C 訊息，請以滑鼠右鍵按一下清單中的裝置，然後選取 [開始監視 D2C 訊息]。

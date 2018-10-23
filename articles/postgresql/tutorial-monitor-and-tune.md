@@ -7,16 +7,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393582"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379139"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>教學課程：針對適用於 PostgreSQL 的 Azure 資料庫進行監視和微調
 
-適用於 PostgreSQL 的 Azure 資料庫具有能協助您了解並改善伺服器效能的功能。 在此教學課程中，您將了解如何：
+適用於 PostgreSQL 的 Azure 資料庫具有能協助您了解並改善伺服器效能的功能。 在本教學課程中，您將了解如何：
 > [!div class="checklist"]
 > * 啟用查詢及等候統計資料的收集
 > * 存取並運用所收集的資料
@@ -28,7 +28,7 @@ ms.locfileid: "47393582"
 您需要有 PostgreSQL 9.6 版或 10 版的適用於 PostgreSQL 的 Azure 資料庫伺服器。 您可以依照[建立教學課程](tutorial-design-database-using-azure-portal.md)中的步驟來建立伺服器。
 
 > [!IMPORTANT]
-> **查詢存放區**、**查詢效能深入解析**，以及**效能建議**在幾個特定區域中處於公開預覽狀態。
+> **查詢存放區**、**查詢效能深入解析**以及**效能建議**都處於公開預覽狀態。
 
 ## <a name="enabling-data-collection"></a>啟用資料收集
 [查詢存放區](concepts-query-store.md)能擷取伺服器上查詢及等候統計資料的歷程記錄，並將其儲存在您伺服器上的 **azure_sys** 資料庫中。 它是選擇加入的功能。 若要啟用它：

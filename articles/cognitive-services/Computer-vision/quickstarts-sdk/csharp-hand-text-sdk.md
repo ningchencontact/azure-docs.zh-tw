@@ -3,25 +3,23 @@ title: 快速入門：擷取文字 - SDK、C# - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您會使用電腦視覺 Windows C# 用戶端程式庫，擷取影像中的文字。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.author: nolachar
-ms.openlocfilehash: 86808756721b2dc983df6eaf8a9e643a12d73969
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: pafarley
+ms.openlocfilehash: d819aee7c42759e2427e27e0f640d79536069ccb
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409006"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343600"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>快速入門：使用電腦視覺 SDK 和 C# 擷取文字
 
 在本快速入門中，您會使用電腦視覺 Windows 用戶端程式庫，擷取影像中的手寫或列印文字。
-
-此範例的原始程式碼位於 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,6 +28,9 @@ ms.locfileid: "47409006"
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) (英文) 用戶端程式庫 NuGet 套件。 您不必下載此套件。 下面會提供安裝指示。
 
 ## <a name="recognizetextasync-method"></a>RecognizeTextAsync 方法
+
+> [!TIP]
+> 從 [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 取得最新程式碼作為 Visual Studio 解決方案。
 
 `RecognizeTextAsync` 和 `RecognizeTextInStreamAsync` 方法可分別針對遠端和本機影像包裝[辨識文字 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (英文)。 `GetTextOperationResultAsync` 方法會包裝[取得辨識文字作業結果 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (英文)。  您可以使用這些方法來偵測影像中的文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 

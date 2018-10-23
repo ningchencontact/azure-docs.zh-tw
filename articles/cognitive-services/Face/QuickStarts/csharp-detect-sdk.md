@@ -3,25 +3,23 @@ title: 快速入門：偵測影像中的人臉 - SDK、C#
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用認知服務的臉部 Windows C# 用戶端程式庫，偵測影像中的臉部。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: a9a7efd89f8e7462812064615d07acf12acbc3a3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.author: pafarley
+ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364091"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344977"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>快速入門：使用 C&#35; 偵測影像中的臉部 - 臉部
 
 在此快速入門中，您會使用臉部 Windows 用戶端程式庫來偵測影像中的人臉。
-
-此範例的原始程式碼位於 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,6 +28,9 @@ ms.locfileid: "46364091"
 * [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) 用戶端程式庫 NuGet 套件。 您不必下載此套件。 下面會提供安裝指示。
 
 ## <a name="detectwithurlasync-method"></a>DetectWithUrlAsync 方法
+
+> [!TIP]
+> 從 [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) 取得最新程式碼作為 Visual Studio 解決方案。
 
 `DetectWithUrlAsync` 與 `DetectWithStreamAsync` 方法可分別針對遠端與本機影像包裝[臉部 - 偵測 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) \(英文\)。 您可以使用這些方法，偵測影像中的人臉並傳回臉部屬性，包括：
 
@@ -47,7 +48,7 @@ ms.locfileid: "46364091"
     1. 在 [搜尋] 方塊中，輸入 "Microsoft.Azure.CognitiveServices.Vision.Face"。
     1. 顯示時選取 **Microsoft.Azure.CognitiveServices.Vision.Face**，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
 1. 以下列程式碼取代 *Program.cs*。
-1. 將 `<Subscription Key>` 取代成您的有效訂用帳戶金鑰。
+1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
 1. 必要時，請將 `faceEndpoint` 變更為與您的訂用帳戶金鑰相關聯的 Azure 區域。
 1. (選擇性) 使用本機影像的路徑與檔案名稱來取代 <`LocalImage>` (若未設定則會忽略)。
 1. (選擇性) 將 `remoteImageUrl` 設為不同的影像。

@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6dc10bc2dedfe99573b5ad646461e66827c6df9e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816764"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320164"
 ---
 # <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>快速入門：使用以 C# 撰寫的 Bing 自訂搜尋 SDK
 
@@ -42,6 +42,9 @@ Bing 自訂搜尋 SDK 會提供比 Bing 自訂搜尋 REST API 更簡單的程式
 
 
 ## <a name="run-the-code"></a>執行程式碼
+
+> [!TIP]
+> 從 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch) 取得最新程式碼作為 Visual Studio 解決方案。
 
 若要執行此範例，請遵循下列步驟：
 

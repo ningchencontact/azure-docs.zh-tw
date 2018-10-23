@@ -8,15 +8,15 @@ manager: timlt
 editor: ''
 ms.service: service-bus-messaging
 ms.topic: overview
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: a291d4d7ecafde366a20b7e7f1f12a95303da90d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697613"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342202"
 ---
 # <a name="what-is-azure-service-bus"></a>什麼是 Azure 服務匯流排？
 
@@ -95,9 +95,9 @@ Microsoft Azure 服務匯流排是完全受控的企業整合訊息代理程式�
 
 如果發生錯誤而導致用戶端對於傳送作業結果有疑慮，[重複偵測](duplicate-detection.md)能透過讓寄件者重新傳送同樣的訊息，將這些情況下的疑慮排除，而佇列或主題則會捨棄任何重複的複本。
 
-### <a name="sas-rbac-and-msi"></a>SAS、RBAC 和 MSI
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS、RBAC 和 Azure 資源的受控識別
 
-服務匯流排支援安全性通訊協定，例如[共用存取簽章](service-bus-sas.md) (SAS)、[角色型存取控制](service-bus-role-based-access-control.md) (RBAC) 和[受控服務識別](service-bus-managed-service-identity.md) (MSI)。
+服務匯流排支援安全性通訊協定，例如[共用存取簽章](service-bus-sas.md) (SAS)、[角色型存取控制](service-bus-role-based-access-control.md) (RBAC) 和[Azure 資源的受控識別](service-bus-managed-service-identity.md)。
 
 ### <a name="geo-disaster-recovery"></a>異地災害復原
 

@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/27/2018
 ms.author: wesmc
-ms.openlocfilehash: 77b76ac5b30c4f5f647c532dbc5db68b396b3d20
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3fa4c536313375ed88f6f0223218a663d4be3eb3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636136"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364762"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (C)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT 中樞是一個 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷取到雲端進行儲存或處理。 在此快速入門中，您透過 IoT 中樞，將遙測從模擬裝置應用程式傳送到後端應用程式以進行處理。
+IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷取到雲端進行儲存或處理。 在此快速入門中，您透過 IoT 中樞，將遙測從模擬裝置應用程式傳送到後端應用程式以進行處理。
 
 此快速入門使用來自[適用於 C 的 Azure IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md) 的 C 範例應用程式來將遙測資料傳送到 IoT 中樞。 Azure IoT 裝置 SDK 是針對可攜性與廣泛的平台相容性以 [ANSI C (C99)](https://wikipedia.org/wiki/C99) 所撰寫。 執行範例應用程式之前，您將先建立 IoT 中樞並向該中樞註冊模擬裝置。
 
@@ -118,25 +118,32 @@ IoT 中樞是一個 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 ## <a name="register-a-device"></a>註冊裝置
 
-裝置必須向的 IoT 中樞註冊，才能進行連線。 在此節中，您將會使用 Azure CLI 搭配 [IoT 延伸模組](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) \(英文\) 來註冊模擬裝置。
+裝置必須向的 IoT 中樞註冊，才能進行連線。 在此節中，您將會使用 Azure Cloud Shell 搭配 [IoT 擴充功能](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)來註冊模擬裝置。
 
-1. 新增 IoT 中樞 CLI 擴充功能，並建立裝置身分識別。 使用您為 IoT 中樞所選擇的名稱來取代 `{YourIoTHubName}`：
+1. 在 Azure Cloud Shell 中執行下列命令，以新增 IoT 中樞 CLI 擴充功能和建立裝置身分識別。 
+
+   **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
+
+   **MyCDevice**：這是為已註冊裝置指定的名稱。 使用所示的 MyCDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyCDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
     ```
 
-    如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
+2. 在 Azure Cloud Shell 中執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 
-2. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
+   **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
     ```
 
-    記下裝置連接字串，它看似 `Hostname=...=`。 您稍後會在快速入門中使用此值。
+    記下裝置連接字串，它看起來如下：
 
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    您稍後會在快速入門中使用此值。
 
 ## <a name="send-simulated-telemetry"></a>傳送模擬的遙測
 
@@ -156,19 +163,19 @@ IoT 中樞是一個 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
     ```
     使用先前所記錄的裝置連接字串來取代 `connectionString` 常數的值。 接著，將您的變更儲存到 **iothub_convenience_sample.c**。
 
-3. 在終端機視窗中，瀏覽到您在 Azure IoT SDK 中建立之 CMake 目錄中的 *iothub_convenience_sample* 專案目錄。
+3. 在本機終端機視窗中，瀏覽到您在 Azure IoT SDK 中建立之 CMake 目錄中的 *iothub_convenience_sample* 專案目錄。
 
     ```
     cd /azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
     ```
 
-4. 使用下列命令列執行 CMake，以使用已更新的 `connectionString` 值建置範例：
+4. 在本機終端機視窗中執行 CMake，以使用已更新的 `connectionString` 值建置範例：
 
     ```cmd/sh
     cmake --build . --target iothub_convenience_sample --config Debug
     ```
 
-5. 在命令提示字元中，執行下列命令以執行模擬裝置應用程式：
+5. 在本機終端機視窗中，執行下列命令以執行模擬裝置應用程式：
 
     ```cmd/sh
     Debug\iothub_convenience_sample.exe
@@ -176,17 +183,19 @@ IoT 中樞是一個 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
     下列螢幕擷取畫面顯示模擬裝置應用程式將遙測傳送到 IoT 中樞時的輸出：
 
-    ![執行模擬裝置](media/quickstart-send-telemetry-c/simulated-device-app.png)
+    ![執行模擬的裝置](media/quickstart-send-telemetry-c/simulated-device-app.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>從您的中樞讀取遙測
 
 
-在此節中，您將使用 Azure CLI 搭配 [IoT 延伸模組](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) \(英文\) 來監視由模擬裝置傳送的裝置訊息。
+在此節中，您將使用 Azure Cloud Shell 搭配 [IoT 擴充功能](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)來監視由模擬裝置傳送的裝置訊息。
 
-1. 使用 Azure CLI，執行下列命令以連線到您的 IoT 中樞並讀取訊息：
+1. 使用 Azure Cloud Shell，執行下列命令以連線到您的 IoT 中樞並讀取訊息：
+
+   **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
 
     ![使用 Azure CLI 來閱讀裝置訊息](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
@@ -199,7 +208,7 @@ IoT 中樞是一個 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您已經設定 IoT 中樞、註冊裝置、使用 C 應用程式將模擬的遙測傳送到中樞，並使用 Azure CLI 從中樞讀取遙測。
+在此快速入門中，您已經設定 IoT 中樞、註冊裝置、使用 C 應用程式將模擬的遙測傳送到中樞，並使用 Azure Cloud Shell 從中樞讀取遙測。
 
 若要深入了解如何搭配 Azure IoT Hub C SDK 進行開發，請繼續閱讀下列操作指南：
 

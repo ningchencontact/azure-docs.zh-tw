@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 4569a580dfdad3a71201e607ae5b7895d0d01099
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 699c4b775f2c5745a5b52593d44a0af408c5e73a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364341"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319592"
 ---
 # <a name="quickstart-get-sentence-lengths-with-c35"></a>快速入門：使用 C# 取得句子長度
 
 在本快速入門中，您可以使用翻譯工具文字 API，了解文字中句子的長度。
-
-您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,6 +28,9 @@ ms.locfileid: "46364341"
 若要使用翻譯工具文字 API，您也需要有訂用帳戶金鑰；請參閱[如何註冊翻譯工具文字 API](translator-text-how-to-signup.md)。
 
 ## <a name="breaksentence-request"></a>BreakSentence 要求
+
+> [!TIP]
+> 從 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 取得最新程式碼。
 
 下列程式碼會使用 [BreakSentence](./reference/v3-0-break-sentence.md) 方法，將來源文字分割成句子。
 

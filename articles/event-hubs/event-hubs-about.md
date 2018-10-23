@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: 8437b1c10facc28c5fd71b70dd7acf01b7d39e8e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 336756e72c6c07f52101ddd0cd99a6ef9744d3c3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42022965"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351756"
 ---
 # <a name="what-is-azure-event-hubs"></a>Azure 事件中樞是什麼？
 
@@ -70,7 +70,7 @@ Azure 事件中樞也整合了 [Azure Functions](/azure/azure-functions/) 來達
 - **分割區**：每一個取用者只會讀取訊息資料流的特定子集或分割區。
 - **取用者群組**：檢視整個事件中樞 (狀態、位置或位移) 的窗口。 取用者群組能讓多個取用應用程式擁有自己的事件串流檢視，以及按照自己的步調及運用自己的位移自行讀取串流。
 - **輸送量單位**：預先購買的容量單位，可控制事件中樞的輸送量容量。
-- **事件接收者**：任何從事件中樞讀取事件資料的實體。 所有事件中樞取用者都透過 AMQP 1.0 工作階段連線，而可供取用的事件都透過工作階段傳遞。
+- **事件接收者**：任何從事件中樞讀取事件資料的實體。 所有事件中樞取用者都透過 AMQP 1.0 工作階段連線，而可供取用的事件都透過工作階段傳遞。 所有 Kafka 取用者都是透過 Kafka 通訊協定 1.0 和更新版本連線。
 
 下圖顯示事件中樞串流處理架構︰
 

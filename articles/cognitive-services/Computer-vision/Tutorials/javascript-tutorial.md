@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984919"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341305"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>教學課程：電腦視覺 API JavaScript
 
 此教學課程將說明「Azure 認知服務電腦視覺 REST API」的功能。
 
-探索使用「電腦視覺 REST API」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的 JavaScript 應用程式。 此範例可讓您提交影像 URL 以供分析或處理。 您可以使用此開放原始碼範例作為範本來以 JavaScript 建置自己的應用程式，以使用「電腦視覺 REST API」。
+探索使用「電腦視覺 REST API」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的 JavaScript 應用程式。 此範例可讓您提交影像 URL 以供分析或處理。 您可以使用此開放原始碼範例作為範本來建置自己的 JavaScript 應用程式，以使用「電腦視覺 REST API」。
 
 已經撰寫 JavaScript 表單應用程式，但還沒有任何「電腦視覺」功能。 在本教學課程中，您會新增「電腦視覺 REST API」特定的程式碼以完成應用程式的功能。
 
@@ -35,25 +35,27 @@ ms.locfileid: "45984919"
 
 建立範例之前，您必須先訂閱「電腦視覺 API」，這是「Azure 認知服務」的組件。 如需訂用帳戶和金鑰管理詳細資料，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 在本教學課程中，主要金鑰和次要金鑰都是有可用的有效金鑰。 
 
-## <a name="download-the-tutorial-project"></a>下載教學課程專案
+## <a name="acquire-the-incomplete-tutorial-project"></a>取得不完整的教學課程專案
+
+### <a name="download-the-tutorial-project"></a>下載教學課程專案
 
 複製[認知服務 JavaScript 電腦視覺教學課程](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)，或下載 .zip 檔案，然後將它解壓縮至空白目錄。
 
 如果您偏好使用已新增所有教學課程程式碼的已完成教學課程，則可以使用 [Completed] 資料夾中的檔案。
 
-## <a name="add-the-tutorial-code"></a>新增教學課程程式碼
+## <a name="add-the-tutorial-code-to-the-project"></a>將教學課程的程式碼新增至專案中
 
 JavaScript 應用程式設定後會有六個 .html 檔案，每項功能各有一個檔案。 每個檔案皆示範一種不同的「電腦視覺」功能 (分析、OCR 等)。 六個教學課程區段互不相依，因此您可以將教學課程程式碼新增到一個檔案，也可以新增到所有六個檔案或只新增到一些檔案中。 並且可以將教學課程程式碼以任何順序新增到檔案中。
 
 現在就開始吧。
 
-## <a name="analyze-an-image"></a>分析影像
+### <a name="analyze-an-image"></a>分析影像
 
-「電腦視覺」的「分析」功能可分析影像中超過 2,000 個可辨識的物件、生物、景象及動作。 在分析完成之後，「分析」就會傳回一個 JSON 物件，其中會以描述性標籤、色彩分析、標題等來描述影像。
+「電腦視覺」的「分析」功能可掃描影像中超過 2,000 個可辨識的物體、生物、景象及動作。 在分析完成之後，「分析」就會傳回一個 JSON 物件，其中會以描述性標籤、色彩分析、標題等來描述影像。
 
 若要完成教學課程應用程式的「分析」功能，請執行下列步驟：
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>「分析」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 在文字編輯器中開啟 **analyze.html** 檔案，然後找出靠近檔案底部的 **analyzeButtonClick** 函式。
 
@@ -77,7 +79,7 @@ function analyzeButtonClick() {
 }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>「分析」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **AnalyzeImage** 函式會包裝 REST API 呼叫來分析影像。 成功傳回時，已格式化的 JSON 分析將會顯示在指定的文字區域中，標題則會顯示在指定的範圍中。
 
@@ -151,17 +153,17 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="analyze-step-3-run-the-application"></a>「分析」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 儲存 **analyze.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像] 按鈕來分析影像並查看結果。
 
-## <a name="recognize-a-landmark"></a>辨識地標
+### <a name="recognize-a-landmark"></a>辨識地標
 
 「電腦視覺」的「地標」功能可分析影像中的自然和人工地標，例如山地或知名的建築物。 在分析完成之後，「地標」就會傳回一個 JSON 物件，其中會識別在影像中找到的地標。
 
 若要完成教學課程應用程式的「地標」功能，請執行下列步驟：
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>「地標」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 在文字編輯器中開啟 **landmark.html** 檔案，然後找出靠近檔案底部的 **landmarkButtonClick** 函式。
 
@@ -185,7 +187,7 @@ function landmarkButtonClick() {
 }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>「地標」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **IdentifyLandmarks** 函式會包裝 REST API 呼叫來分析影像。 成功傳回時，已格式化的 JSON 分析將會顯示在指定的文字區域中，標題則會顯示在指定的範圍中。
 
@@ -258,17 +260,17 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>「地標」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 儲存 **landmark.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像] 按鈕來分析影像並查看結果。
 
-## <a name="recognize-celebrities"></a>辨識名人
+### <a name="recognize-celebrities"></a>辨識名人
 
 「電腦視覺」的「名人」功能可分析影像中的知名人物。 在分析完成之後，「名人」就會傳回一個 JSON 物件，其中會識別在影像中找到的名人。
 
 若要完成教學課程應用程式的「名人」功能，請執行下列步驟：
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>「名人」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 在文字編輯器中開啟 **celebrities.html** 檔案，然後找出靠近檔案底部的 **celebritiesButtonClick** 函式。
 
@@ -292,7 +294,7 @@ function celebritiesButtonClick() {
 }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>「名人」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
@@ -361,17 +363,17 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>「名人」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 儲存 **celebrities.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像] 按鈕來分析影像並查看結果。
 
-## <a name="intelligently-generate-a-thumbnail"></a>以智慧方式產生縮圖
+### <a name="intelligently-generate-a-thumbnail"></a>以智慧方式產生縮圖
 
 「電腦視覺」的「縮圖」功能可從影像產生縮圖。 藉由使用「智慧型裁剪」功能，「縮圖」功能將可識別影像中的關注區並將縮圖集中在此區域上，以產生更賞心悅目的縮圖影像。
 
 若要完成教學課程應用程式的「縮圖」功能，請執行下列步驟：
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>「縮圖」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 在文字編輯器中開啟 **thumbnail.html** 檔案，然後找出靠近檔案底部的 **thumbnailButtonClick** 函式。
 
@@ -403,7 +405,7 @@ function thumbnailButtonClick() {
 }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>「縮圖」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **getThumbnail** 函式會包裝 REST API 呼叫來分析影像。 成功傳回時，縮圖將會顯示在指定的 img 元素中。
 
@@ -482,11 +484,11 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>「縮圖」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 儲存 **thumbnail.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [產生縮圖] 按鈕來分析影像並查看結果。
 
-## <a name="read-printed-text-ocr"></a>讀取列印文字 (OCR)
+### <a name="read-printed-text-ocr"></a>讀取列印文字 (OCR)
 
 「電腦視覺」的「光學字元辨識」(OCR) 功能可分析列印文字的影像。 在分析完成之後，OCR 就會傳回一個 JSON 物件，其中包含影像中的文字和文字位置。
 
@@ -516,7 +518,7 @@ function ocrButtonClick() {
 }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR 步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **ReadOcrImage** 函式會包裝 REST API 呼叫來分析影像。 成功傳回時，描述文字和文字位置的已格式化 JSON 將會顯示在指定的文字區域中。
 
@@ -577,17 +579,17 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>OCR 步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 儲存 **ocr.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要讀取之文字影像的 URL，然後按一下 [讀取影像] 按鈕來分析影像並查看結果。
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>讀取手寫文字 (手寫辨識)
+### <a name="read-handwritten-text-handwriting-recognition"></a>讀取手寫文字 (手寫辨識)
 
 「電腦視覺」的「手寫辨識」功能可分析手寫文字的影像。 在分析完成之後，「手寫辨識」就會傳回一個 JSON 物件，其中包含影像中的文字和文字位置。
 
 若要完成教學課程應用程式的「手寫辨識」功能，請執行下列步驟：
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>「手寫辨識」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 在文字編輯器中開啟 **handwriting.html** 檔案，然後找出靠近檔案底部的 **handwritingButtonClick** 函式。
 
@@ -610,7 +612,7 @@ function handwritingButtonClick() {
 }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>「手寫辨識」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **ReadHandwrittenImage** 函式會包裝 REST API 呼叫來分析影像。 由於「手寫辨識」是一個費時的程序，因此會使用一個雙步驟程序。 第一個呼叫會提交要處理的影像；第二個呼叫會在處理完成時，擷取所偵測到的文字。
 
@@ -736,7 +738,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>「手寫辨識」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 儲存 **handwriting.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要讀取之文字影像的 URL，然後按一下 [讀取影像] 按鈕來分析影像並查看結果。
 

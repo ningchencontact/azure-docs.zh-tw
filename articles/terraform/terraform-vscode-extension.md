@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: ad042525ead23959be57a5dd2d5735bcedfedb1b
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668320"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353045"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>安裝和使用 Azure Terraform Visual Studio Code 擴充功能
 
@@ -103,7 +103,9 @@ Azure Terraform 延伸模組將會出現在已安裝的延伸模組清單中。
 
 1. 在 Visual Studio Code 中，從功能表列選取 [檔案] > [新增檔案]。
 
-1. 瀏覽到 [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) 並複製 [範例使用方式] 程式碼區塊中的程式碼：
+1. 在瀏覽器中瀏覽到 [Terraform azurerm_resource_group 頁面](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#)，並複製 [使用方式範例] 程式碼區塊中的程式碼：
+
+    ![使用方式範例](media/terraform-vscode-extension/tf-azurerm-resource-group-example-usage.png)
 
 1. 將複製的程式碼貼到您在 Visual Studio Code 中所建立的新檔案內。
 

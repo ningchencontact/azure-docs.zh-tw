@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 93c1198ecfba6db809228ed6dcd99c705f53926c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 40d5a02f83188330facc82701abdfb950585781c
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972754"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310379"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>快速入門：從主控台應用程式廣播即時訊息
 
@@ -106,7 +106,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 您可以在範例的根目錄中執行 `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"`。 在那之後，您便不再需要 `-c "<ConnectionString>"` 這個選項。
 
-## <a name="usage"></a>使用方式
+## <a name="usage"></a>使用量
 
 在伺服器啟動之後，使用下列命令來傳送訊息
 
@@ -120,5 +120,51 @@ broadcast
 
 您可以啟動具不同用戶端名稱的多個用戶端。
 
+## <a name="usage"> </a> 與第三方服務整合
+Azure SignalR 服務可讓第三方服務與系統整合。
+### <a name="usage"> </a> 技術規格的定義
+下表顯示目前所支援的所有 REST API 版本。 您也可以找到每個特定版本的定義檔
+版本 | API 狀態 | 門 | 特定
+--- | --- | --- | ---
+`1.0-preview` | 可用 | 5002 | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
+`1.0` | 可用 | 標準 | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
+下列清單提供每個特定版本的可用 API 清單。
+API | `1.0-preview` | `1.0`
+--- | --- | ---
+[廣播到所有目標] (# broadcast) | : heavy_check_mark: | : Heavy_check_mark:
+[廣播到群組] (# broadcast-group) | : heavy_check_mark: | : Heavy_check_mark:
+廣播到部分群組 | : heavy_check_mark: (已淘汰) | `N / A`
+[傳送給特定使用者] (# send-user) | : heavy_check_mark: | : Heavy_check_mark:
+傳送給部分使用者 | : heavy_check_mark: (已淘汰) | `N / A`
+[將使用者新增至群組] (# add-user-to-group) | `N / A` | : Heavy_check_mark:
+[從群組中移除使用者] (# remove-user-from-group) | `N / A` | : Heavy_check_mark:
+<a name="broadcast"> </a>
+### <a name="broadcast-to-everyone"></a>廣播給所有人
+版本 | API HTTP 方法 | 要求 URL | Request body
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name>` | 同上
+<a name="broadcast-group"> </a>
+### <a name="broadcast-to-a-group"></a>廣播到群組
+版本 | API HTTP 方法 | 要求 URL | Request body
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / group / <group-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name>` | 同上
+<a name="send-user"> </a>
+### <a name="sending-to-specific-users"></a>傳送給特定使用者
+版本 | API HTTP 方法 | 要求 URL | Request body
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / user / <user-id>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / users / <user-id>` | 同上
+<a name="add-user-to-group"> </a>
+### <a name="adding-a-user-to-a-group"></a>將使用者新增至群組
+版本 | API HTTP 方法 | 要求 URL
+--- | --- | ---
+`1.0` | `PUT` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
+<a name="remove-user-from-group"> </a>
+### <a name="removing-a-user-from-a-group"></a>從群組中移除使用者
+版本 | API HTTP 方法 | 要求 URL
+--- | --- | ---
+`1.0` | `DELETE` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]

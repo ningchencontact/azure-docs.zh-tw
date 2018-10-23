@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 755c301651e7c49faa8b05b2b443c5cce1a03c90
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364036"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393316"
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 的多重租用戶雲端式目錄和身分識別管理服務。 Azure AD 能將核心目錄服務、應用程式存取管理，以及身分識別保護結合為單一解決方案，並提供以標準為基礎的平台，以協助開發人員根據集中式原則及規則為其應用程式傳遞存取控制。
@@ -63,7 +63,7 @@ Azure AD 多租用戶、地理分布周全，且高可用性的設計，表示�
 
 - **Azure Active Directory Basic。** 此版本適用於有雲端優先需求的工作者，提供以雲端為中心的應用程式存取及自助式身分識別管理解決方案。 透過 Basic 版本，您可獲得生產力增強和成本節約功能，例如群組式存取管理、雲端應用程式的自助式密碼重設，以及 Azure Active Directory 應用程式 Proxy (以使用 Azure AD 發佈內部部署 Web 應用程式)，且全都由可獲得 99.9% 運作時間的企業 SLA 支援。
 
-- **Azure Active Directory Premium P1。** Azure Active Directory Premium 版本旨在讓身分識別及存取管理需求較高的組織獲得能力，新增了功能豐富的企業級身分識別管理功能，並可讓混合式使用者無縫存取內部部署及雲端功能。 此版本包含資訊背景工作角色和混合環境中身分識別管理員對於應用程式存取、自助身分識別和存取管理 (IAM)、雲端中的身分識別保護和安全性所需的一切。 它支援進階管理和委派資源，例如：動態群組和自助群組管理。 它包含 Microsoft Identity Manager (一個內部部署及身分識別和存取管理套件)，並提供可為您的內部部署使用者啟用自助密碼重設之類解決方案的雲端回寫功能。
+- **Azure Active Directory Premium P1。** Azure Active Directory Premium 版本旨在讓身分識別及存取管理需求較高的組織獲得能力，新增了功能豐富的企業級身分識別管理功能，並可讓混合式使用者無縫存取內部部署及雲端功能。 此版本包含資訊背景工作角色和混合環境中身分識別管理員對於應用程式存取、自助身分識別和存取管理 (IAM)、雲端中的身分識別保護和安全性所需的一切。 它支援進階管理和委派資源，例如：動態群組和自助群組管理。 它包含 Microsoft Identity Manager (一項內部部署及身分識別和存取管理套件)，並提供可為您的內部部署使用者啟用自助密碼重設之類解決方案的雲端回寫功能。
 
 - **Azure Active Directory Premium P2。** 這個新供應項目旨在為使用者和系統管理員提供進階的保護，其不僅包括 Azure AD Premium P1 中的所有功能，也包括 Identity Protection 與 Privileged Identity Management。 Azure Active Directory Identity Protection 利用數十億個訊號，針對應用程式及重要公司資料提供以風險為基礎的條件式存取。 此外，我們還使用 Azure Active Directory Privileged Identity Management 來協助您管理及保護授權帳戶，讓您能夠探索、限制和監視系統管理員及他們對資源的存取，並在需要時，提供及時的存取權。  
 

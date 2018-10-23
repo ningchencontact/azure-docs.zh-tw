@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077111"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318124"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>方案、供應項目、配頭和訂用帳戶概觀
 
@@ -50,9 +50,9 @@ ms.locfileid: "49077111"
 
 ### <a name="quotas"></a>配額
 
-為了協助管理雲端容量，您可以使用預先設定的配額，也可以為方案中的每項服務建立新的配額。 配額會定義使用者訂用帳戶可以佈建或取用的資源上限。 例如，配額可能會允許使用者建立最多五部虛擬機器 (VM)。 您可以對虛擬機器設定其他配額，例如 RAM 和 CPU 核心。
+您可以使用預先設定的*配額*，或為方案中的每項服務建立新的配額，以利管理雲端容量。 配額會定義使用者訂用帳戶可以佈建或取用的資源上限。 例如，配額可能會允許使用者建立最多五部虛擬機器 (VM)。
 
-您可以依區域設定配額。 例如，為區域 A 提供計算服務的方案，其配額可以是兩部具有 4-GB RAM 與 8 個 CPU 核心的虛擬機器。
+您可以依區域設定配額。 例如，為區域 A 提供計算服務的方案，可以有兩個 VM 的配額。
 
 >[!NOTE]
 >在 Azure Stack 開發套件中，只有一個區域 (名為 *local*) 可供使用。
@@ -75,7 +75,7 @@ ms.locfileid: "49077111"
 
 ## <a name="subscriptions"></a>訂用帳戶
 
-訂用帳戶是使用者存取供應項目的方式。 如果您是服務提供者的 Azure Stack 操作員，使用者 (租用戶) 會透過訂閱供應項目的方式來購買您的服務。 如果您是組織的 Azure Stack 操作員，使用者 (員工) 可以訂閱您提供的服務，而不必付錢。
+訂用帳戶是使用者存取供應項目的方式。 如果您是服務提供者的 Azure Stack 操作員，使用者 (租用戶) 會透過訂閱供應項目的方式來購買您的服務。 如果您是組織的 Azure Stack 操作員，使用者 (員工) 可以訂閱您提供的服務，而無需付費。
 
 使用者與供應項目的每個組合都是一個唯一的訂用帳戶。 使用者可以擁有多個供應項目的訂用帳戶，但是每個訂用帳戶都僅適用於一個供應項目。 方案、供應項目與配額僅適用於唯一的訂用帳戶，而無法在訂用帳戶之間共用。 使用者建立的每個資源都與一個訂用帳戶相關聯。
 
@@ -85,4 +85,4 @@ ms.locfileid: "49077111"
 
 ## <a name="next-steps"></a>後續步驟
 
-[建立方案](azure-stack-create-plan.md)
+如需方案和供應項目的詳細資訊，請參閱[建立方案](azure-stack-create-plan.md)。

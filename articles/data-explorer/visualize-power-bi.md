@@ -2,18 +2,18 @@
 title: 教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化
 description: 在本教學課程中，您將了解如何使用 Power BI 來連線至「Azure 資料總管」，然後將資料視覺化。
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 938d8d6e291ca432ef3f642a0aaec74d5dcf5bf5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977140"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393707"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化
 
@@ -108,7 +108,7 @@ ms.locfileid: "46977140"
 
     ![篩選資料行](media/visualize-power-bi/filter-column.png)
 
-1. 選取 [BeginLat] 資料行的箭號、取消選取 [null] 核取方塊，然後選取 [確定]。
+1. 以滑鼠右鍵按一下 **StormSummary** 資料行標頭，然後選取 [移除]。
 
     ![移除資料行](media/visualize-power-bi/remove-column.png)
 

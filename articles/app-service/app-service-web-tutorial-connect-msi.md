@@ -11,19 +11,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6a3bb5511828d9f8ea7168ffa4748b141484299f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379922"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376425"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教學課程：使用受控識別保護來自 App Service 的 Azure SQL Database 連線
 
 [App Service](app-service-web-overview.md) 可在 Azure 中提供可高度擴充、自我修復的 Web 主控服務。 它也為您的應用程式提供[受控識別](app-service-managed-service-identity.md)，這是用於保護 [Azure SQL Database](/azure/sql-database/) 和其他 Azure 服務存取權的周全解決方案。 App Service 中的受控識別可藉由從應用程式刪除祕密 (例如連接字串中的認證)，讓應用程式更加安全。 在本教學課程中，您會將受控識別新增至您在[教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式](app-service-web-tutorial-dotnet-sqldatabase.md)中建立的範例 ASP.NET Web 應用程式。 當您完成時，範例應用程式不需要使用者名稱和密碼，即可安全地連線到 SQL Database。
+
+> [!NOTE]
+> 目前只有 .NET Framework 4.6 和以上版本支援此案例，但 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) 不提供支援。 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) 支援此案例，但是尚未包含在 App Service 的預設映像中。 
+>
 
 您會了解如何：
 
@@ -95,6 +99,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ```xml
 <package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
+<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
 ```
 
 開啟 Models\MyDatabaseContext.cs，然後將下列 `using` 陳述式新增至檔案頂端：
@@ -122,7 +127,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 這個建構函式會設定自訂 SqlConnection 物件，以便從 App Service 使用 Azure SQL Database 的存取權杖。 有了存取權杖，您的 App Service 應用程式可利用其受控識別向 Azure SQL Database 進行驗證。 如需詳細資訊，請參閱[取得 zure 資源的權杖](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)。 `if` 陳述式可讓您繼續使用 LocalDB 在本機測試應用程式。
 
 > [!NOTE]
-> 目前只有.NET Framework 4.6 和以上版本支援 `SqlConnection.AccessToken` ，而 [.NET Core](https://www.microsoft.com/net/learn/get-started/windows) 不提供支援。
+> 目前只有.NET Framework 4.6 和以上版本，以及 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) 支援 `SqlConnection.AccessToken` ，而 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) 不提供支援。
 >
 
 若要使用這個新的建構函式，請開啟 `Controllers\TodosController.cs` 並尋找 `private MyDatabaseContext db = new MyDatabaseContext();` 一行。 現有程式碼會使用預設 `MyDatabaseContext` 控制器來建立使用標準連接字串的資料庫，該連接字串中包含[您進行變更](#modify-connection-string)前的使用者名稱和密碼 (純文字格式)。
@@ -130,7 +135,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 將這一整行取代為下列程式碼：
 
 ```csharp
-private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
+private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.SqlConnection());
 ```
 
 ### <a name="publish-your-changes"></a>發佈您的變更
@@ -172,32 +177,23 @@ az ad group member list -g $groupid
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>將權限授與 Azure Active Directory 群組
 
-在 Cloud Shell 中，使用 SQLCMD 命令登入 SQL Database。 以您的 SQL Database 伺服器名稱取代 \<servername>，並以 Azure AD 使用者的認證取代 \<AADusername> 和 \<AADpassword>。
-
-```azurecli-interactive
-sqlcmd -S <server_name>.database.windows.net -U <AADuser_name> -P "<AADpassword>" -G -l 30
-```
-
-在 SQL 提示字元中，執行下列命令，以使用者身分新增您稍早建立的 Azure Active Directory 群組。
-
-```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-GO
-```
-
-輸入 `EXIT` 以返回 Cloud Shell 提示字元。 接下來，再次執行 SQLCMD，但是在 \<dbname> 中指定資料庫名稱。
+在 Cloud Shell 中，使用 SQLCMD 命令登入 SQL Database。 以您的 SQL Database 伺服器名稱取代 _\<server\_name>_，以您的應用程式使用的資料庫名稱取代 _\<db\_name>_，並以 Azure AD 使用者的認證取代 _\<AADuser\_name>_ 和 _\<AADpassword>_。
 
 ```azurecli-interactive
 sqlcmd -S <server_name>.database.windows.net -d <db_name> -U <AADuser_name> -P "<AADpassword>" -G -l 30
 ```
 
-在您所需資料庫的 SQL 提示字元中，執行下列命令，將讀取和寫入權限授與 Azure Active Directory 群組。
+在您所需資料庫的 SQL 提示字元中，執行下列命令來新增您稍早建立的 Azure Active Directory 群組，並授與您的應用程式所需的權限。 例如， 
 
 ```sql
+CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
 ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
+ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
 GO
 ```
+
+輸入 `EXIT` 以返回 Cloud Shell 提示字元。 
 
 ## <a name="next-steps"></a>後續步驟
 

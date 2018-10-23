@@ -1,34 +1,35 @@
 ---
-title: Azure 內容仲裁概觀 | Microsoft Docs
-description: 了解如何使用內容仲裁，追蹤、標幟、評估及篩選使用者產生之內容中的不當內容。
+title: 什麼是 Azure Content Moderator？
+titlesuffix: Azure Cognitive Services
+description: 了解如何使用 Content Moderator 對使用者產生的內容追蹤、標幟、評估及篩選其中的不當內容。
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 06/15/2017
+ms.topic: overview
+ms.date: 10/05/2018
 ms.author: sajagtap
-ms.openlocfilehash: cd9e2e9c10e9dc5ba118c8319f76174bf6f0da9f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5756e8fb451b073c68271359848ab27373ad85ed
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370350"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309547"
 ---
 # <a name="what-is-content-moderator"></a>什麼是內容仲裁？
 
-內容仲裁是監視有無可能的冒犯、不想要及具風險之內容的程序。 仲裁的內容可以是影像、文字和影片。
+內容仲裁是監視文字、影像或影片內容中是否包含潛在的冒犯性、不當或危險素材的程序。 加上旗標的內容可以隱藏或另行處理，以遵循法規或維護使用者應有的環境。
 
 ## <a name="where-it-is-used"></a>使用位置
 
-下列清單顯示一些使用內容仲裁的範例案例：
+下列清單顯示可使用 Content Moderator 的某些範例案例：
 
-- 仲裁產品類別目錄和使用者產生之內容的線上市集
-- 仲裁使用者產生之遊戲成品和聊天室的遊戲公司
-- 仲裁由其使用者新增之影像、文字和影片的社交傳訊平台
+- 對產品目錄和使用者產生的內容進行仲裁的線上市集
+- 對使用者產生的遊戲成品和聊天室進行仲裁的遊戲公司
+- 對使用者新增的影像、文字和影片進行仲裁的社交傳訊平台
 - 針對其內容實作集中式內容仲裁的企業媒體公司
-- 為學生和授課者篩選錯誤和冒犯內容的 K-12 教育解決方案提供者
+- 為學生和授課者篩選掉不當和冒犯內容的 K-12 教育解決方案提供者
 
 ## <a name="what-it-includes"></a>包含內容
 
@@ -36,9 +37,9 @@ ms.locfileid: "35370350"
 
 ![內容仲裁區塊圖](images/content-moderator-block-diagram.png)
 
-## <a name="apis"></a>API
+### <a name="apis"></a>API
 
-內容仲裁包括下列 API：
+Content Moderator 服務包含下列 API：
   - [**文字仲裁 API**](text-moderation-api.md)：使用此 API 掃描文字中有無可能的粗話、偏激、具暗示性、冒犯及個人識別資訊 (PII)。
   - [**自訂字組清單 API**](try-terms-list-api.md)：使用此 API 比對除內建字詞以外的自訂字詞清單。 使用這些清單根據您的內容原則來封鎖或允許內容。  
   - [**影像仲裁 API**](image-moderation-api.md)：使用此 API 掃描影像中有無成人和猥褻內容、使用光學字元辨識 (OCR) 功能偵測影像中的文字，以及偵測臉部。
@@ -46,7 +47,7 @@ ms.locfileid: "35370350"
   - [**影片仲裁 API**](video-moderation-api.md)：使用此 API 掃描影片中有無潛在的成人和猥褻內容。
   - [**審核 API**](try-review-api-job.md)：使用[工作](try-review-api-job.md)、[審核](try-review-api-review.md)與[工作流程](try-review-api-workflow.md)作業來建立及自動化審核工具中的人機互動工作流程。
 
-## <a name="human-review-tool"></a>人工審核工具
+### <a name="human-review-tool"></a>人工審核工具
 
 您的內容仲裁訂用帳戶包含內建[人工審核工具](Review-Tool-User-Guide/human-in-the-loop.md)。 使用前述的審核 API 建立文字、影像和影片的審核，以便您的仲裁人員制定最終決策。
 

@@ -2,24 +2,18 @@
 title: 設定您的 Azure 資料箱 | Microsoft Docs
 description: 深入了解如何連接 Azure 資料箱的纜線並且連線
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785627"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393825"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教學課程：連接 Azure 資料箱的纜線並且連線
 
@@ -91,6 +85,8 @@ ms.locfileid: "48785627"
     - 如果未啟用 DHCP，請移至 [設定網路介面]，並視需要指派靜態 IP。
 
     ![裝置儀表板](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+
+設定資料網路介面後，您也可以使用任何 DATA 1 -DATA 3 介面的 IP 位址來存取位於 `https://<IP address of a data network interface>` 的本機 Web UI。 
 
 在裝置設定完成後，您可以連線至裝置共用，並將資料從您的電腦複製到裝置。 
 

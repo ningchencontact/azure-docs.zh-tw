@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 67b80f539faab40884066f23aaf8a72ad7a6981b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ac18b8099b14f29579b35eb8dd2124d2d63f80d7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394398"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390069"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Azure Kubernetes Service (AKS) 可讓您輕鬆地在 Azure 中部署受控 Kuber
 
 ### <a name="identity-and-security-management"></a>身分識別和安全性管理
 
-為限制對叢集資源的存取，AKS 支援 [Kubernetes 角色型存取控制 (RBAC)][kubernetes-rbac]。 RBAC 可讓您控制如何存取 Kubernetes 資源與命名空間，以及對那些資源所擁有的權限。 您也可以將 AKS 叢集設定成與 Azure Active Directory (AD) 整合。 若與 Azure AD 整合，您可以根據現有的身分識別與群組成員資格來設定 Kubernetes 存取。 可以為您現有的 Azure AD 使用者與群組提供 AKS 資源的存取權，且包含整合式登入體驗。
+為限制對叢集資源的存取，AKS 支援 [Kubernetes 角色型存取控制 (RBAC)][kubernetes-rbac]。 RBAC 可讓您控制 Kubernetes 資源與命名空間的存取，以及這些資源的權限。 您也可以將 AKS 叢集設定成與 Azure Active Directory (AD) 整合。 若與 Azure AD 整合，您可以根據現有的身分識別與群組成員資格來設定 Kubernetes 存取。 可以為您現有的 Azure AD 使用者與群組提供 AKS 資源的存取權，且包含整合式登入體驗。
 
 若要保護您的 AKS 叢集，請參閱[整合 Azure Active Directory 與 AKS][aks-aad]。
 
@@ -47,7 +47,7 @@ AKS 節點是在 Azure 虛擬機器上執行的。 您可以將儲存體連接�
 
 視資源變更的需求，執行服務的叢集節點或 Pod 數目可以自動相應增加或減少。 您可以同時使用水平 Pod 自動調整程式或叢集自動調整程式。 此調整方式讓 AKS 叢集視需要自動調整，並且只執行需要的資源。
 
-如需詳細資訊，請參閱[調整 Azure Kubernetes Service (AKS) 叢集規模][aks-scale]。
+如需詳細資訊，請參閱[縮放 Azure Kubernetes Service (AKS) 叢集][aks-scale]。
 
 ### <a name="cluster-node-upgrades"></a>叢集節點升級
 
@@ -123,12 +123,12 @@ Azure Kubernetes Service (AKS) 符合 SOC、ISO 和 PCI DSS 的規範。
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
-[aks-networking]: ./networking-overview.md
+[aks-networking]: ./concepts-network.md
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
+[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces
+[azure-devops]: https://docs.microsoft.com/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md

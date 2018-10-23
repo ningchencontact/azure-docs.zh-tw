@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855168"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352655"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>教學課程：設定適用於同盟網域的混合式 Azure Active Directory Join
 
@@ -124,7 +124,7 @@ ms.locfileid: "48855168"
 
     a. 選取樹系。
 
-    b. 選取驗證服務。 除非貴組織有獨佔 Windows 10 用戶端，否則您必須選取 AD FS 伺服器。
+    b. 選取驗證服務。 除非您的組織獨有 Windows 10 用戶端，而且您已設定電腦/裝置同步或您的組織使用 SeamlessSSO，否則您必須選取 AD FS 伺服器。
 
     c. 按一下 [新增]，並輸入企業系統管理員認證。
 
@@ -194,7 +194,7 @@ ms.locfileid: "48855168"
 
 - 必須要有**裝置識別碼**與 Windows 用戶端上的識別碼相符的物件存在。
 - **DeviceTrustType** 的值必須是 [已加入網域]。 這相當於 Azure AD 入口網站中的 [裝置] 頁面上所呈現的 [已加入混合式 Azure AD] 狀態。
-- 在條件式存取中使用的裝置，[已啟用] 的值必須是 [True]。 
+- 在條件式存取中使用的裝置，[Enabled] 的值必須是 [True]，而 [DeviceTrustLevel] 必須是 [Managed]。 
 
 
 **若要查看服務詳細資料：**

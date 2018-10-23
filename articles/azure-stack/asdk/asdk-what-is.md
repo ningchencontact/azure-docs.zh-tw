@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 951cd1adc09373b9af560097b088fd740ceb51a8
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: fa20f746e55f784e02244355c96ac273b9906acc
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850622"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339537"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>何謂 Azure Stack 開發套件？
 [Microsoft Azure Stack 整合系統](.\.\azure-stack-poc.md)的大小範圍為 4 到 12 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。 您可以使用 Azure Stack 整合系統，來為生產環境工作負載啟用新案例。 如果您是管理整合系統基礎結構並提供服務的 Azure Stack 操作員，請參閱我們的[操作員文件](https://docs.microsoft.com/azure/azure-stack)。
@@ -80,4 +80,4 @@ Azure Stack 會持續新增對其他 Azure 服務的支援。 若要了解 Azure
 
 
 ## <a name="next-steps"></a>後續步驟
-若要開始評估 Azure Stack，您必須準備開發套件主機伺服器電腦，然後[安裝 ASDK](asdk-install.md)。 在那之後，您就可以登入系統管理員和使用者入口網站，開始使用 Azure Stack。
+若要開始評估 Azure Stack，您必須先[下載最新的 ASDK](asdk-download.md) 並準備 ASDK 主機電腦。 準備好開發套件主機後，您就可以安裝 ASDK，並登入系統管理員和使用者入口網站以開始使用 Azure Stack。

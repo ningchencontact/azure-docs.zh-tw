@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bf0b38c8c2d465abe9f2e129110df41c349c3d07
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055368"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165976"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>教學課程：調整 Service Fabric Mesh 中所執行應用程式的大小
 
-本教學課程是一個系列的第二部分。 了解如何以手動方式調整[先前部署到 Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) 應用程式的服務執行個體數。  當您完成時，您將擁有。
+本教學課程是一個系列的第二部分。 了解如何以手動方式調整[先前部署到 Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) 應用程式的服務執行個體數。 完成作業後，您將會有執行三個執行個體的前端服務，和執行兩個執行個體的資料服務。
 
 在本系列的第二部分中，您將瞭解如何：
 
@@ -71,7 +71,7 @@ az mesh service show --resource-group myResourceGroup --name ToDoService --app-n
 
 當您範本中的值是您要在部署時變更的值，或希望可以選擇在每個部署基礎上進行變更的值 (如果您打算將此範本重新用於其他部署)，最佳做法是將值參數化。
 
-先前，應用程式使用 [mesh_rp.windows.json 部署範本](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json)及 [mesh_rp.windows.parameter.json 參數](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json)檔案進行部署。
+先前，應用程式已使用 [mesh_rp.windows.json 部署範本](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json)及 [mesh_rp.windows.parameter.json 參數](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json)檔案進行部署。
 
 於本機開啟 [mesh_rp.windows.parameter.json 參數](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json)檔案，將 *frontEndReplicaCount* 值設為 3，並將 *serviceReplicaCount* 值設為 2：
 

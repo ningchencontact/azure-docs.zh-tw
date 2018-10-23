@@ -9,28 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0199efbc1456206c67efb846b4381cae333e3749
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465600"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309037"
 ---
 # <a name="create-an-azure-iot-central-application"></a>建立 Azure IoT Central 應用程式
 
-「建置者」可使用 Azure IoT Central UI 來定義 Microsoft Azure IoT Central 應用程式。 本快速入門示範如何：
-
-- 建立包含範例_裝置範本_和模擬_裝置_的 Azure IoT Central 應用程式。
-- 在應用程式中檢視**冷飲自動販賣機**裝置範本的功能。
-- 檢視從模擬的**冰箱**裝置產生的遙測和分析資料。
-
-在本快速入門中，您會檢視裝置範本中的模擬**冰箱**裝置。 模擬裝置：
-
-* 將遙測資料 (例如溫度和壓力) 傳送至您的應用程式。
-* 將裝置屬性值 (例如動態警示) 回報給您的應用程式。
-* 具有可在應用程式中設定的裝置設定，例如風扇速度。
-
-當您從 Azure IoT Central 應用程式中的裝置範本建立模擬裝置時，模擬裝置可讓您先測試應用程式再連接實際裝置。
+「建置者」可使用 Azure IoT Central UI 來定義 Microsoft Azure IoT Central 應用程式。 本快速入門說明如何建立包含範例_裝置範本_和模擬_裝置_的 Azure IoT Central 應用程式。
 
 ## <a name="create-the-application"></a>建立應用程式
 

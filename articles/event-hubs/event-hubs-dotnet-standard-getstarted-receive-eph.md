@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41919497"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166271"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>開始使用 .NET Standard 中的事件處理器主機來接收訊息
 
@@ -43,13 +43,18 @@ ms.locfileid: "41919497"
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶  
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。  
-2. 在入口網站的左方瀏覽窗格中，依序按一下 [建立資源]、[儲存體] 及 [儲存體帳戶]。  
-3. 完成 [儲存體帳戶] 視窗中的欄位，然後按一下 [建立]。
+2. 在入口網站的左側導覽窗格中，依序選取 [建立資源]、類別中的 [儲存體] 以及 [儲存體帳戶 - Blob、檔案、資料表、佇列]。  
+3. 完成 [建立儲存體帳戶] 視窗中的欄位，然後選取 [檢閱 + 建立]。 
 
     ![建立儲存體帳戶][1]
 
-4. 在看到「部署成功」訊息之後，按一下新儲存體帳戶的名稱。 在 [基本資訊] 視窗中，按一下 [Blob]。 當 [Blob 服務] 對話方塊開啟時，按一下頂端的 [+ 容器]。 為容器命名，然後關閉 [Blob 服務]。  
-5. 按一下左側視窗中的 [存取金鑰]，然後複製儲存體容器的名稱、儲存體帳戶及 **key1** 的值。 將這些值儲存到記事本或一些其他暫存位置。  
+4. 在 [檢閱 + 建立] 頁面上檢閱欄位的值，然後選取 [建立]。 
+5. 在看到「部署成功」訊息之後，選取新儲存體帳戶的名稱。 
+6. 在 [基本資訊] 視窗中，選取 [Blob]。 
+7. 選取位於頂端的 [+ 容器]。 指定容器的名稱。  
+8. 選取左側視窗中的 [存取金鑰]，然後複製儲存體容器的名稱、儲存體帳戶及 **key1** 的值。 
+
+    將這些值儲存到記事本或一些其他暫存位置。
 
 ## <a name="create-a-console-application"></a>建立主控台應用程式
 

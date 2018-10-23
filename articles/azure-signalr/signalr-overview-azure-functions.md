@@ -12,16 +12,16 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 8cf26a055b6c0c3ffaf3690d4a6f30505f403eba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 587752b25e3c98bbabbd42bd4d838fd19ae9fd45
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951486"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318702"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>使用 Azure Functions 與 Azure SignalR 服務建置即時應用程式
 
-因為 Azure SignalR 服務與 Azure Functions 都是完全受控且可調整幅度高的服務，可讓您專注於建置應用程式而不是管理基礎結構，在無伺服器的環境中，通常會搭配使用這兩個服務來提供即時通訊。
+因為 Azure SignalR 服務與 Azure Functions 都是完全受控且可調整幅度高的服務，可讓您專注於建置應用程式而不是管理基礎結構，在[無伺服器的](https://azure.microsoft.com/solutions/serverless/)環境中，通常會搭配使用這兩個服務來提供即時通訊。
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>將即時通訊與 Azure 服務服務整合
 
@@ -30,7 +30,7 @@ Azure Functions 可讓您使用[數種語言](../azure-functions/supported-langu
 * HTTP 與 Webhook 要求
 * 定期計時器
 * 來自 Azure 服務的事件，例如：
-    - 事件方格
+    - Event Grid
     - 事件中樞
     - 服務匯流排
     - Cosmos DB 變更摘要

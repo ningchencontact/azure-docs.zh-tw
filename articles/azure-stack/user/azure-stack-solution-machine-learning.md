@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410199"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353701"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 建立邊緣機器學習解決方案
 
@@ -210,7 +210,7 @@ ms.locfileid: "47410199"
 
     d.  在 [診斷儲存體帳戶] 中，選取稍早建立的儲存體帳戶。
 
-    e.  注意：為 Azure 訂用帳戶啟用並設定 AAD 後，也可以一併啟用受控服務識別。
+    e.  注意：為 Azure 訂用帳戶啟用並設定 AAD 後，也可以一併啟用 Azure 資源的受控識別。
 
 2.  選取 [確定] 。
 

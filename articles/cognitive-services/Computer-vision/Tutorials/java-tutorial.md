@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
 ms.date: 09/21/2017
-ms.openlocfilehash: cca35d031e860e014c8fd84b0daf6b4d60d18046
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985842"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340251"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>教學課程：電腦視覺 API Java
 
@@ -45,7 +45,9 @@ ms.locfileid: "45985842"
 
 建立範例之前，您必須先訂閱「電腦視覺 API」，這是「Azure 認知服務」的組件。 如需訂用帳戶和金鑰管理詳細資料，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 在本教學課程中，主要金鑰和次要金鑰都是有可用的有效金鑰。 
 
-## <a name="download-the-tutorial-project"></a>下載教學課程專案
+## <a name="acquire-the-incomplete-tutorial-project"></a>取得不完整的教學課程專案
+
+### <a name="download-the-tutorial-project"></a>下載教學課程專案
 
 1. 移至[認知服務 Java 電腦視覺教學課程](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) \(英文\) 存放庫。
 1. 按一下 [複製或下載] 按鈕。
@@ -53,7 +55,7 @@ ms.locfileid: "45985842"
 
 因為 NetBeans 會從 .zip 檔案匯入專案，所以不需要將 .zip 檔案的內容解壓縮。
 
-## <a name="import-the-tutorial-project"></a>匯入教學課程專案
+### <a name="import-the-tutorial-project"></a>匯入教學課程專案
 
 將 **cognitive-services-java-computer-vision-tutorial-master.zip** 檔案匯入 NetBeans。
 
@@ -65,29 +67,27 @@ ms.locfileid: "45985842"
 1. 按兩下 **MainFrame.java** 以將該檔案載入 NetBeans 編輯器。 **MainFrame.java** 檔案的 [設計] 索引標籤隨即出現。
 1. 按一下 [來源] 索引標籤來檢視 Java 原始程式碼。
 
-## <a name="build-and-run-the-tutorial-project"></a>建置並執行教學課程專案
+### <a name="build-and-run-the-tutorial-project"></a>建置並執行教學課程專案
 
 1. 按 **F6** 以建置並執行教學課程應用程式。
 
     在教學課程應用程式中，按一下索引標籤以顯示該功能的窗格。 按鈕的方法是空的，因此不會執行任何動作。
 
-    [訂用帳戶金鑰] 與 [訂用帳戶區域] 欄位位於視窗底部。 必須在這些欄位中填入有效的訂用帳戶金鑰與該訂用帳戶金鑰的正確區域。 若要取得訂用帳戶金鑰，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 如果您從該連結的試用版取得訂用帳戶金鑰，預設的 **westcentralus** 就是您訂用帳戶金鑰的正確區域。
+    [訂用帳戶金鑰] 與 [訂用帳戶區域] 欄位位於視窗底部。 必須在這些欄位中填入有效的訂用帳戶金鑰與該訂用帳戶金鑰的正確區域。 若要取得訂用帳戶金鑰，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 如果您從該連結的試用版取得訂用帳戶金鑰，預設區域 **westcentralus** 就是您訂用帳戶金鑰的正確區域。
 
 1. 結束教學課程應用程式。
 
-## <a name="add-the-tutorial-code"></a>新增教學課程程式碼
+## <a name="add-the-tutorial-code-to-the-project"></a>將教學課程的程式碼新增至專案中
 
-Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示範一種不同的「電腦視覺」功能 (分析、OCR 等)。 六個教學課程區段沒有相互依存性，因此您可以新增一個區段、全部六個區段，或僅一或兩個區段。 此外，您可依任意順序新增區段。
+Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示範一種不同的「電腦視覺」功能 (分析、OCR 等)。 六個教學課程區段沒有相互依存性，因此您可以新增一個區段、全部六個區段，或任何子集。 您可依任意順序新增區段。
 
-現在就開始吧。
+### <a name="analyze-an-image"></a>分析影像
 
-## <a name="analyze-an-image"></a>分析影像
-
-「電腦視覺」的「分析」功能可分析影像中超過 2,000 個可辨識的物件、生物、景象及動作。 在分析完成之後，「分析」就會傳回一個 JSON 物件，其中會以描述性標籤、色彩分析、標題等來描述影像。
+「電腦視覺」的「分析」功能可掃描影像中超過 2,000 個可辨識的物體、生物、景象及動作。 在分析完成之後，「分析」就會傳回一個 JSON 物件，其中會以描述性標籤、色彩分析、標題等來描述影像。
 
 若要完成教學課程應用程式的「分析」功能，請執行下列步驟：
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>「分析」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 **analyzeImageButtonActionPerformed** 事件處理常式方法會清除表單、顯示 URL 中指定的影像，然後呼叫 **AnalyzeImage** 方法來分析影像。 當 **AnalyzeImage** 傳回時，該方法會在 [回應] 文字區域中顯示格式化 JSON 回應，從 **JSONObject** 擷取第一個標題，然後顯示該標題和標題是否正確的信賴等級。
 
@@ -140,7 +140,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>「分析」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **AnalyzeImage** 方法會包裝 REST API 呼叫來分析影像。 此方法會傳回描述影像的 **JSONObject**，如果發生錯誤，則傳回 **Null**。
 
@@ -201,17 +201,17 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
  ```
 
-### <a name="analyze-step-3-run-the-application"></a>「分析」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 按 **F6** 執行應用程式。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像] 按鈕來分析影像並查看結果。
 
-## <a name="recognize-a-landmark"></a>辨識地標
+### <a name="recognize-a-landmark"></a>辨識地標
 
 「電腦視覺」的「地標」功能可分析影像中的自然和人工地標，例如山地或知名的建築物。 在分析完成之後，「地標」就會傳回一個 JSON 物件，其中會識別在影像中找到的地標。
 
 若要完成教學課程應用程式的「地標」功能，請執行下列步驟：
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>「地標」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 **landmarkImageButtonActionPerformed** 事件處理常式方法會清除表單、顯示 URL 中指定的影像，然後呼叫 **LandmarkImage** 方法來分析影像。 當 **LandmarkImage** 傳回時，該方法會在 [回應] 文字區域中顯示格式化 JSON 回應，從 **JSONObject** 擷取第一個地標名稱，然後在視窗上顯示該地標和是否正確識別地標的信賴等級。
 
@@ -264,7 +264,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>「地標」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **LandmarkImage** 方法會包裝 REST API 呼叫來分析影像。 此方法會傳回描述影像中所找到地標的 **JSONObject**，如果發生錯誤，則傳回 **Null**。
 
@@ -325,17 +325,17 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>「地標」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 按 **F6** 執行應用程式。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 按一下 [地標] 索引標籤，輸入要地標影像的 URL，然後按一下 [分析影像] 按鈕來分析影像並查看結果。
 
-## <a name="recognize-celebrities"></a>辨識名人
+### <a name="recognize-celebrities"></a>辨識名人
 
 「電腦視覺」的「名人」功能可分析影像中的知名人物。 在分析完成之後，「名人」就會傳回一個 JSON 物件，其中會識別在影像中找到的名人。
 
 若要完成教學課程應用程式的「名人」功能，請執行下列步驟：
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>「名人」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 **celebritiesImageButtonActionPerformed** 事件處理常式方法會清除表單、顯示 URL 中指定的影像，然後呼叫 **CelebritiesImage** 方法來分析影像。 當 **CelebritiesImage** 傳回時，該方法會在 [回應] 文字區域中顯示格式化 JSON 回應，從 **JSONObject** 擷取第一個名人名稱，然後在視窗上顯示該名稱和是否正確識別名人的信賴等級。
 
@@ -388,7 +388,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>「名人」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **CelebritiesImage** 方法會包裝 REST API 呼叫來分析影像。 此方法會傳回描述影像中所找到名人的 **JSONObject**，如果發生錯誤，則傳回 **Null**。
 
@@ -449,17 +449,17 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>「名人」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 按 **F6** 執行應用程式。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 按一下 [名人] 索引標籤，輸入名人影像的 URL，然後按一下 [分析影像] 按鈕來分析影像並查看結果。
 
-## <a name="intelligently-generate-a-thumbnail"></a>以智慧方式產生縮圖
+### <a name="intelligently-generate-a-thumbnail"></a>以智慧方式產生縮圖
 
 「電腦視覺」的「縮圖」功能可從影像產生縮圖。 透過使用「智慧型裁剪」功能，「縮圖」功能將可識別影像中的關注區並將縮圖集中在此區域上，以產生更賞心悅目的縮圖影像。
 
 若要完成教學課程應用程式的「縮圖」功能，請執行下列步驟：
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>「縮圖」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 **thumbnailImageButtonActionPerformed** 事件處理常式方法會清除表單、顯示 URL 中指定的影像，然後呼叫 **getThumbnailImage** 方法來建立縮圖。 當 **getThumbnailImage** 傳回時，該方法會顯示產生的縮圖。
 
@@ -505,7 +505,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>「縮圖」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **getThumbnailImage** 方法會包裝 REST API 呼叫來分析影像。 此方法會傳回包含縮圖的 **BufferedImage**，如果發生錯誤，則傳回 **Null**。 錯誤訊息會以 **jsonError** 字串陣列的第一個元素傳回。
 
@@ -572,17 +572,17 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>「縮圖」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 按 **F6** 執行應用程式。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 按一下 [縮圖] 索引標籤，輸入影像的 URL，然後按一下 [產生縮圖] 按鈕來分析影像並查看結果。
 
-## <a name="read-printed-text-ocr"></a>讀取列印文字 (OCR)
+### <a name="read-printed-text-ocr"></a>讀取列印文字 (OCR)
 
 「電腦視覺」的「光學字元辨識」(OCR) 功能可分析列印文字的影像。 在分析完成之後，OCR 就會傳回一個 JSON 物件，其中包含影像中的文字和文字位置。
 
 若要完成教學課程應用程式的 OCR 功能，請執行下列步驟：
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR 步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 **ocrImageButtonActionPerformed** 事件處理常式方法會清除表單、顯示 URL 中指定的影像，然後呼叫 **OcrImage** 方法來分析影像。 當 **OcrImage** 傳回時，該方法會在 [回應] 文字區域中，將偵測到的文字顯示為格式化 JSON。
 
@@ -622,7 +622,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR 步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **OcrImage** 方法會包裝 REST API 呼叫來分析影像。 此方法會傳回從呼叫所傳回 JSON 資料的 **JSONObject**，如果發生錯誤，則傳回 **Null**。
 
@@ -683,17 +683,17 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>OCR 步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 按 **F6** 執行應用程式。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 按一下 [OCR] 索引標籤，輸入列印文字影像的 URL，然後按一下 [讀取影像] 按鈕來分析影像並查看結果。
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>讀取手寫文字 (手寫辨識)
+### <a name="read-handwritten-text-handwriting-recognition"></a>讀取手寫文字 (手寫辨識)
 
 「電腦視覺」的「手寫辨識」功能可分析手寫文字的影像。 在分析完成之後，「手寫辨識」就會傳回一個 JSON 物件，其中包含影像中的文字和文字位置。
 
 若要完成教學課程應用程式的「手寫辨識」功能，請執行下列步驟：
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>「手寫辨識」步驟 1：新增表單按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>新增表單按鈕的事件處理常式程式碼
 
 **handwritingImageButtonActionPerformed** 事件處理常式方法會清除表單、顯示 URL 中指定的影像，然後呼叫 **HandwritingImage** 方法來分析影像。 當 **HandwritingImage** 傳回時，該方法會在 [回應] 文字區域中，將偵測到的文字顯示為格式化 JSON。
 
@@ -733,7 +733,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>「手寫辨識」步驟 2：新增 REST API 呼叫的包裝函式
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>新增 REST API 呼叫的包裝函式
 
 **HandwritingImage** 方法會包裝 REST API 呼叫來分析影像。 由於手寫辨識是一個費時的程序，因此會使用一個雙步驟程序。 第一個呼叫會提交要處理的影像；第二個呼叫會在處理完成時，擷取所偵測到的文字。
 
@@ -841,7 +841,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>「手寫辨識」步驟 3：執行應用程式
+#### <a name="run-the-application"></a>執行應用程式
 
 若要執行應用程式，請按 **F6**。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 按一下 [讀取手寫文字] 索引標籤，輸入手寫文字影像的 URL，然後按一下 [讀取影像] 按鈕來分析影像並查看結果。
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27167b011e23befda5d0c3703adeafc1581f4b98
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268930"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115071"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 
@@ -118,7 +118,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-更新 `ServiceInstanceListener` 以使用新的 EndpointHttps 端點，並且在通訊埠 443 上接聽。
+更新 `ServiceInstanceListener` 以使用新的 EndpointHttps 端點，並且在通訊埠 443 上接聽。 將 Web 主機設定為使用 Kestrel 伺服器時，您必須設定 Kestrel 以接聽所有網路介面上的 IPv6 位址：`opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`。
 
 ```csharp
 new ServiceInstanceListener(

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Marketplace 映像透過受控服務識別來建立 Terraform Linux 虛擬機器
-description: 使用 Azure Marketplace 映像，透過受控服務識別與遠端狀態管理來建立 Terraform Linux 虛擬機器，輕鬆地將資源部署至 Azure。
+title: 使用 Azure Marketplace 映像透過受控識別來建立 Terraform Linux 虛擬機器
+description: 使用 Azure Marketplace 映像，透過受控識別與遠端狀態管理來建立 Terraform Linux 虛擬機器，輕鬆地將資源部署至 Azure。
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, 虛擬機器, 遠端狀態, azure
@@ -9,16 +9,16 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669382"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343821"
 ---
-# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>使用 Azure Marketplace 映像透過受控服務識別來建立 Terraform Linux 虛擬機器
+# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>使用 Azure Marketplace 映像透過 Azure 資源的受控識別來建立 Terraform Linux 虛擬機器
 
-本文示範如何使用 [Terraform Marketplace 映像](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview)來建立 Ubuntu Linux VM (16.04 LTS)，並使用[受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) 來安裝及設定最新的 [Terraform](https://www.terraform.io/intro/index.html) 版本。 此映像也會設定遠端後端，以使用 Terraform 啟用[遠端狀態](https://www.terraform.io/docs/state/remote.html)管理。 
+本文示範如何使用 [Terraform Marketplace 映像](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview)來建立 Ubuntu Linux VM (16.04 LTS)，並使用 [Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)來安裝及設定最新的 [Terraform](https://www.terraform.io/intro/index.html) 版本。 此映像也會設定遠端後端，以使用 Terraform 啟用[遠端狀態](https://www.terraform.io/docs/state/remote.html)管理。 
 
 Terraform Marketplace 映像可讓您輕鬆地在 Azure 上開始使用 Terraform，而不必手動安裝及設定 Terraform。 
 
@@ -79,13 +79,13 @@ Terraform VM 映像會執行下列步驟：
 
 建立 VM 之後，您就可以使用 SSH 登入 VM。 針對文字殼層介面，使用您在步驟 3 「基本資料」一節中建立的帳戶認證。 在 Windows 上，您可以下載 SSH 用戶端工具，例如 [Putty](http://www.putty.org/)。
 
-使用 SSH 連線至虛擬機器後，您必須將整個訂用帳戶的參與者權限授予虛擬機器上的受控服務識別。 
+使用 SSH 連線至虛擬機器後，您必須將整個訂用帳戶的參與者權限授予虛擬機器上 Azure 資源的受控識別。 
 
 參與者權限可協助 VM 的 MSI 使用 Terraform 來建立 VM 資源群組外部的資源。 您可以執行一次指令碼，輕鬆達成這個動作。 使用下列命令：
 
 `. ~/tfEnv.sh`
 
-先前的指令碼會使用 [AZ CLI 2.0 版互動式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in)機制向 Azure 驗證，並指派整個訂用帳戶上的虛擬機器受控服務識別參與者權限。 
+先前的指令碼會使用 [AZ CLI 2.0 版互動式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in)機制向 Azure 驗證，並指派整個訂用帳戶上的虛擬機器受控識別參與者權限。 
 
  VM 有一個 Terraform 遠端狀態後端。 若要在您的 Terraform 部署中啟用此後端，將 remoteState.tf 檔案從 tfTemplate 目錄複製到 Terraform 指令碼的根目錄。  
 

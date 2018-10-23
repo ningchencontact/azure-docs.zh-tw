@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f4bae9ba41f61223a8e18e88e30b8fbf89eff1a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 5533dacc4a782cbdb6026c4a4d5c5bed9e39147a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527587"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320147"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>使用 Azure 入口網站設定 IoT 中樞裝置佈建服務
 
@@ -34,18 +34,18 @@ ms.locfileid: "39527587"
 
 2. 針對**裝置佈建服務***搜尋 Marketplace*。 選取 [IoT 中樞裝置佈建服務]，然後按一下 [建立] 按鈕。 
 
-3. 提供新「裝置佈建服務」執行個體的下列資訊，然後按一下 [建立]。
+3. 提供新的「裝置佈建服務」執行個體的下列資訊，然後按一下 [建立]。
 
-    * **名稱：** 提供新「裝置佈建服務」執行個體的唯一名稱。 如果您輸入的名稱可用，則會出現綠色核取記號。
-    * **訂用帳戶**：選擇您想要用於建立此裝置佈建服務執行個體的訂用帳戶。
+    * **名稱：** 提供新的「裝置佈建服務」執行個體的唯一名稱。 如果您輸入的名稱可用，則會出現綠色核取記號。
+    * **訂用帳戶：** 選擇您想要用於建立此裝置佈建服務執行個體的訂用帳戶。
     * **資源群組：** 此欄位可讓您建立新的資源群組，或選擇現有群組以包含新的執行個體。 選擇包含您先前所建立 IoT 中樞的相同資源群組，例如 **TestResources**。 您可以將所有相關資源一起放在群組中，一併加以管理。 例如，刪除資源群組時，將會刪除該群組中包含的所有資源。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-portal.md)。
     * **位置：** 選取最接近裝置的位置。
-    * **釘選到儀表板：** 選取此選項以將執行個體釘選到儀表板，以便輕鬆地找到。
 
-    ![在入口網站刀鋒視窗中輸入有關 DPS 執行個體的基本資訊](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+    ![在入口網站刀鋒視窗中輸入關於裝置佈建服務執行個體的基本資訊](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
-4. 成功部署服務後，其摘要刀鋒視窗會自動開啟。
+4. 按一下通知按鈕，以監視資源執行個體的建立情形。 在服務成功部署後，按一下 [釘選到儀表板]，然後按 [移至資源]。
 
+    ![監視部署通知](./media/quick-setup-auto-provision/pin-to-dashboard.png)
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>連結 IoT 中樞與裝置佈建服務
 
@@ -61,7 +61,7 @@ ms.locfileid: "39527587"
     * **IoT 中樞：** 選取要與新「裝置佈建服務」執行個體連結的 IoT 中樞。
     * **存取原則：** 選取 [iothubowner] 作為認證，以建立與 IoT 中樞的連結。  
 
-    ![將中樞名稱連結到入口網站刀鋒視窗中的 DPS 執行個體](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+    ![在入口網站刀鋒視窗中連結中樞名稱，以連結至裝置佈建服務執行個體](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. 您現在應會在 [連結的 IoT 中樞] 刀鋒視窗之下看到所選的中樞。 您可能需要按一下 [重新整理] 以顯示 [連結的 IoT 中樞]。
 

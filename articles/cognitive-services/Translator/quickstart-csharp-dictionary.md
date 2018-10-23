@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 328f5996a9b830ea6c2ff4b4a535d5311f39e08e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 35903b0da707e5167781c3a7595c3be938a4fc07
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365251"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321338"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>快速入門：使用 C# 尋找替代的翻譯和使用方式
 
 在本快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
-
-您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,6 +28,9 @@ ms.locfileid: "46365251"
 若要使用翻譯工具文字 API，您也需要有訂用帳戶金鑰；請參閱[如何註冊翻譯工具文字 API](translator-text-how-to-signup.md)。
 
 ## <a name="dictionary-lookup-request"></a>Dictionary Lookup 要求
+
+> [!TIP]
+> 從 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 取得最新程式碼。
 
 下列程式碼會使用 [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) 方法，以取得字組的替代翻譯。
 

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure IoT Central 中設定規則和動作 | Microsoft Docs
-description: 此教學課程將為建置者說明如何在 Azure IoT Central 應用程式中設定以遙測為基礎的規則和動作。
+description: 本教學課程將為建置者說明如何在 Azure IoT Central 應用程式中設定以遙測為基礎的規則和動作。
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
@@ -9,26 +9,26 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 20dcad571a32638488ce111b5af55623f2305c57
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731883"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310431"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>教學課程：在 Azure IoT 中心為您的裝置設定規則和動作
 
 *此文章適用於操作員、建置人員及系統管理員。*
 
-在此教學課程中，您會建立在連線的空調裝置溫度超過 90&deg; F 時傳送電子郵件的規則。
+在本教學課程中，您會建立在連線的空調裝置溫度超過 90&deg; F 時傳送電子郵件的規則。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立以遙測為基礎的規則
 > * 新增動作
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在開始之前，您應先完成[在應用程式中定義新的裝置類型](tutorial-define-device-type.md)教學課程，以建立要搭配使用的**連線的空調**裝置範本。
 
@@ -66,7 +66,7 @@ ms.locfileid: "45731883"
 
 ## <a name="add-an-action"></a>新增動作
 
-在定義規則時，您也須定義在符合規則條件時所要執行的動作。 在此教學課程中，您所新增的動作將會傳送規則所觸發的電子郵件通知。
+在定義規則時，您也須定義在符合規則條件時所要執行的動作。 在本教學課程中，您所新增的動作將會傳送規則所觸發的電子郵件通知。
 
 1. 若要新增 [動作]，請先 [儲存] 規則，然後在 [設定遙測規則] 面板上向下捲動，並選擇 [動作] 旁的 [+]，接著選擇 [電子郵件]：
 
@@ -97,9 +97,12 @@ ms.locfileid: "45731883"
 
 ![電子郵件動作](media/tutorial-configure-rules/email.png)
 
+> [!NOTE]
+> 測試完成後，請關閉規則以停止在收件匣中接收警示。 
+
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]

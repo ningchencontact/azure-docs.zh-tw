@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166872"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310210"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -112,6 +112,8 @@ ms.locfileid: "47166872"
 * 目前不支援從遠端桌面進行密碼重設。
 
 如果使用登錄機碼或群組原則停用 Windows 鎖定畫面，將無法使用 [重設密碼]。
+
+如果原則需要 Ctrl+Alt+Del，或鎖定螢幕通知已關閉，[重設密碼]將無法運作。 Windows 10 19H1 將免除這項需求。
 
 Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 ClientType。
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6e3571fb54f12ef3bb5519f572b8af5bf9247e7d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 107852bd2c4ec0b932008b498dde4ea77f8071a3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032572"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116331"
 ---
 # <a name="what-is-azure-iot-edge"></a>什麼是 Azure IoT Edge
 
@@ -55,7 +55,7 @@ Azure IoT Edge 執行階段可在 IoT Edge 裝置上啟用自訂和雲端邏輯�
 * 促進 IoT Edge 裝置上模組之間的通訊。
 * 促進 IoT Edge 裝置與雲端之間的通訊。
 
-![IoT Edge 執行階段會將深入解析和報告傳送至 IoT 中樞][1]
+![IoT Edge 執行階段會將深入解析和報告傳送至 IoT 中樞](./media/about-iot-edge/runtime.png)
 
 您可以全然決定如何使用 Azure IoT Edge 裝置。 此執行階段通常用於將 AI 部署至閘道，以便彙總及處理多個其他內部部署裝置上的資料，不過這只是選項之一。 不論是與閘道連線，還是直接與雲端連線，分葉裝置本身也可以是 Azure IoT Edge 裝置。
 
@@ -71,15 +71,10 @@ Azure IoT Edge 能夠與 Azure IoT 解決方案加速器緊密整合，以針對
 * 將工作負載傳送到一組裝置。
 * 監視在現場裝置上執行的工作負載。
 
-![裝置的遙測、深入解析及動作會透過雲端協調][2]
+![裝置的遙測、深入解析及動作會透過雲端協調](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-[在模擬裝置上部署 IoT Edge][lnk-quickstart]，試試看了解這些概念。
+[在模擬裝置上部署 IoT Edge](quickstart.md)，試著了解這些概念。
 
-<!-- Images -->
-[1]: ./media/about-iot-edge/runtime.png
-[2]: ./media/about-iot-edge/cloud-interface.png
-
-<!-- Links -->
-[lnk-quickstart]: quickstart.md
+ 

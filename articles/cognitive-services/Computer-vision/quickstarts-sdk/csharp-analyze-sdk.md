@@ -3,25 +3,23 @@ title: 快速入門：分析影像 - SDK、C# - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您會使用電腦視覺 Windows C# 用戶端程式庫，分析影像。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: 0315b1c90eeae27d30a237aea76e66465818fba4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.author: pafarley
+ms.openlocfilehash: 81a7b32ef2970efc7f53ec8d25350efb217d7b36
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056067"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343636"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>本快速入門：使用電腦視覺 SDK 和 C# 來分析影像
 
 在本快速入門中，您使用電腦視覺 Windows 用戶端程式庫，來分析要擷取視覺功能的本機與遠端影像。
-
-此範例的原始程式碼位於 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,6 +28,9 @@ ms.locfileid: "47056067"
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) (英文) 用戶端程式庫 NuGet 套件。 您不必下載此套件。 下面會提供安裝指示。
 
 ## <a name="analyzeimageasync-method"></a>AnalyzeImageAsync 方法
+
+> [!TIP]
+> 從 [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 取得最新程式碼作為 Visual Studio 解決方案。
 
 `AnalyzeImageAsync` 和 `AnalyzeImageInStreamAsync` 方法可分別針對遠端和本機影像包裝[分析影像 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (英文)。 您可以使用這些方法，根據影像內容來擷取視覺功能，並且選擇要傳回哪些功能，包括：
 

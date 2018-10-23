@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888071"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319331"
 ---
 # <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
 Azure 轉送服務可讓您在公用雲端中安全地公開公司網路中所執行的服務。 您不需要開啟防火牆連線，也不需要對公司網路基礎結構進行侵入式變更，就能做到這一點。 
@@ -81,10 +81,9 @@ WCF 轉送適用於完整的 .NET Framework 和 WCF。 您可以在內部部署�
 4. 收到要求的閘道會查詢閘道存放區中的轉送。 
 5. 閘道會將連線要求轉送給閘道存放區中提及的正確閘道。 
 6. 閘道會將要求傳送給接聽方用戶端，讓它對最接近傳送方用戶端的閘道節點建立暫時通道。 
-7. 現在，接聽方用戶端會建立暫時通道，並傳送回應訊息給最接近傳送方用戶端的閘道。
-8. 閘道會將回應訊息轉送給傳送方用戶端。 
-
-建立轉送連線時，用戶端可以透過用來會合的閘道節點交換訊息。
+7. 接聽方用戶端會建立暫時通道，並傳送回應給最接近傳送方用戶端的閘道。 現在，用戶端之間已透過閘道建立連線，用戶端可以開始互相交換訊息。 
+8. 閘道會將來自接聽方用戶端的任何訊息轉送至傳送方用戶端。 
+9. 閘道會將來自傳送方用戶端的任何訊息轉送至接聽方用戶端。  
 
 ## <a name="next-steps"></a>後續步驟
 * [開始使用 .NET Websocket](relay-hybrid-connections-dotnet-get-started.md)

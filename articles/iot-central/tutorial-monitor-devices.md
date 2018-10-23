@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4fceaf5a3e573964919d365a67519b26278ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235476"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310619"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>教學課程：使用 Azure IoT 中心監視您的裝置
 
@@ -27,7 +27,7 @@ ms.locfileid: "35235476"
 > * 調查問題
 > * 補救問題
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在開始之前，建置者應先完成三個建置者教學課程，以建立 Azure IoT Central 應用程式：
 
@@ -61,7 +61,7 @@ Azure IoT Central 會以電子郵件訊息傳送關於裝置的通知。 建置�
 
 若要變更裝置的目標溫度，請使用 [設定] 頁面：
 
-1. 選擇 [設定]。 將 [設定溫度] 變更為 100。 選擇 [更新]，以將新的目標溫度傳送至裝置。 當裝置確認設定變更之後，設定值的狀態將會變更為 [已同步]：
+1. 選擇 [設定]。 將 [設定溫度] 變更為 75。 選擇 [更新]，以將新的目標溫度傳送至裝置。 當裝置確認設定變更之後，設定值的狀態將會變更為 [已同步]：
 
     ![更新設定](media/tutorial-monitor-devices/change_settings.png)
 

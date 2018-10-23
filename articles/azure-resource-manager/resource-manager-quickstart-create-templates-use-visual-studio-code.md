@@ -10,25 +10,25 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a2b4c4824960c21011876a7c0adf029fc56d93d2
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419112"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378681"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>快速入門：使用 Visual Studio Code 建立 Azure Resource Manager 範本
 
-了解如何使用 Visual Studio Code 和 Azure Resource Manager Tools 擴充功能來建立 Azure Resource Manager 範本。 不需使用擴充功能，即可在 Visual Studio Code 中建立 Resource Manager 範本，但擴充功能會提供可簡化範本開發的自動完成選項。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
+了解如何使用 Visual Studio Code 和 Azure Resource Manager Tools 擴充功能來建立及編輯 Azure Resource Manager 範本。 不需使用擴充功能，即可在 Visual Studio Code 中建立 Resource Manager 範本，但擴充功能會提供可簡化範本開發的自動完成選項。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要完成此文章，您需要：
+若要完成本文，您需要：
 
 - [Visual Studio Code](https://code.visualstudio.com/)。
 - Resource Manager Tools 擴充功能。 若要安裝，請使用下列步驟：
@@ -42,7 +42,7 @@ ms.locfileid: "47419112"
 
 您可以從 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)開啟範本，而無須從頭建立範本。 Azure 快速入門範本是 Resource Manager 範本的存放庫。
 
-此快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
+本快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
 
 1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
 2. 在 [檔案名稱] 中，貼上下列 URL：
@@ -55,9 +55,14 @@ ms.locfileid: "47419112"
 
 ## <a name="edit-the-template"></a>編輯範本
 
-若要了解如何使用 Visual Studio Code 編輯範本，您可以在 [輸出] 區段中再新增一個元素。
+若要了解如何使用 Visual Studio Code 編輯範本，您可以在 `outputs` 區段中再新增一個元素。
 
-1. 在 Visual Studio Code 中，再將一個輸出新增至已匯出的範本：
+1. 從 Visual Studio Code，檢查 **kind** 的值。 如果值為 **Storage**，將此值更新為 **StorageV2**。
+
+    ```json
+    "kind": "StorageV2",
+    ```
+2. 將多一個輸出新增至已匯出的範本：
 
     ```json
     "storageUri": {
@@ -85,25 +90,17 @@ ms.locfileid: "47419112"
 
     ![Resource Manager 範本的 Visual Studio 程式碼 Intellisense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-2. 選取 [檔案]>[儲存]，以儲存檔案。
+3. 選取 [檔案]>[儲存]，以儲存檔案。
 
 ## <a name="deploy-the-template"></a>部署範本
 
-有許多方法可用來部署範本。  在此快速入門中，您會從 Azure 入口網站使用 Azure Cloud Shell。 Cloud Shell 支援 Azure CLI 和 Azure PowerShell。 
+有許多方法可用來部署範本。  在本快速入門中，您會使用 Azure Cloud Shell。 Cloud Shell 支援 Azure CLI 和 Azure PowerShell。 
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)
-2. 選取位於右上角的 [Cloud Shell]，如下圖所示：
-
-    ![Azure 入口網站的 Cloud Shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
-
-    Cloud Shell 會在視窗的底部開啟。
-
-3. 在 Cloud Shell 的左上角，它會顯示 **PowerShell** 或 **Bash**。 若要使用 CLI，您必須開啟 Bash 工作階段。 若要執行 PowerShell，您必須開啟 PowerShell 工作階段。 選取向下箭號，以在 Bash 與 PowerShell 之間切換。 下圖顯示從 PowerShell 切換到 Bash 的情形。
+1. 登入 [Azure Cloud Shell](https://shell.azure.com)
 
     ![Azure 入口網站的 Cloud Shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-
-    切換時必須重新啟動殼層。
-4. 選取 [上傳/下載檔案]，然後選取 [上傳]。
+2. 在 Cloud Shell 的左上角，它會顯示 **PowerShell** 或 **Bash**。 若要使用 CLI，您必須開啟 Bash 工作階段。 若要執行 PowerShell，您必須開啟 PowerShell 工作階段。 選取向下箭號，以在 Bash 與 PowerShell 之間切換。 請參閱上一個螢幕擷取畫面。 切換時必須重新啟動殼層。
+3. 選取 [上傳/下載檔案]，然後選取 [上傳]。
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
@@ -116,7 +113,7 @@ ms.locfileid: "47419112"
     ---
 
     您必須先上傳範本檔案，才能從殼層加以部署。
-5. 選取您先前在此快速入門中儲存的檔案。 預設名稱為 **azuredeploy.json**。
+5. 選取您在前一節中儲存的檔案。 預設名稱為 **azuredeploy.json**。
 6. 從 Cloud Shell 執行 **ls** 命令，以確認已成功上傳檔案。 您也可以使用 **cat** 命令來確認範本內容。 下圖顯示從 Bash 執行命令的情形。  您從 PowerShell 工作階段使用相同的命令。
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -132,20 +129,30 @@ ms.locfileid: "47419112"
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the name for this deployment:" &&
+    read deploymentName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    az group create --name $resourceGroupName --location $location &&
+    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
-
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
+
+    如果您將檔案儲存為 **azuredeploy.json** 以外的名稱，請更新範本檔名。
 
     下列螢幕擷取畫面顯示範例部署：
 
@@ -159,33 +166,32 @@ ms.locfileid: "47419112"
     
     ---
 
-    在螢幕擷取畫面上，會使用下列值：
-
-    - **&lt;ResourceGroupName>**：myresourcegroup0709。 此參數出現於兩處。  請務必使用相同的值。
-    - **&lt;AzureLocation>**：eastus2
-    - **&lt;DeployName>**：mydeployment0709
-    - **&lt;TemplateFile>**：azuredeploy.json
-
-    在螢幕擷取畫面輸出中，儲存體帳戶名稱為 *3tqebj3slyfyestandardsa*。 
+    outputs 區段中的儲存體帳戶名稱和儲存體 URL 會在螢幕擷取畫面上醒目提示。 您在下一個步驟中需要此儲存體帳戶名稱。
 
 7. 執行下列 CLI 或 PowerShell 命令，以列出新建立的儲存體帳戶：
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the Storage Account name:" &&
+    read storageAccountName &&
+    az storage account show --resource-group $resourceGroupName --name $storageAccountName
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
+    Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
     
     ---
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要 Azure 資源時，可透過刪除資源群組來清除您所部署的資源。
+不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
 1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
 2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。

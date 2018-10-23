@@ -3,25 +3,23 @@ title: 快速入門：產生縮圖 - SDK、C# - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您會使用電腦視覺 Windows C# 用戶端程式庫，從影像產生縮圖。
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: 8fdbcf5bfe4d4fe60a2858b34b38c01d66e75d99
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.author: pafarley
+ms.openlocfilehash: 758021a9428672789923d1774f51fd319fe9885f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054807"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343107"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>快速入門： 使用電腦視覺 SDK 和 C# 產生縮圖
 
 在本快速入門中，您會使用電腦視覺 Windows 用戶端程式庫，從影像產生縮圖。
-
-此範例的原始程式碼位於 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,6 +28,9 @@ ms.locfileid: "47054807"
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) (英文) 用戶端程式庫 NuGet 套件。 您不必下載此套件。 下面會提供安裝指示。
 
 ## <a name="generatethumbnailasync-method"></a>GenerateThumbnailAsync 方法
+
+> [!TIP]
+> 從 [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 取得最新程式碼作為 Visual Studio 解決方案。
 
 `GenerateThumbnailAsync` 和 `GenerateThumbnailInStreamAsync` 方法可分別針對遠端和本機影像包裝[取得縮圖 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (英文)。  您可以使用這些方法來產生影像的縮圖。 您指定高度和寬度，可能與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別感興趣的區域，並且根據該區域產生裁剪的座標。
 

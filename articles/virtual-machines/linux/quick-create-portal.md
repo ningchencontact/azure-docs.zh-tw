@@ -13,37 +13,47 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/14/2018
+ms.date: 10/12/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 78b20b977685989c10ba61a48afee7808c46f227
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227277"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320623"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Linux 虛擬機器
 
-您可以透過 Azure 入口網站建立 Azure 虛擬機器 (VM)。 此方法可提供以瀏覽器為基礎的使用者介面，以便建立 VM 及其相關聯的資源。 本快速入門說明如何使用 Azure 入口網站，在 Azure 中部署執行 Ubuntu 的 Linux 虛擬機器 (VM)。 若要查看作用中的 VM，接著要以 SSH 連線至 VM，並安裝 NGINX 網頁伺服器。
+您可以透過 Azure 入口網站建立 Azure 虛擬機器 (VM)。 Azure 入口網站是以瀏覽器為基礎的使用者介面，可用來建立 VM 及其相關聯的資源。 本快速入門說明如何使用 Azure 入口網站，來部署執行 Ubuntu 16.04 LTS 的 Linux 虛擬機器 (VM)。 為了查看作用中的 VM，您還會以 SSH 連線至 VM，並安裝 NGINX 網頁伺服器。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="create-ssh-key-pair"></a>建立 SSH 金鑰組
 
-您必須要有 SSH 金鑰組，才能完成本快速入門的操作。 如果現有的 SSH 金鑰組，則可略過此步驟。
+您必須要有 SSH 金鑰組，才能完成本快速入門的操作。 如果您已經擁有 SSH 金鑰組，則可略過此步驟。
 
-若要建立 SSH 金鑰組並登入 Linux VM，請從 Bash 殼層執行下列命令，並依照螢幕上的指示操作。 例如，您可以使用 [Azure Cloud Shell](../../cloud-shell/overview.md) 或[適用於 Linux 的 Windows Substem](/windows/wsl/install-win10)。 命令輸出包含公開金鑰檔案的檔案名稱。 將公開金鑰檔案 (`cat ~/.ssh/id_rsa.pub`) 的內容複製到剪貼簿：
+開啟 Bash 殼層，然後使用 [ssh-keygen](https://www.ssh.com/ssh/keygen/) 來建立 SSH 金鑰組。 如果本機電腦上沒有 Bash 殼層，則可以使用 [Azure Cloud Shell](https://shell.azure.com/bash)。  
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
+上述命令會在 `~/.ssh directory` 中產生具有預設名稱 `id_rsa` 的公開和私密金鑰。 此命令會傳回公開金鑰的完整路徑。 請使用公開金鑰的路徑，透過 `cat` 來顯示其內容。
+
+```bash 
+cat ~/.ssh/id_rsa.pub
+```
+
+儲存此命令的輸出。 在設定用來登入 VM 的系統管理員帳戶時會用到它。
+
 如需如何建立 SSH 金鑰的詳細資訊 (包括 PuTTy 的用法)，請參閱[對 Windows 使用 SSH 金鑰](ssh-from-windows.md)。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+如果您使用 Cloud Shell 建立 SSH 金鑰組，該金鑰組會儲存在 [Cloud Shell 所自動掛接](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)的 Azure 檔案共用內。 在擷取到金鑰前請勿刪除此檔案共用或儲存體帳戶，否則會無法存取 VM。 
 
-在 http://portal.azure.com 上登入 Azure 入口網站
+## <a name="sign-in-to-azure"></a>登入 Azure
+
+登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 
@@ -69,6 +79,10 @@ ssh-keygen -t rsa -b 2048
 
 1. 保留其餘預設值，然後在頁面底部選取 [檢閱 + 建立] 按鈕。
 
+1. 在 [建立虛擬機器] 頁面上，您可以看到即將建立的 VM 詳細資料。 準備完成後，請選取 [建立]。
+
+可能需要幾分鐘的時間才能部署好 VM。 部署完成時，請前往下一節。
+
     
 ## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
 
@@ -78,32 +92,29 @@ ssh-keygen -t rsa -b 2048
 
     ![入口網站 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. 在 [連線至虛擬機器] 頁面中，保留以 DNS 名稱透過連接埠 22 進行連線的預設選項。 在**使用 VM 本機帳戶登入**中，會顯示連線命令。 按一下按鈕以複製該命令。 下列範例說明 SSH 連線命令的內容：
+2. 在 [連線至虛擬機器] 頁面中，維持預設選項，以便使用 IP 位址透過連接埠 22 進行連線。 在**使用 VM 本機帳戶登入**中，會顯示連線命令。 按一下按鈕以複製該命令。 下列範例說明 SSH 連線命令的內容：
 
     ```bash
-    ssh azureuser@myvm-123abc.eastus.cloudapp.azure.com
+    ssh azureuser@10.111.12.123
     ```
 
-3. 將 SSH 連線命令貼到殼層中 (例如 Azure Cloud Shell 或 Windows 上 Ubuntu 的 Bash)，以建立連線。 
+3. 使用和您建立 SSH 金鑰組時所用的同一個 Bash 殼層 (例如 [Azure Cloud Shell](https://shell.azure.com/bash) 或本機 Bash 殼層)，將 SSH 連線命令貼到殼層中，以建立 SSH 工作階段。 
 
 ## <a name="install-web-server"></a>安裝 Web 伺服器
 
-若要查看作用中的 VM，請安裝 NGINX 網頁伺服器。 若要更新套件來源並安裝最新的 NGINX 套件，請從 SSH 工作階段執行下列命令：
+若要查看作用中的 VM，請安裝 NGINX 網頁伺服器。 從 SSH 工作階段更新套件來源，然後安裝最新的 NGINX 套件。
 
 ```bash
-# update packages
 sudo apt-get -y update
-
-# install NGINX
 sudo apt-get -y install nginx
 ```
 
-完成時，請 `exit` SSH 工作階段並返回 Azure 入口網站中的 VM 屬性。
+完成時，輸入 `exit` 來離開 SSH 工作階段。
 
 
 ## <a name="view-the-web-server-in-action"></a>檢視作用中的網頁伺服器
 
-安裝 NGINX 後，且連接埠 80 對您的 VM 開啟，即可立即從網際網路存取網頁伺服器。 開啟 Web 瀏覽器，並輸入 VM 的公用 IP 位址。 您可以在 VM 的 [概觀] 頁面找到公用 IP 位址，或在您新增輸入連接埠規則的 [網路] 頁面頂端找到。
+使用所選的網頁瀏覽器來查看預設 NGINX 歡迎使用頁面。 輸入 VM 的公用 IP 位址作為網址。 您可以在 VM 的 [概觀] 頁面找到公用 IP 位址，也可以在您稍早使用的 SSH 連接字串中找到。
 
 ![預設 NGINX 網站](./media/quick-create-cli/nginx.png)
 

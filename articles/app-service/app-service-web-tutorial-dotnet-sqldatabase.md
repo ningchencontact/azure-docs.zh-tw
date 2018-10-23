@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: b438ac221483fec7ea90847ec27a105a3f21ab78
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42117358"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353811"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
@@ -423,4 +423,4 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 前進到下一個教學課程，以了解如何輕鬆改善 Azure SQL Database 連線的安全性。
 
 > [!div class="nextstepaction"]
-> [使用受控服務識別安全地存取 SQL Database](app-service-web-tutorial-connect-msi.md)
+> [使用 Azure 資源的受控識別安全地存取 SQL Database](app-service-web-tutorial-connect-msi.md)

@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 2d19488d9b4d6ae6c71610788345b45c38e51cfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968810"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309854"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教學課程：了解如何使用 Azure CLI 控管 Linux 虛擬機器
 
@@ -27,13 +27,13 @@ ms.locfileid: "46968810"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，此教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 Azure CLI，則在本教學課程中，您必須執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="understand-scope"></a>了解範圍
 
 [!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
-在此教學課程中，您會將所有的管理設定套用到資源群，讓您可以在完成後輕易地移除這些設定。
+在本教學課程中，您會將所有的管理設定套用到資源群，讓您可以在完成後輕易地移除這些設定。
 
 先來建立該資源群組。
 
@@ -55,21 +55,19 @@ az group create --name myResourceGroup --location "East US"
 * [網路參與者](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [儲存體帳戶參與者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給某個範圍內的角色。 
+相較於將角色指派給個別使用者，使用 Azure Active Directory 群組來含括需要執行類似動作的使用者，通常會較為容易。 然後，將該群組指派給適當的角色。 在本文中，請使用現有的群組來管理虛擬機器，或使用入口網站來[建立 Azure Active Directory 群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
-下列範例會建立名為 VMDemoContributors、郵件暱稱為 vmDemoGroup 的 Azure Active Directory 群組。 郵件暱稱可作為群組的別名。
-
-```azurecli-interactive
-adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
-```
-
-在命令提示字元傳回後，群組需要一些時間才會傳播到整個 Azure Active Directory。 等候 20 或 30 秒之後，使用 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 命令將新的 Azure Active Directory 群組指派給資源群組的虛擬機器參與者角色。  如果您在群組傳播完成之前執行下列命令，您會收到錯誤，指出：**原則 <guid> 不存在於目錄中**。 請嘗試再次執行命令。
+建立新群組或找到現有群組後，請使用 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 命令，將新的 Azure Active Directory 群組指派給資源群組的虛擬機器參與者角色。
 
 ```azurecli-interactive
+adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
+
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-通常您需要針對網路參與者和儲存體帳戶參與者重複進行此程序，以確保已指派使用者來管理已部署的資源。 在此文章中，您可以略過這些步驟。
+如果出現錯誤，指出**原則 <guid> 不存在於目錄中**，表示新群組未傳播至整個 Azure Active Directory。 請嘗試再次執行命令。
+
+通常您需要針對網路參與者和儲存體帳戶參與者重複進行此程序，以確保已指派使用者來管理已部署的資源。 在本文中，您可以略過這些步驟。
 
 ## <a name="azure-policy"></a>Azure 原則
 
@@ -79,7 +77,7 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 az policy definition list --query "[].[displayName, policyType, name]" --output table
 ```
 
-您會看到現有的原則定義。 原則類型不是**內建**就是**自訂**。 查看定義，尋找符合您要指派之條件的定義。 在此文章中，您指派的原則要：
+您會看到現有的原則定義。 原則類型不是**內建**就是**自訂**。 查看定義，尋找符合您要指派之條件的定義。 在本文中，您指派的原則要：
 
 * 限制所有資源的位置。
 * 限制虛擬機器的 SKU。
@@ -133,7 +131,7 @@ az policy definition show --name $locationDefinition --query parameters
 
 ## <a name="deploy-the-virtual-machine"></a>部署虛擬機器
 
-您已指派角色和原則，現在可以開始部署您的解決方案。 預設大小是 Standard_DS1_v2，也就是所允許之 SKU 的其中一個。 如果預設的位置沒有 SSH 金鑰，命令會加以建立。
+您已指派角色和原則，現在可以開始部署您的解決方案。 預設大小是 Standard_DS1_v2，也就是所允許之 SKU 的其中一個。 如果預設位置中沒有 SSH 金鑰，命令會加以建立。
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -171,7 +169,7 @@ az lock create --name LockNSG \
 az group delete --name myResourceGroup
 ```
 
-您會看到錯誤指出因為鎖定所以無法執行刪除作業。 只有當您明確移除鎖定後，才能刪除資源群組。 [清除資源](#clean-up-resources)中會說明該步驟。
+您會看到一則錯誤，指出刪除作業因鎖定而無法完成。 只有當您明確移除鎖定後，才能刪除資源群組。 [清除資源](#clean-up-resources)中會說明該步驟。
 
 ## <a name="tag-resources"></a>標記資源
 
@@ -179,7 +177,7 @@ az group delete --name myResourceGroup
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-若要將標籤套用至虛擬機器，請使用 [az resource tag](/cli/azure/resource#az_resource_tag) 命令。 不會保留資源上的任何現有標籤。
+若要將標籤套用至虛擬機器，請使用 [az resource tag](/cli/azure/resource#az_resource_tag) 命令。 資源上的任何現有標記都不會保留。
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -231,7 +229,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-您在此教學課程中建立了自訂 VM 映像。 您已了解如何︰
+您在本教學課程中建立了自訂 VM 映像。 您已了解如何︰
 
 > [!div class="checklist"]
 > * 將使用者指派給角色

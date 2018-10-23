@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 521b6423550bf3e2d0bc90212b7e3fe0cbeddfc4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948878"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167064"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>教學課程：設定 Azure 網路應用程式，以從 Key Vault 讀取祕密
 
@@ -126,10 +126,11 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 1. 在 [方案總管] 中，於您的網站名稱上按一下滑鼠右鍵。
 2. 選取 [管理解決方案的 NuGet 套件...]
 3. 選取搜尋方塊旁的核取方塊。 **包含搶鮮版**
-4. 搜尋下列兩個 NuGet 套件，並接受將它們新增至您的解決方案：
+4. 搜尋下列三個 NuGet 套件，並接受將它們新增至您的解決方案：
 
     * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - 讓您輕鬆擷取 Service-to-Azure-Service 驗證案例的存取權杖。 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - 包含與 Key Vault 互動的方法。
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) - 包含 Azure Key Vault 的 `IConfiguration` 擴充功能
 
 5. 使用 [方案總管] 來開啟 `Program.cs`，並以下列程式碼取代 Program.cs 檔案的內容。 將 ```<YourKeyVaultName>``` 替換成您的金鑰保存庫名稱：
 

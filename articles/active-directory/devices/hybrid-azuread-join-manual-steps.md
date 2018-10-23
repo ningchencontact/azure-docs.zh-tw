@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049932"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352792"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定混合式 Azure Active Directory 已加入裝置 
 
@@ -92,6 +92,8 @@ Azure AD Connect：
 如果您的組織以內部部署 AD 使用受控 (非同盟) 設定，而不是使用 ADFS 與 Azure AD 同盟，則在 Windows 10 上的混合式 Azure AD，就要靠 AD 中的電腦物件與 Azure AD 同步才能加入。 若要在 Azure AD Connect 同步處理組態中進行同步，請確定已啟用其中包含需要加入混合式 Azure AD 電腦物件的任何組織單位 (OU)。
 
 針對 Windows 10 1703 版或更早版本的裝置，如果組織需要透過輸出 Proxy 存取網際網路，您就必須實作 Web Proxy 自動探索 (WPAD)，以在 Azure AD 中註冊 Windows 10 電腦。 
+
+從 Windows 10 1803 起，即使同盟網域中使用 AD FS 的裝置混嘗試合式 Azure AD 聯結失敗，而且如果 Azure AD Connect 已設定為要將電腦/裝置物件同步處理至 Azure AD，則此裝置會使用已同步處理的電腦/裝置來嘗試完成混合式 Azure AD 聯結。
 
 ## <a name="configuration-steps"></a>組態步驟
 

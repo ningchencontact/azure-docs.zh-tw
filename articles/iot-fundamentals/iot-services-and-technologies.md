@@ -7,18 +7,20 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067329"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365351"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure 物聯網技術與解決方案：PaaS 與 SaaS
 
 Microsoft 已建立一個能支援所有客戶需求的產品組合，讓每個人都能享用數位轉換的優點。 Azure IoT 產品組合概述可用的 PaaS/SaaS 技術與解決方案。 它提供兩種途徑讓您建立自己的解決方案：
 
-- 平台即服務 (PaaS)：使用 [Azure IoT 解決方案加速器](https://www.azureiotsolutions.com/)建立您的應用程式，這些加速器是一系列企業級且預先設定的解決方案，可讓您加速開發自訂 IoT 解決方案。
+- 平台即服務 (PaaS)：使用下列任何服務建置您的應用程式。
+    - [Azure IoT 解決方案加速器](https://www.azureiotsolutions.com/)是預先設定的企業級解決方案集合，可讓您加快自訂 IoT 解決方案的開發速度，或是 
+    - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) 服務，可讓您建立實體環境的模型，以使用空間智慧圖形和特定網域物件模型建立內容感知的 IoT 解決方案。
 
 - 軟體即服務 (SaaS)：可讓您快速開始使用 [Azure IoT 中心](https://azure.microsoft.com/services/iot-central/)這個新的 SaaS 解決方案，來開發 IoT 應用程式，而無須接觸到複雜的 IoT 解決方案。 如果您的組織缺少資源而無法建立您自己的 IoT 解決方案，Azure IoT 中心是一種無程式碼的 IoT 解決方案，可以在數分鐘內建立裝置型號、儀表板和規則。
 
@@ -95,7 +97,10 @@ Azure 的 IoT 中心是完全受控的 SaaS 解決方案，讓您無須具備豐
 [Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/)是一項完全受控的服務，可在數百萬個 IoT 裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 Azure IoT 中樞裝置佈建服務是 IoT 中樞的協助程式服務，無須人為介入，即可對正確的 IoT 中樞進行 Just-In-Time 自動佈建，讓客戶能以安全又可調整的方式佈建數百萬個裝置。
 
 ### <a name="edge"></a>Edge
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 是一個物聯網 (IoT) 服務。 這項服務提供客戶在裝置上分析資料的服務，也稱為 「就地型」。 將部分的工作負載就地化，便可減少延遲並能選擇離線情節。
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 是一項 IoT 服務。 這項服務提供客戶在裝置上分析資料的服務，也稱為 「就地型」。 將部分的工作負載就地化，便可減少延遲並能選擇離線情節。
+
+### <a name="spatial-intelligence"></a>空間智慧
+[Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) 是一項 IoT 服務，可讓您建立實體環境的模型。 它可提供空間智慧圖形，以建立人員、空間和裝置之間的關聯性模型。 讓數位世界與實體世界之間的資料相互關聯，您即可建立內容感知的解決方案。  
 
 ### <a name="data-and-analytics"></a>資料與分析
 充分運用您 IoT 解決方案中一系列的 Azure 資料與分析 PaaS 供應項目，從透過 Azure 機器學讓雲端智慧就地化、使用 Azure Data Lake 以符合經濟效益的方法儲存 IoT 裝置資料，一直到使用 [Azure 時間序列深入解析](https://azure.microsoft.com/services/time-series-insights/)視覺化 IoT 裝置中的大量資料。
