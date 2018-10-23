@@ -90,7 +90,7 @@ Load Balancer 為 TCP 和 UDP 應用程式提供下列基本功能：
      
     Load Balancer 會為 TCP、HTTP 和 HTTPS 端點提供[不同的健康情況探查類型](load-balancer-custom-probe-overview.md#types)。
 
-    此外，使用傳統雲端服務時，允許使用其他類型：[客體代理程式](load-balancer-custom-probe-overview.md#guestagent)。  這應該被視為健康情況探查的最後手段，但不建議使用於有其他可行的選項時。
+    此外，使用傳統雲端服務時，允許使用其他類型：[客體代理程式](load-balancer-custom-probe-overview.md#guestagent)。這應該被視為健康情況探查的最後手段，而且有其他可行的選項時建議不要使用。
     
 * **輸出連線 (SNAT)**
 
