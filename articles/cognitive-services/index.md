@@ -7,16 +7,14 @@ author: nitinme
 manager: cgronlun
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.topic: hub-page
-ms.prod: cognitive-services
-ms.technology: cognitive-services
-ms.openlocfilehash: 1c07a02369af90580615fd9e7eaf6e239949ea36
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 0564cd1b2c7acf09ee59b858eafb49a4217afe35
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068463"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954821"
 ---
 <h1>Azure 認知服務文件</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。</p>
@@ -262,9 +260,9 @@ ms.locfileid: "49068463"
                         <p><a href="/azure/cognitive-services/computer-vision/">電腦視覺</a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/overview">內容仲裁</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/home"><span>自訂視覺服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/emotion/home"><span>表情 API&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">臉部 API</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">影片索引子</a></p>
+                        <p><a href="/azure/cognitive-services/emotion/home"><span>表情 API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
                     </div>
                 </div>
             </div>
@@ -277,10 +275,10 @@ ms.locfileid: "49068463"
                     <div class="cardText">
                         <h3>Speech API</h3>
                         <p><a href="/azure/cognitive-services/speech-service">語音服務 API</a></p>
-                        <p><a href="/azure/cognitive-services/speech/home">Bing 語音 API</a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>自訂語音服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>說話者辨識&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/translator-speech/">翻譯工具語音</a></p>
+                        <p><a href="/azure/cognitive-services/speech/home"><span>Bing 語音 API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>自訂語音服務&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/translator-speech/"><span>翻譯工具語音&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
                      </div>
                 </div>
             </div>
@@ -294,10 +292,8 @@ ms.locfileid: "49068463"
                         <h3>語言 API</h3>
                         <p><a href="/azure/cognitive-services/bing-spell-check/">Bing 拼字檢查</a></p>
                         <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
-                        <p><a href="/azure/cognitive-services/linguisticanalysisapi/home"><span>語言分析&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">文字分析</a></p>
                         <p><a href="/azure/cognitive-services/translator/">翻譯工具文字</a></p>
-                        <p><a href="/azure/cognitive-services/web-language-model/home"><span>Web 語言模型&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                     </div>
                 </div>
             </div>
@@ -309,7 +305,6 @@ ms.locfileid: "49068463"
                 <div class="card">
                     <div class="cardText">
                         <h3>知識 API</h3>
-                            <p><a href="/azure/cognitive-services/custom-decision-service/"><span>自訂決策服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                             <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                     </div>
                 </div>
@@ -353,6 +348,7 @@ ms.locfileid: "49068463"
                         <p><a href="/azure/cognitive-services/labs/anomaly-finder/overview">異常搜尋工具計畫</a></p>
                         <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">對話學習模組計畫</a></p>
                         <p><a href="/azure/cognitive-services/acoustics/what-is-acoustics">Project Acoustics</a></p>
+                        <p><a href="/azure/cognitive-services/custom-decision-service/"><span>自訂決策服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                     </div>
                 </div>
             </div>

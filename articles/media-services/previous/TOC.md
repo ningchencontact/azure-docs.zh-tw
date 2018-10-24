@@ -9,12 +9,12 @@
 ## [設定開發環境](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
-## [使用 AAD 驗證來存取 API](media-services-use-aad-auth-to-access-ams-api.md)
-### [使用入口網站來管理 AAD 驗證](media-services-portal-get-started-with-aad.md)
+## [使用 Azure AD 驗證來存取 API](media-services-use-aad-auth-to-access-ams-api.md)
+### [使用入口網站來管理 Azure AD 驗證](media-services-portal-get-started-with-aad.md)
 ### [使用 .NET 存取 API](media-services-dotnet-get-started-with-aad.md)
 ### [使用 REST 存取 API](media-services-rest-connect-with-aad.md)
-### [使用 Azure CLI 來建立及設定 AAD 應用程式](media-services-cli-create-and-configure-aad-app.md)
-### [使用 Azure PowerShell 來建立及設定 AAD 應用程式](media-services-powershell-create-and-configure-aad-app.md)
+### [使用 Azure CLI 來建立及設定 Azure AD 應用程式](media-services-cli-create-and-configure-aad-app.md)
+### [使用 Azure PowerShell 來建立及設定 Azure AD 應用程式](media-services-powershell-create-and-configure-aad-app.md)
 
 ## 傳遞隨選影片
 ### [Azure 入口網站](media-services-portal-vod-get-started.md)

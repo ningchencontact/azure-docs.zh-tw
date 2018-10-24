@@ -6,7 +6,7 @@ items:
 - name: v1.0
   items:
   - name: 概觀
-    href: azure-ad-developers-guide.md
+    href: v1-overview.md
   - name: 快速入門
     items:
     - name: 設定開發環境
@@ -161,6 +161,12 @@ items:
       items:
       - name: 將單一租用戶應用程式轉換為多租用戶應用程式
         href: howto-convert-app-to-be-multi-tenant.md
+      - name: 建立服務主體
+        items:
+        - name: 使用 Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: 使用 Azure 入口網站
+          href: howto-create-service-principal-portal.md
       - name: 將您的應用程式限制為僅供一組使用者存取
         href: howto-restrict-your-app-to-a-set-of-users.md
       - name: 在您的應用程式中新增應用程式角色
@@ -342,12 +348,16 @@ items:
         href: active-directory-optional-claims.md
       - name: 設定權杖存留期 (預覽)
         href: active-directory-configurable-token-lifetimes.md
-      - name: 使用 OAuth 2.0 向 Azure AD 進行驗證並取得 JWT 權杖
-        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: 應用程式設定
       items:
       - name: 將單一租用戶應用程式轉換為多租用戶應用程式
         href: howto-convert-app-to-be-multi-tenant.md
+      - name: 建立服務主體
+        items:
+        - name: 使用 Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: 使用 Azure 入口網站
+          href: howto-create-service-principal-portal.md
       - name: 將您的應用程式限制為僅供一組使用者存取
         href: howto-restrict-your-app-to-a-set-of-users.md
       - name: 在您的應用程式中新增應用程式角色
@@ -398,9 +408,9 @@ items:
     href: developer-support-help-options.md
   - name: 適用於 Azure 資源的受控識別
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 76a1124c196cf693f15e02513ca186567e3ef088
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 01775498610b76b9110f26e3f45e41d0baadd486
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466098"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957394"

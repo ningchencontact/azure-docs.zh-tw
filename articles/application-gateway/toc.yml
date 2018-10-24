@@ -38,7 +38,7 @@ items:
     href: cli-samples.md
 - name: 概念
   items:
-  - name: SSL 終止
+  - name: 端對端 SSL
     href: ssl-overview.md
   - name: SSL 原則概觀
     href: application-gateway-ssl-policy-overview.md
@@ -74,11 +74,11 @@ items:
       href: application-gateway-ilb-arm.md
   - name: 設定 SSL 終止
     items:
-    - name: 使用 Azure 入口網站終止 SSL
+    - name: SSL 終止 - 入口網站
       href: create-ssl-portal.md
-    - name: 使用 Azure PowerShell 進行 SSL 終止
+    - name: SSL 終止 - PowerShell
       href: tutorial-ssl-powershell.md
-    - name: 使用 Azure PowerShell 進行端對端 SSL 終止
+    - name: 端對端 SSL - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
     - name: 更新憑證
       href: renew-certificates.md
@@ -182,9 +182,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-application-gateway
   - name: 常見問題集
     href: application-gateway-faq.md
-ms.openlocfilehash: 17ac6d23e6f8703d4cbb9d33e66b594d7d058d28
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7105df03e8dbef1f225c26c4b52243100118782f
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069229"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944241"

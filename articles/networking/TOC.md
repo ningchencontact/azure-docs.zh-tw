@@ -13,6 +13,11 @@
 ### [虛擬網路](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [跨單位連線 - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [跨單位連線 - 專用私人](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### 後端連線能力互通性
+#### [引用和測試設定](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [測試設定組態](connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [控制項平面分析](connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [資料平面分析](connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ##  概念
 ### [虛擬網路](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)

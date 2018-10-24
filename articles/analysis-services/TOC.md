@@ -38,8 +38,8 @@
 ### [管理伺服器](analysis-services-manage.md)
 ### [監視伺服器計量](analysis-services-monitor.md)
 ### [設定診斷記錄](analysis-services-logging.md)
-### [建立服務主體 - Azure 入口網站](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [建立服務主體 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [建立服務主體 - Azure 入口網站](../active-directory/develop/howto-create-service-principal-portal.md)
+### [建立服務主體 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [將服務主體新增至伺服器管理員角色](analysis-services-addservprinc-admins.md)
 
 ## 模型
