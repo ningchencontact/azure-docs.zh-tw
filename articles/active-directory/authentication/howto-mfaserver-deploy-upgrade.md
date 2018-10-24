@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: dbb95c8aadc66e7ece93fa800055a0f6be81f015
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 7e7952a327134197f1e8492931d7ada871789395
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161407"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145755"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>升級為最新的 Azure Multi-Factor Authentication Server
 
 本文將逐步引導您完成升級 Azure Multi-Factor Authentication (MFA) Server v6.0 或更新版本的程序。 如果您需要升級舊版的 PhoneFactor Agent，請參閱[將 PhoneFactor Agent 升級為 Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md)。
 
-如果您要從 v6.x 或更舊版本升級為 v7.x 或更新版本，所有元件都會從 .NET 2.0 變更為 .NET 4.5。 所有元件也都需要 Microsoft Visual C++ 2015 可轉散發套件更新 1 或更新版本。 MFA Server 安裝程式會同時安裝這些元件的 x86 和 x64 版本 (如果尚未安裝)。 如果使用者入口網站和行動裝置應用程式 Web 服務在不同的伺服器上執行，則您需要先安裝這些套件，再升級這些元件。 您可以在 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/)搜尋最新的 Microsoft Visual C++ 2015 可轉散發套件更新。 
+如果您要從 v6.x 或更舊版本升級為 v7.x 或更新版本，所有元件都會從 .NET 2.0 變更為 .NET 4.5。 所有元件也都需要 Microsoft Visual C++ 2015 可轉散發套件更新 1 或更新版本。 MFA Server 安裝程式會同時安裝這些元件的 x86 和 x64 版本 (如果尚未安裝)。 如果使用者入口網站和行動裝置應用程式 Web 服務在不同的伺服器上執行，則您需要先安裝這些套件，再升級這些元件。 您可以在 [Microsoft 下載中心](https://www.microsoft.com/download/)搜尋最新的 Microsoft Visual C++ 2015 可轉散發套件更新。 
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>安裝最新版的 Azure MFA Server
 
