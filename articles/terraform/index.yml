@@ -43,7 +43,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">使用 ASK 和 Terraform 建立 Kubernetes 叢集</a>。
+    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">使用 AKS 和 Terraform 建立 Kubernetes 叢集</a>。
     - html: <a href="/azure/terraform/terraform-vm-msi">使用 Azure Marketplace 映像，建立已啟用 MSI 驗證的 Terraform 虛擬機器</a>。
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">使用 Azure Terraform 模組建立負載平衡 VM 叢集</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">在 Azure Cloud Shell 中建立負載平衡的 VM 叢集</a>。
