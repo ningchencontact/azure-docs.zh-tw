@@ -266,7 +266,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
 3. 在 deployment.template.json 檔案中，**registryCredentials** 區段會儲存您的 Docker 登錄認證。 實際的使用者名稱和密碼組，會儲存在 git 所忽略的 .env 檔案中。  
 
-4. 在部署資訊清單中新增 **CSharpModule** 模組對應項。 在 **moduleContent** 區段底部，於 **$edgeHub** 模組對應項後面插入下列 JSON 內容： 
+4. 在部署資訊清單中新增 **CSharpModule** 模組對應項。 在 **modulesContent** 區段底部，於 **$edgeHub** 模組對應項後面插入下列 JSON 內容： 
     ```json
         "CSharpModule": {
             "properties.desired":{
