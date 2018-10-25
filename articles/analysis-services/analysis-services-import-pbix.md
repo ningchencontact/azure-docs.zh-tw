@@ -5,25 +5,27 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/27/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e164488a1bf176d5b6c0e28a84cd1ec22cae4cce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 8882a44b0b6db1b3c23c017a072ebddfe9aa20f5
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423573"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090859"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>匯入 Power BI Desktop 檔案
 
 您可以將 Power BI Desktop 檔案 (pbix) 中的資料模型匯入至 Azure Analysis Services。 將會匯入的項目包括模型中繼資料、快取資料和資料來源連線。 報告和視覺效果則不會匯入。 從 Power BI Desktop 匯入的資料模型是在 1400 相容性層級。
 
+> [!IMPORTANT]
+> 此功能已被取代。 它可能會在未來更新中遭到移除或大幅變更。 建議您停止在新的和現有專案中使用這項功能，以維持與未來更新的相容性。 對於進階模型開發和測試，最好使用 Visual Studio (SSDT) 和 SQL Server Management Studio (SSMS)。
+
 **限制**   
 
-- 從 pbix 檔案匯入會使用入口網站的 Web 設計工具功能，此功能目前為**預覽**版。 功能會受到限制。 對於進階模型開發和測試，最好使用 Visual Studio (SSDT) 和 SQL Server Management Studio (SSMS)。
-- 如果您的資料模型是以 Power BI Desktop 2018 年 7 月更新 (2.60.5169.3201) 或更新版本來建立的，請確定您並未啟用任何預覽功能。 Azure Analysis Services 中尚未支援預覽功能。  
-如果您在匯入時接收到下列錯誤，則表示 pbix 檔案已啟用 Azure Analysis Services 中尚未支援的預覽功能。
+
+- 如果您的資料模型是以 Power BI Desktop 2018 年 7 月更新 (2.60.5169.3201) 或更新版本來建立的，請確定您並未啟用任何預覽功能。 Azure Analysis Services 中尚未支援預覽功能。 如果您在匯入時接收到下列錯誤，則表示 pbix 檔案已啟用 Azure Analysis Services 中尚未支援的預覽功能。
 
     ![相容性層級的警告](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - 您必須擁有伺服器管理員權限，才能從 pbix 檔案匯入。
@@ -64,7 +66,7 @@ ms.locfileid: "47423573"
 
     ![重新整理認證](./media/analysis-services-import-pbix/aas-import-pbix-creds.png)
 
-3. 在 [認證] 對話方塊中，選取認證類型，然後輸入認證。 針對 SQL 驗證，請選取 [資料庫]。 針對組織帳戶 (OAuth)，則選取 [Microsoft 帳戶]。
+3. 在 [認證] 對話方塊中，選取認證類型，然後輸入認證。 若為 SQL 驗證，請選取 [資料庫]。 若為組織帳戶 (OAuth)，則選取 [Microsoft 帳戶]。
     ![編輯認證](./media/analysis-services-import-pbix/aas-import-pbix-edit-creds.png)
 
 2018 年 7 月版的 Power BI Desktop 包含可變更資料來源權限的新功能。 在 [首頁] 索引標籤上，按一下 [編輯查詢]  > [資料來源設定]。 選取資料來源連線，然後按一下 [編輯權限]。

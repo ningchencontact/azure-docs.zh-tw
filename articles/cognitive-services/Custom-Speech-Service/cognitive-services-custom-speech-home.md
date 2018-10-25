@@ -1,24 +1,24 @@
 ---
-title: 什麼是自訂語音服務？
-titlesuffix: Azure Cognitive Services
+title: Azure 上的自訂語音服務概觀 | Microsoft Docs
 description: 自訂語音服務是一種雲端式服務，可讓使用者自訂語音模型以進行語音轉文字的轉譯。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: overview
+ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 97eee2b6440dbbf740ad5fa856bd518facabbfef
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222738"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342288"
 ---
 # <a name="what-is-custom-speech-service"></a>什麼是自訂語音服務？
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 自訂語音服務是一種雲端式服務，可讓使用者自訂語音模型以進行語音轉文字的轉譯。
 若要使用自訂語音服務，請參閱[自訂語音服務入口網站](https://cris.ai)。
@@ -44,7 +44,7 @@ Microsoft 語音轉文字引擎具有世界級水準，並且適用於上述案�
 
 ## <a name="next-steps"></a>後續步驟
 
-如需關於如何使用自訂語音服務的詳細資訊，請參閱 [自訂語音服務入口網站] (https://cris.ai)。
+如需關於如何使用自訂語音服務的詳細資訊，請參閱 [「自訂語音服務入口網站」](https://cris.ai)。
 
 * [快速入門](cognitive-services-custom-speech-get-started.md)
 * [常見問題集](cognitive-services-custom-speech-faq.md)

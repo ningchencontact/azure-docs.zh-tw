@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: b73deebb10d0c81a06df9cd192eaa2ef28de744d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.reviewer: quying
+ms.openlocfilehash: f5aa67ad0588e3f42e68056c8ffca97767975e8b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083033"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361476"
 ---
 # <a name="remove-the-sql-resource-provider"></a>移除 SQL 資源提供者
 
@@ -52,6 +52,7 @@ ms.locfileid: "37083033"
 
     * **Uninstall**。 移除資源提供者及所有關聯的資源。
     * **PrivilegedEndpoint**。 具特殊權限端點的 IP 位址或 DNS 名稱。
+    * **AzureEnvironment**。 用來部署 Azure Stack 的 Azure 環境。 只有部署 Azure AD 時才需要。
     * **CloudAdminCredential**。 雲端管理員的認證，這是存取具特殊權限端點所需的認證。
     * **AzCredential**。 Azure Stack 服務管理帳戶的認證。 使用與部署 Azure Stack 時所用認證相同的認證。
 

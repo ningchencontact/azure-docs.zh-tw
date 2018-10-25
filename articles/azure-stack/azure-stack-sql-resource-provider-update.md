@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 3517114d5bc267aa32cea49161d0d34156a2ed1e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.reviewer: quying
+ms.openlocfilehash: 01815de68552e30ac5158c68d09cbb6157d03034
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390904"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362966"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 資源提供者
 
@@ -38,8 +38,8 @@ ms.locfileid: "44390904"
 
 UpdateSQLProvider.ps1 指令碼會以最新的資源提供者程式碼建立新的虛擬機器 (VM)。
 
->[!NOTE]
->建議您從 Marketplace Management 下載最新的 Windows Server 2016 Core 映像。 如果您需要安裝某個更新，可以將**單一** MSU 套件放在本機相依性路徑中。 如果這個位置中有多個 MSU 檔案，指令碼就會失敗。
+> [!NOTE]
+> 建議您從 Marketplace Management 下載最新的 Windows Server 2016 Core 映像。 如果您需要安裝某個更新，可以將**單一** MSU 套件放在本機相依性路徑中。 如果這個位置中有多個 MSU 檔案，指令碼就會失敗。
 
 UpdateSQLProvider.ps1 指令碼在建立新的 VM 後，會從舊提供者 VM 遷移下列設定：
 
@@ -49,9 +49,9 @@ UpdateSQLProvider.ps1 指令碼在建立新的 VM 後，會從舊提供者 VM �
 
 ### <a name="update-script-powershell-example"></a>更新指令碼 PowerShell 範例
 
-<a name="you-can-edit-and-run-the-following-script-from-an-elevated-powershell-ise"></a>您可以從提高權限的 PowerShell ISE 編輯並執行下列指令碼。 
--  
-- 請記得視需要變更環境的帳戶資訊和密碼。
+您可以從提高權限的 PowerShell ISE 編輯並執行下列指令碼。 
+
+請記得視需要變更環境的帳戶資訊和密碼。
 
 > [!NOTE]
 > 此更新程序僅適用於 Azure Stack 整合式系統。
@@ -66,6 +66,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -92,6 +95,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
+  -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert `
 
@@ -107,7 +111,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **AzCredential** | Azure Stack 服務系統管理員帳戶的認證。 使用與部署 Azure Stack 時所用認證相同的認證。 | _必要_ |
 | **VMLocalCredential** | SQL 資源提供者 VM 之本機系統管理員帳戶的認證。 | _必要_ |
 | **PrivilegedEndpoint** | 具特殊權限端點的 IP 位址或 DNS 名稱。 |  _必要_ |
-| **AzureEnvironment** | 您用來部署 Azure Stack 的服務管理員帳戶所屬的 Azure 環境。 只有在不是 ADFS 時才需要。 支援的環境名稱為 **AzureCloud**、**AzureUSGovernment**，或如果使用中國 Azure Active Directory，則為 **AzureChinaCloud**。 | AzureCloud |
+| **AzureEnvironment** | 您用來部署 Azure Stack 的服務管理員帳戶所屬的 Azure 環境。 只有部署 Azure AD 時才需要。 支援的環境名稱為 **AzureCloud**、**AzureUSGovernment**，或如果使用中國 Azure AD，則為 **AzureChinaCloud**。 | AzureCloud |
 | **DependencyFilesLocalPath** | 您也必須將憑證 .pfx 檔案放在這個目錄中。 | 若為單一節點，屬選擇性，若為多重節點，則屬必要 |
 | **DefaultSSLCertificatePassword** | .pfx 憑證的密碼。 | _必要_ |
 | **MaxRetryCount** | 當作業失敗時，您想要重試每個作業的次數。| 2 |
