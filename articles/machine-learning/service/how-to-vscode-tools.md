@@ -1,5 +1,5 @@
 ---
-title: 搭配使用 Visual Studio Code Tools for AI 與 Azure Machine Learning
+title: 搭配使用 Visual Studio Code Tools for AI 擴充功能與 Azure Machine Learning
 description: 了解 Visual Studio Code Tools for AI，以及如何使用 VS Code 中的 Azure Machine Learning services，開始定型和部署機器學習和深度學習模型。
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: f573dba2e7580d58c295d204fc75e2403c0d033c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241080"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945547"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>VS Code Tools for AI：從 Visual Studio Code 開始使用 Azure Machine Learning
 
@@ -22,7 +22,7 @@ ms.locfileid: "48241080"
 
 利用 Visual Studio Code 中的 Tools for AI 擴充功能，使用 Azure Machine Learning services 來準備您的資料、定型，以及在本機和遠端計算目標上測試 ML 模型、部署那些模型，並追蹤自訂計量和實驗。
 
-## <a name="prerequisite"></a>先決條件
+## <a name="prerequisite"></a>必要條件
 
 + 必須安裝 Visual Studio Code。 VS Code 是一個功能強大的輕量型原始程式碼編輯器，其會在您的桌面上執行。 它隨附 Python 和其他更多產品的內建支援。  [了解如何安裝 VS Code](https://code.visualstudio.com/docs/setup/setup-overview) \(英文\)。
 
@@ -34,7 +34,7 @@ ms.locfileid: "48241080"
 
 當您安裝 **Tools for AI** 擴充功能時，會自動安裝兩個以上的擴充功能 (前提是您具備網際網路存取權)。 它們是 [Azure 帳戶](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) \(英文\) 擴充功能和 [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) \(英文\) 擴充功能。
 
-為了與 Azure Machine Learning 搭配運作，我們需要將 VS Code 轉換成 Python IDE。 與 [Visual Studio Code 中的 Python](https://code.visualstudio.com/docs/languages/python) \(英文\) 搭配運作，需要使用 Tools for AI 自動安裝的 Microsoft Python 擴充功能。 此擴充功能會使 VS Code 成為絕佳的 IDE，並搭配各種不同的 Python 解譯器在任何作業系統上運作。 它會利用所有 VS Code 的能力來提供自動完成和 IntelliSense、使用 lint、進行偵錯及單元測試，而且還能輕鬆地在 Python 環境 (包括虛擬和 Conda 環境) 之間進行切換。 如需查看這個編輯、執行和偵錯 Python 程式碼的逐步解說，請參閱 [Python Hello World 教學課程](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)。
+為了與 Azure Machine Learning 搭配運作，我們需要將 VS Code 轉換成 Python IDE。 與 [Visual Studio Code 中的 Python](https://code.visualstudio.com/docs/languages/python) \(英文\) 搭配運作，需要使用 Tools for AI 自動安裝的 Microsoft Python 擴充功能。 此擴充功能會使 VS Code 成為絕佳的 IDE，並搭配各種不同的 Python 解譯器在任何作業系統上運作。 它會利用所有 VS Code 的能力來提供自動完成和 IntelliSense、使用 lint、進行偵錯及單元測試，而且還能輕鬆地在 Python 環境 (包括虛擬和 Conda 環境) 之間進行切換。 如需查看這個編輯、執行和偵錯 Python 程式碼的逐步解說，請參閱 [Python Hello World 教學課程](https://code.visualstudio.com/docs/python/python-tutorial)。
 
 **安裝 Tools for AI 擴充功能：**
 

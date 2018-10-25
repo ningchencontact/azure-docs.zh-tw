@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: sutalasi
-ms.openlocfilehash: 9b7200dab0351b6cd00aef05bf27c5c71a049d76
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 1d0240b8635230c0fc6a7e577914ccaace36407b
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044496"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457239"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 來設定 Azure 虛擬機器的災害復原
 
 
-在此文章中，您會了解如何使用 Azure PowerShell 來安裝和測試 Azure 虛擬機器的災害復原。
+在本文中，您會了解如何使用 Azure PowerShell 來安裝和測試 Azure 虛擬機器的災害復原。
 
 您會了解如何：
 
@@ -36,7 +36,7 @@ ms.locfileid: "48044496"
 > 可透過入口網站使用的案例功能，並非都能透過 Azure PowerShell 來使用。 目前不支援透過 Azure PowerShell 來使用的部分案例功能包括：
 > - 能夠指定應該複寫虛擬機器中的所有磁碟，而不需要明確指定虛擬機器的每個磁碟。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前：
 - 請確定您了解[情節架構和元件](azure-to-azure-architecture.md)。
@@ -58,7 +58,7 @@ Select-AzureRmSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 ## <a name="get-details-of-the-virtual-machines-to-be-replicated"></a>取得要複寫的虛擬機器詳細資料
 
-在此文章的範例中，「美國東部」區域的虛擬機器會複寫並復原到「美國西部 2」區域。 所要複寫的虛擬機器是具有 OS 磁碟和單一資料磁碟的虛擬機器。 此範例所使用的虛擬機器名稱是 AzureDemoVM。
+在本文範例中，「美國東部」區域的虛擬機器會複寫並復原到「美國西部 2」區域。 所要複寫的虛擬機器是具有 OS 磁碟和單一資料磁碟的虛擬機器。 此範例所使用的虛擬機器名稱是 AzureDemoVM。
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -99,7 +99,7 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 > * 復原服務保存庫的資源群組和受保護的虛擬機器必須位於不同的 Azure 位置。
 > * 復原服務保存庫和其所屬的資源群組可位於相同的 Azure 位置。
 
-在此文章的範例中，受保護的虛擬機器位於「美國東部」區域。 針對災害復原所選取的復原區域為「美國西部 2」區域。 復原服務保存庫和保存庫的資源群組都位於復原區域 (美國西部 2)
+在本文範例中，受保護的虛擬機器位於「美國東部」區域。 針對災害復原所選取的復原區域為「美國西部 2」區域。 復原服務保存庫和保存庫的資源群組都位於復原區域 (美國西部 2)
 
 ```azurepowershell
 #Create a resource group for the recovery services vault in the recovery Azure region
@@ -133,7 +133,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ## <a name="set-the-vault-context"></a>設定保存庫內容
 
 > [!TIP]
-> Azure Site Recovery PowerShell 模組 (AzureRm.RecoveryServices.SiteRecovery 模組) 提供對於大多數 Cmdlet 容易使用的別名。 模組中的 Cmdlet 採用 *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* 的形式，並且有形式為 *\<Operation>-**ASR**\<Object>* 的對等別名。 此文章使用 Cmdlet 別名提高可讀性。
+> Azure Site Recovery PowerShell 模組 (AzureRm.RecoveryServices.SiteRecovery 模組) 提供對於大多數 Cmdlet 容易使用的別名。 模組中的 Cmdlet 採用 *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* 的形式，並且有形式為 *\<Operation>-**ASR**\<Object>* 的對等別名。 本文使用 Cmdlet 別名提高可讀性。
 
 設定要用於 PowerShell 工作階段的保存庫內容。 若要這樣做，請下載保存庫設定檔，並在 PowerShell 工作階段中匯入所下載的檔案來設定保存庫內容。
 
@@ -161,7 +161,7 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>建立 Site Recovery 網狀架構物件來代表主要 (來源) 區域
 
-保存庫中的網狀架構物件可代表 Azure 區域。 主要網狀架構物件是建立來代表保護虛擬機器之保存庫所屬的 Azure 區域。 在此文章的範例中，受保護的虛擬機器位於「美國東部」區域。
+保存庫中的網狀架構物件可代表 Azure 區域。 主要網狀架構物件是建立來代表保護虛擬機器之保存庫所屬的 Azure 區域。 在本文範例中，受保護的虛擬機器位於「美國東部」區域。
 
 - 每個區域只能建立單一網狀架構物件。 
 - 如果您先前已在 Azure 入口網站中為 VM 啟用 Site Recovery 複寫，Site Recovery 便會自動建立網狀架構物件。 如果區域中已存在網狀架構物件，您便無法建立新的物件。
@@ -399,17 +399,17 @@ $OSdiskId =  $vm.StorageProfile.OsDisk.ManagedDisk.Id
 $RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 
-$OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
-         -DiskId $OSdiskId -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
-         -RecoveryOSDiskAccountType $RecoveryOSDiskAccountType
+$OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id `
+         -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
 # Data disk
 $datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
 
-$DataDisk1ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
-         -DiskId $datadiskId1 -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+$DataDisk1ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.

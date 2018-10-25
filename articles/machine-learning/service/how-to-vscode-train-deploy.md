@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 3a5ee8795dabcbf9e35e16a8ba0f9c0eb5490ead
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240684"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945241"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools for AI：從 VS Code 定型和部署 ML 模型
 在此文章中，您將了解如何使用 **VS Code Tools for AI** 擴充功能，透過 VS Code 中的 Azure Machine Learning services 來定型和部署機器學習和深度學習模型。
@@ -23,7 +23,7 @@ Azure Machine Learning 支援在本機和遠端計算目標上執行實驗。 �
 
 此外，您可以基於測試和生產環境需求來部署這些模型。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + 已針對 Azure Machine Learning [設定 VS Code Tools for AI](how-to-vscode-tools.md)。
 
@@ -196,4 +196,4 @@ Azure Machine Learning 能夠在雲端中和 Edge 上部署和管理您的機器
 
 如需在 VS Code 外部使用 Machine Learning 來定型的逐步解說，請參閱[教學課程：使用 Azure Machine Learning 將模型定型](tutorial-train-models-with-aml.md)。
 
-如需在本機編輯、執行和偵錯程式碼的逐步解說，請參閱 [Python Hello World 教學課程](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
+如需在本機編輯、執行和偵錯程式碼的逐步解說，請參閱 [Python Hello World 教學課程](https://code.visualstudio.com/docs/python/python-tutorial)

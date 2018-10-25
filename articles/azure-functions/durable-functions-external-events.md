@@ -2,24 +2,24 @@
 title: 在 Durable Functions 中處理外部事件 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 擴充中處理外部事件。
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b1d47c495d24a40f254279db0e9db12a659c861c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 98380cc5b9daff314283ac4e45e5edf7b5601e1b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237716"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49983941"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中處理外部事件
 
-協調器函式能夠等候和接聽外部事件。 [Durable Functions](durable-functions-overview.md) 的此功能通常有助於處理人為互動或其他外部觸發程序。
+協調器函式能夠等候和接聽外部事件。 [Durable Functions](durable-functions-overview.md) 的這項功能通常有助於處理人為互動或其他外部觸發程序。
 
 ## <a name="wait-for-events"></a>等候事件
 
@@ -136,7 +136,7 @@ public static async Task Run(
 #### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
 
 ```javascript
-const df = require.orchestrator("durable-functions");
+const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const applicationId = context.df.getInput();
@@ -148,7 +148,7 @@ module.exports = df.orchestrator(function*(context) {
     // all three departments must grant approval before a permit can be issued
     yield context.df.Task.all([gate1, gate2, gate3]);
 
-    yield context.df.callActivityAsync("IssueBuildingPermit", applicationId);
+    yield context.df.callActivity("IssueBuildingPermit", applicationId);
 });
 ```
 

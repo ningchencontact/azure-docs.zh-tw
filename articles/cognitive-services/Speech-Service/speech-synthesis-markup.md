@@ -1,20 +1,21 @@
 ---
 title: 語音合成標記語言
-description: 使用語音合成標記語言控制文字轉語音的發音和韻律。
 titleSuffix: Azure Cognitive Services
+description: 使用語音合成標記語言控制文字轉語音的發音和韻律。
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: bdcb206e092467703f0bd4404da47b334ea8ccaf
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: b32be520adeee2de50c8f49c2884dc9dc92c0ddd
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165482"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469277"
 ---
 # <a name="speech-synthesis-markup-language"></a>語音合成標記語言
 

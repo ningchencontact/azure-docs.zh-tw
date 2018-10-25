@@ -1,20 +1,21 @@
 ---
 title: 取得語音裝置 SDK
-description: 了解如何取得語音裝置 SDK 的存取權。
 titleSuffix: Azure Cognitive Services
+description: 了解如何取得語音裝置 SDK 的存取權。
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 1d64e9b88f689f680ffe1e12a2ec87bf1536fa8b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 822c4bdc6bb47d51bcd264c9093e7d07308d2b11
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166112"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468767"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>取得認知服務語音裝置 SDK
 

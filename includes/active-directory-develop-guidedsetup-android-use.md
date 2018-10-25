@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cf536879393622744da0a6dd5b4e38c8c52de39b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843209"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988314"
 ---
-## <a name="use-msal-to-get-a-token"></a>使用 MSAL 取得權杖 
+## <a name="use-msal-to-get-a-token"></a>使用 MSAL 取得權杖
 
-1.  在 [應用程式] > [Java] > [{domain}.{appname}] 之下，開啟 `MainActivity`。 
-2.  新增下列匯入：
+1. 在 [應用程式] > [Java] > [{domain}.{appname}] 之下，開啟 `MainActivity`。 
+2. 新增下列匯入：
 
     ```java
     import android.app.Activity;
@@ -241,10 +241,13 @@ ms.locfileid: "48843209"
 
 <!--start-collapse-->
 ### <a name="more-information"></a>詳細資訊
+
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
+
 呼叫 `AcquireTokenAsync` 方法會啟動一個視窗，提示使用者登入或選取其帳戶。 應用程式與使用者進行第一次互動時通常需要詢問使用者，但之後就可以自動驗證使用者。 
 
 #### <a name="get-a-user-token-silently"></a>以無訊息方式取得使用者權杖
+
 `AcquireTokenSilentAsync` 方法可在不需任何使用者互動的情況下取得權杖。  `AcquireTokenSilentAsync` 可被視為最佳要求，而當使用者必須再次登入或執行一些額外的授權 (例如多因素驗證) 時，則可以退回到 `AcquireTokenAsync`。 
 
 當 `AcquireTokenSilentAsync` 失敗時，它將會產生 `MsalUiRequiredException`。 您的應用程式可以透過兩種方式處理此例外狀況：
@@ -254,7 +257,8 @@ ms.locfileid: "48843209"
 * 稍後重試 `AcquireTokenSilentAsync`。 此方式經常用於使用者可以使用其他應用程式功能，不需要因此中斷作業的情況，例如，應用程式中有離線內容可供使用時。 當網路暫時無法使用而後還原時，應用程式可以決定是否重試 `AcquireTokenSilentAsync`。 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api"></a>呼叫 Microsoft Graph API 
+## <a name="call-the-microsoft-graph-api"></a>呼叫 Microsoft Graph API
+
 將下列方法加入至 `MainActivity` 類別：
 
 ```java
@@ -311,6 +315,7 @@ private void updateGraphUI(JSONObject graphResponse) {
     graphText.setText(graphResponse.toString());
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>針對受保護 API 進行 REST 呼叫的相關詳細資訊
 
@@ -376,5 +381,6 @@ private void updateSignedOutUI() {
 `onSignOutClicked()` 方法可將使用者從 MSAL 快取移除。 MSAL 將不再有已登入使用者的任何狀態，而且他們將會被登出應用程式。 
 
 ### <a name="more-information-on-multi-account-scenarios"></a>有關多帳戶案例的詳細資訊
+
 MSAL 也支援多個帳戶同時登入的案例。 例如，許多電子郵件應用程式都允許多個帳戶同時登入。 
 <!--end-collapse-->

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815863"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957984"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [第 1 版](v1/data-factory-azure-sql-connector.md)
 > * [目前的版本](connector-azure-sql-database.md)
 
-此文章說明如何使用 Azure Data Factory 中的「複製活動」，從 Azure SQL Database 來回複製資料。 此文章是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Azure SQL Database 來回複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -94,9 +94,9 @@ ms.locfileid: "48815863"
 
 ### <a name="service-principal-authentication"></a>服務主體驗證
 
-若要使用以服務主體為基礎的 Azure AD 應用程式權杖驗證，請依照下列步驟執行：
+若要使用以服務主體為基礎的 Azure AD 應用程式權杖驗證，請遵循下列步驟：
 
-1. **[從 Azure 入口網站建立 Azure Active Directory 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**。 請記下應用程式名稱，以及下列可定義連結服務的值：
+1. **[從 Azure 入口網站建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**。 請記下應用程式名稱，以及下列可定義連結服務的值：
 
     - 應用程式識別碼
     - 應用程式金鑰
@@ -150,7 +150,7 @@ ms.locfileid: "48815863"
 
 資料處理站可與 [Azure 資源的受控識別](data-factory-service-identity.md)相關聯，後者表示特定的資料處理站。 您可以使用此服務識別來進行 Azure SQL Database 驗證。 指定的處理站可以使用此身分識別來存取資料庫，並從中來回複製資料。
 
-若要使用 MSI 型 Azure AD 應用程式權杖驗證，請依照下列步驟執行：
+若要使用 MSI 型 Azure AD 應用程式權杖驗證，請遵循下列步驟：
 
 1. **在 Azure AD 中建立群組。** 讓處理站 MSI 成為群組成員。
     
@@ -201,7 +201,7 @@ ms.locfileid: "48815863"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)一文。 此節提供 Azure SQL Database 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)一文。 本節提供 Azure SQL Database 資料集所支援的屬性清單。
 
 若要從 Azure SQL Database 來回複製資料，請將資料集的 **type** 屬性設定為 **AzureSqlTable**。 以下是支援的屬性：
 
@@ -231,7 +231,7 @@ ms.locfileid: "48815863"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 此節提供 Azure SQL Database 來源和接收所支援屬性的清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Azure SQL Database 來源和接收所支援屬性的清單。
 
 ### <a name="azure-sql-database-as-the-source"></a>Azure SQL Database 作為來源
 
@@ -246,7 +246,7 @@ ms.locfileid: "48815863"
 
 ### <a name="points-to-note"></a>注意事項
 
-- 如果已為 **SqlSource** 指定 **sqlReaderQuery**，複製活動會針對 Azure SQL Database 來源執行此查詢以取得資料。 您也可以指定預存程序。 指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數)。
+- 如果已為 **SqlSource** 指定 **sqlReaderQuery**，複製活動會針對 Azure SQL Database 來源執行這項查詢以取得資料。 您也可以指定預存程序。 指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數)。
 - 如果您未指定 **sqlReaderQuery** 或 **sqlReaderStoredProcedureName**，就會使用資料集 JSON **structure** 區段中定義的資料行來建構查詢。 `select column1, column2 from mytable` 會針對 Azure SQL Database 執行。 如果資料集定義沒有 **structure**，則會從資料表中選取所有資料行。
 - 當您使用 **sqlReaderStoredProcedureName** 時，仍然必須在資料集 JSON 中指定一個虛設的 **tableName**。
 
@@ -427,7 +427,7 @@ GO
 
 ## <a name="identity-columns-in-the-target-database"></a>目標資料庫中的身分識別資料行
 
-此節將示範如何將資料從沒有識別欄位的來源資料表，複製到具有識別欄位的目的地資料表。
+本節將示範如何將資料從沒有識別欄位的來源資料表，複製到具有識別欄位的目的地資料表。
 
 #### <a name="source-table"></a>來源資料表
 

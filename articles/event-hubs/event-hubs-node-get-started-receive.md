@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803353"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429179"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>使用 Node.js 從 Azure 事件中樞接收事件
 
@@ -29,9 +29,9 @@ Azure 事件中樞是可高度擴充的事件管理系統，每秒可以處理�
 > [!NOTE]
 >  若要使用 Node.js 將事件傳送到事件中樞，請參閱這篇文章：[使用 Node.js 將事件傳送到 Azure 事件中樞](event-hubs-node-get-started-send.md)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要下列先決條件：
+若要完成本教學課程，您需要下列必要條件：
 
 - Node.js 8.x 版和更新版本。 從 [https://nodejs.org](https://nodejs.org) 下載最新的 LTS 版本。請勿使用 Node.js 的較舊 LTS 版本。 
 - 使用中的 Azure 帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶][] 。
@@ -57,7 +57,7 @@ npm install @azure/event-processor-host
 
 1. 在 Visual Studio Code 上開啟專案。 
 2. 在 [處理器] 資料夾下方建立名為 **.env** 的檔案。 從根資料夾的 **sample.env**，複製並貼上範例環境變數。
-3. 設定您的事件中樞連接字串、事件中樞名稱和儲存體端點。 您可以在 Azure 入口網站的 [事件中樞] 頁面上，從 **RootManageSharedAccessKey** 下方的 **Connection string-primary** 索引鍵中，複製事件中樞的連接字串。 如需詳細步驟，請參閱[取得連接字串](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace)。
+3. 設定您的事件中樞連接字串、事件中樞名稱和儲存體端點。 您可以在 Azure 入口網站的 [事件中樞] 頁面上，從 **RootManageSharedAccessKey** 下方的 **Connection string-primary** 索引鍵中，複製事件中樞的連接字串。 如需詳細步驟，請參閱[取得連接字串](event-hubs-create.md#create-an-event-hubs-namespace)。
 4. 在 Azure CLI 上，瀏覽至 [處理器] 資料夾路徑。 執行下列命令來安裝節點套件並建置專案：
 
     ```nodejs

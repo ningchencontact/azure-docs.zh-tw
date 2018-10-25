@@ -2,20 +2,20 @@
 title: Durable Functions 概觀 - Azure
 description: Azure Functions 的 Durable Functions 擴充簡介。
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 79ffa541d16212b21d20a238465a846fad5e4902
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 3dd0b99275dc3b6de1da6e433e44ae5ba01cdd33
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237920"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985925"
 ---
 # <a name="durable-functions-overview"></a>Durable Functions 概觀
 
@@ -28,7 +28,7 @@ ms.locfileid: "48237920"
 * 協調器函式每次在進行等候時，都會自動設定其進度的檢查點。 如果處理序回收或 VM 重新開機，本機狀態永遠不會消失。
 
 > [!NOTE]
-> Durable Functions 是 Azure Functions 的進階擴充功能，因此並非所有應用程式都適用。 此文章其餘部分會假設您已非常熟悉無伺服器應用程式開發過程中所涉及的 [Azure Functions](functions-overview.md) 概念和挑戰。
+> Durable Functions 是 Azure Functions 的進階擴充功能，因此並非所有應用程式都適用。 本文其餘部分會假設您已非常熟悉無伺服器應用程式開發過程中所涉及的 [Azure Functions](functions-overview.md) 概念和挑戰。
 
 Durable Functions 主要用來簡化無伺服器應用程式中複雜的具狀態協調問題。 下列各節會說明一些可因為 Durable Functions 而受益的典型應用程式模式。
 
@@ -67,14 +67,14 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(ctx) {
-    const x = yield ctx.df.callActivityAsync("F1");
-    const y = yield ctx.df.callActivityAsync("F2", x);
-    const z = yield ctx.df.callActivityAsync("F3", y);
-    return yield ctx.df.callActivityAsync("F4", z);
+    const x = yield ctx.df.callActivity("F1");
+    const y = yield ctx.df.callActivity("F2", x);
+    const z = yield ctx.df.callActivity("F3", y);
+    return yield ctx.df.callActivity("F4", z);
 });
 ```
 
-"F1"、"F2"、"F3" 和 "F4" 是函式應用程式中其他函式的名稱。 控制流程是使用一般的命令式程式碼撰寫建構來實作。 也就是說，程式碼會由上而下地執行，並可包含現有語言的控制流程語意，例如條件和迴圈。  錯誤處理邏輯則可包含在 try/catch/finally 區塊中。
+"F1"、"F2"、"F3" 和 "F4" 是函式應用程式中其他函式的名稱。 控制流程可使用一般的命令式編碼建構來加以實作。 也就是說，程式碼會由上而下地執行，並可包含現有語言的控制流程語意，例如條件和迴圈。  錯誤處理邏輯則可包含在 try/catch/finally 區塊中。
 
 `ctx` 參數 ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) 可提供方法來依名稱叫用其他函式、傳遞參數以及傳回函式的輸出。 每當程式碼呼叫 `await` 時，Durable Functions 架構便會對目前函式執行個體的進度「設定檢查點」。 如果處理序或 VM 在執行途中回收，函式執行個體便會從先前的 `await` 呼叫繼續執行。 之後會有更多關於此重新啟動行為的資訊。
 
@@ -118,16 +118,16 @@ module.exports = df.orchestrator(function*(ctx) {
     const parallelTasks = [];
 
     // get a list of N work items to process in parallel
-    const workBatch = yield ctx.df.callActivityAsync("F1");
+    const workBatch = yield ctx.df.callActivity("F1");
     for (let i = 0; i < workBatch.length; i++) {
-        parallelTasks.push(ctx.df.callActivityAsync("F2", workBatch[i]));
+        parallelTasks.push(ctx.df.callActivity("F2", workBatch[i]));
     }
 
     yield ctx.df.task.all(parallelTasks);
 
     // aggregate all N outputs and send result to F3
     const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
-    yield ctx.df.callActivityAsync("F3", sum);
+    yield ctx.df.callActivity("F3", sum);
 });
 ```
 
@@ -233,7 +233,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ```js
 const df = require("durable-functions");
-const df = require("moment");
+const moment = require("moment");
 
 module.exports = df.orchestrator(function*(ctx) {
     const jobId = ctx.df.getInput();
@@ -241,10 +241,10 @@ module.exports = df.orchestrator(function*(ctx) {
     const expiryTime = getExpiryTime();
 
     while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
-        const jobStatus = yield ctx.df.callActivityAsync("GetJobStatus", jobId);
+        const jobStatus = yield ctx.df.callActivity("GetJobStatus", jobId);
         if (jobStatus === "Completed") {
             // Perform action when condition met
-            yield ctx.df.callActivityAsync("SendAlert", machineId);
+            yield ctx.df.callActivity("SendAlert", machineId);
             break;
         }
 
@@ -298,10 +298,10 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ```js
 const df = require("durable-functions");
-const df = require('moment');
+const moment = require('moment');
 
 module.exports = df.orchestrator(function*(ctx) {
-    yield ctx.df.callActivityAsync("RequestApproval");
+    yield ctx.df.callActivity("RequestApproval");
 
     const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
     const durableTimeout = ctx.df.createTimer(dueTime.toDate());
@@ -309,9 +309,9 @@ module.exports = df.orchestrator(function*(ctx) {
     const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
     if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
         durableTimeout.cancel();
-        yield ctx.df.callActivityAsync("ProcessApproval", approvalEvent.result);
+        yield ctx.df.callActivity("ProcessApproval", approvalEvent.result);
     } else {
-        yield ctx.df.callActivityAsync("Escalate");
+        yield ctx.df.callActivity("Escalate");
     }
 });
 ```
