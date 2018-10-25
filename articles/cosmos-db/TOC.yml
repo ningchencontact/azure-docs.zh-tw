@@ -73,8 +73,9 @@ items:
   - name: 資源模型
     href: sql-api-resources.md
   - name: 全球發佈
-    href: distribute-data-globally.md
     items:
+    - name: 簡介
+      href: distribute-data-globally.md
     - name: 主要權益
       href: distribute-data-globally-benefits.md
     - name: 啟用全域散發
@@ -86,8 +87,9 @@ items:
     - name: 衝突解決
       href: multi-master-conflict-resolution.md
   - name: Throughput
-    href: request-units.md
     items:
+    - name: 簡介
+      href: request-units.md
     - name: 取得並設定輸送量
       href: set-throughput.md
   - name: 資料分割和散佈
@@ -103,8 +105,9 @@ items:
   - name: 唯一金鑰
     href: unique-keys.md
   - name: 安全性
-    href: database-security.md
     items:
+    - name: 簡介
+      href: database-security.md
     - name: 資料加密
       href: database-encryption-at-rest.md
     - name: 安全存取資料
@@ -428,6 +431,12 @@ items:
         href: performance-testing.md
     - name: 符合成本效益的讀取和寫入
       href: key-value-store-cost.md
+  - name: Cosmos DB 資料視覺化
+    items:
+    - name: 使用 Power BI
+      href: powerbi-visualize.md
+    - name: 使用 Qlik Sense
+      href: visualize-qlik-sense.md
   - name: 與其他 Azure 服務整合
     items:
     - name: 變更摘要電子商務解決方案
@@ -458,8 +467,6 @@ items:
       href: spark-connector.md
     - name: Spark 與 Kafka
       href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
-    - name: Power BI 連接器
-      href: powerbi-visualize.md
     - name: ODBC 驅動程式
       href: odbc-driver.md
   - name: 大量執行程式文件庫
@@ -494,9 +501,9 @@ items:
       href: use-cases.md
     - name: 社交媒體應用程式
       href: social-media-apps.md
-ms.openlocfilehash: 79c5c4d9d39a3735098b2d81a5d04259e3bc7acb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: dfa5b34127abf569a359814b6064ec981f57796d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471164"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985823"

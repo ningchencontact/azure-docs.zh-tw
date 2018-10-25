@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/8/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163013"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883953"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 輸出規則
 
@@ -180,10 +180,10 @@ disableOutboundSNAT 參數預設為 false，這表示負載平衡規則**確實*
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>內部 Standard Load Balancer 情節的輸出 NAT
 
-使用內部 Standard Load Balancer 時，除非同時設定公用 Standard Load Balancer，否則無法使用輸出 NAT。 變更此作業的方式是使用輸出規則來建立受內部 Standard Load Balancer 保護的 VM 輸出連線。
+使用內部 Standard Load Balancer 時，在明確宣告輸出連線之前，無法使用輸出 NAT。 透過下列步驟，您可以使用輸出規則來定義輸出連線，為內部 Standard Load Balancer 後的 VM 建立輸出連線：
 
 1. 建立公用 Standard Load Balancer。
-2. 建立後端集區，並將 VM 放入公用 Load Balancer 的後端集區。
+2. 建立後端集區，並將 VM 放入公用及內部 Load Balancer 的後端集區。
 3. 在公用 Load Balancer 上設定輸出規則，以對這些 VM 的輸出 NAT 進行程式設計。
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>使用公用 Standard Load Balancer 啟用輸出 NAT 的 TCP 和 UDP 通訊協定

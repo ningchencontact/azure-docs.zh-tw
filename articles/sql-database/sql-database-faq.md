@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 61950a1afda1fefdfab95f6d63420387dc2e2ac7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/22/2018
+ms.openlocfilehash: 88bea87c752563e1c19332121eb568b0bd329d03
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378630"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954138"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL Database 常見問題集 (FAQ)
 
@@ -35,7 +35,7 @@ ms.locfileid: "49378630"
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>適用於 Azure SQL Database 的虛擬核心形式新購買模型為何
 
-新的購買模型是在以 DTU 為基礎的現有模型以外新增的模型。 以虛擬核心為基礎的模型可為客戶提供彈性、可控制、透明且直接的方法，讓他們將內部部署工作負載需求移轉到雲端。 此模型可讓客戶根據工作負載需求來調整計算和儲存資源。 使用 vCore 模型的單一資料庫和彈性集區選項可透過[適用於 SQL Server 的 Azure Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 來節省成本，最多可省下 30%。 如需詳細資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
+新的購買模型是在以 DTU 為基礎的現有模型以外新增的模型。 以虛擬核心為基礎的模型可為客戶提供彈性、可控制、透明且直接的方法，讓他們將內部部署工作負載需求移轉到雲端。 此模型可讓客戶根據工作負載需求來調整計算和儲存資源。 使用 vCore 模型的單一資料庫和彈性集區選項可透過[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/#services) 來節省成本，最多可省下 30%。 如需詳細資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 
 ## <a name="what-is-a-vcore"></a>什麼是 vCore
 

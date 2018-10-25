@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 672e31109b71a8a4238a05851a58a7c83e275b19
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 63cc8a698c9e383c4b5908286d28b51d89842bdc
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576303"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585691"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Azure 事件中樞的事件處理器主機概觀
 
@@ -45,7 +45,7 @@ Azure 事件中樞是能以低成本串流數百萬個事件的強大遙測擷�
 
 ## <a name="ieventprocessor-interface"></a>IEventProcessor 介面
 
-首先，取用應用程式會實作 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 介面，此介面有四種方法：[OpenAsync、CloseAsync、ProcessErrorAsync 和 ProcessEventsAsnyc](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods)。 此介面包含實際程式碼，可用來取用事件中樞傳送的事件。 下列程式碼會示範簡單的實作：
+首先，取用的應用程式會實作 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 介面，這有四種方法：[OpenAsync、CloseAsync、ProcessErrorAsync 和 ProcessEventsAsnyc](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods)。 此介面包含實際程式碼，可用來取用事件中樞傳送的事件。 下列程式碼會示範簡單的實作：
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -88,7 +88,8 @@ public class SimpleEventProcessor : IEventProcessor
 - **eventHubConnectionString：** 事件中樞的連接字串，可從 Azure 入口網站擷取此項目。 此連接字串應有事件中樞上的**接聽**權限。
 - **storageConnectionString：** 用於內部資源管理的儲存體帳戶。
 
-最後，取用者會向事件中樞服務註冊 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 執行個體。 註冊作業會指示事件中樞服務，以預期取用者應用程式會從服務的分割區取用某些事件，以及在其推送事件以進行取用時，叫用 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 實作程式碼。
+最後，取用者會向事件中樞服務註冊 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 執行個體。 使用 EventProcessorHost 的執行個體來註冊事件處理器類別，會開始處理事件。 註冊作業會指示事件中樞服務，以預期取用者應用程式會從服務的分割區取用某些事件，以及在其推送事件以進行取用時，叫用 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 實作程式碼。 
+
 
 ### <a name="example"></a>範例
 
@@ -123,7 +124,7 @@ EPH 執行個體 (或取用者) 的分割區擁有權可透過 Azure 儲存體�
 
 對 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 執行的每次呼叫都會提供事件集合。 您必須負責處理這些事件。 建議您快速完成事情；也就是處理的作業愈少愈好。 若不是，請使用取用者群組。 如果您必須寫入儲存體並執行一些路由時，一般最好使用兩個取用者群組，並且有兩個個別執行的 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 實作。
 
-在處理期間的某個時間點，您可能會想追蹤已讀取並完成的事項。 如果您必須重新啟動讀取作業，追蹤就很重要，這可讓您不用回到串流的開頭。 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 會使用「檢查點」來簡化此追蹤。 檢查點是指定取用者群組中指定分割區的一個位置或位移，而且您確信您已處理該點上的訊息。 在 **EventProcessorHost** 中標記檢查點會透過 [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) 物件上的 [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) 方法來完成。 這項作業通常會在 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 方法內完成，但也可以在 [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) 完成。
+在處理期間的某個時間點，您可能會想追蹤已讀取並完成的事項。 如果您必須重新啟動讀取作業，追蹤就很重要，這可讓您不用回到串流的開頭。 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 會使用「檢查點」來簡化此追蹤。 檢查點是指定取用者群組中指定分割區的一個位置或位移，而且您確信您已處理該點上的訊息。 在 **EventProcessorHost** 中標記檢查點會透過 [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) 物件上的 [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) 方法來完成。 這項作業通常會在 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 方法內完成，但也可以在 [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) 中完成。
 
 ## <a name="checkpointing"></a>檢查點
 
@@ -140,6 +141,7 @@ EPH 執行個體 (或取用者) 的分割區擁有權可透過 Azure 儲存體�
 最後，[EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) 會對所有分割區讀取器啟用正常關機，而且應一律在關閉 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 執行個體時呼叫此方法。 若沒有這樣做，可能會造成啟動 **EventProcessorHost** 的其他執行個體時發生延遲，因為租用到期和 Epoch 衝突。 Epoch 管理會在此[部落格文章](https://blogs.msdn.microsoft.com/gyan/2014/09/02/event-hubs-receiver-epoch/)中詳述
 
 ## <a name="lease-management"></a>租用管理
+使用 EventProcessorHost 的執行個體來註冊事件處理器類別，會開始處理事件。 主機執行個體會在事件中樞的某些分割區取得租用，而且可能從其他主機執行個體抓取一些，最終在所有主機執行個體的分割區平均分佈。 對於每個租用的分割區，主機執行個體會依提供的事件處理器類別各建立一個執行個體，然後從該分割區中接收事件，並將其傳遞到事件處理器執行個體。 隨著更多執行個體的新增及更多租用的抓取，EventProcessorHost 最終會在所有取用者之間平衡負載。
 
 如先前所述，追蹤資料表可大幅簡化 [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) 自動縮放的本質。 當 **EventProcessorHost** 執行個體啟動時，它會盡可能取得多個租用，並開始讀取事件。 當租用即將到期時，**EventProcessorHost** 會嘗試透過放置保留來更新租用。 如果租用可更新，處理器就會繼續讀取，但如果不能更新，讀取器就會關閉並呼叫 [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync)。 **CloseAsync** 是執行該分割區所有最後清除作業的好時機。
 

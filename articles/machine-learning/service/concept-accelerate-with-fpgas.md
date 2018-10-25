@@ -1,6 +1,6 @@
 ---
-title: 什麼是 FPGA 和 Project Brainwave？ - Azure Machine Learning
-description: 了解如何在 Azure 上使用 FPGA 為模型和深度類神經網路加速。 本文所介紹的是現場可程式化閘陣列 (FPGA)，並說明 Azure Machine Learning 如何在您對 Azure FPGA 部署模型時提供即時人工智慧 (AI)。
+title: 什麼是 FPGA 和 Project Brainwave？ - Azure Machine Learning 服務
+description: 了解如何在 Azure 上使用 FPGA 為模型和深度類神經網路加速。 本文會介紹現場可程式化閘道陣列 (FPGA)，並說明 Azure Machine Learning 服務如何在您對 Azure FPGA 部署模型時提供即時人工智慧 (AI)。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,22 +9,22 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 9/24/2018
-ms.openlocfilehash: adcd812bc63f98e4cbde949946bf32a037c6d704
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 411beacd65915c30338ab415b095acc1a0c8cbe6
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158680"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238850"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>什麼是 FPGA 和 Project Brainwave？
 
-本文所介紹的是現場可程式化閘陣列 (FPGA)，並說明 Azure Machine Learning 如何在您對 Azure FPGA 部署模型時提供即時人工智慧 (AI)。
+本文會介紹現場可程式化閘道陣列 (FPGA)，並說明 Azure Machine Learning 服務如何在您對 Azure FPGA 部署模型時提供即時人工智慧 (AI)。
 
 FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階層。 互連可讓您在製造之後以不同方式設定這些區塊。 與其他晶片相比，FPGA 結合了可編程性和效能。
 
 ## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGA 與CPU、GPU、ASIC 的比較
 
-![Azure Machine Learning FPGA 比較](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Azure Machine Learning 服務 FPGA 比較](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |處理器||說明|
 |---|:-------:|------|

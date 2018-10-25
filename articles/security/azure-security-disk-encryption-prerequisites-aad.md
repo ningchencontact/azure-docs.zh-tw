@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 8b0f682e481ef73019d3371af2b84f6270e021ee
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 54aef992e95454387ee2fda1d1b34d6dcae3e21e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341883"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959106"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure 磁碟加密必要條件 (舊版)
 
@@ -242,12 +242,12 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 3.  所傳回的 appId 是其他命令中所使用的 Azure AD ClientID。 它也是您會用於 az keyvault set-policy 的 SPN。 此密碼是您稍後應該會用來啟用 Azure 磁碟加密的用戶端密碼。 適當地保護 Azure AD 用戶端密碼。
  
 ### <a name="bkmk_ADappRM"></a> 透過 Azure 入口網站設定 Azure AD 應用程式和服務主體
-請使用[使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)一文中的步驟來建立 Azure AD 應用程式。 下面所列的每個步驟各會帶您直接前往要完成的文章章節。 
+請使用[使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md)一文中的步驟來建立 Azure AD 應用程式。 下面所列的每個步驟各會帶您直接前往要完成的文章章節。 
 
-1. [確認所需權限](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)
-2. [建立 Azure Active Directory 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) 
+1. [確認所需權限](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
+2. [建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - 在建立應用程式時，您可以使用任何您想要的名稱和登入 URL。
-3. [取得應用程式識別碼和驗證金鑰](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)。 
+3. [取得應用程式識別碼和驗證金鑰](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)。 
      - 驗證金鑰就是用戶端密碼，可作為 Set-AzureRmVMDiskEncryptionExtension 的 AadClientSecret。 
         - 應用程式會使用驗證金鑰作為認證來登入 Azure AD。 在 Azure 入口網站中，此密碼稱為金鑰，但實際上與金鑰保存庫並無任何關聯。 請適當地保護這個祕密。 
      - 稍後，我們會使用應用程式識別碼作為 Set-AzureRmVMDiskEncryptionExtension 的 AadClientId 和 Set-AzureRmKeyVaultAccessPolicy 的 ServicePrincipalName。 

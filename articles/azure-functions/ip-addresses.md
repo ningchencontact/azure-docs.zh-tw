@@ -4,20 +4,17 @@ description: 了解如何尋找函式應用程式的輸入和輸出 IP 位址，
 services: functions
 documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 0ed488cd717bc1548b26dcf8ff5f200a62710132
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818287"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584883"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure 中的 IP 位址 中的 IP 位址
 
@@ -61,21 +58,31 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="data-center-outbound-ip-addresses"></a>資料中心輸出 IP 位址
 
-如果您需要將函式應用程式所用的輸出 IP 位址列入允許清單，另一個選項是將函式應用程式的資料中心 (Azure 區域) 列入允許清單。 您可以[下載 XML 檔案，其中列出所有 Azure 資料中心的 IP 位址](https://www.microsoft.com/en-us/download/details.aspx?id=41653)。 然後尋找適用於函式應用程式執行所在區域的 XML 元素。
+如果您需要將函式應用程式所用的輸出 IP 位址列入允許清單，另一個選項是將函式應用程式的資料中心 (Azure 區域) 列入允許清單。 您可以[下載 JSON 檔案，其中列出所有 Azure 資料中心的 IP 位址](https://www.microsoft.com/en-us/download/details.aspx?id=56519)。 然後尋找適用於函數應用程式執行所在區域的 JSON 片段。
 
-例如，西歐 XML 元素可能如下所示：
+例如，西歐 JSON 片段可能如下所示：
 
 ```
-  <Region Name="europewest">
-    <IpRange Subnet="13.69.0.0/17" />
-    <IpRange Subnet="13.73.128.0/18" />
-    <!-- Some IP addresses not shown here -->
-    <IpRange Subnet="213.199.180.192/27" />
-    <IpRange Subnet="213.199.183.0/24" />
-  </Region>
+{
+  "name": "AzureCloud.westeurope",
+  "id": "AzureCloud.westeurope",
+  "properties": {
+    "changeNumber": 9,
+    "region": "westeurope",
+    "platform": "Azure",
+    "systemService": "",
+    "addressPrefixes": [
+      "13.69.0.0/17",
+      "13.73.128.0/18",
+      ... Some IP addresses not shown here
+     "213.199.180.192/27",
+     "213.199.183.0/24"
+    ]
+  }
+}
 ```
 
- 如需有關此檔案何時更新和 IP 位址何時變更的資訊，請展開[下載中心頁面](https://www.microsoft.com/en-us/download/details.aspx?id=41653)的 [詳細資料] 區段。
+ 如需有關此檔案何時更新和 IP 位址何時變更的資訊，請展開[下載中心頁面](https://www.microsoft.com/en-us/download/details.aspx?id=56519)的 [詳細資料] 區段。
 
 ## <a name="inbound-ip-address-changes"></a>輸入 IP 位址變更
 

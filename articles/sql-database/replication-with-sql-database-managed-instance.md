@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 95c27bcc99f08cb1e4998e43a6a2abd508bee0ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228059"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869307"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>使用 SQL Database 受控執行個體進行複寫
 
@@ -76,21 +76,22 @@ Azure SQL Database 上的發行者和散發者需要：
 
 ## <a name="configure-publishing-and-distribution-example"></a>設定發行與散發範例
 
-1. 在入口網站中[建立 Azure SQL Database 受控執行個體](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal)。
+1. 在入口網站中[建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
+2. 針為工作目錄[建立 Azure 儲存體帳戶](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)。
 
-1. 針為工作目錄[建立 Azure 儲存體帳戶](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)。 請務必複製儲存體金鑰。 請參閱[檢視並複製儲存體存取金鑰](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)。
-
-1. 建立發行者的資料庫。
+   請務必複製儲存體金鑰。 請參閱[檢視並複製儲存體存取金鑰](../storage/common/storage-account-manage.md#access-keys
+)。
+3. 建立發行者的資料庫。
 
    在下列範例指令碼中，以此資料庫的名稱取代 `<Publishing_DB>`。
 
-1. 使用散發者的 SQL 驗證建立資料庫使用者。 請參閱[建立資料庫使用者](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)。 使用安全的密碼。
+4. 使用散發者的 SQL 驗證建立資料庫使用者。 請參閱[建立資料庫使用者](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)。 使用安全的密碼。
 
    在下列範例指令碼中，搭配此 SQL Server 帳戶資料庫使用者名稱和密碼使用 `<SQL_USER>` 和 `<PASSWORD>`。
 
-1. [連線到 SQL Database 受控執行個體](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms)。
+5. [連線到 SQL Database 受控執行個體](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms)。
 
-1. 執行下列查詢，以新增散發者和散發資料庫。
+6. 執行下列查詢，以新增散發者和散發資料庫。
 
    ```sql
    USE [master]
@@ -99,7 +100,7 @@ Azure SQL Database 上的發行者和散發者需要：
    EXEC sp_adddistributiondb @database = N'distribution';
    ```
 
-1. 若要設定發行者以使用指定的散發資料庫，請更新並執行下列查詢。
+7. 若要將發行者設定為使用指定的散發資料庫，請更新並執行下列查詢。
 
    以 SQL Server 帳戶和密碼取代 `<SQL_USER>` 和 `<PASSWORD>`。
 
@@ -107,7 +108,7 @@ Azure SQL Database 上的發行者和散發者需要：
 
    以來自 Microsoft Azure 儲存體帳戶的 [存取金鑰] 索引標籤連接字串取代 `<STORAGE_CONNECTION_STRING>`。
 
-   更新下列查詢之後，請執行它。 
+   更新下列查詢之後，請執行它。
 
    ```sql
    USE [master]
@@ -121,7 +122,7 @@ Azure SQL Database 上的發行者和散發者需要：
    GO
    ```
 
-1. 設定發行者以進行複寫。 
+8. 設定發行者以進行複寫。
 
     在下列查詢中，以發行者資料庫的名稱取代 `<Publishing_DB>`。
 
@@ -155,15 +156,13 @@ Azure SQL Database 上的發行者和散發者需要：
                 @job_password = N'<PASSWORD>'
    ```
 
-1. 新增發行項、訂用帳戶和發送訂閱代理程式。 
+9. 新增發行項、訂用帳戶和發送訂閱代理程式。
 
    若要新增這些物件，請更新下列指令碼。
 
-   以發行集物件的名稱取代 `<Object_Name>`。
-
-   以來源結構描述的名稱取代 `<Object_Schema>`。 
-
-   取代用角括弧 `<>` 括住的其他參數以符合先前指令碼中的值。 
+   - 以發行集物件的名稱取代 `<Object_Name>`。
+   - 以來源結構描述的名稱取代 `<Object_Schema>`。
+   - 取代用角括弧 `<>` 括住的其他參數以符合先前指令碼中的值。
 
    ```sql
    EXEC sp_addarticle @publication = N'<Publication_Name>',
@@ -183,7 +182,7 @@ Azure SQL Database 上的發行者和散發者需要：
                 @subscriber_security_mode = 0,
                 @subscriber_login = N'<SQL_USER>',
                 @subscriber_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>', 
+                @job_login = N'<SQL_USER>',
                 @job_password = N'<PASSWORD>'
    GO
    ```

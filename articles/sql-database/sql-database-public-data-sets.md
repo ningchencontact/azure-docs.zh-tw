@@ -2,19 +2,22 @@
 title: Azure 分析的公用資料集 | Microsoft Docs
 description: 了解您可以用來建立原型及測試 Azure 分析服務和解決方案的公用資料集。
 services: sql-database
-author: douglaslMS
-manager: craigg
-ms.custom: reference
 ms.service: sql-database
-ms.topic: conceptual
-ms.date: 04/01/2018
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
+ms.topic: reference
+author: douglaslMS
 ms.author: douglasl
-ms.openlocfilehash: be93dbff39c47ed1d8834efa3ef6c033525b4bea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648909"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586252"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用於測試和建立原型的公用資料集
 
@@ -37,7 +40,7 @@ ms.locfileid: "34648909"
 
 | 資料來源 | 關於資料 | 關於檔案 |
 |---|---|---|
-| [紐約市計程車資料](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | 「計程車車程記錄包括各種欄位：用以擷取上車和下車日期/時間、上車和下車地點、車程距離、列舉車資、費率類型、付款類型和司機回報的乘客數。」 | 資料集依月份放在 CSV 檔案中。 |
+| [紐約市計程車資料](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | 「計程車車程記錄的欄位會擷取上車和下車日期/時間、上車和下車地點、車程距離、車資明細、費率類型、付款類型和司機回報的乘客數。」 | 資料集依月份放在 CSV 檔案中。 |
 | [Microsoft Research 資料集 -「研究用的資料科學」](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | 多個資料集，涵蓋人機互動、音訊/視訊、資料採礦/資訊擷取、地理空間/位置、自然語言處理和機器人/電腦視覺。 | 資料集採用各種格式 (經過壓縮以供下載)。 |
 | [公用基因體資料](http://www.completegenomics.com/public-data/) | 「整個人類基因體的多樣化資料集免費提供給大眾使用，以強化任何基因體研究...」提供者 Complete Genomics 是一家私人營利公司。 | 解壓縮後的資料集採用 UNIX 文字格式。 您也可取得分析工具。 |
 | [Open Science Data Cloud 資料](https://www.opensciencedatacloud.org/) | 「Open Science Data Cloud 為科學界提供用於儲存、共用及分析 TB 和 PB 規模科學資料集的資源」。| 資料集採用各種格式。 |

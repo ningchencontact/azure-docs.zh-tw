@@ -7,28 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2280a3f6b2a67d392a109a5294e1509bcc804bc3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734466"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869919"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>設定及取得 Azure Cosmos DB 容器和資料庫的輸送量
 
-您可以使用 Azure 入口網站或使用用戶端 SDK，設定 Azure Cosmos DB 容器或一組容器的輸送量。 
-
-**佈建個別容器的輸送量：** 在佈建一組容器的輸送量時，這些容器全都會共用所佈建的輸送量。 佈建個別容器的輸送量會保證保留該特定容器的輸送量。 指派個別容器層級的 RU/秒時，容器可以建立為*固定*或*無限制的*形式。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器，您必須指定最小輸送量 1,000 RU/s 和[分割區索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的容器/資料表/圖表和要求。 
-
-**佈建一組容器或資料庫的輸送量：** 佈建資料庫的輸送量可讓您在所有屬於該資料庫的容器之間共用輸送量。 在 Azure Cosmos DB 資料庫內，您可以有一組共用輸送量的容器，以及有專用輸送量的容器。 指派跨一組容器的 RU/秒時，屬於這組容器的容器會視為*無限制的*容器，且必須指定分割區索引鍵。
-
-Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載您的容器，並隨著輸送量的成長來跨分割區分割/重新平衡資料。 容器和資料庫層級輸送量佈建是不同的供應項目，在其間切換需要將資料從來源移轉到目的地。 這表示您需要建立新資料庫或新集合，然後藉由使用[大量執行程式程式庫](bulk-executor-overview.md)或 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) 來移轉資料。 下圖說明在不同層級佈建輸送量：
-
-![佈建個別容器和一組容器的要求單位](./media/request-units/provisioning_set_containers.png)
-
-在後續幾節中，您將會了解在不同層級為 Azure Cosmos DB 帳戶設定輸送量所需的步驟。 
+您可以使用 Azure 入口網站或使用用戶端 SDK，設定 Azure Cosmos DB 容器或一組容器的輸送量。 本文會說明為 Azure Cosmos DB 帳戶設定不同層級輸送量所需的步驟。
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>使用 Azure 入口網站佈建輸送量
 
@@ -45,7 +35,7 @@ Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載�
    |資料庫識別碼  |  提供可識別資料庫的唯一名稱。 資料庫是一或多個集合的邏輯容器。 資料庫名稱必須包含從 1 到 255 個字元，且不能包含 /、\\、#、? 或尾端空格。 |
    |集合識別碼  | 提供可識別集合的唯一名稱。 集合識別碼與資料庫名稱具有相同的字元需求。 |
    |儲存體容量   | 此值代表資料庫的儲存體容量。 在佈建個別集合的輸送量時，儲存體容量可以**固定 (10 GB)**，也可以**無限量**。 若要使用無限制的儲存體容量，您需要為資料設定資料分割索引鍵。  |
-   |Throughput   | 每個集合和資料庫都會有以「每秒要求單位數」表示的輸送量。  如果是固定的儲存體容量，最小輸送量為每秒 400 個要求單位 (RU/秒)，如果是無限制的儲存體容量，最小輸送量則會設為 1000 RU/秒。|
+   |Throughput   | 每個集合和資料庫都會有以「每秒要求單位數」表示的輸送量。  集合可以有固定或無限制的儲存體容量。 |
 
 6. 在輸入這些欄位的值之後，選取 [確定] 以儲存設定。  
 
@@ -198,6 +188,21 @@ int newThroughput = 500;
 offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
+
+## <a name="get-the-request-charge-using-cassandra-api"></a>使用 Cassandra API 取得要求費用 
+
+Cassandra API 支援一種為指定作業提供要求單位費用額外資訊的方式。 例如，插入作業的 RU/秒費用可採以下方式擷取：
+
+```csharp
+var insertResult = await tableInsertStatement.ExecuteAsync();
+ foreach (string key in insertResult.Info.IncomingPayload)
+        {
+            byte[] valueInBytes = customPayload[key];
+            string value = Encoding.UTF8.GetString(valueInBytes);
+            Console.WriteLine($“CustomPayload:  {key}: {value}”);
+        }
+```
+
 
 ## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>使用 MongoDB API 入口網站計量取得輸送量
 
