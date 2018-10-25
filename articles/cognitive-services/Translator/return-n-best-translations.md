@@ -1,20 +1,21 @@
 ---
-title: 使用 Microsoft Translator Text API 傳回前 N 名最佳翻譯 | Microsoft Docs
+title: 傳回前 N 名最佳翻譯 - Translator Text API
+titlesuffix: Azure Cognitive Services
 description: 使用 Microsoft Translator Text API 傳回前 N 名最佳翻譯。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 3eafe50f69ae1a6748342e64a414ecee4467d0d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368654"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646468"
 ---
 # <a name="how-to-return-n-best-translations"></a>如何傳回前 N 名最佳翻譯
 
