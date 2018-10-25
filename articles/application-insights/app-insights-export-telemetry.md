@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a960ace141d5d71559c39c627f96746a25bf5207
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142333"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585470"
 ---
 # <a name="export-telemetry-from-application-insights"></a>從 Application Insights 匯出遙測
 想要讓遙測保留比標準保留期限還久的時間？ 或以某些特殊方式處理它？ 連續匯出很適合此用途。 在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。 從那裡，您可以下載資料並編寫處理所需的任何程式碼。  
@@ -37,11 +37,9 @@ ms.locfileid: "42142333"
 ## <a name="setup"></a> 建立連續匯出
 1. 在您應用程式的 Application Insights 資源中，開啟 [連續匯出]，然後選擇 [新增]：
 
-    ![向下捲動並按一下 [連續匯出]](./media/app-insights-export-telemetry/01-export.png)
-
 2. 選擇您想要匯出的遙測資料類型。
 
-3. 建立或選取要用來儲存資料的 [Azure 儲存體帳戶](../storage/common/storage-introduction.md)。
+3. 建立或選取要用來儲存資料的 [Azure 儲存體帳戶] (../storage/common/storage-introduction.md)。 如需有關儲存體價格選項的詳細資訊，請瀏覽[官方定價頁面](https://azure.microsoft.com/pricing/details/storage/)。
 
     > [!Warning]
     > 根據預設，儲存體位置將設為與您 Application Insights 資源相同的地理區域。 如果您儲存在不同的區域中，可能會產生傳輸費用。

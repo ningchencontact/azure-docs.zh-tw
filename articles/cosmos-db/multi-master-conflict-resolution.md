@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b4433beea7fd9288c8c7be33c977ae11f3c2bac1
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393922"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426335"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Azure Cosmos DB 中的多重主機衝突解決方法 
 
@@ -157,7 +157,7 @@ function myUdpStoredProcedure(incomingDocument, existingDocument, isDeleteConfli
 
 * **conflictingDocuments：** 指定資料庫中所有文件的認可版本集合，且這些文件與識別碼資料行上的 incomingDocument 或任何其他唯一索引欄位相衝突。 與 incomingDocument 比較時，這些文件會有不同的 "rid" 值。
 
-使用者定義的程序具有 Cosmos DB 分割區索引鍵的完整存取權，並且可執行任何儲存作業以解決衝突。 如果使用者定義的程序未認可衝突版本，系統將會捨棄該衝突，而仍認可 existingDocument。 如果使用者定義的程序失敗或不存在，則 Azure Cosmos DB 會將衝突新增至唯讀衝突摘要中，讓衝突可進行非同步處理，如[非同步衝突解決模式]()所說明。 
+使用者定義的程序具有 Cosmos DB 分割區索引鍵的完整存取權，並且可執行任何儲存作業以解決衝突。 如果使用者定義的程序未認可衝突版本，系統將會捨棄該衝突，而仍認可 existingDocument。 如果使用者定義的程序失敗或不存在，則 Azure Cosmos DB 會將衝突新增至唯讀衝突摘要中，讓衝突可進行非同步處理，如[非同步衝突解決模式](#custom--asynchronous)所說明。 
 
 ### <a name="custom--asynchronous"></a>自訂 – 非同步  
 
@@ -208,12 +208,12 @@ FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollect
 
 |API 模型  | SDK |範例 |
 |---------|---------|---------|
-|SQL API    | .NET    |[azure-cosmos-db-sql-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-dotnet-multi-master)  |
+|SQL API    | .NET    |[azure-cosmosdb-dotnet/samples/MultiMaster/](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/MultiMaster)  |
 |SQL API    | 節點    |[azure-cosmos-js/samples/MultiRegionWrite/](https://github.com/Azure/azure-cosmos-js/tree/master/samples/MultiRegionWrite)  |
-|SQL API    | Java    |[azure-cosmos-db-sql-java-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-java-multi-master)  |
+|SQL API    | Java    |[azure-cosmosdb-java-examples/src/main](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/main)  |
 |MongoDB  | .NET    |[azure-cosmos-db-mongodb-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-multi-master)   |
 |資料表 API  | .NET    |[azure-cosmos-db-table-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-multi-master)       |
-|Gremlin API | .NET | [azure-cosmos-db-gremlin-dontnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-gremlin-dontnet-multi-master)|
+|Gremlin API | .NET | [azure-cosmos-db-gremlin-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-gremlin-dotnet-multi-master)|
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295813"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801925"
 ---
 # <a name="how-to-configure-password-writeback"></a>如何：設定密碼回寫
 
@@ -35,6 +35,12 @@ ms.locfileid: "46295813"
 
 如需了解有關密碼回寫的常見疑難排解工作，請參閱我們疑難排解文章中的[針對密碼回寫問題進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback)一節。
 
+> [!WARNING]
+> 在 [Azure 存取控制服務 (ACS) 於 2018 年 11 月 7 日淘汰](../develop/active-directory-acs-migration.md)後，使用 Azure AD Connect 1.0.8641.0 版和更舊版本的使用者將無法進行密碼回寫。 屆時，Azure AD Connect 1.0.8641.0 版和更舊版本將不再允許進行密碼回寫，因為它們倚賴 ACS 來進行該功能。
+>
+> 若要避免服務中斷，請從舊版 Azure AD Connect 升級至新版，請參閱 [Azure AD Connect：從舊版升級到最新版本](../hybrid/how-to-upgrade-previous-version.md)
+>
+
 ## <a name="active-directory-permissions"></a>Active Directory 權限
 
 如果您想要在 SSPR 的範圍中，Azure AD Connect 公用程式中指定的帳戶必須設定好下列項目：
@@ -43,7 +49,7 @@ ms.locfileid: "46295813"
 * **變更密碼** 
 * `lockoutTime` 的**寫入權限**
 * `pwdLastSet` 的**寫入權限**
-* 下列其中一項的**延伸權限**：
+* 下列其中一個的**延伸權限**：
    * 該樹系中「每個網域」的根物件
    * 要在 SSPR 範圍中的使用者組織單位 (OU)
 
@@ -67,7 +73,7 @@ ms.locfileid: "46295813"
 4. 從 [權限] 索引標籤中，選取 [新增]。
 5. 挑選要套用權限的帳戶 (從 Azure AD Connect 安裝程式)。
 6. 在 [套用至] 下拉式清單中，選取 [下階使用者] 物件。
-7. 在 [權限] 底下，核取下列方塊：
+7. 在 [權限] 底下，選取下列選項的方塊：
     * **重設密碼**
     * **變更密碼**
     * **寫入 lockoutTime**

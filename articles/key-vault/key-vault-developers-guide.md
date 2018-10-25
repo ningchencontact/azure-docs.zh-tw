@@ -5,16 +5,16 @@ services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145520"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603986"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 金鑰保存庫開發人員指南
 
@@ -53,11 +53,9 @@ Key Vault 可讓您從應用程式內安全地存取機密資訊︰
 
 ## <a name="creating-and-managing-key-vaults"></a>建立及管理金鑰保存庫
 
-Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 受控服務身分識別 (MSI) 可以輕易地解決此問題，因為 MSI 可在 Azure Active Directory (Azure AD) 中提供自動受控身分識別給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。 
+Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 Azure 資源的受控識別可在 Azure Active Directory (Azure AD) 中將受控識別自動提供給 Azure 服務，而降低解決此問題的難度。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。 
 
-如需 MSI 的相關資訊，請參閱[適用於 Azure 資源的受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview)。
-
-如需有關使用 AAD 的詳細資訊，請參閱 [整合應用程式與 Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications)。
+如需 Azure 資源的受控識別有關的詳細資訊，請參閱[受控識別概觀](../active-directory/managed-identities-azure-resources/overview.md)。 如需有關使用 AAD 的詳細資訊，請參閱 [整合應用程式與 Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications)。
 
 在您的金鑰保存庫中使用金鑰、密碼或憑證之前，要先透過 CLI、PowerShell、Resource Manager 範本或 REST 建立及管理金鑰保存庫，如以下文章所述︰
 
@@ -110,14 +108,14 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 ### <a name="quick-start-guides"></a>快速入門指南
 
 - [建立金鑰保存庫](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [開始在 Node.js 中使用 Key Vault](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
+- [開始在 Node.js 中使用 Key Vault](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### <a name="code-examples"></a>程式碼範例
 
 如需搭配使用金鑰保存庫和應用程式的完整範例，請參閱︰
 
-- [Azure Key Vault 程式碼範例](http://www.microsoft.com/download/details.aspx?id=45343) - .NET 範例應用程式 HelloKeyVault 和 Azure Web 服務範例。 
-- [從 Web 應用程式使用 Azure Key Vault ](key-vault-use-from-web-application.md) - 此教學課程可幫助您了解如何從 Azure 中的 Web 應用程式使用 Azure Key Vault。 
+- [Azure Key Vault 程式碼範例](https://azure.microsoft.com/resources/samples/?service=key-vault) - Azure Key Vault 的程式碼範例。 
+- [從 Web 應用程式使用 Azure Key Vault ](quick-create-net.md) - 此教學課程可幫助您了解如何從 Azure 中的 Web 應用程式使用 Azure Key Vault。 
 
 ## <a name="how-tos"></a>作法
 
@@ -131,7 +129,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 - [如何將憑證從金鑰保存庫部署至 VM](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - 在 Azure 上的 VM 中執行的雲端應用程式需要憑證。 現在應如何讓此憑證進入此 VM？
 - [如何使用端對端金鑰輪替和稽核設定金鑰保存庫](key-vault-key-rotation-log-monitoring.md) - 引導您逐步完成使用 Azure Key Vault 設定金鑰輪替和稽核的步驟。
 - [透過金鑰保存庫部署 Azure Web 應用程式憑證]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)提供逐步指示，以便將儲存在金鑰保存庫的憑證部署為 [App Service 憑證](https://azure.microsoft.com/blog/internals-of-app-service-certificate/)供應項目的一部分。
-- [對許多應用程式授與金鑰保存庫的存取權限](key-vault-group-permissions-for-apps.md) 金鑰保存庫存取控制原則只支援 16 個項目。 不過，您可以建立 Azure Active Directory 安全性群組。 將所有相關聯的服務主體新增至這個安全性群組，然後對 Key Vault 授與此安全性群組的存取權。
+- [對許多應用程式授與金鑰保存庫的存取權限](key-vault-group-permissions-for-apps.md) Key Vault 存取控制原則最多支援 1024 個項目。 不過，您可以建立 Azure Active Directory 安全性群組。 將所有相關聯的服務主體新增至這個安全性群組，然後對 Key Vault 授與此安全性群組的存取權。
 - 如需整合及搭配使用金鑰保存庫和 Azure 的具體工作指引，請參閱 [Ryan Jones 的金鑰保存庫 Azure Resource Manager 範本範例](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)。
 - [如何以 CLI 使用金鑰保存庫虛刪除](key-vault-soft-delete-cli.md)引導您完成金鑰保存庫和各種金鑰保存庫物件的使用和生命週期，並啟用虛刪除。
 - [如何以 Powershell 使用金鑰保存庫虛刪除](key-vault-soft-delete-powershell.md)引導您完成金鑰保存庫和各種金鑰保存庫物件的使用和生命週期，並啟用虛刪除。
@@ -147,8 +145,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 的概觀和概念
 
 - [Key Vault 虛刪除行為](key-vault-ovw-soft-delete.md)描述一項功能，該功能可復原已刪除的物件，無論是無意或有意刪除的。
-- 
-  [Key Vault 用戶端節流](key-vault-ovw-throttling.md)可讓您了解節流的基本概念，並提供適用於您應用程式的方法。
+- [Key Vault 用戶端節流](key-vault-ovw-throttling.md)可讓您了解節流的基本概念，並提供適用於您應用程式的方法。
 - [Key Vault 儲存體帳戶金鑰概觀](key-vault-ovw-storage-keys.md)描述 Key Vault 與 Azure 儲存體帳戶金鑰的整合。
 - [Key Vault 安全世界](key-vault-ovw-security-worlds.md)描述地區和安全區域之間的關聯性。
 

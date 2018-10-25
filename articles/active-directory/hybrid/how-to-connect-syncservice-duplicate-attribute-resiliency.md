@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8fe86712b59a896d1f431ef677f592ced382db8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306057"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406189"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>身分識別同步處理和重複屬性恢復功能
 「重複屬性恢復功能」是 Azure Active Directory 中的一項功能，可在執行 Microsoft 的其中一個同步處理工具時，用來消除 **UserPrincipalName** 和 **ProxyAddress** 衝突所造成的不便。
@@ -122,7 +122,7 @@ Azure Active Directory 並不是完全無法佈建或更新具有重複屬性的
 
 ![作用中使用者](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "作用中使用者")
 
-如需有關如何在 Office 365 系統管理中心檢視目錄同步處理錯誤的指示，請參閱[在 Office 365 中識別目錄同步處理錯誤](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
+如需有關如何在 Office 365 系統管理中心檢視目錄同步處理錯誤的指示，請參閱[在 Office 365 中識別目錄同步處理錯誤](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
 
 ### <a name="identity-synchronization-error-report"></a>身分識別同步處理錯誤報告
 當利用這個新行為處理具有重複屬性衝突的物件時，通知會包含在標準身分識別同步處理錯誤報告電子郵件中，而該電子郵件回傳送給租用戶的技術通知連絡人。 不過，此行為有一項重大變更。 在過去，重複屬性衝突的相關資訊會包含在每個後續的錯誤報告中，直到解決衝突為止。 利用這個新行為，給定衝突的錯誤通知只會出現一次 - 在衝突的屬性遭到隔離時。
@@ -173,5 +173,5 @@ ProxyAddress 衝突的電子郵件通知範例如下所示︰
 ## <a name="see-also"></a>另請參閱
 * [Azure AD Connect 同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
-* [在 Office 365 中識別目錄同步處理錯誤](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [在 Office 365 中識別目錄同步處理錯誤](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

@@ -2,18 +2,17 @@
 title: 使用 Azure 容器執行個體作為 Jenkins 建置代理程式
 description: 了解如何使用 Azure 容器執行個體作為 Jenkins 建置代理程式。
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: marsma
-ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.author: danlep
+ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390648"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354184"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>使用 Azure 容器執行個體作為 Jenkins 建置代理程式
 
@@ -48,7 +47,7 @@ Azure 容器執行個體 (ACI) 可提供隨選且高載的隔離環境，以便�
 
    ![Jenkins 入口網站部署的額外設定](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. 針對 [服務主體整合]，選取 [自動 (MSI)]，讓 [Azure 受控服務識別][managed-service-identity] 為 Jenkins 執行個體自動建立驗證身分識別。 選取 [手動] 以提供您自己的服務主體認證。
+4. 針對服務主體整合，選取 [自動 (MSI)]，讓 [Azure 資源的受控識別][managed-identities-azure-resources] 為 Jenkins 執行個體自動建立驗證身分識別。 選取 [手動] 以提供您自己的服務主體認證。
 
 5. 雲端代理程式可為 Jenkins 建置作業設定雲端式平台。 基於本文的緣故，請選取 **ACI**。 利用 ACI 雲端代理程式，每個 Jenkins 建置作業都是在容器執行個體中執行。
 
@@ -128,7 +127,7 @@ Jenkins 現在已設定並準備要建置和部署程式碼。 在此範例中�
 
    ![已移除容器執行個體的資源群組](./media/container-instances-jenkins/jenkins-aci-none.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>針對 Jenkins 外掛程式進行疑難排解
+## <a name="troubleshooting-the-jenkins-plugin"></a>對 Jenkins 外掛程式進行疑難排解
 
 如果您遇到任何有關 Jenkins 外掛程式的錯誤，請在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 的特定元件中提交問題。
 

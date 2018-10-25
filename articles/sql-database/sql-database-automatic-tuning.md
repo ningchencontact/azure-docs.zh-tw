@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 931e0f2c6be51c78187413d638259237f98bd9b0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f9a9f3d04a3ee7a2917e04c378af135601f3eaac
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063348"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042048"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
@@ -66,14 +66,14 @@ Azure SQL Database 自動調整與 SQL Server 自動調整引擎共用其核心�
 
 Azure SQL Database 中可用的自動調整選項有：
  1. **CREATE INDEX** - 能識別可能改善工作負載效能、建立索引，並自動確認已改善查詢效能的索引。
- 2. **DROP INDEX** - 可每日識別備援和重複的索引 (不包含唯一索引)，及長時間未使用的索引 (大於 90 天)。 請注意，此選項與使用分割區切換和索引提示的應用程式不相容。
+ 2. **DROP INDEX** - 可每日識別備援和重複的索引 (不包含唯一索引)，及長時間未使用的索引 (大於 90 天)。 請注意，目前該選項與使用分割區切換和索引提示的應用程式並不相容。
  3. **FORCE LAST GOOD PLAN** - 可識別使用較前一個良好計畫更為緩慢之執行計畫的 SQL 查詢，以及使用最後一個已知的良好計畫來取代迴歸計畫的查詢。
 
 自動調整可識別 **CREATE INDEX**、**DROP INDEX** 和 **FORCE LAST GOOD PLAN** 建議，可以最佳化您的資料庫效能，並在 [Azure 入口網站](sql-database-advisor-portal.md)中顯示它們，還可以透過 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 來公開它們。
 
-您可以使用入口網站來手動套用調整建議，或是讓自動調整為您自動套用調整建議。 讓系統為您自動套用調整建議的好處是，在這樣的情況下，系統會自動驗證工作負載效能是否有正面的改善，或是，如果偵測到效能衰退，系統會自動還原調整建議。 請注意，如果受到調整建議影響的查詢沒有經常執行，根據設計，驗證階段可能需要最多 72 小時才能完成。 如果您手動套用調整建議，則無法使用自動效能驗證和反轉機制。
+您可以使用入口網站來手動套用調整建議，或是讓自動調整為您自動套用調整建議。 讓系統為您自動套用調整建議的好處是，在這樣的情況下，系統會自動驗證工作負載效能是否有正面的改善，或是，如果偵測到效能衰退，系統會自動還原調整建議。 請注意，針對受到沒有經常執行之調整建議所影響的查詢，其驗證階段根據設計可能需要最多 72 小時才能完成。 如果您手動套用調整建議，則無法使用自動效能驗證和反轉機制。
 
-自動微調選項可以針對每個資料庫個別地啟用或停用，或可以在邏輯伺服器上設定，並在從伺服器繼承設定的每個資料庫上套用。 邏輯伺服器可以繼承 Azure 的自動調整設定預設值。 Azure 預設值此時會設為已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
+自動調整選項可以針對每個資料庫個別地啟用或停用，或可以在邏輯伺服器上設定，並在從伺服器繼承設定的每個資料庫上套用。 邏輯伺服器可以繼承 Azure 的自動調整設定預設值。 Azure 預設值此時會設為已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
 
 在伺服器上設定自動調整選項，並繼承屬於父代伺服器的資料庫設定，是設定自動調整的建議方法，因為這可簡化大量資料庫的自動調整選項管理。
 

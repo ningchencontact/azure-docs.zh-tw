@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 2f0638b2449bfd582cb68e26d2043b7bc85342b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125947"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954765"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>使用 Azure Active Directory 向 Azure Data Lake Storage Gen1 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Azure Data Lake Storage Gen1 使用 Azure Active Directory 進行驗證。 撰�
   
     ![取得 AAD 網域](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* 您的 Azure 租用戶識別碼。 如需有關如何擷取租用戶識別碼的指示，請參閱[取得租用戶識別碼](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)。
+* 您的 Azure 租用戶識別碼。 如需有關如何擷取租用戶識別碼的指示，請參閱[取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)。
 
 ## <a name="end-user-authentication"></a>使用者驗證
 如果您需要讓終端使用者透過 Azure AD 登入您的應用程式，建議使用這個驗證機制。 您的應用程式接著能夠以與登入的終端使用者相同的存取層級，來存取 Azure 資源。 您的終端使用者必須定期提供其認證，您的應用程式才能繼續存取。
@@ -74,7 +74,7 @@ Azure Data Lake Storage Gen1 使用 Azure Active Directory 進行驗證。 撰�
 
 ## <a name="step-1-create-an-active-directory-native-application"></a>步驟 1：建立 Active Directory 原生應用程式
 
-建立和設定 Azure AD 原生應用程式，以便使用 Azure Active Directory 向 Data Lake Storage Gen1 進行使用者驗證。 如需指示，請參閱[建立 Azure AD 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md)。
+建立和設定 Azure AD 原生應用程式，以便使用 Azure Active Directory 向 Data Lake Storage Gen1 進行使用者驗證。 如需指示，請參閱[建立 Azure AD 應用程式](../active-directory/develop/howto-create-service-principal-portal.md)。
 
 遵循連結中的指示進行時，請確定如以下螢幕擷取畫面所示，選取 [原生] 應用程式類型：
 
@@ -82,7 +82,7 @@ Azure Data Lake Storage Gen1 使用 Azure Active Directory 進行驗證。 撰�
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>步驟 2：取得應用程式識別碼和重新導向 URI
 
-若要擷取應用程式識別碼，請參閱[取得應用程式識別碼](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)。
+若要擷取應用程式識別碼，請參閱[取得應用程式識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)。
 
 若要擷取重新導向 URI，請進行下列步驟。
 

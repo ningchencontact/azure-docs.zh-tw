@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161559"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354167"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>針對彈性集區，Azure SQL Database 虛擬核心形式的購買模型限制
 
@@ -28,16 +28,15 @@ ms.locfileid: "47161559"
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>彈性集區：儲存體大小與計算大小
-
-針對 SQL Database 彈性集區，下表顯示每個服務層與計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，來設定服務層、計算大小與儲存體數量。
+您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，來設定服務層、計算大小與儲存體數量。
 
 > [!NOTE]
 > 彈性集區中個別資料庫的資源限制通常與集區外部具有相同計算大小的單一資料庫資源限制相同。 例如，GP_Gen4_1 資料庫的並行背景工作上限是 200 個背景工作。 因此，GP_Gen4_1 集區中資料庫的並行背景工作上限也是 200 個背景工作。 請注意，GP_Gen4_1 集區中的並行背景工作總數為 210。
 
-### <a name="general-purpose-service-tier"></a>一般用途服務層
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層：儲存體大小和計算大小
 
-#### <a name="generation-4-compute-platform"></a>第 4 代計算平台
+### <a name="generation-4-compute-platform"></a>第 4 代計算平台
+
 |計算大小|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W 產生|4|4|4|4|4|4|
@@ -61,7 +60,8 @@ ms.locfileid: "47161559"
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 |||
 
-#### <a name="generation-5-compute-platform"></a>第 5 代計算平台
+### <a name="generation-5-compute-platform"></a>第 5 代計算平台
+
 |計算大小|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W 產生|5|5|5|5|5|5|5|5|
@@ -85,9 +85,10 @@ ms.locfileid: "47161559"
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 |||
 
-### <a name="business-critical-service-tier"></a>業務關鍵服務層
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>商務關鍵性服務層：儲存體大小和計算大小
 
-#### <a name="generation-4-compute-platform"></a>第 4 代計算平台
+### <a name="generation-4-compute-platform"></a>第 4 代計算平台
+
 |計算大小|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W 產生|4|4|4|4|4|4|
@@ -112,6 +113,7 @@ ms.locfileid: "47161559"
 |||
 
 #### <a name="generation-5-compute-platform"></a>第 5 代計算平台
+
 |計算大小|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W 產生|5|5|5|5|5|5|5|5|
@@ -137,7 +139,7 @@ ms.locfileid: "47161559"
 
 如果彈性集區的所有虛擬核心都是忙碌中，則集區中的每個資料庫會收到等量的計算資源以處理查詢。 SQL Database 服務藉由確保運算時間的均等配量，提供資料庫之間的資源共用公平性。 彈性集區資源共用公平性不包括任何資源數量，否則當每個資料庫的最小虛擬核心數設為非零的值時，便會對每個資料庫保證資源數量。
 
-### <a name="database-properties-for-pooled-databases"></a>集區資料庫的資料庫屬性
+## <a name="database-properties-for-pooled-databases"></a>集區資料庫的資料庫屬性
 
 下表描述集區資料表的屬性。
 
@@ -147,9 +149,9 @@ ms.locfileid: "47161559"
 | 每個資料庫的虛擬核心下限 |集區中單一資料庫能夠保證的虛擬核心數下限。 這個設定是全域設定，會套用至集區中的所有資料庫。 每個資料庫最小虛擬核心建議設定為 0，同時也是預設值。 此屬性會設為 0 到每一資料庫的虛擬核心使用量平均值之間的任意數。 集區中資料庫數目和每個資料庫虛擬核心數目下限的乘積不能超過每個集區的虛擬核心。|
 | 每個資料庫的儲存體上限 |使用者所設定集區資料庫的資料庫大小上限。 集區資料庫會共用配置的集區儲存體，所以資料庫可以觸達的大小會限制為較小的剩餘集區儲存體和資料庫大小。 資料庫大小上限是指資料檔案的大小上限，並不包含記錄檔所使用的空間。 |
 |||
- 
+
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱 [SQL Database 常見問題集](sql-database-faq.md)以取得常見問題的解答。
-- 如需伺服器或訂用帳戶層級的限制資訊，請參閱 [Azure SQL Database 資源限制概觀](sql-database-resource-limits.md)。
+- 如需伺服器和訂用帳戶層級的限制資訊，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。

@@ -1,6 +1,6 @@
 ---
 title: 適用於 MariaDB 的 Azure 資料庫的定價層
-description: 本文會說明適用於 MariaDB 的 Azure 資料庫的定價層。
+description: 此文章說明適用於 MariaDB 的 Azure 資料庫的定價層。
 author: jan-eng
 ms.author: janeng
 editor: jasonwhowell
@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 92db6442352242d5c7f25d39442d208d6007621b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984329"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249021"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>適用於 MariaDB 的 Azure 資料庫定價層
 
@@ -21,7 +21,7 @@ ms.locfileid: "46984329"
 
 |    | **基本** | **一般用途** | **記憶體最佳化** |
 |:---|:----------|:--------------------|:---------------------|
-| 計算世代 | <!--Gen 4,--> 第 5 代 |<!--Gen 4,-->第 5 代 |<!--Gen 4,--> 第 5 代 |
+| 計算世代 | Gen 5 |Gen 5 | Gen 5 |
 | 虛擬核心 | 1、2 | 2、4、8、16、32 |2、4、8、16 |
 | 每個虛擬核心的記憶體 | 2 GB | 5 GB | 10 GB |
 | 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 4 TB | 5 GB 至 4 TB |
@@ -40,40 +40,7 @@ ms.locfileid: "46984329"
 
 ## <a name="compute-generations-and-vcores"></a>計算世代和虛擬核心
 
-計算資源會以虛擬核心的形式提供，虛擬核心代表了基礎硬體的邏輯 CPU。<!--Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors.--> 「第 5 代」邏輯 CPU 是以 Intel E5-2673 v4 (Broadwell) 2.3-GHz 處理器為基礎。
-
-<!--
-| **Azure region** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| Central US | X | X |
-| East US | X | X |
-| East US 2 | X | X |
-| North Central US | X | X |
-| South Central US | X | X |
-| West US | X | X |
-| West US 2 |  | X |
-| Canada Central | X | X |
-| Canada East | X | X |
-| Brazil South | X | X |
-| North Europe | X | X |
-| West Europe |  | X |
-| France Central |  | X |
-| UK West |  | X |
-| UK South |  | X |
-| East Asia | X | X |
-| Southeast Asia | X | X |
-| Australia East |  | X |
-| Australia Central |  | X |
-| Australia Central 2 |  | X |
-| Australia Southeast |  | X |
-| Central India | X | X |
-| West India | X | X |
-| South India |  | X |
-| Japan East | X | X |
-| Japan West | X | X |
-| Korea Central |  | X |
-| Korea South |  | X |
--->
+計算資源會以 vCore 的形式提供，vCore 代表了基礎硬體的邏輯 CPU。 「第 5 代」邏輯 CPU 是以 Intel E5-2673 v4 (Broadwell) 2.3-GHz 處理器為基礎。
 
 ## <a name="storage"></a>儲存體
 
@@ -97,7 +64,9 @@ ms.locfileid: "46984329"
 
 當服務嘗試讓伺服器變為唯讀時，會封鎖所有新的寫入交易要求，而現有的使用中交易會繼續執行。 當伺服器設為唯讀時，所有後續的寫入作業和交易認可都會失敗。 讀取查詢將會繼續運作，不會中斷。 當您增加佈建的儲存體之後，伺服器就可以再次接受寫入交易。
 
-我們建議您設定警示，讓系統可在伺服器儲存容量接近閾值時發出通知，以避免進入唯讀狀態。 <!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+我們建議您設定警示，讓系統可在伺服器儲存容量接近閾值時發出通知，以避免進入唯讀狀態。 
+
+<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
 
 ## <a name="backup"></a>Backup 
 
@@ -105,9 +74,11 @@ ms.locfileid: "46984329"
 
 ## <a name="scale-resources"></a>調整資源
 
-建立伺服器之後，您可以單獨變更虛擬核心、<!--the hardware generation,-->定價層 (基本層的來回除外)、儲存體數量及備份保留期限。 但您無法在建立伺服器之後，變更備份儲存體類型。 虛擬核心數目可相應增加或減少。 備份保留期可在 7 到 35 天的範圍內相應增加或減少。 儲存體大小只能增加。 您可以透過入口網站或 Azure CLI 來調整資源。 <!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+建立伺服器之後，您可以單獨變更虛擬核心、定價層 (基本層的來回除外)、儲存體數量及備份保留期限。 但您無法在建立伺服器之後，變更備份儲存體類型。 虛擬核心數目可相應增加或減少。 備份保留期可在 7 到 35 天的範圍內相應增加或減少。 儲存體大小只能增加。 您可以透過入口網站或 Azure CLI 來調整資源。 
 
-當您變更虛擬核心數目、<!--the hardware generation,-->或定價層時，系統會以新的計算配置建立一個原始伺服器複本。 當新伺服器已啟動並執行之後，連線就會切換到新的伺服器。 在系統切換到新伺服器的期間，您無法建立任何新的連線，且所有未認可的交易皆會復原。 此期間長短可能有所不同，但大部分情況下是少於一分鐘。
+<!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+
+當您變更虛擬核心數目或定價層時，系統會以新的計算配置建立一個原始伺服器複本。 當新伺服器已啟動並執行之後，連線就會切換到新的伺服器。 在系統切換到新伺服器的期間，您無法建立任何新的連線，且所有未認可的交易皆會復原。 此期間長短可能有所不同，但大部分情況下是少於一分鐘。
 
 調整儲存體和變更備份保留期限完全是線上作業。 運作不會中斷，您的應用程式也不會受到影響。 由於 IOPS 會隨著佈建的儲存體大小進行調整，您可以透過相應增加儲存體來增加伺服器可用的 IOPS。
 

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: ffc2a9fb7b0ed516645c833f87c9ef5c95ca20ff
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: cc4e128cab3cad235462e29e65fa58002a103bcd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580747"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855896"
 ---
 # <a name="register-in-dev-center"></a>在開發人員中心註冊  
 為了協助確認您尚未登入個人瀏覽器帳戶，請開啟新的 Internet Explorer InPrivate 或 Chrome Incognito 瀏覽工作階段。  
@@ -34,7 +34,7 @@ ms.locfileid: "45580747"
     ![國家/地區方塊的帳戶資訊](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >如果要在 Azure Marketplace 中銷售服務，請確認您的註冊實體是來自其中一個經過核准的「銷售來源」國家/地區。 基於支出和稅務理由，因此需要這項位置限制。 
+    >如果要在 Azure Marketplace 中銷售服務，請確認您的註冊實體是來自其中一個經過核准的「銷售來源」國家/地區。 基於支出和稅務理由，因此需要此位置限制。 
     >*   如需詳細資訊，請參閱 Azure Marketplace 參與原則網頁：[azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies)。  
 
 4.  針對「帳戶類型」，選取 `Company` 選項按鈕。  
@@ -85,7 +85,7 @@ ms.locfileid: "45580747"
 ---  
 
 ## <a name="get-help-with-dev-center-registration"></a>取得開發人員中心註冊的協助  
-如果您有開發人員中心註冊的問題，請遵循下列步驟來提交支援票證。  
+如果您有開發人員中心註冊的問題，請依照下列步驟提交支援票證。  
 1.  前往開發人員中心支援。  
     *   若要存取支援，請參閱 Windows 開發人員支援頁面：[developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)。  
 2.  在 [與我們連絡] 區段中，按一下 [提交事件] 按鈕。 
@@ -102,54 +102,6 @@ ms.locfileid: "45580747"
 2.  填入問題的詳細資料。  
 3.  若要提交票證，請按一下 [提交] 按鈕。 
 
-## <a name="frequently-asked-questions"></a>常見問題集： 
-
-*   **哪些發行者必須進行開發人員中心帳戶註冊？** 
-> 以交易清單類型發佈的發行者：VM、Azure 應用程式、解決方案範本和受控應用程式。  
-
-*   **為何需要開發人員中心帳戶？**
-> 必須要有開發人員中心帳戶，Microsoft 才能代表發行者向客戶收取交易清單類型的費用。 開發人員中心帳戶註冊可讓 Microsoft 驗證公司的法律、稅務和銀行相關資訊。 若要深入了解，請按一下[這裡](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)。
-
-*   **如何開始進行開發人員中心註冊？**
-> 為防止重複註冊，請確認您的公司尚未註冊開發人員中心帳戶。 您必須使用要與開發人員帳戶相關聯的 Microsoft 帳戶進行登入。 如果您還沒有 Microsoft 帳戶，您可以在[這裡](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1)建立新帳戶。 (範例：contoso_marketplace@live.com) 若要登入並註冊，請移至 https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>若要深入了解註冊程序，請按一下[這裡](https://docs.microsoft.com/azure/marketplace/register-dev-center)。</br>
-
-*   **我應該選擇「個人」還是「公司」帳戶類型？**
-> 若要在 Marketplace 上發佈交易供應項目，您必須在註冊開發人員中心帳戶時選取 [公司] 帳戶。
-
-*   **在帳戶建立後，我是否可以將帳戶類型從「個人」變更為「公司」？**
-> 否，在帳戶建立後，即無法更新帳戶類型。
-
-*   **我已正確輸入城市，但為何還收到「城市是必要項」錯誤訊息？**
-> 請檢查並確認輸入的郵遞區號也是正確的。 系統會進行城市、郵遞區號的驗證。
-
-*   **如何取得促銷代碼？**
-> 請完成 [Marketplace 註冊](https://azuremarketplace.microsoft.com/en-us/sell/signup)表單，以取得開發人員中心促銷代碼。
- 
-*   **完成註冊後需要哪些後續動作？**
-> 請尋找來自 verify@microsoft.com、主旨行為「需要動作：請向 Microsoft 確認您的電子郵件帳戶」的電子郵件。 按一下具時效性的驗證連結，以完成註冊。 *如果您未在 24 小時內收到電子郵件，請查看垃圾郵件資料夾。*
-
-*   **開發人員中心驗證之後的後續步驟為何？**
-> 請移至 [您的程式] (https://developer.microsoft.com/en-us/dashboard/Account/Programs))，並登入開發人員中心帳戶。 您應該會看到標題為「為您建議的程式」的區段，及其下的 Azure。 您應按一下 [開始使用]，並完成設定 Azure 帳戶的程序。
-
-*   **為何我的開發人員中心應用程式遭到拒絕？**
-> 第三方調查公司 (Duns & Bradstreet) 無法透過您所提供的電話號碼與您連絡。 請經由 [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) 連絡支援人員，以重新啟動調查程序
-
-> 或
-
-> 帳戶註冊可能因地理位置問題而遭到拒絕。 子公司的所在位置與總部不同的公司，只需要一個開發人員中心帳戶。
- 
-*   **如果我想要使用的公司名稱已存在於開發人員中心，該怎麼辦？**
-> 指派暫時的公司名稱、經由 [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) 連絡支援人員，並將您的企業註冊文件提供給他們。
-
-*   **如何新增稅務和付款資訊？**
-> 若未在開發人員中心帳戶中填寫稅務和銀行資訊，則無法發佈交易供應項目。  如需有關新增帳戶資訊的詳細資訊，請瀏覽[如何新增銀行與稅務資訊](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)。
-
-*   **我是否可以變更開發人員中心 Microsoft 登入帳戶？**
-> 否。 開發人員中心建立後，就無法變更擁有者帳戶。 您必須以所需的 Microsoft 帳戶重新建立全新的開發人員中心帳戶。
-
-*   **如果有開發人員中心註冊的相關問題，應於何處連絡支援人員？**
-若要存取支援，請參閱 Windows 開發人員支援頁面：[developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)。 
 
 ## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>問題：新增發行者支出的銀行和稅務資訊  
 所有使用交易清單類型的商業供應項目都必須有銀行和稅務資訊。  
@@ -186,6 +138,59 @@ ms.locfileid: "45580747"
     按 [下一步] 按鈕。 
 4.  輸入您的稅務詳細資料。  
 5.  按 [下一步] 按鈕。  
+
+
+## <a name="frequently-asked-questions"></a>常見問題集： 
+
+*   **哪些發行者必須進行開發人員中心帳戶註冊？** 
+> 以交易清單類型發佈的發行者：VM、Azure 應用程式、解決方案範本和受控應用程式。  
+
+*   **為何需要開發人員中心帳戶？**
+> 必須要有開發人員中心帳戶，Microsoft 才能代表發行者向客戶收取交易清單類型的費用。 開發人員中心帳戶註冊可讓 Microsoft 驗證公司的法律、稅務和銀行相關資訊。 若要深入了解，請按一下[這裡](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)。
+
+*   **如何開始進行開發人員中心註冊？**
+> 為防止重複註冊，請確認您的公司尚未註冊開發人員中心帳戶。 您必須使用要與開發人員帳戶相關聯的 Microsoft 帳戶進行登入。 如果您還沒有 Microsoft 帳戶，您可以在[這裡](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1)建立新帳戶。 (範例：contoso_marketplace@live.com) 若要登入並註冊，請移至 https://dev.windows.com/en-us/registration?accountProgram=Azure
+<br>若要深入了解註冊程序，請按一下[這裡](https://docs.microsoft.com/azure/marketplace/register-dev-center)。</br>
+
+*   **我應該選擇「個人」還是「公司」帳戶類型？**
+> 若要在 Marketplace 上發佈交易供應項目，您必須在註冊開發人員中心帳戶時選取 [公司] 帳戶。
+
+*   **在帳戶建立後，我是否可以將帳戶類型從「個人」變更為「公司」？**
+> 否，在帳戶建立後，即無法更新帳戶類型。
+
+*   **我已正確輸入城市，但為何還收到「城市是必要項」錯誤訊息？**
+> 請檢查並確認輸入的郵遞區號也是正確的。 系統會進行城市、郵遞區號的驗證。
+
+*   **如何取得促銷代碼？**
+> 請完成 [Marketplace 註冊](https://azuremarketplace.microsoft.com/en-us/sell/signup)表單，以取得開發人員中心促銷代碼。
+ 
+*   **完成註冊後需要哪些後續動作？**
+> 請尋找來自 verify@microsoft.com、主旨行為「需要動作：請向 Microsoft 確認您的電子郵件帳戶」的電子郵件。 按一下具時效性的驗證連結，以完成註冊。 *如果您未在 24 小時內收到電子郵件，請查看垃圾郵件資料夾。*
+
+*   **開發人員中心驗證之後的後續步驟為何？**
+> 請移至 [您的程式] (https://developer.microsoft.com/dashboard/Account/Programs))，並登入開發人員中心帳戶。 如果您沒有看到 Azure 作為註冊的應用程式，請查看「為您建議的程式」底下，然後尋找，然後尋找 Azure 以選取 [開始使用]。
+
+*   **如何將我的開發人員中心帳戶連結到我的 Cloud Partner 入口網站發行者設定檔？**
+> 發嫌之前的最後一個步驟，勢將您的開發人員中心帳戶連結到您的 Cloud Partner 入口網站[設定檔](https://cloudpartner.azure.com/#profile)。 如果您的開發人員中心帳戶與您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#alloffers)的帳戶不同，請在 Cloud Partner 入口網站中將您的開發人員中心帳戶新增為新的[使用者](https://cloudpartner.azure.com/#documentation/manage-users)。 使用您的開發人員中心帳戶登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#alloffers)。 在 Web 瀏覽器右上方的功能表，選取 [發行者設定檔]。 選取 [連結開發人員中心帳戶]。
+
+*   **為何我的開發人員中心應用程式遭到拒絕？**
+> 第三方調查公司 (Duns & Bradstreet) 無法透過您所提供的電話號碼與您連絡。 請經由 [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) 連絡支援人員，以重新啟動調查程序
+
+> 或
+
+> 帳戶註冊可能因地理位置問題而遭到拒絕。 子公司的所在位置與總部不同的公司，只需要一個開發人員中心帳戶。
+ 
+*   **如果我想要使用的公司名稱已存在於開發人員中心，該怎麼辦？**
+> 指派暫時的公司名稱、經由 [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) 連絡支援人員，並將您的企業註冊文件提供給他們。
+
+*   **如何新增稅務和付款資訊？**
+> 若未在開發人員中心帳戶中填寫稅務和銀行資訊，則無法發佈交易供應項目。  如需有關新增帳戶資訊的詳細資訊，請瀏覽[如何新增銀行與稅務資訊](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)。
+
+*   **我是否可以變更開發人員中心 Microsoft 登入帳戶？**
+> 否。 開發人員中心建立後，就無法變更擁有者帳戶。 您必須以所需的 Microsoft 帳戶重新建立全新的開發人員中心帳戶。
+
+*   **如果有開發人員中心註冊的相關問題，應於何處連絡支援人員？**
+若要存取支援，請參閱 Windows 開發人員支援頁面：[developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)。 
 
 ## <a name="next-steps"></a>後續步驟
 *   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  

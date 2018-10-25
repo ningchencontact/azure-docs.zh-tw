@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171471"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578764"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>如何部署對話學習模組聊天機器人
 
@@ -49,7 +49,7 @@ ms.locfileid: "39171471"
 
 3. 按一下要取得識別碼的對話學習模組模型
 
-4. 按一下左側瀏覽列中的 [設定]。
+4. 按一下左側導覽列中的 [設定]。
 
 5. 「模型識別碼」GUID 會顯示在頁面頂端附近。
 
@@ -94,9 +94,9 @@ ms.locfileid: "39171471"
 
 採用與發佈其他任何聊天機器人類似的方式，發佈對話學習模組聊天機器人。 大致而言，您會將程式碼上傳至託管的網站，並設定適當的組態值，然後向各種通道註冊聊天機器人。 這段影片詳細說明如何使用 Azure Bot 服務發佈聊天機器人。
 
-部署並執行聊天機器人後，即可使用 Azure Bot Channel Registration 將不同的通道連接到聊天機器人，例如 Facebook、Teams、Skype 等等。 如需該程序的說明文件，請參閱： https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
+部署並執行聊天機器人後，即可使用 Azure Bot Channel Registration 將不同的通道連接到聊天機器人，例如 Facebook、Teams、Skype 等等。 如需該程序的說明文件，請參閱： https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
-以下是將對話學習模組聊天機器人部署至 Azure 的逐步指示。  這些指示假設可從以雲端為基礎的來源 (例如 VSTS、GitHub、BitBucket 或 OneDrive) 取得您的聊天機器人，並且將設定您的聊天機器人進行持續部署。
+以下是將對話學習模組聊天機器人部署至 Azure 的逐步指示。  這些指示假設可從以雲端為基礎的來源 (例如 Azure DevOps Services、GitHub、BitBucket 或 OneDrive) 取得您的聊天機器人，並且將設定您的聊天機器人進行持續部署。
 
 1. 登入 Azure 入口網站，網址為 https://portal.azure.com
 
@@ -109,7 +109,7 @@ ms.locfileid: "39171471"
 
 3. 在 Azure 入口網站中，編輯您剛才建立的 Web 應用程式聊天機器人資源。
 
-    1. 按一下左側的 [應用程式設定] 瀏覽項目
+    1. 按一下左側的 [應用程式設定] 導覽項目
     1. 向下捲動至 [應用程式設定] 區段
     2. 新增下列設定：
 
@@ -120,7 +120,7 @@ ms.locfileid: "39171471"
         LUIS_AUTHORING_KEY               | 此模型的 LUIS 撰寫金鑰
     
     4. 按一下靠近頁面頂端的 [儲存]
-    5. 開啟左邊的 [編譯] 瀏覽項目
+    5. 開啟左邊的 [編譯] 導覽項目
     6. 按一下 [設定連續部署] 
     7. 按一下部署下的 [安裝] 圖示
     8. 按一下 [必要的設定]

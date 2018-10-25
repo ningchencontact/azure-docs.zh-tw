@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中使用服務對應解決方案 | Microsoft Docs
-description: 服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。
+description: 服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 此文章會詳細說明如何在環境中部署服務對應並將它用於各種案例。
 services: monitoring
 documentationcenter: ''
 author: mgoedtel
@@ -12,19 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
-ms.author: daseidma;bwren
-ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.date: 10/03/2018
+ms.author: magoedte
+ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751423"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269253"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
-服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
+服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序、輸入和輸出連線的延遲，和連接埠之間的連線。
 
-本文說明上線和使用服務對應的詳細資訊。 如需設定服務對應和啟用代理程式的相關資訊，請參閱[在 Azure 中設定服務對應解決方案]( monitoring-service-map-configure.md)。
+此文章說明上線和使用服務對應的詳細資訊。 如需設定服務對應和啟用代理程式的相關資訊，請參閱[在 Azure 中設定服務對應解決方案]( monitoring-service-map-configure.md)。
+
+>[!NOTE]
+>如果您已部署服務對應，則現在還可以在適用於 VM 的 Azure 監視器中檢視您的對應，其中包括用於監視 VM 健康情況和效能的其他功能。 若要深入了解，請參閱[適用於 VM 的 Azure 監視器概觀](monitoring-vminsights-overview.md)。
+
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
@@ -67,6 +71,11 @@ ms.locfileid: "36751423"
 對應內的機器可以展開，以顯示所選時間範圍內具有作用中網路連線的執行中處理序群組與處理序。 展開具有服務對應代理程式的遠端機器以顯示處理序詳細資料時，只會顯示與焦點機器通訊的處理序。 連線到焦點機器的無代理程式前端機器計數，會顯示在所連線的處理序左側。 如果焦點機器連線至無代理程式的後端機器，該後端伺服器會包含在「伺服器連接埠群組」中，連同其他連線至相同連接埠號碼的連線。
 
 根據預設，「服務對應」對應會顯示過去 30 分鐘的相依性資訊。 使用左上角的時間控制項，可查詢過往時間範圍的對應 (最長可達一小時)，以顯示相依性的過往情形 (例如在事件發生期間或變更發生之前)。 付費工作區的服務對應資料會儲存 30 天，免費工作區的服務對應資料則會儲存 7 天。
+
+
+
+
+
 
 ## <a name="status-badges-and-border-coloring"></a>狀態徽章和框線色彩
 在對應中每一部伺服器的底部，可以是一串狀態徽章，傳達伺服器的相關狀態資訊。 徽章表示在其中一個解決方案整合中，有某些伺服器的相關資訊。 按一下徽章，即會在右窗格中直接顯示狀態的詳細資料。 目前可使用的狀態徽章包括警示、服務台、變更、安全性和更新。
@@ -224,7 +233,7 @@ ms.locfileid: "36751423"
 若要在連線的 ITSM 解決方案中開啟項目，請按一下 [檢視工作項目]。
 
 若要檢視記錄搜尋中項目的詳細資料，請按一下 [在記錄搜尋中顯示]。
-
+連線計量會寫入到 Log Analytics 中的兩個新資料表 
 
 ## <a name="change-tracking-integration"></a>變更追蹤整合
 當「服務對應」和「變更追蹤」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。
@@ -236,7 +245,6 @@ ms.locfileid: "36751423"
 下圖是選取 [在 Log Analytics 中顯示] 之後，可能會看到的 ConfigurationChange 事件詳細檢視。
 
 ![ConfigurationChange 事件](media/monitoring-service-map/configuration-change-event-01.png)
-
 
 ## <a name="performance-integration"></a>效能整合
 [機器效能] 窗格會顯示所選伺服器的標準效能計量。 這些計量包含 CPU 使用率、記憶體使用率、傳送和接收的網路位元組，以及按照傳送和接收的網路位元組排序的前幾個處理序清單。
@@ -283,10 +291,89 @@ Linux：
 
 有可用來識別唯一處理程序和電腦的內部產生屬性︰
 
-- 電腦 - 使用 ResourceId 或 ResourceName_s 來唯一識別 Log Analytics 工作區中的電腦。
-- 處理序：使用 ResourceId 來唯一識別 Log Analytics 工作區中的處理序。 ResourceName_s 在執行處理序的機器 (MachineResourceName_s) 的環境中是唯一的 
+- 電腦：使用 *ResourceId* 或 *ResourceName_s* 來唯一識別 Log Analytics 工作區中的電腦。
+- 處理序：使用 *ResourceId* 來唯一識別 Log Analytics 工作區中的處理序。 *ResourceName_s* 在執行處理序的機器 (MachineResourceName_s) 環境中是唯一的 
 
 因為在指定時間範圍內可以有多筆指定處理序和電腦的記錄，針對相同電腦或處理序的查詢可能會傳回多筆記錄。 若只要包含最新的記錄，請在查詢中加入 "| dedup ResourceId"。
+
+### <a name="connections"></a>連線
+連線計量會寫入到 Log Analytics 中的新資料表：VMConnection。 這個資料表會提供機器連線 (輸入和輸出) 的相關資訊。 連線計量也會透過 API 來公開，這類 API 會提供方法來取得某個時間範圍內的特定計量。  因為在接聽通訊端上「接受」而產生的 TCP 連線是輸入，因為「連線」到指定 IP 和連接埠而建立的連線則為輸出。 連線的方向會透過 Direction 屬性來表示，此屬性可設為 **inbound** 或 **outbound**。 
+
+這些資料表中的記錄都是從 Dependency Agent 所報告的資料產生的。 每筆記錄均代表在一分鐘時間間隔內的觀測。 TimeGenerated 屬性表示時間間隔的開始時間。 每筆記錄均包含資訊來識別個別的實體 (也就是連線或連接埠)，以及與該實體相關聯的計量。 目前只會報告透過 IPv4 使用 TCP 而發生的網路活動。
+
+為了管理成本和複雜度，連線記錄不代表個別的實體網路連線。 將多個實體網路連線群組為一個邏輯連線，其接著會反映於各自的資料表中。  這表示，*VMConnection* 資料表中的記錄代表一個邏輯群組，而非觀測到的個別實體連線。 在指定的一分鐘時間間隔內，共用下列屬性相同值的實體網路連線會彙總為 *VMConnection* 中的單一邏輯記錄。 
+
+| 屬性 | 說明 |
+|:--|:--|
+|方向 |連線的方向，值為 *inbound* 或 *outbound* |
+|機器 |電腦 FQDN |
+|Process |處理序或處理序群組的身分識別，會起始/接受連線 |
+|SourceIp |來源的 IP 位址 |
+|DestinationIp |目的地的 IP 位址 |
+|DestinationPort |目的地的連接埠號碼 |
+|通訊協定 |用於連線的通訊協定。  值為 *tcp*。 |
+
+為了說明群組的影響，會在記錄的下列屬性中提供群組實體連線數目的相關資訊：
+
+| 屬性 | 說明 |
+|:--|:--|
+|LinksEstablished |已在報告時間範圍內建立的實體網路連線數目 |
+|LinksTerminated |已在報告時間範圍內終止的實體網路連線數目 |
+|LinksFailed |在報告時間範圍內失敗的實體網路連線數目。 此資訊目前僅適用於輸出連線。 |
+|LinksLive |已在報告時間範圍結束時開啟的實體網路連線數目|
+
+#### <a name="metrics"></a>度量
+
+除了連線計數計量，在指定邏輯連線或網路連接埠上傳送與接收的資料量相關資訊也會包含於記錄的下列屬性中：
+
+| 屬性 | 說明 |
+|:--|:--|
+|BytesSent |已在報告時間範圍內傳送的位元組總數 |
+|BytesReceived |已在報告時間範圍內接收的位元組總數 |
+|回應 |已在報告時間範圍內觀測到的回應數目。 
+|ResponseTimeMax |已在報告時間範圍內觀測到的最大回應時間 (毫秒)。  如果沒有值，則此屬性為空白。|
+|ResponseTimeMin |已在報告時間範圍內觀測到的最小回應時間 (毫秒)。  如果沒有值，則此屬性為空白。|
+|ResponseTimeSum |已在報告時間範圍內觀測到的所有回應時間總和 (毫秒)。  如果沒有值，則此屬性為空白|
+
+所報告的第三個資料類型是回應時間：呼叫端需要花費多久時間來等候透過連線傳送的要求，此要求會由遠端端點來處理及回應。 所報告的回應時間是基礎應用程式通訊協定的真正回應時間估計值。 它會使用啟發學習法，根據實體網路連線來源和目的端之間資料流程的觀測計算而來的。 概念上，它是要求的最後一個位元組離開傳送端的時間，以及回應的最後一個位元組傳回給它的到達時間之間的差異。 這兩個時間戳記可用來描述指定實體連線上的要求和回應事件。 它們之間的差異代表單一要求的回應時間。 
+
+在此功能的第一個版本中，我們的演算法是一個近似值，根據針對指定網路連線所使用的實際應用程式通訊協定，成功的程度可能各有不同。 例如，目前的方法非常適用以要求-回應為基礎的通訊協定 (例如 HTTP (S))，但不適用單向或以訊息佇列為基礎的通訊協定。
+
+此處有一些需要考慮的重要事項：
+
+1. 如果處理序會在同一個 IP 位址但透過多個網路介面來接受連線，則將會報告每個介面的個別記錄。 
+2. 使用萬用字元 IP 的記錄將不會包含任何活動。 它們會包含在其中，以代表會針對輸入流量開啟電腦上的連接埠。
+3. 若要減少詳細資訊和資料量，如果有具特定 IP 位址的相符記錄 (適用於相同的處理序、連接埠和通訊協定)，將略過具有萬用字元 IP 的記錄。 略過萬用字元 IP 記錄時，具有特定 IP 位址的 IsWildcardBind 記錄屬性將設為 "True"，以代表連接埠會透過報告機器的每個介面來公開。
+4. 只在特定介面上繫結的連接埠會將 IsWildcardBind 設為 "False"。
+
+#### <a name="naming-and-classification"></a>命名和分類
+為了方便起見，RemoteIp 屬性中會包含連線遠端的 IP 位址。 如果是輸入連線，RemoteIp 相當於 SourceIp，如果是連出連線，則它相當於 DestinationIp。 RemoteDnsCanonicalNames 屬性代表適用於 RemoteIp 的機器所報告的 DNS 標準名稱。 RemoteDnsQuestions 和 RemoteClassification 屬性均會保留，以供日後使用。 
+
+#### <a name="geolocation"></a>地理位置
+*VMConnection* 也會在記錄的下列屬性中，包含每個連線記錄遠端的地理位置資訊： 
+
+| 屬性 | 說明 |
+|:--|:--|
+|RemoteCountry |裝載 RemoteIp 的國家/地區名稱。  例如，*United States* |
+|RemoteLatitude |地理位置緯度。  例如，*47.68* |
+|RemoteLongitude |地理位置經度。  例如：*-122.12* |
+
+#### <a name="malicious-ip"></a>惡意 IP
+*VMConnection* 資料表中的每個 RemoteIp 屬性均會根據一組具有已知惡意活動的 IP 進行檢查。 如果 RemoteIp 被識別為惡意的，將在記錄的下列屬性中填入下列屬性 (如果 IP 被視為不是惡意的，則它們是空的)：
+
+| 屬性 | 說明 |
+|:--|:--|
+|MaliciousIP |RemoteIp 位址 |
+|IndicatorThreadType |偵測到的威脅指標是下列值之一：*殭屍網路*、*C2*、*CryptoMining*、*Darknet*、*DDos*、*MaliciousUrl*、*惡意程式碼*、*網路釣魚*、*Proxy*、*PUA*、*關注清單*。   |
+|說明 |觀察到的威脅的說明。 |
+|TLPLevel |號誌燈通訊協定 (TLP) 層級是已定義的值 (*白色*、*綠色*、*琥珀色*、*紅色*) 之一。 |
+|信賴度 |值為 *0 – 100*。 |
+|嚴重性 |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
+|FirstReportedDateTime |提供者第一次回報指標。 |
+|LastReportedDateTime |Interflow 最後一次看到指標。 |
+|IsActive |使用 *True* 或 *False* 值表示指標停用。 |
+|ReportReferenceLink |與指定的可預見值相關之報告的連結。 |
+|AdditionalInformation |提供有關觀察到的威脅的其他資訊 (如果適用的話)。 |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 記錄
 類型為 *ServiceMapComputer_CL* 的記錄會有伺服器 (具有服務對應代理程式) 的清查資料。 這些記錄具有下表中的屬性：
@@ -313,8 +400,6 @@ Linux：
 | VirtualMachineName_s | VM 的名稱 |
 | BootTime_t | 開機時間 |
 
-
-
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 類型記錄
 類型為 *ServiceMapProcess_CL* 的記錄會有伺服器 (具有服務對應代理程式) 上 TCP 連線處理程序的清查資料。 這些記錄具有下表中的屬性：
 
@@ -339,7 +424,6 @@ Linux：
 | WorkingDirectory_s | 工作目錄 |
 | UserName | 執行處理序的帳戶 |
 | UserDomain | 執行處理序的網域 |
-
 
 ## <a name="sample-log-searches"></a>記錄搜尋範例
 
@@ -373,13 +457,53 @@ ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersio
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>為所有執行 CentOS 的電腦建立電腦群組
 ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
+### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>摘要說明來自機器群組的輸出連線
+```
+// the machines of interest
+let machines = datatable(m: string) ["m-82412a7a-6a32-45a9-a8d6-538354224a25"];
+// map of ip to monitored machine in the environment
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+// all connections to/from the machines of interest
+let out=materialize(VMConnection
+| where Machine in (machines)
+| summarize arg_max(TimeGenerated, *) by ConnectionId);
+// connections to localhost augmented with RemoteMachine
+let local=out
+| where RemoteIp startswith "127."
+| project ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol, RemoteIp, RemoteMachine=Machine;
+// connections not to localhost augmented with RemoteMachine
+let remote=materialize(out
+| where RemoteIp !startswith "127."
+| join kind=leftouter (ips) on $left.RemoteIp == $right.ips
+| summarize by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol, RemoteIp, RemoteMachine=MonitoredMachine);
+// the remote machines to/from which we have connections
+let remoteMachines = remote | summarize by RemoteMachine;
+// all augmented connections
+(local)
+| union (remote)
+//Take all outbound records but only inbound records that come from either //unmonitored machines or monitored machines not in the set for which we are computing dependencies.
+| where Direction == 'outbound' or (Direction == 'inbound' and RemoteMachine !in (machines))
+| summarize by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol, RemoteIp, RemoteMachine
+// identify the remote port
+| extend RemotePort=iff(Direction == 'outbound', DestinationPort, 0)
+// construct the join key we'll use to find a matching port
+| extend JoinKey=strcat_delim(':', RemoteMachine, RemoteIp, RemotePort, Protocol)
+// find a matching port
+| join kind=leftouter (VMBoundPort 
+| where Machine in (remoteMachines) 
+| summarize arg_max(TimeGenerated, *) by PortId 
+| extend JoinKey=strcat_delim(':', Machine, Ip, Port, Protocol)) on JoinKey
+// aggregate the remote information
+| summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
+```
 
 ## <a name="rest-api"></a>REST API
 服務對應中所有的伺服器、處理序及相依性資料，都可透過[服務對應 REST API](https://docs.microsoft.com/rest/api/servicemap/) 取得。
 
-
 ## <a name="diagnostic-and-usage-data"></a>診斷和使用量資料
-當您使用服務對應服務時，Microsoft 會自動收集使用量和效能資料。 Microsoft 使用這項資料來提供和改進服務對應服務的品質、安全性和完整性。 資料中包含軟體設定的相關資訊，像是作業系統與版本、IP 位址、DNS 名稱和工作站名稱，以便能夠正確且有效率地進行疑難排解。 Microsoft 不會收集姓名、地址或其他連絡資訊。
+當您使用服務對應服務時，Microsoft 會自動收集使用量和效能資料。 Microsoft 使用此資料來提供和改進服務對應服務的品質、安全性和完整性。 資料中包含軟體設定的相關資訊，像是作業系統與版本、IP 位址、DNS 名稱和工作站名稱，以便能夠正確且有效率地進行疑難排解。 Microsoft 不會收集姓名、地址或其他連絡資訊。
 
 如需有關資料收集與使用方式的詳細資訊，請參閱 [Microsoft 線上服務隱私權聲明](https://go.microsoft.com/fwlink/?LinkId=512132)。
 

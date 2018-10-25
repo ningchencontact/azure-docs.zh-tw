@@ -3,27 +3,23 @@ title: 在 Durable Functions 中處理外部事件 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 擴充中處理外部事件。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 77087f04ea641c24a92edd2091432cbcb4329ecd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b1d47c495d24a40f254279db0e9db12a659c861c
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763190"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237716"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中處理外部事件
 
-協調器函式能夠等候和接聽外部事件。 [Durable Functions](durable-functions-overview.md) 的這項功能通常有助於處理人為互動或其他外部觸發程序。
+協調器函式能夠等候和接聽外部事件。 [Durable Functions](durable-functions-overview.md) 的此功能通常有助於處理人為互動或其他外部觸發程序。
 
 ## <a name="wait-for-events"></a>等候事件
 
@@ -53,7 +49,7 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const approved = yield context.df.waitForExternalEvent("Approval");
     if (approved) {
         // approval granted - do the approved action
@@ -99,7 +95,7 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const event1 = context.df.waitForExternalEvent("Event1");
     const event2 = context.df.waitForExternalEvent("Event2");
     const event3 = context.df.waitForExternalEvent("Event3");
@@ -140,9 +136,9 @@ public static async Task Run(
 #### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
 
 ```javascript
-const df = require("durable-functions");
+const df = require.orchestrator("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const applicationId = context.df.getInput();
 
     const gate1 = context.df.waitForExternalEvent("CityPlanningApproval");
@@ -178,6 +174,34 @@ public static async Task Run(
     await client.RaiseEventAsync(instanceId, "Approval", true);
 }
 ```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+在 JavaScript 中，我們將必須叫用 REST API 來觸發耐久函式所等候的事件。
+以下程式碼使用 "request" 套件。 以下方法可用來為任何耐久函式執行個體引發任何事件
+
+```js
+function raiseEvent(instanceId, eventName) {
+        var url = `<<BASE_URL>>/runtime/webhooks/durabletask/instances/${instanceId}/raiseEvent/${eventName}?taskHub=DurableFunctionsHub`;
+        var body = <<BODY>>
+            
+        return new Promise((resolve, reject) => {
+            request({
+                url,
+                json: body,
+                method: "POST"
+            }, (e, response) => {
+                if (e) {
+                    return reject(e);
+                }
+
+                resolve();
+            })
+        });
+    }
+```
+
+<<BASE_URL>> 將是您函數應用程式的基底 URL。 如果您是在本機執行程式碼，則它看起來會像 http://localhost:7071，或在 Azure 中則為 https://<<functionappname>>.azurewebsites.net
+
 
 在內部，`RaiseEventAsync` 會將訊息加入佇列，供等候協調器函式取用。
 

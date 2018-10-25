@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB 大量執行程式程式庫概觀 | Microsoft Docs
-description: 了解 Azure Cosmos DB 大量執行程式程式庫、使用程式庫的優點及其架構。
-keywords: Java 大量執行程式
+title: 在 Azure Cosmos DB 中使用大量執行程式程式庫來大量匯入和更新資料 | Microsoft Docs
+description: 在 Azure Cosmos DB 中透過大量執行程式程式庫所提供的大量匯入和大量更新 API，來執行大量作業。
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096170"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363534"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 大量執行程式程式庫概觀
  
@@ -24,10 +23,10 @@ Azure Cosmos DB 是一種快速且具有彈性的全域分散式資料庫服務�
 * 大型讀取和寫入輸送量 (每秒百萬個作業)。  
 * 儲存大量 (數百 TB 或更多) 且可預測延遲毫秒數的交易和作業資料。  
 
-大量執行程式程式庫可協助您運用此大規模的輸送量和儲存體，大量執行程式程式庫可讓您透過大量匯入和大量更新 API，在 Azure Cosmos DB 中執行大量作業。 您可以在下列各節中深入了解大量執行程式程式庫的功能。 
+大量執行程式程式庫可協助您利用這個大量輸送量和儲存體。 大量執行程式程式庫可讓您在 Azure Cosmos DB 中透過大量匯入和大量更新 API 來執行大量作業。 您可以在下列各節中深入了解大量執行程式程式庫的功能。 
 
 > [!NOTE] 
-> 目前，大量執行程式程式庫支援匯入和更新作業，而且僅有 Azure Cosmos DB SQL API 帳戶可支援此程式庫。 如需有關程式庫的任何更新，請參閱 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 和 [Java](sql-api-sdk-bulk-executor-java.md) 的版本資訊。
+> 目前，大量執行程式程式庫支援匯入和更新作業，而且僅有 Azure Cosmos DB SQL API 和 Gremlin API 帳戶可支援此程式庫。
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>大量執行程式程式庫的主要功能  
  

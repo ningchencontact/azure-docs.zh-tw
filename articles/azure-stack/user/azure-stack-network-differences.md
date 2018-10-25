@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.author: brenduns
-ms.date: 08/02/2018
+ms.date: 10/22/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 50fe3c0c7fda745047c71afb8eedf7fa8806c4ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946581"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944574"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 網路服務的注意事項
 

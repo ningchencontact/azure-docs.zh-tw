@@ -1,22 +1,23 @@
 ---
-title: 關於文字分析 API 的常見問題集 - Azure 認知服務 | Microsoft Docs
-description: 取得 Azure 上 Microsoft 認知服務文字分析 API 常見問題的解答。
+title: 關於文字分析 API 的常見問題集
+titleSuffix: Azure Cognitive Services
+description: 取得文字分析 API 常見問題的解答。
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bf82899b4317f0f5ce0f6ca5096dccef7cddd931
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa1c5b048c3ef339d01a3a63fd1d565b888ffbbb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370370"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603391"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>關於文字分析 API 的常見問題集 (FAQ)
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>關於文字分析認知服務的常見問題集 (FAQ)
 
  尋找 Azure 上 Microsoft 認知服務文字分析 API 相關概念、程式碼和案例常見問題的解答。
 

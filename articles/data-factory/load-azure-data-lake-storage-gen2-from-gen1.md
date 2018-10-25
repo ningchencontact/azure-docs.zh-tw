@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: a160c47e12db3c4ef9cefc5cd70293468ddf8234
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011356"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249327"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2 (預覽)
 
@@ -28,9 +28,9 @@ Azure Data Factory 是完全受控的雲端式資料整合服務。 您可以使
 
 Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由於 ADF 具有相應放大架構，因此能以高輸送量來內嵌資料。 如需詳細資料，請參閱[複製活動效能](copy-activity-performance.md)。
 
-本文示範如何使用 Data Factory 複製資料工具，將資料從 Azure Data Lake Storage Gen1 複製到 Azure Data Lake Storage Gen2。 您可以依照類似的步驟，從其他類型的資料存放區複製資料。
+此文章示範如何使用 Data Factory 複製資料工具，將資料從 Azure Data Lake Storage Gen1 複製到 Azure Data Lake Storage Gen2。 您可以依照類似的步驟，從其他類型的資料存放區複製資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * 內有資料的 Azure Data Lake Storage Gen1 帳戶。
@@ -80,7 +80,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
    3. 選取 [下一步] 。
    
    > [!IMPORTANT]
-   > 在本逐步解說中，您會使用_受控服務識別_來驗證 Data Lake Storage Gen1。 請務必遵循[這些指示](connector-azure-data-lake-store.md#using-managed-service-identity-authentication)，以對 MSI 授與 Azure Data Lake Storage Gen1 中的適當權限。
+   > 在此逐步解說中，您會使用 Azure 資源的受控識別來驗證 Data Lake Storage Gen1 帳戶。 請務必依照[這些指示](connector-azure-data-lake-store.md#managed-identity)執行，以對 MSI 授與 Azure Data Lake Storage Gen1 中的適當權限。
    
    ![指定 Azure Data Lake Storage Gen1 帳戶](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
    
@@ -131,7 +131,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
 16. 確認資料已複製到 Data Lake Storage Gen2 帳戶中。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 從檔案型資料存放區複製大量資料時，建議您：
 

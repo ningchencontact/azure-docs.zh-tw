@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc8abee93983ce4ea06d0b433eb35ed22e0f61b4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218066"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377792"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 監視、計量和警示
 
@@ -20,7 +20,7 @@ ms.locfileid: "47218066"
 
 ## <a name="circuit-metrics"></a>線路計量
 
-若要瀏覽至 [計量]，請針對您想要監視的線路按一下 [ExpressRoute] 頁面。 在 [監視] 下方，即可檢視 [計量]。
+若要瀏覽至 [計量]，請針對您想要監視的線路按一下 [ExpressRoute] 頁面。 在 [監視] 下方，即可檢視 [計量]。 選取 BitsInPerSecond 或 BitsOutPerSecond 以及彙總。 選擇性地，您可以套用可顯示每個對等互連類型計量的分割。
 
 ![線路計量](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 

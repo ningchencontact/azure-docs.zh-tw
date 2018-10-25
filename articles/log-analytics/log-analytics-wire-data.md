@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 32e76d1593f8bda0ebf745e76373908970aeb181
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9ee388e8d33d293240e70ccf79ec8d3c445dffd1
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124164"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269152"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics 中的 Wire Data 2.0 (預覽) 解決方案
 
@@ -30,8 +30,8 @@ ms.locfileid: "43124164"
 
 除了 OMS 代理程式，Wire Data 解決方案還會使用您在 IT 基礎結構的電腦上所安裝的 Microsoft 相依性代理程式。 相依性代理程式會監視往返於您電腦傳送的網路資料 (屬於 [OSI 模型](https://en.wikipedia.org/wiki/OSI_model)中的網路層級 2-3)，包括使用的各種通訊協定和連接埠。 然後使用代理程式將資料傳送至 Log Analytics。  
 
-> [!NOTE]
-> 您無法將舊版 Wire Data 解決方案新增至新的工作區。 如果您已啟用原始 Wire Data 解決方案，您可以繼續使用。 不過，若要使用 Wire Data 2.0，您必須先移除原始版本。
+>[!NOTE]
+>如果您已經部署服務對應，或者正在考慮服務對應或[適用於 VM 的 Azure 監視器](../monitoring/monitoring-vminsights-overview.md)，則有一個它們在 Log Analytics 中收集並儲存的新連線計量資料集，能為 Wire Data 提供可比較的資訊。
 
 根據預設，Log Analytics 會從 Windows 和 Linux 內建的計數器以及您指定的其他效能計數器收集記錄資料，包括 CPU、記憶體、磁碟和網路效能資料。 針對每個代理程式，都是即時收集網路和其他資料，包括電腦使用的子網路和應用程式層級通訊協定。  Wire Data 會查看應用程式層級的網路資料，而不會往下查看 TCP 傳輸層。  解決方案不會查看個別的 ACK 和 SYN。  交握完成後，即會將它視為即時連接，並且標示為已連接。 只要兩端同意通訊端為開啟，該連接會維持為即時，且可以來回傳遞資料。  一旦任一端關閉連接，即會將它標示為已中斷連線。  因此，它只會計算已成功完成封包的頻寬，而不會回報重新傳送或失敗的封包。
 
@@ -80,7 +80,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 Dependency Ag
 
 如果您的 Windows 或 Linux 電腦無法直接連線至服務，您必須將 Log Analytics 代理程式設定為使用 OMS 閘道連線至 Log Analytics。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=52666)下載 OMS 閘道。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 需要[洞察力與分析](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing)解決方案供應項目。
 - 如果您使用舊版 Wire Data 解決方案，則必須先將它移除。 不過，您仍然可以在 Wire Data 2.0 和記錄搜尋中使用透過原始 Wire Data 解決方案擷取的所有資料。
@@ -111,7 +111,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 Dependency Ag
 - 所有 Linux 散發套件皆不支援非標準的核心版本 (例如 PAE 和 Xen)。 例如，不支援版本字串為 _2.6.16.21-0.8-xen_ 的系統。
 - 不支援自訂核心，包括重新編譯的標準核心。
 - 不支援 CentOSPlus 核心。
-- Oracle Unbreakable Enterprise Kernel (UEK) 在本文稍後的章節有相關討論。
+- Oracle Unbreakable Enterprise Kernel (UEK) 在此文章稍後的章節有相關討論。
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
@@ -200,6 +200,9 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 Dependency Ag
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，啟用 Activity Log Analytics 解決方案。
 2. 在您想要取得資料的每部電腦上安裝相依性代理程式。 相依性代理程式可以監視緊接鄰近點的連線，因此您可能不需要在每部電腦上都有代理程式。
 
+> [!NOTE]
+> 您無法將舊版 Wire Data 解決方案新增至新的工作區。 如果您已啟用原始 Wire Data 解決方案，您可以繼續使用。 不過，若要使用 Wire Data 2.0，您必須先移除原始版本。
+> 
 ### <a name="install-the-dependency-agent-on-windows"></a>在 Windows 上安裝相依性代理程式
 
 必須有系統管理員權限，以便安裝或解除安裝代理程式。

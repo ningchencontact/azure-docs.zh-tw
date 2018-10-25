@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/19/2018
+ms.date: 10/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 903074c78180ab2cd755abcf4207232f2851804e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2dc0f2dea752dd44ab2805a0d6fc0e5517f5c6c
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47019672"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48831699"
 ---
 [Azure 檔案](../articles/storage/files/storage-files-introduction.md)透過 [Azure Active Directory (Azure AD) Domain Services](../articles/active-directory-domain-services/active-directory-ds-overview.md)，支援「透過 SMB (伺服器訊息區) (預覽) 進行以身分識別為基礎的驗證」。 您加入網域的 Windows 虛擬機器 (VM) 可以使用 [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) 認證存取 Azure 檔案共用。 
 
@@ -23,5 +23,7 @@ Azure AD 會使用 [ 角色型存取控制 (RBAC)](../articles/role-based-access
 
 > [!NOTE]
 > 預覽版本的 Linux VM 不支援透過 SMB 的 Azure AD 驗證。 只支援 Windows Server VM。
->
+
+> 使用 AD 或 AAD 認證來存取 Azure 檔案服務的內部部署機器不支援 SMB 上的 Azure AD 驗證。
+
 > Azure AD 驗證僅適用於在 2018 年 9 月 24 日之後建立的儲存體帳戶。

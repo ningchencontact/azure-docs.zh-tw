@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - 建立兩個分別具有內部和外部 NSG �
 description: Azure CLI 指令碼範例 - 建立兩個分別具有內部和外部 NSG 的 VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 1d5ac97b0a086f982a87e89b5142c9df950ca55d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 85add5e360ae9f0b80cae916cde27e549dc45e1e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932471"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467764"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>保護虛擬機器之間的網路流量
 

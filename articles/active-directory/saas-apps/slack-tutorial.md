@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 09/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f79926d0d4729c6ad939bc604e9eb885dbe9f03
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5b1099e46cf1aa2fd4b948fee8407cfd859390ce
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421236"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>教學課程：Azure Active Directory 與 Slack 整合
 
@@ -114,11 +114,8 @@ Slack 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.slack.com`
 
-    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://slack.com`
+    b. 在 [識別碼] 文字方塊中，將值更新為「單一登入 URL」。 這是您的工作區網域。 例如：`https://contoso.slack.com`
 
-    > [!NOTE] 
-    > 這不是真正的值。 您必須使用實際的「登入 URL」來更新此值。 請連絡 [Slack 支援小組](https://slack.com/help/contact)以取得此值。
-     
 1. Slack 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
     
     ![設定單一登入](./media/slack-tutorial/tutorial_slack_attribute.png)
@@ -220,6 +217,9 @@ Slack 與 Azure AD 整合提供下列優點：
 
 > [!NOTE]
 > 如果您需要手動建立使用者，就需要連絡 [Slack 支援小組](https://slack.com/help/contact)。
+
+> [!NOTE]
+> Azure AD Connect 是一種同步處理工具，可以將內部部署的 Active Directory 身分識別同步處理至 Azure AD，之後這些已同步的使用者也可如同其他雲端使用者般地使用應用程式。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

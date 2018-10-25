@@ -1,6 +1,6 @@
 ---
 title: 啟用適用於 Azure-SSIS 整合執行階段的 Azure Active Directory 驗證 | Microsoft Docs
-description: 本文說明如何設定 Azure-SSIS 整合執行階段，以啟用使用 Azure Active Directory 驗證的連線。
+description: 此文章說明如何設定 Azure-SSIS 整合執行階段，以啟用使用 Azure Active Directory 驗證的連線。
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,16 +12,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: aa06110a6f6fe668388c6aecd98c1ddeeae37edd
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 234fb5af55565602d283539c63076adebad1ed25
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576624"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248970"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS 整合執行階段的 Azure Active Directory 驗證
 
-本文說明如何使用 Azure Data Factory 服務識別建立 Azure-SSIS IR。 針對 Azure SSIS 整合執行階段使用受控服務識別 (MSI) 的 Azure Active Directory (Azure AD) 驗證，可讓您使用 Data Factory MSI 來建立 Azure-SSIS 整合執行階段，而不使用 SQL 驗證。
+此文章說明如何使用 Azure Data Factory 服務識別建立 Azure-SSIS IR。 針對 Azure-SSIS 整合執行階段使用 Azure 資源的受控識別的 Azure Active Directory (Azure AD) 驗證，可讓您使用 Data Factory MSI 來建立 Azure-SSIS 整合執行階段，而不使用 SQL 驗證。
 
 如需 Data Factory MSI 的詳細資訊，請參閱 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)。
 

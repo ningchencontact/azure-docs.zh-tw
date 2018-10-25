@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: f9e3f190decdc907cf57a0235b9d7142081bd2f1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f199e6615109278764b9fcc75346da9ee6171cfa
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208024"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815642"
 ---
 # <a name="scaling-service-fabric-clusters"></a>調整 Service Fabric 叢集
 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 屬於叢集一部分的機器或 VM 都稱為節點。 叢集有可能包含數千個節點。 在建立 Service Fabric 叢集之後，您可以水平調整叢集 (變更節點數目)，或以垂直方式調整 (變更節點的資源)。  您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。  在叢集進行調整時，您的應用程式也會自動調整。
@@ -38,7 +38,7 @@ Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用�
 - 缺點：有限的調整，因為您可以在個別節點上增加的資源有數目上的限制。 停機時間，因為您必須使實體或虛擬機器離線，才能新增或移除資源。
 
 ## <a name="scaling-an-azure-cluster-in-or-out"></a>將 Azure 叢集相應縮小或相應放大
-虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Azure 叢集中定義的每個節點類型，會[設定為不同的擴展集](service-fabric-cluster-nodetypes.md)。 然後每個節點類型可以獨立相應縮小或放大，可以開啟不同組的連接埠，並可以有不同的容量度量。 
+虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合來部署及管理。 在 Azure 叢集中定義的每個節點類型，會[設定為不同的擴展集](service-fabric-cluster-nodetypes.md)。 然後每個節點類型可以獨立相應縮小或放大，可以開啟不同組的連接埠，並可以有不同的容量度量。 
 
 在調整 Azure 叢集時，請記住下列指導方針︰
 - 執行生產工作負載的主要節點類型，應一律具有五個或更多節點。
@@ -64,7 +64,7 @@ Azure API 的存在可讓應用程式以程式設計方式使用虛擬機器擴�
 
 若要實作此「自製」自動調整功能，有一個方法是將新的無狀態服務新增至 Service Fabric 應用程式以管理調整作業。 建立自己的調整服務就能對應用程式的調整行為握有最高程度的控制力與自訂能力。 這很適合用於需要精確控制應用程式相應縮小或放大之時機或方式的案例。不過，伴隨此控制能力而來的是程式碼會變得複雜。 使用這種方式就表示您必須擁有調整程式碼 (此程式碼很複雜)。 在服務的 `RunAsync` 方法內，有一組觸發程序可以判斷是否需要調整 (包括檢查最大叢集大小和調整冷卻等參數)。   
 
-用於虛擬機器擴展集互動 (檢查目前的虛擬機器執行個體數目並加以修改) 的 API 是 [Fluent Azure 管理計算程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/)。 Fluent 計算程式庫可提供方便使用的 API 來與虛擬機器擴展集互動。  若要與 Service Fabric 叢集本身互動，請使用 [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient)。
+用於虛擬機器擴展集互動 (檢查目前的虛擬機器執行個體數目並修改它) 的 API 是 [Fluent Azure 管理計算程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/)。 Fluent 計算程式庫可提供方便使用的 API 來與虛擬機器擴展集互動。  若要與 Service Fabric 叢集本身互動，請使用 [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient)。
 
 不過，調整程式碼不需要以服務的形式在想要調整的叢集中執行。 `IAzure` 和 `FabricClient` 都能遠端連線到其相關聯的 Azure 資源，因此，調整服務可以輕鬆地成為主控台應用程式或從 Service Fabric 應用程式外部執行的 Windows 服務。
 
@@ -74,7 +74,11 @@ Azure API 的存在可讓應用程式以程式設計方式使用虛擬機器擴�
 ## <a name="scaling-a-standalone-cluster-in-or-out"></a>將獨立叢集相應縮小或相應放大
 獨立叢集可讓您在內部部署 Service Fabric 叢集，或是在您選擇的雲端提供者中部署。  節點類型包含實體機器或虛擬機器，視您的部署而定。 相較於在 Azure 中執行的叢集，調整獨立叢集的程序會稍微複雜一些。  您必須手動變更叢集中的節點數目，然後執行叢集組態升級。
 
-移除節點可能會起始多個升級作業。 有些節點會標示 `IsSeedNode=”true”` 標記，而可藉由使用 [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest) 來查詢叢集資訊清單而加以識別。 移除這類節點所需的時間可能比移除其他節點長，因為在這類案例中，需要將種子節點四處移動。 叢集必須至少維持三個主要節點類型的節點。
+移除節點可能會起始多個升級作業。 有些節點會標示 `IsSeedNode=”true”` 標記，而且可以透過使用 [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest) 查詢叢集資訊清單來識別。 移除這類節點所需的時間可能比移除其他節點長，因為在這類案例中，需要將種子節點四處移動。 叢集必須至少維持三個主要節點類型的節點。
+
+> [!WARNING]
+> 我們建議不要使節點計數低於該叢集之[可靠性層級的叢集大小](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)。 這將會影響 Service Fabric 系統服務在叢集上進行複寫的能力，並會使叢集變得不穩定，甚至損毀該叢集。
+>
 
 在調整獨立叢集時，請記住下列指導方針︰
 - 應以逐一取代主要節點的方式來執行，而不是以批次方式移除後再加入。
@@ -83,7 +87,7 @@ Azure API 的存在可讓應用程式以程式設計方式使用虛擬機器擴�
 如需詳細資訊，請參閱[調整獨立叢集](service-fabric-cluster-windows-server-add-remove-nodes.md)。
 
 ## <a name="scaling-an-azure-cluster-up-or-down"></a>將 Azure 叢集相應增加或相應減少
-虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Azure 叢集中定義的每個節點類型，會[設定為不同的擴展集](service-fabric-cluster-nodetypes.md)。 隨後，您即可個別管理每個節點類型。  要將一個節點類型相應增加或相應減少，必須在擴展集中變更虛擬機器執行個體的 SKU。 
+虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合來部署及管理。 在 Azure 叢集中定義的每個節點類型，會[設定為不同的擴展集](service-fabric-cluster-nodetypes.md)。 隨後，您即可個別管理每個節點類型。  要將一個節點類型相應增加或相應減少，必須在擴展集中變更虛擬機器執行個體的 SKU。 
 
 > [!WARNING]
 > 建議您不要變更擴展集/節點類型的 VM SKU，除非它以[銀級耐久性或更高級別](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)執行。 變更 VM SKU 大小是資料破壞性就地基礎結構作業。 如果沒有延遲或監視此變更的能力，作業可能會導致具狀態服務的資料遺失，或者甚至對於無狀態工作負載導致其他未預期作業問題。 

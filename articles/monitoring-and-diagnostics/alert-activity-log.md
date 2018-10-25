@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 526c50fa4d261a30738c3f24d537fe5e0d765f6d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951299"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248324"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure 監視器中建立、檢視及管理活動記錄警示  
 
@@ -25,7 +25,7 @@ ms.locfileid: "46951299"
 > [!IMPORTANT]
 > 服務健康情況通知的警示是無法透過活動記錄警示建立的介面來建立的。 若要深入了解建立及使用服務健康情況通知，請參閱[在服務健康情況通知上接收活動記錄警示](monitoring-activity-log-alerts-on-service-notifications.md)。
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-portal"></a>使用 Azure 入口網站管理活動記錄的警示規則
+## <a name="azure-portal"></a>Azure 入口網站
 
 > [!NOTE]
 
@@ -36,7 +36,7 @@ ms.locfileid: "46951299"
 - 警示設定 JSON 中不得有 “anyOf” 條件或巢狀條件 (基本上，只允許 allOf，不得進一步使用 allOf/anyOf)。
 - 當類別為「系統管理」時。 您必須在您的警示中指定至少一個上述準則。 您不能建立會在每次活動記錄中建立事件時即啟動的警示。
 
-### <a name="create-an-alert-rule-for-an-activity-log-using-azure-portal"></a>使用 Azure 入口網站建立活動記錄的警示規則
+### <a name="create-with-azure-portal"></a>使用 Azure 入口網站建立
 
 請使用下列程序：
 
@@ -102,7 +102,7 @@ ms.locfileid: "46951299"
  ![ 從活動記錄新增警示](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
     
 
-### <a name="view-and-manage-activity-log-alert-rules-in-azure-portal"></a>在 Azure 入口網站中檢視和管理活動記錄警示規則
+### <a name="view-and-manage-in-azure-portal"></a>在 Azure 入口網站中檢視及管理
 
 1. 從 Azure 入口網站按一下 [監視器] > [警示]，然後按一下視窗左上方的 [管理規則]。
 
@@ -127,7 +127,7 @@ ms.locfileid: "46951299"
 4.  您可以停用、啟用或刪除規則。 選取規則之後，在視窗頂端選取適當選項，詳細資料如步驟 2 所示。
 
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-resource-template"></a>使用 Azure 資源範本管理活動記錄的警示規則
+## <a name="azure-resource-template"></a>Azure 資源範本
 若要使用 Resource Manager 範本建立活動記錄警示，您要建立 `microsoft.insights/activityLogAlerts` 類型的資源。 然後要填入所有相關的屬性。 以下是建立活動記錄警示的範本。
 
 ```json
@@ -195,26 +195,28 @@ ms.locfileid: "46951299"
   ]
 }
 ```
-基於本逐步解說的目的，上述 json 範例可儲存為 (假設) sampleActivityLogAlert.json，而且可以使用 [Azure 入口網站中的 Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md) 進行部署。
+基於此逐步解說的目的，上述 json 範例可儲存為 (假設) sampleActivityLogAlert.json，而且可以使用 [Azure 入口網站中的 Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md) 進行部署。
 
 > [!NOTE]
 > 新活動記錄警示規則最多可能需要 5 分鐘的時間才會運作
 
-## <a name="manage-alert-rules-for-activity-log-using-powershell-cli-or-api"></a>使用 PowerShell、CLI 或 API 管理活動記錄的警示規則
+## <a name="rest-api"></a>REST API 
 [Azure 監視器 - 活動記錄警示 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) 是 REST API，並且可與 Azure Resource Manager REST API 完全相容。 因此它可以透過 Powershell 和 Azure CLI 搭配資源管理員 Cmdlet 來使用。
 
+## <a name="powershell"></a>PowerShell
 以下說明透過 Azure Resource Manager PowerShell Cmdlet 使用上述[資源範本一節](#manage-alert-rules-for-activity-log-using-azure-resource-template)中資源範本範例 (sampleActivityLogAlert.json) 的方式：
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 其中，sampleActivityLogAlert.parameters.json 具有提供給警示規則建立所需參數的值。
 
+## <a name="cli"></a>CLI
 以下說明透過 Azure CLI 中的 Azure Resource Manager 命令使用上述[資源範本一節](#manage-alert-rules-for-activity-log-using-azure-resource-template)中資源範本範例 (sampleActivityLogAlert.json) 的方式：
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
 ```
-其中，sampleActivityLogAlert.parameters.json 具有提供給警示規則建立所需參數的值。
+*sampleActivityLogAlert.parameters.json* 檔案具有提供給警示規則建立所需參數的值。
 
 
 ## <a name="next-steps"></a>後續步驟

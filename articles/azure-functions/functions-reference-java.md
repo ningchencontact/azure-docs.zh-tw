@@ -6,19 +6,17 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構, Java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/10/2018
+ms.topic: conceptual
+ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: bbc1c3426b52e71db84a988b39a1d76ac24b6168
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697006"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802112"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
@@ -28,7 +26,35 @@ ms.locfileid: "43697006"
 
 您的 Azure 函式應該是無狀態類別方法，處理輸入及產生輸出。 雖然您可以寫入執行個體方法，但是函式不得相依於類別的任何執行個體欄位。 所有函式方法必須有 `public` 存取修飾詞。
 
-您可以在專案中放入多個函式。 請勿將函式放入個別的 jar。
+## <a name="folder-structure"></a>資料夾結構
+
+Java 專案的資料夾結構看起來如下：
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+共用的 [host.json] (functions-host-json.md) 檔案可用來設定函數應用程式。 每個函式都有自己的程式碼檔案 (.java) 和繫結設定檔 (function.json)。
+
+您可以在專案中放入多個函式。 請勿將函式放入個別的 jar。 目標目錄中的 FunctionApp 就是會部署至 Azure 中函數應用程式的項目。
 
 ## <a name="triggers-and-annotations"></a>觸發程序和註解
 
@@ -89,9 +115,15 @@ public class MyClass {
 
 ```
 
+## <a name="jdk-runtime-availability-and-support"></a>JDK 執行階段可用性和支援 
+
+請從 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下載並使用 [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK，以在本機開發 Java 函數應用程式。 除了提供適用於 Windows、Linux 和 macOS 的 JDK 之外，在使用[合格的支援方案](https://azure.microsoft.com/support/plans/)進行開發的期間，針對遇到的問題，也提供 [Azure 支援](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support)。
+
 ## <a name="third-party-libraries"></a>第三方程式庫 
 
 Azure Functions 支援使用第三方程式庫。 根據預設，專案的 `pom.xml` 檔案中所指定的相依性全都會在 `mvn package` 目標期間自動配套。 對於在 `pom.xml` 檔案中未指定為相依性的程式庫，請將其放入函式根目錄的 `lib` 目錄中。 放在 `lib` 目錄中的相依性會在執行階段新增至系統類別載入器。
+
+`com.microsoft.azure.functions:azure-functions-java-library` 相依性預設會在 Classpath 提供，因此無須包含在 `lib` 目錄中。
 
 ## <a name="data-type-support"></a>資料類型支援
 
@@ -103,7 +135,7 @@ Azure Functions 支援使用第三方程式庫。 根據預設，專案的 `pom.
 
 ### <a name="plain-old-java-objects-pojos"></a>純舊 Java 物件 (POJO)
 
-如果函式的輸入簽章應該為 Java 類型，則使用 JSON 格式化的字串會轉換為 Java 類型。 這項轉換可讓您傳入 JSON，並與 Java 類型搭配使用。
+如果函式的輸入簽章應該為 Java 類型，則使用 JSON 格式化的字串會轉換為 Java 類型。 此轉換可讓您傳入 JSON，並使用 Java 類型。
 
 作為函式輸入的 POJO 類型必須具有與在其中使用之函式方法相同的 `public` 存取修飾詞。 您不需要宣告 POJO 類別欄位 `public`。 例如，JSON 字串 `{ "x": 3 }` 可以轉換成下列 POJO 類型：
 

@@ -2,24 +2,23 @@
 title: 將傳統的 Azure 容器登錄升級
 description: 將非受控的傳統容器登錄升級，以利用基本、標準和進階受控容器登錄的擴充功能集。
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: marsma
-ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.author: danlep
+ms.openlocfilehash: fd22677c2acc9e61abc082b3515a817c01c163cb
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189016"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855961"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>將傳統的容器登錄升級
 
 有好幾個服務層 ([也就是所謂的 SKU](container-registry-skus.md)) 會提供 Azure Container Registry (ACR)。 初始的 ACR 版本提供了單一 SKU (傳統)，該 SKU 缺少基本、標準和進階 SKU (統稱為「受控」登錄) 固有的數種功能。
 
-傳統 SKU 即將被取代，而且在 2019 年 3 月之後將無法使用。 本文將詳細說明如何將非受控的傳統登錄移轉至其中一個受控 SKU，以便利用其經過強化的功能集。
+傳統 SKU 即將被取代，而且在 2019 年 3 月之後將無法使用。 此文章將詳細說明如何將非受控的傳統登錄移轉至其中一個受控 SKU，以便利用其經過強化的功能集。
 
 ## <a name="why-upgrade"></a>為何要升級？
 

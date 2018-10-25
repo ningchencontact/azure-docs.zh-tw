@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 231d7b875a7163aaa532be4a6477ca4e2eb67286
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070561"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043556"
 ---
 # <a name="using-gpus-on-aks"></a>在 AKS 上使用 GPU
 
@@ -63,7 +63,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-說明其中一個節點，以確認 GPU 可排程。 這可以在 `Capacity` 區段底下找到。 例如： `alpha.kubernetes.io/nvidia-gpu:  1`。
+說明其中一個節點，以確認 GPU 可排程。 這可以在 `Capacity` 區段底下找到。 例如： `nvidia.com/gpu:  1`。 如果您沒有看到 GPU，請參閱下面的＜疑難排解＞一節。
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -96,12 +96,12 @@ Addresses:
   InternalIP:  10.240.0.4
   Hostname:    aks-nodepool1-22139053-0
 Capacity:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57691688Ki
  pods:                            110
 Allocatable:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57589288Ki
  pods:                            110
@@ -135,7 +135,7 @@ Events:         <none>
 
 若要示範 GPU 確實在運作中，請使用適當的資源要求對已啟用 GPU 的工作負載進行排程。 這個範例會針對 [MNIST 資料集](http://yann.lecun.com/exdb/mnist/)執行 [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) 作業。
 
-下列作業資訊清單包含 `alpha.kubernetes.io/nvidia-gpu: 1` 的資源限制。 適當的 CUDA 程式庫和偵錯工具可以在位於 `/usr/local/nvidia` 的節點上取得，且必須使用如下所見的適當磁碟區規格裝載到 Pod。
+下列作業資訊清單包含 `nvidia.com/gpu: 1` 的資源限制。 
 
 複製資訊清單並且儲存為 **samples-tf-mnist-demo.yaml**。
 ```
@@ -158,15 +158,8 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           limits:
-            alpha.kubernetes.io/nvidia-gpu: 1
-        volumeMounts:
-        - name: nvidia
-          mountPath: /usr/local/nvidia
+           nvidia.com/gpu: 1
       restartPolicy: OnFailure
-      volumes:
-        - name: nvidia
-          hostPath:
-            path: /usr/local/nvidia
 ```
 
 使用 [kubectl apply][kubectl-apply] 命令來執行作業。 此命令會剖析資訊清單檔，並建立已定義的 Kubernetes 物件。
@@ -270,6 +263,64 @@ Adding run metadata for 499
 ```
 $ kubectl delete jobs samples-tf-mnist-demo
 job "samples-tf-mnist-demo" deleted
+```
+
+## <a name="troubleshoot"></a>疑難排解
+
+在某些情況下，您可能無法在 Capacity 之下看到 GPU 資源。 例如：將叢集升級到 Kubernetes 1.10 版或建立新的 Kubernetes 1.10 版叢集之後，在執行 `kubectl describe node <node-name>` 時 `Capacity` 會遺漏預期的 `nvidia.com/gpu` 資源。 
+
+若要解決此問題，請在佈建或升級後套用下列 daemonset，您將會看見 `nvidia.com/gpu` 顯示為可排程的資源。 
+
+複製資訊清單並儲存為 **nvidia-device-plugin-ds.yaml**。 對於下面的 `image: nvidia/k8s-device-plugin:1.10` 影像標記，更新標記以符合您的 Kubernetes 版本。 例如，使用 `1.11` 標記表示 Kubernetes 1.11 版。
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    kubernetes.io/cluster-service: "true"
+  name: nvidia-device-plugin
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
+      # reserves resources for critical add-on pods so that they can be rescheduled after
+      # a failure.  This annotation works in tandem with the toleration below.
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      labels:
+        name: nvidia-device-plugin-ds
+    spec:
+      tolerations:
+      # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
+      # This, along with the annotation above marks this pod as a critical add-on.
+      - key: CriticalAddonsOnly
+        operator: Exists
+      containers:
+      - image: nvidia/k8s-device-plugin:1.10 # Update this tag to match your Kubernetes version
+        name: nvidia-device-plugin-ctr
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+        volumeMounts:
+          - name: device-plugin
+            mountPath: /var/lib/kubelet/device-plugins
+      volumes:
+        - name: device-plugin
+          hostPath:
+            path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+        accelerator: nvidia
+```
+
+使用 [kubectl apply][kubectl-apply] 命令來建立 daemonset。
+
+```
+$ kubectl apply -f nvidia-device-plugin-ds.yaml
+daemonset "nvidia-device-plugin" created
 ```
 
 ## <a name="next-steps"></a>後續步驟

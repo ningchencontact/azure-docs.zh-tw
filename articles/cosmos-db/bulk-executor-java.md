@@ -1,29 +1,30 @@
 ---
-title: 在 Azure Cosmos DB 中使用大量執行程式 Java 程式庫執行大量作業 | Microsoft Docs
-description: 使用 Azure Cosmos DB 的大量執行程式 Java 程式庫將文件大量匯入並更新至 Azure Cosmos DB 容器。
-keywords: Java 大量執行程式
+title: 在 Azure Cosmos DB 中使用大量執行程式 Java 程式庫來執行大量匯入和更新作業 | Microsoft Docs
+description: 使用大量執行程式 Java 程式庫來大量匯入和更新 Azure Cosmos DB 文件。
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a22cd65ef5d4ef22038a8506359d1036e829db4d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050182"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362104"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用大量執行程式 Java 程式庫執行大量作業
 
 本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 容器。 匯入之後，您會大量更新文件的某些屬性。 
 
+目前，只有 Azure Cosmos DB SQL API 和 Gremlin API 帳戶可支援大量執行程式程式庫。 本文說明如何搭配 SQL API 帳戶使用大量執行程式 .Net 程式庫。 若要了解如何搭配 Gremlin API 使用大量執行程式 .Net 程式庫，請參閱[在 Azure Cosmos DB Gremlin API 中執行大量作業](bulk-executor-graph-dotnet.md)。
+
 ## <a name="prerequisites"></a>必要條件
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。  
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。  
 
 * 您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。 或者，您也可以搭配使用 [Azure Cosmos DB 模擬器](https://docs.microsoft.com/azure/cosmos-db/local-emulator)與 `https://localhost:8081` URI。 [驗證要求](local-emulator.md#authenticating-requests)中會提供主索引鍵。  
 

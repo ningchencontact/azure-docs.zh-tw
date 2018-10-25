@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: bd9d1b813c90be09301eeff1de7580f22c15500b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 954c16cefe6d7ffe61a0b04b274b9bf92306a587
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407581"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857579"
 ---
 # <a name="message-counters"></a>訊息計數器
 
@@ -46,7 +46,6 @@ ms.locfileid: "47407581"
 
 若要深入了解服務匯流排傳訊，請參閱下列主題：
 
-* [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 * [服務匯流排佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服務匯流排主題和訂用帳戶](service-bus-dotnet-how-to-use-topics-subscriptions.md)

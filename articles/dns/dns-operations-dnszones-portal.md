@@ -1,6 +1,6 @@
 ---
 title: 管理 Azure DNS 中的 DNS 區域 - Azure 入口網站 | Microsoft Docs
-description: 您可以使用 Azure 入口網站管理 DNS 區域。 本文說明如何在 Azure DNS 上更新、刪除及建立 DNS 區域
+description: 您可以使用 Azure 入口網站管理 DNS 區域。 此文章說明如何在 Azure DNS 上更新、刪除及建立 DNS 區域
 services: dns
 documentationcenter: na
 author: vhorne
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954376"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829677"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>如何在 Azure 入口網站中管理 DNS 區域
 
@@ -27,12 +27,12 @@ ms.locfileid: "46954376"
 > * [Azure 傳統 CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
-本文說明如何使用 Azure 入口網站管理 DNS 區域。 您也可以使用跨平台的 [Azure CLI](dns-operations-dnszones-cli.md) 或 Azure [PowerShell](dns-operations-dnszones.md) 來管理 DNS 區域。
+此文章說明如何使用 Azure 入口網站管理 DNS 區域。 您也可以使用跨平台的 [Azure CLI](dns-operations-dnszones-cli.md) 或 Azure [PowerShell](dns-operations-dnszones.md) 來管理 DNS 區域。
 
 ## <a name="create-a-dns-zone"></a>建立 DNS 區域
 
 1. 登入 Azure 入口網站
-2. 在 [中樞] 功能表上，按一下 [建立資源] > [網路]，然後按一下 [DNS 區域] 以開啟 [建立 DNS 區域] 刀鋒視窗。
+2. 在 [中樞] 功能表上，瀏覽至 [建立資源] > [網路] > [DNS 區域] 以開啟 [建立 DNS 區域] 刀鋒視窗。
 
     ![DNS 區域](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,13 +51,13 @@ ms.locfileid: "46954376"
 
 ## <a name="list-dns-zones"></a>列出 DNS 區域
 
-在 Azure 入口網站中，巡覽至 [More services] \(更多服務) > [網路] > [DNS 區域]。 每個 DNS 區域都是它自己的資源，記錄集數目和名稱伺服器數目等資訊皆可在此檢視中檢視。 [名稱伺服器] 資料行不在預設檢視中，若要新增它，請按一下 [資料行]，選取 [名稱伺服器] 並按一下 [完成]。
+在 Azure 入口網站中，巡覽至 [More services] \(更多服務) > [網路] > [DNS 區域]。 每個 DNS 區域都是它自己的資源，而記錄集數目和名稱伺服器數目等資訊皆可在此檢視中檢視。 **名稱伺服器**資料行不在預設檢視中。 若要新增它，請按一下 [資料行]、選取 [名稱伺服器]，然後按一下 [完成]。
 
 ![列出 DNS 區域](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>刪除 DNS 區域
 
-巡覽至入口網站中的 DNS 區域。 在 [DNS 區域] 刀鋒視窗中，按一下 [刪除區域]。 系統會提示您確認要刪除 DNS 區域。 刪除 DNS 區域也會刪除該區域包含的所有記錄。
+巡覽至入口網站中的 DNS 區域。 在 [DNS 區域] 刀鋒視窗中，按一下 [刪除區域]。 系統接著會提示您確認要刪除 DNS 區域。 刪除 DNS 區域也會刪除該區域包含的所有記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

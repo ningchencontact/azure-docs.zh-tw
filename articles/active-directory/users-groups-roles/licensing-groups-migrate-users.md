@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 01/14/2018
 ms.author: curtand
 ms.custom: seohack1
-ms.openlocfilehash: 10851990f26124ae89945d4b56058115cacb81ee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5beee2fae518fec23b65ff05a79281e0fc3f1417
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861185"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800735"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>如何將已授權的使用者新增至群組以便在 Azure Active Directory 中授權
 
@@ -47,7 +47,7 @@ ms.locfileid: "37861185"
 
 6. 請考慮移除原始的直接指派；您可能想要「一波一波」逐漸地進行，以便先監視使用者子集上的結果。
 
-  您可以離開使用者的原始直接指派，但是當使用者離開其授權群組時，仍會保留原始授權，這可能不是您想要的結果。
+  您可以留著使用者上的原始直接指派，但是當使用者離開其授權群組時，將仍保留原始授權，而這可能不是您所想要的。
 
 ## <a name="an-example"></a>範例
 

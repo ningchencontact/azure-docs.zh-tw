@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ad3f42563878d829f900d5cddb0c6866d2deab5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c611fd7893a96113a4a9f2454bcd0b11db02be29
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43311432"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>教學課程：Azure Active Directory 與 Snowflake 整合
 
@@ -39,6 +39,7 @@ Snowflake 與 Azure AD 整合提供下列優點：
 
 - Azure AD 訂用帳戶
 - 已啟用單一登入的 Snowflake 訂用帳戶
+- 沒有 Snowflake 帳戶的客戶想要透過 Azure AD 應用程式資源庫嘗試，請參閱[這個](https://trial.snowflake.net/?cloud=azure&utm_source=azure-marketplace&utm_medium=referral&utm_campaign=self-service-azure-mp)連結。
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -103,22 +104,22 @@ Snowflake 與 Azure AD 整合提供下列優點：
  
     ![單一登入對話方塊](./media/snowflake-tutorial/tutorial_snowflake_samlbase.png)
 
-3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Snowflake 網域和 URL] 區段上執行下列步驟：
+3. 在 [Snowflake 網域與 URL] 區段上，執行下列步驟：
 
     ![Snowflake 網域與 URL 單一登入資訊](./media/snowflake-tutorial/tutorial_snowflake_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<SNOWFLAKE-URL>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
-    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<SNOWFLAKE-URL>/fed/login`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![Snowflake 網域與 URL 單一登入資訊](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<SNOWFLAKE-URL>`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
      
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [Snowflake 用戶端支援小組](https://support.snowflake.net/s/snowflake-support)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。
 
 5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -132,7 +133,22 @@ Snowflake 與 Azure AD 整合提供下列優點：
 
     ![Snowflake 組態](./media/snowflake-tutorial/tutorial_snowflake_configure.png) 
 
-8. 若要在 **Snowflake** 端設定單一登入，您必須將已下載的「憑證 (Base64)」和「SAML 單一登入服務 URL」傳送給 [ 支援小組](https://support.snowflake.net/s/snowflake-support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+8. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 Snowflake。
+
+9. 將 [憑證]值設定為 [下載的憑證]，並將 [ssoUrl] 設定為從 Azure AD 複製到下列值的 **SAML 單一登入服務 URL**，以便對於工作表執行下列 SQL 查詢。
+
+    ![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png) 
+
+    ```
+    use role accountadmin;
+    alter account set saml_identity_provider = '{
+    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+    "ssoUrl":"<SAML single sign-on service URL value which you have copied from the Azure portal>",
+    "type":"custom",
+    "label":"AzureAD"
+    }';
+    alter account set sso_login_page = TRUE;
+    ```
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -168,7 +184,25 @@ Snowflake 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-snowflake-test-user"></a>建立 Snowflake 測試使用者
 
-在本節中，您要在 Snowflake 中建立名為 Britta Simon 的使用者。 請與 [ 支援小組](https://support.snowflake.net/s/snowflake-support) 合作，在 Snowflake 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+若要讓 Azure AD 使用者能夠登入 Snowflake，必須將他們佈建到 Snowflake。 在 Snowflake 中，需以手動方式佈建。
+
+**若要佈建使用者帳戶，請執行下列步驟：**
+
+1. 以安全性系統管理員身分登入 Snowflake。
+
+2. 按一下頁面右上方的 [設定檔]，**切換角色**為 **ACCOUNTADMIN**。  
+
+    ![Snowflake admin ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+
+3. 執行下列 SQL 查詢來建立使用者，確定「登入名稱」是設定為工作表上的 Azure AD 使用者名稱，如下所示。
+
+    ![Snowflake adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+
+    ```
+
+    use role accountadmin;
+    CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
+    ```
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

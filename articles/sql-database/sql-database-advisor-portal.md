@@ -2,20 +2,22 @@
 title: 套用效能建議 - Azure SQL Database |Microsoft Docs
 description: 使用 Azure 入口網站以找出可最佳化 Azure SQL Database 的效能建議。
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 67432c8751cd8809649d41195957a7d68b392074
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 738e78e608dbd819f24125799a1e8d48859f1aa0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665594"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043583"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -88,11 +90,11 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 3. (選擇性) 按一下 [復原捨棄]，將索引加回到**建議**的主要清單。
 
 > [!NOTE]
-> 請注意，如果啟用 SQL Database [自動微調](sql-database-automatic-tuning.md)，且您以手動方式捨棄清單中的建議，就永遠不會自動套用這類建議。 捨棄建議是一個便利的方式，可在要求不得套用特定建議時，讓使用者可以啟用自動調整。
+> 請注意，如果啟用 SQL Database [自動調整](sql-database-automatic-tuning.md)，且您以手動方式捨棄清單中的建議，就永遠不會自動套用這類建議。 捨棄建議是一個便利的方式，可在要求不得套用特定建議時，讓使用者可以啟用自動調整。
 > 您可以選取 [復原捨棄] 選項，將捨棄的建議新增回 [建議] 清單，從而還原這個行為。
 > 
 
-### <a name="enable-automatic-tuning"></a>啟用自動微調
+### <a name="enable-automatic-tuning"></a>啟用自動調整
 您可以將 Azure SQL Database 設為自動實作建議。 當建議可供使用時會自動套用建議。 因為所有建議都由服務管理，所以若對效能產生負面影響，就會還原該建議。
 
 1. 在 [建議] 頁面上按一下 [自動化]：
@@ -103,7 +105,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
     ![建議的索引](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，而且不應該在這些情況下啟用。
+> 請注意，**DROP_INDEX** 選項目前與使用分割區切換和索引提示的應用程式並不相容。 
 >
 
 選取所需的組態後，按一下 [套用]。

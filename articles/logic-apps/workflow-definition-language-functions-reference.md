@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307108"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269559"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的函式參考
 
@@ -27,7 +27,7 @@ ms.locfileid: "43307108"
 | 傳回全域唯一識別碼 (GUID)。 | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 
 
-本文會說明您可以在建立邏輯應用程式定義時使用的函式。
+此文章會說明您可以在建立邏輯應用程式定義時使用的函式。
 若要[根據其一般目的](#ordered-by-purpose)來尋找函式，請繼續看後面的資料表。 或者，如需每個函式的詳細資訊，請參閱[依字母順序排列的清單](#alphabetical-list)。 
 
 > [!NOTE]
@@ -82,7 +82,7 @@ ms.locfileid: "43307108"
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | 傳回子字串的起始位置。 | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 傳回子字串最後一次出現的起始位置。 | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 使用指定字串取代子字串，並傳回已更新的字串。 | 
-| [分割](../logic-apps/workflow-definition-language-functions-reference.md#split) | 傳回具有字串中所有字元的陣列，並以特定分隔符號字元將每個字元隔開。 | 
+| [分割](../logic-apps/workflow-definition-language-functions-reference.md#split) | 根據原始字串中指定的分隔符號字元，從較大型字串傳回包含以逗號分隔之子字串的陣列。 | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 檢查字串是否以特定的子字串開始。 | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | 傳回字串中的字元 (從指定的位置起始)。 | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | 傳回小寫格式的字串。 | 
@@ -493,7 +493,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | 是 | 字串 | 包含時間戳記的字串 | 
 | <*days*> | 是 | 整數  | 要加入的天數 (正數或負數) | 
-| <*format*> | 否 | 字串 | [單一格式規範](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自訂格式模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 時間戳記的預設格式為 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddT:mm:ss:fffffffK)，其符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 並保留時區資訊。 |
+| <*format*> | 否 | 字串 | [單一格式規範](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自訂格式模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 時間戳記的預設格式為 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK)，其符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) \(英文\) 並保留時區資訊。 |
 ||||| 
 
 | 傳回值 | 類型 | 說明 | 
@@ -3016,32 +3016,32 @@ skip([0, 1, 2, 3], 1)
 
 ### <a name="split"></a>split
 
-傳回具有字串中所有字元的陣列，並以「分隔符號」將每個字元隔開。
+根據原始字串中指定的分隔符號字元，傳回包含以逗號分隔之子字串的陣列。 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | 參數 | 必要 | 類型 | 說明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*text*> | 是 | 字串 | 要分割其中字元的字串 |  
-| <*separator*> | 是 | 字串 | 在結果陣列中，要出現在每個字元之間的分隔符號 | 
+| <*text*> | 是 | 字串 | 要根據原始字串中指定的分隔符號分隔成子字串的字串 |  
+| <*delimiter*> | 是 | 字串 | 原始字串中用來作為分隔符號的字元 | 
 ||||| 
 
 | 傳回值 | 類型 | 說明 | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separator*><*char2*><*separator*>...] | 陣列 | 從指定字串中所有項目建立的結果陣列 |
+| [<*substring1*>,<*substring2*>,...] | 陣列 | 包含來自原始字串並以逗號分隔之子字串的陣列 |
 |||| 
 
 *範例* 
 
-此範例會從指定字串建立陣列，並以逗號作為分隔符號來分隔每個字元：
+這個範例會根據指定來作為分隔符號的字元，建立包含來自指定字串之子字串的陣列： 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-並傳回此結果：`[a, b, c]`
+而且會傳回此陣列作為結果：`["a","b","c"]`
 
 <a name="startOfDay"></a>
 

@@ -1,10 +1,10 @@
 ---
 title: Azure 中的輸出連線 | Microsoft Docs
-description: 本文說明如何 Azure 如何讓 VM 與公用網際網路服務進行通訊。
+description: 此文章說明如何 Azure 如何讓 VM 與公用網際網路服務進行通訊。
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: jpconnock
 editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036985"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249123"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
-Azure 透過數個不同的機制，提供客戶部署的輸出連線。 本文說明案例為何、套用時機、運作方式，以及如何管理它們。
+Azure 透過數個不同的機制，提供客戶部署的輸出連線。 此文章說明案例為何、套用時機、運作方式，以及如何管理它們。
 
 >[!NOTE] 
->本文僅涵蓋 Resource Manager 部署。 檢閱[輸出連線 (傳統)](load-balancer-outbound-connections-classic.md) 以取得 Azure 中的所有傳統部署案例。
+>此文章僅涵蓋 Resource Manager 部署。 檢閱[輸出連線 (傳統)](load-balancer-outbound-connections-classic.md) 以取得 Azure 中的所有傳統部署案例。
 
 Azure 中的部署可以與公用 IP 位址空間中的 Azure 外部端點進行通訊。 當執行個體向公用 IP 位址空間中的目的地起始輸出流程時，Azure 會動態地將私人 IP 位址對應至公用 IP 位址。 建立此對應之後，此輸出起源流程的傳回流量便也可以觸達流程起源的私人 IP 位址。
 
-Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 當多個私人 IP 位址在單一公用 IP 位址後面偽裝時，Azure 會使用[連接埠位址轉譯 (PAT)](#pat) 來偽裝私人 IP 位址。 暫時連接埠會用於 PAT，並且根據集區大小[預先配置](#preallocatedports)。
+Azure 會使用來源網路位址轉譯 (SNAT) 執行此功能。 當多個私人 IP 位址在單一公用 IP 位址後面偽裝時，Azure 會使用[連接埠位址轉譯 (PAT)](#pat) 來偽裝私人 IP 位址。 暫時連接埠會用於 PAT，並且根據集區大小[預先配置](#preallocatedports)。
 
-有多個[輸出案例](#scenarios)。 您可以視需要合併這些案例。 仔細檢閱它們以了解當它們套用到您的部署模型和應用程式案例時的功能、限制和模式。 檢閱[管理這些案例](#snatexhaust)的指引。
+有多個[輸出案例](#scenarios)。 您可以視需要合併這些案例。 仔細檢閱它們以了解當它們套用到您的部署模型和應用程式案例時的功能、限制和模式。 檢閱[管理這些案例](#snatexhaust)的指導方針。
 
 >[!IMPORTANT] 
 >Standard Load Balancer 引進新功能以及不同的輸出連線行為。   例如，當內部 Standard Load Balancer 存在時，就不會有[案例 3](#defaultsnat)，且必須採取不同步驟。   請仔細完整檢閱本文件以了解整體概念和 SKU 之間的差異。
@@ -47,7 +47,7 @@ Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 當多個�
 | [2.與 VM 關聯的公用 Load Balancer (執行個體上沒有執行個體層級公用 IP 位址)](#lb) | SNAT 搭配使用 Load Balancer 前端的連接埠偽裝 (PAT) | TCP、UDP |Azure 會與多個私人 IP 位址共用公用 Load Balancer 前端的公用 IP 位址。 Azure 會使用前端的暫時連接埠來進行 PAT。 |
 | [3.獨立 VM (無 Load Balancer、無執行個體層級公用 IP 位址)](#defaultsnat) | SNAT 與連接埠偽裝 (PAT) | TCP、UDP | Azure 會自動指定 SNAT 的公用 IP 位址、與可用性設定組的多個私人 IP 位址共用此公用 IP 位址，以及使用此公用 IP 位址的暫時連接埠。 這是上述案例的後援案例。 如果您需要可見性和控制權，則不建議使用此方式。 |
 
-如果您不想要讓 VM 與公用 IP 位址空間中的 Azure 外部端點進行通訊，您可以使用網路安全性群組 (NSG) 來視需要封鎖存取。 [防止輸出連線](#preventoutbound)一節中會更詳細探討 NSG。 有關設計、實作及管理沒有任何輸出存取之虛擬網路的指引，則不在本文的涵蓋範圍內。
+如果您不想要讓 VM 與公用 IP 位址空間中的 Azure 外部端點進行通訊，您可以使用網路安全性群組 (NSG) 來視需要封鎖存取。 [防止輸出連線](#preventoutbound)一節中會更詳細探討 NSG。 有關設計、實作及管理沒有任何輸出存取之虛擬網路的指導方針，則不在此文章的涵蓋範圍內。
 
 ### <a name="ilpip"></a>案例 1：VM 與執行個體層級公用 IP 位址
 
@@ -75,7 +75,7 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 ### <a name="defaultsnat"></a>案例 3：無執行個體層級公用 IP 位址的獨立 VM
 
-在此案例中，VM 不是公用 Load Balancer 集區的一部分 (也不是內部 Standard Load Balancer 集區的一部分)，而且沒有指派給它的 ILPIP 位址。 當 VM 建立輸出流程時，Azure 會將輸出流量的公用來源 IP 位址轉譯為私用來源 IP 位址。 此輸出流量所用的公用 IP 位址無法進行設定，而且不利於訂用帳戶的公用 IP 資源限制。
+在此案例中，VM 不是公用 Load Balancer 集區的一部分 (也不是內部 Standard Load Balancer 集區的一部分)，而且沒有指派給它的 ILPIP 位址。 當 VM 建立輸出流程時，Azure 會將輸出流量的公用來源 IP 位址轉譯為私用來源 IP 位址。 此輸出流量所用的公用 IP 位址無法進行設定，而且不利於訂用帳戶的公用 IP 資源限制。 此公用 IP 位址不屬於您，也不能保留。 如果您重新部署 VM 或可用性設定組或 VMSS，此公用 IP 位址將會釋出，並要求新的公用 IP 位址。 請勿使用此案例來將 IP 位址加入允許清單。 請改用其他兩個案例的任一個，您可在其中明確宣告輸出案例以及用於輸出連線的公用 IP 位址。
 
 >[!IMPORTANT] 
 >此案例也適用於__僅__連結內部 Basic Load Balancer 時。 當內部 Standard Load Balancer 連結至 VM 時，案例 3 __無法使用__。  除了使用內部 Standard Load Balancer 以外，您必須明確地建立[案例 1](#ilpip) 或[案例 2](#lb)。
@@ -167,7 +167,7 @@ Azure 會將 SNAT 連接埠預先配置到每個 VM 之 NIC 的 IP 設定。 當
 >[!NOTE]
 > 使用 Standard Load Balancer 與[多個前端](load-balancer-multivip-overview.md)時，[每個前端 IP 位址就要乘以可用 SNAT 連接埠的數目](#multivipsnat)，這些數目如以上表格所述。 例如，50 個 VM 的後端集區具有 2 個負載平衡規則 (分別具有個別前端 IP 位址)，則在每個 IP 組態中會使用 2048 (2x 1024) 個 SNAT 連接埠。 查看[多個前端](#multife)的詳細資料。
 
-請記住，可用的 SNAT 連接埠數目不會直接轉譯成流程數目。 單一 SNAT 連接埠可以重複使用於多個唯一目的地。 只有在必須使用連接埠來讓流程具有唯一性的情況下，才會取用連接埠。 如需有關設計和降低風險措施的指引，請參閱[如何管理這個可耗盡的資源](#snatexhaust)，以及描述 [PAT](#pat) 的小節。
+請記住，可用的 SNAT 連接埠數目不會直接轉譯成流程數目。 單一 SNAT 連接埠可以重複使用於多個唯一目的地。 只有在必須使用連接埠來讓流程具有唯一性的情況下，才會取用連接埠。 如需有關設計和降低風險措施的指導方針，請參閱[如何管理這個可耗盡的資源](#snatexhaust)，以及描述 [PAT](#pat) 的小節。
 
 變更您的後端集區大小可能會影響您建立的部分流程。 如果後端集區大小增加並轉換到下一層，在轉換至下一個較大後端集區層的期間，會回收您預先配置的一半 SNAT 連接埠。 與已回收 SNAT 連接埠關聯的流程會逾時，而必須重新建立。 嘗試建立新流程時，只要預先配置的連接埠可用，流程就會立即成功。
 
@@ -187,7 +187,7 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 
 ## <a name="problemsolving"></a>解決問題 
 
-本節的用意是協助您降低 Azure 中輸出連線可能會發生的 SNAT 耗盡與其他案例。
+此節的用意是協助您降低 Azure 中輸出連線可能會發生的 SNAT 耗盡與其他案例。
 
 ### <a name="snatexhaust"></a>管理 SNAT (PAT) 連接埠耗盡
 如[無執行個體層級公用 IP 位址的獨立 VM](#defaultsnat) 和[無執行個體層級公用 IP 位址的負載平衡 VM](#lb) 中所述，用於 [PAT](#pat) 的[暫時連接埠](#preallocatedports)是可耗盡的資源。
@@ -254,7 +254,7 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 
 ## <a name="limitations"></a>限制
 - 在入口網站中設定負載平衡規則時，DisableOutboundSnat 無法作為選項使用。  請改用 REST、範本或用戶端工具。
-- 由於預先 VNet 服務和其他平台服務的運作方式產生副作用，而只使用內部標準 Load Balancer 時，才可存取沒有 VNet 和其他 Microsoft 平台服務的 Web 背景工作角色。 請勿以此副作用作為個別服務本身，否則基礎平台可能會在不經通知的情況下變更。 如果在只使用內部標準 Load Balancer 時有需要，請一律假設您需要明確建立輸出連線。 您無法使用本文所述的[預設 SNAT](#defaultsnat) 案例 3。
+- 由於預先 VNet 服務和其他平台服務的運作方式產生副作用，而只使用內部標準 Load Balancer 時，才可存取沒有 VNet 和其他 Microsoft 平台服務的 Web 背景工作角色。 請勿以此副作用作為個別服務本身，否則基礎平台可能會在不經通知的情況下變更。 如果在只使用內部標準 Load Balancer 時有需要，請一律假設您需要明確建立輸出連線。 您無法使用此文章所述的[預設 SNAT](#defaultsnat) 案例 3。
 
 ## <a name="next-steps"></a>後續步驟
 

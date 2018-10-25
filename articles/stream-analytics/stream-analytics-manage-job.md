@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: c29131720de8d6016d134fe7c0118fc3db9e22be
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702522"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985636"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>建立串流分析作業來分析通話資料，並且在 Power BI 儀表板中將結果視覺化
  
@@ -37,7 +37,7 @@ ms.locfileid: "43702522"
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/)。  
 * 登入 [Azure 入口網站](https://portal.azure.com/)。  
-* 從 Microsoft 下載中心下載通話事件產生器應用程式 [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)，或從 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator) 取得原始程式碼。  
+* 從 Microsoft 下載中心下載通話事件產生器應用程式 [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)，或從 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator) 取得原始程式碼。  
 
 ## <a name="create-an-azure-event-hub"></a>建立 Azure 事件中樞 
 
@@ -89,7 +89,7 @@ ms.locfileid: "43702522"
 
 啟動 TelcoGenerator 應用程式之前，您應該先將它設定為將資料傳送到您先前建立的事件中樞。
 
-1. 將 [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) 檔案的內容解壓縮。  
+1. 將 [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) 檔案的內容解壓縮。  
 2. 在您選擇的文字編輯器中開啟 `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` 檔案 (有一個以上的 .config 檔案，請確定是開啟正確的檔案。)  
 
 3. 使用下列詳細資料更新組態檔中的 <appSettings> 元素：
@@ -101,12 +101,12 @@ ms.locfileid: "43702522"
 5. 接下來開啟命令視窗，切換至您解壓縮 TelcoGenerator 應用程式的資料夾並輸入下列命令：
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    此命令採用下列參數︰
    * **每小時的通話資料記錄筆數**。  
-   * **詐騙機率的百分比** - 也就是應用程式模擬詐騙電話的頻率。 值 .2 表示大約 20% 的通話記錄可能是詐騙。  
+   * **詐騙機率的百分比** - 也就是應用程式模擬詐騙電話的頻率。 值 0.2 表示大約 20% 的通話記錄可能是詐騙。  
    * **以小時為單位的持續時間** - 應用程式應該執行的時數。 您也可以在命令列結束程序 (Ctrl+C)，隨時停止應用程式。
 
    幾秒之後，隨著應用程式將通話記錄傳送到事件中樞，它會開始在螢幕上顯示通話記錄。 通話資料包含下列欄位：
@@ -228,7 +228,7 @@ ms.locfileid: "43702522"
 
 3. 將 [分鐘] 設定為 3，然後選取 [確定]。 Azure 會從輸入資料流取樣 3 分鐘的資料，並且在備妥範例資料時通知您。 您可以從通知列檢視取樣的狀態。 
 
-   範例資料會暫時儲存，開啟查詢視窗時即可使用。 如果您關閉查詢視窗，則會捨棄範例資料，您將必須建立一組新的範例資料。 或者，您可以[從 GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json) 取得含有範例資料的 .json 檔案，然後上傳該 .json 檔案，以當作 CallStream 輸入的範例資料使用。  
+   範例資料會暫時儲存，開啟查詢視窗時即可使用。 如果您關閉查詢視窗，則會捨棄範例資料，您將必須建立一組新的範例資料。 或者，您可以[從 GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) 取得含有範例資料的 .json 檔案，然後上傳該 .json 檔案，以當作 CallStream 輸入的範例資料使用。  
 
 4. 選取 [測試] 以測試查詢，您應會看到如以下螢幕擷取畫面所示的輸出結果：  
 
@@ -260,9 +260,9 @@ ms.locfileid: "43702522"
 
 ## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>在 Web 應用程式中內嵌 PowerBI 儀表板
 
-在這部分的教學課程中，您將使用 PowerBI 團隊所建立的範例 [ASP.NET](http://asp.net/) Web 應用程式來內嵌您的儀表板。 如需內嵌儀表板的詳細資訊，請參閱[內嵌 Power BI](https://docs.microsoft.com/power-bi/developer/embedding) 一文。
+在這部分的教學課程中，您將使用 PowerBI 團隊所建立的範例 [ASP.NET](https://asp.net/) Web 應用程式來內嵌您的儀表板。 如需內嵌儀表板的詳細資訊，請參閱[內嵌 Power BI](https://docs.microsoft.com/power-bi/developer/embedding) 一文。
 
-在本教學課程中，我們會遵循「使用者擁有資料」應用程式的步驟。 若要設定應用程式，請移至 [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) Github 存放庫，並遵循**使用者擁有資料**一節之下的指示 (使用 **integrate-dashboard-web-app** 小節之下的重新導向和首頁 URL)。 因為我們使用儀表板範例，所以使用位於 [GitHub 存放庫](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app)中的 integrate-dashboard-web-app 範例程式碼。
+在本教學課程中，我們會遵循「使用者擁有資料」應用程式的步驟。 若要設定應用程式，請移至 [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) Github 存放庫，並遵循**使用者擁有資料**一節之下的指示 (使用 **integrate-dashboard-web-app** 小節之下的重新導向和首頁 URL)。 因為我們使用儀表板範例，所以使用位於 [GitHub 存放庫](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app)中的 integrate-dashboard-web-app 範例程式碼。
 一旦在瀏覽器中執行應用程式，請遵循下列步驟將先前建立的儀表板內嵌到網頁中：
 
 1. 選取 [登入 Power BI]，以將您的 PowerBI 帳戶中儀表板的存取權授與應用程式。  

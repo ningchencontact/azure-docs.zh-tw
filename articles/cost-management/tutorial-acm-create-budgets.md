@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 10/01/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6c6143cad04178fcafc825d9dae13c1a0620fb93
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033442"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017348"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>教學課程：建立和管理 Azure 預算
 
@@ -25,13 +25,13 @@ ms.locfileid: "47033442"
 
 此教學課程的範例會引導您針對 Azure Enterprise 合約 (EA) 訂用帳戶建立和編輯預算。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立預算
 > * 編輯預算
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 所有的 Azure EA 客戶都可以使用預算。 您必須具備 Azure EA 訂用帳戶的讀取權限，才能建立和管理預算。 預算不支援 EA 計費帳戶。
 
@@ -53,11 +53,11 @@ ms.locfileid: "47033442"
 
 建立預算之後，會針對它們顯示您目前費用的簡單檢視。
 
-按一下 [新增]。
+按一下 [新增] 。
 
 ![成本管理預算](./media/tutorial-acm-create-budgets/budgets01.png)
 
-在 [建立預算] 視窗中，輸入預算名稱和預算金額。 然後選擇每月、每季或每年持續期間。 接下來，選取結束日期。 預算需要至少一個成本閾值 (預算的百分比) 與對應的電子郵件地址。 您可以選擇性地在單一預算中最多包含五個閾值與五個電子郵件地址。
+在 [建立預算] 視窗中，輸入預算名稱和預算金額。 然後選擇每月、每季或每年持續期間。 接下來，選取結束日期。 預算需要至少一個成本閾值 (預算的百分比) 與對應的電子郵件地址。 您可以選擇性地在單一預算中最多包含五個閾值與五個電子郵件地址。 當達到預算閾值時，通常會在 8 小時內收到電子郵件通知。
 
 以下是建立每月美金 $4,500 的預算範例。 達到預算的 90% 時，就會產生電子郵件警示。
 
@@ -84,7 +84,7 @@ ms.locfileid: "47033442"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立預算

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 24f7faa0fb111e4e537a7db3f5e1eea709d1ca59
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9387cec98621e27aff7dcb40b8897e326c6706
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957724"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353487"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 本指南包含使用 JavaScript 撰寫 Azure Functions 的複雜性相關資訊。
@@ -50,7 +50,7 @@ FunctionsProject
 
 在專案根目錄中，有共用的 [host.json](functions-host-json.md) 檔案可用來設定函式應用程式。 每個函式都有本身程式碼檔案 (.js) 和繫結設定檔 (function.json) 的資料夾。
 
-在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結延伸模組，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須[註冊繫結延伸模組](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
+在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結延伸模組，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須[註冊繫結延伸模組](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。 開發 Azure 入口網站中的函數時，就會為您完成這項註冊。
 
 ## <a name="exporting-a-function"></a>匯出函數
 
@@ -66,6 +66,8 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
+```
+```javascript
 // You can also use 'arguments' to dynamically handle inputs
 module.exports = async function(context) {
     context.log('Number of inputs: ' + arguments.length);
@@ -79,6 +81,37 @@ module.exports = async function(context) {
 觸發程序和輸入繫結 (`direction === "in"` 的繫結) 可以傳遞至函式做為參數。 這些繫結會按照在 *function.json* 中定義的順序傳遞至函式。 您也可以使用 JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 物件動態處理輸入。 例如，如果您有 `function(context, a, b)` 並將它變更為 `function(context, a)`，您仍然可以在函式程式碼中藉由參考 `arguments[2]` 來取得 `b` 的值。
 
 所有繫結 (不論方向為何) 也都會使用 `context.bindings` 屬性傳遞到 `context` 物件。
+
+### <a name="exporting-an-async-function"></a>匯出非同步函式
+使用 JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 宣告或純 JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (不適用於 Functions v1.x) 時，您不需要明確呼叫 [`context.done`](#contextdone-method) 回呼以表明函式已完成。 在匯出的非同步函式/Promise 完成時，函式便會完成。
+
+例如，以下簡單函式會記錄其已遭到觸發，並立即完成執行。
+``` javascript
+module.exports = async function (context) {
+    context.log('JavaScript trigger function processed a request.');
+};
+```
+
+在匯出非同步函式時，您也可以將輸出繫結設定為採用 `return` 值。 這是使用 [`context.bindings`](#contextbindings-property) 屬性來指派輸出的替代方法。
+
+若要使用 `return` 來指派輸出，請在 `function.json` 中將 `name` 屬性變更為 `$return`。
+```json
+{
+  "type": "http",
+  "direction": "out",
+  "name": "$return"
+}
+```
+您的 JavaScript 函式程式碼看起來像這樣：
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    // You can call and await an async method here
+    return {
+        body: "Hello, world!"
+    };
+}
+```
 
 ## <a name="context-object"></a>context 物件
 執行階段使用 `context` 物件來將資料傳遞至函式並從中傳出，而且可讓您與執行階段進行通訊。
@@ -342,7 +375,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-請注意，您應該定義函數應用程式根目錄的 `package.json` 檔案。 定義檔案可讓應用程式中的所有函式共用相同的快取套件，以提供最佳效能。 發生版本衝突時，您可以在特定函式的資料夾中新增 `package.json` 檔案來解決它。  
+> [!NOTE]
+> 您應該定義函式應用程式根目錄的 `package.json` 檔案。 定義檔案可讓應用程式中的所有函式共用相同的快取套件，以提供最佳效能。 發生版本衝突時，您可以在特定函式的資料夾中新增 `package.json` 檔案來解決它。  
+
+從原始檔控制部署函式應用程式時，存在於存放庫中的任何 `package.json` 檔案，都會在部署期間觸發其資料夾中的 `npm install`。 但是，在透過入口網站或 CLI 部署時，您就必須手動安裝套件。
 
 有兩種方式可在您的函數應用程式上安裝套件： 
 

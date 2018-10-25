@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158559"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236579"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>移轉至最新版的 Azure Machine Learning 服務 
 
-**如果您已安裝 Workbench (預覽) 應用程式及/或具有實驗和模型管理預覽帳戶，則請使用本文移轉至最新版本。**  如果您尚未安裝 Workbench 預覽版，或者沒有實驗及/或模型管理帳戶，則不需要移轉任何項目。
+**如果您已安裝 Workbench (預覽) 應用程式和/或具有實驗和模型管理預覽帳戶，則請使用此文章移轉至最新版本。**  如果您尚未安裝 Workbench 預覽版，或者沒有實驗和/或模型管理帳戶，則不需要移轉任何項目。
 
 ## <a name="what-can-i-migrate"></a>我可以移轉的項目為何？
 在 Azure Machine Learning 服務的第一個預覽版中建立的大部分成品，都會儲存在您自己的本機或雲端儲存體中。 這些成品將不會消失。 若要移轉，請使用已更新的 Azure Machine Learning 服務再次登錄成品。 
@@ -44,7 +44,7 @@ ms.locfileid: "47158559"
 深入了解[此版本的變更內容](overview-what-happened-to-workbench.md)？
 
 >[!Warning]
->本文適用對象不是 Azure Machine Learning Studio 使用者。 這適用於 Azure Machine Learning 服務客戶，而這些客戶已安裝 Workbench (預覽) 應用程式及/或具有實驗和模型管理預覽帳戶。
+>此文章適用對象不是 Azure Machine Learning Studio 使用者。 這適用於 Azure Machine Learning 服務客戶，而這些客戶已安裝 Workbench (預覽) 應用程式和/或具有實驗和模型管理預覽帳戶。
 
 <a name="resources"></a>
 
@@ -52,7 +52,7 @@ ms.locfileid: "47158559"
 
 實驗帳戶、模型管理帳戶和機器學習計算環境這類資源無法移轉至最新版的 Azure Machine Learning 服務。 請參閱[時間表](overview-what-happened-to-workbench.md#timeline)，以了解資產將持續運作多長時間。
 
-在 [Azure 入口網站](quickstart-get-started.md)中建立 Azure Machine Learning 工作區，以開始使用最新版本。 只有在 Edge、Chrome 和 Firefox 上才支援入口網站的工作區儀表板。
+在 [Azure 入口網站](quickstart-get-started.md)中建立 Azure Machine Learning services 工作區，以開始使用最新版本。 只有在 Edge、Chrome 與 Firefox 瀏覽器上才支援入口網站的工作區儀表板。
 
 這個新的工作區是最上層服務資源，並可讓您使用 Azure Machine Learning 服務的所有最新功能。 深入了解此[工作區和架構](concept-azure-machine-learning-architecture.md)。
 

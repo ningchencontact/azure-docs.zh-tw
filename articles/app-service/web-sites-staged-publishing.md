@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ecd58779262f6580287e6c72d3aa2aecf237a562
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 35027b4eadba72776fd27826a389763cc0832eee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983094"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044309"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -60,7 +60,7 @@ ms.locfileid: "45983094"
     ![Deployment Slot Title][StagingTitle]
 5. 在位置的刀鋒視窗中按一下應用程式 URL。 請注意，部署位置有自己的主機名稱，同時也是作用中的應用程式。 若要限制對部署位置的公用存取，請參閱 [App Service Web 應用程式 - 封鎖對非生產部署位置的 Web 存取](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)。
 
-建立部署位置之後不會有任何內容。 您可以從不同的儲存機制分支，或從整個不同的儲存機制部署至位置。 您也可以變更位置的組態。 更新內容時，請使用與部署位置相關聯的發行設定檔或部署認證。  例如，您可以 [使用 Git 發行至此位置](app-service-deploy-local-git.md)。
+建立部署位置之後不會有任何內容。 您可以從不同的存放庫分支，或從整個不同的存放庫部署至位置。 您也可以變更位置的組態。 更新內容時，請使用與部署位置相關聯的發行設定檔或部署認證。  例如，您可以 [使用 Git 發行至此位置](app-service-deploy-local-git.md)。
 
 <a name="AboutConfiguration"></a>
 
@@ -84,7 +84,7 @@ ms.locfileid: "45983094"
 * 擴充設定
 * WebJobs 排程器
 
-若要將應用程式設定或連接字串設定為停留在某一個位置 (未交換)，可存取特定位置的 [應用程式設定] 刀鋒視窗，然後針對應停留在該位置的設定項目選取 [位置設定] 方塊。 將組態項目標記為位置特定的，會在將該項目建立為無法跨所有與該應用程式相關聯的部署位置進行交換時產生影響。
+若要將應用程式設定或連接字串設定為停留在某一個位置 (未交換)，請存取特定位置的 [應用程式設定] 刀鋒視窗，然後針對應停留在該位置的設定元素，選取 [位置設定] 方塊。 將組態項目標記為位置特定的，會在將該項目建立為無法跨所有與該應用程式相關聯的部署位置進行交換時產生影響。
 
 ![位置設定][SlotSettings]
 
@@ -94,7 +94,7 @@ ms.locfileid: "45983094"
 您可以在您應用程式資源刀鋒視窗的**概觀**或**部署位置**檢視中交換部署位置。
 
 > [!IMPORTANT]
-> 在您將應用程式從部署位置交換到生產位置之前，請確定所有非位置特定的設定已完全依照您想要在交換目標中擁有它的方式明確地加以設定。
+> 在您將應用程式從部署位置交換到生產位置之前，請確定所有非位置特定的設定已完全依照您想要在交換目標中擁有它的方式明確地設定。
 > 
 > 
 
@@ -143,7 +143,7 @@ Azure PowerShell Cmdlet 可供多階段交換的範例，包含在部署位置�
 > [!NOTE]
 > Linux 上的 Web 應用程式不支援自動交換。
 
-為位置設定自動交換很容易。 請遵循下列步驟：
+為位置設定自動交換很容易。 依照下列步驟執行：
 
 1. 在**部署位置**中，選取非生產位置，然後在該位置的資源刀鋒視窗中選擇 [應用程式設定]。  
    

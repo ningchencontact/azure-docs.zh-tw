@@ -1,26 +1,22 @@
 ---
-title: Azure AD 常見問題集 | Microsoft Docs
-description: Azure Active Directory 常見問題集可回答有關 Azure 及 Azure Active Directory、密碼管理和應用程式存取等常見問題。
+title: Azure Active Directory - 常見問題集 | Microsoft Docs
+description: 了解有關 Azure 及 Azure Active Directory、密碼管理和應用程式存取的常見問題與解答。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5ff9d1cf76188ff38f59e8b74d4bfd380c8c88e1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145759"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408705"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -48,14 +44,13 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 
 - - -
 
-**問︰訂用帳戶管理員和目錄管理員有何差異？**
+**問：擁有者與全域管理員之間有何差異？**
 
-**問：** 根據預設，當您註冊 Azure 時會指派訂用帳戶管理員角色給您。 訂用帳戶管理員可以使用 Azure 訂用帳戶相關聯目錄中的 Microsoft 帳戶或是公司或學校帳戶。  此角色經過授權，可管理 Azure 入口網站上的服務。
+**答：** 依預設，註冊 Azure 訂用帳戶的使用者會獲指派 Azure 資源的擁有者角色。 擁有者可以使用 Azure 訂用帳戶相關聯目錄中的 Microsoft 帳戶，或是公司或學校帳戶。  此角色經過授權，可管理 Azure 入口網站上的服務。
 
-如果其他人必須使用相同的訂用帳戶來登入和存取服務，您可以將他們新增為共同管理員。 此角色的存取權限與服務管理員相同，但無法變更訂用帳戶與 Azure 目錄的關聯。  如需訂用帳戶管理員的詳細資訊，請參閱[如何新增或變更 Azure 系統管理員角色](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator)和 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated-directory.md)。
+如果其他人必須使用相同的訂用帳戶來登入和存取服務，您可以將適當的[內建角色](../../role-based-access-control/built-in-roles.md)指派給他們。 如需其他資訊，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../../role-based-access-control/role-assignments-portal.md)。
 
-
-Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別相關功能。  這些管理員將可存取 Azure 入口網站或 Azure 入口網站中的各種功能。 系統管理員的角色可決定他們可以執行的作業，例如建立或編輯使用者、將系統管理角色指派給其他人、重設使用者密碼、管理使用者授權或管理網域。  如需有關 Azure AD 目錄管理員及其角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md)。
+註冊 Azure 訂用帳戶的人員預設會獲指派目錄的全域管理員角色。 全域管理員可以存取所有的 Azure AD 目錄功能。 Azure AD 有一組不同的系統管理員角色，可用來管理目錄和識別相關功能。 這些系統管理員可存取 Azure 入口網站中的各種功能。 系統管理員的角色可決定他們可以執行的作業，例如建立或編輯使用者、將系統管理角色指派給其他人、重設使用者密碼、管理使用者授權或管理網域。  如需有關 Azure AD 目錄管理員及其角色的詳細資訊，請參閱[在 Azure Active Directory 中將使用者指派給系統管理員角色](active-directory-users-assign-role-azure-portal.md)和[在 Azure Active Directory 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md)。
 
 此外﹐Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位的企業級管理和安全性解決方案來彌補其他 Web 服務 (例如 Office 365 和 Microsoft Azure) 的不足。
 
@@ -77,7 +72,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答︰** 您可以使用 Azure AD Connect 將內部部署目錄連接至 Azure AD。
 
-如需詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](../connect/active-directory-aadconnect.md)。
+如需詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)。
 
 - - -
 **問︰如何設定內部部署目錄與雲端應用程式之間的 SSO？**
@@ -86,7 +81,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 透過同盟解決方案 (例如 Active Directory Federation Services (AD FS)) 或藉由設定密碼雜湊同步處理，就能輕鬆實現從內部部署實作 SSO。您可以使用 Azure AD Connect 組態精靈輕鬆部署這兩個選項。
 
-如需詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](../connect/active-directory-aadconnect.md)。
+如需詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)。
 
 - - -
 **問︰Azure AD 是否可為組織中的使用者提供自助入口網站？**
@@ -100,7 +95,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：** 是。 Azure AD Premium Edition 可為您提供 Azure AD Connect Health。 Azure AD Connect Health 可協助您監視和了解內部部署身分識別基礎結構和同步處理服務。  
 
-如需詳細資訊，請參閱[在雲端中監視內部部署身分識別基礎結構和同步處理服務](../connect-health/active-directory-aadconnect-health.md)。  
+如需詳細資訊，請參閱[在雲端中監視內部部署身分識別基礎結構和同步處理服務](../hybrid/whatis-hybrid-identity-health.md)。  
 
 - - -
 ## <a name="password-management"></a>密碼管理
@@ -126,7 +121,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答︰** 在這種情況下有幾種做法。  使用自助式密碼重設 (SSPR) (如果可用的話)。  SSPR 能否運作取決於其設定方式。  如需詳細資訊，請參閱[密碼重設入口網站的運作方式](../authentication/howto-sspr-deployment.md)。
 
-對於 Office 365 使用者，您的系統管理員可以使用[重設使用者密碼](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)所述的步驟重設密碼。
+對於 Office 365 使用者，您的系統管理員可以使用[重設使用者密碼](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)所述的步驟重設密碼。
 
 對於 Azure AD 帳戶，系統管理員可以使用下列其中一種方法重設密碼︰
 
@@ -163,7 +158,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 如需詳細資訊，請參閱
 
-* [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
@@ -208,7 +203,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：** 使用 Azure AD 可讓您在許多熱門雲端 (SaaS) 應用程式中自動建立、維護和移除使用者身分識別。
 
-如需詳細資訊，請參閱[使用 Azure Active Directory 自動進行 SaaS 應用程式的使用者佈建和解除佈建](../active-directory-saas-app-provisioning.md)。
+如需詳細資訊，請參閱[使用 Azure Active Directory 自動進行 SaaS 應用程式的使用者佈建和解除佈建](../manage-apps/user-provisioning.md)。
 
 - - -
 **問︰是否可以設定與 Azure AD 之間的安全 LDAP 連線？**

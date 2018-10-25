@@ -1,19 +1,39 @@
-
+---
+title: 包含檔案
+description: 包含檔案
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 6e20ce083c415bced22231835cc616ede8f0dd04
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843337"
+---
 ## <a name="register-your-application"></a>註冊您的應用程式
 如接下來兩節所述，您可以在任一種方式註冊您的應用程式。
 
-### <a name="option-1-express-mode"></a>選項 1：快速模式
-執行下列動作，即可快速註冊您的應用程式：
+### <a name="option-1-express"></a>選項 1：快速
 1. 移至 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)。
-2.  在 [應用程式名稱] 方塊中，輸入應用程式的名稱。
+2.  在 [應用程式名稱] 中，輸入您應用程式的名稱。
 
 3. 確認已選取 [引導式設定] 核取方塊，然後選取 [建立]。
 
 4. 依照指示取得應用程式識別碼，然後將它貼到您的程式碼中。
 
-### <a name="option-2-advanced-mode"></a>選項 2：進階模式
-若要註冊您的應用程式並將應用程式註冊資訊新增到您的解決方案，請執行下列作業：
-1. 如果您尚未註冊您的應用程式，請移至 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/portal/register-app)。
+### <a name="option-2-advanced"></a>選項 2：進階 
+1. 移至 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/portal/register-app)。
 2. 在 [應用程式名稱] 方塊中，輸入應用程式的名稱。 
 
 3. 確認已清除 [引導式設定] 核取方塊，然後選取 [建立]。
@@ -22,7 +42,7 @@
 
 5. 在 [應用程式] > [Java] > [{host}.{namespace}] 之下，開啟 `MainActivity`。 
 
-6.  以您剛剛註冊的應用程式識別碼取代以下程式碼行中的 [Enter the application Id here]：
+6.  使用您的應用程式/用戶端識別碼取代 *[在這裡輸入應用程式識別碼]*：
 
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
@@ -30,7 +50,7 @@
 <!-- Workaround for Docs conversion bug -->
 7. 在 [應用程式] > [資訊清單] 之下，開啟 AndroidManifest.xml 檔案。
 
-8. 在 `manifest\application` 節點中，新增下列活動。 這麼做可註冊 `BrowserTabActivity` 活動，以允許 OS 在完成驗證之後繼續執行您的應用程式：
+8. 在 `manifest\application` 中，新增下列活動。 可讓 Microsoft 在完成驗證後回呼您應用程式的 `BrowserTabActivity` 活動：
 
     ```xml
     <!--Intent filter to capture System Browser calling back to our app after sign-in-->
@@ -49,4 +69,4 @@
     </activity>
     ```
 <!-- Workaround for Docs conversion bug -->
-9. 在 `BrowserTabActivity` 節點中，以應用程式識別碼取代 `[Enter the application Id here]`。
+9. 在 `BrowserTabActivity` 中，使用應用程式/用戶端識別碼取代 `[Enter the application Id here]`。

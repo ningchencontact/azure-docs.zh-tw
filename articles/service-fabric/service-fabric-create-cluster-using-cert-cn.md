@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: c4c60cccb890c883e9e57c9f146cc93aae99f224
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 191471d3538a9151827ee24a5887aa559383345b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145340"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785659"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用憑證通用名稱 (而非指紋) 的 Service Fabric 叢集
-由於憑證的指紋皆不相同，導致叢集憑證變換或管理變成艱難的任務。 然而，不同的憑證卻能擁有相同的通用名稱或主體。  使用憑證通用名稱的叢集能大幅簡化憑證管理工作的難度。 本文章描述如何部署 Service Fabric 叢集才能使用憑證通用名稱，而非憑證指紋。
+由於憑證的指紋皆不相同，導致叢集憑證變換或管理變成艱難的任務。 然而，不同的憑證卻能擁有相同的通用名稱或主體。  使用憑證通用名稱的叢集能大幅簡化憑證管理工作的難度。 此文章描述如何部署 Service Fabric 叢集才能使用憑證通用名稱，而非憑證指紋。
  
 ## <a name="get-a-certificate"></a>取得憑證
 首先，請向[憑證授權單位 (CA)](https://wikipedia.org/wiki/Certificate_authority) 索取憑證。  憑證的通用名稱應該是叢集的主機名稱。  例如 "myclustername.southcentralus.cloudapp.azure.com"。  
@@ -73,7 +73,7 @@ Write-Host "Common Name              :"  $CommName
 ```
 
 ## <a name="download-and-update-a-sample-template"></a>下載及更新範例範本
-本文章使用 [5 節點安全叢集範例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)範本和範本參數。 將 *azuredeploy.json* 和 *azuredeploy.parameters.json* 檔案下載到電腦。
+此文章使用 [5 節點安全叢集範例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)範本和範本參數。 將 *azuredeploy.json* 和 *azuredeploy.parameters.json* 檔案下載到電腦。
 
 ### <a name="update-parameters-file"></a>更新參數檔案
 首先，請在文字編輯器中開啟 *azuredeploy.parameters.json* 檔案，然後新增以下參數值：
@@ -116,7 +116,7 @@ Write-Host "Common Name              :"  $CommName
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. 在 **Microsoft.Compute/virtualMachineScaleSets** 資源中，更新虛擬機器擴充功能以在憑證設定中使用通用名稱，而非使用指紋。  在 **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**，新增 
+3. 在 **Microsoft.Compute/virtualMachineScaleSets** 資源中，更新虛擬機器擴充功能以在憑證設定中使用通用名稱，而非使用指紋。  在 **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**，新增 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"

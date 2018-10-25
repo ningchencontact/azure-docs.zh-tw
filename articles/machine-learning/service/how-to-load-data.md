@@ -10,20 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221314"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237580"
 ---
-#<a name="load-and-read-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 載入和讀取資料
+# <a name="load-and-read-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 載入和讀取資料
 
 使用 [Azure Machine Learning 資料準備 SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) 來載入不同類型的輸入資料。 
 
-若要載入資料，您有兩種方法：
-+ 指定資料檔案類型和其參數
-+ 使用 SDK 智慧讀取功能來自動偵測檔案的類型
+為了載入您的資料，請指定資料檔案類型及其參數
 
 ## <a name="use-text-line-data"></a>使用文字行資料 
 載入資料的其中一種最簡單的方式是以文字行方式讀取它。
@@ -352,7 +350,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|卡拉馬朱|卡拉馬朱|
 |3|1009364|106 南主幹道農民市集|http://thetownofsixmile.wordpress.com/ |106 南主幹道|六英里|||
 |4|1010691|第 10 街社區農民市集|http://agrimissouri.com/mo-grown/grodetail.php.. 。 |10th Street and Poplar|拉馬爾|巴頓|
-
-## <a name="use-smart-reading"></a>使用「智慧讀取」
-
-使用 SDK 智慧讀取功能來自動偵測檔案的類型。

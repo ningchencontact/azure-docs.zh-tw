@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 3cab4d87eacc7bce17da64cda213086c262179a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206193"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041150"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 狀態管理
 Reliable Actors 是可封裝邏輯和狀態的單一執行緒物件。 由於動作項目會在 Reliable Services 上執行，因此，它們可以利用相同的持續性和複寫機制，以可靠的方式維護狀態。 如此一來，動作項目就不會在失敗之後、在記憶體回收之後重新啟動，或者因為資源平衡和升級的緣故而在叢集中的節點之間移動時，遺失它們的狀態。
@@ -114,16 +114,16 @@ class MyActorImpl extends FabricActor implements MyActor
 
 如需管理動作項目狀態的範例，請參閱[存取、儲存和移除 Reliable Actors](service-fabric-reliable-actors-access-save-remove-state.md) (英文)。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 以下是管理動作項目狀態的一些建議做法和疑難排解祕訣。
 
 ### <a name="make-the-actor-state-as-granular-as-possible"></a>儘可能細分動作項目狀態
 這對於應用程式的效能和資源使用量而言很重要。 當動作項目的「具名狀態」有任何寫入/更新時，對應至該「具名狀態」的整個值會序列化，並透過網路傳送到次要複本。  次要複本會將它寫入至本機磁碟，並回覆回到主要複本。 當主要複本收到來自次要複本仲裁的通知時，它會將狀態寫入到其本機磁碟。 例如，假設此值是有 20 個成員且大小為 1 MB 的類別。 即使您只修改其中一個大小為 1 KB 的類別成員，您最終會在序列化和網路及磁碟寫入上付出整個 1 MB 的代價。 同樣地，如果此值為集合 (例如清單、陣列或字典)，即使您只修改它的其中一個成員，您仍需付出完整集合的成本。 動作項目類別的 StateManager 介面就像字典。 您一律應在此字典上建立資料結構的模型，以代表動作項目的狀態。
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>正確管理動作項目的生命週期
-您應該有關於管理動作項目服務的每個資料分割中狀態大小的清除原則。 動作項目服務應該有固定的動作項目數目，且儘可能重複使用它們。 如果您持續建立新的動作項目，則必須在它們完成其工作後加以刪除。 動作項目架構會儲存有關每個現有動作項目的一些中繼資料。 刪除動作項目的所有狀態，並不會移除有關該動作項目的中繼資料。 您必須刪除動作項目 (請參閱[刪除動作項目及其狀態](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state))，以移除儲存在系統中有關它的所有資訊。 有一項額外檢查：您應該偶爾查詢動作項目服務 (請參閱[列舉動作項目](service-fabric-reliable-actors-platform.md))，以確保動作項目數目在預期的範圍內。
+您應該有關於管理動作項目服務的每個資料分割中狀態大小的清除原則。 動作項目服務應該有固定的動作項目數目，且儘可能重複使用它們。 如果您持續建立新的動作項目，則必須在它們完成其工作後將其刪除。 動作項目架構會儲存有關每個現有動作項目的一些中繼資料。 刪除動作項目的所有狀態，並不會移除有關該動作項目的中繼資料。 您必須刪除動作項目 (請參閱[刪除動作項目及其狀態](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state))，以移除儲存在系統中有關它的所有資訊。 作為額外檢查，您應該偶爾查詢動作項目服務 (請參閱[列舉動作項目](service-fabric-reliable-actors-enumerate.md))，以確保動作項目數目在預期的範圍內。
  
-如果您看到動作項目服務的資料庫檔案大小增加超過預期的大小，請確定您遵循上述的指導方針。 如果您遵循這些指導方針，但仍有資料庫檔案大小問題，您應該[開啟支援票證](service-fabric-support.md)，向產品小組尋求協助。
+如果您看到動作項目服務的資料庫檔案大小增加超過預期的大小，請確定您依照上述的指導方針執行。 如果您依照這些指導方針執行，但仍有資料庫檔案大小問題，您應該[開啟支援票證](service-fabric-support.md)，向產品小組尋求協助。
 
 ## <a name="next-steps"></a>後續步驟
 

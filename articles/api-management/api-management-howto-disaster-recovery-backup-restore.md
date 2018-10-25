@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046374"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268524"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何在 Azure API 管理中使用服務備份和還原實作災害復原
 
@@ -38,7 +38,7 @@ ms.locfileid: "43046374"
 ## <a name="authenticating-azure-resource-manager-requests"></a>驗證 Azure 資源管理員要求
 
 > [!IMPORTANT]
-> 備份和還原的 REST API 會使用 Azure 資源管理員，並有不同的驗證機制的 REST API 來管理您的 API 管理實體。 本節中的步驟描述如何驗證 Azure 資源管理員的要求。 如需詳細資訊，請參閱 [驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
+> 備份和還原的 REST API 會使用 Azure 資源管理員，並有不同的驗證機制的 REST API 來管理您的 API 管理實體。 此節中的步驟描述如何驗證 Azure 資源管理員的要求。 如需詳細資訊，請參閱 [驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
 
 所有您使用 Azure Resource Manager 對資源執行的工作，都必須使用下列步驟向 Azure Active Directory 進行驗證：
 
@@ -204,7 +204,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 > 在還原作業進行時針對服務組態 (例如 API、原則、開發人員入口網站外觀) 所做的**變更****可能會遭到覆寫**。
 
 > [!NOTE]
-> 您也可以分別使用 Powershell 的 Backup-AzureRmApiManagement 和 Restore-AzureRmApiManagement 命令來執行備份和還原作業。
+> 您也可以分別使用 PowerShell *Backup-AzureRmApiManagement* 和 *Restore-AzureRmApiManagement* 命令來執行備份和還原作業。
 
 ## <a name="next-steps"></a>後續步驟
 

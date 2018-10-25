@@ -3,7 +3,7 @@ title: Azure Stack 服務原則 | Microsoft Docs
 description: 深入了解 Azure Stack 服務原則，以及如何將整合的系統保持在支援的狀態。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 523be365e8b66c157546470a70ddec73d3e1e5d1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946526"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630676"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
 本文說明 Azure Stack 整合系統的服務原則，以及必須如何做才能將狀態保持在支援的狀態。 
@@ -38,9 +38,10 @@ ms.locfileid: "41946526"
 Microsoft 預期每月發行軟體更新封裝。 不過，可能一個月內發行多個更新或沒有任何更新。 OEM 硬體廠商會視需要發行更新。 
 
 在[管理更新概觀](azure-stack-updates.md)文件中可找到如何規劃和管理更新，以及如何判斷您目前的版本。 如需特定更新的詳細資訊，包括如何下載更新，請參閱該更新的版本資訊： 
+- [Azure Stack 1808 更新](azure-stack-update-1808.md)
 - [Azure Stack 1807 更新](azure-stack-update-1807.md)
 - [Azure Stack 1805 更新](azure-stack-update-1805.md)
-- [Azure Stack 1804 更新](azure-stack-update-1804.md)
+
 
 ## <a name="hotfixes"></a>Hotfix
 有時候，Microsoft 會為 Azure Stack 提供 Hotfix，通常可解決預防性或時效性的特定問題。  每個 Hotfix 都會隨著對應的 Microsoft 知識庫文章發行，文中詳述問題、原因和解決方案。 

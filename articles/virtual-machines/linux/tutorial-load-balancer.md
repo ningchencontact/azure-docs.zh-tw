@@ -3,7 +3,7 @@ title: 教學課程 - 在 Azure 中平衡 Linux 虛擬機器的負載 | Microsof
 description: 在本教學課程中，您會了解如何使用 Azure CLI 來建立負載平衡器，以在三個 Linux 虛擬機器之間獲得高可用性和安全的應用程式
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 58af3e2e1eab80120bbd97e8c2588b6a0678a4b5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970824"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470875"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>教學課程：使用 Azure CLI 平衡 Azure 中 Linux 虛擬機器的負載以建立高可用性應用程式
 

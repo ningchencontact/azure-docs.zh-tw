@@ -9,25 +9,26 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214936"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831614"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
 ## <a name="overview"></a>概觀
 
+**Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 提供 Azure PaaS 解決方案的統包部署，以示範如何安全地內嵌、儲存、分析、互動、識別與部署解決方案與健康情況資料，同時能夠滿足業界合規性需求。該藍圖有助於加速資料受管制之客戶採用及使用雲端。**
 
-  **Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 提供 Azure PaaS 解決方案的統包部署，以示範如何安全地內嵌、儲存、分析健康情況資料並與之互動，同時能夠滿足業界合規性需求。該藍圖有助於加速資料受管制之客戶採用及使用雲端。**
+Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提供工具與指導方針，協助部署安全的健康保險流通與責任法案 (HIPAA)，以及醫療資訊信任聯盟 (HITRUST) 準備就緒的平台即服務 (PaaS) 環境，以便在部署為端對端解決方案的安全、多層式雲端環境中內嵌、儲存、分析個人與非個人醫療記錄並與之互動。 
 
-Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提供工具與指導方針，協助部署安全的健康保險流通與責任法案 (HIPAA)，以及醫療資訊信任聯盟 (HITRUST) 準備就緒的平台即服務 (PaaS) 環境，以便在部署為端對端解決方案的安全、多層式雲端環境中內嵌、儲存、分析個人與非個人醫療記錄並與之互動。 此藍圖將示範常見的參考架構，並融入可輕鬆採用 Microsoft Azure 的設計。 此架構所說明的解決方案符合組織尋求雲端方法來減少部署負擔與成本的需求。
+IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure，以及如何實作特殊權限存取工作站 (PAW) 以安全地管理雲端服務和解決方案。 IaaS SQL Server 資料庫新增的潛在實驗資料會匯入到 SQL IaaS VM 中，並且該 VM 使用 MSI 驗證存取來與 SQL Azure PaaS 服務互動。兩者都示範了常見的參考架構，且旨在簡化 Microsoft Azure 的採用。 此架構所說明的解決方案符合組織尋求雲端方法來減少部署負擔與成本的需求。
 
 ![](images/components.png)
 
-此解決方案的設計旨在使用以快速醫療保健互通性資源 (FHIR，一種以電子方式交換醫療保健資訊的全球標準) 格式化的範例資料集，並以安全方式加以儲存。 然後客戶可以使用 Azure Machine Learning Studio 充分利用功能強大的商業智慧工具和分析，以檢閱針對範例資料所做的預測。 作為 Azure Machine Learning Studio 可協助的實驗種類範例，藍圖包含了範例資料集、指令碼，以及用來預測病患待在醫院設施之時間的工具。 
+此解決方案的設計旨在使用以快速醫療保健互通性資源 (FHIR，一種以電子方式交換醫療保健資訊的全球標準) 格式化的範例資料集，並以安全方式儲存。 然後客戶可以使用 Azure Machine Learning Studio 充分利用功能強大的商業智慧工具和分析，以檢閱針對範例資料所做的預測。 作為 Azure Machine Learning Studio 可協助的實驗種類範例，藍圖包含了範例資料集、指令碼，以及用來預測病患待在醫院設施之時間的工具。 
 
 此藍圖旨在做為模組化基礎，讓客戶調整其特定需求，進而開發新的 Azure Machine Learning 實驗以解決臨床及操作上的使用案例。 其設計是在部署時既安全且符合規範；不過，客戶必須負責正確設定角色並實作任何修改。 請注意：
 
@@ -39,23 +40,15 @@ Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提�
 
 ## <a name="deploying-the-automation"></a>部署自動化
 
-- 若要部署解決方案，請遵循部署指導方針中提供的指示進行。 
+- 若要部署解決方案，請依照[部署指導方針](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md)中提供的指示執行。 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-如需此解決方案運作方式簡短概觀，請觀賞說明及示範其部署的此[影片](https://aka.ms/healthblueprintvideo) \(英文\)。
+- 如需此解決方案運作方式簡短概觀，請觀賞說明及示範其部署的此[影片](https://aka.ms/healthblueprintvideo) \(英文\)。
 
 - 常見問題位於[常見問題集](https://aka.ms/healthblueprintfaq)指導方針中。
 
 -   **架構圖。** 此圖顯示用於藍圖和範例使用案例的參考架構。
 
--   **部署範本**。 在此部署中，透過在安裝期間指定設定參數，系統會使用 [Azure Resource Manager 範本](/azure/azure-resource-manager/resource-group-overview#template-deployment)來將架構的元件自動部署至 Microsoft Azure。
-
--   **[自動化部署指令碼](https://aka.ms/healthblueprintdeploy)**。 這些指令碼可協助您部署解決方案。 指令碼包括：
-
-
--   模組安裝和[全域管理員](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)安裝指令碼會用來進行安裝，以及確認必要的 PowerShell 模組和全域管理員角色已正確設定。 
--   安裝 PowerShell 指令碼是用來部署解決方案的，此指令碼是透過包含預先建置之示範函式的 .zip 檔案所提供。
+-   [IaaS 擴充功能](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   此解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure，以及如何實作特殊權限存取工作站，以安全地管理雲端服務和解決方案。 
 
 ## <a name="solution-components"></a>方案元件
 
@@ -71,7 +64,7 @@ Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提�
 # <a name="architectural-diagram"></a>架構圖
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>角色
 
@@ -194,7 +187,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 # <a name="design-configuration"></a>設計組態
 
 
-本節將詳細說明預設組態，以及概述用於下列事項的藍圖內建安全措施：
+此節將詳細說明預設組態，以及概述用於下列事項的藍圖內建安全措施：
 
 - **內嵌**包含 FHIR 資料來源在內的資料原始來源
 - **儲存**敏感性資訊

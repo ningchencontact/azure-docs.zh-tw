@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 09/19/2018
 ms.author: terrylan
-ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141913"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498499"
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 
-Azure 包括一個強固的網路基礎結構，以支援您的應用程式和服務連線需求。 網路連線可能會出現在位於 Azure 的資源之間、內部部署與 Azure 裝載的資源之間，以及往返網際網路和 Azure 之間。
+網路安全性可定義為透過控制網路流量，保護資源不被未經授權存取或攻擊的流程。 目標是要保證只允許正當的流量。 Azure 包括一個強固的網路基礎結構，以支援您的應用程式和服務連線需求。 網路連線可能會出現在位於 Azure 的資源之間、內部部署與 Azure 裝載的資源之間，以及往返網際網路和 Azure 之間。
 
 本文說明 Azure 在網路安全性領域中提供的部分選項。 您可以了解：
 
@@ -77,7 +77,11 @@ NSG 未提供應用程式層級檢查或已驗證的存取控制。
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC Just-In-Time VM 存取
 
-[Azure 資訊安全中心](../security-center/security-center-just-in-time.md)可以管理 VM 上的 NSG 及鎖定對 VM 的存取，直到具有適當角色型存取控制 [RBAC](../role-based-access-control/overview.md) 權限的使用者要求存取為止。 當使用者成功獲得授權後，ASC 便會對 NSG 進行修改，以允許在指定的時間內對選取的連接埠進行存取。 在這段時間到期後，NSG 就會還原為其先前受保護的狀態。
+[Azure 資訊安全中心](../security-center/security-center-intro.md)可以管理 VM 上的 NSG 及鎖定對 VM 的存取，直到具有適當角色型存取控制 [RBAC](../role-based-access-control/overview.md) 權限的使用者要求存取為止。 當使用者成功獲得授權後，ASC 便會對 NSG 進行修改，以允許在指定的時間內對選取的連接埠進行存取。 在這段時間到期後，NSG 就會還原為其先前受保護的狀態。
+
+深入了解：
+
+* [Azure 資訊安全中心 Just in Time](../security-center/security-center-just-in-time.md)
 
 #### <a name="service-endpoints"></a>服務端點
 

@@ -1,23 +1,23 @@
 ---
-title: Bing Web 搜尋 API 回應 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 搜尋回應 - Bing Web 搜尋 API
+titleSuffix: Azure Cognitive Services
 description: 了解 Bing Web 搜尋 API 所提供的回答類型和回應。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 13e9792f3d5765047dabb4cdef59e85a47a69aba
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42890067"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123771"
 ---
-# <a name="bing-web-search-responses"></a>Bing Web 搜尋回應  
+# <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web 搜尋 API 回應結構和回應類型  
 
 當您將搜尋要求傳送給 Bing Web 搜尋時，它會在回應本文中傳回 [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) 物件。 物件中包含每項回答 (Bing 判斷與查詢有關) 的欄位。 此範例說明如果 Bing 傳回所有回答時的回應物件：
 

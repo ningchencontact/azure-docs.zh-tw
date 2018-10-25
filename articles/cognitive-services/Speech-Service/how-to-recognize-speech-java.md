@@ -1,21 +1,21 @@
 ---
 title: 使用適用於 Java 的語音 SDK 辨識語音
-titleSuffix: Microsoft Cognitive Services
-description: >
-  了解如何使用適用於 Java 的語音 SDK 來辨識語音 (從檔案、從麥克風、使用自訂模型、連續或單次)。
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用適用於 Java 的語音 SDK 來辨識語音 (從檔案、從麥克風、使用自訂模型、連續或單次)。
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: b71fd48c884a3834c74175fa3687b79479b33923
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0accd353f0079e5e9da80e3aab8eb542aaa21edd
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946029"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468313"
 ---
 # <a name="recognize-speech-by-using-the-speech-sdk-for-java"></a>使用適用於 Java 的語音 SDK 辨識語音
 

@@ -1,6 +1,7 @@
 ---
-title: 將查詢傳送至 Bing 影像搜尋 API | Microsoft Docs
-description: 了解如何傳送及自訂傳送至 Bing 影像搜尋 API 的搜尋查詢。
+title: 傳送影像查詢 - Bing 影像搜尋 API
+titleSuffix: Azure Cognitive Services
+description: 了解如何自訂傳送至 Bing 影像搜尋 API 的搜尋查詢。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,26 +11,26 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: d74f59ffcf095e639686a3ada3b09dac988fc544
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5d2dcc60a8707394ec07a76e3286929db365c651
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "40082522"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296510"
 ---
-# <a name="sending-queries-to-the-bing-image-search-api"></a>將查詢傳送至 Bing 影像搜尋 API
+# <a name="send-queries-to-the-bing-image-search-api"></a>將查詢傳送至 Bing 影像搜尋 API
 
-Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，以提供類似 Bing.com/Images 的體驗，並取回相關影像清單。
+Bing 影像搜尋 API 可提供與 Bing.com/images 類似的體驗。 可以用來將搜尋查詢傳送到 Bing，並取得相關影像清單。
 
-## <a name="using-and-suggesting-search-terms"></a>使用和建議搜尋字詞
+## <a name="use-and-suggest-search-terms"></a>使用建議搜尋字詞
 
-輸入搜尋字詞之後，對此字詞進行 URL 編碼，再設定 [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 查詢參數。 例如，如果使用者輸入 *sailing dinghies*，請將 `q` 設定為 `sailing+dinghies` 或 `sailing%20dinghies`。
+輸入搜尋字詞之後，請先對此字詞進行 URL 編碼，再設定 [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 查詢參數。 例如，如果您輸入 *sailing dinghies*，請將 `q` 設定為 `sailing+dinghies` 或 `sailing%20dinghies`。
 
-如果您的應用程式有用來輸入搜尋字詞的搜尋方塊，您可以使用[Bing 自動建議 API](../../bing-autosuggest/get-suggested-search-terms.md)，藉由即時顯示建議的搜尋字詞來改善體驗。 API 會根據部分搜尋字詞和 Azure 認知服務，傳回建議的查詢字串。
+如果您的應用程式有用來輸入搜尋字詞的搜尋方塊，您可以使用[Bing 自動建議 API](../../bing-autosuggest/get-suggested-search-terms.md) 來改善體驗。 API 會即時顯示建議的搜尋字詞。 API 會根據部分搜尋字詞和認知服務，傳回建議的查詢字串。
 
-## <a name="pivoting-the-query"></a>樞紐分析查詢
+## <a name="pivot-the-query"></a>樞紐分析查詢
 
-如果 Bing 可以分割原始的搜尋查詢，傳回的[影像](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images)物件會包含 `pivotSuggestions`，這會用來向使用者顯示選用的搜尋字詞。 例如，如果原始查詢為 Microsoft Surface，則 Bing 可能會將查詢分割為 Microsoft 和 Surface，並提供每個字詞的建議樞紐。 這些可以用來向使用者顯示選用查詢字詞。
+如果 Bing 可以分割原始搜尋查詢，則傳回的 [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 物件會包含 `pivotSuggestions` 欄位。 樞紐分析建議能以選用搜尋字詞的形式向使用者呈現。 例如，如果原始查詢為 Microsoft Surface，則 Bing 可能會將查詢分割為 Microsoft 和 Surface，並提供每個字詞的建議樞紐。 這些建議能以選用查詢自詞的形式向使用者呈現。
 
 下列範例示範 Microsoft Surface 的樞紐建議：  
 
@@ -90,9 +91,9 @@ Bing 影像搜尋 API 可讓您將使用者搜尋查詢傳送到 Bing，以提�
 }
 ```
 
-`pivotSuggestions` 欄位包含原始查詢細分成的區段 (樞紐) 清單。 對於每個樞紐，回應會包含一份[查詢](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj)物件清單，其中包含建議的查詢。 `text` 欄位包含建議的查詢，而 `displayText` 欄位包含一個字詞，其可取代原始查詢中的樞紐。 例如，Surface 的發行日期。
+`pivotSuggestions` 欄位包含原始查詢細分成的區段 (樞紐) 清單。 對於每個樞紐，回應會包含一份[查詢](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj)物件清單，其中包含建議的查詢。 `text` 欄位包含建議的查詢。 `displayText` 欄位包含的字詞可取代原始查詢中的樞紐分析。 例如 Surface 的發行日期。
 
-如果樞紐查詢字串就是使用者所要尋找的內容，您可以使用 `text` 和 `thumbnail` 欄位對使用者顯示樞紐查詢字串。 使用 `webSearchUrl` URL 或 `searchLink` URL，讓縮圖和文字可以點選。 使用 `webSearchUrl` 將 Bing 搜尋結果傳送給使用者，而如果您提供自己的結果頁面，則使用 `searchLink`。
+如果樞紐查詢字串就是使用者所要尋找的內容，您可以使用 `text` 和 `thumbnail` 欄位對使用者顯示樞紐查詢字串。 使用 `webSearchUrl` URL 或 `searchLink` URL，讓縮圖和文字可以點選。 使用 `webSearchUrl` 將使用者傳送給 Bing 搜尋結果。 如果您提供的是自己的結果頁面，請使用 `searchLink`。
 
 <!-- Need a sanitized version of the image
 The following shows an example of the pivot queries.
@@ -100,9 +101,13 @@ The following shows an example of the pivot queries.
 ![Pivot suggestions](./media/cognitive-services-bing-images-api/bing-image-pivotsuggestion.GIF)
 -->
 
-## <a name="expanding-the-query"></a>擴展查詢
+## <a name="expand-the-query"></a>擴展查詢
 
-如果 Bing 可以擴展查詢來縮小原始搜尋範圍，則 [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 物件會包含 `queryExpansions` 欄位。 例如，如果查詢為 *Microsoft Surface*，則擴展的查詢可能是：Microsoft Surface **Pro 3**、Microsoft Surface **RT**、Microsoft Surface **Phone**，以及 Microsoft Surface **Hub**。
+如果 Bing 可以擴展查詢來縮小原始搜尋範圍，則 [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 物件會包含 `queryExpansions` 欄位。 例如，如果查詢為 *Microsoft Surface*，則擴展後的查詢可能會是：
+- Microsoft Surface **Pro 3**。
+- Microsoft Surface **RT**。
+- Microsoft Surface **Phone**。
+- Microsoft Surface **Hub**。
 
 下列範例示範 *Microsoft Surface* 的擴展查詢。
 
@@ -144,7 +149,7 @@ The following shows an example of the pivot queries.
 }
 ```
 
-`queryExpansions` 欄位包含 [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) 物件的清單。 `text` 欄位包含擴展的查詢，而 `displayText` 欄位包含擴展字詞。 如果擴展查詢字串就是使用者所要尋找的內容，您可以使用 `text` 和 `thumbnail` 欄位對使用者顯示擴展查詢字串。 使用 `webSearchUrl` URL 或 `searchLink` URL，讓縮圖和文字可以點選。 使用 `webSearchUrl` 將 Bing 搜尋結果傳送給使用者，而如果您提供自己的結果頁面，則使用 `searchLink`。
+`queryExpansions` 欄位包含 [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) 物件的清單。 `text` 欄位包含擴展的查詢。 `displayText` 欄位包含擴展字詞。 如果擴展查詢字串就是使用者所要尋找的內容，您可以使用 `text` 和 `thumbnail` 欄位顯示擴展查詢字串。 使用 `webSearchUrl` URL 或 `searchLink` URL，讓縮圖和文字可以點選。 使用 `webSearchUrl` 將使用者傳送給 Bing 搜尋結果。 如果您提供的是自己的結果頁面，請使用 `searchLink`。
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.
@@ -159,4 +164,4 @@ The following shows an example Bing implementation that uses expanded queries. I
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您從未試用過 Bing 影像搜尋 API，請透過[快速入門](../quickstarts/csharp.md)試用此功能。 如果您想要尋找更複雜的內容，請嘗試用於建立[單頁 Web 應用程式](../tutorial-bing-image-search-single-page-app.md)的教學課程。
+如果您從未試用過 Bing 影像搜尋 API，請透過[快速入門](../quickstarts/csharp.md)試用此功能。 如果您想要尋找更複雜的內容，請嘗試可建立[單頁 Web 應用程式](../tutorial-bing-image-search-single-page-app.md)的教學課程。

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
-ms.author: manshuk
-ms.openlocfilehash: 1226b2f73d556da2ff7d73f6f322e0bd1590f915
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.date: 09/28/2018
+ms.author: cwatson
+ms.openlocfilehash: 1edf87d9ec334845f82c3c0c20c958e27f01e87a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307053"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585215"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>了解隨用隨付型方案訂用帳戶的 Azure 保留使用量
 
@@ -27,7 +27,7 @@ ms.locfileid: "43307053"
 
 如果您是擁有 Enterprise 合約的客戶，請參閱[了解 Enterprise 註冊的保留使用量](billing-understand-reserved-instance-usage-ea.md)。
 
-本文假設保留會套用至單一訂用帳戶。 如果此保留套用至多個訂用帳戶，則保留的權益可能會延伸到多個使用量 CSV 檔案。
+此文章假設保留會套用至單一訂用帳戶。 如果此保留套用至多個訂用帳戶，則保留的權益可能會延伸到多個使用量 CSV 檔案。
 
 ## <a name="usage-for-reserved-virtual-machine-instances"></a>保留的虛擬機器執行個體使用量
 
@@ -62,9 +62,11 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 4. [計量識別碼] 是保留的計量識別碼。 此計量的成本為 $0。 任何有資格獲得保留折扣的 VM 都會出現此計量識別碼。
 5. Standard_DS1_v2 是一種 vCPU 虛擬機器，且是在沒有 Azure Hybrid Benefit 的情況下部署的虛擬機器。 因此，這個計量涵蓋 Windows 軟體的額外費用。 若要尋找對應於 D 系列 1 核心 VM 的計量，請參閱 [Azure 保留 VM 執行個體的 Windows 軟體成本](billing-reserved-instance-windows-software-costs.md)。 如果您擁有 Azure Hybrid Benefit，就不會產生此額外費用。
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>SQL Database 保留容量的使用量
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>SQL Database 與 Cosmos DB 保留容量保留項目的使用情況
 
-針對下列幾個區段，假設您在美國東部區域執行 SQL Database Gen 4，且保留資訊看起來會類似下表：
+下列各節使用 Azure SQL Database 作為範例來說明使用情況報表。 您也可以使用相同步驟來取得 Azure Cosmos DB 的使用情況。 
+
+假設您目前在美國東部區域執行 SQL Database Gen 4，且保留資訊看起來類似下表：
 
 | 欄位 | 值 |
 |---| --- |
@@ -75,7 +77,7 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 
 ### <a name="statement-section-of-csv-file"></a>CSV 檔案的「說明」區段
 
-篩選**保留的執行個體使用量**計量名稱。 您會看到類似下列螢幕擷取畫面的內容：
+針對 [保留執行個體使用方式] 計量名稱進行篩選，然後選擇所需的 [計量類別目錄] - [Azure SQL Database] 或 [Azure Cosmos DB]。 您會看到類似下列螢幕擷取畫面的內容：
 
 ![SQL Database 保留容量的 CSV 檔案](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
@@ -93,9 +95,9 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Azure Reservations，請參閱下列文章：
+若要深入了解 Azure 保留項目，請參閱下列文章：
 
-- [什麼是 Azure Reservations？](billing-save-compute-costs-reservations.md)
+- [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md)
 - [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
@@ -106,3 +108,5 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
 如果您仍有其他問題，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+
+

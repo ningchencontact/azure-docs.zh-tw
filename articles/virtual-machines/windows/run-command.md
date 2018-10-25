@@ -1,19 +1,19 @@
 ---
 title: 在 Azure 的 Windows 虛擬機器中執行 PowerShell 指令碼
-description: 本主題說明如何使用執行命令在 Azure Windows 虛擬機器中執行 PowerShell 指令碼
+description: 此主題說明如何使用執行命令在 Azure Windows 虛擬機器中執行 PowerShell 指令碼
 services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128590"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267948"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>使用執行命令在 Windows 虛擬機器中執行 PowerShell 指令碼
 
@@ -21,7 +21,7 @@ ms.locfileid: "43128590"
 
 ## <a name="benefits"></a>優點
 
-有多個選項可以用來存取您的虛擬機器。 執行命令可以使用虛擬機器代理程式，從遠端在虛擬機器上執行指令碼。 可以透過 Azure 入口網站、[REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)、[Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 或 [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) 使用執行命令。
+有多個選項可以用來存取您的虛擬機器。 執行命令可以使用虛擬機器代理程式，從遠端在虛擬機器上執行指令碼。 可以透過 Azure 入口網站、[REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 或適用於 Windows VM 的[PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) 來執行命令。
 
 您可以要在虛擬機器中執行指令碼的所有情況下使用此功能；且針對因網路或系統管理使用者設定不適當而未開啟 RDP 或 SSH 連接埠的虛擬機器，只有使用此功能才能進行疑難排解和修復。
 
@@ -33,6 +33,7 @@ ms.locfileid: "43128590"
 * 執行指令碼的最短時間是大約 20 秒
 * 在 Windows 上以系統身分執行指令碼
 * 一次可執行一個指令碼
+* 不支援提示資訊 (互動模式) 的指令碼。
 * 您無法取消執行中的指令碼
 * 指令碼可以執行的最長時間是 90 分鐘，經過這段時間後會逾時
 * 需要有虛擬機器的輸出連線，才能傳回指令碼結果。

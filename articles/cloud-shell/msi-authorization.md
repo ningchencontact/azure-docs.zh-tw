@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Cloud Shell 中使用 MSI| Microsoft Docs
+title: 在 Azure Cloud Shell 中使用 Azure 資源的受控識別 | Microsoft Docs
 description: 在 Azure Cloud Shell 中使用 MSI 驗證程式碼
 services: azure
 documentationcenter: ''
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: juluk
-ms.openlocfilehash: 99577faf7328dc773a9da5f7c1227aa63600aa0a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fe77deeedc34bf769065e34ac2f81d631b0004d6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31516282"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352935"
 ---
-# <a name="use-msi-in-azure-cloud-shell"></a>在 Azure Cloud Shell 中使用 MSI
+# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>在 Azure Cloud Shell 中使用 Azure 資源的受控識別
 
-Azure Cloud Shell 可支援使用受控服務識別 (MSI) 進行驗證。 可利用此方式來擷取存取權杖，以安全地與 Azure 服務進行通訊。
+Azure Cloud Shell 可支援使用 Azure 資源的受控識別進行授權。 可利用此方式來擷取存取權杖，以安全地與 Azure 服務進行通訊。
 
-## <a name="about-managed-service-identity-msi"></a>關於受控服務識別 (MSI)
+## <a name="about-managed-identities-for-azure-resources"></a>關於適用於 Azure 資源的受控識別
 建置雲端應用程式常見的難題是如何安全地管理程式碼中必須存在的認證，以向雲端服務進行驗證。 在 Cloud Shell 中，您可能需要驗證來自 Key Vault 的擷取，才能完成認證，而這可能需要指令碼。
 
-受控服務身分識別 (MSI) 可以輕易地解決此問題，因為 MSI 可在 Azure Active Directory (Azure AD) 中提供自動受控身分識別給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
+Azure 資源的受控識別可在 Azure Active Directory (Azure AD) 中將受控識別自動提供給 Azure 服務，而降低解決此問題的難度。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
 
 ## <a name="acquire-access-token-in-cloud-shell"></a>在 Cloud Shell 中取得存取權杖
 

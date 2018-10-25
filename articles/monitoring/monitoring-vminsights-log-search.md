@@ -1,6 +1,6 @@
 ---
 title: 如何從適用於 VM 的 Azure 監視器查詢記錄 | Microsoft Docs
-description: 適用於 VM 的 Azure 監視器解決方案會將計量和記錄資料轉送到 Log Analytics，本文將說明記錄並提供範例查詢。
+description: 適用於 VM 的 Azure 監視器解決方案會將計量和記錄資料轉送到 Log Analytics，此文章將說明記錄並提供範例查詢。
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 446268f28e7c87196023636889f03be2da92ecfd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967637"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269389"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>如何從適用於 VM 的 Azure 監視器查詢記錄
 適用於 VM 的 Azure 監視器會收集效能和連線計量、電腦和處理序清查資料，以及健康狀態資訊，並將它轉送到 Azure 監視器中的 Log Analytics 資料存放區。  此資料可用來在 Log Analytics 中進行[搜尋](../log-analytics/log-analytics-log-searches.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
@@ -69,9 +69,9 @@ ms.locfileid: "46967637"
 |BytesSent |已在報告時間範圍內傳送的位元組總數 |
 |BytesReceived |已在報告時間範圍內接收的位元組總數 |
 |回應 |已在報告時間範圍內觀測到的回應數目。 
-|ResponseTimeMax |已在報告時間範圍內觀測到的最大回應時間 (毫秒)。  如果沒有值，則此屬性為空白。|
-|ResponseTimeMin |已在報告時間範圍內觀測到的最小回應時間 (毫秒)。  如果沒有值，則此屬性為空白。|
-|ResponseTimeSum |已在報告時間範圍內觀測到的所有回應時間總和 (毫秒)。  如果沒有值，則此屬性為空白|
+|ResponseTimeMax |已在報告時間範圍內觀測到的最大回應時間 (毫秒)。 如果沒有值，則此屬性為空白。|
+|ResponseTimeMin |已在報告時間範圍內觀測到的最小回應時間 (毫秒)。 如果沒有值，則此屬性為空白。|
+|ResponseTimeSum |已在報告時間範圍內觀測到的所有回應時間總和 (毫秒)。 如果沒有值，則此屬性為空白。|
 
 所報告的第三個資料類型是回應時間：呼叫端需要花費多久時間來等候透過連線傳送的要求，此要求會由遠端端點來處理及回應。 所報告的回應時間是基礎應用程式通訊協定的真正回應時間估計值。 它會使用啟發學習法，根據實體網路連線來源和目的端之間資料流程的觀測計算而來的。 概念上，它是要求的最後一個位元組離開傳送端的時間，以及回應的最後一個位元組傳回給它的到達時間之間的差異。 這兩個時間戳記可用來描述指定實體連線上的要求和回應事件。 它們之間的差異代表單一要求的回應時間。 
 
@@ -93,8 +93,8 @@ ms.locfileid: "46967637"
 | 屬性 | 說明 |
 |:--|:--|
 |RemoteCountry |裝載 RemoteIp 的國家/地區名稱。  例如，*United States* |
-|RemoteLatitude |地理位置緯度。  例如，*47.68* |
-|RemoteLongitude |地理位置經度。  例如：*-122.12* |
+|RemoteLatitude |地理位置緯度。 例如，*47.68* |
+|RemoteLongitude |地理位置經度。 例如：*-122.12* |
 
 #### <a name="malicious-ip"></a>惡意 IP
 *VMConnection* 資料表中的每個 RemoteIp 屬性均會根據一組具有已知惡意活動的 IP 進行檢查。 如果 RemoteIp 被識別為惡意的，將在記錄的下列屬性中填入下列屬性 (如果 IP 被視為不是惡意的，則它們是空的)：
@@ -102,16 +102,16 @@ ms.locfileid: "46967637"
 | 屬性 | 說明 |
 |:--|:--|
 |MaliciousIP |RemoteIp 位址 |
-|IndicatorThreadType | |
-|說明 | |
-|TLPLevel | |
-|信賴度 | |
-|嚴重性 | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |偵測到的威脅指標是下列值之一：*殭屍網路*、*C2*、*CryptoMining*、*Darknet*、*DDos*、*MaliciousUrl*、*惡意程式碼*、*網路釣魚*、*Proxy*、*PUA*、*關注清單*。   |
+|說明 |觀察到的威脅的說明。 |
+|TLPLevel |號誌燈通訊協定 (TLP) 層級是已定義的值 (*白色*、*綠色*、*琥珀色*、*紅色*) 之一。 |
+|信賴度 |值為 *0 – 100*。 |
+|嚴重性 |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
+|FirstReportedDateTime |提供者第一次回報指標。 |
+|LastReportedDateTime |Interflow 最後一次看到指標。 |
+|IsActive |使用 *True* 或 *False* 值表示指標停用。 |
+|ReportReferenceLink |與指定的可預見值相關之報告的連結。 |
+|AdditionalInformation |提供有關觀察到的威脅的其他資訊 (如果適用的話)。 |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 記錄
 類型為 *ServiceMapComputer_CL* 的記錄會有伺服器 (具有 Dependency Agent) 的清查資料。 這些記錄具有下表中的屬性：
@@ -166,34 +166,34 @@ ms.locfileid: "46967637"
 ## <a name="sample-log-searches"></a>記錄搜尋範例
 
 ### <a name="list-all-known-machines"></a>列出所有已知的機器
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>列出所有受控電腦的實體記憶體容量。
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>列出電腦名稱、DNS、IP 和 OS。
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>在命令列中尋找具有「sql」的所有處理程序
-ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>以資源名稱尋找機器 (最新的記錄)
-search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>以 IP 位址尋找機器 (最新的記錄)
-search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>列出指定機器上的所有已知處理序
-ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>列出所有執行 SQL 的電腦
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>列出資料中心內所有唯一 curl 產品版本
-ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>為所有執行 CentOS 的電腦建立電腦群組
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>摘要說明來自機器群組的輸出連線
 ```

@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b6708dac548db9e11d1092a6b84083d057401176
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221141"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237665"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL Database 的商務持續性概觀
 
@@ -45,7 +45,7 @@ SQL Database 提供幾種商務持續性功能，包括可以緩和這些案例�
  - [內建自動備份](sql-database-automated-backups.md)和[還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)可讓您將整個資料庫還原至過去 35 天內的某個時間點。
  - 如果[邏輯伺服器尚未刪除](sql-database-recovery-using-backups.md#deleted-database-restore)，您可以**將已刪除的資料庫還原**到它被刪除的時間點。
  - [長期備份保留](sql-database-long-term-retention.md)可讓您最多保留備份 10 年。
- - [異地複寫](sql-database-geo-replication-overview.md)可在資料中心擴展中斷時，允許應用程式執行快速災害復原。
+ - [自動容錯移轉群組](sql-database-geo-replication-overview.md#auto-failover-group-capabilities)可在發生資料中心規模的中斷時，允許應用程式進行自動復原。
 
 每個功能對於預估的復原時間 (ERT) 都有不同的特性，最近的交易都有可能遺失資料。 一旦您了解這些選項，就可以在其中選擇，而在大部分情況下，可以針對不同情況一起搭配使用。 當您開發商務持續性計劃時，您必須了解應用程式在干擾性事件之後完全復原所需的最大可接受時間。 完全復原應用程式所需的時間，也稱為復原時間目標 (RTO)。 您也必須了解在干擾性事件之後復原時，應用程式可忍受遺失的最近資料更新 (時間間隔) 最大期間。 您可能經得起遺失的更新時間週期，也稱為復原點目標 (RPO)。
 
@@ -54,9 +54,8 @@ SQL Database 提供幾種商務持續性功能，包括可以緩和這些案例�
 | 功能 | 基本 | 標準 | 進階  | 一般用途 | 業務關鍵
 | --- | --- | --- | --- |--- |--- |
 | 從備份進行時間點還原 |7 天內的任何還原點 |35 天內的任何還原點 |35 天內的任何還原點 |設定期間內的任何還原點 (最多 35 天)|設定期間內的任何還原點 (最多 35 天)|
-| 從異地複寫備份進行異地還原 |ERT < 12 h，RPO < 1 h |ERT < 12 h，RPO < 1 h |ERT < 12 h，RPO < 1 h |ERT < 12 h，RPO < 1 h|ERT < 12 h，RPO < 1 h|
-| 從 SQL 長期保留還原 |ERT < 12 h，RPO < 1 wk |ERT < 12 h，RPO < 1 wk |ERT < 12 h，RPO < 1 wk |ERT < 12 h，RPO < 1 wk|ERT < 12 h，RPO < 1 wk|
-| 主動式異地複寫 |ERT < 30 秒，RPO < 5 秒 |ERT < 30 s，RPO < 5 s |ERT < 30 s，RPO < 5 s |ERT < 30 s，RPO < 5 s|ERT < 30 s，RPO < 5 s|
+| 從異地複寫備份進行異地還原 |ERT < 12 小時<br> RPO < 1 小時 |ERT < 12 小時<br>RPO < 1 小時 |ERT < 12 小時<br>RPO < 1 小時 |ERT < 12 小時<br>RPO < 1 小時|ERT < 12 小時<br>RPO < 1 小時|
+| 自動容錯移轉群組 |RTO = 1 小時<br>RPO < 5 秒 |RTO = 1 小時<br>RPO < 5 秒 |RTO = 1 小時<br>RPO < 5 秒 |RTO = 1 小時<br>RPO < 5 秒|RTO = 1 小時<br>RPO < 5 秒|
 
 ## <a name="recover-a-database-to-the-existing-server"></a>將資料庫復原到現有的伺服器
 
@@ -73,7 +72,8 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 * 資料變更率低 (每小時的交易次數低)，並且最多可接受遺失一小時的資料變更。
 * 成本有限。
 
-如果您需要更快速的復原，請使用[主動式異地複寫](sql-database-geo-replication-overview.md) (會接著討論)。 如果您必須能夠復原 35 天之前的資料，請使用[長期保留](sql-database-long-term-retention.md)。 
+如果您需要更快速的復原，請使用[容錯移轉群組](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
+) (會接著討論)。 如果您必須能夠復原 35 天之前的資料，請使用[長期保留](sql-database-long-term-retention.md)。 
 
 ## <a name="recover-a-database-to-another-region"></a>將資料庫復原到另一個區域
 <!-- Explain this scenario -->
@@ -82,9 +82,7 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 
 * 其中一個選項是在資料中心中斷結束時等待您的資料庫重新上線。 這適用於可以容忍資料庫離線的應用程式。 例如，您不需要不斷處理的開發專案或免費試用版。 當資料中心中斷時，您不會知道中斷會持續多久，因此這個選項僅適用於您可以一段時間暫時不需要資料庫。
 * 另一個選項是使用[異地備援資料庫備份](sql-database-recovery-using-backups.md#geo-restore) (異地還原)，在任何 Azure 區域中的任何伺服器上還原資料庫。 異地還原使用異地備援備份做為其來源，即使因為中斷而無法存取資料庫或資料中心，也能用來復原資料庫。
-* 最後，如果您使用主動式異地複寫，您可以快速將另一個資料區域上的次要升級成主要 (也稱為容錯移轉)，並將應用程式設定為連線到已升級的主要資料庫。 由於非同步複寫的性質緣故，近期交易可能會有一些少量的資料遺失。 您可使用自動容錯移轉群組來自訂容錯移轉原則，以將潛在資料遺失風險降至最低。 在所有情況下，使用者都會經歷短暫的停機時間，而需要重新連線。 容錯移轉只需要幾秒鐘的時間，而從備份復原資料庫則需要幾個小時。
-
-若要容錯移轉到另一個區域，您可以使用[主動式異地複寫](sql-database-geo-replication-overview.md)將資料庫設定為在您所選的區域中最多可有 4 個可讀取的次要資料庫。 這些次要資料庫會使用非同步複寫機制與主要資料庫保持同步。 
+* 最後，如果您已為您的資料庫設定[自動容錯移轉群組](sql-database-geo-replication-overview.md#auto-failover-group-capabilities)，便可以迅速地從中斷復原。 您可以自訂容錯移轉原則，以使用自動或手動容錯移轉。 雖然容錯移轉本身只需要幾秒鐘的時間就能完成，服務將需要至少 1 小時才能啟動。 這是依據中斷的規模來確保容錯移轉之正當性的必要作法。 此外，基於非同步複寫的本質，容錯移轉可能會造成小規模的資料遺失。 請參閱此文章稍早的表格，以取得自動容錯移轉 RTO 和 RPO 的詳細資料。   
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -94,12 +92,12 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 > 若要使用主動式異地複寫和自動容錯移轉群組，您必須是訂用帳戶擁有者，或是在 SQL Server 中擁有系統管理權限。 您可以使用 Azure 入口網站、PowerShell 或 REST API 並透過 Azure 訂用帳戶的權限來進行設定和容錯移轉，也可以使用 Transact-SQL 並透過 SQL Server 權限來進行。
 > 
 
-此功能可用來防範資料中心中斷或應用程式升級期間的業務中斷。 若要啟用自動透明容錯移轉，您應使用 SQL Database [自動容錯移轉群組](sql-database-geo-replication-overview.md)功能，將異地複寫資料庫分組。 如果您的應用程式符合下列任何準則，請使用主動式異地複寫和自動容錯移轉群組：
+如果您的應用程式符合下列任何準則，請使用自動容錯移轉群組：
 
 * 是關鍵性應用程式。
-* 具有服務等級協定 (SLA)，不允許 24 小時以上的停機時間。
+* 具有不允許 12 小時或以上之停機時間的服務等級協定 (SLA)。
 * 停機可能會衍生財務責任。
-* 具有很高的資料變更率，而且不接受遺失一個小時的資料。
+* 具有很高的資料變更率，且無法接受為時 1 小時的資料遺失。
 * 與潛在的財務責任和相關企業損失相較下，使用主動式異地複寫的額外成本較低。
 
 當您採取行動時，復原所需的時間以及會遺失多少資料，取決於您如何決定在應用程式中使用這些商務持續性功能。 事實上，您可以根據應用程式需求，選擇使用資料庫備份和主動式異地複寫的組合。 若要探討使用這些商務持續性功能針對獨立資料庫和彈性集區進行應用程式設計時的考量，請參閱[設計雲端災害復原應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)和[彈性集區災害復原策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
@@ -107,7 +105,7 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 下列各節概述使用資料庫備份或主動式異地複寫來進行復原的步驟。 如需包括規劃需求的詳細步驟、復原後步驟，以及有關如何模擬中斷以執行災害復原演練的資訊，請參閱[從中斷復原 SQL Database](sql-database-disaster-recovery.md)。
 
 ### <a name="prepare-for-an-outage"></a>準備中斷
-無論您要使用何種商務持續性功能，您都必須︰
+無論您要使用哪種商務持續性功能，您都必須︰
 
 * 識別並準備目標伺服器，包括伺服器層級防火牆規則、登入和 master 資料庫層級權限。
 * 決定如何將用戶端和用戶端應用程式重新導向到新的伺服器
@@ -136,6 +134,11 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 * 確定有適當的登入和 master 資料庫層級權限 (或使用 [自主的使用者](https://msdn.microsoft.com/library/ff929188.aspx))
 * 依適當情況設定稽核
 * 依適當情況設定警示
+
+> [!NOTE]
+> 如果您是使用容錯移轉群組，並使用 R/W 接聽程式來連線至資料庫，容錯移轉後的重新導向將會針對應用程式以自動且透明化的方式進行。  
+>
+>
 
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>在最少停機時間的情況下升級應用程式
 有時，應用程式會因為計劃性維護 (例如應用程式升級) 而必須離線。 [管理應用程式升級](sql-database-manage-application-rolling-upgrade.md) 說明如何使用「主動式異地複寫」來輪流升級雲端應用程式，以將升級時的停機時間縮到最短，並提供發生錯誤時的復原路徑。 

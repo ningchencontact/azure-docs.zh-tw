@@ -3,7 +3,7 @@ title: 將用於使用量與帳單的租用戶新增至 Azure Stack | Microsoft 
 description: 必要步驟會將終端使用者新增至由雲端服務提供者 (CSP) 所管理的 Azure Stack 中。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: brenduns
+ms.date: 09/19/2018
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382683"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498567"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>將用於使用量與帳單的租用戶新增至 Azure Stack
 
@@ -69,9 +69,9 @@ CSP 通常會為其 Azure Stack 部署上的多位終端客戶 (租用戶) 提�
 ### <a name="new-azurermresource-powershell-parameters"></a>New-AzureRmResource PowerShell 參數
 | 參數 | 說明 |
 | --- | --- | 
-|registrationSubscriptionID | 用於進行 Azure Stack 初始註冊的 Azure 訂用帳戶。 |
-| customerSubscriptionID | 屬於要註冊之客戶的 Azure 訂用帳戶 (非 Azure Stack)。 必須建立在 CSP 供應項目中；實務上，這表示要透過合作夥伴中心。 如果客戶有多個 Azure Active Directory 租用戶，則必須將此訂用帳戶建立在要用來登入 Azure Stack 的租用戶中。
-| resourceGroup | Azure 中用來儲存註冊的資源群組。 
+|registrationSubscriptionID | 用於進行 Azure Stack 初始註冊的 Azure 訂用帳戶。|
+| customerSubscriptionID | 屬於要註冊之客戶的 Azure 訂用帳戶 (非 Azure Stack)。 必須建立在 CSP 供應項目中；實務上，這表示要透過合作夥伴中心。 如果客戶有多個 Azure Active Directory 租用戶，則必須將此訂用帳戶建立在要用來登入 Azure Stack 的租用戶中。 客戶的訂用帳戶 ID 必須使用小寫字母。 |
+| resourceGroup | Azure 中用來儲存註冊的資源群組。 |
 | registrationName | 您 Azure Stack 註冊的名稱。 它是儲存在 Azure 中的物件。 | 
 | properties | 指定資源的屬性。 使用此參數來指定資源類型特有的屬性值。
 

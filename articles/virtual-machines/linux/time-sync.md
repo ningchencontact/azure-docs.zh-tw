@@ -3,7 +3,7 @@ title: Azure 中的 Linux VM 時間同步 | Microsoft Docs
 description: Linux 虛擬機器的時間同步。
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: cynthn
-ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: zarhoads
+ms.openlocfilehash: aec36b8ea0f342b133e6844e5a96314c6348289b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116706"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465450"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure 中的 Linux VM 時間同步
 
-時間同步對於安全性和事件相互關聯而言相當重要。 有時候時間同步會用於分散式交易的實作。 多個電腦系統之間的時間精確度是透過同步來達成。 同步可能會受到多種因素影響，包括重新開機以及時間來源和擷取時間的電腦之間的網路流量。 
+時間同步對於安全性和事件相互關聯而言相當重要。 有時候時間同步會用於分散式交易實作。 多個電腦系統之間的時間精確度是透過同步來達成。 同步可能會受到多種因素影響，包括重新開機以及時間來源和擷取時間的電腦之間的網路流量。 
 
 Azure 受到執行 Windows Server 2016 之基礎結構的支援。 Windows Server 2016 的演算法經過改善，用來修正時間和調整本機時鐘以便與 UTC 同步。  Windows Server 2016 的準確時間功能大幅改善了 VMICTimeSync 服務控管 VM 與主機以獲得準確時間的方式。 改善功能包括更精確的 VM 開始或 VM 還原初始時間，以及插斷延遲修正。 
 
@@ -40,11 +40,11 @@ Azure 主機會與內部 Microsoft 時間伺服器同步，這些時間伺服器
 
 在獨立的硬體上，Linux OS 只會在開機時讀取主機硬體時鐘。 之後，則會使用 Linux 核心中的插斷計時器來維護時鐘。 在此設定中，時鐘會隨時間慢慢移動。 在 Azure 上的較新 Linux 發行版本中，VM 可以使用 Linux Integration Services (LIS) 隨附的 VMICTimeSync 提供者，更頻繁地從主機查詢時鐘更新。
 
-虛擬機器與主機的互動也可能會影響時鐘。 進行[記憶體保留維修](maintenance-and-updates.md#memory-preserving-maintenance)期間，VM 會暫停最多 30 秒。 例如，維修開始之前 VM 時鐘顯示上午 10:00:00 並持續 28 秒。 VM 繼續執行後，VM 上的時鐘仍會顯示上午 10:00:00，也就是有 28 秒的誤差。 為了修正這個誤差，VMICTimeSync 服務會監視主機上發生的狀況，並提示您為進行補償需在 VM 上做的變更。
+虛擬機器與主機的互動也可能會影響時鐘。 進行[記憶體保留維修](maintenance-and-updates.md#memory-preserving-maintenance)期間，VM 會暫停最多 30 秒。 比方說，維修開始之前 VM 時鐘顯示上午 10:00:00，並持續 28 秒。 VM 繼續執行後，VM 上的時鐘仍會顯示上午 10:00:00，也就是有 28 秒的誤差。 為了修正這個誤差，VMICTimeSync 服務會監視主機上發生的狀況，並提示您為了進行補償需在 VM 上做的變更。
 
-若沒有時間同步功能，VM 上的時鐘會累積誤差。 若只有一部 VM，除非工作負載需要高度精準的計時功能，否則不會造成顯著的影響。 但是在多數情況下，我們都有多部互相連接並使用時間來追蹤交易的 VM，而且整個部署中的時間必須保持一致。 當 VM 之間的時間有所不同，可能會產生下列影響：
+若沒有時間同步功能，VM 上的時鐘將會累積錯誤。 若只有一部 VM，除非工作負載需要高度精準的計時功能，否則不會造成顯著的影響。 但是在多數情況下，我們都有多部互相連接並使用時間來追蹤交易的 VM，而且整個部署中的時間必須保持一致。 當 VM 之間的時間有所不同，可能會產生以下影響：
 
-- 驗證將會失敗。 Kerberos 這類安全性通訊協定或憑證相依的技術仰賴整個系統中的時間維持一致。
+- 驗證將會失敗。 Kerberos 這類安全性通訊協定或憑證相依的技術，仰賴整個系統中的時間維持一致。
 - 如果記錄 (或其他資料) 認知的時間有所差異，很難想像系統會發生什麼問題。 同一個事件看起來可能像發生在不同時間，導致難以建立相互關聯。
 - 當時鐘有所誤差，計費功能也可能會計算錯誤。
 

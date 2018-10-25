@@ -5,26 +5,36 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d9c8a0e6a3bd6d79a11ee0d0dab0500a209e5571
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38942051"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888540"
 ---
-您可以透過在子網路或 VM 網路介面上建立網路篩選，對 Azure 中的虛擬機器 (VM) 開啟連接埠或建立端點。 您可將控制輸入和輸出流量的這些篩選器放在可接收流量的資源所附加的網路安全性群組上。
+您可以透過在子網路或 VM 網路介面上建立網路篩選，對 Azure 中的虛擬機器 (VM) 開啟連接埠或建立端點。 您可將控制輸入與輸出流量的這些篩選器放在可接收流量的資源所附加的網路安全性群組上。
 
-讓我們使用連接埠 80 上的 Web 流量的常見範例。 一旦您的 VM 設定為在標準 TCP 連接埠 80 上為 Web 要求提供服務 (請記得啟動適當的服務，並且在 VM 上開啟任何作業系統防火牆規則)，您可以︰
+此文章中的範例示範如何建立會使用標準 TCP 連接埠 80 的網路篩選器 (假設您已經在 VM 上啟動適當的服務並開啟任何 OS 防火牆規則)。
+
+建立已設定為在標準 TCP 連接埠 80 上接聽要求的 VM 之後，您可以：
 
 1. 建立網路安全性群組。
-2. 建立輸入規則允許具有下列項目的流量︰
-   * 目的地連接埠範圍為 "80"
-   * 來源連接埠範圍為 "*" (允許任何來源連接埠)
-   * 優先順序值小於 65,500 (比預設全面涵蓋拒絕輸入規則的優先順序高)
+
+2. 建立可允許流的連入安全性規則，並為下列設定指派值：
+
+   - **目的地連接埠範圍**：80
+
+   - **來源連接埠範圍**: * (允許任何來源連接埠)
+
+   - **優先順序值**：輸入小於 65,500 且優先順序大於預設捕捉所有流量拒絕連入規則的值。
+
 3. 讓網路安全性群組與 VM 網路介面或子網路產生關聯。
 
-您可以建立複雜的網路組態，以使用網路安全性群組和規則保護您的環境。 我們的範例僅使用一個或兩個規則，允許 HTTP 流量或遠端管理。 如需詳細資訊，請參閱下面的[「相關資訊」](#more-information-on-network-security-groups)一節，或[什麼是網路安全性群組？](../articles/virtual-network/security-overview.md)
+雖然此範例使用簡單的規則來允許 HTTP 流量，您也可以使用網路安全性群組與規則來建立更複雜的網路設定。 
+
+
+
 

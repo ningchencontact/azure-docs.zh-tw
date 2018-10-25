@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1d11b7d8f008c8ba000530e0486562882bfe3db3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 941a7242e1f6fddd1ff91721141be4e1f9816b31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193888"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344858"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 輸入參數
 
@@ -31,7 +31,7 @@ Azure 自動化中的 PowerShell 和 [PowerShell 工作流程 Runbook](automatio
 | **屬性** | **說明** |
 |:--- |:--- |
 | 類型 |必要。 對參數值預期的資料類型。 任何 .NET 類型皆有效。 |
-| Name |必要。 參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
+| 名稱 |必要。 參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
 | 強制 |選用。 指定是否必須提供參數的值。 如果您將此項目設定為 **$true**，則在 Runbook 啟動時必須提供其值。 如果您將此項目設定為 **$false**，則可以選擇提供值。 |
 | 預設值 |選用。 指定在 Runbook 啟動時未傳遞值的情況下所將用於參數的值。 任何參數皆可設定為預設值，此值將會使參數自動成為選擇性，無論 [強制] 設定為何。 |
 
@@ -73,6 +73,10 @@ Param
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+> [!NOTE]
+> 當您未將任何值傳遞至_預設值_為 `$null` 的選用 `[String]` 類型參數時，參數的值會是_空白字串_，而**不是** `$null`。
+> 
+> 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>在圖形化 Runbook 中設定輸入參數
 
@@ -80,11 +84,11 @@ Param
 
 [**使用 Azure 執行身分帳戶驗證 Runbook**](automation-sec-configure-azure-runas-account.md) 以 Azure 驗證。
 
-以 [**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx) 取得虛擬機器的屬性。
+以 [**Get-AzureRmVm**](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 取得虛擬機器的屬性。
 
 您可以使用 [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) 活動來輸出虛擬機器的名稱。 **Get-AzureRmVm** 活動會接受兩個參數：**虛擬機器名稱**和**資源群組名稱**。 由於這些參數在您每次啟動 Runbook 時可能需要不同的值，因此您可以將輸入參數新增至您的 Runbook。 以下是新增輸入參數的步驟：
 
-1. 從 [Runbook]  刀鋒視窗中選取圖形化 Runbook，然後按一下 [**[編輯]**](automation-graphical-authoring-intro.md)。
+1. 從 [Runbook]  刀鋒視窗中選取圖形化 Runbook，然後按一下 [編輯][](automation-graphical-authoring-intro.md)。
 2. 在 Runbook 編輯器中，按一下 [輸入和輸出] 以開啟 [輸入和輸出] 刀鋒視窗。
    
     ![自動化圖形化 Runbook](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
@@ -92,7 +96,7 @@ Param
    
    | **屬性** | **說明** |
    |:--- |:--- |
-   | Name |必要。 參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
+   | 名稱 |必要。 參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
    | 說明 |選用。 關於輸入參數用途的說明。 |
    | 類型 |選用。 對參數值預期的資料類型。 支援的參數類型有：**String**、**Int32**、**Int64**、**Decimal**、**Boolean**、**DateTime**、**Object**。 若未選取資料類型，將預設為 **String**。 |
    | 強制 |選用。 指定是否必須提供參數的值。 如果您選擇 [是] ，則在 Runbook 啟動時必須提供其值。 如果您選擇 [否] ，則在 Runbook 啟動時不一定需要值，並且可設定預設值。 |
@@ -147,7 +151,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>使用 PowerShell Cmdlet 啟動已發佈的 Runbook，並指派參數
 
-* **Azure Resource Manager Cmdlet：** 您可以使用 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)啟動在資源群組中建立的自動化 Runbook。
+* **Azure Resource Manager Cmdlet：** 您可以使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)啟動在資源群組中建立的自動化 Runbook。
   
   **範例：**
   
@@ -156,7 +160,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Azure 傳統部署模型 Cmdlet：** 您可以使用 [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx) 啟動在預設資源群組中建立的自動化 Runbook。
+* **Azure 傳統部署模型 Cmdlet：** 您可以使用 [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook) 啟動在預設資源群組中建立的自動化 Runbook。
   
   **範例：**
   

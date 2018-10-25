@@ -1,6 +1,6 @@
 ---
 title: 透過 Azure 入口網站管理串流端點 | Microsoft Docs
-description: 本主題說明如何透過 Azure 入口網站管理串流端點。
+description: 此主題說明如何透過 Azure 入口網站管理串流端點。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: 542780766cfa90026d5ff492fcf7b579cb2d7029
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a023cb2ea1cf74c8029cc207c9b899631facb929
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785827"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018259"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>透過 Azure 入口網站管理串流端點
 
-本文說明如何使用 Azure 入口網站來管理串流端點。 
+此文章說明如何使用 Azure 入口網站來管理串流端點。 
 
 >[!NOTE]
 >請務必檢閱[概觀](media-services-streaming-endpoints-overview.md)一文。 
@@ -93,7 +93,7 @@ ms.locfileid: "33785827"
 
 當您建立新的帳戶時，依預設會啟用預設串流端點 Azure CDN 整合。
 
-如果您稍後想要停用/啟用 CDN，串流端點必須處於**已停止**狀態。 可能需要將近 2 小時，Azure CDN 整合才會啟用，變更也才會遍及所有 CDN POP。 不過，您可以啟動串流端點，並從串流端點不停地串流，等到整合完成後，則會從 CDN 傳送資料流。 在佈建期間，串流端點會處於**啟動中**狀態，您可能會發現效能下降。
+如果您稍後想要停用/啟用 CDN，串流端點必須處於**已停止**狀態。 可能需要將近 2 小時，Azure CDN 整合才會啟用，變更也才會遍及所有 CDN POP。 不過，您可以啟動串流端點，並從串流端點不停地串流，等到整合完成後，則會從 CDN 傳送資料流。 在佈建期間，您的串流端點會處於**啟動中**狀態，而且您可能會發現效能下降。
 
 中國和聯邦政府區域除外，其他所有 Azure 資料中心都啟用 CDN 整合。
 

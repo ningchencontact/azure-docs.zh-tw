@@ -3,7 +3,7 @@ title: 使用 C# 來建立和管理 Azure 虛擬機器 | Microsoft Docs
 description: 使用 C# 和 Azure Resource Manager 來部署 Azure 虛擬機器及所有支援它的資源。
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cynthn
-ms.openlocfilehash: 99c8e71e0a31f6ef2f4fb2087fb8678c68a052a7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: 297eb95d435f1098a40c140b6ac451312bdb9d9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525924"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956709"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>在 Azure 中使用 C# 建立並管理 Windows VM #
 
@@ -56,7 +56,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 ## <a name="create-credentials"></a>建立認證
 
-在您開始此步驟之前，請確定您可以存取 [Active Directory 服務主體](../../azure-resource-manager/resource-group-create-service-principal-portal.md)。 您也應該記錄應用程式識別碼、驗證金鑰以及租用戶識別碼，您在稍後的步驟會需要這些項目。
+在您開始此步驟之前，請確定您可以存取 [Active Directory 服務主體](../../active-directory/develop/howto-create-service-principal-portal.md)。 您也應該記錄應用程式識別碼、驗證金鑰以及租用戶識別碼，您在稍後的步驟會需要這些項目。
 
 ### <a name="create-the-authorization-file"></a>建立授權檔
 

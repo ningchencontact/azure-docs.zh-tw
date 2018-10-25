@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: f5d5b8064821dfb1aa6d4e99d0152e364f9a83fe
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700513"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269338"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure 服務匯流排中的 AMQP 1.0：要求/回應架構作業
 
-本文定義 Microsoft Azure 服務匯流排要求/回應架構作業的清單。 這項資訊是根據 AMQP 管理版本 1.0 工作草稿。  
+此文章定義 Microsoft Azure 服務匯流排要求/回應架構作業的清單。 此資訊是根據 AMQP 管理版本 1.0 工作草稿。  
   
 如需詳細的有線等級 AMQP 1.0 通訊協定指南，說明服務匯流排如何實作和建置 OASIS AMQP 技術規格，請參閱 [Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南][AMQP 1.0 通訊協定指南]。  
   
@@ -142,6 +142,10 @@ properties: {
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|UUID 的陣列|是|要更新的訊息鎖定權杖。|  
+
+> [!NOTE]
+> 鎖定權杖是接收之訊息上的 `DeliveryTag` 屬性。 請參閱 [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) 中的下列範例，它會擷取這些項目。 權杖可能也會在 'DeliveryAnnotations' 中以 'x-opt-lock-token' 的形式出現，但是不保證一定如此，而 `DeliveryTag` 是慣用的。 
+> 
   
 #### <a name="response"></a>Response  
 
@@ -365,7 +369,7 @@ properties: {
   
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:peek-message`|  
+|operation|字串|是|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  

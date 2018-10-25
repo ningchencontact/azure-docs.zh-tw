@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f7d54129ef9f85bb4141d26b9be8d4a0652bff8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448181"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426805"
 ---
 # <a name="create-key-performance-indicators"></a>建立關鍵效能指標
 
@@ -21,7 +21,7 @@ ms.locfileid: "37448181"
   
 這堂課的預估完成時間：**15 分鐘**  
   
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 6 課︰建立量值](../tutorials/aas-lesson-6-create-measures.md)。   
   
 ## <a name="create-key-performance-indicators"></a>建立關鍵效能指標  

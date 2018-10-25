@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: alkohli
+ms.custom: include file
+ms.openlocfilehash: 4285ee94d2f2a9b5fff9d1896cdf7013f88801ab
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979021"
+---
 #### <a name="to-create-a-new-service"></a>建立新服務
 
 1.  使用您的 Microsoft 帳戶認證，在下列 URL 上登入 Azure 入口網站：<https://portal.azure.com/>。 如果在 Government 入口網站中部署裝置，請在以下網址登入︰<https://portal.azure.us/>
@@ -18,7 +35,7 @@
 
         -   如果您在 Azure 中還有其他您也想利用 StorSimple 裝置來部署的工作負載，建議您使用該資料中心。
 
-        -   您的 StorSimple 裝置管理員和 Azure 儲存體可以分別位於兩個不同的位置。 如此一來，您需要分別建立 StorSimple 裝置管理員和 Azure 儲存體帳戶。 若要建立 Azure 儲存體帳戶，請前往 Azure 入口網站中的 [Azure 儲存體服務]，依[建立 Azure 儲存體帳戶](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account)中的步驟進行。 建立此帳戶之後，請依[設定服務的新儲存體帳戶](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple 裝置管理員服務。
+        -   您的 StorSimple 裝置管理員和 Azure 儲存體可以分別位於兩個不同的位置。 如此一來，您需要分別建立 StorSimple 裝置管理員和 Azure 儲存體帳戶。 若要建立 Azure 儲存體帳戶，請瀏覽到 Azure 入口網站中的 Azure 儲存體，按照[建立儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)中所述的步驟進行。 建立此帳戶之後，請依[設定服務的新儲存體帳戶](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple 裝置管理員服務。
 
         -   如果在政府機構入口網站中部署虛擬裝置，美國愛荷華州和美國維吉尼亞州位置可以使用 StorSimple 裝置管理員服務。
 

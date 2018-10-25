@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184483"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>教學課程：Azure Active Directory 與 My Award Points Top Sub/Top Team 整合
 
-在本教學課程中，您將了解如何整合 My Award Points Top Sub/Top Team 與 Azure Active Directory (Azure AD)。
+在此教學課程中，您將了解如何整合 My Award Points Top Sub/Top Team 與 Azure Active Directory (Azure AD)。
 
 將 My Award Points Top Sub/Top Team 與 Azure AD 整合可提供下列優點：
 
@@ -33,7 +33,7 @@ ms.locfileid: "47184483"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 My Award Points Top Sub/Top Team 整合，您需要下列項目：
 
@@ -41,23 +41,24 @@ ms.locfileid: "47184483"
 - 已啟用 My Award Points Top Sub/Top Team 單一登入的訂用帳戶
 
 > [!NOTE]
-> 若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> 若要測試此教學課程中的步驟，我們不建議使用生產環境。
 
-若要測試本教學課程中的步驟，您應該遵循這些建議：
+若要測試此教學課程中的步驟，您應該依照循這些建議執行：
 
 - 除非必要，否則請勿使用生產環境。
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
+在此教學課程中，您會在測試環境中測試 Azure AD 單一登入。
+此教學課程中說明的案例由兩個主要的基本工作組成：
 
 1. 從資源庫新增 My Award Points Top Sub/Top Team
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-my-award-points-top-subtop-team-from-the-gallery"></a>從資源庫新增 My Award Points Top Sub/Top Team
 
-若要設定 My Award Points Top Sub/Top Team 與 Azure AD 整合，您需要從資源庫將 My Award Points Top Sub/Top Team 新增到受控 SaaS 應用程式清單。
+若要設定將 My Award Points Top Sub/Top Team 整合到 Azure AD 中，您需要從資源庫將 My Award Points Top Sub/Top Team 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 My Award Points Top Sub/Top Team，請執行下列步驟：**
 
@@ -79,11 +80,11 @@ ms.locfileid: "47184483"
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 My Award Points Top Sub/Top Team 搭配運作的 Azure AD 單一登入。
+在此節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 My Award Points Top Sub/Top Team 搭配運作的 Azure AD 單一登入。
 
 若要讓單一登入能夠運作，Azure AD 必須知道 My Award Points Top Sub/Top Team 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 My Award Points Top Sub/Top Team 中的相關使用者之間建立連結關聯性。
 
-若要使用 My Award Points Top Sub/Top Team 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 My Award Points Top Sub/Top Team 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
@@ -93,7 +94,7 @@ ms.locfileid: "47184483"
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在 My Award Points Top Sub/Top Team 應用程式中設定單一登入。
+在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在 My Award Points Top Sub/Top Team 應用程式中設定單一登入。
 
 **若要設定與 My Award Points Top Sub/Top Team 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
@@ -109,10 +110,10 @@ ms.locfileid: "47184483"
 
     ![My Award Points Top Sub/Top Team 網域及 URL 單一登入資訊](./media/myawardpoints-tutorial/tutorial_myawardpoints_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
+    在 [登入 URL] 文字方塊中，使用下列模式來輸入 URL︰`https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
-    > 單一登入 URL 值不是真正的值。 請使用實際的登入 URL 來更新此值。 請連絡 [My Award Points Top Sub/Top Team 用戶端支援小組](mailto:myawardpoints@biworldwide.com)以取得此值。
+    > 您會在此教學課程稍後的步驟中取得 `<SAMLENTITYID>` 值。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -122,11 +123,13 @@ ms.locfileid: "47184483"
 
     ![設定單一登入儲存按鈕](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. 若要在 **My Award Points Top Sub/Top Team** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [My Award Points Top Sub/Top Team 支援小組](mailto:myawardpoints@biworldwide.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+6. 在 [My Award Points Top Sub/Top Team 設定] 區段中，選取 [設定 My Award Points Top Sub/Top Team] 以開啟 [設定單一登入] 視窗。 從 [快速參考] 區段複製 [SAML 實體識別碼]，然後在 Azure 入口網站 [My Award Points Top Sub/Top Team 網域及 URL] 區段中的 `<SAMLENTITYID>` 之處，附加 [SAML 實體識別碼] 值及 [登入 URL]。
+
+7. 若要在 **My Award Points Top Sub/Top Team** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [My Award Points Top Sub/Top Team 支援小組](mailto:myawardpoints@biworldwide.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
    ![建立 Azure AD 測試使用者][100]
 
@@ -158,11 +161,11 @@ ms.locfileid: "47184483"
 
 ### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>建立 My Award Points Top Sub/Top Team 測試使用者
 
-在本節中，您會在 My Award Points Top Sub/Top Team 中建立名為 Britta Simon 的使用者。 請與 [My Award Points Top Sub/Top Team 支援小組](mailto:myawardpoints@biworldwide.com)合作，在 My Award Points Top Sub/Top Team 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在此節中，您會在 My Award Points Top Sub/Top Team 中建立名為 Britta Simon 的使用者。 請與 [My Award Points Top Sub/Top Team 支援小組](mailto:myawardpoints@biworldwide.com)合作，在 My Award Points Top Sub/Top Team 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 My Award Points Top Sub/Top Team 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在此節中，您會將 My Award Points Top Sub/Top Team 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 ![指派使用者角色][200]
 
@@ -192,7 +195,7 @@ ms.locfileid: "47184483"
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [My Award Points Top Sub/Top Team] 圖格時，應該會自動登入 My Award Points Top Sub/Top Team 應用程式。
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。

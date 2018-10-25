@@ -3,18 +3,16 @@ title: 在 Azure 上的 Kubernetes 中運用 Helm 部署容器
 description: 使用 Helm 封裝工具，在 Azure Kubernetes Service (AKS) 叢集中部署容器
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 10/01/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: dd2deba25615373765dd3492d03c1ba547c8ba8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2c74e3ffaa5ced0925b5ad0edfc357afb375803e
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055129"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363958"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用 Helm 安裝應用程式
 
@@ -26,32 +24,11 @@ ms.locfileid: "39055129"
 
 本文件中詳述的步驟假設您已建立 AKS 叢集，並建立與叢集的 `kubectl` 連線。 如果您需要這些項目，請參閱 [AKS 快速入門][aks-quickstart]。
 
-## <a name="install-helm-cli"></a>安裝 Helm CLI
-
-Helm CLI 是在開發系統上執行的用戶端，可讓您透過 Helm 啟動、停止和管理應用程式。
-
-如果您使用 Azure Cloud Shell，則已安裝 Helm CLI。 若要在 Mac 上安裝 Helm CLI，請使用 `brew`。 如需其他安裝選項，請參閱[安裝 Helm][helm-install-options]。
-
-```console
-brew install kubernetes-helm
-```
-
-輸出：
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+您也必須安裝 Helm CLI，這是在開發系統上執行的用戶端，可讓您透過 Helm 啟動、停止和管理應用程式。 如果您使用 Azure Cloud Shell，則已安裝 Helm CLI。 如需本機平台的安裝指示，請參閱[安裝 Helm][helm-install]。
 
 ## <a name="create-a-service-account"></a>建立服務帳戶
 
-在已啟用 RBAC 的叢集中部署 Helm 之前，您需要適用於 Tiller 服務的服務帳戶與角色繫結。 如需在已啟用 RBAC 的叢集中保護 Helm / Tiller 的詳細資訊，請參閱 [Tiller、命名空間和 RBAC][tiller-rbac]。 如果您的叢集未啟用 RBAC，請略過此步驟。
+在已啟用 RBAC 的 AKS 叢集中部署 Helm 之前，您需要適用於 Tiller 服務的服務帳戶與角色繫結。 如需在已啟用 RBAC 的叢集中保護 Helm / Tiller 的詳細資訊，請參閱 [Tiller、命名空間和 RBAC][tiller-rbac]。 如果 AKS 叢集未啟用 RBAC，請略過此步驟。
 
 建立名為 `helm-rbac.yaml` 的檔案，然後將下列 YAML 複製進來：
 
@@ -62,7 +39,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -76,10 +53,10 @@ subjects:
     namespace: kube-system
 ```
 
-使用 `kubectl create` 命令來建立服務帳戶和角色繫結：
+使用 `kubectl apply` 命令來建立服務帳戶和角色繫結：
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="secure-tiller-and-helm"></a>保護 Tiller 和 Helm
@@ -96,7 +73,7 @@ Helm 用戶端和 Tiller 服務會使用 TLS/SSL 互相驗證及通訊。 這個
 helm init --service-account tiller
 ```
 
-如果您已在 Helm 與 Tiller 之間設定 TLS/SSL，請提供 `--tiller-tls-` 參數和您自己的憑證名稱，如下列範例所示：
+如果您已在 Helm 與 Tiller 之間設定 TLS/SSL，請提供 `--tiller-tls-*` 參數和您自己的憑證名稱，如下列範例所示：
 
 ```console
 helm init \
@@ -227,6 +204,16 @@ $ helm list
 
 NAME             REVISION    UPDATED                     STATUS      CHART              NAMESPACE
 wishful-mastiff  1           Thu Jul 12 15:53:56 2018    DEPLOYED    wordpress-2.1.3  default
+```
+
+## <a name="clean-up-resources"></a>清除資源
+
+部署 Helm 圖表時會建立一些 Kubernetes 資源。 這些資源包含 Pod、部署和服務。 若要清除這些資源，請使用 `helm delete` 命令，並指定在先前 `helm list` 命令中找到的版本名稱。 下列範例會刪除名為 wishful mastiff 的版本：
+
+```console
+$ helm delete wishful-mastiff
+
+release "wishful-mastiff" deleted
 ```
 
 ## <a name="next-steps"></a>後續步驟

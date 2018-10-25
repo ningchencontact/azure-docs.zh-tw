@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 3bac6534f43d62e6eb9381b8513025ba9117ed04
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e16c82f7c49bf90fc074732d0a989b9de94a52c5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857001"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49375846"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Azure Kubernetes Service (AKS) 上的叢集自動調整程式 - 預覽
 
@@ -26,11 +26,22 @@ Azure Kubernetes Service (AKS) 會提供可在 Azure 中部署受控 Kubernetes 
 > Azure Kubernetes Service (AKS) 叢集自動調整程式整合目前為**預覽**狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites-and-considerations"></a>必要條件和考量
 
 本文件假設您有已啟用 RBAC 的 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
 
  若要使用叢集自動調整程式，您的叢集必須使用 Kubernetes v1.10.X 或更高版本，而且必須啟用 RBAC。 若要升級您的叢集，請參閱[升級 AKS 叢集][aks-upgrade]上的文章。
+
+定義您 Pod 的資源要求。 叢集自動調整程式會觀察 Pod 提出的是哪些資源要求，而非如水平 Pod 自動調整程式處理實際使用中的資源。 在您部署定義的 `spec: containers` 區段內，定義 CPU 和記憶體需求。 下列範例程式碼片段要求節點上有 0.5 個 vCPU 和 64 Mb 的記憶體：
+
+  ```yaml
+  resources:
+    requests:
+      cpu: 500m
+      memory: 64Mb
+  ```
+
+使用叢集自動調整程式時，請避免手動調整節點數目。 叢集自動調整程式可能會無法判斷所需的正確計算資源數量，且與您以手動方式定義的節點數目衝突。
 
 ## <a name="gather-information"></a>收集資訊
 
@@ -127,7 +138,7 @@ metadata:
   name: cluster-autoscaler
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: cluster-autoscaler
@@ -168,7 +179,7 @@ rules:
   verbs: ["get", "list", "watch"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: cluster-autoscaler
@@ -186,7 +197,7 @@ rules:
   verbs: ["delete","get","update"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: cluster-autoscaler
@@ -203,7 +214,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: cluster-autoscaler
@@ -221,7 +232,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   labels:

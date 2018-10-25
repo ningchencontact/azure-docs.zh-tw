@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 672adba0b4b17a25c0c0a1da3596808f767e3fbd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632834"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584093"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT 中樞定價資訊
 
-[Azure IoT 中樞定價][lnk-pricing]提供關於 IoT 中樞之不同 SKU 和定價的一般資訊。 本文包含 IoT 中樞如何以訊息的形式來針對各種 IoT 中樞功能進行計量的其他詳細資料。
+[Azure IoT 中樞價格](https://azure.microsoft.com/pricing/details/iot-hub)提供關於 IoT 中樞之不同 SKU 和價格的一般資訊。 此文章包含 IoT 中樞如何以訊息的形式來針對各種 IoT 中樞功能進行計量的其他詳細資料。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "34632834"
 | 作業的每一裝置操作 | 作業的操作 (例如對應項更新和方法) 會按正常方式收費。 例如，作業如果產生 1000 個含 1 KB 要求和空白本文回應的方法呼叫，將會收取 1000 則訊息的費用。 |
 
 > [!NOTE]
-> 所有大小在計算時都會考量到以位元組為單位的承載大小 (通訊協定框架則會忽略)。 針對訊息 (具有屬性和本文)，則會以不限通訊協定的方式計算大小。 如需詳細資訊，請參閱 [IoT 中樞 傳訊開發人員指南][lnk-message-size]。
+> 所有大小在計算時都會考量到以位元組為單位的承載大小 (通訊協定框架則會忽略)。 針對訊息 (具有屬性和本文)，則會以不限通訊協定的方式計算大小。 如需詳細資訊，請參閱 [IoT 中樞訊息格式](iot-hub-devguide-messages-construct.md)。
 
 ## <a name="example-1"></a>範例 #1
 
@@ -64,7 +64,3 @@ ms.locfileid: "34632834"
 解決方案後端會耗用 28 則訊息 (14 KB / 0.5 KB) 來讀取裝置對應項，加上 1 則訊息來更新它，總計 29 則訊息。
 
 裝置和解決方案後端每天合計耗用 641 則訊息。
-
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-message-size]: iot-hub-devguide-messages-construct.md

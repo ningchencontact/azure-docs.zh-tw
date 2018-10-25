@@ -1,7 +1,7 @@
 ---
 title: Azure App Service 和 Azure Functions 中的安全性 | Microsoft Docs
 description: 深入了解 App Service 如何協助保護您的應用程式，以及您如何進一步鎖定您的應用程式免於遭受威脅。
-keywords: azure app service, Web 應用程式, 行動裝置應用程式, api 應用程式, 函式應用程式, 安全性, 安全, 安全的, 合規性, 符合規範, 憑證, 憑證, https, ftps, tls, 信任, 加密, 加密, 已加密, ip 限制, 驗證, 授權, authn, autho, msi, 受控服務身分識別, 祕密, 祕密, 修補, 修補程式, 修補程式, 版本, 隔離, 網路隔離, ddos, mitm
+keywords: azure app service, web 應用程式, 行動應用程式, api 應用程式, 函數應用程式, 安全性, 安全, 保護, 受保護, 合規性, 符合規範, 憑證, https, ftps, tls, 信任, 加密, 已加密, ip 限制, 驗證, 授權, authn, autho, msi, 受控服務身分識別, 受控識別, 祕密, 修補, 修補程式, 版本, 隔離, 網路隔離, ddos, mitm
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382111"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857494"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Azure App Service 和 Azure Functions 中的安全性
 
-本文說明 [Azure App Service](app-service-web-overview.md) 如何協助保護您的 Web 應用程式、行動裝置應用程式後端、API 應用程式和 [Azure Functions](/azure/azure-functions/)。 它也會示範如何使用內建的 App Service 功能，進一步保護您的應用程式。
+此文章說明 [Azure App Service](app-service-web-overview.md) 如何協助保護您的 Web 應用程式、行動裝置應用程式後端、API 應用程式和 [Azure Functions](/azure/azure-functions/)。 它也會示範如何使用內建的 App Service 功能，進一步保護您的應用程式。
 
 App Service 的平台元件 (包括 Azure VM、儲存體、網路連線、Web 架構、管理和整合功能) 會主動受到保護與強化。 App Service 會持續經歷加強的合規性檢查，以確保：
 
@@ -61,7 +61,7 @@ App Service 同時支援使用 FTP 和 FTPS 來部署您的檔案。 不過，�
 
 ## <a name="client-authentication-and-authorization"></a>用戶端驗證與授權
 
-Azure App Service 會提供周全的使用者或用戶端應用程式驗證和授權。 啟用以後，它可以透過少量或不需任何應用程式程式碼，登入使用者和用戶端應用程式。 您可以實作自己的驗證和授權解決方案，或允許 App Service 為您處理。 驗證和授權模組在將 Web 要求交給您的應用程式程式碼前加以處理，而且會在未經授權的要求觸達您的程式碼前予以拒絕。
+Azure App Service 會提供周全的使用者或用戶端應用程式驗證和授權。 啟用以後，它可以透過少量或不需任何應用程式程式碼，登入使用者和用戶端應用程式。 您可以實作自己的驗證和授權解決方案，或允許 App Service 為您處理。 驗證和授權模組在將 Web 要求交給您的應用程式程式碼前處理，而且會在未經授權的要求觸達您的程式碼前予以拒絕。
 
 App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Directory、Microsoft 帳戶、Facebook、Google 和 Twitter。 如需詳細資訊，請參閱 [Azure App Service 中的驗證與授權](app-service-authentication-overview.md)。
 
@@ -69,7 +69,7 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 
 針對後端服務進行驗證時，App Service 會視您的需求而定，提供兩個不同的機制：
 
-- **服務識別** - 使用應用程式本身的身分識別來登入遠端資源。 App Service 可讓您輕鬆地建立[受控服務識別](app-service-managed-service-identity.md)，將它用來驗證其他服務，例如 [Azure SQL Database](/azure/sql-database/) 或 [Azure Key Vault](/azure/key-vault/)。 如需這個方法的端對端教學課程，請參閱[使用受控服務識別保護來自 App Service 的 Azure SQL Database 連線](app-service-web-tutorial-connect-msi.md)。
+- **服務識別** - 使用應用程式本身的身分識別來登入遠端資源。 App Service 可讓您輕鬆建立[受控識別](app-service-managed-service-identity.md)，以供您用來向其他服務 (例如 [Azure SQL Database](/azure/sql-database/) 或 [Azure Key Vault](/azure/key-vault/)) 進行驗證。 如需這個方法的端對端教學課程，請參閱[使用受控識別保護來自 App Service 的 Azure SQL Database 連線](app-service-web-tutorial-connect-msi.md)。
 - **代表 (OBO)** - 代表使用者進行遠端資源的委派存取。 以 Azure Active Directory 作為驗證提供者，您的 App Service 應用程式可以執行遠端服務的委派登入，例如 [Azure Active Directory 圖形 API](../active-directory/develop/active-directory-graph-api.md)或 App Service 中的遠端 API 應用程式。 如需這個方法的端對端教學課程，請參閱[在 Azure App Service 中端對端驗證和授權使用者](app-service-web-tutorial-auth-aad.md)。
 
 ## <a name="connectivity-to-remote-resources"></a>連線到遠端資源
@@ -80,7 +80,7 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 - [Azure 虛擬網路內的資源](#resources-inside-an-azure-virtual-network)
 - [內部部署資源](#on-premises-resources)
 
-在上述每種情況下，App Service 可讓您進行安全連線，但您仍應會發現安全性最佳作法。 例如，即使後端資源允許未加密的連線，但一律使用加密的連線。 此外，確定您的後端 Azure 服務允許最小一組 IP 位址。 您可以在 [Azure App Service 中的輸入和輸出 IP 位址](app-service-ip-addresses.md)找到您應用程式的輸出 IP 位址。
+在上述每種情況下，App Service 可讓您進行安全連線，但您仍應會發現安全性最佳做法。 例如，即使後端資源允許未加密的連線，但一律使用加密的連線。 此外，確定您的後端 Azure 服務允許最小一組 IP 位址。 您可以在 [Azure App Service 中的輸入和輸出 IP 位址](app-service-ip-addresses.md)找到您應用程式的輸出 IP 位址。
 
 ### <a name="azure-resources"></a>Azure 資源
 
@@ -106,13 +106,13 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 
 請勿將應用程式祕密 (例如資料庫認證、API 權杖和私密金鑰) 存放在您的程式碼或組態檔中。 普遍接受的方法是使用您所選語言的標準模式，將它們當作[環境變數](https://wikipedia.org/wiki/Environment_variable)存取。 在 App Service 中，環境變數是透過[應用程式設定](web-sites-configure.md#app-settings) (以及特別適用於 .NET 應用程式的[連接字串](web-sites-configure.md#connection-strings)) 來定義。 應用程式設定和連接字串都會經過加密並儲存在 Azure 中，而且只會在應用程式啟動時，要插入您應用程式的程序記憶體之前解密。 加密金鑰會定期輪替。
 
-或者，您可以整合 App Service 應用程式與 [Azure Key Vault](/azure/key-vault/)，以便進行進階祕密管理。 App Service 應用程式可以[利用受控服務識別存取 Key Vault](../key-vault/tutorial-web-application-keyvault.md)，安全地存取您所需的祕密。
+或者，您可以整合 App Service 應用程式與 [Azure Key Vault](/azure/key-vault/)，以便進行進階祕密管理。 藉由[利用受控識別存取 Key Vault](../key-vault/tutorial-web-application-keyvault.md)，App Service 應用程式便可安全地存取您所需的祕密。
 
 ## <a name="network-isolation"></a>網路隔離
 
 除了 [隔離式] 定價層，所有定價層都會在 App Service 中的共用網路基礎結構上執行您的應用程式。 例如，公用 IP 位址與前端負載平衡器會與其他租用戶共用。 [隔離式] 定價層可讓您在專屬 [App Service 環境](environment/intro.md)中執行您的應用程式，藉此完成網路隔離。 App Service 環境就會在您擁有的 [Azure 虛擬網路](/azure/virtual-network/)執行個體中執行。 它可讓您： 
 
-- 使用[網路安全性群組](../virtual-network/virtual-networks-nsg.md)來限制網路存取。 
+- 使用[網路安全性群組](../virtual-network/virtual-networks-dmz-nsg.md)來限制網路存取。 
 - 透過具有專屬前端的專屬公用端點來提供您的應用程式。
 - 使用內部負載平衡器 (ILB) 來提供內部應用程式，只允許從 Azure 虛擬網路內部進行存取。 ILB 有來自私人子網路的 IP 位址，這可讓您的應用程式與網際網路完全隔離。
 - [使用 Web 應用程式防火牆 (WAF) 後方的 ILB](environment/integrate-with-application-gateway.md)。 WAF 可為您的公開應用程式提供企業層級保護，例如 DDoS 保護、URI 篩選和 SQL 插入式攻擊的防護。

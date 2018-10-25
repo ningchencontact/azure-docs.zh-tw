@@ -3,24 +3,23 @@ title: Azure 容器執行個體和容器協調流程
 description: 了解 Azure 容器執行個體與容器 Orchestrator 的互動方式。
 services: container-instances
 author: seanmck
-manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 10/05/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: e1455cba004facfa03dca21544eec754f5dc60be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165556"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803506"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure 容器執行個體和容器 Orchestrator
 
 由於規模較小和應用程式方向的緣故，容器很適合用於敏捷式傳遞環境和微服務式架構。 自動執行和管理大量容器以及其互動方式的工作稱為「協調流程」。 熱門容器協調器包括 Kubernetes、DC/OS 和 Docker Swarm。
 
-Azure 容器執行個體提供了一些基本的協調流程平台排程功能。 但未涵蓋這些平台所提供的較高價值服務，因此事實上可與這些平台互補。 本文說明 Azure 容器執行個體所能處理的項目範圍，以及完整的容器 Orchestrator 如何與其互動。
+Azure 容器執行個體提供了一些基本的協調流程平台排程功能。 但未涵蓋這些平台所提供的較高價值服務，因此事實上可與這些平台互補。 此文章說明 Azure 容器執行個體所能處理的項目範圍，以及完整的容器 Orchestrator 如何與其互動。
 
 ## <a name="traditional-orchestration"></a>傳統協調流程
 
@@ -53,18 +52,15 @@ Azure 容器執行個體可提供分層式協調流程方法，提供執行單�
 
 針對長時間執行的穩定工作負載，協調專用虛擬機器叢集中的容器所需的成本，一般會比使用 Azure 容器執行個體來執行相同容器還低。 不過，容器執行個體能提供絕佳的解決方案來快速擴展和收縮整體容量，以處理未預期的使用量或短暫出現的高峰使用量。
 
-Orchestrator 可以直接排程使用 Azure 容器執行個體的其他容器，並在不再需要時加以刪除，而不是相應放大叢集中的虛擬機器數目，然後將其他容器部署至這些電腦。
+Orchestrator 可以直接排程使用 Azure 容器執行個體的其他容器，並在不再需要時將其刪除，而不是相應放大叢集中的虛擬機器數目，然後將其他容器部署至這些電腦。
 
-## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>實作範例：Kubernetes 的 Azure 容器執行個體連接器
+## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>範例實作：Kubernetes 的 Virtual Kubelet
 
-為了示範容器協調流程平台如何與 Azure 容器執行個體整合，我們已開始建置 [Kubernetes 的連接器範例][aci-connector-k8s]。
+[Virtual Kubelet][aci-connector-k8s] 專案示範容器協調流程平台如何與「Azure 容器執行個體」整合。
 
-Kubernetes 的連接器會模擬 [kubelet][kubelet-doc]，方法是註冊為具有無限容量的節點，並將 [Pod][pod-doc] 的建立分派為 Azure 容器執行個體中的容器群組。
+Virtual Kubelet 會模擬 Kubernetes [kubelet][kubelet-doc]，方法是註冊為具有無限容量的節點，並將 [Pod][pod-doc] 的建立分派為「Azure 容器執行個體」中的容器群組。
 
 其他 Orchestrator 的連接器可以同樣方式建置來與平台基本項目整合，以結合 Orchestrator API 的能力與在 Azure 容器執行個體中管理容器的速度和簡便性。
-
-> [!WARNING]
-> Kubernetes 的 ACI 連接器是「實驗性的」，不應用在生產環境中。
 
 ## <a name="next-steps"></a>後續步驟
 

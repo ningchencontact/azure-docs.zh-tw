@@ -1,71 +1,53 @@
 ---
-title: Azure Active Directory B2B 共同作業授權指引 | Microsoft Docs
+title: Azure Active Directory B2B 共同作業授權指導方針 | Microsoft Docs
 description: Azure Active Directory B2B 共同作業不需要 Azure AD 付費授權，但您也可以取得付費功能給 B2B 來賓使用者
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/09/2017
+ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: 1d92f68bbb5e8c001594e4f78f90cb10496aaf29
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: mal
+ms.openlocfilehash: d80794511f334cd6dc5af418e24fc774b7d8728f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984487"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867505"
 ---
-# <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B 共同作業授權指引
+# <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B 共同作業授權指導方針
 
-您可以使用 Azure AD B2B 共同作業功能，將來賓使用者邀請至 Azure AD 租用戶，允許它們存取 Azure AD 服務和貴組織中的其他資源。 如果您不需要讓 B2B 共同作業來賓使用者存取 Azure AD 付費功能，他們就必須獲得適當的 Azure AD 授權。 
+使用 Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業時，您可以邀請「外部使用者」(或「來賓使用者」) 來使用您的付費 Azure AD 服務。 針對您指派給使用者的每個付費 Azure AD 授權，在「外部使用者額度」下，您最多可以邀請 5 位使用者。
 
-具體而言：
-* Azure AD Free 功能可供來賓使用者使用，且無需額外的授權。
-* 如果您需要讓 B2B 使用者存取 Azure AD 付費功能，就必須擁有足夠的授權，以支援這些 B2B 來賓使用者。
-* 具有 Azure AD 付費授權的邀請方租用戶，擁有另外五位受邀加入租用戶之 B2B 來賓使用者的 B2B 共同作業使用權。
-* 擁有邀請方租用戶的客戶，必須決定多少位 B2B 共同作業使用者需要 Azure AD 付費功能。 根據您需要取得給來賓使用者的 Azure AD 付費功能而定，您擁有的 Azure AD 付費授權必須足以涵蓋相同 5:1 比例的 B2B 共同作業使用者。
+來賓使用者係指不是貴組織或貴組織任何關係企業之成員的人員。 來賓使用者會依他們與貴組織的關聯性來定義，而不是依他們用來登入的認證來定義。 事實上，來賓使用者可以使用外部身分識別來登入，也可以使用貴組織所擁有的認證來登入。
 
-會從夥伴公司將 B2B 共同作業來賓使用者新增為使用者，而非貴組織的員工或貴企業集團中不同業務部門的員工。 B2B 來賓使用者可以使用外部認證或貴組織所擁有的認證來登入，如本文中所述。 
+以下使用者「不是」來賓使用者：
+- 您的員工、現場約聘人員或現場代理人員
+- 您關係企業的員工、現場約聘人員或現場代理人員
 
-換句話說，B2B 授權的設定方式並不是依使用者驗證，而是依貴組織使用者的關聯性。 如果這些使用者並非夥伴，就會以不同的授權條款來處理。 不會針對授權用途將它們視為 B2B 共同作業使用者，即使其 UserType 是標示為「來賓」。 它們應以一般方式獲得授權，每個使用者獲得一項授權。 這些使用者包括：
-* 您的員工
-* 使用外部身分識別登入的職員
-* 貴企業集團中不同業務部門的員工
+系統會根據 1:5 的比例來自動計算和回報 B2B 來賓使用者授權。 目前無法直接將 B2B 來賓使用者授權指派給來賓使用者。
 
+在某些情況下，使用 1:5「外部使用者額度」時，不會回報來賓使用者。 如果來賓使用者在自己的組織中已經有付費的 Azure AD 授權，該使用者就不會使用您的 B2B 來賓使用者授權。 此外，來賓使用者無須符合任何額外的授權需求，即可使用免費的 Azure AD 功能。 即使您沒有任何付費的 Azure AD 授權，來賓使用者也可以存取免費的 Azure AD 功能。 
 
-## <a name="licensing-examples"></a>授權範例
-- 客戶想要邀請 100 位 B2B 共同作業使用者加入其 Azure AD 租用戶。 此客戶指派存取管理和佈建給所有使用者，但其中 50 位使用者還需要 MFA 和條件式存取。 此客戶必須購買 10 個 Azure AD Basic 授權及 10 個 Azure AD Premium P1 授權，才能正確地涵蓋這些 B2B 使用者。 如果客戶打算對 B2B 使用者使用「身分識別保護」功能，則他們必須有 Azure AD Premium P2 授權，才能涵蓋同樣 5:1 比例的受邀使用者。
-- 客戶有 10 位目前以 Azure AD「進階 P1」授權的員工。 他們現在想邀請 60 位 B2B 使用者，而這些使用者全部都需多重要素驗證 (MFA)。 依據 5:1 授權規則，此客戶必須至少有 12 個 Azure AD Premium P1 授權，才能涵蓋全部 60 位 B2B 共同作業使用者。 由於他們已經有 10 位員工的 10 個 Premium P1 授權，因此，他們有權使用 Premium P1 功能 (例如 MFA) 來邀請 50 位 B2B 使用者。 所以，在此範例中，他們必須再購買 2 個 Premium P1 授權，才能涵蓋剩餘的 10 位 B2B 共同作業使用者。
+## <a name="examples-calculating-guest-user-licenses"></a>範例：計算來賓使用者授權
+在您判斷出有多少來賓使用者需要存取您的付費 Azure AD 服務之後，請確定您有足夠的 Azure AD 付費授權可涵蓋所需 1:5 比例的來賓使用者。 這裡有一些範例：
 
-> [!NOTE]
-> 尚無法直接將授權指派給 B2B 使用者，以啟用這些 B2B 共同作業使用者權限。
+- 您想要邀請 100 位來賓使用者使用您的 Azure AD 應用程式或服務，並想要對所有來賓使用者指派存取管理和佈建。 此外，您也想要針對這些來賓使用者中的 50 位，要求使用 MFA 和條件式存取。 若要涵蓋這個組合，您將需要 10 個 Azure AD Basic 授權及 10 個 Azure AD Premium P1 授權。 如果您打算對來賓使用者使用「身分識別保護」功能，則需要同樣 1:5 比例的 Azure AD Premium P2 授權，才能這些使用者。
+- 您想要邀請 60 位全都必須使用 MFA 的來賓使用者，因此您必須至少有 12 個 Azure AD Premium P1 授權。 您有 10 個具備 Azure AD Premium P1 授權的員工，在 1:5 授權比例下，這將最多可允許 50 位來賓使用者。 您將需要購買 2 個額外的 Premium P1 授權，才能涵蓋 10 位額外的來賓使用者。
 
-擁有邀請方租用戶的客戶，必須決定多少位 B2B 共同作業使用者需要 Azure AD 付費功能。 根據您想要取得哪些 Azure AD 付費功能給來賓使用者而定，您擁有的 Azure AD 付費授權必須足以涵蓋 5:1 比例的 B2B 共同作業使用者。 
+## <a name="using-the-b2b-collaboration-api-to-invite-users-from-your-affiliates"></a>使用 B2B 共同作業 API 以邀請來自您關係企業的使用者
 
-## <a name="additional-licensing-details"></a>其他授權詳細資料
-- 並不需要將授權實際指派給 B2B 使用者帳戶。 系統會根據 5:1 比例來自動計算和報告授權。
-- 如果租用戶中沒有 Azure AD 付費授權，則每位受邀使用者會獲得 Azure AD Free 版本所提供的權限。
-- 如果 B2B 共同作業使用者已從其組織獲得 Azure AD 付費授權，他就不會取用邀請方租用戶的其中一個 B2B 共同作業授權。
+根據定義，B2B 來賓使用者係指您所邀請來使用付費 Azure AD 應用程式和服務的「外部使用者」。 貴公司或您其中一個關係企業的員工、現場約聘人員或現場代理人員即使使用 B2B 功能，也不符合進行 B2B 共同作業的資格。 這裡有一些範例： 
+- 您想要使用外部認證 (例如社交身分識別) 來邀請身為貴組織員工的使用者。 此案例不符合授權需求規範，因此並不允許。 外部認證並不會讓員工成為「外部使用者」。  
+- 您想要使用 B2B API 來邀請來自您其中一個組織關係企業的使用者。 雖然此案例使用 B2B API 來邀請該使用者，但系統並不會將其視為 B2B 共同作業。 這不符合授權需求，因為來自您關係企業的使用者並不是「外部使用者」。 
 
-## <a name="advanced-discussion-what-are-the-licensing-considerations-when-we-add-users-from-a-conglomerate-organization-as-members-using-your-apis"></a>進階討論：當我們使用您的 API 從某個集團組織新增使用者作為「成員」時，有什麼授權考量？
-B2B 來賓使用者是從合作夥伴組織受邀來與主辦組織共同作業的使用者。 一般而言，任何其他情況都不符合 B2B 資格，即使是使用 B2B 功能也一樣。 讓我們來特別看看兩個案例：
-
-1. 如果主辦組織使用取用者位址來邀請員工
-  * 此情節不符合我們的授權原則，不建議使用。
-
-2. 如果主辦組織從另一個集團組織新增使用者
-  1. 在此案例中是使用 B2B API 來邀請使用者，但此案例不是傳統的 B2B。 在理想情況下，我們應該讓這些組織邀請其他組織使用者作為成員 (我們的 API 允許這麼做)。 在此情況下，必須將授權指派給這些成員，讓他們存取邀請組織中的資源。
-
-  2. 有些組織可能會想要將另一個組織的使用者新增為「來賓」來作為一項原則。 這裡有兩個案例：
-      * 集團組織已經使用 Azure AD 且受邀的使用者已在另一個組織中獲得授權：在此情況下，我們不會預期受邀使用者需依循本文件稍早所配置的 1:5 公式。 
-
-      * 集團組織未使用 Azure AD 或沒有適當的授權：在此情況下，請依循本文件稍早所配置的 1:5 公式。
+在上述兩個案例中，較佳的解決方案是使用 B2B API 來邀請這些使用者作為成員 (invitedUserType = Member)，然後為他們每個人指派 Azure AD 授權。 
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱下列有關 Azure AD B2B 共同作業的文章：
+請參閱下列有關 Azure AD B2B 共同作業的資源：
 
 * [何謂 Azure AD B2B 共同作業？](what-is-b2b.md)
 * [Azure Active Directory B2B 共同作業常見問題 (FAQ)](faq.md)

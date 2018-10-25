@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 71269b4888d1b5c9724248ac91f0818d7f8f5bf5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: c89fa6614afec6b67f4d6445db49efa1e2248cfb
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162350"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430046"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
@@ -109,17 +109,15 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 如需每個資源模型的可用服務層，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)或[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 
-SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的資源使用量，並在 Azure 入口網站中建議適當的集區組態。 除了這些建議之外，內建體驗也會預估伺服器上一組自訂資料庫的 eDTU 使用量。 這可讓您以互動方式將資料庫新增至集區並加以移除，藉此進行「假設」分析，以在認可變更前取得資源使用量分析和大小建議。 如需相關作法，請參閱 [監視、管理和估算彈性集區大小](#monitor-an-elastic-pool-and-its-databases)。
-
 在無法使用工具的情況下，下列步驟可協助您預估集區是否比單一資料庫更符合成本效益：
 
 1. 估計集區所需的 eDTU 或虛擬核心，如下所示：
 
    針對以 DTU 為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>
-   <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
+   <並行尖峰 DB 的數目** X 每個 DB 的尖峰 DTU 使用量**)
 
    針對以虛擬核心為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均虛擬核心使用量>，<br>
-   <*並行尖峰 DB 的數目* X *每個 DB 的尖峰虛擬核心使用量*)
+   <並行尖峰 DB 的數目** X 每個 DB 的尖峰虛擬核心使用量**)
 
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。
 3. 針對以 DTU 為基礎的購買模型，採用步驟 1 和步驟 2 中較大的 eDTU 估計值。 針對以虛擬核心為基礎的購買模型，採用步驟 1 中的虛擬核心估計值。

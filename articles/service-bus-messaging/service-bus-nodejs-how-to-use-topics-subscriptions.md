@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395690"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377628"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何透過 Node.js 使用服務匯流排主題和訂用帳戶
 
@@ -61,7 +61,7 @@ ms.locfileid: "47395690"
    ├── xml2js@0.2.7 (sax@0.5.2)
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
-3. 您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。 在該資料夾內找出 **azure** 封裝，其中含有存取服務匯流排主題所需的程式庫。
+3. 您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。 在該資料夾內找出 **azure** 套件，其中含有存取服務匯流排主題所需的程式庫。
 
 ### <a name="import-the-module"></a>匯入模組
 使用記事本或其他文字編輯器將以下內容新增至應用程式 **server.js** 檔案的頂端：
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>設定服務匯流排連接
 Azure 模組會讀取環境變數 `AZURE_SERVICEBUS_CONNECTION_STRING`，以取得您從先前步驟＜取得認證＞所取得的連接字串。 如未設定此環境變數，必須在呼叫 `createServiceBusService` 時指定帳戶資訊。
 
-如需在 Azure 雲端服務的環境變數設定範例，請參閱[使用儲存體的 Node.js 雲端服務][Node.js Cloud Service with Storage]。
+如需在 Azure 雲端服務的環境變數設定範例，請參閱[設定環境變數](../container-instances/container-instances-environment-variables.md#azure-cli-example)。
 
 
 
@@ -242,7 +242,7 @@ var rule={
 傳送至服務匯流排主題的訊息是 **BrokeredMessage** 物件。
 **BrokeredMessage** 物件具有一組標準屬性 (例如 `Label` 和 `TimeToLive`)、一個用來保存自訂應用程式特定屬性的字典，以及一堆字串資料。 應用程式能將字串值傳遞至 `sendTopicMessage` 以設定訊息本文，系統會將預設值填入任何需要的標準屬性中。
 
-下列範例說明如何將五個測試訊息傳送至 `MyTopic`。 迴圈反覆運算上每個訊息的 `messagenumber` 屬性值會有變化 (這可判斷接收訊息的訂用帳戶為何)：
+下列範例說明如何將五個測試訊息傳送至 `MyTopic`。 迴圈反覆運算上每個訊息的 `messagenumber` 屬性值會有變化 (這個屬性可判斷接收訊息的訂用帳戶為何)：
 
 ```javascript
 var message = {
@@ -268,7 +268,7 @@ for (i = 0;i < 5;i++) {
 ## <a name="receive-messages-from-a-subscription"></a>自訂用帳戶接收訊息
 對於 **ServiceBusService** 物件使用 `receiveSubscriptionMessage` 方法即可從訂用帳戶接收訊息。 依預設，讀取訊息後，訊息便會從訂用帳戶中刪除。 不過，您可以將選用參數 `isPeekLock` 設為 **true**，來讀取 (查看) 並鎖定訊息，避免從訂用帳戶中刪除訊息。
 
-隨著接收作業讀取及刪除訊息之預設行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解此行為，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排已將訊息標示為已取用，所以，當應用程式重新啟動並開始重新取用訊息時，它會遺漏當機前已取用的訊息。
+隨著接收作業讀取及刪除訊息的預設行為是最簡單的模型，且最適合可容許在發生失敗時，不處理訊息的應用程式案例。 若要了解此行為，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排已將訊息標示為已取用，所以，當應用程式重新啟動並開始重新取用訊息時，它會遺漏當機前已取用的訊息。
 
 如果您將 `isPeekLock` 參數設為 **true**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。
 在應用程式處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 **deleteMessage** 方法完成接收程序的第二個階段，並以參數形式傳遞要刪除的訊息。 **deleteMessage** 方法會將訊息標示為已取用，並將其從訂用帳戶中移除。

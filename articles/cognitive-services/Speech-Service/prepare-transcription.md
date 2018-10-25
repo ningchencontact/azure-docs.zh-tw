@@ -1,20 +1,21 @@
 ---
 title: 語音服務訓練的轉譯指導方針
+titleSuffix: Azure Cognitive Services
 description: 了解如何準備文字，針對語音服務自訂原音和語言模型以及語音字型。
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721805"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467730"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>使用語音服務的轉譯指導方針
 

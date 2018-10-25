@@ -1,20 +1,21 @@
 ---
-title: 知識探索服務 API 中的 CalcHistogram 方法 | Microsoft Docs
-description: 了解如何在認知服務的知識探索服務 (KES) API 中使用 CalcHistogram 方法。
+title: CalcHistogram 方法 - 知識探索服務 API
+titlesuffix: Azure Cognitive Services
+description: 了解如何知識探索服務 (KES) API 中使用 CalcHistogram 方法。
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6ed694b0cc9cf41b815cc54b9f6d12adb2b7cd64
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0ca43d6f6879198b8f80794c1948439e15f312ad
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368003"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122751"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram 方法
 calcHistogram 方法會計算與結構化查詢運算式相符的物件，並計算其屬性值的分佈。
@@ -22,7 +23,7 @@ calcHistogram 方法會計算與結構化查詢運算式相符的物件，並計
 ## <a name="request"></a>要求
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-Name|值|說明
+名稱|值|說明
 ----|-----|-----------
 expr | 文字字串 | 結構化查詢運算式，用來指定用於計算長條圖的索引實體。
 屬性 | 文字字串 (預設值 = "") | 回應中所要包含屬性的逗號分隔清單。

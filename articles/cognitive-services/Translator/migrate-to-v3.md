@@ -1,37 +1,38 @@
 ---
-title: Microsoft Translator Text API - 移轉至 V3 | Microsoft Docs
+title: 移轉至 V3 - 翻譯工具文字 API
+titlesuffix: Azure Cognitive Services
 description: 了解如何將 Translator Text API 從 V2 移轉至 V3。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 16fec351af5b5b3875657ee244c18f305311d965
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370243"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128174"
 ---
-# <a name="microsoft-translator-text-api-v2-to-v3-migration"></a>Microsoft Translator Text API V2 到 V3 的移轉
+# <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 到 V3 的移轉
 
-Microsoft Translator 團隊已發行第 3 版 (V3) 的文字翻譯 API。 本版包含對 Microsoft Translator 服務傳送和接收資料的新功能、汰用方法和新格式。 本文件提供將應用程式變更為使用 V3 的資訊。 V2 將在 2018 年 4 月 30 日被取代，並將於 2019 年 4 月 30 日中止。
+Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 本版包含對 Microsoft Translator 服務傳送和接收資料的新功能、汰用方法和新格式。 本文件提供將應用程式變更為使用 V3 的資訊。 V2 將在 2018 年 4 月 30 日被取代，並將於 2019 年 4 月 30 日中止。
 
 本文件結尾處包含多個有用的連結，以供您深入了解。
 
 ## <a name="summary-of-features"></a>功能摘要
 
-* 無追蹤 - 在 V3 中，Azure 入口網站中的所有定價層都會套用「無追蹤」。 這表示 Microsoft 將不會儲存任何提交至 V3 API 的文字。
+* 無追蹤 - 在 V3 中，Azure 入口網站中的所有定價層都會套用「無追蹤」。 此功能表示 Microsoft 將不會儲存任何提交至 V3 API 的文字。
 * JSON - XML 已由 JSON 取代。 所有傳送至服務和從服務接收的資料均採用 JSON 格式。
 * 單一要求中的多目標語言 -「翻譯」方法可接受在單一要求中使用多個翻譯「目標」語言。 例如，單一要求可用英文作為「來源」語言，並以德文、西班牙文和日文或其他任何語言群組作為「目標」語言。
 * 雙語字典 - API 中新增了雙語字典方法。 此方法包含「查閱」和「範例」。
 * 音譯 - API 中新增了音譯方法。 此方法會將一個指令碼中的字組和句子 (例如 阿拉伯文) 轉換為另一個指令碼 (例如 拉丁文)。
 * 語言 - 新的「語言」方法提供 JSON 格式的語言資訊，可與「翻譯」、「字典」和「音譯」等方法搭配使用。
 * 新的翻譯功能 - 「翻譯」方法中新增了新功能，用以支援在 V2 API 中作為個別方法的某些功能。 例如，TranslateArray 就是其中之一。
-* 口語方法 - Microsoft Translator API 已不再支援文字轉語音功能。 文字轉語音功能可在 Microsoft Azure 認知服務 Bing 語音 API 中使用。
+* 口語方法 - Microsoft Translator API 已不再支援文字轉語音功能。 文字轉語音功能可在 Azure 認知服務 Bing 語音 API 中使用。
 
 下列 V2 和 V3 方法清單列出將提供 V2 隨附功能的 V3 方法和 API。
 
@@ -103,9 +104,9 @@ Microsoft Translator V3 的定價方式與 V2 相同，即依字元計價，包�
 
 ## <a name="customization"></a>自訂
 
-Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，它無法與僅支援傳統統計機器翻譯的 Microsoft Translator Hub 搭配使用。 類神經翻譯現在已可使用自訂翻譯工具進行自訂。 [深入了解如何自訂類神經機器翻譯](customization.md)
+Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，無法搭配 Microsoft Translator Hub 使用。 Translator Hub 僅支援傳統統計機器翻譯。 類神經翻譯現在已可使用自訂翻譯工具進行自訂。 [深入了解如何自訂類神經機器翻譯](customization.md)
 
-使用 V3 文字 API 的類神經翻譯不支援使用標準類別 (smt、語音、文字、generalnn)。
+使用 V3 文字 API 的類神經翻譯不支援使用標準類別 (SMT、語音、文字、generalnn)。
 
 
 ## <a name="links"></a>連結

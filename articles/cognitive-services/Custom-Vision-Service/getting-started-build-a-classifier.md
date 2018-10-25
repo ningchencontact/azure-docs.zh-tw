@@ -1,20 +1,21 @@
 ---
-title: 使用自訂視覺服務建置分類器 - Azure 認知服務 | Microsoft Docs
+title: 建置分類器 - 自訂視覺服務
+titlesuffix: Azure Cognitive Services
 description: 了解如何使用自訂視覺服務來建立分類器，以分辨相片中的物件。
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223364"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364229"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>如何使用自訂視覺建置分類器
 

@@ -4,7 +4,7 @@ description: 了解如何在 Azure App Service Web 應用程式、API 應用程�
 services: app-service
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2017
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: c3a41733dd193d10349a0126bfa9c25ce4ba56e7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.date: 10/16/2018
+ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577672"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364025"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure App Service 中使用 WebJob 執行背景工作
 
@@ -44,7 +44,7 @@ Azure Functions 提供另一種方式來執行程式和指令碼。 如需 WebJo
 | 支援遠端偵錯。 | 不支援遠端偵錯。|
 
 > [!NOTE]
-> Web 應用程式會在 20 分鐘沒有活動之後逾時。 只有對 scm (部署) 網站或入口網站中 Web 應用程式之分頁的要求，才會重設計時器。 對實際網站的要求不會重設計數器。 如果您的應用程式執行連續或已排程的 WebJob，請啟用 [永遠開啟]，確保 Webjob 會可靠地執行。 這項功能僅適用於基本、標準和進階[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+> Web 應用程式會在 20 分鐘沒有活動之後逾時。 只有對實際 Web 應用程式所提出的要求會重設計時器。 在 Azure 入口網站中檢視應用程式的組態，或者對進階工具網站 (https://<app_name>.scm.azurewebsites.net) 提出要求，並不會重設計時器。 如果您的應用程式執行連續或已排程的 WebJob，請啟用 [永遠開啟]，確保 Webjob 會可靠地執行。 這項功能僅適用於基本、標準和進階[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 ## <a name="acceptablefiles"></a>指令碼或程式支援的檔案類型
 

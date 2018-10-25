@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 的更新管理部署上設定前置和後置指令碼 (預覽)
-description: 本文將說明如何設定及管理更新部署的前置和後置指令碼
+description: 此文章將說明如何設定及管理更新部署的前置和後置指令碼
 services: automation
 ms.service: automation
 ms.component: update-management
@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c906a771a63b3d8320eab1d2d57e8c34916e1d39
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1c5bcca2571ffee9e1c20f0b7d2608b62c962177
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433187"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815336"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>管理前置和後置指令碼 (預覽)
 
-透過前置和後置指令碼，您可以在更新部署的之前 (前置工作) 和之後 (後置工作)，於自動化帳戶中執行 PowerShell Runbook。 前置和後置指令碼會在 Azure 環境中執行，而不是在本機執行。
+透過前置和後置指令碼，您可以在更新部署的之前 (前置工作) 和之後 (後置工作)，於自動化帳戶中執行 PowerShell Runbook。 前置和後置指令碼會在 Azure 環境中執行，而不是在本機執行。 前置指令碼會在更新部署開始時執行。 後置指令碼會在部署結束時及在已設定的任何重新啟動之後執行。
 
 ## <a name="runbook-requirements"></a>Runbook 需求
 
@@ -225,7 +225,7 @@ if ($summary.Type -eq "Error")
 
 ## <a name="next-steps"></a>後續步驟
 
-繼續進行本教學課程，以了解如何管理 Windows 虛擬機器的更新。
+繼續進行此教學課程，以了解如何管理 Windows 虛擬機器的更新。
 
 > [!div class="nextstepaction"]
 > [管理 Azure Windows VM 的更新和修補程式](automation-tutorial-update-management.md)

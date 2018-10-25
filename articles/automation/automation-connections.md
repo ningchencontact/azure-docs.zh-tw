@@ -1,6 +1,6 @@
 ---
 title: Azure 自動化中的連接資產
-description: Azure 自動化中的連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。 這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式加以使用。
+description: Azure 自動化中的連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。 這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式使用它們。
 services: automation
 ms.service: automation
 ms.component: shared-capabilities
@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d9dbf816d4fd0d9f6044ebeea9a23a60adcc5bc8
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919097"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044598"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -45,7 +45,7 @@ ms.locfileid: "42919097"
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|取得要使用的連接。 傳回具有連線屬性的雜湊表。|
 
 >[!NOTE] 
->您應該避免在 **Get-AutomationConnection** 的 -Name 參數使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與連接資產之間的相依性變得複雜。
+>您應該避免在 **Get-AutomationConnection** 的 -Name 參數使用變數，因為這可能使得在設計階段探索 Runbook 或 DSC 設定與連線資產之間的相依性變得複雜。
 
  
 ## <a name="python2-functions"></a>Python2 函式 
@@ -84,7 +84,7 @@ New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAcc
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 設定中使用連接
 
-您會使用 **Get-AutomationConnection** Cmdlet 在 Runbook 或 DSC 設定中擷取連接。  您不能使用 [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) 活動。  這個活動會擷取連接中不同欄位的值，並傳回其作為 [雜湊表](http://go.microsoft.com/fwlink/?LinkID=324844) ，然後可以與 Runbook 或 DSC 設定中的適當命令搭配使用。
+您會使用 **Get-AutomationConnection** Cmdlet 在 Runbook 或 DSC 設定中擷取連接。  您不能使用 [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) 活動。  這個活動會擷取連接中不同欄位的值，並傳回它們作為[雜湊表](http://go.microsoft.com/fwlink/?LinkID=324844)，然後可以搭配 Runbook 或 DSC 設定中的適當命令使用。
 
 ### <a name="textual-runbook-sample"></a>文字式 Runbook 範例
 

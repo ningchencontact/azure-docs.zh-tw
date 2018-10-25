@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604211"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343640"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack 防火牆整合
 建議您使用防火牆裝置來協助保護 Azure Stack 安全。 雖然防火牆有助於防堵分散式阻斷服務 (DDOS) 攻擊、入侵偵測及內容檢查等，但也會成為 Azure 儲存體服務 (例如 Blob、資料表及佇列) 的輸送量瓶頸。

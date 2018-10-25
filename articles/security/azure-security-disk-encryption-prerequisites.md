@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348271"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498584"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁碟加密的先決條件 
  ＜Azure 磁碟加密的先決條件＞這篇文章會說明要先備妥才能使用 Azure 磁碟加密的項目。 Azure 磁碟加密會與 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) 整合，以協助管理加密金鑰。 您可以使用 [Azure PowerShell](/powershell/azure/overview)、[Azure CLI](/cli/azure/)或 [Azure 入口網站](https://portal.azure.com)來設定 Azure 磁碟加密。
@@ -67,7 +67,7 @@ ms.locfileid: "44348271"
     - [安裝並設定適用於 Windows 的 Azure PowerShell](/powershell/azure/install-azurerm-ps)。 
         - 安裝 PowerShellGet、Azure PowerShell，並載入 AzureRM 模組。 
     - [在 macOS 與 Linux 上安裝和設定 Azure PowerShell](/powershell/azure/install-azurermps-maclinux)。
-        -  安裝 PowerShell Core、Azure PowerShell for .NET Core，並載入 AzureRM.Netcore 模組。
+        -  安裝 .NET Core 版本之 PowerShell Core 和 Azure PowerShell，並載入 Az 模組。
 
 2. 確認已安裝的 AzureRM 模組版本。 如有需要，[更新 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module)。
     -  AzureRM 模組版本必須是 6.0.0 或更新版本。
@@ -127,6 +127,9 @@ ms.locfileid: "44348271"
 1. 如有需要，請建立資源群組。
 2. 建立金鑰保存庫。 
 3. 設定金鑰保存庫進階存取原則。
+
+>[!WARNING]
+>在刪除金鑰保存庫之前，確保您並未使用該金鑰加密任何既有的虛擬機器。 若要防止意外刪除金鑰保存庫，可在保存庫啟用[虛刪除](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete)和[資源鎖定](../azure-resource-manager/resource-group-lock-resources.md)。 
  
 ## <a name="bkmk_KeyVault"></a> 建立金鑰保存庫 
 Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) 整合，協助您控制及管理金鑰保存庫訂用帳戶中的磁碟加密金鑰與祕密。 針對 Azure 磁碟加密，您可以建立金鑰保存庫，也可以使用現有保存庫。 如需金鑰保存庫的詳細資訊，請參閱[開始使用 Azure Key Vault](../key-vault/key-vault-get-started.md) 和[保護金鑰保存庫](../key-vault/key-vault-secure-your-key-vault.md)。 您可以使用 Resource Manager 範本、Azure PowerShell 或 Azure CLI 來建立金鑰保存庫。 

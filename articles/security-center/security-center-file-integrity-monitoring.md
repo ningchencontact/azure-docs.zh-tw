@@ -1,27 +1,27 @@
 ---
-title: Azure 資訊安全中心的檔案完整性監視 (預覽) | Microsoft Docs
+title: Azure 資訊安全中心的檔案完整性監視 | Microsoft Docs
 description: " 了解如何在 Azure 資訊安全中心啟用檔案完整性監視。 "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
-ms.author: terrylan
-ms.openlocfilehash: 722a4fd11f35f04ed22d73638f07d15c49ea3c26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161831"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124111"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Azure 資訊安全中心的檔案完整性監視 (預覽)
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的檔案完整性監視
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定檔案完整性監視 (FIM)。
 
 ## <a name="what-is-fim-in-security-center"></a>何謂資訊安全中心的 FIM？
@@ -182,6 +182,14 @@ FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量
   ![將 [已啟用] 設定為 False][19]
 
 6. 選取 [ **儲存**]。
+
+## <a name="folder-and-path-monitoring-using-wildcards"></a>使用萬用字元監視資料夾與路徑
+
+您可以使用萬用字元來簡化跨目錄的追蹤。 當您使用萬用字元設定資料夾監視時，適用下列規則：
+-   追蹤多個檔案時需要萬用字元。
+-   萬用字元只能用於路徑的最後一個區段，例如 C:\folder\file or /etc/*.conf
+-   如果環境變數包含的路徑無效，驗證仍會成功，但執行清查時，該路徑將會失敗。
+-   設定路徑時，請避免使用一般路徑，例如 c:\*.*，因為這會導致過多的資料夾周遊。
 
 ## <a name="disable-fim"></a>停用 FIM
 您可以停用 FIM。 FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更。 您可以停用 FIM，從所選工作區移除變更追蹤解決方案。

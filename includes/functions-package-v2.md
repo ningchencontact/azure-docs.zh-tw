@@ -2,19 +2,19 @@
 title: 包含檔案
 description: 包含檔案
 services: functions
-author: tdykstra
-manager: cfowler
+author: ggailey777
+manager: jeconnoc
 ms.service: functions
 ms.topic: include
-ms.date: 05/23/2018
-ms.author: tdykstra
+ms.date: 09/04/2018
+ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 5a818bf4078ce9cf38aa83e4af252eacf6e49982
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3320422396148cad3252c0e834e903b3853a9671
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38738942"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48812176"
 ---
 下表說明如何在每個開發環境中為此繫結新增支援。
 
@@ -23,3 +23,5 @@ ms.locfileid: "38738942"
 |本機開發 - C# 類別庫       | [安裝套件](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) |
 |本機開發 - C# 指令碼、JavaScript、F# |[註冊擴充功能](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools)         |
 |入口網站開發| [自動](../articles/azure-functions/functions-triggers-bindings.md#azure-portal-development)    |
+
+若要了解如何在不重新發行您的函數應用程式專案的情況下在入口網站中更新現有的繫結延伸模組，請參閱[更新您的延伸模組](../articles/azure-functions/install-update-binding-extensions-manual.md)。

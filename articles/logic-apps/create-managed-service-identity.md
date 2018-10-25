@@ -1,6 +1,6 @@
 ---
-title: 存取並驗證而不登入 - Azure Logic Apps | Microsoft Docs
-description: 建立受控識別，讓您的邏輯應用程式不需要您的認證，就能驗證並存取其他 Azure Active Directory (Azure AD) 租用戶中的資源
+title: 使用受控識別進行驗證 - Azure Logic Apps | Microsoft Docs
+description: 若要進行驗證而不登入，您可以建立受控識別 (先前稱為「受控服務識別」或 MSI)，讓您的邏輯應用程式可以存取其他 Azure Active Directory (Azure AD) 租用戶中的資源，而不使用認證或祕密
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
@@ -8,40 +8,40 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: fb1c31e6e7c075e20191a4e51d7b1a9323f3b979
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/05/2018
+ms.openlocfilehash: 2964869933dd096b96e892cf08b8d4b66a8f210c
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973961"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817053"
 ---
-# <a name="access-resources-and-authenticate-as-managed-identities-in-azure-logic-apps"></a>存取資源並在 Azure Logic Apps 中以受控識別的方式驗證
+# <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
-若要存取其他 Azure Active Directory (Azure AD) 租用戶中的資源並驗證您的身分識別而不登入，您可以建立邏輯應用程式使用的[受控識別](../active-directory/managed-identities-azure-resources/overview.md)而不使用您的認證。 Azure 會為您管理此身分識別，並協助保護您的認證，因為您不需要提供或輪替使用祕密。 此文章說明如何為您的邏輯應用程式建立並使用受控識別。 如需詳細資訊，請參閱[管理 Azure 資源的身分識別](../app-service/app-service-managed-service-identity.md)。
+若要存取其他 Azure Active Directory (Azure AD) 租用戶中的資源並驗證您的身分識別而不登入，您的邏輯應用程式可以使用[受控識別](../active-directory/managed-identities-azure-resources/overview.md) (先前稱為「受控服務識別」或 MSI)，而不使用認證或祕密。 Azure 會為您管理此身分識別，並協助保護您的認證，因為您不需要提供或輪替使用祕密。 此文章示範如何為您的邏輯應用程式建立並使用系統指派的受控識別。 如需受控識別的詳細資訊，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
-> 先前稱為「受控服務識別」(MSI) 的服務，其新名稱為「適用於 Azure 資源的受控識別」。
+> 您目前最多可擁有 10 個邏輯應用程式工作流程，而且每個 Azure 訂用帳戶中具有系統指派的受控識別。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶，或如果沒有訂用帳戶，您可以<a href="https://azure.microsoft.com/free/" target="_blank">免費註冊 Azure 帳戶</a>。
 
-* 您要在其中使用受控識別的邏輯應用程式。 如果您沒有邏輯應用程式，請參閱[建立第一個邏輯應用程式工作流程](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+* 您要在其中使用系統指派之受控識別的邏輯應用程式。 如果您沒有邏輯應用程式，請參閱[建立第一個邏輯應用程式工作流程](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 <a name="create-identity"></a>
 
 ## <a name="create-managed-identity"></a>建立受控識別
 
-您可以透過 Azure 入口網站、Azure Resource Manager 範本或 Azure PowerShell 來為您的邏輯應用程式建立或啟用受控識別。 
+您可以透過 Azure 入口網站、Azure Resource Manager 範本或 Azure PowerShell，來為您的邏輯應用程式建立或啟用系統指派的受控識別。 
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要透過 Azure 入口網站為您的邏輯應用程式建立受控識別，請在邏輯應用程式的工作流程設定中開啟 [向 Azure Active Directory 註冊] 設定。
+若要透過 Azure 入口網站為您的邏輯應用程式啟用系統指派的受控識別，請在邏輯應用程式的工作流程設定中開啟 [向 Azure Active Directory 註冊] 設定。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-1. 請遵循下列步驟： 
+1. 依照下列步驟執行： 
 
    1. 在邏輯應用程式功能表的 [設定] 下，選取 [工作流程設定]。 
 
@@ -52,29 +52,27 @@ ms.locfileid: "46973961"
 
       ![開啟受控識別設定](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-      Azure 現在針對您邏輯應用程式的受控識別顯示這些屬性和值：
+      您的邏輯應用程式現在已在 Azure Active Directory 中，使用下列屬性和值來註冊系統指派的受控識別：
 
       ![主體識別碼與租用戶識別碼的 GUID](./media/create-managed-service-identity/principal-tenant-id.png)
 
       | 屬性 | 值 | 說明 | 
       |----------|-------|-------------| 
-      | **主體識別碼** | <*principal-ID-GUID*> | 代表 Azure AD 租用戶中之邏輯應用程式的全域唯一識別碼 (GUID) | 
-      | **租用戶識別碼** | <*Azure-AD-tenant--ID-GUID*> | 代表您的邏輯應用程式已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
+      | **主體識別碼** | <*principal-ID*> | 代表 Azure AD 租用戶中之邏輯應用程式的全域唯一識別碼 (GUID) | 
+      | **租用戶識別碼** | <*Azure-AD-tenant-ID*> | 代表您的邏輯應用程式已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
       ||| 
 
 ### <a name="deployment-template"></a>部署範本
 
-若要將建立並部署邏輯應用程式等資源的作業自動化，您可以設定 Azure Resource Manager 範本。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本建立並部署邏輯應用程式](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)。 
-
-若要透過範本為您的邏輯應用程式建立受控識別，請在部署範本中將 **identity** 元素與 **type** 屬性新增到您的邏輯應用程式工作流程定義。 設些設定表示 Azure 會為您建立並管理這些身分識別：
+當您想要自動建立並部署邏輯應用程式之類的 Azure 資源，您可以使用 [Azure Resource Manager 範本](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)。 若要透過範本為您的邏輯應用程式建立系統指派的受控識別，請在部署範本中將 `"identity"` 元素與 `"type"` 屬性新增到您的邏輯應用程式工作流程定義： 
 
 ```json
 "identity": {
-    "type": "SystemAssigned"
+   "type": "SystemAssigned"
 }
 ```
 
-例如，您的邏輯應用程式可能看起來像這個版本：
+例如︰
 
 ```json
 {
@@ -88,14 +86,14 @@ ms.locfileid: "46973961"
    "properties": { 
       "definition": { 
          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#", 
-          "actions": {}, 
-          "parameters": {}, 
-          "triggers": {}, 
-          "contentVersion": "1.0.0.0", 
-          "outputs": {} 
-     }, 
-     "parameters": {}, 
-     "dependsOn": [] 
+         "actions": {}, 
+         "parameters": {}, 
+         "triggers": {}, 
+         "contentVersion": "1.0.0.0", 
+         "outputs": {} 
+   }, 
+   "parameters": {}, 
+   "dependsOn": [] 
 }
 ```
 
@@ -103,25 +101,50 @@ ms.locfileid: "46973961"
 
 ```json
 "identity": {
-    "type": "SystemAssigned",
-    "principalId": "<principal-ID-GUID>",
-    "tenantId": "<Azure-AD-tenant-ID>-GUID"
+   "type": "SystemAssigned",
+   "principalId": "<principal-ID>",
+   "tenantId": "<Azure-AD-tenant-ID>"
 }
 ```
 
 | 屬性 | 值 | 說明 | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID-GUID*> | 代表 Azure AD 租用戶中之邏輯應用程式的全域唯一識別碼 (GUID) | 
-| tenantId | <*Azure-AD-tenant--ID-GUID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
+| **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中之邏輯應用程式的全域唯一識別碼 (GUID) | 
+| tenantId | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
 ||| 
 
 <a name="access-other-resources"></a>
 
 ## <a name="access-resources-with-managed-identity"></a>使用受控識別存取資源
 
-當您為您的邏輯應用程式建立受控識別之後，您可以[將該身分識別存取提供給其他資源](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md)。 您可以將該受控識別用於驗證，就像其他[服務主體](../active-directory/develop/app-objects-and-service-principals.md)一樣。 
+當您為邏輯應用程式建立系統指派的受控識別之後，您可以[將該身分識別存取權提供給其他 Azure 資源](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md)。 您接著可將該身分識別用於驗證，就像任何其他[服務主體](../active-directory/develop/app-objects-and-service-principals.md)一樣。 
 
-例如，假設您已經設定一個有受控識別與其他資源之存取權的邏輯應用程式。 您現在可以新增 HTTP 動作，讓您的邏輯應用程式可以傳送 HTTP 要求或呼叫該資源。 
+> [!NOTE]
+> 系統指派的受控識別與您要指派存取權的資源必須有相同的 Azure 訂用帳戶。
+
+### <a name="assign-access-to-managed-identity"></a>將存取權指派給受控識別
+
+若要針對邏輯應用程式的系統指派受控識別提供另一個 Azure 資源的存取權，請依照下列步驟執行：
+
+1. 在 Azure 入口網站中，移至您想要針對受控識別指派存取權的 Azure 資源。 
+
+1. 從資源的功能表中，選取 [存取控制 (IAM)]，然後選擇 [新增]。 
+
+   ![新增權限](./media/create-managed-service-identity/add-permissions-logic-app.png)
+
+1. 在 [新增權限] 下方，選取要用於身分識別的**角色**。 
+
+1. 在 [存取權指派對象為] 屬性中，選取 [Azure AD 使用者、群組或應用程式] (如果尚未選取)。
+
+1. 在 [選取] 方塊中，從邏輯應用程式名稱中的第一個字元開始，輸入邏輯應用程式的名稱。 當您的邏輯應用程式出現時，選取該邏輯應用程式。
+
+   ![使用受控識別選取邏輯應用程式](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
+
+1. 完成之後，請選擇 [儲存]。
+
+### <a name="authenticate-with-managed-identity-in-logic-app"></a>在邏輯應用程式中使用受控識別進行驗證
+
+當您使用系統指派的受控識別和指派給您想要用於該身分識別之資源的存取權來設定邏輯應用程式之後，您現在可以使用該身分識別進行驗證。 例如，您可以使用 HTTP 動作，讓您的邏輯應用程式可以傳送 HTTP 要求或呼叫該資源。 
 
 1. 在您的邏輯應用程式中，新增 **HTTP** 動作。 
 
@@ -139,7 +162,7 @@ ms.locfileid: "46973961"
 
 ## <a name="remove-managed-identity"></a>移除受控識別
 
-若要在您的邏輯應用程式上停用受控識別，您可以依照透過 Azure 入口網站、Azure Resource Manager 部署範本或 Azure PowerShell 建立身分識別的類似步驟來停用。 
+若要在您的邏輯應用程式上停用系統指派的受控識別，您可以依照透過 Azure 入口網站、Azure Resource Manager 部署範本或 Azure PowerShell 建立身分識別的類似步驟來停用。 
 
 當您刪除邏輯應用程式時，Azure 會自動將您邏輯應用程式的系統指派身分識別從 Azure AD 移除。
 
@@ -159,11 +182,11 @@ ms.locfileid: "46973961"
 
 ### <a name="deployment-template"></a>部署範本
 
-如果您是使用 Azure Resource Manager 部署範本建立邏輯應用程式的受控識別，請將 `"identity"` 元素的 `"type"` 屬性設定為 `"None"`。 這個動作也會將主體識別碼從 Azure AD 刪除。 
+如果您已使用 Azure Resource Manager 部署範本來建立邏輯應用程式的系統指派受控識別，請將 `"identity"` 元素的 `"type"` 屬性設定為 `"None"`。 這個動作也會將主體識別碼從 Azure AD 刪除。 
 
 ```json
 "identity": {
-    "type": "None"
+   "type": "None"
 }
 ```
 
@@ -171,3 +194,4 @@ ms.locfileid: "46973961"
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
 * 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+

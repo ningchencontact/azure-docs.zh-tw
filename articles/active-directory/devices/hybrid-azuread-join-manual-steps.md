@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 33fc8a3822def68cc0baad4670233f57044d1985
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352792"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408402"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定混合式 Azure Active Directory 已加入裝置 
 

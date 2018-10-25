@@ -10,12 +10,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1297881373943143578695490531d147d7f5523d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 798960f30ae13f42c0198cf4bf63412192edc63e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115317"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429825"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>使用雲端中的自動化機器學習來將模型定型
 
@@ -110,7 +110,7 @@ def get_data():
 
 ## <a name="configure-experiment"></a>設定實驗
 
-指定 `AutoMLConfig` 的設定。  (請參閱[完整參數清單]()及其可能值。)
+指定 `AutoMLConfig` 的設定。  (請參閱[完整參數清單](how-to-configure-auto-train.md#configure-experiment)及其可能值。)
 
 在這些設定中，`run_configuration` 會設定為 `run_config` 物件，其中包含 DSVM 的設定和組態。  
 
@@ -141,7 +141,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## <a name="submit-training-experiment"></a>提交定型實驗
 
-現在提交設定以自動選取演算法、超參數，並訓練模型。 (了解 `submit` 方法的[設定詳細資訊]()。)
+現在提交設定以自動選取演算法、超參數，並訓練模型。
 
 ```python
 from azureml.core.experiment import Experiment

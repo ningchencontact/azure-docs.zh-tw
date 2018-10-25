@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/1/2018
+ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 998f35c8957b63d73d7a3d15be76711198fa4833
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745702"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717670"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
@@ -33,9 +33,9 @@ ms.locfileid: "42745702"
 1. 在 [入口網站](https://portal.azure.com) 中，選取 **監視**。 [監視] 刀鋒視窗會將所有監視設定和資料合併在一個檢視中。
 
     ![監視」服務](./media/monitoring-action-groups/home-monitor.png)
-1. 在 [設定] 區段上，選取 [動作群組]。
+1. 選取 [警示]，然後選取 [管理動作群組]。
 
-    ![使用 [動作群組] 索引標籤](./media/monitoring-action-groups/action-groups-blade.png)
+    ![[管理動作群組] 按鈕](./media/monitoring-action-groups/manage-action-groups.png)
 1. 選取 [新增動作群組]，並填寫各欄位。
 
     ![「新增動作群組」命令](./media/monitoring-action-groups/add-action-group.png)
@@ -83,6 +83,7 @@ ms.locfileid: "42745702"
 
 <dt>Runbook</dt>
 <dd>您在動作群組中最多可擁有 10 個 Runbook 動作</dd>
+<dd>請參閱 [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md)，了解 Runbook 承載的限制</dd>
 
 <dt>簡訊</dt>
 <dd>您在動作群組中最多可擁有 10 個簡訊動作</dd>
@@ -96,6 +97,17 @@ ms.locfileid: "42745702"
 <dt>Webhook</dt>
 <dd>您在動作群組中最多可擁有 10 個 Webhook 動作
 <dd>重試邏輯：回應的逾時期限為 10 秒。 傳回下列 HTTP 狀態碼或 HTTP 端點未回應時，最多會重試 2 次 Webhook 呼叫：408、429、503、504。 第一次重試會在 10 秒後執行。 第二次和最後一次重試會在 100 秒後執行。</dd>
+<dd>來源 IP 位址範圍
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+若要接收與這些 IP 位址的變更有關的更新，建議您設定[服務健康狀態警示](./monitoring-service-notifications.md)，這會監視動作群組服務的資訊通知。
+</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>管理您的動作群組 ##

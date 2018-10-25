@@ -11,37 +11,35 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 5f0e5de7503d06d1aff319434d763d3b034053b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 12074ad28e27a249a6dc378986f014ede1cd2ab3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166349"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353574"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制
 
 本文使用以虛擬核心為基礎的購買模型，提供 Azure SQL Database 單一資料庫的詳細資源限制。
 
-如需以 DTU 為基礎的購買模型限制，請參閱 [SQL Database 以 DTU 為基礎的資源限制](sql-database-dtu-resource-limits.md)。
+如需邏輯伺服器上單一資料庫的 DTU 型購買模型限制，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
 
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
+您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases) 來為單一資料庫設定服務層、計算大小與儲存體數量。
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>單一資料庫：儲存體大小與計算大小
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層：儲存體大小和計算大小
 
-針對單一資料庫，下表顯示單一資料庫在每個服務層和計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases) 來為單一資料庫設定服務層、計算大小與儲存體數量。
+### <a name="generation-4-compute-platform"></a>第 4 代計算平台
 
-### <a name="general-purpose-service-tier"></a>一般用途服務層
-
-#### <a name="generation-4-compute-platform"></a>第 4 代計算平台
 |計算大小|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W 世代|4|4|4|4|4|4|
+|H/W 產生|4|4|4|4|4|4|
 |虛擬核心|1|2|4|8|16|24|
 |記憶體 (GB)|7|14|28|56|112|168|
-|資料行存放區支援|是|是|是|是|是|是|
+|資料行存放區支援|是|yes|yes|yes|yes|是|
 |OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |儲存體類型|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|
 |IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
@@ -57,13 +55,14 @@ ms.locfileid: "47166349"
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 |||
 
-#### <a name="generation-5-compute-platform"></a>第 5 代計算平台
+### <a name="generation-5-compute-platform"></a>第 5 代計算平台
+
 |計算大小|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
-|H/W 世代|5|5|5|5|5|5|5|
+|H/W 產生|5|5|5|5|5|5|5|
 |虛擬核心|2|4|8|16|24|32|40|80|
 |記憶體 (GB)|11|22|44|88|132|176|220|440|
-|資料行存放區支援|是|是|是|是|是|是|是|是|
+|資料行存放區支援|是|yes|yes|yes|yes|yes|yes|是|
 |OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |儲存體類型|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|
 |IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
@@ -79,12 +78,13 @@ ms.locfileid: "47166349"
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 |||
 
-### <a name="business-critical-service-tier"></a>業務關鍵服務層
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>商務關鍵性服務層：儲存體大小和計算大小
 
-#### <a name="generation-4-compute-platform"></a>第 4 代計算平台
+### <a name="generation-4-compute-platform"></a>第 4 代計算平台
+
 |計算大小|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W 世代|4|4|4|4|4|4|
+|H/W 產生|4|4|4|4|4|4|
 |虛擬核心|1|2|4|8|16|24|
 |記憶體 (GB)|7|14|28|56|112|168|
 |資料行存放區支援|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -99,17 +99,18 @@ ms.locfileid: "47166349"
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|
 |複本數目|3|3|3|3|3|3|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|讀取向外延展|是|是|是|是|是|是|
+|讀取向外延展|是|yes|yes|yes|yes|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 |||
 
-#### <a name="generation-5-compute-platform"></a>第 5 代計算平台
+### <a name="generation-5-compute-platform"></a>第 5 代計算平台
+
 |計算大小|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
-|H/W 世代|5|5|5|5|5|5|5|5|
+|H/W 產生|5|5|5|5|5|5|5|5|
 |虛擬核心|2|4|8|16|24|32|40|80|
 |記憶體 (GB)|11|22|44|88|132|176|220|440|
-|資料行存放區支援|是|是|是|是|是|是|是|是|
+|資料行存放區支援|是|yes|yes|yes|yes|yes|yes|是|
 |OLTP 記憶體內部儲存體 (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |儲存體類型|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|
 |IO 延遲 (大約)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|
@@ -125,15 +126,16 @@ ms.locfileid: "47166349"
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 |||
 
-### <a name="hyperscale-service-tier-preview"></a>超大規模服務層 (預覽)
+## <a name="hyperscale-service-tier-preview"></a>超大規模服務層 (預覽)
 
-#### <a name="generation-4-compute-platform"></a>第 4 代計算平台
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>第 4 代計算平台：儲存體大小和計算大小
+
 |效能等級|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |--: |
-|H/W 世代|4|4|4|4|4|4|
+|H/W 產生|4|4|4|4|4|4|
 |虛擬核心|1|2|4|8|16|24|
 |記憶體 (GB)|7|14|28|56|112|168|
-|資料行存放區支援|是|是|是|是|是|是|
+|資料行存放區支援|是|yes|yes|yes|yes|是|
 |OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |儲存體類型|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|
 |資料大小上限 (TB)|100 |100 |100 |100 |100 |100 |
@@ -145,16 +147,18 @@ ms.locfileid: "47166349"
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|
 |複本數目|2|2|2|2|2|2|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|讀取向外延展|是|是|是|是|是|是|
+|讀取向外延展|是|yes|yes|yes|yes|是|
 |內含備份儲存體|7|7|7|7|7|7|
 |||
+
 ### <a name="generation-5-compute-platform"></a>第 5 代計算平台
+
 |效能等級|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
-|H/W 世代|5|5|5|5|5|5|5|5|
+|H/W 產生|5|5|5|5|5|5|5|5|
 |虛擬核心|2|4|8|16|24|32|40|80|
 |記憶體 (GB)|11|22|44|88|132|176|220|440|
-|資料行存放區支援|是|是|是|是|是|是|是|是|
+|資料行存放區支援|是|yes|yes|yes|yes|yes|yes|是|
 |OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |儲存體類型|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|
 |資料大小上限 (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
@@ -166,7 +170,7 @@ ms.locfileid: "47166349"
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|30000|30000|
 |複本數目|2|2|2|2|2|2|2|2|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|讀取向外延展|是|是|是|是|是|是|是|是|
+|讀取向外延展|是|yes|yes|yes|yes|yes|yes|是|
 |內含備份儲存體 (預覽限制)|7|7|7|7|7|7|7|7|
 |||
 

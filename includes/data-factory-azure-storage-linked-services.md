@@ -6,7 +6,7 @@
 | type |類型屬性必須設為： **AzureStorage** |是 |
 | connectionString |針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 |是 |
 
-請參閱下列文章的步驟來檢視/複製 Azure 儲存體帳戶金鑰：[檢視、複製和重新產生儲存體存取金鑰](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account)。
+請參閱下列小節的步驟來檢視/複製 Azure 儲存體帳戶金鑰：[存取金鑰](../articles/storage/common/storage-account-manage.md#access-keys)。
 
 **範例：**  
 

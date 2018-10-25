@@ -1,100 +1,75 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則新增 LinkedIn 作為 OAuth2 識別提供者 | Microsoft Docs
-description: 使用 OAuth2 通訊協定和自訂原則來設定 LinkedIn 應用程式的使用說明文章。
+title: 在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入 | Microsoft Docs
+description: 在 Azure Active Directory B2C 中使用自訂原則來設定以 Google 帳戶進行登入。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2017
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58a595c697b6e1a70089a6683493835e0d3a9780
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b5022e1475b9f15738dd015e16946b754fcd49c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344313"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887303"
 ---
-# <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 LinkedIn 作為識別提供者
+# <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-本文將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)，讓 LinkedIn 帳戶的使用者登入。
+此文章說明如何在 Azure Active Directory (Azure AD) B2C 中透過使用[自訂原則](active-directory-b2c-overview-custom.md)，讓使用者能夠從 LinkedIn 帳戶登入。
 
-## <a name="prerequisites"></a>必要條件
-完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
+## <a name="prerequisites"></a>先決條件
 
-## <a name="step-1-create-a-linkedin-account-application"></a>步驟 1：建立 LinkedIn 帳戶應用程式
-如果要在 Azure Active Directory B2C (Azure AD B2C) 中將 LinkedIn 作為識別提供者，您必須建立 LinkedIn 應用程式，然後為其提供正確的參數。 您可以前往 [LinkedIn 註冊頁面](https://www.linkedin.com/start/join)，註冊 LinkedIn 應用程式。
+- 完成[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
+- 如果您還沒有 LinkedIn 帳戶，請在 [LinkedIn 註冊頁面](https://www.linkedin.com/start/join)建立一個帳戶。
+- LinkedIn 應用程式會要求您提供一個 80 X 80 像素的標誌影像來代表您的應用程式。
 
-1. 前往 [LinkedIn 應用程式管理](https://www.linkedin.com/secure/developer?newapp=)網站，使用您的 LinkedIn 帳戶認證登入，然後選取 [建立應用程式]。
+## <a name="create-an-application"></a>建立應用程式
 
-    ![LinkedIn 帳戶 - 建立應用程式](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app1.png)
+若要使用 LinkedIn 作為 Azure AD B2C 中的識別提供者，您必須建立 LinkedIn 應用程式。
 
-2. 在 [建立新的應用程式] 頁面上，請執行下列動作：
+1. 使用您的 LinkedIn 帳戶認證來登入 [LinkedIn 應用程式管理](https://www.linkedin.com/secure/developer?newapp=)網站。
+2. 選取 [Create Application] \(建立應用程式\)。
+3. 輸入您的 [Company Name] \(公司名稱\)、[Application Name] \(應用程式名稱\) 及 [Application Description] \(應用程式描述\)。
+4. 上傳您建立的 [Application Logo] \(應用程式標誌\)。
+5. 從所提供的清單中選擇一個 [Application Use] \(應用程式用途\)。
+6. 針對 [Website URL] \(網站 URL\)，輸入 `https://your-tenant.b2clogin.com`。  將 `your-tenant` 取代為您的 Azure AD B2C 租用戶名稱。 例如 contoso.b2clogin.com。
+7. 輸入您的 [Business Email] \(公司電子郵件\) 地址和 [Business Phone] \(公司電話\) 號碼。
+8. 在頁面底部，閱讀並接受使用條款，然後選取 [提交]。
+9. 選取 [Authentication] \(驗證\)，然後記錄 [Client ID] \(用戶端識別碼\) 和 [Client Secret] \(用戶端密碼\) 值以供稍後使用。
+10. 在 [Authorized Redirect URLs] \(授權的重新導向 URL\) 中，輸入 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`。 以您的租用戶名稱取代 `your-tenant-name`。 即使租用戶在 Azure AD B2C 中是使用大寫字母來定義的，您還是需要在輸入租用戶名稱時，全部使用小寫字母。 
+11. 選取 [更新]。
+12. 選取 [設定]、將 [應用程式狀態] 變更為 [即時]，然後選取 [更新]。
 
-    a. 輸入您的**公司名稱**、公司的描述性**名稱**，以及新應用程式的**說明**。
+## <a name="create-a-policy-key"></a>建立原則金鑰
 
-    b. 上傳**應用程式標誌**。
+您必須將先前記錄的用戶端密碼儲存在 Azure AD B2C 租用戶中。
 
-    c. 選取 [應用程式使用]。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
+5. 選取 [原則金鑰]，然後選取 [新增]。
+6. 針對 [選項] 選擇 `Manual`。
+7. 輸入原則金鑰的 [名稱]。 例如： `LinkedInSecret`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+8. 在 [祕密] 中，輸入您先前記錄的用戶端密碼。
+9. 針對 [金鑰使用方法]，選取 `Signature`。
+10. 按一下頁面底部的 [新增] 。
 
-    d. 在 [網站 URL] 方塊中，貼上 **https://{tenant}.b2clogin.com**。  其中 {*tenant*} 是您的租用戶名稱 (例如 contoso.b2clogin.com)。
+## <a name="add-a-claims-provider"></a>新增宣告提供者
 
-    e. 輸入您的**公司電子郵件**地址和**公司電話**號碼。
+如果想要讓使用者使用 LinkedIn 帳戶進行登入，您必須將該帳戶定義成 Azure AD B2C 能夠透過端點與之通訊的宣告提供者。 此端點會提供一組宣告，由 Azure AD B2C 用來確認特定使用者已驗證。 
 
-    f. 在頁面底部，閱讀並接受使用條款，然後選取 [提交]。
+您可以藉由將 LinkedIn 帳戶新增至原則擴充檔中的 **ClaimsProviders** 元素，將其定義成宣告提供者。
 
-    ![LinkedIn 帳戶 - 設定應用程式屬性](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app2.png)
-
-3. 選取 [驗證]，然後記下**用戶端識別碼**和**用戶端密碼**值。
-
-4. 在 [授權重新導向 URL] 方塊中，貼上 **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 {*tenant*}。 請確實使用 HTTPS 配置。 
-
-    ![LinkedIn 帳戶 - 設定授權的重新導向 URL](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
-
-    >[!NOTE]
-    >用戶端密碼是重要的安全性認證。 請勿將此密碼告訴任何人或隨應用程式一起散發。
-
-5. 選取 [新增] 。
-
-6. 選取 [設定]、將 [應用程式狀態] 變更為 [即時]，然後選取 [更新]。
-
-    ![LinkedIn 帳戶 - 設定應用程式狀態](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app4.png)
-
-## <a name="step-2-add-your-linkedin-application-key-to-azure-ad-b2c"></a>步驟 2：將 LinkedIn 應用程式金鑰新增至 Azure AD B2C
-具有 LinkedIn 帳戶的同盟需要 LinkedIn 帳戶的用戶端密碼，才能代表應用程式信任 Azure AD B2C。 若要在 Azure AD B2C 租用戶中儲存 LinkdIn 應用程式密碼，請執行下列動作：  
-
-1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。
-
-2. 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]。
-
-3. 選取 [新增] 。
-
-4. 在 [選項] 方塊中，選取 [上傳]。
-
-5. 在 [名稱] 方塊中，輸入 **B2cRestClientCertificate**。  
-    可能會自動新增前置詞 B2C_1A_。
-
-6. 在 [密碼] 方塊中，輸入來自[應用程式註冊入口網站](https://apps.dev.microsoft.com)的 LinkedIn 應用程式密碼。
-
-7. 針對 [金鑰使用方法] 選取 [加密]。
-
-8. 選取 [建立] 。 
-
-9. 確認您已建立 `B2C_1A_LinkedInSecret` 金鑰。
-
-## <a name="step-3-add-a-claims-provider-in-your-extension-policy"></a>步驟 3：在擴充原則中新增宣告提供者
-如果想要使用者使用 LinkedIn 帳戶進行登入，您必須將 LinkedIn 定義為宣告提供者。 換句話說，您必須指定要與 Azure AD B2C 通訊的端點。 此端點提供一組宣告，由 Azure AD B2C 用來確認特定使用者已驗證。
-
-定義 LinkedIn 作為宣告提供者，方法是在擴充原則檔案中新增 `<ClaimsProvider>` 節點：
-
-1. 在您的工作目錄中，開啟 *TrustFrameworkExtensions.xml* 擴充原則檔案。 
-
-2. 搜尋 `<ClaimsProviders>` 元素。
-
-3. 在 `<ClaimsProviders>` 元素中，新增下列 XML 程式碼片段： 
+1. 開啟 *TrustFrameworkExtensions.xml*。
+2. 尋找 **ClaimsProviders** 元素。 如果不存在，請在根元素下新增它。
+3. 新增新的 **ClaimsProvider**，如下所示：
 
     ```xml
     <ClaimsProvider>
@@ -141,79 +116,72 @@ ms.locfileid: "43344313"
     </ClaimsProvider>
     ```
 
-4. 使用您的 LinkedIn 應用程式用戶端識別碼來取代 *client_id* 值。
-
+4. 以您先前記錄的用戶端識別碼取代 **client_id** 的值。
 5. 儲存檔案。
 
-## <a name="step-4-register-the-linkedin-account-claims-provider"></a>步驟 4：註冊 LinkedIn 帳戶宣告提供者
-您已設定識別提供者。 不過，尚無法在任何註冊或登入視窗中使用。 您現在必須將 LinkedIn 帳戶識別提供者新增至 `SignUpOrSignIn` 使用者旅程圖。
+### <a name="upload-the-extension-file-for-verification"></a>上傳擴充檔案準備驗證
 
-### <a name="step-41-make-a-copy-of-the-user-journey"></a>步驟 4.1：建立使用者旅程圖的副本
-若要讓使用者旅程圖可供使用，您可以建立現有使用者旅程圖範本的複本，然後新增 LinkedIn 識別提供者：
+到目前為止，您已設定原則，讓 Azure AD B2C 知道如何與您的 LinkedIn 帳戶進行通訊。 嘗試上傳原則的擴充檔案，這只是為了確認它到目前為止沒有任何問題。
 
->[!NOTE]
->如果您從原則的基底檔案將 `<UserJourneys>` 元素複製到 *TrustFrameworkExtensions.xml* 擴充檔案，就可以跳過本節。
+1. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
+2. 啟用 [覆寫現有的原則]，然後瀏覽並選取 [TrustFrameworkExtensions.xml] 檔案。
+3. 按一下 [上傳] 。
 
-1. 開啟原則的基本檔案 (例如，TrustFrameworkBase.xml)。
+## <a name="register-the-claims-provider"></a>註冊宣告提供者
 
-2. 搜尋 `<UserJourneys>` 元素，選取 `<UserJourney>` 節點的整個內容，然後選取 [剪下]，將選取的文字移至剪貼簿。
+此時，識別提供者已設定妥當，但還未出現在任何註冊或登入畫面中。 若要讓它可供使用，您必須建立現有範本使用者旅程圖的複本，然後修改它，讓它也包含 LinkedIn 識別提供者。
 
-3. 開啟擴充檔案 (例如，TrustFrameworkExtensions.xml)，並搜尋 `<UserJourneys>` 元素。 如果此元素不存在，請加以新增。
+1. 從 Starter Pack 開啟 *TrustFrameworkBase.xml* 檔案。
+2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
+3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
+4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
+5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInLinkedIn`。
 
-4. 將 `<UserJourney>` 節點的整個內容 (您已在步驟 2 將這些內容移至剪貼簿) 貼入 `<UserJourneys>` 元素中。
+### <a name="display-the-button"></a>顯示按鈕
 
-### <a name="step-42-display-the-button"></a>步驟 4.2：顯示「按鈕」
-`<ClaimsProviderSelections>` 元素會定義宣告提供者選擇的選項清單和它們的順序。 `<ClaimsProviderSelection>` 節點類似於註冊或登入頁面上的識別提供者按鈕。 如果您新增 LinkedIn 帳戶的 `<ClaimsProviderSelection>` 節點，當使用者登陸頁面時，會顯示新的按鈕。 若要新增此項目，請執行下列動作：
+**ClaimsProviderSelection** 元素類似於註冊或登入畫面上的識別提供者按鈕。 如果您為 LinkedIn 帳戶新增 **ClaimsProviderSelection** 元素，當使用者登陸頁面時，就會出現新按鈕。
 
-1. 在您複製的使用者旅程圖中，搜尋包含 `Id="SignUpOrSignIn"` 的 `<UserJourney>` 節點。
+1. 在您建立的使用者旅程圖中，尋找包含 `Order="1"` 的 **OrchestrationStep** 元素。
+2. 在 **ClaimsProviderSelects** 底下，新增下列元素。 將 **TargetClaimsExchangeId** 的值設定成適當的值，例如 `LinkedInExchange`：
 
-2. 找出包含 `Order="1"` 的 `<OrchestrationStep>` 節點。
-
-3. 在 `<ClaimsProviderSelections>` 元素中，新增下列 XML 程式碼片段：
-
-    ```xml
+    ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     ```
 
-### <a name="step-43-link-the-button-to-an-action"></a>步驟 4.3：將按鈕連結至動作
-現在已備妥按鈕，您必須將它連結至動作。 在此案例中，動作是讓 Azure AD B2C 與 LinkedIn 帳戶通訊以接收權杖。 透過連結 LinkedIn 帳戶宣告提供者的技術設定檔，將按鈕連結至動作：
+### <a name="link-the-button-to-an-action"></a>將按鈕連結至動作
 
-1. 搜尋 `<OrchestrationStep>` 節點，其中包含 `<UserJourney>` 節點中的 `Order="2"`。
+現在已備妥按鈕，您需要將它連結至動作。 在此案例中，動作是用來讓 Azure AD B2C 與 LinkedIn 帳戶進行通訊以接收權杖。
 
-2. 在 `<ClaimsExchanges>` 元素中，新增下列 XML 程式碼片段：
+1. 在使用者旅程圖中，尋找包含 `Order="2"` 的 **OrchestrationStep**。
+2. 新增下列 **ClaimsExchange** 元素，請確定用於 **Id** 的值與用於 **TargetClaimsExchangeId** 的值相同：
 
-    ```xml
-    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAuth" />
+    ```XML
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
+    
+    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `LinkedIn-OAUTH`。
 
-    >[!NOTE]
-    >* 確定 `Id` 具有與上一節中之 `TargetClaimsExchangeId` 相同的值。
-    >* 確定 `TechnicalProfileReferenceId` 識別碼設為您稍早建立的技術設定檔 (LinkedIn-OAuth)。
+3. 儲存*TrustFrameworkExtensions.xml* 檔案，並再次上傳它以供驗證。
 
-## <a name="step-5-upload-the-policy-to-your-tenant"></a>步驟 5：將原則上傳至您的租用戶
-1. 在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後選取 [Azure AD B2C]。
+## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
-2. 選取 [識別體驗架構]。
+與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
-3. 選取 [所有原則]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [應用程式]，然後選取 [新增]。
+5. 輸入應用程式的名稱，例如 *testapp1*。
+6. 針對 [Web 應用程式 / Web API]，選取 `Yes`，然後針對 [回覆 URL] 輸入 `https://jwt.ms`。
+7. 按一下頁面底部的 [新增] 。
 
-4. 選取 [上傳原則]。
+## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
 
-5. 選取 [覆寫已存在的原則] 核取方塊。
+更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
-6. 上傳 *TrustFrameworkBase.xml* 和 *TrustFrameworkExtensions.xml*檔案，並確定它們通過驗證。
-
-## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>步驟 6：使用 [立即執行] 測試自訂原則
-1. 選取 [Azure AD B2C 設定]，然後選取 [識別體驗架構]。
-
-    >[!NOTE]
-    >[立即執行] 需要在租用戶上至少預先註冊一個應用程式。 若要了解如何註冊應用程式，請參閱 Azure AD B2C [開始使用](active-directory-b2c-get-started.md)一文或[應用程式註冊](active-directory-b2c-app-registration.md)一文。
-
-2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]。  
-    您現在應該能夠使用 LinkedIn 帳戶進行登入。
-
-## <a name="step-7-optional-register-the-linkedin-account-claims-provider-to-the-profile-edit-user-journey"></a>步驟 7：(選用) 向設定檔編輯使用者旅程圖註冊 LinkedIn 帳戶宣告提供者
-您可能也想要將 LinkedIn 帳戶識別提供者新增至您的使用者 `ProfileEdit` 使用者旅程圖。 若要讓使用者旅程圖可供使用，請重複「步驟 4」。 此時，選取包含 `Id="ProfileEdit"` 的 `<UserJourney>` 節點。 儲存、上傳，並測試您的原則。
-
-## <a name="optional-download-the-complete-policy-files"></a>(選用) 下載完整的原則檔案
-在完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)逐步解說之後，建議您使用自己的自訂原則檔案來建置您的案例。 我們已提供[範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-li-app)，供您參考。
+1. 在您的工作目錄中建立一份 *SignUpOrSignIn.xml* 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
+2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn`。
+3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_linkedin`
+4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignLinkedIn) 的識別碼。
+5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
+6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行]來進行測試。

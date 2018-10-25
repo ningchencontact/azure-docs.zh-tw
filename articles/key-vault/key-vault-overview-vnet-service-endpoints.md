@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: c2696d5eb22443b565c48ef4f96d6e4a25827606
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294999"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404319"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault 的虛擬網路服務端點
 
@@ -62,7 +62,7 @@ Key Vault 的虛擬網路服務端點可讓您將指定虛擬網路和/或 IPv4 
 |Azure Resource Manager 範本部署服務|[在部署期間傳遞安全值](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
 |Azure Disk Encryption 磁碟區加密服務|允許在 VM 部署期間存取 BitLocker 金鑰 (Windows VM) 或 DM 複雜密碼 (Linux VM) 和金鑰加密金鑰，以啟用 [Azure 磁碟加密](../security/azure-security-disk-encryption.md)|
 |Azure 備份|使用[Azure 備份](../backup/backup-introduction-to-azure-backup.md)，在 Azure VM 備份期間允許相關金鑰和祕密的備份和還原|
-|Exchange Online 和 SharePoint Online|允許使用[客戶金鑰](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697)存取服務加密的客戶金鑰。|
+|Exchange Online 和 SharePoint Online|允許使用[客戶金鑰](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697)存取服務加密的客戶金鑰。|
 |Azure 資訊保護|允許存取 [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)的租用戶金鑰|
 |應用程式服務|[透過 Key Vault 部署 Azure Web 應用程式憑證](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
 |Azure SQL|[Azure SQL Database 和資料倉儲具有「攜帶您自己的金鑰」支援的的透明資料加密](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|

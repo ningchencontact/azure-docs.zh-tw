@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d09dec2f327d8b5911a4e55832ba106838c7ebc3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 21fd3a33181542d86eccc4292ae68f7ce25e0a05
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41946549"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366721"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager 範本考量
 
@@ -34,11 +34,13 @@ ms.locfileid: "41946549"
 
 ## <a name="public-namespaces"></a>公用命名空間
 
-因為 Azure Stack 是裝載在您的資料中心，它的服務端點命名空間與 Azure 公用雲端不同。 因此，當您嘗試將 Resource Manager 範本部署到 Azure Stack 時，以硬式編碼方式寫在 Azure Resource Manager 範本中的公用端點將會失敗。 您可以使用 reference 和 concatenate 函式動態建置服務端點，以在部署期間從資源提供者擷取值。 例如，您不需要以硬式編碼方式在您的範本中寫入 *blob.core.windows.net*，而是改為擷取 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) 以動態設定 *osDisk.URI* 端點：
+因為 Azure Stack 是裝載在您的資料中心，它的服務端點命名空間與 Azure 公用雲端不同。 因此，當您嘗試將 Resource Manager 範本部署到 Azure Stack 時，以硬式編碼方式寫在 Azure Resource Manager 範本中的公用端點將會失敗。 您可以使用 reference 和 concatenate 函式動態建置服務端點，以在部署期間從資源提供者擷取值。 例如，您不需要以硬式編碼方式在您的範本中寫入 *blob.core.windows.net*，而是改為擷取 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) 以動態設定 *osDisk.URI* 端點：
 
-     "osDisk": {"name": "osdisk","vhd": {"uri":
-     "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
-      '/',variables('OSDiskName'),'.vhd')]"}}
+```json
+"osDisk": {"name": "osdisk","vhd": {"uri":
+"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
+ '/',variables('OSDiskName'),'.vhd')]"}}
+```
 
 ## <a name="api-versioning"></a>API 版本控制
 
@@ -54,7 +56,7 @@ Azure 服務版本在 Azure 與 Azure Stack 之間可能不同。 每個資源�
 
 ## <a name="template-functions"></a>範本函式
 
-Azure Resource Manager [函式](../../azure-resource-manager/resource-group-template-functions.md)提供建置動態範本所需的功能。 做為範例，您可以針對如下工作使用函式：
+Azure Resource Manager [函式](../../azure-resource-manager/resource-group-template-functions.md)提供建置動態範本所需的功能。 舉例而言，您可以將函式用在類似以下幾種工作上：
 
 * 串連或修剪字串。
 * 參考來自其他資源的值。
@@ -67,20 +69,22 @@ Azure Resource Manager [函式](../../azure-resource-manager/resource-group-temp
 
 ## <a name="resource-location"></a>資源位置
 
-Azure Resource Manager 範本使用位置屬性在部署期間放置資源。 在 Azure 中，位置指的是如美國西部或南美等地區。 在 Azure Stack 中，位置則不同，因為 Azure Stack 位於您的資料中心。 若要確保能在 Azure 與 Azure Stack 之間移轉範本，您應該在部署個別資源時參考資源群組位置。 您可以使用 `[resourceGroup().Location]` 來執行此動作，以確保所有資源皆會繼承資源群組位置。 下列摘要是在部署儲存體帳戶時使用此功能的範例：
+Azure Resource Manager 範本使用 `location` 屬性在部署期間放置資源。 在 Azure 中，位置指的是如美國西部或南美等地區。 在 Azure Stack 中，位置則不同，因為 Azure Stack 位於您的資料中心。 若要確保能在 Azure 與 Azure Stack 之間移轉範本，在部署個別資源時，請將資源群組位置也納入參考。 您可以使用 `[resourceGroup().Location]` 來執行此動作，以確保所有資源皆會繼承資源群組位置。 下列程式碼即是在部署儲存體帳戶時使用此功能的範例：
 
-    "resources": [
-    {
-      "name": "[variables('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "[variables('apiVersionStorage')]",
-      "location": "[resourceGroup().location]",
-      "comments": "This storage account is used to store the VM disks",
-      "properties": {
-      "accountType": "Standard_GRS"
-      }
-    }
-    ]
+```json
+"resources": [
+{
+  "name": "[variables('storageAccountName')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "[variables('apiVersionStorage')]",
+  "location": "[resourceGroup().location]",
+  "comments": "This storage account is used to store the VM disks",
+  "properties": {
+  "accountType": "Standard_GRS"
+  }
+}
+]
+```
 
 ## <a name="next-steps"></a>後續步驟
 

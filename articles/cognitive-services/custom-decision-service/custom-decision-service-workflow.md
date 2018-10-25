@@ -1,19 +1,21 @@
 ---
-title: 自訂決策服務工作流程 - Azure 認知服務 | Microsoft Docs
-description: 本文提供 Azure 自訂決策服務工作流程的概觀。
+title: 自訂決策服務工作流程
+titlesuffix: Azure Cognitive Services
+description: 本文章提供 Azure 自訂決策服務的建議工作流程。
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: nolachar
-ms.openlocfilehash: 851d7f8cc47b455dbced26ff53d841ed0a5ff0db
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: b3bc7f90c9238ce58fd9dc8ac630987803d79bfd
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370983"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368013"
 ---
 # <a name="custom-decision-service-workflow"></a>自訂決策服務工作流程
 
@@ -21,7 +23,7 @@ ms.locfileid: "35370983"
 
 ![自訂決策服務工作流程](media/custom-decision-service-workflow.png)
 
-新增 [Azure 儲存體連接字串](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string)。
+新增 [Azure 儲存體連接字串](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string)。
 
 ## <a name="next-steps"></a>後續步驟
 

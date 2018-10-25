@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287439"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817093"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
 
@@ -31,7 +31,7 @@ ms.locfileid: "43287439"
 * 哪些 Cosmos DB SDK 可用來建立及執行預存程序、觸發程序和 UDF？
 
 ## <a name="introduction-to-stored-procedure-and-udf-programming"></a>預存程序和 UDF 程式設計簡介
-這種「 *以 JavaScript 做為新式 T-SQL* 」的方式，可讓應用程式開發人員不必傷腦筋處理複雜的類型系統不符問題和物件關聯式對應技術。 此外，它本身還有一些可加以利用以便建置豐富應用程式的優勢：  
+這種「以 JavaScript 作為新式 T-SQL」的方法可讓應用程式開發人員無須應付複雜的類型系統不符問題和物件關聯式對應技術。 此外，它本身還有一些可利用以便建置豐富應用程式的優勢：  
 
 * **程序邏輯** ：JavaScript 是高階程式設計語言，可提供豐富且熟悉的介面來表達商務邏輯。 您可以用更接近資料的方式執行一連串的複雜作業。
 * **不可部分完成的交易**：Cosmos DB 可確保在單一預存程序或觸發程序內執行的資料庫作業成為不可部分完成的作業。 這個不可部分完成的功能可讓應用程式將相關作業合併在單一批次中，讓所有作業不是一起成功就是一起失敗。 
@@ -39,18 +39,18 @@ ms.locfileid: "43287439"
   
   * 批次處理 - 開發人員可以群組多個作業 (例如插入)，大量進行提交。 因此，網路流量延遲成本以及建立個別交易的額外儲存負荷得以大幅降低。 
   * 預先編譯 - Cosmos DB 會預先編譯預存程序、觸發程序和使用者定義函式 (UDF)，以避免在每次叫用時產生 JavaScript 編譯成本。 因此，建置程序邏輯位元組程式碼的額外負荷已降到最低。
-  * 排序 - 許多作業都需要副作用 (「觸發程序」)，其可能涉及執行一項或多項次要儲存作業。 除了不可部分完成的作業之外，這在移至伺服器時會有更好的效能。 
+  * 排序 - 許多作業都需要可能涉及執行一或多個次要儲存作業的副作用 (觸發程序)。 除了不可部分完成的作業之外，這在移至伺服器時會有更好的效能。 
 * **封裝** ：預存程序可以用來將商務邏輯群組在一個位置，這有兩個優點：
   * 它會在未經處理的資料上方新增抽象層，讓資料架構設計人員發展其應用程式，而不會動到資料。 當資料無結構描述時，這個抽象層相當有利，因為如果他們必須直接處理資料，就可能需要將這些短暫的假設納入應用程式考量。  
   * 這個抽象層讓企業得以透過指令碼簡化存取來確保資料安全。  
 
 許多平台 (包括 .NET、Node.js 和 JavaScript) 都透過 [Azure 入口網站](https://portal.azure.com)、[REST API](/rest/api/cosmos-db/)、[Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 和[用戶端 SDK](sql-api-sdk-dotnet.md)，以支援資料庫觸發程序、預存程序及自訂查詢運算子的建立和執行。
 
-本教學課程使用 [Node.js SDK 搭配 Q Promises](http://azure.github.io/azure-documentdb-node-q/) 來說明預存程序、觸發程序及 UDF 的語法和用法。   
+此教學課程使用 [Node.js SDK 搭配 Q Promises](http://azure.github.io/azure-documentdb-node-q/) 來說明預存程序、觸發程序及 UDF 的語法和用法。   
 
 ## <a name="stored-procedures"></a>預存程序
 ### <a name="example-write-a-stored-procedure"></a>範例：撰寫預存程序
-我們先來看看簡單的預存程序，此程序會傳回 "Hello World" 回應。
+讓我們從會傳回 "Hello World" 回應的簡單預存程序開始著手。
 
 ```javascript
 var helloWorldStoredProc = {
@@ -92,7 +92,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-內容物件提供可對 Cosmos DB 儲存體執行之所有作業的存取權，以及要求和回應物件的存取權。 在此案例中，您會使用回應物件來設定傳回給用戶端的回應本文。 如需詳細資料，請參閱 [Azure Cosmos DB JavaScript 伺服器 SDK 文件](https://azure.github.io/azure-cosmosdb-js-server/) \(英文\)。  
+內容物件提供可對 Cosmos DB 儲存體執行之所有作業的存取權，以及要求和回應物件的存取權。 在此案例中，您會使用回應物件來設定傳回給用戶端的回應本文。 如需詳細資料，請參閱 [Azure Cosmos DB JavaScript 伺服器端 API 參考](https://azure.github.io/azure-cosmosdb-js-server/) \(英文\)。  
 
 我們將以這個範例為基礎進行擴充，將更多資料庫相關功能新增到預存程序中。 預存程序可以建立、更新、讀取、查詢及刪除集合內的文件和附件。    
 
@@ -147,9 +147,9 @@ client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentSto
 });
 ```
 
-您可以修改此預存程序，將一批文件本文作為輸入，並將這些本文全都建立在相同的預存程序執行內，而不是用多個要求個別建立這些本文。 您可以使用此預存程序來實作有效率的 Cosmos DB 大量匯入工具 (本教學課程稍後將會討論)。   
+您可以修改此預存程序，將一批文件本文作為輸入，並將這些本文全都建立在相同的預存程序執行內，而不是用多個要求個別建立這些本文。 您可以使用此預存程序來實作有效率的 Cosmos DB 大量匯入工具 (此教學課程稍後將會討論)。   
 
-上面描述的範例已示範如何使用預存程序。 接著，您將在本教學課程後續的內容中了解觸發程序和使用者定義函式 (UDF)。
+上面描述的範例已示範如何使用預存程序。 接著，您將在此教學課程後續的內容中了解觸發程序和使用者定義函式 (UDF)。
 
 ### <a name="known-issues"></a>已知問題
 
@@ -243,9 +243,9 @@ client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
 如果預存程序註冊的集合是單一分割集合，則交易的範圍為集合中的所有文件。 如果集合已分割，則預存程序會在單一分割索引鍵的交易範圍內執行。 然後每個預存程序執行必須包含分割索引鍵值，該值對應至必須在其下執行交易的範圍。 如需詳細資訊，請參閱 [Azure Cosmos DB 資料分割](partition-data.md)。
 
 ### <a name="commit-and-rollback"></a>認可和回復
-交易原本就深入整合至 Cosmos DB 的 JavaScript 程式設計模型。 在 JavaScript 函數內，會將所有作業自動包裝在單一交易內。 如果 JavaScript 完成，而且沒有任何例外狀況，就會認可資料庫作業。 在 Cosmos DB 中，關聯式資料庫中的 "BEGIN TRANSACTION" 和 "COMMIT TRANSACTION" 陳述式實際上是隱含的。  
+交易原本就深入整合至 Cosmos DB 的 JavaScript 程式設計模型。 在 JavaScript 函數內，會將所有作業自動包裝在單一交易內。 如果 JavaScript 完成，而且沒有任何例外狀況，就會認可資料庫作業。 實際上，關聯式資料庫中的 "BEGIN TRANSACTION" 和 "COMMIT TRANSACTION" 陳述式在 Cosmos DB 中是隱含的。  
 
-如果有任何透過指令碼傳播的例外狀況，則 Cosmos DB 的 JavaScript 執行階段將會復原整個交易。 如稍早的範例所示，擲回例外狀況的作用等同於 Cosmos DB 中的 "ROLLBACK TRANSACTION"。
+如果有任何透過指令碼傳播的例外狀況，則 Cosmos DB 的 JavaScript 執行階段將會復原整個交易。 如稍早的範例所示，擲回例外狀況在 Cosmos DB 中實際上等同於 "ROLLBACK TRANSACTION"。
 
 ### <a name="data-consistency"></a>資料一致性
 預存程序和觸發程序一律會在 Azure Cosmos DB 容器的主要複本上執行。 這確保從預存程序讀取的資料有強式一致性。 使用「使用者定義函式」的查詢可以在主要或任何次要複本上執行，但是您會透過選擇適當的複本，確保符合所要求的一致性層級。
@@ -453,7 +453,7 @@ client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
 });
 ```
 
-此觸發程序會查詢中繼資料文件，並使用新建立之文件的詳細資料加以更新。  
+此觸發程序會查詢中繼資料文件，並使用新建立之文件的詳細資料更新它。  
 
 有一點務必要注意，那就是在 Cosmos DB 中觸發程序的「交易式」執行。 此後續觸發程序會在與建立原始文件時的相同交易過程中執行。 因此，如果從後續觸發程序擲出例外狀況 (例如，如果您無法更新中繼資料文件的話)，則整個交易會失敗並予以回復。 此時不會建立任何文件，並且會傳回例外狀況。  
 
@@ -503,7 +503,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript Language Integrated Query API
-除了使用 Azure Cosmos DB 的 SQL 文法發出查詢，伺服器端 SDK 可讓您使用流暢的 JavaScript 介面執行最佳化查詢，不需具備任何 SQL 的知識。 JavaScript 的查詢 API 使用 ECMAScript5 陣列內建和受歡迎的 JavaScript 程式庫如 lodash 所熟悉的語法，將述詞函式傳遞至可鏈結式函式呼叫，藉此以程式設計方式建立查詢。 JavaScript 執行階段會剖析查詢，以使用 Azure Cosmos DB 的索引有效地執行該查詢。
+除了使用 Azure Cosmos DB 的 SQL 文法來發出查詢之外，[伺服器端 SDK](https://azure.github.io/azure-cosmosdb-js-server/) 還可讓您使用流暢的 JavaScript 介面來執行最佳化查詢，而無須具備任何 SQL 知識。 JavaScript 的查詢 API 使用 ECMAScript5 陣列內建和受歡迎的 JavaScript 程式庫如 lodash 所熟悉的語法，將述詞函式傳遞至可鏈結式函式呼叫，藉此以程式設計方式建立查詢。 JavaScript 執行階段會剖析查詢，以使用 Azure Cosmos DB 的索引有效地執行該查詢。
 
 > [!NOTE]
 > `__` (雙底線) 是 `getContext().getCollection()` 的別名。
@@ -831,9 +831,8 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 
 您還可以在您的路徑中找到下列有用的參考和資源，以深入了解 Azure Cosmos DB 伺服器端程式設計：
 
-* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Azure Cosmos DB JavaScript 伺服器端 API 參考](https://azure.github.io/azure-cosmosdb-js-server/) \(英文\)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [安全和可攜式資料庫擴充性](http://dl.acm.org/citation.cfm?id=276339) 
 * [服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 

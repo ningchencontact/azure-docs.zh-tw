@@ -1,32 +1,32 @@
 ---
-title: 使用 Web UI 管理 Azure Kubernetes 叢集
-description: 了解如何使用 Azure Kubernetes Service (AKS) 中內建的 Kubernetes Web UI 儀表板
+title: 使用 Web 儀表板來管理 Azure Kubernetes Service 叢集
+description: 了解如何使用內建的 Kubernetes Web UI 儀表板來管理 Azure Kubernetes Service (AKS) 叢集
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307920"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067579"
 ---
-# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>存取 Azure Kubernetes Service (AKS) 中的 Kubernetes 儀表板
+# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>存取 Azure Kubernetes Service (AKS) 中的 Kubernetes Web 儀表板
 
-Kubernetes 包含的 Web 儀表板可用來執行基本的管理作業。 本文將說明如何使用 Azure CLI 來存取 Kubernetes 儀表板，然後引導您完成一些基本的儀表板作業。 如需 Kubernetes 儀表板的詳細資訊，請參閱 [Kubernetes Web UI 儀表板][kubernetes-dashboard]。
+Kubernetes 包含的 Web 儀表板可用來執行基本的管理作業。 此儀表板可讓您檢視您應用程式的基本健全狀況狀態和計量、建立和部署服務，以及編輯現有的應用程式。 此文章將說明如何使用 Azure CLI 來存取 Kubernetes 儀表板，然後引導您完成一些基本的儀表板作業。
+
+如需 Kubernetes 儀表板的詳細資訊，請參閱 [Kubernetes Web UI 儀表板][kubernetes-dashboard]。
 
 ## <a name="before-you-begin"></a>開始之前
 
 本文件中詳述的步驟假設您已建立 AKS 叢集，並建立與叢集的 `kubectl` 連線。 如果您需要建立 AKS 叢集，請參閱 [AKS 快速入門][aks-quickstart]。
 
-您也必須安裝和設定 Azure CLI 版本 2.0.27 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+您也必須安裝並設定 Azure CLI 版本 2.0.46 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
-## <a name="start-kubernetes-dashboard"></a>啟動 Kubernetes 儀表板
+## <a name="start-the-kubernetes-dashboard"></a>啟動 Kubernetes 儀表板
 
 若要啟動 Kubernetes 儀表板，請使用 [az aks browse][az-aks-browse] 命令。 下列範例會在名為 myResourceGroup 的資源群組中，針對名為 myAKSCluster 的叢集開啟儀表：
 
@@ -34,7 +34,9 @@ Kubernetes 包含的 Web 儀表板可用來執行基本的管理作業。 本文
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-此命令會在您的開發系統與 Kubernetes API 之間建立 Proxy，並開啟 Kubernetes 儀表板的網頁瀏覽器。
+此命令會在您的開發系統與 Kubernetes API 之間建立 Proxy，並開啟 Kubernetes 儀表板的網頁瀏覽器。 如果 Web 瀏覽器未開啟至 Kubernetes 儀表板，請複製並貼上 Azure CLI 中所註明的 URL 位址，通常是 *http://127.0.0.1:8001*。
+
+![Kubernetes Web 儀表板的概觀頁面](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ### <a name="for-rbac-enabled-clusters"></a>對於已啟用 RBAC 的叢集
 
@@ -53,48 +55,57 @@ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-adm
 
 您現在可以在啟用 RBAC 的叢集中存取 Kubernetes 儀表板。 若要啟動 Kubernetes 儀表板，請使用 [az aks browse][az-aks-browse] 命令，如前面步驟所述。
 
-## <a name="run-an-application"></a>執行應用程式
+## <a name="create-an-application"></a>建立應用程式
 
-在 Kubernetes 儀表板中，按一下右上方視窗中的 [建立] 按鈕。 將部署命名為 `nginx`，並針對容器映像名稱輸入 `nginx:latest`。 在 [服務] 下選取 [外部]，針對連接埠和目標連接埠輸入 `80`。
+為了了解 Kubernetes 儀表板如何降低管理工作的複雜性，我們將建立一個應用程式。 您可以從 Kubernetes 儀表板提供文字輸入、YAML 檔案或透過圖形化精靈來建立應用程式。
 
-準備就緒時，按一下 [部署] 建立部署。
+若要建立應用程式，請完成下列步驟：
 
-![Kubernetes 服務建立對話方塊](./media/container-service-kubernetes-ui/create-deployment.png)
+1. 選取右上方視窗中的 [建立] 按鈕。
+1. 若要使用圖形化精靈，請選擇 [建立應用程式]。
+1. 為部署提供名稱，例如 *nginx*
+1. 輸入要使用之容器映像的名稱，例如 *nginx:1.15.5*
+1. 若要公開連接埠 80 以供 Web 流量使用，您需建立 Kubernetes 服務。 在 [服務] 底下，選取 [外部]，然後針對連接埠和目標連接埠輸入 **80**。
+1. 準備就緒時，選取 [部署] 來建立應用程式。
 
-## <a name="view-the-application"></a>檢視應用程式
+![在 Kubernetes Web 儀表板中建立應用程式](./media/kubernetes-dashboard/create-app.png)
 
-在 Kubernetes 儀表板上可以看到應用程式的狀態。 只要應用程式在執行中，每個元件旁就會有綠色的核取方塊。
+將公用外部 IP 位址指派給 Kubernetes 服務需要一兩分鐘的時間。 在左側的 [探索與負載平衡] 底下，選取 [服務]。 其中會列出您的應用程式 (包括 [外部端點])，如以下範例所示：
 
-![Kubernetes Pods](./media/container-service-kubernetes-ui/complete-deployment.png)
+![檢視服務與端點清單](./media/kubernetes-dashboard/view-services.png)
 
-若要查看應用程式 Pod 的詳細資訊，請按一下左側功能表中的 **Pod**，然後選取 **NGINX** Pod。 這裡可以看到 Pod 的特定資訊，例如資源耗用量。
+選取端點位址以將網頁瀏覽器視窗開啟至預設的 NGINX 頁面：
 
-![Kubernetes 資源](./media/container-service-kubernetes-ui/running-pods.png)
+![檢視所部署應用程式的預設 NGINX 頁面](./media/kubernetes-dashboard/default-nginx.png)
 
-若要尋找應用程式的 IP 位址，請按一下左側功能表中的 [服務]，然後選取 **NGINX** 服務。
+## <a name="view-pod-information"></a>檢視 Pod 資訊
 
-![nginx 檢視](./media/container-service-kubernetes-ui/nginx-service.png)
+Kubernetes 儀表板可以提供基本監視計量，以及針對資訊 (例如記錄) 進行疑難排解。
+
+若要查看有關您應用程式 Pod 的詳細資訊，請選取左側功能表中的 [Pod]。 隨即會顯示可用的 Pod 清單。 請選擇您的 *nginx* Pod 以檢視資訊，例如資源耗用量：
+
+![檢視 Pod 資訊](./media/kubernetes-dashboard/view-pod-info.png)
 
 ## <a name="edit-the-application"></a>編輯應用程式
 
-除建立和檢視應用程式之外，Kubernetes 儀表板還可用來編輯和更新應用程式部署。
+除建立和檢視應用程式之外，Kubernetes 儀表板還可用來編輯和更新應用程式部署。 為了為應用程式提供額外的備援，我們將增加 NGINX 複本的數目。
 
-若要編輯部署，請按一下左側功能表中的 [部署]，然後選取 **NGINX** 部署。 最後，選取右上方導覽列中的 [編輯]。
+編輯部署：
 
-![Kubernetes 編輯](./media/container-service-kubernetes-ui/view-deployment.png)
+1. 選取左側功能表中的 [部署]，然後選擇您的 *nginx* 部署。
+1. 選取右上方導覽列中的 [編輯]。
+1. 找出 `spec.replica` 值 (大約在第 20 行)。 若要增加應用程式複本的數目，請將此值從 *1* 變更為 *3*。
+1. 就緒後請選取 [更新]。
 
-找出 `spec.replica` 值，此值應為 1，請將它變更為 3。 如此做，NGINX 部署的複本計數會從 1 增加至 3。
+![編輯部署以更新複本數目](./media/kubernetes-dashboard/edit-deployment.png)
 
-就緒後請選取 [更新]。
+在複本集內建立新 Pod 需要一些時間。 請在左側功能表上，選擇 [複本集]，然後選擇您的 *nginx* 複本集。 Pod 清單現在會反映已更新的複本計數，如以下範例輸出所示：
 
-![Kubernetes 編輯](./media/container-service-kubernetes-ui/edit-deployment.png)
+![檢視複本集的相關資訊](./media/kubernetes-dashboard/view-replica-set.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Kubernetes 儀表板的詳細資訊，請參閱 Kubernetes 文件。
-
-> [!div class="nextstepaction"]
-> [Kubernetes Web UI 儀表板][kubernetes-dashboard]
+如需有關 Kubernetes 儀表板的詳細資訊，請參閱 [Kubernetes Web UI 儀表板][kubernetes-dashboard]。
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

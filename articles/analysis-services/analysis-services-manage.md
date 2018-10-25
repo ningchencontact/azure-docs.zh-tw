@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa5eeaad6ec98bb7ce725e1bf4c977cb2d5398a6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 52dd9d0ab5a22b702ad7d55d91b860d57e81f607
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448606"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267761"
 ---
 # <a name="manage-analysis-services"></a>Azure Analysis Services
 在 Azure 中建立 Analysis Services 伺服器之後，會有一些您必須立即或稍後執行的管理工作。 例如：執行資料重新整理處理作業、控制誰能夠存取您伺服器上的模型，或監視伺服器的健康狀態。 有些管理工作只能在 Azure 入口網站中執行，有些只能在 SQL Server Management Studio (SSMS) 中執行，也有些工作可以在這兩個位置中執行。
@@ -35,7 +35,7 @@ ms.locfileid: "37448606"
 
 
 ### <a name="to-connect-with-ssms"></a>以 SSMS 連線
- 使用 SSMS 時，請在第一次連線到您伺服器之前，先確定您的使用者名稱包含在「Analysis Services 管理員」群組中。 若要深入了解，請參閱本文稍後的[伺服器管理員](#server-administrators)。
+ 使用 SSMS 時，請在第一次連線到您伺服器之前，先確定您的使用者名稱包含在「Analysis Services 管理員」群組中。 若要深入了解，請參閱此文章稍後的[伺服器管理員](#server-administrators)。
 
 1. 連線之前，您必須先取得伺服器名稱。 在 [Azure 入口網站] > 伺服器 > [概觀]  >  [伺服器名稱] 中，複製伺服器名稱。
    
@@ -46,7 +46,7 @@ ms.locfileid: "37448606"
     > [驗證] 類型建議使用 [具 MFA 支援的 Active Directory - 通用]。
 
     > [!NOTE]
-    > 如果您是使用 Microsoft 帳戶、Live ID、Yahoo、Gmail 等登入，密碼欄位請空白。 您按 [連線] 之後系統會提示您輸入密碼。
+    > 如果您使用 Microsoft 帳戶、Live ID、Yahoo、Gmail 等來登入，請將密碼欄位保留空白。 您按 [連線] 之後系統會提示您輸入密碼。
 
     [Windows 驗證] 以使用您的 Windows 網域\使用者名稱和密碼認證。
 
@@ -60,7 +60,7 @@ ms.locfileid: "37448606"
 在 Azure Analysis Services 中，有兩種類型的使用者：伺服器管理員和資料庫使用者。 這兩種類型的使用者都必須位於 Azure Active Directory 中，而且必須由組織的電子郵件地址或 UPN 指定。 若要深入了解，請參閱[驗證和使用者權限](analysis-services-manage-users.md)。
 
 
-## <a name="troubleshooting-connection-problems"></a>連接問題的疑難排解
+## <a name="troubleshooting-connection-problems"></a>連線問題的疑難排解
 使用 SSMS 進行連線時，如果遇到問題，您可能需要清除登入快取。 系統不會將任何資料快取到磁碟。若要清除快取，請將連線程序關閉並重新啟動。 
 
 ## <a name="next-steps"></a>後續步驟

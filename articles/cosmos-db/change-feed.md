@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287320"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269491"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是彈性、快速的全域複寫資料庫，適合用於 IoT、遊戲、零售，以及操作記錄應用程式。 這類應用程式常用的設計模式，是利用資料的變更啟動其他動作的進行。 其他的動作可能是下列其中一項： 
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是彈性、快速的全域複寫資料庫，適合用於 IoT、遊戲、零售，以及操作記錄應用程式。 這類應用程式常用的設計模式，是利用資料的變更啟動其他動作的進行。 其他的動作可能是下列其中一個： 
 
 * 於插入或修改文件時觸發 API 通知或呼叫。
 * 進行 IoT 資料流處理或執行分析。
@@ -54,7 +54,7 @@ Azure Cosmos DB 中的變更摘要支援是靠接聽 Azure Cosmos DB 集合的�
 * 變更記錄檔中只會包含指定文件的最新變更。 中繼變更可能無法使用。
 * 變更摘要會依照各個資料分割索引鍵值內的修改順序排序。 跨資料分割索引鍵值順序不會是固定的。
 * 變更可以從任何時間點同步處理，也就是說，可用變更沒有固定的資料保留期限。
-* 變更會以資料分割索引鍵區塊為單位提供。 這項功能可讓大型集合的變更由多個取用者/伺服器平行處理。
+* 變更會以資料分割索引鍵區塊為單位提供。 此功能可讓大型集合的變更由多個取用者/伺服器平行處理。
 * 應用程式可以同時要求同一個集合的多個變更摘要。
 * ChangeFeedOptions.StartTime 可用來提供初始的起點，例如，用來尋找對應到指定時鐘時間的接續權杖。 ContinuationToken 如經指定，會優先於 StartTime 和 StartFromBeginning 值。 ChangeFeedOptions.StartTime 的精確度為 5 秒內。 
 
@@ -88,7 +88,7 @@ Azure Cosmos DB 中的變更摘要支援是靠接聽 Azure Cosmos DB 集合的�
 
 Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理變更摘要的所有功能。 但是，能力愈強責任愈多。 如果您想要管理檢查點、處理文件序號，並能夠更精確地控制分割區索引鍵，那麼，使用 SDK 可能是正確的方法。
 
-本節逐步解說如何使用 SQL SDK 運用變更摘要。
+此節逐步解說如何使用 SQL SDK 運用變更摘要。
 
 1. 首先，讀取 appconfig 中的下列資源。 擷取端點和授權金鑰的指示，可於[更新連接字串](create-sql-api-dotnet.md#update-your-connection-string)中找到。
 
@@ -100,7 +100,7 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
     string authorizationKey = ConfigurationManager.AppSettings["authKey"];
     ```
 
-2. 遵循下列方式建立用戶端：
+2. 依照下列方式建立用戶端：
 
     ```csharp
     using (client = new DocumentClient(new Uri(endpointUrl), authorizationKey,
@@ -158,7 +158,7 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 
 如果您有多個讀取器，可以使用 **ChangeFeedOptions** 將讀取負載分配至不同的執行緒或不同的用戶端。
 
-就這麼簡單，只要這幾行程式碼，您便可以開始讀取變更摘要。 您可以從 [GitHub 儲存機制](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)取得本文中使用的完整程式碼。
+就這麼簡單，只要這幾行程式碼，您便可以開始讀取變更摘要。 您可以從 [GitHub 存放庫](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)取得此文章中使用的完整程式碼。
 
 在上述的步驟 4 程式碼中，最後一行的 **ResponseContinuation** 中有最後一個邏輯序號 (LSN)，下一次您讀取新文件時會用到這個序號 (新文件在這個序號之後)。 利用 **ChangeFeedOption** 的 **StartTime**，可以加大取得文件的範圍。 因此，如果您的 **ResponseContinuation** 是 null，但 **StartTime** 是過去的時間，則會取得自 **StartTime** 開始變更過的所有文件。 但是，如果 **ResponseContinuation** 有值，則系統會取得自 LSN 開始的所有文件。
 
@@ -175,7 +175,7 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 
 ![Azure Cosmos DB 變更摘要的分散式處理](./media/change-feed/change-feed-output.png)
 
-先啟動左邊的用戶端，它開始並啟監視所有分割區，接著啟動第二個用戶端，然後第一個將部份放租用釋出給第二個用戶端。 如您所見，這是在不同電腦與用戶端之間分散工作的好方法。
+左邊的用戶端會先啟動，而且它會開始監視所有分割區，接著啟動第二個用戶端，然後第一個用戶端將部分租用釋出給第二個用戶端。 如您所見，這是在不同電腦與用戶端之間分散工作的好方法。
 
 請注意，如果您有兩個無伺服器的 Azure 函式使用相同的租用在監視相同的集合，則這兩個函式可能會得到不同的文件，取決於處理器程式庫決定如何處理分割區。
 
@@ -351,19 +351,13 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
                     CollectionName = this.leaseCollectionName
                 };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
-            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
-
-            /* ie customize StartFromBeginning so change feed reads from beginning
-                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
-            */
-
-            feedOptions.StartFromBeginning = true;
-        
+       
             ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
             // ie. customizing lease renewal interval to 15 seconds
             // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
             feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            feedProcessorOptions.StartFromBeginning = true;
 
             this.builder
                 .WithHostName(hostName)
@@ -381,7 +375,7 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 
 就這麼簡單！ 執行這幾個步驟之後，文件會開始顯示於 **DocumentFeedObserver ProcessChangesAsync** 方法中。
 
-上述程式碼為說明之用，以顯示不同類型的物件及其互動。 您必須定義適當的變數，並且以正確的值啟動這些變數。 您可以從 [GitHub 儲存機制](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2)取得本文中使用的完整程式碼。
+上述程式碼為說明之用，以顯示不同類型的物件及其互動。 您必須定義適當的變數，並且以正確的值啟動這些變數。 您可以從 [GitHub 存放庫](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2)取得此文章中使用的完整程式碼。
 
 > [!NOTE]
 > 如以上的程式碼所示，在您的程式碼或組態檔中，永遠都不應該有主要金鑰。 請參閱[如何使用 Key Vault 擷取金鑰](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/) (英文)。
@@ -401,7 +395,7 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 
    如果您想外包更加複雜的變更摘要，則可使用變更摘要處理器程式庫。 此程式庫會將大量的複雜作業隱藏起來，但仍然可讓您完全控制變更摘要。 此程式庫依循的是[觀察者模式](https://en.wikipedia.org/wiki/Observer_pattern)，SDK 會呼叫您的處理函式。 
 
-   如果您有高輸送量的變更摘要，則可將多個用戶端具現化，以讀取變更摘要。 因為您正使用「變更摘要處理器程式庫」，它會自動將負載分散到不同用戶端。 您不需要執行任何動作。 SDK 會處理所有的複雜作業。 不過，如果您想要擁有自己的負載平衡器，您可以實作 IParitionLoadBalancingStrategy，自訂磁碟分割的策略。 實作 IPartitionProcessor - 用於分割區上的自訂處理變更。 不過，您可以使用 SDK 處理磁碟分割範圍，但是，如果您想要處理特定磁碟分割區索引鍵，則必須使用適用於 SQL API 的 SDK。
+   如果您有高輸送量的變更摘要，則可將多個用戶端具現化，以讀取變更摘要。 由於您目前使用的是「變更摘要處理器程式庫」，因此它會自動將負載分散到不同的用戶端。 您不需要執行任何動作。 SDK 會處理所有的複雜作業。 不過，如果您想要擁有自己的負載平衡器，您可以實作 IParitionLoadBalancingStrategy，自訂磁碟分割的策略。 實作 IPartitionProcessor - 用於分割區上的自訂處理變更。 不過，您可以使用 SDK 處理磁碟分割範圍，但是，如果您想要處理特定磁碟分割區索引鍵，則必須使用適用於 SQL API 的 SDK。
 
 * **[使用 Azure Functions](#azure-functions)** 
    
@@ -435,11 +429,11 @@ Azure Functions 會使用預設的連線原則。 您可以在 Azure Functions �
 
 請確定沒有其他函式使用相同的租用集合在讀取相同的集合。 我也碰過這種狀抗，後來我發現缺少的文件是由其他 Azure 函式處理的，這些函式也在使用相同的租用集合。
 
-因此，如果您要建立多個 Azure Functions 以讀取相同的變更摘要，這些函式必須使用不同的租用集合，或使用「leasePrefix」設定以共用相同的集合。 不過，在使用變更摘要處理器程式庫時，您可以啟動函式的多個執行個體，SDK 會自動把文件分配到不同的執行個體上。
+因此，如果您要建立多個 Azure Functions 來讀取相同的變更摘要，則它們必須使用不同的租用集合，或使用 "leasePrefix" 設定來共用相同的集合。 不過，在使用變更摘要處理器程式庫時，您可以啟動函式的多個執行個體，SDK 會自動把文件分配到不同的執行個體上。
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>我的文件每秒更新一次，而我沒有收到接聽變更摘要之 Azure Functions 中的所有變更。
 
-Azure Functions 每 5 秒輪詢變更摘要一次，因此，5 秒內所做的任何變更都將遺失。 Azure Cosmos DB 每 5 秒僅儲存一次單一版本，因此您會得到該文件第五次變更的版本。 不過，如果您想要時間少於於 5 秒，而且希望每秒輪詢變更摘要一次，則可設定輪詢時間「feedPollTime」，請參閱 [Azure Cosmos DB 繫結](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)。 它以毫秒為單位定義，預設值為 5000。 低於 1 秒是可行的 (但不建議)，因為您會耗用更多 CPU。
+Azure Functions 每 5 秒輪詢變更摘要一次，因此，5 秒內所做的任何變更都將遺失。 Azure Cosmos DB 每 5 秒僅儲存一次單一版本，因此您會得到該文件第五次變更的版本。 不過，如果您想要讓時間少於 5 秒，而希望每秒輪詢變更摘要一次，則可設定輪詢時間 "feedPollTime"，請參閱 [Azure Cosmos DB 繫結](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)。 它以毫秒為單位定義，預設值為 5000。 低於 1 秒是可行的 (但不建議)，因為您會耗用更多 CPU。
 
 ### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>我在 Mongo API 集合中已插入文件，但是當我在變更摘要中取得文件時，其顯示的是不同的 ID 值。 這其中發生什麼狀況？
 
@@ -451,7 +445,7 @@ Azure Functions 每 5 秒輪詢變更摘要一次，因此，5 秒內所做的�
 
 ### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>是否可取得變更摘要中的刪除項目？
 
-目前變更摘要不會記錄刪除項目。 變更摘要會不斷改善，已在規劃此功能。 目前，您可以為刪除項目在文件上新增軟標記。 在名為「已刪除」的文件上新增屬性，將其設定為「true」，並在文件上設定 TTL，以便可以自動刪除。
+目前變更摘要不會記錄刪除項目。 變更摘要會不斷改善，已在規劃此功能。 目前，您可以為刪除項目在文件上新增軟標記。 請在文件上新增名為 "deleted" 的屬性，並將其設定為 "true"，然後在文件上設定 TTL，以便自動將其刪除。
 
 ### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>我是否可以讀取歷史文件 (例如，5 年前新增的文件) 的變更摘要？
 

@@ -10,16 +10,16 @@ ms.reviewer: klam, estfan, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 97c928c34a18a5d4f3549c348a273df268ee1db0
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123303"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393774"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>概觀：Azure 無伺服器搭配 Azure Logic Apps 和 Azure Functions
 
-無伺服器應用程式提供的好處包括加速開發、減少必要的程式碼，以及簡單調整。  本文描述無伺服器解決方案的各種屬性和 Azure 無伺服器供應項目。
+[無伺服器](https://azure.microsoft.com/solutions/serverless/)應用程式提供的好處包括可加速開發、減少必要的程式碼，以及容易調整。  本文描述無伺服器解決方案的各種屬性和 Azure 無伺服器供應項目。
 
 ## <a name="what-is-serverless"></a>什麼是無伺服器？
 

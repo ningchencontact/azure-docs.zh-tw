@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5678b8408eac303d9036d21612f60fafc325425d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125847"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801908"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>業務持續性和災害復原 (BCDR)：Azure 配對的區域
 
@@ -34,6 +34,7 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | 加拿大 |加拿大中部 |加拿大東部 |
 | 中國 |中國北部 |中國東部|
 | 歐洲 |北歐 |西歐 |
+| 法國 |法國中部|法國南部|
 | 德國 |德國中部 |德國東北部 |
 | 印度 |印度中部 |印度南部 |
 | 印度 |印度西部 (1) |印度南部 |
@@ -69,11 +70,11 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 ## <a name="cross-region-activities"></a>跨區域活動
 如圖 2 所示。
 
-![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure 運算 (PaaS)**：您必須佈建額外的運算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。 如需詳細資訊，請參閱 [Azure 復原技術指導](resiliency/resiliency-technical-guidance.md)。
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure 運算 (IaaS)**：您必須佈建額外的運算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。 如需詳細資訊，請參閱 [Azure 復原技術指導](resiliency/resiliency-technical-guidance.md)。
 
 ![儲存體](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體**：建立 Azure 儲存體帳戶時，預設會設定異地備援儲存體 (GRS)。 使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。 如需詳細資訊，請參閱 [Azure 儲存體備援選項](storage/common/storage-redundancy.md)。
 
-![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database**：使用 Azure SQL 標準異地複寫，您就可以設定交易至配對區域的非同步複寫。 使用高階異地複寫，您就可以設定複寫至世界上任何區域。不過，我們建議您在配對區域中，為大部分的災害復原案例部署這些資源。 如需詳細資訊，請參閱 [Azure SQL Database 中的異地複寫](sql-database/sql-database-geo-replication-overview.md)。
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – 使用 Azure SQL Database 異地複寫，您就可以設定非同步交易複寫至世界上任何區域。不過，我們建議您在配對區域中，為大部分的災害復原案例部署這些資源。 如需詳細資訊，請參閱 [Azure SQL Database 中的異地複寫](sql-database/sql-database-geo-replication-overview.md)。
 
 ![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager**：Resource Manager 原本就會跨區域提供服務管理元件的邏輯隔離。 這表示某個區域中的邏輯失敗不太可能會影響另一個區域。
 

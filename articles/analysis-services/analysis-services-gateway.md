@@ -1,22 +1,22 @@
 ---
-title: 內部部署資料閘道 | Microsoft Docs
+title: 內部部署資料閘道
 description: 如果 Azure 中的 Analysis Services 伺服器會連接到內部部署資料來源，則需要一個內部部署閘道。
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ba46223f0d0a4db7615bc94fe8a1bbfa18e57f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 84c82da933b17679e8c69c08b0c9cc7372951cfd
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442333"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802048"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>透過 Azure 內部部署資料閘道連線至內部部署資料來源
-內部部署資料閘道的角色如同橋接器，在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同區域中的多項服務與單一閘道建立關聯。 
+內部部署資料閘道的角色如同橋接器，在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同訂用帳戶及相同區域中的多個服務與單一閘道建立關聯。 
 
 第一次設定閘道的程序有四部分：
 
@@ -26,7 +26,7 @@ ms.locfileid: "37442333"
 
 - **在 Azure 中建立閘道資源** - 在此步驟中，您會在您的 Azure 訂用帳戶中建立閘道資源。
 
-- **將您的伺服器連線到閘道資源** - 您的訂用帳戶中一旦有閘道資源，您就可以開始將您的伺服器連線到它。 您可以將多部伺服器和其他資源連線到該資源。
+- **將您的伺服器連線到閘道資源** - 您的訂用帳戶中一旦有閘道資源，您就可以開始將您的伺服器連線到它。 您可以連線多部伺服器及其他資源，只要它們都位於相同訂用帳戶和相同區域中即可。
 
 若要立即開始，請參閱[安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)。
 
@@ -142,7 +142,7 @@ ms.locfileid: "37442333"
 
 ## <a name="troubleshooting"> </a>疑難排解
 
-**問**：我嘗試在 Azure 中建立閘道資源，為什麼在閘道器執行個體清單中看不到我的閘道？ <br/>
+**問**：我嘗試在 Azure 中建立閘道資源，為什麼在閘道執行個體清單中看不到我的閘道？ <br/>
 **答**：有兩個可能的原因。 第一個原因是在目前或其他訂用帳戶中已建立閘道資源。 若要排除這個可能性，從入口網站列舉**內部部署資料閘道**類型的資源。 在列舉所有資源時，確定已選取所有訂用帳戶。 一旦建立資源，閘道便不會出現在 [建立閘道資源] 入口網站體驗的閘道執行個體清單中。 第二種可能性是安裝此閘道之使用者的 Azure AD 身分識別，不同於登入 Azure 入口網站的使用者。 若要解決此問題，使用閘道安裝者的帳戶登入入口網站。
 
 **問**︰如何查看有哪些查詢正要傳送至內部部署資料來源？ <br/>
@@ -151,7 +151,7 @@ ms.locfileid: "37442333"
 您也可以查看資料來源具備的工具是否有追蹤查詢。 例如，您可以使用 SQL Server 和 Analysis Services 的擴充事件或 SQL Profiler。
 
 **問**︰閘道記錄在哪裡？ <br/>
-**答**：請參閱本文稍後的「記錄」。
+**答**：請參閱此文章稍後的＜記錄＞。
 
 ### <a name="update"></a>更新為最新版本
 
@@ -172,8 +172,6 @@ ms.locfileid: "37442333"
 #### <a name="configuration-logs"></a>組態記錄檔
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
-
-
 
 
 #### <a name="event-logs"></a>事件記錄檔

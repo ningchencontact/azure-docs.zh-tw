@@ -1,23 +1,23 @@
 ---
-title: Azure 事件方格與 Azure 入口網站的 Blob 儲存體事件 | Microsoft Docs
-description: 使用 Azure 事件方格與 Azure 入口網站來建立 Blob 儲存體帳戶，並訂閱其事件。
+title: Azure Event Grid 與 Azure 入口網站的 Blob 儲存體事件 | Microsoft Docs
+description: 使用 Azure Event Grid 和 Azure 入口網站來建立 Blob 儲存體帳戶，並訂閱其事件。
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 08/13/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 17fba267e85c7b1421e632930c8bea2bfaf6ff5f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 44e258069515ad6c409c193312f3a714a5096541
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736490"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404217"
 ---
-# <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>使用 Azure 入口網站和事件方格建立和路由傳送 Blob 儲存體
+# <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>使用 Azure 入口網站和 Event Grid 建立和路由傳送 Blob 儲存體
 
-Azure 事件方格是一個雲端事件服務。 在此文章中，您會使用 Azure 入口網站建立 Blob 儲存體帳戶、訂閱該 Blob 儲存體的事件，以及觸發事件以檢視結果。 通常，您會將事件傳送至可處理事件資料及採取行動的端點。 不過，若要簡化這篇文章，您可將事件傳送至可收集及顯示訊息的 Web 應用程式。
+Azure Event Grid 是一項雲端事件服務。 在本文中，您會使用 Azure 入口網站建立 Blob 儲存體帳戶、訂閱該 Blob 儲存體的事件，以及觸發事件以檢視結果。 通常，您會將事件傳送至可處理事件資料及採取行動的端點。 不過，若要簡化這篇文章，您可將事件傳送至可收集及顯示訊息的 Web 應用程式。
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -59,7 +59,7 @@ Azure 事件方格是一個雲端事件服務。 在此文章中，您會使用 
 
 ## <a name="subscribe-to-the-blob-storage"></a>訂閱 Blob 儲存體
 
-您可訂閱主題，告知事件方格您想要追蹤的事件，以及要將事件傳送至何處。
+您可訂閱主題，告知 Event Grid 您想要追蹤的事件，以及要將事件傳送至何處。
 
 1. 在入口網站中選取您的 Blob 儲存體，並選取 [事件]。
 
@@ -73,11 +73,11 @@ Azure 事件方格是一個雲端事件服務。 在此文章中，您會使用 
 
    ![選取記錄](./media/blob-event-quickstart-portal/create-subscription.png)
 
-1. 再次檢視 Web 應用程式，並注意訂用帳戶的驗證事件已傳送給它。 選取眼睛圖示來展開事件資料。 事件方格會傳送驗證事件，以便端點確認它要接收事件資料。 Web 應用程式包含用來驗證訂用帳戶的程式碼。
+1. 再次檢視 Web 應用程式，並注意訂用帳戶的驗證事件已傳送給它。 選取眼睛圖示來展開事件資料。 Event Grid 會傳送驗證事件，以便端點確認它要接收事件資料。 Web 應用程式包含用來驗證訂用帳戶的程式碼。
 
    ![訂用訂用帳戶事件](./media/blob-event-quickstart-portal/view-subscription-event.png)
 
-現在，讓我們觸發事件以了解事件方格如何將訊息散發至您的端點。
+現在，讓我們觸發事件以了解 Event Grid 如何將訊息散發至您的端點。
 
 ## <a name="send-an-event-to-your-endpoint"></a>將事件傳送至端點
 
@@ -99,9 +99,9 @@ Azure 事件方格是一個雲端事件服務。 在此文章中，您會使用 
 
    ![選取上傳](./media/blob-event-quickstart-portal/upload-file.png)
 
-1. 瀏覽至您的測試檔案，並上傳它。
+1. 瀏覽至您的測試檔案，並加以上傳。
 
-1. 您已觸發此事件，而事件方格會將訊息傳送至您在訂閱時設定的端點。 檢視您的 Web 應用程式，並留意已接收到 Blob 所建立的事件。 
+1. 您已觸發此事件，而 Event Grid 會將訊息傳送至您在訂閱時設定的端點。 檢視您的 Web 應用程式，並留意已接收到 Blob 所建立的事件。 
 
   ```json
   {
@@ -131,15 +131,15 @@ Azure 事件方格是一個雲端事件服務。 在此文章中，您會使用 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續使用此事件，請勿清除在此文章中建立的資源。 否則，請刪除您在此文章中建立的資源。
+如果您打算繼續使用此事件，請勿清除在本文中建立的資源。 否則，請刪除您在本文建立的資源。
 
 選取資源群組，然後選取 [刪除資源群組]。
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在知道如何建立自訂主題和事件訂閱，深入了解事件方格可協助您：
+您現在知道如何建立自訂主題和事件訂閱，深入了解 Event Grid 可協助您：
 
-- [關於事件方格](overview.md)
+- [關於 Event Grid](overview.md)
 - [將 Blob 儲存體事件路由至自訂的 Web 端點](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [使用 Azure 事件方格和 Logic Apps 監視虛擬機器變更](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [將巨量資料串流處理至資料倉儲](event-grid-event-hubs-integration.md)

@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 13268ec865ec72fce23df550619b199389096360
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: dd86fd1aa8b1dab9f329f12924ff37db1256d1eb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056500"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377898"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
 本文顯示如何使用 SAP ERP Central Component (ECC) 連接器，從邏輯應用程式內部存取內部部署 SAP 資源。 SAP ECC 連接器支援透過中繼文件 (IDoc)、商務應用程式開發介面 (BAPI) 或遠端函式呼叫 (RFC) 來進行訊息或資料與 SAP Netweaver 型系統的雙向整合。
 
-SAP ECC 連接器會使用 <a href="https://help.sap.com/saphelp_nwpi71/helpdata/en/e9/23c80d66d08c4c8c044a3ea11ca90f/frameset.htm">SAP .Net Connector (NCo) 程式庫</a>，並提供下列作業或動作：
+SAP ECC 連接器會使用 <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .Net Connector (NCo) 程式庫</a>，並提供下列作業或動作：
 
 - **傳送至 SAP**：在 SAP 系統中透過 tRFC 傳送 IDoc 或呼叫 BAPI 函式。
 - **從 SAP 接收**：從 SAP 系統透過 tRFC 接收 IDoc 或 BAPI 函式呼叫。
@@ -44,7 +44,7 @@ SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/downl
 
 * 下載最新的[內部部署資料閘道](https://www.microsoft.com/download/details.aspx?id=53127)，並安裝在任何內部部署電腦中。 請務必先在 Azure 入口網站中設定閘道再繼續。 閘道可協助您安全地存取內部部署的資料和資源。 如需詳細資訊，請參閱[安裝 Azure Logic Apps 的內部部資料署閘道](../logic-apps/logic-apps-gateway-install.md)。
 
-* 下載最新的 SAP 用戶端程式庫 (目前是<a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">適用於 Microsoft .NET Framework 4.0 和 Windows 64 位元 (x64) 的 SAP Connector (NCo) 3.0.20.0</a>)，並安裝到與內部部署資料閘道所在的相同電腦上。 安裝此版本或更新版本的原因如下：
+* 下載最新的 SAP 用戶端程式庫 (目前是<a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">適用於 Microsoft .NET Framework 4.0 和 Windows 64 位元 (x64) 的 SAP Connector (NCo) 3.0.21.0</a>)，並安裝到與內部部署資料閘道所在的相同電腦上。 安裝此版本或更新版本的原因如下：
 
   * 同時傳送多則 IDoc 訊息時，較舊的 SAP NCo 版本可能會鎖死。 
   此狀況會封鎖所有傳送到 SAP 目的地的新訊息，導致訊息逾時。

@@ -1,25 +1,27 @@
 ---
-title: LogDownloader - Azure 認知服務 | Microsoft Docs
+title: LogDownloader - 自訂決策服務
+titlesuffix: Azure Cognitive Services
 description: 下載 Azure 自訂決策服務產生的記錄檔。
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 783b534b3b3f4bb7f5d9f073f491690759edfea5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369955"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366789"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
 下載 Azure 自訂決策檔案產生的記錄檔，並產生測試使用的 *.gz* 檔案。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Python 3：已安裝並在您的路徑上。 建議使用 64 位元版本以處理大型檔案。
 - *Microsoft/mwt-ds* 存放庫：[複製存放庫](https://github.com/Microsoft/mwt-ds)。

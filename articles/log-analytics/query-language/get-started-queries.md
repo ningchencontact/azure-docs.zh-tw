@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Log Analytics 中開始使用查詢 | Microsoft Docs
-description: 本文提供教學課程來說明如何在 Log Analytics 中開始撰寫查詢。
+description: 此文章提供教學課程來說明如何在 Log Analytics 中開始撰寫查詢。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: b56a75074af239f60b82edbe1d074c6384c4aef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ee34d99c78eb090514385de16cd77d04ddca4e4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982969"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267693"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>在 Log Analytics 中開始使用查詢
 
 
 > [!NOTE]
-> 請先完成[開始使用 Analytics 入口網站](get-started-analytics-portal.md)再完成本教學課程。
+> 請先完成[開始使用 Analytics 入口網站](get-started-analytics-portal.md)再完成此教學課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-在本教學課程中，您會了解如何撰寫 Azure Log Analytics 查詢。 它會告訴您如何：
+在此教學課程中，您會了解如何撰寫 Azure Log Analytics 查詢。 它會告訴您如何：
 
 - 了解查詢的結構
 - 排序查詢結果
@@ -190,7 +190,7 @@ SecurityEvent
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize：彙總資料列群組
-使用 **summarize** 可識別記錄群組 (根據一或多個資料行)，並對其套用彙總。 **summarize** 最常見的用法是 count，其會傳回每個群組中的結果數目。
+使用 **summarize** 可識別記錄群組 (根據一或多個資料行)，並對其套用彙總。 **summarize** 最常見的用法是 *count*，其會傳回每個群組中的結果數目。
 
 下列查詢會檢閱過去 1 小時的所有 Perf 記錄、依 ObjectName 將這些記錄分組，並計算每個群組中的記錄數目： 
 ```Kusto

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411183"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885284"
 ---
 # <a name="virtual-machine-serial-console"></a>虛擬機器序列主控台
 
@@ -32,7 +32,7 @@ Azure 上的「虛擬機器序列主控台」可讓您存取 Linux 虛擬機器�
 > 適用於虛擬機器的序列主控台已在全球 Azure 區域公開推出。 序列主控台目前尚未在 Azure Government 或「Azure 中國」雲端中提供。
 
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 * 您必須使用資源管理部署模型。 不支援傳統部署。 
 * 虛擬機器必須啟用[開機診斷](boot-diagnostics.md)功能 - 請參閱以下螢幕擷取畫面。
@@ -44,12 +44,12 @@ Azure 上的「虛擬機器序列主控台」可讓您存取 Linux 虛擬機器�
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* 如需了解 Linux 發行版本特定的設定，請參閱[存取 Linux 的序列主控台](#Serial-Console-Linux-distro-availability)
+* 如需有關 Linux 發行版本的特定設定，請參閱[序列主控台 Linux 發行版本可用性](#serial-console-linux-distro-availability)
 
 
 
 ## <a name="get-started-with-serial-console"></a>開始使用序列主控台
-只有透過 [Azure 入口網站](https://portal.azure.com)，才能存取虛擬機器的序列主控台。 以下是透過入口網站存取虛擬機器之序列主控台的步驟 
+只有透過 [Azure 入口網站](https://portal.azure.com)，才能存取虛擬機器的序列主控台。 確定您符合上面所述的[先決條件](#prerequisites)。 以下是透過入口網站存取虛擬機器之序列主控台的步驟：
 
   1. 開啟 Azure 入口網站
   1. (如果您的 VM 有使用密碼驗證的使用者，請跳過此步驟) 按一下 [重設密碼] 刀鋒視窗，以新增具有使用者名稱/密碼驗證的使用者
@@ -183,34 +183,34 @@ Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.c
 ## <a name="frequently-asked-questions"></a>常見問題集 
 **問：如何傳送意見反應？**
 
-答： 前往 https://aka.ms/serialconsolefeedback \(英文\) 來以問題形式提供意見反應。 或者，您也可以透過 azserialhelp@microsoft.com 或在 http://feedback.azure.com \(英文\) 的虛擬機器類別中傳送意見反應 (較不建議)
+A. 前往 https://aka.ms/serialconsolefeedback \(英文\) 來以問題形式提供意見反應。 或者，您也可以透過 azserialhelp@microsoft.com 或在 http://feedback.azure.com \(英文\) 的虛擬機器類別中傳送意見反應 (較不建議)
 
 **問：序列主控台是否支援複製/貼上？**
 
-答： 是，它支援。 請使用 Ctrl + Shift + C 與 Ctrl + Shift + V 來針對終端機進行複製及貼上。
+A. 是，它支援。 請使用 Ctrl + Shift + C 與 Ctrl + Shift + V 來針對終端機進行複製及貼上。
 
 **問：我是否可以使用序列主控台，而不使用 SSH 連線？**
 
-答： 雖然這在技術上應該是可行的，但序列主控台主要是要作為無法透過 SSH 進行連線時的疑難排解工具。 基於以下兩個原因，建議您不要以序列主控台取代 SSH：
+A. 雖然這在技術上應該是可行的，但序列主控台主要是要作為無法透過 SSH 進行連線時的疑難排解工具。 基於以下兩個原因，建議您不要以序列主控台取代 SSH：
 
 1. 序列主控台是純文字的連線，並沒有和 SSH 一樣多的頻寬，因此很難在序列主控台中進行重度使用 GUI 的互動。
 1. 目前，只要有使用者名稱和密碼即可存取序列主控台。 SSH 金鑰的安全性遠高於使用者名稱/密碼的組合，因此就登入安全性的觀點而言，我們建議 SSH 應比序列主控台優先使用。
 
 **問：誰可以針對我的訂用帳戶啟用或停用序列主控台？**
 
-答： 若要以訂用帳戶層級的規模啟用或停用序列主控台，您必須有該訂用帳戶的寫入權限。 具有寫入權限的角色包括 (但不限於) 系統管理員或擁有者角色。 自訂角色也可能會有寫入權限。
+A. 若要以訂用帳戶層級的規模啟用或停用序列主控台，您必須有該訂用帳戶的寫入權限。 具有寫入權限的角色包括 (但不限於) 系統管理員或擁有者角色。 自訂角色也可能會有寫入權限。
 
 **問：誰可以存取我 VM 的序列主控台？**
 
-答： 您必須具有參與者或更高層級的存取權，才能存取 VM 的序列主控台。 
+A. 您必須具有參與者或更高層級的存取權，才能存取 VM 的序列主控台。 
 
 **問：我的序列主控台沒有顯示任何內容，該怎麼辦？**
 
-答： 您映像的序列主控台存取設定很有可能是錯誤的。 請參閱[存取 Linux 的序列主控台](#Access-Serial-Console-for-Linux)以取得設定映像來啟用序列主控台的詳細資料。
+A. 您映像的序列主控台存取設定很有可能是錯誤的。 如需有關如何設定您的映像以啟用序列主控台的詳細資訊，請參閱[序列主控台 Linux 發行版本可用性](#serial-console-linux-distro-availability)。
 
 **問：序列主控台是否適用於虛擬機器擴展集？**
 
-答： 目前尚不支援存取虛擬機器擴展集執行個體的序列主控台。
+A. 目前尚不支援存取虛擬機器擴展集執行個體的序列主控台。
 
 **問：我只使用 SSH 金鑰驗證來設定 VM，我是否仍然可以使用序列主控台來連線到我的 VM？** 答：是。 序列主控台並不需要 SSH 金鑰，因此您只需要設定使用者名稱/密碼組合就可以。 若要這樣做，您可以使用入口網站中的 [重設密碼] 刀鋒視窗，並使用那些認證來登入序列主控台。
 

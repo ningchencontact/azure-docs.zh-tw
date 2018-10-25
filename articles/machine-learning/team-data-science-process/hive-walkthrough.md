@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42140300"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586116"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
 在此逐步解說中，我們在端對端案例中使用 [Team Data Science Process (TDSP)](overview.md)。 我們使用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)，以對 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。 若要處理二元和多元分類和迴歸預測工作，我們使用 Azure Machine Learning 建置資料的模型。 
 
 如需示範如何處理較大資料集的逐步解說，請參閱 [Team Data Science Process - 在 1 TB 的資料集上使用 Azure HDInsight Hadoop 叢集](hive-criteo-walkthrough.md)。
 
-您也可以使用 IPython Notebook 來完成本逐步解說中使用 1 TB 資料集的工作。 如需詳細資訊，請參閱[使用 Hive ODBC 連接的 Criteo 逐步解說](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb)。
+您也可以使用 IPython Notebook 來完成此逐步解說中使用 1 TB 資料集的工作。 如需詳細資訊，請參閱[使用 Hive ODBC 連接的 Criteo 逐步解說](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb)。
 
 ## <a name="dataset"></a>NYC 計程車車程資料集說明
-NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未壓縮約 48 GB)。 它有超過 1.73 億趟個別的車程，而且包含每趟車程的費用。 每趟車程記錄包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及圓形徽章號碼 (計程車的唯一識別碼)。 資料涵蓋 2013 年的所有車程，且每月提供於下列兩個資料集中：
+NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未壓縮約 48 GB)。 它有超過 1.73 億趟個別的車程，而且包含每趟車程的費用。 每趟車程記錄均包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及圓形徽章號碼 (計程車的唯一識別碼)。 資料涵蓋 2013 年的所有車程，且每月提供於下列兩個資料集中：
 
 - Trip_data CSV 檔案包含車程詳細資料。 這包括乘客數、上車和下車地點、車程持續時間以及車程長度。 以下是一些範例記錄：
    
@@ -52,7 +52,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 加入 trip\_data and trip\_fare 的唯一索引鍵由下列欄位組成：medallion、hack\_license 和 pickup\_datetime。 若要取得特定車程的所有詳細資訊，加入這三個索引鍵便已足夠。
 
 ## <a name="mltasks"></a>預測工作的範例
-決定您想根據資料分析執行的預測種類。 這有助於釐清需要包含在程序中的工作。 以下是我們在本逐步解說中解決的三個預測問題範例。 這些是以 *tip\_amount* 為根據：
+決定您想根據資料分析執行的預測種類。 這有助於釐清需要包含在程序中的工作。 以下是我們在此逐步解說中解決的三個預測問題範例。 這些是以 *tip\_amount* 為根據：
 
 - **二元分類**：預測是否已支付某趟車程的小費。 也就是說，大於 $0 的 *tip\_amount* 是正數範例，而 $0 的 *tip\_amount* 是負數範例。
    
@@ -80,7 +80,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
    
    * 建立步驟 1 中的儲存體帳戶時，請務必將之與您的 HDInsight 叢集連結。 這個儲存體帳戶可存取在叢集內處理的資料。
    * 建立叢集之後，請對叢集的前端節點啟用遠端存取。 瀏覽至 [組態] 索引標籤，然後選取 [啟用遠端]。 這個步驟可指定使用於遠端登入的使用者認證。
-3. [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)：您可以使用這個工作區來建置機器學習模型。 使用 HDInsight 叢集完成初始資料探索和縮小取樣之後，會處理這項工作。
+3. [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)：您可以使用這個工作區來建置機器學習模型。 使用 HDInsight 叢集完成初始資料探索和縮小取樣之後，會處理此工作。
 
 ## <a name="getdata"></a>從公用來源取得資料
 > [!NOTE]
@@ -90,7 +90,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 
 若要從 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集的公用位置將該資料集複製到您的電腦，請使用[將資料移進和移出 Azure Blob 儲存體](move-azure-blob.md)中所述的任何一種方法。
 
-我們在這裡說明如何使用 AzCopy 來傳輸含有資料的檔案。 若要下載並安裝 AzCopy，請遵循[開始使用 AzCopy 命令列公用程式](../../storage/common/storage-use-azcopy.md)的指示。
+我們在這裡說明如何使用 AzCopy 來傳輸含有資料的檔案。 若要下載並安裝 AzCopy，請依照[開始使用 AzCopy 命令列公用程式](../../storage/common/storage-use-azcopy.md)的指示執行。
 
 1. 從命令提示字元視窗中執行下列 AzCopy 命令，以所需的目的地取代 *<path_to_data_folder>*：
 
@@ -129,9 +129,9 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 > 
 > 
 
-若要存取叢集的前端節點以進行資料的探索資料分析和縮小取樣，請遵循[存取 Hadoop 叢集的前端節點](customize-hadoop-cluster.md)中所述的程序進行。
+若要存取叢集的前端節點以進行資料的探索資料分析和縮小取樣，請依照[存取 Hadoop 叢集的前端節點](customize-hadoop-cluster.md)中所述的程序進行。
 
-在本逐步解說中，我們主要是使用 [Hive](https://hive.apache.org/)中撰寫的查詢 (類似 SQL 的查詢語言) 來執行初步資料探索。 Hive 查詢會儲存在 .hql 檔案。 我們接著會縮小取樣這份資料，以便在 Machine Learning 中用來建置模型。
+在此逐步解說中，我們主要是使用 [Hive](https://hive.apache.org/) (類似 SQL 的查詢語言) 中撰寫的查詢來執行初步資料探索。 Hive 查詢會儲存在 .hql 檔案。 我們接著會縮小取樣這份資料，以便在 Machine Learning 中用來建置模型。
 
 為了準備探索資料分析的叢集，我們從 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) 將包含相關 Hive 指令碼的 .hql 檔案下載至前端節點上的本機目錄 (C:\temp)。 若要這樣做，請從叢集的前端節點內開啟命令提示字元，並執行下列兩個命令：
 
@@ -139,7 +139,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-這兩個命令會將本逐步解說中所需的所有 .hql 檔案，下載到前端節點的本機目錄 ***C:\temp&#92;***。
+這兩個命令會將此逐步解說中所需的所有 .hql 檔案，下載到前端節點的本機目錄 ***C:\temp&#92;***。
 
 ## <a name="#hive-db-tables"></a>建立依月份分割的 Hive 資料庫和資料表
 > [!NOTE]
@@ -153,7 +153,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
     cd %hive_home%\bin
 
 > [!NOTE]
-> 請從 Hive bin/ 目錄提示字元執行本逐步解說中的所有 Hive 命令。 如此可自動處理路徑相關問題。 我們將在本逐步解說中交替使用「Hive 目錄提示字元」、「Hive bin/ 目錄提示字元」、「Hadoop 命令列」等詞語。
+> 請從 Hive bin/ 目錄提示字元執行此逐步解說中的所有 Hive 命令。 如此可自動處理路徑相關問題。 我們將在此逐步解說中交替使用「Hive 目錄提示字元」、「Hive bin/ 目錄提示字元」、「Hadoop 命令列」等詞語。
 > 
 > 
 
@@ -306,7 +306,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
-您可以將記錄儲存到檔案，以方便檢視。 對上述查詢進行微幅變更以完成這項作業：
+您可以將記錄儲存到檔案，以方便檢視。 對上述查詢進行微幅變更以完成此作業：
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
@@ -420,7 +420,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 > 
 > 
 
-當探索資料集時，我們通常會想要檢查共同出現的值群組數目。 本節提供如何為計程車和駕駛執行這項作業的範例。
+當探索資料集時，我們通常會想要檢查共同出現的值群組數目。 此節提供如何為計程車和駕駛執行此作業的範例。
 
 **sample\_hive\_trip\_count\_by\_medallion\_license.hql** 檔案會將費用資料集分組成 **medallion** 和 **hack_license**，並傳回每個組合的計數。 以下是其內容：
 
@@ -445,7 +445,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 > 
 > 
 
-常見的探索資料分析目標是去掉無效或不正確的記錄。 本節的範例會判斷經度或緯度欄位是否包含遠離 NYC 區域的值。 由於這類記錄可能具有錯誤的經度-緯度值，因此我們想要從用來建立模型的任何資料中排除這些錯誤值。
+常見的探索資料分析目標是去掉無效或不正確的記錄。 此節的範例會判斷經度或緯度欄位是否包含遠離 NYC 區域的值。 由於這類記錄可能具有錯誤的經度-緯度值，因此我們想要從用來建立模型的任何資料中排除這些錯誤值。
 
 以下是要檢查之 sample\_hive\_quality\_assessment.hql 檔案的內容。
 
@@ -474,7 +474,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 * tip given (Class 1, tip\_amount > $0)  
 * no tip (Class 0, tip\_amount = $0)
 
-以下的 **sample\_hive\_tipped\_frequencies.hql** 檔案會執行這項作業：
+以下的 **sample\_hive\_tipped\_frequencies.hql** 檔案會執行此作業：
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -575,7 +575,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 > 
 > 
 
-在探索資料分析階段之後，我們現在已準備好縮小取樣資料，以便在 Machine Learning 中建置模型。 在本節中，我們會示範如何使用 Hive 查詢縮小取樣資料。 Machine Learning 再從[匯入資料][import-data]模組存取它。
+在探索資料分析階段之後，我們現在已準備好縮小取樣資料，以便在 Machine Learning 中建置模型。 在此節中，我們會示範如何使用 Hive 查詢縮小取樣資料。 Machine Learning 再從[匯入資料][import-data]模組存取它。
 
 ### <a name="down-sampling-the-data"></a>縮小取樣資料
 這個程序包含兩個步驟。 首先我們在所有記錄都會出現的三個索引鍵 (**medallion**、**hack\_license** 和 **pickup\_datetime**) 上加入 **nyctaxidb.trip** 和 **nyctaxidb.fare** 資料表。 接著產生二元分類標籤 **tipped** 和多元分類標籤 **tip\_class**。
@@ -725,7 +725,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
 以下是[匯入資料][import-data]模組及輸入參數的一些詳細資料：
 
-**HCatalog 伺服器 URI**：如果叢集名稱是 **abc123**，則為：https://abc123.azurehdinsight.net。
+**HCatalog 伺服器 URI**：如果叢集名稱是 **abc123**，則為： https://abc123.azurehdinsight.net。
 
 **Hadoop 使用者帳戶名稱**：為叢集選擇的使用者名稱 (非遠端存取使用者名稱)。
 
@@ -771,7 +771,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
   ![實驗圖表](./media/hive-walkthrough/QGxRz5A.png)
 
-  b. 對於這項實驗，我們的目標標籤分佈大約是 1:1。
+  b. 對於此實驗，我們的目標標籤分佈大約是 1:1。
 
    下圖顯示二元分類問題之 tip 類別標籤的分佈：
 
@@ -795,7 +795,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
   ![測試類別分佈圖](./media/hive-walkthrough/Vy1FUKa.png)
 
-  b. 對於這項實驗，我們使用混淆矩陣來查看預測精確度。 其如下所示：
+  b. 對於此實驗，我們使用混淆矩陣來查看預測精確度。 其如下所示：
 
   ![混淆矩陣](./media/hive-walkthrough/cxFmErM.png)
 

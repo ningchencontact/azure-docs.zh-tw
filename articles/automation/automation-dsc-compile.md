@@ -4,17 +4,17 @@ description: 此文章說明如何針對 Azure 自動化編譯期望狀態設定
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/08/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: fae415d158a9fced0c63078cd09c0cc070c88372
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443810"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629996"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>編譯 Azure Automation State Configuration 中的 DSC 組態
 
@@ -156,7 +156,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```powershell
 Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 {
-    JoinDomain DomainJoin
+    DomainConfig myCompositeConfig
     {
         DomainName = $DomainName
         Admincreds = $Admincreds
@@ -164,7 +164,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
     PSWAWebServer InstallPSWAWebServer
     {
-        DependsOn = '[JoinDomain]DomainJoin'
+        DependsOn = '[DomainConfig]myCompositeConfig'
     }
 }
 ```
@@ -235,7 +235,7 @@ Azure Automation State Configuration 和 Runbook 中的資產參考是相同的�
 
 ### <a name="credential-assets"></a>認證資產
 
-Azure 自動化中的 DSC 組態可以使用 `Get-AzureRmAutomationCredential` 來參考自動化認證資產。 如果組態的參數類型為 **PSCredential**，則您可以將 Azure 自動化認證資產的字串名稱傳遞至 cmdlet 來擷取認證，這樣就可以使用 `Get-AutomationRmAutomationCredential`。 接著您可以將該物件用於需要 **PSCredential** 物件的參數。 會在背景中取出具有該名稱的 Azure 自動化認證資產，並傳遞至設定。 下列範例會顯示具體的操作。
+Azure 自動化中的 DSC 組態可以使用 `Get-AutomationPSCredential` Cmdlet 參考自動化認證資產。 如果組態的參數類型為 **PSCredential**，則您可以將 Azure 自動化認證資產的字串名稱傳遞至 cmdlet 來擷取認證，這樣就可以使用 `Get-AutomationPSCredential`。 接著您可以將該物件用於需要 **PSCredential** 物件的參數。 會在背景中取出具有該名稱的 Azure 自動化認證資產，並傳遞至設定。 下列範例會顯示具體的操作。
 
 要在節點組態 (MOF 組態文件) 中保持認證的安全性，需要在節點組態 MOF 檔案中為認證加密。 不過，目前您必須告知 PowerShell DSC 在節點組態 MOF 產生期間以純文字形式輸出認證是可行的，因為 PowerShell DSC 並不知道在透過編譯工作產生 MOF 檔案之後 Azure 自動化會加密整個檔案。
 

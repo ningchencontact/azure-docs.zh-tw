@@ -9,16 +9,16 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093613"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044768"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中的工作流程定義語言的觸發程序和動作類型參考
 
-在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中，所有邏輯應用程式工作流程的開頭都是觸發程序，後面接著動作。 本文說明您在建立邏輯應用程式以自動化工作、處理序和工作流程時所能使用的觸發程序和動作類型。 您可以利用 Logic Apps 設計工具以視覺化方式建立邏輯應用程式工作流程，或利用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)撰寫基礎工作流程定義，以建立邏輯應用程式。 您可以在 Azure 入口網站或 Visual Studio 中建立邏輯應用程式。 整個工作流程的基礎定義 (包括觸發程序和動作) 會使用 Javascript 物件標記法 (JSON)。
+在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中，所有邏輯應用程式工作流程的開頭都是觸發程序，後面接著動作。 此文章說明您在建立邏輯應用程式以自動化工作、處理序和工作流程時所能使用的觸發程序和動作類型。 您可以利用 Logic Apps 設計工具以視覺化方式建立邏輯應用程式工作流程，或利用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)撰寫基礎工作流程定義，以建立邏輯應用程式。 您可以在 Azure 入口網站或 Visual Studio 中建立邏輯應用程式。 整個工作流程的基礎定義 (包括觸發程序和動作) 會使用 Javascript 物件標記法 (JSON)。
 
 <a name="triggers-overview"></a>
 
@@ -62,7 +62,7 @@ ms.locfileid: "43093613"
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | 陣列 | 一個陣列，其中包含一或多個決定是否執行工作流程的[條件](#trigger-conditions) | 
+| <*array-with-conditions*> | 陣列 | 包含一或多個[條件](#trigger-conditions)的陣列，這類條件會決定是否要執行工作流程。 僅適用於觸發程序。 | 
 | <*runtime-config-options*> | JSON 物件 | 您可以藉由設定 `runtimeConfiguration` 屬性來變更觸發程序執行階段行為。 如需詳細資訊，請參閱[執行階段組態設定](#runtime-config-options)。 | 
 | <*splitOn-expression*> | 字串 | 針對會傳回陣列的觸發程序，您可以指定運算式，將陣列項目[分割或解除批次](#split-on-debatch)為多個工作流程執行個體，以進行處理。 | 
 | <*operation-option*> | 字串 | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
@@ -657,7 +657,7 @@ ms.locfileid: "43093613"
 
 ## <a name="trigger-conditions"></a>觸發條件
 
-對於任何觸發程序，您都可以加入有一或多個條件運算式可用來決定是否執行工作流程的陣列。 若要將 `conditions` 屬性新增至您的邏輯應用程式，請在程式碼檢視編輯器中開啟邏輯應用程式。
+對於任何觸發程序且僅限觸發程序，您可以加入含有一或多個條件運算式以用來決定是否應執行工作流程的陣列。 若要將 `conditions` 屬性新增至您邏輯應用程式中的觸發程序，請在程式碼檢視編輯器中開啟邏輯應用程式。
 
 例如，您可以指定要藉由參考觸發程序在 `conditions` 屬性中的狀態碼，而僅在網站傳回內部伺服器錯誤時引發觸發程序：
 
@@ -908,7 +908,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *範例*
 
-此定義會說明 Office 365 Outlook 連接器 (此為 Microsoft 管理的 API) 的**傳送電子郵件**動作： 
+此定義會說明 Office 365 Outlook 連接器 (這是 Microsoft 管理的 API) 的**傳送電子郵件**動作： 
 
 ```json
 "Send_an_email": {
@@ -1340,7 +1340,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
 | <*array*> | 陣列 | 提供來源項目的陣列或運算式。 如果您指定運算式，請以雙引號括住該運算式。 |
-| <*condition-or-filter*> | 字串 | 用來對來源陣列中的項目進行篩選的條件 <p>**注意**：如果沒有符合條件的值，動作將會建立空陣列。 |
+| <*condition-or-filter*> | 字串 | 用來對來源陣列中的項目進行篩選的條件 <p>**注意**：如果沒有符合條件的值，則動作會建立空陣列。 |
 |||| 
 
 *範例*
@@ -2188,7 +2188,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 ### <a name="until-action"></a>直到動作
 
-此迴圈動作包含會持續執行直到符合指定條件為止的動作。 迴圈會在所有其他動作都執行完成後，才在最後一個步驟檢查條件。 您可以在 `"actions"` 物件中包含多個動作，而動作至少須定義一項限制。 了解[如何建立 "until" 迴圈](../logic-apps/logic-apps-control-flow-loops.md#until-loop)。 
+此迴圈動作包含會持續執行直到符合指定條件為止的動作。 迴圈會在所有其他動作都執行完成後，才在最後一個步驟檢查條件。 您可以在 `"actions"` 物件中包含多個動作，而動作至少須定義一個限制。 了解[如何建立 "until" 迴圈](../logic-apps/logic-apps-control-flow-loops.md#until-loop)。 
 
 ```json
  "Until": {
@@ -2318,7 +2318,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 ### <a name="change-trigger-concurrency"></a>變更觸發程序並行
 
-根據預設，邏輯應用程式執行個體會以並行的方式同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 因此，每個觸發程序執行個體都會在先前作用中的邏輯應用程式執行個體執行完成之前引發。 此限制有助於控制後端系統接收的要求數目。 
+根據預設，邏輯應用程式執行個體會以並行的方式同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 因此，每個觸發程序執行個體都會在前一個邏輯應用程式執行個體執行完成之前引發。 此限制有助於控制後端系統接收的要求數目。 
 
 若要變更預設限制，您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更並行設定，會新增或更新基礎觸發程序定義中的 `runtimeConfiguration.concurrency.runs` 屬性，反之亦然。 此屬性可控制能夠以平行方式執行的邏輯應用程式執行個體數目上限。 
 
@@ -2397,9 +2397,9 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 根據預設，邏輯應用程式執行個體會以並行的方式同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 每個觸發程序執行個體都會在先前作用中的邏輯應用程式執行個體執行完成之前引發。 雖然您可以[變更此預設限制](#change-trigger-concurrency)，但當邏輯應用程式執行個體數目達到新的並行限制時，任何其他新的執行個體都必須等候執行。 
 
-可等候執行的數目也有其[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)，但您可加以變更。 不過，在邏輯應用程式達到等待執行的限制後，Logic Apps 引擎就不會再接受新的執行。 要求和 Webhook 觸發程序會傳回 429 錯誤，且週期性觸發程序會開始略過輪詢嘗試。
+可等候執行的數目也有其[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)，但您可變更。 不過，在邏輯應用程式達到等待執行的限制後，Logic Apps 引擎就不會再接受新的執行。 要求和 Webhook 觸發程序會傳回 429 錯誤，且週期性觸發程序會開始略過輪詢嘗試。
 
-若要變更等候執行的預設限制，請在基礎觸發程序定義中新增 `runtimeConfiguration.concurency.maximumWaitingRuns` 屬性，並將其設定為 `0` 與 `100` 之間的值。 
+若要變更等候執行的預設限制，請在基礎觸發程序定義中新增 `runtimeConfiguration.concurency.maximumWaitingRuns` 屬性，並將其設定為介於 `0` 與 `100` 之間的值。 
 
 ```json
 "<trigger-name>": {
@@ -2660,7 +2660,7 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 
 ## <a name="secure-sensitive-information"></a>保護機密資訊
 
-若要在觸發程序和動作定義中，保護您用於驗證的機密資訊 (例如使用者名稱或密碼)，您可以使用參數和 `@parameters()` 運算式，讓這項資訊在您儲存邏輯應用程式之後無法顯示。 
+若要在觸發程序和動作定義中，保護您用於驗證的機密資訊 (例如使用者名稱或密碼)，您可以使用參數和 `@parameters()` 運算式，讓此資訊在您儲存邏輯應用程式之後無法顯示。 
 
 例如，假設您在觸發程序或動作定義中使用 "Basic" 驗證。 以下是範例 `authentication` 物件，會指定使用者名稱和密碼：
 

@@ -1,23 +1,23 @@
 ---
 title: Azure 虛擬 WAN 夥伴 | Microsoft Docs
-description: 本文可協助夥伴設定 Azure 虛擬 WAN 自動化。
+description: 此文章可協助夥伴設定 Azure 虛擬 WAN 自動化。
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/23/2018
+ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: 7f70470880845fd4271ffdbb35af771ec433babc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ea1b69b788255b1d8d24e17fcc1409d35a4fd36
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961938"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814316"
 ---
-# <a name="virtual-wan-partners-preview"></a>虛擬 WAN 夥伴 (預覽)
+# <a name="virtual-wan-partners"></a>虛擬 WAN 夥伴
 
-本文協助您了解如何設定自動化環境，以連線和設定適用於 Azure 虛擬 WAN 的分支裝置 (客戶內部部署 VPN 裝置或 SDWAN CPE)。 如果您是提供透過 IPsec/IKEv2 或 IPsec/IKEv1 使用 VPN 連線的分支裝置提供者，則適合閱讀本文。
+此文章協助您了解如何設定自動化環境，以連線和設定適用於 Azure 虛擬 WAN 的分支裝置 (客戶內部部署 VPN 裝置或 SDWAN CPE)。 如果您是提供透過 IPsec/IKEv2 或 IPsec/IKEv1 使用 VPN 連線的分支裝置提供者，則適合閱讀此文章。
 
 分支裝置 (客戶內部部署 VPN 裝置或 SDWAN CPE) 通常會使用佈建的控制器/裝置儀表板。 SD-WAN 解決方案系統管理員通常可使用管理主控台預先佈建裝置，然後才將它插入到網路。 這個具有 VPN 功能的裝置會從控制器取得其控制平面邏輯。 VPN 裝置或 SD-WAN 控制器可以使用 Azure API，將 Azure 虛擬 WAN 的連線自動化。 此類型的連線需要內部部署的裝置，且已對裝置指派對外開放的公用 IP 位址。
 
@@ -46,7 +46,7 @@ ms.locfileid: "46961938"
 
 ###  <a name="access"></a>存取控制
 
-客戶必須能夠在裝置 UI 中針對虛擬 WAN 設定適當的存取控制。 建議使用 Azure 服務主體進行此設定。 服務主體型存取為裝置控制器提供適當的驗證，以上傳分支資訊。 如需詳細資訊，請參閱[建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)。 雖然這項功能不包含在 Azure 虛擬 WAN 產品中，但是我們下面列出在 Azure 中設定存取權所需採取的一般步驟，之後相關的詳細資料會放入裝置管理儀表板
+客戶必須能夠在裝置 UI 中針對虛擬 WAN 設定適當的存取控制。 建議使用 Azure 服務主體進行此設定。 服務主體型存取為裝置控制器提供適當的驗證，以上傳分支資訊。 如需詳細資訊，請參閱[建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)。 雖然此功能不包含在 Azure 虛擬 WAN 產品中，但是我們下面列出在 Azure 中設定存取權所需採取的一般步驟，之後相關的詳細資料會放入裝置管理儀表板
 
 * 為內部部署裝置控制器建立 Azure Active Directory 應用程式。
 * 取得應用程式識別碼和驗證金鑰

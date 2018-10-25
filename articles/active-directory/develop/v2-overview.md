@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: adcb1b15ed52e6954846ea09be0a87a118222c10
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989579"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956421"
 ---
 # <a name="about-v20"></a>關於 v2.0
 
@@ -62,6 +62,6 @@ Azure 入口網站開發人員體驗已經大幅更新，現在包含使用 ADAL
 * [Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> 如果您只需要從 Azure Active directory 登入公司與學校帳戶，請先閱讀 [Azure AD 開發人員指南](azure-ad-developers-guide.md)。 v2.0 端點的適用對象是明確需要登入 Microsoft 個人帳戶的開發人員。
+> 如果您只需要從 Azure Active directory 登入公司及學校帳戶，請先閱讀 [Azure AD 開發人員指南](v1-overview.md)。 v2.0 端點的適用對象是明確需要登入 Microsoft 個人帳戶的開發人員。
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

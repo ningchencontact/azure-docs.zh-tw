@@ -1,21 +1,22 @@
 ---
-title: 篩選 Bing 傳回的 Web 答案 | Microsoft Docs
-description: 示範如何使用 responseFilter 來篩選 Bing Web 搜尋 API 所傳回的答案。
+title: 如何篩選搜尋結果 - Bing Web 搜尋 API
+titleSuffix: Azure Cognitive Services
+description: 了解如何從 Bing Web 搜尋 API 顯示篩選和搜尋結果。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 64095089e4c0841aa1f77165969221836c747738
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 700fae4e206e547037406d4f15f32cb167fbe6b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888568"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123584"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>篩選搜尋回應所包含的答案  
 
@@ -81,25 +82,25 @@ Host: api.cognitive.microsoft.com
 }
 ```
 
-如果您想要在回應中排除特定類型的內容 (例如映像)，則在 responseFilter 值前面加上連字號 (減號) 前置詞，便可將其排除。 請以逗號分隔所要排除的類型： 
+如果您想要在回應中排除特定類型的內容 (例如映像)，則在 responseFilter 值前面加上連字號 (減號) 前置詞，便可將其排除。 請以逗號分隔所要排除的類型：
 
 ```
 &responseFilter=-images,-videos
 ```
 
-雖然 Bing 未在前一個回應中傳回影片和新聞結果，但不表示影片和新聞內容不存在。 這只是表示此頁面未包含它們。 不過，如果您[翻閱](./paging-webpages.md)更多結果，後續的頁面可能就會包含它們。 此外，如果您直接呼叫[影片搜尋 API](../bing-video-search/search-the-web.md) 和[新聞搜尋 API](../bing-news-search/search-the-web.md) 端點，回應很可能就會包含結果。 
+雖然 Bing 未在前一個回應中傳回影片和新聞結果，但不表示影片和新聞內容不存在。 這只是表示此頁面未包含它們。 不過，如果您[翻閱](./paging-webpages.md)更多結果，後續的頁面可能就會包含它們。 此外，如果您直接呼叫[影片搜尋 API](../bing-video-search/search-the-web.md) 和[新聞搜尋 API](../bing-news-search/search-the-web.md) 端點，回應很可能就會包含結果。
 
 不建議您使用 `responseFilter` 來從單一 API 取得結果。 如果您想要來自單一 Bing API 的內容，請直接呼叫該 API。 例如，如果只要接收影像，將要求傳送到影像搜尋 API 端點 `https://api.cognitive.microsoft.com/bing/v7.0/images/search` 或其他[影像](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints)端點之一。 呼叫單一 API 非常重要，不只是出於效能考量，而且還因為內容特定的 API 會提供更豐富的結果。 例如，您可以使用不適用 Web 搜尋 API 的篩選來篩選結果。  
-  
+
 若要取得特定網域中的搜尋結果，請在查詢字串中包括 `site:` 查詢運算子。  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
 ```
 
-> [!NOTE] 
-> 視查詢而定，如果您使用 `site:` 查詢運算子，不論 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) 設定為何，回應都有可能包含成人內容。 只有在您了解網站上的內容，而且您的案例支援成人內容的可能性時，才得以使用 `site:`。 
-  
+> [!NOTE]
+> 視查詢而定，如果您使用 `site:` 查詢運算子，不論 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) 設定為何，回應都有可能包含成人內容。 只有在您了解網站上的內容，而且您的案例支援成人內容的可能性時，才得以使用 `site:`。
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>限制回應中的答案數目
 
 Bing 會根據順位在回應中包含答案。 例如，如果您查詢 *sailing+dinghies*，Bing 會傳回 `webpages`、`images`、`videos` 及 `relatedSearches`。
@@ -118,7 +119,7 @@ Bing 會根據順位在回應中包含答案。 例如，如果您查詢 *sailin
 }
 ```
 
-若要將 Bing 傳回的答案數目限制為前兩個答案 (webpages 和 images)，請將 [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) \(英文\) 查詢參數設為 2。 
+若要將 Bing 傳回的答案數目限制為前兩個答案 (webpages 和 images)，請將 [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) \(英文\) 查詢參數設為 2。
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -159,7 +160,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="promoting-answers-that-are-not-ranked"></a>提升未設為順位的答案
 
-如果 Bing 針對查詢所傳回的前幾個順位的答案為 webpages、images、videos 及 relatedSearches，則回應會包含那些答案。 如果您將 [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) \(英文\) 設為二 (2)，Bing 就會傳回前兩個順位的答案：webpages 和 images。 如果您想要 Bing 在回應中包含 images 和 videos，請指定 [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) \(英文\) 查詢參數，並將它設為 images 和 videos。 
+如果 Bing 針對查詢所傳回的前幾個順位的答案為 webpages、images、videos 及 relatedSearches，則回應會包含那些答案。 如果您將 [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) \(英文\) 設為二 (2)，Bing 就會傳回前兩個順位的答案：webpages 和 images。 如果您想要 Bing 在回應中包含 images 和 videos，請指定 [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) \(英文\) 查詢參數，並將它設為 images 和 videos。
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

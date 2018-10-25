@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 2b2256ef5802160dbaa66e2a098a798fcdc653d2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064494"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815166"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 上 App Service 的 Java 開發人員指南
 
@@ -96,7 +96,7 @@ Azure App Service for Linux 支援透過 Azure 入口網站和 CLI 的預設調�
 
 在應用程式的 [應用程式設定] 中，開啟 Azure 入口網站中的 Web 通訊端支援。 您必須重新啟動應用程式，設定才會生效。
 
-搭配使用 Azure CLI 與下列命令，以開啟 Web 通訊端支援：
+使用 Azure CLI 搭配下列命令，以開啟 Web 通訊端支援：
 
 ```azurecli-interactive
 az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true 
@@ -132,13 +132,13 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 使用 [驗證與授權] 選項，設定 Azure 入口網站中的應用程式驗證。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。  如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)，以及其他身分識別提供者的相關文章。
 
-如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)一文中的指示。
+如果您需要啟用多個登入提供者，請依照[自訂 App Service 驗證](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)一文中的指示執行。
 
  Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易版](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)，以利用熟悉的 Spring Security 註釋和 API 來保護應用程式。
 
 ### <a name="configure-tlsssl"></a>設定 TLS/SSL
 
-請遵循[繫結現有自訂 SSL 憑證](/azure/app-service/app-service-web-tutorial-custom-ssl)中的指示，上傳現有的 SSL 憑證，並將其繫結至您應用程式的網域名稱。 根據預設，您的應用程式仍然允許 HTTP 連線；請遵循教學課程中的特定步驟，以強制執行 SSL 和 TLS。
+請依照[繫結現有自訂 SSL 憑證](/azure/app-service/app-service-web-tutorial-custom-ssl)中的指示，上傳現有的 SSL 憑證，並將其繫結至您應用程式的網域名稱。 根據預設，您的應用程式仍然允許 HTTP 連線；請依照教學課程中的特定步驟執行，以強制執行 SSL 與 TLS。
 
 ## <a name="tomcat"></a>Tomcat 
 
@@ -216,20 +216,24 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 4. 請確定 Tomcat classloader 可以使用 JDBC 驅動程式檔案，方法是將它們放在 `/home/tomcat/lib` 目錄中。 若要將這些檔案上傳至 App Service 執行個體，請執行下列步驟：  
     1. 安裝 Azure App Service webpp 延伸模組：
+
       ```azurecli-interactive
       az extension add –name webapp
       ```
+
     2. 執行下列 CLI 命令，以建立從本機系統到 App Service 的 SSH 通道：
+
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
-    3. 連線本機通道連接埠與 SFTP 用戶端，並將檔案上傳至 `/home/tomcat/lib`。
+
+    3. 使用您的 SFTP 用戶端來連線至本機通道連接埠，然後將檔案上傳至 `/home/tomcat/lib` 資料夾。
 
 5. 重新啟動 App Service Linux 應用程式。 Tomcat 會將 `CATALINA_HOME` 重設為 `/home/tomcat`，並使用已更新的設定和類別。
 
 ## <a name="docker-containers"></a>Docker 容器
 
-若要在容器中使用於 App Service 中執行的 Azure 支援 Zulu JDK，請確定您應用程式的 `Dockerfile` 使用 [Java App Service Docker 映像存放庫](https://github.com/Azure-App-Service/java)中的映像。
+若要在您的容器中使用支援 Azure 的 Zulu JDK，請務必提取並使用 [Azul 的下載頁面](https://www.azul.com/downloads/azure-only/zulu/#docker)上所列出的預先建置映像，或使用來自 [Microsoft Java GitHub 存放庫](https://github.com/Microsoft/java/tree/master/docker)的 `Dockerfile` 範例。
 
 ## <a name="runtime-availability-and-statement-of-support"></a>執行階段可用性和支援聲明
 
@@ -242,7 +246,7 @@ App Service for Linux 支援 Java Web 應用程式受控裝載的兩個執行階
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 版本和維護
 
-Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.azul.com/) 提供的 [Zulu](https://www.azul.com/products/zulu-and-zulu-enterprise/)。
+Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.azul.com/) 提供的 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)。
 
 透過 Azure App Service for Linux 中的新執行階段選項，將提供主要版本更新。 客戶會更新為設定其 App Service 部署的這些新版 Java，以及負責測試並確定主要更新符合其需求。
 
@@ -258,15 +262,15 @@ Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.
 
 ### <a name="local-development"></a>本機開發
 
-開發人員可以從 [Azul 的下載網站](https://www.azul.com/downloads/zulu/)下載實際執行版本的 Azul Zulu Enterprise JDK，以進行本機開發。
+開發人員可以從 [Azul 的下載網站](https://www.azul.com/downloads/azure-only/zulu/)下載實際執行版本的 Azul Zulu Enterprise JDK，以進行本機開發。
 
 ### <a name="development-support"></a>開發支援
 
-使用[合格 Azure 支援方案](https://azure.microsoft.com/support/plans/)開發 Azure 或 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/)時，可以使用 Azul Zulu Enterprise JDK 的產品支援。
+使用[合格的 Azure 支援方案](https://azure.microsoft.com/support/plans/)為 Azure 或 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 進行開發時，會提供[支援 Azure 的 Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) 的產品支援。
 
 ### <a name="runtime-support"></a>執行階段支援
 
-如果開發人員具有[合格的支援方案](https://azure.microsoft.com/support/plans/)則可以透過 Azure 支援[開立問題](/azure/azure-supportability/how-to-create-azure-support-request)，而問題是有關 App Service Linux Java 執行階段。
+開發人員如果具有[合格的支援方案](https://azure.microsoft.com/support/plans/)，便可透過 Azure 支援服務，針對 Azul Zulu JDK [開立問題](/azure/azure-supportability/how-to-create-azure-support-request)。
 
 ## <a name="next-steps"></a>後續步驟
 

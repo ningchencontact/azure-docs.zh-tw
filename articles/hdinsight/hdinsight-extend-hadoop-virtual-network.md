@@ -7,13 +7,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/08/2018
+ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972176"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945751"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -173,7 +173,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 ## <a name="directly-connect-to-hadoop-services"></a>直接連線至 Hadoop 服務
 
-HDInsight 上大部分的文件都假設您透過網際網路擁有叢集存取權。 例如，您可以連線至位於 https://CLUSTERNAME.azurehdinsight.net 的叢集。 這個位址會使用公用閘道，如果您已經使用 NSG 或 UDR 來限制網際網路的存取，則無法使用。
+您可以連線至位於 https://CLUSTERNAME.azurehdinsight.net 的叢集。 此位址會使用公用 IP，如果您已使用 NSG 或 UDR 限制來自網際網路的連入流量，則可能無法存取該 IP。 此外，當您在 VNet 中部署叢集時，可以使用私人端點 https://CLUSTERNAME-int.azurehdinsight.net 來存取該叢集。 此端點會解析至 VNet 內的私人 IP，以便存取叢集。
 
 若要透過虛擬網路連線至 Ambari 和其他網頁，請使用下列步驟：
 
@@ -253,7 +253,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 >
 > 如果您未使用網路安全性群組或使用者定義的路由來控制流量，可以忽略這個章節。
 
-如果您是使用網路安全性群組或使用者定義的路由，必須允許來自 Azure 健康情況和管理服務的流量觸達 HDInsight。 您可以使用下列步驟來尋找必須允許的 IP 位址：
+如果您是使用網路安全性群組或使用者定義的路由，必須允許來自 Azure 健康情況和管理服務的流量觸達 HDInsight。 您也必須允許子網路內 VM 之間的流量。 您可以使用下列步驟來尋找必須允許的 IP 位址：
 
 1. 您必須一律允許來自下列 IP 位址的流量：
 
@@ -280,6 +280,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
     | &nbsp; | 加拿大中部 | 52.228.37.66</br>52.228.45.222 | 443 | 輸入 |
     | 中國 | 中國北部 | 42.159.96.170</br>139.217.2.219 | 443 | 輸入 |
     | &nbsp; | 中國東部 | 42.159.198.178</br>42.159.234.157 | 443 | 輸入 |
+    | &nbsp; | 中國北部 2 | 40.73.37.141</br>40.73.38.172 | 443 | 輸入 |
     | 歐洲 | 北歐 | 52.164.210.96</br>13.74.153.132 | 443 | 輸入 |
     | &nbsp; | 西歐| 52.166.243.90</br>52.174.36.244 | 443 | 輸入 |
     | 德國 | 德國中部 | 51.4.146.68</br>51.4.146.80 | 443 | 輸入 |
@@ -301,7 +302,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
     如需用於 Azure Government 之 IP 位址的資訊，請參閱 [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 文件。
 
-3. 如果您搭配使用自訂 DNS 伺服器與虛擬網路，則也必須允許從 __168.63.129.16__ 進行存取。 此位址是 Azure 遞迴解析程式。 如需詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文件。
+3. 您也必須允許來自 __168.63.129.16__ 的存取。 此位址是 Azure 遞迴解析程式。 如需詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文件。
 
 如需詳細資訊，請參閱[控制網路流量](#networktraffic)一節。
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 儀表板結構 | Microsoft Docs
-description: 本文說明 Azure 儀表板的 JSON 結構
+description: 此文章說明 Azure 儀表板的 JSON 結構
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
-ms.openlocfilehash: 2eb9289957968db04b78087413fb9df8ed1b085b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: cwatson
+ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301667"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267982"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 儀表板結構
 此文件將使用下列儀表板做為範例，逐步說明 Azure 儀表板的結構：
@@ -291,7 +291,7 @@ ms.locfileid: "36301667"
 
 ## <a name="common-resource-properties"></a>通用資源屬性
 
-接下來要將 JSON 的相關區段加以細分。  最上層屬性、__識別碼__、__名稱__、__類型__、__位置__和__標籤__是所有 Azure 資源類型共同的屬性。 也就是說，這些與儀表板的內容無關。
+接下來要將 JSON 的相關區段細分。  最上層屬性、__識別碼__、__名稱__、__類型__、__位置__和__標籤__是所有 Azure 資源類型共同的屬性。 也就是說，這些與儀表板的內容無關。
 
 ### <a name="the-id-property"></a>識別碼屬性
 
@@ -326,7 +326,7 @@ __組件__物件包含每個組件的屬性，其中的屬性名稱是數字。 
 每個個別組件物件都有__位置__和__中繼資料__。
 
 ### <a name="the-position-object"></a>位置物件
-__位置__屬性包含組件的大小和位置資訊，分別以 __x__、__y__、__rowSpan__ 和 __colSpan__ 表示。 這些值會以格線單位呈現。 儀表板處於如下所示的自訂模式時，這些格線單位便會顯示。 如果您想要圖格的寬度為兩個格線單位、高度為一個格線單位、位在儀表板左上角，則位置物件如下所示：
+__位置__屬性包含組件的大小和位置資訊，分別以 __x__、__y__、__rowSpan__ 和 __colSpan__ 表示。 這些值會以格線單位呈現。 儀表板處於如下所示的自訂模式時，這些格線單位便會顯示。 如果您想要讓圖格的寬度為兩個格線單位、高度為一個格線單位、位於儀表板左上角，則位置物件看起來會像這樣：
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -338,7 +338,7 @@ __位置__屬性包含組件的大小和位置資訊，分別以 __x__、__y__�
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – 用來顯示監視計量
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – 用來顯示清單、連結等等的基本格式所用的文字或影像
-1. `Extension[azure]/HubsExtension/PartType/VideoPart`– 用來顯示 YouTube、Channel9 和 html 視訊標記中其他任何類型的視訊提供的視訊。
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – 用來顯示來自 YouTube、Channel9 的視訊，以及任何其他可在 HTML 視訊標記中運作之類型的視訊。
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – 用來顯示 Azure 虛擬機器的名稱和狀態。
 
 每個類型的組件都有本身的設定。 可能的組態屬性稱為__輸入__、__設定__和__資產__。 

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2c50ba1abfe3681a39b39bf52f127efd9d518aef
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041863"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800854"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 
 
-本文章僅適用於下列裝置： 
+此文章僅適用於下列裝置： 
 
 - Windows 7 
 - Windows 8.1 
@@ -35,27 +35,26 @@ ms.locfileid: "43041863"
 
 對於 Windows 10 或 Windows Server 2016，請參閱[針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解](troubleshoot-hybrid-join-windows-current.md)。
 
-本文章假設您[設定已加入混合式 Azure Active Directory 的裝置](hybrid-azuread-join-plan.md)來支援下列案例：
+此文章假設您[設定已加入混合式 Azure Active Directory 的裝置](hybrid-azuread-join-plan.md)來支援下列案例：
 
 - 裝置型條件式存取
 
-- [設定的企業漫遊](../active-directory-windows-enterprise-state-roaming-overview.md)
 
-- [Windows Hello 企業版](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) 
-
-
-
-
-
-本文章提供有關如何解決潛在問題的疑難排解指引。  
+此文章提供有關如何解決潛在問題的疑難排解指導方針。  
 
 **您應該知道的事情：** 
 
-- 每位使用者的裝置數目上限是以裝置為主。 舉例來說：如果 *jdoe* 和 *jharnett* 登入裝置，在 [使用者] 資訊索引標籤中就會為每位使用者建立個別的註冊 (DeviceID)。  
+- 舊版 Windows 裝置的混合式 Azure AD 加入運作方式與在 Windows 10 中的運作方式略有不同。 許多客戶並不了解他們需要設定的是 AD FS (適用於同盟網域) 還是「無縫 SSO」(適用於受控網域)。
+
+- 針對具有同盟網域的客戶，如果「服務連接點」(SCP) 已設定為指向受控網域名稱 (例如 contoso.onmicrosoft.com，而不是 contoso.com)，則舊版 Windows 裝置的混合式 Azure AD 加入將無法運作。
+
+- 每一使用者的裝置數目上限目前也適用於已加入舊版混合式 Azure AD 的裝置。 
+
+- 當多位網域使用者登入已加入舊版混合式 Azure AD 的裝置時，相同的實體裝置會在 Azure AD 中出現多次。  舉例來說：如果 *jdoe* 和 *jharnett* 登入裝置，在 [使用者] 資訊索引標籤中就會為每位使用者建立個別的註冊 (DeviceID)。 
+
+- 在使用者資訊索引標籤上，也可能因重新安裝作業系統或手動重新註冊，而導致一個裝置有多個項目。
 
 - 您可以將裝置的初始註冊/加入設定為在登入或鎖定/解除鎖定時嘗試執行。 工作排程器工作可能會觸發 5 分鐘的延遲。 
-
-- 您可以在使用者資訊索引標籤上，因為重新安裝作業系統或以手動方式重新註冊來取得適用於裝置的多個項目。 
 
 - 如果是 Windows 7 SP1 或 Windows Server 2008 R2 SP1，請確定已安裝 [KB4284842](https://support.microsoft.com/help/4284842)。 此更新可避免未來的驗證因客戶在變更密碼之後遺失存取受保護金鑰的權限而失敗。
 
@@ -65,24 +64,39 @@ ms.locfileid: "43041863"
 
 1. 使用已執行混合式 Azure AD 加入的使用者帳戶登入。
 
-2. 以系統管理員身分開啟命令提示字元 
+2. 開啟命令提示字元 
 
 3. 輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
-此命令會顯示一個對話方塊，可提供您有關加入狀態的更多詳細資料。
+此命令會顯示一個對話方塊，當中會提供有關加入狀態的詳細資料。
 
 ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>步驟 2：評估混合式 Azure AD 加入狀態 
 
-如果未成功加入混合式 Azure AD，對話方塊會提供有關所發生問題的詳細資料。
+如果裝置未加入混合式 Azure AD，您可以按一下 [加入] 按鈕來嘗試執行混合式 Azure AD 加入。 如果執行混合式 Azure AD 加入的嘗試失敗，將會顯示有關該失敗的詳細資料。
+
 
 **最常見的問題包括：**
 
-- AD FS 或 Azure AD 設定不正確
+- AD FS 或 Azure AD 設定不正確或網路問題
 
     ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    
+    - Autoworkplace.exe 無法以無訊息方式使用 Azure AD 或 AD FS 進行驗證。 造成此情況的原因可能是 AD FS (適用於同盟網域) 遺漏或設定不正確、「Azure AD 無縫單一登入」(適用於受控網域) 遺漏或設定不正確，或網路問題。 
+    
+     - 也可能是已針對使用者啟用/設定多重要素驗證 (MFA)，但未在 AD FS 伺服器設定 WIAORMUTLIAUTHN。 
+     
+     - 另一個可能原因是主領域探索 (HRD) 頁面正在等候使用者互動，而導致 **autoworkplace.exe** 無法以無訊息方式要求權杖。
+     
+     - 可能是用戶端上 IE 的內部網路區域中遺漏 AD FS 和 Azure AD URL。
+     
+     - 網路連線能力問題可能會導致 **autoworkplace.exe** 無法連線至 AD FS 或 Azure AD URL。 
+     
+     - **Autoworkplace.exe** 會要求用戶端必須具有用戶端到組織內部部署 AD 網域控制站的直接視線，這意謂著混合式 Azure AD 加入只有在用戶端連線至組織的內部網路時才會成功。
+     
+     - 貴組織使用的是 Azure AD 無縫單一登入，`https://autologon.microsoftazuread-sso.com` 或 `https://aadg.windows.net.nsatc.net` 不在裝置的 IE 內部網路設定中，並且未針對內部網路區域啟用 [允許透過指令碼更新至狀態列]。
 
 - 您不是以網域使用者身分登入
 
@@ -92,9 +106,7 @@ ms.locfileid: "43041863"
     
     - 登入的使用者不是網域使用者 (例如本機使用者)。 對下層裝置的混合式 Azure AD 聯結僅支援網域使用者。
     
-    - Autoworkplace.exe 無法以無訊息方式使用 Azure AD 或 AD FS 進行驗證。 這可能是因為 Azure AD URL 的輸出網路連線問題而引起的。 也可能是已針對使用者啟用/設定 Multi-Factor Authentication (MFA)，而且未在同盟伺服器中設定 WIAORMUTLIAUTHN。 另一個可能原因是主領域探索 (HRD) 頁面正在等候使用者互動，而導致 **autoworkplace.exe** 無法以無訊息方式要求權杖。
-    
-    - 貴組織使用的是 Azure AD 無縫單一登入，`https://autologon.microsoftazuread-sso.com` 或 `https://aadg.windows.net.nsatc.net` 不在裝置的 IE 內部網路設定中，並且未針對內部網路區域啟用 [允許透過指令碼更新至狀態列]。
+    - 用戶端無法連線至網域控制站。    
 
 - 已達到配額限制
 
@@ -114,9 +126,11 @@ ms.locfileid: "43041863"
 
 - 服務組態問題： 
 
-  - 同盟伺服器已設定為支援 **WIAORMULTIAUTHN**。 
+  - AD FS 伺服器未設定為支援 **WIAORMULTIAUTHN**。 
 
   - 您電腦的樹系沒有「服務連接點」物件指向 Azure AD 中已驗證的網域名稱 
+  
+  - 或者，如果您的網域是受控網域，則是未設定「無縫 SSO」或其無法運作。
 
   - 使用者已達到裝置限制。 
 

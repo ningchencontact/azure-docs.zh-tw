@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: bae71c55bdea838d0ef5e0ae3acbac3e98a92fa0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b48ffb450459891118d5f526bbc73c4a2577ddd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055034"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268828"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>如何：設定登入風險原則
 
@@ -79,7 +79,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 1. 為受影響的使用者啟用 [Multi-Factor Authentication 註冊原則](#multi-factor-authentication-registration-policy)。
 
-2. 要求受影響的使用者登入沒有危險的工作階段以執行 MFA 註冊。
+2. 要求受影響的使用者登入沒有風險的工作階段以執行 MFA 註冊。
 
 完成這些步驟可確保有風險的登入一定需要 Multi-Factor Authentication。
 
@@ -96,7 +96,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 * [已封鎖有風險的登入](flows.md#risky-sign-in-blocked)  
 * [使用 Azure AD Identity Protection 時的登入體驗](flows.md)  
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 選擇 [高]  臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。  
 

@@ -3,23 +3,19 @@ title: 長期函式中的繫結 - Azure
 description: 如何使用 Azure Functions 之長期函式延伸模組的觸發程序和繫結。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29cc7982dbe9991e6b0e3363cd636ac88881fc7b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763351"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237276"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>長期函式中的繫結 (Azure Functions)
 
@@ -85,7 +81,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
     return `Hello ${name}!`;
 });
@@ -114,7 +110,7 @@ public static async Task<string> Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
     const result = yield context.df.callActivityAsync("SayHello", name);
     return result;
@@ -125,7 +121,7 @@ module.exports = df(function*(context) {
 
 活動觸發程序可讓您撰寫由協調器函式呼叫的函式。
 
-如果您使用 Visual Studio，活動觸發程序會使用 [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 屬性進行設定。 
+如果您使用 Visual Studio，便會使用 [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 屬性來設定活動觸發程序。 
 
 如果您使用 Azure 入口網站進行開發，活動觸發程序是由 function.json 之 `bindings` 陣列中的下列 JSON 物件定義：
 
@@ -147,7 +143,7 @@ module.exports = df(function*(context) {
 以下是活動觸發程序的一些附註：
 
 * **執行緒** - 與協調流程觸發程序不同，活動觸發程序在執行緒或 I/O 方面沒有任何限制。 它們可以被視為一般函式。
-* **有害訊息處理** - 活動觸發程序中沒有有害訊息支援。
+* **有害訊息處理** - 活動觸發程序中沒有任何有害訊息支援。
 * **訊息可見度** - 活動觸發程序訊息會被清除佇列，並且在可設定持續期間保持不可見。 只要函式應用程式正在執行且狀況良好，就會自動更新這些訊息的可見度。
 * **傳回值** - 傳回值會序列化為 JSON，保存到 Azure 資料表儲存體中的協調流程歷程記錄資料表。
 

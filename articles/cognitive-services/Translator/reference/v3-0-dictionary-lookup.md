@@ -1,22 +1,23 @@
 ---
-title: Microsoft 翻譯工具文字 API 字典查閱方法 | Microsoft Docs
-description: 使用 Microsoft 翻譯工具文字 API 字典查閱方法。
+title: 翻譯工具文字 API 字典查閱方法
+titlesuffix: Azure Cognitive Services
+description: 使用翻譯工具文字 API 字典查閱方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868080"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127834"
 ---
-# <a name="text-api-30-dictionary-lookup"></a>文字 API 3.0：字典查閱
+# <a name="translator-text-api-30-dictionary-lookup"></a>翻譯工具文字 API 3.0 字典查閱
 
 提供字組和少數慣用語的替代翻譯。 每個翻譯都有一個詞性和一份反向翻譯清單。 反向翻譯可讓使用者了解內容的翻譯。 [字典範例](.\v3-0-dictionary-examples.md)作業允許進一步向下鑽研，以查看每組翻譯配對的範例用法。
 

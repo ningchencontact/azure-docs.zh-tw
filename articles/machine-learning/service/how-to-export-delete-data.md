@@ -1,6 +1,6 @@
 ---
 title: 匯出或刪除工作區資料 - Azure Machine Learning | Microsoft Docs
-description: 在 Azure Machine Learning 中，您可以使用 Azure 入口網站、CLI、SDK 及已驗證的 REST API 以匯出或刪除工作區。 本文將說明如何做到。
+description: 在 Azure Machine Learning 中，您可以使用 Azure 入口網站、CLI、SDK 及已驗證的 REST API 以匯出或刪除工作區。 此文章將說明作法。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
-ms.openlocfilehash: aef7bae7d2c511766bdbebbf1180e19263d7ccec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 20c75b55e9b02f30e90ad40ea11383b91ae0a247
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986297"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267288"
 ---
-# <a name="export-or-delete-your-workspace-data-in-machine-learning"></a>匯出或刪除 Machine Learning 中的工作區資料
+# <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>匯出或刪除您的 Machine Learning services 工作區資料 
 
-在 Azure Machine Learning 中，您可以使用已驗證的 REST API，匯出或刪除工作區。 本文會說明做法。
+在 Azure Machine Learning 中，您可以使用已驗證的 REST API，匯出或刪除工作區。 此文章會說明作法。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 

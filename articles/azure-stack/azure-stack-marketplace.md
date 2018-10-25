@@ -3,7 +3,7 @@ title: 發佈 Azure Stack (雲端操作員) 中的自訂 Marketplace 項目 | Mi
 description: 身為 Azure Stack 操作員，應了解如何發佈 Azure Stack 中的自訂 Marketplace 項目。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 12310c088777d65bef211747806f942433857e40
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605564"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632343"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure Stack Marketplace 概觀
 
@@ -33,7 +33,7 @@ Marketplace 是針對 Azure Stack 自訂的一組服務、應用程式和資源�
 > [!Caution]  
 > 在 Azure Stack 市集上提供資源庫項目成品 (稱為映像和 json 檔案) 後，便可不經驗證就存取這些成品。 如需更多在發行自訂市集項目時的考量，請參閱[建立和發行 Marketplace 項目](azure-stack-create-and-publish-marketplace-item.md)。
 
-若要開啟 Marketplace，請在管理主控台中選取 [新增]。
+若要開啟 Marketplace，請在管理主控台中選取 [+ 建立資源]。
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 

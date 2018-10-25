@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ae793bad9cef86158418eb87e0c38ee0370a6bd2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cfca7361831734baaf150b3e19b14c7dc88def36
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176970"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043563"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>設定 Azure Load Balancer 的分配模式
 
@@ -48,7 +48,15 @@ Azure Load Balancer 的預設分配模式是一個 5 Tuple 的雜湊。 此 Tupl
 
 ## <a name="configure-source-ip-affinity-settings"></a>設定來源 IP 同質性設定
 
-針對虛擬機器，請使用 Azure PowerShell 來變更逾時設定。 將 Azure 端點新增到虛擬機器，然後設定負載平衡器分配模式：
+針對使用 Resource Manager 部署的虛擬機器，使用 PowerShell 來變更現有負載平衡規則上的負載平衡器分配設定。 這會更新分配模式： 
+
+```powershell 
+$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
+Set-AzureRmLoadBalancer -LoadBalancer $lb 
+```
+
+針對傳統的虛擬機器，使用 Azure PowerShell 來變更分配設定。 將 Azure 端點新增到虛擬機器，然後設定負載平衡器分配模式：
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM

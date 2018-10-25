@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732442"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584161"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure 檔案服務
 
-本文提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地將大量資料匯入 Azure 檔案服務。 若要將匯入資料，服務會要求您將包含資料的可支援磁碟機寄送到 Azure 資料中心。  
+此文章提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地將大量資料匯入 Azure 檔案服務。 若要將匯入資料，服務會要求您將包含資料的可支援磁碟機寄送到 Azure 資料中心。  
 
 匯入/匯出服務僅支援將 Azure 檔案服務匯入到 Azure 儲存體。 不支援將 Azure 檔案服務匯出。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-在建立匯入作業來將資料傳入 Azure 檔案服務之前，請仔細檢閱並完成下列必要條件清單。 您必須：
+在建立匯入作業來將資料傳入 Azure 檔案服務之前，請仔細檢閱並完成下列先決條件清單。 您必須：
 
 - 具有可與匯入/匯出服務搭配使用的有效 Azure 訂用帳戶。
 - 具有至少一個 Azure 儲存體帳戶。 請參閱[匯入/匯出服務支援的儲存體帳戶和儲存體類型](storage-import-export-requirements.md)清單。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-quickstart-create-account.md)(英文)。
@@ -139,7 +139,7 @@ ms.locfileid: "45732442"
     
     - 上傳您在前面[步驟 1：準備磁碟機](#step-1-prepare-the-drives)中建立的日誌檔。 
     - 選取將匯入資料的儲存體帳戶。 
-    - 系統會根據所選儲存體帳戶的區域，自動填入「放置」位置。
+    - 系統會根據所選儲存體帳戶的區域，自動填入置放位置。
    
        ![建立匯入作業 - 步驟 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529682"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018703"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>應用程式閘道健全狀況監視概觀
 
@@ -21,7 +21,7 @@ Azure 應用程式閘道預設會監視其後端集區中所有資源的健康�
 
 ![應用程式閘道探查範例][1]
 
-除了使用預設的健全狀況探查監視，您也可以自訂健全狀況探查，以符合應用程式的需求。 本文會探討預設和自訂健全狀態探查。
+除了使用預設的健全狀況探查監視，您也可以自訂健全狀況探查，以符合應用程式的需求。 此文章會探討預設和自訂健全狀態探查。
 
 ## <a name="default-health-probe"></a>預設的健全狀況探查
 
@@ -80,7 +80,7 @@ $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 
 | 探查屬性 | 說明 |
 | --- | --- |
-| Name |探查的名稱。 此名稱用來在後端 HTTP 設定中指出探查。 |
+| 名稱 |探查的名稱。 此名稱用來在後端 HTTP 設定中指出探查。 |
 | 通訊協定 |用來傳送探查的通訊協定。 探查會使用後端 HTTP 設定中定義的通訊協定 |
 | Host |用來傳送探查的主機名稱。 只有當應用程式閘道上設定多站台時適用，否則請使用 '127.0.0.1'。 此值與 VM 主機名稱不同。 |
 | Path |探查的相對路徑。 有效路徑的開頭為 '/'。 |
@@ -89,14 +89,14 @@ $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 | 狀況不良臨界值 |探查重試計數。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
 > [!IMPORTANT]
-> 如果已將應用程式閘道設定為單一站台，根據預設，除非已在自訂探查中加以設定，否則應將主機名稱指定為 '127.0.0.1'。
+> 如果已將應用程式閘道設定為單一站台，根據預設，除非已在自訂探查中設定，否則應將主機名稱指定為 '127.0.0.1'。
 > 僅供參考，自訂探查會傳送到 \<通訊協定\>://\<主機\>:\<連接埠\>\<路徑\>。 所使用的連接埠會是和後端 HTTP 設定中所定義者相同的連接埠。
 
 ## <a name="nsg-considerations"></a>NSG 考量
 
 如果應用程式閘道子網路上有網路安全性群組 (NSG)，則必須在應用程式閘道子網路上開啟連接埠範圍 65503-65534，供輸入流量使用。 需要這些連接埠，後端健康狀態 API 才能運作。
 
-此外，輸出網際網路連線不可封鎖，而必須允許來自 AzureLoadBalancer 標記的流量。
+此外，不可封鎖輸出網際網路連線，且必須允許來自 AzureLoadBalancer 標記的輸入流量。
 
 ## <a name="next-steps"></a>後續步驟
 在了解應用程式閘道的健全狀態監視之後，您可以在 Azure 入口網站中[自訂健全狀態探查](application-gateway-create-probe-portal.md)，或使用 PowerShell 和 Azure Resource Manager 部署模型設定[自訂健全狀態探查](application-gateway-create-probe-ps.md)。

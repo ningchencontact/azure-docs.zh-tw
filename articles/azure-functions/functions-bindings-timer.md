@@ -5,24 +5,20 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: 270228e73243e6b2670e7ccb30765526a5db6463
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: d1e73af69d3220c0719bd05e3f160e20f8c02858
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144032"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715596"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -136,7 +132,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 }
 ```
 
-以下是 JavaScript 指令碼程式碼：
+以下是 JavaScript 程式碼：
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -144,9 +140,9 @@ module.exports = function (context, myTimer) {
 
     if(myTimer.isPastDue)
     {
-        context.log('Node.js is running late!');
+        context.log('Node is running late!');
     }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node timer trigger function ran!', timeStamp);   
 
     context.done();
 };
@@ -195,10 +191,13 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 |**direction** | n/a | 必須設定為 "in"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中計時器物件的變數名稱。 | 
 |**schedule**|**ScheduleExpression**|[CRON 運算式](#cron-expressions)或 [TimeSpan](#timespan) 值。 `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的應用程式設定名稱，如此範例所示："%ScheduleAppSetting%"。 |
-|**runOnStartup**|**RunOnStartup**|如果為 `true`，當執行階段啟動時，會叫用函式。 例如，當函式應用程式因無活動而處於閒置狀態後再甦醒時、 當函式應用程式因函式變更而重新啟動時，以及當函式應用程式相應放大時，執行階段便會啟動。因此 **runOnStartup** 應該幾乎不會設定為 `true`，因為它會使程式碼在極度無法預期的時間執行。|
+|**runOnStartup**|**RunOnStartup**|如果為 `true`，當執行階段啟動時，會叫用函式。 例如，當函式應用程式因無活動而處於閒置狀態後再甦醒時、 當函式應用程式因函式變更而重新啟動時，以及當函式應用程式相應放大時，執行階段便會啟動。因此 **runOnStartup** 應該很少設定為 `true`，尤其是在生產環境中。 |
 |**useMonitor**|**UseMonitor**|設定為 `true` 或 `false` 以表示是否應該監視排程。 排程監視會使排程持續進行，以協助確保即使在函式應用程式執行個體重新啟動時，排程也能正確地持續運作。 如果未明確設定，則循環間隔大於 1 分鐘的排程之預設值為 `true`。 若為每分鐘觸發超過一次的排程，預設值為 `false`。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!CAUTION]
+> 建議不要在生產環境中將 **runOnStartup** 設定為 `true`。 使用此設定會在極度無法預期的情況下執行程式碼。 在特定的生產環境設定中，對於取用量方案中託管的應用程式，這些額外的執行會導致成本大幅增加。 例如，啟用 **runOnStartup** 時，無論函式應用程式是否經過調整，都會叫用觸發程序。 請確定在生產環境中啟用 **runOnStartup** 之前，您完全了解函式的實際執行行為。   
 
 ## <a name="usage"></a>使用量
 

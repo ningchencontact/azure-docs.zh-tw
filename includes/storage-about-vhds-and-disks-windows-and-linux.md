@@ -2,18 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: storage
-author: rogara
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 796614a9e60ccb7ab155bc986b39c04c781224e8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47389970"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874161"
 ---
 ## <a name="about-vhds"></a>關於 VHD
 
@@ -34,11 +34,11 @@ Azure 中您想要用作建立磁碟或映像來源的所有 VHD 檔案都是唯
 
 Azure 磁碟設計成確保可用性達 99.999%。 Azure 磁碟一直提供企業級持久性，其年度失敗率為零，領先業界。
 
-在建立磁碟時，您有三個可供選擇的儲存體效能層級 - 進階 SSD 磁碟、標準 SSD (預覽)和標準 HDD 儲存體。 此外，磁碟也有兩種類型 - 非受控和受控。
+當建立您的磁碟時，您有三種儲存體效能集可用，您可以選取它們來建立您磁碟，不論是進階 SSD 磁碟、標準 SSD 與標準 HDD 儲存體。 此外，磁碟也有兩種類型 - 非受控和受控。
 
 ### <a name="standard-hdd-disks"></a>標準 HDD 磁碟
 
-標準 HDD 磁碟以 HDD 作為後盾，可提供符合成本效益的儲存體。 標準 HDD 儲存體可複寫到一個資料中心的本機位置，或是利用主要和次要資料中心提供異地備援。 如需儲存體複寫的詳細資訊，請參閱 [Azure 儲存體複寫](../articles/storage/common/storage-redundancy.md)。 
+標準 HDD 磁碟以 HDD 作為後盾，可提供符合成本效益的儲存體。 標準 HDD 儲存體可複寫到一個資料中心的本機位置，或是利用主要和次要資料中心提供異地備援。 如需儲存體複寫的詳細資訊，請參閱 [Azure 儲存體複寫](../articles/storage/common/storage-redundancy.md)。
 
 如需使用標準 HDD 磁碟的詳細資訊，請參閱[標準儲存體和磁碟](../articles/virtual-machines/windows/standard-storage.md)。
 

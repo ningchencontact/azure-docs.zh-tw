@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: a295cad2bf1cafce4dc64909174e9417daa7918e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 370700f8d146dd626e6e13deceb09dcaea34a9f3
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235443"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983945"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -54,7 +54,7 @@ Azure DevTest Labs 可讓您的小組節省時間和金錢。 開發人員可以
 DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原則、範本與構件都是免費的。 您只需要針對在實驗室內使用到的 Azure 資源 (例如 VM、儲存體帳戶和虛擬網路) 支付費用。 如需實驗室資源成本的詳細資訊，請參閱 [Azure DevTest Labs 定價](https://azure.microsoft.com/pricing/details/devtest-lab/)。
 
 
-**Security**
+**安全性**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>DevTest Labs 中有哪些不同的安全性層級？
 安全性存取權是由[角色型存取控制 (RBAC)](../role-based-access-control/built-in-roles.md) 所決定。 若要了解存取權的運作方式，了解 RBAC 所定義的權限、角色和範圍之間的差異將有所幫助。
 
@@ -88,17 +88,17 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 
 **CI/CD 整合與自動化**
 ## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>DevTest Labs 是否會與我的 CI/CD 工具鏈整合？
-如果您使用 Visual Studio Team Services，則可以使用 [DevTest Labs 工作擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)在 DevTest Labs 中自動執行發行管線。 您可以使用此擴充功能執行的一些工作包括：
+如果您使用 Azure DevOps，則可以使用 [DevTest Labs 工作擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)在 DevTest Labs 中自動執行發行管線。 您可以使用此擴充功能執行的一些工作包括：
 
-* 自動建立並部署 VM。 您也可以使用 Azure 檔案複製或 PowerShell Team Services 工作來以最新的組建設定 VM。
+* 自動建立並部署 VM。 您也可以使用 Azure 檔案複製或 PowerShell Azure DevOps Services 工作來以最新的組建設定虛擬機器。
 * 自動在測試之後擷取 VM 的狀態，以利在相同 VM 重現錯誤以便進行進一步的調查。
 * 當您不再需要 VM 時，於發行管線結束時加以刪除。
 
-下列部落格文章提供關於使用 Team Services 擴充功能的指引和資訊︰
+下列部落格文章提供關於使用 Azure DevOps Services 擴充功能的指引和資訊︰
 
-* [DevTest Labs 和 Visual Studio Team Services 擴充功能](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [透過 Team Services 在現有 DevTest Labs 實驗室中部署新的 VM](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [使用 Team Services 發行管理來持續部署至 DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [DevTest Labs 和 Azure DevOps 擴充功能](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
+* [透過 Azure DevOps Services 在現有 DevTest Labs 實驗室中部署新的 VM](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [使用 Azure DevOps Services 發行管理來持續部署至 DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 如需其他的持續整合 (CI)/持續傳遞 (CD) 工具鏈，可藉由使用 [Azure PowerShell Cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 和 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/) 部署 [Azure Resource Manager 範本](https://aka.ms/dtlquickstarttemplate) 來實現相同的案例。 您也可以使用[適用於 DevTest Labs 的 REST API](http://aka.ms/dtlrestapis) 來與您的工具鏈整合。  
 
@@ -112,7 +112,7 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 
 ## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>如何從相同範本一次建立多個 VM？
 有兩個選項可供您透過相同範本同時建立多個 VM：
-* 您可以使用 [Visual Studio Team Services 工作擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。 
+* 您可以使用 [Azure DevOps 工作擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)進行以下作業。 
 * 您可以在建立 VM 時[產生 Resource Manager 範本](devtest-lab-add-vm.md#save-azure-resource-manager-template)，然後[從 Windows PowerShell 部署 Resource Manager 範本](../azure-resource-manager/resource-group-template-deploy.md)。
 
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>如何將現有 Azure VM 移到 DevTest Labs 實驗室？
@@ -172,7 +172,7 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
     # Get the VMs from that lab.
     $labVMs = Get-AzureRmResource | Where-Object {
               $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
-              $_.ResourceName -like "$($lab.ResourceName)/*"}
+              $_.Name -like "$($lab.Name)/*"}
 
     # Delete the VMs.
     foreach($labVM in $labVMs)

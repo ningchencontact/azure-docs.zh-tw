@@ -9,18 +9,18 @@ keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺�
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969422"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801300"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
-本文是 Azure Functions 中觸發程序和繫結的概念性概觀。 這裡描述所有繫結及所有支援語言的通用功能。
+此文章是 Azure Functions 中觸發程序和繫結的概念性概觀。 這裡描述所有繫結及所有支援語言的通用功能。
 
 ## <a name="overview"></a>概觀
 
@@ -164,15 +164,15 @@ function generateRandomId() {
 
 ### <a name="azure-portal-development"></a>Azure 入口網站開發
 
-本節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
+此節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
 
 當您建立函式或新增繫結時，系統會在觸發程序或繫結的擴充功能需要註冊時提示您。 請按一下 [安裝] 來註冊擴充功能，以回應提示。 安裝在取用方案上可能需要多達 10 分鐘。
 
-針對指定的函式應用程式，您只須安裝每個延伸模組一次。 
+針對指定的函式應用程式，您只須安裝每個延伸模組一次。 針對已支援但在入口網站中未提供的繫結，或是若要更新已安裝的延伸模組，您也可以[從入口網站手動安裝或更新 Azure Functions 繫結延伸模組](install-update-binding-extensions-manual.md)。  
 
 ### <a name="local-development-azure-functions-core-tools"></a>本機開發 Azure Functions Core Tools
 
-本節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
+此節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 

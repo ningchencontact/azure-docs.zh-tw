@@ -17,14 +17,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: acdc3417643484fa98b16c4be1b83a44a8b73fc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962994"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985721"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>了解 Azure Active Directory (AD) 中的 OAuth2 隱含授與流程
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 OAuth2 隱含授與是 OAuth2 規格中安全性疑慮最多的授與方式，因此聲名狼藉。 然而，這卻是 ADAL JS 所實作的方法，也是我們建議用來撰寫 SPA 應用程式的方法。 為何會這樣呢？ 這全是權衡利弊之後的結果︰而且事實也證明，對於透過 JavaScript 從瀏覽器使用 Web API 的應用程式來說，隱含授與是您所能找到的最好方法。
 

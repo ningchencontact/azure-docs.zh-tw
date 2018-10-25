@@ -1,19 +1,19 @@
 ---
 title: 了解 Azure IoT 中樞 MQTT 支援 | Microsoft Docs
 description: 開發人員指南 - 支援裝置使用 MQTT 通訊協定連接至 IoT 中樞對向端點。 包含 Azure IoT 裝置 SDK 內建的 MQTT 支援的相關資訊。
-author: fsautomata
+author: rezasherafat
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/05/2018
-ms.author: elioda
-ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 10/12/2018
+ms.author: rezas
+ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140447"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344960"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -107,7 +107,7 @@ Device Explorer：
 
 對於 MQTT 的連接和中斷連接封包，IoT 中樞會對 **作業監視** 通道發出事件。 此事件具有其他資訊，可協助您對連線問題進行疑難排解。
 
-裝置應用程式可以在 **CONNECT** 封包中指定 **Will** 訊息。 裝置應用程式應該使用 `devices/{device_id}/messages/events/{property_bag}` 或 `devices/{device_id}/messages/events/{property_bag}` 作為 **Will** 主題名稱，以定義要當作遙測訊息轉送的 **Will** 訊息。 在此情況下，如果網路連線已關閉，但先前並未接收到來自裝置的 **DISCONNECT** 封包，則 IoT 中樞會將 **CONNECT** 封包中提供的 **Will** 訊息傳送到遙測通道。 遙測通道可以是預設的**事件**端點，或是 IoT 中樞路由所定義的自訂端點。 訊息具有 **iothub-MessageType** 屬性，且已為它指派 **Will** 值。
+裝置應用程式可以在 **CONNECT** 封包中指定 **Will** 訊息。 裝置應用程式應該使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作為 **Will** 主題名稱，以定義要當作遙測訊息轉送的 **Will** 訊息。 在此情況下，如果網路連線已關閉，但先前並未接收到來自裝置的 **DISCONNECT** 封包，則 IoT 中樞會將 **CONNECT** 封包中提供的 **Will** 訊息傳送到遙測通道。 遙測通道可以是預設的**事件**端點，或是 IoT 中樞路由所定義的自訂端點。 訊息具有 **iothub-MessageType** 屬性，且已為它指派 **Will** 值。
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL 組態
 
@@ -228,6 +228,8 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 ### <a name="update-device-twins-reported-properties"></a>更新裝置對應項的報告屬性
 
+為了更新所報告的屬性，裝置會透過對指定 MQTT 主題進行發佈，將要求發給 IoT 中樞。 處理該要求之後，IoT 中樞會透過對另一個主題進行發佈，來回應更新作業的成功或失敗狀態。 裝置可以訂閱本主題，以收到其對應項更新要求結果的通知。 為了在 MQTT 中實作此類型的要求/回應互動，我們會利用裝置一開始在其更新要求中所提供的要求識別碼標記法 (`$rid`)。 此要求識別碼也會包含在來自 IoT 中樞的回應，以允許裝置讓回應與其先前的特定要求相互關聯。
+
 下列順序說明在 IoT 中樞的裝置對應項中，裝置如何更新報告的屬性︰
 
 1. 裝置必須訂閱 `$iothub/twin/res/#` 主題，才能從 IoT 中樞接收作業的回應。
@@ -253,6 +255,20 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 | 400 | 不正確的要求。 JSON 格式錯誤 |
 | 429 | 要求過多 (已節流)，根據 [IoT 中樞節流][lnk-quotas] |
 | 5** | 伺服器錯誤 |
+
+下列 Python 程式碼片段示範透過 MQTT (使用 Paho MQTT 用戶端) 來進行的對應項報告屬性更新程序：
+```python
+from paho.mqtt import client as mqtt
+
+# authenticate the client with IoT Hub (not shown here)
+
+client.subscribe("$iothub/twin/res/#")
+rid = "1"
+twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+```
+
+在上述對應項報告屬性更新作業成功時，來自 IoT 中樞的發佈訊息會有下列主題：`$iothub/twin/res/204/?$rid=1&$version=6`，其中 `204` 是表示成功的狀態碼、`$rid=1` 對應至裝置在程式碼中提供的要求識別碼，`$version` 則對應至更新之後裝置對應項報告屬性區段的版本。
 
 如需詳細資訊，請參閱[裝置對應項開發人員指南][lnk-devguide-twin]。
 

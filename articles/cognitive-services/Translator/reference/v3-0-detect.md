@@ -1,22 +1,23 @@
 ---
-title: Microsoft 翻譯工具文字 API 偵測方法 | Microsoft Docs
-description: 使用 Microsoft 翻譯工具文字 API 偵測方法。
+title: 翻譯工具文字 API 偵測方法
+titlesuffix: Azure Cognitive Services
+description: 使用翻譯工具文字 API 偵測方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 7e81e91230e1ada4423d77d22134b1b64df65d9d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370235"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126117"
 ---
-# <a name="text-api-30-detect"></a>文字 API 3.0：偵測
+# <a name="translator-text-api-30-detect"></a>翻譯工具文字 API 3.0：偵測
 
 識別一段文字的語言。
 
@@ -37,7 +38,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   <th>說明</th>
   <tr>
     <td>api-version</td>
-    <td>*必要參數*。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
+    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
   </tr>
 </table> 
 
@@ -48,19 +49,19 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   <th>說明</th>
   <tr>
     <td>_一個授權_<br/>_標頭_</td>
-    <td>*必要的要求標頭*。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
+    <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*必要的要求標頭*。<br/>指定酬載的內容類型。 可能的值為：`application/json`。</td>
+    <td>必要的要求標頭。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*必要的要求標頭*。<br/>要求本文的長度。</td>
+    <td>必要的要求標頭。<br/>要求本文的長度。</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*選擇性*。<br/>用於唯一識別要求之用戶端產生的 GUID。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
@@ -128,13 +129,13 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   <th>說明</th>
   <tr>
     <td>X-RequestId</td>
-    <td>用於識別要求之服務產生的值。 其用於進行疑難排解。</td>
+    <td>服務產生的值，用於識別要求。 作為疑難排解之用。</td>
   </tr>
 </table> 
 
 ## <a name="response-status-codes"></a>回應狀態碼
 
-以下是要求傳回之可能的 HTTP 狀態碼。 
+以下是要求傳回的可能 HTTP 狀態碼。 
 
 <table width="100%">
   <th width="20%">狀態碼</th>
@@ -145,23 +146,23 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   </tr>
   <tr>
     <td>400</td>
-    <td>其中一個查詢參數遺漏或無效。 請先更正要求參數，然後重試。</td>
+    <td>缺少其中一個查詢參數，或查詢參數無效。 請先修正要求參數再重試。</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>無法驗證此要求。 請確認認證已指定且有效。</td>
+    <td>無法驗證要求。 請確認認證已指定且有效。</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>此要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
+    <td>要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>呼叫者傳送太多要求。</td>
+    <td>呼叫者傳送過多要求。</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>
@@ -171,7 +172,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 ## <a name="examples"></a>範例
 
-以下範例示範如何擷取文字翻譯支援的語言。
+以下範例顯示如何擷取支援文字轉換的語言。
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

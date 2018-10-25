@@ -1,5 +1,5 @@
 ---
-title: 疑難排解 Azure 備份的檔案和資料夾備份速度緩慢問題
+title: 針對 Azure 備份的檔案與資料夾備份速度緩慢問題進行疑難排解
 description: 提供疑難排解指導方針，以協助您診斷 Azure 備份效能問題的原因
 services: backup
 author: genlin
@@ -8,22 +8,22 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 46ec43aee8588af98c815bdf6aadffd90aec8537
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e78ea2a132a75a5424c0078c2b41edb8209c781c
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606285"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831529"
 ---
-# <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>疑難排解 Azure 備份的檔案和資料夾備份速度緩慢問題
-這篇文章提供疑難排解指引，可協助您診斷當您使用 Azure 備份時，檔案與資料夾備份效能緩慢的原因。 當您使用 Azure 備份代理程式來備份檔案時，備份處理程序進行的時間可能比預期的還要久。 此延遲可能是因為下列一或多個原因所造成：
+# <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>針對 Azure 備份的檔案與資料夾備份速度緩慢問題進行疑難排解
+此文章提供疑難排解指導方針，可協助您診斷當您使用 Azure 備份時，檔案與資料夾備份效能緩慢的原因。 當您使用 Azure 備份代理程式來備份檔案時，備份處理程序進行的時間可能比預期的還要久。 此延遲可能是因為下列一或多個原因所造成：
 
 * [正在備份的電腦有效能瓶頸。](#cause1)
 * [有其他處理程序或防毒軟體在干擾 Azure 備份處理程序。](#cause2)
 * [備份代理程式是在 Azure 虛擬機器 (VM) 上執行。](#cause3)  
 * [您正在備份大量 (數百萬計) 的檔案。](#cause4)
 
-在開始對問題進行疑難排解之前，建議您下載並安裝 [最新版的 Azure 備份代理程式](http://aka.ms/azurebackup_agent)。 我們會經常更新備份代理程式，以修正各種問題、新增功能和改善效能。
+在開始針對問題進行疑難排解之前，建議您下載並安裝[最新版的 Azure 備份代理程式](http://aka.ms/azurebackup_agent)。 我們會經常更新備份代理程式，以修正各種問題、新增功能和改善效能。
 
 我們也強烈建議您檢閱 [Azure 備份服務常見問題集](backup-azure-backup-faq.md) ，以確定所遇到的問題並非任何常見的組態問題。
 
@@ -81,4 +81,4 @@ Windows 提供了稱為 [效能監視器](https://technet.microsoft.com/magazine
 下列指標可協助您了解瓶頸並據以處理下一個步驟︰
 
 * **UI 正在顯示資料傳輸的進度**。 資料仍在傳輸中。 網路頻寬或資料大小可能會造成延遲。
-* **UI 未顯示資料傳輸的進度**。 開啟位於 C:\Microsoft Azure Recovery Services Agent\Temp 的記錄檔，並查看記錄檔中的 FileProvider::EndData 項目。 此項目表示資料傳輸完成，且目錄作業正在進行中。 請勿取消備份工作。 請稍微多等待一些時間讓目錄作業完成。 若問題持續發生，請連絡 [Azure 支援](https://portal.azure.com/#create/Microsoft.Support)。
+* **UI 未顯示資料傳輸的進度**。 請開啟位於 C:\Program Files\Microsoft Azure 復原服務代理程式\Temp 的記錄檔，然後查看記錄檔中是否有 FileProvider::EndData 項目。 此項目表示資料傳輸完成，且目錄作業正在進行中。 請勿取消備份工作。 請稍微多等待一些時間讓目錄作業完成。 若問題持續發生，請連絡 [Azure 支援](https://portal.azure.com/#create/Microsoft.Support)。

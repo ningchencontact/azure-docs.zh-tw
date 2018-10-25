@@ -13,18 +13,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/28/2018
+ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33ffb9d1685f3d76e884ae0d90545f659b5ec87c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953340"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018820"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Marketplace 中尋找 Linux VM 映像
-本主題描述如何在 Azure Marketplace 中使用 Azure CLI 尋找 VM 映像。 當您使用 CLI、Resource Manager 範本或其他工具以程式設計方式建立 VM 時，使用此資訊來指定 Marketplace 映像。
+此主題描述如何在 Azure Marketplace 中使用 Azure CLI 尋找 VM 映像。 當您使用 CLI、Resource Manager 範本或其他工具以程式設計方式建立 VM 時，使用此資訊來指定 Marketplace 映像。
 
 也請透過 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 店面、[Azure 入口網站](https://portal.azure.com)或 [Azure PowerShell](../windows/cli-ps-findimage.md) 瀏覽可用的映像和供應項目。 
 
@@ -49,7 +49,7 @@ Offer          Publisher               Sku                 Urn                  
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
-openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+openSUSE-Leap  SUSE                    42.3                SUSE:openSUSE-Leap:42.3:latest                                  openSUSE-Leap        latest
 RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
@@ -71,6 +71,7 @@ az vm image list --offer Debian --all --output table
 ```
 Offer    Publisher    Sku                Urn                                              Version
 -------  -----------  -----------------  -----------------------------------------------  --------------
+...
 Debian   credativ     7                  credativ:Debian:7:7.0.201602010                  7.0.201602010
 Debian   credativ     7                  credativ:Debian:7:7.0.201603020                  7.0.201603020
 Debian   credativ     7                  credativ:Debian:7:7.0.201604050                  7.0.201604050
@@ -95,7 +96,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 ...
 ```
 
-使用 `--location`、`--publisher` 和 `--sku` 選項套用類似的篩選條件。 您甚至可以執行篩選的部份相符，例如搜尋 `--offer Deb` 以尋找所有 Debian 映像。
+使用 `--location`、`--publisher` 和 `--sku` 選項套用類似的篩選條件。 您可以執行篩選的部份相符，例如搜尋 `--offer Deb` 以尋找所有 Debian 映像。
 
 如果您未使用 `--location` 選項指定特定的位置，就會傳回預設位置的值。 (執行 `az configure --defaults location=<location>` 以設定不同的預設位置。)
 
@@ -146,21 +147,31 @@ az vm image list-publishers --location westus --output table
 ```
 Location    Name
 ----------  ----------------------------------------------------
+westus      128technology
 westus      1e
 westus      4psa
+westus      5nine-software-inc
 westus      7isolutions
 westus      a10networks
 westus      abiquo
 westus      accellion
+westus      accessdata-group
+westus      accops
 westus      Acronis
 westus      Acronis.Backup
+westus      actian-corp
 westus      actian_matrix
 westus      actifio
 westus      activeeon
-westus      adatao
+westus      advantech-webaccess
+westus      aerospike
+westus      affinio
+westus      aiscaler-cache-control-ddos-and-url-rewriting-
+westus      akamai-technologies
+westus      akumina
 ...
 ```
-使用這項資訊從特定的發行者尋找供應項目。 例如，如果 Canonical 是位於美國西部的映像發行者，執行 `azure vm image list-offers` 可找到其供應項目。 傳遞位置和發行者，如下列範例所示：
+使用此資訊從特定的發行者尋找供應項目。 例如，針對位於美國西部位置的 *Canonical* 發行者，執行 `azure vm image list-offers` 可尋找供應項目。 傳遞位置和發行者，如下列範例所示：
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -176,8 +187,6 @@ westus      Ubuntu15.04SnappyDocker
 westus      UbunturollingSnappy
 westus      UbuntuServer
 westus      Ubuntu_Core
-westus      Ubuntu_Snappy_Core
-westus      Ubuntu_Snappy_Core_Docker
 ```
 您看到在美國西部區域中，Canonical 在 Azure 上發佈 *UbuntuServer* 供應項目。 但是，是什麼 SKU？ 若要取得這些值，請執行 `azure vm image list-skus` 並設定您探索到的位置、發行者和供應項目：
 
@@ -192,9 +201,7 @@ Location    Name
 ----------  -----------------
 westus      12.04.3-LTS
 westus      12.04.4-LTS
-westus      12.04.5-DAILY-LTS
 westus      12.04.5-LTS
-westus      12.10
 westus      14.04.0-LTS
 westus      14.04.1-LTS
 westus      14.04.2-LTS
@@ -202,15 +209,14 @@ westus      14.04.3-LTS
 westus      14.04.4-LTS
 westus      14.04.5-DAILY-LTS
 westus      14.04.5-LTS
-westus      16.04-beta
 westus      16.04-DAILY-LTS
 westus      16.04-LTS
 westus      16.04.0-LTS
-westus      16.10
-westus      16.10-DAILY
-westus      17.04
-westus      17.04-DAILY
+westus      17.10
 westus      17.10-DAILY
+westus      18.04-DAILY-LTS
+westus      18.04-LTS
+westus      18.10-DAILY
 ```
 
 最後，使用 `az vm image list` 命令來尋找您需要的 SKU 特定版本，例如，*16.04-LTS*：
@@ -219,7 +225,7 @@ westus      17.10-DAILY
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
 ```
 
-輸出：
+部分輸出：
 
 ```
 Offer         Publisher    Sku        Urn                                               Version
@@ -238,17 +244,7 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703030  16.04.201703030
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703070  16.04.201703070
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703270  16.04.201703270
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703280  16.04.201703280
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703300  16.04.201703300
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705080  16.04.201705080
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705160  16.04.201705160
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706100  16.04.201706100
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707210  16.04.201707210
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707270  16.04.201707270
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708030  16.04.201708030
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
+...
 ```
 
 現在，您可以記下 URN 值，精確地選擇想要使用的映像。 當您使用 [az vm create](/cli/azure/vm#az_vm_create) 命令建立 VM 時，請傳遞此值與 `--image` 參數。 請記住，您可以使用 "latest" 來取代 URN 中的版本號碼。 此版本一律為最新的映像版本。 
@@ -258,12 +254,13 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
 ### <a name="view-plan-properties"></a>檢視方案屬性
+
 若要檢視映像的購買方案資訊，請執行 [az vm image show](/cli/azure/image#az_image_show) 命令。 如果輸出中的 `plan` 屬性不是 `null`，此映像具有您必須在以程式設計方式部署之前接受的條款。
 
 例如，Canonical Ubuntu Server 16.04 LTS 映像沒有其他條款，因為 `plan` 資訊為 `null`：
 
 ```azurecli
-az vm image show --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
+az vm image show --location westus --urn Canonical:UbuntuServer:16.04-LTS:latest
 ```
 
 輸出：
@@ -273,7 +270,7 @@ az vm image show --location westus --publisher Canonical --offer UbuntuServer --
   "dataDiskImages": [],
   "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
   "location": "westus",
-  "name": "16.04.201801260",
+  "name": "16.04.201809120",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -285,7 +282,7 @@ az vm image show --location westus --publisher Canonical --offer UbuntuServer --
 針對 RabbitMQ Certified by Bitnami 映像執行類似的命令會顯示下列 `plan` 屬性：`name`、`product` 和 `publisher`。 (某些映像也有 `promotion code` 屬性。)若要部署此映像，請參閱下列各節，以接受條款並啟用以程式設計方式部署。
 
 ```azurecli
-az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1807171506
+az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
 輸出：
 
@@ -294,7 +291,7 @@ az vm image show --location westus --publisher bitnami --offer rabbitmq --sku ra
   "dataDiskImages": [],
   "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
   "location": "westus",
-  "name": "3.7.1807171506",
+  "name": "3.7.1809211005",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -308,6 +305,7 @@ az vm image show --location westus --publisher bitnami --offer rabbitmq --sku ra
 ```
 
 ### <a name="accept-the-terms"></a>接受條款
+
 若要檢視並接受授權條款，請使用 [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms) 命令。 當您接受條款時，您會在訂用帳戶中啟用以程式設計方式部署。 您只需針對映像的每個訂用帳戶接受一次條款。 例如︰
 
 ```azurecli
@@ -328,12 +326,13 @@ az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
   "product": "rabbitmq",
   "publisher": "bitnami",
   "retrieveDatetime": "2018-02-22T04:06:28.7641907Z",
-  "signature": "WVIEA3LAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNKLNLWI",
+  "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
 ```
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>使用購買方案的參數進行部署
+
 接受映像的條款之後，您可以在訂用帳戶中部署 VM。 若要使用 `az vm create` 命令來部署映像，除了映像的 URN 之外，請提供購買方案的參數。 例如，若要使用 RabbitMQ Certified by Bitnami 映像部署 VM：
 
 ```azurecli
@@ -342,8 +341,6 @@ az group create --name myResourceGroupVM --location westus
 az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 
 ```
-
-
 
 ## <a name="next-steps"></a>後續步驟
 若要使用映像資訊來快速建立虛擬機器，請參閱[使用 Azure CLI 來建立和管理 Linux VM](tutorial-manage-vm.md)。

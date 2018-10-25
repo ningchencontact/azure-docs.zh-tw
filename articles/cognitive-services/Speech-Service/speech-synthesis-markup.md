@@ -1,28 +1,28 @@
 ---
 title: 語音合成標記語言
 description: 使用語音合成標記語言控制文字轉語音的發音和韻律。
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 48e2f965cdc482f9070497f9a4e7e016bfeb92ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: erhopf
+ms.openlocfilehash: bdcb206e092467703f0bd4404da47b334ea8ccaf
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978143"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165482"
 ---
 # <a name="speech-synthesis-markup-language"></a>語音合成標記語言
 
-語音合成標記語言 (SSML) 是一種 XML 架構的標記語言，可控制文字轉語音的發音和*韻律*。 (韻律是指說話時的節奏和音高，甚至也可以稱之音樂。) 您可以指定文字的發音、提供解釋數字、插入暫停、控制音高、音量和速率等提示。
+語音合成標記語言 (SSML) 是一種 XML 架構的標記語言，可控制文字轉語音的發音和*韻律*。 韻律是指說話時的節奏和音高，甚至也可以稱之音樂。 您可以指定文字的發音、提供解釋數字、插入暫停、控制音高、音量和速率等提示。
 
 如需詳細資訊，請參閱 W3C 的[語音合成標記語言 (SSML) 版本 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)。
 
-下列範例示範如何針對常見的語音合成需求使用 SSML。
+下列範例示範如何針對常見的語音合成需求使用 SSML：
 
 ## <a name="add-a-break"></a>加入中斷符號
 ```xml

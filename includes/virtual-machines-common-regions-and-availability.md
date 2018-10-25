@@ -2,18 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: virtual-machines
-author: iainfoulds
+author: zr-msft
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 7ab67e878e7cf08fe983ab172731209328b1a474
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454556"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49476313"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的區域和可用性
 Azure 在世界各地多個資料中心運作。 這些資料中心會依據地理區域分組，提供您彈性來選擇要建置應用程式的位置。 請務必了解虛擬機器 (VM) 在 Azure 中的運作方式和位置，以及可充分發揮效能、可用性和備援功能的選項。 本文提供 Azure 可用性和備援功能的概觀。

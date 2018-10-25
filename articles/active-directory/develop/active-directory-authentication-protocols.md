@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 04cdba261d67e20762fd4bb4835568f763124fef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 312b1f7accee47c07c5fb0507061253fda5044f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578468"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958035"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory 驗證通訊協定
 Azure Active Directory (Azure AD) 支援數個最常用的驗證和授權通訊協定。 本節中的主題描述 Azure AD 中所支援的通訊協定和其實作。 這些主題包括支援的宣告類型回顧、同盟中繼資料的使用簡介、詳細的 OAuth 2.0  和 SAML 2.0 通訊協定參考文件，以及疑難排解小節。
@@ -38,6 +38,6 @@ Azure Active Directory (Azure AD) 支援數個最常用的驗證和授權通訊�
 * [SAML 通訊協定參照](active-directory-saml-protocol-reference.md) - 了解 Azure AD 的單一登入和單一登出 SAML 設定檔。
 
 ## <a name="see-also"></a>另請參閱
-[Azure Active Directory 開發人員指南](azure-ad-developers-guide.md)
+[Azure Active Directory 開發人員指南](v1-overview.md)
 
 [Active Directory 程式碼範例](sample-v1-code.md)

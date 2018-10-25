@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037978"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585369"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自動化 Azure 虛擬機器部署
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef 是個很棒的工具，可提供自動化和所需狀態組態。
 
-在我們最新的雲端應用程式 API 版本中，Chef 提供與 Azure 的緊密整合，您可以透過單一命令佈建和部署組態狀態。
+在我們最新的雲端 API 版本中，Chef 提供與 Azure 的緊密整合，您可以透過單一命令佈建及部署組態狀態。
 
-在本文中，您將設定可佈建 Azure 虛擬機器的 Chef 環境，並會逐步指導您建立原則或 “CookBook”，然後將此操作手冊部署到 Azure 虛擬機器中。
+在此文章中，您將設定可佈建 Azure 虛擬機器的 Chef 環境，並會逐步指導您建立原則或 “CookBook”，然後將此操作手冊部署到 Azure 虛擬機器中。
 
 讓我們開始吧！
 
@@ -42,7 +42,7 @@ Chef 是個很棒的工具，可提供自動化和所需狀態組態。
 
 Chef 有三個主要的架構元件：Chef 伺服器、Chef 用戶端 (節點) 和 Chef 工作站。
 
-Chef 伺服器是管理的重點，Chef 伺服器包含兩個選項：代管解決方案或內部部署解決方案。 我們將使用代管解決方案。
+Chef 伺服器是管理的重點，Chef 伺服器包含兩個選項：代管解決方案或內部部署解決方案。 我們將針對此教學課程使用代管解決方案。
 
 Chef 用戶端 (節點)是位於您所管理之伺服器上的代理程式。
 
@@ -94,7 +94,7 @@ Chef 工作站是系統管理工作站，我們可以在這裡建立原則並執
 
 PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 knife.rb檔案則包含 knife 組態。 我們將需要編輯 knife.rb 檔案。
 
-在您選擇的編輯器中開啟此檔案，並修改 “cookbook_path” (移除其路徑中的 /../)，因此它會顯示如下所示。
+在您選擇的編輯器中開啟此檔案，並修改 “cookbook_path” (移除其路徑中的 /../)，讓它看起來向下面這樣：
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -109,7 +109,7 @@ PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 knife.rb�
 這幾行程式碼可確保 Knife 會參考 c:\chef\cookbooks 底下的 cookbooks 目錄，並在 Azure 作業期間使用 Azure 發行設定檔。
 
 ## <a name="installing-the-chef-development-kit"></a>安裝 Chef 開發套件
-接下來 [下載並安裝](http://downloads.getchef.com/chef-dk/windows) ChefDK (Chef 開發套件) 以設定 Chef 工作站。
+接下來，[下載並安裝](http://downloads.getchef.com/chef-dk/windows) ChefDK (Chef 開發套件) 以設定您的 Chef 工作站。
 
 ![][7]
 
@@ -119,7 +119,9 @@ PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 knife.rb�
 
 如果沒有，請確定您已加入這些路徑 ！
 
-*請注意，路徑的順序很重要！* 如果您的 opscode 路徑順序不正確，則會出現問題。
+> [!NOTE]
+> 路徑的順序很重要！ 如果您的 opscode 路徑順序不正確，則會出現問題。 
+> 
 
 在繼續之前，請重新啟動您的工作站。
 

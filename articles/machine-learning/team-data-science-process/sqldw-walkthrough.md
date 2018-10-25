@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 6178c4a55d24bb37aae787129c9a0d390a2e536b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 192af40df3a8bc0545c9c3a86792e7eb8cb31de9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226221"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586099"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
-在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
+在此教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
 
 此程序會遵循 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 工作流程。 我們會示範如何設定資料科學環境、如何將資料載入 SQL DW，以及如何使用 SQL DW 或 IPython Notebook 來探索要模型化的資料和工程功能。 然後，我們會示範如何使用 Azure Machine Learning 建置和部署模型。
 
 ## <a name="dataset"></a>NYC 計程車車程資料集
-「NYC 計程車車程」資料是由約 20GB 的 CSV 壓縮檔 (未壓縮時可達 48GB) 所組成，裡面記錄了超過 1 億 7300 萬筆個別車程及針對每趟車程所支付的費用。 每趟車程記錄包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及計程車牌照 (計程車的唯一識別碼) 號碼。 資料涵蓋 2013 年的所有車程，並且每月會在下列兩個資料集中加以提供：
+「NYC 計程車車程」資料是由約 20GB 的 CSV 壓縮檔 (未壓縮時可達 48GB) 所組成，裡面記錄了超過 1 億 7300 萬筆個別車程及針對每趟車程所支付的費用。 每趟車程記錄均包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及計程車牌照 (計程車的唯一識別碼) 號碼。 資料涵蓋 2013 年的所有車程，並且每月會在下列兩個資料集中提供：
 
 1. **trip_data.csv** 檔案包含車程的詳細資訊，例如，乘客數、上車和下車地點、車程持續時間，以及車程長度。 以下是一些範例記錄：
    
@@ -67,26 +67,26 @@ ms.locfileid: "39226221"
 3. **迴歸工作**：預測針對某趟車程支付的小費金額。  
 
 ## <a name="setup"></a>設定適用於進階分析的 Azure 資料科學環境
-若要設定您的 Azure 資料科學環境，請遵循下列步驟。
+若要設定您的 Azure 資料科學環境，請依照下列步驟執行。
 
 **建立自己的 Azure Blob 儲存體帳戶**
 
-* 當您在佈建自己的 Azure Blob 儲存體時，請為 Azure Blob 儲存體選擇位於或最接近「美國中南部」 的地理位置 (即儲存 NYC 計程車資料的位置)。 該資料會使用 AzCopy 從公用 Blob 儲存體容器複製到您自己的儲存體帳戶中的容器。 您的 Azure Blob 儲存體越接近美國中南部，就能越快完成這項工作 (步驟 4)。
-* 若要建立自己的 Azure 儲存體帳戶，請遵循 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中概述的步驟。 請務必記下下列儲存體帳戶認證的值，因為我們會在本逐步解說稍後的地方用到它們。
+* 當您在佈建自己的 Azure Blob 儲存體時，請為 Azure Blob 儲存體選擇位於或最接近「美國中南部」 的地理位置 (即儲存 NYC 計程車資料的位置)。 該資料會使用 AzCopy 從公用 Blob 儲存體容器複製到您自己的儲存體帳戶中的容器。 您的 Azure Blob 儲存體越接近美國中南部，就能越快完成此工作 (步驟 4)。
+* 若要建立自己的 Azure 儲存體帳戶，請依照 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中概述的步驟執行。 請務必記下下列儲存體帳戶認證的值，因為我們會在此逐步解說稍後的地方用到它們。
   
   * **儲存體帳戶名稱**
   * **儲存體帳戶金鑰**
   * **容器名稱** (您想要在 Azure Blob 儲存體中用來儲存資料的容器)
 
 **佈建 Azure SQL DW 執行個體。**
-遵循 [建立 SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 中的說明來佈建 SQL 資料倉儲執行個體。 請務必記下下列 SQL 資料倉儲認證以用於稍後的步驟。
+依照 [建立 SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)中的說明來佈建 SQL 資料倉儲執行個體。 請務必記下下列 SQL 資料倉儲認證以用於稍後的步驟。
 
 * **伺服器名稱**：<server Name>.database.windows.net
 * **SQLDW (資料庫) 名稱**
 * **使用者名稱**
 * **密碼**
 
-**安裝 Visual Studio 和 SQL Server Data Tools。** 如需指示，請參閱 [安裝適用於 SQL 資料倉儲的 Visual Studio 2015 及/或 SSDT (SQL Server Data Tools)](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)中概述的步驟。
+**安裝 Visual Studio 和 SQL Server Data Tools。** 如需指示，請參閱 [安裝適用於 SQL 資料倉儲的 Visual Studio 2015 和/或 SSDT (SQL Server Data Tools)](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)中概述的步驟。
 
 **使用 Visual Studio 連接到 Azure SQL DW。** 如需指示，請參閱[使用 Visual Studio 連接到 Azure SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md)中的步驟 1 和 2。
 
@@ -106,7 +106,7 @@ ms.locfileid: "39226221"
 **在 Azure 訂用帳戶下建立 Azure Machine Learning 工作區。** 如需指示，請參閱 [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)中概述的步驟。
 
 ## <a name="getdata"></a>將資料載入 SQL 資料倉儲
-開啟 Windows PowerShell 命令主控台。 執行下列 PowerShell 命令，將我們在 GitHub 上與您分享的範例 SQL 指令碼檔案，下載到您使用 *-DestDir* 參數指定的本機目錄中。 您可以將 *-DestDir* 參數的值變更為任何本機目錄。 如果 *-DestDir* 不存在，PowerShell 指令碼會加以建立。
+開啟 Windows PowerShell 命令主控台。 執行下列 PowerShell 命令，將我們在 GitHub 上與您分享的範例 SQL 指令碼檔案，下載到您使用 *-DestDir* 參數指定的本機目錄中。 您可以將 *-DestDir* 參數的值變更為任何本機目錄。 如果 *-DestDir* 不存在，PowerShell 指令碼會建立它。
 
 > [!NOTE]
 > 如果需要系統管理員權限才能建立或寫入 **DestDir** 目錄，您可能需要在執行下列 PowerShell 指令碼時 *以系統管理員身分執行* 。
@@ -282,7 +282,7 @@ ms.locfileid: "39226221"
             FROM   {external_nyctaxi_trip}
             ;
 
-    - 建立範例資料的資料表 (NYCTaxi_Sample)，並透過選取 trip 和 fare 資料表上的 SQL 查詢對範例資料表插入資料。 (本逐步解說的某些步驟需要使用此範例資料表。)
+    - 建立範例資料的資料表 (NYCTaxi_Sample)，並透過選取 trip 和 fare 資料表上的 SQL 查詢對範例資料表插入資料。 (此逐步解說的某些步驟需要使用此範例資料表。)
 
             CREATE TABLE {schemaname}.{nyctaxi_sample}
             WITH
@@ -321,7 +321,7 @@ ms.locfileid: "39226221"
 您必須決定當您有重複的來源和目的地檔案時該如何做。
 
 > [!NOTE]
-> 如果私人 Blob 儲存體帳戶中已有要從公用 Blob 儲存體複製到私人 Blob 儲存體帳戶的 .csv 檔案，AzCopy 會詢問您是否要加以覆寫。 如果不想加以覆寫，在出現提示時輸入 **n** 。 如果想要**全部**覆寫，請在出現提示時輸入 **a**。 您也可以輸入 **y** 來個別覆寫 .csv 檔案。
+> 如果私人 Blob 儲存體帳戶中已有要從公用 Blob 儲存體複製到私人 Blob 儲存體帳戶的 .csv 檔案，AzCopy 會詢問您是否要覆寫它們。 如果不想覆寫它們，在出現提示時輸入 **n** 。 如果想要**全部**覆寫，請在出現提示時輸入 **a**。 您也可以輸入 **y** 來個別覆寫 .csv 檔案。
 > 
 > 
 
@@ -341,7 +341,7 @@ ms.locfileid: "39226221"
 ![][20]
 
 ## <a name="dbexplore"></a>Azure SQL 資料倉儲中的資料探索和特徵工程
-在本節中，我們會使用 **Visual Studio Data Tools**直接對 Azure SQL DW 執行 SQL 查詢，以探索資料和產生特徵。 本節中使用的所有 SQL 查詢都能在名為 *SQLDW_Explorations.sql* 的範例指令碼中找到。 PowerShell 指令碼已將此檔案下載到您的本機目錄。 您也可以從 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql) 擷取此檔案。 但 GitHub 中的檔案並未插入 Azure SQL DW 資訊。
+在此節中，我們會使用 **Visual Studio Data Tools**直接對 Azure SQL DW 執行 SQL 查詢，以探索資料和產生特徵。 此節中使用的所有 SQL 查詢都能在名為 *SQLDW_Explorations.sql* 的範例指令碼中找到。 PowerShell 指令碼已將此檔案下載到您的本機目錄。 您也可以從 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql) 擷取此檔案。 但 GitHub 中的檔案並未插入 Azure SQL DW 資訊。
 
 使用 Visual Studio 與 SQL DW 登入名稱和密碼連接到您的 Azure SQL DW，然後開啟 **SQL 物件總管** 確認資料庫和資料表已匯入。 擷取 *SQLDW_Explorations.sql* 檔案。
 
@@ -350,7 +350,7 @@ ms.locfileid: "39226221"
 > 
 > 
 
-以下是本節所執行之資料探索和功能產生工作的類型：
+以下是此節所執行之資料探索和功能產生工作的類型：
 
 * 在變動的時間範圍中探索數個欄位的資料分佈。
 * 調查經度和緯度欄位的資料品質。
@@ -567,7 +567,7 @@ ms.locfileid: "39226221"
 2. 將您打算用來建置模型的取樣和工程設計資料保存在新的 SQL DW 資料表中，然後在 Azure Machine Learning 的[匯入資料][import-data]模組中使用該新的資料表。 先前步驟中的 PowerShell 指令碼已為您完成此作業。 您可以在「匯入資料」模組中直接讀取此資料表。
 
 ## <a name="ipnb"></a>IPython Notebook 中的資料探索和特徵工程設計
-在本節中，我們將在先前建立的 SQL DW 中進行 Python 和 SQL 查詢，藉此探索資料和產生功能。 名為 **SQLDW_Explorations.ipynb** 的 IPython Notebook 範例和 Python 指令碼檔案 **SQLDW_Explorations_Scripts.py** 已下載到您的本機目錄中。 您也可以在 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW)上取得這兩個檔案。 在 Python 指令碼中，這兩個檔案是相同的。 我們會提供 Python 指令碼檔案給您，以免您沒有 IPython Notebook 伺服器。 這兩個範例 Python 檔案是以 **Python 2.7**設計。
+在此節中，我們將在先前建立的 SQL DW 中進行 Python 和 SQL 查詢，藉此探索資料和產生功能。 名為 **SQLDW_Explorations.ipynb** 的 IPython Notebook 範例和 Python 指令碼檔案 **SQLDW_Explorations_Scripts.py** 已下載到您的本機目錄中。 您也可以在 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW)上取得這兩個檔案。 在 Python 指令碼中，這兩個檔案是相同的。 我們會提供 Python 指令碼檔案給您，以免您沒有 IPython Notebook 伺服器。 這兩個範例 Python 檔案是以 **Python 2.7**設計。
 
 範例 IPython Notebook 和 Python 指令碼檔案中下載到本機電腦的所需 Azure SQL DW 資訊先前已由 PowerShell 指令碼插入。 因此，不必進行任何修改就可以執行。
 
@@ -586,7 +586,7 @@ ms.locfileid: "39226221"
    
     ![圖 #25][25]
 
-若要執行範例 IPython Notebook 或 Python 指令碼檔案，您需要下列 Python 封裝。 如果您使用 AzureML IPython Notebook 服務，則已預先安裝這些封裝。
+若要執行範例 IPython Notebook 或 Python 指令碼檔案，您需要下列 Python 套件。 如果您使用 AzureML IPython Notebook 服務，則已預先安裝這些套件。
 
     - pandas
     - numpy
@@ -735,7 +735,7 @@ ms.locfileid: "39226221"
 ![圖 #8][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>在 IPython Notebook 中使用 SQL 查詢對取樣資料進行資料探索
-在本節中，我們將使用前面所建立的新資料表中保存的取樣資料，來探索資料分佈。 請注意，您也可以使用原始資料表執行類似探索。
+在此節中，我們將使用前面所建立的新資料表中保存的取樣資料，來探索資料分佈。 請注意，您也可以使用原始資料表執行類似探索。
 
 #### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>探索：報告取樣資料表中資料列和資料行的數目
     nrows = pd.read_sql('''SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_sample>')''', conn)

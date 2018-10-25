@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: d3d8df0d1e00fdff4d0e1e93715e1a408116d1e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f137ea80dc67bb075f34846e5563fb72c72b69a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632470"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585640"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>從 IoT 中樞傳送雲端到裝置訊息
 
-若要從您的解決方案後端傳送單向通知到裝置應用程式，請從您的 IoT 中樞傳送雲端對裝置訊息到您的裝置。 如需 IoT 中樞所支援之其他雲端到裝置選項的討論，請參閱[雲端對裝置通訊指引][lnk-c2d-guidance]。
+若要從您的解決方案後端傳送單向通知到裝置應用程式，請從您的 IoT 中樞傳送雲端對裝置訊息到您的裝置。 如需 IoT 中樞所支援之其他雲端到裝置選項的討論，請參閱[雲端到裝置通訊指導方針](iot-hub-devguide-c2d-guidance.md)。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -33,34 +33,36 @@ ms.locfileid: "34632470"
 
 下圖顯示 IoT 中樞之雲端到裝置訊息的生命週期狀態圖。
 
-![雲端到裝置的訊息生命週期][img-lifecycle]
+![雲端到裝置的訊息生命週期](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
 當 IoT 中樞服務傳送訊息至裝置時，該服務會將訊息狀態設定為 [已加入佇列]。 當裝置想要「接收」訊息時，IoT 中樞會「鎖定」該訊息 (藉由將狀態設為 [不可見])，以便讓裝置上的其他執行緒開始接收其他訊息。 當裝置執行緒完成處理訊息時，它會藉由「完成」  訊息來通知 IoT 中樞。 IoT 中樞接著會將狀態設定為 [已完成]。
 
 裝置也可以選擇：
 
 * 「拒絕」訊息，這會導致「IoT 中樞」將它設定為 [無法寄出] 狀態。 透過 MQTT 通訊協定連線的裝置無法拒絕雲端到裝置訊息。
+
 * *放棄*訊息，這會導致 IoT 中樞將訊息放回佇列，並將狀態設定為**已排入佇列**。 透過 MQTT 通訊協定連線的裝置無法放棄雲端到裝置訊息。
 
 執行緒可能無法處理訊息，且不會通知 IoT 中樞。 在此情況下，訊息會在過了 [可見性 (或鎖定) 逾時] 之後，自動從**不可見**狀態轉換回**已加入佇列**狀態。 此逾時的預設值是一分鐘。
 
-IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入佇列**與**不可見**狀態之間轉換的次數上限。 達到該轉換次數之後，「IoT 中樞」就會將訊息的狀態設定為 [無法寄出]。 同樣地，「IoT 中樞」在訊息的到期時間過後 (請參閱[存留時間][lnk-ttl])，也會將訊息的狀態設定為 [無法寄出]。
+IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入佇列**與**不可見**狀態之間轉換的次數上限。 達到該轉換次數之後，「IoT 中樞」就會將訊息的狀態設定為 [無法寄出]。 同樣地，IoT 中樞在訊息的到期時間過後 (請參閱[存留時間](#message-expiration-time-to-live))，也會將訊息的狀態設定為 [已變更為無效信件]。
 
-[如何使用 IoT 中樞傳送雲端到裝置訊息][lnk-c2d-tutorial]示範如何從雲端傳送雲端到裝置訊息，並在裝置上接收訊息。
+[如何使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-csharp-csharp-c2d.md)示範如何從雲端傳送雲端到裝置訊息，並在裝置上接收它們。
 
 通常只要遺失訊息不會影響應用程式邏輯，裝置就應該完成雲端到裝置訊息。 例如，當裝置已在本機保存訊息內容，或已成功執行作業時。 訊息可能也會攜帶暫時性資訊，遺失該訊息並不會影響應用程式的功能。 對於長時間執行的工作，您有時可以：
 
 * 在將作業描述保存於本機儲存體之後，完成雲端到裝置訊息。
+
 * 在作業進度的各個階段，利用一或多個裝置到雲端訊息來通知解決方案後端。
 
 ## <a name="message-expiration-time-to-live"></a>訊息到期 (存留時間)
 
-每個雲端到裝置的訊息都有到期時間。 此時間是由下列其中一項所設定：
+每個雲端到裝置的訊息都有到期時間。 此時間是由下列其中一個所設定：
 
 * 服務中的 **ExpiryTimeUtc** 屬性。
 * IoT 中樞，使用預設*存留時間*來指定作為 IoT 中樞屬性。
 
-請參閱[雲端到裝置的設定選項][lnk-c2d-configuration]。
+請參閱 [雲端到裝置的設定選項](#cloud-to-device-configuration-options)。
 
 利用訊息到期和避免將訊息傳送至已中斷連線裝置的常見方法是設定較短的存留時間值。 這個做法可達到與維護裝置連線狀態相同的效果，同時更具效率。 當您要求訊息通知時，IoT 中樞會對您通知下列狀態的裝置：
 
@@ -79,7 +81,7 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入�
 
 如果 **Ack** 是 **full**，而且您沒有收到意見反應訊息，這表示該意見反應訊息已過期。 服務無法得知原始訊息發生了什麼事。 實際上，服務應該確保它可以在回饋到期之前對其進行處理。 最長到期時間是兩天，因此如果服務發生失敗，您會有充裕的時間可以讓服務再次執行。
 
-如[端點][lnk-endpoints]中所述，IoT 中樞會透過面向服務的端點 (**/messages/servicebound/feedback**) 利用訊息來傳遞意見反應。 接收意見反應的語意與雲端到裝置訊息的接收語意相同。 可能的話，訊息意見反應會放入單一訊息中，其格式如下：
+如 [端點](iot-hub-devguide-endpoints.md)中所述，IoT 中樞會透過面向服務的端點 (**/messages/servicebound/feedback**) 利用訊息來傳遞意見反應。 接收意見反應的語意與雲端到裝置訊息的接收語意相同。 可能的話，訊息意見反應會放入單一訊息中，其格式如下：
 
 | 屬性     | 說明 |
 | ------------ | ----------- |
@@ -130,21 +132,10 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入�
 | feedback.ttlAsIso8601     | 保留服務繫結的意見反應訊息。 | ISO_8601 間隔高達 2D (最小為 1 分鐘)。 預設值︰1 小時。 |
 | feedback.maxDeliveryCount |意見反應佇列的最大傳遞計數。 | 1 到 100。 預設值 = 100。 |
 
-如需如何設定這些設定選項的詳細資訊，請參閱[建立 IoT 中樞][lnk-portal]。
+如需如何設定這些設定選項的詳細資訊，請參閱[建立 IoT 中樞](iot-hub-create-through-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需您可以用來接收雲端對裝置訊息之 SDK 的資訊，請參閱 [Azure IoT SDK][lnk-sdks]。
+如需您可用來接收雲端到裝置訊息的 SDK 相關資訊，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
-若要嘗試接收雲端對裝置訊息，請參閱 [傳送雲端到裝置][lnk-c2d-tutorial] 教學課程。
-
-[img-lifecycle]: ./media/iot-hub-devguide-messages-c2d/lifecycle.png
-
-[lnk-portal]: iot-hub-create-through-portal.md
-[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-ttl]: #message-expiration-time-to-live
-[lnk-c2d-configuration]: #cloud-to-device-configuration-options
-[lnk-lifecycle]: #message-lifecycle
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+若要嘗試接收雲端到裝置訊息，請參閱[傳送雲端到裝置](iot-hub-csharp-csharp-c2d.md)教學課程。

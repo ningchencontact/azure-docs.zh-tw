@@ -1,20 +1,21 @@
 ---
-title: 從應用程式呼叫 API - Azure 認知服務 | Microsoft Docs
-description: 如何在從智慧型手機應用程式呼叫 API 時開始使用 Azure 自訂決策服務。
+title: 從應用程式呼叫 API - 自訂決策服務
+titlesuffix: Azure Cognitive Services
+description: 如何從智慧型手機應用程式呼叫自訂決策服務 API。
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: slivkins
-ms.reviewer: marcozo, alekh
-ms.openlocfilehash: 2d02b0deaaa701dd0b4818638827c04e2c946558
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7df982c178bff19dcad8df1ba42a5a97904cd4c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370715"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364997"
 ---
 # <a name="call-api-from-an-app"></a>從應用程式呼叫 API
 
@@ -83,7 +84,7 @@ curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST
 </rss>
 ```
 
-在這裡，每個最上層 `<item>` 項目都會描述一個發行項。 `<link>` 是必要項目，而且自訂決策服務用來作為動作識別碼。 若您的發行項超過 15 個，則請指定 `<date>` (標準 RSS 格式)。 會使用 15 個最新發行項。 `<title>` 為選擇性且用來建立發行項的文字相關功能。
+在這裡，每個最上層 `<item>` 項目都會描述一篇文章。 `<link>` 是必要項目，而且自訂決策服務用來作為動作識別碼。 若您的發行項超過 15 個，則請指定 `<date>` (標準 RSS 格式)。 會使用 15 個最新發行項。 `<title>` 為選擇性且用來建立發行項的文字相關功能。
 
 ## <a name="next-steps"></a>後續步驟
 

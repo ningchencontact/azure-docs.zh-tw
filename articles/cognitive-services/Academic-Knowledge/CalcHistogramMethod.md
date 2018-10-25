@@ -1,20 +1,21 @@
 ---
-title: 學術知識 API 中的 CalcHistogram 方法 | Microsoft Docs
-description: 使用 CalcHistogram 方法來計算 Microsoft 認知服務中一組論文實體的屬性值分佈。
+title: CalcHistogram 方法：學術知識 API
+titlesuffix: Azure Cognitive Services
+description: 使用 CalcHistogram 方法計算一組論文實體的屬性值分佈。
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e0b773fb9791ee638c8cfdbbc9dca40543e50ec0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367871"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321286"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram 方法
 
@@ -29,16 +30,18 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
   
 ## <a name="request-parameters"></a>要求參數
 
-Name  |值 | 必要？  |說明
+名稱  |值 | 必要？  |說明
 -----------|----------|--------|----------
-**expr**    |文字字串 | yes  |查詢運算式，用來指定用於計算長條圖的實體。
+**expr**    |文字字串 | 是  |查詢運算式，用來指定用於計算長條圖的實體。
 **model** |文字字串 | 否 |選取您想要查詢的模型名稱。  目前，此值會預設為 latest。
 **attributes** | 文字字串 | 否<br>預設值： | 以逗號分隔的清單，可指定回應中包含的屬性值。 屬性名稱區分大小寫。
 **count** |數字 | 否<br>預設值：10 |要傳回的結果數目。
 **offset**  |數字 | 否<br>預設值：0 |要傳回的第一個結果索引。
-<br>
+**timeout**  |數字 | 否<br>預設值：1000 |逾時 (以毫秒為單位)。 只會傳回在逾時之前找到的解譯。
+
 ## <a name="response-json"></a>回應 (JSON)
-Name | 說明
+
+名稱 | 說明
 --------|---------
 **expr**  |要求中的 expr 參數。
 **num_entities** | 相符實體的總數。
@@ -52,7 +55,7 @@ Name | 說明
 **histograms[x].histogram[y].count**  |這個屬性值的相符實體數目。
 **已中止** | 如果要求逾時，則為 true。
 
- <br>
+
 #### <a name="example"></a>範例：
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

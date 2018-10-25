@@ -12,19 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338757"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817019"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen1 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-azure-datalake-connector.md)
 > * [目前的版本](connector-azure-data-lake-store.md)
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Azure Data Lake Storage Gen1 (先前稱為 Azure Data Lake Store) 來回複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+此文章概述如何使用 Azure Data Factory 中的「複製活動」，從 Azure Data Lake Storage Gen1 (先前稱為 Azure Data Lake Store) 來回複製資料。 此文章是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -32,7 +32,7 @@ ms.locfileid: "43338757"
 
 具體而言，這個 Azure Data Lake Store 連接器支援：
 
-- 使用**服務主體**或**受控服務身分識別 (MSI)** 驗證來複製檔案。
+- 使用**服務主體**或 **Azure 資源的受控識別**驗證來複製檔案。
 - 依原樣複製檔案，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析/產生檔案。
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ ms.locfileid: "43338757"
 請分別參閱以下各節關於不同驗證類型的更多屬性和 JSON 範例：
 
 - [使用服務主體驗證](#using-service-principal-authentication)
-- [使用受控服務識別驗證](#using-managed-service-identity-authentication)
+- [使用 Azure 資源的受控識別驗證](#managed-identity)
 
 ### <a name="using-service-principal-authentication"></a>使用服務主體驗證
 
@@ -114,11 +114,11 @@ ms.locfileid: "43338757"
 }
 ```
 
-### <a name="using-managed-service-identity-authentication"></a>使用受控服務識別驗證
+### <a name="managed-identity"></a> 使用 Azure 資源的受控識別驗證
 
-資料處理站[受控服務識別](data-factory-service-identity.md)相關聯，用後者來表示此特定資料處理站。 您可以直接將此服務識別用於 Data Lake Store 驗證，類似於使用您自己的服務主體。 這可以讓這個指定的處理站從 Data Lake Store 存取及複製資料，或存取及複製資料至 Data Lake Store。
+資料處理站可與 [Azure 資源的受控識別](data-factory-service-identity.md)相關聯，後者表示特定的資料處理站。 您可以直接將此服務識別用於 Data Lake Store 驗證，類似於使用您自己的服務主體。 這可以讓這個指定的處理站從 Data Lake Store 存取及複製資料，或存取及複製資料至 Data Lake Store。
 
-使用受控服務識別 (MSI) 驗證：
+使用 Azure 資源的受控識別驗證：
 
 1. [擷取資料處理站服務識別](data-factory-service-identity.md#retrieve-service-identity)，做法是複製與資料處理站一起產生的 "SERVICE IDENTITY APPLICATION ID"。
 2. 將服務識別的存取權授與 Data Lake Store，授與方式和服務主體相同，請遵循下列附註。
@@ -152,7 +152,7 @@ ms.locfileid: "43338757"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 Azure Data Lake Store 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 此節提供 Azure Data Lake Store 資料集所支援的屬性清單。
 
 若要將資料複製到 Azure Data Lake Store 或從該處複製資料，請將資料集的類型屬性設定為 **AzureDataLakeStoreFile**。 以下是支援的屬性：
 
@@ -197,7 +197,7 @@ ms.locfileid: "43338757"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Azure Data Lake 來源和接收器所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 此節提供 Azure Data Lake 來源和接收器所支援的屬性清單。
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store 作為來源
 
@@ -283,7 +283,7 @@ ms.locfileid: "43338757"
 
 ### <a name="recursive-and-copybehavior-examples"></a>遞迴和 copyBehavior 範例
 
-本節說明遞迴和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。
+此節說明遞迴和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。
 
 | 遞迴 | copyBehavior | 來源資料夾結構 | 產生的目標 |
 |:--- |:--- |:--- |:--- |

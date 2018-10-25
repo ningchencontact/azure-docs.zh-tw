@@ -1,6 +1,6 @@
 ---
 title: 刪除 Azure 中的復原服務保存庫
-description: 本文說明如何刪除復原服務保存庫。 本文包含當您嘗試刪除保存庫卻無法做到時的疑難排解步驟。
+description: 此文章說明如何刪除復原服務保存庫。 此文章包含當您嘗試刪除保存庫卻無法做到時的疑難排解步驟。
 services: backup
 author: markgalioto
 manager: carmonm
@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: 4dc5b006be8599177fb908fe022a3a821b137e12
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5bc68b55fdefc07b9764b8393ea6f4062468252
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422938"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816458"
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 
-本文將說明如何從復原服務保存庫中移除所有項目，然後刪除該保存庫。 如果復原服務保存庫已向伺服器註冊並保留備份資料，則無法刪除該保存庫。 如果您嘗試刪除保存庫，但是無法刪除，則保存庫仍會設定為接收備份資料。
+此文章將說明如何從復原服務保存庫中移除所有項目，然後刪除該保存庫。 如果復原服務保存庫已向伺服器註冊並保留備份資料，則無法刪除該保存庫。 如果您嘗試刪除保存庫，但是無法刪除，則保存庫仍會設定為接收備份資料。
 
 若要了解如何刪除保存庫，請參閱[從 Azure 入口網站刪除保存庫](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal)一節。 如果您不要保留復原服務保存庫中的任何資料，並且想刪除保存庫，請參閱[強制刪除保存庫](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force)一節。 如果您不確定保存庫中有什麼，但必須確認您可以刪除保存庫，請參閱[移除保存庫相依性並刪除保存庫](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault)。
 
@@ -60,7 +60,7 @@ ms.locfileid: "39422938"
 
 1. 登入您的 Azure 帳戶。
 
-   使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+   使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並依照畫面上的指示執行。
 
    ```powershell
     Connect-AzureRmAccount
@@ -90,6 +90,12 @@ ms.locfileid: "39422938"
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
+   保存庫必須是空的，您才能將其刪除。 否則，您會收到指出「因為此保存庫中仍包含資源，所以無法刪除」的錯誤。 下列命令示範如何移除保存庫內的容器：
+
+   ```powershell
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ```
+   
 1. 在 Azure 入口網站中登入您的訂用帳戶，並確認保存庫已刪除。
 
 

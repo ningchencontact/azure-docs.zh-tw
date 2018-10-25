@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 10/3/2018
 ms.author: yurid
-ms.openlocfilehash: d088223aa2ea40d5bb9cf0e492e87ef054d86348
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f139f2f967edc03419f41f8c903c71b9ab9e6fcb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365354"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044428"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>管理及回應 Azure 資訊安全中心的安全性警示
 本文件可協助您使用 Azure 資訊安全中心來管理及回應安全性警示。
@@ -39,7 +39,7 @@ ms.locfileid: "34365354"
 >
 
 ## <a name="managing-security-alerts"></a>管理安全性警示
-您可以查看 [安全性警示]  圖格來檢視目前的警示。 遵循下列步驟來查看有關每個警示的更多詳細資訊：
+您可以查看 [安全性警示]  圖格來檢視目前的警示。 依照下列步驟查看有關每個警示的更多詳細資訊：
 
 1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示] 圖格。
 
@@ -57,6 +57,7 @@ ms.locfileid: "34365354"
 * **日期**：事件發生的日期。
 * **狀態**：該警示目前的狀態。 狀態分為兩種：
   * **使用中**：已偵測到安全性警示。
+  * **已解除**：使用者已經解除該安全性警示。 這個狀態通常用於已經過調查且事件影響已減輕時，或是在調查後發現該事件並非真正攻擊時。
 * **嚴重性**：嚴重性層級，分為高、中或低。
 
 > [!NOTE]
@@ -75,7 +76,7 @@ ms.locfileid: "34365354"
 
 ![對於 Azure 資訊安全中心的安全性警示的回應](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
 
-在此案例中，所觸發的警示是關於可疑的遠端桌面通訊協定 (RDP) 活動。 第一個資料行顯示哪些資源遭到攻擊；第二個資料行顯示資源遭受攻擊的次數；第三個資料行顯示攻擊的時間；第四個資料行顯示警示的狀態；而第五個資料行顯示攻擊的嚴重性。 在檢閱這項資訊後，按一下遭到攻擊的資源。
+在此案例中，所觸發的警示是關於可疑的遠端桌面通訊協定 (RDP) 活動。 第一個資料行顯示哪些資源遭到攻擊；第二個資料行顯示資源遭受攻擊的次數；第三個資料行顯示攻擊的時間；第四個資料行顯示警示的狀態；而第五個資料行顯示攻擊的嚴重性。 在檢閱此資訊後，按一下遭到攻擊的資源。
 
 ![對於如何處理 Azure 資訊安全中心的安全性警示的建議](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 

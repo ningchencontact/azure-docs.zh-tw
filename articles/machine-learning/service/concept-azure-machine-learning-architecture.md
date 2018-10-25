@@ -9,18 +9,18 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3011fa85dbac2135f4d9113c6b76a8b667ee4013
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952118"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237971"
 ---
 # <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>架構與概念：Azure Machine Learning 服務如何運作？ 
 
 此文件說明 Azure Machine Learning 服務的架構與概念。 下圖顯示服務的主要元件，並說明使用服務時的一般工作流程： 
 
-[![Azure Machine Learning 架構與工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning services 架構與工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 工作流程一般遵循下列步驟：
 
@@ -41,7 +41,7 @@ ms.locfileid: "46952118"
 
 ## <a name="workspace"></a>工作區
 
-工作區是 Azure Machine Learning 服務的最上層資源。 它可在您使用 Azure Machine Learning 時，提供集中式位置以處理您建立的所有成品。
+工作區是 Azure Machine Learning 服務的最上層資源。 它可在您使用 Azure Machine Learning services 時，提供集中式位置以處理您建立的所有成品。
 
 工作區會保留一份可用於定型模型的計算目標清單。 它也會保留定型執行記錄，包括記錄、計量、輸出，以及指令碼快照集。 此資訊可用來判斷哪一個定型回合會產生最佳模型。
 
@@ -71,15 +71,15 @@ ms.locfileid: "46952118"
 
 簡單來說，模型是可接受輸入並產生輸出的一段程式碼。 機器學習服務模型的建立作業涵蓋選取演算法、提供資料給演算法，以及調整超參數。 定型是一種反覆進行的程序，可產生定型的模型，其中會封裝模型在定型程序期間學到項目。
 
-模型是由 Azure Machine Learning 中的回合所產生的。 您也可以使用在 Azure Machine Learning 外部定型的模型。 模型可以在 Azure Machine Learning 工作區底下註冊。
+模型是由 Azure Machine Learning 中的回合所產生的。 您也可以使用在 Azure Machine Learning 外部定型的模型。 模型可以在 Azure Machine Learning services 工作區底下註冊。
 
-Azure Machine Learning 與架構無關。 您可以使用任何受歡迎機器學習服務架構建立模型，例如 scikit-learn、xgboost、PyTorch、TensorFlow、Chainer 與 CNTK。
+Azure Machine Learning services 與架構無關。 您可以使用任何受歡迎機器學習服務架構建立模型，例如 scikit-learn、xgboost、PyTorch、TensorFlow、Chainer 與 CNTK。
 
-如需定型模型的範例，請參閱[快速入門：建立機器學習服務工作區](quickstart-get-started.md)文件。
+如需定型模型的範例，請參閱[快速入門：建立 Machine Learning services 工作區](quickstart-get-started.md)文件。
 
 ### <a name="model-registry"></a>模型登錄
 
-模型登錄可記錄您 Azure Machine Learning 工作區中的所有模型。 
+模型登錄可在您的 Azure Machine Learning services 工作區中持續追蹤所有模型。 
 
 模型是透過名稱與版本來識別的。 每次註冊與現有模型名稱相同的模型時，登錄都會假設它是一個新版本。 版本會累加，新模型則會以該名稱來註冊。
 
@@ -137,7 +137,7 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 
 使用 Python SDK API 或 Azure Machine Learning CLI 在資料存放區中儲存及擷取檔案。 
 
-## <a name="run"></a>回合
+## <a name="run"></a>執行
 
 回合是包含下列資訊的記錄：
 

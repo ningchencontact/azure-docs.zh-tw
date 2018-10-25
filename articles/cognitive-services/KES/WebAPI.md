@@ -1,23 +1,26 @@
 ---
-title: 知識探索服務 API 中的 Web API 介面 | Microsoft Docs
-description: 使用 Web API 介面，在認知服務的知識探索服務 (KES) API 中打造豐富的語意搜尋體驗。
+title: Web API 介面 - 知識探索服務 API
+titlesuffix: Azure Cognitive Services
+description: 使用 Web API 介面，在知識探索服務 (KES) API 中打造豐富的語意搜尋體驗。
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 16c5680eb4f249a5d37e6b90eea92cfff7090eef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367951"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122020"
 ---
 # <a name="web-api-interface"></a>Web API 介面
+
 透過一組 Web API，可以裝載和存取知識探索服務所建立的模型檔案。  使用 [`host_service`](CommandLine.md#host_service-command) 命令可以將這些 API 裝載於本機電腦，或使用 [`deploy_service`](CommandLine.md#deploy_service-command) 命令將其部署到 Azure 雲端服務。  這兩種技術均可公開下列 API 端點：
+
 * [*interpret*](interpretMethod.md) – 解譯自然語言查詢字串。 傳回已標註的解譯來獲得豐富的搜尋方塊自動完成體驗，進而預期使用者所鍵入的項目。
 * [*評估*](evaluateMethod.md) – 評估並傳回結構化查詢運算式的輸出。
 * [*calchistogram*](calchistogramMethod.md) – 針對結構化查詢運算式所傳回的物件計算屬性值長條圖。

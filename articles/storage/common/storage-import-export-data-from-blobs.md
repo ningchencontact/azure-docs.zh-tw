@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: a85fb6ce211e6089f67cb2e2f265fbda06a25b10
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735078"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585708"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 匯入/匯出服務匯出 Azure Blob 儲存體中的資料
-本文提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地從 Azure Blob 儲存體匯出大量資料。 此服務需要您將空磁碟機寄送至 Azure 資料中心。 此服務會將您儲存體帳戶的資料匯出至磁碟機，然後將磁碟機寄回給您。
+此文章提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地從 Azure Blob 儲存體匯出大量資料。 此服務需要您將空磁碟機寄送至 Azure 資料中心。 此服務會將您儲存體帳戶的資料匯出至磁碟機，然後將磁碟機寄回給您。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-在建立匯出作業來轉送 Azure Blob 儲存體中的資料之前，請仔細檢閱並完成此服務的下列必要條件清單。 您必須：
+在建立匯出作業來轉送 Azure Blob 儲存體中的資料之前，請仔細檢閱並完成此服務的下列先決條件清單。 您必須：
 
 - 具有可用於匯入/匯出服務的有效 Azure 訂用帳戶。
 - 具有至少一個 Azure 儲存體帳戶。 請參閱[匯入/匯出服務支援的儲存體帳戶和儲存體類型](storage-import-export-requirements.md)清單。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-quickstart-create-account.md)(英文)。
@@ -60,7 +60,7 @@ ms.locfileid: "45735078"
 3. 在 [作業詳細資料] 中：
 
     - 選取要從中匯出資料的儲存體帳戶。 使用接近您所在位置的儲存體帳戶。
-    - 系統會根據所選儲存體帳戶的區域，自動填入「放置」位置。 
+    - 系統會根據所選儲存體帳戶的區域，自動填入置放位置。 
     - 指定您要從儲存體帳戶匯出至空白磁碟機的 Blob 資料。 
     - 選擇 [全部匯出]，可匯出儲存體帳戶中的所有 Blob 資料。
     

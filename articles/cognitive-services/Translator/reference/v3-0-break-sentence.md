@@ -1,22 +1,23 @@
 ---
-title: Microsoft 翻譯工具文字 API BreakSentence 方法 | Microsoft Docs
-description: 使用 Microsoft 翻譯工具文字 API BreakSentence 方法。
+title: 翻譯工具文字 API BreakSentence 方法
+titlesuffix: Azure Cognitive Services
+description: 使用翻譯工具文字 API BreakSentence 方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8ce6644d21b397ea0e7f2e71e3c3a5a96638eec5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370242"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124978"
 ---
-# <a name="text-api-30-breaksentence"></a>文字 API 3.0：BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>翻譯工具文字 API 3.0：BreakSentence
 
 識別句子界限在一段文字裡的位置。
 
@@ -56,19 +57,19 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   <th>說明</th>
   <tr>
     <td>_一個授權_<br/>_標頭_</td>
-    <td>*必要的要求標頭*。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
+    <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*必要的要求標頭*。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
+    <td>必要的要求標頭。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*必要的要求標頭*。<br/>要求本文的長度。</td>
+    <td>必要的要求標頭。<br/>要求本文的長度。</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，如果您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
@@ -130,7 +131,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 ## <a name="response-status-codes"></a>回應狀態碼
 
-以下是要求可能會傳回的 HTTP 狀態碼。 
+以下是要求傳回的可能 HTTP 狀態碼。 
 
 <table width="100%">
   <th width="20%">狀態碼</th>
@@ -157,11 +158,11 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   </tr>
   <tr>
     <td>500</td>
-    <td>發生意外錯誤。 如果錯誤仍然存在，請回報以下資訊：失敗的日期和時間、回應標頭 `X-RequestId` 中的要求識別碼、要求標頭 `X-ClientTraceId` 中的用戶端識別碼。</td>
+    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>暫時無法使用伺服器。 重試要求。 如果錯誤仍然存在，請回報以下資訊：失敗的日期和時間、回應標頭 `X-RequestId` 中的要求識別碼、要求標頭 `X-ClientTraceId` 中的用戶端識別碼。</td>
+    <td>暫時無法使用伺服器。 重試要求。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
 </table> 
 

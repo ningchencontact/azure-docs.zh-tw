@@ -12,16 +12,20 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: b2d4166c25014416efbb7392acda3f3f028b4fa9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6110773ecaba0ad333e4cfc9f9cc6014bd29a7a6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162033"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249514"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>儲存多達 10 年的 Azure SQL Database 備份
 
 許多應用程式具有法規、相容性或其他商務用途，需要您保留 Azure SQL Database [自動備份](sql-database-automated-backups.md)所提供超過 7-35 天的資料庫備份。 使用長期保留 (LTR) 功能可讓您將指定的 SQL Database 完整備份儲存在 [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob 儲存體中多達 10 年。 之後您可以將任何備份還原為新的資料庫。
+
+> [!NOTE]
+> LTR 可在裝載於 Azure SQL Database 邏輯伺服器中的資料庫上啟用。 它仍未在受控執行個體中提供。
+> 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL Database 長期保留如何運作
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: db0bc0cb64c0b6d7df9319c8d2c5850a27e767a1
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140496"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249208"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 服務識別
 
-本文協助您了解資料處理站的服務識別及其運作方式。
+此文章協助您了解資料處理站的服務識別及其運作方式。
 
 ## <a name="overview"></a>概觀
 
@@ -169,6 +169,6 @@ Type                  : ServicePrincipal
 請參閱下列介紹何時及如何使用資料處理站服務識別的相關主題：
 
 - [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)
-- [使用受控服務識別驗證，複製資料從/至 Azure Data Lake Store](connector-azure-data-lake-store.md)
+- [使用 Azure 資源的受控識別驗證，從 Azure Data Lake Store 來回複製資料](connector-azure-data-lake-store.md)
 
-如需有關資料處理站身分識別所依據之「受管理服務識別」的背景，請參閱 [MSI 概觀](~/articles/active-directory/msi-overview.md)。 
+請參閱 [Azure 資源的受控識別概觀](~/articles/active-directory/msi-overview.md)，以了解關於 Azure 資源的受控識別的詳細背景，而資料處理站服務識別會以這類受控識別為基礎。 

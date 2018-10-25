@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 304a52f5571790ea49587a5aeda433f003f0e0bd
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a53ff5fdb256a46f42e7461bb46b6847d17ed230
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423063"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958742"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>使用 Cloudyn 啟動 Azure 訂用帳戶與帳戶
 
@@ -64,7 +64,7 @@ ms.locfileid: "47423063"
     2. 在 Azure 入口網站中，選取 [Azure Active Directory]。
     3. 若要取得租用戶識別碼，請選取 Azure AD 租用戶的 [屬性]。
     4. 複製目錄識別碼 GUID。 這個值是您的租用戶識別碼。
-    如需詳細資訊，請參閱 [取得租用戶識別碼](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)。
+    如需詳細資訊，請參閱 [取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)。
 3. 如有必要，請選取您的費率識別碼。 如果您不知道您的費率識別碼，請使用下列步驟來尋找它。
     1. 在 Azure 入口網站的右上方，按一下使用者資訊，然後按一下 [檢視我的帳單]。
     2. 在 [計費帳戶] 下，按一下 [訂用帳戶]。

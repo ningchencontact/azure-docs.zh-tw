@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 入口網站中建立 Service Fabric 叢集 | Microsoft Docs
-description: 本文說明如何使用 Azure 入口網站和 Azure 金鑰保存庫在 Azure 中建立安全的 Service Fabric 叢集。
+description: 了解如何使用 Azure 入口網站和 Azure Key Vault 在 Azure 中建立安全的 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/09/2018
+ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: 5d8f1d2634fd2efd624d1000f2fbc0400af4af11
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136803"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984368"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure 中建立 Service Fabric 叢集
 > [!div class="op_single_selector"]
@@ -78,15 +78,18 @@ ms.locfileid: "39136803"
 若想建立生產叢集以滿足應用程式需求，您需要先行規劃，為了幫助您解決這個問題，我們強烈建議您閱讀並了解 [Service Fabric 叢集規劃考量][service-fabric-cluster-capacity]文件。 
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>搜尋 Service Fabric 叢集資源
+
+登入 [Azure 入口網站][azure-portal]。
+按一下 [建立資源] 以新增新的資源範本。 在 [全部內容] 下方的 [Marketplace] 中搜尋 Service Fabric 叢集範本。
+選取清單中的 [Service Fabric 叢集]  。
+
 ![在 Azure 入口網站上搜尋 Service Fabric 叢集範本。][SearchforServiceFabricClusterTemplate]
 
-1. 登入 [Azure 入口網站][azure-portal]。
-2. 按一下 [建立資源] 以新增新的資源範本。 在 [全部內容] 下方的 [Marketplace] 中搜尋 Service Fabric 叢集範本。
-3. 選取清單中的 [Service Fabric 叢集]  。
-4. 瀏覽至 [Service Fabric 叢集] 刀鋒視窗，按一下 [建立]，
-5. [建立 Service Fabric 叢集] 刀鋒視窗包含下列四個步驟：
+瀏覽至 [Service Fabric 叢集] 刀鋒視窗，並按一下 [建立]。
 
-#### <a name="1-basics"></a>1.基本概念
+[建立 Service Fabric 叢集] 刀鋒視窗包含下列四個步驟：
+
+### <a name="1-basics"></a>1.基本概念
 ![建立新資源群組的螢幕擷取畫面。][CreateRG]
 
 您必須在 [基本] 刀鋒視窗中提供您叢集的基本詳細資料。
@@ -94,15 +97,15 @@ ms.locfileid: "39136803"
 1. 輸入您的叢集名稱。
 2. 輸入 VM 遠端桌面的 [使用者名稱] 和 [密碼]。
 3. 請務必選取您要部署叢集的 [訂用帳戶]  ，尤其是在您擁有多個訂用帳戶時。
-4. 建立 **新的資源群組**。 最好讓它與叢集同名，因為這有助於稍後尋找它們，尤其是當您嘗試變更您的部署及刪除您的叢集時，特別有用。
+4. 建立新的**資源群組**。 最好讓它與叢集同名，因為這有助於稍後尋找它們，尤其是當您嘗試變更您的部署及刪除您的叢集時，特別有用。
    
    > [!NOTE]
    > 雖然您可以決定使用現有的資源群組，但最好還是建立新的資源群組。 這可讓您輕鬆地刪除叢集及其所使用的所有資源。
    > 
    > 
-5. 選取您要在其中建立叢集的 [區域]  。 如果您打算使用您已上傳至金鑰保存庫的現有憑證，您必須使用與金鑰保存庫所在位置相同的區域。 
+5. 選取您要在其中建立叢集的 [位置]。 如果您打算使用您已上傳至金鑰保存庫的現有憑證，您必須使用與金鑰保存庫所在位置相同的區域。 
 
-#### <a name="2-cluster-configuration"></a>2.叢集組態
+### <a name="2-cluster-configuration"></a>2.叢集組態
 ![建立節點類型][CreateNodeType]
 
 設定您的叢集節點。 可用來定義定義 VM 的大小、VM 的數目，以及 VM 的屬性。 您的叢集可以有多個節點類型，但主要節點類型 (您在入口網站定義的第一個節點類型) 必須至少有 5 個 VM。這是 Service Fabric 系統服務放置所在的節點類型。 請勿設定 [放置屬性]，因為會自動新增 "NodeTypeName" 預設放置屬性。
@@ -110,53 +113,52 @@ ms.locfileid: "39136803"
 > [!NOTE]
 > 多個節點類型的常見案例是包含前端服務和後端服務的應用程式。 您想要將「前端」服務放在連接埠對網際網路開放的較小型 VM (D2_V2 等 VM 大小) 上，並將「後端」服務放在連接埠不對網際網路開放的較大型 VM (D3_V2、D6_V2、D15_V2 等 VM 大小) 上。
 > 
-> 
 
 1. 選擇節點類型的名稱 (1 到 12 個字元，只能包含字母和數字)。
 2. 主要節點類型的 VM **大小**下限取決於您為叢集選擇的**持久性**層級。 持久性層級的預設值為 Bronze。 如需關於持久性的詳細資訊，請參閱[如何選擇 Service Fabric 叢集持久性][service-fabric-cluster-durability]。
-3. 選取 VM 大小。 D 系列 VM 擁有 SSD 磁碟機，且強烈建議用於具狀態應用程式。 請勿使用任何只有部分核心或可用磁碟容量少於 10 GB 的 VM SKU。 如需有關選取 VM 大小的說明，請參閱 [Service Fabric 叢集規劃考量文件][service-fabric-cluster-capacity]。
-4. 選擇節點類型的 VM 數目。 您可以在稍後將節點類型中的 VM 數目相應增加或相應減少，但在主要節點類型上，生產工作負載的數目下限是五個。 其他節點類型最少可以有一個 VM。主要節點類型之 VM 的**數目**下限可決定叢集的**可靠性**。  
-5. **單一節點叢集與三個節點叢集**：僅供測試使用。 這些節點叢集不支援任何執行中的生產工作負載。
-6. 設定自訂端點。 此欄位可讓您輸入以逗號區隔的連接埠清單，您可以透過 Azure Load Balancer 針對您的應用程式向公用網際網路公開這些連接埠。 例如，如果您計劃對您的叢集部署 Web 應用程式，請在這裡輸入「80」來允許連接埠 80 的流量進入您的叢集。 如需端點的詳細資訊，請參閱[與應用程式通訊][service-fabric-connect-and-communicate-with-services]
-7. 設定叢集**診斷**。 預設會在您的叢集上啟用診斷功能，以協助排解疑難問題。 如果您要停用診斷，請將其 [狀態] 切換至 [關閉]。 **不**建議將診斷關閉。 如果您已經建立了 Application Insights 專案，那麼請提供其密鑰，以便將應用程式追蹤透過路由方式傳送至該專案。
-8. 選取您想要為叢集設定的 Fabric 升級模式。 如果您要讓系統自動挑選最新可用的版本，並嘗試將叢集升級到此版本，請選取 [自動] 。 如果您想要選擇支援的版本，將模式設定為 [手動] 。 如需 Fabric 升級模式的詳細資訊，請參閱 [service-fabric-cluster-upgrade 文件。][service-fabric-cluster-upgrade]
+3. 選取**虛擬機器大小**。 D 系列 VM 擁有 SSD 磁碟機，且強烈建議用於具狀態應用程式。 請勿使用任何只有部分核心或可用磁碟容量少於 10 GB 的 VM SKU。 如需有關選取 VM 大小的說明，請參閱 [Service Fabric 叢集規劃考量文件][service-fabric-cluster-capacity]。
+4. 選擇節點類型的**初始 VM 擴展集容量**。 您可以在稍後將節點類型中的 VM 數目相應增加或相應減少，但在主要節點類型上，生產工作負載的數目下限是五個。 其他節點類型可以有 1 個 VM 的下限。 叢集的**可靠性**取決於主要節點類型的 VM **數目**下限。  
+5. **單一節點叢集與三個節點叢集**僅供測試使用。 這些節點叢集不支援任何執行中的生產工作負載。
+6. 設定**自訂端點**。 此欄位可讓您輸入以逗號區隔的連接埠清單，您可以透過 Azure Load Balancer 針對您的應用程式向公用網際網路公開這些連接埠。 例如，如果您計劃對您的叢集部署 Web 應用程式，請在這裡輸入「80」來允許連接埠 80 的流量進入您的叢集。 如需端點的詳細資訊，請參閱[與應用程式通訊][service-fabric-connect-and-communicate-with-services]
+7. **啟用反向 Proxy**。  [Service Fabric 反向 Proxy](service-fabric-reverseproxy.md) 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
+8. 在 [+ 顯示選用設定] 下，設定叢集**診斷**。 預設會在您的叢集上啟用診斷功能，以協助排解疑難問題。 如果您要停用診斷，請將其 [狀態] 切換至 [關閉]。 **不**建議將診斷關閉。 如果您已經建立了 Application Insights 專案，那麼請提供其密鑰，以便將應用程式追蹤透過路由方式傳送至該專案。
+9. **包含 DNS 服務**。  [DNS 服務](service-fabric-dnsservice.md)可讓您尋找使用 DNS 通訊協定的其他服務所用的選用服務。
+10. 選取您想要為叢集設定的 **Fabric 升級模式**。 如果您要讓系統自動挑選最新可用的版本，並嘗試將叢集升級到此版本，請選取 [自動] 。 如果您想要選擇支援的版本，將模式設定為 [手動] 。 如需 Fabric 升級模式的詳細資訊，請參閱 [service-fabric-cluster-upgrade 文件][service-fabric-cluster-upgrade]。
 
 > [!NOTE]
-> 我們支援的叢集限於執行支援的 Service Fabric 版本。 如果選取 [手動]  模式，您必須負責將叢集升級到支援的版本。 > 
+> 我們支援的叢集限於執行支援的 Service Fabric 版本。 如果選取 [手動]  模式，您必須負責將叢集升級到支援的版本。
 > 
 
-#### <a name="3-security"></a>3.安全性
+### <a name="3-security"></a>3.安全性
 ![Azure 入口網站中安全性組態的螢幕擷取畫面。][BasicSecurityConfigs]
 
-為了讓您輕鬆設定安全的測試叢集，我們已提供 [基本] 選項。 如果您已擁有憑證，並且已將憑證上傳至金鑰保存庫 (且已啟用金鑰保存庫以供部署)，則請使用 [自訂] 選項
+為了讓您輕鬆設定安全的測試叢集，我們已提供 [基本] 選項。 如果您已擁有憑證，並且已將憑證上傳至[金鑰保存庫](/azure/key-vault/) (且已啟用金鑰保存庫以供部署)，則請使用 [自訂] 選項
 
-##### <a name="basic-option"></a>基本選項
+#### <a name="basic-option"></a>基本選項
 請遵循畫面指示新增或重複使用現有的金鑰保存庫，並新增憑證。 新增憑證為同步的程序，所以您必須等待憑證建立完成。
-
 
 請不要離開畫面，直到前述程序完成為止。
 
 ![CreateKeyVault]
 
-現在憑證已新增至金鑰保存庫中，您可能會看到下列畫面，提示您編輯金鑰保存庫的存取原則。 按一下 [編輯存取原則]。 按鈕。
+建立金鑰保存庫後，編輯金鑰保存庫的存取原則。 
 
 ![CreateKeyVault2]
 
-按一下進階存取原則，並啟用虛擬機器的存取權以進行部署。 建議您也啟用範本部署。 選取完畢時，請務必按一下 [儲存] 按鈕，並關閉 [存取原則] 窗格。
+按一下 [編輯存取原則]，然後按一下 [顯示進階存取原則]，並啟用 Azure 虛擬機器的存取權以進行部署。 建議您也啟用範本部署。 選取完畢時，請務必按一下 [儲存] 按鈕，並關閉 [存取原則] 窗格。
 
 ![CreateKeyVault3]
 
-現在，您已準備好繼續進行其餘的叢集建立程序。
+輸入憑證的名稱，並按一下 [確定]。
 
 ![CreateKeyVault4]
 
-##### <a name="custom-option"></a>自訂選項
+#### <a name="custom-option"></a>自訂選項
 如果您已在 [基本] 選項中執行步驟，請跳過本節。
 
 ![SecurityCustomOption]
 
 您需要 CertificateThumbprint、SourceVault 和 CertificateURL 資訊，以完成安全性頁面。 如果您不方便取得，請在另一個瀏覽器視窗中開啟，並執行下列動作
-
 
 1. 瀏覽至您的金鑰保存庫，並選取憑證。 
 2. 選取 [屬性] 索引標籤，並將「資源 ID」複製到其他瀏覽器視窗上的「來源金鑰保存庫」 
@@ -165,24 +167,22 @@ ms.locfileid: "39136803"
 
 3. 現在，請選取 [憑證] 索引標籤。
 4. 按一下憑證指紋，這將帶您前往 [版本] 頁面。
-5. 按一下您在目前版本下看到的 Guid。
+5. 按一下您在目前版本下看到的 GUID。
 
     ![CertInfo1]
 
 6. 您現在應該在如下所示的畫面中。 將「指紋」複製到其他瀏覽器視窗上的「憑證指紋」
 7. 將「祕密識別碼」資訊複製到其他瀏覽器視窗上的「憑證 URL」。
 
-
-![CertInfo2]
-
+    ![CertInfo2]
 
 選取 [設定進階設定] 核取方塊來輸入**系統管理用戶端**和**唯讀用戶端**的用戶端憑證。 在這些欄位中，輸入系統管理用戶端憑證的指紋和唯讀使用者用戶端憑證的指紋 (如果適用)。 當系統管理員嘗試連線叢集時，只有在他們的憑證指紋和這裡輸入的指紋值相符時，才會被授與存取權。  
 
-#### <a name="4-summary"></a>4.總結
+### <a name="4-summary"></a>4.總結
 
 現在您已經準備好部署叢集。 在進行作業前，請先下載憑證，並在大型藍色資訊方塊中查看連結。 請務必將憑證保存在安全的地方。 您需要將憑證連線到叢集。 由於您下載的憑證沒有密碼，建議您新增密碼。
 
-若要完成叢集建立作業，請按一下 [建立]。 您也可以選擇性下載此範本。 
+若要完成叢集建立作業，請按一下 [建立]。 您也可以選擇性下載此範本。
 
 ![總結]
 
@@ -190,7 +190,7 @@ ms.locfileid: "39136803"
 
 若要使用 Powershell 或 CLI 在您的叢集上執行管理作業，您需要連接至叢集，請參閱如何[連接至您的叢集](service-fabric-connect-to-secure-cluster.md)，了解更多資訊。
 
-### <a name="view-your-cluster-status"></a>檢視叢集狀態
+## <a name="view-your-cluster-status"></a>檢視叢集狀態
 ![顯示叢集詳細資料的儀表板螢幕擷取畫面。][ClusterDashboard]
 
 建立叢集之後，您就可以在入口網站檢查您的叢集：
@@ -225,7 +225,8 @@ ms.locfileid: "39136803"
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node --> [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md [service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.mdd
+[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
+[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

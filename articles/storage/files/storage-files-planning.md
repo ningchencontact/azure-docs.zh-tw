@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 19adbbfc456303b471251c28cd984d1676786b19
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 0701049eb1aa86398e90484dbf21ef3781270fba
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783146"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831376"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
-[Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 因為 Azure 檔案服務受到完整管理，所以部署於生產環境案例遠易於部署及管理檔案伺服器或 NAS 裝置。 針對在組織中部署生產環境使用的 Azure 檔案共用，本文說明應考慮的主題。
+[Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定來存取。 因為 Azure 檔案服務受到完整管理，所以部署於生產環境案例遠易於部署及管理檔案伺服器或 NAS 裝置。 針對在組織中部署生產環境使用的 Azure 檔案共用，此文章說明應考慮的主題。
 
 ## <a name="management-concepts"></a>管理概念
  下圖說明 Azure 檔案服務管理建構：
@@ -40,7 +40,7 @@ ms.locfileid: "43783146"
 ## <a name="data-access-method"></a>資料存取方法
 Azure 檔案服務提供兩種方便的內建資料存取方法，您可以個別或結合使用來存取資料：
 
-1. **雲端直接存取**：利用業界標準伺服器訊息區 (SMB) 通訊協定或透過檔案 REST API，[Windows](storage-how-to-use-files-windows.md)、[macOS](storage-how-to-use-files-mac.md) 及/或 [Linux](storage-how-to-use-files-linux.md) 可掛接任何 Azure 檔案共用。 共用上的檔案藉由 SMB 讀取和寫入時，會直接在 Azure 中的檔案共用上進行。 若要由 Azure 中的 VM 掛接，作業系統中的 SMB 用戶端必須至少支援 SMB 2.1。 若要掛接在內部 (例如使用者的工作站上)，工作站所支援的 SMB 用戶端必須至少支援 SMB 3.0 (含加密)。 除了 SMB 之外，新的應用程式或服務可以透過檔案 REST 直接存取檔案共用，為軟體開發提供了方便且可擴充的應用程式開發介面。
+1. **雲端直接存取**：利用業界標準伺服器訊息區 (SMB) 通訊協定或透過檔案 REST API，[Windows](storage-how-to-use-files-windows.md)、[macOS](storage-how-to-use-files-mac.md) 和/或 [Linux](storage-how-to-use-files-linux.md) 可掛接任何 Azure 檔案共用。 共用上的檔案藉由 SMB 讀取和寫入時，會直接在 Azure 中的檔案共用上進行。 若要由 Azure 中的 VM 掛接，作業系統中的 SMB 用戶端必須至少支援 SMB 2.1。 若要掛接在內部 (例如使用者的工作站上)，工作站所支援的 SMB 用戶端必須至少支援 SMB 3.0 (含加密)。 除了 SMB 之外，新的應用程式或服務可以透過檔案 REST 直接存取檔案共用，為軟體開發提供了方便且可擴充的應用程式開發介面。
 2. **Azure 檔案同步**：藉由 Azure 檔案同步，共用可以複寫到內部部署或 Azure 中的 Windows Server。 您的使用者可透過 Windows Server 存取檔案共用，像是透過 SMB 或 NFS 共用。 這適用於從遠離 Azure 資料中心的位置 (例如分公司) 存取和修改資料的情況。 資料可以在多個 Windows Server 端點之間複寫，例如多個分公司之間。 最後，資料可能會分層至 Azure 檔案服務，因此透過伺服器仍然可以存取所有資料，但伺服器並沒有資料的完整複本。 資料實際上是在使用者開啟時順暢地取回。
 
 下表說明使用者和應用程式如何存取您的 Azure 檔案共用：
@@ -49,14 +49,14 @@ Azure 檔案服務提供兩種方便的內建資料存取方法，您可以個�
 |------------------------|------------|-----------------|
 | 您需要使用哪些通訊協定？ | Azure 檔案服務支援 SMB 2.1、SMB 3.0 和檔案 REST API。 | 透過 Windows Server 上任何支援的通訊協定 (SMB、NFS、FTPS 等) 存取您的 Azure 檔案共用 |  
 | 您會在何處執行工作負載？ | **Azure 中**：Azure 檔案服務提供對資料的直接存取。 | **低速網路的內部部署**：Windows、Linux 及 macOS 用戶端可掛接區域內部部署的 Windows 檔案共用，作為 Azure 檔案共用的快速快取。 |
-| 您需要何種 ACL 層級？ | 共用和檔案層級。 | 共用、檔案和使用者層級。 |
+| 您需要哪種 ACL 層級？ | 共用和檔案層級。 | 共用、檔案和使用者層級。 |
 
 ## <a name="data-security"></a>資料安全性
 Azure 檔案服務具有數個內建的選項，可用於確保資料安全性：
 
 * 支援兩種網路通訊協定的加密：SMB 3.0 加密和經由 HTTPS 的檔案 REST。 依照預設： 
     * 支援 SMB 3.0 加密的用戶端可透過加密通道來傳送及接收資料。
-    * 不支援 SMB 3.0 的用戶端可以透過 SMB 2.1 或 SMB 3.0 進行無加密的資料中心內部通訊。 請注意，不允許用戶端透過 SMB 2.1 或 SMB 3.0 進行無加密的資料中心之間通訊。
+    * 不支援有加密之 SMB 3.0 的用戶端，可以透過 SMB 2.1 或 SMB 3.0 進行無加密的資料中心內部通訊。 不允許 SMB 用戶端透過 SMB 2.1 或 SMB 3.0 進行無加密的資料中心之間通訊。
     * 用戶端可以藉由 HTTP 或 HTTPS 透過檔案 REST 進行通訊。
 * 待用加密 ([Azure 儲存體服務加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json))：為所有儲存體帳戶啟用「儲存體服務加密」(SSE)。 靜止資料是使用完全受控金鑰加密。 待用加密不會增加儲存成本或降低效能。 
 * 加密傳輸資料的選擇性需求：選取時，Azure 檔案服務拒絕透過未加密的通道存取資料。 具體來說，只允許具有加密連線的 HTTPS 和 SMB 3.0。 
@@ -68,7 +68,24 @@ Azure 檔案服務具有數個內建的選項，可用於確保資料安全性�
 
 如果您使用 Azure 檔案同步來存取 Azure 檔案共用，則無論是否需要對待用資料進行加密，我們一律會使用加密的 HTTPS 和 SMB 3.0 將資料同步處理至 Windows Server。
 
-## <a name="data-redundancy"></a>資料備援
+## <a name="file-share-performance-tiers"></a>檔案共用效能層級
+Azure 檔案服務支援兩種效能層級：標準和進階。
+
+* **標準檔案共用**是由轉動式硬碟機 (HDD) 支援，針對較不容易受效能變異影響的 IO 工作負載提供可靠的效能 (例如一般用途的檔案共用和開發/測試環境)。 標準檔案共用僅適用於隨用隨付計費模型。
+* **進階檔案共用 (預覽)** 是由固態硬碟 (SSD) 支援，可提供持續高效能和低延遲，能在毫秒內處理多數的 IO 作業，適用於大部分 IO 密集型工作負載。 這讓它們適合各種不同的工作負載，例如資料庫、網站託管、開發環境等等。進階檔案共用僅適用於佈建計費模型。
+
+### <a name="provisioned-shares"></a>佈建共用
+進階檔案共用會以固定的 GiB/IOPS/輸送量比例為基礎佈建。 對於每個佈建的 GiB，共用將會發出一個 IOPS 和 0.1 MiB/秒輸送量，直到每個共用的上限為止。 允許佈建的最小值為 100 GiB 與最小 IOPS/輸送量。 您隨時可以增加或減少共用大小，但於前一次增加後，每隔 24 小時才能減少一次。
+
+在盡可能達成的基礎上，每個佈建之儲存體 Gib 的所有共用都可高載至最多三個 IOPS，並持續 60 分鐘或更久的時間 (視共用大小而定)。 新的共用一開始有以佈建容量為基礎的完整高載額度。
+
+| 佈建的容量 | 100 GiB | 500 GiB | 1 TiB | 5 TiB | 
+|----------------------|---------|---------|-------|-------|
+| 基準 IOPS | 100 | 500 | 1,024 | 5,120 | 
+| 高載限制 | 300 | 1,500 | 3,072 | 15,360 | 
+| Throughput | 110 MiB/秒 | 150 MiB/秒 | 202 MiB/秒 | 612 MiB/秒 |
+
+## <a name="file-share-redundancy"></a>檔案共用備援
 Azure 檔案服務支援三個資料備援選項：本地備援儲存體 (LRS)、區域備援儲存體 (ZRS) 和異地備援儲存體 (GRS)。 下列各節說明不同備援選項之間的差異：
 
 ### <a name="locally-redundant-storage"></a>本地備援儲存體
@@ -81,9 +98,9 @@ Azure 檔案服務支援三個資料備援選項：本地備援儲存體 (LRS)�
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>資料成長模式
-目前，Azure 檔案共用的大小上限是 5 TiB。 由於目前的此一限制，當您在部署 Azure 檔案共用時，必須考量預期的資料成長。 請注意，Azure 儲存體帳戶可以儲存多個共用，所有共用總計為 500 TiB。
+目前，Azure 檔案共用的大小上限是 5 TiB。 由於目前的此一限制，當您在部署 Azure 檔案共用時，必須考量預期的資料成長。 
 
-使用 Azure 檔案同步可以將多個 Azure 檔案共用同步處理到單一 Windows 檔案伺服器。這可確保內部部署上較舊的超大檔案共用可以帶入 Azure 檔案同步。如需詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-files-planning.md)。
+使用 Azure 檔案同步可以將多個 Azure 檔案共用同步處理到單一 Windows 檔案伺服器。這可確保內部部署上較舊的大型檔案共用可以帶入 Azure 檔案同步。如需詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-files-planning.md)。
 
 ## <a name="data-transfer-method"></a>資料傳輸方法
 有許多簡單的選項可從現有檔案共用 (例如內部部署檔案共用) 大量傳輸資料到 Azure 檔案服務。 部分常用方法包括 (非完整清單)：

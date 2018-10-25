@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c9106557c7c113281b04d37f1bc3d8b29e2087cc
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452525"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310448"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
@@ -45,7 +45,7 @@ ms.locfileid: "47452525"
 
 使用 Azure 註冊 Azure Stack 之前，您必須：
 
-- Azure 訂用帳戶的訂用帳戶 ID。 只有 EA、CSP 或 CSP 共用服務訂用帳戶支援註冊。 CSP 必須決定要[使用 CSP 或 CSPSS 訂用帳戶](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription)。<br><br>若要取得識別碼，請登入 Azure，按一下 [所有服務]。 然後在 [一般] 分類底下，選取 [訂用帳戶]，按一下您要使用的訂用帳戶，便可在 [基本資訊] 下找到 [訂用帳戶識別碼]。
+- Azure 訂用帳戶的訂用帳戶 ID。 只有 EA、CSP 或 CSP 共用服務訂用帳戶支援註冊。 CSP 必須決定要[使用 CSP 或 APSS 訂用帳戶](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要取得識別碼，請登入 Azure，按一下 [所有服務]。 然後在 [一般] 分類底下，選取 [訂用帳戶]，按一下您要使用的訂用帳戶，便可在 [基本資訊] 下找到 [訂用帳戶識別碼]。
 
   > [!Note]  
   > 目前不支援德國雲端訂用帳戶。
@@ -99,7 +99,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 當您向 Azure 註冊 Azure Stack 時，您必須提供唯一的註冊名稱。 讓 Azure Stack 訂用帳戶與 Azure 註冊產生關聯的簡單方法，是使用您的 Azure Stack **雲端識別碼**。 
 
 > [!NOTE]
-> 若 Azure Stack 註冊使用容量型計費模型，在這些年度訂用帳戶到期之後，須於重新註冊時變更唯一名稱。
+> 若 Azure Stack 註冊使用容量型計費模型，在這些年度訂用帳戶到期之後，須於重新註冊時變更唯一名稱，除非您[刪除過期的註冊](azure-stack-registration.md#change-the-subscription-you-use)並重新註冊 Azure。
 
 若要為您的 Azure Stack 部署決定雲端識別碼，請以電腦上可以存取特殊權限端點的系統管理員身分開啟 PowerShell，執行下列命令，然後記錄 **CloudID** 值： 
 
@@ -210,11 +210,11 @@ Run: get-azurestackstampinformation
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
-      -BillingModel Capacity
+      -BillingModel Capacity `
       -RegistrationName $RegistrationName
   ```
    > [!Note]  
-   > 您可以使用 **Set-AzsRegistration** Cmdlet 的 UsageReportingEnabled 參數來停用使用量報告功能。 請將該參數設定為 false。 例如：`UsageReportingEnabled
+   > 您可以將參數設為 false，以此方式使用 **Set-AzsRegistration** Cmdlet 的 UsageReportingEnabled 參數來停用使用量報告功能。 
    
   如需有關 Set-AzsRegistration Cmdlet 的詳細資訊，請參閱[註冊參考](#registration-reference)。
 
@@ -318,12 +318,12 @@ Run: get-azurestackstampinformation
 
 #### <a name="change-the-subscription-you-use"></a>變更您使用的訂用帳戶
 
-如果要變更您所使用的訂用帳戶，就必須先執行 **Remove-AzsRegistration** Cmdlet，然後確保您已登入正確的 Azure PowerShell 內容，最後使用任何已變更的參數來執行 **Set-AzsRegistration**：
+如果要變更您所使用的訂用帳戶，就必須先執行 **Remove-AzsRegistration** Cmdlet，然後確保您已登入正確的 Azure PowerShell 內容，最後使用任何已變更的參數來執行 **Set-AzsRegistration** (包括\<計費模型\>)：
 
   ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-how-to-offer-features"></a>變更計費模型或提供功能的方式
@@ -331,7 +331,7 @@ Run: get-azurestackstampinformation
 如果您想要為安裝變更計費模型或提供功能的方式，您可以呼叫註冊函式來設定新的值。 您不需要先移除目前的註冊：
 
   ```PowerShell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>在已中斷連線的環境中更新或變更註冊

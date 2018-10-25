@@ -7,22 +7,22 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: bb7cdbc340c6e9763277d5cdacc0cfb510fdc0db
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045923"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901901"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 管理 SDK 預覽
 
 ## <a name="overview"></a>概觀
-HDInsight Go SDK 提供可讓您管理 HDInsight 叢集的類別和函式。 它包含用來建立、刪除、更新、列出、調整、執行指令碼動作、監視、取得 HDInsight 叢集屬性的作業，和其他多種作業。
+HDInsight Go SDK 提供可讓您管理 HDInsight 叢集的類別和函式。 它包含用來建立、刪除、更新、列出、調整大小、執行指令碼動作、監視、取得 HDInsight 叢集屬性的作業，和其他多種作業。
 
 > [!NOTE]
 >此 SDK 的 GoDoc 參考資料也可以在[這裡取得](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 一個 Azure 帳戶。 如果您沒有帳戶，請[取得免費試用帳戶](https://azure.microsoft.com/free/)。
 * [Go](https://golang.org/dl/)
@@ -75,7 +75,7 @@ az account set -s <name or ID of subscription>
 >az provider register --namespace Microsoft.HDInsight
 >```
 
-接下來，請選擇服務主體的名稱，並使用下列命令加以建立：
+接下來，請選擇服務主體的名稱，並使用下列命令建立它：
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name <Service Principal Name> --sdk-auth
@@ -133,7 +133,7 @@ func main() {
 ## <a name="cluster-management"></a>叢集管理
 
 > [!NOTE]
-> 本節假設您已通過驗證並建構 `ClusterClient` 執行個體，將其儲存在稱為 `client` 的變數中。 驗證及取得 `ClusterClient` 的指示可在先前＜驗證＞一節中找到。
+> 此節假設您已通過驗證並建構 `ClusterClient` 執行個體，將其儲存在稱為 `client` 的變數中。 驗證及取得 `ClusterClient` 的指示可在先前＜驗證＞一節中找到。
 
 ### <a name="create-a-cluster"></a>建立叢集
 
@@ -325,7 +325,7 @@ client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
 ```
 
-### <a name="scale-cluster"></a>調整叢集
+### <a name="resize-cluster"></a>調整叢集大小
 
 您可以藉由指定新的大小來調整指定叢集的背景工作節點數目，如下所示：
 
@@ -437,7 +437,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>列出所有指令碼的執行記錄
 
-針對此作業，您需要建立要使用的 `ScriptExecutionHistoryClient`，與您建立用於管理作業的 `ClusterClient` 方式相似。 當您完成上述的＜驗證＞一節後，您便可以如下建立 `ScriptActionsClient`：
+針對此作業，您需要建立 `ScriptExecutionHistoryClient`，與您建立用於管理作業的 `ClusterClient` 方式相似。 當您完成上述的＜驗證＞一節後，您便可以如下建立 `ScriptActionsClient`：
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)

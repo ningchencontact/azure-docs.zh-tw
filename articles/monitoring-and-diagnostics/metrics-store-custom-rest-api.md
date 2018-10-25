@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c01440437eae3cb076627ab9f2221e33b833f472
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d36697e6b5765ecf35ed9b3add45cff6c33823a5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977226"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958211"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-using-a-rest-api"></a>使用 REST API 將 Azure 資源的自訂計量傳送至 Azure 監視器計量的存放區
 
@@ -25,15 +25,15 @@ ms.locfileid: "46977226"
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>建立及授權服務主體以發出計量 
 
-使用[建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)中找到的指示，在您的 Azure Active Directory 租用戶中建立服務主體。 
+使用[建立服務主體](../active-directory/develop/howto-create-service-principal-portal.md)中找到的指示，在您的 Azure Active Directory 租用戶中建立服務主體。 
 
 進行此流程時請注意下列事項： 
 
-- 您可以針對登入 URL 填入任何 URL。  
+- 您可以將任何 URL 填入為登入 URL。  
 - 為此應用程式建立新用戶端密碼  
 - 儲存金鑰和用戶端識別碼以便在稍後步驟中使用。  
 
-將您希望發出計量的資源的權限授予作為步驟 1「監視計量發行者」一部分所建立的應用程式。 如果您計劃使用應用程式針對許多資源發出自訂計量，您可以在資源群組或訂用帳戶層級上授與這些權限。 
+將您希望發出計量的資源的權限授予作為步驟 1「監視計量發行者」一部分所建立的應用程式。 如果您計劃使用該應用程式對許多資源發出自訂計量，您可以在資源群組或訂用帳戶層級上授與這些權限。 
 
 ## <a name="get-an-authorization-token"></a>取得授權權杖
 開啟命令提示字元並執行下列命令

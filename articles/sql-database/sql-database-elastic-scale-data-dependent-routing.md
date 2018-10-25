@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure SQL Database 的資料相依路由 | Microsoft Docs
-description: 如何在 .NET 應用程式中將 ShardMapManager 類別用於資料相依路由 (Azure SQL Database 中的分區化資料庫的一項功能)
+description: 如何在 .NET 應用程式中將 ShardMapManager 類別用於資料相依路由 (Azure SQL Database 中的分區化資料庫的一個功能)
 services: sql-database
 ms.service: sql-database
 subservice: elastic-scale
@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 25bb665d9ea9166d099ab7f3f9696d92da8314e9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: c54a644b140d65ccad1a3cba6c5a07a8e201cddb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161808"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869613"
 ---
-# <a name="data-dependent-routing"></a>資料相依路由
+# <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>使用資料相依路由將查詢路由至適當的資料庫
+
 **資料相依路由**是可使用查詢中的資料，將要求路由至適當的資料庫。 資料相依路由是使用分區化資料庫時的一種基本模式。 要求內容也可能會用於路由要求，特別是如果分區化索引鍵不是查詢的一部分。 在使用資料相依路由的應用程式中，每個特定的查詢或交易會限制每個要求只能存取單一資料庫。 針對 Azure SQL Database Elastic 工具，此路由會使用 **ShardMapManager**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) 類別來完成。
 
 應用程式不需要在分區化環境中追蹤不同的連接字串或與不同資料片段相關聯的 DB 位置。 相反地， [分區對應管理員](sql-database-elastic-scale-shard-map-management.md) 會根據分區對應中的資料和分區化索引鍵的值 (應用程式要求的目標)，在必要時開啟正確資料庫的連接。 此索引鍵通常是 customer_id、tenant_id、date_key，或作為資料庫要求基本參數的其他一些特定的識別項。 
@@ -160,7 +161,7 @@ Configuration.SqlRetryPolicy.ExecuteAction(() =&gt;
 }); 
 ```
 
-當您建置彈性資料庫範例應用程式時，自動會下載實作暫時性錯誤處理所需的封裝。 
+當您建置彈性資料庫範例應用程式時，自動會下載實作暫時性錯誤處理所需的套件。 
 
 ## <a name="transactional-consistency"></a>交易一致性
 對於分區範圍內的所有作業，都保證交易式屬性。 例如，透過資料相依路由提交的交易，都在連接的目標分區範圍內執行。 目前無法將多個連接編列到交易中，因此對於跨分區執行的作業，不提供交易式保證。

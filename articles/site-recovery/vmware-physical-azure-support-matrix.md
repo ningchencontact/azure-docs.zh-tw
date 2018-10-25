@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 25db7d1f0a546cb5c6071ec4d625a7a52867053a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f6f1ceb4f9afaaeb0a436879802144bdebc06280
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433918"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378647"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>將 VMware 和實體伺服器複寫至 Azure 的支援對照表
 
-此文章摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 災害復原至 Azure 所支援的元件和設定。
+本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 災害復原至 Azure 所支援的元件和設定。
 
 若要開始使用 Azure Site Recovery 搭配簡單的部署案例，請瀏覽[教學課程](tutorial-prepare-azure.md)。 您可以在[這裡](vmware-azure-architecture.md)深入了解 Azure Site Recovery 架構。
 
@@ -64,7 +64,7 @@ Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 --- | ---
 機器設定 | 複寫到 Azure 的電腦必須符合 [Azure 需求](#azure-vm-requirements)。
 Windows 作業系統 | 64 位元 Windows Server 2016 (Server Core，使用桌面體驗的伺服器)、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少加裝 SP1)。 </br></br>  [至少含 SP2 的 Windows Server 2008 -32 位元和 64 位元](migrate-tutorial-windows-server-2008.md) (僅限移轉)。 </br></br> 不支援 Windows 2016 Nano Server。
-Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.5 <br/><br/>CentOS：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.5 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (支援的核心版本)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [ (支援的核心版本)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>、SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4、6.5、6.6、6.7，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/></br>* *不支援將複寫的機器從 SUSE Linux Enterprise Server 11 SP3 升級到 SP4。若要升級，請停用複寫，然後在升級之後再次將它啟用。*</br></br><b>\*\*</b> *請參閱 [Azure 中的 Linux 虛擬機器支援](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)以了解 Azure 中的 Linux 與開放原始碼技術支援。Azure Site Recovery 可讓您在 Azure 中容錯移轉並執行 Linux 伺服器，不過 Linux 廠商可能會限制只支援其發行版本尚未到達生命週期結尾的版本。*
+Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.5 <br/><br/>CentOS：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.5 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (支援的核心版本)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [ (支援的核心版本)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>、SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4、6.5、6.6、6.7，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/></br>* *不支援將複寫的機器從 SUSE Linux Enterprise Server 11 SP3 升級到 SP4。若要升級，請停用複寫，然後在升級之後再次加以啟用。*</br></br><b>\*\*</b> *請參閱 [Azure 中的 Linux 虛擬機器支援](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)以了解 Azure 中的 Linux 與開放原始碼技術支援。Azure Site Recovery 可讓您在 Azure 中容錯移轉並執行 Linux 伺服器，不過 Linux 廠商可能會限制只支援其發行版本尚未到達生命週期結尾的版本。*
 
 
 >[!NOTE]
@@ -248,9 +248,9 @@ VM 名稱 | 從 1 到 63 個字元。<br/><br/> 只能使用字母、數字和�
 
 **名稱** | **說明** | **最新版本下載指示**
 --- | --- | --- | --- | ---
-組態伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊  <br/><br/> 安裝在內部部署 VMware 伺服器上 | 針對全新安裝，請按一下[這裡](vmware-azure-deploy-configuration-server.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
-處理序伺服器|預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。| 針對全新安裝，請按一下[這裡](vmware-azure-set-up-process-server-scale.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-manage-process-server.md#upgrade-a-process-server)。
-行動服務 | 協調內部部署 VMware 伺服器/實體伺服器和 Azure/次要站台間複寫<br/><br/> 安裝於 VMware VM 上或您想要複寫的實體伺服器上 | 針對全新安裝，請按一下[這裡](vmware-azure-install-mobility-service.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-install-mobility-service.md#update-mobility-service)。
+組態伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊  <br/><br/> 安裝在內部部署 VMware 伺服器上 | 若為全新安裝，請按一下[這裡](vmware-azure-deploy-configuration-server.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
+處理序伺服器|預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。| 若為全新安裝，請按一下[這裡](vmware-azure-set-up-process-server-scale.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-manage-process-server.md#upgrade-a-process-server)。
+行動服務 | 協調內部部署 VMware 伺服器/實體伺服器和 Azure/次要站台間複寫<br/><br/> 安裝於 VMware VM 上或您想要複寫的實體伺服器上 | 若為全新安裝，請按一下[這裡](vmware-azure-install-mobility-service.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-install-mobility-service.md#update-mobility-service)。
 
 若要深入了解最新功能和修正程式，請按一下[這裡](https://aka.ms/latest_asr_updates)。
 

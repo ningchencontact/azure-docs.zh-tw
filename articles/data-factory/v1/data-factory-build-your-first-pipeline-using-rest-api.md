@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 91a85505eda34e11f0db9c5f3c46e33aad992ffe
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: caea4296bc0573141865aca27b04f9d9ee049e94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736694"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955581"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>教學課程：使用 Data Factory REST API 建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "45736694"
 ## <a name="prerequisites"></a>必要條件
 * 詳讀 [教學課程概觀](data-factory-build-your-first-pipeline.md) 一文並完成 **必要** 步驟。
 * 在您的電腦上安裝 [Curl](https://curl.haxx.se/dlwiz/) 。 您可搭配使用 CURL 工具與 REST 命令來建立 Data Factory。
-* 請依照 [本文](../../azure-resource-manager/resource-group-create-service-principal-portal.md) 的指示：
+* 請依照 [本文](../../active-directory/develop/howto-create-service-principal-portal.md) 的指示：
   1. 在 Azure Active Directory 中建立名為 **ADFGetStartedApp** 的 Web 應用程式。
   2. 取得**用戶端識別碼**和**秘密金鑰**。
   3. 取得 **租用戶識別碼**。

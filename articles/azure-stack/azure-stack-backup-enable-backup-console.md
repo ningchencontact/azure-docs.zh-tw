@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 6231ee760902618afedf64443690be0b02c4d0eb
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41946474"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985791"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>從系統管理入口網站啟用 Azure Stack 的備份
 透過系統管理入口網站啟用基礎結構備份服務，以便 Azure Stack 產生備份。 發生[嚴重失敗](.\azure-stack-backup-recover-data.md)情況時，您可以透過雲端復原使用這些備份來還原環境。 雲端復原的目的在於確保您的操作員和使用者在復原完成後，可以重新登入入口網站。 使用者將會還原其訂用帳戶，包括角色型存取權限和角色、原始方案、供應項目，以及先前定義的計算、儲存體和網路配額。
@@ -36,7 +36,7 @@ ms.locfileid: "41946474"
 ## <a name="enable-or-reconfigure-backup"></a>啟用或重新設定備份
 
 1. 開啟 [Azure Stack 系統管理入口網站](azure-stack-manage-portals.md)。
-2. 選取 [更多服務] > [基礎結構的備份]。 在 [基礎結構備份] 刀鋒視窗中選擇 [設定]。
+2. 選取 [所有服務]，然後在 [管理] 類別下，選取 [基礎結構備份]。 在 [基礎結構備份] 刀鋒視窗中選擇 [設定]。
 3. 輸入**備份儲存位置**的路徑。 針對裝載在不同裝置的檔案共用路徑，請使用通用命名慣例 (UNC) 字串。 UNC 字串會指定資源的位置，例如共用的檔案或裝置。 針對服務，您可以使用 IP 位址。 為了在災害發生之後確保備份資料的可用性，裝置應該位於不同的位置。
 
     > [!Note]  
@@ -62,7 +62,7 @@ ms.locfileid: "41946474"
 ## <a name="start-backup"></a>開始備份
 若要開始備份，請按一下 [立即備份] 來開始隨選備份。 隨選備份不會修改下一個已排定備份的時間。 在工作完成之後，您可以在 [基本資訊]中確認設定：
 
-![Azure Stack - 隨選備份](media\azure-stack-backup\scheduled-backup.png).
+![Azure Stack - 隨選備份](media\azure-stack-backup\scheduled-backup.png)
 
 您也可以在 Azure Stack 系統管理電腦上執行 PowerShell Cmdlet **Start-AzsBackup**。 如需詳細資訊，請參閱[備份 Azure Stack](azure-stack-backup-back-up-azure-stack.md)。
 

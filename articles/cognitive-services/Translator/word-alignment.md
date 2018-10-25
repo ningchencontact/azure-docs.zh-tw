@@ -1,20 +1,21 @@
 ---
-title: Microsoft Translator Text API 的相關單字對齊方式資訊 | Microsoft Docs
-description: 從 Microsoft Translator Text API 接收單字對齊方式資訊。
+title: 單字對齊方式資訊 - 翻譯工具文字 API
+titlesuffix: Azure Cognitive Services
+description: 從翻譯工具文字 API 接收單字對齊方式資訊。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9d8284db61235284ec0d5a1594c34687c89560e9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 15b2d96cdf1794ae0f72c087ef95055da7c0964e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368659"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646366"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>如何接收單字對齊方式資訊
 

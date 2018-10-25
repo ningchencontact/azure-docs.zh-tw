@@ -3,23 +3,19 @@ title: Durable Functions 概觀 - Azure
 description: Azure Functions 的 Durable Functions 擴充簡介。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 79ffa541d16212b21d20a238465a846fad5e4902
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627401"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237920"
 ---
 # <a name="durable-functions-overview"></a>Durable Functions 概觀
 
@@ -32,7 +28,7 @@ ms.locfileid: "39627401"
 * 協調器函式每次在進行等候時，都會自動設定其進度的檢查點。 如果處理序回收或 VM 重新開機，本機狀態永遠不會消失。
 
 > [!NOTE]
-> Durable Functions 是 Azure Functions 的進階擴充功能，因此並非所有應用程式都適用。 本文其餘部分會假設您已非常熟悉無伺服器應用程式開發過程中所涉及的 [Azure Functions](functions-overview.md) 概念和挑戰。
+> Durable Functions 是 Azure Functions 的進階擴充功能，因此並非所有應用程式都適用。 此文章其餘部分會假設您已非常熟悉無伺服器應用程式開發過程中所涉及的 [Azure Functions](functions-overview.md) 概念和挑戰。
 
 Durable Functions 主要用來簡化無伺服器應用程式中複雜的具狀態協調問題。 下列各節會說明一些可因為 Durable Functions 而受益的典型應用程式模式。
 
@@ -70,7 +66,7 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const x = yield ctx.df.callActivityAsync("F1");
     const y = yield ctx.df.callActivityAsync("F2", x);
     const z = yield ctx.df.callActivityAsync("F3", y);
@@ -78,7 +74,7 @@ module.exports = df(function*(ctx) {
 });
 ```
 
-"F1"、"F2"、"F3" 和 "F4" 是函式應用程式中其他函式的名稱。 控制流程可使用一般的命令式編碼建構來加以實作。 也就是說，程式碼會由上而下地執行，並可包含現有語言的控制流程語意，例如條件和迴圈。  錯誤處理邏輯則可包含在 try/catch/finally 區塊中。
+"F1"、"F2"、"F3" 和 "F4" 是函式應用程式中其他函式的名稱。 控制流程是使用一般的命令式程式碼撰寫建構來實作。 也就是說，程式碼會由上而下地執行，並可包含現有語言的控制流程語意，例如條件和迴圈。  錯誤處理邏輯則可包含在 try/catch/finally 區塊中。
 
 `ctx` 參數 ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) 可提供方法來依名稱叫用其他函式、傳遞參數以及傳回函式的輸出。 每當程式碼呼叫 `await` 時，Durable Functions 架構便會對目前函式執行個體的進度「設定檢查點」。 如果處理序或 VM 在執行途中回收，函式執行個體便會從先前的 `await` 呼叫繼續執行。 之後會有更多關於此重新啟動行為的資訊。
 
@@ -118,7 +114,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const parallelTasks = [];
 
     // get a list of N work items to process in parallel
@@ -239,7 +235,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require("moment");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const jobId = ctx.df.getInput();
     const pollingInternal = getPollingInterval();
     const expiryTime = getExpiryTime();
@@ -304,7 +300,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require('moment');
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");
 
     const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
@@ -338,7 +334,7 @@ Durable Functions 擴充功能其實是以[長期工作架構](https://github.co
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>事件來源、檢查點和重新執行
 
-協調器函式能夠使用稱為[事件來源](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)的雲端設計模式，可靠地維持其執行狀態。 長期擴充功能會使用僅限附加的存放區來記錄函式協調流程所採取的「一系列完整動作」，而不會直接儲存協調流程的「目前」狀態。 相對於「傾印」完整的執行階段狀態，這種作法有許多優點，包括提升效能、延展性及回應性。 其他優點包括為交易資料提供最終一致性，以及維持完整的稽核記錄和歷程記錄。 稽核記錄本身可啟用可靠的補償動作。
+協調器函式可藉由使用稱為[事件來源](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)的設計模式，可靠地維持其執行狀態。 長期擴充功能會使用僅限附加的存放區來記錄函式協調流程所採取的「一系列完整動作」，而不會直接儲存協調流程的「目前」狀態。 相對於「傾印」完整的執行階段狀態，這種作法有許多優點，包括提升效能、延展性及回應性。 其他優點包括為交易資料提供最終一致性，以及維持完整的稽核記錄和歷程記錄。 稽核記錄本身可啟用可靠的補償動作。
 
 此擴充功能會透明地使用事件來源。 實際上，協調器函式中的 `await` 運算子會將協調器執行緒的控制往回產生給長期工作架構發送器。 發送器接著會將協調器函式所排程的任何新的動作 (例如，呼叫一或多個子函式或排程長期計時器) 認可至儲存體。 此透明認可動作會附加至協調流程執行個體的「執行歷程記錄」。 歷程記錄會儲存於儲存體資料表。 認可動作接著會將訊息新增至佇列以排程實際的工作。 此時，協調器函式即可從記憶體卸載。 如果您使用 Azure Functions 取用方案，則會停止其計費。  有更多工作要執行時，便會重新啟動函式，而且其狀態會重新建構。
 
@@ -373,6 +369,8 @@ Durable Functions 擴充功能會使用 Azure 儲存體佇列、資料表和 Blo
 協調器函式會排程活動函式，並透過內部佇列訊息收到其回應。 當函式應用程式在 Azure Functions 取用方案中執行時，則會由 [Azure Functions 縮放控制器](functions-scale.md#how-the-consumption-plan-works)監視這些佇列，並視需要新增計算執行個體。 當相應放大為多個 VM 時，協調器函式可能會在某個 VM 上執行，其所呼叫的活動函式則在數個不同的 VM 上執行。 您可以在[效能和延展性](durable-functions-perf-and-scale.md)找到 Durable Functions 的縮放行為詳細資訊。
 
 表格儲存體可用來儲存協調器帳戶的執行歷程記錄。 每當特定 VM 上有執行個體解除凍結時，該執行個體就會從表格儲存體擷取其執行歷程記錄，以便重建其本機狀態。 在表格儲存體中提供歷程記錄的其中一個便利之處在於，您可以使用 [Microsoft Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 之類的工具，來查看協調流程的歷程記錄。
+
+儲存體 Blob 主要用來作為租用機制，以協調跨多 VM 之協調流程執行個體的向外延展。 它們也用來為無法直接儲存在資料表或佇列中的大型訊息保存資料。
 
 ![Azure 儲存體總管螢幕擷取畫面](media/durable-functions-overview/storage-explorer.png)
 

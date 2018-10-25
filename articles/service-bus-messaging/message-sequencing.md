@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 7f31adcd7ebdd51cf930fcaf0cd2f214c7566565
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 631c4334b1e2ca37dfc87709718b6639c2762c5c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699364"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857681"
 ---
 # <a name="message-sequencing-and-timestamps"></a>訊息排序和時間戳記
 
-排序和時間戳記是隨時可以在所有服務匯流排實體和介面上啟用的兩項功能，您可以透過接收或瀏覽之訊息的 [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) 和 [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) 屬性予以啟用。
+排序和時間戳記是隨時可以在所有服務匯流排實體和介面上啟用的兩個功能，您可以透過接收或瀏覽之訊息的 [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) 和 [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) 屬性予以啟用。
 
 在重視訊息絕對順序和/或客戶需要值得信賴之訊息唯一識別碼的情況下，訊息代理程式會為訊息加上與佇列或主題相關的連貫遞增序號。 對於分割的實體，發行的序號與分割區相關。
 
@@ -36,7 +36,7 @@ ms.locfileid: "43699364"
 
 ## <a name="scheduled-messages"></a>排定的訊息
 
-您可以將訊息提交到佇列或主題，以利延遲處理。例如，排定作業讓系統在某個時間處理。 這項功能實現可靠的分散式時間型排程器。
+您可以將訊息提交到佇列或主題，以利延遲處理。例如，排定作業讓系統在某個時間處理。 此功能實現可靠的分散式時間型排程器。
 
 排定之訊息在定義的加入佇列時間到來之前，不會在佇列中具體化。 在時間到來之前，您可以取消排定的訊息。 取消即是刪除訊息。
 
@@ -50,7 +50,6 @@ ms.locfileid: "43699364"
 
 若要深入了解服務匯流排傳訊，請參閱下列主題：
 
-* [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 * [服務匯流排佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服務匯流排主題和訂用帳戶](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: f7c36fec7ff58c225e41899e8264ca1dde95ce7c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213243"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267999"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 環境變數
 
@@ -37,7 +37,7 @@ Service Fabric 具有針對每個服務執行個體所設定的內建環境變�
 | Fabric_NodeId                                | 節點識別碼 (執行處理序的節點)                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | IP 或節點的 FQDN，如叢集資訊清單檔所指定。 | localhost 或 10.0.0.1                                                |
 | Fabric_NodeName                              | 節點名稱 (執行處理序的節點)                          | _Node_0                                                              |
-| Fabric_ServiceName                           | 服務名稱 (如果服務裝載於 ExclusiveProcess 模式中)。 只有在您使用 ServicePackageActivationMode ExclusiveProcess 建立服務時，才能使用此變數值。  | MyService                                               |
+| Fabric_ServiceName                           | 服務的網狀架構 URI名稱 (如果服務裝載於 ExclusiveProcess 模式中)。 只有在您使用 ServicePackageActivationMode ExclusiveProcess 建立服務時，才能使用此變數值。  | fabric:/MyApplication/MyService                                               |
 | Fabric_ServicePackageActivationId            | ServicePackageActivationId                                         | GUID                                                               |
 | Fabric_ServicePackageName                    | 處理序所屬的服務套件名稱                     | Web1Pkg                                                              |
 

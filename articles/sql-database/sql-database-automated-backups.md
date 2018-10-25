@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e01f48ebee9ade35b44242eba3b03e6e0a4faf46
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181136"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802027"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
@@ -32,7 +32,7 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 您可以使用這些備份︰
 
-* 將資料庫還原至保留期限內的某一個時間點。 這項作業將會在與原始資料庫相同的伺服器中建立新的資料庫。
+* 將資料庫還原至保留期限內的某一個時間點。 此作業將會在與原始資料庫相同的伺服器中建立新的資料庫。
 * 將已刪除的資料庫還原至其被刪除的時間，或保留期限內的任何時間。 已刪除的資料庫只能在當中已建立原始資料庫的相同伺服器中還原。
 * 將資料庫還原到另一個地理區域。 這可讓您在無法存取您的伺服器和資料庫時，從地理災害中復原。 在世界各地任何現有的伺服器中建立新的資料庫。 
 * 如果已使用長期保留原則 (LTR) 設定資料庫，請從特定長期備份還原資料庫。 這可讓您還原舊版的資料庫來符合規範要求，或執行舊版的應用程式。 請參閱[長期保留](sql-database-long-term-retention.md)。
@@ -59,7 +59,8 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 * 標準服務層為 5 週。
 * 進階服務層為 5 週。
 
-如果您使用[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)，備份保留期可以設定為最多 35 天。 
+如果您是使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，預設的備份保留期限是 7 天 (同時適用於邏輯伺服器和受控執行個體)。
+在邏輯伺服器上，您可以[將備份保留期限變更為最多 35 天](#how-to-change-backup-retention-period)。 變更備份保留期限的功能未在受控執行個體中提供。 
 
 如果您降低目前 PITR 保留期間，則比新保留期間還要舊的所有現有備份將不再可用。 
 
@@ -67,14 +68,14 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 ## <a name="how-often-do-backups-happen"></a>備份頻率是？
 ### <a name="backups-for-point-in-time-restore"></a>時間點還原的備份
-SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 根據計算大小和資料庫活動量的頻率，完整資料庫備份會每週建立，差異資料庫備份通常每隔 12 小時建立，而交易記錄備份通常每隔 5-10 分鐘建立。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 比方說，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 第一次完整備份之後，將會自動排程進一步的備份，並在背景中以無訊息方式管理。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。
+SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 根據計算大小和資料庫活動量的頻率，完整資料庫備份會每週建立，差異資料庫備份通常每隔 12 小時建立，而交易記錄備份通常每隔 5-10 分鐘建立。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 例如，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 第一次完整備份之後，將會自動排程進一步的備份，並在背景中以無訊息方式管理。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。
 
 PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)保護
 
 如需詳細資訊，請參閱[還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="backups-for-long-term-retention"></a>長期保留的備份
-SQL Database 提供選項讓您在 Azure Blob 儲存體中設定完整備份的長期保留 (LTR)，最長可達 10 年。 如果啟用 LTR 原則，則會將每週完整備份自動複製到不同的 RA-GRS 儲存體容器。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 儲存體耗用量取決於選取的備份頻率和保留期間。 您可以使用 [LTR 定價計算機](https://azure.microsoft.com/pricing/calculator/?service=sql-database)來估算 LTR 儲存體的成本。 
+裝載於邏輯伺服器上的 SQL Database 具有可在 Azure Blob 儲存體中設定完整備份之長期保留 (LTR) 的選項，最長可達 10 年。 如果啟用 LTR 原則，則會將每週完整備份自動複製到不同的 RA-GRS 儲存體容器。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 儲存體耗用量取決於選取的備份頻率和保留期間。 您可以使用 [LTR 定價計算機](https://azure.microsoft.com/pricing/calculator/?service=sql-database)來估算 LTR 儲存體的成本。 
 
 與 PITR 類似，LTR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)保護。
 
@@ -90,11 +91,15 @@ Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，�
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>自動化備份對合規性的影響為何？
 
-當您將資料庫從預設 PITR 保留 35 天的 DTU 型服務層遷移至 vCore 型服務層時，會保留 PITR 保留，確保不會危害您應用程式的資料復原原則。 如果預設保留週期不符合合規性需求，您可以使用 PowerShell 或 REST API 變更 PITR 保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-backup-retention-period)。
+當您將資料庫從預設 PITR 保留 35 天的 DTU 型服務層移轉至 vCore 型服務層時，會保留 PITR 保留，確保不會危害您應用程式的資料復原原則。 如果預設保留週期不符合合規性需求，您可以使用 PowerShell 或 REST API 變更 PITR 保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-backup-retention-period)。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="how-to-change-backup-retention-period"></a>如何變更備份保留期間
+
+> [!Note]
+> 無法在受控執行個體上變更預設的備份保留期限 (7 天)。 
+
 您可以使用 REST API 或 PowerShell 變更預設保留。 支援的值為：7、14、21、28 或 35 天。 下列範例說明如何將 PITR 保留變更為 28 天。 
 
 > [!NOTE]

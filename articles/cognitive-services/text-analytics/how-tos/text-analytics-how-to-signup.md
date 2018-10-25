@@ -1,22 +1,23 @@
 ---
-title: 註冊文字分析 API (Azure 上的 Microsoft 認知服務) | Microsoft Docs
+title: 註冊文字分析 API
+titleSuffix: Azure Cognitive Services
 description: 如何註冊使用文字分析和在限制內運作的指示。
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: dfa5ba138a2e0db75dfc097ca2430fe9c82e826f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a369d6028cc2957113de01dab0371ad5305a0c68
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623180"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605519"
 ---
-# <a name="how-to-sign-up-for-text-analytics-api"></a>如何註冊文字分析 API
+# <a name="how-to-sign-up-for-the-text-analytics-api"></a>如何註冊文字分析 API
 
 文字分析資源會在雲端中全天候供您使用。 在上傳內容進行分析之前，您必須先進行註冊以取得存取金鑰。 此 API 的每個呼叫都需要在要求上備有存取金鑰。
 

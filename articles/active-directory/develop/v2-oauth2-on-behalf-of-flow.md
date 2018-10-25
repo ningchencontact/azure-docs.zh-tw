@@ -17,20 +17,22 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ad7bb3c3a7bd50521b968b7c1a4e21027fbe18f2
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320300"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986046"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 代理者流程
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 OAuth2.0 代理者流程的使用案例，是應用程式叫用服務/Web API，而後者又需要呼叫另一個服務/Web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 中介層服務若要向下游服務提出已驗證的要求，需要代表使用者保護來自 Azure Active Directory (Azure AD) 存取權杖。
 
 > [!NOTE]
 > v2.0 端點並未支援所有的 Azure Active Directory 案例和功能。 若要判斷您是否應該使用 v2.0 端點，請參閱 [v2.0 限制](active-directory-v2-limitations.md)。
 >
-
 
 > [!IMPORTANT]
 > 自 2018 年 5 月起，`id_token` 無法用於代理者流程 - SPA 必須傳遞**存取**權杖到中介層的機密用戶端，才能執行 OBO 流程。 若要詳加了解哪些用戶端可以執行代理呼叫，請參閱[限制](#client-limitations)。

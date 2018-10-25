@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: f98817802478853e8d176223a9a9a3081531897f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 7f03af0fc338299da9b989d46e7bbfb83f3babeb
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528369"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945700"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 檔案的共用快照集概觀 
 Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照集能擷取該時間點的共用狀態。 在本文中，我們說明共用快照集提供哪些功能，以及如何在您的自訂使用案例中運用這些功能。
@@ -32,7 +32,7 @@ Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照�
 ## <a name="capabilities"></a>功能
 共用快照集是某個時間點的唯讀資料複本。 您可以使用 REST API 來建立、刪除及管理快照集。 用戶端程式庫、Azure CLI 和 Azure 入口網站亦提供相同的功能。 
 
-您可以使用 REST API 和 SMB 兩者來檢視共用的快照集。 您可以擷取目錄或檔案的版本清單，也可以將特定版本當做磁碟機直接掛接。 
+您可以使用 REST API 和 SMB 兩者來檢視共用的快照集。 您可以擷取目錄或檔案的版本清單，也可以將特定版本當作磁碟機直接掛接 (僅適用於 Windows - 請參閱[限制](#limits))。 
 
 建立共用快照集之後，即可加以讀取、複製或刪除，但不能修改。 您無法將整個共用快照集複製到另一個儲存體帳戶。 您必須使用 AzCopy 或其他複製機制逐一複製每個檔案。
 
@@ -63,6 +63,8 @@ Azure 檔案服務目前允許的共用快照集最大數目為 200。 保留 20
 
 建立共用快照集的同時呼叫數目沒有限制。 特定檔案共用之共用快照集耗用的空間數量沒有限制。 
 
+目前無法在 Linux 上掛接共用快照集。 這是因為 Linux SMB 用戶端無法像 Windows 一樣支援掛接快照集。
+
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>從共用快照集將資料複製回共用
 涉及檔案和共用快照集的複製作業須遵循下列規則：
 
@@ -83,7 +85,7 @@ Azure 檔案服務目前允許的共用快照集最大數目為 200。 保留 20
 
 ## <a name="next-steps"></a>後續步驟
 - 在下列位置使用共用快照集：
-    - [入口網站](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
-    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
-    - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md)
+    - [CLI](storage-how-to-use-files-cli.md)
+    - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [共用快照集常見問題集](storage-files-faq.md#share-snapshots)

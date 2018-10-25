@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 230a4df2c43e8d5e6ae1a5a7e8188cf207461022
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057694"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267465"
 ---
 # <a name="how-to-close-active-risk-events"></a>如何：關閉作用中風險事件
 
 利用[風險事件](../reports-monitoring/concept-risk-events.md)，Azure Active Directory 會偵測可能遭入侵使用者帳戶的指標。 系統管理員會想要取得所有已關閉的風險事件，所以受影響的使用者不再有風險。
 
-本文概述您可用於關閉作用中風險事件的其他選項。
+此文章概述您可用於關閉作用中風險事件的其他選項。
 
 ## <a name="options-to-close-risk-events"></a>用於關閉風險事件的選項 
 
@@ -51,7 +51,7 @@ ms.locfileid: "47057694"
 
 ![重設密碼](./media/howto-close-active-risk-events/13.png)
 
-密碼重設會關閉相關使用者的所有作用中風險事件，並且讓身分識別回到安全狀態。 使用使用者風險原則是關閉作用中風險事件的慣用方法，因為這個方法會自動執行。 受影響的使用者與技術支援中心或系統管理員之間目前不需要互動。
+密碼重設會關閉相關使用者的所有作用中風險事件，並且讓身分識別回到安全狀態。 使用使用者風險原則是關閉作用中風險事件的慣用方法，因為這個方法會自動執行。 受影響的使用者與技術支援中心或系統管理員之間不需要進行任何互動。
 
 不過，使用使用者風險原則不一定適用。 例如，這適用於：
 

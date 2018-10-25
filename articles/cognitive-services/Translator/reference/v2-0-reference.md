@@ -1,34 +1,34 @@
 ---
-title: Microsoft Translator Text API v2.0 參考 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Microsoft Translator Text API v2.0 參考文件。
+title: 翻譯工具文字 API V2.0
+titleSuffix: Azure Cognitive Services
+description: 翻譯工具文字 API V2.0 參考文件。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: e32e28608d2fecf27b61acff74af7eb6849f0ba1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 57058e9a86a338738315a08f218978e20fae95e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370354"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127843"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
 > [!IMPORTANT]
 > 這版 Translator Text API 已淘汱。 [檢視 Translator Text API v3文件](v3-0-reference.md)。
 
-Microsoft Translator Text API V2 可以無縫整合到您的應用程式、網站、工具或其他解決方案，以提供多語系使用者體驗。 利用業界標準，它可以用於任何硬體平台，並搭配任何作業系統執行語言翻譯和其他語言相關作業，例如文字語言偵測或文字轉換語音。 如需 Microsoft Translator API 的詳細資訊，請按一下這裡。
+翻譯工具文字 API V2 可以無縫整合到您的應用程式、網站、工具或其他解決方案，以提供多語系使用者體驗。 利用業界標準，它可以用於任何硬體平台，並搭配任何作業系統執行語言翻譯和其他語言相關作業，例如文字語言偵測或文字轉換語音。 如需 Microsoft Translator API 的詳細資訊，請按一下這裡。
 
 ## <a name="getting-started"></a>開始使用
-若要存取 Microsoft Translator Text API，您需要[註冊 Microsoft Azure](../translator-text-how-to-signup.md)。
+若要存取翻譯工具語音 API，您需要[註冊 Microsoft Azure](../translator-text-how-to-signup.md)。
 
 ## <a name="authorization"></a>Authorization
-所有 Microsoft Translator Text API 呼叫都需要驗證訂用帳戶金鑰。 API 支援兩種驗證模式：
+所有翻譯工具文字 API 呼叫都需要驗證訂用帳戶金鑰。 API 支援兩種驗證模式：
 
 * 使用存取權杖。 使用**步驟** 9 中所參考的訂用帳戶金鑰，以對授權服務提出 POST 要求來產生存取權杖。 如需詳細資料，請參閱權杖服務文件。 使用 Authorization 標頭或 access_token 查詢參數，將存取權杖傳遞給 Translator 服務。 存取權杖的有效時間為 10 分鐘。 每隔 10 分鐘取得新的存取權杖一次，並在這 10 分鐘內針對重複的要求持續使用相同的存取權杖。
 
@@ -44,7 +44,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 |ProfanityAction    |動作 |範例來源 (日文)  |範例翻譯 (英文)  |
 |:--|:--|:--|:--|
-|NoAction   |預設值。 與未設定此選項相同。 粗話會從來源傳遞到目標。        |彼はジャッカスです。     |He is a jackass.   |
+|NoAction   |預設值。 與未設定此選項時相同。 粗話會從來源傳遞到目標。        |彼はジャッカスです。     |He is a jackass.   |
 |Marked     |不雅字眼會以 XML 標籤 <profanity> 和 </profanity> 括住。     |彼はジャッカスです。 |He is a <profanity>jackass</profanity>.    |
 |Deleted    |從輸出中移除不雅字眼，且不予取代。     |彼はジャッカスです。 |He is a.   |
 
@@ -82,7 +82,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 |text|(空白)   |必要。 字串，代表要翻譯的文字。 文字大小不得超過 10000 個字元。|query|字串|
 |from|(空白)   |選用。 字串，代表翻譯文字的語言代碼。 例如，en 代表「英文」。|query|字串|
 |to|(空白) |必要。 字串，代表目標翻譯文字的語言代碼。|query|字串|
-|contentType|(空白)    |選用。 要翻譯文字的格式。 支援的格式為 text/plain (預設) 和 text/html。 任何 HTML 都需要格式正確的完整項目。|query|字串|
+|contentType|(空白)    |選用。 要翻譯文字的格式。 支援的格式為 text/plain (預設) 和 text/html。 任何 HTML 都需要是格式正確的完整項目。|query|字串|
 |category|(空白)   |選用。 字串，包含翻譯的分類 (網域)。 預設為 "general"。|query|字串|
 |Authorization|(空白)  |若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖："Bearer" + " " + "access_token"。|頁首|字串|
 |Ocp-Apim-Subscription-Key|(空白)  |若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
@@ -92,7 +92,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 X-MS-Trans-Info 中。|
 |503    |服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -190,7 +190,7 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 |HTTP 狀態碼   |原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。 常見錯誤包括： <ul><li>陣列項目不可空白</li><li>分類無效</li><li>From 語言無效</li><li>To 語言無效</li><li>要求包含太多項目</li><li>From 語言不受支援</li><li>To 語言不受支援</li><li>翻譯要求有太多資料</li><li>HTML 的格式不正確</li><li>翻譯要求中傳遞的字串太多</li></ul>|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。 常見錯誤包括： <ul><li>陣列項目不可空白</li><li>分類無效</li><li>From 語言無效</li><li>To 語言無效</li><li>要求包含太多項目</li><li>From 語言不受支援</li><li>To 語言不受支援</li><li>翻譯要求有太多資料</li><li>HTML 的格式不正確</li><li>翻譯要求中傳遞的字串太多</li></ul>|
 |401    |認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 X-MS-Trans-Info 中。|
 |503    |服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -233,7 +233,7 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 X-MS-Trans-Info 中。|
 |503    |服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -266,7 +266,7 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 X-MS-Trans-Info 中。|
 |503|服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -299,7 +299,7 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400|錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400|不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401|認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 `X-MS-Trans-Info` 中。|
 |503    |服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -335,7 +335,7 @@ binary
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 `X-MS-Trans-Info` 中。|
 |503    |服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -368,7 +368,7 @@ binary
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400|錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400|不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 `X-MS-Trans-Info` 中。|
 |503    |服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -422,7 +422,7 @@ DetectArray 成功。 傳回字串陣列，包含輸入陣列每個資料列的�
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 X-MS-Trans-Info 中。|
 |503    |服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -454,7 +454,7 @@ DetectArray 成功。 傳回字串陣列，包含輸入陣列每個資料列的�
 |from|(空白)   |必要。 字串，代表翻譯文字的語言代碼。 en = english, de = german etc...|query|字串|
 |to|(空白)|必要。 字串，代表目標翻譯文字的語言代碼。|query|字串|
 |rating|(空白) |選用。 整數，代表此字串的品質評分。 -10 與 10 之間的值。 預設值為 1。|query|integer|
-|contentType|(空白)    |選用。 要翻譯文字的格式。 支援的格式為 "text/plain" 和 "text/html"。 任何 HTML 都需要格式正確的完整項目。   |query|字串|
+|contentType|(空白)    |選用。 要翻譯文字的格式。 支援的格式為 "text/plain" 和 "text/html"。 任何 HTML 都需要是格式正確的完整項目。   |query|字串|
 |category|(空白)|選用。 字串，包含翻譯的分類 (網域)。 預設為 "general"。|query|字串|
 |user|(空白)|必要。 用來追蹤提交建立者的字串。|query|字串|
 |uri|(空白)|選用。 字串，包含此翻譯的內容位置。|query|字串|
@@ -465,7 +465,7 @@ DetectArray 成功。 傳回字串陣列，包含輸入陣列每個資料列的�
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |410|不再支援 AddTranslation。|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 X-MS-Trans-Info 中。|
@@ -532,7 +532,7 @@ AddTranslationArray 方法成功。 在 2018 年 1 月 31 日之後，將不會�
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |410    |不再支援 AddTranslation。|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 `X-MS-Trans-Info` 中。|
@@ -568,7 +568,7 @@ integer
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400|錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400|不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401|認證無效|
 |500|伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 X-MS-Trans-Info 中。|
 |503|服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -637,7 +637,7 @@ TranslationMatch 物件由下列項目組成：
 * `Error`：若特定輸入字串發生錯誤，則會儲存錯誤碼。 否則此欄位會空白。
 * `MatchDegree`：系統會比對輸入句子與存放區 (包括未完全相符的項目)。  MatchDegree 指出輸入文字與存放區中找到之原始文字的相符程度。 所傳回值的範圍從 0 到 100，其中 0 是無相似度，而 100 是區分大小寫完全相符。
 MatchedOriginalText：此結果相符的原始文字。 只有在相符的原始文字與輸入文字不同時才傳回。 用來傳回模糊比對的來源文字。 針對 Microsoft Translator 結果不予傳回。
-* `Rating`：指出做出品質決策之人員的授權單位。 機器翻譯結果將會有評分 5。 匿名提供的翻譯一般會有 1 到 4 的評分，而授權提供的翻譯一般會有 6 到 10 的評分。
+* `Rating`：指出制定品質決策之人員的授權單位。 機器翻譯結果將會有評分 5。 匿名提供的翻譯一般會有 1 到 4 的評分，而授權提供的翻譯一般會有 6 到 10 的評分。
 * `Count`：已選取具有此評分之這個翻譯的次數。 自動翻譯回應的值將會是 0。
 * `TranslatedText`：翻譯的文字。
 
@@ -664,7 +664,7 @@ MatchedOriginalText：此結果相符的原始文字。 只有在相符的原始
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 `X-MS-Trans-Info` 中。|
 |503|服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|
@@ -779,7 +779,7 @@ MatchedOriginalText：此結果相符的原始文字。 只有在相符的原始
 
 |HTTP 狀態碼|原因|
 |:--|:--|
-|400    |錯誤的要求。 檢查輸入參數和詳細錯誤回應。|
+|400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
 |500    |伺服器錯誤。 若錯誤持續發生，請讓我們知道。 請提供要求的大約日期和時間，並將要求識別碼包括在回應標頭 `X-MS-Trans-Info` 中。|
 |503    |服務暫時無法使用。 請重試，並讓我們知道錯誤是否持續發生。|

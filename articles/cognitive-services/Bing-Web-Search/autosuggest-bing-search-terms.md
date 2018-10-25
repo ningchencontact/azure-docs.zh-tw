@@ -1,23 +1,23 @@
 ---
-title: 自動建議 Bing 搜尋字詞
-titleSuffix: Microsoft Cognitive Services
-description: 將 Bing Web 搜尋 API 與 Bing 自動建議 API 配對，為使用者提供改善的搜尋體驗。
+title: 自動建議搜尋字詞 - Bing Web 搜尋 API
+titleSuffix: Azure Cognitive Services
+description: 將 Bing Web 搜尋 API 與 Bing 自動建議 API 配對，為使用者提供增強的搜尋體驗。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: df8a57b3136abfacce971f4d01ccb2296dfa784c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 475ddfc2bcd9acd1312348a6c85e3d4627e48a3d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42890073"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128939"
 ---
-# <a name="autosuggest-bing-search-terms"></a>自動建議 Bing 搜尋字詞
+# <a name="autosuggest-bing-search-terms-in-your-application"></a>在您的應用程式中自動建議 Bing 搜尋字詞
 
 若您提供使用者可在其中輸入其搜尋字詞的搜尋方塊，請使用 [Bing 自動建議 API](../bing-autosuggest/get-suggested-search-terms.md) 來改善使用經驗。 API 會根據部分搜尋字詞傳回建議的查詢字串，作為使用者類型。
 

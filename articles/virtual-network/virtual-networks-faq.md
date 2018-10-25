@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999863"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269474"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -126,7 +126,7 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。 它是專屬�
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>什麼是 Azure 提供的 DNS，以及它是否可搭配 VNet 使用？
 Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。 Azure 會註冊您在此服務中的所有 VM 和雲端服務角色執行個體。 這個服務可根據相同雲端服務內所包含 VM 和角色的主機名稱，以及根據 VM 的 FQDN 和相同 VNet 中的角色執行個體提供名稱解析功能。 若要深入了解 DNS，請參閱[虛擬機器與雲端服務角色執行個體的名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
-VNet 中的前 100 個雲端服務具有使用 Azure 所提供 DNS 進行跨租用戶名稱解析的限制。 如果您使用自己的 DNS 伺服器，則不適用這項限制。
+VNet 中的前 100 個雲端服務具有使用 Azure 所提供 DNS 進行跨租用戶名稱解析的限制。 如果您使用自己的 DNS 伺服器，則不適用此限制。
 
 ### <a name="can-i-override-my-dns-settings-on-a-per-vm-or-cloud-service-basis"></a>我是否可以根據每個虛擬機器或雲端服務來覆寫 DNS 設定？
 是。 您可以根據每個虛擬機器或雲端服務設定 DNS 伺服器，以便覆寫預設網路設定。 不過，建議您盡可能使用全網路 DNS。
@@ -230,7 +230,7 @@ VNet 對等互連 (或虛擬網路對等互連) 可讓您將虛擬網路連線�
 是。 全域 VNet 可讓您對不同區域中的對等 VNet 建立對等互連。 全域 VNet 對等互連適用於所有的 Azure 公用區域。 您無法建立從 Azure 公用區域到國家雲端的全域對等互連。 全域對等互連目前不適用於國家雲端。
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>如果我的虛擬網路屬於不同 Azure Active Directory 租用戶中的訂用帳戶，我是否可啟用 VNet 對等互連？
-目前，如果您的訂用帳戶屬於不同的 Azure Active Directory 租用戶，則無法建立 VNet 對等互連 (不論是本機還是全域)。
+是。 如果您的訂用帳戶屬於不同的 Azure Active Directory 租用戶，則無法建立 VNet 對等互連 (不論是本機還是全域)。 您可以透過 PowerShell 或 CLI 執行此動作。 尚不支援入口網站。
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>我的 VNet 對等互連連線處於「已起始」狀態，但為何無法連線？
 如果您的對等互連連線處於「已起始」狀態，表示您只建立了一個連結。 必須建立雙向連結，才能建立成功的連線。 例如，若要建立 VNet A 對 VNet B 的對等互連，則必須建立從 VNetA 到 VNetB 和從 VNetB 到 VNetA 的連結。 兩個連結都建立後，狀態將會變更為「已連線」。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995251"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166877"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 
@@ -130,7 +130,7 @@ ms.locfileid: "46995251"
 11. 針對用來裝載 App Service 資源提供者資料庫的伺服器執行個體，輸入 SQL Server 詳細資料，然後選取 [下一步]。 按 [下一步]，安裝程式即會驗證 SQL 連線屬性。
 
     > [!NOTE]
-    > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與 SQL Server 連線。 不過，如果您要部署到現有的虛擬網路，可能會提出此連線能力測試。 您會收到警告和繼續的提示。 如果 SQL Server 資訊正確，請繼續部署。
+    > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與 SQL Server 連線。 不過，如果您要部署到現有的虛擬網路，此連線能力測試可能失敗。 您會收到警告和繼續的提示。 如果 SQL Server 資訊正確，請繼續部署。
     >
     > 從 Azure App Service on Azure Stack 1.3 開始，安裝程式將會檢查 SQL Server 是否已在 SQL Server 層級啟用資料庫的內含項目。  如果未啟用，系統將會以下列例外狀況提示您：
     > ```sql

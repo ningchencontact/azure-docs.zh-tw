@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: c24cccde507873424e3c51d584f5cd094df2b876
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8abcc90bf72544e6226d6c8487d2951b60ea6d29
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641164"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802144"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 儲存體與工作負載的最大限制，以及索引、文件和其他物件的數量上限，皆取決於您是在**免費**、**基本**，還是**標準**定價層中[佈建 Azure 搜尋服務](search-create-service-portal.md)。
@@ -55,15 +55,15 @@ ms.locfileid: "34641164"
 
 ## <a name="document-limits"></a>文件限制 
 
-在大部分區域中，Azure 搜尋服務定價層 (基本、S1、S2、S3、S3 HD) 對於 2017 年 11 月/12 月以後建立的所有服務，具有無限的文件計數。 這一節會識別適用限制的區域，以及如何判斷您的服務是否受影響。 
+截至 2018 年 10 月，在任何區域中任何計費層 (基本、S1、S2、S3、S3 HD) 建立的任何新的服務，都不再有任何文件限制。 雖然自 2017 年 11 月/12 月以來，大部分地區有無限制的文件計數，但仍有五個地區繼續實施文件限制。 根據您建立搜尋服務的時間和地點，您可能正在執行仍受限於文件限制的服務。
 
 若要判斷您的服務是否有文件限制，請檢查服務概觀頁面中的 [使用量] 圖格。 文件計數無限制，或受制於以層為基礎的限制。
 
   ![使用量圖格](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-### <a name="regions-and-services-having-document-limits"></a>區域和服務具有文件限制
+### <a name="regions-previously-having-document-limits"></a>先前具有文件限制的區域
 
-具有限制的服務是在 2017 年底以前建立，或是在使用較低容量叢集來裝載 Azure 搜尋服務的資料中心上執行。 受影響的資料中心位於下列區域：
+如果入口網站指出文件限制，則您的服務可能是在 2017 年底之前建立，或在使用較低容量叢集來裝載 Azure 搜尋服務的資料中心上建立：
 
 + 澳洲東部
 + 東亞
@@ -76,6 +76,8 @@ ms.locfileid: "34641164"
 |  免費 | 基本 | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10,000 |100 萬 |每個分割區 1500 萬個或每個服務 1 億 8 千萬個 |每個分割區 6000 萬個或每個服務 7 億 2 千萬個 |每個分割區 1 億 2 千萬個或每個服務 14 億個 |每個索引 1 百萬個或每個分割區 2 億個 |
+
+如果您的服務具有封鎖您的限制，請建立新的服務，然後將所有內容重新發佈至該服務。 沒有任何機制可以在幕後順暢地將您的服務重新佈建到新硬體上。
 
 > [!Note] 
 > 對於 2017 年底之後建立的 S3 高密度服務，已移除每個分割區 2 億份文件的限制，但保留每個索引 100 萬份文件的限制。
@@ -120,7 +122,7 @@ ms.locfileid: "34641164"
 
 每個客戶必須獨立開發 QPS 估計值。 索引大小和複雜性、查詢大小和複雜性、流量，這三者是 QPS 的主要決定因素。 不知道這些因素，便無法提供有意義的估計值。
 
-計算在專用資源 (基本和標準層) 上執行的服務，更容易預測估計值。 由於可控制較多的參數，所以能更準確地估計 QPS。 如需有關如何進行估計的指引，請參閱 [Azure 搜尋服務的效能與最佳化](search-performance-optimization.md)。
+計算在專用資源 (基本和標準層) 上執行的服務，更容易預測估計值。 由於可控制較多的參數，所以能更準確地估計 QPS。 如需有關如何進行估計的指導方針，請參閱 [Azure 搜尋服務的效能與最佳化](search-performance-optimization.md)。
 
 ## <a name="api-request-limits"></a>API 要求限制
 * 每個要求最多 16 MB <sup>1</sup>

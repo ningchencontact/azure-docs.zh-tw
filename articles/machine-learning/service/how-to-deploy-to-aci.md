@@ -1,6 +1,6 @@
 ---
 title: 將 Web 服務部署至 Azure 容器執行個體 (ACI) - Azure Machine Learning
-description: 了解如何使用 Azure Machine Learning 服務，將已訓練的模型作為 Web 服務在 Azure 容器執行個體 (ACI) 上部署。 本文說明三種在 ACI 上部署模型的不同方式。 它們程式碼行數各有不同，您在部署的命名部分能獲得的控制程度也有所不同。
+description: 了解如何使用 Azure Machine Learning 服務，將已訓練的模型作為 Web 服務在 Azure 容器執行個體 (ACI) 上部署。 此文章說明三種在 ACI 上部署模型的不同方式。 它們程式碼行數各有不同，您在部署的命名部分能獲得的控制程度也有所不同。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a62d4b0b324d8b2536e408132210f07f08e8bb8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958691"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237172"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>將 Web 服務部署至 Azure 容器執行個體 
 
@@ -22,7 +22,7 @@ ms.locfileid: "46958691"
 
 ACI 通常比 AKS 便宜，並且使用 4 到 6 行程式碼即可完成設定。 ACI 是測試部署的完美選項。 稍後，當您準備好針對高規格、生產用途使用您的模型及 Web 服務時，您可以[將它們部署至 AKS](how-to-deploy-to-aks.md)。
 
-本文說明三種在 ACI 上部署模型的不同方式。 它們程式碼行數各有不同，您在部署的命名部分能獲得的控制程度也有所不同。 從程式碼數量最少、控制程度最小的方法，到程式碼數量最多、控制程度最大的方法，ACI 選項有：
+此文章說明三種在 ACI 上部署模型的不同方式。 它們程式碼行數各有不同，您在部署的命名部分能獲得的控制程度也有所不同。 從程式碼數量最少、控制程度最小的方法，到程式碼數量最多、控制程度最大的方法，ACI 選項有：
 
 * 使用 `Webservice.deploy()` 從模型檔案部署 
 * 使用 `Webservice.deploy_from_model()` 從已註冊的模型部署
@@ -31,18 +31,18 @@ ACI 通常比 AKS 便宜，並且使用 4 到 6 行程式碼即可完成設定�
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- 已安裝 Azure Machine Learning 工作區與適用於 Python 的 Azure Machine Learning SDK。 使用[開始使用 Azure Machine Learning 快速入門](quickstart-get-started.md)了解如何取得這些必要條件。
+- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 使用[開始使用 Azure Machine Learning 快速入門](quickstart-get-started.md)了解如何取得這些先決條件。
 
-- Azure Machine Learning 工作區物件
+- Azure Machine Learning services 工作區物件
 
     ```python
     from azureml.core import Workspace
     ws = Workspace.from_config()
     ```
 
-- 要部署的模型。 本文件中的範例使用您在遵循[訓練模型](tutorial-train-models-with-aml.md)教學課程時建立的模型。 若您不想使用此模型，請修改這些步驟來參考您的模型模型。  您也需要撰寫您自己的評分指令碼，才能執行您的模型。
+- 要部署的模型。 本文件中的範例使用您在遵循[為模型定型](tutorial-train-models-with-aml.md)教學課程時建立的模型。 若您不想使用此模型，請修改這些步驟來參考您的模型模型。  您也需要撰寫您自己的評分指令碼，才能執行您的模型。
 
 
 ## <a name="configure-an-image"></a>設定映像
@@ -80,7 +80,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 ## <a name="register-a-model"></a>註冊模型
 
-> 若您是[從模型檔案部署](#deploy-from-model-file) (`Webservice.deploy()`)，請跳過此必要條件。
+> 若您是[從模型檔案部署](#deploy-from-model-file) (`Webservice.deploy()`)，請跳過此先決條件。
 
 註冊模型，使用 [`Webservice.deploy_from_model`](#deploy-from-registered-model) 或 [`Webservice.deploy_from_image`](#deploy-from-image)。 或者，若您已有已註冊的模型，請現在擷取它。
 
@@ -120,7 +120,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 1. 請確認模型檔案位於您的本機工作目錄中。
 
-1. 開啟必要條件的模型檔案 (score.py)，將 `init()` 區段變更為：
+1. 開啟先決條件的模型檔案 (score.py)，將 `init()` 區段變更為：
 
     ```python
     def init():

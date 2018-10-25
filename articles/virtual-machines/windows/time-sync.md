@@ -3,7 +3,7 @@ title: Azure 中 Windows VM 的時間同步 | Microsoft Docs
 description: Windows 虛擬機器的時間同步。
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/017/2018
-ms.author: cynthn
-ms.openlocfilehash: 7fadf4a8bcf545229dd604829780e9837ad5a94a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: zarhoads
+ms.openlocfilehash: 1c784721d103ca623f6e9bac5ec1281beeb70074
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987309"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468310"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure 中 Windows VM 的時間同步
 
-時間同步對於安全性和事件相互關聯性而言相當重要。 有時候時間同步會用於分散式交易實作。 多個電腦系統之間的時間精確度是透過同步處理來達成。 同步處理可能會受到多種因素影響，包括重新開機以及時間來源和擷取時間的電腦之間的網路流量。 
+時間同步對於安全性和事件相互關聯性而言相當重要。 有時候時間同步會用於分散式交易實作。 多個電腦系統之間的時間精確度是透過同步來達成。 同步處理可能會受到多種因素影響，包括重新開機以及時間來源和擷取時間的電腦之間的網路流量。 
 
 Azure 現在支援採用 Windows Server 2016 的基礎結構。 Windows Server 2016 的演算法經過改良，用來修正時間和調整本機時鐘以便與 UTC 同步。  Windows Server 2016 也改良了 VMICTimeSync 服務，可控管 VM 與主機同步以獲得準確時間的方式。 改良功能包括更精確的 VM 開始或 VM 還原初始時間，以及提供給 Windows 時間 (W32time) 的樣本插斷延遲修正。 
 
@@ -35,7 +35,7 @@ Azure 現在支援採用 Windows Server 2016 的基礎結構。 Windows Server 2
 
 ## <a name="overview"></a>概觀
 
-電腦時鐘精確度的衡量方式，是依據電腦時鐘與國際標準時間 (UTC) 時間標準的接近程度。 UTC 是由多國的精準原子鐘樣本所定義；原子鐘在 300 年內只會誤差一秒。 但是直接讀取 UTC 需使用專用的硬體。 替代方式為系統將時間伺服器同步為 UTC，並從其他電腦存取以提供延展性和強固性。 每部電腦都有持續運作的時間同步處理服務，知道需使用哪些時間伺服器，且會定期檢查電腦時鐘是否需要修正，並視需要調整時間。 
+電腦時鐘精確度的衡量方式，是依據電腦時鐘與國際標準時間 (UTC) 時間標準的接近程度。 UTC 是由多國的精準原子鐘樣本所定義；原子鐘在 300 年內只會誤差一秒。 但是直接讀取 UTC 需使用專用的硬體。 替代方式為系統將時間伺服器同步為 UTC，並從其他電腦存取以提供延展性和強固性。 每部電腦都有持續運作的時間同步服務，知道需使用哪些時間伺服器，且會定期檢查電腦時鐘是否需要修正，並視需要調整時間。 
 
 Azure 主機會與內部 Microsoft 時間伺服器同步，這些時間伺服器會透過 GPS 天線從 Microsoft 所屬的 Stratum 1 裝置擷取時間。 Azure 中的虛擬機器可以依賴其主機將準確的時間 (*主機時間*) 傳遞至 VM，也可以由 VM 直接從時間伺服器取得時間，或結合兩種方式。 
 

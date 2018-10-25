@@ -1,5 +1,27 @@
-
-## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>使用 MSAL 取得 Microsoft Graph API 的權杖
+---
+title: 包含檔案
+description: 包含檔案
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843209"
+---
+## <a name="use-msal-to-get-a-token"></a>使用 MSAL 取得權杖 
 
 1.  在 [應用程式] > [Java] > [{domain}.{appname}] 之下，開啟 `MainActivity`。 
 2.  新增下列匯入：
@@ -220,21 +242,19 @@
 <!--start-collapse-->
 ### <a name="more-information"></a>詳細資訊
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
-呼叫 `AcquireTokenAsync` 方法時會顯示一個視窗，提示使用者登入。 當使用者第一次需要存取受保護的資源時，應用程式通常會要求使用者以互動方式登入。 當取得權杖的無訊息作業失敗 (例如，使用者的密碼過期) 時，使用者也可能需要登入。
+呼叫 `AcquireTokenAsync` 方法會啟動一個視窗，提示使用者登入或選取其帳戶。 應用程式與使用者進行第一次互動時通常需要詢問使用者，但之後就可以自動驗證使用者。 
 
 #### <a name="get-a-user-token-silently"></a>以無訊息方式取得使用者權杖
-`AcquireTokenSilentAsync` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 在 `AcquireTokenAsync` 第一次執行之後，`AcquireTokenSilentAsync` 就會成為用來取得權杖的常用方法，以在後續呼叫中存取受保護的資源，因為系統會以無訊息方式進行呼叫來要求或更新權杖。
+`AcquireTokenSilentAsync` 方法可在不需任何使用者互動的情況下取得權杖。  `AcquireTokenSilentAsync` 可被視為最佳要求，而當使用者必須再次登入或執行一些額外的授權 (例如多因素驗證) 時，則可以退回到 `AcquireTokenAsync`。 
 
-最後，`AcquireTokenSilentAsync` 方法會失敗。 失敗的原因可能是使用者已經登出，或已經在其他裝置上變更其密碼。 當 MSAL 偵測到可透過要求執行互動式動作來解決問題時，就會發出一個 `MsalUiRequiredException` 例外狀況。 您的應用程式可以透過兩種方式處理此例外狀況：
+當 `AcquireTokenSilentAsync` 失敗時，它將會產生 `MsalUiRequiredException`。 您的應用程式可以透過兩種方式處理此例外狀況：
 
-* 它可以立即對 `AcquireTokenAsync` 進行呼叫。 此呼叫會促使系統提示使用者登入。 此模式通常用於沒有離線內容可供使用者使用的線上應用程式。 此引導式設定所產生的範例會遵循此模式，您可以在第一次執行範例時看到它運作。 
-    * 因為沒有任何使用者用過該應用程式，所以 `PublicClientApp.Users.FirstOrDefault()` 會包含一個 null 值，而且會擲回 `MsalUiRequiredException` 例外狀況。 
-    * 然後範例中的程式碼會透過呼叫 `AcquireTokenAsync` 來處理例外狀況，進而提示使用者登入。 
-
-* 其可改為對使用者呈現視覺指示，讓使用者知道需要透過互動方式登入，以便選取正確的登入時機。 或者，應用程式可以稍後重試 `AcquireTokenSilentAsync`。 此方式通常用於使用者可以使用其他應用程式功能，不需要因此中斷作業的情況，例如，應用程式中有離線內容可供使用時。 在此情況下，使用者可以決定何時登入以存取受保護的資源，或重新整理過期的資訊。 此外，當網路暫時無法使用而後還原時，應用程式可以決定是否重試 `AcquireTokenSilentAsync`。 
+* 立即呼叫 `AcquireTokenAsync`。 此呼叫會促使系統提示使用者登入。 此模式用於沒有離線內容可供使用者使用的線上應用程式。 此教學課程所產生的範例會遵循此模式，您可以在第一次執行範例時看到它運作。
+* 對使用者呈現視覺指示，這需要互動式登入。 在使用者就緒時呼叫 `AcquireTokenAsync`。
+* 稍後重試 `AcquireTokenSilentAsync`。 此方式經常用於使用者可以使用其他應用程式功能，不需要因此中斷作業的情況，例如，應用程式中有離線內容可供使用時。 當網路暫時無法使用而後還原時，應用程式可以決定是否重試 `AcquireTokenSilentAsync`。 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>使用您剛剛取得的權杖呼叫 Microsoft Graph API
+## <a name="call-the-microsoft-graph-api"></a>呼叫 Microsoft Graph API 
 將下列方法加入至 `MainActivity` 類別：
 
 ```java
@@ -294,7 +314,7 @@ private void updateGraphUI(JSONObject graphResponse) {
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>針對受保護 API 進行 REST 呼叫的相關詳細資訊
 
-在這個範例應用程式中，`callGraphAPI` 會呼叫`getAccessToken`，接著針對需要權杖的資源發出 HTTP `GET` 要求，然後傳回內容。 此方法會在「HTTP 授權標頭」中新增取得的權杖。 對於此範例，資源為 Microsoft Graph API *me* 端點，它會顯示使用者的設定檔資訊。
+在此範例應用程式中，`callGraphAPI()` 使用 `getAccessToken()` 來取得全新的存取權杖。  應用程式在 HTTP `GET` 要求中使用權杖來向 Microsoft Graph API 驗證。 
 <!--end-collapse-->
 
 ## <a name="set-up-sign-out"></a>設定登出
@@ -353,7 +373,8 @@ private void updateSignedOutUI() {
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>使用者登出的詳細資訊
 
-前述程式碼中的 `onSignOutClicked` 方法會從 MSAL 使用者快取中移除使用者，這可有效告知 MSAL 忘記目前的使用者，只有將此作業設為互動式作業，未來取得權杖的要求才能成功。
+`onSignOutClicked()` 方法可將使用者從 MSAL 快取移除。 MSAL 將不再有已登入使用者的任何狀態，而且他們將會被登出應用程式。 
 
-雖然此範例中的應用程式支援單一使用者，MSAL 也支援可同時登入多個帳戶的案例。 例如，使用者擁有多個帳戶的電子郵件應用程式。
+### <a name="more-information-on-multi-account-scenarios"></a>有關多帳戶案例的詳細資訊
+MSAL 也支援多個帳戶同時登入的案例。 例如，許多電子郵件應用程式都允許多個帳戶同時登入。 
 <!--end-collapse-->

@@ -3,7 +3,7 @@ title: Azure Stack 新增縮放節點 | Microsoft Docs
 description: 在 Azure Stack 中將節點新增至縮放單位。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 02602243bcb4e426ebf4984e387da8e8c148232e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41946442"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982992"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>在 Azure Stack 中新增更多縮放單位節點
 
@@ -64,7 +64,7 @@ Azure Stack 操作員可藉由新增更多實體電腦，以增加現有縮放�
 ### <a name="use-the-admin-portal"></a>使用管理入口網站
 
 1. 以 Azure Stack 操作員身分登入 Azure Stack 管理入口網站。
-2. 瀏覽至 [新增] > [容量] > [縮放單位節點]。
+2. 瀏覽至 [+ 建立資源] > [容量] > [縮放單位節點]。
    ![縮放單位節點](media/azure-stack-add-scale-node/select-node1.png)
 3. 在 [新增節點] 窗格上，選取「區域」，然後選取您想要將節點新增至其中的「縮放單位」。 此外，也請為您要新增的縮放單位節點指定「BMC IP 位址」。 您一次只能新增一個節點。
    ![新增節點詳細資料](media/azure-stack-add-scale-node/select-node2.png)
@@ -142,4 +142,4 @@ Azure Stack 操作員可藉由新增更多實體電腦，以增加現有縮放�
 
 
 ## <a name="next-steps"></a>後續步驟 
-檢視[節點動作](azure-stack-node-actions.md) 
+[新增公用 IP 位址](azure-stack-add-ips.md) 

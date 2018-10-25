@@ -4,7 +4,7 @@ description: 在主要和次要 IP 組態間進行負載平衡。
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jpconnock
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3b7971fec0aa0c354476073b01699f516f9439cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 73f19293fc9dd0f68752e7b38a12a826b8f52b0c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637373"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248563"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 入口網站在多個 IP 組態上進行負載平衡
 
@@ -29,7 +29,7 @@ ms.locfileid: "34637373"
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
 
-在本文中，我們將說明如何對次要網路介面控制項 (NIC) 上的多個 IP 位址使用 Azure Load Balancer。 下圖說明我們的案例：
+在此文章中，我們將說明如何對次要網路介面控制項 (NIC) 上的多個 IP 位址使用 Azure Load Balancer。 下圖說明我們的案例：
 
 ![負載平衡器案例](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
@@ -57,13 +57,13 @@ ms.locfileid: "34637373"
 
 ## <a name="perform-load-balancing-on-multiple-ip-configurations"></a>在多個 IP 組態上執行負載平衡
 
-請完成下列步驟來達成本文所述案例。
+請完成下列步驟來達成此文章所述案例。
 
 ### <a name="step-1-configure-the-secondary-nics"></a>步驟 1︰設定次要 NIC
 
 為虛擬網路中的每部 VM，新增次要 NIC 的 IP 組態︰  
 
-1. 瀏覽至 Azure 入口網站：http://portal.azure.com。 使用您的 Azure 帳戶進行登入。
+1. 瀏覽至 Azure 入口網站： http://portal.azure.com。 使用您的 Azure 帳戶進行登入。
 
 2. 選取畫面左上方的 [資源群組] 圖示。 然後選取 VM 所在的資源群組 (例如，**contosofabrikam**)。 [資源群組] 窗格會顯示 VM 的所有資源和 NIC。
 
@@ -87,7 +87,7 @@ ms.locfileid: "34637373"
 
 建立組態的負載平衡器：
 
-1. 瀏覽至 Azure 入口網站：http://portal.azure.com。 使用您的 Azure 帳戶進行登入。
+1. 瀏覽至 Azure 入口網站： http://portal.azure.com。 使用您的 Azure 帳戶進行登入。
 
 2. 在畫面的左上方，選取 [建立資源] > [網路] > [負載平衡器]。 接下來，選取 [建立]。
 
@@ -127,7 +127,7 @@ ms.locfileid: "34637373"
 
 7. <a name="step3-7"></a>選取 [IP 位址]。 在 [選擇公用 IP 位址] 之下，選取前端的 IP 位址 (**PublicIP1** 或 **PublicIP2**)。
 
-8. 重複本節中的<a href="#step3-3">步驟 3</a> 到<a href="#step3-7">步驟 7</a>，以建立第二個前端 IP 位址。
+8. 重複此節中的<a href="#step3-3">步驟 3</a> 到<a href="#step3-7">步驟 7</a>，以建立第二個前端 IP 位址。
 
 設定前端集區之後，IP 位址會顯示在負載平衡器的 [前端 IP 組態] 設定之下。 
     
@@ -181,11 +181,11 @@ ms.locfileid: "34637373"
 
 4. 在 [連接埠] 和 [後端連接埠] 中，保留預設值 **80**。
 
-5. 針對 [浮動 IP (伺服器直接回傳)]，選取 [啟用]。
+5. 針對 [浮動 IP (伺服器直接回傳)]，選取 [停用]。
 
 6. <a name="step6-6"></a>選取 [確定]。
 
-7. 重複本節中的<a href="#step6-1">步驟 1</a> 到<a href="#step6-6">步驟 6</a>，以建立第二個負載平衡器規則。
+7. 重複此節中的<a href="#step6-1">步驟 1</a> 到<a href="#step6-6">步驟 6</a>，以建立第二個負載平衡器規則。
 
 設定規則之後，它們會顯示在負載平衡器的 [負載平衡規則] 設定之下。
 
