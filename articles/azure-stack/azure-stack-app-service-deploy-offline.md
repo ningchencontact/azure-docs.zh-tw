@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e36e470c3516c55089ce1e44540b6b1eacbb6b2
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41954839"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718724"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
@@ -226,7 +226,7 @@ ms.locfileid: "41954839"
 >
 從第三個技術預覽開始，若要建立 Web、API 及 Azure Functions 應用程式，您必須使用租用戶入口網站，並具有租用戶訂用帳戶。
 
-1. 在 Azure Stack 租用戶入口網站中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。
+1. 在 Azure Stack 租用戶入口網站中，按一下 [+ 建立資源] > [Web + 行動] > [Web 應用程式]。
 
 2. 在 [Web 應用程式] 刀鋒視窗中，於 [Web 應用程式] 方塊中輸入名稱。
 

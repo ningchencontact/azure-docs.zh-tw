@@ -1,20 +1,21 @@
 ---
-title: API - Azure 認知服務 | Microsoft Docs
-description: 這是 Azure 自訂決策服務之完整且方便使用的 API 指南，其中的雲端式 API 可透過體驗強化內容相關的決策制定。
+title: API 參考 - 自訂決策服務
+titlesuffix: Azure Cognitive Services
+description: 自訂決策服務的完整 API 指南。
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.reviewer: marcozo, alekh
-ms.openlocfilehash: 403b17e33394016a07a7b33ba1bcbfe6afdcc05b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3d9b87241946a04ae71fabde9958b24ad626c0db
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370222"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364018"
 ---
 # <a name="api"></a>API
 

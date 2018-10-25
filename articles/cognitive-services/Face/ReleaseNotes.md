@@ -1,25 +1,25 @@
 ---
-title: 臉部 API 服務的版本資訊 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 版本資訊 - 臉部 API 服務
+titleSuffix: Azure Cognitive Services
 description: 臉部 API 服務的版本資訊包括各種版本的發行變更歷程記錄。
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 918b3ea5dbaaa44e4eee1a679354c7becffd4686
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370307"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121986"
 ---
 # <a name="face-api-release-notes"></a>臉部 API 版本資訊
 
-本文適用於 Microsoft 臉部 API 服務 1.0 版。
+本文適用於臉部 API 服務 1.0 版。
 
 ### <a name="release-changes-in-may-2018"></a>2018 年 5 月的發行變更
 

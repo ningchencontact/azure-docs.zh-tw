@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: 673b1144fe927e0619f5f8638d7e8ce9a181f48c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248515"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985289"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>使用 Azure Stack 中的系統管理員入口網站
 
@@ -39,7 +39,7 @@ Azure Stack 中有兩種入口網站：系統管理員入口網站和使用者�
 | 整合系統 | https://adminportal.&lt;*區域*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
- ![系統管理員入口網站](media/azure-stack-manage-portals/image1.png)
+ ![系統管理員入口網站](media/azure-stack-manage-portals/admin-portal.png)
 
 在系統管理員入口網站中，您可以執行像是下列各項作業：
 
@@ -70,7 +70,9 @@ Azure Stack 中有兩種入口網站：系統管理員入口網站和使用者�
 
 ### <a name="customize-the-dashboard"></a>自訂儀表板
 
-儀表板包含一組預設圖格。 您可以選取 [編輯儀表板] 來修改預設儀表板，或是選取 [新增儀表板] 來新增自訂儀表板。 您可以輕鬆地將圖格新增到儀表板中。 例如，您可以選取 [新增]，在 [供應項目 + 方案] 上按一下滑鼠右鍵，然後選取 [釘選到儀表板]。
+儀表板包含一組預設圖格。 您可以選取 [編輯儀表板] 來修改預設儀表板，或是選取 [新增儀表板] 來新增自訂儀表板。 您可以輕鬆地將圖格新增到儀表板中。 例如，您可以選取 [+ 建立資源]，在 [供應項目 + 方案] 上按一下滑鼠右鍵，然後選取 [釘選到儀表板]。
+
+有時，您可能會在入口網站中看到空白的儀表板。 若要復原儀表板，請按一下 [編輯儀表板]，然後按一下滑鼠右鍵並選取 [重設為預設狀態]。
 
 ### <a name="quick-access-to-online-documentation"></a>快速存取線上文件
 

@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 9f65537da2b32eee0a6870d22f7c444605ee56b1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 1ae68e8eac3baca53cda603769a89bc6a84fd468
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364875"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405918"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database 服務
 
@@ -95,7 +95,7 @@ SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service-tiers
 
 - **Azure 儲存體**：用於封存大量遙測資料，價格低廉
 - **Azure 事件中樞**：用於整合 SQL Database 遙測與自訂監視解決方案或管線
-- **Azure Log Analytics**：適用於具有報告、警示及緩和功能的內建監視解決方案。 Azure Log Analytics 是 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 的功能
+- **Azure Log Analytics**：適用於具有報告、警示及緩和功能的內建監視解決方案。
 
     ![架構](./media/sql-database-metrics-diag-logging/architecture.png)
 

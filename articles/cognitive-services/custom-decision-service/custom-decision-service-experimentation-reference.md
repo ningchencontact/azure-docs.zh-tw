@@ -1,19 +1,21 @@
 ---
-title: 測試 - Azure 認知服務 | Microsoft Docs
-description: 本文是 Azure 自訂決策服務測試的指南。
+title: 測試 - 自訂決策服務
+titlesuffix: Azure Cognitive Services
+description: 本文是自訂決策服務的測試指南。
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: b0ac0bc049d556423493f0c48dd9a548929bcd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370223"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366541"
 ---
 # <a name="experimentation"></a>測試
 
@@ -50,7 +52,7 @@ ms.locfileid: "35370223"
 
 如需上述引數的深入說明，請參閱 [Vowpal Wabbit command-line arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments) (Vowpal Wabbit 命令列引數)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 - Vowpal Wabbit：已安裝並在您的路徑上。
   - Windows：[使用 `.msi` 安裝程式](https://github.com/eisber/vowpal_wabbit/releases)。
   - 其他平台：[取得原始程式碼](https://github.com/JohnLangford/vowpal_wabbit/releases)。

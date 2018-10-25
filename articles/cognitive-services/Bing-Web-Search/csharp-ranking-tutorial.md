@@ -1,21 +1,22 @@
 ---
-title: 使用順位顯示搜尋結果 | Microsoft Docs
+title: 使用順位顯示搜尋結果
+titleSuffix: Azure Cognitive Services
 description: 示範如何使用 Bing RankingResponse 答案，以順位的順序顯示搜尋結果。
 services: cognitive-services
 author: bradumbaugh
-manager: bking
+manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: brumbaug
-ms.openlocfilehash: 0dd3a2057e73adda3224e7cebe7c492572f94105
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3e55830fcfdbea91581a75fcfc343fd522485c5a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093854"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123397"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>使用 C# 建置主控台應用程式搜尋用戶端
 
@@ -45,8 +46,8 @@ ms.locfileid: "42093854"
 
 JSON.net 讓您能夠使用 API 所傳回的 JSON 回應。 將它的 NuGet 套件新增到您的專案：
 
-- 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。 
-- 在 [瀏覽] 索引標籤上，搜尋 `Newtonsoft.Json`。 選取最新版本，然後按一下 [安裝]。 
+- 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。
+- 在 [瀏覽] 索引標籤上，搜尋 `Newtonsoft.Json`。 選取最新版本，然後按一下 [安裝]。
 - 按一下 [檢閱變更] 視窗上的 [確定] 按鈕。
 - 關閉標題為 **NuGet: MyConsoleSearchApp** 的 Visual Studio 索引標籤。
 
@@ -60,7 +61,7 @@ JSON.net 讓您能夠使用 API 所傳回的 JSON 回應。 將它的 NuGet 套�
 
 ## <a name="add-some-necessary-using-statements"></a>新增一些必要的 using 陳述式
 
-本教學課程中的程式碼需要三個額外的 using 陳述式。 將這些陳述式新增到 **Program.cs** 頂端的現有 `using` 陳述式下方： 
+本教學課程中的程式碼需要三個額外的 using 陳述式。 將這些陳述式新增到 **Program.cs** 頂端的現有 `using` 陳述式下方：
 
 ```csharp
 using System.Web;
@@ -145,7 +146,7 @@ static void RunQueryAndDisplayResults(string userQuery)
 
 ## <a name="display-ranked-results"></a>顯示已設定順位的結果
 
-顯示如何以已設定順位的順序顯示結果之前，先查看範例 Web 搜尋回應： 
+顯示如何以已設定順位的順序顯示結果之前，先查看範例 Web 搜尋回應：
 
 ```json
 {
@@ -171,7 +172,7 @@ static void RunQueryAndDisplayResults(string userQuery)
         },
 
         ...
-        
+
         ],
         "someResultsRemoved" : true
     },
@@ -184,7 +185,7 @@ static void RunQueryAndDisplayResults(string userQuery)
         }
 
         ...
-        
+
         ]
     },
     "rankingResponse" : {
@@ -220,7 +221,7 @@ static void RunQueryAndDisplayResults(string userQuery)
 }
 ```
 
-`rankingResponse` JSON 物件 ([文件](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) 會說明搜尋結果的適當顯示順序。 它會包含下列一或多個已設定優先順序的群組： 
+`rankingResponse` JSON 物件 ([文件](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) 會說明搜尋結果的適當顯示順序。 它會包含下列一或多個已設定優先順序的群組：
 
 - `pole`：獲得最明顯處理的搜尋結果 (例如，顯示在主線和資訊看板上方)。
 - `mainline`：顯示在主線中的搜尋結果。
@@ -273,7 +274,7 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 這個方法：
 
 - 在回應包含的 `rankingResponse` 群組上進行迴圈
-- 藉由呼叫 `DisplaySpecificResults(...)` 來顯示每個群組中的項目 
+- 藉由呼叫 `DisplaySpecificResults(...)` 來顯示每個群組中的項目
 
 在 **Program.cs** 中，新增下列兩個方法：
 

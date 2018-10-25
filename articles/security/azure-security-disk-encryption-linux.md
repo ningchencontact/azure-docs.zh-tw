@@ -1,24 +1,18 @@
 ---
 title: Linux IaaS VM 適用的 Azure 磁碟加密 | Microsoft Docs
 description: 本文提供啟用 Linux IaaS VM 適用的 Microsoft Azure 磁碟加密的指示。
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 071ee0c3-2e6c-4ea9-bfc7-908865629144
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 5a885ed7c7bf451e0ee087fd4bda0a0e69e7ccad
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/19/2018
+ms.openlocfilehash: 1cebb3dae8fbfd4188487a6ff7fca42ac0505cf0
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886761"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498482"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>啟用 Linux IaaS VM 適用的 Azure 磁碟加密 
 
@@ -35,7 +29,7 @@ ms.locfileid: "42886761"
 
 
 ## <a name="bkmk_RunningLinux"></a> 在現有或執行中的 IaaS Linux VM 上啟用加密
-在這個案例中，您可以使用 Resource Manager 範本、PowerShell Cmdlet 或 CLI 命令啟用加密。 
+在這個案例中，您可以使用 Resource Manager 範本、PowerShell Cmdlet 或 CLI 命令啟用加密。 若您需要虛擬機器擴充之結構描述資訊，請參閱 [Linux 擴充功能之 Azure 磁碟加密](../virtual-machines/extensions/azure-disk-enc-linux.md)一文。
 
 >[!IMPORTANT]
  >您必須在啟用 Azure 磁碟加密之前，先在 Azure 磁碟加密之外對以受控磁碟為基礎的 VM 執行個體建立快照集和/或備份。 您可以從入口網站建立受控磁碟的快照集，也可以使用 [Azure 備份](../backup/backup-azure-vms-encryption.md)來建立。 擁有備份可確保在加密期間發生任何非預期的失敗時，能有復原選項可供選擇。 在建立備份後，您就可以使用 Set-AzureRmVMDiskEncryptionExtension Cmdlet 並指定 -skipVmBackup 參數來加密受控磁碟。 在建立好備份並指定了這個參數之前，對以受控磁碟為基礎的 VM 執行 Set-AzureRmVMDiskEncryptionExtension 命令都將會失敗。 
@@ -151,8 +145,22 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 
 您可以在[這裡](https://github.com/Azure-Samples/azure-cli-samples/tree/master/disk-encryption/vmss)找到 Linux 擴展集資料磁碟加密的批次檔案範例。 這個範例會建立資源群組和 Linux 擴展集、掛接 5 GB 資料磁碟，並加密虛擬機器擴展集。
 
+### <a name="register-for-disk-encryption-preview-using-azure-cli"></a>註冊使用 Azure CLI 進行磁碟加密預覽
+
+適用於虛擬機器擴展集預覽的 Azure 磁碟加密會要求您使用 [az feature register](/cli/azure/feature#az_feature_register) 自行註冊訂用帳戶。 您只需要在第一次使用磁碟加密預覽功能時，執行下列步驟：
+
+```azurecli-interactive
+az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
+```
+
+註冊要求傳播的時間最多可能需要 10 分鐘。 您可以使用 [az feature show](/cli/azure/feature#az_feature_show) 檢查註冊狀態。 當 `State` 回報「已登錄」時，請使用 [az provider register](/cli/azure/provider#az_provider_register) 重新登錄 *Mirosoft.Compute* 提供者：
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
+
 ###  <a name="encrypt-virtual-machine-scale-sets-with-azure-cli"></a>使用 Azure CLI 加密虛擬機器擴展集
-使用 [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) 在 Windows 虛擬機器擴展集上啟用加密。 如果您將擴展集上的升級原則設定為手動，請使用 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances) 啟動加密。 
+使用 [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) 在 Windows 虛擬機器擴展集上啟用加密。 如果您將擴展集上的升級原則設定為手動，請使用 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances) 啟動加密。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。 
 
 -  **加密執行中的虛擬機器擴展集**
     ```azurecli-interactive
@@ -175,8 +183,23 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
      az vmss encryption disable --resource-group "MySecureRG" --name "MySecureVmss"
     ```
 
+### <a name="register-for-disk-encryption-preview-using-azure-powershell"></a>註冊使用 Azure Powershell 進行磁碟加密預覽
+
+適用於虛擬機器擴展集預覽的 Azure 磁碟加密會要求您使用 [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) 自行註冊訂用帳戶。 您只需要在第一次使用磁碟加密預覽功能時，執行下列步驟：
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+```
+
+註冊要求傳播的時間最多可能需要 10 分鐘。 您可以使用 [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 檢查註冊狀態。 當 `RegistrationState` 回報「已登錄」時，請使用 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 重新登錄 *Mirosoft.Compute* 提供者：
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
 ###  <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>使用 Azure PowerShell 加密虛擬機器擴展集
-使用 [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension) Cmdlet 在 Windows 虛擬機器擴展集上啟用加密。
+使用 [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension) Cmdlet 在 Windows 虛擬機器擴展集上啟用加密。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。
 
 -  **加密執行中的虛擬機器擴展集**：
     ```powershell
@@ -307,17 +330,22 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
 ```
 
 ## <a name="enable-encryption-on-a-newly-added-data-disk"></a>在新增的資料磁碟上啟用加密
+
 您可以使用 [az vm disk attach](../virtual-machines/linux/add-disk.md) 或[透過 Azure 入口網站](../virtual-machines/linux/attach-disk-portal.md)，新增磁碟新增。 您必須先掛接新連結的資料磁碟，才可以加密。 您必須要求資料磁碟機加密，因為在進行加密時，將無法使用該磁碟機。 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>透過 Azure CLI 在新增的磁碟上啟用加密
- 當您執行命令來啟用加密時，Azure CLI 命令會自動為您提供新的序列版本。 
--  **加密執行中的 VM：**
+
+ 若虛擬機器先前以「All」加密，則 --磁碟區類型參數也應該保留為 All。 全部包含作業系統與資料磁碟。 若虛擬機器先前以「OS」磁碟類別加密，則應變更 --磁碟區類型參數為 All，確保作業系統和新的資料磁碟都包含在其中。 若虛擬機器僅使用「Data」磁碟區類型加密，則可以如下所示，保留參數值為「Data」。 要準備進行加密，僅是新增及附加新資料磁碟至虛擬機器是不夠的。 啟用加密之前，新附加的磁碟必須經過格式化，並正確裝載於虛擬機器中。 在 Linux 上磁碟必須裝載於 /etc/fstab，且必須有[一致的區塊裝置名稱](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-device-names-problems)。  
+
+在啟用加密時，與 Powershell 語法不同，CLI 不需要使用者提供唯一的序列版本。 CLI 為自動產生並使用其唯一序列版本的值。
+
+-  **加密執行中虛擬機器的資料磁碟：**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "Data"
      ```
 
-- **使用 KEK 加密執行中的 VM：**
+- **使用 KEK 加密執行中虛擬機器的資料磁碟：**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "Data"
@@ -327,7 +355,7 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
  使用 Powershell 來加密 Linux 的新磁碟時，必須指定新的序列版本。 序列版本必須是唯一的。 下列指令碼會產生序列版本的 GUID。 
  
 
--  **加密執行中的 VM：** 下面指令碼會初始化您的變數並執行 Set-AzureRmVMDiskEncryptionExtension cmdlet。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。 使用您的值取代 MySecureRg、MySecureVM 和 MySecureVault。 -VolumeType 參數會設定為資料磁碟，而非作業系統磁碟。 
+-  **加密執行中虛擬機器的資料磁碟：** 以下指令碼會初始化您的變數並執行 Set-AzureRmVMDiskEncryptionExtension cmdlet。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。 使用您的值取代 MySecureRg、MySecureVM 和 MySecureVault。 VolumeType 參數可使用之值有 All、OS 及 Data。 若虛擬機器先前以「作業系統」或「全部」磁碟區類型加密，則應變更 --VolumeType 參數為「所有」，確保作業系統和新的資料磁碟都包含在其中。
 
      ```azurepowershell-interactive
       $sequenceVersion = [Guid]::NewGuid();
@@ -340,7 +368,7 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
 
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion;
     ```
-- **使用 KEK 加密執行中的 VM：** 如果您要加密資料磁碟而非作業系統磁碟，則可能需要新增 -VolumeType 參數。 
+- **使用 KEK 加密執行中虛擬機器的資料磁碟：**-VolumeType 參數可使用之值有 All、OS 及 Data。 若虛擬機器先前以「作業系統」或「全部」磁碟區類型加密，則應變更 --VolumeType 參數為「所有」，確保作業系統和新的資料磁碟都包含在其中。
 
      ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -352,7 +380,7 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
 
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data';
 
      ```
 

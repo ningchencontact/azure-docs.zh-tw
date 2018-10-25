@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666331"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466042"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>您可以在 PIM 中管理的 Azure AD 目錄角色
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -34,20 +34,20 @@ Azure AD Privileged Identity Management (PIM) 可管理以特殊權限存取 Azu
 ## <a name="roles-managed-in-pim"></a>PIM 中管理的角色
 Privileged Identity Management 可讓您將使用者指派給常見的系統管理員角色，包括︰
 
-*  (也稱為公司系統管理員) 可以存取所有系統管理功能。 您可以在組織中擁有多個全域管理員。 註冊購買 Office 365 的人員會自動成為全域管理員。
-*  可以管理 Azure AD PIM，以及更新其他使用者的角色指派。  
-*  負責採購、管理訂用帳戶、管理支援票證，以及監控服務健全狀況。
-*  可以重設密碼、管理服務要求，以及監控服務健全狀況。 密碼管理員只能重設使用者的密碼。
-*  可以管理服務要求，以及監控服務健全狀況。
+* **全域管理員** (也稱為公司系統管理員) 可以存取所有系統管理功能。 您的組織中可以有多個全域管理員。 註冊購買 Office 365 的人員會自動成為全域管理員。
+* **特殊權限角色管理員**可以管理 Azure AD PIM，以及更新其他使用者的角色指派。  
+* **計費管理員**進行採購、管理訂用帳戶、管理支援票證，以及監控服務健全狀況。
+* **密碼管理員**可以重設密碼、管理服務要求，以及監控服務健全狀況。 密碼管理員只能重設使用者的密碼。
+* **服務管理員**可以管理服務要求，以及監控服務健全狀況。
   
   > [!NOTE]
   > 如果您使用 Office 365，則在指派服務管理員角色給使用者之前，請先將服務 (例如 Exchange Online) 的系統管理權限指派給使用者。
   > 
   > 
-*  可以重設密碼、監控服務健全狀況，以及管理使用者帳戶、使用者群組和服務要求。 使用者管理管理員無法刪除全域管理員、建立其他管理員角色，或重設計費、全域和服務管理員的密碼。
-*  具有透過 Exchange 系統管理中心 (EAC) 存取 Exchange Online 的系統管理權限，並可在 Exchange Online 執行幾乎所有工作。
-* **SharePoint 管理員 (預覽)** 具有可透過 SharePoint Online 系統管理中心存取 SharePoint Online 的系統管理存取權，並可在 SharePoint Online 中執行幾乎任何工作。 此角色目前為預覽版。 在 PIM 中啟用此角色之後，合格的使用者在 SharePoint 內使用此角色時可能會有延遲。
-*  具有透過「商務用 Skype」系統管理中心存取「商務用 Skype」的系統管理權限，並可在「商務用 Skype Online」執行幾乎所有工作。
+* **使用者管理員**可以重設密碼、監視服務健全狀況，以及管理使用者帳戶、使用者群組和服務要求。 使用者管理員無法刪除全域管理員、建立其他管理員角色，或重設計費、全域和服務管理員的密碼。
+* **Exchange 管理員**可以透過 Exchange 系統管理中心 (EAC) 存取 Exchange Online 的系統管理權限，並可在 Exchange Online 執行幾乎所有工作。
+* **SharePoint 服務管理員**可以透過 SharePoint Online 系統管理中心存取 SharePoint Online 的系統管理權限，並可在 SharePoint Online 執行幾乎所有工作。 在 PIM 中啟用此角色之後，合格的使用者在 SharePoint 內使用此角色時可能會有延遲。
+* **商務用 Skype 管理員** 具有透過「商務用 Skype」系統管理中心存取「商務用 Skype」的系統管理權限，並可在「商務用 Skype Online」執行幾乎所有工作。
 
 如需有關[在 Azure AD 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md)和[在 Office 365 中指派管理員角色](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504)的更多詳細資料，請閱讀這些文章。
 
@@ -63,21 +63,19 @@ Privileged Identity Management 可讓您將使用者指派給常見的系統管�
 ## <a name="roles-not-managed-in-pim"></a>PIM 中未管理的角色
 Exchange Online 或 SharePoint Online 內的角色 (除了前面提及的角色外) 並不會出現在 Azure AD 中，因此您不會在 PIM 中看到。 如需有關在這些 Office 365 服務中變更細部角色指派的詳細資訊，請參閱 [Office 365 中的權限](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
 
-Azure 訂用帳戶和資源群組也不會出現在 Azure AD 中。 若要管理 Azure 訂用帳戶，請參閱[如何新增或變更 Azure 管理員角色](../../billing/billing-add-change-azure-subscription-administrator.md)，如需有關 Azure RBAC 的詳細資訊，請參閱 [Azure 角色型存取控制](../../role-based-access-control/role-assignments-portal.md)。
-
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
 ## <a name="user-roles-and-signing-in"></a>使用者角色和登入
 對於某些 Microsoft 服務和應用程式來說，將使用者指派給角色可能還不足以讓該使用者成為管理員。
 
-使用者若要存取 Azure 入口網站，就必須是 Azure 訂用帳戶的服務管理員或共同管理員，即使使用者並不需要管理 Azure 訂用帳戶也是如此。  例如，若要管理 Azure AD 的組態設定，使用者必須既是 Azure AD 中的全域管理員也是 Azure 訂用帳戶上的訂用帳戶共同管理員。  若要了解如何將使用者新增到 Azure 訂用帳戶，請參閱 [如何新增或變更 Azure 管理員角色](../../billing/billing-add-change-azure-subscription-administrator.md)。
+若要存取 Azure 入口網站，使用者必須是 Azure 訂用帳戶的擁有者，即使使用者並不需要管理 Azure 訂用帳戶也是如此。  例如，若要管理 Azure AD 的組態設定，使用者必須既是 Azure AD 中的全域管理員，也是 Azure 訂用帳戶的擁有者。  若要了解如何在 Azure AD 中新增使用者，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../..//role-based-access-control/role-assignments-portal.md)。
 
 使用者若要存取 Microsoft Online Services，可能也必須已獲指派授權才能開啟服務的入口網站或執行系統管理工作。
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>將授權指派給 Azure AD 中的使用者
 
-1. 使用全域管理員帳戶或共同管理員帳戶登入 [Azure 入口網站](http://portal.azure.com)。
+1. 以全域系統管理員或擁有者身分登入 [Azure 入口網站](http://portal.azure.com)。
 
 1. 選取您想要使用的 Azure AD 目錄，且該目錄會含有與它相關聯的授權。
 

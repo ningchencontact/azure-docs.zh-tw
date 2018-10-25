@@ -1,22 +1,23 @@
 ---
-title: 調整大小和裁剪 Bing 縮圖 | Microsoft Docs
-description: 顯示如何調整大小和裁剪 Bing 回應中包含的縮圖。
+title: 調整大小和裁剪影像縮圖 - Bing Web 搜尋 API
+titleSuffix: Azure Cognitive Services
+description: 了解如何調整大小和裁剪 Bing Web 搜尋 API 所提供的縮圖。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 05A08B01-89FF-4781-AFE7-08DA92F25047
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf8462ae2eb2378273dc7cb78a0d7ac732ad2ab4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a9a7a20f8022cfc3bc3eb74c4a296cb1aa0f3c70
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367834"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122061"
 ---
-# <a name="resizing-and-cropping-thumbnail-images"></a>調整大小和裁剪縮圖影像
+# <a name="resize-and-crop-image-thumbnails"></a>調整大小和裁剪影像縮圖
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 931c3d8beb9f2ed12228c74f09f84bbdee1798b8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41948126"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363118"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>使用 Azure Stack 入口網站部署範本
 
@@ -30,7 +30,7 @@ ms.locfileid: "41948126"
 
 ## <a name="to-deploy-a-template"></a>部署範本
 
-1. 登入入口網站，選取 [新增]，然後選取 [自訂]。
+1. 登入入口網站，選取 [+ 建立資源]，然後選取 [自訂]。
 2. 選取 [範本部署]。
 3. 選取 [編輯範本]，然後將 JSON 範本程式碼貼入程式碼視窗。 選取 [ **儲存**]。
 4. 選取 [編輯參數]，為顯示的參數提供值，然後選取 [確定]。
@@ -40,4 +40,6 @@ ms.locfileid: "41948126"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 PowerShell 部署範本](azure-stack-deploy-template-powershell.md)
+若要深入了解部署範本，請參閱：
+
+[使用 PowerShell 部署範本](azure-stack-deploy-template-powershell.md)

@@ -1,25 +1,25 @@
 ---
-title: 調整大小和裁剪 Bing 縮圖 | Microsoft Docs
-description: 顯示如何調整大小和裁剪 Bing 回應中包含的縮圖。
+title: 調整大小和裁剪 Bing 縮圖 - Bing 影像搜尋 API
+description: 了解如何裁剪和調整 Bing 影像搜尋 API 回應內的縮圖大小。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: F4FFAE91-A003-4F7C-8E60-83A142485E28
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 98c4caa50ca5e861f4276e26983ef501d17bd349
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42093869"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296222"
 ---
 # <a name="resizing-and-cropping-thumbnail-images"></a>調整大小和裁剪縮圖影像
 
-在處理搜尋查詢時，Bing 會在其[回應](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format)中產生所有影像的縮圖資訊。 此資訊可用來顯示所有或部分傳回的縮圖。 如果您顯示部分縮圖，請提供用來檢視其餘影像的選項。 
+在處理搜尋查詢時，Bing 會在其[回應](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format)中產生所有影像的縮圖資訊。 此資訊可用來顯示所有或部分傳回的縮圖。 如果您顯示部分縮圖，請提供用來檢視其餘影像的選項。
 
 
 <!-- Removing image until we can replace it with a sanatized version.
@@ -38,8 +38,8 @@ ms.locfileid: "42093869"
 
 ## <a name="resizing-and-cropping-thumbnails"></a>調整大小和裁剪縮圖
 
-您也可以調整大小並展開縮圖，例如當使用者的游標停留在縮圖上方時。 
+您也可以調整大小並展開縮圖，例如當使用者的游標停留在縮圖上方時。
 > [!NOTE]
-> 如果要展開影像，請務必標註影像的屬性。 例如，藉由從 [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) 擷取主機，並將它顯示在影像下方。 
+> 如果要展開影像，請務必標註影像的屬性。 例如，藉由從 [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) 擷取主機，並將它顯示在影像下方。
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

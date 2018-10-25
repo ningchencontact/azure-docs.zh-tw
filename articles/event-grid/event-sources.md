@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144224"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498295"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 
@@ -58,7 +58,7 @@ ms.locfileid: "43144224"
 | [PowerShell：訂閱自訂主題的事件](./scripts/event-grid-powershell-subscribe-custom-topic.md)|建立自訂主題訂用帳戶的範例指令碼。 它會將事件傳送到 WebHook。|
 | [Resource Manager 範本：自訂主題和 WebHook 端點](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | 建立自訂主題和該自訂主題訂用帳戶的 Resource Manager 範本。 它會將事件傳送到 WebHook。 |
 |
-| [Resource Manager 範本：自訂主題和事件中樞端點](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeCustomTopicToEventHub.json)| 建立自訂主題訂用帳戶的 Resource Manager 範本。 它會將事件傳送到 Azure 事件中樞。 |
+| [Resource Manager 範本：自訂主題和事件中樞端點](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| 建立自訂主題訂用帳戶的 Resource Manager 範本。 它會將事件傳送到 Azure 事件中樞。 |
 | [事件結構描述](event-schema.md) | 顯示自訂事件中的欄位。 |
 
 ## <a name="event-hubs"></a>事件中樞
@@ -104,7 +104,7 @@ ms.locfileid: "43144224"
 | [Azure CLI：訂閱資源群組的事件和篩選資源](./scripts/event-grid-cli-resource-group-filter.md) | 訂閱資源群組事件以及為資源篩選事件的範例指令碼。 |
 | [PowerShell：訂閱資源群組的事件](./scripts/event-grid-powershell-resource-group.md) | 訂閱資源群組事件的範例指令碼。 它會將事件傳送到 WebHook。 |
 | [PowerShell：訂閱資源群組的事件和篩選資源](./scripts/event-grid-powershell-resource-group-filter.md) | 訂閱資源群組事件以及為資源篩選事件的範例指令碼。 |
-| [Resource Manager 範本：資源群組訂用帳戶](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeResourceGroupToWebHook.json) | 訂閱資源群組的事件。 它會將事件傳送到 WebHook。 |
+| [Resource Manager 範本：資源訂用帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | 訂閱 Azure 訂用帳戶或資源群組的事件。 它會將事件傳送到 WebHook。 |
 | [事件結構描述](event-schema-resource-groups.md) | 顯示資源群組事件中的欄位。 |
 
 ## <a name="service-bus"></a>服務匯流排
@@ -128,7 +128,7 @@ ms.locfileid: "43144224"
 | [快速入門：使用 Azure 入口網站建立和路由傳送 Blob 儲存體事件](blob-event-quickstart-portal.md) | 示範如何使用入口網站將 Blob 儲存體事件傳送至 WebHook。 |
 | [Azure CLI：訂閱 Blob 儲存體帳戶的事件](./scripts/event-grid-cli-blob.md) | 訂閱 Blob 儲存體帳戶事件的範例指令碼。 它會將事件傳送至 WebHook。 |
 | [PowerShell：訂閱 Blob 儲存體帳戶的事件](./scripts/event-grid-powershell-blob.md) | 訂閱 Blob 儲存體帳戶事件的範例指令碼。 它會將事件傳送至 WebHook。 |
-| [Resource Manager 範本：建立 Blob 儲存體和訂用帳戶](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/createBlobAndSubscribe.json) | 部署 Azure Blob 儲存體帳戶及訂閱該儲存體帳戶的事件。 它會將事件傳送到 WebHook。 |
+| [Resource Manager 範本：建立 Blob 儲存體和訂用帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | 部署 Azure Blob 儲存體帳戶及訂閱該儲存體帳戶的事件。 它會將事件傳送到 WebHook。 |
 | [概觀：回應 Blob 儲存體事件](../storage/blobs/storage-blob-event-overview.md) | 整合 Blob 儲存體與事件方格的概觀。 |
 | [事件結構描述](event-schema-blob-storage.md) | 顯示 Blob 儲存體事件中的欄位。 |
 

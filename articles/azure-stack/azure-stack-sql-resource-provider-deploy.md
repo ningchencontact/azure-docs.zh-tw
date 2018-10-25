@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: d063e4b79819a881dbf018979654d4d7d96b904a
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.reviewer: quying
+ms.openlocfilehash: fbdf12af5c14b65f69734c601916fad2b3d825ef
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390922"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361869"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 資源提供者
 
@@ -83,7 +83,7 @@ _僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI �
 | **AzCredential** | Azure Stack 服務管理帳戶的認證。 使用與部署 Azure Stack 時所用認證相同的認證。 | _必要_ |
 | **VMLocalCredential** | SQL 資源提供者 VM 之本機系統管理員帳戶的認證。 | _必要_ |
 | **PrivilegedEndpoint** | 具特殊權限端點的 IP 位址或 DNS 名稱。 |  _必要_ |
-| **AzureEnvironment** | 您用來部署 Azure Stack 的服務管理員帳戶所屬的 Azure 環境。 只有在不是 ADFS 時才需要。 支援的環境名稱為 **AzureCloud**、**AzureUSGovernment**，或如果使用中國 Azure Active Directory，則為 **AzureChinaCloud**。 | AzureCloud |
+| **AzureEnvironment** | 您用來部署 Azure Stack 的服務管理員帳戶所屬的 Azure 環境。 只有部署 Azure AD 時才需要。 支援的環境名稱為 **AzureCloud**、**AzureUSGovernment**，或如果使用中國 Azure Active Directory，則為 **AzureChinaCloud**。 | AzureCloud |
 | **DependencyFilesLocalPath** | 您的憑證 .pfx 檔案必須放在這個目錄中 (僅適用於整合式系統)。 您可以在這裡選擇性地複製一個 Windows Update MSU 套件。 | _選擇性_ (對於整合式系統為_必要_) |
 | **DefaultSSLCertificatePassword** | .pfx 憑證的密碼。 | _必要_ |
 | **MaxRetryCount** | 當作業失敗時，您想要重試每個作業的次數。| 2 |
@@ -93,9 +93,9 @@ _僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI �
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>使用自訂指令碼部署 SQL 資源提供者
 
-<a name="to-eliminate-any-manual-configuration-when-deploying-the-resource-provider-you-can-customize-the-following-script"></a>若要在部署資源提供者時免除任何手動設定，您可以自訂下列指令碼。  
--  
-- 請視需要針對您的 Azure Stack 部署，變更預設帳戶資訊和密碼。
+若要在部署資源提供者時免除任何手動設定，您可以自訂下列指令碼。  
+
+請視需要針對您的 Azure Stack 部署，變更預設帳戶資訊和密碼。
 
 
 ```powershell
@@ -109,6 +109,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -135,6 +138,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
+    -AzureEnvironment $AzureEnvironment `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert
 

@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 5e99e7e376a020f845816fb38e31dd727d87a4cb
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423420"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113915"
 ---
 # <a name="creating-custom-voice-fonts"></a>建立客製化聲音音調
 
@@ -22,12 +22,9 @@ Microsoft 文字轉換語音 (TTS) 的語音自訂功能可讓您建立足以辨
 
 您可以從少量的資料開始進行概念證明。 但提供的資料愈多，您的語音聽起來會愈自然且專業。
 
-
 ## <a name="prerequisites"></a>必要條件
 
-**文字轉換語音**的語音自訂功能目前處於個人預覽版狀態。 若要取得存取權，請[填寫申請表單](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u)。
-
-您也需要 Azure 帳戶和語音服務的訂用帳戶。 若您還沒有此帳戶，請[建立一個](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)。 將您的訂用帳戶連線到自訂語音入口網站，如下所示：
+您需要 Azure 帳戶和語音服務的訂用帳戶。 若您還沒有此帳戶，請[建立一個](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)。 將您的訂用帳戶連線到自訂語音入口網站，如此處所示。
 
 1. 使用您用來申請存取權的相同 Microsoft 帳戶登入[自訂語音入口網站](https://customvoice.ai)。
 
@@ -37,7 +34,6 @@ Microsoft 文字轉換語音 (TTS) 的語音自訂功能可讓您建立足以辨
 
 3. 在 [訂用帳戶] 頁面上，選擇 [連線到現有的訂用帳戶]。 請注意，語音服務支援不同的區域。 請確認您的訂用帳戶金鑰建立所在的區域，並確定您將金鑰連線到正確的子入口網站。  
 
-     
 4. 將您的訂用帳戶金鑰貼到資料表中，如下列範例所示。 每個訂用帳戶都有兩個金鑰，而且您可以使用任一個。
 
      ![新增訂用帳戶](media/custom-voice/add-subscription.png)
@@ -56,7 +52,7 @@ Microsoft 文字轉換語音 (TTS) 的語音自訂功能可讓您建立足以辨
 
 ### <a name="audio-files"></a>音訊檔案
 
-每個音訊檔案應包含單一語句 (例如單一句子或對話系統的單一回合)。 所有檔案必須採用相同的語言。 (不支援多語言自訂語音)。每個音訊檔案也必須建立唯一的數值檔案名稱，副檔名為 `.wav`。
+每個音訊檔案應包含單一語句 (例如單一句子或對話系統的單一回合)。 所有檔案必須採用相同的語言。 (不支援多語言的自訂語音。)每個音訊檔案也必須擁有唯一的數值檔案名稱，副檔名為 `.wav`。
 
 音訊檔案應準備如下。 其他格式未受支援且會遭到拒絕。
 

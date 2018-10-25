@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 6120ef39c4eb91c4b595f6b97a0eb4b96621b6f2
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8ac6bc3ee042fee9757577dfa0e7ddab0f261645
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42145570"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498312"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 應用程式常見問題集
 
@@ -44,7 +44,7 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 |為什麼 Microsoft Authenticator 應用程式可讓您不需解除鎖定裝置就能核准要求？|您不需解除鎖定裝置來核准驗證要求，因為您只需要證明您帶著您的電話。 雙步驟驗證需要證明兩件事 - 一件是您知道的，另一件則是您擁有的。 您知道的就是密碼。 您擁有的則是您的電話 (使用 Microsoft Authenticator 應用程式設定，並註冊為 MFA 證明)。因此，擁有電話及核准要求符合用於驗證第二要素的準則。|
 |為什麼當我在 Apple Watch 上開啟 Microsoft Authenticator 應用程式時，不會顯示我的所有帳戶？|Microsoft Authenticator 應用程式只支援使用 Microsoft 個人或是學校或公司帳戶搭配 Apple Watch 附屬應用程式上的推播通知。 針對您的其他帳戶 (例如 Google 或 Facebook)，您必須在手機上開啟驗證器應用程式來檢視您的驗證碼。|
 |為什麼無法在我的 Apple Watch 上核准或拒絕通知？|首先，確定您已在 iPhone 上升級到 Microsoft Authenticator 應用程式 6.0.0 版或更新版本。 在那之後，在您的 Apple Watch 上開啟 Microsoft Authenticator 隨附應用程式，然後使用位於任何帳戶下方的 [設定] 按鈕來尋找它們。 您必須完成該設定程序，才能核准那些帳戶的通知。|
-|為什麼我會收到錯誤：**在 Apple Watch 上使用 Microsoft Authenticator 隨附應用程式時無法與手機通訊**？|如果您的手機無法與手錶通訊時，您可以嘗試下列動作：<ol><li>在 iPhone 上強制結束 Microsoft Authenticator 手機應用程式並再次開啟。</li><li>在 Apple Watch 上強制結束隨附應用程式。<ol><li> 在 Watch 上開啟 Microsoft Authenticator 隨附應用程式</li><li>按住側邊按鈕，直到 [關機] 畫面出現為止。</li><li>放開側邊按鈕，然後按住 Digital Crown 以強制結束作用中的應用程式。</li></ol></li><li>針對您的手機和 Watch 關閉藍芽和 Wi-Fi，然後重新開啟它們。</li><li>重新啟動您的 iPhone 和 Watch。</li></ol>|
+|我的 Apple Watch 跟手機之間出現通訊錯誤。 我能做什麼來進行疑難排解？|若在您的 Watch 跟手機完成通訊之前，畫面先進入睡眠，會出現此項錯誤。<br><br><b>如果在設定期間發生這個情況：</b><br>試著重新設定，確保在過程完成之前，您的 Watch 都沒有進入睡眠。 同時請開啟您手機上的 APP，在出現任何提示時進行回應。<br><br>若您的手機和 Watch 之間仍然無法通訊，您可以嘗試下列動作：<ol><li>在 iPhone 上強制結束 Microsoft Authenticator 手機應用程式並再次開啟。</li><li>在 Apple Watch 上強制結束隨附應用程式。<ol><li> 在 Watch 上開啟 Microsoft Authenticator 隨附應用程式</li><li>按住側邊按鈕，直到 [關機] 畫面出現為止。</li><li>放開側邊按鈕，然後按住 Digital Crown 以強制結束作用中的應用程式。</li></ol></li><li>針對您的手機和 Watch 關閉藍芽和 Wi-Fi，然後重新開啟它們。</li><li>重新啟動您的 iPhone 和 Watch。</li></ol><b>若是在試著確認通知時發生這種情況：</b><br>下次您在 Apple Watch 上確認通知時，確保畫面不要進入睡眠，直到完成要求且聽見提示確認成功之音效。|
 |為什麼適用於 Apple Watch 的 Microsoft Authenticator 隨附應用程式不會在我的 Watch 上進行同步處理或顯示呢？|如果應用程式未出現在您的 Watch 上，請嘗試下列動作： <ol><li>確定您的 Watch 正在執行 watchOS 4.0 或更新版本。</li><li>再次同步處理您的 Watch。</li></ol>|
 |我的 Apple Watch 附屬應用程式當機。 可以將我的當機記錄傳送給您，讓您可以進行調查嗎？ |首先，必須確定您已選擇要與我們共用您的分析。 如果您是 TestFlight 使用者，則您已經註冊。 否則，您可以移至 [設定] > [隱私權] > [分析]，然後同時選取 [共用 iPhone 與 Watch 分析] 和 [與應用程式開發人員共用] 選項。<br><br>註冊之後，您可以嘗試重現當機狀況，如此一來，您的當機記錄就會自動傳送給我們以利調查。 不過，如果您無法重現當機狀況，您可以手動複製記錄檔並將它們傳送給我們。<ol><li>在手機上開啟 Watch 應用程式、移至 [設定] > [一般]，然後按一下 [複製 Watch 分析]。</li><li>在 [設定] > [隱私權] > [分析] > [分析資料] 下方尋找對應的當機，然後手動複製整個文字。</li><li>在手機上開啟 Microsoft Authenticator 應用程式，將複製的文字貼到 [傳送記錄] 頁面上的 [與應用程式開發人員共用] 文字方塊中。</li></ol>|
 

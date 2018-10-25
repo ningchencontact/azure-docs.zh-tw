@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: dfe584532efeab1dbc0d2928b7afb0a6695a21ee
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f059c57396610a10f9e35a6dad8408c6be1d89cb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39184940"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604296"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>遠端監視解決方案加速器概觀
 
@@ -42,9 +42,15 @@ ms.locfileid: "39184940"
 
 解決方案在邏輯架構的裝置連線部分中包含下列元件：
 
-### <a name="simulated-devices"></a>模擬的裝置
+### <a name="physical-devices"></a>實體裝置
 
-解決方案所包含的微服務可讓您管理模擬裝置的集區，從而測試解決方案中的端對端流程。 模擬的裝置：
+您可以將實體裝置連線至解決方案。 您可以使用 Azure IoT 裝置 SDK 來實作模擬裝置的行為。
+
+您可以在解決方案入口網站的儀表板佈建實體裝置。
+
+### <a name="device-simulation-microservice"></a>裝置模擬微服務
+
+解決方案所包含的[裝置模擬微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation)可讓您從解決方案入口網站管理模擬裝置的集區，從而測試解決方案中的端對端流程。 模擬的裝置：
 
 * 產生裝置到雲端的遙測。
 * 回應來自 IoT 中樞的雲端到裝置方法呼叫。
@@ -53,24 +59,24 @@ ms.locfileid: "39184940"
 
 您可以在解決方案入口網站的儀表板佈建模擬的裝置。
 
-### <a name="physical-devices"></a>實體裝置
+### <a name="iot-hub"></a>IoT 中樞
 
-您可以將實體裝置連線至解決方案。 您可以使用 Azure IoT 裝置 SDK 來實作模擬裝置的行為。
-
-您可以在解決方案入口網站的儀表板佈建實體裝置。
-
-### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT 中樞與 IoT 管理員微服務
-
-[IoT 中樞](../iot-hub/index.yml)會內嵌從裝置傳送至雲端的資料，並提供給 `telemetry-agent` 微服務。
+[IoT 中樞](../iot-hub/index.yml)會內嵌從實體和模擬裝置傳送至雲端的遙測資料。 IoT 中樞會向 IoT 解決方案後端中的服務提供遙測資料進行處理。
 
 解決方案中的 IoT 中樞也可︰
 
-* 維護身分識別登錄，以儲存允許連線至入口網站之所有裝置的驗證金鑰。 您可以透過身分識別登錄來啟用和停用裝置。
-* 代表解決方案入口網站在裝置上叫用方法。
+* 維護身分識別登錄，以儲存允許連線至入口網站之所有裝置的驗證金鑰。
+* 代表解決方案加速器在您的裝置上叫用方法。
 * 維護所有已註冊裝置的裝置對應項。 裝置對應項會儲存裝置所報告的屬性值。 裝置對應項也會儲存在解決方案入口網站中設定的所需屬性，以便裝置在後續連接時擷取。
 * 排程作業以設定多個裝置的屬性，或在多個裝置上叫用方法。
 
-解決方案所包含的 `iot-manager` 微服務可處理與 IoT 中樞的互動，例如：
+## <a name="data-processing-and-analytics"></a>資料處理和分析
+
+解決方案在邏輯架構的資料處理和分析部分中包含下列元件：
+
+### <a name="iot-hub-manager-microservice"></a>IoT 中樞管理員微服務
+
+解決方案所包含的 [IoT 中樞管理員微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager)可處理與 IoT 中樞的互動，例如：
 
 * 建立及管理 IoT 裝置。
 * 管理裝置對應項。
@@ -81,36 +87,54 @@ ms.locfileid: "39184940"
 
 微服務會提供 RESTful 端點來管理裝置和裝置對應項、叫用方法，以及執行 IoT 中樞查詢。
 
-## <a name="data-processing-and-analytics"></a>資料處理和分析
+### <a name="device-telemetry-microservice"></a>裝置遙測微服務
 
-解決方案在邏輯架構的資料處理和分析部分中包含下列元件：
+對於 Time Series Insights 中儲存的裝置遙測資料，[裝置遙測微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry)提供 RESTful 端點以供讀取之用。 對於來自儲存體的警示定義，RESTful 端點也可啟用規則和讀取/寫入存取的 CRUD 作業。
 
-### <a name="device-telemetry"></a>裝置遙測
+### <a name="storage-adapter-microservice"></a>儲存體配接器微服務
 
-解決方案包含兩個微服務可處理裝置遙測。
+[儲存體配接器的微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/storage-adapter)管理機碼值組，以擷取儲存體服務語意，並提供使用 Azure Cosmos DB 儲存任何格式的資料所用的簡單介面。
 
-[telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) 微服務：
+值是排列在集合中。 您可以使用個別的值，也可以擷取整個集合。 複雜資料結構是由用戶端序列化，並以簡單的文字承載進行管理。
 
-* 儲存 Azure Cosmos DB 中的遙測。
-* 分析來自裝置的遙測串流。
-* 會根據定義的規則產生警示。
+此服務會提供 RESTful 端點，以便進行機碼值組的 CRUD 作業。 值
 
-警示會儲存在 Azure Cosmos DB 中。
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-[telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) 微服務可讓解決方案入口網站讀取裝置所傳送的遙測。 解決方案入口網站也會使用此服務來：
+解決方案加速器部署使用 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) 儲存規則、警示、組態設定，以及其他所有非經常性儲存體。
 
-* 定義監視規則，例如可觸發警示的臨界值
-* 擷取過去警示的清單。
+### <a name="azure-stream-analytics-manager-microservice"></a>Azure 串流分析管理員微服務
 
-您可以使用這個微服務所提供的 RESTful 端點來管理遙測、規則和警示。
+[Azure 串流分析管理員微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager)可管理 Azure 串流分析 (ASA) 作業，包括設定作業的組態、啟動和停止作業，以及監視作業的狀態。
 
-### <a name="storage"></a>儲存體
+ASA 作業是由兩個參考資料集支援。 一個資料集會定義規則，另一個會定義裝置群組。 規則參考資料是從裝置遙測微服務所管理的資訊產生。 Azure 串流分析管理員微服務會將遙測資料的規則轉換成串流處理邏輯。
 
-[storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) \(英文\) 微服務是主要儲存體服務前面的配接器，可用於解決方案加速器。 它提供簡單的集合和機碼值儲存體。
+裝置群組的參考資料可用來識別要套用於內送遙測訊息的規則群組。 裝置群組是由設定微服務所管理，並使用 Azure IoT 中樞裝置對應項查詢。
 
-解決方案加速器的標準部署會使用 Azure Cosmos DB 作為其主要的儲存體服務。
+ASA 作業從連線裝置將遙測資料傳送到 Time Series Insights 進行儲存和分析。
 
-Azure Cosmos DB 資料庫會將資料儲存於解決方案加速器中。 **storage-adapter** 微服務在解決方案中是作為其他微服務的配接器，以存取儲存體服務。
+### <a name="azure-stream-analytics"></a>Azure 串流分析
+
+[Azure 串流分析](https://docs.microsoft.com/azure/stream-analytics/)是事件處理引擎，可讓您檢查來自裝置的大量資料流。
+
+### <a name="azure-time-series-insights"></a>Azure Time Series Insights
+
+[Azure 時間序列深入解析](https://docs.microsoft.com/azure/time-series-insights/)會儲存連接到解決方案加速器的裝置之中的遙測資料。 它也可透過解決方案 Web UI 以視覺效果呈現和查詢裝置遙測資料。
+
+> [!NOTE]
+> Azure China 雲端目前不提供時間序列見解。 Azure China 雲端中新的遠端監視解決方案加速器部署，將 Cosmos DB 用於所有儲存體。
+
+### <a name="configuration-microservice"></a>設定微服務
+
+對於解決方案加速器中的裝置群組、解決方案設定和使用者設定進行的 CRUD 作業，[組態的微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)會提供 RESTful 端點。 它會使用儲存體配接器微服務保存組態資料。
+
+### <a name="authentication-and-authorization-microservice"></a>驗證和授權微服務
+
+[驗證和授權微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth)可管理獲授權可存取解決方案加速器的使用者。 可以使用支援 [OpenId Connect](http://openid.net/connect/) 的任何識別服務提供者進行使用者管理。
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+解決方案加速器部署使用 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) 作為 OpenID Connect 提供者。 Azure Active Directory 會儲存使用者資訊，並提供憑證來驗證 JWT 權杖簽章。
 
 ## <a name="presentation"></a>展示
 
@@ -122,18 +146,20 @@ Azure Cosmos DB 資料庫會將資料儲存於解決方案加速器中。 **stor
 * CSS 樣式。
 * 會透過 AJAX 呼叫與公眾對應的微服務互動。
 
-使用者介面會呈現所有解決方案加速器功能，並與其他服務互動，例如：
+使用者介面會呈現所有解決方案加速器功能，並與其他微服務互動，例如：
 
-* [authentication](https://github.com/Azure/pcs-auth-dotnet) 微服務可保護使用者資料。
-* [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) 微服務可列出並管理 IoT 裝置。
+* 保護使用者資料的驗證和授權微服務。
+* 列出和管理 IoT 裝置的 IoT 中樞管理員微服務。
 
-[ui-config](https://github.com/Azure/pcs-config-dotnet) 微服務可讓使用者介面儲存及擷取組態集。
+使用者介面整合 Azure 時間序列深入解析總管來啟用裝置遙測資料的查詢和分析。
+
+設定微服務可讓使用者介面儲存及擷取組態集。
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您需要探索來源程式碼和開發人員文件，請開始使用兩個主要的 GitHub 存放庫其中之一：
+如果您需要探索來源程式碼和開發人員文件，請開始使用兩個 GitHub 存放庫的其中一個：
 
-* [使用 Azure IoT 的遠端監視解決方案加速器 (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/) \(英文\)。
+* [使用 Azure IoT 的遠端監視解決方案加速器 (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) \(英文\)。
 * [使用 Azure IoT 的遠端監視解決方案加速器 (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) \(英文\)。
 
 詳細的方案架構圖表：

@@ -1,43 +1,33 @@
 ---
 title: 偵錯本機 Docker 容器中的應用程式 | Microsoft Docs
 description: 了解如何透過「編輯和重新整理」來修改在本機 Docker 容器中執行的應用程式、重新整理容器，以及設定偵錯中斷點
-services: azure-container-service
-documentationcenter: na
+services: container-service
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
 ms.service: multiple
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/22/2016
-ms.author: mlearned
-ms.openlocfilehash: 01741ba25ac3a6ab187a08636b7e26ee58dbee90
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.date: 09/11/2018
+ms.author: ghogen
+ms.openlocfilehash: 0f3f323cb4486c06f6f18de4c695efaf8dce4d99
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038065"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715715"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>偵錯本機 Docker 容器中的應用程式
 ## <a name="overview"></a>概觀
-Visual Studio 2017 可讓您以一致的方式在 Linux Docker 容器中進行開發，並在本機驗證應用程式。
+Visual Studio 2017 可讓您以一致的方式在 Docker 容器中進行開發，並在本機驗證應用程式。
 您不需要每次變更程式碼之後都重新啟動容器。
 本文章說明如何使用「編輯及重新整理」功能在本機 Docker 容器中啟動 ASP.NET Core Web 應用程式、進行任何必要的變更，然後重新整理瀏覽器來查看這些變更。
 本文章也會示範如何設定中斷點來進行偵錯。
 
-> [!NOTE]
-> 未來版本將支援 Windows 容器
->
->
-
 ## <a name="prerequisites"></a>必要條件
 您的電腦必須安裝下列工具。
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
+* 已安裝網頁程式開發工作負載的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 
 若要在本機執行 Docker 容器，您需要本機 Docker 用戶端。
 您可以使用需要停用 Hyper-V 的 [Docker 工具箱](https://www.docker.com/products/docker-toolbox)，或是使用利用 Hyper-V 並需要 Windows 10 的 [Docker for Windows](https://www.docker.com/get-docker)。
@@ -47,10 +37,7 @@ Visual Studio 2017 可讓您以一致的方式在 Linux Docker 容器中進行�
 ## <a name="1-create-a-web-app"></a>1.建立 Web 應用程式
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-add-docker-support"></a>2.新增 Docker 支援
-[!INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
-
-## <a name="3-edit-your-code-and-refresh"></a>3.編輯您的程式碼並重新整理
+## <a name="2-edit-your-code-and-refresh"></a>2.編輯您的程式碼並重新整理
 若要快速反覆查看變更，您可以啟動容器內的應用程式，並繼續進行變更，而檢視變更的方式與使用 IIS Express 相同。
 
 1. 將 [方案組態] 設定為 `Debug`，然後按 **&lt;CTRL + F5>** 來建置 Docker 映像，然後在本機執行此映像。
@@ -70,19 +57,20 @@ Visual Studio 2017 可讓您以一致的方式在 Linux Docker 容器中進行�
    Now listening on: http://*:80
    Application started. Press Ctrl+C to shut down
    ```
+
 6. 您的變更已經套用！
 
-## <a name="4-debug-with-breakpoints"></a>4.使用中斷點進行偵錯
+## <a name="3-debug-with-breakpoints"></a>3.使用中斷點進行偵錯
 通常，需要運用 Visual Studio 的偵錯功能進一步檢查變更。
 
-1. 返回 Visual Studio，然後開啟 `Controllers\HomeController.cs`
-2. 將 About() 方法的內容取代為下列內容：
+1. 返回 Visual Studio，然後開啟 `About.cshtml.cs`
+2. 將 OnGet() 方法的內容取代為下列內容：
 
+   ```cs
+       Message = "Your application description page from within a Container";
    ```
-   string message = "Your application description page from within a Container";
-   ViewData["Message"] = message;
-   ````
-3. 在 `string message`... 行的左側設定中斷點。
+
+3. 在程式碼行的左側設定中斷點。
 4. 按 **&lt;F5>** 開始偵錯。
 5. 瀏覽至 [關於] 頁面，來叫用中斷點。
 6. 切換至 Visual Studio 來檢視中斷點，然後檢查訊息的值。
@@ -96,11 +84,11 @@ Visual Studio 2017 可讓您以一致的方式在 Linux Docker 容器中進行�
 [疑難排解 Visual Studio Docker 開發](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>進一步了解 Docker 與 Visual Studio、Windows 和 Azure
-* [Docker Tools for Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) - 建置和部署 Docker 容器
+* [使用 Visual Studio 的容器開發](/visualstudio/containers) - 容器開發中樞頁面
+* [Azure Pipelines 的 Docker 整合](http://aka.ms/dockertoolsforvsts) - 建置和部署 Docker 容器
 * [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) - 用於編輯 Docker 檔案的語言服務，將推出更多其他 e2e 案例
 * [Windows 容器資訊](http://aka.ms/containers)- Windows Server 和 Nano Server 資訊
-* [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service 內容](http://aka.ms/AzureContainerService)
-* 如需更多使用 Docker 的範例，請參閱 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 連線[示範](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)的[使用 Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker)。 如需來自 HealthClinic.biz 示範的更多快速入門，請參閱 [Azure 開發人員工具快速入門](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)。
+* [Azure Kubernetes 服務](https://azure.microsoft.com/services/kubernetes-service/) - [Azure Kubernetes 服務文件](/azure/aks)
 
 ## <a name="various-docker-tools"></a>各種 Docker 工具
 [一些不錯的 Docker 工具 (Steve Lasker 的部落格)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
