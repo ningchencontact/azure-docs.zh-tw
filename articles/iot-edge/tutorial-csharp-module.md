@@ -141,7 +141,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
     ```csharp
     // Register a callback for messages that are received by the module.
-    // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+    // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
     // Read the TemperatureThreshold value from the module twin's desired properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
