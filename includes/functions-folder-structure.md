@@ -4,37 +4,42 @@ description: 包含檔案
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
-ms.date: 08/12/2018
+ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3cbe634d862682a5f6b06c2cfc77a4d3b03954f9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 2808264b4641bda49a53677ebe216a3b53b7d0d9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42809657"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293764"
 ---
-特定函式應用程式中所有函式的程式碼，都位於包含主機設定檔和一或多個子資料夾的根資料夾 (`wwwroot`) 中。 每個子資料夾都包含個別函式的程式碼，如以下範例所示：
+特定函式應用程式中所有函式的程式碼，都位於包含主機設定檔和一或多個子資料夾的根專案資料夾中。 每個子資料夾都包含個別函式的程式碼，如以下表示：
 
 ```
-wwwroot
+FunctionApp
  | - host.json
- | - mynodefunction
+ | - Myfirstfunction
  | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
+ | | - ...  
+ | - mysecondfunction
  | | - function.json
- | | - run.csx
+ | | - ...  
+ | - SharedCode
  | - bin
- | | - mycompiledcsharp.dll
 ```
 
-host.json 檔案包含一些執行階段特定的組態，並位在函數應用程式的根資料夾中。 如需可用設定的相關資訊，請參閱 [host.json 參考](../articles/azure-functions/functions-host-json.md)。
+在 2.x 版的 Functions 執行階段中，函式應用程式中所有的應用程式必須共用相同的語言工作者處理序。  
 
-每個函數都會有一個資料夾，其中包含一或多個程式碼檔案、function.json 組態及其他相依性。 針對 C# 類別庫專案，已編譯的類別庫 (.dll) 檔案會部署到 `bin` 子資料夾。
+[host.json](../articles/azure-functions/functions-host-json.md) 檔案包含一些執行階段特定的組態，並在函數應用程式的根資料夾中。 `bin` 資料夾包含函式應用程式需要的封裝和其他程式庫檔。 請參閱函式應用程式專案以了解特定語言的需求：
+
+* [C# 類別庫 (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+* [C# 指令碼 (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+* [F# 指令碼](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+* [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+
+
 

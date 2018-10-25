@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 12/15/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f0de2f8700bef83b5a8a9303e90c97aab29722a3
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: b81c66acc0a90ba9b74cf1f4fb34ef7a545837f9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141021"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736601"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 報告延遲
 
@@ -39,15 +39,10 @@ ms.locfileid: "42141021"
 
 下表列出活動報告的延遲資訊。
 
-| 報告 | 延遲 (P95) |延遲 (P99)|
+| 報告 | 延遲 (95%) |延遲 (99%)|
 | :-- | --- | --- | 
 | 稽核記錄 | 2 分鐘  | 5 分鐘  |
 | 登入 | 2 分鐘  | 5 分鐘 |
-
-
-
-
-
 
 
 ## <a name="security-reports"></a>安全性報告

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
-ms.openlocfilehash: 864af9cae35912d95f2c0bf0b574a5ca2404a608
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 903f8284327d3d5b9ef386305a436ce44a8a11b2
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190636"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378097"
 ---
 # <a name="use-ip-filters"></a>使用 IP 篩選器
 
@@ -22,8 +22,9 @@ ms.locfileid: "43190636"
 
 有兩個特定使用案例適合封鎖特定 IP 位址的 IoT 中樞端點︰
 
-- 您的 IoT 中樞只應接收來自指定 IP 位址範圍的流量，並拒絕其他所有流量。 例如，您搭配 [Azure Express Route] 使用 IoT 中樞來建立 IoT 中樞與內部部署基礎結構之間的私人連線。
-- 您需要拒絕 IoT 中樞系統管理員認為可疑的 IP 位址所傳來的流量。
+* 您的 IoT 中樞只應接收來自指定 IP 位址範圍的流量，並拒絕其他所有流量。 例如，您搭配 [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) 使用 IoT 中樞來建立 IoT 中樞與內部部署基礎結構之間的私人連線。
+
+* 您需要拒絕 IoT 中樞系統管理員認為可疑的 IP 位址所傳來的流量。
 
 ## <a name="how-filter-rules-are-applied"></a>篩選器規則的套用方式
 
@@ -33,23 +34,25 @@ IP 篩選器規則會套用在 IoT 中樞服務層級。 因此，IP 篩選器�
 
 ## <a name="default-setting"></a>預設設定
 
-根據預設，IoT 中樞之入口網站中的 **IP 篩選器**方格是空的。 這項預設設定表示您的中樞可接受來自任何 IP 位址的連線。 這項預設設定等同於可接受 0.0.0.0/0 IP 位址範圍的規則。
+根據預設，IoT 中樞之入口網站中的 **IP 篩選器**方格是空的。 這個預設設定表示您的中樞會接受來自任何 IP 位址的連線。 這項預設設定等同於可接受 0.0.0.0/0 IP 位址範圍的規則。
 
-![IoT 中樞預設 IP 篩選器設定][img-ip-filter-default]
+![IoT 中樞預設 IP 篩選器設定](./media/iot-hub-ip-filtering/ip-filter-default.png)
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>新增或編輯 IP 篩選器規則
 
 當您新增 IP 篩選器規則時，系統會提示您輸入下列值︰
 
-- [IP 篩選器規則名稱] 必須是唯一、不區分大小寫的英數字元字串，最長可為 128 個字元。 所能接受的字元只有 ASCII 7 位元英數字元以及 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
-- 選取 [拒絕] 或 [接受] 做為 IP 篩選器規則的 [動作]。
-- 提供單一 IPv4 位址或以 CIDR 標記法表示的 IP 位址區塊。 例如，在 CIDR 表示法中，192.168.100.0/22 表示從 192.168.100.0 到 192.168.103.255 的 1024 個 IPv4 位址。
+* [IP 篩選器規則名稱] 必須是唯一、不區分大小寫的英數字元字串，最長可為 128 個字元。 所能接受的字元只有 ASCII 7 位元英數字元以及 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
 
-![新增 IP 篩選器規則到 IoT 中樞][img-ip-filter-add-rule]
+* 選取 [拒絕] 或 [接受] 做為 IP 篩選器規則的 [動作]。
+
+* 提供單一 IPv4 位址或以 CIDR 標記法表示的 IP 位址區塊。 例如，在 CIDR 表示法中，192.168.100.0/22 表示從 192.168.100.0 到 192.168.103.255 的 1024 個 IPv4 位址。
+
+![新增 IP 篩選器規則到 IoT 中樞](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
 
 儲存規則之後，您會看到通知您正在進行更新的警示。
 
-![有關儲存 IP 篩選器規則的通知][img-ip-filter-save-new-rule]
+![有關儲存 IP 篩選器規則的通知](./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png)
 
 當您達到 10 個 IP 篩選器規則的上限後，[新增] 選項便會停用。
 
@@ -65,7 +68,7 @@ IP 篩選器規則會套用在 IoT 中樞服務層級。 因此，IP 篩選器�
 
 若要刪除 IP 篩選器規則，請選取方格中的一個或多個規則，然後按一下 [刪除]。
 
-![刪除 IoT 中樞 IP 篩選器規則][img-ip-filter-delete-rule]
+![刪除 IoT 中樞 IP 篩選器規則](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 篩選器規則評估
 
@@ -77,27 +80,11 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 
 若要儲存新的 IP 篩選器規則順序，請按一下 [儲存]。
 
-![變更 IoT 中樞 IP 篩選器規則的順序][img-ip-filter-rule-order]
+![變更 IoT 中樞 IP 篩選器規則的順序](./media/iot-hub-ip-filtering/ip-filter-rule-order.png)
 
 ## <a name="next-steps"></a>後續步驟
 
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
-- [作業監視][lnk-monitor]
-- [IoT 中樞度量][lnk-metrics]
-
-<!-- Images -->
-[img-ip-filter-default]: ./media/iot-hub-ip-filtering/ip-filter-default.png
-[img-ip-filter-add-rule]: ./media/iot-hub-ip-filtering/ip-filter-add-rule.png
-[img-ip-filter-save-new-rule]: ./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png
-[img-ip-filter-delete-rule]: ./media/iot-hub-ip-filtering/ip-filter-delete-rule.png
-[img-ip-filter-rule-order]: ./media/iot-hub-ip-filtering/ip-filter-rule-order.png
-
-
-<!-- Links -->
-
-[IoT Hub developer guide]: iot-hub-devguide.md
-[Azure Express Route]:  https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services
-
-[lnk-monitor]: iot-hub-operations-monitoring.md
-[lnk-metrics]: iot-hub-metrics.md
+* [作業監視](iot-hub-operations-monitoring.md)
+* [IoT 中樞計量](iot-hub-metrics.md)

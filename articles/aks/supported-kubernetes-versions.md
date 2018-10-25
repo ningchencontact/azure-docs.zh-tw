@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: 6b55825107ae8872b146b3ad4fde0ef4b917b71d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045815"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379190"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中支援的 Kubernetes 版本
 
@@ -32,6 +32,29 @@ AKS 支援 Kubernetes 的四個次要版本：
 引入新的次要版本時，即會淘汰最舊的次要版本和所支援的修補程式版本。 在發行新次要版本及即將淘汰版本的前 15 天，會透過 Azure 更新通道進行宣告。 在上述發行 *1.11.x* 的範例中，已淘汰的版本為 *1.7.g* + *1.7.h*。
 
 當您在入口網站中或使用 Azure CLI 部署 AKS 叢集時，一律會將叢集設定為 n-1 次要版本和最新修補程式。 例如，如果 AKS 支援 *1.11.x*、*1.10.a* + *1.10.b*、*1.9.c* + *1.9 d*、*1.8.e* + *1.8f*，新叢集的預設版本為 *1.10.b*。
+
+## <a name="list-currently-supported-versions"></a>列出目前支援的版本
+
+若要找出目前可供您訂用帳戶和區域使用的版本，請使用 [az aks get-versions][az-aks-get-versions] 命令。 下列範例會列出 EastUS 區域的可用 Kubernetes 版本：
+
+```azurecli-interactive
+az aks get-versions --location eastus --output table
+```
+
+輸出會類似下列範例，會顯示 Kubernetes 版本 1.11.3 是可用的最新版本：
+
+```
+KubernetesVersion    Upgrades
+-------------------  ----------------------
+1.11.3               None available
+1.11.2               1.11.3
+1.10.8               1.11.2, 1.11.3
+1.10.7               1.10.8, 1.11.2, 1.11.3
+1.9.10               1.10.7, 1.10.8
+1.9.9                1.9.10, 1.10.7, 1.10.8
+1.8.15               1.9.9, 1.9.10
+1.8.14               1.8.15, 1.9.9, 1.9.10
+```
 
 ## <a name="faq"></a>常見問題集
 
@@ -65,3 +88,4 @@ AKS 支援 Kubernetes 的四個次要版本：
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
+[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions

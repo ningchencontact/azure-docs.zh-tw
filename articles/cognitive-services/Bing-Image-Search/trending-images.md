@@ -1,23 +1,24 @@
 ---
-title: 搜尋網路上的發燒影像 | Microsoft Docs
-description: 說明如何使用 Bing 影像搜尋 API 來搜尋網路上的發燒影像。
+title: 搜尋網路上的發燒影片 - Bing 影像搜尋 API
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用 Bing 影像搜尋 API 來搜尋網路上的發燒影像。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: EAB92D35-5C0B-4A0A-8F49-02DF7FAD44B4
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b12524cd4c1896501820209b3a45746b8f38b210
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 00d992da1d061ddbbee59e93898a92b6701f1ffb
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367903"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296306"
 ---
-# <a name="get-trending-images"></a>取得發燒影像  
+# <a name="get-trending-images-from-the-bing-image-search-api"></a>從 Bing 影像搜尋 API 取得發燒影像
 
 若要取得今天的發燒影像，請傳送下列 GET 要求：  
 
@@ -34,11 +35,11 @@ Host: api.cognitive.microsoft.com
 
 - en-US (英文，美國)  
 - en-CA (英文，加拿大)  
-- en-AU (英文，澳大利亞)  
+- en-AU (英文，澳洲)  
 - zh-CN (中文，中國)
 
 回應包含 [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) 物件，該物件會依照類別列出影像。 使用類別的 `title` 在您的使用者體驗中將影像分組。 這些類別可能每天變更。  
-  
+
 ```json
 {
     "_type" : "TrendingImages",  
@@ -85,8 +86,8 @@ Host: api.cognitive.microsoft.com
     }]  
 }  
 ```  
-  
-每個圖格都包含一個影像，以及用於取得相關影響的選項。 若要取得相關影像，您可以使用查詢 `text`，自行呼叫[影像搜尋 API](./search-the-web.md) 並顯示相關影像。 或者，您可以使用 `webSearchUrl` 中的 URL，將使用者導向 Bing 的影像搜尋結果頁面，其中包含相關的影像。 
+
+每個圖格都包含一個影像，以及用於取得相關影響的選項。 若要取得相關影像，您可以使用查詢 `text`，自行呼叫[影像搜尋 API](./search-the-web.md) 並顯示相關影像。 或者，您可以使用 `webSearchUrl` 中的 URL，將使用者導向 Bing 的影像搜尋結果頁面，其中包含相關的影像。
 
 如果您呼叫影像搜尋 API 以取得相關影像，請將 [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) 查詢參數設定為 `id` 欄位中的識別碼。 指定識別碼可確保回應包含影像 (這是回應中的第一個影像) 及其相關的影像。 此外，將 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) 查詢參數設定為 `query` 物件的`text` 欄位中的文字。
 

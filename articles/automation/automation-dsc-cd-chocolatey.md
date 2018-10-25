@@ -4,17 +4,17 @@ description: 使用 Azure 自動化狀態設定、DSC 和 Chocolatey 套件管�
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038070"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634244"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>使用範例：使用自動化狀態設定和 Chocolatey 持續部署至虛擬機器
 
@@ -182,7 +182,7 @@ Get-AzureRmAutomationDscCompilationJob `
 ## <a name="step-6-tying-it-all-together"></a>步驟 6：整合一切
 
 每當有某個版本通過 QA 並核准可部署時，即會建立封裝，且 nuspec 及 nupkg 會更新並部署至 NuGet 伺服器。 此外也必須更新組態 (上述的步驟 4)，以符合新的版本號碼。 它必須傳送至提取伺服器並進行編譯。
-從這裡開始，則須由依存於該組態的 VM 提取更新並加以安裝。 這些更新內容很簡單 - 只有一兩行 PowerShell。 以 Visual Studio Team Services 為例，有些更新會封裝在可一起鏈結在組建內的建置工作中。 [本文](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)將詳加說明。 此 [GitHub 儲存機制](https://github.com/Microsoft/vso-agent-tasks) 會詳細說明各種可用的建置工作。
+從這裡開始，則須由依存於該組態的 VM 提取更新並加以安裝。 這些更新內容很簡單 - 只有一兩行 PowerShell。 以 Azure DevOps 為例，有些更新會封裝在可一起鏈結在組建內的建置工作中。 [本文](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)將詳加說明。 此 [GitHub 儲存機制](https://github.com/Microsoft/vso-agent-tasks) 會詳細說明各種可用的建置工作。
 
 ## <a name="notes"></a>注意
 
@@ -204,7 +204,7 @@ Get-AzureRmAutomationDscCompilationJob `
 
 - 如需概觀，請參閱 [Azure 自動化狀態設定](automation-dsc-overview.md)
 - 若要開始使用，請參閱[開始使用 Azure 自動化狀態設定](automation-dsc-getting-started.md)
-- 若要了解如何編譯 DSC 組態，以將它們指派給目標節點，請參閱[編譯 Azure 自動化狀態設定中的組態](automation-dsc-compile.md)
+- 若要了解如何編譯 DSC 組態，以將它們指派給目標節點，請參閱[編譯 Azure Automation State Configuration 中的組態](automation-dsc-compile.md)
 - 如需 PowerShell Cmdlet 參考，請參閱 [Azure 自動化狀態設定 Cmdlet](/powershell/module/azurerm.automation/#automation)
 - 如需定價資訊，請參閱 [Azure 自動化狀態設定的定價](https://azure.microsoft.com/pricing/details/automation/)
 - 若要查看在持續部署管線中使用 Azure 自動化狀態設定的範例，請參閱[使用 Azure 自動化狀態設定和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)

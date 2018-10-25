@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ca29ee359349f69c3d5ff21bd9db3f93358206a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724307"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713728"
 ---
 # <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 入口網站
 
@@ -37,7 +37,7 @@ ms.locfileid: "34724307"
 
 ## <a name="customize-the-dashboard"></a>自訂儀表板
 
-儀表板包含一組預設圖格。 您可以選取 [編輯儀表板] 來修改預設儀表板，或是選取 [新增儀表板] 來建立自訂儀表板。 您可以透過新增或移除圖格，輕鬆地自訂儀表板。 例如，若要新增 [計算] 圖格，請選取 [新增]。 在 [計算] 上按一下滑鼠右鍵，然後選取 [釘選到儀表板]。
+儀表板包含一組預設圖格。 您可以選取 [編輯儀表板] 來修改預設儀表板，或是選取 [新增儀表板] 來建立自訂儀表板。 您可以透過新增或移除圖格，輕鬆地自訂儀表板。 例如，若要新增 [計算] 圖格，請選取 [+ 建立資源]。 在 [計算] 上按一下滑鼠右鍵，然後選取 [釘選到儀表板]。
 
 ## <a name="create-subscription-and-browse-available-resources"></a>建立訂用帳戶及瀏覽可用的資源
 
@@ -45,7 +45,7 @@ ms.locfileid: "34724307"
 
 - 選取儀表板上的 [Marketplace] 圖格。
 - 在 [所有資源] 圖格上，選取 [建立資源]。
-- 在左導覽窗格中，選取 [新增]。
+- 在左側導覽面板中，選取 [+ 建立資源]。
 
 ## <a name="learn-how-to-use-available-services"></a>了解如何使用可用的服務
 

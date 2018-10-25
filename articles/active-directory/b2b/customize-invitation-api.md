@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 20c824da82d6e3e66bfa2d7447c8a9573cbdce69
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985808"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091758"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 共同作業 API 和自訂
 
@@ -79,7 +79,7 @@ API 可以在下列授權模型中執行：
 
 
 ## <a name="powershell"></a>PowerShell
-您現在可以輕鬆地使用 PowerShell 來新增並邀請外部使用者加入組織。 使用 Cmdlet 建立邀請：
+您可以使用 PowerShell，輕鬆地新增並邀請外部使用者加入組織。 使用 Cmdlet 建立邀請：
 
 ```
 New-AzureADMSInvitation
@@ -92,7 +92,25 @@ New-AzureADMSInvitation
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-您也可以在 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) 中查看邀請 API 參考
+### <a name="invitation-status"></a>邀請狀態
+
+將邀請傳送給外部使用者之後，您可以使用 **Get-AzureADUser** Cmdlet 來查看他們是否已接受要求。 將邀請傳送給外部使用者時，會填入 Get-AzureADUser 的下列屬性：
+
+* **UserState** 指出邀請為 **PendingAcceptance** 或 **Accepted**。
+* **UserStateChangedOn** 顯示最近 **UserState** 屬性變更的時間戳記。
+
+您可以使用 [篩選] 選項，依 **UserState** 篩選結果。 以下範例示範如何篩選結果，只顯示具有待決邀請的使用者。 此範例也顯示 **Format-list** 選項，其可讓您指定要顯示的屬性。 
+ 
+```
+Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
+```
+
+> [!NOTE]
+> 請確定您有最新版的 AzureAD PowerShell 模組或 AzureADPreview PowerShell 模組。 
+
+## <a name="see-also"></a>另請參閱
+
+請查看 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) 中的邀請 API 參考。
 
 ## <a name="next-steps"></a>後續步驟
 

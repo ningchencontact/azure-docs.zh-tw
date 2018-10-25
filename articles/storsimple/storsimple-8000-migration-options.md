@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: alkohli
-ms.openlocfilehash: 8f34d5a38f09f015547f52cc4b44819b780932bb
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818853"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498278"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>從 StorSimple 5000-7000 系列移轉資料的選項 
 
@@ -75,13 +75,22 @@ A. 是。 使用資料的主機複本移轉至其他儲存體解決方案，是�
 
 A. 從 5000 或 7000 系列移轉的作業受到完整支援。 事實上，Microsoft 建議您在開始移轉之前，應先洽詢「支援服務」。 移轉目前是協助進行的作業。 如果您想要從 StorSimple 5000-7000 系列裝置移轉資料，請[建立支援票證](storsimple-8000-contact-microsoft-support.md)。
 
-### <a name="q-how-does-the-cost-compare-for-the-two-listed-migrations-to-azure-hybrid-services"></a>問： 此處所列的兩種 Azure 混合式服務移轉在成本上有何差異？ 
+### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>問： 這兩個移轉選項的計價模式為何？
 
-A. 移轉的成本取決於您選擇的選項。 雖然移轉作業本身是免費的，但如果您決定要升級到 StorSimple 8000 系列，則會有硬體裝置的成本。 同樣地，在使用 Azure 檔案同步時，將會收取該服務的訂閱費用。 在前述兩種情況下，客戶也都必須支付現行儲存體的成本。 請參閱 [Microsoft 個別服務的定價計算機](https://azure.microsoft.com/pricing/#product-picker)，以進行估算。  
+A. 移轉的成本取決於您選擇的選項。 雖然移轉作業本身是免費的，但如果您決定要升級到 StorSimple 8000 系列，則會有硬體裝置的成本。 
+
+同樣地，在使用 Azure 檔案同步時，將會收取該服務的訂閱費用。 在前述兩種情況下，客戶也都必須支付現行儲存體的成本。 請參考以下內容來估計價格： 
+- [StorSimple 定價](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [AFS 定價]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>問：  完成移轉需要多少時間呢？
 
 A. 移轉資料的所需時間，取決於資料量和選取的升級選項。 
+
+### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>問： StorSimple 8000 系列的最後支援期限為何？
+
+A. StorSimple 8000 系列最後支援期限發佈於[此](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series)。
+
 
 ## <a name="next-steps"></a>後續步驟
  - [將資料從 StorSimple 5000-7000 系列移轉至 8000 系列裝置](storsimple-8000-migrate-from-5000-7000.md)。

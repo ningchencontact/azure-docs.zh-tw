@@ -1,22 +1,24 @@
 ---
-title: 知識探索服務 API 中的結構化查詢運算式 | Microsoft Docs
-description: 了解如何在認知服務的知識探索服務 (KES) API 中使用結構化查詢運算式。
+title: 結構化查詢運算式 - 知識探索服務 API
+titlesuffix: Azure Cognitive Services
+description: 了解如何在知識探索服務 (KES) API 中使用結構化查詢運算式。
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 070ee311a1153bc9fb59870dce68f385a43b15f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368062"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129160"
 ---
 # <a name="structured-query-expression"></a>結構化查詢運算式
+
 結構化查詢運算式會指定一組要針對資料索引進行評估的作業。  其包含屬性查詢運算式和更高層級的函式。  請使用[評估](evaluateMethod.md)方法來計算符合運算式的物件。  以下範例來自學術刊物領域，會傳回自 2013 年後由 Jaime Teevan 所撰寫的刊物。
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
@@ -24,6 +26,7 @@ ms.locfileid: "35368062"
 結構化查詢運算式可能取自[解譯](interpretMethod.md)要求，每個解譯的語意輸出都是結構化查詢運算式，會傳回符合輸入自然語言查詢的索引物件。  或者，您也可以使用本節所述的語法，手動撰寫結構化查詢運算式。
 
 ## <a name="attribute-query-expression"></a>屬性查詢運算式
+
 屬性查詢運算式會根據對特定屬性所做的比對，識別一組物件。  根據[結構描述](SchemaFormat.md)中所指定的屬性類型和已編制索引的作業，可支援不同的比對作業：
 
 | 類型 | 作業 | 範例 |
@@ -45,9 +48,11 @@ ms.locfileid: "35368062"
 
 
 ## <a name="functions"></a>Functions
+
 有一組內建函式可從基本的屬性查詢建構更複雜的查詢運算式。
 
 ### <a name="and-function"></a>And 函式
+
 `And(expr1, expr2)`
 
 傳回兩個輸入查詢運算式的交集。
@@ -57,6 +62,7 @@ ms.locfileid: "35368062"
 `And(Year=2000, Keyword=='information retrieval')`
 
 ### <a name="or-function"></a>Or 函式
+
 `Or(expr1, expr2)`
 
 傳回兩個輸入查詢運算式的聯集。
@@ -66,6 +72,7 @@ ms.locfileid: "35368062"
 `And(Year=2000, Or(Keyword='information retrieval', Keyword='user modeling'))`
 
 ### <a name="composite-function"></a>Composite 函式
+
 `Composite(expr)`
 
 其所傳回的運算式，會封裝一個內部運算式，而此內部運算式是由針對常見複合屬性的子屬性所進行的查詢所組成的。  任何相符資料物件的複合屬性至少要有一個個別滿足內部運算式的值，才會封裝。  請注意，針對複合屬性的子屬性所建立的查詢運算式必須先使用 Composite() 函式加以封裝，才能與其他查詢運算式結合。

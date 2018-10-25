@@ -4,29 +4,29 @@ description: 本主題提供使用 Azure 媒體服務 v3 進行即時串流的�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972174"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378131"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
 使用 Azure 媒體服務傳遞即時串流時，通常涉及下列元件：
 
 * 相機，用來廣播事件。
-* 即時視訊編碼器，它會將相機 (或膝上型電腦等其他裝置) 中的訊號轉換成資料流，再傳送至媒體服務即時串流服務。 訊號也可能包括廣告 SCTE-35 和 AD 提示。 
-* 媒體服務即時串流服務，可讓您內嵌、預覽、封裝、記錄、加密內容，並向您的客戶廣播內容，或向 CDN 廣播以進一步散發。
+* 即時視訊編碼器，它會將相機 (或膝上型電腦等其他裝置) 中的訊號轉換成資料流，再傳送至即時串流服務。 訊號也可能包括廣告 SCTE-35 和 AD 提示。 
+* 媒體服務即時串流服務，可讓您內嵌、預覽、套件、記錄、加密內容，並向您的客戶廣播內容，或向 CDN 廣播以進一步散發。
 
 本文提供詳細的概觀，並包含使用媒體服務進行即時串流所需之主要元件的圖表。
 
@@ -40,6 +40,17 @@ ms.locfileid: "38972174"
 
 如有需要，您也可以套用 [動態篩選]，這可用來控制傳送至播放程式的曲目編號、格式和位元速率。 媒體服務也支援插入廣告。
 
+### <a name="new-live-encoding-improvements"></a>新的即時編碼增強功能
+
+在最新版本中，已完成下列新的改進功能。
+
+- 新的即時低延遲模式 (10 秒端對端)。
+- 改進的 RTMP 支援 (更高的穩定性及更多來源編碼器支援)。
+- RTMPS 安全內嵌。
+
+    當您建立即時事件時，現在會取得 4 個內嵌 URL。 4 個內嵌 URL 幾乎完全相同，並有相同的串流權杖 (AppId)，只有連接埠號碼部分不同。 其中兩個 URL 是 RTMPS 的主要部分和備份。   
+- 24 小時制的轉碼支援。 
+- 已改善透過 SCTE35 在 RTMP 中執行的廣告訊號支援。
 
 ## <a name="liveevent-types"></a>LiveEvent 類型
 
@@ -73,18 +84,18 @@ ms.locfileid: "38972174"
 
 | 功能 | 即時通行 LiveEvent | 基本 LiveEvent |
 | --- | --- | --- |
-| 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |yes |
+| 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |是 |
 | 最大解析度、分層數目 |4Kp30  |720p、6 層、30 fps |
 | 輸入通訊協定 |RTMP、Smooth Streaming |RTMP、Smooth Streaming |
 | 價格 |請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) 並按一下 [即時影片] 索引標籤 |請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) |
 | 最長執行時間 |全天候 |全天候 |
-| 插入靜態圖像支援 |否 |yes |
-| 支援透過 API 發出廣告訊號|否 |yes |
-| 支援透過頻內 SCTE35 發出廣告訊號|yes |yes |
-| 傳遞 CEA 608/708 字幕 |yes |yes |
-| 在比重摘要內能從短暫延遲中復原的能力 |yes |否 (經過 6 秒以上且未有任何輸入資料時，LiveEvent 便會開始靜態圖像)|
-| 支援未統一輸入的 GOP |yes |否 - 輸入必須固定為 2 秒 GOP |
-| 支援變動畫面播放速率輸入 |yes |否 – 輸入必須為固定畫面播放速率。<br/>輕微的差異可以接受，例如：處於高速動態場景的情況。 但編碼器無法降至 10 個畫面/秒的標準。 |
+| 插入靜態圖像支援 |否 |是 |
+| 支援透過 API 發出廣告訊號|否 |是 |
+| 支援透過頻內 SCTE35 發出廣告訊號|是 |是 |
+| 傳遞 CEA 608/708 字幕 |是 |是 |
+| 在比重摘要內能從短暫延遲中復原的能力 |是 |否 (經過 6 秒以上且未有任何輸入資料時，LiveEvent 便會開始靜態圖像)|
+| 支援未統一輸入的 GOP |是 |否 - 輸入必須固定為 2 秒 GOP |
+| 支援變動畫面播放速率輸入 |是 |否 – 輸入必須為固定畫面播放速率。<br/>輕微的差異可以接受，例如：處於高速動態場景的情況。 但編碼器無法降至 10 個畫面/秒的標準。 |
 | 在輸入摘要遺失時自動關閉 LiveEvent |否 |經過 12 個小時，如果沒有 LiveOutput 仍在執行 |
 
 ## <a name="liveevent-states"></a>LiveEvent 狀態 

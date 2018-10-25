@@ -2,19 +2,18 @@
 title: 使用 Azure IoT 中樞 (Java) 排定作業 | Microsoft Docs
 description: 如何排定 Azure IoT 中樞作業在多個裝置上叫用直接方法和設定所需屬性。 您可以使用適用於 Java 的 Azure IoT 裝置 SDK，實作模擬裝置應用程式，也可以使用適用於 Java 的 Azure IoT 服務 SDK，實作服務應用程式以執行作業。
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 7d41732103bd76e281c2a669a649645c8ff5bc73
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1b49303588c785af149bfc5656bccdbab5216249
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957977"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376459"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>排定及廣播作業 (Java)
 
@@ -31,6 +30,7 @@ ms.locfileid: "46957977"
 若要一一了解這些功能，請參閱：
 
 * 裝置對應項和屬性：[開始使用裝置對應項](iot-hub-java-java-twin-getstarted.md)
+
 * 直接方法：[IoT 中樞開發人員指南 - 直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：使用直接方法](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -38,6 +38,7 @@ ms.locfileid: "46957977"
 本教學課程說明如何：
 
 * 建立實作 **lockDoor** 直接方法的裝置應用程式。 裝置應用程式也會從後端應用程式收到所需的屬性變更。
+
 * 建立後端應用程式，以建立作業在多部裝置上呼叫 **lockDoor** 直接方法。 另一項作業會將所需的屬性更新傳送到多部裝置。
 
 在本教學課程結束時，您會有 Java 主控台裝置應用程式和 Java 主控台後端應用程式：
@@ -54,7 +55,9 @@ ms.locfileid: "46957977"
 若要完成本教學課程，您需要：
 
 * 最新的 [Java SE 開發套件 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
 * [Maven 3](https://maven.apache.org/install.html)
+
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](http://azure.microsoft.com/pricing/free-trial/)。)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -68,19 +71,20 @@ ms.locfileid: "46957977"
 在本節中，您將建立 Java 主控台應用程式，使用作業以：
 
 * 在多個裝置上呼叫 **lockDoor** 直接方法。
+
 * 將所需屬性傳送至多個裝置。
 
 若要建立應用程式：
 
 1. 在您的開發電腦上建立名為 `iot-java-schedule-jobs` 的空資料夾。
 
-1. 在 `iot-java-schedule-jobs` 資料夾中，在命令提示字元中使用下列命令，建立名為 **schedule-jobs** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
+2. 在 `iot-java-schedule-jobs` 資料夾中，在命令提示字元中使用下列命令，建立名為 **schedule-jobs** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 在命令提示字元中，巡覽至 `schedule-jobs` 資料夾。
+3. 在命令提示字元中，巡覽至 `schedule-jobs` 資料夾。
 
-1. 使用文字編輯器，開啟 `schedule-jobs` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-service-client** 套件與 IoT 中樞通訊：
+4. 使用文字編輯器，開啟 `schedule-jobs` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-service-client** 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -94,7 +98,7 @@ ms.locfileid: "46957977"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-service-client**。
 
-1. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
+5. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -112,11 +116,11 @@ ms.locfileid: "46957977"
     </build>
     ```
 
-1. 儲存並關閉 `pom.xml` 檔案。
+6. 儲存並關閉 `pom.xml` 檔案。
 
-1. 使用文字編輯器開啟 `schedule-jobs\src\main\java\com\mycompany\app\App.java` 檔案。
+7. 使用文字編輯器開啟 `schedule-jobs\src\main\java\com\mycompany\app\App.java` 檔案。
 
-1. 在此檔案中新增下列 **import** 陳述式：
+8. 在此檔案中新增下列 **import** 陳述式：
 
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceTwinDevice;
@@ -134,7 +138,7 @@ ms.locfileid: "46957977"
     import java.util.UUID;
     ```
 
-1. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
+9. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -145,7 +149,7 @@ ms.locfileid: "46957977"
     private static final long maxExecutionTimeInSeconds = 30;
     ```
 
-1. 將下列方法新增至 **App** 類別，排程作業以更新裝置對應項中的 **Building** 和 **Floor** 所需屬性：
+10. 將下列方法新增至 **App** 類別，排程作業以更新裝置對應項中的 **Building** 和 **Floor** 所需屬性：
 
     ```java
     private static JobResult scheduleJobSetDesiredProperties(JobClient jobClient, String jobId) {
@@ -175,7 +179,7 @@ ms.locfileid: "46957977"
     }
     ```
 
-1. 若要排程作業以呼叫 **lockDoor** 方法，將下列方法新增至 **App** 類別：
+11. 若要排程作業以呼叫 **lockDoor** 方法，將下列方法新增至 **App** 類別：
 
     ```java
     private static JobResult scheduleJobCallDirectMethod(JobClient jobClient, String jobId) {
@@ -199,7 +203,7 @@ ms.locfileid: "46957977"
     };
     ```
 
-1. 若要監視作業，將下列方法新增至 **App** 類別：
+12. 若要監視作業，將下列方法新增至 **App** 類別：
 
     ```java
     private static void monitorJob(JobClient jobClient, String jobId) {
@@ -226,7 +230,7 @@ ms.locfileid: "46957977"
     }
     ```
 
-1. 若要查詢您執行之作業的詳細資料，請新增下列方法：
+13. 若要查詢您執行之作業的詳細資料，請新增下列方法：
 
     ```java
     private static void queryDeviceJobs(JobClient jobClient, String start) throws Exception {
@@ -243,13 +247,13 @@ ms.locfileid: "46957977"
     }
     ```
 
-1. 更新 **Main** 方法簽章，以包含下列 `throws` 子句：
+14. 更新 **Main** 方法簽章，以包含下列 `throws` 子句：
 
     ```java
     public static void main( String[] args ) throws Exception
     ```
 
-1. 若要循序執行及監視兩個作業，請將下列程式碼新增至 **main** 方法：
+15. 若要循序執行及監視兩個作業，請將下列程式碼新增至 **main** 方法：
 
     ```java
     // Record the start time
@@ -276,9 +280,9 @@ ms.locfileid: "46957977"
     System.out.println("Shutting down schedule-jobs app");
     ```
 
-1. 儲存並關閉 `schedule-jobs\src\main\java\com\mycompany\app\App.java` 檔案。
+16. 儲存並關閉 `schedule-jobs\src\main\java\com\mycompany\app\App.java` 檔案。
 
-1. 建置 **schedule-jobs** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `schedule-jobs` 資料夾，並執行下列命令：
+17. 建置 **schedule-jobs** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `schedule-jobs` 資料夾，並執行下列命令：
 
     `mvn clean package -DskipTests`
 
@@ -290,9 +294,9 @@ ms.locfileid: "46957977"
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 在命令提示字元中，巡覽至 `simulated-device` 資料夾。
+2. 在命令提示字元中，巡覽至 `simulated-device` 資料夾。
 
-1. 使用文字編輯器，開啟 `simulated-device` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-device-client** 套件與 IoT 中樞通訊：
+3. 使用文字編輯器，開啟 `simulated-device` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-device-client** 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -305,7 +309,7 @@ ms.locfileid: "46957977"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-device-client**。
 
-1. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
+4. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -323,11 +327,11 @@ ms.locfileid: "46957977"
     </build>
     ```
 
-1. 儲存並關閉 `pom.xml` 檔案。
+5. 儲存並關閉 `pom.xml` 檔案。
 
-1. 使用文字編輯器開啟 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
+6. 使用文字編輯器開啟 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
 
-1. 在此檔案中新增下列 **import** 陳述式：
+7. 在此檔案中新增下列 **import** 陳述式：
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -338,7 +342,7 @@ ms.locfileid: "46957977"
     import java.util.Scanner;
     ```
 
-1. 將下列類別層級變數新增到 **App** 類別中。 以您的 IoT 中樞名稱取代 `{youriothubname}`，並以您在＜建立裝置身分識別＞一節中產生的裝置金鑰值取代 `{yourdevicekey}`：
+8. 將下列類別層級變數新增到 **App** 類別中。 以您的 IoT 中樞名稱取代 `{youriothubname}`，並以您在＜建立裝置身分識別＞一節中產生的裝置金鑰值取代 `{yourdevicekey}`：
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -349,7 +353,7 @@ ms.locfileid: "46957977"
 
     此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。
 
-1. 若要將裝置對應項通知列印至主控台，請在 **App** 類別中新增下列巢狀類別：
+9. 若要將裝置對應項通知列印至主控台，請在 **App** 類別中新增下列巢狀類別：
 
     ```java
     // Handler for device twin operation notifications from IoT Hub
@@ -360,7 +364,7 @@ ms.locfileid: "46957977"
     }
     ```
 
-1. 若要將直接方法通知列印至主控台，請在 **App** 類別中新增下列巢狀類別：
+10. 若要將直接方法通知列印至主控台，請在 **App** 類別中新增下列巢狀類別：
 
     ```java
     // Handler for direct method notifications from IoT Hub
@@ -371,7 +375,7 @@ ms.locfileid: "46957977"
     }
     ```
 
-1. 若要處理來自 IoT 中樞的直接方法呼叫，請在 **App** 類別中新增下列巢狀類別：
+11. 若要處理來自 IoT 中樞的直接方法呼叫，請在 **App** 類別中新增下列巢狀類別：
 
     ```java
     // Handler for direct method calls from IoT Hub
@@ -396,13 +400,13 @@ ms.locfileid: "46957977"
     }
     ```
 
-1. 更新 **Main** 方法簽章，以包含下列 `throws` 子句：
+12. 更新 **Main** 方法簽章，以包含下列 `throws` 子句：
 
     ```java
     public static void main( String[] args ) throws IOException, URISyntaxException
     ```
 
-1. 將以下程式碼新增至 **Main** 方法，以：
+13. 將以下程式碼新增至 **Main** 方法，以：
     * 建立與 IoT 中樞通訊的裝置用戶端。
     * 建立**裝置**物件以儲存裝置對應項屬性。
 
@@ -420,7 +424,7 @@ ms.locfileid: "46957977"
     };
     ```
 
-1. 若要啟動裝置用戶端服務，請將下列程式碼新增至 **main** 方法：
+14. 若要啟動裝置用戶端服務，請將下列程式碼新增至 **main** 方法：
 
     ```java
     try {
@@ -438,7 +442,7 @@ ms.locfileid: "46957977"
     }
     ```
 
-1. 若要在關閉之前等候使用者按下 **Enter** 鍵，請將下列程式碼新增至 **main** 方法的結尾：
+15. 若要在關閉之前等候使用者按下 **Enter** 鍵，請將下列程式碼新增至 **main** 方法的結尾：
 
     ```java
     // Close the app
@@ -450,9 +454,9 @@ ms.locfileid: "46957977"
     scanner.close();
     ```
 
-1. 儲存並關閉 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
+16. 儲存並關閉 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
 
-1. 建置 **simulated-device** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `simulated-device` 資料夾，並執行下列命令：
+17. 建置 **simulated-device** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `simulated-device` 資料夾，並執行下列命令：
 
     `mvn clean package -DskipTests`
 
@@ -464,17 +468,17 @@ ms.locfileid: "46957977"
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![裝置用戶端啟動](media/iot-hub-java-java-schedule-jobs/device-app-1.png)
+    ![裝置用戶端啟動](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
-1. 在 `schedule-jobs` 資料夾的命令提示字元中執行下列命令，執行 **schedule-jobs** 服務應用程式以執行兩個作業。 第一個作業會設定所需屬性值，第二個作業會呼叫直接方法：
+2. 在 `schedule-jobs` 資料夾的命令提示字元中執行下列命令，執行 **schedule-jobs** 服務應用程式以執行兩個作業。 第一個作業會設定所需屬性值，第二個作業會呼叫直接方法：
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Java IoT 中樞服務應用程式會建立兩個作業](media/iot-hub-java-java-schedule-jobs/service-app-1.png)
+    ![Java IoT 中樞服務應用程式會建立兩個作業](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
 
-1. 裝置應用程式會處理所需屬性變更和直接方法呼叫：
+3. 裝置應用程式會處理所需屬性變更和直接方法呼叫：
 
-    ![裝置用戶端會回應變更](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
+    ![裝置用戶端會回應變更](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -483,4 +487,5 @@ ms.locfileid: "46957977"
 使用下列資源來了解如何：
 
 * 利用[開始使用 IoT 中樞](quickstart-send-telemetry-java.md)教學課程，傳送裝置的遙測資料。
-* 以互動方式控制裝置 (例如，從使用者控制的應用程式開啟風扇)，請參閱[使用直接方法](quickstart-control-device-java.md)教學課程。
+
+* 以互動方式控制裝置 (例如，從使用者控制的應用程式開啟風扇)，請參閱[使用直接方法](quickstart-control-device-java.md)教學課程

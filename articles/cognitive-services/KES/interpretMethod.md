@@ -1,28 +1,31 @@
 ---
-title: 知識探索服務 API 中的解譯方法 | Microsoft Docs
-description: 了解如何在認知服務的知識探索服務 (KES) API 中使用解譯方法。
+title: 解譯方法 - 知識探索服務 API
+titlesuffix: Azure Cognitive Services
+description: 了解如何在知識探索服務 (KES) API 中使用解譯方法。
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: ef68d98dacf393abf8d030b9312217ea380947d2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45badbdbe1a7e1f2028a00d54458db35a4f7d440
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368063"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127997"
 ---
 # <a name="interpret-method"></a>解譯方法
+
 「解譯」方法會拿取自然語言查詢字串，然後根據文法和索引資料來傳回格式化的使用者意圖解譯。  若要提供互動式搜尋體驗，您可以呼叫這個方法，原因是每個字元都是由使用者輸入的，並且 complete 參數會設為 1 以啟用自動完成建議。
 
 ## <a name="request"></a>要求
+
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Name|值| 說明
+名稱|值| 說明
 ----|----|----
 query    | 文字字串 | 使用者所輸入的查詢。  如果 complete 設為 1，則查詢會解譯為一個前置詞，以供產生查詢自動完成建議。        
 完成 | 0 (預設值) 或 1 | 1 表示根據文法與索引資料產生自動完成建議。         
@@ -33,6 +36,7 @@ timeout  | 數字 (預設值 = 1000) | 逾時 (以毫秒為單位)。 只會傳�
 使用 count 和 offset 參數，即可透過多個要求以累加方式取得大量結果。
 
 ## <a name="response-json"></a>回應 (JSON)
+
 JSONPath     | 說明
 ---------|---------
 $.query |要求中的 query 參數。
@@ -47,6 +51,7 @@ $.interpretations[\*].rules[\*].output.value|語意輸出的值。
 $.aborted | 如果要求逾時，則為 true。
 
 ### <a name="parse-xml"></a>剖析 XML
+
 剖析 XML 會對 (已完成的) 查詢標註相關資訊，以說明其與文法中的規則和索引中的屬性有何比對結果。  以下是學術刊物領域的範例：
 
 ```xml
@@ -65,6 +70,7 @@ $.aborted | 如果要求逾時，則為 true。
 `<attr>` 元素會將查詢中與其 `name` 屬性所指定索引屬性相符的範圍分隔開來。  當比對涉及輸入查詢中的同義字時，`canonical` 屬性會包含與索引中的同義字相符的標準值。
 
 ## <a name="example"></a>範例
+
 在學術刊物的範例中，下列要求會針對前置詞查詢 "papers by jaime"傳回最多 2 個自動完成建議：
 
 `http://<host>/interpret?query=papers by jaime&complete=1&count=2`

@@ -1,5 +1,6 @@
 ---
-title: 文字分析 API 的外部和社群內容 - Azure 認知服務 | Microsoft Docs
+title: 文字分析 API 的外部和社群內容
+titleSuffix: Azure Cognitive Services
 description: 夥伴部落格、YouTube 影片、Azure 上 Microsoft 認知服務文字分析 API 的訓練。
 services: cognitive-services
 author: HeidiSteen
@@ -7,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 63de50bac69c5b7358ee2e37f534d2f997fde592
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fbea686ba0f67cdab79f1553344bd99dd105fc00
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370362"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605244"
 ---
-# <a name="external--community-content-for-the-text-analytics-api"></a>文字分析 API 的外部和社群內容
+# <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>文字分析認知服務的外部和社群內容
 
  本文中的連結會引導您前往擁有文字分析 API 使用體驗之夥伴和專業人員所開發和產生的有用 Web 內容。
 

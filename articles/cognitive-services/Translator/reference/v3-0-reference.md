@@ -1,26 +1,27 @@
 ---
-title: Microsoft Translator Text API V3.0 參考 | Microsoft Docs
-description: Microsoft Translator Text API V3.0 參考文件。
+title: 翻譯工具文字 API V3.0 參考
+titlesuffix: Azure Cognitive Services
+description: 翻譯工具文字 API V3.0 參考文件。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: cfaa9584e833b137b417d9074fbfcf606eb21388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368722"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129381"
 ---
-#<a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
+# <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
 ## <a name="whats-new"></a>新功能
 
-Microsoft Translator Text API 第 3 版提供最新 JSON 型 Web API。 其藉由將現有功能合併成較少的作業來提升可用性和效能，並提供新功能。
+第 3 版翻譯工具文字 API 提供最新 JSON 型 Web API。 其藉由將現有功能合併成較少的作業來提升可用性和效能，並提供新功能。
 
  * 轉換功能，可將某種語言的文字從某個字集轉換成另一個字集。
  * 透過一個要求即可翻譯成多種語言。

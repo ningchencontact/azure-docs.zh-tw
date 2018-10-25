@@ -1,5 +1,5 @@
 ---
-title: 語音訓練的轉譯指導方針
+title: 語音服務訓練的轉譯指導方針
 description: 了解如何準備文字，針對語音服務自訂原音和語言模型以及語音字型。
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42093852"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721805"
 ---
-# <a name="transcription-guidelines-for-using-speech-service"></a>使用語音服務的轉譯指導方針
+# <a name="transcription-guidelines-for-using-the-speech-service"></a>使用語音服務的轉譯指導方針
 
 若要自訂 [語音轉換文字] 或 [文字轉換語音]，您必須提供文字以及語音。 每一行文字都會對應至單一語句。 文字應該盡可能完全符合語音。 此文字稱為「文字記錄」，您必須以特定格式建立它。
 
@@ -32,19 +32,19 @@ ms.locfileid: "42093852"
 
 | 要避免的字元 | 替代字元 |
 |----- | ----- |
-| “Hello world” (左右雙引號) | "Hello world" (雙引號) |
+| "Hello world" (開頭和結尾雙引號) | "Hello world" (雙引號) |
 | John’s day (右單引號) | John's day (單引號) |
 | it was good—no, it was great! (長破折號) | it was good--no, it was great! (連字號) |
 
 ### <a name="text-normalization-rules-for-english"></a>適用於英文的文字正規化規則
 
-語音服務會執行下列正規化規則。
+語音服務會執行下列正規化規則：
 
-*   將所有文字轉換成小寫
-*   移除文字內部單引號以外的所有標點符號
-*   將數字擴充成口語形式，包括美元金額
+* 對於所有文字使用小寫字母
+* 移除文字內部單引號以外的所有標點符號
+* 將數字擴充成口語形式，包括美元金額
 
-以下是一些範例
+這裡有一些範例：
 
 | 原始文字 | 正規化之後 |
 |----- | ----- |
@@ -57,13 +57,13 @@ ms.locfileid: "42093852"
 | Pi is about 3.14 | pi is about three point one four |
 | It costs $3.14 | it costs three fourteen |
 
-將下列正規化套用至您的文字記錄。
+將下列正規化套用至您的文字記錄：
 
-*   縮寫應該以單字寫出
-*   非標準數值字串 (例如一些日期或會計表單) 應該以字組寫出
-*   含非字母字元或混合英數字字元的字組應該轉譯如發音
-*   讓縮寫保持字組原樣的發音。 例如，radar、laser、RAM、NATO。
-*   寫出發音如同個別字母的縮寫，並以空格分隔字母。 例如，IBM、CPU、FBI、TBD、NaN。 
+* 縮寫應該以單字寫出。
+* 非標準數值字串 (例如一些日期或會計表單) 應該以字組寫出。
+* 含非字母字元或混合英數字字元的字組應該轉譯如發音。
+* 保留發音為字組不變的縮寫 (例如，"radar"、"laser"、"RAM" 或 "NATO")。
+* 寫出發音如同個別字母的縮寫，並以空格分隔字母 (例如，"IBM"、"CPU"、"FBI"、"TBD" 或 "NaN")。 
 
 這裡有一些範例：
 
@@ -80,7 +80,7 @@ ms.locfileid: "42093852"
 | play OU812 by Van Halen | play O U 8 1 2 by Van Halen |
 | UTF-8 with BOM | U T F 8 with BOM |
 
-## <a name="chinese-zh-cn"></a>中文 (zh-CN)
+## <a name="chinese-zh-cn"></a>中文 (zh-cn)
 
 上傳到「自訂語音服務」的文字資料應使用 UTF-8 編碼搭配位元組順序標記。 檔案應該以每行一個語句撰寫。
 
@@ -88,19 +88,19 @@ ms.locfileid: "42093852"
 
 | 要避免的字元 | 替代字元 |
 |----- | ----- |
-| "你好" (左右雙引號) | "你好" (雙引號) |
+| "你好" (開頭和結尾雙引號) | "你好" (雙引號) |
 | 需要什么帮助? (問號) | 需要什么帮助？ |
 
 ### <a name="text-normalization-rules-for-chinese"></a>適用於中文的文字正規化規則
 
-語音服務會執行下列正規化規則。
+語音服務會執行下列正規化規則：
 
-*   移除所有標點符號
-*   將數字擴充成口語形式
-*   將全形字母轉換成半形字母
-*   將所有英文字轉換成大寫
+* 移除所有標點符號
+* 將數字擴充成口語形式
+* 將全形字母轉換成半形字母
+* 對於所有的英文字組使用大寫字母
 
-以下是一些範例。
+這裡有一些範例：
 
 | 原始文字 | 正規化之後 |
 |----- | ----- |
@@ -112,12 +112,12 @@ ms.locfileid: "42093852"
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-在匯入您的文字之前，將下列正規化套用至您的文字。
+在匯入您的文字之前，將下列正規化套用至您的文字：
 
-*   縮寫應該以單字寫出 (如同口語形式)
-*   將數值字串以口語形式寫出。
+* 縮寫應該以單字寫出 (如同口語形式)。
+* 將數值字串以口語形式寫出。
 
-以下是一些範例。
+這裡有一些範例：
 
 | 原始文字 | 正規化之後 |
 |----- | ----- |
@@ -129,19 +129,19 @@ ms.locfileid: "42093852"
 上傳到**語音轉換文字**服務的文字資料必須使用 UTF-8 編碼搭配位元組順序標記。 檔案應該以每行一個語句撰寫。
 
 > [!NOTE]
-> 這些範例使用德文。 不過，這些指導方針適用於美式英文或中文以外的所有語言。
+> 下列範例使用德文。 不過，這些指導方針適用於美式英文或中文以外的所有語言。
 
 ### <a name="text-normalization-rules-for-german"></a>適用於德文的文字正規化規則
 
-語音服務會執行下列正規化規則。
+語音服務會執行下列正規化規則：
 
-*   將所有文字轉換成小寫
-*   移除所有標點符號，包括各種類型的引號 (可接受 "test"、'test'、"test„ 或 «test»)
-*   捨棄包含任何特殊字元 (¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬) 的資料列
-*   將數字擴充成字組形式，包括美元或歐元金額
-*   只接受 a、o、u 的變母音；其他則會以 "th" 取代或捨棄
+* 對於所有文字使用小寫字母
+* 移除所有標點符號，包括各種類型的引號 (可接受 "ttest"、'test'、"test„ 和 «test»)
+* 捨棄包含任何特殊字元 (¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬) 的資料列
+* 將數字擴充成字組形式，包括美元或歐元金額
+* 只接受 a、o 和 u 的變母音；其他則會以 "th" 取代或捨棄
 
-以下是一些範例
+這裡有一些範例：
 
 | 原始文字 | 正規化之後 |
 |----- | ----- |
@@ -149,25 +149,25 @@ ms.locfileid: "42093852"
 | ¡Eine Frage! | eine frage |
 | wir, haben | wir haben |
 
-在匯入您的文字之前，將下列正規化套用至您的文字。
+在匯入您的文字之前，將下列正規化套用至您的文字：
 
-*   小數點應該是 "," 而非 "."
-*   小時與分鐘之間的時間分隔符號應該是 ":" 而非 "."：12:00 Uhr
-*   'ca.' 之類的縮寫 不會被取代。 我們建議使用完整形式。
-*   已移除四個主要的數學運算子：+、-、\*、/。 建議您以其文字形式加以取代：plus、minus、mal、geteilt。
-*   這同樣適用於比較運算子 (=、<、>) - gleich、kleiner als、grösser als
-*   使用 3/4 這類分數時，採用文字形式 (例如 'drei viertel' 而不採用 ¾)
-*   以文字形式 "Euro" 取代 € 符號
+* 小數點應該是 "," 而非 "."。
+* 小時與分鐘之間的時間分隔符號應該是 ":" 而非 "." (例如，12:00 Uhr)。
+* "ca." 之類的縮寫 不會被取代。 我們建議您使用完整形式。
+* 已移除四個主要的數學運算子 (+、-、\* 和 /)。 建議您以其文字形式加以取代："plus"、"minus"、"mal" 和 "geteilt"。
+* 相同的規則適用於比較運算子 (=、<、和 >)。 建議並取代成 "gleich"、"kleiner als" 和 "grösser als"。
+* 使用 3/4 這類分數時，採用文字形式 (例如，"drei viertel" 而不採用 ¾)。
+* 以文字形式 "Euro" 取代 € 符號。
 
-以下是一些範例。
+這裡有一些範例：
 
 | 原始文字 | 在使用者的正規化之後 | 在系統的正規化之後
 |--------  | ----- | -------- |
-| Es ist 12.23Uhr | Es ist 12:23Uhr | es ist zwölf uhr drei und zwanzig uhr |
+| Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf ||
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>後續步驟
 
-- [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+- [取得您的語音服務試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
 - [以 C# 辨識語音](quickstart-csharp-dotnet-windows.md)

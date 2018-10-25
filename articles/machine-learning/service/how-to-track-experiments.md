@@ -9,30 +9,33 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: ced10a54d569531b06ee47b646130f43cedd2963
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984597"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649987"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>使用 Azure Machine Learning 追蹤實驗與訓練計量
 
 在 Azure Machine Learning 服務中，您可以追蹤您的實驗並監視計量，以加強模型建立程序。 在本文中，您將了解將記錄新增到訓練指令碼、如何使用 **start_logging** 和 **ScriptRunConfig** 提交實驗、如何檢查執行中作業的進度，以及如何檢視執行結果的不同方法。 
 
+>[!NOTE]
+> 本文中的程式碼使用 Azure Machine Learning SDK 0.168 版進行測試 
+
 ## <a name="list-of-training-metrics"></a>訓練計量的清單 
 
-訓練實驗時，可以將下列計量新增到執行中。 若要檢視執行時可追蹤內容的更詳細清單，請參閱 [SDK 參考文件](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py)。
+訓練實驗時，可以將下列計量新增到執行中。 若要檢視執行時可追蹤內容的更詳細清單，請參閱 [SDK 參考文件](https://aka.ms/aml-sdk)。
 
-|類型| Python 函式 | 注意|
-|----|:----:|:----:|
-|純量值 | `run.log(name, value, description='')`| 使用指定名稱將計量值記錄到執行中。 將計量記錄到執行中，會導致該計量儲存在實驗的執行記錄中。  您可以在執行中多次記錄相同的計量，結果會視為該計量的向量。|
-|清單| `run.log_list(name, value, description='')`|使用指定名稱將清單計量值記錄到執行中。|
-|資料列| `run.log_row(name, description=None, **kwargs)`|使用 *log_row* 建立資料表計量，其中包含 kwargs 中描述的資料行。 每個具名的參數都會產生一個具有指定值的資料行。  可以呼叫一次 *log_row* 以記錄任意 Tuple，或者在迴圈中多次呼叫以產生完整的資料表。|
-|資料表| `run.log_table(name, value, description='')`| 使用指定名稱將資料表計量記錄到執行中。 |
-|映像| `run.log_image(name, path=None, plot=None)`|記錄映像計量以執行記錄。 使用 log_image 將映像檔案或 matplotlib 繪圖記錄到執行中。  這些映像會顯示在執行記錄中，並可供比較。|
-|標記執行| `run.tag(key, value=None)`|使用字串索引鍵和可選字串值標記執行。|
-|上傳檔案或目錄|`run.upload_file(name, path_or_stream)`|將檔案上傳到執行記錄。 執行會自動擷取特定輸出目錄中的檔案，對於大多數執行類型，預設為「./outputs」。  只有在需要上傳其他檔案或未指定輸出目錄時，才使用 upload_file。 我們建議在名稱中加上 `outputs`，以便將其上傳到輸出目錄。 您可以透過呼叫 `run.get_file_names()`，列出與該執行記錄相關聯的所有檔案|
+|類型| Python 函式 | 範例 | 注意|
+|----|:----|:----|:----|
+|純量值 | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |使用指定名稱將數字或字串值記錄到執行中。 將計量記錄到執行中，會導致該計量儲存在實驗的執行記錄中。  您可以在執行中多次記錄相同的計量，結果會視為該計量的向量。|
+|清單| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | 使用指定名稱將值清單記錄到執行中。|
+|資料列| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | 使用 log_row 建立計量，並於其中包含 kwargs 中描述的多個資料行。 每個具名的參數都會產生一個具有指定值的資料行。  可以呼叫一次 *log_row* 以記錄任意 Tuple，或者在迴圈中多次呼叫以產生完整的資料表。|
+|資料表| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | 使用指定名稱將字典物件記錄到執行中。 |
+|映像| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | 將映像記錄到執行記錄中。 使用 log_image 將映像檔案或 matplotlib 繪圖記錄到執行中。  這些映像會顯示在執行記錄中，並可供比較。|
+|標記執行| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | 使用字串索引鍵和可選字串值標記執行。|
+|上傳檔案或目錄|`run.upload_file(name, path_or_stream)`| run.upload_file("best_model.pkl", "./model.pkl") | 將檔案上傳到執行記錄。 執行會自動擷取特定輸出目錄中的檔案，對於大多數執行類型，預設為「./outputs」。  只有在需要上傳其他檔案或未指定輸出目錄時，才使用 upload_file。 我們建議在名稱中加上 `outputs`，以便將其上傳到輸出目錄。 您可以透過呼叫 `run.get_file_names()`，列出與該執行記錄相關聯的所有檔案|
 
 > [!NOTE]
 > 純量、清單、資料列和資料表的計量可具有以下類型：浮點數、整數或字串。
@@ -141,14 +144,14 @@ ms.locfileid: "46984597"
 
   X, y = load_diabetes(return_X_y = True)
 
-  run = Run.get_submitted_run()
+  run = Run.get_context()
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
   data = {"train": {"X": X_train, "y": y_train},
           "test": {"X": X_test, "y": y_test}}
 
   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-  alphas = np.arange(0.0, 1.0, 0.05)
+  alphas = mylib.get_alphas()
 
   for alpha in alphas:
       # Use Ridge algorithm to create a regression model
@@ -232,6 +235,7 @@ ms.locfileid: "46984597"
 
 您可以使用 ```run.get_metrics()``` 檢視定型模型的計量。 您現在可以取得上述範例中記錄的所有計量，以確定最佳模型。
 
+<a name='view-the-experiment-in-the-web-portal'/>
 ## <a name="view-the-experiment-in-the-azure-portal"></a>在 Azure 入口網站中檢視實驗
 
 當實驗完成執行時，您可以瀏覽記錄的實驗執行記錄。 您可以使用兩種方式執行此動作：
@@ -247,8 +251,8 @@ ms.locfileid: "46984597"
 
 ## <a name="example-notebooks"></a>Notebook 範例
 下列 Notebook 示範了此文章中說明的概念：
-* `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
+* [01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
+* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
 
 取得這些 Notebook：[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

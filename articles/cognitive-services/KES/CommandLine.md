@@ -1,23 +1,26 @@
 ---
-title: 知識探索服務命令列介面 | Microsoft Docs
-description: 使用 KES 命令列介面從結構化資料中建置索引和文法檔案，然後將其部署為 Microsoft 認知服務中的 Web 服務。
+title: 命令列介面 - 知識探索服務 API
+titlesuffix: Azure Cognitive Services
+description: 使用命令列介面從結構化資料中建置索引和文法檔案，然後將其部署為 Web 服務。
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136350"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127132"
 ---
 # <a name="command-line-interface"></a>命令列介面
-KES 命令列介面提供的功能可從結構化資料中建置索引和文法檔案，並將其部署為 Web 服務。  其使用一般語法：`kes.exe <command> <required_args> [<optional_args>]`。  您可以在沒有引數的狀況下，執行 `kes.exe` 來顯示命令清單，或執行 `kes.exe <command>` 來顯示指定命令可用的引數清單。  以下是可用命令的清單：
+
+知識探索服務 (KES) 命令列介面提供的功能可從結構化資料中建置索引和文法檔案，並將其部署為 Web 服務。  其使用一般語法：`kes.exe <command> <required_args> [<optional_args>]`。  您可以在沒有引數的狀況下，執行 `kes.exe` 來顯示命令清單，或執行 `kes.exe <command>` 來顯示指定命令可用的引數清單。  以下是可用命令的清單：
+
 * build_index
 * build_grammar
 * host_service

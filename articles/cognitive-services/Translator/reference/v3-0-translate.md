@@ -1,23 +1,23 @@
 ---
-title: Microsoft Translator Text API 翻譯方法 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: 使用 Microsoft Translator Text API 翻譯方法。
+title: 翻譯工具文字 API 翻譯方法
+titleSuffix: Azure Cognitive Services
+description: 使用翻譯工具文字 API 翻譯方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: d8d5e1e2fac747fa733f1d92c08008b7eac2a1bc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1841730a39d29c5fe1f3451b7614818e924b339f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370674"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128752"
 ---
-# <a name="text-api-30-translate"></a>Text API 3.0：翻譯
+# <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0 翻譯
 
 翻譯文字。
 
@@ -31,14 +31,14 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 ## <a name="request-parameters"></a>要求參數
 
-在查詢字串上傳遞的要求參數如下：
+在查詢字串上傳遞的要求參數為：
 
 <table width="100%">
   <th width="20%">查詢參數</th>
   <th>說明</th>
   <tr>
     <td>api-version</td>
-    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
+    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
   </tr>
   <tr>
     <td>from</td>
@@ -105,7 +105,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*選擇性*。<br/>用於唯一識別要求之用戶端產生的 GUID。 若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
@@ -177,23 +177,23 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>400</td>
-    <td>其中一個查詢參數遺漏或無效。 請先更正要求參數，然後重試。</td>
+    <td>缺少其中一個查詢參數，或查詢參數無效。 請先修正要求參數再重試。</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>無法驗證此要求。 請確認認證已指定且有效。</td>
+    <td>無法驗證要求。 請確認認證已指定且有效。</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>此要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
+    <td>要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>呼叫者傳送太多要求。</td>
+    <td>呼叫者傳送過多要求。</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>

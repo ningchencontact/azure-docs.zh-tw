@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261210"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720441"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合式系統的一般資料中心整合考量
 如果您對 Azure Stack 整合式系統有興趣，您應瞭解一些有關部署的重大規劃考量，及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  
@@ -35,7 +35,7 @@ ms.locfileid: "35261210"
 ## <a name="capacity-planning-considerations"></a>容量規劃考量
 評估是否要取得 Azure Stack 解決方案時，選擇硬體組態是必要的，因為這直接影響到 Azure Stack 解決方案的整體容量。 其中包括 CPU、記憶體密度、儲存體組態和整體解決方案規模 (例如伺服器的數目) 等典型選項。 不同於傳統的虛擬化解決方案，簡單地計算這些元件不適用於決定可用的容量。 第一個原因是 Azure Stack 的架構是解決方案本身就裝載基礎結構或管理元件。 第二個原因是解決方案的部分容量會為支援恢復功能而保留；透過將租用戶工作負載中斷情形降到最低的方式，來更新解決方案的軟體。 
 
-[Azure Stack 容量規劃工具試算表](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)可透過兩個方法協助您在規劃容量方面作出適當的決定：透過選取硬體供應項目和嘗試符合資源組合，或透過定義 Azure Stack 要執行的工作負載，來檢視可支援的可用硬體 SKU。 最後，此試算表是用來協助決定 Azure Stack 規劃和組態等相關項目的指南。 
+[Azure Stack 容量規劃工具試算表](https://aka.ms/azstackcapacityplanner)可透過兩個方法協助您在規劃容量方面作出適當的決定：透過選取硬體供應項目和嘗試符合資源組合，或透過定義 Azure Stack 要執行的工作負載，來檢視可支援的可用硬體 SKU。 最後，此試算表是用來協助決定 Azure Stack 規劃和組態等相關項目的指南。 
 
 不適合用試算表取代您自己的調查與分析。  Microsoft 對於試算表內所提供的資訊不做任何明示或暗示的聲明或保證。
 
@@ -87,9 +87,9 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 下表摘要這些網域命名決策。
 
-| Name | 說明 | 
+| 名稱 | 說明 | 
 | -------- | ------------- | 
-|區域名稱 | 您的第一個 Azure Stack 區域名稱。 這個名稱會用於 Azure Stack 管理的公用虛擬 IP 位址 (VIP) 之 FQDN 的一部分。 一般而言，區域名稱會是資料中心位置之類的實體位置識別碼。 | 
+|區域名稱 | 您的第一個 Azure Stack 區域名稱。 這個名稱會用於 Azure Stack 管理的公用虛擬 IP 位址 (VIP) 之 FQDN 的一部分。 一般而言，區域名稱會是資料中心位置之類的實體位置識別碼。<br><br>區域名稱必須包含字母和 0-9 之間的數字。 不允許特殊字元，例如「-」或「#」等等。| 
 | 外部網域名稱 | 含外部 VIP 之端點的網域名稱系統 (DNS) 區域名稱。 針對這些公用 VIP 在 FQDN 中使用。 | 
 | 私人 (內部) 網域名稱 | 在 Azure Stack 上為基礎結構管理建立的網域 (和內部 DNS 區域) 的名稱。 
 | | |
@@ -191,10 +191,7 @@ Azure Stack 不會備份租用戶應用程式和資料。 您必須針對 Azure 
 
 若要備份 Linux 或 Windows IaaS 虛擬機器，您必須使用含來賓作業系統存取權的備份產品來保護檔案、資料夾、作業系統狀態和應用程式資料。 您可以使用 Azure 備份，System Center Data Center Protection Manager 或支援的協力廠商產品。
 
-若要將資料複寫到次要位置並協調應用程式在發生災難時容錯移轉，您可以使用 Azure Site Recovery 或支援的協力廠商產品。 (在初始版本的整合系統中，Azure Site Recovery 不會支援容錯回復。 不過，您可以透過手動程序完成容錯回復。)此外，支援原生複寫 (如 Microsoft SQL Server) 的應用程式可將資料複寫到正在執行應用程式的另一個位置。
-
-> [!IMPORTANT]
-> 在初始版本的整合系統中，我們將支援在 IaaS 虛擬機器的來賓層級上工作的保護技術。 您無法在基礎的基礎結構伺服器上安裝代理程式。
+若要將資料複寫到次要位置並協調應用程式在發生災難時容錯移轉，您可以使用 Azure Site Recovery 或支援的協力廠商產品。 此外，支援原生複寫 (如 Microsoft SQL Server) 的應用程式可將資料複寫到正在執行應用程式的另一個位置。
 
 ## <a name="learn-more"></a>深入了解
 

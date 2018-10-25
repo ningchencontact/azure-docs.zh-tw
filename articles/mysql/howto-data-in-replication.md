@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 08/31/2018
-ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667152"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497921"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何為適用於 MySQL 的 Azure 資料庫設定複寫中的資料
 
@@ -158,6 +158,9 @@ ms.locfileid: "43667152"
    - master_log_pos：執行 `show master status` 產生的二進位記錄檔的位置
    - master_ssl_ca：CA 憑證的內容。 如果不使用 SSL，請傳入空字串。
        - 建議將此參數以變數形式傳遞。 請參閱下列範例，以取得詳細資訊。
+
+> [!NOTE]
+> 若主要伺服器裝載於 Azure 虛擬機器，將「允許存取 Azure 服務」設定為「開啟」，讓主要伺服器與複本伺服器能彼此溝通。 於**連線安全性**選項可以變更此項設定。 請參閱[使用入口網站管理防火牆規則](howto-manage-firewall-using-portal.md)取得更多資訊。
 
    **範例**
 

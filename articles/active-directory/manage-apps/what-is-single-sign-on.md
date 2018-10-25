@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494120"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720118"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
 單一登入表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如，輸入密碼)。
@@ -46,7 +46,7 @@ Azure AD 支援三種不同的方式登入應用程式：
 
 * **同盟單一登入**可讓應用程式重新導向至 Azure AD 進行使用者驗證，而不是提示使用者自己的密碼。 支援如 SAML 2.0、WS-同盟或 OpenID Connect 等通訊協定的應用程式都支援同盟單一登入，而且這是最豐富的單一登入模式。
 * **密碼單一登入**可以使用網頁瀏覽器延伸或行動應用程式，安全儲存應用程式的密碼以及重新執行。 密碼型單一登入會使用應用程式提供的現有程序，但是讓系統管理員能夠管理密碼，而且使用者不需要知道密碼。
-* **現有單一登入**可讓 Azure AD 運用應用程式已設定的任何現有單一登入，但可讓這些應用程式連結至 Office 365 或 Azure AD 存取面板入口網站，當其中有應用程式啟動時，Azure AD 中也會有額外的報告。
+* **已連結的單一登入**可讓 Azure AD 運用應用程式已設定的任何現有單一登入，但可讓這些應用程式連結至 Office 365 或 Azure AD 存取面板入口網站，當其中有應用程式啟動時，Azure AD 中也會有額外的報告。
 
 一旦使用者通過應用程式的驗證，他們在應用程式中也必須具有佈建的帳戶記錄，以便告訴應用程式在應用程式內部具有權限和存取層級的位置。 佈建此帳戶記錄可以自動執行，或是在提供使用者單一登入存取之前由系統管理員手動執行。
 
@@ -79,17 +79,17 @@ Azure AD 可以對支援 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定的�
 * Chrome - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上
 * Firefox 26.0 或更新版本 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上
 
-### <a name="existing-single-sign-on"></a>現有單一登入
-設定應用程式的單一登入時，Azure 入口網站提供「現有單一登入」的第三個選項。 這個選項只允許系統管理員建立應用程式的連結，並將連結放在選定使用者的存取面板上。
+### <a name="linked-single-sign-on"></a>已連結的單一登入
+設定應用程式的單一登入時，Azure 入口網站提供「已連結的單一登入」的第三個選項。 這個選項只允許系統管理員建立應用程式的連結，並將連結放在選定使用者的存取面板上。
 
-例如，如果有一個應用程式設定為使用 Active Directory Federation Services 2.0 來驗證使用者，系統管理員可以使用 [現有單一登入] 選項在存取面板上建立應用程式的連結。 當使用者存取此連結時，會使用 Active Directory Federation Services 2.0，或由應用程式提供的任何現有單一登入解決方案來驗證使用者。
+例如，如果有一個應用程式設定為使用 Active Directory 同盟服務 2.0 來驗證使用者，系統管理員可以使用 [已連結的單一登入] 選項在存取面板上建立應用程式的連結。 當使用者存取此連結時，會使用 Active Directory Federation Services 2.0，或由應用程式提供的任何現有單一登入解決方案來驗證使用者。
 
 ### <a name="user-provisioning"></a>使用者佈建
 對於選取的應用程式，Azure AD 使用您的 Windows Server Active Directory 或 Azure AD 身分識別資訊，可從 Azure 入口網站內在協力廠商 SaaS 應用程式中進行帳戶的自動化使用者佈建和解除佈建。 當使用者在 Azure AD 中獲得其中一個應用程式的權限時，就會在目標 SaaS 應用程式中自動建立 (佈建) 帳戶。
 
 當使用者被刪除，或其資訊在 Azure AD 中有所變更時，這些變更也會反映在 SaaS 應用程式中。 這表示，設定自動化的身分識別週期管理，可讓系統管理員控制和提供 SaaS 應用程式的自動化佈建和解除佈建。 在 Azure AD 中，使用者佈建已啟用此自動化身分識別週期管理。
 
-若要深入了解，請參閱 [SaaS 應用程式的自動化使用者佈建和解除佈建](../active-directory-saas-app-provisioning.md)
+若要深入了解，請參閱 [SaaS 應用程式的自動化使用者佈建和解除佈建](user-provisioning.md)
 
 ## <a name="get-started-with-the-azure-ad-application-gallery"></a>開始使用 Azure AD 應用程式庫
 準備好開始了嗎？ 若要在 Azure AD 和您的組織所使用的 SaaS 應用程式之間部署單一登入，請遵循這些指導方針。
@@ -109,7 +109,7 @@ Azure AD 可以對支援 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定的�
 ### <a name="application-not-in-the-gallery"></a>不在資源庫中的應用程式呢？
 如果 Azure AD 應用程式庫中找不到您的應用程式，您可以選擇：
 
-* **新增您正在使用但未列出的應用程式** - 使用 Azure 入口網站內應用程式資源庫中的自訂類別目錄，連線您的組織正在使用但未列出的應用程式。 您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。 如需詳細資訊，請參閱 [加入自己的應用程式](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)一文。
+* **新增您正在使用但未列出的應用程式** - 使用 Azure 入口網站內應用程式資源庫中的自訂類別目錄，連線您的組織正在使用但未列出的應用程式。 您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。 如需詳細資訊，請參閱 [加入自己的應用程式](configure-federated-single-sign-on-non-gallery-applications.md)一文。
 * **新增您正在開發的專屬應用程式** - 如果您自己開發了應用程式，請依照 Azure AD 開發人員文件中的指導方針來實作同盟單一登入或使用 Azure AD 圖形 API 的佈建。 如需詳細資訊，請參閱這些資源：
   
   * [Azure AD 的驗證案例](../develop/authentication-scenarios.md)
@@ -172,7 +172,7 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>同盟、密碼或現有應用程式的直接登入連結
-Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任何形式的同盟單一登入的個別應用程式使用直接單一登入連結。
+Azure AD 也支援對支援密碼單一登入、已連結的單一登入，以及任何形式的同盟單一登入的個別應用程式使用直接單一登入連結。
 
 這些連結是特別撰寫的 URL，會透過 Azure AD 登入程序針對特定應用程式傳送給使用者，使用者不需要從 Azure AD 存取面板或 Office 365 啟動。 您可以在 Azure 入口網站 [Active Directory] 區段中任何預先整合之應用程式的 [儀表板] 索引標籤下，找到這些單一登入 URL，如以下螢幕擷取畫面所示。
 
@@ -191,7 +191,6 @@ Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任�
 這些連結使用與存取面板和 Office 365 相同的存取控制機制，只有在 Azure 入口網站中已指派給應用程式的使用者或群組能夠順利通過驗證。 不過，任何未經授權的使用者都會看到一個訊息，說明他們未獲得存取權，且會獲得一個載入存取面板的連結，以檢視可存取的應用程式。
 
 ## <a name="related-articles"></a>相關文章
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../active-directory-apps-index.md)
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
 * [設定 Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [管理應用程式存取簡介](what-is-access-management.md)

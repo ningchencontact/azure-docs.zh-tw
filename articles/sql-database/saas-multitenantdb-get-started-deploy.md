@@ -1,25 +1,25 @@
 ---
 title: 部署使用 Azure SQL Database 的分區化多租用戶 SaaS 應用程式 | Microsoft Docs
 description: 部署及探索分區化 Wingtip SaaS 多租用戶資料庫應用程式，其使用 Azure SQL Database 示範 SaaS 模式。
-keywords: SQL Database Azure
 services: sql-database
-author: billgib
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: data-management
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, stein
+manager: craigg
 ms.date: 04/02/2018
-ms.reviewer: genemi
-ms.author: billgib
-ms.openlocfilehash: 0c2677622b118c11216bef62ff70e87f4de4cded
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665918"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352206"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的分區化多租用戶應用程式
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>部署及探索分區化多租用戶應用程式
 
 在本教學課程中，您可以部署及探索稱為 Wingtip Tickets 的範例多租用戶 SaaS 應用程式。 Wingtip Tickets 應用程式是設計成用來展示簡化實作 SaaS 案例的 Azure SQL Database 功能。
 
@@ -27,7 +27,7 @@ ms.locfileid: "43665918"
 
 此資料庫模式可讓您在每個分區化或資料庫中儲存一或多個租用戶。 您可以讓每個資料庫由多個租用戶分區化，以針對最低成本最佳化。 或者您可以讓每個資料庫僅儲存一個租用戶，以針對隔離最佳化。 您可以為每個特定租用戶獨立進行最佳化選擇。 第一次儲存租用戶時可以進行選擇，稍後您改變主意時也可以進行選擇。 應用程式的設計是這兩種方式都可以正常運作。
 
-#### <a name="app-deploys-quickly"></a>應用程式部署快速
+## <a name="app-deploys-quickly"></a>應用程式部署快速
 
 應用程式會在 Azure 雲端中執行，並且使用 Azure SQL Database。 後續部署章節提供藍色的 [部署至 Azure] 按鈕。 按下按鈕時，應用程式會在五分鐘內完整部署到您的 Azure 訂用帳戶。 您具有完整存取權以使用個別應用程式元件。
 
@@ -35,7 +35,7 @@ ms.locfileid: "43665918"
 
 任何人都可以從[他們的 GitHub 存放庫][link-github-wingtip-multitenantdb-55g]下載 Wingtip Tickets 的 C# 和 PowerShell 原始程式碼。
 
-#### <a name="learn-in-this-tutorial"></a>在本教學課程中學到
+## <a name="learn-in-this-tutorial"></a>在本教學課程中學到
 
 > [!div class="checklist"]
 > - 如何部署 Wingtip Tickets SaaS 應用程式。
@@ -55,7 +55,7 @@ ms.locfileid: "43665918"
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>部署 Wingtip Tickets 應用程式
 
-#### <a name="plan-the-names"></a>計劃名稱
+### <a name="plan-the-names"></a>計劃名稱
 
 在本節的步驟中，您將提供使用者值來確保資源名稱是全域唯一，且為資源群組的名稱，該群組包含部署應用程式時建立的所有資源。 假設使用者的姓名為 Ann Finley，我們建議使用以下名稱：
 - 使用者：**af1** (姓名首字母縮寫加一個數字。如果您非首次部署應用程式，請使用另一個值 (例如 af2))。
@@ -63,7 +63,7 @@ ms.locfileid: "43665918"
 
 現在請選擇您的名稱，然後將它們寫下來。 
 
-#### <a name="steps"></a>步驟
+### <a name="steps"></a>步驟
 
 1. 按一下以下藍色的 [部署至 Azure] 按鈕。
     - 它會開啟 Azure 入口網站以及 Wingtip Tickets SaaS 部署範本。
@@ -133,7 +133,7 @@ ms.locfileid: "43665918"
 
    ![活動](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Azure 流量管理員
+### <a name="azure-traffic-manager"></a>Azure 流量管理員
 
 為了控制連入要求的發佈，Wingtip 應用程式會使用 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)。 每個租用戶的 [活動] 分頁在其 URL 中包含它的租用戶名稱。 每個 URL 也會包含特定「使用者」值。 每個 URL 都藉由使用下列步驟，遵守所顯示的格式：
 
@@ -144,7 +144,7 @@ ms.locfileid: "43665918"
 3. 應用程式在目錄中尋找索引鍵，並取得租用戶資料庫的對應位置。
 4. 應用程式會使用位置資訊來尋找及存取一個包含租用戶所有資料的資料庫。
 
-#### <a name="events-hub"></a>事件中樞
+### <a name="events-hub"></a>事件中樞
 
 1. **事件中樞**會列出在目錄及其場地中註冊的所有租用戶。
 2. [事件中樞] 會使用目錄中的延伸中繼資料來擷取與每個對應相關聯的租用戶名稱，以建構 URL。
@@ -185,6 +185,7 @@ ms.locfileid: "43665918"
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>在它自己的資料庫中佈建新租用戶
 
 分區化多租用戶模型可讓您選擇是否要在包含其他租用戶的資料庫中佈建新的租用戶，或是在其自己的資料庫中佈建租用戶。 租用戶隔離在自己的資料庫中具有以下優點：
+
 - 可以管理租用戶資料庫的效能，而不會犧牲其他租用戶的需求。
 - 如有必要，資料庫可以還原至以前的時間點，因為其他租用戶不會受到影響。
 
@@ -221,7 +222,6 @@ ms.locfileid: "43665918"
 
    ![租用戶伺服器](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-
 ## <a name="monitor-the-performance-of-the-database"></a>監視資料庫的效能
 
 如果負載產生器已經執行數分鐘，應該已有足夠的遙測可供查看 Azure 入口網站的內建資料庫監視功能。
@@ -238,7 +238,7 @@ ms.locfileid: "43665918"
 
 負載產生器將類似負載套用至每個租用戶，不論每個租用戶位於哪個資料庫。 在 **salixsalsa** 資料庫中只有一個租用戶時，您可以看到相較於具有數個租用戶的資料庫，此資料庫可以承受較高的負載。 
 
-#### <a name="resource-allocations-vary-by-workload"></a>資源配置會因工作負載而異
+### <a name="resource-allocations-vary-by-workload"></a>資源配置會因工作負載而異
 
 有時多租用戶資料庫需要更多資源以取得比單一租用戶資料庫更好的效能，但並非總是如此。 最佳資源配置取決於您的系統中租用戶之特定工作負載特性。
 
@@ -249,8 +249,9 @@ ms.locfileid: "43665918"
 - 若要了解多租用戶 SaaS 應用程式，請參閱[多租用戶 SaaS 應用程式的設計模式](saas-tenancy-app-design-patterns.md)。
 
 - 若要深入了解彈性集區，請參閱：
-    - [彈性集區可協助您管理及調整多個 Azure SQL Database](sql-database-elastic-pool.md)
-    - [使用 Azure SQL Database 相應放大](sql-database-elastic-scale-introduction.md)
+
+  - [彈性集區可協助您管理及調整多個 Azure SQL Database](sql-database-elastic-pool.md)
+  - [使用 Azure SQL Database 相應放大](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>後續步驟
 

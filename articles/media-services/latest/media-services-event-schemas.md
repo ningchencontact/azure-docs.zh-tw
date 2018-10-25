@@ -4,19 +4,19 @@ description: 描述利用 Azure 事件格線提供給媒體服務事件的屬性
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: a6a6c459e170627d26aa1445f4f4dd193965fe70
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 44e195055c74babd903cf4fb830167ab92951d4a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140886"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376783"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure 媒體服務事件的 Azure 事件格線結構描述
 
@@ -26,14 +26,56 @@ ms.locfileid: "42140886"
 
 ## <a name="available-event-types"></a>可用的事件類型
 
-媒體服務會發出下列事件類型：
+### <a name="job-related-event-types"></a>作業相關的事件類型
+
+媒體服務會發出如下所述的 [作業] 相關事件類型。 [作業] 相關事件有兩種類別：「監視工作狀態變更」和「監視作業輸出的狀態變更」。 
+
+您可以訂閱 JobStateChange 事件來註冊所有事件。 或者，您可以只訂閱特定事件 (例如，JobErrored、JobFinished 和 JobCanceled 等最終狀態)。 
+
+#### <a name="monitoring-job-state-changes"></a>監視工作狀態變更
 
 | 事件類型 | 說明 |
 | ---------- | ----------- |
-| Microsoft.Media.JobStateChange| 作業的狀態有變更。 |
+| Microsoft.Media.JobStateChange| 取得所有作業狀態變更的事件。 |
+| Microsoft.Media.JobScheduled| 取得當作業轉換成已排程狀態時的事件。 |
+| Microsoft.Media.JobProcessing| 取得當作業轉換成處理狀態時的事件。 |
+| Microsoft.Media.JobCanceling| 取得當作業轉換成取消狀態時的事件。 |
+| Microsoft.Media.JobFinished| 取得當作業轉換成完成狀態時的事件。 這是包含作業輸出的最終狀態。|
+| Microsoft.Media.JobCanceled| 取得當作業轉換成已取消狀態時的事件。 這是包含作業輸出的最終狀態。|
+| Microsoft.Media.JobErrored| 取得當作業轉換成錯誤狀態時的事件。 這是包含作業輸出的最終狀態。|
+
+#### <a name="monitoring-job-output-state-changes"></a>監視作業輸出狀態變更
+
+| 事件類型 | 說明 |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputStateChange| 取得所有作業輸出狀態變更的事件。 |
+| Microsoft.Media.JobOutputScheduled| 取得當作業輸出轉換成已排程狀態時的事件。 |
+| Microsoft.Media.JobOutputProcessing| 取得當作業輸出轉換成處理狀態時的事件。 |
+| Microsoft.Media.JobOutputCanceling| 取得當作業輸出轉換成取消狀態時的事件。|
+| Microsoft.Media.JobOutputFinished| 取得當作業輸出轉換成完成狀態時的事件。|
+| Microsoft.Media.JobOutputCanceled| 取得當作業輸出轉換成已取消態時的事件。|
+| Microsoft.Media.JobOutputErrored| 取得當作業輸出轉換成錯誤狀態時的事件。|
+
+### <a name="live-event-types"></a>即時事件類型
+
+媒體服務也會發出如下所述的 [即時] 事件類型。 **即時**事件有兩種類別：資料流層級事件和資料軌層級事件。 
+
+#### <a name="stream-level-events"></a>串流層級事件
+
+資料流層級事件會以每個資料流或連線為基礎來引發。 每個事件都有 `StreamId` 參數可識別連線或資料流。 每個資料流或連線都有一或多個不同類型的資料軌。 例如，來自編碼器的一個連線可能會有一個音訊資料軌和四個視訊資料軌。 資料流事件類型有：
+
+| 事件類型 | 說明 |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | 編碼器的連線嘗試遭到拒絕。 |
 | Microsoft.Media.LiveEventEncoderConnected | 編碼器對即時事件建立連線。 |
 | Microsoft.Media.LiveEventEncoderDisconnected | 編碼器中斷連線。 |
+
+#### <a name="track-level-events"></a>追蹤層級事件
+
+資料軌層級事件會以每個資料軌為基礎來引發。資料軌事件類型有：
+
+| 事件類型 | 說明 |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | 媒體伺服器卸除資料區塊，原因是其來得太晚或有重疊的時間戳記 (新資料區塊的時間戳記小於先前資料區塊的結束時間)。 |
 | Microsoft.Media.LiveEventIncomingStreamReceived | 媒體伺服器收到資料流或連線中每個資料軌的第一個資料區塊。 |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 媒體伺服器偵測到音訊和視訊資料流未同步。可作為警告，原因是使用者體驗可能不受影響。 |
@@ -41,24 +83,9 @@ ms.locfileid: "42140886"
 | Microsoft.Media.LiveEventIngestHeartbeat | 當即時事件執行時，會針對每個資料軌每 20 秒發佈一次。 提供內嵌健康情況摘要。 |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 媒體伺服器偵測到內送的資料軌發生中斷。 |
 
-**即時**事件有兩種類別：資料流層級事件和資料軌層級事件。 
+## <a name="event-schemas-and-properties"></a>事件結構描述和屬性
 
-資料流層級事件會以每個資料流或連線為基礎來引發。 每個事件都有 `StreamId` 參數可識別連線或資料流。 每個資料流或連線都有一或多個不同類型的資料軌。 例如，來自編碼器的一個連線可能會有一個音訊資料軌和四個視訊資料軌。 資料流事件類型有：
-
-* LiveEventConnectionRejected
-* LiveEventEncoderConnected
-* LiveEventEncoderDisconnected
-
-資料軌層級事件會以每個資料軌為基礎來引發。資料軌事件類型有：
-
-* LiveEventIncomingDataChunkDropped
-* LiveEventIncomingStreamReceived
-* LiveEventIncomingStreamsOutOfSync
-* LiveEventIncomingVideoStreamsOutOfSync
-* LiveEventIngestHeartbeat
-* LiveEventTrackDiscontinuityDetected
-
-## <a name="jobstatechange"></a>JobStateChange
+### <a name="jobstatechange"></a>JobStateChange
 
 下列範例顯示 **JobStateChange** 事件的結構描述： 
 
@@ -89,7 +116,142 @@ ms.locfileid: "42140886"
 
 工作狀態可以是以下其中一個值：*已排入佇列*、*已排程*、*處理中*、*已完成*、*錯誤*、*已取消*、*取消中*
 
-## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
+### <a name="jobscheduled"></a>JobScheduled
+### <a name="jobprocessing"></a>JobProcessing
+### <a name="jobcanceling"></a>JobCanceling
+
+對於每個非最終作業狀態的變更 (例如 JobScheduled、JobProcessing、JobCanceling)，範例結構描述看起來如下所示：
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobProcessing",
+  "eventTime": "2018-10-12T16:12:18.0839935",
+  "id": "a0a6efc8-f647-4fc2-be73-861fa25ba2db",
+  "data": {
+    "previousState": "Scheduled",
+    "state": "Processing",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="jobfinished"></a>JobFinished
+### <a name="jobcanceled"></a>JobCanceled
+### <a name="joberrored"></a>JobErrored
+
+對於每個最終作業狀態的變更 (例如 JobFinished、JobCanceled、JobErrored)，範例結構描述看起來如下所示：
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobFinished",
+  "eventTime": "2018-10-12T16:25:56.4115495",
+  "id": "9e07e83a-dd6e-466b-a62f-27521b216f2a",
+  "data": {
+    "outputs": [
+      {
+        "@odata.type": "#Microsoft.Media.JobOutputAsset",
+        "assetName": "output-7640689F",
+        "error": null,
+        "label": "VideoAnalyzerPreset_0",
+        "progress": 100,
+        "state": "Finished"
+      }
+    ],
+    "previousState": "Processing",
+    "state": "Finished",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+資料物件具有下列屬性：
+
+| 屬性 | 類型 | 說明 |
+| -------- | ---- | ----------- |
+| 輸出 | 陣列 | 取得作業輸出。|
+
+### <a name="joboutputstatechange"></a>JobOutputStateChange
+
+下列範例顯示 **JobOutputStateChange** 事件的結構描述：
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputStateChange",
+  "eventTime": "2018-10-12T16:25:56.0242854",
+  "id": "dde85f46-b459-4775-b5c7-befe8e32cf90",
+  "data": {
+    "previousState": "Processing",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 100,
+      "state": "Finished"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="joboutputscheduled"></a>JobOutputScheduled
+### <a name="joboutputprocessing"></a>JobOutputProcessing
+### <a name="joboutputfinished"></a>JobOutputFinished
+### <a name="joboutputcanceling"></a>JobOutputCanceling
+### <a name="joboutputcanceled"></a>JobOutputCanceled
+### <a name="joboutputerrored"></a>JobOutputErrored
+
+對於每個 JobOutput 狀態變更，範例結構描述看起來如下所示：
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputProcessing",
+  "eventTime": "2018-10-12T16:12:18.0061141",
+  "id": "f1fd5338-1b6c-4e31-83c9-cd7c88d2aedb",
+  "data": {
+    "previousState": "Scheduled",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 0,
+      "state": "Processing"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
 下列範例顯示 **LiveEventConnectionRejected** 事件的結構描述： 
 
@@ -136,7 +298,7 @@ ms.locfileid: "42140886"
 | MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | 彙總的位元速率超過允許的上限。 |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | 來自 RTMP 編碼器的視訊或音訊 FLVTag 時間戳記無效。 |
 
-## <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
+### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
 下列範例顯示 **LiveEventEncoderConnected** 事件的結構描述： 
 
@@ -169,7 +331,7 @@ ms.locfileid: "42140886"
 | EncoderIp | 字串 | 編碼器的 IP。 |
 | EncoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
 
-## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
+### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
 下列範例顯示 **LiveEventEncoderDisconnected** 事件的結構描述： 
 
@@ -225,7 +387,7 @@ ms.locfileid: "42140886"
 | MPI_REST_API_CHANNEL_STOP | 通道正在進行維護。 |
 | MPI_STREAM_HIT_EOF | 編碼器傳送了 EOF 資料流。 |
 
-## <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
+### <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
 
 下列範例顯示 **LiveEventIncomingDataChunkDropped** 事件的結構描述： 
 
@@ -261,7 +423,7 @@ ms.locfileid: "42140886"
 | 時幅 | 字串 | 時間戳記的時幅。 |
 | ResultCode | 字串 | 資料區塊卸除的原因。 **FragmentDrop_OverlapTimestamp** 或 **FragmentDrop_NonIncreasingTimestamp**。 |
 
-## <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
+### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
 下列範例顯示 **LiveEventIncomingStreamReceived** 事件的結構描述： 
 
@@ -303,7 +465,7 @@ ms.locfileid: "42140886"
 | Timestamp | 字串 | 所收到資料區塊的第一個時間戳記。 |
 | 時幅 | 字串 | 用來表示時間戳記的時幅。 |
 
-## <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
+### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
 下列範例顯示 **LiveEventIncomingStreamsOutOfSync** 事件的結構描述： 
 
@@ -319,7 +481,9 @@ ms.locfileid: "42140886"
       "minLastTimestamp": "319996",
       "typeOfStreamWithMinLastTimestamp": "Audio",
       "maxLastTimestamp": "366000",
-      "typeOfStreamWithMaxLastTimestamp": "Video"
+      "typeOfStreamWithMaxLastTimestamp": "Video",
+      "timescaleOfMinLastTimestamp": "10000000", 
+      "timescaleOfMaxLastTimestamp": "10000000"       
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -335,8 +499,10 @@ ms.locfileid: "42140886"
 | TypeOfTrackWithMinLastTimestamp | 字串 | 最後一個時間戳記為最小值的資料軌 (音訊或視訊) 類型。 |
 | MaxLastTimestamp | 字串 | 所有資料軌 (音訊或視訊) 的所有時間戳記之間的最大值。 |
 | TypeOfTrackWithMaxLastTimestamp | 字串 | 最後一個時間戳記為最大值的資料軌 (音訊或視訊) 類型。 |
+| TimescaleOfMinLastTimestamp| 字串 | 取得用來表示 "MinLastTimestamp" 的時幅。|
+| TimescaleOfMaxLastTimestamp| 字串 | 取得用來表示 "MaxLastTimestamp" 的時幅。|
 
-## <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
+### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
 下列範例顯示 **LiveEventIncomingVideoStreamsOutOfSync** 事件的結構描述： 
 
@@ -352,7 +518,8 @@ ms.locfileid: "42140886"
       "FirstTimestamp": "2162058216",
       "FirstDuration": "2000",
       "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000"
+      "SecondDuration": "2000",
+      "timescale": "10000000"      
     },
     "dataVersion": "1.0"
   }
@@ -367,8 +534,9 @@ ms.locfileid: "42140886"
 | FirstDuration | 字串 | 具有第一個時間戳記的資料區塊持續時間。 |
 | SecondTimestamp | 字串  | 其他某些視訊類型資料軌/品質層級所收到的時間戳記。 |
 | SecondDuration | 字串 | 具有第二個時間戳記的資料區塊持續時間。 |
+| 時幅 | 字串 | 時間戳記和持續時間的時幅。|
 
-## <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
+### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
 下列範例顯示 **LiveEventIngestHeartbeat** 事件的結構描述： 
 
@@ -417,7 +585,7 @@ ms.locfileid: "42140886"
 | State | 字串 | 即時事件的狀態。 |
 | Healthy | 布林 | 根據計數和旗標來指出內嵌是否狀況良好。 如果 OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false，則健康情況為 true。 |
 
-## <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
+### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
 下列範例顯示 **LiveEventTrackDiscontinuityDetected** 事件的結構描述： 
 
@@ -456,7 +624,7 @@ ms.locfileid: "42140886"
 | DiscontinuityGap | 字串 | 上述兩個時間戳記之間的間距。 |
 | 時幅 | 字串 | 用來表示時間戳記和中斷間距的時幅。 |
 
-## <a name="common-event-properties"></a>常見的事件屬性
+### <a name="common-event-properties"></a>常見的事件屬性
 
 事件具有下列的最高層級資料：
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 04f233384ad0d02cb5b7056df1e5fdfc74b9bec8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503514"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344620"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
 Azure Service Fabric 內建的反向 Proxy 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
@@ -156,9 +156,12 @@ Service Fabric 反向 Proxy 會嘗試重新解析服務位址，並在無法連�
 ```
 針對本機叢集，預設會將 `Fabric_NodeIPOrFQDN` 設定為 "localhost"。 使用 `-UseMachineName` 參數啟動本機叢集，以確保容器可連線至在節點上執行的反向 Proxy。 如需詳細資訊，請參閱[設定開發人員環境以對容器進行偵錯](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers)。
 
+在 Docker Compose 容器內執行的 Service Fabric 服務需要特殊的 docker-compose.yml 連接埠區段 http: 或 https: 組態。 如需詳細資訊，請參閱 [Azure Service Fabric 中的 Docker Compose 部署支援](service-fabric-docker-compose.md)。
+
 ## <a name="next-steps"></a>後續步驟
 * [在叢集上安裝及設定反向 Proxy](service-fabric-reverseproxy-setup.md)。
 * [設定透過反向 Proxy 轉送到安全的 HTTP 服務](service-fabric-reverseproxy-configure-secure-communication.md)
+* [診斷反向 Proxy 事件](service-fabric-reverse-proxy-diagnostics.md)
 * 請參閱 [GitHub 上的範例專案](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)中服務之間的 HTTP 通訊範例。
 * [使用 Reliable Services 遠端服務進行遠端程序呼叫](service-fabric-reliable-services-communication-remoting.md)
 * [在 Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)

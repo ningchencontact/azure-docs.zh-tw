@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 38c69b65d33a915d0b7cf43dc8ef5d43413163eb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441238"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428896"
 ---
 # <a name="create-roles"></a>建立角色
 
@@ -34,7 +34,7 @@ ms.locfileid: "37441238"
   
 這堂課的預估完成時間：**15 分鐘**  
   
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 10 課︰建立分割區](../tutorials/aas-lesson-10-create-partitions.md)。  
   
 ## <a name="create-roles"></a>建立角色  

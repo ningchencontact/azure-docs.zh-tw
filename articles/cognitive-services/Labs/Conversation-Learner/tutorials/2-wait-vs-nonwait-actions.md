@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173079"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540895"
 ---
 # <a name="wait-and-non-wait-actions"></a>等候與非等候動作
 
@@ -54,14 +54,14 @@ ms.locfileid: "39173079"
 1. 按一下 [新增動作]
 2. 在 [回應] 中，鍵入「Cows say moo」\(牛說哞\)。
 3. 取消勾選 [等候回應] 核取方塊。
-4. Click Create
+4. 按一下 [建立專案]。
 
 ### <a name="create-a-second-non-wait-action"></a>建立第二個非等候動作
 
 1. 按一下 [新增動作]
 2. 在 [回應] 中，鍵入「Ducks say quack」\(鴨子說呱\)。
 3. 取消勾選 [等候回應] 核取方塊。
-4. Click Create
+4. 按一下 [建立專案]。
 
 ![](../media/tutorial2_actions.PNG)
 

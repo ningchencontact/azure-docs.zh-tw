@@ -1,24 +1,25 @@
 ---
-title: Microsoft 翻譯工具文字 API 語言方法 | Microsoft Docs
-description: 使用 Microsoft 翻譯工具文字 API 語言方法。
+title: 翻譯工具文字 API 語言方法
+titlesuffix: Azure Cognitive Services
+description: 使用翻譯工具文字 API 語言方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 93c06218a560faf439f05903438d021b372ce257
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369691"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129636"
 ---
-# <a name="text-api-30-languages"></a>文字 API 3.0：語言
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0：語言
 
-取得文字 API 其他作業目前支援的語言集合。 
+取得翻譯工具文字 API 其他作業目前支援的語言集合。 
 
 ## <a name="request-url"></a>要求 URL
 
@@ -36,11 +37,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   <th>說明</th>
   <tr>
     <td>api-version</td>
-    <td>*必要參數*。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
+    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
   </tr>
   <tr>
     <td>scope</td>
-    <td>*選擇性參數*。<br/>以逗號分隔的名稱列表，用於定義要傳回的語言群組。 允許的群組名稱為：`translation`、`transliteration` 和 `dictionary`。 如果未提供任何範圍，則會傳回所有群組，相當於傳遞 `scope=translation,transliteration,dictionary`。 若想要決定哪一組支援語言適合您的案例使用，請參閱[回應物件](#response-body)的說明。</td>
+    <td>選擇性參數。<br/>以逗號分隔的名稱列表，用於定義要傳回的語言群組。 允許的群組名稱為：`translation`、`transliteration` 和 `dictionary`。 如果未提供任何範圍，則會傳回所有群組，相當於傳遞 `scope=translation,transliteration,dictionary`。 若想要決定哪一組支援語言適合您的案例使用，請參閱[回應物件](#response-body)的說明。</td>
   </tr>
 </table> 
 
@@ -243,7 +244,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 ## <a name="response-status-codes"></a>回應狀態碼
 
-以下是要求可能會傳回的 HTTP 狀態碼。 
+以下是要求傳回的可能 HTTP 狀態碼。 
 
 <table width="100%">
   <th width="20%">狀態碼</th>
@@ -258,7 +259,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>400</td>
-    <td>缺少其中一個查詢參數或無效。 請先修正要求參數再重試。</td>
+    <td>缺少其中一個查詢參數，或查詢參數無效。 請先修正要求參數再重試。</td>
   </tr>
   <tr>
     <td>429</td>
@@ -266,11 +267,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>500</td>
-    <td>發生意外錯誤。 如果錯誤仍然存在，請回報以下資訊：失敗的日期和時間、回應標頭 `X-RequestId` 中的要求識別碼、要求標頭 `X-ClientTraceId` 中的用戶端識別碼。</td>
+    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>暫時無法使用伺服器。 重試要求。 如果錯誤仍然存在，請回報以下資訊：失敗的日期和時間、回應標頭 `X-RequestId` 中的要求識別碼、要求標頭 `X-ClientTraceId` 中的用戶端識別碼。</td>
+    <td>暫時無法使用伺服器。 重試要求。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
 </table> 
 
