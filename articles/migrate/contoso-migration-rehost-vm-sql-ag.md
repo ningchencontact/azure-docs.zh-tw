@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: f744b9bacfb43b5cf4ba81e19d8e543561bcec61
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 54a506b509ca1b6129a549589da3f2d18068a82f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842748"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115432"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 移轉：在 Azure VM 和 SQL Server AlwaysOn 可用性群組上重新裝載內部部署應用程式
 
@@ -33,9 +33,10 @@ ms.locfileid: "43842748"
 [文章 8：在 Azure VM 和 Azure MySQL Server 上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | Contoso 會使用 Azure Site Recovery 將 Linux osTicket 應用程式移轉至 Azure VM，並使用 MySQL Workbench 將應用程式資料庫移轉至 Azure MySQL Server 執行個體。 | 可用
 [文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | Contoso 會將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
 [文章 10：在 Azure Web Apps 和 Azure MySQL 上重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 | 可用 
-[文章 11：在 VSTS 上重構 TFS](contoso-migration-tfs-vsts.md) | Contoso 會將其內部部署 Team Foundation Server 部署，移轉至 Azure 中的 Visual Studio Team Services。 | 可用
-[文章 12：在 Azure 容器和 Azure SQL Database 上重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel360 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 可用
-[文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | Contoso 會藉由使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel360 應用程式。 | 可用
+[文章 11：在 Azure DevOps Services 上重構 TFS](contoso-migration-tfs-vsts.md) | Contoso 會將其內部部署 Team Foundation Server 部署移轉至 Azure 中的 Azure DevOps Services。 | 可用
+[文章 12：在 Azure 容器和 Azure SQL Database 上重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 可用
+[文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | Contoso 會藉由使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel 應用程式。 | 可用
+[文章 14：對 Azure 進行大規模移轉](contoso-migration-scale.md) | Contoso 在試驗完移轉組合後，準備對 Azure 進行完整規模的移轉。 | 可用
 
 
 在本文中，Contoso 會將在 VMware VM 上執行的兩層 Windows .NET SmartHotel360 應用程式移轉至 Azure。 如果您想使用此應用程式，您可以從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載其開放原始碼。
@@ -107,7 +108,7 @@ Contoso 會透過比較一份優缺點清單，來評估其建議設計。
 **考量** | **詳細資料**
 --- | ---
 **優點** | WEBVM 會移至 Azure (不需變更)，讓移轉變得更簡單。<br/><br/> SQL Server 層將會在 SQL Server 2017 和 Windows Server 2016 上執行。 這會淘汰其目前的 Windows Server 2008 R2 作業系統，且執行 SQL Server 2017 將可支援 Contoso 的技術需求和目標。 IT 從 SQL Server 2008 R2 進行移轉時，可提供 100% 的相容性。<br/><br/> Contoso 可以使用 Azure Hybrid Benefit，充分發揮軟體保證的投資效益。<br/><br/> Azure 中高可用性 SQL Server 部署可提供容錯功能，使應用程式資料層不再是單一的容錯移轉點。
-**缺點** | WEBVM 會執行 Windows Server 2008 R2。 Azure 對此作業系統的支援僅限於特定角色 (2018 年 7 月)。 [深入了解](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。<br/><br/> 應用程式的 Web 層會保留單一容錯移轉點。</br><br/> Contoso 必須繼續支持此 Web 層作為 Azure VM，而非移轉至 Azure App Service 等受控服務。<br/><br/> 透過選擇的解決方案，Contoso 必須繼續管理兩個 SQL Server VM，而非移轉至受控平台，例如 Azure SQL 受控執行個體。 此外，Contoso 可透過軟體保證，以折扣優惠在 Azure SQL 受控執行個體上交換其現有的授權。
+**缺點** | WEBVM 會執行 Windows Server 2008 R2。 Azure 對此作業系統的支援僅限於特定角色 (2018 年 7 月)。 [深入了解](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。<br/><br/> 應用程式的 Web 層會保留單一容錯移轉點。</br><br/> Contoso 必須繼續支持此 Web 層作為 Azure VM，而非移轉至 Azure App Service 等受控服務。<br/><br/> 透過選擇的解決方案，Contoso 必須繼續管理兩個 SQL Server VM，而非移轉至受控平台，例如 Azure SQL Database 受控執行個體。 此外，Contoso 可透過軟體保證，以折扣優惠在 Azure SQL Database 受控執行個體上交換其現有的授權。
 
 
 ### <a name="azure-services"></a>Azure 服務

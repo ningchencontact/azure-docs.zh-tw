@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 99848cf4ba1e6e65a8c41c682916ca391128eb21
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 2aef9b6f32d562776be3e3da25b017d5ff88c4c4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42140502"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024309"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>升級和調整 Azure API 管理執行個體的規模  
 
@@ -39,7 +39,7 @@ ms.locfileid: "42140502"
 
 + 擁有 APIM 執行個體。 如需詳細資訊，請參閱[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 
-+ 了解 [Azure API 管理執行個體的容量] (api-management-capacity.md) 的概念。
++ 了解 [Azure API 管理執行個體的容量](api-management-capacity.md)的概念。
 
 ## <a name="upgrade-and-scale"></a>升級和調整規模  
 
@@ -67,5 +67,5 @@ ms.locfileid: "42140502"
 
 ## <a name="next-steps"></a>後續步驟
 
-*[如何將 Azure API 管理服務執行個體部署到多個 Azure 區域](api-management-howto-deploy-multi-region.md)
-*[如何自動調整 Azure API 管理服務執行個體](api-management-howto-autoscale.md)
+- [如何將 Azure API 管理服務執行個體部署到多個 Azure 區域](api-management-howto-deploy-multi-region.md)
+- [如何自動調整 Azure API 管理服務執行個體](api-management-howto-autoscale.md)

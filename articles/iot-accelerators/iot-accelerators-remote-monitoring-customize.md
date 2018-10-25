@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 59f2860168782d96bf82d0a27f9bb9eeed0f1020
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127341"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167489"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>自訂遠端監視解決方案加速器
 
@@ -460,9 +460,15 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解可用來協助您在遠端監視解決方案加速器中自訂 Web UI 的資源。
+在本文中，您已了解可用來協助您在遠端監視解決方案加速器中自訂 Web UI 的資源。 若要深入了解如何自訂 UI，請參閱下列文章：
+
+* [在遠端監視解決方案加速器 Web UI 中新增自訂頁面](iot-accelerators-remote-monitoring-customize-page.md)
+* [在遠端監視解決方案加速器 Web UI 中新增自訂服務](iot-accelerators-remote-monitoring-customize-service.md)
+* [在遠端監視解決方案加速器 Web UI 中新增自訂格線](iot-accelerators-remote-monitoring-customize-grid.md)
+* [在遠端監視解決方案加速器 Web UI 中新增自訂飛出視窗](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [在遠端監視解決方案加速器 Web UI 中的儀表板上新增自訂面板](iot-accelerators-remote-monitoring-customize-panel.md)
 
 如需關於遠端監視解決方案加速器的詳細概念資訊，請參閱[遠端監視架構](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-如需關於自訂遠端監視解決方案的詳細資訊，請參閱[自訂和重新部署微服務](iot-accelerators-microservices-example.md)
+如需關於自訂遠端監視解決方案微服務的詳細資訊，請參閱[自訂和重新部署微服務](iot-accelerators-microservices-example.md)。
 <!-- Next tutorials in the sequence -->

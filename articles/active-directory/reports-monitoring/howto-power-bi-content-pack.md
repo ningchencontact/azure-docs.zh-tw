@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c0326a6b611d5f3d5633db2d2b64b8cdc15e10a7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782154"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816679"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>如何使用 Azure Active Directory Power BI 內容套件
 
@@ -28,50 +28,15 @@ ms.locfileid: "43782154"
 |目前，Azure AD Power BI 內容套件會使用 Azure AD Graph API 從您的 Azure AD 租用戶擷取資料。 因此，您可能會發現內容套件中的可用資料與使用 [Microsoft Graph API](concept-reporting-api.md) 擷取以用於報告的資料之間有些許差異。 |
 |  |
 
-身為 IT 管理員，了解您的使用者如何採用及使用 Azure Active Directory 功能相當重要。這可讓您規劃 IT 基礎結構及通訊，以增加使用量和充分運用 AAD 功能。 Azure Active Directory 的 power BI 內容套件可讓您進一步分析資料，以了解如何使用此資料來收集更豐富的分析結果，讓您清楚知道 Azure Active Directory 中您重度依賴的各種功能狀況。  透過將 Azure Active Directory API 與 Power BI 整合，您可以輕鬆地下載預先建立的內容套件，並使用 Power BI 提供的豐富視覺效果經驗深入了解 Azure Active Directory 中所有活動。 您可以建立自己的儀表板，並輕鬆地與組織中所有人共用。 
+IT 管理員必須了解您的使用者如何採納並使用 Azure Active Directory 功能， 以便規劃 IT 基礎結構及通訊，除了提高使用率，也能充分運用 AAD 功能。 Azure Active Directory 的 Power BI 內容套件可讓您進一步分析資料，深入了解目錄的最新狀態。 將 Azure Active Directory API 整合至 Power BI ，您可以輕鬆下載預先建立的內容套件，並使用 Power BI 提供的豐富視覺效果，深入了解 Azure Active Directory 中的所有活動。 您可以建立自己的儀表板，並輕鬆地與組織中所有人共用。 
 
-本主題會提供逐步指示，說明如何在您的環境中安裝及使用內容套件。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="installation"></a>安裝  
+您需要 Azure AD Premium (P1/P2) 授權才能使用內容套件。 
 
-**安裝 Power BI 內容套件：**
+## <a name="install-the-content-pack"></a>安裝內容套件
 
-1. 使用 Power BI 帳戶登入 [Power BI](https://app.powerbi.com/groups/me/getdata/services) (此帳戶與您的 O365 或 Azure AD 帳戶相同)。
-
-2. 在左側導覽窗格的底部，選取 [取得資料]。
-
-    ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/01.png)
- 
-3. 在 [服務] 方塊中，按一下 [取得]。
-   
-    ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/02.png)
-
-4.  搜尋 **Azure Active Directory**。
-
-    ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/03.png)
- 
-5.  出現提示時，輸入您的 Azure AD 租用戶識別碼，然後按 [下一步]。
-
-    > [!TIP] 
-    > 登入 Azure AD 入口網站、向下切入至目錄，以及從 [[屬性] 頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)複製 [目錄識別碼]，即可快速取得您 Office 365 / Azure AD 租用戶的租用戶識別碼。
-
-    ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/04.png) 
-
-6.  按一下 [登入]。 
- 
-    ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/05.png) 
-
-
-
-7.  輸入您的使用者名稱和密碼，然後按一下 [登入]。
- 
-    ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/06.png) 
-
-8.  在應用程式的同意對話方塊中，按一下 [接受]。
- 
-9.  建立好 Azure Active Directory 活動記錄儀表板後，按一下該儀表板。
- 
-    ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/08.png) 
+如需安裝 Azure AD Power BI 內容套件，請查看[快速入門](quickstart-install-power-bi-content-pack.md)。
 
 ## <a name="what-can-i-do-with-this-content-pack"></a>此內容套件有何功用？
 
@@ -155,4 +120,6 @@ ms.locfileid: "43782154"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需報告概觀，請參閱 [Azure Active Directory 報告](overview-reports.md)。
+* [安裝 Power BI 內容套件](quickstart-install-power-bi-content-pack.md)。
+* [針對內容套件錯誤進行疑難排解](troubleshoot-content-pack.md)。
+* [什麼是 Azure AD 報告？](overview-reports.md)

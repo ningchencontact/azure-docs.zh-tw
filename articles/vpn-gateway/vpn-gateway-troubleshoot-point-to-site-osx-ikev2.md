@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 1cf8195cbf65f27c71a4db18c0c61c8a25673acd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247707"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339045"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>針對來自 Mac OS X VPN 用戶端的點對站 VPN 連線問題進行疑難排解
 
@@ -63,10 +63,12 @@ ms.locfileid: "30247707"
 
 如果您嘗試上述步驟且所有項目都設定正確，請下載 [Wireshark](https://www.wireshark.org/#download) 並執行封包擷取。
 
-1. 依據 *iskmp* 進行篩選，然後查看 **IKE_SA** 封包。 您應該能夠在 [Payload: Security Association] \(承載: 安全性關聯\) 底下查看 SA 提案詳細資料。 
+1. 依據 isakmp 進行篩選，然後查看 **IKE_SA** 封包。 您應該能夠在 [Payload: Security Association] \(承載: 安全性關聯\) 底下查看 SA 提案詳細資料。 
 2. 確認用戶端和伺服器有一個通用集合。
 
-  ![封包](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg)
+  ![封包](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+  
+3. 如果網路追蹤上沒有任何伺服器回應，請確認您已在 Azure 入口網站的 [Azure 閘道組態] 頁面上啟用 IKEv2 通訊協定。
 
 ## <a name="next-steps"></a>後續步驟
 如需其他協助，請參閱 [Microsoft 支援服務](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。

@@ -2,25 +2,18 @@
 title: Azure 資料箱限制 | Microsoft Docs
 description: 描述 Microsoft Azure 資料箱元件和連線的系統限制和建議大小。
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: fe42380288c0f139a2bae80a12f0ebc428a4c286
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de47cae219aa457343df292bb91b6af06c4b1186
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993069"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091924"
 ---
 # <a name="azure-data-box-limits"></a>Azure 資料箱限制
 
@@ -35,7 +28,7 @@ ms.locfileid: "46993069"
 
 ## <a name="data-box-limits"></a>資料箱限制
 
-- 資料箱最多可以儲存 5 百萬個檔案。
+- 資料箱最多可以儲存 5 億個檔案。
 
 ## <a name="azure-storage-limits"></a>Azure 儲存體限制
 

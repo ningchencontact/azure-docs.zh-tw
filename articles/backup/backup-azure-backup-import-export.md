@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831445"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955122"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 透過離線植入程序，Azure 備份可以使用磁碟將離線備份資料上傳至 Azure。
@@ -43,7 +43,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
   > [!NOTE]
   > 下列必要條件和工作流程僅適用於使用[最新 MARS 代理程式](https://aka.ms/azurebackup_agent)進行檔案和資料夾的離線備份。 若要使用 System Center DPM 或 Azure 備份伺服器執行工作負載離線備份，請參閱[這篇文章](backup-azure-backup-server-import-export-.md)。 
@@ -54,7 +54,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 * 在執行 Azure 備份代理程式的電腦上，需要有 Azure PowerShell 3.7.0。 建議您下載並[安裝 3.7.0 版的 Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017) \(英文\)。
 * 在執行 Azure 備份代理程式的電腦上，確定已安裝 Microsoft Edge 或 Internet Explorer 11，而且已啟用 JavaScript。 
 * 在與復原服務保存庫相同的訂用帳戶中建立儲存體帳戶。 
-* 確定您有建立 Azure Active Directory 應用程式[所需的權限](../azure-resource-manager/resource-group-create-service-principal-portal.md)。 離線備份工作流程會在與 Azure 儲存體帳戶相關聯的訂用帳戶中建立 Azure Active Directory 應用程式。 應用程式的目標是為 Azure 備份提供安全的限域存取，以便存取離線備份工作流程所需 Azure 匯入服務。 
+* 確定您有建立 Azure Active Directory 應用程式[所需的權限](../active-directory/develop/howto-create-service-principal-portal.md)。 離線備份工作流程會在與 Azure 儲存體帳戶相關聯的訂用帳戶中建立 Azure Active Directory 應用程式。 應用程式的目標是為 Azure 備份提供安全的限域存取，以便存取離線備份工作流程所需 Azure 匯入服務。 
 * 向包含 Azure 儲存體帳戶的訂用帳戶註冊 Microsoft.ImportExport 資源提供者。 若要註冊資源提供者：
     1. 在主功能表中，按一下 [訂用帳戶]。
     2. 如果您訂閱多個訂用帳戶，請選取您用於離線備份的訂用帳戶。 如果您只使用一個訂用帳戶，則您的訂用帳戶隨即出現。

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529683"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386336"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -32,16 +32,17 @@ ms.locfileid: "39529683"
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通訊通道未加密
 
-基於安全考量，如果通訊通道未加密，而且未從 Azure 檔案共用所在的相同資料中心進行連線嘗試，與 Azure 檔案共用的連線就會遭到封鎖。 唯有當使用者的用戶端作業系統支援 SMB 加密，才會提供通訊通道加密。
+基於安全考量，如果通訊通道未加密，而且未從 Azure 檔案共用所在的相同資料中心進行連線嘗試，與 Azure 檔案共用的連線就會遭到封鎖。 如果儲存體帳戶上啟用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定，則也可能會封鎖相同資料中心內未加密的連線。 唯有當使用者的用戶端作業系統支援 SMB 加密，才會提供通訊通道加密。
 
 Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包含支援加密的 SMB 3.0。
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
-從執行下列其中一項的用戶端連線：
+1. 確認儲存體帳戶上已停用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。
+2. 從執行下列其中一項的用戶端連線：
 
-- 符合 Windows 8 和 Windows Server 2012 或更新版本的需求
-- 從與用於 Azure 檔案共用的 Azure 儲存體帳戶相同之資料中心的虛擬機器連線
+    - 符合 Windows 8 和 Windows Server 2012 或更新版本的需求
+    - 從與用於 Azure 檔案共用的 Azure 儲存體帳戶相同之資料中心的虛擬機器連線
 
 ### <a name="cause-2-port-445-is-blocked"></a>原因 2：連接埠 445 遭到封鎖
 

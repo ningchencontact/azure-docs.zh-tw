@@ -3,18 +3,18 @@ title: 使用企業安全性套件的 Azure HDInsight 架構
 description: 了解如何使用企業安全性套件規劃 HDInsight 安全性。
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998914"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115534"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -26,26 +26,20 @@ ms.locfileid: "46998914"
 
 HDInsight 中的虛擬機器 (VM) 會加入您提供的網域。 因此，經過驗證的使用者都能夠順暢地使用在 HDInsight 上執行的所有服務 (Ambari、Hive 伺服器、Ranger、Spark Thrift 伺服器等等)。 接著，系統管理員可使用 Apache Ranger 來建立強式授權原則，為叢集中的資源提供角色型存取控制。
 
-
 ## <a name="integrate-hdinsight-with-active-directory"></a>整合 HDInsight 與 Active Directory
 
 開放原始碼 Hadoop 須依賴 Kerberos 來提供驗證和安全性。 因此，有企業安全性套件 (ESP) 的 HDInsight 叢集節點都會加入由 Azure AD DS 管理的網域。 針對叢集上的 Hadoop 元件，會設定 Kerberos 安全性。 
 
-系統會自動為每個 Hadoop 元件建立一個服務主體。 此外，針對每部已加入網域的電腦也會建立對應的電腦主體。 若要儲存這些服務和電腦主體，您必須在網域控制站 (Azure AD DS) 內提供組織單位 (OU)，用來放置這些主體。 
+系統會自動建立下列事項：
+- 每個 Hadoop 元件的服務主體 
+- 已加入網域的每部電腦的電腦主體
+- 每個叢集的組織單位 (OU)，用以儲存這些服務和電腦原則 
 
 總括而言，您必須設定一個具備下列條件的環境：
 
 - Active Directory 網域 (由 Azure AD DS 管理)。
 - 在 Azure AD DS 中啟用安全 LDAP (LDAPS)。
 - Azure AD DS 虛擬網路和 HDInsight 虛擬網路兩者之間有適當的網路連線能力 (如果您選擇將兩者的虛擬網路分開)。 HDInsight 虛擬網路內的 VM 應可透過虛擬網路對等互連來看到 Azure AD DS。 如果 HDInsight 和 Azure AD DS 部署在相同的虛擬網路中，則會自動提供連線，而不需要進一步的動作。
-- [建立在 Azure AD DS 上](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)的 OU。
-- 一個具有下列權限的服務帳戶：
-    - 在 OU 中建立服務主體。
-    - 將機器加入網域並在 OU 中建立機器主體。
-
-以下螢幕擷取畫面顯示在 contoso.com 中建立的 OU。 它也會顯示一些服務主體和電腦主體。
-
-![有 ESP 的 HDInsight 叢集所用的組織單位](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>設定不同的網域控制站
 HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集使用 Kerberos 通訊。 但您仍然可以使用其他複雜的 Active Directory 設定，只要這類設定能夠讓 Azure AD DS 進行 HDInsight 存取即可。
@@ -67,6 +61,6 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 
 ## <a name="next-steps"></a>後續步驟
 
-* [設定有 ESP 的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md)
+* [設定具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md)
 * [為有 ESP 的 HDInsight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)
 * [管理有 ESP 的 HDInsight 叢集](apache-domain-joined-manage.md) 

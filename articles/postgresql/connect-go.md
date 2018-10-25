@@ -11,17 +11,17 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: d3bcfb3369510bdbcf325eab41fb7eacf3e2a228
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: eef5d9b6878b46d402a91f3adbfd965c47493c25
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166313"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986472"
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Go 語言連線及查詢資料
 本快速入門示範如何使用以 [Go](https://golang.org/) 語言 (golang) 撰寫的程式碼來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文假設您已熟悉使用 Go 進行開發，但不熟悉 Azure Database for PostgreSQL。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
 - [建立 DB - 入口網站](quickstart-create-server-database-portal.md)
 - [建立 DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
@@ -34,7 +34,7 @@ ms.locfileid: "34166313"
 2. 從 [開始] 功能表啟動命令提示字元。
 3. 為您的專案產生資料夾，例如 `mkdir  %USERPROFILE%\go\src\postgresqlgo`。
 4. 將目錄切換到專案資料夾，例如 `cd %USERPROFILE%\go\src\postgresqlgo`。
-5. 將 GOPATH 環境變數設定為指向來源程式碼目錄。 `set GOPATH=%USERPROFILE%\go`。
+5. 將 GOPATH 環境變數設定為指向來源程式碼目錄。 `set GOPATH=%USERPROFILE%\go` 。
 6. 執行 `go get github.com/lib/pq` 命令來安裝 [Pure Go Postgres 驅動程式 (pq)](https://github.com/lib/pq)。
 
    總而言之，就是安裝 Go，然後在命令提示字元中執行下列命令：
@@ -98,9 +98,9 @@ ms.locfileid: "34166313"
 ## <a name="connect-and-create-a-table"></a>連線及建立資料表
 使用下列程式碼搭配 **CREATE TABLE** SQL 陳述式 (後面接著 **INSERT INTO** SQL 陳述式) 來連線和建立資料表，進而將資料列新增至資料表中。
 
-程式碼會匯入三個封裝：[sql 套件](https://golang.org/pkg/database/sql/)、[pq 封裝](http://godoc.org/github.com/lib/pq) 會作為驅動程式來與 PostgreSQL 伺服器通訊，而 [fmt 封裝](https://golang.org/pkg/fmt/)會用於命令列上的列印輸入和輸出。
+程式碼會匯入三個封裝：[sql 套件](https://golang.org/pkg/database/sql/)、[pq 封裝](https://godoc.org/github.com/lib/pq) 會作為驅動程式來與 PostgreSQL 伺服器通訊，而 [fmt 封裝](https://golang.org/pkg/fmt/)會用於命令列上的列印輸入和輸出。
 
-程式碼會呼叫 [sql.Open()](http://godoc.org/github.com/lib/pq#Open) 方法來連線至適用於 PostgreSQL 的 Azure 資料庫，並使用 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 方法檢查連線。 [資料庫控制代碼](https://golang.org/pkg/database/sql/#DB)會到處使用，並保留資料庫伺服器的連線集區。 程式碼會呼叫 [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) 方法數次以執行數個 SQL 命令。 每次自訂 checkError() 方法皆會檢查是否發生錯誤，一旦發生錯誤即會緊急結束。
+程式碼會呼叫 [sql.Open()](https://godoc.org/github.com/lib/pq#Open) 方法來連線至適用於 PostgreSQL 的 Azure 資料庫，並使用 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 方法檢查連線。 [資料庫控制代碼](https://golang.org/pkg/database/sql/#DB)會到處使用，並保留資料庫伺服器的連線集區。 程式碼會呼叫 [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) 方法數次以執行數個 SQL 命令。 每次自訂 checkError() 方法皆會檢查是否發生錯誤，一旦發生錯誤即會緊急結束。
 
 以您自己的值取代 `HOST`、`DATABASE`、`USER` 和 `PASSWORD` 參數。 
 
@@ -164,9 +164,9 @@ func main() {
 ## <a name="read-data"></a>讀取資料
 使用下列程式碼搭配 **SELECT** SQL 陳述式來連線和讀取資料。 
 
-程式碼會匯入三個封裝：[sql 套件](https://golang.org/pkg/database/sql/)、[pq 封裝](http://godoc.org/github.com/lib/pq) 會作為驅動程式來與 PostgreSQL 伺服器通訊，而 [fmt 封裝](https://golang.org/pkg/fmt/)會用於命令列上的列印輸入和輸出。
+程式碼會匯入三個封裝：[sql 套件](https://golang.org/pkg/database/sql/)、[pq 封裝](https://godoc.org/github.com/lib/pq) 會作為驅動程式來與 PostgreSQL 伺服器通訊，而 [fmt 封裝](https://golang.org/pkg/fmt/)會用於命令列上的列印輸入和輸出。
 
-程式碼會呼叫 [sql.Open()](http://godoc.org/github.com/lib/pq#Open) 方法來連線至適用於 PostgreSQL 的 Azure 資料庫，並使用 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 方法檢查連線。 [資料庫控制代碼](https://golang.org/pkg/database/sql/#DB)會到處使用，並保留資料庫伺服器的連線集區。 呼叫 [db.Query()](https://golang.org/pkg/database/sql/#DB.Query) 方法可執行 select 查詢，而結果產生的資料列會保留在類型為 [rows](https://golang.org/pkg/database/sql/#Rows) 的變數中。 程式碼會使用 [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) 方法讀取目前資料列中的資料行資料值，並使用 [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next) 迭代器對資料列執行迴圈，直到再也沒有資料列存在為止。 每個資料列的資料行值都會列印到主控台。每次自訂 checkError() 方法皆會檢查是否發生錯誤，一旦發生錯誤即會緊急結束。
+程式碼會呼叫 [sql.Open()](https://godoc.org/github.com/lib/pq#Open) 方法來連線至適用於 PostgreSQL 的 Azure 資料庫，並使用 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 方法檢查連線。 [資料庫控制代碼](https://golang.org/pkg/database/sql/#DB)會到處使用，並保留資料庫伺服器的連線集區。 呼叫 [db.Query()](https://golang.org/pkg/database/sql/#DB.Query) 方法可執行 select 查詢，而結果產生的資料列會保留在類型為 [rows](https://golang.org/pkg/database/sql/#Rows) 的變數中。 程式碼會使用 [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) 方法讀取目前資料列中的資料行資料值，並使用 [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next) 迭代器對資料列執行迴圈，直到再也沒有資料列存在為止。 每個資料列的資料行值都會列印到主控台。每次自訂 checkError() 方法皆會檢查是否發生錯誤，一旦發生錯誤即會緊急結束。
 
 以您自己的值取代 `HOST`、`DATABASE`、`USER` 和 `PASSWORD` 參數。 
 
@@ -232,9 +232,9 @@ func main() {
 ## <a name="update-data"></a>更新資料
 使用下列程式碼搭配 **UPDATE** SQL 陳述式來連線和更新資料。
 
-程式碼會匯入三個套件：[sql 套件](https://golang.org/pkg/database/sql/)、[pq 套件](http://godoc.org/github.com/lib/pq)作為驅動程式來與 Postgres 伺服器通訊，以及 [fmt 套件](https://golang.org/pkg/fmt/) (適用於命令列上列印的輸入和輸出)。
+程式碼會匯入三個套件：[sql 套件](https://golang.org/pkg/database/sql/)、[pq 套件](https://godoc.org/github.com/lib/pq)作為驅動程式來與 Postgres 伺服器通訊，以及 [fmt 套件](https://golang.org/pkg/fmt/) (適用於命令列上列印的輸入和輸出)。
 
-程式碼會呼叫 [sql.Open()](http://godoc.org/github.com/lib/pq#Open) 方法來連線至適用於 PostgreSQL 的 Azure 資料庫，並使用 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 方法檢查連線。 [資料庫控制代碼](https://golang.org/pkg/database/sql/#DB)會到處使用，並保留資料庫伺服器的連線集區。 程式碼會呼叫 [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) 方法來執行可更新資料表的 SQL 陳述式。 使用自訂 checkError() 方法檢查是否發生錯誤，一旦發生錯誤即會緊急結束。
+程式碼會呼叫 [sql.Open()](https://godoc.org/github.com/lib/pq#Open) 方法來連線至適用於 PostgreSQL 的 Azure 資料庫，並使用 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 方法檢查連線。 [資料庫控制代碼](https://golang.org/pkg/database/sql/#DB)會到處使用，並保留資料庫伺服器的連線集區。 程式碼會呼叫 [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) 方法來執行可更新資料表的 SQL 陳述式。 使用自訂 checkError() 方法檢查是否發生錯誤，一旦發生錯誤即會緊急結束。
 
 以您自己的值取代 `HOST`、`DATABASE`、`USER` 和 `PASSWORD` 參數。 
 ```go
@@ -285,9 +285,9 @@ func main() {
 ## <a name="delete-data"></a>刪除資料
 使用下列程式碼搭配 **DELETE** SQL 陳述式來連線和刪除資料。 
 
-程式碼會匯入三個套件：[sql 套件](https://golang.org/pkg/database/sql/)、[pq 套件](http://godoc.org/github.com/lib/pq)作為驅動程式來與 Postgres 伺服器通訊，以及 [fmt 套件](https://golang.org/pkg/fmt/) (適用於命令列上列印的輸入和輸出)。
+程式碼會匯入三個套件：[sql 套件](https://golang.org/pkg/database/sql/)、[pq 套件](https://godoc.org/github.com/lib/pq)作為驅動程式來與 Postgres 伺服器通訊，以及 [fmt 套件](https://golang.org/pkg/fmt/) (適用於命令列上列印的輸入和輸出)。
 
-程式碼會呼叫 [sql.Open()](http://godoc.org/github.com/lib/pq#Open) 方法來連線至適用於 PostgreSQL 的 Azure 資料庫，並使用 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 方法檢查連線。 [資料庫控制代碼](https://golang.org/pkg/database/sql/#DB)會到處使用，並保留資料庫伺服器的連線集區。 程式碼會呼叫 [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) 方法，來執行從資料表中刪除資料列的 SQL 陳述式。 使用自訂 checkError() 方法檢查是否發生錯誤，一旦發生錯誤即會緊急結束。
+程式碼會呼叫 [sql.Open()](https://godoc.org/github.com/lib/pq#Open) 方法來連線至適用於 PostgreSQL 的 Azure 資料庫，並使用 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 方法檢查連線。 [資料庫控制代碼](https://golang.org/pkg/database/sql/#DB)會到處使用，並保留資料庫伺服器的連線集區。 程式碼會呼叫 [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) 方法，來執行從資料表中刪除資料列的 SQL 陳述式。 使用自訂 checkError() 方法檢查是否發生錯誤，一旦發生錯誤即會緊急結束。
 
 以您自己的值取代 `HOST`、`DATABASE`、`USER` 和 `PASSWORD` 參數。 
 ```go

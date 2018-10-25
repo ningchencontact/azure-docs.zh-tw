@@ -1,20 +1,21 @@
 ---
-title: 聲場的設計流程概觀 - 認知服務
+title: 為 Project Acoustics 設計流程概觀
+titlesuffix: Azure Cognitive Services
 description: 本文件說明如何在 Project Acoustics 工作流程的所有三個階段中表達您的設計意圖。
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 46e2e276086f836ff881fde1db6462f6e7788e22
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433219"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901357"
 ---
 # <a name="design-process-overview"></a>設計流程概觀
 您可以在 Project Acoustics 工作流程的所有三個階段中表達您的設計意圖：製作前場景設定、聲音來源位置，以及製作後設計。 此流程在放置殘響音量方面所需的標記較少，同時又保留了設計人員對場景音效的控制。
@@ -37,6 +38,21 @@ ms.locfileid: "47433219"
 
 體素顯示可協助您判斷遊戲中的視覺元件上是否已套用轉換。 如果已套用轉換，請將相同的轉換套用至裝載 **Acoustics Manager** \(聲場管理員\) 的 GameObject。
 
+### <a name="voxel-size-discrepancies"></a>體素大小不一致
+您可能會注意到，用於說明哪些場景網格參與聲場製作的體素大小會依據設計階段和執行時間有所不同。 這項差異不會影響您選取的模擬頻率品質/細微性，而是使用已處理體素的場景執行階段的雙積。 模擬體素在執行階段會進行「精簡」以支援來源位置之間的內插補點。 這也可讓設計階段的音效來源位置比模擬體素大小規定更靠近場景網格，因為體素中包含經聲場處理網格的來源不會製造任何聲音。
+
+以下兩個影像透過 Unity 外掛程式，以視覺化方式顯示設計階段 (預先製作) 體素和執行階段 (後製) 體素之間的差異：
+
+設計階段體素：
+
+![VoxelsDesignTime](media/VoxelsDesignTime.png)
+
+執行階段體素：
+
+![VoxelsRuntime](media/VoxelsRuntime.png)
+
+您應使用設計模式體素決定體素網格是否準確呈現架構/結構場景網格，而非執行階段的視覺化精簡體素。
+
 ## <a name="post-bake-design"></a>製作後設計
 製作結果會在 ACE 檔案中儲存成整個場景中所有來源與聆聽者位置之配對的遮蔽和殘響參數。 這個實際上準確的結果可依現況用於您的專案，並且是一個絕佳的設計起點。 製作後設計流程會指定在執行階段轉換製作結果參數的規則。
 
@@ -45,18 +61,30 @@ ms.locfileid: "47433219"
 
 ![距離衰減](media/distanceattenuation.png)
 
+「模擬區域」方塊中的聲場效能計算著重於播放器的位置。 如果音效來源距離播放器較遠，位於模擬區域之外，則只有方塊中的幾何形狀會影響音效傳播 (例如造成阻隔)，特別是當阻隔器位於播放器鄰近區域內時效果最好。 不過，如果播放器位於開放空間，但阻隔器的位置靠近遠端音效來源，則播放器可能無法清楚辨識音效。 我們建議的因應措施是確保這種情況下的音效衰減在約 45 公分時降低至 0，也就是播放器到方塊邊緣的預設水平距離。
+
 ### <a name="tuning-scene-parameters"></a>調整場景參數
 若要調整所有來源的參數，請按一下 Unity [Audio Mixer] \(音訊混音器\) 中的聲道控制排，然後調整 [Acoustics Mixer] \(聲場混音器\) 效果上的參數。
 
 ![混音器自訂](media/MixerParameters.png)
 
 ### <a name="tuning-source-parameters"></a>調整來源參數
-將 **AcousticsSourceCustomization** 指令碼附加至來源可為該來源啟用調整參數。 若要附加指令碼，請按一下 [Inspector] \(偵測器\) 面板底部的 [Add Component] \(新增元件\)，然後瀏覽至 [Scripts] \(指令碼\) > [Acoustics Source Customization] \(聲場來源自訂\)。 此指令碼有三個參數：
+將 **AcousticsAdjust** 指令碼附加至來源可為該來源啟用調整參數。 若要附加指令碼，請按一下 [Inspector] \(偵測器\) 面板底部的 [Add Component] \(新增元件\)，然後瀏覽至 [Scripts] \(指令碼\) > [Acoustics Adjust] \(聲場調整\)。 指令碼具有六個控制項：
 
-![來源自訂](media/SourceCustomization.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Reverb Power Adjust** \(殘響功率調整\) - 調整殘響功率 (單位為 dB)。 正數值會讓聲音有較多殘響，負數值則會讓聲音較乾淨清楚。
-* **Decay Time Scale** \(衰變時間縮放\) - 調整衰變時間的倍數。 例如，如果製作結果指定的衰變時間為 750 毫秒，但此值設定為 1.5，則套用至來源的衰變時間就會是 1,125 毫秒。
 * **Enable Acoustics** \(啟用聲場\) - 控制是否要將聲場套用至此來源。 未選取時，會以 HRTF 對來源進行空間定位，但若沒有聲場，即意謂著沒有障礙物、遮蔽物及動態殘響參數 (例如等級和衰變時間)。 系統仍會套用具有固定等級和衰變時間的殘響。
+* **阻隔** - 將乘數套用至由聲場系統計算的阻隔 db 等級。 如果此乘數大於 1，阻隔會增強；如果值小於 1，阻擋的效果則會降低；值為 0 時則沒有阻隔。
+* **傳輸 (dB)** - 設應由幾何傳輸造成的衰減 (單位為 dB)。 將滑桿設定至最低等級以停止傳輸。 聲場會在初始乾燥音訊抵達場景幾何 (傳送) 時進行空間定位。 傳輸會提供在視野方向中進行空間定位的額外乾燥抵達。 請注意，來源的距離衰減曲線也一併適用。
+* **濕潤度 (dB)** - 根據與來源的距離調整殘響功率 (單位為 dB)。 正數值會讓聲音有較多殘響，負數值則會讓聲音較乾淨清楚。 按一下曲線控制項 (綠線) 即可顯示曲線編輯器。 如要調整曲線，請按一下滑鼠左鍵來新增調整點，並拖曳這些點以構成您想要的形狀。 X 軸是與來源的距離，Y 軸則是殘響調整值 (單位為 dB)。 請參閱此 [Unity Manual](https://docs.unity3d.com/Manual/EditingCurves.html) 了解更多編輯曲線的詳細資訊。 若要將曲線重設回預設值，請在 [Wetness] \(濕潤度\) 按一下滑鼠右鍵，然後選取 [Reset] \(重設\)。
+* **Decay Time Scale** \(衰變時間縮放\) - 調整衰變時間的倍數。 例如，如果製作結果指定的衰變時間為 750 毫秒，但此值設定為 1.5，則套用至來源的衰變時間就會是 1,125 毫秒。
+* **阻隔度** - 聲場系統的累加調整值，預估音效來源在「戶外」殘響的效果。 將此值設定為 1 可讓來源一律聽起來像戶外音效，設定為 -1 則可讓來源聽起來像室內音效。
 
-不同來源可能需要不同的設定，才能達到特定的美學或遊戲效果。 對話就是其中一個可能的範例。 人耳較適應語音中有殘響，但對遊戲來說，對話通常必須清晰易懂。 針對這種情況，您只需將殘響功率調低即可，而無須讓對話變成非劇情聲。
+不同來源可能需要不同的設定，才能達到特定的美學或遊戲效果。 對話就是其中一個可能的範例。 人耳較適應語音中有殘響，但對遊戲來說，對話通常必須清晰易懂。 您可以將**濕潤度**調低、調整**感知距離變形**參數 (如下方說明)、提高部分**傳輸**以讓部分乾燥音效放大並穿透牆壁，以及/或將**阻隔**值從 1 調低以讓更多音效通過傳送，即可在不讓對話方塊變成非現實音效的情況下進行說明。
+
+將 **AcousticsAdjustExperimental** 指令碼附加至來源可為該來源啟用額外實驗調整參數。 若要附加指令碼，請按一下 [Inspector] \(偵測器\) 面板底部的 [Add Component] \(新增元件\)，然後瀏覽至 [Scripts] \(指令碼\) > [Acoustics Adjust Experimental] \(實驗性聲場調整\)。 目前具有一個實驗性控制項：
+
+![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
+
+* **感知距離變形** - 將指數變形功能套用至距離，以計算乾燥濕潤比。 聲場系統會計算空間濕潤度，此數值會因距離和提供的感知距離變形而變化。變形值大於 1 會放大該效果，提高與距離相關殘響等級，讓音效聽起來較「遙遠」；變形值小於 1 則會減少殘響變化，讓音效更有「臨場感」。
+

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57c807b7729b58d2537ee09ddd5d05d4f2afb55e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297209"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068838"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權
 
@@ -65,9 +65,9 @@ ms.locfileid: "46297209"
 - 您可以為來賓使用者設定多重要素驗證 (MFA) 原則，以在應用程式 Proxy 驗證期間使用 MFA。 如需詳細資訊，請參閱 [B2B 共同作業使用者的條件式存取](conditional-access.md)。
 - 任何對雲端 B2B 使用者執行的贊助、存取權檢閱、帳戶驗證等，皆適用於內部部署使用者。 例如，如果透過生命週期管理原則刪除雲端使用者，則也會由 MIM 同步處理或透過 Azure AD Connect 同步處理刪除內部部署使用者。如需詳細資訊，請參閱[使用 Azure AD 存取權檢閱來管理來賓存取權](../governance/manage-guest-access-with-access-reviews.md)。
 
-### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>透過 MIM 建立 B2B 來賓使用者物件 (預覽)
+### <a name="create-b2b-guest-user-objects-through-mim"></a>透過 MIM 建立 B2B 來賓使用者物件
 
-若要了解如何使用 MIM 2016 Service Pack 1 和 Microsoft Graph 的 MIM 管理代理程式在內部部署目錄中建立來賓使用者物件，請參閱 [使用 Microsoft Identity Manager (MIM) 2016 SP1 與 Azure 應用程式 Proxy 進行 Azure AD 企業對企業 (B2B) 共同作業 (公開預覽)](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario)。
+若要了解如何使用 MIM 2016 Service Pack 1 和 Microsoft Graph 的 MIM 管理代理程式在內部部署目錄中建立來賓使用者物件，請參閱 [使用 Microsoft Identity Manager (MIM) 2016 SP1 與 Azure 應用程式 Proxy 進行 Azure AD 企業對企業 (B2B) 共同作業](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario)。
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>透過指令碼建立 B2B 來賓使用者物件 (預覽)
 

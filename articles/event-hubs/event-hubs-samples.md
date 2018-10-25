@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
 ms.author: shvija
-ms.openlocfilehash: fbde6e5a5ed053d6c151b3af25535c397a496ef4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ed337689360428d66657e5391ee52bb0ae39dc14
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005329"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365640"
 ---
 # <a name="event-hubs-samples"></a>事件中樞範例 
 您可以在 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples) 上尋找事件中樞範例。 這些範例示範 [Azure 事件中樞](/azure/event-hubs/)中的主要功能。 本主題分類及描述可用的範例與每個範例的連結。
@@ -44,6 +44,23 @@ ms.locfileid: "40005329"
 | [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |這個範例說明如何使用事件處理器主機從事件中樞接收事件，該主機可提供自動分割區選取和跨越多個並行接收端的容錯移轉。 | 
 | [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | 這個範例說明事件中樞如何才能在高負載的情況下自動相應增加。 這個範例傳送事件的速率僅超過事件中樞已設定的速率，因而導致事件中樞相應增加。 | 
 | [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | 這個範例可讓您測量輸入速率。 | 
+
+## <a name="python-samples"></a>Python 範例
+您可以在 [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub 存放庫中找到適用於 Azure 事件中樞的 Python 範例。
+
+## <a name="nodejs-samples"></a>Node.js 範例
+您可以在 [azure-event-hubs-node](https://github.com/Azure/azure-event-hubs-node) GitHub 存放庫中找到適用於 Azure 事件中樞的 Node.js 範例。
+
+## <a name="go-samples"></a>Go 範例
+您可以在 [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub 存放庫中找到適用於 Azure 事件中樞的 Go 範例。
+
+## <a name="azure-cli-samples"></a>Azure CLI 範例
+您可以在 [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub 存放庫中找到適用於 Azure 事件中樞的 Azure CLI 範例。
+
+## <a name="azure-powershell-samples"></a>Azure PowerShell 範例
+您可以在 [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub 存放庫中找到適用於 Azure 事件中樞的 Azure PowerShell 範例。
+ 
+
 
 ## <a name="next-steps"></a>後續步驟
 您可以參閱下列文章，深入了解事件中樞：

@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344871"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320300"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 代理者流程
 OAuth2.0 代理者流程的使用案例，是應用程式叫用服務/Web API，而後者又需要呼叫另一個服務/Web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 中介層服務若要向下游服務提出已驗證的要求，需要代表使用者保護來自 Azure Active Directory (Azure AD) 存取權杖。
@@ -33,7 +33,7 @@ OAuth2.0 代理者流程的使用案例，是應用程式叫用服務/Web API，
 
 
 > [!IMPORTANT]
-> [隱含授與](v2-oauth2-implicit-grant-flow.md)無法用於代理流程 - SPA 必須傳遞其 (隱含流程) 存取權杖到中介層的機密用戶端，才能執行 OBO 流程。 若要詳加了解哪些用戶端可以執行代理呼叫，請參閱[限制](#client-limitations)。  
+> 自 2018 年 5 月起，`id_token` 無法用於代理者流程 - SPA 必須傳遞**存取**權杖到中介層的機密用戶端，才能執行 OBO 流程。 若要詳加了解哪些用戶端可以執行代理呼叫，請參閱[限制](#client-limitations)。
 
 ## <a name="protocol-diagram"></a>通訊協定圖表
 假設使用者已使用 [OAuth 2.0 授權碼授與流程](v2-oauth2-auth-code-flow.md)通過應用程式的驗證。 此時，應用程式具有一個 *API A* 的存取權杖 (權杖 A)，其中包含使用者的宣告與同意存取中介層 Web API (API A)。 現在，API A 需要向下游 Web API (API B) 提出已驗證的要求。

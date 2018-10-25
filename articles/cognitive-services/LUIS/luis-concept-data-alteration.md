@@ -7,17 +7,17 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 1aad540086764b1e2315d3b3e195c55ba5931e07
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6db7fd2474688608eb029fce1529ba1d3f00c5d3
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036045"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637165"
 ---
-# <a name="data-alterations"></a>資料變動
+# <a name="data-alterations"></a>資料變更
 LUIS 提供可在預測之前或預測期間操作語句的方法。 這些包括修正拼字，以及修正重新建置 datetimeV2 的時區問題。 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>校正語句中的拼字錯誤

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6280544a42d0d5012b01446ec8c3bc386ef861dd
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296272"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428414"
 ---
 # <a name="authentication-and-user-permissions"></a>驗證和使用者權限
 Azure Analysis Services 會使用 Azure Active Directory (Azure AD) 進行身分識別管理和使用者驗證。 任何建立、管理或連線到 Azure Analysis Services 伺服器的使用者在相同的訂用帳戶中必須 [Azure AD 租用戶](../active-directory/fundamentals/active-directory-administer.md)的有效使用者身分識別。
@@ -27,7 +27,7 @@ Azure Analysis Services 支援 [Azure AD B2B 共同作業](../active-directory/a
 
 這三個用戶端程式庫全都支援 Azure AD 互動式流程和非互動式驗證方法。 兩種非互動式方法 (Active Directory 密碼和 Active Directory 整合式驗證) 可以在利用 AMOMD 和 MSOLAP 的應用程式中使用。 這兩種方法絕對不會產生快顯對話方塊。
 
-Excel 和 Power BI Desktop 等用戶端應用程式，以及 SSMS 和 SSDT 等工具會在更新至最新版本時，安裝最新版的程式庫。 Power BI Desktop、SSMS 和 SSDT 會每月更新。 Excel 會[與 Office 365 一起更新](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516)。 Office 365 更新較不頻繁，而且有些組織會使用延遲的通道，這表示更新會延遲多達三個月。
+Excel 和 Power BI Desktop 等用戶端應用程式，以及 SSMS 和 SSDT 等工具會在更新至最新版本時，安裝最新版的程式庫。 Power BI Desktop、SSMS 和 SSDT 會每月更新。 Excel 會[與 Office 365 一起更新](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516)。 Office 365 更新較不頻繁，而且有些組織會使用延遲的通道，這表示更新會延遲多達三個月。
 
 視您使用的用戶端應用程式或工具而定，驗證類型和登入方式可能會不同。 每個應用程式支援使用不同的功能來連線到 Azure Analysis Services 等雲端服務。
 

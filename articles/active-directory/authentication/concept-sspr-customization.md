@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f523e2e2d55a34825bbb76a5a879c7c046b6b554
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222783"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318957"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -55,7 +55,9 @@ ms.locfileid: "39222783"
 
 若要新增 AD FS 登入頁面的連結，請在您的 AD FS 伺服器上使用下列命令。 使用者可以使用此頁面來進入 SSPR 工作流程。
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>自訂登入頁面和存取面板的外觀與風格
 
@@ -65,8 +67,8 @@ ms.locfileid: "39222783"
 
 * 在使用者輸入其使用者名稱之後
 * 如果使用者存取自訂的 URL，則會透過下列方式：
-    * 藉由傳遞 *whr* 參數傳送到密碼重設頁面，例如 "https://login.microsoftonline.com/?whr=contoso.com"
-    * 藉由傳遞 *username* 參數到密碼重設頁面，例如 "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * 藉由傳遞 `whr` 參數到密碼重設頁面，例如 "https://login.microsoftonline.com/?whr=contoso.com"
+    * 藉由傳遞 `username` 參數到密碼重設頁面，例如 "https://login.microsoftonline.com/?username=admin@contoso.com"
 
 如需有關如何設定公司商標的詳細資料，請參閱[將公司商標新增至 Azure AD 中的登入頁面](../fundamentals/customize-branding.md)一文。
 

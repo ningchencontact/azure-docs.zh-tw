@@ -1,21 +1,21 @@
 ---
-title: 什麼是翻譯工具文字 API？
+title: 什麼是 Translator Text API？
 titlesuffix: Azure Cognitive Services
 description: 將翻譯工具文字 API 整合到您的應用程式、網站、工具與其他解決方案，以提供多語言使用者體驗。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: erhopf
+ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385019"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645013"
 ---
 # <a name="what-is-translator-text-api"></a>什麼是翻譯工具文字 API？
 
@@ -35,7 +35,7 @@ Microsoft Translator 是一個雲端式機器翻譯服務。 此服務的核心�
 
 自訂翻譯工具是核心 Microsoft Translator 服務的擴充功能，與 Translator Text API 搭配使用時，可協助您自訂類神經翻譯系統以及改善特定術語和風格的翻譯。
 
-透過自訂翻譯工具，您將可建置翻譯系統，以處理您自己的企業或產業中使用的術語。 其後，您自訂的翻譯系統將可透過一般 Microsoft Translator Text API，使用類別參數跨多種類型的裝置輕易整合到您現有的應用程式、工作流程和網站中。 
+透過自訂翻譯工具，您將可建置翻譯系統，以處理您自己的企業或產業中使用的術語。 其後，您自訂的翻譯系統將可透過一般 Microsoft Translator Text API，使用類別參數跨多種類型的裝置輕易整合到您現有的應用程式、工作流程和網站中。
 
 深入了解[語言自訂](customization.md)
 
@@ -45,7 +45,7 @@ Microsoft Translator 是一個雲端式機器翻譯服務。 此服務的核心�
 
 NMT 所提供的翻譯之所以優於 SMT，不僅僅是從原始翻譯品質評分的觀點來看，也因為其翻譯聽起來更流暢、更人性化。 這個流暢性的主要原因在於 NMT 使用句子的完整內容來翻譯單字。 SMT 則只採用每個字前後幾個字的緊鄰內容。
 
-NMT 模型位於 API 核心，使用者並不會看到這些模型。 唯一可見的差異是翻譯品質的提升，特別是中文、日文和阿拉伯文等語言。 
+NMT 模型位於 API 核心，使用者並不會看到這些模型。 唯一可見的差異是翻譯品質的提升，特別是中文、日文和阿拉伯文等語言。
 
 深入了解 [NMT 的運作方式](https://www.microsoft.com/en-us/translator/mt.aspx#nnt) \(英文\)
 

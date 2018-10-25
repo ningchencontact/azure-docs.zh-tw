@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 97a2180aaf236d3541cff30d2151f26ce70b14af
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218779"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393469"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 執行階段和架構
 
@@ -23,13 +23,13 @@ IoT Edge 執行階段會在 IoT Edge 裝置上執行下列功能：
 
 * 在裝置上安裝和更新工作負載。
 * 在裝置上維護 Azure IoT Edge 安全性標準。
-* 確保 [IoT Edge 模組][lnk-modules] 一律執行中。
+* 確定 [IoT Edge 模組](iot-edge-modules.md)一律執行中。
 * 將模組健康情況報告至雲端，以便進行遠端監控。
 * 促進下游分葉裝置與 IoT Edge 裝置之間的通訊。
 * 促進 IoT Edge 裝置上模組之間的通訊。
 * 促進 IoT Edge 裝置與雲端之間的通訊。
 
-![IoT Edge 執行階段會將深入見解和模組健康情況傳達到 IoT 中樞][1]
+![IoT Edge 執行階段會將深入見解和模組健康情況傳達到 IoT 中樞](./media/iot-edge-runtime/Pipeline.png)
 
 IoT Edge 執行階段的責任分為兩類：通訊和模組管理。 這兩個角色都是透過組成 IoT Edge 執行階段的兩個元件來執行。 IoT Edge 中樞負責通訊，而 IoT Edge 代理程式會管理部署和監視模組。 
 
@@ -49,7 +49,7 @@ Edge 中樞不是在本機執行的 IoT 中樞完整版本。 Edge 中樞會以�
 
 為了降低 IoT Edge 解決方案所使用的頻寬，Edge 中樞會將要連至雲端的連線數目最佳化。 Edge 中樞會從模組或分葉裝置等用戶端取得邏輯連線，並針對單一實體連線來將它們合併到雲端。 此程序的詳細資料對解決方案的其餘部分而言是透明的。 用戶端認為它們有自己的連線可連至雲端，即使它們全部都會透過相同連線來傳送。 
 
-![Edge 中樞會作為多個實體裝置與雲端之間的閘道][2]
+![Edge 中樞會作為多個實體裝置與雲端之間的閘道](./media/iot-edge-runtime/Gateway.png)
 
 Edge 中樞可以判斷是否已連線到 IoT 中樞。 如果連線中斷，Edge 中樞就會在本機儲存訊息或對應項更新。 一旦連線重新建立之後，就會將所有資料同步。 針對此暫時的快取所使用的位置取決於 Edge 中樞模組對應項的屬性。 快取的大小不會受限，而且只要裝置還有儲存體容量就會持續成長。 
 
@@ -57,7 +57,7 @@ Edge 中樞可以判斷是否已連線到 IoT 中樞。 如果連線中斷，Edg
 
 Edge 中樞可促進模組對模組的通訊。 使用 Edge 中樞作為訊息代理程式，讓模組彼此保持獨立。 模組只需指定它們要在其中接受訊息的輸入，以及要將訊息寫入其中的輸出。 解決方案開發人員接著會將這些輸入和輸出拼接在一起，讓模組能夠依該解決方案特定的順序來處理資料。 
 
-![Edge 中樞可促進模組對模組的通訊][3]
+![Edge 中樞可促進模組對模組的通訊](./media/iot-edge-runtime/ModuleEndpoints.png)
 
 為了將資料傳送至 Edge 中樞，模組會呼叫 SendEventAsync 方法。 第一個引數會指定在哪個輸出上傳送訊息。 下列虛擬程式碼會在 output1 上傳送訊息：
 
@@ -77,7 +77,7 @@ Edge 中樞可促進模組對模組的通訊。 使用 Edge 中樞作為訊息�
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![模組之間的路由][4]
+![模組之間的路由](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
 
 ## <a name="iot-edge-agent"></a>IoT Edge 代理程式
 
@@ -117,13 +117,4 @@ IoT Edge 代理程式在 IoT Edge 裝置的安全性中扮演了關鍵角色。 
 
 ## <a name="next-steps"></a>後續步驟
 
-[了解 Azure IoT Edge 認證][lnk-certs]
-
-<!-- Images -->
-[1]: ./media/iot-edge-runtime/Pipeline.png
-[2]: ./media/iot-edge-runtime/Gateway.png
-[3]: ./media/iot-edge-runtime/ModuleEndpoints.png
-[4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
-
-<!-- Links -->
-[lnk-certs]: iot-edge-certs.md
+[了解 Azure IoT Edge 認證](iot-edge-certs.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: f5132215b1fda93c62c1fbea46c3266fcc44ec46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: edef88694cc335a63ce279e96a204ed4b8fe7376
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307274"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469498"
 ---
 # <a name="import-an-openapi-specification"></a>匯入 OpenAPI 規格
 
@@ -34,7 +34,7 @@ ms.locfileid: "38307274"
 > * 在 Azure 入口網站中測試 API
 > * 在開發人員入口網站中測試 API
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)
 
@@ -65,11 +65,11 @@ ms.locfileid: "38307274"
 
 您可以從 Azure 入口網站直接呼叫作業，以便檢視和測試 API 的作業。
 
+![測試 API](./media/api-management-get-started/01-import-first-api-01.png)
+
 1. 選取您在上一個步驟中建立的 API。
 2. 按 [測試] 索引標籤。
-
-    ![測試 API](./media/api-management-get-started/test-api.png)
-1. 按一下 [GetSpeakers]。
+3. 按一下 [GetSpeakers]。
 
     此頁面會顯示查詢參數的欄位，但在此案例中，我們沒有任何適用欄位。 此頁面也會顯示標頭的欄位。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此會自動填入此金鑰。
 4. 按 [傳送]。

@@ -10,16 +10,16 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1297881373943143578695490531d147d7f5523d
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163472"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115317"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>使用雲端中的自動化機器學習來將模型定型
 
-在 Azure Machine Learning 中，您可以在所管理的不同類型計算資源上針對模型定型。 計算目標可以是本機電腦或在雲端中的電腦。
+在 Azure Machine Learning 中，您可以在所管理的不同類型計算資源上訓練模型。 計算目標可以是本機電腦或在雲端中的電腦。
 
 您可以輕鬆地相應增加或相應放大機器學習實驗，方法是新增其他計算目標，例如以 Ubuntu 為基礎的資料科學虛擬機器 (DSVM) 或 Azure Batch AI。 DSVM 是 Microsoft Azure 雲端上的自訂 VM 映像，專為進行資料科學建置。 它已預先安裝和預先設定許多熱門的資料科學和其他工具。  
 
@@ -27,7 +27,7 @@ ms.locfileid: "47163472"
 
 ## <a name="how-does-remote-differ-from-local"></a>遠端與本機有何不同？
 
-[使用自動化機器學習服務將分類模型定型](tutorial-auto-train-models.md)教學課程將教導您如何使用本機電腦，使用自動化 ML 來將模型定型。  在本機定型時的工作流程也適用於遠端目標。 不過，使用遠端計算時，自動化 ML 實驗反覆項目會以非同步方式執行。 這可讓您取消特定反覆項目、監看執行狀態，或繼續處理 Jupyter Notebook 中的其他資料格。 若要從遠端進行定型，請先建立遠端計算目標 (例如 Azure DSVM)。  接著，設定遠端資源，並在該處提交您的程式碼。
+[使用自動化機器學習服務將分類模型定型](tutorial-auto-train-models.md)教學課程將教導您如何使用本機電腦，使用自動化 ML 來將模型定型。  在本機訓練時的工作流程也適用於遠端目標。 不過，使用遠端計算時，自動化 ML 實驗反覆項目會以非同步方式執行。 這可讓您取消特定反覆項目、監看執行狀態，或繼續處理 Jupyter Notebook 中的其他資料格。 若要從遠端進行定型，請先建立遠端計算目標 (例如 Azure DSVM)。  接著，設定遠端資源，並在該處提交您的程式碼。
 
 此文章說明在遠端 DSVM 上執行自動化 ML 實驗所需的額外步驟。  以下程式碼會使用來自教學課程的工作區物件 `ws`。
 
@@ -75,7 +75,7 @@ DSVM 名稱限制包括：
 
 ## <a name="access-data-using-getdata-file"></a>使用 get_data 檔案存取資料
 
-提供定型資料的遠端資源存取。 針對在遠端計算上執行的自動化機器學習實驗，資料必須使用 `get_data()` 函式來擷取。  
+提供訓練資料的遠端資源存取。 針對在遠端計算上執行的自動化機器學習實驗，資料必須使用 `get_data()` 函式加以擷取。  
 
 若要提供存取，您必須：
 + 建立包含 `get_data()` 函式的 get_data.py 檔案 
@@ -110,7 +110,7 @@ def get_data():
 
 ## <a name="configure-experiment"></a>設定實驗
 
-指定 `AutoMLConfig` 的設定。  (查看[完整參數清單]()及其可能值。)
+指定 `AutoMLConfig` 的設定。  (請參閱[完整參數清單]()及其可能值。)
 
 在這些設定中，`run_configuration` 會設定為 `run_config` 物件，其中包含 DSVM 的設定和組態。  
 
@@ -141,7 +141,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## <a name="submit-training-experiment"></a>提交定型實驗
 
-現在提交設定以自動選取演算法、超參數，並針對模型定型。 (了解 `submit` 方法的[設定詳細資訊]()。)
+現在提交設定以自動選取演算法、超參數，並訓練模型。 (了解 `submit` 方法的[設定詳細資訊]()。)
 
 ```python
 from azureml.core.experiment import Experiment
@@ -184,7 +184,7 @@ remote_run = experiment.submit(automl_config, show_output=True)
 
 ## <a name="explore-results"></a>瀏覽結果
 
-您可以使用與[定型教學課程](tutorial-auto-train-models.md#explore-the-results)中相同的 Jupyter 小工具，來查看結果的圖形和資料表。
+您可以使用與[訓練教學課程](tutorial-auto-train-models.md#explore-the-results)中相同的 Jupyter 小工具，來查看結果的圖形和資料表。
 
 ```python
 from azureml.train.widgets import RunDetails
@@ -203,10 +203,10 @@ RunDetails(remote_run).show()
 
 ## <a name="example"></a>範例
 
-`automl/03.auto-ml-remote-execution.ipynb` 筆記本會示範本文中的概念。  取得此筆記本：
+[automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) Notebook 會示範本文中的概念。  請取得此筆記本：
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-了解[如何設定自動定型的設定](how-to-configure-auto-train.md)。
+了解[如何設定自動訓練的設定](how-to-configure-auto-train.md)。

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
-ms.openlocfilehash: 56b01855a5996bb62f721bda2bfc207684227854
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1ec587f4a4519f86efceb7cefa0acb372035a9a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140070"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318209"
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>在 Visual Studio 中設定 Azure 專案，以便使用多個服務組態
 
@@ -75,8 +75,9 @@ Web 角色預設會啟用診斷。 Azure 雲端服務專案和儲存體帳戶已
 對於全新或現有的連接字串，請選取 [值] 欄位右側的 [...]* 以開啟 [建立儲存體連接字串] 對話方塊：
 
 1. 在 [連接方式] 下方，選擇 [您的訂用帳戶] 選項以從訂用帳戶選取儲存體帳戶。 Visual Studio 接著會自動從 `.publishsettings` 檔案取得儲存體帳戶認證。
-1. 選取 [手動輸入的認證]可讓您使用 Azure 入口網站的資訊直接指定帳戶名稱和金鑰。 若要複製帳戶金鑰：a. 在 Azure 入口網站上瀏覽至儲存體帳戶，然後選取 [管理金鑰]。
-    2. 若要複製帳戶金鑰，請瀏覽至 Azure 入口網站上的儲存體帳戶，選取 [設定] > [存取金鑰]，然後使用 [複製] 按鈕將主要存取金鑰複製到剪貼簿。
+1. 選取 [手動輸入的認證]可讓您使用 Azure 入口網站的資訊直接指定帳戶名稱和金鑰。 若要複製帳戶金鑰：
+    1. 在 Azure 入口網站上瀏覽至儲存體帳戶，然後選取 [管理金鑰]。
+    1. 若要複製帳戶金鑰，請瀏覽至 Azure 入口網站上的儲存體帳戶，選取 [設定] > [存取金鑰]，然後使用 [複製] 按鈕將主要存取金鑰複製到剪貼簿。
 1. 選取其中一個連線選項。 [指定自訂端點] 會要求您指定 Blob、資料表和佇列的特定 URL。 自訂端點允許您使用[自訂網域](storage/blobs/storage-custom-domain-name.md)更精確地控制存取。 請參閱[設定 Azure 儲存體連接字串](./storage/common/storage-configure-connection-string.md)。
 1. 選取 [確定]，接著再選取 [檔案] > [儲存] 以新的連接字串更新組態。
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a7346f884a065a21b6f0a822b2236fa7ce5dff0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732552"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319314"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>使用串流分析處理適用於事件中樞的 Apache Kafka 
 本文說明如何將資料串流至啟用的 Kafka 事件中樞，以及使用 Azure 串流分析處理該資料。 本文將逐步引導您完成下列步驟： 
@@ -73,8 +73,8 @@ ms.locfileid: "45732552"
 
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>使用事件中樞內的 Kafka 傳送訊息
 
-1. 將 [Azure 事件中樞存放庫](https://github.com/Azure/azure-event-hubs)複製到您的電腦。
-2. 瀏覽到 `azure-event-hubs/samples/kafka/quickstart/producer` 資料夾。 
+1. 將[適用於 Kafka 的 Azure 事件中樞存放庫](https://github.com/Azure/azure-event-hubs-for-kafka)複製到電腦。
+2. 瀏覽到 `azure-event-hubs-for-kafka/quickstart/java/producer` 資料夾。 
 4. 在 `src/main/resources/producer.config` 中更新產生器的組態詳細資料。 指定**事件中樞命名空間**的**名稱**和**連接字串**。 
 
     ```xml
@@ -84,7 +84,7 @@ ms.locfileid: "45732552"
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. 瀏覽至 `azure-event-hubs/samples/kafka/quickstart/producer/src/main/java/com/example/app`，然後在您選擇的編輯器中開啟 **TestDataReporter.java** 檔案。 
+5. 瀏覽至 `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/com/example/app`，然後在您選擇的編輯器中開啟 **TestDataReporter.java** 檔案。 
 6. 註解化下列程式碼行：
 
     ```java
@@ -97,7 +97,7 @@ ms.locfileid: "45732552"
     ```
 
     此程式碼會以 **JSON** 格式傳送事件資料。 當您設定串流分析作業的輸入時，您可指定 JSON 作為輸入資料的格式。 
-7. **執行產生器**並串流至已啟用 Kafka 的事件中樞。 在 Windows 電腦上，使用 **Node.js 命令提示字元**時，先切換至 `azure-event-hubs/samples/kafka/quickstart/producer` 資料夾，再執行這些命令。 
+7. **執行產生器**並串流至已啟用 Kafka 的事件中樞。 在 Windows 電腦上，使用 **Node.js 命令提示字元**時，先切換至 `azure-event-hubs-for-kafka/quickstart/java/producer` 資料夾，再執行這些命令。 
    
     ```shell
     mvn clean package
@@ -205,7 +205,10 @@ ms.locfileid: "45732552"
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已了解如何串流至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 若要深入了解，請繼續下列教學課程：
+在本文中，您已了解如何串流至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 若要深入了解事件中樞和適用於 Kafka 的事件中樞，請參閱下列主題：  
 
-> [!div class="nextstepaction"]
-> [使用 Kafka MirrorMaker 搭配事件中樞](event-hubs-kafka-mirror-maker-tutorial.md)
+* [了解事件中樞](event-hubs-what-is-event-hubs.md)
+* [了解適用於 Kafka 的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
+* [在適用於 Kafka 的事件中樞上探索更多範例 (GitHub)](https://github.com/Azure/azure-event-hubs-for-kafka)
+* 使用 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)，[將事件從 Kafka 內部部署串流至雲端上已啟用 Kafka 的事件中樞](event-hubs-kafka-mirror-maker-tutorial.md)。
+* 了解如何使用[原生的 Kafka 應用程式](event-hubs-quickstart-kafka-enabled-event-hubs.md)、[Apache Flink](event-hubs-kafka-flink-tutorial.md) 或 [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md) 串流至已啟用 Kafka 的事件中樞

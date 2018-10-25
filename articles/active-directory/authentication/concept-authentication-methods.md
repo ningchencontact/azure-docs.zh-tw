@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 67f99e68bc4091d076e27aee06c2851bc77e6fc7
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140286"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378918"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
@@ -31,6 +31,7 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 | 安全性問題 | 僅 SSPR |
 | 電子郵件地址 | 僅 SSPR |
 | Microsoft Authenticator 應用程式 | MFA 和 SSPR 的公開預覽版 |
+| OATH 硬體權杖 | MFA 和 SSPR 的公開預覽版 |
 | sms | MFA 和 SSPR |
 | 語音通話 | MFA 和 SSPR |
 | 應用程式密碼 | 只有在某些情況下的 MFA |
@@ -39,7 +40,7 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 
 |     |
 | --- |
-| 以行動應用程式通知和行動應用程式程式碼作為 Azure AD 自助式密碼重設的方法，是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| 適用於 MFA 及 SSPR 的 OATH 硬體權杖，以及以行動應用程式通知或行動應用程式程式碼作為 Azure AD 自助式密碼重設的方法，是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>密碼
@@ -146,6 +147,30 @@ Microsoft Authenticator 應用程式或其他第三方應用程式可以作為�
 > [!WARNING]
 > 對於自助式密碼重設，當重設只需要一個方法時，驗證程式碼是使用者可**確保最高層級安全性**的唯一可用選項。
 >
+
+## <a name="oath-hardware-tokens-public-preview"></a>OATH 硬體權杖 (公開預覽)
+
+OATH 是一項開放標準，可指定單次密碼 (OTP) 程式碼的產生方式。 Azure AD 將會支援使用每 30 秒或 60 秒變換一次的 OATH-TOTP SHA-1 權杖。 客戶可以從他們選擇的廠商購買這些權杖。 請注意，祕密金鑰限制為 128 個字元，可能會與所有權杖不相容。
+
+![將 OATH 權杖上傳至 Azure 入口網站中的 [MFA Server OATH 權杖] 刀鋒視窗](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+OATH 硬體權杖已支援作為公開預覽的一部分。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
+取得權杖後，必須使用逗號分隔值 (CSV) 檔案格式加以上傳，包括 UPN、序號、祕密金鑰、時間間隔、製造商和模型，如下列範例所示。
+
+```
+upn,serial number,secret key,timeinterval,manufacturer,model
+Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> 請確定您在 CSV 檔案中包含標頭資料列，如上所示。
+
+一旦將格式正確設為 CSV 檔案後，系統管理員接著可以登入 Azure 入口網站，然後瀏覽至 [Azure Active Directory]、[MFA 伺服器]、[OATH 權杖]，並上傳所產生的 CSV 檔案。
+
+視 CSV 檔案的大小而定，可能需要數分鐘的時間來處理。 按一下 [重新整理] 按鈕來取得目前的狀態。 如果檔案中有任何錯誤，您可以選擇下載 CSV 檔案，當中會列出需要您解決的任何錯誤。
+
+一旦已解決任何錯誤後，系統管理員可以接著按一下 [啟動] 來啟動每個金鑰，以便啟動權杖及輸入權杖上顯示的 OTP。
 
 ## <a name="mobile-phone"></a>行動電話
 

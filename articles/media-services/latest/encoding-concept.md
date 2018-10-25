@@ -4,19 +4,19 @@ description: 本主題說明使用 Azure 媒體服務時的編碼程序
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 452502d5d6a0a35f642de7e14b2a7ee7fc573bfa
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091544"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378664"
 ---
 # <a name="encoding-with-azure-media-services"></a>使用 Azure 媒體服務進行編碼
 
@@ -26,9 +26,7 @@ Azure 媒體服務可讓您將高品質數位媒體檔案編碼成可在各種�
 
 使用 Azure 媒體服務來編碼時，需使用預設來告訴編碼器應該如何處理輸入媒體檔案。 例如，您可以指定所編碼內容中需要的視訊解析度及/或音訊聲道數目。 
 
-您可以使用依據業界最佳做法所建議的其中一個內建預設來快速開始，也可以選擇建置以特定案例或裝置需求為標的的自訂預設。 
-
-如需編碼器的詳細資料，請參閱 [OpenAPI 規格](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview)。 
+您可以使用依據業界最佳做法所建議的其中一個內建預設來快速開始，也可以選擇建置以特定案例或裝置需求為標的的自訂預設。 如需詳細資訊，請參閱[使用 Azure 媒體服務進行編碼](encoding-concept.md)。 
 
 ## <a name="built-in-presets"></a>內建預設
 

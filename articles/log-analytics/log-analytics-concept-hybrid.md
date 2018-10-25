@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 96feb52bd5702c899faa8d845969ae8ba0995504
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.component: ''
+ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495351"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319739"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>使用 Log Analytics 代理程式在混合式環境中收集資料
 
@@ -51,15 +51,30 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 * Windows 7 SP1 與更新版本
 
 ## <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
-以下為正式支援的 Linux 散發套件。  不過，Linux 代理程式也可能在未列出的其他散發套件上執行。  除非另有說明，列出的每個主要版本都支援所有次要版本。  
+本節提供有關所支援 Linux 散發套件的詳細資料。    
 
-* Amazon Linux 2012.09 至 2015.09 (x86/x64)
-* CentOS Linux 5、6 和 7 (x86/x64)  
-* Oracle Linux 5、6 和 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 5、6 和 7 (x86/x64)
-* Debian GNU/Linux 6、7 和 8 (x86/x64)
-* Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 和 12 (x86/x64)
+從 2018 年 8 月之後所發行的版本開始，我們會對支援模型進行下列變更：  
+
+* 只支援伺服器版本，不支援用戶端版本。  
+* 一律支援新版的 [Azure Linux 背書散發版本](../virtual-machines/linux/endorsed-distros.md)。  
+* 列出的每個主要版本都支援所有次要版本。
+* 不支援製造商結束支援日期已過的版本。  
+* 不支援新版 AMI。  
+* 只支援預設執行 SSL 1.x 的版本。
+
+如果您使用的散發版本或版本目前不受支援，且不符合支援模型，建議您為此存放庫建立分支，以認可 Microsoft 支援服務將不會對分支代理程式版本提供協助。
+
+* Amazon Linux 2017.09 (x64)
+* CentOS Linux 6 (x86/x64) 和 7 (x64)  
+* Oracle Linux 6 和 7 (x86/x64) 
+* Red Hat Enterprise Linux Server 6 (x86/x64) 和 7 (x64)
+* Debian GNU/Linux 8 和 9 (x86/x64)
+* Ubuntu 14.04 LTS (x86/x64)、16.04 LTS (x86/x64) 和 18.04 LTS (x64)
+* SUSE Linux Enterprise Server 12 (x64)
+
+>[!NOTE]
+>OpenSSL 1.1.0 只支援用於 x86_x64 平台 (64 位元)，1.x 之前的 OpenSSL 則不支援用於任何平台。
+>
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 通訊協定
 為了確保資料傳送至 Log Analytics 時的安全性，我們強烈建議您將代理程式設定為至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。  如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](log-analytics-data-security.md#sending-data-securely-using-tls-12)。 

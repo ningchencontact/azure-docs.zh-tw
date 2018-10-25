@@ -7,24 +7,24 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: cc041104169ca8c4344b9d3de597283d122e63db
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 38cfac8932859db7daa76e831372c97d97f0b24c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394755"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376306"
 ---
 # <a name="query-performance-insight"></a>查詢效能深入解析 
 
-**適用對象：** 適用於 PostgreSQL 的 Azure 資料庫 9.6 和 10
+**適用於：** 適用於 PostgreSQL 的 Azure 資料庫 9.6 和 10
 
 > [!IMPORTANT]
-> 查詢效能深入解析功能僅在有限的區域處於公開預覽狀態。 
+> 查詢效能深入解析功能處於公開預覽狀態。 
 
 查詢效能深入解析可協助您快速找出執行時間最長的查詢、一段時間後的變化情形，以及受到哪些等候的影響。
 
 ## <a name="permissions"></a>權限
-需要**擁有者**或**參與者**權限，才能檢視查詢效能深入解析中的查詢文字。 **讀取者**可以檢視圖表和資料表，但不能檢視查詢文字。
+需要**擁有者**或**參與者**權限，才能檢視查詢效能深入解析中的查詢文字。 **讀者**可以檢視圖表與資料表，但無法檢視查詢文字。
 
 ## <a name="prerequisites"></a>必要條件
 資料必須存在於[查詢存放區](concepts-query-store.md)中，查詢效能深入解析才能運作。
@@ -36,7 +36,7 @@ Azure 入口網站中的[查詢效能深入解析](concepts-query-performance-in
 
 ![查詢效能深入解析長時間執行的查詢](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-[長時間執行的查詢] 索引標籤會每隔 15 分鐘彙總一次，依每次執行的平均持續時間，顯示前 5 個查詢。 您可以從**查詢數目**下拉式清單中選取，來檢視更多查詢。 當您這麼做時，特定查詢識別碼的圖表色彩可能會有所變更。
+[長時間執行的查詢] 索引標籤會每隔 15 分鐘彙總一次，依每次執行的平均持續時間，顯示前 5 個查詢。 您可以從**查詢數目**下拉式清單中選取，來檢視更多查詢。 當您這樣做時，特定查詢識別碼的圖表色彩可能會有所變更。
 
 您可以在圖表中按一下並拖曳來縮小到特定時間範圍。 或者，使用放大和縮小圖示，分別檢視一段較短或較長的時間。
 
@@ -47,6 +47,6 @@ Azure 入口網站中的[查詢效能深入解析](concepts-query-performance-in
 ![查詢效能深入解析等候統計資料](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解在適用於 PostgreSQL 的 Azure 資料庫進行[監視和微調](concepts-monitoring.md)。
+- 深入了解在適用於 PostgreSQL 的 Azure 資料庫中進行[監視和微調](concepts-monitoring.md)。
 
 

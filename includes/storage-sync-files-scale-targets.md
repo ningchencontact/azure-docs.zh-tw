@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 3f70a8cf2df25f487de7cd1a8c8cbdf9431839f0
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: a29f1c4a625552dd958884c6a172bee470e61ca6
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283059"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49312545"
 ---
 | 資源 | 目標 | 固定限制 |
 |----------|--------------|------------|
@@ -30,3 +30,4 @@ ms.locfileid: "43283059"
 | 物件 (目錄和檔案) 安全性描述元大小上限 | 4 KiB | 是 |
 | 檔案大小 | 100 GiB | 否 |
 | 要分層之檔案的檔案大小下限 | 64 KiB | 是 |
+| 並行同步處理工作階段 | 每個處理器 2 個作用中的同步處理工作階段，或每部伺服器最多 8 個作用中的同步處理工作階段 | 是 |

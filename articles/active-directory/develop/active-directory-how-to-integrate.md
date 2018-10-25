@@ -17,14 +17,15 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: fcc0badc17675c1c8923c744afd3fa46e98fef32
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495334"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954692"
 ---
 # <a name="integrating-with-azure-active-directory"></a>與 Azure Active Directory 整合
+
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory 為組織提供企業等級的雲端應用程式身分識別管理。 Azure AD 整合提供使用者簡化的登入程序，並可協助您的應用程式符合 IT 原則。
@@ -81,7 +82,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 **Azure AD 會在世界各地的資料中心內進行部署，並受到全天候的管理和監控。**  Azure AD 是適用於 Microsoft Azure 和 Office 365 的身分識別管理系統，並在世界各地的 28 個資料中心內進行部署。 保證將目錄資料複寫到至少三個資料中心。 全域負載平衡器會確保使用者可存取包含其資料的最接近 Azure AD 複本，並在偵測到問題時，自動將要求重新路由到其他資料中心。
 
 ## <a name="next-steps"></a>後續步驟
-[開始撰寫程式碼](azure-ad-developers-guide.md#get-started)
+[開始撰寫程式碼](v1-overview.md#get-started)
 
 [使用 Azure AD 登入使用者](authentication-scenarios.md)
 

@@ -3,23 +3,19 @@ title: 長期函式中的 HTTP API - Azure
 description: 了解如何在 Azure Functions 的「長期函式」延伸模組中實作 HTTP API。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c000e268c4c926991c3f1928f226065a436c6d2
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36264880"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354252"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>長期函式中的 HTTP API (Azure Functions)
 
@@ -49,6 +45,7 @@ ms.locfileid: "36264880"
 | statusQueryGetUri |協調流程執行個體的狀態 URL。 |
 | sendEventPostUri  |協調流程執行個體的「引發事件」URL。 |
 | terminatePostUri  |協調流程執行個體的「終止」URL。 |
+| rewindPostUri     |協調流程執行個體的「倒轉」URL。 |
 
 以下是範例回應：
 
@@ -56,13 +53,14 @@ ms.locfileid: "36264880"
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -94,6 +92,9 @@ Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a2
 | systemKey  | 查詢字串    | 叫用 API 所需的授權金鑰。 |
 | showHistory| 查詢字串    | 選擇性參數。 如果設定為 `true`，則協調流程執行歷程記錄將會包含在回應承載中。| 
 | showHistoryOutput| 查詢字串    | 選擇性參數。 如果設定為 `true`，則活動輸出將會包含在協調流程執行歷程記錄中。| 
+| createdTimeFrom  | 查詢字串    | 選擇性參數。 指定時，會篩選所傳回執行個體的清單，這些執行個體是在指定 ISO8601 時間戳記當時或之後建立的。|
+| createdTimeTo    | 查詢字串    | 選擇性參數。 指定時，會篩選傳回執行個體的清單，這些執行個體是在指定 ISO8601 時間戳記當時或之前建立的。|
+| runtimeStatus    | 查詢字串    | 選擇性參數。 指定時，會根據所傳回執行個體的執行階段狀態來篩選所傳回執行個體的清單。 若要查看可能的執行階段狀態值清單，請參閱[查詢執行個體](durable-functions-instance-management.md)主題。 |
 
 `systemKey` 是由 Azure Functions 主機自動產生的授權金鑰。 它特別授與「長期工作」延伸模組 API 的存取權，並且可以用與[其他授權金鑰](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)相同的方式來管理。 探索 `systemKey` 值的最簡單方式是使用先前所述的 `CreateCheckStatusResponse` API。
 
@@ -114,7 +115,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Functions 2.0 格式具有完全相同的參數，但是 URL 首碼稍微不同：
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Response
@@ -125,6 +126,7 @@ GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 * **HTTP 202 (已接受)**：指定的執行個體正在進行中。
 * **HTTP 400 (不正確的要求)**：指定的執行個體失敗或終止。
 * **HTTP 404 (找不到)**：指定的執行個體不存在或尚未開始執行。
+* **HTTP 500 (內部伺服器錯誤)**：指定的執行個體失敗且發生未處理的例外狀況。
 
 **HTTP 200** 和 **HTTP 202** 案例的回應承載是 JSON 物件，具有下列欄位：
 
@@ -195,9 +197,13 @@ GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 
 **HTTP 202** 回應也包含**位置**回應標頭，它參考與先前所述 `statusQueryGetUri` 欄位相同的 URL。
 
+
 ### <a name="get-all-instances-status"></a>取得所有執行個體狀態
 
 您也可以查詢所有執行個體狀態。 從「取得執行個體狀態」要求中移除 `instanceId`。 參數與「取得執行個體狀態」相同。 
+
+請記住一點，`connection` 和 `code` 是選擇性的。 如果您對函式使用匿名驗證，則不需要程式碼。
+如果您不想要使用與 AzureWebJobsStorage 應用程式設定中所定義連接字串不同的 Blob 儲存體連接字串，則可放心忽略連線查詢字串參數。
 
 #### <a name="request"></a>要求
 
@@ -210,7 +216,23 @@ GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 Functions 2.0 格式具有完全相同的參數，但是 URL 首碼稍微不同： 
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="request-with-filters"></a>具有篩選的要求
+
+您可以篩選要求。
+
+對於 Functions 1.0，要求格式如下：
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+```
+
+Functions 2.0 格式具有完全相同的參數，但是 URL 首碼稍微不同： 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
 ```
 
 #### <a name="response"></a>Response
@@ -267,8 +289,9 @@ GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 ```
 
 > [!NOTE]
-> 如果執行個體資料表中有大量資料列，則這項作業可能會耗用非常大量 Azure 儲存體 I/O。 在 [Durable Functions (Azure Functions) 中的效能和級別](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table)文件中可以找到執行個體資料表的更多詳細資料。
+> 如果執行個體資料表中有大量資料列，則這項作業可能會耗用非常大量 Azure 儲存體 I/O。 在 [Durable Functions (Azure Functions) 中的效能和級別](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table)文件中可以找到執行個體資料表的更多詳細資料。
 > 
+
 
 ### <a name="raise-event"></a>引發事件
 
@@ -285,7 +308,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 Functions 2.0 格式具有完全相同的參數，但是 URL 首碼稍微不同：
 
 ```http
-POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
@@ -325,13 +348,13 @@ Content-Length: 6
 對於 Functions 1.0，要求格式如下：
 
 ```http
-DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Functions 2.0 格式具有完全相同的參數，但是 URL 首碼稍微不同：
 
 ```http
-DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數。
@@ -351,7 +374,47 @@ DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?r
 以下是範例要求，它會終止執行中執行個體並且指定**錯誤**的原因：
 
 ```
-DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+```
+
+此 API 的回應不包含任何內容。
+
+## <a name="rewind-instance-preview"></a>倒轉執行個體 (預覽)
+
+藉由重新執行最近失敗的作業，將失敗的協調流程執行個體還原為執行中狀態。
+
+#### <a name="request"></a>要求
+
+對於 Functions 1.0，要求格式如下：
+
+```http
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Functions 2.0 格式具有完全相同的參數，但是 URL 首碼稍微不同：
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數。
+
+| 欄位       | 參數類型  | 資料類型 | 說明 |
+|-------------|-----------------|-----------|-------------|
+| 原因      | 查詢字串    | 字串    | 選用。 倒轉協調流程執行個體的原因。 |
+
+#### <a name="response"></a>Response
+
+可以傳回幾個可能的狀態字碼值。
+
+* **HTTP 202 (已接受)**：已接受倒轉要求以進行處理。
+* **HTTP 404 (找不到)**：找不到指定的執行個體。
+* **HTTP 410 (不存在)**：指定的執行個體已完成或終止。
+
+以下是範例要求，它會倒轉失敗的執行個體並且指定**修正**的原因：
+
+```
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/rewind?reason=fixed&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
 
 此 API 的回應不包含任何內容。

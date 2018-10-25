@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854995"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365612"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -44,7 +44,7 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 
 若要新增全域唯一識別碼 (GUID)，您只需要在主要範本檔案中進行一處修改：
 
-1. 建立 GUID (例如 eb7927c8-dd66-43e1-b0cf-c346a422063)。
+1. [建立 GUID](#create-guids) (例如 eb7927c8-dd66-43e1-b0cf-c346a422063) 並[註冊 GUID](#register-guids-and-offers)。
 
 1. 開啟 Resource Manager 範本。
 
@@ -55,6 +55,8 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 1. 檢查範本是否有任何錯誤。
 
 1. 在適當的存放庫中重新發佈範本。
+
+1. [驗證範本部署中的 GUID 已成功建立](#verify-the-guid-deployment)。
 
 ### <a name="sample-template-code"></a>範例範本程式碼
 
@@ -99,6 +101,24 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
+## <a name="create-guids"></a>建立 GUID
+
+GUID 是具有 32 個十六進位數字的參考號碼。 若要建立 GUID 來進行追蹤，您應該使用 GUID 產生器。 建議您利用 [Azure 儲存體的 GUID 產生器表單](https://aka.ms/StoragePartners)。 不過，如果您不想使用 Azure 儲存體的 GUID 產生器，有多個[線上 GUID 產生器](https://www.bing.com/search?q=guid%20generator)可供您使用。
+
+> [!Note]
+> 強烈建議您使用 [Azure 儲存體的 GUID 產生器表單](https://aka.ms/StoragePartners)來建立您的 GUID。 如需詳細資訊，請參閱[常見問題集](#faq)。
+
+為每個供應項目與散發通道都建立唯一的 GUID。 若您已使用範本部署兩個解決方案，且每個解決方案都可以在 Azure Marketplace 與 GitHub 上取得，您必須建立四個 GUID：
+
+*   Azure Marketplace 中的供應項目 A 
+*   GitHub 上的供應項目 A
+*   Azure Marketplace 中的供應項目 B 
+*   GitHub 上的供應項目 B
+
+回報是由合作夥伴值 (Microsoft 合作夥伴 ID) 與 GUID 所完成。 
+
+您也能以更細微的層級來追蹤 GUID (例如，供應項目的變體 SKU)。
 
 ## <a name="register-guids-and-offers"></a>註冊 GUID 與供應項目
 
@@ -183,21 +203,6 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="create-guids"></a>建立 GUID
-
-GUID 是具有 32 個十六進位數字的參考號碼。 若要建立 GUID 來進行追蹤，您應該使用 GUID 產生器。 有多個[線上 GUID 產生器](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E)可以使用。
-
-為每個供應項目與散發通道都建立唯一的 GUID。 若您已使用範本部署兩個解決方案，且每個解決方案都可以在 Azure Marketplace 與 GitHub 上取得，您必須建立四個 GUID：
-
-*   Azure Marketplace 中的供應項目 A 
-*   GitHub 上的供應項目 A
-*   Azure Marketplace 中的供應項目 B 
-*   GitHub 上的供應項目 B
-
-回報是由合作夥伴值 (Microsoft 合作夥伴 ID) 與 GUID 所完成。 
-
-您也能以更細微的層級來追蹤 GUID (例如，供應項目的變體 SKU)。
-
 ## <a name="notify-your-customers"></a>通知您的客戶
 
 合作夥伴應該通知其客戶有關使用 Resource Manager GUID 追蹤的部署。 Microsoft 會向合作夥伴回報與這些部署關聯的 Azure 使用狀況。 下列範例包括您可以用來通知客戶有關這些部署的內容。 在範例中，將 \<PARTNER> 取代為您的公司名稱。 合作夥伴應該確保通知符合他們的資料隱私權和收集原則，包括讓客戶從追蹤排除的選項。 
@@ -275,3 +280,7 @@ Microsoft 為合作夥伴提供一個客戶部署範本檢視和受影響的使�
 **此追蹤方法和數位記錄合作夥伴 (DPOR) 類似嗎？**
 
 這種將部署與使用狀況連結至合作夥伴解決方案的新方法，提供將合作夥伴解決方案連結到 Azure 使用量的機制。 DPOR 可將諮詢 (系統整合者) 或管理 (受控服務提供者) 合作夥伴與客戶的 Azure 訂用帳戶建立關聯。   
+
+**使用 Azure 儲存體 GUID 產生器表單的好處是什麼？**
+
+Azure 儲存體的 GUID 產生器表單保證會產生所需格式的 GUID。 此外，如果您是使用任何 Azure 儲存體的資料平面追蹤方法，可以利用相同的 GUID 來追蹤 Marketplace 控制平面。 這可讓您運用夥伴屬性的單一整合 GUID，而不需要維護個別的 GUID。

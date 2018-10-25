@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 2e2db54f4c356a754144e17b11cf25fdf3f12d9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993998"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365057"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure 監視器中的記錄警示
 此文章提供記錄警示的詳細資料，記錄警示是 [Azure 警示](monitoring-overview-unified-alerts.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
@@ -106,11 +106,11 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 - 下午 1:15，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果提供了 2 個記錄；超過閾值並在觸發相關聯的[動作群組](monitoring-action-groups.md)之後不久引發警示。
 - 現在，下午 1:20 的下一個反覆項目，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果再次提供 0 個記錄；低於閾值，因此不引發警示。
 
-但在上述所列的情況中，下午 1:15 - Azure 警示無法判斷下午 1:10 發現的基本問題是否仍存在，以及是否有完全新的失敗；因為使用者提供的查詢可能會算在較早的記錄中 - 這是 Azure 警示可以確定的。 因此，為了謹慎起見，Contoso-Log-Alert 會在下午 1:15 透過設定[動作群組](monitoring-action-groups.md)再引發一次。 現在，下午 1:20 沒有看到任何記錄 - Azure 警示無法確定記錄的原因是否已經解決；因此，Contoso-Log-Alert 不會在 Azure 儀表板中和/或已發出表示解決警示的通知中變更為已解決。
+但在上述所列的情況中，下午 1:15 - Azure 警示無法判斷下午 1:10 發現的基本問題是否仍存在，以及是否有完全新的失敗；因為使用者提供的查詢可能會算在較早的記錄中 - 這是 Azure 警示不可以確定的。 因此，為了謹慎起見，Contoso-Log-Alert 會在下午 1:15 透過設定[動作群組](monitoring-action-groups.md)再引發一次。 現在，下午 1:20 沒有看到任何記錄 - Azure 警示無法確定記錄的原因是否已經解決；因此，Contoso-Log-Alert 不會在 Azure 儀表板中和/或已發出表示解決警示的通知中變更為已解決。
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>記錄警示的價格和計費
-在 [Azure 監視器價格](https://azure.microsoft.com/en-us/pricing/details/monitor/)頁面有說明適用於記錄警示的價格。 在 Azure 帳單中，記錄警示是以類型 `microsoft.insights/scheduledqueryrules` 搭配下列項目來表示：
+在 [Azure 監視器價格](https://azure.microsoft.com/pricing/details/monitor/)頁面有說明適用於記錄警示的價格。 在 Azure 帳單中，記錄警示是以類型 `microsoft.insights/scheduledqueryrules` 搭配下列項目來表示：
 - 隨著警示名稱與資源群組警示內容顯示的 Application Insights 上的記錄警示
 - 隨著警示名稱 (`<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`) 與資源群組和警示內容顯示的 Log Analytics 上的記錄警示
 

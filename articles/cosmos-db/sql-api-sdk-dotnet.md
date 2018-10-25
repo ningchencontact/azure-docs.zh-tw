@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452389"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389763"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -50,6 +50,14 @@ ms.locfileid: "47452389"
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* 已將 System.Net.Security 更新至 4.3.2。
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* 診斷追蹤的改進
+
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 
 * 對多區域要求暫時性失敗新增更多復原能力。
@@ -327,6 +335,8 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |2018 年 10 月 15 日 |--- |
+| [2.1.2](#2.1.2) |2018 年 10 月 4 日 |--- |
 | [2.1.1](#2.1.1) |2018 年 9 月 27 日 |--- |
 | [2.1.0](#2.1.0) |2018 年 9 月 21 日 |--- |
 | [2.0.0](#2.0.0) |2018 年 9 月 7 日 |--- |

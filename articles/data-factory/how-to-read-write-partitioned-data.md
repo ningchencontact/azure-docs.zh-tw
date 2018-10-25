@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053705"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091044"
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>如何讀取或寫入 Azure Data Factory 中的分割資料
-在第 1 版中，Azure Data Factory 支援使用 SliceStart/SliceEnd/WindowStart/WindowEnd 系統變數讀取或寫入分割的資料。 在目前版本的 Data Factory 中，您可以透過使用管線參數，以及觸發程序的開始時間/已排程的時間作為參數值來達成此行為。 
+
+在第 1 版 Azure Data Factory 中，您可以使用下列系統變數來讀取或寫入已分割的資料：**SliceStart**、**SliceEnd**、**WindowStart** 及 **WindowEnd**。 在目前版本的 Data Factory 中，您可以透過使用管線參數，以及觸發程序的開始時間或已排程的時間作為參數值來達成此行為。 
 
 ## <a name="use-a-pipeline-parameter"></a>使用管線參數 
-在第 1 版中，您可以使用 partitionedBy 屬性和 SliceStart 系統變數，如下列範例所示： 
+
+在第 1 版 Data Factory 中，您可以使用 **partitionedBy** 屬性和 **SliceStart** 系統變數，如下列範例所示： 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -35,13 +37,13 @@ ms.locfileid: "37053705"
 ],
 ```
 
-如需 partitonedBy 屬性的詳細資訊，請參閱[第 1 版的 Azure Blob 連接器](v1/data-factory-azure-blob-connector.md#dataset-properties)一文。 
+如需 **partitonedBy** 屬性的詳細資訊，請參閱[使用 Azure Data Factory 將資料複製到 Azure Blob 儲存體或從該處複製資料](v1/data-factory-azure-blob-connector.md#dataset-properties)。 
 
-在目前版本的 Data Factory 中，達成此行為的方式是執行下列動作： 
+若要在目前的 Data Factory 版本中達成此行為： 
 
-1. 定義類型字串的**管線參數**。 在下列範例中，管線參數的名稱是 **windowStartTime**。 
+1. 定義**字串**類型的*管線參數*。 在下列範例中，管線參數的名稱是 **windowStartTime**。 
 2. 將資料集定義中的 **folderPath** 設定為參考管線參數的值。 
-3. 在隨需叫用管線時傳遞參數的實際值，或在執行階段以動態方式傳遞觸發程序的開始時間/排定時間。 
+3. 當您視需求叫用管線時，請傳遞參數的實際值。 您也可以在執行階段，以動態方式傳遞觸發程序的開始時間或已排程的時間。 
 
 ```json
 "folderPath": {
@@ -50,7 +52,8 @@ ms.locfileid: "37053705"
 },
 ```
 
-## <a name="pass-in-value-from-a-trigger"></a>從觸發程序傳入值
+## <a name="pass-in-a-value-from-a-trigger"></a>從觸發程序傳入值
+
 在下列輪轉時間範圍觸發程序定義中，觸發程序的時間範圍開始時間會當作 **windowStartTime** 管線參數的值傳遞： 
 
 ```json
@@ -176,4 +179,6 @@ ms.locfileid: "37053705"
 ```
 
 ## <a name="next-steps"></a>後續步驟
-如需有關使用管線建立資料處理站的完整逐步解說，請參閱[快速入門：建立資料處理站](quickstart-create-data-factory-powershell.md)。 
+
+如需有關如何建立資料處理站 (具有管線) 的完整逐步解說，請參閱[快速入門：建立資料處理站](quickstart-create-data-factory-powershell.md)。 
+

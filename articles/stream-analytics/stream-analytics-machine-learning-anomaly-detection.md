@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3cd9b5a2bfed49ee712b89040477389ba9ea7715
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420090"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389627"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure 串流分析中的異常偵測
 
 > [!IMPORTANT]
-> 這項功能處於預覽狀態，不建議使用於生產工作負載。
+> 這項功能即將淘汰，但將會取代為新的功能。 如需詳細資訊，請瀏覽 [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) (Azure 串流分析的八個新功能) 部落格文章。
 
 **AnomalyDetection** 運算子用來偵測事件串流中不同類型的異常。 例如，長時間可用記憶體緩慢減少可能表示記憶體流失，或範圍內穩定的 Web 服務要求數量可能有急劇的增加或減少。  
 
@@ -243,7 +243,7 @@ AnomalyDetection 運算子會傳回包含所有三個分數做為輸出的記錄
 ## <a name="references"></a>參考
 
 * [異常偵測 – 使用機器學習服務來偵測時間序列資料中的異常](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [機器學習服務異常偵測 API](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [機器學習服務異常偵測 API](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [時間序列異常偵測](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="next-steps"></a>後續步驟

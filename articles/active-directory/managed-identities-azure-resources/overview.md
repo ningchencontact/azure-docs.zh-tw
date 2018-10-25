@@ -12,14 +12,14 @@ ms.component: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/28/2018
+ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 43bfe3abcbe6a66f124565cde8ddb839ba76d045
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107167"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987255"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>什麼是適用於 Azure 資源的受控識別？
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) 中適用於 Azure 資源的受控識別功能
 Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識別功能。 沒有任何額外成本。
 
 > [!NOTE]
-> 先前稱為受控服務識別 (MSI) 的服務，新名稱為 Azure 資源受控識別。
+> 先前稱為「受控服務識別」(MSI) 的服務，其新名稱為「Azure 資源適用受控識別」。
 
 ## 此功能如何運作？<a name="how-does-it-work"></a>
 
@@ -116,9 +116,11 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
 
 * [Azure App Service](/azure/app-service/app-service-managed-service-identity)
 * [Azure Functions](/azure/app-service/app-service-managed-service-identity)
+* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure 服務匯流排](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Azure 事件中樞](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API 管理](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Azure 容器執行個體](../../container-instances/container-instances-managed-identity.md)
 
 ## 哪些 Azure 服務支援此功能？<a name="which-azure-services-support-managed-identity"></a>
 

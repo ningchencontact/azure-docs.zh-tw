@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295830"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319365"
 ---
 # <a name="what-is-password-writeback"></a>什麼是密碼回寫？
 
@@ -27,6 +27,12 @@ ms.locfileid: "46295830"
 * [密碼雜湊同步處理](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [傳遞驗證](../hybrid/how-to-connect-pta.md)
 
+> [!WARNING]
+> 在 [Azure 存取控制服務 (ACS) 於 2018 年 11 月 7 日淘汰](../develop/active-directory-acs-migration.md)後，使用 Azure AD Connect 1.0.8641.0 版和更舊版本的使用者將無法進行密碼回寫。 屆時，Azure AD Connect 1.0.8641.0 版和更舊版本將不再允許進行密碼回寫，因為它們倚賴 ACS 來進行該功能。
+>
+> 若要避免服務中斷，請從舊版 Azure AD Connect 升級至新版，請參閱 [Azure AD Connect：從舊版升級到最新版本](../hybrid/how-to-upgrade-previous-version.md)
+>
+
 密碼回寫提供：
 
 * **強制執行內部部署 Active Directory 密碼原則**：當使用者重設其密碼時，系統會進行檢查以確保此動作符合內部部署 Active Directory 原則，然後才將此動作認可至該目錄。 這項檢閱包括檢查歷程記錄、複雜度、有效期、密碼篩選，以及您在本機 Active Directory 中已定義的任何其他密碼限制。
@@ -37,6 +43,7 @@ ms.locfileid: "46295830"
 
 > [!Note]
 > 存在於內部部署 Active Directory 中受保護群組內的使用者帳戶，無法使用密碼回寫。 如需受保護群組的詳細資訊，請參閱 [Active Directory 中的受保護帳戶和群組](https://technet.microsoft.com/library/dn535499.aspx)。
+>
 
 ## <a name="licensing-requirements-for-password-writeback"></a>密碼回寫的授權需求
 
@@ -63,28 +70,30 @@ ms.locfileid: "46295830"
 1. 系統會執行檢查，以了解使用者擁有哪一種密碼。 如果密碼是在內部部署環境中進行管理的：
    * 系統會執行檢查以了解回寫服務是否已啟動並在執行中。 如果是，使用者可以繼續進行。
    * 如果回寫服務關閉，系統會告知使用者其無法立即重設其密碼。
-2. 接著，使用者會通過適當的驗證閘道，然後到達 [重設密碼] 畫面。
-3. 使用者選取新的密碼，並加以確認。
-4. 當使用者選取 [送出] 時，系統會以在回寫設定程序期間所建立的對稱金鑰加密純文字密碼。
-5. 經過加密的密碼會放入承載中，透過 HTTPS 通道傳送到租用戶特定的服務匯流排轉送 (會在回寫設定程序期間為您設定此轉送)。 此轉送受到只有您的內部部署安裝才會知道的隨機產生密碼所保護。
-6. 在訊息抵達服務匯流排之後，密碼重設端點會自動甦醒，並看到有擱置中的重設要求。
-7. 服務會接著使用雲端錨點屬性來尋找使用者。 若要讓此查閱成功︰
+1. 接著，使用者會通過適當的驗證閘道，然後到達 [重設密碼] 畫面。
+1. 使用者選取新的密碼，並加以確認。
+1. 當使用者選取 [送出] 時，系統會以在回寫設定程序期間所建立的對稱金鑰加密純文字密碼。
+1. 經過加密的密碼會放入承載中，透過 HTTPS 通道傳送到租用戶特定的服務匯流排轉送 (會在回寫設定程序期間為您設定此轉送)。 此轉送受到只有您的內部部署安裝才會知道的隨機產生密碼所保護。
+1. 在訊息抵達服務匯流排之後，密碼重設端點會自動甦醒，並看到有擱置中的重設要求。
+1. 服務會接著使用雲端錨點屬性來尋找使用者。 若要讓此查閱成功︰
 
    * 使用者物件必須存在於 Active Directory 連接器空間中。
    * 使用者物件必須連結至對應的 Metaverse (MV) 物件。
    * 使用者物件必須連結至對應的 Azure Active Directory 連接器物件。
-   * 從 Active Directory 連接器物件到 MV 的連結上必須有同步處理規則 `Microsoft.InfromADUserAccountEnabled.xxx`。 <br> <br>
+   * 從 Active Directory 連接器物件到 MV 的連結上必須有同步處理規則 `Microsoft.InfromADUserAccountEnabled.xxx`。
+   
    從雲端傳來呼叫時，同步處理引擎會使用 **cloudAnchor** 屬性來查閱 Azure Active Directory 連接器空間物件。 接著，它會依循連結回到 MV 物件，然後再依循連結回到 Active Directory 物件。 因為相同使用者可能會有多個 Active Directory 物件 (多樹系)，所以同步處理引擎需倚賴 `Microsoft.InfromADUserAccountEnabled.xxx` 連結來選出正確的物件。
 
    > [!Note]
    > 由於這個邏輯的緣故，Azure AD Connect 必須要能夠與主要網域控制站 (PDC) 模擬器通訊，密碼回寫才能運作。 如果需要手動啟用此功能，您可以將 Azure AD Connect 連線到 PDC 模擬器。 在 Active Directory 同步處理連接器的 [屬性] 上按一下滑鼠右鍵，然後選取 [設定目錄分割]。 從該處尋找 [網域控制站連線設定] 區段，然後核取標題為 [只使用慣用的網域控制站] 的方塊。 即使慣用的網域控制站不是 PDC 模擬器，Azure AD Connect 仍會嘗試連線至 PDC 來進行密碼回寫。
 
-8. 找到使用者帳戶之後，系統會嘗試在適當的 Active Directory 樹系中直接重設密碼。
-9. 如果密碼設定作業成功，系統會告訴使用者其密碼已變更。
+1. 找到使用者帳戶之後，系統會嘗試在適當的 Active Directory 樹系中直接重設密碼。
+1. 如果密碼設定作業成功，系統會告訴使用者其密碼已變更。
    > [!NOTE]
    > 如果將使用者的密碼雜湊同步處理至 Azure AD 時使用的是密碼雜湊同步處理，內部部署密碼原則就有可能比雲端密碼原則弱。 在此情況下，系統會強制執行內部部署原則。 此原則可確保不論您是使用密碼雜湊同步處理還是同盟來提供單一登入，都會在雲端強制執行內部部署原則。
+   >
 
-10. 如果密碼設定作業失敗，系統會顯示錯誤以提示使用者再試一次。 作業可能會因下列原因而失敗：
+1. 如果密碼設定作業失敗，系統會顯示錯誤以提示使用者再試一次。 作業可能會因下列原因而失敗：
    * 服務已停止運作。
    * 他們所選的密碼不符合組織原則。
    * 無法在本機 Active Directory 中找到使用者。
@@ -101,10 +110,10 @@ ms.locfileid: "46295830"
    * 建立服務匯流排轉送之後，便會建立強式對稱金鑰，以在透過線路傳送密碼時予以加密。 此金鑰只會存在於您公司的雲端密碼存放區中，並受到嚴密鎖定和稽核，就像目錄中的任何其他密碼一樣。
 * **業界標準傳輸層安全性 (TLS)**
    1. 當雲端上發生密碼重設或變更作業時，系統便會以公開金鑰將純文字密碼加密。
-   2. 加密密碼會放入 HTTPS 訊息中，使用 Microsoft SSL 憑證透過加密通道傳送到您的服務匯流排轉送。
-   3. 在訊息抵達服務匯流排之後，您的內部部署代理程式會喚醒服務匯流排，並使用先前產生的強式密碼向其進行驗證。
-   4. 內部部署代理程式會拾取加密訊息，然後使用私密金鑰進行解密。
-   5. 內部部署代理程式會嘗試透過 AD DS SetPassword API 來設定密碼。 這個步驟可讓您在雲端強制執行 Active Directory 內部部署密碼原則 (例如複雜度、有效期、歷程記錄、篩選等)。
+   1. 加密密碼會放入 HTTPS 訊息中，使用 Microsoft SSL 憑證透過加密通道傳送到您的服務匯流排轉送。
+   1. 在訊息抵達服務匯流排之後，您的內部部署代理程式會喚醒服務匯流排，並使用先前產生的強式密碼向其進行驗證。
+   1. 內部部署代理程式會拾取加密訊息，然後使用私密金鑰進行解密。
+   1. 內部部署代理程式會嘗試透過 AD DS SetPassword API 來設定密碼。 這個步驟可讓您在雲端強制執行 Active Directory 內部部署密碼原則 (例如複雜度、有效期、歷程記錄、篩選等)。
 * **訊息到期原則**
    * 如果訊息因內部部署服務已停止運作而停留在服務匯流排中，在數分鐘之後，它就會逾時而被移除。 讓訊息逾時並予以移除可更進一步提升安全性。
 

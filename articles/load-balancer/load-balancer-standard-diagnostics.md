@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6c730455e2d8b590a4e4b9ca0392985918678bf4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125639"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167693"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>標準 Load Balancer 的計量和健康情況診斷
 
-Azure 標準 Load Balancer 為您的資源提供下列診斷功能：
-* **多維度計量**：提供新的多維度診斷功能，可供公用和內部負載平衡器組態使用。 您可以監視、管理您的負載平衡器資源，以及進行其疑難排解。
+Azure Standard Load Balancer 公開 Azure Standard Load Balancer 會為資源提供下列診斷功能：
+* **多維度計量**：透過 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)提供新的多維度診斷功能，以供公用和內部負載平衡器組態使用。 您可以監視、管理您的負載平衡器資源，以及進行其疑難排解。
 
 * **資源健康狀態**：Azure 入口網站中的 [Load Balancer] 頁面以及 [監視器] 下的 [資源健康狀態] 頁面，會公開標準 Load Balancer 之公用負載平衡器組態的 [資源健康狀態] 區段。
 
@@ -219,6 +219,7 @@ VIP 可用性目前僅適用於公用前端。
 
 - 深入了解[標準負載平衡器](load-balancer-standard-overview.md)。
 - 深入了解 [Load Balancer 輸出連線能力](https://aka.ms/lboutbound)。
-- 了解 [Azure 監視器計量 REST API](https://docs.microsoft.com/rest/api/monitor/metrics/)。
+- 了解 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)。
+- 了解 [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/) 和[如何透過 REST API 擷取計量](https://docs.microsoft.com/rest/api/monitor/metrics/metrics_list)。
 
 

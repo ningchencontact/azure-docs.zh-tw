@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 4ed911766a14dd35ea662326a5d50df11cf81698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984059"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345181"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>使用 Windows 虛擬機器的 Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
 
@@ -64,7 +64,7 @@ Azure 診斷擴充功能會使用稱為「資料接收器」的功能，將計�
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-將這個受控服務識別 (MSI) 擴充功能新增至範本的 "resources" 區段頂端。  此擴充功能可確保 Azure 監視器接受所發出的計量。  
+將這個 Azure 資源的受控識別擴充功能新增至範本的 "resources" 區段頂端。  此擴充功能可確保 Azure 監視器接受所發出的計量。  
 
 ```json
 //Find this code 

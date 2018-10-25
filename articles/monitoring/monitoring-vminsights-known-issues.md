@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 819c3e74355cf80c7a998abb8b02b10c9e077059
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062763"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385078"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>適用於 VM 的 Azure 監視器已知問題
 
 下列為「適用於 VM 的 Azure 監視器」健康情況功能的已知問題：
 
+- 健康情況功能會上架到所有連線到 Log Analytics 工作區的 VM，即使是從單一 VM 起始並完成上架亦然。
+- 如果 Azure VM 因已遭移除或刪除而不再存在，它將會顯示在 VM 清單檢視中三至七天。 此外，按一下已移除或已刪除 VM 的狀態將會啟動 [健康情況診斷] 檢視，繼而進入載入迴圈。 選取已刪除 VM 的名稱將會啟動刀鋒視窗，並顯示一則指出 VM 已刪除的訊息。
 - 此版本的健康情況準則時段和頻率無法修改。 
 - 無法停用健康情況準則。 
 - 上線之後，可能需要一點時間，資料才會顯示在 [Azure 監視器] -> [虛擬機器]-> [健康情況] 或是 [VM 資源] 刀鋒視窗-> [深入解析] 中
@@ -36,9 +38,26 @@ ms.locfileid: "47062763"
 - 關閉 VM 會將其一些健康情況準則更新為重大狀態，並將其他健康情況準則更新為狀況良好狀態，且 VM 的淨狀態處於重大狀態。
 - 無法修改健康情況警示的嚴重性，只能加以啟用或停用。  此外，某些嚴重性會根據健康情況準則的狀態來更新。
 - 修改健康情況準則執行個體的任何設定，將會導致修改 VM 上相同類型的所有健康情況準則執行個體中的相同設定。 例如，如果對應至邏輯磁碟 C: 的磁碟可用空間健康情況準則執行個體閾值經過修改，那麼此閾值會套用到針對相同 VM 探索並監視的所有其他邏輯磁碟。   
-- 某些 Windows 健康情況準則 (例如 DNS 用戶端服務健康情況) 的閾值無法修改，因為其狀況良好狀態已根據內容鎖定為服務或實體的 [執行中]、[可用] 狀態。  反之，值會以數字 4 代表，它在未來的版本中會轉換成實際的顯示字串。  
-- 某些 Linux 健康情況準則 (例如邏輯磁碟健康情況) 的閾值無法修改，因為它們已設定為在狀況不良的狀態下觸發。  這些閾值會指示項目是上線/離線 (或開啟還是關閉)，且會顯示 1 或 0 的值來代表及表示相同內容。
-- 更新任何資源群組中的 [資源群組] 篩選條件，同時使用大規模 [Azure 監視器] -> [虛擬機器] -> [健康情況] -> [任何] 清單檢視，並包含預先選取的訂用帳戶和資源群組，會導致清單檢視顯示 [沒有結果]。  請返回 [Azure 監視器] -> [虛擬機器] -> [健康情況] 索引標籤，並選取所需的訂用帳戶和資源群組，然後瀏覽至清單檢視。
+- 下列以 Windows VM 為目標的健康情況準則不可修改閾值，因為其健康狀態已設定為 [執行中] 或 [可用]。 從[工作負載監視 API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager) 進行查詢時，在下列情況下，服務或實體的健康狀態會顯示 **LessThan** 或 **GreaterThan** 的 *comparisonOperator* 值，並顯示閾值 **4**：
+   - DNS 用戶端服務健康情況 – 服務未執行 
+   - DHCP 用戶端服務健康情況 – 服務未執行 
+   - RPC 服務健康情況 – 服務未執行 
+   - Windows 防火牆服務健康情況 – 服務未執行
+   - Windows 事件記錄服務健康情況 – 服務未執行 
+   - 伺服器服務健康情況 – 服務未執行 
+   - Windows 遠端管理服務健康情況 – 服務未執行 
+   - 檔案系統錯誤或損毀 – 邏輯磁碟無法使用
+
+- 下列 Linux 健康情況準則的閾值不可修改，因為其健康狀態已設定為 **true**。  從工作負載監視 API 進行查詢時，實體的健康狀態會根據其內容顯示值為 **LessThan** 的 *comparisonOperator* 和閾值 **1**：
+   - 邏輯磁碟狀態 – 邏輯磁碟未連線/無法使用
+   - 磁碟狀態 – 磁碟未連線/無法使用
+   - 網路介面卡狀態 - 網路介面卡已停用  
+
+- Windows 中的 **CPU 總使用率**健康情況準則會在入口網站中顯示**不等於 4** 的臨界值，且從工作負載監視 API 進行查詢，如果 CPU 使用率大於 95%，系統佇列長度將大於 15。 在此版本中無法修改此健康情況準則。  
+- 設定變更 (例如更新閾值) 最多需要 30 分鐘才會生效，即使入口網站或工作負載監視 API 可能會立即更新，仍是如此。  
+- 在 Windows 中無法使用個別處理器與邏輯處理器層級的健康情況準則，只有 **CPU 總使用率**適用於 Windows VM。  
+- 為每個健康情況準則定義的警示規則不會公開在 Azure 入口網站中。 您只能從[工作負載監視 API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager) 加以設定，以啟用或停用健康情況警示規則。  
+- 您無法從 Azure 入口網站指派健康情況警示的 [Azure 監視器動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)。 您必須使用通知設定 API，設定在健康情況警示引發時所要觸發的動作群組。 目前，您可以針對 VM 指派動作群組，而對觸發相同動作群組的 VM 引發所有的*健康情況警示*。 如同傳統的 Azure 警示，每個健康情況警示規則並不會有個別的動作群組。 此外，在健康情況警示觸發時，僅支援設定為藉由傳送電子郵件或簡訊進行通知的動作群組。 
 
 ## <a name="next-steps"></a>後續步驟
 檢閱[將適用於 VM 的 Azure 監視器上線](monitoring-vminsights-onboard.md)，了解啟用虛擬機器監視的需求和方法。

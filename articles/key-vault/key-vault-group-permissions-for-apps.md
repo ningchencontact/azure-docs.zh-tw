@@ -11,28 +11,30 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/01/2016
+ms.topic: conceptual
+ms.date: 10/12/2018
 ms.author: ambapat
-ms.openlocfilehash: 14e6e8bb723eb236f8fb315454b8697a3bd947ef
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 4ad6a18f9937fcc7d24bebc3ac197e23990ff59e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286422"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309241"
 ---
-# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>對許多應用程式授與金鑰保存庫的存取權限
+# <a name="grant-several-applications-access-to-a-key-vault"></a>對數個應用程式授與金鑰保存庫的存取權
 
-## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>問：我有數個需要存取 Key Vault 的應用程式，如何讓這些應用程式 (最多 1024 個) 存取 Key Vault？
+存取控制原則可用來對數個應用程式授與金鑰保存庫的存取權。 存取控制原則最多可支援 1024 個應用程式，並已設定如下：
 
-Key Vault 存取控制原則最多支援 1024 個項目。 不過，您可以建立 Azure Active Directory 安全性群組。 將所有相關聯的服務主體新增至這個安全性群組，然後對 Key Vault 授與此安全性群組的存取權。
+1. 建立 Azure Active Directory 安全性群組。 
+2. 在安全性群組中新增應用程式所有的相關聯服務主體。
+3. 對安全性群組授與金鑰保存庫的存取權。
 
 必要條件如下︰
 * [安裝 Azure Active Directory V2 PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD)。
 * [安裝 Azure PowerShell](/powershell/azure/overview)。
-* 若要執行下列命令，您需要在 Azure Active Directory 租用戶中建立/編輯群組的權限。 如果您沒有權限，則可能需要連絡 Azure Active Directory 系統管理員。
+* 若要執行下列命令，您需要在 Azure Active Directory 租用戶中建立/編輯群組的權限。 如果您沒有權限，則可能需要連絡 Azure Active Directory 系統管理員。 如需 Key Vault 存取原則權限的詳細資訊，請參閱[關於 Azure Key Vault 金鑰、祕密和憑證](about-keys-secrets-and-certificates.md)。
 
-現在在 PowerShell 中執行下列命令。
+現在在 PowerShell 中執行下列命令：
 
 ```powershell
 # Connect to Azure AD 
@@ -48,7 +50,11 @@ Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId
 # You can add several members to this group, in this fashion. 
  
 # Set the Key Vault ACLs 
-Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId -PermissionsToKeys all –PermissionsToSecrets all –PermissionsToCertificates all 
+Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
+-PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
+–PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
+–PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `
+-PermissionsToStorage get,list,delete,set,update,regeneratekey,getsas,listsas,deletesas,setsas,recover,backup,restore,purge 
  
 # Of course you can adjust the permissions as required 
 ```

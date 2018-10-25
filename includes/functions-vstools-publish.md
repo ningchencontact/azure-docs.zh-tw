@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f0bcb2e7f99689d31be610f1523d2c57e332deb7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049789"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650631"
 ---
 1. 在 [方案總管] 中，以滑鼠右鍵按一下專案並選取 [發佈]。
 
 2. 選取 [Azure 函式應用程式]，選擇 [新建]，然後選取 [發行]。
 
-    ![挑選發行目標](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+    ![挑選發行目標](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     當您啟用 [從 Zip 執行] 時，您在 Azure 中的函式應用程式會直接從部署套件執行。 如需詳細資訊，請參閱[從套件檔案執行 Azure Functions](../articles/azure-functions/run-functions-from-deployment-package.md)。
 
@@ -27,7 +27,7 @@ ms.locfileid: "43049789"
 
 4. 在 [建立 App Service] 對話方塊中，使用影像下方表格中指定的 [裝載] 設定：
 
-    ![建立 App Service 對話方塊](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![建立 App Service 對話方塊](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | 設定      | 建議的值  | 說明                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -41,4 +41,4 @@ ms.locfileid: "43049789"
 
 6. 部署完成之後，請記下 [網站 URL] 值，這是 Azure 中您函式應用程式的位址。
 
-    ![發行成功訊息](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![發行成功訊息](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

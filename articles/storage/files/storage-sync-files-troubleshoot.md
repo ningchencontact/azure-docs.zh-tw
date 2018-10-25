@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409468"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389270"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -131,10 +131,25 @@ Set-AzureRmStorageSyncServerEndpoint `
 
 若要解決此問題，請執行下列步驟：
 
-1. 在伺服器上開啟工作管理員，並確認儲存體同步監視器 (AzureStorageSyncMonitor.exe) 程序正在執行。 如果此程序未執行，先嘗試重新啟動伺服器。 如果重新啟動伺服器無法解決此問題，請先解除安裝 Azure 檔案同步代理程式，再加以重新安裝 (注意：解除安裝並重新安裝代理程式時，會保留伺服器設定)。
+1. 在伺服器上開啟工作管理員，並確認儲存體同步監視器 (AzureStorageSyncMonitor.exe) 程序正在執行。 如果此程序未執行，先嘗試重新啟動伺服器。 如果重新啟動伺服器無法解決此問題，請將 Azure 檔案同步代理程式升級至 [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) 版 (如果目前未安裝)。
 2. 確認防火牆和 Proxy 設定已正確設定：
-    - 如果伺服器位於防火牆後方，請確認允許連接埠 443 輸出。 如果防火牆限制僅允許對特定網域的流量，請確認您可以存取防火牆[文件](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall)中列出的網域。
-    - 如果伺服器位於 Proxy 後方，請依照 Proxy [文件](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)中的步驟設定整部電腦或應用程式專屬的 Proxy 設定。
+    - 如果伺服器位於防火牆後方，請確認允許連接埠 443 輸出。 如果防火牆限制僅允許對特定網域的流量，請確認您可以存取防火牆[文件](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall)中列出的網域。
+    - 如果伺服器位於 Proxy 後方，請依照 Proxy [文件](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)中的步驟設定整部電腦或應用程式專屬的 Proxy 設定。
+
+<a id="endpoint-noactivity-sync"></a>**伺服器端點的健康狀態為 [無活動]，且 [已註冊的伺服器] 刀鋒視窗上的伺服器狀態為 [離線]**  
+
+伺服器端點健康狀態為 [無活動] 時，表示伺服器端點在過去兩小時內未記錄任何同步活動。
+
+伺服器端點未記錄同步活動的可能原因如下：
+
+- 伺服器已達到並行同步工作階段的數目上限。 Azure 檔案同步目前支援每個處理器可以有 2 個作用中的同步工作階段，或每部伺服器最多可以有 8 個作用中的同步工作階段。
+
+- 伺服器有作用中的 VSS 同步工作階段 (SnapshotSync)。 一個伺服器端點有作用中的 VSS 同步工作階段時，伺服器上的其他伺服器端點在 VSS 同步工作階段完成之前，將無法啟動開始同步工作階段。
+
+若要查看伺服器上目前的同步活動，請參閱[如何監視目前同步工作階段的進度？](#how-do-i-monitor-the-progress-of-a-current-sync-session)。
+
+> [!Note]  
+> 如果 [已註冊的伺服器] 刀鋒視窗上的伺服器狀態為 [顯示為離線]，請執行[伺服器端點的健康狀態為 [無活動] 或 [擱置中]，且 [已註冊的伺服器] 刀鋒視窗上的伺服器狀態為 [顯示為離線]](#server-endpoint-noactivity) 一節所列的步驟。
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**如果我直接在我的 Azure 檔案共用中透過 SMB 建立檔案，或是透過入口網站建立檔案，要等多久檔案才會同步至同步群組中的伺服器？**  
@@ -236,7 +251,7 @@ PerItemErrorCount: 1006.
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 檔案在同步期間有所變更，因此需要再次同步。 | 不需要任何動作。 |
 
 #### <a name="handling-unsupported-characters"></a>處理不支援的字元
-如果 **FileSyncErrorsReport.ps1** PowerShell 指令碼因不支援的字元而失敗 (錯誤碼 0x7b 和 0x8007007b)，您應從個別檔案中移除或重新命名錯誤的字元。 由於這些字元大多沒有標準的視覺編碼，PowerShell 可能會將這些字元列印為問號或空的矩形。 [評估工具](storage-sync-files-planning.md#evaluation-tool)可用來識別不受支援的字元。
+如果 **FileSyncErrorsReport.ps1** PowerShell 指令碼因不支援的字元而失敗 (錯誤碼 0x7b 和 0x8007007b)，您應從個別檔案名稱中移除或重新命名錯誤的字元。 由於這些字元大多沒有標準的視覺編碼，PowerShell 可能會將這些字元列印為問號或空的矩形。 [評估工具](storage-sync-files-planning.md#evaluation-tool)可用來識別不受支援的字元。
 
 下表列出 Azure 檔案同步尚不支援的所有 Unicode 字元。
 
@@ -319,6 +334,16 @@ PerItemErrorCount: 1006.
 | **需要補救** | 是 |
 
 當 Azure 檔案同步所使用的內部資料庫有問題時，就會發生此錯誤。發生此問題時，請建立支援要求，我們會與您連絡，協助您解決這個問題。
+
+<a id="-2134364053"></a>**不支援安裝在伺服器上的 Azure 檔案同步代理程式版本。**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (十進位)** | -2134364053 |
+| **錯誤字串** | ECS_E_AGENT_VERSION_BLOCKED |
+| **需要補救** | 是 |
+
+如果不支援安裝在伺服器上的 Azure 檔案同步代理程式版本，就會發生此錯誤。 若要解決此問題，請[升級]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths)至[支援的代理程式版本]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)。
 
 <a id="-2134351810"></a>**已達到 Azure 檔案共用儲存空間限制。**  
 | | |

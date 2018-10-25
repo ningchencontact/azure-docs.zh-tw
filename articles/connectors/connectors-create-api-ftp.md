@@ -1,92 +1,136 @@
 ---
 title: 連線到 FTP 伺服器 - Azure Logic Apps | Microsoft Docs
 description: 使用 Azure Logic Apps 在 FTP 伺服器上建立、監視和管理檔案
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/22/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 4355a767d2ecd500662cdf4522e8a7e12de86b80
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e72b7e5ac3c66283116925e8e36c1c33e777042c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866146"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318906"
 ---
-# <a name="get-started-with-the-ftp-connector"></a>開始使用 FTP 連接器
-使用 FTP 連接器在 FTP 伺服器上監視、管理和建立檔案。 
+# <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來建立、監視及管理 FTP 檔案
 
-若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)來開始。
+您可以使用 Azure Logic Apps 和 FTP 連接器，建立自動化的工作和工作流程，以便透過您在 FTP 伺服器上的帳戶，建立、監視、傳送及接收檔案，還有其他動作，例如：
 
-## <a name="connect-to-ftp"></a>連接至 FTP
-您必須先建立與服務的連線，才能透過邏輯應用程式存取任何服務。 [連線](connectors-overview.md)可讓邏輯應用程式與另一個服務連線。  
+* 監視檔案何時新增或變更。
+* 取得、建立、複製、更新、列出以及刪除檔案。
+* 取得檔案內容與中繼資料。
+* 將封存檔案解壓縮到資料夾。
 
-### <a name="create-a-connection-to-ftp"></a>建立至 FTP 的連線
-> [!INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
-> 
-> 
-
-## <a name="use-a-ftp-trigger"></a>使用 FTP 觸發程序
-觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。  
-
-> [!IMPORTANT]
-> FTP 連接器需要可從網際網路存取且設定為以「被動」模式運作的 FTP 伺服器。 此外，FTP 連接器**與隱含 FTPS (FTP over SSL) 不相容**。 FTP 連接器只支援明確 FTPS (FTP over SSL)。  
-> 
-> 
-
-在此範例中，我將告訴您如何使用 **FTP - 新增或修改檔案時**觸發程序，在檔案新增或修改於 FTP 伺服器時起始邏輯應用程式工作流程。 在企業範例中，您可以使用此觸發程序來監視代表客戶訂單的新檔案 FTP 資料夾。  然後，您可以使用 FTP 連接器動作 (例如**取得檔案內容**) 取得訂單的內容以進一步處理並儲存在訂單資料庫中。
-
-1. 在邏輯應用程式設計工具的搜尋方塊中輸入 *ftp*，然後選取 [SFTP - 當新增或修改檔案時] 觸發程序   
-   ![FTP 觸發程序影像 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
-   [當新增或修改檔案時] 控制項隨即開啟  
-   ![FTP 觸發程序影像 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-2. 選取位於控制項右側的 [...]  。 這會開啟資料夾選擇器控制項   
-   ![FTP 觸發程序影像 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-3. 選取 **>** (向右箭號)，並瀏覽尋找您要對新的或修改過檔案監視的資料夾。 選取資料夾，請注意資料夾現已顯示在 [資料夾] 控制項中。  
-   ![FTP 觸發程序影像 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
-
-此時，邏輯應用程式已設有觸發程序，該觸發程序會在檔案於特定 FTP 資料夾中修改或建立時，開始執行工作流程中的其他觸發程序和動作。 
+您可以使用觸發程序，從 FTP 伺服器收到回應，並且讓輸出可供其他動作使用。 您可以在邏輯應用程式中使用動作，對 FTP 伺服器上的檔案執行工作。 您也可以讓其他動作使用 FTP 動作的輸出。 例如，如果您定期從 FTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於這些檔案及其內容的電子郵件。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> 若要讓邏輯應用程式能夠運作，它必須至少包含一個觸發程序和一個動作。 請依照下一節中的步驟來新增動作。  
-> 
-> 
+> 除非您使用[區塊來處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)，否則 FTP 連接器僅支援 50 MB 以下的檔案。 
+>
+> 此外，FTP 連接器僅支援明確的 FTP over SSL (FTPS)，而且與隱含 FTPS 不相容。 
 
-## <a name="use-a-ftp-action"></a>使用 FTP 動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。  
+## <a name="prerequisites"></a>必要條件
 
-您現已新增觸發程序，請遵循下列步驟來新增動作，該動作將會取得觸發程序所找到之新的或修改過檔案的內容。    
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 
-1. 選取 [+ 新增步驟] 來新增動作，以取得 FTP 伺服器上檔案的內容  
-2. 選取 [新增動作]  連結。  
-   ![FTP 動作影像 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
-3. 輸入 *FTP* 以搜尋與 FTP 相關的所有動作。
-4. 選取 [FTP - 取得檔案內容]，做為在 FTP 資料夾中找到新的或修改過檔案時所要採取的動作。      
-   ![FTP 動作影像 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
-   [取得檔案內容] 控制項隨即開啟。 **附註：** 如果您未曾授權邏輯應用程式存取您的 FTP 伺服器帳戶，系統會提示您這麼做。  
-   ![FTP 動作影像 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. 選取 [檔案] 控制項 (位於 **FILE*** 下方的空白處)。 在這裡，您可以使用 FTP 伺服器上找到之新的或修改過檔案中的各種屬性。  
-6. 選取 [檔案內容] 選項。  
-   ![FTP 動作影像 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
-7. 控制項已更新，這表示 [FTP - 取得檔案內容] 動作會取得 FTP 伺服器上新的或修改過檔案的*檔案內容*。      
-   ![FTP 動作影像 5](./media/connectors-create-api-ftp/ftp-action-5.png)     
-8. 儲存您的工作，然後將檔案加入至 FTP 資料夾，以測試您的工作流程。    
+* FTP 主機伺服器位址和帳戶認證
 
-此時，邏輯應用程式已設有觸發程序來監視 FTP 伺服器上的資料夾，而當它在 FTP 伺服器上找到新的檔案或修改過的檔案時會起始工作流程。 
+  要使用 FTP 連接器，FTP 伺服器必須可從網際網路來存取，並設定為以「被動」模式運作。 認證會授權邏輯應用程式建立連線並存取 FTP 帳戶。
 
-邏輯應用程式也已設有一個動作，以取得新的或修改過檔案的內容。
+* [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-您現在可以新增另一個動作，例如 [SQL Server - 插入資料列](connectors-create-api-sqlazure.md)動作，已在 SQL Database 資料表中插入新的或修改過檔案的內容。  
+* 您要在其中存取 FTP 帳戶的邏輯應用程式。 若要開始使用 FTP 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 FTP 動作，請使用其他觸發程序來啟動邏輯應用程式，例如**週期**觸發程序。
 
-## <a name="connector-specific-details"></a>連接器特定的詳細資料
+## <a name="connect-to-ftp"></a>連接至 FTP
 
-檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/ftpconnector/)的所有限制。 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
+
+1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "ftp" 作為篩選條件。 在觸發程序清單底下，選取您想要的觸發程序。 
+
+   -或-
+
+   若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]，然後選取 [新增動作]。 
+   在搜尋方塊中，輸入 "ftp" 作為篩選條件。 
+   在動作清單底下，選取您想要的動作。
+
+   若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
+   選擇顯示的加號 (**+**)，然後選取 [新增動作]。
+
+1. 為您的連線提供必要的詳細資料，然後選擇 [建立]。
+
+1. 為您選取的觸發程序或動作提供必要的詳細資料，並且繼續建置邏輯應用程式的工作流程。
+
+## <a name="examples"></a>範例
+
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP 觸發程序：當新增或修改檔案時
+
+此觸發程序會在偵測到 FTP 伺服器上有檔案新增或變更時，啟動邏輯應用程式工作流程。 因此舉例來說，您可以新增條件，檢查檔案的內容，並且根據該內容是否符合指定條件，來決定是否取得該內容。 最後，您可以新增會取得檔案內容的動作，並將該內容放置於 SFTP 伺服器上的資料夾中。 
+
+**企業範例**：您可以使用此觸發程序，來監視代表客戶訂單的新檔案 FTP 資料夾。 然後，您可以使用 FTP 動作 (例如**取得檔案內容**)，取得訂單的內容以進一步處理，並儲存在訂單資料庫中。
+
+有效且正常運作的邏輯應用程式需要有一個觸發程序和至少一個動作。 因此，請務必在新增觸發程序之後新增動作。
+
+以下範例可說明此觸發程序：**新增或修改檔案時**
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
+
+1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "ftp" 作為篩選條件。 在觸發程序清單下選取此觸發程序：**新增或修改檔案時 - FTP**
+
+   ![尋找並選取 FTP 觸發程序](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
+
+1. 為您的連線提供必要的詳細資料，然後選擇 [建立]。
+
+   ![建立 FTP 伺服器連線](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
+
+1. 在 [資料夾] 方塊旁，選擇 [資料夾] 圖示以顯示清單。 若要尋找要在其中監視是否有新檔案或編輯過檔案的資料夾，請選取向右箭號 (**>**)，瀏覽至該資料夾，然後選取該資料夾。
+
+   ![尋找並選取要監視的資料夾](./media/connectors-create-api-ftp/select-folder.png)  
+
+   所選取的資料夾會出現在 [資料夾] 方塊中。
+
+   ![選取的資料夾](./media/connectors-create-api-ftp/selected-folder.png)  
+
+邏輯應用程式已具有觸發程序，接著請新增在邏輯應用程式發現新檔案或編輯過的檔案時，所要執行的動作。 針對此範例，您可以新增 FTP 動作，用以取得新內容或更新過的內容。
+
+### <a name="ftp-action-get-content"></a>FTP 動作：取得內容
+
+此動作會在 FTP 伺服器上有檔案新增或更新時，從該檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及會在有檔案新增或編輯後取得該檔案內容的動作。 
+
+1. 在該觸發程序或其他任何動作底下，選擇 [新增步驟]。 
+
+1. 在搜尋方塊中，輸入 "ftp" 作為篩選條件。 在動作清單下方，選取此動作：**取得檔案內容 - FTP**
+
+   ![選取 FTP 動作](./media/connectors-create-api-ftp/select-ftp-action.png)  
+
+1. 如果您已經連線至 FTP 伺服器和帳戶，請移至下一個步驟。 否則，請提供該連線的必要詳細資料，然後選擇 [建立]。 
+
+   ![建立 FTP 伺服器連線](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
+
+1. 在 [取得檔案內容] 動作開啟後，於 [檔案] 方塊內按一下，以顯示動態內容清單。 您現在可以選取先前步驟的輸出中所具有的屬性。 從動態內容清單中，選取 [檔案內容] 屬性，該屬性具有已新增或更新的檔案內容。  
+
+   ![尋找並選取檔案](./media/connectors-create-api-ftp/ftp-action-get-file-content.png)
+
+   [檔案內容] 屬性現在會出現在 [檔案] 方塊中。
+
+   ![所選取的 [檔案內容] 屬性](./media/connectors-create-api-ftp/ftp-action-selected-file-content-property.png)
+
+1. 儲存您的邏輯應用程式。 若要測試工作流程，請於邏輯應用程式目前監視的 FTP 資料夾中新增檔案。
+
+## <a name="connector-reference"></a>連接器參考
+
+如需觸發程序、動作和限制的技術詳細資訊，它們是由連接器的 OpenAPI (以前稱為 Swagger) 來描述，請檢閱連接器的[參考頁面](/connectors/ftpconnector/)。
+
+## <a name="get-support"></a>取得支援
+
+* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
-[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
+* 了解其他 [Logic Apps 連接器](../connectors/apis-list.md)

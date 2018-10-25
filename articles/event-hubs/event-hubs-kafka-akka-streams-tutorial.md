@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 7c09656f62f3a8a2efd889cf28f12bd5a42e309a
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a7eb335a2e4764287ab9e0b67dc75c2443ba2856
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745491"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322000"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>使用 Akka Streams 搭配適用於 Apache Kafka 的事件中樞
 本教學課程說明如何將 Akka Streams 連線至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 適用於 Kafka 的 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html) \(英文\)。
@@ -27,8 +27,11 @@ ms.locfileid: "42745491"
 > [!div class="checklist"]
 > * 建立事件中樞命名空間
 > * 複製範例專案
-> * 執行 Flink 生產者 
-> * 執行 Flink 取用者
+> * 執行 Akka Streams 生產者 
+> * 執行 Akka Streams 取用者
+
+> [!NOTE]
+> 您可在 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/akka/java) 上取得此範例
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -50,11 +53,11 @@ ms.locfileid: "42745491"
 
 ## <a name="clone-the-example-project"></a>複製範例專案
 
-既然您已經有已啟用 Kafka 的事件中樞連接字串，請複製 Azure 事件中樞存放庫，並瀏覽至 `akka` 子資料夾：
+既然您已經有已啟用 Kafka 的事件中樞連接字串，請複製適用於 Kafka 的 Azure 事件中樞存放庫，並瀏覽至 `akka` 子資料夾：
 
 ```shell
-git clone https://github.com/Azure/azure-event-hubs.git
-cd azure-event-hubs/samples/kafka/akka
+git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
+cd azure-event-hubs-for-kafka/tutorials/akka/java
 ```
 
 ## <a name="run-akka-streams-producer"></a>執行 Akka Streams 生產者
@@ -142,12 +145,13 @@ mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 > [!div class="checklist"]
 > * 建立事件中樞命名空間
 > * 複製範例專案
-> * 執行 Flink 生產者 
-> * 執行 Flink 取用者
+> * 執行 Akka Streams 生產者 
+> * 執行 Akka Streams 取用者
 
 若要深入了解事件中樞和適用於 Kafka 的事件中樞，請參閱下列主題：  
 
 * [了解事件中樞](event-hubs-what-is-event-hubs.md)
 * [了解適用於 Kafka 的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
+* [在適用於 Kafka 的事件中樞上探索更多範例 (GitHub)](https://github.com/Azure/azure-event-hubs-for-kafka)
 * 使用 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)，[將事件從 Kafka 內部部署串流至雲端上已啟用 Kafka 的事件中樞](event-hubs-kafka-mirror-maker-tutorial.md)。
 * 了解如何使用[原生的 Kafka 應用程式](event-hubs-quickstart-kafka-enabled-event-hubs.md)或 [Apache Flink](event-hubs-kafka-flink-tutorial.md) 串流至已啟用 Kafka 的事件中樞

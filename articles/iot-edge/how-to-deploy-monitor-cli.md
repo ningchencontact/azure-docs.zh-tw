@@ -9,22 +9,22 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998503"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394607"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大規模部署與監視 IoT Edge 模組
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能夠管理和監視 IoT Edge 裝置，而不需實際存取每一個。 隨著物聯網解決方案越來越大且越複雜，從遠端管理裝置的能力就變得越來越重要。 Azure IoT Edge 是設計來支援您的商務目標，而不論您新增了多少個裝置。
+Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能夠從遠端管理和監視 IoT Edge 裝置。 隨著物聯網解決方案越來越大且越複雜，從遠端管理裝置的能力就變得越來越重要。 Azure IoT Edge 是設計來支援您的商務目標，而不論您新增了多少個裝置。
 
 您可以管理個別裝置，且一次一個對其部署模組。 不過，如果您想要大規模地變更裝置，可以建立 **IoT Edge 自動部署**，這是 IoT 中樞內裝置自動管理的一部分。 部署是動態程序，可讓您一次將多個模組部署到多個裝置、追蹤模組的狀態和健康情況，並視需要進行變更。 
 
-在本文中，您會設定 Azure CLI 和 IoT 擴充功能。 然後了解如何使用可用的 CLI 命令，將模組部署到一組 IoT Edge 裝置並監視進度。
+在本文中，您會設定 Azure CLI 和 IoT 擴充功能。 然後，您將了解如何使用可用的 CLI 命令，將模組部署到一組 IoT Edge 裝置並監視進度。
 
 ## <a name="cli-prerequisites"></a>CLI 先決條件
 
@@ -128,7 +128,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 }
 ```
 
-如需裝置對應項和標記的詳細資訊，請參閱[了解和使用 IoT 中樞的裝置對應項][lnk-device-twin]。
+如需裝置對應項和標記的詳細資訊，請參閱[了解和使用 IoT 中樞的裝置對應項](../iot-hub/iot-hub-devguide-device-twins.md)。
 
 ## <a name="create-a-deployment"></a>建立部署
 
@@ -209,16 +209,4 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[將模組部署到 Edge 裝置][lnk-deployments]。
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+深入了解如何[將模組部署到 Edge 裝置](module-deployment-monitoring.md)。

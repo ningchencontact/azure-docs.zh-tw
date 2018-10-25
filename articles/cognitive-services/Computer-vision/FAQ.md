@@ -1,22 +1,24 @@
 ---
-title: 電腦視覺 API 常見問題集 | Microsoft Docs
-description: 取得有關 Microsoft 認知服務中電腦視覺 API 常見問題集的解答。
+title: 電腦視覺 API 常見問題集
+titlesuffix: Azure Cognitive Services
+description: 取得有關 Azure 認知服務中電腦視覺 API 常見問題集的解答。
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 5c862dd2fb26a005f4e785673a4e9358ecf9286f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367950"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166367"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>電腦視覺 API 常見問題集
+
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-computer-vision-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>如果您在此常見問題集中找不到問題的解答，請嘗試在 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) 上詢問電腦視覺 API 社群，或連絡 [UserVoice 協助與支援](https://cognitive.uservoice.com/)。
 
 -----
@@ -42,7 +44,7 @@ ms.locfileid: "35367950"
 | 丹麥文 (da-DK)  | 荷蘭文 (nl-NL)     | English           | 芬蘭文 (fi-FI)            |法文 (fr-FR)
 | 德文 (de-DE)  | 希臘文 (el-GR)     | 匈牙利文 (hu-HU) | 義大利文 (it-IT)            | 日文 (ja-JP)
 | 韓文 (ko-KR)  | 挪威文 (nb-NO) | 波蘭文 (pl-PL)    | 葡萄牙文 (pt-BR) (pt-PT) | 俄文 (ru-RU)
-| 西班牙文 (es-ES)   | 瑞典文 (sv-SV)     | 土耳其文 (tr-TU)   |                            |
+| 西班牙文 (es-ES)   | 瑞典文 (sv-SV)     | 土耳其文 (tr-TR)   |                            |
 
 -----
 

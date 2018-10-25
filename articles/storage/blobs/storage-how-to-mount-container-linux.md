@@ -5,14 +5,14 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4f29933fbd4b9ea5c9868e307a6affa7e2273e3d
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400181"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165176"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統
 
@@ -27,7 +27,7 @@ ms.locfileid: "39400181"
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>在 Linux 上安裝 Blobfuse
-Blobfuse 二進位檔案位於 [Microsoft 的 Linux 軟體存放庫](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)中。 若要安裝 Blobfuse，請設定以下任一個存放庫。
+在 [Microsoft 的 Linux 軟體存放庫](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)可取得適用於 Ubuntu 和 RHEL 散發套件的 Blobfuse 二進位檔案。 若要在這些散發套件上安裝 Blobfuse，請設定清單中的任一個存放庫。 如果您的散發套件沒有可用的二進位檔，您也可以遵循[這裡](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source)的安裝步驟，從原始程式碼建置二進位檔。
 
 ### <a name="configure-the-microsoft-package-repository"></a>設定 Microsoft 封裝存放庫
 設定 [Microsoft 產品的 Linux 封裝存放庫](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)。
@@ -89,7 +89,7 @@ Blobfuse 要求您使用以下格式將認證儲存在文字檔案中：
 
 ```
 accountName myaccount
-accountKey myaccesskey==
+accountKey 9fD-/KjshdfLDERmcIjabcdefhAUSIHD/asdhfoiasiaAISOIabcdef/askdfewiAASJDNFL+askdlfj==
 containerName mycontainer
 ```
 
@@ -97,6 +97,10 @@ containerName mycontainer
 ```bash
 chmod 700 fuse_connection.cfg
 ```
+
+> [!NOTE]
+> 如果您已在 Windows 上建立組態檔，請務必執行 `dos2unix` 來淨化並轉換成 Unix 格式。 
+>
 
 ### <a name="create-an-empty-directory-for-mounting"></a>建立空白的掛接目錄
 ```bash

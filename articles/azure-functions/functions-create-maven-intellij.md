@@ -1,32 +1,33 @@
 ---
-title: 使用 Java 和 IntelliJ 建立 Azure 函數應用程式 | Microsoft Docs
-description: 使用 Java 和 IntelliJ 建立 HTTP 觸發的簡單無伺服器應用程式並發佈到 Azure Functions 的操作說明指南。
+title: 使用 Java 和 IntelliJ 建立 Azure 函式 | Microsoft Docs
+description: 了解如何使用 Java 和 IntelliJ 在 Azure 上建立及發佈簡單的 HTTP 觸發無伺服器應用程式。
 services: functions
 documentationcenter: na
 author: jeffhollan
 manager: jpconnock
 keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 317d8bf40ef152e5b7dae6406be29330feaaa8d3
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: eb8499ef6c0f872a0761f7be606e058387947b2b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842465"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319875"
 ---
-# <a name="create-your-first-function-with-java-and-intellij-preview"></a>使用 Java 和 IntelliJ 建立您的第一個函式 (預覽)
+# <a name="create-your-first-azure-function-with-java-and-intellij-preview"></a>使用 Java 和 IntelliJ 建立您的第一個 Azure 函式 (預覽)
 
-> [!NOTE] 
+> [!NOTE]
 > 適用於 Azure Functions 的 Java 目前為預覽版。
 
-本文示範如何使用 IntelliJ IDEA 和 Apache Maven 建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式專案、從 IDE 在您自己的電腦上測試此專案並加以偵錯，然後將它部署至 Azure Functions。 
+本文說明：
+- 如何使用 IntelliJ IDEA 和 Apache Maven 建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式專案
+- 在您自己的電腦上對整合式開發環境 (IDE) 中的函式進行測試和偵錯的步驟
+- 將函式專案部署至 Azure Functions 的指示
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 
@@ -34,83 +35,90 @@ ms.locfileid: "43842465"
 
 ## <a name="set-up-your-development-environment"></a>設定開發環境
 
-若要使用 Java 和 IntelliJ 開發函數應用程式，您必須安裝下列項目：
+若要使用 Java 和 IntelliJ 開發函式，請安裝下列軟體：
 
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/)第 8 版。
--  [Apache Maven](https://maven.apache.org) 3.0 版或更高版本。
--  [IntelliJ IDEA](https://www.jetbrains.com/idea/download) Community 或 Ultimate (含 Maven 工具)。
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK) 第 8 版
+- [Apache Maven](https://maven.apache.org) 3.0 版或更高版本
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download) Community 或 Ultimate 版 (含 Maven)
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
 
-> [!IMPORTANT] 
-> JAVA_HOME 環境變數必須設定為 JDK 的安裝位置，才能完成本快速入門。
+> [!IMPORTANT]
+> JAVA_HOME 環境變數必須設定為 JDK 的安裝位置，才能完成本文步驟。
 
-強烈建議您也要安裝 [Azure Functions Core Tools 第 2 版](functions-run-local.md#v2)，其提供用於撰寫、執行和偵錯 Azure Functions 的本機開發環境。 
-
+ 建議您安裝 [Azure Functions Core Tools 第 2 版](functions-run-local.md#v2)。 其可提供撰寫、執行和偵錯 Azure Functions 的本機開發環境。
 
 ## <a name="create-a-functions-project"></a>建立 Functions 專案
 
-1. 在 IntelliJ IDEA 中，按一下 [Create New Project] \(建立新專案\)。  
-1. 選取從 [Maven] 建立。
-1. 選取 [Create from archetype] \(從 Archetype 建立\) 的核取方塊，並針對 [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 選取 [Add Archetype] \(新增 Archetype\)。
+1. 在 IntelliJ IDEA 中，選取 [建立新專案]。  
+1. 在 [新增專案] 視窗中，從左窗格選取 [Maven]。
+1. 選取 [從 Archetype 建立] 核取方塊，並針對 [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 選取 [新增 Archetype]。
+1. 在 [新增 Archetype] 視窗中，完成如下欄位：
     - GroupId：com.microsoft.azure
     - ArtifactId：azure-functions-archetype
-    - 版本：使用[中央存放庫](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) \(英文\) 所提供的最新版本 
-    ![IntelliJ Maven 建立](media/functions-create-first-java-intellij/functions-create-intellij.png)  
-1. 按一下 [Next] \(下一步\)、輸入目前專案的詳細資料，最終按一下 [Finish] \(完成\)。
+    - 版本：使用來自[中央存放庫](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)的最新版本
+    ![在 IntelliJ IDEA 中從 Archetype 建立 Maven 專案](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+1. 選取 [確定]，然後選取 [下一步]。
+1. 輸入目前專案的詳細資料，然後選取 [完成]。
 
-Maven 會以 _artifactId_ 名稱在新的資料夾中建立專案檔。 專案中產生的程式碼是 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)的簡單函式，此函式會回應觸發 HTTP 要求的本文。
+Maven 會在和 [ArtifactId] 值具有相同名稱的新資料夾中建立專案檔。 專案所產生的程式碼是 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)的簡單函式，此函式會回應觸發 HTTP 要求的本文。
 
 ## <a name="run-functions-locally-in-the-ide"></a>在 IDE 中本機執行函式
 
 > [!NOTE]
-> [Azure Functions Core Tools 第 2 版](functions-run-local.md#v2)必須安裝，才能在本機執行和偵錯函式。
+> 若要在本機執行函式並進行偵錯，請確定您已安裝 [Azure Functions Core Tools 第 2 版](functions-run-local.md#v2)。
 
-1. 選取以匯入變更，或確定[自動匯入](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html) \(英文\) 已啟用。
-1. 開啟 [Maven Projects] \(Maven 專案\) 工具列。
-1. 在 [Lifecycle] \(生命週期\) 下方，按兩下 [package] \(封裝\) 以封裝並建置解決方案，然後建立目標目錄。
-1. 在 [Plugins] \(外掛程式\) -> [azure-functions] 下方，按兩下 [azure-functions:run] 以啟動 Azure Functions 本機執行階段。  
+1. 手動匯入變更，或啟用[自動匯入](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html)。
+1. 開啟 [Maven 專案] 工具列。
+1. 展開 [生命週期]，然後開啟 [套件]。 解決方案會建置並封裝在新建立的目標目錄中。
+1. 展開 [外掛程式] > [azure-functions]，然後開啟 [azure-functions:run] 以啟動 Azure Functions 本機執行階段。  
   ![適用於 Azure Functions 的 Maven 工具列](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
-當您完成測試函式時，關閉執行對話方塊。 一次只能有一個函式主機是作用中且在本機執行。
+1. 當您完成測試函式時，關閉執行對話方塊。 一次只能有一個函式主機是作用中且在本機執行。
 
-### <a name="debug-the-function-in-intellij"></a>對 IntelliJ 中的函式進行偵錯
-若要以偵錯模式啟動函式主機，請新增 **-DenableDebug** 作為您執行函式時的引數。 您可以在終端機執行下列命令列，或在[maven goals](https://www.jetbrains.com/help/idea/maven-support.html#run_goal) 中加以設定。 然後函式主機就會開啟 5005 偵錯連接埠。 
+## <a name="debug-the-function-in-intellij"></a>對 IntelliJ 中的函式進行偵錯
 
-```
-mvn azure-functions:run -DenableDebug
-```
+1. 若要以偵錯模式啟動函式主機，請新增 **-DenableDebug** 作為您執行函式時的引數。 您可以變更 [maven 目標](https://www.jetbrains.com/help/idea/maven-support.html#run_goal)中的組態，也可以在終端機視窗中執行下列命令：  
 
-若要在 IntelliJ 中偵錯，請在 [執行] 功能表中選取 [編輯組態]。 按一下 **+** 以新增 [遠端]。 填妥 [名稱] 和 [設定]，然後按一下 [確定] 以儲存組態。 安裝之後，按一下 [偵錯]「您的遠端組態名稱」或按 **Shift+F9** 開始偵錯。
+   ```
+   mvn azure-functions:run -DenableDebug
+   ```
 
-![在 IntelliJ 中進行函式偵錯](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
+   此命令會讓函式主機開啟 5005 偵錯連接埠。
 
-完成時，停止偵錯工具和執行中處理序。 一次只能有一個函式主機是作用中且在本機執行。
+1. 在 [執行] 功能表中選取 [編輯組態]。
+1. 選取 **(+)** 以新增 [遠端]。
+1. 完成 [名稱] 和 [設定] 欄位，然後選取 [確定] 以儲存組態。
+1. 設定完成後，選取 [對 <遠端組態名稱> 進行偵錯] 或在鍵盤上按 Shift+F9 來開始偵錯。
+
+   ![在 IntelliJ 中進行函式偵錯](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
+
+1. 完成時，停止偵錯工具和執行中處理序。 一次只能有一個函式主機是作用中且在本機執行。
 
 ## <a name="deploy-the-function-to-azure"></a>將函式部署到 Azure
 
-部署到 Azure Functions 的程序從 Azure CLI 使用帳戶認證。 [使用 Azure CLI 登入](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)之後，才能繼續使用電腦的命令提示字元。
+1. 您必須先[使用 Azure CLI 登入](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)，才可以將函式部署到 Azure。
 
-```azurecli
-az login
-```
+   ``` azurecli
+   az login
+   ```
 
-使用 `azure-functions:deploy` Maven 目標，或在 [Maven 專案] 視窗中選取 azure-functions:deploy 選項，藉以將您的程式碼部署到新的函數應用程式。
+1. 使用 `azure-functions:deploy` Maven 目標將程式碼部署到新的函式。 您也可以在 [Maven 專案] 視窗中選取 [azure-functions:deploy] 選項。
 
-```
-mvn azure-functions:deploy
-```
+   ```
+   mvn azure-functions:deploy
+   ```
 
-部署完成時，您會看到可用來存取 Azure 函式應用程式的 URL：
+1. 成功部署函式之後，請在 Azure CLI 輸出中尋找函式的 URL。
 
-```output
-[INFO] Successfully deployed Function App with package.
-[INFO] Deleting deployment package from Azure Storage...
-[INFO] Successfully deleted deployment package fabrikam-function-20170920120101928.20170920143621915.zip
-[INFO] Successfully deployed Function App at https://fabrikam-function-20170920120101928.azurewebsites.net
-[INFO] ------------------------------------------------------------------------
-```
+   ``` output
+   [INFO] Successfully deployed Function App with package.
+   [INFO] Deleting deployment package from Azure Storage...
+   [INFO] Successfully deleted deployment package fabrikam-function-20170920120101928.20170920143621915.zip
+   [INFO] Successfully deployed Function App at https://fabrikam-function-20170920120101928.azurewebsites.net
+   [INFO] ------------------------------------------------------------------------
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 
 - 檢閱 [Java 函式開發人員指南](functions-reference-java.md)以了解開發 Java 函式的詳細資訊。
-- 使用 `azure-functions:add`Maven 目標，將具有不同觸發程序的其他函式新增至您的專案。
+- 使用 `azure-functions:add` Maven 目標，將具有不同觸發程序的其他函式新增至專案。

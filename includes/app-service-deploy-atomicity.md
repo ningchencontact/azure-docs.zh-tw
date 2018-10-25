@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ac2cf4d688b1bdc54ed2d7341f0e195d3b2fe42d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4a9ae1d3d84f1396adad07d1cda73ee3747c9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236462"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312346"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>在部署期間我的應用程式會發生什麼事？
 
@@ -21,4 +21,4 @@ ms.locfileid: "35236462"
 
 - 停止您的應用程式，或在部署期間針對您的應用程式啟用離線模式。 如需詳細資訊，請參閱[在部署期間處理鎖定的檔案](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment)。
 - 部署到[預備位置](../articles/app-service/web-sites-staged-publishing.md)，並且啟用[自動交換](../articles/app-service/web-sites-staged-publishing.md#configure-auto-swap)。 
-- 改為使用 [Run-from-Zip](https://github.com/Azure/app-service-announcements/issues/84)。
+- 改為使用[從套件執行](https://github.com/Azure/app-service-announcements/issues/84)。

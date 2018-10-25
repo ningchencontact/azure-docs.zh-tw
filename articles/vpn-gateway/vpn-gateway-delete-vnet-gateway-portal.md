@@ -4,23 +4,15 @@ description: 在 Resource Manager 部署模型中使用 Azure 入口網站刪除
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: ''
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: b014d43ab25124d3e08e19ca190b320fc8456593
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 78af43510e5fc2bed38e109a546944d4a649241c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593451"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984106"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用入口網站刪除虛擬網路閘道
 

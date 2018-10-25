@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 9d1414959ef8eae2277e530e6eca57ec06aaec37
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 10/16/2018
+ms.openlocfilehash: 8da966154f1da8cb1be090f70d80e4484e9bce0d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345502"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377286"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure 磁碟加密常見問題集
 
@@ -132,6 +132,11 @@ Azure 磁碟加密有其先決條件。 請參閱 [Azure 磁碟加密的先決�
 Windows 的 "Bek volume" 或 Linux 的 "/mnt/azure_bek_disk" 均為本機資料磁碟區，會安全地儲存用於已加密 Azure IaaS VM 的加密金鑰。
 > [!NOTE]
 > 請勿刪除或編輯此磁碟中的任何內容。 由於 IaaS VM 上的任何加密作業都需要加密金鑰存在，因此請勿卸載該磁碟。
+
+
+## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Azure 磁碟加密會使用何種加密方法？
+
+在 Windows 上，ADE 會使用 Bitlocker AES256 加密方法 (在 Windows Server 2012 之前的版本上使用 AES256WithDiffuser)。 在 Linux 上，ADE 會使用 aes-xts-plain64 的 dmcrypt 預設值搭配 256 位元磁碟區主要金鑰。
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>如果我使用 EncryptFormatAll，並指定所有的磁碟區類型，是否會因此從已加密的資料磁碟機上清除資料？
 否，不會從已使用「Azure 磁碟加密」進行加密的資料磁碟機中清除資料。 就像 EncryptFormatAll 不會重新加密 OS 磁碟機一樣，它也不會重新加密已加密的資料磁碟機。 如需詳細資訊，請參閱 [EncryptFormatAll 準則](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)。        

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298314"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321785"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -173,16 +173,14 @@ ms.locfileid: "46298314"
 
 如需詳細資訊，請在 [Azure AD Connect 的必要條件](../hybrid/how-to-connect-install-prerequisites.md)一文中檢閱連線必要條件。
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>重新啟動 Azure AD Connect 同步處理服務
 
 如需解決服務的連線問題或其他暫時性問題，請重新啟動 Azure AD Connect 同步處理服務：
 
    1. 以系統管理員身分，在執行 Azure AD Connect 的伺服器上選取 [啟動]。
-   2. 在搜尋欄位中輸入 **services.msc**並選取 [輸入]。
-   3. 找出 **Microsoft Azure AD Sync** 項目。
-   4. 以滑鼠右鍵按一下服務項目，選取 [重新啟動]，然後等候作業完成。
+   1. 在搜尋欄位中輸入 **services.msc**並選取 [輸入]。
+   1. 找出 **Microsoft Azure AD Sync** 項目。
+   1. 以滑鼠右鍵按一下服務項目，選取 [重新啟動]，然後等候作業完成。
 
    ![重新啟動 Azure AD Sync 服務][Service restart]
 
@@ -193,15 +191,15 @@ ms.locfileid: "46298314"
 若要解決連線問題，請先將「密碼回寫」功能停用，然後再重新啟用：
 
    1. 以系統管理員身分，開啟 [Azure AD Connect 設定精靈]。
-   2. 在 [連線到 Azure AD] 中，輸入您的「Azure AD 全域系統管理員認證」。
-   3. 在 [連線到 AD DS] 中，輸入您的「AD Domain Services 系統管理員認證」。
-   4. 在 [專門識別您的使用者] 中，選取 [下一步] 按鈕。
-   5. 在 [選用功能] 中，清除 [密碼回寫] 核取方塊。
-   6. 在其餘的對話方塊頁面上逐一選取 [下一步] 而不變更任何項目，直到到達 [準備好設定] 頁面為止。
-   7. 確認 [準備好設定] 頁面顯示 [密碼回寫]選項為 [停用]，然後選取綠色的 [設定] 按鈕來認可變更。
-   8. 在 [已完成] 中，清除 [立即同步處理] 選項，然後選取 [完成] 來關閉精靈。
-   9. 重新開啟 [Azure AD Connect 設定精靈]。
-   10. 重複步驟 2-8，但請確定您已在 [選用功能] 頁面上選取 [密碼回寫] 選項來重新啟用服務。
+   1. 在 [連線到 Azure AD] 中，輸入您的「Azure AD 全域系統管理員認證」。
+   1. 在 [連線到 AD DS] 中，輸入您的「AD Domain Services 系統管理員認證」。
+   1. 在 [專門識別您的使用者] 中，選取 [下一步] 按鈕。
+   1. 在 [選用功能] 中，清除 [密碼回寫] 核取方塊。
+   1. 在其餘的對話方塊頁面上逐一選取 [下一步] 而不變更任何項目，直到到達 [準備好設定] 頁面為止。
+   1. 確認 [準備好設定] 頁面顯示 [密碼回寫]選項為 [停用]，然後選取綠色的 [設定] 按鈕來認可變更。
+   1. 在 [已完成] 中，清除 [立即同步處理] 選項，然後選取 [完成] 來關閉精靈。
+   1. 重新開啟 [Azure AD Connect 設定精靈]。
+   1. 重複步驟 2-8，但請確定您已在 [選用功能] 頁面上選取 [密碼回寫] 選項來重新啟用服務。
 
 這些步驟會重新建立您與雲端服務的連線，解決您可能會遇到的任何中斷問題。
 
@@ -215,10 +213,11 @@ ms.locfileid: "46298314"
 
 > [!WARNING]
 > 如果您已自訂現成可用的同步處理規則，先備份這些規則，然後再繼續進行升級，並於完成後以手動方式重新部署這些規則。
+>
 
-   1. 從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=615771)下載最新版的 Azure AD Connect。
-   2. 由於您已安裝 Azure AD Connect，需要執行就地升級，即可將 Azure AD Connect 安裝更新為最新版。
-   3. 執行下載的封裝，並遵循螢幕上的指示來更新您的 Azure AD Connect 電腦。
+1. 從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=615771)下載最新版的 Azure AD Connect。
+1. 由於您已安裝 Azure AD Connect，需要執行就地升級，即可將 Azure AD Connect 安裝更新為最新版。
+1. 執行下載的封裝，並遵循螢幕上的指示來更新您的 Azure AD Connect 電腦。
 
 先前步驟應該會重新建立您與雲端服務的連線，解決您可能會遇到的任何中斷問題。
 
@@ -228,34 +227,33 @@ ms.locfileid: "46298314"
 
 Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密碼回寫。 若要了解 Azure AD Connect 是否有給定內部部署 Active Directory 使用者帳戶的必要權限，您可以使用 Windows 有效權限功能：
 
-   1. 登入 Azure AD Connect 伺服器，並啟動 **Synchronization Service Manager**，方法是選取 [開始] > [同步處理服務]。
-   2. 在 [連接器] 索引標籤下，選取內部部署 [Active Directory Domain Services] 連接器，然後選取 [屬性]。  
-
+1. 登入 Azure AD Connect 伺服器，並啟動 **Synchronization Service Manager**，方法是選取 [開始] > [同步處理服務]。
+1. 在 [連接器] 索引標籤下，選取內部部署 [Active Directory Domain Services] 連接器，然後選取 [屬性]。  
    ![有效權限 - 步驟 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. 在快顯視窗中，選取 [連線到 Active Directory 樹系] 索引標籤，然後記下 [使用者名稱] 屬性。 這個屬性是 Azure AD Connect 用來執行目錄同步作業的 AD DS 帳戶。 若要讓 Azure AD Connect 能夠執行密碼回寫，AD DS 帳戶必須有「重設密碼」權限。  
+1. 在快顯視窗中，選取 [連線到 Active Directory 樹系] 索引標籤，然後記下 [使用者名稱] 屬性。 這個屬性是 Azure AD Connect 用來執行目錄同步作業的 AD DS 帳戶。 若要讓 Azure AD Connect 能夠執行密碼回寫，AD DS 帳戶必須有「重設密碼」權限。  
    
    ![有效權限 - 步驟 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. 登入內部部署網域控制站，然後啟動 **Active Directory 使用者和電腦**應用程式。
-   5. 選取 [檢視]，並確定 [進階功能] 選項已啟用。  
+1. 登入內部部署網域控制站，然後啟動 **Active Directory 使用者和電腦**應用程式。
+1. 選取 [檢視]，並確定 [進階功能] 選項已啟用。  
    
    ![有效權限 - 步驟 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. 尋找您需要確認的 Active Directory 使用者帳戶。 以滑鼠右鍵按一下帳戶名稱，然後選取 [屬性]。  
+1. 尋找您需要確認的 Active Directory 使用者帳戶。 以滑鼠右鍵按一下帳戶名稱，然後選取 [屬性]。  
    
    ![有效權限 - 步驟 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. 在快顯視窗中，移至 [安全性] 索引標籤，然後選取 [進階]。  
+1. 在快顯視窗中，移至 [安全性] 索引標籤，然後選取 [進階]。  
    
    ![有效權限 - 步驟 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. 在 [系統管理員的進階安全性設定] 快顯視窗中，移至 [有效存取權] 索引標籤。
-   9. 選取 [選取使用者]，選取 Azure AD Connect 所使用的 AD DS 帳戶 (請參閱步驟 3)，然後再選取 [檢視有效存取權]。  
-   
+1. 在 [系統管理員的進階安全性設定] 快顯視窗中，移至 [有效存取權] 索引標籤。
+1. 選取 [選取使用者]，選取 Azure AD Connect 所使用的 AD DS 帳戶 (請參閱步驟 3)，然後再選取 [檢視有效存取權]。
+
    ![有效權限 - 步驟 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. 向下捲動並尋找 [重設密碼]。 如果該項目有核取記號，AD DS 帳戶就有權限可重設選定 Active Directory 使用者帳戶的密碼。  
+1. 向下捲動並尋找 [重設密碼]。 如果該項目有核取記號，AD DS 帳戶就有權限可重設選定 Active Directory 使用者帳戶的密碼。  
    
    ![有效權限 - 步驟 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
     * 這是否僅限雲端的使用者？
 * **授權**：使用者是否已獲得 Azure AD Premium 或 Basic 授權？
 * **應用程式事件記錄**：如果您使用密碼回寫，而且錯誤位於您的內部部署基礎結構中，請包含來自 Azure AD Connect 伺服器的應用程式事件記錄壓縮複本。
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "重新啟動 Azure AD Sync 服務"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "支援碼位於視窗右下角"

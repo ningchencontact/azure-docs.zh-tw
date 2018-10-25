@@ -4,21 +4,21 @@ description: 此文章簡介如何利用 Media Services 保護內容。
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2a3e94d37a926bd36b780b45eb3d6cb29fb73597
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521749"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394255"
 ---
 # <a name="content-protection-overview"></a>內容保護概觀
 
@@ -149,9 +149,7 @@ ms.locfileid: "39521749"
 
 2. 建立已設定為要串流處理已加密資產的 StreamingLocator。 
 
-  在此範例中，我們會將 **StreamingPolicyName** 設定為 **PredefinedStreamingPolicy.SecureStreaming**，它可支援信封和 cenc 加密，並可在 StreamingLocator 上設定兩個內容金鑰。 
-
-  如果您也想要使用 FairPlay 進行加密，請將 **StreamingPolicyName** 設定為 **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**。
+  例如，您可以將 StreamingLocator.StreamingPolicyName 設定為 "Predefined_MultiDrmCencStreaming" 原則。 此原則會指出您要在定位器上產生並設定兩個內容金鑰 (信封和 CENC)。 因此，會套用信封、PlayReady 及 Widevine 加密 (會根據設定的 DRM 授權將金鑰傳遞至播放用戶端)。 如果您也想要使用 CBCS (FairPlay) 為串流加密，請使用 "Predefined_MultiDrmStreaming"。
 
 3. 建立測試權杖。
 

@@ -7,13 +7,13 @@ ms.author: jasonh
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 10/15/2018
+ms.openlocfilehash: 661aa85a200d4eafa1c521b06f6e12378d61e93e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699105"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343572"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
  
@@ -68,5 +68,5 @@ ms.locfileid: "43699105"
   * **目前的版本：** 不再自動將具有日期/時間/區域資訊的字串值向上轉型 (upcast) 為日期時間型別。 如此一來，即可保留時區資訊。 
 
 ## <a name="next-steps"></a>後續步驟
-* [Azure 串流分析的疑難排解指南](stream-analytics-troubleshooting-guide.md)
+* [對 Azure 串流分析輸入進行疑難排解](stream-analytics-troubleshoot-input.md)
 * [串流分析資源健康情況刀鋒視窗](stream-analytics-resource-health.md)

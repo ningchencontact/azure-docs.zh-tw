@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: d820898b1a0cc26d6832be9d302c74306fa4882f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 0d809f9a1b3abbb284c3f7e0c27eb9c236692a3f
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146186"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386460"
 ---
 # <a name="read-before-you-scale"></a>調整之前閱讀
-調整計算資源來符合您的應用程式工作負載時，需要經過刻意規劃，生產環境幾乎一律需要超過一小時的時間才能完成規劃，而且會要求您了解您的工作負載和商務內容；事實上，如果您之前不曾執行這項活動，建議您先閱讀並了解 [Service Fabric 叢集容量規劃考量](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity)，再繼續進行本文件的其餘部分。 此建議是為了避免非預期的 LiveSite 問題，此外，也建議您成功測試您決定要對非商業執行環境執行的作業。 您可以隨時[報告實際執行問題，或要求 Azure 的付費支援](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure)。 針對配置來執行這些作業且擁有適當內容的工程師，本文將說明調整作業，但您必須決定並了解哪些作業適合您的使用案例；例如要調整哪些資源 (CPU、儲存體、記憶體)、調整方向為何 (水平或垂直)，以及要執行哪些作業 (資源範本部署、入口網站、PowerShell/CLI)。
+調整計算資源來符合您的應用程式工作負載時，需要經過刻意規劃，生產環境幾乎一律需要超過一小時的時間才能完成規劃，而且會要求您了解您的工作負載和商務內容；事實上，如果您之前不曾執行這項活動，建議您先閱讀並了解 [Service Fabric 叢集容量規劃考量](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)，再繼續進行本文件的其餘部分。 此建議是為了避免非預期的 LiveSite 問題，此外，也建議您成功測試您決定要對非商業執行環境執行的作業。 您可以隨時[報告實際執行問題，或要求 Azure 的付費支援](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure)。 針對配置來執行這些作業且擁有適當內容的工程師，本文將說明調整作業，但您必須決定並了解哪些作業適合您的使用案例；例如要調整哪些資源 (CPU、儲存體、記憶體)、調整方向為何 (水平或垂直)，以及要執行哪些作業 (資源範本部署、入口網站、PowerShell/CLI)。
 
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>使用自動調整規則或以手動方式相應縮小或放大 Service Fabric 叢集
 虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Service Fabric 叢集中定義的每個節點類型都會安裝為不同的虛擬機器擴展集。 然後每個節點類型可以獨立相應縮小或放大，可以開啟不同組的連接埠，並可以有不同的容量度量。 若要深入了解，請參閱 [Service Fabric 節點類型](service-fabric-cluster-nodetypes.md) 文件。 因為叢集中的 Service Fabric 節點類型是由後端的虛擬機器擴展集建立，所以您必須為每個節點類型/虛擬機器擴展集設定自動調整規則。
 
 > [!NOTE]
-> 您的訂用帳戶必須要有足夠的核心，來新增構構成此叢集的虛擬機器。 目前沒有模型驗證，所以如果達到任一配額限制，就會收到部署時間失敗。 此外，單一節點類型不能只是每個 VMSS 超過 100 個節點。 您可能必須新增 VMSS 來達成目標的縮放，且自動縮放比例無法自動新增 VMSS。 就地將 VMSS 新增至即時叢集是富有挑戰性的工作，而通常這會導致使用者利用建立時所佈建的適當節點類型來佈建新叢集；據此[規劃叢集容量](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity)。 
+> 您的訂用帳戶必須要有足夠的核心，來新增構構成此叢集的虛擬機器。 目前沒有模型驗證，所以如果達到任一配額限制，就會收到部署時間失敗。 此外，單一節點類型不能只是每個 VMSS 超過 100 個節點。 您可能必須新增 VMSS 來達成目標的縮放，且自動縮放比例無法自動新增 VMSS。 就地將 VMSS 新增至即時叢集是富有挑戰性的工作，而通常這會導致使用者利用建立時所佈建的適當節點類型來佈建新叢集；據此[規劃叢集容量](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)。 
 > 
 > 
 
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>選擇要調整規模的節點類型/虛擬機器擴展集
-目前，您不能使用入口網站指定虛擬機器擴展集的自動調整規則，所以請讓我們使用 Azure PowerShell (1.0+) 列出節點類型，然後向它們新增自動調整規則。
+目前，您無法使用入口網站指定虛擬機器擴展集的自動調整規則，以建立 Service Fabric 叢集，因此我們將使用 Azure PowerShell (1.0+) 列出節點類型，然後為其新增自動調整規則。
 
 若要取得建立叢集的虛擬機器擴展集清單，請執行下列 Cmdlet：
 

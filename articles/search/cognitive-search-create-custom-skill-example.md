@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d78959ba415c837e931edcc0278de84daa879bc1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307988"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393945"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>範例：建立使用文字翻譯 API 的自訂技能
 
@@ -37,6 +37,8 @@ ms.locfileid: "39307988"
 1. 在 Visual Studio 中，從 [檔案] 功能表中選取 [新增] > [專案]。
 
 1. 在 [新增專案] 對話方塊中，選取 [已安裝]，展開 [Visual C#] > [雲端]，選取 [Azure Functions]，輸入專案的 [名稱]，然後選取 [確定]。 函式應用程式名稱必須是有效的 C# 命名空間，因此不會使用底線、連字號或任何其他非英數字元。
+
+1. 選取 [Azure Functions v2 (.Net Core)]。 您也可以使用第 1 版來執行，但下方撰寫的程式碼以 v2 範本為基礎。
 
 1. 選取 [HTTP 觸發程序] 類型
 
@@ -243,14 +245,6 @@ POST https://localhost:7071/api/Translate
 1. 完成部署後，請記下網站 URL。 這是 Azure 中的函數應用程式的位址。 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至資源群組，並尋找您發佈的翻譯函式。 在 [管理] 區段下，應該會看到主機金鑰。 選取 [預設] 主機金鑰的 [複製] 圖示。  
-
-## <a name="update-ssl-settings"></a>更新 SSL 設定
-
-2018 年 6 月 30 日之後建立的所有 Azure Functions 都已停用 TLS 1.0，TLS 1.0 目前無法與自訂技術相容。
-
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至資源群組，並尋找您發佈的翻譯函式。 在 [平台功能] 區段中，您應該會看到 SSL。
-
-1. 選取 SSL 之後，您應該將**最低的 TLS 版本**變更為 1.0。 TLS 1.2 函式尚無法作為自訂技術。
 
 ## <a name="test-the-function-in-azure"></a>在 Azure 測試函式
 

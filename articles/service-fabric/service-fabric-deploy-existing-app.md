@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 99d34d59bb9d55ff074d454fe4544917c4e91110
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a80895db8a89b8d9392d0ed067b95daa23474d8b
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205977"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113864"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>將現有可執行檔封裝和部署至 Service Fabric
 在封裝現有可執行檔作為[來賓可執行檔](service-fabric-guest-executables-introduction.md)時，您可以選擇使用 Visual Studio 專案範本，或是[手動建立應用程式套件](#manually)。 使用 Visual Studio 時，就可讓 [新增專案範本] 為您建立應用程式套件的結構和資訊清單檔案。
@@ -168,7 +168,9 @@ SetupEntryPoint 元素用來指定任何應在服務的程式碼啟動前執行�
 </EntryPoint>
 ```
 
-服務資訊清單檔中的 `EntryPoint` 元素用來指定如何啟動服務。 `ExeHost` 元素指定應用來啟動服務的可執行檔 (和引數)。
+服務資訊清單檔中的 `EntryPoint` 元素用來指定如何啟動服務。
+
+`ExeHost` 元素指定應用來啟動服務的可執行檔 (和引數)。 您可以選擇性地將 `IsExternalExecutable="true"` 屬性新增至 `ExeHost`，表示此程式為程式碼套件之外的外部可執行檔。 例如： `<ExeHost IsExternalExecutable="true">`。
 
 * `Program` 指定應啟動服務的執行檔名稱。
 * `Arguments` 指定應傳遞至可執行檔的引數。 這可以是具有引數的參數清單。

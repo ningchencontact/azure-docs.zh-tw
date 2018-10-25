@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f4afad753da4a314ade3fb7433c6be3e489e05b0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033680"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340166"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>了解 IoT Edge 裝置、模組及子裝置的延伸離線功能 (預覽)
 
@@ -126,11 +126,11 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"C:\\\\HostStoragePath:C:\\\\ModuleStoragePath\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "storageFolder": {
-            "value": "C:\\\\ModuleStoragePath"
+            "value": "<ModuleStoragePath>"
         }
     },
     "status": "running",
@@ -138,6 +138,8 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
 }
 ```
 
+使用您的主機和模組儲存體路徑取代 `<HostStoragePath>` 和 `<ModuleStoragePath>`；主機和模組儲存體路徑都必須是絕對路徑。  例如，`\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` 表示主機路徑 `/etc/iotedge/storage` 會對應到容器路徑 `/iotedge/storage/`。  您也可以從 [Docker 文件](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)中找到更多有關 createOptions 的詳細資料。
+
 ## <a name="next-steps"></a>後續步驟
 
-為 [Linux](how-to-create-transparent-gateway-linux.md) 或 [Windows](how-to-create-transparent-gateway-windows.md) 裝置啟用您透明閘道案例的延伸離線作業。 
+為 [Linux](how-to-create-transparent-gateway-linux.md) 或 [Windows](how-to-create-transparent-gateway-windows.md) 裝置啟用您透明閘道案例的延伸離線作業。

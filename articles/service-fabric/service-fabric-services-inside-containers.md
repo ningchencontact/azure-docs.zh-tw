@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: d3ed1ff46bf4c82a172954828ec74bae80241288
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5672f5fffd9c93f710f8001285380fdbfcab0c5d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056693"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386968"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>將 Windows 上的 Service Fabric Reliable Services 和 Reliable Actors 容器化
 
@@ -73,7 +73,7 @@ Service Fabric 支援將 Service Fabric 微服務 (Reliable Services 和 Reliabl
         $dotnetCoreDllName = 'Name of the Code package dotnet Core Dll.'
         CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -DotnetCoreDllName $dotnetCoreDllName
       ```
-      指令碼會在 $dockerPackageOutputDirectoryPath 建立具有 Docker 構件的資料夾。 根據您的需求修改所產生的 Dockerfile，以 `expose` (公開) 任何連接埠、執行安裝指令碼等等。 based on your needs.
+      指令碼會在 $dockerPackageOutputDirectoryPath 建立具有 Docker 構件的資料夾。 修改產生的 Dockerfile 以 `expose` (公開) 任何連接埠、執行安裝指令碼等等。 (根據您的需求)。
 
 6. 接下來，您需要[建置](service-fabric-get-started-containers.md#Build-Containers) Docker 容器套件並將其[推送](service-fabric-get-started-containers.md#Push-Containers)至您的存放庫。
 
@@ -103,7 +103,7 @@ Service Fabric 支援將 Service Fabric 微服務 (Reliable Services 和 Reliabl
 </Policies>
  ```
 
-9. 若要設定容器隔離模式，請參閱[設定隔離模式]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode)。 Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
+9. 若要設定容器隔離模式，請參閱[設定隔離模式]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode)。 Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
 
  ```xml
 <Policies>

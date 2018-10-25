@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064449"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309496"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>使用 Azure Cosmos DB 和 Azure Functions 的無伺服器資料庫計算
 
-無伺服器計算是關於著重在可重複和無狀態之個別邏輯項目的能力。 這些項目不需要任何基礎結構管理，而且它們只會針對執行的項目耗用資源數秒或數毫秒。 無伺服器計算移動的核心是 [Azure Functions](https://azure.microsoft.com/services/functions) 在 Azure 生態系統中提供的函式。
+無伺服器計算是關於著重在可重複和無狀態之個別邏輯項目的能力。 這些項目不需要任何基礎結構管理，而且它們只會針對執行的項目耗用資源數秒或數毫秒。 無伺服器計算移動的核心是 [Azure Functions](https://azure.microsoft.com/services/functions) 在 Azure 生態系統中提供的函式。 若要了解 Azure 中的其他無伺服器執行環境，請參閱 [Azure 中的無伺服器](https://azure.microsoft.com/solutions/serverless/)頁面。 
 
 使用 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) 和 Azure Functions 之間的原生整合，您可以直接從您的 Azure Cosmos DB 帳戶建立資料庫觸發程序、輸入繫結，以及輸出繫結。 使用 Azure Functions 與 Azure Cosmos DB，您可以建立及部署事件驅動無伺服器的應用程式，利用低延遲存取廣大用戶群的豐富資料。
 

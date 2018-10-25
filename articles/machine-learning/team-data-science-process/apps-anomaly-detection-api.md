@@ -4,7 +4,7 @@ description: 「異常偵測 API」是一個搭配 Microsoft Azure Machine Learn
 services: machine-learning
 documentationcenter: ''
 author: alokkirpal
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: 9f1f3c2c808558124548008927219191469a412b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0b99aeb2ffdb78e472cdc0e11d0efaf91feb3e4a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836461"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394472"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
 ## <a name="overview"></a>概觀
@@ -122,7 +122,7 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 
 | 輸入參數 | 說明 | 預設設定 | 類型 | 有效範圍 | 建議範圍 |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |integer |10 - 2000 |取決於時間序列 |
+| detectors.historywindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |integer |10 - 2000 |取決於時間序列 |
 | detectors.spikesdips | 是否偵測只有尖峰、只有下降，或兩者 |兩者 |列舉 |兩者、尖峰、下降 |兩者 |
 | bileveldetector.sensitivity |雙向層級變更偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |
 | trenddetector.sensitivity |正向趨勢偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |
@@ -161,7 +161,7 @@ ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行�
 | preprocess.aggregationInterval |用來彙總輸入時間序列的彙總間隔 (秒) |0 (不執行彙總) |integer |0︰略過彙總，否則 > 0 |5 分鐘到 1 天，取決於時間序列 |
 | preprocess.aggregationFunc |用來將資料彙總到指定 AggregationInterval 的函式 |平均值 |列舉 |平均值、總和、長度 |N/A |
 | preprocess.replaceMissing |用來插補遺漏資料的值 |lkv (上一個已知值) |列舉 |零、lkv、平均值 |N/A |
-| detectors.historyWindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |integer |10 - 2000 |取決於時間序列 |
+| detectors.historywindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |integer |10 - 2000 |取決於時間序列 |
 | detectors.spikesdips | 是否偵測只有尖峰、只有下降，或兩者 |兩者 |列舉 |兩者、尖峰、下降 |兩者 |
 | bileveldetector.sensitivity |雙向層級變更偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |
 | postrenddetector.sensitivity |正向趨勢偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |

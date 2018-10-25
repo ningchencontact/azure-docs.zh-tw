@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966539"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353736"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>連線處理站解決方案加速器的常見問題集
 
@@ -140,33 +140,21 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>如何在連線的處理站解決方案中啟用互動式地圖？
 
-若要在連線的處理站解決方案中啟用互動式地圖，您目前必須具有企業用 Bing 地圖服務 API 方案。
+若要在連線的處理站解決方案中啟用互動式地圖，您必須具有 Azure 地圖服務帳戶。
 
-從 [www.azureiotsolutions.com](http://www.azureiotsolutions.com) 部署時，部署流程會確認您的訂用帳戶具有已啟用的企業用 Bing 地圖服務 API 方案，並將互動式地圖自動部署到連線的處理站。 如果不是如此部署，您仍可在部署中啟用互動式地圖，如下所示：
+從 [www.azureiotsolutions.com](http://www.azureiotsolutions.com) 部署時，部署程序會將 Azure 地圖服務帳戶新增至包含解決方案加速器服務的資源群組。
 
-當您使用連線處理站 GitHub 存放庫中的 `build.ps1` 指令碼進行部署，而且具有企業用 Bing 地圖服務 API 方案時，將建置視窗中的 `$env:MapApiQueryKey` 環境變數設定為方案的查詢金鑰。 系統隨後會自動啟用互動式地圖。
+當您使用連線處理站 GitHub 存放庫中的 `build.ps1` 指令碼進行部署時，請將建置視窗中的 `$env:MapApiQueryKey` 環境變數設定為 [Azure 地圖服務帳戶的金鑰](../azure-maps/how-to-manage-account-keys.md)。 系統隨後會自動啟用互動式地圖。
 
-如果您沒有企業用 Bing 地圖服務 API 方案，請從 [www.azureiotsolutions.com](http://www.azureiotsolutions.com) 或使用 `build.ps1` 指令碼來部署連線的處理站解決方案。 接著，將企業方案 Bing 地圖服務 API 新增至您的訂用帳戶，如[如何建立企業用 Bing 地圖服務 API 帳戶？](#how-do-i-create-a-bing-maps-api-for-enterprise-account)中所述。 如[如何取得企業用 Bing 地圖服務 API QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) 中所述查詢此帳戶的查詢金鑰，並儲存此金鑰。 瀏覽至 Azure 入口網站，並存取連線處理站部署中的 App Service 資源。 瀏覽至 [應用程式設定]，您可以在此找到 [應用程式設定] 區段。 將 **MapApiQueryKey** 設定為您取得的查詢金鑰。 儲存設定，然後瀏覽至 [概觀]，並重新啟動 App Service。
+您也可以在部署之後將 Azure 地圖服務帳戶金鑰新增至解決方案加速器。 瀏覽至 Azure 入口網站，並存取連線處理站部署中的 App Service 資源。 瀏覽至 [應用程式設定]，您可以在此找到 [應用程式設定] 區段。 將 **MapApiQueryKey** 設定為 [Azure 地圖服務帳戶的金鑰](../azure-maps/how-to-manage-account-keys.md)。 儲存設定，然後瀏覽至 [概觀]，並重新啟動 App Service。
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>如何建立企業用 Bing 地圖服務 API 帳戶
+### <a name="how-do-i-create-a-azure-maps-account"></a>如何建立 Azure 地圖服務帳戶？
 
-您可以獲得一套免費的內部交易層級 1 企業用 Bing 地圖服務方案。 不過，您只能將這些方案的其中兩個新增至 Azure 訂用帳戶。 如果您沒有企業用 Bing 地圖服務 API 帳戶，可在 Azure 入口網站中按一下 [+ 建立資源] 來建立一個。 然後搜尋 [企業用 Bing 地圖服務 API]，並遵循提示來加以建立。
+請參閱[如何管理 Azure 地圖服務帳戶和金鑰](../azure-maps/how-to-manage-account-keys.md)。
 
-![Bing 金鑰](./media/iot-accelerators-faq-cf/bing.png)
+### <a name="how-to-obtain-your-azure-maps-account-key"></a>如何取得 Azure 地圖服務帳戶金鑰
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>如何取得企業用 Bing 地圖服務 API QueryKey
-
-一旦建立企業用 Bing 地圖服務 API 方案之後，將企業用 Bing 地圖服務資源新增至 Azure 入口網站中連線處理站解決方案的資源群組。
-
-1. 在 Azure 入口網站中，瀏覽至包含企業方案 Bing 地圖服務 API 的資源群組。
-
-1. 依序按一下 [所有設定] 和 [金鑰管理]。
-
-1. 金鑰有兩個︰**MasterKey** 和 **QueryKey**。 複製 **QueryKey** 值。
-
-1. 若要讓 `build.ps1` 指令碼挑選該金鑰，請將 PowerShell 環境中的 `$env:MapApiQueryKey` 環境變數設定為您方案的 **QueryKey**。 然後，建置指令碼會將該值自動新增至 App Service 的設定。
-
-1. 使用 `build.ps1` 指令碼執行本機或雲端部署。
+請參閱[如何管理 Azure 地圖服務帳戶和金鑰](../azure-maps/how-to-manage-account-keys.md)。
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>在進行本機偵錯時，如何啟用互動式地圖？
 

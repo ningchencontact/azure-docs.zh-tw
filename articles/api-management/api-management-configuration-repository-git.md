@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387220"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945804"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 儲存和設定 API 管理服務組態
 
@@ -84,7 +84,7 @@ ms.locfileid: "49387220"
 在想要的資料夾中開啟 Git 工具，然後執行下列命令，使用 Azure 入口網站提供的命令，將 git 存放庫複製到本機電腦。
 
 ```
-git clone https://bugbashdev4.scm.azure-api.net/
+git clone https://{name}.scm.azure-api.net/
 ```
 
 出現提示時，請提供使用者名稱和密碼。
@@ -92,7 +92,7 @@ git clone https://bugbashdev4.scm.azure-api.net/
 如果您收到任何錯誤，請嘗試修改您的 `git clone` 命令以包含使用者名稱和密碼，如下列範例所示。
 
 ```
-git clone https://username:password@bugbashdev4.scm.azure-api.net/
+git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
 如果發生錯誤，請嘗試 URL 編碼命令的密碼部分。 完成這項操作的其中一個快速方法是開啟 Visual Studio，並且在 [即時運算視窗] 發出下列命令。 若要開啟 [即時運算視窗]，請在 Visual Studio 中開啟任何解決方案或專案 (或建立新的空白主控台應用程式)，然後從 [偵錯] 功能表選擇 [視窗]、[即時運算]。
@@ -104,7 +104,7 @@ git clone https://username:password@bugbashdev4.scm.azure-api.net/
 使用編碼的密碼以及使用者名稱和儲存機制位置以建構 git 命令。
 
 ```
-git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
 複製儲存機制之後，您可以在本機檔案系統中檢視並加以使用。 如需詳細資訊，請參閱 [本機 Git 儲存機制的檔案和資料夾結構參考](#file-and-folder-structure-reference-of-local-git-repository)。
@@ -120,7 +120,7 @@ git pull
 在執行 `git pull` 之前，請確認您是位於本機儲存機制的資料夾中。 如果您已完成 `git clone` 命令，則必須執行類似下列的命令，將目錄變更為您的儲存機制。
 
 ```
-cd bugbashdev4.scm.azure-api.net/
+cd {name}.scm.azure-api.net/
 ```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>將變更從您的本機儲存機制推送至伺服器儲存機制

@@ -11,23 +11,23 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: effaa9b0b3fec36974a2bc850eeb1f36181ca0c7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 83db2bcfe21edc9f8f2649ef8c2b3a23e412e39d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166430"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353980"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database 邏輯伺服器與其管理方式
 
-## <a name="what-is-an-azure-sql-logical-server"></a>什麼是 Azure SQL 邏輯伺服器？
+## <a name="what-is-an-azure-sql-logical-server"></a>什麼是 Azure SQL 邏輯伺服器
 
 邏輯伺服器可作為多個或單一[集區](sql-database-elastic-pool.md)資料庫、[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)及[容錯移轉群組](sql-database-geo-replication-overview.md)的中央管理點。 邏輯伺服器可以位於與其資源群組不同的區域中。 邏輯伺服器必須先存在，才能建立 Azure SQL Database。 伺服器上所有的資料庫都會在與邏輯伺服器相同的區域內建立。
 
 邏輯伺服器是一個邏輯建構，不同於您可能已熟悉運用在內部部署世界中的 SQL Server 執行個體。 具體來說，SQL Database 服務對於其邏輯伺服器相關之資料庫位置不提供任何保證，且不公開任何執行個體層級存取權或功能。 對比之下，「SQL Database 受控執行個體」中的伺服器則類似於您可能已熟悉運用在內部部署世界中的 SQL Server 執行個體。
 
-當您建立邏輯伺服器時，提供的伺服器登入帳戶和密碼必須擁有該伺服器上 master 資料庫的系統管理權限，以及在該伺服器上建立之所有資料庫的系統管理權限。 這個初始帳戶是 SQL 登入帳戶。 Azure SQL Database 支援 SQL 驗證和 Azure Active Directory 驗證來進行驗證。 如需登入和驗證的相關資訊，請參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)。 不支援 Windows 驗證。 
+當您建立邏輯伺服器時，提供的伺服器登入帳戶和密碼必須擁有該伺服器上 master 資料庫的系統管理權限，以及在該伺服器上建立之所有資料庫的系統管理權限。 這個初始帳戶是 SQL 登入帳戶。 Azure SQL Database 支援 SQL 驗證和 Azure Active Directory 驗證來進行驗證。 如需登入和驗證的相關資訊，請參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)。 不支援 Windows 驗證。
 
 Azure 資料庫邏輯伺服器：
 
@@ -38,19 +38,19 @@ Azure 資料庫邏輯伺服器：
 - 參與 [Azure 角色型存取控制 (RBAC)](/azure/role-based-access-control/overview) - 伺服器內的資料庫、彈性集區和資料倉儲會從伺服器繼承存取權限
 - 是供 Azure 資源管理的資料庫身分識別、彈性集區和資料倉儲的高序位項目 (請參閱資料庫和集區的 URL 配置)
 - 區域中的共置資源
-- 提供用來存取資料庫的連接端點 (<serverName>.database.windows.net)
-- 藉由連接到 master 資料庫提供存取有關透過 DMV 內含資源的中繼資料 
-- 提供適用於其資料庫的管理原則範圍 - 登入、防火牆、稽核、威脅偵測等等 
+- 提供用來存取資料庫的連接端點 (`<serverName>`.database.windows.net)
+- 藉由連接到 master 資料庫提供存取有關透過 DMV 內含資源的中繼資料
+- 提供適用於其資料庫的管理原則範圍 - 登入、防火牆、稽核、威脅偵測等等
 - 受父訂用帳戶內的配額限制 (每個訂用帳戶預設六部伺服器 - [在此參閱訂用帳戶限制](../azure-subscription-service-limits.md))
 - 提供其包含之資源的資料庫配額和 DTU 或虛擬核心配額範圍 (例如 45,000 DTU)
-- 內含資源上啟用功能的版本控制範圍 
+- 內含資源上啟用功能的版本控制範圍
 - 伺服器層級主體登入可以管理伺服器上的所有資料庫
 - 可以包含類似內部部署之 SQL Server 執行個體中的登入，其在伺服器上一或多個資料庫被授與存取，且可以授與有限的系統管理權限。 如需詳細資訊，請參閱[登入](sql-database-manage-logins.md)。
 - 在邏輯伺服器上建立之所有使用者資料庫的預設定序是 `SQL_LATIN1_GENERAL_CP1_CI_AS`，其中 `LATIN1_GENERAL` 是英文 (美國)、`CP1` 是字碼頁 1252、`CI` 是不區分大小寫，以及 `AS` 是區分腔調字。
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure SQL 伺服器、資料庫和防火牆
 
-您可以事先或在建立伺服器本身的同時，建立 Azure SQL Database 的資源群組。 有多種方法可以使用新的 SQL Server 表單，可以透過建立新的 SQL Server，或是在建立新資料庫時一起使用。 
+您可以事先或在建立伺服器本身的同時，建立 Azure SQL Database 的資源群組。 有多種方法可以使用新的 SQL Server 表單，可以透過建立新的 SQL Server，或是在建立新資料庫時一起使用。
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>建立空白的 SQL Server (邏輯伺服器)
 
@@ -58,7 +58,7 @@ Azure 資料庫邏輯伺服器：
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>建立空白或範例 SQL 資料庫
 
-若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL Database，請瀏覽至空白的 SQL Database 表單，並提供要求的資訊。 您可以事先或在建立資料庫本身的同時，建立 Azure SQL Database 的資源群組和邏輯伺服器。 您可以建立空白資料庫，或建立根據 Adventure Works LT 的範例資料庫。 
+若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL Database，請瀏覽至空白的 SQL Database 表單，並提供要求的資訊。 您可以事先或在建立資料庫本身的同時，建立 Azure SQL Database 的資源群組和邏輯伺服器。 您可以建立空白資料庫，或建立根據 Adventure Works LT 的範例資料庫。
 
   ![建立資料庫-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -69,19 +69,16 @@ Azure 資料庫邏輯伺服器：
 
 ### <a name="manage-an-existing-sql-server"></a>管理現有的 SQL Server
 
-若要管理現有的伺服器，請使用多種方法 (例如從特定的 SQL 資料庫頁面、[SQL Server] 頁面，或 [所有資源] 頁面)，瀏覽至伺服器。 
+若要管理現有的伺服器，請使用多種方法 (例如從特定的 SQL 資料庫頁面、[SQL Server] 頁面，或 [所有資源] 頁面)，瀏覽至伺服器。
 
-若要管理現有的資料庫，請瀏覽至 [SQL 資料庫] 頁面，按一下您想要管理的資料庫。 下列螢幕擷取畫面顯示如何從資料庫的 [概觀] 頁面，開始設定資料庫的伺服器層級防火牆。 
+若要管理現有的資料庫，請瀏覽至 [SQL 資料庫] 頁面，按一下您想要管理的資料庫。 下列螢幕擷取畫面顯示如何從資料庫的 [概觀] 頁面，開始設定資料庫的伺服器層級防火牆。
 
-   ![伺服器防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![伺服器防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
 > 若要設定資料庫的效能屬性，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
->
-
 > [!TIP]
 > 如需 Azure 入口網站快速入門，請參閱[在 Azure 入口網站中建立 Azure SQL 資料庫](sql-database-get-started-portal.md)。
->
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>使用 PowerShell 管理 Azure SQL 伺服器、資料庫和防火牆
 
@@ -164,7 +161,6 @@ Azure 資料庫邏輯伺服器：
 |[sys.database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|傳回與您的 Microsoft Azure SQL Database 相關聯之資料庫層級防火牆設定的相關資訊。 |
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|移除您的 Azure SQL Database 或 SQL 資料倉儲的資料庫層級防火牆設定。 |
 
-
 > [!TIP]
 > 如需在 Microsoft Windows 上使用 SQL Server Management Studio 的快速入門，請參閱 [Azure SQL Database：使用 SQL Server Management Studio 連線及查詢資料](sql-database-connect-query-ssms.md)。 如需在 macOS、Linux 或 Windows 上使用 Visual Studio Code 的快速入門，請參閱 [Azure SQL Database：使用 Visual Studio Code 連線及查詢資料](sql-database-connect-query-vscode.md)。
 
@@ -174,21 +170,22 @@ Azure 資料庫邏輯伺服器：
 
 | 命令 | 說明 |
 | --- | --- |
-|[伺服器 - 建立或更新](/rest/api/sql/servers/createorupdate)|建立或更新新的伺服器。|
-|[伺服器 - 刪除](/rest/api/sql/servers/delete)|刪除 SQL 伺服器。|
-|[伺服器 - 取得](/rest/api/sql/servers/get)|取得伺服器。|
-|[伺服器 - 清單](/rest/api/sql/servers/list)|傳回伺服器的清單。|
-|[伺服器 - 依資源群組列示](/rest/api/sql/servers/listbyresourcegroup)|傳回資源群組中的伺服器清單。|
-|[伺服器 - 更新](/rest/api/sql/servers/update)|更新現有伺服器。|
-|[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
-|[資料庫 - 取得](/rest/api/sql/databases/get)|取得資料庫。|
-|[資料庫 - 依彈性集區列出](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
-|[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
-|[資料庫 - 更新](/rest/api/sql/databases/update)|更新現有的資料庫。|
-|[防火牆規則 - 建立或更新](/rest/api/sql/firewallrules/createorupdate)|建立或更新防火牆規則。|
-|[防火牆規則 - 刪除](/rest/api/sql/firewallrules/delete)|刪除防火牆規則。|
-|[防火牆規則 - 取得](/rest/api/sql/firewallrules/get)|取得防火牆規則。|
-|[防火牆規則 - 依伺服器列示](/rest/api/sql/firewallrules/listbyserver)|傳回防火牆規則的清單。|
+|[伺服器 - 建立或更新](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|建立或更新新的伺服器。|
+|[伺服器 - 刪除](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|刪除 SQL 伺服器。|
+|[伺服器 - 取得](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|取得伺服器。|
+|[伺服器 - 清單](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|傳回伺服器的清單。|
+|[伺服器 - 依資源群組列示](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|傳回資源群組中的伺服器清單。|
+|[伺服器 - 更新](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|更新現有伺服器。|
+|[資料庫 - 建立或更新](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|建立新的資料庫或更新現有資料庫。|
+|[資料庫 - 刪除](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|刪除資料庫。|
+|[資料庫 - 取得](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|取得資料庫。|
+|[資料庫 - 依彈性集區列出](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
+|[資料庫 - 依伺服器列出](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|傳回伺服器中的資料庫清單。|
+|[資料庫 - 更新](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|更新現有的資料庫。|
+|[防火牆規則 - 建立或更新](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|建立或更新防火牆規則。|
+|[防火牆規則 - 刪除](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|刪除防火牆規則。|
+|[防火牆規則 - 取得](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|取得防火牆規則。|
+|[防火牆規則 - 依伺服器列示](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|傳回防火牆規則的清單。|
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
-ms.component: na
-ms.openlocfilehash: b7a7e2787128c74cd7d016c01b751d15628fb4b2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.component: ''
+ms.openlocfilehash: d16f9add2cd31eb5a8db650798c241c3dcf2610f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181986"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379299"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL 分析來監視 Azure SQL Database (預覽)
 
@@ -128,7 +128,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 下表概述兩個儀表板版本所支援的檢視方塊，一個適用於 Azure SQL Database 和彈性集區，另一個適用於受控執行個體。
 
-| 檢視方塊 | 說明 | SQL Database 和彈性集區支援 | 受控執行個體支援 |
+| 檢視方塊 | 說明 | SQL Database 和彈性集區支援 | 支援受控執行個體 |
 | --- | ------- | ----- | ----- |
 | 資源 (依類型) | 可計算所有受監視資源的檢視方塊。 | 是 | 是 | 
 | 深入解析 | 可透過階層的方式，向下鑽研至 Intelligent Insights 乃至效能。 | 是 | 是 |
@@ -158,6 +158,10 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 您可以透過查詢持續時間和查詢等候檢視方塊，將任何查詢的效能透過查詢報表相互關聯。 此報表會比較不同資料庫上的查詢效能，並可讓您輕鬆地找出所選查詢執行速度良好與緩慢的資料庫。
 
 ![Azure SQL 分析查詢](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
+
+### <a name="pricing"></a>價格
+
+雖然可免費使用解決方案，但診斷資料的使用量若超過每個月所配置的免費資料擷取單位，則需付費，請參閱 [Log Analytics 定價](https://azure.microsoft.com/en-us/pricing/details/monitor)。 所提供的免費資料擷取單位可讓您每個月免費監視多個資料庫。 請注意，相較於閒置的資料庫，較繁重工作負載的更多作用中資料庫將會擷取更多資料。 您可以藉由選取 Azure SQL 分析導覽功能表上的 OMS 工作區，然後選取 [使用量和估計成本]，輕鬆地監視您解決方案中的資料擷取耗用。
 
 ### <a name="analyze-data-and-create-alerts"></a>分析資料並建立警示
 

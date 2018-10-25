@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297550"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321983"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -52,7 +52,6 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
 - Azure Active Directory
-- 受控服務識別
 - App Service 方案
 - Web 應用程式
 - API 應用程式
@@ -107,13 +106,13 @@ Azure Web Apps 可為以 Java、PHP、Node.js Python、HTML 和 C# 開發的 Web
 
 App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCenter/)並可使用 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) 或社交登入 ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication)、[Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication)、[Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) 和 [Microsoft 驗證](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)來驗證使用者。
 
-基本、標準和進階方案適用於生產工作負載，並會在專用虛擬機器執行個體上執行。 每個執行個體均可支援多個應用程式和網域。 App services 也支援 [IP 位址限制](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)來保護受信任的 IP 位址流量 (如有需要)，也支援[受控服務識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)以便安全連線至其他 PaaS 服務，例如 [Key Vault](https://azure.microsoft.com/services/key-vault/) 和 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)。 如果需要額外的安全性，隔離式方案會在私人專用 Azure 環境中裝載您的應用程式，適合需要與內部部署網路安全連線或額外效能和規模的應用程式使用。
+基本、標準和進階方案適用於生產工作負載，並會在專用虛擬機器執行個體上執行。 每個執行個體均可支援多個應用程式和網域。 App services 也支援 [IP 位址限制](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)來保護受信任的 IP 位址流量 (如有需要)，也支援[Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)以便安全連線至其他 PaaS 服務，例如 [Key Vault](https://azure.microsoft.com/services/key-vault/) 和 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)。 如果需要額外的安全性，隔離式方案會在私人專用 Azure 環境中裝載您的應用程式，適合需要與內部部署網路安全連線或額外效能和規模的應用程式使用。
 
 此範本會部署下列 App Service 實體：
 
 - [標準](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service 方案層次
 - 多個 Web App [部署位置](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing)：Dev、Preview、QA、UAT 以及 Production (預設位置)。
-- [受控服務識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)以連線到 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (這也可供存取 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
+- 以 [Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)連線到 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (這也可供存取 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - 與 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) 整合以監視效能
 - [診斷記錄檔](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - 度量[警示](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -164,7 +163,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>此藍圖中的 Azure Key Vault
 
-- 保留儲存體存取金鑰，並將讀取權限授與給客戶面向 Web 應用程式的[受控服務識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)
+- 保留儲存體存取金鑰，並將讀取權限授與給客戶面向 Web 應用程式的[受控識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)
 - 保留 SQL Server DBA 密碼 (在個別的保存庫中)
 - 診斷記錄
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865928"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092536"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -56,19 +56,19 @@ ms.locfileid: "37865928"
   
 ### <a name="elements"></a>元素  
   
-|Name|說明|必要|  
+|名稱|說明|必要|  
 |----------|-----------------|--------------|  
-|check-header|根元素。|yes|  
+|check-header|根元素。|是|  
 |value|允許的 HTTP 標頭值。 指定多個值元素時，如果其中任何一個值相符，則會將檢查視為成功。|否|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|說明|必要|預設值|  
+|名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|failed-check-error-message|如果標頭不存在或具有無效值，要在 HTTP 回應本文中傳回的錯誤訊息。 此訊息必須正確逸出任何特殊字元。|yes|N/A|  
-|failed-check-httpcode|標頭不存在或具有無效值時所要傳回的 HTTP 狀態碼。|yes|N/A|  
-|header-name|要檢查的 HTTP 標頭名稱。|yes|N/A|  
-|ignore-case|可以設定為 True 或 False。 如果設定為 True，則會在標頭值與一組可接受的值進行比較時，忽略大小寫。|yes|N/A|  
+|failed-check-error-message|如果標頭不存在或具有無效值，要在 HTTP 回應本文中傳回的錯誤訊息。 此訊息必須正確逸出任何特殊字元。|是|N/A|  
+|failed-check-httpcode|標頭不存在或具有無效值時所要傳回的 HTTP 狀態碼。|是|N/A|  
+|header-name|要檢查的 HTTP 標頭名稱。|是|N/A|  
+|ignore-case|可以設定為 True 或 False。 如果設定為 True，則會在標頭值與一組可接受的值進行比較時，忽略大小寫。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -111,19 +111,19 @@ ms.locfileid: "37865928"
   
 ### <a name="elements"></a>元素  
   
-|Name|說明|必要|  
+|名稱|說明|必要|  
 |----------|-----------------|--------------|  
-|set-limit|根元素。|yes|  
+|set-limit|根元素。|是|  
 |api|新增一或多個這些元素，以對產品內的 API 強加呼叫頻率限制。 產品和 API 呼叫頻率限制會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
 |operation|新增一或多個這些元素，以對 API 內的作業強加呼叫頻率限制。 產品、API 和作業呼叫頻率限制會獨立套用。 作業可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|說明|必要|預設值|  
+|名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|name|要套用速率限制的 API 名稱。|yes|N/A|  
-|calls|在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。|yes|N/A|  
-|renewal-period|重設配額的時間週期 (以秒為單位)。|yes|N/A|  
+|name|要套用速率限制的 API 名稱。|是|N/A|  
+|calls|在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。|是|N/A|  
+|renewal-period|重設配額的時間週期 (以秒為單位)。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -136,9 +136,6 @@ ms.locfileid: "37865928"
  `rate-limit-by-key` 原則藉由將指定時間週期內的呼叫頻率限制為指定次數，以防止每個金鑰的 API 使用量暴增。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。 可以新增選擇性增量條件，以指定哪些要求應該計入限制。 觸發此原則時，呼叫者會收到 `429 Too Many Requests` 回應狀態碼。  
   
  如需此原則範例的詳細資訊，請參閱[以 Azure API 管理進行進階要求節流](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/)。  
-  
-> [!IMPORTANT]
->  每份原則文件只能使用此原則一次。  
   
 ### <a name="policy-statement"></a>原則陳述式  
   
@@ -170,18 +167,18 @@ ms.locfileid: "37865928"
   
 ### <a name="elements"></a>元素  
   
-|Name|說明|必要|  
+|名稱|說明|必要|  
 |----------|-----------------|--------------|  
-|set-limit|根元素。|yes|  
+|set-limit|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|說明|必要|預設值|  
+|名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|calls|在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。|yes|N/A|  
-|counter-key|用於頻率限制原則的金鑰。|yes|N/A|  
+|calls|在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。|是|N/A|  
+|counter-key|用於頻率限制原則的金鑰。|是|N/A|  
 |increment-condition|此布林運算式指定要求是否應該計入配額 (`true`)。|否|N/A|  
-|renewal-period|重設配額的時間週期 (以秒為單位)。|yes|N/A|  
+|renewal-period|重設配額的時間週期 (以秒為單位)。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -213,18 +210,18 @@ ms.locfileid: "37865928"
   
 ### <a name="elements"></a>元素  
   
-|Name|說明|必要|  
+|名稱|說明|必要|  
 |----------|-----------------|--------------|  
-|ip-filter|根元素。|yes|  
+|ip-filter|根元素。|是|  
 |位址|指定要篩選的單一 IP 位址。|至少需要一個 `address` 或 `address-range` 元素。|  
 |address-range from="位址" to="位址"|指定要篩選的 IP 位址範圍。|至少需要一個 `address` 或 `address-range` 元素。|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|說明|必要|預設值|  
+|名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="位址" to="位址"|允許或拒絕存取的 IP 位址範圍。|使用 `address-range` 元素時必要。|N/A|  
-|ip-filter action="allow &#124; forbid"|指定允許或不允許指定的 IP 位址和範圍進行呼叫。|yes|N/A|  
+|ip-filter action="allow &#124; forbid"|指定允許或不允許指定的 IP 位址和範圍進行呼叫。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -266,20 +263,20 @@ ms.locfileid: "37865928"
   
 ### <a name="elements"></a>元素  
   
-|Name|說明|必要|  
+|名稱|說明|必要|  
 |----------|-----------------|--------------|  
-|quota|根元素。|yes|  
+|quota|根元素。|是|  
 |api|新增一或多個上述元素，以對產品內的 API 強加呼叫配額。 產品和 API 呼叫配額會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
 |operation|新增一或多個上述元素，以對 API 內的作業強加呼叫配額。 產品、API 和作業呼叫配額會獨立套用。 作業可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|說明|必要|預設值|  
+|名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|name|套用配額的 API 或作業名稱。|yes|N/A|  
+|name|套用配額的 API 或作業名稱。|是|N/A|  
 |bandwidth|在 `renewal-period` 中指定的時間週期內允許的 KB 總數上限。|必須指定 `calls`、`bandwidth`，或同時指定兩者。|N/A|  
 |calls|在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。|必須指定 `calls`、`bandwidth`，或同時指定兩者。|N/A|  
-|renewal-period|重設配額的時間週期 (以秒為單位)。|yes|N/A|  
+|renewal-period|重設配額的時間週期 (以秒為單位)。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -288,13 +285,10 @@ ms.locfileid: "37865928"
 -   **原則範圍︰** 產品  
   
 ##  <a name="SetUsageQuotaByKey"></a>依金鑰設定使用量配額  
- `quota-by-key` 原則會以金鑰為單位，強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。 可以新增選擇性增量條件，以指定哪些要求應該計入配額。  
+ `quota-by-key` 原則會以金鑰為單位，強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。 可以新增選擇性增量條件，以指定哪些要求應該計入配額。 如果多個原則會使相同的金鑰值遞增，該值址會針對每個要求遞增一次。 達到呼叫限制時，呼叫端會收到 `403 Forbidden` 回應狀態碼。
   
  如需此原則範例的詳細資訊，請參閱[以 Azure API 管理進行進階要求節流](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/)。  
   
-> [!IMPORTANT]
->  每份原則文件只能使用此原則一次。  
->   
 >  [原則運算式](api-management-policy-expressions.md)無法使用於此原則的任何原則屬性。  
   
 ### <a name="policy-statement"></a>原則陳述式  
@@ -327,19 +321,19 @@ ms.locfileid: "37865928"
   
 ### <a name="elements"></a>元素  
   
-|Name|說明|必要|  
+|名稱|說明|必要|  
 |----------|-----------------|--------------|  
-|quota|根元素。|yes|  
+|quota|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|說明|必要|預設值|  
+|名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |bandwidth|在 `renewal-period` 中指定的時間週期內允許的 KB 總數上限。|必須指定 `calls`、`bandwidth`，或同時指定兩者。|N/A|  
 |calls|在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。|必須指定 `calls`、`bandwidth`，或同時指定兩者。|N/A|  
-|counter-key|用於配額原則的金鑰。|yes|N/A|  
+|counter-key|用於配額原則的金鑰。|是|N/A|  
 |increment-condition|此布林運算式指定要求是否應該計入配額 (`true`)。|否|N/A|  
-|renewal-period|重設配額的時間週期 (以秒為單位)。|yes|N/A|  
+|renewal-period|重設配額的時間週期 (以秒為單位)。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -486,7 +480,7 @@ ms.locfileid: "37865928"
   
 |元素|說明|必要|  
 |-------------|-----------------|--------------|  
-|validate-jwt|根元素。|yes|  
+|validate-jwt|根元素。|是|  
 |audiences|包含可呈現在權杖上之可接受的受眾宣告清單。 如果存在多個受眾值，則會嘗試每個值，直到全部試完 (即表示驗證失敗) 或其中一個值成功為止。 必須指定至少一個受眾。|否|  
 |issuer-signing-keys|用來驗證已簽署權杖的 Base64 編碼安全性金鑰清單。 如果存在多個安全性金鑰，則會嘗試每個金鑰，直到全部試完 (即表示驗證失敗) 或其中一個金鑰成功 (很適合用於權杖變換) 為止。 金鑰元素具有用來與 `kid` 宣告進行比對的選擇性 `id` 屬性。|否|  
 |issuers|可接受之簽發權杖的主體清單。 如果存在多個簽發者值，則會嘗試每個值，直到全部試完 (即表示驗證失敗) 或其中一個值成功為止。|否|  
@@ -496,7 +490,7 @@ ms.locfileid: "37865928"
   
 ### <a name="attributes"></a>屬性  
   
-|Name|說明|必要|預設值|  
+|名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |clock-skew|時間範圍。 用來指定權杖簽發者和 API 管理執行個體的系統時鐘之間最大預期時間差異。|否|0 秒|  
 |failed-validation-error-message|如果 JWT 未通過驗證，在 HTTP 回應主體中傳回的錯誤訊息。 此訊息必須正確逸出任何特殊字元。|否|預設錯誤訊息視驗證問題而定，例如「JWT 不存在」。|  
@@ -509,7 +503,7 @@ ms.locfileid: "37865928"
 |require-scheme|權杖結構描述的名稱，例如"Bearer"。 當已設定此屬性時，原則將會確定指定的結構描述存在於授權標頭值中。|否|N/A|
 |require-signed-tokens|布林值。 指定是否需要簽署權杖。|否|true|  
 |分隔符號|字串。 指定用於從多重值宣告中擷取一組值的分隔符號 (例如 ",")。|否|N/A| 
-|url|可從中取得 Open ID 設定中繼資料的 Open ID 設定端點 URL。 回應應該根據 URL 所定義的規格：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。  對於 Azure Active Directory，使用下列 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 代替您的目錄租用戶名稱，例如 `contoso.onmicrosoft.com`。|yes|N/A|  
+|url|可從中取得 Open ID 設定中繼資料的 Open ID 設定端點 URL。 回應應該根據 URL 所定義的規格：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。  對於 Azure Active Directory，使用下列 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 代替您的目錄租用戶名稱，例如 `contoso.onmicrosoft.com`。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  

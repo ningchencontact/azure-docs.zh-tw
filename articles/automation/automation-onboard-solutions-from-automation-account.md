@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033816"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352441"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
@@ -93,11 +93,11 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ### <a name="all-available-machines"></a>所有可用的機器
 
-若要為所有可用的機器啟用解決方案，請選取 [在所有可用的機器上啟用]。 這會停用個別新增機器的控制項。 此工作會將向工作區回報之所有機器的名稱新增至電腦群組儲存的搜尋查詢。
+若要為所有可用的機器啟用解決方案，請選取 [在所有可用的機器上啟用]。 這會停用個別新增機器的控制項。 此工作會將向工作區回報之所有機器的名稱新增至電腦群組儲存的搜尋查詢。 選取時，會停用 [管理機器] 按鈕。
 
 ### <a name="all-available-and-future-machines"></a>所有可用與未來的機器
 
-若要為所有可用的機器與所有未來的機器啟用解決方案，請選取 [在所有可用及未來的機器上啟用]。 此選項會從工作區中刪除已儲存搜尋和範圍設定。 這會開啟向工作區回報之所有 Azure 與非 Azure 機器的解決方案。
+若要為所有可用的機器與所有未來的機器啟用解決方案，請選取 [在所有可用及未來的機器上啟用]。 此選項會從工作區中刪除已儲存搜尋和範圍設定。 這會開啟向工作區回報之所有 Azure 與非 Azure 機器的解決方案。 選取時，會停用 [管理機器] 按鈕。
 
 ### <a name="selected-machines"></a>選取的機器
 
@@ -120,13 +120,13 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源] 區段下選取 [已取消連結的工作區]。
 
-1. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
+2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
 
    ![取消連結工作區頁面](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    您會收到提示，確認您想要繼續。
 
-1. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
+3. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
 
 若使用「更新管理」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
 

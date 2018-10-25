@@ -5,24 +5,24 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145746"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310567"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid 資源群組事件結構描述
 
 本文提供資源群組事件的屬性與結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
 
-Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型與資源中的變更相關聯。 主要的差異在於資源群組所發出的事件是針對資源群組內的資源，而 Azure 訂用帳戶發出的事件是針對整個訂用帳戶上的資源。
+Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型與資源變更或動作有關。 主要的差異在於資源群組所發出的事件是針對資源群組內的資源，而 Azure 訂用帳戶發出的事件是針對整個訂用帳戶上的資源。
 
-系統會針對傳送至 `management.azure.com` 的 PUT、PATCH 和 DELETE 作業建立資源事件。 POST 與 GET 作業不會建立事件。 傳送至資料平面作的業 (例如 `myaccount.blob.core.windows.net`) 不會建立事件。
+系統會針對傳送至 `management.azure.com` 的 PUT、PATCH、POST 和 DELETE 作業建立資源事件。 GET 作業不會建立事件。 傳送至資料平面作的業 (例如 `myaccount.blob.core.windows.net`) 不會建立事件。 動作事件會為作業 (例如，列出資源的金鑰) 提供事件資料。
 
-當您訂閱資源群組的事件時，您的端點會接收該資源群組的所有事件。 事件可以包含您想要查看的事件，例如更新虛擬機器，也也可以包含對您不重要的事件，例如在部署歷程記錄中寫入新的項目。 您可以在您的端點接收所有事件，以及撰寫程式碼來處理您想要處理的事件，也可以在建立事件訂用帳戶時設定篩選條件。
+當您訂閱資源群組的事件時，您的端點會接收該資源群組的所有事件。 事件可以包含您想要查看的事件，例如更新虛擬機器，也也可以包含對您不重要的事件，例如在部署歷程記錄中寫入新的項目。 您可以在端點接收所有事件，以及撰寫程式碼來處理您想要處理的事件。 或者，也可以在建立事件訂用帳戶時設定篩選條件。
 
 若要以程式設計方式處理事件，您可藉由查看 `operationName` 值來排序事件。 例如，您的事件端點可能只會處理等於 `Microsoft.Compute/virtualMachines/write` 或 `Microsoft.Storage/storageAccounts/write` 的作業事件。
 
@@ -36,12 +36,15 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 
 | 事件類型 | 說明 |
 | ---------- | ----------- |
-| Microsoft.Resources.ResourceWriteSuccess | 在資源建立或是更新作業成功時引發。 |
-| Microsoft.Resources.ResourceWriteFailure | 在資源建立或是更新作業失敗時引發。 |
-| Microsoft.Resources.ResourceWriteCancel | 在資源建立或是更新作業取消時引發。 |
-| Microsoft.Resources.ResourceDeleteSuccess | 在資源刪除作業成功時引發。 |
-| Microsoft.Resources.ResourceDeleteFailure | 在資源刪除作業失敗時引發。 |
-| Microsoft.Resources.ResourceDeleteCancel | 在資源刪除作業取消時引發。 此事件會於範本部署取消時發生。 |
+| Microsoft.Resources.ResourceActionCancel | 取消資源動作時引發。 |
+| Microsoft.Resources.ResourceActionFailure | 資源動作失敗時引發。 |
+| Microsoft.Resources.ResourceActionSuccess | 資源動作成功時引發。 |
+| Microsoft.Resources.ResourceDeleteCancel | 刪除作業取消時引發。 此事件會於範本部署取消時發生。 |
+| Microsoft.Resources.ResourceDeleteFailure | 刪除作業失敗時引發。 |
+| Microsoft.Resources.ResourceDeleteSuccess | 刪除作業成功時引發。 |
+| Microsoft.Resources.ResourceWriteCancel | 建立或更新作業取消時引發。 |
+| Microsoft.Resources.ResourceWriteFailure | 建立或更新作業失敗時引發。 |
+| Microsoft.Resources.ResourceWriteSuccess | 建立或更新作業成功時引發。 |
 
 ## <a name="example-event"></a>事件範例
 
@@ -171,6 +174,62 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 }]
 ```
 
+下列範例顯示 **ResourceActionSuccess** 事件的結構描述。 具有不同 `eventType` 值的 **ResourceActionFailure** 和 **ResourceActionCancel** 事件使用相同的結構描述。
+
+```json
+[{   
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+  "eventType": "Microsoft.Resources.ResourceActionSuccess",
+  "eventTime": "2018-10-08T22:46:22.6022559Z",
+  "id": "{ID}",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+      "action": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/{subscription-id}",
+        "roleAssignmentId": "{ID}",
+        "roleDefinitionId": "{ID}",
+        "principalId": "{ID}",
+        "principalType": "ServicePrincipal"
+      }     
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "aio": "{token}",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/identity/claims/identityprovider": "{URL}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",       "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "httpRequest": {
+      "clientRequestId": "{ID}",
+      "clientIpAddress": "{IP-address}",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey/listKeys?api-version=2017-04-01"
+    },
+    "resourceProvider": "Microsoft.EventHub",
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+    "operationName": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}" 
+}]
+```
+
 ## <a name="event-properties"></a>事件屬性
 
 事件具有下列的最高層級資料：
@@ -194,9 +253,9 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 | claims | 物件 | 宣告的屬性。 如需詳細資訊，請參閱 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。 |
 | correlationId | 字串 | 用於疑難排解的作業識別碼。 |
 | httpRequest | 物件 | 作業的詳細資料。 更新現有資源或刪除資源時，只會包含這個物件。 |
-| resourceProvider | 字串 | 執行作業的資源提供者。 |
+| resourceProvider | 字串 | 作業的資源提供者。 |
 | resourceUri | 字串 | 作業中資源的 URI。 |
-| operationName | 字串 | 已執行的作業。 |
+| operationName | 字串 | 已採取的作業。 |
 | status | 字串 | 作業狀態。 |
 | subscriptionId | 字串 | 資源的訂用帳戶識別碼。 |
 | tenantId | 字串 | 資源的租用戶識別碼。 |

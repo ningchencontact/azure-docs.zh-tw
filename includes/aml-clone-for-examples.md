@@ -9,15 +9,13 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 98e168ccb600bd1371da7f125531f3b4421b3d80
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 46be1c670002b584bac1d1a2d3e5e02e845027c7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47018615"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49312622"
 ---
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[將範例 Notebook 匯入到 Azure Notebooks](https://aka.ms/aml-clone-azure-notebooks)。
-1.  使用[如何設定 Azure Machine Learning 服務的開發環境](https://aka.ms/aml-how-to-configure-environment)中的指示，建立工作區與其設定檔 (**config.json**)。
-2. 選取工具列中的 `+New`，將您的 **config.json** 檔案新增到與 Notebook 相同的資料夾。
-3. 開啟 Notebook。
+[將範例 Notebook 匯入到 Azure Notebooks](https://aka.ms/aml-clone-azure-notebooks)。 (組織可能需要[系統管理員的同意](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)，您才能登入)。
+1. 如需如何執行 Notebook 的進一步指示，請參閱所匯入程式庫中的讀我檔案。

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 06073197254245727cfa41020f060d904a4e50f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63549768f616e60e92c853047525c18cefdaddb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957545"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386264"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>如何使用適用於 VM 的 Azure 監視器來繪製效能圖表
 適用於 VM 的 Azure 監視器包含一組以關鍵效能指標 (KPI) 為目標的效能圖表，可協助您判斷虛擬機器的執行狀況。 那些圖表會顯示一段時間的資源使用率，讓您能夠找出瓶頸、異常狀況，或切換至列出每部機器的檢視方塊，以根據所選計量來檢視資源使用率。 雖然在處理效能時要考量許多元素，不過適用於 VM 的 Azure 監視器著重於作業系統，如透過處理器、記憶體、網路介面卡和磁碟所顯示的。 效能可彌補健康狀態監視功能，並有助於揭示可能導致系統元件故障的問題、支援調整和最佳化以實現效率，或支援容量規劃。  
@@ -33,7 +33,9 @@ ms.locfileid: "46957545"
 
 ![VM Insights 效能 N 大排行榜檢視](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-在 [N 大排行榜] 索引標籤，如果您具有多個 Log Analytics 工作區，請從頁面頂端的 [工作區] 選取器選擇已與解決方案整合的工作區。  然後在指定時間內，從 [群組] 選取器、訂用帳戶、資源群組或特定機器中選取。  根據預設，圖表會顯示過去 24 小時。  使用 [TimeRange] 選取器，您可以查詢最多 30 天的歷程記錄時間範圍，以顯示過去的效能狀況。   
+在 [N 大排行榜] 索引標籤上，如果您具有多個 Log Analytics 工作區，請從頁面頂端的 [工作區] 選取器選擇已可處理解決方案的工作區。 [群組] 選取器會傳回與選取的工作區有關的訂用帳戶、資源群組、[電腦群組](../log-analytics/log-analytics-computer-groups.md)與電腦的 VM 擴展集，供您進一步篩選此頁面上的圖表所顯示的結果，和其他頁面上的結果。 您的選取只會套用至「效能」功能，而不會擴及「健康情況」或「對應」。  
+
+根據預設，圖表會顯示過去 24 小時。 使用 [TimeRange] 選取器，您可以查詢最多 30 天的歷程記錄時間範圍，以顯示過去的效能狀況。   
 
 頁面上顯示的五個容量使用率圖表包括：
 
@@ -100,6 +102,9 @@ ms.locfileid: "46957545"
 * 位元組接收率 - 預設顯示平均已接收位元組
 
 ![直接從 VM 檢視查看 VM insights 效能](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="alerting-and-alert-management"></a>警示和警示管理 
+啟用作為「適用於 VM 的 Azure 監視器」一部分的效能計量不會包含預先設定的警示規則。 在您的 Azure VM 上偵測到對應於效能問題的健康情況警示時 (例如，CPU 使用率偏高、可用記憶體不足、磁碟空間不足等)，這些健康情況警示只會套用到已與整合「適用於 VM 的 Azure 監視器」的相同 Log Analytics 工作區連線的所有 VM。 如果您需要自行指定篩選條件或邏輯的彈性，您可以依照[使用 Azure 監視器來建立、檢視及管理警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)中的說明建立自訂警示規則。 
 
 ## <a name="next-steps"></a>後續步驟
 若要了解如何使用健康情況功能，請參閱[檢視適用於 VM 的 Azure 監視器健康情況](monitoring-vminsights-health.md)，或者，若要檢視探索到的應用程式相依性，請參閱[檢視適用於 VM 的 Azure 監視器對應](monitoring-vminsights-maps.md)。 

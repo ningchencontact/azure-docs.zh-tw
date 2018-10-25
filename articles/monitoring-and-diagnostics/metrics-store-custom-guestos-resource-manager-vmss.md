@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 7b600bd699ce7f9e4a6c7cba1a41b6bdece16bf0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434920"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343719"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>使用 Windows 虛擬機器擴展集的 Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
 
@@ -81,7 +81,7 @@ Azure 診斷擴充功能會使用稱為「資料接收器」的功能，將計�
 在虛擬機器擴展集資源中，找到 **virtualMachineProfile** 區段。 新增名為 **extensionsProfile** 的新設定檔來管理擴充功能。  
 
 
-在 **extensionProfile** 中，將新擴充功能新增至範本，如 **VMSS-WAD-extension 區段**所示。  此節是受控服務識別 (MSI) 擴充功能，可確保 Azure 監視器會接受所發出的計量。 **name** 欄位可以包含任何名稱。 
+在 **extensionProfile** 中，將新擴充功能新增至範本，如 **VMSS-WAD-extension 區段**所示。  此節是 Azure 資源受控識別的擴充功能，可確保 Azure 監視器會接受所發出的計量。 **name** 欄位可以包含任何名稱。 
 
 MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作為擴充功能資源，新增至虛擬機器擴展集資源。 請視需要新增/移除效能計數器。 
 
@@ -89,7 +89,7 @@ MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作�
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed service identity   
+            // Managed identites for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

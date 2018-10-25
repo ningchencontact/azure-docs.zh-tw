@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161976"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362232"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
@@ -127,6 +127,8 @@ ms.locfileid: "47161976"
 
 -   不支援 Azure Active Directory 驗證。
 
+-   不支援具有相同名稱但結構描述不同 (例如，dbo.customers 和 sales.customers) 的資料表。
+
 #### <a name="unsupported-data-types"></a>不支援的資料類型
 
 -   FileStream
@@ -150,7 +152,7 @@ ms.locfileid: "47161976"
 | **維度**                                                      | **限制**              | **因應措施**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | 任何資料庫可以隸屬的同步群組數目上限。       | 5                      |                             |
-| 單一同步群組中的端點數目上限              | 30                     | 建立多個同步群組 |
+| 單一同步群組中的端點數目上限              | 30                     |                             |
 | 單一同步群組中的內部部署端點數目上限。 | 5                      | 建立多個同步群組 |
 | 資料庫名稱、資料表名稱、結構描述名稱和資料行名稱                       | 每個名稱 50 個字元 |                             |
 | 一個同步群組中的資料表                                          | 500                    | 建立多個同步群組 |
@@ -158,6 +160,8 @@ ms.locfileid: "47161976"
 | 一個資料表上的資料列大小                                        | 24 Mb                  |                             |
 | 最小同步處理間隔                                           | 5 分鐘              |                             |
 |||
+> [!NOTE]
+> 如果只有一個同步群組，則在單一同步群組中最多可有 30 個端點。 如果有多個同步群組，則所有同步群組之間的端點總數不能超過 30 個。 如果資料庫屬於多個同步群組，系統會將它計算為多個端點，而不是一個。
 
 ## <a name="faq-about-sql-data-sync"></a>SQL 資料同步常見問題集
 

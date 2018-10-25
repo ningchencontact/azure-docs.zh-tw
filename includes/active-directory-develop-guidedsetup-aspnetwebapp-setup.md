@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 99eabd8f9c9b3ab86c348350e8924cea0eb668ba
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ac8e678d8ca006fc5b0ab52f007590ac4e334bf7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843057"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988500"
 ---
 ## <a name="set-up-your-project"></a>設定專案
 
-本節說明使用 OpenID Connect 在 ASP.NET 專案中，透過 OWIN 中介軟體安裝及設定驗證管線的步驟。 
+本節說明使用 OpenID Connect 在 ASP.NET 專案中，透過 OWIN 中介軟體安裝及設定驗證管線的步驟。
 
 > 想要改為下載此範例的 Visual Studio 專案嗎？ [下載專案](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)並跳至[設定步驟](#register-your-application)，以在執行之前先設定程式碼範例。
 
@@ -47,7 +47,7 @@ ms.locfileid: "48843057"
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>關於這些程式庫
->上面的程式庫可透過 Cookie 型驗證，使用 OpenID Connect 啟用單一登入 (SSO)。 完成驗證並將代表使用者的權杖傳送至您的應用程式之後，OWIN 中介軟體就會建立工作階段 Cookie。 接著瀏覽器會在後續要求中使用此 Cookie，因此使用者不需要重新輸入密碼，也不需要進行其他驗證。
+> 上面的程式庫可透過 Cookie 型驗證，使用 OpenID Connect 啟用單一登入 (SSO)。 完成驗證並將代表使用者的權杖傳送至您的應用程式之後，OWIN 中介軟體就會建立工作階段 Cookie。 接著瀏覽器會在後續要求中使用此 Cookie，因此使用者不需要重新輸入密碼，也不需要進行其他驗證。
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>設定驗證管線
@@ -87,7 +87,7 @@ ms.locfileid: "48843057"
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -145,4 +145,3 @@ ms.locfileid: "48843057"
 > ### <a name="more-information"></a>相關資訊
 > 您在 *OpenIDConnectAuthenticationOptions* 中提供的參數會作為供應用程式與 Azure AD 進行通訊的座標。 因為 OpenID Connect 中介軟體會在背景中使用 Cookie，所以您也必須設定在上述程式碼顯示時進行 Cookie 驗證。 *ValidateIssuer* 值會告知 OpenIdConnect 不要針對某一特定組織限制存取。
 <!--end-collapse-->
-

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: a54403b7794d26d87c810f5cd20050db35c078f1
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3ba8c93d158a6ff80c3db788924503e9d4e87242
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054309"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378114"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>如何：設定使用者風險原則
 
@@ -41,7 +41,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 使用者風險原則是您可以針對特定使用者風險層級設定的自動化回應。 利用使用者風險原則，您可以封鎖對資源的存取，或需要變更密碼，讓使用者帳戶回到初始狀態。
 
 
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>如何存取登入風險原則？
+## <a name="how-do-i-access-the-user-risk-policy"></a>如何存取使用者風險原則？
    
 登入風險原則位於 [Azure AD Identity Protection] 頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。
    

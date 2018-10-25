@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 8/21/2018
+ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818959"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116188"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -53,13 +53,14 @@ ms.locfileid: "42818959"
 | 應用程式閘道 |[應用程式閘道的診斷記錄功能](../application-gateway/application-gateway-diagnostics.md) |
 | Azure 自動化 |[Azure 自動化的記錄檔分析](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 診斷記錄](../batch/batch-diagnostics.md) |
+| 適用於 MySQL 的 Azure 資料庫 | [適用於 MySQL 的 Azure 資料庫診斷記錄](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| 適用於 PostgreSQL 的 Azure 資料庫 | [適用於 PostgreSQL 的 Azure 資料庫診斷記錄](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | 認知服務 | 無法使用結構描述。 |
 | 內容傳遞網路 | [CDN 的 Azure 診斷記錄](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 記錄](../cosmos-db/logging.md) |
 | Data Factory | [使用 Azure 監視器來監視 Data Factory](../data-factory/monitor-using-azure-monitor.md) |
 | 資料湖分析 |[存取 Azure Data Lake Analytics 的診斷記錄](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[存取 Azure Data Lake Store 的診斷記錄](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| 適用於 PostgreSQL 的 DB |  無法使用結構描述。 |
 | 事件中樞 |[Azure 事件中樞診斷記錄](../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | 無法使用結構描述。 |
 | Azure 防火牆 | 無法使用結構描述。 |
@@ -104,6 +105,7 @@ ms.locfileid: "42818959"
 |Microsoft.DataLakeAnalytics/accounts|要求|要求記錄檔|
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄|
 |Microsoft.DataLakeStore/accounts|Requests|要求記錄檔|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL 慢速查詢記錄|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 伺服器記錄|
 |Microsoft.Devices/IotHubs|連線|連線|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|裝置遙測|

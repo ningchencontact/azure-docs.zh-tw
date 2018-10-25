@@ -1,6 +1,6 @@
 ---
-title: 針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告 | Microsoft Docs
-description: 了解如何針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告
+title: 自訂 SAML 權杖對 Azure AD 中的企業應用程式發出的宣告 | Microsoft Docs
+description: 了解如何針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,20 +17,20 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956956"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902020"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>如何：針對 Azure AD 中的企業應用程式自訂 SAML 權杖中發出的宣告
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>操作說明：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
-現在，Azure Active Directory 已支援大部分企業應用程式的單一登入，包括 Azure AD 資源庫中預先整合的應用程式，以及自訂應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含關於使用者的資訊片段 (稱為「宣告」)。
+現在 Azure Active Directory (Azure AD) 已支援大部分企業應用程式的單一登入，包括 Azure AD 資源庫中預先整合的應用程式，以及自訂應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含關於使用者的資訊片段 (稱為「宣告」)。
 
-在身分識別交談中，「宣告」是身分識別提供者在為使用者發出的權杖中關於使用者說明的資訊。 在 [SAML 權杖](http://en.wikipedia.org/wiki/SAML_2.0)中，此資料通常包含在 SAML 屬性陳述式中。 使用者的唯一識別碼通常在 SAML Subject 中表示，也稱為「名稱識別碼」。
+*宣告*是身分識別提供者核發權杖給使用者時，所提供的權杖內部使用者相關資訊。 在 [SAML 權杖](http://en.wikipedia.org/wiki/SAML_2.0)中，此資料通常包含在 SAML 屬性陳述式中。 使用者的唯一識別碼通常在 SAML Subject 中表示，也稱為「名稱識別碼」。
 
-根據預設，Azure Active Directory 會發出 SAML 權杖給您的應用程式，其包含一個 NameIdentifier 宣告，具有使用者在 Azure AD 中的使用者名稱 (也稱為使用者主體名稱) 的值。 此值可唯一識別使用者。 SAML 權杖也包含額外的宣告，其包含使用者的電子郵件地址、名字和姓氏。
+根據預設，Azure AD 會將 SAML 權杖核發給內含 NameIdentifier 宣告的應用程式，並附上 Azure AD 中的使用者名稱 (也稱為使用者主體名稱) 的值。 此值可唯一識別使用者。 SAML 權杖也包含額外的宣告，其包含使用者的電子郵件地址、名字和姓氏。
 
 若要檢視或編輯在 SAML 權杖中對應用程式發出的宣告，請在 Azure 入口網站中開啟應用程式。 然後在應用程式的 [使用者屬性] 區段中，選取 [檢視和編輯所有其他使用者屬性] 核取方塊。
 
@@ -38,7 +38,7 @@ ms.locfileid: "46956956"
 
 編輯在 SAML 權杖中簽發的宣告有兩個可能原因：
 * 應用程式是設計為要求不同的宣告 URI 組或宣告值。
-* 應用程式已部署為要求 NameIdentifier 宣告必須是 Azure Active Directory 中儲存之 username (也稱為使用者主體名稱) 以外的項目。
+* 應用程式經過特別部署，會要求 NameIdentifier宣告不得是 Azure AD 所儲存的使用者名稱 (也稱為使用者主體名稱)。
 
 您可以編輯任何預設的宣告值。 選取 SAML 權杖屬性資料表中的宣告資料列。 這會開啟 [編輯屬性] 區段，然後您可以編輯宣告名稱、值，以及與宣告相關聯的命名空間。
 
@@ -130,8 +130,9 @@ SAML 有一些受限制的宣告。 如果您新增這些宣告，則 Azure AD �
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>後續步驟
-* [Azure Active Directory 中的應用程式管理](../manage-apps/what-is-application-management.md)
-* [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+
+* [Azure AD 中的應用程式管理](../manage-apps/what-is-application-management.md)
+* [對不存在於 Azure AD 應用程式庫的應用程式設定單一登入](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [對 SAML 型單一登入進行疑難排解](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

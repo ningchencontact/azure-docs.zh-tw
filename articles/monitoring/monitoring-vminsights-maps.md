@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e75409e791c00dc0a5bec591aecfbaa019df8f81
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 5d9aa8e144109b41144bb8b09447b8701d04f87e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225157"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389984"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器對應來了解應用程式元件
-檢視在 Azure 環境中執行的 Windows 和 Linux 虛擬機器上探索到的應用程式元件，可搭配適用於 VM 的 Azure 監視器使用下列兩種方式來觀測：直接從虛擬機器，或者從 Azure 監視器跨 VM 群組進行。 
+檢視在 Azure 中執行之 Windows 和 Linux 虛擬機器上探索到的應用程式元件，可搭配適用於 VM 的 Azure 監視器使用下列兩種方式來觀測您的環境：直接從虛擬機器，或者從 Azure 監視器跨 VM 群組進行。 
 
 本文將協助您了解這兩個檢視方塊之間的體驗，以及對應功能的使用方式。 如需設定適用於 VM 的 Azure 監視器相關資訊，請參閱[啟用適用於 VM 的 Azure 監視器](monitoring-vminsights-onboard.md)。
 
@@ -107,7 +107,9 @@ ms.locfileid: "47225157"
 
 ![Azure 監視器多部 VM 對應概觀](./media/monitoring-vminsights-maps/map-multivm-azure-monitor-01.png)
 
-從頁面頂端的 [工作區] 選取器，如果您具有多個 Log Analytics 工作區，請選擇已與解決方案整合且具有要向其報告之虛擬機器的 Log Analytics 工作區。  然後從 [群組] 選取器、訂用帳戶或資源群組進行選取，以檢視一段指定時間內一組 VM 及其與群組相符的相依性。  根據預設，對應會顯示過去 30 分鐘。  使用 [時間範圍] 選取器，可查詢過往時間範圍 (最長可達一小時)，以顯示相依性的過往情形 (例如在事件發生期間或變更發生之前)。   
+在頁面頂端的 [工作區] 選取器中，如果您有多個 Log Analytics 工作區，請選擇已可處理解決方案、且有虛擬機器要向其報告的工作區。 [群組] 選取器會傳回與選取的工作區有關的訂用帳戶、資源群組、[電腦群組](../log-analytics/log-analytics-computer-groups.md)與電腦的 VM 擴展集。 您的選取只會套用至「對應」功能，而不會擴及「效能」或「健康情況」。
+
+根據預設，對應會顯示過去 30 分鐘。 使用 [時間範圍] 選取器，可查詢過往時間範圍 (最長可達一小時)，以顯示相依性的過往情形 (例如在事件發生期間或變更發生之前)。   
 
 ## <a name="next-steps"></a>後續步驟
 若要了解如何使用健康情況功能，請參閱[檢視 Azure VM 健康情況](monitoring-vminsights-health.md)，或者，若要找出 VM 效能的瓶頸和整體使用率，請參閱[檢視適用於 VM 的 Azure 監視器效能](monitoring-vminsights-performance.md)。 

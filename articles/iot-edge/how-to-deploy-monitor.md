@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258428"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393452"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 入口網站大規模部署和監視 IoT Edge 模組
 
@@ -39,11 +39,11 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 }
 ```
 
-如需裝置對應項和標記的詳細資訊，請參閱[了解和使用 IoT 中樞的裝置對應項][lnk-device-twin]。
+如需裝置對應項和標記的詳細資訊，請參閱[了解和使用 IoT 中樞的裝置對應項](../iot-hub/iot-hub-devguide-device-twins.md)。
 
 ## <a name="create-a-deployment"></a>建立部署
 
-1. 在 [Azure 入口網站][lnk-portal]中，移至您的 IoT 中樞。 
+1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的 IoT 中樞。 
 1. 選取 [IoT Edge]。
 1. 選取 [新增 IoT Edge 部署]。
 
@@ -77,7 +77,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 1. 選取 [IoT Edge 模組]。
 1. 為模組指定**名稱**。
 1. 針對 [映像 URI] 欄位，為您的模組輸入容器映像。 
-1. 指定任何應傳遞至容器的**容器建立選項**。 如需詳細資訊，請參閱 [docker create][lnk-docker-create]。
+1. 指定任何應傳遞至容器的**容器建立選項**。 如需詳細資訊，請參閱 [docker create](https://docs.docker.com/engine/reference/commandline/create/)。
 1. 使用下拉式功能表來選取**重新啟動原則**。 從下列選項中選擇： 
    * **永遠**：如果模組基於任何原因而關閉，永遠都會重新啟動。
    * **永不**：如果模組基於任何原因而關閉，永遠都不會重新啟動。
@@ -117,11 +117,11 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 若要檢視部署的詳細資料並監視正在執行該部署的裝置，請使用下列步驟：
 
-1. 登入 [Azure 入口網站][lnk-portal]，然後瀏覽至 IoT 中樞。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。 
 1. 選取 [IoT Edge]。
 1. 選取 [IoT Edge 部署]。 
 
-   ![檢視 IoT Edge 部署][1]
+   ![檢視 IoT Edge 部署](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. 檢查部署清單。 針對每個部署，您可以檢視下列詳細資料：
    * **識別碼**：部署的名稱。
@@ -144,11 +144,11 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 若要修改部署，請使用下列步驟： 
 
-1. 登入 [Azure 入口網站][lnk-portal]，然後瀏覽至 IoT 中樞。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。 
 1. 選取 [IoT Edge]。
 1. 選取 [IoT Edge 部署]。 
 
-   ![檢視 IoT Edge 部署][1]
+   ![檢視 IoT Edge 部署](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. 選取您想要修改的部署。 
 1. 對下列欄位進行更新： 
@@ -156,17 +156,17 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
    * 標籤 
    * 優先順序 
 1. 選取 [ **儲存**]。
-1. 依照[監視部署][anchor-monitor]中的步驟來監看所推出的變更。 
+1. 依照[監視部署](#monitor-a-deployment)中的步驟監看變更推出的情形。 
 
 ## <a name="delete-a-deployment"></a>刪除部署
 
 當您刪除部署時，所有裝置均會採用其下一個最高優先順序的部署。 如果您的裝置不符合任何其他部署的目標條件，則在刪除部署時不會移除模組。 
 
-1. 登入 [Azure 入口網站][lnk-portal]，然後瀏覽至 IoT 中樞。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。 
 1. 選取 [IoT Edge]。
 1. 選取 [IoT Edge 部署]。 
 
-   ![檢視 IoT Edge 部署][1]
+   ![檢視 IoT Edge 部署](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. 使用核取方塊來選取您想要刪除的部署。 
 1. 選取 [刪除] 。
@@ -174,16 +174,4 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[將模組部署到 Edge 裝置][lnk-deployments]。
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+深入了解如何[將模組部署到 Edge 裝置](module-deployment-monitoring.md)。

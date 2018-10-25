@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bd9d3a677d9fea54331200258d4b9b8e07a54312
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956892"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870820"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式
 
@@ -274,7 +274,7 @@ RFC 6750 規格會針對在回應中使用 WWW 驗證標頭和持有人配置的
 
 ## <a name="refreshing-the-access-tokens"></a>重新整理存取權杖
 
-存取權杖有效期很短，到期後必須重新整理，才能繼續存取資源。 您可以重新整理 `access_token`，方法是向 `/token` 端點送出另一個 `POST` 要求，但這次提供 `refresh_token`，而不提供 `code`。
+存取權杖有效期很短，到期後必須重新整理，才能繼續存取資源。 您可以重新整理 `access_token`，方法是向 `/token` 端點送出另一個 `POST` 要求，但這次提供 `refresh_token`，而不提供 `code`。  重新整理權杖對用戶端已同意授予存取權限的所有資源均有效，因此，對 `resource=https://graph.microsoft.com` 要求所發出的重新整理權杖，可用於向 `resource=https://contoso.com/api` 要求新的存取權杖。 
 
 重新整理權杖並沒有指定的存留期。 一般而言，重新整理權杖的存留期相當長。 不過，在某些情況下，重新整理權杖會過期、遭到撤銷或對要執行的動作缺乏足夠的權限。 應用程式必須預期並正確處理權杖發行端點所傳回的錯誤。
 

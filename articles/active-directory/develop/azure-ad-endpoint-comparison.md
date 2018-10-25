@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406527"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955413"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>比較 Azure AD v2.0 端點與 v1.0 端點
 
@@ -133,7 +133,7 @@ v2.0 端點所簽發權杖中的宣告將不會與正式運作之 Azure AD 端�
 
 * 如果您必須在應用程式中支援個人 Microsoft 帳戶，請使用 v2.0。 但在這樣做之前，請務必了解本文中討論的限制。
 
-* 如果您的應用程式只需要支援 Microsoft 公司和學校帳戶，請不要使用 v2.0。 請改為參閱 [v1.0 指南](azure-ad-developers-guide.md)。
+* 如果您的應用程式只需要支援 Microsoft 公司和學校帳戶，請不要使用 v2.0。 請改為參閱 [v1.0 指南](v1-overview.md)。
 
 v2.0 端點會進化到排除此處所列的限制，屆時您只需要使用 v2.0 端點即可。 在此同時，請使用本文來判斷 v2.0 端點是否適合您。 我們將持續更新本文，以反映 v2.0 端點目前的狀態。 請記得回來重新評估您對 v2.0 功能的需求。
 

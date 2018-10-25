@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: bd03c0801fed0da6d9a87466bc33819f6afa4578
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 61d9606ff14a48e6c224108596f0f01daa4813e1
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296918"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954279"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 向 Azure Data Lake Storage Gen1 進行服務對服務驗證
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "46296918"
 在此文章中，您會了解如何使用 .NET SDK 向 Azure Data Lake Storage Gen1 進行服務對服務驗證。 針對使用 .NET SDK 向 Data Lake Storage Gen1 進行使用者驗證，請參閱[使用 .NET SDK 向 Data Lake Storage Gen1 進行使用者驗證](data-lake-store-end-user-authenticate-net-sdk.md)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **Visual Studio 2013、2015 或 2017**。 以下指示使用 Visual Studio 2017。
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -51,12 +51,12 @@ ms.locfileid: "46296918"
 
 5. 將 NuGet 套件新增至您的專案。
 
-   1. 在方案總管中以滑鼠右鍵按一下專案名稱，然後按一下 [管理 NuGet 封裝]。
+   1. 在方案總管中以滑鼠右鍵按一下專案名稱，然後按一下 [ **管理 NuGet 封裝**]。
    2. 在 [NuGet 套件管理員] 索引標籤中，確定 [套件來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
-   3. 搜尋並安裝下列 NuGet 套件：
+   3. 搜尋並安裝下列 NuGet 封裝：
 
-      * `Microsoft.Azure.Management.DataLake.Store` - 此教學課程使用 v2.1.3-preview。
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 此教學課程使用 v2.2.12。
+      * `Microsoft.Azure.Management.DataLake.Store` - 本教學課程使用 v2.1.3-preview。
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.2.12。
 
         ![新增 NuGet 來源](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "建立新的 Azure Data Lake 帳戶")
    4. 關閉 [NuGet 套件管理員]。
@@ -97,7 +97,7 @@ ms.locfileid: "46296918"
 
 ## <a name="service-to-service-authentication-with-certificate"></a>使用憑證進行服務對服務驗證
 
-在 .NET 用戶端應用程式中加入這個程式碼片段。 以從 Azure AD Web 應用程式 (列為必要元件) 中擷取的值取代預留位置值。 這個程式碼片段可讓您使用適用於 Azure AD Web 應用程式的憑證，以**非互動方式**向 Data Lake Storage Gen1 驗證應用程式。 如需有關如何建立 Azure AD 應用程式的指示，請參閱[使用憑證建立服務主體](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)。
+在 .NET 用戶端應用程式中加入這個程式碼片段。 以從 Azure AD Web 應用程式 (列為必要元件) 中擷取的值取代預留位置值。 這個程式碼片段可讓您使用適用於 Azure AD Web 應用程式的憑證，以**非互動方式**向 Data Lake Storage Gen1 驗證應用程式。 如需有關如何建立 Azure AD 應用程式的指示，請參閱[使用憑證建立服務主體](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate)。
 
     
     private static void Main(string[] args)

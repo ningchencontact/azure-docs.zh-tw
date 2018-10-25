@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 09/12/2018
+ms.date: 10/10/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721903"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319722"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>常見問題 - Hyper-V 到 Azure
 
@@ -104,7 +104,7 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 
 ### <a name="whats-the-replication-process"></a>複寫程序為何？
 
-1. 觸發初始複寫後，就會建立 Hyper-V VM 快照集。
+1. 系統會在初始複寫觸發時擷取 Hyper-V VM 快照集。
 2. VM 上的虛擬硬碟會逐一複寫，直到它們全部複製到 Azure 為止。 視 VM 大小和網路頻寬而定，這可能需要一些時間。 了解如何增加網路頻寬。
 3. 如果在初始複寫進行時發生磁碟變更，Hyper-V 複本複寫追蹤器會以 Hyper-V 複寫記錄 (.hrl) 的形式追蹤變更。 這些記錄檔位於與磁碟相同的資料夾中。 每個磁碟都有一個相關聯的.hrl 檔案會傳送至次要儲存體。 當初始複寫正在進行時，快照和記錄檔會取用磁碟資源。
 4. 初始複寫完成時，就會刪除 VM 快照集。
@@ -135,7 +135,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 
 若要進行複寫，Hyper-V VM 必須執行支援的作業系統。 此外，VM 必須符合 Azure VM 的需求。 請在[支援矩陣](hyper-v-azure-support-matrix.md#replicated-vms)中深入了解相關資訊。
 
-###<a name="how-often-can-i-replicate-to-azure"></a>複寫到 Azure 的頻率為何？
+### <a name="how-often-can-i-replicate-to-azure"></a>複寫到 Azure 的頻率為何？
 
 Hyper-V VM 可以每隔 30 秒 (進階儲存體除外)、5 分鐘或 15 分鐘複寫一次。
 
@@ -207,6 +207,3 @@ Azure 是針對復原能力而設計的。 Site Recovery 設計成可根據 Azur
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>是否可容錯回復至不同的位置？
 是的，在容錯移轉至 Azure 之後，如果原始位置無法使用，您可以容錯回復至不同的位置。 [深入了解](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment)。
-
-
-

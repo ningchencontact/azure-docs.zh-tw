@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 10/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: fd3ff0087ee51c392d9cebb32c8bcc969f9a4601
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241236"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341934"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 組態參考
 
  Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約程式碼所定義的多方工作流程。 組態中繼資料會定義區塊鏈應用程式的高階工作流程和互動模型。 智慧合約則會定義區塊鏈應用程式的商務邏輯。 Workbench 會使用組態和智慧合約程式碼來產生區塊鏈應用程式使用者體驗。
 
-組態中繼資料會指定每個區塊鏈應用程式的下列資訊： 
+組態中繼資料會指定每個區塊鏈應用程式的下列資訊：
 
 * 區塊鏈應用程式的名稱和說明
 * 可在區塊鏈應用程式中採取行動或參與的使用者唯一角色
@@ -73,17 +73,44 @@ ms.locfileid: "48241236"
 
 | 類型 | 說明 |
 |-------|-------------|
-| 位址  | 區塊鏈位址類型，例如「合約」或「使用者」 |
-| 布林     | 布林值資料類型 |
-| 合約 | 合約類型的位址 |
-| 列舉     | 列舉的具名值組。 使用列舉類型時，您也可以指定一份 EnumValues 清單。 每個值的上限為 255 個字元。 有效值的字元包括大小寫字母 (A-Z、a-z) 和數字 (0-9)。 |
-| int      | 整數資料類型 |
-| money    | 金錢資料類型 |
-| state    | 工作流程狀態 |
-| 字串   | 字串資料類型 |
-| user     | 使用者類型的位址 |
-| 分析     | 時間資料類型 |
+| 位址  | 區塊鏈位址類型，例如「合約」或「使用者」。 |
+| array    | 類型為整數、布林、金額、或時間的單一層級陣列。 陣列可以是靜態或動態。 使用 **ElementType** 指定陣列中元素的資料類型。 請參閱[組態範例](#example-configuration-of-type-array)。 |
+| 布林     | 布林值資料類型。 |
+| 合約 | 合約類型的位址。 |
+| 列舉     | 列舉的具名值組。 使用列舉類型時，您也可以指定一份 EnumValues 清單。 每個值的上限為 255 個字元。 有效值的字元包括大小寫字母 (A-Z、a-z) 和數字 (0-9)。 請參閱 [Solidity 中的組態範例和用法](#example-configuration-of-type-enum)。 |
+| int      | 整數資料類型。 |
+| money    | 金額資料類型。 |
+| state    | 工作流程狀態。 |
+| 字串  | 字串資料類型。 最多 4000 個字元。 請參閱[組態範例](#example-configuration-of-type-string)。 |
+| user     | 使用者類型的位址。 |
+| 分析     | 時間資料類型。 |
 |`[ Application Role Name ]`| 應用程式角色中所指定的任何名稱。 限制使用者只能成為該角色類型。 |
+
+### <a name="example-configuration-of-type-array"></a>陣列類型的組態範例
+
+```json
+{
+  "Name": "Quotes",
+  "Description": "Market quotes",
+  "DisplayName": "Quotes",
+  "Type": {
+    "Name": "array",
+    "ElementType": {
+        "Name": "int"
+    }
+  }
+}
+```
+
+#### <a name="using-a-property-of-type-array"></a>使用陣列類型的屬性
+
+如果您在組態中定義陣列類型的屬性，則必須包含明確的 get 函式，才能在 Solidity 中傳回陣列類型的公用屬性。 例如︰
+
+```
+function GetQuotes() public constant returns (int[]) {
+     return Quotes;
+}
+```
 
 ### <a name="example-configuration-of-type-string"></a>字串類型的組態範例
 

@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 031524f4ef00b57f598c1114d594fb70eeedd15b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590578"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393995"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>透過 IoT Edge 裝置閘道連線 Modbus TCP 裝置
 
@@ -54,13 +54,12 @@ mcr.microsoft.com/azureiotedge/modbus:1.0
 
       ```JSON
       {  
-        "properties.desired":{  
+        "properties.desired":{
           "PublishInterval":"2000",
-          "SlaveConfigs":{  
-            "Slave01":{  
-              "SlaveConnection":"<IPV4 address>",
-              "HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{  
+          "SlaveConfigs":{
+            "Slave01":{
+              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
+              "Operations":{
                 "Op01":{  
                   "PollingInterval": "1000",
                   "UnitId":"1",
@@ -100,8 +99,5 @@ docker logs -f modbus
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解 IoT Edge 裝置如何能作為閘道，請參閱[建立作為透明閘道的 IoT Edge 裝置][lnk-transparent-gateway-linux]
+- 若要了解有關 IoT Edge 裝置如何才能作為閘道的詳細資訊，請參閱[建立作為透明閘道的 IoT Edge 裝置](./how-to-create-transparent-gateway-linux.md)
 - 如需有關 IoT Edge 模組如何運作的詳細資訊，請參閱[了解 Azure IoT Edge 模組](iot-edge-modules.md)
-
-<!-- Links -->
-[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

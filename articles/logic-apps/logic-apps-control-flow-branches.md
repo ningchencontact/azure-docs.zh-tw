@@ -3,19 +3,18 @@ title: 建立或加入平行分支 - Azure Logic Apps | Microsoft Docs
 description: 如何在 Azure Logic Apps 中建立或加入工作流程的平行分支
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a8dcd82b67ee64e5687d8687415056b0aab39aa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.date: 10/10/2018
+ms.openlocfilehash: 41823d697139e039703cd47e0bfe3380fd2d20d6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298850"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116081"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立或加入工作流程動作的平行分支
 
@@ -24,7 +23,7 @@ ms.locfileid: "35298850"
 > [!TIP] 
 > 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，請[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
@@ -32,33 +31,44 @@ ms.locfileid: "35298850"
 
 <a name="parallel-branches"></a>
 
-## <a name="add-a-parallel-branch"></a>新增平行分支
+## <a name="add-parallel-branch"></a>新增平行分支
 
 若要同時執行獨立的步驟，您可以在現有的步驟旁新增平行分支。 
 
 ![平行執行步驟](media/logic-apps-control-flow-branches/parallel.png)
 
-邏輯應用程式會等到所有分支完成後，再繼續進行工作流程。
-平行分支會在其 `runAfter` 屬性值符合完成的父步驟狀態時才執行。 例如，`branchAction1` 和 `branchAction2` 皆設定為在 `parentAction` 完成且狀態為 `Succeded` 時，才會執行。
+邏輯應用程式會等到所有分支完成後，再繼續進行工作流程。 平行分支會在其 `runAfter` 屬性值符合完成的父步驟狀態時才執行。 例如，`branchAction1` 和 `branchAction2` 皆設定為在 `parentAction` 完成且狀態為 `Succeded` 時，才會執行。
 
 > [!NOTE]
 > 開始之前，應用程式邏輯必須已有可新增平行分支的步驟。
 
 1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-2. 將滑鼠移到要新增平行分支之步驟上方的箭號。
-
-3. 選擇**加號** (**+**)、選擇 [新增平行分支]，然後選取您想要新增的項目。
+1. 將滑鼠指標移到您要新增平行分支的步驟上方的箭號。 選擇所顯示的**加號** (**+**)，然後選擇 [新增平行分支]。 
 
    ![新增平行分支](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-   您選取的項目現在會出現在平行分支中。
+1. 在搜尋方塊中，尋找並選取您想要的動作。
 
-4. 針對每個平行分支，新增您想要的步驟。 若要將循序動作新增至平行分支，請將滑鼠移至您要新增循序動作之動作的下方。 選擇**加號** (**+**) 和您想要新增的步驟。
+   ![尋找並選取您想要的動作](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   ![將循序步驟新增至平行分支](media/logic-apps-control-flow-branches/add-sequential-action-parallel-branch.png)
+   您選取的動作現在會出現在平行分支中，例如：
 
-5. 若要將分支合併回去，則[加入您的平行分支](#join-branches)。 
+   ![尋找並選取您想要的動作](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+
+1. 立即在每個平行分支中，新增您想要的步驟。 若要將另一個動作新增至分支，請將滑鼠指標移至您要新增循序動作的動作下方。 選擇所顯示的**加號** (**+**)，然後選取 [新增動作]。
+
+   ![將循序動作新增至平行分支](media/logic-apps-control-flow-branches/add-sequential-action.png)
+
+1. 在搜尋方塊中，尋找並選取您想要的動作。
+
+   ![尋找並選取循序動作](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+
+   您選取的動作現在會出現目前的分支中，例如：
+
+   ![尋找並選取循序動作](media/logic-apps-control-flow-branches/added-sequential-action.png)
+
+若要將分支合併回去，則[加入您的平行分支](#join-branches)。 
 
 <a name="parallel-json"></a>
 
@@ -69,17 +79,17 @@ ms.locfileid: "35298850"
 ``` json
 {
   "triggers": {
-    "myTrigger": { }
+    "myTrigger": {}
   },
   "actions": {
     "parentAction": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {}
     },
     "branchAction1": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -88,7 +98,7 @@ ms.locfileid: "35298850"
     },
     "branchAction2": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -110,11 +120,17 @@ ms.locfileid: "35298850"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，尋找並開啟邏輯應用程式。 
 
-2. 在想要加入的平行分支下，新增您想要執行的步驟。
+1. 在您想要聯結的平行分支下方，選擇 [新增步驟]。 
 
-   ![新增加入平行分支的步驟](media/logic-apps-control-flow-branches/join-steps.png)
+   ![新增要聯結的步驟](media/logic-apps-control-flow-branches/add-join-step.png)
+
+1. 在搜尋方塊中，尋找並選取您想要的動作，作為聯結分支的步驟。
+
+   ![尋找並選取可聯結平行分支的步驟](media/logic-apps-control-flow-branches/join-steps.png)
 
    平行分支現在已合併。
+
+   ![聯結的分支](media/logic-apps-control-flow-branches/joined-branches.png)
 
 <a name="join-json"></a>
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory 中的持續整合和部署 | Microsoft Docs
-description: 了解如何使用持續整合和部署將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。
+title: Azure Data Factory 中的持續整合和傳遞 | Microsoft Docs
+description: 了解如何使用持續整合和傳遞將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 89ea3d576f20f6e62730b40e0e4f4f8d5f798142
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146197"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386969"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和部署
+# <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
-持續整合是指進行相關實作，以自動並及早測試對您的程式碼基底所做的每項變更。 在持續整合期間執行測試，並將變更推送至暫存或生產系統後，就會進行持續部署。
+持續整合是指進行相關實作，以自動並及早測試對您的程式碼基底所做的每項變更。 在持續整合期間執行測試，並將變更推送至暫存或生產系統後，就會進行持續傳遞。
 
-就 Azure Data Factory 而言，持續整合和部署是指將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。 若要進行持續整合和部署，您可以使用 Data Factory UI 整合與 Azure Resource Manager 範本。 當您選取 [ARM 範本] 選項時，Data Factory UI 可產生 Resource Manager 範本。 當您選取 [匯出 ARM 範本] 時，入口網站將會產生資料處理站的 Resource Manager 範本，以及包含您所有連接字串和其他參數的組態檔。 然後，您必須為每個環境 (開發、測試、生產) 建立一個組態檔。 所有環境的主要 Resource Manager 範本檔案會保持相同。
+就 Azure Data Factory 而言，持續整合和傳遞是指將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。 若要進行持續整合和傳遞，您可以使用 Data Factory UI 整合與 Azure Resource Manager 範本。 當您選取 [ARM 範本] 選項時，Data Factory UI 可產生 Resource Manager 範本。 當您選取 [匯出 ARM 範本] 時，入口網站將會產生資料處理站的 Resource Manager 範本，以及包含您所有連接字串和其他參數的組態檔。 然後，您必須為每個環境 (開發、測試、生產) 建立一個組態檔。 所有環境的主要 Resource Manager 範本檔案會保持相同。
 
 如需此功能的 9 分鐘簡介與示範，請觀看下列影片：
 
@@ -53,9 +53,9 @@ ms.locfileid: "42146197"
 ![開啟程式碼檢視以查看連接字串](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>持續整合生命週期
-以下是您在 Data Factory UI 中啟用 VSTS GIT 整合之後所能使用的持續整合和部署的完整生命週期：
+以下是您在 Data Factory UI 中啟用 Azure Repos Git 整合之後所能使用的持續整合和傳遞的完整生命週期：
 
-1.  使用可讓所有開發人員撰寫 Data Factory 資源 (例如管線、資料集等等) 的 VSTS 設定開發資料處理站。
+1.  使用可讓所有開發人員撰寫 Data Factory 資源 (例如管線、資料集等等) 的 Azure Repos 設定開發資料處理站。
 
 1.  接著，開發人員可以修改管線之類的資源。 在進行修改時，他們可以選取 [偵錯] 以查看管線在經過最新變更之後的執行情況。
 
@@ -67,25 +67,25 @@ ms.locfileid: "42146197"
 
 1.  匯出的 Resource Manager 範本可使用不同的參數檔案部署至測試處理站和生產處理站。
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>透過 VSTS 發行自動執行持續整合
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>透過 Azure Pipelines 發行將持續整合自動化
 
-以下是設定 VSTS 發行以將資料處理站自動部署至多個環境的步驟。
+以下是設定 Azure Pipelines 發行以將資料處理站自動部署至多個環境的步驟。
 
-![透過 VSTS 設定連續整合的圖表](media/continuous-integration-deployment/continuous-integration-image12.png)
+![透過 Azure Pipelines 進行持續整合的圖表](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>需求
 
--   使用 [*Azure Resource Manager 服務端點*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)連結至 Team Foundation Server 或 VSTS 的 Azure 訂用帳戶。
+-   使用 [*Azure Resource Manager 服務端點*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)連結至 Team Foundation Server 或 Azure Repos 的 Azure 訂用帳戶。
 
--   已設定 VSTS Git 的 Data Factory。
+-   設定了 Azure Repos Git 整合的 Data Factory。
 
 -   包含密碼的 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)。
 
-### <a name="set-up-a-vsts-release"></a>設定 VSTS 發行
+### <a name="set-up-an-azure-pipelines-release"></a>設定 Azure Pipelines 發行
 
-1.  移至您以 Data Factory 設定之相同專案中的 VSTS 頁面。
+1.  移至您以 Data Factory 設定之相同專案中的 Azure Repos 頁面。
 
-1.  按一下頂層功能表的 [建置及發行] &gt; [發行] &gt; [建立發行定義]。
+1.  按一下頂層功能表的 [Azure Pipelines] &gt; [發行] &gt; [建立發行定義]。
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -113,15 +113,20 @@ ms.locfileid: "42146197"
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  儲存發行定義。
+    g. 選取 [累加] 部署模式。
 
-1.  從這個發行定義建立新發行。
+    > [!WARNING]
+    > 如果您選取 [完整] 部署模式，則可能會刪除現有的資源，包括目標資源群組中所有未定義於 Resource Manager 範本內的資源。
+
+1.  儲存發行管線。
+
+1.  從這個發行管線建立新發行。
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>選用 - 從 Azure Key Vault 取得祕密
 
-如果您要將祕密傳遞至 Azure Resource Manager 範本，我們建議您使用 VSTS 版本的 Azure Key Vault。
+如果您要將祕密傳遞至 Azure Resource Manager 範本，建議您搭配使用 Azure Key Vault 與 Azure Pipelines 發行。
 
 有兩種方式可處理密碼︰
 
@@ -148,7 +153,7 @@ ms.locfileid: "42146197"
 
     -   參數檔案也必須位於發行分支中。
 
-1.  在上一節中所述的 Azure Resource Manager 部署之前，新增 [Azure Key Vault 工作](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)：
+1.  在上一節中所述的 Azure Resource Manager 部署之前，新增 [Azure Key Vault 工作](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault)：
 
     -   選取 [工作] 索引標籤、建立新的工作、搜尋 **Azure Key Vault**，並加以新增。
 
@@ -156,13 +161,13 @@ ms.locfileid: "42146197"
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>授與對 VSTS 代理程式的權限
-Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取錯誤。 下載發行的記錄，並使用指定 VSTS 代理程式權限的命令找出 `.ps1` 檔案。 您可以直接執行此命令，或是從檔案複製主體識別碼，然後在 Azure 入口網站中手動新增存取原則。 (*取得*和*列出*是所需的最低權限)。
+### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>為 Azure Pipelines 代理程式授與權限
+Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取錯誤。 請下載發行的記錄，並使用命令找出 `.ps1` 檔案，為 Azure Pipelines 代理程式指定權限。 您可以直接執行此命令，或是從檔案複製主體識別碼，然後在 Azure 入口網站中手動新增存取原則。 (*取得*和*列出*是所需的最低權限)。
 
 ### <a name="update-active-triggers"></a>更新使用中的觸發程序
 如果您嘗試更新使用中的觸發程序，部署可能會失敗。 若要更新使用中的觸發程序，您必須手動將其停止，等部署完成後再加以啟動。 為此，您可以新增 Azure Powershell 工作，如下列範例所示：
 
-1.  在 [VSTS 發行] 的 [工作] 索引標籤中，搜尋 **Azure Powershell** 並加以新增。
+1.  在發行的 [工作] 索引標籤中，搜尋 **Azure Powershell** 並加以新增。
 
 1.  選擇 **Azure Resource Manager** 作為連線類型，然後選取您的訂用帳戶。
 
@@ -178,9 +183,12 @@ Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取�
 
 在部署之後，您可以依照類似的步驟，並使用 (與 `Start-AzureRmDataFactoryV2Trigger` 函式) 類似的程式碼，來重新啟動觸發程序。
 
+> [!IMPORTANT]
+> 在持續整合和部署案例中，跨不同環境的整合執行階段類型必須是相同的。 例如，如果您在開發環境中有*自我裝載*整合執行階段 (IR)，則相同的 IR 在其他環境 (例如測試和生產環境) 中也必須屬於*自我裝載*類型。 同樣地，如果您要跨多個階段共用整合執行階段，則必須將所有環境中的 IR 設定為*連結自我裝載*，例如開發、測試和生產環境。
+
 ## <a name="sample-deployment-template"></a>範例部署範本
 
-以下是您可以在 VSTS 中匯入的範例部署範本。
+以下是您可以在 Azure Pipelines 中匯入的範例部署範本。
 
 ```json
 {
@@ -720,7 +728,7 @@ Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取�
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>用以停止並重新啟動觸發程序和清除的範例指令碼
 
-以下是可在部署之前停止觸發程序並在其後重新啟動觸發程序的範例指令碼。 此指令碼也包含可將已移除的資源刪除的程式碼。
+以下是可在部署之前停止觸發程序並在其後重新啟動觸發程序的範例指令碼。 此指令碼也包含可將已移除的資源刪除的程式碼。 若要安裝最新版的 Azure PowerShell，請參閱[使用 PowerShellGet 在 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0)。
 
 ```powershell
 param
@@ -799,9 +807,9 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>搭配使用自訂參數與 Resource Manager 範本
 
-您可以定義 Resource Manager 範本的自訂參數。 您只需要在存放庫的根資料夾中具有名為 `arm-template-parameters-definition.json` 的檔案  (檔案名稱必須完全符合這裡顯示的名稱)。Data Factory 會嘗試從您目前使用的任何分支中讀取檔案，而不只是從共同作業分支。 如果找不到任何檔案，則 Data Factory 會使用預設定義。
+您可以定義 Resource Manager 範本的自訂參數。 您只需要在存放庫的根資料夾中具有名為 `arm-template-parameters-definition.json` 的檔案  (檔案名稱必須完全符合這裡顯示的名稱)。Data Factory 會嘗試從您目前使用的任何分支中讀取檔案，而不只是從共同作業分支。 如果找不到任何檔案，Data Factory 會使用預設的參數和值。
 
-下列範例顯示範例參數檔案。 使用此範例作為參考，以建立您自己的自訂參數檔案。 如果您提供的檔案不是正確的 JSON 格式，則 Data Factory 會在瀏覽器主控台中輸出錯誤訊息，並還原為 Data Factory UI 中顯示的預設定義。
+下列範例顯示範例參數檔案。 使用此範例作為參考，以建立您自己的自訂參數檔案。 如果您提供的檔案不是正確的 JSON 格式，則 Data Factory 會在瀏覽器主控台中輸出錯誤訊息，並還原為 Data Factory UI 中顯示的預設參數和值。
 
 ```json
 {

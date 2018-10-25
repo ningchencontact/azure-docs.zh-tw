@@ -3,16 +3,17 @@ title: 在 Azure 中重建 Contoso 內部部署應用程式 | Microsoft Docs
 description: 了解 Contoso 如何使用 Azure App Service、Kubernetes 服務、CosmosDB、Azure Functions 和認知服務在 Azure 中重建應用程式。
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: f0dc199f8a91ac06993f4ccbc9dff7dfad9f8a19
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042477"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092965"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso 移轉：在 Azure 中重建內部部署應用程式
 
@@ -32,12 +33,13 @@ ms.locfileid: "47042477"
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | 說明 Contoso 如何使用 Site Recovery 執行將 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業 | 可用
 [文章 8：在 Azure VM 和 Azure MySQL Server 上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | 說明 Contoso 如何使用 Site Recovery 將 Linux osTicket 應用程式移轉至 Azure VM，並使用 MySQL Workbench 將應用程式資料庫移轉至 Azure MySQL Server 執行個體。 | 可用
 [文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | 說明 Contoso 如何將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及如何將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
-[文章 10：將 Linux 應用程式重構到 Azure Web Apps 和 Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | 示範 Contoso 如何將 Linux osTicket 應用程式移轉到多個網站中的 Azure Web Apps (與 GitHub 整合以達到持續傳遞)。 他們會將應用程式資料庫移轉到 Azure MySQL 執行個體。 | 可用
+[文章 10：將 Linux 應用程式重構到 Azure Web Apps 和 Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | 示範 Contoso 如何將 Linux osTicket 應用程式遷移至多個網站中的 Azure Web Apps (與 GitHub 整合以達到持續傳遞)。 他們會將應用程式資料庫遷移至 Azure MySQL 執行個體。 | 可用
 [文章 11：在 Azure DevOps Services 上重構 TFS](contoso-migration-tfs-vsts.md) | 說明 Contoso 如何透過將內部部署 Team Foundation Server (TFS) 部署移轉至 Azure 中的 Azure DevOps Services 來對 TFS 進行移轉。 | 可用
-[文章 12：在 Azure 容器和 SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | 示範 Contoso 如何將其 SmartHotel 應用程式移轉和重新架構至 Azure。 它們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
-文章 13：在 Azure 中重建應用程式 | 示範 Contoso 如何使用各種 Azure 功能和服務 (包括 App Services、Azure Kubernetes、Azure Functions、認知服務及 Cosmos DB) 重建其 SmartHotel 應用程式。 | 此文章。
+[文章 12：在 Azure 容器和 SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | 示範 Contoso 如何將其 SmartHotel 應用程式遷移和重新架構至 Azure。 它們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
+文章 13：在 Azure 中重建應用程式 | 示範 Contoso 如何使用各種 Azure 功能和服務 (包括應用程式服務、Azure Kubernetes、Azure Functions、認知服務及 Cosmos DB) 重建其 SmartHotel 應用程式。 | 本文
+[文章 14：對 Azure 進行大規模移轉](contoso-migration-scale.md) | Contoso 在試驗完移轉組合後，準備對 Azure 進行完整規模的移轉。 | 可用
 
-在此文章中，Contoso 會移轉兩層式 Windows。 NET SmartHotel360 應用程式 (執行於 VMware VM)，移轉至 Azure。 如果您想使用此應用程式，您可以從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載其開放原始碼。
+在本文中，Contoso 會遷移兩層式 Windows。 NET SmartHotel360 應用程式 (執行於 VMware VM)，移轉至 Azure。 如果您想使用此應用程式，您可以從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載其開放原始碼。
 
 ## <a name="business-drivers"></a>商業動機
 
@@ -138,7 +140,7 @@ Contoso 會透過比較一份優缺點清單，來評估建議設計。
 > * **步驟 2：建置 Docker 容器**：他們會使用 Azure DevOps 來設定 Docker 容器的 CI，然後將其推送至 ACR。
 > * **步驟 3：部署後端微服務**：他們會部署基礎結構的其餘部分，以供後端微服務運用。
 > * **步驟 4：部署前端基礎結構**：他們會部署前端基礎結構，包括寵物電話的 Blob 儲存體、Cosmos DB 和視覺 API。
-> * **步驟 5：移轉後端**：他們會部署微服務並在 AKS 上執行，以移轉後端。
+> * **步驟 5：遷移後端**：他們會部署微服務並在 AKS 上執行，以遷移後端。
 > * **步驟 6：發佈前端**：他們會將 SmartHotel360 應用程式發佈至 Azure App Service 以及寵物服務所會呼叫的函式應用程式。
 
 
@@ -284,7 +286,7 @@ Contoso 會建立 Azure DevOps 專案，並設定 CI 組建來建立容器，再
 - 本節中的指示會使用 [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) 存放庫。
 - 在 **/deploy/k8s/arm** 資料夾中有一個指令碼可建立所有項目。 
 
-他們會依下列方式進行部署：
+他們會如下所示地進行部署：
 
 1. 他們會開啟開發人員命令提示字元，然後使用 az login 命令來登入 Azure 訂用帳戶。
 2. 他們會使用 deploy.cmd 檔案，透過輸入下列命令，將 Azure 資源部署在 ContosoRG 資源群組和 EUS2 區域：
@@ -533,7 +535,7 @@ Contoso 管理員現在已可發佈網站。
 
 10. 他們會按一下成品上的閃電圖示，然後啟用持續部署。
 
-    ![持續部署](./media/contoso-migration-rebuild/vsts-publishfront6.png)
+    ![連續部署](./media/contoso-migration-rebuild/vsts-publishfront6.png)
 11. 在 [環境] 中，他們會按一下 [Staging] 底下的 [1 個作業, 1 個工作]。
 12. 選取訂用帳戶和應用程式名稱之後，他們會開啟 [Azure App Service 部署] 工作。 此部署已設定成使用 [預備環境] 部署位置。 這會自動在此位置建置要檢閱和核准的程式碼。
 
@@ -572,7 +574,7 @@ Contoso 管理員現在已可發佈網站。
 
 17. 管線會完成交換。
 
-    ![完成交換](./media/contoso-migration-rebuild/vsts-publishfront16.png)
+    ![完整的交換](./media/contoso-migration-rebuild/vsts-publishfront16.png)
 
 18. 小組會檢查 [生產環境] 位置，以確認該 Web 應用程式已於 **https://smarthotelcontoso.azurewebsites.net/** 投入生產環境。
 

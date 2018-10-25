@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529105"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091705"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
 
@@ -64,8 +64,8 @@ Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Az
 |清除|自動|手動|  
 |使用 REST 存取|無法存取 VHD 內的檔案|可以存取儲存在共用中的檔案|  
 |大小上限|4 TiB 的磁碟|5 TiB 的檔案共用和 1 TiB 的共用內檔案|  
-|最大 8KB IOps|500 IOps|1000 IOps|  
-|Throughput|每個磁碟最高可達每秒 60 MiB|每個檔案共用最高可達每秒 60 MiB|  
+|最大 IOps|500 IOps|1000 IOps|  
+|Throughput|每個磁碟最高可達每秒 60 MiB|每個檔案共用的目標是每秒 60 Mib (更高 IO 大小可以達到更高目標)|  
 
 ## <a name="next-steps"></a>後續步驟
 

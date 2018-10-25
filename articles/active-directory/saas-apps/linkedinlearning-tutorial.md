@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 02e7d9d26b389e82365f3447cceb5566244236f1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440903"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>教學課程：Azure Active Directory 與 LinkedIn Learning 整合
 
@@ -110,7 +110,7 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
-1. 按一下 [或按一下這裡以從表單載入和複製個別欄位]，並複製 [實體識別碼] 和 [判斷提示取用者存取 (ACS) URL]
+1. 按一下 [或按一下這裡以從表單載入和複製個別欄位]，並複製 [實體識別碼] 和 [判斷提示取用者服務 (ACS) URL]
 
     ![設定單一登入](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
@@ -120,9 +120,9 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，輸入從 LinkedIn 入口網站複製的 [實體 ID] 
 
-    b. 在 [回覆 URL] 文字方塊中，輸入從 LinkedIn 入口網站複製的 [判斷提示取用者存取 (ACS) URL]
+    b. 在 [回覆 URL] 文字方塊中，輸入從 LinkedIn 入口網站複製的 [判斷提示取用者服務 (ACS) URL]
 
-1. 如果您想要在 [SP 起始] 下設定 SSO，請按一下 [設定] 區段中的 [顯示進階 URL 設定] 選項，然後以下列模式設定登入 URL：
+1. 如果您想要在 **SP 起始**中設定 SSO，則在您要指定登入 URL 的組態區段中按一下 [顯示進階 URL] 設定選項。  若要建立您的登入 URL，請複製 [判斷提示取用者服務 (ACS) URL] 並將 /saml/ 取代為 /login/。   完成之後，登入 URL 應該會有下列模式：
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 

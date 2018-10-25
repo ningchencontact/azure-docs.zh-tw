@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293711"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115517"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure App Service 中設定 Web 應用程式
 
@@ -73,6 +73,7 @@ ms.locfileid: "36293711"
 這一節包含 Web 應用程式將在啟動時載入的名稱/值組。 
 
 * 如果是 .NET 應用程式，這些設定就會在執行階段插入 .NET 設定 `AppSettings` ，並覆寫現有的設定。 
+* 對於 Linux 上的 App Service 或 用於容器的 Web App，如果您的名稱中有巢狀 json 索引鍵結構 (例如 `ApplicationInsights:InstrumentationKey`)，您必須以 `ApplicationInsights__InstrumentationKey` 作為索引鍵名稱。 因此請注意，任何 `:` 都應該由 `__` (也就是雙底線) 取代。
 * PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。 系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING_ 前置詞。 這兩個變數都包含相同的值。
 
 應用程式設定在儲存時一律加密 (待用加密)。

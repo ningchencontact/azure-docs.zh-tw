@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 406baeac60c7c0cdf5f74876e5fc29ea23d3d6f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393316"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957542"
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 的多重租用戶雲端式目錄和身分識別管理服務。 Azure AD 能將核心目錄服務、應用程式存取管理，以及身分識別保護結合為單一解決方案，並提供以標準為基礎的平台，以協助開發人員根據集中式原則及規則為其應用程式傳遞存取控制。
@@ -74,7 +74,7 @@ Azure AD 多租用戶、地理分布周全，且高可用性的設計，表示�
 註冊免費的 30 天試用並部署您的第一個雲端解決方案，請參閱 [Azure Active Directory Premium 試用](https://azure.microsoft.com/trial/get-started-active-directory/)。
 
 ## <a name="as-a-developer-how-do-i-get-started"></a>身為開發人員，我該如何開始使用？
-註冊免費的 30 天試用並開始與 Azure AD 整合您的應用程式，請參閱 [Azure Active Directory Premium 試用](https://azure.microsoft.com/trial/get-started-active-directory/)。 如需詳細資訊，您也可以參閱適用於 Azure Active Directory 的[開發人員指南](../develop/azure-ad-developers-guide.md)。
+註冊免費的 30 天試用並開始與 Azure AD 整合您的應用程式，請參閱 [Azure Active Directory Premium 試用](https://azure.microsoft.com/trial/get-started-active-directory/)。 如需詳細資訊，您也可以參閱適用於 Azure Active Directory 的[開發人員指南](../develop/v1-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 - [深入了解 Azure 身分識別和存取管理的基本概念](identity-fundamentals.md)。

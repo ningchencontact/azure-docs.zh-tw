@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 5bd5919efa84f2dd22929075b806747b413ac346
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051788"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395073"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>適用於 Azure HDInsight 上 ML 服務的 Azure 儲存體解決方案
 
@@ -159,7 +159,7 @@ HDInsight 上的 ML 服務可以使用數種儲存體解決方案，來保存資
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>搭配 HDInsight 上的 ML 服務使用 Azure 檔案儲存體
 
-另外還有可在邊緣節點上使用的便利資料儲存選項，我們稱之為 [Azure 檔案]((https://azure.microsoft.com/services/storage/files/)。 它可以讓您將 Azure 儲存體的檔案共用掛接至 Linux 檔案系統。 此選項對於儲存資料檔案、R 指令碼與結果物件相當便利，該結果物件在稍後可以於邊緣節點 (而不是 HDFS) 上使用原生檔案系統時需要。 
+另外還有可在邊緣節點上使用的便利資料儲存選項，我們稱之為 [Azure 檔案](https://azure.microsoft.com/services/storage/files/)。 它可以讓您將 Azure 儲存體的檔案共用掛接至 Linux 檔案系統。 此選項對於儲存資料檔案、R 指令碼與結果物件相當便利，該結果物件在稍後可以於邊緣節點 (而不是 HDFS) 上使用原生檔案系統時需要。 
 
 Azure 檔案的主要優點是，只要是擁有受支援作業系統 (例如 Windows 或 Linux) 的系統，就可以掛接和使用檔案共用。 例如，您本人或您的小組成員所擁有的另一個 HDInsight 叢集，或是 Azure VM 甚或內部部署系統均可使用 Azure 檔案。 如需詳細資訊，請參閱
 

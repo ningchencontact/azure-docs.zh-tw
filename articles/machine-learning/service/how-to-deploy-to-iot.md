@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 03d692ddfd6f41fd559e9b921f0214a9cd2ada22
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225220"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091618"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>準備在 IoT Edge 上部署模型
 
@@ -35,7 +35,7 @@ Azure IoT Edge 裝置是以 Linux 或 Windows 為基礎並執行 Azure IoT Edge 
 
 * Azure 訂用帳戶中的 [Azure IoT 中樞](../../iot-hub/iot-hub-create-through-portal.md)。 
 
-* 已定型的模型。 如需模型定型方式範例，請參閱[使用 Azure Machine Learning 將映像分類模型定型](tutorial-train-models-with-aml.md)文件。
+* 已定型的模型。 如需模型定型方式範例，請參閱[使用 Azure Machine Learning 將映像分類模型定型](tutorial-train-models-with-aml.md)文件。 在[適用於 Azure IoT Edge 的 AI 工具組 GitHub 存放庫](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)中可取得預先定型的模型。
 
 ## <a name="prepare-the-iot-device"></a>準備 IoT 裝置
 
@@ -43,10 +43,7 @@ Azure IoT Edge 裝置是以 Linux 或 Windows 為基礎並執行 Azure IoT Edge 
 
 ## <a name="register-the-model"></a>註冊模型
 
-Azure IoT Edge 模組是以容器映像為基礎。 若要將模型部署至 IoT Edge 裝置，請使用下列步驟在 Azure Machine Learning 工作區註冊模型，並建立 Docker 映像。 
-
-> [!IMPORTANT]
-> 若您使用 Azure Machine Learning 將模型定型，模型可能已在工作區中註冊，此時請略過步驟 3。
+Azure IoT Edge 模組是以容器映像為基礎。 若要將模型部署至 IoT Edge 裝置，請使用下列步驟在 Azure Machine Learning 服務工作區註冊模型，並建立 Docker 映像。 
 
 1. 初始化工作區並載入 config.json 檔案：
 
@@ -58,6 +55,9 @@ Azure IoT Edge 模組是以容器映像為基礎。 若要將模型部署至 IoT
     ```    
 
 1. 將模型註冊到工作區中。 以您的模型路徑、名稱、標記與描述取代預設文字：
+
+    > [!IMPORTANT]
+    > 如果您使用 Azure Machine Learning 將模型定型，此模型可能已在工作區中註冊。 若是如此，請略過此步驟。 若要查看已在此工作區中註冊的模型清單，請使用 `Model.list(ws)`。
 
     ```python
     from azureml.core.model import Model
@@ -122,7 +122,7 @@ Azure IoT 需要 Azure Machine Learning 服務儲存 Docker 映像之容器登�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/signin/index)。
 
-1. 前往您的 Azure Machine Learning 工作區並選取 [概觀]。 前往容器登錄設定，選取 [登錄] 連結。
+1. 前往您的 Azure Machine Learning 服務工作區並選取 [概觀]。 前往容器登錄設定，選取 [登錄] 連結。
 
     ![容器登錄項目影像](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 

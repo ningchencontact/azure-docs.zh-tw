@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162138"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114976"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -111,17 +111,33 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 * 檔案大小限制為 5 MB。
 * 驗證訊息應該少於 20 秒。 超過 20 秒的訊息可能會導致驗證失敗。 在訊息結束且驗證逾時之前，使用者可能無法回應。
 
+### <a name="custom-message-language-behavior"></a>自訂訊息語言行為
+
+對使用者播放自訂語音訊息時，訊息的語言取決於下列因素：
+
+* 目前使用者的語言。
+   * 使用者的瀏覽器偵測到的語言。
+   * 其他驗證案例可能會有不同的行為。
+* 任何可用自訂訊息的語言。
+   * 新增自訂訊息時，系統管理員會選擇此語言。
+
+例如，如果只有一則使用德語的自訂訊息：
+
+* 以德語進行驗證的使用者會聽到自訂德文訊息。
+* 以英文進行驗證的使用者會聽到標準英文訊息。
+
 ### <a name="set-up-a-custom-message"></a>設定自訂訊息
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 [Azure Active Directory] > [MFA Server] > [通話設定]。
+1. 瀏覽至 [Azure Active Directory] > [MFA Server] > [通話設定]。
 
    ![記錄自訂號碼訊息](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. 選取 [新增問候語]。
-4. 選擇問候語的類型。 選擇語言。
-5. 選取要上傳的 .mp3 或 .wav 音效檔。
-6. 選取 [新增] 。
+1. 選取 [新增問候語]。
+1. 選擇問候語的類型。 
+1. 選擇語言。
+1. 選取要上傳的 .mp3 或 .wav 音效檔。
+1. 選取 [新增] 。
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的快取
 
@@ -180,7 +196,7 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在左側，選取 [Azure Active Directory] > [條件式存取] > [具名位置]。
 3. 選取 [設定 MFA 信任的 IP]。
-4. 在 [服務設定] 頁面之 [信任的 IP] 下方，選擇下列兩個選項：
+4. 在 [服務設定] 頁面的 [信任的 IP] 下方，選擇下列兩個選項中的任一項：
    
    * **適用於從我的內部網路產生的同盟使用者提出的要求**：若要選擇此選項，請選取核取方塊。 所有從公司網路登入的同盟使用者都會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立下列規則：<br/>
 
@@ -200,10 +216,10 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>使用服務設定啟用信任的 IP 功能
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
+2. 選取左邊的 [Azure Active Directory] > [使用者]。
 3. 選取 [多重要素驗證]。
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
-5. 在 [服務設定] 頁面之 [信任的 IP] 下方，選擇下列兩個選項：
+5. 在 [服務設定] 頁面的 [信任的 IP] 下方，選擇下列兩個選項中的一或兩項：
    
    * **適用於從我的內部網路上的同盟使用者提出的要求**：若要選擇此選項，請選取核取方塊。 所有從公司網路登入的同盟使用者都會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立下列規則：<br/>
 
@@ -306,11 +322,11 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 ### <a name="how-the-feature-works"></a>此功能的運作方式
 
-當使用者在登入時選取 [X 天內不要再問我] 選項時，記住 Multi-Factor Authentication 功能就會設定瀏覽器上的永續性 cookie。 該相同的瀏覽器不會再次提示使用者進行 Multi-Factor Authentication，直到 cookie 到期為止。 如果使用者在相同的裝置上開啟不同的瀏覽器或清除其 cookie，系統會提示他們再次確認。 
+當使用者在登入時選取 [X 天內不要再問我] 選項時，記住 Multi-Factor Authentication 功能就會設定瀏覽器上的永續性 cookie。 該相同的瀏覽器不會再次提示使用者進行 Multi-Factor Authentication，直到 cookie 到期為止。 如果使用者在相同的裝置上開啟不同的瀏覽器或清除其 cookie，系統會提示他們再次確認。
 
-非瀏覽器應用程式上不會顯示 [X 天內不要再問我] 選項，不論應用程式是否支援新式驗證。 這些應用程式使用每隔一小時會提供新存取權杖的_重新整理權杖_。 當已驗證重新整理權杖時，Azure AD 會檢查在指定天數內發生的最後一次雙步驟驗證。 
+非瀏覽器應用程式上不會顯示 [X 天內不要再問我] 選項，不論應用程式是否支援新式驗證。 這些應用程式使用每隔一小時會提供新存取權杖的_重新整理權杖_。 當已驗證重新整理權杖時，Azure AD 會檢查在指定天數內發生的最後一次雙步驟驗證。
 
-此功能會減少 web 應用程式上的驗證次數，一般每次皆會提示。 此功能會增加新式驗證用戶端的驗證次數 (一般會每隔 90 天提示一次)。
+此功能會減少 web 應用程式上的驗證次數，一般每次皆會提示。 此功能會增加新式驗證用戶端的驗證次數 (一般會每隔 90 天提示一次)。 若與條件式存取原則結合，也可以增加驗證次數。
 
 >[!IMPORTANT]
 >當使用者透過 Azure Multi-Factor Authentication Server 或第三方多因素驗證解決方案執行雙步驟驗證時，[記住 Multi-Factor Authentication] 功能與 AD FS 的 [讓我保持登入] 功能並不相容。

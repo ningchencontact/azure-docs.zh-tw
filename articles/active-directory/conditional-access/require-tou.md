@@ -1,6 +1,6 @@
 ---
 title: 快速入門 - 必須接受使用規定，才可存取受 Azure Active Directory 條件式存取保護的雲端應用程式 |Microsoft Docs
-description: 在本快速入門中，您將了解如何要求必須接受使用規定才可存取由 Azure Active Directory 條件式存取授與的選定雲端應用程式。
+description: 在本快速入門中，您將了解如何要求必須接受使用規定，才可存取由 Azure Active Directory 條件式存取授予的指定雲端應用程式。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則, 使用規定
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605839"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901873"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>快速入門：必須接受使用規定才可存取雲端應用程式 
 

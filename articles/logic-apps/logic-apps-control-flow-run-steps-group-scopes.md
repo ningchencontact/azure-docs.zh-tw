@@ -3,21 +3,21 @@ title: 根據群組狀態新增執行動作的範圍 - Azure Logic Apps | Micros
 description: 如何在 Azure Logic Apps 中根據群組動作狀態，建立執行工作流程動作的範圍
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 10/03/2018
+ms.topic: article
+ms.openlocfilehash: ac184ce790a0700fcacc63f70c2bb321142d7224
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298809"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320538"
 ---
-# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>在 Azure Logic Apps 中根據群組狀態，建立執行工作流程動作的範圍
+# <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>在 Azure Logic Apps 中根據群組狀態和範圍執行動作
 
 若要在另一個群組成功或失敗之後才執行步驟，請將那些步驟群組在「範圍」中。 如果您想要將動作組織為邏輯群組、評估該群組的狀態，以及執行以範圍狀態為基礎的動作，此結構將會十分實用。 當範圍中的所有動作都執行完成之後，範圍也會取得自己的狀態。 例如，您可以在想要實作[例外狀況和錯誤處理](../logic-apps/logic-apps-exception-handling.md#scopes)時使用範圍。 
 
@@ -27,7 +27,7 @@ ms.locfileid: "35298809"
 
 ![設定「排程 - 週期」觸發程序](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要遵循本文中的範例，您需要以下項目：
 
@@ -54,14 +54,14 @@ ms.locfileid: "35298809"
 
 1. 請先登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a> (如果您尚未登入)。 建立空白邏輯應用程式。
 
-2. 使用下列設定新增**排程 - 週期**觸發程序：**間隔** =「1」，以及**頻率** =「分鐘」
+1. 使用下列設定新增**排程 - 週期**觸發程序：**間隔** =「1」，以及**頻率** =「分鐘」
 
    ![設定「排程 - 週期」觸發程序](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
    > [!TIP]
    > 若要以視覺化方式來簡化您的檢視，並在設計工具中隱藏每個動作的詳細資料，請在進行這些步驟時摺疊每個動作圖形。
 
-3. 新增 [Bing 地圖 - 取得路線] 動作。 
+1. 新增 [Bing 地圖 - 取得路線] 動作。 
 
    1. 如果您尚未與 Bing 地圖連線，系統會要求您建立連線。
 
@@ -71,7 +71,7 @@ ms.locfileid: "35298809"
       | **API 金鑰** | <*your-Bing-Maps-key*> | 輸入您先前收到的 Bing 地圖服務金鑰。 | 
       ||||  
 
-   2. 設定 [取得路線] 動作，如下圖中的資料表所示：
+   1. 設定 [取得路線] 動作，如下圖中的資料表所示：
 
       ![設定 [Bing 地圖服務 - 取得路線] 動作](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
@@ -89,45 +89,50 @@ ms.locfileid: "35298809"
       | **運輸日期類型** | None | 僅適用於運輸模式。 | 
       ||||  
 
-4. 新增條件以檢查目前交通下的旅行時間是否超過指定時間。 針對此範例，請遵循下圖中的步驟：
-
-   ![建置條件](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
+1. [新增條件](../logic-apps/logic-apps-control-flow-conditional-statement.md)以檢查目前交通下的旅行時間是否超過指定時間。 針對此範例，請遵循下列步驟：
 
    1. 以此描述重新命名條件：**如果交通時間超過指定時間**
 
-   2. 從參數清單中，選取 [旅行期間交通] 欄位 (以秒為單位)。 
+   1. 在最左邊的資料行中，按一下 [選擇值] 方塊，即可顯示動態內容清單。 從清單中，選取 [旅行期間交通] 欄位 (以秒為單位)。 
 
-   3. 針對比較運算子，選取此運算子：**大於**
+      ![建置條件](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
 
-   4. 針對比較值，輸入 **600**，這會以秒計算，也就是 10 分鐘。
+   1. 在中間的方塊中，選取此運算子：**大於**
 
-5. 在條件的 [若為 true] 分支中，新增適用於您電子郵件提供者的「傳送電子郵件」動作。 設定此動作的詳細資料，如下圖中的資料表所示：
+   1. 在最右邊的資料行中輸入此比較值，也就是等於 10 分鐘的秒數：**600**
+
+      當您完成時，您的條件看起來就像下面這個範例︰
+
+      ![已完成的條件](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
+
+1. 在 [若為 true] 分支中，新增適用於您電子郵件提供者的「傳送電子郵件」動作。 請遵循此影像下的步驟來設定此動作：
 
    ![將「傳送電子郵件」動作新增至「若為 true」分支](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
-   1. 針對 [收件者] 欄位，輸入您的電子郵件地址以作為測試用。
+   1. 在 [收件者] 欄位中，輸入您的電子郵件地址以作為測試用。
 
-   2. 針對 [主旨] 欄位，輸入下列文字：
+   1. 在 [主旨] 欄位中，輸入下列文字：
 
       ```Time to leave: Traffic more than 10 minutes```
 
-   3. 針對 [內文] 欄位，輸入此文字並加上尾端空格： 
+   1. 在 [內文] 欄位中，輸入此文字並加上尾端空格： 
 
       ```Travel time: ```
 
       當您的游標出現在 [內文] 欄位時，動態內容清單會保持開啟狀態，因此您可以選取任何目前可用的參數。
 
-   4. 在動態內容清單中，選擇 [運算式]。
+   1. 在動態內容清單中，選擇 [運算式]。
 
-   5. 尋找並選取 **div( )** 函式。
+   1. 尋找並選取 **div( )** 函式。 
+   將游標置於函式的括號內。
 
-   6. 當游標位於函式的括號內時，選擇 [動態內容]，這樣您就可以在下一步新增 [旅行期間交通] 參數。
-
-   7. 在動態參數清單中的 [取得路線] 下，選取 [旅行期間交通] 欄位。
+   1. 當游標位於函式的括號內時，選擇 [動態內容]，動態內容清單會隨即顯示。 
+   
+   1. 從 [取得路線] 區段中，選取 [旅行期間交通] 欄位。
 
       ![選取 [旅行期間交通] 欄位](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   8. 在欄位解析成 JSON 格式之後，新增**逗號** (```,```) 並在後方加上數字 ```60```，讓**旅行期間交通**從以秒計算轉換為以分鐘計算。 
+   1. 在欄位解析成 JSON 格式之後，新增**逗號** (```,```) 並在後方加上數字 ```60```，讓**旅行期間交通**從以秒計算轉換為以分鐘計算。 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -137,15 +142,15 @@ ms.locfileid: "35298809"
 
       ![完成運算式](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   9. 完成時，請務必選擇 [確定]。
+   1. 完成時，選擇 [確定]。
 
-  10. 解析運算式之後，新增下列文字，並加上前置空格：``` minutes```
+  1. 解析運算式之後，新增下列文字，並加上前置空格：``` minutes```
   
-      您的 [內文] 欄位現在看起來就像下面這個範例︰
+     您的 [內文] 欄位現在看起來就像下面這個範例︰
 
-      ![完成的 [內文] 欄位](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+     ![完成的 [內文] 欄位](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
-6. 儲存您的邏輯應用程式。
+1. 儲存您的邏輯應用程式。
 
 接下來，新增範圍，讓您可以群組特定動作，並評估其狀態。
 
@@ -153,43 +158,71 @@ ms.locfileid: "35298809"
 
 1. 如果您還沒開啟邏輯應用程式設計工具中的邏輯應用程式，請將它開啟。 
 
-2. 在要使用的工作流程位置上新增範圍。 例如︰
+1. 在要使用的工作流程位置上新增範圍。 例如，若要在邏輯應用程式工作流程中的現有步驟之間新增範圍，請遵循下列步驟： 
 
-   * 若要在邏輯應用程式工作流程中的現有步驟之間新增範圍，將指標移動至您要新增範圍的箭頭處。 
-   選擇**加號** (**+**) > [新增範圍]。
+   1. 將指標停留在要新增範圍的箭號上方。 
+   選擇**加號** (**+**) > [新增動作]。
 
-     ![新增範圍](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      ![新增範圍](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
-     如果想要在工作流程結尾處新增範圍，請在邏輯應用程式底部，選擇 [+ 新增步驟] > [...更多] > [新增範圍]。
+   1. 在搜尋方塊中，輸入「範圍」作為篩選條件。 
+   選取 [範圍] 動作。
 
-3. 現在可新增步驟，或拖曳您想要在範圍內執行的現有步驟。 針對此範例，拖曳以下動作至範圍中：
+## <a name="add-steps-to-scope"></a>將步驟新增至範圍
+
+1. 現在可新增步驟，或拖曳您想要在範圍內執行的現有步驟。 針對此範例，拖曳以下動作至範圍中：
       
    * **取得路線**
-   * **如果流量時間超過指定時間**，其中需同時包含 **true** 和 **false** 分支
+   * **如果交通時間超過指定時間**，其中需同時包含 **true** 和 **false** 分支
 
    您的邏輯應用程式現在看起來就像下面這個範例︰
 
    ![新增的範圍](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-4. 在範圍下，新增會檢查範圍狀態的條件。 以下列描述為條件重新命名：**如果範圍失敗**
+1. 在範圍下，新增會檢查範圍狀態的條件。 以下列描述為條件重新命名：**如果範圍失敗**
 
    ![新增條件來檢查範圍狀態](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
-5. 建立此運算式，檢查範圍狀態是否等於 `Failed` 或 `Aborted`。
+1. 在條件中新增這些運算式，以檢查範圍狀態是否等於「失敗」或「中止」。 
 
-   ![新增會檢查範圍狀態的運算式](./media/logic-apps-control-flow-run-steps-group-scopes/build-expression-check-scope-status.png)
+   1. 若要新增另一個資料列，請選擇 [新增]。 
 
-   或者，若要以文字形式輸入此運算式，請選擇 [在進階模式中編輯]。
+   1. 在每一列的左側方塊中按一下，即會顯示動態內容清單。 
+   從動態內容清單中，選擇 [運算式]。 在 [編輯] 方塊中，輸入此運算式，然後選擇 [確定]： 
+   
+      `result('Scope')[0]['status']`
 
-   ```@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')```
+      ![新增會檢查範圍狀態的運算式](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
-6. 在 [若為 true] 和 [若為 false] 的分支中，新增您想執行的動作，例如傳送電子郵件或訊息。
+   1. 針對這兩個資料列，選取 [等於] 作為運算子。 
+   
+   1. 針對比較值，在第一列中輸入 `Failed`。 
+   在第二列中輸入 `Aborted`。 
 
-   ![新增會檢查範圍狀態的運算式](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+      當您完成時，您的條件看起來就像下面這個範例︰
 
-7. 儲存您的邏輯應用程式。
+      ![新增會檢查範圍狀態的運算式](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
 
-已完成的邏輯應用程式現在看起來就像以下範例 (將所有圖形展開)：
+      現在，設定條件的 `runAfter` 屬性，使得條件會檢查範圍狀態，並執行後面步驟中定義的比對動作。
+
+   1. 在 [如果範圍失敗] 條件中，選擇**省略符號** (...) 按鈕，然後再選擇 [設定執行後續動作]。
+
+      ![設定 `runAfter` 屬性](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
+
+   1. 選取所有這些範圍狀態：**成功**、**失敗**、**略過**和**逾時**
+
+      ![選取範圍狀態](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
+
+   1. 完成之後，選擇 [完成]。 
+   條件現在會顯示「資訊」圖示。
+
+1. 在 [若為 true] 和 [若為 false] 的分支中，新增您想根據每個範圍狀態執行的動作，例如傳送電子郵件或訊息。
+
+   ![新增要根據範圍狀態採取的動作](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+
+1. 儲存您的邏輯應用程式。
+
+已完成的邏輯應用程式現在看起來就像此範例︰
 
 ![具有範圍的已完成邏輯應用程式](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
 
@@ -210,7 +243,7 @@ ms.locfileid: "35298809"
     "recurrence": {
        "frequency": "Minute",
        "interval": 1
-    },
+    }
   }
 }
 ```
@@ -224,7 +257,7 @@ ms.locfileid: "35298809"
         "type": "ApiConnection",
         "inputs": {
           "body": {
-            "Body": "Scope failed",
+            "Body": "Scope failed. Scope status: @{result('Scope')[0]['status']}",
             "Subject": "Scope failed",
             "To": "<your-email@domain.com>"
           },
@@ -245,7 +278,7 @@ ms.locfileid: "35298809"
           "type": "ApiConnection",
           "inputs": {
             "body": {
-              "Body": "None",
+              "Body": "Scope succeeded. Scope status: @{result('Scope')[0]['status']}",
               "Subject": "Scope succeeded",
               "To": "<your-email@domain.com>"
             },
@@ -261,10 +294,28 @@ ms.locfileid: "35298809"
         }
       }
     },
-    "expression": "@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')",
+    "expression": {
+      "or": [ 
+         {
+            "equals": [ 
+              "@result('Scope')[0]['status']", 
+              "Failed"
+            ]
+         },
+         {
+            "equals": [
+               "@result('Scope')[0]['status']", 
+               "Aborted"
+            ]
+         } 
+      ]
+    },
     "runAfter": {
       "Scope": [
-        "Succeeded"
+        "Failed",
+        "Skipped",
+        "Succeeded",
+        "TimedOut"
       ]
     }
   },
@@ -291,14 +342,14 @@ ms.locfileid: "35298809"
         },
         "runAfter": {}
       },
-      "If_traffic_time_more_than_specified_time": {
+      "If_traffic_time_is_more_than_specified_time": {
         "type": "If",
         "actions": {
           "Send_mail_when_traffic_exceeds_10_minutes": {
             "type": "ApiConnection",
             "inputs": {
               "body": {
-                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'], 60)} minutes",
+                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'],60)} minutes",
                  "Subject": "Time to leave: Traffic more than 10 minutes",
                  "To": "<your-email@domain.com>"
               },
@@ -313,7 +364,16 @@ ms.locfileid: "35298809"
             "runAfter": {}
           }
         },
-        "expression": "@greater(body('Get_route')?['travelDurationTraffic'], 600)",
+        "expression": {
+          "and" : [
+            {
+               "greater": [ 
+                  "@body('Get_route')?['travelDurationTraffic']", 
+                  600
+               ]
+            }
+          ]
+        },
         "runAfter": {
           "Get_route": [
             "Succeeded"
@@ -323,7 +383,7 @@ ms.locfileid: "35298809"
     },
     "runAfter": {}
   }
-}
+},
 ```
 
 ## <a name="get-support"></a>取得支援

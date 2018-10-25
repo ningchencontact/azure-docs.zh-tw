@@ -1,5 +1,5 @@
 ---
-title: 監視多租用戶 SaaS 應用程式中許多 Azure SQL Database 的效能 | Microsoft Docs
+title: Saas 應用程式：監視許多 Azure SQL Database 的效能 | Microsoft Docs
 description: 監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
 services: sql-database
 ms.service: sql-database
@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: e774394eeb95fbc8d80e181a614a7e30258a100e
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056765"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353895"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
 
 本教學課程會探索 SaaS 應用程式中使用的數個關鍵效能管理案例。 使用負載產生器來跨所有租用戶資料庫模擬活動，而且示範 SQL Database 和彈性集區的內建監視和警示功能。
 
-Wingtip Tickets SaaS Database Per Tenant 應用程式使用單一租用戶資料模型，其中每個場地 (租用戶) 都有各自的資料庫。 與許多 SaaS 應用程式類似，預期的租用戶工作負載模式無法預測且偶爾發生。 換句話說，票證銷售可能會在任何時間發生。 若要利用這種一般資料庫使用模式，租用戶資料庫要部署到彈性資料庫集區中。 彈性集區可透過跨多個資料庫共用資源，來最佳化解決方案的成本。 使用這種類型的模式，請務必監視資料庫和集區資源使用量，以確保合理地跨集區平衡負載。 您也必須確定個別的資料庫擁有足夠的資源，且集區未達到其 [eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) 限制。 本教學課程將探討監視及管理資料庫與集區的方式，以及如何採取矯正措施以回應工作負載的變化。
+Wingtip Tickets SaaS Database Per Tenant 應用程式使用單一租用戶資料模型，其中每個場地 (租用戶) 都有各自的資料庫。 與許多 SaaS 應用程式類似，預期的租用戶工作負載模式無法預測且偶爾發生。 換句話說，票證銷售可能會在任何時間發生。 若要利用這種一般資料庫使用模式，租用戶資料庫要部署到彈性資料庫集區中。 彈性集區可透過跨多個資料庫共用資源，來最佳化解決方案的成本。 使用這種類型的模式，請務必監視資料庫和集區資源使用量，以確保合理地跨集區平衡負載。 您也必須確定個別的資料庫擁有足夠的資源，且集區未達到其 [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model) 限制。 本教學課程將探討監視及管理資料庫與集區的方式，以及如何採取矯正措施以回應工作負載的變化。
 
 在本教學課程中，您將了解如何：
 
@@ -207,7 +207,7 @@ Wingtip Tickets SaaS Database Per Tenant 是 SaaS 應用程式，而實際 SaaS 
 
 1. 檢查 [彈性集區監視] 圖表，並尋找增加的集區 DTU 使用量。 在一或兩分鐘後，應該會開始產生較高的負載，且您應該會快速看到集區達到 100% 使用率。
 2. 檢查 [彈性資料庫監視] 顯示，它會顯示過去一小時內最熱門的資料庫。 contosoconcerthall 資料庫應該很快會顯示為 5 個最熱門資料庫的其中之一。
-3. **按一下彈性資料庫監視****圖表**，可以開啟 [資料庫資源使用量] 頁面，您可以在其中監視任何資料庫。 這可讓您找出 contosoconcerthall 資料庫的顯示。
+3. **按一下彈性資料庫監視** **圖表**，可以開啟 [資料庫資源使用量] 頁面，您可以在其中監視任何資料庫。 這可讓您找出 contosoconcerthall 資料庫的顯示。
 4. 從資料庫清單中，按一下 contosoconcerthall。
 5. 按一下 [定價層 (調整 DTU)] 以開啟 [設定效能] 頁面，您可以在其中設定資料庫的獨立計算大小。
 6. 按一下 [標準] 索引標籤，以開啟標準層中的調整選項。

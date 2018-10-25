@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669002"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114153"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>運作方式：Azure Multi-Factor Authentication
 
@@ -42,23 +42,13 @@ Multi-Factor Authentication 隨附於下列供應項目：
 > [!NOTE]
 > 自 2018 年 9 月 1 日起，新客戶無法再將 Azure Multi-Factor Authentication 當做獨立供應項目購買。 多重要素驗證將繼續為 Azure AD Premium 授權中的可用功能。
 
-### <a name="auth-provider-or-mfa-license"></a>驗證提供者或 MFA 授權
-
-如果您有 Azure AD Premium 或其他包含 Azure AD Premium 的授權配套，您就已經擁有 Azure MFA。 您的組織不需要任何其他項目，即可將雙步驟驗證功能延伸到所有使用者。 您只需要將授權指派給使用者，接著就可以開啟 MFA。
-
-如果您沒有包含 Azure MFA 的授權，或沒有足夠的授權來涵蓋所有使用者，則您可以建立 [MFA 驗證提供者](concept-mfa-authprovider.md)，將 MFA 的完整功能擴充到需要它們的使用者。
-
-> [!IMPORTANT]
-> 如果您沒有足夠的授權給所有使用者，您可以建立依每個使用者的 Multi-Factor Auth Provider，以涵蓋組織的其餘部分。 不要建立依每次驗證的 Multi-Factor Auth Provider。 如果這麼做，您可能因為已有授權的使用者提出驗證要求而需要付費。
-
 ## <a name="supportability"></a>支援能力
 
 因為大多數使用者都已習慣僅使用密碼來驗證，所以您的組織務必要與所有使用者溝通此程序。 這番了解可以避免使用者因為 MFA 的小問題就連絡技術人員。 不過，有一些案例是需要暫時停用 MFA。 使用下列指導方針了解如何處理這些案例：
 
 * 訓練您的支援人員來處理使用者因無權存取其驗證方法或其無法正常運作而無法登入的案例。
    * 使用 Azure MFA 服務的條件式存取原則，您的支援人員就可以將使用者新增至從要求 MFA 的原則中排除的群組。
-   * 支援人員可以針對 Azure MFA 服務使用者啟用暫時性單次許可，以允許使用者在不需進行雙步驟驗證的情況下進行驗證。 許可只是暫時性，經過指定的秒數之後就會到期。
-   * 使用 Azure MFA 服務的條件式存取原則，您的支援人員就可以將使用者新增至從要求 MFA 的原則中排除的群組。
+   * 支援人員可以針對 Azure MFA 服務使用者啟用暫時性單次許可，以允許使用者在不需進行雙步驟驗證的情況下進行驗證。 許可只是暫時性，經過指定的秒數之後就會到期。   
 * 請考慮使用信任的 IP 或具名位置，作為將雙步驟驗證提示降到最低的方式。 受控或同盟租用戶的管理員可以利用此功能，讓從信任網路位置 (例如其組織的內部網路) 登入的使用者可以略過雙步驟驗證。
 * 部署 [Azure AD Identity Protection](../active-directory-identityprotection.md)，並根據風險事件觸發雙步驟驗證。
 
