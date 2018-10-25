@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: f1cc1b728a91c22f9b4b2062ed5c423314e561c8
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 64dacb33a8cd235e155a640d57d868f384f93d76
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017579"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959004"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
@@ -151,7 +151,7 @@ ms.locfileid: "48017579"
    
    e. 針對 [服務主體識別碼]，輸入有權建立 HDInsight 叢集的服務主體識別碼。 
    
-      此服務主體必須是訂用帳戶的參與者角色成員，或建立叢集所在的資源群組成員。 如需詳細資訊，請參閱[建立 Azure Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)。
+      此服務主體必須是訂用帳戶的參與者角色成員，或建立叢集所在的資源群組成員。 如需詳細資訊，請參閱[建立 Azure Active Directory 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md)。
    
    f. 針對 [服務主體金鑰]，輸入金鑰。 
    

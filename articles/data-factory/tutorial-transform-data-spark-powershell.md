@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: c01da1b667f5a57e9597b77e21dcd9cc95340cb1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 21c2c9ab0300ed5eac9ceebbd88627ea091b3389
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088221"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954465"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管道，以使用 Spark 活動和隨選 HDInsight 連結服務來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -135,7 +135,7 @@ ms.locfileid: "43088221"
 
 - **hostSubscriptionId**。 以您的 Azure 訂用帳戶識別碼取代 &lt;subscriptionID&gt;。 隨選 HDInsight 叢集會在此訂用帳戶中建立。 
 - **tenant**. 以您的 Azure 租用戶識別碼取代 &lt;tenantID&gt;。 
-- **servicePrincipalId**、**servicePrincipalKey**。 以您在 Azure Active Directory 中的服務主體識別碼與金鑰，取代 &lt;servicePrincipalID&gt; 和 &lt;servicePrincipalKey&gt;。 此服務主體必須是訂用帳戶之參與者角色的成員，或其中建立叢集之資源群組的成員。 如需詳細資料，請參閱[建立 Azure Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)。 
+- **servicePrincipalId**、**servicePrincipalKey**。 以您在 Azure Active Directory 中的服務主體識別碼與金鑰，取代 &lt;servicePrincipalID&gt; 和 &lt;servicePrincipalKey&gt;。 此服務主體必須是訂用帳戶之參與者角色的成員，或其中建立叢集之資源群組的成員。 如需詳細資料，請參閱[建立 Azure Active Directory 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md)。 
 - **clusterResourceGroup**。 以需要在其中建立 HDInsight 叢集的資源群組名稱，取代&lt;resourceGroupOfHDICluster&gt;。 
 
 > [!NOTE]

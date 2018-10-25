@@ -10,24 +10,25 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 388957fc5dac5cdab5bee34a4431eaa524e76a48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999897"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945666"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 
 [Azure Machine Learning 資料準備 SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py)提供不同的轉換方法來清理資料。 透過這些方法，很容易就能加入資料行、篩選不必要的資料列或資料行，並插補遺漏值。
 
 目前有可執行下列工作的方法：
-- [加入使用運算式的資料行](#add-column-using-expression)
+- [加入使用運算式的資料行](#column)
 - [插補遺漏值](#impute-missing-values)
 - [衍生資料行實例化](#derive-column-by-example)
 - [篩選](#filtering)
 - [自訂 Python 轉換](#custom-python-transforms)
 
+<a name=column>
 ## <a name="add-column-using-an-expression"></a>加入使用運算式的資料行
 
 Azure Machine Learning 資料準備 SDK 包含 `substring` 運算式，可以使用這些運算式以現有的資料行來計算值，然後在新的資料行中輸入該值。 在此範例中，我們會載入資料，然後嘗試將資料行新增到該輸入資料。

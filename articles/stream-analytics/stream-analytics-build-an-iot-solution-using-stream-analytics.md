@@ -9,12 +9,12 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 88c58175f4886d4796ed4e32b41d030c9ee441fc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698038"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986879"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>利用串流分析來建置 IoT 解決方案
 
@@ -109,7 +109,7 @@ ms.locfileid: "43698038"
 | 已過期 |車輛的登記狀態：0 代表車輛登記仍有效，1 代表車輛登記已過期 |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>設定 Azure 串流分析的環境
-若要完成此解決方案，您需要 Microsoft Azure 訂用帳戶。 如果您沒有 Azure 帳戶，您可以 [要求獲得免費試用版](http://azure.microsoft.com/pricing/free-trial/)。
+若要完成此解決方案，您需要 Microsoft Azure 訂用帳戶。 如果您沒有 Azure 帳戶，您可以 [要求獲得免費試用版](https://azure.microsoft.com/pricing/free-trial/)。
 
 請務必依照這篇文章結尾處＜清理您的 Azure 帳戶＞一節中的步驟來進行，讓您能充分利用您的免費 Azure 點數。
 

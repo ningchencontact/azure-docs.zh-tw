@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 8a5d426d67916e010c7fff048eebdc77b93c5c38
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 08ad2d853ab909ea859ffd1230dd651aa6661500
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902577"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987625"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>參考架構：使用 Microsoft Azure 串流分析的即時事件處理
 使用 Microsoft Azure 串流分析的即時事件處理之參考架構主要用來提供一般的藍圖，供使用 Microsoft Azure 部署即時的平台即服務 (PaaS) 串流處理解決方案。
@@ -22,7 +22,7 @@ ms.locfileid: "30902577"
 ## <a name="summary"></a>總結
 傳統上，分析解決方案為基於例如 ETL (擷取、轉換、載入) 和資料倉儲等功能運作，其中資料在分析前就已儲存。 不斷變化的要求，包含更快速到達的資料，將此現有的模型推到了極限。 在移動串流到儲存體之前分析資料的能力是一種解決方式，雖然這並非新的功能，但此方式並未廣泛受到所有產業縱向市場採用。 
 
-Microsoft Azure 提供分析技術的全面目錄，可以支援一系列不同的解決方案案例和要求。 當產品相當多元時，選取要為端對端解決方案部署哪一個 Azure 服務可說是項挑戰。 本文件主要用來描述支援事件串流解決方案之各種 Azure 服務的功能和交互操作。 這也說明客戶可從此類方式中獲益的某些案例。
+Microsoft Azure 提供分析技術的全面目錄，可以支援一系列不同的解決方案案例和要求。 當供應項目相當多元時，選取要為端對端解決方案部署哪一個 Azure 服務可說是項挑戰。 本文件主要用來描述支援事件串流解決方案之各種 Azure 服務的功能和交互操作。 這也說明客戶可從此類方式中獲益的某些案例。
 
 ## <a name="contents"></a>內容
 * 執行摘要
@@ -43,7 +43,7 @@ Microsoft Azure 提供分析技術的全面目錄，可以支援一系列不同�
 
 **修訂版本：** 1.0
 
-**下載：** [使用 Microsoft Azure 串流分析的即時事件處理](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
+**下載：** [使用 Microsoft Azure 串流分析的即時事件處理](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>取得說明
 如需進一步的協助，請參閱 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)

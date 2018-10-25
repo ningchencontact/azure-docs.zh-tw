@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f7e5999b2d64c4a9b409fac81841d15f7c6aa5e7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3a62440b9fe44dfed14cfd9887d4d3cc2e4dbb92
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443659"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430233"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>補充課程 - 動態安全性
 
@@ -27,7 +27,7 @@ ms.locfileid: "37443659"
   
 這堂課的預估完成時間：**30 分鐘**  
   
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 此補充課程主題是表格式模型教學課程的一部分，請依序完成。 在此補充課程中執行工作之前，您必須已完成所有前面的課程。  
   
 ## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>將 DimSalesTerritory 資料表新增至 AW 網際網路銷售表格式模型專案  

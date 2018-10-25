@@ -3,7 +3,7 @@ title: 使用 C# 和 Resource Manager 範本部署 VM | Microsoft Docs
 description: 了解如何使用 C# 和 Resource Manager 範本來部署 Azure VM。
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: cynthn
-ms.openlocfilehash: e57505b4bd89a79af076dc4cf132c844ae0abd1d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527819"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953683"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>利用 C# 和 Resource Manager 範本來部署 Azure 虛擬機器
 本文說明如何使用 C# 來部署 Azure Resource Manager 範本。 您建立的範本會在具有單一子網路的新虛擬網路中，部署執行 Windows Server 的單一虛擬機器。
@@ -185,7 +185,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 ### <a name="create-the-authorization-file"></a>建立授權檔
 
-在部署範本之前，請先確定您可以存取 [Active Directory 服務主體](../../resource-group-authenticate-service-principal.md)。 從服務主體中，您會取得向 Azure Resource Manager 驗證要求的權杖。 您還應該記錄授權檔中所需的應用程式識別碼、驗證金鑰及租用戶識別碼。
+在部署範本之前，請先確定您可以存取 [Active Directory 服務主體](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)。 從服務主體中，您會取得向 Azure Resource Manager 驗證要求的權杖。 您還應該記錄授權檔中所需的應用程式識別碼、驗證金鑰及租用戶識別碼。
 
 1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *azureauth.properties*，然後按一下 [新增]。
 2. 新增下列授權屬性：

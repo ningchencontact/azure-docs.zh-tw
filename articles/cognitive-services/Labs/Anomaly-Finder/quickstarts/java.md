@@ -5,22 +5,24 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.component: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 8152c23e6c5332d243d851be56bab1e4085dbe5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ef876e19353e8765b679a9aae6282ce3ade600c2
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369151"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456536"
 ---
 # <a name="use-the-anomaly-finder-api-with-java"></a>搭配 Java 使用異常搜尋工具 API
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 本文提供資訊和程式碼範例，協助您快速開始搭配 Java 使用異常偵測 API，以便完成對於時間序列資料取得異常偵測結果的工作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -113,7 +115,7 @@ public class Main {
 
 ### <a name="example-response"></a>範例回應
 
-在 JSON 中，會回傳成功的回應。 範例回應如下所示。
+成功的回應會以 JSON 的形式傳回。 範例回應如下所示。
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>後續步驟

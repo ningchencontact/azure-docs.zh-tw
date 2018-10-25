@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867020"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469090"
 ---
 # <a name="quickstart-project-answer-search-query-in-java"></a>快速入門：Java 中的專案答案搜尋查詢
 本文使用 Java 示範如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 答案搜尋 API。 API 是一種與任何程式語言相容的 REST Web 服務，可產生 HTTP 要求及剖析 JSON。

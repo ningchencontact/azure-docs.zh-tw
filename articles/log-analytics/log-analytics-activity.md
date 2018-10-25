@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dab2dd2b1d020a7619b18f330640b7f555a1f8c1
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044377"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404064"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>在 Log Analytics 中收集並分析 Azure 活動記錄
 
@@ -75,8 +75,7 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
     3. 在 [SubscriptionName] 刀鋒視窗中，按一下 [連接]。  
         ![connect subscription](./media/log-analytics-activity/subscription-connect.png)
 
-如果您使用 OMS 入口網站新增解決方案，會看見下列圖格。 登入 Azure 入口網站，將 Azure 訂用帳戶連接至您的工作區。  
-![執行評估](./media/log-analytics-activity/tile-performing-assessment.png)
+登入 Azure 入口網站，將 Azure 訂用帳戶連接至您的工作區。  
 
 ## <a name="using-the-solution"></a>使用解決方案
 

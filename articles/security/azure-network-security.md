@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061536"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405968"
 ---
 # <a name="azure-network-security"></a>Azure 網路安全性
 
@@ -459,8 +459,6 @@ Azure 流量管理員可讓您控制流量分散到應用程式端點的方式�
 Azure 網路驗證以確定正在運作的 Azure 網路，因為它已設定且可在完成驗證是使用服務和功能可用來監視網路。 利用 Azure 網路監看員，您可以存取多項記錄和診斷功能，進而深入了解您的網路效能與健康情況。 這些功能可透過入口網站、Power Shell、CLI、Rest API 和 SDK 存取。
 
 Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。 Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 方案，以及對網路安全性威脅型態的深層認知。
-
--   [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 -   [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
 

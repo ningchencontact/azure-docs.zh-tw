@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: ba39ba2d4206fa86ed32bddf0538a2e997a79339
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220562"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954327"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 來管理 Key Vault 
 
@@ -38,7 +38,7 @@ ms.locfileid: "47220562"
 大部分地區均提供 Azure 金鑰保存庫。 如需詳細資訊，請參閱 [金鑰保存庫價格頁面](https://azure.microsoft.com/pricing/details/key-vault/)。
 
 > [!NOTE]
-> 此文章並未說明如何撰寫其中一個步驟所包含的 Azure 應用程式，但會示範如何授權應用程式使用金鑰保存庫中的金鑰或密碼。
+> 本文並未說明如何撰寫其中一個步驟所包含的 Azure 應用程式，但會示範如何授權應用程式使用金鑰保存庫中的金鑰或密碼。
 >
 
 如需 Azure Key Vault 的概觀，請參閱[什麼是 Azure Key Vault？](key-vault-whatis.md)
@@ -46,15 +46,15 @@ ms.locfileid: "47220562"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要使用此文章中的 Azure CLI 命名，您必須具有下列項目：
+若要使用本文中的 Azure CLI 命名，您必須具有下列項目：
 
 * Microsoft Azure 訂用帳戶。 如果您沒有帳戶，您可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial)。
 * Azure 命令列介面 2.0 版或更新版本。 若要安裝最新版本，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
-* 可將應用程式設定為使用您在此文章中所建立的金鑰或密碼。 您可以在 [Microsoft 下載中心](http://www.microsoft.com/download/details.aspx?id=45343)找到範例應用程式。 如需相關指示，請參閱內含的讀我檔案。
+* 可將應用程式設定為使用您在本文中所建立的金鑰或密碼。 您可以在 [Microsoft 下載中心](http://www.microsoft.com/download/details.aspx?id=45343)找到範例應用程式。 如需相關指示，請參閱內含的讀我檔案。
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>取得使用 Azure 跨平台命令列介面的說明
 
-此文章假設您熟悉命令列介面 (Bash、終端機、命令提示字元)。
+本文假設您熟悉命令列介面 (Bash、終端機、命令提示字元)。
 
 --help 或 -h 參數可用於檢視特定命令的說明。 或者，也可以使用 Azure help [command] [options] 格式。 不確定命令所需的參數時，請查閱說明。 例如，以下命令全部都會傳回相同的資訊：
 
@@ -70,7 +70,7 @@ az account set -h
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>如何在 Azure 中建立強行寫入的容器 (保存庫)
 
-保存庫由硬體安全性模組 (HSM) 支援的安全容器。 保存庫透過集中儲存應用程式祕密，協助減少意外遺失安全性資訊的機會。 Key Vault 也會控制和記錄其中所儲存項目的存取權。 Azure Key Vault 可以處理要求及更新傳輸層安全性 (TLS) 憑證，並提供穩健憑證生命週期管理解決方案所需的功能。 在後續步驟中，您將建立保存庫。
+保存庫由硬體安全性模組 (HSM) 支援的安全容器。 保存庫藉由集中儲存應用程式祕密，協助減少意外遺失安全性資訊的機會。 Key Vault 也會控制和記錄其中所儲存項目的存取權。 Azure Key Vault 可以處理要求及更新傳輸層安全性 (TLS) 憑證，並提供穩健憑證生命週期管理解決方案所需的功能。 在後續步驟中，您將建立保存庫。
 
 ### <a name="connect-to-your-subscriptions"></a>連線到您的訂閱
 
@@ -152,7 +152,7 @@ az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' -
 az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'Pa$$w0rd' --protection software
 ```
 
-您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰 (透過使用其 URI)。 使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 一律可取得最新版本。 使用 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] 可取得此特定版本。 例如：**https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**。 
+您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰 (藉由使用其 URI)。 使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 一律可取得最新版本。 使用 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] 可取得此特定版本。 例如：**https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**。 
 
 將名為 SQLPassword 且其 Azure Key Vault 的值為 Pa$$w0rd 的密碼新增至保存庫。 
 
@@ -199,7 +199,7 @@ az keyvault certificate list --vault-name 'ContosoKeyVault'
 
 應用程式必須向 Azure Active Directory 出示這兩個值才能取得權杖。 設定應用程式以取得權杖的方式取決於應用程式。 在 [Key Vault 範例應用程式](https://www.microsoft.com/download/details.aspx?id=45343)中，應用程式擁有者會在 app.config 檔案中設定這些值。
 
-如需有關使用 Azure Active Directory 來註冊應用程式的詳細步驟，您應檢閱標題為[整合應用程式與 Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)、[使用入口網站來建立可存取資源的 Azure Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)及[使用 Azure CLI 來建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)的文章。
+如需有關使用 Azure Active Directory 來註冊應用程式的詳細步驟，您應檢閱標題為[整合應用程式與 Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)、[使用入口網站來建立可存取資源的 Azure Active Directory 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md)及[使用 Azure CLI 來建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)的文章。
 
 若要在 Azure Active Directory 中註冊應用程式：
 

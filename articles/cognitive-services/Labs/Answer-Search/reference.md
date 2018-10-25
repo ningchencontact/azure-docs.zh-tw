@@ -1,20 +1,21 @@
 ---
-title: 專案答案搜尋參考 - Microsoft 認知服務 | Microsoft Docs
+title: 專案答案搜尋參考
+titlesuffix: Azure Cognitive Services
 description: 專案答案搜尋端點的參考。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: answer-search
+ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 28a73918b50d7b13248fe5b6a17f2c95287a1ba4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 6548e0bb05b117cf79405b9516da815a7e81b6a3
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666283"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471215"
 ---
 # <a name="project-answer-search-v7-reference"></a>專案答案搜尋 v7 參考
 

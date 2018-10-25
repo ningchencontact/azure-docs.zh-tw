@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdf332727c4d66af2d5394fb26e84f6ea9d963f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440760"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426321"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>補充課程 - 不完全階層
 
@@ -25,7 +25,7 @@ ms.locfileid: "37440760"
   
 這堂課的預估完成時間：**20 分鐘**  
   
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 此補充課程主題是表格式模型教學課程的一部分。 在此補充課程中執行工作之前，您應已完成所有先前的課程或已完成 Adventure Works 網際網路銷售範例模型專案。 
 
 如果您已建立 AW 網際網路銷售專案作為本教學課程的一部分，您的模型尚未包含任何資料或不完全的階層。 若要完成本補充課程，您必須先藉由新增一些額外的資料表來建立問題、建立關聯性、計算結果欄、量值以及新的組織階層。 該部分大約需要 15 分鐘。 然後，您在短短幾分鐘內就可以解決。  
@@ -44,11 +44,11 @@ ms.locfileid: "37440760"
 
     | 表 1           | 欄       | 篩選方向   | 表 2     | 欄      | Active |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | 預設值            | DimDate     | 日期        | yes    |
+    | FactResellerSales | OrderDateKey | 預設值            | DimDate     | 日期        | 是    |
     | FactResellerSales | DueDate      | 預設值            | DimDate     | 日期        | 否     |
     | FactResellerSales | ShipDateKey  | 預設值            | DimDate     | 日期        | 否     |
-    | FactResellerSales | ProductKey   | 預設值            | DimProduct  | ProductKey  | yes    |
-    | FactResellerSales | EmployeeKey  | 對兩個資料表 | DimEmployee | EmployeeKey | yes    |
+    | FactResellerSales | ProductKey   | 預設值            | DimProduct  | ProductKey  | 是    |
+    | FactResellerSales | EmployeeKey  | 對兩個資料表 | DimEmployee | EmployeeKey | 是    |
 
 5. 在 [DimEmployee] 資料表中，建立下列[計算結果欄](../tutorials/aas-lesson-5-create-calculated-columns.md)： 
 

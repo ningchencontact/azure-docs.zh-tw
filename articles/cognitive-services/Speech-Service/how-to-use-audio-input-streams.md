@@ -1,20 +1,21 @@
 ---
 title: 語音 SDK 音訊輸入資料流概念
+titleSuffix: Azure Cognitive Services
 description: 語音 SDK 音訊輸入資料流 API 功能概觀。
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 6c2d7c5787305f60b73ab83ea17367b04e03ac12
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b7779131a0fd30d263fa87f2e55c9642984d054b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985175"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467953"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>關於語音 SDK 音訊輸入資料流 API
 

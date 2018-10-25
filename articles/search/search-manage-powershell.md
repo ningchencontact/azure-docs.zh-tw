@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bae9e2dcb4320c1da4f1d8e3c6ad50ce90195544
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39000985"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958562"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>使用 PowerShell 管理 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.locfileid: "39000985"
 
 在 [Microsoft Azure 登入] 對話方塊中，指定 Azure 帳戶的電子郵件地址和密碼。
 
-或者，您可以 [非互動的方式使用服務主體登入](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+或者，您可以 [非互動的方式使用服務主體登入](../active-directory/develop/howto-authenticate-service-principal-powershell.md)。
 
 如果您有多個 Azure 訂用帳戶，您必須設定 Azure 訂用帳戶。 如果想查看目前的訂閱帳戶清單，請執行這個命令。
 

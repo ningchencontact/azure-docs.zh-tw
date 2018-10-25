@@ -5,18 +5,20 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.component: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 18b29da34529af290f22a3b88a929a60660dd9ef
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665017"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457590"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>搭配 Javascript 使用異常搜尋工具 API
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 本文提供資訊和程式碼範例，協助您快速開始搭配 Javascript 使用異常偵測 API，以便完成對於時間序列資料取得異常偵測結果的工作。
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30907274"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025764"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>針對串流分析作業的輸入和輸出替換登入認證
 
@@ -34,7 +34,7 @@ ms.locfileid: "30907274"
 6. 尋找 [儲存體帳戶金鑰] 欄位，然後貼上新產生的金鑰 > 按一下 [儲存]。    
 7. 當您儲存所做的變更時，系統會自動測試連線，您可從通知索引標籤檢視連線測試狀態。一共會有兩個通知：一個與儲存更新對應，另一個則與測試連線對應：  
    ![編輯金鑰之後的通知](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. 繼續進行[從上次停止的時間啟動您的作業] (#start-your-job-from-the-last-stopped-time)一節。
+8. 繼續進行[從上次停止的時間啟動您的作業](#start-your-job-from-the-last-stopped-time)一節。
 
 ### <a name="event-hubs"></a>事件中樞
 

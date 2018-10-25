@@ -1,21 +1,21 @@
 ---
 title: 使用適用於 C++ 的語音 SDK 從語音辨識意圖
-titleSuffix: Microsoft Cognitive Services
-description: >
-  了解如何使用適用於 C++ 的語音 SDK，從來自於檔案或麥克風的語音辨識意圖。
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用適用於 C++ 的語音 SDK，從來自於檔案或麥克風的語音辨識意圖。
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 7e4ef6fd9dff0da061eb526e87973ba9616da22a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48fc330c62ec8f6ce8c25c79c85db622bcaa4282
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981173"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466489"
 ---
 # <a name="recognize-intents-from-speech-by-using-the-speech-sdk-for-c"></a>使用適用於 C++ 的語音 SDK 從語音辨識意圖
 

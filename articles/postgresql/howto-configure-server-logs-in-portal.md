@@ -9,25 +9,25 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: be889d7b0bf6060b3b93244da6746fa6f13024da
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692159"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985500"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 入口網站中設定和存取伺服器記錄
 
 您可以從 Azure 入口網站設定、列出及下載[適用於 PostgreSQL 的 Azure 資料庫伺服器記錄](concepts-server-logs.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要︰
 - [適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)
 
 ## <a name="configure-logging"></a>設定記錄
 設定查詢記錄和錯誤記錄的存取權。 
 
-1. 登入 [Azure 入口網站](http://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 2. 選取適用於 PostgreSQL 的 Azure 資料庫伺服器。
 

@@ -2,18 +2,18 @@
 title: 使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
 description: 了解如何使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
 services: backup
-author: MaanasSaran
+author: adigan
 manager: NKolli1
 ms.service: backup
-ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: adigan
-ms.openlocfilehash: 4edec499d12261add398e5a9297f039ecfb252e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8fbe3e716971f4d82e6d24fb866334ffd626bf32
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605095"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945972"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
 本文說明如何設定 System Center 2012 R2 Data Protection Manager (DPM) 伺服器，以將 Microsoft Exchange Server 備份至 Azure 備份。  
@@ -26,8 +26,8 @@ ms.locfileid: "34605095"
 >
 >
 
-## <a name="prerequisites"></a>先決條件
-繼續之前，請確定符合使用 Microsoft Azure 備份保護工作負載的所有 [必要條件](backup-azure-dpm-introduction.md#prerequisites) 。 這些先決條件包含下列各項：
+## <a name="prerequisites"></a>必要條件
+繼續之前，請確定符合使用 Microsoft Azure 備份保護工作負載的所有 [必要條件](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 。 這些先決條件包含下列各項：
 
 * 已在 Azure 網站上建立備份保存庫。
 * 代理程式和保存庫認證已下載至 DPM 伺服器。

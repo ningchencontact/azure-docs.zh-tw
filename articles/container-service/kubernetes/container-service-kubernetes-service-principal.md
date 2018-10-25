@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e3e3a981daf1273b8b2387cb1c665317f860b1d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974862"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954567"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>在 Container Service 中設定 Kubernetes 叢集的 Azure AD 服務主體
 
@@ -37,14 +37,14 @@ ms.locfileid: "46974862"
 * **用戶端密碼**：必須是密碼。 目前，您無法使用針對憑證驗證設定的服務主體。
 
 > [!IMPORTANT]
-> 若要建立服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 若要查看您是否有必要的權限，請[在入口網站中檢查](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)。
+> 若要建立服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 若要查看您是否有必要的權限，請[在入口網站中檢查](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>選項 1：在 Azure AD 中建立服務主體
 
 如果您想要在部署 Kubernetes 叢集之前建立 Azure AD 服務主體，Azure 會提供數種方法。
 
-下列範例命令示範如何使用 [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) 執行這項作業。 或者，您也可以使用 [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md)、[入口網站](../../azure-resource-manager/resource-group-create-service-principal-portal.md)或其他方法來建立服務主體。
+下列範例命令示範如何使用 [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) 執行這項作業。 或者，您也可以使用 [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)、[入口網站](../../active-directory/develop/howto-create-service-principal-portal.md)或其他方法來建立服務主體。
 
 ```azurecli
 az login

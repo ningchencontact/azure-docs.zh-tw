@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: cb803450f7765ae62292ff3afb7f32209b437f78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 235eda231dfb0f936bf55c7c8d93a8f709fdf9bc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978911"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954831"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>將客體 OS 計量傳送到 Windows 虛擬機器的 Azure 監視器資料存放區 (傳統)
 
 Azure 監視器 [Windows Azure 診斷擴充功能](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (WAD) 可讓您從當作虛擬機器、雲端服務或 Service Fabric 叢集一部分執行的客體作業系統 (客體 OS)，收集計量與記錄。 擴充功能可以將遙測資料傳送到先前連結的文章中所列的許多不同位置。
 
-本文說明將 Windows 虛擬機器的客體 OS 效能計量傳送至 Azure 監視器資料存放區的流程。 從 WAD 1.11 版開始，您可以直接將計量寫入已收集標準平台計量的 Azure 監視器計量存放區。 儲存在此位置可讓您存取平台計量可用的相同動作。  動作包括近乎即時的警示、圖表、路由、從 REST API 存取以及更多功能。  過去的 WAD 擴充功能會寫入 Azure 儲存體，而不是 Azure 監視器資料存放區。 
+本文說明將 Windows 虛擬機器的客體 OS 效能計量傳送至 Azure 監視器資料存放區的流程。 從 WAD 1.11 版開始，您可以直接將計量寫入已收集標準平台計量的 Azure 監視器計量存放區。 將它們儲存在此位置可讓您存取與平台計量可用之動作相同的動作。  動作包括近乎即時的警示、圖表、路由、從 REST API 存取以及更多功能。  過去的 WAD 擴充功能會寫入 Azure 儲存體，而不是 Azure 監視器資料存放區。 
 
 本文所述的流程僅適用於執行 Windows 作業系統的傳統虛擬機器。
 
@@ -41,7 +41,7 @@ Azure 監視器 [Windows Azure 診斷擴充功能](https://docs.microsoft.com/az
 
 ## <a name="create-a-service-principal"></a>建立服務主體
 
-使用[建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)中找到的指示，在您的 Azure Active Directory 租用戶中建立服務主體。 進行此流程時，請注意下列事項： 
+使用[建立服務主體](../active-directory/develop/howto-create-service-principal-portal.md)中找到的指示，在您的 Azure Active Directory 租用戶中建立服務主體。 進行此流程時，請注意下列事項： 
 - 為此應用程式建立新用戶端密碼  
 - 儲存金鑰和用戶端識別碼以便在稍後步驟中使用。
 

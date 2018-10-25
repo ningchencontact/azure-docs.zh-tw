@@ -11,17 +11,17 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687314"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987676"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Python 連線及查詢資料
 本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for PostgreSQL。 它也會示範如何使用 SQL 陳述式查詢、插入、更新和刪除 macOS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本文中的步驟假設您已熟悉使用 Python 進行開發，但不熟悉 Azure Database for PostgreSQL。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
 - [建立 DB - 入口網站](quickstart-create-server-database-portal.md)
 - [建立 DB - CLI](quickstart-create-server-database-azure-cli.md)
@@ -31,7 +31,7 @@ ms.locfileid: "29687314"
 - 已安裝 [pip](https://pip.pypa.io/en/stable/installing/) 套件 (如果您使用從 [python.org](https://python.org) 下載的 Python 2 >=2.7.9 或 Python 3 >=3.4 二進位檔，便已安裝 pip)。
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>安裝適用於 PostgreSQL 的 Python 連線程式庫
-安裝 [psycopg2](http://initd.org/psycopg/docs/install.html) 套件，這可讓您連線及查詢資料庫。 psycopg2 [可在 PyPI 上取得](https://pypi.python.org/pypi/psycopg2/)，其形式為適用於大多數常見平台 (Linux、OSX、Windows) 的 [wheel](http://pythonwheels.com/) 套件。 使用 pip install 來取得模組的二進位版本 (包括所有相依性)。
+安裝 [psycopg2](http://initd.org/psycopg/docs/install.html) 套件，這可讓您連線及查詢資料庫。 psycopg2 [可在 PyPI 上取得](https://pypi.python.org/pypi/psycopg2/)，其形式為適用於大多數常見平台 (Linux、OSX、Windows) 的 [wheel](https://pythonwheels.com/) 套件。 使用 pip install 來取得模組的二進位版本 (包括所有相依性)。
 
 1. 在自己的電腦上啟動命令列介面：
     - 在 Linux 上啟動 Bash 殼層。

@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: ad6b296543cffedb215c87b1fc893a22b29a3052
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785336"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427343"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>教學課程 #2：在 Azure 容器執行個體 (ACI) 中部署影像分類模型
 
@@ -383,4 +383,4 @@ service.delete()
 > * 將模型部署至 ACI
 > * 測試已部署的模型
  
-您也可以試試[自動選取演算法]()教學課程，了解 Azure Machine Learning 服務為您模型自動選取及調整最佳演算法，並為您建置該模型的方式。
+您也可以試試[自動選取演算法](tutorial-auto-train-models.md)教學課程，了解 Azure Machine Learning 服務為您模型自動選取及調整最佳演算法，並為您建置該模型的方式。

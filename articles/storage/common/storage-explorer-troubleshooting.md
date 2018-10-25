@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521025"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470315"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -74,7 +74,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 7. 嘗試登入。
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>一般登入疑難排解步驟
-* 如果您位於 macOS 上，且登入視窗不曾出現在「正在等候驗證...」對話方塊中，請嘗試[這些步驟](#Mac-Keychain-Errors)
+* 如果您位於 macOS 上，且登入視窗不曾出現在「正在等候驗證...」對話方塊中，請嘗試[這些步驟](#mac-keychain-errors)
 * 重新啟動儲存體總管
 * 如果驗證視窗空白，請在關閉驗證對話方塊之前先等待至少一分鐘。
 * 確認您的機器和儲存體總管都已正確設定 Proxy 和憑證設定。

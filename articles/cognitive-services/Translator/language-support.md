@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 775e098eb2a067e3e0446bccc223c1c54e082347
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435630"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957357"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -108,7 +108,7 @@ ms.locfileid: "47435630"
 | 北印度文 | hi | 梵文字母 | <--> | 拉丁文 |
 | 日文 | ja | 日文 | <--> | 拉丁文 |
 | 坎那達文 | kn | 坎那達文 | --> | 拉丁文 |
-| 馬來西亞文 | ml | 馬來亞拉姆文 | --> | 拉丁文 |
+| 馬來亞拉姆文 | ml | 馬來亞拉姆文 | --> | 拉丁文 |
 | 馬拉地文 | mr | 梵文字母 | --> | 拉丁文 |
 | 歐利亞文 | 或 | 歐利亞文 | <--> | 拉丁文 |
 | 旁遮普文 | pa | 古木基文 | <--> | 拉丁文  |

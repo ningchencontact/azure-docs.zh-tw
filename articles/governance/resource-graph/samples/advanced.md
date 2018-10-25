@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a9281bc333b3edd12501a6813f12b9e7ad1bf59f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219262"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647828"
 ---
 # <a name="advanced-resource-graph-queries"></a>進階 Resource Graph 查詢
 
@@ -27,7 +27,7 @@ ms.locfileid: "47219262"
 > - [列出所有標記名稱](#list-all-tags)
 > - [依 RegEx 比對虛擬機器](#vm-regex)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
 
 ## <a name="language-support"></a>語言支援
 
@@ -48,7 +48,7 @@ where type=~ 'microsoft.compute/virtualmachinescalesets'
 az graph query -q "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
@@ -65,7 +65,7 @@ project tags
 az graph query -q "project tags | summarize buildschema(tags)"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
 ```
 
@@ -95,7 +95,7 @@ where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Cont
 az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 

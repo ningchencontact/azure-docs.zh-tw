@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/22/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 891032e9f0a40b2a9df19ed25ffc19dd81507cab
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628943"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958309"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>建立服務主體以將應用程式存取權提供給 Azure Stack 資源
 
@@ -57,7 +57,7 @@ ms.locfileid: "45628943"
 如果 Azure Stack 使用 Azure AD 作為身分識別存放區，您可以在 Azure 入口網站中使用與 Azure 中相同的步驟建立服務主體。
 
 >[!NOTE]
-開始建立服務主體之前，請查看您有[必要的 Azure AD 權限](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)。
+開始建立服務主體之前，請查看您有[必要的 Azure AD 權限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
 ### <a name="create-service-principal"></a>建立服務主體
 

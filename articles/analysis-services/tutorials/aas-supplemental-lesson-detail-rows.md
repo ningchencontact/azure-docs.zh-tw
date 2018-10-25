@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 626258488afec4b3c3f025ae85bd3b5866aa0cf3
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7ed4ba27332123d41a9e031f221eedb57fa228b9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443972"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49425957"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>補充課程 - 詳細資料列
 
@@ -21,7 +21,7 @@ ms.locfileid: "37443972"
   
 這堂課的預估完成時間：**10 分鐘**  
   
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 此補充課程是表格式模型教學課程的一部分。 在此補充課程中執行工作之前，您應已完成所有先前的課程或已完成 Adventure Works 網際網路銷售範例模型專案。  
   
 ## <a name="whats-the-issue"></a>有什麼問題？

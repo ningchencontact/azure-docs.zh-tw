@@ -2,24 +2,20 @@
 title: Durable Functions 中的計時器 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 擴充中實作永久性計時器。
 services: functions
-author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+author: kashimiz
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4fd86b70965a7be84c72e265af798292819cbe96
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c0976df340440fa8715e62199fa7339f51093aac
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762263"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984174"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的計時器
 
@@ -61,12 +57,12 @@ public static async Task Run(
 const df = require("durable-functions");
 const moment = require("moment-js");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
         const dayOfMonth = context.df.currentUtcDateTime.getDate();
         const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
         yield context.df.createTimer(deadline.toDate());
-        yield context.df.callActivityAsync("SendBillingEvent");
+        yield context.df.callActivity("SendBillingEvent");
     }
 });
 ```
@@ -115,10 +111,10 @@ public static async Task<bool> Run(
 const df = require("durable-functions");
 const moment = require("moment-js");
 
-module.exports = df(function*(context) {
-    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, 's');
+module.exports = df.orchestrator(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
 
-    const activityTask = context.df.callActivityAsync("GetQuote");
+    const activityTask = context.df.callActivity("GetQuote");
     const timeoutTask = context.df.createTimer(deadline);
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);

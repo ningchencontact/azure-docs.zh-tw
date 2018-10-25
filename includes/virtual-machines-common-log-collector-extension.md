@@ -24,7 +24,7 @@
 * **SearchPattern**：要收集之檔案的名稱模式。 預設值為 “\*”
 * **遞迴**：如果要收集的檔案以遞迴方式位於指定位置底下。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 擁有儲存體帳戶可進行擴充，以儲存產生的 ZIP 檔案。
 * 使用 Azure PowerShell Cmdlet 0.8.0 版或更新版本。 如需詳細資訊，請參閱 [Azure 下載](https://azure.microsoft.com/downloads/)。
 
@@ -437,7 +437,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

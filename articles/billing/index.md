@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 40070acab5f656cab7f3034e3b35c113c0ff6051
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1e44f79fea337a79f3c30f60db7eb9a55182db6c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300806"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986571"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 計費與成本管理文件
 
@@ -52,9 +52,10 @@ ms.locfileid: "43300806"
                         <h3>管理成本</h3>
                         <p>
                         <a href="/azure/billing/billing-getting-started">避免非預期的成本</a><br/>
-                        <a href="/azure/billing/billing-set-up-alerts">設定帳務警示</a><br/>
-                        <a href="https://azure.microsoft.com/pricing/calculator/">計算價格</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">使用資源標籤</a>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">使用資源標籤</a><br/>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">開始分析成本 - 僅限 EA</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">建立及管理預算 - 僅限 EA</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">最佳化建議 - 僅限 EA</a>
                         </p>
                     </div>
                 </div>
@@ -170,7 +171,6 @@ ms.locfileid: "43300806"
                 <div class="card">
                     <div class="cardText">
                         <h3>Enterprise Subscription：需要 EA 入口網站存取</h3>
-                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
                         <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">理部門<span class="docon docon-navigate-external"></span></a>
                         <br>

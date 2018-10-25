@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: ffd8a82fb03c23a661223e16e75d2964249d2b96
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965818"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958411"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>使用 Azure 媒體服務設計具有存取控制的內容保護系統
 
@@ -225,7 +225,7 @@ DRM 子系統可能包含下列元件：
 
 如需 Azure AD 的資訊：
 
-* 您可以在 [Azure Active Directory 開發人員指南](../../active-directory/develop/azure-ad-developers-guide.md)中找到開發人員的資訊。
+* 您可以在 [Azure Active Directory 開發人員指南](../../active-directory/develop/v1-overview.md)中找到開發人員的資訊。
 * 您可以在 [管理 Azure AD 租用戶目錄](../../active-directory/fundamentals/active-directory-administer.md)中找到系統管理員的資訊。
 
 ### <a name="some-issues-in-implementation"></a>實作中的一些問題

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297837"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955162"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 資源群組部署專案在 Azure DevOps Services 中進行持續整合
 若要部署 Azure 範本，您需要執行各種階段的工作：組建、測試、複製到 Azure (也稱為「暫存」) 及部署範本。 有兩種不同的方式，可將範本部署到 Azure DevOps Services。 兩種方法所產生的結果都相同，因此請選擇最符合您工作流程的方法。
@@ -92,7 +92,7 @@ ms.locfileid: "44297837"
       對於 Azure CLI，請使用：
       
       `azure account show`
-   8. 若要取得服務主體識別碼、服務主體金鑰及租用戶識別碼，請依照[使用入口網站建立 Active Directory 應用程式和服務主體](resource-group-create-service-principal-portal.md)或[以 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)中的程序。
+   8. 若要取得服務主體識別碼、服務主體金鑰及租用戶識別碼，請依照[使用入口網站建立 Active Directory 應用程式和服務主體](active-directory/develop/howto-create-service-principal-portal.md)或[以 Azure 資源管理員驗證服務主體](active-directory/develop/howto-authenticate-service-principal-powershell.md)中的程序。
    9. 將服務主體識別碼、服務主體金鑰，以及租用戶識別碼值新增至 [新增 Azure 訂用帳戶] 對話方塊，然後選擇 [確定] 按鈕。
       
       現在，您擁有可執行 Azure PowerShell 指令碼的有效服務主體。
@@ -181,7 +181,7 @@ ms.locfileid: "44297837"
 7. 在新增所有必要的項目之後，儲存組建管線然後在頂端選擇 [將新組建排入佇列]。
 
 ## <a name="next-steps"></a>後續步驟
-如需 Azure Resource Manager 和 Azure 資源群組的詳細資訊的詳細資訊，請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md) 。
+如需 Azure 資源管理員和 Azure 資源群組的詳細資訊的詳細資訊，請參閱 [Azure 資源管理員概觀](azure-resource-manager/resource-group-overview.md) 。
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
 [1]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough2.png

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697810"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985806"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>從 Azure 串流分析作業執行 Azure Functions 
 
@@ -40,11 +40,11 @@ ms.locfileid: "43697810"
 ![顯示 Azure 服務之間關聯性的圖表](./media/stream-analytics-with-azure-functions/image1.png)
 
 完成這項工作的必要步驟如下：
-* [使用事件中樞做為輸入，建立串流分析工作](#create-stream-analytics-job-with-event-hub-as-input)  
-* [建立 Azure Redis 快取執行個體](#create-an-azure-redis-cache)  
-* [在 Azure Functions 中建立可將資料寫入至 Azure Redis Cache 的函式](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [使用函式做為輸出，更新串流分析作業](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [檢查 Azure Redis 快取尋找結果](#check-redis-cache-for-results)  
+* [使用事件中樞做為輸入，建立串流分析工作](#create-a-stream-analytics-job-with-event-hubs-as-input)  
+* [建立 Azure Redis 快取執行個體](#create-an-azure-redis-cache-instance)  
+* [在 Azure Functions 中建立可將資料寫入至 Azure Redis Cache 的函式](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [使用函式做為輸出，更新串流分析作業](#update-the-stream-analytics-job-with-the-function-as-output)  
+* [檢查 Azure Redis 快取尋找結果](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>使用事件中樞做為輸入，建立串流分析作業
 

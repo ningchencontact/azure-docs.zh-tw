@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 83fb07d718681a9d14176868d11b45a199f60543
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0bce9f50bdc3ac8fb4675a7ac2a3fb300036973f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166182"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404354"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell 中 PowerShell 的快速入門
 
-此文件會詳細說明如何在 [Azure 入口網站](https://portal.azure.com/)中使用 Azure Cloud Shell 中的 PowerShell。
+本文件會詳細說明如何在 [Azure 入口網站](https://portal.azure.com/)中使用 Azure Cloud Shell 中的 PowerShell。
 
 > [!NOTE]
 > 也提供 [Azure Cloud Shell 中的 Bash](quickstart.md) 快速入門。
@@ -75,7 +75,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
  3. 檢視目前訂用帳戶下的所有 Azure 資源
 
-    輸入 `dir`，以列出 Azure 資源的多個檢視。
+    鍵入 `dir`，以列出 Azure 資源的多個檢視。
 
     ```azurepowershell-interactive
     PS Azure:\MySubscriptionName> dir
@@ -93,7 +93,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
 ### <a name="allresources-view"></a>AllResources 檢視
 
-在 `AllResources` 目錄下輸入 `dir`，以檢視 Azure 資源。
+在 `AllResources` 目錄下鍵入 `dir`，以檢視 Azure 資源。
 
 ```azurepowershell-interactive
 PS Azure:\MySubscriptionName> dir AllResources
@@ -119,7 +119,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 ```
 
 > [!NOTE]
-> 您可能會注意到，第二次輸入 `dir` 時，Cloud Shell 可以更快速地顯示項目。
+> 您可能會注意到，第二次鍵入 `dir` 時，Cloud Shell 可以更快速地顯示項目。
 > 原因是將子項目快取在記憶體中，以獲得較佳的使用者體驗。
 不過，您一律可以使用 `dir -Force` 來取得全新資料。
 
@@ -181,17 +181,17 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > 請參閱[針對 Azure VM 遠端管理進行疑難排解](troubleshooting.md#troubleshooting-remote-management-of-azure-vms)。
 
-  假設您有名為 MyVM1 的 VM，讓我們使用 `Invoke-AzureRmVMCommand` 在遠端機器上叫用 PowerShell 指令碼區塊。
+  假設您有名為 MyVM1 的 VM，讓我們使用 `Invoke-AzVMCommand` 在遠端機器上叫用 PowerShell 指令碼區塊。
 
   ```azurepowershell-interactive
-  Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
 
-  您也可以先導覽至 VirtualMachines 目錄，並執行 `Invoke-AzureRmVMCommand`，如下所示。
+  您也可以先導覽至 VirtualMachines 目錄，並執行 `Invoke-AzVMCommand`，如下所示。
 
   ```azurepowershell-interactive
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
 
   # You will see output similar to the following:
 
@@ -210,16 +210,16 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 #### <a name="interactively-log-on-to-a-remote-vm"></a>以互動方式登入遠端 VM
 
-您可以使用 `Enter-AzureRmVM`，以互動方式登入在 Azure 中執行的 VM。
+您可以使用 `Enter-AzVM`，以互動方式登入在 Azure 中執行的 VM。
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-您也可以先導覽至 `VirtualMachines` 目錄，並執行 `Enter-AzureRmVM`，如下所示。
+您也可以先導覽至 `VirtualMachines` 目錄，並執行 `Enter-AzVM`，如下所示。
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
  ```
 
 ### <a name="discover-webapps"></a>探索 WebApp
@@ -298,7 +298,7 @@ ssh azureuser@MyVM.Domain.Com
 
 ## <a name="get-help"></a>Get-Help
 
-輸入 `Get-Help` 以取得 Azure Cloud Shell 中 PowerShell 的相關資訊。
+鍵入 `Get-Help` 以取得 Azure Cloud Shell 中 PowerShell 的相關資訊。
 
 ```azurepowershell-interactive
 Get-Help
@@ -341,7 +341,7 @@ Hello World!
 
 ## <a name="exit-the-shell"></a>結束 Shell
 
-輸入 `exit` 以終止工作階段。
+鍵入 `exit` 以終止工作階段。
 
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/

@@ -1,6 +1,6 @@
 ---
 title: Azure 上的開發人員開始使用指南 | Microsoft Docs
-description: 此主題所提供的重要資訊適用於基於開發需求而想要開始使用 Microsoft Azure 平台的開發人員。
+description: 本主題所提供的重要資訊適用於基於開發需求而想要開始使用 Microsoft Azure 平台的開發人員。
 services: ''
 cloud: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423590"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956427"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -29,7 +29,7 @@ Azure 是一個完整雲端平台，可裝載現有應用程式、簡化新應�
 
 在 Azure 中裝載應用程式，即可從小規模著手，並隨著客戶需求的成長，輕鬆地調整應用程式。 Azure 也會提供高可用性應用程式所需的可靠性，甚至包括不同地區之間的容錯移轉。 [Azure 入口網站](https://portal.azure.com)可讓您輕鬆地管理您的所有 Azure 服務。 您也可以使用服務特定 API 和範本，以程式設計方式管理服務。
 
-**閱讀對象**：此指南是應用程式開發人員的 Azure 平台簡介。 它會提供下列作業所需的指導方針和指示：開始在 Azure 中建置新應用程式，或將現有應用程式移轉至 Azure。
+**閱讀對象**：此指南是應用程式開發人員的 Azure 平台簡介。 它會提供下列作業所需的指引和指示：開始在 Azure 中建置新應用程式，或將現有應用程式移轉至 Azure。
 
 ## <a name="where-do-i-start"></a>我該從哪裡開始？
 
@@ -58,7 +58,7 @@ Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供�
 
 因為所有三種應用程式類型都共用 App Service 執行階段，所以您可以架設網站、支援行動用戶端，並在 Azure 中公開 API，而全部都是來自相同的專案或解決方案。 若要深入了解 App Service，請參閱[什麼是 Azure Web Apps](../../app-service/app-service-web-overview.md)。
 
-請注意，App Service 在設計時已將 DevOps 納入考量。 它支援各種用於發佈和持續整合部署的工具，包括 GitHub Webhook、Jenkins、Azure DevOps、TeamCity 等。
+請注意，已使用 DevOps 設計 App Service。 它支援各種用於發佈和持續整合部署的工具，包括 GitHub Webhook、Jenkins、Azure DevOps、TeamCity 等。
 
 您可以使用[線上移轉工具](https://www.migratetoazure.net/)，將現有應用程式移轉至 App Service。
 
@@ -162,7 +162,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
     >**使用時機**：當您想要提供 SSO 體驗時，請使用 Graph 資料，或驗證網域使用者。
 
-    >**開始使用**：若要深入了解，請參閱 [Azure Active Directory 開發人員指南](../../active-directory/develop/azure-ad-developers-guide.md)。
+    >**開始使用**：若要深入了解，請參閱 [Azure Active Directory 開發人員指南](../../active-directory/develop/v1-overview.md)。
 
 -   **App Service 驗證**：當您選擇 App Service 裝載應用程式時，也會取得 Azure AD 的內建驗證支援，以及社交身分識別提供者，包括 Facebook、Google、Microsoft 和 Twitter。
 
@@ -289,7 +289,7 @@ Azure 資源總管是很棒的工具，可用來以視覺化方式檢視您已�
 
 -   **服務主體物件**：除了提供對使用者主體和群組的存取之外，您還可以授與對服務主體的相同存取。
 
-    > **使用時機**：當您以程式設計方式管理 Azure 資源或授與應用程式存取權時。 如需詳細資訊，請參閱[建立 Active Directory 應用程式和服務主體](../../resource-group-create-service-principal-portal.md)。
+    > **使用時機**：當您以程式設計方式管理 Azure 資源或授與應用程式存取權時。 如需詳細資訊，請參閱[建立 Active Directory 應用程式和服務主體](../../active-directory/develop/howto-create-service-principal-portal.md)。
 
 #### <a name="tags"></a>標記
 

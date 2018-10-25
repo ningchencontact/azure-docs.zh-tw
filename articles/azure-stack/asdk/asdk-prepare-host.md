@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5de25f574cb876701ffce74f1dca8c4bb9764157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dd02dfe37a1566a3121b3571f72d964621330cd0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30165665"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647301"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>準備 ASDK 主機電腦
 必須先讓 ASDK 環境做好安裝準備，才可以在主機電腦上安裝 ASDK。 當開發套件主機電腦做好準備時，它會從 CloudBuilder.vhdx 虛擬機器硬碟開機，以開始進行 ASDK 部署。
@@ -53,7 +53,6 @@ ms.locfileid: "30165665"
 
 6. 在 [選擇性設定] 頁面上，提供開發套件主機電腦的本機系統管理員帳戶資訊，然後按 [下一步]。 您也可以為下列選用設定提供值：
   - **電腦名稱**：此選項會設定開發套件主機的名稱。 名稱必須符合 FQDN 需求，且長度必須等於或少於 15 個字元。 預設值是由 Windows 產生的隨機電腦名稱。
-  - **時區**：設定開發套件主機的時區。 預設值是 (UTC-8:00) 太平洋時間 (美國和加拿大)。
   - **靜態 IP 組態**：將您的部署設定為使用靜態 IP 位址。 否則，當安裝程式重新開機進入 cloudbuilder.vhx 時，會使用 DHCP 來設定網路介面。
 
     ![](media/asdk-prepare-host/3.PNG)

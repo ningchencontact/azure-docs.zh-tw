@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5e18a27579c577f914709e25cab1549387a965f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b96ee362f6169d386a58ee48878e40a42fc9ede
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966396"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987591"
 ---
 # <a name="about-microsoft-identity-platform"></a>關於 Microsoft 身分識別平台
 
@@ -37,7 +37,7 @@ MicrosoftMicrosoft 身分識別平台是 Azure Active Directory (Azure AD) 身�
 
 下圖顯示 Microsoft 身分識別體驗的高階概觀，包括應用程式註冊體驗、SDK、端點，以及支援的身分識別。
 
-![現今的 Microsoft 身分識別平台](./media/about-microsoft-identity-platform/microsoft-identity-platform-today.png)
+![現今的 Microsoft 身分識別平台](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
 
 Microsoft 身分識別平台有兩個端點 (v1.0 與 v2.0)，以及兩組用來處理這些端點的用戶端程式庫。 開發新的應用程式時，請考量端點與驗證程式庫具備哪些優點，以及它們的目前狀況。 也請考量下列事項：
 
@@ -61,5 +61,5 @@ Microsoft 身分識別平台有兩個端點 (v1.0 與 v2.0)，以及兩組用來
 
 深入了解 v1.0 與 v2.0。
 
-* [關於 v1.0](azure-ad-developers-guide.md)
-* [關於 v2.0](azure-ad-developers-guide.md)
+* [關於 v1.0](v1-overview.md)
+* [關於 v2.0](v2-overview.md)

@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5d78172ae441300cdc39df8b911fd7ecaa42df9f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 61be39fc870eb73a5836f8e60a3495aff877d7ed
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032687"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637843"
 ---
 # <a name="versions"></a>版本
 使用[版本](luis-how-to-manage-versions.md)來建立相同應用程式的不同模型。 

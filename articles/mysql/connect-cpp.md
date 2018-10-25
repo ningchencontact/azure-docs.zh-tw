@@ -11,17 +11,17 @@ ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: 0c017907378376c01e4a4a98190f73a9452b9a3d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6d9deba8c7e6317ab349f86d5a1730f05288ea35
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264947"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987659"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Connector/C++ 來連線及查詢資料
 本快速入門示範如何使用 C++ 應用程式來連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 C++ 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點：
 - [使用 Azure 入口網站建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -30,7 +30,7 @@ ms.locfileid: "35264947"
 - 安裝 [.NET Framework](https://www.microsoft.com/net/download)
 - 安裝 [Visual Studio](https://www.visualstudio.com/downloads/)
 - 安裝 [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
-- 安裝 [Boost](http://www.boost.org/)
+- 安裝 [Boost](https://www.boost.org/)
 
 ## <a name="install-visual-studio-and-net"></a>安裝 Visual Studio 和 .NET
 本節中的步驟假設您已熟悉使用 .NET 進行開發。

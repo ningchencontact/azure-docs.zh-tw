@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 3a141bcde75872f2384aedf982ffef5cba9666a3
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843031"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988499"
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
 
@@ -32,12 +32,15 @@ ms.locfileid: "48843031"
 ![登入您的 Microsoft 帳戶](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="view-application-results"></a>檢視應用程式結果
+
 登入之後，系統會將使用者重新導向至您網站的首頁。 首頁就是您在 Microsoft 應用程式註冊入口網站的應用程式註冊資訊中指定的 HTTPS URL。 首頁包含歡迎訊息「\<使用者>，您好」、登出連結，以及用來檢視使用者宣告的連結。 使用者宣告的連結會瀏覽至您稍早建立的「宣告」控制器。
 
 ### <a name="browse-to-see-the-users-claims"></a>瀏覽以查看使用者的宣告
+
 若要查看使用者的宣告，請選取瀏覽至控制器檢視的連結，僅可供已驗證的使用者使用。
 
 #### <a name="view-the-claims-results"></a>檢視宣告結果
+
 瀏覽至控制器檢視之後，您應該就會看到一個資料表，包含使用者的基本屬性：
 
 |屬性 |值 |說明 |
@@ -49,13 +52,15 @@ ms.locfileid: "48843031"
 
 此外，您應該會看到驗證要求中所有宣告的資料表。 如需詳細資訊，請參閱 [Azure AD ID 權杖中的宣告清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
 
-
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>對具有 Authorize 屬性 (選用) 的方法進行存取測試
+
 若要利用匿名使用者身分測試以 `Authorize` 屬性保護之控制器的存取權限，請遵循以下步驟：
+
 1. 選取連結以將使用者登出，並完成登出程序。
 2. 在您的瀏覽器中輸入 http://<span></span>localhost:{port}/claims，存取以 `Authorize` 屬性保護的控制器。
 
 #### <a name="expected-results-after-access-to-a-protected-controller"></a>存取受保護控制站之後的預期結果
+
 系統會提示您使用受保護的控制器檢視進行驗證。
 
 ## <a name="advanced-options"></a>進階選項
@@ -70,6 +75,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>限制誰可以登入您的應用程式
+
 根據預設，當您建置依照本指南建立的應用程式時，將能夠接受使用個人帳戶 (包括 outlook.com、live.com 和其他帳戶)，以及來自已整合 Azure Active Directory 之公司或組織的公司與學校帳戶登入。 這是 SaaS 應用程式的建議選項。
 
 若要限制使用者登入應用程式的存取權限，可使用多個選項：
@@ -88,6 +94,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 2. 將 `ValidIssuers` 參數的值設為允許組織的清單。
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>選項 3：使用自訂方法來驗證簽發者
+
 您可以實作自訂方法，使用 **IssuerValidator** 參數來驗證簽發者。 如需此參數使用方式的詳細資訊，請閱讀 MSDN 上的 [TokenValidationParameters 類別](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx)。
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

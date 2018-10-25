@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6ad95eb45cc208fe2289cb2095214f98a0b250b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7d8bde6beeb4bd0c6234d7c5aa63be9e150953f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442384"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427241"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -23,14 +23,14 @@ ms.locfileid: "37442384"
 
 |資料來源  |記憶體內  |DirectQuery  |
 |---------|---------|---------|
-|連接字串     |   yes      |    yes      |
-|Azure SQL 資料倉儲     |   yes      |   yes       |
-|Azure Blob 儲存體*     |   yes       |    否      |
-|Azure 表格儲存體*    |   yes       |    否      |
-|Azure Cosmos DB*     |  yes        |  否        |
-|Azure Data Lake Store*     |   yes       |    否      |
-|Azure HDInsight HDFS*     |     yes     |   否       |
-|Azure HDInsight Spark*     |   yes       |   否       |
+|連接字串     |   是      |    是      |
+|Azure SQL 資料倉儲     |   是      |   是       |
+|Azure Blob 儲存體*     |   是       |    否      |
+|Azure 表格儲存體*    |   是       |    否      |
+|Azure Cosmos DB*     |  是        |  否        |
+|Azure Data Lake Store*     |   是       |    否      |
+|Azure HDInsight HDFS*     |     是     |   否       |
+|Azure HDInsight Spark*     |   是       |   否       |
 ||||
 
 \* 僅限表格式 1400 模型。

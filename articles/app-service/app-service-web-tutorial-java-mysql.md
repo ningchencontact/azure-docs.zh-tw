@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 0baab86c0cb76bfeecb30cdb62c968a476e402b9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db1005bbce25b0fa3fec76e6f9428a4cdd6fa4aa
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296766"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024354"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java 和 MySQL Web 應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "44296766"
 > 本文會將應用程式部署至 Windows 上的 App Service。 若要在 Linux 上部署至 App Service，請參閱[將容器化的 Spring Boot 應用程式部署至 Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin)。
 >
 
-本教學課程示範如何在 Azure 中建立 Java Web 應用程式，並將它連線到 MySQL 資料庫。 當您完成後，在 [Azure App Service Web Apps](app-service-web-overview.md) 中執行的 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) 會有一個儲存資料的 [Spring Boot](https://projects.spring.io/spring-boot/)應用程式。
+本教學課程示範如何在 Azure 中建立 Java Web 應用程式，並將它連線到 MySQL 資料庫。 當您完成後，在 [Azure App Service Web Apps](app-service-web-overview.md) 中執行的 [Azure Database for MySQL](../mysql/overview.md) 會有一個儲存資料的 [Spring Boot](https://projects.spring.io/spring-boot/)應用程式。
 
 ![在 Azure Appservice 中執行的 Java 應用程式](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
@@ -122,7 +122,7 @@ select * from todo_item;
 
 ## <a name="create-an-azure-mysql-database"></a>建立 Azure MySQL 資料庫
 
-在此步驟中，您會使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 建立 [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) 執行個體。 也會設定範例應用程式，以便稍後可以在教學課程中使用此資料庫。
+在此步驟中，您會使用 [Azure CLI](/cli/azure/install-azure-cli) 建立 [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) 執行個體。 也會設定範例應用程式，以便稍後可以在教學課程中使用此資料庫。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -282,7 +282,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 請先將 Web 應用程式上的應用程式設定設為使用在 Azure 中建立的 Azure MySQL 資料庫，再執行範例應用程式。 這些屬性會公開至 Web 應用程式作為環境變數，並覆寫已封裝之 Web 應用程式中 application.properties 所設定的值。 
 
-在 Cloud Shell 中，使用 CLI 中的 [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) 來設定應用程式設定：
+在 Cloud Shell 中，使用 CLI 中的 [`az webapp config appsettings`](/cli/azure/webapp/config/appsettings) 來設定應用程式設定：
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>取得 FTP 部署認證 
 您可以使用各種方式來將應用程式部署至 Azure Appservice，包括 FTP、本機 Git、GitHub、Azure DevOps 和 BitBucket。 在此範例中，使用 FTP 將先前在您本機電腦上建置的 .WAR 檔案部署至 Azure App Service。
 
-若要判斷哪些認證要在 ftp 命令中傳遞至 Web 應用程式，請在 Cloud Shell 中使用 [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) 命令： 
+若要判斷哪些認證要在 ftp 命令中傳遞至 Web 應用程式，請在 Cloud Shell 中使用 [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) 命令： 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -440,25 +440,25 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不需要這些資源來進行其他教學課程 (請參閱[後續步驟](#next))，您可以在 Cloud Shell 中執行下列命令來將這些資源刪除︰ 
-  
+如果您不需要這些資源來進行其他教學課程 (請參閱[後續步驟](#next))，您可以在 Cloud Shell 中執行下列命令來將這些資源刪除︰ 
+  
 ```azurecli-interactive
-az group delete --name myResourceGroup 
-``` 
+az group delete --name myResourceGroup 
+``` 
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>後續步驟
+## Next steps
 
 > [!div class="checklist"]
-> * 在 Azure 中建立 MySQL 資料庫
-> * 將範例 Java 應用程式連線至 MySQL
-> * 將應用程式部署至 Azure
-> * 更新和重新部署應用程式
-> * 來自 Azure 的串流診斷記錄
-> * 在 Azure 入口網站中管理應用程式
+> * Create a MySQL database in Azure
+> * Connect a sample Java app to the MySQL
+> * Deploy the app to Azure
+> * Update and redeploy the app
+> * Stream diagnostic logs from Azure
+> * Manage the app in the Azure portal
 
-前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至該應用程式。
+Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 > [!div class="nextstepaction"] 
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)

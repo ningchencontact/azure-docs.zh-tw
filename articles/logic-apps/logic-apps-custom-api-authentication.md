@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: b329fb1416d28b0732e7b9ea4612f5bac8580b3a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62f71f29f813cd30c7d8e3c7f37f41677cf07364
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132670"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956369"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>保護從 Azure Logic Apps 對自訂 API 發出的呼叫
 
@@ -104,7 +104,7 @@ ms.locfileid: "43132670"
 
 4. 請務必複製 [租用戶識別碼] \(您 Azure AD 租用戶的 GUID)、[應用程式識別碼] 和您所使用的密碼。
 
-如需詳細資訊，請了解如何[使用 PowerShell 建立用來存取資源的服務主體](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+如需詳細資訊，請了解如何[使用 PowerShell 建立用來存取資源的服務主體](../active-directory/develop/howto-authenticate-service-principal-powershell.md)。
 
 #### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>第 2 部分：建立 Web 應用程式或 API 應用程式的 Azure AD 應用程式識別碼
 
@@ -247,7 +247,7 @@ ms.locfileid: "43132670"
 
 在 [授權] 區段中，納入這一行：
 
-`{"type": "basic", "username": "username", "password": "password"}`。
+`{"type": "basic", "username": "username", "password": "password"}` 。
 
 | 元素 | 必要 | 說明 | 
 | ------- | -------- | ----------- | 

@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: a2876ccdfe073a3c642304a1381faf77ae4a7d90
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 603da0add9efba4e68088bf0eb6ab919ec9988e2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142133"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955482"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何讓 AppSource 取得 Azure Active Directory 認證
 
@@ -32,7 +32,7 @@ ms.locfileid: "42142133"
 
 ## <a name="guides-and-code-samples"></a>指南與程式碼範例
 
-如果您想要了解如何使用 Open ID Connect 來將您的應用程式與 Azure AD 整合，請遵循 [Azure Active Directory 開發人員指南](azure-ad-developers-guide.md#get-started "開始使用適用於開發人員的 Azure AD") 中的指南和程式碼範例。
+如果您想要了解如何使用 Open ID Connect 來將您的應用程式與 Azure AD 整合，請遵循 [Azure Active Directory 開發人員指南](v1-overview.md#get-started "開始使用適用於開發人員的 Azure AD") 中的指南和程式碼範例。
 
 ## <a name="multi-tenant-applications"></a>多租用戶應用程式
 
@@ -57,7 +57,7 @@ ms.locfileid: "42142133"
 
 ### <a name="free-trial-customer-led-trial-experience"></a>免費試用 (客戶導向的試用體驗) 
 
-客戶導向的試用是 AppSource 建議的體驗，因為它可讓您單鍵存取至您的應用程式。 此體驗看起來如下圖：<br/><br/>
+客戶導向的試用是 AppSource 建議的體驗，因為它可讓您單鍵存取至您的應用程式。 這項體驗看起來如下圖：<br/><br/>
 
 <table >
 <tr>
@@ -127,9 +127,9 @@ ms.locfileid: "42142133"
 <!--Reference style links -->
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
-[AAD-Dev-Guide]: azure-ad-developers-guide.md
+[AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
-[AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
+[AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
 
 
 <!--Image references-->

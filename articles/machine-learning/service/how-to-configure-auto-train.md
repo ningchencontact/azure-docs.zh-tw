@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 33126c094a55bc57edd49a54fbc4f5acd7401998
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078999"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430182"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>設定您的自動化機器學習實驗
 
@@ -147,7 +147,7 @@ cv_splits_indices   | 一連串整數 ||  _選擇性_ 用來分割交叉驗證�
 2.  雲端中的遠端電腦 (執行 Linux 的 [Azure 資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)) – 您有大型資料集，而且想要相應增加至可在 Azure 雲端中使用的大型機器。 
 3.  Azure Batch AI 叢集 – 您可以經由設定相應放大，並以平行方式執行自動化 ML 反覆運算的受控叢集。 
 
-
+<a name='configure-experiment'/>
 ## <a name="configure-your-experiment-settings"></a>設定您的實驗設定
 
 有數個途徑可用來設定自動化 ML 實驗。 將 `AutoMLConfig` 物件具現化即可設定這些參數。

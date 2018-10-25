@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 928fe227a74c5c63ccdfb364b0e2423d7b544864
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e6591dc25ab498b496f6abff1041e448240896d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443013"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426038"
 ---
 # <a name="create-hierarchies"></a>建立階層
 
@@ -23,7 +23,7 @@ ms.locfileid: "37443013"
   
 這堂課的預估完成時間：**20 分鐘**  
   
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 8 課︰建立檢視方塊](../tutorials/aas-lesson-8-create-perspectives.md)。  
   
 ## <a name="create-hierarchies"></a>建立階層  

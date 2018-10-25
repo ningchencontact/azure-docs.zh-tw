@@ -4,18 +4,20 @@ description: 使用異常搜尋工具中的進階演算法，可協助您識別�
 services: cognitive-services
 author: tonyxing
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.component: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: 1080bb0ad1d901a8b9a5ace4993d4e0d46924a03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c0c15f077a0a7dd302a377aa6f82ba2f8533d862
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369150"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456247"
 ---
 # <a name="what-is-anomaly-finder"></a>什麼是異常搜尋工具？
+
+[!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 異常搜尋工具可讓您持續監看資料，並利用機器學習來偵測異常，這種機器學習已經適應您獨特的資料，無論針對什麼產業、情況或資料量，都能套用正確的統計模型。 異常搜尋工具 API 使用時間序列做為輸入，回傳資料點是否異常，得出期望值，並決定資料視覺化之上下限。 異常搜尋工具為預先建置之 AI 服務，使用上只要知道如何用 RESTful API 即可，不需要其他機器學習之專業知識。 這可讓開發變得簡單而且多元化，因為它可搭配任何時間序列資料，而且也可以整合於串流處理系統。 異常搜尋工具涵蓋廣泛的使用情況，例如用於應對詐騙、偷竊、市場變化及潛在業務事故，或是監看 IoT 裝置流量同時維持匿名的財務工具。 此解決方案也可以成為一種付費服務，讓終端客戶了解資料、花費、投資報酬率或使用者活動的變化。
 嘗試使用異常搜尋工具 API 來更深入了解您的資料。 
@@ -47,7 +49,7 @@ ms.locfileid: "35369150"
 * ExpectedValue - 學習型模型的預測值
 * IsAnomaly - 判斷資料點是否為異常的結果
 * IsAnomaly_Neg - 資料點低於預期值 (下降)
-* IsAnomaly_Pos - 資料點高於預期值 (尖峰)
+* IsAnomaly_Pos - 資料點高於預測值 (尖峰)
 * UpperMargin - ExpectedValue 和 UpperMargin 的總和決定資料點仍屬於正常範圍的上限
 * LowerMargin - (ExpectedValue - LowerMargin) 決定資料點仍屬於正常範圍的下限
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 248f2575e284ae456578b071013e1a5501329116
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 06da33b91ef9846204b33ba2cb3dea40c75d425d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843410"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988247"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>使用 Microsoft Authentication Library (MSAL) 取得 Microsoft 圖形 API 的權杖
 
@@ -29,17 +29,17 @@ ms.locfileid: "48843410"
 import UIKit
 import MSAL
 
-/// 😃 A View Controller that will respond to the events of the Storyboard.
+// A View Controller that will respond to the events of the Storyboard.
 class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
-    
-    // Update the below to your client ID you received in the portal. The below is for running the demo only
+
+    // Replace Your_Application_Id_Here with the client ID you received in the portal. The below is for running the demo only.
     let kClientID = "Your_Application_Id_Here"
-    
+
     // These settings you don't need to edit unless you wish to attempt deeper scenarios with the app.
     let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
     let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
     let kAuthority = "https://login.microsoftonline.com/common"
-    
+
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
 
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
         super.viewWillAppear(animated)
         signoutButton.isEnabled = !self.accessToken.isEmpty
     }
-    
+
     /**
      This button will invoke the authorization flow.
     */
@@ -204,17 +204,20 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 <!--start-collapse-->
 ### <a name="more-information"></a>相關資訊
+
 #### <a name="getting-a-user-token-interactively"></a>以互動方式取得使用者權杖
+
 呼叫 `acquireToken` 方法時會顯示一個瀏覽器視窗，提示使用者登入。 當使用者第一次需要存取受保護的資源，或取得權杖的無訊息作業失敗 (例如使用者的密碼過期) 時，應用程式通常會要求使用者以互動方式登入。
 
 #### <a name="getting-a-user-token-silently"></a>以無訊息方式取得使用者權杖
+
 `acquireTokenSilent` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 `acquireToken` 在第一次執行之後，`acquireTokenSilent` 就會成為用來取得權杖的常用方法，以在後續呼叫中使用那些權杖存取受保護的資源，並且會以無訊息方式進行要求或更新權杖的呼叫。
 
 最後，`acquireTokenSilent` 將會失敗，例如，使用者已經登出，或已經在其他裝置上變更其密碼。 當 MSAL 偵測到可透過要求執行互動式動作來解決問題時，就會發出一個 `MSALErrorCode.interactionRequired` 例外狀況。 您的應用程式可以透過兩種方式處理此例外狀況：
 
-1.  立即針對 `acquireToken` 進行呼叫，這會促使系統提示使用者登入。 此模式通常用於應用程式中沒有離線內容可供使用者使用的線上應用程式。 此指引設定所產生的範例應用程式會使用此模式：您可以在第一次執行應用程式時看到它運作。 因為沒有任何使用者曾經用過該應用程式，`applicationContext.allAccounts().first` 會包含 null 值，且會擲回 ` MSALErrorCode.interactionRequired ` 例外狀況。 然後範例中的程式碼會透過呼叫 `acquireToken` 來處理例外狀況，進而提示使用者登入。
+1. 立即針對 `acquireToken` 進行呼叫，這會促使系統提示使用者登入。 此模式通常用於應用程式中沒有離線內容可供使用者使用的線上應用程式。 此指引設定所產生的範例應用程式會使用此模式：您可以在第一次執行應用程式時看到它運作。 因為沒有任何使用者曾經用過該應用程式，`applicationContext.allAccounts().first` 會包含 null 值，且會擲回 ` MSALErrorCode.interactionRequired ` 例外狀況。 然後範例中的程式碼會透過呼叫 `acquireToken` 來處理例外狀況，進而提示使用者登入。
 
-2.  應用程式也可以提供視覺指示，讓使用者知道需要透過互動方式登入，使用者就能選取正確的登入時機，或應用程式可以在之後重試 `acquireTokenSilent`。 此方式通常用於使用者可以使用應用程式的其他功能，不需要因此中斷作業的情況，例如，應用程式中有離線內容可供使用者使用。 在此案例中，使用者可以決定他們要登入以存取受保護資源，或重新整理過時資訊的時機，或者您的應用程式可以決定在網路暫時中斷之後恢復連線時重試 `acquireTokenSilent`。
+2. 應用程式也可以提供視覺指示，讓使用者知道需要透過互動方式登入，使用者就能選取正確的登入時機，或應用程式可以在之後重試 `acquireTokenSilent`。 此方式通常用於使用者可以使用應用程式的其他功能，不需要因此中斷作業的情況，例如，應用程式中有離線內容可供使用者使用。 在此案例中，使用者可以決定他們要登入以存取受保護資源，或重新整理過時資訊的時機，或者您的應用程式可以決定在網路暫時中斷之後恢復連線時重試 `acquireTokenSilent`。
 
 <!--end-collapse-->
 
@@ -287,6 +290,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-info-on-sign-out"></a>關於登出的詳細資訊
 
@@ -299,11 +303,12 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 一旦使用者通過驗證，瀏覽器會將使用者重新導向回應用程式。 請遵循下列步驟登錄您的回呼：
 
-1.  開啟 `AppDelegate.swift` 並匯入 MSAL：
+1. 開啟 `AppDelegate.swift` 並匯入 MSAL：
 
 ```swift
 import MSAL
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>

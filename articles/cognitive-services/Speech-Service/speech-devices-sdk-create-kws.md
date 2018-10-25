@@ -1,20 +1,21 @@
 ---
 title: 建立自訂喚醒字
-description: 了解如何為 Speech Devices SDK 建立自訂的喚醒字。
 titleSuffix: Azure Cognitive Services
+description: 了解如何為 Speech Devices SDK 建立自訂的喚醒字。
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: ab2bc9a83feadd9ece8876559e730e7bc955908a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165465"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469073"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>使用語音服務來建立自訂的喚醒字
 
@@ -52,10 +53,6 @@ ms.locfileid: "49165465"
 1. 使用您收到 Azure Active Directory 邀請的電子郵件地址來建立新帳戶。 
 
     ![建立新帳戶](media/speech-devices-sdk/wake-word-1.png)
- 
-1.  登入之後，填妥表單，然後選取 [開始我的旅程]。
-
-    ![已順利登入](media/speech-devices-sdk/wake-word-3.png)
  
 1. [Custom Wake Word] \(自訂喚醒字\) 頁面並未提供給大眾使用，因此沒有可直接連至該頁面的連結。 自訂語音功能需要 Azure 訂用帳戶，但自訂喚醒字功能並不需要。 如果出現「找不到任何訂用帳戶」 錯誤頁面，請直接將 **"Subscriptions?errorMessage=No%20Subscriptions%20found"** 取代為 URL 中的 "**customkws**"，然後點按 ENTER。 URL 應該是以下其中一個： https://westus.cris.ai/customkws、 https://eastasia.cris.ai/customkws 或 https://northeurope.cris.ai/customkws，這取決於您的地區在哪。
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2017
+ms.date: 10/23/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: b44a6627ab12c8a4ad21e7beded7c5fd2c2e1d39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 800fcc131cc6dc7b86444a00d60ad6c52599d334
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128457"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955081"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>使用 Log Analytics 設定 Azure PaaS 資源計量的收集
 
@@ -28,7 +28,7 @@ Azure 平台即服務 (PaaS) 資源 (例如 Azure SQL 和網站 (Web 應用程�
 
 目前，沒有任何方法可透過 Azure 入口網站來對 PaaS 資源啟用計量記錄功能。 因此，您需要使用 PowerShell 指令碼。 這項原生計量記錄功能以及 Log Analytics 監視功能，可讓您大規模監視 Azure 資源。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 先確認您已在電腦上安裝下列 Azure Resource Manager 模組，再繼續執行：
 
 - AzureRM.Insights
@@ -42,7 +42,7 @@ Azure 平台即服務 (PaaS) 資源 (例如 Azure SQL 和網站 (Web 應用程�
 若要在電腦上安裝最新版的 Azure Resource Manager 模組，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps)。  
 
 ## <a name="enable-azure-diagnostics"></a>啟用 Azure 診斷  
-執行指令碼 **Enable-AzureRMDiagnostics.ps1** (可從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript)取得)，即可完成 PaaS 資源的 Azure 診斷設定。  此指令碼支援下列案例：
+執行指令碼 **Enable-AzureRMDiagnostics.ps1** (可從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52)取得)，即可完成 PaaS 資源的 Azure 診斷設定。  此指令碼支援下列案例：
   
 * 指定訂用帳戶中一或多個資源群組的相關資源  
 * 指定訂用帳戶中特定資源群組的相關資源  

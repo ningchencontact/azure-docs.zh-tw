@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524425"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957458"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>使用更新資源活動更新 Azure Machine Learning 模型
 本文補充主要 Azure Data Factory - Azure Machine Learning 整合文件︰[使用 Azure Machine Learning 和 Azure Data Factory 建立預測管線](transform-data-using-machine-learning.md)。 如果您尚未檢閱主要文件，請在閱讀這篇文章之前先這麼做。 
@@ -98,7 +98,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 在 [Azure Machine Learning Web 服務入口網站](https://services.azureml.net/)上查詢 Web 服務時，您可以取得 URL 中預留位置的值。 
 
-新類型的更新資源端點需要服務主體驗證。 若要使用服務主體驗證，請在 Azure Active Directory (Azure AD) 中註冊應用程式實體，並授與 Web 服務所屬之訂用帳戶或資源群組的**參與者**或**擁有者**角色。 請參閱[如何建立服務主體及指派權限來管理 Azure 資源](../azure-resource-manager/resource-group-create-service-principal-portal.md)。 請記下以下的值，您可以使用這些值來定義連結服務：
+新類型的更新資源端點需要服務主體驗證。 若要使用服務主體驗證，請在 Azure Active Directory (Azure AD) 中註冊應用程式實體，並授與 Web 服務所屬之訂用帳戶或資源群組的**參與者**或**擁有者**角色。 請參閱[如何建立服務主體及指派權限來管理 Azure 資源](../active-directory/develop/howto-create-service-principal-portal.md)。 請記下以下的值，您可以使用這些值來定義連結服務：
 
 - 應用程式識別碼
 - 應用程式金鑰 

@@ -1,0 +1,122 @@
+items:
+- name: 適用於 MariaDB 的 Azure DB 文件
+  href: index.yml
+- name: 概觀
+  items:
+  - name: 適用於 MariaDB 的 Azure DB
+    href: overview.md
+- name: 快速入門
+  items:
+  - name: 建立 DB - 入口網站
+    href: quickstart-create-mariadb-server-database-using-azure-portal.md
+  - name: 建立 DB - Azure CLI
+    href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: 連線和查詢
+    items:
+    - name: MySQL Workbench
+      href: connect-workbench.md
+  expanded: true
+- name: 教學課程
+  items:
+  - name: 1 - 設計資料庫
+    items:
+    - name: Azure 入口網站
+      href: tutorial-design-database-using-portal.md
+- name: 概念
+  items:
+  - name: DB 和伺服器
+    items:
+    - name: 伺服器
+      href: concepts-servers.md
+    - name: 支援的版本
+      href: concepts-supported-versions.md
+    - name: 伺服器記錄
+      href: concepts-server-logs.md
+    - name: 高可用性
+      href: concepts-high-availability.md
+  - name: 資源
+    items:
+    - name: 定價層
+      href: concepts-pricing-tiers.md
+    - name: 限制
+      href: concepts-limits.md
+  - name: 資料存取和安全性
+    items:
+    - name: 防火牆規則
+      href: concepts-firewall-rules.md
+    - name: 設定 SSL
+      href: concepts-ssl-connection-security.md
+  - name: 業務持續性
+    items:
+    - name: 概觀
+      href: concepts-business-continuity.md
+    - name: 備份與還原
+      href: concepts-backup.md
+  - name: 複寫
+    items:
+    - name: 複寫中的資料
+      href: concepts-data-in-replication.md
+- name: 使用說明指南
+  items:
+  - name: 防火牆規則
+    items:
+    - name: Azure 入口網站
+      href: howto-manage-firewall-portal.md
+  - name: 還原伺服器
+    items:
+    - name: Azure 入口網站
+      href: howto-restore-server-portal.md
+  - name: 移轉資料庫
+    items:
+    - name: 傾印和還原
+      href: howto-migrate-dump-restore.md
+  - name: 連線應用程式
+    items:
+    - name: 建立使用者
+      href: howto-create-users.md
+    - name: 連接字串
+      href: howto-connection-string.md
+    - name: 設定 SSL
+      href: howto-configure-ssl.md
+  - name: 設定伺服器參數
+    items:
+    - name: Azure 入口網站
+      href: howto-server-parameters.md
+  - name: 存取伺服器記錄
+    items:
+    - name: Azure 入口網站
+      href: howto-configure-server-logs-portal.md
+  - name: 複寫
+    items:
+    - name: 設定複寫中的資料
+      href: howto-data-in-replication.md
+- name: 參考
+  items:
+  - name: REST API
+    href: /rest/api/mariadb
+  - name: 複寫中的資料預存程序
+    href: reference-data-in-stored-procedures.md
+- name: 資源
+  items:
+  - name: 部署範本
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
+  - name: Azure 藍圖
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: 價格
+    href: https://azure.microsoft.com/pricing/details/mariadb/
+  - name: MSDN 論壇
+    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: 堆疊溢位
+    href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
+  - name: 要求功能
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: 區域可用性
+    href: https://azure.microsoft.com/regions/services/
+  - name: 支援選項
+    href: https://azure.microsoft.com/support/options/
+ms.openlocfilehash: 2ba86afb2bb0aeff5ab83cfb9e3ee1b27ce3b3f5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986335"

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6627cf74154e66a84f34d5d5bc1d78ed3e0c38a2
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9cbbf8c5ea05915293c785028bdd0a47ba081036
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443594"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426017"
 ---
 # <a name="mark-as-date-table"></a>標示為日期資料表
 
@@ -27,7 +27,7 @@ ms.locfileid: "37443594"
   
 這堂課的預估完成時間：**3 分鐘**  
   
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 2 課︰取得資料](../tutorials/aas-lesson-2-get-data.md)。 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>重新命名 FullDateAlternateKey 資料行

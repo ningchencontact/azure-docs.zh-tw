@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127654"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957917"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更
 
@@ -90,7 +90,7 @@ ms.locfileid: "43127654"
    ![利用您的 Azure 認證登入](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > 如果您已使用個人 Microsoft 帳戶登入，例如 @outlook.com 或 @hotmail.com，Event Grid 觸發程序可能無法正確顯示。 如需因應措施，請選擇[與服務主體連線](../azure-resource-manager/resource-group-create-service-principal-portal.md)，或以您與 Azure 訂用帳戶相關聯之 Azure Active Directory 的成員身分進行驗證，例如 user-name@emailoutlook.onmicrosoft.com。
+   > 如果您已使用個人 Microsoft 帳戶登入，例如 @outlook.com 或 @hotmail.com，Event Grid 觸發程序可能無法正確顯示。 如需因應措施，請選擇[與服務主體連線](../active-directory/develop/howto-create-service-principal-portal.md)，或以您與 Azure 訂用帳戶相關聯之 Azure Active Directory 的成員身分進行驗證，例如 user-name@emailoutlook.onmicrosoft.com。
 
 8. 現在以邏輯應用程式訂閱發行者事件。 提供如下表中所指定的事件訂用帳戶之詳細資料：
 

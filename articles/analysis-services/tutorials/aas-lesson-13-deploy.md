@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 84cdae1694608814167641417781cd22c12656a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f0528af5f3a6b7309d81c36ca5bc7a3faccfa293
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443923"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427105"
 ---
 # <a name="deploy"></a>部署
 
@@ -21,7 +21,7 @@ ms.locfileid: "37443923"
   
 這堂課的預估完成時間：**5 分鐘**  
   
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 本文是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 12 課︰在 Excel 中進行分析](../tutorials/aas-lesson-12-analyze-in-excel.md)。  
 
 > [!IMPORTANT]  

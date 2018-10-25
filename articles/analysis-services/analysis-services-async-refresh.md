@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 883d03b9ffebf85815da7ae62546f75b3d72442f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441449"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958664"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 使用任何支援 REST 呼叫的程式設計語言，您可以對 Azure Analysis Services 表格式模型執行非同步的資料重新整理作業。 這包括相應放大查詢的唯讀複本同步處理。 
@@ -96,7 +96,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 ### <a name="parameters"></a>參數
 不一定要指定參數。 會套用預設值。
 
-|Name  |類型  |說明  |預設值  |
+|名稱  |類型  |說明  |預設值  |
 |---------|---------|---------|---------|
 |類型     |  例舉       |  要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
 |CommitMode     |  例舉       |  決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
@@ -236,7 +236,7 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 
 #### <a name="service-principal"></a>服務主體
 
-如需關於如何在 Azure 中設定服務主體及指派必要權限的詳細資訊，請參閱[建立服務主體 - Azure 入口網站](../azure-resource-manager/resource-group-create-service-principal-portal.md)和[將服務主體新增至伺服器管理員角色](analysis-services-addservprinc-admins.md)。 完成這些步驟後，請完成下列額外步驟：
+如需關於如何在 Azure 中設定服務主體及指派必要權限的詳細資訊，請參閱[建立服務主體 - Azure 入口網站](../active-directory/develop/howto-create-service-principal-portal.md)和[將服務主體新增至伺服器管理員角色](analysis-services-addservprinc-admins.md)。 完成這些步驟後，請完成下列額外步驟：
 
 1.  在程式碼範例中，找到 **string authority = …**，將 **common** 取代為貴組織的租用戶識別碼。
 2.  註解/取消註解，以便使用 ClientCredential 類別來具現化認證物件。 請確定目前存取 \<App ID> 和 \<App Key> 值的方式很安全，或為服務主體使用憑證型驗證。
