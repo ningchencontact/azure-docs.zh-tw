@@ -6,6 +6,9 @@ items:
   - name: 什麼是 Azure Machine Learning 服務？
     displayName: AML, services
     href: overview-what-is-azure-ml.md
+  - name: 服務 的運作方式
+    displayName: architecture
+    href: concept-azure-machine-learning-architecture.md
   - name: Workbench 的現況為何？
     href: overview-what-happened-to-workbench.md
   expanded: true
@@ -30,9 +33,6 @@ items:
     href: http://aka.ms/aml-notebooks
 - name: 概念
   items:
-  - name: 服務 的運作方式
-    displayName: architecture
-    href: concept-azure-machine-learning-architecture.md
   - name: 模型管理
     href: concept-model-management-and-deployment.md
   - name: 使用 FPGA 加速
@@ -43,7 +43,7 @@ items:
   items:
   - name: 管理工作區
     href: how-to-manage-workspace.md
-  - name: '設定開發環境 '
+  - name: 設定開發環境 
     items:
     - name: 選擇環境
       displayName: local, remote
@@ -347,9 +347,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 舊的問題
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 56a72b437397c65777c5fd0955c5257d60f3a6a4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 23e715064db714765a11771182248978f9493bd2
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649239"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095070"
