@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 備份；備份；
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445738"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884928"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>準備環境以備份 Resource Manager 部署的虛擬機器
 
@@ -37,7 +37,7 @@ ms.locfileid: "39445738"
 
  * **Linux**：Azure 備份支援 [Azure 所背書的散發套件清單](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，但 CoreOS Linux 除外。 如需支援還原檔案的 Linux 作業系統清單，請參閱[從虛擬機器備份復原檔案](backup-azure-restore-files-from-vm.md#for-linux-os)。
 
-    > [!NOTE] 
+    > [!NOTE]
     > 只要虛擬機器上有 VM 代理程式並可支援 Python，其他「自備 Linux」散發套件即可運作。 不過，不支援這些散發套件。
     >
  * **Windows Server**、**Windows 用戶端**：不支援比 Windows Server 2008 R2 或 Windows 7 更舊的版本。
@@ -46,10 +46,10 @@ ms.locfileid: "39445738"
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>備份和還原 VM 時的限制
 準備環境之前，請務必先了解下列限制：
 
-* 不支援備份具有 16 個以上資料磁碟的虛擬機器。
+* 不支援備份具有 32 個以上資料磁碟的虛擬機器。
 * 不支援備份具有保留的 IP 且沒有已定義之端點的虛擬機器。
 * 不支援備份透過 Linux 統一金鑰設定 (LUKS) 加密所加密的 Linux VM。
-* 我們不建議備份包含叢集共用磁碟區 (CSV) 或向外延展檔案伺服器設定的 VM。 如果已完成，CSV 寫入器預期會失敗。 其需要涉及在快照集工作期間，叢集設定中包含的所有 VM。 Azure 備份無法保持 VM 間的一致性。 
+* 我們不建議備份包含叢集共用磁碟區 (CSV) 或向外延展檔案伺服器設定的 VM。 如果已完成，CSV 寫入器預期會失敗。 其需要涉及在快照集工作期間，叢集設定中包含的所有 VM。 Azure 備份無法保持 VM 間的一致性。
 * 備份資料不包含連結至 VM 的網路掛接磁碟機。
 * 不支援在還原期間取代現有的虛擬機器。 如果您嘗試在 VM 存在時還原 VM，還原作業將會失敗。
 * 不支援跨區域備份和還原。
@@ -62,6 +62,9 @@ ms.locfileid: "39445738"
   * 負載平衡器組態下的虛擬機器 (內部與外部)
   * 具有多個保留的 IP 位址的虛擬機器
   * 具有多個網路介面卡的虛擬機器
+
+  > [!NOTE]
+  > Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)，這是適用於 Microsoft Azure 虛擬機器的新型耐久儲存體。 其支援用於 [Azure VM 備份堆疊 V2](backup-upgrade-to-vm-backup-stack-v2.md) 上的受控磁碟。
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>建立 VM 的復原服務保存庫
 復原服務保存庫是一個實體，會儲存歷來建立的備份和復原點。 復原服務保存庫也包含與受保護虛擬機器相關聯的備份原則。
@@ -114,7 +117,7 @@ ms.locfileid: "39445738"
    如果您使用 Azure 作為主要的備份儲存體端點，請繼續使用異地備援儲存體。 如果您要使用 Azure 作為非主要備份儲存體端點，則選擇本地備援儲存體。 在 [Azure 儲存體複寫概觀](../storage/common/storage-redundancy.md)中深入了解儲存體選項。
 
 1. 如果您變更了儲存體複寫類型，請選取 [儲存]。
-    
+
 選擇好保存庫的儲存體選項後，就可以開始建立 VM 與保存庫的關聯。 若要開始關聯，請探索及註冊 Azure 虛擬機器。
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>選取備份目標、設定原則及定義要保護的項目
@@ -171,11 +174,11 @@ ms.locfileid: "39445738"
 如果您無法註冊虛擬機器，請參閱下列有關安裝 VM 代理程式和有關網路連線的資訊。 如果您要保護在 Azure 中建立的虛擬機器，則不一定需要下列資訊。 但是，如果您將虛擬機器移轉至 Azure，請確定您已正確安裝 VM 代理程式，而且您的虛擬機器可以與虛擬網路通訊。
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虛擬機器上安裝 VM 代理程式
-Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。 如果 VM 是建立自 Azure Marketplace，則 VM 代理程式已存在於虛擬機器上。 
+Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。 如果 VM 是建立自 Azure Marketplace，則 VM 代理程式已存在於虛擬機器上。
 
 如果您「不是」使用從 Azure Marketplace 建立的 VM，則適用下列提供的資訊。 **例如，從內部部署資料中心移轉的 VM。在這種情況下，您需要安裝 VM 代理程式才能保護虛擬機器。**
 
-**注意**：安裝 VM 代理程式之後，您也必須使用 Azure PowerShell 來更新 ProvisionGuestAgent 屬性，讓 Azure 知道 VM 已安裝代理程式。 
+**注意**：安裝 VM 代理程式之後，您也必須使用 Azure PowerShell 來更新 ProvisionGuestAgent 屬性，讓 Azure 知道 VM 已安裝代理程式。
 
 如果您在備份 Azure VM 時遇到問題，請使用下表來確定已在虛擬機器上正確安裝 Azure VM 代理程式。 下表提供適用於 Windows 和 Linux VM 之 VM 代理程式的其他資訊。
 
@@ -206,16 +209,16 @@ Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)必須�
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>將 Azure 資料中心 IP 範圍列入允許清單
 若要將 Azure 資料中心 IP 範圍列入允許清單，請參閱 [Azure 網站](http://www.microsoft.com/en-us/download/details.aspx?id=41653)以取得 IP 範圍的詳細資料和指示。
 
-您可以使用[服務標籤](../virtual-network/security-overview.md#service-tags)，允許連線至特定區域的儲存體。 請確定允許存取儲存體帳戶的規則優先順序，高於封鎖網際網路存取的規則。 
+您可以使用[服務標籤](../virtual-network/security-overview.md#service-tags)，允許連線至特定區域的儲存體。 請確定允許存取儲存體帳戶的規則優先順序，高於封鎖網際網路存取的規則。
 
 ![NSG 與區域的儲存體標籤](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
-下列影片會引導您逐步完成設定服務標記的程序： 
+下列影片會引導您逐步完成設定服務標記的程序：
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> 儲存體服務標籤僅在特定區域中提供使用，目前仍是預覽狀態。 如需區域清單，請參閱[儲存體的服務標籤](../virtual-network/security-overview.md#service-tags)。
+> [!NOTE]
+> 如需儲存體服務標籤和區域的清單，請參閱[儲存體的服務標籤](../virtual-network/security-overview.md#service-tags)。
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>使用 HTTP Proxy 進行 VM 備份
 當您備份 VM 時，VM 上的備份擴充功能會使用 HTTPS API，將快照集管理命令傳送到 Azure 儲存體。 透過 HTTP Proxy 路由傳送備份擴充功能流量，因為它是唯一為了要存取公用網際網路而設定的元件。
@@ -291,7 +294,7 @@ HttpProxy.Port=<proxy port>
    * 針對 [本機連接埠]，選取 [特定連接埠]。 在下列方塊中，指定已設定的 Proxy 連接埠數目。
    * 針對 [遠端連接埠]，選取 [所有連接埠]。
 
-在精靈的其餘程序中，接受所有的預設設定。 然後為此規則命名。 
+在精靈的其餘程序中，接受所有的預設設定。 然後為此規則命名。
 
 #### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>步驟 3：新增 NSG 例外規則
 下列命令會新增 NSG 例外狀況。 此例外狀況允許從 10.0.0.5 上任何連接埠傳輸至 80 (HTTP) 或 443 (HTTPS) 連接埠上任何網際網路位址的 TCP 流量。 如果您需要公用網際網路上的特定連接埠，請務必將該連接埠新增至 ```-DestinationPortRange```。

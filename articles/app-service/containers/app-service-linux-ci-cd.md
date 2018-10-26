@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: msangapu
-ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130956"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867015"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>使用用於容器的 Web 應用程式進行持續部署
 
@@ -42,7 +42,7 @@ az webapp deployment container config --name name --resource-group myResourceGro
 
 選取您要設定 Docker Hub 持續部署的應用程式名稱。
 
-在 [Docker 容器] 頁面上，選取 [開啟]，然後選取 [儲存] 以啟用持續部署。
+在 [容器設定] 頁面上，選取 [開啟]，然後選取 [儲存] 以啟用持續部署。
 
 ![應用程式設定的螢幕擷取畫面](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -55,7 +55,7 @@ az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 記下 Webhook URL。 您將會在下一節用到此 URL。
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`。
+`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook` 。
 
 您可以取得 `publishingusername` 和 `publishingpwd`，方法是使用 Azure 入口網站來下載 Web 應用程式發佈設定檔。
 

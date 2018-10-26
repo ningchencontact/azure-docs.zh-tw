@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187378"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870871"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -106,18 +106,21 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 當 API 管理服務執行個體裝載於 VNET 時，會使用下表中的連接埠。
 
-| 來源 / 目的地連接埠 | 方向 | 傳輸通訊協定 | 來源 / 目的地 | 目的 (*) | 虛擬網路類型 |
-| --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |輸入 |TCP |INTERNET / VIRTUAL_NETWORK|與 API 管理的用戶端通訊|外部 |
-| * / 3443 |輸入 |TCP |INTERNET / VIRTUAL_NETWORK|Azure 入口網站和 PowerShell 的管理端點 |內部 |
-| * / 80, 443 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|與「Azure 儲存體」、「Azure 服務匯流排」及 Azure Active Directory 的**相依性** (如果適用)。|外部和內部 |
-| * / 1433 |輸出 |TCP |VIRTUAL_NETWORK / SQL|**存取 Azure SQL 端點** |外部和內部 |
-| * / 5672 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|「記錄到事件中樞」原則和監視代理程式的相依性 |外部和內部 |
-| * / 445 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|與「適用於 GIT 的 Azure 檔案共用」的相依性 |外部和內部 |
-| * / 1886 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|將健康情況狀態發佈至 [資源健康狀態] 時所需 |外部和內部 |
-| * / 25028 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|連線到 SMTP 轉送以便傳送電子郵件 |外部和內部 |
-| * / 6381 - 6383 |輸入和輸出 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|存取 RoleInstances 之間的 Redis 快取執行個體 |外部和內部 |
-| * / * | 輸入 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 基礎結構負載平衡器 |外部和內部 |
+| 來源 / 目的地連接埠 | 方向          | 傳輸通訊協定 | 來源 / 目的地                  | 目的 (*)                                                 | 虛擬網路類型 |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / 80, 443                  | 輸入            | TCP                | INTERNET / VIRTUAL_NETWORK            | 與 API 管理的用戶端通訊                      | 外部             |
+| * / 3443                     | 輸入            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Azure 入口網站和 PowerShell 的管理端點         | 外部和內部  |
+| * / 80, 443                  | 輸出           | TCP                | VIRTUAL_NETWORK / Storage             | **與 Azure 儲存體的相依性**                             | 外部和內部  |
+| * / 80, 443                  | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | Azure Active Directory (如果適用)                   | 外部和內部  |
+| * / 1433                     | 輸出           | TCP                | VIRTUAL_NETWORK / SQL                 | **存取 Azure SQL 端點**                           | 外部和內部  |
+| * / 5672                     | 輸出           | TCP                | VIRTUAL_NETWORK / EventHub            | 「記錄到事件中樞」原則和監視代理程式的相依性 | 外部和內部  |
+| * / 445                      | 輸出           | TCP                | VIRTUAL_NETWORK / Storage             | 與「適用於 GIT 的 Azure 檔案共用」的相依性                      | 外部和內部  |
+| * / 1886                     | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 將健康情況狀態發佈至 [資源健康狀態] 時所需          | 外部和內部  |
+| * / 25                       | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
+| * / 587                      | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
+| * / 25028                    | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
+| * / 6381 - 6383              | 輸入和輸出 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 存取 RoleInstances 之間的 Redis 快取執行個體          | 外部和內部  |
+| * / *                        | 輸入            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 基礎結構負載平衡器                          | 外部和內部  |
 
 >[!IMPORTANT]
 > 要成功部署 API 管理服務，就必須有以**粗體**表示其「目的」的連接埠。 不過，封鎖其他連接埠將會降低使用和監視執行中服務的能力。
@@ -128,11 +131,15 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 * **計量和健康情況監視**︰對 Azure 監視端點 (解析為屬於下列網域) 的輸出網路連線能力︰ 
 
-    | Azure 環境 | 端點 |
-    | --- | --- |
-    | Azure 公用 | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
-    | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
-    | Azure China | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
+    | Azure 環境 | 端點                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure 公用      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com，其中 `East US 2` 是 eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+
+* **SMTP 轉送**：SMTP 轉送的輸出網路連線，會在主機 `ies.global.microsoft.com` 下方解析。
+
+* **Azure 入口網站診斷**：從虛擬網路內部使用 API 管理延伸模組時，若要從 Azure 入口網站啟用診斷記錄的流程，則需要在連接埠 443 上有 `dc.services.visualstudio.com` 的輸出存取權。 這有助於針對您在使用延伸模組時所可能面臨的問題進行疑難排解。
 
 * **快速路由安裝**：常見的客戶組態是定義其專屬預設路由 (0.0.0.0/0)，以強制輸出網際網路流量來替代透過內部部署方式流動。 此流量流程一定會中斷與 Azure API 管理的連線，因為已在內部部署封鎖輸出流量，或者 NAT 至無法再使用各種 Azure 端點的一組無法辨識位址。 解決方法是在子網路上定義包含 Azure API 管理的一 (或多個) 使用者定義路由 ([UDR][UDRs])。 UDR 會定義將使用的子網路特有路由，而非預設路由。
   如果可能，建議使用下列設定：
@@ -159,8 +166,6 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 * **資源導覽連結**：在部署到 Resource Manager 樣式 VNet 子網路時，API 管理會藉由建立資源導覽連結來保留子網路。 如果子網路已包含來自不同提供者的資源，部署將會**失敗**。 同樣地，當您將 API 管理服務移至不同子網路或將它刪除時，我們也會移除該資源導覽連結。
 
-* **從 Azure 入口網站測試 API**：從 Azure 入口網站測試 API 時，您的 API 管理執行個體會與內部 VNet 整合，且在 VNet 上設定的 DNS 伺服器將用於名稱解析。 如果您從 Azure 入口網站進行測試時出現 404，請確定 VNet 的 DNS 伺服器可以正確解析您的 API 管理執行個體的主機名稱。 
-
 ## <a name="subnet-size"> </a> 子網路大小需求
 Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使用。 子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外 3 個位址。 如需詳細資訊，請參閱 [在這些子網路內使用 IP 位址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
@@ -186,6 +191,7 @@ Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使�
 * [從不同的部署模型連接虛擬網路](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫](api-management-howto-api-inspector.md)
 * [虛擬網路常見問題集](../virtual-network/virtual-networks-faq.md)
+* [服務標籤](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

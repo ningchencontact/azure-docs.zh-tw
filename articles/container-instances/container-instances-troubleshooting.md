@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f57bc41cddc997a69f92ba4e8ca66faaeb29738
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424597"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079344"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
@@ -89,11 +89,24 @@ Azure 容器執行個體僅支援以長期維護通道 (LTSC) 版本為基礎的
 ],
 ```
 
-## <a name="container-continually-exits-and-restarts"></a>容器不斷結束又重新啟動
+## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>容器不斷結束又重新啟動 (沒有長時間執行的程序)
 
-如果您的容器執行到完成又自動重新啟動，可能需要設定 **OnFailure** 或 **Never** 的 [restart policy](container-instances-restart-policy.md) (重新啟動原則)。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
+容器群組的[重新啟動原則](container-instances-restart-policy.md)預設為 [一律]，因此容器群組中的群組在執行完成後一律會重新啟動。 如果您要執行以工作為基礎的容器，則可能需要將此設定變更為 [OnFailure] 或 [永不]。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
 
-容器執行個體 API 有一個 `restartCount` 屬性。 若要檢查容器的重新啟動次數，可以在 Azure CLI 中使用 [az container show][az-container-show] 命令。 在下列範例輸出中 (為簡潔起見已截斷畫面)，您可以在輸出的結尾看到 `restartCount` 屬性。
+如果執行的容器群組不含長時間執行的程序，您可能會看到 Ubuntu 或 Alpine 之類的映像重複地結束並重新啟動。 透過 [EXEC](container-instances-exec.md) 連線是不可行的，因為容器沒有任何程序可維持其存留狀態。 若要解決此問題，請依照下列方式加入啟動命令，使您的容器群組部署讓容器持續執行。
+
+```azurecli-interactive
+## Deploying a Linux container
+az container create -g MyResourceGroup --name myapp --image ubuntu --command-line "tail -f /dev/null"
+```
+
+```azurecli-interactive 
+## Deploying a Windows container
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+ --command-line "ping -t localhost"
+```
+
+容器執行個體 API 和 Azure 入口網站包含 `restartCount` 屬性。 若要檢查容器的重新啟動次數，可以在 Azure CLI 中使用 [az container show][az-container-show] 命令。 在下列範例輸出中 (為簡潔起見已截斷畫面)，您可以在輸出的結尾看到 `restartCount` 屬性。
 
 ```json
 ...

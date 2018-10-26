@@ -5,6 +5,8 @@ items:
   items:
   - name: Azure AD 中的裝置管理是什麼？
     href: overview.md
+  - name: 企業狀態漫遊是什麼？
+    href: enterprise-state-roaming-overview.md
 - name: 教學課程
   items:
   - name: 設定適用於受控網域的混合式 Azure AD 聯結
@@ -20,6 +22,8 @@ items:
   items:
   - name: 使用 Azure 入口網站管理裝置
     href: device-management-azure-portal.md
+  - name: 管理過時的裝置
+    href: manage-stale-devices.md
   - name: 規劃 Azure AD 聯結
     href: azureadjoin-plan.md
   - name: 規劃混合式 Azure AD 聯結實作
@@ -28,13 +32,25 @@ items:
     href: hybrid-azuread-join-control.md
   - name: 將本機系統管理員指派給已加入 Azure AD 的裝置
     href: assign-local-admin.md
+  - name: 啟用企業狀態漫遊
+    href: enterprise-state-roaming-enable.md
   - name: 針對目前與混合式 Azure AD 聯結的 Windows 裝置進行疑難排解
     href: troubleshoot-hybrid-join-windows-current.md
   - name: 針對已與混合式 Azure AD 聯結的舊版 Windows 裝置進行疑難排解
     href: troubleshoot-hybrid-join-windows-legacy.md
+  - name: 針對企業狀態漫遊進行疑難排解
+    href: enterprise-state-roaming-troubleshooting.md
   - name: 常見問題集
     href: faq.md
+  - name: 啟用企業狀態常見問題集
+    href: enterprise-state-roaming-faqs.md
   expanded: true
+- name: 參考
+  items:
+  - name: 企業狀態漫遊 GPO 設定
+    href: enterprise-state-roaming-group-policy-settings.md
+  - name: 企業狀態漫遊 Windows 設定
+    href: enterprise-state-roaming-windows-settings-reference.md
 - name: 資源
   items:
   - name: Azure 意見反應論壇
@@ -49,9 +65,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: e20a017ea6ce00749cf0dad990dd7a66907e074b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: aa3be36e660c1e0a68446166d3ec90a8a24fa3e8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43130611"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092316"

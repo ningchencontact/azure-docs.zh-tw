@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 14860ae48e520f86ce9d5bea739605d1a4baf0c7
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173188"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829764"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>使用 .NET SDK 建立 DNS 區域和記錄集
 
@@ -33,7 +33,7 @@ ms.locfileid: "39173188"
 3. 使用 Azure RBAC 將資源群組的「DNS 區域參與者」權限授與服務主體帳戶 ([方法在此](../role-based-access-control/role-assignments-portal.md))。
 4. 如果使用 Azure DNS SDK 範例專案，請如下編輯 'program.cs' 檔案︰
 
-   * 針對 tenantId、clientId (也稱為帳戶識別碼)、secret (服務主體帳戶密碼) 和 subscriptionId 插入步驟 1 所使用的正確值。
+   * 針對 `tenantId`、`clientId` (也稱為帳戶識別碼)、`secret` (服務主體帳戶密碼) 和 `subscriptionId` 插入步驟 1 所使用的正確值。
    * 輸入在步驟 2 中選擇的資源群組名稱。
    * 輸入您選擇的 DNS 區域名稱。
 
@@ -59,7 +59,7 @@ using Microsoft.Azure.Management.Dns.Models;
 
 ## <a name="initialize-the-dns-management-client"></a>初始化 DNS 管理用戶端
 
-*DnsManagementClient* 包含管理 DNS 區域和記錄集所需的方法和屬性。  下列程式碼會登入服務主體帳戶，並建立 DnsManagementClient 物件。
+`DnsManagementClient` 包含管理 DNS 區域和記錄集所需的方法和屬性。  下列程式碼會登入服務主體帳戶，並建立 `DnsManagementClient` 物件。
 
 ```cs
 // Build the service credentials and DNS management client
@@ -72,7 +72,7 @@ dnsClient.SubscriptionId = subscriptionId;
 
 若要建立 DNS 區域，首先要建立包含 DNS 區域參數的「區域」物件。 因為 DNS 區域未連結到特定區域，所以位置設定為 'global'。 在此範例中，還會對此區域新增 [Azure Resource Manager「標籤」](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) 。
 
-若要在 Azure DNS 中實際建立或更新區域，則會將包含區域參數的區域物件傳遞至「DnsManagementClient.Zones.CreateOrUpdateAsyc」  方法。
+若要在 Azure DNS 中實際建立或更新區域，則會將包含區域參數的區域物件傳遞至 `DnsManagementClient.Zones.CreateOrUpdateAsyc` 方法。
 
 > [!NOTE]
 > DnsManagementClient 支援三種作業模式︰同步 ('CreateOrUpdate')、非同步 ('CreateOrUpdateAsync')，或非同步並可存取 HTTP 回應 ('CreateOrUpdateWithHttpMessagesAsync')。  您可以根據應用程式的需要選擇上述任何模式。
@@ -98,7 +98,7 @@ var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneN
 
 DNS 記錄是以記錄集形式管理。 記錄集是指一個區域內有相同名稱和記錄類型的一組記錄。  記錄集名稱會相對於區域名稱而非完整的 DNS 名稱。
 
-若要建立或更新記錄集，則會建立「RecordSet」參數物件並傳遞給「DnsManagementClient.RecordSets.CreateOrUpdateAsync」 。 和 DNS 區域的情況一樣，作業模式也有三種︰同步 ('CreateOrUpdate')、非同步 ('CreateOrUpdateAsync')，或非同步並可存取 HTTP 回應 ('CreateOrUpdateWithHttpMessagesAsync')。
+若要建立或更新記錄集，則會建立「RecordSet」參數物件並傳遞給 `DnsManagementClient.RecordSets.CreateOrUpdateAsync`。 和 DNS 區域的情況一樣，作業模式也有三種︰同步 ('CreateOrUpdate')、非同步 ('CreateOrUpdateAsync')，或非同步並可存取 HTTP 回應 ('CreateOrUpdateWithHttpMessagesAsync')。
 
 和 DNS 區域的情況一樣，記錄集上的作業包含開放式並行存取支援。  在此範例中，因為 'If-Match' 和 'If-None-Match' 都未指定，所以一律會建立記錄集。  這個呼叫會覆寫此 DNS 區域中任何具有相同名稱和記錄類型的現有記錄集。
 
@@ -122,7 +122,7 @@ var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName
 
 ## <a name="get-zones-and-record-sets"></a>取得區域和記錄集
 
-*DnsManagementClient.Zones.Get* 和 *DnsManagementClient.RecordSets.Get* 方法分別會擷取個別的區域和記錄集。 RecordSets 依其類型、名稱及所在的區域和資源群組來識別。 Zones 依其名稱及所在的資源群組來識別。
+`DnsManagementClient.Zones.Get` 和 `DnsManagementClient.RecordSets.Get` 方法會分別擷取個別的區域和記錄集。 RecordSets 依其類型、名稱及所在的區域和資源群組來識別。 Zones 依其名稱及所在的資源群組來識別。
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);

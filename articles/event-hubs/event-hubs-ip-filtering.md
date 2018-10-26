@@ -3,19 +3,19 @@ title: Azure 事件中樞 IP 連線篩選器 | Microsoft Docs
 description: 使用 IP 篩選來封鎖從特定 IP 位址連至 Azure 事件中樞的連線。
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2018
-ms.author: shvija
-ms.openlocfilehash: 6d96eac3ecd249de3ba0da82eff95c45e45fa02d
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.date: 10/08/2018
+ms.author: spelluru
+ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746190"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886172"
 ---
 # <a name="use-ip-filters"></a>使用 IP 篩選器
 
@@ -49,7 +49,10 @@ IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會�
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>利用 Azure Resource Manager 範本來建立虛擬網路規則
 
-下列 Resource Manager 範本可讓您將虛擬網路規則加入至現有的事件中樞命名空間。
+> [!IMPORTANT]
+> 事件中樞的**標準**和**專用**層級支援虛擬網路。 基本層中不支援虛擬網路。 
+
+下列 Resource Manager 範本可讓您將虛擬網路規則新增至現有的事件中樞命名空間。
 
 範本參數：
 

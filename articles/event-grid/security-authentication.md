@@ -6,22 +6,22 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 10/09/2018
 ms.author: babanisa
-ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965446"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068179"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
 Azure Event Grid 有三種驗證方法：
 
-* 事件訂閱
-* 事件發佈
 * WebHook 事件傳遞
+* 事件訂閱
+* 自訂主題發佈
 
 ## <a name="webhook-event-delivery"></a>WebHook 事件傳遞
 
@@ -37,17 +37,17 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 
 1. **ValidationCode 交握**：在事件訂閱建立期間，EventGrid 會將「訂閱驗證事件」發佈至您的端點。 此事件的結構描述類似於其他 EventGridEvent，而此事件的資料部分會包含 `validationCode` 屬性。 當您的應用程式確認驗證要求是針對預期的事件訂閱而發出時，應用程式的程式碼必須將驗證碼傳回至 EventGrid，作為回應。 所有 EventGrid 版本都支援此交握機制。
 
-2. **ValidationURL 交握 (手動交握)**：在某些情況下，您可能沒有端點原始程式碼的控制權，而無法實作以 ValidationCode 為基礎的交握。 例如，如果您使用第三方服務 (例如 [Zapier](https://zapier.com) 或 [IFTTT](https://ifttt.com/))，就可能無法以程式設計方式在回應中提供驗證碼。 因此，從 2018-05-01-preview 版開始，EventGrid 已可支援手動驗證交握。 如果您以採用這個新 API 版本 (2018-05-01-preview) 的 SDK/工具建立事件訂閱，EventGrid 會傳送 `validationUrl` 屬性 (除了 `validationCode` 屬性) 作為訂閱驗證事件資料部分的一部分。 若要完成交握，您只需透過 REST 用戶端或使用網頁瀏覽器，對該 URL 執行 GET 要求即可。 提供的驗證 URL 的有效期大約只有 10 分鐘。 在那段時間，事件訂閱的佈建狀態為 `AwaitingManualAction`。 如果您未在 10 分鐘內完成手動驗證，則會將佈建狀態設為 `Failed`。 您將必須重新嘗試建立事件訂閱，然後再次嘗試執行手動驗證。
+2. **ValidationURL 交握 (手動交握)**：在某些情況下，您可能沒有端點原始程式碼的控制權，而無法實作以 ValidationCode 為基礎的交握。 例如，如果您使用第三方服務 (例如 [Zapier](https://zapier.com) 或 [IFTTT](https://ifttt.com/))，就可能無法以程式設計方式在回應中提供驗證碼。 從 2018-05-01-preview 版開始，EventGrid 已可支援手動驗證交握。 如果您以採用這個新 API 版本 (2018-05-01-preview) 的 SDK/工具建立事件訂閱，EventGrid 會傳送 `validationUrl` 屬性作為訂閱驗證事件資料部分的一部分。 若要完成交握，您只需透過 REST 用戶端或使用網頁瀏覽器，對該 URL 執行 GET 要求即可。 提供的驗證 URL 的有效期大約只有 10 分鐘。 在那段時間，事件訂閱的佈建狀態為 `AwaitingManualAction`。 如果您未在 10 分鐘內完成手動驗證，則會將佈建狀態設為 `Failed`。 您必須再次建立事件訂閱，才能嘗試進行手動驗證。
 
-此一手動驗證機制目前為預覽狀態。 若要使用它，您必須為 [Azure CLI](/cli/azure/install-azure-cli) 安裝[事件格線延伸模組](/cli/azure/azure-cli-extensions-list)。 您可以使用 `az extension add --name eventgrid` 進行安裝。 如果您使用的是 REST API，請確定使用的是 `api-version=2018-05-01-preview`。
+此一手動驗證機制目前為預覽狀態。 若要使用它，您必須為 [Azure CLI](/cli/azure/install-azure-cli) 安裝[事件格線延伸模組](/cli/azure/azure-cli-extensions-list)。 您可以使用 `az extension add --name eventgrid` 進行安裝。 若您正使用 REST API，請確定您使用了 `api-version=2018-05-01-preview`。
 
 ### <a name="validation-details"></a>驗證詳細資料
 
 * 在事件訂閱建立/更新時，事件方格會將訂閱驗證事件發佈至目標端點。 
 * 事件包含標頭值 "aeg-event-type: SubscriptionValidation"。
 * 此事件主體之結構描述與其他 Event Grid 事件相同。
-* 事件的 eventType 屬性為 "Microsoft.EventGrid.SubscriptionValidationEvent"。
-* 事件的資料屬性包含 "validationCode" 屬性，內含隨機產生的字串。 例如，"validationCode: acb13…"。
+* 事件的 eventType 屬性是 `Microsoft.EventGrid.SubscriptionValidationEvent`。
+* 事件的資料屬性包含 `validationCode` 屬性，內含隨機產生的字串。 例如，"validationCode: acb13…"。
 * 如果您使用 2018-05-01-preview API 版本，事件資料也會包含具有 URL 的 `validationUrl` 屬性，以供手動驗證訂閱之用。
 * 此陣列只包含驗證事件。 在您回應驗證程式碼之後，其他事件會在不同的要求中傳送。
 * EventGrid DataPlane SDK 具有對應於訂閱驗證事件資料和訂閱驗證回應的類別。
@@ -78,7 +78,7 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 }
 ```
 
-或者，您可以藉由將 GET 要求傳送至驗證 URL，以手動方式驗證訂閱。 事件訂用帳戶會保持擱置狀態，直到通過驗證為止。
+或者，您可以藉由將 GET 要求傳送至驗證 URL，以手動方式驗證訂用帳戶。 事件訂用帳戶會保持擱置狀態，直到通過驗證為止。
 
 您可以在 https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs 找到說明如何處理訂閱驗證交握的 C# 範例。
 
@@ -89,7 +89,7 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 * 您是否有權控制目標端點中的應用程式程式碼？ 例如，如果您要撰寫以 HTTP 觸發程序為基礎的 Azure 函式，您是否能夠存取應用程式的程式碼而加以變更？
 * 如果您有應用程式程式碼的存取權，請實作以 ValidationCode 為基礎的交握機制，如上述範例所示。
 
-* 如果您沒有應用程式程式碼的存取權 (例如，如果您使用支援 Webhook 的第三方服務)，您可以使用手動交握機制。 若要這樣做，請確定您使用的是 2018-05-01-preview API 版本 (例如，使用前述的 EventGrid CLI 擴充功能)，以接收驗證事件中的 validationUrl。 若要完成手動驗證交握，請取得 "validationUrl" 屬性的值，並在網頁瀏覽器中瀏覽該 URL。 如果驗證成功，您應該會在網頁瀏覽器中看到驗證成功的訊息，且您會看到該事件訂閱的 provisioningState 顯示為「成功」。 
+* 如果您沒有應用程式程式碼的存取權 (例如，如果您使用支援 Webhook 的第三方服務)，您可以使用手動交握機制。 請確定您使用的 API 版本是 2018-05-01-preview 或更新版本 (安裝事件方格的 Azure CLI 擴充功能)，才能接收驗證事件中的 validationUrl。 若要完成手動驗證交握，請取得 `validationUrl` 屬性的值，並在網頁瀏覽器中瀏覽該 URL。 如果驗證成功，您應該會在網頁瀏覽器中看到驗證已成功的訊息。 您會看到事件訂閱的 provisioningState 為「成功」。 
 
 ### <a name="event-delivery-security"></a>事件傳遞安全性
 
@@ -101,7 +101,9 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 
 ## <a name="event-subscription"></a>事件訂閱
 
-要訂閱事件，您必須擁有所需資源的 **Microsoft.EventGrid/EventSubscriptions/Write** 授權。 因為您要在該資源的範圍下寫入新的訂用帳戶，所以需要授權。 依您訂閱的是系統主題或自訂主題而定，所需資源會有所不同。 本節會說明這兩種類型。
+若要訂閱事件，您必須證明您可存取事件來源和處理常式。 上一節已說明如何證明您擁有 WebHook。 如果您使用的事件處理常式不是 WebHook (例如事件中樞或佇列儲存體)，您將需要該資源的寫入存取權。 此權限檢查可防止未經授權的使用者將事件傳送至您的資源。
+
+您在作為事件來源的資源上必須擁有 **Microsoft.EventGrid/EventSubscriptions/Write** 權限。 因為您要在該資源的範圍下寫入新的訂用帳戶，所以需要授權。 依您訂閱的是系統主題或自訂主題而定，所需資源會有所不同。 本節會說明這兩種類型。
 
 ### <a name="system-topics-azure-service-publishers"></a>系統主題 (Azure 服務發行者)
 
@@ -115,9 +117,9 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 
 舉例來說，若要訂閱名為**mytopic** 之自訂主題，您需要 Microsoft.EventGrid/EventSubscriptions/Write 授予您此權限：`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
-## <a name="topic-publishing"></a>主題發佈
+## <a name="custom-topic-publishing"></a>自訂主題發佈
 
-主題使用共用存取簽章 (SAS) 或金鑰驗證。 我們建議使用 SAS，但金鑰驗證提供簡單的程式編寫，並且與許多現有的 Webhook 發佈者相容。 
+自訂主題使用共用存取簽章 (SAS) 或金鑰驗證。 我們建議使用 SAS，但金鑰驗證提供簡單的程式編寫，並且與許多現有的 Webhook 發佈者相容。 
 
 您要在 HTTP 標題包含驗證值。 若選擇 SAS，請使用 **aeg-sas-token** 作為標題的值。 若選擇金鑰驗證，請使用 **aeg-sas-key** 作為標題的值。
 
@@ -185,7 +187,7 @@ Azure Event Grid 支援下列動作：
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-最後三種作業可能會回傳秘密資訊，這種資訊在一般讀取作業時是會被篩選掉的。 最好的做法是限制這幾項作業的存取。 自訂角色可以使用 [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)、[Azure 命令列介面 (CLI)](../role-based-access-control/role-assignments-cli.md) 和 [REST API](../role-based-access-control/role-assignments-rest.md) 建立。
+最後三種作業可能會回傳秘密資訊，這種資訊在一般讀取作業時是會被篩選掉的。 建議您限制這些作業的存取。 自訂角色可以使用 [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)、[Azure 命令列介面 (CLI)](../role-based-access-control/role-assignments-cli.md) 和 [REST API](../role-based-access-control/role-assignments-rest.md) 建立。
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>強制執行 Role Based Access Check (RBAC)
 
@@ -193,7 +195,7 @@ Azure Event Grid 支援下列動作：
 
 #### <a name="create-a-custom-role-definition-file-json"></a>建立自訂的角色定義檔案 (.json)
 
-以下是允許使用者進行不同組事件的 Event Grid 角色定義範例。
+以下是允許使用者採取不同動作的事件方格角色定義範例。
 
 **EventGridReadOnlyRole.json**：只允許唯讀作業。
 

@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 897671ef592ac691402a4e452f7a0baa04aa228a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129052"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079067"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
-
 
 當您在應用程式中安裝 [Azure Application Insights][start] SDK 時，它會將您應用程式的相關遙測傳送到雲端。 當然，負責任的開發人員會想要確切得知所傳送的資料為何、資料的後續情況，以及如何控制資料。 特別是，是否可能傳送敏感資料？資料儲存於何處？其安全性為何？ 
 
@@ -91,6 +90,8 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 
 彙總的資料 (也就是您在計量瀏覽器中看到的計數、平均和其他統計資料) 在 1 分鐘的資料粒度中保存 90 天。
 
+[偵錯快照集](app-insights-snapshot-debugger.md)會儲存 7 天。 此保留原則會就個別的應用程式而設定。 如果您需要增加此值，您可以在 Azure 入口網站中建立支援案例，以提出增加的要求。
+
 ## <a name="who-can-access-the-data"></a>誰可以存取資料？
 您和您的小組成員 (如果您有組織帳戶) 可以看到資料。 
 
@@ -128,6 +129,66 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>將資料從我的應用程式傳輸到 Application Insights 伺服器時是否進行加密？
 是，我們使用 https，將資料從幾乎所有 SDK (包括網頁伺服器、裝置和 HTTPS 網頁) 傳送至入口網站。 唯一的例外是從純 HTTP 網頁傳送的資料。
 
+## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK 是否會建立暫存本機儲存體？
+
+是，在無法連線到端點時，特定遙測通道會將資料保存在本機。 請檢閱下列內容，以了解哪些架構和遙測通道會受到影響。
+
+
+使用本機儲存體的遙測通道會在 TEMP 或 APPDATA 目錄中建立暫存檔案，而這些目錄僅限執行應用程式的特定帳戶使用。 當端點暫時無法使用或已達到節流限制時，就可能發生此狀況。 此問題解決後，遙測通道就會繼續傳送所有新的和保存的資料。
+
+
+這項保存的資料**不會加密**，因此強烈建議您重新建構資料收集原則，以停用私人資料的收集。 (如需詳細資訊，請參閱[如何匯出及刪除私人資料](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data))。
+
+
+如果客戶基於特定安全需求而必須設定此目錄，可以就個別架構進行設定。 請確定執行應用程式的程序具有此目錄的寫入權限，但也請確定此目錄會受到保護，以避免非預期的使用者讀取遙測資料。
+
+### <a name="java"></a>Java
+
+`C:\Users\username\AppData\Local\Temp` 用來保存資料。 此位置不可設定從 config 目錄設定，且存取此資料夾的權限僅限定於具有必要認證的特定使用者。 (請參閱此處的[實作](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72))。
+
+###  <a name="net"></a>.Net
+
+根據預設，`ServerTelemetryChannel` 會使用現行使用者的本機應用程式資料的資料夾 `%localAppData%\Microsoft\ApplicationInsights` 或暫存資料夾 `%TMP%`。 (請參閱此處的[實作](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84))。
+
+
+透過組態檔：
+```
+<TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
+    <StorageFolder>D:\NewTestFolder</StorageFolder>
+</TelemetryChannel>
+```
+
+透過程式碼：
+
+- 從組態檔中移除 ServerTelemetryChannel
+- 將下列程式碼片段新增至您的設定：
+```
+ServerTelemetryChannel channel = new ServerTelemetryChannel();
+channel.StorageFolder = @"D:\NewTestFolder";
+channel.Initialize(TelemetryConfiguration.Active);
+TelemetryConfiguration.Active.TelemetryChannel = channel;
+```
+
+### <a name="netcore"></a>NetCore
+
+根據預設，`ServerTelemetryChannel` 會使用現行使用者的本機應用程式資料的資料夾 `%localAppData%\Microsoft\ApplicationInsights` 或暫存資料夾 `%TMP%`。 (請參閱此處的[實作](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84))。在 Linux 環境中將會停用本機儲存體，除非另行指定儲存體資料夾。
+
+下列程式碼片段說明如何在 `Startup.cs` 類別的 `ConfigureServices()` 方法中設定 `ServerTelemetryChannel.StorageFolder`：
+
+```
+services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+```
+
+(如需詳細資訊，請參閱 [AspNetCore 自訂設定](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)。 )
+
+### <a name="nodejs"></a>Node.js
+
+依預設會使用 `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` 來保存資料。 存取此資料夾的權限僅限定於目前的使用者和系統管理員。 (請參閱此處的[實作](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts))。
+
+您可以在 [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384) 中變更靜態變數 `Sender.TEMPDIR_PREFIX` 的執行階段值，以覆寫資料夾前置詞 `appInsights-node`。
+
+
+
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>如何使用 TLS 1.2 將資料傳送至 Application Insights？
 
 為了確保傳送至 Application Insights 端點時的資料安全性，我們強烈建議客戶至少使用傳輸層安全性 (TLS) 1.2 來設定他們的應用程式。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本，很快地，業界也會捨棄這些舊版通訊協定的支援。 
@@ -142,14 +203,14 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 | --- | --- | --- |
 | Azure App Service  | 支援，可能需要設定。 | 已在 2018 年 4 月宣告支援。 請參閱公告以了解[設定的詳細資訊](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)。  |
 | Azure 函式應用程式 | 支援，可能需要設定。 | 已在 2018 年 4 月宣告支援。 請參閱公告以了解[設定的詳細資訊](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)。 |
-|.NET | 支援，設定會因版本不同而有所差異。 | 如需 .NET 4.7 和更早版本的詳細設定資訊，請參閱[這些指示](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12)。  |
-|狀態監視器 | 支援，需要設定 | 狀態監視須依賴 [OS 組態](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) + [.NET 組態](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12)來支援 TLS 1.2。
+|.NET | 支援，設定會因版本不同而有所差異。 | 如需 .NET 4.7 和更早版本的詳細設定資訊，請參閱[這些指示](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)。  |
+|狀態監視器 | 支援，需要設定 | 狀態監視須依賴 [OS 組態](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 組態](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)來支援 TLS 1.2。
 |Node.js |  支援，可能需要對 v10.5.0 進行設定。 | 使用[官方 Node.js TLS/SSL 文件](https://nodejs.org/api/tls.html)以了解任何應用程式專屬的設定。 |
 |Java | 支援，[JDK 6 更新 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 和 [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html) 中已新增 TLS 1.2 的 JDK 支援。 | JDK 8 會使用[預設的 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)。  |
 |Linux | Linux 發行版本通常會依賴 [OpenSSL](https://www.openssl.org) 來取得 TLS 1.2 支援。  | 請檢查 [OpenSSL 變更記錄](https://www.openssl.org/news/changelog.html)來確認支援的 OpenSSL 版本。|
-| Windows 8.0 - 10 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings)。  |
-| Windows Server 2012 - 2016 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 和 Windows Server 2008 R2 SP1 | 支援，但預設為不啟用。 | 請參閱[傳輸層安全性 (TLS) 登錄設定](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings)頁面，了解詳細的啟用方式。  |
+| Windows 8.0 - 10 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)。  |
+| Windows Server 2012 - 2016 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 和 Windows Server 2008 R2 SP1 | 支援，但預設為不啟用。 | 請參閱[傳輸層安全性 (TLS) 登錄設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)頁面，了解詳細的啟用方式。  |
 | Windows Server 2008 SP2 | TLS 1.2 支援需要更新。 | 請在 Windows Server 2008 SP2 中參閱[新增 TLS 1.2 支援的更新](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)。 |
 |Windows Vista | 不支援。 | N/A
 
@@ -185,10 +246,10 @@ openssl s_client -connect bing.com:443 -tls1_2
 | 您的動作 | 收集的資料類別 (請參閱下一個資料表) |
 | --- | --- |
 | [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>Requests<br/>**例外狀況**<br/>工作階段<br/>users |
-| [在 IIS 上安裝狀態監視器][redfield] |相依項目<br/>ServerContext<br/>推斷<br/>效能計數器 |
+| [在 IIS 上安裝狀態監視器][redfield] |相依性<br/>ServerContext<br/>推斷<br/>效能計數器 |
 | [將 Application Insights SDK 新增至 Java Web 應用程式][java] |ServerContext<br/>推斷<br/>要求<br/>工作階段<br/>users |
 | [將 JavaScript SDK 新增至網頁][client] |ClientContext  <br/>推斷<br/>Page<br/>ClientPerf<br/>Ajax |
-| [定義預設屬性][apiproperties] |**屬性**  |
+| [定義預設屬性][apiproperties] |所有標準和自訂事件上的**屬性** |
 | [呼叫 TrackMetric][api] |數值<br/>**屬性** |
 | [呼叫 Track*][api] |事件名稱<br/>**屬性** |
 | [呼叫 TrackException][api] |**例外狀況**<br/>堆疊傾印<br/>**屬性** |

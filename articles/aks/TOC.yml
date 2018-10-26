@@ -11,6 +11,21 @@ items:
     href: kubernetes-walkthrough.md
   - name: 建立 AKS 叢集 - 入口網站
     href: kubernetes-walkthrough-portal.md
+  - name: 開發應用程式
+    items:
+    - name: 使用 Java (VS Code 與 CLI)
+      href: ../dev-spaces/quickstart-java.md
+      maintainContext: true
+    - name: 使用 .NET Core (VS Code 和 CLI)
+      href: ../dev-spaces/quickstart-netcore.md
+      maintainContext: true
+    - name: 使用 .NET Core (Visual Studio 2017)
+      href: ../dev-spaces/quickstart-netcore-visualstudio.md
+      maintainContext: true
+    - name: 使用 Node.js (VS Code 與 CLI)
+      href: ../dev-spaces/quickstart-nodejs.md
+      maintainContext: true
+    expanded: true
   expanded: true
 - name: 教學課程
   items:
@@ -97,6 +112,8 @@ items:
         href: http-application-routing.md
       - name: 使用內部網路
         href: ingress-internal-ip.md
+      - name: 使用 TLS 搭配自己的憑證
+        href: ingress-own-tls.md
       - name: 使用 TLS 搭配 Let's Encrypt
         href: ingress-tls.md
         items:
@@ -121,14 +138,47 @@ items:
       href: kubelet-logs.md
   - name: 開發及執行應用程式
     items:
-    - name: 以 Helm 執行應用程式
-      href: kubernetes-helm.md
     - name: 使用 Dev Spaces 部署
       href: ../dev-spaces/azure-dev-spaces.md
+      items:
+      - name: Java (VS Code 與 CLI)
+        items:
+        - name: 1 - 開始使用
+          href: ../dev-spaces/get-started-java.md
+          maintainContext: true
+        - name: 2 - 小組開發
+          href: ../dev-spaces/team-development-java.md
+          maintainContext: true
+      - name: .NET Core (VS Code 和 CLI)
+        items:
+        - name: 1 - 開始使用
+          href: ../dev-spaces/get-started-netcore.md
+          maintainContext: true
+        - name: 2 - 小組開發
+          href: ../dev-spaces/team-development-netcore.md
+          maintainContext: true
+      - name: .NET Core (Visual Studio 2017)
+        items:
+        - name: 1 - 開始使用
+          href: ../dev-spaces/get-started-netcore-visualstudio.md
+          maintainContext: true
+        - name: 2 - 小組開發
+          href: ../dev-spaces/team-development-netcore-visualstudio.md
+          maintainContext: true
+      - name: Node.js (VS Code 與 CLI)
+        items:
+        - name: 1 - 開始使用
+          href: ../dev-spaces/get-started-nodejs.md
+          maintainContext: true
+        - name: 2 - 小組開發
+          href: ../dev-spaces/team-development-nodejs.md
+          maintainContext: true
       maintainContext: true
+    - name: 以 Helm 執行應用程式
+      href: kubernetes-helm.md
     - name: 以 Draft 開發應用程式
       href: kubernetes-draft.md
-    - name: Open Service Broker for Azure
+    - name: 使用 Open Service Broker for Azure
       href: integrate-azure.md
     - name: 使用 OpenFaaS
       href: openfaas.md
@@ -194,9 +244,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: 常見問題集
     href: faq.md
-ms.openlocfilehash: 5bce64990b8fbf9ad6bd5af01631544189f35a93
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7fd44b1ee0c07f600fc46e3f8fda1c45261074d1
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376289"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092895"

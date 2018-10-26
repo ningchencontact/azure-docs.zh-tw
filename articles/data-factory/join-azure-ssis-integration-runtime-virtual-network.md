@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 10/10/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a9a4b7728eff3057b9677d12df51cc8c477744ca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cc206e1134fe6df0280512e89447336a32a2d810
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953934"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068350"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路： 
@@ -57,6 +57,8 @@ ms.locfileid: "46953934"
 ## <a name="requirements-for-virtual-network-configuration"></a>虛擬網路設定的需求
 -   在裝載 Azure-SSIS IR 的虛擬網路子網路訂用帳戶之下，確認 `Microsoft.Batch` 是已註冊的提供者。 若您使用傳統虛擬網路，也請為該虛擬網路將 `MicrosoftAzureBatch` 加入「傳統虛擬機器參與者」角色。 
 
+-   請確定您擁有必要權限。 請參閱[必要權限](#perms)。
+
 -   選取要裝載 Azure-SSIS IR 的適當子網路。 請參閱[選取子網路](#subnet)。 
 
 -   若在虛擬網路上使用自己的網域名稱服務 (DNS) 伺服器，請參閱[網域名稱服務伺服器](#dns_server)。 
@@ -66,6 +68,18 @@ ms.locfileid: "46953934"
 -   若使用 Azure Express Route 或設定使用者定義的路由 (UDR)，請參閱[使用 Azure ExpressRoute 或使用者定義的路由](#route)。 
 
 -   請確認虛擬網路的資源群組可以建立及刪除特定的 Azure 網路資源。 請參閱[資源群組的需求](#resource-group)。 
+
+### <a name="perms"></a>必要權限
+
+建立 Azure-SSIS Integration Runtime 的使用者必須具有下列權限：
+
+- 如果您要將 SSIS IR 加入最新版本的 Azure 虛擬網路，您會有兩個選項：
+
+  - 使用內建角色：網路參與者。 此角色需要 *Microsoft.Network/\** 權限，但具有更大的範圍。
+
+  - 建立包含 *Microsoft.Network/virtualNetworks/\*/join/action* 權限的自訂角色。 
+
+- 如果您要將 SSIS IR 加入傳統 Azure 虛擬網路中，我們建議您使用內建角色：傳統虛擬機器參與者。 否則，您必須定義自訂角色，以包含可加入虛擬網路的權限。
 
 ### <a name="subnet"></a> 選取子網路
 -   請勿選取 GatewaySubnet 來部署 Azure-SSIS Integration Runtime，因為它是虛擬網路閘道所專用。 
@@ -81,7 +95,7 @@ ms.locfileid: "46953934"
 
 -   設定自訂 DNS 將要求轉送至 Azure DNS。 您可以在自己的 DNS 伺服器上，將無法解析的 DNS 記錄轉送至 Azure 遞迴解析程式的 IP 位址 (168.63.129.16)。 
 
--   將虛擬網路的主要 DNS 設定為自訂 DNS，並將次要 DNS 設定為 Azure DNS。 將 Azure 遞迴解析程式的 IP 位址 (168.63.129.16) 註冊為次要 DNS 伺服器，以便您自己的 DNS 伺服器無法使用時可備援。 
+-   將虛擬網路的主要 DNS 設為自訂 DNS，次要 DNS 設為 Azure DNS。 將 Azure 遞迴解析程式的 IP 位址 (168.63.129.16) 註冊為次要 DNS 伺服器，以便您自己的 DNS 伺服器無法使用時可備援。 
 
 如需詳細資訊，請參閱[使用自有 DNS 伺服器的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。 
 
@@ -355,8 +369,8 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure-SSIS 執行階段的詳細資訊，請參閱下列主題： 
-- [Azure-SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 此文章提供整合執行階段的一般概念性資訊，包括 Azure-SSIS IR。 
-- [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 此文章將逐步說明如何建立 Azure-SSIS IR。 它會使用 Azure SQL Database 來裝載 SSIS 目錄。 
+- [Azure-SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 本文提供整合執行階段的一般概念性資訊，包括 Azure-SSIS IR。 
+- [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文將逐步說明如何建立 Azure-SSIS IR。 它會使用 Azure SQL Database 來裝載 SSIS 目錄。 
 - [建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。 此文章會詳述教學課程，並提供使用具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 來裝載 SSIS 目錄並將 IR 加入虛擬網路的指示。 
-- [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 此文章示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
-- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 此文章示範如何停止、啟動或移除 Azure-SSIS IR。 此外也會說明如何藉由新增節點來相應放大 Azure-SSIS IR。 
+- [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
+- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 此外也會說明如何藉由新增節點來相應放大 Azure-SSIS IR。 

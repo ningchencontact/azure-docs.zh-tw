@@ -1,26 +1,33 @@
 ---
-title: 使用 Azure Kubernetes 服務建立永續性磁碟區
-description: 了解如何使用 Azure 磁碟為 Azure Kubernetes Service (AKS) 中的 Pod 建立永續性磁碟區
+title: 在 Azure Kubernetes Service (AKS) 中以動態方式建立適用於多個 Pod 的磁碟區
+description: 了解如何透過 Azure 磁碟以動態方式建立永續性磁碟區，以搭配 Azure Kubernetes Service (AKS) 中的多個並行 Pod 使用
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 7048ab4e08d25fd5181857a4e7592d0bcb7d3b5f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 4fea0f63f3e28f25392ef909d9735c6129df69e7
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885589"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067002"
 ---
-# <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes Service (AKS) 建立永續性磁碟區
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中以動態方式建立和使用 Azure 磁碟的永續性磁碟區
 
-永續性磁碟區代表一塊已佈建來與 Kubernetes Pod 搭配使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 如需有關 Kubernetes 永續性磁碟區的詳細資訊，請參閱 [Kubernetes 永續性磁碟區][kubernetes-volumes]。 本文示範如何在 Azure Kubernetes Service (AKS) 叢集內搭配 Azure 磁碟使用永續性磁碟區。
+永續性磁碟區代表一塊已佈建來與 Kubernetes Pod 搭配使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 本文示範如何在 Azure Kubernetes Service (AKS) 叢集中以動態方式建立 Azure 磁碟的永續性磁碟區，以供單一 Pod 使用。
 
 > [!NOTE]
-> 您只能使用*存取模式*類型 *ReadWriteOnce* 來掛接 Azure 磁碟，以讓它僅供單一 AKS 節點使用。 如果您需要在多個節點之間共用永續性磁碟區，請考慮使用 [Azure 檔案][azure-files-pvc]。
+> 您只能使用*存取模式*類型 *ReadWriteOnce* 來掛接 Azure 磁碟，以讓它僅供 AKS 中單一 Pod 使用。 如果您需要在多個 Pod 之間共用永續性磁碟區，請使用 [Azure 檔案服務][azure-files-pvc]。
+
+如需有關 Kubernetes 永續性磁碟區的詳細資訊，請參閱 [Kubernetes 永續性磁碟區][kubernetes-volumes]。
+
+## <a name="before-you-begin"></a>開始之前
+
+此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
+
+您也必須安裝並設定 Azure CLI 版本 2.0.46 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="built-in-storage-classes"></a>內建儲存體類別
 
@@ -44,7 +51,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> GiB 中會指定持續性磁碟區宣告，但 SKU 會針對特定的大小向 Azure 受控磁碟收費。 這些 SKU 範圍從 S4 或 P4 磁碟的 32GiB 到 S50 或 P50 磁碟的 4TiB。 進階受控磁碟的輸送量和 IOPS 效能，取決於 SKU 和 AKS 叢集中節點的執行個體大小。 如需詳細資訊，請參閱[受控磁碟的定價和效能][managed-disk-pricing-performance]。
+> GiB 中會指定持續性磁碟區宣告，但 SKU 會針對特定的大小向 Azure 受控磁碟收費。 這些 SKU 範圍從 S4 或 P4 磁碟的 32GiB 到 S80 或 P80 磁碟的 32TiB。 進階受控磁碟的輸送量和 IOPS 效能，取決於 SKU 和 AKS 叢集中節點的執行個體大小。 如需詳細資訊，請參閱[受控磁碟的定價和效能][managed-disk-pricing-performance]。
 
 ## <a name="create-a-persistent-volume-claim"></a>建立永續性磁碟區宣告
 
@@ -69,10 +76,10 @@ spec:
 > [!TIP]
 > 若要建立使用標準儲存體的磁碟，請使用 `storageClassName: default` 而非 *managed-premium*。
 
-使用 [kubectl create][kubectl-create] 命令來建立永續性磁碟區宣告，並指定您的 *azure-premium.yaml* 檔案：
+使用 [kubectl apply][kubectl-apply] 命令來建立並指定您的 *azure-premium.yaml* 檔案：
 
 ```
-$ kubectl create -f azure-premium.yaml
+$ kubectl apply -f azure-premium.yaml
 
 persistentvolumeclaim/azure-managed-disk created
 ```
@@ -90,21 +97,28 @@ metadata:
   name: mypod
 spec:
   containers:
-    - name: myfrontend
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
-        name: volume
+  - name: mypod
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
   volumes:
     - name: volume
       persistentVolumeClaim:
         claimName: azure-managed-disk
 ```
 
-使用 [kubectl create][kubectl-create] 命令建立 Pod，如下列範例所示：
+使用 [kubectl apply][kubectl-apply] 命令建立 Pod，如下列範例所示：
 
 ```
-$ kubectl create -f azure-pvc-disk.yaml
+$ kubectl apply -f azure-pvc-disk.yaml
 
 pod/mypod created
 ```
@@ -124,7 +138,7 @@ Volumes:
     Type:        Secret (a volume populated by a Secret)
     SecretName:  default-token-smm2n
     Optional:    false
-
+[...]
 Events:
   Type    Reason                 Age   From                               Message
   ----    ------                 ----  ----                               -------
@@ -189,11 +203,18 @@ metadata:
   name: mypodrestored
 spec:
   containers:
-    - name: myfrontendrestored
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
-        name: volume
+  - name: mypodrestored
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
   volumes:
     - name: volume
       azureDisk:
@@ -202,10 +223,10 @@ spec:
         diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
 ```
 
-使用 [kubectl create][kubectl-create] 命令建立 Pod，如下列範例所示：
+使用 [kubectl apply][kubectl-apply] 命令建立 Pod，如下列範例所示：
 
 ```
-$ kubectl create -f azure-restored.yaml
+$ kubectl apply -f azure-restored.yaml
 
 pod/mypodrestored created
 ```
@@ -237,7 +258,7 @@ Volumes:
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
@@ -251,3 +272,6 @@ Volumes:
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create
 [az-disk-show]: /cli/azure/disk#az-disk-show
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

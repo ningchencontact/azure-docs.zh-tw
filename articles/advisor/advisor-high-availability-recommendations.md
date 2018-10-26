@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 7bd0737e7fb26af95eed63696d1ac07c88a9dec4
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 2216b915c47ea05d3303ca02e51e976490ea36c6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145714"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068345"
 ---
 # <a name="advisor-high-availability-recommendations"></a>建議程式高可用性建議
 
@@ -67,6 +67,10 @@ Advisor 會識別使用標準磁碟的虛擬機器，並建議升級為進階磁
 
 如果流量管理員設定檔設定為地理路由，則流量會根據定義的區域路由傳送至端點。 如果區域失敗，則沒有任何預先定義的容錯移轉。 若您擁有區域群組設定為「所有 (全球)」的端點，將可避免流量卸除，並改善服務可用性。 Advisor 會識別設定為地理路由 (其中沒有任何端點會設為具有「所有 (全球)」的區域群組) 的流量管理員設定檔，並建議進行該設定變更。
 
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>在 Azure 儲存體帳戶上使用虛刪除來儲存及復原遭到意外覆寫或刪除的資料
+
+在儲存體帳戶上啟用[虛刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)，可讓刪除的 Blob 轉換為虛刪除狀態，而不是永久刪除。 當資料遭到覆寫時，系統會產生虛刪除的快照集，以儲存覆寫資料的狀態。 這可讓您在意外刪除或覆寫資料時進行復原。 Advisor 會識別沒有啟用虛刪除的 Azure 儲存體帳戶，並建議您將其啟用。
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何存取建議程式中的高可用性建議
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
@@ -78,7 +82,7 @@ Advisor 會識別使用標準磁碟的虛擬機器，並建議升級為進階磁
 如需 Advisor 建議的詳細資訊，請參閱：
 * [Azure 建議程式簡介](advisor-overview.md)
 * [開始使用 Advisor](advisor-get-started.md)
-* [Advisor 成本建議](advisor-performance-recommendations.md)
+* [Advisor 成本建議](advisor-cost-recommendations.md)
 * [Advisor 效能建議](advisor-performance-recommendations.md)
 * [Advisor 安全性建議](advisor-security-recommendations.md)
 

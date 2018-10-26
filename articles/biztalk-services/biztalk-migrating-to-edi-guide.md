@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365582"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856525"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>將 BizTalk Server EDI 解決方案移轉至 BizTalk 服務：技術指南
 

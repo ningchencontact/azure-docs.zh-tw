@@ -14,12 +14,12 @@ ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041018"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855267"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -130,15 +130,29 @@ user.department -eq "Sales"
 | 在 | -in |
 | 不在 | -notIn |
 
-### <a name="using-the--in-and--notin-operators"></a>使用 -In 和 -notIn 運算子
+### <a name="using-the--in-and--notin-operators"></a>使用 -in 和 -notIn 運算子
 
-如果您想要針對許多不同的值比較使用者屬性的值，您可以使用 -In 或 -notIn 運算子。 使用方括號 "[" 和 "]" 作為值清單的開頭和結尾。
+如果您想要針對許多不同的值比較使用者屬性的值，您可以使用 -in 或 -notIn 運算子。 使用方括號 "[" 和 "]" 作為值清單的開頭和結尾。
 
  在以下範例中，如果 user.department 的值等於清單中的任何一個值，此運算式會評估為 True：
 
 ```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### <a name="using-the--match-operator"></a>使用 -match 運算子 
+**-match** 運算子可用來比對任何規則運算式。 範例：
+
+```
+user.displayName -match "Da.*"   
+```
+Da、Dav、David 會評估為 true，aDa 則會評估為 false。
+
+```
+user.displayName -match ".*vid"
+```
+David 會評估為 true，Da 則會評估為 false。
 
 ## <a name="supported-values"></a>支援的值
 

@@ -10,16 +10,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: b8c3270149c254898ad3180b92a4ff398f3efb6c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: ff0ebbb140627caaaa71c5d09d0a4078eca86055
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745904"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888061"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>將虛擬網路服務端點搭配 Azure 事件中樞使用
 
 將事件中樞與[虛擬網路 (VNet) 服務端點][vnet-sep]整合，可以安全存取來自虛擬機器 (繫結至虛擬網路) 等工作負載的傳訊功能，而且兩端的網路流量路徑都能受到保護。 
+
+> [!IMPORTANT]
+> 事件中樞的**標準**和**專用**層級支援虛擬網路。 基本層中不支援虛擬網路。 
 
 一旦設定為繫結到至少一個虛擬網路子網路服務端點，這些端點各自的事件中樞命名空間除了授權的虛擬網路以外，無法再接受來自任何位置的流量。 從虛擬網路的角度來看，將事件中樞命名空間繫結至服務端點，會設定從虛擬網路子網路到傳訊服務的隔離式網路通道。
 

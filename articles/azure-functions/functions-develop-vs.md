@@ -4,22 +4,18 @@ description: 了解如何使用 Azure Functions Tools for Visual Studio 2017 開
 services: functions
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
-ms.service: functions
+manager: jeconnoc
+ms.service: azure-functions
 ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
-ms.date: 05/23/2018
+ms.topic: conceptual
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 06cf0334fbc0f21f5ce6865ee88faed64ccbc8e7
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444838"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069172"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
@@ -100,7 +96,7 @@ Azure Functions Tools 提供下列優點：
 
 3. 重複上一步，針對函數所需的其他任何連接，將唯一機碼新增至 [值] 陣列。
 
-## <a name="create-a-function"></a>建立函式
+## <a name="add-a-function-to-your-project"></a>將函式新增至您的專案
 
 在預先編譯的函數中，函數所使用的繫結是透過在程式碼中套用屬性來定義的。 當您使用 Azure Functions Tools 從提供的範本建立函數時，會為您套用這些屬性。 
 
@@ -175,7 +171,9 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 隨著專案的執行，您可以像測試部署函數一樣測試程式碼。 如需詳細資訊，請參閱[在 Azure Functions 中測試程式碼的策略](functions-test-a-function.md)。 在偵錯模式下執行時，會依預期在 Visual Studio 中遇到中斷點。 
 
-如需如何測試佇列觸發函數的範例，請參閱[佇列觸發函數快速入門教學課程](functions-create-storage-queue-triggered-function.md#test-the-function)。  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 若要深入了解如何使用 Azure Functions Core Tools，請參閱[在本機撰寫和測試 Azure Functions 程式碼](functions-run-local.md)。
 
@@ -200,6 +198,20 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 * [使用 Azure 入口網站](functions-how-to-use-azure-function-app-settings.md#settings)。
 * [使用 Azure Functions Core Tools 中的 `--publish-local-settings` 發行選項](functions-run-local.md#publish)。
 * [使用 Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)。 
+
+## <a name="monitoring-functions"></a>監視函式
+
+若要監視您的函式在 Azure 中的執行情形，建議您整合 Azure Application Insights。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您在 Visual Studio 發佈期間建立函式應用程式時，則不會完成您的函式應用程式在 Azure 中的整合。 您反而會取得內建記錄，但這並非建議做法。
+
+若要為您在 Azure 中的函式應用程式啟用 Application Insights：
+
+1. 在 [Azure 入口網站](https://portal.azure.com)中建立 Application Insights 執行個體，並複製其檢測金鑰。 若要了解操作方式，請參閱[手動連線 App Insights 資源](functions-monitoring.md#manually-connect-an-app-insights-resource)。  
+
+1. 將名為 `APPINSIGHTS_INSTRUMENTATIONKEY` 的應用程式設定新增至 Azure 中的函式應用程式設定，如[函式應用程式設定](#function-app-settings)所說明。 此應用程式設定包含您在上一個步驟中建立的檢測金鑰。
+
+1. 從 Azure 中的函式應用程式移除 `AzureWebJobsDashboard` 應用程式設定，以停用內建記錄。  
+
+若要深入了解，請參閱[監視 Azure Functions](functions-monitoring.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

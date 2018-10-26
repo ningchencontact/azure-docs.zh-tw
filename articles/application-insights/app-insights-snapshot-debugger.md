@@ -10,21 +10,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2018
+ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 6dd39fddd99f5f8ea9329f21c271ed4c1063362d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144120"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078965"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 
 發生例外狀況時，您可以自動從即時 Web 應用程式收集偵錯快照集。 快照集會顯示擲回例外狀況時原始程式碼和變數的狀態。 [Application Insights](app-insights-overview.md) 中的快照集偵錯工具 (預覽) 會監視 web 應用程式的例外狀況遙測。 它會收集前幾個擲回例外狀況的快照集，讓您取得診斷生產環境中問題所需的資訊。 將[快照集收集器 NuGet 套件](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)納入您的應用程式，並選擇性地設定 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中的集合參數。快照集會顯示在 Application Insights 入口網站中的[例外狀況](app-insights-asp-net-exceptions.md)。
 
 您可以檢視入口網站中的偵錯快照集，以查看呼叫堆疊並檢查每個呼叫堆疊框架的變數。 若要使用原始程式碼取得更強大的偵錯體驗，可[下載 Visual Studio 的快照集偵錯工具擴充功能](https://aka.ms/snapshotdebugger)，以 Visual Studio 2017 Enterprise 開啟快照集。 在 Visual Studio 中，您也可以[設定貼齊點以互動方式建立快照集](https://aka.ms/snappoint)，而不需等待例外狀況。
+
+偵錯快照集會儲存 7 天。 此保留原則會就個別的應用程式而設定。 如果您需要增加此值，您可以在 Azure 入口網站中建立支援案例，以提出增加的要求。
 
 快照集集合適用於：
 * 執行 .NET Framework 4.5 或更新版本的 .NET Framework 和 ASP.NET 應用程式。
@@ -191,9 +193,12 @@ ms.locfileid: "43144120"
 
 ## <a name="grant-permissions"></a>授與權限
 
-Azure 訂用帳戶的擁有者可以檢查快照集。 其他使用者必須由擁有者授與權限。
+對快照集的存取會受到角色型存取控制 (RBAC) 的保護。 必須在訂用帳戶擁有者將您新增至必要角色後，您才能檢查快照集。
 
-若要授與權限，請指派 `Application Insights Snapshot Debugger` 角色給要檢查快照集的使用者。 這個角色可以由目標 Application Insights 資源或其資源群組或訂用帳戶的訂用帳戶擁有者，指派給個別使用者或群組。
+> [!NOTE]
+> 擁有者和參與者並不會自動獲得此角色。 如果他們想要檢視快照集，他們必須將自己新增至此角色。
+
+訂用帳戶擁有者應將 `Application Insights Snapshot Debugger` 角色指派給將會檢查快照集的使用者。 這個角色可以由目標 Application Insights 資源或其資源群組或訂用帳戶的訂用帳戶擁有者，指派給個別使用者或群組。
 
 1. 在 Azure 入口網站中巡覽到 Application Insights 資源。
 1. 按一下 [存取控制 (IAM)]。

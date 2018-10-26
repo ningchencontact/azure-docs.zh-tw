@@ -2,18 +2,17 @@
 title: Azure Container Registry 中的最佳做法
 description: 了解如何依照這些最佳做法來有效地使用 Azure Container Registry。
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 04/10/2018
-ms.author: marsma
-ms.openlocfilehash: a3932ff621782b8ab97f27ef052aeee8e1d2a3ac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: article
+ms.date: 09/27/2018
+ms.author: danlep
+ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423499"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857698"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry 的最佳做法
 
@@ -66,31 +65,25 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 每個[容器登錄 SKU][container-registry-skus] 的儲存體條件約束都要符合典型案例：「基本」可用於開始使用、「標準」可用於大部分的實際執行應用程式，而「進階」可進行大規模效能和[異地複寫][container-registry-geo-replication]。 在整個登錄生命週期，您應該定期刪除未使用的內容來管理其大小。
 
-您可以在 Azure 入口網站的容器登錄 [概觀] 中找到登錄的目前使用量：
+使用 Azure CLI 命令 [az acr show-usage][az-acr-show-usage] 來顯示登錄的目前大小：
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+您也可以在 Azure 入口網站中，於登錄的 [概觀] 中找到目前使用的儲存體：
 
 ![Azure 入口網站中的登錄使用量資訊][registry-overview-quotas]
 
-您可以使用 [Azure CLI][azure-cli] 或 [Azure 入口網站][azure-portal]來管理登錄大小。 只有受控 SKU (基本、標準、進階) 才支援存放庫和映像刪除 -- 您無法刪除傳統登錄中的存放庫、映像或標記。
+### <a name="delete-image-data"></a>刪除映像資料
 
-### <a name="delete-in-azure-cli"></a>在 Azure CLI 中刪除
+Azure Container Registry 支援數種方法供您從容器登錄中刪除映像資料。 您可以依標籤或資訊清單摘要來刪除映像，也可以刪除整個存放庫。
 
-使用 [az acr repository delete][az-acr-repository-delete] 命令可刪除存放庫，或存放庫中的內容。
-
-若要刪除存放庫，包括存放庫內的所有標記和映像圖層資料，當您執行 [az acr repository delete][az-acr-repository-delete] 時，僅指定存放庫名稱。 在下列範例中，要刪除 *myapplication* 存放庫，以及存放庫內的所有標記和映像圖層資料：
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-您也可以使用 `--tag` 和 `--manifest` 引數，從存放庫刪除映像資料。 如需這些引數的詳細資訊，請參閱 [az acr repository delete 命令參考][az-acr-repository-delete]。
-
-### <a name="delete-in-azure-portal"></a>在 Azure 入口網站中刪除
-
-若要從 Azure 入口網站中的登錄刪除存放庫，請先瀏覽至容器登錄。 接著，在 [服務] 下方，選取 [存放庫]，並以滑鼠右鍵按一下您要刪除的存放庫。 選取 [刪除] 可將存放庫和它所包含的 Docker 映像刪除。
-
-![在 Azure 入口網站中刪除存放庫][delete-repository-portal]
-
-您也可以類似的方式，從存放庫刪除標記。 瀏覽至存放庫，在 [標記] 下以滑鼠右鍵按一下您要刪除的標記，然後選取 [刪除]。
+如需如何從登錄中刪除映像資料的詳細資訊，包括未標記 (有時稱為「懸空」或「孤立」) 的映像，請參閱[刪除 Azure Container Registry 中的容器映像](container-registry-delete.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -102,6 +95,7 @@ az acr repository delete --name myregistry --repository myapplication
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

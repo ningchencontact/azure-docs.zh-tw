@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423737"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887559"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -53,7 +53,9 @@ ms.locfileid: "39423737"
 | [應用程式](batch-application-packages.md)  |20 |
 | 每個應用程式的應用程式封裝 |40 |
 | 工作存留期上限 | 7 天<sup>1</sup> |
-| 計算節點間通訊已啟用集區中的節點 | 100 |
+| [節點間通訊已啟用集區](batch-mpi.md)中的計算節點 | 100 |
+| [使用自訂 VM 映像所建立集區](batch-custom-images.md)中的專用計算節點 | 2500 |
+| [使用自訂 VM 映像所建立集區](batch-custom-images.md)中的低優先順序計算節點 | 1000 |
 
 <sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 7 天。 已完成的工作會無限期保留；無法存取未在最長存留期內完成之工作的資料。
 

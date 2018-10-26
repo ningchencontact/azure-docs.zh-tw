@@ -88,12 +88,15 @@ items:
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+    items:
+    - name: 驗證、要求和回應
+      href: authentication-requests-and-responses.md
+    - name: 通用參數和標頭
+      href: common-parameters-and-headers.md
   - name: 開發
     items:
-    - name: 金鑰保存庫開發人員指南
+    - name: 開發人員的指南
       href: key-vault-developers-guide.md
-    - name: 服務限制
-      href: key-vault-service-limits.md
     - name: 受 HSM 保護的金鑰
       href: key-vault-hsm-protected-keys.md
     - name: 遷移到 .NET 2.0
@@ -116,25 +119,33 @@ items:
         href: vs-key-vault-aspnet-core-what-happened.md
 - name: 資源
   items:
-  - name: 服務概觀
-    href: https://azure.microsoft.com/services/key-vault/
-  - name: 驗證、要求和回應
-    href: authentication-requests-and-responses.md
-  - name: 通用參數和標頭
-    href: common-parameters-and-headers.md
+  - name: 透過 Microsoft Learn 增進您的技巧
+    href: /learn/browse/?products=azure-key-vault
   - name: 客戶資料
     href: key-vault-customer-data.md
-  - name: 部落格
+  - name: 服務
+    items:
+    - name: 價格
+      href: https://azure.microsoft.com/pricing/details/key-vault/
+    - name: 區域可用性
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+    - name: 版本資訊
+      href: key-vault-versions.md
+    - name: 服務等級協定 (SLA)
+      href: https://azure.microsoft.com/support/legal/sla/key-vault/
+    - name: 服務限制
+      href: key-vault-service-limits.md
+    - name: 服務狀態
+      href: https://azure.microsoft.com/status/
+    - name: 服務更新
+      href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: 小組部落格
     href: http://blogs.technet.com/b/kv/
-  - name: 價格
-    href: https://azure.microsoft.com/pricing/details/key-vault/
-  - name: 產品意見反應
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
-- name: 版本資訊
-  href: key-vault-versions.md
-ms.openlocfilehash: cd88b2ce876e462140f9d25833678e2f3b7f7805
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+- name: 產品意見反應
+  href: https://feedback.azure.com/forums/906355-azure-key-vault
+ms.openlocfilehash: 727a44d903d481974a95635f092468754085db1b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340008"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084963"

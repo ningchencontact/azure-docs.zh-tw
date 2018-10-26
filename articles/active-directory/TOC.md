@@ -266,7 +266,6 @@
 
 #### 權限
 ##### [選擇適用於 API 的使用權限](develop/perms-for-given-api.md)
-##### [將使用權限授與應用程式](develop/registration-config-grant-permissions-how-to.md)
 ##### [委派與應用程式使用權限](develop/delegated-and-app-perms.md)
 ##### [應用程式同意](develop/consent-framework.md)
 
@@ -313,14 +312,6 @@
 ### 自訂網域名稱
 #### [快速入門](fundamentals/add-custom-domain.md)
 ### [管理目錄](fundamentals/active-directory-administer.md)
-### [企業狀態漫遊](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [啟用](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [群組原則設定](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10 設定](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [常見問題集](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [疑難排解](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
 ### [使用 Azure AD Connect 整合內部部署身分識別](hybrid/whatis-hybrid-identity.md)
 
 ### [設定權杖存留期](develop/active-directory-configurable-token-lifetimes.md)

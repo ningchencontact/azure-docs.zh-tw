@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: ba0d81761904be74632f8f0025488b7f501bd715
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 59b52163ba7f5abd53c60264f10f5352e3e4f6cd
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185994"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067783"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>遠端監視解決方案加速器的常見問題集
 
@@ -37,6 +37,10 @@ ms.locfileid: "39185994"
 ### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>如何在儀表板上設定動態地圖？
 
 如需詳細資訊，請參閱[升級地圖索引鍵以在動態地圖上顯示裝置](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) \(英文\)。
+
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>哪裡可以找到舊版遠端監視解決方案的相關資訊？
+
+舊版遠端監視解決方案加速器稱為 IoT 套件遠端監視預先設定解決方案。 您可以在 [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/) 上找到封存的文件。
 
 ### <a name="next-steps"></a>後續步驟
 

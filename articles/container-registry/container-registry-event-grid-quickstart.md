@@ -2,18 +2,17 @@
 title: 快速入門 - 將 Azure Container Registry 事件傳送至事件方格
 description: 在本快速入門中，您可以針對容器登錄啟用事件方格事件，然後將容器映像推送和刪除事件傳送至範例應用程式。
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: marsma
-ms.openlocfilehash: 6ff83885ba80f0399f7b085970b1191e8e4cd999
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.author: danlep
+ms.openlocfilehash: 88265ee6f8a340909880ba70bd9f37a49ef85bf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746503"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857358"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>快速入門：將容器登錄事件傳送至事件方格
 
@@ -141,20 +140,20 @@ az eventgrid event-subscription create \
 
 ## <a name="trigger-registry-events"></a>觸發登錄事件
 
-現在，範例應用程式已啟動且正在執行，而您已使用事件方格來訂閱登錄，您已準備好產生某些事件。 在本節中，您將使用 ACR 組建來建置容器映像並推送至您的登錄。 ACR 組建是一個 Azure Container Registry 功能，可讓您在雲端中建置容器映像，而不需在本機電腦上安裝 Docker 引擎。
+現在，範例應用程式已啟動且正在執行，而您已使用事件方格來訂閱登錄，您已準備好產生某些事件。 在本節中，您將使用 ACR 工作來建置容器映像並推送至您的登錄。 ACR 工作是一個 Azure Container Registry 功能，可讓您在雲端中建置容器映像，而不需在本機電腦上安裝 Docker 引擎。
 
 ### <a name="build-and-push-image"></a>建置與推送映像
 
-執行下列 Azure CLI 命令，從 GitHub 存放庫的內容建置容器映像。 根據預設，ACR 組建會將已成功建置的映像自動推送至您的登錄，其會產生 `ImagePushed` 事件。
+執行下列 Azure CLI 命令，從 GitHub 存放庫的內容建置容器映像。 根據預設，ACR 工作會將已成功建置的映像自動推送至您的登錄，其會產生 `ImagePushed` 事件。
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-當 ACR 組建建置您的映像，接著加以推送時，您應該會看到類似下列的輸出。 為了簡潔起見，已將下列範例輸出截斷。
+當 ACR 工作建置您的映像，接著加以推送時，您應該會看到類似下列的輸出。 為了簡潔起見，已將下列範例輸出截斷。
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -227,10 +226,10 @@ az group delete --name $RESOURCE_GROUP_NAME
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已部署容器登錄、使用 ACR 組建來建置映像、刪除它，並已使用範例應用程式從事件方格中取用您的登錄事件。 接下來，前往 ACR 組建教學課程，以深入了解如何在雲端中建置容器映像，包括基底映像更新上的自動化組建：
+在本快速入門中，您已部署容器登錄、使用 ACR 工作來建置映像、刪除它，並已使用範例應用程式從事件方格中取用您的登錄事件。 接下來，前往 ACR 工作教學課程，以深入了解如何在雲端中建置容器映像，包括基底映像更新上的自動化組建：
 
 > [!div class="nextstepaction"]
-> [使用 ACR 組建在雲端中建置容器映像](container-registry-tutorial-quick-build.md)
+> [使用 ACR 工作在雲端中建置容器映像](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

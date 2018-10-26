@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: 97e1efe34417c3bf2f23801b2112b718f55d3416
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: f2cf472ef3c2c9950dd9f9382009e21fbf62771b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36962354"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856780"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>對 Azure App Service 上的高密度託管使用個別應用程式調整
 根據預設，您會藉由調整執行 App Service 應用程式的 [App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview.md)來調整這些應用程式。 當有多個應用程式執行於相同 App Service 方案中時，每個向外延展的執行個體都會執行方案中的所有應用程式。
@@ -32,7 +32,7 @@ ms.locfileid: "36962354"
 
 ## <a name="per-app-scaling-using-powershell"></a>使用 PowerShell 進行個別應用程式調整
 
-透過將 ```-perSiteScaling $true``` 屬性傳遞給 ```New-AzureRmAppServicePlan``` Commandlet，建立一個有「個別應用程式調整」的方案
+透過將 ```-PerSiteScaling $true``` 參數傳遞給 ```New-AzureRmAppServicePlan``` Cmdlet，建立一個有「個別應用程式調整」的方案。
 
 ```powershell
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -41,23 +41,12 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-以個別應用程式調整更新現有的 App Service 方案： 
-
-- 取得目標方案 ```Get-AzureRmAppServicePlan```
-- 在本機修改屬性 ```$newASP.PerSiteScaling = $true```
-- 將您的變更張貼回 Azure ```Set-AzureRmAppServicePlan``` 
+透過將 `-PerSiteScaling $true` 參數傳遞給 ```Set-AzureRmAppServicePlan``` Cmdlet，對現有 App Service 方案啟用「個別應用程式調整」。
 
 ```powershell
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
-$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-$newASP
-
-#Modify the local copy to use "PerSiteScaling" property.
-$newASP.PerSiteScaling = $true
-$newASP
-    
-#Post updated app service plan back to azure
-Set-AzureRmAppServicePlan $newASP
+# Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
+Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+   -Name $AppServicePlan -PerSiteScaling $true
 ```
 
 在應用程式層級，設定應用程式可以在 App Service 方案中使用的執行個體數目。
