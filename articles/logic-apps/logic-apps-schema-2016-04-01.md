@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 43fd52dd04e679b9756c07e8c6e260323469026a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126197"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043196"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps 的結構描述更新 - 2016 年 6 月 1 日
 
@@ -33,23 +33,23 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 這個結構描述包含可讓您將動作群組在一起或在彼此內巢狀動作的範圍。 例如，條件可包含另一個條件。 深入了解[範圍語法](../logic-apps/logic-apps-loops-and-scopes.md)，或檢閱此基本範圍範例︰
 
-```
+```json
 {
-    "actions": {
-        "My_Scope": {
-            "type": "scope",
-            "actions": {                
-                "Http": {
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "http://www.bing.com"
-                    },
-                    "runAfter": {},
-                    "type": "Http"
-                }
+   "actions": {
+      "Scope": {
+         "type": "Scope",
+         "actions": {                
+            "Http": {
+               "inputs": {
+                   "method": "GET",
+                   "uri": "http://www.bing.com"
+               },
+               "runAfter": {},
+               "type": "Http"
             }
-        }
-    }
+         }
+      }
+   }
 }
 ```
 
@@ -57,29 +57,29 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 ## <a name="conditions-and-loops-changes"></a>條件和迴圈的變更
 
-在舊版結構描述中，條件和迴圈是與單一動作相關聯的參數。 此結構描述拿起這項限制，因此條件和迴圈現在會顯示為動作類型。 深入了解[迴圈和範圍](../logic-apps/logic-apps-loops-and-scopes.md)，或檢閱此基本範例的條件動作︰
+在舊版結構描述中，條件和迴圈是與單一動作相關聯的參數。 此結構描述會放寬此限制，因此條件和迴圈現在可用來作為動作類型。 深入了解[迴圈和範圍](../logic-apps/logic-apps-loops-and-scopes.md)、或檢閱這個顯示 [條件](../logic-apps/logic-apps-control-flow-conditional-statement.md) 動作的基本範例：
 
-```
+```json
 {
-    "If_trigger_is_some-trigger": {
-        "type": "If",
-        "expression": "@equals(triggerBody(), 'some-trigger')",
-        "runAfter": { },
-        "actions": {
-            "Http_2": {
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.bing.com"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "else": 
-        {
-            "if_trigger_is_another-trigger": "..."
-        }      
-    }
+   "Condition - If trigger is some trigger": {
+      "type": "If",
+      "expression": "@equals(triggerBody(), '<trigger-name>')",
+      "runAfter": {},
+      "actions": {
+         "Http_2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.bing.com"
+            },
+            "runAfter": {},
+            "type": "Http"
+         }
+      },
+      "else": 
+      {
+         "Condition - If trigger is another trigger": {}
+      }  
+   }
 }
 ```
 
@@ -87,16 +87,14 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 ## <a name="runafter-property"></a>'runAfter' 屬性
 
-`runAfter` 屬性會取代 `dependsOn`，當您根據先前動作的狀態指定動作的執行順序時提供更高的精確度。
+`runAfter` 屬性會取代 `dependsOn`，當您根據先前動作的狀態指定動作的執行順序時提供更高的精確度。 `dependsOn` 屬性會根據上一個動作是否成功、失敗，還是略過，來指出是否「動作已執行且成功」，而不是根據您想要執行此動作的時間量。 `runAfter` 屬性提供如同下列物件的彈性：物件會指定該物件要在其後執行的所有動作名稱。 這個屬性也會定義可接受做為觸發程序狀態的陣列。 例如，如果您想要動作在動作 A 成功後，且在動作 B 成功或失敗之後執行，請設定此 `runAfter` 屬性：
 
-無論您需要執行動作幾次，根據前一個動作是否成功、失敗或略過，`dependsOn` 屬性是「動作已執行並成功」的代名詞。 `runAfter` 屬性提供這樣的彈性，做為指定物件會在其後執行的所有動作名稱之物件。 這個屬性也會定義可接受做為觸發程序狀態的陣列。 例如，如果您想要在步驟 A 成功後，且在步驟 B 成功或失敗之後執行，您建構此 `runAfter` 屬性︰
-
-```
+```json
 {
-    "...",
-    "runAfter": {
-        "A": ["Succeeded"],
-        "B": ["Succeeded", "Failed"]
+   // Other parts in action definition
+   "runAfter": {
+      "A": ["Succeeded"],
+      "B": ["Succeeded", "Failed"]
     }
 }
 ```
@@ -109,10 +107,12 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 2. 移至**概觀**。 在邏輯應用程式工具列上，選擇 [更新結構描述]。
    
-    ![選擇 [更新結構描述]][1]
+   ![選擇 [更新結構描述]][1]
    
-    會傳回升級的定義，您可以將其複製並貼到資源定義 (如有必要)。 
-    不過，我們**強烈建議**您選擇 [另存新檔]，以確定所有連線參考在升級的邏輯應用程式中都有效。
+   會傳回升級的定義，您可以將其複製並貼到資源定義 (如有必要)。 
+
+   > [!IMPORTANT]
+   > 「請確定」您會選擇 [另存新檔]，如此一來，所有連線參考都會在已升級的邏輯應用程式中保持有效狀態。
 
 3. 在升級的刀鋒視窗工具列中，選擇 [另存新檔]。
 
@@ -125,25 +125,25 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 6. 選擇性 若要使用新的結構描述版本覆寫先前的邏輯應用程式，請在工具列上選擇 [更新結構描述] 旁的 [複製]。 如果您想要保留邏輯應用程式的相同資源識別碼，或要求觸發程序 URL，此步驟才有必要。
 
-### <a name="upgrade-tool-notes"></a>升級工具注意事項
+## <a name="upgrade-tool-notes"></a>升級工具注意事項
 
-#### <a name="mapping-conditions"></a>對應條件
+### <a name="mapping-conditions"></a>對應條件
 
-在升級的定義中，此工具會盡力將 true 和 false 分支的動作一起分組在範圍內。 明確地說，`@equals(actions('a').status, 'Skipped')` 的設計工具模式應顯示為 `else` 動作。 不過，如果工具偵測到無法辨識的模式，則工具可能會為 true 和 false 分支建立不同的條件。 如有必要，您可以在升級之後重新對應動作。
+在升級的定義中，此工具會盡力將 true 和 false 分支的動作群組在一起成為一個範圍。 明確地說，`@equals(actions('a').status, 'Skipped')` 的設計工具模式會顯示為 `else` 動作。 不過，如果工具偵測到無法辨識的模式，則工具可能會為 true 和 false 分支建立不同的條件。 如有必要，您可以在升級之後重新對應動作。
 
 #### <a name="foreach-loop-with-condition"></a>'foreach' 迴圈與條件
 
-在新的結構描述中，您可以使用篩選器動作來針對每個項目複寫 `foreach` 迴圈與條件的模式，但當您升級時，這項變更應該會自動發生。 條件會在 foreach 迴圈之前變成篩選動作，以便只傳回符合條件的項目陣列，而且該陣列會傳遞至 foreach 動作。 如需範例，請參閱[迴圈和範圍](../logic-apps/logic-apps-loops-and-scopes.md)。
+在新的結構描述中，您可以使用篩選動作來複寫使用 **For each** 迴圈 (其中每個項目有一個條件) 的模式。 不過，變更會在您升級時自動發生。 條件會變成要在 **For each** 迴圈之前出現的篩選動作，只傳回符合條件的項目陣列，並將該陣列會傳遞至 **For each** 動作。 如需範例，請參閱[迴圈和範圍](../logic-apps/logic-apps-loops-and-scopes.md)。
 
-#### <a name="resource-tags"></a>資源標籤
+### <a name="resource-tags"></a>資源標籤
 
-在升級之後，會移除資源標籤，因此您必須加以重設以升級工作流程。
+在升級之後，會移除資源標籤，因此您必須重設它們以升級工作流程。
 
 ## <a name="other-changes"></a>其他變更
 
 ### <a name="renamed-manual-trigger-to-request-trigger"></a>將 'manual' 觸發程序重新命名為 'request' 觸發程序
 
-`manual` 觸發程序類型已被取代，並重新命名為 `request` 類型 `http`。 這項變更會針對觸發程序用來建置的模式類型建立較佳的一致性。
+`manual` 觸發程序類型已被取代，並重新命名為 `request` 類型 `http`。 此變更會針對觸發程序用來建置的模式類型建立較佳的一致性。
 
 ### <a name="new-filter-action"></a>新的「篩選」動作
 
@@ -157,20 +157,20 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 動作現在可以有一個額外的屬性，稱為 `trackedProperties`，這是 `runAfter` 和 `type` 屬性的同層級。 此物件會指定要包含在工作流程期間所發出的 Azure 診斷遙測之特定動作的輸入或輸出。 例如︰
 
-```
-{                
-    "Http": {
-        "inputs": {
-            "method": "GET",
-            "uri": "http://www.bing.com"
-        },
-        "runAfter": {},
-        "type": "Http",
-        "trackedProperties": {
-            "responseCode": "@action().outputs.statusCode",
-            "uri": "@action().inputs.uri"
-        }
-    }
+``` json
+{
+   "Http": {
+      "inputs": {
+         "method": "GET",
+         "uri": "http://www.bing.com"
+      },
+      "runAfter": {},
+      "type": "Http",
+      "trackedProperties": {
+         "responseCode": "@action().outputs.statusCode",
+         "uri": "@action().inputs.uri"
+      }
+   }
 }
 ```
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e8737e379dc69385b2bd5ac2b2af89bf8d38b63a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886869"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945717"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則將 ADFS 新增為 SAML 識別提供者
 
@@ -38,7 +38,7 @@ ms.locfileid: "48886869"
 4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
 6. 針對 [選項] 選擇 `Upload`。
-7. 輸入原則金鑰的 [名稱]。 例如：`ADFSSamlCert`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+7. 輸入原則金鑰的 [名稱]。 例如： `ADFSSamlCert`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
 8. 瀏覽至包含私密金鑰的憑證 .pfx 檔案，並選取該檔案。
 9. 按一下頁面底部的 [新增] 。
 
@@ -62,7 +62,6 @@ ms.locfileid: "48886869"
           <Description>Login with your ADFS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
-            <Item Key="RequestsSigned">false</Item>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
           </Metadata>
@@ -110,7 +109,7 @@ ms.locfileid: "48886869"
 2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
 3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
-5. 重新命名使用者旅程圖的識別碼。 例如：`SignUpSignInADFS`。
+5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInADFS`。
 
 ### <a name="display-the-button"></a>顯示按鈕
 
@@ -134,7 +133,7 @@ ms.locfileid: "48886869"
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
     
-    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如：`Contoso-SAML2`。
+    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `Contoso-SAML2`。
 
 3. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
 
@@ -172,7 +171,7 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
 
 ## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
-與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 本節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
+與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
@@ -187,7 +186,7 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
 1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 SignUpSignInADFS.xml。
-2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如：`SignUpSignInADFS`。
+2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInADFS`。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如， http://contoso.com/B2C_1A_signup_signin_adfs
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignInADFS) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。

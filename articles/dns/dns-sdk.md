@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a814c543b9f4bfe6717e639342d82ed13dac35b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829764"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954601"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>使用 .NET SDK 建立 DNS 區域和記錄集
 
@@ -28,7 +28,7 @@ ms.locfileid: "48829764"
 
 一般而言，若想要獲得以程式設計方式存取 Azure 資源的權限，就必須透過專用帳戶而非您自己的使用者認證。 這些專用帳戶稱為「服務主體」帳戶。 若要使用 Azure DNS SDK 範例專案，您首先需要建立服務主體帳戶，並為其指派正確的權限。
 
-1. 遵循 [這些指示](../azure-resource-manager/resource-group-authenticate-service-principal.md) 建立服務主體帳戶 (Azure DNS SDK 範例專案會採用密碼型驗證)。
+1. 遵循 [這些指示](../active-directory/develop/howto-authenticate-service-principal-powershell.md) 建立服務主體帳戶 (Azure DNS SDK 範例專案會採用密碼型驗證)。
 2. 建立資源群組 ([方法在此](../azure-resource-manager/resource-group-template-deploy-portal.md))。
 3. 使用 Azure RBAC 將資源群組的「DNS 區域參與者」權限授與服務主體帳戶 ([方法在此](../role-based-access-control/role-assignments-portal.md))。
 4. 如果使用 Azure DNS SDK 範例專案，請如下編輯 'program.cs' 檔案︰
