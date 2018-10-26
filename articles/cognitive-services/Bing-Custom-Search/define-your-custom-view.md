@@ -1,20 +1,21 @@
 ---
-title: Bing 自訂搜尋：定義自訂檢視 | Microsoft Docs
+title: 定義自訂檢視 - Bing 自訂搜尋
+titlesuffix: Azure Cognitive Services
 description: 描述如何建立網站和垂直搜尋服務
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 59fef9a370ca56080d06f0920ed5409c141683a4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980656"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815251"
 ---
 # <a name="configure-your-custom-search-experience"></a>設定您的自訂搜尋體驗
 
@@ -94,9 +95,9 @@ ms.locfileid: "46980656"
   
 - 提升。 將搜尋結果中的網域或子頁面的內容提升到較高的順位。 您要選取是否要提升網頁所屬的網域或子頁面的內容。[閱讀更多資訊](#boosting-and-demoting)  
   
-- 降級。 將搜尋結果中的網域或子頁面的內容降級到較低的順位。 您要選取是否要將網頁所屬的網域或子頁面的內容降級。 [閱讀更多資訊](#boosting-and-demoting)。  
+- 降級。 將搜尋結果中的網域或子頁面的內容降級到較低的順位。 您要選取是否要將網頁所屬的網域或子頁面的內容降級。 [閱讀更多](#boosting-and-demoting)。  
   
-- 釘選到頂端。 定義當使用者的查詢字串根據釘選比對條件符合釘選查詢字串時，顯示在結果頂端的網頁。 [使用中] 清單不一定會包含您要釘選的網頁。 [閱讀更多資訊](#pin-to-top)。
+- 釘選到頂端。 定義當使用者的查詢字串根據釘選比對條件符合釘選查詢字串時，顯示在結果頂端的網頁。 [使用中] 清單不一定會包含您要釘選的網頁。 [閱讀更多](#pin-to-top)。
 
 調整順位不適用於影像搜尋和影片搜尋體驗。
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972805"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067698"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中搭配 Azure CLI 使用 API 版本設定檔
 
@@ -168,7 +168,8 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 1. 使用 `az login` 命令來登入 Azure Stack 環境。 您可以以使用者身分或以[服務主體](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)形式登入 Azure Stack 環境。 
 
-   * 以「使用者」身分登入：您可以直接在 `az login` 命令內指定使用者名稱和密碼，或使用瀏覽器進行驗證。 如果您的帳戶已啟用多重要素驗證，則必須採用後者方式。
+    * AAD 環境
+      * 以「使用者」身分登入：您可以直接在 `az login` 命令內指定使用者名稱和密碼，或使用瀏覽器進行驗證。 如果您的帳戶已啟用多重要素驗證，則必須採用後者方式。
 
       ```azurecli
       az login \
@@ -179,7 +180,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       > [!NOTE]
       > 如果您的使用者帳戶已啟用多重要素驗證，則可以使用 `az login command` 命令，而不需提供 `-u` 參數。 執行此命令可提供您一個 URL 以及必須用來進行驗證的代碼。
    
-   * 以*服務主體*形式登入：在登入之前，請[透過 Azure 入口網站](azure-stack-create-service-principals.md)或 CLI 建立服務主體，並為它指派角色。 現在，請使用下列命令登入：
+      * 以*服務主體*形式登入：在登入之前，請[透過 Azure 入口網站](azure-stack-create-service-principals.md)或 CLI 建立服務主體，並為它指派角色。 現在，請使用下列命令登入：
 
       ```azurecli
       az login \
@@ -188,6 +189,22 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * AD FS 環境
+
+        * 使用*服務主體*來登入： 
+          1.    準備要用於服務主體登入的.pem 檔案。
+                * 在建立主體的用戶端電腦上，使用私密金鑰 (位於 cert:\CurrentUser\My；憑證名稱與主體名稱相同) 將服務主體憑證匯出為 pfx。
+
+                *   將 pfx 轉換為 pem (使用 OpenSSL 公用程式)。
+
+          1.    登入 CLI。 ：
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>測試連線
 

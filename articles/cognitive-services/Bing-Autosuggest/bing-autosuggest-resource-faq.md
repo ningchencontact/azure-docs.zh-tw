@@ -1,22 +1,23 @@
 ---
-title: 關於 Azure 自動建議 API 的常見問題集 (FAQ) | Microsoft Docs
-description: 取得 Azure 上的 Azure 認知服務自動建議 API 常見問題的解答。
+title: 常見問題集 (FAQ) - Bing 自動建議 API
+titlesuffix: Azure Cognitive Services
+description: 取得 Bing 自動建議 API 相關常見問題的解答。
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 00b91728bcfec52ff30697f080d5c2619bab79a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84f1b0555922119e9de4addc3d51ac233e7bae65
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369903"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831348"
 ---
-# <a name="frequently-asked-questions-faq-about-autosuggest-api-cognitive-services"></a>關於自動建議 API (認知服務) 的常見問題集 (FAQ)
+# <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>關於 Bing 自動建議 API 的常見問題集 (FAQ)
  
  尋找 Azure 認知服務自動建議 API 的相關概念、程式碼和案例的常見問題解答。
 
@@ -44,7 +45,7 @@ ms.locfileid: "35369903"
 
     cors-proxy-server
 
-當您使用教學課程應用程式時，請保留開啟命令視窗；關閉視窗會停止 Proxy。 在可展開的 [HTTP 標頭] 區段搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
+當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開的 [HTTP 標頭] 區段搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
 
 ## <a name="next-steps"></a>後續步驟
 

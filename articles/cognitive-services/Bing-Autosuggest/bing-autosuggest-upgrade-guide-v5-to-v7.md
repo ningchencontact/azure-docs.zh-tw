@@ -1,21 +1,21 @@
 ---
-title: 將 Bing 自動建議 API v5 升級為 v7 | Microsoft Docs
+title: 將 Bing 自動建議 API v5 升級為 v7
+titlesuffix: Azure Cognitive Services
 description: 識別您的應用程式有哪些部分需要更新，以使用第 7 版。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 751EDCF0-0C8B-4C23-942C-FA06F5DAD3FD
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 5663a671711dba4f44c89e8221a729c6670ec8fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ada9ab6622ea12e48475230787168d90e95ec0d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369950"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829863"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>自動建議 API 升級指南
 
@@ -25,7 +25,7 @@ ms.locfileid: "35369950"
 
 ### <a name="endpoints"></a>端點
 
-- 從 v5 變更為 v7 的端點版本號碼。 例如，https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/建議。
+- 從 v5 變更為 v7 的端點版本號碼。 例如， https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/建議。
 
 ### <a name="error-response-objects-and-error-codes"></a>錯誤回應物件和錯誤碼
 

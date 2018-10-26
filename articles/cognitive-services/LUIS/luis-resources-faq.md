@@ -1,5 +1,5 @@
 ---
-title: 常見問題集 - Language Understanding (LUIS)
+title: FAQ - 常見問題集 - Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding (LUIS) 常見問題集的解答。
 author: diberry
@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432455"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067755"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding 常見問題集
 
@@ -113,6 +113,10 @@ Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-se
 
 請參閱[相同應用程式之不同複本的預測差異](luis-concept-prediction-score.md#differences-with-predictions)。
 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>我對應用程式進行變更後，一些語句的意圖錯誤。 此問題似乎會隨機消失。 如何修正問題？ 
+
+請參閱[以所有資料進行訓練](luis-how-to-train.md#train-with-all-data)。
+
 ## <a name="app-publishing"></a>應用程式發佈
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>[Add a key to your app] \(將金鑰新增至應用程式\) 視窗中的租用戶識別碼是什麼？
@@ -135,7 +139,7 @@ Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-se
 若要將 LUIS 應用程式傳送至不同的 Azure 訂用帳戶，請匯出 LUIS 應用程式，並使用新的帳戶匯入它。 在呼叫 LUIS 應用程式的用戶端應用程式中，更新 LUIS 應用程式識別碼。 新應用程式可能會傳回與原始應用程式略為不同的 LUIS 分數。
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>如何下載使用者語句的記錄？
-LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳送給 LUIS 應用程式的語句記錄，請前往 [我的應用程式]，然後按一下應用程式清單中的省略符號 (***...***)。 然後按一下 [Export Endpoint Logs] \(匯出端點記錄\)。 記錄會格式化為逗號分隔值 (CSV) 檔案。
+LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳送給 LUIS 應用程式的語句記錄，請前往 [我的應用程式]，然後選取應用程式。 在關聯式工作列中，選取 [匯出端點記錄]。 記錄會格式化為逗號分隔值 (CSV) 檔案。
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>如何停用語句的記錄？
 您可以在用戶端應用程式用來查詢 LUIS 的端點 URL 中設定 `log=false`，以關閉使用者語句記錄。 不過，關閉記錄會停用 LUIS 應用程式建議語句的能力，或根據[主動學習](luis-concept-review-endpoint-utterances.md#what-is-active-learning)來改善效能。 若您因資料隱私考量而設定 `log=false`，則無法從 LUIS 下載這些使用者語句的記錄，或使用者這些語句來改善應用程式。

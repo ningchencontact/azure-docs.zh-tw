@@ -15,12 +15,12 @@ ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 88667749d9cdf5239be33f3aca52d1a614556a41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410267"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816596"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 [角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
@@ -786,14 +786,14 @@ ms.locfileid: "47410267"
 > | **說明** | 可讓您管理 Data Factory，但無法加以存取。 |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **動作** |  |
-> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派。 |
 > | Microsoft.DataFactory/dataFactories/* | 建立和管理 Data Factory 以及其中的子資源。 |
 > | Microsoft.DataFactory/factories/* | 建立和管理 Data Factory 以及其中的子資源。 |
-> | Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
-> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Insights/alertRules/* | 建立和管理警示規則。 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態。 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
-> | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Support/* | 建立和管理支援票證。 |
 
 ## <a name="data-lake-analytics-developer"></a>Data Lake Analytics 開發人員
 > [!div class="mx-tableFixed"]

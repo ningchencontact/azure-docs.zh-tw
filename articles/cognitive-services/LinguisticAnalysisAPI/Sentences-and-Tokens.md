@@ -1,22 +1,27 @@
 ---
-title: 語言分析 API 中的句子和 Token | Microsoft Docs
-description: 了解認知服務中語言分析 API 的分句和 Token 化。
+title: 句子和 Token - 語言分析 API
+titlesuffix: Azure Cognitive Services
+description: 了解語言分析 API 的分句和 Token 化。
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084037"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237869"
 ---
 # <a name="sentence-separation-and-tokenization"></a>分句和 Token 化
+
+> [!IMPORTANT]
+> 語言分析預覽已在 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
 
 ## <a name="background-and-motivation"></a>背景和動機
 
@@ -52,7 +57,8 @@ ms.locfileid: "37084037"
 
 情況有時很麻煩。
 第一，標點符號往往 (但並非一定) 應該會與其周圍內容分開。
-第二，英文有「縮寫」：如 "didn't" 或 "it's"，其中的字組已經壓縮，並縮寫為較小的片段。 Tokenizer 的目標是將字元序列分拆為字組。
+第二，英文有「縮寫」：如 "didn't" 或 "it's"，其中的字組已經壓縮，並縮寫為較小的片段。
+Tokenizer 的目標是將字元序列分拆為字組。
 
 讓我們回到上述的句子範例。
 現在，我們已經在每個不同的 Token 之間放入「中間點」(&middot;)。
@@ -61,9 +67,10 @@ ms.locfileid: "37084037"
 - I &middot; did &middot; n't &middot; hear &middot; about &middot; the &middot; director &middot; 's &middot; " &middot; new &middot; proposal &middot; . &middot; "
 - It &middot; 's &middot; important &middot; to &middot; Mr. &middot; and &middot; Mrs.&middot; Smith &middot; .
 
-請注意大部分的 Token 是您會在字典中找到的字組 (例如 important、director)。
+請注意大部分的 Token 是您會在字典中找到的字組 (例如 *important*、*director*)。
 其他則只包含標點符號。
-最後，也會有更不常見的 Token 來代表縮寫 (如 n't 代表 not)、所有格 (如 's) 等等。此 Token 化可讓我們以更一致的方式來處理字組 (例如 didn't) 和片語 (例如 did not)。
+最後，也會有更不常見的 Token 來代表縮寫 (如 *n't* 代表 *not*) 和所有格 (如 *'s*)。
+此 Token 化可讓我們以更一致的方式來處理字組 (*didn't*) 和片語 (*did not*)。
 
 ## <a name="specification"></a>規格
 

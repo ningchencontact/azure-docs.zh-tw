@@ -1,20 +1,21 @@
 ---
-title: 學術知識 API 中的評估方法 | Microsoft Docs
-description: 使用評估方法，根據 Microsoft 認知服務中的查詢運算式，傳回一組學術實體。
+title: 評估方法 - 學術知識 API
+titlesuffix: Azure Cognitive Services
+description: 使用評估方法來傳回一組以查詢運算式為基礎的學術實體。
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 3005ae1f6df042a49db086de4982d8206f6938a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367843"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902326"
 ---
 # <a name="evaluate-method"></a>評估模型
 
@@ -27,9 +28,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## <a name="request-parameters"></a>要求參數  
-Name     | 值 | 必要？  | 說明
+名稱     | 值 | 必要？  | 說明
 -----------|-----------|---------|--------
-**expr**       | 文字字串 | yes | 可指定應傳回哪些實體的查詢運算式。
+**expr**       | 文字字串 | 是 | 可指定應傳回哪些實體的查詢運算式。
 **model**      | 文字字串 | 否  | 想要查詢的模型名稱。  目前，此值會預設為 latest。        
 **attributes** | 文字字串 | 否<br>預設值：Id | 以逗號分隔的清單，可指定回應中包含的屬性值。 屬性名稱區分大小寫。
 **count**        | 數字 | 否<br>預設值：10 | 要傳回的結果數目。
@@ -38,7 +39,7 @@ Name     | 值 | 必要？  | 說明
   
  <br>
 ## <a name="response-json"></a>回應 (JSON)
-Name | 說明
+名稱 | 說明
 -------|-----   
 **expr** |  要求中的 *expr* 參數。
 **entities** |  一個陣列，內含 0 或多個符合查詢運算式的實體。 每個實體都包含自然對數機率值和其他要求的屬性值。

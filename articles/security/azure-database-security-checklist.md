@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893961"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855930"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 資料庫安全性檢查清單
 
@@ -61,7 +61,7 @@ Azure 資料庫是強固的資料庫平台，具有完整的安全性功能，�
 ## <a name="next-steps"></a>後續步驟
 只需要幾個簡單步驟，您就可以讓資料庫預防惡意使用者或未經授權的存取。 您會在本教學課程中學到：
 
-- 設定伺服器和/或資料庫的[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)。
+- 設定伺服器和 (或) 資料庫的[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)。
 - 使用[加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption)來保護您的資料。
 - 啟用 [SQL Database 稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)。
 

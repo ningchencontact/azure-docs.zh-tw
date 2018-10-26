@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 7f55b762bda5ff0c7bbedf414b18465656496cbb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984580"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079050"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>使用 REST API 在 Log Analytics 中建立及管理警示規則
 Log Analytics 警示 REST API 可讓您在 Operations Management Suite (OMS) 中建立及管理警示。  本文提供此 API 的詳細資料和幾個執行不同作業的範例。
@@ -138,6 +138,7 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 |:--- |:--- |:--- |
 | 閾值 |執行動作的準則。| 將警示延伸至 Azure 之前或之後，都必須為每個警示指定。 |
 | 嚴重性 |用來在觸發時將警示分類的標籤。| 將警示延伸至 Azure 之前或之後，都必須為每個警示指定。 |
+| 隱藏 |可停止來自警示之通知的選項。 | 將警示延伸至 Azure 之前或之後，可依選擇為每個警示指定。 |
 | 動作群組 |已指定所需動作之 Azure ActionGroup 的識別碼，例如 - 電子郵件、簡訊、語音通話、Webhook、自動化 Runbook、ITSM 連接器等。| 將警示延伸至 Azure 之後，就必須指定|
 | 自訂動作|修改來自 ActionGroup 之所選動作的標準輸出| 就每個警示而言為選擇性，可在將警示延伸至 Azure 之後使用。 |
 | EmailNotification |將郵件傳送給多位收件者。 | 如果將警示延伸至 Azure，則不須指定|
@@ -213,6 +214,37 @@ Log Analytics 可讓您將警示分類成數個類別，以便於管理和分級
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### <a name="suppress"></a>隱藏
+以 Log Analytics 為基礎的查詢警示會在每次達到或超出閾值時引發。 視查詢中隱含的邏輯而定，這可能導致在一連串間隔都引發警示，因而也不斷傳送通知。 為了避免這樣的情況，使用者可以設定 [隱藏] 選項來指示 Log Analytics 等到達到規定的時間長度之後，才針對該警示規則引發第二次通知。 因此，如果設定隱藏 30 分鐘；警示將會在第一次時引發並傳送所設定的通知。 但是接著會等候 30 分鐘，然後才再次針對該警示規則使用通知。 在過渡期間，警示規則會繼續執行 - 只有通知會被 Log Analytics 依據指定的時間隱藏，不論在此期間內該警示規則引發多少次。
+
+您可以使用 *Throttling* 值來指定Log Analytics 警示規則的「隱藏」屬性，以及使用 *DurationInMinutes* 值來指定隱藏期間。
+
+以下是一個只包含閾值、嚴重性及隱藏屬性之動作的範例回應
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Throttling": {
+          "DurationInMinutes": 30
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+使用 Put 方法搭配唯一動作識別碼，來為排程建立具有嚴重性的新動作。  
+
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+
+使用 Put 方法搭配現有的動作識別碼，以修改排程的嚴重性動作。  要求的主體必須包含動作的 etag。
+
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>動作群組
 Azure 中的所有警示都使用「動作群組」作為處理動作的預設機制。 使用「動作群組」時，您可以指定您的動作一次，然後將動作群組與整個 Azure 中的多個警示建立關聯。 這樣就不需要一再地重複宣告相同的動作。 「動作群組」支援多個動作 - 包括電子郵件、、SMS、語音通話、ITSM 連線、自動化 Runbook、Webhook URI 等。 

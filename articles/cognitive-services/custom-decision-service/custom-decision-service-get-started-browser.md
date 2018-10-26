@@ -1,19 +1,21 @@
 ---
-title: 從瀏覽器呼叫 API - Azure 認知服務 | Microsoft Docs
-description: 如何開始使用 Azure 自訂決策服務，藉由直接從瀏覽器進行 API 呼叫來最佳化網頁。
+title: 從瀏覽器呼叫 API - 自訂決策服務
+titlesuffix: Azure Cognitive Services
+description: 如何直接從瀏覽器向自訂決策服務發出 API 呼叫來最佳化網頁。
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: slivkins,marcozo,alekh
-ms.openlocfilehash: 10236c9d8f70d9b90a896464b4f86a847ee904c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 01f75d333e3eea5af35ca57bd44bc76148a481f2
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370086"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867610"
 ---
 # <a name="call-api-from-a-browser"></a>從瀏覽器呼叫 API
 
@@ -62,7 +64,7 @@ $.ajax({
 </rss>
 ```
 
-在這裡，每個最上層 `<item>` 項目都會描述一篇文章。 `<link>` 是必要項目，而且自訂決策服務用來作為動作識別碼。 如果您的文章超過 15 篇，則請指定 `<date>` (標準 RSS 格式)。 會使用 15 篇最近的文章。 `<title>` 是選擇性項目，而且用來建立文章的文字相關功能。
+在這裡，每個最上層 `<item>` 項目都會描述一篇文章。 `<link>` 是必要項目，而且自訂決策服務用來作為動作識別碼。 如果您的文章超過 15 篇，則請指定 `<date>` (標準 RSS 格式)。 會使用 15 篇最近的文章。 `<title>` 為選擇性且用來建立發行項的文字相關功能。
 
 ## <a name="next-steps"></a>後續步驟
 

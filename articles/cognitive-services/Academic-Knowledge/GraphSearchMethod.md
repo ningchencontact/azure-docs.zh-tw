@@ -1,20 +1,21 @@
 ---
-title: 學術知識 API 中的圖表搜尋方法 | Microsoft Docs
-description: 使用學術知識 API 中的圖表搜尋方法，根據 Microsoft 認知服務中的特定圖表模式傳回一組學術實體。
+title: 圖表搜尋方法 - 學術知識 API
+titlesuffix: Azure Cognitive Services
+description: 使用學術知識 API 中的圖表搜尋方法，根據特定圖表模式傳回一組學術實體。
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d811db117c934c0d41fbfea1220d241cc022e4a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367847"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902373"
 ---
 # <a name="graph-search-method"></a>圖表搜尋方法
 
@@ -28,9 +29,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>要求參數  
-Name     | 值 | 必要？  | 說明
+名稱     | 值 | 必要？  | 說明
 -----------|-----------|---------|--------
-**mode**       | 文字字串 | yes | 想要使用的模型名稱。 值為 *json* 或 *lambda*。
+**mode**       | 文字字串 | 是 | 想要使用的模型名稱。 值為 *json* 或 *lambda*。
 
 必須透過 HTTP POST 要求呼叫圖表搜尋方法。 POST 要求應包含內容類型標頭：**application/json**。
 
@@ -45,7 +46,7 @@ Name     | 值 | 必要？  | 說明
 
 <br>
 ## <a name="response-json"></a>回應 (JSON)
-Name | 說明
+名稱 | 說明
 -------|-----   
 **results** | 一個陣列，內含 0 或多個符合查詢運算式的實體。 每個實體都包含要求的屬性值。 如果已成功處理要求，就會呈現這個欄位。
 **error** | HTTP 狀態碼。 如果要求失敗，就會呈現此欄位。

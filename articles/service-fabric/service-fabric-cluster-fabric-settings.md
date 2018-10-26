@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: aljo
-ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144033"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884488"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 此文章說明如何自訂 Service Fabric 叢集的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 針對獨立叢集，您會透過更新 ClusterConfig.json 檔案並在叢集上執行設定升級來自訂設定。 
@@ -116,11 +116,11 @@ ms.locfileid: "43144033"
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|MinReplicaSetSize|int，預設值為 0|靜態|BackupRestoreService 的 MinReplicaSetSize |
+|MinReplicaSetSize|整數，預設值為 0|靜態|BackupRestoreService 的 MinReplicaSetSize |
 |PlacementConstraints|字串，預設值為 ""|靜態|  BackupRestore 服務的 PlacementConstraints |
 |SecretEncryptionCertThumbprint|字串，預設值為 ""|動態|祕密加密 X509 憑證的指紋 |
 |SecretEncryptionCertX509StoreName|字串，預設值為 "My"|   動態|    這表示要用於認證加密和解密的憑證。用於加密及解密備份還原服務所用存放區認證的 X.509 憑證存放區名稱 |
-|TargetReplicaSetSize|int，預設值為 0|靜態| BackupRestoreService 的 TargetReplicaSetSize |
+|TargetReplicaSetSize|整數，預設值為 0|靜態| BackupRestoreService 的 TargetReplicaSetSize |
 
 ## <a name="clustermanager"></a>ClusterManager
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -352,6 +352,7 @@ ms.locfileid: "43144033"
 |ApplicationUpgradeTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(360)|動態| 以秒為單位指定時間範圍。 應用程式升級的逾時。 如果逾時值小於「ActivationTimeout」，部署便會失敗。 |
 |ContainerServiceArguments|string，預設值為 "-H localhost:2375 -H npipe://"|靜態|Service Fabric (SF) 會管理 Docker 精靈 (在 Win10 之類的 Windows 用戶端電腦上除外)。 此組態允許使用者指定自訂引數，而這些引數應該在啟動 Docker 精靈時傳遞至該精靈。 若指定了自訂引數，除了 '--pidfile' 引數外，Service Fabric 不會再將任何其他引數傳遞至 Docker 引擎。 因此使用者不得指定 '-pidfile' 引數作為其自訂引數的一部分。 此外，自訂引數也應該確保 Docker 精靈在 Windows 的預設名稱管道 (或在 Linux 上的 Unix 網域通訊端) 上接聽，Service Fabric 才能與它通訊。|
 |ContainerServiceLogFileMaxSizeInKb|整數，預設值為 32768|靜態|Docker 容器所產生的記錄檔檔案大小上限。  僅限 Windows。|
+|ContainerImagesToSkip|字串，由分隔號字元分隔的映象名稱，預設值為 ""|靜態|一或多個不應刪除之容器映像的名稱。  與 PruneContainerImages 參數搭配使用。|
 |ContainerServiceLogFileNamePrefix|字串，預設值為 "sfcontainerlogs"|靜態|Docker 容器所產生的記錄檔檔案名稱前置詞。  僅限 Windows。|
 |ContainerServiceLogFileRetentionCount|整數，預設值為 10|靜態|Docker 容器在記錄檔遭覆寫之前所產生的記錄檔數目。  僅限 Windows。|
 |CreateFabricRuntimeTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 同步 FabricCreateRuntime 呼叫的逾時值 |
@@ -360,6 +361,7 @@ ms.locfileid: "43144033"
 |DeploymentMaxFailureCount|整數，預設值為 20| 動態|應用程式部署會先重試 DeploymentMaxFailureCount 次數，才讓節點上該應用程式的部署失敗。| 
 |DeploymentMaxRetryInterval| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(3600)|動態| 以秒為單位指定時間範圍。 部署的重試間隔上限。 在每次連續失敗之後，重試間隔的計算方式為 Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(10)|動態|以秒為單位指定時間範圍。 部署失敗的輪詢間隔。 在每個連續的部署失敗發生時，系統最多會將部署重試 MaxDeploymentFailureCount 次。 重試間隔是連續部署失敗和部署輪詢間隔的乘積。 |
+|DisableDockerRequestRetry|布林值，預設值為 FALSE |動態| 當 SF 與 DD (Docker 精靈) 進行通訊時，針對傳送給 DD 的每個 HTTP 要求，逾時會預設為 'DockerRequestTimeout'。 如果 DD 沒有在此期間內回應；當最上層作業仍有剩餘時間時，SF 就會重新傳送要求。  使用 HyperV 容器時；DD 有時會花費更長的時間來啟動或停用容器。 在這種情況下，從 SF 的觀點看來會是 DD 要求逾時，而 SF 就會重試該作業。 有時，這似乎會給 DD 增加更多壓力。 此設定可讓您停用此重試以等候 DD 回應。 |
 |EnableActivateNoWindow| 布林值，預設值為 FALSE|動態| 已啟動的程序會建立在沒有任何主控台的背景中。 |
 |EnableContainerServiceDebugMode|布林值，預設值為 TRUE|靜態|啟用/停用 Docker 容器的記錄。  僅限 Windows。|
 |EnableDockerHealthCheckIntegration|布林值，預設值為 TRUE|靜態|啟用 docker HEALTHCHECK 事件與 Service Fabric 系統健康狀態報告的整合 |
@@ -375,6 +377,7 @@ ms.locfileid: "43144033"
 |NTLMAuthenticationPasswordSecret|SecureString，預設值為 Common::SecureString("")|靜態|是加密的，用來產生 NTLM 使用者的密碼。 如果 NTLMAuthenticationEnabled 為 true，則必須加以設定。 由部署人員驗證。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|時間範圍，預設值為 Common::TimeSpan::FromMinutes(3)|動態|以秒為單位指定時間範圍。 環境特有的設定。FileStoreService NTLM 設定所要使用的新憑證定期主控掃描間隔。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|時間範圍，預設值為 Common::TimeSpan::FromMinutes(4)|動態| 以秒為單位指定時間範圍。 使用憑證通用名稱來設定 NTLM 使用者的逾時。 FileStoreService 共用需要 NTLM 使用者。 |
+|PruneContainerImages|布林值，預設值為 FALSE|動態| 從節點移除不使用的應用程式容器映像。 將某個 ApplicationType 從 Service Fabric 叢集取消註冊時，Service Fabric 會將此應用程式所使用的容器映像從其下載位置節點上移除。 剪除作業每小時會執行一次，因此最長可能需要一小時的時間 (加上剪除映像所需的時間)，才能從叢集中移除那些映像。<br>Service Fabric 一律不會下載或移除與應用程式不相關的映像。  手動或以其他方式下載的不相關映像必須以明確方式移除。<br>您可以在 ContainerImagesToSkip 參數中指定不應刪除的映像。| 
 |RegisterCodePackageHostTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 FabricRegisterCodePackageHost 同步呼叫的逾時值。 這僅適用於多程式碼套件應用程式主機，例如 FWP |
 |RequestTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(30)|動態| 以秒為單位指定時間範圍。 這代表使用者的應用程式主機和網狀架構的各種主控相關作業 (例如工廠註冊、執行階段註冊) 處理序之間的通訊逾時值。 |
 |RunAsPolicyEnabled| 布林值，預設值為 FALSE|靜態| 能夠以本機使用者身分 (而非用來執行網狀架構處理序的使用者身分) 執行程式碼套件。 若要啟用此原則，網狀架構必須以 SYSTEM 身分或具有 SeAssignPrimaryTokenPrivilege 之使用者的身分來執行。 |
@@ -420,6 +423,7 @@ ms.locfileid: "43144033"
 |SharedLogId |字串，預設值為 "" |靜態|共用記錄容器的唯一 GUID。 若使用位於網狀架構資料根目錄下的預設路徑，則使用 ""。 |
 |SharedLogPath |字串，預設值為 "" |靜態|用以放置共用記錄容器之位置的路徑和檔案名稱。 使用 "" 可使用位於網狀架構資料根目錄下的預設路徑。 |
 |SharedLogSizeInMB |整數，預設值為 8192 |靜態|要在共用記錄容器中配置的 MB 數。 |
+|SharedLogThrottleLimitInPercentUsed|整數，預設值為 0 | 靜態 | 將引發節流的共用記錄使用量百分比。 值應介於 0 到 100。 值為 0 時，表示使用預設百分比值。 值為 100 時，表示完全不節流。 值介於 1 到 99 時，表示指定超出時將進行節流的記錄使用量百分比；例如，如果共用記錄為 10 GB，而此值為 90，則當使用達 9 GB 時，就會進行節流。 建議使用預設值。|
 |WriteBufferMemoryPoolMaximumInKB | 整數，預設值為 0 |動態|允許寫入緩衝區記憶體集區成長達到的 KB 數目。 使用 0 表示無限制。 |
 |WriteBufferMemoryPoolMinimumInKB |整數，預設值為 8388608 |動態|一開始要為寫入緩衝區記憶體集區配置的 KB 數目。 使用 0 表示無限制。預設值應與下面的 SharedLogSizeInMB 一致。 |
 
@@ -624,10 +628,13 @@ ms.locfileid: "43144033"
 ## <a name="security"></a>安全性
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
 | --- | --- | --- | --- |
+|AADCertEndpointFormat|字串，預設值為 ""|靜態|AAD 憑證端點格式，預設環境為 Azure Commercial，針對非預設環境 (例如 Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml") 需指定 |
 |AADClientApplication|字串，預設值為 ""|靜態|代表網狀架構用戶端的原生用戶端應用程式名稱或識別碼 |
 |AADClusterApplication|字串，預設值為 ""|靜態|代表叢集的 Web API 應用程式名稱或識別碼 |
+|AADLoginEndpoint|字串，預設值為 ""|靜態|AAD 登入端點，預設環境為 Azure Commercial，針對非預設環境 (例如 Azure Government "https://login.microsoftonline.us") 需指定 |
 |AADTenantId|字串，預設值為 ""|靜態|租用戶識別碼 (GUID) |
 |AdminClientCertThumbprints|字串，預設值為 ""|動態|系統管理員角色的用戶端所使用的憑證指紋。 這是以逗號分隔的名稱清單。 |
+|AADTokenEndpointFormat|字串，預設值為 ""|靜態|AAD 權杖端點，預設環境為 Azure Commercial，針對非預設環境 (例如 Azure Government "https://login.microsoftonline.us/{0}") 需指定 |
 |AdminClientClaims|字串，預設值為 ""|動態|系統管理員用戶端預期會發出的所有可能宣告，其格式與 ClientClaims 相同，此清單會於內部新增至 ClientClaims，因此不必再將相同的項目新增至 ClientClaims。 |
 |AdminClientIdentities|字串，預設值為 ""|動態|系統管理員角色之網狀架構用戶端的 Windows 身分識別，可用來授權特殊權限的網狀架構作業。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱。 為了方便，系統會自動對執行 fabric.exe 的帳戶指派系統管理員角色，ServiceFabricAdministrators 群組也是如此。 |
 |CertificateExpirySafetyMargin|時間範圍，預設值為 Common::TimeSpan::FromMinutes(43200)|靜態|以秒為單位指定時間範圍。 憑證到期日的安全邊際，當到期日接近此邊際值時，憑證健康情況報告的狀態會從「正常」變更為「警告」。 預設值為 30 天。 |

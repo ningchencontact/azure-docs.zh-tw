@@ -1,21 +1,21 @@
 ---
-title: Bing Web 搜尋 API 的 Bing 分析 | Microsoft Docs
-titleSuffix: Cognitive Services
+title: Bing 自動建議 API 的 Bing 分析
+titleSuffix: Azure Cognitive Services
 description: 說明如何取得 Bing 自動建議 API 的分析。
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-autosuggest
-ms.topic: article
+ms.component: bing-autosuggest
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 03482ce94efe5f5db11f242384d620d401528ccf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ea7bf0c19392ba61c9479302ae1a5fd72f0303bf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237680"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886887"
 ---
 # <a name="how-to-get-analytics-for-bing-autosuggest-api"></a>如何取得 Bing 自動建議 API 的分析
 

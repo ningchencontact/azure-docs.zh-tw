@@ -1,20 +1,21 @@
 ---
-title: 實體搜尋端點 | Microsoft Docs
+title: Bing 實體搜尋端點
+titlesuffix: Azure Cognitive Services
 description: 實體搜尋 API 端點的摘要。
 services: cognitive-services
 author: v-jaswel
-manager: kaiq
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 3d5da30102712baf399c245cc7678eeddbce796a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b1b89cbacf43df544261847d4e3fae396a52f423
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367867"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816271"
 ---
 # <a name="entity-search-endpoints"></a>實體搜尋端點
 **實體搜尋 API** 包含一個端點。

@@ -4,41 +4,61 @@ description: 本文說明適用於 PostgreSQL 的 Azure 資料庫產生查詢和
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: bcca8ce8d11482dd8517992297b7e8a5b94ac8b1
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.topic: conceptual
+ms.date: 10/04/2018
+ms.openlocfilehash: 2a6744bdec48e59b820605bb4d1cc01d32702bcf
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435485"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867750"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的伺服器記錄 
-適用於 PostgreSQL 的 Azure 資料庫會產生查詢和錯誤記錄。 不過，不支援存取交易記錄。 查詢和錯誤記錄可用來針對組態錯誤及未達最佳效能的情況，進行識別、疑難排解及修復。 如需詳細資訊，請參閱[錯誤報告和記錄 (英文)](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html)。
+適用於 PostgreSQL 的 Azure 資料庫會產生查詢和錯誤記錄。 查詢和錯誤記錄可用來針對組態錯誤及未達最佳效能的情況，進行識別、疑難排解及修復。 (不包括對交易記錄的存取)。 
 
-## <a name="access-server-logs"></a>存取伺服器記錄
-您可以使用 Azure 入口網站、[Azure CLI](howto-configure-server-logs-using-cli.md) 和 Azure REST API，來列出和下載 Azure PostgreSQL 伺服器錯誤記錄。
+## <a name="configure-logging"></a>設定記錄 
+您可以使用記錄伺服器參數來設定伺服器上的記錄功能。 在每部新伺服器上，**log_checkpoints** 和 **log_connections** 都是預設為開啟。 有其他可供您調整來符合您記錄需求的參數： 
 
-## <a name="log-retention"></a>記錄保留
-您可以使用與您伺服器相關聯的 **log\_retention\_period** 參數，來設定系統記錄的保留期。 此參數的單位為天。 預設值為 3 天。 最大值為 7 天。 您的伺服器必須配置足夠的儲存體，才能包含保留的記錄檔。
-記錄檔每一小時或每 100 MB 的大小就會輪換 (端視何者先達到)。
+![適用於 PostgreSQL 的 Azure 資料庫 - 記錄參數](./media/concepts-server-logs/log-parameters.png)
 
-## <a name="configure-logging-for-azure-postgresql-server"></a>設定 Azure PostgreSQL 伺服器的記錄
-您可以針對伺服器啟用查詢記錄和錯誤記錄。 錯誤記錄可包含自動清空、連線和檢查點資訊。
+如需有關這些參數的詳細資訊，請參閱 PostgreSQL 的[錯誤報告和記錄](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) \(英文\) 文件。 若要了解如何設定「適用於 PostgreSQL 的 Azure 資料庫」參數，請參閱[入口網站文件](howto-configure-server-parameters-using-portal.md)或 [CLI 文件](howto-configure-server-parameters-using-cli.md)。
 
-您可以藉由設定下列兩個伺服器參數，為 PostgreSQL DB 執行個體啟用查詢記錄功能︰`log_statement` 和 `log_min_duration_statement`。
+## <a name="access-server-logs-through-portal-or-cli"></a>透過入口網站或 CLI 存取伺服器記錄
+如果您已啟用記錄，便可以使用 [Azure 入口網站](howto-configure-server-logs-in-portal.md)、[Azure CLI](howto-configure-server-logs-using-cli.md) 及 Azure REST API 從「適用於 PostgreSQL 的 Azure 資料庫」記錄檔儲存體存取記錄。 記錄檔每達 1 小時或 100 MB 大小 (以先達到者為準) 就會輪替。 您可以使用與您伺服器相關的 **log\_retention\_period** 參數，來設定此記錄檔儲存體的保留期。 預設值為 3 天；最大值為 7 天。 您的伺服器必須配置足夠的儲存體來保存記錄檔。 (此保留參數不會控管「Azure 診斷記錄」)。
 
-**log\_statement** 參數控制要記錄哪些 SQL 陳述式。 我們建議將此參數設為 ***all*** 以記錄所有陳述式；預設值為 none。
 
-**log\_min\_duration\_statement** 參數會以毫秒為單位，設定要記錄之陳述式的限制。 系統會記錄所有執行時間比此參數設定還長的 SQL 陳述式。 預設會停用此參數並設為負 1 (-1)。 啟用此參數，有助於追蹤應用程式中未最佳化的查詢。
+## <a name="diagnostic-logs"></a>診斷記錄檔
+「適用於 PostgreSQL 的 Azure 資料庫」已與「Azure 監視器診斷記錄」整合。 在 PostgreSQL 伺服器上啟用記錄之後，您可以選擇將它們發出至 [Log Analytics](../log-analytics/log-analytics-queries.md)、「事件中樞」或「Azure 儲存體」。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)的＜如何＞一節。 
 
-**log\_min\_messages** 讓您能夠控制要將哪些訊息層級寫入伺服器記錄。 預設值為 WARNING。 
 
-如需有關這些設定的詳細資訊，請參閱[錯誤報告和記錄 (英文)](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) 文件。 若要特別設定「適用於 PostgreSQL 的 Azure 資料庫」伺服器參數，請參閱[使用 Azure CLI 自訂伺服器設定參數](howto-configure-server-parameters-using-cli.md)。
+下表描述每個記錄的內容。 視您選擇的輸出端點而定，所含欄位及其出現順序可能會有所不同。 
+
+|**欄位** | **說明** |
+|---|---|
+| TenantId | 您的租用戶識別碼 |
+| SourceSystem | `Azure` |
+| TimeGenerated [UTC] | 以 UTC 記錄記錄時的時間戳記 |
+| 類型 | 記錄的類型。 一律為 `AzureDiagnostics` |
+| SubscriptionId | 伺服器所屬訂用帳戶的 GUID |
+| ResourceGroup | 伺服器所屬資源群組的名稱 |
+| ResourceProvider | 資源提供者名稱。 一律為 `MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceType | `Servers` |
+| ResourceId | 資源 URI |
+| 資源 | 伺服器的名稱 |
+| 類別 | `PostgreSQLLogs` |
+| OperationName | `LogEvent` |
+| errorLevel | 記錄層級，範例：LOG、ERROR、NOTICE |
+| 訊息 | 主要記錄訊息 | 
+| 網域 | 伺服器版本，範例：postgres-10 |
+| 詳細資料 | 次要記錄訊息 (如果適用) |
+| ColumnName | 資料行的名稱 (如果適用) |
+| SchemaName | 結構描述的名稱 (如果適用) |
+| DatatypeName | 資料類型的名稱 (如果適用) |
+| LogicalServerName | 伺服器的名稱 | 
+| _ResourceId | 資源 URI |
 
 ## <a name="next-steps"></a>後續步驟
-- 若要使用 Azure CLI 命令列介面來存取記錄，請參閱[使用 Azure CLI 設定和存取伺服器記錄](howto-configure-server-logs-using-cli.md)。
-- 如需伺服器參數的詳細資訊，請參閱[使用 Azure CLI 自訂伺服器設定參數](howto-configure-server-parameters-using-cli.md)。
+- 了解如何從 [Azure 入口網站](howto-configure-server-logs-in-portal.md) 或 [Azure CLI](howto-configure-server-logs-using-cli.md) 存取記錄。
+- 深入了解 [Azure 監視器價格](https://azure.microsoft.com/pricing/details/monitor/)。

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f7079d54ccae32d06488d12d45d6035c7f372d63
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917078"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236598"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>驗證 Azure Stack PKI 憑證
 
@@ -66,21 +66,20 @@ ms.locfileid: "42917078"
 
 1. 執行下列 Cmdlet，以從 PowerShell (5.1 或更新版本) 提示字元安裝 **AzsReadinessChecker**：
 
-    ````PowerShell  
+    ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
-    ````
+    ```
 
 2. 建立憑證目錄結構。 在下列範例中，您可以將 `<c:\certificates>` 變更為您所選擇的新目錄路徑。
-
-    ````PowerShell  
+    ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal'
     
     $destination = 'c:\certificates'
     
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
-    ````
+    ```
     
     > [!Note]  
     > 如果您使用 AD FS 作為身分識別系統，則需要 AD FS 和 Graph。
@@ -92,16 +91,15 @@ ms.locfileid: "42917078"
 
 3. 在 PowerShell 視窗中，將 **RegionName** 和 **FQDN** 的值變更為適合 Azure Stack 環境的值，並執行下列命令：
 
-    ````PowerShell  
+    ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
-
-    ````
+    Start-AzsReadinessChecker  -extensionshostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+    ```
 
 4. 檢查輸出，所有憑證都通過所有測試。 例如︰
 
-    ````PowerShell
+    ```PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
     Starting Certificate Validation
 
@@ -134,7 +132,7 @@ ms.locfileid: "42917078"
     AzsReadinessChecker Report location: 
     C:\AzsReadinessChecker\AzsReadinessReport.json
     AzsReadinessChecker Completed
-    ````
+    ```
 
 ### <a name="known-issues"></a>已知問題
 
@@ -144,7 +142,7 @@ ms.locfileid: "42917078"
 
  - 如果信任鏈結失敗，則會略過其他憑證。
 
-    ````PowerShell  
+    ```PowerShell  
     Testing: ACSBlob\singlewildcard.pfx
         Read PFX: OK
         Signature Algorithm: OK
@@ -165,7 +163,7 @@ ms.locfileid: "42917078"
     AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
     AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
     AzsReadinessChecker Completed
-    ````
+    ```
 
 **解析**：遵循每個憑證測試集合下詳細資料區段中的工具指引。
 
@@ -175,13 +173,13 @@ ms.locfileid: "42917078"
 
 1.  執行下列 Cmdlet，以從 PowerShell (5.1 或更新版本) 提示字元安裝 **AzsReadinessChecker**：
 
-    ````PowerShell  
+    ```PowerShell  
       Install-Module Microsoft.AzureStack.ReadinessChecker -force
-    ````
+    ```
 
 2.  建立巢狀雜湊表，並在其中針對每個需要驗證的 PaaS 憑證包含其路徑和密碼。 在 PowerShell 視窗中執行：
 
-    ```PowerShell
+    ```PowerShell  
         $PaaSCertificates = @{
         'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
         'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -193,7 +191,7 @@ ms.locfileid: "42917078"
 
 3.  將 **RegionName** 和 **FQDN** 的值變更為符合 Azure Stack 環境，以啟動驗證。 然後，執行：
 
-    ```PowerShell
+    ```PowerShell  
     Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
 4.  檢查輸出，並檢查所有憑證都通過所有測試。

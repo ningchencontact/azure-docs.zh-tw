@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: d7c35b79dcdf75dbb3f891dc4c66cbf893b61c03
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5328ee7e3e3035ebce1ff9fccbfc6e9ccfd86ee8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777683"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888387"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>準備適用於 Azure 的 CentOS 型虛擬機器
 * [準備適用於 Azure 的 CentOS 6.x 虛擬機器](#centos-6x)
@@ -28,7 +28,7 @@ ms.locfileid: "33777683"
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已將 CentOS (或類似的衍生物件) Linux 作業系統安裝到虛擬硬碟。 有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。 如需指示，請參閱 [安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 **CentOS 安裝注意事項**
@@ -298,7 +298,7 @@ ms.locfileid: "33777683"
    
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. 若要從 **VMWare、VirtualBox 或 KVM 建置映像：** 請確定 initramfs 中已包括 Hyper-V 驅動程式：
+10. 若要從 **VMware、VirtualBox 或 KVM** 建置映像：請確定 initramfs 中已包括 Hyper-V 驅動程式：
    
    編輯 `/etc/dracut.conf`，新增內容：
    

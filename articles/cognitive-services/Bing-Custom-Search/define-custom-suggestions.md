@@ -1,20 +1,21 @@
 ---
-title: Bing 自訂搜尋：定義自訂自動建議的建議 | Microsoft Docs
+title: 定義自訂自動建議的建議 - Bing 自訂搜尋
+titlesuffix: Azure Cognitive Services
 description: 描述如何使用自訂的建議設定自訂自動建議
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-custom-search
-ms.topic: article
+ms.component: bing-custom-search
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 11d3b1c2d98caa8d6527c52bec1cc65ba22c6c3b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 738f0d6ea083b59cddf408941cda81e980daa334
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958742"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883185"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>設定您的自訂自動建議體驗
 

@@ -1,22 +1,23 @@
 ---
-title: Microsoft 翻譯工具文字 API 轉換方法 | Microsoft Docs
-description: 使用 Microsoft 翻譯工具文字 API 轉換方法。
+title: 翻譯文字 API 轉換方法
+titlesuffix: Azure Cognitive Services
+description: 使用翻譯文字 API 轉換方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: fdd6fa9236f0c02685198b6de3228c444993dad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370234"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018616"
 ---
-# <a name="text-api-30-transliterate"></a>文字 API 3.0：轉換
+# <a name="translator-text-api-30-transliterate"></a>翻譯文字 API 3.0：轉換
 
 將某種語言的文字從某個指令碼轉換成另一個指令碼。
 
@@ -37,11 +38,11 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   <th>說明</th>
   <tr>
     <td>api-version</td>
-    <td>*必要參數*。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
+    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
   </tr>
   <tr>
     <td>語言</td>
-    <td>*必要參數*。<br/>指定要從某個指令碼轉換成另一個指令碼的文字語言。 向服務查詢其[支援語言](.\v3-0-languages.md)而取得的 `transliteration` 範圍列出可能的語言。</td>
+    <td>必要參數。<br/>指定要從某個指令碼轉換成另一個指令碼的文字語言。 向服務查詢其[支援語言](.\v3-0-languages.md)而取得的 `transliteration` 範圍列出可能的語言。</td>
   </tr>
   <tr>
     <td>fromScript</td>
@@ -49,7 +50,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*必要參數*。<br/>指定輸出指令碼。 使用 `transliteration` 範圍查閱[支援的語言](.\v3-0-languages.md)，以尋找可用於輸入語言和輸入指令碼所選取組合的輸出指令碼。</td>
+    <td>*必要參數*。<br/>指定輸出指令碼。 使用 `transliteration` 範圍查閱[支援的語言](.\v3-0-languages.md)，以尋找可用於所選取之輸入語言和輸入指令碼組合的輸出指令碼。</td>
   </tr>
 </table> 
 
@@ -60,19 +61,19 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   <th>說明</th>
   <tr>
     <td>_一個授權_<br/>_標頭_</td>
-    <td>*必要的要求標頭*。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
+    <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*必要的要求標頭*。<br/>指定酬載的內容類型。 可能的值為：`application/json`。</td>
+    <td>必要的要求標頭。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*必要的要求標頭*。<br/>要求本文的長度。</td>
+    <td>必要的要求標頭。<br/>要求本文的長度。</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*選擇性*。<br/>用於唯一識別要求之用戶端產生的 GUID。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
@@ -117,13 +118,13 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   <th>說明</th>
   <tr>
     <td>X-RequestId</td>
-    <td>用於識別要求之服務產生的值。 其用於進行疑難排解。</td>
+    <td>服務產生的值，用於識別要求。 作為疑難排解之用。</td>
   </tr>
 </table> 
 
 ## <a name="response-status-codes"></a>回應狀態碼
 
-以下是要求傳回之可能的 HTTP 狀態碼。 
+以下是要求傳回的可能 HTTP 狀態碼。 
 
 <table width="100%">
   <th width="20%">狀態碼</th>
@@ -134,23 +135,23 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>400</td>
-    <td>其中一個查詢參數遺漏或無效。 請先更正要求參數，然後重試。</td>
+    <td>缺少其中一個查詢參數，或查詢參數無效。 請先修正要求參數再重試。</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>無法驗證此要求。 請確認認證已指定且有效。</td>
+    <td>無法驗證要求。 請確認認證已指定且有效。</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>此要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
+    <td>要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>呼叫者傳送太多要求。</td>
+    <td>呼叫者傳送過多要求。</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>
@@ -170,7 +171,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-若您要在不支援 Unicode 字元的命令列視窗中使用 cUrl，請採用下列 JSON 酬載，並將它儲存成名為 `request.txt` 的檔案。 請務必使用 `UTF-8` 編碼儲存該檔案。
+若您要在不支援 Unicode 字元的命令列視窗中使用 cURL，請採用下列 JSON 承載，並將它儲存成名為 `request.txt` 的檔案。 請務必使用 `UTF-8` 編碼儲存該檔案。
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

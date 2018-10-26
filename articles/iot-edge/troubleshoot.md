@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6102a6bc28486c24134bbc172b9e8a7e1a61244
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: a63a31c5ceb4298829f85627196fea5d7a38ca4b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308032"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068497"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -310,6 +310,32 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>IoT Edge 模組因發生 404 錯誤而無法將訊息傳送給 edgeHub
+
+自訂 IoT Edge 模組因發生 404 `Module not found` 錯誤而無法將訊息傳送給 edgeHub。 IoT Edge 精靈會將下列訊息輸出至記錄： 
+
+```output
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+```
+
+### <a name="root-cause"></a>根本原因
+基於安全考量，IoT Edge 精靈會針對連線至 edgeHub 的所有模組強制執行處理序識別。 它會確認模組傳送的所有訊息都來自該模組的主要處理序識別碼。 如果傳送訊息之模組的來源處理序識別碼與最初確立的識別碼不同，它就會發出 404 錯誤訊息來拒絕該訊息。
+
+### <a name="resolution"></a>解決方案
+請確定自訂 IoT Edge 模組一律使用相同的處理序識別碼將訊息傳送給 edgeHub。 例如，請務必在您的 Docker 檔案中使用 `ENTRYPOINT` 而不是 `CMD` 命令，因為 `CMD` 會導致模組有一個處理序識別碼，執行主要程式的 Bash 命令有另一個處理序識別碼，而 `ENTRYPOINT` 則是會產生單一處理序識別碼。
+
+
+## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>適用於 IoT Edge 部署的防火牆和連接埠設定規則
+Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定進行從內部部署 Edge Server 到 Azure 雲端的通訊，請參閱[選擇通訊協定](../iot-hub/iot-hub-devguide-protocols.md)。 為了增強安全性，Azure IoT Edge 與 Azure IoT Hub 之間的通訊通道一律會設定為輸出；這是根據[服務輔助通訊模式](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)，可將惡意實體能夠探索的攻擊面縮減到最小。 只有針對 Azure IoT Hub 需要將訊息向下推送至 Azure IoT Edge Server 的特定情況 (例如「雲端到裝置」傳訊)，才需要輸入通訊，同樣地，會使用安全 TLS 通道來保護這些訊息，並可使用 X.509 憑證和 TPM 裝置模組來提供進一步的保護。 「Azure IoT Edge 安全性管理員」會控管此通訊的建立方式，請參閱 [IoT Edge 安全性管理員](../iot-edge/iot-edge-security-manager.md)。
+
+雖然 IoT Edge 提供增強的設定來保護 Azure IoT Edge 執行階段和已部署的模組，但它仍然倚賴基礎的機器和網路設定。 因此，請務必確保設定適當的網路和防火牆規則，以提供安全的「Edge 到雲端」通訊。 為裝載 Azure IoT Edge 執行階段的基礎伺服器設定防火牆規則時，可以使用下表作為指導方針：
+
+|通訊協定|Port|傳入|傳出|指引|
+|--|--|--|--|--|
+|MQTT|8883|已封鎖 (預設值)|已封鎖 (預設值)|<ul> <li>使用 MQTT 作為通訊協定時，請將「傳出」(輸出) 設定為「開放」。<li>IoT Edge 不支援適用於 MQTT 的 1883。 <li>應該將傳入 (輸入) 連線封鎖。</ul>|
+|AMQP|5671|已封鎖 (預設值)|開放 (預設值)|<ul> <li>IoT Edge 的預設通訊協定。 <li> 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或 AMQP 是所需的通訊協定，則必須設定為「開放」。<li>IoT Edge 不支援適用於 AMQP 的 5672。<li>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。<li>應該將傳入 (輸入) 連線封鎖。</ul></ul>|
+|HTTPS|443|已封鎖 (預設值)|開放 (預設值)|<ul> <li>將「傳出」(輸出) 設定為在 443「開放」以進行 IoT Edge 佈建，當使用手動指令碼或 Azure IoT 裝置佈建服務 (DPS) 時，必須這樣設定。 <li>「傳入」(輸入) 連線應該只有針對特定案例才設定為「開放」： <ul> <li>  如果您有透明閘道，而此閘道具有可能傳送方法要求的分葉裝置。 在此情況下，無須對外部網路開放連接埠 443，即可連線至 IoTHub 或透過 Azure IoT Edge 提供 IoTHub 服務。 因此，可將傳入規則限制成只從內部網路開放「傳入」(輸入)。 <li> 針對「用戶端到裝置」(C2D) 案例。</ul><li>IoT Edge 不支援適用於 HTTP 的 80。<li>如果無法在企業中設定非 HTTP 通訊協定 (例如 AMQP、MQTT)；則可透過 WebSocket 傳送訊息。 在該情況下，會使用連接埠 443 來進行 WebSocket 通訊。</ul>|
 
 
 ## <a name="next-steps"></a>後續步驟

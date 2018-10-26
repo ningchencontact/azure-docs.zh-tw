@@ -1,24 +1,25 @@
 ---
-title: 自動建議端點 | Microsoft Docs
-description: 自動建議 API 端點的摘要。
+title: Bing 自動建議端點
+titlesuffix: Azure Cognitive Services
+description: Bing 自動建議 API 端點的摘要。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: 5aaddd09006cb6f1812bb6ae213a2f5e6720fb1b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c2d1c97ad2af266558f9b664162526d5006d2092
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369915"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830439"
 ---
-# <a name="autosuggest-endpoint"></a>自動建議端點
+# <a name="bing-autosuggest-endpoint"></a>Bing 自動建議端點
 
-**自動建議 API** 內含一個端點，會根據部份搜尋字詞傳回建議的查詢清單。
+**Bing 自動建議 API** 內含一個端點，會根據部份搜尋字詞傳回建議的查詢清單。
 
 ## <a name="endpoint"></a>端點
 
@@ -38,7 +39,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 ## <a name="next-steps"></a>後續步驟
 
-**Bing** API 支援根據其類型傳回結果的搜尋動作。 所有搜尋端點會傳回作為 JSON 回應物件的結果。
+**Bing** API 支援根據類型傳回結果的搜尋動作。 所有搜尋端點會傳回作為 JSON 回應物件的結果。
 所有端點均可支援依照經度、緯度和搜尋半徑傳回特定語言及/或位置的查詢。
 
 如需每個端點支援之參數的完整相關資訊，請參閱每種類型的參考頁面。

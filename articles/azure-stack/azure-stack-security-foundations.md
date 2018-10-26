@@ -1,31 +1,30 @@
 ---
-title: 了解 Azure Stack 安全性控制措施 | Microsoft Docs
+title: 了解 Azure Stack 安全性控制措施
 description: 身為服務管理員，您應了解適用於 Azure Stack 的安全性控制措施
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: mabrigg
-ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 10/9/2018
+ms.author: patricka
+ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011250"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901476"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基礎結構安全性狀態
 
 「適用於：Azure Stack 整合系統」
 
-安全性考量和符合法規規範是使用混合式雲端的主要因素。 Azure Stack 就是針對這些案例而設計的，而且請務必了解，在採用 Azure Stack 時，這些控制措施便已包含在內。
+安全性考量和符合法規規範是使用混合式雲端的主要因素。 Azure Stack 專為這些情況所設計。 本文說明適用於 Azure Stack 的安全性控制項。
 
 Azure Stack 中有兩個並存的安全性狀態層。 第一層是 Azure Stack 基礎結構，所含項目從硬體元件一直到 Azure Resource Manager。 第一層包含「系統管理員」和「租用戶」入口網站。 第二層則由租用戶所建立、部署和管理的工作負載所組成。 第二層包含虛擬機器和 App Service 網站等項目。
 
@@ -56,9 +55,9 @@ Azure Stack 基礎結構使用許多祕密 (例如密碼) 來運作。 這些祕
 針對其餘不是「群組受控服務」帳戶的祕密，您可以使用「具特殊權限的端點」中的指令碼以手動方式輪換。
 
 ## <a name="code-integrity"></a>程式碼完整性
-Azure Stack 使用最新的 Windows Server 2016 安全性功能。 其中一個是 Windows Defender Device Guard，此功能提供應用程式白名單功能，可確保只有經授權的程式碼會在 Azure Stack 基礎結構內執行。 
+Azure Stack 使用最新的 Windows Server 2016 安全性功能。 其中一個是 Windows Defender Device Guard，此功能提供應用程式允許清單功能，可確保只有經授權的程式碼會在 Azure Stack 基礎結構內執行。 
 
-經授權的程式碼是由 Microsoft 或 OEM 合作夥伴所簽署的程式碼，包含在 Microsoft 所定義之原則中指定的允許軟體清單內。 換句話說，只有獲核准在 Azure Stack 基礎結構中執行的軟體才能執行。 系統會封鎖任何執行未經授權程式碼的嘗試並產生稽核。
+已授權的程式碼是由 Microsoft 或 OEM 夥伴簽署。 已簽署的授權程式碼包含在 Microsoft 所定義之策略中所指定的允許軟體清單中。 換句話說，只有獲核准在 Azure Stack 基礎結構中執行的軟體才能執行。 系統會封鎖任何執行未經授權程式碼的嘗試並產生稽核。
 
 Device Guard 原則也會防止協力廠商代理程式或軟體在 Azure Stack 基礎結構中執行。
 
@@ -84,6 +83,20 @@ Azure Stack 基礎結構隨附多層的網路「存取控制清單」(ACL)。 AC
 2.  軟體定義網路
 3.  操作系統防火牆的主機和虛擬機器
 
+## <a name="regulatory-compliance"></a>法規遵循
+
+Azure Stack 已通過第三方獨立的稽核公司正式評量。 因此，可以取得 Azure Stack 基礎結構如何滿足幾個主要合規性標準之適用控制項的相關文件。 由於標準包括一些與數個人員以及處理程序相關的控制項，因此該文件不是 Azure Stack 的認證。 相反地，客戶也可以使用這份文件來快速啟動他們的認證程序。
+
+評量包含下列標準：
+
+- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) 處理支付卡產業的問題。
+- [CSA 雲端控制矩陣](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview)是跨多個標準的完整對應，，包括 FedRAMP Moderate、ISO27001、HIPAA、HITRUST、ITAR、NIST SP800-53 和其他項目。
+- [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) 適用於政府客戶。
+
+可以在 [Microsoft 服務信任入口網站](https://servicetrust.microsoft.com/ViewPage/Blueprint)上找到合規性文件。 合規性指南是受保護的資源，需要您使用 Azure 雲端服務認證登入。
+
 ## <a name="next-steps"></a>後續步驟
 
 - [了解如何在 Azure Stack 中輪替使用祕密](azure-stack-rotate-secrets.md)
+- [適用於 Azure Stack 的 PCI-DSS 和 CSA-CCM 文件](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [適用於 Azure Stack 的 DoD 和 NIST 文件](https://servicetrust.microsoft.com/ViewPage/Blueprint)

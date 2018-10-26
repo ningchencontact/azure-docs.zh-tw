@@ -1,21 +1,21 @@
 ---
-title: 將 Bing 新聞搜尋 API v5 升級為 v7 | Microsoft Docs
+title: 將 Bing 新聞搜尋 API v5 升級至 v7
+titlesuffix: Azure Cognitive Services
 description: 識別您的應用程式有哪些部分需要更新，以使用第 7 版。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 5334C475-4841-4736-A66E-DC1E07CBCEC9
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: baed6f0091ddad40b4802c0fb52dc2ca1818cd03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c6ecb7d4c1e5b648373fcaa3f44c6294329d33c2
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368095"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801160"
 ---
 # <a name="news-search-api-upgrade-guide"></a>新聞搜尋 API 升級指南
 
@@ -25,7 +25,7 @@ ms.locfileid: "35368095"
 
 ### <a name="endpoints"></a>端點
 
-- 從 v5 變更為 v7 的端點版本號碼。 例如，https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/news/search。
+- 從 v5 變更為 v7 的端點版本號碼。 例如， https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/news/search。
 
 ### <a name="error-response-objects-and-error-codes"></a>錯誤回應物件和錯誤碼
 
@@ -38,7 +38,7 @@ ms.locfileid: "35368095"
 
 - 將 v5 錯誤碼取代為下列可能的 `code` 和 `subCode` 值。
 
-|代碼|SubCode|說明
+|代碼|子代碼|說明
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|只要出現任何子代碼條件，Bing 會傳回 ServerError。 如果 HTTP 狀態碼為 500，則回應會包含這些錯誤。
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blocked|只要要求的任何部分無效，Bing 就會傳回 InvalidRequest。 例如缺少必要的參數或參數值無效。<br/><br/>如果錯誤是 ParameterMissing 或 ParameterInvalidValue，則 HTTP 狀態碼為 400。<br/><br/>如果錯誤是 HttpNotAllowed，則 HTTP 狀態碼為 410。

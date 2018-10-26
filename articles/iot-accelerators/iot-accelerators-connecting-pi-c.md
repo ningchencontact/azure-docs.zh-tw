@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611436"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831095"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>將 Raspberry Pi 裝置連線到遠端監視解決方案加速器 (C)
 
@@ -53,137 +53,29 @@ ms.locfileid: "38611436"
     sudo apt-get update
     ```
 
-1. 使用下列命令，將必要的開發工具和程式庫新增至 Raspberry Pi：
+1. 若要完成本操作指南中的步驟，請依照[設定 Linux 開發環境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) \(英文\) 中的步驟，將必要的開發工具和程式庫新增至 Raspberry Pi。
 
-    ```sh
-    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
-    ```
+## <a name="view-the-code"></a>檢視程式碼
 
-1. 使用下列命令下載、建置，並將 IoT 中樞用戶端程式庫安裝在您的 Raspberry Pi 上：
+您可以在 Azure IoT C SDK GitHub 存放庫中取得本指南中所使用的[範例程式碼](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client)。
 
-    ```sh
-    cd ~
-    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
-    mkdir cmake
-    cd cmake
-    cmake ..
-    make
-    sudo make install
-    ```
+### <a name="download-the-source-code-and-prepare-the-project"></a>下載原始程式碼並準備專案
 
-## <a name="create-a-project"></a>建立專案
+若要準備專案，請從 GitHub 複製或下載[Azure IoT C SDK 存放庫](https://github.com/Azure/azure-iot-sdk-c)。
 
-使用 **ssh** 與 Raspberry Pi 的連線完成下列步驟：
+範例位於 **samples/solutions/remote_monitoring_client** 資料夾中。
 
-1. 在 Raspberry Pi 的主資料夾中，建立名為 `remote_monitoring` 的資料夾。 在殼層中瀏覽至此資料夾：
+請在文字編輯器中，開啟 **samples/solutions/remote_monitoring_client** 資料夾中的 **remote_monitoring.c** 檔案。
 
-    ```sh
-    cd ~
-    mkdir remote_monitoring
-    cd remote_monitoring
-    ```
-
-1. 在 `remote_monitoring` 資料夾中建立四個檔案︰**main.c**、**remote_monitoring.c**、**remote_monitoring.h** 和 **CMakeLists.txt**。
-
-1. 在文字編輯器中，開啟 **remote_monitoring.c** 檔案。 在 Raspberry Pi 上，您可以使用 **nano** 或 **vi** 文字編輯器。 新增下列 `#include` 陳述式：
-
-    ```c
-    #include "iothubtransportmqtt.h"
-    #include "schemalib.h"
-    #include "iothub_client.h"
-    #include "serializer_devicetwin.h"
-    #include "schemaserializer.h"
-    #include "azure_c_shared_utility/threadapi.h"
-    #include "azure_c_shared_utility/platform.h"
-    #include <string.h>
-    ```
-
-[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
-
-儲存 **remote_monitoring.c** 檔案，並結束編輯器。
-
-## <a name="add-code-to-run-the-app"></a>新增程式碼以執行應用程式
-
-在文字編輯器中，開啟 **remote_monitoring.h** 檔案。 新增下列程式碼：
-
-```c
-void remote_monitoring_run(void);
-```
-
-儲存 **remote_monitoring.h** 檔案，並結束編輯器。
-
-在文字編輯器中，開啟 **main.c** 檔案。 新增下列程式碼：
-
-```c
-#include "remote_monitoring.h"
-
-int main(void)
-{
-  remote_monitoring_run();
-
-  return 0;
-}
-```
-
-儲存 **main.c** 檔案，並結束編輯器。
+[!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## <a name="build-and-run-the-application"></a>建置並執行應用程式
 
-下列步驟說明如何使用 *CMake* 建置用戶端應用程式。
+下列步驟說明如何使用 *CMake* 來建置用戶端應用程式。 在 SDK 的建置過程中會一併建置遠端監視用戶端應用程式。
 
-1. 在文字編輯器中，開啟 `remote_monitoring` 資料夾中的 **CMakeLists.txt** 檔案。
+1. 編輯 **remote_monitoring.c** 檔案，將 `<connectionstring>` 取代為您在此操作指南一開始將裝置新增到解決方案加速器時所記下的裝置連接字串。
 
-1. 新增下列指示來定義如何建置用戶端應用程式：
-
-    ```cmake
-    macro(compileAsC99)
-      if (CMAKE_VERSION VERSION_LESS "3.1")
-        if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
-          set (CMAKE_C_FLAGS "--std=c99 ${CMAKE_C_FLAGS}")
-          set (CMAKE_CXX_FLAGS "--std=c++11 ${CMAKE_CXX_FLAGS}")
-        endif()
-      else()
-        set (CMAKE_C_STANDARD 99)
-        set (CMAKE_CXX_STANDARD 11)
-      endif()
-    endmacro(compileAsC99)
-
-    cmake_minimum_required(VERSION 2.8.11)
-    compileAsC99()
-
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
-
-    include_directories(${AZUREIOT_INC_FOLDER})
-
-    set(sample_application_c_files
-        ./remote_monitoring.c
-        ./main.c
-    )
-
-    set(sample_application_h_files
-        ./remote_monitoring.h
-    )
-
-    add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
-
-    target_link_libraries(sample_app
-      serializer
-      iothub_client_mqtt_transport
-      umqtt
-      iothub_client
-      aziotsharedutil
-      parson
-      pthread
-      curl
-      ssl
-      crypto
-      m
-    )
-    ```
-
-1. 儲存 **CMakeLists.txt** 檔案，並結束編輯器。
-
-1. 在 `remote_monitoring` 資料夾中，建立資料夾來儲存 CMake 產生的 make 檔案。 然後執行 **cmake** 和 **make** 命令，如下所示：
+1. 瀏覽至 [Azure IoT C SDK 存放庫](https://github.com/Azure/azure-iot-sdk-c)之複製複本的根目錄，然後執行下列命令來建置用戶端應用程式：
 
     ```sh
     mkdir cmake
@@ -195,7 +87,12 @@ int main(void)
 1. 執行用戶端應用程式，並將遙測傳送至 IoT 中樞：
 
     ```sh
-    ./sample_app
+    ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
+
+    主控台會將訊息顯示為：
+
+    - 應用程式會將範例遙測傳送到解決方案加速器。
+    - 回應從解決方案儀表板叫用的方法。
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

@@ -2,22 +2,23 @@
 title: 啟用 Azure SQL Database 的自動調整 | Microsoft Docs
 description: 您可以輕鬆在 Azure SQL Database 上啟用自動調整。
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: d825ddd75bfc829aa82bab4cede0381dda2d36da
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+manager: craigg
+ms.date: 10/05/2018
+ms.openlocfilehash: 02fae39325e632c087fcd2969fbaf5dd705994ba
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575284"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867635"
 ---
-# <a name="enable-automatic-tuning"></a>啟用自動微調
+# <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>啟用自動調整以監視查詢並改進工作負載效能
 
 Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查詢，並識別您為改善工作負載效能可以執行的動作。 您可以檢閱建議並加以手動套用，或讓 Azure SQL Database 自動套用矯正措施 - 這稱為**模式**。
 
@@ -86,7 +87,7 @@ Azure SQL Database 可讓您個別指定每個資料庫的自動調整設定。 
    
 將個別的調整選項設定成 [ON]，將會覆寫該資料庫所繼承的任何設定，並啟用該調整選項。 將它設定成 [OFF]，也會覆寫資料庫所繼承的任何設定，並停用該調整選項。 指定為 [DEFAULT] 的自動調整選項，將會繼承資料庫層級自動調整設定的組態。  
 
-若要深入了解如何使用 T-SQL 選項來設定自動調整，請參閱 [SQL Database 邏輯伺服器的 ALTER DATABASE SET 選項 (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1)。
+若要深入了解如何使用 T-SQL 選項來設定自動調整，請參閱 [SQL Database 邏輯伺服器的 ALTER DATABASE SET 選項 (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)。
 
 ## <a name="disabled-by-the-system"></a>被系統停用
 自動調整會監視它在資料庫上採取的所有動作，而且在某些情況下，它可以判斷自動調整無法適當地在資料庫上運作。 在此情況下，調整選項將會被系統停用。 在大部分情況下，發生此問題的原因是因為特定資料庫上未啟用查詢資料存放區，或是查詢存放區處於唯讀的狀態。

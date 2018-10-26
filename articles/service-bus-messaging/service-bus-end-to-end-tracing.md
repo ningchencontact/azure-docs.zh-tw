@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141291"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854876"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>透過服務匯流排傳訊進行分散式追蹤與相互關聯
 
@@ -83,10 +83,10 @@ async Task ProcessAsync(Message message)
 在此範例中，系統會針對每個已處理的訊息回報 `RequestTelemetry`，並具有時間戳記、持續期間及結果 (成功)。 遙測也具有相互關聯屬性的集合。
 於訊息處理期間回報的巢狀追蹤和例外狀況，也會具有相互關聯屬性的戳記，以代表它們是 `RequestTelemetry` 的「子系」。
 
-在您於訊息處理期間對支援的外部元件做出呼叫的情況下，系統也會對它們進行自動追蹤及相互關聯。 請參閱[使用 Application Insights .NET SDK 追蹤自訂作業](../application-insights/application-insights-custom-operations-tracking.md)以了解手動追蹤及相互關聯。
+如果您在訊息處理期間對支援的外部元件進行呼叫，系統也會自動對它們進行追蹤及相互關聯。 請參閱[使用 Application Insights .NET SDK 追蹤自訂作業](../application-insights/application-insights-custom-operations-tracking.md)以了解手動追蹤及相互關聯。
 
 ### <a name="tracking-without-tracing-system"></a>在沒有追蹤系統下進行追蹤
-在您的追蹤系統不支援自動服務匯流排呼叫追蹤的情況下，可以考慮將該支援新增至追蹤系統或是您的應用程式中。 本節說明由服務匯流排 .NET 用戶端所傳送的診斷事件。  
+如果您的追蹤系統不支援自動「服務匯流排」呼叫追蹤，您可以研究如何將該支援新增至追蹤系統或應用程式中。 本節說明由服務匯流排 .NET 用戶端所傳送的診斷事件。  
 
 服務匯流排 .NET 用戶端是使用 .NET 追蹤基本類型 [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) \(英文\) 和 [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) \(英文\) 進行檢測。
 
@@ -227,7 +227,6 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 ## <a name="next-steps"></a>後續步驟
 
-* [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 * [Application Insights 相互關聯](../application-insights/application-insights-correlation.md)
 * [Application Insights 監視相依性](../application-insights/app-insights-asp-net-dependencies.md) 以查看 REST、SQL 或其他外部資源是否會降低您的效能。
 * [使用 Application Insights .NET SDK 追蹤自訂作業](../application-insights/application-insights-custom-operations-tracking.md)

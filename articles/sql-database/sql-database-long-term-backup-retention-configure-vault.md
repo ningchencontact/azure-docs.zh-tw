@@ -2,28 +2,29 @@
 title: 設定長期備份保留 - Azure SQL Database | Microsoft Docs
 description: 了解如何從在 Azure 復原服務保存庫中儲存自動備份，以及從 Azure 復原服務保存庫還原
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/08/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c908e73a225f90227f09a8bb806a62c690de7632
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+manager: craigg
+ms.date: 10/05/2018
+ms.openlocfilehash: 499689e4d36f368746e5e0ea9e6bc3f3bf0ec0d9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718843"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868220"
 ---
-# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>使用 Azure 復原服務保存庫來設定 Azure SQL Database 長期備份保留並從中還原
+# <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>使用 Azure 復原服務保存庫來設定長期備份保留
 
 您可以設定 Azure 復原服務保存庫以存放 Azure SQL 資料庫備份，然後使用透過 Azure 入口網站或 PowerShell 保留在保存庫中的備份，來復原資料庫。
 
 > [!NOTE]
-> 在 2016 年 10 月長期備份保留的初始預覽版本中，備份已儲存在 Azure 復原服務保存庫中。 此更新會移除此相依性，但是為了回溯相容性，原始 API 會支援到 2018 年 5 月 31 日。 如果您需要與 Azure 復原服務保存庫中的備份互動，請參閱[使用 Azure 復原服務保存庫的長期備份保留](sql-database-long-term-backup-retention-configure-vault.md)。 
-
+> 在 2016 年 10 月長期備份保留的初始預覽版本中，備份已儲存在 Azure 復原服務保存庫中。 此更新會移除此相依性，但是為了回溯相容性，原始 API 會支援到 2018 年 5 月 31 日。 如果您需要與 Azure 復原服務保存庫中的備份互動，請參閱[使用 Azure 復原服務保存庫的長期備份保留](sql-database-long-term-backup-retention-configure-vault.md)。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -31,7 +32,7 @@ ms.locfileid: "44718843"
 
 ### <a name="configure-the-vault-register-the-server-and-select-databases"></a>設定保存庫、註冊伺服器及選取資料庫
 
-您會[設定 Azure 復原服務保存庫以保留自動備份](sql-database-long-term-retention.md)，時間較您服務層的保留期限長。 
+您會[設定 Azure 復原服務保存庫以保留自動備份](sql-database-long-term-retention.md)，時間較您服務層的保留期限長。
 
 1. 開啟您伺服器的 **SQL Server** 頁面。
 
@@ -60,7 +61,7 @@ ms.locfileid: "44718843"
 7. 在 [復原服務保存庫] 頁面上，按一下 [新增]。
 
    ![新增保存庫連結](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
-   
+
 8. 在 [復原服務保存庫] 頁面上，提供復原服務保存庫的有效名稱。
 
    ![新增保存庫名稱](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
@@ -71,7 +72,6 @@ ms.locfileid: "44718843"
 
    > [!IMPORTANT]
    > 保存庫必須位於與 Azure SQL 邏輯伺服器相同的區域，而且必須使用相同的資源群組做為邏輯伺服器。
-   >
 
 10. 建立新的保存庫之後，執行必要的步驟以返回 [復原服務保存庫] 頁面。
 
@@ -82,9 +82,9 @@ ms.locfileid: "44718843"
 12. 在 [設定] 頁面上，提供新保留原則的有效名稱、適當修改預設保留原則，然後按一下 [確定]。
 
    ![定義保留原則](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
-   
-   >[!NOTE]
-   >保留原則名稱不允許某些字元，包括空格。
+
+   > [!NOTE]
+   > 保留原則名稱不允許某些字元，包括空格。
 
 13. 在伺服器的 [長期備份保留] 頁面上，按一下 [儲存]，然後按一下 [確定]，將長期備份保留原則套用到所有選取的資料庫。
 
@@ -96,11 +96,10 @@ ms.locfileid: "44718843"
 
 > [!IMPORTANT]
 > 設定之後，備份會在接下來七天內顯示於保存庫中。 備份出現在保存庫之前，請勿繼續本教學課程。
->
 
 ### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>使用 Azure 入口網站在長期保留期限中檢視備份
 
-檢視[長期備份保留](sql-database-long-term-retention.md)中資料庫備份的相關資訊。 
+檢視[長期備份保留](sql-database-long-term-retention.md)中資料庫備份的相關資訊。
 
 1. 在 Azure 入口網站中，開啟資料庫備份的 Azure 復原服務保存庫 (移至 [所有資源]，並從您訂用帳戶的資源清單中選取)，以在保存庫中檢視資料庫備份所使用的儲存體數量。
 
@@ -165,7 +164,7 @@ ms.locfileid: "44718843"
 $serverLocation = (Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName).Location
 $recoveryServiceVaultName = "{new-vault-name}"
 
-$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation 
+$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
@@ -174,18 +173,17 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 使用 [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) Cmdlet，讓先前建立的復原服務保存庫與特定 Azure SQL Server 產生關聯。
 
 ```PowerShell
-# Set your server to use the vault to for long-term backup retention 
+# Set your server to use the vault to for long-term backup retention
 
 Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 ```
 
 ### <a name="create-a-retention-policy"></a>建立保留原則
 
-保留原則就是您設定資料庫備份保留時間長度的位置。 使用 [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) Cmdlet 來取得預設保留原則，以便作為建立原則的範本。 在此範本中，保留期限設定為 2 年。 接下來，執行 [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) 完成原則建立。 
+保留原則就是您設定資料庫備份保留時間長度的位置。 使用 [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) Cmdlet 來取得預設保留原則，以便作為建立原則的範本。 在此範本中，保留期限設定為 2 年。 接下來，執行 [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) 完成原則建立。
 
 > [!NOTE]
-> 有些 Cmdlet 會要求您先設定保存庫內容，然後才執行 ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext))，所以您會在幾個相關的程式碼片段中看見此 Cmdlet。 因為原則是保存庫的一部分，所以我們會設定內容。 您可以為每個保存庫建立多個保留原則，然後將所需的原則套用到特定資料庫。 
-
+> 有些 Cmdlet 會要求您先設定保存庫內容，然後才執行 ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext))，所以您會在幾個相關的程式碼片段中看見此 Cmdlet。 因為原則是保存庫的一部分，所以我們會設定內容。 您可以為每個保存庫建立多個保留原則，然後將所需的原則套用到特定資料庫。
 
 ```PowerShell
 # Retrieve the default retention policy for the AzureSQLDatabase workload type
@@ -216,7 +214,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>檢視備份資訊和長期保留中的備份
 
-檢視[長期備份保留](sql-database-long-term-retention.md)中資料庫備份的相關資訊。 
+檢視[長期備份保留](sql-database-long-term-retention.md)中資料庫備份的相關資訊。
 
 請使用下列 Cmdlet 來檢視備份資訊︰
 
@@ -262,18 +260,17 @@ $restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceI
 $restoredDb
 ```
 
-
 > [!NOTE]
 > 從這裡開始，您可以使用 SQL Server Management Studio 連線到已還原的資料庫來執行所需的工作，例如從還原的資料庫擷取一堆資料來複製到現有的資料庫，或刪除現有的資料庫，並將還原的資料庫重新命名為現有的資料庫名稱。 請參閱[還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)。
 
 ## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>如何清除復原服務保存庫中的備份
 
-自 2018 年 7 月 1 日起，LTR V1 API 會受到取代，您在復原服務保存庫中的所有現有備份，皆已遷移至由 SQL Database 管理的 LTR 儲存體容器中。 移轉之後，為確保您不用再支付原始備份的費用，這些備份已從保存庫中移除。 不過，如果您已鎖住保存庫，則備份會留在原地。 若要避免產生不必要的費用，您可以使用下列指令碼，從復原服務保存庫中手動移除舊的備份。 
+自 2018 年 7 月 1 日起，LTR V1 API 會受到取代，您在復原服務保存庫中的所有現有備份，皆已遷移至由 SQL Database 管理的 LTR 儲存體容器中。 移轉之後，為確保您不用再支付原始備份的費用，這些備份已從保存庫中移除。 不過，如果您已鎖住保存庫，則備份會留在原地。 若要避免產生不必要的費用，您可以使用下列指令碼，從復原服務保存庫中手動移除舊的備份。
 
 ```PowerShell
 <#
 .EXAMPLE
-    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}”
 #>
 [CmdletBinding()]
 Param (
@@ -300,14 +297,14 @@ $containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
 
 ForEach ($container in $containers)
 {
-   $canDeleteContainer = $true  
+   $canDeleteContainer = $true
    $ItemCount = 0
    Write-Host "Working on container" $container.Name
    $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
    ForEach ($item in $items)
    {
-          write-host "Deleting item" $item.name
-          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+    write-host "Deleting item" $item.name
+    Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
    }
 
    Write-Host "Deleting container" $container.Name

@@ -1,20 +1,21 @@
 ---
-title: Bing 自訂搜尋：搜尋自訂檢視 | Microsoft Docs
-description: 描述如何搜尋網頁的自訂檢視
+title: 搜尋自訂檢視 - Bing 自訂搜尋
+titlesuffix: Azure Cognitive Services
+description: 描述如何搜尋網頁的自訂檢視。
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7a2db7881dfe7efedb1a83637a6281f786652958
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 235062c1b3e54843b5e64f4ef16091ae5d630894
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964881"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814350"
 ---
 # <a name="call-your-custom-search"></a>呼叫您的自訂搜尋
 
@@ -34,7 +35,7 @@ ms.locfileid: "46964881"
     下列是您可以設定的參數 (實際清單取決於選取的端點)。 如需有關這些參數的詳細資訊，請參閱[自訂搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) \(英文\) 參考。
 
     - **查詢**：要搜尋的搜尋字詞。 僅適用於網頁、影像、影片與自動建議端點。
-    - **自訂設定識別碼**：所選取自訂搜尋執行個體的設定識別碼。 這是唯讀欄位。
+    - **自訂組態識別碼**：所選取自訂搜尋執行個體的組態識別碼。 這是唯讀欄位。
     - **市場**：結果來自的市場。 僅適用於網頁、影像、影片與裝載 UI 端點。
     - **訂用帳戶金鑰**：要用來測試的訂用帳戶金鑰。 您可以從下拉式清單中選取金鑰，或手動輸入一個。  
       

@@ -1,20 +1,21 @@
 ---
-title: 使用 Project Acoustics 來製作聲場 - 認知服務
+title: 使用 Project Acoustics 來製作聲場
+titlesuffix: Azure Cognitive Services
 description: 本文件說明使用 Unity 編輯器延伸模組來提交聲場製作項目的流程。
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 0e16ec765ae3cbef8a941f43a149428ffdf5bd8d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181938"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902241"
 ---
 # <a name="bake-acoustics"></a>製作聲場
 
@@ -199,15 +200,19 @@ ms.locfileid: "40181938"
 1. 用來顯示此頁面的 [Bake] \(製作\) 索引標籤按鈕。
 2. 要在此頁面上執行之操作的簡短描述。
 3. 建立您的 Azure 帳戶之後，用來輸入 Azure 認證的欄位。 如需詳細資訊，請參閱[建立 Azure Batch 帳戶](create-azure-account.md)。
-4. 要用於計算的 Azure Batch 計算節點類型。 此節點類型必須是您 Azure 資料中心位置支援的類型。 如果不確定，請保持為 **Standard_F8**。
-5. 要用於此計算的節點數目。 您在這裡輸入的數目會影響完成製作的時間，並且會受到 Azure Batch 核心配置限制。 預設配置只允許兩個 8 核心節點或一個 16 核心節點，但可以擴充。 如需有關核心配置條件約束的詳細資訊，請參閱[建立 Azure Batch 帳戶](create-azure-account.md)。
-6. 您場景的探測計數，如 [Probes] \(探測\) 索引標籤上所計算。探測數目會決定需要在雲端執行的模擬次數。 您指定的節點數目不可超過探測數目。
-7. 您的作業在雲端執行時預期將耗用的時間長度。 這不包括節點啟動時間。 作業開始執行之後，這大約會等於取得結果所需的時間。 請注意，這只是一個預估值。
-8. 執行模擬所需的運算時間量總計。 這是將在 Azure 中使用的節點計算時間量總計。 如需有關使用此值的詳細資訊，請參閱下面的[預估製作成本](#Estimating-bake-cost)。
-9. 此訊息會告訴您在作業結束之後會將製作結果儲存在哪裡。
-10. (僅限進階使用) 如果您因某個原因而需要強制 Unity 忘記您已提交的製作項目 (例如您已使用另一部機器來下載結果)，請按一下 [Clear State] \(清除狀態\) 按鈕來忘記已提交的作業。 請注意，這意謂著在備妥結果檔案時，將**不會**下載結果檔案，**這與取消作業並不相同**。 作業如果正在執行，將會繼續在雲端執行。
-11. 按一下 [Bake] \(製作\) 按鈕以將製作項目提交至雲端。 當作業正在執行時，這會改為顯示 [Cancel Job] \(取消作業\)。
-12. 此區域會顯示製作狀態。 完成時，應該會顯示 [Downloaded] \(已下載\)。
+4. 適用於聲場工具組的 Docker 影像標籤。
+5. 啟動 Azure 入口網站來管理您的訂用帳戶、監視使用量和檢視帳單資訊等。 
+6. 要用於計算的 Azure Batch 計算節點類型。 此節點類型必須是您 Azure 資料中心位置支援的類型。 如果不確定，請保持為 **Standard_F8s_v2**。
+7. 要用於此計算的節點數目。 您在這裡輸入的數目會影響完成製作的時間，並且會受到 Azure Batch 核心配置限制。 預設配置只允許兩個 8 核心節點或一個 16 核心節點，但可以擴充。 如需有關核心配置條件約束的詳細資訊，請參閱[建立 Azure Batch 帳戶](create-azure-account.md)。
+8. 選取此核取方塊，以將計算集區設定為使用[低優先順序節點](https://docs.microsoft.com/azure/batch/batch-low-pri-vms)。 低優先順序的計算節點具有更低的成本，但它們可能無法提供使用，或可能隨時會被搶佔。
+9. 您場景的探測計數，如 [Probes] \(探測\) 索引標籤上所計算。探測數目會決定需要在雲端執行的模擬次數。 您指定的節點數目不可超過探測數目。
+10. 您的作業在雲端執行時預期將耗用的時間長度。 這不包括節點啟動時間。 作業開始執行之後，這大約會等於取得結果所需的時間。 請注意，這只是一個預估值。
+11. 執行模擬所需的運算時間量總計。 這是將在 Azure 中使用的節點計算時間量總計。 如需有關使用此值的詳細資訊，請參閱下面的[預估製作成本](#Estimating-bake-cost)。
+12. 此訊息會告訴您在作業結束之後會將製作結果儲存在哪裡。
+13. (僅限進階使用) 如果您因某個原因而需要強制 Unity 忘記您已提交的製作項目 (例如您已使用另一部機器來下載結果)，請按一下 [Clear State] \(清除狀態\) 按鈕來忘記已提交的作業。 請注意，這意謂著在備妥結果檔案時，將**不會**下載結果檔案，**這與取消作業並不相同**。 作業如果正在執行，將會繼續在雲端執行。
+14. 按一下 [Bake] \(製作\) 按鈕以將製作項目提交至雲端。 當作業正在執行時，這會改為顯示 [Cancel Job] \(取消作業\)。
+15. 準備在本機電腦上處理聲場模擬。 如需詳細資訊，請參閱[本機製作](#Local-bake)。  
+16. 此區域會顯示製作狀態。 完成時，應該會顯示 [Downloaded] \(已下載\)。
 
 您一律可以在 [Azure 入口網站](https://portal.azure.com)取得有關作用中作業、計算集區及儲存體的完整資訊。
 
@@ -217,13 +222,34 @@ ms.locfileid: "40181938"
 
 Azure 認證會安全地儲存在您的本機電腦上，並與您的 Unity 編輯器建立關聯。 它們僅供用來與 Azure 建立安全連線。
 
-### <a name="Estimating-bake-cost"></a> 預估製作成本
+### <a name="Estimating-bake-cost"></a> 正在評估 Azure 製作成本
 
-若要預估所指定製作項目的成本，請取用在 [Estimated Compute Cost] \(預估計算成本\) 顯示的值 (這是一個持續時間)，然後將其乘以您所選 [VM Node Type] \(VM 節點類型\) 的每小時成本 (採用您的當地貨幣)。 此結果將不會包含讓節點啟動並開始執行所需的節點時間。 例如，如果您選取 [Standard_F8] 作為您的節點類型，其成本為每小時 0.75 美元，而 [Estimated Compute Cost] \(預估計算成本\) 為 3 小時又 57 分鐘，則執行作業的預估成本將會是 0.75 美元 * ~4 小時 = ~3.00 美元。 實際成本可能會稍微高一點，因為讓節點啟動需要額外的時間。 您可以在 [Azure Batch 定價](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 頁面上找到每小時節點成本 (針對類別選取 [計算最佳化] 或 [高效能計算])。
+若要預估所指定製作項目的成本，請取用在 [Estimated Compute Cost] \(預估計算成本\) 顯示的值 (這是一個持續時間)，然後將其乘以您所選 [VM Node Type] \(VM 節點類型\) 的每小時成本 (採用您的當地貨幣)。 此結果將不會包含讓節點啟動並開始執行所需的節點時間。 例如，如果您選取 [Standard_F8s_v2] 作為您的節點類型，其成本為每小時 0.40 美元，而 [Estimated Compute Cost] \(預估計算成本\) 為 3 小時又 57 分鐘，則執行作業的預估成本將會是 0.40 美元 * ~4 小時 = ~1.60 美元。 實際成本可能會稍微高一點，因為讓節點啟動需要額外的時間。 您可以在 [Azure Batch 定價](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 頁面上找到每小時節點成本 (針對類別選取 [計算最佳化] 或 [高效能計算])。
 
 ### <a name="reviewing-the-bake-results"></a>檢閱製作結果
 
 在製作完成之後，請執行執行階段外掛程式，以確認體素和探查點是否都位於其預期位置。 如需詳細資訊，請參閱[聲場的設計流程概觀](design-process.md)。
+
+## <a name="Local-bake"></a>本機製作
+本機製作會在您自己的電腦上執行聲場模擬，而不是將其卸載至 Azure Batch 計算叢集。 這可以是在不需要 Azure 訂用帳戶的情況下，試驗聲場的一個不錯的選項。 請注意，聲場模擬在運算上要求很高，而且可能需要很長的時間，具體取決於場景的大小、模擬設定和處理電腦的原始運算能力。
+
+### <a name="minimum-hardware-requirements"></a>最低硬體需求
+64 位元 Intel 處理器，具備至少 8 個核心和 32 GB 或更高的 RAM。
+
+例如，在配備 Intel Xeon E5-1660 @ 3 GHz 和 32 GB RAM 的 8 核心電腦上 -
+* 具有 100 個探查的小型場景，大約需要 2 小時進行粗略的製作，和大約 32 小時進行精細的解析度製作。
+* 具有 1000 個探查的較大場景，可能需要長達 20 小時的粗略解析度長達 21 天的精細解析度製作。
+
+### <a name="setup-docker"></a>設定 Docker
+在將會處理模擬的電腦上安裝和設定 Docker -
+1. 安裝 [Docker 工具組](https://www.docker.com/products/docker-desktop)。
+2. 啟動 Docker 設定、瀏覽至 [進階] 選項，並設定資源具備至少 8 GB RAM。 您可以配置給 Docker 的 CPU 越多，製作完成的速度就越快。 ![Docker 設定範例](media/DockerSettings.png)
+3. 瀏覽至 [共用磁碟機]，然後開啟用於處理之磁碟機的共用。![DockerDriveSharing](media/DockerSharedDrives.png)
+
+### <a name="run-local-bake"></a>執行本機製作
+1. 按一下 [製作] 索引標籤上的 [準備本機製作] 按鈕，然後選取要儲存輸入檔案和執行指令碼的資料夾。 然後，您可以在任何電腦上執行製作，只要它符合最低硬體需求，並藉由將資料夾複製到該電腦來安裝 Docker。
+2. 使用 "runlocalbake.bat" 指令碼啟動模擬。 該指令碼將使用模擬處理所需的工具組擷取 Project Acoustics Docker 映像，並啟動模擬。 
+3. 模擬完成後，請將產生的 .ace 檔案複製回您的 Unity 專案。 若要確定 Unity 會將此辨識為二進位檔案，請將 ".bytes" 附加到檔案副檔名 (例如，"Scene1.ace.bytes")。 模擬的詳細記錄檔會儲存在 "AcousticsLog.txt" 中。 如果您遇到任何問題，請共用此檔案以協助進行診斷。
 
 ## <a name="Data-Files"></a>資料檔
 

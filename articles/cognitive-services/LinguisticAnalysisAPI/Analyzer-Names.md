@@ -1,22 +1,27 @@
 ---
-title: 語言分析 API 中的分析器命名結構 | Microsoft Docs
-description: 了解語言分析 API 如何對分析器使用其命名結構，以提供彈性和精確度。
+title: 分析器命名結構 - 語言分析 API
+titlesuffix: Azure Cognitive Services
+description: 了解語言分析 API 分析器的命名結構，以提供彈性和精確度。
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
-ms.openlocfilehash: 2729b7126e82862660fc8e1a995cc87ae996ea03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367967"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237225"
 ---
 # <a name="analyzer-names"></a>分析器名稱
+
+> [!IMPORTANT]
+> 語言分析預覽已在 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
 
 我們對分析器使用有點複雜的命名結構，讓分析器富有彈性並可精確地理解名稱的意義。
 分析器名稱包含四個部分：識別碼、種類、規格和實作。

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888199"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268016"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>如何使用動作的「預期實體」屬性
 
@@ -63,9 +63,10 @@ ms.locfileid: "42888199"
 2. 在 [回應] 中，鍵入「What's your name?」(您叫什麼名字？)。
 3. 在 [Expected entity]\(預期實體\) 中，輸入 $name。 按一下 [儲存]。
     - 這些值表示，提出此問題時，如果使用者回應未偵測到任何實體，則聊天機器人應該會假設使用者的整個回應就是這個實體。
+    - 實體會自動新增為不合格的實體。 
 2. 按一下 [動作]，然後按一下 [新增動作] 以建立第二個動作。
 3. 在 [回應] 中，鍵入「Hello $name」($name，您好)。
-    - 實體會自動新增為所需的實體。 
+    - 實體會自動新增為所需的實體。
 4. 按一下 [儲存]。
 
 現在您有兩個動作。
@@ -111,7 +112,7 @@ ms.locfileid: "42888199"
 2. 輸入「hello」(哈囉)。
 3. 在對於「what's your name」(您叫什麼名字) 的回應中，輸入「I am called frank」(我叫 frank)。
     - 整個片語都會反白顯示。 這是因為統計模型找不到姓名，因此引引發啟發學習法，並且選取整個答案做為姓名實體。
-2. 若要修正它，請按一下反白顯示的詞，然後按一下紅色 x。 
+2. 若要修正它，請按一下反白顯示的片語，然後按一下紅色垃圾桶圖示。 
 3. 按一下以選取 frank，然後按一下姓名。
 2. 按一下 [Score Actions]\(評分動作\)
 3. 選取 [Hello $name]\($name，您好\)。

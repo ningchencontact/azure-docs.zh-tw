@@ -1,21 +1,21 @@
 ---
-title: 如何逐頁瀏覽可用的新聞文章 | Microsoft Docs
-description: 示範如何逐頁瀏覽 Bing 可傳回的所有新聞文章。
+title: 如何逐頁瀏覽可用的新聞文章 - Bing 新聞搜尋
+titlesuffix: Azure Cognitive Services
+description: 示範如何逐頁瀏覽 Bing 新聞搜尋可傳回的所有新聞文章。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: EA388F72-FA43-493B-967C-9560B3243C62
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 2c90d468536f0864d7deac073667e29e9a54692f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fff1da15df2e690cd0b37bb82654a4d30159325a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367898"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803387"
 ---
 # <a name="paging-news"></a>逐頁瀏覽新聞
 

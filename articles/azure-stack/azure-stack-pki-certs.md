@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 61c91f7e1f2ba266be6453bb6e6fb25f3834485e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917447"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585891"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 
@@ -39,8 +39,8 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 您的 Azure Stack 基礎結構必須能透過網路來存取憑證中所發佈憑證授權單位的憑證撤銷清單 (CRL) 位置。 這個 CRL 必須是 http 端點
 - 旋轉憑證時，憑證必須是與從用來簽署憑證 (在部署時提供) 相同的內部憑證授權單位，或上述任何公用憑證授權單位發行
 - 不支援使用自我簽署憑證
-- 針對部署和旋轉，您可以使用單一憑證以涵蓋憑證之主體名稱和主體別名 (SAN) 欄位中的所有命名空間，也可以針對下面您規劃利用之 Azure Stack 服務所需的每個命名空間來使用個別憑證。 注意：這兩種方法都需要將萬用字元用於需要它們的端點 (例如 **KeyVault** 和 **KeyVaultInternal**)。 
-- 憑證簽章演算法不能是 SHA1，因為它必須更強大。 
+- 針對部署和旋轉，您可以使用單一憑證以涵蓋憑證之主體名稱和主體別名 (SAN) 欄位中的所有命名空間，也可以針對下面您規劃利用之 Azure Stack 服務所需的每個命名空間來使用個別憑證。 這兩種方法都需要將萬用字元用於需要它們的端點 (例如 **KeyVault** 和 **KeyVaultInternal**)。 
+- 憑證簽章演算法必須是 3DES。 該演算法不能是 SHA1，因為它必須更強大。 
 - 憑證格式必須是 PFX，因為安裝 Azure Stack 時需要公用與私密金鑰。 
 - 憑證 pfx 檔案的 [金鑰使用方法] 欄位中必須有 [數位簽章] 和 [KeyEncipherment] 值。
 - 憑證 pfx 檔案的 [增強金鑰使用方法] 欄位中必須有 [伺服器驗證 (1.3.6.1.5.5.7.3.1)] 和 [用戶端驗證 (1.3.6.1.5.5.7.3.2)]。
@@ -76,6 +76,8 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | 佇列儲存體 | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) |  內部金鑰保存庫 |  adminvault.&lt;region>.&lt;fqdn> |
+| 管理員延伸主機 | *.adminhosting.\<region>.\<fqdn> (萬用字元 SSL 憑證) | 管理員延伸主機 | adminhosting.\<region>.\<fqdn> |
+| 公用延伸主機 | *.hosting.\<region>.\<fqdn> (萬用字元 SSL 憑證) | 公用延伸主機 | hosting.\<region>.\<fqdn> |
 
 如果您使用 Azure AD 部署模式來部署 Azure Stack，您只需要求上表中所列的憑證。 不過，如果您使用 AD FS 部署模式來部署 Azure Stack，您也必須要求下表中所述的憑證：
 

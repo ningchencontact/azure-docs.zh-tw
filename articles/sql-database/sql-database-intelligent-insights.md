@@ -11,21 +11,21 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 6ccb29c9c464c21f09b1e547903a283201c52618
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: b64c8f5d30f95cccf8a029adfd5c443a81597c4d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159614"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870684"
 ---
-# <a name="intelligent-insights"></a>Intelligent Insights
+# <a name="intelligent-insights-using-artificial-intelligence-to-monitor-database-usage"></a>Intelligent Insights 使用人工智慧來監視資料庫使用狀況
 
 Azure SQL Database Intelligent Insights 可讓您知道 SQL Database 和受控執行個體資料庫效能發生了什麼。
 
-Intelligent Insights 使用內建的智慧功能透過人工智慧持續監視資料庫使用情況，並偵測導致效能不佳的干擾性事件。 一旦偵測到，它就會執行詳細的分析來產生含有該問題智慧型評估的診斷記錄。 此評估包含資料庫效能問題的根本原因分析，並在可能的情況下提供效能改進建議。 
+Intelligent Insights 使用內建的智慧功能透過人工智慧持續監視資料庫使用情況，並偵測導致效能不佳的干擾性事件。 一旦偵測到，它就會執行詳細的分析來產生含有該問題智慧型評估的診斷記錄。 此評估包含資料庫效能問題的根本原因分析，並在可能的情況下提供效能改進建議。
 
-## <a name="what-can-intelligent-insights-do-for-you"></a>Intelligent Insights 可以為您做什麼？
+## <a name="what-can-intelligent-insights-do-for-you"></a>Intelligent Insights 可以為您做什麼
 
 Intelligent Insights 是 Azure 內建智慧功能的一項獨特功能，可提供下列價值：
 
@@ -37,11 +37,11 @@ Intelligent Insights 是 Azure 內建智慧功能的一項獨特功能，可提�
 - 以數十萬個資料庫向外延展的功能
 - 為 DevOps 資源及擁有權總成本帶來正面影響
 
-## <a name="how-does-intelligent-insights-work"></a>Intelligent Insights 如何運作？
+## <a name="how-does-intelligent-insights-work"></a>Intelligent Insights 如何運作
 
 Intelligent Insights 會藉由將最後一小時的資料庫工作負載與過去七天的基準工作負載做比較，來分析資料庫效能。 資料庫工作負載是由被判斷為對資料庫效能最具影響的查詢 (例如重複次數最多和最大型的查詢) 所組成。 由於每個資料庫皆根據其結構、資料、使用方式及應用程式而有所不同，因此所產生的每個工作負載基準對個別執行個體來說都是特定且唯一的。 獨立於工作負載基準之外，Intelligent Insights 也會監視絕對作業臨界值，並偵測有關等候時間過長的問題、重大例外狀況，以及有關可能影響效能之查詢參數化的問題。
 
-在使用人工智慧透過多個受觀察計量偵測到效能降低問題之後，系統便會執行分析。 系統會產生診斷記錄，以及針對您資料庫所發生之情況的智慧型深入解析。 Intelligent Insights 可讓您從資料庫效能問題一開始出現到解決為止，都能輕鬆追蹤情況。 系統會針對每個偵測到的問題追蹤其整個生命週期 (從初始問題偵測、驗證效能改進，到其完成為止)。 系統會每隔 15 分鐘在診斷記錄中提供一次更新。 
+在使用人工智慧透過多個受觀察計量偵測到效能降低問題之後，系統便會執行分析。 系統會產生診斷記錄，以及針對您資料庫所發生之情況的智慧型深入解析。 Intelligent Insights 可讓您從資料庫效能問題一開始出現到解決為止，都能輕鬆追蹤情況。 系統會針對每個偵測到的問題追蹤其整個生命週期 (從初始問題偵測、驗證效能改進，到其完成為止)。 系統會每隔 15 分鐘在診斷記錄中提供一次更新。
 
 ![資料庫效能分析工作流程](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
@@ -62,7 +62,6 @@ Intelligent Insights 會藉由將最後一小時的資料庫工作負載與過�
 
 如需搭配使用 Intelligent Insights 與 Azure SQL 分析以及一般使用方式情節的實際操作概觀，請觀看內嵌影片：
 
-
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -70,17 +69,17 @@ Intelligent Insights 在發現和針對 SQL Database 效能問題進行疑難排
 
 ## <a name="configure-intelligent-insights"></a>設定 Intelligent Insights
 
-Intelligent Insights 的輸出是一個智慧效能診斷記錄。 此記錄的使用方式有數種：透過將它串流處理到 Azure SQL 分析、Azure 事件中樞和 Azure 儲存體，或協力廠商產品。 
+Intelligent Insights 的輸出是一個智慧效能診斷記錄。 此記錄的使用方式有數種：透過將它串流處理到 Azure SQL 分析、Azure 事件中樞和 Azure 儲存體，或協力廠商產品。
 
-* 搭配使用產品與 [Azure SQL 分析](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)，以透過 Azure 入口網站使用者介面檢視深入解析。 這是整合式 Azure 解決方案，而且是檢視深入解析的最常見方式。
-* 搭配使用產品與 Azure 事件中樞，以開發自訂監視和警示情節
-* 搭配使用產品與 Azure 儲存體來開發自訂應用程式，例如自訂報告、長期資料封存等等。
+- 搭配 [Azure SQL 分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)使用產品，以透過 Azure 入口網站使用者介面檢視見解。 這是整合式 Azure 解決方案，而且是檢視深入解析的最常見方式。
+- 搭配使用產品與 Azure 事件中樞，以開發自訂監視和警示情節
+- 搭配使用產品與 Azure 儲存體來開發自訂應用程式，例如自訂報告、長期資料封存等等。
 
 Intelligent Insights 與其他產品 (Azure SQL 分析、Azure 事件中樞、Azure 儲存體或供取用的協力廠商產品) 的整合方式，為先在資料庫的 [診斷設定] 刀鋒視窗中啟用 Intelligent Insights 記錄 ("SQLInsights" 記錄)，然後將 Intelligent Insights 記錄資料設定為串流處理到其中一個產品。
 
-如需如何啟用 Intelligent Insights 記錄，以及將記錄資料設定為串流處理到取用產品的相關詳細資訊，請參閱 [Azure SQL Database 計量和診斷記錄](sql-database-metrics-diag-logging.md)。 
+如需如何啟用 Intelligent Insights 記錄，以及將記錄資料設定為串流處理到取用產品的相關詳細資訊，請參閱 [Azure SQL Database 計量和診斷記錄](sql-database-metrics-diag-logging.md)。
 
-### <a name="set-up-with-azure-sql-analytics"></a>使用 Azure SQL 分析設定 
+### <a name="set-up-with-azure-sql-analytics"></a>使用 Azure SQL 分析設定
 
 Azure SQL 分析解決方案提供圖形化使用者介面、資料庫效能的報告和警示功能，以及 Intelligent Insights 診斷記錄資料。
 
@@ -88,9 +87,9 @@ Azure SQL 分析解決方案提供圖形化使用者介面、資料庫效能的�
 > 快速入門：開始使用 Intelligent Insights 的最簡單方式是將它與 Azure SQL 分析搭配使用，以提供資料庫效能問題的圖形化使用者介面。 從市集新增 Azure SQL 分析解決方案，並在此解決方案內建立工作區，然後針對您想要在其上啟用 Intelligent Insights 的每個資料庫，在資料庫的 [診斷設定] 刀鋒視窗中設定將 "SQLInsights" 記錄串流處理到 Azure SQL 分析的工作區。
 >
 
-預先需求是將 Azure SQL 分析從市集新增至 Azure 入口網站儀表板，以及建立工作區，請參閱[設定 Azure SQL 分析](../log-analytics/log-analytics-azure-sql.md#configuration) 
+預先需求是將 Azure SQL 分析從市集新增至 Azure 入口網站儀表板，以及建立工作區，請參閱[設定 Azure SQL 分析](../log-analytics/log-analytics-azure-sql.md#configuration)
 
-若要搭配使用 Intelligent Insights 與 Azure SQL 分析，請將 Intelligent Insights 記錄資料設定為串流處理到您在上個步驟中建立的 Azure SQL 分析工作區，請參閱 [Azure SQL Database 計量和診斷記錄](sql-database-metrics-diag-logging.md)。 
+若要搭配使用 Intelligent Insights 與 Azure SQL 分析，請將 Intelligent Insights 記錄資料設定為串流處理到您在上個步驟中建立的 Azure SQL 分析工作區，請參閱 [Azure SQL Database 計量和診斷記錄](sql-database-metrics-diag-logging.md)。
 
 下列範例顯示透過 Azure SQL 分析所檢視的 Intelligent Insights：
 
@@ -100,7 +99,7 @@ Azure SQL 分析解決方案提供圖形化使用者介面、資料庫效能的�
 
 若要使用 Intelligent Insights 搭配事件中樞，請將 Intelligent Insights 記錄資料設定為串流處理到事件中樞，請參閱[將 Azure 診斷記錄串流處理至事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)。
 
-若要使用事件中樞設定自訂監視和警示，請參閱[如何在事件中樞處理計量和診斷記錄](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs)。 
+若要使用事件中樞設定自訂監視和警示，請參閱[如何在事件中樞處理計量和診斷記錄](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs)。
 
 ### <a name="set-up-with-azure-storage"></a>使用 Azure 儲存體設定
 
@@ -125,15 +124,15 @@ Azure SQL 分析解決方案提供圖形化使用者介面、資料庫效能的�
 
 將會透過以科學方式衍生並將所偵測到之每個問題分類的資料模型，將所有計量以各種關聯性一起納入考量。 透過智慧型深入解析所提供的資訊包括：
 
-* 所偵測到問題的詳細資料。 
-* 針對所偵測到問題的根本原因分析。 
-* 在可能的情況下改善被監視 SQL 資料庫效能之方法的建議。
+- 所偵測到問題的詳細資料。
+- 針對所偵測到問題的根本原因分析。
+- 在可能的情況下改善被監視 SQL 資料庫效能之方法的建議。
 
 ## <a name="query-duration"></a>查詢持續時間
 
 查詢持續時間效能降低模型會分析個別的查詢，並偵測與效能基準相比，花費在編譯和執行查詢上的時間是否增加。
 
-當 SQL Database 內建的智慧功能偵測到查詢編譯或查詢執行時間大幅增加而影響到工作負載效能時，就會將這些查詢標示為查詢持續時間效能降低問題。 
+當 SQL Database 內建的智慧功能偵測到查詢編譯或查詢執行時間大幅增加而影響到工作負載效能時，就會將這些查詢標示為查詢持續時間效能降低問題。
 
 Intelligent Insights 診斷記錄會輸出效能降低之查詢的查詢雜湊。 查詢雜湊會表示效能降低是否與會增加查詢持續時間的查詢編譯或執行時間增加有關。
 
@@ -141,11 +140,11 @@ Intelligent Insights 診斷記錄會輸出效能降低之查詢的查詢雜湊�
 
 逾時要求效能降低模型會分析個別的查詢，並偵測與效能基準期間相比，查詢執行層級的逾時及資料庫層級的整體要求逾時是否有任何增加。
 
-某些查詢甚至可能會在抵達執行階段之前便逾時。 透過比較已中止背景工作角色和做出的要求，SQL Database 的內建智慧功能會測量並分析所有抵達資料庫的查詢，無論它們是否抵達執行階段。 
+某些查詢甚至可能會在抵達執行階段之前便逾時。 透過比較已中止背景工作角色和做出的要求，SQL Database 的內建智慧功能會測量並分析所有抵達資料庫的查詢，無論它們是否抵達執行階段。
 
 在所執行之查詢的逾時數目或已中止之要求背景工作角色的數目增加到超出系統所管理的臨界值之後，診斷記錄中就會填入智慧型深入解析。
 
-產生的深入解析包括逾時要求的數目，以及逾時查詢的數目。 效能降低的跡象會與執行階段的逾時提升相關聯，否則便會提供整體的資料庫層級。 當系統認為逾時增加對資料庫效能有重大影響時，就會將這些查詢標示為逾時效能降低問題。 
+產生的深入解析包括逾時要求的數目，以及逾時查詢的數目。 效能降低的跡象會與執行階段的逾時提升相關聯，否則便會提供整體的資料庫層級。 當系統認為逾時增加對資料庫效能有重大影響時，就會將這些查詢標示為逾時效能降低問題。
 
 ## <a name="excessive-wait-times"></a>過長的等候時間
 
@@ -172,14 +171,13 @@ Intelligent Insights 診斷記錄會輸出效能降低之查詢的查詢雜湊�
 
 當系統認為發生錯誤之要求的提升，相對於所發出的整體要求數目來說，對工作負載效能有重大影響時，就會將受影響的查詢標示為發生錯誤的要求效能降低問題。
 
-Intelligent Insights 記錄會輸出發生錯誤之要求的計數。 它會指出效能降低是否和發生錯誤之要求的提升，或是和超出被監視的重大例外狀況臨界值相關聯，以及測量到的效能降低時間。 
+Intelligent Insights 記錄會輸出發生錯誤之要求的計數。 它會指出效能降低是否和發生錯誤之要求的提升，或是和超出被監視的重大例外狀況臨界值相關聯，以及測量到的效能降低時間。
 
 如果任何一個受監視的重大例外狀況超出系統所管理的絕對臨界值，就會產生含有重大例外狀況詳細資料的智慧型深入解析。
 
 ## <a name="next-steps"></a>後續步驟
-* 了解如何[使用 Intelligent Insights 針對 SQL Database 效能問題進行疑難排解](sql-database-intelligent-insights-troubleshoot-performance.md)。
-* 使用 [Intelligent Insights SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
-* 了解如何[使用 SQL 分析來監視 SQL Database](../log-analytics/log-analytics-azure-sql.md)。
-* 了解如何[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。
 
-
+- 了解如何[使用 Intelligent Insights 針對 SQL Database 效能問題進行疑難排解](sql-database-intelligent-insights-troubleshoot-performance.md)。
+- 使用 [Intelligent Insights SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
+- 了解如何[使用 SQL 分析來監視 SQL Database](../log-analytics/log-analytics-azure-sql.md)。
+- 了解如何[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。

@@ -11,17 +11,17 @@ author: DhruvMsft
 ms.author: dmalik
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: 50e88dd11b8a883a4d2999ad2d0419cbf7176078
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: f21614757716b860c25436acfa7b6275cd848109
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161143"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868199"
 ---
-# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database-and-sql-data-warehouse"></a>使用 PowerShell 以建立虛擬服務端點和 Azure SQL Database 與 SQL 資料倉儲的規則
+# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell：為 SQL 建立虛擬服務端點與 VNet 規則
 
-Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)都支援虛擬服務端點。 
+Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)都支援虛擬服務端點。
 
 > [!NOTE]
 > 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
@@ -36,52 +36,43 @@ Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](
 > [!TIP]
 > 如果您需要的是評估 SQL Database 的虛擬服務端點「類型名稱」或將它加入子網路，則可以直接跳到更為[直接的 PowerShell 指令碼](#a-verify-subnet-is-endpoint-ps-100)。
 
-#### <a name="major-cmdlets"></a>主要 Cmdlet
+## <a name="major-cmdlets"></a>主要 Cmdlet
 
-本文重點在於名為 **New-AzureRmSqlServerVirtualNetworkRule** 的 Cmdlet。此 Cmdlet 會將子網路端點加入 Azure SQL Database 伺服器的存取控制清單 (ACL)，以藉此建立規則。
+此文章重點在於 **New-AzureRmSqlServerVirtualNetworkRule** Cmdlet。此 Cmdlet 會將子網路端點加入 Azure SQL Database 伺服器的存取控制清單 (ACL)，以藉此建立規則。
 
 下列清單顯示在您準備呼叫 **New-AzureRmSqlServerVirtualNetworkRule** 之前，必須先執行的一系列其他「主要」 Cmdlet。 在本文中，這些呼叫發生於[指令碼 3「虛擬網路規則」](#a-script-30)中：
 
 1. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig)：建立子網路物件。
-
 2. [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork)：建立您的虛擬網路，並指定它的子網路。
-
 3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig)：為您的子網路指派虛擬服務端點。
-
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork)：保存對虛擬網路的更新。
-
 5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule)：子網路成為端點之後，將子網路加入 Azure SQL Database 伺服器的 ACL 作為虛擬網路規則。
-    - 從 Azure RM PowerShell 模組 5.1.1 版開始，提供參數 **-IgnoreMissingVnetServiceEndpoint**。
+   - 從 Azure RM PowerShell 模組 5.1.1 版開始，此 Cmdlet 就提供參數 **-IgnoreMissingVnetServiceEndpoint**。
 
-#### <a name="prerequisites-for-running-powershell"></a>執行 PowerShell 的必要條件
+## <a name="prerequisites-for-running-powershell"></a>執行 PowerShell 的必要條件
 
 - 您已經可以登入 Azure，例如透過 [Azure 入口網站][http-azure-portal-link-ref-477t]。
 - 您已經可以執行 PowerShell 指令碼。
 
 > [!NOTE]
-> 針對要新增至伺服器的 Vnet/子網路，請確認已開啟服務端點，否則建立 Vnet 防火牆規則將會失敗。
+> 針對要新增至伺服器的 VNet/子網路，請確認已開啟服務端點，否則建立 VNet 防火牆規則將會失敗。
 
-#### <a name="one-script-divided-into-four-chunks"></a>分成四個區塊的單一指令碼
+## <a name="one-script-divided-into-four-chunks"></a>分成四個區塊的單一指令碼
 
 示範的 PowerShell 指令碼會分割成一系列較小的指令碼。 分割指令碼有助於學習，並提供彈性。 指令碼需按照指定的順序執行。 如果您目前沒有時間執行指令碼，我們的實際測試輸出顯示在指令碼 4 的後面。
 
-
-
-
-
-
 <a name="a-script-10" />
 
-## <a name="script-1-variables"></a>指令碼 1：變數
+### <a name="script-1-variables"></a>指令碼 1：變數
 
 第一個 PowerShell 指令碼會將值指派給變數。 後續的指令碼將會仰賴這些變數。
 
 > [!IMPORTANT]
 > 執行此指令碼之前，您可以依本身需求來編輯這些值。 比方說，如果您已經有一個資源群組，則可能會將資源群組名稱編輯為指派的值。
 >
->  您的訂用帳戶名稱應編輯到指令碼中。
+> 您的訂用帳戶名稱應編輯到指令碼中。
 
-#### <a name="powershell-script-1-source-code"></a>PowerShell 指令碼 1 原始程式碼
+### <a name="powershell-script-1-source-code"></a>PowerShell 指令碼 1 原始程式碼
 
 ```powershell
 ######### Script 1 ########################################
@@ -119,20 +110,16 @@ $ServiceEndpointTypeName_SqlDb = 'Microsoft.Sql';  # Official type name.
 Write-Host 'Completed script 1, the "Variables".';
 ```
 
-
-
-
-
 <a name="a-script-20" />
 
-## <a name="script-2-prerequisites"></a>指令碼 2：必要條件
+### <a name="script-2-prerequisites"></a>指令碼 2：必要條件
 
 此指令碼會針對端點動作所在的下一個指令碼作準備。 此指令碼會為您建立以下列出的項目，但僅限於它們尚未存在時。 如果您確定這些項目已存在，則可跳過指令碼 2：
 
 - Azure 資源群組
 - Azure SQL Database 伺服器
 
-#### <a name="powershell-script-2-source-code"></a>PowerShell 指令碼 2 原始程式碼
+### <a name="powershell-script-2-source-code"></a>PowerShell 指令碼 2 原始程式碼
 
 ```powershell
 ######### Script 2 ########################################
@@ -214,18 +201,13 @@ $sqlDbServer                 = $null;
 Write-Host 'Completed script 2, the "Prerequisites".';
 ```
 
-
-
-
-
-
 <a name="a-script-30" />
 
 ## <a name="script-3-create-an-endpoint-and-a-rule"></a>指令碼 3：建立端點及規則
 
 此指令碼會建立具有子網路的虛擬網路。 然後，指令碼會將 **Microsoft.Sql** 端點類型指派給您的子網路。 最後，指令碼會將您的子網路加入 SQL Database 伺服器的存取控制清單 (ACL)，以藉此建立規則。
 
-#### <a name="powershell-script-3-source-code"></a>PowerShell 指令碼 3 原始程式碼
+### <a name="powershell-script-3-source-code"></a>PowerShell 指令碼 3 原始程式碼
 
 ```powershell
 ######### Script 3 ########################################
@@ -302,13 +284,8 @@ $vnetRuleObject2 = Get-AzureRmSqlServerVirtualNetworkRule `
 
 $vnetRuleObject2;
 
-Write-Host 'Completed script 3, the "Virtual-Netowrk-Rule".';
+Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 ```
-
-
-
-
-
 
 <a name="a-script-40" />
 
@@ -321,7 +298,7 @@ Write-Host 'Completed script 3, the "Virtual-Netowrk-Rule".';
 
 您可以在指令碼 1 完成後的任何時間執行指令碼 4。
 
-#### <a name="powershell-script-4-source-code"></a>PowerShell 指令碼 4 原始程式碼
+### <a name="powershell-script-4-source-code"></a>PowerShell 指令碼 4 原始程式碼
 
 ```powershell
 ######### Script 4 ########################################
@@ -371,14 +348,14 @@ $yesno = Read-Host 'CAUTION !: Do you want to DELETE your Azure SQL Database ser
 if ('yes' -eq $yesno)
 {
     Write-Host "Remove the Azure SQL DB server.";
-    
+
     Remove-AzureRmSqlServer `
       -ServerName        $SqlDbServerName `
       -ResourceGroupName $ResourceGroupName `
       -ErrorAction       SilentlyContinue;
-    
+
     Write-Host "Remove the Azure Resource Group.";
-    
+
     Remove-AzureRmResourceGroup `
       -Name        $ResourceGroupName `
       -ErrorAction SilentlyContinue;
@@ -391,18 +368,13 @@ else
 Write-Host 'Completed script 4, the "Clean-Up".';
 ```
 
-
-
-
-
-
 <a name="a-actual-output" />
 
 ## <a name="actual-output-from-scripts-1-through-4"></a>指令碼 1 到 4 的實際輸出
 
 測試執行的輸出以簡短格式顯示如下。 如果您不想立即實際執行 PowerShell 指令碼，此輸出也許會有幫助。
 
-```
+```cmd
 [C:\WINDOWS\system32\]
 0 >> C:\Demo\PowerShell\sql-database-vnet-service-endpoint-powershell-s1-variables.ps1
 Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]: yes
@@ -413,7 +385,7 @@ Account               : xx@microsoft.com
 TenantId              : 11111111-1111-1111-1111-111111111111
 SubscriptionId        : 22222222-2222-2222-2222-222222222222
 SubscriptionName      : MySubscriptionName
-CurrentStorageAccount : 
+CurrentStorageAccount :
 
 
 
@@ -426,7 +398,7 @@ Creating your missing Resource Group - RG-YourNameHere.
 ResourceGroupName : RG-YourNameHere
 Location          : westcentralus
 ProvisioningState : Succeeded
-Tags              : 
+Tags              :
 ResourceId        : /subscriptions/22222222-2222-2222-2222-222222222222/resourceGroups/RG-YourNameHere
 
 Check whether your Azure SQL Database server already exists.
@@ -438,14 +410,12 @@ ResourceGroupName        : RG-YourNameHere
 ServerName               : mysqldbserver-forvnet
 Location                 : westcentralus
 SqlAdministratorLogin    : ServerAdmin
-SqlAdministratorPassword : 
+SqlAdministratorPassword :
 ServerVersion            : 12.0
-Tags                     : 
-Identity                 : 
+Tags                     :
+Identity                 :
 
 Completed script 2, the "Prerequisites".
-
-
 
 [C:\WINDOWS\system32\]
 0 >> C:\Demo\PowerShell\sql-database-vnet-service-endpoint-powershell-s3-vnet-rule.ps1
@@ -457,15 +427,13 @@ Persist the updates made to the virtual network > subnet.
 
 Get the subnet object.
 Add the subnet .Id as a rule, into the ACLs for your Azure SQL Database server.
-ProvisioningState Service       Locations      
------------------ -------       ---------      
+ProvisioningState Service       Locations
+----------------- -------       ---------
 Succeeded         Microsoft.Sql {westcentralus}
-                                               
+
 Verify that the rule is in the SQL DB ACL.
-                                               
+
 Completed script 3, the "Virtual-Network-Rule".
-
-
 
 [C:\WINDOWS\system32\]
 0 >> C:\Demo\PowerShell\sql-database-vnet-service-endpoint-powershell-s4-clean-up.ps1
@@ -482,10 +450,10 @@ ResourceGroupName        : RG-YourNameHere
 ServerName               : mysqldbserver-forvnet
 Location                 : westcentralus
 SqlAdministratorLogin    : ServerAdmin
-SqlAdministratorPassword : 
+SqlAdministratorPassword :
 ServerVersion            : 12.0
-Tags                     : 
-Identity                 : 
+Tags                     :
+Identity                 :
 
 Remove the Azure Resource Group.
 True
@@ -493,10 +461,6 @@ Completed script 4, the "Clean-Up".
 ```
 
 我們的主要 PowerShell 指令碼到此結束。
-
-
-
-
 
 <a name="a-verify-subnet-is-endpoint-ps-100" />
 
@@ -510,7 +474,7 @@ Completed script 4, the "Clean-Up".
 2. 選擇性地指派類型名稱 (若沒有的話)。
     - 指令碼會先要求您「確認」，然後再套用缺少的類型名稱。
 
-#### <a name="phases-of-the-script"></a>指令碼的階段
+### <a name="phases-of-the-script"></a>指令碼的階段
 
 以下是 PowerShell 指令碼的各個階段：
 
@@ -522,7 +486,7 @@ Completed script 4, the "Clean-Up".
 > [!IMPORTANT]
 > 執行此指令碼之前，您必須先編輯指派給靠近指令碼最上方 $ 變數的值。
 
-#### <a name="direct-powershell-source-code"></a>直接的 PowerShell 原始程式碼
+### <a name="direct-powershell-source-code"></a>直接的 PowerShell 原始程式碼
 
 除非要求確認時您回應「是」，否則此 PowerShell 指令碼不會更新任何項目。 此指令碼可以將類型名稱 **Microsoft.Sql** 加入您的子網路。 不過，只有當您的子網路缺少類型名稱時，此指令碼才會嘗試加入。
 
@@ -618,7 +582,7 @@ for ($nn=0; $nn -lt $vnet.Subnets.Count; $nn++)
 { $vnet.Subnets[0].ServiceEndpoints; }  # Display.
 ```
 
-#### <a name="actual-output"></a>實際輸出
+### <a name="actual-output"></a>實際輸出
 
 下列區塊顯示實際的回饋 (已經過編輯以利閱讀)。
 
@@ -633,7 +597,7 @@ Account               : xx@microsoft.com
 TenantId              : 11111111-1111-1111-1111-111111111111
 SubscriptionId        : 22222222-2222-2222-2222-222222222222
 SubscriptionName      : MySubscriptionName
-CurrentStorageAccount : 
+CurrentStorageAccount :
 
 
 ProvisioningState : Succeeded
@@ -644,12 +608,8 @@ Good: Subnet found, and is already tagged as an endpoint of type 'Microsoft.Sql'
 #>
 ```
 
-
-
-
 <!-- Link references: -->
 
 [sql-db-vnet-service-endpoint-rule-overview-735r]: sql-database-vnet-service-endpoint-rule-overview.md
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-

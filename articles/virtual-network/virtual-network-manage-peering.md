@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 8ce550fcd9756286488d17ac5cad258aaf1682ba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bde451a2a01a8baa347f093a1b56525dcead00f3
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946847"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855301"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
@@ -116,7 +116,7 @@ ms.locfileid: "46946847"
 - 在建立全域對等互連時，對等互連的虛擬網路可以存在於任何的 Azure 公用雲端區域，但並非在 Azure 國家雲端。 您只能將國家雲端中相同區域內的虛擬網路對等互連。
 - 一個虛擬網路中的資源無法與全域對等互連虛擬網路中的 Azure 內部負載平衡器的前端 IP 位址通訊。 負載平衡器和與其通訊的資源必須位於相同區域內的虛擬網路。 如果對等互連的虛擬網路位於相同區域，但任一虛擬網路中的資源可以和對等互連中任一虛擬網路內的 Azure 內部負載平衡器前端 IP 位址通訊。
 - 您無法在全域對等互連的虛擬網路中，使用遠端閘道或允許閘道傳輸。 若要使用遠端閘道或允許閘道傳輸，對等互連的虛擬網路必須位於相同區域中。
-- 虛擬網路可位於相同或不同的訂用帳戶。 當您將不同訂用帳戶中的虛擬網路對等互連時，這兩個訂用帳戶可以與相同或不同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以快速地[建立一個](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)。 入口網站中不提供跨虛擬網路 (來自與不同 Azure Aztuve Directory 租用戶相關聯的訂用帳戶) 進行對等互連的支援。 您可以使用 CLI、PowerShell 或範本。
+- 虛擬網路可位於相同或不同的訂用帳戶。 當您將不同訂用帳戶中的虛擬網路對等互連時，這兩個訂用帳戶可以與相同或不同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以快速地[建立一個](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)。 入口網站中不提供跨虛擬網路 (來自與不同 Azure Active Directory 租用戶相關聯的訂用帳戶) 進行對等互連的支援。 您可以使用 CLI、PowerShell 或範本。
 - 要建立對等互連的虛擬網路必須有非重疊的 IP 位址空間。
 - 一旦虛擬網路與另一個虛擬網路對等互連，您便無法在虛擬網路中新增或刪除位址範圍。 若要新增或移除位址範圍，請刪除對等互連，新增或移除位址範圍，然後重新建立對等互連。 若要在虛擬網路新增或移除位址範圍，請參閱[管理虛擬網路](manage-virtual-network.md)。
 - 您可以將透過 Resource Manager 所部署的兩個虛擬網路對等互連，或將透過 Resource Manager 所部署的虛擬網路與透過傳統部署模型所部署的虛擬網路對等互連。 您無法將兩個透過傳統部署模型所建立的虛擬網路對等互連。 如果您不熟悉 Azure 部署模型，請閱讀[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。 您可以使用 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)，將兩個透過傳統部署模型建立的虛擬網路加以連線。

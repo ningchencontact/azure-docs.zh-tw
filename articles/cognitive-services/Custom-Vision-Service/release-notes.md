@@ -1,20 +1,29 @@
 ---
-title: 自訂視覺服務版本資訊
+title: 版本資訊 - 自訂視覺服務
+titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8423051fa5169eb8acddc7297e36188e297cb9e4
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43284453"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901314"
 ---
 # <a name="custom-vision-service-release-notes"></a>自訂視覺服務版本資訊
+
+## <a name="october-9-2018"></a>2018 年 10 月 9 日
+- 物件偵測進入付費預覽。 您現在可以使用 Azure 資源建立物件偵測專案。
+- 新增「移至 Azure」功能到網站，讓有限的試用版專案升級連結到 Azure 更輕鬆。 與資源連結的專案 (F0 或 S0)。您可以在您產品的 [設定] 頁面上找到這項功能。  
+- 新增匯出至 ONNX 1.2 以支援 Windows ML 的 Windows 2018 十月更新版。
+錯誤修正，包括含有特殊字元的 ONNX 匯出。 
+
 
 ## <a name="august-14-2018"></a>2018 年 8 月 14 日
 - customvision.ai 網站已新增「開始使用」小工具，可引導使用者進行專案訓練。 

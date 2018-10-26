@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 401c4fb8942aee73c036ae2b248a030eaea4917a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 55af0559c98c9fc63fd6902d80b4e6f2f0a7d2da
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031249"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870110"
 ---
 # <a name="create-an-app"></a>建立應用程式
 有好幾種方法可建立 LUIS 應用程式。 您可以在 [LUIS](https://www.luis.ai) 入口網站中建立 LUIS 應用程式，或透過 LUIS 撰寫 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)。
@@ -22,9 +22,9 @@ ms.locfileid: "47031249"
 ## <a name="using-the-luis-portal"></a>使用 LUIS 入口網站
 您可在 LUIS 入口網站中以數種方式建立新的應用程式：
 
-* 從空的應用程式[著手](#create-new-app)，並建立意圖、語句和實體。
-* 從空的應用程式[著手](#create-new-app)，並新增[預建網域](luis-how-to-use-prebuilt-domains.md)。
-* 從已經包含意圖、語句和實體的 JSON 檔案[匯入 LUIS 應用程式](#import-new-app)。
+* 從空的應用程式著手，並建立意圖、語句和實體。
+* 從空的應用程式著手，並新增[預建網域](luis-how-to-use-prebuilt-domains.md)。
+* 從已經包含意圖、語句和實體的 JSON 檔案匯入 LUIS 應用程式。
 
 ## <a name="using-the-authoring-apis"></a>使用撰寫 API
 您可使用撰寫 API 以數種方式建立新的應用程式：

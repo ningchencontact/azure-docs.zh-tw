@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: d4b27feab5c1bb5913d2ba26f7f43aca9a899aa0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: c55e67e24c8f5ff6e243c67b614592874b2cc459
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697664"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870650"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -73,7 +73,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric 的無狀態與具狀態微服務
 Service Fabric 可讓您建置由微服務或容器組成的應用程式。 無狀態微服務 (如通訊協定閘道器、Web Proxy) 不會維護要求之外的可變動狀態及來自服務的回應。 Azure 雲端服務背景工作角色即為無狀態服務的範例。 可設定狀態的微服務 (如使用者帳戶、資料庫、裝置、購物車、佇列) 會維護要求及其回應外的可變動授權狀態。 現今的網際網路級別應用程式包含無狀態與可設定狀態微服務的組合。 
 
-Service Fabric 的主要區別在於，它強烈著重在建置具狀態服務，不論是使用[內建的程式設計模型](service-fabric-choose-framework.md)，還是使用容器化具狀態服務來建置。 [應用程式案例](service-fabric-application-scenarios.md)說明使用具狀態服務的案例。
+Service Fabric 的主要區別在於它強烈著重在建置具狀態服務，不論是使用[內建的程式設計模型](service-fabric-choose-framework.md)，還是使用容器化具狀態服務來建置。 [應用程式案例](service-fabric-application-scenarios.md)說明使用具狀態服務的案例。
 
 為什麼有具狀態的微服務以及無狀態的微服務？ 兩個主要原因如下：
 
@@ -104,7 +104,7 @@ Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication
 ## <a name="application-lifecycle"></a>應用程式生命週期
 如同其他平台，Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。 從開發到部署、到每日管理、維護，以及最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。 服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。 [Service Fabric 應用程式生命週期](service-fabric-application-lifecycle.md)說明 API 的概觀，以及不同的角色如何在 Service Fabric 應用程式生命週期的各個階段使用 API。 
 
-您可使用 [PowerShell cmdlet](/powershell/module/ServiceFabric/)、[CLI 命令](service-fabric-sfctl.md)、[C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)、[Java APIs](/java/api/system.fabric) 和 [REST APIs](/rest/api/servicefabric/) 來管理整個應用程式生命週期。 您亦可使用 [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) 或 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) 等工具，設定持續整合/持續部署管線。
+您可使用 [PowerShell cmdlet](/powershell/module/ServiceFabric/)、[CLI 命令](service-fabric-sfctl.md)、[C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)、[Java APIs](/java/api/system.fabric._application_management_client) 和 [REST APIs](/rest/api/servicefabric/) 來管理整個應用程式生命週期。 您也可使用 [Azure Pipelines](service-fabric-set-up-continuous-integration.md) 或 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) 等工具來設定持續整合/持續部署管線。
 
 下列 Microsoft Virtual Academy 影片說明如何管理應用程式生命週期︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

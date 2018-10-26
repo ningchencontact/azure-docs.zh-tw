@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171430"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248376"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>如何在對話學習模組模型中記錄對話
 
@@ -51,7 +51,7 @@ ms.locfileid: "39171430"
 1. 按一下 [動作]，然後按一下 [新增動作]
 2. 在 [回應] 中，鍵入「Which city?」(哪座城市？)。
 3. 在 [不合格的實體] 中，輸入 $city。
-3. Click Create
+3. 按一下 [建立專案]。
 
 然後建立第二個動作：
 
@@ -76,7 +76,7 @@ ms.locfileid: "39171430"
 
 加入另一個範例對話：
 
-1. 按一下 [新增動作]，然後按一下 [New Train Dialog]\(新增訓練對話\)。
+1. 按一下 [Train Dialogs]\(訓練對話\)，然後按一下 [New Train Dialog]\(新增訓練對話\)。
 2. 鍵入「what's the weather in Seattle?」(西雅圖的天氣如何？)。 注意西雅圖已標記為實體。
 5. 按一下 [Score Actions]\(評分動作\) 
 6. 選取 [$city is probably sunny]\($city 的天氣可能是晴天\)。
@@ -86,7 +86,7 @@ ms.locfileid: "39171430"
 先假設我們已向使用者部署此聊天機器人。
 
 1. 按一下 [Log Dialogs]\(記錄對話方塊\)。
-2. 按一下 [New Chat Session]\(新增交談工作階段\)。
+2. 按一下 [New Log Dialog] \(新增記錄對話\)。
     - 這會在 UI 的左邊呈現使用者在網站聊天控制項中遇到的聊天機器人。 您可以忽略右邊的空白區域。
 3. 鍵入「hello」(您好)。
 4. 聊天機器人回應：「which city?」(哪座城市？)
@@ -97,10 +97,10 @@ ms.locfileid: "39171430"
 
 讓我們開始新的工作階段：
 
-2. 按一下 [New Chat Session]\(新增交談工作階段\)。
+2. 按一下 [New Log Dialog] \(新增記錄對話\)。
 3. 鍵入「forecast for Boston」(波士頓的天氣預報)。
 4. 聊天機器人回應：「which city?」(哪座城市？)
-2. 按一下 [Done Teaching]\(完成教學\)。
+2. 按一下 [完成測試]。
 
 現在讓我們修正第二個對話方塊：
 

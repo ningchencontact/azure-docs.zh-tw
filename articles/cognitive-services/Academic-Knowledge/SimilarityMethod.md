@@ -1,20 +1,21 @@
 ---
-title: 學術知識 API 中的相似度方法 | Microsoft Docs
-description: 使用相似度方法在 Microsoft 認知服務中計算兩個字串的學術相似度。
+title: 相似度方法 - 學術知識 API
+titlesuffix: Azure Cognitive Services
+description: 使用相似度方法計算兩個字串的學術相似度。
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 472498d6bfe06ae4477a30f892d44e79c901acf5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 76e86eb78a06d98e3d5c6c54b244add3c0c245d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367850"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900456"
 ---
 # <a name="similarity-method"></a>相似度方法
 
@@ -29,12 +30,12 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>要求參數
 參數        |資料類型      |必要 | 說明
 ----------|----------|----------|------------
-**s1**        |字串   |yes  |要進行比較的字串*
-**s2**        |字串   |yes  |要進行比較的字串*
+**s1**        |字串   |是  |要進行比較的字串*
+**s2**        |字串   |是  |要進行比較的字串*
 <sub> *要比較的字串具有的最大長度為 1 MB。</sub>
 <br>
 ## <a name="response"></a>Response
-Name | 說明
+名稱 | 說明
 --------|---------
 **SimilarityScore**        |浮點值，表示 s1 和 s2 的餘弦相似度，具有較接近 1.0 的值表示較為相似，而較接近 -1.0 的值則表示較不相似
 <br>

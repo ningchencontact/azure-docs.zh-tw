@@ -7,16 +7,16 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e29186d07d9a060e45ed051d6f7ed0ac81a5e15b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/04/2018
+ms.openlocfilehash: 0794c1573c2eaa951b805573cf33f05923da83b4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982659"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867777"
 ---
 # <a name="monitor-and-tune"></a>監視與微調
-監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 
+監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 「適用於 PostgreSQL 的 Azure 資料庫」提供各種監視選項，可讓您深入了解伺服器的行為。
 
 ## <a name="metrics"></a>度量
 適用於 PostgreSQL 的 Azure 資料庫提供多種計量，可讓您深入了解支援 PostgreSQL 伺服器資源的行為。 每個計量都會以一分鐘的頻率發出，而且可保留最多 30 天的歷程記錄。 您可以在計量上設定警示。 如需逐步指引，請參閱[如何設定警示](howto-alert-on-metric.md)。 其他工作包含設定自動化動作、執行進階分析，以及封存記錄。 如需詳細資訊，請參閱 [Azure 計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
@@ -30,7 +30,7 @@ ms.locfileid: "46982659"
 |memory_percent|記憶體百分比|百分比|使用中記憶體的百分比。|
 |io_consumption_percent|IO 百分比|百分比|使用中 IO 的百分比。|
 |storage_percent|儲存體百分比|百分比|使用的儲存體佔伺服器最大值的百分比。|
-|storage_used|已使用儲存體|位元組|使用中的儲存體數量。 此服務所使用的儲存體可能包括資料庫檔案、交易記錄和伺服器記錄檔。|
+|storage_used|已使用儲存體|位元組|使用中的儲存體數量。 此服務所使用的儲存體可能包括資料庫檔案、交易記錄和伺服器記錄。|
 |storage_limit|儲存體限制|位元組|此伺服器的儲存體上限。|
 |serverlog_storage_percent|伺服器記錄儲存體百分比|百分比|使用的伺服器記錄儲存體佔伺服器記錄儲存體上限的百分比。|
 |serverlog_storage_usage|使用的伺服器記錄儲存體|位元組|使用中的伺服器記錄儲存體數量。|
@@ -39,6 +39,9 @@ ms.locfileid: "46982659"
 |connections_failed|失敗的連線|Count|伺服器的失敗連線數量。|
 |network_bytes_egress|Network Out|位元組|跨作用中連線的網路輸出。|
 |network_bytes_ingress|Network In|位元組|跨作用中連線的網路輸入。|
+
+## <a name="server-logs"></a>伺服器記錄
+您可以在伺服器上啟用記錄功能。 透過 [Log Analytics](../log-analytics/log-analytics-queries.md)、「事件中樞」及「儲存體帳戶」中的「Azure 診斷記錄」也可以取得這些記錄。 若要深入了解記錄，請瀏覽[伺服器記錄](concepts-server-logs.md)頁面。
 
 ## <a name="query-store"></a>查詢存放區
 [查詢存放區](concepts-query-store.md)是公開預覽功能，可追蹤一段時間的查詢效能，包括查詢執行階段統計資料和等待事件。 此功能會將查詢執行階段效能資訊保留在名稱為 **azure_sys** 的系統資料庫之中的 query_store 結構描述下。 您可以透過各種設定旋鈕控制資料的收集和儲存。
@@ -50,5 +53,5 @@ ms.locfileid: "46982659"
 [效能建議](concepts-performance-recommendations.md)功能可識別改善工作負載效能的機會。 效能建議的公開預覽版本提供建立新索引的建議，可能有助改善工作負載的效能。 若要產生索引建議，此功能會考量各種資料庫特性，包括查詢存放區所報告的結構描述和工作負載。 實作任何效能建議後，客戶應測試效能，以評估這些變更的影響。 
 
 ## <a name="next-steps"></a>後續步驟
-- 請參閱[如何設定警示](howto-alert-on-metric.md)，取得根據計量來建立警示的指引。
+- 如需有關建立計量相關警示的指引，請參閱[如何設定警示](howto-alert-on-metric.md)。
 - 如需如何使用 Azure 入口網站、REST API 或 CLI 存取及匯出計量的詳細資訊，請參閱 [Azure 計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。

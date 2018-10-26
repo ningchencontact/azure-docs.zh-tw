@@ -1,27 +1,31 @@
 ---
-title: 語言分析 API 中的詞性標記 | Microsoft Docs
-description: 了解 Microsoft 認知服務中的詞性標記如何定義文字中每個字組的類別或詞性。
+title: 詞性標記 - 語言分析 API
+description: 了解語言分析 API 中的詞性標記如何定義文字中每個字組的類別或詞性。
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 90fd5b05c2dabdac88c6c8da288ab629177be38d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082633"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238505"
 ---
 # <a name="part-of-speech-tagging"></a>詞性標記
+
+> [!IMPORTANT]
+> 語言分析預覽已在 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
 
 ## <a name="background-and-motivation"></a>背景和動機
 
 一旦文字已分成句子和標記後，分析的下一步就是識別每個字組的類別或詞性。
-這些類別包括像是「名詞」(通常代表人員、位置、事情、想法等等) 和「動詞」(通常代表動作或狀態變更等等)。某些字組的詞性相當明確 (例如 quagmire (泥沼) 就只有名詞)，但其他許多字組的詞性很難判斷。
+這些類別包括像是「名詞」(通常代表人員、位置、事情、想法等等) 和「動詞」(通常代表動作或狀態變更等等)。某些字組的詞性相當明確 (例如 *quagmire* (泥沼) 就只有名詞)，但其他許多字組的詞性很難判斷。
 Table  可以是您圍坐的地方 (或是數字的 2-D 輸出)，但您可以 "table a discussion" (提出議題)。
 
 ## <a name="list-of-part-of-speech-tags"></a>詞性標記清單
@@ -45,10 +49,10 @@ Table  可以是您圍坐的地方 (或是數字的 2-D 輸出)，但您可以 "
 | IN | 介系詞或從屬連接詞| in inside if upon whether |
 | JJ | 形容詞或數字、序數 | ninth pretty execrable multimodal |
 | JJR | 比較級形容詞 | better faster cheaper |
-| JJS | 最高級形容詞 | best fastest cheapest | 
+| JJS | 最高級形容詞 | best fastest cheapest |
 | LS | 清單項目標記 | (a) (b) 1 2 A B A. B. |
 | MD | 助動詞 | can may shall will could might should ought |
-| NN | 單數一般名詞 | potato money shoe |
+| NN | 名詞、普通名詞、單數名詞或不可數名詞 | potato money shoe |
 | NNP | 單數專有名詞 | Kennedy Roosevelt Chicago Weehauken |
 | NNPS | 複數專有名詞 | Springfields Bushes |
 | NNS | 複數一般名詞 | pieces mice fields |

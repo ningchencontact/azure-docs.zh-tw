@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 00c67503f5b9e0027cbb62520e392f56420a75e6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e784185cfc7f2c588db354bab1cfb36934b9c417
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701630"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585861"
 ---
 # <a name="optimize-sql-server-performance"></a>將 SQL Server 效能最佳化
 
@@ -145,7 +145,7 @@ Azure Stack 虛擬機器上有三種主要的磁碟類型︰
 
 - **備份至 Azure** **儲存體。** 對 Azure Stack 虛擬機器中所執行的 SQL Server 執行備份時，可以使用「SQL Server 備份至 URL」。 此功能從 SQL Server 2012 SP1 CU2 開始提供，建議在備份至連接的資料磁碟時使用。
 
-    使用 Azure 儲存體來進行備份或還原時，請遵循 [SQL Server 備份至 URL 的最佳做法和疑難排解](https://msdn.microsoft.com/library/jj919149.aspx)和[從儲存在 Microsoft Azure 中的備份進行還原](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017)中所提供的建議。 您也可以使用 [Azure 虛擬機器中的 SQL Server 自動備份](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)，自動執行這些備份作業。
+    使用 Azure 儲存體來進行備份或還原時，請遵循 [SQL Server 備份至 URL 的最佳做法和疑難排解](https://msdn.microsoft.com/library/jj919149.aspx)和[從儲存在 Microsoft Azure 中的備份進行還原](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017)中所提供的建議。 您也可以使用 [Azure 虛擬機器中的 SQL Server 自動備份](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)，自動執行這些備份作業。
 
 -   **備份至 Azure Stack 儲存體。** 您可以使用和「備份至 Azure 儲存體」類似的方式，來備份至 Azure Stack 儲存體。 當您在 SQL Server Management Studio (SSMS) 中建立備份時，必須手動輸入設定資訊。 您無法使用 SSMS 來建立儲存體容器或共用存取簽章。 SSMS 僅會連線至 Azure 訂用帳戶，不會連線至 Azure Stack 訂用帳戶。 相反地，您必須在 Azure Stack 入口網站中或使用 PowerShell，才能建立儲存體帳戶、容器和共用存取簽章。
 
@@ -154,7 +154,7 @@ Azure Stack 虛擬機器上有三種主要的磁碟類型︰
     ![SQL Server 備份](./media/sql-server-vm-considerations/image3.png)
 
     > [!NOTE]  
-    > 共用存取簽章是得自 Azure Stack 入口網站的 SAS 權杖，字串中沒有前置 ‘?’。 in the string. 如果您從入口網站使用複製功能，則必須刪除前置 ‘?’ 才能讓權杖在 SQL Server 中生效。 for the token to work within SQL Server.
+    > 共用存取簽章是得自 Azure Stack 入口網站的 SAS 權杖，字串中 沒有前置 ‘?’。 如果您從入口網站使用複製功能，則必須刪除前置 ‘?’  才能讓權杖在 SQL Server 中生效。
 
     在 SQL Server 中安裝和設定了備份目的地後，您就可以備份至 Azure Stack Blob 儲存體。
 

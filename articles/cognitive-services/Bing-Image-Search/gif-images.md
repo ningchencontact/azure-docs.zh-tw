@@ -1,45 +1,47 @@
 ---
-title: 取得 .gif 影像 - Microsoft 認知服務 | Microsoft Docs
+title: 取得 .gif 影像 - Bing 影像搜尋 API
+titleSuffix: Azure Cognitive Services
 description: 如何使用 Bing 影像搜尋 API 來取得更多 .gif 的相關資訊。
 services: cognitive-services
 author: MikeDodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 10e922b0cd15868bfe8f09b3846c76a368052e69
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 82a096ccc1ead9bfb542663ae193539fc227c1fb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370295"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870242"
 ---
-# <a name="search-for-gif-images"></a>搜尋 .gif 影像
+# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>使用 Bing 影像搜尋 API 來搜尋 .gif 影像
+
 Bing 影像搜尋 API 可讓您同時跨整個網路搜尋最相關的 .gif 影像。  開發人員可以在各種交談情節中整合吸引人的 GIF。 
 
 下列 URL 是用於動畫 .gif 影像的查詢。
 ````
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 ````
-[q](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 參數指定搜尋字詞。  上述查詢還使用 [imageType](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) 篩選參數來指定 `animatedGif`。
+[q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 參數指定搜尋字詞。  上述查詢還使用 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) 篩選參數來指定 `animatedGif`。
 
 若要查看結果的範例，請使用下列 URL 來搜尋 bing.com。
 ````
-https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif 
+https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif
 
 ````
 ## <a name="query-parameters"></a>查詢參數
 
-如需查詢參數和選項的詳細資訊，請參閱[影像搜尋 API 參考](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters)。 範例位在[使用 Java 搜尋動畫 GIF 的範例](#gifExample)標題底下。
+如需查詢參數和選項的詳細資訊，請參閱[影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters)。 範例位在[使用 Java 搜尋動畫 GIF 的範例](#gifExample)標題底下。
 
 ## <a name="tips-and-suggestions"></a>祕訣與建議
 
-- 您可以指定 [maxFileSize](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) 和 [minFileSize](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize) 參數。 建議您設定 maxFileSize=2000000，因為大部分的 GIF 在我們的索引中都低於 2 MB。  若有頻寬疑慮 (例如在行動電話案例中)，這也有助於控制資料大小。
+- 您可以指定 [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) 和 [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize) 參數。 建議您設定 maxFileSize=2000000，因為大部分的 GIF 在我們的索引中都低於 2 MB。  若有頻寬疑慮 (例如在行動電話案例中)，這也有助於控制資料大小。
 - 若要協助改善認知的效能，請在載入來源 URL 之前先載入縮圖。  
 - 若為尚未擁有使用者查詢的首次執行或登陸頁面體驗，請嘗試從[趨勢影像 API](trending-images.md) 使用我們的趨勢 GIF 搜尋來協助。
-- [safeSearch](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) 參數有三個設定。  `strict` 選項會封鎖成人內容。 
+- [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) 參數有三個設定。  `strict` 選項會封鎖成人內容。
 - 如需支援之語言和位置的完整清單，請參閱 [mkt](supported-countries-markets.md)。
 - *AnimatedGifHttps* 只會傳回來自 Https 位址的動畫 GIF 影像。 基於安全性，許多應用程式需要透過 Https 連線至外部網頁連結。 例如，Apple App Store 需要透過 HTTPS 連線至 Web 服務，這會在傳輸過程中加密使用者資料以維護安全。
 
@@ -51,7 +53,7 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 
 ````
-如下列範例所示，此 URL 查詢需要 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#headers) 標頭。
+如下列範例所示，此 URL 查詢需要 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers) 標頭。
 
 下列 Java 範例會建置並傳送要求。
 

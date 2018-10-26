@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972550"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068531"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
 
 > [!IMPORTANT]
-> 開啟儲存體帳戶的防火牆規則，將封鎖存取資料的傳入要求，包括來自其他 Azure 服務的要求。  這包括使用入口網站、寫入記錄等。針對參與服務，您可以透過下列[例外狀況](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)一節來重新啟用功能。  若要存取入口網站，必須從位於您已設定之信任界限 (IP 或 VNet) 內的電腦來執行此作業。
+> 開啟儲存體帳戶的防火牆規則，將封鎖存取資料的傳入要求，包括來自其他 Azure 服務的要求。  這包括使用入口網站、寫入記錄等。您可以透過允許服務執行個體的子網路，將存取權授與從 VNet 內執行的 Azure 服務。  不是從 VNet 內執行的 Azure 服務將會由防火牆封鎖。  可以透過下面所述的[例外](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)機制來啟用一組數目有限的案例。  若要存取入口網站，必須從位於您已設定之信任界限 (IP 或 VNet) 內的電腦來執行此作業。
 >
 
 ## <a name="scenarios"></a>案例

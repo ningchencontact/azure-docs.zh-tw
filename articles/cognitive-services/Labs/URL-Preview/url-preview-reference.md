@@ -1,20 +1,21 @@
 ---
-title: 專案 URL 預覽參考 - Microsoft 認知服務 | Microsoft Docs
+title: 專案 URL 預覽參考
+titlesuffix: Azure Cognitive Services
 description: 專案 URL 預覽端點參考。
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: rosh
+ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865870"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870803"
 ---
 # <a name="project-url-preview-v7-reference"></a>專案 URL 預覽 v7 參考
 
@@ -43,11 +44,11 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
   
 關於要求所應包含之標頭的相關資訊，請參閱[標頭](#headers)。  
   
-關於要求所應包含之查詢參數的相關資訊，請參閱[查詢參數](#query-parameters)。  
+如需要求所應包含的查詢參數相關資訊，請參閱[查詢參數](#query-parameters)。  
   
-關於回應所包含之 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。
+如需回應所包含的 JSON 物件相關資訊，請參閱[回應物件](#response-objects)。
 
-查詢 URL 長度上限是 2,048 個字元。 若要確保您的 URL 長度不超過限制，查詢參數的最大長度應該小於 1,500 個字元。 如果 URL 超過 2,048 個字元，則伺服器會傳回「404 找不到」。  
+查詢 URL 長度上限是 2,048 個字元。 若要確保您的 URL 長度不超過限制，查詢參數的最大長度應小於 1,500 個字元。 如果 URL 超過 2,048 個字元，則伺服器會傳回「404 找不到」。  
 
 如需使用允許和顯示結果方式的相關資訊，請參閱[使用和顯示需求](use-display-requirements.md)。 
 
@@ -64,21 +65,21 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 |頁首|說明|  
 |------------|-----------------|   
 |<a name="market" />BingAPIs-Market|回應標頭。<br /><br /> 要求所使用的市場。 格式為 \<languageCode\>-\<countryCode\>。 例如：en-US。|  
-|<a name="traceid" />BingAPIs-TraceId|回應標頭。<br /><br /> 包含要求詳細資料之記錄項目的識別碼。 發生錯誤時，會擷取這個識別碼。 如果您無法判定並解決問題，請將此識別碼與其他資訊一併提供給支援小組。|  
+|<a name="traceid" />BingAPIs-TraceId|回應標頭。<br /><br /> 包含要求詳細資料記錄項目的識別碼。 發生錯誤時，會擷取這個識別碼。 如果您無法判定並解決問題，請將此識別碼與其他資訊一併提供給支援小組。|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|必要的要求標頭。<br /><br /> 您在[認知服務](https://www.microsoft.com/cognitive-services/)中註冊此服務時收到的訂用帳戶金鑰。|  
-|<a name="clientid" />X-MSEdge-ClientID|選擇性要求和回應標頭。<br /><br /> Bing 使用此標頭在 Bing API 所有呼叫之間為使用者提供一致的行為。 Bing 經常推出新功能和改善項目，且會以用戶端識別碼作為不同測試版指派流量的金鑰。 如果在多個要求中，未讓使用者使用相同的用戶端識別碼，Bing 可能會將使用者指派至多個衝突的測試版。 若指派給多個衝突的測試版，可能會導致使用者體驗不一致。 例如若第二個要求與第一個要求指派的測試版不同，可能會產生意料外的體驗。 此外，Bing 可以使用用戶端識別碼將 Web 結果調整為該用戶端識別碼的搜尋記錄，為使用者提供更豐富的體驗。<br /><br /> Bing 也會使用此標頭分析用戶端識別碼產生的活動，協助改善結果的順位。 相關性改進功能有助於 Bing API 提供更高品質的結果，進而為 API 取用者提供更高的點擊率。<br /><br />以下是適用於此標頭的基本使用規則。<br /><ul><li>在裝置上使用您應用程式的每個使用者必須具有 Bing 產生的唯一用戶端識別碼。<br /><br/>如果您未在要求中包含此標頭，Bing 會產生一個識別碼，並於 X-MSEdge-ClientID 回應標頭傳回該識別碼。 不應在要求中包含此標頭的唯一時機是使用者初次在該裝置上使用您的應用程式時。<br /><br/></li><li>您的應用程式每次為該裝置上的該名使用者提出 Bing API 請求時，均需使用此用戶端識別碼。<br /><br/></li><li>**注意：** 您必須確保此用戶端識別碼不能連結到任何可辨識身份的使用者帳戶資訊。</li><br/><li>保留用戶端識別碼。 若要在瀏覽器應用程式中保留識別碼，請使用永續性的 HTTP Cookie，以確保在所有工作階段均使用該識別碼。 請勿使用工作階段 Cookie。 若為其他應用程式 (例如行動裝置應用程式)，請使用裝置本身的永久儲存裝置保留識別碼。<br /><br/>使用者下次在該裝置上使用您的應用程式時，會取得您保留的用戶端識別碼。</li></ul><br /> **注意：** Bing 回應可能包含或可能不包含此標頭。 如果回應包含此標頭，請擷取用戶端識別碼，並將其用於該裝置上使用者的所有後續 Bing 要求。<br /><br /> **注意：** 如果您包含 X-MSEdge-ClientID，則不得在要求中加入 Cookie。|  
-|<a name="clientip" />X-MSEdge-ClientIP|選擇性要求標頭。<br /><br /> 用戶端裝置的 IPv4 或 IPv6 位址。 IP 位址用於探索使用者的位置。 Bing 使用位置資訊來判斷安全搜尋行為。<br /><br />  請勿混淆位址 (例如，藉由將最後一個八位元變更為 0)。 混淆位址會導致位置不在裝置的實際位置附近，這可能會造成 Bing 產生錯誤結果。|  
+|<a name="clientid" />X-MSEdge-ClientID|選擇性要求和回應標頭。<br /><br /> Bing 使用此標頭在 Bing API 所有呼叫之間為使用者提供一致的行為。 Bing 經常推出新功能和改善項目，且會以用戶端識別碼作為不同測試版指派流量的金鑰。 如果在多個要求中，未讓使用者使用相同的用戶端識別碼，Bing 可能會將使用者指派至多個衝突的測試版。 若指派給多個衝突的測試版，可能會導致使用者體驗不一致。 例如若第二個要求與第一個要求指派的測試版不同，可能會產生意料外的體驗。 此外，Bing 可以使用用戶端識別碼將 Web 結果調整為該用戶端識別碼的搜尋記錄，為使用者提供更豐富的體驗。<br /><br /> Bing 也會使用此標頭分析用戶端識別碼產生的活動，協助改善結果的順位。 相關性改進功能有助於 Bing API 提供更高品質的結果，進而為 API 取用者提供更高的點擊率。<br /><br />以下是適用於此標頭的基本使用規則。<br /><ul><li>在裝置上使用您應用程式的每個使用者必須具有 Bing 產生的唯一用戶端識別碼。<br /><br/>如果您未在要求中包含此標頭，Bing 會產生一個識別碼，並於 X-MSEdge-ClientID 回應標頭傳回該識別碼。 不應在要求中包含此標頭的唯一時機是使用者初次在該裝置上使用您的應用程式時。<br /><br/></li><li>您的應用程式每次為該裝置上的該名使用者提出 Bing API 請求時，均需使用此用戶端識別碼。<br /><br/></li><li>**注意：** 您必須確保此用戶端識別碼不能連結到任何可辨識身分的使用者帳戶資訊。</li><br/><li>保存用戶端識別碼。 若要在瀏覽器應用程式中保存識別碼，請使用永續性的 HTTP Cookie，以確保在所有工作階段均使用該識別碼。 請勿使用工作階段 Cookie。 若為其他應用程式 (例如行動裝置應用程式)，請使用裝置本身的永久儲存裝置保存識別碼。<br /><br/>使用者下次在該裝置上使用您的應用程式時，會取得您保存的用戶端識別碼。</li></ul><br /> **注意：** Bing 回應不一定會包含此標頭。 如果回應包含此標頭，請擷取用戶端識別碼，並將其用於該裝置上使用者的所有後續 Bing 要求。<br /><br /> **注意：** 如果您包含 X-MSEdge-ClientID，則不得在要求中加入 Cookie。|  
+|<a name="clientip" />X-MSEdge-ClientIP|選擇性要求標頭。<br /><br /> 用戶端裝置的 IPv4 或 IPv6 位址。 此 IP 位址可用來探索使用者的位置。 Bing 使用位置資訊來判斷安全搜尋行為。<br /><br />  請勿混淆位址 (例如，藉由將最後一個八位元變更為 0)。 混淆位址會導致位置不在裝置的實際位置附近，這可能會造成 Bing 產生錯誤結果。|  
 <br /><br /></li></ul>   
 
 ## <a name="query-parameters"></a>查詢參數  
 要求可能含有下列查詢參數。 請參閱必要參數的必要資料行。 您必須對查詢參數進行 URL 編碼。 查詢必須是帶有 http 或 https 配置的絕對 URL；不支援相對 URL 或其他配置，例如 ftp://
   
   
-|Name|值|類型|必要|  
+|名稱|值|類型|必要|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|結果所來自的市場。 <br /><br />如需可能的市場值清單，請參閱[市場代碼](#market-codes)。<br /><br /> **注意：** URL 預覽 API 目前僅支援美國地理位置和英文。<br /><br />|字串|yes|  
-|<a name="query" />q|要預覽的 URL|字串|yes|  
-|<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值是 JSON。 如需回應所包含之 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />  如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](http://json-ld.org/)。|字串|否|
+|<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱[市場代碼](#market-codes)。<br /><br /> **注意：** URL 預覽 API 目前僅支援美國地理位置和英文。<br /><br />|字串|是|  
+|<a name="query" />q|要預覽的 URL|字串|是|  
+|<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值為 JSON。 如需回應所含 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />  如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](http://json-ld.org/)。|字串|否|
 |<a name="safesearch"/>safeSearch|禁止非法成人內容或盜版內容，錯誤代碼為 400，並且不會傳回 *isFamilyFriendly* 旗標。 <p>對於合法的成人內容，會出現以下行為。 狀態碼傳回 200，而且 *isFamilyFriendly* 旗標設為 false。<ul><li>safeSearch=strict：不會傳回標題、描述、URL 以及映像。</li><li>safeSearch=moderate；取得標題、URL 以及描述，但不會有描述性的影像。</li><li>safeSearch=off；取得所有回應物件/元素 – 標題、URL、描述、影像。</li></ul> |字串|不需要。 </br> 預設值為 safeSearch=strict。| 
 
 ## <a name="response-objects"></a>回應物件  
@@ -97,8 +98,8 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|識別錯誤類別的錯誤碼。 如需可能的代碼清單，請參閱[錯誤碼](#error-codes)。|字串|  
 |<a name="error-message" />message|錯誤的描述。|字串|  
-|<a name="error-moredetails" />moreDetails|提供關於錯誤之其他資訊的描述。|字串|  
-|<a name="error-parameter" />parameter|造成錯誤之要求的查詢參數。|字串|  
+|<a name="error-moredetails" />moreDetails|提供其他錯誤相關資訊的描述。|字串|  
+|<a name="error-parameter" />parameter|要求中導致錯誤的查詢參數。|字串|  
 |<a name="error-subcode" />subCode|識別錯誤的錯誤碼。 例如，如果 `code`是 InvalidRequest，則 `subCode` 可能是 ParameterInvalid 或 ParameterInvalidValue。 |字串|  
 |<a name="error-value" />value|非有效的查詢參數值。|字串|  
   
@@ -106,7 +107,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 ### <a name="errorresponse"></a>ErrorResponse  
 要求失敗時，回應包含的最上層物件。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|  
 |_type|類型提示。|字串|  
 |<a name="errors" />errors|說明要求失敗原因的錯誤清單。|[錯誤](#error)[]|   
@@ -115,7 +116,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 ### <a name="webpage"></a>網頁  
 定義預覽網頁的相關資訊。  
   
-|Name|值|類型|  
+|名稱|值|類型|  
 |----------|-----------|----------|
 |name|頁面標題，不一定是 HTML 標題|字串|
 |url|實際搜耙的 URL (要求可能已遵循重新導向)|字串|  
@@ -124,20 +125,20 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 |primaryImageOfPage/contentUrl|要包含在預覽中的代表圖片 URL|字串| 
 
 
-### <a name="identifiable"></a>可識別
-|Name|值|類型|  
+### <a name="identifiable"></a>Identifiable
+|名稱|值|類型|  
 |-------------|-----------------|----------|
 |id|資源識別碼|字串|
  
 
 ## <a name="error-codes"></a>錯誤碼
 
-以下是要求可能會傳回的 HTTP 狀態碼。  
+以下是要求傳回的可能 HTTP 狀態碼。  
   
 |狀態碼|說明|  
 |-----------------|-----------------|  
 |200|成功。|  
-|400|缺少其中一個查詢參數或無效。| 
+|400|缺少其中一個查詢參數，或查詢參數無效。| 
 |400|ServerError、subCode ResourceError：無法觸達要求的 URL|
 |400|ServerError、subCode ResourceError：要求的 URL 未傳回成功代碼 (如果其傳回 HTTP 404 也包括在內)|
 |400|InvalidRequest、subCode Blocked：要求的 URL 可能包含成人內容，且已遭封鎖| 

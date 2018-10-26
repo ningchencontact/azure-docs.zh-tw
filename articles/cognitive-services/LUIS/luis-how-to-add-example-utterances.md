@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036485"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888283"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>使用實體新增範例語句和標籤
 
@@ -92,12 +92,12 @@ book me 2 adult business tickets to Paris tomorrow on Air France
 
 在語句中，選取同義字 (例如 `aqua` 表示 water)，並在下拉式清單中選取清單實體名稱 (例如 [Drink] \(飲料\))，然後選取 [Set as synonym]\(設定為同義字\)，再選取與其同義的清單項目 (例如 **water**)。
 
-![意圖詳細資料頁面的螢幕擷取畫面 (已醒目提示 [Create a new synonym] \(建立新的同義字\))](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![意圖詳細資料頁面的螢幕擷取畫面，其中已醒目提示 [Create a new normalized view] \(建立新的正規化檢視\)](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>建立清單實體的新項目
-在語句中選取字組或片語，以建立現有清單實體的新項目。 若您有 [Drink] \(飲料\)，而且想要將 `tea` 新增為新項目，請遵循下列步驟：
+在語句中選取字組或片語，以建立現有清單實體的新項目。 若您有 [Employee] \(員工\) 清單，而且想要將 `Bob Smith` 新增為新項目，請遵循下列步驟：
 
-在語句中，選取新清單項目的字組 (例如 `tea`)，並在下拉式清單中選取清單實體名稱 (例如 [Drink] \(飲料\))，然後選取 [Create a new synonym] \(建立新的同義字\)。 
+在語句中，選取新清單項目的字組或片語 (例如 `Bob Smith`)，並在下拉式清單中選取清單實體名稱 (例如 [Employee] \(員工\))，然後選取 [Create a new normalized view] \(建立新的正規化檢視\)。 
 
 ![新增清單項目的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

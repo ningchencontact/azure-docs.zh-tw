@@ -10,12 +10,12 @@ ms.date: 08/14/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 8e59f2e7e2fceda7f30e12571cd9e2a552f76231
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: d46fd8f5ea00ee1fc1ee5f7bf09a15dd6af5ba50
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41946567"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785574"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 資料中心整合 - Syslog 轉送
 
@@ -23,8 +23,8 @@ ms.locfileid: "41946567"
 
 從 1805 更新開始，Azure Stack 便具有一個整合式 Syslog 用戶端，此用戶端在設定之後，就會發出 Syslog 訊息，訊息所含的承載會採用「常見事件格式」(CEF)。 
 
-> [!IMPORTANT]
-> Syslog 轉送目前為預覽版。 在生產環境中不應該倚賴此功能。 
+> [!IMPORTANT] 
+> Syslog 轉送目前為預覽版。 在生產環境中不應該倚賴此功能。  
 
 下圖顯示參與 Syslog 整合的主要元件。
 
@@ -62,14 +62,14 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *Set-SyslogServer* Cmdlet 的參數：
 
-| 參數 | 說明 | 類型 |
-|---------|---------| ---------|
-| *ServerName* | Syslog 伺服器的 FQDN 或 IP 位址 | 字串 |
-|*NoEncryption*| 強制用戶端以純文字形式傳送 Syslog 訊息 | 旗標 | 
-|*SkipCertificateCheck*| 在初始 TLS 信號交換期間，針對 Syslog 伺服器所提供的憑證略過驗證 | 旗標 |
-|*SkipCNCheck*| 在初始 TLS 信號交換期間，針對 Syslog 伺服器所提供憑證的「一般名稱」值略過驗證 | 旗標 |
-|*UseUDP*| 使用 Syslog 搭配以 UDP 作為傳輸通訊協定 |旗標 |
-|*Remove*| 從用戶端中移除伺服器設定並停止 Syslog 轉送| 旗標 |
+| 參數 | 說明 | 類型 | 必要 |
+|---------|---------|---------|---------|
+|*ServerName* | Syslog 伺服器的 FQDN 或 IP 位址 | 字串 | 是|
+|*NoEncryption*| 強制用戶端以純文字形式傳送 Syslog 訊息 | 旗標 | no|
+|*SkipCertificateCheck*| 在初始 TLS 信號交換期間，針對 Syslog 伺服器所提供的憑證略過驗證 | 旗標 | no|
+|*SkipCNCheck*| 在初始 TLS 信號交換期間，針對 Syslog 伺服器所提供憑證的「一般名稱」值略過驗證 | 旗標 | no|
+|*UseUDP*| 使用 Syslog 搭配以 UDP 作為傳輸通訊協定 |旗標 | no|
+|*Remove*| 從用戶端中移除伺服器設定並停止 Syslog 轉送| 旗標 | no|
 
 *Set-SyslogClient* Cmdlet 的參數：
 | 參數 | 說明 | 類型 |
@@ -86,6 +86,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 > Microsoft 強烈建議您針對生產環境使用此設定。 
 
 若要設定使用 TCP、相互驗證及 TLS 1.2 加密的 Syslog 轉送，請執行以下兩個 Cmdlet：
+
 ```powershell
 # Configure the server
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
@@ -93,10 +94,11 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 # Provide certificate to the client to authenticate against the server
 Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
 ```
+
 用戶端憑證的根必須與部署 Azure Stack 時所提供的根相同。 此外，此憑證也必須包含私密金鑰。
 
 ```powershell
-##Example on how to set your syslog client with the ceritificate for mutual authentication. 
+##Example on how to set your syslog client with the certificate for mutual authentication.
 ##Run these cmdlets from your hardware lifecycle host or privileged access workstation.
 
 $ErcsNodeName = "<yourPEP>"
@@ -138,15 +140,15 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 如果您想要使用自我簽署和/或未受信任的憑證來測試 Syslog 伺服器與 Azure Stack 用戶端的整合，您可以使用這些旗標，在初始信號交換期間略過用戶端所執行的伺服器驗證。
 
 ```powershell
- #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck
+#Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck 
  
- #Skip entirely the server certificate validation
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
+#Skip entirely the server certificate validation
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
 ```
+
 > [!IMPORTANT]
 > Microsoft 建議針對生產環境不要使用 -SkipCertificateCheck 旗標。 
-
 
 ### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>設定使用 TCP 且不加密的 Syslog 轉送
 
@@ -155,6 +157,7 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
 ```
+
 > [!IMPORTANT]
 > Microsoft 建議針對生產環境不要使用此設定。 
 
@@ -166,6 +169,7 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -UseUDP
 ```
+
 雖然不使用加密的 UDP 在設定上最為簡單，但它對於攔截式攻擊和訊息竊聽無法提供任何防護。 
 
 > [!IMPORTANT]
@@ -218,13 +222,14 @@ CEF 承載會根據下面的結構，但每個欄位的對應會依訊息的類�
 ```CEF
 # Common Event Format schema
 CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|<Name>|<Severity>|<Extensions>
-* Version: 0.0 
+* Version: 0.0
 * Device Vendor: Microsoft
 * Device Product: Microsoft Azure Stack
 * Device Version: 1.0
 ```
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows 事件的 CEF 對應
+
 ```
 * Signature ID: ProviderName:EventID
 * Name: TaskName
@@ -232,7 +237,7 @@ CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|
 * Extension: Custom Extension Name (for details, see the Custom Extension table below)
 ```
 
-Windows 事件的嚴重性表格： 
+Windows 事件的嚴重性表格：
 | CEF 嚴重性值 | Windows 事件層級 | 數值 |
 |--------------------|---------------------| ----------------|
 |0|Undefined|值：0。 指出所有層級的記錄|
@@ -270,14 +275,16 @@ Azure Stack 中 Windows 事件的自訂延伸模組表格：
 |MasVersion|0|
 
 ### <a name="cef-mapping-for-alerts-created"></a>已建立之警示的 CEF 對應
+
 ```
 * Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
 * Name: FaultTypeId : AlertId
 * Severity: Alert Severity (for details, see alerts severity table below)
 * Extension: Custom Extension Name (for details, see the Custom Extension table below)
 ```
+
 警示嚴重性表格：
-| 嚴重性 | 層級 |
+| 嚴重性 | Level |
 |----------|-------|
 |0|Undefined|
 |10|重要|
@@ -289,6 +296,7 @@ Azure Stack 中已建立之警示的自訂延伸模組表格：
 |MasEventDescription|描述：已為 \<TestDomain\> 建立使用者帳戶 \<TestUser\>。 這是一個潛在的安全性風險。 -- 補救：請連絡支援人員。 需要取得「客戶協助」來解決此問題。 請勿在沒有他們協助的情況下嘗試解決此問題。 在您開啟支援要求之前，請先參考 https://aka.ms/azurestacklogfiles 的指引來啟動記錄檔收集程序 |
 
 ### <a name="cef-mapping-for-alerts-closed"></a>已關閉之警示的 CEF 對應
+
 ```
 * Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
 * Name: FaultTypeId : AlertId
@@ -299,6 +307,7 @@ Azure Stack 中已建立之警示的自訂延伸模組表格：
 ```
 2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
 ```
+
 ## <a name="next-steps"></a>後續步驟
 
 [服務原則](azure-stack-servicing-policy.md)

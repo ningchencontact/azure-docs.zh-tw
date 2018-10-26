@@ -12,59 +12,79 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/13/2017
+ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 2820dcabf042d7463f9776b42f277a0457caf3b6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cac17403425f53593d4f48692b4216a92c8624e3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929010"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884380"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 入口網站開啟虛擬機器的連接埠
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
-## <a name="quick-commands"></a>快速命令
-您也可以 [使用 Azure PowerShell 來執行這些步驟](nsg-quickstart-powershell.md)。
 
-首先，建立您的「網路安全性群組」。 在入口網站中選取一個資源群組，選擇 [新增]，然後搜尋並選取 [網路安全性群組]：
+## <a name="sign-in-to-azure"></a>登入 Azure
+在 https://portal.azure.com 登入 Azure 入口網站。
 
-![新增網路安全性群組](./media/nsg-quickstart-portal/add-nsg.png)
+## <a name="create-a-network-security-group"></a>建立網路安全性群組
 
-輸入您「網路安全性群組」的名稱，選取或建立資源群組，然後選取位置。 完成後，請選取 [建立]：
+1. 搜尋並選取 VM 的資源群組，選擇 [新增]，然後搜尋並選取 [網路安全性群組]。
 
-![建立網路安全性群組](./media/nsg-quickstart-portal/create-nsg.png)
+2. 選取 [建立] 。
 
-選取您的新「網路安全性群組」。 選取 [輸入安全性規則]，然後選取 [新增] 按鈕來建立規則︰
+    [建立網路安全性群組] 視窗隨即開啟。
 
-![新增輸入規則](./media/nsg-quickstart-portal/add-inbound-rule.png)
+    ![建立網路安全性群組](./media/nsg-quickstart-portal/create-nsg.png)
 
-若要建立允許流量的規則：
+2. 輸入網路安全性群組的名稱。 
 
-- 選取 [基本] 按鈕。 根據預設，[進階] 視窗會提供一些其他組態選項，例如定義特定來源 IP 區塊或連接埠範圍。
-- 從下拉式功能表中選擇常見的**服務**，例如 *HTTP*。 您也可以選取 [自訂] 以提供特定連接埠供使用者使用。 
-- 如有需要，請變更優先順序或名稱。 優先順序會影響規則的套用順序，數值越低會越早套用規則。
-- 當您準備好時，選取 [確定] 以建立規則：
+3. 選取或建立資源群組，然後選取位置。
 
-![建立輸入規則](./media/nsg-quickstart-portal/create-inbound-rule.png)
+4. 選取 [建立] 以建立網路安全性群組。
 
-最後一個步驟是將您的「網路安全性群組」與子網路或特定網路介面建立關聯。 讓我們將「網路安全性群組」與子網路建立關聯。 選取 [子網路]，然後選擇 [關聯]：
+## <a name="create-an-inbound-security-rule"></a>建立輸入安全性規則
 
-![將網路安全性群組與子網路建立關聯](./media/nsg-quickstart-portal/associate-subnet.png)
+1. 選取您的新網路安全性群組。 
 
-選取您的虛擬網路，然後選取適當的子網路：
+2. 選取 [輸入安全性規則]，然後選取 [新增]。
 
-![將網路安全性群組與虛擬網路功能建立關聯](./media/nsg-quickstart-portal/select-vnet-subnet.png)
+    ![新增輸入規則](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-您現在已建立「網路安全性群組」、已建立允許連接埠 80 上流量的輸入規則，並且已將它與子網路建立關聯。 透過連接埠 80 可連線到您連接到該子網路的所有 VM。
+3. 選取 [進階]。 
 
-## <a name="more-information-on-network-security-groups"></a>網路安全性群組的詳細資訊
-這裡的快速命令可讓您使流向您 VM 的流量開始正常運作。 「網路安全性群組」提供許多絕佳的功能和細微性來控制對您資源的存取。 您可以深入了解 [建立網路安全性群組和 ACL 規則](../../virtual-network/tutorial-filter-network-traffic.md)。
+4. 從下拉式功能表中選擇常見的**服務**，例如 **HTTP**。 如果要以提供特定連接埠供使用者使用，您也可以選取 [自訂]。 
 
-針對高可用性 Web 應用程式，您應該將 VM 放在 Azure Load Balancer 後方。 此負載平衡器會將流量分散到所有 VM，並具有提供流量篩選的網路安全性群組。 如需詳細資訊，請參閱[如何平衡 Azure 中 Linux 虛擬機器的負載以建立高可用性應用程式](tutorial-load-balancer.md)。
+5. 選擇性地變更 [優先順序] 或 [名稱]。 優先順序會影響規則的套用順序，數值越低的規則越早套用。
+
+6. 選取 [新增] 以建立規則。
+
+## <a name="associate-your-network-security-group-with-a-subnet"></a>將「網路安全性群組」與子網路建立關聯
+
+最後一個步驟是將您的網路安全性群組與子網路或特定網路介面建立關聯。 對於此範例，我們會將網路安全性群組與子網路建立關聯。 
+
+1. 選取 [子網路]，然後選取 [建立關聯]。
+
+    ![將網路安全性群組與子網路建立關聯](./media/nsg-quickstart-portal/associate-subnet.png)
+
+2. 選取您的虛擬網路，然後選取適當的子網路。
+
+    ![將網路安全性群組與虛擬網路功能建立關聯](./media/nsg-quickstart-portal/select-vnet-subnet.png)
+
+    透過連接埠 80 可連線到您連接到該子網路的所有 VM。
+
+## <a name="additional-information"></a>其他資訊
+
+您也可以[使用 Azure PowerShell 執行本文中的步驟](nsg-quickstart-powershell.md)。
+
+本文中所述的命令可讓您快速取得傳輸到 VM 的流量。 「網路安全性群組」針對控制對您資源的存取，提供許多絕佳的功能和細微性。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../../virtual-network/tutorial-filter-network-traffic.md)。
+
+如需高可用性 Web 應用程式，請考慮將您的 VM 置於 Azure Load Balancer 後方。 負載平衡器會將流量分散到所有 VM，且有提供流量篩選的網路安全性群組。 如需詳細資訊，請參閱[如何平衡 Azure 中 Windows 虛擬機器的負載以建立高可用性應用程式](tutorial-load-balancer.md)。
 
 ## <a name="next-steps"></a>後續步驟
-在此範例中，您建立了簡單的規則來允許 HTTP 流量。 您可以從下列文章中，找到有關建立更詳細環境的資訊︰
+在本文中，您會建立網路安全性群組、建立允許連接埠 80 上 HTTP 流量的輸入規則，然後將該規則與子網路建立關聯。 
 
-* [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)
-* [什麼是網路安全性群組？](../../virtual-network/security-overview.md)
+您可以從下列文章中，找到有關建立更詳細環境的資訊︰
+- [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)
+- [安全性群組](../../virtual-network/security-overview.md)

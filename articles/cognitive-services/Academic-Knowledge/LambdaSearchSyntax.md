@@ -1,20 +1,21 @@
 ---
-title: 學術知識 API 中的 Lambda 搜尋語法 | Microsoft Docs
-description: 了解您可以在 Microsoft 認知服務的學術知識 API 中使用的 Lambda 搜尋語法。
+title: Lambda 搜尋語法 - 學術知識 API
+titlesuffix: Azure Cognitive Services
+description: 了解您可以在學術知識 API 中使用的 Lambda 搜尋語法。
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f486368e1d0258087091acb846a84b125712db40
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367907"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902683"
 ---
 # <a name="lambda-search-syntax"></a>Lambda 搜尋語法
 

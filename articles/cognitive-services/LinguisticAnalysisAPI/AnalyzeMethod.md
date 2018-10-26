@@ -1,22 +1,27 @@
 ---
-title: 分析語言分析 API 中的方法 | Microsoft Docs
+title: 分析方法 - 語言分析 API
+titlesuffix: Azure Cognitive Services
 description: 如何使用語言分析 API 中的分析方法，來分析某些自然語言輸入。
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
-ms.openlocfilehash: b17a00f31845bfa05572dff7ca94e9a1ffd69586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368078"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239297"
 ---
 # <a name="analyze-method"></a>分析方法
+
+> [!IMPORTANT]
+> 語言分析預覽已在 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
 
 **分析** REST API 可用來分析指定的自然語言輸入。
 分析時可能涉及只尋找該輸入內的[句子和 Token](Sentences-and-Tokens.md)、尋找[詞性標記](POS-tagging.md)，或尋找[組成單位樹狀結構](Constituency-Parsing.md)。
@@ -33,19 +38,19 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>要求參數
 
-Name | 類型 | 必要 | 說明
+名稱 | 類型 | 必要 | 說明
 -----|-------|----------|------------
-**language**    | 字串 | yes | 要用於分析的雙字母 ISO 語言代碼。 例如，英文是 "en"。
-**analyzerIds** | 字串的清單 | yes | 要套用的分析器 GUID 清單。 如需詳細資訊，請參閱分析器文件。
-**text**        | 字串 | yes | 要分析的原始輸入。 這可能是簡短字串 (例如，字組或片語)、完整句子，或完整的段落或語篇。
+**language**    | 字串 | 是 | 要用於分析的雙字母 ISO 語言代碼。 例如，英文是 "en"。
+**analyzerIds** | 字串的清單 | 是 | 要套用的分析器 GUID 清單。 如需詳細資訊，請參閱分析器文件。
+**text**        | 字串 | 是 | 要分析的原始輸入。 這可能是簡短字串 (例如，字組或片語)、完整句子，或完整的段落或語篇。
 
-<br>
 ## <a name="response-json"></a>回應 (JSON)
+
 分析輸出的陣列，要求中指定的每個屬性各有一個分析輸出。
 
 結果外觀如下：
 
-Name | 類型 | 說明
+名稱 | 類型 | 說明
 -----|------|--------------
 analyzerId | 字串 | 所指定分析器的 GUID
 結果 | 物件 | 分析器結果
@@ -54,7 +59,7 @@ analyzerId | 字串 | 所指定分析器的 GUID
 
 ### <a name="tokens-response-json"></a>Tokens 回應 (JSON)
 
-Name | 類型 | 說明
+名稱 | 類型 | 說明
 -----|------|-------------
 結果 | 句子物件的清單 | 在文字中識別的句子界限 |
 result[x].Offset | int | 每個句子的起始字元位移 |
@@ -65,7 +70,7 @@ result[x].Tokens[y].Len | int | Token 的長度 (以字元為單位) |
 result[x].Tokens[y].RawToken | 字串 | 在標準化之前，該 Token 內的字元 |
 result[x].Tokens[y].NormalizedToken | 字串 | 字元的標準化形式，可於[剖析樹狀結構](Constituency-Parsing.md)中安全使用；例如，左括號字元 '(' 會變成 '-LRB-' |
 
-輸入範例：`This is a test. Hello.' Hello.'
+輸入範例：`This is a test. Hello.'
 範例 JSON 回應：
 ```json
 [
@@ -138,8 +143,6 @@ result[x].Tokens[y].NormalizedToken | 字串 | 字元的標準化形式，可於
 結果是字串的清單，在輸入中所找到的每個句子各有一個剖析樹狀結構。
 剖析樹狀結構會以括號括住的形式來表示。
 
-<br>
-
 ## <a name="example"></a>範例
 
 `POST /analyze`
@@ -151,7 +154,7 @@ result[x].Tokens[y].NormalizedToken | 字串 | 字元的標準化形式，可於
   "analyzerIds": [
     "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "22A6B758-420F-4745-8A3C-46835A67C0D2" ],
-  "text": "Hi, Tom! How are you today?" 
+  "text": "Hi, Tom! How are you today?"
 }
 ```
 
@@ -159,13 +162,12 @@ result[x].Tokens[y].NormalizedToken | 字串 | 字元的標準化形式，可於
 ```json
 [
   {
-    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04", 
+    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "result": [ ["NNP",",","NNP","."], ["WRB","VBP","PRP","NN","."] ]
   },
   {
-    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2", 
+    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2",
     "result":["(TOP (S (NNP Hi) (, ,) (NNP Tom) (. !)))","(TOP (SBARQ (WHADVP (WRB How)) (SQ (VP (VBP are)) (NP (PRP you)) (NN today) (. ?))))"]
   }
 ]
 ```
-

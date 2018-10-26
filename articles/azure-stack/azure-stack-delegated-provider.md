@@ -3,7 +3,7 @@ title: 在 Azure Stack 中委派供應項目 | Microsoft Docs
 description: 了解如何讓其他人負責建立供應項目和為您註冊使用者。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 77819c5592fe8b61ed4e3fcb5f874fc0bf5ca602
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946513"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077979"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>在 Azure Stack 中委派供應項目
 
@@ -113,7 +113,7 @@ ms.locfileid: "41946513"
 
 以委派的提供者身分登入使用者入口網站，然後使用委派的供應項目作為範本來建立新的供應項目。
 
-1. 選取 [新增] > [租用戶供應項目 + 方案] > [供應項目]。
+1. 選取 [+ 建立資源] > [租用戶供應項目 + 方案] > [供應項目]。
 
     ![建立新的供應項目](media/azure-stack-delegated-provider/image5.png)
 
@@ -128,7 +128,7 @@ ms.locfileid: "41946513"
 
 4. 現在只有透過委派的入口網站，才能顯示公開的已委派供應項目。 若要尋找並變更此 URL：
 
-    a.  選取 [瀏覽] > [更多服務] > [訂用帳戶]。 然後選取「委派的提供者訂用帳戶」。 例如，[DPSubscription] > [屬性]。
+    a.  選取 [瀏覽] > [所有服務]，然後在 [一般] 類別底下選取 [訂用帳戶]。 選取委派的提供者訂用帳戶。 例如，[DPSubscription] > [屬性]。
 
     b.  將入口網站 URL 複製到不同的位置，例如：記事本。
 

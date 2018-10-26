@@ -1,21 +1,21 @@
 ---
-title: Bing 自訂搜尋：使用裝飾標記醒目提示文字 | Microsoft Docs
+title: 使用裝飾標記醒目提示文字 - Bing 自訂搜尋
+titlesuffix: Azure Cognitive Services
 description: 示範如何啟用搜尋回應中的文字裝飾。
 services: cognitive-services
 author: brapel
-manager: ehansen
-ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: d2d0070865aa29257ac827bbb4fc313d87ea7282
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d76cf61f7d7073850c530e6b937bd6503fac68d1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367991"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815285"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>使用裝飾標記醒目提示文字
 

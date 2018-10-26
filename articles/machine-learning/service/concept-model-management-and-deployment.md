@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Machine Learning 中管理和部署模型
-description: 了解如何使用 Azure Machine Learning 部署、管理和監視模型，以持續予以改善。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning 所訓練的模型。
+title: 在 Azure Machine Learning Service 中管理和部署模型
+description: 了解如何使用 Azure Machine Learning Service 來部署、管理及監視模型，以持續改善這些模型。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning Service 來定型的模型。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,21 +9,21 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166532"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885062"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 管理、部署和監視模型
+# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning Service 來管理、部署及監視模型
 
-在本文中，您可以了解如何使用 Azure Machine Learning 部署、管理和監視模型，以持續予以改善。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning 所訓練的模型。 
+在本文中，您會了解如何使用 Azure Machine Learning Service 來部署、管理及監視模型，以持續改善這些模型。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning 所訓練的模型。 
 
 下圖說明完整部署工作流程：[![Azure Machine Learning 的部署工作流程](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 部署工作流程包含下列步驟：
-1. 在裝載於 Azure Machine Learning 工作區的登錄中**註冊模型**
+1. 在 Azure Machine Learning Service 工作區所裝載的登錄中**註冊模型**
 1. **註冊映像**，以將具有評分指令碼之模型與可攜式容器中的相依性配對 
 1. **部署**映像為雲端或邊緣裝置中的 Web 服務
 1. **監視和收集資料**
@@ -35,7 +35,7 @@ ms.locfileid: "47166532"
 
 ## <a name="step-1-register-model"></a>步驟 1：註冊模型
 
-模型登錄可記錄您 Azure Machine Learning 工作區中的所有模型。
+模型登錄會記錄您 Azure Machine Learning Service 工作區中的所有模型。
 模型是透過名稱與版本來識別的。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 您也可以在可於搜尋模型時使用的註冊期間提供額外中繼資料標記。
 
 您無法刪除映像正在使用的模型。
@@ -71,7 +71,7 @@ Web 服務部署亦為可搜尋。 例如，您可以搜尋特定模型或映像
 * Azure FPGA 電腦
 * Azure IoT Edge 裝置
 
-部署您的服務時，會自動負載平衡推斷要求，而且會縮放叢集以符合任何隨需的爆增。 [您服務的遙測](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py)可以擷取到與您工作區建立關聯的 Azure Application Insights 服務。
+部署您的服務時，會自動負載平衡推斷要求，而且會縮放叢集以符合任何隨需的爆增。 [您服務的相關遙測可被擷取](how-to-enable-app-insights.md)到與您工作區相關的 Azure Application Insights 服務。
 
 ## <a name="step-4-monitor-models-and-collect-data"></a>步驟 4：監視模型並收集資料
 

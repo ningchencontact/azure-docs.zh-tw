@@ -6,18 +6,19 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc07d0e7aff2bf9263d89dffccc47ba806ff0fd1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307603"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804203"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
+
 Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VIP 是從公用 IP 位址集區配置的。 針對每個 VIP，都會藉由軟體定義網路層中的存取控制清單 (ACL) 來提供保護。 ACL 也用於各個實體交換器 (TOR 和 BMC) 來進一步強化解決方案。 系統會針對在部署階段所指定外部 DNS 區域中的每個端點，都建立一個 DNS 項目。
 
 
@@ -31,20 +32,21 @@ Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VI
 
 此處並未列出內部基礎結構 VIP，因為它們並非發佈 Azure Stack 所需的 VIP。
 
-> [!NOTE]
+> [!Note]  
 > 使用者 VIP 是動態的，由使用者自己定義，並不受 Azure Stack 操作員控制。
-
 
 |端點 (VIP)|DNS 主機 A 記錄|通訊協定|連接埠|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |入口網站 (系統管理員)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
 |Azure Resource Manager (系統管理員)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |入口網站 (使用者)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (使用者)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |圖形|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |憑證撤銷清單|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 和 UDP|53|
+|裝載 | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
 |Key Vault (使用者)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Key Vault (系統管理員)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |儲存體佇列|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
@@ -63,6 +65,8 @@ Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VI
 
 Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上行連結至傳統 Proxy 伺服器的部署中，您必須允許下列連接埠和 URL 才能進行連出通訊：
 
+> [!Note]  
+> Azure Stack 不支援使用 Express Route 連線到下表中列出的 Azure 服務。
 
 |目的|URL|通訊協定|連接埠|
 |---------|---------|---------|---------|
@@ -74,6 +78,7 @@ Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上�
 |Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|     |UDP|123|
 |DNS|     |TCP<br>UDP|53|
+|CRL|     |HTTPS|443|
 |     |     |     |     |
 
 > [!Note]  

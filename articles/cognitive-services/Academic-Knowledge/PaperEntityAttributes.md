@@ -1,20 +1,21 @@
 ---
-title: 學術知識 API 中的論文實體屬性 | Microsoft Docs
-description: 了解您可以在認知服務的學術知識 API 中搭配論文實體使用的屬性。
+title: 論文實體屬性 - 學術知識 API
+titlesuffix: Azure Cognitive Services
+description: 了解您可以在學術知識 API 中搭配論文實體使用的屬性。
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 75efba2c2ce8842f233f766876ca00844338fb25
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c1f97896a8c3264fca0e76a0800731b8c6c85267
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094706"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901596"
 ---
 # <a name="paper-entity"></a>論文實體
 

@@ -1,22 +1,27 @@
 ---
-title: 語言分析 API 中的組成單位剖析 | Microsoft Docs
+title: 組成單位剖析 - 語言分析 API
+titlesuffix: Azure Cognitive Services
 description: 了解組成單位剖析 (也稱為「片語結構剖析」) 如何識別文字中的片語。
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: bff5e587621e1278c260d555aec280a0f4c7c8a1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082167"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238619"
 ---
 # <a name="constituency-parsing"></a>組成單位剖析
+
+> [!IMPORTANT]
+> 語言分析預覽已在 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
 
 組成單位剖析 (也稱為「片語結構剖析」) 的目標是要識別文字中的片語。
 這對於從文字中擷取資訊很有幫助。

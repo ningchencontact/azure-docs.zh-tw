@@ -1,20 +1,21 @@
 ---
-title: 設定適用於聲場的 Azure 帳戶 - 認知服務
+title: 設定 Project Acoustics 的 Azure 帳戶
+titlesuffix: Azure Cognitive Services
 description: 請依照本指南設定與聲場搭配運作所需的 Azure Batch 和「儲存體」帳戶。
 services: cognitive-services
 author: ashtat
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: d5e78df2cb17e8275aef3694dda90a705ef4bdaa
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 05f7c435ca61930da6270c54e71c784f1b7aebcc
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181908"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900611"
 ---
 # <a name="create-an-azure-batch-account"></a>建立 Azure Batch 帳戶
 請依照本指南設定與聲場搭配運作所需的 Azure Batch 和「儲存體」帳戶。 如需有關隨 Project Acoustics 一起開發之 Unity 外掛程式的資訊，請參閱[什麼是聲場](what-is-acoustics.md)。 如需有關如何將聲場合併到您 Unity 專案中的資訊，請參閱[使用者入門](getting-started.md)。  

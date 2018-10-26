@@ -1,20 +1,21 @@
 ---
-title: 開始使用 Project Acoustics - 認知服務
+title: 開始使用 Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: 此快速入門指南會說明如何在您的 Unity 專案中整合外掛程式、製作場景，以及將聲場套用至聲音來源。
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b80543b199d4b766c1a8800d2dff4cf5ed81f8cc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 62b6b40e6289ccca92c0a92d8bb7d0489dd44246
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181925"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902938"
 ---
 # <a name="getting-started-with-project-acoustics"></a>開始使用 Project Acoustics
 此快速入門指南會說明如何在您的 Unity 專案中整合外掛程式、製作場景，以及將聲場套用至聲音來源。 針對此快速入門，您將必須先建立一個 [Azure Batch 帳戶](create-azure-account.md)。 本指南假設您已熟悉 Unity。
@@ -93,9 +94,9 @@ ms.locfileid: "40181925"
 ![音訊來源](media/AudioSource.png)
 
 ## <a name="apply-post-bake-design"></a>套用製作後設計
-您可以按一下 [Add Component] \(新增元件\)，然後選擇 [Scripts] \(指令碼\) > [Acoustics Source Customization] \(聲場來源自訂\)，將 **AcousticsSourceCustomization** 指令碼附加至您場景中的聲音來源，以啟用額外的來源設計參數：
+您可以按一下 [新增元件]，然後選擇 [指令碼] > [Acoustics Adjust]，將 **AcousticsAdjust** 指令碼附加至您場景中的聲音來源，以啟用額外的來源設計參數：
 
-![來源自訂](media/SourceCustomization.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
 [Microsoft Acoustics Mixer] \(Microsoft Acoustics 混音器\) 上也有參數。 如需有關製作後設計的詳細資訊，請參閱[設計參數](design-process.md)。
 

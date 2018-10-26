@@ -1,6 +1,6 @@
 ---
-title: 資料科學虛擬機器的範例和逐步介紹 - Azure | Microsoft Docs
-description: 資料科學虛擬機器的範例和逐步介紹。
+title: 資料科學虛擬機器的範例和逐步解說 - Azure | Microsoft Docs
+description: 資料科學虛擬機器的範例和逐步解說。
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
@@ -15,47 +15,47 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: a1f15b805d2f27152d9ba85608ce0dc1d1aac21e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 74d5893a377fb67dbec7b185525e74ac248deede
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392560"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902751"
 ---
-# <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>資料科學虛擬機器 (DSVM) 上的範本
+# <a name="samples-on-data-science-virtual-machines"></a>資料科學虛擬機器上的範例
 
-DSVM 包含一組完整的範例程式碼，其格式除了 Jupyter Notebook，還有以 Python 和 R 等語言撰寫的指令碼。    
+「Azure 資料科學虛擬機器」包含一組完整的範例程式碼。 範例程式碼採用以 Python 和 R 這類語言撰寫的 Jupyter Notebook 及指令碼形式。 
 > [!NOTE]
-> 如需在 DSVM 上執行 Jupyter Notebook 的詳細資訊，請參閱[存取 Jupyter](#access-jupyter) 一節。
+> 如需有關如何在資料科學虛擬機器上執行 Jupyter Notebook 的詳細資訊，請參閱[存取 Jupyter](#access-jupyter) 一節。
 
 ## <a name="quick-reference-of-samples"></a>範例的快速參考
 | 範例類別 | 說明 | 位置 |
 | ------------- | ------------- | ------------- |
-| **R** 語言  | **R** 中的範例說明的情況包括連接 Azure 雲端資料庫存放區、比較開放原始碼 R 與 Microsoft R，以及在 Microsoft R Server 或 SQL Server 上運用模型。 <br/> [螢幕擷取畫面](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
-| **Python** 語言  | **Python** 中的範例說明的情況包括連接 Azure 雲端資料存放區，以及使用 **Azure Machine Learning**。  <br/> [螢幕擷取畫面](#python-language) | <br/>`~notebooks` <br/><br/>|
-| **Julia** 語言  | **Julia** 中的範例詳細說明 Julia 中的繪圖、Julia 中的深入學習、從 Julia 呼叫 C 和 Python 等等。 <br/> [螢幕擷取畫面](#julia-language) |<br/> **Windows**：<br/> `~notebooks/Julia_notebooks`<br/><br/> **Linux**：<br/> `~notebooks/julia`<br/><br/> |
-| **Azure Machine Learning** AzureML  | 使用 **Azure Machine Learning** 服務建置 ML 和深度學習模型，並在任何地方部署模型。 利用自動化 ML、智慧型超參數微調、模型管理和分散式定型等功能。 <br/> [螢幕擷取畫面](#azureml) | <br/>`~notebooks/AzureML`<br/> <br/>|
-| **PyTorch** Notebook  | 運用 **PyTorch** 型類神經網路的深度學習範例。 有從初學者到進階案例的各種不同 Notebook。  <br/> [螢幕擷取畫面](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
-| **TensorFlow**  | 使用 **TensorFlow** 架構實作的多個不同神經網路範例和技術。 <br/> [螢幕擷取畫面](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| **CNTK** <br/> (Microsoft 辨識工具組)  | Microsoft 的辨識工具組小組發佈的深入學習範例。  <br/> [螢幕擷取畫面](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> **Linux**：<br/> `~notebooks/CNTK`<br/> <br/>|
-| **caffe2** | 運用 **caffe2** 型神經網路的深入學習範例。 有一些 Notebook 的設計是讓使用者熟悉 caffe2 以及如何有效使用它，包括映像預先處理、資料集建立、迴歸和使用預先定型的模型之類的範例。 <br/> [螢幕擷取畫面](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
-| **H2O**   | 使用 **H2O** 的 Python 架構範例處理許多真實案例問題。 <br/> [螢幕擷取畫面](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
-| **SparkML** 語言  | 在 **Apache Spark 2.x** 上透過 **pySpark** 和 **MMLSpark (適用於 Apache Spark 的 Microsoft 機器學習)** 利用 Spark **MLlib** 工具組特色和功能的範例。  <br/> [螢幕擷取畫面](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
-| **XGBoost** | **XGBoost** 中對於分類、迴歸等案例的標準機器學習範例。 <br/> [螢幕擷取畫面](#xgboost) | <br/>**Windows**：<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
+| R 語言  | 以 R 撰寫的範例會說明如何與 Azure 雲端資料存放區連線之類的案例。 它們也說明如何比較開放原始碼 R 與 Microsoft R，以及說明如何在「Microsoft R 伺服器」或 SQL Server 上讓模型能夠運作。 <br/> [R 語言](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
+| Python 語言  | 以 Python 撰寫的範例會說明如何與 Azure 雲端資料存放區連線並使用 Azure Machine Learning 之類的案例。  <br/> [Python 語言](#python-language) | <br/>`~notebooks` <br/><br/>|
+| Julia 語言  | 以 Julia 撰寫的範例詳述如何以 Julia 繪圖及進行深度學習。 此外，也說明如何從 Julia 呼叫 C 和 Python。 <br/> [Julia 語言](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux：<br/> `~notebooks/julia`<br/><br/> |
+| Azure Machine Learning  | 使用 Machine Learning 來建置機器學習和深度學習模型。 在任何位置部署模型。 使用自動化機器學習服務和智慧型超參數調整。 此外，也使用模型管理和分散式定型。 <br/> [Machine Learning](#azureml) | <br/>`~notebooks/AzureML`<br/> <br/>|
+| PyTorch Notebook  | 運用 PyTorch 型類神經網路的深度學習範例。 Notebook 範圍涵蓋初學者到進階案例。  <br/> [PyTorch Notebook](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
+| TensorFlow  |  使用 TensorFlow 架構來實作的各種不同類神經網路範例和技術。 <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
+| Microsoft 辨識工具組 <br/>   | Microsoft 的辨識工具組小組發佈的深入學習範例。  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux：<br/> `~notebooks/CNTK`<br/> <br/>|
+| caffe2 | 運用 caffe2 型類神經網路的深度學習範例。 數個 Notebook 將可讓使用者熟悉 caffe2 及如何有效地使用它。 範例包括映像前處理和資料集建立。 此外，也包括迴歸及如何使用預先定型的模型。 <br/> [caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
+| H2O   | 運用 H2O 來處理許多真實案例問題的 Python 型範例。 <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
+| SparkML 語言  | 在 Apache Spark 2.x 上透過 pySpark 和 MMLSpark (適用於 Apache Spark 的 Microsoft Machine Learning) 利用 Spark MLlib 工具組功能的範例。  <br/> [SparkML 語言](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
+| XGBoost | 以 XGBoost 針對分類和迴歸等案例撰寫的標準機器學習範例。 <br/> [XGBoost](#xgboost) | <br/>Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
 
 <br/>
 
 ## <a name="access-jupyter"></a>存取 Jupyter 
 
-您可以按一下桌面或應用程式功能表上的 `Jupyter` 圖示存取 Jupyter。 您也可以在 Ubuntu 上瀏覽 **`https://<Full Domain Name or IP Address of the DSVM>:8000`**，從網頁瀏覽器遠端存取 DSVM Linux 版本上的 Jupyter。
+若要存取 Jupyter，請選取桌面或應用程式功能表上的 `Jupyter` 圖示。 您也可以在 Linux 版本的「資料科學虛擬機器」上存取 Jupyter。 您可以在 Ubuntu 上從網頁瀏覽器瀏覽 `https://<Full Domain Name or IP Address of the DSVM>:8000` 來進行遠端存取。
 
-查看螢幕擷取畫面以新增例外狀況，並透過瀏覽器啟用 Jupyter 存取。
-
-
-![啟用 Jupyter 例外狀況](./media/ubuntu-jupyter-exception.png)
+若要新增例外並允許透過瀏覽器存取 Jupyter，請參閱下列螢幕擷取畫面。
 
 
-使用登入 DSVM 所用的同一組密碼登入。
+![啟用 Jupyter 例外](./media/ubuntu-jupyter-exception.png)
+
+
+使用與「資料科學虛擬機器」登入相同的密碼來進行登入。
 <br/>
 
 **Jupyter 首頁**

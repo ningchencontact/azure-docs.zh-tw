@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036951"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830985"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>使用片語清單來提升字組清單訊號
 
@@ -46,7 +46,7 @@ ms.locfileid: "47036951"
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> 您可以從每個片語清單的資料列結尾處的省略符號 (***...***) 按鈕，編輯、刪除或停用片語清單。
+> 您可以從 [片語清單] 頁面上的關聯式工具列刪除或停用片語清單。
 
 ## <a name="pattern-regular-expression-feature"></a>模式 (規則運算式) 功能 
 **此功能已被取代**。 新的模式功能無法新增到 LUIS。 任何現有的模式功能均支援到 2018 年 5 月為止。 將與 PR 進行比對的標準 LUIS 規則運算式提供給 [Recognizers-Text Github 存放庫](https://github.com/Microsoft/Recognizers-Text) \(英文\)。 

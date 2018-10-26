@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d361b4165c1fbbf79321e3f6d2ade711f9173c56
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440146"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267210"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>如何跨容錯網域，在 Azure Stack 上轉散發 Azure App Service
 
@@ -48,8 +48,8 @@ ms.locfileid: "39440146"
 若要相應放大擴展集，請遵循下列步驟：
 
 1. 登入 Azure Stack 系統管理員入口網站。
-1. 選取 [更多服務]。
-1. 在 [計算] 下選取 [虛擬機器擴展集]。 部署為 App Service 部署一部分的現有擴展集會與執行個體計數資訊一起列出。 下列螢幕擷取畫面顯示擴展集範例。
+1. 選取 [所有服務]。
+2. 在 [計算] 類別中，選取 [虛擬機器擴展集]。 部署為 App Service 部署一部分的現有擴展集會與執行個體計數資訊一起列出。 下列螢幕擷取畫面顯示擴展集範例。
 
       ![列在虛擬機器擴展集 UX 中的 Azure App Service 擴展集][1]
 

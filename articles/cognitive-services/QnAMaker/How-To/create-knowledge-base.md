@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 274c2289c75f44c5a1c8dd3799612a23f46a6d67
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c9d36014bc364d8b016221e6b9ff380b0bd4b8ed
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037689"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854162"
 ---
 # <a name="create-a-knowledge-base"></a>建立知識庫
 
@@ -28,9 +28,7 @@ ms.locfileid: "47037689"
 
 ## <a name="steps"></a>步驟
 
-1. 使用您的 Azure 認證登入 [QnA Maker 入口網站](https://qnamaker.ai)，然後選取 [建立新的服務]。
-
-    ![建立知識庫 ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+1. 使用您的 Azure 認證登入 [QnA Maker 入口網站](https://qnamaker.ai)，然後選取 [建立新的知識庫]。
 
 2. 如果您尚未建立 QnA Maker 服務，請選取 [建立 QnA 服務]。 
 

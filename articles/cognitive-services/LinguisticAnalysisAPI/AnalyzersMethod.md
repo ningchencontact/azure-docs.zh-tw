@@ -1,22 +1,27 @@
 ---
-title: 語言分析 API 中的分析器方法 | Microsoft Docs
-description: 分析器 REST API 提供 Microsoft 認知服務中的服務目前支援的分析器清單。
+title: 分析器方法 - 語言分析 API
+titlesuffix: Azure Cognitive Services
+description: 分析器 REST API 提供語言分析 API 目前支援的分析器清單。
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
-ms.openlocfilehash: 3fc243a0da77c5bae9009929f2b82e1353347752
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762ebf50999a88251dcd05824f2ed450cec97f04
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367895"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237392"
 ---
 # <a name="analyzers-method"></a>分析器方法
+
+> [!IMPORTANT]
+> 語言分析預覽已在 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
 
 **分析器** REST API 提供服務目前支援的分析器清單。
 回應包含其[名稱](Analyzer-Names.md)和每個分析器所支援的語言 (例如"en"代表英文)。
@@ -27,7 +32,7 @@ None
 <br>
 
 ## <a name="response-parameters"></a>回應參數
-Name | 類型 | 說明
+名稱 | 類型 | 說明
 -----|------|--------------
 語言 | 字串的清單 | 可以使用此分析器的兩個字母 ISO 語言代碼清單。
 id   | 字串 | 此分析器的唯一識別碼
@@ -46,22 +51,22 @@ GET / 分析器
         "id": "22A6B758-420F-4745-8A3C-46835A67C0D2",
         "languages": ["en"],
         "kind": "Constituency_Tree",  
-        "specification": "PennTreebank3", 
+        "specification": "PennTreebank3",
         "implementation": "SplitMerge"
-    }, 
+    },
     {
         "id" : "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
         "languages": ["en"],
-        "kind": "POS_Tags", 
-        "specification": "PennTreebank3", 
+        "kind": "POS_Tags",
+        "specification": "PennTreebank3",
         "implementation": "cmm"
     },
     {
         "id" : "08EA174B-BFDB-4E64-987E-602F85DA7F72",
         "languages": ["en"],
-        "kind": "Tokens", 
-        "specification":"PennTreebank3", 
+        "kind": "Tokens",
+        "specification":"PennTreebank3",
         "implementation": "regexes"
-    } 
+    }
 ]
 ```

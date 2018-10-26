@@ -4,20 +4,20 @@ description: 範例
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
-ms.technology: Speech to Text
+ms.component: Speech
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f9a033ebf9cdfdb96ae8511b14202e49ec0a85e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981367"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884454"
 ---
 # <a name="batch-transcription"></a>批次轉譯
 
-如果您有大量音訊，則適合使用 Batch 轉譯。 您可以在非同步模式中指向音訊檔案並取回轉譯。
+如果您有大量音訊，則適合使用 Batch 轉譯。 您可以透過 URI 來指向音訊檔案，並在非同步模式中取回轉譯。
 
 ## <a name="batch-transcription-api"></a>批次轉譯 API
 
@@ -59,7 +59,7 @@ wav |  立體聲  |
 
 ## <a name="authorization-token"></a>授權權杖
 
-如同統一語音服務的所有功能，您可以從 [Azure 入口網站](https://portal.azure.com)依照我們的[快速入門指南](get-started.md)建立訂用帳戶金鑰。 如果您打算從我們的基準模型取得轉譯，就需要這樣做。 
+如同語音服務的所有功能，您可以從 [Azure 入口網站](https://portal.azure.com)依照我們的[快速入門指南](get-started.md)建立訂用帳戶金鑰。 如果您打算從我們的基準模型取得轉譯，就需要這樣做。 
 
 如果打算自訂並使用自訂模型，則需要將此訂用帳戶金鑰新增到自訂語音入口網站，如下所示：
 

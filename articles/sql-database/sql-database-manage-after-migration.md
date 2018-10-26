@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166481"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870973"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的資料庫
 
@@ -89,7 +89,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>如何限制或控制對我的資料庫的連線存取？
 有多個技術隨時可供您用來讓應用程式達到最佳連線能力。 
 - 防火牆規則
-- VNET 服務端點
+- VNet 服務端點
 - 保留的 IP
 
 #### <a name="firewall"></a>防火牆
@@ -98,11 +98,11 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 您可以在伺服器層級或資料庫層級建立防火牆規則。 可以透過入口網站或透過 SSMS 建立伺服器層級防火牆規則。 若要深入了解如何設定伺服器和資料庫層級防火牆規則，請參閱：[在 SQL Database 中建立防火牆規則](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)。
 
 #### <a name="service-endpoints"></a>服務端點
-根據預設，SQL 資料庫會設定為 [允許 Azure 服務存取伺服器]；這表示 Azure 中之任何虛擬機器都可以嘗試連線到您的資料庫。 這些嘗試仍需要取得驗證。 不過，如果您不想要資料庫可供任何 Azure IP 存取，則可以停用 [允許 Azure 服務存取伺服器]。 此外，您可以設定 [VNET 服務端點](sql-database-vnet-service-endpoint-rule-overview.md)。
+根據預設，SQL 資料庫會設定為 [允許 Azure 服務存取伺服器]；這表示 Azure 中之任何虛擬機器都可以嘗試連線到您的資料庫。 這些嘗試仍需要取得驗證。 不過，如果您不想要資料庫可供任何 Azure IP 存取，則可以停用 [允許 Azure 服務存取伺服器]。 此外，您可以設定 [VNet 服務端點](sql-database-vnet-service-endpoint-rule-overview.md)。
 
 服務端點 (SE) 可讓您僅對自己在 Azure 中的私人虛擬網路公開您的重要 Azure 資源。 如此一來，基本上可排除對您的資源的公用存取。 您的虛擬網路與 Azure 之間的流量會保持在 Azure 骨幹網路上。 若沒有 SE，則會強制執行通道封包路由。 您的虛擬網路會強制對您的組織的網際網路流量與 Azure 服務流量通過相同的路由。 利用服務端點，您可以將此最佳化，因為封包會直接從您的虛擬網路通往 Azure 骨幹網路上的服務。
 
-![VNET 服務端點](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![VNet 服務端點](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>保留的 IP
 另一個選項就是為您的 VM 佈建[保留的 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，並將伺服器防火牆設定中的特定 VM IP 位址列入允許清單。 藉由指派保留的 IP，即可免去必須以不斷變更的 IP 位址更新防火牆規則的麻煩。
@@ -220,7 +220,7 @@ SQL Database 符合各種法規規範。 若要檢視已符合的最新一組規
 
 此外，如果您發現資料庫整體效能降低，您可以監視 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 動態管理檢視，以便了解 CPU、IO 和記憶體耗用量。 您的效能可能受到影響，因為您的資料庫極需要資源。 您可能需要根據成長和縮減的工作負載需求來變更計算大小和/或服務層。 
 
-如需一組完整的調整效能問題相關建議，請參閱[微調資料庫](sql-database-performance-guidance.md#tune-your-database)。
+如需一組完整的調整效能問題相關建議，請參閱[調整資料庫](sql-database-performance-guidance.md#tune-your-database)。
 
 ### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>如何確保我使用適當的服務層和計算大小？
 SQL Database 提供三個服務層：基本、標準和進階。 在每個服務層，您會獲得與該服務層保證連結的可預測效能。 根據您的工作負載，您的活動可能會激增，此時的資源使用量可能到達目前所在計算大小上限。 在這種情況下，先從評估進行任何調整 (例如，新增或改變索引等) 是否有幫助很有用。 如果您仍然遇到限制問題，請考慮移到較高的服務層或計算大小。 
