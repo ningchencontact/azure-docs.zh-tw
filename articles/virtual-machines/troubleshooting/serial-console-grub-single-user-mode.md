@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
+ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
 ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857902"
+ms.locfileid: "48855862"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>使用序列主控台來存取 GRUB 與單一使用者模式
 GRUB 的全名是 GRand Unified Bootloader。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。
@@ -28,7 +28,7 @@ GRUB 的全名是 GRand Unified Bootloader。 從 GRUB，您可以修改開機�
 
 在您的 VM 可能只設定為接受 SSH 金鑰來登入的情況下，單一使用者模式也很實用。 在此案例中，您可以使用單一使用者模式來建立含密碼驗證的帳戶。
 
-若要進入單一使用者模式，您必須在 VM 開機時進入 GRUB，並修改 GRUB 中的開機設定。 您可以使用 VM 序列主控台來完成此動作。
+若要進入單一使用者模式，您必須在 VM 開機時進入 GRUB，並修改 GRUB 中的開機設定。 您可以使用 VM 序列主控台來完成此動作。 
 
 ## <a name="general-grub-access"></a>一般 GRUB 存取
 若要存取 GRUB，您必須將序列主控台維持開啟，並將 VM 重新開機。 某些發行版本需要鍵盤輸入才能顯示 GRUB，而其他發行版本將會自動顯示 GRUB 幾秒並允許使用者鍵盤輸入以取消逾時。 
@@ -48,6 +48,7 @@ GRUB 的全名是 GRand Unified Bootloader。 從 GRUB，您可以修改開機�
 1. 執行 `useradd <username>` 以新增使用者
 1. 執行 `sudo usermod -a -G sudo <username>` 以將 root 權限授與新使用者
 1. 使用 `passwd <username>` 來為新使用者設定密碼。 接著您將能以新使用者身分登入
+
 
 ## <a name="access-for-red-hat-enterprise-linux-rhel"></a>Red Hat Enterprise Linux (RHEL) 存取
 RHEL 會在無法正常開機時讓您進入單一使用者模式。 不過，若您尚未設定單一使用者模式的開機存取，您將不會有 root 密碼，而且將無法登入。 有一個因應措施 (請參閱下面的＜手動進入單一使用者模式＞)，但還是建議您一開始就設定 root 存取。
@@ -119,9 +120,9 @@ CentOS 預設會啟用 GRUB。 若要進入 GRUB，請使用 `sudo reboot` 將�
 Ubuntu 映像不需要 root 密碼。 如果系統開機進入單一使用者模式，您無須額外的認證即可存取。 
 
 ### <a name="grub-access-in-ubuntu"></a>Ubuntu 中的 GRUB 存取
-若要存取 GRUB，請在 VM 開機時長按 'Esc'。 
+若要存取 GRUB，請在 VM 開機時長按 'Esc'。
 
-根據預設，Ubuntu 映像將不會自動顯示 GRUB 畫面。 您可以依照下列指示來變更此行為：
+根據預設，Ubuntu 映像可能不會自動顯示 GRUB 畫面。 您可以依照下列指示來變更此行為：
 1. 在您慣用的文字編輯器中開啟 `/etc/default/grub.d/50-cloudimg-settings.cfg`
 1. 將 `GRUB_TIMEOUT` 值變更為非零值
 1. 在您慣用的文字編輯器中開啟 `/etc/default/grub`
@@ -184,7 +185,7 @@ Oracle Linux 預設會啟用 GRUB。 若要進入 GRUB，請使用 `sudo reboot`
 依照上述適用於 RHEL 的指示來在 Oracle Linux 中啟用單一使用者模式。
 
 ## <a name="next-steps"></a>後續步驟
-* 主要序列主控台 Linux 文件頁面在[這裡](serial-console.md)。
+* 主要序列主控台 Linux 文件頁面在[這裡](serial-console-linux.md)。
 * 適用於 [NMI 與 SysRq 呼叫](serial-console-nmi-sysrq.md)的序列主控台
-* 「序列主控台」也適用於 [Windows](../windows/serial-console.md) VM
+* 「序列主控台」也適用於 [Windows](serial-console-windows.md) VM
 * 深入了解[開機診斷](boot-diagnostics.md)

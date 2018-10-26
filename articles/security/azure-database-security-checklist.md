@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855930"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402502"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 資料庫安全性檢查清單
 
@@ -46,7 +46,7 @@ ms.locfileid: "48855930"
 |檢查清單類別| 說明|
 | ------------ | -------- |
 |**保護資料**||
-| <br> 移動/傳輸中加密| <ul><li>[傳輸層安全性](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol)，用於在資料移至網路時進行資料加密。</li><li>資料庫要求來自用戶端的安全通訊以透過 TLS (傳輸層安全性) 的 [TDS (表格式資料流)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) 通訊協定為基礎。</li></ul> |
+| <br> 移動/傳輸中加密| <ul><li>[傳輸層安全性](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol)，用於在資料移至網路時進行資料加密。</li><li>資料庫要求來自用戶端的安全通訊以透過 TLS (傳輸層安全性) 的 [TDS (表格式資料流)](https://msdn.microsoft.com/library/dd357628.aspx) 通訊協定為基礎。</li></ul> |
 |<br>待用加密| <ul><li>[透明資料加密](http://go.microsoft.com/fwlink/?LinkId=526242)，適用於非作用中資料實際以任何數位形式儲存時。</li></ul>|
 |**控制存取**||  
 |<br> 資料庫存取 | <ul><li>[驗證](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory 驗證) AD 驗證會使用由 Azure Active Directory 管理的身分識別。</li><li>[授權](https://docs.microsoft.com/azure/sql-database/sql-database-control-access)會授與使用者所需的最低權限。</li></ul> |
