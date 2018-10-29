@@ -333,7 +333,7 @@ ms.locfileid: "49466200"
 
 - 此元素必須符合 **ClaimsTransformation** 屬性 (會定義如何產生此宣告的資料) 中轉換項目的識別碼元素。
 
-**宣告類型：****JwtClaimType** 和 **SamlClaimType** 元素會定義此宣告結構描述項目是參考哪個宣告。
+**宣告類型：** **JwtClaimType** 和 **SamlClaimType** 元素會定義此宣告結構描述項目是參考哪個宣告。
 
 - JwtClaimType 必須包含要在 JWT 中發出的宣告名稱。
 - SamlClaimType 必須包含要在 SAML 權杖中發出的宣告 URI。
