@@ -15,13 +15,13 @@ ms.topic: quickstart
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
-ms.openlocfilehash: f1e363351cb214a80652aaef599a1306ad270e3f
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.component: ''
+ms.openlocfilehash: 84bf6bb3ed4d639851b110c6db7b8b5dc8c3f87f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480804"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404248"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>為混合式環境中的 Linux 電腦設定 Log Analytics 代理程式
 [Azure Log Analytics](log-analytics-overview.md) 可直接從資料中心或其他雲端環境內的實體或虛擬 Linux 電腦，將資料收集到單一存放庫，來進行詳細的分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Linux 電腦的資料。  針對 Azure Linux VM，請參閱下列主題[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  
@@ -37,7 +37,7 @@ ms.locfileid: "39480804"
 1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br><br> ![Azure 入口網站](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. 按一下 [建立]，然後選取下列項目的選項：
 
-  * 為新的 [OMS 工作區] 提供名稱，例如，*DefaultLAWorkspace*。 
+  * 為新的 [Log Analytics 工作區] 提供名稱，例如 DefaultLAWorkspace。 OMS 工作區現在稱為 Log Analytics 工作區。   
   * 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
   * 對於 [資源群組]，選取包含一或多個 Azure 虛擬機器的現有資源群組。  
   * 選取要部署 VM 的 [位置]。  如需詳細資訊，請查看 [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)。  
@@ -45,12 +45,14 @@ ms.locfileid: "39480804"
 
         ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
-3. 在 [OMS 工作區] 窗格上提供必要資訊之後，按一下 [確定]。  
+3. 在 [Log Analytics 工作區] 窗格上提供必要資訊之後，按一下 [確定]。  
 
 在驗證資訊及建立工作區時，您可以在功能表的 [通知] 底下追蹤其進度。 
 
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
-安裝 OMS Agent for Linux 之前，您需要 Log Analytics 工作區的工作區識別碼和索引鍵。  代理程式的包裝函式指令碼需要這項資訊，才能正確設定代理程式，並確定它能與 Log Analytics 順利進行通訊。  
+安裝適用於 Linux 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  代理程式的包裝函式指令碼需要這項資訊，才能正確設定代理程式，並確定它能與 Log Analytics 順利進行通訊。
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
 1. 在 Azure 入口網站中，按一下左上角的 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在 Log Analytics 工作區清單中，選取稍早建立的 *DefaultLAWorkspace*。
@@ -62,7 +64,7 @@ ms.locfileid: "39480804"
 下列步驟會設定 Azure 和 Azure Government 雲端中 Log Analytics 代理程式的安裝程式。  
 
 >[!NOTE]
->OMS agent for Linux 無法設定為回報多個 Log Analytics 工作區。  
+>適用於 Linux 的 Log Analytics 代理程式無法設定為回報多個 Log Analytics 工作區。  
 
 如果您的 Linux 電腦需要透過 Proxy 伺服器與 Log Analytics 通訊，您可以在命令列中加上 `-p [protocol://][user:password@]proxyhost[:port]` 藉以指定 Proxy 組態。  *proxyhost* 屬性接受 Proxy 伺服器的完整網域名稱或 IP 位址。 
 

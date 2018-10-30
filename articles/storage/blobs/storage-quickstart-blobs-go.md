@@ -6,14 +6,14 @@ author: seguler
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 10/23/2018
 ms.author: seguler
-ms.openlocfilehash: 93dc651767fc2be815fb706f71386ce72b382a37
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f0176b526bd2debae911f52d6fd364a87daabc1f
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981710"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986438"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>快速入門：使用 Go 上傳、下載及列出 Blob
 
@@ -23,9 +23,9 @@ ms.locfileid: "46981710"
 
 若要完成本快速入門： 
 * [安裝 Go 1.8 或更新版本](https://golang.org/dl/)
-* 使用 `go get -u github.com/Azure/azure-storage-blob-go/2016-05-31/azblob` 下載並安裝 [Azure Storage Blov SDK for Go](https://github.com/azure/azure-storage-blob-go/)。 
+* 使用 `go get -u github.com/Azure/azure-storage-blob-go/azblob` 下載並安裝 [Azure Storage Blov SDK for Go](https://github.com/azure/azure-storage-blob-go/)。 
 
-> [!WARNING]
+> [!NOTE]
 > 務必將 URL 中的 Azure 變成大寫。 使用 SDK 時，若未這麼做可能會造成與大小寫相關的匯入問題。 您也需要將 Import 陳述式中的 Azure 變成大寫。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -94,13 +94,13 @@ Press the enter key to delete the sample files, example container, and exit the 
 接下來，我們將透過範例程式碼來了解其運作方式。
 
 ### <a name="create-containerurl-and-bloburl-objects"></a>建立 ContainerURL 和 BlobURL 物件
-第一個動作就是建立用來存取和管理 Blob 儲存體的 ContainerURL 和 BlobURL 物件參考。 這些物件會提供低階 API (例如 Create、PutBlob 和 GetBlob) 以發出 REST API。
+第一個動作就是建立用來存取和管理 Blob 儲存體的 ContainerURL 和 BlobURL 物件參考。 這些物件會提供低階 API (例如 Create、Upload 和 Download) 以發出 REST API。
 
-* 使用 **SharedKeyCredential** 結構來儲存您的認證。 
+* 使用 [**SharedKeyCredential**](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob#SharedKeyCredential) 結構來儲存您的認證。 
 
-* 使用認證和選項建立 [管線]。 管線可指定下列項目：HTTP 回應承載的重試原則、記錄、還原序列化等等。  
+* 使用認證和選項建立[**管線**](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob#NewPipeline)。 管線可指定下列項目：HTTP 回應承載的重試原則、記錄、還原序列化等等。  
 
-* 將新的 ContainerURL 及新的 BlobURL 物件具現化，以在容器 (Create) 和 blob (PutBlob 和 GetBlob) 上執行作業。
+* 將新的 [**ContainerURL**](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob#ContainerURL) 及新的 [**BlobURL**](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob#BlobURL) 物件具現化，以在容器 (Create) 和 blob (Upload 和 Download) 上執行作業。
 
 
 一旦有了 ContainerURL，您就可以將 **BlobURL** 物件具現化，該物件會指向一個 Blob 並執行上傳、下載和複製等作業。
@@ -118,7 +118,10 @@ if len(accountName) == 0 || len(accountKey) == 0 {
 }
 
 // Create a default request pipeline using your storage account name and account key.
-credential := azblob.NewSharedKeyCredential(accountName, accountKey)
+credential, err := azblob.NewSharedKeyCredential(accountName, accountKey)
+if err != nil {
+    log.Fatal("Invalid credentials with error: " + err.Error())
+}
 p := azblob.NewPipeline(credential, azblob.PipelineOptions{})
 
 // Create a random string for the quick start container
@@ -135,33 +138,41 @@ containerURL := azblob.NewContainerURL(*URL, p)
 // Create the container
 fmt.Printf("Creating a container named %s\n", containerName)
 ctx := context.Background() // This example uses a never-expiring context
-_, err := containerURL.Create(ctx, azblob.Metadata{}, azblob.PublicAccessNone)
+_, err = containerURL.Create(ctx, azblob.Metadata{}, azblob.PublicAccessNone)
 handleErrors(err)
 ```
 ### <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
 
 Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 最常使用的是區塊 Blob，這也是本快速入門中所使用的。  
 
-若要將檔案上傳至 blob，請使用 **os.Open** 開啟檔案。 您可以接著使用其中一個 REST API，將此檔案上傳到指定的路徑：PutBlob、PutBlock/PutBlockList。 
+若要將檔案上傳至 blob，請使用 **os.Open** 開啟檔案。 您可以接著使用以下其中一個 REST API，將檔案上傳到指定的路徑：Upload (PutBlob)、StageBlock/CommitBlockList (PutBlock/PutBlockList)。 
 
-此外，SDK 還提供以低階 REST API 為基礎的 [高階 API](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go)。 例如，***UploadFileToBlockBlob*** 函式會使用 PutBlock 作業同時在多個區塊中上傳一個檔案，以達到最佳輸送量。 如果檔案小於 256 MB，它會改用 PutBlob 來完成在單一交易中傳輸。
+此外，SDK 還提供以低階 REST API 為基礎的 [高階 API](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go)。 例如，***UploadFileToBlockBlob*** 函式會使用 StageBlock (PutBlock) 作業同時在多個區塊中上傳一個檔案，以達到最佳輸送量。 如果檔案小於 256 MB，它會改用 Upload (PutBlob )來完成在單一交易中傳輸。
 
 下列範例會將檔案上傳到名為 **quickstartblobs-[randomstring]** 的容器。
 
 ```go
+// Create a file to test the upload and download.
+fmt.Printf("Creating a dummy file to test the upload and download\n")
+data := []byte("hello world this is a blob\n")
+fileName := randomString()
+err = ioutil.WriteFile(fileName, data, 0700)
+handleErrors(err)
+
 // Here's how to upload a blob.
 blobURL := containerURL.NewBlockBlobURL(fileName)
 file, err := os.Open(fileName)
 handleErrors(err)
 
-// You can use the low-level PutBlob API to upload files. Low-level APIs are simple wrappers for the Azure Storage REST APIs.
-// Note that PutBlob can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/rest/api/storageservices/put-blob
+// You can use the low-level Upload (PutBlob) API to upload files. Low-level APIs are simple wrappers for the Azure Storage REST APIs.
+// Note that Upload can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/en-us/rest/api/storageservices/put-blob
+// To upload more than 256MB, use StageBlock (PutBlock) and CommitBlockList (PutBlockList) functions. 
 // Following is commented out intentionally because we will instead use UploadFileToBlockBlob API to upload the blob
-// _, err = blobURL.PutBlob(ctx, file, azblob.BlobHTTPHeaders{}, azblob.Metadata{}, azblob.BlobAccessConditions{})
+// _, err = blobURL.Upload(ctx, file, azblob.BlobHTTPHeaders{ContentType: "text/plain"}, azblob.Metadata{}, azblob.BlobAccessConditions{})
 // handleErrors(err)
 
 // The high-level API UploadFileToBlockBlob function uploads blocks in parallel for optimal performance, and can handle large files as well.
-// This function calls PutBlock/PutBlockList for files larger 256 MBs, and calls PutBlob for any file smaller
+// This function calls StageBlock/CommitBlockList for files larger 256 MBs, and calls Upload for any file smaller
 fmt.Printf("Uploading the file with blob name: %s\n", fileName)
 _, err = azblob.UploadFileToBlockBlob(ctx, file, blobURL, azblob.UploadToBlockBlobOptions{
     BlockSize:   4 * 1024 * 1024,
@@ -174,10 +185,11 @@ handleErrors(err)
 在 **ContainerURL** 上使用 **ListBlobs** 方法，可取得容器中的檔案清單。 ListBlobs 會從指定的 **Marker** 開始傳回單一 blob 區段 (上限為 5000)。 使用空的 Marker，從頭開始列舉。 系統會依照詞典編纂順序傳回 blob 名稱。 取得區段之後，加以處理，然後再次呼叫 ListBlob 以傳遞先前傳回的 Marker。  
 
 ```go
-// List the blobs in the container
+// List the container that we have created above
+fmt.Println("Listing the blobs in the container:")
 for marker := (azblob.Marker{}); marker.NotDone(); {
     // Get a result segment starting with the blob indicated by the current Marker.
-    listBlob, err := containerURL.ListBlobs(ctx, marker, azblob.ListBlobsOptions{})
+    listBlob, err := containerURL.ListBlobsFlatSegment(ctx, marker, azblob.ListBlobsSegmentOptions{})
     handleErrors(err)
 
     // ListBlobs returns the start of the next segment; you MUST use this to get
@@ -185,22 +197,28 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
     marker = listBlob.NextMarker
 
     // Process the blobs returned in this result segment (if the segment is empty, the loop body won't execute)
-    for _, blobInfo := range listBlob.Blobs.Blob {
-        fmt.Print("Blob name: " + blobInfo.Name + "\n")
+    for _, blobInfo := range listBlob.Segment.BlobItems {
+        fmt.Print(" Blob name: " + blobInfo.Name + "\n")
     }
 }
 ```
 
 ### <a name="download-the-blob"></a>下載 blob
 
-在 BlobURL 上使用 **GetBlob** 低階方法來下載 blob。 或者，您可以建立一個資料流，並使用 [highlevel.go](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go) 中提供的 **NewDownloadStream** 高階 API 讀取其中的範圍。 NewDownloadStream 函式會在連線失敗時重試，然而 Get Blob API 只會在出現某些 HTTP 狀態碼 (例如 503 (Server Busy)) 時重試。 下列程式碼會使用 **NewDownloadStream** 函式來下載 Blob。 Blob 的內容會寫入緩衝區並顯示於主控台。
+在 BlobURL 上使用 **Download** 低階函式來下載 blob。 這會傳回 **DownloadResponse** 結構。 在結構上執行 **Body** 函式，以取得 **RetryReader** 串流來讀取資料。 如果讀取時連線失敗，此串流就會發出重新建立連線的要求，並繼續讀取。 若指定 MaxRetryRequests 設為 0 (預設值) 的 RetryReaderOption，則會傳回原始回應主體，而且不會執行重試。 或者，您可以使用高階 API **DownloadBlobToBuffer** 或 **DownloadBlobToFile** 來簡化程式碼。
+
+下列程式碼會使用 **Download** 函式來下載 Blob。 Blob 的內容會寫入緩衝區並顯示於主控台。
 
 ```go
-// Here's how to download the blob. NOTE: This method automatically retries if the connection fails
-// during download (the low-level GetBlob function does NOT retry errors when reading from its stream).
-stream := azblob.NewDownloadStream(ctx, blobURL.GetBlob, azblob.DownloadStreamOptions{})
-downloadedData := &bytes.Buffer{}
-_, err = downloadedData.ReadFrom(stream)
+// Here's how to download the blob
+downloadResponse, err := blobURL.Download(ctx, 0, azblob.CountToEnd, azblob.BlobAccessConditions{}, false)
+
+// NOTE: automatically retries are performed if the connection fails
+bodyStream := downloadResponse.Body(azblob.RetryReaderOptions{MaxRetryRequests: 20})
+
+// read the body into a buffer
+downloadedData := bytes.Buffer{}
+_, err = downloadedData.ReadFrom(bodyStream)
 handleErrors(err)
 ```
 
@@ -209,7 +227,7 @@ handleErrors(err)
 
 ```go
 // Cleaning up the quick start by deleting the container and the file created locally
-fmt.Printf("Press the enter key to delete the sample files, example container, and exit the application.\n")
+fmt.Printf("Press enter key to delete the sample files, example container, and exit the application.\n")
 bufio.NewReader(os.Stdin).ReadBytes('\n')
 fmt.Printf("Cleaning up.\n")
 containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
@@ -222,8 +240,8 @@ os.Remove(fileName)
 請參閱以下可供使用 Go 儲存體進行 PHP 開發的額外資源：
 
 - 檢視及安裝 GitHub 上適用於 Azure 儲存體的 [Go 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-blob-go)。
-- 探索使用 Go 用戶端程式庫所撰寫的 [Blob 儲存體範例](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples)。
+- 探索使用 Go 用戶端程式庫所撰寫的 [Blob 儲存體範例](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob#pkg-examples)。
 
 ## <a name="next-steps"></a>後續步驟
  
-在此快速入門中，您已了解如何使用 Go 在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 如需有關 Azure 儲存體 Blob SDK 的詳細資訊，請檢視[原始程式碼](https://github.com/Azure/azure-storage-blob-go/)和 [API 參考](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob)。
+在此快速入門中，您已了解如何使用 Go 在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 如需有關 Azure 儲存體 Blob SDK 的詳細資訊，請檢視[原始程式碼](https://github.com/Azure/azure-storage-blob-go/)和 [API 參考](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob)。

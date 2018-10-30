@@ -8,12 +8,12 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: b0db5e79ac3f52bfcd9c7791a843265a421ef1bf
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5ffbc52bf8a4b8dab298b3ed4895596480fbdccc
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903006"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426714"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
@@ -53,7 +53,7 @@ ms.locfileid: "48903006"
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱        |
     |**訂用帳戶**     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
     |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../../azure-resource-manager/resource-group-overview.md)。 |
-    |**位置**     | 選取 [美國西部 2]。 如需其他可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
+    |**位置**     | 選取 [美國西部 2]。 請自由選擇另一個公用區域，如果您想要的話。        |
     |定價層     |  選擇 [標準] 或 [進階]。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
 
     選取 [釘選到儀表板]，然後按一下 [建立]。

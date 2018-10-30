@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067426"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456502"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 區域之間容錯移轉及容錯回復 Azure VM
 
@@ -28,7 +28,8 @@ ms.locfileid: "49067426"
 > * 容錯回復次要 VM
 > * 將主要 VM 放回次要區域保護
 
-
+> [!NOTE]
+> 本教學課程旨在透過最少的自訂來逐步引導使用者對目標區域進行容錯移轉及容錯回復；如果您想要深入了解容錯移轉的各個相關層面，包括網路功能考量、自動化或疑難排解，請參閱 Azure VM 的「操作說明」文件。
 
 ## <a name="prerequisites"></a>必要條件
 

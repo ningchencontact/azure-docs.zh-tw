@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 C# 建置自訂視覺服務的 Windows 應用程式
+title: 教學課程：使用適用於 C# 的自訂視覺 SDK 建立影像分類專案
 titlesuffix: Azure Cognitive Services
 description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e046fe452a13384ae7929be805c6252d6ad2fbf9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366636"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953038"
 ---
-# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>教學課程：從 C# 應用程式使用自訂視覺服務
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-c"></a>教學課程：使用適用於 C# 的自訂視覺 SDK 建立影像分類專案
 
-了解如何從 C# 應用程式使用自訂視覺服務。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺服務 API，利用此開放原始碼範例作為範本，來建置您自己適用於 Windows 的應用程式。
+了解如何在 C# 應用程式中使用自訂視覺服務 SDK。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺服務 API，利用此開放原始碼範例作為範本，來建置您自己適用於 Windows 的應用程式。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -43,7 +43,7 @@ ms.locfileid: "46366636"
 
 在 Visual Studio 中，開啟位於 SDK 專案 `Samples/CustomVision.Sample/` 目錄的專案。
 
-此應用程式會使用您稍早擷取的定型金鑰，來建立名為 __My New Project__ 的新專案。 接著，它會上傳影像以便為分類器定型並進行測試。 分類器會識別樹是 __Hemlock__ 還是 __Japanese Cherry__。
+此應用程式會使用您稍早擷取的定型金鑰，來建立名為 __My New Project__ 的新專案。 然後上傳影像以便為分類器定型並加以測試。 分類器會識別樹是 __Hemlock__ 還是 __Japanese Cherry__。
 
 下列程式碼片段會實作此範例的主要功能：
 

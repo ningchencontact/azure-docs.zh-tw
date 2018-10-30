@@ -14,47 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 03cba90874d0f42e6c404009dc4115fb4f1798ed
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166271"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468070"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>開始使用 .NET Standard 中的事件處理器主機來接收訊息
+「事件中樞」是一種服務，可處理來自連接裝置和應用程式的大量事件資料 (遙測)。 收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。 此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網 (IoT)) 的重要元件。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
+
+本教學課程說明如何撰寫一個使用[事件處理器主機](event-hubs-event-processor-host.md)從事件中樞接收訊息的 .NET Core 主控台應用程式。 [事件處理器主機](event-hubs-event-processor-host.md)是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞的事件接收作業。 使用事件處理器主機，可讓您將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。 此範例說明單一接收者如何使用事件處理器主機。 [相應放大事件處理][使用事件中樞相應放大事件處理] 範例說明如何搭配使用事件處理器主機與多個接收者。
 
 > [!NOTE]
-> 您可在 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 上取得此範例。
-
-本教學課程說明如何撰寫 .NET Core 主控台應用程式，以使用**事件處理器主機**程式庫從事件中樞接收訊息。 您可以依現狀執行 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 解決方案，其中以您事件中樞和儲存體帳戶的值來取代字串。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
+> 您可以從 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 下載此快速入門來作為範例，並以您事件中樞的值取代 `EventHubConnectionString`和 `EventHubName`、`StorageAccountName`、`StorageAccountKey` 和 `StorageContainerName` 字串，然後執行。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 
 ## <a name="prerequisites"></a>必要條件
-
 * [Microsoft Visual Studio 2015 或 2017](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017，但也支援 Visual Studio 2015。
 * [.NET Core Visual Studio 2015 或 2017 工具](http://www.microsoft.com/net/core)。
-* Azure 訂用帳戶。
-* Azure 事件中樞命名空間和事件中樞。
-* 一個 Azure 儲存體帳戶。
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞  
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
+第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和「事件中樞」，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行本教學課程中的下列步驟。
 
-第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與事件中樞進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行本教學課程。  
-
-## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶  
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)。  
-2. 在入口網站的左側導覽窗格中，依序選取 [建立資源]、類別中的 [儲存體] 以及 [儲存體帳戶 - Blob、檔案、資料表、佇列]。  
-3. 完成 [建立儲存體帳戶] 視窗中的欄位，然後選取 [檢閱 + 建立]。 
-
-    ![建立儲存體帳戶][1]
-
-4. 在 [檢閱 + 建立] 頁面上檢閱欄位的值，然後選取 [建立]。 
-5. 在看到「部署成功」訊息之後，選取新儲存體帳戶的名稱。 
-6. 在 [基本資訊] 視窗中，選取 [Blob]。 
-7. 選取位於頂端的 [+ 容器]。 指定容器的名稱。  
-8. 選取左側視窗中的 [存取金鑰]，然後複製儲存體容器的名稱、儲存體帳戶及 **key1** 的值。 
-
-    將這些值儲存到記事本或一些其他暫存位置。
+[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
 ## <a name="create-a-console-application"></a>建立主控台應用程式
 
@@ -118,7 +100,7 @@ ms.locfileid: "49166271"
     }
     ```
 
-## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>撰寫使用 SimpleEventProcessor 類別來接收訊息的主要主控台方法
+## <a name="update-the-main-method-to-use-simpleeventprocessor"></a>使用 SimpleEventProcessor 更新 Main 方法
 
 1. 在 Program.cs 檔案開頭處加入 `using` 陳述式。
 
@@ -220,12 +202,11 @@ ms.locfileid: "49166271"
 
 恭喜！ 您現在已使用「事件處理器主機」從事件中樞接收訊息。
 
-## <a name="next-steps"></a>後續步驟
-您可以造訪下列連結以深入了解事件中樞︰
+> [!NOTE]
+> 本教學課程使用單一 [EventProcessorHost](event-hubs-event-processor-host.md)執行個體。 若要增加輸送量，建議您執行多個 [EventProcessorHost](event-hubs-event-processor-host.md) 執行個體 (如[相應放大事件處理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)範例所示)。 在這些情況下，多個執行個體會自動彼此協調，以對已接收的事件進行負載平衡。 
 
-* [事件中心概觀](event-hubs-what-is-event-hubs.md)
-* [建立事件中樞](event-hubs-create.md)
-* [事件中樞常見問題集](event-hubs-faq.md)
+## <a name="next-steps"></a>後續步驟
+在此快速入門中，您已建立可從事件中樞接收訊息的 .NET Standard 應用程式。 若要了解如何使用 .NET Standard 將事件傳送到事件中樞，請參閱[從事件中樞傳送事件 - .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)。
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

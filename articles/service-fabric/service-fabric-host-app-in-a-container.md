@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380126"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429587"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教學課程：將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
@@ -61,7 +61,9 @@ ms.locfileid: "44380126"
 ## <a name="create-an-azure-sql-db"></a>建立 Azure SQL 資料庫
 在生產環境中執行 Fabrikam Fiber CallCenter 應用程式時，資料必須保存在資料庫中。 目前無法保證資料能保存在容器中，因此請不要將 SQL Server 生產環境的資料儲存在容器中。
 
-建議使用 [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)。 若要在 Azure 中設定及執行受控 SQL Server 資料庫，執行下列指令碼。  視需要修改指令碼變數。 clientIP 是開發電腦的 IP 位址。  如果您在公司防火牆後方，開發電腦的 IP 位址可能是無法向網際網路公開的 IP 位址。  您也可以透過 [Azure 入口網站](https://portal.azure.com)設定 SQL Database 的伺服器防火牆規則，入口網站中會列出您的電腦 IP 位址。
+建議使用 [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)。 若要在 Azure 中設定及執行受控 SQL Server 資料庫，執行下列指令碼。  視需要修改指令碼變數。 clientIP 是開發電腦的 IP 位址。
+
+如果您在公司防火牆後方，開發電腦的 IP 位址可能是無法向網際網路公開的 IP 位址。 若要確認用於防火牆規則的資料庫 IP 位址是否正確，請前往 [Azure 入口網站](https://portal.azure.com)，並在 SQL Database 區段中尋找您的資料庫。 按一下其名稱，然後在 [概觀] 區段中按一下 [設定伺服器防火牆]。 「用戶端 IP 位址」是您開發機器的 IP 位址。 請確定它符合 "AllowClient" 規則中的 IP 位址。
 
 ```powershell
 $subscriptionID="<subscription ID>"

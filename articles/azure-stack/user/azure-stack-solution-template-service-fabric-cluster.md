@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804424"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946108"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
@@ -48,7 +48,7 @@ ms.locfileid: "48804424"
 
 
 ## <a name="add-a-secret-to-key-vault"></a>將祕密新增至 Key Vault
-若要部署 Service Fabric 叢集時，您必須為 Service Fabric 叢集指定正確的 KeyVault「祕密識別碼」或 URL。 Azure Resource Manager 範本會採用 KeyVault 作為輸入，接著在 Service Fabric 叢集的安裝期間擷取叢集憑證。 
+若要部署 Service Fabric 叢集時，您必須為 Service Fabric 叢集指定正確的 KeyVault「祕密識別碼」或 URL。 Azure Resource Manager 範本會使用 KeyVault 作為輸入。 接著，範本會在安裝 Service Fabric 叢集時擷取叢集憑證。
 
 > [!IMPORTANT]  
 > 您必須使用 PowerShell 將祕密新增至 KeyVault，以便搭配 Service Fabric 使用。 請勿使用入口網站。  
@@ -139,7 +139,7 @@ ms.locfileid: "48804424"
    - 來源金鑰保存庫：指定指令碼結果中的整個 keyVault id 字串。 
    - 叢集憑證 URL：指定指令碼結果中 Secret Id 中的整個 URL。 
    - 叢集憑證指紋：指定指令碼結果中的 Cluster Certificate Thumbprint。
-   - 管理用戶端憑證指紋：指定您在必要條件中建立的 [管理用戶端憑證指紋]。 
+   - 管理用戶端憑證指紋：指定在必要條件中建立的 [管理用戶端憑證指紋]。 
 
    ![指令碼輸出](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 

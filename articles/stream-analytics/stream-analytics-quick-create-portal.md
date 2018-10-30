@@ -4,17 +4,17 @@ description: 本快速入門會示範如何開始建立串流分析作業、設�
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 15f465bf2aaf7c8b3a4a49819548c8db0b2ea014
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902899"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958851"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立串流分析作業
 
@@ -34,7 +34,7 @@ ms.locfileid: "37902899"
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -147,6 +147,16 @@ ms.locfileid: "37902899"
 
    ![設定工作轉換](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
 
+## <a name="configure-late-arrival-policy"></a>設定延遲傳入原則
+
+1. 瀏覽至您先前建立的串流分析作業。
+
+2. 在 [設定] 下方，選取 [事件排序]。
+
+3. 將 [延遲抵達的事件] 設定為 20 天，然後選取 [儲存]。
+
+   ![設定延遲傳入原則](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
+
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>啟動串流分析工作並查看輸出
 
 1. 回到作業概觀頁面，然後選取 [啟動]。
@@ -169,7 +179,9 @@ ms.locfileid: "37902899"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已部署了簡單的串流分析作業。 若要了解如何設定其他輸入來源及執行即時偵測，請前往下列文章：
+在本快速入門中，您已使用 Azure 入口網站部署了簡單的串流分析作業。 您也可以使用 [PowerShell](stream-analytics-quick-create-powershell.md) 和 [Visual Studio](stream-analytics-quick-create-vs.md) 部署串流分析作業。
+
+若要了解如何設定其他輸入來源及執行即時偵測，請前往下列文章：
 
 > [!div class="nextstepaction"]
 > [使用 Azure 串流分析進行即時詐騙偵測](stream-analytics-real-time-fraud-detection.md)

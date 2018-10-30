@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0f2388747d60f1911994431d8edbd57e32d5c35a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: ce90ea447f7dcf4df1451294acf9f7fd093ad6ee
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932648"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408637"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視和更新 Windows 虛擬機器
 
@@ -278,7 +278,7 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 
 幾分鐘之後，您應該就會在 Log Analytics 工作區中看到新的 VM。
 
-![OMS 刀鋒視窗](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics 刀鋒視窗](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>後續步驟
 

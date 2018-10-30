@@ -1,20 +1,21 @@
 ---
-title: 快速入門：使用認知服務語音 SDK 在 Windows 上以 C++ 辨識語音
-titleSuffix: Microsoft Cognitive Services
-description: 了解如何使用認知服務語音 SDK 在 Windows 桌面上以 C++ 辨識語音
+title: 快速入門：使用語音服務 SDK 在 Windows 上以 C++ 辨識語音
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用語音服務 SDK 在 Windows 桌面上以 C++ 辨識語音
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 2adad78760c1d12da688106c45e86c91a8b13f91
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ddac12c6414365f8d20c42d324695be9855774dc
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339350"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469862"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上以 C++ 辨識語音
 

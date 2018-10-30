@@ -1,9 +1,9 @@
 ---
-title: Azure PowerShell 指令碼範例 - OMS | Microsoft Docs
-description: Azure PowerShell 指令碼範例 - OMS
+title: Azure PowerShell 指令碼範例 - Log Analytics | Microsoft Docs
+description: Azure PowerShell 指令碼範例 - Log Analytics
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 5befcb526f6337c05c33bb9b13aa1354ee046248
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 9798e07c9b19fbaf2c7bca161ea5d9d2b243a20a
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930363"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467322"
 ---
-# <a name="create-an-operations-management-suite-monitored-vm-with-powershell"></a>使用 PowerShell 建立 Operations Management Suite 監視的 VM
+# <a name="create-a-log-analytics-monitored-vm-with-powershell"></a>使用 PowerShell 建立由 Log Analytics 監視的 VM 
 
-此指令碼會建立 Azure 虛擬機器、安裝 Operations Management Suite (OMS) 代理程式，並向 OMS 工作區註冊系統。 執行此指令碼後，就能在 OMS 主控台中看到虛擬機器。 此外，您需要更新 OMS 工作區識別碼和工作區金鑰。
+此指令碼會建立 Azure 虛擬機器、安裝 Log Analytics 代理程式，並向 Log Analytics 工作區註冊系統。 執行此指令碼後，就能在 Azure 監視器中看到虛擬機器。 此外，您需要更新 Log Analytics 工作區識別碼和工作區金鑰。
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -33,7 +33,7 @@ ms.locfileid: "37930363"
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-detailed-oms.ps1 "Create VM OMS")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-detailed-oms.ps1 "Create VM Log Analytics")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 
@@ -51,7 +51,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及網路安全性群組。 此命令也會開啟連接埠 80 並設定系統管理認證。 |
-| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | 將 VM 擴充功能新增至虛擬機器。 在此情況下，會使用 Operations Management Suite 代理程式擴充功能來安裝 OMS 代理程式，並在 OMS 工作區中註冊 VM。 |
+| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | 將 VM 擴充功能新增至虛擬機器。 |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 移除資源群組及其內含的所有資源。 |
 
 ## <a name="next-steps"></a>後續步驟

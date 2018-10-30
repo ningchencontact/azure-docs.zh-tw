@@ -4,17 +4,17 @@ description: 了解如何建立 Azure 自動化帳戶及執行 Runbook
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/13/2017
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 701d2c348e91efed17c8c7828ace920914093b5a
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055149"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426187"
 ---
 # <a name="create-an-azure-automation-account"></a>建立 Azure 自動化帳戶
 
@@ -22,7 +22,7 @@ ms.locfileid: "34055149"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
 在 https://portal.azure.com 登入 Azure
 
@@ -30,13 +30,13 @@ ms.locfileid: "34055149"
 
 1. 按一下 Azure 左上角的 [建立資源] 按鈕。
 
-1. 選取 [監視 + 管理]，然後選取 [自動化]。
+1. 選取 [管理工具]，然後選取 [自動化]。
 
-1. 輸入帳戶資訊。 針對 [建立 Azure 執行身分帳戶] 選擇 [是]，就會自動啟用簡化對 Azure 進行驗證的構件。 完成後，按一下 [建立] 可啟動自動化帳戶部署。
+1. 輸入帳戶資訊。 針對 [建立 Azure 執行身分帳戶] 選擇 [是]，就會自動啟用簡化對 Azure 進行驗證的構件。 請務必注意，在建立自動化帳戶時，名稱在選擇後即不可變更。 自動化帳戶可為指定租用戶管理其所有區域和訂用帳戶上的資源。 完成後，按一下 [建立] 可啟動自動化帳戶部署。
 
     ![在頁面中輸入您自動化帳戶的相關資訊](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-1. 自動化帳戶已釘選到 Azure 儀表板。 完成部署之後，會自動開啟自動化帳戶概觀。
+1. 在部署完成後，按一下 ** [所有服務]，選取 [自動化帳戶]，然後選取您所建立的自動化帳戶。
 
     ![自動化帳戶概觀](./media/automation-quickstart-create-account/automation-account-overview.png)
 

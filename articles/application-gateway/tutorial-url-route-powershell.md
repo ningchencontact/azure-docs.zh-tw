@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 66f79b68c003aa3605653b0decc091d22fbf3860
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3889e1fc9bfaa9beccba560d4a984c451fb325da
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055180"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025237"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 根據 URL 路由網路流量
 
@@ -31,6 +31,8 @@ ms.locfileid: "39055180"
 > * 建立可調整的後端集區
 
 ![URL 路由範例](./media/tutorial-url-route-powershell/scenario.png)
+
+您可以依偏好使用 [Azure CLI](tutorial-url-route-cli.md) 或 [Azure 入口網站](create-url-route-portal.md)完成本教學課程。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

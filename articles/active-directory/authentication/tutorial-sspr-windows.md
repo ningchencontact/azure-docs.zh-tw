@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310210"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430216"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -118,6 +118,8 @@ ms.locfileid: "49310210"
 Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 ClientType。
 
 ![Azure AD 稽核記錄中的範例登入畫面密碼重設](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+如果您的 Windows 10 機器是在 Proxy 伺服器或防火牆後面，應該允許對 passwordreset.microsoftonline.com 和 ajax.aspnetcdn.com 的 HTTPS 流量 (443)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

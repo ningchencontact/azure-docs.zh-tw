@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0ebf69dd3436a6b1010d4184b2063317d14547dd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078627"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957628"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修復 Azure Stack PKI 憑證的一般問題
 本文中的資訊可協助您了解並解決 Azure Stack PKI 憑證的一般問題。 當您使用 Azure Stack 整備檢查程式工具來[驗證 Azure Stack PKI 憑證](azure-stack-validate-pki-certs.md)時，可以探索到問題。 此工具會進行檢查，以確保憑證符合 Azure Stack 部署和 Azure Stack 祕密修復的 PKI 需求，並將結果記錄在 [report.json 檔案](azure-stack-validation-report.md)中。  
@@ -69,12 +69,13 @@ ms.locfileid: "49078627"
 **修復** - 使用[準備 Azure Stack PKI 憑證以進行部署](azure-stack-prepare-pki-certs.md)中的步驟將憑證重新匯出，並選取 [如果可能的話，包含憑證路徑中的所有憑證] 選項。 確定僅選取分葉憑證以進行匯出。
 
 ## <a name="fix-common-packaging-issues"></a>修正常見的封裝問題
-AzsReadinessChecker 可以匯入 PFX 檔案然後再加以匯出，來修正常見封裝問題，包括： 
+AzsReadinessChecker 包含協助程式 commandlet Repair-AzsPfxCertificate，可用來匯入 PFX 檔案然後再加以匯出，來修正常見封裝問題，包括： 
  - [PFX 加密] 不是 TripleDES-SHA1
  - 「私密金鑰」遺失本機電腦屬性。
  - 「憑證鏈結」不完整或錯誤。 (如果 PFX 套件不包含憑證鏈結，則本機電腦必須包含憑證鏈結)。 
  - 「其他憑證」。
-不過，如果您需要產生新的 CSR，然後重新發出憑證，AzsReadinessChecker 就幫不上忙。 
+ 
+如果您需要產生新的 CSR，然後重新發出憑證，則 Repair-AzsPfxCertificate 就幫不上忙。 
 
 ### <a name="prerequisites"></a>必要條件
 執行此工具的電腦上必須先將下列先決條件準備就緒： 
@@ -96,9 +97,20 @@ AzsReadinessChecker 可以匯入 PFX 檔案然後再加以匯出，來修正常�
    - 針對 -PfxPath，指定前往您正在使用的 PFX 檔案的路徑。  在下列範例中，路徑是 .\certificates\ssl.pfx。
    - 針對 -ExportPFXPath，指定要進行匯出的 PFX 檔案的位置和名稱。  在下列範例中，路徑是 .\certificates\ssl_new.pfx
 
-   > `Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
+   > `Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
 
-4. 此工具完成之後，檢閱輸出確認是否成功：![結果](./media/azure-stack-remediate-certs/remediate-results.png)
+4. 此工具完成之後，檢閱輸出確認是否成功： 
+````PowerShell
+Repair-AzsPfxCertificate v1.1809.1005.1 started.
+Starting Azure Stack Certificate Import/Export
+Importing PFX .\certificates\ssl.pfx into Local Machine Store
+Exporting certificate to .\certificates\ssl_new.pfx
+Export complete. Removing certificate from the local machine store.
+Removal complete.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Repair-AzsPfxCertificate Completed
+````
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解 Azure Stack 安全性](azure-stack-rotate-secrets.md)

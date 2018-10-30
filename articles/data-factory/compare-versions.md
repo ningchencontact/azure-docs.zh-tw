@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095914"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638234"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>比較 Azure Data Factory 與 Data Factory 第 1 版
 本文將比較 Data Factory 與 Data Factory 第 1 版。 如需 Data Factory 的指示，請參閱 [Data Factory 簡介](introduction.md)。如需 Data Factory 第 1 版的指示，請參閱 [Azure Data Factory 簡介](v1/data-factory-introduction.md)。 
@@ -62,7 +62,7 @@ ms.locfileid: "43095914"
 [Until](control-flow-until-activity.md) 活動所提供的功能，與 do-until 迴圈結構在程式設計語言中提供的功能相同。 它會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 `true` 為止。 您可以在 Data Factory 中針對 until 活動指定逾時的值。  
 
 ### <a name="trigger-based-flows"></a>以觸發程序為基礎的流程
-可依需求或依時鐘時間觸發管線。 [管線和觸發程序](concepts-pipeline-execution-triggers.md)一文有觸發程序的詳細資訊。 
+可依需求 (以事件為基礎，即 Blob 貼文) 或依時鐘時間觸發管線。 [管線和觸發程序](concepts-pipeline-execution-triggers.md)一文有觸發程序的詳細資訊。 
 
 ### <a name="invoking-a-pipeline-from-another-pipeline"></a>從另一個管線叫用管線
 [執行管線活動](control-flow-execute-pipeline-activity.md)允許 Data Factory 管線叫用另一個管線。

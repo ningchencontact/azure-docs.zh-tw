@@ -3,7 +3,7 @@ title: 在 Azure API 管理中匯入和發佈您的第一個 API | Microsoft Doc
 description: 了解如何使用 API 管理來匯入和發佈您的第一個 API。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722842"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467390"
 ---
 # <a name="import-and-publish-your-first-api"></a>匯入和發佈您的第一個 API 
 
@@ -36,7 +36,7 @@ ms.locfileid: "38722842"
 
 ![新增 API](./media/api-management-get-started/created-api.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 
@@ -73,9 +73,11 @@ ms.locfileid: "38722842"
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>在 Azure 入口網站中測試新的 APIM API
 
+![測試 API 對應](./media/api-management-get-started/01-import-first-api-01.png)
+
 您可以從 Azure 入口網站直接呼叫作業，以便檢視和測試 API 的作業。  
 1. 選取您在上一個步驟中建立的 API (從 [API] 索引標籤)。
-2. 按 [測試] 索引標籤。![測試 API](./media/api-management-get-started/test-api.png)
+2. 按 [測試] 索引標籤。
 3. 按一下 [GetSpeakers]。
     此頁面會顯示查詢參數的欄位 (在此案例中沒有此欄位) 和標頭。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 系統會自動填入金鑰。
 4. 按 [傳送]。
@@ -87,7 +89,8 @@ ms.locfileid: "38722842"
 您也可以從**開發人員入口網站**呼叫作業來測試 API。
 
 1. 瀏覽至**開發人員入口網站**。
-![開發人員入口網站](./media/api-management-get-started/developer-portal.png)
+
+ ![開發人員入口網站](./media/api-management-get-started/developer-portal.png)
 
 2. 選取 [APIS]，按一下 [Demo Conference API]，然後按一下 [GetSpeakers]。
     

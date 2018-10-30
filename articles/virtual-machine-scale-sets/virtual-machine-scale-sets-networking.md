@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 6ed3488218a5b813478fa18f7bb05dcfb07a319c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831206"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955145"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的網路
 
@@ -50,10 +50,26 @@ Azure 加速網路可以對虛擬機器啟用 Single Root I/O Virtualization (SR
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>建立參考現有 Azure Load Balancer 的擴展集
 使用 Azure 入口網站建立擴展集時，大部分的設定選項會建立新的負載平衡器。 如果您要建立需要參考現有負載平衡器的擴展集，可以使用 CLI 來達成。 下列範例指令碼會先建立負載平衡器，並接著建立參考該負載平衡器的擴展集：
 ```bash
-az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
+az network lb create \
+    -g lbtest \
+    -n mylb \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --public-ip-address-allocation Static \
+    --backend-pool-name mybackendpool
 
-az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
-
+az vmss create \
+    -g lbtest \
+    -n myvmss \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
+    --admin-username negat \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --lb mylb \
+    --backend-pool-name mybackendpool
 ```
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>建立參考應用程式閘道的擴展集
@@ -91,7 +107,7 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>使用可設定的虛擬機器網域名稱建立擴展集
-若要使用 CLI 搭配自訂的虛擬機器 DNS 名稱建立擴展集，將 **--vm-domain-name** 引數新增至 **vmss create** 命令，後面接著代表網域名稱的字串。
+若要使用 CLI 搭配自訂的虛擬機器 DNS 名稱建立擴展集，將 **--vm-domain-name** 引數新增至 **virtual machine scale set create** 命令，後面接著代表網域名稱的字串。
 
 若要在 Azure 範本中設定網域名稱，請將 **dnsSettings** 屬性新增至擴展集 **networkInterfaceConfigurations** 區段。 例如︰
 
@@ -155,23 +171,35 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 若要使用 PowerShell 列出擴展集公用 IP 位址，請使用 _Get-AzureRmPublicIpAddress_ 命令。 例如︰
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 您也可以直接參考公用 IP 位址組態的資源識別碼，以查詢公用 IP 位址。 例如︰
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-若要使用 [Azure 資源總管](https://resources.azure.com)，或 Azure REST API 版本 **2017-03-30** 或更高版本，來查詢指派給擴展集虛擬機器的公用 IP 位址。
+您也可以查詢 [Azure 資源總管](https://resources.azure.com)，或 Azure REST API 版本 **2017-03-30** 或更高版本，來顯示指派給擴展集虛擬機器的公用 IP 位址。
 
-若要使用資源總管檢視擴展集的公用 IP 位址，請查看擴展集下的 **publicipaddresses** 區段。 例如： https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+若要查詢 [Azure 資源總管](https://resources.azure.com)：
 
-```
+1. 在 Web 瀏覽器中開啟 [Azure 資源總管](https://resources.azure.com)。
+1. 從左側按一下 [訂用帳戶] 旁的 [+]，即可展開訂用帳戶。 如果 [訂用帳戶] 底下只有一個項目，則可能已經展開。
+1. 展開您的訂用帳戶。
+1. 展開您的資源群組。
+1. 展開 [提供者]。
+1. 展開 [Microsoft.Compute]。
+1. 展開 [virtualMachineScaleSets]。
+1. 展開您的擴展集。
+1. 按一下 [publicipaddresses]。
+
+若要查詢 Azure REST API：
+
+```bash
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
 ```
 
-範例輸出︰
+[Azure 資源總管](https://resources.azure.com)和 Azure REST API 的輸出範例：
 ```json
 {
   "value": [
@@ -289,12 +317,14 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>每個擴展集的 NSG 和 ASG
+[網路安全性群組](../virtual-network/security-overview.md)可讓您使用安全性規則篩選在 Azure 虛擬網路中進出於 Azure 資源的流量。 [應用程式安全性群組](../virtual-network/security-overview.md#application-security-groups)可讓您處理 Azure 資源的網路安全性，並將其群組為應用程式結構的擴充功能。
+
 您可以將「網路安全性群組」直接套用至擴展集，方法是將參考新增至擴展集虛擬機器屬性的網路介面設定區段。
 
 「應用程式安全性群組」也可以直接指定至擴展集，方法是將參考新增至擴展集虛擬機器屬性的網路介面 IP 組態區段。
 
 例如︰ 
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -334,6 +364,42 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
     ]
 }
 ```
+
+若要確認您的網路安全性群組是否與擴展集相關聯，請使用 `az vmss show` 命令。 下列範例會使用 `--query` 來篩選結果，並且只會顯示與輸出相關的區段。
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].networkSecurityGroup
+
+[
+  {
+    "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/nsgName",
+    "resourceGroup": "myResourceGroup"
+  }
+]
+```
+
+若要確認您的應用程式安全性群組是否與擴展集相關聯，請使用 `az vmss show` 命令。 下列範例會使用 `--query` 來篩選結果，並且只會顯示與輸出相關的區段。
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].ipConfigurations[].applicationSecurityGroups
+
+[
+  [
+    {
+      "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/asgName",
+      "resourceGroup": "myResourceGroup"
+    }
+  ]
+]
+```
+
+
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure 虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。

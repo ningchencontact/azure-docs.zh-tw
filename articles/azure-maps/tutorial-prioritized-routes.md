@@ -1,20 +1,20 @@
 ---
 title: Azure 地圖服務的多個路線 | Microsoft Docs
 description: 使用 Azure 地圖服務尋找不同行進模式的路線
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 340bf83f07b9e730cc43baccc60a39f5ba1f9942
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 864f662cd6be3c5929166db92f2dad92b9c6586e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815302"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648202"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>使用 Azure 地圖服務尋找不同行進模式的路線
 
@@ -74,15 +74,16 @@ ms.locfileid: "48815302"
     </html>
     ```
     HTML 標頭會內嵌 CSS 的資源位置和 Azure 地圖服務程式庫的 JavaScript 檔案。 HTML 主體中的 script 區段將會包含地圖的內嵌 JavaScript 程式碼。
+
 3. 在 HTML 檔案的 script 區塊中新增下列 JavaScript 程式碼。 將字串 **\<您的帳戶金鑰\>** 取代為您從地圖服務帳戶所複製的主要金鑰。 如果您未告知地圖要聚焦在何處，您會看到全世界的視圖。 這段程式碼會設定地圖的中心點並宣告縮放層級，讓您可以預設聚焦在特定區域。
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
+    var mapCenterPosition = [-73.985708, 40.75773];
+    atlas.setSubscriptionKey("<your account key>");
     var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-         center: [-118.2437, 34.0522],
-         zoom: 12
+      center: mapCenterPosition,
+      zoom: 11
     });
     ```
     **atlas.Map** 是 Azure 地圖控制項 API 的元件，可供控制視覺化互動式網路地圖。
@@ -93,10 +94,10 @@ ms.locfileid: "48815302"
 
 ## <a name="visualize-traffic-flow"></a>以視覺方式呈現流量
 
-1. 在地圖上新增流量顯示。  **map.addEventListener** 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。
+1. 在地圖上新增流量顯示。  **map.events.add** 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。
 
     ```JavaScript
-    map.addEventListener("load", function() {
+    map.events.add("load", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
             flow: "relative"
@@ -146,7 +147,7 @@ ms.locfileid: "48815302"
         padding: 100
     });
     
-    map.addEventListener("load", function() { 
+    map.events.add("load", function() { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -155,7 +156,7 @@ ms.locfileid: "48815302"
         });
     });
     ```
-    **map.setCameraBounds** 呼叫會根據起點和終點座標來調整地圖視窗。 **map.addEventListener** 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。 **map.addPins** API 會在地圖控制項中以視覺化元件的形式新增景點。
+    **map.setCameraBounds** 呼叫會根據起點和終點座標來調整地圖視窗。 **map.events.add** 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。 **map.addPins** API 會在地圖控制項中以視覺化元件的形式新增景點。
 
 3. 儲存檔案並重新整理瀏覽器，以查看地圖上顯示的圖釘。 即使您已宣告地圖並將中心點設在洛杉磯，**map.setCameraBounds** 仍會移動視圖以顯示起點和終點。
 
@@ -165,7 +166,7 @@ ms.locfileid: "48815302"
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>轉譯依行進模式設定優先順序的路線
 
-本節說明如何使用地圖服務的路線規劃服務 API，根據運輸模式，尋找從給定起點到目的地的多條路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」、「最短」、「最環保」或「驚心動魄」的路線，並將即時路況考慮進去。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱[取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。  以下所有程式碼區塊都應該新增至**地圖載入 eventListener 內**，以確保會在地圖完整載入之後載入。
+本節說明如何使用地圖服務的路線規劃服務 API，根據運輸模式，尋找從給定起點到目的地的多條路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」、「最短」、「最環保」或「驚心動魄」的路線，並將即時路況考慮進去。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱[取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。 以下所有程式碼區塊都應該新增至**地圖載入 eventListener 內**，以確保會在地圖完整載入之後載入。
 
 1. 首先，在地圖上新增一個圖層來顯示路線路徑 (亦即 linestring)。 此教學課程有兩條不同的路線，分別是 **car-route** 和 **truck-route**，且各有自己的樣式。 在 script 區塊中新增下列 JavaScript 程式碼：
 
@@ -233,7 +234,7 @@ ms.locfileid: "48815302"
     // Execute the car route query then add the route to the map once a response is received  
     client.route.getRouteDirections(routeQuery).then(response => {
         // Parse the response into GeoJSON
-        var geoJsonResponse = new tlas.service.geojson
+        var geoJsonResponse = new atlas.service.geojson
             .GeoJsonRouteDiraectionsResponse(response);
 
         // Get the first in the array of routes and add it to the map 

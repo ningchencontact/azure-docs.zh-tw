@@ -1,20 +1,21 @@
 ---
-title: 快速入門：使用認知服務語音 SDK 在 UWP 應用程式中以 C# 辨識語音
-titleSuffix: Microsoft Cognitive Services
-description: 了解如何使用認知服務語音 SDK 在 UWP 應用程式中辨識語音
+title: 快速入門：使用語音服務 SDK 在 UWP 應用程式中以 C# 辨識語音
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用語音服務 SDK 在 UWP 應用程式中辨識語音
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: d9a90869e060d2f8f1a1c522a4528e74841caada
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1c6e0521f37e85bcb3395de0ad1e9d463125e17f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339609"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469793"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 UWP 應用程式中辨識語音
 

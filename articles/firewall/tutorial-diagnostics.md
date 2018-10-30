@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991040"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987423"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>教學課程：監視 Azure 防火牆記錄和計量
 
@@ -51,11 +51,11 @@ ms.locfileid: "46991040"
 5. 在此範例中，Log Analytics 會儲存記錄，因此請輸入**防火牆記錄分析**作為名稱。
 6. 按一下 [傳送至 Log Analytics] 來設定您的工作區。 您也可以使用事件中樞和儲存體帳戶來儲存診斷記錄。
 7. 在 [Log Analytics] 下，按一下 [設定]。
-8. 在 [OMS 工作區] 頁面中，按一下 [建立新的工作區]。
-9. 在 [Log Analytics 工作區] 頁面上，輸入 **firewall-oms** 作為新的 **OMS 工作區**名稱。
+8. 在 Log Analytics 工作區頁面中，按一下 [建立新的工作區]。
+9. 在 [Log Analytics 工作區] 頁面上，輸入 **firewall-oms** 作為新的  **工作區**名稱。
 10. 選取您的訂用帳戶、使用現有的防火牆資源群組 (**Test-FW-RG**)、選取 [美國東部] 作為位置，然後選取 [免費] 定價層。
 11. 按一下 [確定]。
-   ![啟動設定程序][1]
+   ![啟動設定程序][1] OMS 工作區現在稱為 Log Analytics 工作區。  
 12. 在 [記錄] 底下，按一下 [AzureFirewallApplicationRule] 和 [AzureFirewallNetworkRule]，以收集應用程式規則和網路規則的記錄。
    ![儲存診斷設定][2]
 13. 按一下 [檔案] 。
@@ -95,6 +95,8 @@ ms.locfileid: "46991040"
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>檢視及分析網路和應用程式規則記錄
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) 會收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
+
+關於 Azure 防火牆的 Log Analytics 查詢範例，請參閱 [Azure 防火牆 Log Analytics 範例](log-analytics-samples.md)。
 
 您也可以連接到儲存體帳戶並擷取存取和效能記錄檔的 JSON 記錄檔項目。 下載 JSON 檔案後，可以將它們轉換成 CSV，並在 Excel、PowerBI 或任何其他資料視覺化工具中檢視它們。
 

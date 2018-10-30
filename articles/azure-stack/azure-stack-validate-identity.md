@@ -3,7 +3,7 @@ title: 驗證 Azure Stack 的 Azure 身分識別 | Microsoft Docs
 description: 使用 Azure Stack 整備檢查程式來驗證 Azure 身分識別。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
-ms.author: brenduns
+ms.date: 10/23/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fe5e7281cbe01ad11f667729df344f91ef1327d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937558"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984191"
 ---
 # <a name="validate-azure-identity"></a>驗證 Azure 身分識別 
 使用 Azure Stack 整備檢查程式工具 (AzsReadinessChecker) 來驗證 Azure Active Directory (Azure AD) 是否已準備好與 Azure Stack 搭配使用。 開始部署 Azure Stack 之前，請先驗證 Azure 身分識別解決方案。  
@@ -34,7 +34,7 @@ ms.locfileid: "33937558"
 ## <a name="get-the-readiness-checker-tool"></a>取得整備檢查程式工具
 從 [PSGallery](https://aka.ms/AzsReadinessChecker) 下載最新版的 Azure Stack 整備檢查程式工具 (AzsReadinessChecker)。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 必須具備下列先決條件。
 
 **執行這個工具的電腦：**
@@ -62,10 +62,21 @@ ms.locfileid: "33937558"
    - 將 AzureEnvironment 的值指定為 AzureCloud、AzureGermanCloud 或 AzureChinaCloud。  
    - 指定 Azure Active Directory 租用戶名稱來取代 contoso.onmicrosoft.com。 
 
-   > `Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
-4. 在此工具執行之後，請檢閱輸出。 確認登入和安裝需求的狀態都是**正常**。 驗證成功時會出現類似下圖的輸出： 
+   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
+4. 在此工具執行之後，請檢閱輸出。 確認安裝需求的狀態是**正常**。 驗證成功時會出現類似下圖的輸出： 
  
-![run-validation](./media/azure-stack-validate-identity/validation.png)
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: OK
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
 
 
 ## <a name="report-and-log-file"></a>報告與記錄檔
@@ -86,7 +97,21 @@ ms.locfileid: "33937558"
 
 ### <a name="expired-or-temporary-password"></a>過期或暫時的密碼 
  
-![密碼已過期](./media/azure-stack-validate-identity/expired-password.png)
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: Fail 
+Error Details for Service Administrator Account admin@contoso.onmicrosoft.com
+The password for account  has expired or is a temporary password that needs to be reset before continuing. Run Login-AzureRMAccount, login with  credentials and follow the prompts to reset.
+Additional help URL https://aka.ms/AzsRemediateAzureIdentity
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
 **原因** - 帳戶無法登入，因為密碼已過期，或屬於暫時密碼。     
 
 **解決方式** - 在 PowerShell 中執行下列命令，然後遵循提示來重設密碼。  
@@ -95,13 +120,41 @@ ms.locfileid: "33937558"
 或者，以帳戶身分登入 https://portal.azure.com，系統將會強制使用者變更密碼。
 ### <a name="unknown-user-type"></a>不明的使用者類型 
  
-![未知的使用者](./media/azure-stack-validate-identity/unknown-user.png)
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: Fail 
+Error Details for Service Administrator Account admin@contoso.onmicrosoft.com
+Unknown user type detected. Check the account  is valid for AzureChinaCloud
+Additional help URL https://aka.ms/AzsRemediateAzureIdentity
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
 **原因** - 帳戶無法登入指定的 Azure Active Directory (AADDirectoryTenantName)。 在此範例中，AzureChinaCloud 會指定為 AzureEnvironment。
 
 **解決方式** - 確認此帳戶對指定的 Azure 環境是有效的。 在 PowerShell 中，執行下列命令來確認此帳戶對特定環境是有效的：Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>帳戶不是系統管理員 
  
-![不是系統管理員](./media/azure-stack-validate-identity/not-admin.png)
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: Fail 
+Error Details for Service Administrator Account admin@contoso.onmicrosoft.com
+The Service Admin account you entered 'admin@contoso.onmicrosoft.com' is not an administrator of the Azure Active Directory tenant 'contoso.onmicrosoft.com'.
+Additional help URL https://aka.ms/AzsRemediateAzureIdentity
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
 
 **原因** - 雖然帳戶可以成功登入，但該帳戶不是 Azure Active Directory (AADDirectoryTenantName) 的系統管理員。  
 

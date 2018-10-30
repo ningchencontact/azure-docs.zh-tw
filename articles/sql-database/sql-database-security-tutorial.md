@@ -12,12 +12,12 @@ ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: ceed69503900b38d7f6a29bbe116ab9a4d54e396
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b81e76201f7f751ee01e903d83f316811abaf483
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857953"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955468"
 ---
 # <a name="secure-your-azure-sql-database"></a>保護 Azure SQL Database
 
@@ -59,7 +59,7 @@ SQL Database 也具有複雜的監視、稽核和威脅偵測功能。
 
 Azure 的防火牆會保護 SQL Database。 依預設，伺服器與其內部資料庫的所有連線皆會遭拒，除非是來自其他 Azure 服務的連線。 如需詳細資訊，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](sql-database-firewall-configure.md)
 
-最安全的設定是將「允許存取 Azure 服務」設定為「關閉」。 如果您需要從 Azure VM 或雲端服務連線到資料庫，您應建立[保留的 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，並僅允許保留的 IP 位址可通過防火牆進行存取。 
+最安全的設定是將「允許存取 Azure 服務」設定為「關閉」。 如果您需要從 Azure VM 或雲端服務連線到資料庫，您應建立[保留的 IP (傳統部署)](../virtual-network/virtual-networks-reserved-public-ip.md)，並僅允許保留的 IP 位址可通過防火牆進行存取。 如果您使用 [Resource Manager](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) 部署模型，將會對資源指派專用的公用 IP 位址，而您應該允許此 IP 位址通過防火牆。
 
 遵循以下步驟建立 [SQL Database 伺服器層級防火牆規則](sql-database-firewall-configure.md)，以讓您的伺服器允許來自特定 IP 位址的連線。 
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: dcbe222d8dd3d3c658e5778fdc4bc1cc01b5c12d
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078880"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024455"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 將 Azure Stack 連線至 Azure
 
@@ -43,9 +43,7 @@ ms.locfileid: "49078880"
 
 ### <a name="network-configuration-example-values"></a>網路組態範例值
 
-網路組態範例值表格顯示本文中使用的範例值。 您可以使用這些值，也可以參考這些值，以深入了解本文中的範例。
-
-**網路組態範例**
+網路組態範例值表格顯示本文中使用的範例值。 您可以使用這些值，也可以參考這些值，以深入了解本文中的範例：
 
 |   |Azure Stack|Azure|
 |---------|---------|---------|
@@ -57,17 +55,17 @@ ms.locfileid: "49078880"
 
 ## <a name="create-the-network-resources-in-azure"></a>在 Azure 中建立網路資源
 
-請先為 Azure 建立網路資源。 下列指示說明如何使用 [Azure 入口網站](http://portal.azure.com/)來建立資源。
+請先為 Azure 建立網路資源。 下列指示說明如何使用 [Azure 入口網站](https://portal.azure.com/)來建立資源。
 
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>建立虛擬網路和虛擬機器 (VM) 子網路
 
-1. 使用 Azure 帳戶登入 [Azure 入口網站](http://portal.azure.com/)。
+1. 使用 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在使用者入口網站中，選取 [+ 建立資源]。
 3. 移至 [Marketplace]，然後選取 [網路]。
 4. 選取 [虛擬網路]。
 5. 使用網路設定表中的資訊，以識別 Azure [名稱]、[位址空間]、[子網路名稱] 及 [子網路位址範圍] 的值。
 6. 針對 [資源群組]，建立資源群組，或選取 [使用現有的] \(如果您已經有資源群組)。
-7. 選取 VNet 的 [位置]。  如果您使用範例值，請選取 [美國東部]，或使用您偏好的另一個位置。
+7. 選取 VNet 的 [位置]。  如果您使用範例值，請選取 [美國東部]，或使用另一個位置。
 8. 選取 [釘選到儀表板]。
 9. 選取 [建立] 。
 
@@ -79,7 +77,7 @@ ms.locfileid: "49078880"
 4. 子網路名稱預設為 **GatewaySubnet**。
 
    >[!IMPORTANT]
-   >閘道子網路很特別，**必須**具有此特定名稱，才能正常運作。
+   >閘道子網路很特別﹐必須具有此特定名稱，才能正常運作。
 
 5. 在 [位址範圍] 欄位中，確認位址是 **10.100.1.0/24**。
 6. 選取 [確定] 以建立閘道子網路。
@@ -102,7 +100,7 @@ ms.locfileid: "49078880"
 2. 移至 [Marketplace]，然後選取 [網路]。
 3. 從資源清單中，選取 [區域網路閘道]。
 4. 在 [名稱] 中輸入 **Azs-GW**。
-5. 在 [IP 位址] 中，輸入稍早列在網路設定表中的 Azure Stack 虛擬網路閘道的公用 IP 位址。
+5. 在 [IP 位址] 中，輸入之前列在網路設定表中的 Azure Stack 虛擬網路閘道的公用 IP 位址。
 6. 在 Azure Stack 的 [位址空間] 中，輸入 **AzureVNet** 的 **10.1.0.0/24** 和 **10.1.1.0/24** 位址空間。
 7. 確認您的 [訂用帳戶]、[資源群組] 和 [位置] 正確無誤，然後選取 [建立]。
 
@@ -116,7 +114,7 @@ ms.locfileid: "49078880"
 6. 在 [設定] 區段上，選取 [虛擬網路閘道]，然後選取 [Azure-GW]。
 7. 選取 [區域網路閘道]，然後選取 [Azs-GW]。
 8. 在 [連線名稱] 中，輸入 **Azure-Azs**。
-9. 在 [共用金鑰 (PSK)] 中，輸入 **12345**。 選取 [確定] 。
+9. 在 [共用金鑰 (PSK)] 中輸入 **12345**，然後選取 [確定]。
 
    >[!NOTE]
    >如果您使用不同的共用金鑰值，請記住該值與您在連線另一端建立的共用金鑰值「必須」相符。
@@ -145,7 +143,7 @@ ms.locfileid: "49078880"
 
 ## <a name="create-the-network-resources-in-azure-stack"></a>在 Azure Stack 中建立網路資源
 
-接下來，請在 Azure Stack 中建立網路資源。
+接下來，在 Azure Stack 中建立網路資源。
 
 ### <a name="sign-in-as-a-user"></a>以使用者身分登入
 
@@ -156,7 +154,7 @@ ms.locfileid: "49078880"
 1. 以使用者帳戶來登入使用者入口網站。
 2. 在使用者入口網站中，選取 [+ 建立資源]。
 
-    ![建立新的虛擬網路](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![建立新的虛擬網路](media/azure-stack-connect-vpn/image3.png)
 
 3. 移至 [Marketplace]，然後選取 [網路]。
 4. 選取 [虛擬網路]。
@@ -173,9 +171,9 @@ ms.locfileid: "49078880"
 2. 在 [設定] 區段上，選取 [子網路]。
 3. 若要將閘道子網路新增到虛擬網路，請選取 [閘道子網路]。
 
-    ![新增閘道子網路](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![新增閘道子網路](media/azure-stack-connect-vpn/image4.png)
 
-4. 子網路名稱預設為 **GatewaySubnet**。 閘道子網路相當特殊。 為了正常運作，它們必須使用 *GatewaySubnet* 名稱。
+4. 子網路名稱預設為 **GatewaySubnet**。 為了讓閘道子網路正常運作，必須使用 **GatewaySubnet** 名稱。
 5. 在 [位址範圍] 中，確認位址是 **10.1.1.0/24**。
 6. 選取 [確定] 以建立閘道子網路。
 
@@ -195,7 +193,7 @@ ms.locfileid: "49078880"
 
 在 Azure Stack 中，「區域網路閘道」的概念稍微不同於 Azure 部署。
 
-在 Azure 部署中，區域網路閘道代表內部部署 (位於使用者位置) 實體裝置，用於連線至 Azure 中的虛擬網路閘道。 但是在 Azure Stack 中，連線的兩端都是虛擬網路閘道！
+在 Azure 部署中，區域網路閘道代表內部部署 (位於使用者位置) 實體裝置，用於連線至 Azure 中的虛擬網路閘道。 但是在 Azure Stack 中，連線的兩端都是虛擬網路閘道。
 
 更廣泛來說，區域網路閘道資源一律是指連線另一端的遠端閘道。
 
@@ -208,7 +206,7 @@ ms.locfileid: "49078880"
 5. 在 [名稱] 中輸入 **Azure-GW**。
 6. 在 [IP 位址] 中，輸入 Azure **Azure-GW-PiP** 中的虛擬網路閘道公用 IP 位址。 此位址先前已顯示在網路組態表中。
 7. 在 [位址空間] 中，輸入 **10.100.0.0/24** 和 **10.100.1.0/24**，代表您建立的 Azure VNET 位址空間。
-8. 確認您的 [訂用帳戶]、[資源群組] 和 [位置] 正確無誤，然後選取 [建立]。
+8. 確認您的 [訂用帳戶]、[資源群組] 和 [位置] 值正確無誤，然後選取 [建立]。
 
 ### <a name="create-the-connection"></a>建立連線
 
@@ -225,7 +223,7 @@ ms.locfileid: "49078880"
 
 ### <a name="create-a-virtual-machine-vm"></a>建立虛擬機器 (VM)
 
-若要檢查 VPN 連線，您需要建立兩個 VM：一個在 Azure 中，一個在 Azure Stack 中。 建立這些 VM 之後，您可以使用它們透過 VPN 通道來傳送和接收資料。
+若要檢查 VPN 連線，請建立兩個 VM：一個在 Azure 中，一個在 Azure Stack 中。 建立這些 VM 之後，您可以使用它們透過 VPN 通道來傳送和接收資料。
 
 1. 在 Azure 入口網站中，選取 [+ 建立資源]。
 2. 移至 [Marketplace]，然後選取 [計算]。
@@ -254,10 +252,10 @@ ms.locfileid: "49078880"
 3. 在 VM 清單中，尋找並選取您先前建立的 **Azs-VM**。
 4. 在虛擬機器的區段上，選取 [連線]，然後開啟 Azs-VM.rdp 檔案。
 
-     ![[連線] 按鈕](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![[連線] 按鈕](media/azure-stack-connect-vpn/image17.png)
 
 5. 使用您建立虛擬網路時所設定的帳戶來登入。
-6. 開啟已提高權限的 [Windows PowerShell] 視窗。
+6. 開啟已提高權限的 Windows PowerShell 提示。
 7. 輸入 **ipconfig /all**。
 8. 在輸出中，尋找「IPv4 位址」，然後儲存該位址以供稍後使用。 這是您將從 Azure 偵測的位址。 在範例環境中，位址是 **10.1.0.4**，但在您的環境中可能會不同。 它應該落在您先前建立的 **10.1.0.0/24** 子網路內。
 9. 若要建立允許虛擬機器回應 Ping 的防火牆規則，請執行下列 PowerShell 命令：
@@ -288,11 +286,11 @@ ms.locfileid: "49078880"
 
 10. 從 Azure 中的虛擬機器，透過通道偵測 Azure Stack 中的虛擬機器。 若要這麼做，請偵測您從 Azs-VM 記錄的 DIP。 在範例環境中，這是 **10.1.0.4**，但請務必 Ping 您在實驗室中記下的位址。 您應該會看到如下列螢幕擷取畫面的結果：
 
-    ![成功的 Ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+    ![成功的 Ping](media/azure-stack-connect-vpn/image19b.png)
 
-11. 來自遠端虛擬機器的回覆表示測試成功！ 您可以關閉虛擬機器視窗。
+11. 來自遠端虛擬機器的回覆表示測試成功。 您可以關閉虛擬機器視窗。
 
-您也應該執行更嚴格的資料轉送測試。 例如，雙向複製不同大小的檔案。
+您也應該執行更嚴格的資料轉送測試；例如，複製兩個方向中不同大小的檔案。
 
 ### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>檢視透過閘道連線的資料傳輸統計資料
 

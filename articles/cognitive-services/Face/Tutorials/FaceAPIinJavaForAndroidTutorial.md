@@ -1,5 +1,5 @@
 ---
-title: 教學課程：偵測並框出影像中的人臉 - 臉部 API、適用於 Android 的 Java
+title: 教學課程：使用 Android SDK 偵測並框出影像中的人臉
 titleSuffix: Azure Cognitive Services
 description: 在此教學課程中，您會建立簡單的 Android 應用程式，以使用臉部 API 來偵測並框出影像中的人臉。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 08344e21d4f425a021bdefe840390ede8b3fb01e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 99b2734745df722f45443b5347ae6dd054c8aa31
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342376"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957032"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教學課程：建立 Android 應用程式來偵測並框出影像中的臉部
 

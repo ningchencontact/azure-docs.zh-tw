@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/09/2018
+ms.date: 10/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 50f1c81f08787181de2fe3a9f6fb97a96a2bd882
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 5e198310dd18cc8574b5510b9318ff4badaffca3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114307"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646297"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本
 
@@ -29,7 +29,7 @@ ms.locfileid: "49114307"
 本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
-> * 準備 Key Vault
+> * 設定安全的環境
 > * 開啟快速入門範本
 > * 瀏覽範本
 > * 編輯參數檔案
@@ -42,77 +42,12 @@ ms.locfileid: "49114307"
 若要完成本文，您需要：
 
 * [Visual Studio Code](https://code.visualstudio.com/) 搭配 Resource Manager Tools 擴充功能。  請參閱[安裝擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-
-## <a name="prepare-key-vault"></a>準備 Key Vault
-
-為了防止密碼噴濺攻擊，建議將自動產生的密碼用於虛擬機器系統管理員帳戶密碼，並使用 Key Vault 來儲存密碼。 下列程序會建立 Key Vault 和秘密，以儲存密碼。 此外也會設定範本部署對儲存在 Key Vault 中的祕密進行存取所需的權限。 如果 Key Vault 位於不同的 Azure 訂用帳戶下，則需要額外的存取原則。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](./resource-manager-keyvault-parameter.md)。
-
-1. 登入 [Azure Cloud Shell](https://shell.azure.com)。
-2. 從左上角的 **PowerShell** 或 **Bash**，切換至您慣用的環境。
-3. 執行下列 Azure PowerShell 或 Azure CLI 命令。  
+* 若要避免密碼噴灑攻擊，請為虛擬機器系統管理員帳戶產生密碼。 以下是範例：
 
     ```azurecli-interactive
-    keyVaultName='<your-unique-vault-name>'
-    resourceGroupName='<your-resource-group-name>'
-    location='Central US'
-    userPrincipalName='<your-email-address-associated-with-your-subscription>'
-    
-    # Create a resource group
-    az group create --name $resourceGroupName --location $location
-    
-    # Create a Key Vault
-    keyVault=$(az keyvault create \
-      --name $keyVaultName \
-      --resource-group $resourceGroupName \
-      --location $location \
-      --enabled-for-template-deployment true)
-    keyVaultId=$(echo $keyVault | jq -r '.id')
-    az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
-
-    # Create a secret
-    password=$(openssl rand -base64 32)
-    az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
-    
-    # Print the useful property values
-    echo "You need the following values for the virtual machine deployment:"
-    echo "Resource group name is: $resourceGroupName."
-    echo "The admin password is: $password."
-    echo "The Key Vault resource ID is: $keyVaultId."
+    openssl rand -base64 32
     ```
-
-    ```azurepowershell-interactive
-    $keyVaultName = "<your-unique-vault-name>"
-    $resourceGroupName="<your-resource-group-name>"
-    $location='Central US'
-    $userPrincipalName="<your-email-address-associated-with-your-subscription>"
-    
-    # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-        
-    # Create a Key Vault
-    $keyVault = New-AzureRmKeyVault `
-      -VaultName $keyVaultName `
-      -resourceGroupName $resourceGroupName `
-      -Location $location `
-      -EnabledForTemplateDeployment
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-      
-    # Create a secret
-    $password = openssl rand -base64 32
-    
-    $secretValue = ConvertTo-SecureString $password -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretValue
-    
-    # Print the useful property values
-    echo "You need the following values for the virtual machine deployment:"
-    echo "Resource group name is: $resourceGroupName."
-    echo "The admin password is: $password."
-    echo "The Key Vault resource ID is: " $keyVault.ResourceID
-    ```
-4. 記下輸出值。 稍後在教學課程中將需要這些資訊
-
-> [!NOTE]
-> 每個 Azure 服務都有特定的密碼需求。 例如，Azure 虛擬機器的需求可在「建立 VM 時的密碼需求為何？」上找到
+    Azure Key Vault 的設計訴求是保護加密金鑰和其他祕密。 如需詳細資訊，請參閱[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)。 我們也建議您每三個月更新一次密碼。
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
@@ -126,7 +61,6 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     ```
 3. 選取 [開啟] 以開啟檔案。
 4. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
-5. 重複步驟 1-4 以開啟 **https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json**，然後將檔案儲存為 **azuredeploy.parameters.json**。
 
 ## <a name="explore-the-template"></a>瀏覽範本
 
@@ -170,44 +104,16 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 藉由指定相依性，Resource Manager 將可有效部署解決方案。 它會以平行方式部署儲存體帳戶、公用 IP 位址和虛擬網路，因為它們沒有相依性。 在公用 IP 位址和虛擬網路部署之後，會建立網路介面。 當所有其他資源皆部署後，Resource Manager 會部署虛擬機器。
 
-## <a name="edit-the-parameters-file"></a>編輯參數檔案
-
-您完全不必對範本檔案進行任何變更。 但是，您必須修改參數檔案，才能從 Key Vault 中擷取系統管理員密碼。
-
-1. 在 Visual Studio Code 中開啟 **azuredeploy.parameters.json** (如果尚未開啟)。
-2. 將 **adminPassword** 參數更新為：
-
-    ```json
-    "adminPassword": {
-        "reference": {
-            "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
-            },
-            "secretName": "vmAdminPassword"
-        }
-    },
-    ```
-    使用在上一個程序所建立 Key Vault 的資源識別碼取代 **id**。 這是其中一個輸出。 
-
-    ![整合金鑰保存庫與 Resource Manager 範本虛擬機器部署參數檔案](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
-3. 提供下列值：
-
-    - **adminUsername**：虛擬機器系統管理員帳戶的名稱。
-    - **dnsLabelPrefix**：dnsLablePrefix 的名稱。
-4. 儲存變更。
-
 ## <a name="deploy-the-template"></a>部署範本
 
 有許多方法可用來部署範本。  在本教學課程中，您會從 Azure 入口網站使用 Cloud Shell。
 
-1. 登入 [Cloud Shell](https://shell.azure.com)。 您也可以登入 [Azure 入口網站](https://portal.azure.com)，然後選取位於右上角的 [Cloud Shell]，如下圖所示：
-
-    ![Azure 入口網站的 Cloud Shell](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell.png)
+1. 登入 [Cloud Shell](https://shell.azure.com)。 
 2. 從 Cloud Shell 的左上角選取 [PowerShell]，然後選取 [確認]。  在本教學課程中您會使用 PowerShell。
 3. 從 Cloud Shell 中選取 [上傳檔案]：
 
     ![Azure 入口網站的 Cloud Shell 上傳檔案](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-4. 選取您先前在本教學課程中儲存的檔案。 預設名稱為 **azuredeploy.json** 和 **azuredeploy.paraemters.json**。  如果有檔案具有相同的檔案名稱，將會直接覆寫舊檔案而不另行通知。
+4. 選取您先前在本教學課程中儲存的範本。 預設名稱為 **azuredeploy.json**。  如果有檔案具有相同的檔案名稱，將會直接覆寫舊檔案而不另行通知。
 5. 從 Cloud Shell 執行下列命令，以確認已成功上傳檔案。 
 
     ```bash
@@ -222,22 +128,28 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
     ```bash
     cat azuredeploy.json
-    cat azuredeploy.parameters.json
     ```
-7. 從 Cloud Shell 執行下列 PowerShell 命令。 範例指令碼會使用為 Key Vault 建立的相同資源群組。 使用相同的資源群組可讓您更輕鬆地清除資源。
+7. 從 Cloud Shell 執行下列 PowerShell 命令。 為了提高安全性，請針對虛擬機器系統管理員帳戶使用產生的密碼。 請參閱[必要條件](#prerequisites)。
 
-    ```powershell
-    $resourceGroupName = "<Enter the resource group name>"
-    $deploymentName = "<Enter a deployment name>"
+    ```azurepowershell
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
+    $adminPassword = Read-Host -Prompt "Enter the admin password"
+    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -TemplateFile azuredeploy.json `
-        -TemplateparameterFile azuredeploy.parameters.json
+        -adminUsername = $adminUsername `
+        -adminPassword = $adminPassword `
+        -dnsLabelPrefix = $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json 
     ```
 8. 執行下列 PowerShell 命令，以列出新建立的虛擬機器：
 
-    ```powershell
+    ```azurepowershell
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 

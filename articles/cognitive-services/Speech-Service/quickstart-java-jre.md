@@ -1,26 +1,27 @@
 ---
 title: 快速入門：如何以 Java 辨識語音 (Windows 或 Linux)
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何以 Java 辨識語音 (Windows 或 Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 1f0c19524ebd59dcf0377cc173cd780d656ba447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339191"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467254"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 或 Linux 上以 Java 辨識語音
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在 Windows 或 Linux 上以 Java 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，您會使用[語音 SDK](speech-sdk.md)，建立 Java 主控台應用程式。 您從電腦的麥克風即時將語音轉譯為文字。 此應用程式是使用語音 SDK Maven 套件，以及 64 位元 Windows 或 Ubuntu Linux 16.04 上的 Eclipse Java IDE (v4.8) 來建置。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
+在本文中，您會使用[語音服務 SDK](speech-sdk.md)，建立 Java 主控台應用程式。 您將來自電腦麥克風的語音即時轉譯為文字。 此應用程式是使用語音 SDK Maven 套件，以及 64 位元 Windows 或 Ubuntu Linux 16.04 上的 Eclipse Java IDE (v4.8) 來建置。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
 
 > [!NOTE]
 > 針對語音裝置 SDK 和 Roobo 裝置，請參閱[語音裝置 SDK](speech-devices-sdk.md)。

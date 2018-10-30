@@ -1,6 +1,6 @@
 ---
 title: 快速入門：透過 Microsoft Genomics 執行工作流程
-description: 此快速入門示範如何將輸入資料載入 Azure Blob 儲存體中，並透過 Microsoft Genomics 服務執行工作流程。
+description: 本快速入門示範如何將輸入資料載入 Azure Blob 儲存體中，並透過 Microsoft Genomics 服務執行工作流程。
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: e1d10b578d33ba8d96f43666b82e94ef5503fe77
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8afaf9675dfac29449769e1f2ab323417376897
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731082"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026206"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>快速入門：透過 Microsoft Genomics 服務執行工作流程
 
@@ -40,7 +40,7 @@ ms.locfileid: "45731082"
  |:-------------       |:-------------         |:----------            |
  |帳戶名稱         | MyGenomicsAccount     |請選擇唯一的帳戶識別碼。 如需有效的名稱，請參閱[命名規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |訂用帳戶         | 您的訂用帳戶名稱|這是您 Azure 服務的計費單位 - 如需關於您訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.azure.com/Subscriptions) |      
- |資源群組       | MyResourceGroup       |  資源群組可讓您將多個 Azure 資源 (儲存體帳戶、Genomics 帳戶等) 群組為單一群組來簡化管理。 如需詳細資訊，請參閱 [資源群組] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)。 如需有效的資源群組名稱，請參閱[命名規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |資源群組       | MyResourceGroup       |  資源群組可讓您將多個 Azure 資源 (儲存體帳戶、Genomics 帳戶等) 群組為單一群組來簡化管理。 如需詳細資訊，請參閱[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)。 如需有效的資源群組名稱，請參閱[命名規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |位置                   | 美國西部 2                    |    可在美國西部 2、西歐和東南亞提供服務 |
 
 
@@ -57,7 +57,7 @@ ms.locfileid: "45731082"
 
 ### <a name="install-python"></a>安裝 Python
 
-Microsoft Genomics Python 用戶端與 Python 2.7 相容。 12 或更新的 2.7.xx 版本；2.7.15 是撰寫此文章時的最新版本；2.7.14 是建議的版本。 您可以在[這裡](https://www.python.org/downloads/)找到下載。 
+Microsoft Genomics Python 用戶端與 Python 2.7 相容。 12 或更新的 2.7.xx 版本；2.7.15 是撰寫本文時的最新版本；2.7.14 是建議的版本。 您可以在[這裡](https://www.python.org/downloads/)找到下載。 
 
 注意：Python 3.x 與 Python 2.7.xx 不相容。  MSGen 是 Python 2.7 應用程式。 執行 MSGen 時，請確定您作用中的 Python 環境使用的是 Python 的 2.7.xx 版本。 嘗試搭配使用 MSGen 與 Python 的 3.x 版時，可能會發生錯誤。
 
@@ -108,7 +108,7 @@ msgen list -f “<full path where you saved the config file>”
 
 ## <a name="create-a-microsoft-azure-storage-account"></a>建立 Microsoft Azure 儲存體帳戶 
 Microsoft Genomics 服務預期會輸入儲存為 Azure 儲存體帳戶中的區塊 blob。 它也會將輸出檔案作為區塊 Blob 寫入 Azure 儲存體帳戶中的使用者指定容器。 輸入和輸出可以位於不同的儲存體帳戶中。
-如果您在 Azure 儲存體帳戶中已擁有您的資料，就只需要確定資料與 Genomics 帳戶在相同的位置。 否則，執行 Genomics 服務時，就會產生輸出費用。 如果您還沒有 Microsoft Azure 儲存體帳戶，就需要建立並上傳您的資料。 您可以在[這裡](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)找到更多 Azure 儲存體帳戶的相關資訊，包括儲存體帳戶的說明，以及它所提供的服務。 若要建立 Microsoft Azure 儲存體帳戶，請瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM )。  
+如果您在 Azure 儲存體帳戶中已擁有您的資料，就只需要確定資料與 Genomics 帳戶在相同的位置。 否則，執行 Genomics 服務時，就會產生輸出費用。 如果您還沒有 Microsoft Azure 儲存體帳戶，就需要加以建立並上傳您的資料。 您可以在[這裡](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)找到更多 Azure 儲存體帳戶的相關資訊，包括儲存體帳戶的說明，以及它所提供的服務。 若要建立 Microsoft Azure 儲存體帳戶，請瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM )。  
 
 ![儲存體建立刀鋒視窗](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "存放建立刀鋒視窗")
 
@@ -152,12 +152,12 @@ Microsoft Genomics 服務預期會使用配對的結束讀取作為輸入檔案�
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>使用 Python 用戶端透過 Microsoft Genomics 服務執行工作流程 
 
 若要透過 Microsoft Genomics 服務來執行工作流程，可編輯 config.txt 檔案來指定您資料的輸入和輸出儲存體容器。
-開啟您從 Genomics 帳戶下載的 config.txt 檔案。 您必須指定的小節包括您的訂用帳戶金鑰，以及底部的六個項目、儲存體帳戶名稱、輸入和輸出的金鑰與容器名稱。 您可以在入口網站中瀏覽至儲存體帳戶的 [存取金鑰]，或直接從 Azure 儲存體總管找到此資訊。  
+開啟您從 Genomics 帳戶下載的 config.txt 檔案。 您必須指定的小節包括您的訂用帳戶金鑰，以及底部的六個項目、儲存體帳戶名稱、輸入和輸出的金鑰與容器名稱。 您可以在入口網站中瀏覽至儲存體帳戶的 [存取金鑰]，或直接從 Azure 儲存體總管找到這項資訊。  
 
 
 ![Genomics 設定](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics 設定")
 
-### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>將工作流程提交到 Microsoft Genomics 用戶端 Microsoft Genomics 服務
+### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>將工作流程提交至 Microsoft Genomics 用戶端 Microsoft Genomics 服務
 
 使用 Microsoft Genomics Python 用戶端搭配下列命令來提交工作流程：
 
@@ -177,4 +177,4 @@ msgen list -f c:\temp\config.txt
 
 
 ## <a name="next-steps"></a>後續步驟
-在此文章中，您已將範例輸入資料上傳到 Azure 儲存體，並已透過 `msgen` Python 用戶端將工作流程提交到 Microsoft Genomics 服務。 若要了解有關可與 Microsoft Genomics 服務搭配使用的其他輸入檔案類型詳細資訊，請參閱下列頁面：[配對的 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [多個 FASTQ 或 BAM](quickstart-input-multiple.md)。 您也可以使用我們的 [Azure Notebook 教學課程](http://aka.ms/genomicsnotebook)來探索此教學課程。
+在本文中，您已將範例輸入資料上傳到 Azure 儲存體，並已透過 `msgen` Python 用戶端將工作流程提交至 Microsoft Genomics 服務。 若要了解有關可與 Microsoft Genomics 服務搭配使用的其他輸入檔案類型詳細資訊，請參閱下列頁面：[配對的 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [多個 FASTQ 或 BAM](quickstart-input-multiple.md)。 您也可以使用我們的 [Azure Notebook 教學課程](http://aka.ms/genomicsnotebook)來探索此教學課程。

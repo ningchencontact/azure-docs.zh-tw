@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 841f82595257c97c15398347a3e1605219d1a534
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394411"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954210"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 Azure Resource Manager 可讓您將方案中的資源作為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。 
@@ -64,6 +64,30 @@ Resource Manager 會提供數個優點：
 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)。
 
 如需對於建立可跨全域 Azure、Azure 主權雲端與 Azure Stack 使用的 Resource Manager 範本相關建議，請參閱[開發針對雲端一致性的 Azure Resource Manager 範本](templates-cloud-consistency.md)。
+
+## <a name="quickstarts-and-tutorials"></a>快速入門與教學課程
+
+使用下列快速入門和教學課程來了解如何開發資源管理員範本：
+
+- 快速入門
+
+    |標題|說明|
+    |------|-----|
+    |[使用 Azure 入口網站](./resource-manager-quickstart-create-templates-use-the-portal.md)|使用入口網站產生範本，以及用於編輯和部署範本的程序。|
+    |[使用 Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|使用 Visual Studio Code 來建立和編輯範本，以及如何使用 Azure Cloud shell 來部署範本。|
+    |[使用 Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|使用 Visual Studio 來建立、編輯和部署範本。|
+
+- 教學課程
+
+    |標題|說明|
+    |------|-----|
+    |[利用範本參考](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|利用範本參考文件來開發範本。 在教學課程中，您可以找到儲存體帳戶的結構描述，並使用該資訊來建立加密的儲存體帳戶。|
+    |[建立多個執行個體](./resource-manager-tutorial-create-multiple-instances.md)|建立多個 Azure 資源的執行個體。 在教學課程中，您將建立多個儲存體帳戶的執行個體。|
+    |[設定資源部署順序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|定義資源相依性。 在教學課程中，您將建立虛擬網路、虛擬機器及相依的 Azure 資源。 您將了解相依性的定義方式。|
+    |[使用條件](./resource-manager-tutorial-use-conditions.md)|根據某些參數值來部署資源。 在教學課程中，您將定義用來建立新儲存體帳戶的範本，或根據參數值使用現有儲存體帳戶。|
+    |[整合金鑰保存庫](./resource-manager-tutorial-use-key-vault.md)|從 Azure Key Vault 擷取祕密/密碼。 在教學課程中，您將建立虛擬機器。  從 Key Vault 擷取虛擬機器的系統管理員密碼。|
+    |[建立連結的範本](./resource-manager-tutorial-create-linked-templates.md)|模組化範本，並從某個範本呼叫其他範本。 在教學課程中，您將建立虛擬網路、虛擬機器及相依的資源。  連結的範本中會定義相依儲存體帳戶。 |
+    |[使用安全部署實務](./deployment-manager-tutorial.md)|使用 Azure 部署管理員。 |
 
 ## <a name="resource-groups"></a>資源群組
 定義資源群組時，必須考慮一些重要因素：
@@ -214,9 +238,9 @@ Azure 也提供數個資源特有的角色。 一些常見的角色有︰
 
 在某些情況下，您會想要執行程式碼或指令碼來存取資源，但不想透過使用者的認證來執行。 相反地，您會想要建立稱為應用程式服務主體的身分識別，並為服務主體指派適當的角色。 Resource Manager 可讓您建立應用程式認證，並以程式設計方式驗證應用程式。 若要了解如何建立服務主體，請參閱下列其中一個主題︰
 
-* [使用 Azure PowerShell 建立用來存取資源的服務主體](resource-group-authenticate-service-principal.md)
+* [使用 Azure PowerShell 建立用來存取資源的服務主體](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [使用 Azure CLI 建立用來存取資源的服務主體](resource-group-authenticate-service-principal-cli.md)
-* [使用入口網站來建立可存取資源的 Azure Active Directory 應用程式和服務主體](resource-group-create-service-principal-portal.md)
+* [使用入口網站來建立可存取資源的 Azure Active Directory 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md)
 
 您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](resource-group-lock-resources.md)。
 

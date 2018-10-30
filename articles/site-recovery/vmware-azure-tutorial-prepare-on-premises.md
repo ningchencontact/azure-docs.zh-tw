@@ -6,22 +6,25 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: facf8895770f890bfbbef946a32cc681f685e998
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 361a1934a1e0cdcc0647c4c4f62af98f52b8c899
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915197"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456865"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 
 [Azure Site Recovery](site-recovery-overview.md) 藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
 
 - 這是一系列中的第二個教學課程，說明如何為內部部署 VMware VM 設定 Azure 的災害復原。 在第一個教學課程中，我們針對 VMware 災害復原需求[設定 Azure 元件](tutorial-prepare-azure.md)。
-- 這些教學課程接設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 
+
+
+> [!NOTE]
+> 這些教學課程接設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱對應案例的**操作說明**區段。
 
 在本文中，我們會說明在您想要使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 時，如何備妥內部部署 VMware 基礎結構。 您會了解如何：
 
@@ -101,11 +104,13 @@ Site Recovery 需要存取 VMware 伺服器才能：
 - [新增 VM 的公用 IP 位址](site-recovery-monitoring-and-troubleshooting.md)。
 - 您可以勾選 [開機診斷] 以檢視 VM 的螢幕擷取畫面。
 
+
+## <a name="failback-requirements"></a>容錯回復需求
+如果您打算容錯回復到您的內部部署環境，也必須確定[已符合某些必要條件](vmware-azure-reprotect.md##before-you-begin)。 不過，這些要求**並不需要從啟用 VM 的災害復原開始**，而且可在容錯移轉至 Azure 後完成。
+
 ## <a name="useful-links"></a>實用的連結
 
 如果您要複寫多個 VM，您應該在開始前規劃容量和部署。 [深入了解](site-recovery-deployment-planner.md)。
-
-
 
 ## <a name="next-steps"></a>後續步驟
 

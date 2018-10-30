@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6d178fe3caa121c51ef081708ca440113871938e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 249e286b16b78643c33b567f705a4c92991f5553
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996905"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404863"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>使用 Log Analytics 監視 Kubernetes 叢集
 
@@ -149,7 +149,7 @@ omsagent   3         3         3         0            3           <none>        
 
 在 Log Analytics 入口網站中，尋找儀表板上的 [容器] 摘要圖格。 按一下此圖格以取得下列詳細資訊：容器事件、錯誤、狀態、映像清查，以及 CPU 和記憶體使用量。 如需更細微的資訊，請按一下任何圖格上的資料列，或執行[記錄搜尋](../../log-analytics/log-analytics-log-searches.md)。
 
-![OMS 入口網站中的 Containers 儀表板](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![Azure 入口網站中的容器儀表板](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
 同樣地，在 Azure 入口網站中，移至 [Log Analytics] 並選取您的工作區名稱。 若要查看 [Containers] 摘要圖格，請按一下 [解決方案] > [Containers]。 若要查看詳細資料，按一下圖格。
 

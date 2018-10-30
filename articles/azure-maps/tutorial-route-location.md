@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure 地圖服務尋找路線 | Microsoft Docs
 description: 使用 Azure 地圖服務的景點路線
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fda234b882cbf4a155881895bbf8401fe3ff3aca
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816713"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645030"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>使用 Azure 地圖服務的景點路線
 
@@ -80,11 +80,10 @@ ms.locfileid: "48816713"
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     **atlas.Map** 是 Azure 地圖控制項 API 的元件，可供控制視覺化互動式網路地圖。
 
 4. 儲存檔案並在瀏覽器中將其開啟。 至此，您已擁有可以進一步發展的基本地圖了。
@@ -126,7 +125,7 @@ ms.locfileid: "48816713"
         padding: 50
     });
 
-    map.addEventListener("load", function () { 
+    map.events.add("load", function () { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -135,7 +134,7 @@ ms.locfileid: "48816713"
         });
     });
     ```
-    **map.setCameraBounds** 會根據起點和終點座標來調整地圖視窗。 **map.addEventListener** 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。 事件接聽程式內的 **map.addPins** API 會在地圖控制項中以視覺化元件的形式新增景點。
+    **map.setCameraBounds** 會根據起點和終點座標來調整地圖視窗。 **map.events.add** 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。 事件接聽程式內的 **map.addPins** API 會在地圖控制項中以視覺化元件的形式新增景點。
 
 3. 儲存 **MapRoute.html** 檔案並重新整理瀏覽器。 現在地圖會以西雅圖作為中心，而且您會看到以圓形藍色圖釘標示的起點，和以藍色圖釘標示的終點。
 

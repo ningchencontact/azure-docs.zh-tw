@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 641081e4a01aa5810d569795c10e967e4b46568e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341135"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023572"
 ---
 # <a name="what-is-translator-speech-api"></a>什麼是翻譯工具語音 API？
 
@@ -34,7 +34,7 @@ ms.locfileid: "49341135"
 翻譯工具語音 API 使用 WebSocket 通訊協定來提供用戶端與伺服器之間的全雙工通訊通道。 
 
 ## <a name="about-microsoft-translator"></a>關於 Microsoft Translator
-Microsoft Translator 是一個雲端式機器翻譯服務。 此服務的核心是 [Translator Text API] (https://www.microsoft.com/en-us/translator/translatorapi.aspx) 和 Translator Speech API，這些 API 為各種 Microsoft 產品和服務提供技術支援，並由全球數千個企業運用在它們應用程式和工作流程中，使它們的內容得以觸及全球用戶。
+Microsoft Translator 是一個雲端式機器翻譯服務。 此服務的核心是 Translator Text API 和 [Translator Speech API](https://www.microsoft.com/en-us/translator/translatorapi.aspx)，這些 API 為各種 Microsoft 產品和服務提供技術支援，並由全球數千個企業運用在其應用程式和工作流程中，使其內容得以觸及全球用戶。
 
 深入了解 [Microsoft Translator 服務](https://www.microsoft.com/en-us/translator/home.aspx) \(英文\)
 

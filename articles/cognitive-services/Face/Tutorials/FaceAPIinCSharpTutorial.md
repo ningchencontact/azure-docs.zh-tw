@@ -1,5 +1,5 @@
 ---
-title: 教學課程：偵測並框出影像中的人臉 - 臉部 API、C#
+title: 教學課程：搭配使用 .NET SDK 和 C# 來偵測並框出影像中的人臉
 titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，您會建立 Windows 應用程式，以使用 臉部 API 來偵測並框出影像中的人臉。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: pafarley
-ms.openlocfilehash: ba850c1d4f9d8018f333662eead56f8e91b3fbd7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df5e46270275ca08a8499607fbad4c1161382fab
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340948"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956489"
 ---
-# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>教學課程：建立 WPF 應用程式來偵測並框出影像中的臉部
+# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image-using-the-net-sdk"></a>教學課程：使用 .NET SDK 建立 WPF 應用程式來偵測並框出影像中的臉部
 
 在本教學課程中，您會建立 Windows Presentation Framework (WPF) 應用程式，以透過其 .NET 用戶端程式庫使用臉部服務。 此應用程式會偵測影像中的臉部、在每張臉的周圍繪出邊框，然後在狀態列上顯示該張臉的描述。 GitHub 上的[偵測 Windows 中的影像並框出人臉](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample)中會提供完整的程式碼範例。
 

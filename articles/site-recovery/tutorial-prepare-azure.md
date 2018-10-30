@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a92bfc9d682346c874ce91fc9835558402bae84
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1d9f84a176d4c2483c83e8961bf426e70933aaa2
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078982"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457139"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署機器的複寫
 
@@ -21,7 +21,8 @@ ms.locfileid: "49078982"
 
 本文是一系列中的第一個教學課程，說明如何為內部部署 VM 設定災害復原。 這與您是否要保護內部部署 VMware VM、Hyper-V VM 或實體伺服器有關。
 
-這些教學課程皆設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 
+> [!NOTE]
+> 這些教學課程皆設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱對應案例的**操作說明**區段。
 
 本文說明如何在您想要將內部部署 VM (Hyper-V 或 VMware) 或 Windows/Linux 實體伺服器複寫至 Azure 時，準備好 Azure 元件。 在本教學課程中，您了解如何：
 

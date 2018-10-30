@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure 地圖服務進行搜尋 | Microsoft Docs
 description: 使用 Azure 地圖服務來搜尋附近景點
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816815"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645809"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
@@ -116,11 +116,10 @@ ms.locfileid: "48816815"
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     此區段會為 Azure 地圖服務帳戶金鑰初始化地圖控制項 API。 **Atlas** 是包含 API 和相關視覺效果元件的命名空間。 **Atlas.Map** 可供控制視覺化互動式網路地圖。
 
 4. 將變更儲存至檔案，並在瀏覽器中開啟 HTML 網頁。 這是您可以藉由呼叫 **atlas.map** 和使用帳戶金鑰來建立的最基本地圖。
@@ -148,14 +147,14 @@ ms.locfileid: "48816815"
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. 地圖上的所有函式均應在地圖載入之後載入。 您可以藉由在地圖 eventListener 區塊內放入所有地圖函式來確定這一點。 新增下列幾行程式碼，以將 [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) 新增至地圖，可確保地圖可在新增功能之前完整載入。
+3. 地圖上的所有函式均應在地圖載入之後載入。 您可以藉由在地圖 eventListener 區塊內放入所有地圖函式來確定這一點。 新增下列幾行程式碼，以將 [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 新增至地圖，可確保地圖可在新增功能之前完整載入。
     
     ```JavaScript
-         map.addEventListener("load", function() {
+         map.events.add("load", function() {
          });
     ```
 
-4. 在**地圖負載 eventListener 內**新增下列指令碼區塊以建置查詢。 它會使用模糊搜尋服務，這是搜尋服務的基本搜尋 API。 模糊搜尋服務可處理大部分的模糊輸入，例如地址或景點 (POI) 權杖的任意組合。 它會在指定的半徑範圍內搜尋附近的加油站。 然後，回應剖析為 GeoJSON 格式，並轉換成點功能，新增為地圖上的圖釘。 指令碼的最後一個部分會使用地圖的 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) 屬性，為地圖新增觀景窗界限。
+4. 在**地圖負載事件內**新增下列指令碼區塊以建置查詢。 它會使用模糊搜尋服務，這是搜尋服務的基本搜尋 API。 模糊搜尋服務可處理大部分的模糊輸入，例如地址或景點 (POI) 權杖的任意組合。 它會在指定的半徑範圍內搜尋附近的加油站。 然後，回應剖析為 GeoJSON 格式，並轉換成點功能，新增為地圖上的圖釘。 指令碼的最後一個部分會使用地圖的 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) 屬性，為地圖新增觀景窗界限。
 
     ```JavaScript
 
@@ -190,8 +189,8 @@ ms.locfileid: "48816815"
             map.setCameraBounds({
                bounds: geojsonResponse.getGeoJsonResults().bbox,
                padding: 50
-            );
-        });
+            });
+    });
     ```
 5. 儲存 **MapSearch.html** 檔案並重新整理瀏覽器。 您現在應該會看到地圖以西雅圖作為中心，並以藍色圖釘標示該區域內的汽油站位置。
 

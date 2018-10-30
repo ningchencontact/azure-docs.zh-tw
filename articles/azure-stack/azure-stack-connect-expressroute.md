@@ -5,28 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: c30e70802d125744432f428f903f6ac6789f631e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e9365008c47c2aac71d3983a16db37b0c5ea62ea
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389220"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648100"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 將 Azure Stack 連線至 Azure
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-本文說明如何使用 Microsoft Azure ExpressRoute 直接連接，將 Azure Stack 虛擬網路連接到 Azure 虛擬網路。
+本文說明如何使用 [Microsoft Azure ExpressRoute](/azure/expressroute/) 直接連接，將 Azure Stack 虛擬網路連接到 Azure 虛擬網路。
 
 您可以使用本文作為教學課程，並使用範例來設定相同的測試環境。 或者，您也可以使用本文作為逐步指示，來引導您完成 ExpressRoute 環境的設定。
 
@@ -59,25 +57,25 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 
 ### <a name="expressroute-network-architecture"></a>ExpressRoute 網路架構
 
-下圖說明使用本文中的範例完成 ExpressRoute 設定之後的 Azure Stack 和 Azure 環境。
+下圖說明使用本文中範例完成 ExpressRoute 設定之後的 Azure Stack 和 Azure 環境：
 
 *圖 1.ExpressRoute 網路*
 
 ![ExpressRoute 網路](media/azure-stack-connect-expressroute/Conceptual.png)
 
-下一個架構圖說明多個租用戶如何從 Azure Stack 基礎結構，透過 ExpressRoute 路由器，連線至 Microsoft Edge 的 Azure。
+下列圖表顯示多個租用戶如何透過 ExpressRoute 路由器，從 Azure Stack 基礎結構連線至 Microsoft Edge 的 Azure：
 
 *圖 2.多租用戶連線*
 
 ![使用 ExpressRoute 的多租用戶連線](media/azure-stack-connect-expressroute/Architecture.png)
 
-本文範例會使用圖 2 所示的相同多租用戶架構，利用 ExpressRoute 私人對等互連將 Azure Stack 連線至 Azure。 在作法上是使用站對站 VPN 連線，從 Azure Stack 中的虛擬網路閘道連線至 ExpressRoute 路由器。
+本文範例會使用圖 2 所示的相同多租用戶架構，利用 ExpressRoute 私人對等互連將 Azure Stack 連線至 Azure。 此連線方式是使用站對站 VPN 連線，從 Azure Stack 中的虛擬網路閘道連線至 ExpressRoute 路由器。
 
-本文中的步驟說明如何在兩個 VNet 之間建立端對端連線：從 Azure Stack 中的不同租用戶連到 Azure 中的對應 VNet。 設定兩個租用戶是選擇性作業，您也可以使用這些步驟來設定單一租用戶。
+本文中的步驟說明如何在兩個 VNet 之間建立端對端連線：從 Azure Stack 中的不同租用戶連到 Azure 中的對應 VNet。 設定兩個租用戶是選擇性作業；您也可以使用這些步驟來設定單一租用戶。
 
 ## <a name="configure-azure-stack"></a>設定 Azure Stack
 
-若要為第一個租用戶設定 Azure Stack 環境，請使用下圖中的步驟作為指南。 如果您要設定多個租用戶，請重複這些步驟。
+若要為第一個租用戶設定 Azure Stack 環境，請使用下圖中的步驟作為指南。 如果您要設定多個租用戶，請重複這些步驟：
 
 >[!NOTE]
 >以下步驟說明如何使用 Azure Stack 入口網站來建立資源，但您也可以使用 PowerShell。
@@ -98,13 +96,14 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>建立虛擬網路和 VM 子網路
 
 1. 以使用者 (租用戶) 帳戶來登入使用者入口網站。
-1. 在入口網站中，選取 [+ 建立資源]。
 
-1. 在 [Azure Marketplace] 底下，選取 [網路]。
+2. 在入口網站中，選取 [+ 建立資源]。
 
-1. 在 [精選] 底下，選取 [虛擬網路]。
+3. 在 [Azure Marketplace] 底下，選取 [網路]。
 
-1. 在 [建立虛擬網路] 底下，於適當欄位中輸入下表所顯示的值。
+4. 在 [精選] 底下，選取 [虛擬網路]。
+
+5. 在 [建立虛擬網路] 底下，於適當欄位中輸入下表所顯示的值：
 
    |欄位  |值  |
    |---------|---------|
@@ -113,12 +112,12 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
    |子網路名稱     |Tenant1-Sub1|
    |子網路位址範圍     |10.1.1.0/24|
 
-1. 您應會看到稍早建立的訂用帳戶填入 [訂用帳戶] 欄位中。 至於其餘欄位：
+6. 您應會看到稍早建立的訂用帳戶填入 [訂用帳戶] 欄位中。 至於其餘欄位：
 
     * 在 [資源群組] 底下，選取 [新建] 以建立新的資源群組，如果您已有資源群組，則選取 [使用現有的]。
     * 確認預設 [位置]。
-    * 選取 [建立] 。
-    * (選擇性) 選取 [釘選到儀表板]。
+    * 按一下頁面底部的 [新增] 。
+    * (選擇性) 按一下 [釘選到儀表板]。
 
 #### <a name="create-the-gateway-subnet"></a>建立閘道子網路
 
@@ -127,31 +126,31 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 1. 選取 [+ 閘道子網路] 以將閘道子網路新增到虛擬網路。
 1. 子網路名稱預設為 **GatewaySubnet**。 閘道子網路屬特殊案例，其必須使用此名稱才能正常運作。
 1. 確認 [位址範圍] 是 **10.1.0.0/24**。
-1. 選取 [確定] 以建立閘道子網路。
+1. 按一下 [確定] 以建立閘道子網路。
 
 #### <a name="create-the-virtual-network-gateway"></a>建立虛擬網路閘道
 
-1. 在 Azure Stack 使用者入口網站中，選取 [+ 建立資源]。
+1. 在 Azure Stack 使用者入口網站中，按一下 [+ 建立資源]。
 1. 在 [Azure Marketplace] 底下，選取 [網路]。
 1. 從網路資源清單中選取 [虛擬網路閘道]。
 1. 在 [名稱] 欄位中，輸入 **GW1**。
 1. 選取 [虛擬網路]。
 1. 從下拉式清單中選取 [Tenant1VNet1]。
-1. 選取 [公用 IP 位址] > [選擇公用 IP 位址]，然後選取 [新建]。
-1. 在 [名稱] 欄位中輸入 **GW1-PiP**，然後選取 [確定]。
+1. 選取 [公用 IP 位址]，接著**選擇公用 IP 位址**，然後按一下 [新建]。
+1. 在 [名稱] 欄位中，輸入 **GW1-PiP**﹐然後按一下 [確定]。
 1. [VPN 類型] 預設應選取 [路由式]。 保留此設定。
-1. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 選取 [建立] 。
+1. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 按一下頁面底部的 [新增] 。
 
 #### <a name="create-the-local-network-gateway"></a>建立區域網路閘道
 
-區域網路閘道資源可識別 VPN 連線另一端的遠端閘道。 在此範例中，連線的遠端是 ExpressRoute 路由器的 LAN 子介面。 圖 2 所示的租用戶 1 ，其遠端位址是 10.60.3.255。
+區域網路閘道資源可識別 VPN 連線另一端的遠端閘道。 在此範例中，連線的遠端是 ExpressRoute 路由器的 LAN 子介面。 圖 2 所示的租用戶 1，其遠端位址是 10.60.3.255。
 
 1. 以使用者帳戶登入 Azure Stack 使用者入口網站，然後選取 [+ 建立資源]。
 1. 在 [Azure Marketplace] 底下，選取 [網路]。
 1. 從資源清單中選取 [區域網路閘道]。
 1. 在 [名稱] 欄位中輸入 **ER-Router-GW**。
 1. 關於 [IP 位址] 欄位，請參閱圖 2。 對於租用戶 1，ExpressRoute 路由器的 LAN 子介面 IP 位址是 10.60.3.255。 根據您自己的環境，輸入路由器相對應介面的 IP 位址。
-1. 在 [位址空間] 欄位中，輸入您想要連線至 Azure 中之 VNet 的位址空間。 圖 2 中租用戶 1 的子網路是：
+1. 在 [位址空間] 欄位中，輸入您想要連線至 Azure 中之 VNet 的位址空間。 下列是圖 2 中租用戶 1 的子網路：
 
    * 192.168.2.0/24 是 Azure 中的中樞 VNet。
    * 10.100.0.0/16 是 Azure 中的輪輻 VNet。
@@ -159,7 +158,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
    > [!IMPORTANT]
    > 對於 Azure Stack 閘道和 ExpressRoute 路由器之間的站對站 VPN 連線，這個範例假設您使用靜態路由。
 
-1. 確認 [訂用帳戶]、[資源群組] 和 [位置] 正確無誤。 選取 [建立] 。
+1. 確認 [訂用帳戶]、[資源群組] 和 [位置] 正確無誤。 接著，按一下 [建立]。
 
 #### <a name="create-the-connection"></a>建立連線
 
@@ -167,14 +166,14 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 1. 在 [Azure Marketplace] 底下，選取 [網路]。
 1. 從資源清單中選取 [連線]。
 1. 在 [基本] 底下，選擇 [站對站 (IPSec)] 作為 [連線類型]。
-1. 選取 [訂用帳戶]、[資源群組] 和 [位置]。 選取 [確定] 。
+1. 選取 [訂用帳戶]、[資源群組] 和 [位置]。 按一下 [確定]。
 1. 在 [設定] 底下，選取 [虛擬網路閘道]，然後選取 [GW1]。
 1. 選取 [區域網路閘道]，然後選取 [ER Router GW]。
 1. 在 [連線名稱] 欄位中，輸入 **ConnectToAzure**。
 1. 在 [共用金鑰 (PSK)] 欄位中輸入 **abc123**，然後選取 [確定]。
 1. 在 [摘要] 底下，選取 [確定]。
 
-**取得虛擬網路閘道公用 IP 位址**
+#### <a name="get-the-virtual-network-gateway-public-ip-address"></a>取得虛擬網路閘道公用 IP 位址
 
 建立虛擬網路閘道之後，您可以取得閘道的公用 IP 位址。 請記下此位址，以免稍後需要在部署中用到。 根據您的部署，此位址可作為 [內部 IP 位址]。
 
@@ -194,7 +193,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
    >[!NOTE]
    >如果您無法取得本文所使用的映像，請要求 Azure Stack 操作員提供不同的 Windows Server 映像。
 
-1. 在 [建立虛擬機器] > [基本資料] 中，輸入 **VM01** 作為 [名稱]。
+1. 在 [建立虛擬機器] 中選取 [基本資料]，然後輸入 **VM01** 作為**名稱**。
 1. 輸入有效的使用者名稱和密碼。 建立 VM 之後，您將使用此帳戶來登入 VM。
 1. 提供 [訂用帳戶]、[資源群組] 和 [位置]。 選取 [確定] 。
 1. 在 [選擇大小] 底下，選取此執行個體的虛擬機器大小，然後選取 [選取]。
@@ -203,27 +202,25 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
    * 虛擬網路是 **Tenant1VNet1**。
    * 子網路已設定為 **10.1.1.0/24**。
 
-   使用預設設定，然後選取 [確定]。
+   使用預設值設定，然後按一下 [確定]。
 
-1. 在 [摘要] 底下檢閱 VM 設定，然後選取 [確定]。
+1. 在 [摘要] 底下檢閱 VM 設定，然後按一下 [確定]。
 
->[!NOTE]
->
->若要新增更多租用戶，請重複您在下列章節中所遵循的步驟：
->
->* 建立虛擬網路和 VM 子網路
->* 建立閘道子網路
->* 建立虛擬網路閘道
->* 建立區域網路閘道
->* 建立連線
->* 建立虛擬機器
->
->如果您要使用租用戶 2 作為範例，請記得變更 IP 位址以避免位址重疊。
+若要新增更多租用戶，請重複您在下列章節中所遵循的步驟：
+
+* [建立虛擬網路和 VM 子網路](#create-the-virtual-network-and-vm-subnet)
+* [建立閘道子網路](#create-the-gateway-subnet)
+* [建立虛擬網路閘道](#create-the-virtual-network-gateway)
+* [建立區域網路閘道](#create-the-local-network-gateway)
+* [建立連線](#create-the-connection)
+* [建立虛擬機器](#create-a-virtual-machine)
+
+如果您要使用租用戶 2 作為範例，請記得變更 IP 位址以避免位址重疊。
 
 ### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>設定用於閘道周遊的 NAT 虛擬機器
 
 > [!IMPORTANT]
-> 本節僅適用於 Azure Stack 開發套件部署。 多重節點部署不需要 NAT。
+> 本節僅適用於 Azure Stack 開發套件 (ASDK) 部署。 多重節點部署不需要 NAT。
 
 Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔離。 閘道所連線的 VIP 網路不是在外部，而是隱藏在執行網路位址轉譯 (NAT) 的路由器背後。
 
@@ -232,21 +229,20 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
 #### <a name="configure-the-nat"></a>設定 NAT
 
 1. 以系統管理員帳戶登入 Azure Stack 主機電腦。
-1. 複製並編輯下列 PowerShell 指令碼。  將 `"<your administrator password>"` 更換為系統管理員密碼，然後在提升權限的 PowerShell ISE 中執行指令碼。 此指令碼會傳回「外部 BGPNAT 位址」。
+1. 複製並編輯下列 PowerShell 指令碼。 將 `"your administrator password"` 更換為系統管理員密碼，然後在提升權限的 PowerShell ISE 中執行指令碼。 此指令碼會傳回「外部 BGPNAT 位址」。
 
    ```PowerShell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "<your administrator password>" `
+   $Password = ConvertTo-SecureString "your administrator password" `
     -AsPlainText `
     -Force
    Get-AzureStackNatServerAddress `
     -HostComputer "azs-bgpnat01" `
     -Password $Password
-
    ```
 
-1. 若要設定 NAT，請複製並編輯下列 PowerShell 指令碼。 編輯指令碼以將 `'<External BGPNAT address>'` 和 `'<Internal IP address>'` 更換為下列值範例：
+1. 若要設定 NAT，請複製並編輯下列 PowerShell 指令碼。 編輯指令碼以將 `'External BGPNAT address'` 和 `'Internal IP address'` 更換為下列值範例：
 
    * 針對 [外部 BGPNAT 位址]，請使用 10.10.0.62
    * 針對 [內部 IP 位址]，請使用 192.168.102.1
@@ -254,8 +250,8 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
    從提高權限的 PowerShell ISE 執行下列指令碼：
 
    ```PowerShell
-   $ExtBgpNat = '<External BGPNAT address>'
-   $IntBgpNat = '<Internal IP address>'
+   $ExtBgpNat = 'External BGPNAT address'
+   $IntBgpNat = 'Internal IP address'
 
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
@@ -297,7 +293,7 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
 
 ## <a name="configure-azure"></a>設定 Azure
 
-完成 Azure Stack 的設定之後，您就可以部署 Azure 資源。 下圖說明 Azure 中的租用戶虛擬網路範例。 針對您在 Azure 中的 VNet，您可以使用任何名稱和定址配置。 不過，在 Azure 和 Azure Stack 中，VNet 的位址範圍必須是唯一的，而且不重疊。
+完成 Azure Stack 的設定之後，您就可以部署 Azure 資源。 下圖說明 Azure 中的租用戶虛擬網路範例。 針對您在 Azure 中的 VNet，您可以使用任何名稱和定址配置。 不過，在 Azure 和 Azure Stack 中，VNet 的位址範圍必須是唯一的，而且不能重疊。
 
 *圖 3.Azure VNet*
 
@@ -313,7 +309,7 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
 
 Azure 網路基礎結構範例的設定方式如下：
 
-* 標準中樞 (192.168.2.0/24) 和輪輻 (10.100.0.0./16) VNet 模型。 如需中樞輪輻網路拓撲的詳細資訊，請參閱[在 Azure 中實作中樞輪輻網路拓撲](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)。
+* 標準中樞 (192.168.2.0/24) 和輪輻 (10.100.0.0./16) VNet 模型。 如需中樞輪輻網路拓撲的詳細資訊，請參閱[在 Azure 中實作中樞輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)。
 * 工作負載部署在輪輻 VNet 中，而 ExpressRoute 線路連線至中樞 VNet。
 * 使用 VNet 對等互連將兩個 VNet 連線。
 
@@ -369,8 +365,6 @@ Azure 網路基礎結構範例的設定方式如下：
 您可以使用任何支援 IKEv2 VPN 和 BGP 的路由器，以終止 Azure Stack 的站對站 VPN 連線。 相同的路由器用於透過 ExpressRoute 線路來連線至 Azure。
 
 下列 Cisco ASR 1000 Series Aggregation Services Router 設定範例可支援「ExpressRoute 路由器設定」圖表顯示的網路基礎結構。
-
-**Cisco ASR 1000 設定範例**
 
 ```
 ip vrf Tenant 1
@@ -603,14 +597,13 @@ route-map VNET-ONLY permit 10
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>允許 ICMP 通過防火牆
 
-根據預設，Windows Server 2016 不允許傳入的 ICMP 封包通過防火牆。 對於用於偵測測試的每個虛擬機器，您需要允許傳入的 ICMP 封包。 若要對 ICMP 建立防火牆規則，請在提升權限的 PowerShell 視窗中執行下列 Cmdlet：
+根據預設，Windows Server 2016 不允許傳入的 ICMP 封包通過防火牆。 對於用於偵測測試的每個虛擬機器，您必須允許傳入的 ICMP 封包。 若要對 ICMP 建立防火牆規則，請在提升權限的 PowerShell 視窗中執行下列 Cmdlet：
 
 ```PowerShell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `
   –Protocol ICMPv4
-
 ```
 
 ### <a name="ping-the-azure-stack-virtual-machine"></a>偵測 Azure Stack 虛擬機器
@@ -625,11 +618,11 @@ New-NetFirewallRule `
 
 1. 從 Azure VNet 中的虛擬機器偵測 IPv4 位址。
 
-   在環境範例中，IPv4 位址來自 10.1.1.x/24 子網路。 在您的環境中，此位址可能不同。 但應該會在您為租用戶 VNet 子網路建立的子網路內。
+   在環境範例中，IPv4 位址來自 10.1.1.x/24 子網路。 在您的環境中，該位址可能會不同，但它應該會位在您為租用戶 VNet 子網路建立的子網路中。
 
 ### <a name="view-data-transfer-statistics"></a>檢視資料轉送統計資料
 
-如果想要知道有多少流量通過您的連線，您可以在 Azure Stack 使用者入口網站上找到此資訊。 這也很適合用來了解偵測測試資料是否有通過 VPN 和 ExpressRoute 連線。
+如果想要知道有多少流量通過您的連線，您可以在 Azure Stack 使用者入口網站上找到此資訊。 這也很適合用來了解偵測測試資料是否有通過 VPN 和 ExpressRoute 連線：
 
 1. 使用租用戶帳戶登入 Azure Stack 使用者入口網站，然後選取 [所有資源]。
 1. 瀏覽至 VPN 閘道的資源群組，然後選取 [連線] 物件類型。

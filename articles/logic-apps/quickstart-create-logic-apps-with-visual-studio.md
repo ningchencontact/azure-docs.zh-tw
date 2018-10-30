@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: b8961edebd80d5f36d844734e3c93a4bd3b1f0cf
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42162128"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645826"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 建立和自動執行工作、程序和工作流程 - Visual Studio
 
@@ -148,6 +148,10 @@ ms.locfileid: "42162128"
 
    ![部署狀態輸出](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   如果您選取的連接器需要您提供任何輸入，則可能會在背景中開啟 PowerShell 視窗，並出現請您提供必要密碼或祕密金鑰的提示。 當您輸入這些資訊之後，部署將會繼續。
+   
+   ![部署 powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    部署完成之後，應用程式邏輯會存留在 Azure 入口網站中，並根據您指定的排程 (每分鐘) 檢查 RSS 摘要。 
    如果 RSS 摘要有新的項目，邏輯應用程式會針對每個新的項目傳送電子郵件。 
    否則，邏輯應用程式會等到下一個間隔，再檢查一次。 

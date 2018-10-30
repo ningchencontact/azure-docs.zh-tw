@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: ef5459b2b31b67afe187612ffc1ab079a5045a8c
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 07a079e00963f1f5aff96369649e2e4fb248aae0
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114905"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985993"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>從命令列建立您的第一個函式
 
@@ -45,7 +45,7 @@ ms.locfileid: "49114905"
 func init MyFunctionProj
 ```
 
-當出現提示時，請使用方向鍵從下列語言選項中選取背景工作角色執行階段：
+當出現提示時，請從下列語言選項中選取背景工作角色執行階段：
 
 + `dotnet`：建立 .NET 類別庫專案 (.csproj)。
 + `node`：建立 JavaScript 專案。
@@ -59,110 +59,17 @@ Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 ```
 
-## <a name="create-a-function"></a>建立函式
-
-下列命令會瀏覽到新的專案，並建立名為 `MyHtpTrigger` 的 HTTP 觸發函式。
+使用下列命令來瀏覽至新的 `MyFunctionProj` 專案資料夾。
 
 ```bash
 cd MyFunctionProj
-func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 
-當命令執行時，您會看到如下輸出 (JavaScript 函式)：
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
-```output
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\index.js
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\sample.dat
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\function.json
-```
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
-## <a name="edit-the-function"></a>編輯函式
-
-根據預設，此範本建立的函式在發出要求時需要函式金鑰。 為了更輕鬆地在 Azure 中測試函式，您需要更新函式以允許匿名存取。 您進行此變更的方法，視您的函式專案語言而有所不同。
-
-### <a name="c"></a>C\#
-
-開啟新函式的 MyHttpTrigger.cs 程式碼檔案，將函式定義中 **AuthorizationLevel** 屬性的值更新為 `anonymous` 並儲存變更。
-
-```csharp
-[FunctionName("MyHttpTrigger")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, 
-            "get", "post", Route = null)]HttpRequest req, ILogger log)
-```
-
-### <a name="javascript"></a>JavaScript
-
-開啟新的函式的 function.json 檔案 (在文字編輯器中開啟)、將 **bindings.httpTrigger** 中的 **authLevel** 屬性更新為 `anonymous` 並儲存變更。
-
-```json
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-```
-
-您現在可以在 Azure 中呼叫該函式，而不需要提供函式金鑰。 在本機執行時一律不需要函式金鑰。
-
-## <a name="run-the-function-locally"></a>在本機執行函式
-
-下列命令會啟動函數應用程式。 應用程式使用的 Azure Functions 執行階段和 Azure 中的是相同的。
-
-```bash
-func host start --build
-```
-
-編譯 C# 專案必須使用 `--build` 選項， JavaScript 專案則不需要。
-
-當 Functions 主機啟動時，它會寫入類似下列輸出的內容 (已截斷來提高可讀性)：
-
-```output
-
-                  %%%%%%
-                 %%%%%%
-            @   %%%%%%    @
-          @@   %%%%%%      @@
-       @@@    %%%%%%%%%%%    @@@
-     @@      %%%%%%%%%%        @@
-       @@         %%%%       @@
-         @@      %%%       @@
-           @@    %%      @@
-                %%
-                %
-
-...
-
-Content root path: C:\functions\MyFunctionProj
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-...
-
-Http Functions:
-
-        HttpTrigger: http://localhost:7071/api/HttpTrigger
-
-[8/27/2018 10:38:27 PM] Host started (29486ms)
-[8/27/2018 10:38:27 PM] Job host started
-```
-
-從執行階段輸出複製 `HTTPTrigger` 函式的 URL，並將它貼到瀏覽器的網址列。 將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。 下圖顯示瀏覽器中對於本機函式傳回之 GET 要求所做出的回應︰
-
-![在瀏覽器中進行本機測試](./media/functions-create-first-azure-function-azure-cli/functions-test-local-browser.png)
-
-您現在已經在本機執行您的函式，您可以開始在 Azure 中建立函數應用程式與其他必要資源。
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 

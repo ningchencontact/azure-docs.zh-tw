@@ -1,5 +1,5 @@
 ---
-title: 使用 Visual Studio 在 Azure 中建立第一個函式 | Microsoft Docs
+title: 使用 Visual Studio 在 Azure 中建立第一個函式
 description: 使用 Visual Studio 建立並發佈 HTTP 所觸發的 Azure 函式。
 services: functions
 documentationcenter: na
@@ -10,21 +10,23 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 10/17/2018
 ms.author: glenga
-ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: b7c9b08d1f6cb1c52419519658765ab687a234fc
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
+ms.openlocfilehash: 51f6fb8c0dc1450a39173fafb0d71efc9a59a536
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116584"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649970"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
 Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions/serverless/)環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。
 
 在本文中，您將了解如何使用 Visual Studio 2017 Tools for Azure Functions 在本機建立及測試 "hello world" 函式。 接著會將函式程式碼發佈至 Azure。 這些工具可在 Visual Studio 2017 的 Azure 開發工作負載中取得。
+
+![瀏覽器中的函式 localhost 回應](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
 本主題包含一個可示範相同基本步驟的[影片](#watch-the-video)。
 
@@ -54,13 +56,13 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 2. 從 Azure Functions 執行階段輸出複製函式的 URL。
 
-    ![Azure 本機執行階段](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
+    ![Azure 本機執行階段](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-debugging.png)
 
-3. 將 HTTP 要求的 URL 貼到瀏覽器的網址列。 將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。 下圖顯示瀏覽器中對於函式傳回之本機 GET 要求所做出的回應︰ 
+3. 將 HTTP 要求的 URL 貼到瀏覽器的網址列。 將查詢字串 `?name=<YOUR_NAME>` 附加至此 URL 並執行要求。 下圖顯示瀏覽器中對於函式傳回之本機 GET 要求所做出的回應︰ 
 
-    ![瀏覽器中的函式 localhost 回應](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+    ![瀏覽器中的函式 localhost 回應](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local.png)
 
-4. 若要停止偵錯，請按 Shift + F5。
+4. 若要停止偵錯，請按 **Shift + F5**。
 
 確認函式在本機電腦上正確執行之後，就可以將專案發佈到 Azure。
 
@@ -72,15 +74,15 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 ## <a name="test-your-function-in-azure"></a>在 Azure 中測試您的函式
 
-1. 從發行設定檔頁面複製函式應用程式的基底 URL。 使用新的基底 URL，取代在本機測試函式時所使用之 URL 的 `localhost:port` 部分。 如同以往，務必將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。
+1. 從發行設定檔頁面複製函式應用程式的基底 URL。 使用新的基底 URL，取代在本機測試函式時所使用之 URL 的 `localhost:port` 部分。 如同以往，務必將查詢字串 `?name=<YOUR_NAME>` 附加至此 URL 並執行要求。
 
     呼叫 HTTP URL 觸發函式的 URL 應採用下列格式：
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME> 
 
 2. 將 HTTP 要求的新 URL 貼到瀏覽器的網址列。 下圖顯示瀏覽器中對於函式傳回之遠端 GET 要求所做出的回應︰
 
-    ![瀏覽器中的函式回應](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
+    ![瀏覽器中的函式回應](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
 
 ## <a name="watch-the-video"></a>觀賞影片
 

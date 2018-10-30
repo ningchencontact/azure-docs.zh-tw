@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: a69bfbe4c062012e82ca49233226eb1fcb8eb75e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: be4c906535981c6b05c1a72aa23e4e1f78f57edf
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113535"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954739"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>快速入門：使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業
 
@@ -178,7 +178,9 @@ ms.locfileid: "39113535"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已部署了簡單的串流分析作業。 若要了解如何設定其他輸入來源及執行即時偵測，請前往下列文章：
+在本快速入門中，您已使用 Visual Studio 部署了簡單的串流分析作業。 您也可以使用 [Azure 入口網站](stream-analytics-quick-create-portal.md)和 [PowerShell](stream-analytics-quick-create-powershell.md) 部署串流分析作業。 
+
+若要了解如何設定其他輸入來源及執行即時偵測，請前往下列文章：
 
 > [!div class="nextstepaction"]
 > [使用 Azure 串流分析進行即時詐騙偵測](stream-analytics-real-time-fraud-detection.md)

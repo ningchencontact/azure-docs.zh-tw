@@ -10,23 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419520"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945785"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>教學課程：建立用來部署加密儲存體帳戶的 Azure Resource Manager 範本
 
 了解如何尋找完成 Azure Resource Manager 範本所需的資訊。
 
-在此教學課程中，您會使用 Azure 快速入門範本中的基底範本，來建立 Azure 儲存體帳戶。  您可以使用範本參考文件來自訂基底範本，用以建立加密儲存體帳戶。
+在本教學課程中，您會使用 Azure 快速入門範本中的基底範本，來建立 Azure 儲存體帳戶。  您可以使用範本參考文件來自訂基底範本，用以建立加密儲存體帳戶。
 
-此教學課程涵蓋下列工作：
+本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 開啟快速入門範本
@@ -36,16 +36,15 @@ ms.locfileid: "47419520"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要完成此文章，您需要：
+若要完成本文，您需要：
 
-* [Visual Studio Code](https://code.visualstudio.com/)。
-* Resource Manager Tools 擴充功能。 若要安裝，請參閱[安裝 Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* [Visual Studio Code](https://code.visualstudio.com/) 搭配 [Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
-此快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
+本快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
 
 1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
 2. 在 [檔案名稱] 中，貼上下列 URL：
@@ -56,7 +55,7 @@ ms.locfileid: "47419520"
 3. 選取 [開啟] 以開啟檔案。
 4. 選取 [檔案]>[另存新檔]，在您的本機電腦上將檔案另存為 **azuredeploy.json**。
 
-## <a name="understand-the-format"></a>了解格式
+## <a name="understand-the-schema"></a>了解結構描述
 
 在 VS Code 中，將範本摺疊至根層級。 此時會有最簡單的結構，內含下列元素：
 
@@ -69,7 +68,7 @@ ms.locfileid: "47419520"
 * **resources**：指定在資源群組中部署或更新的資源類型。
 * **outputs**：指定部署後傳回的值。
 
-## <a name="use-parameters-in-template"></a>使用範本中的參數
+## <a name="use-parameters"></a>使用參數
 
 參數可提供針對特定環境量身訂做的值，讓您自訂部署。 您可以在設定儲存體帳戶的值時使用範本中定義的參數。
 
@@ -90,7 +89,7 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 "name": "[parameters('storageAccountType')]"
 ```
 
-## <a name="use-variables-in-template"></a>使用範本中的變數
+## <a name="use-variables"></a>使用變數
 
 變數可讓您建構可用於整個範本的值。 變數有助於降低範本的複雜度。
 
@@ -109,7 +108,7 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
 ## <a name="edit-the-template"></a>編輯範本
 
-此教學課程的目標是要定義用來建立加密儲存體帳戶的範本。  範例範本只會建立基本的未加密儲存體帳戶。 若要尋找加密相關組態，您可以使用 Azure 儲存體帳戶的範本參考。
+本教學課程的目標是要定義用來建立加密儲存體帳戶的範本。  範例範本只會建立基本的未加密儲存體帳戶。 若要尋找加密相關組態，您可以使用 Azure 儲存體帳戶的範本參考。
 
 1. 瀏覽至 [Azure 範本](https://docs.microsoft.com/azure/templates/)。
 2. 在 [依標題篩選] 中，輸入**儲存體帳戶**。
@@ -117,9 +116,7 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
     ![Resource Manager 範本參考儲存體帳戶](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-template-resources-reference-storage-accounts
-1. 瀏覽加密相關資訊。  
-1. 在儲存體帳戶資源定義的屬性元素內，新增下列 JSON：
+4. 尋找加密相關的定義資訊。  
 
     ```json
     "encryption": {
@@ -131,11 +128,9 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
         }
     }
     ```
-    此組件可啟用 Blob 儲存體服務的加密功能。
-
-從 Visual Studio Code 修改範本，使最終的資源元素顯示如下：
-
-![Resource Manager 範本加密的儲存體帳戶資源](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. 從 Visual Studio Code 修改範本，使最終的資源元素顯示如下：
+    
+    ![Resource Manager 範本加密的儲存體帳戶資源](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>部署範本
 
@@ -147,7 +142,7 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要 Azure 資源時，可透過刪除資源群組來清除您所部署的資源。
+不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
 1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
 2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。
@@ -156,7 +151,7 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何使用範本參考來自訂現有的範本。 若要了解如何建立多個儲存體帳戶執行個體，請參閱：
+在本教學課程中，您已了解如何使用範本參考來自訂現有的範本。 若要了解如何建立多個儲存體帳戶執行個體，請參閱：
 
 > [!div class="nextstepaction"]
 > [建立多個執行個體](./resource-manager-tutorial-create-multiple-instances.md)

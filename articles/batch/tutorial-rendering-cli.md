@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 10/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9f9464874230538bf2976b47896dae8e67c9744f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392800"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024387"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教學課程：使用 Azure Batch 轉譯場景 
 
-Azure Batch 提供了按使用次數付費的雲端規模轉譯功能。 Azure Batch 支援 Autodesk Maya、3ds Max、Arnold 與 V-Ray 等應用程式的轉譯。 此教學課程會示範使用 Azure 命令列介面透過 Batch 轉譯小型場景的步驟。 您會了解如何：
+Azure Batch 提供了按使用次數付費的雲端規模轉譯功能。 Azure Batch 支援 Autodesk Maya、3ds Max、Arnold 與 V-Ray 等應用程式的轉譯。 本教學課程會示範使用 Azure 命令列介面透過 Batch 轉譯小型場景的步驟。 您會了解如何：
 
 > [!div class="checklist"]
 > * 將場景上傳至 Azure 儲存體
@@ -27,17 +27,17 @@ Azure Batch 提供了按使用次數付費的雲端規模轉譯功能。 Azure B
 > * 調整集區，以及轉譯多框架場景
 > * 下載已轉譯的輸出
 
-在此教學課程中，您會使用 [Arnold](https://www.autodesk.com/products/arnold/overview) 光線追蹤轉譯器，透過 Batch 轉譯 3ds Max 場景。 Batch 集區會使用 Azure Marketplace 映像，其中包含提供即用即付授權的預先安裝圖表與轉譯應用程式。
+在本教學課程中，您會使用 [Arnold](https://www.autodesk.com/products/arnold/overview) 光線追蹤轉譯器，透過 Batch 轉譯 3ds Max 場景。 Batch 集區會使用 Azure Marketplace 映像，其中包含提供即用即付授權的預先安裝圖表與轉譯應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-您需要預付型訂用帳戶或其他 Azure 購買選項，以按使用量付費的方式，在 Batch 中使用轉譯應用程式。 如果您使用提供信用額度金額的免費 Azure 方案，則不支援按使用量付費授權。
+您需要預付型訂用帳戶或其他 Azure 購買選項，以按使用量付費的方式，在 Batch 中使用轉譯應用程式。 **如果您使用提供信用額度金額的免費 Azure 方案，則不支援按使用量付費授權。**
 
 此教學課程中的範例 3ds Max 場景 (連同範例 Bash 指令碼和 JSON 設定檔) 位於 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上。 3ds Max 場景來自 [Autodesk 3ds Max 範例檔案](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 (在 Creative Commons Attribution-NonCommercial-Share Alike 授權之下可取得 Autodesk 3ds Max 範例檔案。 Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，此教學課程會要求您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-batch-account"></a>建立批次帳戶：
 
@@ -51,7 +51,7 @@ az group create \
     --location eastus2
 ```
 
-使用 [az storage account create](/cli/azure/storage/account#az-storage-account-create) 命令在資源群組中建立 Azure 儲存體帳戶。 在此教學課程中，您會使用此儲存體帳戶來存放輸入 3ds Max 場景和已轉譯的輸出。
+使用 [az storage account create](/cli/azure/storage/account#az-storage-account-create) 命令在資源群組中建立 Azure 儲存體帳戶。 在本教學課程中，您會使用此儲存體帳戶來存放輸入 3ds Max 場景和已轉譯的輸出。
 
 ```azurecli-interactive
 az storage account create \
@@ -142,7 +142,7 @@ Batch 支援專用節點和[低優先順序節點](batch-low-pri-vms.md)，而�
 
 指定的集區包含一個執行 Windows Server 映像 (內含 Batch 轉譯服務軟體) 的低優先順序節點。 此集區已獲得授權可透過 3ds Max 和 Arnold 進行轉譯。 在後面的步驟中，您可將集區調整為更多節點。
 
-透過將 JSON 檔案傳遞至 `az batch pool create` 命令來建立集區：
+藉由將 JSON 檔案傳遞至 `az batch pool create` 命令來建立集區：
 
 ```azurecli-interactive
 az batch pool create \
@@ -160,7 +160,7 @@ az batch pool show \
 
 ## <a name="create-a-blob-container-for-output"></a>建立輸入的 Blob 容器
 
-在此教學課程的範例中，轉譯作業中的每個工作都會建立輸出檔案。 在排程作業之前，請在您的儲存體帳戶中建立 blob 容器作為輸出檔案的目的地。 下列範例會使用 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 命令建立具有公用讀取存取權的 job-myrenderjob 容器。 
+在本教學課程的範例中，轉譯作業中的每項工作都會建立輸出檔案。 在排程作業之前，請在您的儲存體帳戶中建立 blob 容器作為輸出檔案的目的地。 下列範例會使用 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 命令建立具有公用讀取存取權的 job-myrenderjob 容器。 
 
 ```azurecli-interactive
 az storage container create \
@@ -175,7 +175,7 @@ az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2018-11-15
+    --expiry 2019-11-15
 ```
 
 請記下命令所傳回的權杖，如下所示。 您會在後面的步驟中使用此權杖。
@@ -340,7 +340,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 將場景上傳至 Azure 儲存體

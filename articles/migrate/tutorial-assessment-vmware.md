@@ -4,21 +4,21 @@ description: 說明如何使用 Azure Migrate 服務，探索及評估要移轉�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 10/24/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f468bac6f4d8c209fae51f0b84980dc8c611a29b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161874"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025873"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
 [Azure Migrate](migrate-overview.md) 服務會評估要移轉至 Azure 的內部部署工作負載。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立 Azure Migrate 用來探索內部部署 VM 的帳戶
@@ -27,14 +27,14 @@ ms.locfileid: "47161874"
 > * 將 VM 分組並建立評估。
 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **VMWare**：您計劃移轉的虛擬機器必須透過執行版本 5.5、6.0 或 6.5 的 vCenter Server 來管理。 此外，您還需要一部執行版本 5.0 或更新版本的 ESXi 主機來部署收集器 VM。
 - **vCenter Server 帳戶**：您需要一個唯讀帳戶來存取 vCenter Server。 Azure Migrate 會使用此帳戶來探索內部部署 VM。
-- **權限**：在 vCenter Server 上，您需要權限，才能透過匯入 .OVA 格式的檔案來建立 VM。
+- **權限**：在 vCenter Server 上，您需要權限，方可藉由匯入 .OVA 格式的檔案來建立 VM。
 - **統計資料設定**：此先決條件僅適用於單次探索模型。 若要使單次探索能夠運作，vCenter Server 的統計資料設定應該先設為層級 3，再開始部署。 如果低於層級 3，還是能進行評估，但不會收集儲存體和網路的效能資料。 在此情況下，將根據 CPU 和記憶體的效能資料以及磁碟和網路介面卡的組態資料來提出大小建議。
 
 ## <a name="create-an-account-for-vm-discovery"></a>建立用於 VM 探索的帳戶
@@ -66,15 +66,21 @@ Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評
 
 Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM 會探索內部部署 VMware VM，並將其相關中繼資料傳送至 Azure Migrate 服務。 若要設定收集器設備，您可以下載 .OVA 檔案，並將它匯入內部部署 vCenter Server，以建立 VM。
 
-1. 在 Azure Migrate 專案中，按一下 [開始使用] > [探索及評定] > [探索電腦]。
+1. 在 Azure Migrate 專案中，按一下 [開始使用] > [探索及評定] > [探索機器]。
 2. 在 [探索電腦] 中，有兩個選項可供設備使用。按一下 [下載] 以根據您的需求下載適當的設備。
 
-    a. **單次探索**：此模型的設備會與 vCenter Server 通訊，以收集 VM 的相關中繼資料。 針對 VM 的效能資料收集，它會仰賴儲存在 vCenter Server 中的歷史效能資料，並收集上一個月的效能歷程記錄。 在此模型中，Azure Migrate 會收集每個計量的平均計數器 (相對於尖峰計數器)，[深入了解] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)。 由於它是單次探索，因此在探索之後將不會繼續反映出內部部署環境中的變更。 如果您想要反映變更，便必須針對相同的專案重新進行相同環境的探索。
+    a. **單次探索**：此模型的設備會與 vCenter Server 通訊，以收集 VM 的相關中繼資料。 針對 VM 的效能資料收集，它會仰賴儲存在 vCenter Server 中的歷史效能資料，並收集上一個月的效能歷程記錄。 在此模型中，Azure Migrate 會收集每個計量的平均計數器 (相對於尖峰計數器)，[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)。 由於它是單次探索，因此在探索之後將不會繼續反映出內部部署環境中的變更。 如果您想要反映變更，便必須針對相同的專案重新進行相同環境的探索。
 
     b. **連續探索**：此模型的設備會持續剖析內部部署環境，以收集每個 VM 的即時使用量資料。 在此模型中，會收集每個計量 (CPU 使用量、記憶體使用量等) 的尖峰計數器。 此模型並不需仰賴 vCenter Server 的統計資料設定來收集效能資料。 您可以隨時從設備停止持續性的剖析。
 
+    請注意，設備只會持續收集效能資料，不會偵測內部部署環境中的任何組態變更 (也就是 VM 新增、刪除或磁碟新增等動作)。 如果內部部署環境中有組態變更，您可以執行下列動作，以在入口網站中反映變更：
+
+    1. 新增項目 (VM、磁碟、核心等)：若要在 Azure 入口網站中反映這些變更，您可以從設備停止探索，然後重新啟動。 這可確保所做的變更會在 Azure Migrate 專案中更新。
+
+    2. 刪除 VM：基於設備的設計方式，刪除 VM 並不會有所反映，即使您停止探索後再重新啟動也一樣。 這是因為後續探索中的資料會附加至較舊的探索，而且不會受到覆寫。 在此情況下，您可以藉由從群組中移除 VM 並重新計算評定，以直接忽略入口網站中的 VM。
+
     > [!NOTE]
-    > 連續探索功能目前處於預覽狀態。
+    > 連續探索功能目前處於預覽狀態。 我們建議您使用此方法，因為此方法會收集較細微的效能資料，讓您藉此完成精確的大小調整。
 
 3. 在 [複製專案認證] 中，複製專案識別碼和金鑰。 在設定收集器時，您會需要這些資料。
 
@@ -91,6 +97,14 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 3. 產生的雜湊應符合這些設定。
 
 #### <a name="one-time-discovery"></a>單次探索
+
+  OVA 1.0.9.15 版
+
+  **演算法** | **雜湊值**
+  --- | ---
+  MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+  SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+  SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
   OVA 1.0.9.14 版
 
@@ -117,7 +131,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
   SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
 
-  OVA 1.0.9.7 版
+  若為 OVA 1.0.9.7 版
 
   **演算法** | **雜湊值**
   --- | ---
@@ -163,7 +177,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
     - 如果 VM 能夠透過 Proxy 存取網際網路，請按一下 [Proxy 設定]，然後指定 Proxy 位址和接聽連接埠。 如果 Proxy 需要驗證，請指定認證。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity)網際網路連線需求和收集器存取的 URL 清單。
 
     > [!NOTE]
-    > 必須在表單 http://ProxyIPAddress 或 http://ProxyFQDN 中輸入 Proxy 位址。 僅支援 HTTP Proxy。 如果您有攔截 Proxy，且您未匯入 Proxy 憑證，則初始的網際網路連線可能會失敗；請[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy)如何透過將 Proxy 憑證匯入作為收集器 VM 上的信任憑證，以解決此問題。
+    > 必須在表單 http://ProxyIPAddress 或 http://ProxyFQDN 中輸入 Proxy 位址。 僅支援 HTTP Proxy。 如果您有攔截 Proxy，且您未匯入 Proxy 憑證，則初始的網際網路連線可能會失敗；請[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy)如何藉由將 Proxy 憑證匯入作為收集器 VM 上的信任憑證，以解決此問題。
 
     - 收集器會檢查收集器服務是否正在執行。 根據預設，收集器 VM 上會安裝此服務。
     - 下載並安裝 VMware PowerCLI。
@@ -173,8 +187,8 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
     - 在 [使用者名稱] 和 [密碼] 中，指定收集器要用來探索 vCenter Server 上之 VM 的唯讀帳戶認證。
     - 在 [收集範圍] 中，選取 VM 探索的範圍。 收集器只能探索指定範圍內的 VM。 範圍可以設定為特定資料夾、資料中心或叢集。 它不應包含超過 1500 個 VM。 [深入了解](how-to-scale-assessment.md)如何探索較大的環境。
 
-7. 在 [指定移轉專案] 中，指定您從入口網站所複製的 Azure Migrate 專案識別碼和金鑰。 如果您之前未複製，請從收集器 VM 開啟 Azure 入口網站。 在專案的 [概觀] 頁面中，按一下 [探索電腦]，然後複製值。  
-8. 在 [檢視檢視收集進度] 中，監視探索狀態。 深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) Azure Migrate 收集器會收集哪些資料。
+7. 在 [指定移轉專案] 中，指定您從入口網站所複製的 Azure Migrate 專案識別碼和金鑰。 如果您之前未複製，請從收集器 VM 開啟 Azure 入口網站。 在專案的 [概觀] 頁面中，按一下 [探索機器]，然後複製值。  
+8. 在 [檢視檢視收集進度] 中，監視探索狀態。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) Azure Migrate 收集器會收集哪些資料。
 
 > [!NOTE]
 > 收集器只支援以「英文 (美國)」作為作業系統語言和收集器介面語言。
@@ -221,13 +235,13 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 - 未備妥供 Azure 使用
 - 移轉整備程度未知
 
-對於已準備好的 VM，Azure Migrate 會建議這些 VM 在 Azure 中該有的大小。 由 Azure Migrate 進行的大小建議取決於評量屬性中指定的調整大小準則。 如果調整大小準則是以效能為基礎來調整，則會透過考量 VM (CPU 和記憶體) 和磁碟 (IOPS 和輸送量) 的效能歷程記錄來建議大小。 如果調整大小準則是「作為內部部署」，Azure Migrate 不會考慮 VM 和磁碟的效能資料。 透過查看 VM 內部部署的大小來建議 Azure 中的 VM 大小，而磁碟大小調整則是以評估屬性中指定的儲存體類型 (預設值為進階磁碟) 為基礎。 [深入了解](concepts-assessment-calculation.md)有關 Azure Migrate 調整大小的方式。
+對於已準備好的 VM，Azure Migrate 會建議這些 VM 在 Azure 中該有的大小。 由 Azure Migrate 進行的大小建議取決於評量屬性中指定的調整大小準則。 如果調整大小準則是以效能為基礎來調整，則會藉由考量 VM (CPU 和記憶體) 和磁碟 (IOPS 和輸送量) 的效能歷程記錄來建議大小。 如果調整大小準則是「作為內部部署」，Azure Migrate 不會考慮 VM 和磁碟的效能資料。 藉由查看 VM 內部部署的大小來建議 Azure 中的 VM 大小，而磁碟大小調整則是以評估屬性中指定的儲存體類型 (預設值為進階磁碟) 為基礎。 [深入了解](concepts-assessment-calculation.md)有關 Azure Migrate 調整大小的方式。
 
 對於尚未就緒或者可有條件地供 Azure 使用的虛擬機器，Azure Migrate 會說明整備問題，並提供補救步驟。
 
 對於 Azure Migrate 無法識別 Azure 移轉整備程度 (因為資料無法使用) 的虛擬機器會標示為移轉整備程度未知。
 
-除了 Azure 移轉整備程度和大小調整，Azure Migrate 也會建議可供移轉虛擬機器使用的工具。 這需要在內部部署環境進行更深入的探索。 [深入探索](how-to-get-migration-tool.md)如何透過在內部部署電腦上安裝代理程式，以進行更深入的探索。 如果內部部署電腦上未安裝代理程式，則建議使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 進行原形移轉。 如果在內部部署電腦上安裝代理程式，則 Azure Migrate 會查看在電腦內部執行的程序，並識別電腦是否為資料庫電腦。 如果電腦是資料庫電腦，則建議使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)，否則建議使用 Azure Site Recovery 作為移轉工具。
+除了 Azure 移轉整備程度和大小調整，Azure Migrate 也會建議可供移轉虛擬機器使用的工具。 這需要在內部部署環境進行更深入的探索。 [深入探索](how-to-get-migration-tool.md)如何藉由在內部部署電腦上安裝代理程式，以進行更深入的探索。 如果內部部署電腦上未安裝代理程式，則建議使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 進行原形移轉。 如果在內部部署電腦上安裝代理程式，則 Azure Migrate 會查看在電腦內部執行的程序，並識別電腦是否為資料庫電腦。 如果電腦是資料庫電腦，則建議使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)，否則建議使用 Azure Site Recovery 作為移轉工具。
 
   ![評估整備](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 

@@ -1,19 +1,21 @@
 ---
-title: 如何使用語音服務建立語言模型 - Microsoft 認知服務
-description: 了解如何在 Microsoft 認知服務中使用語音服務建立語言模型。
+title: 教學課程：如何使用語音服務建立語言模型
+titlesuffix: Azure Cognitive Services
+description: 了解如何使用語音服務建立語言模型。
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364110"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468988"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>教學課程：建立自訂語言模型
 

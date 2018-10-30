@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 34c8ec0650ea859365ca30606b364f4b6f81f1a6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4da20ffebb9943787fa487336dbd2ba22fdcf875
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394149"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458168"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>快速入門：部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -22,6 +22,8 @@ ms.locfileid: "49394149"
 ![瀏覽至 Azure 投票應用程式範例的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 本快速入門假設您已有 Kubernetes 概念的基本知識。 如需有關 Kubernetes 的詳細資訊，請參閱 [Kubernetes 文件][kubernetes-documentation]。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -96,6 +98,9 @@ aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ## <a name="run-the-application"></a>執行應用程式
 
 Kubernetes 資訊清單檔會定義叢集應有的狀態，包括應該執行的容器映像。 在本快速入門中，資訊清單可用來建立執行 Azure 投票應用程式範例所需的所有物件。 這些物件包含兩個 [Kubernetes 部署][kubernetes-deployment] - 一個適用於 Azure 投票應用程式前端，另一個則適用於 Redis 執行個體。 此外，還會建立兩個 [Kubernetes 服務][kubernetes-service] - 內部服務用於 Redis 執行個體，而外部服務用於從網際網路存取 Azure 投票應用程式。
+
+> [!TIP]
+> 在本快速入門中，您會以手動方式建立應用程式資訊清單，並將其部署至 AKS 叢集。 在更貼近現實的案例中，您可以使用 [Azure Dev Spaces][azure-dev-spaces] 快速地逐一查看程式碼，並直接在 AKS 叢集中進行偵錯。 您可以跨作業系統平台和開發環境來使用 Dev Spaces，並與小組中的其他人一起工作。
 
 建立名為 `azure-vote.yaml` 的檔案，然後將下列 YAML 程式碼複製到其中。 如果您在 Azure Cloud Shell 中作業，請使用 `vi` 或 `Nano` 建立檔案，如同在虛擬或實體系統上運作一般。
 
@@ -286,3 +291,4 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/

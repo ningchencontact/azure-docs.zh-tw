@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6046781f59b64dcec4769686a2acd710c7b68965
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167251"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987302"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>使用 Azure 自動化來管理 Windows 更新
 
@@ -194,6 +194,9 @@ UpdateRunProgress
 ![更新排程設定窗格](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
 您會回到狀態儀表板。 選取 [排程更新部署] 可顯示您所建立的部署排程。
+
+> [!NOTE]
+> 更新管理支援部署第一方更新及預先下載的修補程式。 這需要對要修補的系統進行變更，請參閱[ 第一方和預先下載的支援](automation-update-management.md#firstparty-predownload)，以了解如何在系統上配置這些設定。
 
 ## <a name="view-results-of-an-update-deployment"></a>檢視更新部署的結果
 

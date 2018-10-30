@@ -2,18 +2,17 @@
 title: 使用 Azure Log Analytics 的容器執行個體記錄
 description: 了解如何將容器輸出 (STDOUT 與 STDERR) 傳送至 Azure Log Analytics。
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
-ms.author: marsma
-ms.openlocfilehash: 9d967cc7509ef0d558327da2299b0478b62de430
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: danlep
+ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960714"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405594"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>使用 Azure Log Analytics 的容器執行個體記錄
 
@@ -101,7 +100,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 在您部署容器群組後，可能需要幾分鐘的時間 (最多 10 分鐘)，第一個記錄項目才會出現在 Azure 入口網站中。 若要檢視容器群組的記錄，請開啟 Log Analytics 工作區，然後：
 
-1. 在 [OMS 工作區] 概觀中，選取 [記錄搜尋]
+1. 在 [OMS 工作區] 概觀中，選取 [記錄搜尋]。 OMS 工作區現在稱為 Log Analytics 工作區。  
 1. 在 [再多試一些查詢] 下，選取 [所有收集的資料] 連結
 
 您應該會看到 `search *` 查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行] 按鈕重新執行查詢。 根據預設，記錄項目會顯示在 [清單] 檢視中 -- 選取 [資料表] 可查看簡略格式的記錄檔項目。 接著，您可以展開資料列來查看個別記錄項目的內容。

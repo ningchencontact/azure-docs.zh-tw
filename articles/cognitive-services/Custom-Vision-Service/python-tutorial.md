@@ -1,5 +1,5 @@
 ---
-title: 教學課程：建立影像分類專案 - 自訂視覺服務、Python
+title: 教學課程：使用適用於 Python 的自訂視覺 SDK 建立影像分類專案
 titlesuffix: Azure Cognitive Services
 description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 96125ba1c54f742bb9ddf32a1588173217be0766
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363372"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953107"
 ---
-# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>教學課程：使用自訂視覺服務搭配 Python 建立影像分類專案
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-python"></a>教學課程：使用適用於 Python 的自訂視覺 SDK 建立影像分類專案
 
 了解如何使用自訂視覺服務和基本的 Python 指令碼來建立影像分類專案。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用它以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置自己的應用程式。
 

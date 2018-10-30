@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ab79201442fe9c7334525972c34eba86daf27e99
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069092"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457420"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>設定 Azure VM 到次要 Azure 區域的災害復原
 
@@ -27,6 +27,9 @@ ms.locfileid: "49069092"
 > * 驗證目標資源設定
 > * 設定 VM 的輸出存取
 > * 啟用 VM 複寫
+
+> [!NOTE]
+> 本教學課程旨在透過最少的自訂來逐步引導使用者啟用複寫；如果您想要深入了解災害復原的各個相關層面，包括網路功能考量、自動化或疑難排解，請參閱 Azure VM 的「操作說明」文件。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -193,7 +196,7 @@ Site Recovery 會設定目標區域的預設設定和複寫原則。 您可以�
 
 ## <a name="next-steps"></a>後續步驟
 
-您已在本教學課程中設定 Azure VM 的災害復原。 下一個步驟是測試您的組態。
+您已在本教學課程中設定 Azure VM 的災害復原。 下一個步驟是藉由初始化 DR 演練來測試您的組態。
 
 > [!div class="nextstepaction"]
 > [執行災害復原演練](azure-to-azure-tutorial-dr-drill.md)

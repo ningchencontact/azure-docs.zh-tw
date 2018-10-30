@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: ed8230b76300d6b7fee06761133ebbea779fe3cb
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41917901"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024334"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -94,7 +94,7 @@ ms.locfileid: "41917901"
 
     * 輸入叢集的名稱。
     * 針對本文，使用 **4.2** 執行階段建立叢集。
-    * 請確定您選取 **在活動 ___ 分鐘後終止** 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
+    * 請確定您已選取 [在活動\_\_分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
     選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 

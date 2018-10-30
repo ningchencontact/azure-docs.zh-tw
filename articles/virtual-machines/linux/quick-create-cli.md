@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: beb70b03198589808c20ab17498902367a1c6a3d
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 3c2212ba0216949d3ca7dbcedb5e086bc3e43b97
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067481"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406631"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>快速入門：使用 Azure CLI 建立 Linux 虛擬機器
 
-Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門示範如何使用 Azure CLI 在 Azure 中部署 Linux 虛擬機器 (VM)。 在本教學課程中，我們將安裝 Ubuntu 160.04 LTS。 若要顯示作用中的 VM，您將使用 SSH 來與之連線，並安裝 NGINX Web 伺服器。
+Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門示範如何使用 Azure CLI 在 Azure 中部署 Linux 虛擬機器 (VM)。 在本教學課程中，我們將安裝 Ubuntu 16.04 LTS。 若要顯示作用中的 VM，您將使用 SSH 來與之連線，並安裝 NGINX Web 伺服器。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

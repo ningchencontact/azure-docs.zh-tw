@@ -1,20 +1,21 @@
 ---
 title: 什麼是語音服務？
-description: 語音服務 (屬於 Microsoft 認知服務的一部分) 聯合了先前個別提供的數個 Azure 語音服務：Bing 語音 (包含語音辨識和文字轉換語音)、自訂語音和語音翻譯。
 titleSuffix: Azure Cognitive Services
+description: 語音服務 (屬於 Azure 認知服務的一部分) 聯合了先前個別提供的數個語音服務：Bing 語音 (包含語音辨識和文字轉換語音)、自訂語音和語音翻譯。
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365453"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470441"
 ---
 # <a name="what-is-the-speech-service"></a>什麼是語音服務？
 

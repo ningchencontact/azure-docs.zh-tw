@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Site Recovery 將內部部署機器移轉至 Azure | Microsoft Docs
-description: 此文章說明如何使用 Azure Site Recovery 將內部部署機器移轉至 Azure。
+description: 本文說明如何使用 Azure Site Recovery 將內部部署機器移轉至 Azure。
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bd41244192efa1333bc90bec8c00f38aaaa7f612
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 446d9ead47e9d9380a608933ced3793e99241622
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714984"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026325"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
 除了針對商務持續性和災害復原 (BCDR) 使用 [Azure Site Recovery](site-recovery-overview.md) 服務來管理和協調內部部署電腦和 Azure VM 的災害復原之外，您也可以使用 Site Recovery 來管理內部部署機器到 Azure 的移轉。
 
 
-此教學課程說明如何將內部部署 VM 和實體伺服器移轉至 Azure。 在此教學課程中，您了解如何：
+本教學課程說明如何將內部部署 VM 和實體伺服器移轉至 Azure。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 選取複寫目標
@@ -30,15 +30,15 @@ ms.locfileid: "44714984"
 > * 執行測試移轉，確定一切都沒問題
 > * 執行一次性容錯移轉至 Azure
 
-這是本系列的第三個教學課程。 此教學課程假設您已經完成了先前教學課程中的工作：
+這是本系列的第三個教學課程。 本教學課程假設您已經完成了先前教學課程中的工作：
 
 1. [準備 Azure](tutorial-prepare-azure.md)
-2. 準備內部部署 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 或 [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md) 伺服器。
+2. 準備內部部署 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 或 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 伺服器。
 
 開始之前，最好先針對災害復原檢閱 [VMware](vmware-azure-architecture.md) 或 [Hyper-V](hyper-v-azure-architecture.md) 架構。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 不支援並行虛擬驅動程式所匯出的裝置。
 
@@ -158,6 +158,6 @@ ms.locfileid: "44714984"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已將內部部署 VM 移轉至 Azure VM。 現在，您可以為 Azure VM [設定災害復原](azure-to-azure-replicate-after-migration.md)來復原至次要 Azure 區域。
+在本教學課程中，您已將內部部署 VM 移轉至 Azure VM。 現在，您可以為 Azure VM [設定災害復原](azure-to-azure-replicate-after-migration.md)來復原至次要 Azure 區域。
 
   

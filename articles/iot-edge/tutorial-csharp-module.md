@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0c4c86017655facd6ab29f8e9e6c8f496ef79c72
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 61bcb01f549b6a47f3c4899975d4b1b23fbd9e3b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166214"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957015"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 C# IoT Edge 模組並部署至模擬裝置
 
@@ -116,7 +116,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-7. 將 [MessageBody]、[Machine] 和 [Ambient] 類別新增至 [程式] 類別。 這些類別會定義內送郵件本文的預期結構描述。
+7. 將 [MessageBody]、[Machine] 和 [Ambient] 類別新增至 [Program] 類別。 這些類別會定義內送郵件本文的預期結構描述。
 
     ```csharp
     class MessageBody
@@ -141,7 +141,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
     ```csharp
     // Register a callback for messages that are received by the module.
-    // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+    // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
     // Read the TemperatureThreshold value from the module twin's desired properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
@@ -159,7 +159,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-9. 將 **onDesiredPropertiesUpdate** 方法新增至 [程式] 類別。 此方法會從模組對應項接收所需的屬性，並會更新 **temperatureThreshold** 變數以符合該屬性。 所有模組都具有自己的模組對應項，這可讓您直接從雲端設定於模組內執行的程式碼。
+9. 將 **onDesiredPropertiesUpdate** 方法新增至 [Program] 類別。 此方法會從模組對應項接收所需的屬性，並會更新 **temperatureThreshold** 變數以符合該屬性。 所有模組都具有自己的模組對應項，這可讓您直接從雲端設定於模組內執行的程式碼。
 
     ```csharp
     static Task OnDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
