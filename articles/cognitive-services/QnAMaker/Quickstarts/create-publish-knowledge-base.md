@@ -1,5 +1,5 @@
 ---
-title: 快速入門：建立 KB - QnA Maker
+title: 建立、訓練、發佈知識庫 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 您可以從自己的內容 (例如常見問題集或產品手冊) 建立 QnA Maker 知識庫 (KB)。 此範例中的 QnA Maker KB 是從簡單的常見問題集網頁建立而來，以回答 BitLocker 金鑰復原問題。
 author: diberry
@@ -7,16 +7,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389661"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644780"
 ---
-# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>快速入門：建立、訓練及發佈知識庫
+# <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>建立、訓練及發佈您的 QnA Maker 知識庫
 
 您可以從自己的內容 (例如常見問題集或產品手冊) 建立 QnA Maker 知識庫 (KB)。 此範例中的 QnA Maker KB 是從簡單的常見問題集網頁建立而來，以回答 BitLocker 金鑰復原問題。
 

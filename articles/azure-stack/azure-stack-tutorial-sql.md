@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386378"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954889"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>教學課程：提供高可用性 SQL 資料庫
 
@@ -63,30 +63,28 @@ ms.locfileid: "49386378"
 - 一部設定為叢集之檔案共用見證的 VM (Windows Server 2016)
 - 一個包含 SQL 和檔案共用見證 VM 的可用性設定組  
 
-1. 登入系統管理入口網站：
-    - 針對整合式系統部署，入口網站位址會依據您解決方案的區域和外部網域名稱而有所不同。 其格式將會是 https://adminportal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
-    - 如果您使用「Azure Stack 開發套件」(ASDK)，則使用者入口網站位址為 [https://adminportal.local.azurestack.external](https://portal.local.azurestack.external)。
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 選取 [\+ 建立資源] > [自訂]，然後選取 [範本部署]。
 
-   ![自訂範本部署](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![自訂範本部署](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. 在 [自訂部署] 刀鋒視窗上，選取 [編輯範本] > [快速入門範本]，然後使用可用自訂範本的下拉式清單來選取 [sql-2016-alwayson] 範本，按一下 [確定]，再按一下 [儲存]。
 
-   ![選取快速入門範本](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "選取快速入門範本")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. 在 [自訂部署] 刀鋒視窗上，選取 [編輯參數]，然後檢視預設值。 視需要修改值以提供所有必要的參數資訊，然後按一下 [確定]。<br><br> 請至少：
 
     - 為 ADMINPASSWORD、SQLSERVERSERVICEACCOUNTPASSWORD 及 SQLAUTHPASSWORD 參數提供複雜密碼。
     - 針對 DNSSUFFIX 參數 (如果是 ASDK 安裝，則為 **azurestack.external**)，以全小寫字母輸入用於反向對應的 DNS 尾碼。
     
-    ![自訂部署參數](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "編輯自訂部署參數")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. 在 [自訂部署]  刀鋒視窗上，選擇要使用的訂用帳戶，然後建立新資源群組或選取現有的資源群組來進行自訂部署。<br><br> 接著，選取資源群組位置 (如果是 ASDK 安裝，則為 [本機])，然後按一下 [建立]。 系統將會驗證自訂部署設定，然後開始進行部署。
 
-    ![自訂部署參數](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "建立自訂部署")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. 在系統管理入口網站中，選取 [資源群組]，然後選取您針對自訂部署建立的資源群組名稱 (在此範例中是 **resource-group**)。 請檢視部署狀態，以確定所有部署皆已順利完成。<br><br>接著，檢閱資源群組項目並選取 [SQLPIPsql\<資源群組名稱\>] 公用 IP 位址項目。 請記錄負載平衡器公用 IP 的公用 IP 位址和完整 FQDN。 您將需要將向「Azure Stack 操作員」提供此資訊，以便讓他們運用這個 SQL AlwaysOn 可用性群組來建立 SQL 主控伺服器。
@@ -94,16 +92,16 @@ ms.locfileid: "49386378"
    > [!NOTE]
    > 範本部署將需要數小時的時間才能完成。
 
-   ![自訂部署參數](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![自訂部署完成](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>啟用自動植入
 在範本順利部署並設定 SQL AlwaysON 可用性群組之後，您必須在可用性群組中的每個 SQL Server 執行個體上啟用[自動植入](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group)。 
 
 當您建立具備自動植入功能的可用性群組時，SQL Server 會自動為群組中的每個資料庫建立次要複本，而無須任何其他手動介入來確保 AlwaysOn 資料庫的高可用性。
 
-請使用下列 SQL 命令，為 AlwaysOn 可用性群組設定自動植入。
+請使用下列 SQL 命令，為 AlwaysOn 可用性群組設定自動植入。 請視需要將 \<InstanceName\> 取代為主要執行個體 SQL Server 名稱，並將 <availability_group_name> 取代為 AlwaysOn 可用性群組名稱。 
 
-在主要 SQL 執行個體上 (以主要執行個體 SQL Server 名稱取代 <InstanceName>)：
+在主要 SQL 執行個體上：
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -114,7 +112,7 @@ ms.locfileid: "49386378"
 
 >  ![主要 SQL 執行個體指令碼](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-在次要 SQL 執行個體上 (以 AlwaysOn 可用性群組名稱取代 <availability_group_name>)：
+在次要 SQL 執行個體上：
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,9 +154,8 @@ ms.locfileid: "49386378"
 > [!NOTE]
 > 請從 Azure Stack 使用者入口網站，以具有可提供 SQL Server 功能 (Microsoft.SQLAdapter 服務) 之訂用帳戶的租用戶使用者身分執行這些步驟。
 
-1. 登入使用者入口網站：
-    - 針對整合式系統部署，入口網站位址會依據您解決方案的區域和外部網域名稱而有所不同。 其格式將會是 https://portal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
-    - 如果您使用「Azure Stack 開發套件」(ASDK)，則使用者入口網站位址為 [https://portal.local.azurestack.external](https://portal.local.azurestack.external)。
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. 選取 [\+ 建立資源] > [資料 \+ 儲存體]，然後選取 [SQL Database]。<br><br>請提供必要的資料庫屬性資訊，包括名稱、定序、大小上限、訂用帳戶、資源群組，以及要用於部署的位置。 
 

@@ -8,29 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 508274d11a9693d28a9b3a01bd6ebbd7198e8711
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: b549aeaf24bd774245ee1f2ff6924ac1f6dbeee3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586644"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427891"
 ---
-# <a name="create-and-configure-an-azure-database-for-mysql-server-using-ansible-preview"></a>使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器 (預覽)
-[適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MySQL 資料庫。 本快速入門說明如何使用 Azure 入口網站，在大約五分鐘內建立適用於 MySQL 的 Azure 資料庫伺服器。 
+# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible-preview"></a>使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器 (預覽)
+[適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MySQL 資料庫。 Ansible 可讓您將環境中的資源部署和設定自動化。 
 
-Ansible 可讓您將環境中的資源部署和設定自動化。 這篇文章示範如何使用 Ansible 來建立適用於 MySQL 的 Azure 資料庫伺服器，並且在 5 分鐘內設定其防火牆規則。 
+本快速入門說明如何使用 Ansible 來建立適用於 MySQL 的 Azure 資料庫伺服器，並設定其防火牆規則。 您可以使用 Azure 入口網站，在大約五分鐘內完成這些工作。
 
 ## <a name="prerequisites"></a>必要條件
 - **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> 必須使用 Ansible 2.7，才能執行本教學課程中的下列範例劇本。 您無法藉由執行 `sudo pip install ansible[azure]==2.7.0rc2` 來安裝 Ansible 2.7 RC 版本。 Ansible 2.7 將於 2018 年 10 月發行。 發行之後，您就不需要指定版本，因為預設版本是 2.7。
+> 必須使用 Ansible 2.7，才能執行此教學課程中的下列範例劇本。 您可以藉由執行 `sudo pip install ansible[azure]==2.7.0rc2` 來安裝 Ansible 2.7 RC 版。 Ansible 2.7 發行後，您就不需要指定版本，因為預設版本將是 2.7。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
-資源群組是在其中部署與管理 Azure 資源的邏輯容器。  
+資源群組是一種邏輯容器，您會在其中部署與管理 Azure 資源。  
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```yml
 - hosts: localhost
@@ -44,15 +44,15 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 這篇文章�
         location: "{{ location }}"
 ```
 
-將上述劇本儲存為 rg.yml。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+將上述劇本儲存為 **rg.yml**。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
 ```bash
 ansible-playbook rg.yml
 ```
 
-## <a name="create-mysql-server-and-database"></a>建立 MySQL 伺服器和資料庫
-下列範例會建立名為 **mysqlserveransible** 的 MySQL 伺服器，以及名為 **mysqldbansible**的「適用於 MySQL 的 Azure 資料庫」。 這是第 5 代基本用途伺服器，其具有 1 個 vCore。 請注意，**mysqlserver_name** 的值必須是唯一的，並請參閱[定價層文件](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers)，以了解每個區域和每一層的有效值。 
+## <a name="create-a-mysql-server-and-database"></a>建立 MySQL 伺服器和資料庫
+下列範例會建立名為 **mysqlserveransible** 的 MySQL 伺服器，以及名為 **mysqldbansible**的「適用於 MySQL 的 Azure 資料庫」執行個體。 這是第 5 代的基本用途伺服器，具有一個虛擬核心。 
 
-輸入您自己的 `<server_admin_password>`：
+**mysqlserver_name** 的值必須是唯一的。 若想了解每個區域和每一層的有效值，請參閱[定價層文件](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers)。 請將 `<server_admin_password>` 取代為密碼。
 
 ```yml
 - hosts: localhost
@@ -84,15 +84,16 @@ ansible-playbook rg.yml
         name: "{{ mysqldb_name }}"
 ```
 
-將上述劇本儲存為 mysql_create.yml。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+將上述劇本儲存為 **mysql_create.yml**。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
 ```bash
 ansible-playbook mysql_create.yml
 ```
 
-## <a name="configure-firewall-rule"></a>設定防火牆規則
-伺服器層級防火牆規則可允許外部應用程式 (例如 **mysql** 命令列工具或 MySQL Workbench) 穿過 Azure MySQL 服務防火牆連線到您的伺服器。 下列範例會建立名為 **extenalaccess** 的防火牆規則，以允許來自任何外部 IP 位址的連線。 
+## <a name="configure-a-firewall-rule"></a>設定防火牆規則
+伺服器層級防火牆規則允許外部應用程式通過 Azure MySQL 服務防火牆連線至您的伺服器。 舉例來說，**mysql** 命令列工具或 MySQL Workbench 即為外部應用程式。
+下列範例會建立名為 **extenalaccess** 的防火牆規則，以允許來自任何外部 IP 位址的連線。 
 
-請根據與您連線來源相對應的 IP 位址範圍，輸入您自己的 **startIpAddress** 和 **endIpAddress**： 
+針對 **startIpAddress** 和 **endIpAddress** 輸入您自己的值。 請使用與您的連線來源相對應的 IP 位址範圍。 
 
 ```yml
 - hosts: localhost
@@ -117,22 +118,22 @@ ansible-playbook mysql_create.yml
 ```
 
 > [!NOTE]
-> Azure Database for MySQL 的連線透過連接埠 3306 進行通訊。 如果您嘗試從公司網路內進行連線，可能不允許透過連接埠 3306 的輸出流量。 若是如此，除非 IT 部門開啟連接埠 3306，否則您無法連線到您的伺服器。
+> Azure Database for MySQL 的連線透過連接埠 3306 進行通訊。 如果您嘗試從公司網路內進行連線，可能不允許透過連接埠 3306 的輸出流量。 若是如此，IT 部門若未開啟連接埠 3306，您就無法連線至您的伺服器。
 > 
 
-這裡的 **azure_rm_resource** 模組是用來執行這個工作，包括允許直接使用 REST API。
+在本文中，會使用 **azure_rm_resource** 模組來執行這項工作。 此做法允許直接使用 REST API。
 
-將上述劇本儲存為 mysql_firewall.yml。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+將上述劇本儲存為 **mysql_firewall.yml**。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
 ```bash
 ansible-playbook mysql_firewall.yml
 ```
 
-## <a name="connect-to-the-server-using-command-line-tool"></a>使用命令列工具連線到伺服器
-您可以從[這裡](https://dev.mysql.com/downloads/)下載 MySQL，再將它安裝於電腦上。 相反地，您也可以按一下程式碼範例上的 [試用] 按鈕，或是 Azure 入口網站右上角工具列的 `>_` 按鈕，並啟動 **Azure Cloud Shell**。
+## <a name="connect-to-the-server-by-using-the-command-line-tool"></a>使用命令列工具連線至伺服器
+您可以[下載 MySQL](https://dev.mysql.com/downloads/) 並將其安裝於電腦上。 或者，您也可以選取程式碼範例中的 [試用] 按鈕，或是在 Azure 入口網站右上方的工具列中選取 **>_** 按鈕，並開啟 **Azure Cloud Shell**。
 
-輸入下一個命令： 
+輸入後續命令： 
 
-1. 使用 **mysql** 命令列工具連線到伺服器︰
+1. 使用 **mysql** 命令列工具連線至伺服器：
 ```azurecli-interactive
  mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
 ```
@@ -184,8 +185,8 @@ Threads: 5  Questions: 559  Slow queries: 0  Opens: 96  Flush tables: 3  Open ta
 --------------
 ```
 
-## <a name="using-facts-to-query-mysql-servers"></a>使用事實來查詢 MySQL 伺服器
-下列範例會在 **myResourceGroup** 中查詢 MySQL 伺服器，接著繼續查詢伺服器上的所有資料庫：
+## <a name="using-facts-to-query-mysql-servers"></a>使用事實查詢 MySQL 伺服器
+下列範例會在 **myResourceGroup** 中查詢 MySQL 伺服器，接著查詢伺服器上的所有資料庫：
 
 ```yml
 - hosts: localhost
@@ -213,13 +214,13 @@ Threads: 5  Questions: 559  Slow queries: 0  Opens: 96  Flush tables: 3  Open ta
         var: mysqldatabasefacts
 ```
 
-將上述劇本儲存為 mysql_query.yml。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+將上述劇本儲存為 **mysql_query.yml**。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
 
 ```bash
 ansible-playbook mysql_query.yml
 ```
 
-然後您會看到 MySQL 伺服器的下列輸出： 
+然後，您會看到 MySQL 伺服器的下列輸出： 
 ```json
 "servers": [
     {
@@ -279,7 +280,7 @@ ansible-playbook mysql_query.yml
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不需要這些資源，可以執行下列範例將它們刪除。 這樣會刪除名為 **myResourceGroup** 的資源群組。 
+如果您不需要這些資源，可以執行下列範例將其刪除。 它會刪除名為 **myResourceGroup** 的資源群組。 
 
 ```yml
 - hosts: localhost
@@ -292,12 +293,12 @@ ansible-playbook mysql_query.yml
         state: absent
 ```
 
-將上述劇本儲存為 rg_delete.yml。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+將上述劇本儲存為 **rg_delete.yml**。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
 ```bash
 ansible-playbook rg_delete.yml
 ```
 
-若您只想要刪除新建立的 MySQL 伺服器，則可執行下列範例加以刪除：
+如果您只要刪除一個新建立的 MySQL 伺服器，請執行下列範例：
 
 ```yml
 - hosts: localhost
@@ -312,7 +313,7 @@ ansible-playbook rg_delete.yml
         state: absent
 ```
 
-將上述劇本儲存為 mysql_delete.yml。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+將上述劇本儲存為 **mysql_delete.yml**。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
 ```bash
 ansible-playbook mysql_delete.yml
 ```

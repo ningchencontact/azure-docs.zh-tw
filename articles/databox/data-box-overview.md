@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090801"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955332"
 ---
 # <a name="what-is-azure-data-box"></a>什麼是 Azure 資料箱？
 
@@ -62,7 +62,7 @@ Microsoft Azure 資料箱雲端解決方案可讓您以快速、實惠和可靠�
 | 維度                                              | 裝置 - 寬度：309.0 mm 高度：430.4 mm 深度：502.0 mm |            
 | 機架空間                                              | 放置在機架側面時為 7 U (不能裝載在機架上)|
 | 必要纜線                                         | 1 條電源纜線 (已包含) <br> 2 條 RJ45 纜線 <br> 2 條 SFP + Twinax 銅纜線|
-| 儲存體容量                                        | 100 TB <br> 80 TB 可用容量 (RAID 5 保護後)|
+| 儲存體容量                                        | 100 TB 的裝置有 80 TB 的可用容量 (RAID 5 保護後)|
 | 網路介面                                      | 2 個 1 GbE 介面 - MGMT、DATA 3。 <br> MGMT - 用於管理，使用者無法設定，用於初始設定 <br> DATA3 - 用於資料，可由使用者設定，依預設為動態的 <br> MGMT 和 DATA 3 也可以 10 GbE 運作 <br> 2 個 10 GbE 介面 - DATA 1、DATA 2 <br> 兩者皆用於資料，可以設定為動態 (預設值) 或靜態 |
 | 資料傳輸媒體                                     | RJ45、SFP+ 銅纜線 10 GbE 乙太網路  |
 | 安全性                                                | 堅固耐用的裝置外殼，使用防拆特製螺絲 <br> 易碎貼紙放置在裝置的底部|

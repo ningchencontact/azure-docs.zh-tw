@@ -1,27 +1,28 @@
 ---
-title: 快速入門：使用認知服務語音 SDK 在瀏覽器上以 JavaScript 辨識語音
-titleSuffix: Microsoft Cognitive Services
-description: 了解如何使用認知服務語音 SDK 在瀏覽器上以 JavaScript 辨識語音
+title: 快速入門：使用語音服務 SDK 在瀏覽器中以 JavaScript 辨識語音
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用語音服務 SDK 在瀏覽器中以 JavaScript 辨識語音
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
-ms.date: 09/24/2018
+ms.component: speech-service
+ms.topic: quickstart
+ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: b925a382a32f320c5d6906bc3fa23f046d260cb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b01746c20dbef7726f129badac045c1fb440f602
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997432"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467458"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>快速入門：使用認知服務語音 SDK 在瀏覽器上以 JavaScript 辨識語音
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在瀏覽器中以 JavaScript 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在此文章中，您將了解如何使用認知服務語音 SDK 的 JavaScript 繫結，將語音謄寫為文字以建立網站。
-應用程式是以「Microsoft 認知服務語音 SDK ([下載版本 1.0.0](https://aka.ms/csspeech/jsbrowserpackage))」為基礎。
+應用程式是以「Microsoft 認知服務語音 SDK ([下載版本 1.0.1](https://aka.ms/csspeech/jsbrowserpackage))」為基礎。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,6 +37,8 @@ ms.locfileid: "46997432"
 建立新的空白資料夾。 如果您想要在 Web 伺服器上裝載範例，請確定 Web 伺服器可以存取該資料夾。
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>將適用於 JavaScript 的語音 SDK 解壓縮到該資料夾
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 下載 [.zip 套件](https://aka.ms/csspeech/jsbrowserpackage)形式的語音 SDK，並將它解壓縮到新建立的資料夾。 這應該會使得兩個檔案解壓縮，亦即 `microsoft.cognitiveservices.speech.sdk.bundle.js` 與 `microsoft.cognitiveservices.speech.sdk.bundle.js.map`。
 第二個檔案是選擇性的，可在必要時用來協助針對 SDK 程式碼進行偵錯。

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：偵測影像中的人臉 - 臉部 API、Java
+title: 快速入門：使用 REST API 和 Java 偵測影像中的人臉
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用臉部 API 搭配 Java 來偵測影像中的人臉。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 42a8b13b87623b92ee0fe92db4e6a0caff5c3a1b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df9490a3ee2af115b48dafd323e1afdec24b392d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339110"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956216"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-java"></a>快速入門：使用 Java 偵測影像中的人臉
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>快速入門：使用 REST API 和 Java 偵測影像中的人臉
 
 在本快速入門中，您會使用臉部 API 來偵測影像中的人臉。
 

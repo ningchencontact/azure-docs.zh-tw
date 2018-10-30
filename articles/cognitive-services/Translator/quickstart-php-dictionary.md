@@ -1,23 +1,23 @@
 ---
-title: 快速入門：尋找替代的翻譯 - 翻譯工具文字、PHP
+title: 快速入門：尋找替代的翻譯 (PHP) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 PHP，為內容中的字詞尋找替代的翻譯與範例。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 85b19be02ed019a9834783c8f6c951593e0fd0d5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 4d48ab8d0178b2d3fbcba2ee631ee97b30518f88
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123091"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649753"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-php"></a>快速入門：使用 PHP 尋找替代的翻譯和使用方式
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>快速入門：使用翻譯工具文字 REST API (PHP) 尋找替代的翻譯
 
 在本快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
 

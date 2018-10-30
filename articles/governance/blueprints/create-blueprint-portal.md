@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056432"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647267"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>在入口網站中定義和指派 Azure 藍圖
 
@@ -28,7 +28,7 @@ ms.locfileid: "47056432"
 > - 檢查指派的藍圖的狀態和進度
 > - 移除已指派給訂用帳戶的藍圖
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
 
 ## <a name="create-a-blueprint"></a>建立藍圖
 
@@ -42,7 +42,7 @@ ms.locfileid: "47056432"
 
    ![建立藍圖](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. 填妥藍圖的 [藍圖名稱]，例如「MyBlueprint」(僅限使用字母和數字，最多 48 個字元，不可加入空格或特殊字元)，但目前請將 [藍圖描述] 留白。  在 [定義位置] 方塊中，按一下右邊的省略符號，選取想要儲存藍圖的[管理群組](../management-groups/overview.md)，並按一下 [選取]。
+1. 填妥藍圖的 [藍圖名稱]，例如「MyBlueprint」(僅限使用字母和數字，最多 48 個字元，不可加入空格或特殊字元)，但目前請將 [藍圖描述] 留白。  在 [定義位置] 方塊中，按一下右邊的省略符號，選取您要從中儲存藍圖的[管理群組](../management-groups/overview.md)，並按一下 [選取]。
 
    > [!NOTE]
    > 藍圖定義只能儲存至管理群組。 若要建立第一個管理群組，請按照[下列步驟](../management-groups/create.md)進行。
@@ -111,7 +111,7 @@ ms.locfileid: "47056432"
 
    ![成品 - Resource Manager 範本](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. 完成的藍圖應該如下所示： 請注意，每個成品的 [參數] 資料行都會出現「已填入 _x_ 個參數，共 _y_ 個」。 每次指派藍圖時，均會設定**動態參數**，且角色指派的單一**靜態參數**已先設定完畢。
+1. 完成的藍圖應該如下所示： 請注意，每個成品的 [參數] 資料行都會出現「已填入 _x_ 個參數，共 _y_ 個」。 在每次指派藍圖時都會設定**動態參數**。
 
    ![完成的藍圖](./media/create-blueprint-portal/completed-blueprint.png)
 
@@ -224,9 +224,9 @@ ms.locfileid: "47056432"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[藍圖生命週期](./concepts/lifecycle.md) (英文)
+- 了解[藍圖生命週期](./concepts/lifecycle.md) (英文)
 - 了解如何使用[靜態和動態參數](./concepts/parameters.md) (英文)
 - 了解如何自訂[藍圖排序順序](./concepts/sequencing-order.md) (英文)
-- 了解如何使用[藍圖資源鎖定](./concepts/resource-locking.md) (英文)
-- 瞭解如何[更新現有的指派](./how-to/update-existing-assignments.md) (英文)
+- 了解如何使用[藍圖資源鎖定](./concepts/resource-locking.md)
+- 了解如何[更新現有的指派](./how-to/update-existing-assignments.md)
 - 使用[一般疑難排解](./troubleshoot/general.md)來解決藍圖指派期間發生的問題

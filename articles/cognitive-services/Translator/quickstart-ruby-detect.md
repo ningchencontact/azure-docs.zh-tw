@@ -1,25 +1,25 @@
 ---
-title: 快速入門：從文字識別語言 - 翻譯工具文字、Ruby
+title: 快速入門：從文字識別語言 (Ruby) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Ruby，識別來源文字的語言。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: e2b138b5c28047487da2ca7a72169a10a125eaf5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: ee6792358e6d5852c259b8045f77df24d14a6397
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121698"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644857"
 ---
-# <a name="quickstart-identify-language-from-text-with-ruby"></a>快速入門：使用 Ruby 從文字識別語言
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-ruby"></a>快速入門：使用翻譯工具文字 REST API (Ruby) 從文字識別語言
 
-在此快速入門中，您可以使用翻譯工具文字 API，識別來源文字的語言。
+在本快速入門中，您可以使用翻譯工具文字 API，識別來源文字的語言。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -107,7 +107,7 @@ puts json
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽此快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽本快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Ruby 範例](https://aka.ms/TranslatorGitHub?type=&language=ruby) (英文)

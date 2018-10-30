@@ -1,25 +1,25 @@
 ---
-title: 快速入門：尋找替代的翻譯 - 翻譯工具文字、Node.js
+title: 快速入門：尋找替代的翻譯 (Node.js) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Node.js，為內容中的字詞尋找替代的翻譯與範例。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 5361dce567743e239e0499352affa179b7d40382
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 4b5857fdb7871107396ca1fd50865f317038abb5
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127222"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646223"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-nodejs"></a>快速入門：使用 Node.js 尋找替代的翻譯和使用方式
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-nodejs"></a>快速入門：使用翻譯工具文字 REST API (Node.js) 尋找替代的翻譯
 
-在此快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
+在本快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -266,7 +266,7 @@ DictionaryExamples (content);
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽此快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽本快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Node.js 範例](https://aka.ms/TranslatorGitHub?type=&language=javascript) (英文)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 56bd3ab61045ff99601ed50cd27332b370204795
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4d46a438708e2e72d625f5104293b4605f7b096d
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068021"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946074"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>使用 DMS 在線上將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 您可以使用 Azure 資料庫移轉服務，以最短停機時間將內部部署 SQL Server 執行個體的資料庫遷移至 [Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance.md)。 如需其他可能需要手動操作的方法，請參閱[將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-migrate.md)一文。
@@ -32,6 +32,10 @@ ms.locfileid: "49068021"
 > * 使用 Azure 資料庫移轉服務來建立移轉專案並啟動線上移轉。
 > * 監視移轉。
 > * 在您準備好時進行完全移轉。
+
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+本文說明如何在線上狀態從 SQL Server 移轉至 Azure SQL Database 受控執行個體。 若要進行離線移轉，請參閱[使用 DMS 將 SQL Server 離線移轉至 Azure SQL Database 受控執行個體](tutorial-sql-server-to-managed-instance.md)。
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要：

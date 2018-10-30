@@ -1,23 +1,23 @@
 ---
 title: 快速入門：更新知識庫 - REST，C# -  QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 本快速入門會以程式設計方式逐步引導您更新範例 QnA Maker 知識庫 (KB)。 您用來更新 KB 的 JSON 定義，可讓您新增、變更或刪除問題和答案組。
+description: 這個以 REST 為基礎的快速入門會逐步引導您以程式設計方式更新範例 QnA Maker 知識庫 (KB)。 您用來更新 KB 的 JSON 定義，可讓您新增、變更或刪除問題和答案組。
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 9fa57a02f11461a3ea9a08b7b1b101b143924037
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 463fb4bc1cfd6ba7a7fc4df2fcde53bda7767488
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801688"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648220"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-c"></a>快速入門：以 C# 更新 QnA Maker 知識庫
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-c"></a>快速入門：使用 C# 更新 QnA Maker 中的知識庫
 
 本快速入門會以程式設計方式逐步引導您更新現有的 QnA Maker 知識庫 (KB)。  此 JSON 可讓您藉由新增資料來源、變更資料來源或刪除資料來源來更新 KB。
 

@@ -1,25 +1,25 @@
 ---
-title: 快速入門：轉換文字字集 - 翻譯工具文字、Ruby
+title: 快速入門：轉換文字字集 (Ruby) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Ruby，將文字轉換成另一種語言的字集。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 6595e486a93811fdded21050c39e99d4f7e5a760
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: d78586243b47563440f629689800ad618cb411d8
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121748"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647080"
 ---
-# <a name="quickstart-transliterate-text-with-ruby"></a>快速入門：使用 Ruby 來音譯文字
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>快速入門：使用翻譯工具文字 REST API (Ruby) 進行文字音譯
 
-在本快速入門中，您可以使用翻譯工具文字 API，將文字轉換成另一種語言的字集。
+在本快速入門中，您可以使用翻譯工具文字 API，將文字轉換成另一種語言的腳本。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "46121748"
 
 ## <a name="transliterate-request"></a>Transliterate 要求
 
-下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的字集。
+下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的腳本。
 
 1. 在您慣用的程式碼編輯器中，建立新的 Ruby 專案。
 2. 新增下方提供的程式碼。

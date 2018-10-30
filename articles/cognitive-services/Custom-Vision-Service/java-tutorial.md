@@ -1,5 +1,5 @@
 ---
-title: 教學課程：建置影像分類專案 - 自訂視覺服務、Java
+title: 教學課程：使用適用於 Java 的自訂視覺 SDK 建立影像分類專案
 titlesuffix: Azure Cognitive Services
 description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 9a7f50e0eb33016d6a2d8f28be047b327135c51f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e302fc580d9c83d269f0deedd051a3ea23bd274e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367350"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957204"
 ---
-# <a name="tutorial-build-an-image-classification-project-with-java"></a>教學課程：使用 Java 建置影像分類專案
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>教學課程：使用適用於 Java 的自訂視覺 SDK 建立影像分類專案
 
 了解如何使用自訂視覺服務利用 Java 來建立影像分類專案。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用它以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置自己的應用程式。
 
@@ -44,7 +44,7 @@ ms.locfileid: "46367350"
 
 使用喜愛的 Java IDE 開啟 `Vision/CustomVision` 專案。 
 
-此應用程式會使用您稍早擷取的定型金鑰，來建立名為 __Sample Java Project__ 的新專案。 接著，它會上傳影像以便為分類器定型並進行測試。 分類器會識別樹是 __Hemlock__ 還是 __Japanese Cherry__。
+此應用程式會使用您稍早擷取的定型金鑰，來建立名為 __Sample Java Project__ 的新專案。 然後上傳影像以便為分類器定型並加以測試。 分類器會識別樹是 __Hemlock__ 還是 __Japanese Cherry__。
 
 下列程式碼片段會實作此範例的主要功能：
 

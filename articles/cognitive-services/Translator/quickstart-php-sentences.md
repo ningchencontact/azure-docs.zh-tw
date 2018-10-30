@@ -1,23 +1,23 @@
 ---
-title: 快速入門：取得句子長度 - 翻譯工具文字、PHP
+title: 快速入門：取得句子長度 (PHP) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 PHP，了解文字中句子的長度。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 63c2822e7b61eb437a43fb394cfa3cc8172d9af3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 7c709c10d7944a53a557f6a1ce2a6d9b930cccce
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124740"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645383"
 ---
-# <a name="quickstart-get-sentence-lengths-with-php"></a>快速入門：使用 PHP 取得句子長度
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>快速入門：使用翻譯工具文字 REST API (PHP) 取得句子長度
 
 在本快速入門中，您可以使用翻譯工具文字 API，了解文字中句子的長度。
 

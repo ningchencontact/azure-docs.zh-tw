@@ -1,23 +1,23 @@
 ---
-title: 翻譯工具文字搭配 Ruby 取得支援的語言 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 在本快速入門中，您可以取得使用認知服務的翻譯工具文字 API 搭配 Ruby 來翻譯、音譯及查閱字典時，所支援的語言清單及範例。
+title: 快速入門：取得支援的語言 (Ruby) - 翻譯工具文字 API
+titleSuffix: Azure Cognitive Services
+description: 在此快速入門中，您可以取得使用翻譯工具文字 API 搭配 Ruby 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 1080d79f6dddfd57816989b7d1c4f95348493ad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: erhopf
+ms.openlocfilehash: 02ebeae83464aa9770854fd06468b3731d6b8549
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750219"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645264"
 ---
-# <a name="quickstart-get-supported-languages-with-ruby"></a>快速入門：使用 Ruby 取得支援的語言
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>快速入門：使用翻譯工具文字 REST API (Ruby) 取得支援的語言
 
 在本快速入門中，您可以取得使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單及範例。
 

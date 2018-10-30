@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a95675d5e37adec5fb1f1542daad329484a2a4c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092605"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649392"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -217,7 +217,7 @@ A.  當資料複製到 Azure 之後，資料箱磁碟中的資料將會根據 NI
 ## <a name="audit-report"></a>稽核報告
 
 ### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>Azure 資料箱服務如何協助支援客戶監管鏈程序？
-A.  Azure 資料箱服務原生提供的報表可讓您用於監管鏈文件。 您可以在 Azure 中的儲存體帳戶內下載稽核和複製記錄，且訂單完成之後，您可以在 Azure 入口網站的訂單中下載訂購歷程記錄。
+A.  Azure 資料箱服務原生提供的報表可讓您用於監管鏈文件。 稽核和複製記錄會顯示於您在 Azure 中的儲存體帳戶內，且在訂單完成之後，您可以在 Azure 入口網站中[下載訂單記錄](data-box-portal-admin.md#download-order-history)。
 
 
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>哪種報表類型可提供用來支援監管鏈？
@@ -230,7 +230,7 @@ A.  下列報表類型可用來支援監管鏈：
 - 在資料複製到 Azure 儲存體帳戶後，對資料箱裝置的清理 (根據 NIST 800 88R1 標準)。
 
 ### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>是否提供貨運公司追蹤記錄 (來自 UPS/DHL)？ 
-A.  貨運公司追蹤記錄會從資料箱稽核記錄報表中擷取。 當您的裝置送回到 Azure 資料中心，並清除裝置上的資料之後，就會將此報表提供給您。 若立即需要，您也可以直接移至貨運公司的網站，使用訂單追蹤號碼來取得追蹤資訊。
+A.  貨運公司追蹤記錄可從資料箱訂單記錄中擷取。 當您的裝置送回到 Azure 資料中心，並清除裝置上的資料之後，就會將此報表提供給您。 若立即需要，您也可以直接移至貨運公司的網站，使用訂單追蹤號碼來取得追蹤資訊。
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>我是否可以親自將資料箱送到 Azure 資料中心？ 
 A.  否。 目前 Azure 資料中心不接受由客戶或是 UPS/DHL 以外的貨運公司寄送資料箱。

@@ -1,22 +1,23 @@
 ---
-title: 快速入門：使用認知服務語音 SDK 在 iOS 上以 Objective-C 辨識語音
-titleSuffix: Microsoft Cognitive Services
-description: 了解如何使用認知服務語音 SDK 在 iOS 上以 Objective-C 辨識語音
+title: 快速入門：使用語音服務 SDK 在 iOS 上以 Objective-C 辨識語音
+titleSuffix: Azure Cognitive Services
+description: 了解入核使用語音服務 SDK 在 iOS 上以 Objective-C 辨識語音
 services: cognitive-services
 author: chlandsi
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
-ms.date: 09/24/2018
+ms.component: speech-service
+ms.topic: quickstart
+ms.date: 10/12/2018
 ms.author: chlandsi
-ms.openlocfilehash: e343c24a5ef223e1fd6dc618f41d4acf89fc2f5d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8d6ecf251bb816eb0f41352af7c9d086c4aad751
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226019"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469770"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>快速入門：使用認知服務語音 SDK 在 iOS 上以 Objective-C 辨識語音
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在 iOS 上以 Objective-C 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -31,11 +32,10 @@ ms.locfileid: "47226019"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.0.0`。
+認知服務語音 SDK 目前的版本為 `1.0.1`。
 
 適用於 Mac 和 iOS 的認知服務語音 SDK 目前以 Cocoa Framework 的形式散發。
 您可以從 https://aka.ms/csspeech/iosbinary 加以下載。 請將檔案下載到您的主目錄。
-
 
 ## <a name="create-an-xcode-project"></a>建立 Xcode 專案 
 
@@ -60,10 +60,9 @@ ms.locfileid: "47226019"
         1. 將目錄 `$(SRCROOT)/..` 新增至 [搜尋路徑] 標題下方的 [架構搜尋路徑]。
         ![架構搜尋路徑設定](media/sdk/qs-objectivec-framework-search-paths.png)
 
-
 ## <a name="set-up-the-ui"></a>設定 UI
 
-範例應用程式會有非常簡單的 UI：用來啟動檔案處理的按鈕，以及用來顯示結果的文字標籤。
+範例應用程式會提供一個非常簡單的 UI：以檔案或是麥克風輸入啟動語音辨識的兩個按鈕，以及顯示結果的文字標籤。
 此 UI 可在專案的 `Main.storyboard` 部分中設定。
 以滑鼠右鍵按一下專案樹狀結構的 `Main.storyboard` 項目，然後選取 [開啟形式...] > [原始程式碼]，以開啟分鏡腳本的 XML 檢視。
 請將自動產生的 XML 取代為下列內容：
@@ -77,23 +76,25 @@ ms.locfileid: "47226019"
 1. 將自動產生的 `ViewController.m` 檔案內容取代為：
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
-1. 將麥克風存取的要求。 以滑鼠右鍵按一下專案樹狀結構的 info.plist 項目，然後選取 [開啟形式...] > [原始程式碼]。 將以下幾行新增至 `<dict>` 區段中，然後儲存檔案。
-    ```xml
-    <key>NSMicrophoneUsageDescription</key>
-
-    <string>Need microphone access for speech recognition from microphone.</string>
-    ```
 1. 將字串 `YourSubscriptionKey` 取代為您的訂用帳戶金鑰。
 1. 以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)取代 `YourServiceRegion` 字串。
-
+1. 將麥克風存取的要求。 以滑鼠右鍵按一下專案樹狀結構的 `Info.plist` 項目，然後選取 [開啟形式...] > [原始程式碼]。 將以下幾行新增至 `<dict>` 區段中，然後儲存檔案。
+    ```xml
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Need microphone access for speech recognition from microphone.</string>
+    ```
 
 ## <a name="building-and-running-the-sample"></a>建置並執行範例
 
 1. 顯示偵錯輸出 ([檢視] > [偵錯區域] > [啟動主控台])。
-1. 建置範例程式碼，然後從功能表中選取 [產品] -> [執行] 或按一下 [播放] 按鈕，在 iOS 模擬器中加以執行。 若要在 iOS 裝置上執行，請將裝置連線至您的開發電腦，並選取該裝置作為執行目標。 語音 SDK 目前僅支援 64 位元 iOS 平台。
-1. 當您按一下應用程式中的 [辨識！] 按鈕後，您應該會在螢幕的下半部看到音訊檔案的內容 「天氣如何？」。
+1. 在 [產品] -> [目的地] 功能表中的清單中，選擇 iOS 模擬器或是連接到您開發電腦的 iOS 裝置，當做應用程式的目的地。
+1. 建置範例程式碼，然後從功能表中選取 [產品] -> [執行] 或按一下 [播放] 按鈕，在 iOS 模擬器中加以執行。
+語音 SDK 目前僅支援 64 位元 iOS 平台。
+1. 按一下應用程式中的 [辨識 (檔案)] 按鈕後，應該會在螢幕的下半部看到音訊檔案的內容 「天氣如何？」。
 
  ![模擬的 iOS 應用程式](media/sdk/qs-objectivec-simulated-app.png)
+
+1. 按一下應用程式中的 [辨識 (麥克風)] 按鈕，並說出幾個字後，應該會在螢幕的下半部看到說出的文字。
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 在 `quickstart/objectivec-ios` 資料夾中尋找此範例。
@@ -102,3 +103,4 @@ ms.locfileid: "47226019"
 
 > [!div class="nextstepaction"]
 > [取得我們的範例](speech-sdk.md#get-the-samples)
+

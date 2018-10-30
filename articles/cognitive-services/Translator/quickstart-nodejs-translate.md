@@ -1,25 +1,25 @@
 ---
-title: 快速入門：翻譯文字 - 翻譯工具文字、Node.js
+title: 快速入門：翻譯文字 (Node.js) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Node.js，將文字翻譯成另一種語言。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: fe81b7fffd1705cb940e3aa52f397cf0f2cf1b14
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: fc6995c44e145b12a1173e7b4ac650348c1c180a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122169"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648474"
 ---
-# <a name="quickstart-translate-text-with-nodejs"></a>快速入門：使用 Node.js 來翻譯文字
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-nodejs"></a>快速入門：使用翻譯工具文字 REST API (Node.js) 翻譯文字
 
-在此快速入門中，您可以使用翻譯工具文字 API，將文字翻譯成另一種語言。
+在本快速入門中，您可以使用翻譯工具文字 API，將文字翻譯成另一種語言。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -127,7 +127,7 @@ Translate (content);
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽此快速入門及其他文件的範例程式碼，包括音譯和語言識別，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽本快速入門及其他文件的範例程式碼，包括音譯和語言識別，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Node.js 範例](https://aka.ms/TranslatorGitHub?type=&language=javascript) (英文)

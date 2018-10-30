@@ -1,25 +1,25 @@
 ---
-title: 快速入門：取得支援的語言 - 翻譯工具文字、Java
+title: 快速入門：取得支援的語言 (Java) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
-description: 在此快速入門中，您可以取得搭配 Java 使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
+description: 在此快速入門中，您可以取得使用翻譯工具文字 API 搭配 Java 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 64954c06d90ff8110b77874846fe57072faf2f76
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 2af7ceeeef347d1959b571aebf3f26bd5035e4c4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126967"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646163"
 ---
-# <a name="quickstart-get-supported-languages-with-java"></a>快速入門：使用 Java 取得支援的語言
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-java"></a>快速入門：使用翻譯工具文字 REST API (Java) 取得支援的語言
 
-在本快速入門中，您可以取得使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
+在本快速入門中，您可以取得使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單及範例。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "46126967"
 
 ## <a name="languages-request"></a>Languages 要求
 
-下列程式碼會使用 [Languages](./reference/v3-0-languages.md) 方法取得在翻譯、音譯及查詢字典時，所支援的語言清單與範例。
+下列程式碼會使用 [Languages](./reference/v3-0-languages.md) 方法取得在翻譯、音譯及查詢字典時，所支援的語言清單及範例。
 
 1. 在您慣用的程式碼編輯器中，建立新的 Java 專案。
 2. 新增下方提供的程式碼。

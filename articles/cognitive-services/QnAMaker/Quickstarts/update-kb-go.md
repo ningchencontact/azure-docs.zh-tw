@@ -1,25 +1,31 @@
 ---
-title: 快速入門：Go 更新知識庫 - QnA Maker
+title: 快速入門：更新知識庫 - REST (Go) - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 如何使用 Go 更新 QnA Maker 的知識庫。
+description: 這個以 REST 為基礎的快速入門會逐步引導您以程式設計方式更新範例 QnA Maker 知識庫 (KB)。 您用來更新 KB 的 JSON 定義，可讓您新增、變更或刪除問題和答案組。
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b447b77eb1fdd9135f7d15a791414d166194b2dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5275184994dce446a7ca572a049f3860c4782139
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389304"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646876"
 ---
-# <a name="update-a-knowledge-base"></a>更新知識庫
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-go"></a>快速入門：使用 Go 更新 QnA Maker 中的知識庫
 
-以下程式碼使用 [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) 方法來更新現有的知識庫。
+本快速入門會以程式設計方式逐步引導您更新現有的 QnA Maker 知識庫 (KB)。  此 JSON 可讓您藉由新增資料來源、變更資料來源或刪除資料來源來更新 KB。
+
+此 API 就相當於編輯，然後使用 QnA Maker 入口網站中的 [儲存並定型] 按鈕。
+
+本快速入門會呼叫 QnA Maker API：
+* [更新](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - 知識庫的模型是在 JSON (在 API 要求的本體中傳送) 中定義的。 
+* [取得作業詳細資料](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 1. 在您最愛的 IDE 中建立新的 Go 專案。
 2. 新增下方提供的程式碼。
@@ -191,7 +197,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>取得要求狀態
 
-您可以呼叫 [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) 方法，以查看建立或更新知識庫要求的狀態。 若要了解如何使用此方法，請參閱 [Create](#Create) 或 [Update](#Update) 方法的範例程式碼。
+您可以呼叫 [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) 方法，以查看建立或更新知識庫要求的狀態。 若要了解如何使用此方法，請參閱[建立](create-new-kb-go.md)快速入門的範例程式碼。
 
 ## <a name="next-steps"></a>後續步驟
 

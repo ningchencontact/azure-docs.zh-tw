@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376800"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986441"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>教學課程：提供高可用性 MySQL 資料庫
 
@@ -65,16 +65,15 @@ ms.locfileid: "49376800"
 - 公用 IP 位址 (用於主要的 MySQL 叢集 VM)
 - 三個用以裝載 MySQL 叢集的 Linux VM
 
-1. 登入系統管理入口網站：
-    - 針對整合式系統部署，入口網站位址會依據您解決方案的區域和外部網域名稱而有所不同。 其格式將會是 https://adminportal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
-    - 如果您使用 Azure Stack 開發套件 (ASDK)，則入口網站位址為 [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)。
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 選取 [\+ 建立資源] > [計算]，然後選取 [具備複寫功能的 MySQL]。
 
-   ![自訂範本部署](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![自訂範本部署](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. 在 [基本] 頁面上提供基本部署資訊。 檢閱預設值並視需要變更，然後按一下 [確定]。<br><br>請至少提供下列資訊：
-   - 部署名稱 (預設為 mysql)
+   - 部署名稱 (預設為 mymysql)
    - 應用程式根密碼。 提供一個不含**任何特殊字元**的 12 字元英數字元密碼
    - 應用程式資料庫名稱 (預設為 bitnami)
    - 要建立的 MySQL 資料庫複本 VM 數目 (預設為 2)
@@ -82,22 +81,22 @@ ms.locfileid: "49376800"
    - 選取要使用的資源群組，或建立一個新資源群組
    - 選取位置 (ASDK 的預設為本機)
 
-   ![部署基本](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "部署基本")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. 在 [環境設定] 頁面上提供下列資訊，然後按一下 [確定]： 
    - 要用於安全殼層 (SSH) 驗證的密碼或 SSH 公開金鑰。 如果使用密碼，則密碼必須包含字母、數字，並且**可**包含特殊字元
    - VM 大小 (預設為標準 D1 v2 VM)
    - 資料磁碟大小 (GB)。按一下 [確定]
 
-   ![環境設定](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "環境設定")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. 檢閱部署 [摘要]。 您也可以視需要下載自訂範本和參數，然後按一下 [確定]。
 
-   ![總結](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "摘要")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. 按一下 [購買] 頁面上的 [建立] 以開始部署。
 
-   ![購買](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![購買](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > 部署將花費大約一小時的時間。 請先確定部署已完成且 MySQL 叢集已完全設定妥當，再繼續進行。 
@@ -110,11 +109,11 @@ ms.locfileid: "49376800"
 
 1. 在系統管理員入口網站中，瀏覽至部署 MySQL 叢集時所建立的資源群組，然後選取網路安全性群組 (**default-subnet-sg**)：
 
-   ![開啟](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![開啟](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. 選取 [輸入安全性規則]，然後按一下 [新增]。<br><br>在 [目的地連接埠範圍] 中 輸入**3306**，然後視需要在 [名稱] 和 [描述] 欄位中輸入描述。 按一下 [新增] 即可關閉輸入安全性規則對話方塊。
 
-   ![開啟](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![開啟](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>設定外部對 MySQL 叢集的存取權
 必須先啟用外部存取權，才能將 MySQL 叢集新增為 Azure Stack MySQL 伺服器主機。
@@ -167,9 +166,8 @@ ms.locfileid: "49376800"
 > [!NOTE]
 > 請從 Azure Stack 使用者入口網站，以具有可提供 MySQL 伺服器功能 (Microsoft.MySQLAdapter 服務) 之訂用帳戶的租用戶使用者身分執行這些步驟。
 
-1. 登入使用者入口網站：
-    - 針對整合式系統部署，入口網站位址會依據您解決方案的區域和外部網域名稱而有所不同。 其格式將會是 https://portal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
-    - 如果您使用「Azure Stack 開發套件」(ASDK)，則使用者入口網站位址為 [https://portal.local.azurestack.external](https://portal.local.azurestack.external)。
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. 選取 [\+ 建立資源] > [資料 \+ 儲存體]，然後選取 [MySQL 資料庫]。<br><br>請提供必要的資料庫屬性資訊，包括名稱、定序、要使用的訂用帳戶，以及要用於部署的位置。 
 

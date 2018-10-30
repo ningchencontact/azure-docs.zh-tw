@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/10/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 46291fe425e5d0fd1c142960a250c5601bd8ad29
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077996"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645468"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault
 
@@ -154,7 +154,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 3. 提供下列值：
 
     * **adminUsername**：虛擬機器系統管理員帳戶的名稱。
-    * **dnsLabelPrefix**：dnsLablePrefix 的名稱。
+    * **dnsLabelPrefix**：dnsLabelPrefix 的名稱。
 4. 儲存變更。
 
 ## <a name="deploy-the-template"></a>部署範本

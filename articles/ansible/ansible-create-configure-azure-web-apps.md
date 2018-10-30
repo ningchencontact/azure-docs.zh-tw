@@ -1,6 +1,6 @@
 ---
 title: 使用 Ansible 建立 Azure Web Apps (預覽)
-description: 深入了解如何使用 Ansible 來建立 Web App，該應用程式在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段
+description: 深入了解如何使用 Ansible 建立在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段的 Web Apps
 ms.service: ansible
 keywords: ansible、azure、devops、bash、劇本、Azure App Service、Web App、Java
 author: tomarcher
@@ -8,29 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 1899b1fc1e0a38d859fb3a7ce2153585579650f3
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 48b4c201b2b96bd4662e8c90be7298a4f418af53
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586647"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426546"
 ---
-# <a name="create-azure-app-service-web-apps-using-ansible-preview"></a>使用 Ansible 建立 Azure App Service Web Apps (預覽)
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (或簡稱 Web Apps) 是用來裝載 Web 應用程式、REST API 和行動後端的服務。 您可以使用您慣用的語言進行開發，不管是 .NET、.NET Core、Java、Ruby、Node.js、PHP 還是 Python 都可以。
+# <a name="create-azure-app-service-web-apps-by-using-ansible-preview"></a>使用 Ansible 建立 Azure App Service Web Apps (預覽)
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (或簡稱 Web Apps) 可裝載 Web 應用程式、REST API 和行動後端。 您可以使用您慣用的語言進行開發&mdash;.NET、.NET Core、Java、Ruby、Node.js、PHP 或 Python 均可。
 
-Ansible 可讓您將環境中的資源部署和設定自動化。 這篇文章會示範如何使用 Ansible 來建立具有 Java 執行階段的 Web App。 
+Ansible 可讓您將環境中的資源部署和設定自動化。 本文說明如何使用 Ansible 和 Java 執行階段來建立 Web 應用程式。 
 
 ## <a name="prerequisites"></a>必要條件
 - **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> 必須使用 Ansible 2.7，才能執行本教學課程中的下列範例劇本。 您無法藉由執行 `sudo pip install ansible[azure]==2.7.0rc2` 來安裝 Ansible 2.7 RC 版本。 Ansible 2.7 將於 2018 年 10 月發行。 發行之後，您就不需要指定版本，因為預設版本是 2.7。 
+> 必須使用 Ansible 2.7，才能執行此教學課程中的下列範例劇本。 您可以藉由執行 `sudo pip install ansible[azure]==2.7.0rc2` 來安裝 Ansible 2.7 RC 版。 Ansible 2.7 發行後，您就不需要指定版本，因為預設版本將是 2.7。 
 
 ## <a name="create-a-simple-app-service"></a>建立簡單的 App Service
 本節提供會定義下列資源的範例 Ansible 腳本：
 - 資源群組，這是您 App Service 方案和 Web 應用程式的部署目標
-- Web 應用程式，該應用程式在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段
+- 在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段的 Web 應用程式
 
 ```
 - hosts: localhost
@@ -62,7 +62,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 這篇文章�
               java_container: tomcat
               java_container_version: 8.5
 ```
-將上述劇本儲存為 firstwebapp.yml。
+將上述劇本儲存為 **firstwebapp.yml**。
 
 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
 ```bash
@@ -84,17 +84,17 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0   
 ```
 
-## <a name="create-app-service-with-traffic-manager"></a>建立具有流量管理員的 App Service
-您可以使用 [Azure 流量管理員](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)，來控制如何將來自 Web 用戶端的要求分散至 Azure App Service 中的應用程式。 將 App Service 端點新增至 Azure 流量管理員設定檔時，Azure 流量管理員就會持續追蹤您 App Service 應用程式的狀態 (執行中、已停止或已刪除)，以判定其中哪些端點應接收流量。
+## <a name="create-an-app-service-by-using-traffic-manager"></a>具有流量管理員建立 App Service
+您可以使用 [Azure 流量管理員](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)，來控制如何將來自 Web 用戶端的要求分散至 Azure App Service 中的應用程式。 App Service 端點新增至 Azure 流量管理員設定檔後，流量管理員會追蹤您 App Service 應用程式的狀態。 這些狀態包括執行中、已停止和已刪除。 接著，流量管理員即可決定其中哪些端點應接收流量。
 
 在 App Service 中，應用程式會在 [App Service 方案](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-)中執行。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 您可以在不同的群組中管理 App Service 方案和 Web App。
+)中執行。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 您可以在不同的群組中管理 App Service 方案和 Web 應用程式。
 
 本節提供會定義下列資源的範例 Ansible 腳本：
 - 資源群組，這是您 App Service 方案的部署目標
 - App Service 方案
 - 次要資源群組，這是您 Web 應用程式的部署目標
-- Web 應用程式，該應用程式在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段
+- 在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段的 Web 應用程式
 - 流量管理員設定檔
 - 流量管理員端點，使用已建立的網站
 
@@ -179,7 +179,7 @@ localhost                  : ok=2    changed=2    unreachable=0    failed=0
       target_resource_id: "{{ webapp.webapps[0].id }}"
 
 ```
-將上述劇本儲存為 webapp.yml，或者[下載劇本](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml)。
+將上述劇本儲存為 **webapp.yml**，或[下載劇本](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml)。
 
 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
 ```bash

@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3bbc55b3bb064b2cf4b140a395e99209b71a5ce1
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1b92589fe01f171b732c04057dc290f0f32cb31a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816205"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647811"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-nodejs"></a>快速入門：以 Node.js 更新 QnA Maker 知識庫
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-nodejs"></a>快速入門：使用 Node.js 更新 QnA Maker 中的知識庫
 
 本快速入門會以程式設計方式逐步引導您更新現有的 QnA Maker 知識庫 (KB)。  此 JSON 可讓您藉由新增資料來源、變更資料來源或刪除資料來源來更新 KB。
 

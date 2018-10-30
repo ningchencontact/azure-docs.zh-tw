@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079101"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471283"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：利用成本分析探索及分析成本
 
 您必須先了解成本源自組織內的何處，才能正確地控制 Azure 成本並進行最佳化。 了解您服務成本的價值，以及支援哪些環境和系統也很實用。 使各個層面的成本透明化，對於精確地了解組織費用模式而言至關重要。 費用模式可用於強制執行成本控制機制 (例如預算)。
 
-在本快速入門中，您可以使用成本分析來探索及分析組織成本。 您可依組織檢視彙總的成本，以了解經過一段時間所產生的成本，並找出費用趨勢。 您可以檢視經過一段時間累積的成本，對照預算來預估每月、每季，或甚至每年的成本趨勢。 預算則有助於提供者能遵循財務的約束。 預算同時也能用於檢視每天或每月的成本，以找出費用的異常情況。 此外，您可以下載目前報表的資料以供進一步分析，或在外部系統中使用。
+在本快速入門中，您可以使用成本分析來探索及分析組織成本。 您可依組織檢視彙總的成本，以了解經過一段時間所產生的成本，並找出費用趨勢。 您可以檢視經過一段時間累積的成本，對照預算來預估每月、每季，或甚至每年的成本趨勢。 預算有助於遵守財務限制。 預算同時也能用於檢視每天或每月的成本，以找出費用的異常情況。 此外，您可以下載目前報表的資料以供進一步分析，或在外部系統中使用。
 
 在此快速入門中，您可了解如何：
 
@@ -34,21 +34,25 @@ ms.locfileid: "49079101"
 
 成本分析適用於所有 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。
 
-- 「計費帳戶」範圍定義於 https://ea.azure.com，而且需要企業系統管理員存取權。 不需要任何事先的 EA 設定。 成本分析中的計費資訊會針對 Enterprise 合約中的所有訂用帳戶合併。 計費帳戶通常稱為「Enterprise 合約」或「註冊」。
 
-- 「部門」範圍定義於 https://ea.azure.com，而且需要部門系統管理員存取權。 EA 入口網站中啟用的 [DA 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對屬於部門所連結註冊帳戶的所有訂用帳戶合併。
+|**範圍**|**定義於**|**依範圍分析成本所需的存取權**|**事先的 EA 設定**|**將計費資料合併至**|
+|---                |---                  |---                   |---            |---           |
+|計費帳戶<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|企業管理員|None|Enterprise 合約中的所有訂用帳戶|
+|department|[https://ea.azure.com ](https://ea.azure.com )|部門管理員|啟用 DA 檢視費用|連結至部門的註冊帳戶所含的所有訂用帳戶|
+|註冊帳戶<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|帳戶擁有者|啟用 AO 檢視費用|註冊帳戶中的所有訂用帳戶|
+|管理群組|[https://portal.azure.com ](https://portal.azure.com )|成本管理讀者 (或讀者)|啟用 AO 檢視費用|管理群組下的所有訂用帳戶|
+|訂用帳戶|[https://portal.azure.com ](https://portal.azure.com )|成本管理讀者 (或讀者)|啟用 AO 檢視費用|訂用帳戶中的所有資源/資源群組|
+|資源群組|[https://portal.azure.com ](https://portal.azure.com )|成本管理讀者 (或讀者)|啟用 AO 檢視費用|資源群組中的所有資源|
 
-- 「註冊帳戶」範圍定義於 https://ea.azure.com，而且需要帳戶擁有者存取權。 EA 入口網站中啟用的 [AO 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對屬於註冊帳戶的所有訂用帳戶合併。 註冊帳戶通常稱為「帳戶擁有者」。
+<sup>1</sup>計費帳戶通常稱為「Enterprise 合約」或「註冊」。
 
-- 「管理群組」範圍定義於 https://portal.azure.com，而且需要「成本管理讀者」(或「讀者」) 存取權。 EA 入口網站中啟用的 [AO 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對管理群組下面的所有訂用帳戶合併。
-
-- 「訂用帳戶」範圍定義於 https://portal.azure.com，而且需要「成本管理讀者」(或「讀者」) 存取權。 EA 入口網站中啟用的 [AO 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對訂用帳戶中的所有資源和資源群組合併。
-
-- 「資源群組」範圍定義於 https://portal.azure.com，而且需要「成本管理讀者」(或「讀者」) 存取權。 EA 入口網站中啟用的 [AO 檢視費用] 設定是必要的設定。 成本分析中的計費資訊會針對資源群組中的所有資源合併。
-
-
+<sup>2</sup>註冊帳戶通常稱為帳戶擁有者。
 
 如需設定 [DA 檢視費用] 和 [AO 檢視費用] 設定的詳細資訊，請參閱[啟用成本存取權](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs)。
+
+
+
+
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 

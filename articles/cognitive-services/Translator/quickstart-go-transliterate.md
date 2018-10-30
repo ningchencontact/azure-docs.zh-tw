@@ -1,25 +1,25 @@
 ---
-title: 快速入門：轉換文字指令碼 - 翻譯工具文字、Go
+title: 快速入門：轉換文字字集 (Go) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Go，將文字轉換成另一種語言的字集。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: c4930e03f5d366eb3f21b44c5be90c20230065c3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: fd41eff65c312c125594bb3251f9c4fe74108eaf
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126746"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648355"
 ---
-# <a name="quickstart-transliterate-text-with-go"></a>快速入門：使用 Go 來音譯文字
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-go"></a>快速入門：使用翻譯工具文字 REST API (Go) 進行文字音譯
 
-在本快速入門中，您可以使用翻譯工具文字 API，將文字轉換成另一種語言的字集。
+在本快速入門中，您可以使用翻譯工具文字 API，將文字轉換成另一種語言的腳本。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "46126746"
 
 ## <a name="transliterate-request"></a>Transliterate 要求
 
-下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的字集。
+下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的腳本。
 
 1. 在您慣用的程式碼編輯器中，建立新的 Go 專案。
 2. 新增下方提供的程式碼。

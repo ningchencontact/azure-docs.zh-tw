@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 216e474f519e57352b017dc3e6bcdd74d48b03de
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 552b39c520396942fa81f963c0cfa1c8c7b47db4
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238641"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456961"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教學課程：在 Azure Resource Manager 範本中使用條件
 
 深入了解如何根據條件部署 Azure 資源。 
 
-本教學課程中所使用的案例與[教學課程：建立具有相依資源的 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的案例類似。 在該教學課程中，您會建立儲存體帳戶、虛擬機器、虛擬網路和其他相依資源。 您不是建立新的儲存體帳戶，而是讓使用者在建立新的儲存體帳戶與使用現有的儲存體帳戶之間做選擇。 為了達成此目標，您會定義額外的參數。 如果參數的值是 "new"，則會建立新的儲存體帳戶。
+本教學課程中所使用的案例與[教學課程：建立具有相依資源的 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的案例類似。 在該教學課程中，您建立了虛擬機器、虛擬網路和其他相依資源，包括儲存體帳戶。 您可以不用每次都建立新的儲存體帳戶，而是讓使用者在建立新的儲存體帳戶與使用現有的儲存體帳戶之間做選擇。 為了達成此目標，您會定義額外的參數。 如果參數的值是 "new"，則會建立新的儲存體帳戶。
 
 本教學課程涵蓋下列工作：
 
@@ -59,7 +59,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 對現有範本進行兩個變更：
 
-* 新增參數，用來提供儲存體帳戶名稱。 此參數可讓使用者選擇指定現有儲存體帳戶名稱。 也可以作為新儲存體帳戶名稱。
+* 新增儲存體帳戶名稱參數。 使用者可以指定新的儲存體帳戶名稱或現有的儲存體帳戶名稱。
 * 新增名為 **newOrExisting** 的參數。 部署會使用這個參數來決定要建立新的儲存體帳戶或使用現有儲存體帳戶。
 
 1. 在 Visual Studio Code 中，開啟 **azuredeploy.json**。
@@ -72,11 +72,15 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 4. 將以下兩個參數新增至範本：
 
     ```json
-    "newOrExisting": {
-      "type": "string"
-    },
     "storageAccountName": {
       "type": "string"
+    },    
+    "newOrExisting": {
+      "type": "string", 
+      "allowedValues": [
+        "new", 
+        "existing"
+      ]
     },
     ```
     已更新的參數定義看起來如下：
@@ -86,7 +90,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 5. 將下列行新增至儲存體帳戶定義的開頭。
 
     ```json
-    "condition": "[equals(parameters('newOrExisting'),'yes')]",
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
     條件會檢查名為 **newOrExisting** 的參數值。 如果參數值是 **new**，則部署會建立儲存體帳戶。
@@ -94,8 +98,15 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     已更新的儲存體帳戶定義看起來如下：
 
     ![Resource Manager 使用條件](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+6. 將 **storageUri** 更新為下列值：
 
-6. 儲存變更。
+    ```json
+    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
+    ```
+
+    如果您要使用不同資源群組下的現有儲存體帳戶，就必須進行此變更。
+
+7. 儲存變更。
 
 ## <a name="deploy-the-template"></a>部署範本
 
@@ -103,19 +114,21 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 當您使用 Azure PowerShell 部署範本時，需要指定一個額外參數：
 
-```powershell
-$resourceGroupName = "<Enter the resource group name>"
-$storageAccountName = "Enter the storage account name>"
-$location = "<Enter the Azure location>"
-$vmAdmin = "<Enter the admin username>"
-$vmPassword = "<Enter the password>"
-$dnsLabelPrefix = "<Enter the prefix>"
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+$vmAdmin = Read-Host -Prompt "Enter the admin username"
+$vmPassword = Read-Host -Prompt "Enter the admin password"
+$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting "new"
+New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin -adminPassword $vmPW `
+    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+    -TemplateFile azuredeploy.json
 ```
 
 > [!NOTE]

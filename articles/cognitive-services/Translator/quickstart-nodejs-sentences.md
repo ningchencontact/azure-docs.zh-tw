@@ -1,23 +1,23 @@
 ---
-title: 快速入門：取得句子長度 - 翻譯工具文字、Node.js
+title: 快速入門：取得句子長度 (Node.js) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Node.js，了解文字中句子的長度。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 9a55642ae41eb311121c9e334472a8afbc8d9925
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 60b7bf8de0f0f296d0efb49a1e08030c2d5999e3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127187"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644893"
 ---
-# <a name="quickstart-get-sentence-lengths-with-nodejs"></a>快速入門：使用 Node.js 取得句子長度
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-nodejs"></a>快速入門：使用翻譯工具文字 REST API (Node.js) 取得句子長度
 
 在本快速入門中，您可以使用翻譯工具文字 API，了解文字中句子的長度。
 

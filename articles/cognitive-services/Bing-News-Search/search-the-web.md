@@ -1,21 +1,21 @@
 ---
-title: 什麼是 Bing 新聞搜尋？ | Microsoft Docs
+title: 什麼是 Bing 新聞搜尋？
+titlesuffix: Azure Cognitive Services
 description: 說明如何使用 Bing 新聞搜尋 API 來搜尋網路上的新聞。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 4B35B035-34FB-403A-9F52-6470AF726FB6
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 977b2e10c8a2ceccc5a6ffb3f396e6721afe1816
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096984"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023197"
 ---
 # <a name="what-is-bing-news-search"></a>什麼是 Bing 新聞搜尋？
 
@@ -265,7 +265,7 @@ Host: api.cognitive.microsoft.com
 
 若要快速開始使用您的第一個要求，請參閱[建立您的第一個要求](./quickstart.md)。
 
-請熟悉 [Bing 新聞搜尋 API v7] (https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) 參考。 此參考包含端點、標頭，以及您用來要求搜尋結果的查詢參數清單。 它也包含回應物件的定義。
+請熟悉 [Bing 新聞搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) 參考。 此參考包含端點、標頭，以及您用來要求搜尋結果的查詢參數清單。 它也包含回應物件的定義。
 
 若要改善使用者搜尋方塊體驗，請參閱 [Bing 自動建議 API](../bing-autosuggest/get-suggested-search-terms.md)。 當使用者輸入其查詢字詞時，您可以呼叫此 API 以取得其他人所使用的相關查詢字詞。
 

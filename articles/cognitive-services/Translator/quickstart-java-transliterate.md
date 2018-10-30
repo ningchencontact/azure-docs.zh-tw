@@ -1,23 +1,23 @@
 ---
-title: 快速入門：轉換文字字集 - 翻譯工具文字、Java
+title: 快速入門：轉換文字字集 (Java) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Java，將文字轉換成另一種語言的字集。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 47d0462dcf7e54a3c2b2e2ea8b713b02af2baf37
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: erhopf
+ms.openlocfilehash: 53482c725b2cb20ec8c53354ee9683bb0c4c61d0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297418"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645212"
 ---
-# <a name="quickstart-transliterate-text-with-java"></a>快速入門：使用 Java 來音譯文字
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-java"></a>快速入門：使用翻譯工具文字 REST API (Java) 進行文字音譯
 
 在此快速入門中，您將使用翻譯工具文字 API，將文字轉換成另一種語言的字集。
 
@@ -29,7 +29,7 @@ ms.locfileid: "46297418"
 
 ## <a name="transliterate-request"></a>Transliterate 要求
 
-下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的字集。
+下列程式碼會使用 [Transliterate](./reference/v3-0-transliterate.md) 方法，將文字轉換成另一種語言的腳本。
 
 1. 在您慣用的程式碼編輯器中，建立新的 Java 專案。
 2. 新增下方提供的程式碼。
@@ -159,7 +159,7 @@ public class Transliterate {
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽此快速入門及其他文件的範例程式碼，包括翻譯和語言識別，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽本快速入門及其他文件的範例程式碼，包括翻譯和語言識別，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Java 範例](https://aka.ms/TranslatorGitHub?type=&language=java) (英文)

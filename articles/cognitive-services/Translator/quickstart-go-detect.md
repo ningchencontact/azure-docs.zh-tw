@@ -1,23 +1,23 @@
 ---
-title: 快速入門：從文字識別語言 - 翻譯工具文字、Go
+title: 快速入門：從文字識別語言 (Go) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Go，識別來源文字的語言。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 25834fae2ce60d93ebeb3a25298b97294748bf9b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 0275b408e71ec967f6453c94566b4799b3dd4396
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129704"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647199"
 ---
-# <a name="quickstart-identify-language-from-text-with-go"></a>快速入門：使用 Go 從文字識別語言
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-go"></a>快速入門：使用翻譯工具文字 REST API (Go) 從文字識別語言
 
 在本快速入門中，您可以使用翻譯工具文字 API，識別來源文字的語言。
 

@@ -1,25 +1,25 @@
 ---
-title: 快速入門：翻譯文字 - 翻譯工具文字、Go
+title: 快速入門：翻譯文字 (Go) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Go，將文字翻譯成另一種語言。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: df8b938c9541a4f57a337065af0ab02fe6815c6d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 53ca6c830d4e4fb80a47d498e4b033cee0f6f7a7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126695"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648304"
 ---
-# <a name="quickstart-translate-text-with-go"></a>快速入門：使用 Go 來翻譯文字
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-go"></a>快速入門：使用翻譯工具文字 REST API (Go) 翻譯文字
 
-在此快速入門中，您可以使用翻譯工具文字 API，將文字翻譯成另一種語言。
+在本快速入門中，您可以使用翻譯工具文字 API，將文字翻譯成另一種語言。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -1,5 +1,5 @@
 ---
-title: 教學課程：建立物件偵測專案 - 自訂視覺 API、Java
+title: 教學課程：使用適用於 Java 的自訂視覺 SDK 建立物件偵測專案 - 自訂視覺服務
 titlesuffix: Azure Cognitive Services
 description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 661242e4962a8218c48d7ea66d8a6f728b5154c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: d4af3315cfca18da594730cc402236684f81bfc8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365008"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957330"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-java"></a>教學課程：使用 Java 建置物件偵測專案
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>教學課程：使用適用於 Java 的自訂視覺 SDK 建立物件偵測專案
 
 探索使用電腦視覺 API 來建立物件偵測專案的基本 Jave 應用程式。 建立它之後，您就可以新增標記的區域、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置自己的應用程式。
 

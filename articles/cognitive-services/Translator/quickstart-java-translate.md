@@ -1,25 +1,25 @@
 ---
-title: 快速入門：翻譯文字 - 翻譯工具文字、Java
+title: 快速入門：翻譯文字 (Java) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Java，將文字翻譯成另一種語言。
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 806ab636827d873c5c23e4964492c144d1489a95
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 5a2b478d39f14b993a389fc48e037e1980d83e52
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126185"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646139"
 ---
-# <a name="quickstart-translate-text-with-java"></a>快速入門：使用 Java 來翻譯文字
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-java"></a>快速入門：使用翻譯工具文字 REST API (Java) 翻譯文字
 
-在此快速入門中，您可以使用翻譯工具文字 API，將文字翻譯成另一種語言。
+在本快速入門中，您可以使用翻譯工具文字 API，將文字翻譯成另一種語言。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -170,7 +170,7 @@ public class Translate {
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽此快速入門及其他文件的範例程式碼，包括音譯和語言識別，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽本快速入門及其他文件的範例程式碼，包括音譯和語言識別，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Java 範例](https://aka.ms/TranslatorGitHub?type=&language=java) (英文)

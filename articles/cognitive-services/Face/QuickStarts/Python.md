@@ -1,5 +1,5 @@
 ---
-title: 快速入門：偵測影像中的人臉 - 臉部 API、Python
+title: 快速入門：使用 REST API 和 Python 偵測影像中的人臉
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用臉部 API 搭配 Python 來偵測影像中的人臉。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: pafarley
-ms.openlocfilehash: 581c2a7d4508833647d4dbb9861000fddd75cde8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 76a9260d534057e3a03f8c8f1d7420329713ea80
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339576"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957270"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-python"></a>快速入門：使用 Python 偵測影像中的人臉
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-python"></a>快速入門：使用 REST API 和 Python 偵測影像中的人臉
 
 在此快速入門中，您可以使用臉部服務來偵測遠端影像中的人臉。 偵測到的人臉部都會使用矩形標定，並加上每個人的性別和年齡。 若要使用本機影像，請參閱[電腦視覺：使用 Python 分析本機影像](../../Computer-vision/QuickStarts/python-disk.md)中的語法。
 
