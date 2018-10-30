@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391363"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457033"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>將複寫的 VMware VM 和實體伺服器容錯移轉及容錯回復至 Azure
 
@@ -89,17 +89,16 @@ ms.locfileid: "44391363"
 >[!TIP]
 > 如果您不滿意容錯移轉的虛擬機器，則**變更復原點**可協助您在容錯移轉之後選擇不同的復原點。 在**認可**之後，將無法再使用此選項。
 
-請依照[這裡](site-recovery-failover-to-azure-troubleshoot.md)所述的步驟，針對容錯移轉後的任何連線問題進行疑難排解。
+請依照[這裡](site-recovery-failover-to-azure-troubleshoot.md)所述的步驟，對容錯移轉後的連線問題進行疑難排解。
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>準備重新保護 Azure VM
 
-### <a name="create-a-process-server-in-azure"></a>在 Azure 中建立處理序伺服器
+- **如果您使用 Azure ExpressRoute 連線**，則可以使用內部部署處理序伺服器 (內建的處理序伺服器)，這在設定連線時就會自動安裝在設定伺服器上。
 
-處理序伺服器會從 Azure VM 接收資料，並將資料傳送至內部部署網站。 低延遲網路必須位於處理序伺服器與受保護的 VM 之間。
+> [!IMPORTANT]
+> 如果您的內部部署環境與 Azure 之間使用 VPN 連線，您必須將 Azure VM 設定為處理序伺服器，以進行重新保護和容錯回復。 若要在 Azure 中設定處理序伺服器，請依照[本文](vmware-azure-set-up-process-server-azure.md)中的指示操作。
 
-- 基於測試目的，如果您有 Azure ExpressRoute 連線，則可以使用在設定伺服器上自動安裝的內部部署處理序伺服器 (內建的處理序伺服器)。
-- 如果您有 VPN 連線，或正在生產環境中執行容錯回復，則必須將 Azure VM 設定為 Azure 型處理序伺服器，以進行容錯回復。
-- 若要在 Azure 中設定處理序伺服器，請依照[本文](vmware-azure-set-up-process-server-azure.md)中的指示操作。
+如需重新保護和容錯回復的必要條件詳細資訊，請參閱此 [區段] ](vmware-azure-reprotect.md##before-you-begin)。 
 
 ### <a name="configure-the-master-target-server"></a>設定主要目標伺服器
 

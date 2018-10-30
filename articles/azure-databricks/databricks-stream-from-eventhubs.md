@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: a06ee5b03521fa2e0a711f5194cf01b32e7cea37
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 4a70801fa11316fbd023f348981743639fe111dc
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308691"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024408"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>教學課程：使用事件中樞將資料串流至 Azure Databricks
 
@@ -44,7 +44,7 @@ ms.locfileid: "36308691"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始本教學課程之前，請確定您符合下列需求：
 - Azure 事件中樞命名空間。
@@ -102,7 +102,7 @@ ms.locfileid: "36308691"
 
     * 輸入叢集的名稱。
     * 針對本文，使用 **4.0** 執行階段建立叢集。
-    * 請確定您選取 **在活動 ___ 分鐘後終止** 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
+    * 請確定您已選取 [在活動\_\_分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
     選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
@@ -110,7 +110,7 @@ ms.locfileid: "36308691"
 
 若要收到推文的串流，您必須在 Twitter 中建立應用程式。 請依照下列指示建立 Twitter 應用程式，並記錄要完成本教學課程所需的值。
 
-1. 從網頁瀏覽器移至 [Twitter 應用程式管理](https://apps.twitter.com/)，然後選取 **建立新的應用程式**。
+1. 從網頁瀏覽器移至 [Twitter 應用程式管理](https://apps.twitter.com/) ，然後選取 [建立新的應用程式]。
 
     ![建立 Twitter 應用程式](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "建立 Twitter 應用程式")
 
