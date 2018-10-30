@@ -124,13 +124,13 @@ C# 程式會依賴命名空間 **Microsoft.IdentityModel.Clients.ActiveDirectory
 
 C# 範例所依賴的一個命名空間是 **System.Data.SqlClient**。 特別引人興趣的是列舉 **SqlAuthenticationMethod**。 這個列舉具有下列值：
 
-- **SqlAuthenticationMethod.ActiveDirectory *互動式***：&nbsp;  與 Azure AD 使用者名稱搭配使用，以達成多重要素驗證 MFA。
+- **SqlAuthenticationMethod.ActiveDirectory \*互動式**\*：&nbsp;  與 Azure AD 使用者名稱搭配使用，以達成多重要素驗證 MFA。
     - 這個值是目前文章的焦點。 它會透過顯示對話方塊來要求輸入使用者密碼，接著若強制對此使用者執行 MFA，則會要求進行 MFA 驗證，來產生互動式體驗。
     - 此值從 .NET Framework 4.7.2 版開始可供使用。
 
-- **SqlAuthenticationMethod.ActiveDirectory *整合式***：&nbsp;  針對同盟帳戶使用此設定。 針對同盟帳戶，Windows 網域已知使用者名稱。 這個方法不支援 MFA。
+- **SqlAuthenticationMethod.ActiveDirectory \*整合式**\*：&nbsp;  針對同盟帳戶使用此設定。 針對同盟帳戶，Windows 網域已知使用者名稱。 這個方法不支援 MFA。
 
-- **SqlAuthenticationMethod.ActiveDirectory *密碼***：&nbsp;  針對需要 Azure AD 使用者和使用者密碼的驗證使用此設定。 Azure SQL Database 會執行驗證。 這個方法不支援 MFA。
+- **SqlAuthenticationMethod.ActiveDirectory \*密碼**\*：&nbsp;  針對需要 Azure AD 使用者和使用者密碼的驗證使用此設定。 Azure SQL Database 會執行驗證。 這個方法不支援 MFA。
 
 
 
