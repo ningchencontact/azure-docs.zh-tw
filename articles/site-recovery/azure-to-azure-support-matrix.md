@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 0e9c5c7ebaaa0a51d723340751e8ea82bfb96b5e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433662"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378613"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
 
 
-此文章摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 Azure 虛擬機器從一個區域複寫及復原至另一個區域時，所支援的設定和元件。
+本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 Azure 虛擬機器從一個區域複寫及復原至另一個區域時，所支援的設定和元件。
 
 ## <a name="user-interface-options"></a>使用者介面選項
 
@@ -69,13 +69,13 @@ ms.locfileid: "47433662"
 - SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [ (支援的核心版本)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
-- Oracle Enterprise Linux 6.4、6.5、6.6、6.7，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)
+- Oracle Linux 6.4、6.5、6.6、6.7，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)
 
 (不支援 SLES 11 SP3 至 SLES 11 SP4 的複寫電腦升級。 若已將複寫電腦從 SLES 11SP3 升級至 SLES 11 SP4，則您必須停用複寫以在升級後重新提供電腦防護。)
 
 >[!NOTE]
 >
-> 使用密碼型驗證和登入並使用雲端 init 套件來設定雲端虛擬機器的 Ubuntu 伺服器，可能對容錯移轉停用密碼型登入 (取決於 cloudinit 組態)。從 Azure 入口網站上容錯移轉的虛擬機器本身的設定功能表 (在 [支援 + 疑難排解] 區段下) 重設密碼，即可重新啟用密碼型登入。
+> 使用密碼型驗證和登入並使用雲端 init 封裝來設定雲端虛擬機器的 Ubuntu 伺服器，可能對容錯移轉停用密碼型登入 (取決於 cloudinit 組態)。從 Azure 入口網站上容錯移轉的虛擬機器本身的設定功能表 (在 [支援 + 疑難排解] 區段下) 重設密碼，即可重新啟用密碼型登入。
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure 虛擬機器支援的 Ubuntu 核心版本
 
@@ -164,7 +164,7 @@ Azure 資源庫映像 - 第三方發行 | 支援 | 只要 VM 在 Site Recovery �
 最大的作業系統磁碟大小 | 2048 GB | 請參閱 [VM 使用的磁碟](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
 最大的資料磁碟大小 | 4095 GB | 請參閱 [VM 使用的磁碟](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
 資料磁碟數量 | 依指定的 Azure VM 大小而定，最多支援 64 個 | 請參閱 [Azure 虛擬機器大小](../virtual-machines/windows/sizes.md)
-暫存磁碟 | 一律排除在複寫之外 | 暫存磁碟排除在複寫之外。 根據 Azure 指導方針，您不應該在暫存磁碟上放置任何持續性資料。 如需詳細資訊，請參閱 [Azure VM 上的暫存磁碟](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)。
+暫存磁碟 | 一律排除在複寫之外 | 暫存磁碟排除在複寫之外。 根據 Azure 指引，您不應該在暫存磁碟上放置任何持續性資料。 如需詳細資訊，請參閱 [Azure VM 上的暫存磁碟](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)。
 磁碟上的資料變更率 | 進階儲存體的上限為每個磁碟 10 MBps，標準儲存體的上限為每個磁碟 2 MBps | 如果磁碟的平均資料變更率持續超過 10 MBps (適用於進階儲存體) 和 2 MBps (適用於標準儲存體)，複寫將會趕不上進度。 不過，如果是偶發性的資料高載，資料變更率超過 10 MBps (適用於進階儲存體) 和 2 MBps (適用於標準儲存體) 的情況只持續一段時間便下降，複寫便可趕上進度。 在此情況下，您可能會發現復原點稍微延遲。
 標準儲存體帳戶上的磁碟 | 支援 |
 進階儲存體帳戶上的磁碟 | 支援 | 如果 VM 的磁碟分散於進階和標準儲存體帳戶，您可以對於各個磁碟選取不同的目標儲存體帳戶，以確保目標區域有相同的儲存體設定
@@ -204,14 +204,14 @@ VM 上的 NSG (傳統)| 支援 | 您需要使用復原方案中的 azure 自動�
 流量管理員整合 | 支援 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。
 Azure 受控 DNS | 支援 |
 自訂 DNS  | 支援 |    
-未經驗證的 Proxy | 支援 | 請參閱[網路指導方針文件](site-recovery-azure-to-azure-networking-guidance.md)。    
-經驗證的 Proxy | 不支援 | 如果 VM 對於輸出連線能力使用經驗證的 Proxy，則無法使用 Azure Site Recovery 複寫它。    
-內部部署的網站對網站 VPN 與 (不論是否有 ExpressRoute)| 支援 | 請確定設定 UDR 和 NSG 時，站台復原流量不是傳送到內部部署的裝置。 請參閱[網路指導方針文件](site-recovery-azure-to-azure-networking-guidance.md)。  
-VNET 對 VNET 連線 | 支援 | 請參閱[網路指導方針文件](site-recovery-azure-to-azure-networking-guidance.md)。  
+未經驗證的 Proxy | 支援 | 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。    
+經驗證的 Proxy | 不支援 | 如果 VM 對於輸出連線能力使用經驗證的 Proxy，則無法使用 Azure Site Recovery 加以複寫。    
+內部部署的網站對網站 VPN 與 (不論是否有 ExpressRoute)| 支援 | 請確定設定 UDR 和 NSG 時，站台復原流量不是傳送到內部部署的裝置。 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  
+VNET 對 VNET 連線 | 支援 | 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  
 虛擬網路服務端點 | 支援 | 不支援適用於虛擬網路的 Azure 儲存體防火牆。 不支援在用來儲存複寫資料之快取儲存體帳戶上存取特定的 Azure 虛擬網路。
 加速網路 | 支援 | 必須在來源 VM 上啟用加速網路。 [深入了解](azure-vm-disaster-recovery-with-accelerated-networking.md)。
 
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解[複寫 Azure VM 的網路指導方針](site-recovery-azure-to-azure-networking-guidance.md)
+- 深入了解[複寫 Azure VM 的網路指引](site-recovery-azure-to-azure-networking-guidance.md)
 - [複寫 Azure VM](site-recovery-azure-to-azure.md) 開始保護您的工作負載

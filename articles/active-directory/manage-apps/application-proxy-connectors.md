@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364605"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406272"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
 
@@ -79,7 +79,7 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\*此機器的連接限制為 800。 對於所有其他機器，我們使用預設連接限制 200。
+\* 此機器使用自訂設定來引發一些超出 .Net 建議設定的預設連線限制。 我們建議先使用預設設定執行測試，然後再連絡支援人員為您的租用戶變更此限制。
  
 >[!NOTE]
 >在 4、8 和 16 核心的機器之間，最大 TPS 沒有太大差異。 它們之間的主要差異在於預期延遲。  

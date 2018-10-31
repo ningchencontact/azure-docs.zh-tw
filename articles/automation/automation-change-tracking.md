@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/31/2018
+ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669478"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166996"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -33,13 +33,23 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 以下為正式支援的 Linux 散發套件。 不過，Linux 代理程式也可能在未列出的其他散發套件上執行。 除非另有說明，列出的每個主要版本都支援所有次要版本。  
 
-* Amazon Linux 2012.09 至 2015.09 (x86/x64)
-* CentOS Linux 5、6 和 7 (x86/x64)  
-* Oracle Linux 5、6 和 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5、6 和 7 (x86/x64)
-* Debian GNU/Linux 6、7 和 8 (x86/x64)
-* Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 和 12 (x86/x64)
+### <a name="64-bit"></a>64 位元
+
+* CentOS 6 和 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 和 7
+* Red Hat Enterprise Linux Server 6 和 7
+* Debian GNU/Linux 8 和 9
+* Ubuntu Linux 14.04 LTS、16.04 LTS 和 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### <a name="32-bit"></a>32 位元
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 和 9
+* Ubuntu Linux 14.04 LTS 和 16.04 LTS
 
 ## <a name="enable-change-tracking-and-inventory"></a>啟用變更追蹤和清查
 
@@ -146,6 +156,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 「變更追蹤」解決方案目前有下列問題︰
 
 * Windows 10 Creators Update 和 Windows Server 2016 Core RS3 機器不會收集 Hotfix 更新。
+* 針對 Windows 檔案，「變更追蹤」目前不會偵測新檔案何時已新增至追蹤的資料夾路徑
 
 ## <a name="change-tracking-data-collection-details"></a>「變更追蹤」資料收集詳細資訊
 
@@ -213,6 +224,17 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 |&nbsp;&nbsp;&nbsp;&nbsp;監視已知或常用系統 DLL 清單；此系統可防止人員放入特洛伊木馬病毒版本的系統 DLL 來利用弱式應用程式目錄權限。|
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;監視可從 Winlogon 接收事件通知的套件清單，而 Winlogon 是 Windows 作業系統的互動式登入支援模型。|
+
+## <a name="network-requirements"></a>網路需求
+
+以下為「變更追蹤」特別需要的位址。 這些位址的通訊皆經由連接埠 443 進行。
+
+|Azure 公用  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>使用變更追蹤
 

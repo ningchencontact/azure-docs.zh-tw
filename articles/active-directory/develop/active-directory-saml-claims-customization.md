@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902020"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466711"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>操作說明：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
@@ -49,21 +49,38 @@ ms.locfileid: "48902020"
 ![編輯使用者屬性][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>編輯 NameIdentifier 宣告
-若要解決使用不同的使用者名稱部署應用程式的問題，請按一下 [使用者屬性] 區段中的 [使用者識別碼] 下拉式清單。 這個動作會提供包含數個不同選項的對話方塊：
+
+若要解決使用不同使用者名稱部署應用程式的問題，請選取 [使用者屬性] 區段中的 [使用者識別碼] 下拉式清單。 這個動作會提供包含數個不同選項的對話方塊：
 
 ![編輯使用者屬性][4]
 
-在下拉式清單中，選取 [user.mail]，將 NameIdentifier 宣告設定為使用者在目錄中的電子郵件地址。 或者，選取 **user.onpremisessamaccountname** 設定為從內部部署 Azure AD 同步處理的使用者 SAM 帳戶名稱。
+### <a name="attributes"></a>屬性
 
-您也可以使用特殊的 **ExtractMailPrefix()** 函式，從電子郵件地址、SAM 帳戶名稱或使用者主體名稱中將網域尾碼移除。 這只會擷取使用者名稱的第一個部分 (例如，"joe_smith" 而不是 joe_smith@contoso.com)。
+選取 `NameIdentifier` (或 NameID) 宣告的所需來源。 您可以從下列選項選取。
 
-![編輯使用者屬性][5]
+| 名稱 | 說明 |
+|------|-------------|
+| 電子郵件 | 使用者的電子郵件地址 |
+| userprincipalName | 使用者的使用者主體名稱 (UPN) |
+| onpremisessamaccount | 已從內部部署 Azure AD 同步處理的 SAM 帳戶名稱 |
+| objectID | Azure AD 中使用者的 objectID |
+| EmployeeID | 使用者的 EmployeeID |
+| 目錄擴充 | 目錄擴充[從使用 Azure AD Connect 同步的內部部署 Active Directory 同步處理](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| 擴充屬性 1-15 | 內部部署擴充屬性，用來擴充 Azure AD 結構描述 |
 
-我們現在還新增了 **join()** 函式，以聯結已驗證的網域與使用者識別碼值。 當您選取 [使用者識別碼] 中的 join() 函式時，先選取像是電子郵件地址或使用者主體名稱的使用者識別碼，然後在第二個下拉式清單中選取已驗證的網域。 如果您選取包含已驗證網域的電子郵件地址，則 Azure AD 會從 joe_smith@contoso.com 的第一個值 joe_smith 中擷取使用者名稱，並將它與 contoso.onmicrosoft.com 附加。 請參閱下列範例：
+### <a name="transformations"></a>轉換
 
-![編輯使用者屬性][6]
+您也可以使用特殊的宣告轉換函式。
+
+| 函式 | 說明 |
+|----------|-------------|
+| **ExtractMailPrefix()** | 從電子郵件地址、SAM 帳戶名稱或使用者主體名稱移除網域尾碼。 這只會擷取使用者名稱的第一個部分 (例如，"joe_smith" 而不是 joe_smith@contoso.com)。 |
+| **join()** | 加入具有已驗證網域的屬性。 如果選取的使用者識別碼值具有網域，它會擷取使用者名稱以附加所選的已驗證網域。 例如，如果您選取電子郵件 (joe_smith@contoso.com) 作為使用者識別碼值，並選取 contoso.onmicrosoft.com 作為已驗證的網域，這樣會產生 joe_smith@contoso.onmicrosoft.com。 |
+| **ToLower()** | 將所選取屬性中的字元轉換成小寫字元。 |
+| **ToUpper()** | 將所選取屬性中的字元轉換成大寫字元。 |
 
 ## <a name="adding-claims"></a>新增宣告
+
 新增宣告時，您可以指定屬性名稱 (不必根據 SAML 規格嚴格遵循 URI 模式)。 將值設定為儲存在目錄中的任何使用者屬性。
 
 ![新增使用者屬性][7]
@@ -133,7 +150,7 @@ SAML 有一些受限制的宣告。 如果您新增這些宣告，則 Azure AD �
 
 * [Azure AD 中的應用程式管理](../manage-apps/what-is-application-management.md)
 * [對不存在於 Azure AD 應用程式庫的應用程式設定單一登入](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [對 SAML 型單一登入進行疑難排解](howto-v1-debug-saml-sso-issues.md)
+* [針對 SAML 型單一登入進行疑難排解](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

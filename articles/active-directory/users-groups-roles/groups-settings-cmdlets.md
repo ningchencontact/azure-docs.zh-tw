@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 10/12/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: f453afee6bc26c5ddcdb5018405ec69455f8f7e8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1e8f5728697e63737ec44fedd8ed336366241f66
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295133"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310737"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>設定群組設定的 Azure Active Directory Cmdlet
 本文包含使用 Azure Active Directory (Azure AD) PowerShell Cmdlet 以建立和更新群組的指示。 本內容僅適用於 Office 365 群組 (又稱為整合群組)。 
@@ -27,7 +27,7 @@ ms.locfileid: "46295133"
 > [!IMPORTANT]
 > 某些設定需要 Azure Active Directory Premium P1 授權。 如需詳細資訊，請參閱[範本設定](#template-settings)資料表。
 
-如需有關如何防止非系統管理員的使用者建立安全性群組的詳細資訊，請依照 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) 所述來設定 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`。 
+如需有關如何防止非系統管理員的使用者建立安全性群組的詳細資訊，請依照 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) 中所述來設定 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`。 
 
 Office 365 群組設定是使用 Settings 物件和 SettingsTemplate 物件所設定。 一開始，您在目錄中不會看到任何設定物件，因為已使用預設設定來設定您的目錄。 若要變更預設設定，您必須使用設定範本來建立新的設定物件。 設定範本是由 Microsoft 所定義。 有數個不同的設定範本。 若要設定目錄的 Office 365 群組設定，您要使用名為 "Group.Unified" 的範本。 若要在單一群組上設定 Office 365 群組設定，請使用名為 "Group.Unified.Guest" 的範本。 此範本是用來管理 Office 365 群組的來賓存取權。 
 
@@ -45,12 +45,12 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 
 1. 在 DirectorySettings Cmdlet 中，您必須指定需要使用的 SettingsTemplate 識別碼。 如果您不知道此識別碼，這個 Cmdlet 會傳回所有設定範本的清單：
   
-  ```
+  ```powershell
   PS C:> Get-AzureADDirectorySettingTemplate
   ```
   這個 Cmdlet 呼叫會傳回所有可用的範本︰
   
-  ```
+  ```powershell
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
@@ -62,32 +62,33 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
   ```
 2. 若要新增使用方針 URL，首先您需要取得 SettingsTemplate 物件，此物件會定義使用方針 URL 值；也就是 Group.Unified 範本：
   
-  ```
+  ```powershell
   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
   ```
 3. 接下來，根據該範本建立新的設定物件：
   
-  ```
+  ```powershell
   $Setting = $template.CreateDirectorySetting()
   ```  
 4. 然後更新使用方針值：
   
-  ```
+  ```powershell
   $setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
-
   ```  
 5. 最後，套用設定：
   
-  ```
+  ```powershell
   New-AzureADDirectorySetting -DirectorySetting $setting
   ```
 
 成功完成時，此 Cmdlet 會傳回新設定物件的識別碼︰
-  ```
+
+  ```powershell
   Id                                   DisplayName TemplateId                           Values
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
+
 ## <a name="template-settings"></a>範本設定
 以下是 Group.Unified SettingsTemplate 中定義的設定。 除非另行指定，否則這些功能都需要 Azure Active Directory Premium P1 授權。 
 
@@ -112,27 +113,27 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 這些步驟會讀取目錄層級的設定，其會套用至目錄中的所有 Office 群組。
 
 1. 讀取所有現有的目錄設定：
-  ```
+  ```powershell
   Get-AzureADDirectorySetting -All $True
   ```
   此 Cmdlet 會傳回所有目錄設定的清單：
-  ```
+  ```powershell
   Id                                   DisplayName   TemplateId                           Values
   --                                   -----------   ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
 
 2. 讀取特定群組的所有設定：
-  ```
+  ```powershell
   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
   ```
 
 3. 使用設定識別碼 GUID，讀取特定目錄設定物件的所有目錄設定值︰
-  ```
+  ```powershell
   (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
   ```
   此 Cmdlet 會傳回針對此特定群組的這個設定物件中的名稱和值：
-  ```
+  ```powershell
   Name                          Value
   ----                          -----
   ClassificationDescriptions
@@ -152,7 +153,7 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 ## <a name="update-settings-for-a-specific-group"></a>更新特定群組的設定
 
 1. 搜尋名為「Groups.Unified.Guest」的設定範本
-  ```
+  ```powershell
   Get-AzureADDirectorySettingTemplate
   
   Id                                   DisplayName            Description
@@ -164,20 +165,20 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
   ```
 2. 擷取 Groups.Unified.Guest 範本的範本物件：
-  ```
+  ```powershell
   $Template = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
   ```
 3. 從範本建立新的設定物件︰
-  ```
+  ```powershell
   $Setting = $Template.CreateDirectorySetting()
   ```
 
 4. 將設定設為必要值︰
-  ```
+  ```powershell
   $Setting["AllowToAddGuests"]=$False
   ```
 5. 在目錄中建立必要群組的新設定︰
-  ```
+  ```powershell
   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $Setting
   
   Id                                   DisplayName TemplateId                           Values
@@ -190,29 +191,23 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 這些步驟會更新目錄層級的設定，而套用至目錄中的所有 Office 365 群組。 這些範例假設您的目錄中已經有 Settings 物件。
 
 1. 尋找現有的 Settings 物件：
-  ```
-  Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ
-  
-  Id                                   DisplayName   TemplateId                           Values
-  --                                   -----------   ----------                           ------
-  c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
-  
-  $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323
+  ```powershell
+  $setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
   ```
 2. 更新值：
   
-  ```
+  ```powershell
   $Setting["AllowToAddGuests"] = "false"
   ```
 3. 更新設定：
   
-  ```
+  ```powershell
   Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
   ```
 
 ## <a name="remove-settings-at-the-directory-level"></a>移除目錄層級的設定
 這個步驟會移除目錄層級的設定，其會套用至目錄中的所有 Office 群組。
-  ```
+  ```powershell
   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
   ```
 

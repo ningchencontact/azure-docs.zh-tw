@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 53e737f35904a90bb56ec15c8a8282f8775e3c3a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158898"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393486"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>什麼是 Azure Machine Learning CLI？
 
@@ -34,7 +34,7 @@ Azure Machine Learning 命令列介面 (CLI) 是專門提供給使用 Azure Mach
 
 您可以至我們的預覽版 PyPi 索引，使用下列命令安裝 CLI：
 ```AzureCLI
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.50-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 使用此命令可移除 CLI：
@@ -65,7 +65,7 @@ CLI 較適合開發營運人員的自動化，或適用於連續整合和交貨�
 
 ### <a name="workspace-creation--compute-setup"></a>工作區建立和計算設定
 
-+ 建立 Azure Machine Learning 工作區，也就是機器學習的最上層資源。
++ 建立 Azure Machine Learning services 工作區，也就是機器學習的最上層資源。
    ```AzureCLI
    az ml workspace create -n myworkspace -g myresourcegroup
    ```

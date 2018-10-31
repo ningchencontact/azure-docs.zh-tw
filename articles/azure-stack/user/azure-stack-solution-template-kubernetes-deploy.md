@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 62eb28c6cdb2dd6c1ddff1487826c01ef3bf6e3e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409349"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091584"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>將 Kubernetes 部署至 Azure Stack
 
@@ -39,6 +39,8 @@ ms.locfileid: "47409349"
 - 開發可大幅調整、可升級，並且可在短短數秒內完成部署的應用程式。 
 - 簡化您的應用程式設計，並透過不同的 Helm 應用程式改善其可靠性。 [Helm](https://github.com/kubernetes/helm) 是開放原始碼的封裝工具，可協助您安裝和管理 Kubernetes 應用程式的生命週期。
 - 透過調整與升級功能輕鬆監視和診斷應用程式的健康情況。
+
+您只須支付支援您叢集節點所需的計算使用量。 如需詳細資訊，請參閱 [Azure Stack 中的使用量和計費](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback)。
 
 ## <a name="prerequisites"></a>必要條件 
 
@@ -165,6 +167,9 @@ ms.locfileid: "47409349"
 2. 檢閱您的設定。
 
 3. 選取 [確定] 以部署叢集。
+
+> [!TIP]  
+>  如果您有任何關於部署的問題，可以張貼您的問題，或查看是否有人已在 [Azure Stack 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答過此問題。 
 
 ## <a name="connect-to-your-cluster"></a>連線至您的叢集
 

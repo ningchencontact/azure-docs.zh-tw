@@ -2,18 +2,17 @@
 title: 在 Azure 容器執行個體中掛接 gitRepo 磁碟區
 description: 了解如何掛接 gitRepo 磁碟區，以將 Git 存放庫複製到您的容器執行個體中
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
-ms.author: marsma
-ms.openlocfilehash: 34036c5ec9ccd8c502104ce862e4749c59be62b9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: danlep
+ms.openlocfilehash: af1fbe66c805517c07975b2e4cf6e13e87ec661c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105194"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388267"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接 gitRepo 磁碟區
 
@@ -90,17 +89,17 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-針對 VSTS Git 存放庫，指定任何使用者名稱 (您可以如同下列範例一樣使用 "vstsuser") 與有效的 PAT 搭配使用：
+針對 Azure Repos Git 存放庫，指定任何使用者名稱 (您可以如同下列範例一樣使用 "azurereposuser") 與有效的 PAT 搭配使用：
 
 ```azurecli
---gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
 ```
 
-如需 GitHub 和 VSTS 的個人存取權杖詳細資訊，請參閱下列項目：
+如需 GitHub 和 Azure Repos 的個人存取權杖詳細資訊，請參閱下列項目：
 
 GitHub：[針對命令列建立個人存取權杖][pat-github]
 
-VSTS：[建立個人存取權杖來驗證存取][pat-vsts]
+Azure Repos：[建立個人存取權杖來驗證存取][pat-repos]
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -113,7 +112,7 @@ VSTS：[建立個人存取權杖來驗證存取][pat-vsts]
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
 [pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
+[pat-repos]: https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

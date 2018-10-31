@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f184c18e97144f7efb30d61ebd024344510f3f5c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078761"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958936"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 存取權杖
 
@@ -136,7 +136,7 @@ Microsoft 身分識別可透過各種方式來驗證，這些方式可能與您�
 | 值 | 說明 |
 |-----|-------------|
 | `pwd` | 密碼驗證，可以是使用者的 Microsoft 密碼或應用程式的用戶端祕密。 |
-| `rsa` | 驗證會以 RSA 金鑰證明為基礎，例如使用[Microsoft Authenticator 應用程式](https://aka.ms/AA2kvvu)。如果驗證是由自我簽署 JWT 搭配擁有 X509 憑證的服務來執行，則會包括此值。 |
+| `rsa` | 驗證會以 RSA 金鑰證明為基礎，例如使用 [Microsoft Authenticator 應用程式](https://aka.ms/AA2kvvu)。 如果驗證是由自我簽署 JWT 搭配擁有 X509 憑證的服務來執行，則會包括此值。 |
 | `otp` | 使用電子郵件或簡訊的單次密碼。 |
 | `fed` | 已使用同盟驗證判斷提示 (例如 JWT 或 SAML)。 |
 | `wia` | Windows 整合式驗證 |
@@ -179,7 +179,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> 在瀏覽器中嘗試此 URL！
+> 在瀏覽器中嘗試此 [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration)！
 
 此中繼資料文件：
 
@@ -187,7 +187,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * 包含 `jwks_uri`，其提供用來簽署權杖的公用金鑰組位置。 位於 `jwks_uri` 的 JSON 文件包含在該特定時間點使用的所有公開金鑰資訊。 您的應用程式可以使用 JWT 標頭中的 `kid` 宣告選取本文件中已用來簽署特定權杖的公開金鑰。 接著可以使用正確的公開金鑰和指定的演算法來執行簽章驗證。
 
 > [!NOTE]
-> v1.0 端點會同時傳回 `x5t` 和 `kid` 宣告。 v2.0 權杖中遺失 `x5t` 宣告。 v2.0 端點會以 `kid` 宣告來回應。 往後，建議您使用 `kid` 宣告來驗證權杖。
+> v1.0 端點會傳回 `x5t` 和 `kid` 宣告，而 v2.0 端點只會以 `kid` 宣告進行回應。 往後，建議您使用 `kid` 宣告來驗證權杖。
 
 執行簽章驗證已超出本文件的範圍 - 有許多開放原始碼程式庫可協助您這麼做 (如有必要)。
 
@@ -202,7 +202,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * 檢查 `tid` 是否符合允許呼叫您 API 的租用戶。
 * 使用 `acr` 宣告確認使用者已執行 MFA。 請注意，這應該使用[條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)來強制執行。
 * 如果您已在存取權杖中要求 `roles` 或 `groups` 宣告，確認使用者位在允許執行此動作的群組中。
-  * 針對使用隱含流程擷取的權杖，您可能需要查詢此資料的 [Graph](https://developer.microsoft.com/graph/)，因為這通常會太大，而無法放入權杖。 
+  * 針對使用隱含流程擷取的權杖，您可能需要查詢此資料的 [Microsoft Graph](https://developer.microsoft.com/graph/)，因為這通常會太大，而無法放入權杖。 
 
 ## <a name="user-and-application-tokens"></a>使用者和應用程式權杖
 

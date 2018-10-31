@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 10/01/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 95dac6804f3226cac23bce95a1b09b2907d084b0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc918d0ee3b3b435905546507287dc655f68e8c9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395479"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429774"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure AD 記錄與 Log Analytics 整合 (預覽)
 
@@ -30,7 +30,11 @@ Log Analytics 可讓您查詢資料，以尋找特定事件、分析趨勢，以
  * 比較您的 Azure AD 登入記錄與 Azure 資訊安全中心所發佈的安全性記錄
 
  * 藉由將 Azure Application Insights 中的應用程式效能資料相互關聯，在應用程式的登入頁面上進行效能瓶頸的疑難排解。  
- 
+
+Ignite 工作階段中的下列影片，會示範在特定使用者案例中針對 Azure AD 記錄使用 Log Analytics 的優點。
+
+> [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
+
 在本文中，您將了解如何使用 Azure 監視器將 Azure Active Directory (Azure AD) 記錄與 Log Analytics 整合。
 
 ## <a name="supported-reports"></a>支援的報告

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 09/24/2018
-ms.openlocfilehash: 412871c0c692f60e690f61fa4e6f67f836cd3ef7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 70c023fc8fe996060d3eff3d5a700b5f910097b4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158202"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113626"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
 
@@ -50,7 +50,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-- 已安裝 Azure Machine Learning 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
+- 已安裝 Machine Learning services 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
 
 - 要部署至 Azure Kubernetes Service (AKS) 的訓練過機器學習模型。 如果您沒有該模型，請參閱[訓練影像分類模型](tutorial-train-models-with-aml.md)教學課程。
 
@@ -161,8 +161,8 @@ Blob 中輸出資料的路徑遵循此語法：
 
 ## <a name="example-notebook"></a>範例筆記本
 
-`00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` 筆記本示範本文中的概念。  
+[00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) Notebook 會示範本文中的概念。  
 
-取得此筆記本：
+請取得此筆記本：
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

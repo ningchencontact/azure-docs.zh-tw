@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 041eed3a65faeb4e6c19cd9220a9e6393e18532a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452202"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319127"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中樞的身分識別登錄
 
@@ -29,7 +29,9 @@ ms.locfileid: "47452202"
 * 針對中樞的裝置或面對模組的端點，控制依裝置或依模組的存取。
 
 > [!NOTE]
-> 身分識別登錄不包含任何應用程式特有中繼資料。
+> * 身分識別登錄不包含任何應用程式特有中繼資料。
+> * 模組身分識別與模組對應項都處於公開預覽階段。 當模組身分識別正式運作時，可支援下列功能。
+>
 
 ## <a name="identity-registry-operations"></a>身分識別登錄作業
 
@@ -40,7 +42,6 @@ IoT 中樞身分識別登錄會公開下列作業︰
 * 依識別碼擷取裝置或模組身分識別
 * 刪除裝置或模組身分識別
 * 列出多達 1000 個識別
-> 模組身分識別與模組對應項都處於公開預覽階段。 當模組身分識別正式運作時，可支援下列功能。
 * 將裝置身分識別匯出至 Azure Blob 儲存體
 * 從 Azure Blob 儲存體匯入裝置身分識別
 
@@ -197,6 +198,9 @@ iothub-message-schema | moduleLifecycleNotification |
 > [!NOTE]
 > 連線狀態只能代表連線狀態的 IoT 中樞檢視。 根據網路狀況和組態而定，可能會延遲此狀態的更新。
 
+> [!NOTE]
+> 裝置 SDK 目前不支援在 **deviceId** 中使用 `+` 和 `#` 字元。
+
 ## <a name="module-identity-properties"></a>模組身分識別屬性
 
 模組身分識別會以具有下列屬性的 JSON 文件表示：
@@ -215,6 +219,9 @@ iothub-message-schema | moduleLifecycleNotification |
 | connectionState |唯讀 |指出連線狀態的欄位︰**已連線**或**已中斷連線**。 這個欄位代表裝置連線狀態的 IoT 中樞檢視。 **重要事項**：此欄位只應用於開發/偵錯用途。 只有針對使用 MQTT 或 AMQP 的裝置才會更新連線狀態。 此外，它是以通訊協定層級的偵測 (MQTT 偵測或 AMQP 偵測) 為基礎，而且最多只能有 5 分鐘的延遲。 基於這些理由，其中可能會有誤判的情形，例如將裝置回報為已連線，但卻已中斷連線。 |
 | connectionStateUpdatedTime |唯讀 |暫時指示器，顯示上次更新連線狀態的日期和時間。 |
 | lastActivityTime |唯讀 |暫時指示器，顯示裝置上次連接、接收或傳送訊息的日期和時間。 |
+
+> [!NOTE]
+> 裝置 SDK 目前不支援在 **deviceId** 和 **moduleId** 中使用 `+` 和 `#` 字元。
 
 ## <a name="additional-reference-material"></a>其他參考資料
 

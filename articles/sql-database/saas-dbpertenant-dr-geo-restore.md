@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL Database 異地備援備份進行 SaaS 應用程式的災害復原 | Microsoft Docs
+title: SaaS 應用程式：用於災害復原的 Azure SQL Database 異地備援備份 | Microsoft Docs
 description: 了解在發生中斷的狀況時，如何使用 Azure SQL Database 異地備援備份來復原多租用戶 SaaS 應用程式
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/16/2018
-ms.openlocfilehash: adb3778c723f7c56b5f31381c804e39a8b782709
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 10/15/2018
+ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056184"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352926"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>使用異地還原從資料庫備份復原多租用戶 SaaS 應用程式
 

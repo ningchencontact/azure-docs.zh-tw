@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362903"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637860"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -83,6 +83,10 @@ ms.locfileid: "49362903"
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>是否可以在相同的伺服器上安裝兩個以上的傳遞驗證代理程式？
 
 不可以，您只能在單一伺服器上安裝一個傳遞驗證代理程式。 如果您想要為傳遞驗證設定高可用性，請[依照這裡的指示操作](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)。
+
+## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>我必須手動更新傳遞驗證代理程式所使用的憑證嗎？
+
+每個傳遞驗證代理程式與 Azure AD 之間的通訊是使用憑證型驗證來保護。 這些[憑證每幾個月就會由 Azure AD 自動更新](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents)。 不需要手動更新這些憑證。 您可以視需要清除較舊的已過期憑證。
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>如何移除「傳遞驗證代理程式」？
 

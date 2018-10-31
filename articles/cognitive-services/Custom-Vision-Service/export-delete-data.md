@@ -1,20 +1,21 @@
 ---
-title: 匯出或刪除自訂視覺中的資料 - Azure 認知服務 | Microsoft Docs
-description: 了解如何匯出或刪除自訂視覺中的資料。
+title: 匯出或刪除您的資料 - 自訂視覺服務
+titlesuffix: Azure Cognitive Services
+description: 了解如何匯出或刪除自訂視覺服務中的資料。
 services: cognitive-services
-author: v-jaswel
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 49fc49b3181f56c23167cfbae18911e7db441f8c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: pafarley
+ms.openlocfilehash: d89832b7b68c9a2c0697fa5c97ce1aa83d5d1ee8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370507"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338466"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>匯出或刪除自訂視覺中的使用者資料
 

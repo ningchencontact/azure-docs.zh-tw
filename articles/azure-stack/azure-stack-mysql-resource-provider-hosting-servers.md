@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b11ce8bbbf4b270f7a3b9689f95b0cbfca3b14c9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 833d8e7960bfb7ee3c135df57e6d4dfec97af037
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408873"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364656"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>為 SMySQL 資源提供者新增主控伺服器
 
@@ -75,6 +75,24 @@ MySQL 5.6、5.7 和 8.0 版可用於您的主控伺服器。 MySQL RP 不支援 
 ## <a name="increase-backend-database-capacity"></a>增加後端資料庫容量
 
 您可以藉由在 Azure Stack 入口網站中部署更多 MySQL 伺服器，來增加後端資料庫的容量。 將這些伺服器新增到新的或現有的 SKU。 如果您將伺服器新增到現有的 SKU，請確保伺服器特性與 SKU 中的其他伺服器相同。
+
+## <a name="sku-notes"></a>SKU 注意事項
+使用可描述 SKU 中伺服器容量的 SKU 名稱，例如容量與效能。 名稱可作為輔助，來幫助使用者將其資料庫部署至適當的 SKU。 例如，您可以使用 SKU 名稱依下列特性區分服務供應項目：
+  
+* 高容量
+* 高效能
+* 高可用性
+
+最佳作法是，SKU 中的所有主控伺服器應具有相同的資源和效能特性。
+
+無法將 SKU 指派給特定使用者或群組。
+
+最多需要一小時才能在入口網站中看到 SKU。 在完整建立 SKU 前，使用者無法建立資料庫。
+
+若要編輯 SKU，請移至 [所有服務] > [MySQL 配接器] > [SKU]。 選取要修改的 SKU、進行任何必要的變更，然後按一下 [儲存] 以儲存變更。 若要刪除已不再需要的 SKU，請移至 [所有服務] > [MySQL 配接器] > [SKU]。 以滑鼠右鍵按一下 SKU 名稱，然後選取 [刪除] 將它刪除。
+
+> [!TIP]
+> 您可以編輯或刪除相同位置的 MySQL 資源提供者配額。
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>讓您的使用者可使用 MySQL 資料庫伺服器
 

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/25/2017
+ms.date: 10/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 07c2b506007daccd53a8b06a43064e6e274ac43b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b3dd31c7890812dfa7e9e5740a48f094badc604e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433353"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167336"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 IntelliJ 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -68,33 +68,33 @@ ms.locfileid: "47433353"
     ![展開的叢集名稱節點](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
 ## <a name="link-a-cluster"></a>連結叢集
-您可以使用 Ambari 受控使用者名稱來連結一般的 HDInsight 叢集。 同樣地，對於已加入網域的 HDInsight 叢集，您可以使用網域和使用者名稱進行連結，例如 user1@contoso.com。
+您可以使用 Ambari 受控使用者名稱來連結一般的 HDInsight 叢集。 同樣地，對於已加入網域的 HDInsight 叢集，您可以使用網域和使用者名稱進行連結，例如 user1@contoso.com。 您也可以連結 Livy 服務叢集。
 
 1. 從 [Azure 總管] 中選取 [連結叢集]。
 
    ![連結叢集操作功能表](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
+2. 您有兩個選項可連結叢集。 
 
-1. 輸入 [叢集名稱]、[使用者名稱] 和 [密碼]。 如果驗證失敗，您需要檢查使用者名稱和密碼。 您也可以選擇新增 [儲存體帳戶]、[儲存體金鑰]，然後從 [儲存體容器] 選取容器。 儲存體資訊適用於左側樹狀目錄中的儲存體總管
+   * 如需連結 HDInsight 叢集，請在 [叢集資訊] 欄位中選擇 [HDInsight 叢集]，輸入 [叢集名稱/URL]、[使用者名稱] 及 [密碼]。
+
+      ![連結 hdinsight 叢集對話方塊](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+
+   * 如需連結 Livy 服務叢集，請在 [叢集資訊] 欄位中選擇 [Livy 服務]，輸入 [Livy 端點]、[叢集名稱]。 [Yarn 端點] 是選擇性的。 [驗證] 欄位會提供兩個選項。 它們 [基本驗證] 和 [不需要驗證]。 當您選取 [基本驗證] 時，應提供 [使用者名稱] 和 [密碼]。 如果驗證失敗，您需要檢查使用者名稱和密碼。
+      
+      ![連結 livy 叢集對話方塊](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
    
-   ![連結叢集對話方塊](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
-
-   > [!NOTE]
-   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
-   > ![IntelliJ 中的儲存體總管](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
-
-   
-1. 如果輸入資訊正確無誤，您可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
+3. 如果輸入資訊正確無誤，您可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
 
    ![連結的叢集](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
-1. 您也可以從 [Azure 總管] 取消連結叢集。
+4. 您也可以從 [Azure 總管] 取消連結叢集。
    
    ![取消連結的叢集](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
-## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>在 HDInsight Spark 叢集上執行 Spark Scala 應用程式
+## <a name="create-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>在 HDInsight Spark 叢集上建立 Spark Scala 應用程式
 
-1. 啟動 IntelliJ IDEA，然後建立專案。 在 [新增專案]  對話方塊中，執行下列操作： 
+1. 啟動 IntelliJ IDEA，然後建立專案。 在 [新增專案] 對話方塊中，遵循下列步驟： 
 
    a. 選取 [HDInsight] > [HDInsight 上的 Spark (Scala)]。
 
@@ -165,35 +165,46 @@ ms.locfileid: "47433353"
     
         }
 
-1. 若要在 HDInsight Spark 叢集上執行應用程式，請執行下列動作：
+## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>在 HDInsight Spark 叢集上執行 Spark Scala 應用程式
+建立 Scala 應用程式之後，您可以將它提交到叢集。
 
-   a. 在 [專案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [將 Spark 應用程式提交給 HDInsight]。
-      
+1. 在 [專案總管] 中，找出 Java 或 Scala 檔案，然後在滑鼠右鍵功能表中選取 [將 Spark 應用程式提交給 HDInsight]。
+    
       ![[將 Spark 應用程式提交給 HDInsight] 命令](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-   b. 系統會提示您輸入 Azure 訂用帳戶認證。 在 [提交 Spark] 對話方塊中，提供下列值，然後選取 [提交]。
+2. 在 [設定] 對話方塊視窗中，請提供下列值，然後按一下 **SparkJobRun**。
+
+      ![[提交 Spark] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
       
-      * 針對 [Spark clusters (Linux only) (Spark 叢集 (僅限 Linux))] ，選取您要在其上執行應用程式的 HDInsight Spark 叢集。
+    * 針對 [Spark clusters (Linux only) (Spark 叢集 (僅限 Linux))] ，選取您要在其上執行應用程式的 HDInsight Spark 叢集。
 
-      * 從 IntelliJ 專案中選取構件，或從硬碟中選取一個。
+    * 從 IntelliJ 專案中選取構件，或從硬碟中選取一個。
 
-      * 在 [主要類別名稱] 方塊中，選取省略符號 (**...**)，並在應用程式的原始程式碼中選取主要類別，然後選取 [確定]。
+    * **主要類別名稱**欄位：預設值是所選檔案中的主要類別。 選取省略符號 (**...**) 並選擇另一個類別，即可變更類別。   
 
-        ![[選取主要類別] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
+    * **作業組態**欄位：預設值的設定如上圖所示。 您可以為您的作業提交作業，變更此值或新增索引鍵/值。 如需詳細資訊：[Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
 
-      * 您可以提供您想要的資訊。 關於 [作業設定]，我們已有預設值。 如需金鑰的詳細資訊，您可以參閱 [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)。 [命令列引數]、[參考 JAR]與 [參考檔案] 看起來應如下圖所示。 如需 [參考 JAR] 與 [參考檔案] 的詳細資訊，請參閱 [Spark 設定](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。 若要讓 [參考 JAR] 與 [參考檔案] 正常運作，您應該先將資源上傳到您提交的叢集。 請參閱[如何上傳資源至叢集](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)。[提交] 對話方塊看起來應該如下圖所示。
-        
-        ![[提交 Spark] 對話方塊的作業設定說明](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+      ![[提交 Spark] 對話方塊的作業設定說明](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
 
-        ![[提交 Spark] 對話方塊的 jar 檔案說明](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+    * **命令列引數**欄位：如有需要，您可以為主要類別輸入以空格分割的引數值。
 
-        ![[提交 Spark] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
+    * **參考 Jar** 和**參考檔案**欄位：您可以輸入所參考 Jar 和檔案 (如果有的話) 的路徑。 如需詳細資訊：[Spark 組態](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
 
-   c. 視窗底部的 [Spark Submission (提交 Spark)]  索引標籤應會開始顯示進度。 您也可以選取 [提交 Spark] 視窗中的紅色按鈕，即可將應用程式停止。
+      ![[提交 Spark] 對話方塊的 jar 檔案說明](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
+       > [!NOTE]
+       > 若要上傳參考的 JAR 和參考的檔案，請參閱：[如何將資源上傳至叢集](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
+                         
+    * **上傳路徑**：您可以指定 Jar 或 Scala 專案資源提交的儲存位置。 支援的儲存體類型有三種：**Azure Blob**、[使用 Spark 互動式工作階段來上傳成品] 及 [使用叢集預設儲存體帳戶]。 以下螢幕擷取畫面是 Azure Blob 的範例。
+
+        ![[提交 Spark] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
+
+        ![[提交 Spark] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-blob.png)
+
+3. 按一下 **SparkJobRun**，將您的專案提交至所選的叢集。 [叢集中的遠端 Spark 作業] 索引標籤會在底部顯示作業執行進度。 按一下紅色按鈕，即可停止應用程式。 若要了解如何存取作業輸出，請參閱本文稍後的＜使用適用於 IntelliJ 的 Azure 工具組來存取和管理 HDInsight Spark 叢集＞一節。
       
      ![[提交 Spark] 視窗](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
-      
-      若要了解如何存取作業輸出，請參閱本文稍後的＜使用適用於 IntelliJ 的 Azure 工具組來存取和管理 HDInsight Spark 叢集＞一節。
+
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>對 HDInsight 叢集上的 Spark 應用程式進行本機或遠端偵錯 
 我們也建議另一種將 Spark 應用程式提交至叢集的方式。 做法是在 [執行/偵錯設定] IDE 中設定參數。 如需詳細資訊，請參閱[使用適用於 IntelliJ 的 Azure 工具組透過 SSH 對 HDInsight 叢集上的 Spark 應用程式進行本機或遠端偵錯](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
@@ -242,6 +253,43 @@ ms.locfileid: "47433353"
 1. 在 [Azure Explorer] 中，以滑鼠右鍵按一下 [Azure] 根節點，然後選取 [管理訂用帳戶]。 
 
 1. 在對話方塊中，清除您不想要存取之訂用帳戶旁的核取方塊，然後選取 [關閉]。 如果您想要登出 Azure 訂用帳戶，也可以選取 [登出]。
+
+## <a name="spark-console"></a>Spark 主控台
+您可以執行 Spark 本機主控台 (Scala)，或執行 Spark Livy 互動式工作階段主控台 (Scala)。
+
+### <a name="spark-local-consolescala"></a>Spark 本機主控台 (Scala)
+1. 您需要手動新增相依性。 在 [檔案] 功能表中，按一下 ->[專案結構]->[專案設定]->[程式庫]中，然後按一下**+** ，選擇 [從 Maven...]。然後在快顯對話方塊中輸入 **org.apache.spark:spark-repl_2.11:2.1.0**。 在程式庫中新增相依性之後，您必須將相依性移至 [專案結構] 視窗的 [模組] 中的第一行。 移動之前，請將 [範圍] 變更為 [執行階段]。
+
+    ![本機主控台的新增相依性程式庫](./media/apache-spark-intellij-tool-plugin/local-console-add-dependency-libraries.png)
+
+    ![本機主控台移至第一行](./media/apache-spark-intellij-tool-plugin/local-console-move-first-line.png)
+
+2. 如果您之前沒有任何組態，請加以設定。 在 [執行/偵錯組態] 視窗中，按一下**+**->[Azure HDInsight Spark]，選取 [在本機執行] 索引標籤，選擇主要類別，然後按一下 [確定]。
+
+    ![本機主控台設定組態](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
+ 
+3. 開啟主要類別檔案的對應檔案，並以滑鼠右鍵按一下 [Spark 主控台]，然後按一下 [執行 Spark 本機主控台 (Scala)]。 或移至 [工具] 功能表->[Spark 主控台]->[執行 Spark 本機主控台 (Scala)] 以啟動主控台。
+
+    ![Spark 本機進入點](./media/apache-spark-intellij-tool-plugin/spark-console-local-entry-script.png)
+
+4. 在成功啟動本機主控台之後。 它看起來如下所示。 您可以執行您想要的動作。 例如，輸入 **sc.appName**，按 ctrl+Enter，然後會顯示結果。
+
+    ![本機主控台結果](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
+
+### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy 互動式工作階段主控台 (Scala)
+僅在 IntelliJ 2018.2 上提供支援。
+
+1. 如果您之前沒有任何組態，請加以設定。 在 [執行/偵錯組態] 視窗中，按一下**+**->[Azure HDInsight Spark]，選取 [從遠端在叢集中執行]，選擇叢集名稱和主要類別，然後按一下 [確定]。
+
+    ![互動式主控台的新增組態項目](./media/apache-spark-intellij-tool-plugin/interactive-console-add-config-entry.png)
+
+    ![互動式主控台的設定組態](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
+
+2. 開啟主要類別的對應檔案，並以滑鼠右鍵按一下 [Spark 主控台]，然後按一下 [執行 Spark Livy 互動式工作階段主控台 (Scala)]。 或移至 [工具] 功能表，按一下 [Spark 主控台]，然後按一下 [執行 Spark Livy 互動式工作階段主控台 (Scala)] 以啟動主控台。
+
+3. 在成功啟動主控台之後，您可以執行您想要的動作。 例如，輸入 **sc.appName**，按 ctrl+Enter，然後會顯示結果。
+
+    ![互動式主控台結果](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>轉換現有的 IntelliJ IDEA 應用程式，來使用適用於 IntelliJ 的 Azure 工具組
 您可以將 IntelliJ IDEA 中建立的現有 Spark Scala 應用程式轉換成與適用於 IntelliJ 的 Azure 工具組相容。 然後您可以使用外掛程式，將應用程式提交給 HDInsight Spark 叢集。
@@ -300,7 +348,7 @@ ms.locfileid: "47433353"
 
 如果您有任何建議或意見反應，或使用此外掛程式時遇到任何問題，請將電子郵件傳送到 hdivstool@microsoft.com。
 
-## <a name="seealso"></a>後續步驟
+## <a name="seealso"></a>接續步驟
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>示範

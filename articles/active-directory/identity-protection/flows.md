@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 10/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3c1c681e2c7ccd6b5fd3eaa3639853d99cb1e0b7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 397aa000da7ea70c12883622b60c0e3e6dded811
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005206"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025291"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>使用 Azure AD Identity Protection 時的登入體驗
 透過 Azure Active Directory Identity Protection，您可以：
@@ -57,13 +57,18 @@ ms.locfileid: "40005206"
 
 1. 在第一個步驟中，使用者會得到設定此帳戶進行 Multi-Factor Authentication 之需求的相關通知。 
    
-    ![補救](./media/flows/140.png "補救")
+    ![補救](./media/flows/301.png "補救")
+
 2. 若要設定 Multi-Factor Authentication，您需要讓系統知道您要連線的方式。
    
-    ![補救](./media/flows/141.png "補救")
-3. 系統會送出一項挑戰給您，而您需要回應。
-   
-    ![補救](./media/flows/142.png "補救")
+    ![補救](./media/flows/302.png "補救")
+
+3. 向系統提供您的電話號碼和您希望的連絡方式。
+
+    ![補救](./media/flows/303.png "補救")
+
+若要完成註冊，您需要回應來電或輸入代碼。 
+
 
 ## <a name="risky-sign-in-recovery"></a>有風險的登入復原
 當系統管理員設定登入風險的原則後，受影響的使用者會在嘗試登入時收到通知。 

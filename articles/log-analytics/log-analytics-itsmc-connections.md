@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics 中 IT 服務管理連接器支援的連線 | Microsoft Docs
-description: 本文提供如何將 ITSM 產品/服務與 OMS Log Analytics 中的 IT Service Management Connector (ITSMC) 連線，以集中地監視及管理 ITSM 工作項目的相關資訊。
+description: 本文提供如何將 ITSM 產品/服務與 Azure 監視器中的 IT Service Management Connector (ITSMC) 連線，以集中監視及管理 ITSM 工作項目的相關資訊。
 documentationcenter: ''
 author: jyothirmaisuri
 manager: riyazp
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: na
-ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131747"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409198"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>將 ITSM 產品/服務與 IT Service Management Connector 連線
 本文提供如何設定 ITSM 產品/服務與 Log Analytics 中 IT Service Management Connector (ITSMC) 之間的連線，以集中管理工作項目的相關資訊。 如需 ITSMC 的詳細資訊，請參閱[概觀](log-analytics-itsmc-overview.md)。
@@ -39,7 +39,7 @@ ms.locfileid: "37131747"
 
 下列各節提供有關如何將 System Center Service Manager 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 請確保已符合下列必要條件︰
 
@@ -76,7 +76,7 @@ ms.locfileid: "37131747"
 | **用戶端祕密**   | 輸入針對此識別碼產生的用戶端祕密。   |
 | **資料同步範圍**   | 選取您想要透過 ITSMC 同步的 Service Manager 工作項目。  系統會將這些工作項目匯入 Log Analytics。 **選項︰** 事件、變更要求。|
 | **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
-| **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，OMS 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
+| **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，Log Analytics 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
 
 ![Service Manager 連線](./media/log-analytics-itsmc/service-manager-connection.png)
 
@@ -184,7 +184,7 @@ ms.locfileid: "37131747"
 
 下列各節提供有關如何將 ServiceNow 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 請確保已符合下列必要條件︰
 - 已安裝 ITSMC。 更多資訊：[新增 IT 服務管理連接器解決方案](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)。
 - ServiceNow 支援的版本：Kingston、Jakarta、Istanbul、Helsinki、Geneva。
@@ -199,7 +199,7 @@ ms.locfileid: "37131747"
     - [針對 Geneva 設定 OAuth](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- 安裝適用於 Microsoft OMS 整合的使用者應用程式 (ServiceNow 應用程式)。 [深入了解](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )。
+- 安裝適用於 Microsoft Log Analytics 整合的使用者應用程式 (ServiceNow 應用程式)。 [深入了解](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )。
 - 為安裝的使用者應用程式建立整合使用者角色。 關於如何建立整合使用者角色的資訊在[這裡](#create-integration-user-role-in-servicenow-app)。
 
 ### <a name="connection-procedure"></a>**連線程序**
@@ -221,7 +221,7 @@ ms.locfileid: "37131747"
 
 | **欄位** | **說明** |
 | --- | --- |
-| 連線名稱   | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 OMS 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
+| 連線名稱   | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 Log Analytics 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 **ServiceNow**。 |
 | **使用者名稱**   | 輸入您在 ServiceNow 應用程式中建立的整合使用者名稱，以支援 ITSMC 的連線。 詳細資訊︰[建立 ServiceNow 應用程式使用者角色](#create-integration-user-role-in-servicenow-app)。|
 | **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。  |
@@ -247,6 +247,9 @@ ms.locfileid: "37131747"
 請使用下列程序：
 
 1.  請瀏覽 [ServiceNow 存放區](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1)，並將 **ServiceNow 和 Microsoft OMS 整合的使用者應用程式**安裝到 ServiceNow 執行個體。
+   
+   >[!NOTE]
+   >因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 現在稱為 Log Analytics。     
 2.  安裝完成後，請瀏覽左側導覽列中的 [ServiceNow 執行個體]、[搜尋] 並選取 [Microsoft OMS 整合器]。  
 3.  按一下 [安裝檢查清單]。
 
@@ -284,7 +287,7 @@ ms.locfileid: "37131747"
 下列各節提供有關如何將 Provance 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 請確保已符合下列必要條件︰
 
@@ -337,7 +340,7 @@ ms.locfileid: "37131747"
 
 下列各節提供有關如何將 Cherwell 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 請確保已符合下列必要條件︰
 

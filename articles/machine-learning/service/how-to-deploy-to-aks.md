@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: f74521f77420fcfc60e99dd3d70574d5e94cf084
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3ab32388e0a35f4abf3866aa0a84ee0628b0570c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967739"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318192"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>如何從 Azure Machine Learning 服務將模型部署至 Azure Kubernetes Service
 
@@ -27,7 +27,7 @@ ms.locfileid: "46967739"
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-- 已安裝 Azure Machine Learning 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
+- 已安裝 Machine Learning services 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
 
 - 定型的機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
 
@@ -124,7 +124,7 @@ print(aks_target.provisioning_errors)
 如果 Azure 訂用帳戶中有現有的 AKS 叢集，您可以使用它來部署映像。 下列程式碼片段示範如何將叢集附加至您的工作區。 
 
 > [!IMPORTANT]
-> 僅支援 AKS 1.8.7 版。
+> 僅支援 AKS 1.11.2 版。
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
@@ -137,7 +137,7 @@ cluster_name='my-existing-aks'
 aks_target = AksCompute.attach(workspace=ws, name=cluster_name, resource_id=resource_id)
 
 # Wait for the operation to complete
-aks_target.wait_for_provisioning(True)
+aks_target.wait_for_completion(True)
 ```
 
 ## <a name="deploy-your-web-service"></a>部署您的 Web 服務

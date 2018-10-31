@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: 2f6b9ee7a23341f27272a4614bed6be5ae422ce0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 27febb01b04bd8ac82b8cd428afce78dc57f8b8d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297261"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403557"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>開始在 Azure Active Directory 中使用憑證式驗證
 
@@ -203,6 +203,6 @@ EAS 設定檔必須包含下列資訊：
 
 ## <a name="next-steps"></a>後續步驟
 
-[Android 裝置上憑證式驗證的其他相關資訊。](active-directory-certificate-based-authentication-android.md)
+[Android 裝置上憑證式驗證的其他相關資訊](active-directory-certificate-based-authentication-android.md)。
 
-[iOS 裝置上憑證式驗證的其他相關資訊。](active-directory-certificate-based-authentication-ios.md)
+[iOS 裝置上憑證式驗證的其他相關資訊](active-directory-certificate-based-authentication-ios.md)。

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a7d77df4d6be1572d2076684cfa4702cb32b5ed6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a9acb9539497c85f408ce7417fa5983072ea80b9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391907"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>教學課程：Azure Active Directory 與多個 Amazon Web Services (AWS) 帳戶整合
 
@@ -35,6 +35,19 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
 ![結果清單中的 Amazon Web Services (AWS)](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+
+>[!NOTE]
+>請注意，將一個 AWS 應用程式連線到您所有的 AWS 帳戶並不是我們建議的方法。 取而代之的是，建議您使用[這個](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial)方法在 Azure AD 中將多個 AWS 帳戶執行個體設定為多個 AWS 應用程式的執行個體。
+
+**請注意，我們不建議使用此方法，原因如下：**
+
+* 您必須使用 Graph 總管方法來修補應用程式的所有角色。 不建議使用資訊清單檔的方法。
+
+* 我們曾見過客戶報告在新增 ~1200 個單一 AWS 應用程式的應用程式角色之後，應用程式上任何作業會開始擲回關於大小的錯誤。 應用程式物件的大小沒有固定限制。
+
+* 您必須在任何帳戶中新增角色時手動更新角色，不幸地這是取代方法而非附加。 此外，如果您的帳戶有成長，那麼這也會變成帳戶和角色的 n x n 關聯性。
+
+* 所有的 AWS 帳戶都將使用相同的同盟中繼資料 XML 檔案，且在憑證變換時，您必須驅動此大規模演練，同時更新所有 AWS 帳戶上的憑證
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -64,19 +77,19 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
-    ![Azure Active Directory 按鈕][1]
+    ![映像](./media/aws-multi-accounts-tutorial/selectazuread.png)
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![企業應用程式刀鋒視窗][2]
+    ![映像](./media/aws-multi-accounts-tutorial/a_select_app.png)
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![新增應用程式按鈕][3]
+    ![映像](./media/aws-multi-accounts-tutorial/a_new_app.png)
 
 4. 在搜尋方塊中，鍵入 **Amazon Web Services (AWS)**，並從結果面板中選取 [Amazon Web Services (AWS)]，然後按一下 [新增] 按鈕新增應用程式。
 
-    ![結果清單中的 Amazon Web Services (AWS)](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
+     ![映像](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
 5. 新增應用程式之後，移至 [屬性] 頁面，然後複製 [物件識別碼]。
 
@@ -101,54 +114,53 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 **若要使用 Amazon Web Services (AWS) 設定 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure 入口網站的 [Amazon Web Services (AWS)] 應用程式整合頁面上，按一下 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Amazon Web Services (AWS)] 應用程式整合頁面上，選取 [單一登入]。
 
-    ![設定單一登入連結][4]
+    ![映像](./media/aws-multi-accounts-tutorial/B1_B2_Select_SSO.png)
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
-    ![單一登入對話方塊](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_samlbase.png)
+2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML] 模式以啟用單一登入。
 
-3. 在 [Amazon Web Services (AWS) 網域和 URL] 區段中，使用者不需要執行任何步驟，因為應用程式已經與 Azure 預先整合。
+    ![映像](./media/aws-multi-accounts-tutorial/b1_b2_saml_sso.png)
 
-    ![Amazon Web Services (AWS) 網域和 URL 單一登入資訊](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
 
-4. Amazon Web Services (AWS) 軟體應用程式預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
+    ![映像](./media/aws-multi-accounts-tutorial/b1-domains_and_urlsedit.png)
 
-    ![設定單一登入屬性](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_attribute.png)    
+4. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
-5. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+    ![映像](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-    | 屬性名稱  | 屬性值 | 命名空間 |
+5. Amazon Web Services (AWS) 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性與宣告] 區段中管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性與宣告] 對話方塊。
+
+    ![映像](./media/aws-multi-accounts-tutorial/i4-attribute.png)
+
+6. 在 [使用者屬性與宣告] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+    
+    | 名稱  | 來源屬性  | 命名空間 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | 角色            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-    | SessionDuration             | 「根據您的需要來提供工作階段持續時間的值」 |  https://aws.amazon.com/SAML/Attributes |
+    | SessionDuration             | 「提供 900 秒 (15 分鐘) 到 43200 秒 (12 小時) 之間的值」 |  https://aws.amazon.com/SAML/Attributes |
 
-    >[!TIP]
-    >您需要設定在 Azure AD 中的使用者佈建，以從 AWS 主控台擷取所有角色。 請參閱下面的佈建步驟。
+    a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
 
-    a. 按一下 [新增屬性] 來開啟 [新增屬性] 對話方塊。
+    ![映像](./media/aws-multi-accounts-tutorial/i2-attribute.png)
 
-    ![設定單一登入的新增](./media/aws-multi-accounts-tutorial/tutorial_attribute_04.png)
-
-    ![設定單一登入屬性](./media/aws-multi-accounts-tutorial/tutorial_attribute_05.png)
+    ![映像](./media/aws-multi-accounts-tutorial/i3-attribute.png)
 
     b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
 
-    c. 在 [值] 清單中，選取該列所顯示的值。
+    c. 輸入 [命名空間] 值。
 
-    d. 在 [命名空間] 文字方塊中，輸入該資料列顯示的命名空間值。
+    d. 選取 [來源] 作為 [屬性]。
 
-    d. 按一下 [確定] 。
+    e. 在 [來源屬性] 清單中，輸入該資料列所顯示的屬性值。
 
-6. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+    f. 按一下 [檔案] 。
 
-    ![憑證下載連結](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
+7. 在 [以 SAML 設定單一登入] 頁面上的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載**同盟中繼資料 XML** 並將其儲存在電腦上。
 
-7. 按一下 [儲存]  按鈕。
-
-    ![設定單一登入儲存按鈕](./media/aws-multi-accounts-tutorial/tutorial_general_400.png)
+    ![映像](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
 
 8. 在不同的瀏覽器視窗中，以系統管理員身分登入您的 Amazon Web Services (AWS) 公司網站。
 
@@ -156,7 +168,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入首頁][11]
 
-10. 按一下 [IAM] (身分識別與存取管理)。
+10. 按一下 [身分識別與存取管理] 。
 
     ![設定單一登入身分識別][12]
 
@@ -196,7 +208,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
   
     d. 按一下 [Next: Permissions] \(下一步：權限\)。
 
-16. 在 [Attach Permissions Policies] \(附加權限原則\) 對話方塊上，按一下 [Next: Review] \(下一步：檢閱\)。  
+16. 在 [附加權限原則] 對話方塊中，您不需要附加任何原則。 按一下 [下一步：檢閱]。  
 
     ![設定單一登入原則][33]
 
@@ -208,9 +220,9 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     b. 在 [Role description] \(文字描述\) 文字方塊中，輸入描述。
 
-    a. 按一下 [建立角色]。
+    c. 按一下 [建立角色]。
 
-    b. 建立所需數量的角色，並將它們對應至識別提供者。
+    d. 建立所需數量的角色，並將它們對應至識別提供者。
 
 18. 從目前的 AWS 帳戶登出，然後以您要設定 Azure AD 的單一登入的其他帳戶登入。
 
@@ -252,7 +264,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     f. 從所擷取的服務主體清單中，取得您需要修改的服務主體。 您也可以使用 Ctrl+F，從所有列出的服務主體中搜尋應用程式。 您可以透過您從 Azure AD 的 [屬性] 頁面複製的**物件識別碼**，使用下列查詢移至各自的「服務主體」。
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`。
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` 。
 
     ![Graph 總管對話方塊](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
@@ -349,17 +361,6 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 <!--Image references-->
 
-[1]: ./media/aws-multi-accounts-tutorial/tutorial_general_01.png
-[2]: ./media/aws-multi-accounts-tutorial/tutorial_general_02.png
-[3]: ./media/aws-multi-accounts-tutorial/tutorial_general_03.png
-[4]: ./media/aws-multi-accounts-tutorial/tutorial_general_04.png
-
-[100]: ./media/aws-multi-accounts-tutorial/tutorial_general_100.png
-
-[200]: ./media/aws-multi-accounts-tutorial/tutorial_general_200.png
-[201]: ./media/aws-multi-accounts-tutorial/tutorial_general_201.png
-[202]: ./media/aws-multi-accounts-tutorial/tutorial_general_202.png
-[203]: ./media/aws-multi-accounts-tutorial/tutorial_general_203.png
 [11]: ./media/aws-multi-accounts-tutorial/ic795031.png
 [12]: ./media/aws-multi-accounts-tutorial/ic795032.png
 [13]: ./media/aws-multi-accounts-tutorial/ic795033.png
@@ -378,5 +379,4 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 [38]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
 [39]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
 [40]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
-[41]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_on.png
-
+[41]: ./media/aws-multi-accounts-tutorial/

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: na
-ms.openlocfilehash: 3640f5bb2c2e9457e269bd189cbec3b627ee7349
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.component: ''
+ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626867"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638188"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -65,17 +65,17 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ### <a name="where-to-install-the-agents"></a>安裝代理程式的位置 
 
-* **效能監視器**：至少在一個節點上安裝 Operations Management Suite 代理程式，您即可針對與該節點連線的每個子網路監視和其他子網路的網路連線。
+* **效能監視器**：至少在一個節點上安裝 Log Analytics 代理程式，您即可針對與該節點連線的每個子網路來監視和其他子網路的網路連線。
 
     若要監視網路連結，請在該連結的兩個端點上安裝代理程式。 如果您不確定您的網路拓撲，請在具有重要工作負載、且您想要監視其間網路效能的伺服器上安裝代理程式。 例如，如果您想要監視 Web 伺服器和執行 SQL 的伺服器 之間的網路連線，請在這兩部伺服器上安裝代理程式。 代理程式會監視主機之間的網路連線 (連結)，而不是主機本身。 
 
-* **服務連線能力監視**：在您想要的每個節點上安裝 Operations Management Suite 代理程式，監視它與服務端點之間的網路連線。 舉例來說，如果您想要監視辦公室網站 O1、O2 和 O3 對 Office 365 的網路連線。 請分別在 O1、O2 和 O3 中的至少一個節點上安裝 Operations Management Suite 代理程式。 
+* **服務連線能力監視**：在您想要的每個節點上安裝 Log Analytics 代理程式，監視它與服務端點之間的網路連線。 舉例來說，如果您想要監視辦公室網站 O1、O2 和 O3 對 Office 365 的網路連線。 請分別在 O1、O2 和 O3 中的至少一個節點上安裝 Log Analytics 代理程式。 
 
-* **ExpressRoute 監視器**：在您的 Azure 虛擬網路中安裝至少一個 Operations Management Suite 代理程式。 此外，也在透過 ExpressRoute 私人對等互連進行連線的內部部署子網路中至少安裝一個代理程式。  
+* **ExpressRoute 監視器**：在您的 Azure 虛擬網路中安裝至少一個 Log Analytics 代理程式。 此外，也在透過 ExpressRoute 私人對等互連進行連線的內部部署子網路中至少安裝一個代理程式。  
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>設定用於監視的 Operations Management Suite 代理程式 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>設定 Log Analytics 代理程式以進行監視 
 
-網路效能監視器會使用綜合交易來監視來源與目的地代理程式之間的網路效能。 您可以從 TCP 和 ICMP 中擇一作為要在監視「效能監視器」和「服務連線能力監視」功能中用於監視的通訊協定。 只有 TCP 可以當作 ExpressRoute 監視的監視通訊協定使用。 請確定防火牆允許 Operations Management Suite 代理程式 (這些代理程式將用於在您選擇的通訊協定上進行監視) 之間的通訊。 
+網路效能監視器會使用綜合交易來監視來源與目的地代理程式之間的網路效能。 您可以從 TCP 和 ICMP 中擇一作為要在監視「效能監視器」和「服務連線能力監視」功能中用於監視的通訊協定。 只有 TCP 可以當作 ExpressRoute 監視的監視通訊協定使用。 請確定防火牆允許 Log Analytics 代理程式 (這些代理程式將用於在您選擇的通訊協定上進行監視) 之間的通訊。 
 
 * **TCP 通訊協定**：如果您選擇 TCP 作為用於監視的通訊協定，請在用於「網路效能監視器」和「ExpressRoute 監視器」的代理程式上開啟防火牆連接埠，以確保代理程式可以彼此連線。 若要開啟連接埠，請使用系統管理權限執行 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 指令碼，而不在 PowerShell 視窗中使用任何參數。
 
@@ -109,7 +109,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
    ![網路效能監視器圖格](media/log-analytics-network-performance-monitor/npm-config.png)
 
-4. 在 [設定] 頁面上，您會看到安裝 Operations Management Suite 代理程式的選項，並且可在 [一般設定] 檢視中設定用於監視的代理程式。 如前所述，如果您安裝並設定了 Operations Management Suite 代理程式，請選取 [設定] 檢視以設定您要使用的功能。 
+4. 您在 [設定] 頁面上看到的選項可安裝 Log Analytics 代理程式，以及設定代理程式以在 [一般設定] 檢視中進行監視。 如前所述，如果您安裝並設定了 Log Analytics 代理程式，請選取 [設定] 檢視以設定您要使用的功能。 
 
    **效能監視器**：選擇**預設**效能監視器規則中的綜合交易所要使用的通訊協定，然後選取 [儲存並繼續]。 此通訊協定選取項目只會用於系統產生的預設規則。 您每次建立效能監視器規則時，都需要明確地選擇通訊協定。 其後，您可以隨時移至 [效能監視器] 索引標籤上的 [預設] 規則設定 (這會在您完成初始設定之後出現)，並變更通訊協定。 如果您不想使用效能監視器功能，您可以從 [效能監視器] 索引標籤上的 [預設] 規則設定停用預設規則。
 
@@ -135,7 +135,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
     
 這些對等互連的監視一開始會處於停用狀態。 請選取您要監視的每個對等互連，然後從右側的詳細資料檢視設定其監視。 選取 [儲存] 以儲存組態。 若要深入了解，請參閱「設定 ExpressRoute 監視」一文。 
 
-設定完成之後，需要 30 分鐘到一小時的時間來填入資料。 當解決方案從您的網路中彙總資料時，您會在網路效能監視器的 [概觀] 圖格上看到「解決方案需要其他設定」訊息。 在收集資料並編製索引之後，[概觀] 圖格會變更，並對您通知網路的健康情況摘要。 接著，您可以編輯 Operations Management Suite 代理程式安裝所在節點的監視，以及從環境中探索到的子網路監視。
+設定完成之後，需要 30 分鐘到一小時的時間來填入資料。 當解決方案從您的網路中彙總資料時，您會在網路效能監視器的 [概觀] 圖格上看到「解決方案需要其他設定」訊息。 在收集資料並編製索引之後，[概觀] 圖格會變更，並對您通知網路的健康情況摘要。 接著，您可以編輯 Log Analytics 代理程式安裝所在節點的監視，以及從環境中探索到的子網路監視。
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>編輯子網路與節點的監視設定 
 
@@ -144,7 +144,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 若要啟用或停用特定子網路的監視：
 
-1. 選取或清除  **[子網路識別碼]** 旁的核取方塊。 然後，確定已視情況選取或清除  **用於監視**  . 您可以選取或清除多個子網路。 停用後，子網路就不受監視，因為代理程式將會更新為停止 ping 其他代理程式。 
+1. 選取或清除 **[子網路識別碼]** 旁的核取方塊。 然後，確定已視情況選取或清除 [用於監視]。 您可以選取或清除多個子網路。 停用後，子網路就不受監視，因為代理程式將會更新為停止 ping 其他代理程式。 
 2. 選擇您要在特定子網路中監視的節點。 請從清單中選取特定子網路，並且在包含非受控與受控節點的清單之間移動所需的節點。 您可以將自訂描述新增至子網路。
 3. 選取 [儲存] 以儲存組態。 
 
@@ -176,7 +176,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
  
 
  
-此方案會使用綜合交易來評估網路的健全狀況。 Operations Management Suite 代理程式已安裝在網路交換 TCP 封包或 ICMP Echo 相互執行的各種端點上。 代理程式會使用 TCP 封包還是 ICMP Echo，取決於您為監視選取的通訊協定。 在過程中，代理程式會了解來回行程時間和封包遺失 (如果有的話)。 此外，每個代理程式也會定期執行其他代理程式的路徑追蹤，以找出網路中必須測試的所有各種路由。 使用這項資料，代理程式就能夠推論網路延遲和封包遺失數字。 測試會每五秒重複一次。 代理程式會先彙總資料約三分鐘，再將資料上傳至 Log Analytics 服務。
+此方案會使用綜合交易來評估網路的健全狀況。 Log Analytics 代理程式已安裝在網路交換 TCP 封包或 ICMP Echo 相互執行的各種端點上。 代理程式會使用 TCP 封包還是 ICMP Echo，取決於您為監視選取的通訊協定。 在過程中，代理程式會了解來回行程時間和封包遺失 (如果有的話)。 此外，每個代理程式也會定期執行其他代理程式的路徑追蹤，以找出網路中必須測試的所有各種路由。 使用這項資料，代理程式就能夠推論網路延遲和封包遺失數字。 測試會每五秒重複一次。 代理程式會先彙總資料約三分鐘，再將資料上傳至 Log Analytics 服務。
 
 
 
@@ -257,9 +257,9 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 網路效能監控使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)的警示功能。
 
-這表示所有警示都可以透過[動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)加以管理。  
+這表示所有通知都可透過[動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)來加以管理。  
 
-如果您是透過 OMS 建立警示的 NPM 使用者： 
+如果您是透過 Log Analytics 建立警示的 NPM 使用者： 
 1. 將您重新導向 Azure 入口網站的連結將會出現。 按一下可存取入口網站。
 2. 按一下 [網路效能監控] 解決方案圖格。 
 3. 導覽至 [設定]。  
@@ -271,7 +271,11 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 3. 如果您選擇使用動作群組，必須選取先前建立的動作群組。 您可以在[這裡](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)了解如何建立動作群組。 
 4. 成功建立警示後，您可以使用「管理警示」連結管理警示。 
 
-##<a name="pricing"></a>價格
+每當您建立警示時，NPM 就會在 Azure 監視器中建立查詢型記錄警示規則。 此查詢預設會每隔 5 分鐘觸發一次。 Azure 監視器不會對您建立的前 250 個記錄警示規則收費，超過 250 個記錄警示規則限制之後的任何警示規則，則會依 [Azure 監視器定價頁面中的警示定價](https://azure.microsoft.com/en-us/pricing/details/monitor/)來計費。
+通知則會依 [Azure 監視器定價頁面中的通知定價](https://azure.microsoft.com/en-us/pricing/details/monitor/)來個別計費。
+
+
+## <a name="pricing"></a>價格
 
 定價資訊可在[線上](log-analytics-network-performance-monitor-pricing-faq.md)查詢。
 

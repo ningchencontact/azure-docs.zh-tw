@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 9728d42710ce44226363ea4954d83fcc3efbfb75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d3fbefd002f0b2774578d24cf2e3145a21a5e1f3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502947"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456400"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>使用 LDAP (LDAPS) 繫結到 Azure AD Domain Services 受控網域
 
@@ -38,8 +38,8 @@ ms.locfileid: "39502947"
 選取功能表中的 [檢視]，然後選取 [樹狀]。 「基準 DN」欄位保持空白，然後按一下 [確定]。 瀏覽至要搜尋的容器，以滑鼠右鍵按一下該容器，然後選取 [搜尋]。
 
 > [!TIP]
-> - 從 Azure AD 同步的使用者和群組會儲存在 **AADDC 使用者**容器中。 此容器的搜尋路徑看起來如同 ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```。
-> - 已加入受控網域的電腦之電腦帳戶會儲存在 **AADDC 電腦**容器中。 此容器的搜尋路徑看起來如同 ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```。
+> - 從 Azure AD 同步的使用者和群組會儲存在 **AADDC 使用者**組織單位中。 這個組織單位的搜尋路徑看起來像是 ```OU=AADDC Users,DC=CONTOSO100,DC=COM```。
+> - 已加入受控網域電腦的電腦帳戶會儲存在 **AADDC 電腦**組織單位中。 這個組織單位的搜尋路徑看起來像是 ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```。
 >
 >
 
@@ -48,13 +48,13 @@ ms.locfileid: "39502947"
 
 ## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>工作 6：限制透過網際網路存取受控網域時只能使用安全 LDAP 存取
 > [!NOTE]
-> 如果您尚未限制透過網際網路存取受控網域時只能使用安全 LDAP 存取，請略過此設定工作。
+> 如果您尚未啟用透過網際網路對受控網域進行的 LDAPS 存取，請略過這項設定工作。
 >
 >
 
 開始此工作之前，請先確定您已完成[工作 3](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md) 中所述的步驟。
 
-當您限制透過網際網路存取受控網域時只能使用 LDAPS 存取時，會產生安全性威脅。 受控網域可以從用於安全 LDAP 之連接埠的網際網路 (也就是連接埠 636) 存取。 您可以選擇將受控網域存取限制為特定已知 IP 位址。 建立網路安全性群組 (NSG)，並將它與您已啟用 Azure AD Domain Services 的子網路產生關聯。
+當您限制透過網際網路存取受控網域時只能使用 LDAPS 存取時，會產生安全性威脅。 受控網域可以從用於安全 LDAP 之通訊埠的網際網路 (也就是連接埠 636) 存取。 您可以選擇將受控網域存取限制為特定已知 IP 位址。 建立網路安全性群組 (NSG)，並將它與您已啟用 Azure AD Domain Services 的子網路產生關聯。
 
 以下表格中的範例 NSG 會鎖定透過網際網路的安全 LDAP 存取。 NSG 中的規則只允許來自一組指定之 IP 位址，透過 TCP 連接埠 636 的連入安全 LDAP 存取。 預設 'DenyAll' 規則適用於來自網際網路的所有其他輸入流量。 允許從指定的 IP 位址透過網際網路之 LDAPS 存取的 NSG 規則，其優先順序高於 DenyAll NSG 規則。
 

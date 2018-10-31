@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/28/2018
+ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 99c5e99fa3bd33ef42e8df6ceba5be4be2cd1249
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870177"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394675"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>什麼是 Azure Active Directory 的自助式註冊？
 本文說明自助式註冊，以及如何在 Azure Active Directory (Azure AD) 中支援自助式註冊。 如果您想要從非受控 Azure AD 租用戶接管網域名稱，請參閱[以系統管理員身分接管非受控目錄](domains-admin-takeover.md)。
@@ -38,38 +38,45 @@ ms.locfileid: "37870177"
 ## <a name="how-do-i-control-self-service-settings"></a>如何控制自助式設定？
 系統管理員目前有兩個自助式控制項。 它們可以控制：
 
-* 使用者是否可以透過電子郵件加入目錄。
-* 使用者是否可以授權自己使用應用程式和服務。
+* 使用者是否可以透過電子郵件加入目錄
+* 使用者是否可以授權自己使用應用程式和服務
 
 ### <a name="how-can-i-control-these-capabilities"></a>如何控制這些功能？
 管理員可以使用下列 Azure AD Cmdlet Set-MsolCompanySettings 參數來設定這些功能：
 
-* **AllowEmailVerifiedUsers** 控制使用者是否可以建立或加入非受控目錄。 如果您將該參數設定為 $false，則經過電子郵件驗證的使用者都無法加入目錄。
-* **AllowAdHocSubscriptions** 可控制使用者是否能夠執行自助式註冊。 如果您將該參數為 $false，則沒有任何使用者可以執行自助式註冊。 
+* **AllowEmailVerifiedUsers** 控制使用者是否可以建立或加入目錄。 如果您將該參數設定為 $false，則經過電子郵件驗證的使用者都無法加入目錄。
+* **AllowAdHocSubscriptions** 可控制使用者是否能夠執行自助式註冊。 如果您將該參數為 $false，則沒有任何使用者可以執行自助式註冊。
   
-  > [!NOTE]
-  > Flow 和 PowerApps 試用註冊不受 **AllowAdHocSubscriptions** 設定所控制。 如需詳細資訊，請參閱下列文章：
-  > * [如何防止現有使用者開始使用 Power BI？](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-  > * [組織中 Flow 的問與答](https://docs.microsoft.com/flow/organization-q-and-a)
+AllowEmailVerifiedUsers 和 AllowAdHocSubscriptions 是用於整個目錄的設定，可以套用至受控或非受控的目錄。 以下是範例，其中：
+
+* 您要管理具有已驗證網域 (例如 contoso.com) 的目錄
+* 您可以使用不同目錄中的 B2B 共同作業來邀請 constoso.com 主目錄中尚未存在的使用者 (userdoesnotexist@contoso.com)
+* 主目錄已開啟 AllowEmailVerifiedUsers
+
+如果上述條件都成立，則會在主目錄中建立成員使用者，並在邀請目錄中建立 B2B 來賓使用者。
+
+Flow 和 PowerApps 試用註冊不受 **AllowAdHocSubscriptions** 設定所控制。 如需詳細資訊，請參閱下列文章：
+
+* [如何防止現有使用者開始使用 Power BI？](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+* [組織中 Flow 的問與答](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>這些控制項如何一起運作？
 這兩個參數可合併使用，以定義更精確的自助式註冊控制。 例如，下列命令可讓使用者執行自助式註冊，但僅限於在 Azure AD 中已經有帳戶的使用者 (換句話說，需要先建立電子郵件驗證帳戶的使用者則無法執行自助式註冊)：
 
-````
+````powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ````
+
 下列流程圖說明這些參數的各種不同組合，以及針對目錄和自助式註冊造成的情況。
 
-![][1]
+![自助式註冊控制項](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 如需如何使用這些參數的詳細資訊和相關範，請參閱 [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)。
 
 ## <a name="next-steps"></a>後續步驟
+
 * [將自訂網域名稱新增到 Azure AD](../fundamentals/add-custom-domain.md)
 * [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet 參考](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
-
-<!--Image references-->
-[1]: ./media/directory-self-service-signup/SelfServiceSignUpControls.png

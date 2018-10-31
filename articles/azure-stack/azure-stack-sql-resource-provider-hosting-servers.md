@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407901"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362053"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>為 SQL 資源提供者新增主控伺服器
 
@@ -173,23 +173,24 @@ ms.locfileid: "47407901"
    > 您不能在相同 SKU 中混合獨立伺服器與 Always On 執行個體。 嘗試在新增第一個主控伺服器之後混合類型會導致錯誤。
 
 ## <a name="sku-notes"></a>SKU 注意事項
-
-您可以使用 SKU 區分服務供應項目。 例如，您可以擁有一個具備以下特性的 SQL Enterprise 執行個體：
+使用可描述 SKU 中伺服器容量的 SKU 名稱，例如容量與效能。 名稱可作為輔助，來幫助使用者將其資料庫部署至適當的 SKU。 例如，您可以使用 SKU 名稱依下列特性區分服務供應項目：
   
 * 高容量
 * 高效能
 * 高可用性
 
-在此版本中，無法將 SKU 指派給特定使用者或群組。
-
- 最多需要一小時才能在入口網站中看到 SKU。 在完整建立 SKU 前，使用者無法建立資料庫。
-
->[!TIP]
->使用可反映和描述 SKU 中伺服器容量的 SKU 名稱，例如容量與效能。 名稱可作為輔助，來幫助使用者將其資料庫部署至適當的 SKU。
-
 最佳作法是，SKU 中的所有主控伺服器應具有相同的資源和效能特性。
 
-## <a name="make-the-sql-databases-available-to-users"></a>將 SQL 資料庫提供給使用者使用
+無法將 SKU 指派給特定使用者或群組。
+
+最多需要一小時才能在入口網站中看到 SKU。 在完整建立 SKU 前，使用者無法建立資料庫。
+
+若要編輯 SKU，請移至 [所有服務] > [SQL 配接器] > [SKU]。 選取要修改的 SKU、進行任何必要的變更，然後按一下 [儲存] 以儲存變更。 若要刪除已不再需要的 SKU，請移至 [所有服務] > [SQL 配接器] > [SKU]。 以滑鼠右鍵按一下 SKU 名稱，然後選取 [刪除] 將它刪除。
+
+> [!TIP]
+> 您可以編輯或刪除相同位置的 SQL 資源提供者配額。
+
+## <a name="make-sql-databases-available-to-users"></a>將 SQL 資料庫提供給使用者使用
 
 建立方案和供應項目，將 SQL 資料庫提供給使用者使用。 將 **Microsoft.SqlAdapter** 服務新增到方案，然後建立新配額。
 

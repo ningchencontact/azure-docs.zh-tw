@@ -12,19 +12,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/19/2018
 ms.author: rolyon
-ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393978"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944136"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
-Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用 Azure AD 使用規定。
+Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用使用規定。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+## <a name="overview-videos"></a>概觀影片
+
+下列影片提供使用規定的快速概觀。
+
+>[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
+
+如需其他影片，請參閱：
+- [如何在 Azure Active Directory 中部署使用規定](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [如何在 Azure Active Directory 中推出使用規定](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>我可以用使用規定來做什麼？
 Azure AD 使用規定可讓您執行下列作業：
@@ -33,8 +43,9 @@ Azure AD 使用規定可讓您執行下列作業：
 - 發佈以使用者屬性為基礎的特定使用規定 (例如， 醫生與護士或國內員工與國際員工，透過使用[動態群組](../users-groups-roles/groups-dynamic-membership.md)完成)。
 - 發佈在存取高商業影響應用程式 (例如 Salesforce) 時的特定使用規定。
 - 發佈不同語言的使用規定。
+- 協助符合隱私權法規。
 - 列出已同意或未同意使用規定的人員。
-- 顯示使用規定活動的稽核記錄。
+- 顯示使用規定活動的記錄，以符合合規性及進行稽核。
 
 ## <a name="prerequisites"></a>必要條件
 若要使用及設定 Azure AD 使用規定，您必須有：

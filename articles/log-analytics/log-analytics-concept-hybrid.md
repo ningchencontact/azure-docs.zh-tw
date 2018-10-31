@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319739"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406869"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>使用 Log Analytics 代理程式在混合式環境中收集資料
 
@@ -38,7 +38,7 @@ Azure Log Analytics 可以從執行 Windows 或 Linux 作業系統的下列電�
 
 分析並處理收集的資料之前，您必須先在每一部您想要傳送資料到 Log Analytics 服務的電腦上安裝代理程式並連線。 您可以使用安裝程式、命令列或 Azure 自動化中的預期狀態設定 (DSC) 在您的內部部署電腦上安裝代理程式。 
 
-適用於 Linux 與 Windows 的代理程式會透過 TCP 連接埠 443 對外與 Log Analytics 服務通訊，且如果電腦連線至防火牆或 Proxy 伺服器以透過網際網路通訊，請檢閱下面的需求，以了解所需的網路設定。  如果您的 IT 安全性原則不允許網路上的電腦連線到網際網路，您可以設定 [OMS 閘道](log-analytics-oms-gateway.md)，然後將代理程式設定為透過閘道連線至 Log Analytics。 代理程式就可以接收設定資訊，並傳送根據所啟用資料收集規則和解決方案來收集的資料。 
+適用於 Linux 與 Windows 的代理程式會透過 TCP 連接埠 443 對外與 Log Analytics 服務通訊，且如果電腦連線至防火牆或 Proxy 伺服器以透過網際網路通訊，請檢閱下面的需求，以了解所需的網路設定。  如果您的 IT 安全性原則不允許網路上的電腦連線到網際網路，您可以設定 [Log Analytics 閘道](log-analytics-oms-gateway.md)，然後將代理程式設定為透過閘道連線至 Log Analytics。 代理程式就可以接收設定資訊，並傳送根據所啟用資料收集規則和解決方案來收集的資料。 
 
 如果您已使用 System Center Operations Manager 2012 R2 或更新版本來監視電腦，則該電腦可以具有多重主目錄，並使用 Log Analytics 服務來收集資料並轉送到該服務，且仍然受到 [Operations Manager](log-analytics-om-agents.md) 監視。 由與 Log Analytics 整合之 Operations Manager 管理群組監視的 Linux 電腦不會收到資料來源設定並透過管理群組轉送收集的資料。 Windows 代理程式可已回報到最多四個工作區，而 Linux 代理程式只支援回報到單一工作區。  
 
@@ -92,7 +92,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 如果您打算使用 Azure 自動化混合式 Runbook 背景工作角色連線到自動化服務並向其註冊，以便在您的環境中使用 Runbook，它必須具有[設定適用於混合式 Runbook 背景工作角色的網路](../automation/automation-hybrid-runbook-worker.md#network-planning)中所述的連接埠號碼和 URL 存取權。 
 
-Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺服器或 OMS 閘道，與 Log Analytics 服務進行通訊。  不支援匿名和基本驗證 (使用者名稱/密碼)。  若是直接連線到服務的 Windows 代理程式，請在安裝期間或[部署後](log-analytics-agent-manage.md#update-proxy-settings)從控制台或使用 PowerShell 來指定 Proxy 設定。  
+Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺服器或 Log Analytics 閘道，與 Log Analytics 服務進行通訊。  不支援匿名和基本驗證 (使用者名稱/密碼)。  若是直接連線到服務的 Windows 代理程式，請在安裝期間或[部署後](log-analytics-agent-manage.md#update-proxy-settings)從控制台或使用 PowerShell 來指定 Proxy 設定。  
 
 若是 Linux 代理程式，請在安裝期間或[安裝後](log-analytics-agent-manage.md#update-proxy-settings)透過修改 proxy.conf 設定檔來指定 Proxy 伺服器。  Linux 代理程式 Proxy 設定值的語法如下：
 
@@ -106,8 +106,8 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺
 |通訊協定 | https |
 |user | 用於驗證 Proxy 的選擇性使用者名稱 |
 |password | 用於驗證 Proxy 的選擇性密碼 |
-|proxyhost | Proxy 伺服器/OMS 閘道的位址或 FQDN |
-|連接埠 | Proxy 伺服器/OMS 閘道的選擇性連接埠號碼 |
+|proxyhost | Proxy 伺服器/Log Analytics 閘道的位址或 FQDN |
+|連接埠 | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |
 
 例如：`https://user01:password@proxy01.contoso.com:30443`
 
@@ -129,4 +129,4 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺
 
 * 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。 
 
-* 了解可將功能加入 Log Analytics 並會將資料收集到 OMS 儲存機制的 [方案](log-analytics-add-solutions.md) 。
+* 了解可將功能加入 Log Analytics 並會將資料收集到 Log Analytics 工作區的[解決方案](log-analytics-add-solutions.md)。

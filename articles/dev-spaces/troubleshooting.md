@@ -11,12 +11,12 @@ ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226886"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353353"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -24,7 +24,7 @@ ms.locfileid: "47226886"
 
 ## <a name="enabling-detailed-logging"></a>啟用詳細記錄
 
-為了更有效地針對問題進行疑難排解，建立更詳細的記錄以供檢閱可能會有幫助。
+為了更有效地進行問題的疑難排解，建立更詳細的記錄以供檢閱可能會有幫助。
 
 針對 Visual Studio 延伸模組，請將 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 環境變數設定為 1。 請務必重新啟動 Visual Studio，讓環境變數生效。 啟用之後，詳細記錄會寫入至您的 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 目錄。
 
@@ -76,6 +76,23 @@ azds remove -g <resource group name> -n <cluster name>
 
     ![工具選項對話方塊的螢幕擷取畫面](media/common/VerbositySetting.PNG)
     
+當您嘗試使用多階段 Dockerfile 時，會看到此錯誤。 verbose 輸出顯示如下：
+
+```cmd
+$ azds up
+Using dev space 'default' with target 'AksClusterName'
+Synchronizing files...6s
+Installing Helm chart...2s
+Waiting for container image build...10s
+Building container image...
+Step 1/12 : FROM [imagename:tag] AS base
+Error parsing reference: "[imagename:tag] AS base" is not a valid repository/tag: invalid reference format
+Failed to build container image.
+Service cannot be started.
+```
+
+這是因為 AKS 節點執行的是較舊版 Docker，不支援多階段組建。 您必須重寫您的 Dockerfile，以避免多階段組建。
+
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>與 Dev Spaces 服務相關聯的公用 URL 進行 DNS 名稱解析失敗
 
 當您嘗試連線至與 Dev Spaces 服務相關聯的公用 URL 時，如果 DNS 名稱解析失敗，網頁瀏覽器中可能會出現「無法顯示頁面」或「無法存取此網站」錯誤。
@@ -189,7 +206,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 必須執行什麼動作：
 1. 修改 _azds.yaml_ 檔案以將建置內容設定到解決方案層級。
 2. 修改 _Dockerfile_ 和 _Dockerfile.develop_ 檔案，以相對於新建置內容的方式，正確參考專案 (_.csproj_) 檔案。
-3. 將 _.dockerignore_ 檔案放在 .sln 檔案旁邊，並且視需要修改它。
+3. 將 _.dockerignore_ 檔案放在 .sln 檔案旁邊，並且視需要加以修改。
 
 您可以在 https://github.com/sgreenmsft/buildcontextsample 中找到範例
 
@@ -206,6 +223,14 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 ```cmd
 az provider register --namespace Microsoft.DevSpaces
 ```
+
+## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>啟動 Dev Spaces 時出現「錯誤：找不到就緒的 Tiller Pod」
+
+### <a name="reason"></a>原因
+如果 Helm 用戶端無法再與叢集中執行的 Tiller Pod 通訊，就會發生此錯誤。
+
+### <a name="try"></a>請嘗試︰
+在您的叢集中重新啟動代理程式節點通常會解決這個問題。
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces 似乎未使用我現有的 Dockerfile 來建置容器 
 

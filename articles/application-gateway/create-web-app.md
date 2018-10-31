@@ -5,16 +5,16 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/1/2018
+ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: e4b69e6fa587a5d375a1684c982715f8a7ea8166
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579624"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353334"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>透過應用程式閘道設定 App Service Web Apps 
+# <a name="configure-app-service-web-apps-with-application-gateway"></a>透過應用程式閘道設定 App Service Web Apps
 
 應用程式閘道可讓您以 Azure Web 應用程式或其他多租用戶的服務作為後端集區成員。 在本文中，您將了解如何透過應用程式閘道設定 Azure Web 應用程式。 第一個範例示範如何將現有的應用程式閘道設定為以 Web 應用程式作為後端集區成員。 第二個範例示範如何建立新的應用程式閘道，並以 Web 應用程式作為後端集區成員。
 
@@ -41,7 +41,7 @@ Add-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway 
 # Retrieve the newly added probe
 $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway $gw
 
-# Configure an existing backend http settings 
+# Configure an existing backend http settings
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
@@ -116,7 +116,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Pu
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Create a new rule
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool 
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 # Define the application gateway SKU to use
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -141,7 +141,7 @@ Id                       : /subscriptions/<subscription_id>/resourceGroups/Conto
 Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
 ResourceGuid             : 00000000-0000-0000-0000-000000000000
 ProvisioningState        : Succeeded
-Tags                     : 
+Tags                     :
 PublicIpAllocationMethod : Dynamic
 IpAddress                : xx.xx.xxx.xx
 PublicIpAddressVersion   : IPv4
@@ -154,6 +154,12 @@ DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
 ```
+
+## <a name="restrict-access"></a>限制存取
+
+在這些範例中部署的 Web 應用程式會使用可直接從網際網路存取的公用 IP 位址。 這在您了解新功能及嘗試新事物時，可協助進行疑難排解。 但是，如果您想要將一項功能部署到生產環境，則需要新增更多限制。
+
+您可以限制存取 Web 應用程式的其中一個方法是使用 [Azure App Service 靜態 IP 限制](../app-service/app-service-ip-restrictions.md)。 例如，您可以限制 Web 應用程式，使它只會從應用程式閘道接收流量。 您可以使用應用程式服務 IP 限制功能，將應用程式閘道 VIP 列為具有存取權的唯一位址。
 
 ## <a name="next-steps"></a>後續步驟
 

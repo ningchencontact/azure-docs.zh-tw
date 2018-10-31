@@ -1,24 +1,18 @@
 ---
 title: 以適用於 Windows IaaS VM 的 Azure AD App (舊版) 啟用 Azure 磁碟加密 | Microsoft Docs
 description: 本文提供啟用 Windows IaaS VM 適用的 Microsoft Azure 磁碟加密的指示。
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 30b1151b-3314-4526-ba4e-4f6b23b1b280
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 2ecc177f810c9a3fe2d096b71aed4886cf89d7b4
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 10/04/2018
+ms.openlocfilehash: 8439998e0919dd22665e3e4d4e9c0e04f0703056
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889154"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310754"
 ---
 #  <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>啟用適用於 Windows IaaS VM 的 Azure 磁碟加密 (舊版)
 
@@ -234,10 +228,10 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
 您可以使用 PowerShell 或[透過 Azure 入口網站](../virtual-machines/windows/attach-managed-disk-portal.md)，[將新的磁碟新增至 Windows VM](../virtual-machines/windows/attach-disk-ps.md)。 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>透過 Azure PowerShell 在新增的磁碟上啟用加密
- 使用 Powershell 來加密 Windows VM 的新磁碟時，應指定新的序列版本。 序列版本必須是唯一的。 下列指令碼會產生序列版本的 GUID。 在某些情況下，Azure 磁碟加密擴充功能可能會自動加密新增的資料磁碟。 如果發生這種情況，建議使用新的序列版本再次執行 Set-AzureRmVmDiskEncryptionExtension cmdlet。
+ 使用 Powershell 來加密 Windows VM 的新磁碟時，應指定新的序列版本。 序列版本必須是唯一的。 下列指令碼會產生序列版本的 GUID。 在某些情況下，Azure 磁碟加密擴充功能可能會自動加密新增的資料磁碟。 當 VM 在新磁碟上線後重新開機時，通常會發生自動加密。 原因通常是磁碟加密之前在 VM 上執行時，將磁碟區類型指定為 "All"。 如果剛剛新增的資料磁碟上發生自動加密，建議使用新的序列版本再次執行 Set-AzureRmVmDiskEncryptionExtension cmdlet。 如果新的資料磁碟自動加密，但您不想要加密，請先將所有磁碟機解密，再以磁碟區類型指定為 OS 的新序列版本重新加密。 
  
 
--  **使用用戶端祕密來加密執行中的 VM：** 下面指令碼會初始化您的變數並執行 Set-AzureRmVMDiskEncryptionExtension cmdlet。 資源群組、VM、金鑰保存庫、AAD 應用程式和用戶端祕密應該已經建立為必要條件。 使用您的值取代 MySecureRg、MySecureVM、MySecureVault、My-AAD-client-ID 和 My-AAD-client-secret。 -VolumeType 參數會設定為資料磁碟，而非作業系統磁碟。 
+-  **使用用戶端祕密來加密執行中的 VM：** 下面指令碼會初始化您的變數並執行 Set-AzureRmVMDiskEncryptionExtension cmdlet。 資源群組、VM、金鑰保存庫、AAD 應用程式和用戶端祕密應該已經建立為必要條件。 使用您的值取代 MySecureRg、MySecureVM、MySecureVault、My-AAD-client-ID 和 My-AAD-client-secret。 此範例會對 -VolumeType 參數使用 "All"，其同時包含 OS 和資料磁碟區。 如果您只想要加密 OS 磁碟區，則請對 -VolumeType 參數使用 "OS"。 
 
      ```azurepowershell-interactive
       $sequenceVersion = [Guid]::NewGuid();
@@ -250,9 +244,9 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
 
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId  –SequenceVersion $sequenceVersion;
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'all' –SequenceVersion $sequenceVersion;
     ```
-- **使用 KEK 來加密執行中的 VM 以包裝用戶端祕密：** Azure 磁碟加密可讓您指定您金鑰保存庫中的現有金鑰，以包裝在啟用加密時所產生的磁碟加密祕密。 若指定了金鑰加密金鑰，Azure 磁碟加密會先使用該金鑰包裝加密祕密，再寫入 Key Vault。 如果您要加密資料磁碟而非作業系統磁碟，則可能需要新增 -VolumeType 參數。 
+- **使用 KEK 來加密執行中的 VM 以包裝用戶端祕密：** Azure 磁碟加密可讓您指定您金鑰保存庫中的現有金鑰，以包裝在啟用加密時所產生的磁碟加密祕密。 若指定了金鑰加密金鑰，Azure 磁碟加密會先使用該金鑰包裝加密祕密，再寫入 Key Vault。 此範例會對 -VolumeType 參數使用 "All"，其同時包含 OS 和資料磁碟區。 如果您只想要加密 OS 磁碟區，則請對 -VolumeType 參數使用 "OS"。 
 
      ```azurepowershell-interactive
      $sequenceVersion = [Guid]::NewGuid();
@@ -267,7 +261,7 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
 
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId –SequenceVersion $sequenceVersion;
+     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'all' –SequenceVersion $sequenceVersion;
 
      ```
 
@@ -275,17 +269,18 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
     > disk-encryption-keyvault 參數值的語法為完整識別碼字串：/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>透過 Azure CLI 在新增的磁碟上啟用加密
- 當您執行命令來啟用加密時，Azure CLI 命令會自動為您提供新的序列版本。 
+  當您執行命令來啟用加密時，Azure CLI 命令會自動為您提供新的序列版本。 volume-yype 參數可使用之值有 All、OS 及 Data。 如果您只要加密 VM 的一種磁碟類型，則可能需要將 volume-type 參數變更為 OS 或 Data。 此範例會對 volume-type 參數使用 "All"。 
+
 -  **使用用戶端祕密來加密執行中的 VM：**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --aad-client-id "<my spn created with CLI/my Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault "MySecureVault" --volume-type "Data"
+     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --aad-client-id "<my spn created with CLI/my Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault "MySecureVault" --volume-type "All"
      ```
 
 - **使用 KEK 來加密執行中的 VM 以包裝用戶端祕密：**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --aad-client-id "<my spn created with CLI which is the Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault  "MySecureVault"--key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "Data"
+     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --aad-client-id "<my spn created with CLI which is the Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "all"
      ```
 
 

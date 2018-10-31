@@ -1,6 +1,6 @@
 ---
-title: 從 Azure Logic Apps 連線到 Azure 虛擬網路
-description: 若要從 Azure Logic Apps 存取 Azure 虛擬網路，您可以建立專用且隔離的私人整合服務環境，讓邏輯應用程式和其他資源與公用或「全域」 Azure 分開
+title: 透過整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
+description: 建立整合服務環境 (ISE) 可讓邏輯應用程式與整合帳戶可以存取 Azure 虛擬網路，並同時維持私用並獨立於公用或「全域」Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,23 +9,21 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/25/2018
-ms.openlocfilehash: 354c31014448b914b33d2bef5483efc78092f726
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b4e4e801c3c54b635f2f13b319257018ea544c03
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391916"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404115"
 ---
-# <a name="create-isolated-environments-to-access-azure-virtual-networks-from-azure-logic-apps"></a>建立隔離的環境，以從 Azure Logic Apps 存取 Azure 虛擬網路
+# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
 > [!NOTE]
 > 這項功能目前處於「個人預覽版」階段。 若要要求存取，請在[這裡建立您的加入要求](https://aka.ms/iseprivatepreview)。
 
-對於您邏輯應用程式與整合帳戶需要存取 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)的整合案例，您可以建立[整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，以連結到您的虛擬網路，並將 Logic Apps 服務部署到您的網路。 當您建立邏輯應用程式與整合帳戶時，您可以選取此 ISE 作為其位置。 然後，您的邏輯應用程式與整合帳戶就可以直接存取虛擬網路中的資源，例如虛擬機器 (VM)、伺服器、系統及服務。 
+在整合狀況下，您的邏輯應用程式和整合帳戶需要 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)的存取權，此時請建立[*整合服務環境* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，這是私用且獨立的環境，會使用專用的儲存空間和其他資源來區隔於公用或*全域*的 Logic Apps 服務。 這種區隔也可減少任何其他 Azure 租用戶可能對您應用程式效能造成的影響。 您可以將此 ISE 連結至 Azure 虛擬網路，其會將 Logic Apps 服務部署到您的虛擬網路。 當您建立邏輯應用程式或整合帳戶時，請選取此 ISE 作為其位置。 然後，您的邏輯應用程式或整合帳戶就可以直接存取虛擬網路中的資源，例如：虛擬機器 (VM)、伺服器、系統及服務。 
 
 ![選取整合服務環境](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
-
-您的 ISE 是一種隔離的私人環境，它會使用與公用或「全域」Logic Apps 服務分開存在的專用儲存體和其他資源。 這種區隔也有助於減少其他 Azure 租用戶對您應用程式效能可能造成的任何影響。 
 
 本文會示範如何執行這些工作：
 
@@ -177,7 +175,7 @@ ms.locfileid: "47391916"
 
 若要建立使用整合服務環境 (ISE) 的邏輯應用程式，請遵循[如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)中的一般步驟，但具有以下差異和考量： 
 
-* 當您建立邏輯應用程式時，[位置] 屬性會在 [整合服務環境] 下方列出您的 ISE 以及可用的區域。 請選取您 ISE，而不是區域，例如：
+* 當您建立邏輯應用程式時，[位置] 屬性會在 [整合服務環境] 下方列出您的 ISE 以及可用的區域。 請選取您的 ISE，而不是區域，例如：
 
   ![選取整合服務環境](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 

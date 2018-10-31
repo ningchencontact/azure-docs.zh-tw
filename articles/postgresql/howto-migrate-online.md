@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 9ab5d4615a8baf763d0b7ee47bf0890124f8665c
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 10/11/2018
+ms.openlocfilehash: 80e5d30677735b35d90fda6288d7bf6f2ea4aa1b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292537"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093828"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>以最短停機時間移轉至適用於 PostgreSQL 的 Azure 資料庫
 您可以使用 [Azure 資料庫移轉服務](https://aka.ms/get-dms) (DMS) 新導入的**持續同步功能**，以最短的停機時間執行從 PostgreSQL 到「適用於 PostgreSQL 的 Azure 資料庫」的移轉。 這項功能可縮短應用程式所造成的停機時間。
@@ -28,4 +28,4 @@ PostgreSQL 來源的 DMS 移轉目前處於預覽階段。 如果您想要嘗試
 
 ## <a name="next-steps"></a>後續步驟
 - 檢視[使用 Microsoft Azure 將應用程式現代化](https://medius.studios.ms/Embed/Video/BRK2102?sid=BRK2102)影片，影片中會示範如何將 PostgreSQL 應用程式移轉至適用於 PostgreSQL 的 Azure 資料庫。
-- 透過[預覽頁面](https://aka.ms/dms-preview)，註冊以最短的停機時間將 PostgreSQL 移轉至「適用於 PostgreSQL 的 Azure 資料庫」的有限預覽版移轉。
+- 請參閱[在線上使用 DMS 將 PostgreSQL 遷移至適用於 PostgreSQL 的 Azure 資料庫](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)教學課程。

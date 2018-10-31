@@ -3,23 +3,19 @@ title: 在 Durable Functions 中管理執行個體 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 擴充中管理執行個體。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c9b3cd112cef7a34e0d475cdeb85b9e07d77f584
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341087"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352588"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中管理執行個體
 
@@ -64,6 +60,19 @@ module.exports = function (context, input) {
 
     context.done(null);
 };
+```
+上述程式碼假設您已在 function.json 檔案中定義名稱為 "starter" 和類型為"orchestrationClient" 的輸出繫結。 如果未定義此繫結，則不會建立耐久函式執行個體。
+
+針對所要叫用的耐久函式，應修改 function.json 才能有協調流程用戶端的繫結 (如下所述)
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
 ```
 
 > [!NOTE]
@@ -119,6 +128,32 @@ public static async Task Run(
     };
 }
 ```
+## <a name="querying-instances-with-filters"></a>利用篩選條件查詢執行個體
+
+您也可以使用 `GetStatusAsync` 方法來取得符合一組預先定義的篩選條件的協調流程執行個體清單。 可能的篩選選項包括協調流程建立時間和協調流程執行階段狀態。
+
+```csharp
+[FunctionName("QueryStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    TraceWriter log)
+{
+    IEnumerable<OrchestrationRuntimeStatus> runtimeStatus = new List<OrchestrationRuntimeStatus> {
+        OrchestrationRuntimeStatus.Completed,
+        OrchestrationRuntimeStatus.Running
+    };
+    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(
+        new DateTime(2018, 3, 10, 10, 1, 0),
+        new DateTime(2018, 3, 10, 10, 23, 59),
+        runtimeStatus
+    ); // You can pass CancellationToken as a parameter.
+    foreach (var instance in instances)
+    {
+        log.Info(JsonConvert.SerializeObject(instance));
+    };
+}
+```
 
 ## <a name="terminating-instances"></a>終止執行個體
 
@@ -149,8 +184,6 @@ public static Task Run(
 * **EventData**：要傳送至執行個體的 JSON 可序列化裝載。
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -211,7 +244,8 @@ public static Task Run(
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
@@ -232,12 +266,12 @@ public static Task Run(
 * **StatusQueryGetUri**：協調流程執行個體的狀態 URL。
 * **SendEventPostUri**：協調流程執行個體的「引發事件」URL。
 * **TerminatePostUri**：協調流程執行個體的「終止」URL。
+* **RewindPostUri**：協調流程執行個體的「倒轉」URL。
 
 活動函式可以將 [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) 的執行個體傳送至外部系統，以監視或引發協調流程的事件：
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
+[FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -250,6 +284,29 @@ public static void SendInstanceInfo(
 
     // send the payload to Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## <a name="rewinding-instances-preview"></a>倒轉執行個體 (預覽)
+
+使用 [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API，可以將失敗的協調流程執行個體「倒轉」至先前狀況良好的狀態。 其運作方式是讓協調流程回到「執行中」狀態，然後重新執行此活動和/或導致協調流程失敗的子協調流程執行失敗。
+
+> [!NOTE]
+> 此 API 並非要取代適當的錯誤處理和重試原則。 相反地，它只是要用於協調流程執行個體因非預期原因而失敗的情況。 如需錯誤處理和重試原則的詳細資訊，請參閱[錯誤處理](durable-functions-error-handling.md)主題。
+
+「倒轉」的其中一個範例使用案例為涉及一系列[人為核准](durable-functions-overview.md#pattern-5-human-interaction)的工作流程。 假設有一系列的活動函式，其可通知某人需要其核准並等待即時回應。 在所有核准活動已收到回應或逾時之後，另一個活動會因為應用程式設定錯誤 (例如資料庫連接字串無效) 而失敗。 結果就是深入工作流程的協調流程失敗。 透過 `RewindAsync` API，應用程式系統管理員可以修正設定錯誤，以及讓失敗的協調流程「倒轉」回到失敗之前的狀態。 不需要重新核准任何人為互動步驟，協調流程現在可以順利完成。
+
+> [!NOTE]
+> 「倒轉」功能不支援使用耐久計時器的倒轉協調流程執行個體。
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
 }
 ```
 

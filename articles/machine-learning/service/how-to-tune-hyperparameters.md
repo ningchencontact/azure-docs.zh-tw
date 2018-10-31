@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344127"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430012"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>為您的模型微調超參數
 
@@ -141,8 +141,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> 貝氏取樣不支援任何提早終止原則 (請參閱[指定提早終止原則](#specify-an-early-termination-policy))。 使用貝氏參數取樣時，請設定 `early_termination_policy = None`，或停用 `early_termination_policy` 參數。
-`
+> 貝氏取樣不支援任何提早終止原則 (請參閱[指定提早終止原則](#specify-early-termination-policy))。 使用貝氏參數取樣時，請設定 `early_termination_policy = None`，或停用 `early_termination_policy` 參數。
+
+<a name='specify-primary-metric-to-optimize'/>
 
 ## <a name="specify-primary-metric"></a>指定主要計量
 
@@ -158,9 +159,11 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 最佳化執行以將「正確性」提高到最大。  請務必記錄定型指令碼中的此值。
 
+<a name='log-metrics-for-hyperparameter-tuning'/>
+
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>記錄用於超參數微調的計量
 
-您模型的定型指令碼必須在模型定型期間記錄相關計量。 設定超參數微調時，您會指定用於評估執行效能的主要計量。 (請參閱[指定要最佳化的主要計量](#specify-a-primary-metric-to-optimize)。)您必須記錄定型指令碼中的此計量，以便將其用於超參數微調程序。
+您模型的定型指令碼必須在模型定型期間記錄相關計量。 設定超參數微調時，您會指定用於評估執行效能的主要計量。 (請參閱[指定要最佳化的主要計量](#specify-primary-metric-to-optimize)。)您必須記錄定型指令碼中的此計量，以便將其用於超參數微調程序。
 
 使用下列範例程式碼片段，將此計量記錄在定型指令碼中：
 
@@ -171,6 +174,8 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 定型指令碼會計算 `val_accuracy` 並將其記錄為「正確性」，以用作主要計量。 每次記錄計量時，超參數微調服務都會收到該計量。 模型開發人員必須決定回報此計量的頻率。
+
+<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a>指定提早終止原則
 
@@ -297,7 +302,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` 是您要指派給超參數微調實驗的名稱，而 `workspace` 是您要建立實驗的工作區 (如需實驗的詳細資訊，請參閱[Azure Machine Learning 服務如何運作？](/concept-azure-machine-learning-architecture.md))。
+`experiment_name` 是您要指派給超參數微調實驗的名稱，而 `workspace` 是您要建立實驗的工作區 (如需實驗的詳細資訊，請參閱[Azure Machine Learning 服務如何運作？](concept-azure-machine-learning-architecture.md))。
 
 ## <a name="visualize-experiment"></a>視覺化實驗
 
@@ -320,7 +325,7 @@ RunDetails(hyperdrive_run).show()
 
 ![超參數微調平行座標](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-您也可以在 Azure 入口網站中，視覺化您所有的超參數微調執行。 如需如何在 Web 入口網站中檢視實驗的詳細資訊，請參閱[如何追蹤實驗](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal)。
+您也可以在 Azure 入口網站中，視覺化您所有的超參數微調執行。 如需如何在入口網站中檢視實驗的詳細資訊，請參閱[如何追蹤實驗](how-to-track-experiments.md#view-the-experiment-in-the-web-portal)。
 
 ![超參數微調入口網站](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 

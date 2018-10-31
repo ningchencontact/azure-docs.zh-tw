@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 899aeeb994ca5c9bf30dfca876dff61c1ccf3ea7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320317"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637574"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>使用 Azure Active Directory 傳遞驗證來進行使用者登入
 
@@ -48,8 +48,9 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
   - 沒有任何額外的管理負荷。 代理程式會自動收到改進和錯誤的修正。
 - *安全*
   - 內部部署密碼絕對不會以任何形式儲存在雲端。
-  - 代理程式只會從您的網路內進行輸出連線。 因此，不需要將代理程式安裝在周邊網路 (又稱做 DMZ) 中。
   - 與 [Azure AD 條件式存取原則](../active-directory-conditional-access-azure-portal.md) (包括 Multi-Factor Authentication (MFA)) 緊密配合、[封鎖舊版驗證](../conditional-access/conditions.md)，並[篩除暴力密碼破解攻擊](../authentication/howto-password-smart-lockout.md)，藉此保護您的使用者帳戶。
+  - 代理程式只會從您的網路內進行輸出連線。 因此，不需要將代理程式安裝在周邊網路 (又稱做 DMZ) 中。
+  - 代理程式與 Azure AD 之間的通訊是透過憑證型驗證來保護。 這些憑證每幾個月就會由 Azure AD 自動更新。
 - *高可用性*
   - 可以在多部內部部署伺服器上安裝其他代理程式，以提供高可用性的登入要求。
 

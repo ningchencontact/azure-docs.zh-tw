@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948004"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404779"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>在 Azure Logic Apps 中監視 B2B 訊息並設定整合帳戶的診斷記錄
 
@@ -58,7 +58,9 @@ ms.locfileid: "46948004"
 
    1. 選取 [傳送至 Log Analytics]。 
    2. 在 [Log Analytics] 下，選擇 [設定]。 
-   3. 在 [OMS 工作區] 下，選取要用於記錄的 Log Analytics 工作區。
+   3. 在 [OMS 工作區] 下，選擇要用於記錄的 Log Analytics 工作區。 
+   > [!NOTE]
+   > OMS 工作區現在稱為 Log Analytics 工作區。 
    4. 在 [記錄] 下，選取 [IntegrationAccountTrackingEvents] 分類。
    5. 選擇 [儲存]。
 
@@ -92,7 +94,9 @@ ms.locfileid: "46948004"
 
    1. 選取 [傳送至 Log Analytics]。 
    2. 在 [Log Analytics] 下，選擇 [設定]。 
-   3. 在 [OMS 工作區] 下，選取要用於記錄的 Log Analytics 工作區。
+   3. 在 [OMS 工作區] 下，選擇要用於記錄的 Log Analytics 工作區。
+   > [!NOTE]
+   > OMS 工作區現在稱為 Log Analytics 工作區。
    4. 在 [記錄] 下，選取 [IntegrationAccountTrackingEvents] 分類。
    5. 完成之後，請選擇 [儲存]。
 
@@ -129,6 +133,6 @@ Azure 支援下列追蹤結構描述類型，其中除了自訂類型外都有�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 Log Analytics 中追蹤 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "在 OMS 中追蹤 B2B 訊息")
+* [使用 Azure Log Analytics 追蹤 B2B 通訊](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "在使用 Azure Log Analytics 追蹤 B2B 通訊")
 * [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")
 

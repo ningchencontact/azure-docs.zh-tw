@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ee30ee4fa89ce47e8441845b088919b26ce32b31
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434261"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321728"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -27,7 +27,7 @@ ms.locfileid: "47434261"
 
 利用雙閘道原則，**系統管理員就不需要有使用安全性問題的能力**。
 
- 兩個閘道原則需要兩項驗證資料，例如電子郵件地址*和*電話號碼。 兩個閘道原則適用於下列情況：
+兩個閘道原則需要兩項驗證資料，例如電子郵件地址*和*電話號碼。 兩個閘道原則適用於下列情況：
 
 * 下列 Azure 系統管理員角色會受到影響：
   * 服務台管理員
@@ -50,29 +50,17 @@ ms.locfileid: "47434261"
   * CRM 服務管理員
   * Power BI 服務管理員
 
-* 如果試用版訂用帳戶已經過 30 天
-
-  或
-
-* 已存在虛名網域，例如 contoso.com
-
-  或
-
+* 如果試用版訂用帳戶已經過 30 天；或
+* 已存在虛名網域，例如 contoso.com；或
 * Azure AD Connect 正在同步處理內部部署目錄中的身分識別
 
 ### <a name="exceptions"></a>例外狀況
 
 一個閘道原則需要一項驗證資料，例如電子郵件地址*或*電話號碼。 一個閘道原則適用於下列情況：
 
-* 處於試用訂用帳戶的第一個 30 天內
-
-  或
-
-* 不存在虛名網域 (*.onmicrosoft.com)
-
-  和
-
-  Azure AD Connect 未同步身分識別
+* 處於試用訂用帳戶的第一個 30 天內；或
+* 不存在虛名網域 (*.onmicrosoft.com)；和
+* Azure AD Connect 未同步身分識別
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>適用於所有使用者帳戶的 UserPrincipalName 原則
 
@@ -80,7 +68,7 @@ ms.locfileid: "47434261"
 
 | 屬性 | UserPrincipalName 需求 |
 | --- | --- |
-| 允許的字元 |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
+| 允許的字元 |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | 不允許的字元 |<ul> <li>任何不是用來分隔使用者名稱和網域的 "\@\" 字元。</li> <li>"\@\" 符號前面不可包含緊鄰的句點字元 "."</li></ul> |
 | 長度限制 |<ul> <li>總長度不得超過 113 個字元</li><li>"\@\" 符號前面最多可以有 64 個字元</li><li>"\@\" 符號後面最多可以有 48 個字元</li></ul> |
 
@@ -117,29 +105,29 @@ Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerSh
 ### <a name="check-the-expiration-policy-for-a-password"></a>檢查密碼的到期原則
 
 1. 使用您公司的管理員認證連線至 Windows PowerShell。
-2. 執行下列其中一個命令：
+1. 執行下列其中一個命令：
 
-   * 若要查看單一使用者的密碼是否設為永久有效，請透過使用 UPN (例如 *aprilr@contoso.onmicrosoft.com*)，或是您想要檢查之使用者的使用者識別碼，來執行下列 Cmdlet：`Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * 若要查看所有使用者的**密碼永久有效**設定，請執行下列 Cmdlet：`Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * 若要查看單一使用者的密碼是否設為永久有效，請透過使用 UPN (例如 *aprilr@contoso.onmicrosoft.com*)，或是您想要檢查之使用者的使用者識別碼，來執行下列 Cmdlet：`Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * 若要查看所有使用者的**密碼永久有效**設定，請執行下列 Cmdlet：`Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>設定密碼到期
 
 1. 使用您公司的管理員認證連線至 Windows PowerShell。
-2. 執行下列其中一個命令：
+1. 執行下列其中一個命令：
 
-   * 若要將某位使用者的密碼設為會到期，請透過使用 UPN 或使用者的使用者識別碼，執行下列 Cmdlet：`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * 若要將組織中所有使用者的密碼設為會到期，請使用下列 Cmdlet：`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * 若要將某位使用者的密碼設為會到期，請透過使用 UPN 或使用者的使用者識別碼，執行下列 Cmdlet：`Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
+   * 若要將組織中所有使用者的密碼設為會到期，請使用下列 Cmdlet：`Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
 
 ### <a name="set-a-password-to-never-expire"></a>設定密碼為永久有效
 
 1. 使用您公司的管理員認證連線至 Windows PowerShell。
-2. 執行下列其中一個命令：
+1. 執行下列其中一個命令：
 
-   * 若要將某位使用者的密碼設為永不過期，請透過使用使用者主體名稱 (UPN) 或使用者的使用者識別碼，來執行下列 Cmdlet：`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * 若要將組織中所有使用者的密碼設為永久有效，請執行下列 Cmdlet： `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * 若要將某位使用者的密碼設為永不過期，請透過使用使用者主體名稱 (UPN) 或使用者的使用者識別碼，來執行下列 Cmdlet：`Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
+   * 若要將組織中所有使用者的密碼設為永久有效，請執行下列 Cmdlet： `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`
 
    > [!WARNING]
-   > 設定為 `-PasswordNeverExpires $true` 的密碼仍然會根據 `pwdLastSet` 屬性計算時效。 如果將使用者密碼設定為永不過期，那麼經過 90 天後，密碼會過期。 根據 `pwdLastSet` 屬性，如果您將到期變更為 `-PasswordNeverExpires $false`，`pwdLastSet` 早於 90 天的所有密碼會要求使用者在下次登入時變更密碼。 這項變更可能會影響大量使用者。 
+   > 設定為 `-PasswordPolicies DisablePasswordExpiration` 的密碼仍然會根據 `pwdLastSet` 屬性計算時效。 如果將使用者密碼設定為永不過期，那麼經過 90 天後，密碼會過期。 根據 `pwdLastSet` 屬性，如果您將到期變更為 `-PasswordPolicies None`，`pwdLastSet` 早於 90 天的所有密碼會要求使用者在下次登入時變更密碼。 這項變更可能會影響大量使用者。 
 
 ## <a name="next-steps"></a>後續步驟
 

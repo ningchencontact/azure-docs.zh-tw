@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627520"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025000"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -23,7 +23,7 @@ ms.locfileid: "39627520"
 
 ![報告][Reporting]
 
-存在於 [Azure 入口網站] 中的報告可以回答下列問題 (https://portal.azure.com/):)
+存在於 [Azure 入口網站](https://portal.azure.com/)中的報告可以回答下列問題：
 
 > [!NOTE]
 > 您必須是[全域管理員](../users-groups-roles/directory-assign-admin-roles.md)且至少必須已瀏覽一次報告索引標籤或稽核記錄。 若要選擇加入，您必須瀏覽 [報告] 索引標籤或稽核記錄至少一次。 在此之前，不會為您的組織收集資料。

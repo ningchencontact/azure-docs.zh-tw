@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ccd1af0ad7b2c861cbf7835d3f359caee5d7e624
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 110f487d486ccd2f1a26065aa225838a3a83c197
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636474"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167217"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>SAP NetWeaver on Red Hat Enterprise Linux 的 Azure 虛擬機器高可用性
 
@@ -58,14 +58,14 @@ ms.locfileid: "45636474"
 
 * SAP Note [2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
 * SAP Note [2002167] 建議適用於 Red Hat Enterprise Linux 的作業系統設定
-* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP Hana 指導方針
+* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP HANA 方針
 * SAP Note [2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
 * SAP Note [2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
 * SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
 * [適用於 SAP on Linux 的 Azure 虛擬機器規劃和實作][planning-guide]
-* [適用於 SAP on Linux 的 Azure 虛擬機器部署][deployment-guide]
+* [在 Linux 上為 SAP 進行 Azure 虛擬機器部署][deployment-guide]
 * [適用於 SAP on Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
 * [Red Hat Gluster Storage 產品文件](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [Pacemaker 叢集中的 SAP Netweaver](https://access.redhat.com/articles/3150081)
@@ -75,7 +75,7 @@ ms.locfileid: "45636474"
   * [高可用性附加元件參考](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [在 RHEL 7.5 中使用獨立資源為 SAP Netweaver 設定 ASCS/ERS](https://access.redhat.com/articles/3569681)
 * Azure 專用 RHEL 文件：
-  * [RHEL 高可用性叢集的支援原則 - Microsoft Azure 虛擬機器做為叢集成員](https://access.redhat.com/articles/3131341)
+  * [RHEL 高可用性叢集的支援原則：以 Microsoft Azure 虛擬機器作為叢集成員](https://access.redhat.com/articles/3131341)
   * [在 Microsoft Azure 上安裝和設定 Red Hat Enterprise Linux 7.4 (和更新版本) 高可用性叢集](https://access.redhat.com/articles/3252491)
 
 ## <a name="overview"></a>概觀
@@ -146,7 +146,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
    1. 管理員使用者名稱、管理員密碼或 SSH 金鑰  
       建立可用來登入電腦的新使用者。
    1. 子網路識別碼  
-   如果您想要將 VM 部署至現有的 VNet 中，而 VNet 中已定義應指派 VM 的子網路，請提供該特定子網路的識別碼。 識別碼通常如下所示：/subscriptions/**&lt;訂用帳戶識別碼&gt;**/resourceGroups/**&lt;資源群組名稱&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;虛擬網路名稱&gt;**/subnets/**&lt;子網路名稱&gt;**
+   如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：/subscriptions/**&lt;訂用帳戶識別碼&gt;**/resourceGroups/**&lt;資源群組名稱&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;虛擬網路名稱&gt;**/subnets/**&lt;子網路名稱&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>透過 Azure 入口網站手動部署 Linux
 
@@ -252,6 +252,30 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
 
    <pre><code>sudo yum -y install glusterfs-fuse resource-agents resource-agents-sap
    </code></pre>
+
+1. **[A]** 檢查 resource-agents-sap 的版本
+
+   請確定已安裝的 resource-agents-sap 套件版本至少為 3.9.5-124.el7
+   <pre><code>sudo yum info resource-agents-sap
+   
+   # Loaded plugins: langpacks, product-id, search-disabled-repos
+   # Repodata is over 2 weeks old. Install yum-cron? Or run: yum makecache fast
+   # Installed Packages
+   # Name        : resource-agents-sap
+   # Arch        : x86_64
+   # Version     : <b>3.9.5</b>
+   # Release     : <b>124.el7</b>
+   # Size        : 100 k
+   # Repo        : installed
+   # From repo   : rhel-sap-for-rhel-7-server-rpms
+   # Summary     : SAP cluster resource agents and connector script
+   # URL         : https://github.com/ClusterLabs/resource-agents
+   # License     : GPLv2+
+   # Description : The SAP resource agents and connector script interface with
+   #          : Pacemaker to allow SAP instances to be managed in a cluster
+   #          : environment.
+   </code></pre>
+
 
 1. **[A]** 新增掛接項目
 

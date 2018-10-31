@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 696843363bc6617bb11c01cdccb9dbbb7b719a82
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298195"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341118"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -105,17 +105,19 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="open-tracing-and-application-insights"></a>Open Tracing 與 Application Insights
 
-[Open Tracing](http://opentracing.io/) 和 Application Insights 的資料模型外觀 
+[Open Tracing 資料模型規格](http://opentracing.io/) 和 Application Insights 資料模型的對應方式如下：
 
-- `request`、`pageView` 會使用 `span.kind = server` 對應至**範圍**
-- `dependency` 會使用 `span.kind = client` 對應至**範圍**
-- `request` 和 `dependency` 的 `id` 會對應至 **Span.Id**
-- `operation_Id` 會對應至 **TraceId**
-- `operation_ParentId` 會對應至 `ChildOf` 類型的**參考**
+| Application Insights                  | Open Tracing                                      |
+|------------------------------------   |-------------------------------------------------  |
+| `Request`、`PageView`                 | `span.kind = server` 的 `Span`                  |
+| `Dependency`                          | `span.kind = client` 的 `Span`                  |
+| `Request` 和 `Dependency` 的 `Id`    | `SpanId`                                          |
+| `Operation_Id`                        | `TraceId`                                         |
+| `Operation_ParentId`                  | 類型 `ChildOf` 的 `Reference` (父代範圍)   |
 
-如需 Application Insights 類型和資料模型，請參閱[資料模型](application-insights-data-model.md)。
+如需 Application Insights 資料模型的詳細資訊，請參閱[資料模型](application-insights-data-model.md)。 
 
-如需 Open Tracing 概念的定義，請參閱[規格](https://github.com/opentracing/specification/blob/master/specification.md)和 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)。
+如需 Open Tracing 概念的定義，請參閱 Open Tracing [規格](https://github.com/opentracing/specification/blob/master/specification.md)和 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)。
 
 
 ## <a name="telemetry-correlation-in-net"></a>.NET 中的遙測相互關聯
@@ -165,5 +167,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - 在 Application Insights 上將微服務的所有元件上架。 查看[支援的平台](app-insights-platforms.md)。
 - 如需 Application Insights 類型和資料模型，請參閱[資料模型](application-insights-data-model.md)。
 - 了解如何[擴充和篩選遙測](app-insights-api-filtering-sampling.md)。
-- [Application Insights confg 參考](app-insights-configuration-with-applicationinsights-config.md)
+- [Application Insights 組態參考](app-insights-configuration-with-applicationinsights-config.md)
 

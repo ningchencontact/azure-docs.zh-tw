@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 1bb96821b61647f5dfad54c8b0cb6248eb0db4af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.component: ''
+ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140881"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409130"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>在 Log Analytics 中分析資料使用量
 
@@ -166,7 +166,7 @@ Azure 警示支援使用搜尋查詢的[記錄警示](../monitoring-and-diagnost
 | 電腦中不需要解決方案的方案資料 | 使用[方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)，只從必要的電腦群組收集資料。 |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>檢查是否有比預期更多的節點
-如果您是在「每節點 (OMS)」定價層上，系統便會根據您使用的節點和解決方案數目來向您收費。 您可以在使用量儀表板的 [供應項目] 區段中，查看每個供應項目目前使用的節點數。<br><br> ![使用量儀表板](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
+如果您是在「每節點 (Log Analytics)」定價層上，系統便會根據您使用的節點和解決方案數目來向您收費。 您可以在使用量儀表板的 [供應項目] 區段中，查看每個供應項目目前使用的節點數。<br><br> ![使用量儀表板](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 按一下 [查看所有...] 以檢視針對所選供應項目傳送資料的完整電腦清單。
 

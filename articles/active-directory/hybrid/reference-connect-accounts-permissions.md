@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 96d8977a63d26576d4d783dd0661409fdcee90f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308857"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024963"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
 
@@ -113,6 +113,12 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 | AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」 |AD 使用者帳戶認證 |網域使用者 |AD 使用者帳戶所提供的認證將做為 AD FS 服務的登入帳戶。 |
 
 ### <a name="create-the-ad-ds-connector-account"></a>建立 AD DS 連接器帳戶
+
+>[!IMPORTANT]
+>組建 **1.1.880.0** (2018 年 8 月發行) 導入了名為 ADSyncConfig.psm1 的新 PowerShell 模組，其中包含一個 Cmdlet 集合，可協助您為 Azure AD DS 連接器帳戶部署設定正確的 Active Directory 權限。
+>
+>如需詳細資訊，請參閱 [Azure AD Connect：設定 AD DS 連接器帳戶權限](how-to-connect-configure-ad-ds-connector-account.md)
+
 在 [連線您的目錄] 頁面上指定的帳戶必須存在於 Active Directory，才能進行安裝。  Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect 精靈建立 **AD DS 連接器帳戶**，以用來連線至 Active Directory。  
 
 它也必須獲得必要的權限。 安裝精靈不會驗證權限，在同步處理期間只會發現問題。
@@ -238,7 +244,7 @@ Azure AD 中有 20 個同步服務帳戶的限制。 若要取得 Azure AD 中�
 |下載 Azure AD Connect | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
 |使用快速設定進行安裝 | [快速安裝 Azure AD Connect](how-to-connect-install-express.md)|
 |使用自訂設定進行安裝 | [自訂 Azure AD Connect 安裝](./how-to-connect-install-custom.md)|
-|從 DirSync 升級 | [從 Azure AD 同步作業工具 (DirSync) 升級](how-to-dirsync-upgrade-get-started.md)|
+|從 DirSync 升級 | [從 Azure AD Sync 工具 (DirSync) 升級](how-to-dirsync-upgrade-get-started.md)|
 |安裝後 | [驗證安裝和指派授權 ](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>後續步驟

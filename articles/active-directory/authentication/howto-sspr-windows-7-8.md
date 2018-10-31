@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ae2fab560ca9579860aeba91f9322c6521a83de1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167657"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427720"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>如何：從 Windows 7、8 和 8.1 啟用密碼重設
 
@@ -23,7 +23,7 @@ ms.locfileid: "47167657"
 
 不同於 Windows 10 電腦，Windows 7、8 和 8.1 電腦不需要加入 Azure AD 網域或加入 Active Directory 網域就能重設密碼。
 
-![顯示了「忘記密碼?」連結的 Windows 7 登入畫面範例 link shown](media/howto-sspr-windows-7-8/windows-7-logon-screen.png)
+![具有「忘記密碼？」的 Windows 7 登入畫面範例 顯示的連結](media/howto-sspr-windows-7-8/windows-7-logon-screen.png)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -45,7 +45,7 @@ ms.locfileid: "47167657"
 1. 重新開機後，在登入畫面中選擇使用者，然後按一下 [忘記密碼?] 來起始密碼重設工作流程。
 1. 完成工作流程，遵循螢幕上的步驟來重設密碼。
 
-![按一下 [忘記密碼?] 自助式密碼重設流程的 Windows 7 範例 self-service password reset flow](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![在 Windows7 中按下「忘記密碼？」的範例 自助式密碼重設流程](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>無訊息安裝
 
@@ -76,6 +76,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 * 若要啟用詳細資訊記錄，請建立 REG_DWORD: “EnableLogging”，並將它設定為 1。
 * 若要停用詳細資訊記錄，請將 REG_DWORD “EnableLogging” 變更為 0。
+
+如果您的 Windows 7、8 和 8.1 機器是設置在 Proxy 伺服器或防火牆之後，應該允許對 passwordreset.microsoftonline.com 的 HTTPS 流量 (443)。
 
 ## <a name="next-steps"></a>後續步驟
 

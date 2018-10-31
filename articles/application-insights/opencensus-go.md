@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6262c7029a76deec2dc1169783e9cbf6311fc3f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958266"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165524"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>從 Go 收集分散式追蹤 (預覽)
 
@@ -182,47 +182,47 @@ ms.locfileid: "46958266"
             log.Fatal(http.ListenAndServe(":50030", &ochttp.Handler{Propagation: &tracecontext.HTTPFormat{}}))
         
         }
-        ```
+     ```
 
-3. Once the simple go app is running navigate to `http://localhost:50030`. Each refresh of the browser will generate the text "hello world" accompanied by corresponding span data that is picked up by the local forwarder.
+3. 一旦簡易 Go 應用程式執行後，請瀏覽至 `http://localhost:50030`。 每次重新整理瀏覽器都將會產生文字 "hello world"，並伴隨著由本機轉送工具挑選的對應範圍資料。
 
-4. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), it will be located in `C:\LF-WindowsServiceHost`.
+4. 若要確認**本機轉送工具**會挑出追蹤，請檢查 `LocalForwarder.config` 檔案。 如果您遵循了[必要條件](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service)中的步驟，該檔案會位於 `C:\LF-WindowsServiceHost`。
 
-    In the image below of the log file, you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented equal to the number of values we entered:
+    在下列記錄檔影像中，您可以看到在執行第二個指令碼 (我們在此新增了匯出工具) 之前，`OpenCensus input BatchesReceived` 為 0。 一旦我們開始執行更新後的指令碼，遞增的 `BatchesReceived` 就等於我們所輸入數量的值：
     
-    ![New App Insights resource form](./media/opencensus-go/0004-batches-received.png)
+    ![新增 App Insights 資源表單](./media/opencensus-go/0004-batches-received.png)
 
-## Start monitoring in the Azure portal
+## <a name="start-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中開始監視
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, to view details about your currently running application. Select **Live Metric Stream**.
+1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights 的 [概觀] 頁面，以檢視目前執行中應用程式的詳細資料。 選取 [即時計量串流]。
 
-   ![Screenshot of overview pane with live metric stream selected in red box](./media/opencensus-go/0005-overview-live-metrics-stream.png)
+   ![紅色方塊中選取了 [即時計量串流] 的 [概觀] 窗格螢幕擷取畫面](./media/opencensus-go/0005-overview-live-metrics-stream.png)
 
-2. If you run the second Go app again and start refreshing the browser for `http://localhost:50030`, you will see live trace data as it arrives in Application Insights from the local forwarder service.
+2. 如果您再次執行第二個 Go 應用程式並開始重新整理 `http://localhost:50030` 的瀏覽器，則當即時追蹤資料從本機轉送工具服務抵達 Application Insights 時，您便會看到該資料。
 
-   ![Screenshot of live metric stream with performance data displayed](./media/opencensus-go/0006-stream.png)
+   ![顯示了效能資料的即時計量串流螢幕擷取畫面](./media/opencensus-go/0006-stream.png)
 
-3. Navigate back to the **Overview** page and select **Application Map** for a visual layout of the dependency relationships and call timing between your application components.
+3. 瀏覽回到 [概觀] 頁面，然後選取 [應用程式對應]，以顯示應用程式元件之間相依性關係和呼叫計時的視覺化配置。
 
-    ![Screenshot of basic application map](./media/opencensus-go/0007-application-map.png)
+    ![基本應用程式對應的螢幕擷取畫面](./media/opencensus-go/0007-application-map.png)
 
-    Since we were only tracing one method call, our application map isn't as interesting. But application map can scale to visualize far more distributed applications:
+    因為我們只追蹤一個方法呼叫，所以應用程式對應並不有趣。 但是，應用程式對應經過調整後，即可顯示更多的分散式應用程式：
 
-   ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![應用程式對應](./media/app-insights-nodejs-quick-start/application-map.png)
 
-4. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
+4. 選取 [調查效能] 以執行詳細的效能分析，並判斷效能緩慢的根本原因。
 
-    ![Screenshot of performance pane](./media/opencensus-go/0008-performance.png)
+    ![效能窗格的螢幕擷取畫面](./media/opencensus-go/0008-performance.png)
 
-5. Selecting **Samples** and then clicking on any of the samples that appear in the right-hand pane will launch the end-to-end transaction details experience. While our sample app will just show us a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
+5. 選取 [範例]，然後按一下出現在右窗格中的任何範例，就會啟動端對端交易詳細資料體驗。 儘管應用程式範例只會向我們顯示單一事件，但更複雜的應用程式將可讓您瀏覽到個別事件呼叫堆疊層級的端對端交易。
 
-     ![Screenshot of end-to-end transaction interface](./media/opencensus-go/0009-end-to-end-transaction.png)
+     ![端對端交易介面的螢幕擷取畫面](./media/opencensus-go/0009-end-to-end-transaction.png)
 
-## OpenCensus trace for Go
+## <a name="opencensus-trace-for-go"></a>適用於 Go 的 OpenCensus 追蹤
 
-We only covered the basics of integrating OpenCensus for Go with the local forwarder and Application Insights. The [official OpenCensus Go usage guidance](https://godoc.org/go.opencensus.io) covers more advanced topics.
+我們只說明了使用本機轉送工具和 Application Insights 來整合「適用於 Go 的 OpenCensus」的基本概念。 [官方 OpenCensus Go 使用指引](https://godoc.org/go.opencensus.io)會說明更進階的主題。
 
-## Next steps
+## <a name="next-steps"></a>後續步驟
 
-* [Application map](./app-insights-app-map.md)
-* [End-to-end performance monitoring](./app-insights-tutorial-performance.md)
+* [應用程式對應](./app-insights-app-map.md)
+* [端對端效能監視](./app-insights-tutorial-performance.md)

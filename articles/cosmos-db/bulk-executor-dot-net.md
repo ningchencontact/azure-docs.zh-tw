@@ -1,31 +1,32 @@
 ---
-title: 在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業 | Microsoft Docs
-description: 使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件大量匯入並更新至 Azure Cosmos DB 容器。
-keywords: .Net 大量執行程式
+title: 在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫來執行大量匯入和更新作業 | Microsoft Docs
+description: 使用大量執行程式 .NET 程式庫來大量匯入和更新 Azure Cosmos DB 文件。
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: cc0faa44501ea130309a02bb48d02f9c5b33febd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 04894fdd0ffff38ad129097ce839259f2993332c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053375"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363390"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業
 
-本教學課程說明如何使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件匯入並更新至 Azure Cosmos DB 容器。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 本教學課程將引導您使用 .NET 應用程式範例，將隨機產生的文件大量匯入至 Azure Cosmos DB 容器。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。
+本教學課程說明如何使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件匯入並更新至 Azure Cosmos DB 容器。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您會看到 .NET 應用程式範例如何將隨機產生的文件大量匯入至 Azure Cosmos DB 容器。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。 
+
+目前，只有 Azure Cosmos DB SQL API 和 Gremlin API 帳戶可支援大量執行程式程式庫。 本文說明如何搭配 SQL API 帳戶使用大量執行程式 .NET 程式庫。 若要了解如何搭配 Gremlin API 使用大量執行程式 .Net 程式庫，請參閱[在 Azure Cosmos DB Gremlin API 中執行大量作業](bulk-executor-graph-dotnet.md)。 
 
 ## <a name="prerequisites"></a>必要條件
 
 * 如果尚未安裝 Visual Studio 2017，您可以下載並使用 [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 Azure 開發。
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。 
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。 
 
 * 您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。 或者，您也可以搭配使用 [Azure Cosmos DB 模擬器](https://docs.microsoft.com/azure/cosmos-db/local-emulator)與 `https://localhost:8081` URI。 [驗證要求](local-emulator.md#authenticating-requests)中會提供主索引鍵。
 

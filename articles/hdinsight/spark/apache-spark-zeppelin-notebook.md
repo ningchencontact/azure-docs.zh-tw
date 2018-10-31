@@ -9,22 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048036"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364858"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上搭配使用 Zeppelin Notebook 和 Apache Spark 叢集
 
 HDInsight Spark 叢集包含可用來執行 Spark 作業的 Zeppelin Notebook。 在本文中，您將學習如何在 HDInsight 叢集上使用 Zeppelin Notebook。
 
-> [!NOTE]
-> Zeppelin Notebook 僅適用於 HDInsight 3.5 上的 Spark 1.6.3 以及 HDInsight 3.6 上的 Spark 2.1.0。
->
-
-**先決條件：**
+**必要條件：**
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
@@ -50,7 +46,7 @@ HDInsight Spark 叢集包含可用來執行 Spark 作業的 Zeppelin Notebook。
    
     將以下程式碼片段貼入新 Notebook 中預設建立的空白段落。
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -77,6 +73,11 @@ HDInsight Spark 叢集包含可用來執行 Spark 作業的 Zeppelin Notebook。
     ![從未經處理資料建立暫存資料表](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "從未經處理資料建立暫存資料表")
    
     您也可以為每個段落提供標題。 按一下右下角的 [設定] 圖示，然後按一下 [顯示標題]。
+
+> [!NOTE]
+> 所有 HDInsight 版本的 Zeppelin Notebook 中都不支援 %spark2 解譯器，而 HDInsight 4.0 以後的版本不支援 %sh 解譯器。
+>
+
 1. 現在，您可以針對 **hvac** 資料表執行 Spark SQL 陳述式。 將以下查詢貼入新段落。 此查詢會擷取建築物識別碼，以及在指定日期當天每棟建築物之目標溫度與實際溫度間的差異。 按下 **SHIFT + ENTER**。
    
         %sql

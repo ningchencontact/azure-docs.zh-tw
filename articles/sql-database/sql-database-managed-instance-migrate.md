@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 10/15/2018
+ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394047"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345300"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 
@@ -38,9 +38,9 @@ ms.locfileid: "47394047"
 
 ## <a name="assess-managed-instance-compatibility"></a>評估受控執行個體的相容性
 
-首先，判斷受控執行個體是否與您應用程式的資料庫需求相容。 受控執行個體旨在為大部分內部部署或虛擬機器上使用 SQL Server 的現有應用程式，提供簡單的隨即轉移。 不過，有時候您可能需要尚不支援的功能，而且實作因應措施的成本非常高。 
+首先，判斷受控執行個體是否與您應用程式的資料庫需求相容。 受控執行個體旨在為大部分內部部署或虛擬機器上使用 SQL Server 的現有應用程式，提供簡單的隨即轉移。 不過，有時候您可能需要尚不支援的功能，而且實作因應措施的成本非常高。
 
-使用[資料移轉小幫手 (DMA)](https://docs.microsoft.com/sql/dma/dma-overview)，可偵測影響 Azure SQL Database 資料庫功能的潛在相容性問題。 DMA 尚不支援將受控執行個體作為移轉目的地，但建議您針對 Azure SQL Database 執行評估，並針對產品文件，仔細檢閱提報的功能同位和相容性問題清單。 請參閱 [Azure SQL Database 功能](sql-database-features.md)，以檢查是否有一些回報的執行問題不是受控執行個體中造成作業無法繼續執行個問題，因為造成無法無移轉到 Azure SQL Database 的大部分問題在受控執行個體中都已移除。 例如跨資料庫查詢、相同執行個體內的跨資料庫交易、其他 SQL 來源的連結伺服器、CLR、全域暫存資料表、執行個體層級檢視、Service Broker 等功能皆可在受控執行個體中使用。 
+使用[資料移轉小幫手 (DMA)](https://docs.microsoft.com/sql/dma/dma-overview)，可偵測影響 Azure SQL Database 資料庫功能的潛在相容性問題。 DMA 尚不支援將受控執行個體作為移轉目的地，但建議您針對 Azure SQL Database 執行評估，並針對產品文件，仔細檢閱提報的功能同位和相容性問題清單。 請參閱 [Azure SQL Database 功能](sql-database-features.md)，以檢查是否有一些回報的執行問題不是受控執行個體中造成作業無法繼續執行個問題，因為造成無法無移轉到 Azure SQL Database 的大部分問題在受控執行個體中都已移除。 例如跨資料庫查詢、相同執行個體內的跨資料庫交易、其他 SQL 來源的連結伺服器、CLR、全域暫存資料表、執行個體層級檢視、Service Broker 等功能皆可在受控執行個體中使用。
 
 若有一些回報的執行問題在 Azure SQL Database 受控制執行個體中並未移除，您可能需要考慮替代選項，例如 [Azure 中虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)。 這裡有一些範例：
 
@@ -60,16 +60,16 @@ ms.locfileid: "47394047"
 若要了解如何建立 VNet 基礎結構和受控執行個體，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)。
 
 > [!IMPORTANT]
-> 請務必讓您目的地 VNet 和子網路永遠符合[受控執行個體的 VNET 需求](sql-database-managed-instance-vnet-configuration.md#requirements)。 任何相容性問題都可能會讓您無法建立新的執行個體，或使用已經建立的執行個體。
+> 請務必讓您目的地 VNet 和子網路永遠符合[受控執行個體的 VNet 需求](sql-database-managed-instance-vnet-configuration.md#requirements)。 任何相容性問題都可能會讓您無法建立新的執行個體，或使用已經建立的執行個體。
 
 ## <a name="select-migration-method-and-migrate"></a>選取移轉方法並進行遷移
 
-受控執行個體鎖定的是需要將大量資料庫從內部部署或 IaaS 資料庫實作移轉的使用者案例。 如果您需要隨即轉移定期使用執行個體層級和/或跨資料庫功能的應用程式後端，那麼這是最佳選擇。 如果這是您的情況，您可以將整個執行個體移動至 Azure 中對應的環境，而不需要重新建構您的應用程式。 
+受控執行個體鎖定的是需要將大量資料庫從內部部署或 IaaS 資料庫實作移轉的使用者案例。 如果您需要隨即轉移定期使用執行個體層級和/或跨資料庫功能的應用程式後端，那麼這是最佳選擇。 如果這是您的情況，您可以將整個執行個體移動至 Azure 中對應的環境，而不需要重新建構您的應用程式。
 
 若要移動 SQL 執行個體，您需要謹慎規劃下列作業：
 
--   移轉必須共置的所有資料庫 (在相同執行個體上執行)
--   移轉您應用程式依賴的執行個體層級物件，包括登入、認證、SQL Agent 作業和運算子，以及伺服器層級觸發程序。 
+- 移轉必須共置的所有資料庫 (在相同執行個體上執行)
+- 移轉您應用程式依賴的執行個體層級物件，包括登入、認證、SQL Agent 作業和運算子，以及伺服器層級觸發程序。
 
 受控執行個體是完全受控的服務，可讓您將一些固定的 DBA 活動委派至平台，因為這些活動已內建。 因此，某些執行個體層級的資料就不需要遷移，例如，定期備份的維護作業或 Alwayson 組態，因為已內建[高可用性](sql-database-high-availability.md)。
 
@@ -80,7 +80,7 @@ ms.locfileid: "47394047"
 
 ### <a name="azure-database-migration-service"></a>Azure 資料庫移轉服務
 
-[Azure 資料庫移轉服務 (DMS)](../dms/dms-overview.md) 是一個完全受控的服務，能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。 此服務可簡化將現有第三方和 SQL Server 資料庫移動至 Azure 時所需的工作。 公開預覽中的部署選項包括 Azure SQL Database、受控執行個體，以及 Azure 虛擬機器中的 SQL Server。 DMS 是移轉企業工作負載的建議方法。 
+[Azure 資料庫移轉服務 (DMS)](../dms/dms-overview.md) 是一個完全受控的服務，能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。 此服務可簡化將現有第三方和 SQL Server 資料庫移動至 Azure 時所需的工作。 公開預覽中的部署選項包括 Azure SQL Database、受控執行個體，以及 Azure 虛擬機器中的 SQL Server。 DMS 是移轉企業工作負載的建議方法。
 
 如果您在內部部署 SQL Server 上使用 SQL Server Integration Services (SSIS)，DMS 尚未支援移轉 SSIS 目錄 (SSISDB)，該目錄儲存 SSIS 套件，但是您可以在 Azure Data Factory (ADF) 中佈建 Azure-SSIS Integration Runtime (IR)，這樣會在 Azure SQL Database/受控執行個體中建立新的 SSISDB，然後您可以將套件重新部署至其中，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)。
 
@@ -88,7 +88,7 @@ ms.locfileid: "47394047"
 
 ### <a name="native-restore-from-url"></a>從 URL 原生還原
 
-從 SQL Server 內部部署環境或[虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 產生的原生備份 (.bak 檔案) (可從 [Azure 儲存體](https://azure.microsoft.com/services/storage/)取得) 進行還原，是 SQL DB 受控執行個體上的重要功能之一，讓您可以快速且輕鬆地進行離線資料庫移轉。 
+從 SQL Server 內部部署環境或[虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 產生的原生備份 (.bak 檔案) (可從 [Azure 儲存體](https://azure.microsoft.com/services/storage/)取得) 進行還原，是 SQL DB 受控執行個體上的重要功能之一，讓您可以快速且輕鬆地進行離線資料庫移轉。
 
 下圖會提供程序的高階概觀：
 
@@ -121,6 +121,7 @@ ms.locfileid: "47394047"
 此外，您不需要擔心如何設定為高可用性，因為[高可用性](sql-database-high-availability.md)已內建。
 
 若要加強安全性，請考量使用一些可用功能：
+
 - 資料庫層級的 Azure Active Directory 驗證
 - 使用[進階安全性功能](sql-database-security-overview.md) (例如[稽核](sql-database-managed-instance-auditing.md)、[威脅偵測](sql-advanced-threat-protection.md)、[資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)與[動態資料遮罩](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)) 來保護您的執行個體。
 

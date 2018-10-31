@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3a647d9f821007dc0f2b48864b937aee84924d8f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737051"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353166"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -96,7 +96,7 @@ ms.locfileid: "45737051"
 
     - 選取 [匯入至 Azure]。
     - 輸入匯入作業的描述性名稱。 使用此名稱來追蹤作業進度。
-        - 名稱只能包含小寫英文字母、數字、連字號和底線。
+        - 名稱只可包含小寫字母、數字和連字號。
         - 名稱必須以字母開頭，並且不能包含空格。
     - 選取一個訂用帳戶。
     - 輸入或選取資源群組。  
@@ -107,7 +107,7 @@ ms.locfileid: "45737051"
 
     - 上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。 如果已使用 `waimportexport.exe version1`，您需要針對已備妥的每個磁碟機上傳一個檔案。 如果日誌檔案大小超過 2 MB，則您可以使用與日誌檔案一起建立的 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`。 
     - 選取將存放資料的目的地儲存體帳戶。 
-    - 系統會根據所選儲存體帳戶的區域，自動填入「放置」位置。
+    - 系統會根據所選儲存體帳戶的區域，自動填入置放位置。
    
    ![建立匯入作業 - 步驟 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

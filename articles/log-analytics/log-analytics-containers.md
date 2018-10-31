@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f9876f3e21a7cfccae2fb7f70913269d4ca1fdf4
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d8f2701ca62eee261beaa49fe2a0719be7423a5b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115364"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408484"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
 
@@ -67,6 +67,7 @@ ms.locfileid: "49115364"
 
 ### <a name="x64-linux-distributions-supported-as-container-hosts"></a>x64 Linux 散發套件可支援作為容器主機
 
+
 - Ubuntu 14.04 LTS 和 16.04 LTS
 - CoreOS (穩定版)
 - Amazon Linux 2016.09.0
@@ -78,8 +79,10 @@ ms.locfileid: "49115364"
 - Red Hat OpenShift Container Platform (OCP) 3.4 和 3.5
 - ACS Mesosphere DC/OS 1.7.3 至 1.8.8
 - ACS Kubernetes 1.4.5 至 1.6
-    - Kubernetes 事件、Kubernetes 清查和容器程序只支援搭配 OMS Agent for Linux 1.4.1-45 版和更新版本來使用
+    - Kubernetes 事件、Kubernetes 清查以及容器流程僅支援搭配適用於 Linux 的 Log Analytics 代理程式 1.4.1-45 版和更新版本來使用
 - ACS Docker Swarm
+
+[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)] 
 
 ### <a name="supported-windows-operating-system"></a>支援的 Windows 作業系統
 
@@ -96,25 +99,25 @@ ms.locfileid: "49115364"
 
 1. 從 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將容器監視解決方案新增至您的 Log Analytics 工作區。
 
-2. 安裝和使用 Docker 搭配 OMS 代理程式。 根據您的作業系統和 Docker Orchestrator，您可以使用下列方法來設定代理程式。
+2. 安裝和使用 Docker 搭配 Log Analytics 代理程式。 根據您的作業系統和 Docker Orchestrator，您可以使用下列方法來設定代理程式。
   - 若為獨立式主機：
-    - 在支援的 Linux 作業系統上，安裝和執行 Docker，然後安裝並設定 [OMS Agent for Linux](log-analytics-agent-linux.md)。  
-    - 在 CoreOS 上，您無法執行 OMS Agent for Linux。 相反地，您可以執行 OMS Agent for Linux 的容器化版本。 檢閱 [Linux 容器主機，包括 CoreOS](#for-all-linux-container-hosts-including-coreos) 或 [Azure Government Linux 容器主機，包括 CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos)，如果您正在使用 Azure Government Cloud 中的容器。
+    - 在支援的 Linux 作業系統上，安裝和執行 Docker，然後再安裝和設定[適用於 Linux 的 Log Analytics 代理程式](log-analytics-agent-linux.md)。  
+    - 在 CoreOS 上，您無法執行適用於 Linux 的 Log Analytics 代理程式。 相反地，您可以執行適用於 Linx 的 Log Analytics 代理程式容器化版本。 檢閱 [Linux 容器主機，包括 CoreOS](#for-all-linux-container-hosts-including-coreos) 或 [Azure Government Linux 容器主機，包括 CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos)，如果您正在使用 Azure Government Cloud 中的容器。
     - 在 Windows Server 2016 和 Windows 10 上，安裝 Docker 引擎及用戶端，然後連接代理程式以收集資訊，並將它傳送至 Log Analytics。 如果您有 Windows 環境，請檢閱[安裝和設定 Windows 容器主機](#install-and-configure-windows-container-hosts)。
   - 若為 Docker 多主機協調流程：
-    - 如果您有 Red Hat OpenShift 環境，請檢閱[針對 Red Hat OpenShift 設定 OMS 代理程式](#configure-an-oms-agent-for-red-hat-openshift)。
+    - 如果您有 Red Hat OpenShift 環境，請參閱[為 Red Hat OpenShift 設定 Log Analytics 代理程式](#configure-an-oms-agent-for-red-hat-openshift)。
     - 如果您有使用 Azure Container Service 的 Kubernetes 叢集：
-       - 檢閱[為 Kubernetes 設定 OMS Linux 代理程式](#configure-an-oms-linux-agent-for-kubernetes)。
-       - 檢閱[為 Kubernetes 設定 OMS Windows 代理程式](#configure-an-oms-windows-agent-for-kubernetes)。
-       - 檢閱[使用 Helm 在 Linux Kubernetes 上部署 OMS 代理程式](#use-helm-to-deploy-oms-agent-on-linux-kubernetes)。
-    - 如果您擁有 Azure Container Service DC/OS 叢集，請深入了解[使用 Operations Management Suite 監視 Azure Container Service DC/OS 叢集](../container-service/dcos-swarm/container-service-monitoring-oms.md)。
-    - 如果您有 Docker Swarm 模式環境，詳細資訊請參閱[為 Docker Swarm 設定 OMS 代理程式](#configure-an-oms-agent-for-docker-swarm)。
-    - 如果您有 Service Fabric 叢集，請在[使用 OMS Log Analytics 監視容器](../service-fabric/service-fabric-diagnostics-oms-containers.md)中深入了解。
+       - 參閱[為 Kubernetes 設定 Log Analytics Linux 代理程式](#configure-an-oms-linux-agent-for-kubernetes)。
+       - 參閱[為 Kubernetes 設定 Log Analytics Windows 代理程式](#configure-an-oms-windows-agent-for-kubernetes)。
+       - 參閱[使用 Helm 在 Linux Kubernetes 上部署 Log Analytics 代理程式](#use-helm-to-deploy-oms-agent-on-linux-kubernetes)。
+    - 如果您擁有 Azure Container Service DC/OS 叢集，請參閱[使用 Log Analytics 監視 Azure Container Service DC/OS 叢集](../container-service/dcos-swarm/container-service-monitoring-oms.md)，以進一步瞭解。
+    - 如果您有 Docker Swarm 模式環境，請參閱[為 Docker Swarm 設定 Log Analytics 代理程式](#configure-an-oms-agent-for-docker-swarm)，以進一步瞭解。
+    - 如果您有 Service Fabric 叢集，請參閱[使用 Log Analytics Log Analytics 監視容器](../service-fabric/service-fabric-diagnostics-oms-containers.md)，以進一步瞭解。
 
 檢閱 [Windows 上的 Docker 引擎](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)文章，以取得有關如何在執行 Windows 的電腦上安裝和設定您 Docker 引擎的資訊。
 
 > [!IMPORTANT]
-> 在容器主機上安裝 [OMS Agent for Linux](log-analytics-agent-linux.md)**之前**，Docker 必須已在執行中。 如果您已在安裝 Docker 前安裝此代理程式，您必須重新安裝 OMS Agent for Linux。 如需 Docker 的詳細資訊，請參閱 [Docker 網站](https://www.docker.com)。
+> 在容器主機上安裝 [適用於 Linux 的 Log Analytics 代理程式](log-analytics-agent-linux.md)**之前**，Docker 必須已在執行中。 如果您在安裝 Docker 前，已安裝此代理程式，則必須重新安裝適用於 Linux 的 Log Analytics 代理程式。 如需 Docker 的詳細資訊，請參閱 [Docker 網站](https://www.docker.com)。
 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>安裝和設定 Linux 容器主機
@@ -123,7 +126,7 @@ ms.locfileid: "49115364"
 
 **適用於 CoreOS 以外的所有 Linux 容器主機：**
 
-- 如需如何安裝 OMS Agent for Linux 的詳細資訊和步驟，請參閱[將 Linux 電腦連線至 Log Analytics](log-analytics-concept-hybrid.md)。
+- 如需如何安裝適用於 Linux 的 Log Analytics 代理程式詳細資訊和步驟，請參閱[使用 Log Analytics 代理程式在混合式環境中收集資料](log-analytics-concept-hybrid.md)。
 
 **適用於包含 CoreOS 的所有 Linux 容器主機：**
 
@@ -143,11 +146,11 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **從使用已安裝的代理程式切換為使用容器中的 Linux 代理程式**
 
-如果您先前使用了直接安裝的代理程式，而且想要改為使用在容器中執行的代理程式，您必須先移除 OMS Agent for Linux。 請參閱[解除安裝 OMS Agent for Linux](log-analytics-agent-linux.md) 來了解如何順利解除安裝代理程式。  
+如果您先前使用了直接安裝的代理程式，而且想要改為使用在容器中執行的代理程式，則必須先移除適用於 Linux 的 Log Analytics 代理程式。 請參閱[為混合式環境中的 Linux 電腦設定 Log Analytics 代理程式](log-analytics-agent-linux.md)，以了解如何順利解除安裝代理程式。  
 
-#### <a name="configure-an-oms-agent-for-docker-swarm"></a>為 Docker Swarm 設定 OMS 代理程式
+#### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>為 Docker Swarm 設定 Log Analytics 代理程式
 
-您可以在 Docker Swarm 上以全域服務的方式執行 OMS 代理程式。 使用下列資訊建立 OMS 代理程式服務。 您必須提供 Log Analytics 工作區識別碼和主要金鑰。
+您可在 Docker Swarm 上，以全域服務的方式執行 Log Analytics 代理程式。 使用下列資訊建立 Log Analytics 代理程式服務。 您必須提供 Log Analytics 工作區識別碼和主要金鑰。
 
 - 在主要節點上執行下列命令。
 
@@ -178,20 +181,20 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     l9rh3n987g9c45zffuxdxetd9   KEY                 38 minutes ago      38 minutes ago
     ```
 
-3. 執行下列命令，將祕密掛接至容器化的 OMS 代理程式。
+3. 執行下列命令，將祕密掛接至容器化的 Log Analytics 代理程式。
 
     ```
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
     ```
 
-#### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>為 Red Hat Openshift 設定 OMS 代理程式
-有三種方式可將 OMS 代理程式新增至 Red Hat OpenShift 以開始收集容器監視資料。
+#### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>為 Red Hat OpenShift 設定 Log Analytics 代理程式
+有三種方式可將 Log Analytics 代理程式新增至 Red Hat OpenShift，以開始收集容器監視資料。
 
-* 直接在每個 OpenShift 節點上[安裝 OMS Agent for Linux](log-analytics-agent-linux.md)  
+* 直接在每個 OpenShift 節點上[安裝適用於 Linux 的 Log Analytics 代理程式](log-analytics-agent-linux.md)  
 * 在位於 Azure 中的每個 OpenShift 節點上[啟用記錄分析 VM 延伸模組](log-analytics-azure-vm-extension.md)  
-* 安裝 OMS 代理程式作為 OpenShift 精靈集  
+* 安裝 Log Analytics 代理程式作為 OpenShift 精靈集  
 
-在本節中，我們會討論安裝 OMS 代理程式作為 OpenShift 精靈集所需的步驟。  
+在本節中，我們會討論安裝 Log Analytics 代理程式作為 OpenShift 精靈集所需的步驟。  
 
 1. 登入 OpenShift 主要節點，並從 GitHub 複製 YAML 檔 [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) 到您的主要節點，然後以 Log Analytics 工作區識別碼和只要金鑰修改值。
 2. 執行下列命令來建立 Log Analytics 的專案，並設定使用者帳戶。
@@ -230,7 +233,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     No events.  
     ```
 
-如果在使用 OMS 代理程式精靈集 YAML 檔案時，您想要使用祕密來保護您的 Log Analytics 工作區識別碼及主要金鑰，請執行下列步驟。
+如果在使用 Log Analytics 代理程式精靈集 YAML 檔案時，您想要使用祕密來保護您的 Log Analytics 工作區識別碼及主要金鑰，請執行下列步驟。
 
 1. 登入 OpenShift 主要節點，並從 GitHub 複製 YAML 檔 [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) 和密碼產生指令碼 [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh)。  這個指令碼會產生 Log Analytics 工作區識別碼及主要金鑰的密碼 YAML 檔案，來保護您的密碼資訊。  
 2. 執行下列命令來建立 Log Analytics 的專案，並設定使用者帳戶。 祕密產生指令碼會要求您的 Log Analytics 工作區識別碼 <WSID> 和主要金鑰 <KEY>，並且在完成時，建立 ocp-secret.yaml 檔案。  
@@ -269,7 +272,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     No events.  
     ```
 
-6. 執行下列命令以部署 OMS 代理程式精靈集 YAML 檔案：
+6. 執行下列命令以部署 Log Analytics 代理程式精靈集 YAML 檔案：
 
     `oc create -f ocp-ds-omsagent.yaml`  
 
@@ -294,18 +297,18 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
      WSID:   37 bytes  
     ```
 
-#### <a name="configure-an-oms-linux-agent-for-kubernetes"></a>為 Kubernetes 設定 OMS Linux 代理程式
+#### <a name="configure-a-log-analytics-linux-agent-for-kubernetes"></a>為 Kubernetes 設定 Log Analytics Linux 代理程式
 
-針對 Kubernetes，您可以使用指令碼為工作區 ID 與主索引鍵產生密碼 YAML 檔案，來安裝適用於 Linux 的 OMS 代理程式。 [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) 頁面含有您可以在有或無祕密資訊的情況下使用的檔案。
+針對 Kubernetes，您可使用指令碼為工作區 ID 與主索引鍵產生秘密 YAML 檔案，以安裝適用於 Linux 的 Log Analytics 代理程式。 [Log Analytics Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) (英文) 頁面含有您可以在有或無祕密資訊的情況下使用的檔案。
 
-- 適用於 Linux 的預設 OMS 代理程式 DaemonSet 沒有祕密資訊 (omsagent.yaml)
-- 適用於 Linux 的 OMS 代理程式 DaemonSet YAML 檔案會使用祕密資訊 (omsagent-ds-secrets.yaml) 搭配祕密產生指令碼來產生祕密 YAML (omsagentsecret.yaml) 檔案。
+- 適用於 Linux 的預設 Log Analytics 代理程式 DaemonSet 沒有祕密資訊 (omsagent.yaml)
+- 適用於 Linux 的 Log Analytics 代理程式 DaemonSet YAML 檔案會使用祕密資訊 (omsagent-ds-secrets.yaml)，搭配祕密產生指令碼來產生祕密 YAML (omsagentsecret.yaml) 檔案。
 
 您可以選擇在有或無祕密的情況下建立 omsagent DaemonSet。
 
 **沒有祕密的預設 OMSagent DaemonSet yaml 檔案**
 
-- 針對預設 OMS 代理程式 DaemonSet yaml 檔案，用您的 WSID 和索引鍵取代 `<WSID>` 和 `<KEY>`。 將檔案複製到您的主要節點，並執行下列命令：
+- 針對預設 Log Analytics 代理程式 DaemonSet yaml 檔案，請使用您的 WSID 和索引鍵取代 `<WSID>` 和 `<KEY>`。 將檔案複製到您的主要節點，並執行下列命令：
 
     ```
     sudo kubectl create -f omsagent.yaml
@@ -313,7 +316,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **有祕密的預設 OMSagent DaemonSet yaml 檔案**
 
-1. 若要使用具有祕密資訊的 OMS 代理程式 DaemonSet，請先建立祕密。
+1. 若要使用具有祕密資訊的 Log Analytics 代理程式 DaemonSet，請先建立祕密。
     1. 複製指令碼和祕密範本檔案，並確定它們位於相同的目錄。
         - 祕密產生指令碼 - secret-gen.sh
         - 祕密範本 - secret-template.yaml
@@ -364,7 +367,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
     5. 執行 ``` sudo kubectl create -f omsagent-ds-secrets.yaml ``` 以建立您的 omsagent daemon-set
 
-2. 確認 OMS 代理程式 DaemonSet 正在執行，如下所示：
+2. 確認 Log Analytics 代理程式 DaemonSet 正在執行，如下所示：
 
     ```
     keiko@ubuntu16-13db:~# sudo kubectl get ds omsagent
@@ -376,7 +379,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     ```
 
 
-針對 Kubernetes，請使用指令碼為適用於 Linux 的 OMS 代理程式工作區 ID 與主索引鍵產生祕密 YAML 檔案。 搭配 [omsagent yaml 檔案](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)使用下列範例資訊來保護您的祕密資訊。
+針對 Kubernetes，請使用指令碼來產生適用於 Linux 的 Log Analytics 代理程式工作區 ID 與主索引鍵的祕密 YAML 檔案。 搭配 [omsagent yaml 檔案](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)使用下列範例資訊來保護您的祕密資訊。
 
 ```
 keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
@@ -393,15 +396,15 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>為 Kubernetes 設定 OMS Windows 代理程式
-針對 Kubernetes，您可以使用指令碼為工作區 ID 與主索引鍵產生密碼 YAML 檔案，來安裝 OMS 代理程式。 [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) 頁面含有可搭配祕密資訊使用的檔案。  您必須分別為主要節點和代理程式節點安裝 OMS 代理程式。  
+#### <a name="configure-a-log-analytics-windows-agent-for-kubernetes"></a>為 Kubernetes 設定 Log Analytics Windows 代理程式
+針對 Windows Kubernetes，您可使用指令碼為工作區 ID 與主索引鍵產生秘密 YAML 檔案，以安裝 Log Analytics 代理程式。 [Log Analytics Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) (英文) 頁面含有您可在具祕密資訊的情況下使用的檔案。  您必須分別為主要節點和代理程式節點安裝 Log Analytics 代理程式。  
 
-1. 若要使用在主要節點上使用祕密資訊的 OMS 代理程式 DaemonSet，請先登入並建立祕密。
+1. 若要使用在主要節點上具有祕密資訊的 Log Analytics 代理程式 DaemonSet，請先登入並建立祕密。
     1. 複製指令碼和祕密範本檔案，並確定它們位於相同的目錄。
         - 祕密產生指令碼 - secret-gen.sh
         - 祕密範本 - secret-template.yaml
 
-    2. 執行指令碼，如下列範例所示。 指令碼會要求 OMS 工作區識別碼與主索引鍵，在您輸入這兩個資訊之後，指令碼會建立一個密碼 YAML 檔案讓您能夠執行它。   
+    2. 執行指令碼，如下列範例所示。 指令碼會要求 Log Analytics 工作區識別碼與主要金鑰，並在您輸入這兩個資訊之後，指令碼會建立一個祕密的 YAML 檔案以供您執行。   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -435,7 +438,7 @@ KEY:    88 bytes
 
     5. 執行 ```kubectl create -f ws-omsagent-de-secrets.yaml``` 以建立您的 omsagent daemon-set
 
-2. 確認 OMS 代理程式 DaemonSet 正在執行，如下所示：
+2. 確認 Log Analytics 代理程式 DaemonSet 正在執行，如下所示：
 
     ```
     root@ubuntu16-13db:~# kubectl get deployment omsagent
@@ -445,8 +448,8 @@ KEY:    88 bytes
 
 3. 若要在執行 Windows 的背景工作節點上安裝代理程式，請遵循[安裝和設定 Windows 容器主機](#install-and-configure-windows-container-hosts)一節中的步驟。
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>使用 Helm 在 Linux Kubernetes 上部署 OMS 代理程式
-若要使用 Helm 在 Linux Kubernetes 環境下部署 OMS 代理程式，請執行下列步驟。
+#### <a name="use-helm-to-deploy-log-analytics-agent-on-linux-kubernetes"></a>使用 Helm 在 Linux Kubernetes 上部署 Log Analytics 代理程式
+若要使用 Helm 在 Linux Kubernetes 環境下部署 Log Analytics 代理程式，請執行下列步驟。
 
 1. 執行 ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms``` 以建立您的 omsagent daemon-set
 2. 結果將看起來如下所示：
@@ -530,7 +533,7 @@ KEY:    88 bytes
 
 ## <a name="solution-components"></a>方案元件
 
-從 OMS 入口網站，瀏覽至 [解決方案資源庫] 並新增 [容器監視解決方案]。 如果您是使用 Windows 代理程式，當您新增這個解決方案時，就會使用代理程式在每部電腦上安裝下列管理組件。 管理組件不需要任何設定或維護。
+從 Azure 入口網站，瀏覽至 [方案庫] 並新增 [容器監視解決方案]。 如果您是使用 Windows 代理程式，當您新增這個解決方案時，就會使用代理程式在每部電腦上安裝下列管理組件。 管理組件不需要任何設定或維護。
 
 - C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 中所安裝的 ContainerManagement.xxx
 
@@ -539,7 +542,7 @@ KEY:    88 bytes
 
 每隔三分鐘會依下列代理程式類型收集資料。
 
-- [OMS Agent for Linux](log-analytics-linux-agents.md)
+- [適用於 Linux 的 Log Analytics 代理程式](log-analytics-linux-agents.md)
 - [Windows 代理程式](log-analytics-windows-agent.md)
 - [Log Analytics VM 延伸模組](log-analytics-azure-vm-extension.md)
 

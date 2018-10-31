@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/13/2018
 ms.author: jdial
-ms.openlocfilehash: f25da8c1eedc31209a67ae05aef9dded45b706e0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae1a77921cdb3eba003ff6dc8b4885866f2fbe5e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962397"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310348"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection Standard 概觀
 
@@ -29,7 +29,7 @@ ms.locfileid: "46962397"
 結合應用程式設計最佳做法的 Azure DDoS 保護可提供 DDoS 攻擊的防禦。 Azure DDoS 保護提供下列服務層：
 
 - **基本**：已在 Azure 平台中自動啟用。 常見網路層級攻擊的永遠可用流量監視和即時安全防護功能，可提供 Microsoft 的線上服務所使用的相同防禦。 Azure 全域網路的整體規模可用於分散和減少跨區域攻擊流量。 針對 IPv4 和 IPv6 Azure [公用 IP 位址](virtual-network-public-ip-address.md)提供保護。
-- **標準**：提供 [基本] 服務層以外特別針對 Azure 虛擬網路資源調整的額外安全防護功能。 DDoS 保護「標準」層級很容易啟用，而且不需要變更應用程式。 保護原則是透過專用的流量監視和機器學習演算法進行調整。 原則會套用至與虛擬網路中所部署資源相關聯的公用 IP 位址，例如 Azure Load Balancer、Azure 應用程式閘道和 Azure Service Fabric 執行個體。 在攻擊期間，可透過 Azure 監視器檢視取得即時遙測與歷史記錄。 透過診斷設定可以獲得豐富的攻擊風險降低分析。 透過 [Azure 應用程式閘道 Web 應用程式防火牆](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，或者從 Azure Marketplace 安裝第 3 方防火牆，可以加上應用程式層保護。 針對 IPv4 Azure [公用 IP 位址](virtual-network-public-ip-address.md)提供保護。
+- **標準**：提供 [基本] 服務層以外特別針對 Azure 虛擬網路資源調整的額外安全防護功能。 DDoS 保護「標準」層級很容易啟用，而且不需要變更應用程式。 保護原則是透過專用的流量監視和機器學習演算法進行調整。 原則會套用至與虛擬網路中所部署資源相關聯的公用 IP 位址，例如 Azure Load Balancer、Azure 應用程式閘道和 Azure Service Fabric 執行個體，但是此保護功能不適用於 App Service Environments。 在攻擊期間，可透過 Azure 監視器檢視取得即時遙測與歷史記錄。 透過診斷設定可以獲得豐富的攻擊風險降低分析。 透過 [Azure 應用程式閘道 Web 應用程式防火牆](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，或者從 Azure Marketplace 安裝第 3 方防火牆，可以加上應用程式層保護。 針對 IPv4 Azure [公用 IP 位址](virtual-network-public-ip-address.md)提供保護。
 
 ![Azure DDoS 保護部落格與標準](./media/ddos-protection-overview/ddoscomparison.png)
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b287e7f3846de4391de02cce2cedd6a5df3cbc4a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167642"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405815"
 ---
 # <a name="date-claims-transformations"></a>日期宣告轉換
 
@@ -25,12 +25,12 @@ ms.locfileid: "49167642"
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
 
-確認某個日期和時間宣告 (字串資料類型) 是否大於第二個日期和時間宣告 (字串資料類型)，並擲回例外狀況。
+確認某個日期和時間宣告 (字串資料類型) 是否晚於第二個日期和時間宣告 (字串資料類型)，並擲回例外狀況。
 
 | Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | 字串 | 第一個宣告的類型，其應該大於第二個宣告。 |
-| inputClaim | rightOperand | 字串 | 第二個宣告的類型，其應該小於第一個宣告。 |
+| inputClaim | leftOperand | 字串 | 第一個宣告的類型，應該晚於第二個宣告。 |
+| inputClaim | rightOperand | 字串 | 第二個宣告的類型，應該早於第一個宣告。 |
 | InputParameter | AssertIfEqualTo | 布林值 | 指定當左運算元等於右運算元時，是否應該傳遞這個判斷提示。 |
 | InputParameter | AssertIfRightOperandIsNotPresent | 布林值 | 指定當右運算元遺失時，是否應該傳遞這個判斷提示。 |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | 指定若要將兩個日期時間視為相等，彼此之間所允許相隔的毫秒數 (例如，為了考慮時鐘誤差因素)。 |
@@ -39,7 +39,7 @@ ms.locfileid: "49167642"
 
 ![AssertStringClaimsAreEqual 執行](./media/date-transformations/assert-execution.png)
 
-下列範例會比較 `currentDateTime` 宣告與 `approvedDateTime` 宣告。 如果 `currentDateTime` 大於 `approvedDateTime`，則會擲回錯誤。 兩個值若相差不到 5 分鐘 (30000 毫秒)，轉換會將兩者視為相等。
+下列範例會比較 `currentDateTime` 宣告與 `approvedDateTime` 宣告。 如果 `currentDateTime` 晚於 `approvedDateTime`，則會擲回錯誤。 兩個值若相差不到 5 分鐘 (30000 毫秒)，轉換會將兩者視為相等。
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -138,17 +138,17 @@ ms.locfileid: "49167642"
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-判斷某個日期時間是大於、小於還是等於另一個日期時間。 其結果是新的布林值 ClaimType，且其值為 True 或 False。
+判斷某個日期時間是晚於、早於還是等於另一個日期時間。 其結果是新的布林值 ClaimType，且其值為 `true` 或 `false`。
 
 | Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | dateTime | 要比較的第一個日期時間。 Null 值會擲回例外狀況。 |
-| InputClaim | secondDateTime | dateTime | 要完成的第二個日期時間。 Null 值會視為目前的日期時間。 |
+| InputClaim | firstDateTime | dateTime | 第一個 dateTime，比較早於或晚於第二個 dateTime。 Null 值會擲回例外狀況。 |
+| InputClaim | secondDateTime | dateTime | 第二個 dateTime，用來比較早於或晚於第一個 dateTime。 Null 值會被視為目前的 datetTime。 |
 | InputParameter | operator | 字串 | 下列值之一：相同、晚於或早於。 |
 | InputParameter | timeSpanInSeconds | int | 將時間範圍新增至第一個日期時間。 |
 | OutputClaim | 結果 | 布林值 | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
-使用此宣告轉換來判斷兩個 ClaimTypes 之間是等於、大於還是小於。 例如，您可能會儲存上一次使用者接受服務條款 (TOS) 的時間。 3 個月後，您便可要求使用者再次存取 TOS。
+使用此宣告轉換來判斷兩個 ClaimTypes 之間是等於、晚於還是早於。 例如，您可能會儲存上一次使用者接受服務條款 (TOS) 的時間。 3 個月後，您便可要求使用者再次存取 TOS。
 若要執行宣告轉換，您必須先取得目前的日期時間，以及使用者上一次接受 TOS 的時間。
 
 ```XML

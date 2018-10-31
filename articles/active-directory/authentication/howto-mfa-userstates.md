@@ -10,16 +10,15 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c39b78995aaa7e6754b180142c03cf3aa25199a5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 302cf047ee1ffea685a939bddee84551de7042ec
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574263"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166758"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
-
-您可以透過下列方法之一，要求使用雙步驟驗證。 第一種是為每個使用者啟用 Azure Multi-Factor Authentication (MFA)。 當您分別為每位使用者進行啟用時，這些使用者在每次登入時都會執行雙步驟驗證 (但有一些例外，例如當他們從受信任的 IP 位址登入時，或開啟了_已記住裝置_功能)。 第二個選項是設定條件式存取原則，以在某些情況下要求使用雙步驟驗證。
+您可以採取下列方法之一來要求使用雙步驟驗證，這兩者都需要使用全域管理員帳戶。 第一種是為每個使用者啟用 Azure Multi-Factor Authentication (MFA)。 當您分別為每位使用者進行啟用時，這些使用者在每次登入時都會執行雙步驟驗證 (但有一些例外，例如當他們從受信任的 IP 位址登入時，或開啟了_已記住裝置_功能)。 第二個選項是設定條件式存取原則，以在某些情況下要求使用雙步驟驗證。
 
 > [!TIP]
 > 請選擇其中一種方法來要求使用雙步驟驗證，但不要兩種方法都使用。 為使用者啟用 Azure MFA 的效力會凌駕任何條件式存取原則。
@@ -36,7 +35,7 @@ ms.locfileid: "45574263"
 > 如需授權和定價的詳細資訊，請參閱 [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
 ) 和 [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 定價頁面。
 
-## <a name="enable-azure-mfa-by-changing-user-status"></a>藉由變更使用者狀態來啟用 Azure MFA
+## <a name="enable-azure-mfa-by-changing-user-state"></a>藉由變更使用者狀態來啟用 Azure MFA
 
 Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同狀態：
 
@@ -87,8 +86,17 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 
 請勿直接將使用者移至「已強制」狀態。 若這樣做，非瀏覽器型的應用程式會停止運作，因為使用者未通過 Azure MFA 註冊且未取得[應用程式密碼](howto-mfa-mfasettings.md#app-passwords)。
 
+請先安裝模組，使用：
+
+       Install-Module MSOnline
+       
+> [!TIP]
+> 別忘了先使用 **Connect-MsolService** 連線
+
+
 當您需要大量啟用使用者時，使用 PowerShell 是一個不錯的選項。 建立會在使用者清單中循環移動並啟用這些使用者的 PowerShell 指令碼：
 
+        Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = “Enabled”
@@ -106,8 +114,18 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
+    
+若要停用 MFA，請使用此指令碼：
+
+    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+    
+或者，也可以縮短為：
+
+    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 
 ## <a name="next-steps"></a>後續步驟
+
+系統會還是不會提示使用者執行 MFA 的原因？ 請參閱＜Azure Multi-Factor Authentication 中的報告＞文件中的 [Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。
 
 若要設定信任的 IP、自訂語音訊息及詐騙警示等額外設定，請參閱[設定 Azure Multi-Factor Authentication 設定](howto-mfa-mfasettings.md)
 

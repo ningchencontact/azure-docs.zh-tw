@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e42601646474ba986e75632af41d500e18b64021
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393893"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648763"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
-隨著應用程式開發逐漸改採以容器為基礎的方法，協調和管理相互連線的資源，就成為日漸重要的需求。 Kubernetes 是領先的平台，可用來提供容錯應用程式工作負載的可靠排程。 Azure Kubernetes Service (AKS) 是受管理的 Kubernetes 供應項目，可進一步簡化容器型應用程式的部署和管理。
+隨著應用程式開發逐漸改採容器型方法，協調和管理相互連線的資源，就成為日漸重要的需求。 Kubernetes 是領先的平台，可用來提供容錯應用程式工作負載的可靠排程。 Azure Kubernetes Service (AKS) 是受管理的 Kubernetes 供應項目，可進一步簡化容器型應用程式的部署和管理。
 
 本文介紹核心 Kubernetes 基礎結構元件，例如*叢集主機*、*節點*和*節點集區*。 此外也介紹 *Pod*、*部署*和*集合*等工作負載資源，並說明如何將資源分組到*命名空間*中。
 

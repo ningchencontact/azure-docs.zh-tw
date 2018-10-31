@@ -9,12 +9,12 @@ ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f57db00894dab80f96f45111331d47a173520ced
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ac729963e63bd97c83719e21dad3ad2cfc9b4fee
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575993"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392789"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>在 Windows IoT 核心版上安裝 IoT Edge 執行階段 - 預覽
 
@@ -27,7 +27,7 @@ Azure IoT Edge 和 [Windows IoT Core](https://docs.microsoft.com/windows/iot-cor
 ## <a name="install-the-container-runtime"></a>安裝容器執行階段
 
 1. 使用**組建 17134 (RS4)** IoT Core 映像設定您的開發板。 
-1. 開啟裝置電源，然後[使用 PowerShell 從遠端登入][lnk-powershell]。
+1. 開啟裝置電源，然後[使用 PowerShell 從遠端登入](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell)。
 1. 在 PowerShell 主控台中，安裝容器執行階段： 
 
    ```powershell
@@ -45,15 +45,8 @@ Azure IoT Edge 和 [Windows IoT Core](https://docs.microsoft.com/windows/iot-cor
 
 ## <a name="finish-installing"></a>完成安裝
 
-安裝 IoT Edge 安全性精靈，並使用[本文][lnk-install-windows-on-windows]中的指示加以設定
+安裝 IoT Edge 安全性精靈，並使用[本文](how-to-install-iot-edge-windows-with-windows.md)中的指示加以設定
 
 ## <a name="next-steps"></a>後續步驟
 
-現在，您的裝置正在執行 IoT Edge 執行階段，請了解如何[大規模部署和監視 IoT Edge 模組][lnk-deploy]。
-
-<!--Links-->
-[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md
-[lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
-[lnk-deploy]: how-to-deploy-monitor.md
-[lnk-docker-install]: https://docs.docker.com/engine/installation/linux/docker-ce/binaries#install-server-and-client-binaries-on-windows
-[lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers
+現在，您的裝置正在執行 IoT Edge 執行階段，請了解如何[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)。

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: f6c2540d8f0bb49491a428b085d20067a36d970a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d9db2182c20663cc048a5c9501df2586db25d2f3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723679"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364926"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>如何為指定的 API 選取權限
+# <a name="how-to-configure-endpoints"></a>如何設定端點
 
 您可以在 [Azure 入口網站](https://portal.azure.com)尋找應用程式的驗證端點。
 

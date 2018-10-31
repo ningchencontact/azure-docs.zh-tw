@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 10/11/2018
+ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452442"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320425"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -111,9 +111,22 @@ ms.locfileid: "47452442"
 
 若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
 
+<a name="sftp"></a>
+
+## <a name="ftp-sftp-and-sftp-ssh-limits"></a>FTP、SFTP 和 SFTP-SSH 限制
+
+### <a name="file-size"></a>檔案大小
+
+| 名稱 | 限制 | 注意 |
+|------|-------|-------|
+| FTP | 50 MB | 若要解決此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
+| SFTP | 50 MB | 若要解決此限制，請使用 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)或請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
+| SFTP-SSH | 1 GB | 若要解決此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
+|||| 
+
 <a name="request-limits"></a>
 
-## <a name="http-request-limits"></a>HTTP 要求限制
+## <a name="http-limits"></a>HTTP 限制
 
 以下是單一 HTTP 要求或同步連接器呼叫的限制：
 
@@ -156,6 +169,15 @@ ms.locfileid: "47452442"
 | 自訂連接器的數目 | 每個 Azure 訂用帳戶 1,000 個 | 
 | 自訂連接器所建立之每個連線的每分鐘要求數目 | 每個連線 500 個要求 |
 |||| 
+
+<a name="managed-identity"></a>
+
+## <a name="managed-identities"></a>受控身分識別
+
+| 名稱 | 限制 | 
+| ---- | ----- | 
+| 每個 Azure 訂用帳戶都有系統指派受控識別的邏輯應用程式數目。 | 10 | 
+|||
 
 <a name="integration-account-limits"></a>
 
@@ -308,9 +330,9 @@ ms.locfileid: "47452442"
 > 
 > Logic Apps 不支援透過防火牆直接連線至 Azure 儲存體帳戶。 若要存取這些儲存體帳戶，請使用以下任一個選項： 
 >
-> * 建立[整合服務環境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，以連線至 Azure 虛擬網路中的資源。 
+> * 建立[整合服務環境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，此環境可連線至 Azure 虛擬網路中的資源。 
 > 
-> * 如果您已經使用 API 管理，可以針對這個案例使用這個服務。 如需詳細資訊，請參閱[簡單的企業整合架構](http://aka.ms/aisarch)。
+> * 如果您已經使用「API 管理」，則可以針對這個案例使用這個服務。 如需詳細資訊，請參閱[簡單的企業整合架構](http://aka.ms/aisarch)。
 
 | Logic Apps 區域 | 輸出 IP | 
 |-------------------|-------------|  

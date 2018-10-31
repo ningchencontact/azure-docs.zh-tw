@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: dc28263fca5c6854ffad12678b472804f074addd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 59743df45cf2c7810404d9e6c636790c2855cf74
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035737"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023112"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>如需：使用 Azure Active Directory 入口網站新增自訂網域名稱
 每個新的 Azure AD 租用戶皆隨附初始網域名稱 (*domainname*.onmicrosoft.com)。 您無法變更或刪除初始網域名稱，但您可以將貴組織的名稱新增至清單。 新增自訂網域名稱可協助您建立使用者熟悉的使用者名稱，例如 *alain@contoso.com*。
@@ -28,7 +28,7 @@ ms.locfileid: "47035737"
 ## <a name="create-your-directory-in-azure-ad"></a>在 Azure AD 中建立您的目錄
 取得您的網域名稱之後，您可以建立您的第一個 Azure AD 目錄。
 
-1. 使用此目錄的訂用帳戶擁有者帳戶登入 [Azure 入口網站](https://portal.azure.com/)，然後選取 [Azure Active Directory]。
+1. 使用具有訂用帳戶 **擁有者**角色的帳戶，登入 [Azure 入口網站](https://portal.azure.com/)以瀏覽到您的目錄，然後選取 [Azure Active Directory]。 如需訂用帳戶角色的詳細資訊，請參閱[傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles)。
 
     ![Azure 入口網站畫面](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
@@ -84,7 +84,7 @@ ms.locfileid: "47035737"
 
     ![包含 DNS 項目資訊和 [驗證] 按鈕的 Contoso 頁面](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
-### <a name="common-verification-issues"></a>常見驗證問題
+## <a name="common-verification-issues"></a>常見驗證問題
 - 如果 Azure AD 無法驗證自訂網域名稱，請嘗試下列建議：
     - **至少等候一小時，然後再試一次**。 DNS 記錄必須在 Azure AD 驗證網域之後傳播，此程序可能需要一小時以上。
 
@@ -92,7 +92,9 @@ ms.locfileid: "47035737"
 
     如果您無法更新註冊機構網站上的記錄，則必須與具有正確權限的人員共用此項目，以新增項目並確認它是正確的。
 
-- **確定網域名稱並未在另一個目錄中使用。** 只可以在一個目錄中驗證網域名稱，這表示如果您的網域名稱目前已在另一個目錄中驗證，便無法在新的目錄中驗證。 若要修正此重複問題，您必須從舊的目錄中刪除網域名稱。 如需如何刪除網域名稱的詳細資訊，請參閱 [管理自訂網域名稱](../users-groups-roles/domains-manage.md)。 
+- **確定網域名稱並未在另一個目錄中使用。** 只可以在一個目錄中驗證網域名稱，這表示如果您的網域名稱目前已在另一個目錄中驗證，便無法在新的目錄中驗證。 若要修正此重複問題，您必須從舊的目錄中刪除網域名稱。 如需如何刪除網域名稱的詳細資訊，請參閱 [管理自訂網域名稱](../users-groups-roles/domains-manage.md)。
+
+- **確定您沒有任何非受控 Power BI 租用戶。** 如果您的使用者已透過自助式註冊啟用 Power BI 並針對貴組織建立非受控租用戶，您就必須使用 PowerShell 以內部或外部管理員身分接管管理。 若要深入了解如何接管非受控目錄，請參閱[以系統管理員身分接管 Azure Active Directory 中非受控目錄](../users-groups-roles/domains-admin-takeover.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

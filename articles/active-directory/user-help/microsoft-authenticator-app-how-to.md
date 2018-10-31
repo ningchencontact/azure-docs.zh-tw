@@ -5,19 +5,19 @@ services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
-ms.service: active-directoary
+ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: c8e14091d7a3fb5b925735824b1dd3ce26f034e8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144034"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393247"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>開始使用 Microsoft 驗證器應用程式
 
@@ -25,7 +25,7 @@ Microsoft Authenticator 應用程式可藉由為您的公司或學校帳戶 (例
 
 使用應用程式進行雙步驟驗證時，它可以下列兩種方式之一來運作：
 
-- **通知。** 應用程式會將通知傳送到您的裝置。 請確定通知正確，然後選取 [驗證]。 如果您無法辨識通知，請選取 [拒絕]。
+- **通知。** 應用程式會將通知傳送到您的裝置。 請確定通知正確，然後選取 [驗證]。 如果您無法辨識通知，請選取 [拒絕]。 按一下 [拒絕] 之後，您也可以將要求標示為詐騙。
 
 - **驗證碼。** 輸入您的使用者名稱和密碼之後，您可以開啟應用程式，然後將 [帳戶] 畫面上提供的驗證碼複製到登入畫面。 驗證碼會以第二種形式的驗證來運作。
 

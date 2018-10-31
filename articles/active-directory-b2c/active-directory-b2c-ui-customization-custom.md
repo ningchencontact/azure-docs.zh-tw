@@ -1,31 +1,31 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則來自訂 UI | Microsoft Docs
-description: 了解如何在 Azure AD B2C 中使用自訂原則時自訂使用者介面 (UI)。
+title: 在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面 | Microsoft Docs
+description: 深入了解在 Azure Active Directory B2C 中使用自訂原則來自訂使用者介面。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446158"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945055"
 ---
-# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C︰在自訂原則中設定 UI 自訂
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 完成本文之後，您將擁有一個具備您的品牌和外觀的註冊和登入自訂原則。 使用 Azure Active Directory B2C (Azure AD B2C)，幾乎可完全掌控對使用者呈現的 HTML 和 CSS 內容。 使用自訂原則時，您會以 XML 設定 UI 自訂，而不是在 Azure 入口網站中使用控制項。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-開始之前，請完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)。 您應該有一個使用本機帳戶來註冊和登入的有效自訂原則。
+完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。 您應該有一個使用本機帳戶來註冊和登入的有效自訂原則。
 
 ## <a name="page-ui-customization"></a>頁面 UI 自訂
 
@@ -119,27 +119,44 @@ ms.locfileid: "37446158"
 2. 按一下 [傳送要求]。  
     如果您收到錯誤，請確定您的 [CORS 設定](#configure-cors)正確無誤。 您也可能需要清除瀏覽器快取，或按 Ctrl+Shift+P 來開啟 InPrivate 瀏覽工作階段。
 
-## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>修改您的註冊或登入自訂原則
+## <a name="modify-the-extensions-file"></a>修改擴充檔案
 
-在最上層的 \<TrustFrameworkPolicy\> 標籤中，您應該會發現 \<BuildingBlocks\> 標籤。 在 \<BuildingBlocks\> 標籤內，藉由複製下列範例來新增 \<ContentDefinitions\> 標籤。 使用您的儲存體帳戶名稱來取代 *your_storage_account*。
+若要設定 UI 自訂，您要從基底檔案將 **ContentDefinition** 及其子元素複製到擴充檔案。
 
-  ```xml
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.idpselections">
-        <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>
-  ```
+1. 開啟原則的基底檔案。 例如，TrustFrameworkBase.xml。
+2. 搜尋 **ContentDefinitions** 元素的完整內容並且複製。
+3. 開啟擴充檔案。 例如 TrustFrameworkExtensions.xml。 搜尋 **BuildingBlocks** 元素。 如果此元素不存在，請加以新增。
+4. 貼上您複製的 **ContentDefinitions** 元素完整內容，作為 **BuildingBlocks** 元素的子項目。 
+5. 在您複製的 XML 中，搜尋包含 `Id="api.signuporsignin"` 的 **ContentDefinition** 元素。
+6. 將 **LoadUri** 的值變更為您上傳至儲存體的 HTML 檔案 URL。 例如， https://mystore1.azurewebsites.net/b2c/customize-ui.html。
+    
+    自訂原則看起來應該如下所示：
+
+    ```xml
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsignin">
+          <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>
+    ```
+
+7. 儲存擴充檔案。
 
 ## <a name="upload-your-updated-custom-policy"></a>上傳更新的自訂原則
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，[切換至您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後開啟 [Azure AD B2C] 刀鋒視窗。
+1. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [識別體驗架構]。
 2. 按一下 [所有原則]。
 3. 按一下 [上傳原則]。
-4. 上傳 `SignUpOrSignin.xml` 與您先前新增的 \<ContentDefinitions\> 標籤。
+4. 上傳您先前變更的擴充檔案。
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>使用 [立即執行] 測試自訂原則
 

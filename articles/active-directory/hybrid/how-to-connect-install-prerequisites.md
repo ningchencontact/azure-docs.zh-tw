@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: addb99478025757257bce465a02287ebedd40bb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310207"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321626"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的必要條件
 本主題描述 Azure AD Connect 的必要條件和硬體需求。
@@ -29,11 +29,11 @@ ms.locfileid: "46310207"
 安裝 Azure AD Connect 之前，您需要注意一些事項。
 
 ### <a name="azure-ad"></a>Azure AD
-* Azure 訂用帳戶或 [Azure 試用版訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)。 此訂閱僅需要用來存取 Azure 入口網站，而不會用於 Azure AD Connect。 如果您正在使用 PowerShell 或 Office 365，則不需要 Azure 訂用帳戶來使用 Azure AD Connect。 如果您有 Office 365 授權，也可以使用 Office 365 入口網站。 使用付費的 Office 365 授權，您也可以從 Office 365 入口網站登入 Azure 入口網站。
-  * 您也可以使用 [Azure 入口網站](https://portal.azure.com)。 此入口網站不需要 Azure AD 授權。
+* Azure AD 租用戶。 您可以透過 [Azure 免費試用版](https://azure.microsoft.com/pricing/free-trial/)取得一個租用戶。 您可以使用下列其中一個入口網站來管理 Azure AD Connect：
+  * [Azure 入口網站](https://portal.azure.com)。
+  * [Office 入口網站](https://portal.office.com)。  
 * [新增並驗證](../active-directory-domains-add-azure-portal.md) 您計畫使用於 Azure AD 中的網域。 例如，如果您計畫讓使用者使用 contoso.com，請確定此網域已經過驗證，而且您不是只使用 contoso.onmicrosoft.com 預設網域。
 * Azure AD 租用戶預設允許 5 萬個物件。 當您驗證網域後，此限額會增加到 30 萬個物件。 如果您在 Azure AD 中需要更多的物件，您必須洽詢支援人員以增加此限額。 如果您需要 50 萬個以上的物件，您需要如 Office 365、Azure AD Basic、Azure AD Premium 或 Enterprise Mobility + Security 等授權。
-* ADSyncPrep 是一個 PowerShell 指令碼模組，此模組所提供的函式可用來準備適用於 Azure AD Connect 的 Active Directory 環境。  ADSyncPrep 需要 [Azure AD Microsoft Online v1.1 PowerShell 模組](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)。  第 2 版將無法運作。 您可以使用 `Install-Module` Cmdlet 來安裝此模組。  如需詳細資訊，請參閱所提供的連結。
 
 ### <a name="prepare-your-on-premises-data"></a>準備您的內部部署資料
 * 在同步至 Azure AD 和 Office 365 之前，使用 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) 來識別目錄中如重複項目和格式問題等的錯誤。
@@ -47,7 +47,7 @@ ms.locfileid: "46310207"
 * 建議您[啟用 Active Directory 資源回收筒](how-to-connect-sync-recycle-bin.md)。
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 伺服器
-* Azure AD Connect 無法安裝至 Small Business Server 或 Windows Server Essentials。 伺服器必須使用 Windows Server Standard 或以上版本。
+* Azure AD Connect 無法安裝至 2019 以前的 Small Business Server 或 Windows Server Essentials (支援 Windows Server Essentials 2019)。 伺服器必須使用 Windows Server Standard 或以上版本。
 * Azure AD Connect 伺服器必須已安裝完整的 GUI。 **不**支援在伺服器核心上安裝。
 * Azure AD Connect 必須安裝於 Windows Server 2008 或更新版本上。 此伺服器可以是網域控制站或成員伺服器 (使用快速設定時)。 如果您使用自訂設定，伺服器也可以是獨立伺服器，而且不需加入網域。
 * 如果您要在 Windows Server 2008 或 Windows Server 2008 R2 上安裝 Azure AD Connect，請務必套用來自 Windows Update 的最新 Hotfix。 無法在未修補的伺服器上開始進行安裝。
@@ -69,8 +69,8 @@ ms.locfileid: "46310207"
 
 ### <a name="accounts"></a>帳戶
 * 想要與其整合之 Azure AD 租用戶的 Azure AD 全域管理員帳戶。 此帳戶必須是**學校或組織帳戶**，不能是 **Microsoft 帳戶**。
-* 如果您使用快速設定或從 DirSync 升級，則必須具有本機 Active Directory 的企業系統管理員帳戶。
-* 如果您使用自訂設定的安裝路徑，則為 [Active Directory 中的帳戶](reference-connect-accounts-permissions.md)。
+* 如果您使用快速設定或從 DirSync 升級，則必須具有內部部署 Active Directory 的企業系統管理員帳戶。
+* [Active Directory 中的帳戶](reference-connect-accounts-permissions.md) (如果您使用自訂設定安裝路徑，或適用於內部部署 Active Directory 的企業系統管理員帳戶)。
 
 ### <a name="connectivity"></a>連線能力
 * Azure AD Connect 伺服器需要內部網路和網際網路的 DNS 解析。 DNS 伺服器必須能夠將名稱解析成您的內部部署 Active Directory 和 Azure AD 端點。
@@ -184,7 +184,6 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。 您需�
 下列是 Azure AD Connect 會在要安裝 Azure AD Connect 的伺服器上安裝的元件清單。 此清單適用於基本快速安裝。 如果您在 [安裝同步處理服務] 頁面上選擇使用不同的 SQL Server，則不會在本機安裝 SQL Express LocalDB。
 
 * Azure AD Connect Health
-* 適用於 IT 專業人員的 Microsoft Online Services 登入小幫手 (已安裝但未與其相依)
 * Microsoft SQL Server 2012 命令列公用程式
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client

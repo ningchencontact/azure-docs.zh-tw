@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42140872"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378749"
 ---
 # <a name="plan-virtual-networks"></a>規劃虛擬網路
 
@@ -93,7 +93,7 @@ Azure 會針對來自子網路的輸出流量建立數個預設路由。 您可�
 
 ### <a name="peering"></a>對等互連
 
-使用[虛擬網路對等互連](virtual-network-peering-overview.md)時，虛擬網路可位於相同或不同的 Azure 支援區域。 虛擬網路可以位於相同或不同的 Azure 訂用帳戶；針對不同 Azure 訂用帳戶的情況，前提必須將這兩個訂用帳戶都指派到相同的 Azure Active Directory 租用戶。 在建立對等互連之前，建議您先熟悉對等互連的所有[需求和限制條件](virtual-network-manage-peering.md#requirements-and-constraints)。 相同區域中對等互連的虛擬網路中資源間的頻寬會相同，就像這些資源都位於相同的虛擬網路一樣。
+使用[虛擬網路對等互連](virtual-network-peering-overview.md)時，虛擬網路可位於相同或不同的 Azure 支援區域。 虛擬網路可以位於相同或不同的 Azure 訂用帳戶 (即使訂用帳戶屬於不同的 Azure Active Directory 租用戶)。 在建立對等互連之前，建議您先熟悉對等互連的所有[需求和限制條件](virtual-network-manage-peering.md#requirements-and-constraints)。 相同區域中對等互連的虛擬網路中資源間的頻寬會相同，就像這些資源都位於相同的虛擬網路一樣。
 
 ### <a name="vpn-gateway"></a>VPN 閘道
 

@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024650"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309650"
 ---
 # <a name="manage-credentials"></a>管理認證
 
@@ -66,11 +66,11 @@ ms.locfileid: "44024650"
 
 ### <a name="resource-id"></a>資源識別碼
 
-我們在[使用 Azure 帳戶搭配審查工具和 API ](credentials.md#how-to-use-your-azure-account-with-the-review-tool)一節中涵蓋了這一節。 此欄位通常空白，除非您如上一節所述，將您的 Azure 資源識別碼新增到此欄位。
+上述的[使用 Azure 帳戶搭配檢閱工具與 API](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api)一節中涵蓋這組欄位。 此欄位通常空白，除非您如上一節所述，將您的 Azure 資源識別碼新增到此欄位。
 
 ### <a name="workflows"></a>工作流程
 
-我們在上一節[使用 Azure 金鑰來執行工作流程](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool)中涵蓋了這組欄位。 根據預設，審查工具會使用其自動產生的試用金鑰來執行工作流程，而這就是一開始顯示的內容。 其他兩個欄位允許在 [畫面文字] 和 [評估影像] 作業中分別使用字詞和影像清單。
+上述的[使用 Azure 帳戶搭配檢閱工具中的工作流程](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool)一節中涵蓋這組欄位。 根據預設，審查工具會使用其自動產生的試用金鑰來執行工作流程，而這就是一開始顯示的內容。 其他兩個欄位允許在 [畫面文字] 和 [評估影像] 作業中分別使用字詞和影像清單。
 
 ## <a name="next-steps"></a>後續步驟
 

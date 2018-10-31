@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: b5834bfd47cf2ab8462462c43394c8f05e43afa3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a857b813cee86079b96cd2bca297c1cf098819f5
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971394"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113898"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>取得 Azure Machine Learning 服務的支援和訓練
 
@@ -27,6 +27,8 @@ ms.locfileid: "46971394"
 + [架構概觀](../service/concept-azure-machine-learning-architecture.md)
 + [影片](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 
+## <a name="submit-doc-feedback"></a>提交文件意見反應 
+
 您可以使用本文底部的意見反應連結來**提交要求**，以取得其他學習資料。
 
 ## <a name="get-support-for-azure-machine-learning-service"></a>取得 Azure Machine Learning 服務的支援
@@ -35,7 +37,7 @@ ms.locfileid: "46971394"
 
 + **技術支援**：造訪 [Azure 技術支援](https://azure.microsoft.com/support/options/)並選取 [Machine Learning]。 
 
-+ **使用者論壇**：在 [MSDN 上的 Azure Machine Learning 服務支援論壇](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning)中提出問題、回答問題，以及與其他使用者交流。
++ **使用者論壇**：在 [MSDN 上的 Azure Machine Learning 服務支援論壇](https://aka.ms/aml-forum-service)中提出問題、回答問題，以及與其他使用者交流。
 
 + **Stack Overflow**：造訪 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) 上標籤為 "Azure-Machine-Learning" 的 Azure Machine Learning 社群。
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 8cfbc72e239a7a5b38cee6752803e79735e2adc9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840984"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321269"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -27,9 +27,11 @@ ms.locfileid: "43840984"
 
 無論您在查詢集區中擁有多少個查詢複本，處理工作負載都不會分散在各查詢複本之間。 單一伺服器可作為處理伺服器使用。 查詢複本僅針對在查詢集區中的每個查詢複本之間同步處理的模型提供查詢。 
 
-在相應放大時，新的查詢複本會以累加的方式新增至查詢集區。 最多可能需要五分鐘的時間，新的查詢複本資源才會納入查詢集區中，並且可用來接收用戶端連線和查詢。 所有的新查詢複本都已啟動並執行後，新的用戶端連線進行負載平衡而分散到所有的查詢集區資源。 現有的用戶端連線仍會連接到目前的資源，而不會變更。  在相應縮小時，若有用戶端連線至要從查詢集區中移除的查詢集區資源，其現有的連線一律會終止。 他們會在相應縮小作業完成後重新連線至其餘的查詢集區資源。
+在相應放大時，新的查詢複本會以累加的方式新增至查詢集區。 最多可能需要五分鐘的時間，新的查詢複本資源才會納入查詢集區中。 所有的新查詢複本都已啟動並執行後，新的用戶端連線進行負載平衡而分散到所有的查詢集區資源。 現有的用戶端連線仍會連接到目前的資源，而不會變更。  在相應縮小時，若有用戶端連線至要從查詢集區中移除的查詢集區資源，其現有的連線一律會終止。 他們會在相應縮小作業完成後重新連線至其餘的查詢集區資源，最多可能需要五分鐘的時間。
 
 在處理模型時，當處理作業完成後，必須在處理伺服器與查詢複本之間執行同步處理。 自動化處理作業時，請務必在成功完成處理作業後設定同步作業。 透過入口網站中或使用 PowerShell 或 REST API，可以手動執行同步。 
+
+### <a name="separate-processing-from-query-pool"></a>與查詢集區分開處理
 
 若要讓處理和查詢作業達到最佳效能，您可以選擇將處理伺服器和查詢集區區隔開來。 區隔之後，現有和新的用戶端連線都只會指派給查詢集區中的查詢複本。 如果處理作業短時間即可完成，您可以選擇只在執行處理和同步處理作業的期間內區隔處理伺服器與查詢集區，且隨後就將它重新納入查詢集區中。 
 
@@ -53,14 +55,13 @@ ms.locfileid: "43840984"
 
 1. 在入口網站中，按一下 [擴充]。使用滑桿選取查詢複本伺服器的數目。 所選擇的複本數目不包括現有的伺服器。
 
-2. 在 [Separate the processing server from the querying pool]\(區隔處理伺服器與查詢集區\) 中，選取 [是] 以將處理伺服器從查詢伺服器排除。
+2. 在 [Separate the processing server from the querying pool]\(區隔處理伺服器與查詢集區\) 中，選取 [是] 以將處理伺服器從查詢伺服器排除。 使用預設連接字串 (不含 rw) 的用戶端連線會重新導向至查詢集區中的複本。 
 
    ![擴充滑桿](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
 3. 按一下 [儲存] 以佈建您的新查詢複本伺服器。 
 
 主要伺服器上的表格式模型會與複本伺服器同步。 同步處理完成時，查詢集區即會開始分散複本伺服器之間的傳入查詢。 
-
 
 ## <a name="synchronization"></a>同步處理 
 
@@ -79,7 +80,7 @@ ms.locfileid: "43840984"
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>取得同步處理狀態  
-`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
 使用 PowerShell 之前，請[安裝或更新最新的 AzureRM 模組](https://github.com/Azure/azure-powershell/releases)。 
@@ -87,8 +88,6 @@ ms.locfileid: "43840984"
 若要設定查詢複本數目，請使用 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)。 指定選擇性的 `-ReadonlyReplicaCount` 參數。
 
 若要執行同步處理，請使用 [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)。
-
-
 
 ## <a name="connections"></a>連線
 
@@ -99,6 +98,12 @@ ms.locfileid: "43840984"
 若為 SSMS、SSDT，以及 PowerShell、Azure 函數應用程式和 AMO 中的連接字串，請使用**管理伺服器名稱**。 管理伺服器名稱包含特殊 `:rw` (讀寫) 限定詞。 所有的處理作業皆發生在管理伺服器上。
 
 ![伺服器名稱](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="troubleshoot"></a>疑難排解
+
+**問題︰** 使用者收到錯誤「找不到處於連線模式 'ReadOnly' 的伺服器 '\<伺服器名稱>' 執行個體。
+
+**解決方法：** 選取 [分開處理伺服器與查詢集區] 選項時，使用預設連接字串 (不含 :rw) 的用戶端連線會重新導向至查詢集區複本。 如果查詢集區中的複本因為尚未完成同步處理而未上線，則重新導向的用戶端連線可能會失敗。 若要避免連線失敗，請選擇在相應放大和同步處理作業完成後，才能分開處理伺服器與查詢集區。 您可以使用記憶體和 QPU 計量來監視同步處理狀態。
 
 ## <a name="related-information"></a>相關資訊
 

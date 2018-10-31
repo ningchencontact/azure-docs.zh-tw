@@ -3,17 +3,17 @@ title: 如何使用 Azure 地圖服務的地圖控制項 | Microsoft Docs
 description: 了解如何使用 Azure 地圖服務的地圖控制項用戶端 Javascript 程式庫。
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 45890b4bd474c010b2b086be0405b79d340aeebd
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 850f9b28c112c11fd98a8abc81a1811cd26d81cc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603154"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166016"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務的地圖控制項
 
@@ -43,14 +43,14 @@ ms.locfileid: "45603154"
     </style>
     ```
 
-4. 若要初始化地圖控制項，請在 html 主體中定義新的區段並建立指令碼。 在指令碼中使用您自己的 Azure 地圖服務帳戶金鑰。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。
+4. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 在指令碼中使用您自己的 Azure 地圖服務帳戶金鑰。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 **SetLanguage** 方法會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](https://docs.microsoft.com/azure/azure-maps/supported-languages)。
 
     ```html
     <div id="map">
         <script>
-            var MapsAccountKey = "<_your account key_>";
+            atlas.setSubscriptionKey("<_your account key_>");
+            atlas.setLanguage("en");
             var map = new atlas.Map("map", {
-                "subscription-key": MapsAccountKey,
                 center: [-122.33263,47.59093],
                 zoom: 12
             });

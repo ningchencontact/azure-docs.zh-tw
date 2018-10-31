@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/13/2017
 ms.author: devinb
-ms.openlocfilehash: 90dd5df4a607568e2f3a60791da2948af7ce4e50
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: cd88dec2ad79ad9f4b4c004866060be86b777cd9
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24002925"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311179"
 ---
 # <a name="troubleshoot-visual-studio-2017-development-with-docker"></a>疑難排解 Docker 的 Visual Studio 2017 開發
 
@@ -33,9 +33,13 @@ ms.locfileid: "24002925"
 1. 選取 [共用磁碟機] 並共用系統磁碟機以及專案所在的磁碟機。
 
 > [!NOTE]
-> 如果檔案似乎已共用，您仍可能需要按一下對話方塊下的 [重設認證...] 連結，以重新啟用磁碟區共用。
+> 如果檔案似乎已共用，您仍可能需要按一下對話方塊下的 [重設認證...] 連結，以重新啟用磁碟區共用。 若要在重設認證後繼續，您可能必須重新啟動 Visual Studio。
 
 ![共用的磁碟機](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
+
+## <a name="mounts-denied"></a>拒絕掛接
+
+使用 macOS 適用的 Docker 時，您可能會遇到參考 /usr/local/share/dotnet/sdk/NuGetFallbackFolder 資料夾的錯誤。 將此資料夾新增至 Docker 中的 [檔案共用] 索引標籤。
 
 ## <a name="unable-to-start-debugging"></a>無法開始偵錯
 

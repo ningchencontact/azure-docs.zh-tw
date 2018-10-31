@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996650"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322068"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虛擬機器擴展集
 在應用程式的整個生命週期中，您可能需要修改或更新您的虛擬機器擴展集。 這些更新可能包括如何更新擴展集的組態，或者變更應用程式組態。 本文說明如何使用 REST API、Azure PowerShell 或 Azure CLI 來修改現有的擴展集。
@@ -126,7 +126,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 
 
 ### <a name="the-scale-set-vm-model-view"></a>擴展集 VM 模型檢視
-就像擴展集有模型檢視一樣，擴展集內的每個 VM 也有自己的模型檢視。 若要查詢擴展集的模型檢視，您可以使用：
+就像擴展集有模型檢視一樣，擴展集內的每個 VM 執行個體也有自己的模型檢視。 若要查詢擴展集中特定 VM 執行個體的模型檢視，您可以使用：
 
 - REST API 執行 [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get)，如下所示：
 
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-這些屬性會描述虛擬機器本身的組態，而非擴展集整體的組態。 例如，擴展集模型有 `overprovision` 作為屬性，而擴展集內虛擬機器的模型則沒有。 之所以會有這個差異，是因為過度佈建是適用於擴展集整體的屬性，而不適用於擴展集內個別的虛擬機器 (如需有關過度佈建的詳細資訊，請參閱[擴展集的設計考量](virtual-machine-scale-sets-design-overview.md#overprovisioning))。
+這些屬性會描述 VM 執行個體的組態，而非擴展集整體的組態。 例如，擴展集模型有 `overprovision` 作為屬性，而擴展集中 VM 執行個體的模型則沒有。 之所以會有這個差異，是因為過度佈建是適用於擴展集整體的屬性，而不適用於擴展集中個別 VM 執行個體 (如需有關過度佈建的詳細資訊，請參閱[擴展集的設計考量](virtual-machine-scale-sets-design-overview.md#overprovisioning))。
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>擴展集 VM 執行個體檢視
-就像擴展集有執行個體檢視一樣，擴展集內的每個 VM 也有自己的執行個體檢視。 若要查詢擴展集的執行個體檢視，您可以使用：
+就像擴展集有執行個體檢視一樣，擴展集內的每個 VM 執行個體也有自己的執行個體檢視。 若要查詢擴展集中特定 VM 執行個體的執行個體檢視，您可以使用：
 
 - REST API 執行 [ompute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview)，如下所示：
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-這些屬性會描述虛擬機器本身目前執行階段狀態的摘要，包括套用至擴展集的所有擴充功能。
+這些屬性會描述 VM 執行個體的目前執行階段狀態，包括套用至擴展集的所有擴充功能。
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>如何更新全域擴展集屬性

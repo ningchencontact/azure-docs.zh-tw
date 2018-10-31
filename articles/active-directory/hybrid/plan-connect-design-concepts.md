@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f85726f7058c783b6e369126532e40ceecc3c846
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308177"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945989"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：設計概念
 本文件旨在說明 Azure AD Connect 實作設計期間必須考量的領域。 本文件是特定領域的深入探討，而在其他文件中也會簡短描述這些概念。

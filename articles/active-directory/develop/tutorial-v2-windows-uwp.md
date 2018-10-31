@@ -1,48 +1,46 @@
 ---
-title: Azure AD v2 UWP 使用者入門 | Microsoft Docs
-description: 通用 Windows 平台應用程式 (UWP) 如何呼叫需要來自 Azure Active Directory v2 端點之存取權杖的 API
+title: Azure AD v2.0 UWP 使用者入門 | Microsoft Docs
+description: 通用 Windows 平台應用程式 (UWP) 如何呼叫需要來自 Azure Active Directory v2.0 端點存取權杖的 API
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2018
+ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966379"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986537"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>自通用 Windows 平台應用程式 (XAML) 呼叫 Microsoft Graph API
-
 
 > [!div renderon="docs"]
 > [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-本指南說明原生通用 Windows 平台 (UWP) 應用程式如何要求存取權杖，然後呼叫 Microsoft Graph API。 本指南也適用於需要來自 Azure Active Directory v2 端點之存取權杖的其他 API。
+本指南說明原生通用 Windows 平台 (UWP) 應用程式如何要求存取權杖，然後呼叫 Microsoft Graph API。 本指南也適用於需要來自 Azure Active Directory v2.0 端點存取權杖的其他 API。
 
 在本指南結尾，您的應用程式會使用個人帳戶呼叫受保護的 API。 例如，outlook.com、live.com 等。 您的應用程式也會從具有 Azure Active Directory 的任何公司或組織呼叫工作和學校帳戶。
 
 >[!NOTE]
 > 本指南需安裝具備通用 Windows 平台開發功能的 Visual Studio 2017。 如需下載及設定 Visual Studio 以開發通用 Windows 平台應用程式的說明，請參閱[開始設定](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)。
 
-### <a name="how-this-guide-works"></a>本指南使用方式
+## <a name="how-this-guide-works"></a>本指南使用方式
 
 ![本指南使用方式圖形](./media/tutorial-v2-windows-uwp/uwp-intro.png)
 
-本指南建立的範例 UWP 應用程式會查詢可接受來自 Azure Active Directory v2 端點之存取權杖的 Microsoft Graph API 或 Web API。 針對這個案例，系統會透過授權標頭將一個權杖新增到 HTTP 要求。 Microsoft 驗證程式庫 (MSAL) 會處理權杖取得和更新作業。
+本指南建立的範例 UWP 應用程式會查詢可接受來自 Azure Active Directory v2.0 端點存取權杖的 Microsoft Graph API 或 Web API。 針對這個案例，系統會透過授權標頭將一個權杖新增到 HTTP 要求。 Microsoft 驗證程式庫 (MSAL) 會處理權杖取得和更新作業。
 
-### <a name="nuget-packages"></a>NuGet 套件
+## <a name="nuget-packages"></a>NuGet 套件
 
 本指南會使用以下 NuGet 套件：
 
@@ -50,18 +48,18 @@ ms.locfileid: "46966379"
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft 驗證程式庫|
 
-
 ## <a name="set-up-your-project"></a>設定專案
 
 本節提供整合 Windows 傳統型 .NET 應用程式 (XAML) 與「使用 Microsoft 登入」的逐步教學說明。 然後，它會查詢需要權杖的 Web API，例如 Microsoft Graph API。
 
 本指南建立的應用程式會顯示查詢圖形 API 的按鈕、登出按鈕以及顯示呼叫結果的文字方塊。
 
->[!NOTE]
+> [!NOTE]
 > 您想要改為下載此範例的 Visual Studio 專案嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)並跳至[應用程式註冊](#register-your-application "應用程式註冊步驟")步驟，以在執行之前先設定程式碼範例。
 
 
 ### <a name="create-your-application"></a>建立您的應用程式
+
 1. 在 Visual Studio 中，選取 [檔案]  >  [新增]  >  [專案]。
 2. 在 [範本] 底下，選取 [Visual C#]。
 3. 選取 [空白應用程式] \(通用 Windows\)。
@@ -79,7 +77,7 @@ ms.locfileid: "46966379"
     ```
 
 > [!NOTE]
-> 此命令會安裝 [Microsoft 驗證程式庫](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)。 MSAL 會取得、快取並重新整理使用者權杖，以存取受 Azure Active Directory v2 保護的 API。
+> 此命令會安裝 [Microsoft 驗證程式庫](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)。 MSAL 會取得、快取並重新整理使用者權杖，以存取受 Azure Active Directory v2.0 保護的 API。
 
 > [!NOTE]
 > 本教學課程還不會使用最新版的 MSAL.NET，但我們正努力加以更新。
@@ -193,10 +191,13 @@ ms.locfileid: "46966379"
     ```
 
 ### <a name="more-information"></a>詳細資訊
+
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
+
 呼叫 `AcquireTokenAsync` 方法時會顯示一個視窗，提示使用者登入。 當使用者第一次需要存取受保護的資源時，應用程式通常會要求使用者以互動方式登入。 當取得權杖的無訊息作業失敗時，使用者也可能需要登入。 例如，使用者的密碼過期時。
 
 #### <a name="get-a-user-token-silently"></a>以無訊息方式取得使用者權杖
+
 `AcquireTokenSilentAsync` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 第一次執行 `AcquireTokenAsync` 之後，系統會提示使用者輸入認證，您應該在後續呼叫中使用 `AcquireTokenSilentAsync` 方法來要求權杖，因為這會以無訊息方式取得權杖。 MSAL 會處理權杖快取和更新作業。
 
 最後，`AcquireTokenSilentAsync` 方法會失敗。 失敗的原因可能是使用者已經登出，或已經在其他裝置上變更其密碼。 當 MSAL 偵測到可透過要求執行互動式動作來解決問題時，就會發出一個 `MsalUiRequiredException` 例外狀況。 您的應用程式可以透過兩種方式處理此例外狀況：
@@ -333,7 +334,6 @@ ms.locfileid: "46966379"
 > [!IMPORTANT]
 > 在此範例中，預設不會設定 Windows 整合式驗證。 要求 [企業驗證] 或 [共用使用者憑證] 功能的應用程式需要更高的 Windows 市集驗證層級。 此外，並非所有開發人員都需要執行更高的驗證層級。 只有您需要具有 Azure Active Directory 同盟網域的 Windows 整合式驗證時，才啟用此設定。
 
-
 ## <a name="test-your-code"></a>測試您的程式碼
 
 若要測試您的應用程式，請選取 F5 以在 Visual Studio 中執行專案。 您的主視窗隨即出現：
@@ -369,7 +369,7 @@ ms.locfileid: "46966379"
 
 Microsoft Graph API 需要 *user.read* 範圍才能讀取使用者的設定檔。 根據預設，在應用程式註冊入口網站註冊的每個應用程式中，都會自動新增此範圍。 Microsoft Graph 的其他 API 與您後端伺服器的自訂 API 一樣，需要其他範圍。 Microsoft Graph API 需要 *Calendars.Read* 範圍才能列出使用者的行事曆。
 
-為了在應用程式內容中存取使用者的行事曆，請將 Calendars.Read 委派權限新增至應用程式註冊資訊。 接著，將 *Calendars.Read* 範圍新增至 `acquireTokenSilent` 呼叫。 
+為了在應用程式內容中存取使用者的行事曆，請將 Calendars.Read 委派權限新增至應用程式註冊資訊。 接著，將 *Calendars.Read* 範圍新增至 `acquireTokenSilent` 呼叫。
 
 > [!NOTE]
 > 系統可能會在您增加範圍數目時，提示使用者同意其他事項。
@@ -392,3 +392,5 @@ Microsoft Graph API 需要 *user.read* 範圍才能讀取使用者的設定檔�
 **原因：** 此問題是在 Windows 10 桌上型電腦上執行的 UWP 應用程式中之 Web 驗證訊息代理程式的已知限制。 它在 Windows 10 行動裝置版上會正常運作。
 
 **因應措施：** 選取 [使用其他選項登入]。 然後選取 [以您的使用者名稱和密碼登入]。 選取 [提供您的密碼]。 然後完成電話驗證程序。
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

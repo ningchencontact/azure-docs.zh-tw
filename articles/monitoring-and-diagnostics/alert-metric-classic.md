@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ffac9511ab93367cba3f006249bd92658a520e09
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409995"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386923"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>使用 Azure 監視器建立、檢視及管理傳統計量警示
 
@@ -36,7 +36,7 @@ ms.locfileid: "47409995"
 
 6. 如果您想要讓系統管理員和共同管理員在警示引發時收到電子郵件通知，請選取 [電子郵件的擁有者...] 。
 
-7. 如果您想要在警示引發時傳送通知給其他電子郵件地址，請在 [其他管理員的電子郵件] 欄位中新增。 使用下列格式，以分號分隔多個電子郵件：email@contoso.com; email2@contoso.com
+7. 如果您想要在警示引發時傳送通知給其他電子郵件地址，請在 [其他管理員的電子郵件] 欄位中新增。 使用下列格式，以分號分隔多個電子郵件：email@contoso.com；email2@contoso.com
 
 8. 如果您想在警示引發時呼叫 Webhook，在 [Webhook]  欄位中放入有效的 URI。
 
@@ -54,7 +54,7 @@ ms.locfileid: "47409995"
 
 ## <a name="with-azure-cli"></a>透過 Azure CLI
 
-先前幾節說明如何使用 Azure 入口網站建立、檢視及管理計量警示規則。 此節說明如何使用跨平台 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) 執行相同的作業。 開始使用 Azure CLI 最快的方式就是透過 [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest)。
+先前幾節說明如何使用 Azure 入口網站建立、檢視及管理計量警示規則。 此節說明如何使用跨平台 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) 執行相同的作業。 開始使用 Azure CLI 最快的方式就是透過 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)。
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>取得資源群組中的所有傳統警示規則
 

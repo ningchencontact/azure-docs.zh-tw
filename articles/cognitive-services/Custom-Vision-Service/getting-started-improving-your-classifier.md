@@ -1,20 +1,21 @@
 ---
-title: 使用自訂視覺服務改善分類器 - Azure 認知服務 | Microsoft Docs
-description: 了解如何改善自訂視覺服務分類器的品質。
+title: 改善您的分類器 - 自訂視覺服務
+titlesuffix: Azure Cognitive Services
+description: 了解如何改善分類器的品質。
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: nolachar
-ms.openlocfilehash: 7c6cbd996d0c35b96fde78daf391bebb36feddce
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: pafarley
+ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888168"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340285"
 ---
 # <a name="how-to-improve-your-classifier"></a>如何改善分類器
 

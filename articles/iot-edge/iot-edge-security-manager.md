@@ -2,19 +2,19 @@
 title: Azure IoT Edge 安全性管理員 | Microsoft Docs
 description: 管理 IoT Edge 裝置安全性立場和安全性服務的完整性。
 services: iot-edge
-keywords: security, element, enclave, IoT Edge, 安全性, 元素, 保護區
+keywords: 安全性、安全性元素、enclave、TEE、IoT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126338"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321162"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 安全性管理員
 
@@ -113,7 +113,7 @@ HSM PAL 將所有根信任硬體抽象化，以將 IoT Edge 開發人員或使�
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>安全晶片根信任硬體
 
-必須有安全晶片才能在 IoT Edge 裝置硬體內固定信任。  安全晶片有各種類型，包括信賴平台模組 (TPM)、內嵌安全性元素 (eSM)、ARM 信任區、Intel SGX 及自訂安全晶片技術。  因為考慮到 IoT 裝置實體可存取性的相關威脅，所以強烈建議在裝置中使用安全晶片根信任。
+必須有安全晶片才能在 IoT Edge 裝置硬體內固定信任。  安全晶片有各種類型，包括信賴平台模組 (TPM)、內嵌安全性元素 (eSE)、ARM 信任區、Intel SGX 及自訂安全晶片技術。  因為考慮到 IoT 裝置實體可存取性的相關威脅，所以強烈建議在裝置中使用安全晶片根信任。
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>IoT Edge 安全性管理員整合和維護
 

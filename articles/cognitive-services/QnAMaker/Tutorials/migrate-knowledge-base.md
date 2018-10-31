@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031623"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365555"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>使用匯出-匯入移轉知識庫
 QnA Maker 於 2018 年 5 月 7 日在 \\\build\ 會議宣佈了公開上市。 QnA Maker GA 具有在 Azure 上建置的新架構。 使用 QnA Maker 免費預覽建立的知識庫必須移轉至 QnA Maker GA。 QnA Maker 預覽版即將在 2018 年 11 月 淘汰。 如需 QnA Maker GA 變更的詳細資訊，請參閱 QnA Maker GA 公告[部落格文章](https://aka.ms/qnamakerga-blog)。
 
-QnA Maker 現在有[定價模型](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/)。
+QnA Maker 現在有[定價模型](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)。
 
 必要條件
 > [!div class="checklist"]
@@ -38,9 +38,7 @@ QnA Maker 現在有[定價模型](https://azure.microsoft.com/en-us/pricing/deta
 
     ![下載知識庫](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. 使用您的 Azure 認證登入 [QnA Maker 入口網站](https://qnamaker.ai)，然後按一下 [建立新的服務]。
-
-    ![建立知識庫 ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+4. 使用您的 Azure 認證登入 [QnA Maker 入口網站](https://qnamaker.ai)，然後按一下 [建立新的知識庫]。
     
 5. 如果您尚未建立 QnA Maker 服務，請選取 [建立 QnA 服務]。 否則，請在步驟 2 中從下拉式清單選擇 QnA Maker 服務。 選取將裝載知識庫的 QnA Maker 服務。
 

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: a08cd6289fc85b79ccec731126a33a9549d60546
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123528"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405730"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
@@ -90,7 +90,9 @@ ms.locfileid: "43123528"
 
    1. 選取 [傳送至 Log Analytics]。 
    2. 在 [Log Analytics] 下，選擇 [設定]。 
-   3. 在 [OMS 工作區] 下，選取要用於記錄的 Log Analytics 工作區。
+   3. 在 [OMS 工作區] 下，選取要用於記錄的工作區。
+   > [!NOTE]
+   > OMS 工作區現在稱為 Log Analytics 工作區。
    4. 在 [記錄] 下，選取 [WorkflowRuntime] 分類。
    5. 選擇計量間隔。
    6. 完成之後，請選擇 [儲存]。

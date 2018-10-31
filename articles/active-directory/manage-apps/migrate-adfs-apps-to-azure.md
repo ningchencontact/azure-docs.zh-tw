@@ -1,6 +1,6 @@
 ---
-title: 將 AD FS 內部部署應用程式移轉至 Azure AD。 | Microsoft Docs
-description: 本文旨在協助組織了解如何將內部部署應用程式遷移至 Azure AD (內容著重於同盟 SaaS 應用程式)。
+title: 從 AD FS 將應用程式移至 Azure AD。 | Microsoft Docs
+description: 本文旨在協助組織了解如何將應用程式移至 Azure AD (內容著重於同盟 SaaS 應用程式)。
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296461"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959055"
 ---
-# <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>將 AD FS 內部部署應用程式移轉至 Azure AD 
+# <a name="move-applications-from-ad-fs-to-azure-ad"></a>從 AD FS 將應用程式移至 Azure AD 
 
-本文可協助您了解如何將內部部署應用程式遷移至 Azure Active Directory (Azure AD)。 其內容著重於同盟 SaaS 應用程式。 
+本文可協助您了解如何將應用程式從 AD FS 移至 Azure Active Directory (Azure AD)。 其內容著重於同盟 SaaS 應用程式。 
 
 本文不提供逐步指引。 其提供的概念性指引可協助您藉由了解內部部署設定如何平移至 Azure AD 來達成移轉。 其內容也會說明常見案例。
 
@@ -31,7 +31,7 @@ ms.locfileid: "46296461"
 
 而如果您就像大部分的組織一樣，您可能踏上了採用雲端應用程式和身分識別的路程。 您可能已啟用並執行 Office 365 和 Azure AD Connect。 或許您已針對一些重要工作負載 (但並非全部) 安裝雲端架構 SaaS 應用程式。  
 
-許多組織都讓 SaaS 或自訂企業營運 (LOB) 應用程式，連同以 Office 365 和 Azure AD 為基礎的應用程式一起同盟至內部部署登入服務 (例如 Active Directory 同盟服務 (AD FS))。 本移轉指南說明為何及如何將內部部署應用程式移轉至 Azure AD。
+許多組織都讓 SaaS 或自訂企業營運 (LOB) 應用程式，連同以 Office 365 和 Azure AD 為基礎的應用程式一起同盟至內部部署登入服務 (例如 Active Directory 同盟服務 (AD FS))。 本指南說明為何及如何將您的應用程式移至 Azure AD。
 
 >[!NOTE]
 >本指南提供 SaaS 應用程式設定和移轉的詳細資訊，以及有關自訂 LOB 應用程式的概觀資訊。 未來計劃提供自訂 LOB 應用程式的更詳細指引。
@@ -40,9 +40,9 @@ ms.locfileid: "46296461"
 
 ![透過 Azure AD 同盟的應用程式](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## <a name="reasons-for-migrating-apps-to-azure-ad"></a>要將應用程式遷移至 Azure AD 的原因
+## <a name="reasons-for-moving-apps-to-azure-ad"></a>要將應用程式移至 Azure AD 的原因
 
-對於已使用 AD FS、Ping 或其他內部部署驗證提供者的組織而言，將應用程式遷移至 Azure AD 具有下列優點：
+對於已使用 AD FS、Ping 或其他內部部署驗證提供者的組織而言，將應用程式移至 Azure AD 具有下列優點：
 
 **更安全的存取**
 - 使用 [Azure AD 條件式存取](../active-directory-conditional-access-azure-portal.md)，為每個應用程式設定更細微的存取控制，包括 Azure Multi-Factor Authentication。 您可以用現今處理 Office 365 的相同方式，將原則套用至 SaaS 和自訂應用程式。
@@ -61,7 +61,7 @@ ms.locfileid: "46296461"
 - 在獲得 Azure AD 優點的同時，您可以繼續使用內部部署解決方案來進行驗證。 這樣一來，內部部署 Multi-Factor Authentication 解決方案、記錄和稽核等優點都會保留下來。 
 
 **幫助淘汰內部部署識別提供者**
-- 對於想要汰換內部部署驗證產品的組織而言，將應用程式遷移至 Azure AD 可讓您避開某些工作從而更輕鬆地進行轉換。 
+- 對於想要汰換內部部署驗證產品的組織而言，將應用程式移至 Azure AD 可讓您避開某些工作從而更輕鬆地進行轉換。 
 
 ## <a name="mapping-types-of-apps-on-premises-to-types-of-apps-in-azure-ad"></a>將內部部署的應用程式類型對應至 Azure AD 中的應用程式類型
 大部分的應用程式都會根據其使用的登入類型而歸納為其中一個類別。 這些類別決定了在 Azure AD 中表示應用程式的方式。
@@ -126,8 +126,8 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 |識別碼/</br>「簽發者」|以應用程式觀點看待的 IdP 識別碼 (有時稱為「簽發者識別碼」)。</br></br>在 SAML 權杖中，此值會顯示為 [簽發者] 元素。|AD FS 的識別碼通常是 AD FS 管理中 [服務] > [編輯同盟服務屬性] 之下的同盟服務識別碼。 例如：http&#58;//fs.contoso.com/adfs/services/trust|Azure AD 的對應值會遵循此模式，其中 {tenant-id} 的值會取代為租用戶識別碼。 此項目即為 Azure 入口網站中 [Azure Active Directory] > [屬性] 下的 [目錄識別碼]：https&#58;//sts.windows.net/{tenant-id}/|
 |IdP </br>同盟 </br>中繼資料|IdP 的公開可用同盟中繼資料位置。 (有些應用程式會使用同盟中繼資料，作為系統管理員個別設定 URL、識別碼和權杖簽署憑證的替代方式)。|在 AD FS 管理的 [服務] > [端點] > [中繼資料] > [類型: 同盟中繼資料] 之下尋找 AD FS 同盟中繼資料 URL。 例如：https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD 的對應值會遵循此模式 https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml。 {TenantDomainName} 的值會取代為您的租用戶名稱 (格式為 “contoso.onmicrosoft.com”)。 </br></br>如需詳細資訊，請參閱[同盟中繼資料](../develop/azure-ad-federation-metadata.md)。
 
-## <a name="migrating-saas-apps"></a>移轉 SaaS 應用程式
-將 SaaS 應用程式從 AD FS 或其他識別提供者遷移至 Azure AD 目前是手動程序。 如需應用程式專屬的指引，請參閱 [Marketplace 中有關整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)。
+## <a name="moving-saas-apps"></a>移動 SaaS 應用程式
+將 SaaS 應用程式從 AD FS 或其他識別提供者移至 Azure AD 目前是手動程序。 如需應用程式專屬的指引，請參閱 [Marketplace 中有關整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)。
 
 整合教學課程假設您正在進行綠地 (green field) 整合。 當您規劃、評估、設定和完全移轉您的應用程式時，您應了解一些移轉特有的重要概念：  
 - 某些應用程式可以輕鬆地遷移。 具有更複雜需求 (例如自訂宣告) 的應用程式則可能需要在 Azure AD 及/或 Azure AD Connect 中額外進行設定。
@@ -135,7 +135,7 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 - 在判斷出需要額外的宣告後，請確定這些宣告可用於 Azure AD 中。 檢查 Azure AD Connect 同步設定，以確保必要屬性 (例如 **samAccountName**) 會同步處理至 Azure AD。
 - 在這些屬性可用於 Azure AD 後，您可以在 Azure AD 中新增宣告發行規則，進而將這些屬性納入為已發行權杖中的宣告。 您可在 Azure AD 中應用程式的 [單一登入] 屬性中新增這些規則。
 
-### <a name="assess-what-can-be-migrated"></a>可遷移的評估
+### <a name="assess-what-can-be-moved"></a>評估可移動的項目
 SAML 2.0 應用程式可以透過 Marketplace 中的 Azure AD 應用程式資源庫來與 Azure AD 整合，或以非 Marketplace 應用程式的形式與 Azure AD 整合。  
 
 有些設定需要在 Azure AD 中執行額外的步驟，而有些則是目前不支援的設定。 若要判斷可以移動的項目，請查看每個應用程式的目前設定。 具體而言，請尋找：
@@ -144,14 +144,14 @@ SAML 2.0 應用程式可以透過 Marketplace 中的 Azure AD 應用程式資源
 - 已發行的 SAML 權杖版本。
 - 其他設定，例如發行授權規則或存取控制原則以及 Multi-Factor Authentication (其他驗證) 規則。
 
-#### <a name="what-can-be-migrated-today"></a>目前可以移轉的項目
-您目前可以輕鬆遷移的應用程式包括使用一組標準設定元素和宣告的 SAML 2.0 應用程式。 這些應用程式可以包含：
+#### <a name="what-can-be-moved-today"></a>目前可移動的項目
+您目前可以輕鬆移動的應用程式包括使用一組標準設定元素和宣告的 SAML 2.0 應用程式。 這些應用程式可以包含：
 - 使用者主體名稱。
 - 電子郵件地址。
 - 名字。
 - 姓氏。
 - 作為 SAML **NameID** 的替代屬性，包括 Azure AD 郵件屬性、郵件前置詞、員工識別碼、擴充屬性 1-15 或內部部署 **SamAccountName** 屬性。 如需詳細資訊，請參閱[編輯 NameIdentifier 宣告](../develop/active-directory-saml-claims-customization.md)。
-- 自訂宣告。 如需所支援宣告對應的相關資訊，請參閱 [Azure Active Directory 中的宣告對應](../active-directory-claims-mapping.md)和[針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告](../develop/active-directory-saml-claims-customization.md)。
+- 自訂宣告。 如需所支援宣告對應的相關資訊，請參閱 [Azure Active Directory 中的宣告對應](../develop/active-directory-claims-mapping.md)和[針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告](../develop/active-directory-saml-claims-customization.md)。
 
 除了自訂宣告和 **NameID** 元素以外，在移轉過程中需要在 Azure AD 中進行額外設定步驟的設定如下：
 - AD FS 中的自訂授權或 Multi-Factor Authentication 規則。 您可以使用 [Azure AD 條件式存取](../active-directory-conditional-access-azure-portal.md)功能來設定這些規則。
@@ -171,7 +171,7 @@ SAML 2.0 應用程式可以透過 Marketplace 中的 Azure AD 應用程式資源
 - 權杖中的宣告功能：
     - 將內部部署群組名稱發行為宣告。
     - 來自 Azure AD 以外存放區的宣告。
-    - 複雜宣告發行轉換規則。 如需所支援宣告對應的相關資訊，請參閱 [Azure Active Directory 中的宣告對應](../active-directory-claims-mapping.md)和[針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告](../develop/active-directory-saml-claims-customization.md)。
+    - 複雜宣告發行轉換規則。 如需所支援宣告對應的相關資訊，請參閱 [Azure Active Directory 中的宣告對應](../develop/active-directory-claims-mapping.md)和[針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告](../develop/active-directory-saml-claims-customization.md)。
     - 將目錄擴充發行為宣告。
     - **NameID** 格式的自訂規格。
     - 多重值屬性的發行。

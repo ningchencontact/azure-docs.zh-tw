@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: b2561f4b1b5ef27f389114c85f0646b968f7765e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 0c21ba3df6805c053f3d318d1ca3734a89c2ab60
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36269556"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400188"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 範本中使用受控磁碟
 
@@ -96,7 +96,7 @@ ms.locfileid: "36269556"
 
 ### <a name="default-managed-disk-settings"></a>預設的受控磁碟設定
 
-若要建立使用受控磁碟的 VM，您不再需要建立儲存體帳戶資源，而且可以更新虛擬機器資源，如下所示。 請特別注意，`apiVersion` 會反映出 `2017-03-30` 和 `osDisk` 和 `dataDisks` 不再參照 VHD 的特定 URI。 若部署而不指定其他屬性，磁碟將會使用 [標準 LRS 儲存體](../articles/storage/common/storage-redundancy.md) 。 若未指定名稱，它的 OS 磁碟格式為 `<VMName>_OsDisk_1_<randomstring>`，而每個資料磁碟的格式為 `<VMName>_disk<#>_<randomstring>`。 預設已停用 Azure 磁碟加密；OS 磁碟的快取為 [讀取/寫入]，資料磁碟的快取則為 [無]。 您可能會注意到，在下列範例中仍有儲存體帳戶相依性，但這只適用於儲存體的診斷，而且磁碟儲存體並不需要相依性。
+若要建立使用受控磁碟的 VM，您不再需要建立儲存體帳戶資源，而且可以更新虛擬機器資源，如下所示。 請特別注意，`apiVersion` 會反映出 `2017-03-30` 和 `osDisk` 和 `dataDisks` 不再參照 VHD 的特定 URI。 部署時若未指定其他屬性，則磁碟會使用以 VM 大小為基礎的儲存體類型。 例如，如果您使用支援 Premium 的 VM 大小 (其名稱包含 "s" 的大小，例如 Standard_D2s_v3)，則系統會使用 Premium_LRS 儲存體。 使用磁碟的 sku 設定來指定儲存體類型。 若未指定名稱，它的 OS 磁碟格式為 `<VMName>_OsDisk_1_<randomstring>`，而每個資料磁碟的格式為 `<VMName>_disk<#>_<randomstring>`。 預設已停用 Azure 磁碟加密；OS 磁碟的快取為 [讀取/寫入]，資料磁碟的快取則為 [無]。 您可能會注意到，在下列範例中仍有儲存體帳戶相依性，但這只適用於儲存體的診斷，而且磁碟儲存體並不需要相依性。
 
 ```json
 {
@@ -256,4 +256,4 @@ ms.locfileid: "36269556"
 * 瀏覽 [Azure 受控磁碟概觀](../articles/virtual-machines/windows/managed-disks-overview.md)文件，深入了解受控磁碟。
 * 瀏覽 [Microsoft.Compute/virtualMachines 範本參考](/azure/templates/microsoft.compute/virtualmachines)文件，檢閱虛擬機器資源的範本參考文件。
 * 瀏覽 [Microsoft.Compute/disks 範本參考](/azure/templates/microsoft.compute/disks)文件，檢閱磁碟資源的範本參考文件。
-* 如需如何在 Azure 虛擬機器擴展集內使用受控磁碟的相關資訊，請瀏覽[使用資料磁碟搭配擴展集](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks)文件。
+* 如需如何在 Azure 虛擬機器擴展集內使用受控磁碟的相關資訊，請瀏覽[使用資料磁碟搭配擴展集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks)文件。

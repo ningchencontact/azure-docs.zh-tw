@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7208eb112b5f4a5b458c0374541dff113906aa0c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47186154"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400248"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -146,7 +146,7 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 所有 Azure 區域現在都支援「標準 SSD」磁碟。
 
 **使用標準 SSD 時，可使用 Azure 備份嗎？**
-否，Azure 備份尚無法使用。
+是，Azure 備份現在可供使用。
 
 **如何建立標準 SSD 磁碟？**
 您可以使用 Azure Resource Manager 範本、SDK、PowerShell 或 CLI 來建立「標準 SSD」磁碟。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
@@ -171,7 +171,7 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 如需如何使用範本建立標準 SSD 磁碟的完整範本範例，請參閱[從具有標準 SSD 資料磁碟的 Windows 映像建立虛擬機器](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)。
 
 **是否可以將我現有的磁碟轉換成標準的 SSD？**
-是，您可以這麼做。 如需轉換受控磁碟的一般指導方針，請參閱[將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage)。 此外，使用下列值，將磁碟類型更新為標準 SSD。
+是，您可以這麼做。 如需轉換受控磁碟的一般指導方針，請參閱[將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)。 此外，使用下列值，將磁碟類型更新為標準 SSD。
 -AccountType StandardSSD_LRS
 
 **使用標準 SSD 磁碟而不使用 HDD 有何優點？**

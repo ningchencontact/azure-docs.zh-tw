@@ -7,23 +7,101 @@ ms.component: core
 ms.topic: reference
 author: hning86
 ms.author: haining
+ms.reviewer: j-martens
 ms.date: 03/28/2018
-ROBOTS: NOINDEX
-ms.openlocfilehash: 08be059cb30c8a7ec4ad24fc4f73f4b569883483
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970612"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389916"
 ---
-# <a name="release-notes-in-azure-machine-learning-sept-2017---jun-2018"></a>Azure Machine Learning 版本資訊 2017 年 9 月 - 2018 年 6 月
+# <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+本文章會說明 Azure Machine Learning 服務的版本。 
 
-在此文章中，了解 Azure Machine Learning 過去推出的版本。 
+## <a name="2018-10-12"></a>2018-10-12
+
+### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Azure Machine Learning SDK for Python v0.1.68
+
+#### <a name="new-features"></a>新功能
+ * 建立新工作區時的多個租用戶支援。
+
+#### <a name="breaking-changes"></a>重大變更
+ * **即將在下一版推出**「Workspace.compute_targets 資料存放區、實驗、映像、模型」，以及 webservices 會變成屬性而非方法。 例如，將 Workspace.compute_targets() 取代為 Workspace.compute_targets。
+
+#### <a name="bugs-fixed"></a>已修正的 BUG
+ * 部署 Web 服務時，不再需要釘選 pynacl 程式庫版本。
+
+### <a name="azure-machine-learning-data-prep-sdk-v030"></a>Azure Machine Learning 資料準備 SDK v0.3.0
+
+#### <a name="new-features"></a>新功能︰
+* 已新增 transform_partition_with_file(script_path) 方法，可讓使用者傳入要執行的 Python 檔案路徑
+
+## <a name="2018-10-01"></a>2018-10-01
+
+### <a name="azure-machine-learning-sdk-for-python-v0165"></a>Azure Machine Learning SDK for Python v0.1.65
+[版本 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) 包含新功能、更多文件、錯誤修正和更多 [Notebook 範例](https://aka.ms/aml-notebooks)。
+
+若要了解已知的 Bug 和因應措施，請參閱[已知問題的清單](resource-known-issues.md)。
+
+#### <a name="breaking-changes"></a>重大變更
+ * Workspace.experiments、Workspace.models、Workspace.compute_targets、Workspace.images、Workspace.web_services 會傳回字典，先前傳回清單。 請參閱 [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API 文件。
+
+ * 自動化 Machine Learning 已將正規化均方誤差從主要計量中移除。
 
 
-## <a name="2018-05-sprint-5"></a>2018-05 (Sprint 5)
+#### <a name="hyperdrive"></a>HyperDrive
+ * 各種貝氏的 HyperDrive bug 修正，以及取得計量呼叫的效能提升。 
+ * Tensorflow 從 1.9 升級至 1.10 
+ * 針對冷啟動的 Docker 映像最佳化。 
+ * 作業現在會報告正確的狀態，即使是以非 0 的錯誤碼結束。 
+ * SDK 中的 RunConfig 屬性驗證。 
+ * HyperDrive 執行物件支援類似於一般執行的取消作業：不需要傳遞任何參數。 
+ * 改善小工具以維護分散式執行和 HyperDrive 執行的下拉式清單值狀態。 
+ * 已修正參數伺服器的 TensorBoard 和其他記錄檔支援。 
+ * 服務端上的 Intel(R) MPI 支援。 
+ * 修正 BatchAI 驗證期間散發執行修正的參數微調錯誤。 
+ * 內容管理員現在會識別主要執行個體。 
+
+#### <a name="azure-portal-experience"></a>Azure 入口網站體驗
+ * 執行詳細資料中支援 log_table() 和 log_row()。 
+ * 自動建立有 1、2 或 3 個數值資料行和選擇性類別資料行的資料表和資料列圖形。
+
+#### <a name="automated-machine-learning"></a>自動化 Machine Learning
+ * 改良錯誤處理和文件 
+ * 已修正 run 屬性擷取的效能問題。 
+ * 已修正繼續執行的問題。 
+ * 已修正 Esembling 反覆項目問題。
+ * 已修正 MAC OS 上的訓練懸置。
+ * 對自訂驗證案例中的巨集平均 PR/ROC 曲線縮小取樣。
+ * 已移除額外的索引邏輯。
+ * 已從 get_output API 中移除篩選條件。
+
+#### <a name="pipelines"></a>管線
+ * 已新增 Pipeline.publish() 方法來直接發佈管線，而不需要先啟動執行。   
+ * 已新增 PipelineRun.get_pipeline_runs() 方法來擷取從所發佈管線產生的管線執行。
+
+#### <a name="project-brainwave"></a>Project Brainwave
+ * 已更新 FPGA 上可用的新 AI 模型支援。
+
+### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning 資料準備 SDK v0.2.0
+[版本 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/)包含下列功能和錯誤修正：
+
+**新功能︰** 
+ * One-hot 編碼的支援
+ * 分量轉換的支援
+   
+**已修正的 Bug：**
+ * 適用於任何 Tornado 版本，不必降級 Tornado 版本
+ * 值計數代表所有值，不只是前三個值
+
+## <a name="2018-09-public-preview-refresh"></a>2018-09 (公開預覽刷新版)
+
+Azure Machine Learning 的全新、完整重新整理版本：深入了解此版本： https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+
+## <a name="older-notes-sept-2017---jun-2018"></a>較舊的附註：2017 年 9 月 - 2018 年 6 月
+### <a name="2018-05-sprint-5"></a>2018-05 (Sprint 5)
 
 透過此版本的 Azure Machine Learning，您可以：
 + 利用量化版本的 ResNet 50 將影像功能化、根據這些功能為分類器定型，並[將該模型部署到 Azure 上的 FPGA](../service/how-to-deploy-fpga-web-service.md)，以達到超低延遲推斷。
@@ -33,7 +111,7 @@ ms.locfileid: "46970612"
   + [文字分析](../desktop-workbench/how-to-build-deploy-text-classification-models.md)
   + [預測](../desktop-workbench/how-to-build-deploy-forecast-models.md)
 
-## <a name="2018-03-sprint-4"></a>2018-03 (Sprint 4)
+### <a name="2018-03-sprint-4"></a>2018-03 (Sprint 4)
 **版本號碼**：0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
@@ -50,7 +128,7 @@ ms.locfileid: "46970612"
 
 以下是 Azure Machine Learning 在此 Sprint 中各元件區域的詳細更新清單。
 
-### <a name="workbench-ui"></a>Workbench UI
+#### <a name="workbench-ui"></a>Workbench UI
 - 可自訂的執行歷程記錄報告
   - 改善的圖表組態，適用於執行歷程記錄報告
     - 可以變更使用的進入點
@@ -68,14 +146,14 @@ ms.locfileid: "46970612"
 
 - 增強側邊欄中檔案清單的效能
 
-### <a name="data-preparation"></a>資料準備 
+#### <a name="data-preparation"></a>資料準備 
 - Azure Machine Learning Workbench 現在可讓您使用已知的資料行名稱來搜尋資料行。
 
 
-### <a name="experimentation"></a>測試
+#### <a name="experimentation"></a>測試
 - Azure Machine Learning Workbench 現在支援在您自己的 Python 或 Pyspark 環境中執行原生指令碼。 若使用此功能，使用者必須在遠端 VM 上建立並管理自己的環境，並使用 Azure Machine Learning Workbench 在該目標上執行其指令碼。 請參閱[設定 Azure Machine Learning 測試服務](../desktop-workbench/experimentation-service-configuration.md) 
 
-### <a name="model-management"></a>模型管理
+#### <a name="model-management"></a>模型管理
 - 支援自訂已部署的容器：允許您使用 apt-get 等命令安裝外部程式碼，以自訂容器映像。不再僅限於可安裝 pip 的程式庫。 請參閱[文件](../desktop-workbench/model-management-custom-container.md)以取得更多資訊。
   - 使用 `--docker-file myDockerStepsFilename` 旗標與檔案名稱搭配資訊清單、映像或服務建立命令。
   - 請注意，基礎映像為 Ubuntu，無法修改。
@@ -87,7 +165,7 @@ ms.locfileid: "46970612"
 
 
 
-## <a name="2018-01-sprint-3"></a>2018-01 (Sprint 3) 
+### <a name="2018-01-sprint-3"></a>2018-01 (Sprint 3) 
 **版本號碼**：0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 以下是此 Sprint 中的更新和增強功能。 以下的更新有許多是直接來自使用者的意見反應。 
@@ -97,19 +175,19 @@ ms.locfileid: "46970612"
 
 - 更新驗證堆疊會強制啟動時登入和選擇帳戶
 
-### <a name="workbench"></a>Workbench
+#### <a name="workbench"></a>Workbench
 - 從 [新增/移除程式] 安裝/解除安裝應用程式的能力
 - 更新驗證堆疊會強制啟動時登入和選擇帳戶
 - 改善 Windows 上的單一登入 (SSO) 體驗
 - 隸屬於多個租用戶且有不同認證的使用者，現在將可登入到 Workbench
 
-### <a name="ui"></a>UI
+#### <a name="ui"></a>UI
 - 一般增強功能和 Bug 修正
 
-### <a name="notebooks"></a>筆記本
+#### <a name="notebooks"></a>筆記本
 - 一般增強功能和 Bug 修正
 
-### <a name="data-preparation"></a>資料準備 
+#### <a name="data-preparation"></a>資料準備 
 - 改善執行 By Example 轉換時的自動建議
 - 改善模式頻率偵測器的演算法
 - 執行 By Example 轉換時傳送範例資料和意見反應的能力 ![在衍生資料行轉換時傳送意見反應連結的影像](media/azure-machine-learning-release-notes/SendFeedbackFromDeriveColumn.png)
@@ -118,11 +196,11 @@ ms.locfileid: "46970612"
 - 修正無法關閉時間序列偵測器不適用資料的問題 
 - 修正針對 HDI 執行資料準備的擱置時間
 
-### <a name="model-management-cli-updates"></a>模型管理 CLI 更新 
+#### <a name="model-management-cli-updates"></a>模型管理 CLI 更新 
   - 佈建資源不再需要訂用帳戶的擁有權。 有資源群組的參與者存取權，就足以設定部署環境。
   - 針對免費訂用帳戶啟用本機環境設定 
 
-## <a name="2017-12-sprint-2-qfe"></a>2017-12 (Sprint 2 QFE) 
+### <a name="2017-12-sprint-2-qfe"></a>2017-12 (Sprint 2 QFE) 
 **版本號碼**：0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 這是 QFE (快速檢修) 版本，也就是次要版本。 此版本解決了幾個遙測問題，並可協助產品團隊深入了解使用者對產品的使用方式。 這些知識可以進一步用來改善產品體驗。 
@@ -132,7 +210,7 @@ ms.locfileid: "46970612"
 - 修正資料準備中的一個錯誤，避免資料準備封裝中顯示出時間序列偵測器。
 - 在命令列工具中，不必身為 Azure 訂用帳戶擁有者也可以佈建 Machine Learning 計算 ACS 叢集。 
 
-## <a name="2017-12-sprint-2"></a>2017-12 (Sprint 2)
+### <a name="2017-12-sprint-2"></a>2017-12 (Sprint 2)
 **版本號碼**：0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 歡迎使用 Azure Machine Learning 的第三次更新。 此更新包括 Workbench 應用程式、命令列介面 (CLI) 和後端服務的改進。 非常感謝您傳送的正反面意見。 以下的更新有許多是直接來自您的意見反應。 
@@ -147,21 +225,21 @@ ms.locfileid: "46970612"
 
 **詳細更新內容** 以下是 Azure Machine Learning 在此 Sprint 中各元件區域的詳細更新清單。
 
-### <a name="installer"></a>安裝程式
+#### <a name="installer"></a>安裝程式
 - 安裝程式可以自行更新，以在使用者不需重新安裝的情況下修正錯誤並支援新功能
 
-### <a name="workbench-authentication"></a>Workbench 驗證
+#### <a name="workbench-authentication"></a>Workbench 驗證
 - 對驗證系統進行多項修正。 請讓我們知道您在登入時是否仍會發生問題。
 - 可讓您更容易找到 Proxy 管理員設定的 UI 變更。
 
-### <a name="workbench"></a>Workbench
+#### <a name="workbench"></a>Workbench
 - 唯讀檔案檢視現在具有淡藍色背景
 - 將 [編輯] 按鈕移動到右邊，讓您更容易找到。
 - "dsource"、"dprep" 和 "ipynb" 檔案格式現在可以以原始文字格式轉譯
 - Workbench 現在擁有全新編輯體驗，可引導使用者使用外部 IDE 來編輯指令碼，並只使用 Workbench 來編輯可提供豐富編輯體驗的檔案類型 (例如 Notebook、資料來源、資料準備套件)
 - 現在可以更快速地載入使用者擁有存取權之工作區和專案的清單
 
-### <a name="data-preparation"></a>資料準備 
+#### <a name="data-preparation"></a>資料準備 
 - 可檢視資料行中字串模式的模式頻率偵測器。 您也可以使用這些模式來篩選資料。 這會顯示和值計數偵測器類似的檢視。 差別在於樣式頻率會顯示資料的唯一模式計數，而非唯一資料計數。 您也可以篩選出或篩選掉符合特定模式的所有資料列。
 
 ![產品編號上模式頻率偵測器的影像](media/azure-machine-learning-release-notes/pattern-inspector-product-number.png)
@@ -182,7 +260,7 @@ ms.locfileid: "46970612"
 - 已修正將多個資料行轉換成日期的問題
 - 已修正如果使用者在進階模式中變更輸出資料行名稱，便可以在「衍生資料行實例化」中選取輸出資料行作為來源的問題。
 
-### <a name="job-execution"></a>作業執行
+#### <a name="job-execution"></a>作業執行
 您現在可以依照下列步驟，使用以 SSH 金鑰為基礎的驗證建立及存取 Remotedocker 或叢集類型計算目標：
 - 在 CLI 中使用下列命令來附加計算目標
 
@@ -198,13 +276,13 @@ ms.locfileid: "46970612"
 
 如需建立計算目標的詳細資訊，請參閱[設定 Azure Machine Learning 測試服務](../desktop-workbench/experimentation-service-configuration.md)
 
-### <a name="visual-studio-tools-for-ai"></a>適用於 AI 的 Visual Studio Tools
+#### <a name="visual-studio-tools-for-ai"></a>適用於 AI 的 Visual Studio Tools
 - 已新增對[適用於 AI 的 Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017) \(英文\) 的支援。 
 
-### <a name="command-line-interface-cli"></a>命令列介面 (CLI)
+#### <a name="command-line-interface-cli"></a>命令列介面 (CLI)
 - 已新增 `az ml datasource create` 命令來允許從命令列建立資料來源檔案
 
-### <a name="model-management-and-operationalization"></a>模型管理與作業
+#### <a name="model-management-and-operationalization"></a>模型管理與作業
 - [所有 AML 容器在作業時都與 Azure IoT Edge 裝置相容 (不需要額外步驟)](http://aka.ms/aml-iot-edge-blog) \(英文\) 
 - o16n CLI 中錯誤訊息的改進
 - 模型管理入口網站 UX 中的錯誤修正  
@@ -216,27 +294,27 @@ ms.locfileid: "46970612"
 
 ![入口網站中的模型概觀](media/azure-machine-learning-release-notes/model-overview-portal.jpg)
 
-### <a name="mmlspark"></a>MMLSpark
+#### <a name="mmlspark"></a>MMLSpark
 - 在具備 [GPU 支援](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md) \(英文\) 的 Spark 上進行深度學習
 - 支援資源管理員範本，以便於進行資源部署
 - 支援 SparklyR 生態系統
 - [AZTK 整合](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark) \(英文\)
 
-### <a name="sample-projects"></a>範例專案
+#### <a name="sample-projects"></a>範例專案
 - [鳶尾花](https://github.com/Azure/MachineLearningSamples-Iris) \(英文\) 和 [MMLSpark](https://github.com/Azure/mmlspark) \(英文\) 範例已更新為新的 Azure ML SDK 版本
 
-### <a name="breaking-changes"></a>重大變更
+#### <a name="breaking-changes"></a>重大變更
 - 將 `az ml computetarget attach` 中的 `--type` 參數升階為子命令。 
 
     - `az ml computetarget attach --type remotedocker` 現在為 `az ml computetarget attach remotedocker`
     - `az ml computetarget attach --type cluster` 現在為 `az ml computetarget attach cluster`
 
-## <a name="2017-11-sprint-1"></a>2017-11 (Sprint 1) 
+### <a name="2017-11-sprint-1"></a>2017-11 (Sprint 1) 
 **版本號碼**：0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 在這個版本中，我們改善了 Workbench 應用程式、CLI 和後端服務層的安全性、穩定性和可維護性。 非常感謝您傳送的肯定 (笑臉) 與不滿意 (苦臉)。 以下的更新有許多是直接來自您的意見反應。 歡迎繼續提供意見！
 
-### <a name="notable-new-features"></a>重要新功能
+#### <a name="notable-new-features"></a>重要新功能
 - 現在有兩個新的 Azure 區域提供 Azure ML：**西歐**和**東南亞**。 它們原先加入的區域是**美國東部 2**、**美國中西部**和**澳洲東部**，現在部署區域總數增加至五個。
 - 我們在 Workbench 應用程式中啟用了 Python 程式碼語法醒目提示，讓您更容易閱讀及編輯 Python 原始程式碼。 
 - 您現在可以直接從檔案啟動您最愛的 IDE，而不用從整個專案中啟動。  在 Workbench 中開啟檔案，然後按一下 [編輯]，即可啟動目前檔案和專案的 IDE (目前支援 VS Code 和 PyCharm)。  您也可以按一下 [編輯] 按鈕旁邊的箭號，在 Workbench 文字編輯器中編輯檔案。  為防止意外變更，在您按下 [編輯] 之前，檔案都是唯讀的。
@@ -245,22 +323,22 @@ ms.locfileid: "46970612"
 - 我們已啟用特定版本的應用程式首頁，方便您根據目前的應用程式版本取得更接近的版本資訊及更新提示。
 - 即使您的本機使用者名稱中有空格，現在也可以成功安裝應用程式。 
 
-### <a name="detailed-updates"></a>詳細的更新
+#### <a name="detailed-updates"></a>詳細的更新
 以下是 Azure Machine Learning 此 Sprint 中各元件區域的詳細更新清單。
 
-#### <a name="installer"></a>安裝程式
+##### <a name="installer"></a>安裝程式
 - 應用程式安裝程式現在會清除舊版應用程式建立的安裝目錄。
 - 修正導致安裝程式在 macOS High Sierra 中卡在 100% 的 Bug。
 - 如果安裝失敗，使用者現在可以直接連結到安裝目錄，檢閱安裝程式記錄檔。
 - 使用者名稱中有空格的使用者現在也可以順利安裝。
 
-#### <a name="workbench-authentication"></a>Workbench 驗證
+##### <a name="workbench-authentication"></a>Workbench 驗證
 - 支援 Proxy 管理員的驗證。
 - 位於防火牆後方使用者現在可以順利登入。 
 - 如果使用者在多個 Azure 區域有試驗帳戶，而某個區域剛好無法使用，應用程式不會再停止回應。
 - 當驗證未完成，而且仍然顯示驗證對話方塊時，應用程式不會再嘗試從本機快取載入工作區。
 
-#### <a name="workbench-app"></a>Workbench 應用程式
+##### <a name="workbench-app"></a>Workbench 應用程式
 - 文字編輯器啟用 Python 程式碼語法醒目提示。
 - 文字編輯器中的 [編輯] 按鈕可讓您在 IDE (支援 VS Code 和 PyCharm) 或內建文字編輯器中編輯檔案。
 - 文字編輯器預設為唯讀模式。 
@@ -279,7 +357,7 @@ ms.locfileid: "46970612"
 - 應用程式標題列現在會顯示試驗帳戶名稱，位在應用程式名稱 "Azure Machine Learning Workbench" 的前面。
 - 現在會根據偵測到的應用程式版本，顯示特定版本的應用程式首頁。
 
-#### <a name="data-preparation"></a>資料準備 
+##### <a name="data-preparation"></a>資料準備 
 - 不再從地圖偵測器載入外部網站，以避免潛在的安全性問題。
 - 長條圖和值計數偵測器現在可以選擇顯示對數刻度圖表。
 - 現在在進行計算時，資料品質列會顯示不同的色彩，以表示「計算」狀態。
@@ -301,7 +379,7 @@ ms.locfileid: "46970612"
 - [計量] 檢視現在會遵守取樣策略更新。
 - 遠端取樣作業現在已正確運作。
 
-#### <a name="job-execution"></a>作業執行
+##### <a name="job-execution"></a>作業執行
 - 引數現在包含在執行歷程記錄中。
 - 使用 CLI 開始的作業現在會自動出現在 [Run history Job] (執行歷程記錄作業) 面板中。
 - 作業面板現在會顯示新增至 Azure AD 租用戶之來賓使用者所建立的工作。
@@ -319,14 +397,14 @@ ms.locfileid: "46970612"
 - MMLSpark 現在包含醫療文件的主體編碼轉換 (網狀結構編碼)。
 - `matplotlib` 2.1.0 版現在直接隨附於 Workbench。
 
-#### <a name="jupyter-notebook"></a>Jupyter Notebook
+##### <a name="jupyter-notebook"></a>Jupyter Notebook
 - Notebook 名稱搜尋在 [Notebook] 檢視中可正確運作。
 - 您現在可以在 [Notebook] 檢視中刪除 Notebook。
 - 新增新的魔術 `%upload_artifact` 將 Notebook 執行環境中產生的檔案上傳到執行歷程記錄資料存放區。
 - 核心錯誤現在會顯示在 Notebook 作業狀態中以利偵錯。
 - 現在當使用者登出應用程式時，Jupyter 伺服器會正確關閉。
 
-#### <a name="azure-portal"></a>Azure 入口網站
+##### <a name="azure-portal"></a>Azure 入口網站
 - 現在可以在兩個新的 Azure 區域中建立試驗帳戶和模型管理帳戶：西歐和東南亞。
 - 現在只有當模型管理帳戶是訂用帳戶中建立的第一個帳戶時，才提供 DevTest 計劃。 
 - 更新 Azure 入口網站的 [說明] 連結，指向正確的文件頁面。
@@ -334,13 +412,13 @@ ms.locfileid: "46970612"
 - 包括 AppInsights 和自動調整規模設定的詳細資料會新增至 Web 服務詳細資料頁面。
 - 現在即使瀏覽器中停用協力廠商 Cookie，也會呈現模型管理頁面。 
 
-#### <a name="operationalization"></a>運算化
+##### <a name="operationalization"></a>運算化
 - 名稱中有 "score" 的 Web 服務不再失敗。
 - 使用者現在只要有 Azure 資源群組或參與者存取權或訂用帳戶，就可以建立部署環境。 不再需要整個訂用帳戶的擁有者存取權。
 - 作業 CLI 可在 Linux 上使用索引標籤自動完成。
 - 映像建構服務現在支援 Azure IoT 服務/裝置的組建映像。
 
-#### <a name="sample-projects"></a>範例專案
+##### <a name="sample-projects"></a>範例專案
 - [_分類光圈_](../desktop-workbench/tutorial-classifying-iris-part-1.md)範例專案：
     - `iris_pyspark.py` 已重新命名為 `iris_spark.py`。
     - `iris_score.py` 已重新命名為 `score_iris.py`。
@@ -353,20 +431,20 @@ ms.locfileid: "46970612"
 - 新的範例專案[_使用 CNTK 進行影像分類_](../desktop-workbench/scenario-image-classification-using-cntk.md)。
 
 
-## <a name="2017-10-sprint-0"></a>2017-10 (Sprint 0) 
+### <a name="2017-10-sprint-0"></a>2017-10 (Sprint 0) 
 **版本號碼**：0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 歡迎使用我們在 Microsoft Ignite 2017 會議首次公開預覽 Microsoft Azure Machine Learning Workbench 後的第一次更新。 此版本的主要更新為可靠性和穩定化修正。  我們解決的一些重大問題包括：
 
-### <a name="new-features"></a>新功能
+#### <a name="new-features"></a>新功能
 - 目前已支援 macOS High Sierra
 
-### <a name="bug-fixes"></a>錯誤修正
-#### <a name="workbench-experience"></a>Workbench 體驗
+#### <a name="bug-fixes"></a>錯誤修正
+##### <a name="workbench-experience"></a>Workbench 體驗
 - 將檔案拖放至 Workbench 會導致 Workbench 損毀。
 - 在 VS 程式碼中設定為 IDE for Workbench 的終端機視窗無法辨識 _az ml_ 命令。
 
-#### <a name="workbench-authentication"></a>Workbench 驗證
+##### <a name="workbench-authentication"></a>Workbench 驗證
 我們做一些更新來改善回報的各種登入及驗證問題。
 - 特別是當網際網路連線不穩定時，驗證視窗會持續快顯的問題。
 - 改善驗證權杖過期的可靠性。
@@ -374,27 +452,27 @@ ms.locfileid: "46970612"
 - 當訊息程序已完成並已關閉快顯對話方塊時，Workbench 主視窗仍會顯示「驗證中」訊息。
 - 如果沒有網際網路連線，驗證對話方塊會出現空白畫面。
 
-#### <a name="data-preparation"></a>資料準備 
+##### <a name="data-preparation"></a>資料準備 
 - 篩選特定值後，也會篩選掉錯誤和遺漏值。
 - 變更取樣策略可移除後續現有的加入作業。
 - 取代遺漏值轉換不會考量 NaN。
 - 遇到 null 值時，日期型別推斷會擲回例外狀況。
 
-#### <a name="job-execution"></a>作業執行
+##### <a name="job-execution"></a>作業執行
 - 當作業執行因其超過大小限制而無法上傳專案資料夾時，沒有任何明確的錯誤訊息。
 - 如果使用者的 Python 指令碼變更工作目錄，不會追蹤寫入至輸出資料夾的檔案。 
 - 如果作用中的 Azure 訂用帳戶不同於目前的專案所屬的訂用帳戶，則提交作業會產生 403 錯誤。
 - 當 Docker 不存在時，如果使用者嘗試將 Docker 做為執行目標，不傳回任何明確的錯誤訊息。
 - 當使用者按一下 [執行] 按鈕時不會自動儲存 .runconfig 檔案。
 
-#### <a name="jupyter-notebook"></a>Jupyter Notebook
+##### <a name="jupyter-notebook"></a>Jupyter Notebook
 - 如果使用者使用特定的登入類型，則無法啟動 Notebook 伺服器。
 - Notebook 伺服器錯誤訊息不會出現在使用者可看見的記錄檔中。
 
-#### <a name="azure-portal"></a>Azure 入口網站
+##### <a name="azure-portal"></a>Azure 入口網站
 - 選取深色的 Azure 入口網站佈景主題會將 ML 模型管理刀鋒視窗顯示為黑色方塊。
 
-#### <a name="operationalization"></a>運算化
+##### <a name="operationalization"></a>運算化
 - 重複使用要更新 web 服務的資訊清單，會使用隨機的名稱建立新的 Docker 映像。
 - 無法從 Kubernetes 叢集中擷取 web 服務記錄檔。
 - 當使用者嘗試建立模型管理帳戶或 ML 計算帳戶而發生權限問題時，可能造成誤導的錯誤訊息。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 43845a55589be9550e64b4a491b7d3675fb22e8c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ff846717287fb2b125b549f6ca0de6c7908d4c35
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641776"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344808"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric 中 Docker Compose 的部署支援 (預覽)
 
@@ -122,6 +122,15 @@ sfctl compose upgrade-status --deployment-name TestContainerApp
 * 磁碟區與部署 > 磁碟區
 
 設定叢集，以便強制執行資源限制，如 [Service Fabric 資源管理](service-fabric-resource-governance.md) (英文) 中所述。 此預覽不支援所有其他的 Docker Compose 指示詞。
+
+### <a name="ports-section"></a>Ports 區段
+
+在 Service Fabric 服務接聽程式將使用的 Ports 區段中指定 http 或 https 通訊協定。 這可確保使用命名服務正確發佈端點通訊協定，以允許反向 Proxy 轉送要求：
+* 若要路由傳送至不安全的 Service Fabric Compose 服務，請指定 **/http**。 例如，- **"80:80/http"**。
+* 若要路由傳送至安全的 Service Fabric Compose 服務，請指定 **/https**。 例如，- **"443:443/https"**。
+
+> [!NOTE]
+> /Http 和 /https Ports 區段語法為 Service Fabric 特有，用以註冊正確的 Service Fabric 接聽程式 URL。  如果 Docker compose 檔案語法已經過程式驗證，則可能會導致驗證錯誤。
 
 ## <a name="servicednsname-computation"></a>ServiceDnsName 計算
 

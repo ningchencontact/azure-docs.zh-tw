@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: 17354891b50138911f36314620f0c826db4b5dac
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: dcf4e9fa9435d8f20784b20f3873d408adb78c20
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833660"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469821"
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>使用 PowerShell，從一個實驗中建立許多機器學習服務模型和 Web 服務端點
 以下是一個常見的機器學習服務問題︰您想要建立許多模型，這些模型具有相同的訓練工作流程，且使用相同的演算法。 但您想要以不同的訓練資料集作為輸入。 本文說明如何在 Azure Machine Learning Studio 中只使用單一實驗來大規模完成這項工作。
@@ -29,7 +29,7 @@ ms.locfileid: "34833660"
 
 您可以使用所有地點的所有資料集合併版本，將模型訓練一次。 但是，您的每個地點都有其獨特的環境。 較好的作法是使用每個地點的資料集，個別地訓練您的迴歸模型。 這樣一來，每個訓練的模型就會將店面大小、數量、地理位置、人口、自行車友善交通環境等因素納入考量。
 
-這可能是最好的方法，但您不想在 Azure Machine Learning 中建立 1,000 個訓練實驗，各代表唯一的地點。 除了工作繁重，看起來也很沒效率，因為除了訓練資料集不同，每個實驗都有完全相同的元件。
+這可能是最好的方法，但您不想在 Azure Machine Learning 中建立 1,000 個訓練實驗，各代表唯一的地點。 除了工作繁重，看起來也很沒效率，因為除了訓練資料集外，每個實驗的元件都完全相同。
 
 所幸，您可以使用 [Azure Machine Learning 重新訓練 API](retrain-models-programmatically.md)，並利用 [Azure Machine Learning PowerShell](powershell-module.md) 將工作自動化，來達到此目的。
 
@@ -69,7 +69,7 @@ ms.locfileid: "34833660"
 
 為了省去這項工作的麻煩，您可以開啟資源庫中已備妥的[預測性實驗](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1)。
 
-若要部署 Web 服務，請執行預測性實驗，然後按一下畫布下方的 [部署 Web 服務]  按鈕。 將評分 Web 服務命名為「自行車出租評分」。
+若要部署 Web 服務，請執行預測性實驗，然後按一下畫布下方的 [部署 Web 服務]  按鈕。 將此評分 Web 服務命名為「自行車出租評分」。
 
 ## <a name="create-10-identical-web-service-endpoints-with-powershell"></a>使用 PowerShell 建立 10 個相同的 Web 服務端點
 此 Web 服務隨附一個預設端點。 但您不會使用預設端點，因為它無法更新。 您必須做的是另外建立 10 個端點，每個地點各一個端點。 您可以利用 PowerShell 來完成此作業。

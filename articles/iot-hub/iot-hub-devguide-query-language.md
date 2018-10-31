@@ -2,22 +2,21 @@
 title: 了解 Azure IoT 中樞查詢語言 | Microsoft Docs
 description: 開發人員指南 - 說明類似 SQL 的 IoT 中樞查詢語言，用於從 IoT 中樞擷取裝置/模組對應項和作業的相關資訊。
 author: fsautomata
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952472"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318243"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
 
-IoT 中樞提供功能強大、類似 SQL 的語言，來擷取有關[裝置對應項][lnk-twins]、[作業][lnk-jobs]和[訊息路由][lnk-devguide-messaging-routes]的資訊。 本文提供︰
+IoT 中樞提供功能強大、類似 SQL 的語言，以擷取有關[裝置對應項](iot-hub-devguide-device-twins.md)、[作業](iot-hub-devguide-jobs.md)和[訊息路由](iot-hub-devguide-messages-d2c.md)的資訊。 本文提供︰
 
 * IoT 中樞查詢語言主要功能的簡介，以及
 * 語言的詳細說明。 如需訊息路由查詢語言的詳細資訊，請參閱[訊息路由中的查詢](../iot-hub/iot-hub-devguide-routing-query-syntax.md)。
@@ -25,7 +24,9 @@ IoT 中樞提供功能強大、類似 SQL 的語言，來擷取有關[裝置對�
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>裝置與模組對應項查詢
-[裝置對應項][lnk-twins]與模組對應項可以包含標籤和屬性形式的任意 JSON 物件。 IoT 中樞可讓您以包含所有對應項資訊的單一 JSON 文件形式查詢裝置對應項與模組對應項。
+
+[裝置對應項](iot-hub-devguide-device-twins.md)與模組對應項可以包含標籤和屬性形式的任意 JSON 物件。 IoT 中樞可讓您以包含所有對應項資訊的單一 JSON 文件形式查詢裝置對應項與模組對應項。
+
 例如，假設 IoT 中樞裝置對應項有下列結構 (模組對應項很類似，只是具有額外的 moduleId)：
 
 ```json
@@ -80,15 +81,14 @@ IoT 中樞提供功能強大、類似 SQL 的語言，來擷取有關[裝置對�
 
 ### <a name="device-twin-queries"></a>裝置對應項查詢
 
-IoT 中樞可以將裝置對應項公開為稱為**裝置**的文件集合。
-因此，下列查詢會擷取整組裝置對應項︰
+IoT 中樞可以將裝置對應項公開為稱為**裝置**的文件集合。 因此，下列查詢會擷取整組裝置對應項︰
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 支援將大型結果分頁。
+> [Azure IoT SDK](iot-hub-devguide-sdks.md) 支援將大型結果分頁。
 
 IoT 中樞允許擷取使用任意條件進行的裝置對應項篩選。 例如，若要收到 **location.region** 標記設定為 **US** 的裝置對應項，請使用下列查詢：
 
@@ -101,7 +101,7 @@ WHERE tags.location.region = 'US'
 
 ```sql
 SELECT * FROM devices
-WHERE tags.location.region = 'US'
+  WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
@@ -109,25 +109,25 @@ WHERE tags.location.region = 'US'
 
 ```sql
 SELECT * FROM devices
-WHERE properties.reported.connectivity IN ['wired', 'wifi']
+  WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
 您通常必須識別包含特定屬性的所有裝置對應項。 為了實現此目的，IoT 中樞支援 `is_defined()` 函式。 例如，若要擷取定義 `connectivity` 屬性的裝置對應項，請使用下列查詢：
 
 ```SQL
 SELECT * FROM devices
-WHERE is_defined(properties.reported.connectivity)
+  WHERE is_defined(properties.reported.connectivity)
 ```
 
-請參閱 [WHERE 子句][lnk-query-where]一節，以取得篩選功能的完整參考。
+請參閱 [WHERE 子句](iot-hub-devguide-query-language.md#where-clause)一節，以取得篩選功能的完整參考。
 
 群組和彙總也受到支援。 例如，若要尋找處於各個遙測組態狀態的裝置計數，請使用下列查詢：
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
     COUNT() AS numberOfDevices
-FROM devices
-GROUP BY properties.reported.telemetryConfig.status
+  FROM devices
+  GROUP BY properties.reported.telemetryConfig.status
 ```
 
 這個群組查詢會傳回類似以下範例的結果：
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>模組對應項查詢
 
-查詢模組對應項和查詢裝置對應項很類似，但使用不同的集合/命名空間，也就是不用您可以查詢的 “from devices”
+查詢模組對應項和查詢裝置對應項很類似，但使用不同的集合/命名空間，也就是不用您可以查詢 device.modules 的 “from devices”：
 
 ```sql
 SELECT * FROM devices.modules
@@ -171,14 +171,18 @@ SELECT * FROM devices.modules
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-此查詢會傳回具有 scanning 狀態的所有模組對應項，但僅以指定的裝置子集為限。
+此查詢會傳回具有 scanning 狀態的所有模組對應項，但僅以指定的裝置子集為限：
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules 
+  where properties.reported.status = 'scanning' 
+  and deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>C# 範例
-查詢功能由 [C# 服務 SDK][lnk-hub-sdks] 在 **RegistryManager** 類別中公開。
+
+查詢功能由 [C# 服務 SDK](iot-hub-devguide-sdks.md) 在 **RegistryManager** 類別中公開。
+
 以下是簡單查詢的範例︰
 
 ```csharp
@@ -198,7 +202,9 @@ while (query.HasMoreResults)
 query 物件會根據查詢所需的還原序列化選項，公開多個 **Next** 值。 例如，裝置對應項或作業物件，或是單純 JSON (使用投影時)。
 
 ### <a name="nodejs-example"></a>Node.js 範例
-查詢功能由[適用於 Node.js 的 Azure IoT 服務 SDK][lnk-hub-sdks] 在 **Registry** 物件中公開。
+
+查詢功能由[適用於 Node.js 的 Azure IoT 服務 SDK](iot-hub-devguide-sdks.md) 在 **Registry** 物件中公開。
+
 以下是簡單查詢的範例︰
 
 ```nodejs
@@ -233,8 +239,7 @@ query 物件會根據查詢所需的還原序列化選項，公開多個 **Next*
 
 ## <a name="get-started-with-jobs-queries"></a>開始使用作業查詢
 
-[作業][lnk-jobs]可提供方法來對裝置組執行作業。 每個裝置對應項皆包含屬於 **jobs** 集合一部分之作業的資訊。
-在邏輯上，
+[作業](iot-hub-devguide-jobs.md)可提供方法來對裝置組執行作業。 每個裝置對應項皆包含屬於 **jobs** 集合一部分之作業的資訊。
 
 ```json
 {
@@ -276,16 +281,18 @@ query 物件會根據查詢所需的還原序列化選項，公開多個 **Next*
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
 請注意這個查詢如何為每個傳回的作業提供裝置特定的狀態 (可能的話還會提供直接方法回應)。
+
 您也可以在 **devices.jobs** 集合的所有物件屬性上，使用任意布林值條件進行篩選。
+
 例如，若要擷取 2016 年 9 月之後為特定裝置建立的所有已完成裝置對應項更新作業，請使用下列查詢：
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.jobType = 'scheduleTwinUpdate'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
@@ -295,10 +302,11 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.jobId = 'myJobId'
+  WHERE devices.jobs.jobId = 'myJobId'
 ```
 
 ### <a name="limitations"></a>限制
+
 **devices.jobs** 上的查詢目前不支援︰
 
 * 投影，因此只有 `SELECT *` 是可行的。
@@ -306,24 +314,28 @@ WHERE devices.jobs.jobId = 'myJobId'
 * 執行彙總，例如計數、平均、分組依據。
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT 中樞查詢的基本概念
+
 每個「IoT 中樞」查詢都包含 SELECT 和 FROM 子句，以及選擇性的 WHERE 和 GROUP BY 子句。 每個查詢都會在 JSON 文件的集合上執行，例如裝置對應項。 FROM 子句會指出要在其上反覆運算的文件集合 (**devices** 或 **devices.jobs**)。 然後，會套用 WHERE 子句中的篩選。 使用彙總時，此步驟的結果會依照 GROUP BY 子句中所指定的方式進行分組。 針對每個群組，會依照 SELECT 子句中所指定的方式產生一個資料列。
 
 ```sql
 SELECT <select_list>
-FROM <from_specification>
-[WHERE <filter_condition>]
-[GROUP BY <group_specification>]
+  FROM <from_specification>
+  [WHERE <filter_condition>]
+  [GROUP BY <group_specification>]
 ```
 
 ## <a name="from-clause"></a>FROM 子句
+
 **FROM <from_specification>** 子句只能採用兩個值︰**FROM devices** (用來查詢裝置對應項) 或 **FROM devices.jobs** (用來查詢每一裝置的作業詳細資料)。
+
 
 ## <a name="where-clause"></a>WHERE 子句
 **WHERE <filter_condition>** 子句是選擇性的。 它會指定一或多個條件，而且 FROM 集合中的 JSON 文件必須滿足這些條件，才能納入為結果的一部分。 任何 JSON 文件都必須將指定的條件評估為 "true"，才能併入結果。
 
-[運算式和條件][lnk-query-expressions]一節中會說明允許的條件。
+[運算式和條件](iot-hub-devguide-query-language.md#expressions-and-conditions)一節中會說明允許的條件。
 
 ## <a name="select-clause"></a>SELECT 子句
+
 **SELECT <select_list>** 是必要子句，可指定要從查詢擷取的值。 它會指定用來產生新 JSON 物件的 JSON 值。
 針對已篩選 (及視需要已分組) 之 FROM 集合子集的每個項目，投影階段會產生一個新的 JSON 物件。 此物件會以 SELECT 子句中所指定的值來建構。
 
@@ -349,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**attribute_name** 指的是 FROM 集合中 JSON 文件的任何屬性。 您可以在[開始使用裝置對應項查詢][lnk-query-getstarted]一節中找到一些 SELECT 子句範例。
+**attribute_name** 指的是 FROM 集合中 JSON 文件的任何屬性。 您可以在[開始使用裝置對應項查詢](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries)一節中找到一些 SELECT 子句範例。
 
 目前，只有在裝置對應項的彙總查詢中，才支援與 **SELECT*** 不同的選取範圍子句。
 
@@ -434,7 +446,7 @@ GROUP BY <group_by_element>
 | 邏輯 |AND、OR、NOT |
 | 比較 |=、!=、<、>、<=、>=、<> |
 
-### <a name="functions"></a>函式
+### <a name="functions"></a>Functions
 查詢對應項和作業時唯一支援的函式為：
 
 | 函式 | 說明 |
@@ -483,18 +495,5 @@ GROUP BY <group_by_element>
 | CONTAINS(x,y) | 傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。 |
 
 ## <a name="next-steps"></a>後續步驟
-了解如何使用 [Azure IoT SDK][lnk-hub-sdks] 在應用程式中執行查詢。
 
-[lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
-[lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+了解如何使用 [Azure IoT SDK](iot-hub-devguide-sdks.md) 在應用程式中執行查詢。

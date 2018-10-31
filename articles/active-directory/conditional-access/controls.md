@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 6f66deff9052b79265222f052bebb8439a95d269
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352739"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406767"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？ 
 
@@ -105,7 +105,7 @@ ms.locfileid: "49352739"
 您可以要求租用戶中的使用者先同意使用條款，再授與他們存取資源的權利。 身為系統管理員，您可以上傳 PDF 文件來設定及自訂使用條款。 使用者如果落在此控制項的控制範圍內，就必須同意使用條款才會獲得應用程式的存取權。 
 
 
-### <a name="custom-controls"></a>自訂控制項 
+### <a name="custom-controls-preview"></a>自訂控制項 (預覽) 
 
 您可以在條件式存取中建立自訂控制項，以將使用者重新導向至相容的服務，從而滿足 Azure Active Directory 之外的其他需求。 這可讓您使用某些外部的多重要素驗證和驗證提供者，來強制執行條件式存取規則或建置您自己的自訂服務。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。 
 

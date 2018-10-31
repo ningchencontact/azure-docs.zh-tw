@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2017
+ms.date: 10/19/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: fcd02e264d5e85b1bef7e75d2a6375d6bf5e18c0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363944"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456893"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取
 
@@ -194,7 +194,7 @@ Klist
 
 3. 在 [備用存取對應集合] 旁的下拉式清單中，選取 [變更備用存取對應集合]。
 4. 選取您的網站，例如 **SharePoint - 80**。
-5. 您可以選擇將已發佈的 URL 新增為內部 URL 或公用 URL。 本範例使用公用 URL 做為外部網路。
+5. 您可以選擇將已發佈的 URL 新增為內部 URL 或公用 URL。 本範例使用公用 URL 做為外部網路。 如果您使用自訂連接埠，請務必在 URL 中包含自訂連接埠。
 6. 按一下 [外部網路] 路徑中的 [編輯公用 URL]，然後輸入發佈應用程式時建立的外部 URL。 例如，輸入 **https://sharepoint-iddemo.msappproxy.net**。
 
   ![輸入路徑](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)

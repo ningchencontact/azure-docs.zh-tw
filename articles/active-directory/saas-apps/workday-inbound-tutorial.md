@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2ab2ac34132eff65e1d6c77794486bc8d9858b40
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298263"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408167"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>教學課程︰設定 Workday 來自動佈建使用者 (預覽)
 
@@ -74,7 +74,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 * 具有全域系統管理員存取權的有效 Azure AD Premium P1 訂用帳戶
 * 可供測試和整合之用的 Workday 實作租用戶
 * 可供測試之用的 Workday 系統管理員權限，以建立系統整合使用者和進行變更以測試員工資料
-* 佈建至 Active Directory 的使用者，需要執行 Windows Service 2012 或更新版本的已加入網域伺服器，才能裝載[內部部署同步代理程式](https://go.microsoft.com/fwlink/?linkid=847801)
+* 佈建至 Active Directory 的使用者，需要執行 Windows Server 2012 或更新版本的已加入網域伺服器，才能裝載[內部部署同步代理程式](https://go.microsoft.com/fwlink/?linkid=847801)
 * 可在 Active Directory 與 Azure AD 之間同步處理的 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 
 ### <a name="solution-architecture"></a>方案架構

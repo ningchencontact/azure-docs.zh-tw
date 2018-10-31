@@ -4,22 +4,21 @@ description: 本主題提供 Azure 媒體服務概念的概觀
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 06c6451a7c8532b32a1c130f6b71df97857d2e7f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942292"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353695"
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒體服務概念
 本主題提供媒體服務概念的最重要概觀。
@@ -147,7 +146,7 @@ Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存、處理�
 播放程式要求串流時，媒體服務便會使用信封加密 (使用 AES) 或一般加密 (使用 PlayReady 或 Widevine)，並使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
 ### <a name="token-restriction"></a>權杖限制
-內容金鑰授權原則可能會有一個或多個授權限制：Open、權杖限制或 IP 限制。 權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。 媒體服務支援簡單 Web 權杖 (SWT) 格式和 JSON Web 權杖 (JWT) 格式的權杖。 媒體服務不提供安全權杖服務。 您可以建立自訂 STS，或利用 Microsoft Azure ACS 來發行權杖。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果權杖有效，且權杖中的宣告符合針對金鑰 (或授權) 所設定的宣告，媒體服務金鑰傳遞服務會將所要求的金鑰 (或授權) 傳回給用戶端。
+內容金鑰授權原則可能會有一個或多個授權限制：Open、權杖限制或 IP 限制。 權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。 媒體服務支援簡單 Web 權杖 (SWT) 格式和 JSON Web 權杖 (JWT) 格式的權杖。 媒體服務不提供安全權杖服務。 您可以建立自訂的 STS。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果權杖有效，且權杖中的宣告符合針對金鑰 (或授權) 所設定的宣告，媒體服務金鑰傳遞服務會將所要求的金鑰 (或授權) 傳回給用戶端。
 
 設定 token 限制原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖使用的金鑰，簽發者是發行權杖的安全權杖服務。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 

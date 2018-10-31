@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 380bf5cb89a165534d0084758d532613eeff480a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600233"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320487"
 ---
 # <a name="azure-maps-supported-languages"></a>Azure 地圖服務支援的語言
 Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提供每個服務的支援語言代碼。  
   
 
-| ID         | Name                   |  地圖 | Search | 路由 | 流量事件 | JS 地圖控制項 | 時區 |
+| ID         | 名稱                   |  地圖 | Search | 路由 | 流量事件 | JS 地圖控制項 | 時區 |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | 南非荷蘭文              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | 阿拉伯文                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -54,6 +54,8 @@ Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提供
 | lt-LT      | 立陶宛文             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ms-MY      | 馬來文 (拉丁)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | nb-NO      | 挪威文 (巴克摩)       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NGT        | Neutral Ground Truth (自然地面真相) - 本機指令碼中所有地區的官方語言 (如果可用) |   ✓     |        |         |                   |      ✓          |         |
+| NGT-Latn   | Neutral Ground Truth - 拉丁文的外來語地名。 將使用 Latin 指令碼 (如果可用) |   ✓     |        |         |                   |        ✓         |          |
 | pl-PL      | 波蘭文                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | 葡萄牙文 (巴西)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | 葡萄牙文 (葡萄牙)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

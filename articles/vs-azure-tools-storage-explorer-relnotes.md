@@ -14,26 +14,225 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190516"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388284"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
-本文包含 Azure 儲存體總管 1.4.1 版和先前版本的版本資訊。
+本文包含 Azure 儲存體總管 1.4.3 版和先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
+## <a name="version-144"></a>1.4.4 版
+10/15/2018
+
+### <a name="download-azure-storage-explorer-144"></a>下載 Azure 儲存體總管1.4.4
+- [適用於 Windows 的 Azure 儲存體總管 1.4.4](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 1.4.4](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 1.4.4](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Hotfix
+* 已復原 Azure 資源管理 Api 版本，以將 Azure US Government 使用者解除封鎖。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* 載入進度環現在使用 CSS 動畫來減少儲存體總管所使用的 GPU。 [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>新增
+* 已針對 SAS 連線和模擬器等大幅改良外部資源附件。 現在您可以：
+   * 針對要連結的資源自訂顯示名稱。 [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * 使用不同連接埠連結至多個本機模擬器。 [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * 將連結的資源新增至快速存取。 [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* 儲存體總管現在支援使虛刪除。 您可以：
+   * 以滑鼠右鍵按一下您儲存體帳戶的 Blob 容器節點，即可設定虛刪除原則。
+   * 在瀏覽列旁的下拉式清單中選取 [作用中和已刪除的 Blob]，即可在 Blob 編輯器中檢視虛刪除的 Blob。
+   * 取消刪除虛刪除的 Blob。
+
+### <a name="fixes"></a>修正
+* 由於進階儲存體帳戶不支援 CORS，因此進階儲存體帳戶上不再有 [配置 CORS 設定] 動作。 [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* SAS 連結服務現在有共用存取簽章屬性。 [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* [設定預設存取層] 動作現在可用於釘選到快速存取的 Blob 和 GPV2 儲存體帳戶。 [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* 有時候，儲存體總管會無法顯示傳統儲存體帳戶。 [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>已知問題
+* 使用模擬器 (例如「Azure 儲存體模擬器」或 Azurite) 時，您將必須讓它們在其預設連接埠上接聽連線。 否則，「儲存體總管」將無法連線至這些模擬器。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請對[此問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>舊版
+
+* [1.4.3 版](#version-143)
+* [1.4.2 版](#version-142)
+* [1.4.1 版](#version-141)
+* [1.3.0 版](#version-130)
+* [版本 1.2.0](#version-120)
+* [1.1.0 版](#version-110)
+* [1.0.0 版](#version-100)
+* [0.9.6 版](#version-096)
+* [0.9.5 版](#version-095)
+* [0.9.4 和 0.9.3 版](#version-094-and-093)
+* [0.9.2 版](#version-092)
+* [0.9.1 和 0.9.0 版](#version-091-and-090)
+* [0.8.16 版](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [0.8.13 版](#version-0813)
+* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
+* [0.8.9 和 0.8.8 版](#version-089-and-088)
+* [0.8.7 版](#version-087)
+* [0.8.6 版](#version-086)
+* [0.8.5 版](#version-085)
+* [0.8.4 版](#version-084)
+* [0.8.3 版](#version-083)
+* [0.8.2 版](#version-082)
+* [0.8.0 版](#version-080)
+* [0.7.20160509.0 版](#version-07201605090)
+* [0.7.20160325.0 版](#version-07201603250)
+* [0.7.20160129.1 版](#version-07201601291)
+* [0.7.20160105.0 版](#version-07201601050)
+* [0.7.20151116.0 版](#version-07201511160)
+
+## <a name="version-143"></a>1.4.3 版
+10/11/2018
+
+### <a name="hotfixes"></a>Hotfix
+* 已復原 Azure 資源管理 Api 版本，以將 Azure US Government 使用者解除封鎖。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* 載入進度環現在使用 CSS 動畫來減少儲存體總管所使用的 GPU。 [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>新增
+* 已針對 SAS 連線和模擬器等大幅改良外部資源附件。 現在您可以：
+   * 針對要連結的資源自訂顯示名稱。 [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * 使用不同連接埠連結至多個本機模擬器。 [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * 將連結的資源新增至快速存取。 [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* 儲存體總管現在支援使虛刪除。 您可以：
+   * 以滑鼠右鍵按一下您儲存體帳戶的 Blob 容器節點，即可設定虛刪除原則。
+   * 在瀏覽列旁的下拉式清單中選取 [作用中和已刪除的 Blob]，即可在 Blob 編輯器中檢視虛刪除的 Blob。
+   * 取消刪除虛刪除的 Blob。
+
+### <a name="fixes"></a>修正
+* 由於進階儲存體帳戶不支援 CORS，因此進階儲存體帳戶上不再有 [配置 CORS 設定] 動作。 [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* SAS 連結服務現在有共用存取簽章屬性。 [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* [設定預設存取層] 動作現在可用於釘選到快速存取的 Blob 和 GPV2 儲存體帳戶。 [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* 有時候，儲存體總管會無法顯示傳統儲存體帳戶。 [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>已知問題
+* 使用模擬器 (例如「Azure 儲存體模擬器」或 Azurite) 時，您將必須讓它們在其預設連接埠上接聽連線。 否則，「儲存體總管」將無法連線至這些模擬器。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請對[此問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-142"></a>1.4.2 版
+09/24/2018
+
+### <a name="hotfixes"></a>Hotfix
+* 將 Azure 資源管理 Api 版本更新為 2018-07-01 以新增新 Azure 儲存體帳戶類型的支援。 [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+
+### <a name="new"></a>新增
+* 已針對 SAS 連線和模擬器等大幅改良外部資源附件。 現在您可以：
+   * 針對要連結的資源自訂顯示名稱。 [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * 使用不同連接埠連結至多個本機模擬器。 [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * 將連結的資源新增至快速存取。 [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* 儲存體總管現在支援使虛刪除。 您可以：
+   * 以滑鼠右鍵按一下您儲存體帳戶的 Blob 容器節點，即可設定虛刪除原則。
+   * 在瀏覽列旁的下拉式清單中選取 [作用中和已刪除的 Blob]，即可在 Blob 編輯器中檢視虛刪除的 Blob。
+   * 取消刪除虛刪除的 Blob。
+
+### <a name="fixes"></a>修正
+* 由於進階儲存體帳戶不支援 CORS，因此進階儲存體帳戶上不再有 [配置 CORS 設定] 動作。 [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* SAS 連結服務現在有共用存取簽章屬性。 [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* [設定預設存取層] 動作現在可用於釘選到快速存取的 Blob 和 GPV2 儲存體帳戶。 [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* 有時候，儲存體總管會無法顯示傳統儲存體帳戶。 [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>已知問題
+* 使用模擬器 (例如「Azure 儲存體模擬器」或 Azurite) 時，您將必須讓它們在其預設連接埠上接聽連線。 否則，「儲存體總管」將無法連線至這些模擬器。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請對[此問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 ## <a name="version-141"></a>1.4.1 版
 08/28/2018
-
-### <a name="download-azure-storage-explorer-141"></a>下載 Azure 儲存體總管 1.4.1
-- [適用於 Windows 的 Azure 儲存體總管 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 1.4.1 ](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfix
 * 第一次啟動時，儲存體總管無法產生用來加密敏感性資料的金鑰。 這會在使用快速存取和連結資源時造成問題。 [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
@@ -76,7 +275,7 @@ ms.locfileid: "43190516"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
@@ -91,35 +290,6 @@ ms.locfileid: "43190516"
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>舊版
-
-* [1.3.0 版](#version-130)
-* [版本 1.2.0](#version-120)
-* [1.1.0 版](#version-110)
-* [1.0.0 版](#version-100)
-* [0.9.6 版](#version-096)
-* [0.9.5 版](#version-095)
-* [0.9.4 和 0.9.3 版](#version-094-and-093)
-* [0.9.2 版](#version-092)
-* [0.9.1 和 0.9.0 版](#version-091-and-090)
-* [0.8.16 版](#version-0816)
-* [版本 0.8.14](#version-0814)
-* [0.8.13 版](#version-0813)
-* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
-* [0.8.9 和 0.8.8 版](#version-089-and-088)
-* [0.8.7 版](#version-087)
-* [0.8.6 版](#version-086)
-* [0.8.5 版](#version-085)
-* [0.8.4 版](#version-084)
-* [0.8.3 版](#version-083)
-* [0.8.2 版](#version-082)
-* [0.8.0 版](#version-080)
-* [0.7.20160509.0 版](#version-07201605090)
-* [0.7.20160325.0 版](#version-07201603250)
-* [0.7.20160129.1 版](#version-07201601291)
-* [0.7.20160105.0 版](#version-07201601050)
-* [0.7.20151116.0 版](#version-07201511160)
 
 ## <a name="version-130"></a>版本 1.3.0
 07/09/2018
@@ -162,7 +332,7 @@ ms.locfileid: "43190516"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
@@ -219,7 +389,7 @@ ms.locfileid: "43190516"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
@@ -240,7 +410,7 @@ ms.locfileid: "43190516"
 
 ### <a name="new"></a>新增
 * 儲存體總管現在支援使用 Azurite。 注意：Azurite 的連線是硬式編碼至預設開發端點。
-* 儲存體總管現在支援僅限 Blob 和 GPV2 儲存體帳戶的存取層。 在[此處](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)深入了解存取層。
+* 儲存體總管現在支援僅限 Blob 和 GPV2 儲存體帳戶的存取層。 在[此處](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)深入了解存取層。
 * 產生 SAS 時，不再需要開始時間。
 
 ### <a name="fixes"></a>修正
@@ -273,7 +443,7 @@ ms.locfileid: "43190516"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
@@ -300,7 +470,7 @@ ms.locfileid: "43190516"
 * GitHub 上現在提供儲存體總管意見反應。 按一下左下方的 [意見反應] 按鈕或移至 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)，即可抵達我們的問題頁面。 請隨意提出建議、回報問題、詢問問題，或留下任何其他形式的意見反應。
 * 如果您遇到 SSL 憑證問題，而且找不到引起問題的憑證，現在可以使用 `--ignore-certificate-errors` 旗標從命令列啟動儲存體總管。 使用這個旗標啟動時，儲存體總管會忽略 SSL 憑證錯誤。
 * Blob 和檔案項目的內容功能表中現在有 [下載] 選項。
-* 已改善協助工具和畫面讀取器支援。 如果您需依賴協助工具功能，請參閱[協助工具文件](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility)以取得詳細資訊。
+* 已改善協助工具和畫面讀取器支援。 如果您需依賴協助工具功能，請參閱[協助工具文件](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility)以取得詳細資訊。
 * 儲存體總管現在使用 Electron 1.8.3
 
 ### <a name="breaking-changes"></a>重大變更
@@ -339,7 +509,7 @@ ms.locfileid: "43190516"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```

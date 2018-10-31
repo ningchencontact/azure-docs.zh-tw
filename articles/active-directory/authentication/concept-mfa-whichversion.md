@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0d68c88bdad63bb022babcc4a6ee4ee7c59ce58a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 696c331111fef9d6fc238b733e15230ab3ee1e56
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158446"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378011"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>哪個 Azure MFA 版本適合我的組織？
 
@@ -61,7 +61,7 @@ ms.locfileid: "39158446"
 | 以行動應用程式驗證碼做為第二個因素 | ● | ● |
 | 以撥打電話做為第二個因素 | ● | ● |
 | 以單向 SMS 做為第二個因素 | ● | ● |
-| 以硬體權杖做為第二個因素 | | ● |
+| 以硬體權杖做為第二個因素 | ● (公開預覽版) | ● |
 | 不支援 MFA 之 Office 365 用戶端的應用程式密碼 | ● | |
 | 系統管理員控制驗證方法 | ● | ● |
 | PIN 模式 | | ● |

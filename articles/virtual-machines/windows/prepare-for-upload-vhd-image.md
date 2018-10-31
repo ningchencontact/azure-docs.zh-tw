@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/23/2018
+ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: b4787f5b9657afbcedbd3803d6a17af9c8cf9099
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406986"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388148"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 將 Windows 虛擬機器 (VM) 從內部部署上傳至 Microsoft Azure 之前，您必須先準備虛擬硬碟 (VHD 或 VHDX)。 Azure 只支援採用 VHD 檔案格式且具有固定大小磁碟的**第 1 代 VM**。 允許的 VHD 大小上限為 1023 GB。 您可以將第 1 代 VM 從 VHDX 檔案系統轉換為 VHD，以及從動態擴充磁碟轉換為固定大小的磁碟。 但您無法變更 VM 的世代。 如需詳細資訊，請參閱[應該在 Hyper-V 中建立第 1 代還是第 2 代的 VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) \(英文\)。
@@ -88,7 +88,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 4. 設定適用於 Windows 的國際標準時間 (UTC)，並將 Windows 時間 (w32time) 服務的啟動類型設為 [自動]：
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
 
     Set-Service -Name w32time -StartupType Automatic
     ```
@@ -96,6 +96,13 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
     ```PowerShell
     powercfg /setactive SCHEME_MIN
+    ```
+6. 確定環境變數 **TEMP** 和 **TMP** 均設定為其預設值：
+
+    ```PowerShell
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
+
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
     ```
 
 ## <a name="check-the-windows-services"></a>檢查 Windows 服務
@@ -119,63 +126,63 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 確定已針對遠端桌面連線正確設定下列設定：
 
 >[!Note] 
->當您在這些步驟中執行 **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;物件名稱&gt; &lt;值&gt;** 時，可能會收到一則錯誤訊息。 您可以放心地忽略該錯誤訊息。 它只是表示網域不是透過群組原則物件來推送該設定。
+>當您在這些步驟中執行 **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;物件名稱&gt; -value &lt;值&gt;** 時，可能會收到一則錯誤訊息。 您可以放心地忽略該錯誤訊息。 它只是表示網域不是透過群組原則物件來推送該設定。
 >
 >
 
 1. 遠端桌面通訊協定 (RDP) 已啟用：
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0 -Type DWord -force
 
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0 -Type DWord -force
     ```
    
 2. RDP 連接埠已正確設定 (預設連接埠 3389)：
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" 3389 -Type DWord
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" -Value 3389 -Type DWord -force
     ```
     當您部署 VM 時，會針對連接埠 3389 建立預設規則。 如果您想要變更連接埠號碼，請在 Azure 中部署 VM 之後進行。
 
 3. 接聽程式正在每個網路介面中進行接聽：
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "LanAdapter" 0 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "LanAdapter" -Value 0 -Type DWord -force
    ```
 4. 設定 RDP 連線的網路層級驗證模式：
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" 1 -Type DWord
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1 -Type DWord -force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SecurityLayer" 1 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SecurityLayer" -Value 1 -Type DWord -force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "fAllowSecProtocolNegotiation" 1 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "fAllowSecProtocolNegotiation" -Value 1 -Type DWord -force
      ```
 
 5. 設定 Keep-Alive 值：
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" 1 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" -Value 1  -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" -Value 1  -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" -Value 1 -Type DWord -force
     ```
 6. 重新連線：
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" 0 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" 0 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" -Value 0 -Type DWord -force
     ```
 7. 並行連線數目的限制：
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" 4294967295 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" -Value 4294967295 -Type DWord -force
     ```
 8. 如果有任何自我簽署憑證繫結至 RDP 接聽程式，請移除它們：
     
     ```PowerShell
-    Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash"
+    Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash" -force
     ```
     這是為了確定您在部署 VM 時，一開始就能連線。 您也可以視需要，在 Azure 中部署 VM 之後的後續階段中檢閱這部分。
 
@@ -193,27 +200,25 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 1. 在這三個設定檔 (網域、標準和公用) 上開啟 Windows 防火牆：
 
    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile' -name "EnableFirewall" -Value 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\PublicProfile' -name "EnableFirewall" -Value 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\Standardprofile' -name "EnableFirewall" -Value 1 -Type DWord
+    Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
    ```
 
 2. 在 PowerShell 中執行下列命令，以允許 WinRM 透過這三種防火牆設定檔 (網域、私人和公用)，並啟用 PowerShell 遠端服務：
    
    ```PowerShell
     Enable-PSRemoting -force
-    netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
-    netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+
+    Set-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)" -Enabled True
    ```
 3. 啟用下列防火牆規則以允許 RDP 流量：
 
    ```PowerShell
-    netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
+    Set-NetFirewallRule -DisplayGroup "Remote Desktop" -Enabled True
    ```   
 4. 啟用檔案及印表機共用規則，讓 VM 可以在虛擬網路內回應 ping 命令：
 
    ```PowerShell
-    netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
+   Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -Enabled True
    ``` 
 5. 如果 VM 將為網域的一部分，請檢查下列設定，以確定不會還原先前設定。 以下為必須檢查的 AD 原則：
 
@@ -250,7 +255,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 
     #Enable Serial Console Feature
     bcdedit /set {bootmgr} displaybootmenu yes
-    bcdedit /set {bootmgr} timeout 10
+    bcdedit /set {bootmgr} timeout 5
     bcdedit /set {bootmgr} bootems yes
     bcdedit /ems {current} ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
@@ -260,22 +265,18 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 3. 傾印記錄檔能幫助您進行 Windows 損毀問題的疑難排解。 啟用傾印記錄檔收集：
 
     ```powershell
-    cmd
-
-    #Setup the Guest OS to collect a kernel dump on an OS crash event
-    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
-    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+    # Setup the Guest OS to collect a kernel dump on an OS crash event
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name CrashDumpEnabled -Type DWord -force -Value 2
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name DumpFile -Type ExpandString -force -Value "%SystemRoot%\MEMORY.DMP"
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name NMICrashDump -Type DWord -force -Value 1
 
     #Setup the Guest OS to collect user mode dumps on a service crash event
-    md c:\Crashdumps
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v CrashCount /t REG_DWORD /d 10 /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpType /t REG_DWORD /d 2 /f
-    sc config WerSvc start= demand
-
-    exit
-    
+    $key = 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps'
+    if ((Test-Path -Path $key) -eq $false) {(New-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting' -Name LocalDumps)}
+    New-ItemProperty -Path $key -name DumpFolder -Type ExpandString -force -Value "c:\CrashDumps"
+    New-ItemProperty -Path $key -name CrashCount -Type DWord -force -Value 10
+    New-ItemProperty -Path $key -name DumpType -Type DWord -force -Value 2
+    Set-Service -Name WerSvc -StartupType Manual
     ```
 4. 確認 Windows Management Instrumentation 存放庫是一致的。 若要執行此動作，請執行下列命令：
 
@@ -374,7 +375,7 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 如需如何從特殊化磁碟建立 VM 的詳細資訊，請參閱：
 
 - [從特殊化磁碟建立 VM](create-vm-specialized.md)
-- [從特殊化 VHD 磁碟建立 VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
+- [從特殊化 VHD 磁碟建立 VM](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 如果您想要建立一般化映像，就必須執行 sysprep。 如需 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介](http://technet.microsoft.com/library/bb457073.aspx) \(英文\)。 
 
@@ -408,7 +409,7 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 *  在 Azure 中建立 VM 之後，我們建議您將分頁檔放在「暫存磁碟機」磁碟區中，以改善效能。 您可以如下方式設定這部分：
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile"
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
     ```
 如果沒有任何資料磁碟連接到 VM，暫存磁碟機磁碟區的磁碟機代號通常是 "D"。 根據可用的磁碟機數目和您所進行的設定而定，這項指定可能不同。
 

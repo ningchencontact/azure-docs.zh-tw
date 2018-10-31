@@ -10,13 +10,13 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
-ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 10/11/2018
+ms.openlocfilehash: 77a76aa4fbb051e5999053279798c1b0147ae8e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042033"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166775"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
@@ -27,8 +27,10 @@ ms.locfileid: "43042033"
 * 取得檔案內容與中繼資料。
 * 將封存檔案解壓縮到資料夾。
 
-您可以使用觸發程序，從您的 SFTP 伺服器收到回應，並且讓輸出可供其他動作使用。 您可以在邏輯應用程式中使用動作，對 SFTP 伺服器上的檔案執行工作。 您也可以讓其他動作使用 SFTP 動作的輸出。 例如，如果您定期從 SFTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於這些檔案及其內容的電子郵件。
-如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
+您可以使用觸發程序，從您的 SFTP 伺服器收到回應，並且讓輸出可供其他動作使用。 您可以在邏輯應用程式中使用動作，對 SFTP 伺服器上的檔案執行工作。 您也可以讓其他動作使用 SFTP 動作的輸出。 例如，如果您定期從 SFTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於這些檔案及其內容的電子郵件。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
+
+> [!NOTE]
+> 針對 50 MB 至 1 GB 的檔案，使用 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)。 除非您使用[區塊來處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)，否則 SFTP 連接器僅支援 50 MB 以下的檔案。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -48,7 +50,7 @@ ms.locfileid: "43042033"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "sftp" 作為篩選條件。 請在觸發程序清單底下，選取您想要的觸發程序。 
+1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "sftp" 作為篩選條件。 在觸發程序清單底下，選取您想要的觸發程序。 
 
    -或-
 

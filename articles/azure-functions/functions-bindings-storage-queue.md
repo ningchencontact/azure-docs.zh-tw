@@ -5,23 +5,19 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/03/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 996a53751d6b8c6dd06084da371badb0c31d367f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cb72b3f6b0a665f1a4d39d1e8533be51faa4c107
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667514"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167132"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -150,11 +146,16 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 [設定](#trigger---configuration)章節會說明這些屬性。
 
+> [!NOTE]
+> 名稱參數會在 JavaScript 程式碼中反映為包含佇列項目承載的 `context.bindings.<name>`。 此承載也會當作第二個參數傳遞給函式。
+
 以下是 JavaScript 程式碼：
 
 ```javascript
-module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
+module.exports = async function (context, message) {
+    context.log('Node.js queue trigger function processed work item', message);
+    // OR access using context.bindings.<name>
+    // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -248,7 +249,7 @@ module.exports = function (context) {
 |---------|---------|----------------------|
 |**type** | n/a| 必須設為 `queueTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction**| n/a | 僅限在 *function.json* 檔案中。 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
-|**name** | n/a |代表函式程式碼中佇列的變數名稱。  | 
+|**name** | n/a |在函式程式碼中包含佇列項目承載的變數名稱。  | 
 |**queueName** | **QueueName**| 要輪詢的佇列名稱。 | 
 |**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
 
@@ -539,14 +540,15 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 
 ## <a name="next-steps"></a>後續步驟
 
+* [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
+
+<!--
 > [!div class="nextstepaction"]
-> [移至使用佇列儲存體觸發程序的快速入門](functions-create-storage-queue-triggered-function.md)
+> [Go to a quickstart that uses a Queue storage trigger](functions-create-storage-queue-triggered-function.md)
+-->
 
 > [!div class="nextstepaction"]
 > [移至使用佇列儲存體輸出繫結的教學課程](functions-integrate-storage-queue-output-binding.md)
-
-> [!div class="nextstepaction"]
-> [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
 <!-- LINKS -->
 

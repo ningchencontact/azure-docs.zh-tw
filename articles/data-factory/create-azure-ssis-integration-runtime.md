@@ -13,21 +13,21 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a7ba62a28b65d1cd7152c793bc303e747057cdf8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e8fbc579d28f0aa3d5a19af66ecbe435156de6b1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991465"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387645"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段
 本文提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 中的此執行階段並執行。 
 
 教學課程：[教學課程：將 SQL Server Integration Services 套件 (SSIS) 部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md) 示範如何使用 Azure SQL Database 裝載 SSIS 目錄來建立 Azure SSIS Integration Runtime (IR)。 本文會詳述此教學課程並示範如何執行下列作業： 
 
-- 選擇性地使用具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 作為資料庫伺服器，以裝載 SSIS 目錄 (SSISDB 資料庫)。 如需選擇適當資料庫伺服器類型來裝載 SSISDB 的指導方針，請參閱[比較 SQL Database 邏輯伺服器和 SQL Database 受控執行個體](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance)。 前提是，您必須將 Azure-SSIS IR 加入虛擬網路，並且視需要設定虛擬網路權限和設定。 請參閱[將 Azure-SSIS IR 加入虛擬網路](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。 
+- 選擇性地使用具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 作為資料庫伺服器，以裝載 SSIS 目錄 (SSISDB 資料庫)。 如需選擇適當資料庫伺服器類型來裝載 SSISDB 的指導方針，請參閱[比較 SQL Database 邏輯伺服器和 SQL Database 受控執行個體](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance)。 前提是，您必須將 Azure-SSIS IR 加入虛擬網路，並且視需要設定虛擬網路權限和設定。 請參閱[將 Azure-SSIS IR 加入虛擬網路](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。 
 
-- 選擇性地使用 Azure Data Factory (AAD) 驗證搭配 Azure Data Factory 受控服務識別 (MSI)，以便 Azure-SSIS IR 連線到資料庫伺服器。 前提是，您必須將 Data Factory MSI 新增至具有資料庫伺服器存取權限的 AAD 群組，請參閱[啟用 Azure-SSIS IR 的 AAD 驗證](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)。 
+- 選擇性地使用 Azure Data Factory (AAD) 驗證搭配 Azure Data Factory 的 Azure 資源受控識別，以便 Azure-SSIS IR 連線到資料庫伺服器。 前提是，您必須將 Data Factory MSI 新增至具有資料庫伺服器存取權限的 AAD 群組，請參閱[啟用 Azure-SSIS IR 的 AAD 驗證](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)。 
 
 ## <a name="overview"></a>概觀
 本文章示範 Azure-SSIS IR 的各種佈建方法： 
@@ -68,7 +68,7 @@ ms.locfileid: "46991465"
 | **驗證** | 您可以利用自主資料庫使用者帳戶來建立一個資料庫，讓它代表角色為  **dbmanager** 的任何 Azure Active Directory 使用者。<br/><br/>請參閱[在 Azure SQL Database 上啟用 Azure AD](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)。 | 您無法利用自主資料庫使用者帳戶來建立一個資料庫，讓它代表 Azure AD 系統管理員以外的任何 Azure Active Directory 使用者。 <br/><br/>請參閱[在 Azure SQL Database 受控執行個體上啟用 Azure AD](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)。 |
 | **服務層** | 當您在 SQL Database 上建立 Azure-SSIS IR 時，可以選取 SSISDB 的服務層。 目前有多個服務層。 | 當您在受控執行個體上建立 Azure-SSIS IR 時，無法選取 SSISDB 的服務層。 同一個受控執行個體上的所有資料庫會共用分配給該執行個體的資源。 |
 | **虛擬網路** | 支援 Azure Resource Manager 和傳統虛擬網路。 | 只支援 Azure Resource Manager 虛擬網路。 虛擬網路是必要的。<br/><br/>如果您將 Azure-SSIS IR 加入至受控執行個體所在的虛擬網路上，請確定 Azure-SSIS IR 和受控執行個體分屬不同的子網路。 如果 Azure-SSIS IR 並不是加入至受控執行個體所在的虛擬網路，我們建議虛擬網路對等互連 (限制為相同的區域) 或虛擬網路對虛擬網路連線。 請參閱[將您的應用程式連線到 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-connect-app.md)。 |
-| **分散式交易** | 不支援 Microsoft Distributed Transaction Coordinator (MSDTC) 交易。 如果套件使用 MSDTC 來協調分散式交易，您可以藉由使用 SQL Database 的彈性交易來實作暫時的解決方案。 SSIS 目前並未內建對於彈性交易的支援。 若要在 SSIS 套件中使用彈性交易，您必須在指令碼工作中撰寫自訂 ADO.NET 程式碼。 此指令碼工作必須包含交易的開始和結束，且所有動作都必須在交易內發生。<br/><br/>如需為撰寫彈性編碼的詳細資訊，請參閱 [Azure SQL Database 的彈性交易](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/) (英文)。 如需一般彈性交易的詳細資訊，請參閱[跨雲端資料庫的分散式交易](../sql-database/sql-database-elastic-transactions-overview.md)。 | 不支援。 |
+| **分散式交易** | 不支援 Microsoft Distributed Transaction Coordinator (MSDTC) 交易。 如果套件使用 MSDTC 來協調分散式交易，您可以藉由使用 SQL Database 的彈性交易來實作暫時的解決方案。 SSIS 目前並未內建對於彈性交易的支援。 若要在 SSIS 套件中使用彈性交易，您必須在指令碼工作中撰寫自訂 ADO.NET 程式碼。 此指令碼工作必須包含交易的開始和結束，且所有動作都必須在交易內發生。<br/><br/>如需為撰寫彈性編碼的詳細資訊，請參閱 [Azure SQL Database 的彈性交易](https://azure.microsoft.com/blog/elastic-database-transactions-with-azure-sql-database/) (英文)。 如需一般彈性交易的詳細資訊，請參閱[跨雲端資料庫的分散式交易](../sql-database/sql-database-elastic-transactions-overview.md)。 | 不支援。 |
 | | | |
 
 ## <a name="azure-portal"></a>Azure 入口網站
@@ -146,7 +146,7 @@ ms.locfileid: "46991465"
 
     c. 針對 [目錄資料庫伺服器端點]，選取裝載 SSISDB 的資料庫伺服器端點。 根據選取的資料庫伺服器，SSISDB 可代表您建立為單一資料庫、彈性集區的一部分，或建立在受控執行個體中，並且可在公用網路中或透過加入虛擬網路來存取。 
 
-    d. 在 [使用 AAD 驗證...] 核取方塊上，為裝載 SSISDB 的資料庫伺服器選取驗證方法：使用 Azure Data Factory 受控服務識別 (MSI) 的 SQL 或 Azure Active Directory (AAD)。 如果您核取該方塊，您必須將 Data Factory MSI 新增至具有資料庫伺服器存取權的 AAD 群組，請參閱[啟用 Azure-SSIS IR 的 AAD 驗證](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)。 
+    d. 在 [使用 AAD 驗證...] 核取方塊上，為裝載 SSISDB 的資料庫伺服器選取驗證方法：使用 Azure 資源 Azure Data Factory 受控識別的 SQL 或 Azure Active Directory (AAD)。 如果您核取該方塊，您必須將 Data Factory MSI 新增至具有資料庫伺服器存取權的 AAD 群組，請參閱[啟用 Azure-SSIS IR 的 AAD 驗證](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)。 
 
     e. 針對 [管理使用者名稱]，為裝載 SSISDB 的資料庫伺服器輸入 SQL 驗證使用者名稱。 
 
@@ -162,9 +162,9 @@ ms.locfileid: "46991465"
 
     a. 針對 [每節點的平行執行數上限]，選取執行階段叢集中每節點上可同時執行的套件數量上限。 系統只會顯示支援的套件數目。 如果您想要使用一個以上的核心，來執行計算/記憶體密集的單一大型/重量套件，請選取較低的數字。 如果您想要在單一核心中執行一個或多個小型/輕量套件，請選取較高的數字。 
 
-    b. 針對 [自訂安裝容器的 SAS URI]，選擇性地輸入 Azure 儲存體 Blob 容器的共用存取簽章 (SAS) 統一資源識別項 (URI)，該容器是您安裝指令碼且儲存指令碼相關檔案的地方，請參閱[自訂 Azure-SSIS IR 的安裝](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)。 
+    b. 針對 [自訂安裝容器的 SAS URI]，選擇性地輸入 Azure 儲存體 Blob 容器的共用存取簽章 (SAS) 統一資源識別項 (URI)，該容器是您安裝指令碼且儲存指令碼相關檔案的地方，請參閱[自訂 Azure-SSIS IR 的安裝](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)。 
 
-1. 在 [選取虛擬網路...] 核取方塊上，選取是否要將整合執行階段加入虛擬網路。 如果您使用具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 來裝載 SSISDB，或要求存取內部部署資料，請核取該方塊；也就是說，您的 SSIS 套件中有內部部署資料來源/目的地，請參閱[將 Azure-SSIS IR 加入虛擬網路](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。 如果您核取該方塊，請完成下列步驟： 
+1. 在 [選取虛擬網路...] 核取方塊上，選取是否要將整合執行階段加入虛擬網路。 如果您使用具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 來裝載 SSISDB，或要求存取內部部署資料，請核取該方塊；也就是說，您的 SSIS 套件中有內部部署資料來源/目的地，請參閱[將 Azure-SSIS IR 加入虛擬網路](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。 如果您核取該方塊，請完成下列步驟： 
 
    ![虛擬網路進階設定](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
@@ -329,11 +329,11 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ### <a name="create-an-integration-runtime"></a>建立整合執行階段
 執行下列命令，以建立在 Azure 中執行 SSIS 套件的 Azure-SSIS 整合執行階段。 
 
-如果您未使用具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 來裝載 SSISDB，也或要求存取內部部署資料，您可以略過 VNetId 和 Subnet 參數或為其傳遞空白值。 否則，您不能省略它們，而必須從您的虛擬網路組態傳遞有效值，請參閱[將 Azure-SSIS IR 加入虛擬網路](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。 
+如果您未使用具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 來裝載 SSISDB，也或要求存取內部部署資料，您可以略過 VNetId 和 Subnet 參數或為其傳遞空白值。 否則，您不能省略它們，而必須從您的虛擬網路組態傳遞有效值，請參閱[將 Azure-SSIS IR 加入虛擬網路](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。 
 
 如果您使用受控執行個體來裝載 SSISDB，您可以省略 CatalogPricingTier 參數或為其傳遞空白值。 否則，您無法省略它，而必須從 Azure SQL Database 支援的定價層清單傳遞有效值，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。 
 
-如果您使用 Azure Active Directory (AAD) 驗證搭配 Azure Data Factory 受控服務識別 (MSI) 來連線到資料庫伺服器，您可以省略 CatalogAdminCredential 參數，但您必須將 Data Factory MSI 新增至具有資料庫伺服器存取權限的 AAD 群組，請參閱[啟用 Azure-SSIS IR 的 AAD 驗證](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)。 否則，您不能省略它，而且必須傳遞由伺服器系統管理員使用者名稱和密碼所構成的有效物件來進行 SQL 驗證。
+如果您使用 Azure Active Directory (AAD) 驗證搭配 Azure Data Factory 的 Azure 資源受控識別來連線到資料庫伺服器，您可以省略 CatalogAdminCredential 參數，但您必須將 Data Factory MSI 新增至具有資料庫伺服器存取權限的 AAD 群組，請參閱[啟用 Azure-SSIS IR 的 AAD 驗證](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)。 否則，您不能省略它，而且必須傳遞由伺服器系統管理員使用者名稱和密碼所構成的有效物件來進行 SQL 驗證。
 
 ```powershell               
 Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

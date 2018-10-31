@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6be67a92c95ccf1161ffeeb636ee4f998c65fa05
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0eb028e419f05843da308c824d79a8f4e1883fb2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503684"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429740"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 針對警示進行疑難排解
 本文提供的疑難排解指引，適用於受控網域上可能會遇到的任何警示。
@@ -39,7 +39,7 @@ ms.locfileid: "39503684"
 | AADDS105 | *應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。重新建立會在為您受控網域提供服務所需的 Azure AD Domain Services 資源上留下不一致的權限。受控網域上的密碼同步處理可能會受到影響。* | [密碼同步處理應用程式已過期](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *受控網域前次是在 [date] 與 Azure AD 同步處理。* 使用者可能無法登入受控網域，或者群組成員資格可能無法與 Azure AD 同步。 | [有一陣子未發生同步處理](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *受控網域前次是在 [date] 進行備份。* | [有一陣子未進行備份](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *受控網域的安全 LDAP 憑證將於 [date] 到期。* | [安全 LDAP 憑證即將到期](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | 受控網域的安全 LDAP 憑證將於 [date] 到期。 | [安全 LDAP 憑證即將到期](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *受控網域已擱置，因為與此網域相關聯的 Azure 訂用帳戶不在作用中。* | [因為停用的訂用帳戶而造成擱置](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | 受控網域因為無效的組態而造成擱置。此服務已無法針對受控網域管理、修補或更新網域控制站很長一段時間。 | [因為無效的組態而造成擱置](#aadds504-suspension-due-to-an-invalid-configuration) |
 

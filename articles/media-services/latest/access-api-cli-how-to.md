@@ -4,20 +4,20 @@ description: 請遵循此方法的步驟存取 Azure 媒體服務 API。
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 5d7c338dc9d5028552d9b33802982ffda97a56f0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096786"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389837"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>使用 Azure CLI 存取 Azure 媒體服務 API
  
@@ -34,13 +34,13 @@ ms.locfileid: "47096786"
 
 建立新的 Azure 媒體服務帳戶，如[此快速入門](create-account-cli-quickstart.md)所述。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
 登入 [Azure 入口網站](http://portal.azure.com)，然後啟動 **CloudShell** 來執行 CLI 命令，如後續步驟所示。
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -51,4 +51,4 @@ ms.locfileid: "47096786"
 
 ## <a name="see-also"></a>另請參閱
 
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

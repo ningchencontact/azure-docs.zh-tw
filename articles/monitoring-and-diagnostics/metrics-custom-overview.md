@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c136772e27dab014c22234f1ef1d2baddd2ffe58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1bdf1e1f5e58ecb0939d5876e0cef349e32de517
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978075"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344740"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure 監視器中的自訂計量
 
@@ -31,7 +31,7 @@ ms.locfileid: "46978075"
 
 ### <a name="authentication"></a>驗證
 若要將自訂計量提交至 Azure 監視器，提交計量的實體在要求的 "Bearer" 標頭中，需要具備有效的 Azure Active Directory 權杖。 支援取得有效持有人權杖的方式有好幾種：
-1. [MSI (受控服務識別)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)：對 Azure 資源本身 (例如 VM) 提供身分識別。 MSI 的設計可提供資源執行特定作業的權限；例如，允許資源發出自身的相關計量。 還可以在其他資源上授與資源 (或其 MSI) 的「監視計量發行者」權限，藉以讓 MSI 也能發出其他資源的計量。
+1. [Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) - 對 Azure 資源本身 (例如 VM) 提供身分識別。 MSI 的設計可提供資源執行特定作業的權限；例如，允許資源發出自身的相關計量。 還可以在其他資源上授與資源 (或其 MSI) 的「監視計量發行者」權限，藉以讓 MSI 也能發出其他資源的計量。
 2. [AAD 服務主體](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)：以下的案例是，將權限指派給 AAD 應用程式 (服務)，以發出 Azure 資源的相關計量。
 若要驗證要求，Azure 監視器會使用 AAD 公開金鑰驗證應用程式權杖。 現有的「監視計量發行者」角色已有 Azure 入口網站中提供的這個權限。 可根據要為其發出自訂計量的資源，在所需的範圍 (訂用帳戶、資源群組或特定資源) 將「監視計量發行者」角色指定給服務主體。
 
@@ -54,7 +54,7 @@ ms.locfileid: "46978075"
 >
 >
 
-### <a name="timestamp"></a>時間戳記
+### <a name="timestamp"></a>Timestamp
 傳送至 Azure 監視器每個資料點都必須以時間戳記標記。 此時間戳記會擷取該計量值的測量/收集日期時間。 Azure 監視器接受時間戳記為過去 20 分鐘內和未來 5 分鐘內的計量資料。
 
 ### <a name="namespace"></a>命名空間
@@ -77,7 +77,7 @@ ms.locfileid: "46978075"
 當發佈計量值時，每個維度索引鍵只能指定單一維度值。 如果您會對 VM 上的多個處理序收集同一個記憶體使用量，您可以報告該時間戳記的多個計量值。 每個計量值都會為處理序維度索引鍵指定不同的維度值。
 
 ### <a name="metric-values"></a>計量值
-Azure 監視器會儲存一分鐘資料粒度間隔內的所有計量。 我們了解在指定的分鐘時段內，計量可能必須取樣多次 (例如， CPU 使用率)，或測量許多離散事件 (例如， 登入交易延遲)。 若要限制您在 Azure 監視器中必須發出和支付未經處理的值數目，您可以在本機預先彙總，然後再將值發出：
+Azure 監視器會儲存一分鐘資料粒度間隔內的所有計量。 我們了解在指定的分鐘數期間，計量可能需要多次取樣 (例如 CPU 使用率) 或測量許多不連續的事件 (例如 登入交易延遲)。 若要限制您在 Azure 監視器中必須發出和支付未經處理的值數目，您可以在本機預先彙總，然後再將值發出：
 
 * 最小值︰在該分鐘期間的所有樣本/測量中觀察到的最小值
 * 最大值︰在該分鐘期間的所有樣本/測量中觀察到的最大值

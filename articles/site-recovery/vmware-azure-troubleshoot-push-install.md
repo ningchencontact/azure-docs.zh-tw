@@ -1,6 +1,6 @@
 ---
-title: 進行從 VMware 到 Azure 的 Azure Site Recovery 疑難排解 | Microsoft Docs
-description: 針對複寫 Azure 虛擬機器時的錯誤進行疑難排解。
+title: 針對啟用複寫期間發生的行動服務推送安裝失敗進行疑難排解 (VMware 至 Azure) | Microsoft Docs
+description: 針對您複寫 Azure 虛擬機器時發生的行動服務/推送安裝錯誤進行疑難排解。
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,93 +8,95 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 07/06/2018
-ms.openlocfilehash: 8d5db03eeebb659414ea1f554e5b34c938fd2795
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 09/19/2018
+ms.openlocfilehash: 4c57d048f4c3222ac180355a6a700562415f601c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952904"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390188"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
-本文說明當您嘗試在來源伺服器上安裝 Azure Site Recovery 行動服務以啟用保護時，如何針對可能會面臨的常見問題進行疑難排解。
+安裝行動服務是啟用複寫期間的關鍵步驟。 此步驟的成功與否僅取決於是否符合必要條件，以及使用支援的設定。 您在行動服務安裝期間最常面臨的失敗是因為以下原因
 
-## <a name="error-78007---the-requested-operation-could-not-be-completed"></a>錯誤 78007：無法完成所要求的作業
-有許多原因會使服務擲回此錯誤。 請選擇相對應的提供者錯誤以進行進一步的疑難排解。
+* 認證/權限錯誤
+* 連線錯誤
+* 不支援的作業系統
 
-* [錯誤 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
-* [錯誤 95105](#error-95105---protection-could-not-be-enabled-ep0856) 
-* [錯誤 95107](#error-95107---protection-could-not-be-enabled-ep0858) 
-* [錯誤 95108](#error-95108---protection-could-not-be-enabled-ep0859) 
-* [錯誤 95117](#error-95117---protection-could-not-be-enabled-ep0865) 
-* [錯誤 95213](#error-95213---protection-could-not-be-enabled-ep0874) 
-* [錯誤 95224](#error-95224---protection-could-not-be-enabled-ep0883) 
-* [錯誤 95265](#error-95265---protection-could-not-be-enabled-ep0902) 
+當您啟用複寫時，Azure Site Recovery 會嘗試推送您虛擬機器上的安裝行動服務代理程式。 在這個過程中，組態伺服器會嘗試與虛擬機器連線，並複製代理程式。 若要啟用成功的安裝，請遵循下面所列的逐步疑難排解指引。
 
+## <a name="credentials-check-errorid-95107--95108"></a>認證檢查 (錯誤碼：95107 & 95108)
 
-## <a name="error-95105---protection-could-not-be-enabled-ep0856"></a>錯誤 95105：無法啟用保護 (EP0856)
+* 確認啟用複寫期間所選擇的使用者帳戶是否**有效且精確**。
+* Azure Site Recovery 需要 [系統管理員權限] 才能執行推送安裝。
+  * 針對 Windows，請確認使用者帳戶是否具有來源機器上的系統管理存取權 (本機或網域)。
+  * 如果您未使用網域帳戶，必須停用本機電腦上的遠端使用者存取控制。
+    * 若要停用遠端使用者存取控制，請在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 登錄機碼之下，新增 DWORD：LocalAccountTokenFilterPolicy。 將值設定為 1。 若要執行此步驟，請從命令提示字元處執行下列命令：
 
-**錯誤碼** | **可能的原因** | **特定錯誤的建議**
---- | --- | ---
-95105 </br>**訊息：** 將行動服務推送安裝到來源機器失敗，錯誤碼為 **EP0856**。 <br> 可能是來源電腦不允許**檔案及印表機共用**，或是處理序伺服器與來源電腦之間有網路連線問題。| 未啟用 [檔案及印表機共用]。 | 在 Windows 防火牆中的來源電腦允許 [檔案及印表機共用]。 在來源電腦的 [Windows 防火牆]  >  [允許應用程式或功能通過防火牆]，為所有設定檔選取 [檔案及印表機共用]。 </br> 此外，請檢查下列必要條件，才能順利完成推送安裝。<br> 深入了解[針對 WMI 問題進行疑難排解](#troubleshoot-wmi-issues)。
+         `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+  * 針對 Linux，您必須選擇根帳戶，才能成功安裝行動代理程式。
 
+如果您想要修改所選使用者帳戶的認證，請遵循[此處](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)所提供的指示。
 
-## <a name="error-95107---protection-could-not-be-enabled-ep0858"></a>錯誤 95107：無法啟用保護 (EP0858)
+## <a name="connectivity-check-errorid-95117--97118"></a>**連線能力檢查 (錯誤碼：95117 & 97118)**
 
-**錯誤碼** | **可能的原因** | **特定錯誤的建議**
---- | --- | ---
-95107 </br>**訊息：** 將行動服務推送安裝到來源機器失敗，錯誤碼為 **EP0858**。 <br> 可能是所提供用以安裝行動服務的認證不正確，或使用者帳戶的權限不足。 | 為了在來源機器上安裝行動服務所提供的使用者認證不正確。 | 請確定組態伺服器上針對來源機器提供的使用者認證正確無誤。 <br> 若要新增或編輯使用者認證，請前往組態伺服器，選取 [Cspsconfigtool] > [管理帳戶]。 </br> 此外，請檢查下列[必要條件](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)，以順利完成推送安裝。
+* 請確定您能夠從組態伺服器偵測來源機器。 如果您已選擇在啟用複寫期間相應放大處理序伺服器，請確保您能夠從處理序伺服器偵測您的來源機器。
+  * 在來源伺服器機器的命令列中，如下所示使用 Telnet 來偵測搭配 https 連接埠 (預設值 9443) 的組態伺服器/相應放大處理序伺服器，以查看是否有任何網路連線問題或防火牆連接埠封鎖問題。
 
+     `telnet <CS/ scale-out PS IP address> <port>`
 
-## <a name="error-95117---protection-could-not-be-enabled-ep0865"></a>錯誤 95117：無法啟用保護 (EP0865)
+  * 如果您無法連線，請允許組態伺服器/相應放大處理序伺服器上的輸入連接埠 9443。
+  * 檢查服務狀態 **InMage Scout VX Agent-Sentinel/Outpost**。 如果服務不在執行中，請啟動服務。
 
-**錯誤碼** | **可能的原因** | **特定錯誤的建議**
---- | --- | ---
-95117 </br>**訊息：** 將行動服務推送安裝到來源機器失敗，錯誤碼為 **EP0865**。 <br> 可能是來源電腦不在執行中，或是處理序伺服器與來源電腦之間有網路連線問題。 | 處理序伺服器與來源伺服器之間的網路連線問題。 | 請檢查處理序伺服器與來源伺服器之間的網路連線。 </br> 此外，請檢查下列[必要條件](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)，以順利完成推送安裝。|
+* 此外，對於 **Linux VM**，
+  * 請檢查是否已安裝最新的 openssh、openssh-server 和 openssl 套件。
+  * 請檢查並確定安全殼層 (SSH) 已啟用且正在連接埠 22 上執行。
+  * SFTP 服務應執行。 若要在 sshd_config 檔案中啟用 SFTP 子系統與密碼驗證，
+    * 以 root 的身分登入。
+    * 前往 /etc/ssh/sshd_config 檔案，找到以 PasswordAuthentication 開頭這一行。
+    * 取消該行的註解，並將值變更為 yes
+    * 找到以 Subsystem 開頭這一行，並取消其註解
+    * 重新啟動 sshd 服務。
+* 如果一段時間之後沒有適當的回應，連線嘗試可能會失敗，或是因為連線的主機無法回應，則建立的連線可能失敗。
+* 這可能是連線/網路/網域相關的問題。 也可能是由於 DNS 名稱解析問題或 TCP 連接埠耗盡的問題。 請檢查您的網域中是否有任何這類的已知問題。
 
-## <a name="error-95103---protection-could-not-be-enabled-ep0854"></a>錯誤 95103：無法啟用保護 (EP0854)
+## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>檔案及印表機共用服務檢查 (錯誤碼：95105 & 95106)
 
-**錯誤碼** | **可能的原因** | **特定錯誤的建議**
---- | --- | ---
-95103 </br>**訊息：** 將行動服務推送安裝到來源機器失敗，錯誤碼為 **EP0854**。 <br> 可能是來源電腦不允許 Windows Management Instrumentation (WMI) ，或是處理序伺服器與來源電腦之間有網路連線問題。| Windows 防火牆會封鎖 WMI。 | 在 Windows 防火牆允許 WMI。 在 [Windows 防火牆]  >  [允許應用程式或功能通過防火牆]，為所有設定檔選取 [WMI]。 </br> 此外，請檢查下列[必要條件](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)，以順利完成推送安裝。|
+完成連線檢查之後，請確認您的虛擬機器上已啟用 [檔案及印表機共用服務]。
 
-## <a name="error-95213---protection-could-not-be-enabled-ep0874"></a>錯誤 95213：無法啟用保護 (EP0874)
+針對 **Windows 2008 R2 和先前版本**，
 
-**錯誤碼** | **可能的原因** | **特定錯誤的建議**
---- | --- | ---
-95213 </br>**訊息：** 將行動服務安裝到來源機器 %SourceIP; 失敗，錯誤碼為 **EP0874**。 <br> | 不支援來源機器上的作業系統版本。 <br>| 請確定來源機器的 OS 版本為受支援的版本。 請參閱[支援矩陣](https://aka.ms/asr-os-support)。 </br> 此外，請檢查下列[必要條件](https://aka.ms/pushinstallerror)，以順利完成推送安裝。| 
+* 若要透過 Windows 防火牆啟用檔案與列印共用，
+  * 請開啟 [控制台] -> [系統及安全性] -> [Windows 防火牆] -> 在左側窗格上，按一下 [進階設定] -> 在主控台樹狀目錄中按一下 [輸入規則]。
+  * 找出 [檔案及印表機共用] (NB-Session-In) 和 [檔案及印表機共用] (Smb-in) 的規則。 針對每個規則，以滑鼠右鍵按一下該規則，然後按一下 [啟用規則]。
+* 若要透過群組原則啟用檔案共用，
+  * 移至 [開始]，輸入 gpmc.msc 並搜尋。
+  * 在 [導覽] 窗格中，開啟下列資料夾：本機電腦原則、使用者設定、系統管理範本、Windows 元件，以及網路共用。
+  * 在 [詳細資料] 窗格中，按兩下 [防止使用者共用其設定檔內的檔案]。 若要停用群組原則設定，並讓使用者能夠共用檔案，請按一下 [停用]。 按一下 [確定] 以儲存變更。 若要深入了解，請按一下[這裡](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))。
 
+針對**新版本**，請遵循[這裡](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)提供的指示啟用檔案及印表機共用
 
-## <a name="error-95108---protection-could-not-be-enabled-ep0859"></a>錯誤 95108：無法啟用保護 (EP0859)
+## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Windows Management Instrumentation (WMI) 設定檢查
 
-**錯誤碼** | **可能的原因** | **特定錯誤的建議**
---- | --- | ---
-95108 </br>**訊息：** 將行動服務推送安裝到來源機器失敗，錯誤碼為 **EP0859**。 <br>| 可能是所提供用以安裝行動服務的認證不正確，或使用者帳戶的權限不足。 <br>| 請確定所提供的認證為 **root** 帳戶的認證。 若要新增或編輯使用者認證，請移至組態伺服器，然後選取桌面上的 [Cspsconfigtool] 捷徑圖示。 按一下 [管理帳戶] 以新增或編輯認證。|
+完成檔案和印表機服務檢查之後，請啟用通過防火牆的 WMI 服務。
 
-## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>錯誤 95265：無法啟用保護 (EP0902)
+* 在 [控制台] 中按一下 [安全性]，然後按一下 [Windows 防火牆]。
+* 按一下 [變更設定]，然後按一下 [例外狀況] 索引標籤。
+* 在 [例外狀況] 視窗中，選取 Windows Management Instrumentation (WMI) 的核取方塊，以啟用通過防火牆的 WMI 流量。 
 
-**錯誤碼** | **可能的原因** | **特定錯誤的建議**
---- | --- | ---
-95265 </br>**訊息：** 將行動服務推送安裝到來源機器成功，但必須先重新啟動來源機器，部分系統變更才會生效。 <br>| 較舊版本的行動服務已經安裝於伺服器上。| 虛擬機器的複寫會順暢地繼續。<br> 在下一個維護時間窗口重新啟動伺服器，以取得由行動服務的新增強功能所帶來的好處。|
+您也可以在命令提示字元啟用通過防火牆的 WMI 流量。 請使用下列 `netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes` 命令
+您可以在下列文件中找到其他 WMI 疑難排解文件。
 
-
-## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>錯誤 95224：無法啟用保護 (EP0883)
-
-**錯誤碼** | **可能的原因** | **特定錯誤的建議**
---- | --- | ---
-95224 </br>**訊息：** 將行動服務推送安裝到來源機器 %SourceIP; 失敗，錯誤碼為 **EP0883**。 有源自先前安裝或更新的系統重新啟動處於擱置狀態。| 系統在將較舊或不相容的行動服務版本解除安裝時，並沒有重新啟動。| 請確定伺服器上不存在任何版本的行動服務。 <br> 請將伺服器重新啟動，並重新執行啟用保護作業。|
-
-## <a name="resource-to-troubleshoot-push-installation-problems"></a>針對推送安裝問題進行疑難排解的資源
-
-#### <a name="troubleshoot-file-and-print-sharing-issues"></a>針對檔案與列印共用問題進行疑難排解
-* [透過群組原則啟用或停用檔案共用](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
-* [如何透過 Windows 防火牆啟用檔案與列印共用](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
-
-#### <a name="troubleshoot-wmi-issues"></a>針對 WMI 問題進行疑難排解
 * [基本 WMI 測試](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
 * [WMI 疑難排解](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
 * [WMI 指令碼和 WMI 服務問題的疑難排解](https://technet.microsoft.com/library/ff406382.aspx#H22)
+
+## <a name="unsupported-operating-systems"></a>不支援的作業系統
+
+失敗的另一個最常見原因可能是由於不支援的作業系統。 請確定您在可成功安裝行動服務的受支援作業系統/核心版本上。
+
+若要深入了解 Azure Site Recovery 支援哪些作業系統，請參閱我們的[支援矩陣文件](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
 ## <a name="next-steps"></a>後續步驟
 

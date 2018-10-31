@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 06d78c9a9754638054a07c15ef67bfc703dd77ca
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223421"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428755"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>使用範本在 Azure VM 上設定 Azure 資源的受控識別
 
@@ -113,7 +113,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
             },
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -188,7 +188,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    如果虛擬機器同時具有系統與使用者指派的身分識別，請從受控識別類型中移除 `SystemAssigned`，並保留 `UserAssigned` 以及 `userAssignedIdentities` 字典值。
 
-   **Microsoft.Compute/virtualMachines API 版本 2018-06-01 和先前版本**
+   **Microsoft.Compute/virtualMachines API 版本 2018-06-01**
    
    若 `apiVersion` 為 `2017-12-01` 且虛擬機器同時具有系統與使用者指派的受控識別，請從身分識別類型中移除 `SystemAssigned`，並保留 `UserAssigned` 以及使用者指派受控識別的 `identityIds` 陣列。  
    
@@ -235,7 +235,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    }
    ```
    
-   **Microsoft.Compute/virtualMachines API 版本 2017-12-01 和先前版本**
+   **Microsoft.Compute/virtualMachines API 版本 2017-12-01**
     
    如果 `apiVersion` 為 `2017-12-01`，則使用者指派的受控識別會儲存在 `identityIds` 陣列中，而 `<USERASSIGNEDIDENTITYNAME>` 值必須儲存在您範本 `variables` 區段內所定義的變數中。
     
@@ -298,7 +298,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -316,7 +316,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines API 版本 2017-12-01 和先前版本**
+   **Microsoft.Compute/virtualMachines API 版本 2017-12-01**
    
    ```JSON
    "resources": [
@@ -335,7 +335,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2015-05-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -375,7 +375,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     }
    ```
    
-   **Microsoft.Compute/virtualMachines API 版本 2018-06-01 和先前版本**
+   **Microsoft.Compute/virtualMachines API 版本 2018-06-01**
     
    若要從虛擬機器中移除單一使用者指派的受控識別，請從 `useraAssignedIdentities` 字典中移除它。
 

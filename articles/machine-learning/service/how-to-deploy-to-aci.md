@@ -1,6 +1,6 @@
 ---
 title: 將 Web 服務部署至 Azure 容器執行個體 (ACI) - Azure Machine Learning
-description: 了解如何使用 Azure Machine Learning 服務，將已訓練的模型作為 Web 服務在 Azure 容器執行個體 (ACI) 上部署。 此文章說明三種在 ACI 上部署模型的不同方式。 它們程式碼行數各有不同，您在部署的命名部分能獲得的控制程度也有所不同。
+description: 了解如何使用 Azure Machine Learning 服務，將已訓練的模型作為 Web 服務在 Azure 容器執行個體 (ACI) 上部署。 本文說明三種在 ACI 上部署模型的不同方式。 它們程式碼行數各有不同，您在部署的命名部分能獲得的控制程度也有所不同。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237172"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429452"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>將 Web 服務部署至 Azure 容器執行個體 
 
@@ -22,7 +22,7 @@ ms.locfileid: "48237172"
 
 ACI 通常比 AKS 便宜，並且使用 4 到 6 行程式碼即可完成設定。 ACI 是測試部署的完美選項。 稍後，當您準備好針對高規格、生產用途使用您的模型及 Web 服務時，您可以[將它們部署至 AKS](how-to-deploy-to-aks.md)。
 
-此文章說明三種在 ACI 上部署模型的不同方式。 它們程式碼行數各有不同，您在部署的命名部分能獲得的控制程度也有所不同。 從程式碼數量最少、控制程度最小的方法，到程式碼數量最多、控制程度最大的方法，ACI 選項有：
+本文說明三種在 ACI 上部署模型的不同方式。 它們程式碼行數各有不同，您在部署的命名部分能獲得的控制程度也有所不同。 從程式碼數量最少、控制程度最小的方法，到程式碼數量最多、控制程度最大的方法，ACI 選項有：
 
 * 使用 `Webservice.deploy()` 從模型檔案部署 
 * 使用 `Webservice.deploy_from_model()` 從已註冊的模型部署
@@ -31,9 +31,9 @@ ACI 通常比 AKS 便宜，並且使用 4 到 6 行程式碼即可完成設定�
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 使用[開始使用 Azure Machine Learning 快速入門](quickstart-get-started.md)了解如何取得這些先決條件。
+- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 使用[開始使用 Azure Machine Learning 快速入門](quickstart-get-started.md)了解如何取得這些必要條件。
 
 - Azure Machine Learning services 工作區物件
 
@@ -42,7 +42,7 @@ ACI 通常比 AKS 便宜，並且使用 4 到 6 行程式碼即可完成設定�
     ws = Workspace.from_config()
     ```
 
-- 要部署的模型。 本文件中的範例使用您在遵循[為模型定型](tutorial-train-models-with-aml.md)教學課程時建立的模型。 若您不想使用此模型，請修改這些步驟來參考您的模型模型。  您也需要撰寫您自己的評分指令碼，才能執行您的模型。
+- 要部署的模型。 本文件中的範例使用您在遵循[訓練模型](tutorial-train-models-with-aml.md)教學課程時建立的模型。 若您不想使用此模型，請修改這些步驟來參考您的模型模型。  您也需要撰寫您自己的評分指令碼，才能執行您的模型。
 
 
 ## <a name="configure-an-image"></a>設定映像
@@ -80,12 +80,12 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 ## <a name="register-a-model"></a>註冊模型
 
-> 若您是[從模型檔案部署](#deploy-from-model-file) (`Webservice.deploy()`)，請跳過此先決條件。
+> 若您是[從模型檔案部署](#deploy-from-model-file) (`Webservice.deploy()`)，請跳過此必要條件。
 
-註冊模型，使用 [`Webservice.deploy_from_model`](#deploy-from-registered-model) 或 [`Webservice.deploy_from_image`](#deploy-from-image)。 或者，若您已有已註冊的模型，請現在擷取它。
+註冊要使用的模型：[Webservice.deploy_from_model](#deploy-from-registered-model) 或是 [Webservice.deploy_from_image](#deploy-from-image)。 或者，若您已有已註冊的模型，請現在擷取它。
 
 ### <a name="retrieve-a-registered-model"></a>擷取已註冊的模型
-若您使用 Azure Machine Learning 訓練您的模型，模型可能已在您的工作區中註冊。  例如，[訓練模型](tutorial-train-models-with-aml.md)教學課程的最後一個步驟便會註冊模型。  您接著便可以擷取已註冊的模型來進行部署。
+若您使用 Azure Machine Learning 訓練您的模型，模型可能已在您的工作區中註冊。  例如，[訓練模型教學課程](tutorial-train-models-with-aml.md)的最後一個步驟便是註冊模型。  您接著便可以擷取已註冊的模型來進行部署。
 
 ```python
 from azureml.core.model import Model
@@ -109,7 +109,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## <a name="option-1-deploy-from-model-file"></a>選項 1：從模型檔案部署
 
 從模型檔案部署的選項需要撰寫的程式碼數量最少，但針對元件命名所能提供的控制程度也最低。 此選項會從模型檔案開始，並會為您將它註冊到工作區。  但是，您無法命名模型，或是將它與標籤或描述建立關聯。  
@@ -120,7 +120,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 1. 請確認模型檔案位於您的本機工作目錄中。
 
-1. 開啟先決條件的模型檔案 (score.py)，將 `init()` 區段變更為：
+1. 開啟必要條件的模型檔案 (score.py)，將 `init()` 區段變更為：
 
     ```python
     def init():
@@ -148,6 +148,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 1. 您現在可以[測試 Web 服務](#test-web-service)。
 
+<a name='deploy-from-registered-model'/>
 ## <a name="option-2-deploy-from-registered-model"></a>選項 2：從已註冊的模型部署
 
 從已註冊模型檔案部署的選項需要的程式碼數較多，但針對輸出命名所能提供的控制程度也較高。 此選項是可讓您方便部署您所擁有的已註冊模型。  但是，您無法命名 Docker 映像。  
@@ -173,6 +174,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 1. 您現在可以[測試 Web 服務](#test-web-service)。
 
+<a name='deploy-from-image'/>
 ## <a name="option-3-deploy-from-image"></a>選項 3：從映像部署
 
 使用 `Webservice.deploy_from_image()` 部署已註冊模型 (`model`)。 此方法可讓您分別建立 Docker 映像，然後從該映像進行部署。
@@ -215,6 +217,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 您現在可以測試 Web 服務。
 
+<a name='test-web-service'/>
 ## <a name="test-the-web-service"></a>測試 Web 服務
 
 無論使用的方法為何，Web 服務都是相同的。  若要取得預測，請使用服務的 `run` 方法。  
