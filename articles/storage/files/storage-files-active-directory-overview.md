@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: d599b54fe828b88edd3d04d6cd66a4baf36c2c1a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831546"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427632"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>針對 Azure 檔案透過 SMB 進行 Azure Active Directory 驗證 (預覽) 的概觀
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -58,7 +58,7 @@ Azure 檔案使用 Azure AD Domain Services 來支援從加入網域的 VM 搭�
 ![顯示「透過 SMB 的 Azure AD 驗證」圖的螢幕擷取畫面](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
 
 ### <a name="enable-azure-ad-authentication-over-smb"></a>啟用透過 SMB 的 Azure AD 驗證
-2018 年 8 月 29 日之後，您可以在建立的新的和現有的儲存體帳戶上，為 Azure 檔案啟用透過 SMB 進行 Azure AD 驗證。 
+您可以在 2018 年 9 月 24 日之後建立的新的和現有的儲存體帳戶上，為 Azure 檔案服務啟用透過 SMB 進行 Azure AD 驗證。 
 
 啟用透過 SMB 進行 Azure AD 驗證之前，確認已經為與儲存體帳戶相關聯的主要 Azure AD 租用戶部署 Azure AD Domain Services。 如果您尚未設定 Azure AD Domain Services，請遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started.md) 中的逐步指示操作。
 

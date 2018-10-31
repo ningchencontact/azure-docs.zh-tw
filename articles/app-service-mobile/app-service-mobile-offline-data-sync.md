@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ab8fb4a567e4c4a7bf1e884999a4e403a98547a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597972"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471028"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure 行動應用程式中的離線資料同步處理
 ## <a name="what-is-offline-data-sync"></a>什麼是離線資料同步處理？
@@ -58,7 +58,7 @@ ms.locfileid: "34597972"
 開發人員也可以實作自己的本機存放區。 例如，如果您希望將資料以加密格式儲存在行動用戶端上，則您可以定義使用 SQLCipher 進行加密的本機存放區。
 
 ## <a name="what-is-a-sync-context"></a>什麼是同步處理內容？
-「同步處理內容」會與行動用戶端物件相關聯 (例如 `IMobileServiceClient` 或 `MSClient`)，並且追蹤對同步處理資料表所做的變更。 同步處理內容會維護「作業佇列」，其中會保留 CUD 作業 (Create、Update、Delete) 的排序清單，這些作業稍後會傳送至伺服器。
+「同步處理內容」會與行動用戶端物件相關聯 (例如 `IMobileServiceClient` 或 `MSClient`)，並且追蹤對同步處理資料表所做的變更。 同步處理內容會維護一個「作業佇列」，其中保留一份稍後要傳送給伺服器的 CUD 作業 (Create、Update、Delete) 排序清單。
 
 本機存放區會使用初始化方法 (例如 [.NET 用戶端 SDK] 中的 `IMobileServicesSyncContext.InitializeAsync(localstore)`)，來與同步處理內容相關聯。
 

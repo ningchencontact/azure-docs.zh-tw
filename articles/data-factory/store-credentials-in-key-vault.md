@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052410"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944663"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>在 Azure Key Vault 中儲存認證
 
@@ -25,12 +25,12 @@ ms.locfileid: "37052410"
 
 目前，自訂活動以外的所有活動類型都支援這項功能。 特別針對連接器設定，查看[每個連接器主題](copy-activity-overview.md#supported-data-stores-and-formats)中的＜連結服務屬性＞一節以取得詳細資訊。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 此功能依賴資料處理站服務識別。 請參閱[資料處理站服務識別](data-factory-service-identity.md)了解其運作方式，並確定您的資料處理站有相關聯的服務識別。
 
 >[!TIP]
->在 Azure Key Vault 中，當您建立祕密時，請**放置 ADF 連結服務所要求之祕密屬性的完整值 (例如連接字串/密碼/服務主要金鑰/等等)**。 例如，針對 Azure 儲存體連結服務，放置 `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` 作為 AKV 祕密，然後在 ADF 的 "connectionString" 欄位中參考；針對動態連結服務，放置 `myPassword` 作為 AKV 祕密，然後在 ADF 的 "paassword" 欄位中參考。 請參閱每篇連接器/計算文章中支援的屬性詳細資料。
+>在 Azure Key Vault 中，當您建立祕密時，請**放置 ADF 連結服務所要求之祕密屬性的完整值 (例如連接字串/密碼/服務主要金鑰/等等)**。 例如，針對 Azure 儲存體連結服務，放置 `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` 作為 AKV 祕密，然後在 ADF 的 "connectionString" 欄位中參考；針對動態連結服務，放置 `myPassword` 作為 AKV 祕密，然後在 ADF 的 "password" 欄位中參考。 請參閱每篇連接器/計算文章中支援的屬性詳細資料。
 
 ## <a name="steps"></a>步驟
 
@@ -47,8 +47,8 @@ ms.locfileid: "37052410"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設為：**AzureKeyVault**。 | yes |
-| baseUrl | 指定 Azure Key Vault URL。 | yes |
+| type | type 屬性必須設為：**AzureKeyVault**。 | 是 |
+| baseUrl | 指定 Azure Key Vault URL。 | 是 |
 
 **使用編寫 UI：**
 
@@ -80,10 +80,10 @@ ms.locfileid: "37052410"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 欄位的 type 屬性必須設定為：**AzureKeyVaultSecret**。 | yes |
-| secretName | Azure Key Vault 中密碼的名稱。 | yes |
+| type | 欄位的 type 屬性必須設定為：**AzureKeyVaultSecret**。 | 是 |
+| secretName | Azure Key Vault 中密碼的名稱。 | 是 |
 | secretVersion | Azure Key Vault 中密碼的版本。<br/>如果未指定，它會一律使用最新版本的密碼。<br/>如果指定，則它會遵循指定的版本。| 否 |
-| store | 代表您用來儲存認證的 Azure Key Vault 已連結服務。 | yes |
+| store | 代表您用來儲存認證的 Azure Key Vault 已連結服務。 | 是 |
 
 **使用編寫 UI：**
 

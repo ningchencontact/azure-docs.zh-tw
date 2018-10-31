@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114187"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954482"
 ---
 # <a name="azure-storage-replication"></a>Azure 儲存體複寫
 
@@ -38,7 +38,7 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 | 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | yes                              | yes                                  | 是                                  |
 | 全區域服務中斷                                                                                     | 否                              | 否                               | yes                                  | 是                                  |
 | 在全區域服務無法供使用的情況下對資料 (位於遠端、異地複寫區域) 進行讀取存取 | 否                              | 否                               | 否                                   | 是                                  |
-| 設計為可在指定的一年中讓物件持久性達到 ___                                          | 至少 99.999999999% (11 個 9) | 至少 99.9999999999% (12 個 9) | 至少 99.99999999999999% (16 個 9) | 至少 99.99999999999999% (16 個 9) |
+| 設計為可在指定的一年中讓物件持久性達到 \_\_                                          | 至少 99.999999999% (11 個 9) | 至少 99.9999999999% (12 個 9) | 至少 99.99999999999999% (16 個 9) | 至少 99.99999999999999% (16 個 9) |
 | 支援的儲存體帳戶類型                                                                   | GPv2、GPv1、Blob                | GPv2、GPv1 (透過 PowerShell、Azure CLI 或資源提供者 API)                             | GPv2、GPv1、Blob                     | GPv2、GPv1、Blob                     |
 | 讀取要求的可用性 SLA | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.99% (非經常性存取層為 99.9%) |
 | 寫入要求的可用性 SLA | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) |

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 9306280d00ec901633585aba2f23ed06b25b4e1e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 12115770959c3869184f0af78c4feba2fd6f2be4
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115449"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984888"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Web 應用程式防火牆要求大小限制與排除清單 (公開預覽)
 
@@ -22,6 +22,9 @@ Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式
 > WAF 要求大小限制與排除清單的設定目前處於公開預覽狀態。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="waf-request-size-limits"></a>WAF 要求大小限制
+
+![要求大小限制](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
+
 Web 應用程式可讓使用者設定介於上下限範圍之間的要求大小限制。 下列是兩個可用的大小限制：
 
 - 要求本文大小欄位的上限是以 KB 為單位指定，而且控制整體的要求大小限制，但不包括任何檔案上傳。 此欄位值的範圍可從最小 1 KB 到最大 128 KB。 要求本文大小的預設值為 128 KB。
@@ -30,6 +33,8 @@ Web 應用程式可讓使用者設定介於上下限範圍之間的要求大小�
 WAF 也可提供可設定的旋鈕，以便開啟或關閉要求本文檢查。 根據預設，要求本文檢查是啟用的。 如果關閉要求本文檢查，WAF 就不會評估 HTTP 訊息本文的內容。 在此情況下，WAF 會繼續針對標頭、Cookie 與 URI 強制執行 WAF 規則。 如果要求本文檢查關閉，則最大要求本文大小欄位就不適用，而且也無法設定。 關閉要求本文檢查可讓要傳送給 WAF 的訊息大於 128 KB。 不過，訊息本文並未經過檢查，而可能會有漏洞。
 
 ## <a name="waf-exclusion-lists"></a>WAF 排除清單
+
+![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
 WAF 排除清單可讓使用者略過 WAF 評估的特定要求屬性。 常見範例是用於驗證或密碼欄位的 Active Directory 插入式權杖。 這類屬性較可能包含特殊字元，而會觸發 WAF 規則的誤判。 一旦屬性新增至 WAF 排除清單，該屬性就不會列入任何已設定和作用中 WAF 規則的考慮。 排除清單的範圍是全域的。
 您可以將要求標頭、要求本文、要求 Cookie，或要求查詢字串引數新增至 WAF 排除清單。 如果本文有表單資料或 XML/JSON (機碼值組)，則可以使用要求屬性排除類型。

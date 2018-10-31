@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: b9372c806eab1b0ca69ba078d972b076c8a7d6f6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ca63d67f6d7c19b4ca6928c4cc0f9ccb06eace2b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212705"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402976"
 ---
 # <a name="service-fabric-events"></a>Service Fabric 事件 
 
@@ -45,7 +45,7 @@ Service Fabric 平台會撰寫好幾種結構化事件，呈現叢集內發生�
 ## <a name="how-to-access-events"></a>如何存取事件
 
 存取 Service Fabric 事件的方法有好幾個：
-* 透過作業通道。 這些事件可以透過 Azure 診斷延伸模組收集，再傳送到儲存體資料表以供使用，或擷取到 OMS Log Analytics 之類的工具。 當叢集啟用「診斷」時，Azure 診斷代理程式會部署在您的叢集上，而且預設會設定為從作業通道讀入記錄。 深入了解如何設定 [Azure 診斷代理程式](service-fabric-diagnostics-event-aggregation-wad.md)修改叢集的診斷設定，以選取更多記錄或效能計數器。 
+* 透過作業通道。 這些事件可以透過 Azure 診斷延伸模組收集，再傳送到儲存體資料表以供使用，或擷取到 Azure Log Analytics 之類的工具。 當叢集啟用「診斷」時，Azure 診斷代理程式會部署在您的叢集上，而且預設會設定為從作業通道讀入記錄。 深入了解如何設定 [Azure 診斷代理程式](service-fabric-diagnostics-event-aggregation-wad.md)修改叢集的診斷設定，以選取更多記錄或效能計數器。 
 * 透過讓您直接查詢叢集的 EventStore 服務 Rest API，或透過 Service Fabric 用戶端程式庫。 請參閱[查詢 EventStore API 以查詢叢集事件](service-fabric-diagnostics-eventstore-query.md)。
 
 ## <a name="next-steps"></a>後續步驟

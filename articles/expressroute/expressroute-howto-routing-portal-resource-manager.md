@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9b96417140bea581aeb106e45c3c93a19858dfe7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7acfb71dd3edd798095472b8f863a658dccaa51b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310876"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955179"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路的對等互連
 
@@ -156,6 +156,11 @@ ms.locfileid: "49310876"
 ### <a name="deleteprivate"></a>刪除 Azure 私用對等
 
 如下圖所示，您可以選取刪除圖示來移除對等互連設定：
+
+> [!WARNING]
+> 執行此範例之前，您必須確定已移除所有虛擬網路與 ExpressRoute Global Reach 連線。 
+> 
+> 
 
 ![刪除私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 

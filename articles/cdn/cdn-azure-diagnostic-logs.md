@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093021"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409249"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
@@ -95,17 +95,23 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 2. 選取 [設定] 以設定 Log Analytics 記錄。 
 
-   [OMS 工作區] 頁面隨即出現。
+   隨即會顯示 [Log Analytics 工作區] 頁面。
+
+    >[!NOTE] 
+    >OMS 工作區現在稱為 Log Analytics 工作區。
 
     ![入口網站 - 診斷記錄](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. 選取 [建立新工作區]。
 
-    [OMS 工作區] 頁面隨即出現。
+    隨即會顯示 [Log Analytics 工作區] 頁面。
+
+    >[!NOTE] 
+    >OMS 工作區現在稱為 Log Analytics 工作區。
 
     ![入口網站 - 診斷記錄](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. 針對 [OMS 工作區]，輸入 OMS 工作區名稱。 OMS 工作區名稱必須是唯一的，且只能包含字母、數字和連字號；不允許空格和底線。 
+4. 針對 [Log Analytics 工作區]，輸入 Log Analytics 工作區名稱。 Log Analytics 工作區名稱必須是唯一的，且只能包含字母、數字和連字號；不允許使用空格和底線。 
 
 5. 針對 [訂用帳戶]，從下拉式清單中選取現有的訂用帳戶。 
 

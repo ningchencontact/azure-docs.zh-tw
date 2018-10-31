@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966838"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457658"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -211,6 +211,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 
 *Host.json* 檔案會設定函式應用程式傳送到 Application Insights 的記錄數量。 針對每個類別，您可以指出要傳送的最小記錄層級。 以下是範例：
 
+#### <a name="functions-version-1"></a>Functions 第 1 版 
 ```json
 {
   "logger": {
@@ -226,6 +227,22 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 }
 ```
 
+#### <a name="functions-version-2"></a>Functions 第 2 版 
+Functions v2 現在使用 [.NET Core 記錄篩選階層](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
 此範例會設定下列規則：
 
 1. 針對類別為 "Host.Results" 或 "Function" 的記錄，只會將 `Error` 層級和以上層級傳送至 Application Insights。 `Warning` 層級和以下層級的記錄均會被忽略。
@@ -236,6 +253,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 
 如果 *host.json* 包含多個以相同字串開頭的類別，則會先比對較長的類別。 例如，假設您想要取得執行階段在 `Error` 層級上記錄的所有項目 ("Host.Aggregator" 除外)，但您想要 "Host.Aggregator" 記錄於 `Information` 層級：
 
+#### <a name="functions-version-1"></a>Functions 第 1 版 
 ```json
 {
   "logger": {
@@ -246,6 +264,21 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
+    }
+  }
+}
+```
+
+#### <a name="functions-version-2"></a>Functions 第 2 版 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
     }
   }
 }
@@ -317,9 +350,9 @@ Application Insights 具有[取樣](../application-insights/app-insights-samplin
 
 ### <a name="ilogger"></a>ILogger
 
-在您的函式中使用 [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) 參數而不是 `TraceWriter` 參數。 使用 `TraceWriter` 建立的記錄確實會移至 Application Insights，但 `ILogger` 可讓您執行[結構化記錄](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging) \(英文\)。
+在您的函式中使用 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 參數而不是 `TraceWriter` 參數。 使用 `TraceWriter` 建立的記錄確實會移至 Application Insights，但 `ILogger` 可讓您執行[結構化記錄](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging) \(英文\)。
 
-利用 `ILogger` 物件，您可以呼叫 `Log<level>` [擴充方法 (位於 ILogger 上)](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loggerextensions#Methods_) \(英文\) 來建立記錄。 例如，下列程式碼會寫入 `Information` 記錄且類別為 "Function"。
+利用 `ILogger` 物件，您可以呼叫 `Log<level>` [擴充方法 (位於 ILogger 上)](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) \(英文\) 來建立記錄。 例如，下列程式碼會寫入 `Information` 記錄且類別為 "Function"。
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)

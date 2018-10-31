@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23126676"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457284"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>範例 1 – 使用 NSG 搭配 Azure Resource Manager 範本建立簡單的 DMZ
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -99,7 +99,7 @@ ms.locfileid: "23126676"
     ``` 
 
 2. 此範例中的第一個規則會允許所有內部網路之間的 DNS 流量流往 Backend 子網路上的 DNS 伺服器。 此規則有一些重要參數：
-  * "destinationAddressPrefix" - 規則可以使用稱為「預設標記」的位址首碼特殊類型，這些標記是系統提供的識別項，可使用簡單的方法來解決較大的位址前置詞類別。 此規則會使用預設標記「網際網路」來表示 VNet 之外的任何位址。 其他前置詞標籤為 VirtualNetwork 和 AzureLoadBalancer。
+  * "destinationAddressPrefix" - 目的地位址首碼會設定為 "10.0.2.4"，以允許 DNS 流量連線到 DNS 伺服器。
   * 「方向」表示此規則會生效的傳輸流量方向。 方向是來自子網路或虛擬機器的角度 (取決於此 NSG 繫結的位置)。 因此，如果 Direction 是 “Inbound” 且流量進入子網路，此規則將會適用，而離開子網路的流量則不受此規則所影響。
   * "Priority" 會設定流量的評估順序。 編號愈低，優先順序就愈高。 當規則套用至特定流量時，就不會再處理其他規則。 因此，如果優先順序為 1 的規則允許流量，優先順序為 2 的規則拒絕流量，而這兩個規則皆適用於流量，則會允許流量流動 (規則 1 有更高的優先順序，所以會生效，並且不會再套用其他規則)。
   * “Access” 指出受此規則影響的流量是要封鎖 ("Deny") 或允許 ("Allow")。
@@ -180,7 +180,7 @@ ms.locfileid: "23126676"
     },
      ```
 
-6. 此規則會拒絕從網際網路到網路上任何伺服器的流量。 利用優先順序為 110 和 120 的規則，效果將可只允許輸入網際網路流量流往防火牆以及伺服器上的 RDP 連接埠，除此之外的其他流量則予以封鎖。 此規則是「保險」規則，可封鎖所有未預期的流程。
+6. 規則可以使用一種稱為「預設標記」的特殊類型位址首碼，這些標記是系統提供的識別項，可讓您輕鬆處理較大類別的位址首碼。 此規則會針對要表示 VNet 內任何位址的目的地位址首碼，使用預設標記 “VirtualNetwork”。 其他首碼標籤為 Internet 和 AzureLoadBalancer。 此規則會拒絕從網際網路到網路上任何伺服器的流量。 利用優先順序為 110 和 120 的規則，效果將可只允許輸入網際網路流量流往防火牆以及伺服器上的 RDP 連接埠，除此之外的其他流量則予以封鎖。 此規則是「保險」規則，可封鎖所有未預期的流程。
 
     ```JSON
     {

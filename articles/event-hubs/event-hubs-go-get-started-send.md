@@ -7,34 +7,33 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 40b3aa82c3e9e8ab9a30362c0a41998877655725
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f5e30a103b09613caee8e9912a89a5bc2d390f65
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005592"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458083"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>使用 Go 將事件傳送至事件中樞
 
-Azure 事件中樞是可高度擴充的事件管理系統，每秒可以處理數以百萬計的事件，讓應用程式能處理及分析已連線裝置和其他系統所產生的大量資料。 收集到事件中樞之後，您就可以使用處理序內處理常式來接收及處理事件，或將事件轉送到期他分析系統。
+Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)與[事件中樞功能](event-hubs-features.md)。
 
-若要深入了解事件中樞，請參閱[事件中樞概觀][Event Hubs overview]。
+此教學課程說明如何將事件從以 Go 撰寫的應用程式傳送到事件中樞。 
 
-此教學課程說明如何將事件從以 Go 撰寫的應用程式傳送到事件中樞。 若要接收事件，請使用 **Go eph** (事件處理器主機) 套件，如[對應的接收文章](event-hubs-go-get-started-receive-eph.md)中所述。
-
-此教學課程中的程式碼取自[這些 GitHub 範例](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs) \(英文\)， 您可以檢查它們以查看完整的可運作應用程式，包括重要陳述式與變數宣告。
-
-您可以在[事件中樞套件存放庫](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) \(英文\) 中找到其他範例。
+> [!NOTE]
+> 您可以從 [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs) 下載此快速入門來作為範例，並以您事件中樞的值取代 `EventHubConnectionString` 與 `EventHubName` 字串，然後執行它。 或者，您可以依照此教學課程中的步驟來建立您自己的項目。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要下列必要條件：
 
-* 安裝在本機的 Go。 如果有需要，請依照[這些指示](https://golang.org/doc/install) \(英文\) 執行。
-* 使用中的 Azure 帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶][]。
+* 安裝在本機的 Go。 如果有需要，請依照[這些指示](https://golang.org/doc/install)執行。
 * 現有的事件中樞命名空間和事件中樞。 請依照[此文章](event-hubs-create.md)中的指示來建立這些實體。
+
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
+第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間與事件中樞，請依照[此文章](event-hubs-create.md)中的程序執行，然後繼續進行此教學課程中的下列步驟。
 
 ## <a name="install-go-package"></a>安裝 Go 套件
 
@@ -125,15 +124,13 @@ if err != nil {
 log.Printf("got partition IDs: %s\n, info.PartitionIDs)
 ```
 
+執行應用程式以將事件傳送到事件中樞。 
+
+恭喜！ 您現在已將傳送訊息到事件中樞。
+
 ## <a name="next-steps"></a>後續步驟
-
-請瀏覽下列頁面以深入了解事件中樞：
-
-* [使用 EventProcessorHost 接收事件](event-hubs-go-get-started-receive-eph.md)
-* [事件中樞概觀][Event Hubs overview]
-* [建立事件中樞](event-hubs-create.md)
-* [事件中樞常見問題集](event-hubs-faq.md)
+在此快速入門中，您已使用 Go 將訊息傳送到事件中樞。 若要了解如何使用 Go 從事件中樞接收事件，請參閱[從事件中樞接收事件 - Go](event-hubs-go-get-started-receive-eph.md)。
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

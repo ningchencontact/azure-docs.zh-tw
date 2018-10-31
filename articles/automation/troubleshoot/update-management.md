@@ -4,20 +4,20 @@ description: 了解如何針對更新管理問題進行疑難排解
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146357"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405220"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
-本文探討您使用「更新管理」時可能遇到的問題及其解決方案。
+本文探討您使用「更新管理」時可能遇到之問題的解決方案。
 
 ## <a name="general"></a>一般
 
@@ -36,7 +36,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 這個錯誤可能是下列原因所造成：
 
 1. 正在封鎖連回自動化帳戶的通訊。
-2. 正在上架的 VM 可能來自已安裝 Microsoft Monitoring Agent 但未執行過 sysprep 的所複製機器。
+2. 所要上線的 VM 可能來自一部已安裝 Microsoft Monitoring Agent 但未執行過 sysprep 的所複製機器。
 
 #### <a name="resolution"></a>解決方案
 
@@ -111,6 +111,28 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 確認系統帳戶具有 **C:\ProgramData\Microsoft\Crypto\RSA** 資料夾的讀取存取權，然後再試一次。
 
+### <a name="hresult"></a>案例：機器顯示為 [未評估] 並顯示 HResult 例外狀況
+
+#### <a name="issue"></a>問題
+
+您有在 [合規性] 底下顯示為 [未評估] 的機器，並在其下方看到例外狀況訊息。
+
+#### <a name="cause"></a>原因
+
+機器中的 Windows Update 設定不正確。
+
+#### <a name="resolution"></a>解決方案
+
+按兩下以紅色顯示的例外狀況，以查看整個例外狀況訊息。 檢閱下表以了解可採取的可能解決方案或動作：
+
+|例外狀況  |解決方案或動作  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | 在 [Windows 更新錯誤碼清單](https://support.microsoft.com/help/938205/windows-update-error-code-list)中搜尋相關的錯誤碼，以尋找有關例外狀況原因的額外詳細資料。        |
+|`0x8024402C` 或 `0x8024401C`     | 這些錯誤是網路連線問題。 請確定您的機器有適當的網路連線能力來連線到「更新管理」。 如需所需的連接埠和位址清單，請參閱有關[網路規劃](../automation-update-management.md#ports)的小節。        |
+|`0x8024402C`     | 如果您使用 WSUS 伺服器，請確定 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 登錄機碼底下 `WUServer` 和 `WUStatusServer` 的登錄值具有正確的 WSUS 伺服器。        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | 確定 Windows Update 服務 (wuauserv) 正在執行而未停用。        |
+|任何其他一般例外狀況     | 搜尋網際網路來尋找可能的解決方案，並與您當地的 IT 支援人員合作。         |
+
 ## <a name="linux"></a>Linux
 
 ### <a name="scenario-update-run-fails-to-start"></a>案例：更新執行無法開始
@@ -159,7 +181,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您看不到問題或無法解決問題，請瀏覽下列其中一個通道以取得更多支援：
+如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。

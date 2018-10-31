@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d3cddc729e40b5591922fc7b5c7d3d6a258219a7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842330"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955808"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -33,7 +33,7 @@ ms.locfileid: "43842330"
 
 具體而言，這個「Azure SQL 資料倉儲」連接器支援下列功能：
 
-- 使用 SQL 驗證和 Azure Active Directory (Azure AD) 應用程式權杖驗證與服務主體或受控服務識別 (MSI) 來複製資料。
+- 使用 SQL 驗證和 Azure Active Directory (Azure AD) 應用程式權杖驗證搭配服務主體或 Azure 資源的受控識別來複製資料。
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
 - 做為接收時，使用 PolyBase 或大量插入來載入資料。 建議您使用 PolyBase 以獲得較佳的複製效能。
 
@@ -70,7 +70,7 @@ ms.locfileid: "43842330"
 
 - [SQL 驗證](#sql-authentication)
 - Azure AD 應用程式權杖驗證：[服務主體](#service-principal-authentication)
-- Azure AD 應用程式權杖驗證：[受控服務識別](#managed-service-identity-authentication)
+- Azure AD 應用程式權杖驗證：[Azure 資源的受控識別](#managed-identity)
 
 >[!TIP]
 >如果您遇到錯誤，其錯誤碼為 "UserErrorFailedToConnectToSqlServer"，以及「資料庫的工作階段限制為 XXX 並已達到。」訊息，請將 `Pooling=false` 新增至您的連接字串並再試一次。
@@ -102,7 +102,7 @@ ms.locfileid: "43842330"
 
 若要使用以服務主體為基礎的 Azure AD 應用程式權杖驗證，請遵循下列步驟：
 
-1. 從 Azure 入口網站**[建立 Azure Active Directory 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**。 請記下應用程式名稱，以及下列可定義連結服務的值：
+1. 從 Azure 入口網站**[建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**。 請記下應用程式名稱，以及下列可定義連結服務的值：
 
     - 應用程式識別碼
     - 應用程式金鑰
@@ -152,9 +152,9 @@ ms.locfileid: "43842330"
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>受控服務識別驗證
+### <a name="managed-identity"></a> Azure 資源的受控識別驗證
 
-資料處理站可與[受控服務識別](data-factory-service-identity.md)相關聯，用後者來表示此特定處理站。 您可以使用此服務識別來進行 Azure SQL 資料倉儲驗證。 指定的處理站可以使用此身分識別來存取資料倉儲和從中來回複製資料。
+資料處理站可與 [Azure 資源的受控識別](data-factory-service-identity.md)相關聯，後者表示特定的處理站。 您可以使用此服務識別來進行 Azure SQL 資料倉儲驗證。 指定的處理站可以使用此身分識別來存取資料倉儲和從中來回複製資料。
 
 > [!IMPORTANT]
 > 請注意，PolyBase 目前不支援 MSI 驗證。
@@ -210,7 +210,7 @@ ms.locfileid: "43842330"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services)一文。 本節提供「Azure SQL 資料倉儲」資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)一文。 本節提供「Azure SQL 資料倉儲」資料集所支援的屬性清單。
 
 若要從「Azure SQL 資料倉儲」複製資料或將資料複製到該處，請將資料集的**類型**屬性設定為 **AzureSqlDWTable**。 以下是支援的屬性：
 
@@ -383,7 +383,7 @@ GO
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>使用 PolyBase 將資料載入 Azure SQL 資料倉儲
 
-使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，將可看到輸送量大幅提升。 如需詳細的比較，請參閱[效能參考](copy-activity-performance.md#performance-reference)。 如需使用案例的逐步解說，請參閱[將 1 TB 載入至 Azure SQL 資料倉儲](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-load-sql-data-warehouse)。
+使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，將可看到輸送量大幅提升。 如需詳細的比較，請參閱[效能參考](copy-activity-performance.md#performance-reference)。 如需使用案例的逐步解說，請參閱[將 1 TB 載入至 Azure SQL 資料倉儲](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse)。
 
 * 如果您的來源資料位在 Azure Blob 儲存體或 Azure Data Lake Store，且其格式與 PolyBase 相容，即可使用 PolyBase 直接複製到 Azure SQL 資料倉儲。 如需詳細資料，請參閱**[使用 PolyBase 直接複製](#direct-copy-by-using-polybase)**。
 * 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改用**[使用 PolyBase 分段複製](#staged-copy-by-using-polybase)** 功能。 分段複製功能也能提供更好的輸送量。 它會自動將資料轉換成與 PolyBase 相容的格式。 並會將資料儲存在 Azure Blob 儲存體中。 然後，它會將資料載入 SQL 資料倉儲。

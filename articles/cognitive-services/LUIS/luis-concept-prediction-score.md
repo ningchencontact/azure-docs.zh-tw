@@ -1,26 +1,26 @@
 ---
-title: 了解 LUIS 所傳回的預測分數
+title: 預測分數 - 意圖、實體 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 了解 LUIS 中的預測分數意義
+description: 預測分數表示 LUIS 對預測結果的信賴程度。
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: dc19151e82f44159533050e60ba2f1c6d65466fe
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032218"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637948"
 ---
 # <a name="prediction-score"></a>預測分數
 預測分數表示 LUIS 對預測結果的信賴程度。 
 
-預測分數通常介於零 (0) 到一 (1) 之間。 高信賴度 LUIS 分數的範例是 0.99。 低信賴度的範例是 0.01。 
+預測分數介於零 (0) 到一 (1) 之間。 高信賴度 LUIS 分數的範例是 0.99。 低信賴度的範例是 0.01。 
 
 |分數值|信賴度|
 |--|--|

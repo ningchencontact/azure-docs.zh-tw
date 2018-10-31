@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
-ms.reviewer: vanto, carlrab, ronitr
+ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: b8bb9cbf53b297d8dca1ac67bae8765edcc2c9f4
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 10/22/2018
+ms.openlocfilehash: 9978497f8bd3ebb11247f3bffe319866128e9f1d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311196"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646502"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -32,7 +32,11 @@ ms.locfileid: "49311196"
 SQL Database 會使用[傳輸層安全性](https://support.microsoft.com/kb/3135244)為移動中的資料提供加密、使用[透明資料加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)為待用資料提供加密，以及使用[一律加密](https://msdn.microsoft.com/library/mt163865.aspx)為使用中的資料提供加密，來保護您的資料安全。
 
 > [!IMPORTANT]
-> Azure SQL Database 的所有連線，也就是任何時候只要資料需要「傳輸」進出資料庫時，都需要加密 (SSL/TLS)。 在您應用程式的連接字串中，您必須指定參數來加密連線，且「不」信任伺服器憑證 (如果您從 Azure 入口網站複製連接字串，系統便會為您完成上述設定)，否則連線將無法驗證伺服器的身分識別，也可能會遭受「攔截」攻擊。 例如對於 ADO.NET 驅動程式，這些連接字串參數是 **Encrypt=True** 和 **TrustServerCertificate=False**。 如需 TLS 和連線能力的相關資訊，請參閱 [TLS 考量](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Azure SQL Database 一律會針對所有連線強制執行加密 (SSL/TLS)，以確保所有資料在資料庫與用戶端之間「傳輸中」都會加密。 不論連接字串中 **Encrypt** 或 **TrustServerCertificate** 的設定為何，都將發生此情況。
+>
+> 在您的應用程式連接字串中，請確定您會指定加密的連線，而且「不會」信任伺服器憑證 (對於 ADO.NET 驅動程式，這是 **Encrypt=True** 和 **TrustServerCertificate=False**)。 這有助於藉由強制您的應用程式驗證伺服器並強制執行加密，來防止該應用程式受到「中間人」攻擊。 如果您從 Azure 入口網站取得連接字串，則它將具有正確的設定。
+>
+> 如需 TLS 和連線能力的相關資訊，請參閱 [TLS 考量](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 如需其他的資料加密方式，請考慮：
 
@@ -78,7 +82,7 @@ SQL Database 驗證是指連線到資料庫時如何證明身分識別。 SQL Da
 
 ### <a name="row-level-security"></a>資料列層級安全性
 
-資料列層級安全性讓客戶能夠根據執行查詢之使用者的特性 (例如，群組成員資格或執行內容) 來控制資料庫資料表中的資料列存取。 如需詳細資訊，請參閱[資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)。
+資料列層級安全性讓客戶能夠根據執行查詢的使用者特性 (例如，依群組成員資格或執行內容)，來控制資料庫資料表中的資料列存取。 如需詳細資訊，請參閱[資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)。
 
 ### <a name="dynamic-data-masking"></a>動態資料遮罩
 
@@ -90,7 +94,7 @@ SQL Database 可藉由提供稽核和威脅偵測功能來保護您的資料。
 
 ### <a name="auditing"></a>稽核
 
-SQL Database 稽核會將資料庫事件記錄到 Azure 儲存體帳戶中的稽核記錄檔，藉此追蹤資料庫活動並協助您維護法規相符性。 稽核可讓您了解進行中的資料庫活動，以及分析和調查歷史活動，以找出潛在威脅或可疑的濫用和安全性違規。 如需其他資訊，請參閱[開始使用 SQL Database 稽核](sql-database-auditing.md)。  
+SQL Database 稽核會將資料庫事件記錄到 Azure 儲存體帳戶中的稽核記錄檔，藉此追蹤資料庫活動並協助您維護法規相符性。 稽核可讓您了解進行中的資料庫活動，以及分析和調查歷史活動，以找出潛在威脅或可疑的濫用和安全性違規。 如需詳細資訊，請參閱 [開始使用 Azure Database 稽核](sql-database-auditing.md)。  
 
 ### <a name="threat-detection"></a>威脅偵測
 
@@ -104,7 +108,7 @@ SQL Database 稽核會將資料庫事件記錄到 Azure 儲存體帳戶中的稽
 
 SQL Database 使用 [SQL 弱點評量](sql-vulnerability-assessment.md)來提供資料庫掃描和集中式的安全性儀表板，協助您管理資料安全性。
 
-**弱點評量**：[SQL 弱點評量](sql-vulnerability-assessment.md) (目前為預覽狀態) 是容易設定的 Azure SQL Database 內建工具，可協助您探索、追蹤及修復潛在的資料庫弱點。 此評量會在您的資料庫上執行弱點掃描並產生報表，讓您掌握您的安全性狀態，其中還包括解決安全性問題和增強資料庫安全性的可採取動作。 您可以針對權限組態、功能組態及資料庫組態設定可接受的基準，為您的環境自訂評量報告。 這可協助您：
+**[SQL 弱點評量](sql-vulnerability-assessment.md)** 是容易設定的 Azure SQL Database 內建工具，可協助您探索、追蹤及修復潛在的資料庫弱點。 此評量會在您的資料庫上執行弱點掃描並產生報表，讓您掌握您的安全性狀態，其中還包括解決安全性問題和增強資料庫安全性的可採取動作。 您可以針對權限組態、功能組態及資料庫組態設定可接受的基準，為您的環境自訂評量報告。 這可協助您：
 
 - 符合需要資料庫掃描報告的合規性需求。
 - 符合資料隱私權標準。

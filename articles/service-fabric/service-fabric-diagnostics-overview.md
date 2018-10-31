@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/18/2018
 ms.author: srrengar
-ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5fc2674a145be99fb8867c5cf1b1f65ba860db80
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643170"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457828"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>對 Azure Service Fabric 進行監視和診斷
 
@@ -44,7 +44,7 @@ Service Fabric 提供一組完整的現成事件。 這些 [Service Fabric 事�
 * EventStore - EventStore (Windows 6.2 版和更新版本提供；Linux 在本文章最新更新時仍在進行中) 能透過一組 API 公開這些事件 (透過 REST 端點或用戶端程式庫存取)。 若要進一步了解 EventStore，請閱讀 [EventStore 概觀](service-fabric-diagnostics-eventstore.md)。
 * Service Fabric 事件通道 - 在 Windows 上，透過一組用來挑選「作業和資料」與「傳訊」通道的相關 `logLevelKeywordFilters`，就能從單一 ETW 提供者取得 Service Fabric 事件 - 這是我們在需要時區分出待篩選傳出 Service Fabric 事件的方法。 在 Linux 上，Service Fabric 事件會經過 LTTng 並放入一個儲存體資料表，您可以視需要從這個資料表篩選事件。 這些通道包含經過策劃、結構化的事件，可用來進一步了解您的叢集狀態。 叢集建立時預設會啟用診斷，這會建立一個 Azure 儲存體表格，來自這些通道的事件會傳送到這個表格，供您將來查詢之用。 
 
-我們建議您使用 EventStore 來進行快速分析，概略了解叢集的運作情況，以及各項功能是否如預期般正常進行。 若要收集叢集所產生的記錄和事件，我們通常建議使用 [Azure 診斷擴充功能](service-fabric-diagnostics-event-aggregation-wad.md)。 這項擴充功能會與 OMS Log Analytics 的 Service Fabric 專屬解決方案「Service Fabric 分析」充分整合，該解決方案提供一個監視 Service Fabric 叢集的自訂儀表板，可讓您查詢叢集的事件和設定警示。 您可以在[使用 OMS 進行事件分析](service-fabric-diagnostics-event-analysis-oms.md)閱讀更多資訊。 
+我們建議您使用 EventStore 來進行快速分析，概略了解叢集的運作情況，以及各項功能是否如預期般正常進行。 若要收集叢集所產生的記錄和事件，我們通常建議使用 [Azure 診斷擴充功能](service-fabric-diagnostics-event-aggregation-wad.md)。 這項擴充功能會與 Log Analytics 的 Service Fabric 專屬解決方案「Service Fabric 分析」充分整合，提供一個監視 Service Fabric 叢集的自訂儀表板，可讓您查詢叢集的事件和設定警示。 您可以在[使用 Log Analytics 進行事件分析](service-fabric-diagnostics-event-analysis-oms.md)閱讀更多資訊。 
 
  您可以在[平台層級事件和記錄產生](service-fabric-diagnostics-event-generation-infra.md)閱讀更多監視叢集的詳細資訊。
 
@@ -58,7 +58,7 @@ Service Fabric 提供一組完整的現成事件。 這些 [Service Fabric 事�
 
 Service Fabric 會提供一組效能計數器，以供 Reliable Services 和動作項目程式設計模型使用。 如果您使用上述其中一種模型，這些效能計數器可以提供一些 KPI，協助確保您的動作項目正確向上和向下微調，或者您的可靠服務要求處理的速度夠快。 如需詳細資訊，請參閱[可靠服務遠端的監視](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters)和 [Reliable Actors 的效能監視](service-fabric-reliable-actors-diagnostics.md#performance-counters)。 除此之外，如果您的應用程式經過設定，Application Insights 也會收集一組效能計量。
 
-請使用 [OMS 代理程式](service-fabric-diagnostics-oms-agent.md)收集適當的效能計數器，並在 OMS Log Analytics 中檢視這些 KPI。
+請使用 [Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)收集適當的效能計數器，並在 Azure Log Analytics 中檢視這些 KPI。
 
 ![診斷概觀圖表](media/service-fabric-diagnostics-overview/diagnostics-overview.png)
 
@@ -71,7 +71,7 @@ Service Fabric 平台包括健康情況模型，針對叢集中的實體狀態�
 
 ## <a name="other-logging-solutions"></a>其他記錄解決方案
 
-雖然我們建議兩個解決方案，但是 [OMS](service-fabric-diagnostics-event-analysis-oms.md) 和 [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) 已內建置在 Service Fabric 的整合中，所以許多事件會透過 etw 提供者寫出來並可利用其他記錄解決方案延伸。 您也應該研究 [Elastic Stack](https://www.elastic.co/products) (尤其是當您考慮在離線環境中執行叢集時)、[Splunk](https://www.splunk.com/)、[Dynatrace](https://www.dynatrace.com/)，或您偏好的任何其他平台。 
+雖然我們建議兩個解決方案，但是 [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) 和 [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) 已內建在 Service Fabric 的整合中，所以許多事件會透過 ETW 提供者寫出來並可利用其他記錄解決方案延伸。 您也應該研究 [Elastic Stack](https://www.elastic.co/products) (尤其是當您考慮在離線環境中執行叢集時)、[Dynatrace](https://www.dynatrace.com/)，或您偏好的其他任何平台。 我們在[這裡](service-fabric-diagnostics-partners.md)提供一份整合的合作夥伴清單。
 
 不論選擇何種平台，重點在於您是否喜歡其中的使用者介面和查詢選項、視覺化資料與建立一目了然之儀表板的功能，以及是否提供可強化監視的其他工具，例如自動化警示。
 
@@ -81,4 +81,6 @@ Service Fabric 平台包括健康情況模型，針對叢集中的實體狀態�
 * 在[平台層級事件和記錄產生](service-fabric-diagnostics-event-generation-infra.md)深入了解監視平台，以及監視 Service Fabric 提供給您的事件。
 * 透過[監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式](service-fabric-tutorial-monitoring-aspnet.md)，針對您的應用程式逐步執行設定 AI 的步驟。
 * 了解如何設定 OMS Log Analytics 以監視容器：[監視和診斷 Azure Service Fabric 中的 Windows 容器](service-fabric-tutorial-monitoring-wincontainers.md)。
+* 請參閱[診斷常見案例](service-fabric-diagnostics-common-scenarios.md)中的 Service Fabric 範例診斷問題和解決方案
+* 查看 [Service Fabric 診斷合作夥伴](service-fabric-diagnostics-partners.md)中與 Service Fabric 整合的其他診斷產品
 * 了解 Azure 資源的一般監視建議：[最佳做法 - 監視和診斷](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)。 

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: df9c218c275367852885e67ac2649926ba1d31d3
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: b6386f4a23a0ca6d0134f8c4e298a3f7100cc1d6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42142081"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466948"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用標記來組織 Azure 資源
 
@@ -31,7 +31,7 @@ ms.locfileid: "42142081"
 
 ## <a name="powershell"></a>PowerShell
 
-本文的範例需要 Azure PowerShell 6.0 版或更新版本。 如果版本不是 6.0 或更新版本，請[更新您的版本](/powershell/azure/install-azurerm-ps)。
+本文的範例需要 Azure PowerShell 6.0 版或更新版本。 如果您的版本不是 6.0 版或更新版本，請[更新您的版本](/powershell/azure/install-azurerm-ps)。
 
 若要查看*資源群組*的現有標籤，請使用：
 
@@ -264,13 +264,11 @@ Azure 入口網站和 PowerShell 在幕後都使用 [Resource Manager REST API](
 
 ## <a name="tags-and-billing"></a>標記與計費
 
-您可以使用標籤將您的計費資料分組。 例如，如果您執行不同組織的多個 VM，您可以使用標籤根據成本中心將使用情況分組。 您也可以使用標籤來根據執行階段環境將成本分類。例如，在生產環境中執行之 VM 的計費使用量。
+您可以使用標籤將您的計費資料分組。 例如，如果您針對不同組織執行多個 VM，請使用標籤依成本中心將使用量分組。 您也可以使用標籤來根據執行階段環境將成本分類。例如，在生產環境中執行之 VM 的計費使用量。
 
-您可以透過 [Azure 資源使用狀況和 RateCard API](../billing/billing-usage-rate-card-overview.md) 或使用狀況逗號分隔值 (CSV) 檔案，擷取關於標記的資訊。 您可以從 [Azure 帳戶入口網站](https://account.windowsazure.com/)或 [EA 入口網站](https://ea.azure.com)下載使用量檔案。 如需以程式設計方式存取帳單資訊的詳細資訊，請參閱 [深入了解 Microsoft Azure 資源耗用量](../billing/billing-usage-rate-card-overview.md)。 若為 REST API 作業，請參閱 [Azure 計費 REST API 參考](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)。
+您可以透過 [Azure 資源使用狀況和 RateCard API](../billing/billing-usage-rate-card-overview.md) 或使用狀況逗號分隔值 (CSV) 檔案，擷取關於標記的資訊。 您可以從 [Azure 帳戶中心](https://account.azure.com/Subscriptions)或 Azure 入口網站下載使用量檔案。 如需詳細資訊，請參閱[下載或檢視您的 Azure 帳單發票和每日使用量資料](../billing/billing-download-azure-invoice-daily-usage-date.md)。 從「Azure 帳戶中心」下載使用量檔案時，請選取 [版本 2]。 針對支援在計費方面使用標籤的服務，標籤會顯示在 [標籤] 資料行中。
 
-當您下載服務 (支援附計費的標記) 的使用狀況 CSV 時，標記會出現在 [標記]  資料行。 如需詳細資訊，請參閱[了解 Microsoft Azure 帳單](../billing/billing-understand-your-bill.md)。
-
-![查看計費中的標記](./media/resource-group-using-tags/billing_csv.png)
+若為 REST API 作業，請參閱 [Azure 計費 REST API 參考](/rest/api/billing/)。
 
 ## <a name="next-steps"></a>後續步驟
 

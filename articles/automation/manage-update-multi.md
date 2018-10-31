@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498227"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985245"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -163,6 +163,9 @@ Linux 代理程式必須能夠存取更新存放庫。
    |僅重新開機 - 將不會安裝更新|此選項會略過安裝更新，而且只會啟動重新開機。|
 
 完成排程設定之後，請選取 [建立] 按鈕以返回狀態儀表板。 [已排定] 表格會顯示您建立的部署排程。
+
+> [!NOTE]
+> 「更新管理」支援部署第一方更新及預先下載修補程式。 這需要對要修補的系統進行變更，請參閱[ 第一方和預先下載支援](automation-update-management.md#firstparty-predownload)，以了解如何在系統上進行這些設定。
 
 ## <a name="view-results-of-an-update-deployment"></a>檢視更新部署的結果
 

@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 21c9441e2b3d3ad54d491834e6de097a8880b5b7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: cc051e1ba0bbea68bb1e888168883351bf4f730f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311111"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406206"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>使用 Log Analytics 來監視效能
 
-本文會逐步說明如何將 Log Analytics 代理程式作為虛擬機器擴展集延伸模組新增至您的叢集，並將它連線到現有的 Azure Log Analytics 工作區。 如此即可收集容器、應用程式和效能監控的相關診斷資料。 透過將它新增為虛擬機器擴展集資源的延伸模組，Azure Resource Manager 可確保其本身在每個節點上安裝，即使在調整叢集規模時也是如此。
+本文會逐步說明如何將 Log Analytics 代理程式當作虛擬機器擴展集延伸模組新增至您的叢集，並將它連線到現有的 Azure Log Analytics 工作區。 如此即可收集容器、應用程式和效能監控的相關診斷資料。 透過將它新增為虛擬機器擴展集資源的延伸模組，Azure Resource Manager 可確保其本身在每個節點上安裝，即使在調整叢集規模時也是如此。
 
 > [!NOTE]
 > 本文假設您已設定好 Azure Log Analytics 工作區。 如果尚未完成，請前往[設定 Azure Log Analytics](service-fabric-diagnostics-oms-setup.md)
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>透過 Azure CLI 新增代理程式延伸模組
 
-將 Log Analytics 代理程式新增至叢集的最佳方法是透過 Azure CLI 提供的虛擬機擴展集 API。 如果您尚未設定 Azure CLI，請前往 Azure 入口網站，並開啟 [Cloud Shell](../cloud-shell/overview.md) 執行個體，或[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+將 Log Analytics 代理程式新增至叢集的最佳方法是透過 Azure CLI 提供的虛擬機器擴展集 API。 如果您尚未設定 Azure CLI，請前往 Azure 入口網站，並開啟 [Cloud Shell](../cloud-shell/overview.md) 執行個體，或[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 1. 一旦要求了 Cloud Shell，請確定用於作業的訂用帳戶與資源的訂用帳戶相同。 請使用 `az account show` 進行檢查，並確保「名稱」值符合叢集訂用帳戶的名稱。
 

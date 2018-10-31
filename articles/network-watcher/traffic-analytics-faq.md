@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578305"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402755"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -77,9 +77,9 @@ ms.locfileid: "45578305"
 
 是。 如果您選取現有的工作區，請確定該工作區已遷移至新的查詢語言。 如果您不想升級工作區，則需要建立新的工作區。 如需有關新查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>是否可以讓我的 Azure 儲存體帳戶位於某個訂用帳戶，而讓我的 Operations Management Suite 工作區位於不同的訂用帳戶中？
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>是否可以讓我的 Azure 儲存體帳戶位於某個訂用帳戶，而讓我的 Log Analytics 工作區位於不同的訂用帳戶中？
 
-可以，您的 Azure 儲存體帳戶可以位於某個訂用帳戶，而 Operations Management Suite 工作區則可以位於不同的訂用帳戶中。
+是，您的 Azure 儲存體帳戶可以位於某個訂用帳戶，而您的 Log Analytics 工作區可以位於不同的訂用帳戶中。
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>可以在不同的訂用帳戶中儲存原始記錄檔嗎？
 
@@ -115,7 +115,7 @@ ms.locfileid: "45578305"
 
 您會看到此訊息的原因可能如下：
 - 流量分析最近才啟用，而且可能尚未彙總到足夠資料以衍生有意義的見解。
-- 您使用免費版本的 Operations Management Suite 工作區，而且超過配額限制。 您可能需要使用容量較大的工作區。
+- 您使用的是免費版本的 Log Analytics 工作區，而且超過配額限制。 您可能需要使用容量較大的工作區。
     
 如果問題仍然存在，請在[使用者心聲論壇](https://feedback.azure.com/forums/217313-networking?category_id=195844) \(英文\) 中提出疑慮。
     

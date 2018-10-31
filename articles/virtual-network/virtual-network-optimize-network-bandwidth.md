@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: b604782f917584d1ecec432c20de75f427176ed1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29132886"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025543"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>最佳化 Azure 虛擬機器的網路輸送量
 
@@ -155,5 +155,5 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 
 ## <a name="next-steps"></a>後續步驟
 * 針對您的案例查看[測試 Azure VM 的頻寬/輸送量](virtual-network-bandwidth-testing.md)以取得最佳化的結果。
-* 了解[頻寬配置給虛擬機器] (virtual-machine-network-throughput.md)的方式
+* 了解如如何[將頻寬配置給虛擬機器](virtual-machine-network-throughput.md)
 * 深入了解 [Azure 虛擬網路常見問題集 (FAQ)](virtual-networks-faq.md)

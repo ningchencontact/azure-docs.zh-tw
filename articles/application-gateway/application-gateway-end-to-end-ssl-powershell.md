@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 10/23/2018
 ms.author: victorh
-ms.openlocfilehash: 7e259936dce433683dd135171ee1c5626bf23739
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945326"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 以應用程式閘道設定端對端 SSL
 
@@ -126,20 +127,20 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 所有設定項目是在建立應用程式閘道之前設定。 下列步驟會建立應用程式閘道資源所需的組態項目。
 
-   1. 建立應用程式閘道 IP 組態物件。 此設定會設定應用程式閘道使用的子網路。 當應用程式閘道啟動時，它會從已設定的子網路取得 IP 位址，然後將網路流量路由傳送到後端 IP 集區中的 IP 位址。 請記住，每個執行個體需要一個 IP 位址。
+1. 建立應用程式閘道 IP 組態物件。 此設定會設定應用程式閘道使用的子網路。 當應用程式閘道啟動時，它會從已設定的子網路取得 IP 位址，然後將網路流量路由傳送到後端 IP 集區中的 IP 位址。 請記住，每個執行個體需要一個 IP 位址。
 
    ```powershell
    $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
 
-   2. 建立前端 IP 組態。 此設定會將私人或公用 IP 位址對應到應用程式閘道的前端。 下一個步驟會將先前步驟中的公用 IP 位址關聯到前端 IP 組態。
+2. 建立前端 IP 組態。 此設定會將私人或公用 IP 位址對應到應用程式閘道的前端。 下一個步驟會將先前步驟中的公用 IP 位址關聯到前端 IP 組態。
 
    ```powershell
    $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
    ```
 
-   3. 使用後端 Web 伺服器的 IP 位址設定後端 IP 位址集區。 這些 IP 位址會接收來自前端 IP 端點的網路流量。 以您自己的應用程式 IP 位址端點取代範例中的 IP 位址。
+3. 使用後端 Web 伺服器的 IP 位址設定後端 IP 位址集區。 這些 IP 位址會接收來自前端 IP 端點的網路流量。 以您自己的應用程式 IP 位址端點取代範例中的 IP 位址。
 
    ```powershell
    $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
@@ -149,13 +150,13 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
    > 完整網域名稱 (FQDN) 也是可用來取代後端伺服器 IP 位址的有效值。 您可以使用 **-BackendFqdns** 參數啟用它。 
 
 
-   4. 設定公用 IP 端點的前端 IP 連接埠。 此連接埠是供使用者連接到的連接埠。
+4. 設定公用 IP 端點的前端 IP 連接埠。 此連接埠是供使用者連接到的連接埠。
 
    ```powershell
    $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
    ```
 
-   5. 設定應用程式閘道憑證。 此憑證可用來解密和重新加密應用程式閘道上的流量。
+5. 設定應用程式閘道憑證。 此憑證可用來解密和重新加密應用程式閘道上的流量。
 
    ```powershell
    $passwd = ConvertTo-SecureString  <certificate file password> -AsPlainText -Force 
@@ -165,13 +166,13 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
    > [!NOTE]
    > 此範例會設定 SSL 連接所使用的憑證。 憑證必須是 .pfx 格式，而密碼則必須介於 4 到 12 個字元。
 
-   6. 建立應用程式閘道的 HTTP 接聽程式。 指派要使用的前端 IP 設定、連接埠和 SSL 憑證。
+6. 建立應用程式閘道的 HTTP 接聽程式。 指派要使用的前端 IP 設定、連接埠和 SSL 憑證。
 
    ```powershell
    $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-   7. 上傳要在已啟用 SSL 的後端集區資源上使用的憑證。
+7. 上傳要在已啟用 SSL 的後端集區資源上使用的憑證。
 
    > [!NOTE]
    > 預設探查可從後端 IP 位址上的*預設* SSL 繫結取得公開金鑰，並將所收到的公開金鑰值與您在此處提供的公開金鑰值做比較。 
@@ -183,29 +184,42 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
    ```
 
    > [!NOTE]
-   > 在此步驟中所提供的憑證，應該是在後端上出現的 .pfx 憑證本身的公開金鑰。 將安裝在後端伺服器上的憑證 (非根憑證) 以「宣告、證據和推論」(CER) 格式匯出，並將它用於此步驟。 此步驟會將後端加入到應用程式閘道的白名單。
+   > 在此步驟中所提供的憑證，應該是在後端上出現的 .pfx 憑證本身的公開金鑰。 將安裝在後端伺服器上的憑證 (非根憑證) 以「宣告、證據和推論」(CER) 格式匯出，並將它用於此步驟。 此步驟會將後端加入到應用程式閘道的允許清單。
 
-   8. 設定應用程式閘道的後端 HTTP 設定。 將前述步驟中上傳的憑證指派給 HTTP 設定。
+   如果您使用「應用程式閘道 v2 SKU」，則請建立受信任的根憑證，而不是建立驗證憑證。 如需詳細資訊，請參閱[應用程式閘道端對端 SSL 的概觀](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)：
+
+   ```powershell
+   $trustedRootCert01 = New-AzureRmApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
+   ```
+
+8. 設定應用程式閘道的後端 HTTP 設定。 將前述步驟中上傳的憑證指派給 HTTP 設定。
 
    ```powershell
    $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
    ```
-   9. 建立會設定負載平衡器行為的負載平衡器路由規則。 在此範例中，會建立基本的循環配置資源規則。
+
+   針對「應用程式閘道 v2 SKU」，請使用下列命令：
+
+   ```powershell
+   $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+   ```
+
+9. 建立會設定負載平衡器行為的負載平衡器路由規則。 在此範例中，會建立基本的循環配置資源規則。
 
    ```powershell
    $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-   10. 設定應用程式閘道的執行個體大小。 可用大小是 **Standard\_Small**、**Standard\_Medium** 和 **Standard\_Large**。  容量的可用值為 **1** 到 **10**。
+10. 設定應用程式閘道的執行個體大小。 可用大小是 **Standard\_Small**、**Standard\_Medium** 和 **Standard\_Large**。  容量的可用值為 **1** 到 **10**。
 
-   ```powershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-   ```
+    ```powershell
+    $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+    ```
 
-   > [!NOTE]
-   > 若要進行測試，可以選擇執行個體計數 1。 請務必了解 SLA 不涵蓋任何低於兩個執行個體的執行個體計數，因此不建議使用。 小型閘道適用於開發測試，不適合在生產環境中使用。
+    > [!NOTE]
+    > 若要進行測試，可以選擇執行個體計數 1。 請務必了解 SLA 不涵蓋任何低於兩個執行個體的執行個體計數，因此不建議使用。 小型閘道適用於開發測試，不適合在生產環境中使用。
 
-   11. 設定要在應用程式閘道上使用的 SSL 原則。 應用程式閘道支援將 SSL 通訊協定版本設為最小版本的能力。
+11. 設定要在應用程式閘道上使用的 SSL 原則。 應用程式閘道支援將 SSL 通訊協定版本設為最小版本的能力。
 
    下列值是可以定義的通訊協定版本清單：
 

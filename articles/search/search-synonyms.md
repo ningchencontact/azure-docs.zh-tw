@@ -1,7 +1,7 @@
 ---
 pageTitle: Synonyms in Azure Search | Microsoft Docs
 description: 使用同義字以擴充搜尋查詢的範圍
-authors: mhko
+author: mhko
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093209"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468546"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure 搜尋服務的同義字
 
@@ -148,6 +148,8 @@ Washington, Wash., WA => WA
 同義字功能適用於搜尋查詢，並不適用於篩選條件或面向。 同樣地，搜尋建議僅根據原始詞彙提供，同義字比對結果不會出現在回應中。
 
 同義字擴充不適用於萬用字元搜尋詞彙；也不會擴充前置詞、模糊與 Regex 詞彙。
+
+如果您需要執行適用同義字展開和萬用字元、regex 或模糊搜尋的單一查詢，您可以使用 OR 語法結合查詢。 例如，若要針對簡單查詢語法結合同義字與萬用字元，詞彙可以是 `<query> | <query>*`。
 
 ## <a name="tips-for-building-a-synonym-map"></a>建置同義字地圖的秘訣
 

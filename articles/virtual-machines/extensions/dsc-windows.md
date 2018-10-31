@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630920"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407702"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 延伸模組
 
@@ -130,7 +130,7 @@ Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Ser
 
 ## <a name="template-deployment"></a>範本部署
 
-也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 部署一或多部需要部署後設定的虛擬機器時，很適合使用範本。 在 [Azure 快速啟動資源庫](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm)上可找到包含 OMS 代理程式 VM 擴充功能的範例 Resource Manager 範本。 
+也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 部署一或多部需要部署後設定的虛擬機器時，很適合使用範本。 在 [Azure 快速入門資源庫](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm) \(英文\) 上可找到包含 Log Analytics 代理程式 VM 擴充功能的範例 Resource Manager 範本。 
 
 虛擬機器擴充功能的 JSON 設定可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 設定的放置會影響資源名稱和類型的值。 
 
@@ -139,7 +139,7 @@ Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Ser
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
-Azure CLI 可以用來將 OMS 代理程式 VM 擴充功能部署到現有的虛擬機器。 請將 OMS 金鑰和 OMS 識別碼取代成來自您 OMS 工作區的 OMS 金鑰和 OMS 識別碼。 
+Azure CLI 可以用來將 Log Analytics 代理程式 VM 擴充功能部署到現有的虛擬機器。 將 Log Analytics 金鑰與 Log Analytics 識別碼取代為您 Log Analytics 工作區的金鑰與識別碼。 
 
 ```azurecli
 az vm extension set \

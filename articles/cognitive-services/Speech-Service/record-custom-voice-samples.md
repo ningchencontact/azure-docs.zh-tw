@@ -1,20 +1,21 @@
 ---
 title: 錄製語音樣本來建立自訂語音
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 準備健全的腳本、雇用優秀的配音員，並以專業的方式錄音，以製作具生產品質的自訂語音。
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/5/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.author: erhopf
+ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165171"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471181"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>錄製語音樣本來建立自訂語音
 
@@ -36,9 +37,9 @@ ms.locfileid: "47165171"
 配音員        |這個人的聲音將形成自訂語音的基礎。
 錄音工程師  |監看錄音的技術層面，並操作錄音設備。
 導演            |準備腳本並指導配音員的表演。
-編輯器              |完成音訊檔案，並準備這些檔案以上傳到自訂語音入口網站。
+編輯者              |完成音訊檔案，並準備這些檔案以上傳到自訂語音入口網站。
 
-一個人可能會擔任多個角色。 本指南假設您主要將擔任導演角色，並雇用配音員和錄音工程師。 如果您想要自行錄音，本文中也提供錄音工程師角色的相關資訊。 完成此階段後才需要編輯角色，所以該角色可以由導演和錄音工程師擔任。
+一個人可能會擔任多個角色。 本指南假設您主要將擔任導演角色，並雇用配音員和錄音工程師。 如果您想要自行錄音，本文中也提供錄音工程師角色的相關資訊。 在此工作階段之後才會需要編輯者角色，因此可由導演或錄音工程師執行。
 
 ## <a name="choose-your-voice-talent"></a>選擇您的配音員
 

@@ -2,24 +2,20 @@
 title: Durable Functions 的子協調流程 - Azure
 description: 如何在 Azure Functions 的 Durable Functions 擴充中，從協調流程呼叫協調流程。
 services: functions
-author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+author: kashimiz
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7545a371749ed9af88f08af23cce3a513f494374
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 32f8872737fdf6dd766ae8df8ef3ed47692e2c9c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33761328"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984328"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的子協調流程
 
@@ -35,6 +31,8 @@ ms.locfileid: "33761328"
 ## <a name="example"></a>範例
 
 下列範例說明 IoT (物聯網) 情節，其中有多個需要佈建的裝置。 有一個特別的協調流程是每個裝置都需要進行，看起來可能如下所示：
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -55,9 +53,32 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-這個協調器函式可直接用於一次性裝置佈建，也可以當作更大協調流程的一部分。 在後者的情況下，父代協調器函式可以使用 `CallSubOrchestratorAsync` API 來排程 `DeviceProvisioningOrchestration` 的執行個體。
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const deviceId = context.df.getInput();
+
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    const sasUrl = yield context.df.callActivity("CreateInstallationPackage", deviceId);
+
+    // Step 2: Notify the device that the installation package is ready.
+    yield context.df.callActivity("SendPackageUrlToDevice", { id: deviceId, url: sasUrl });
+
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield context.df.waitForExternalEvent("DownloadCompletedAck");
+
+    // Step 4: ...
+});
+```
+
+這個協調器函式可直接用於一次性裝置佈建，也可以當作更大協調流程的一部分。 在後者的情況下，父協調器函式可以使用 `CallSubOrchestratorAsync` (C#) 或 `callSubOrchestrator` (JS) API 來排定 `DeviceProvisioningOrchestration` 的執行個體。
 
 以下示範如何平行執行多個協調器函式。
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -78,6 +99,27 @@ public static async Task ProvisionNewDevices(
 
     // ...
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const deviceIds = yield context.df.callActivity("GetNewDeviceIds");
+
+    // Run multiple device provisioning flows in parallel
+    const provisioningTasks = [];
+    for (const deviceId of deviceIds) {
+        const provisionTask = context.df.callSubOrchestrator("DeviceProvisioningOrchestration", deviceId);
+        provisioningTasks.push(provisionTask);
+    }
+
+    yield context.df.Task.all(provisioningTasks);
+
+    // ...
+});
 ```
 
 ## <a name="next-steps"></a>後續步驟

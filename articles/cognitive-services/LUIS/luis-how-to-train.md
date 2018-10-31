@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: f27716cc416b162a5b2df5542d709058f3b3e903
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182025"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426082"
 ---
 # <a name="train-your-luis-app-version"></a>訓練 LUIS 應用程式版本
 
@@ -26,8 +26,11 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 訓練和[測試](luis-concept-test.md)應用程式是一種反覆程序。 在您訓練 LUIS 應用程式之後，請使用範例語調來測試它，查看是否正確地辨識意圖和實體。 若為否，請更新 LUIS 應用程式、訓練，並重新測試。 
 
-## <a name="how-to-train"></a>如何訓練
-若要開始反覆程序，您至少需要先訓練 LUIS 應用程式一次。 請在訓練之前，確定每個意圖都至少有一個語調。
+定型會套用至 LUIS 入口網站中的作用中版本。 
+
+## <a name="how-to-train-interactively"></a>若要以互動方式定型
+
+若要在 [LUIS 入口網站](https://www.luis.ai)中開始反覆程序，您必須至少先將 LUIS 應用程式定型一次。 請在訓練之前，確定每個意圖都至少有一個語調。
 
 1. 在 [我的應用程式] 頁面上選取應用程式名稱，來存取應用程式。 
 
@@ -41,7 +44,18 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 >若應用程式中有一或多個未包含範例語調的意圖，則無法訓練應用程式。 新增所有意圖的語調。 如需詳細資訊，請參閱[新增範例語調](luis-how-to-add-example-utterances.md)。
 
 ## <a name="train-with-all-data"></a>以所有資料進行訓練
-訓練會使用一小部分的負面取樣。 如果您想要使用所有資料，而不是使用小部分的負面取樣，請使用[版本設定 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)，並將 `UseAllTrainingData` 設為 true，來關閉這項功能。 
+
+訓練會使用一小部分的負面取樣。 如果您想要使用所有資料，而不是使用小部分的負面取樣，請使用[版本設定 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)，並將 `UseAllTrainingData` 設定為 true，來關閉這項功能。 
+
+## <a name="unnecessary-training"></a>不必要的定型
+
+您不需要在每一次變更之後都進行定型。 應該在將一組變更套用至模型之後，且您想要進行的下一個步驟是測試或發佈時，才進行定型。 如果您不需要測試或發佈，則無須進行定型。 
+
+## <a name="training-with-the-rest-apis"></a>使用 REST API 進行定型
+
+在 LUIS 入口網站中，定型是只要按 [Train] \(定型\) 按鈕的單一步驟。 使用 REST API 進行定型是一個兩步驟程序。 首先是使用 HTTP POST 來[要求定型](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45)。 接著是使用 HTTP Get 來要求[定型狀態](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46)。 
+
+若要知道定型何時完成，您必須輪詢該狀態，直到所有模型都定型成功為止。 
 
 ## <a name="next-steps"></a>後續步驟
 

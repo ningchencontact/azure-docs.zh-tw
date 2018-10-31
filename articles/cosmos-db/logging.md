@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963384"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408994"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -356,11 +356,14 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 如果您開啟診斷記錄時選取 [傳送至 Log Analytics] 選項，容器中的診斷資料會在兩個小時內轉送到 Log Analytics。 如果您在開啟記錄功能後立即查看 Log Analytics，將不會看到任何資料。 只需等待兩個小時，然後再試一次。 
 
-檢視記錄前，請確認您的 Log Analytics 工作區是否已升級為使用新的 Log Analytics 查詢語言。 若要進行此確認，請開啟 [Azure 入口網站](https://portal.azure.com)，選取靠左側的 [Log Analytics]，然後選取工作區名稱，如下圖所示。 [OMS 工作區] 頁面隨即顯示：
+檢視記錄前，請確認您的 Log Analytics 工作區是否已升級為使用新的 Log Analytics 查詢語言。 若要進行此確認，請開啟 [Azure 入口網站](https://portal.azure.com)，選取靠左側的 [Log Analytics]，然後選取工作區名稱，如下圖所示。 [Log Analytics 工作區] 頁面隨即顯示：
 
 ![Azure 入口網站中的 Log Analytics](./media/logging/azure-portal.png)
 
-如果您在 [OMS 工作區] 頁面上看到下列訊息，表示您的工作區尚未升級為使用新語言。 如需關於如何升級至新查詢語言的詳細資訊，請參閱[將 Azure Log Analytics 工作區升級至新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。 
+>[!NOTE]
+>OMS 工作區現在稱為 Log Analytics 工作區。  
+
+如果您在 [Log Analytics 工作區] 頁面上看到下列訊息，表示您的工作區尚未升級為使用新語言。 如需關於如何升級至新查詢語言的詳細資訊，請參閱[將 Azure Log Analytics 工作區升級至新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。 
 
 ![Log Analytics 升級訊息](./media/logging/upgrade-notification.png)
 

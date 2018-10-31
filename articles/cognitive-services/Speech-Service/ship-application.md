@@ -1,20 +1,21 @@
 ---
-title: Azure 認知服務、認知服務語音 SDK API 文件 - 教學課程和 API 參考
-description: 了解如何使用認知服務語音 SDK 建立和開發應用程式
-titleSuffix: Microsoft Cognitive Services
+title: 語音服務 SDK API 文件 - 教學課程、API 參考
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用「語音服務 SDK」來建立和開發應用程式
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 7510b1501051b79f6bdaf33ec57647a7982fafda
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404303"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469413"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 

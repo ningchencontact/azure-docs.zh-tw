@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 5c3d41b648f59c8eb428f75a2673e847d19f04eb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 2fa4242de6a953e82e3f81831c491125e9a7c3f3
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633262"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026223"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>逐步解說：使用 Application Insights 啟用Microsoft Dynamics CRM Online 遙測
 本文說明如何使用 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 從 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 取得遙測資料。 我們會逐步解說將 Application Insights 指令碼加入至您的應用程式、擷取資料和資料視覺化的完整程序。
@@ -39,11 +39,7 @@ ms.locfileid: "35633262"
     ![按一下 [+]、[開發人員服務]、[Application Insights]。](./media/app-insights-sample-mscrm/01.png)
 
     選擇 ASP.NET 做為應用程式類型。
-3. 開啟 [開始使用] 頁面，然後開啟 [監視及診斷用戶端]。
-
-    ![可在您網頁中進行插入的程式碼片段](./media/app-insights-sample-mscrm/03.png)
-
-**保持程式碼頁面開啟** 。 您很快就會需要程式碼。 
+3. 依照指示來[取得適用於您應用程式的 JavaScript SDK 指令碼](app-insights-javascript.md#set-up-application-insights-for-your-web-page)、複製 JavaScript 程式碼片段，並請務必以您 Application Insights 資源的正確值取代「檢測金鑰」。
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>在 Microsoft Dynamics CRM 中建立 JavaScript Web 資源
 1. 開啟您的 CRM Online 執行個體並使用系統管理員權限登入。
@@ -60,7 +56,7 @@ ms.locfileid: "35633262"
     命名資源、選取 **指令碼 (JScript)** 並開啟文字編輯器。
 
     ![開啟文字編輯器](./media/app-insights-sample-mscrm/00004.png)
-2. 從 Application Insights 複製程式碼。 在複製時請務必略過 script 標記。 請參閱以下螢幕擷取畫面：
+2. 從您先前設定「檢測金鑰」的 Application Insights JavaScript SDK 中複製程式碼。 在複製時請務必略過 script 標記。 請參考下方的螢幕擷取畫面：
 
     ![設定您的檢測金鑰](./media/app-insights-sample-mscrm/000005.png)
 

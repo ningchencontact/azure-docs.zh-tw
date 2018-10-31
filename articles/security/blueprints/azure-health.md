@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831614"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407549"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
@@ -28,7 +28,7 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 
 ![](images/components.png)
 
-此解決方案的設計旨在使用以快速醫療保健互通性資源 (FHIR，一種以電子方式交換醫療保健資訊的全球標準) 格式化的範例資料集，並以安全方式儲存。 然後客戶可以使用 Azure Machine Learning Studio 充分利用功能強大的商業智慧工具和分析，以檢閱針對範例資料所做的預測。 作為 Azure Machine Learning Studio 可協助的實驗種類範例，藍圖包含了範例資料集、指令碼，以及用來預測病患待在醫院設施之時間的工具。 
+此解決方案的設計旨在使用以快速醫療保健互通性資源 (FHIR，一種以電子方式交換醫療保健資訊的全球標準) 格式化的範例資料集，並以安全方式加以儲存。 然後客戶可以使用 Azure Machine Learning Studio 充分利用功能強大的商業智慧工具和分析，以檢閱針對範例資料所做的預測。 作為 Azure Machine Learning Studio 可協助的實驗種類範例，藍圖包含了範例資料集、指令碼，以及用來預測病患待在醫院設施之時間的工具。 
 
 此藍圖旨在做為模組化基礎，讓客戶調整其特定需求，進而開發新的 Azure Machine Learning 實驗以解決臨床及操作上的使用案例。 其設計是在部署時既安全且符合規範；不過，客戶必須負責正確設定角色並實作任何修改。 請注意：
 
@@ -187,7 +187,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 # <a name="design-configuration"></a>設計組態
 
 
-此節將詳細說明預設組態，以及概述用於下列事項的藍圖內建安全措施：
+本節將詳細說明預設組態，以及概述用於下列事項的藍圖內建安全措施：
 
 - **內嵌**包含 FHIR 資料來源在內的資料原始來源
 - **儲存**敏感性資訊
@@ -361,8 +361,8 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 ### <a name="azure-alerts"></a>Azure 警示
 - [警示會提供監視 Azure 服務的方法，並可讓您針對資料設定條件。 當警示條件符合監視資料時，警示也會提供通知。
 
-### <a name="operations-management-suite-oms"></a>Operations Management Suite (OMS)
-[Operations Management Suite (也稱為 OMS)](/azure/operations-management-suite/operations-management-suite-overview) 是管理服務的集合。
+### <a name="log-analytics"></a>Log Analytics
+[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) 是管理服務的集合。
 
 -   已針對資訊安全中心啟用工作區
 

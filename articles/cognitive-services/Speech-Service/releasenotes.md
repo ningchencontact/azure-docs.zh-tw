@@ -1,22 +1,37 @@
 ---
-title: 認知服務語音 SDK 文件 | Microsoft Docs
+title: 語音服務 SDK 文件
+titlesuffix: Azure Cognitive Services
 description: 版本資訊 - 最近版本中的變更
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 09/24/2018
+ms.topic: conceptual
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963078"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471131"
 ---
 # <a name="release-notes"></a>版本資訊
+
+## <a name="speech-service-sdk-101"></a>語音服務 SDK 1.0.1
+
+穩定性改進及 Bug 修正：
+
+* 已修正處置辨識器時因競爭條件而可能導致的嚴重錯誤
+* 已修正未設定屬性時可能導致的嚴重錯誤。
+* 已新增額外的錯誤和參數檢查。
+* Objective-C：已修正因 NSString 中的名稱覆寫而可能導致的嚴重錯誤。
+* Objective-C：已調整 API 的可見性
+* JavaScript：已修正有關事件及其承載的問題。
+* 文件改進。
+
+在我們的[範例存放庫](https://aka.ms/csspeech/samples)中，已新增新的 JavaScript 範例。
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>認知服務語音 SDK 1.0.0：2018 年 9 月版
 

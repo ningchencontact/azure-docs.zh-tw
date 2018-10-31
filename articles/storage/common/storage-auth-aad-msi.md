@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 67e0731c1f10bb635baa4e0d1a26dce0a336b555
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090350"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427411"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-managed-identities-for-azure-resources-preview"></a>使用 Azure 資源的 Azure 受控識別來驗證 Blob 和佇列的存取權 (預覽)
+# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>使用 Azure 資源的受控識別來驗證 Blob 和佇列的存取權 (預覽)
 
-Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)來進行 Azure Active Directory (Azure AD) 驗證。 您可以使用 Azure 資源的受控識別，從執行於 Azure 虛擬機器 (VM)、函式應用程式和虛擬機器擴展集等項目中的應用程式，驗證 Blob 和佇列的存取權。 藉由使用 Azure 資源的受控識別並利用 Azure AD 驗證的功能，您可以避免在執行於雲端中的應用程式內儲存認證。  
+Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)來進行 Azure Active Directory (Azure AD) 驗證。 Azure 資源的受控識別可以從執行於 Azure 虛擬機器 (VM)、函式應用程式和虛擬機器擴展集及其他項目中的應用程式，使用 Azure AD 認證來驗證 Blob 和佇列的存取權。 藉由使用 Azure 資源的受控識別並利用 Azure AD 驗證的功能，您可以避免在執行於雲端中的應用程式內儲存認證。  
 
 若要對 Blob 容器或佇列授與受控識別的權限，請將角色型存取控制 (RBAC) 角色 (包含該資源在適當範圍內的權限) 指派給該受控識別。 如需儲存體中 RBAC 角色的詳細資訊，請參閱[使用 RBAC 管理儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。 
 
@@ -34,6 +34,10 @@ Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../ac
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager 範本](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>將 RBAC 角色指派給 Azure AD 受控識別
+
+若要從 Azure 儲存體應用程式中驗證受控識別，必須先為該受控識別設定角色型存取控制 (RBAC) 設定。 Azure 儲存體會定義包容器和佇列權限的 RBAC 角色。 將 RBAC 角色指派給受控識別時，會為該受控識別授與該資源的存取權。 如需詳細資訊，請參閱[使用 RBAC 來管理 Azure Blob 和佇列資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。
 
 ## <a name="get-a-managed-identity-access-token"></a>取得受控識別的存取權杖
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4b13d2d277721d37a6b96f6640377c875f0b5c0f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b22d18408d040d564d6220e74e8b8a893fe41ae9
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161572"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646240"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的災害復原
 提供高可用性的關鍵在於確保服務能夠承受所有不同類型的故障。 這對於預料之外且無法控制的故障而言特別重要。 本文說明一些常見的故障模式，如果沒有未正確建立模型和管理，可能會造成嚴重損壞。 此外，本文也會探討發生災害時應採取的緩解措施和行動。 目標是發生故障 (無論計劃與否) 時，限制或排除停機或資料遺失的風險。
@@ -133,7 +133,7 @@ Service Fabric 的目標幾乎都是自動管理故障。 不過，為了處理�
 ### <a name="random-failures-leading-to-cluster-failures"></a>導致叢集失敗故障的隨機失敗
 Service Fabric 有種子節點的概念。 種子節點是維護基礎叢集可用性的節點。 這些節點有助於藉由建立與其他節點的租用，並在某些類型的網路故障期間擔任仲裁者，來確保叢集保持正常運作。 如果隨機失敗移除叢集中的大多數種子節點，而且它們不會復原，叢集會自動關閉。 在 Azure 中，會自動管理種子節點：它們散佈在可用的容錯網域和升級網域，而且如果從叢集移除單一種子節點，將在其位置建立另一個種子節點。 
 
-在獨立 Service Fabric 叢集和 Azure 中，「主要節點類型」是指執行種子的節點類型。 定義主要節點類型時，Service Fabric 會自動利用藉由建立最多 9 個種子節點和每個系統服務的 9 個複本所提供的節點數目。 如果在一組隨機失敗同時移除大多數的系統服務複本，系統服務會進入仲裁遺失，如上所述。 如果大多數種子節點遺失，叢集將在不久後關閉。
+在獨立 Service Fabric 叢集和 Azure 中，「主要節點類型」是指執行種子的節點類型。 定義主要節點類型時，Service Fabric 會自動利用藉由建立最多 9 個種子節點和每個系統服務的 7 個複本所提供的節點數目。 如果在一組隨機失敗同時移除大多數的系統服務複本，系統服務會進入仲裁遺失，如上所述。 如果大多數種子節點遺失，叢集將在不久後關閉。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解如何使用 [Testability 架構](service-fabric-testability-overview.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47430976"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024614"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>執行個體層級公用 IP (Classic) 概觀
 執行個體層級公用 IP (ILPIP) 是您可以直接指派至 VM 或雲端服務角色執行個體的公用 IP 位址，而不是指派至 VM 或角色執行個體所在的雲端服務。 ILPIP 不會取代指派給雲端服務的虛擬 IP (VIP)。 應該說是您可以用來直接連接到 VM 或角色執行個體的其他 IP 位址。
@@ -47,7 +47,7 @@ ms.locfileid: "47430976"
 ## <a name="why-would-i-request-an-ilpip"></a>為什麼我要要求 ILPIP？
 如果想要透過直接指派 IP 位址的方式連接到 VM 或角色執行個體，而不是使用雲端服務 VIP:&lt;連接埠號碼&gt;，請為 VM 或角色執行個體要求 ILPIP。
 
-* **主動式 FTP**：透過將 ILPIP 指派給 VM，VM 就可以在所有的連接埠上接收流量。 VM 不需要端點就可以接收流量。  如需 FTP 通訊協定的詳細資訊，請參閱 [FTP 通訊協定概觀] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)。
+* **主動式 FTP**：透過將 ILPIP 指派給 VM，VM 就可以在所有的連接埠上接收流量。 VM 不需要端點就可以接收流量。  如需有關 FTP 通訊協定的詳細資料，請參閱 [FTP 通訊協定概觀](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)。
 * **輸出 IP**：源自 VM 的輸出流量會對應至 ILPIP，因為來源與 ILPIP 可向外部實體唯一識別 VM。
 
 > [!NOTE]

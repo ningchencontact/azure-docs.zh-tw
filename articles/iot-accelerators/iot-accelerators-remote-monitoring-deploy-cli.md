@@ -1,6 +1,6 @@
 ---
 title: 部署 Java 遠端監視解決方案架構 - Azure | Microsoft Docs
-description: 此教學課程會示範如何使用 CLI 來佈建遠端監視解決方案加速器。
+description: 本教學課程會示範如何使用 CLI 來佈建遠端監視解決方案加速器。
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721614"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956692"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>使用 CLI 部署遠端監視解決方案加速器
 
-此教學課程示範如何佈建遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)。
+本教學課程示範如何佈建遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要部署遠端監視解決方案加速器，您需要一個有效的 Azure 訂用帳戶。
 
@@ -81,14 +81,14 @@ pcs login
 
 
 ### <a name="standard"></a>標準
-標準部署是開發人員可自訂及擴充來符合其需求的可實際執行部署。 針對可靠性與規模調整，應用程式微服務會建置來作為 Docker 容器，並使用協調器 (依預設為 [Kubernetes](https://kubernetes.io/) \(英文\)) 來部署。 協調器會負責部署、調整及管理應用程式。
+標準部署是開發人員可自訂及擴充來符合其需求的可實際執行部署。 當您準備自訂可實際執行的架構 (基於規模調整與擴充性而建置) 時，應該使用標準部署選項。 應用程式微服務是建置為 Docker 容器並使用 Azure Kubernetes Service (AKS) 部署。 協調器會負責部署、調整及管理應用程式。
+
 
 建立標準解決方案將會按定價在您的 Azure 訂用帳戶中佈建下列 Azure 服務:
 
 | Count | 資源                                     | SKU / 大小      | 用於 |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Linux 虛擬機器](https://azure.microsoft.com/services/virtual-machines/)   | 標準 D2 V2  | 1 部主機和 3 個代理程式，以用於裝載含有備援的微服務 |
-| 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) \(英文\) 協調器 |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| 使用完全受控 Kubernetes 容器協調流程服務，預設為 3 個代理程式|
 | 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                     | S2 – 標準層 | 裝置管理、命令和控制 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | 標準        | 儲存設定資料，以及規則、警示和訊息等裝置遙測 |
 | 5     | [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | 標準        | 4 個用於 VM 儲存體，1 個用於串流檢查點 |
@@ -140,7 +140,7 @@ pcs -h
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 設定解決方案加速器

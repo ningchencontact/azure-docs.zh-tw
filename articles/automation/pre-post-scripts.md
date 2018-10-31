@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 的更新管理部署上設定前置和後置指令碼 (預覽)
-description: 此文章將說明如何設定及管理更新部署的前置和後置指令碼
+description: 本文將說明如何設定及管理更新部署的前置和後置指令碼
 services: automation
 ms.service: automation
 ms.component: update-management
@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1c5bcca2571ffee9e1c20f0b7d2608b62c962177
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815336"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956609"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>管理前置和後置指令碼 (預覽)
 
@@ -225,7 +225,7 @@ if ($summary.Type -eq "Error")
 
 ## <a name="next-steps"></a>後續步驟
 
-繼續進行此教學課程，以了解如何管理 Windows 虛擬機器的更新。
+繼續進行本教學課程，以了解如何管理 Windows 虛擬機器的更新。
 
 > [!div class="nextstepaction"]
 > [管理 Azure Windows VM 的更新和修補程式](automation-tutorial-update-management.md)

@@ -1,6 +1,6 @@
 ---
-title: SAP HANA on Azure (大型執行個體) 的基礎結構和連線 | Microsoft Docs
-description: 設定必要的連線基礎結構以使用 SAP HANA on Azure (大型執行個體)。
+title: Azure 上的 SAP HANA (大型執行個體) 的基礎結構和連線 | Microsoft Docs
+description: 設定必要的連線基礎結構以使用「Azure 上的 SAP HANA」(大型執行個體)。
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -14,46 +14,43 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c61dffc6fd9d0c65f5e925daebdf2a02cfb5d6ba
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1d8bbe2fc218004116177c4c9d95777d9ec57503
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161351"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426039"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>SAP HANA (大型執行個體) 部署 
 
-在您與 Microsoft 企業帳戶小組之間的 SAP HANA on Azure (大型執行個體) 購買程序完成之後，Microsoft 需要下列資訊才能部署「HANA 大型執行個體單位」：
+本文假設您已向 Microsoft 購買完「Azure 上的 SAP HANA」(大型執行個體)。 閱讀本文之前，如需了解一般背景，請參閱 [HANA 大型執行個體的常見詞彙](hana-know-terms.md)和 [HANA 大型執行個體 SKU](hana-available-skus.md)。
 
-- 客戶名稱
-- 業務連絡人資訊 (包括電子郵件地址和電話號碼)
-- 技術連絡人資訊 (包括電子郵件地址和電話號碼)
-- 技術網路連絡人資訊 (包括電子郵件地址和電話號碼)
-- Azure 部署區域 (自 2017 年 7 月起：美國西部、美國東部、澳大利亞東部、澳大力亞東南部、西歐和北歐)
-- 確認 SAP HANA on Azure (大型執行個體) SKU (組態)
-- 如「HANA 大型執行個體」的＜概觀與架構＞文件中所述，針對每個作為部署目的地的「Azure 區域」：
-    - 將 Azure VNet 連接到「HANA 大型執行個體」之 ER-P2P 連線的 /29 IP 位址
-    - 用於「HANA 大型執行個體伺服器 IP 集區」的 /24 CIDR 區塊
-- 每個連接到 HANA 大型執行個體之 Azure VNet 的 Vnet 位址空間屬性中所使用的 IP 位址範圍值
-- 每個「HANA 大型執行個體」系統的資料：
+
+Microsoft 必須有下列資訊，才能部署 HANA 大型執行客體單位：
+
+- 客戶名稱。
+- 業務連絡人資訊 (包括電子郵件地址和電話號碼)。
+- 技術連絡人資訊 (包括電子郵件地址和電話號碼)。
+- 技術網路連絡人資訊 (包括電子郵件地址和電話號碼)。
+- Azure 部署區域 (例如「美國西部」、「澳大利亞東部」或「北歐」)。
+- Azure 上的 SAP HANA (大型執行個體) SKU (設定)。
+- 針對每個 Azure 部署區域：
+    - 將 Azure 虛擬網路連線到 HANA 大型執行個體的 ER-P2P 連線 /29 IP 位址範圍。
+    - 用於 HANA 大型執行個體伺服器 IP 集區的 /24 CIDR 區塊。
+- 每個連線到 HANA 大型執行個體之 Azure 虛擬網路的虛擬網路位址空間屬性中所使用的 IP 位址範圍值。
+- 每個 HANA 大型執行個體系統的資料：
   - 所需的主機名稱 - 最好是完整的網域名稱。
-  - 來自伺服器 IP 集區位址範圍的所需 HANA 大型執行個體單位 IP 位址 - 請記住，伺服器 IP 集區位址範圍中的前 30 個 IP 位址，是保留給在 HANA 大型執行個體中供內部使用的 IP 位址。
-  - SAP HANA 執行個體的 SAP HANA SID 名稱 (這是建立必要 SAP HANA 相關磁碟區所需的名稱)。 在 NFS 磁碟區上建立 sidadm 權限需要有 HANA SID，這些磁碟區會附加至 HANA 大型執行個體單位。 也會用做為掛接磁碟區的其中一個名稱元件。 如果您想要在單位上執行多個 HANA 執行個體，您需要列出多個 HANA SID。 每一個都會分別指派一組磁碟區。
-  - 必須要有 sidadm 使用者在 Linux OS 中所擁有的 groupid，才能建立必要的 SAP HANA 相關磁碟區。 SAP HANA 安裝通常會建立群組識別碼為 1001 的 sapsys 群組。 sidadm 使用者為該群組的成員
-  - 必須要有 sidadm 使用者在 Linux OS 中所擁有的 userid，才能建立必要的 SAP HANA 相關磁碟區。 如果要在單位上執行多個 HANA 執行個體，您需要列出所有的 <sid> adm 使用者。 
-- Azure HANA 大型執行個體上 SAP HANA 要直接連接的 Azure 訂用帳戶的 Azure 訂用帳戶識別碼。 此訂用帳戶識別碼參考 Azure 訂用帳戶，會要支付 HANA 大型執行個體單位的費用。
+  - 來自伺服器 IP 集區位址範圍的所需 HANA 大型執行個體單位 IP 位址。 (伺服器 IP 集區位址範圍中的前 30 個 IP 位址會保留供 HANA 大型執行個體內部使用)。
+  - SAP HANA 執行個體的 SAP HANA SID 名稱 (這是建立必要 SAP HANA 相關磁碟區所需的名稱)。 Microsoft 需要 HANA SID 來為 sidadm 建立 NFS 磁碟區上的權限。 這些磁碟區會連結至 HANA 大型執行個體單位。 HANA SID 也用來作為所掛接磁碟區的其中一個名稱元件。 如果您想要在單位上執行多個 HANA 執行個體，則應該列出多個 HANA SID。 每一個都會分別指派一組磁碟區。
+  - 在 Linux OS 中，sidadm 使用者會有群組識別碼。 必須有此識別碼，才能建立必要的 SAP HANA 相關磁碟區。 SAP HANA 安裝通常會建立群組識別碼為 1001 的 sapsys 群組。 sidadm 使用者是該群組的成員。
+  - 在 Linux OS 中，sidadm 使用者會有使用者識別碼。 必須有此識別碼，才能建立必要的 SAP HANA 相關磁碟區。 如果您要在單位上執行數個 HANA 執行個體，請列出所有 sidadm 使用者。 
+- 「Azure 上的 SAP HANA」HANA 大型執行個體要直接連線之 Azure 訂用帳戶的 Azure 訂用帳戶 ID。 此訂用帳戶 ID 會參考將以 HANA 大型執行個體單位收費的 Azure 訂用帳戶。
 
-在您提供資訊之後，Microsoft 就會佈建 SAP HANA on Azure (大型執行個體)，並且會傳回將 Azure VNet 連接到「HANA 大型執行個體」及存取「HANA 大型執行個體」單位所需的資訊。
+在您提供上述資訊之後，Microsoft 就會佈建「Azure 上的 SAP HANA」(大型執行個體)。 Microsoft 會傳送資訊給您，以供您將 Azure 虛擬網路連結至 HANA 大型執行個體。 您也可以存取 HANA 大型執行個體單位。
 
-閱讀本文章之前，請熟悉 [HANA 大型執行個體的常見術語](hana-know-terms.md)和 [HANA 大型執行個體 SKU](hana-available-skus.md)。
+在 Microsoft 部署好 HANA 大型執行個體之後，請依下列順序連線到這些執行個體：
 
-當 Microsoft 部署好 HANA 大型執行個體後，您可以使用下列順序來與之連線：
-
-1. [將 Azure VM 連線到 HANA 大型執行個體](hana-connect-azure-vm-large-instances.md)
-2. [將 VNet 連線到 HANA 大型執行個體 ExpressRoute](hana-connect-vnet-express-route.md)
+1. [將 Azure VM 連接到 HANA 大型執行個體](hana-connect-azure-vm-large-instances.md)
+2. [將 VNet 連接到 HANA 大型執行個體 ExpressRoute](hana-connect-vnet-express-route.md)
 3. [其他網路需求 (選擇性)](hana-additional-network-requirements.md)
 
-**後續步驟**
-
-- 請參閱[將 Azure VM 連線到 HANA 大型執行個體](hana-connect-azure-vm-large-instances.md)。
-- 請參閱[將 VNet 連線到 HANA 大型執行個體 ExpressRoute](hana-connect-vnet-express-route.md)。

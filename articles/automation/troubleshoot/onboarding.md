@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 044cb56b8991a1eb2dd6a1d35be621f2ffab3250
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 40a1955e88b23ecfb86412b388413b920dd2eb1a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064247"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407600"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>針對將解決方案上線時的錯誤進行疑難排解
 
@@ -59,9 +59,11 @@ ms.locfileid: "37064247"
 
 ## <a name="mma-extension-failures"></a>MMA 延伸模組失敗
 
-部署解決方案時，會部署各種相關的資源。 其中一個資源是 Microsoft Monitoring Agent 延伸模組或適用於 Linux 的 OMS 代理程式。 這些是虛擬機器的客體代理程式所安裝的虛擬機器延伸模組，負責與設定的 Operations Management Suite (OMS) 工作區通訊，以在稍後協調下載二進位檔，以及您要上線的解決方案在開始執行之後相依的其他檔案。
-您通常最先察覺 MMA 或適用於 Linux 的 OMS 代理程式安裝失敗，是透過通知中樞中出現的通知。 按一下通知可提供特定失敗的進一步資訊。 巡覽至資源群組資源，再到其中的部署項目，也會提供所發生部署失敗的詳細資料。
-安裝 MMA 或適用於 Linux 的 OMS 代理程式失敗的原因可能有許多，解決這些失敗所採取的步驟會因問題而有所不同。 以下是特定疑難排解步驟。
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
+
+部署解決方案時，會部署各種相關的資源。 其中一個資源是「Microsoft Monitoring Agent 延伸模組」或「適用於 Linux 的 Log Analytics 代理程式」。 這些是虛擬機器的「客體代理程式」所安裝的「虛擬機器延伸模組」，此代理程式負責與所設定的 Log Analytics 工作區進行通訊，以在稍後協調下載二進位檔，以及您要上線的解決方案在開始執行之後所倚賴的其他檔案。
+您通常最先從出現在「通知中樞」中的通知察覺 MMA 或「適用於 Linux 的 Log Analytics 代理程式」安裝失敗。 按一下通知可提供特定失敗的進一步資訊。 巡覽至資源群組資源，再到其中的部署項目，也會提供所發生部署失敗的詳細資料。
+MMA 或「適用於 Linux 的 Log Analytics 代理程式」可能因各種原因而安裝失敗，解決這些失敗所需採取的步驟會因問題而有所不同。 以下是特定疑難排解步驟。
 
 下一節描述上線時可能發生並導致 MMA 延伸模組部署失敗的各種問題。
 

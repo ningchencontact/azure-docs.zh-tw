@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store Hive 效能微調方針 | Microsoft Docs
-description: Azure Data Lake Store Hive 效能微調方針
+title: Azure Data Lake Storage Gen1 Hive 效能微調指導方針 | Microsoft Docs
+description: Azure Data Lake Storage Gen1 Hive 效能微調指導方針
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198964"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024285"
 ---
-# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>HDInsight 和 Azure Data Lake Store 上的 Hive 效能微調方針
+# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight 和 Azure Data Lake Storage Gen1 上的 Hive 效能微調指導方針
 
-預設設定已設定好，以便在許多不同的使用案例中提供良好的效能。  針對 I/O 密集的查詢，Hive 可進行微調，以在 ADLS 取得更好的效能。  
+預設設定已設定好，以便在許多不同的使用案例中提供良好的效能。  針對 I/O 密集的查詢，Hive 可進行微調，以在 Azure Data Lake Storage Gen1 取得更佳效能。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **Azure 資料湖儲存區帳戶**。 如需有關如何建立帳戶的詳細指示，請參閱 [開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)
-* **Azure HDInsight 叢集** 。 請參閱 [建立具有 Data Lake Store 的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。 請確實為叢集啟用遠端桌面。
-* **在 HDInsight 上執行 Hive**。  若要深入了解在 HDInsight 上執行 Hive 作業，請參閱[在 HDInsight 上使用 Hive] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **ADLS 的效能微調指導方針**。  如需一般的效能概念，請參閱 [Data Lake Store 效能微調指導方針](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Data Lake Storage Gen1 帳戶**。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* 可存取 Data Lake Storage Gen1 帳戶的 **Azure HDInsight 叢集**。 請參閱[建立搭配 Data Lake Storage Gen1 的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。 請確實為叢集啟用遠端桌面。
+* **在 HDInsight 上執行 Hive**。  若要了解如何在 HDInsight 上執行 Hive 作業，請參閱[ HDInsight 上使用 Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Data Lake Storage Gen1 的效能微調方針**。  如需一般的效能概念，請參閱 [Data Lake Storage Gen1 效能微調指導方針](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>參數
 
-以下是要改善 ADLS 效能所應微調的最重要設定︰
+以下是要改善 Data Lake Storage Gen1 效能所應微調的最重要設定：
 
 * **hive.tez.container.size** – 每個工作所使用的記憶體數量
 
@@ -63,7 +63,7 @@ I/O 密集工作負載可以透過減少 Tez 容器大小，而從更符合平�
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
-使用 ADLS 來改善效能的關鍵是盡可能地增加並行能力。  Tez 會自動計算應該建立的工作數目，因此您並不需要設定。   
+使用 Data Lake Storage Gen1 來改善效能的關鍵是盡可能地增加並行能力。  Tez 會自動計算應該建立的工作數目，因此您並不需要設定。   
 
 ## <a name="example-calculation"></a>範例計算
 
@@ -75,9 +75,9 @@ I/O 密集工作負載可以透過減少 Tez 容器大小，而從更符合平�
 
 ## <a name="limitations"></a>限制
 
-**ADLS 節流** 
+**Data Lake Storage Gen1 節流** 
 
-如果您達到 ADLS 所提供的頻寬限制，您會開始看到工作失敗。 透過觀察工作記錄檔中的節流錯誤即可加以識別。  您可以藉由增加 Tez 容器大小來減少平行處理原則。  如果您的作業需要更多並行能力，請與我們連絡。
+如果您達到 Data Lake Storage Gen1 所提供的頻寬限制，則會開始看到工作失敗。 透過觀察工作記錄檔中的節流錯誤即可加以識別。  您可以藉由增加 Tez 容器大小來減少平行處理原則。  如果您的作業需要更多並行能力，請與我們連絡。
 
 若要檢查您是否遭到節流，您必須在用戶端啟用偵錯記錄。 做法如下：
 

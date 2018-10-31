@@ -1,24 +1,25 @@
 ---
 title: 關於語音裝置 SDK
-description: 取得語音裝置 SDK 簡介。
 titleSuffix: Azure Cognitive Services
+description: 取得語音裝置 SDK 簡介。
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: ba91d5fd556cdc189f6303ac216c8fdd9495c74b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: eac3542059f1bc5d32a91ef871e5185fad1d2798
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165415"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464092"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>關於語音裝置 SDK (預覽)
 
-[Microsoft 語音服務](overview.md)可搭配各種的裝置和音訊來源。 您現在可以利用相符的硬體和軟體，將語音應用程式提升至下一個層級。 語音裝置 SDK 是已預先微調的程式庫，可搭配有目的建置的麥克風陣列開發套件。 
+[語音服務](overview.md)可與各種裝置和音訊來源搭配運作。 您現在可以利用相符的硬體和軟體，將語音應用程式提升至下一個層級。 語音裝置 SDK 是已預先微調的程式庫，可搭配有目的建置的麥克風陣列開發套件。 
 
 語音裝置 SDK 可協助您：
 * 快速測試新的語音案例。

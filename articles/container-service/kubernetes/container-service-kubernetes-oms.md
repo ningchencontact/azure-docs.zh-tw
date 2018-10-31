@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164314"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426408"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>使用 Log Analytics 監視 Azure Container Service 叢集
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本逐步解說假設您已[使用 Azure Container Service 建立 Kubernetes 叢集](container-service-kubernetes-walkthrough.md)。
 
 同時也假設您已經安裝 `az` Azure cli 和 `kubectl` 工具。
@@ -69,7 +69,7 @@ Log Analytics 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管
 
 ### <a name="obtain-your-workspace-id-and-key"></a>取得您的工作區識別碼和金鑰
 為了使 Log Analytics 代理程式能與服務溝通，必須使用工作區識別碼和工作區金鑰來設定它。 若要取得工作區識別碼和金鑰，您必須在 <https://mms.microsoft.com> 建立帳戶。
-請依步驟指示建立帳戶。 建立帳戶之後，您必須依序按一下 [設定]、[連接的來源]、[Linux 伺服器]，以取得您的識別碼和金鑰，如下所示。
+請依步驟指示建立帳戶。 當您完成建立帳戶之後，可以按一下 [Log Analytics] 刀鋒視窗，然後按一下您的工作區名稱，來取得識別碼和金鑰。 接著，依序在 [進階設定]、[連接的來源] 及 [Linux 伺服器] 下方，您將可找到所需的資訊，如下所示。
 
  ![](media/container-service-monitoring-oms/image5.png)
 

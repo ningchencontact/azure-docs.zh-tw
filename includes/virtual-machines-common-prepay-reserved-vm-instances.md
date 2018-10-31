@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 4b51631e8b7d3f53edd1afdba76de3031b112254
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454558"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805007"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>預付具有 Azure 保留 VM 執行個體的虛擬機器
 
@@ -35,7 +35,7 @@ ms.locfileid: "47454558"
   - 限制的 vCPU 大小
   - VM 系列：A 系列、Av2 系列或 G 系列
   - 在預覽狀態的 VM：處於預覽狀態的任何 VM 系列或大小
-- 雲端：保留項目不適用於 Azure 美國政府、德國或中國區域中的購買。
+- 雲端：德國或中國區域無法購買保留項目。
 - 配額不足：保留項目如果範圍限定在單一訂用帳戶，必須訂用帳戶中有可用的 vCPU 配額，才能新增 RI。 例如，如果目標訂用帳戶的配額限制為 10 個 D 系列的 vCPU，您便無法購買一個適用於 11 個 Standard_D1 執行個體的保留項目。 保留的配額檢查包含已在訂用帳戶中部署的 VM。 例如，如果訂用帳戶的配額為 10 個 D 系列的 vCPU，且已部署 2 個 standard_D1 執行個體，則您可以在此訂用帳戶中購買一個適用於 10 個 standard_D1 執行個體的保留項目。 
 - 容量限制：在極少數的情況下，Azure 會限制購買 VM 大小子集的新保留，因為區域中的低容量。
 

@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6354d89ff5a23ccb51b85737b3a842c08534683e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 345e7c6985f03081048019912d636bba8e9a2361
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223605"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426476"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>使用 Azure AD 身分識別以使用 CLI 或 PowerShell 存取 Azure 儲存體 (預覽)
 
-Azure 儲存體提供 Azure CLI 和 PowerShell 的預覽擴充，可讓您在 Azure Active Directory (Azure AD) 身分識別下登入並且執行指令碼命令。 Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是[受控服務識別](../../active-directory/managed-identities-azure-resources/overview.md)。 您可以透過角色型存取控制 (RBAC)，將存取儲存體資源的權限指派給 Azure AD 身分識別。 如需 Azure 儲存體中 RBAC 角色的詳細資訊，請參閱[使用 RBAC 管理 Azure 儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。
+Azure 儲存體提供 Azure CLI 和 PowerShell 的預覽擴充，可讓您在 Azure Active Directory (Azure AD) 身分識別下登入並且執行指令碼命令。 Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)。 您可以透過角色型存取控制 (RBAC)，將存取儲存體資源的權限指派給 Azure AD 身分識別。 如需 Azure 儲存體中 RBAC 角色的詳細資訊，請參閱[使用 RBAC 管理 Azure 儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。
 
 當您使用 Azure AD 身分識別登入 Azure CLI 或 PowerShell 時，系統會傳回存取權杖，以便在該身分識別之下存取 Azure 儲存體。 然後 CLI 或 PowerShell 會自動使用該權杖，針對 Azure 儲存體對作業進行授權。 針對支援的作業，您不需要再使用命令傳遞帳戶金鑰或 SAS 權杖。
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.author: genli
-ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 10/19/2018
+ms.author: cwatson
+ms.openlocfilehash: d6e99c2d57baa5fc62f3894abc9d04635f81f5aa
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918307"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638047"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
 
@@ -41,9 +41,9 @@ Azure 有數個不同的角色。 若要管理對資源的存取，您可以使�
 
 1. 請造訪 [Azure 入口網站中的**訂用帳戶**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
 2. 選取您要授與存取權的訂用帳戶。
-3. 選取 [新增] 。
+3. 在清單中選取 [存取控制 (IAM)]。
+4. 選取 [新增] 。
    (如果沒有 [新增] 按鈕，表示您沒有權限新增權限。)
-4. 在清單中選取 [存取控制 (IAM)]。
 5. 在 [角色] 方塊中，選取 [擁有者]。 
 6. 在 [存取權指派對象為] 方塊中，選取 [Azure AD 使用者、群組或應用程式]。 
 7. 在 [選取] 方塊中，輸入要新增為擁有者的使用者電子郵件地址。 選取使用者，然後選取 [儲存]。
@@ -67,6 +67,19 @@ Azure 有數個不同的角色。 若要管理對資源的存取，您可以使�
     若要移除共同管理員權限，請**以滑鼠右鍵按一下**「共同管理員」使用者，然後選取 [移除共同管理員]。
 
     ![移除共同管理員的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
+### <a name="adding-a-guest-user-as-a-co-administrator"></a>將來賓使用者新增為共同管理員
+
+獲指派「共同管理員」角色的來賓使用者可能會發現與具備「共同管理員」角色的成員使用者相比有些差異。 請考慮下列狀況：
+
+- 具有 Azure AD 公司或學校帳戶的使用者 A 是 Azure 訂用帳戶的服務管理員。
+- 使用者 B 具有 Microsoft 帳戶。
+- 使用者 A 將「共同管理員」角色指派給使用者 B。
+- 使用者 B 可以執行幾乎所有操作，但無法在 Azure AD 目錄中註冊應用程式或查閱使用者。
+
+您會預期使用者可以管理所有項目。 此差異的原因在於 Microsoft 帳戶是以來賓使用者而不是成員使用者身分新增至訂用帳戶。 在 Azure AD 中，來賓使用者與成員使用者具有不同的預設權限。 例如，成員使用者能夠在 Azure AD 中讀取其他使用者，來賓使用者不能。 成員使用者能夠在 Azure AD 中註冊新的服務主體，來賓使用者不能。 如果來賓使用者需要能夠執行這些工作，有一個可能的解決方案，就是指派來賓使用者所需的特定 Azure AD 系統管理員角色。 例如，在先前的案例中，您可以指派[目錄讀者](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)角色以讀取其他使用者，以及指派[應用程式開發人員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer)角色，以便能夠建立服務主體。 如需有關成員使用者和來賓使用者及其權限的詳細資訊，請參閱 [Azure Active Directory 中的預設使用者權限是什麼？](../active-directory/fundamentals/users-default-permissions.md)
+
+請注意，[適用於 Azure 資源的內建角色](../role-based-access-control/built-in-roles.md)與 [Azure AD 系統管理員角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)不同。 內建的角色不會授與任何 Azure AD 存取權。 如需詳細資訊，請參閱[了解各種不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)。
 
 <a name="change-service-administrator-for-a-subscription"></a>
 

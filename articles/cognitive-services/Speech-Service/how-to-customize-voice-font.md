@@ -1,22 +1,25 @@
 ---
-title: 什麼是自訂語音？ - Azure 認知服務
-description: 本文概述 Microsoft 文字轉換語音的語音自訂功能，該功能可讓您建立足以辨識且獨一無二的品牌語音。
+title: 如何建立自訂音型
+titlesuffix: Azure Cognitive Services
+description: 本文是「文字轉換語音」語音自訂功能的概觀，此功能可讓您建立可辨識且獨一無二的品牌語音。
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
-ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: panosper
+ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113915"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467713"
 ---
 # <a name="creating-custom-voice-fonts"></a>建立客製化聲音音調
 
-Microsoft 文字轉換語音 (TTS) 的語音自訂功能可讓您建立足以辨識且對您的品牌獨一無二的語音，也稱為「聲音音調」。 
+「文字轉換語音」(TTS) 的語音自訂功能可讓您為您的品牌建立可辨識且獨一無二的語音，也稱為「音型」。 
 
 若要建立聲音音調，請進行錄音室錄音，並上傳相關聯的腳本作為訓練資料。 此服務會接著建立專為您的錄音調整的獨特語音模型。 您可以使用此聲音音調來合成語音。 
 

@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 6f19a536861d236a82cc77a17570d8e3004a2ba1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888266"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406529"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>升級至 Azure VM 備份堆疊 V2
 
@@ -28,8 +28,8 @@ ms.locfileid: "48888266"
 
 * 還原時，可以使用非受控 VM 的原始儲存體帳戶。 即使 VM 的磁碟分散於多個儲存體帳戶，仍然具有此功能。 它能夠針對各種不同的 VM 設定，加快還原作業的速度。
     > [!NOTE]
-    > 此功能不同於覆寫原始 VM。
-    >
+    > 此功能與使用來自復原點的資料來取代 VM 的磁碟不同。 
+    
 
 ## <a name="whats-changing-in-the-new-stack"></a>新堆疊有何改變？
 目前的備份作業包含兩個階段：

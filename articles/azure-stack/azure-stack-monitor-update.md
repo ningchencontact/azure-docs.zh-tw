@@ -5,27 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 10/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.reviewer: fiseraci
+ms.openlocfilehash: 76f3db3631e1d66413bdce8d3f2379c2735a2eaf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41947933"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945598"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>使用具有特殊權限的端點來監視 Azure Stack 中的更新
 
 「適用於：Azure Stack 整合系統」
 
-您可以使用具有特殊權限的端點來監視 Azure Stack 更新執行的進度，以及從 Azure Stack 入口網站應變成無法使用的最後一個成功步驟中，繼續進行失敗的更新執行。  建議使用 Azure Stack 入口網站在 Azure Stack 中管理更新。
+您可以使用[具有特殊權限的端點](azure-stack-privileged-endpoint.md)來監視 Azure Stack 更新執行的進度，以及在 Azure Stack 入口網站應變成無法使用時，從上一個成功的步驟繼續進行失敗的更新執行。  建議使用 Azure Stack 入口網站在 Azure Stack 中管理更新。
 
 下列適用於更新管理的新 PowerShell Cmdlet 隨附於適用於 Azure Stack 整合系統的 1710 更新中。
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983662"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429553"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>管理 Azure Blob 儲存體生命週期 (預覽)
 
@@ -37,7 +37,7 @@ ms.locfileid: "46983662"
 生命週期管理功能提供免費預覽。 客戶需針對 [List Blobs ](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (列出 Blob) 和[Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (設定 Blob 層) API 呼叫的一般作業成本支付費用。 若要深入了解定價，請參閱[區塊 Blob 定價](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 ## <a name="register-for-preview"></a>註冊預覽版 
-若要註冊公開預覽版，您必須提交要求向您的訂用帳戶註冊這項功能。 一旦您的要求經核准 (幾天內)，美國西部 2、美國中西部和西歐任何現有和新的 GPv2 或 Blob 儲存體帳戶都會啟用該功能。 在預覽期間，僅支援區塊 Blob。 如同大部分預覽，這項功能在正式運作之前不應該用於生產工作負載。
+若要註冊公開預覽版，您必須提交要求向您的訂用帳戶註冊這項功能。 一旦您的要求獲得核准 (幾天內) 之後，美國西部 2、美國中西部、美國東部 2 和西歐中任何現有和新的 GPv2 或 Blob 儲存體帳戶都將啟用該功能。 在預覽期間，僅支援區塊 Blob。 如同大部分預覽，這項功能在正式運作之前不應該用於生產工作負載。
 
 若要提交要求，請執行下列 PowerShell 或 CLI 命令。
 
@@ -69,7 +69,7 @@ az feature show --namespace Microsoft.Storage --name DLM
 
 ## <a name="add-or-remove-policies"></a>新增或移除原則 
 
-您可以使用 Azure 入口網站、[PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview)、[REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) 或下列語言的用戶端工具，來新增、編輯或移除原則：[.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview)、[Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/)、[Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0)、[Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2)。 
+您可以使用 Azure 入口網站、[PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview)、[REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) 或下列語言的用戶端工具，來新增、編輯或移除原則：[.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview)、[Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/)、[Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0)、[Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2)。 
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -316,6 +316,10 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
   ]
 }
 ```
+## <a name="faq"></a>常見問題集
+### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>我建立了新原則，為什麼指定的動作不會立即執行？ 
+
+生命週期原則會由平台一天執行一次。 設定新原則之後，最多可能需要 24 小時的時間，才會初始並執行階層處理或刪除之類的動作。  
 
 ## <a name="next-steps"></a>後續步驟
 

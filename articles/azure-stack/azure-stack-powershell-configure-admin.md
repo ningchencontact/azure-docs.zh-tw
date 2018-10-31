@@ -1,6 +1,6 @@
 ---
-title: 設定 Azure Stack PowerShell 環境 |Microsoft 文件
-description: 了解如何設定 Azure Stack PowerShell 環境。
+title: 以操作員的身分使用 PowerShell 連線到 Azure Stack | Microsoft Docs
+description: 了解如何以操作員的身分使用 PowerShell 連線到 Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,25 +11,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 10/24/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 74a5a9408a78dd0da12fb3f8ed721774030cc438
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 63fd864ebda1cb766792b99a2725fb069d5b5f2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749856"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024064"
 ---
-# <a name="configure-the-azure-stack-powershell-environment"></a>設定 Azure Stack PowerShell 環境
+# <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作員的身分使用 PowerShell 連線到 Azure Stack
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 您可以將 Azure Stack 設定成使用 PowerShell 來管理資源，例如建立供應項目、方案、配額及警示。 本主題將協助您設定操作員環境。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-從[開發套件](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或從 Windows 型外部用戶端 (如果您是[透過 VPN 連線](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn))，執行下列先決條件。 
+從[開發套件](.\asdk\asdk-connect.md#connect-to-azure-stack-with-remote-desktop)，或從 Windows 型外部用戶端 (如果您[透過 VPN 連線至 ASDK](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn))，執行下列先決條件。 
 
  - 安裝 [Azure Stack 相容的 Azure PowerShell 模組](azure-stack-powershell-install.md)。  
  - 下載[處理 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
@@ -44,8 +44,7 @@ ms.locfileid: "36749856"
     $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
 
     # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.

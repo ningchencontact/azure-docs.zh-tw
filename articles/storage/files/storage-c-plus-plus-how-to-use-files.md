@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.component: files
-ms.openlocfilehash: 4543784c1de85cf86f3dfa912a33641541e0373a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 698b2ca177535709d13c531d3ca2a82a8a970131
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529695"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024576"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -350,6 +350,6 @@ if (share.exists())
 如需深入了解 Azure 儲存體，請探索這些資源：
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [C++ 的 Azure 儲存體檔案服務範例] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [C++ 中的 Azure 儲存體檔案服務範例](https://github.com/Azure-Samples/storage-file-cpp-getting-started) \(英文\)
 * [Azure 儲存體總管](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)

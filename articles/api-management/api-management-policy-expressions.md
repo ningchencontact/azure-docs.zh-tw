@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5943357bc421bbae0caef7f0acd7aa3364813826
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 771ec7713c989025635e585b7bb511986e71cda9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597513"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024748"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理原則運算式
 本文討論的原則運算式語法是 C# 7。 每個運算式皆可存取以隱含方式提供的[內容](api-management-policy-expressions.md#ContextVariables)變數，以及允許的 .NET Framework 類型[子集](api-management-policy-expressions.md#CLRTypes)。  
@@ -52,15 +52,15 @@ ms.locfileid: "34597513"
   
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
-@{   
-  string value;   
-  if (context.Request.Headers.TryGetValue("Authorization", out value))   
-  {   
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
-  }   
-  else   
-  {   
-    return null;  
+@{   
+  string value;   
+  if (context.Request.Headers.TryGetValue("Authorization", out value))   
+  {   
+    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
+  }   
+  else   
+  {   
+    return null;  
   }  
 }  
 ```  
@@ -74,18 +74,18 @@ ms.locfileid: "34597513"
 ##  <a name="CLRTypes"></a>原則運算式中允許的 .NET Framework 類型  
  下表列出原則運算式中允許的 .NET Framework 類型和其成員。  
   
-|CLR 類型|支援的方法|  
+|CLR 類型|支援的成員|  
 |--------------|-----------------------|  
-|Newtonsoft.Json.Linq.Extensions|支援所有方法|  
-|Newtonsoft.Json.Linq.JArray|支援所有方法|  
-|Newtonsoft.Json.Linq.JConstructor|支援所有方法|  
-|Newtonsoft.Json.Linq.JContainer|支援所有方法|  
-|Newtonsoft.Json.Linq.JObject|支援所有方法|  
-|Newtonsoft.Json.Linq.JProperty|支援所有方法|  
-|Newtonsoft.Json.Linq.JRaw|支援所有方法|  
-|Newtonsoft.Json.Linq.JToken|支援所有方法|  
-|Newtonsoft.Json.Linq.JTokenType|支援所有方法|  
-|Newtonsoft.Json.Linq.JValue|支援所有方法|  
+|Newtonsoft.Json.Linq.Extensions|全部|  
+|Newtonsoft.Json.Linq.JArray|全部|  
+|Newtonsoft.Json.Linq.JConstructor|全部|  
+|Newtonsoft.Json.Linq.JContainer|全部|  
+|Newtonsoft.Json.Linq.JObject|全部|  
+|Newtonsoft.Json.Linq.JProperty|全部|  
+|Newtonsoft.Json.Linq.JRaw|全部|  
+|Newtonsoft.Json.Linq.JToken|全部|  
+|Newtonsoft.Json.Linq.JTokenType|全部|  
+|Newtonsoft.Json.Linq.JValue|全部|  
 |System.Collections.Generic.IReadOnlyCollection<T\>|全部|  
 |System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|全部|  
 |System.Collections.Generic.ISet<TKey, TValue>|全部|  
@@ -105,9 +105,10 @@ ms.locfileid: "34597513"
 |System.Int16|全部|  
 |System.Int32|全部|  
 |System.Int64|全部|  
-|System.Linq.Enumerable<T\>|支援所有方法|  
+|System.Linq.Enumerable<T\>|全部|  
 |System.Math|全部|  
-|System.MidpointRounding|全部|  
+|System.MidpointRounding|全部|
+|System.Net.WebUtility|全部|
 |System.Nullable<T\>|全部|  
 |System.Random|全部|  
 |System.SByte|全部|  
@@ -146,23 +147,23 @@ ms.locfileid: "34597513"
 |System.UInt32|全部|  
 |System.UInt64|全部|  
 |System.Uri|全部|  
-|System.Xml.Linq.Extensions|支援所有方法|  
-|System.Xml.Linq.XAttribute|支援所有方法|  
-|System.Xml.Linq.XCData|支援所有方法|  
-|System.Xml.Linq.XComment|支援所有方法|  
-|System.Xml.Linq.XContainer|支援所有方法|  
-|System.Xml.Linq.XDeclaration|支援所有方法|  
-|System.Xml.Linq.XDocument|支援所有方法|  
-|System.Xml.Linq.XDocumentType|支援所有方法|  
-|System.Xml.Linq.XElement|支援所有方法|  
-|System.Xml.Linq.XName|支援所有方法|  
-|System.Xml.Linq.XNamespace|支援所有方法|  
-|System.Xml.Linq.XNode|支援所有方法|  
-|System.Xml.Linq.XNodeDocumentOrderComparer|支援所有方法|  
-|System.Xml.Linq.XNodeEqualityComparer|支援所有方法|  
-|System.Xml.Linq.XObject|支援所有方法|  
-|System.Xml.Linq.XProcessingInstruction|支援所有方法|  
-|System.Xml.Linq.XText|支援所有方法|  
+|System.Xml.Linq.Extensions|全部|  
+|System.Xml.Linq.XAttribute|全部|  
+|System.Xml.Linq.XCData|全部|  
+|System.Xml.Linq.XComment|全部|  
+|System.Xml.Linq.XContainer|全部|  
+|System.Xml.Linq.XDeclaration|全部|  
+|System.Xml.Linq.XDocument|全部|  
+|System.Xml.Linq.XDocumentType|全部|  
+|System.Xml.Linq.XElement|全部|  
+|System.Xml.Linq.XName|全部|  
+|System.Xml.Linq.XNamespace|全部|  
+|System.Xml.Linq.XNode|全部|  
+|System.Xml.Linq.XNodeDocumentOrderComparer|全部|  
+|System.Xml.Linq.XNodeEqualityComparer|全部|  
+|System.Xml.Linq.XObject|全部|  
+|System.Xml.Linq.XProcessingInstruction|全部|  
+|System.Xml.Linq.XText|全部|  
 |System.Xml.XmlNodeType|全部|  
   
 ##  <a name="ContextVariables"></a>內容變數  

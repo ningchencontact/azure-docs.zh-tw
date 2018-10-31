@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574397"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456485"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>將 Azure 中的行動服務自動更新至 Azure 複寫
 
@@ -61,6 +61,19 @@ FREE UNITS INCLUDED (PER MONTH)**   PRICE Job run time    500 minutes ₹0.14/mi
 
 > [!Note] 
 > 這兩個選項都會通知您管理更新所用的自動化帳戶。 如果您是第一次在保存庫中啟用這個功能，則將會建立新的自動化帳戶。 相同保存庫中所有後續啟用複寫將會使用先前建立的帳戶。
+
+### <a name="manage-manually"></a>手動管理
+
+1. 如果有新的更新可用於 Azure VM 上安裝的行動服務，您會看到一則通知上寫著「有新的 Site Recovery 複寫代理程式更新可用。 按一下以安裝」的通知。
+
+     ![[複寫的項目] 視窗](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. 選取該通知以開啟虛擬機器選取頁面。
+4. 選取要升級行動服務的虛擬機器，然後選取 [確定]。
+
+     ![複寫的項目 VM 清單](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+「更新行動服務」會針對每個選取的虛擬機器啟動作業。
+
 
 ## <a name="common-issues--troubleshooting"></a>常見問題和疑難排解
 

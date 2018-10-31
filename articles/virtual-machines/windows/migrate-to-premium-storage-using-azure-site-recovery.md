@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.component: disks
-ms.openlocfilehash: 5d3c2f09a6e4c45aa477cd85911147eab6de7a2c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714701"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404132"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉到進階儲存體
 
@@ -77,8 +77,10 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 ### <a name="step-1-create-a-recovery-services-vault"></a>步驟 1：建立復原服務保存庫
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [建立資源] > [管理] > [備份與 Site Recovery] \(OMS\)。 或者，您也可以選取 [瀏覽] > [復原服務保存庫] > [加入]。 
-3. 指定 VM 將複寫到的地區。 若要在相同區域中移轉，請選取來源 VM 和來源儲存體帳戶所在的區域。 
+2. 選取 [建立資源] > [管理] > [備份與 Site Recovery] \(OMS\)。 或者，您也可以選取 [瀏覽] > [復原服務保存庫] > [加入]。
+   >[!NOTE]
+   >備份和 Site Recovery 先前是 ![OMS 套件](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)的一部分。
+1. 指定 VM 將複寫到的地區。 若要在相同區域中移轉，請選取來源 VM 和來源儲存體帳戶所在的區域。 
 
 ### <a name="step-2-choose-your-protection-goals"></a>步驟 2︰選擇您的保護目標 
 

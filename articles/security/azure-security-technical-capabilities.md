@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972191"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405560"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 
@@ -43,7 +43,7 @@ ms.locfileid: "38972191"
 
 ## <a name="scope"></a>影響範圍
 
-本白皮書的焦點放在可支援 Microsoft Azure 核心元件 (也就是 [Microsoft Azure 儲存體](https://docs.microsoft.com/azure/storage/storage-introduction)、[Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)、[Microsoft Azure 的虛擬機器模型](https://docs.microsoft.com/azure/virtual-machines/)) 的安全性特性與功能，以及用以管理這一切的工具和基礎結構。 這份白皮書聚焦在 Microsoft Azure 的技術功能，這些功能可供身為客戶的您使用，以履行其保護其資料安全性和隱私權的角色。
+本白皮書的焦點放在可支援 Microsoft Azure 核心元件 (亦即 [Microsoft Azure 儲存體](https://docs.microsoft.com/azure/storage/storage-introduction)、[Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)、[Microsoft Azure 的虛擬機器模型](https://docs.microsoft.com/azure/virtual-machines/)) 的安全性特性與功能，以及用以管理這一切的工具和基礎結構。 這份白皮書聚焦在 Microsoft Azure 的技術功能，這些功能可供身為客戶的您使用，以履行其保護其資料安全性和隱私權的角色。
 
 對於即將轉移到雲端的客戶來說，最重要的事就是了解此共同責任模型。 雲端提供者會對安全性和合規性方面的工作帶來相當多的優勢，但這些優勢不會就此讓客戶不必再保護他們的使用者、應用程式和服務供應項目。
 
@@ -167,8 +167,7 @@ Azure AD Privileged Identity Management 可讓您：
 
 訂用帳戶也會與目錄產生關聯。 目錄會定義一組使用者。 他們可以是公司或學校中建立目錄的使用者，也可以是外部使用者 (也就是 Microsoft 帳戶)。 訂用帳戶可供已被指派為服務管理員 (SA) 或共同管理員 (CA) 的某些目錄使用者存取；唯一的例外就是，由於舊版原因，Microsoft 帳戶 (先前稱為 Windows Live ID) 不需存在目錄中，即可被指派為 SA 或 CA。
 
-安全性導向公司應該將焦點放在提供員工所需的確切權限。 權限太多可能會讓帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 
-  [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 可以為 Azure 提供更細緻的存取管理來協助解決這個問題。
+安全性導向公司應該將焦點放在提供員工所需的確切權限。 權限太多可能會讓帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 可以為 Azure 提供更細緻的存取管理來協助解決這個問題。
 
 ![受保護的資源存取 ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -200,7 +199,7 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 **找出資料的所有存放位置**
 
-待用加密的目標是加密所有資料。 這樣做可以避免遺失重要資料或所有存放位置。列舉應用程式所儲存的所有資料。 
+待用加密的目標是加密所有資料。 這樣做可以避免遺失重要資料或所有存放位置。 列舉應用程式所儲存的所有資料。 
 
 > [!Note] 
 > 不只是「應用程式資料」或「PII」，而是所有與應用程式相關的資料，包括帳戶的中繼資料 (訂用帳戶對應、合約資訊、PII)。
@@ -399,17 +398,17 @@ Microsoft 開發了[雲端服務審查評鑑檢查表](https://aka.ms/cloudcheck
 
 Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 方案，以及對網路安全性威脅型態的深層認知。
 
-### <a name="microsoft-operations-management-suiteoms"></a>Microsoft Operations Management Suite (OMS)
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 是適用於混合式雲端的 IT 管理解決方案。 透過單獨使用或擴充現有的 System Center 部署，OMS 可為您基礎結構的雲端式管理提供最大的彈性和控制。
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 是適用於混合式雲端的 IT 管理解決方案。 透過單獨使用或擴充現有的 System Center 部署，Log Analytics 可為您基礎結構的雲端式管理提供最大的彈性和控制。
 
-![Microsoft Operations Management Suite (OMS)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-透過 OMS，您就能以低於競爭解決方案的成本來管理任何雲端中的任何執行個體，包括內部部署、Azure、AWS、Windows Server、Linux、VMware 和 OpenStack。 由於 OMS 是針對雲端優先的世界建置的，因此，可提供一種新方法來管理您的企業，此為最快速且最符合成本效益的方式，可符合新的商業挑戰並適應新的工作負載、應用程式及雲端環境。
+透過 Log Analytics，您就能以低於競爭解決方案的成本來管理任何雲端中的任何執行個體，包括內部部署、Azure、AWS、Windows Server、Linux、VMware 和 OpenStack。 由於 Log Analytics 是針對雲端優先的世界建置的，因此，可提供一種新方法來管理您的企業，此為最快速且最符合成本效益的方式，可符合新的商業挑戰並適應新的工作負載、應用程式及雲端環境。
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) 藉由將受控資源中的資料收集到中央儲存機制，以提供 OMS 監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) 藉由將受控資源中的資料收集到中央存放庫，來提供監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 

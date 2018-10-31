@@ -1,20 +1,21 @@
 ---
 title: 關於語音轉換文字
+titleSuffix: Azure Cognitive Services
 description: 語音轉換文字 API 的功能概觀。
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 7cb0257a7302221f80bb90c0a6c3446cde07290a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: 041ec1c095ec604fed7906368ff266c1586df570
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434121"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471334"
 ---
 # <a name="about-the-speech-to-text-api"></a>關於語音轉換文字 API
 
@@ -26,7 +27,7 @@ ms.locfileid: "47434121"
 
 - 即時連續辨識。 **語音轉換文字**可讓使用者將音訊即時謄寫成文字。 它也支援接收已經進行辨識之單字的中繼結果。 服務會自動辨識語音的結尾。 使用者也可以選擇其他格式設定選項，包括轉換成大寫和標點符號、粗話遮罩，以及反向文字正規化。
 
-- 針對互動、對話和聽寫情節，將**語音轉換文字**的結果最佳化。 辨識結果會同時以 Lexical 和 Display 格式傳回 (針對 Lexical 結果，請參閱範例中的 DetailedSpeechRecognitionResult 或 API)。
+- 結果會同時以「語彙」和「顯示」形式傳回 (針對「語彙」結果，請參閱範例或 API 中的 DetailedSpeechRecognitionResult)。
 
 - 支援許多語言和方言。 如需每個辨識模式中支援語言的完整清單，請參閱[支援的語言](language-support.md#speech-to-text)。
 
@@ -34,9 +35,11 @@ ms.locfileid: "47434121"
 
 - 自然語言理解。 透過整合 [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS)，您可以從語音衍伸出意圖和實體。 使用者不必知道您應用程式的詞彙，但他們可以使用自己的話描述他們想要什麼。
 
+- 如果您在語音設定物件 (SpeechConfig.OutputFormat 屬性) 上指定詳細輸出，服務就會傳回信賴分數。 接著，您可以針對結果使用 Best() 方法，或直接從服務所傳回的 JSON 取得分數 (例如 result.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult))。
+
 ## <a name="api-capabilities"></a>API 功能
 
-**語音轉換文字** API 的許多功能 (特別是關於自訂的部分) 都可透過 REST 取得。 下表摘要說明存取 API 的每個方法的功能。 如需功能完整清單和 API 詳細資料，請參閱 [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+**語音轉換文字** API 的某些功能 (特別是關於自訂的部分) 可透過 REST 取得。 下表摘要說明存取 API 的每個方法的功能。 如需完整的功能清單和 API 詳細資料，請參閱 [Swagger 參考](https://westus.cris.ai/swagger/ui/index) \(英文\)。
 
 | 使用案例 | REST | SDK |
 |-----|-----|-----|----|

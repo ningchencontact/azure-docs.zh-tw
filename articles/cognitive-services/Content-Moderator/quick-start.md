@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Content Moderator
+title: 快速入門：開始使用 Content Moderator
 titlesuffix: Azure Cognitive Services
 description: 如何開始使用 Content Moderator。
 services: cognitive-services
@@ -8,82 +8,66 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: c2ac0ccd89b5f1436a151e3d69c5d7423090f244
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225289"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023435"
 ---
-# <a name="get-started-with-content-moderator"></a>開始使用 Content Moderator
+# <a name="quickstart-get-familiar-with-content-moderator"></a>快速入門：熟悉 Content Moderator
 
-您可透過下列方式開始使用 Content Moderator：
+在本快速入門中，您將使用線上「Content Moderator 審核工具」，無須撰寫任何程式碼，即可測試 Content Moderator 的基本功能。 如果您想要將此服務更快整合至您的應用程式，請參閱[後續步驟](#next-steps)一節中的其他快速入門。
 
-- [開始使用審核工具](#start-with-the-review-tool)取得 API 金鑰及建立審核小組。 其優點是，您可以使用 API 金鑰來呼叫仲裁 API 進行內容掃描，以及呼叫審核 API 以產生審核項目，而不需要額外的步驟。
-- 在 Azure 入口網站中[訂閱 Content Moderator](#start-with-the-apis) 以取得 API 金鑰。 請參閱 [API 參考](api-reference.md)和 [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net)。 您仍然需要上線登入，才能建立檢閱小組。
-- 透過方便使用的設計工具，[使用流程連接器和範本](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/)來嘗試各種不同的整合。
+## <a name="prerequisites"></a>必要條件
 
-不論您選擇什麼選項，請參閱[管理認證](review-tool-user-guide/credentials.md)文章來尋找您的 API 認證。
+- 網頁瀏覽器
 
-## <a name="start-with-the-review-tool"></a>從審核工具開始
-在 Content Moderator 審核工具網站上[註冊](http://contentmoderator.cognitive.microsoft.com/)。
+## <a name="set-up-the-review-tool"></a>設定審核工具
+「Content Moderator 審核工具」是一個 Web 型工具，可讓人工審核者協助認知服務進行決策。 在本指南中，您將完成設定審核工具的簡短程序，以便了解 Content Moderator 服務如何運作。 請前往 [Content Moderator 審核工具](http://contentmoderator.cognitive.microsoft.com/)網站並註冊。
 
 ![Content Moderator 首頁](images/homepage.PNG)
 
-### <a name="create-a-review-team"></a>建立檢閱小組
-指定小組的名稱。 如果您想邀請同事，可以輸入他們的電子郵件地址。
+## <a name="create-a-review-team"></a>建立審核小組
+
+接著，建立審核小組。 在工作案例中，這會是將手動審核服務仲裁決策的一群人。 目前，您只須建立小組名稱。 如果您想要邀請同事加入小組，只要在這裡輸入他們的電子郵件地址即可。
 
 ![邀請小組成員](images/QuickStart-2-small.png)
 
-### <a name="upload-images-or-enter-text"></a>上傳影像或輸入文字
-按一下 [嘗試] > [影像] 或 [嘗試] > [文字]。 上傳最多五個範例影像或輸入範例文字以用於審核。
+## <a name="upload-sample-content"></a>上傳範例內容
+
+現在，您已做好上傳範例內容的準備。 選取 [試用] > [影像]、[試用] > [文字] 或 [試用] > [影片]。
 
 ![嘗試影像或文字審核](images/tryimagesortext.png)
 
-### <a name="submit-for-automated-moderation"></a>提交以進行自動審核
-提交您的內容以進行自動審核。 就內部而言，審核工具會呼叫審核 API 來掃描您的內容。 掃描完成之後，您會看到有結果等候檢閱的通知訊息。
+提交您的內容以供仲裁。 就內部而言，審核工具會呼叫仲裁 API 來掃描您的內容。 掃描完成之後，您會看到一則訊息，通知您有結果等待您的審核。
 
 ![審核檔案](images/submitted.png)
 
-### <a name="review-and-confirm-results"></a>檢閱並確認結果
-檢閱自動審核標記，並視需要進行變更，然後使用 [下一步] 按鈕即可提交。 如您的商務應用程式呼叫 Moderator API，加上標記的內容就會開始排入佇列，準備讓人力檢閱小組進行檢閱。 您可以使用此方法快速檢閱大量內容。
+## <a name="review-moderation-tags"></a>審核仲裁標記
 
-![檢閱結果](images/reviewresults.png)
+審核已套用的仲裁標記。 您可以查看您的內容已套用哪些標記，以及每個類別的分數。
 
-了解如何使用所有[審核工具的功能](Review-Tool-User-Guide/human-in-the-loop.md)，或繼續進行下一節以了解 API。 請略過註冊步驟，因為您已在審核工具中佈建 API 金鑰，如[管理認證](review-tool-user-guide/credentials.md)一文所示。
+![檢閱結果](images/reviewresults_text.png)
 
-### <a name="use-the-apis"></a>使用 API
+在專案中，您或審核小組可以視需要變更這些標記或新增更多標記。 您將透過 [下一步] 按鈕來提交這些變更。 當您的商務應用程式呼叫 Moderator API 時，已加上標記的內容會在這裡排入佇列，準備供人工審核小組進行審核。 您可以使用此方法快速審核大量內容。
 
-了解如何整合 Content Moderator 與您的商務應用程式。 請參閱 [API 參考](api-reference.md)和 [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net)。
+到目前為止，您已使用「Content Moderator 審核工具」來查看 Content Moderator 服務的功能範例。 接著，您可以深入了解審核工具及如何使用「審核 API」將其整合至軟體專案，或是跳到[後續步驟](#next-steps)一節，以了解如何在您的應用程式中使用「仲裁 API」本身。
 
-## <a name="subscribe-in-the-azure-portal"></a>在 Azure 入口網站中訂閱
+## <a name="learn-more-about-the-review-tool"></a>深入了解審核工具
 
-在 Azure 入口網站中[訂閱 Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)。 開始使用下列其中一個 API：
-
-### <a name="image-moderation"></a>影像仲裁
-
-開始使用 [API 主控台](try-image-api.md)或使用 [.NET 快速入門](image-moderation-quickstart-dotnet.md)來掃描影像，並使用標記、信賴分數及其他擷取資訊來偵測潛在的成人和不雅內容。
-
-### <a name="text-moderation"></a>文字仲裁
-
-開始使用 [API 主控台](try-text-api.md)或使用 [.NET 快速入門](text-moderation-quickstart-dotnet.md) 來掃描內容，以找出不雅內容、機器輔助的不必要文字分類 (預覽) 及個人識別資訊 (PII)。 
-
-
-### <a name="video-moderation"></a>影片仲裁
-
-開始使用 [.NET 快速入門](video-moderation-api.md)來掃描影片，並偵測潛在的成人和不雅內容。 
-
-
-### <a name="review-apis"></a>檢閱 API
-
-從選擇作業、檢閱及工作流程 API 開始。
-
+若要深入了解如何使用「Content Moderator 審核工具」，請參閱[人機互動](Review-Tool-User-Guide/human-in-the-loop.md)指南，以及參閱「審核工具 API」以了解如何微調人供審核體驗：
 - [作業 API](try-review-api-job.md) 會使用審核 API 掃描您的內容，並在檢閱工具中產生檢閱。 
 - [檢閱 API](try-review-api-review.md) 會直接為人工審核者建立影像、文字或影片檢閱，無須先掃描內容。 
 - [工作流程 API](try-review-api-workflow.md) 會建立、更新並取得您小組建立的自訂工作流程詳細資料。
 
+或者，繼續進行後續步驟，以開始在您的程式碼中使用「仲裁 API」。
+
 ## <a name="next-steps"></a>後續步驟
 
-請參閱 [API 參考](api-reference.md)和 [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net)。 快速啟動 [.NET SDK 範例](sdk-and-samples.md#net-sdk-samples)、[C# 中的 REST API 範例](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c)與[教學課程](sdk-and-samples.md#tutorials)的整合。
+了解如何在您的應用程式中使用「仲裁 API」本身。
+- 實作影像仲裁。 使用 [API 主控台](try-image-api.md)或 [C# 快速入門](image-moderation-quickstart-dotnet.md)來掃描影像，並使用標記、信賴分數及其他擷取資訊來偵測潛在的成人和不雅內容。
+- 實作文字仲裁。 使用 [API 主控台](try-text-api.md)或使用 [C# 快速入門](text-moderation-quickstart-dotnet.md)來掃描文字內容，以找出潛在的粗話、機器輔助的不必要文字分類 (預覽)，以及個人識別資訊 (PII)。 
+- 實作影片仲裁。 使用 [C# 快速入門](video-moderation-api.md)來掃描影片，並偵測潛在的成人和不雅內容。 

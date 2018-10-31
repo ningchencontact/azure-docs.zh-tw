@@ -7,33 +7,34 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: f67982eda60a8fdfdf0d50785827c513275fd202
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 87d3261d5d9604b004c949e384e9d48e957229d7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124750"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455720"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>使用 Java 將事件傳送至 Azure 事件中樞
 
-事件中樞是高度可擴充的擷取系統，每秒可擷取數百萬個事件，讓應用程式能處理並分析已連線裝置與應用程式產生的大量資料。 資料收集到事件中樞後，您可以使用任何即時分析提供者或儲存體叢集來轉換與儲存資料。
+Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
 
-如需詳細資訊，請參閱 [事件中樞概觀][Event Hubs overview]。
+本教學課程也會示範如何使用以 Java 撰寫的主控台應用程式，將事件傳送到事件中樞。 
 
-本教學課程也會示範如何使用以 Java 撰寫的主控台應用程式，將事件傳送到事件中樞。 若要使用 Java Event Processor Host 程式庫接收事件，請參閱[此文章](event-hubs-java-get-started-receive-eph.md)，或按一下左側目錄中適當的接收語言。
+> [!NOTE]
+> 您可以從 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) 下載此快速入門來作為範例，並以您事件中樞的值取代 `EventHubConnectionString` 和 `EventHubName` 字串，然後執行。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要下列必要條件：
 
 * Java 開發環境。 本教學課程使用 [Eclipse](https://www.eclipse.org/)。
-* 使用中的 Azure 帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
 
-本教學課程中的程式碼是根據 [SimpleSend GitHub 範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)，您可以檢查該範例以查看可完整運作的應用程式。
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
+第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和「事件中樞」，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行本教學課程中的下列步驟。
 
-## <a name="send-events-to-event-hubs"></a>將事件傳送至事件中樞
+## <a name="add-reference-to-azure-event-hubs-library"></a>加入 Azure 事件中樞程式庫的參考
 
 [Maven 中央儲存機制](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)中的 Maven 專案可使用事件中樞的 Java 用戶端程式庫。 您可以在 Maven 專案檔中用下列相依性宣告來參照此程式庫。 目前版本為 1.0.2：    
 
@@ -49,7 +50,7 @@ ms.locfileid: "43124750"
 
 如果是簡單事件發行者，請針對事件中樞用戶端類別匯入 *com.microsoft.azure.eventhubs* 套件，以及針對公用程式類別匯入 *com.microsoft.azure.servicebus* 套件，例如，與 Azure 服務匯流排訊息用戶端共用的常見例外狀況。 
 
-### <a name="declare-the-send-class"></a>宣告 Send 類別
+## <a name="write-code-to-send-messages-to-the-event-hub"></a>撰寫程式碼以將訊息傳送到事件中樞
 
 針對下列範例，在您最喜愛的 Java 開發環境中，先為主控台/殼層應用程式建立新的 Maven 專案。 將類別 `SimpleSend` 命名為：     
 
@@ -109,13 +110,17 @@ ehClient.closeSync();
 
 ``` 
 
-### <a name="how-messages-are-routed-to-eventhub-partitions"></a>如何將訊息路由傳送至事件中樞分割區
+建置並執行程式，然後確定沒有任何錯誤。
+
+恭喜！ 您現在已將傳送訊息到事件中樞。
+
+### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>附錄：如何將訊息路由傳送至事件中樞分割區
 
 在取用者擷取訊息之前，發行者必須先將這些訊息發佈至分割區。 在 com.microsoft.azure.eventhubs.EventHubClient 物件上使用 sendSync() 方法將訊息同步發佈到事件中樞後，可以根據是否指定分割索引鍵，將訊息傳送到特定分割區或以循環配置方式分散到所有可用的分割區。
 
 指定代表分割索引鍵的字串後，將會雜湊處理此索引鍵來判斷事件要傳送到哪個分割區。
 
-若未設定分割索引鍵，則訊息會循環配置到所有可用的分割區
+若未設定分割區索引鍵，則訊息會循環配置到所有可用的分割區
 
 ```java
 // Serialize the event into bytes
@@ -138,14 +143,9 @@ eventHubClient.closeSync();
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以造訪下列連結以深入了解事件中樞︰
-
-* [使用 EventProcessorHost 接收事件](event-hubs-java-get-started-receive-eph.md)
-* [事件中樞概觀][Event Hubs overview]
-* [建立事件中樞](event-hubs-create.md)
-* [事件中樞常見問題集](event-hubs-faq.md)
+在此快速入門中，您已經使用 Java 將訊息傳送到事件中樞。 若要了解如何使用 .NET Framework 從事件中樞接收事件，請參閱[從事件中樞接收事件 - Java](event-hubs-java-get-started-receive-eph.md)。
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md
-[免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 

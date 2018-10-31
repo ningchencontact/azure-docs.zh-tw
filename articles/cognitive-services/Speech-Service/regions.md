@@ -1,23 +1,25 @@
 ---
 title: 語音服務區域
-description: 語音服務區域的參考。
+titlesuffix: Azure Cognitive Services
+description: 「語音服務」區域的參考。
 services: cognitive-services
 author: mahilleb-msft
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: 01c76d80d6b2fd64165b126df01c391d7e18292f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887542"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468121"
 ---
 # <a name="regions-of-the-speech-service"></a>語音服務的區域
 
-語音服務可在不同的區域使用。
+「語音服務」在不同的區域可供使用。
 建立訂用帳戶時，可以根據需求選取可用區域。
 
 使用訂用帳戶時，必須考慮選取的區域。
@@ -29,7 +31,7 @@ ms.locfileid: "48887542"
 
 ## <a name="speech-sdk"></a>語音 SDK
 
-在[語音 SDK](speech-sdk.md) 中，區域會指定為字串 (例如，在適用於 C# 的語音 SDK 中，作為 `SpeechConfig.FromSubscription` 的參數)。
+在[語音服務 SDK](speech-sdk.md) 中，會以字串方式指定區域 (例如，在「適用於 C# 的語音 SDK」中，會作為 `SpeechConfig.FromSubscription` 的參數)。
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>語音辨識和轉譯的區域
 

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41946457"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944931"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的縮放單位節點動作
 
@@ -31,7 +31,7 @@ ms.locfileid: "41946457"
 > 本文中說明的所有節點動作都應該一次以一個節點為目標。
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>檢視縮放單位和其節點的狀態
+## <a name="view-the-node-status"></a>檢視節點狀態
 
 在管理員入口網站中，您可以輕鬆地檢視縮放單位和其相關聯節點的狀態。
 
@@ -47,19 +47,19 @@ ms.locfileid: "41946457"
 - 系統類型
 - 邏輯核心數總計
 - 記憶體總計
-- 個別節點的清單和其狀態；**執行中**或**已停止**。
+- 個別節點的清單及其狀態 (**正在執行**或**已停止**)
 
 ![顯示每個節點執行狀態的縮放單位圖格](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>檢視縮放單位節點的相關資訊
+## <a name="view-node-information"></a>詳細節點資訊
 
 如果您選取個別節點，您可以檢視下列資訊：
 
 - 區域名稱
 - 伺服器模型
 - 基礎板管理控制器 (BMC) 的 IP 位址
-- 作業狀態
-- 核心數總計
+- 操作狀態
+- 核心總數
 - 記憶體量總計
  
 ![顯示每個節點執行狀態的縮放單位圖格](media/azure-stack-node-actions/NodeActions.PNG)

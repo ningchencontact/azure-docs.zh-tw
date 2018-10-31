@@ -2,20 +2,20 @@
 title: 在 Durable Functions 中處理錯誤 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 擴充中處理錯誤。
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377900"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984123"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中處理錯誤
 
@@ -26,6 +26,8 @@ Durable Function 協調流程在程式碼中實作，而且可以使用程式設
 活動函式中擲回的任何例外狀況會封送處理回到協調器函式，並以 `FunctionFailedException` 擲回。 您可以在協調器函式中撰寫符合需求的錯誤處理和補償程式碼。
 
 例如，假設有下列協調器函式會從一個帳戶轉帳到另一個帳戶：
+
+#### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -64,11 +66,49 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const transferDetails = context.df.getInput();
+
+    yield context.df.callActivity("DebitAccount",
+        {
+            account = transferDetails.sourceAccount,
+            amount = transferDetails.amount,
+        }
+    );
+
+    try {
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.destinationAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+    catch (error) {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.sourceAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+});
+```
+
 如果對目的地帳戶呼叫 **CreditAccount** 函式失敗，協調器函式會將款項匯回到來源帳戶，以彌補此情況。
 
 ## <a name="automatic-retry-on-failure"></a>失敗時自動重試
 
 當您呼叫活動函式或子協調流程函式時，您可以指定自動重試原則。 下列範例會嘗試呼叫函式最多 3 次，並於每次重試之間等待 5 秒鐘：
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -83,7 +123,21 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-`CallActivityWithRetryAsync` API 接受 `RetryOptions` 參數。 使用 `CallSubOrchestratorWithRetryAsync` API 來呼叫子協調流程時可以使用這些相同的重試原則。
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const retryOptions = new df.RetryOptions(5000, 3);
+    
+    yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
+
+    // ...
+});
+```
+
+`CallActivityWithRetryAsync` (C#) 或 `callActivityWithRetry` (JS) API 會接受 `RetryOptions` 參數。 子協調流程呼叫如果使用 `CallSubOrchestratorWithRetryAsync` (C#) 或 `callSubOrchestratorWithRetry` (JS) API，便可使用這些相同的重試原則。
 
 自訂自動重試原則有幾個選項。 其中包括：
 
@@ -97,6 +151,8 @@ public static async Task Run(DurableOrchestrationContext context)
 ## <a name="function-timeouts"></a>函式逾時
 
 如果協調器函式內的函式呼叫太久才會完成，您可以放棄此函式呼叫。 目前，適當的作法是使用 `context.CreateTimer` 搭配 `Task.WhenAny`來建立[永久性計時器](durable-functions-timers.md) ，如下列範例所示：
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -123,6 +179,30 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
         }
     }
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+
+    const activityTask = context.df.callActivity("FlakyFunction");
+    const timeoutTask = context.df.createTimer(deadline.toDate());
+
+    const winner = yield context.df.Task.any([activityTask, timeoutTask]);
+    if (winner === activityTask) {
+        // success case
+        timeoutTask.cancel();
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
+});
 ```
 
 > [!NOTE]

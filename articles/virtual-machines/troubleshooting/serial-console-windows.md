@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411872"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024406"
 ---
 # <a name="virtual-machine-serial-console"></a>虛擬機器序列主控台
 
@@ -28,8 +28,8 @@ Azure 上的「虛擬機器序列主控台」可讓您存取 Windows 虛擬機�
 
 如需 Linux VM 的序列主控台文件，請[按一下這裡](serial-console-linux.md)。
 
-> [!Note] 
-> 適用於虛擬機器的序列主控台已在全球 Azure 區域公開推出。 序列主控台目前尚未在 Azure Government 或「Azure 中國」雲端中提供。
+> [!NOTE] 
+> 適用於虛擬機器的序列主控台已在全球 Azure 區域公開推出。 目前尚未在 Azure Government 或「Azure 中國」雲端中提供序列主控台。
 
  
 
@@ -53,7 +53,6 @@ Azure 上的「虛擬機器序列主控台」可讓您存取 Windows 虛擬機�
   3. 按一下清單中的 VM。 將會開啟該 VM 的概觀頁面。
   4. 向下捲動至 [支援與疑難排解] 區段，然後按一下 [序列主控台] 選項。 將會開啟含有序列主控台的新窗格，並開始連線。
 
-
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>在自訂或舊版的映像中啟用序列主控台
 Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主控台](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC)。 在伺服器版本的 Windows 上可支援 SAC，但在用戶端版本 (例如 Windows 10、Windows 8 或 Windows 7) 上則不支援。 若要為在 2018 年 2 月之前建立的 Windows 虛擬機器啟用序列主控台，請使用下列步驟： 
 
@@ -74,7 +73,7 @@ Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>如何得知 SAC 是否已啟用？
 
-如果未啟用 [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx)，序列主控台將不會顯示 SAC 提示。 在某些情況下會顯示 VM 健康情況資訊，在其他情況下則會空白。 如果您使用在 2018 年 2 月之前建立的 Windows Server 映像，SAC 可能不會啟用。
+如果未啟用 [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) \(英文\)，序列主控台將不會顯示 SAC 提示。 在某些情況下會顯示 VM 健康情況資訊，在其他情況下則會空白。 如果您使用在 2018 年 2 月之前建立的 Windows Server 映像，SAC 可能不會啟用。
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>在序列主控台中啟用 Windows 開機功能表 
 
@@ -83,23 +82,41 @@ Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主
 1. 透過「遠端桌面」連線至您的 Windows 虛擬機器
 2. 從系統管理命令提示字元中執行下列命令 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. 重新啟動系統以啟用開機功能表
+
+> [!NOTE] 
+> 您為開機管理程式功能表設定來顯示的逾時，未來將會影響您的 OS 開機時間。 雖然有些人可能可以接受新增 10 秒的逾時，以確保可透過序列主控台來顯示開機管理程式，但其他人可能想要較短或較長的逾時。 將逾時值設定為您熟悉的值。
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>使用序列主控台在 Windows VM 中進行 NMI 呼叫
 非遮罩式插斷 (NMI) 旨在建立虛擬機器上軟體不會忽略的訊號。 在過去，NMI 已用來監視系統上需要特定回應時間的硬體問題。  現在，程式設計人員和系統管理員通常會使用 NMI 作為對無回應系統進行偵錯和疑難排解的機制。
 
-使用命令列中的鍵盤圖示，即可使用序列主控台將 NMI 傳送至 Azure 虛擬機器，如下所示。 NMI 序列傳遞出去後，虛擬機器組態將會控制系統的回應方式。 您可以將 Windows 設定成在收到 NMI 時當機並建立記憶體傾印。
+使用序列主控台命令列中的鍵盤圖示，即可將 NMI 傳送至 Azure 虛擬機器，如下所示。 NMI 序列傳遞出去後，虛擬機器組態將會控制系統的回應方式。 您可以將 Windows 設定成在收到 NMI 時當機並建立記憶體傾印。
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
 如需有關將 Windows 設定成在收到 NMI 時建立損毀傾印的資訊，請參閱：[如何在 Windows 型系統上使用 NMI 來產生完整的損毀傾印檔案或核心損毀傾印檔案](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file) \(機器翻譯\)
 
+## <a name="open-cmd-or-powershell-in-serial-console"></a>在序列主控台中開啟 CMD 或 PowerShell
+
+1. 連線到序列主控台。 如果您已成功連線到序列主控台，您將會看到 **SAC>**，如下列螢幕擷取畫面所示：
+
+    ![連線到 SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  輸入 `cmd` 來建立具有 CMD 執行個體的通道。 
+4.  輸入 `ch -si 1` 以切換至執行 CMD 執行個體的通道。 
+5.  按 Enter 鍵，然後輸入具有系統管理權限的登入認證。
+6.  當您輸入有效的認證之後，即會開啟 CMD 執行個體。
+7.  若要啟動 PowerShell 執行個體，在 CMD 執行個體中輸入 `PowerShell`，然後按 Enter 鍵。 
+
+    ![開啟 PowerShell 執行個體](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
+
 ## <a name="disable-serial-console"></a>停用序列主控台
 根據預設，所有訂用帳戶都已啟用所有 VM 的序列主控台存取權。 您可以在訂用帳戶層級或 VM 層級停用序列主控台。
 
-> [!Note]       
+> [!NOTE]       
 > 若要啟用或停用訂用帳戶的序列主控台，您必須有該訂用帳戶的寫入權限。 這包包括 (但不限於) 系統管理員或擁有者角色。 自訂角色也可能會有寫入權限。
 
 ### <a name="subscription-level-disable"></a>訂用帳戶層級的停用
@@ -107,7 +124,7 @@ Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-或者，您也可以在 Cloud Shell 中使用下面的一組命令 (所顯示的 Bash 命令)，針對訂用帳戶停用、啟用序列主控台及檢視該主控台的停用狀態。 
+或者，您也可以在 Cloud Shell 中使用下面的一組命令 (所顯示的 Bash 命令)，針對訂用帳戶停用、啟用序列主控台，以及檢視該主控台的停用狀態。 
 
 * 針對訂用帳戶取得序列主控台的停用狀態：
     ```azurecli-interactive
@@ -193,7 +210,7 @@ Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.c
 
 問題                             |   緩和 
 :---------------------------------|:--------------------------------------------|
-在出現連線橫幅後按 Enter 鍵並未顯示登入提示 | 請參閱此頁面：[按 Enter 鍵沒有任何作用](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)。 如果您執行自訂 VM、強化設備，或是導致 Windows 無法正確地連線至序列埠的 GRUB 組態，則可能發生此情形。
+在出現連線橫幅後按 Enter 鍵並未顯示登入提示 | 請參閱此頁面：[按 Enter 鍵沒有任何作用](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) \(英文\)。 如果您執行自訂 VM、強化設備，或是導致 Windows 無法正確連線到序列埠的開機設定，則可能發生此情形。 如果您執行的是 Windows 10 用戶端 VM，也將發生此情形，因為只會將 Windows Server VM 設定為已啟用 EMS。
 在核心偵錯啟用時，無法在出現 SAC 提示時輸入 | 透過 RDP 連線至 VM，並從更高權限的命令提示字元執行 `bcdedit /debug {current} off`。 如果您無法執行 RDP 連線，可以改為將作業系統磁碟連結至另一個 Azure VM，並在連結作為資料磁碟時使用 `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` 加以修改，然後再將磁碟交換回來。
 在 SAC 中貼到 PowerShell 中時，如果原始內容中有重複字元，就會產生第三個字元 | 因應措施是從目前的工作階段中回溯卸載 PSReadLine 模組。 執行 `Remove-Module PSReadLine` 從目前的工作階段卸載 PSReadLine 模組 - 這並不會刪除或解除安裝該模組。
 某些鍵盤輸入會產生奇怪的 SAC 輸出 (例如 `[A``[3~`) | SAC 提示字元不支援[VT100](https://aka.ms/vtsequences) 逸出序列。
@@ -219,7 +236,7 @@ A. 您必須具有參與者或更高層級的存取權，才能存取 VM 的序�
 
 **問：我的序列主控台沒有顯示任何內容，該怎麼辦？**
 
-A. 您映像的序列主控台存取設定很有可能是錯誤的。 請參閱[在自訂或舊版的映像中啟用序列主控台](#Enable-Serial-Console-in-custom-or-older-images)，以取得設定映像以啟用序列主控台的詳細資料。
+A. 您映像的序列主控台存取設定很有可能是錯誤的。 請參閱[在自訂或舊版的映像中啟用序列主控台](#enable-serial-console-in-custom-or-older-images)，以取得設定映像以啟用序列主控台的詳細資料。
 
 **問：序列主控台是否適用於虛擬機器擴展集？**
 

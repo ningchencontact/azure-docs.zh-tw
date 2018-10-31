@@ -5,20 +5,22 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9e48eba4b46f024b056fe53b3b3df24feec802e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4b86f73302d9f5d07cd1e6e8c7801de56a988cc7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995664"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955267"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>在 IoT Edge (預覽) 使用 Azure Blob 儲存體，以便在邊緣儲存資料
 
-IoT Edge 上的 Azure Blob 儲存體提供邊緣的區塊 Blob 儲存體解決方案。 IoT Edge 裝置上的 Blob 儲存體模組如同 Azure Blob 服務般運作，但是區塊 Blob 會在本機 IoT Edge 裝置上儲存。 您可以使用平常使用的相同 Azure 儲存體 SDK 方法或區塊 Blob API 呼叫存取您的 Blob。 
+IoT Edge 上的 Azure Blob 儲存體提供邊緣的[區塊 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 儲存體解決方案。 IoT Edge 裝置上的 Blob 儲存體模組如同 Azure 區塊 Blob 服務般運作，但是區塊 Blob 會在本機 IoT Edge 裝置上儲存。 您可以使用平常使用的相同 Azure 儲存體 SDK 方法或區塊 Blob API 呼叫存取您的 Blob。 
+
+資料 (例如影片、影像、財務資料、醫療資料或任何資料) 必須存放在本機並稍後在本機處理或傳輸到雲端的案例，就是使用此課程模組的絕佳範例。
 
 本文提供在對於 IoT Edge 裝置執行 Blob 服務的 IoT Edge 容器上部署 Azure Blob 儲存體的指示。 
 
@@ -48,21 +50,33 @@ Azure IoT Edge 裝置：
 
 ## <a name="deploy-blob-storage-to-your-device"></a>將 Blob 儲存體部署至您的裝置
 
-IoT Edge 上的 Azure Blob 儲存體提供三個標準的容器映像，其中兩個適用於 Linux 容器 (AMD64 和 ARM32 架構)，其中一個適用於 Windows 容器 (AMD64)。 當您使用其中一個模組映像將 Blob 儲存體部署到您的 IoT Edge 裝置時，您可提供這三項資訊來設定您裝置的模組執行個體：
-
-* [帳戶名稱] 和 [帳戶金鑰]。 若要與 Azure 儲存體保持一致，Blob 儲存體模組會使用帳戶名稱和帳戶金鑰來管理存取權。 帳戶名稱應該有 3 到 24 個字元，包含小寫字母和數字。 帳戶金鑰應該是 base64 編碼和 64 個位元組的長度。 您可以 [GeneratePlus](https://generate.plus/en/base64) 之類的工具產生金鑰。
-* **本機儲存體選項**。 Blob 儲存體模組會在本機 IoT Edge 裝置儲存 Blob，因此，如果模組停止或重新啟動，Blob 仍會保留。 宣告應該在您的裝置上儲存 Blob 的現有[磁碟區](https://docs.docker.com/storage/volumes
-)或本機資料夾路徑。 
-
 有數種方式可將模組部署到 IoT Edge 裝置，而且這些方式皆適用於 IoT Edge 模組上的 Azure Blob 儲存體。 兩個最簡單的方法是使用 Azure 入口網站或 Visual Studio Code 範本。 
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要透過 Azure 入口網站部署 Blob 儲存體，請依照[從 Azure 入口網站部署 Azure IoT Edge 模組](how-to-deploy-modules-portal.md)中的步驟進行。 您開始部署模組之前，請先複製映像 URI，並按照您的容器作業系統準備容器建立選項。 使用部署文章**設定部署資訊清單**區段中的這些值。 
+#### <a name="find-the-module"></a>尋找課程模組
 
-提供 Blob 儲存體模組的映像 URI：**mcr.microsoft.com/azure-blob-storage**。 
-   
-在 [容器建立選項] 欄位使用下列 JSON 範本。 使用您的儲存體帳戶名稱、儲存體帳戶金鑰和儲存體目錄繫結來設定 JSON。  
+選擇兩種方式的其中一種來尋找 Blob 儲存體課程模組：
+
+1. 在 Azure 入口網站中，搜尋「IoT Edge 上的 Azure Blob 儲存體」。 並**選取**搜尋結果項目
+2. 從 Azure 入口網站移至 Marketplace，然後按一下 [物聯網]。 在 [IoT Edge 模組] 區段下，選取 [IoT Edge 上的 Azure Blob 儲存體]。 並按一下 [建立]
+
+#### <a name="steps-to-deploy"></a>部署步驟
+
+**IoT Edge 模組的目標裝置**
+
+1. 選取您的 IoT 中樞部署所在的「訂用帳戶」。
+2. 選取您的「IoT 中樞」。
+3. 提供您要在其中部署此模組的 [IoT Edge 裝置名稱]。 您可以選擇使用 [尋找裝置] 來尋找您的裝置。
+4. 按一下頁面底部的 [新增]。
+
+**設定模組**
+
+1. 在 [新增模組] 區段中的 [部署模組] 下，您將可以發現該模組已使用開頭為 "AzureBlobStorageonIoTEdge" 的名稱列出。 
+2. **選取** [部署模組] 清單中的 Blob 儲存體模組。 [IoT Edge 自訂模組] 側邊面板隨即開啟。
+3. **名稱**：您可以在這裡變更模組名稱
+4. **映像 URI**：將 URI 取代為 **mcr.microsoft.com/azure-blob-storage:latest**
+5. **容器建立選項**：使用您的值編輯下面的 JSON 並使用 [入口網站] 頁面中的 JSON 取代它：
    
    ```json
    {
@@ -70,26 +84,34 @@ IoT Edge 上的 Azure Blob 儲存體提供三個標準的容器映像，其中�
            "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
            "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
        ],
-       "HostConfig":[
+       "HostConfig":{
            "Binds":[
                "<storage directory bind>"
            ],
            "PortBindings":{
                "11002/tcp":[{"HostPort":"11002"}]
            }
-       ]
+       }
    }
    ```   
    
-在建立選項 JSON 中，使用任何名稱更新 `\<your storage account name\>`。 使用 64 位元組 base64 金鑰更新 `\<your storage account key\>`。 您可以使用 [GeneratePlus](https://generate.plus/en/base64) (可讓您選擇您的位元組長度) 之類的工具產生金鑰。 您將使用這些認證，從其他模組存取 Blob 儲存體。
+    * 更新 `<your storage account name>`。 帳戶名稱應該有 3 到 24 個字元，包含小寫字母和數字。
+    * 使用 64 位元組 base64 金鑰更新 `<your storage account key>`。 您可以 [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) 之類的工具產生金鑰。 您將使用這些認證，從其他模組存取 Blob 儲存體。
+    * 更新 `<storage directory bind>`。 視您的容器作業系統而定。 提供[磁碟區](https://docs.docker.com/storage/volumes/)的名稱，或您想要 Blob 模組儲存其資料的 IoT Edge 裝置目錄絕對路徑。  
 
-在建立選項 JSON 中，按照您的容器作業系統更新 `<storage directory bind>`。 提供[磁碟區](https://docs.docker.com/storage/volumes/)的名稱，或您想要 Blob 模組儲存其資料的 IoT Edge 裝置目錄絕對路徑。  
+       * Linux 容器：[\<儲存體路徑>:/blobroot]。 例如，/srv/containerdata:/blobroot。 或者，my-volume:/blobroot。 
+       * Windows 容器：[\<儲存體路徑>:C:/BlobRoot]。 例如，C:/ContainerData:C:/BlobRoot。 或者，my-volume:C:/blobroot。
+   
+   > [!CAUTION]
+   > 針對**\<儲存體目錄繫結>** 值，請勿變更 Linux 的 "/blobroot" 與 Windows 的 "C:/BlobRoot"。
 
-   * Linux 容器：[\<儲存體路徑>:/blobroot]。 例如，/srv/containerdata:/blobroot。 或者，my-volume:/blobroot。 
-   * Windows 容器：[\<儲存體路徑>:C:/BlobRoot]。 例如，C:/ContainerData:C:/BlobRoot。 或者，my-volume:C:/blobroot。 
+    ![更新模組值](./media/how-to-store-data-blob/edit-module.png)
 
-
-您不需要提供登錄認證，即可存取 IoT Edge 上的 Azure Blob 儲存體，而且您不需要對於您的部署宣告任何路由。 
+6. **儲存** [IoT Edge 自訂模組] 中的值
+7. 按一下 [設定模組] 區段中的 [下一步]
+8. 按一下 [指定路由] 區段中的 [下一步]
+9. 檢閱之後，按一下 [檢閱部署] 區段中的 [提交]。
+10. 在您的 IoT 中樞中確認裝置正在執行 Bolb 儲存體模組 
 
 ### <a name="visual-studio-code-templates"></a>Visual Studio Code 範本
 
@@ -111,7 +133,7 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
    
    4. **為模組提供名稱** - 輸入可辨識的模組名稱，例如 **azureBlobStorage**。
    
-   5. **提供模組的 Docker 映像** - 提供映像 URI：**mcr.microsoft.com/azure-blob-storage**
+   5. **提供模組的 Docker 映像** - 提供映像 URI：**mcr.microsoft.com/azure-blob-storage:latest**
 
 VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將其載入至新的視窗。 
 
@@ -133,6 +155,9 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
    * Linux 容器：[\<儲存體路徑>:/blobroot]。 例如，/srv/containerdata:/blobroot。 或者，my-volume:/blobroot。
    * Windows 容器：[\<儲存體路徑>:C:/BlobRoot]。 例如，C:/ContainerData:C:/BlobRoot。 或者，my-volume:C:/blobroot。
+   
+   > [!CAUTION]
+   > 針對**\<儲存體目錄繫結>** 值，請勿變更 Linux 的 "/blobroot" 與 Windows 的 "C:/BlobRoot"。
 
 5. 儲存 **deployment.template.json**。
 
@@ -145,7 +170,7 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. 請為儲存體帳戶名稱提供任何名稱，並為儲存體帳戶金鑰提供 64 位元組的 base64 金鑰。 您可以 [GeneratePlus](https://generate.plus/en/base64) 之類的工具產生金鑰。 您將使用這些認證，從其他模組存取 Blob 儲存體。 
+8. 為 `STORAGE_ACCOUNT_NAME` 提供值，帳戶名稱應該有 3 到 24 個字元，且必須包含小寫字母與數字。 並為 `STORAGE_ACCOUNT_KEY` 提供 64 位元的 base64 金鑰。 您可以 [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) 之類的工具產生金鑰。 您將使用這些認證，從其他模組存取 Blob 儲存體。 
 
 9. 儲存 **.env**。 
 
@@ -159,7 +184,13 @@ Visual Studio Code 會採用您在 deployment.template.json 和 .env 中提供�
 
 指定 IoT Edge 裝置作為您提出的任何儲存體要求所用的 Blob 端點。 您可以使用 IoT Edge 裝置資訊和您設定的帳戶名稱，[建立明確儲存體端點的連接字串](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint)。 
 
-IoT Edge 上的 Azure Blob 儲存體所用的 Blob 端點是 `http://<IoT Edge device hostname>:11002/<account name>`。 
+1. 針對部署在相同 Edge 裝置 (「IoT Edge 上的 Azure Blob 儲存體」執行所在) 上的模組，Blob 端點是：`http://<Module Name>:11002/<account name>`。 
+2. 針對部署在不同 Edge 裝置 (與「IoT Edge 上的 Azure Blob 儲存體」執行所在 Edge 裝置不同的 Edge 裝置) 上的模組，則取決於您的 Blob 端點設定方式，可能為：`http://<device IP >:11002/<account name>` 或 `http://<IoT Edge device hostname>:11002/<account name>` 或 `http://<FQDN>:11002/<account name>`
+
+## <a name="logs"></a>記錄檔
+
+您可以在容器內的下列位置下找到記錄： 
+* 針對 Linux：/blobroot/logs/platformblob.log
 
 ## <a name="deploy-multiple-instances"></a>部署多個執行個體
 
@@ -230,7 +261,7 @@ IoT Edge 上的 Azure Blob 儲存體並未完全支援所有的 Azure Blob 儲�
 ### <a name="block-blobs"></a>區塊 Blob
 
 支援： 
-* 放置區塊
+* 放置區塊：區塊大小必須小於或等於 4 MB
 * 放置和取得區塊清單
 
 不支援：

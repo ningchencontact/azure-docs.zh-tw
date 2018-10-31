@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/22/2018
+ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831308"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955248"
 ---
 # <a name="dtu-based-service-tiers"></a>以 DTU 為基礎的服務層
 
@@ -25,7 +25,6 @@ ms.locfileid: "48831308"
 
 > [!IMPORTANT]
 > SQL Database 受控執行個體 (目前為公開預覽版) 不支援以 DTU 為基礎的購買模型。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
-
 > [!NOTE]
 > 如需以虛擬核心為基礎之服務層的相關資訊，請參閱[以虛擬核心為基礎的服務層](sql-database-service-tiers-vcore.md)。 如需如何區分以 DTU 為基礎及以虛擬核心為基礎之服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-service-tiers.md)。
 
@@ -33,7 +32,7 @@ ms.locfileid: "48831308"
 
 服務層的選擇主要視業務持續性、儲存體和效能需求而定。
 ||基本|標準|進階|
-| :-- | --: |--:| --:| --:| 
+| :-- | --: |--:| --:| --:|
 |目標工作負載|開發與生產|開發與生產|開發與生產||
 |執行時間 SLA|99.99%|99.99%|99.99%|預覽時，N/A|
 |備份保留期|7 天|35 天|35 天|
@@ -44,13 +43,16 @@ ms.locfileid: "48831308"
 |記憶體內部 OLTP|N/A|N/A|支援|
 |||||
 
+> [!NOTE]
+> 您可以在基本服務層取得免費的 Azure SQL Database，並搭配 Azure 免費帳戶來探索 Azure。 如需相關資訊，請參閱[使用您的免費 Azure 免費帳戶，建立受管理的雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
+
 ## <a name="single-database-dtu-and-storage-limits"></a>單一資料庫 DTU 和儲存空間限制
 
 單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers.md#dtu-based-purchasing-model)。
 
 ||基本|標準|進階|
 | :-- | --: | --: | --: | --: |
-| 儲存體大小上限 | 2 GB | 1 TB | 4 TB  | 
+| 儲存體大小上限 | 2 GB | 1 TB | 4 TB  |
 | DTU 上限 | 5 | 3000 | 4000 | |
 ||||||
 
@@ -59,18 +61,17 @@ ms.locfileid: "48831308"
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>彈性集區 eDTU、儲存體及集區資料庫限制
 
-| | **基本** | **標準** | **高級** | 
+| | **基本** | **標準** | **高級** |
 | :-- | --: | --: | --: | --: |
-| 每個資料庫的儲存體大小上限  | 2 GB | 1 TB | 1 TB | 
-| 每個集區的儲存體大小上限 | 156 GB | 4 TB | 4 TB | 
-| 每個資料庫的 eDTU 上限 | 5 | 3000 | 4000 | 
-| 每個集區的 eDTU 上限 | 1600 | 3000 | 4000 | 
-| 每個集區的資料庫數目上限 | 500  | 500 | 100 | 
+| 每個資料庫的儲存體大小上限  | 2 GB | 1 TB | 1 TB |
+| 每個集區的儲存體大小上限 | 156 GB | 4 TB | 4 TB |
+| 每個資料庫的 eDTU 上限 | 5 | 3000 | 4000 |
+| 每個集區的 eDTU 上限 | 1600 | 3000 | 4000 |
+| 每個集區的資料庫數目上限 | 500  | 500 | 100 |
 ||||||
 
 > [!IMPORTANT]
 > 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：美國中西部、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (愛荷華州)、德國東北部、中國北部。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
-
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 

@@ -1,5 +1,5 @@
 ---
-title: Collaborative Translation Framework (CTF) 報告 - 翻譯工具文字
+title: Collaborative Translation Framework (CTF) 報告 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 如何使用 Collaborative Translation Framework (CTF) 報告。
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126916"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646003"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>如何使用 Collaborative Translation Framework (CTF) 報告
 
 > [!NOTE]
 > 此方法已被取代。 Translator Text API V3.0 中不提供此功能。
 
-> 先前在 Translator Text API V2.0 中提供的 Collaborative Translations Framework (CTF) 自 2018 年 2 月 1 日起已被取代。 AddTranslation 和 AddTranslationArray 函式可讓使用者透過 Collaborative Translation Framework 啟用校正功能。 在 2018 年 1 月 31 日之後，這兩個函式便不接受新的句子提交，而使用者則會收到錯誤訊息。 這些函式已被淘汰，而不會被取代。 
+> 先前在 Translator Text API V2.0 中提供的 Collaborative Translations Framework (CTF) 自 2018 年 2 月 1 日起已被取代。 AddTranslation 和 AddTranslationArray 函式可讓使用者透過 Collaborative Translation Framework 啟用校正功能。 在 2018 年 1 月 31 日之後，這兩個函式便不接受新的句子提交，而使用者則會收到錯誤訊息。 這些函式已被淘汰，而不會被取代。
 
 >Translator Hub API 中有提供類似的功能，可讓您使用自己的術語和樣式來建置自訂翻譯系統，然後可以在 Translator Text API 中使用「分類 ID」來叫用它。 Translator Hub：[https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API：[https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
@@ -33,7 +33,7 @@ ms.locfileid: "46126916"
 
 ## <a name="endpoint"></a>端點
 「CTF 報告 API」的端點是 http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-                        
+
 
 ## <a name="methods"></a>方法
 | 名稱 |    說明|
@@ -64,7 +64,7 @@ UserTranslationCount[]GetUserTranslationCounts(
            string to,
            int? minRating,
            int? maxRating,
-           string user, 
+           string user,
            string category
            DateTime? minDateUtc,
            DateTime? maxDateUtc,
@@ -135,12 +135,12 @@ UserTranslation[] GetUserTranslations (
             string to,
             int? minRating,
             int? maxRating,
-            string user, 
+            string user,
             string category
             DateTime? minDateUtc,
             DateTime? maxDateUtc,
             int? skip,
-            int? take); 
+            int? take);
 ```
 
 **參數**
@@ -154,8 +154,8 @@ UserTranslation[] GetUserTranslations (
 | minRating| **選擇性** 一個代表翻譯後文字之品質評分下限的整數值。 有效值介於 -10 到 10 之間。 預設值為 1。|
 | maxRating| **選擇性** 一個代表翻譯後文字之品質評分上限的整數值。 有效值介於 -10 到 10 之間。 預設值為 1。|
 | user| **選擇性。一個可根據提交項目建立者來篩選結果的字串**|
-| category| **選擇性** 一個包含翻譯之分類或領域的字串。 此參數僅支援預設選項 general。| 
-| minDateUtc| **選擇性** 您想要開始擷取翻譯的日期。 此日期必須是 UTC 格式。| 
+| category| **選擇性** 一個包含翻譯之分類或領域的字串。 此參數僅支援預設選項 general。|
+| minDateUtc| **選擇性** 您想要開始擷取翻譯的日期。 此日期必須是 UTC 格式。|
 | maxDateUtc| **選擇性** 您想要停止擷取翻譯的日期。 此日期必須是 UTC 格式。|
 | skip| **選擇性** 您想要在頁面上略過的結果數目。 例如，如果您想要略過前 20 列結果並從第 21 個結果記錄開始檢視，請為此參數指定 20。 此參數的預設值為 0。|
 | take|  您想要擷取的結果數目。 每個要求的數目上限為 100。 預設值為 50。|
@@ -192,21 +192,3 @@ UserTranslation[] GetUserTranslations (
 **檢視 GitHub 上的程式碼範例**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

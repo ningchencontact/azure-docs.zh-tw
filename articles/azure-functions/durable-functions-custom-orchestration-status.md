@@ -2,28 +2,27 @@
 title: Durable Functions 中的自訂協調流程狀態 - Azure
 description: 了解如何設定及使用 Durable Functions 的自訂協調流程狀態。
 services: functions
-author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+author: kashimiz
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/24/2018
+ms.topic: conceptual
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 840b96b9cfdb28ca1b17f54698677f4d491342c8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: b8017288adb75c990113b0f2ff5ba29a1f1e0a18
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310310"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986653"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Durable Functions 中的自訂協調流程狀態 (Azure Functions)
 
 自訂協調流程狀態可讓您為協調器函式設定自訂狀態值。 該狀態可透過 HTTP GetStatus API 或 `DurableOrchestrationClient.GetStatusAsync` API 提供。
+
+> [!NOTE]
+> 在即將推出的版本中，將會提供適用於 JavaScript 的自訂協調流程狀態。
 
 ## <a name="sample-use-cases"></a>範例使用案例 
 

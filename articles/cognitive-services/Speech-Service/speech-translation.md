@@ -1,26 +1,27 @@
 ---
 title: 關於語音翻譯
+titlesuffix: Azure Cognitive Services
 description: 語音翻譯功能概觀
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: f3c22589270ccee2c60ca5ea5b15047d9c81fabe
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165432"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469130"
 ---
 # <a name="about-the-speech-translation-api"></a>關於語音翻譯 API
 
-Microsoft 語音 API 可讓您將端對端、即時、多國語言翻譯的語音新增至您的應用程式、工具和裝置。 相同的 API 可以用於語音轉換語音和語音轉換文字翻譯。
+「語音服務 API」可讓您將端對端、即時、多語言的語音翻譯新增到您的應用程式、工具和裝置。 相同的 API 可以用於語音轉換語音和語音轉換文字翻譯。
 
-使用 Microsoft Translator Speech API，用戶端應用程式會將語音音訊串流至服務，且接收回結果串流。 這些結果包括來源語言中的已辨識文字，以及其在目標語言中的翻譯。 語調完成之前，可以提供暫時翻譯，而在完成時會提供最終翻譯。
+使用「翻譯工具語音 API」時，用戶端應用程式會將語音音訊串流至服務，然後接收回結果串流。 這些結果包括來源語言中的已辨識文字，以及其在目標語言中的翻譯。 語調完成之前，可以提供暫時翻譯，而在完成時會提供最終翻譯。
 
 您可以選擇備妥最終翻譯的合成音訊版本，以啟用直正的語音轉換語音翻譯。
 

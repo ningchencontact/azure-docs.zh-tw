@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091401"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403605"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>使用清查收集來管理 Azure 虛擬機器
 
@@ -114,6 +114,10 @@ ms.locfileid: "47091401"
 1. 在 Azure 入口網站的左窗格中，選取 [Log Analytics]，然後選取您在將虛擬機器上架時使用的工作區。
 2. 在 **Log Analytics** 視窗的 [資源] 功能表上，於 [工作區資料來源] 類別下選取 [虛擬機器]。
 3. 在清單中，選取您要中斷連線的虛擬機器。 虛擬機器在 [OMS 連線] 資料行中，**這個工作區**文字旁邊會出現綠色核取記號。
+
+   >[!NOTE]
+   >OMS 現在稱為 Log Analytics。
+   
 4. 在下一個頁面的頂端，選取 [中斷連線]。
 5. 在確認視窗中，選取 [是]。
     這個動作會讓機器脫離管理。

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 9d8509e97ad83dd636f0a1b1892a2fa67c69e0b7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521790"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025612"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>準備匯入工作的硬碟
 
@@ -124,7 +124,7 @@ H,Format,SilentMode,Encrypt,
 將單一/多重目錄複製到單一/多重磁碟的第一個複製工作階段 (取決於在 CSV 檔案中指定的項目) WAImportExport 工具使用於第一個複製工作階段的 PrepImport 命令，會以新的複製工作階段複製目錄和/或檔案︰
 
 ```
-WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] /DataSet:<dataset.csv>
 ```
 
 **範例：**
@@ -309,7 +309,7 @@ WAImportExport 工具是磁碟機準備及修復工具，可搭配 Microsoft Azu
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>哪裡可以找到舊版的 WAImportExport 工具？
 
-WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportExport 工具可讓使用者指定多個來源並寫入多個磁碟機。 此外，使用者可以輕鬆地管理多個來源位置 (資料必須從這些來源位置複製到單一 CSV 檔案)。 不過，萬一您需要 SAS 支援或想要將單一來源複製到單一磁碟，您可以 [下載 WAImportExport V1 工具] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)，並參閱 [WAImportExport V1 參考](storage-import-export-tool-how-to-v1.md) 以取得 WAImportExport V1 使用方式的說明。
+WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportExport 工具可讓使用者指定多個來源並寫入多個磁碟機。 此外，使用者可以輕鬆地管理多個來源位置 (資料必須從這些來源位置複製到單一 CSV 檔案)。 不過，如果您需要 SAS 支援或想要將單一來源複製到單一磁碟，您可以[下載 WAImportExport V1 工具](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)並參閱 [WAImportExport V1 參考](storage-import-export-tool-how-to-v1.md)，以取得 WAImportExport V1 使用方式的說明。
 
 #### <a name="what-is-a-session-id"></a>什麼是工作階段識別碼？
 
@@ -407,7 +407,7 @@ WAImportExport 工具會以批次方式讀取和寫入檔案，一個批次最�
 * [設定 Azure 匯入/匯出工具](storage-import-export-tool-setup.md)
 * [在匯入程序期間設定屬性和中繼資料](storage-import-export-tool-setting-properties-metadata-import.md)
 * [針對匯入作業準備硬碟的簡單工作流程](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [常用命令快速參考](storage-import-export-tool-quick-reference.md) 
+* [常用命令快速參考](storage-import-export-tool-quick-reference.md) 
 * [利用複製記錄檔檢閱作業狀態](storage-import-export-tool-reviewing-job-status-v1.md)
 * [修復匯入作業](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修復匯出作業](storage-import-export-tool-repairing-an-export-job-v1.md)

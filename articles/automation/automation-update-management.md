@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62a7bb9bf63e8ebf97f9aeb5b08bf08ef06da43b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782785"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024489"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -35,26 +35,30 @@ ms.locfileid: "43782785"
 
 ![更新管理程序流程](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-您可以使用更新管理在相同租用戶中的多個訂用帳戶中以原生方式上架機器。 若要管理不同租用戶上的機器，您必須將其上架為[非 Azure 機器](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine)。
+您可以使用更新管理在相同租用戶中的多個訂用帳戶中以原生方式上架機器。 若要管理不同租用戶上的機器，您必須讓它們以[非 Azure 機器](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine)形式上線。
 
-在電腦執行更新合規性掃描之後，代理程式會將大量資訊轉送至 Azure Log Analytics。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。
+發行 CVE 之後，對 Linux 機器而言，需要 2-3 小時的時間，才會顯示修補程式以供評量。  如果是 Windows 機器，則在發行後需要 12-15 小時的時間，才會顯示修補程式以供評量。
+
+在電腦完成更新合規性掃描之後，代理程式會將資訊以大量方式轉送至 Azure Log Analytics。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。
 
 除了掃描排程，如果在更新安裝之前與更新安裝之後重新啟動 MMA，則會在 15 分鐘內起始更新合規性掃描。
 
 針對 Linux 電腦，合規性掃描預設每 3 小時執行一次。 若 MMA 代理程式重新啟動，則會在 15 分鐘內起始合規性掃描。
 
-解決方案會根據您設定要同步處理的來源，回報電腦的最新狀態。 如果 Windows 電腦設定為向 WSUS 回報，則視 WSUS 上次與 Microsoft Update 同步處理的時間而定，結果可能與 Microsoft Update 所顯示的結果不同。 針對設定為向本機存放庫 (而非公用存放庫) 回報的 Linux 電腦，同樣也是如此。
+解決方案會根據您設定要同步處理的來源，回報電腦的最新狀態。 如果 Windows 電腦設定為向 WSUS 回報，則視 WSUS 上次與 Microsoft Update 同步處理的時間而定，結果可能與 Microsoft Update 所顯示的結果不同。 針對設定為向本機存放庫 (而非公用存放庫) 回報的 Linux 電腦，此行為也相同。
 
 > [!NOTE]
 > 為了能正確地向服務回報，「更新管理」需要啟用特定 URL 和連接埠。 若要深入了解這些需求，請參閱[混合式背景工作角色的網路規劃](automation-hybrid-runbook-worker.md#network-planning)。
 
 您可以藉由建立排定的部署，在需要更新的電腦上部署和安裝軟體更新。 歸類為「選擇性」的更新不會包含在 Windows 電腦的部署範圍內。 部署範圍中僅包含必要更新。 
 
-已排定的部署會透過明確指定電腦，或透過選取以一組特定電腦之記錄搜尋為基礎的[電腦群組](../log-analytics/log-analytics-computer-groups.md)，來定義哪些目標電腦會收到適用的更新。 您也可以指定核准排程，並指定允許安裝更新的一段時間。
+已排定的部署會透過明確指定電腦，或透過選取以一組特定電腦之記錄搜尋為基礎的[電腦群組](../log-analytics/log-analytics-computer-groups.md)，來定義哪些目標電腦會收到適用的更新。 您也可以指定核准排程，並設定一段可安裝更新的期間。
 
-在 Azure 自動化中，會由 Runbook 安裝更新。 您無法檢視這些 Runbook，而且這些 Runbook 也不需要任何設定。 建立更新部署之後，更新部署會建立排程，以便在指定的時間內，針對包含的電腦啟動主要更新 Runbook。 這個主要 Runbook 會在每個代理程式上啟動子 Runbook，以安裝必要更新。
+在 Azure 自動化中，會由 Runbook 安裝更新。 您無法檢視這些 Runbook，而且這些 Runbook 也不需要任何設定。 建立更新部署之後，更新部署會建立排程，以便在指定的時間內，針對包含的電腦啟動主要更新 Runbook。 主要 Runbook 會在每個代理程式上啟動子 Runbook，以安裝必要的更新。
 
-到了在更新部署中指定的日期和時間時，目標電腦會以平行方式執行部署。 系統會先執行掃描，以確認更新仍然需要並加以安裝。 針對 WSUS 用戶端電腦，若更新並未在 WSUS 中核准，則更新部署會失敗。
+到了在更新部署中指定的日期和時間時，目標電腦會以平行方式執行部署。 在安裝之前，系統會先執行掃描，以確認仍然需要更新。 針對 WSUS 用戶端電腦，若更新並未在 WSUS 中核准，則更新部署會失敗。
+
+不支援讓一部機器在多個「Log Analytics 工作區」(多重主目錄) 註冊「更新管理」。
 
 ## <a name="clients"></a>用戶端
 
@@ -65,8 +69,8 @@ ms.locfileid: "43782785"
 |作業系統  |注意  |
 |---------|---------|
 |Windows Server 2008、Windows Server 2008 R2 RTM    | 僅支援更新評估。         |
-|Windows Server 2008 R2 SP1 和更新版本     |必須要有 .NET Framework 4.5 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 必須要有 Windows PowerShell 4.0 或更新的版本。 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> 建議使用 Windows PowerShell 5.1 以增加可靠性。  ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。 分類型修補需要 'yum' 來傳回 CentOS 未內建的安全性資料。         |
+|Windows Server 2008 R2 SP1 和更新版本     |必須要有 .NET Framework 4.5.1 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 必須要有 Windows PowerShell 4.0 或更新的版本。 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> 建議使用 Windows PowerShell 5.1 以增加可靠性。  ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。 分類型修補需要 'yum' 才能傳回 CentOS 未內建的安全性資料。         |
 |Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |Ubuntu 14.04 LTS 和 16.04 LTS (x86/x64)      |Linux 代理程式必須能夠存取更新存放庫。         |
@@ -88,9 +92,9 @@ Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠
 
 #### <a name="linux"></a>Linux
 
-針對 Linux，機器必須能夠存取更新存放庫。 更新存放庫可以是私人或公用。 必須使用 TLS 1.1 或 TLS 1.2，才能與更新管理互動。 此解決方案不支援適用於 Linux 且設定為向多個 Log Analytics 工作區回報的 Operations Management Suite (OMS) 代理程式。
+針對 Linux，機器必須能夠存取更新存放庫。 更新存放庫可以是私人或公用。 必須使用 TLS 1.1 或 TLS 1.2，才能與更新管理互動。 此解決方案不支援已設定為向多個 Log Analytics 工作區回報的「適用於 Linux 的 Log Analytics 代理程式」。
 
-如需關於如何安裝適用於 Linux 的 OMS 代理程式及下載最新版本的資訊，請參閱[適用於 Linux 的 Operations Management Suite 代理程式](https://github.com/microsoft/oms-agent-for-linux) \(英文\)。 如需有關如何安裝適用於 Windows 的 OMS 代理程式，請參閱[適用於 Windows 的 Operations Management Suite 代理程式](../log-analytics/log-analytics-windows-agent.md)。
+如需有關如何安裝「適用於 Linux 的 Log Analytics 代理程式」及下載最新版本的資訊，請參閱[適用於 Linux 的 Operations Management Suite 代理程式](https://github.com/microsoft/oms-agent-for-linux) \(英文\)。 如需有關如何安裝「適用於 Windows 的 Log Analytics 代理程式」，請參閱[適用於 Windows 的 Operations Management Suite 代理程式](../log-analytics/log-analytics-windows-agent.md)。
 
 ## <a name="permissions"></a>權限
 
@@ -147,7 +151,7 @@ Heartbeat
 如果代理程式無法與 Log Analytics 通訊，而且代理程式已設定為透過防火牆或 Proxy 伺服器來與網際網路通訊，請確認防火牆或 Proxy 伺服器已正確設定。 若要了解如何確認防火牆或 proxy 伺服器已正確設定，請參閱 [Windows 代理程式的網路設定](../log-analytics/log-analytics-agent-windows.md)或 [Linux 代理程式的網路設定](../log-analytics/log-analytics-agent-linux.md)。
 
 > [!NOTE]
-> 如果您的 Linux 系統是設定為與 Proxy 或 OMS 閘道通訊，而且您要將此解決方案上線，請更新 *proxy.conf* 權限，並使用下列命令將檔案讀取權限授與 omiuser 群組：
+> 如果您的 Linux 系統已設定為與 Proxy 或「Log Analytics 閘道」進行通訊，而且您要將此解決方案上線，則請更新 *proxy.conf* 權限，以使用下列命令將檔案讀取權限授與 omiuser 群組：
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
@@ -190,7 +194,7 @@ Heartbeat
 
 工作區中的所有 Linux 和 Windows 電腦皆進行過更新評估之後，您可以建立「更新部署」來安裝必要的更新。 更新部署是為一或多部電腦排定的必要更新安裝作業。 您應該指定部署的日期和時間，以及應該包含在部署範圍中的電腦或電腦群組。 若要深入瞭解電腦群組，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md)。
 
- 當您將電腦群組納入更新部署時，只會在建立排程時評估一次群組成員資格。 系統不會反映群組的後續變更。 若要因應這個問題，請刪除已排定的更新部署並重新建立。
+ 當您將電腦群組納入更新部署時，只會在建立排程時評估一次群組成員資格。 系統不會反映群組的後續變更。 若要規避這個問題，請使用[動態群組](#using-dynamic-groups)，這些群組會在部署階段被解析，並由查詢定義。
 
 > [!NOTE]
 > 依預設，從 Azure Marketplace 部署的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 當您新增這個解決方案或將 Windows 虛擬機器新增至您的工作區時，此行為並不會變更。 如果您未使用這個解決方案來主動管理更新，則會套用預設行為 (自動套用更新)。
@@ -198,6 +202,23 @@ Heartbeat
 若要避免在 Ubuntu 維護時間範圍以外套用更新，請重新設定自動安裝升級套件以停用自動更新。 如需有關如何設定套件的資訊，請參閱 [Ubuntu Server 指南中的自動更新主題](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) \(英文\)。
 
 需註冊從隨選 Red Hat Enterprise Linux (RHEL) 映像 (可在 Azure Marketplace 中找到) 建立的虛擬機器，以存取部署在 Azure 中的 [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)。 針對任何其他 Linux 發行版本，則必須從發行版本線上檔案存放庫，依照其支援的方法來更新。
+
+若要建立新的更新部署，請選取 [排程更新部署]。 [新增更新部署] 窗格隨即開啟。 為下表描述的屬性輸入相關的值，然後按一下 [建立]：
+
+| 屬性 | 說明 |
+| --- | --- |
+| 名稱 |用以識別更新部署的唯一名稱。 |
+|作業系統| Linux 或 Windows|
+| 要更新的群組 (預覽)|根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建置要包含在您部署中的動態 Azure VM 群組。 若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
+| 要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md) |
+|更新分類|選取您需要的所有更新分類|
+|包含/排除更新|這會開啟 [包含]/[排除] 頁面。 要包含或排除的更新會在個別的索引標籤上。 如需有關如何處理包含的詳細資訊，請參閱[包含行為](automation-update-management.md#inclusion-behavior) |
+|排程設定|選取開始時間，並選取 [一次] 或 [週期性] 以定期執行|
+| 前置指令碼 + 後置指令碼|選取要在部署前和部署後執行的指令碼|
+| 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時 |
+| 重新開機控制| 決定應該如何處理重新開機。 可用選項包括：</br>在必要時重新開機 (預設值)</br>一律重新開機</br>永不重新開機</br>僅重新開機 - 將不會安裝更新|
+
+您也可以透過程式設計方式建立「更新部署」。 若要了解如何使用 REST API 來建立「更新部署」，請參閱[軟體更新設定 - 建立](/rest/api/automation/softwareupdateconfigurations/create)。 此外，也有可用來建立每週「更新部署」的範例 Runbook。 若要深入了解此 Runbook，請參閱[為資源群組中的一或多個 VM 建立每週更新部署](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) \(英文\)。
 
 ## <a name="view-missing-updates"></a>檢視缺少的更新
 
@@ -209,20 +230,7 @@ Heartbeat
 
 ![更新部署結果的概觀](./media/automation-update-management/update-deployment-run.png)
 
-## <a name="create-or-edit-an-update-deployment"></a>建立或編輯更新部署
-
-若要建立新的更新部署，請選取 [排程更新部署]。 [新增更新部署] 窗格隨即開啟。 為下表描述的屬性輸入相關的值，然後按一下 [建立]：
-
-| 屬性 | 說明 |
-| --- | --- |
-| 名稱 |用以識別更新部署的唯一名稱。 |
-|作業系統| Linux 或 Windows|
-| 要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md) |
-|更新分類|選取您需要的所有更新分類|
-|要排除的更新|輸入要排除的更新。 針對 Windows，輸入不含 'KB' 前置詞的 KB。 針對 Linux，輸入套件名稱或使用萬用字元。  |
-|排程設定|選取開始時間，並選取 [一次] 或 [週期性] 以定期執行|
-| 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時 |
-| 重新開機控制| 決定應該如何處理重新開機。 可用選項包括：</br>在必要時重新開機 (預設值)</br>一律重新開機</br>永不重新開機</br>僅重新開機 - 將不會安裝更新|
+若要檢視來自 REST API 的更新部署，請參閱[軟體更新設定](/rest/api/automation/softwareupdateconfigurationruns)。
 
 ## <a name="update-classifications"></a>更新分類
 
@@ -256,7 +264,34 @@ sudo yum -q --security check-update
 
 目前沒有支援的方法可以在 CentOS 上啟用原生分類資料可用性。 目前，只為那些已自行啟用此功能的客戶，提供盡力而為的支援。
 
-## <a name="ports"></a>連接埠
+## <a name="firstparty-predownload"></a>第一方修補和預先下載
+
+「更新管理」會倚賴 Windows Update 來下載及安裝 Windows Updates。 因此，我們會採用 Windows Update 所使用的許多設定。 如果您使用設定來啟用非 Windows 更新，「更新管理」也會管理這些更新。 如果您想要啟用在進行更新部署之前先下載更新的功能，則更新部署將可執行得更快，且更不容易超出維護時段。
+
+### <a name="pre-download-updates"></a>預先下載更新
+
+若要在「群組原則」中設定自動下載更新，您可以將[設定自動更新](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5)設定設為 **3**。 這會在背景中下載所需的更新，但不會進行安裝。 這會讓「更新管理」保有排程的控制權，但允許在「更新管理」維護時段外下載更新。 這可防止發生「更新管理」中的「已超過維護時段」錯誤。
+
+您也可以使用 PowerShell 來進行這項設定，只要在您想要自動下載更新的系統上執行下列 PowerShell 即可。
+
+```powershell
+$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
+$WUSettings.NotificationLevel = 3
+$WUSettings.Save()
+```
+
+### <a name="enable-updates-for-other-microsoft-products"></a>啟用其他 Microsoft 產品的更新
+
+Windows Update 預設只會為 Windows 提供更新。 如果您啟用 [當我更新 Windows 時提供其他 Microsoft 產品的更新]，系統就會為您提供其他產品的更新，包括 SQL Server 或其他第一方軟體的安全性修補程式。 此選項無法由「群組原則」設定。 請在您想要啟用其他第一方修補程式的系統上執行下列 PowerShell，「更新管理」將會採用此設定。
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+
+## <a name="ports"></a>
 
 以下為「更新管理」特別需求的位址。 與這些位址的通訊皆經由連接埠 443 進行。
 
@@ -265,6 +300,7 @@ sudo yum -q --security check-update
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 如需混合式 Runbook 背景工作角色所需連接埠的詳細資訊，請參閱[混合式背景工作角色連接埠](automation-hybrid-runbook-worker.md#hybrid-worker-role)。
 
@@ -484,11 +520,32 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
+## <a name="using-dynamic-groups"></a>使用動態群組 (預覽)
+
+「更新管理」讓您能夠以動態 Azure VM 群組作為更新部署目標。 這些群組會由查詢定義，當更新部署開始時，就會評估該群組的成員。 定義查詢時，可以搭配使用下列項目來填入動態群組
+
+* 訂用帳戶
+* 資源群組
+* 位置
+* 標記
+
+![選取群組](./media/automation-update-management/select-groups.png)
+
+若要預覽動態群組的結果，請按一下 [預覽] 按鈕。 此預覽會顯示該時間的群組成員資格，在此範例中，我們搜尋的是 **Role** 標記等於 **BackendServer** 的機器。 如果有更多機器新增此標記，系統就會將它們都新增至針對該群組進行的所有未來部署。
+
+![預覽群組](./media/automation-update-management/preview-groups.png)
+
 ## <a name="integrate-with-system-center-configuration-manager"></a>與 System Center Configuration Manager 進行整合
 
 投資了 System Center Configuration Manager 來管理電腦、伺服器和行動裝置的客戶也需仰賴 Configuration Manager 的強度和成熟度，以協助他們管理軟體更新。 Configuration Manager 是其軟體更新管理 (SUM) 週期的一部分。
 
 若要了解如何將管理解決方案與 Sytem Center Configuration Manager 整合，請參閱[將 System Center Configuration Manager 與更新管理整合](oms-solution-updatemgmt-sccmintegration.md)。
+
+## <a name="inclusion-behavior"></a>包含行為
+
+更新包含可讓您指定要套用的特定更新。 系統會安裝已包含的修補程式或套件。 當已包含修補程式或套件，並且也已選取分類時，就會同時安裝已包含的項目及符合分類的項目。
+
+請務必了解，排除會覆寫包含。 例如，如果您定義 `*` 排除規則，系統便不會安裝任何修補程式或套件，因為已將它們全部排除。 就 Linux 機器而言，如果已包含某個套件，但排除了它的某個相依套件，就不會安裝該套件。
 
 ## <a name="patch-linux-machines"></a>修補 Linux 機器
 
@@ -506,13 +563,13 @@ Update
 
 ### <a name="critical--security-patches-arent-applied"></a>未套用重大/安全性修補程式
 
-當您將更新部署至 Linux 機器時，可以選取更新分類。 這樣會篩選出要對符合指定準則的項目套用的更新。 此篩選會在更新部署時套用至本機電腦上。
+當您將更新部署至 Linux 機器時，可以選取更新分類。 這會篩選出要對符合指定準則的機器套用的更新。 此篩選會在更新部署時套用至本機電腦上。
 
 由於「更新管理」會在雲端中執行更新擴充，因此有些更新可能會在「更新管理」中標示為有安全性影響，即使本機電腦並沒有該資訊。 因此，如果您將重大更新套用至 Linux 機器，某些未標示為在該機器上有安全性影響的更新，可能不會被套用。
 
 不過，「更新管理」仍可能將該機器回報為不符合規範的機器，因為它對於該相關更新還有其他資訊。
 
-CentOS 預設不支援依更新分類來部署更新。 針對 SUSE，只選取 [其他更新] 作為分類時，如果首先要的是與 zypper (套件管理員) 有關的安全性更新或其相依性時，有可能也會安裝某些安全性更新。 這是 zypper 的限制。 在某些情況下，您可能需要重新執行更新部署，以驗證更新記錄檔。
+CentOS 預設並不支援依更新分類來部署更新。 針對 SUSE，只選取 [其他更新] 作為分類時，如果首先要的是與 zypper (套件管理員) 有關的安全性更新或其相依性時，有可能也會安裝某些安全性更新。 這是 zypper 的限制。 在某些情況下，您可能需要重新執行更新部署，以驗證更新記錄檔。
 
 ## <a name="troubleshoot"></a>疑難排解
 
@@ -527,3 +584,5 @@ CentOS 預設不支援依更新分類來部署更新。 針對 SUSE，只選取 
 
 * 使用 [Log Analytics](../log-analytics/log-analytics-log-searches.md) 中的記錄搜尋，檢視詳細的更新資料。
 * 在偵測到電腦缺少重大更新或電腦已停用自動更新時[建立警示](../log-analytics/log-analytics-alerts.md)。
+
+* 若要了解如何透過 REST API 與「更新管理」進行互動，請參閱[軟體更新設定](/rest/api/automation/softwareupdateconfigurations)

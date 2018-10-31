@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: storage
+author: roygara
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960237"
+---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>以遞增快照集備份 Azure 非受控 VM 磁碟
 ## <a name="overview"></a>概觀
 Azure 儲存體提供拍攝 Blob 快照的功能。 快照會擷取該時間點的 Blob 狀態。 在本文中，我們會說明使用快照集維護虛擬機器磁碟備份的案例。 當您選擇不使用 Azure 的備份和復原服務，但是想要為虛擬機器磁碟建立自訂的備份策略時，您可以使用這個方法。
@@ -49,7 +66,7 @@ Blob 快照是在某個時間點擷取的 Blob 唯讀版本。 一旦建立快�
 您可以執行下列命令，以實作增量快照複製：
 
 * 使用 [快照集 Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)建立基底 Blob 的快照集。
-* 使用 [複製 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)，將快照複製到目標備份儲存體帳戶。 這是備份分頁 Blob。 建立備份分頁 Blob 的快照集，並將其儲存在備份帳戶中。
+* 使用[複製 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)，將快照集複製到相同或任何其他 Azure 區域中的目標備份儲存體帳戶。 這是備份分頁 Blob。 建立備份分頁 Blob 的快照集，並將其儲存在備份帳戶中。
 * 使用快照集 Blob 建立基底 Blob 的另一個快照集。
 * 使用 [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges)，取得基底 Blob 的第一個與第二個快照集之間的差異。 使用新的參數 **prevsnapshot** 指定您要用來取得差異的快照集的 DateTime 值。 當此參數存在時，REST 回應只包含在目標快照集與先前快照集之間變更的分頁 (包括清除分頁)。
 * 使用 [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 將這些變更套用至備份分頁 Blob。
@@ -62,7 +79,7 @@ Blob 快照是在某個時間點擷取的 Blob 唯讀版本。 一旦建立快�
 
 請考慮使用連接進階儲存體 P30 磁碟的 DS 系列 Azure VM。 稱為 *mypremiumdisk* 的 P30 磁碟會儲存在稱為 *mypremiumaccount* 的進階儲存體帳戶中。 稱為 *mybackupstdaccount* 的標準儲存體帳戶用於儲存 *mypremiumdisk* 的備份。 我們想要每 12 小時保留一個 *mypremiumdisk* 的快照集。
 
-若要了解如何建立儲存體帳戶和磁碟，請參閱 [關於 Azure 儲存體帳戶](../articles/storage/storage-create-storage-account.md)。
+若要了解如何建立儲存體帳戶，請參閱[儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。
 
 若要了解如何備份 Azure VM，請參閱 [規劃 Azure VM 備份](../articles/backup/backup-azure-vms-introduction.md)。
 

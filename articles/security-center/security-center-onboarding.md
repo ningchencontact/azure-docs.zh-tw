@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379990"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405441"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>上架到 Azure 資訊安全中心標準版以增強安全性
 升級至資訊安全中心標準版，讓您的混合式雲端工作負載能充分享有強化的安全性管理和威脅防護。  您可以免費試用「標準版」60 天。 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
@@ -82,6 +82,8 @@ ms.locfileid: "44379990"
    ![新增工作區][4]
 
 2. 在 [安全性與稽核] 下，選取 [OMS 工作區] 以建立新的工作區。
+> [!NOTE]
+> OMS 工作區現在稱為 Log Analytics 工作區。
 3. 在 [OMS 工作區] 下，輸入您的工作區資訊。
 4. 在 [OMS 工作區] 下，選取 [確定]。  選取 [確定] 之後，您會得到下載 Windows 或 Linux 代理程式的連結，以及工作區識別碼的金鑰，以用於設定代理程式。
 5. 在 [安全性與稽核] 下，選取 [確定]。

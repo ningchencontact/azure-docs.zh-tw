@@ -12,19 +12,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542239"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945870"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。 如需建立範本的逐步教學課程，請參閱[建立第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
 
+## <a name="quickstarts-and-tutorials"></a>快速入門與教學課程
+
+使用下列快速入門與教學課程來了解如何開發 Resource Manager 範本：
+
+- 快速入門
+
+  	|標題|說明|
+  	|------|-----|
+  	|[使用 Azure 入口網站](./resource-manager-quickstart-create-templates-use-the-portal.md)|使用入口網站來產生範本，以及了解編輯和部署範本的程序。|
+  	|[使用 Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|使用 Visual Studio Code 來建立和編輯範本，以及如何使用 Azure Cloud shell 來部署範本。|
+  	|[使用 Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|使用 Visual Studio 來建立、編輯和部署範本。|
+
+- 教學課程
+
+  	|標題|說明|
+  	|------|-----|
+  	|[利用範本參考](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|利用範本參考文件來開發範本。 在本教學課程中，您會找到儲存體帳戶結構描述，並使用該資訊來建立已加密的儲存體帳戶。|
+  	|[建立多個執行個體](./resource-manager-tutorial-create-multiple-instances.md)|建立多個 Azure 資源執行個體。 在本教學課程中，您會建立多個儲存體帳戶執行個體。|
+  	|[設定資源部署順序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|定義資源相依性。 在本教學課程中，您會建立虛擬網路、虛擬機器及相依的 Azure 資源。 您會了解如何定義相依性。|
+  	|[使用條件](./resource-manager-tutorial-use-conditions.md)|根據一些參數值來部署資源。 在本教學課程中，您會定義範本，以根據參數值建立新的儲存體帳戶或使用現有的儲存體帳戶。|
+  	|[整合金鑰保存庫](./resource-manager-tutorial-use-key-vault.md)|從 Azure Key Vault 擷取祕密/密碼。 在本教學課程中，您會建立虛擬機器。  虛擬機器系統管理員密碼會擷取自 Key Vault。|
+  	|[建立連結的範本](./resource-manager-tutorial-create-linked-templates.md)|將範本模組化，並從某個範本呼叫其他範本。 在本教學課程中，您會建立虛擬網路、虛擬機器及相依的資源。  連結的範本中會定義相依儲存體帳戶。 |
+  	|[使用安全部署做法](./deployment-manager-tutorial.md)|使用 Azure 部署管理員。 |
+
 ## <a name="template-format"></a>範本格式
+
 在最簡單的結構中，範本具有下列元素：
 
 ```json
@@ -279,7 +304,7 @@ ms.locfileid: "45542239"
 ],
 ```
 
-如需詳細資訊，請參閱 [Azure Resource Manager 範本的 Resources 區段](resource-manager-templates-resources.md)。
+若要依據條件在部署時包含或排除某個資源，請使用 [Condition 元素](resource-manager-templates-resources.md#condition)。 如需有關 resources 區段的詳細資訊，請參閱 [Azure Resource Manager 範本的 Resources 區段](resource-manager-templates-resources.md)。
 
 ## <a name="outputs"></a>輸出
 在輸出區段中，您可以指定從部署傳回的值。 例如，您可以傳回 URI 以存取所部署的資源。

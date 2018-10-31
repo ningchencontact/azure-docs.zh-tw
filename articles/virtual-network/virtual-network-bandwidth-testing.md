@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200974"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023813"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>頻寬/輸送量測試 (NTTTCP)
 
@@ -29,11 +29,10 @@ ms.locfileid: "28200974"
 
 #### <a name="deploying-vms-for-testing"></a>部署用於測試的 VM
 基於這項測試的目的，兩個 VM 應該位於相同的「雲端服務」或相同的「可用性設定組」中，以便我們使用其內部 IP 並將「負載平衡器」從測試中排除。 您可以使用 VIP 進行測試，但這類型的測試不在本文件的涵蓋範圍內。
- 
+ 
 記下「傳送端」的 IP 位址。 讓我將該 IP 稱為 "a.b.c.r"
 
-記下該 VM 上的核心數目。 讓我們將此稱為 "\#num\_cores"
- 
+記下該 VM 上的核心數目。 讓我們將此稱為 "\#num\_cores"  
 在傳送端 VM 和接收端 VM 上執行長達 300 秒 (或 5 分鐘) 的 NTTTCP 測試。
 
 提示：第一次設定此測試時，您可以嘗試較短的測試期間以更快獲得回饋。 在工具如預期般運作之後，請將測試期間延長到 300 秒以獲得最精確的結果。
@@ -56,7 +55,7 @@ ms.locfileid: "28200974"
 
 下載最新版本：<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
-或搜尋它 (如果已移動)：<https://www.bing.com/search?q=ntttcp+download>\< -- 應該是第一個點選項目
+或如果它已移動，則進行搜尋：<https://www.bing.com/search?q=ntttcp+download>\< -- 應該會是第一個命中項目
 
 請考慮將 NTTTCP 放在個別的資料夾，例如 c:\\tools
 
@@ -67,7 +66,7 @@ ms.locfileid: "28200974"
 
 netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
-例如，如果您將 ntttcp.exe 複製到 "c:\\tools" 資料夾，則命令會是這樣： 
+例如，如果您將 ntttcp.exe 複製到 "c:\\tools" 資料夾，則命令會是這樣： 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
@@ -84,32 +83,32 @@ ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 啟動「傳送端」上的 NTTTCP (**從 CMD 執行**，不是從 PowerShell)：
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 等候結果。
 
 
 ## <a name="testing-vms-running-linux"></a>測試執行 Linux 的 VM：
 
-請使用 nttcp-for-linux。 可從 <https://github.com/Microsoft/ntttcp-for-linux> 取得
+請使用 nttcp-for-linux。 您可以從 <https://github.com/Microsoft/ntttcp-for-linux> 取得它
 
 在 Linux VM (「傳送端」和「接收端」兩者) 上，執行下列命令以在 VM 上準備 ntttcp-for-linux：
 
 CentOS - 安裝 Git：
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu - 安裝 Git：
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
 在兩部機器上都建立並安裝：
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 與 Windows 範例中相同，我們假設 Linux「接收端」的 IP 為 10.0.0.4
@@ -125,7 +124,7 @@ ntttcp -r -t 300
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 如果未提供時間參數，則測試時間長度預設為 60 秒
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>在執行 Windows 和 LINUX 的 VM 之間進行測試：
@@ -169,5 +168,5 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 
 ## <a name="next-steps"></a>後續步驟
 * 視結果而定，可能有將您案例的[網路輸送量機器最佳化](virtual-network-optimize-network-bandwidth.md)的空間。
-* 了解[頻寬配置給虛擬機器] (virtual-machine-network-throughput.md)的方式
+* 了解如如何[將頻寬配置給虛擬機器](virtual-machine-network-throughput.md)
 * 深入了解 [Azure 虛擬網路常見問題集 (FAQ)](virtual-networks-faq.md)

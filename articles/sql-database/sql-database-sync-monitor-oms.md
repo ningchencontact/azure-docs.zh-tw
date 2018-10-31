@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163353"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409674"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>使用 Log Analytics 監視 SQL 資料同步 
 
@@ -97,7 +97,7 @@ ms.locfileid: "47163353"
 
     2.  同步群組資訊。
 
-    3.  OMS 資訊。 在 OMS 入口網站 | 設定 | 連接的來源，尋找這項資訊。 如需有關將資料傳送給 Log Analytics 的詳細資訊，請參閱[使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (預覽)](../log-analytics/log-analytics-data-collector-api.md)。
+    3.  Log Analytics 資訊。 在 Azure 入口網站 | 設定 | 連接的來源中，尋找這項資訊。 如需將資料傳送給 Log Analytics 的詳細資訊，請參閱[使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (預覽)](../log-analytics/log-analytics-data-collector-api.md)。
 
 11. 在 [測試] 窗格中執行 Runbook。 檢查並確定已順利完成。
 
@@ -117,7 +117,7 @@ ms.locfileid: "47163353"
 
 4.  選取 [建立新的排程]。
 
-5.  將 [週期] 設為 [週期性] 並設定所要的間隔。 在指令碼與 OMS 中，使用與此處相同的間隔。
+5.  將 [週期] 設為 [週期性] 並設定所要的間隔。 在指令碼與 Log Analytics 中，使用與此處相同的間隔。
 
 6.  選取 [建立] 。
 
@@ -129,7 +129,7 @@ ms.locfileid: "47163353"
 
 若要建立使用 Log Analytics 的警示，請執行下列動作。 必要條件是您必須具備與 Log Analytics 工作區連結的 Log Analytics。
 
-1.  在 OMS 入口網站中，選取 [記錄搜尋]。
+1.  在 Azure 入口網站中，選取 [記錄搜尋]。
 
 2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如︰
 
@@ -147,9 +147,9 @@ ms.locfileid: "47163353"
 
 6.  按一下 [檔案] 。 現在，指定的收件者即可在發生錯誤時，收到電子郵件通知。
 
-## <a name="create-an-oms-view-for-monitoring"></a>建立用於監視的 OMS 檢視
+## <a name="create-a-log-analytics-view-for-monitoring"></a>建立 Log Analytics 檢視以進行監視
 
-此步驟會建立一個 OMS 檢視，讓您以視覺方式監視所有指定的同步群組。 這個檢視包含數個元件：
+此步驟會建立一個 Log Analytics 檢視，讓您以視覺方式監視所有指定的同步群組。 這個檢視包含數個元件：
 
 -   概觀圖格，其中顯示所有同步群組的錯誤次數、成功次數和警告次數。
 
@@ -157,9 +157,9 @@ ms.locfileid: "47163353"
 
 -   每個同步群組的圖格，其會顯示錯誤次數、成功次數和警告次數，以及最近的錯誤訊息。
 
-若要設定 OMS 檢視，請執行下列動作：
+若要設定 Log Analytics 檢視，請執行下列動作：
 
-1.  在 OMS 的首頁上，選取左側的加號以開啟**檢視表設計工具**。
+1.  在 Log Analytics 首頁上，選取左側的加號以開啟**檢視表設計工具**。
 
 2.  選取檢視表設計工具頂端列的 [匯入]。 然後選取 "DataSyncLogOMSView" 範例檔案。
 

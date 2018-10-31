@@ -11,20 +11,23 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 4f6c98533a2ab1289ca5f1da25c44fe1a77a983c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353660"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945462"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database 和 SQL 資料倉儲防火牆規則
 
 Microsoft Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)可為 Azure 和其他網際網路型應用程式提供關聯式資料庫服務。 為了協助保護您的資料，防火牆會防止對您的資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與資料庫存取權。
 
 > [!NOTE]
-> 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
+> 本文適用於 Azure SQL Server，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 
+
+> [!IMPORTANT]
+> 本文「不」適用於 **Azure SQL Database 受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
 
 ## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>虛擬網路規則可作為 IP 規則的替代方案
 
@@ -80,7 +83,7 @@ Microsoft 建議在可行時使用資料庫層級防火牆規則來增強安全�
 
 ## <a name="creating-and-managing-firewall-rules"></a>建立和管理防火牆規則
 
-您可使用 [Azure 入口網站](https://portal.azure.com/)，或是以程式設計方式使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)，建立第一個伺服器層級防火牆設定。 後續的伺服器層級防火牆規則可以使用這些方法，以及透過 Transact-SQL 來建立和管理。
+您可使用 [Azure 入口網站](https://portal.azure.com/)，或是以程式設計方式使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)，建立第一個伺服器層級防火牆設定。 後續的伺服器層級防火牆規則可以使用這些方法，以及透過 Transact-SQL 來建立和管理。
 
 > [!IMPORTANT]
 > 資料庫層級防火牆規則只能使用 Transact-SQL 來建立和管理。
@@ -189,10 +192,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Level | 說明 |
 | --- | --- | --- |
-| [列出防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver) |伺服器 |顯示目前的伺服器層級防火牆規則 |
-| [建立或更新防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate) |伺服器 |建立或更新伺服器層級防火牆規則 |
-| [刪除防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete) |伺服器 |移除伺服器層級防火牆規則 |
-| [取得防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get) | 伺服器 | 取得伺服器層級防火牆規則 |
+| [列出防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |伺服器 |顯示目前的伺服器層級防火牆規則 |
+| [建立或更新防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |伺服器 |建立或更新伺服器層級防火牆規則 |
+| [刪除防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |伺服器 |移除伺服器層級防火牆規則 |
+| [取得防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | 伺服器 | 取得伺服器層級防火牆規則 |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>伺服器層級防火牆規則與資料庫層級防火牆規則
 

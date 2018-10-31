@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432880"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638419"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
 
@@ -25,9 +25,9 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 Azure 儲存體提供三種儲存體帳戶。 每個類型都支援不同的功能，而且都有自己的計價模式。 您在建立儲存體帳戶之前請先考量這些差異，以判斷您的應用程式最適用的帳戶類型。 儲存體帳戶的類型如下：
 
-* **一般用途 v2** 帳戶 (建議用於大部分的案例)
-* **一般用途 v1** 帳戶
-* **Blob 儲存體**帳戶
+* **[一般用途 v2 帳戶](#general-purpose-v2-accounts)** (建議用於大部分的案例)
+* **[一般用途 v1 帳戶](#general-purpose-v1-accounts)**
+* **[Blob 儲存體帳戶](#blob-storage-accounts)** 
 
 下表描述儲存體帳戶類型及其功能：
 
@@ -41,7 +41,7 @@ Azure 儲存體提供三種儲存體帳戶。 每個類型都支援不同的功�
 
 <sup>2</sup>所有儲存體帳戶會使用待用資料的 Azure 儲存體服務加密 (SSE) 進行加密。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](storage-service-encryption.md)。
 
-<sup>3</sup>封存儲存層只可使用於個別 Blob 層級，而不可使用於儲存體帳戶層級。 只可以封存區塊 Blob 和附加 Blob。 如需詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
+<sup>3</sup>封存儲存層適用於於個別 Blob 的等級，不適用於儲存體帳戶層級。 只可以封存區塊 Blob 和附加 Blob。 如需詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
 <sup>4</sup>區域備援儲存體 (ZRS) 僅適用於標準的一般用途 v2 儲存體帳戶。 如需 ZRS 的詳細資訊，請參閱[區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式](storage-redundancy-zrs.md)。 如需其他複寫選項的詳細資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)。
 
@@ -49,13 +49,16 @@ Azure 儲存體提供三種儲存體帳戶。 每個類型都支援不同的功�
 
 一般用途 v2 儲存體帳戶能支援最新的 Azure 儲存體功能，而且包含一般用途 v1 與 Blob 儲存體帳戶的所有功能。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。 一般用途 v2 儲存體帳戶支援這些 Azure 儲存體服務：
 
-- Blobs (所有類型)
+- Blob (所有類型：區塊、附加、分頁)
 - 檔案
 - 磁碟
 - 佇列
 - 資料表
 
-Microsoft 建議，在大部分情況下使用一般用途 v2 儲存體帳戶。 您不需停機或重寫應用程式，也不必複製資料，即可輕鬆地將一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 帳戶。 如需有關如何升級至一般用途 v2 帳戶的詳細資訊，請參閱[升級至一般用途 v2 儲存體帳戶](storage-account-upgrade.md)。 
+> [!NOTE]
+> Microsoft 建議，在大部分情況下使用一般用途 v2 儲存體帳戶。 您不需停機，也不必複製資料，即可輕鬆地將一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 帳戶。
+>
+> 如需有關如何升級至一般用途 v2 帳戶的詳細資訊，請參閱[升級至一般用途 v2 儲存體帳戶](storage-account-upgrade.md)。 
 
 一般用途 v2 儲存體帳戶提供多個存取層，以便根據您的使用量模式來儲存資料。 如需詳細資訊，請參閱[區塊 blob 資料的存取層](#access-tiers-for-block-blob-data)。
 
@@ -103,19 +106,20 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 
 可用的存取層如下：
 
-* **經常性**存取層，最適合用於儲存體帳戶中經常存取的物件。 存取經常性存取層中的資料最具成本效益，然而儲存成本稍高。 預設會在經常性存取層中建立新的儲存體帳戶。
-* **非經常性**存取層，最適合用於儲存不常存取且至少儲存 30 天的大量資料。 在非經常性存取層中儲存資料更符合成本效益，但是存取該資料可能比存取經常性存取層中的資料更為昂貴。
-* **封存**存取層，只適用於個別的區塊 blob。 封存存取層最適合於可承受擷取延遲數個小時，而且將保留在封存層中至少 180 天的資料。 封存層是最具成本效益的資料儲存選項，但是存取該資料可能比存取經常性或非經常性存取層中的資料更為昂貴。 
-
 > [!NOTE]
 > [進階存取層](../blobs/storage-blob-storage-tiers.md#premium-access-tier)會在北歐、美國東部 2、美國中部和美國西部區域，以有限預覽狀態的本地備援儲存體 (LRS) 帳戶形式提供。 若要了解如何註冊預覽版，請參閱 [Azure 進階 Blob 儲存體簡介](http://aka.ms/premiumblob)。
 
-如果您的資料使用模式有變動，您可以隨時在這些存取層之間切換。 
+* **經常性**存取層，最適合用於儲存體帳戶中經常存取的物件。 存取經常性存取層中資料的成本效益最高，而儲存成本稍高。 預設會在經常性存取層中建立新的儲存體帳戶。
+* **非經常性**存取層，最適合用於儲存不常存取且至少儲存 30 天的大量資料。 在非經常性存取層中儲存資料更符合成本效益，但是存取該資料可能比存取經常性存取層中的資料更為昂貴。
+* **封存**層，只適用於個別的區塊 Blob。 封存存取層最適合於可容許擷取延遲數個小時，而且將在封存存取層中至少保留 180 天的資料。 封存存取層是最具成本效益的資料儲存選項，但是存取該資料可能比存取經常性或非經常性存取層中的資料更為昂貴。 
+
+
+如果您的資料使用模式有變動，您可以隨時在這些存取層之間切換。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體︰進階 (預覽)、經常性儲存層、非經常性儲存層和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
 > [!IMPORTANT]
-> 變更現有儲存體帳戶或 Blob 的存取層可能會導致額外的費用。
+> 變更現有儲存體帳戶或 Blob 的存取層可能會導致額外的費用。 如需詳細資訊，請參閱[儲存體帳戶計費](#storage-account-billing)小節。
 
-如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體︰進階 (預覽)、經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
+
 
 ## <a name="replication"></a>複寫
 

@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b688ca6faaa7e0d84dff0ae28e2a9b8b8279490
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856873"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408824"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 
-Azure 透過 Azure Active Directory (Azure AD)、Azure Operations Management Suite (OMS) 和 Azure 資訊安全中心這類服務，來提供內建進階威脅偵測功能。 這個安全性服務和功能集合提供簡單且快速的方式，來了解您 Azure 部署內的一舉一動。
+Azure 透過 Azure Active Directory (Azure AD)、Azure Log Analytics 和 Azure 資訊安全中心這類服務，提供內建的進階威脅偵測功能。 這個安全性服務和功能集合提供簡單且快速的方式，來了解您 Azure 部署內的一舉一動。
 
-Azure 提供各種選項來設定和自訂安全性，以符合您應用程式部署的需求。 本文討論如何符合這些需求。
+Azure 提供各種選項來設定和自訂安全性，以符合您應用程式部署的需求。 本文討論如何滿足這些需求。
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 是 [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 版本功能，提供可影響組織身分識別之風險事件和潛在弱點的概觀。 Identity Protection 使用現有 Azure AD 異常偵測功能 (可透過 [Azure AD 異常活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports)取得)，並引進可即時偵測異常的新風險事件類型。
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 是 [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions)  版本的功能，能針對可影響組織身分識別的風險事件和潛在弱點提供概觀。 Identity Protection 使用現有的 Azure AD 異常偵測功能 (可透過 [Azure AD 異常活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports)取得)，並引進可即時偵測異常的新風險事件類型。
 
 ![Azure AD Identity Protection 圖表](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 
-Identity Protection 會使用調適性機器學習演算法和啟發學習法，來偵測異常以及可能表示身分識別已遭入侵的風險事件。 Identity Protection 會使用此資料來產生報告和警示，讓您可以調查這些風險事件並採取適當的補救動作或緩和措施。
+Identity Protection 會使用調適性機器學習演算法和啟發學習法，來偵測異常事件和風險事件，而這些事件都可能表示身分識別已遭到入侵。 Identity Protection 會使用此資料來產生報告和警示，讓您可以調查這些風險事件並採取適當的補救動作或緩和措施。
 
 Azure Active Directory Identity Protection 不只是監視和報告工具而已。 Identity Protection 會根據風險事件，計算每位使用者的使用者風險層級，讓您設定風險原則來自動保護您組織的身分識別。
 
@@ -48,7 +48,7 @@ Azure Identity Protection 可用以協助保護您的帳戶和身分識別的一
 [偵測風險事件和有風險的帳戶](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#detection)
 -   使用機器學習和啟發式規則偵測六種風險事件類型。
 -   計算使用者風險層級。
--   提供自訂建議，藉由醒目提示弱點來改善整體安全性狀態。
+-   提供自訂建議，藉由將弱點醒目提示來改善整體安全性狀態。
 
 [調查風險事件](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#investigation)
 -   傳送風險事件的通知。
@@ -56,7 +56,7 @@ Azure Identity Protection 可用以協助保護您的帳戶和身分識別的一
 -   提供基本工作流程來追蹤調查。
 -   讓您輕鬆存取補救動作 (例如重設密碼)。
 
-[風險條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[以風險為基礎的條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
 -   封鎖登入或要求 Multi-Factor Authentication 挑戰，以阻止高風險登入。
 -   封鎖或保護有風險的使用者帳戶。
 -   要求使用者註冊 Multi-Factor Authentication。
@@ -69,31 +69,31 @@ Azure Identity Protection 可用以協助保護您的帳戶和身分識別的一
 
 PIM 可協助您：
 
--   取得 Azure AD 系統管理員以及對 Office 365 和 Intune 這類 Microsoft 線上服務之 Just-In-Time (JIT) 系統管理存取權的警示和報告。
+-   針對 Azure AD 系統管理員以及 Office 365 和 Intune 這類 Microsoft 線上服務的 Just-In-Time (JIT) 系統取得管理存取權的警示和報告。
 
 -   取得有關系統管理員存取記錄與系統管理員指派變更的報告。
 
 -   取得有關特殊權限角色存取的警示。
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 是 Microsoft 雲端式 IT 管理解決方案，可協助您管理及保護內部部署和雲端基礎結構。 因為 OMS 實作為雲端式服務，所以您對基礎結構服務進行最小的投資就可以快速啟動並執行它。 會自動提供新的安全性功能，以節省持續維護和升級成本。
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 因為 Log Analytics 實作為雲端型服務，所以您對基礎結構服務進行最小的投資就可以快速啟動並執行它。 會自動提供新的安全性功能，以節省持續維護和升級成本。
 
-除了自行提供重要服務之外，OMS 還可以整合 System Center 元件 (例如 [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/))，以將現有的安全性管理投資擴充到雲端。 System Center 和 OMS 可以搭配運作，來提供完整的混合式管理經驗。
+除了自行提供重要服務之外，Log Analytics 還可以整合 System Center 元件 (例如 [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/))，以便將現有的安全性管理投資擴充到雲端。 System Center 和 Log Analytics 可以搭配運作，來提供完整的混合式管理經驗。
 
 ### <a name="holistic-security-and-compliance-posture"></a>整體安全性與合規性狀態
 
-[OMS 安全性與稽核儀表板](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)針對值得您注意的問題，使用內建的搜尋查詢，為您組織的 IT 安全性狀態提供全面檢視。 [安全性和稽核] 儀表板是 OMS 中所有安全性相關項目的主畫面。 它可讓您深入了解您的電腦的安全性狀態。 您也可以檢視過去 24 小時、7 天或任何其他自訂時間範圍內的所有事件。
+[Log Analytics 安全性與稽核儀表板](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)針對值得您注意的問題，使用內建的搜尋查詢，為您組織的 IT 安全性狀態提供全面檢視。 [安全性和稽核] 儀表板是 Log Analytics 中所有安全性相關項目的主畫面。 它可讓您深入了解您的電腦的安全性狀態。 您也可以檢視過去 24 小時、7 天或任何其他自訂時間範圍內的所有事件。
 
-OMS 儀表板可協助您快速且輕鬆地了解任何環境的整體安全性狀態，全部都在 IT 作業的內容中，包括軟體更新評定、反惡意程式碼評定和設定基準。 可立即存取安全性記錄資料，以簡化安全性與合規性稽核程序。
+Log Analytics 可協助您快速且輕鬆地了解任何環境的整體安全性狀態，全部都在 IT 作業的內容中，包括軟體更新評定、反惡意程式碼評定和設定基準。 可立即存取安全性記錄資料，以簡化安全性與合規性稽核程序。
 
-![OMS 安全性與稽核儀表板](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
+![Log Analytics 安全性與稽核儀表板](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
-[OMS 安全性與稽核] 儀表板分為四個主要類別︰
+[Log Analytics 安全性與稽核] 儀表板分為四個主要類別︰
 
 -   **安全性網域**︰可讓您進一步探索一段時間的安全性記錄；存取惡意程式碼評定；更新評定；檢視網路安全性、身分識別和存取資訊；檢視具有安全性事件的電腦，以及快速存取 Azure 資訊安全中心儀表板。
 
--   **值得注意的問題**︰可讓您快速識別作用中問題數目和問題嚴重性。
+-   **值得注意的問題**︰可讓您快速識別作用中的問題數目和問題嚴重性。
 
 -   **偵測 (預覽)**︰可讓您顯示資源所發生的安全性警示，進而識別攻擊模式。
 
@@ -102,31 +102,31 @@ OMS 儀表板可協助您快速且輕鬆地了解任何環境的整體安全性�
 -   **常見安全性查詢**︰列出最常見的安全性查詢，以用來監視您的環境。 當您選取任何查詢時，即會開啟 [搜尋] 窗格，並顯示該查詢的結果。
 
 ### <a name="insight-and-analytics"></a>見解與分析
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 的中心是 Azure 所裝載的 OMS 存放庫。
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 的中心是 Azure 所裝載的存放庫。
 
 ![見解和分析圖表](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 您可以藉由設定資料來源並將解決方案新增至訂用帳戶，將資料從連線的來源收集到存放庫。
 
-![OMS 儀表板 ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Log Analytics 儀表板 ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
-資料來源和解決方案各會建立具有其專屬屬性集的不同記錄類型，但您仍然可以一起分析它們來查詢存放庫。 您可以使用相同的工具和方法，來處理各種來源所收集的各種資料。
+資料來源和解決方案各會建立具有其專屬屬性集的不同記錄類型，但仍能一起分析來查詢存放庫。 您可以使用相同的工具和方法，來處理各種來源所收集的各種資料。
 
 
-與 Log Analytics 的大部分互動都會透過 OMS 入口網站，它可以在任何瀏覽器中執行，並讓您存取組態設定和多項工具來分析及處理所收集的資料。 從入口網站中，您可以使用：
+與 Log Analytics 的大部分互動都會透過 Azure 入口網站，它可以在任何瀏覽器中執行，並讓您存取組態設定和多項工具來分析及處理所收集的資料。 從入口網站中，您可以使用：
 * [記錄搜尋](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)，以建構查詢來分析收集的資料。
 * [儀表板](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards)，可使用最有價值搜尋的圖形檢視來自訂。
 * [解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)，提供額外的功能和分析工具。
 
 ![分析工具](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-方案會將功能加入 Log Analytics。 它們主要是在雲端執行，並提供 OMS 存放庫中所收集資料的分析。 解決方案也可能會定義要收集的新記錄類型，以使用記錄搜尋來進行分析，或藉由使用解決方案在 OMS 儀表板中所提供的其他使用者介面來進行分析。
+方案會將功能加入 Log Analytics。 它們主要是在雲端執行，並提供 Log Analytics 存放庫中所收集資料的分析。 解決方案也可能會定義要收集的新記錄類型，以使用記錄搜尋來進行分析，或藉由使用解決方案在 Log Analytics 儀表板中所提供的其他使用者介面來進行分析。
 
 [安全性與稽核] 儀表板是這類解決方案的範例。
 
 ### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>自動化與控制︰有關安全性設定漂移的警示
 
-Azure 自動化會使用根據 PowerShell 在雲端中執行的 Runbook，來自動化管理程序。 Runbook 也可以在本機資料中心的伺服器上執行，以管理本機資源。 Azure 自動化會使用 PowerShell Desired State Configuration (DSC) 來提供設定管理。
+Azure 自動化會使用以 PowerShell 為基礎並在雲端中執行的 Runbook，來將管理程序自動化。 Runbook 也可以在本機資料中心的伺服器上執行，以管理本機資源。 Azure 自動化會使用 PowerShell Desired State Configuration (DSC) 來提供設定管理。
 
 ![Azure 自動化圖表](./media/azure-threat-detection/azure-threat-detection-fig7.png)
 
@@ -148,11 +148,11 @@ Microsoft 資訊安全研究人員會持續監視威脅。 他們可以存取從
 
 資訊安全中心的安全性警示會排定優先順序，並提供如何補救威脅的建議。
 
-資訊安全中心會運用進階安全性分析，其遠勝於以簽章為基礎的方法。 巨量資料和[機器學習](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/)技術中的突破用來評估整個雲端網狀架構中的所有事件。 進階分析可以偵測無法透過手動方法並預測攻擊進化的威脅。 下列各節涵蓋這些安全性分析類型。
+資訊安全中心會運用進階安全性分析，其遠勝於以簽章為基礎的方法。 巨量資料和[機器學習](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/)技術中的突破用來評估整個雲端網狀架構中的所有事件。 進階分析可以偵測無法透過手動方法識別並預測攻擊進化的威脅。 下列各節涵蓋這些安全性分析類型。
 
 ### <a name="threat-intelligence"></a>威脅情報
 
-Microsoft 可以存取大量全域威脅情報。
+Microsoft 可以存取大量的全域威脅情報。
 
 遙測會從多個來源流入，例如 Azure、Office 365、Microsoft CRM Online、Microsoft Dynamics AX、outlook.com、MSN.com、Microsoft 數位犯罪防治中心 (DCU) 和 Microsoft 安全性回應中心 (MSRC)。
 
@@ -162,9 +162,9 @@ Microsoft 可以存取大量全域威脅情報。
 
 -   **運用機器學習服務的力量**：Azure 資訊安全中心可以存取雲端網路活動的大量資料，可用來偵測目標為您 Azure 部署的潛在威脅。
 
--   **暴力密碼破解偵測**：機器學習用來建立嘗試遠端存取的歷程記錄模式，使其得以偵測到對於安全殼層 (SSH)、遠端桌面通訊協定 (RDP) 和 SQL 連接埠的暴力密碼破解攻擊。
+-   **暴力密碼破解偵測**：使用機器學習來建立嘗試遠端存取的歷程記錄模式，使其得以偵測到對於安全殼層 (SSH)、遠端桌面通訊協定 (RDP) 和 SQL 連接埠的暴力密碼破解攻擊。
 
--   **輸出 DDoS 和 Botnet 偵測**：目標為雲端資源之攻擊的常見目標是使用這些資源的計算能力來執行其他攻擊。
+-   **輸出 DDoS 和 Botnet 偵測**：當雲端資源淪為攻擊的目標時，攻擊者常常是為了使用那些資源的計算能力來執行更多攻擊。
 
 -   **新的行為分析伺服器和 VM**：在伺服器或虛擬機器遭到入侵之後，攻擊者就能用各種不同的技術，在該系統上執行惡意程式碼，同時避開偵測、確保持續性，並迴避安全性控制。
 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: d4ed53cf1f0d21e488631434b60309602169b59a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004645"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985161"
 ---
-# <a name="event-hubs-diagnostic-logs"></a>事件中樞診斷記錄檔
+# <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>為 Azure 事件中樞設定診斷記錄
 
 您可以檢視 Azure 事件中樞的兩種記錄檔類型：
 
@@ -70,7 +70,7 @@ ms.locfileid: "40004645"
 
 封存記錄檔 JSON 字串包括下表所列的元素：
 
-Name | 描述
+名稱 | 描述
 ------- | -------
 TaskName | 失敗工作的描述。
 ActivityId | 用於追蹤的內部識別碼。
@@ -108,7 +108,7 @@ category | ArchiveLogs
 
 作業記錄 JSON 字串包括下表所列的元素：
 
-Name | 說明
+名稱 | 說明
 ------- | -------
 ActivityId | 用於追蹤目的的內部識別碼。
 EventName | 作業名稱。  

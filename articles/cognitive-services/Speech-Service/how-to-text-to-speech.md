@@ -1,22 +1,23 @@
 ---
-title: 透過語音服務使用文字轉換語音
+title: 使用語音服務中的文字轉換語音
+titleSuffix: Azure Cognitive Services
 description: 了解如何使用語音服務中的文字轉換語音。
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165040"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469907"
 ---
-# <a name="use-text-to-speech-in-speech-service"></a>使用語音服務中的文字轉換語音
+# <a name="use-text-to-speech-in-speech-service"></a>使用語音服務中的「文字轉換語音」
 
 語音服務可透過簡單的 HTTP 要求提供文字轉換語音功能。 您可以將要說出的文字張貼 (`POST`) 到適當的端點，服務就會傳回包含合成語音的音訊檔案 (`.wav`)。 接著，您的應用程式可以視需要使用此音訊。
 

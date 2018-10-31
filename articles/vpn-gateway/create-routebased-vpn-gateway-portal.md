@@ -1,28 +1,20 @@
 ---
 title: 建立路由型 VPN 閘道：Azure 入口網站 | Microsoft Docs
-description: 使用 Azure 入口網站快速建立路由型 VPN 閘道
+description: 使用 Azure 入口網站來建立路由型 VPN 閘道
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 550f655f6eac5a114636978255578eb3753e0d4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918127"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470297"
 ---
-# <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>使用 Azure 入口網站建立路由型 VPN 閘道
+# <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>使用 Azure 入口網站來建立路由型 VPN 閘道
 
 本文將協助您使用 Azure 入口網站，快速建立路由型 Azure VPN 閘道。  建立與內部部署網路的 VPN 連線時，會使用 VPN 閘道。 您也可以使用 VPN 閘道來連線至 VNet。 
 
@@ -54,12 +46,12 @@ ms.locfileid: "30918127"
 2. 在您的虛擬網路頁面上，按一下 [子網路] 以展開 [VNet1 - 子網路] 頁面。
 3. 按一下頂端的 [+閘道子網路] 以開啟 [新增子網路] 頁面。
 
-  ![新增閘道子網路](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "新增閘道子網路")
+  ![新增閘道子網路](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "新增閘道子網路")
 4. 子網路的**名稱**會自動填入 'GatewaySubnet' 這個必要值。 調整自動填入的**位址範圍**值，以符合下列值：
 
   **位址範圍 (CIDR 區塊)**：10.1.255.0/27
 
-  ![新增閘道子網路](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "新增閘道子網路")
+  ![新增閘道子網路](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "新增閘道子網路")
 5. 若要建立閘道子網路，按一下頁面底部的 [確定]。
 
 ## <a name="gwvalues"></a>設定閘道設定
@@ -74,33 +66,19 @@ ms.locfileid: "30918127"
   - **SKU**：VpnGw1
   - **位置**：美國東部
   - **虛擬網路**：按一下 [虛擬網路/選擇虛擬網路] 以開啟 [選擇虛擬網路] 頁面。 選取 [VNet1]。
+  - **公用 IP 位址**：此設定可指定會與 VPN 閘道建立關聯的公用 IP 位址物件。 建立 VPN 閘道時，系統會將公用 IP 位址動態指派給此物件。 VPN 閘道目前僅支援*動態*公用 IP 位址配置。 不過，這不表示 IP 位址變更之後已被指派至您的 VPN 閘道。 公用 IP 位址只會在刪除或重新建立閘道時變更。 它不會因為重新調整、重設或 VPN 閘道的其他內部維護/升級而變更。
 
-  ![設定閘道設定](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "設定閘道設定")
+    - 將 [新建] 保持選取。
+    - 在文字方塊中，輸入公用 IP 位址的 [名稱]。 針對本練習，請使用 **VNet1GWIP**。<br>
 
-## <a name="pip"></a>建立公用 IP 位址
-
-VPN 閘道必須具有動態配置的公用 IP 位址。 當您建立與 VPN 閘道的連線時，這就是您內部部署裝置連線的 IP 位址。
-
-1. 選取 [第一個 IP 設定] > [建立閘道 IP 設定]，以要求公用 IP 位址。
-
-  ![第一個 IP 設定](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "第一個 IP 設定")
-2. 在 [選擇公用 IP 位址] 頁面上，按一下 [+新建] 以開啟 [建立公用 IP 位址] 頁面。
-3. 使用下列值進行設定：
-
-  - **名稱**：**VNet1GWIP**
-  - **SKU**：**基本**
-
-  ![建立公用 IP](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "建立 PIP")
-4. 按一下此頁面底部的 [確定] 來儲存變更。
+    ![設定閘道設定](./media/create-routebased-vpn-gateway-portal/gw.png "設定閘道設定")
 
 ## <a name="creategw"></a>建立 VPN 閘道
 
 1. 確認 [建立虛擬網路閘道] 頁面上的設定。 如有必要，請調整值。
-
-  ![建立 VPN 閘道](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "建立 VPN 閘道")
 2. 按一下頁面底部的 [建立]。
 
-按一下 [建立] 之後，即會驗證設定，而 [部署虛擬網路閘道] 圖格會出現在儀表板上。 可能需要 45 分鐘的時間才能建立 VPN 閘道。 您可能需要重新整理入口網站頁面，才能看到完成的狀態。
+  按一下 [建立] 之後，即會驗證設定，而 [部署虛擬網路閘道] 圖格會出現在儀表板上。 可能需要 45 分鐘的時間才能建立 VPN 閘道。 您可能需要重新整理入口網站頁面，才能看到完成的狀態。
 
 ## <a name="viewgw"></a>檢視 VPN 閘道
 

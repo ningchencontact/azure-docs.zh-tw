@@ -2,20 +2,20 @@
 title: 安裝 Durable Functions 擴充和範例 - Azure
 description: 了解如何安裝 Azure Functions 的 Durable Functions 擴充，供入口網站開發或 Visual Studio 開發使用。
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2eb838bcb9d3f64d0bbf4657c516adb50d103223
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 6bbf232fc17b9acfd4e8cd84a0cb1346ab8ea9b5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585300"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986807"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>安裝 Durable Functions 擴充和範例 (Azure Functions)
 
@@ -45,7 +45,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
 就像從範例開始一樣，遵循相同的指示，但改為執行下列步驟，而不是下載 *.zip* 檔案：
 
 1. 建立函式應用程式專案。
-2. 使用「管理 NuGet 套件」來搜尋下列 NuGet 套件參考，並將其新稱至專案：Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
+2. 使用 [管理 NuGet 套件] 來搜尋下列 NuGet 套件參考，然後將其新稱至專案：Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.2
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -75,12 +75,12 @@ Visual Studio Code 提供涵蓋所有主要平台 (Windows、macOS 和 Linux) �
 3. 在命令提示字元/終端機視窗中執行下列命令來安裝 Azure Functions 永久性擴充功能：
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.2
     ```
 4. 在命令提示字元/終端機視窗中執行下列命令來安裝 Azure Functions Twilio 擴充功能：
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0
     ```
 5. 執行 Azure 儲存體模擬器，或者使用實際的 Azure 儲存體連接字串來更新 *local.settings.json* 檔案。
 6. 在 Visual Studio Code 中開啟專案。 
@@ -96,14 +96,14 @@ Visual Studio Code 提供涵蓋所有主要平台 (Windows、macOS 和 Linux) �
 2. 在您的電腦上瀏覽至 [JavaScript 範例資料夾](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript)。 
 3. 在命令提示字元/終端機視窗中執行下列命令來安裝 Azure Functions Durable Extension
 
-    ```
+    ```bash
     func extensions install
     ```
     > [!NOTE] 
     > 電腦上必須已安裝 [.NET Core SDK](https://www.microsoft.com/net/download)，才能執行這個動作
 4. 在命令提示字元 / 終端機視窗中執行下列命令來還原 npm 套件：
     
-    ```
+    ```bash
     npm install
     ``` 
 5. 使用 `AzureWebJobsStorage` 的 Azure 儲存體帳戶連接字串來更新 *local.settings.json* 檔案。  這個儲存體帳戶將用於長期函式的狀態。
@@ -119,13 +119,13 @@ Visual Studio Code 提供涵蓋所有主要平台 (Windows、macOS 和 Linux) �
 1. 在命令提示字元/終端機中，瀏覽至將裝載您函數應用程式的資料夾。
 3. 執行下列命令以建立函數應用程式專案：
 
-    ```
+    ```bash
     func init
     ``` 
 4. 執行 Azure 儲存體模擬器 (僅限 Windows) 或使用 `AzureWebJobsStorage`的實際 Azure 儲存體連接字串來更新 *local.settings.json* 檔案。
 5. 接著，執行下列命令來建立新的函式，然後依照精靈步驟執行：
 
-    ```
+    ```bash
     func new
     ```
     >[!IMPORTANT]

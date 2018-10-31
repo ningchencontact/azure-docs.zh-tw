@@ -2,24 +2,26 @@
 title: Azure SQL Database 受控執行個體的 T-SQL 差異 | Microsoft Docs
 description: 本文將討論 Azure SQL Database 受控執行個體與 SQL Server之間的 T-SQL 差異。
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/22/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab, bonova
 manager: craigg
-ms.openlocfilehash: 89544ea72a4356fb8d4f3a192e6fc546eb6b3cff
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.date: 10/24/2018
+ms.openlocfilehash: fd63d0ce9ef335efdebf9759d52cf93312986d16
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092005"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025373"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異 
 
-Azure SQL Database 受控執行個體 (預覽) 可與內部部署 SQL Server 資料庫引擎高度相容。 受控執行個體支援大部分的 SQL Server 資料庫引擎功能。 由於仍有一些語法和行為上的差異，因此本文將摘要說明這些差異。
+Azure SQL Database 受控執行個體可與內部部署 SQL Server 資料庫引擎高度相容。 受控執行個體支援大部分的 SQL Server 資料庫引擎功能。 由於仍有一些語法和行為上的差異，因此本文將摘要說明這些差異。
  - [T-SQL 差異與不支援的功能](#Differences)
  - [受控執行個體中具有不同行為的功能](#Changes)
  - [暫時性限制與已知問題](#Issues)
@@ -101,7 +103,7 @@ SQL 稽核在受控執行個體、Azure SQL Database 和 SQL Server 內部部署
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### <a name="clr"></a>CLR 
@@ -267,7 +269,7 @@ WITH PRIVATE KEY ( <private_key_options> )
 
 ### <a name="replication"></a>複寫 
  
-受控執行個體上支援複寫功能。 如需有關複寫的資訊，請參閱 [SQL Server 複寫](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)。
+複寫在受控執行個體的公開預覽版上可用。 如需有關複寫的資訊，請參閱 [SQL Server 複寫](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)。
  
 ### <a name="restore-statement"></a>RESTORE 陳述式 
  
@@ -331,27 +333,29 @@ WITH PRIVATE KEY ( <private_key_options> )
  - `remote proc trans` 
 - 不支援 `sp_execute_external_scripts`。 請參閱 [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)。
 - 不支援 `xp_cmdshell`。 請參閱 [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)。
-- 不支援 `Extended stored procedures`，包括 `sp_addextendedproc` 和 `sp_dropextendedproc`。 請參閱[擴充預存程序](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- 不支援 `Extended stored procedures`，包括 `sp_addextendedproc`  和 `sp_dropextendedproc`。 請參閱[擴充預存程序](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - 未支援 `sp_attach_db`、`sp_attach_single_file_db` 和 `sp_detach_db`。 請參閱 [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
 - 不支援 `sp_renamedb`。 請參閱 [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql)。
 
-### <a name="sql-server-agent"></a>SQL Server 代理程式 
- 
+### <a name="sql-server-agent"></a>SQL Server 代理程式
+
 - SQL 代理程式設定是唯讀狀態。 受控執行個體中不支援 `sp_set_agent_properties` 程序。  
-- 作業 - 目前支援 T-SQL 作業步驟 (公開預覽期間將會新增更多步驟)。
- - 尚不支援 SSIS。 
- - 尚不支援複寫  
-  - 尚不支援交易記錄讀取器。  
-  - 尚不支援快照集。  
-  - 尚不支援散發者。  
-  - 不支援合併。  
+- 工作
+ - 支援 T-SQL 作業步驟。
+ - 支援下列複寫作業：
+    - 交易記錄讀者。  
+    - 快照集。
+    - 散發者。
+ - 支援 SSIS。 
+- 目前不支援其他類型的作業步驟，包括：
+  - 不支援合併複寫作業步驟。  
   - 不支援佇列讀取器。  
- - 尚不支援命令殼層。 
+  - 尚不支援命令殼層。 
   - 受控執行個體無法存取外部資源 (例如，透過 robocopy 的網路共用)。  
- - 尚不支援 PowerShell。
- - 不支援 Analysis Services。  
+  - 尚不支援 PowerShell。
+  - 不支援 Analysis Services。  
 - 部分支援通知。
- - 支援電子郵件通知，但必須設定「資料庫郵件」設定檔。 可能只有一個資料庫郵件設定檔，而且在公開預覽中一定名為 `AzureManagedInstance_dbmail_profile` (暫時性限制)。  
+- 支援電子郵件通知，但必須設定「資料庫郵件」設定檔。 可能只有一個資料庫郵件設定檔，而且在公開預覽中一定名為 `AzureManagedInstance_dbmail_profile` (暫時性限制)。  
  - 不支援呼叫器。  
  - 不支援 NetSend。 
  - 尚不支援警示。
@@ -408,21 +412,64 @@ WITH PRIVATE KEY ( <private_key_options> )
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>還原資料庫期間 SAS 金鑰設定不正確
 
 如果 `CREDENTIAL` 中的共用存取簽章不正確，讀取 .bak 檔案的 `RESTORE DATABASE` 可能會不斷重試讀取 .bak 檔案，並在很長一段時間之後傳回錯誤。 請在還原資料庫前執行 RESTORE HEADERONLY，以確定 SAS 金鑰正確無誤。
-請確定您已從 Azure 入口網站所產生的 SAS 金鑰中移除 `?` 前置符號。
+請確定您已從使用 Azure 入口網站所產生的 SAS 金鑰中移除 `?` 前置符號。
 
 ### <a name="tooling"></a>工具
 
 SQL Server Management Studio 和 SQL Server Data Tools 在存取受控執行個體時可能會有一些問題。 所有工具問題將會在正式運作之前解決。
 
-### <a name="incorrect-database-names"></a>不正確的資料庫名稱
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>某些檢視、記錄與訊息中的不正確資料庫名稱
 
-在還原期間或在某些錯誤訊息中，受控執行個體可能會顯示 GUID 值，而非資料庫名稱。 這些問題將會在正式運作之前修正。
+數個系統檢視、效能計數器、錯誤訊息、XEvents 與錯誤記錄檔項目都會顯示 GUID 資料庫識別碼，而非實際資料庫名稱。 不要依賴這些 GUID 識別碼，因為它們未來會被實際資料庫名稱取代。
 
 ### <a name="database-mail-profile"></a>資料庫郵件 XP
 可能只有一個資料庫郵件設定檔，而且一定名為 `AzureManagedInstance_dbmail_profile`。 這是暫時性的限制，很快將會移除。
+
+### <a name="error-logs-are-not-persisted"></a>錯誤記錄檔不會在工作階段之間保存下來
+受控執行個體中可用的錯誤記錄檔不會跨工作階段保留下來，而且其大小不包括在儲存體大小上限中。 若發生容錯移轉，可能會自動清除錯誤記錄檔。
+
+### <a name="error-logs-are-verbose"></a>錯誤記錄檔是詳細資訊記錄
+受控執行個體會放置詳細資訊在錯誤記錄檔中，而且它們有許多都是不相關的。 錯誤記錄檔中的資訊量未來將會減少。
+
+**因應措施**：使用自訂程序來讀取篩選調某些不相關項目的錯誤記錄檔。 如需詳細資訊，請參閱 [Azure SQL DB 受控執行個體 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) \(英文\)。
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>不支援相同執行個體內兩個資料庫上的異動範圍
+若兩個查詢被傳送到相同異動範圍內相同執行個體內的兩個資料庫，.Net 中的 `TransactionScope` 類別將無法運作：
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+雖然此程式碼在相同執行個體內的資料上可正常運作，但是它需要 MSDTC。
+
+**因應措施**：使用 [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) 在連線內容中使用其他資料庫，而非使用兩個連線。
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR 模組與連結的伺服器有時候無法參考本機 IP 位址
+放置在受控執行個體中的 CLR 模組與參考目前執行個體的連結伺服器/分散式查詢有時無法解析本機執行個體的 IP。 這是暫時性錯誤。
+
+**因應措施**：可能的話，在 CLR 模組中使用內容連線。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如需受控執行個體的詳細資訊，請參閱[受控執行個體是什麼？](sql-database-managed-instance.md)
 - 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。
-- 如需示範如何新建受控執行個體的教學課程，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
+- 如需示範如何建立新受控執行個體的快速入門，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)。

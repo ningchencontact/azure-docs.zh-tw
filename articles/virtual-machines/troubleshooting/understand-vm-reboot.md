@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: dd9a2c6a5b2183d4909b6bcfd24dc1fae401c785
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fa316ee47e6fdabacf22e1e419bfd501620dd83d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411757"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429145"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系統重新啟動
 
@@ -73,7 +73,7 @@ Azure 資源健康狀態是一項服務，會揭露個別 Azure 資源的健康�
 ### <a name="azure-security-center-and-windows-update"></a>Azure 資訊安全中心與 Windows Update
 Azure 資訊安全中心每日監視 Windows 和 Linux VM 是否有遺漏的作業系統更新。 資訊安全中心會根據 Windows VM 上設定的服務，從 Windows Update 或 Windows Server Update Services (WSUS) 擷取可用的安全性和重大更新清單。 資訊安全中心也會檢查 Linux 系統的最新更新。 如果您的 VM 遺漏系統更新，資訊安全中心建議您套用系統更新。 這些系統更新的應用程式是透過 Azure 入口網站中的資訊安全中心控制。 套用某些更新後，可能需要 VM 重新開機。 如需詳細資訊，請參閱[在 Azure 資訊安全中心套用系統更新](../../security-center/security-center-apply-system-updates.md)。
 
-如同內部部署伺服器，Azure 不會將 Windows Update 的更新推送至 Microsoft Azure VM，因為這些機器預計是由使用者管理。 不過，建議您讓自動安裝 Windows Update 設定保持啟用狀態。 自動安裝 Windows Update 的更新也可能導致在套用更新後發生重新開機。 如需詳細資訊，請參閱 [ Windows 更新常見問題集](https://support.microsoft.com/help/12373/windows-update-faq)。
+如同內部部署伺服器，Azure 不會將 Windows Update 的更新推送至 Windows VM，因為這些機器預計是由使用者管理。 不過，建議您讓自動安裝 Windows Update 設定保持啟用狀態。 自動安裝 Windows Update 的更新也可能導致在套用更新後發生重新開機。 如需詳細資訊，請參閱 [ Windows 更新常見問題集](https://support.microsoft.com/help/12373/windows-update-faq)。
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>其他會影響 VM 可用性的情況
 在其他情況下，Azure 可能會主動暫停使用 VM。 您會在系統採取此動作前收到電子郵件通知，如此才有機會解決此基礎問題。 影響 VM 可用性的問題範例包括安全性違規和付款方式過期。

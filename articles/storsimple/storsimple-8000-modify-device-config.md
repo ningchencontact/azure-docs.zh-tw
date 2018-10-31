@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 13ff24c24a881297775fa5f65821e53ceb83c351
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108756"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025985"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>使用 StorSimple 裝置管理員服務來修改 StorSimple 裝置組態
 
@@ -65,7 +65,7 @@ Azure 入口網站之 [設定] 刀鋒視窗中的 [裝置設定] 區段包含所
 
  從下拉式清單中選取時區。 您最多可以指定兩個網路時間通訊協定 (NTP) 伺服器：
 
- - **主要 NTP 伺服器** - 當您使用適用於 StorSimple 的 Windows PowerShell 來設定您的裝置時，需要指定此組態。 您可以指定預設 Windows Server **time.windows.com** 作為 NTP 伺服器。 您可以透過 Azure 入口網站來檢視主要 NTP 伺服器組態，但是必須使用 Windows PowerShell 介面來進行變更。 使用 `Set-HcsNTPClientServerAddress` Cmdlet 可修改裝置的主要 NTP 伺服器。 如需詳細資訊，請移至 [Set-HcsNTPClientServerAddress] (https://technet.microsoft.com/library/dn688138.aspx) Cmdlet 的語法。
+ - **主要 NTP 伺服器** - 當您使用適用於 StorSimple 的 Windows PowerShell 來設定您的裝置時，需要指定此組態。 您可以指定預設 Windows Server **time.windows.com** 作為 NTP 伺服器。 您可以透過 Azure 入口網站來檢視主要 NTP 伺服器組態，但是必須使用 Windows PowerShell 介面來進行變更。 使用 `Set-HcsNTPClientServerAddress` Cmdlet 可修改裝置的主要 NTP 伺服器。 如需詳細資訊，請移至 [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) Cmdlet 的語法。
 
 - **次要 NTP 伺服器** - 此組態為選擇性。 您可以使用入口網站來設定次要 NTP 伺服器。
 

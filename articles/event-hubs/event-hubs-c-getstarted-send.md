@@ -12,31 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 12/4/2017
+ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 25da8255af6a23a4f01db5a1ec4f1ddcd2eeb1bb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 32345b0f064aa78dbf1cbb84cb2309138e7bf4f7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40002452"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455380"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 將事件傳送至 Azure 事件中樞
 
 ## <a name="introduction"></a>簡介
-事件中樞是高度可擴充的擷取系統，每秒可擷取數百萬個事件，讓應用程式能處理並分析已連線裝置與應用程式產生的大量資料。 資料收集到事件中樞後，您可以使用任何即時分析提供者或儲存體叢集來轉換與儲存資料。
+Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
 
-如需詳細資訊，請參閱 [事件中樞概觀](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview)。
+本教學課程說明如何使用以 C 撰寫的主控台應用程式，將事件傳送至事件中樞。 
 
-本教學課程說明如何使用以 C 撰寫的主控台應用程式將事件傳送到事件中樞。若要了解接收事件相關資訊，請按一下左側目錄中適當的接收語言。
-
+## <a name="prerequisites"></a>必要條件
 若要完成此教學課程，您需要下列項目：
 
 * C 開發環境。 本教學課程假設 Azure Linux VM上的 gcc 堆疊有 Ubuntu 14.04。
 * [Microsoft Visual Studio](https://www.visualstudio.com/)。
-* 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-## <a name="send-messages-to-event-hubs"></a>將訊息傳送至事件中心
+## <a name="write-code-to-send-messages-to-event-hubs"></a>撰寫程式碼以便將訊息傳送到事件中樞
 本節示範如何撰寫 C 應用程式，以將事件傳送至事件中樞。 此程式碼會使用 [Apache Qpid 專案](http://qpid.apache.org/)中的 Proton AMQP 程式庫。 這與搭配使用服務匯流排佇列與主題與透過 C 的 AMQP 類似 (如[此範例中](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示)。 如需詳細資訊，請參閱 [Qpid Proton 文件](http://qpid.apache.org/proton/index.html) \(英文\)。
 
 1. 從 [Qpid AMQP Messenger 頁面](https://qpid.apache.org/proton/messenger.html)，遵循指示以安裝 Qpid Proton (視您的環境而定)。
@@ -150,12 +148,13 @@ ms.locfileid: "40002452"
     > [!NOTE]
     > 這個程式碼會使用輸出視窗 1 來盡快強制輸出訊息。 建議您的應用程式嘗試以批次方式處理訊息，以提高輸送量。 如需如何在此環境和其他環境中，以及從提供繫結的平台 (目前是 Perl、PHP、Python 和 Ruby) 中使用 Qpid Proton 程式庫的相關資訊，請參閱 [Qpid AMQP Messenger 頁面](https://qpid.apache.org/proton/messenger.html)。
 
+執行應用程式以便將訊息傳送到事件中樞。 
+
+恭喜！ 您現在已將傳送訊息到事件中樞。
 
 ## <a name="next-steps"></a>後續步驟
-您可以造訪下列連結以深入了解事件中樞︰
+若要了解如何從事件中樞接收事件，在目錄中的 [從事件中樞接收事件] 節點底下，按一下適當的接收語言。
 
-* [事件中心概觀](event-hubs-what-is-event-hubs.md)
-* [事件中樞常見問題集](event-hubs-faq.md)
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png

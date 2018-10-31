@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616904"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638302"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -45,7 +45,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
 4. 從 [選取復原點] 下拉式選單中，選取包含您所需檔案的復原點。 根據預設，已選取最近的復原點。
 
-5. 若要下載可從還原點複製檔案的軟體，請按一下 [下載可執行檔] \(適用於 Microsoft Azure VM\) 或 [下載指令碼] \(適用於 Linux Azure VM\)。
+5. 若要下載用來從復原點複製檔案的軟體，請按一下 [下載可執行檔] (適用於 Microsoft Azure VM) 或 [下載指令碼] (適用於 Linux Azure VM，會產生 Python 指令碼)。
 
     ![產生的密碼](./media/backup-azure-restore-files-from-vm/download-executable.png)
 

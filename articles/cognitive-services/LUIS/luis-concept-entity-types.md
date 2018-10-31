@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042443"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650106"
 ---
 # <a name="entities-in-luis"></a>LUIS 中的實體
 
@@ -61,6 +61,10 @@ ms.locfileid: "47042443"
 ## <a name="assign-entities-in-none-intent"></a>指派 None 意圖中的實體
 您應該標記所有意圖 (包括 **None** 意圖) 的實體。 這可協助 LUIS 進一步了解實體在語句中的哪裡，以及實體周圍有哪些單字。 
 
+## <a name="entity-status-for-predictions"></a>用於預測的實體狀態
+
+如需詳細資訊，請參閱[實體狀態預測](luis-how-to-add-example-utterances.md#entity-status-predictions)。 
+
 ## <a name="types-of-entities"></a>實體類型
 LUIS 提供許多類型的實體；預先建置的實體、自訂的機器學習實體及清單實體。
 
@@ -93,7 +97,7 @@ LUIS 提供許多類型的實體；預先建置的實體、自訂的機器學習
 請檢閱[限制](luis-boundaries.md#model-boundaries)，以了解您可以將多少個每一種類型的實體新增到模型中。
 
 ## <a name="entity-roles"></a>實體角色
-實體[角色](luis-concept-roles.md)僅可在模式中使用。 
+實體[角色](luis-concept-roles.md)會套用至自訂和預先建置的實體，且僅在模式中使用。 
 
 ## <a name="composite-vs-hierarchical-entities"></a>複合實體與階層式實體的比較
 複合實體和階層式實體都有父子關係，且都是機器學習實體。 機器學習可讓 LUIS 根據不同的內容 (單字的排列) 理解實體。 複合實體較具彈性，因為它們允許以不同的實體類型作為子系。 階層實體的子系僅限簡單實體。 

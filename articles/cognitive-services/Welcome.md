@@ -9,12 +9,12 @@ ms.component: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: nitinme
-ms.openlocfilehash: 5fcd625edf913e6629bfedb7ce7a6b5fe204af28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901425"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025390"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure 認知服務是什麼？
 
@@ -74,11 +74,11 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 
 ## <a name="use-free-trials"></a>使用免費試用版
 
-[註冊免費試用版] (https://azure.microsoft.com/try/cognitive-services/「註冊說明」) 只需要一封電子郵件和幾個簡單步驟即可完成。 您需要 Microsoft 帳戶 (如果您還沒有帳戶的話)。 您將會收到適用於每個要求 API 的唯一金鑰組。 第二個金鑰僅供備用。 請勿與任何人共用祕密金鑰。 就每秒或每分鐘的交易來說，試用會有速率限制，而且也有每月使用量上限。 一個交易就只是一個 API 呼叫。 您可以升級到付費層來解除鎖定限制。
+[註冊免費試用版](https://azure.microsoft.com/try/cognitive-services/ "註冊說明")只需一封電子郵件和幾個簡單步驟即可完成。 您需要 Microsoft 帳戶 (如果您還沒有帳戶的話)。 您將會收到適用於每個要求 API 的唯一金鑰組。 第二個金鑰僅供備用。 請勿與任何人共用祕密金鑰。 就每秒或每分鐘的交易來說，試用會有速率限制，而且也有每月使用量上限。 一個交易就只是一個 API 呼叫。 您可以升級到付費層來解除鎖定限制。
 
 ## <a name="subscription-management"></a>訂用帳戶管理
 
-一旦您登入 Microsoft 帳戶之後，就能存取 [我的訂用帳戶] (https://www.microsoft.com/cognitive-services/en-us/subscriptions "我的訂用帳戶") 來顯示您所使用的產品、剩餘的配額，以及將其他產品加入訂用帳戶的能力。
+在您使用「Microsoft 帳戶」登入之後，就能存取[我的訂用帳戶](https://www.microsoft.com/cognitive-services/en-us/subscriptions "我的訂用帳戶")來顯示您目前使用的產品、剩餘的配額，以及是否能夠將其他產品新增至訂用帳戶。
 
 ## <a name="upgrade-to-unlock-limits"></a>升級以解除鎖定限制
 

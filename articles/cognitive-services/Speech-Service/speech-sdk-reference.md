@@ -1,24 +1,25 @@
 ---
-title: 語音 SDK 參考
+title: 語音 SDK API 參考
+titleSuffix: Azure Cognitive Services
 description: 語音 SDK 的參考。
 services: cognitive-services
-titleSuffix: Microsoft Cognitive Services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 09/24/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b3770187033ef30982c38d8892c5b014b5dcb7c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: wolfma
+ms.openlocfilehash: fb80a3462caa59af423ef4f2f80e43f5d75e89e2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950976"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470892"
 ---
-# <a name="speech-sdk-reference"></a>語音 SDK 參考
+# <a name="speech-sdk-api-reference"></a>語音 SDK API 參考
 
-語音軟體開發套件 (SDK) 提供您應用程式對語音服務功能的存取權，以更輕鬆地開發啟用語音的軟體。 目前，SDK 提供對**語音轉換文字**、**語音翻譯**和**意圖辨識**的存取權。
+「語音軟體開發套件」(SDK) 可讓您的應用程式存取「語音服務」的功能，使其能夠更輕鬆地開發支援語音的軟體。 目前，SDK 提供對**語音轉換文字**、**語音翻譯**和**意圖辨識**的存取權。 如需有關功能和所支援平台的一般概觀，請參閱文件[入口頁面](http://aka.ms/csspeech)。
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

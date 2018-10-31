@@ -11,18 +11,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 490c912a6abd6570c9bc74de8b86a516a8e6f807
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d1279b5319ddd52ff2f3f6b4e696b73e8fe67607
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358756"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468682"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>解決 SKU 無法使用的錯誤
 
-本文說明如何解決 **SkuNotAvailable** 錯誤。
+本文說明如何解決 **SkuNotAvailable** 錯誤。 如果您在該區域或符合您業務需求的替代區域中找不到適當的 SKU，請向 Azure 支援服務提交 [SKU 要求](https://aka.ms/skurestriction)。
+
 
 ## <a name="symptom"></a>徵狀
 
@@ -36,60 +37,61 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 ## <a name="cause"></a>原因
 
-當您選取的資源 SKU (例如 VM 大小) 不適用於您選取的位置時，您會收到這個錯誤。
+當您選取的資源 SKU (例如 VM 大小) 不適用於您選取的位置時，就會收到這個錯誤。
 
 ## <a name="solution-1---powershell"></a>解決方案 1：PowerShell
 
 若要判斷區域中可以使用哪些 SKU，請使用 [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) 命令。 依據位置篩選結果。 您必須擁有最新版 PowerShell 才能執行此命令。
 
-```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
+```azurepowershell-interactive
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-結果包括該位置的 SKU 清單，以及該 SKU 的任何限制。
+結果包括該位置的 SKU 清單，以及該 SKU 的任何限制。 請注意，SKU 可能會列出為 `NotAvailableForSubscription`。
 
 ```powershell
-ResourceType                Name      Locations Restriction                      Capability Value
-------------                ----      --------- -----------                      ---------- -----
-availabilitySets         Classic southcentralus             MaximumPlatformFaultDomainCount     3
-availabilitySets         Aligned southcentralus             MaximumPlatformFaultDomainCount     3
-virtualMachines      Standard_A0 southcentralus
-virtualMachines      Standard_A1 southcentralus
-virtualMachines      Standard_A2 southcentralus
+ResourceType          Name        Locations   Restriction                      Capability           Value
+------------          ----        ---------   -----------                      ----------           -----
+virtualMachines       Standard_A0 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   20480
+virtualMachines       Standard_A1 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   71680
+virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      MaxResourceVolumeMB  138240
 ```
 
 ## <a name="solution-2---azure-cli"></a>解決方案 2：Azure CLI
 
-若要判斷區域中可以使用哪些 SKU，請使用 `az vm list-skus` 命令。 接著可以使用 `grep` 或類似的公用程式來篩選輸出。
+若要判斷區域中可以使用哪些 SKU，請使用 `az vm list-skus` 命令。 使用 `--location` 參數可將輸出篩選至您要使用的位置。 使用 `--size` 參數可依部分大小名稱進行搜尋。
 
-```bash
-$ az vm list-skus --output table
-ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
-----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
-availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
-avilabilitySets   eastus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
+```azurecli-interactive
+az vm list-skus --location southcentralus --size Standard_F --output table
 ```
+
+此命令會傳回類似以下的結果：
+
+```azurecli
+ResourceType     Locations       Name              Zones    Capabilities    Restrictions
+---------------  --------------  ----------------  -------  --------------  --------------
+virtualMachines  southcentralus  Standard_F1                ...             None
+virtualMachines  southcentralus  Standard_F2                ...             None
+virtualMachines  southcentralus  Standard_F4                ...             None
+...
+```
+
 
 ## <a name="solution-3---azure-portal"></a>解決方案 3：Azure 入口網站
 
-若要判斷區域中可以使用哪些 SKU，請使用[入口網站](https://portal.azure.com)。 登入入口網站，並透過介面新增資源。 當您設定值時，您會看到該資源可用的 SKU。 您不需要完成部署。
+若要判斷區域中可以使用哪些 SKU，請使用[入口網站](https://portal.azure.com)。 登入入口網站，然後透過介面新增資源。 當您設定值時，您會看到該資源可用的 SKU。 您不需要完成部署。
 
-![可用的 SKU](./media/resource-manager-sku-not-available-errors/view-sku.png)
+例如，請開始建立虛擬機器的程序。 若要查看其他可用的大小，請選取 [變更大小]。
+
+![建立 VM](./media/resource-manager-sku-not-available-errors/create-vm.png)
+
+您可以篩選及捲動瀏覽可用的大小。
+
+![可用的 SKU](./media/resource-manager-sku-not-available-errors/available-sizes.png)
 
 ## <a name="solution-4---rest"></a>解決方案 4：REST
 
-若要判斷區域中可以使用哪些 SKU，請使用適用於虛擬機器的 REST API。 傳送下列要求：
-
-```HTTP 
-GET
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
-```
+若要判斷區域中可用的 SKU，請使用[資源 SKU - 列出](/rest/api/compute/resourceskus/list)作業。
 
 它會以下列格式傳回可用的 SKU 和區域︰
 
@@ -121,4 +123,3 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 }
 ```
 
-如果您在該區域或符合您業務需求的替代區域中找不到適當的 SKU，請向 Azure 支援服務提交 [SKU 要求](https://aka.ms/skurestriction)。

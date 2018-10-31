@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 423661b8a459abf0b3028da92d6fd3ec885bb2c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802112"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025017"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
@@ -52,7 +52,7 @@ FunctionsProject
  | - pom.xml
 ```
 
-共用的 [host.json] (functions-host-json.md) 檔案可用來設定函數應用程式。 每個函式都有自己的程式碼檔案 (.java) 和繫結設定檔 (function.json)。
+其中有一個可用來設定函數應用程式的共用 [host.json](functions-host-json.md) 檔案。 每個函式都有自己的程式碼檔案 (.java) 和繫結設定檔 (function.json)。
 
 您可以在專案中放入多個函式。 請勿將函式放入個別的 jar。 目標目錄中的 FunctionApp 就是會部署至 Azure 中函數應用程式的項目。
 
@@ -135,7 +135,7 @@ Azure Functions 支援使用第三方程式庫。 根據預設，專案的 `pom.
 
 ### <a name="plain-old-java-objects-pojos"></a>純舊 Java 物件 (POJO)
 
-如果函式的輸入簽章應該為 Java 類型，則使用 JSON 格式化的字串會轉換為 Java 類型。 此轉換可讓您傳入 JSON，並使用 Java 類型。
+如果函式的輸入簽章應該為 Java 類型，則使用 JSON 格式化的字串會轉換為 Java 類型。 這項轉換可讓您傳入 JSON，並與 Java 類型搭配使用。
 
 作為函式輸入的 POJO 類型必須具有與在其中使用之函式方法相同的 `public` 存取修飾詞。 您不需要宣告 POJO 類別欄位 `public`。 例如，JSON 字串 `{ "x": 3 }` 可以轉換成下列 POJO 類型：
 

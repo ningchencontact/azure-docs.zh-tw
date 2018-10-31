@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 9e740dd3acce842f888e5994fe8f46222477adc1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208228"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408008"
 ---
 # <a name="performance-metrics"></a>效能度量
 
@@ -84,4 +84,4 @@ Service Fabric 可產生大量的自訂效能計數器。 如果您已安裝 SDK
 ## <a name="next-steps"></a>後續步驟
 
 * 深入了解 Service Fabric 中的[平台層級的事件產生](service-fabric-diagnostics-event-generation-infra.md)
-* 透過 [OMS 代理程式](service-fabric-diagnostics-oms-agent.md)收集效能計量
+* 透過 [Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)收集效能計量

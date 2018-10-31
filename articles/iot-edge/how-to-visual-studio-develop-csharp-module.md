@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9cc8e1db577859ad7637902a5ccd5a044efcd033
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab4dd1186715fde51fbf188ace902c8092d192d0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978517"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647182"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>使用 Visual Studio 2017 來開發適用於 Azure IoT Edge 的 C# 模組並針對其進行偵錯 (預覽)
 
@@ -36,9 +36,9 @@ Azure IoT Edge Tools for Visual Studio 提供下列優點：
 
 Visual Studio 2017 準備就緒之後，您還需要：
 
-- 從 Visual Studio Marketplace 下載並安裝 [Azure IoT Edge 延伸模組](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools)，以在 Visual Studio 2017 中建立 IoT Edge 專案。
+- 從 Visual Studio Marketplace 下載並安裝 [Azure IoT Edge 延伸模組](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)，以在 Visual Studio 2017 中建立 IoT Edge 專案。
 - 開發電腦上的 [Docker Community Edition](https://docs.docker.com/install/)，以建置並執行您的模組映像。 您需要適當地設定在 Linux 容器模式或 Windows 容器模式中執行的 Docker CE。
-- 若要設定本機開發環境以偵錯、執行及測試您的 IoT Edge 解決方案，您需要 [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/)。 安裝 [Python (2.7/3.6) 與 Pip](https://www.python.org/)。 接著，在您的終端機中執行下列命令，以安裝 **iotedgehubdev**。 確定您的 Azure IoT EdgeHub Dev Tool 版本大於 0.3.0。
+- 若要設定本機開發環境以偵錯、執行及測試您的 IoT Edge 解決方案，您需要 [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/)。 安裝 [Python (2.7/3.6) 與 Pip](https://www.python.org/)。 然後，在您的終端機中執行下列命令，以安裝 **iotedgehubdev**。 確定您的 Azure IoT EdgeHub Dev Tool 版本大於 0.3.0。
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -71,13 +71,13 @@ Visual Studio 2017 準備就緒之後，您還需要：
 
 Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中樞中部署到 Azure IoT Edge 裝置的專案。 首先要建立 Azure IoT Edge 解決方案，然後在該解決方案中產生第一個 C# 模組。 每個 IoT Edge 解決方案都可以包含多個模組。 
 
-1. 在 Visual Studio 中，從 [檔案] 功能表中選取 [新增]  > [專案]。
+1. 在 Visual Studio 中，從 [檔案] 功能表中選取 [新增]  >  [專案]。
 
 2. 在 [新增專案] 對話方塊中，選取 [已安裝]，展開 [Visual C#] > [雲端]，選取 [Azure IoT Edge]，輸入專案的 [名稱] 並指定位置，然後按一下 [確定]。 預設專案名稱是 **AzureIoTEdgeApp1**。 
 
-   ![新增專案](./media/how-to-visual-studio-develop-csharp-module/create-new.jpg)
+   ![New Project](./media/how-to-visual-studio-develop-csharp-module/create-new.jpg)
 
-3. 在 [IoT Edge 模組設定] 視窗中，選取 [C# 模組類型]，並指定您的模組名稱與模組映像存放庫。  VS 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊來取代它。 如果您使用本機 Docker 登錄來進行測試，則可以使用 localhost。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像 **<registry name>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。 預設的模組名稱是 **IoTEdgeModule1**
+3. 在 [IoT Edge 模組設定] 視窗中，選取 [C# 模組類型]，並指定您的模組名稱與模組映像存放庫。  VS 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 localhost。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像 **<registry name>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。 預設的模組名稱是 **IoTEdgeModule1**
 
 4. 按一下 [確定] 以使用 C# 模組建立 Azure IoT Edge 專案。
 
@@ -90,6 +90,21 @@ Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中
 解決方案隨附的預設 C# 模組程式碼位於 **IoTEdgeModule1** > **Program.cs**。 系統會設定模組和 deployment.template.json 檔案，讓您可以建置解決方案、將其推送至容器登錄，然後部署到裝置以開始測試，而不需要觸碰到任何程式碼。 模組會建置為僅採用來源的輸入 (在此案例中，是會模擬資料的 tempSensor 模組)，並且將其傳送到 IoT 中樞。 
 
 當您準備要使用自己的程式碼自訂 C# 範本時，請使用 [Azure IoT 中樞 SDK](../iot-hub/iot-hub-devguide-sdks.md) 以建置模組，該模組會滿足 IoT 解決方案的主要需求，例如安全性、裝置管理和可靠性。 
+
+## <a name="initialize-iotegehubdev-with-iot-edge-device-connection-string"></a>使用 IoT Edge 裝置連接字串來初始化 **iotegehubdev**
+
+1. 您必須取得任何 IoT Edge 裝置的連接字串，您可以依照下列方式在 Visual Studio 2017 中從 Cloud Explorer 複製「主要連接字串」的值。 請勿複製非 Edge 裝置的連接字串，IoT Edge 裝置的圖示與非 Edge 裝置的圖示不同。
+
+   ![複製 Edge 裝置連接字串](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
+
+2. 您必須以滑鼠右鍵按一下 [AzureIoTEdgeApp1] 專案以開啟快顯功能表，然後按一下 [設定 Edge 裝置連接字串]，Azure IoT Edge 設定視窗隨即顯示。
+
+   ![開啟 [設定 Edge 連接字串] 視窗](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
+
+3. 在設定視窗中，輸入您在第一個步驟取得的連接字串，然後按一下 [確定] 按鈕。
+
+>[!NOTE]
+>這是一次性工作，在一部機器上，您只需要執行一次此步驟，所有後續 Azure IoT Edge 解決方案都會免費取得它。 當然，若連接字串無效或您必須變更為另一個連接字串，您可以重複執行此步驟。
 
 ## <a name="build-and-debug-single-c-module"></a>建置單一 C# 模組並針對其進行偵錯
 
@@ -190,7 +205,10 @@ Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中
 
 2. 在 **Cloud Explorer** 中，展開您的訂用帳戶，尋找您的 Azure IoT 中樞與您要部署的 Azure IoT Edge 裝置。
 
-3. 以滑鼠右鍵按一下 IoT Edge 裝置為其建立部署，您必須選擇 `$AzureIoTEdgeApp1\config\Debug|Release\deployment.json` 下的部署資訊清單檔案。
+3. 以滑鼠右鍵按一下 IoT Edge 裝置為其建立部署，您必須選擇 `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json` 下的部署資訊清單檔案。
+
+>>[!NOTE]
+>>您不得選取 `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
 4. 按一下 [重新整理] 按鈕。 您應該會看到新的模組正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。
 

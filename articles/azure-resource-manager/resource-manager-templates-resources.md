@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007156"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945190"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本的 Resources 區段
 
@@ -83,7 +83,7 @@ ms.locfileid: "39007156"
 
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
-| condition | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，則會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 |
+| condition | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 |
 | apiVersion |是 |要用來建立資源的 REST API 版本。 |
 | type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 |
 | name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定並非嘗試詐騙其他身分識別。 |
@@ -100,7 +100,9 @@ ms.locfileid: "39007156"
 
 ## <a name="condition"></a>條件
 
-當您必須在部署期間決定是否建立資源時，請使用 `condition` 項目。 此元素的值會解析為 true 或 false。 此值為 true 時，會建立資源。 此值為 false 時，則不會建立資源。 一般而言，當您想要建立新資源或使用現有資源時，就會使用此值。 例如，若要指定要部署新的儲存體帳戶或使用現有的儲存體帳戶，請使用：
+當您必須在部署期間決定是否建立資源時，請使用 `condition` 項目。 此元素的值會解析為 true 或 false。 當此值為 true 時，會部署資源。 當此值為 false 時，則不會部署資源。 此值只能套用至整個資源。
+
+一般而言，當您想要建立新資源或使用現有資源時，就會使用此值。 例如，若要指定要部署新的儲存體帳戶或使用現有的儲存體帳戶，請使用：
 
 ```json
 {
@@ -156,7 +158,7 @@ ms.locfileid: "39007156"
 ```
 
 ### <a name="resource-names-for-identification"></a>用於識別的資源名稱
-您可能想要將某些資源類型命名，但其名稱不必是唯一的。 針對這些資源類型，您可以提供能識別資源內容和資源類型的名稱。
+您可能想要命名的某些資源類型，但其名稱不必是唯一的。 針對這些資源類型，您可以提供能識別資源內容和資源類型的名稱。
 
 ```json
 "parameters": {

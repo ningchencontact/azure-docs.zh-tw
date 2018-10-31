@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968981"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428006"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 備份和還原
 
-本文針對在 Windows Azure 虛擬機器中執行的 SQL Server，提供可用備份和還原選項的指引。 Azure 儲存體會針對每個 Azure VM 磁碟維護三個複本，以取得針對資料遺失或實體資料損毀的保護。 因此，您並不需要和內部部署一樣地過度擔心發生硬體失敗的情形。 不過，您仍應該備份 SQL Server 資料庫，以取得針對應用程式或使用者錯誤的保護，例如意外的資料插入或刪除。 在此情況下，具備還原到特定時間點的能力是非常重要的。
+本文針對在 Azure 的 Windows 虛擬機器中執行的 SQL Server，提供可用備份和還原選項的指引。 Azure 儲存體會針對每個 Azure VM 磁碟維護三個複本，以取得針對資料遺失或實體資料損毀的保護。 因此，您並不需要和內部部署一樣地過度擔心發生硬體失敗的情形。 不過，您仍應該備份 SQL Server 資料庫，以取得針對應用程式或使用者錯誤的保護，例如意外的資料插入或刪除。 在此情況下，具備還原到特定時間點的能力是非常重要的。
 
 本文的第一個部分會提供備份和還原可用選項的概觀。 後續各節則會針對每一種策略提供詳細資訊。
 
@@ -42,7 +42,7 @@ ms.locfileid: "38968981"
 
 ## <a id="autoamted"></a> 自動備份
 
-自動備份可為在 Windows Azure VM 中執行的 SQL Server Standard 與 Enterprise 版提供自動備份服務。 此服務是由 [SQL Server IaaS 代理程式延伸模組](virtual-machines-windows-sql-server-agent-extension.md)提供的，並會自動在 Azure 入口網站中安裝於 SQL Server Windows 虛擬機器映像上。
+自動備份可為在 Azure 的 Windows VM 中執行的 SQL Server Standard 與 Enterprise 版提供自動備份服務。 此服務是由 [SQL Server IaaS 代理程式延伸模組](virtual-machines-windows-sql-server-agent-extension.md)提供的，並會自動在 Azure 入口網站中安裝於 SQL Server Windows 虛擬機器映像上。
 
 所有資料庫都會備份到您所設定的 Azure 儲存體帳戶。 備份可以被加密，並保留長達 30 天的時間。
 
@@ -130,23 +130,23 @@ SQL Server 2016 和更新版本的 VM，會透過自動備份 v2 提供更多自
 
 || **自動備份** | **適用於 SQL 的 Azure 備份** | **手動備份** |
 |---|---|---|---|
-| 需要其他 Azure 服務 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 在 Azure 入口網站中設定備份原則 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 在 Azure 入口網站中還原資料庫 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 於單一儀表板中管理多部伺服器 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 還原時間點 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| 15 分鐘復原點目標 (RPO) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| 短期備份保留原則 (天) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 長期備份保留原則 (月、年) |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 針對 SQL Server Always On 的內建支援 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 備份至 Azure 儲存體帳戶 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(自動) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(自動) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(由客戶管理) |
-| 儲存體與備份檔案的管理 | | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
-| 備份至 VM 上的已連接磁碟 |   |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| 可集中自訂的備份報告 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 彙總的失敗電子郵件警示 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 根據 OMS 自訂監視 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 使用 SSMS 或 Transact-SQL 指令碼監視備份作業 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| 使用 SSMS 或 Transact-SQL 指令碼還原資料庫 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| 需要其他 Azure 服務 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 在 Azure 入口網站中設定備份原則 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 在 Azure 入口網站中還原資料庫 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 於單一儀表板中管理多部伺服器 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 還原時間點 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| 15 分鐘復原點目標 (RPO) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| 短期備份保留原則 (天) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 長期備份保留原則 (月、年) |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 針對 SQL Server Always On 的內建支援 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 備份至 Azure 儲存體帳戶 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(自動) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(自動) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(由客戶管理) |
+| 儲存體與備份檔案的管理 | | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
+| 備份至 VM 上的已連接磁碟 |   |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| 可集中自訂的備份報告 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 彙總的失敗電子郵件警示 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 根據 Log Analytics 自訂監視 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 使用 SSMS 或 Transact-SQL 指令碼監視備份作業 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| 使用 SSMS 或 Transact-SQL 指令碼還原資料庫 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## <a name="next-steps"></a>後續步驟
 

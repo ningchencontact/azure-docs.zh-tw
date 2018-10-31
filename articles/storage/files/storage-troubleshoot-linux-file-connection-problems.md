@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2ae116649de02c5602aa50d706f6a88ac5872960
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525115"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025849"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
-本文列出當您從 Linux 用戶端連線時，與 Microsoft Azure 檔案服務相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。
+本文列出當您從 Linux 用戶端連線時，與 Microsoft Azure 檔案服務相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。 除了本文中的疑難排解步驟外，您也可以使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) 來確保 Windows 用戶端環境具備正確的必要條件。 AzFileDiagnostics 會自動偵測本文中提及的大部分徵兆，並協助設定您的環境以取得最佳效能。 您也可以在 [Azure 檔案共用疑難排解員](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到此資訊，其提供步驟以協助您解決連線/對應/掛接 Azure 檔案共用的問題。
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>當您嘗試開啟檔案時，「[使用權限被拒] 超出磁碟配額」
@@ -82,7 +82,7 @@ ms.locfileid: "39525115"
 
 ### <a name="solution"></a>解決方法
 
-4.11 核心推出 Linux 的 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行裝載。 發佈時，這項功能已向前移植到 Ubuntu 17.04 和 Ubuntu 16.10。 如果您的 Linux SMB 用戶端不支援加密，在與檔案儲存體帳戶相同的資料中心上，從 Azure Linux VM 使用 SMB 2.1 掛接 Azure 檔案服務。
+4.11 核心推出 Linux 的 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行裝載。 發佈時，這項功能已向前移植到 Ubuntu 17.04 和 Ubuntu 16.10。 如果您的 Linux SMB 用戶端不支援加密，請經由與檔案共用相同的資料中心，從 Azure Linux VM 使用 SMB 2.1 掛接 Azure 檔案，並確認儲存體帳戶上已停用 [需要安全傳輸]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 設定。 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>掛接在 Linux VM 上的 Azure 檔案共用效能變慢
@@ -150,6 +150,7 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 - 用戶端不支援 SMB 3.0 加密。 SMB 3.0 加密可於 Ubuntu 16.4 和更新版本，以及 SUSE 12.3 和更新版本中使用。 其他散發套件需要核心 4.11 和更新版本。
 - 您正在嘗試透過不支援的 TCP 通訊埠 445 連線到儲存體帳戶。
 - 您正在嘗試從 Azure VM 連線到 Azure 檔案共用，而該 VM 與儲存體帳戶位於不同的區域。
+- 如果已在儲存體帳戶上啟用 [需要安全傳輸]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 設定，則 Azure 檔案服務僅允許使用 SMB 3.0 且加密的連線。
 
 ### <a name="solution"></a>解決方法
 
@@ -179,7 +180,7 @@ ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### <a name="solution"></a>解決方法
-Linux CIFS 用戶端不支援透過 SMB2/3 通訊協定，建立 Windows 樣式的符號連結。 Linux 用戶端目前支援另一種符號連結樣式，稱為 [Mishall + 法文符號連結] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks)，用於建立和遵循作業。 需要符號連結的客戶可以使用 "mfsymlinks" 掛接選項。 因為這也是 Mac 使用的格式，所以通常會建議使用 "mfsymlinks"。
+Linux CIFS 用戶端不支援透過 SMB2/3 通訊協定，建立 Windows 樣式的符號連結。 Linux 用戶端目前支援另一種符號連結樣式，稱為 [Mishall + 法文符號連結](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) \(英文\)，可用於建立和遵循作業。 需要符號連結的客戶可以使用 "mfsymlinks" 掛接選項。 因為這也是 Mac 使用的格式，所以通常會建議使用 "mfsymlinks"。
 
 為了能使用符號連結，請將下列內容新增至 CIFS 掛接命令結尾：
 
@@ -190,7 +191,7 @@ Linux CIFS 用戶端不支援透過 SMB2/3 通訊協定，建立 Windows 樣式�
 該命令看起來會像這樣：
 
 ```
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
 新增之後，您即可按照 [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers) 上的建議建立符號連結。

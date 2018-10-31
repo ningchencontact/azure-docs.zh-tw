@@ -11,16 +11,16 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: 備份; VM 備份
-ms.openlocfilehash: c3bb198a65f907080023af707080f60c9c1fccbf
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398884"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985876"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>將 Azure 虛擬機器備份到復原服務保存庫
 
-這篇文章說明如何從虛擬機器作業功能表或復原服務保存庫設定虛擬機器的安全防護。 復原服務保存庫可保護︰
+本文說明如何從虛擬機器作業功能表或復原服務保存庫設定虛擬機器的保護。 復原服務保存庫可保護︰
 
 * Azure Resource Manager 部署的 VM
 * 傳統 VM
@@ -96,11 +96,11 @@ ms.locfileid: "39398884"
 
   在完成初始備份之前，[上次備份狀態] 會顯示為 [警告 (待執行初始備份)]。 若要查看下一個排定的備份工作何時發生，請在 [摘要] 下按一下原則的名稱。 [備份原則] 功能表隨即開啟，並顯示已排定備份的時間。
 
-10. 若要保護虛擬機器，請按一下 [立即備份]。 
+10. 若要保護虛擬機器，請按一下 [立即備份]。
 
   ![按一下 [立即備份] 以執行初始備份](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  [立即備份] 功能表隨即開啟。 
+  [立即備份] 功能表隨即開啟。
 
   ![顯示 [立即備份] 刀鋒視窗](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ ms.locfileid: "39398884"
   ![檢視新保存庫的儲存體組態](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. 在新保存庫的 [管理] 功能表中，使用垂直滑桿捲動至 [管理] 區段，然後按一下 [備份基礎結構] 以開啟 [備份基礎結構] 功能表。
- 
+
    ![為新保存庫設定儲存體組態](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. 在 [備份基礎結構] 功能表中，按一下 [備份設定] 開啟 [備份設定] 功能表。
@@ -291,6 +291,11 @@ ms.locfileid: "39398884"
   ![設定 [立即備份] 復原點保留的最後一天](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   部署通知可讓您知道已觸發備份工作，而且您可以在 [備份工作] 頁面上監視作業的進度。 根據您的 VM 大小，建立初始備份可能需要花一點時間。
+
+  > [!NOTE]
+  > 所有要由「Azure 備份」備份的資料都會透過[儲存體服務加密 (SSE)](../storage/common/storage-service-encryption.md) 進行靜態加密。
+  >
+  >
 
 6. 若要在保存庫儀表板上檢視或追蹤初始備份的狀態，請在 [備份工作] 圖格上，按一下 [進行中]。
 

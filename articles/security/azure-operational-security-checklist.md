@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 481fcb869004a6fca83fdf19c32c41010057de32
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008190"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403980"
 ---
 # <a name="azure-operational-security-checklist"></a>Azure 作業安全性檢查清單
 在 Azure 上部署應用程式很快速、輕鬆且符合成本效益。 在生產環境中部署雲端應用程式之前，針對您需要考慮的重要和建議作業安全性動作清單，取得檢查清單以協助評估應用程式是很有幫助的。
@@ -51,8 +51,7 @@ Azure 提供的基礎結構服務套件，可讓您用來部署應用程式。 A
 許多組織已成功在 Azure 上部署和操作其雲端應用程式。 所提供的檢查清單強調顯示數個重要的檢查清單，並協助您對於成功部署更有把握且作業不會失敗。 強烈建議您在 Azure 上進行現有和新的應用程式部署時，使用這些作業和策略考量。
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，已向您介紹 OMS 安全性和稽核解決方案。 若要深入了解 OMS 安全性，請參閱下列文章：
+若要深入了解安全性，請參閱下列文章：
 
-- [Operations Management Suite (OMS) 概觀](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)。
 - [設計與作業安全性](https://www.microsoft.com/trustcenter/security/designopsecurity)。
 - [Azure 資訊安全中心規劃和操作](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)。

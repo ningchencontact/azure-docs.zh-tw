@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333389"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457403"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -53,9 +53,11 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 ## <a name="supported-regions"></a>支援區域
 
-您可以在下列任何一個區域中使用 NSG 的流量分析：美國中西部、美國東部、美國東部 2、美國中北部、美國中南部、美國中部、美國西部、美國西部 2、西歐、北歐、英國西部、英國南部、澳大利亞東部、澳大利亞東南部和東南亞。 記錄分析工作區必須存在於美國中西部、美國東部、西歐、英國南部、澳大利亞東南部或東南亞地區。
+您可以在下列任何一個區域中使用 NSG 的流量分析：美國中西部、美國東部、美國東部 2、美國中北部、美國中南部、美國中部、美國西部、美國西部 2、加拿大中部、西歐、北歐、英國西部、英國南部、日本東部、印度中部、澳大利亞東部、澳大利亞東南部和東南亞。 
 
-## <a name="prerequisites"></a>先決條件
+Log Analytics 工作區必須存在於美國中西部、美國東部、西歐、英國南部、加拿大中部、日本東部、印度中部、澳大利亞東南部或東南亞地區。
+
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="user-access-requirements"></a>使用者存取需求
 
@@ -135,7 +137,7 @@ New-AzureRmStorageAccount `
 2. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。
 3. 將 [保留] 設為您要儲存資料的天數。
 4. 針對 [流量分析狀態]，選取 [開啟]。
-5. 選取現有的 Log Analytics (OMS) 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#traffic-analytics-supported-regions)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+5. 選取現有的 Log Analytics 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#traffic-analytics-supported-regions)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
     裝載流量分析解決方案和 NSG 的 Log Analytics 工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
 6. 選取 [ **儲存**]。

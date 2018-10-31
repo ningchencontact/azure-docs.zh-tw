@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/15/2018
+ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49367057"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471525"
 ---
 ### <a name="what-is-azure-firewall"></a>何謂 Azure 防火牆？
 
@@ -30,13 +30,6 @@ Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 A
 * 輸入 DNAT 支援
 * 跨 Azure 訂用帳戶和 VNET，集中建立、強制執行以及記錄應用程式和網路連線原則
 * 與 Azure 監視器完全整合以進行記錄和分析
-
-### <a name="what-is-the-pricing-for-azure-firewall"></a>Azure 防火牆的定價為何？
-
-Azure 防火牆有固定成本和變動成本：
-
-* 固定費用：每小時每個防火牆 1.25 美元
-* 變動費用：防火牆處理的每 GB 0.03 美元 (輸入或輸出)
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure 防火牆的一般部署模型是什麼？
 
@@ -78,6 +71,17 @@ Web 應用程式防火牆 (WAF) 是應用程式閘道的一個功能，可提供
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>如何使用我的服務端點設定 Azure 防火牆？
 
 若要安全存取 PaaS 服務，建議使用服務端點。 您可以選擇在「Azure 防火牆」子網路中啟用服務端點，並在已連線的支點虛擬網路上停用它們。 如此一來，您便可以享有這兩項功能的好處 -- 服務端點安全性和所有流量的集中記錄。
+
+### <a name="what-is-the-pricing-for-azure-firewall"></a>Azure 防火牆的定價為何？
+
+Azure 防火牆有固定成本和變動成本：
+
+* 固定費用：每小時每個防火牆 1.25 美元
+* 變動費用：防火牆處理的每 GB 0.03 美元 (輸入或輸出)
+
+已解除配置的防火牆不會產生任何費用。
+
+如需詳細資訊，請參閱 [Azure 防火牆價格](https://azure.microsoft.com/pricing/details/azure-firewall/)。
 
 ### <a name="how-can-i-stop-and-start-azure-firewall"></a>如何停止和啟動 Azure 防火牆？
 

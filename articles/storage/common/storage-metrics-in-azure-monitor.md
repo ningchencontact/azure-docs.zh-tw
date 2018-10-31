@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 8fe4fdfa88a5aea4b8df49d9c00fa7f6b1768209
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363430"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637950"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -23,13 +23,13 @@ Azure 監視器提供了統一的使用者介面供您監視不同的 Azure 服�
 
 ## <a name="access-metrics"></a>存取計量
 
-Azure 監視器提供了多種方法供您存取計量。 您可以從 [Azure 入口網站](https://portal.azure.com)、Azure 監視器 API (REST 和 .Net) 和分析解決方案 (例如 Operation Management Suite 和事件中樞) 來存取這些計量。 如需詳細資訊，請參閱 [Azure 監視器計量](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+Azure 監視器提供了多種方法供您存取計量。 您可以從 [Azure 入口網站](https://portal.azure.com)、Azure 監視器 API (REST 和 .Net) 和分析解決方案 (例如事件中樞) 存取這些計量。 如需詳細資訊，請參閱 [Azure 監視器計量](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
 計量是預設啟用的功能，您可以存取過去 93 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)中進行設定。
 
 ### <a name="access-metrics-in-the-azure-portal"></a>在 Azure 入口網站中存取計量
 
-您可以在 Azure 入口網站中監視不同時間的計量。 下列範例說明如何檢視帳戶層級的 **UsedCapacity**。
+您可以在 Azure 入口網站中監視不同時間的計量。 下列範例說明如何檢視帳戶層級上的**交易**。
 
 ![在 Azure 入口網站中存取計量的螢幕擷取畫面](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: c58c2b255d269aef7e8b3fea62d003ad0c16ef0a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971243"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404897"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>部署適用於 Cloud Foundry 系統監控的 Azure Log Analytics Nozzle
 
@@ -30,7 +30,7 @@ Log Analytics Nozzle (下文簡稱為 Nozzle) 是一項 Cloud Foundry (CF) 元�
 
 在本文件中，您會了解如何將 Nozzle 部署到 CF 環境，然後從 Log Analytics 主控台存取資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 下列步驟是部署 Nozzle 的必要條件。
 
@@ -56,14 +56,14 @@ Nozzle 也需要 Loggregator Firehose 和 Cloud Controller 的存取權限。 �
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3.在 Azure 中建立 Log Analytics 工作區
 
-您可以手動方式或使用範本來建立 Log Analytics 工作區。 此範本將會為 OMS 主控台部署預先設定的 OMS KPI 檢視和警示設定。 
+您可以手動方式或使用範本來建立 Log Analytics 工作區。 此範本會為 Log Analytics 主控台部署預先設定的 KPI 檢視和警示設定。 
 
 #### <a name="to-create-the-workspace-manually"></a>若要手動建立工作區：
 
 1. 在 Azure 入口網站中，搜尋 Azure Marketplace 中的服務清單，然後選取 [Log Analytics]。
 2. 選取 [建立]，然後選取下列項目的選項：
 
-   * **OMS 工作區**：輸入工作區的名稱。
+   * **Log Analytics 工作區**：輸入您工作區的名稱。
    * **訂用帳戶**：如果您擁有多個訂用帳戶，請選擇與 CF 部署相同的訂用帳戶。
    * **資源群組**：您可以建立新的資源群組，或使用與 CF 部署相同的資源群組。
    * **位置**：輸入位置。
@@ -71,19 +71,19 @@ Nozzle 也需要 Loggregator Firehose 和 Cloud Controller 的存取權限。 �
 
 如需詳細資訊，請參閱[開始使用 Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)。
 
-#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>若要從 Azure Marketplace 透過 OMS 監控範本建立 OMS 工作區：
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>透過來自 Azure Marketplace 的監視範本建立 Log Analytics 工作區：
 
 1. 開啟 Azure 入口網站。
 2. 按一下 "+" 號，或左上角的 [建立資源]。
-3. 在搜尋視窗中鍵入 "Cloud Foundry"，選取 "OMS Cloud Foundry Monitoring Solution"。
-4. 這會載入 OMS Cloud Foundry 監控解決方案範本首頁，按一下 [建立] 以啟動範本刀鋒視窗。
+3. 在搜尋視窗中輸入 "Cloud Foundry"，選取 [Cloud Foundry Monitoring Solution]。
+4. 這會載入 Cloud Foundry 監視解決方案範本首頁，按一下 [建立] 以啟動範本刀鋒視窗。
 5. 輸入必要參數：
-    * **訂用帳戶**：選取 OMS 工作區的 Azure 訂用帳戶，通常與 Cloud Foundry 部署相同。
-    * **資源群組**：選取現有的資源群組，或為 OMS 工作區建立新的資源群組。
+    * **訂用帳戶**：選取 Log Analytics 工作區的 Azure 訂用帳戶，通常與 Cloud Foundry 部署相同。
+    * **資源群組**：選取現有的資源群組，或為 Log Analytics 工作區建立一個新的資源群組。
     * **資源群組位置**：選取資源群組的位置。
     * **OMS_Workspace_Name**：如果工作區不存在，請輸入工作區名稱，範本會建立新的工作區。
     * **OMS_Workspace_Region**：選取工作區的位置。
-    * **OMS_Workspace_Pricing_Tier**：選取 OMS 工作區 SKU。 如需參考，請參閱[定價指引](https://azure.microsoft.com/pricing/details/log-analytics/)。
+    * **OMS_Workspace_Pricing_Tier**：選取 Log Analytics 工作區 SKU。 如需參考，請參閱[定價指引](https://azure.microsoft.com/pricing/details/log-analytics/)。
     * **法律條款**：按一下 [法律條款]，然後按一下 [建立] 以接受法律條款。
 - 指定所有參數之後，按一下 [建立] 以部署範本。 部署完成時，會在 [通知] 索引標籤中顯示狀態。
 
@@ -137,8 +137,8 @@ cd oms-log-analytics-firehose-nozzle
 現在您可以在目前的目錄中，於 manifest.yml 中設定環境變數。 下圖說明 Nozzle 的應用程式資訊清單。 將值取代為您的特定 Log Analytics 工作區資訊。
 
 ```
-OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
+OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
 OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
 OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
@@ -177,11 +177,11 @@ cf apps
 ```
 確認 OMS Nozzle 應用程式正在執行。
 
-## <a name="view-the-data-in-the-oms-portal"></a>在 OMS 入口網站中檢視資料
+## <a name="view-the-data-in-the-azure-portal"></a>在 Azure 入口網站中檢視資料
 
-如果您已透過 Marketplace 範本部署 OMS 監控解決方案，請前往 Azure 入口網站並尋找 OMS 解決方案。 您可以在資源群組中找到您在範本中指定的解決方案。 按一下解決方案，然後瀏覽至「OMS 主控台」，預先設定的檢視隨即列出，並在最上方顯示 Cloud Foundry 系統 KPI、應用程式資料、警示和 VM 健康情況計量。 
+如果您已透過 Marketplace 範本部署監視解決方案，請前往 Azure 入口網站並尋找該解決方案。 您可以在資源群組中找到您在範本中指定的解決方案。 請按一下該解決方案，瀏覽至「Log Analytics 主控台」，當中會列出預先設定的檢視，其中包含最常用的 Cloud Foundry 系統 KPI、應用程式資料、警示及 VM 健康情況計量。 
 
-如果您已手動建立 OMS 工作區，請遵循下列步驟來建立檢視和警示：
+如果您已手動建立 Log Analytics 工作區，請依照下列步驟來建立檢視和警示：
 
 ### <a name="1-import-the-oms-view"></a>1.匯入 OMS 檢視
 
@@ -246,6 +246,6 @@ Azure Log Analytics Nozzle 已經開啟為來源。 將您的問題和意見反�
 
 ## <a name="next-step"></a>後續步驟
 
-從 PCF 2.0 開始，VM 效能計量是由 System Metrics Forwarder 傳輸至 Azure Log Analytics Nozzle，並整合至 OMS 工作區。 您不再需要 OMS 代理程式，就能取得 VM 效能計量。 不過，您仍然可以使用 OMS 代理程式來收集 Syslog 資訊。 會安裝 OMS 代理程式作為 CF VM Bosh 附加元件。 
+從 PCF 2.0 開始，VM 效能計量會由 System Metrics Forwarder 傳輸至 Azure Log Analytics Nozzle，並整合至 Log Analytics 工作區。 您不再需要 Log Analytics 代理程式，就能取得 VM 效能計量。 不過，您仍然可以使用 Log Analytics 代理程式來收集 Syslog 資訊。 Log Analytics 代理程式會以 Bosh 附加元件的形式安裝至您的 CF VM。 
 
-如需詳細資訊，請參閱[將 OMS 代理程式部署到 Cloud Foundry 部署](https://github.com/Azure/oms-agent-for-linux-boshrelease)。
+如需詳細資料，請參閱[將 Log Analytics 代理程式部署到 Cloud Foundry 部署](https://github.com/Azure/oms-agent-for-linux-boshrelease) \(英文\)。

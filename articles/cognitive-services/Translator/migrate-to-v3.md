@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128174"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645229"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 到 V3 的移轉
 
@@ -32,29 +32,29 @@ Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 
 * 音譯 - API 中新增了音譯方法。 此方法會將一個指令碼中的字組和句子 (例如 阿拉伯文) 轉換為另一個指令碼 (例如 拉丁文)。
 * 語言 - 新的「語言」方法提供 JSON 格式的語言資訊，可與「翻譯」、「字典」和「音譯」等方法搭配使用。
 * 新的翻譯功能 - 「翻譯」方法中新增了新功能，用以支援在 V2 API 中作為個別方法的某些功能。 例如，TranslateArray 就是其中之一。
-* 口語方法 - Microsoft Translator API 已不再支援文字轉語音功能。 文字轉語音功能可在 Azure 認知服務 Bing 語音 API 中使用。
+* 口語方法 - Microsoft Translator API 已不再支援文字轉語音功能。 [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)中有提供文字轉語音功能。
 
 下列 V2 和 V3 方法清單列出將提供 V2 隨附功能的 V3 方法和 API。
 
 | V2 API 方法   | V3 API 相容性 |
 |:----------- |:-------------|
-| 翻譯     | 翻譯          |
-| TranslateArray      | 翻譯          |
-| GetLanguageNames      | 語言          |
-| GetLanguagesForTranslate     | 語言        |
-| GetLanguagesForSpeak      | 認知服務語音 API         |
-| 口語     | 認知服務語音 API          |
-| 偵測     | 偵測         |
-| DetectArray     | 偵測         |
-| AddTranslation     | Microsoft Translator HUB API         |
-| AddTranslationArray    | Microsoft Translator HUB API          |
-| BreakSentences      | BreakSentence         |
+| 翻譯     | [翻譯](reference/v3-0-translate.md)          |
+| TranslateArray      | [翻譯](reference/v3-0-translate.md)        |
+| GetLanguageNames      | [語言](reference/v3-0-languages.md)         |
+| GetLanguagesForTranslate     | [語言](reference/v3-0-languages.md)       |
+| GetLanguagesForSpeak      | [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| 口語     | [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| 偵測     | [偵測](reference/v3-0-detect.md)         |
+| DetectArray     | [偵測](reference/v3-0-detect.md)         |
+| AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | 不再支援功能         |
 | GetTranslationsArray      | 不再支援功能         |
 
 ## <a name="move-to-json-format"></a>移轉至 JSON 格式
 
-Microsoft Translator Text Translation V2 可接受及傳回 XML 格式的資料。 在 V3 中，所有使用 API 傳送和接收的資料均採用 JSON 格式。 在 V3 中將不再接受或傳回 XML。 
+Microsoft Translator Text Translation V2 可接受及傳回 XML 格式的資料。 在 V3 中，所有使用 API 傳送和接收的資料均採用 JSON 格式。 在 V3 中將不再接受或傳回 XML。
 
 此變更將對為 V2 文字翻譯 API 撰寫的應用程式產生若干層面的影響。 例如：語言 API 會傳回文字翻譯、音譯和兩個字典方法的語言資訊。 您可以在單一呼叫中要求所有方法的所有語言資訊，或是個別要求。
 

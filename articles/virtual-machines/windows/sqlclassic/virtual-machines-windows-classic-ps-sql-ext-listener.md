@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 58ec400faee04f8624822bbcb5325fca7006c578
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698629"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023180"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>設定 Azure 中 Always On 可用性群組的外部接聽程式
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.locfileid: "38698629"
 您的可用性群組可包含的複本為僅限內部部署、僅限 Azure，或同時跨內部部署和 Azure 的混合式組態。 Azure 複本可位於相同區域內，或使用多個虛擬網路 (VNet) 跨多個區域。 下列步驟假設您已 [設定可用性群組](../classic/portal-sql-alwayson-availability-groups.md)，但尚未設定接聽程式。
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>外部接聽程式的指導方針和限制
-請注意下面在使用雲端服務公用 VIP 位址部署時，有關 Azure 中可用性群組接聽程式的指導方針：
+當您使用雲端服務公用 VIP 位址部署時，請注意下列有關 Azure 中可用性群組接聽程式的指導方針：
 
 * 可用性群組接聽程式支援 Windows Server 2008 R2、Windows Server 2012 和 Windows Server 2012 R2。
 * 用戶端應用程式必須與包含可用性群組 VM 的雲端服務位於不同雲端服務上。 Azure 在相同的雲端服務中不支援伺服器直接回傳搭配用戶端和伺服器使用。

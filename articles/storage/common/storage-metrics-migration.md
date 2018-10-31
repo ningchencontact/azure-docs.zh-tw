@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: fc11e29b03df617c4b5bb6f4fbb43cd478001d42
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3f2ebb82f5affa3c41f237edcc039eb6214c7a4c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521416"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649290"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure 儲存體計量移轉
 
@@ -25,7 +25,7 @@ ms.locfileid: "39521416"
 
 Azure 儲存體會收集舊計量值、加以彙總並儲存在相同儲存體帳戶內的 $Metric 資料表中。 您可以使用 Azure 入口網站來設定監視圖表。 您也可以使用 Azure 儲存體 SDK，從以結構描述為基礎的 $Metric 資料表讀取資料。 如需詳細資訊，請參閱[儲存體分析](./storage-analytics.md)。
 
-舊計量只會在 Azure Blob 儲存體上提供容量計量。 舊計量會提供 Blob 儲存體、表格儲存體、Azure 檔案服務和佇列儲存體的交易計量。 
+舊計量只會在 Azure Blob 儲存體上提供容量計量。 舊計量會提供 Blob 儲存體、表格儲存體、Azure 檔案服務和佇列儲存體的交易計量。
 
 舊計量是以一般的結構描述來設計。 如果您沒有觸發計量的流量模式，此設計會產生零計量值。 例如，即使未從傳輸到儲存體帳戶的即時流量接收到任何伺服器逾時錯誤，**ServerTimeoutError** 值在 $Metric 表格中也會設定為 0。
 
@@ -65,14 +65,14 @@ Azure 儲存體會收集舊計量值、加以彙總並儲存在相同儲存體�
 
 | 舊計量 | 新計量 |
 | ------------------- | ----------------- |
-| **AnonymousAuthorizationError** | 維度 **ResponseType** 等於 **AuthorizationError** 的交易 |
-| **AnonymousClientOtherError** | 維度 **ResponseType** 等於 **ClientOtherError** 的交易 |
-| **AnonymousClientTimeoutError** | 維度 **ResponseType** 等於 **ClientTimeoutError** 的交易 |
-| **AnonymousNetworkError** | 維度 **ResponseType** 等於 **NetworkError** 的交易 |
-| **AnonymousServerOtherError** | 維度 **ResponseType** 等於 **ServerOtherError** 的交易 |
-| **AnonymousServerTimeoutError** | 維度 **ResponseType** 等於 **ServerTimeoutError** 的交易 |
-| **AnonymousSuccess** | 維度 **ResponseType** 等於 **Success** 的交易 |
-| **AnonymousThrottlingError** | 維度 **ResponseType** 等於 **ClientThrottlingError** 或 **ServerBusyError** 的交易 |
+| **AnonymousAuthorizationError** | 維度 **ResponseType** 等於 **AuthorizationError** 且維度 **Authentication** 等於 **Anonymous** 的交易 |
+| **AnonymousClientOtherError** | 維度 **ResponseType** 等於 **ClientOtherError** 且維度 **Authentication** 等於 **Anonymous** 的交易 |
+| **AnonymousClientTimeoutError** | 維度 **ResponseType** 等於 **ClientTimeoutError** 且維度 **Authentication** 等於 **Anonymous** 的交易 |
+| **AnonymousNetworkError** | 維度 **ResponseType** 等於 **NetworkError** 且維度 **Authentication** 等於 **Anonymous** 的交易 |
+| **AnonymousServerOtherError** | 維度 **ResponseType** 等於 **ServerOtherError** 且維度 **Authentication** 等於 **Anonymous** 的交易 |
+| **AnonymousServerTimeoutError** | 維度 **ResponseType** 等於 **ServerTimeoutError** 且維度 **Authentication** 等於 **Anonymous** 的交易 |
+| **AnonymousSuccess** | 維度 **ResponseType** 等於 **Success** 且維度 **Authentication** 等於 **Anonymous** 的交易 |
+| **AnonymousThrottlingError** | 維度 **ResponseType** 等於 **ClientThrottlingError** 或 **ServerBusyError** 且維度 **Authentication** 等於 **Anonymous** 的交易 |
 | **AuthorizationError** | 維度 **ResponseType** 等於 **AuthorizationError** 的交易 |
 | **可用性** | **可用性** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |
@@ -87,14 +87,14 @@ Azure 儲存體會收集舊計量值、加以彙總並儲存在相同儲存體�
 | **PercentSuccess** | 維度 **ResponseType** 等於 **Success** 的交易 |
 | **PercentThrottlingError** | 維度 **ResponseType** 等於 **ClientThrottlingError** 或 **ServerBusyError** 的交易 |
 | **PercentTimeoutError** | 維度 **ResponseType** 等於 **ServerTimeoutError** 或 **ResponseType** 等於 **ClientTimeoutError** 的交易 |
-| **SASAuthorizationError** | 維度 **ResponseType** 等於 **AuthorizationError** 的交易 |
-| **SASClientOtherError** | 維度 **ResponseType** 等於 **ClientOtherError** 的交易 |
-| **SASClientTimeoutError** | 維度 **ResponseType** 等於 **ClientTimeoutError** 的交易 |
-| **SASNetworkError** | 維度 **ResponseType** 等於 **NetworkError** 的交易 |
-| **SASServerOtherError** | 維度 **ResponseType** 等於 **ServerOtherError** 的交易 |
-| **SASServerTimeoutError** | 維度 **ResponseType** 等於 **ServerTimeoutError** 的交易 |
-| **SASSuccess** | 維度 **ResponseType** 等於 **Success** 的交易 |
-| **SASThrottlingError** | 維度 **ResponseType** 等於 **ClientThrottlingError** 或 **ServerBusyError** 的交易 |
+| **SASAuthorizationError** | 維度 **ResponseType** 等於 **AuthorizationError** 且維度 **Authentication** 等於 **SAS** 的交易 |
+| **SASClientOtherError** | 維度 **ResponseType** 等於 **ClientOtherError** 且維度 **Authentication** 等於 **SAS** 的交易 |
+| **SASClientTimeoutError** | 維度 **ResponseType** 等於 **ClientTimeoutError** 且維度 **Authentication** 等於 **SAS** 的交易 |
+| **SASNetworkError** | 維度 **ResponseType** 等於 **NetworkError** 且維度 **Authentication** 等於 **SAS** 的交易 |
+| **SASServerOtherError** | 維度 **ResponseType** 等於 **ServerOtherError** 且維度 **Authentication** 等於 **SAS** 的交易 |
+| **SASServerTimeoutError** | 維度 **ResponseType** 等於 **ServerTimeoutError** 且維度 **Authentication** 等於 **SAS** 的交易 |
+| **SASSuccess** | 維度 **ResponseType** 等於 **Success** 且維度 **Authentication** 等於 **SAS** 的交易 |
+| **SASThrottlingError** | 維度 **ResponseType** 等於 **ClientThrottlingError** 或 **ServerBusyError** 且維度 **Authentication** 等於 **SAS** 的交易 |
 | **ServerOtherError** | 維度 **ResponseType** 等於 **ServerOtherError** 的交易 |
 | **ServerTimeoutError** | 維度 **ResponseType** 等於 **ServerTimeoutError** 的交易 |
 | 「成功」 | 維度 **ResponseType** 等於 **Success** 的交易 |

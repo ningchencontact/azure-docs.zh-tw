@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7180e51a6ac1392e4a3f072097b1aeef3648c605
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093284"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955230"
 ---
 # <a name="using-azure-cdn-with-sas"></a>搭配 SAS 使用 Azure CDN
 
@@ -71,28 +71,28 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
  
 此選項僅適用於**來自 Verizon 的 Azure 進階 CDN**設定檔。 使用此選項時，您可以保護原始伺服器的 Blob 儲存體。 如果您不需要特定的檔案存取限制，但想要防止使用者直接存取儲存體原始伺服器來縮短 Azure CDN 卸載時間，便可以使用此選項。 存取原始伺服器指定容器中檔案的任何人都必須有使用者未知的 SAS 權杖。 不過，由於 URL 重寫規則，CDN 端點上不需要 SAS 權杖。
  
-1. 使用[規則引擎](cdn-rules-engine.md)來建立 URL 重寫規則。 新規則大約需要 10 分鐘的時間來進行傳播。
+1. 使用[規則引擎](cdn-rules-engine.md)來建立 URL 重寫規則。 新規則最多需要 4 小時的時間來傳播。
 
    ![CDN [管理] 按鈕](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
    ![CDN [規則引擎] 按鈕](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   下列範例 URL 重寫規則使用了規則運算式模式，其中包含一個擷取群組和一個名為 *storagedemo* 的端點：
+   下列範例「URL 重寫」規則使用規則運算式模式，其中包含一個擷取群組和一個名為 *sasstoragedemo* 的端點：
    
    來源：   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    目的地：   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![CDN URL 重寫規則 - 左](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL 重寫規則 - 右](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![CDN URL 重寫規則 - 右](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 2. 新規則生效後，任何人都可以存取 CDN 端點上指定容器中的檔案，不論他們是否在 URL 中使用 SAS 權杖都行。 格式如下：`https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    例如︰   
-   `https://demoendpoint.azureedge.net/container1/demo.jpg`
+   `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
 3. 使用快取規則或在原始伺服器新增 `Cache-Control` 標頭來微調快取持續時間。 由於 Azure CDN 會將 SAS 權杖視為純查詢字串，因此最佳做法是，您應該設定一個在 SAS 到期時間或此時間之前到期的快取持續時間。 否則，如果檔案的快取持續時間比 SAS 的有效期長，便可能在過了 SAS 到期時間之後，從 Azure CDN 原始伺服器存取該檔案。 如果發生這種情況，而您想要讓已快取的檔案變成無法存取，就必須對該檔案執行清除作業，以將它從快取中清除。 如需有關在 Azure CDN 上設定快取持續時間的資訊，請參閱[使用快取規則來控制 Azure CDN 快取行為](cdn-caching-rules.md)。
@@ -108,24 +108,24 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
  
    例如︰   
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
    安全性權杖驗證的參數選項與 SAS 權杖的參數選項不同。 如果您在建立安全性權杖時選擇使用到期時間，請將其設定為與 SAS 權杖到期時間相同的值。 這麼做可確保到期時間是可預測的。 
  
-2. 使用[規則引擎](cdn-rules-engine.md)來建立 URL 重寫規則，以啟用對容器中所有 Blob 的 SAS 權杖存取權。 新規則大約需要 10 分鐘的時間來進行傳播。
+2. 使用[規則引擎](cdn-rules-engine.md)來建立 URL 重寫規則，以啟用對容器中所有 Blob 的 SAS 權杖存取權。 新規則最多需要 4 小時的時間來傳播。
 
-   下列範例 URL 重寫規則使用了規則運算式模式，其中包含一個擷取群組和一個名為 *storagedemo* 的端點：
+   下列範例「URL 重寫」規則使用規則運算式模式，其中包含一個擷取群組和一個名為 *sasstoragedemo* 的端點：
    
    來源：   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    目的地：   
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![CDN URL 重寫規則 - 左](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL 重寫規則 - 右](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![CDN URL 重寫規則 - 右](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. 如果您更新 SAS，請務必將 Url 重寫規則更新成使用新的 SAS 權杖。 
 

@@ -1,22 +1,23 @@
 ---
 title: 搭配 SQL Database 多租用戶應用程式使用 Log Analytics | Microsoft Docs
 description: 設定及使用 Log Analytics 搭配多租用戶 Azure SQL Database SaaS 應用程式
-keywords: SQL Database Azure
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 3ca2f811ff0ac81ea70ec0b22d7429cdc5604171
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420177"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405067"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>設定及使用 Log Analytics 搭配多租用戶 SQL Database SaaS 應用程式
 
@@ -41,7 +42,7 @@ ms.locfileid: "39420177"
 
 針對大量的情況，您可以使用 Log Analytics 來進行監視和警示。 Log Analytics 是個別的 Azure 服務，能夠針對 可能從許多服務收集至工作區中的診斷記錄和遙測資料進行分析。 Log Analytics 提供內建的查詢語言和資料視覺化工具，可進行操作資料分析。 「SQL 分析」解決方案提供數個預先定義的彈性集區及資料庫監視與警示檢視和查詢。 Log Analytics 也提供自訂檢視設計工具。
 
-您可以在 Azure 入口網站和 Operations Management Suite 中開啟 Log Analytics 工作區和分析解決方案。 Azure 入口網站是較新的存取點，但在某些方面可能落後於 Operations Management Suite 入口網站。
+OMS 工作區現在稱為 Log Analytics 工作區。 您可以在 Azure 入口網站中開啟 Log Analytics 工作區和分析解決方案。 Azure 入口網站是較新的存取點，但在某些方面可能落後於 Operations Management Suite 入口網站。
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>藉由模擬您租用戶上的工作負載來建立效能診斷資料 
 
@@ -69,12 +70,12 @@ Log Analytics 是一項必須設定的個別服務。 Log Analytics 會將記錄
 1. 在 PowerShell ISE 中，開啟 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*。
 1. 若要執行指令碼，請按 F5。
 
-現在，您便可以在 Azure 入口網站或 Operations Management Suite 入口網站中開啟 Log Analytics。 需要幾分鐘的時間才能將遙測資料收集至 Log Analytics 工作區中並顯示出來。 您讓系統收集診斷資料的時間越長，體驗就會更有趣。 
+現在，您可以在 Azure 入口網站中開啟 Log Analytics。 需要幾分鐘的時間才能將遙測資料收集至 Log Analytics 工作區中並顯示出來。 您讓系統收集診斷資料的時間越長，體驗就會更有趣。 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>使用 Log Analytics 和 SQL 分析解決方案來監視集區和資料庫
 
 
-在這個練習中，請開啟 Log Analytics 和 Operations Management Suite 入口網站，以查看針對資料庫和集區收集的遙測資料。
+在此練習中，開啟 Azure 入口網站中的 Log Analytics，以查看針對資料庫和集區蒐集的遙測資料。
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 [所有服務] 以開啟 Log Analytics。 然後搜尋 Log Analytics。
 
@@ -126,9 +127,9 @@ Log Analytics 是一項必須設定的個別服務。 Log Analytics 會將記錄
 
 1. 回到 Log Analytics 工作區，選取 [OMS 入口網站]以在該處開啟工作區。
 
-    ![[Operations Management Suite 入口網站] 圖格](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Log Analytics 工作區](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-在 Operations Management Suite 入口網站中，您可以進一步探索工作區中的記錄和計量資料。 
+在 Log Analytics 工作區中，您可以進一步探索記錄和計量資料。 
 
 Log Analytics 中的監視和警示是以工作區中的資料查詢為基礎，不同於 Azure 入口網站中每個資源上定義的警示。 由於警示是以查詢為基礎，因此您可以定義可查看所有資料庫的單一警示，而不是為每個資料庫定義一個警示。 查詢僅受限於工作區中可用的資料。
 

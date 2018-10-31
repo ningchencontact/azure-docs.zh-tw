@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/25/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 9188776fdd213f01523069b08bd898f48bee57a4
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 85547bd8528c4d5d4a627750bb5334f05ed231b1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091476"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024303"
 ---
 # <a name="impact-analysis-with-application-insights"></a>使用 Application Insights 進行影響分析
 
@@ -68,7 +68,7 @@ ms.locfileid: "47091476"
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>「影響」工具如何計算這些轉換率？
 
-「影像」工具背後的運作原理是以[皮爾森相互關聯係數] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) 為依據。 計算結果會介於-1 與 1 之間，-1 代表零關聯，1 則代表正向關聯。
+實際上，「影響」工具是以[皮爾森相互關聯係數](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)為依據。 計算結果會介於-1 與 1 之間，-1 代表零關聯，1 則代表正向關聯。
 
 「影響分析」運作方式的基本細節如下：
 

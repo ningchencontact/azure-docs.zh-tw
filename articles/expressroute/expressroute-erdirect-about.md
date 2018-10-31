@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: c33bec76fe17336221c873778c2993d75fec81e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962215"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405173"
 ---
 # <a name="about-expressroute-direct-preview"></a>關於 ExpressRoute Direct (預覽)
 
-ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對等互連位置，都直接連線至 Microsoft 全球網路的能力。 ExpressRoute Direct 提供雙 100Gbps 連線，且支援大規模主動/主動連線。 
+ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對等互連位置，都直接連線至 Microsoft 全球網路的能力。 ExpressRoute Direct 提供雙向 100 Gbps 連線，且支援大規模主動/主動連線。 
 
 ExpressRoute Direct 提供的主要功能包括但不限於：
 
@@ -36,15 +36,15 @@ ExpressRoute Direct 提供的主要功能包括但不限於：
 * 您想要使用 **ExpressRoute Direct** 完成的案例
 * 位置喜好設定 - 請參閱[合作夥伴和對等互連位置](expressroute-locations-providers.md)以取得所有位置的完整清單
 * 實作的時間軸
-* 您對於服務的任何相關問題
+* 有任何其他問題嗎
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>使用服務提供者的 ExpressRoute 和 ExpressRoute Direct
 
 | **使用服務提供者的 ExpressRoute** | **ExpressRoute Direct** | 
 | --- | --- | 
-| 使用服務提供者可快速登入並連線至現有的基礎結構 | 需要 100Gbps 的基礎結構，且必須完整管理每一層
+| 使用服務提供者可快速登入並連線至現有的基礎結構 | 需要 100 Gbps 的基礎結構，且必須完整管理每一層
 | 與數百個提供者整合，包括乙太網路和 MPLS | 法定產業和大規模資料擷取具有直接/專用容量 | 
-| 線路 SKU 介於 50Mbps 到 10Gbps | 線路 SKU 介於 1Gbps 到 100Gbps
+| 從 50 Mbps 到 10 Gbps 的線路 SKU | 從 5 Gbps 到 100 Gbps 的線路 SKU (5 Gbps、10 Gbps、40 Gbps、100 Gbps)
 | 適用於單一租用戶 | 適用於單一租用戶/雲端服務提供者/多個業務單位
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct 線路
@@ -57,7 +57,7 @@ Microsoft Azure ExpressRoute 可讓您透過連線提供者所提供的私人連
 
 ## <a name="circuit-skus"></a>線路 SKU
 
-ExpressRoute Direct 支援將大量資料擷取至 Azure 儲存體與其他巨量資料服務的案例。 ExpressRoute Direct 的 ExpressRoute 線路現在也支援 **40G** 和 **100G** 的線路 SKU。 
+ExpressRoute Direct 支援將大量資料擷取至 Azure 儲存體與其他巨量資料服務的案例。 ExpressRoute Direct 的 ExpressRoute 線路現在也支援 **40 Gbps** 與 **100 Gbps** 的線路 SKU。 
 
 ## <a name="vlan-tagging"></a>VLAN 標記
 

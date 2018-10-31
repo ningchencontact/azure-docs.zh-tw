@@ -4,22 +4,19 @@ description: 這篇文章說明「Azure 流量管理員」的「巢狀設定檔�
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1ac4ec2775ca9f690f5adf4f939908f8cee3f715
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111696"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648593"
 ---
 # <a name="nested-traffic-manager-profiles"></a>巢狀流量管理員設定檔
 
@@ -66,9 +63,7 @@ ms.locfileid: "23111696"
 
 ## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>範例 3︰設定「效能」流量路由中容錯移轉區域的優先順序
 
-「效能」流量路由方法的預設行為可避免下一個最靠近的端點超載而引發一連串失敗。 端點失敗時，原本要導向該端點的所有流量，將會平均分散至所有區域的其他端點。
-
-![搭配預設容錯移轉的「效能」流量路由][5]
+「效能」流量路由方法的預設行為如下：當您的端點位於不同的地理位置時，即會將終端使用者路由傳送到「最靠近」(亦即網路延遲最低) 的端點。
 
 不過，假設您偏好將西歐流量容錯移轉至美國西部，而只有在這兩個端點都無法使用時，才將流量導向其他區域。 您可以使用子設定檔並搭配「優先順序」流量路由方法來建立這個解決方案。
 

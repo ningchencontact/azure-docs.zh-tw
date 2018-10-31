@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 603a5dfcf2137c15ae19ea248f3e0f4f136c22f1
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 91263d7f6e8c0c2774df560a45eeff9efc672343
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145750"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408419"
 ---
 # <a name="azure-event-hubs-capture"></a>Azure 事件中樞擷取
 
@@ -104,6 +104,10 @@ Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門
 ## <a name="how-event-hubs-capture-is-charged"></a>事件中樞擷取的收費方式
 
 事件中樞擷取的計量方式類似輸送量單位，屬於每小時的費用。 其費用與命名空間所購買的輸送量單位數目成正比。 當輸送量單位增加和減少時，事件中樞擷取也會增加和減少以提供相符的效能。 計量會串聯地發生。 如需定價詳細資訊，請參閱[事件中樞定價](https://azure.microsoft.com/pricing/details/event-hubs/)。 
+
+## <a name="integration-with-event-grid"></a>事件格線整合 
+您可以使用事件中樞命名空間作為其來源，建立 Azure 事件格線訂用帳戶。 下列教學課程會示範如何使用事件中樞作為來源、Azure Functions 應用程式作為接收，建立事件格線訂用帳戶：[使用事件格線和 Azure Functions 將擷取的事件中樞資料處理並移轉至 SQL 資料倉儲](store-captured-data-data-warehouse.md)。
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7557e2b993a5059df8aea63c7394539acc28c110
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295865"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403519"
 ---
 # <a name="production-readiness-checklist"></a>實際執行整備檢查清單
 
@@ -36,7 +36,7 @@ ms.locfileid: "44295865"
 6. 了解並挑選節點類型的[可靠性層級](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)。 建議採用銀級或更高層級的可靠性。
 7. 載入您的工作負載並進行調整測試，以識別叢集的[容量需求](service-fabric-cluster-capacity.md)。 
 8. 您的服務和應用程式會受到監視，並產生及儲存應用程式記錄，而且會發出警示。 例如，請參閱[為 Service Fabric 應用程式新增記錄功能](service-fabric-how-to-diagnostics-log.md)和[使用 Log Analytics 監視容器](service-fabric-diagnostics-oms-containers.md)。
-9. 叢集會受到監視並發出警示 (例如，使用 [OMS](service-fabric-diagnostics-event-analysis-oms.md))。 
+9. 叢集會受到監視並發出警示 (例如，使用 [Log Analytics](service-fabric-diagnostics-event-analysis-oms.md))。 
 10. 基礎的虛擬機器擴展集基礎結構會受到監視並發出警示 (例如，使用 [Log Analytics](service-fabric-diagnostics-oms-agent.md))。
 11. 叢集一律具有[主要和次要憑證](service-fabric-cluster-security-update-certs-azure.md) (讓您不會遭到鎖定)。
 12. 分別維護適用於開發、預備及生產環境的叢集。 

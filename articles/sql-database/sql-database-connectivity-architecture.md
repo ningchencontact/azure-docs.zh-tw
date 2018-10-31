@@ -1,34 +1,33 @@
 ---
 title: Azure SQL Database 連線架構 | Microsoft Docs
-description: 本文件說明 Azure 內外部的 Azure SQLDB 連線架構。
+description: 本文件說明 Azure 內外部的 Azure SQL Database 連線架構。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dhruv
+author: oslake
+ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/24/2018
-ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064125"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986316"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 連線架構 
+# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 連線架構
 
-本文說明 Azure SQL Database 連線架構並說明不同的元件函數如何將流量導向至您的 Azure SQL Database 執行個體。 這些 Azure SQL Database 連線元件函數可使用從 Azure 內部連線的用戶端和從 Azure 外部連線的用戶端，將網路流量導向至 Azure 資料庫。 本文也提供可變更連線方式的指令碼範例，以及和變更預設連線設定相關的考量。 
+本文說明 Azure SQL Database 連線架構並說明不同的元件函數如何將流量導向至您的 Azure SQL Database 執行個體。 這些 Azure SQL Database 連線元件函數可使用從 Azure 內部連線的用戶端和從 Azure 外部連線的用戶端，將網路流量導向至 Azure 資料庫。 本文也提供可變更連線方式的指令碼範例，以及和變更預設連線設定相關的考量。
 
 ## <a name="connectivity-architecture"></a>連線架構
 
 下圖提供 Azure SQL Database 連線架構的高階概觀。
 
 ![架構概觀](./media/sql-database-connectivity-architecture/architecture-overview.png)
-
 
 下列步驟說明如何透過 Azure SQL Database 軟體負載平衡器 (SLB) 和 Azure SQL Database 閘道，和 Azure SQL Database 建立連線。
 
@@ -39,7 +38,6 @@ ms.locfileid: "47064125"
 
 > [!IMPORTANT]
 > 這些元件各個都在網路和應用程式層內建分散式阻斷服務 (DDoS) 保護。
->
 
 ## <a name="connectivity-from-within-azure"></a>從 Azure 內部連線
 
@@ -54,7 +52,9 @@ ms.locfileid: "47064125"
 ![架構概觀](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> 搭配 Azure SQL Database 使用服務端點時，您的預設原則會是 **Proxy**。 若要從 VNet 內進行連線，您必須允許對以下清單中指定的 Azure SQL Database 閘道 IP 位址進行連出連線。 使用服務端點時，強烈建議將您的連線原則變更為 [重新導向] 以達到更佳的效能。 如果您將連線原則變更為 [重新導向]，則不足以允許在您的 NSG 上輸出至下面所列的 Azure SQLDB 閘道 IP，您就必須允許輸出至所有 Azure SQLDB IP。 透過 NSG (網路安全性群組) 服務標籤可以完成此作業。 如需詳細資訊，請參閱[服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
+> 搭配 Azure SQL Database 使用服務端點時，您的預設原則會是 **Proxy**。 若要從 VNet 內進行連線，您必須允許對以下清單中指定的 Azure SQL Database 閘道 IP 位址進行連出連線。
+
+使用服務端點時，強烈建議將您的連線原則變更為 [重新導向] 以達到更佳的效能。 如果您將連線原則變更為 [重新導向]，則不足以允許在您的 NSG 上輸出至下面所列的 Azure SQL Database 閘道 IP，您必須允許輸出至所有 Azure SQL Database IP。 透過 NSG (網路安全性群組) 服務標籤可以完成此作業。 如需詳細資訊，請參閱[服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 閘道 IP 位址
 
@@ -73,11 +73,18 @@ ms.locfileid: "47064125"
 | 加拿大中部 | 40.85.224.249 | |
 | 加拿大東部 | 40.86.226.166 | |
 | 美國中部 | 23.99.160.139 | 13.67.215.62 |
+| 中國東部 1 | 139.219.130.35 | |
+| 中國東部 2 | 40.73.82.1 | |
+| 中國北部 1 | 139.219.15.17 | |
+| 中國北部 2 | 40.73.50.0 | |
 | 東亞 | 191.234.2.139 | 52.175.33.150 |
 | 美國東部 1 | 191.238.6.43 | 40.121.158.30 |
 | 美國東部 2 | 191.239.224.107 | 40.79.84.180 * |
-| 印度中部 | 104.211.96.159  | |
-| 印度南部 | 104.211.224.146  | |
+| 法國中部 | 40.79.137.0 | 40.79.129.1 |
+| 德國中部 | 51.4.144.100 | |
+| 德國東北部 | 51.5.144.179 | |
+| 印度中部 | 104.211.96.159 | |
+| 印度南部 | 104.211.224.146 | |
 | 印度西部 | 104.211.160.80 | |
 | 日本東部 | 191.237.240.43 | 13.78.61.196 |
 | 日本西部 | 191.238.68.11 | 104.214.148.156 |
@@ -90,14 +97,14 @@ ms.locfileid: "47064125"
 | 英國北部 | 13.87.97.210 | |
 | 英國南部 1 | 51.140.184.11 | |
 | 英國南部 2 | 13.87.34.7 | |
-| 英國西部 | 51.141.8.11  | |
+| 英國西部 | 51.141.8.11 | |
 | 美國中西部 | 13.78.145.25 | |
 | 西歐 | 191.237.232.75 | 40.68.37.158 |
 | 美國西部 1 | 23.99.34.75 | 104.42.238.205 |
-| 美國西部 2 | 13.66.226.202  | |
+| 美國西部 2 | 13.66.226.202 | |
 ||||
 
-\* **注意：**[美國東部 2] 也有第三 IP 位址 `52.167.104.0`。
+\* **注意：** [美國東部 2] 也有第三 IP 位址 `52.167.104.0`。
 
 ## <a name="change-azure-sql-database-connection-policy"></a>變更 Azure SQL Database 連線原則
 
@@ -170,10 +177,10 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 
 > [!IMPORTANT]
 > 此指令碼需要 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
->
 
 下列 CLI 指令碼會示範如何變更連線原則。
 
+```azurecli-interactive
 <pre>
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
@@ -181,13 +188,14 @@ sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-grou
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
 
-# Get current connection policy 
+# Get current connection policy
 az resource show --ids $id
 
-# Update connection policy 
+# Update connection policy
 az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
+```
 
 ## <a name="next-steps"></a>後續步驟
 

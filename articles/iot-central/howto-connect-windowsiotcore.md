@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 88285ea658b194daf69b12116649e2389374c349
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188999"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025526"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>將 Windows IoT 核心版裝置連線到 Azure IoT 中心應用程式
 
@@ -44,11 +44,14 @@ ms.locfileid: "43188999"
 
 ### <a name="prepare-the-windows-iot-core-device"></a>準備 Windows IoT 核心版裝置
 
-若要設定 Windows IoT 核心版裝置，請遵位於 [設定 Windows IoT 核心版裝置] (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device) 的循逐步指南。
+若要設定 Windows IoT 核心版裝置，請遵循位於[設定 Windows IoT 核心版裝置](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device)的逐步指南。
 
 ### <a name="add-a-real-device"></a>新增真實裝置
 
-在 Azure IoT 中心應用程式中，從 **Windows IoT 核心版**裝置範本新增真實裝置，並記下裝置連接字串。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT 中心應用程式](tutorial-add-device.md)。
+在 Azure IoT Central 應用程式中，從 **Windows IoT Core** 裝置範本新增真實裝置，並記下裝置連線詳細資料 (**範圍識別碼、裝置識別碼、主要金鑰**)。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT Central 應用程式](tutorial-add-device.md)。
+
+ > [!NOTE]
+   > Azure IoT Central 已轉換為使用 Azure 物聯網中心裝置佈建服務 (DPS) 進行所有裝置連線，請遵循這些指示以[取得裝置連線字串](concepts-connectivity.md#getting-device-connection-string)，並繼續進行本教學課程的其餘部分。
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>準備 Windows 10 IoT 核心版裝置
 
@@ -66,7 +69,7 @@ ms.locfileid: "43188999"
 * 在桌面上，在名為 connection.string.iothub 的文字檔案中儲存連接字串。
 * 將文字檔案複製到裝置的文件資料夾：`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
-完成之後，您必須在任何瀏覽器中輸入 http://[device-IP-address]:8080，以開啟 [Windows 裝置入口網站](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal)。
+完成之後，您必須在任何瀏覽器中輸入 http://[device-IP-address]:8080，以開啟 [Windows 裝置入口網站](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal)。
 
 從這裡 (如下圖所示)，您會想要：
 1. 展開左側的 [應用程式] 節點。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: aad474195060c01a3f9d85e6f9037b568b0c16ad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630381"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645008"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>Azure Cloud Shell 中的 PowerShell (適用於 Windows 使用者)
 
@@ -54,7 +54,7 @@ PowerShell 特有體驗 (如 `tab-completing` Cmdlet 名稱、參數和值) 則�
 ## <a name="persisting-home"></a>保留 $HOME
 
 以前，使用者只能在其雲端磁碟機中保留指令碼和其他檔案。
-現在，使用者的 $HOME 目錄也能跨工作階段保留下來。
+現在，使用者的 $HOME 目錄也會跨工作階段保留下來。
 
 ## <a name="powershell-profile"></a>PowerShell 設定檔
 

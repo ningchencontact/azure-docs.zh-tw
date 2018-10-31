@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145125"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958800"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
 
 本文示範如何在 Azure 入口網站中建立 Azure 自動化帳戶。 您可以使用入口網站自動化帳戶來評估和了解自動化，而不需使用額外的管理解決方案或與 Azure Log Analytics 整合。 您可以新增那些管理解決方案，或與 Log Analytics 整合，以便在未來的任何時間點進一步監視 Runbook 作業。
 
-使用自動化帳戶，您可以藉由在 Azure Resource Manager 或傳統部署模型中管理資源來驗證 Runbook。
+使用自動化帳戶，您可以藉由在 Azure Resource Manager 或傳統部署模型中管理資源來驗證 Runbook。 一個「自動化帳戶」可以管理所指定租用戶之所有區域和訂用帳戶的資源。
 
 當您在 Azure 入口網站中建立自動化帳戶時，即會自動建立這些帳戶：
 
@@ -37,7 +37,7 @@ ms.locfileid: "42145125"
 若要建立或更新自動化帳戶，以及完成本文中所述的工作，您必須具有下列權限：
 
 * 若要建立自動化帳戶，必須將您的 Azure AD 使用者帳戶加入至權限相當於 **Microsoft自動化**資源之擁有者角色的角色。 如需詳細資訊，請參閱 [Azure 自動化中的角色型存取控制](automation-role-based-access-control.md)。
-* 在 Azure 入口網站的 [Azure Active Directory] > [管理] > [應用程式註冊] 下方，如果將 [應用程式註冊] 設為 [是]，則 Azure AD 租用戶中的非管理使用者就能[註冊 Active Directory 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果將 [應用程式註冊] 設為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。
+* 在 Azure 入口網站的 [Azure Active Directory] > [管理] > [應用程式註冊] 下方，如果將 [應用程式註冊] 設為 [是]，則 Azure AD 租用戶中的非管理使用者就能[註冊 Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果將 [應用程式註冊] 設為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。
 
 若您在加入至訂用帳戶的全域管理員/共同管理員角色之前，並非訂用帳戶 Active Directory 執行個體的成員，系統會將您以來賓身分加入至 Active Directory。 在此案例中，您會在 [新增自動化帳戶] 頁面中看到此訊息：「您無權建立」。
 
@@ -61,14 +61,15 @@ ms.locfileid: "42145125"
    ![在 Azure Marketplace 中搜尋「自動化與控制」並加以選取](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. 在下一個畫面上，選取 [建立]。
+
   ![加入自動化帳戶](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
   > [!NOTE]
   > 如果您在 [加入自動化帳戶] 窗格中看見下列訊息，您的帳戶就不是訂用帳戶管理員角色的成員和訂用帳戶的共同管理員。
   >
   > ![加入自動化帳戶警告](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
-1. 在 [加入自動化帳戶] 窗格的 [名稱] 方塊中，輸入新自動化帳戶的名稱。 選擇名稱之後，就無法變更此名稱。
+
+1. 在 [加入自動化帳戶] 窗格的 [名稱] 方塊中，輸入新自動化帳戶的名稱。 選擇名稱之後，就無法變更此名稱。 *「自動化帳戶」名稱在每一區域和資源群組中是唯一的。*
 1. 如果您有多個訂用帳戶，請在 [訂用帳戶] 方塊中，指定您想要用於新帳戶的訂用帳戶。
 1. 對於 [資源群組]，輸入或選取新的或現有的資源群組。
 1. 對於 [位置]，選取一個 Azure 資料中心位置。

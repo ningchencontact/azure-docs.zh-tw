@@ -1,21 +1,21 @@
 ---
 title: 為 Azure 搜尋服務的 Azure Cosmos DB 資料來源編製索引 | Microsoft Docs
 description: 本文說明如何以 Azure Cosmos DB 資料來源建立 Azure 搜尋服務索引子。
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 05/29/2018
-ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 8206c076f9e89753adb16854a7d981c0f80c4a3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c74563ba98835403f12a4df048d7ff358014b826
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640331"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406665"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>使用索引子連接 Cosmos DB 與 Azure 搜尋服務
 
@@ -45,7 +45,7 @@ ms.locfileid: "34640331"
 * [圖形 API 資料來源支援](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4)
 * [Apache Cassandra API 資料來源支援](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 除了 Cosmos DB 帳戶以外，您必須擁有 [Azure 搜尋服務](search-create-service-portal.md)。 
 
@@ -97,7 +97,8 @@ ms.locfileid: "34640331"
 * **type**：必須是 `documentdb`。
 * **認證**：
   
-  * **connectionString**：必要。 請以下列格式指定 Azure Cosmos DB 資料庫的連線資訊：`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` 針對 MongoDB 集合，將 **ApiKind=MongoDb** 新增至連接字串：`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
+  * **connectionString**：必要。 請以下列格式指定 Azure Cosmos DB 資料庫的連線資訊：`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` 針對 MongoDB 集合，將 **ApiKind=MongoDb** 新增至連接字串：`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  請避免在端點 URL 中使用連接埠號碼。 如果您加入連接埠號碼，Azure 搜尋服務將無法為 Azure Cosmos DB 資料庫編製索引。
 * **容器**：
   
   * **名稱**：必要。 指定要編製索引的資料收集識別碼。
@@ -320,7 +321,7 @@ ms.locfileid: "34640331"
         }
     }
 
-## <a name="NextSteps"></a>後續步驟
+## <a name="NextSteps"></a>接續步驟
 恭喜！ 您已了解如何使用索引子來整合 Azure Cosmos DB 與 Azure 搜尋服務。
 
 * 若要深入了解 Azure Cosmos DB，請參閱 [Azure Cosmos DB 服務頁面](https://azure.microsoft.com/services/cosmos-db/)。

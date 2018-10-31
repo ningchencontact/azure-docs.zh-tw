@@ -2,22 +2,23 @@
 title: 語音服務 REST API
 description: 語音服務 REST API 的參考。
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: erhopf
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032422"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025832"
 ---
 # <a name="speech-service-rest-apis"></a>語音服務 REST API
 
-Azure 認知服務統一語音服務的 REST API 類似於 [Bing 語音 API](https://docs.microsoft.com/azure/cognitive-services/Speech) 所提供的 API。 而端點不同於 Bing 語音服務所使用的端點。 可以使用區域性端點，但您必須使用對應至您所用端點的訂用帳戶金鑰。
+「Azure 認知服務語音服務」的 REST API 類似於 [Bing 語音 API](https://docs.microsoft.com/azure/cognitive-services/Speech) 所提供的 API。 而端點不同於 Bing 語音服務所使用的端點。 可以使用區域性端點，但您必須使用對應至您所用端點的訂用帳戶金鑰。
 
 ## <a name="speech-to-text"></a>語音轉換文字
 
@@ -30,13 +31,14 @@ Azure 認知服務統一語音服務的 REST API 類似於 [Bing 語音 API](htt
 
 此 API 只支援簡短語句。 要求可能包含多達 10 秒的音訊，整體最多可長達 14 秒。 REST API 只會傳回最終結果，而不是部分或中間的結果。 語音服務也有可以轉譯較長音訊的[批次轉譯](batch-transcription.md) API。
 
+
 ### <a name="query-parameters"></a>查詢參數
 
 REST 要求的查詢字串中可能包含下列參數。
 
 |參數名稱|必要/選用|意義|
 |-|-|-|
-|`language`|必要|要辨識的語言識別碼。 請參閱[支援的語言](supported-languages.md#speech-to-text)。|
+|`language`|必要|要辨識的語言識別碼。 請參閱[支援的語言](language-support.md#speech-to-text)。|
 |`format`|選用<br>預設值：`simple`|結果格式：`simple` 或 `detailed`。 簡單的結果包含 `RecognitionStatus``DisplayText`、`Offset` 和持續時間。 詳細的結果包含多個具有信賴值的候選項目和四個不同的表示法。|
 |`profanity`|選用<br>預設值：`masked`|如何處理辨識結果中的不雅內容。 可能的處理方式為 `masked` (以星號取代不雅內容)、`removed` (移除所有不雅內容)，或 `raw` (包括不雅內容)。
 
@@ -55,13 +57,19 @@ REST 要求的查詢字串中可能包含下列參數。
 
 ### <a name="audio-format"></a>音訊格式
 
-音訊會在 HTTP `PUT` 要求的主體中傳送。 它應該是 16 位元 WAV 格式，採用 16 KHz 的 PCM 單一通道 (mono)。
+音訊會在 HTTP `POST` 要求的主體中傳送。 它應該是 16 位元 WAV 格式，具備採用下列格式/編碼的 16 KHz PCM 單一通道 (mono)。
+
+* 具備 PCM 轉碼器的 WAV 格式
+* 具備 OPUS 轉碼器的 Ogg 格式
+
+>[!NOTE]
+>透過「語音服務」中的 REST API 和 WebSocket 可支援上述格式。 [語音 SDK](/index.yml) 目前僅支援具備 PCM 轉碼器的 WAV 格式。
 
 ### <a name="chunked-transfer"></a>區塊傳輸
 
 區塊傳輸 (`Transfer-Encoding: chunked`) 可協助減少辨識延遲，因為它可讓語音服務在音訊檔案進行傳輸時開始處理。 REST API 不會提供部分或中間的結果。 此選項僅僅為了改善回應能力。
 
-下列程式碼說明如何以區塊傳送音訊。 `request` 是連線到適當 REST 端點的 HTTPWebRequest 物件。 `audioFile` 是音訊檔案在磁碟上的路徑。
+下列程式碼說明如何以區塊傳送音訊。 只有第一個區塊應該包含音訊檔案的標頭。 `request` 是連線到適當 REST 端點的 HTTPWebRequest 物件。 `audioFile` 是音訊檔案在磁碟上的路徑。
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -137,7 +145,7 @@ HTTP 代碼|意義|可能的原因
 | `Error` | 辨識服務發生內部錯誤，無法繼續。 可能的話，再試一次。 |
 
 > [!NOTE]
-> 如果音訊只包含不雅內容，而且 `profanity` 查詢參數設為 `remove`，則服務不會傳回語音結果。 
+> 如果音訊只包含不雅內容，而且 `profanity` 查詢參數設為 `remove`，則服務不會傳回語音結果。
 
 
 `detailed` 格式包含與 `simple` 格式相同的欄位，以及 `NBest` 欄位。 `NBest` 欄位是相同語音的替代解譯清單 (從最有可能的解譯排到最不可能的解譯)。 第一個項目與主要辨識結果相同。 每個項目都包含下列欄位：
@@ -195,17 +203,14 @@ HTTP 代碼|意義|可能的原因
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> 如果您已建立自訂語音字型，請改為使用相關聯的自訂端點。
-
 除了 Bing 語音所支援的 16-Khz 輸出，語音服務可支援 24-KHz 音訊輸出。 有四種 24-KHz 輸出格式可使用於 `X-Microsoft-OutputFormat` HTTP 標頭中，因此有兩種 24-KHz 語音 `Jessa24kRUS` 和 `Guy24kRUS`。
 
 地區設定 | 語言   | 性別 | 服務名稱對應
 -------|------------|--------|------------
-zh-TW  | 美式英文 | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+zh-TW  | 美式英文 | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
 zh-TW  | 美式英文 | 男性   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
-在[支援的語言](supported-languages.md#text-to-speech)中可取得可用語音的完整清單。
+在[支援的語言](language-support.md#text-to-speech)中可取得可用語音的完整清單。
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -230,7 +235,7 @@ zh-TW  | 美式英文 | 男性   | "Microsoft Server Speech Text to Speech Voice
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> 如果您選取的語音和輸出格式具有不同的位元速率，則會視需要重新進行音訊取樣。 不過，24KHz 語音不支援 `audio-16khz-16kbps-mono-siren` 和 `riff-16khz-16kbps-mono-siren` 輸出格式。 
+> 如果您選取的語音和輸出格式具有不同的位元速率，則會視需要重新進行音訊取樣。 不過，24KHz 語音不支援 `audio-16khz-16kbps-mono-siren` 和 `riff-16khz-16kbps-mono-siren` 輸出格式。
 
 ### <a name="request-body"></a>Request body
 
@@ -249,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -265,7 +270,8 @@ HTTP 代碼|意義|可能的原因
 400 |不正確的要求 |必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。
 401|未經授權 |要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。
 413|要求實體太大|SSML 輸入的長度大於 1024 個字元。
-|502|錯誤的閘道    | 網路或伺服器端問題。 也可能表示標頭無效。
+429|太多要求|您已超出訂用帳戶允許的配額或要求率。
+502|錯誤的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。
 
 如果 HTTP 狀態為 `200 OK`，則回應主體會包含所要求格式的音訊檔案。 此檔案可以在傳輸或儲存至緩衝區或檔案時播放，以供稍後播放或其他用途。
 
@@ -322,10 +328,10 @@ cURL 是 Linux (以及適用於 Linux 的 Windows 子系統) 中可用的命令�
 > 為了方便閱讀，命令會以多行顯示，但在殼層提示字元中輸入為一行。
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -405,7 +411,7 @@ Connection: Keep-Alive
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -480,4 +486,3 @@ public class Authentication
 - [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
 - [自訂原音模型](how-to-customize-acoustic-models.md)
 - [自訂語言模型](how-to-customize-language-model.md)
-

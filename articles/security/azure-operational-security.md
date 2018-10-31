@@ -1,6 +1,6 @@
 ---
 title: Azure 作業安全性 | Microsoft Docs
-description: 了解 Microsoft Operations Management Suite (OMS)、它的服務及運作方式。
+description: 了解 Microsoft Azure Log Analytics、其服務及其運作方式。
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60260d7bcff07a9ce2d680c84119d11271579e7d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 2ae2ea14bc712563867f32b83eddbd9d4129ac1d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342264"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409487"
 ---
 # <a name="azure-operational-security"></a>Azure 作業安全性
 ## <a name="introduction"></a>簡介
@@ -40,7 +40,7 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。 Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 方案，以及對網路安全性威脅型態的深層認知。
 
 本技術白皮書概述 Microsoft 在 Microsoft Azure 雲端平台內處理 Azure 作業安全性的方法，並涵蓋以下服務：
-1.  [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+1.  [Azure 監視器](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 2.  [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
@@ -53,17 +53,17 @@ Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資
 6.  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-operations-management-suite"></a>Microsoft Operations Management Suite
+## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
 
-Microsoft Operations Management Suite (OMS) 是適用於混合式雲端的 IT 管理解決方案。 透過單獨使用或擴充現有的 System Center 部署，OMS 可為您基礎結構的雲端式管理提供最大的彈性和控制。
+Microsoft Azure Log Analytics 是適用於混合式雲端的 IT 管理解決方案。 透過單獨使用或擴充現有的 System Center 部署，Log Analytics 可為您基礎結構的雲端式管理提供最大的彈性和控制。
 
-![Microsoft Operations Management Suite](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-透過 OMS，您就能以低於競爭解決方案的成本來管理任何雲端中的任何執行個體，包括內部部署、Azure、AWS、Windows Server、Linux、VMware 和 OpenStack。 由於 OMS 是針對雲端優先的世界建置的，因此，可提供一種新方法來管理您的企業，此為最快速且最符合成本效益的方式，可符合新的商業挑戰並適應新的工作負載、應用程式及雲端環境。
+透過 Log Analytics，您就能以低於競爭解決方案的成本來管理任何雲端中的任何執行個體，包括內部部署、Azure、AWS、Windows Server、Linux、VMware 和 OpenStack。 由於 Log Analytics 是針對雲端優先的世界建置的，因此，可提供一種新方法來管理您的企業，此為最快速且最符合成本效益的方式，可符合新的商業挑戰並適應新的工作負載、應用程式及雲端環境。
 
-### <a name="oms-services"></a>OMS 服務
+### <a name="log-analytics-services"></a>Log Analytics 服務
 
-OMS 的核心功能是由在 Azure 中執行的一組服務所提供。 每個服務會提供特定的管理功能，您可以合併服務以達成不同的管理案例。
+Log Analytics 的核心功能是由在 Azure 中執行的一組服務所提供。 每個服務會提供特定的管理功能，您可以合併服務以達成不同的管理案例。
 
 | 服務  | 說明|
 | :------------- | :-------------|
@@ -74,7 +74,7 @@ OMS 的核心功能是由在 Azure 中執行的一組服務所提供。 每個�
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) 藉由將受控資源中的資料收集到中央儲存機制，以提供 OMS 監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) 藉由將受控資源中的資料收集到中央存放庫，來提供監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
 
 
 這個方法可讓您合併各種來源的資料，以便結合來自 Azure 服務與現有內部部署環境的資料。 它也可清楚劃分資料的收集與對該資料採取的動作，而讓所有類型的資料可以使用所有的動作。
@@ -92,17 +92,17 @@ Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的
 
 ### <a name="azure-backup"></a>Azure 備份
 
-[Azure 備份](http://azure.microsoft.com/documentation/services/backup)提供資料備份及還原服務，其為產品和服務之 OMS 套件的一部分。
+[Azure 備份](http://azure.microsoft.com/documentation/services/backup)提供資料備份及還原服務，其為產品和服務之 Log Analytics 套件的一部分。
 它可保護您的應用程式資料並保留數年，而您完全不必投入資本投資，並且只需要最少的營運成本。 它可以備份實體和虛擬 Windows 伺服器中的資料，以及應用程式工作負載 (例如 SQL Server 和 SharePoint)。 [System Center Data Protection Manager (DPM) (英文)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) 也可以使用它，將受保護資料複寫到 Azure 以進行備援與長期儲存。
 
 
 Azure 備份中受保護的資料會儲存在位於特定地理區域的備份保存庫中。 資料是在相同的區域內進行複寫，而且根據保存庫類型，也可能會複寫到另一個區域，以供進一步復原。
 
 ### <a name="management-solutions"></a>管理解決方案
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) 是 Microsoft 的雲端式 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。
 
 
-[管理解決方案](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)是預先封裝的邏輯集合，可使用一或多項 OMS 服務實作特定管理案例。 Microsoft 和合作夥伴會提供不同的解決方案，您可以輕鬆地將其新增至您的 Azure 訂用帳戶，以提升您的 OMS 投資價值。 身為合作夥伴的您可以建立自己的解決方案，來支援您的應用程式和服務，並透過 Azure Marketplace 或快速入門範本將其提供給使用者。
+[管理解決方案](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)是預先封裝的邏輯集合，可使用一或多項 Log Analytics 服務實作特定管理案例。 Microsoft 和合作夥伴會提供不同的解決方案，您可以輕鬆地將其新增至您的 Azure 訂用帳戶，以提升您的 Log Analytics 投資價值。 身為合作夥伴的您可以建立自己的解決方案，來支援您的應用程式和服務，並透過 Azure Marketplace 或快速入門範本將其提供給使用者。
 
 
 ![管理解決方案](./media/azure-operational-security/azure-operational-security-fig4.png)
@@ -164,7 +164,7 @@ Azure 資訊安全中心會收集損毀傾印檔案的暫時複本並加以分�
 
 ## <a name="azure-monitor"></a>Azure 監視器
 
-[OMS 安全性](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)和稽核解決方案可讓 IT 人員主動監視所有資源，此舉有助於將安全性事件的影響降至最低。 OMS 安全性和稽核具備可用來監視資源的安全性網域。 安全性網域提供特定選項的快速存取方式，並基於安全性監視目的，更詳盡地涵蓋下列網域：
+[Log Analytics 安全性](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)與稽核解決方案可讓 IT 人員主動監視所有資源，此舉有助於將安全性事件的影響降至最低。 Log Analytics 安全性和稽核具備可用來監視資源的安全性網域。 安全性網域提供特定選項的快速存取方式，並基於安全性監視目的，更詳盡地涵蓋下列網域：
 
 -   惡意程式碼評估
 -   更新評估
@@ -312,7 +312,7 @@ Azure AD 稽核報告中的事件會保留 180 天。
 
 本文說明
 
--   Operations Management Suite (OMS) 中收集、處理和保護資料的方式。
+-   在 Log Analytics 中收集、處理和保護資料的方式。
 
 -   快速分析多個資料來源中的事件。 識別安全性風險，並了解威脅和攻擊的範圍和影響，以減輕安全性缺口的損害。
 
@@ -335,7 +335,7 @@ Azure AD 稽核報告中的事件會保留 180 天。
 
 Microsoft 在設計其服務與軟體時已將安全性納入考量，以協助確保其雲端基礎結構有彈性且可抵禦攻擊。
 
-- [Operations Management Suite | 安全性與合規性](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Log Analytics | 安全性與合規性](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 使用 Microsoft 安全性資料和分析，來執行更聰明且有效的威脅偵測。
 

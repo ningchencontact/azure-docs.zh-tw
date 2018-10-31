@@ -1,20 +1,20 @@
 ---
 title: 使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務 | Microsoft Docs
 description: 了解如何使用索引子將資料從 Azure SQL Database 提取至 Azure 搜尋服務索引。
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
-ms.openlocfilehash: 5897740a1b5a183738c08b4dfde571be652aff3e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 1c498bb857b717682f943af96b222d9712b5d389
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633925"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409215"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務
 
@@ -277,7 +277,7 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
         }
     }
 
-**softDeleteMarkerValue** 必須為一個字串 (使用代表實際值的字串)。 例如，如果您有整數資料行，且其中的已刪除資料列標記為值 1，請使用 `"1"`。 如果您有 BIT 資料行，且其中的已刪除資料列標記為布林值 true，則請使用 `"True"`。
+**softDeleteMarkerValue** 必須為一個字串 (使用代表實際值的字串)。 例如，如果您有整數資料行，且其中的已刪除資料列標記為值 1，請使用 `"1"`。 如果您有 BIT 資料行，且其中的已刪除資料列標記為布林值 true，則請使用字串常值 `True` 或 `true`，大小寫並不重要。
 
 <a name="TypeMapping"></a>
 

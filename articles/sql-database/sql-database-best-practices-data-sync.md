@@ -2,18 +2,22 @@
 title: Azure SQL 資料同步最佳做法 | Microsoft Docs
 description: 了解設定及執行 Azure SQL 資料同步的最佳做法。
 services: sql-database
-ms.date: 08/20/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
+ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.date: 10/22/2018
+ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141922"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646293"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 資料同步最佳做法 
 
@@ -66,6 +70,10 @@ Azure SQL Database 僅支援一組認證。 若要在此條件約束內完成這
 同步群組中的每個資料表都必須有主索引鍵。 SQL 資料同步服務無法同步處理沒有主索引鍵的資料表。
 
 在生產環境中使用 SQL 資料同步之前，請先測試初始和持續進行的同步處理效能。
+
+#### <a name="empty-tables-provide-the-best-performance"></a>空資料表提供最佳效能
+
+空資料表在初始化階段提供最佳效能。 如果目標資料表是空的，則資料同步會使用大量插入來載入資料。 否則，資料同步會逐列比較並插入以檢查是否有衝突。 但是，如果不考慮效能，您可以在已經包含資料的資料表之間設定同步。
 
 ### <a name="provisioning-destination-databases"></a> 佈建目的地資料庫
 

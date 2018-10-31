@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220460"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408076"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>為叢集設定 Log Analytics
 
@@ -80,7 +80,7 @@ ms.locfileid: "47220460"
 
 * 建立 5 個節點的 Service Fabric 叢集
 * 建立 Log Analytics 工作區與 Service Fabric 解決方案
-* 設定 OMS 代理程式以收集並傳送 2 個範例效能計數器到工作區
+* 設定 Log Analytics 代理程式以收集並傳送 2 個範例效能計數器到工作區
 * 設定 WAD 以收集 Service Fabric 並將其傳送到 Azure 儲存體資料表 (WADServiceFabric*EventTable)
 * 設定 Log Analytics 工作區以從這些資料表讀取事件
 

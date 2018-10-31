@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309341"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429383"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>建立會執行管線來回應事件的觸發程序
 
@@ -71,23 +71,26 @@ ms.locfileid: "49309341"
 | **JSON 元素** | **說明** | **類型** | **允許的值** | **必要** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | scope | 儲存體帳戶的 Azure Resource Manager 資源識別碼。 | 字串 | Azure Resource Manager 識別碼 | 是 |
-| **events** | 會導致引發此觸發程序的事件類型。 | 陣列    | Microsoft.Storage.BlobCreated、Microsoft.Storage.BlobDeleted | 是，任何組合。 |
-| **blobPathBeginsWith** | Blob 路徑的開頭必須是提供來引發觸發程序的模式。 例如，'/records/blobs/december/' 只會針對 records 容器下 december 資料夾中的 Blob 引發觸發程序。 | 字串   | | 至少必須提供其中一個屬性：blobPathBeginsWith、blobPathEndsWith。 |
-| **blobPathEndsWith** | Blob 路徑的結尾必須是提供來引發觸發程序的模式。 例如，'december/boxes.csv' 只會針對 december 資料夾中的 Blob 具名方塊引發觸發程序。 | 字串   | | 至少必須提供其中一個屬性：blobPathBeginsWith、blobPathEndsWith。 |
+| **events** | 會導致引發此觸發程序的事件類型。 | 陣列    | Microsoft.Storage.BlobCreated、Microsoft.Storage.BlobDeleted | 是，這些值的任意組合。 |
+| **blobPathBeginsWith** | Blob 路徑的開頭必須是提供來引發觸發程序的模式。 例如，`/records/blobs/december/` 只會針對 `records` 容器下 `december` 資料夾中的 Blob 引發觸發程序。 | 字串   | | 您必須為下列屬性中的至少一個屬性提供值：`blobPathBeginsWith` 或 `blobPathEndsWith`。 |
+| **blobPathEndsWith** | Blob 路徑的結尾必須是提供來引發觸發程序的模式。 例如，`december/boxes.csv` 只會針對 `december` 資料夾中名為 `boxes` 的 Blob 引發觸發程序。 | 字串   | | 您必須為下列屬性中的至少一個屬性提供值：`blobPathBeginsWith` 或 `blobPathEndsWith`。 |
 
 ## <a name="examples-of-event-based-triggers"></a>事件型觸發程序的範例
 
 本節提供事件型觸發程序設定的範例。
 
--   **Blob path begins with**('/containername/') – 接收容器中任何 Blob 的事件。
--   **Blob path begins with**('/containername/blobs/foldername') – 接收 containername 容器和 foldername 資料夾中任何 Blob 的事件。 您也可以參考子資料夾；例如，'/containername/blobs/foldername/subfoldername/'。
--   **Blob path begins with**('/containername/blobs/foldername/file.txt') – 接收 containername 容器下 foldername 資料夾中 Blob (名為 file.txt) 的事件。
--   **Blob path ends with**('file.txt') – 接收任何路徑中 Blob 具名 file.txt 的事件。
--   **Blob path ends with**('/containername/blobs/file.txt') – 接收 containername 容器下 Blob (名為 file.txt) 的事件。
--   **Blob path ends with**('foldername/file.txt') – 接收任何容器下 foldername 資料夾中 Blob 具名 file.txt 的事件。
+> [!IMPORTANT]
+> 每當您指定容器與資料夾、容器與檔案，或容器、資料夾與檔案時，都必須包含路徑的 `/blobs/` 區段，如下列範例所示。
 
-> [!NOTE]
-> 每當您指定容器與資料夾、容器與檔案，或是容器、資料夾與檔案時，都必須包含路徑的 `/blobs/` 區段。
+| 屬性 | 範例 | 說明 |
+|---|---|---|
+| **Blob 路徑開頭** | `/containername/` | 接收容器中任何 Blob 的事件。 |
+| **Blob 路徑開頭** | `/containername/blobs/foldername/` | 接收 `containername` 容器與 `foldername` 資料夾中任何 Blob 的事件。 |
+| **Blob 路徑開頭** | `/containername/blobs/foldername/subfoldername/` | 您也可以參考子資料夾。 |
+| **Blob 路徑開頭** | `/containername/blobs/foldername/file.txt` | 接收 `containername` 容器下 `foldername` 資料夾中名為 `file.txt` 之 Blob 的事件。 |
+| **Blob 路徑結尾** | `file.txt` | 接收任何路徑中名為 `file.txt` 之 Blob 的事件。 |
+| **Blob 路徑結尾** | `/containername/blobs/file.txt` | 接收容器 `containername` 下名為 `file.txt` 之 Blob 的事件。 |
+| **Blob 路徑結尾** | `foldername/file.txt` | 接收任何容器下 `foldername` 資料夾中名為 `file.txt` 之 Blob 的事件。 |
 
 ## <a name="next-steps"></a>後續步驟
 如需有關觸發程序的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md#triggers)。

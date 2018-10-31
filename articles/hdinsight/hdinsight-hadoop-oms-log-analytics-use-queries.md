@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 9550468e8bc9b93216fd4c1ecf144415badfc7dc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 18ee51e54c1e44ba3affd6ca49bed5360211fa9c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103652"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408163"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>查詢 Azure Log Analytics 以監視 HDInsight 叢集
 
@@ -32,7 +32,7 @@ ms.locfileid: "43103652"
 
 了解如何為您的 HDInsight 叢集尋找特定的計量。
 
-1. 從 Azure 入口網站開啟與您的 HDInsight 叢集相關聯的 OMS 工作區。
+1. 從 Azure 入口網站開啟與您的 HDInsight 叢集相關聯的 Log Analytics 工作區。
 2. 選取 [記錄搜尋] 圖格。
 3. 在搜尋方塊中輸入以下查詢，針對已設定為使用 Azure Log Analytics 的所有 HDInsight 叢集搜尋所有可用的計量，然後選取 [執行]。
 
@@ -65,7 +65,7 @@ ms.locfileid: "43103652"
 
 了解如何查看特定時間範圍的錯誤訊息。 這裡的步驟只是其中一個方法範例，讓您可以找到想了解的錯誤訊息。 您可以使用任何可用屬性來找出想尋找的錯誤。
 
-1. 從 Azure 入口網站開啟與您的 HDInsight 叢集相關聯的 OMS 工作區。
+1. 從 Azure 入口網站開啟與您的 HDInsight 叢集相關聯的 Log Analytics 工作區。
 2. 選取 [記錄搜尋] 圖格。
 3. 輸入以下查詢，針對已設定為使用 Azure Log Analytics 的所有 HDInsight 叢集搜尋所有錯誤訊息，然後選取 [執行]。 
 
@@ -117,7 +117,7 @@ ms.locfileid: "43103652"
 3. 選取您要編輯或刪除的警示。
 4. 您可以使用下列選項：**儲存**、**捨棄**、**停用**和**刪除**。
 
-    ![HDInsight Log Analytics OMS 警示刪除編輯](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Log Analytics 警示刪除編輯](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 如需詳細資訊，請參閱[使用 Log Analytics 中的警示規則](../log-analytics/log-analytics-alerts-creating.md)。
 

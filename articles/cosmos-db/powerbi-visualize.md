@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: dfd66c1ac2e627b72d24a520fc37c6ebfb361556
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869989"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945173"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 連接器將 Azure Cosmos DB 資料視覺化
 
-[PowerBI.com](https://powerbi.microsoft.com/) 是一個線上服務，您可以在其中建立及共用儀表板和報表。 Power BI Desktop 是一個報表撰寫工具，可讓您從各種資料來源擷取資料。 Azure Cosmos DB 是其中一個可與 Power BI Desktop 搭配使用的資料來源。 您可以透過適用於 Power BI 的 Azure Cosmos DB 連接器將 Power BI Desktop 連線至 Azure Cosmos DB 帳戶。  將 Azure Cosmos DB 資料匯入至 Power BI 之後，您便可以轉換它、建立報表，然後將報表發佈至 Power BI。   
+[Power BI](https://powerbi.microsoft.com/) 是一個線上服務，您可以在其中建立及共用儀表板和報表。 Power BI Desktop 是一個報表撰寫工具，可讓您從各種資料來源擷取資料。 Azure Cosmos DB 是其中一個可與 Power BI Desktop 搭配使用的資料來源。 您可以透過適用於 Power BI 的 Azure Cosmos DB 連接器將 Power BI Desktop 連線至 Azure Cosmos DB 帳戶。  將 Azure Cosmos DB 資料匯入至 Power BI 之後，您便可以轉換它、建立報表，然後將報表發佈至 Power BI。   
 
-此文章說明將 Azure Cosmos DB 帳戶連線至 Power BI Desktop 所需的步驟。 連線之後，您可以瀏覽至集合、擷取資料、將 JSON 資料轉換成表格式格式，然後將報表發佈至 PowerBI。
+此文章說明將 Azure Cosmos DB 帳戶連線至 Power BI Desktop 所需的步驟。 連線之後，您可以瀏覽至集合、擷取資料、將 JSON 資料轉換成表格格式，然後將報表發佈至 Power BI。
 
 > [!NOTE]
 > 適用於 Azure Cosmos DB 的 Power BI 連接器會連線至 Power BI Desktop。 在 Power BI Desktop 中建立的報表可以發佈至 PowerBI.com。 您無法從 PowerBI.com 直接擷取 Azure Cosmos DB 資料。 
@@ -29,7 +29,7 @@ ms.locfileid: "48869989"
 > [!NOTE]
 > 目前僅支援 Azure Cosmos DB SQL API 和 Gremlin API 帳戶的 Azure Cosmos DB 與 Power BI 連接器連線。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在依照本 Power BI 教學課程中的指示進行之前，請先確定您可以存取下列資源：
 
 * [下載最新版的 Power BI Desktop](https://powerbi.microsoft.com/desktop)。
@@ -41,7 +41,7 @@ ms.locfileid: "48869989"
 若要在 PowerBI.com 上共用您的報告，您必須有 PowerBI.com 中的帳戶。  若要深入了解 Power BI 和 Power BI Pro，請參閱 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)。
 
 ## <a name="lets-get-started"></a>現在就開始吧
-在此教學課程中，我們假設您是研究世界各地火山的地質學家。 火山資料儲存在 Azure Cosmos DB 帳戶中，JSON 文件格式如下：
+在本教學課程中，我們假設您是研究世界各地火山的地質學家。 火山資料儲存在 Azure Cosmos DB 帳戶中，JSON 文件格式如下：
 
     {
         "Volcano Name": "Rainier",
@@ -106,7 +106,7 @@ ms.locfileid: "48869989"
 5. 按一下位於 [Document.Location] 資料行標頭右側的展開器。  此時會出現含有類型和座標欄位的內容功能表。  請選取座標欄位，並確定未選取 [使用原始資料行名稱作為前置詞]，然後按一下 [確定]。
    
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 位置記錄](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
-6. 中央窗格現在會顯示 [清單]  類型的座標資料行。  如此教學課程一開始所說明，此教學課程中的 GeoJSON 資料屬於 Point 類型，具有座標陣列中所記錄的緯度和經度值。
+6. 中央窗格現在會顯示 [清單]  類型的座標資料行。  如本教學課程一開始所說明，本教學課程中的 GeoJSON 資料屬於 Point 類型，具有座標陣列中所記錄的緯度和經度值。
    
     coordinates[0] 項目代表經度，coordinates[1] 則代表緯度。
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 座標清單](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)

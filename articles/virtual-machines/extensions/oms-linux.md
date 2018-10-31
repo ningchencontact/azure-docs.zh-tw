@@ -15,18 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: b8a946588d09eb05e1609344318c91f76c7ee106
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452117"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404846"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>適用於 Linux 的 Log Analytics 虛擬機器擴充功能
 
 ## <a name="overview"></a>概觀
 
 Log Analytics 可提供雲端和內部部署資產的監視、警示和警示補救功能。 Microsoft 已發佈和支援適用於 Linux 的 Log Analytics 代理程式虛擬機器擴充功能。 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Log Analytics 工作區中註冊虛擬機器。 本文件詳述適用於 Linux 的 Log Analytics 虛擬機器擴充功能所支援的平台、組態和部署選項。
+
+>[!NOTE]
+>Microsoft Operations Management Suite (OMS) 正在轉換為 Azure 監視器，而適用於 Windows 或 Linux 的 OMS 代理程式屬於此轉換的一部份，之後會將其稱為適用於 Windows 的 Log Analytics 代理程式和適用於 Linux 的 Log Analytics 代理程式。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -80,9 +83,9 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並且將�
 
 ```json
 {
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -101,11 +104,15 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並且將�
 }
 ```
 
+>[!NOTE]
+>上述結構描述假設會將它放置於範本的根層級。 如果您將它放置於範本中的虛擬機器資源內部，那麼也應該變更 `type` 和 `name` 屬性，如[後續內容](#template-deployment)所述。
+>
+
 ### <a name="property-values"></a>屬性值
 
 | 名稱 | 值 / 範例 |
 | ---- | ---- |
-| apiVersion | 2015-06-15 |
+| apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
@@ -125,7 +132,7 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並且將�
 {
   "type": "extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -150,7 +157,7 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並且將�
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "<parentVmResource>/OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -206,13 +213,13 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 9 | 啟用提前呼叫 | [將 Azure Linux 代理程式更新](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)為最新的可用版本。 |
 | 10 | VM 已經連線到 Log Analytics 工作區 | 若要將 VM 連線到擴充功能結構描述中所指定的工作區，請在公用設定中將 stopOnMultipleConnections 設定為 false，或是移除此屬性。 針對此 VM 所連線的每個工作區都會向此 VM 計費一次。 |
 | 11 | 提供給擴充功能的組態無效 | 依照上述範例來設定部署所需的所有屬性值。 |
-| 17 | OMS 套件安裝失敗 | 
+| 17 | Log Analytics 套件安裝失敗 | 
 | 19 | OMI 套件安裝失敗 | 
 | 20 | SCX 套件安裝失敗 |
 | 51 | VM 的作業系統上不支援此擴充功能 | |
-| 55 | 無法連線至 OMS 服務，或缺少必要套件，或 dpkg 套件管理員遭到鎖定| 請確認系統是否有網際網路存取權，或已提供有效的 HTTP Proxy。 此外，請檢查工作區識別碼的正確性，並確認已安裝 curl 和 tar 公用程式。 |
+| 55 | 無法連線至 Log Analytics 服務，或缺少必要套件，或 dpkg 套件管理員遭到鎖定| 請確認系統是否有網際網路存取權，或已提供有效的 HTTP Proxy。 此外，請檢查工作區識別碼的正確性，並確認已安裝 curl 和 tar 公用程式。 |
 
-如需其他疑難排解資訊，請參閱 [OMS-Agent-for-Linux 疑難排解指南](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md)。
+如需其他疑難排解資訊，請參閱 [Log Analytics-Agent-for-Linux 疑難排解指南](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md)。
 
 ### <a name="support"></a>支援
 

@@ -1,19 +1,21 @@
 ---
-title: 使用 Azure 認知服務中的語音服務自訂發音
-description: 了解如何使用 Azure 認知服務中的語音服務自訂發音。
+title: 使用語音服務來自訂發音
+titlesuffix: Azure Cognitive Services
+description: 了解如何使用「語音服務」來自訂發音。
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: a608d1e48112fbb2adb56191eeb7f168de507e77
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 93c8d3302444c7d764849fe41d529bc06696243f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423199"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466166"
 ---
 # <a name="enable-custom-pronunciation"></a>啟用自訂發音
 藉由使用自訂發音，您可以定義語音形式和顯示字組或字詞。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 (簡單的 .txt 檔)。

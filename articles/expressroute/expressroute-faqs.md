@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419299"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958415"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -246,7 +246,7 @@ BGP 工作階段將會被刪除。 當首碼計數降至限制以下時，系統
 ExpressRoute Premium 是下列功能的集合：
 
 * 將私用對等互連的路由表限制，從 4000 個路由提高到 10,000 個路由。
-* 提高可連線到 ExpressRoute 電路的 VNet 數目 (預設值為 10)。 如需詳細資訊，請參閱 [ExpressRoute 限制](#limits)表格。
+* 可在 ExpressRoute 線路 (預設為 10) 上啟用的增加的 VNet 與 ExpressRoute Global Reach 連線數目。 如需詳細資訊，請參閱 [ExpressRoute 限制](#limits)表格。
 * 連線到 Office 365 和 Dynamics 365。
 * 透過 Microsoft 核心網路的全球連線。 您現在可將某一個地緣政治區域中的 VNet 與另一個區域中的 ExpressRoute 線路連結。<br>
     **範例：**
@@ -255,9 +255,9 @@ ExpressRoute Premium 是下列功能的集合：
     *  在 Microsoft 對等互連上，會公告其他地緣政治區域的首碼，舉例來說，讓您可以從矽谷的線路連線至歐洲西部的 SQL Azure。
 
 
-### <a name="limits"></a>如果已啟用 ExpressRoute Premium，我可以將多少個 VNet 連結至 ExpressRoute 線路？
+### <a name="limits"></a>若啟用 ExpressRoute 進階版，我可以在 ExpressRoute 線路上啟用多少 VNet 與 ExpressRoute Global Reach 連線？
 
-下表顯示 ExpressRoute 限制和每個 ExpressRoute 線路的 VNet 數目：
+下表顯示 ExpressRoute 限制和每個 ExpressRoute 線路的 VNet 與 ExpressRoute Global Reach 連線數目：
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 

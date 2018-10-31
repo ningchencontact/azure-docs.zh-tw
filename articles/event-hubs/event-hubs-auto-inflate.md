@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004787"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986996"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>自動相應增加 Azure 事件中樞輸送量單位
 
@@ -27,6 +27,8 @@ Azure 事件中樞為可高度擴充的資料串流平台。 因此，事件中�
 
 * 資料輸入速率會超出所設定的輸送量單位。
 * 資料輸出要求速率會超出所設定的輸送量單位。
+
+「事件中樞」服務可在負載超過最低閾值時增加輸送量，不會有任何要求因為發生 ServerBusy 錯誤而失敗。
 
 ## <a name="how-auto-inflate-works"></a>自動擴充的運作方式
 
@@ -54,6 +56,10 @@ Azure 事件中樞為可高度擴充的資料串流平台。 因此，事件中�
 您也可以使用入口網站中 [設定] 窗格上的 [調整] 選項來啟用自動擴充：
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> 當您套用自動擴充設定以增加輸送量單位時，「事件中樞」服務會發出診斷記錄，您可以為其提供有關輸送量增加原因與時間的相關資訊。 若要為事件中樞啟用診斷記錄，請在 Azure 入口網站中 [事件中樞] 頁面左側功能表上選取 [診斷設定]。 如需詳細資訊，請參閱[ Azure 事件中樞設定診斷記錄](event-hubs-diagnostic-logs.md)。 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本啟用自動擴充
 
@@ -101,6 +107,7 @@ Azure 事件中樞為可高度擴充的資料串流平台。 因此，事件中�
 ```
 
 如需完整的範本，請參閱 GitHub 上的[建立事件中樞命名空間並啟用擴充](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) \(英文\) 範本。
+
 
 ## <a name="next-steps"></a>後續步驟
 

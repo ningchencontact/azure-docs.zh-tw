@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336799"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408059"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 
 Azure App Service 提供內建的驗證和授權支援，因此您在 Web 應用程式、API 和行動裝置後端以及 [Azure Functions](../azure-functions/functions-overview.md) 中幾乎不需要寫入或完全無需寫入程式碼，即可登入使用者及存取資料。 本文說明 App Service 如何協助您簡化應用程式的驗證和授權。 
 
-安全的驗證和授權要求對安全性的深入了解，包括同盟、加密、[JSON Web 權杖 (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 管理、[授與類型](https://oauth.net/2/grant-types/)等等。 App Service 會提供這些公用程式，以便您可以將更多的時間和精力花在為客戶提供商務價值上。
+若要有安全的驗證和授權，必須對安全性有深入了解，包括同盟、加密、[JSON Web 權杖 (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 管理、[授與類型](https://oauth.net/2/grant-types/)等等。 App Service 會提供這些公用程式，以便您可以將更多的時間和精力花在為客戶提供商務價值上。
 
 > [!NOTE]
 > 您不需要使用 App Service 來進行驗證和授權。 許多 Web 架構都會搭載安全性功能，您可以視需要加以使用。 如果您需要的彈性高於 App Service 所提供的彈性，也可以撰寫您自己的公用程式。  
@@ -63,9 +63,9 @@ App Service 會提供內建的權杖存放區，也就是與 Web 應用程式、
 - 張貼至已驗證使用者的 Facebook 時間軸
 - 從 Azure Active Directory 圖形 API 或甚至 Microsoft Graph 讀取使用者的公司資料
 
-系統會針對已驗證的工作階段快取識別碼權杖、存取權杖和重新整理權杖，且只有相關聯的使用者能存取這些權杖。  
-
 您通常必須撰寫程式碼，才能在應用程式中收集、儲存及重新整理這些權杖。 使用權杖存放區時，您只有在需要權杖時才會[取出權杖](app-service-authentication-how-to.md#retrieve-tokens-in-app-code)，並在權杖失效時才會[告知 App Service 加以重新整理](app-service-authentication-how-to.md#refresh-access-tokens)。 
+
+系統會針對已驗證的工作階段快取識別碼權杖、存取權杖和重新整理權杖，且只有相關聯的使用者能存取這些權杖。  
 
 如果您不需要在應用程式中使用權杖，可以將權杖存放區停用。
 
@@ -80,7 +80,7 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 | 提供者 | 登入端點 |
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Microsoft 帳戶](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
+| [Microsoft 帳戶](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |

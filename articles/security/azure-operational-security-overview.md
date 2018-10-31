@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4305afff1e35e9e05f1b2314f8fb9d5a96383e9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575213"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955638"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 [Azure 作業安全性](https://docs.microsoft.com/azure/security/azure-operational-security)是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制措施與功能。 它是一個架構，其中包含透過各種 Microsoft 特有功能所獲得的知識。 這些功能包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 程式，以及對網路安全性威脅環境的深層認知。
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+##  <a name="azure-management-services"></a>Azure 管理服務
 IT 作業小組負責管理資料中心基礎結構、應用程式和資料，包括這些系統的穩定性與安全性。 不過，要在日趨複雜的 IT 環境中取得安全性深入解析，通常需要組織將多個安全性和管理系統的資料加以併用。
 
-[Microsoft Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 是雲端式 IT 管理解決方案，可協助您管理及保護內部部署和雲端基礎結構。 它的核心功能是由在 Azure 中執行的下列服務所提供的。 每個服務都提供特定的管理功能。 您可以結合服務，以達成不同的管理案例。 
+[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 是一種雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 它的核心功能是由在 Azure 中執行的下列服務所提供的。 Azure 包含多種服務，可協助您管理並保護您的內部部署和雲端基礎結構。 每個服務都提供特定的管理功能。 您可以結合服務，以達成不同的管理案例。 
 
-### <a name="log-analytics"></a>Log Analytics
-[Azure Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) 透過將受控資源中的資料收集到中央存放庫，來提供 Operations Management Suite 的監視服務。 此資料可以包括事件、效能資料，或透過 API 提供的自訂資料。 收集資料之後，即可將其用於警示、分析和匯出。 
+### <a name="azure-monitor"></a>Azure 監視器
+[Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)可收集受控來源的資料，並將其儲存至中央資料存放區。 此資料可以包括事件、效能資料，或透過 API 提供的自訂資料。 收集資料之後，即可將其用於警示、分析和匯出。 
 
 您可以合併各種來源的資料，並結合來自 Azure 服務與現有內部部署環境的資料。 Log Analytics 也可清楚劃分資料的收集與對該資料採取的動作，讓所有類型的資料均可使用所有動作。
 
@@ -85,7 +85,7 @@ Azure AD 還隨附一套完整的[身分識別管理功能](https://docs.microso
 >[!Note]
 >如需角色與資訊安全中心所允許動作的詳細資訊，請參閱 [Azure 資訊安全中心的權限](https://docs.microsoft.com/azure/security-center/security-center-permissions)。
 
-資訊安全中心會使用 Microsoft Monitoring Agent。 這是與 Operations Management Suite 和 Log Analytics 服務所使用代理程式相同的代理程式。 從這個代理程式收集的資料會儲存在與您 Azure 訂用帳戶相關聯的現有 Log Analytics [工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)或新的工作區中 (將 VM 的地理位置納入考量)。
+資訊安全中心會使用 Microsoft Monitoring Agent。 這是 Log Analytics 服務所使用的相同代理程式。 從這個代理程式收集的資料會儲存在與您 Azure 訂用帳戶相關聯的現有 Log Analytics [工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)或新的工作區中 (將 VM 的地理位置納入考量)。
 
 ## <a name="azure-monitor"></a>Azure 監視器
 您雲端應用程式中的效能問題可能會對企業產生影響。 透過多個互連的元件和頻繁的發行，隨時都可能導致效能降低。 此外，如果您正在開發應用程式，您的使用者通常會探索到您在測試時未發現的問題。 您應該立即知道這些問題，並應具備可用以診斷和修正問題的工具。
@@ -155,8 +155,8 @@ DevOps 可讓小組以更快速且成本較低的方式提供更安全、更高�
 -   [微服務](https://www.visualstudio.com/learn/what-are-microservices/) \(英文\) 架構可用來將商務使用案例隔離為小型的可重複使用服務。  此架構能提升延展性和效率。
 
 ## <a name="next-steps"></a>後續步驟
-若要了解 Operations Management Suite 安全性與稽核解決方案，請參閱下列文章：
+若要了解安全性和稽核解決方案，請參閱下列文章：
 
 - [安全性與合規性](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [在 Operations Management Suite 安全性和稽核解決方案內監視及回應安全性警示](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
-- [在 Operations Management Suite 安全性和稽核解決方案內監視資源](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)
+- [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)

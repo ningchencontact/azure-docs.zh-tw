@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a734eb7b4efecf14a4d47a660c00d561a5fa6677
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7985c8e9e26126040d842ded998a953281daa2ae
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971802"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953547"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>教學課程：了解如何使用 Visual Studio 升級 Service Fabric 應用程式
 
@@ -46,7 +46,7 @@ ms.locfileid: "46971802"
 
 * 如果您尚未部署待辦事項應用程式，請依照[發佈 Service Fabric Mesh Web 應用程式](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)中的指示進行操作。
 
-# <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>使用 Visual Studio 升級 Service Fabric Mesh 服務
+## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>使用 Visual Studio 升級 Service Fabric Mesh 服務
 
 本文說明如何獨立升級應用程式內的微服務。  在此範例中，我們將修改 `WebFrontEnd` 服務以顯示工作類別。 然後，升級已部署的服務。
 

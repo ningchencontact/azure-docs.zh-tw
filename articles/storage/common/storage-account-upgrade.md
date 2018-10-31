@@ -5,20 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 6e77c4836531a7efd0b52b9a411ac40ff6a613fa
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 10dc25740eca43c7cbd39b8ec783084e048d2af2
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224489"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637596"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
 
 一般用途 v2 儲存體帳戶能支援最新的 Azure 儲存體功能，而且包含一般用途 v1 與 Blob 儲存體帳戶的所有功能。 針對大部分的儲存體案例，皆建議使用一般用途 v2 帳戶。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。
 
-從一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 儲存體帳戶很簡單。 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 來執行升級。 升級帳戶的動作無法復原，而且可能會產生計費費用。
+從一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 儲存體帳戶很簡單。 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 來執行升級。 
+
+> [!NOTE]
+> 變更儲存層可能會導致額外的費用。 如需詳細資訊，請參閱[定價和計費](#pricing-and-billing)一節。
 
 ## <a name="upgrade-using-the-azure-portal"></a>使用 Azure 入口網站升級
 
@@ -53,7 +56,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 一般用途 v2 帳戶能支援所有 Azure 儲存體服務與資料物件，但存取層僅適用於 Blob 儲存體中的區塊 Blob。 當您升級至一般用途 v2 儲存體帳戶時，您可以指定 Blob 資料的存取層。 
 
-存取層可讓您根據預期的使用模式，選擇最符合成本效益的儲存體。 區塊 Blob 可以儲存在經常性存取層、非經常性存取層，或封存存取層。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
+存取層可讓您根據預期的使用模式，選擇最符合成本效益的儲存體。 區塊 Blob 可以儲存於經常性存取層、非經常性存取層或封存存取層。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
 根據預設，系統會在經常性存取層中建立新的儲存體帳戶，而一般用途 v1 儲存體帳戶則會升級至經常性存取層。 如果您是在已升級的情況下決定要針對資料使用哪個存取層，請考慮您的案例。 有兩個適用於移轉至一般用途 v2 帳戶的典型使用者案例：
 
@@ -61,6 +64,25 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 * 您已決定使用一般用途 v2 儲存體帳戶或是已有一個帳戶，並想要評估應該針對 Blob 資料使用經常性或非經常性儲存層。
 
 在這兩種情況下，您的第一要務都是估計儲存、存取及操作儲存在一般用途 v2 儲存體帳戶中之資料的成本，並與您目前的成本進行比較。
+
+
+## <a name="pricing-and-billing"></a>價格和計費
+所有儲存體帳戶會對以每個 Blob 層為基礎的 Blob 儲存體使用價格模型。 使用儲存體帳戶時，需考量下列計費資訊：
+
+* **儲存成本**︰除了儲存的資料量以外，儲存資料的成本會因儲存層而異。 每 GB 的成本會隨著儲存層存取頻率降低而減少。
+
+* **資料存取成本**：資料存取費用會隨著儲存層存取頻率降低而增加。 對於非經常性存取與封存儲存層中的資料，您需支付讀取的每 GB 資料存取費用。
+
+* **交易成本**︰所有層都有每筆交易的費用，該費用會隨著儲存層存取頻率降低而增加。
+
+* **異地複寫資料傳輸成本**︰此費用適用於已設定異地複寫的帳戶，包括 GRS 和 RA-GRS。 異地複寫資料傳輸會產生每 GB 費用。
+
+* **輸出資料傳輸成本**︰輸出資料傳輸 (從 Azure 區域傳出的資料) 會產生每 GB 頻寬使用量費用，與一般用途的儲存體帳戶一致。
+
+* **變更儲存層**︰將帳戶儲存層從非經常性存取變更為經常性存取時，會產生等於讀取儲存體帳戶中所有資料的費用。 不過，將帳戶儲存層從經常性存取變更為非經常性存取時，會產生等於將所有資料寫入非經常性存取層的費用 (僅限 GPv2 帳戶)。
+
+> [!NOTE]
+> 如需儲存體帳戶的定價模型詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)頁面。 如需輸出資料傳輸費用的詳細資訊，請參閱[資料傳輸定價詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)頁面。
 
 ### <a name="estimate-costs-for-your-current-usage-patterns"></a>針對目前的使用模式估計成本
 
@@ -73,15 +95,66 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
     - 儲存體帳戶的讀取和寫入資料量有多少？ 
     - 在儲存體帳戶中的資料上發生多少讀取作業和寫入作業？
 
-為了協助決定符合您需求的最佳存取層，您應該判斷 Blob 資料目前所使用的容量，以及該資料的使用狀況。 
+為了協助決定符合您需求的最佳存取層，您應該判斷 Blob 資料容量，以及該資料的使用狀況。 最佳做法則是查看您帳戶的監視計量。
 
-若要在移轉前收集儲存體帳戶的使用量資料，您可以使用 [Azure 監視器](../../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)來監視儲存體帳戶。 Azure 監視器能執行記錄並提供各種 Azure 服務的計量資料，包括 Azure 儲存體。 
+### <a name="monitoring-existing-storage-accounts"></a>監視現有的儲存體帳戶
 
-若要監視儲存體帳戶中 Blob 的耗用量資料，請啟用 Azure 監視器中的容量計量。 容量計量會記錄有關帳戶中的 Blob 每天所使用之儲存體容量的資料。 容量計量可以用來估計將資料儲存在儲存體帳戶中的成本。 若要了解 Blob 儲存體容量針對每個帳戶類型的價格，請參閱[區塊 Blob 價格](https://azure.microsoft.com/pricing/details/storage/blobs/)。
+若要監視現有的儲存體帳戶並收集此資料，您可以利用 Azure 儲存體分析來執行記錄及提供儲存體帳戶的度量資料。 儲存體分析可以儲存的計量包含與 GPv1、GPv2 和 Blob 儲存體帳戶之儲存體服務要求相關的彙總交易統計資料和容量資料。 此資料會儲存在相同儲存體帳戶的已知資料表中。
 
-若要監視 Blob 儲存體的資料存取模式，請啟用 Azure 監視器中的交易計量。 您可以篩選不同的 Azure 儲存體作業，以估計呼叫每個作業的頻率。 若要了解每個類型的帳戶針對不同類型交易的區塊及附加區塊價格，請參閱[區塊 Blob 價格](https://azure.microsoft.com/pricing/details/storage/blobs/)。  
+如需詳細資訊，請參閱[關於儲存體分析計量](https://msdn.microsoft.com/library/azure/hh343258.aspx)和[儲存體分析計量資料表結構描述](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
-如需從 Azure 監視器收集計量的詳細資訊，請參閱 [Azure 監視器中的 Azure 儲存體計量](storage-metrics-in-azure-monitor.md)。
+> [!NOTE]
+> Blob 儲存體帳戶會公開僅適用於儲存和存取該帳戶計量資料的表格服務端點。 
+
+若要監視 Blob 儲存體的儲存體使用情況，您必須啟用容量計量。
+啟用此度量後，系統會每日記錄儲存體帳戶的 Blob 服務容量資料，而該資料會以資料表項目形式記錄並寫入至相同儲存體帳戶內的 $MetricsCapacityBlob  資料表。
+
+若要監視 Blob 儲存體的資料存取模式，您必須從 API 啟用每小時交易計量。 啟用每小時交易計量後，系統會每小時彙總每筆 API 交易，而該資料會以資料表項目形式記錄，並寫入至相同儲存體帳戶內的 *$MetricsHourPrimaryTransactionsBlob* 資料表。 使用 RA-GRS 儲存體帳戶時，$MetricsHourSecondaryTransactionsBlob  資料表會將交易記錄至次要端點。
+
+> [!NOTE]
+> 如果您已有一般用途的儲存體帳戶，並在其中儲存了分頁 Blob 和虛擬機器磁碟、或佇列、檔案或資料表以及區塊和附加 Blob 資料，就不適用此估計程序。 容量資料不會區分區塊 Blob 與其他類型，因此並未取得其他資料類型的容量資料。 如果您使用這些類型，替代方法是查看最近帳單上的數量。
+
+若要取得資料使用和存取模式的適當近似值，建議您針對代表一般使用情況的度量選擇保留期，並進行推斷。 其中一個選項是保留度量資料 7 天並每週收集資料，以便月底進行分析。 另一個選項是保留最近 30 天的度量資料，並在 30 天期間的結尾收集和分析資料。
+
+如需啟用、收集和檢視度量資料的詳細資訊，請參閱[啟用 Azure 儲存體度量和檢視度量資料](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+
+> [!NOTE]
+> 就如同一般使用者資料，儲存、存取和下載分析資料也需付費。
+
+### <a name="utilizing-usage-metrics-to-estimate-costs"></a>利用使用度量來估計成本
+
+#### <a name="capacity-costs"></a>容量成本
+
+容量度量資料表 $MetricsCapacityBlob 中具有資料列索引鍵 'data' 的最新項目會顯示使用者資料所耗用的儲存體容量。 容量度量資料表 $MetricsCapacityBlob 中具有資料列索引鍵 'analytics' 的最新項目會顯示分析記錄檔所耗用的儲存體容量。
+
+使用者資料和分析記錄檔 (若已啟用) 所耗用的總容量便可用來估計在儲存體帳戶中儲存資料的成本。 相同的方法也可用來估計 GPv1 儲存體帳戶的儲存成本。
+
+#### <a name="transaction-costs"></a>交易成本
+
+交易度量資料表中 API 的所有項目的 'TotalBillableRequests' 總和，會指出該特定 API 的交易總數。 例如，在給定期間的 'GetBlob' 交易總數計算方式為將所有包含 'user;GetBlob'列索引鍵的可計費要求總數進行加總。
+
+若要估計 Blob 儲存體帳戶的交易成本，您必須將交易細分成三個群組，因為它們的定價方式不同。
+
+* 寫入 'PutBlob'、'PutBlock'、'PutBlockList'、'AppendBlock'、'ListBlobs'、'ListContainers'、'CreateContainer'、'SnapshotBlob' 和 'CopyBlob' 等交易。
+* 刪除 'DeleteBlob' 和 'DeleteContainer' 等交易。
+* 所有其他交易
+
+若要估計 GPv1 儲存體帳戶的交易成本，不論作業/API 為何，您必須彙總所有的交易。
+
+#### <a name="data-access-and-geo-replication-data-transfer-costs"></a>資料存取和異地複寫資料傳輸費用
+
+雖然儲存體分析不會提供讀取自和寫入至儲存體帳戶的資料量，但可藉由查看交易度量資料表大致估算。 交易度量資料表中 API 的所有項目的 'TotalIngress'  總和，會指出該特定 API 的輸入資料總量 (以位元組為單位)。 同樣地，'TotalEgress'  的總和會指出輸出資料總數 (以位元組為單位)。
+
+若要估計 Blob 儲存體帳戶的資料存取成本，您必須將交易細分成兩個群組。
+
+* 查看主要 'GetBlob' 和 'CopyBlob' 作業的 'TotalEgress' 總和，可以估計從儲存體帳戶擷取的資料量。
+
+* 查看主要 'PutBlob'、'PutBlock'、'CopyBlob' 和 'AppendBlock' 作業的 'TotalIngress' 總和，可以估計寫入至儲存體帳戶的資料量。
+
+使用 GRS 或 RA-GRS 儲存體帳戶時，使用寫入的資料量估計值，也可以計算 Blob 儲存體帳戶的異地複寫資料傳輸成本。
+
+> [!NOTE]
+> 關於計算使用經常性存取或非經常性存取儲存層的成本，如需更詳細的範例，請查看標題為「經常性存取或非經常性存取層是什麼，以及如何判斷要使用哪一個？」的常見問題 於 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/)。
 
 ## <a name="next-steps"></a>後續步驟
 

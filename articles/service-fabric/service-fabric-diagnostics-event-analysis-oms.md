@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: 49d9b5306a0fcf51cc0de036c725fca8345cd0ec
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302177"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404472"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>使用 Log Analytics 進行事件分析與視覺化
 Log Analytics 會從裝載於雲端的應用程式和服務收集和分析遙測，並提供分析工具來協助您將其可用性和效能最大化。 本文將概述如何在 Log Analytics 中執行查詢，以便深入了解叢集發生什麼狀況並進行疑難排解。 我們將討論下列常見的問題：
@@ -105,7 +105,7 @@ Kusto 查詢語言功能很強大。 您可以執行的另一個重要查詢是�
 ## <a name="next-steps"></a>後續步驟
 
 * 若要啟用基礎結構監視 (也就是監視效能計數器)，請前往[新增 Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)。 這個代理程式會收集效能計數器，並將它們新增至現有的工作區。
-* 針對內部部署叢集，Log Analytics 提供可用於將資料傳送至 Log Analytics 的閘道 (HTTP 正向 Proxy)。 如需詳細資訊，請參閱[在無網際網路存取下使用 OMS 閘道將電腦連線到 Log Analytics](../log-analytics/log-analytics-oms-gateway.md)
-* 設定[自動化警示](../log-analytics/log-analytics-alerts.md)，以協助偵測與診斷
-* 熟悉 Log Analytics 的[記錄搜尋和查詢](../log-analytics/log-analytics-log-searches.md)功能
-* 若要深入了解 Log Analytics 及其提供的功能，請參閱 [Log Analytics 是什麼？](../operations-management-suite/operations-management-suite-overview.md)
+* 針對內部部署叢集，Log Analytics 提供可用於將資料傳送至 Log Analytics 的閘道 (HTTP 正向 Proxy)。 如需詳細資訊，請參閱[在無網際網路存取下使用 Log Analytics 閘道將電腦連線到 Log Analytics](../log-analytics/log-analytics-oms-gateway.md)。
+* 設定[自動化警示](../log-analytics/log-analytics-alerts.md)，以協助偵測與診斷。
+* 熟悉 Log Analytics 的[記錄搜尋和查詢](../log-analytics/log-analytics-log-searches.md)功能。
+* 若要深入了解 Log Analytics 及其提供的功能，請參閱[什麼是 Log Analytics？](../operations-management-suite/operations-management-suite-overview.md)。

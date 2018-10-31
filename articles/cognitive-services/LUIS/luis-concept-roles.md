@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035193"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638070"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>模式中的實體角色為內容子類型
 角色是實體的具名內容子類型，只能使用於[模式](luis-concept-patterns.md)中。
@@ -28,6 +28,8 @@ ms.locfileid: "47035193"
 |--|--|--|
 |位置|來源|飛機起飛的位置|
 |位置|目的地|飛機降落的位置|
+|預先建置的 datetimeV2|to|結束日期|
+|預先建置的 datetimeV2|from|開始日期|
 
 ## <a name="how-are-roles-used-in-patterns"></a>如何在模式中使用角色？
 在模式的範本語句中，角色會使用於語句內： 
@@ -47,6 +49,14 @@ ms.locfileid: "47035193"
 |--|--|
 |階層式實體|意圖|
 |角色|模式|
+
+## <a name="roles-with-prebuilt-entities"></a>具有預先建置實體的角色
+
+請使用具有預先建置實體的角色，為語句內預先建置實體的不同執行個體提供意義。 
+
+### <a name="roles-with-datetimev2"></a>具有 datetimeV2 的角色
+
+datetimeV2 預先建置實體在理解語句中日期與時間的各種不同變化方面，有很好的表現。 您可以使用與預先建置實體之預設理解方式不同的方式，指定日期與時間範圍。 
 
 ## <a name="next-steps"></a>後續步驟
 

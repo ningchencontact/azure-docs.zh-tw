@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/23/2018
 ms.author: shlo
-ms.openlocfilehash: 8132f89423883422d70981edd3ddaf86147830e2
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394413"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957950"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory 中的視覺化撰寫
 Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰寫及部署資料處理站的資源，而不必編寫任何程式碼。 您可以將活動拖放到管線畫布上、執行測試回合、反覆進行偵錯，以及部署和監視管線回合。 使用 UX 來執行視覺化撰寫的方法有兩種：
@@ -81,6 +81,20 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 
 您可以在不同的 Azure Active Directory 租用戶中建立 Azure Repos Git 存放庫。 若要指定不同的 Azure AD 租用戶，您必須擁有所用 Azure 訂用帳戶的系統管理員權限。
 
+## <a name="use-your-personal-microsoft-account"></a>使用您的個人 Microsoft 帳戶
+
+若要使用個人 Microsoft 帳戶進行 Git 整合，您可以將個人的 Azure Repos 連結至貴組織的 Active Directory。
+
+1. 以來賓身分將您的個人 Microsoft 帳戶新增到貴組織的 Active Directory。 如需詳細資訊，請參閱[在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者](../active-directory/b2b/add-users-administrator.md)。
+
+2. 使用您的個人 Microsoft 帳戶登入 Azure 入口網站。 然後切換到貴組織的 Active Directory。
+
+3. 移至 [Azure DevOps] 區段，您現在會在其中看到您的個人存放庫。 選取存放庫並與 Active Directory 連線。
+
+在這些設定步驟之後，當您在 Data Factory UI 中設定 Git 整合時，可以使用您的個人存放庫。
+
+如需將 Azure Repos 連線至貴組織 Active Directory 的詳細資訊，請參閱[將您的 Azure DevOps 組織連線至 Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad)。
+
 ## <a name="switch-to-a-different-git-repo"></a>切換至不同的 Git 存放庫
 
 若要切換至不同的 Git 存放庫，請找出位於 [Data Factory 概觀] 頁面右上角的圖示，如下列螢幕擷取畫面所示。 如果看不到該圖示，請清除您的本機瀏覽器快取。 選取適當圖示以移除與目前存放庫的關聯。
@@ -94,7 +108,7 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 
 與資料處理站相關聯的每個 Azure Repos Git 存放庫都有共同作業分支。 (`master` 是預設的共同作業分支)。 使用者也可以按一下 [+ 新增分支] 來建立功能分支，並在功能分支中進行開發。
 
-![透過同步或發佈來變更程式碼](media/author-visually/sync-publish.png)
+![藉由同步或發佈來變更程式碼](media/author-visually/sync-publish.png)
 
 當在您的功能分支中的功能開發已經備妥時，您可以按一下 [建立提取要求]。 此動作會將您帶往 Azure Repos Git，您可以在其中發出提取要求、執行程式碼檢閱，以及將變更合併到您的共同作業分支。 (`master` 是預設值)。 您只被允許從您的共同作業分支發佈到 Data Factory 服務。 
 
@@ -211,7 +225,7 @@ Data Factory 只有在載入處理站時才會讀取 `publish_config.json` 檔�
 隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱上述「設定方法 1」中的說明。
 
 ## <a name="use-the-expression-language"></a>使用運算式語言
-您可以透過使用 Azure Data Factory 所支援的運算式語言，來指定屬性值的運算式。
+您可以藉由使用 Azure Data Factory 所支援的運算式語言，來指定屬性值的運算式。
 
 選取 [新增動態內容] 來指定屬性值的運算式：
 

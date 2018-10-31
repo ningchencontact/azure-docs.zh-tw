@@ -4,22 +4,19 @@ description: 本文提供 Azure 流量管理員常見問題集的解答。
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038006"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987234"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -32,7 +29,7 @@ ms.locfileid: "40038006"
 因此，「流量管理員」並不提供端點或 IP 位址來供用戶端連線。 如果您的服務需要靜態 IP 位址，就必須在服務上設定，而不是在「流量管理員」中設定。
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>哪種類型的流量可以使用流量管理員路由傳送？
-如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)中所述，流量管理員端點可以是 Azure 內部或外部裝載的任何網際網路對向服務。 因此，流量管理員可以將源自公用網際網路的流量路由傳送至一組也是網際網路面向的端點。 如果您的端點是在私人網路內部 (例如，內部版本的 [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer))，或是讓使用者從這類內部網路提出 DNS 要求，則無法將流量管理員用於這些流量。
+如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)中所述，流量管理員端點可以是 Azure 內部或外部裝載的任何網際網路對向服務。 因此，流量管理員可以將源自公用網際網路的流量路由傳送至一組也是網際網路面向的端點。 如果您的端點位於私人網路內部 (例如，[Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) 的內部版本)，或是讓使用者從這類內部網路提出 DNS 要求，則您無法使用流量管理員來路由傳送此流量。
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>流量管理員是否支援「黏性」工作階段？
@@ -72,7 +69,7 @@ ms.locfileid: "40038006"
 我們的功能待處理項目中追蹤了對「流量管理員」中裸網域的完整支援。 您可以[在我們的社群意見反應站投票](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)，以表達您支持這項功能要求。
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>處理 DNS 查詢時，流量管理員會考量用戶端子網路位址嗎？ 
-是，除了所收到 DNS 查詢的來源 IP 位址 (通常是 DNS 解析程式的 IP 位址) 之外，在執行「地理」和「效能」路由方法的查閱時，如果代表使用者發出要求的解析程式在查詢中包含了用戶端子網路位址，則流量管理員也會考量該位址。  
+是，除了所收到 DNS 查詢的來源 IP 位址 (通常是 DNS 解析程式的 IP 位址) 之外，在執行「地理」、「效能」和「子網路」路由方法的查閱時，如果代表使用者發出要求的解析程式在查詢中包含用戶端子網路位址，則流量管理員也會考量該位址。  
 具體而言即 [RFC 7871 – DNS 查詢中的用戶端子網路](https://tools.ietf.org/html/rfc7871) (英文)，此子網路提供 [DNS 的延伸機制 (EDNS0)](https://tools.ietf.org/html/rfc2671) (英文)，可將用戶端子網路位址從支援它的解析程式傳遞出去。
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>什麼是 DNS TTL，以及它如何影響我的使用者？
@@ -87,7 +84,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 您可以在每個設定檔層級將 DNS TTL 設定為最低 0 秒、最高 2,147,483,647 秒 (符合 [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt ) 的最大範圍)。 當 TTL 為 0 時，表示下游 DNS 解析程式不會快取查詢回應，且所有查詢都預期觸達流量管理員 DNS 伺服器來進行解析。
 
 ### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>如何了解傳給我的設定檔的查詢量？ 
-流量管理員提供的其中一個計量是某設定檔回應的查詢數量。 您可以在設定檔層級的彙總取得此資訊，或者也可以進一步分割此資料，以查看所傳回特定端點的查詢量。 此外，您可以設定警示，以在查詢回應量跨越設定的條件時通知您。 如需詳細資訊，請參閱[流量管理員的計量與警示](traffic-manager-metrics-alerts.md)。
+流量管理員提供的其中一個計量是由設定檔所回應的查詢數量。 您可以在設定檔層級的彙總取得此資訊，或者也可以進一步分割此資料，以查看所傳回特定端點的查詢量。 此外，您可以設定警示，以在查詢回應量跨越設定的條件時通知您。 如需詳細資訊，請參閱[流量管理員的計量與警示](traffic-manager-metrics-alerts.md)。
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>流量管理員地理流量路由方法
 
@@ -128,11 +125,44 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>為什麼強烈建議客戶建立巢狀設定檔，而不是在啟用地理路由的設定檔下新增端點？ 
 
-在使用地理路由類型的設定檔內，一個區域只能指派給一個端點。 如果該端點不是已連結子設定檔的巢狀類型，萬一該端點變成狀況不良，流量管理員會繼續將流量傳送給它，因為選擇不傳送任何流量也沒有比較好。 即使指派的區域位於指派給狀況不良端點的區域「上層」，「流量管理員」也不會容錯移轉至另一個端點 (例如，如果端點的西班牙區域狀況不良，我們將不會容錯移轉至另一個已被指派歐洲地區的端點)。 這是為了確保流量管理員會顧及客戶在其設定檔中已設定的地理界限。 若要在端點變成狀況不良時能夠容錯移轉至另一個端點，建議將地理區域指派給內有多個端點的巢狀設定檔，而不是指派給個別的端點。 如此一來，如果巢狀子設定檔中的端點失敗，流量就可以容錯移轉至相同巢狀子設定檔內的另一個端點。
+在使用地理路由方法的設定檔內，一個區域只能指派給一個端點。 如果該端點不是已連結子設定檔的巢狀類型，萬一該端點變成狀況不良，流量管理員會繼續將流量傳送給它，因為選擇不傳送任何流量也沒有比較好。 即使指派的區域位於指派給狀況不良端點的區域「上層」，「流量管理員」也不會容錯移轉至另一個端點 (例如，如果端點的西班牙區域狀況不良，我們將不會容錯移轉至另一個已被指派歐洲地區的端點)。 這是為了確保流量管理員會顧及客戶在其設定檔中已設定的地理界限。 若要在端點變成狀況不良時能夠容錯移轉至另一個端點，建議將地理區域指派給內有多個端點的巢狀設定檔，而不是指派給個別的端點。 如此一來，如果巢狀子設定檔中的端點失敗，流量就可以容錯移轉至相同巢狀子設定檔內的另一個端點。
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>支援此路由類型的 API 版本有任何限制嗎？
 
 是，只有 2017 年 3 月 1 日的 API 版本和更新版本支援地理路由類型。 任何舊版 API 都無法用來建立地理路由類型的設定檔，或將地理區域指派給端點。 如果使用舊版 API 從 Azure 訂用帳戶擷取設定檔，將不會傳回地理路由類型的任何設定檔。 此外，使用舊版 API 時，傳回的任何設定檔如果有已指派地理區域的端點，則不會顯示其地理區域指派。
+
+## <a name="traffic-manager-subnet-traffic-routing-method"></a>流量管理員子網路流量路由方法
+
+### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>子網路路由派上用場的使用案例有哪些？
+「子網路」路由可讓您區分針對其 DNS 要求 IP 位址的來源 IP 所識別之特定使用者集合而提供的體驗。 如果使用者要從您的公司總部連線至網站，則範例將會顯示不同的內容。 另外，如果這些 ISP 在使用 IPv6 時具有非標準效能，則會限制使用者只能從特定 ISP 存取僅支援 IPv4 連線的端點。
+另一個使用「子網路」路由方法的原因是搭配使用巢狀設定檔集合中的其他設定檔。 例如，如果您想要使用「地理」路由方法來異地隔離使用者，但想要針對特定 ISP 執行不同的路由方法，則可以有「子網路」路由方法作為父設定檔的設定檔，並覆寫該 ISP 以使用特定子設定檔，以及讓其他人都有標準「地理」設定檔。
+
+### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>流量管理員如何知道終端使用者的 IP 位址？
+終端使用者裝置通常會代表他們使用 DNS 解析程式來執行 DNS 查閱。 這類解析程式的連出 IP 就是流量管理員視為來源 IP 的 IP。 此外，「子網路」路由方法也會查看是否有與要求一起傳遞的 EDNS0 延伸用戶端子網路 (ECS) 資訊。 如果顯示 ECS 資訊，則這是用來判斷路由的位址。 如果沒有 ECS 資訊，則會將查詢的來源 IP 用於路由。
+
+### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>使用「子網路」路由時，如何指定 IP 位址？
+有兩種方式可以指定要與端點建立關聯的 IP 位址。 首先，您可以使用具有開始和結束位址的四點十進制八進位標記法來指定範圍 (例如 1.2.3.4-5.6.7.8 或 3.4.5.6-3.4.5.6)。 其次，您可以使用 CIDR 標記法來指定範圍 (例如 1.2.3.0/24)。 您可以指定多個範圍，而且可以在範圍集合中使用這兩種標記法類型。 適用一些限制。
+-   您不能有重疊的位址範圍，因為每個 IP 都只需要對應至單一端點
+-   開始位址不能超過結束位址
+-   如果是 CIDR 標記法，則 ‘/’ 前面的 IP 位址應該是範圍的開始位址 (例如，1.2.3.0/24 有效，但 1.2.3.4.4/24 無效)
+
+### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>使用「子網路」路由時，如何指定後援端點？
+在具有「子網路」路由的設定檔中，如果您的端點未對應任何子網路，則會將任何與其他端點不相符的要求都導向這裡。 強烈建議您在設定檔中具有這類後援端點，因為要求傳入但未對應至任何端點時，或是它對應至端點但該端點狀況不良時，流量管理員會傳回 NXDOMAIN 回應。
+
+### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>如果「子網路」路由類型設定檔中已停用端點，則會發生什麼事？
+在具有「子網路」路由的設定檔中，如果您已停用端點，則流量管理員的行為就像該端點和其子網路對應不存在一樣。 如果收到的查詢與其 IP 位址對應相符，並停用端點，則流量管理員會傳回後援端點 (沒有對應的端點)；或者，如果這類端點不存在，則會傳回 NXDOMAIN 回應。
+
+## <a name="traffic-manager-multivalue-traffic-routing-method"></a>流量管理員 MultiValue 流量路由方法
+
+### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>MultiValue 路由派上用場的使用案例有哪些？
+MultiValue 路由會在單一查詢回應中傳回多個狀況良好的端點。 此方式的主要優點在於，如果端點狀況不良，則用戶端有更多的選項可重試，而不需要提出另一個 DNS 呼叫 (這可能會從上游快取傳回相同的值)。 這適用於想要盡可能縮短停機時間的可用性敏感性應用程式。
+MultiValue 路由方法的另一種用法是，如果端點同時「雙重裝載」至 IPv4 和 IPv6 位址，而且您想要讓呼叫者從初始端點連線時選擇這兩個選項。
+
+### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>使用 MultiValue 路由時，會傳回多少個端點？
+您可以指定要傳回的端點數目上限，而且 MultiValue 所傳回的狀況良好端點數目不會超過收到查詢時的狀況良好端點數目。 此設定的最大可能值為 10。
+
+### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>使用 MultiValue 路由時，會取得一組相同的端點嗎？
+我們無法保證每個查詢都會傳回同一組端點。 這也會受到下列事實的影響：有些端點未包含在回應時可能會狀況不良
 
 ## <a name="real-user-measurements"></a>實際使用者度量
 
@@ -143,7 +173,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 「實際使用者度量」只會測量連線到 Azure 區域的延遲並進行回報。 如果您將效能型路由與非 Azure 區域中所裝載的端點搭配使用，您仍然可以從這項功能受益，因為您會獲得更多有關所選取要與此端點建立關聯之代表性 Azure 區域的延遲資訊。
 
 ### <a name="which-routing-method-benefits-from-real-user-measurements"></a>哪個路由方法可從「實際使用者度量」受益？
-透過「實際使用者度量」取得的額外資訊僅適用於使用效能路由方法的設定檔。 請注意，透過 Azure 入口網站檢視「實際使用者度量」時，從所有設定檔都可以使用 [實際使用者度量] 連結。
+透過「實際使用者度量」取得的額外資訊僅適用於使用效能路由方法的設定檔。 透過 Azure 入口網站檢視實際使用者度量時，就能從所有設定檔使用 [實際使用者度量] 連結。
 
 ### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>我是否需要為每個設定檔個別啟用「實際使用者度量」？
 否，每一訂用帳戶只需啟用一次，所測量到和回報的所有延遲資訊便可供所有設定檔使用。
@@ -157,12 +187,12 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 是，「實際使用者度量」是設計成可以內嵌透過各種不同類型的使用者用戶端收集的資料。 當支援新類型的用戶端應用程式時，將會更新這個 FAQ。
 
 ### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>每次轉譯已啟用「實際使用者度量」功能的網頁時，會執行多少個度量？
-將「實際使用者度量」與所提供的度量 JavaScript 搭配使用時，每個頁面轉譯都會進行 6 個度量。 這些度量會接著回報給「流量管理員」服務。 請注意，將會根據回報給「流量管理員」的度量數目向您收取費用。 例如，如果使用者在進行度量時但在回報度量前離開您的網頁，這些度量就不列入計費。
+將「實際使用者度量」與所提供的度量 JavaScript 搭配使用時，每個頁面轉譯都會進行 6 個度量。 這些度量會接著回報給「流量管理員」服務。 此功能的收費依據為回報給流量管理員服務的度量數目。 例如，如果使用者在進行度量時但在回報度量前離開您的網頁，這些度量就不列入計費。
 
 ### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>「實際使用者度量」在我的網頁中執行前是否會有延遲？
 否，在叫用此指令碼前沒有任何以程式設計方式設定的延遲。
 
-### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>我是否可以將「實際使用者度量」只搭配我想要測量的 Azure 區域使用？
+### <a name="can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>是否可以只搭配我想要測量的 Azure 區域來使用實際使用者度量？
 否，每次叫用「實際使用者度量」指令碼時，它都會測量服務所決定的 6 個 Azure 區域。 這個集合會在不同的引動過程之間變更，當發生大量這樣的引動過程時，度量涵蓋範圍就會跨不同的 Azure 區域。
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>我是否可以將度量數目限制為特定數目？
@@ -178,7 +208,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 當您將度量指令碼內嵌到網頁中時，其他人可能看到該指令碼及您的「實際使用者度量」(RUM) 金鑰。 但值得注意的是，這個金鑰與您的訂用帳戶識別碼不同，是由「流量管理員」所產生且僅供此用途使用。 得知您的 RUM 金鑰並不會危害您 Azure 帳戶的安全性。
 
 ### <a name="can-others-abuse-my-rum-key"></a>其他人是否可能濫用我的 RUM 金鑰？
-雖然其他人可能使用您的金鑰來傳送錯誤資訊給 Azure，但請注意，幾個錯誤的度量並不會改變路由，因為我們會將這些度量與所收到的所有其他度量一併納入考量。 如果您需要變更金鑰，您可以在舊金鑰被捨棄時重新產生金鑰。
+雖然其他人可能使用您的金鑰來將錯誤資訊傳送給 Azure，但數個錯誤的度量並不會改變路由，因為我們會將這些度量與所收到的所有其他度量一併納入考量。 如果您需要變更金鑰，您可以在舊金鑰被捨棄時重新產生金鑰。
 
 ###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>我是否需要將度量 JavaScript 放在所有網頁中？
 「實際使用者度量」會隨著度量數目增加而變得更有價值。 儘管如此，是要將它放在所有網頁中，還是放在幾個選取的網頁中，仍是取決於您。 建議您一開始將它放在瀏覽次數最多且使用者應該至少會停留 5 秒的頁面中。
@@ -190,10 +220,10 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 否，它不需要使用「流量管理員」。 「流量管理員」的路由端與「實際使用者度量」部分是分開運作的，雖然最好是將它們都放在相同的 Web 屬性中，但不一定要這麼做。
 
 ### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>我是否必須在 Azure 區域裝載任何服務，才能搭配使用「實際使用者度量」？
-否，您不需要在 Azure 裝載任何伺服器端元件，「實際使用者度量」便能運作。 度量 JavaScript 所下載的單一像素影像，以及在不同 Azure 區域中執行它的服務，是由 Azure 所裝載並管理的。 
+否，您不需要在 Azure 上裝載任何伺服器端元件，實際使用者度量就能運作。 度量 JavaScript 所下載的單一像素影像，以及在不同 Azure 區域中執行它的服務，是由 Azure 所裝載並管理的。 
 
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>使用「實際使用者度量」時，我的 Azure 頻寬使用量是否會增加？
-如先前的回答中所述，「實際使用者度量」的伺服器端元件是由 Azure 所擁有和管理的。 這意謂著您的 Azure 頻寬使用量將不會因為使用「實際使用者度量」而增加。 請注意，這並不包括 Azure 收費項目以外的任何頻寬使用量。 我們藉由只下載一個單一像素影像來測量連線到 Azure 區域的延遲，將使用的頻寬降到最低。 
+如先前的回答中所述，「實際使用者度量」的伺服器端元件是由 Azure 所擁有和管理的。 這意謂著您的 Azure 頻寬使用量將不會因為使用「實際使用者度量」而增加。 這並不包括 Azure 收費項目以外的任何頻寬使用量。 我們藉由只下載一個單一像素影像來測量連線到 Azure 區域的延遲，將使用的頻寬降到最低。 
 
 ## <a name="traffic-view"></a>流量檢視
 
@@ -257,7 +287,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 
 流量管理員目前不提供 IPv6 定址的名稱伺服器。 不過，連接到 IPv6 端點的 IPv6 用戶端仍然可以使用流量管理員。 用戶端不會直接向流量管理員提出 DNS 要求。 相反地，用戶端會使用遞迴 DNS 服務。 僅支援 IPv6 的用戶端會透過 IPv6 將要求傳送至遞迴 DNS 服務。 然後，遞迴服務應該就能夠使用 IPv4 來連絡流量管理員名稱伺服器。
 
-流量管理員會以端點的 DNS 名稱來回應。 為了支援 IPv6 端點，必須有一筆 DNS AAAA 記錄將端點 DNS 名稱指向 IPv6 位址。 流量管理員健康情況檢查僅支援 IPv4 位址。 此服務必須在相同 DNS 名稱上公開 IPv4 端點。
+流量管理員會回應端點的 DNS 名稱或 IP 位址。 有兩個選項可以支援 IPv6 端點。 您可以將端點新增為具有相關聯 AAAA 記錄的 DNA 名稱，而流量管理員將會對該端點執行健康狀態檢查，並在查詢回應中以 CNAME 記錄類型傳回它。 您也可以直接使用 IPv6 位址新增該端點，而流量管理員會在查詢回應中傳回 AAAA 類型記錄。 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>可以使用流量管理員搭配相同區域中的多個 Web 應用程式嗎？
 
@@ -300,6 +330,46 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 * 不支援 SNI 伺服器端憑證
 * 不支援用戶端憑證
 
+### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>新增端點時，使用 IP 位址還是 DNS 名稱？
+流量管理員支援使用三種方式來新增要參照的端點：作為 DNS 名稱、IPv4 位址和 IPv6 位址。 如果端點新增為 IPv4 或 IPv6 位址，則查詢回應分別是 A 或 AAAA 記錄類型。 如果端點已新增為 DNS 名稱，則查詢回應會是 CNAME 記錄類型。 只有在端點的類型為**外部**時，才允許將端點新增為 IPv4 或 IPv6 位址。
+三端點定址類型支援所有路由方法和監視設定。
+
+### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>新增端點時，可以使用哪些類型的 IP 位址？
+流量管理員可讓您使用 IPv4 或 IPv6 位址來指定端點。 下面列出一些限制：
+- 不允許對應至保留私人 IP 位址空間的位址。 這些位址包含 RFC 1918、RFC 6890、RFC 5737、RFC 3068、RFC 2544 和 RFC 5771 中所呼叫的位址
+- 位址不得包含任何連接埠號碼 (您可以在設定檔組態設定中指定要使用的連接埠) 
+- 在相同的設定檔中，不能有兩個端點具有相同的目標 IP 位址
+
+### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>我可以在單一設定檔內使用不同的端點定址類型嗎？
+否，流量管理員不允許您在設定檔內混用端點定址類型，但設定檔具有 MultiValue 路由類型且可以混用 IPv4 和 IPv6 定址類型的情況除外
+
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>傳入查詢的記錄類型和與端點定址類型建立關聯的記錄類型不同時，會發生什麼事？
+收到設定檔的查詢時，流量管理員會先尋找需要根據指定路由方法和端點健康狀態所傳回的端點。 它接著會在根據下表傳回回應之前，查看傳入查詢中所要求的記錄類型以及與端點建立關聯的記錄類型。
+
+針對任何具有 MultiValue 以外之路由方法的設定檔：
+|傳入查詢要求|    端點類型|  提供的回應|
+|--|--|--|
+|ANY |  A/AAAA/CNAME |  目標端點| 
+|具有使用  |    A/CNAME | 目標端點|
+|具有使用  |    AAAA |  NODATA |
+|AAAA | AAAA/CNAME |  目標端點|
+|AAAA | 具有使用  | NODATA |
+|CNAME |    CNAME | 目標端點|
+|CNAME  |A/AAAA | NODATA |
+|
+針對路由方法設定為 MultiValue 的設定檔：
+
+|傳入查詢要求|    端點類型 | 提供的回應|
+|--|--|--|
+|ANY |  混用 A 和 AAAA | 目標端點|
+|具有使用  |    混用 A 和 AAAA | 僅限 A 類型的目標端點|
+|AAAA   |混用 A 和 AAAA|     僅限 AAAA 類型的目標端點|
+|CNAME |    混用 A 和 AAAA | NODATA |
+
+### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>我可以在巢狀設定檔中使用具有 IPv4/IPv6 定址端點的設定檔嗎？
+是，可以，但有下列例外：MultiValue 類型的設定檔不能是巢狀設定檔集合中的父設定檔。
+
+
 ### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>我已停止「流量管理員」設定檔中的 Azure 雲端服務 / Web 應用程式端點，但即使在重新啟動它之後都未收到任何流量。 我該怎麼辦？
 
 當 Azure 雲端服務 / Web 應用程式端點停止時，「流量管理員」會停止檢查其健康情況，並僅在它偵測到端點已重新啟動之後，才會重新啟動健康情況檢查。 若要避免這種延遲，在重新啟動該端點之後，請在「流量管理員」設定檔中停用然後重新啟用該端點。   
@@ -326,9 +396,13 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 流量管理員監視設定是在各個設定檔層級。 如果您只需要為一個端點使用不同的監視設定，可以藉由讓該端點成為[巢狀設定檔](traffic-manager-nested-profiles.md)來完成，其監視設定與父代設定檔不同。
 
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>端點健全狀況檢查使用哪一個主機標頭？
+### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>如何將 HTTP 標頭指派給我端點的流量管理員健康狀態檢查？
+流量管理員可讓您在對您端點起始的 HTTP(S) 健康狀態檢查中指定自訂標頭。 如果您想要指定自訂標頭，則可以在設定檔層級 (適用於所有端點) 或在端點層級指定。 如果在兩個層級定義標頭，則在端點層級指定的標頭將會覆寫設定檔層級標頭。
+此狀況的一個常見使用案例是指定主機標頭，以將流量管理員要求正確地路由至裝載於多租用戶環境的端點。 另一種使用案例是識別來自端點 HTTP(S) 要求記錄的流量管理員要求
 
-流量管理員在 HTTP 和 HTTPS 的健康狀態檢查中使用主機標頭。 流量管理員所使用的主機標頭是設定檔中設定的端點目標名稱。 主機標頭中使用的值不能與目標屬性分開指定。
+## <a name="what-host-header-do-endpoint-health-checks-use"></a>端點健全狀況檢查使用哪一個主機標頭？
+如果未提供自訂主機標頭設定，則流量管理員所使用主機標頭即為設定檔中所設定端點目標的 DNS 名稱 (如果可用)。 
+
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>健康情況檢查是從哪些 IP 位址產生？
 

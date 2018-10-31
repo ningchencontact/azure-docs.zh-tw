@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 253ec8c0d1d6725e6ae5c47c79882284c633d6e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984461"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026002"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>使用 Azure 的應用程式傳遞套件進行負載平衡
 
@@ -26,8 +26,8 @@ Microsoft Azure 針對管理網路流量的散發與負載平衡方式提供多�
 ![應用程式傳遞套件 ][1]
  
 這些服務被分類為兩個類別：
-1. **全域負載平衡服務** (例如流量管理員與 Front Door) 能將來自您使用者的流量散發到您的區域後端、雲端，或甚至是您的混合式內部部署服務之上。 全域負載平衡會將您的流量路由到距離您最接近的服務後端，並對服務可靠性或效能上的變更作出反應，以為您的使用者維持永遠可用的最大化效能。 
-2. **區域負載平衡服務** (例如 Standard Load Balancer 或應用程式閘道) 能將虛擬網路 (VNET) 內的流量散發到您的虛擬機器 (VM) 或區域 (region) 內的區域 (zonal) 服務端點之上。
+1. **全域負載平衡服務** (例如流量管理員與 Front Door) 能將來自您使用者的流量散發到您的區域後端、雲端，或甚至是您的混合式內部部署服務之上。 全域負載平衡會將您的流量路由傳送到距離您最接近的服務後端，並對服務可靠性或效能的變更做出反應，以為您的使用者維持永遠可用的最大化效能。 
+2. **區域負載平衡服務** (例如 Standard Load Balancer 或應用程式閘道) 可將虛擬網路 (VNET) 內的流量散佈到您的虛擬機器 (VM) 或區域 (region) 內的區域 (zonal) 服務端點之上。
 
 在應用程式中結合全域和區域服務，能為在使用者和您的 IaaS、PaaS 或內部部署服務之間路由流量，提供端對端且可靠、有效、安全的方式。 在下一節中，我們會逐一描述這些服務。
 
@@ -36,7 +36,7 @@ Microsoft Azure 針對管理網路流量的散發與負載平衡方式提供多�
 - 效能路由傳送，以根據延遲將要求者傳送到最接近的後端。
 - 優先順序路由傳送，以將所有流量導向後端，並以其他後端做為備份。
 - 加權循環配置資源路由傳送，它會根據指派給各後端的加權散發流量。
-- 地理路由傳送，以確保位於特定地理區域的要求者會被導向對應至那些區域的後端 (例如，所有來自西班牙的要求者都應該被導向美國東部 Azure 區域)
+- 地理路由傳送，以確保位於特定地理區域的要求者會被導向對應至那些區域的後端 (例如，所有來自西班牙的要求者都應該被導向法國中部 Azure 區域)
 - 子網路路由傳送，能允許您將 IP 位址範圍對應至後端，使來自那些範圍的要求會被傳送至指定的後端 (例如，與一般的使用者相比，所有從您企業總部的 IP 位址範圍連線的使用者都應該會取得不同的 Web 內容)
 
 用戶端直接連線至該後端。 Azure 流量管理員會在偵測到後端健康情況不良時，將用戶端重新導向至另一個健康情況良好的執行個體。 若要深入了解此服務，請參閱 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)文件。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47f219b7319e4d2bbadf03954f7bd7f6f39da3b4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128974"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404336"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>設定 ExpressRoute 的網路效能監控
 
@@ -43,7 +43,7 @@ ms.locfileid: "37128974"
 
 監視代理程式安裝在內部部署和 Azure 中的多部伺服器上。 這些代理程式會彼此互相通訊但不會傳送資料，而是會傳送 TCP 交握封包。 代理程式之間的通訊可讓 Azure 對應流量可採用的網路拓撲和路徑。
 
-1. 建立 NPM 工作區。 這與 OMS 工作區相同。
+1. 建立 NPM 工作區。 這與 Log Analytics 工作區相同。
 2. 安裝並設定軟體代理程式： 
     * 在內部部署伺服器和 Azure VM 上安裝監視代理程式 (適用於私人對等互連)。
     * 設定監視代理程式伺服器上的設定，以允許監視代理程式進行通訊。 (開啟防火牆連接埠等)。
@@ -63,10 +63,10 @@ ms.locfileid: "37128974"
    >
 
    ![入口網站](.\media\how-to-npm\3.png)<br><br>
-2. 在 [網路效能監視器] 主頁面底部，按一下 [建立] 以開啟 [網路效能監視器 - 建立新的解決方案] 頁面。 按一下 [OMS 工作區 - 選取工作區] 以開啟 [工作區] 頁面。 按一下 [+ 建立新工作區] 以開啟 [工作區] 頁面。
-3. 在 [OMS 工作區] 頁面上，選取 [新建]，然後設定下列設定：
+2. 在 [網路效能監視器] 主頁面底部，按一下 [建立] 以開啟 [網路效能監視器 - 建立新的解決方案] 頁面。 按一下 [Log Analytics 工作區 - 選取工作區] 以開啟 [工作區] 頁面。 按一下 [+ 建立新工作區] 以開啟 [工作區] 頁面。
+3. 在 [Log Analytics 工作區] 頁面上，選取 [新建]，然後設定下列設定：
 
-  * OMS 工作區：輸入您工作區的名稱。
+  * Log Analytics 工作區：輸入您工作區的名稱。
   * 訂用帳戶 - 如果您有多個訂用帳戶，請選擇要與新工作區建立關聯的帳戶。
   * 資源群組 - 建立資源群組，或使用現有的資源群組。
   * 位置 - 此位置會用來指定代理程式連線記錄所用的儲存體帳戶位置。
@@ -86,9 +86,9 @@ ms.locfileid: "37128974"
 
 ### <a name="download"></a>2.1：下載代理程式安裝檔案
 
-1. 移至資源的 [網路效能監控設定] 頁面中 [一般設定] 索引標籤。 從 [安裝 OMS Agent] 區段中按一下對應至您伺服器處理器的代理程式，並下載安裝檔案。
+1. 移至資源的 [網路效能監控設定] 頁面中 [一般設定] 索引標籤。 從 [安裝 Log Analytics 代理程式] 區段中按一下對應至您伺服器處理器的代理程式，並下載安裝檔案。
 2. 接著，將 [工作區識別碼] 和 [主要金鑰] 複製到 [記事本]。
-3. 從 [使用 TCP 通訊協定設定 OMS Agent 以供監視] 區段中，下載 Powershell 指令碼。 此 PowerShell 指令碼將協助您開啟 TCP 交易的相關防火牆連接埠。
+3. 從 [設定 Log Analytics 代理程式以使用 TCP 通訊協定進行監視] 區段中，下載 Powershell 指令碼。 此 PowerShell 指令碼將協助您開啟 TCP 交易的相關防火牆連接埠。
 
   ![PowerShell 指令碼](.\media\how-to-npm\7.png)
 
@@ -117,7 +117,7 @@ ms.locfileid: "37128974"
     ![帳戶](.\media\how-to-npm\10.png)
 6. 在 [安裝準備就緒] 頁面上，檢閱您的選擇，然後按一下 [安裝]。
 7. 在 [設定成功完成] 頁面上，按一下 [完成]。
-8. 完成時，[Microsoft Monitoring Agent] 會出現在 [控制台] 中。 您可以在該處檢閱您的設定，並確認代理程式是否已連線到 Azure Log Analytics (OMS)。 連線後，代理程式會顯示訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務**。
+8. 完成時，[Microsoft Monitoring Agent] 會出現在 [控制台] 中。 您可以在該處檢閱您的設定，並確認代理程式是否已連線到 Azure Log Analytics。 連線後，代理程式會顯示訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務**。
 
 9. 請針對您需要監視的每個 VNET 重複此程序。
 

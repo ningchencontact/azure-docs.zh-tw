@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129381"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430024"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -95,8 +95,48 @@ Authorization: Bearer <Base64-access_token>
 ```
 {
   "error": {
-    "code":403000,
-    "message":"The subscription has exceeded its free quota."
+    "code":403001,
+    "message":"The operation is not allowed because the subscription has exceeded its free quota."
     }
 }
 ```
+錯誤碼是 6 位數的數字，其中結合了 3 位數的 HTTP 狀態碼，後面接著將錯誤進一步分類的 3 位數數字。 常見的錯誤碼包括：
+
+| 代碼 | 說明 |
+|:----|:-----|
+| 400000| 其中一個要求輸入無效。|
+| 400001| "scope" 參數無效。|
+| 400002| "category" 參數無效。|
+| 400003| 語言指定名稱遺漏或無效。|
+| 400004| 目標指令碼指定名稱 ("To script") 遺漏或無效。|
+| 400005| 輸入文字遺漏或無效。|
+| 400006| 語言與指令碼的組合無效。|
+| 400018| 來源指令碼指定名稱 ("From script") 遺漏或無效。|
+| 400019| 不支援其中一個指定的語言。|
+| 400020| 輸入文字陣列中的其中一個元素無效。|
+| 400021| API 版本參數遺漏或無效。|
+| 400023| 其中一個指定的語言組無效。|
+| 400035| 來源語言 ("From" 欄位) 無效。|
+| 400036| 目標語言 ("To" 欄位) 無效。|
+| 400042| 其中一個指定的選項 ("Options" 欄位) 無效。|
+| 400043| 用戶端追蹤識別碼 ID (ClientTraceId 欄位或 X-ClientTranceId 標頭) 遺漏或無效。|
+| 400050| 輸入文字太長。|
+| 400064| "translation" 參數遺漏或無效。|
+| 400070| 目標指令碼 (ToScript 參數) 數目與目標語言 (To 參數) 數目不符。|
+| 400071| 值不是有效的 TextType 值。|
+| 400072| 輸入文字陣列的元素太多。|
+| 400073| 指令碼參數無效。|
+| 400074| 要求本文不是有效的 JSON。|
+| 400075| 語言組與類別組合無效。|
+| 400077| 已超過要求大小上限。|
+| 400079| 所要求用來在來源與目標語言之間進行翻譯的自訂系統不存在。|
+| 401000| 要求未獲授權，因為認證遺漏或無效。|
+| 401015| 「提供的認證是 Speech API 的認證。 此要求需要的是「文字 API」的認證。 請使用「翻譯工具文字 API」的訂用帳戶。」|
+| 403000| 不允許此作業。|
+| 403001| 不允許此作業，因為訂用帳戶已超出其可用配額。|
+| 405000| 要求方法不是所要求資源支援的方法。|
+| 415000| Content-Type 標頭遺漏或無效。|
+| 429000、429001、429002| 伺服器拒絕要求，因為用戶端傳送太多要求。 請降低要求的頻率以避免節流。|
+| 500000| 發生意外錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
+| 503000| 服務暫時無法使用。 請再試一次。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
+
