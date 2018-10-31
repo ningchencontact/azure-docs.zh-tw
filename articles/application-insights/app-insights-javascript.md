@@ -121,7 +121,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ![在 portal.azure.com 中，開啟您的應用程式資源然後按一下 [設定]、[瀏覽器]。](./media/app-insights-javascript/03.png)
 
-仍沒有資料？ 按一下頁面頂端的 [重新整理]**。 仍然沒有嗎？ 請參閱 [疑難排解](app-insights-troubleshoot-faq.md)。
+仍沒有資料？ 按一下頁面頂端的 [重新整理]。 仍然沒有嗎？ 請參閱 [疑難排解](app-insights-troubleshoot-faq.md)。
 
 [瀏覽器] 刀鋒視窗是[計量瀏覽器刀鋒視窗](app-insights-metrics-explorer.md)，具有預設篩選器與圖表選項。 如果您想要的話，可以編輯時間範圍、篩選器和圖表設定，並將結果儲存為我的最愛。 按一下 [還原預設值]  以返回原始刀鋒視窗設定。
 
