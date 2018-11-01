@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222687"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239877"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 在當今大幅互連的社會當中，您的生活或多或少都成為 **社交網路**的一部分。 您會使用社交網路與朋友、同事、家人保持連絡，有時候還可以跟擁有共同興趣的人交流這份愛好。
@@ -233,7 +233,7 @@ Cosmos DB 預設便支援[動態分割 (英文)](https://azure.microsoft.com/blo
 
 不過，您很快就發現他們無法從您的平台取得最佳的體驗，因為他們離您的作業區域太遠，使延遲變得非常嚴重。但您當然也不希望他們因此而放棄使用。 要是有方法能輕鬆「觸達全球使用者」就好了。當然有！
 
-Cosmos DB 可讓您按幾下就能透明地[將資料複寫至全球](../cosmos-db/tutorial-global-distribution-sql-api.md)，並且自動從您的[用戶端程式碼](../cosmos-db/tutorial-global-distribution-sql-api.md)選取可用的區域。 這也表示您可以擁有[多個容錯移轉區域](regional-failover.md)。 
+Cosmos DB 可讓您按幾下就能透明地[將資料複寫至全球](../cosmos-db/tutorial-global-distribution-sql-api.md)，並且自動從您的[用戶端程式碼](../cosmos-db/tutorial-global-distribution-sql-api.md)選取可用的區域。 這也表示您可以擁有[多個容錯移轉區域](high-availability.md)。 
 
 當您將資料複寫至全球時，您必須確保您的用戶端能充分利用它。 如果您使用 Web 前端，或是從行動用戶端存取 API，便可以部署 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)，然後將您的 Azure App Service 複製到所有需要的區域，其中使用效能設定來支援延伸的全球涵蓋範圍。 當用戶端存取您的前端或 API 時，系統會將它們路由至最接近的 App Service，以便連接到當地的 Cosmos DB 複本。
 

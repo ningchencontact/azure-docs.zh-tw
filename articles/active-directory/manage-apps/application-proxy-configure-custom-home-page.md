@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 10bcb3c0c4842202f95cdc1fff30d12b7a8fbbc2
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e6f4e67d09eacadbbf9d74f417357a87ece0a951
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366018"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238500"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 為發佈的應用程式設定自訂首頁
 
@@ -62,7 +62,7 @@ ms.locfileid: "39366018"
 
 ### <a name="install-the-azure-ad-powershell-module"></a>安裝 Azure AD PowerShell 模組
 
-使用 PowerShell 定義自訂首頁 URL 之前，請先安裝 Azure AD PowerShell 模組。 您可以從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131)下載此套件，其使用圖形 API 端點。 
+使用 PowerShell 定義自訂首頁 URL 之前，請先安裝 Azure AD PowerShell 模組。 您可以從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131)下載此套件，其使用圖形 API 端點。 
 
 若要安裝套件，請遵循下列步驟：
 
@@ -72,7 +72,7 @@ ms.locfileid: "39366018"
      Install-Module -Name AzureAD
     ```
     若您以非系統管理員身分執行此命令，請使用 `-scope currentuser` 選項。
-2. 在安裝期間，選取 [Y] 以從 Nuget.org 安裝兩個套件。兩個套件都是必要套件。 
+2. 在安裝期間，選取 [Y] 以從 Nuget.org 安裝兩個套件。兩個套件都是必要套件。 
 
 ### <a name="find-the-objectid-of-the-app"></a>尋找應用程式的 ObjectID
 
@@ -92,14 +92,14 @@ ms.locfileid: "39366018"
 3. 根據應用程式的首頁 URL 尋找它。 您可以在入口網站中找到 URL，請前往 [Azure Active Directory] > [企業應用程式] > [所有應用程式]。 這個範例會使用 sharepoint-iddemo。
 
     ```
-    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
     ```
 4. 您應會取得如下所示的結果。 將 ObjectID GUID 複製以在下一節中使用。
 
     ```
     DisplayName : SharePoint
-    Homepage    : https://sharepoint-iddemo.msappproxy.net/
-    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Homepage    : https://sharepoint-iddemo.msappproxy.net/
+    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 ### <a name="update-the-home-page-url"></a>更新首頁 URL
@@ -117,13 +117,13 @@ ms.locfileid: "39366018"
 2. 建立空白應用程式物件以存放您要進行的變更。 這個變數會包含您要更新的值。 此步驟不會建立任何項目。
 
     ```
-    $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
+    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. 將首頁 URL 設定為您想要的值。 此值必須是已發佈應用程式的子網域路徑。 例如，如果您將首頁 URL 從 *https://sharepoint-iddemo.msappproxy.net/* 變更為 *https://sharepoint-iddemo.msappproxy.net/hybrid/*，則應用程式使用者會直接前往自訂首頁。
+3. 將首頁 URL 設定為您想要的值。 此值必須是已發佈應用程式的子網域路徑。 例如，如果您將首頁 URL 從 *https://sharepoint-iddemo.msappproxy.net/* 變更為 *https://sharepoint-iddemo.msappproxy.net/hybrid/*，則應用程式使用者會直接前往自訂首頁。
 
     ```
-    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
 4. 使用您在「步驟 1：尋找應用程式的 ObjectID」中複製的 GUID (ObjectID)，進行更新。
 

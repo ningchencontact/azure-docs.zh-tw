@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 03cf2fab1200cd617f456a6fcfb9067673d01a19
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340897"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250601"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -37,7 +37,7 @@ ms.locfileid: "49340897"
 | ------ | ----------- |
 |**[標記視覺特徵](concept-tagging-images.md)**|依據 2,000 多個可辨識的物件、生物、景象和動作，識別及標記影像中的視覺特徵。 若標記不明確或不屬於常識，回應會提供「提示」來釐清標記在已知設定內容中的意涵。 標記並未限定於主體 (例如前景中的人物)，而是包含周遭環境 (室內或室外)、家具、工具、植物、動物、配件和小工具等。|
 |**[將影像分類](concept-categorizing-images.md)**|使用具有父/子承襲階層的[類別分類法](Category-Taxonomy.md)來識別及分類整個影像。 類別可單獨使用，或與我們新的標記模型搭配使用。<br/>目前，英文是唯一支援影像標記和分類的語言。|
-|**[說明影像](concept-describing-images.md)**|以一般人看得懂的語言，使用完整的句子產生整個影像的描述。 電腦視覺的演算法會根據在影像中識別出來的物件產生各種描述。 這些描述會個別受到評估，並產生信賴分數。 接著會傳回一份清單，並依照信賴分數由高至低排序。<br/>您可以在 [GitHub](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption) 取得使用這項技術產生影像標題的 Bot 範例。|
+|**[說明影像](concept-describing-images.md)**|以一般人看得懂的語言，使用完整的句子產生整個影像的描述。 電腦視覺的演算法會根據在影像中識別出來的物件產生各種描述。 這些描述會個別受到評估，並產生信賴分數。 接著會傳回一份清單，並依照信賴分數由高至低排序。|
 |**[偵測臉部](concept-detecting-faces.md)** |偵測影像中的臉部，並提供與每個偵測到的臉部有關的資訊。 電腦視覺會針對每個偵測到的臉部傳回座標、矩形、性別和年齡。<br/>電腦視覺提供位於[臉部](/azure/cognitive-services/face/)的功能子集，且您可以使用「臉部」服務執行更詳細的分析，例如臉部識別和姿勢偵測。|
 |**[偵測影像類型](concept-detecting-image-types.md)**|偵測影像的關於特性，例如影像是否為線條繪圖，或影像為美工圖案的可能性。|
 |**[偵測特定領域內容](concept-detecting-domain-content.md)**|使用領域模型可偵測及識別影像中的特定領域內容，例如名人和地標。 例如，如果影像中包含人物，電腦視覺即可使用服務隨附的名人領域模型，判斷在影像中偵測到的人物是否和已知的名人相符。|

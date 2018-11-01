@@ -302,8 +302,6 @@
 ##### [自訂開發應用程式問題](manage-apps/application-sign-in-problem-custom-dev.md)
 ##### [內部部署應用程式問題 - 應用程式 Proxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
-### [開發應用程式](active-directory-applications-guiding-developers-for-lob-applications.md)
-
 
 ## 管理您的目錄
 ### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)

@@ -3,7 +3,7 @@ title: Azure Application Insights 漏斗圖
 description: 了解如何使用漏斗圖來探索客戶與您的應用程式互動的方式。
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: 527f9d4a6086f92dcba8a342162b955431b8b315
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: 3d4d6ba7e185b1cc5fdcee1633a11e579d8194e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632194"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413956"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>使用 Application Insights 漏斗圖來探索客戶如何使用您的應用程式
 
@@ -38,7 +40,7 @@ ms.locfileid: "35632194"
 以下螢幕擷取畫面顯示漏斗圖工具產生的資料類型範例。 Fabrikam 擁有者可以看到在過去 90 天期間，54.3% 的客戶已造訪首頁、建立客戶票證。 他們也會看到 2,700 個客戶從首頁來到索引。 這可能表示重新整理問題。
 
 
-![具有資料的漏斗圖工具螢幕擷取畫面](./media/app-insights-understand-usage-patterns/funnel1.png)
+![具有資料的漏斗圖工具螢幕擷取畫面](media/usage-funnels/funnel1.png)
 
 ### <a name="funnels-features"></a>漏斗圖功能
 上述螢幕擷取畫面包含五個醒目顯示的區域。 這些是漏斗圖的功能。 下列清單進一步說明螢幕擷取畫面中的每個對應區域：

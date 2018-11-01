@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e6511b9511d2598b58fd3afee34803ceb09ac5ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582847"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238995"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發
 
@@ -45,7 +45,7 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 
 如果您目前是使用 Azure 資料表儲存體，改用 Azure Cosmos DB 資料表 API 可獲得下列好處：
 
-- 具有多路連接及[自動和手動容錯移轉](regional-failover.md)的完備[全域散發](distribute-data-globally.md)
+- 具有多路連接及[自動和手動容錯移轉](high-availability.md)的完備[全域散發](distribute-data-globally.md)
 - 支援所有屬性 (次要索引) 之無從驗證結構描述的自動索引編製，以及快速查詢 
 - 支援在任意數目的區域[獨立調整儲存體和輸送量](partition-data.md)
 - 支援[每一資料表有專用輸送量](request-units.md) (可從每秒數百個要求調整到數百萬個要求)

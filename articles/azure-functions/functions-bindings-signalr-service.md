@@ -3,8 +3,8 @@ title: Azure Functions SignalR Service 繫結
 description: 了解如何搭配使用 SignalR Service 繫結與 Azure Functions。
 services: functions
 documentationcenter: na
-author: anthonychu
-manager: cfowler
+author: craigshoemaker
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
-ms.author: antchu
-ms.openlocfilehash: 435a581b065b94399006e60fec8d007296734373
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: cshoe
+ms.openlocfilehash: 40cad9eec87c07a205a86f1009074cdbeaf58d15
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993947"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249947"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>適用於 Azure Functions 的 SignalR Service 繫結
 
@@ -35,8 +35,7 @@ ms.locfileid: "46993947"
 > [!NOTE]
 > Azure SignalR Service 已正式推出。 不過，適用於 Azure Functions 的 SignalR Service 繫結目前處於預覽狀態。
 
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
-
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
 ## <a name="signalr-connection-info-input-binding"></a>SignalR 連線資訊輸入繫結
 

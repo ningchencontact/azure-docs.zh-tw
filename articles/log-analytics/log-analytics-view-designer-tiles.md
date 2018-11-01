@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: fc5dc00a05486c1f781016df63877f40d21b0205
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131265"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413055"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics 中的檢視設計工具圖格參考指南
 藉由使用 Azure Log Analytics 中的檢視設計工具，您可以在 Azure 入口網站中建立能顯示 Log Analytics 工作區中各種資料視覺效果的自訂檢視。 本文章是自訂檢視中可用的圖格設定的參考指南。
@@ -47,11 +47,11 @@ ms.locfileid: "37131265"
 ## <a name="number-tile"></a>數字圖格
 **數字**圖格會顯示記錄檔查詢傳回的記錄計數和標籤。
 
-![數字圖格](media/log-analytics-view-designer/tile-number.png)
+![數字圖格](media/log-analytics-view-designer-tiles/tile-number.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
 | 說明 |圖格名稱下方顯示的文字。 |
 | **圖格** | |
 | 圖例 |值下方顯示的文字。 |
@@ -65,11 +65,11 @@ ms.locfileid: "37131265"
 ## <a name="two-numbers-tile"></a>雙數字圖格
 此圖格會顯示來自兩個不同記錄查詢的記錄計數，和各自的標籤。
 
-![雙數字圖格](media/log-analytics-view-designer/tile-two-numbers.png)
+![雙數字圖格](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
 | 說明 |圖格名稱下方顯示的文字。 |
 | **第一個圖格** | |
 | 圖例 |值下方顯示的文字。 |
@@ -86,11 +86,11 @@ ms.locfileid: "37131265"
 ## <a name="donut-tile"></a>環圈圖格
 **環圈**圖格會顯示從記錄檔查詢中的值資料行彙總而來的一個數字。 環圈會以圖形方式顯示前三筆記錄的結果。
 
-![環圈圖格](media/log-analytics-view-designer/tile-donut.png)
+![環圈圖格](media/log-analytics-view-designer-tiles/tile-donut.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
 | 說明 |圖格名稱下方顯示的文字。 |
 | **環圈** | |
 | 查詢 |針對環圈圖執行的查詢。 第一個屬性是文字值，而第二個屬性是數值。 此查詢通常是使用 *measure* 關鍵字來彙總結果。 |
@@ -110,11 +110,11 @@ ms.locfileid: "37131265"
 ## <a name="line-chart-tile"></a>折線圖圖格
 此圖格為一個折線圖，顯示來自一段時間內記錄查詢的多個數列。 
 
-![折線圖與圖說文字圖格](media/log-analytics-view-designer/tile-line-chart.png)
+![折線圖與圖說文字圖格](media/log-analytics-view-designer-tiles/tile-line-chart.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
 | 說明 |圖格名稱下方顯示的文字。 |
 | **折線圖** | |
 | 查詢 |針對折線圖執行的查詢。 第一個屬性是文字值，而第二個屬性是數值。 此查詢通常是使用 *measure* 關鍵字來彙總結果。 如果查詢使用 *interval* 關鍵字，則 X 軸會使用此時間間隔。 如果查詢未包含 *interval* 關鍵字，則 X 軸會使用每小時的間隔。 |
@@ -131,11 +131,11 @@ ms.locfileid: "37131265"
 ## <a name="line-chart-and-callout-tile"></a>折線圖與圖說文字圖格
 此圖格有一個折線圖會顯示一段時間來自記錄查詢的多個數列，以及包含彙總值的圖說文字。 
 
-![折線圖與圖說文字圖格](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![折線圖與圖說文字圖格](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
 | 說明 |圖格名稱下方顯示的文字。 |
 | **折線圖** | |
 | 查詢 |針對折線圖執行的查詢。 第一個屬性是文字值，而第二個屬性是數值。 此查詢通常是使用 *measure* 關鍵字來彙總結果。 如果查詢使用 *interval* 關鍵字，則 X 軸會使用此時間間隔。 如果查詢未包含 *interval* 關鍵字，則 X 軸會使用每小時的間隔。 |
@@ -156,11 +156,11 @@ ms.locfileid: "37131265"
 ## <a name="two-timelines-tile"></a>雙時間軸圖格
 **雙時間軸**圖格以直條圖顯示一段時間內兩個記錄檔查詢的結果。 每個系列會顯示一個圖說文字。 
 
-![雙時間軸圖格](media/log-analytics-view-designer/tile-two-timelines.png)
+![雙時間軸圖格](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
 | 說明 |圖格名稱下方顯示的文字。 |
 | 第一個圖 | |
 | 圖例 |第一個數列圖說文字下方顯示的文字。 |

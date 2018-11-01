@@ -329,32 +329,30 @@ items:
       href: sql-database-monitor-tune-overview.md
     - name: 智慧效能
       items:
-      - name: 查詢
+      - name: 微調建議程式
         items:
-        - name: 智慧查詢處理
-          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-        - name: 自適性查詢處理
-          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-      - name: 監視和微調
-        items:
-        - name: 資料庫建議程式效能建議
-          href: sql-database-advisor.md
         - name: 微調動作和建議
           href: sql-database-performance.md
-        - name: 套用效能建議
-          href: sql-database-advisor-portal.md
-      - name: Intelligent Insights
-        items:
-        - name: Intelligent Insights 概觀
-          href: sql-database-intelligent-insights.md
-        - name: 診斷記錄
-          href: sql-database-metrics-diag-logging.md
-        - name: 使用診斷記錄
-          href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: 查詢效能深入解析
           href: sql-database-query-performance.md
-        - name: 效能疑難排解
+        - name: 資料庫建議程式效能建議
+          href: sql-database-advisor.md
+        - name: 套用效能建議
+          href: sql-database-advisor-portal.md
+      - name: 進階監視
+        items:
+        - name: Azure SQL 分析監視
+          href: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql
+        - name: 診斷遙測記錄
+          href: sql-database-metrics-diag-logging.md
+      - name: 自動進行疑難排解
+        items:
+        - name: 將 Intelligent Insights 納入效能
+          href: sql-database-intelligent-insights.md
+        - name: 使用 Intelligent Insights 針對效能問題進行疑難排解
           href: sql-database-intelligent-insights-troubleshoot-performance.md
+        - name: 使用 Intelligent Insights 診斷記錄
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
       - name: 自動微調
         items:
         - name: 自動微調概觀
@@ -363,6 +361,12 @@ items:
           href: sql-database-automatic-tuning-enable.md
         - name: 啟用電子郵件通知
           href: sql-database-automatic-tuning-email-notifications.md
+      - name: 智慧查詢處理
+        items:
+        - name: 智慧查詢處理
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: 自適性查詢處理
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
     - name: 手動微調
       items:
       - name: 手動微調
@@ -634,9 +638,9 @@ items:
     href: /azure/architecture/
   - name: 客戶案例
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 416f74c395f331de6af749f3de1d3a3e966b8b35
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 691918eab050f99353e2a1061b9bfdd17e33ef52
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650055"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240115"

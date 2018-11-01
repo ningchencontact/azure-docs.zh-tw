@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 367829c269bd1d96e6aa5fab1be008483a4ab5ab
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: dc9c11e2c0d5642e31eace2a4dcb6065d990e25d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115356"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413650"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>適用於 Visual Studio Code 的 Service Fabric
 
@@ -30,7 +30,7 @@ ms.locfileid: "37115356"
 > [!IMPORTANT]
 > Service Fabric Java 應用程式可以在 Windows 機器上開發，但是只能部署到 Azure Linux 叢集上。 不支援在 Windows 上針對 Java 應用程式進行偵錯。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 必須在所有環境上安裝下列必要條件。
 
@@ -50,7 +50,7 @@ ms.locfileid: "37115356"
 
 必須針對 Java 開發安裝下列必要條件：
 
-* [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (1.8 版)
+* [Java SDK](https://aka.ms/azure-jdks) (1.8 版)
 * [Gradle](https://gradle.org/install/)
 * [適用於 Java VS Code 擴充功能的偵錯工具](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)，需要該工具才能針對 Java 服務進行偵錯。 針對 Java 服務進行偵錯只在 Linux 上受到支援。 您可以藉由在 VS Code 中的 [活動列] 按一下[擴充功能] 圖示並搜尋擴充功能來安裝，或者從 VS Code 市集安裝。
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
-ms.openlocfilehash: cb355d713ceadbd5cf205a378930bdd84685a913
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862700"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229612"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>快速入門：建立及管理自動化邏輯應用程式工作流程 - Visual Studio Code
 
@@ -37,7 +37,7 @@ ms.locfileid: "48862700"
 
 * 可存取網路以登入 Azure 與您的 Azure 訂用帳戶
 
-* 如果您還沒有以下這些工具，請下載並安裝它們： 
+* 如果您還沒有以下這些工具，請加以下載並安裝： 
 
   * <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code 1.25.1 版或更新版本</a> (免費)
 
@@ -223,5 +223,5 @@ ms.locfileid: "48862700"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps 論壇</a>。
-* 若要提交或票選功能構想，請造訪 <a href="http://aka.ms/logicapps-wish" target="_blank">Logic Apps 使用者意見反應網站</a>。
+* 若要提交或票選功能構想，請造訪 <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps 使用者意見反應網站</a>。
 

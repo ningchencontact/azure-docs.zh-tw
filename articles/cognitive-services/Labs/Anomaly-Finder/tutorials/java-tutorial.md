@@ -10,12 +10,12 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 4b544e2e59a40cebf75042c4040b84bceebcecf7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4aab76b819ba252dbe00b3faf2f69c24df14bbd1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887695"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419022"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>教學課程：使用 Java 應用程式進行異常偵測
 
@@ -28,7 +28,7 @@ ms.locfileid: "48887695"
 
 ### <a name="platform-requirements"></a>平台需求
 
-本教學課程是使用 [IntelliJ IDEA](https://www.jetbrains.com/idea) \(英文\) 來開發的。 此外，您也必須安裝 [Java 開發套件 (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) \(英文\) 1.8 以上版本以及 [Apache 的 Maven](http://maven.apache.org/) \(英文\) 最新建置工具。
+本教學課程是使用 [IntelliJ IDEA](https://www.jetbrains.com/idea) \(英文\) 來開發的。 此外，您也必須安裝 [Java 開發套件 (JDK)](https://aka.ms/azure-jdks) \(英文\) 1.8 以上版本以及 [Apache 的 Maven](http://maven.apache.org/) \(英文\) 最新建置工具。
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>訂閱異常偵測並取得訂用帳戶金鑰 
 

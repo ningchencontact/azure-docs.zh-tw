@@ -3,19 +3,19 @@ title: 什麼是學術知識 API？
 titlesuffix: Azure Cognitive Services
 description: 使用學術知識 API 來解譯使用者查詢，以及從 Academic Graph 中擷取豐富資訊。
 services: cognitive-services
-author: mvorvoreanu
+author: darrine
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
 ms.topic: overview
-ms.date: 03/27/2017
-ms.author: mivorvor
-ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/30/2018
+ms.author: darrine
+ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901205"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240353"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 
@@ -32,13 +32,10 @@ MAG 資料都採礦於 Bing Web 索引和 Bing 之中的內部知識庫。 由�
   1. **interpret** – 解譯自然語言的使用者查詢字串。 傳回已標註的解譯來獲得豐富的搜尋方塊自動完成體驗，進而預期使用者所鍵入的項目。  
   2. **evaluate** – 評估查詢運算式並傳回學術知識實體結果。  
   3. **calchistogram** – 計算查詢運算式所傳回的學術實體屬性值發佈長條圖，例如指定的作者依年份的引文發佈。  
-  4. **graph search** – 搜尋指定的圖表模式並傳回相符的實體結果。
-
+  
 一起使用這些 API 方法，即可打造豐富的語意搜尋體驗。 指定使用者查詢字串後，**interpret** 方法會提供註釋版的查詢和結構化查詢運算式，同時根據基礎學術資料的語意選擇性地完成使用者查詢。 例如，如果使用者輸入字串 latent s，**interpret** 方法會提供一組有排名的解譯，並暗示使用者可能會搜尋 latent semantic analysis 研究領域、latent structure analysis 論文或其他開頭為 latent s 的實體運算式。 這項資訊可用來快速將使用者指引至所需的搜尋結果。
 
 **evaluate**方法可用於從學術知識庫中擷取一組相符的論文實體，而 **calchistogram** 方法可用於計算一組論文實體的屬性值分佈，其可用來進一步篩選搜尋結果。        
-
-**graph search**方法有兩種模式：json 和 lambda。 Json 模式可以依據 JSON 物件所指定的圖表模式來執行圖表模式比對。 lambda 模式可以根據使用者指定的 lambda 運算式，在圖表周遊期間執行伺服器端計算。
 
 ## <a name="getting-started"></a>開始使用 
 請如需詳細文件，請參閱左側的子主題。  請注意，為了改善範例的可讀性，REST API 呼叫包含未經過 URL 編碼的字元 (例如空格)。  您的程式碼必須套用適當的 URL 編碼。
