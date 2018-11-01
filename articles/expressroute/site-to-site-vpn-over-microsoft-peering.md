@@ -1,25 +1,18 @@
 ---
 title: 透過適用於 Azure ExpressRoute 的 Microsoft 對等互連，設定站對站 VPN | Microsoft Docs
 description: 使用站對站 VPN 閘道，透過 ExpressRoute Microsoft 對等互連線路，設定 IPsec/IKE 與 Azure 的連線。
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 86e101ee78cfa709c6957c7658f103ce787a6351
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110849"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240899"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>透過 ExpressRoute Microsoft 對等互連，設定站對站 VPN
 
@@ -29,12 +22,13 @@ ms.locfileid: "37110849"
 
 您可以利用 Microsoft 對等互連，在選取的內部部署網路與 Azure VNet 之間，建立站對站 IPsec/IKE VPN 通道。
 
-  ![連線概觀](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
-
->[!NOTE]
+  >[!NOTE]
 >當您透過 Microsoft 對等互連設定站對站 VPN 時，您必須支付 VPN 閘道與 VPN 輸出的費用。 如需詳細資訊，請參閱 [VPN 閘道定價](https://azure.microsoft.com/pricing/details/vpn-gateway)。
 >
 >
+
+  ![連線概觀](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
+
 
 為獲得高可用性和備援功能，您可以透過 ExpressRoute 線路的兩個 MSEE-PE 組設定多個通道，並在通道之間啟用負載平衡。
 
@@ -112,7 +106,7 @@ sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 
 若要確認您收到一組正確的前置詞，您可以進行交叉驗證。 下列 Azure PowerShell 命令輸出會針對每個服務和每個 Azure 區域，列出透過 Microsoft 對等互連通告的前置詞：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmBgpServiceCommunity
 ```
 
@@ -487,13 +481,13 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 
 IPsec 通道的狀態可以在 Azure VPN 閘道上，透過 Powershell 命令進行驗證：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
 ```
 
 範例輸出︰
 
-```powershell
+```azurepowershell
 ConnectionStatus        : Connected
 EgressBytesTransferred  : 17734660
 IngressBytesTransferred : 10538211
@@ -501,13 +495,13 @@ IngressBytesTransferred : 10538211
 
 若要獨立檢查 Azure VPN 閘道執行個體上通道的狀態，請使用下列範例：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
 ```
 
 範例輸出︰
 
-```powershell
+```azurepowershell
 Tunnel                           : vpn2local1_52.175.250.191
 ConnectionStatus                 : Connected
 IngressBytesTransferred          : 4877438
@@ -623,13 +617,13 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 
 在 Azure VPN 閘道上，驗證 BGP 對等的狀態：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
 ```
 
 範例輸出︰
 
-```powershell
+```azurepowershell
   Asn ConnectedDuration LocalAddress MessagesReceived MessagesSent Neighbor    RoutesReceived State    
   --- ----------------- ------------ ---------------- ------------ --------    -------------- -----    
 65010 00:57:19.9003584  10.2.0.228               68           72   172.16.0.10              2 Connected
@@ -639,13 +633,13 @@ Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw 
 
 若要驗證透過 VPN 集訊器內部部署的 eBGP 收到的網路首碼清單，您可以依屬性"Origin" 進行篩選：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
 ```
 
 在範例輸出中，ASN 65010 是 VPN 內部部署中的 BGP 自發系統編號。
 
-```powershell
+```azurepowershell
 AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 ------ ------------ -------      -------     ------ ----------  ------
 65010  10.2.0.228   10.1.10.0/25 172.16.0.10 EBgp   172.16.0.10  32768
@@ -654,13 +648,13 @@ AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 
 查看通告的路由清單：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
 ```
 
 範例輸出︰
 
-```powershell
+```azurepowershell
 AsPath LocalAddress Network        NextHop    Origin SourcePeer Weight
 ------ ------------ -------        -------    ------ ---------- ------
        10.2.0.229   10.2.0.0/24    10.2.0.229 Igp                  0
@@ -694,7 +688,7 @@ Total number of prefixes 4
 
 您可以使用下列命令，列出從內部部署 Cisco CSR1000 向 Azure VPN 閘道通告的網路清單：
 
-```powershell
+```
 csr1#show ip bgp neighbors 10.2.0.228 advertised-routes
 BGP table version is 7, local router ID is 172.16.0.10
 Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,

@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 60707a8fbba4eb5ff7dbcf784fe29f9eb6b7d7d3
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226730"
+---
 除了自動將用戶端連線至主要複本，接聽程式可用來將唯讀工作負載重新導向至次要複本。 此用法可以改善整體解決方案的效能和延展性。 如需詳細資訊，請參閱[使用 ReadIntent 路由搭配 Azure AlwaysOn 可用性群組接聽程式](http://go.microsoft.com/fwlink/?LinkId=522515)。
 
 > [!NOTE]

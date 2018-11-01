@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1aeaff486ed9f7cb99ea0b95451fc765344847a1
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025618"
+ms.locfileid: "50086670"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -37,7 +37,7 @@ Azure Migrate 可協助您：
 -  您只能在美國地理位置建立 Azure Migrate 專案。 不過，您可以針對任何目標 Azure 位置規劃移轉。
     - 只有從內部部署環境中發現的中繼資料會儲存在移轉專案區域。
     - 中繼資料會儲存在地理位置中的其中一個區域：美國中西部/美國東部。
-    - 如果您透過 Log Analytics 工作區使用相依性視覺效果，工作區會建立在專案的所在區域。 
+    - 如果您透過 Log Analytics 工作區使用相依性視覺效果，工作區會建立在專案的所在區域。
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>我需要支付多少費用？

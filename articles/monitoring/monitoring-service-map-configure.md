@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: a68c35ba2f740720e3d7940d6fafa2dcfe183589
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064368"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419515"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉以檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -138,22 +138,22 @@ ms.locfileid: "47064368"
 | System Center Operations Manager 管理群組 | 是 | 服務對應會在連線的 [System Center Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Log Analytics。 |
 | Azure 儲存體帳戶 | 否 | 服務對應會收集來自代理程式電腦的資料，因此不會從 Azure 儲存體收集資料。 |
 
-在 Windows 上，System Center Operations Manager 和 Log Analytics 會使用 Microsoft Monitoring Agent (MMA) 來收集和傳送監視資料。 (視內容而定，此代理程式可稱為 System Center Operations Manager 代理程式、OMS 代理程式、Log Analytics 代理程式、MMA 或直接代理程式)System Center Operations Manager 和 Log Analytics 提供的預設 MMA 版本不同。 這些版本可以各自向 System Center Operations Manager 或 Log Analytics 報告，或同時向兩者報告。  
+在 Windows 上，System Center Operations Manager 和 Log Analytics 會使用 Microsoft Monitoring Agent (MMA) 來收集和傳送監視資料。 (視內容而定，此代理程式可稱為 System Center Operations Manager 代理程式、Log Analytics 代理程式、MMA 或直接代理程式)System Center Operations Manager 和 Log Analytics 提供的預設 MMA 版本不同。 這些版本可以各自向 System Center Operations Manager 或 Log Analytics 報告，或同時向兩者報告。  
 
 在 Linux 上，適用於 Linux 的 Log Analytics 代理程式會收集監視資料並傳送給 Log Analytics。 您可以在伺服器上使用服務對應與直接連線至服務的 Log Analytics 代理程式，或是向與 Log Analytics 整合的 Operations Manager 管理群組回報的代理程式。  
 
 在本文中，我們會將所有代理程式 (無論 Linux 或 Windows、無論是連線到 System Center Operations Manager 管理群組或直接連線到 Log Analytics) 統稱為「Log Analytics 代理程式」。 
 
-服務對應代理程式本身不會傳輸任何資料，因此不需要變更防火牆或連接埠。 服務對應中的資料一律會由 Log Analytics 代理程式 (直接或透過 OMS 閘道) 傳輸給 Log Analytics 服務。
+服務對應代理程式本身不會傳輸任何資料，因此不需要變更防火牆或連接埠。 服務對應中的資料一律會由 Log Analytics 代理程式 (直接或透過 Log Analytics 閘道) 傳輸給 Log Analytics 服務。
 
-![服務對應代理程式](media/monitoring-service-map/agents.png)
+![服務對應代理程式](media/monitoring-service-map-configure/agents.png)
 
 如果您是管理群組連線到 Log Analytics 的 System Center Operations Manager 客戶：
 
 - 當您的 System Center Operations Manager 代理程式可透過網際網路連線到 Log Analytics 時，就不需要額外的設定。  
-- 如果您的 System Center Operations Manager 代理程式無法透過網際網路存取 Log Analytics 時，就必須設定 OMS 閘道以搭配 System Center Operations Manager 使用。
+- 如果您的 System Center Operations Manager 代理程式無法透過網際網路存取 Log Analytics 時，就必須設定 Log Analytics 閘道以搭配 System Center Operations Manager 使用。
   
-如果您的 Windows 或 Linux 電腦無法直接連線至服務，您必須將 Log Analytics 代理程式設定為使用 OMS 閘道連線至 Log Analytics。 如需如何部署和設定 OMS 閘道的進一步資源，請參閱[在無網際網路存取下使用 OMS 閘道連線電腦](../log-analytics/log-analytics-oms-gateway.md)。  
+如果您的 Windows 或 Linux 電腦無法直接連線至服務，您必須將 Log Analytics 代理程式設定為使用閘道連線至 Log Analytics 工作區。 如需如何部署和設定 Log Analytics 閘道的進一步資源，請參閱[在無網際網路存取下使用 Log Analytics 閘道連線電腦](../log-analytics/log-analytics-oms-gateway.md)。  
 
 ### <a name="management-packs"></a>管理組件
 在 Log Analytics 工作區中啟動服務對應時，會將 300 KB 的管理組件轉送至該工作區中的所有 Windows 伺服器。 如果您是在[連線的管理群組](../log-analytics/log-analytics-om-agents.md)中使用 System Center Operations Manager 代理程式，則會從 System Center Operations Manager 來部署服務對應管理組件。 
@@ -172,7 +172,7 @@ Dependency Agent 一般會耗用 0.1% 的系統記憶體和 0.1% 的系統 CPU�
 
 ## <a name="installation"></a>安裝
 
-## <a name="azure-vm-extension"></a>Azure VM 擴充功能
+### <a name="azure-vm-extension"></a>Azure VM 擴充功能
 有一個可供 Windows (DependencyAgentWindows) 和 Linux (DependencyAgentLinux) 使用的擴充功能，您可以使用 [Azure VM 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)輕鬆地將 Dependency Agent 部署至您的 Azure VM。  透過 Azure VM 擴充功能，您可以使用 PowerShell 指令碼，或直接在 VM 中使用 Azure Resource Manager 範本，將 Dependency Agent 部署至您的 Windows 和 Linux VM。  如果您使用 Azure VM 擴充功能來部署代理程式，您的代理程式就可自動更新為最新版本。
 
 若要使用 PowerShell 來部署 Azure VM 擴充功能，您可以使用下列範例：

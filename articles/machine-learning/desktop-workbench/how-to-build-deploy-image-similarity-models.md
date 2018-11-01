@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371903e1ee080d2b98fd46ac4d6d9838416e1335
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b1b4e3e19adb38a69e16aaa98300972df3bb71a8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973417"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093644"
 ---
 # <a name="build-and-deploy-image-similarity-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 建置及部署影像相似性模型
 
@@ -38,7 +38,7 @@ ms.locfileid: "46973417"
 7. Web 服務部署
 8. Web 服務負載測試
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) 當作深入學習架構使用，定型則會在採用 GPU 機器的本機上執行，例如 ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview))，而且部署會使用 Azure ML 作業化 CLI。
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) 當作深入學習架構使用，定型則會在採用 GPU 機器的本機上執行，例如 ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview))，而且部署會使用 Azure ML 作業化 CLI。
 
 ## <a name="prerequisites"></a>必要條件
 

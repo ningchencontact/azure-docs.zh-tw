@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 350dbc286c060ad10c21ebe1e8715b910871f837
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165956"
+---
 <!--author=alkohli last changed: 11/02/17 -->
 
 #### <a name="to-install-updates-via-the-azure-portal"></a>透過 Azure 入口網站安裝更新
@@ -22,7 +35,7 @@
 
     ![更新裝置](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate6m.png)
 
-5. 在 [新的更新] 刀鋒視窗中，檢閱版本資訊。 另請注意，下載更新後，您必須確認安裝。 按一下 [SERVICEPRINCIPAL] 。
+5. 在 [新的更新] 刀鋒視窗中，檢閱版本資訊。 另請注意，下載更新後，您必須確認安裝。 按一下 [確定]。
 
     ![更新裝置](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate7m.png)
 

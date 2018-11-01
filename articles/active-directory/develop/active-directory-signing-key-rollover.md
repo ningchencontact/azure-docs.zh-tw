@@ -16,12 +16,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3b41436ffae2f5761b1917af3048327b90952b78
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: eaaeaf1b37c0d732d8d0009ad5a66f2118674b66
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470949"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240447"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory 中的簽署金鑰變換
 本文討論 Azure Active Directory (Azure AD) 中用來簽署安全性權杖的公開金鑰須知事項。 請務必注意這些金鑰會定期變換，且在緊急狀況下可以立即變換。 所有使用 Azure AD 的應用程式都應該能夠以程式設計方式處理金鑰變換程序或建立定期手動變換程序。 請繼續閱讀以了解金鑰的運作方式、如何評估變換對應用程式的影響，以及必要時如何更新應用程式或建立定期手動變換程序來處理金鑰變換。
@@ -285,7 +285,7 @@ namespace JWTValidation
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. [IssuingAuthorityKeys] **<add thumbprint=””>** 設定中，將任何字元替換為其他字元以變更指紋值。 儲存 **Web.config** 檔案。
+2. [IssuingAuthorityKeys] **<add thumbprint="">** 設定中，將任何字元替換為其他字元以變更指紋值。 儲存 **Web.config** 檔案。
 3. 建置應用程式，然後加以執行。 如果您可以完成登入程序，則應用程式已從目錄的同盟中繼資料文件下載所需資訊，而成功地更新金鑰。 如果您在登入時發生問題，請閱讀[使用 Azure AD 為 Web 應用程式新增登入](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) \(英文\) 一文，或是下載並檢查下列程式碼範例︰[Azure Active Directory 的多租用戶雲端應用程式](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b)，以確定應用程式中的變更是否正確。
 
 ### <a name="vs2010"></a>保護資源且使用 Visual Studio 2008 或 2010 和 Windows Identity Foundation (WIF) v1.0 for .NET 3.5 建立的 Web 應用程式

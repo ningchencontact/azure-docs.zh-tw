@@ -2,19 +2,22 @@
 title: 開始使用彈性資料庫工作 | Microsoft Docs
 description: 使用彈性資料庫作業來執行跨越多個資料庫的 T-SQL 指令碼。
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 8b03d228464978995a7a97e2f245b629b52ed812
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092793"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241356"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
 

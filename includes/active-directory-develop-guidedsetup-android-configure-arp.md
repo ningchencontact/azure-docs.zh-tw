@@ -14,19 +14,19 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: fe2b02b2495b4f37cbc90e1ddbeaca43b41d008c
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0154aac14168c9d897698a15e31b3124b208db46
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843363"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50142695"
 ---
 ## <a name="add-the-applications-registration-to-your-code"></a>將應用程式註冊資訊新增到您的程式碼
 
 在這個步驟中，您需要將應用程式/用戶端識別碼新增到您的專案。
 
-1.  開啟 `MainActivity` (在 `app` > `java` > *`{host}.{namespace}`* 底下)
-2.  將開頭為 `final static String CLIENT_ID` 的那一行取代為：
+1. 開啟 `MainActivity` (在 `app` > `java` > *`{host}.{namespace}`* 底下)
+2. 將開頭為 `final static String CLIENT_ID` 的那一行取代為：
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
@@ -49,4 +49,3 @@ final static String CLIENT_ID = "[Enter the application Id here]";
     </intent-filter>
 </activity>
 ```
-

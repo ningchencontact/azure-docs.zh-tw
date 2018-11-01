@@ -5,22 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
-ms.service: azure-stack
+mss.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/10/2018
+ms.date: 10/25/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 9f2668ff84ade4ba99b7aa7dcd67feafadc1c6c4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 4cb8ffe218ef1cd64b93201eddbbd09bb16026db
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377831"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087384"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基礎結構備份服務進行 Azure Stack 的備份和資料復原
 
@@ -33,7 +31,7 @@ ms.locfileid: "44377831"
 啟用備份服務前，請確定您[已符合需求](#verify-requirements-for-the-infrastructure-backup-service)。
 
 > [!Note]  
-> 基礎結構備份服務不包括使用者資料和應用程式。 如需備份和還原[應用程式服務](https://aka.ms/azure-stack-app-service)、[SQL](https://aka.ms/azure-stack-ms-sql) 和 [MySQL](https://aka.ms/azure-stack-mysql) 資源提供者及相關聯使用者資料的指示，請參閱下列文章。
+> 基礎結構備份服務不包括使用者資料和應用程式。 <!-- See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data. -->
 
 ## <a name="the-infrastructure-backup-service"></a>基礎結構備份服務
 

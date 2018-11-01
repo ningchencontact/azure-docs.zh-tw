@@ -1,30 +1,26 @@
 ---
-title: 從 Excel、Python 或 R 連線到 Azure Databricks | Microsoft Docs
+title: '從 Excel、Python 或 R 連線到 Azure Databricks '
 description: 了解如何使用 Simba 驅動程式將 Azure Databricks 連線至 Excel、Python 或 R。
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 333ff3ac3de053eae604ffeab600df7d35874f69
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.author: mamccrea
+ms.openlocfilehash: 6c8d0c9f5471395d1552b896b4d411dcad0a280f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085227"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421130"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>從 Excel、Python 或 R 連線到 Azure Databricks
 
 在本文中，您會了解如何使用 Databricks ODBC 驅動程式來連線 Azure Databricks 與 Microsoft Excel、Python 或 R 語言。 一旦建立連線後，您可以從 Excel、Python 或 R 用戶端存取 Azure Databricks 中的資料。 您也可以使用用戶端來進一步分析資料。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 您必須擁有 Azure Databricks 工作區、Spark 叢集，以及與叢集相關聯的範例資料。 如果您尚未具備這些先決條件，請完成[使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業](quickstart-create-databricks-workspace-portal.md)中的快速入門。
 

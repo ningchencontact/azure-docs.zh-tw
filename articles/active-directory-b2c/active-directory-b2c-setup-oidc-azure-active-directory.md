@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: beb2d618d93f4c599f946194bd483326471065f4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 9b9754c9087f2d0064cc1aa75e76520731dfb3a9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944798"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242852"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中設定登入 Azure Active Directory 帳戶的內建原則
 
@@ -34,10 +34,10 @@ ms.locfileid: "49944798"
 4. 選取 [新增應用程式註冊]。
 5. 輸入應用程式的名稱。 例如： `Azure AD B2C App`。
 6. 針對 [應用程式類型]，選取 `Web app / API`。
-7. 針對 [登入 URL]，以全小寫字母輸入下列 URL，其中以您 Azure AD B2C 租用戶的名稱取代 `your-B2C-tenant-name`。 例如，`https://fabrikam.b2clogin.com/fabrikam.b2clogin.com/oauth2/authresp`：
+7. 針對 [登入 URL]，以全小寫字母輸入下列 URL，其中以您 Azure AD B2C 租用戶的名稱取代 `your-B2C-tenant-name`。 例如，`https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`：
 
     ```
-    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.b2clogin.com/oauth2/authresp
+    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     所有 URL 現在都應會使用 [b2clogin.com](b2clogin.md)。

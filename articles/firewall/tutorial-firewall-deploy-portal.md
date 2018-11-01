@@ -3,18 +3,17 @@ title: 使用 Azure 入口網站部署和設定 Azure 防火牆
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站部署及設定 Azure 防火牆。
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 10/30/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801874"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238823"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆
 
@@ -31,7 +30,7 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 
 應用程式和網路規則會儲存在「規則集合」中。 規則集合是一份規則清單，以便共用相同的動作和優先順序。  網路規則集合是一份網路規則清單，而應用程式規則集合是一份應用程式規則清單。
 
-Azure 防火牆具有 NAT 規則、網路規則和應用程式規則。 若要深入了解 Azure 防火牆規則處理邏輯，請參閱 [Azure 防火牆規則處理邏輯](rule-processing.md)。
+若要深入了解 Azure 防火牆規則處理邏輯，請參閱 [Azure 防火牆規則處理邏輯](rule-processing.md)。
 
 在本教學課程中，您了解如何：
 
@@ -42,8 +41,6 @@ Azure 防火牆具有 NAT 規則、網路規則和應用程式規則。 若要�
 > * 設定應用程式規則
 > * 設定網路規則
 > * 測試防火牆
-
-
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -56,32 +53,32 @@ Azure 防火牆具有 NAT 規則、網路規則和應用程式規則。 若要�
 
 本教學課程會使用簡化的網路組態，讓您能輕鬆部署。 對於生產環境部署，建議您使用[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中防火牆會位於自己的 VNet 中，而工作負載伺服器則位於相同區域中的對等互連 VNet 中，當中包含一個或多個子網路。
 
-
-
 ## <a name="set-up-the-network-environment"></a>設定網路環境
+
 首先，請建立資源群組，以包含部署防火牆所需的資源。 接著建立 VNet、子網路，並測試伺服器。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
-1. 在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
-1. 在 Azure 入口網站首頁上，按一下 [資源群組]，然後按一下 [新增]。
-2. 在 [資源群組名稱] 中，鍵入 **Test-FW-RG**。
-3. 在 [訂用帳戶] 中，選取您的訂用帳戶。
-4. 在 [資源群組位置] 中，選取位置。 您所建立的所有後續資源都必須位在相同的位置。
-5. 按一下頁面底部的 [新增] 。
 
+1. 在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
+2. 在 Azure 入口網站首頁上，按一下 [資源群組]，然後按一下 [新增]。
+3. 在 [資源群組名稱] 中，鍵入 **Test-FW-RG**。
+4. 在 [訂用帳戶] 中，選取您的訂用帳戶。
+5. 在 [資源群組位置] 中，選取位置。 您所建立的所有後續資源都必須位在相同的位置。
+6. 按一下頁面底部的 [新增] 。
 
 ### <a name="create-a-vnet"></a>建立 VNet
+
 1. 從 Azure 入口網站首頁，按一下 [所有服務]。
 2. 在 [網路] 底下，按一下 [虛擬網路]。
 3. 按一下 [新增] 。
 4. 在 [名稱] 中，鍵入 **Test-FW-VN**。
 5. 在 [位址空間] 中，鍵入 **10.0.0.0/16**。
-7. 在 [訂用帳戶] 中，選取您的訂用帳戶。
-8. 在 [資源群組] 中，選取 [使用現有的]，然後選取 [Test-FW-RG]。
-9. 在 [位置] 中，選取您先前使用的相同位置。
-10. 在 [子網路] 底下的 [名稱] 中鍵入 **AzureFirewallSubnet**。 防火牆會在此子網路中，且子網路名稱「必須」是 AzureFirewallSubnet。
-11. 在 [位址範圍] 中，鍵入 **10.0.1.0/24**。
-12. 使用其他預設設定，然後按一下 [建立]。
+6. 在 [訂用帳戶] 中，選取您的訂用帳戶。
+7. 在 [資源群組] 中，選取 [使用現有的]，然後選取 [Test-FW-RG]。
+8. 在 [位置] 中，選取您先前使用的相同位置。
+9. 在 [子網路] 底下的 [名稱] 中鍵入 **AzureFirewallSubnet**。 防火牆會在此子網路中，且子網路名稱「必須」是 AzureFirewallSubnet。
+10. 在 [位址範圍] 中，鍵入 **10.0.1.0/24**。
+11. 使用其他預設設定，然後按一下 [建立]。
 
 > [!NOTE]
 > AzureFirewallSubnet 子網路的大小下限是 /25。
@@ -138,13 +135,11 @@ Azure 防火牆具有 NAT 規則、網路規則和應用程式規則。 若要�
 
 使用下表中的資訊，來設定 Srv-Work 虛擬機器的 [設定]。 其餘的組態與 Srv-Jump 虛擬機器相同。
 
-
 |設定  |值  |
 |---------|---------|
 |子網路|Workload-SN|
 |公用 IP 位址|None|
 |選取公用輸入連接埠|沒有公用輸入連接埠|
-
 
 ## <a name="deploy-the-firewall"></a>部署防火牆
 
@@ -168,7 +163,6 @@ Azure 防火牆具有 NAT 規則、網路規則和應用程式規則。 若要�
    這需要幾分鐘才能部署。
 4. 部署完成之後，請前往 **Test-FW-RG** 資源群組，然後按一下 **Test-FW01** 防火牆。
 6. 請記下私人 IP 位址。 稍後當您建立預設路由時將使用到它。
-
 
 ## <a name="create-a-default-route"></a>建立預設路由
 
@@ -200,9 +194,7 @@ Azure 防火牆具有 NAT 規則、網路規則和應用程式規則。 若要�
 18. 在 [下一個躍點位址] 中，鍵入您先前記下的防火牆私人 IP 位址。
 19. 按一下 [確定]。
 
-
 ## <a name="configure-application-rules"></a>設定應用程式規則
-
 
 1. 開啟 **Test-FW-RG**，然後按一下 **Test-FW01** 防火牆。
 2. 在 [Test-FW01] 頁面的 [設定] 底下，按一下 [規則]。
@@ -244,7 +236,6 @@ Azure 防火牆包含內建的規則集合，適用於依預設允許的基礎�
 6. 按一下 [檔案] 。 
 7. 重新啟動 **Srv-Work** 虛擬機器。
 
-
 ## <a name="test-the-firewall"></a>測試防火牆
 
 1. 從 Azure 入口網站中，檢閱 **Srv-Work** 虛擬機器的網路設定，並記下私人 IP 位址。
@@ -267,7 +258,6 @@ Azure 防火牆包含內建的規則集合，適用於依預設允許的基礎�
 ## <a name="clean-up-resources"></a>清除資源
 
 您可以保留防火牆資源供下一個教學課程使用，若不再需要，則可刪除 **Test-FW-RG** 資源群組來刪除所有防火牆相關資源。
-
 
 ## <a name="next-steps"></a>後續步驟
 

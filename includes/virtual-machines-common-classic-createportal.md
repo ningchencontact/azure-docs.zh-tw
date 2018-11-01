@@ -1,5 +1,16 @@
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 127ade3b37380c50461c5b648265b431a2f4467e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226625"
+---
 「自訂」虛擬機器單指您使用從 **Marketplace** 取得的**熱門應用程式**所建立的虛擬機器，因為它為您做了大部分的工作。 但是，您仍然可以在組態選項中包括下列項目：
 
 * 將虛擬機器連線至虛擬網路

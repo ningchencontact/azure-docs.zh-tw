@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 3dd3e3391cc2536f56a5e42610c09c85b4068234
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616944"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740548"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 診斷工具
 
@@ -86,32 +86,38 @@ if($s)
   為所有角色收集所有記錄：
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred
   ```
 
   從 VirtualMachines 與 BareMetal 角色收集記錄：
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
   ```
 
   從 VirtualMachines 和 BareMetal 角色收集記錄，且記錄日期篩選為過去 8 小時：
     
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
   從 VirtualMachines 和 BareMetal 角色收集記錄，以日期篩選 8 小時前到 2 小時前時段的記錄檔：
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK 和整合系統的參數考量
 
 - 如果未指定 **FromDate** 和 **ToDate** 參數，預設將會收集過去 4 小時的記錄。
-- 使用 **FilterByNode** 參數依電腦名稱篩選記錄。 例如：```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
-- 使用 **FilterByLogType** 參數依類型篩選記錄。 您可以選擇依檔案、共用或 WindowsEvent 進行篩選。 例如：```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
+- 使用 **FilterByNode** 參數依電腦名稱篩選記錄。 例如︰
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+```
+- 使用 **FilterByLogType** 參數依類型篩選記錄。 您可以選擇依檔案、共用或 WindowsEvent 進行篩選。 例如︰
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+```
 - 您可以使用 **TimeOutInMinutes** 參數來設定記錄收集的逾時。 根據預設，它是設定為 150 (2.5 個小時)。
 - 在 1805 版和更新版本中，預設會停用傾印檔案記錄收集。 若要加以啟用，請使用 **IncludeDumpFile** 切換參數。 
 - 目前您可以透過下列角色使用 **FilterByRole** 參數來篩選記錄集合：
@@ -143,14 +149,6 @@ if($s)
  |雲端|IdentityProvider|OnboardRP|     |   
  |叢集|iDns|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a> 使用圖形化使用者介面收集記錄
-除了提供所需參數供 Get-AzureStackLog Cmdlet 擷取 Azure Stack 記錄，您也可以利用可用的開放原始碼 Azure Stack 工具 (位於主要的 Azure Stack 工具 GitHub 工具存放庫，網址為 http://aka.ms/AzureStackTools)。
-
-**ERCS_AzureStackLogs.ps1** PowerShell 指令碼儲存在 GitHub 工具存放庫，並且會定期更新。 為了確保有可用的最新版本，您應該直接從 http://aka.ms/ERCS 下載。 從系統管理 PowerShell 工作階段開始，指令碼會連線到特殊權限端點，並使用提供的參數執行 Get-AzureStackLog。 如果未提供任何參數，指令碼會預設為透過圖形化使用者介面提示您提供參數。
-
-若要深入了解 ERCS_AzureStackLogs.ps1 PowerShell 指令碼，您可以觀看 Azure Stack 工具 GitHub 存放庫上的[短片](https://www.youtube.com/watch?v=Utt7pLsXEBc)或檢視指令碼的[讀我檔案](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md)。 
 
 ### <a name="additional-considerations"></a>其他考量
 

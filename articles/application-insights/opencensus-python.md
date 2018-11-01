@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9f14664ca035b3de1af80ca3101c22751c83237
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7507cdd7f3967dc132eecf81de347f2da791487f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963640"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414976"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>從 Python 收集分散式追蹤 (預覽)
 
@@ -57,7 +57,7 @@ ms.locfileid: "46963640"
 
    ![檢測金鑰的螢幕擷取畫面](./media/opencensus-python/0003-instrumentation-key.png)
 
-2. 編輯 `LocalForwarder.config` 檔案並新增檢測金鑰。 如果您遵循了[必要條件](./opencensus-local-forwarder.md#windows-service)中的指示，檔案會位於 `C:\LF-WindowsServiceHost`
+2. 編輯 `LocalForwarder.config` 檔案並新增檢測金鑰。 如果您依照[必要條件](./opencensus-local-forwarder.md#windows-service)中的指示操作，該檔案會位於 `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -180,7 +180,7 @@ ms.locfileid: "46963640"
 
     因為我們只追蹤一個方法呼叫，所以應用程式對應並不有趣。 但是，應用程式對應經過調整後，即可顯示更多的分散式應用程式：
 
-   ![應用程式對應](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![應用程式對應](media/opencensus-python/application-map.png)
 
 4. 選取 [調查效能] 以執行詳細的效能分析，並判斷效能緩慢的根本原因。
 

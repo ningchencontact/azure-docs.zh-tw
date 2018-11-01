@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9f22766b0ecbaff027cf4b495624f892d4339d17
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126632"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249316"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
@@ -238,15 +238,13 @@ Azure Data Factory 可讓您使用 HDInsight 作為 Data Factory 管線的一部
 
 Apache Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 如需搭配使用 Oozie 與 Hive 的詳細資訊，請參閱[使用 Oozie 定義和執行工作流程](../hdinsight-use-oozie-linux-mac.md)文件。
 
-## <a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a>接續步驟
 
 現在您已了解什麼是 Hive 以及如何搭配 HDInsight 中的 Hadoop 使用它，接著請使用下列連結探索 Azure HDInsight 的其他使用方式。
 
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
 * [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 * [搭配 HDInsight 使用 MapReduce 作業][hdinsight-use-mapreduce]
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

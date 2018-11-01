@@ -3,7 +3,7 @@ title: Azure 雲端方案提供者的 Azure Active Directory Domain Services | M
 description: Azure 雲端方案提供者的 Azure Active Directory Domain Services。
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.author: maheshu
-ms.openlocfilehash: 8d87312591f44bac5fd9a4ff63eccc19333a870c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.author: ergreenl
+ms.openlocfilehash: cf205249c4d07cee1ff17c9c726283cfddca1fce
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42145732"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155214"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure 雲端方案提供者 (CSP) 的 Azure Active Directory (AD) Domain Services
 本文章說明如何使用 Azure CSP 訂用帳戶中的 Azure Active Directory Domain Services。

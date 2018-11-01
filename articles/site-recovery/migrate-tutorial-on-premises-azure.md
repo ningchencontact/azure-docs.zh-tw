@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 將內部部署機器移轉至 Azure | Microsoft Docs
 description: 本文說明如何使用 Azure Site Recovery 將內部部署機器移轉至 Azure。
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/12/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 446d9ead47e9d9380a608933ced3793e99241622
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 0134f6c83548ae5ffb4924ecf7d652ce89910340
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026325"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210613"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 

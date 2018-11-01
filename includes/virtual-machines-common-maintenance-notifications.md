@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40167009"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035194"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在入口網站中檢視排定維護的 VM
 
@@ -49,7 +49,7 @@ ms.locfileid: "40167009"
 
 ## <a name="notification-and-alerts-in-the-portal"></a>入口網站中的通知和警示
 
-Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組，來傳達計劃性維護排程。 您可以建立 Azure 活動記錄警示，將其他收件者和通道新增到這個通訊。 如需詳細資訊，請參閱 [使用 Azure 活動記錄監視訂用帳戶活動] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
+Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組，來傳達計劃性維護排程。 您可以建立 Azure 活動記錄警示，將其他收件者和通道新增到這個通訊。 如需詳細資訊，請參閱[使用 Azure 活動記錄監視訂用帳戶活動](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在左側功能表中，選取 [監視]。 

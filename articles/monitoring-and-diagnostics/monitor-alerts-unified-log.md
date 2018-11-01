@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365057"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421079"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure 監視器中的記錄警示
 此文章提供記錄警示的詳細資料，記錄警示是 [Azure 警示](monitoring-overview-unified-alerts.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
@@ -93,7 +93,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 
 查詢會以 5 分鐘為間隔為每部電腦建立平均值。  此查詢會每隔 5 分鐘針對在先前 30 分鐘內所收集的資料來執行。  三部電腦的資料範例如下所示。
 
-![查詢結果範例](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![查詢結果範例](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 在此範例中，系統會為 srv02 和 srv03 建立個別警示，因為它們在時間週期內違反 90% 閾值三次。  如果**警示觸發依據︰** 變更為**連續**，則系統只會為 srv03 建立警示，因為它違反了 3 個連續取樣的閾值。
 

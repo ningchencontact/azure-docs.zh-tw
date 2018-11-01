@@ -4,25 +4,21 @@ description: 使用 Postman、cURL、和 Node.js 來測試您的 Azure Functions
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, 函數, 事件處理, webhook, 動態計算, 無伺服器架構, 測試
 ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/02/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a57d5f8d857a8cfcdc81e86650466aec740f41e3
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8b2605bb30d7a1442c471c8cf1483b106ca27581
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286804"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086755"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
 
@@ -274,8 +270,9 @@ Azure Functions 入口網站是為了讓您測試 HTTP 和計時器觸發的函�
 
     ```cs
     using System;
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
+    public static void Run(TimerInfo myTimer, out String myQueue, ILogger log)
     {
         String newUser =
         "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";

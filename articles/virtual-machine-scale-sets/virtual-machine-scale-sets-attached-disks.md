@@ -3,7 +3,7 @@ title: Azure 虛擬機器擴展集連結資料磁碟 | Microsoft Docs
 description: 了解如何搭配使用連線資料磁碟與虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
-ms.author: negat
-ms.openlocfilehash: cfe49e7f4e3692518c890b48582a2f4a6aa16faa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: manayar
+ms.openlocfilehash: 551d90661f845aa98a41ed7de0b75c657c234f52
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952455"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741397"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 虛擬機器擴展集和連結的資料磁碟
 若要擴充可用的儲存體，Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)支援 VM 執行個體連結資料磁碟。 您可以在擴展集建立時連結資料磁碟，或將資料磁碟連結至現有擴展集。

@@ -3,7 +3,7 @@ title: Azure Application Insights 中的使用者、工作階段和事件分析 
 description: 您 Web 應用程式的使用者人口統計分析。
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/24/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 2bc10a292855832b7ddb9b8e3a59fbe0f17d8dc6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 6fd8adab93f5741afe6d3eab0c50ca50a327fbff
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093803"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140327"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights 中的使用者、工作階段和事件分析
 
@@ -48,10 +49,10 @@ ms.locfileid: "47093803"
 * 已使用者︰選擇自訂事件和頁面檢視。
 * 期間︰選擇時間範圍。
 * 方法︰選擇將資料貯體的方式，可依一段時間或依另一個屬性 (例如瀏覽器或城市)。
-* 分割方法︰選擇要用來分割或區隔資料的屬性。 
-* 新增篩選條件︰將查詢根據其屬性 (例如瀏覽器或城市) 限制為特定使用者、工作階段或事件。 
- 
-## <a name="saving-and-sharing-reports"></a>儲存和共用報告 
+* 分割方法︰選擇要用來分割或區隔資料的屬性。 
+* 新增篩選條件︰將查詢根據其屬性 (例如瀏覽器或城市) 限制為特定使用者、工作階段或事件。 
+ 
+## <a name="saving-and-sharing-reports"></a>儲存和共用報告 
 您可以透過下列方式來儲存使用者報告：儲存在 [我的報告] 區段中，僅供您自己私人使用；或儲存在 [共用的報告] 區段中，與擁有 Application Insights 資源存取權的其他所有人共用。
 
 若要共用使用者、工作階段或事件報告的連結，請按一下工具列中的 [共用]，然後複製連結。

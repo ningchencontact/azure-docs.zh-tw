@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 複寫至次要網站的測試結果 | Microsoft Docs
 description: 本文提供使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 複寫至次要網站之效能測試的相關資訊。
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: cae9e5f2a50bc97be7c5cb42e490d8ba44666c91
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c5f0a972c3ab8b7016265d98fcb1b0890e03370f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056873"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210953"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>將 Hyper-V 複寫至次要網站的測試結果
+
 
 本文提供將 System Center Virtual Machine Manager (VMM) 雲端中的 Hyper-V VM 複寫至次要資料中心時的效能測試結果。
 

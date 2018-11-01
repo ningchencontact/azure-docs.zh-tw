@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: na
-ms.openlocfilehash: 3d51399edbb9679d1cf7b62b075ba34aa5ede42f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 17a15ca00d7343064bde84860de91b62ff136cfe
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131333"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414110"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>網路效能監控解決方案：效能監控
 
@@ -33,12 +33,12 @@ ms.locfileid: "37131333"
 - 監視網路健康情況，而不需 SNMP。
 
 
-![網路效能監視器](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
+![網路效能監視器](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>組態
 若要開啟網路效能監控的組態，請開啟[網路效能監控解決方案](log-analytics-network-performance-monitor.md)，然後選取 [設定]。
 
-![設定網路效能監控](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![設定網路效能監控](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>建立新網路
 
@@ -120,21 +120,21 @@ ms.locfileid: "37131333"
 
 向下鑽研頁面會顯示 **DMZ2-DMZ1** 網路連結中的所有子網路連結。 這兩個子網路連結的延遲已超過閾值，以致網路連結狀況不良。 您也可以查看這兩個子網路連結的延遲趨勢。 使用圖形中的時間選取控制項，將焦點放在所需的時間範圍。 您可以看到一天當中達到延遲尖峰的時間。 稍後在記錄中搜尋此時間，以調查問題。 選取 [檢視節點連結] 進一步深入鑽研。 
  
- ![子網路連結頁面](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![子網路連結頁面](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 類似於前一頁，特定子網路連結的向下鑽研頁面會列出其構成的節點連結。 您可以在這裡執行類似上一個步驟中的動作。 選取 [檢視拓撲] 可檢視 2 個節點之間的拓撲。 
  
- ![節點連結頁面](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![節點連結頁面](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
 
 2 個選定節點之間的所有路徑都會繪製於拓撲圖。 您可以在拓撲圖上呈現這兩個節點之間路由的逐一躍點拓撲。 拓撲圖會清楚顯示兩個節點之間有多少個路由，以及資料封包所採用的路徑。 網路效能瓶頸會以紅色顯示。 若要找出錯誤的網路連線或錯誤的網路裝置，請查看拓撲圖上的紅色元素。 
 
- ![具有拓撲圖的拓撲儀表板](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![具有拓撲圖的拓撲儀表板](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 您可以在 [動作] 窗格中檢閱每個路徑中的遺失、延遲和躍點數目。 使用捲軸來檢視這些狀況不良路徑的詳細資料。 使用篩選器選取具有狀況不良躍點的路徑，以便僅繪製選取路徑的拓撲。 若要放大或縮小拓撲圖，請使用滑鼠滾輪。 
 
 在下圖中，網路特定區段中問題區域的根本原因會以紅色路徑和躍點顯示。 選取拓撲圖中的節點，即可顯示該節點的屬性，包括 FQDN 和 IP 位址。 選取躍點即可顯示該躍點的 IP 位址。 
  
-![已選取節點屬性的拓撲圖](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![已選取節點屬性的拓撲圖](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>後續步驟
 [搜尋記錄檔](log-analytics-log-searches.md)以檢視詳細的網路效能資料記錄。

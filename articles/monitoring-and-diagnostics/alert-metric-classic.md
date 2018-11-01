@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: ffac9511ab93367cba3f006249bd92658a520e09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 76a87b79ccc776e0facd57a1cff50fbbcb4f0b9e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386923"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414874"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>使用 Azure 監視器建立、檢視及管理傳統計量警示
 
@@ -24,11 +24,11 @@ ms.locfileid: "49386923"
 
 2. 選取 [監視] 區段底下的 [警示 (傳統)]。 不同資源的文字和圖示會有些許不同。 如果在此處找不到 [警示 (傳統)]，可能會位在 [警示] 或 [警示規則] 中。
 
-    ![監視](./media/alerts-metric-classic/AlertRulesButton.png)
+    ![監視](media/alert-metric-classic/AlertRulesButton.png)
 
 3. 選取 [新增計量警示 (傳統)] 命令，然後填寫各欄位。
 
-    ![新增警示](./media/alerts-metric-classic/AddAlertOnlyParamsPage.png)
+    ![新增警示](media/alert-metric-classic/AddAlertOnlyParamsPage.png)
 
 4. **命名**警示規則。 然後選擇也會顯示在電子郵件通知中的 [描述]。
 

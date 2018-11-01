@@ -3,19 +3,19 @@ title: 教學課程：使用 Azure Databricks 對串流資料進行情感分析
 description: 了解如何搭配使用 Azure Databricks 與事件中樞和認知服務 API，近乎即時地對串流資料執行情感分析。
 services: azure-databricks
 author: lenadroid
-manager: cgronlun
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 10/23/2018
 ms.author: alehall
-ms.openlocfilehash: ddaee7c534ec8ac1bd4ce958a8ed08922cdd17e9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 6868e481a796980be315c466cd79021255355084
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026240"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416642"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行情感分析
 

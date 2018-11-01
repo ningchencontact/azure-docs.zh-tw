@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services：密碼原則 | Microsoft Docs
 description: 了解受控網域上的密碼原則
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: maheshu
-ms.openlocfilehash: 66db13ea2b40d32b03d57e7d039863315312d734
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.author: ergreenl
+ms.openlocfilehash: b5574b529dc3d4646375638d6759d85a41c66946
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043102"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155592"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>受控網域上的密碼和帳戶鎖定原則
 此文章說明受控網域上的預設密碼原則。 它也涵蓋如何設定這些原則。
@@ -29,7 +29,7 @@ ms.locfileid: "48043102"
 您可以使用更細緻的密碼原則在單一網域內指定許多密碼原則。 FGPP 可讓您將不同的密碼和帳戶鎖定原則限制套用至網域中不同組的使用者。 例如，您可以將嚴格密碼設定套用至具權限的帳戶。
 
 您可以使用 FGPP 來設定下列密碼設定：
-* 最小密碼長度
+* 密碼長度下限
 * 密碼歷程記錄
 * 密碼必須符合複雜性需求
 * 密碼最短使用期限

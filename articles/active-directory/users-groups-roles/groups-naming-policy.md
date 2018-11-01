@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239129"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243124"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>在 Azure Active Directory 中對 Office 365 群組強制執行命名原則 (預覽)
 
@@ -49,7 +49,7 @@ ms.locfileid: "39239129"
 
 #### <a name="user-attributes"></a>使用者屬性
 
-您可以使用屬性來協助您和您的使用者識別群組在建立時所適用的對象是哪個部門、辦公室或地理區域。 例如，如果您將命名原則定義為 `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”` 和 `User’s department = Engineering`，則強制執行的群組名稱可能會是「GRP My Group Engineering」。 支援的 Azure AD 屬性是 \[Department\]、\[Company\]、\[Office\]、\[StateOrProvince\]、\[CountryOrRegion\]、\[Title\]。 不支援的使用者屬性則會以固定字串視之；例如，「\[postalCode\]」。 擴充屬性和自訂屬性則不受支援。
+您可以使用屬性來協助您和您的使用者識別群組在建立時所適用的對象是哪個部門、辦公室或地理區域。 例如，如果您將命名原則定義為 `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"` 和 `User’s department = Engineering`，則強制執行的群組名稱可能會是「GRP My Group Engineering」。 支援的 Azure AD 屬性是 \[Department\]、\[Company\]、\[Office\]、\[StateOrProvince\]、\[CountryOrRegion\]、\[Title\]。 不支援的使用者屬性則會以固定字串視之；例如，「\[postalCode\]」。 擴充屬性和自訂屬性則不受支援。
 
 我們對您的建議是，使用已為組織中的所有使用者填入值的屬性，而不要使用具有長值的屬性。
 

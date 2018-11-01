@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: f4c602368368e8ef36581d3f035ff3943a8f0d8f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4a836e0f5e47d6ef91e11fd1a0076859b54ed8e6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657276"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243022"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>檢視與修改主機名稱
 若要允許主機名稱參考您的角色執行個體，您必須在各個角色的服務組態檔中設定主機名稱的值。 您可以將需要的主機名稱新增到 **Role** 項目的 **vmName** 屬性。 **vmName** 屬性的值會做為各個角色執行個體之主機名稱的基底。 例如，如果 **vmName** 是 webrole 且有三個該角色的執行個體，執行個體的主機名稱將是 webrole0、webrole1 以及 webrole2。 您不需要指定組態檔中虛擬機器的主機名稱，因為虛擬機器的主機名稱會根據虛擬機器名稱填入。 如需設定 Microsoft Azure 服務的詳細資訊，請參閱 [Azure 服務組態結構描述 (.cscfg 檔)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -42,7 +42,7 @@ ms.locfileid: "34657276"
 
 1. 確定您有連線到 Azure 入口網站的用戶端憑證 若要取得用戶端憑證，請遵循[做法：下載與匯入發行設定與訂用帳戶資訊](https://msdn.microsoft.com/library/dn385850.aspx)中的步驟。 
 2. 設定名稱為 x-ms-version，值為 2013-11-01 的標頭項目。
-3. 傳送下列格式的要求：https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. 傳送下列格式的要求： https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. 尋找各個 **RoleInstance** 項目的 **HostName** 項目。
 
 > [!WARNING]

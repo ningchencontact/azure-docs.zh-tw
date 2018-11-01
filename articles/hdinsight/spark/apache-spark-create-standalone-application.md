@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: fc1f952128b4cfbb082f4c539a102f40d3b85e8d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c984f5a96ef9dcc1e4fb6f5b3f54159c26cafdbc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040293"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412834"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>教學課程：使用 IntelliJ 為 HDInsight 上的 Spark 建立 Scala Maven 應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "43040293"
 ## <a name="prerequisites"></a>必要條件
 
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
-* Oracle Java Development Kit。 您可以從[這裡](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)安裝它。
+* Oracle Java Development Kit。 您可以從[這裡](https://aka.ms/azure-jdks)安裝它。
 * Java IDE。 本文使用 IntelliJ IDEA 18.1.1。 您可以從[這裡](https://www.jetbrains.com/idea/download/)安裝它。
 
 ## <a name="use-intellij-to-create-application"></a>使用 IntelliJ 建立應用程式

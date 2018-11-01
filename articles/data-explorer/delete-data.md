@@ -8,22 +8,16 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 571a005dd3f50690f291a7ffa3c1174ea15cb0ed
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 485ee48bf197ad996bba8a516b80882f44ba623a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045850"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212908"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>從 Azure 資料總管刪除資料
 
 在此文章中，我們將討論 Azure 資料總管支援的數種大量刪除方法。 它不支援即時刪除每筆記錄，因為它針對快速讀取存取進行了最佳化。
-
-* 如果不再需要資料庫，請使用 drop database 命令來刪除它。
-
-    ```Kusto
-    .drop database <DatabaseName>
-    ```
 
 * 如果不再需要一或多個資料表，則可使用 drop table 或 drop tables 命令來刪除它們。
 
@@ -45,11 +39,4 @@ ms.locfileid: "47045850"
 
     如需詳細資訊，請參閱[保留原則](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy) \(英文\)。
 
-* 您可以根據像是 `where CustomerName == 'contoso'` 的述詞，使用 *purge* 作業來刪除個別記錄。 也就是說，清除是一種並非設計來進行即時刪除的大量刪除。 下列範例示範清除。
-
-    ```Kusto
-    .purge table Customer records
-    | where CustomerName =='contoso'
-    ```
-
-若您需要協助來解決資料刪除問題，請在 [Azure 入口網站](https://portal.azure.com)中開立支援要求。
+若您需要協助來解決資料刪除問題，請在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)中開立支援要求。

@@ -5,14 +5,14 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 1e5cb18b4e526cd0a0607f5bc93788fcf07430e1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: cf45cb8de0e40dfe5f5772dcb1a0be2aa7585fd6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364229"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156675"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>教學課程：使用 Azure Digital Twins 佈建建築物及監視運作狀況
 
@@ -21,7 +21,7 @@ ms.locfileid: "49364229"
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 定義要監視的條件
+> * 定義要監視的狀況
 > * 建立使用者定義的函式
 > * 模擬感應器資料
 > * 取得使用者定義的函式結果
@@ -161,7 +161,7 @@ ms.locfileid: "49364229"
             }
         ```
         
-        已修改的 UDF 會尋找會議室可以使用，而且二氧化碳和溫度在可忍受限制內的狀況。 符合此狀況時，它就會使用 `parentSpace.Notify(JSON.stringigy(alert));` 陳述式產生通知。 不論狀況是否符合，它都會以對應的訊息設定受監視空間的值。
+        已修改的 UDF 會尋找會議室可以使用，而且二氧化碳和溫度在可忍受限制內的狀況。 符合此狀況時，它就會使用 `parentSpace.Notify(JSON.stringify(alert));` 陳述式產生通知。 不論狀況是否符合，它都會以對應的訊息設定受監視空間的值。
     
     1. 儲存檔案。 
     

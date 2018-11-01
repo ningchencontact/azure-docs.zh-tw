@@ -2,7 +2,7 @@
 title: Azure 媒體服務錯誤代碼 | Microsoft Docs
 description: 本主題提供 Azure 媒體服務錯誤代碼的概觀。
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 8a374393a6a5b3d563a441654b7b5df8a510f304
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 43e2b2b7f398e8adce0760678c6f0a5208c24c34
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783567"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240523"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒體服務錯誤代碼
 使用 Microsoft Azure 媒體服務時，您可能會根據問題從服務收到 HTTP 錯誤代碼，例如驗證權杖過期到媒體服務中不支援的動作。 以下是媒體服務可能會傳回的「HTTP 錯誤代碼」的清單，以及其可能原因。  

@@ -11,22 +11,22 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 0b2e0ff800ab80a2c638293ce23fc1911390f2dd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 79a02115a449c710778e4c69f470efc3ebebae53
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221107"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087044"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>建立與 Azure Logic Apps 整合的函式
 
-Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合。 這個整合可讓您搭配其他 Azure 和第三方服務，使用協調流程中的 Functions 計算能力。 
+Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合。 這項整合可讓您搭配其他 Azure 和第三方服務，使用協調流程中的 Functions 計算能力。 
 
-此教學課程說明如何使用 Functions 搭配 Logic Apps 和 Azure 上的 Microsoft 認知服務，分析來自 Twitter 貼文的情感。 HTTP 觸發函式會以情感分數作為基礎，將推文分類為綠色、黃色或紅色。 偵測到不佳的情感時，會傳送一封電子郵件。 
+本教學課程說明如何使用 Functions 搭配 Logic Apps 和 Azure 上的 Microsoft 認知服務，分析來自 Twitter 貼文的情感。 HTTP 觸發函式會以情感分數作為基礎，將推文分類為綠色、黃色或紅色。 偵測到不佳的情感時，會傳送一封電子郵件。 
 
 ![此映像顯示邏輯應用程式設計工具中應用程式的前兩個步驟](media/functions-twitter-email/designer1.png)
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立認知服務 API 資源。
@@ -36,11 +36,11 @@ Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合�
 > * 將邏輯應用程式連線至函式。
 > * 以函式的回應作為基礎來傳送電子郵件。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + 使用中的 [Twitter](https://twitter.com/) 帳戶。 
 + [Outlook.com](https://outlook.com/) 帳戶 (用於傳送通知)。
-+ 此主題使用[從 Azure 入口網站建立您的第一個函式](functions-create-first-azure-function.md)中所建立的資源作為起點。  
++ 本主題使用[從 Azure 入口網站建立您的第一個函式](functions-create-first-azure-function.md)中所建立的資源作為起點。  
 如果您尚未這麼做，請立即完成這些步驟，才能建立函式應用程式。
 
 ## <a name="create-a-cognitive-services-resource"></a>建立認知服務資源
@@ -60,7 +60,7 @@ Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合�
     | **名稱** | MyCognitiveServicesAccnt | 請選擇唯一的帳戶名稱。 |
     | **位置** | 美國西部 | 使用距離您最近的位置。 |
     | **定價層** | F0 | 從最低層開始。 如果您用完呼叫，請調整為較高層。|
-    | **資源群組** | myResourceGroup | 此教學課程中所有的服務，都是使用相同的資源群組。|
+    | **資源群組** | myResourceGroup | 本教學課程中所有的服務，都是使用相同的資源群組。|
 
 4. 按一下 [建立] 以建立資源。 建立之後，請選取釘選到儀表板的新認知服務資源。 
 
@@ -70,7 +70,7 @@ Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合�
 
 ## <a name="create-the-function-app"></a>建立函式應用程式
 
-Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處理工作進行卸載。 此教學課程會使用 HTTP 觸發函式來處理認知服務的推文情感分數，並將類別值傳回。  
+Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處理工作進行卸載。 本教學課程會使用 HTTP 觸發函式來處理認知服務的推文情感分數，並將類別值傳回。  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -100,6 +100,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
     using System;
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
     
@@ -128,7 +129,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
     ```
     此函式程式碼會以要求中所收到的情感分數作為基礎，將色彩類別傳回。 
 
-4. 若要測試函式，請按一下最右邊的 [測試]，將 [測試] 索引標籤展開。輸入 `0.2` 的值作為**要求本文**，然後按一下 [執行]。 會在回應本文中傳回**紅色**的值。 
+4. 若要測試函式，請按一下最右邊的 [測試]，將 [測試] 索引標籤展開。輸入  的值作為要求本文`0.2`，然後按一下 [執行]。 會在回應本文中傳回**紅色**的值。 
 
     ![在 Azure 入口網站中測試函式](./media/functions-twitter-email/test.png)
 
@@ -212,7 +213,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 
 ## <a name="add-email-notifications"></a>新增電子郵件通知
 
-工作流程的最後一個部分，是當情感計分為_紅色_時，要將電子郵件觸發。 此主題是使用 Outlook.com 連接器。 您可以執行類似的步驟，來使用 Gmail 或 Office 365 Outlook 連接器。   
+工作流程的最後一個部分，是當情感計分為_紅色_時，要將電子郵件觸發。 本主題是使用 Outlook.com 連接器。 您可以執行類似的步驟，來使用 Gmail 或 Office 365 Outlook 連接器。   
 
 1. 在 Logic Apps 設計工具中，按一下 [新增步驟] > [新增條件]。 
 
@@ -264,7 +265,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
         return req.CreateResponse(HttpStatusCode.OK, category);
 
     > [!IMPORTANT]
-    > 完成此教學課程之後，您應停用邏輯應用程式。 您可以透過停用應用程式，在執行及用完認知服務 API 中的交易時可避免支付費用。
+    > 完成本教學課程之後，您應停用邏輯應用程式。 您可以透過停用應用程式，在執行及用完認知服務 API 中的交易時可避免支付費用。
 
 現在您已經知道要將 Functions 整合至 Logic Apps 工作流程有多麼輕鬆。
 
@@ -276,7 +277,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 建立認知服務 API 資源。

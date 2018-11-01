@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e7d140f212dd2506f48b23fe99db5ba2be91dac9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319314"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421028"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>使用串流分析處理適用於事件中樞的 Apache Kafka 
 本文說明如何將資料串流至啟用的 Kafka 事件中樞，以及使用 Azure 串流分析處理該資料。 本文將逐步引導您完成下列步驟： 
@@ -35,7 +35,7 @@ ms.locfileid: "49319314"
 若要完成本快速入門，請確定您具備下列必要條件︰
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)。
 * [下載](http://maven.apache.org/download.cgi)及[安裝](http://maven.apache.org/install.html) Maven 二進位封存檔。
 * [Git](https://www.git-scm.com/)
 * **Azure 儲存體帳戶**。 如果您沒有 Azure 儲存體帳戶，請先[建立一個](../storage/common/storage-quickstart-create-account.md)，再繼續執行。 本逐步解說中的作業作業會在 Azure blob 儲存體中儲存輸出資料。 

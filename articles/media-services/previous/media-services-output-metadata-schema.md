@@ -2,7 +2,7 @@
 title: Azure 媒體服務輸出中繼資料結構描述 | Microsoft Docs
 description: 本主題提供 Azure 媒體服務輸出中繼資料結構描述的概觀。
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 4babceb9454a229903c54aab7083c5e5ed138b8e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783827"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250881"
 ---
 # <a name="output-metadata"></a>輸出中繼資料
 ## <a name="overview"></a>概觀
@@ -38,7 +38,7 @@ ms.locfileid: "33783827"
 編碼作業的 AssetFile 項目集合。  
 
 ### <a name="child-elements"></a>子元素
-| Name | 說明 |
+| 名稱 | 說明 |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |屬於 AssetFiles 集合的 [AssetFile 元素](media-services-output-metadata-schema.md)。 |
 
@@ -46,14 +46,14 @@ ms.locfileid: "33783827"
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 說明 |
 | --- | --- | --- |
 | **名稱**<br/><br/> 必要 |**xs:string** |媒體資產檔案名稱。 |
 | **大小**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:long** |資產檔案大小 (以位元組為單位)。 |
 | **Duration**<br/><br/> 必要 |**xs:duration** |內容播放持續時間。 |
 
 ### <a name="child-elements"></a>子元素
-| Name | 說明 |
+| 名稱 | 說明 |
 | --- | --- |
 | **來源** |為了產生此 AssetFile 所處理之輸入/來源媒體檔案的集合。 如需詳細資訊，請參閱[來源元素](media-services-output-metadata-schema.md)。 |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體 AssetFile 都可以內含零或多個交錯形成適當容器格式的視訊播放軌。 如需詳細資訊，請參閱 [VideoTracks 元素](media-services-output-metadata-schema.md)。 |
@@ -65,7 +65,7 @@ ms.locfileid: "33783827"
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| Name | 說明 |
+| 名稱 | 說明 |
 | --- | --- |
 | **來源**<br/><br/> minOccurs="1" maxOccurs="unbounded" |產生此資產時所使用的輸入/來源檔案。 如需詳細資訊，請參閱[來源元素](media-services-output-metadata-schema.md)。 |
 
@@ -75,7 +75,7 @@ ms.locfileid: "33783827"
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 說明 |
 | --- | --- | --- |
 | **名稱**<br/><br/> 必要 |**xs:string** |輸入的來源檔案名稱。 |
 
@@ -85,7 +85,7 @@ ms.locfileid: "33783827"
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| Name | 說明 |
+| 名稱 | 說明 |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定視訊播放軌。 如需詳細資訊，請參閱 [VideoTrack 元素](media-services-output-metadata-schema.md#VideoTrack)。 |
 
@@ -95,7 +95,7 @@ ms.locfileid: "33783827"
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 說明 |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此視訊播放軌之以零為起始的索引。**注意︰** 此**識別碼**不一定是用於 MP4 檔案中的 TrackID。 |
 | **FourCC**<br/><br/> 必要 |**xs:string** |視訊轉碼器 FourCC 代碼。 |
@@ -117,7 +117,7 @@ ms.locfileid: "33783827"
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| Name | 說明 |
+| 名稱 | 說明 |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定音訊播放軌。 如需詳細資訊，請參閱 [AudioTrack 元素](media-services-output-metadata-schema.md)。 |
 
@@ -127,7 +127,7 @@ ms.locfileid: "33783827"
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 說明 |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此音訊播放軌之以零為起始的索引。**注意︰** 這不一定是用於 MP4 檔中的 TrackID。 |
 | **Codec** |**xs:string** |音訊播放軌轉碼器字串。 |
@@ -138,7 +138,7 @@ ms.locfileid: "33783827"
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |wFormatTag 格式類型的每樣本位元數。 |
 
 ### <a name="child-elements"></a>子元素
-| Name | 說明 |
+| 名稱 | 說明 |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |音量計量結果參數。 如需詳細資訊，請參閱 [LoudnessMeteringResultParameters 元素](media-services-output-metadata-schema.md)。 |
 
@@ -148,7 +148,7 @@ ms.locfileid: "33783827"
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 說明 |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |**Dolby** 專業音量計量開發套件版本。 |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> 必要 |**xs:int** |透過 DPLM 產生的 DialogNormalization，若設定了 LoudnessMetering 則為必要 |

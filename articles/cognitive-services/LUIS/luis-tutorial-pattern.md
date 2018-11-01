@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b09ebbb358b909c98df4eb05154c29b4b3cb7ee9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888249"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138322"
 ---
 # <a name="tutorial-3-add-common-utterance-formats"></a>教學課程 3：新增通用的語句格式
 
@@ -50,7 +50,7 @@ ms.locfileid: "48888249"
 
 ## <a name="create-new-intents-and-their-utterances"></a>建立新意圖及其語句
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 在 [意圖] 頁面上，選取 [建立新意圖]。 
 
@@ -90,7 +90,7 @@ ms.locfileid: "48888249"
 
 ## <a name="caution-about-example-utterance-quantity"></a>關於範例語句數量的注意事項
 
-[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
+[!INCLUDE [Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
 ## <a name="train"></a>定型
 

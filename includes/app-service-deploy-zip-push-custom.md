@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: 79fb8517ec6880e8a3eae0e74275567a24644b87
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133581"
+---
 ## <a name="deployment-customization"></a>部署自訂
 
 部署程序假設您所推送的 .zip 檔案包含隨時可執行的應用程式。 根據預設，系統不會執行任何自訂。 若要啟用您在持續整合所獲得的相同建置程序，請將下列內容新增至您的應用程式設定：

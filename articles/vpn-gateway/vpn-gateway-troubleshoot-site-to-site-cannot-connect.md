@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: dfd29e0956793cf776b9c0ea5ddbd4689ebcb015
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: a2330cee3d5ea48f9f679ac02f6889ccce6c1d7c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072295"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242750"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>疑難排解：Azure 站對站 VPN 連線無法連線並停止運作
 

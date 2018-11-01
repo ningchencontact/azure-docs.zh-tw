@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 01b3fe57cd52149c5c1191345b42bd8544202652
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3f23464776036a8c91b180d46341782fddb9d5e8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404574"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140954"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何針對 Log Analytics Linux 代理程式的問題進行疑難排解 
 
@@ -161,17 +161,9 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 * 上架期間指定的 Proxy 不正確
 * Log Analytics 和 Azure 自動化服務端點未列在資料中心的允許清單中 
 
-<<<<<<< HEAD
-### <a name="resolutions"></a>解決方式
-1. 使用下列命令搭配已啟用的 `-v` 選項，以便透過 Log Analytics Linux 代理程式重新上架至 Log Analytics。 這可讓透過 Proxy 連線至 Log Analytics 的代理程式產生詳細資訊輸出。 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Log Analytics Workspace ID> -s <Log Analytics Workspace Key> -p <Proxy Conf> -v`
-
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-=======
 ### <a name="resolution"></a>解決方案
 1. 使用下列命令搭配已啟用的 `-v` 選項，以便透過 Log Analytics Linux 代理程式重新上架至 Log Analytics 服務。 其可讓透過 Proxy 連線到 Log Analytics 服務的代理程式產生詳細資訊輸出。 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
->>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 2. 檢閱[更新 Proxy 設定](log-analytics-agent-manage.md#update-proxy-settings)一節以驗證您是否已正確設定代理程式透過 Proxy 伺服器通訊。    
 * 再次檢查以確認下列 Log Analytics 端點已列在允許清單中：
@@ -193,11 +185,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 
 1. 使用命令日期檢查 Linux 伺服器上的時間。 如果時間為自目前時間起的 + /-15 分鐘，則上架失敗。 若要修正此問題，請更新 Linux 伺服器的日期和/或時區。 
 2. 確認您已安裝最新版的 Log Analytics Linux 代理程式。  最新版本現在會通知您時間差異是否造成上架失敗。
-<<<<<<< HEAD
-3. 使用正確的工作區識別碼和工作區金鑰並遵循本主題中前面的安裝指示重新上架。
-=======
 3. 使用正確的工作區識別碼和工作區金鑰並遵循本文前面的安裝指示重新上架。
->>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>問題︰上架後您隨即在記錄檔中看到 500 與 404 錯誤
 這是已知第一次將 Linux 資料上傳至 Log Analytics 工作區時會發生的問題。 這不會影響正在傳送的資料或服務體驗。
@@ -206,17 +194,6 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 
 ### <a name="probable-causes"></a>可能的原因
 
-<<<<<<< HEAD
-- 上架至 Log Analytics 失敗
-- 對 Log Analytics 的連線遭到封鎖
-- Log Analytics Linux 代理程式資料已備份
-
-### <a name="resolutions"></a>解決方式
-1. 確認 Log Analytics 是否成功上架，做法是檢查下列檔案是否存在：`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. 使用 `omsadmin.sh` 命令列指示重新上架
-3. 如果使用 Proxy，請參閱稍早所提供的 Proxy 解決步驟。
-4. 在某些情況下，當 Log Analytics Linux 代理程式無法與服務通訊時，系統會將整個緩衝區大小 (亦即 50 MB) 的資料加入佇列。 應該執行下列命令重新啟動 Log Analytics Linux 代理程式：`/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`。 
-=======
 - 上架至 Log Analytics 服務失敗
 - 對 Log Analytics 服務的連線遭到封鎖
 - Log Analytics Linux 代理程式資料已備份
@@ -226,10 +203,9 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 2. 使用 `omsadmin.sh` 命令列指示重新上架
 3. 如果使用 Proxy，請參閱稍早所提供的 Proxy 解決步驟。
 4. 在某些情況下，當 Log Analytics Linux 代理程式無法與服務通訊時，系統會將整個緩衝區大小 (亦即 50 MB) 的資料加入佇列。 應該執行下列命令重新啟動代理程式：`/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`。 
->>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
     >[!NOTE]
-    >This issue is fixed in agent version 1.1.0-28 and later.
+    >此問題已在代理程式 1.1.0-28 版和更新版本中修正。
 
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>問題：沒看到轉送的 Syslog 訊息 

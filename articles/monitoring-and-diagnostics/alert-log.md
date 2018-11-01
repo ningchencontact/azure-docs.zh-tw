@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976834"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419362"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure 監視器來建立、檢視及管理記錄警示  
 
@@ -34,26 +34,26 @@ ms.locfileid: "46976834"
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>使用 Azure 入口網站建立記錄警示規則
 1. 在[入口網站](https://portal.azure.com/)中選取 [監視]，然後在 [監視] 區段下選擇 [警示]。  
-    ![監視](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![監視](media/alert-log/AlertsPreviewMenu.png)
 
 1. 選取 [新增警示規則] 按鈕，以在 Azure 中建立新的警示。
-    ![新增警示](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![新增警示](media/alert-log/AlertsPreviewOption.png)
 
 1. [建立警示] 區段會以三個部分顯示：「定義警示條件」、「定義警示詳細資料」和「定義動作群組」。
 
-    ![建立規則](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![建立規則](media/alert-log/AlertsPreviewAdd.png)
 
 1.  使用 [選取資源] 連結並透過選取資源來指定目標，即可定義警示條件。 選擇 [訂閱]、[資源類型] 和 [資源] (必選)，即可進行篩選。 
 
     >[!NOTE]
 
     > 若要建立記錄警示 - 請先確認選取的資源可使用 **log** 訊號，再繼續下面的步驟。
-    ![選取資源](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![選取資源](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. 記錄警示：請確認 [資源類型] 是分析來源 (例如「Log Analytics」或「Application Insights」) 且訊號類型為 [記錄]，然後在選擇適當的 [資源] 後，按一下 [完成]。 接著使用 [新增準則] 按鈕，檢視資源可用的訊號選項清單，然後從訊號清單中選取所選記錄監視服務 (例如 *Log Analytics* 或 *Application Insights*) 的 [自訂記錄搜尋] 選項。
 
-   ![選取資源 - 自訂記錄搜尋](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![選取資源 - 自訂記錄搜尋](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ ms.locfileid: "46976834"
 
 1.  *記錄警示*：選好後，即可在 [搜尋查詢] 欄位中指定警示的查詢；如果查詢語法不正確，欄位會以紅色顯示錯誤。 如果查詢語法正確 - 指定查詢的記錄資料會顯示為圖形以供參考，以及顯示調整時間範圍的選項 (從過去六小時到過去一週)。
 
- ![設定警示規則](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![設定警示規則](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ ms.locfileid: "46976834"
 
     >  若使用 Application Insights 的記錄警示類型是「計量測量」，您可以使用 [彙總依據] 選項來指定要群組資料的特定變數，如下所示：
 
-    ![[依據彙總] 選項](./media/monitor-alerts-unified/aggregate-on.png)
+    ![[依據彙總] 選項](media/alert-log/aggregate-on.png)
 
 1.  記錄警示：當視覺效果就緒後，您就可以從所示的條件、彙總和閾值 (最後選取) 選項來選取**警示邏輯**。 最後，使用 [期間] 選項，在邏輯中指定用來評估指定條件的時間。 以及，透過選取 [頻率]，來指定警示執行的頻率。
 針對**記錄警示**，可以根據：
@@ -83,7 +83,7 @@ ms.locfileid: "46976834"
 
     - **隱藏警示**：當您開啟警示規則的隱藏功能時，此規則的動作會在建立新警示後停用並持續一段您所定義的時間。 此規則仍在執行中，並且會在符合準則時建立警示記錄。 讓您有時間更正問題，而不需執行重複的動作。
 
-        ![記錄警示的隱藏警示](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![記錄警示的隱藏警示](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > 指定大於警示頻率的隱藏警示值，可確保通知會停止而不重疊
@@ -98,19 +98,19 @@ ms.locfileid: "46976834"
     - **電子郵件通知**：覆寫透過「動作群組」傳送的電子郵件「電子郵件主旨」；如果前述的「動作群組」中存在一或多個電子郵件動作。 您無法修改電子郵件的本文，且此欄位**不是**用於電子郵件地址。
     - **包括自訂 JSON 承載**：覆寫「動作群組」所使用的 Webhook JSON；如果前述的「動作群組」中存在一或多個 Webhook 動作。 使用者可以指定要用於相關聯動作群組中設定的所有 Webhook JSON 格式；如需有關 Webhook 格式的詳細資訊，請參閱[記錄警示的 Webhook 動作](monitor-alerts-unified-log-webhook.md)。 提供的 [檢視 Webhook] 選項可用來檢查使用 JSON 資料範例的格式。
 
-        ![記錄警示的動作覆寫](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![記錄警示的動作覆寫](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. 如果所有欄位都有效，並且有綠色勾號，您就可以按一下 [建立警示規則] 按鈕，在 Azure [監視器 - 警示] 中建立警示。 您可以從「警示儀表板」中檢視所有警示。
 
-    ![建立規則](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![建立規則](media/alert-log/AlertsPreviewCreate.png)
 
     在幾分鐘之內，警示會開始作用，且先前所述觸發。
 
 使用者可以也會在 [Azure 入口網站中的 Logs Analytics 頁面](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 )完成分析查詢，然後透過「設定警示」按鈕推送它以建立警示，接著按照上述教學中步驟 6 開始往下操作指示。
 
- ![Log Analytics - 設定警示](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![Log Analytics - 設定警示](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>在 Azure 入口網站中檢視和管理記錄警示
 
@@ -122,7 +122,7 @@ ms.locfileid: "46976834"
 
 
 1. 在頂端的工具列上選取 [管理規則]，即可瀏覽到規則管理區段 - 其中會列出所有已建立的警示規則 (包括已停用的警示)。
-    ![管理警示規則](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![管理警示規則](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>使用 Azure 資源範本管理記錄警示
 目前可以使用兩個不同的資源範本建立記錄警示，取決於警示的分析平台，也就是 Log Analytics 或 Application Insights。

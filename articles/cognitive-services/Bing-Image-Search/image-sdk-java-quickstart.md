@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 36f59e1c405ef9e5cf69a19e49d69a3adfdc4636
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 42fc3dfb48c041ba187e2034eed81183dba02cb4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298178"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413872"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>快速入門：使用 Bing 影像搜尋 SDK 和 Java 來搜尋影像
 
@@ -23,9 +23,9 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 
 此範例的原始程式碼可從 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) 取得，其中含有其他錯誤處理和註釋。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-最新版的 [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK)
+最新版的 [Java Development Kit](https://aka.ms/azure-jdks) (JDK)
 
 使用 Maven、Gradle 或另一個相依性管理系統，來安裝 Bing 影像搜尋 SDK 相依性。 Maven POM 檔案需要下列宣告：
 

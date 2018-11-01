@@ -11,12 +11,12 @@ ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 41855d6e562ddbb78df5d1d8794127e1064cc2ca
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918290"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233322"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視及管理您的 Yammer 帳戶
 
@@ -49,13 +49,13 @@ ms.locfileid: "42918290"
 1. 選擇路徑： 
 
    * 針對空白邏輯應用程式，請在搜尋方塊中輸入 "yammer" 作為篩選條件。 
-   請在觸發程序清單底下，選取您想要的觸發程序。 
+   在觸發程序清單底下，選取您想要的觸發程序。 
 
      -或-
 
    * 針對現有的邏輯應用程式： 
    
-     * 請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 
+     * 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]。 
 
        -或-
 
@@ -76,7 +76,7 @@ ms.locfileid: "42918290"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

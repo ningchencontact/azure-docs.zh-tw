@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: 41dd8ad721329c4c4d2761c9e4a37c640251dac3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125273"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232540"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>透過 Azure Logic Apps 連線到內部部署檔案系統
 
@@ -99,7 +99,7 @@ ms.locfileid: "43125273"
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
 
-* 若要協助改善 Azure Logic Apps 和連接器，請在 [Azure Logic Apps User Voice 網站](http://aka.ms/logicapps-wish) \(英文\) 上票選或提交想法。
+* 若要協助改善 Azure Logic Apps 和連接器，請在 [Azure Logic Apps User Voice 網站](https://aka.ms/logicapps-wish) \(英文\) 上票選或提交想法。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227339"
+---
 當您使用[虛擬機器擴展集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)和 [Azure 監視器的自動調整功能](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md)時，可以輕鬆地[自動縮放](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md)您的[虛擬機器 (VM)](../articles/virtual-machines/windows/overview.md)。 您的 VM 必須是擴展集的成員才能自動縮放。 本文提供的資訊可讓您深入了解如何使用自動和手動方法，以垂直和水平方式調整 VM。
 
 ## <a name="horizontal-or-vertical-scaling"></a>水平和垂直調整

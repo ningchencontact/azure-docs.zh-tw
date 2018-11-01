@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: a69df0cc9ea14a2c9fa172c77663afb1d6861f9b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134001"
+---
 #### <a name="configure-the-ios-project-in-xamarin-studio"></a>在 Xamarin Studio 中設定 iOS 專案
 1. 在 Xamarin.Studio 中，開啟 **Info.plist**，然後使用您稍早以新應用程式識別碼建立的套件組合識別碼，來更新 [套件組合識別碼]。
 

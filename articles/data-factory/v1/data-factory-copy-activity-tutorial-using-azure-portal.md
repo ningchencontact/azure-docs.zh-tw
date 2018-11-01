@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1373882fa64ac334b92dc772fc04d4b40260cc25
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2e40e518f9f04809b1fd59b0ed12dcee9b1da9ce
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093403"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240900"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>本教學課程︰使用 Azure 入口網站建立 Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]

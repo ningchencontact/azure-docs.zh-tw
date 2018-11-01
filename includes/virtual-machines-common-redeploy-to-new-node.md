@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226603"
+---
 ## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 1. 選取您想要重新部署的 VM，然後選取下 [設定] 刀鋒視窗中的 [重新部署] 按鈕。 您可能需要向下捲動以查看 [支援與疑難排解]  區段，其中包含 [重新部署] 按鈕，如下列範例所示︰
    

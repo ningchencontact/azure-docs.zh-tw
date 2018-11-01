@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406035"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248705"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>監視 Azure 監視器所收集的資料
 [Azure 監視器](../azure-monitor/overview.md)是一項服務，可協助您監視應用程式及其所依賴的資源。 此功能的核心是儲存來自受監視資源的遙測和其他資料。 本文提供如何透過 Azure 監視器來儲存和使用此資料的完整說明。
 
 Azure 監視器所收集的所有資料均符合下列兩個基本類型之一：[計量](#metrics)和[記錄](#logs)。 計量為數值，可描述系統在特定時間點的某個方面。 它們屬於輕量型，而且能夠支援近乎即時的案例。 記錄包含不同類型的資料，而資料會針對每個類型組織成不同的屬性集。 除了效能資料，還會將事件和追蹤之類的遙測資料儲存為記錄，讓它能夠全部組合在一起進行分析。
 
-![Azure 監視器概觀](../azure-monitor/media/overview/overview.png)
+![Azure 監視器概觀](media/monitoring-data-collection/overview.png)
 
 ## <a name="metrics"></a>度量
 計量為數值，描述系統在特定時間的某個方面。 它們屬於輕量型，而且能夠支援近乎即時的案例。 不論值是否變更，系統都會定期收集計量。 它們適合用於警示，因為它們可頻繁地進行取樣，而且可使用相對較簡單的邏輯快速引發警示。 
@@ -108,7 +108,7 @@ Azure 監視器所收集的計量有三個基本來源。 這些計量全都適�
 
 
 ### <a name="viewing-metrics"></a>檢視計量
-Azure 監視器中的計量均會收集於 Azure 監視器計量存放區中。 這是已最佳化來進行快速存取的時間序列資料庫，並會儲存計量值 93 天。 將計量複製到 Log Analytics，以用於長期分析與趨勢。
+Azure 監視器中的計量均會收集於 Azure 監視器計量資料庫中。 這是已最佳化來進行快速存取的時間序列資料庫，並會儲存計量值 93 天。 將計量複製到 Log Analytics，以用於長期分析與趨勢。
 
 您可以透過上述各種方法來使用計量資料。 使用[計量瀏覽器](../monitoring-and-diagnostics/monitoring-metric-charts.md)，直接分析計量存放區中的資料，並隨著時間繪製多個計量值的圖表。 您可以互動方式檢視圖表，或將其釘選到儀表板，利用其他視覺效果進行檢視。 您也可以使用 [Azure 監視 REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md) 來擷取計量。
 
@@ -173,7 +173,7 @@ Log Analytics 可以在 Azure 中及內部部署資源的各種來源收集資�
 您可以在[收集 Azure 服務記錄和計量以便使用於 Log Analytics](../log-analytics/log-analytics-azure-storage.md)，取得從 Azure 資源收集計量的指引。 在[使用 Log Analytics 設定 Azure PaaS 資源計量的集合](../log-analytics/log-analytics-collect-azurepass-posh.md)，可取得從 Azure PaaS 資源收集資源計量的指引。
 
 ### <a name="logs-to-metrics"></a>計量至記錄
-如上所述，計量比記錄更有回應，因此您能以較低成本建立延遲較低的警示。 Log Analytics 會收集大量數值資料，這些資料適合用於計量，但不會儲存於 Azure 計量存放區。  常見範例是從代理程式和管理解決方案收集的效能資料。 您可以將這其中一些值複製到計量存放區，以便用於警示以及透過計量瀏覽器進行分析。
+如上所述，計量比記錄更有回應，因此您能以較低成本建立延遲較低的警示。 Log Analytics 會收集大量數值資料，這些資料適合用於計量，但不會儲存於 Azure 計量資料庫。  常見範例是從代理程式和管理解決方案收集的效能資料。 您可以將這其中一些值複製到計量資料庫，以便用於警示以及透過計量瀏覽器進行分析。
 
 這項功能的說明位於[為 Azure 監視器中的記錄建立計量警示](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)。 值的支援清單位於[支援 Azure 監視器的計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)。
 

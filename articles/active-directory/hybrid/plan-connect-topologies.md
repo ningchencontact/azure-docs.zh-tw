@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068686"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158851"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
@@ -87,7 +87,7 @@ Azure AD Connect 同步處理中的預設組態假設：
 ### <a name="multiple-forests-separate-topologies"></a>多個樹系，個別拓撲
 ![跨所有目錄僅顯示使用者一次的選項](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![多個樹系和個別拓撲的描述](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![多個樹系和個別拓撲的描述](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 在此環境中，所有內部部署樹系會被視為個別的實體。 使用者不會顯示在其他樹系中。 每個樹系具有自己的 Exchange 組織，且在樹系間沒有 GALSync。 這個拓撲可能是合併/收購之後，或是在一個每個業務單位各自獨立作業的組織中。 在 Azure AD 中，這些樹系將會在相同的組織中並與統一 GAL 一起出現。 在上圖中，每個樹系中的個別物件都會在 Metaverse 中顯示一次，並在目標 Azure AD 租用戶中彙總。
 

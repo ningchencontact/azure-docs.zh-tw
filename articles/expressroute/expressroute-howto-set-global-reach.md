@@ -3,17 +3,17 @@ title: 設定 Azure ExpressRoute Global Reach | Microsoft Docs
 description: 本文可協助您將 ExpressRoute 線路連結在一起，在內部部署網路之間產生私人網路，並使觸角擴及全球。
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: cherylmc
-ms.openlocfilehash: 4006626f9768289e75ccd61a1ef0bad5389f0a7a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.author: mialdrid
+ms.openlocfilehash: 67fbf9dc430d615efe3ef894add1a26bbce792bc
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070932"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237973"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>設定 ExpressRoute Global Reach (預覽)
 本文可協助您使用 PowerShell 設定 ExpressRoute Global Reach。 如需詳細資訊，請參閱 [ExpressRouteRoute Global Reach](expressroute-global-reach.md)。

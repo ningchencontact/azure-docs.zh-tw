@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 88626c3a4bfd4a1ff3a2e9cbc8c3f2b1c5553295
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 83852333d8e66c76f2d2710b1813a4400622e624
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303620"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417305"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>區分開發、測試及生產環境的遙測
 
@@ -156,7 +156,7 @@ iKey 也會用在您的應用程式網頁中，在 [您從快速啟動刀鋒視�
 ### <a name="release-annotations"></a>版本註解
 如果您使用 Azure DevOps，您可以[取得註解標記](app-insights-annotations.md) (每當發行新版本時，此標記就會新增至您的圖表)。 下圖顯示此標記的顯示方式。
 
-![圖表上版本註解範例的螢幕擷取畫面](./media/app-insights-asp-net/release-annotation.png)
+![圖表上版本註解範例的螢幕擷取畫面](media/app-insights-separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>後續步驟
 
 * [多個角色的共用資源](app-insights-monitor-multi-role-apps.md)

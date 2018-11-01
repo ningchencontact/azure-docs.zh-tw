@@ -3,7 +3,7 @@ title: 針對 Azure Application Insights 中的使用者行為分析工具進行
 description: 疑難排解指南 - 使用 Application Insights 分析網站和應用程式使用情況。
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 725f67af8178c6c851999d18c771ebdd360d6d01
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992192"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138491"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>針對 Application Insights 中的使用者行為分析工具進行疑難排解
 您有關於 [Application Insights 中的使用者行為分析工具](app-insights-usage-overview.md)：[使用者、工作階段、事件](app-insights-usage-segmentation.md)、[漏斗圖](usage-funnels.md)、[使用者流程](app-insights-usage-flows.md)[保留期](app-insights-usage-retention.md)或同群使用者的問題嗎？ 以下是一些解答。

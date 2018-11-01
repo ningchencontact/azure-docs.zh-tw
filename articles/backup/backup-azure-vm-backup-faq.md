@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 910225e74fcd4655a9eff711d3ac1316d948c2b3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886189"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414789"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 備份服務的相關問題
 本文包含常見問題的解答，可協助您快速了解 Azure VM 備份元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -48,7 +48,7 @@ ms.locfileid: "48886189"
 是。 如果備份作業處於「正在建立快照」階段，您可以將它取消。 **如果正在從快照傳輸資料，則無法取消作業**。
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>我已在已備份的受控磁碟 VM 上啟用資源群組鎖定。 我的備份是否會繼續運作？
-如果使用者鎖定資源群組，備份服務就無法刪除較舊的還原點。 原因是這個新的備份因後端最多只能有 18 個還原點而開始失敗。 如果您的備份在 RG 鎖定之後，因為內部錯誤而發生失敗，請遵循下列[步驟來移除還原點集合](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)。
+如果使用者鎖定資源群組，備份服務就無法刪除較舊的還原點。 原因是這個新的備份因後端最多只能有 18 個還原點而開始失敗。 如果您的備份在 RG 鎖定之後，因為內部錯誤而發生失敗，請遵循下列[步驟來移除還原點集合](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service)。
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>備份原則是否會將日光節約時間 (DST) 列入考量？
 否。 請留意本機電腦上顯示的日期和時間是您的當地時間，加上目前的日光節約時間偏差。 因此，排程備份設定的時間可能會因為 DST 而與您的當地時間不同。

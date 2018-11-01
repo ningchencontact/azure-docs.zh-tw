@@ -1,19 +1,18 @@
 ---
 title: 移除伺服器與停用保護 | Microsoft Docs
 description: 本文說明如何取消註冊 Site Recovery 保存庫中的伺服器，並停用虛擬機器和實體伺服器的保護。
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 998cebdf8b63013128d91571f2610df7d6752e81
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918776"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214081"
 ---
 # <a name="remove-servers-and-disable-protection"></a>移除伺服器並停用保護
 

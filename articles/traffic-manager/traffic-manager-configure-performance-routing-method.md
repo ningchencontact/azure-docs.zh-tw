@@ -4,9 +4,6 @@ description: 此文章說明如何設定流量管理員，以最低的延遲將�
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 014aa646459cd64fca7c697419324caa3edaeeea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c378043a9e10a0aed5344ac3182af6163d217c7b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110656"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140463"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>設定效能流量路由方法
 

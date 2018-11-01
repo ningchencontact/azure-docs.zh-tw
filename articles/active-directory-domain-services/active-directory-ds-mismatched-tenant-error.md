@@ -3,7 +3,7 @@ title: 解決現有 Azure AD Domain Services 受控網域的不相符目錄錯�
 description: 了解並解決現有 Azure AD Domain Services 受控網域的不相符目錄錯誤
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: maheshu
-ms.openlocfilehash: f791993a95534f66097e3e7e22141bf34e311f21
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 12611c9a4016b634cb865bbf609b1c7a6961abb7
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504546"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155060"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>解決現有 Azure AD Domain Services 受控網域的不相符目錄錯誤
 您有現有的 Azure AD 網域服務受控網域。 當您瀏覽至 Azure 入口網站並檢視受控網域時，您會看到下列錯誤訊息：

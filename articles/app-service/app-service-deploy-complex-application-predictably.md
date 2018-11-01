@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050741"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243209"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>透過可預測方式在 Azure 中佈建和部署微服務
 本教學課程示範如何在 [Azure App Service](https://azure.microsoft.com/services/app-service/) 中將包含[微服務](https://en.wikipedia.org/wiki/Microservices)的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。 
@@ -148,7 +148,7 @@ Web 應用程式與兩個不同的資源相依。 這表示只有在建立 App S
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-在 `config/appsettings` 的 `properties` 項目中，您會有兩個格式為 `“<name>” : “<value>”` 的應用程式設定。
+在 `config/appsettings` 的 `properties` 項目中，您會有兩個格式為 `"<name>" : "<value>"` 的應用程式設定。
 
 * `PROJECT` 是 [KUDU 設定](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) ，告訴 Azure 部署在多專案 Visual Studio 方案中使用哪個專案。 稍後會示範如何設定原始檔控制，但是，因為 ToDoApp 程式碼是在多專案 Visual Studio 方案中，所以我們需要這項設定。
 * `clientUrl` 只是應用程式程式碼所使用的應用程式設定。
@@ -158,7 +158,7 @@ Web 應用程式與兩個不同的資源相依。 這表示只有在建立 App S
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-在 `config/connectionstrings` 的 `properties` 項目中，每個連接字串也會定義為「名稱:值」配對，並且具有特定格式：`“<name>” : {“value”: “…”, “type”: “…”}`。 針對 `type` 項目，可能的值為 `MySql`、`SQLServer`、`SQLAzure` 和 `Custom`。
+在 `config/connectionstrings` 的 `properties` 項目中，每個連接字串也會定義為「名稱:值」配對，並且具有特定格式：`"<name>" : {"value": "…", "type": "…"}`。 針對 `type` 項目，可能的值為 `MySql`、`SQLServer`、`SQLAzure` 和 `Custom`。
 
 > [!TIP]
 > 如需連接字串型別的限定清單，請在 Azure PowerShell 中執行下列命令：\[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")

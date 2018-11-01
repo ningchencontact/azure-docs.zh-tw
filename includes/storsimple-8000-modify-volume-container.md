@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 360fd9247684fea483d744d9be77d095b667d66d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165686"
+---
 <!--author=alkohli last changed: 07/05/2017-->
 
 > [!NOTE] 
@@ -19,7 +32,7 @@
       
        ![變更頻寬設定](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
-   2.  按一下 [SERVICEPRINCIPAL] 。
+   2.  按一下 [確定]。
 4. 在 [ **修改磁碟區容器** ] 對話方塊的下一頁中：
    
    1. 從下拉式清單中選擇現有的頻寬範本。

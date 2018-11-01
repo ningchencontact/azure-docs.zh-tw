@@ -4,7 +4,7 @@ description: 了解如何使用 Azure Webhook 來監視媒體服務作業通知�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 564fc25699c3ae627804d49bfdc40ae9dd559269
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784487"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238653"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知
 執行作業時，您通常需要設法追蹤作業進度。 您可以使用 Azure Webhook 或 [Azure 佇列儲存體](media-services-dotnet-check-job-progress-with-queues.md)來監視媒體服務作業通知。 本文說明如何使用 Webhook。
@@ -38,7 +38,7 @@ ms.locfileid: "33784487"
 
 您可以在[這裡](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) \(英文\) 找到各種媒體服務 .NET Azure Functions 的定義 (包括本文所示的定義)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 需要有下列項目，才能完成教學課程：
 
@@ -57,10 +57,10 @@ ms.locfileid: "33784487"
 
 [應用程式設定](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings)區段會定義用於本文所定義之 Webhook 的參數。 另外，請將下列參數新增至應用程式設定。 
 
-|Name|定義|範例| 
+|名稱|定義|範例| 
 |---|---|---|
 |SigningKey |簽署金鑰。| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | 一個 webhook 端點位址。 建立您的 Webhook 函式之後，您就可以從 [取得函式 URL] 連結複製 URL。 | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==。|
+|WebHookEndpoint | 一個 webhook 端點位址。 建立您的 Webhook 函式之後，您就可以從 [取得函式 URL] 連結複製 URL。 | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g== 。|
 
 ## <a name="create-a-function"></a>建立函式
 

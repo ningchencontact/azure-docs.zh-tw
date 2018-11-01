@@ -4,7 +4,7 @@ description: 本文件包含的逐步解說可示範如何使用媒體編碼器 
 services: media-services
 documentationcenter: ''
 author: xstof
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 3cba7a6a8bf6fbe199664b738b68ceca3a7746f8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 79b2aa22307e4742d00d9422535d52c80485e2db
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783947"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249029"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>進階媒體編碼器 Premium 工作流程教學課程
 ## <a name="overview"></a>概觀

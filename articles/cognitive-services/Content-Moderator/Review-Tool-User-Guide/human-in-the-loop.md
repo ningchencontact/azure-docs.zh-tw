@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 1c08b30c0e59aac21d24f75d88530ba51b67d6b4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023928"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212194"
 ---
 # <a name="human-in-the-loop"></a>人機互動
 
@@ -31,3 +31,5 @@ ms.locfileid: "44023928"
 5. 只要建立連接器，即可將人力審查新增至任何 API 或商務程序。
 6. 使用預設連接器來檢閱 Microsoft PhotoDNA、文字分析和臉部 API 的結果。
 7. 取得您內容審核程序的關鍵效能計量。
+
+![內容仲裁的影片審核工具](../images/video-review-default-view.png)

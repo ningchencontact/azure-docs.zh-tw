@@ -3,7 +3,7 @@ title: 使用 Azure Application Insights 進行使用量分析 | Microsoft Docs
 description: 了解您的使用者，以及他們如何運用您的應用程式。
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: mbullwin
-ms.openlocfilehash: 1217083980355c69fa51d7a6983c71295684f5b1
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: eeaf46a9ce523ecd11689d0aa430fcc522732f70
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633534"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139851"
 ---
 # <a name="usage-analysis-with-application-insights"></a>使用 Application Insights 進行使用量分析
 
@@ -82,7 +84,7 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 
 ## <a name="retention---how-many-users-come-back"></a>保留期 - 回來使用的使用者人數？
 
-保留期可根據同群使用者在特定時間貯體期間執行的某些商務動作，協助您了解使用者返回使用其應用程式的頻率。 
+保留期可根據同群使用者在特定時間貯體期間執行的某些商務動作，協助您了解使用者返回使用其應用程式的頻率。 
 
 - 了解相較於其他功能，哪些特定功能會讓使用者回來使用 
 - 根據實際使用者資料的表單假設 

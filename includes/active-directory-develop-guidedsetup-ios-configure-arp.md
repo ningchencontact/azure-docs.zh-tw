@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,21 +14,23 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: ff465891075bbb16774b7ecad306de222c2f2a7c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: b3ced6bbd69b38e187b3ed4fa1f2b22e5dd05ce4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46473861"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50142694"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>將應用程式的註冊資訊新增到您的應用程式
 
 在這個步驟中，您需要將應用程式識別碼新增到您的專案：
 
-1.  在 `ViewController.swift` 中，將開頭為 '`let kClientID`' 的那一行取代為：
+1. 在 `ViewController.swift` 中，將開頭為 '`let kClientID`' 的那一行取代為：
+
 ```swift
 let kClientID = "[Enter the application Id here]"
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>

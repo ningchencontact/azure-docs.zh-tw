@@ -1,12 +1,21 @@
-
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226569"
+---
 根據您的環境和選擇，指令碼可建立所有的叢集基礎結構，包括 Azure 虛擬網路、儲存體帳戶、雲端服務、網域控制站、遠端或本機 SQL Database、前端節點、及其他叢集節點。 或者，指令碼可使用既有的 Azure 基礎結構，然後只建立 HPC 叢集節點。
 
 如需規劃 HPC Pack 2012 R2 叢集的背景資訊，請參閱 HPC Pack TechNet 文件庫中的[產品評估及規劃](https://technet.microsoft.com/library/jj899596.aspx)和[快速入門](https://technet.microsoft.com/library/jj899590.aspx)內容。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **Azure 訂用帳戶**：您可以使用「Azure 全球」或「Azure 中國」服務中的訂用帳戶。 您的訂用帳戶限制將會影響到您可以部署的叢集節點類型與數量。 如需相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../articles/azure-subscription-service-limits.md)。
 * **已安裝並設定 Azure PowerShell 0.8.10 或更新版本的 Windows 用戶端電腦**：如需連線至 Azure 訂用帳戶的安裝指示和步驟，請參閱[始使用 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
 * **HPC Pack IaaS 部署指令碼**：從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=44949)下載並解壓縮最新版的指令碼。 執行 `New-HPCIaaSCluster.ps1 –Version`以檢查指令碼的版本。 這篇文章是根據 4.5.2 版的指令碼撰寫的。

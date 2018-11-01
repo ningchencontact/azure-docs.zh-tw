@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389678"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232489"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 診斷的事件彙總和收集
 > [!div class="op_single_selector"]
@@ -292,7 +292,7 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 
 ## <a name="send-logs-to-application-insights"></a>將記錄傳送至 Application Insights
 
-將監視和診斷資料傳送至 Application Insights (AI) 的作業，可以在設定 WAD 時進行。 如果您決定使用 AI 進行事件分析和視覺效果，請閱讀屬於 "WadCfg" 一部份的[如何設定 AI 接收](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)。
+將監視和診斷資料傳送至 Application Insights (AI) 的作業，可以在設定 WAD 時進行。 如果您決定使用 AI 進行事件分析和視覺效果，請閱讀屬於 "WadCfg" 一部份的[如何設定 AI 接收](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,7 +4,7 @@ description: 了解將 Media Services SDK for .NET 用於媒體服務的必要�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 639d1d6af169a0bb459dd8d6c778503b60c48e2c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5f111fea8fa1ef9f6e07c01f507e487c992729d5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783497"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233526"
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 進行媒體服務開發
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "33783497"
 
 **Azure Media Services .NET SDK 程式庫** 可讓您使用 .NET 對媒體服務進行程式設計。 為了讓使用 .NET 進行開發更為簡單，會提供 **Azure Media Services .NET SDK 延伸模組** 程式庫。 此程式庫包含一組延伸方法和協助程式函數，以簡化 .NET 程式碼。 這兩個程式庫都是透過 **NuGet** 和 **GitHub** 取得。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 新的或現有 Azure 訂用帳戶中的媒體服務帳戶。 請參閱文章[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 作業系統：Windows 10、Windows 7、Windows 2008 R2 或 Windows 8。
 * .NET Framework 4.5 或更新版本。

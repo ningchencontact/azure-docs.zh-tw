@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 05217129d4993514acaf8c717847040584984cb3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d44cfc0164892c34bcbe16ca07e9ec67190ada24
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068899"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415299"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之部署問題：常見問題集 (FAQ)
 
@@ -64,17 +64,16 @@ ms.locfileid: "34068899"
 
 如需詳細資訊，請參閱[如何更新雲端服務](cloud-services-update-azure-service.md)。
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>為什麼我在使用 Azure Resource Manager 儲存體帳戶時，無法透過服務管理 API 或 PowerShell 部署雲端服務？ 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>為什麼我在使用 Azure Resource Manager 儲存體帳戶時，無法透過服務管理 API 或 PowerShell 部署雲端服務？ 
 
-由於雲端服務是傳統資源，無法直接與 Azure Resource Manager 模型相容，因此您無法將它與 Azure Resource Manager 儲存體帳戶建立關聯。 以下提供一些選項： 
- 
+由於雲端服務是傳統資源，無法直接與 Azure Resource Manager 模型相容，因此您無法將它與 Azure Resource Manager 儲存體帳戶建立關聯。 以下提供一些選項： 
+ 
 - 透過 REST API 部署。
 
-    當您透過服務管理 REST API 部署時可以避開限制，方法為將 SAS URL 指定為 blob 存放裝置，這樣可以使用傳統和 Azure Resource Manager 儲存體帳戶。 在[這裡](https://msdn.microsoft.com/library/azure/ee460813.aspx)深入了解 'PackageUrl' 屬性。
-  
+    當您透過服務管理 REST API 部署時可以避開限制，方法為將 SAS URL 指定為 blob 存放裝置，這樣可以使用傳統和 Azure Resource Manager 儲存體帳戶。 在[這裡](https://msdn.microsoft.com/library/azure/ee460813.aspx)深入了解 'PackageUrl' 屬性。  
 - 透過 [Azure 入口網站](https://portal.azure.com)部署。
 
-    這可從 [Azure 入口網站](https://portal.azure.com)運作，因為呼叫會通過 proxy/shim，從而允許 Azure Resource Manager 和傳統資源之間的通訊。 
+    這可從 [Azure 入口網站](https://portal.azure.com)運作，因為呼叫會通過 proxy/shim，從而允許 Azure Resource Manager 和傳統資源之間的通訊。 
  
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>為何 Azure 入口網站要求我提供儲存體帳戶進行部署？ 
 

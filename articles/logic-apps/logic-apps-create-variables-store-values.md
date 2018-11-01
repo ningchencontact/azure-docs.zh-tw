@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0efce9fbbbd241f335f08bb258b6ba343982fdb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299183"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231622"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立用於儲存和管理值的變數
 
@@ -32,7 +32,7 @@ ms.locfileid: "35299183"
 
 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要依照本文進行操作，以下是您需要的項目：
 
@@ -71,8 +71,8 @@ ms.locfileid: "35299183"
 
    | 屬性 | 必要 | 值 |  說明 |
    |----------|----------|-------|--------------|
-   | Name | yes | <*variable-name*> | 要遞增的變數名稱 | 
-   | 類型 | yes | <*variable-type*> | 變數的資料類型 | 
+   | 名稱 | 是 | <*variable-name*> | 要遞增的變數名稱 | 
+   | 類型 | 是 | <*variable-type*> | 變數的資料類型 | 
    | 值 | 否 | <*start-value*> | 您的變數初始值 <p><p>**提示**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道變數的開始值。 | 
    ||||| 
 
@@ -207,7 +207,7 @@ ms.locfileid: "35299183"
 
    | 屬性 | 必要 | 值 |  說明 |
    |----------|----------|-------|--------------|
-   | Name | yes | <*variable-name*> | 要遞增的變數名稱 | 
+   | 名稱 | 是 | <*variable-name*> | 要遞增的變數名稱 | 
    | 值 | 否 | <*increment-value*> | 用來遞增變數的值。 預設值為一。 <p><p>**提示**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 | 
    |||| 
 
@@ -244,7 +244,7 @@ ms.locfileid: "35299183"
 
 2. 在觸發程序中，選擇 [顯示進階選項]。 若要讓觸發程序檢查是否有附件，並將這些附件傳遞至邏輯應用程式的工作流程，請針對下列屬性選取 [是]：
    
-   * **有附件** 
+   * **具有附件** 
    * **包含附件** 
 
    ![檢查是否有附件並包含附件](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
@@ -259,7 +259,7 @@ ms.locfileid: "35299183"
 
 5. 在迴圈中，按一下 [選取先前步驟中的輸出] 方塊內部。 當動態內容清單出現時，選取 [附件]。 
 
-   ![選取 [附件]](./media/logic-apps-create-variables-store-values/select-attachments.png)
+   ![取得「附件」](./media/logic-apps-create-variables-store-values/select-attachments.png)
 
    [附件] 欄位會將含有電子郵件附件的陣列從觸發程序輸出傳遞至您的迴圈。
 
@@ -327,7 +327,7 @@ ms.locfileid: "35299183"
 
 | 屬性 | 必要 | 值 |  說明 |
 |----------|----------|-------|--------------|
-| Name | yes | <*variable-name*> | 要遞減的變數名稱 | 
+| 名稱 | 是 | <*variable-name*> | 要遞減的變數名稱 | 
 | 值 | 否 | <*increment-value*> | 用來遞減變數的值。 預設值為一。 <p><p>**提示**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞減變數的特定值。 | 
 ||||| 
 
@@ -362,8 +362,8 @@ ms.locfileid: "35299183"
 
 | 屬性 | 必要 | 值 |  說明 | 
 |----------|----------|-------|--------------| 
-| Name | yes | <*variable-name*> | 要變更的變數名稱 | 
-| 值 | yes | <*new-value*> | 您想要指派給變數的值。 兩者必須具有相同的資料類型。 | 
+| 名稱 | 是 | <*variable-name*> | 要變更的變數名稱 | 
+| 值 | 是 | <*new-value*> | 您想要指派給變數的值。 兩者必須具有相同的資料類型。 | 
 ||||| 
 
 > [!NOTE]
@@ -420,8 +420,8 @@ ms.locfileid: "35299183"
 
 | 屬性 | 必要 | 值 |  說明 | 
 |----------|----------|-------|--------------| 
-| Name | yes | <*variable-name*> | 要變更的變數名稱 | 
-| 值 | yes | <*append-value*> | 您想要附加的值 (可以具有任何類型) | 
+| 名稱 | 是 | <*variable-name*> | 要變更的變數名稱 | 
+| 值 | 是 | <*append-value*> | 您想要附加的值 (可以具有任何類型) | 
 |||||  
 
 如果您從設計工具切換到程式碼檢視編輯器，以下是 [附加到陣列變數] 動作在您邏輯應用程式定義內顯示的樣子，其中採用 JSON 格式。
@@ -456,7 +456,7 @@ ms.locfileid: "35299183"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

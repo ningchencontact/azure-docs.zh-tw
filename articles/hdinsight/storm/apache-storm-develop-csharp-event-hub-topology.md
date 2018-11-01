@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7c37abe709559fc0628b94ba50634673c08af375
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: cda21c5b0d06335b13ba1aff0e9113544ca11c80
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051562"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414194"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
 
@@ -119,7 +119,7 @@ topologyBuilder.SetJavaBolt(
 
 * [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 
-* 開發環境有 Java JDK 1.8 或更新版本。 JDK 下載檔可從 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 取得。
+* 開發環境有 Java JDK 1.8 或更新版本。 JDK 下載檔可從 [Oracle](https://aka.ms/azure-jdks) 取得。
 
   * **JAVA_HOME** 環境變數必須指向包含 Java 的目錄。
   * **%JAVA_HOME%/bin** 目錄必須在此路徑中。

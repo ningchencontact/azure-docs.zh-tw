@@ -9,12 +9,12 @@ ms.date: 11/13/2017
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 75401614b6892402083af5192b691f00d82c8d05
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301614"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413616"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>將連續監視新增至您的發行管線
 
@@ -28,13 +28,13 @@ Azure DevOps Services 現在支援持續監視，發行管線可以從 Applicati
 
 2. 將滑鼠停留在 [組建與版本]> 選取 [版本] > 按一下 **加號**  >  [建立發行定義]> 搜尋**監視** > **Azure App Service 部署與連續監視**。
 
-   ![新增 Azure DevOps Services 發行管線](.\media\app-insights-continuous-monitoring\001.png)
+   ![新增 Azure DevOps Services 發行管線](media/app-insights-vsts-continuous-monitoring/001.png)
 
 3. 按一下 [套用]。
 
 4. 在紅色驚嘆號旁選取藍色文字以**檢視環境工作**。
 
-   ![檢視環境工作](.\media\app-insights-continuous-monitoring\002.png)
+   ![檢視環境工作](media/app-insights-vsts-continuous-monitoring/002.png)
 
    將會出現設定方塊，請使用下表來填寫輸入欄位。
 
@@ -60,7 +60,7 @@ Azure DevOps Services 現在支援持續監視，發行管線可以從 Applicati
 
 3. 修改可用性**閾值**以符合您的服務等級需求。
 
-   ![修改警示](.\media\app-insights-continuous-monitoring\003.png)
+   ![修改警示](media/app-insights-vsts-continuous-monitoring/003.png)
 
 4. 選取 [確定]  >  [儲存] > 輸入描述性註解 > 按一下 [確定]。
 
@@ -68,13 +68,13 @@ Azure DevOps Services 現在支援持續監視，發行管線可以從 Applicati
 
 1. 按一下 [管線] > 選取 [部署前的條件] 或 [部署後的條件] 符號，取決於需要連續監視閘道的階段。
 
-   ![部署前的條件](.\media\app-insights-continuous-monitoring\004.png)
+   ![部署前的條件](media/app-insights-vsts-continuous-monitoring/004.png)
 
 2. 將 [閘道] 設定為 [啟用]  >  **核准閘道** > 按一下 [新增]。
 
 3. 選取 [Azure 監視器] \(此選項可讓您存取 Azure 監視器和 Application Insights 兩者的警示)
 
-    ![Azure 監視器](.\media\app-insights-continuous-monitoring\005.png)
+    ![Azure 監視器](media/app-insights-vsts-continuous-monitoring/005.png)
 
 4. 輸入**閘道逾時**值。
 
@@ -86,7 +86,7 @@ Azure DevOps Services 現在支援持續監視，發行管線可以從 Applicati
 
 若要觀察此行為，請選取 [版本] > 以滑鼠右鍵按一下版本名稱以**開啟** > **記錄**。
 
-![記錄檔](.\media\app-insights-continuous-monitoring\006.png)
+![記錄檔](media/app-insights-vsts-continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>後續步驟
 

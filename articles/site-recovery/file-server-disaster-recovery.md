@@ -1,23 +1,19 @@
 ---
 title: 使用 Azure Site Recovery 保護檔案伺服器
 description: 本文說明如何使用 Azure Site Recovery 保護檔案伺服器
-services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 0b6d5dccbce30c55e259e4bb3f8ae4194a02b646
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0eed8179396c80e4ea26ff90b53324b9a2891df0
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916878"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214897"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護檔案伺服器 
 
@@ -69,10 +65,10 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 由於 Site Recovery 複寫無法以應用程式驗證，下列建議應該適用於下列案例。
 | 來源    |至次要網站    |至 Azure
 |---------|---------|---------|
-|Azure| -|yes|
-|Hyper-V|   yes |yes
-|VMware |yes|   yes
-|實體伺服器|   yes |yes
+|Azure| -|是|
+|Hyper-V|   是 |是
+|VMware |是|   是
+|實體伺服器|   是 |是
  
 
 > [!IMPORTANT]

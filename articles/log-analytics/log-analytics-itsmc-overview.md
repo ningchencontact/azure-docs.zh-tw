@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407498"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421181"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT Service Management Connector 將 Azure 連線到 ITSM 工具
 
-![IT 服務管理連接器符號](./media/log-analytics-itsmc/itsmc-symbol.png)
+![IT 服務管理連接器符號](media/log-analytics-itsmc-overview/itsmc-symbol.png)
 
 IT Service Management Connector (ITSMC) 可讓您連線 Azure 和支援的 IT 服務管理 (ITSM) 產品/服務。
 
@@ -56,18 +56,18 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 1.  在 Azure 入口網站中，按一下 [+新增] 圖示。
 
-    ![Azure 新增資源](./media/log-analytics-itsmc/azure-add-new-resource.png)
+    ![Azure 新增資源](media/log-analytics-itsmc-overview/azure-add-new-resource.png)
 
 2.  在 Marketplace 中搜尋 **IT Service Management Connector**，然後按一下 [建立]。
 
-    ![新增 ITSMC 解決方案](./media/log-analytics-itsmc/add-itsmc-solution.png)
+    ![新增 ITSMC 解決方案](media/log-analytics-itsmc-overview/add-itsmc-solution.png)
 
 3.  在 [OMS 工作區] 區段中，選取您要安裝解決方案的 Azure Log Analytics 工作區。
    >[!NOTE]
    >因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 工作區現在稱為 Log Analytics 工作區。
 4.  在 [OMS 工作區設定] 區段中，選取您要建立解決方案資源的資源群組。
 
-    ![ITSMC 工作區](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    ![ITSMC 工作區](media/log-analytics-itsmc-overview/itsmc-solution-workspace.png)
     >[!NOTE]
     >因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 工作區現在稱為 Log Analytics 工作區。
 
@@ -93,12 +93,12 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 1.  移至 [所有資源]、尋找 **ServiceDesk(YourWorkspaceName)**。
 2.  在左窗格的 [工作區資料來源] 下方，按一下 [ITSM 連線]。
-    ![ITSM 連線](./media/log-analytics-itsmc/itsm-connections.png)
+    ![ITSM 連線](media/log-analytics-itsmc-overview/itsm-connections.png)
 
     此頁面會顯示連線的清單。
 3.  按一下 [ **加入連接**]。
 
-    ![新增 ITSM 連線](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![新增 ITSM 連線](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
 4.  指定連線設定，如[設定與 ITSM 產品/服務的 ITSMC 連線](log-analytics-itsmc-connections.md)中所述。
 
@@ -106,7 +106,7 @@ ITSMC 支援與下列 ITSM 工具連線：
 
     > 根據預設，ITSMC 每隔 24 小時就會將連線的設定資料重新整理一次。 若要針對所做的任何編輯或範本更新將連線的資料立即重新整理，按一下連線刀鋒視窗上的 [同步] 按鈕。
 
-    ![連線重新整理](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
+    ![連線重新整理](media/log-analytics-itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>使用解決方案
@@ -123,16 +123,16 @@ ITSMC 支援與下列 ITSM 工具連線：
 1. 在 Azure 入口網站中，按一下 [監視]。
 2. 在左窗格中，按一下 [動作群組]。 [新增動作群組] 視窗隨即出現。
 
-    ![動作群組](media/log-analytics-itsmc/action-groups.png)
+    ![動作群組](media/log-analytics-itsmc-overview/action-groups.png)
 
 3. 提供動作群組的 [名稱] 與 [簡稱]。 選取您要在其中建立動作群組的 [資源群組] 與 [訂用帳戶]。
 
-    ![動作群組詳細資料](media/log-analytics-itsmc/action-groups-details.png)
+    ![動作群組詳細資料](media/log-analytics-itsmc-overview/action-groups-details.png)
 
 4. 在 [動作] 清單中，從 [動作類型] 的下拉式功能表選取 [ITSM]。 提供動作的**名稱**，然後按一下 [編輯詳細資料]。
 5. 選取 Log Analytics 工作區所在位置的 [訂用帳戶]。 選取**連線**名稱 (您的 ITSM 連接器名稱)，後面接著您的工作區名稱。 例如，"MyITSMMConnector(MyWorkspace)"。
 
-    ![ITSM 動作詳細資料](./media/log-analytics-itsmc/itsm-action-details.png)
+    ![ITSM 動作詳細資料](media/log-analytics-itsmc-overview/itsm-action-details.png)
 
 6. 從下拉式功能表選取 [工作項目] 類型。
    選擇使用現有範本，或填滿 ITSM 產品所需的欄位。
@@ -151,7 +151,7 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 事件和變更要求資料可以使用解決方案中的 ITSM Connector 儀表板進行視覺化。
 
-![Log Analytics 畫面](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
+![Log Analytics 畫面](media/log-analytics-itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 儀表板也會提供連接器狀態的相關資訊，可用來作為分析任何連線問題的起點。
 
@@ -161,7 +161,7 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 如果您使用服務對應解決方案，則可檢視 ITSM 解決方案中建立的服務台項目，如下列範例中所示：
 
-![Log Analytics 畫面](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
+![Log Analytics 畫面](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
 詳細資訊︰[服務對應](../operations-management-suite/operations-management-suite-service-map.md)
 

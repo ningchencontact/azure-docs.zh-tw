@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: c7c3aea53a1bbdbfc39bad568b2879311e365acd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226689"
+---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>在 Windows 防火牆中為 Database Engine 的預設執行個體開啟 TCP 連接埠
 1. 使用遠端桌面連線到虛擬機器。 如需連線到 VM 的詳細指示，請參閱[使用遠端桌面開啟 SQL VM](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop)。
 2. 登入後，在 [開始] 畫面中輸入 **WF.msc**，然後按 ENTER 鍵。

@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 24ba595413cde07c420a94de234d7926e0eb0e7f
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: quying
+ms.openlocfilehash: 635948c28ffe5d5eaece372976e58d26e17214e3
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311058"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084225"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 資料庫
-
-您可以部署 MySQL 資源提供者 API，以使用部署在 Azure Stack 中的 MySQL 資料庫。 如需有關資源提供者 API 的詳細資訊，請參閱 [Windows Azure 套件 MySQL 資源提供者 REST API 參考](https://msdn.microsoft.com/library/dn528442.aspx) \(英文\)。
 
 MySQL 資料庫是網站上常見的資料庫，且支援許多網站平台。 例如，您可以使用 Web Apps 平台即服務 (PaaS) 附加元件來建立 WordPress 網站。
 

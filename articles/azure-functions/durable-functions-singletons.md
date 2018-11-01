@@ -3,23 +3,19 @@ title: Durable Functions 的單次個體 - Azure
 description: 如何在 Azure Functions 的 Durable Functions 擴充中使用單次個體。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 71c0cebf676d29308fe9f4942350ae96d3bedcf6
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 58e5b06d613ee3e3311b58af64abd2411c637449
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340826"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084436"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的單次協調器
 
@@ -36,7 +32,7 @@ public static async Task<HttpResponseMessage> RunSingle(
     [OrchestrationClient] DurableOrchestrationClient starter,
     string functionName,
     string instanceId,
-    TraceWriter log)
+    ILogger log)
 {
     // Check if an instance with the specified ID already exists.
     var existingInstance = await starter.GetStatusAsync(instanceId);
@@ -45,7 +41,7 @@ public static async Task<HttpResponseMessage> RunSingle(
         // An instance with the specified ID doesn't exist, create one.
         dynamic eventData = await req.Content.ReadAsAsync<object>();
         await starter.StartNewAsync(functionName, instanceId, eventData);
-        log.Info($"Started orchestration with ID = '{instanceId}'.");
+        log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
         return starter.CreateCheckStatusResponse(req, instanceId);
     }
     else

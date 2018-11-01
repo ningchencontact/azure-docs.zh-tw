@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 58a66cfdfaada34981ef166635b0d04e2e6e8f61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57ec7c13cdf5c2e44abf23dc0452e5eab3eb77ff
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976871"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412613"
 ---
 # <a name="smart-groups"></a>智慧群組
 處理警示時所面臨的一個常見挑戰是篩選干擾以找出真正重要的事情 - 智慧群組的目的就是在解決該問題。  
@@ -44,7 +44,7 @@ ms.locfileid: "46976871"
 
 當您選取智慧群組時，會顯示 [智慧群組詳細資料] 頁面。 它提供智慧群組的相關詳細資料，包括建立該群組的原因，且可讓您變更其狀態。
  
-![智慧群組詳細資料](media/monitoring-overview-unified-alerts/smart-group-detail.png)
+![智慧群組詳細資料](media/monitoring-overview-alerts-smartgroups/smart-group-detail.png)
 
 
 [智慧群組詳細資料] 頁面包含下列區段。

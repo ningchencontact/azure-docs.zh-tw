@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133759"
+---
 1. 登入 [Azure 入口網站]。
 2. 選取 [+ 新增] > [Web + 行動] > [行動應用程式]，然後為您的行動應用程式後端提供名稱。
 3. 針對 [資源群組]，選取現有的資源群組或建立新的資源群組 (使用與應用程式相同的名稱)。 

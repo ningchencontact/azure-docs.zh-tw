@@ -3,22 +3,22 @@ title: 在 Azure IoT Central 中設定規則和動作 | Microsoft Docs
 description: 本教學課程將為建置者說明如何在 Azure IoT Central 應用程式中設定以遙測為基礎的規則和動作。
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 20dcad571a32638488ce111b5af55623f2305c57
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: fbe9e1fbd0891f2f39b05fa7ba53653188ef8e03
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310431"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158069"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>教學課程：在 Azure IoT 中心為您的裝置設定規則和動作
 
-*此文章適用於操作員、建置人員及系統管理員。*
+*本文適用於操作員、建置員及系統管理員。*
 
 在本教學課程中，您會建立在連線的空調裝置溫度超過 90&deg; F 時傳送電子郵件的規則。
 

@@ -3,20 +3,20 @@ title: Azure Functions 的 Azure Blob 儲存體繫結
 description: 瞭解如何在 Azure Functions 中使用「Azure Blob 儲存體」觸發程序和繫結。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
-ms.author: glenga
-ms.openlocfilehash: 0cd1d717189439d504232be1bc07885b12fa01bd
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.author: cshoe
+ms.openlocfilehash: c9e6898d83e5bc1360bb5b1539b12bace8acdb3f
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649698"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251034"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -88,9 +88,9 @@ ms.locfileid: "49649698"
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
-public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -126,9 +126,9 @@ Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建�
 以下是繫結至 `Stream` 的 C# 指令碼：
 
 ```cs
-public static void Run(Stream myBlob, TraceWriter log)
+public static void Run(Stream myBlob, ILogger log)
 {
-   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+   log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -139,9 +139,9 @@ public static void Run(Stream myBlob, TraceWriter log)
 
 using Microsoft.WindowsAzure.Storage.Blob;
 
-public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
+public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
 }
 ```
 
@@ -282,7 +282,7 @@ public void run(
 |**type** | n/a | 必須設為 `blobTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 例外狀況在[使用方式](#trigger---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。 | 
-|**路徑** | **BlobPath** |要監視的容器。  可能是 [Blob 名稱模式](#trigger-blob-name-patterns)。 | 
+|**路徑** | **BlobPath** |要監視的容器。  可能是 [Blob 名稱模式](#trigger---blob-name-patterns)。 | 
 |**連接** | **連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須是用於一般用途的儲存體帳戶，而不是[Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -364,9 +364,9 @@ Blob 觸發程序提供數個中繼資料屬性。 這些屬性可作為其他�
 例如，下列 C# 指令碼和 JavaScript 範例會記錄觸發 Blob 的路徑，包括容器在內：
 
 ```csharp
-public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+public static void Run(string myBlob, string blobTrigger, ILogger log)
 {
-    log.Info($"Full blob path: {blobTrigger}");
+    log.LogInformation($"Full blob path: {blobTrigger}");
 } 
 ```
 
@@ -437,9 +437,9 @@ JavaScript 函式會將整個 Blob 載入記憶體中，而 C# 函式則會在�
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```        
 
@@ -485,9 +485,9 @@ public static void Run(
 以下是 C# 指令碼程式碼：
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
@@ -569,9 +569,9 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 
 ```
@@ -583,9 +583,9 @@ public static void Run(
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
@@ -717,9 +717,9 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 以下是 C# 指令碼程式碼：
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```

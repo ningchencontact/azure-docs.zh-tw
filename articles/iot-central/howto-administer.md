@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bb0bc0aa7ad6bbbad502832ba8e0a96f36de428
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 25b4777be4257933b84d58d0f10cf12571de9590
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268291"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155315"
 ---
 # <a name="administer-your-iot-central-application"></a>管理您的 IOT Central 應用程式
 
@@ -33,7 +33,7 @@ ms.locfileid: "48268291"
 
 在 [管理] 區段中，次要導覽功能表具有各種管理工作的連結。
 
-若要存取並使用 [管理] 區段，您必須屬於 Azure IoT Central 應用程式的**管理員**角色。 如果您建立 Azure IoT Central 應用程式，就會自動將您指派給該應用程式的**管理員**角色。 此文章的＜管理使用者＞一節會進一步說明將 [系統管理員] 角色指派給其他使用者的方法。
+若要存取並使用 [管理] 區段，您必須屬於 Azure IoT Central 應用程式的**管理員**角色。 如果您建立 Azure IoT Central 應用程式，就會自動將您指派給該應用程式的**管理員**角色。 本文的 [管理使用者](#manage-users) 一節會進一步說明將 [系統管理員] 角色指派給其他使用者的方法。
 
 ## <a name="change-application-name"></a>變更應用程式名稱
 
@@ -120,7 +120,7 @@ ms.locfileid: "48268291"
 
     ![新增使用者](media\howto-administer\image2.png)
 
-1. 從 [角色] 下拉式清單中選擇使用者的角色。 請在此文章的＜Azure IoT Central 中的角色＞一節中深入了解角色。
+1. 從 [角色] 下拉式清單中選擇使用者的角色。 請在本文的＜Azure IoT Central 中的角色＞一節中深入了解角色。
 
     ![角色選取](media\howto-administer\image3.png)
 
@@ -145,7 +145,7 @@ ms.locfileid: "48268291"
 
 ## <a name="convert-your-trial-to-a-paid-application"></a>將試用轉換為付費應用程式
 
-當您評估過 IoT Central 之後，就能將試用轉換為付費應用程式。 若要完成此自助程序，請依照這些步驟執行：
+當您評估過 IoT Central 之後，就能將試用轉換為付費應用程式。 若要完成此自助程序，請遵循這些步驟：
 
 1. 使用次要導覽功能表，來移至 [管理] 區段中的 [帳單] 頁面。 如果您尚未延長試用，該頁面看起來就像下列螢幕擷取畫面：
 

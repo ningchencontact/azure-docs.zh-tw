@@ -11,12 +11,12 @@ ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918640"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230653"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視及管理 Twitter
 
@@ -48,13 +48,13 @@ ms.locfileid: "42918640"
 1. 選擇路徑： 
 
    * 針對空白邏輯應用程式，請在搜尋方塊中輸入 "twitter" 作為篩選條件。 
-   請在觸發程序清單底下，選取您想要的觸發程序。 
+   在觸發程序清單底下，選取您想要的觸發程序。 
 
      -或-
 
    * 針對現有的邏輯應用程式： 
    
-     * 請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 
+     * 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]。 
 
        -或-
 
@@ -89,7 +89,7 @@ ms.locfileid: "42918640"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

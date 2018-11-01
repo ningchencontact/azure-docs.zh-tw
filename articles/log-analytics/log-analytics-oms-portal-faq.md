@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404557"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419787"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Log Analytics 使用者從 OMS 入口網站轉換到 Azure 入口網站的常見問題
 Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網站) 來管理其設定和分析收集到的資料。  這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。
@@ -32,7 +32,7 @@ Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網�
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>在哪裡可以找到 Azure 中的 Log Analytics？
 在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。  按一下 [所有服務]，然後在資源清單中鍵入 **Log Analytics**。 選取 [Log Analytics]，然後選取您的工作區。 工作區的 [摘要] 頁面隨即出現。
 
-![Log Analytics 工作區](media/log-analytics-new-portal/log-analytics.png)
+![Log Analytics 工作區](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>如何管理權限？
 如果您沒有 Azure 入口網站中 Log Analytics 工作區的存取權，則需要使用 [Azure 角色型存取](../active-directory/role-based-access-control-configure.md)來設定您的權限。 如需管理工作區權限的詳細資料，請參閱[管理工作區](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users)。 如需管理警示權限的資訊，請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md)。
@@ -40,12 +40,12 @@ Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網�
 ## <a name="how-do-i-create-a-new-workspace"></a>如何建立新工作區？ 
 從 Azure 入口網站的工作區清單中，按一下工作區清單中的 [新增]。  如需完整詳細資料，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
 
-![概觀分頁](media/log-analytics-new-portal/new-workspace.png)
+![概觀分頁](media/log-analytics-oms-portal-faq/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>概觀頁面在何處？
 OMS 入口網站的主畫面會顯示下列磚：工作區中已安裝的所有管理解決方案，以及任何您已建立的自訂檢視。 Azure 入口網站中也會有相同的檢視。 從工作區中選取 [工作區摘要]。
 
-![概觀分頁](media/log-analytics-new-portal/overview.png)
+![概觀分頁](media/log-analytics-oms-portal-faq/overview.png)
 
 ## <a name="how-do-i-open-log-search-and-view-designer"></a>如何開啟記錄搜尋和檢視設計工具？
 [記錄搜尋] 和 [檢視設計工具] 都位於 Azure 入口網站的主頁面及工作區的左側功能表中 (緊接在 [概觀] 旁邊)。
@@ -53,7 +53,7 @@ OMS 入口網站的主畫面會顯示下列磚：工作區中已安裝的所有�
 ## <a name="where-do-i-find-settings"></a>在哪裡可以找到設定？
 OMS 入口網站之 [設定] 區段中的許多設定，都位於 Azure 入口網站工作區的 [進階設定] 功能表中。
 
-![進階設定](media/log-analytics-new-portal/advanced-settings.png)
+![進階設定](media/log-analytics-oms-portal-faq/advanced-settings.png)
 
 下列各節提供如何存取 OMS 入口網站的 [設定] 區段先前提供之設定的完整清單。
 
@@ -118,7 +118,7 @@ OMS 入口網站之 [設定] 區段中的許多設定，都位於 Azure 入口�
 ## <a name="how-do-i-check-my-usage"></a>如何查看我的使用量？
 現在，您可以藉由選取工作區中的 [使用量和估計成本]，輕鬆地檢視及管理您的 Log Analytics 使用量和成本。
 
-![使用量和估計成本](media/log-analytics-new-portal/usage.png)
+![使用量和估計成本](media/log-analytics-oms-portal-faq/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>仍然可以使用傳統入口網站嗎？

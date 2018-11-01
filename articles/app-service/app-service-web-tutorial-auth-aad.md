@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599612"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416149"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教學課程：在 Azure App Service 中端對端驗證和授權使用者
 
@@ -82,6 +82,10 @@ dotnet run
 ## <a name="deploy-apps-to-azure"></a>將應用程式部署至 Azure
 
 在此步驟中，您會將專案部署至兩個 App Service 應用程式。 一個是前端應用程式，另一個是後端應用程式。
+
+### <a name="configure-a-deployment-user"></a>設定部署使用者
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-azure-resources"></a>建立 Azure 資源
 

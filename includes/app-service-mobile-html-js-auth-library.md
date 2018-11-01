@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132737"
+---
 ### <a name="server-auth"></a>作法：向提供者驗證 (伺服器流程)
 若要讓 Mobile Apps 管理應用程式中的驗證程序，您必須向識別提供者註冊應用程式。 接著在您的 Azure App Service 中，您必須設定提供者所提供的應用程式識別碼和密碼。
 如需詳細資訊，請參閱 [將驗證新增至您的應用程式](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md)教學課程。

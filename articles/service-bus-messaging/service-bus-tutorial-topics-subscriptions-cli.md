@@ -5,16 +5,16 @@ services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 07ad8fc873a483b5d71d7ddd21f8f2a820bbfadc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1d2be579dda9f90f06897f11d62ccd08076f892e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982370"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413565"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教學課程：使用 CLI 和主題/訂用帳戶來更新庫存
 
@@ -38,7 +38,7 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 
 若要使用 Java 開發服務匯流排應用程式，您必須安裝下列項目：
 
-- 最新版本的 [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。
+- 最新版本的 [Java Development Kit](https://aka.ms/azure-jdks)。
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
 - [Apache Maven](https://maven.apache.org) 3.0 版或更高版本。
 

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a6077b3e10562b4aee313cccd86256b8f00084ec
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 75d630b91a1380102fd285edfb11effa22f47859
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411853"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413210"
 ---
 # <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights
 
@@ -105,20 +105,20 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 |收集的資料                              |  |  | 效能測試案例 |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | 快速效能分析 | 效能評定 | 效能分析 | Azure 檔案分析 | 進階效能分析 |
-| 來自事件記錄的資訊       | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 系統資訊                | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 磁碟區對應                        | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 磁碟對應                          | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 正在執行的工作                     | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 儲存體可靠性計數器      | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 儲存體資訊               | 是                        | yes                                | yes                      | yes                  | 是                  |
-| Fsutil 輸出                     | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 篩選器驅動程式資訊                | 是                        | yes                                | yes                      | yes                  | 是                  |
-| Netstat 輸出                    | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 網路組態             | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 防火牆設定            | 是                        | yes                                | yes                      | yes                  | 是                  |
-| SQL Server 設定          | 是                        | yes                                | yes                      | yes                  | 是                  |
-| 效能診斷追蹤 *  | 是                        | yes                                | yes                      | yes                  | 是                  |
+| 來自事件記錄的資訊       | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 系統資訊                | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 磁碟區對應                        | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 磁碟對應                          | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 正在執行的工作                     | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 儲存體可靠性計數器      | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 儲存體資訊               | 是                        | 是                                | 是                      | 是                  | 是                  |
+| Fsutil 輸出                     | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 篩選器驅動程式資訊                | 是                        | 是                                | 是                      | 是                  | 是                  |
+| Netstat 輸出                    | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 網路組態             | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 防火牆設定            | 是                        | 是                                | 是                      | 是                  | 是                  |
+| SQL Server 設定          | 是                        | 是                                | 是                      | 是                  | 是                  |
+| 效能診斷追蹤 *  | 是                        | 是                                | 是                      | 是                  | 是                  |
 | 效能計數器追蹤 **      |                            |                                    | 是                      |                      | 是                  |
 | SMB 計數器追蹤 **              |                            |                                    |                          | 是                  |                      |
 | SQL Server 計數器追蹤 **       |                            |                                    | 是                      |                      | 是                  |

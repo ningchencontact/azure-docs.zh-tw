@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: e853545e07709d82fa1e3b1143392e6d6012f6f6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c7464558dd7227303fd7a3cc8be71ca5e2d2cfca
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227583"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414959"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>使用見解權杖取得影像的相關見解
 
@@ -244,7 +244,7 @@ namespace VisualSearchInsightsToken
 
 ### <a name="prerequisites"></a>必要條件
 
-您將需要有 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
+您將需要有 [JDK 7 或 8](https://aka.ms/azure-jdks)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
 
 在本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)的訂用帳戶金鑰或付費的訂用帳戶金鑰。
 

@@ -4,19 +4,19 @@ description: 本文解釋資產是什麼，以及 Azure 媒體服務用它們來
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284833"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085781"
 ---
 # <a name="assets"></a>Assets
 
@@ -34,19 +34,19 @@ ms.locfileid: "36284833"
 
 下表顯示資產屬性並提供其定義。
 
-|Name|類型|說明|
-|---|---|---|
-|id|字串|資源的完整資源識別碼。|
-|name|字串|資源名稱。|
-|properties.alternateId |字串|資產的替代 ID。|
-|properties.assetId |字串|資產識別碼。|
-|properties.container |字串|資產 Blob 容器的名稱。|
-|properties.created |字串|資產的建立日期。|
-|properties.description |字串|資產描述。|
-|properties.lastModified |字串|資產的上次修改日期。|
-|properties.storageAccountName |字串|儲存體帳戶的名稱。|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |資產加密格式。 None 或 MediaStorageEncryption 其中一個。|
-|type|字串|資源類型。|
+|名稱|說明|
+|---|---|
+|id|資源的完整資源識別碼。|
+|name|資源名稱。|
+|properties.alternateId |資產的替代 ID。|
+|properties.assetId |資產識別碼。|
+|properties.container |資產 Blob 容器的名稱。|
+|properties.created |資產的建立日期。|
+|properties.description|資產描述。|
+|properties.lastModified |資產的上次修改日期。|
+|properties.storageAccountName |儲存體帳戶的名稱。|
+|properties.storageEncryptionFormat |資產加密格式。 None 或 MediaStorageEncryption 其中一個。|
+|type|資源類型。|
 
 如需完整定義，請參閱[資產](https://docs.microsoft.com/rest/api/media/assets)。
 
@@ -59,18 +59,27 @@ ms.locfileid: "36284833"
 * $top 
 * $skiptoken 
 
+運算子說明：
+
+* Eq = 等於
+* Ne = 不等於
+* Ge = 大於或等於
+* Le = 小於或等於
+* Gt = 大於
+* Lt = 小於
+
 ### <a name="filteringordering"></a>篩選/排序
 
 下表顯示這些選項可如何套用至資產屬性： 
 
-|Name|Filter|順序|
+|名稱|Filter|順序|
 |---|---|---|
-|id|支援：<br/>Equals<br/>大於<br/>小於|支援：<br/>遞增<br/>遞減|
-|name|||
-|properties.alternateId |支援：<br/>Equals||
-|properties.assetId |支援：<br/>Equals||
+|id|||
+|name|支援：Eq、Gt、Lt|支援：遞增和遞減|
+|properties.alternateId |支援：Eq||
+|properties.assetId |支援：Eq||
 |properties.container |||
-|properties.created|支援：<br/>Equals<br/>大於<br/>小於|支援：<br/>遞增<br/>遞減|
+|properties.created|支援：Eq、Gt、Lt| 支援：遞增和遞減|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
@@ -86,9 +95,12 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### <a name="pagination"></a>分頁
 
-在四個已啟用的分類排序中，每一個皆可支援分頁。 
+在四個已啟用的分類排序中，每一個皆可支援分頁。 目前的頁面大小為 1000。
 
-如果查詢回應包含許多 (目前超過 1000 個) 項目，服務會傳回 "\@odata.nextLink" 屬性，以取得下一頁的結果。 這可用來逐頁查看整個結果集。 使用者無法設定頁面大小。 
+> [!TIP]
+> 您應一律使用下一個連結來列舉集合，而不應依存於特定頁面大小。
+
+如果查詢回應包含許多項目，服務會傳回 "\@odata.nextLink" 屬性，以取得下一頁的結果。 這可用來逐頁查看整個結果集。 您無法設定頁面大小。 
 
 如果逐頁查看集合時，有資產建立或刪除，則所做的變更會反映在傳回的結果中 (如果這些變更屬於尚未下載的集合)。 
 
@@ -106,7 +118,6 @@ while (currentPage.NextPageLink != null)
 
 如需其他範例，請參閱[資產 - 清單](https://docs.microsoft.com/rest/api/media/assets/list)
 
-
 ## <a name="storage-side-encryption"></a>儲存端加密
 
 若要保護待用資產，資產應該透過儲存端加密來進行加密。 下表顯示儲存端加密在媒體服務中的運作方式：
@@ -123,5 +134,4 @@ while (currentPage.NextPageLink != null)
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [串流處理檔案](stream-files-dotnet-quickstart.md)
+[串流處理檔案](stream-files-dotnet-quickstart.md)

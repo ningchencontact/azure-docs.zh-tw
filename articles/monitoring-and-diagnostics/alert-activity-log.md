@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 3c8202f762c65d72417020b0524e415e55076eb0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248324"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415251"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure 監視器中建立、檢視及管理活動記錄警示  
 
@@ -43,11 +43,11 @@ ms.locfileid: "48248324"
 1. 從 Azure 入口網站選取 [監視器] > [警示]
 2. 按一下 [警示] 視窗頂端的 [新增警示規則]。
 
-     ![新增警示規則](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+     ![新增警示規則](media/alert-activity-log/AlertsPreviewOption.png)
 
      [建立規則] 視窗隨即出現。
 
-      ![新增警示規則選項](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule-options.png)
+      ![新增警示規則選項](media/alert-activity-log/create-new-alert-rule-options.png)
 
 3. 在 [定義警示條件] 下提供下列資訊，然後按一下 [完成]。
 
@@ -57,7 +57,7 @@ ms.locfileid: "48248324"
 
     > 您可以為活動記錄訊號選取資源、資源群組或整個訂用帳戶。
 
-    **警示目標範例檢視**![選取目標](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
+    **警示目標範例檢視**![選取目標](media/alert-activity-log/select-target.png)
 
     - 在 [目標準則] 之下，按一下 [新增準則]，接著會顯示適用於目標的所有可用訊號，包括來自 [活動記錄] 各種類別的訊號；具有附加在 [監視服務] 名稱中的類別名稱。
 
@@ -67,7 +67,7 @@ ms.locfileid: "48248324"
 
     **新增準則畫面**
 
-    ![新增準則](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+    ![新增準則](media/alert-activity-log/add-criteria.png)
 
     **歷程記錄時間**：所選作業的可用事件是可在過去 6/12/24 小時 (或) 過去一週繪製的。
 
@@ -79,7 +79,7 @@ ms.locfileid: "48248324"
 
         已套用警示邏輯的範例訊號圖表：
 
-        ![ 選取的準則](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ 選取的準則](media/alert-activity-log/criteria-selected.png)
 
 4. 在 [定義警示規則詳細資料] 下，提供下列詳細資料：
 
@@ -99,20 +99,20 @@ ms.locfileid: "48248324"
 
 或者，有一個簡單類比可用來了解哪些警示規則可在活動記錄上建立，就是透過 [Azure 入口網站中的活動記錄](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal)探索或篩選事件。 在 Azure 監視器 - 活動記錄中，您可以篩選或尋找必要事件，然後透過使用 [新增活動記錄警示] 按鈕來建立警示；然後依照以上教學課程中所述的步驟 4 開始。
     
- ![ 從活動記錄新增警示](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
+ ![ 從活動記錄新增警示](media/alert-activity-log/add-activity-log.png)
     
 
 ### <a name="view-and-manage-in-azure-portal"></a>在 Azure 入口網站中檢視及管理
 
 1. 從 Azure 入口網站按一下 [監視器] > [警示]，然後按一下視窗左上方的 [管理規則]。
 
-    ![ 管理警示規則](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ 管理警示規則](media/alert-activity-log/manage-alert-rules.png)
 
     可用規則清單隨即出現。
 
 2. 搜尋要修改的活動記錄規則。
 
-    ![ 搜尋活動記錄警示規則](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
+    ![ 搜尋活動記錄警示規則](media/alert-activity-log/searth-activity-log-rule-to-edit.png)
 
     您可以使用可用的篩選條件 ([訂用帳戶][資源群組][資源][訊號類型] 或 [狀態]) 來尋找您想要編輯的活動規則。
 
@@ -122,7 +122,7 @@ ms.locfileid: "48248324"
 
 3.  選取規則，然後按兩下以編輯規則選項。 進行所需的變更，然後按一下 [儲存]。
 
-    ![ 管理警示規則](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
+    ![ 管理警示規則](media/alert-activity-log/activity-log-rule-edit-page.png)
 
 4.  您可以停用、啟用或刪除規則。 選取規則之後，在視窗頂端選取適當選項，詳細資料如步驟 2 所示。
 
@@ -195,7 +195,7 @@ ms.locfileid: "48248324"
   ]
 }
 ```
-基於此逐步解說的目的，上述 json 範例可儲存為 (假設) sampleActivityLogAlert.json，而且可以使用 [Azure 入口網站中的 Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md) 進行部署。
+基於本逐步解說的目的，上述 json 範例可儲存為 (假設) sampleActivityLogAlert.json，而且可以使用 [Azure 入口網站中的 Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md) 進行部署。
 
 > [!NOTE]
 > 新活動記錄警示規則最多可能需要 5 分鐘的時間才會運作

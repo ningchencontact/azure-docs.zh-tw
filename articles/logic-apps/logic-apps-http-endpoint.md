@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 9c02a0f540f52007412a850b9d69e337743fc35f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300193"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230483"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程
 
@@ -312,7 +312,7 @@ ms.locfileid: "35300193"
 
 若要提出問題、回答問題以及了解其他 Azure Logic Apps 使用者的做法，請造訪 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
 
-若要改善 Azure Logic Apps 和連接器，請在 [Azure Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)上票選或提交想法。
+若要改善 Azure Logic Apps 和連接器，請在 [Azure Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)上票選或提交想法。
 
 ## <a name="next-steps"></a>後續步驟
 

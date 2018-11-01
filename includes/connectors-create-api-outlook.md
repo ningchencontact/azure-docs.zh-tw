@@ -1,3 +1,16 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 187906a912c999142d764de6ad5da3daccf63ba7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133380"
+---
 1. 在搜尋方塊中，輸入「outlook.com 」作為篩選條件。 在此範例中，選取此觸發程序：**新的電子郵件送達時**
 
    ![尋找 Outlook.com 觸發程序或動作](./media/connectors-create-api-outlook/select-outlook.png)

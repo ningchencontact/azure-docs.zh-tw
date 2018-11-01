@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: b560022f1f727949021a599e1ab342551f64c084
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129127"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419770"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log Analytics 中的檢視設計工具視覺效果組件參考指南
 藉由使用 Azure Log Analytics 中的檢視設計工具，您可以在 Azure 入口網站中建立能呈現來自 Log Analytics 工作區之各種資料視覺效果的自訂檢視。 此文章是自訂檢視中可用的視覺效果組件設定的參考指南。
@@ -50,7 +50,7 @@ ms.locfileid: "37129127"
 ## <a name="list-of-queries-part"></a>查詢清單部分
 查詢清單組件會顯示記錄搜尋查詢的清單。 您可以選取每個查詢以顯示其結果。 根據預設，檢視會包含單一查詢，您可以選取 [+ 查詢] 來新增額外的查詢。
 
-![查詢清單檢視](media/log-analytics-view-designer/view-list-queries.png)
+![查詢清單檢視](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
@@ -66,7 +66,7 @@ ms.locfileid: "37129127"
 ## <a name="number-and-list-part"></a>數字與清單組件
 標頭會顯示一個數字，可顯示來自記錄搜尋查詢的記錄計數。 清單會顯示查詢的前 10 筆結果，並包含表示數值資料行的相對值或一段時間內之變更的圖表。
 
-![查詢清單檢視](media/log-analytics-view-designer/view-number-list.png)
+![查詢清單檢視](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
@@ -87,7 +87,7 @@ ms.locfileid: "37129127"
 | 名稱和值分隔符號 |要用於將文字屬性剖析成多個值的單一字元分隔符號。 如需詳細資訊，請參閱[一般設定](#sparklines)。 |
 | 點選瀏覽 | 當您按一下清項目時所採取的動作。  如需詳細資訊，請參閱[一般設定](#click-through-navigation)。 |
 | **清單** |**> 資料行標題** |
-| Name |圖表第一個資料行上方顯示的文字。 |
+| 名稱 |圖表第一個資料行上方顯示的文字。 |
 | 值 |圖表第二個資料行上方顯示的文字。 |
 | **清單** |**> 臨界值** |
 | 啟用臨界值 |選取此連結以啟用閾值。 如需詳細資訊，請參閱[一般設定](#thresholds)。 |
@@ -95,7 +95,7 @@ ms.locfileid: "37129127"
 ## <a name="two-numbers-and-list-part"></a>兩個數字與清單組件
 標頭中有兩個數字可顯示不同記錄檔搜尋查詢中的記錄計數。 清單會顯示查詢的前 10 筆結果，並包含表示數值資料行的相對值或一段時間內之變更的圖表。
 
-![兩個數字與清單檢視](media/log-analytics-view-designer/view-two-numbers-list.png)
+![兩個數字與清單檢視](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
@@ -118,7 +118,7 @@ ms.locfileid: "37129127"
 | 名稱和值分隔符號 |要用於將文字屬性剖析成多個值的單一字元分隔符號。 如需詳細資訊，請參閱[一般設定](#sparklines)。 |
 | 點選瀏覽 | 當您按一下清項目時所採取的動作。  如需詳細資訊，請參閱[一般設定](#click-through-navigation)。 |
 | **清單** |**> 資料行標題** |
-| Name |圖表第一個資料行上方顯示的文字。 |
+| 名稱 |圖表第一個資料行上方顯示的文字。 |
 | 值 |圖表第二個資料行上方顯示的文字。 |
 | **清單** |**> 臨界值** |
 | 啟用臨界值 |選取此連結以啟用閾值。 如需詳細資訊，請參閱[一般設定](#thresholds)。 |
@@ -126,7 +126,7 @@ ms.locfileid: "37129127"
 ## <a name="donut-and-list-part"></a>環圈圖與清單組件
 標頭會顯示一個數字，彙總了記錄檔查詢中的值資料行。 環圈會以圖形方式顯示前三筆記錄的結果。
 
-![環圈圖與清單檢視](media/log-analytics-view-designer/view-donut-list.png)
+![環圈圖與清單檢視](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
@@ -159,7 +159,7 @@ ms.locfileid: "37129127"
 | 名稱和值分隔符號 |要用於將文字屬性剖析成多個值的單一字元分隔符號。 如需詳細資訊，請參閱[一般設定](#sparklines)。 |
 | 點選瀏覽 | 當您按一下清項目時所採取的動作。  如需詳細資訊，請參閱[一般設定](#click-through-navigation)。 |
 | **清單** |**> 資料行標題** |
-| Name |圖表第一個資料行上方顯示的文字。 |
+| 名稱 |圖表第一個資料行上方顯示的文字。 |
 | 值 |圖表第二個資料行上方顯示的文字。 |
 | **清單** |**> 臨界值** |
 | 啟用臨界值 |選取此連結以啟用閾值。 如需詳細資訊，請參閱[一般設定](#thresholds)。 |
@@ -167,7 +167,7 @@ ms.locfileid: "37129127"
 ## <a name="two-timelines-and-list-part"></a>兩個時間軸與清單組件
 標頭會將一段時間內兩個記錄檔查詢的結果顯示為直條圖，其圖說文字會顯示一個數字，彙總了記錄檔查詢中的值資料行。 清單會顯示查詢的前 10 筆結果，並包含表示數值資料行的相對值或一段時間內之變更的圖表。
 
-![兩個時間軸與清單檢視](media/log-analytics-view-designer/view-two-timelines-list.png)
+![兩個時間軸與清單檢視](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
@@ -191,7 +191,7 @@ ms.locfileid: "37129127"
 | 作業 |要對走勢圖執行的作業。 如需詳細資訊，請參閱[一般設定](#sparklines)。 |
 | 點選瀏覽 | 當您按一下清項目時所採取的動作。  如需詳細資訊，請參閱[一般設定](#click-through-navigation)。 |
 | **清單** |**> 資料行標題** |
-| Name |圖表第一個資料行上方顯示的文字。 |
+| 名稱 |圖表第一個資料行上方顯示的文字。 |
 | 值 |圖表第二個資料行上方顯示的文字。 |
 | **清單** |**> 臨界值** |
 | 啟用臨界值 |選取此連結以啟用閾值。 如需詳細資訊，請參閱[一般設定](#thresholds)。 |
@@ -199,7 +199,7 @@ ms.locfileid: "37129127"
 ## <a name="information-part"></a>資訊部分
 標頭會顯示靜態文字和選擇性連結。 清單會顯示一或多個包含靜態標題和文字的項目。
 
-![資訊檢視](media/log-analytics-view-designer/view-information.png)
+![資訊檢視](media/log-analytics-view-designer-parts/view-information.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
@@ -220,7 +220,7 @@ ms.locfileid: "37129127"
 ## <a name="line-chart-callout-and-list-part"></a>折線圖、圖說文字與清單組件
 標頭會顯示一個折線圖，其中包含一段時間內記錄查詢中的多個數列，以及包含彙總值的圖說文字。 清單會顯示查詢的前 10 筆結果，並包含表示數值資料行的相對值或一段時間內之變更的圖表。
 
-![折線圖、圖說文字與清單檢視](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![折線圖、圖說文字與清單檢視](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
@@ -252,7 +252,7 @@ ms.locfileid: "37129127"
 | 名稱和值分隔符號 |要用於將文字屬性剖析成多個值的單一字元分隔符號。 如需詳細資訊，請參閱[一般設定](#sparklines)。 |
 | 點選瀏覽 | 當您按一下清項目時所採取的動作。  如需詳細資訊，請參閱[一般設定](#click-through-navigation)。 |
 | **清單** |**> 資料行標題** |
-| Name |圖表第一個資料行上方顯示的文字。 |
+| 名稱 |圖表第一個資料行上方顯示的文字。 |
 | 值 |圖表第二個資料行上方顯示的文字。 |
 | **清單** |**> 臨界值** |
 | 啟用臨界值 |選取此連結以啟用閾值。 如需詳細資訊，請參閱[一般設定](#thresholds)。 |
@@ -260,7 +260,7 @@ ms.locfileid: "37129127"
 ## <a name="line-chart-and-list-part"></a>折線圖與清單組件
 標頭會顯示一個折線圖，其中包含一段時間內記錄查詢中的多個數列。 清單會顯示查詢的前 10 筆結果，並包含表示數值資料行的相對值或一段時間內之變更的圖表。
 
-![折線圖與清單檢視](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![折線圖與清單檢視](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
@@ -288,7 +288,7 @@ ms.locfileid: "37129127"
 | 名稱和值分隔符號 |要用於將文字屬性剖析成多個值的單一字元分隔符號。 如需詳細資訊，請參閱[一般設定](#sparklines)。 |
 | 點選瀏覽 | 當您按一下清項目時所採取的動作。  如需詳細資訊，請參閱[一般設定](#click-through-navigation)。 |
 | **清單** |**> 資料行標題** |
-| Name |圖表第一個資料行上方顯示的文字。 |
+| 名稱 |圖表第一個資料行上方顯示的文字。 |
 | 值 |圖表第二個資料行上方顯示的文字。 |
 | **清單** |**> 臨界值** |
 | 啟用臨界值 |選取此連結以啟用閾值。 如需詳細資訊，請參閱[一般設定](#thresholds)。 |
@@ -296,7 +296,7 @@ ms.locfileid: "37129127"
 ## <a name="stack-of-line-charts-part"></a>折線圖部分堆疊
 堆疊的折線圖會顯示三個獨立的折線圖，其中包含一段時間內記錄查詢中的多個系列，如下所示：
 
-![折線圖堆疊](media/log-analytics-view-designer/view-stack-line-charts.png)
+![折線圖堆疊](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | 設定 | 說明 |
 |:--- |:--- |
@@ -324,7 +324,7 @@ ms.locfileid: "37129127"
 例如，考慮名為 *Location* 的屬性，其包含 *Redmond-Building 41* 和 *Bellevue-Building 12* 等值。 您可以指定虛線 (-) 作為名稱和值分隔符號，以及指定 *City-Building* 作為名稱。 此方法會將每個值剖析成兩個名為 *City* 和 *Building* 的屬性。
 
 ### <a name="click-through-navigation"></a>點選瀏覽
-點選瀏覽會定義當您按一下標頭或檢視中的清單項目時，要採取哪個動作。  這樣會在[記錄搜尋入口網站](log-analytics-log-search-portals.md#log-search)中開啟查詢，或啟動另一個檢視。
+點選瀏覽會定義當您按一下標頭或檢視中的清單項目時，要採取哪個動作。  這樣會在[記錄搜尋入口網站](log-analytics-log-search-portals.md)中開啟查詢，或啟動另一個檢視。
 
 下表描述點選瀏覽的設定。
 
@@ -358,7 +358,7 @@ ms.locfileid: "37129127"
 | 設定 | 說明 |
 |:--- |:--- |
 | 啟用臨界值 |選取此連結可在每個值的左側顯示色彩圖示。 圖示表示相對於指定的閾值，值的健全狀況。 |
-| Name |閾值的名稱。 |
+| 名稱 |閾值的名稱。 |
 | 閾值 |閾值。 每個清單項目的健康狀態色彩都是設定為項目值所超出之最高閾值的色彩。 如果未超過任何閾值，即會使用預設色彩。 |
 | 色彩 |表示閾值的色彩。 |
 

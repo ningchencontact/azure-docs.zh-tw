@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: bfeee293dfb86db2be8e799f60b5e025477293d5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 913d1b9125bcfa57334e70dcca44965fdb3d5ba6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465554"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242053"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>教學課程 - 使用 Azure CLI 在虛擬機器擴展集中安裝應用程式
 若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 在先前的教學課程中，您已了解如何建立及使用自訂 VM 映像來部署您的 VM 執行個體。 此自訂映像已包含手動應用程式安裝和組態。 您也可以在部署好每個 VM 執行個體後，讓應用程式自動安裝到擴展集，或更新已在擴展集上執行的應用程式。 在本教學課程中，您將了解如何：
@@ -49,7 +49,7 @@ ms.locfileid: "49465554"
 ## <a name="create-custom-script-extension-definition"></a>建立自訂指令碼擴充功能的定義
 若要查看作用中的自訂指令碼擴充功能，可建立擴展集來安裝 NGINX Web 伺服器，並輸出 VM 執行個體的主機名稱。 下列自訂指令碼擴充功能定義會從 GitHub 下載範例指令碼、安裝必要的套件，然後將 VM 執行個體主機名稱寫入基本的 HTML 頁面。
 
-在您目前的殼層中，建立名為 *customConfig.json* 的檔案並貼上下列設定。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 您可以使用任何您想要的編輯器。 在 Cloud Shell 中，輸入 `sensible-editor cloudConfig.json` 以建立檔案並查看可用的編輯器清單。
+在您目前的殼層中，建立名為 *customConfig.json* 的檔案並貼上下列設定。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 您可以使用任何您想要的編輯器。 在 Cloud Shell 中，輸入 `sensible-editor customConfig.json` 以建立檔案並查看可用的編輯器清單。
 
 ```json
 {

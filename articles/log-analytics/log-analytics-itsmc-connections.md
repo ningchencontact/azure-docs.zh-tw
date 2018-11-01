@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409198"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416455"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>將 ITSM 產品/服務與 IT Service Management Connector 連線
 本文提供如何設定 ITSM 產品/服務與 Log Analytics 中 IT Service Management Connector (ITSMC) 之間的連線，以集中管理工作項目的相關資訊。 如需 ITSMC 的詳細資訊，請參閱[概觀](log-analytics-itsmc-overview.md)。
@@ -57,7 +57,7 @@ ms.locfileid: "49409198"
 
 2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
 
-    ![新增連線](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![新增連線](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. 在右窗格頂端按一下 [新增]。
 
@@ -78,7 +78,7 @@ ms.locfileid: "49409198"
 | **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
 | **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，Log Analytics 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
 
-![Service Manager 連線](./media/log-analytics-itsmc/service-manager-connection.png)
+![Service Manager 連線](media/log-analytics-itsmc-connections/service-manager-connection.png)
 
 **順利連線並同步處理時**︰
 
@@ -128,14 +128,14 @@ ms.locfileid: "49409198"
 2. 按一下 [設定] > [網路]。
 3. 在 [混合式連線] 下，按一下 [設定混合式連線端點]。
 
-    ![混合式連線網路](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
+    ![混合式連線網路](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
 4. 在 [混合式連線] 刀鋒視窗上，按一下 [新增混合式連線]。
 
-    ![混合式連線新增](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
+    ![混合式連線新增](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
 5. 在 [新增混合式連線] 刀鋒視窗上，按一下 [建立新的混合式連線]。
 
-    ![新增混合式連線](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
+    ![新增混合式連線](media/log-analytics-itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. 輸入下列值：
 
@@ -146,14 +146,14 @@ ms.locfileid: "49409198"
     - **位置**：選取位置。
     -  **名稱**︰如果您要建立服務匯流排，請為它指定名稱。
 
-    ![混合式連線值](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
+    ![混合式連線值](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. 按一下 [確定] 將 [建立混合式連線] 刀鋒視窗關閉，然後開始建立混合式連線。
 
     建立混合式連線之後，它會顯示在刀鋒視窗下。
 
 7. 建立混合式連線之後，請選取連線，然後按一下 [新增所選的混合式連線]。
 
-    ![新增混合式連線](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+    ![新增混合式連線](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
 #### <a name="configure-the-listener-setup"></a>設定接聽程式設定
 
@@ -171,14 +171,14 @@ ms.locfileid: "49409198"
 
 混合式連線已成功連線。
 
-![混合式連線成功](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
+![混合式連線成功](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
 > 建立混合式連線之後，可瀏覽已部署的 Service Manager Web 應用程式來驗證及測試連線。 嘗試連線到 Azure 中的 ITSMC 之前，請確定連線成功。
 
 以下範例影像顯示連線成功的詳細資料︰
 
-![混合式連線測試](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
+![混合式連線測試](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-test.png)
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>將 ServiceNow 連線到 Azure 中的 IT Service Management Connector
 
@@ -209,7 +209,7 @@ ms.locfileid: "49409198"
 1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
 2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
-    ![新增連線](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![新增連線](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. 在右窗格頂端按一下 [新增]。
 
@@ -232,7 +232,7 @@ ms.locfileid: "49409198"
 | **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
 | **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，ITSMC 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
 
-![ServiceNow 連線](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
+![ServiceNow 連線](media/log-analytics-itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
 **順利連線並同步處理時**︰
 
@@ -304,7 +304,7 @@ ms.locfileid: "49409198"
 1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
 2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
-    ![新增連線](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![新增連線](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. 在右窗格頂端按一下 [新增]。
 
@@ -326,7 +326,7 @@ ms.locfileid: "49409198"
 | **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
 | **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，ITSMC 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。|
 
-![Provance 連線](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
+![Provance 連線](media/log-analytics-itsmc-connections/itsm-connections-provance-latest.png)
 
 **順利連線並同步處理時**︰
 
@@ -355,7 +355,7 @@ ms.locfileid: "49409198"
 1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
 2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
-    ![新增連線](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![新增連線](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. 在右窗格頂端按一下 [新增]。
 
@@ -378,7 +378,7 @@ ms.locfileid: "49409198"
 | **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，ITSMC 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
 
 
-![Provance 連線](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
+![Provance 連線](media/log-analytics-itsmc-connections/itsm-connections-cherwell-latest.png)
 
 **順利連線並同步處理時**︰
 
@@ -396,7 +396,7 @@ ms.locfileid: "49409198"
 2. 按一下 [安全性] > [編輯 REST API 用戶端設定]。
 3. 選取 [建立新的用戶端] > [用戶端祕密]。
 
-    ![Cherwell 使用者識別碼](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
+    ![Cherwell 使用者識別碼](media/log-analytics-itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>後續步驟

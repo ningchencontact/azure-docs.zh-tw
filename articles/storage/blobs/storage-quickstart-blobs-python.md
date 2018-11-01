@@ -2,18 +2,18 @@
 title: Azure 快速入門 - 使用 Python 在物件儲存體中建立 Blob | Microsoft Docs
 description: 在本快速入門中，您會在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Python 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
-ms.author: cshoe
-ms.openlocfilehash: f9e39a8630302111f4646e085872399c6def6ab2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: tamram
+ms.openlocfilehash: a264f5bdec6d09c0cbdd6ebec3a6b760deaf9547
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974488"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139070"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入門：使用 Python 上傳、下載及列出 Blob
 

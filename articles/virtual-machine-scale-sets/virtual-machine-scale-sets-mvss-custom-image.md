@@ -3,7 +3,7 @@ title: 在 Azure 擴展集範本中參照自訂映像 | Microsoft Docs
 description: 了解如何將自訂映像新增到現有的「Azure 虛擬機器擴展集」範本
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
-ms.author: negat
-ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780913"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739632"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>新增自訂映像至 Azure 擴展集範本
 
@@ -96,7 +96,7 @@ ms.locfileid: "26780913"
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>變更擴展集屬性以使用受控磁碟映像
 
-在擴展集 `storageProfile` 的 `imageReference` 中，不是指定發行者、提供項目、sku 及平台映像版本，而是指定 `Microsoft.Compute/images` 資源的 `id`：
+在擴展集 `storageProfile` 的 `imageReference` 中，不是指定發行者、供應項目、sku 及平台映像版本，而是指定 `Microsoft.Compute/images` 資源的 `id`：
 
 ```diff
          "virtualMachineProfile": {

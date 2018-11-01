@@ -3,7 +3,7 @@ title: 使用復原管理員修正分區對應問題 | Microsoft Docs
 description: 使用 RecoveryManager 類別來解決分區對應的問題
 services: sql-database
 ms.service: sql-database
-subservice: scale-out
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 09eb2312ef2268169535b644470a754e46b51b18
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 70ac86197d4d7fac7ca820ead01ecb6948d832a6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166855"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240056"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>使用 RecoveryManager 類別來修正分區對應問題
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 類別提供 ADO.Net 應用程式輕鬆偵測，並修正分區化資料庫環境中全域分區對應 (GSM) 和本機分區對應 (LSM) 中任何不一致的能力。 

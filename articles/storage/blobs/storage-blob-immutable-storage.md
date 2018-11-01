@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: 14b5dfb0a12df6c5251ee9f9e6b35a7ce527a1d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 38e34391294e1a070d506583fbc30dcdb703bea0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961972"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156896"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 儲存體中儲存業務關鍵資料
 
@@ -88,9 +88,9 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 >
 > 固定儲存體只適用於一般用途 V2 和 Blob 儲存體帳戶。 該帳戶必須透過 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 建立。
 
-## <a name="pricing"></a>定價
+## <a name="pricing"></a>價格
 
-使用此功能不需額外付費。 固定資料的定價方式與一般可變動的資料相同。 如需 Azure Blob 儲存體定價的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
+使用這項功能不需額外付費。 固定資料的定價方式與一般可變動的資料相同。 如需 Azure Blob 儲存體定價的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 
 ## <a name="getting-started"></a>開始使用
@@ -222,7 +222,7 @@ New-AzureRmResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
 New-AzureRmStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
-    $StorageAccount -SkuName Standard_LRS -Location $location -Kind Storage
+    $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
 # Create a new container
 New-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `

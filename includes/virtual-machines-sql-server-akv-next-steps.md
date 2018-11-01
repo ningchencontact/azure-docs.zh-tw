@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227209"
+---
 ## <a name="next-steps"></a>後續步驟
 
 啟用 Azure 金鑰保存庫整合之後，您可以在您的 SQL VM 上啟用 SQL Server 加密。 首先，您必須在金鑰保存庫內建立非對稱金鑰，以及在 VM 上的 SQL Server 內建立對稱金鑰。 然後，您可以執行 T-SQL 陳述式來啟用您的資料庫和備份的加密。

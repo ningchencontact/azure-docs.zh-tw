@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2018
+ms.date: 10/29/2018
 ms.author: piotrci
-ms.openlocfilehash: bed720cf47355887f3bf981f281d82738039270f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866571"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211786"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>如何使用群組型授權安全地在產品授權之間移轉使用者
 
@@ -822,6 +822,8 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 請閱讀下列文章來深入了解透過群組管理授權的其他案例：
 
-* [識別及解決 Azure Active Directory 中群組的授權指派問題](licensing-groups-resolve-problems.md)
-* [Azure Active Directory 群組型授權的 PowerShell 範例](licensing-ps-examples.md)
-* [Azure Active Directory 群組型授權其他案例 (英文)](licensing-group-advanced.md)
+* [將授權指派給 Azure Active Directory 中的群組](../users-groups-roles/licensing-groups-assign.md)
+* [識別及解決 Azure Active Directory 中群組的授權問題](../users-groups-roles/licensing-groups-resolve-problems.md)
+* [如何將個別的已授權使用者移轉成 Azure Active Directory 中的群組型授權 (英文)](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Azure Active Directory 群組型授權其他案例 (英文)](../users-groups-roles/licensing-group-advanced.md)
+* [Azure Active Directory 群組型授權的 PowerShell 範例](../users-groups-roles/licensing-ps-examples.md)

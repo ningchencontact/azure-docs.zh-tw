@@ -3,24 +3,20 @@ title: Azure Functions 的通知中樞繫結
 description: 了解如何在 Azure Functions 中使用「Azure 通知中樞」繫結。
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: 4208a7be3c002bcefed273015d002cb1aee0fecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: cshoe
+ms.openlocfilehash: e51a74783f7d7f080d1caa237bb7aabab0100e72
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467659"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248570"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions 的通知中樞輸出繫結
 
@@ -192,11 +188,11 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     // The JSON format for a native APNS notification is ...
     // { "aps": { "alert": "notification message" }}  
 
-    log.Info($"Sending APNS notification of a new user");    
+    log.LogInformation($"Sending APNS notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
     string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
                                         user.name + ")\" }}";
-    log.Info($"{apnsNotificationPayload}");
+    log.LogInformation($"{apnsNotificationPayload}");
     await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
 }
 ```

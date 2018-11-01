@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>先決條件
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 20729d1e73dd0ff9010201a1c6597b616b364a09
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134156"
+---
+### <a name="prerequisites"></a>必要條件
 * [Office 365 影片](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6) 帳戶  
 
 您必須先授權邏輯應用程式連接到您的 Office 365 影片帳戶，才可以在邏輯應用程式中使用您的 Office 365 影片帳戶。幸運的是，您可以輕鬆地在 Azure 入口網站上從邏輯應用程式內完成。  

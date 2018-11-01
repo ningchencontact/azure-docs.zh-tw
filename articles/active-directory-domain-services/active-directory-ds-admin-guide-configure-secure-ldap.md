@@ -3,7 +3,7 @@ title: 在 Azure AD Domain Services 中設定安全的 LDAP (LDAPS) | Microsoft 
 description: 針對 Azure Active Directory Domain Services 受控網域設定安全的 LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: maheshu
-ms.openlocfilehash: 42c27df658ae810ac31813ffb94f397a0070933f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.author: ergreenl
+ms.openlocfilehash: de77050206c98832b274e8bdbda8026fc115610e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429128"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156216"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受控網域設定安全的 LDAP (LDAPS)
 本文說明如何為 Azure Active Directory Domain Services 受控網域啟用安全的輕量型目錄存取通訊協定 (LDAPS)。 安全的 LDAP 亦稱為「透過安全通訊端層 (SSL)/傳輸層安全性 (TLS) 的輕量型目錄存取通訊協定 (LDAP)」。

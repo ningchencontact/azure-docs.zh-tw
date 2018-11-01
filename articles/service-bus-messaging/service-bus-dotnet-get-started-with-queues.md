@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 30ff970a1f6243bbba6aa42046cf6e08c808f4e5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 0d3cbc83c5d2558d7eba3de897477814df81893c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068855"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242427"
 ---
 # <a name="get-started-with-service-bus-queues"></a>開始使用服務匯流排佇列
 
@@ -40,7 +40,7 @@ ms.locfileid: "49068855"
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1.使用 Azure 入口網站建立命名空間
+## <a name="create-a-namespace-using-the-azure-portal"></a>使用 Azure 入口網站建立命名空間
 
 > [!NOTE] 
 > 您也可以使用 [PowerShell](/powershell/azure/get-started-azureps) 來建立服務匯流排命名空間和傳訊實體。 如需詳細資訊，請參閱[使用 PowerShell 來管理服務匯流排資源](service-bus-manage-with-ps.md)。
@@ -49,13 +49,13 @@ ms.locfileid: "49068855"
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2.使用 Azure 入口網站建立佇列
+## <a name="create-a-queue-using-the-azure-portal"></a>使用 Azure 入口網站建立佇列
 
 如果您已經建立服務匯流排佇列，請跳至[將訊息傳送至佇列](#3-send-messages-to-the-queue)一節。
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-to-the-queue"></a>3.將訊息傳送到佇列
+## <a name="send-messages-to-the-queue"></a>將訊息傳送到佇列
 
 為了將訊息傳送到佇列，請使用 Visual Studio 撰寫 C# 主控台應用程式。
 
@@ -214,7 +214,7 @@ ms.locfileid: "49068855"
    
       ![訊息大小][queue-message]
 
-## <a name="4-receive-messages-from-the-queue"></a>4.從佇列接收訊息
+## <a name="receive-messages-from-the-queue"></a>從佇列接收訊息
 
 若要接收您剛傳送的訊息，請建立另一個 .NET Core 主控台應用程式，並安裝 **Microsoft.Azure.ServiceBus** NuGet 套件 (類似於先前的傳送者應用程式)。
 

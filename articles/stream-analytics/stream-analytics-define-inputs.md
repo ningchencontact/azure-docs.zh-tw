@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 556b71d8312c7661b58a3ccf56fd76f6753ef9cf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987574"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248739"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>將資料作為輸入串流處理至串流分析中
 
@@ -115,7 +115,6 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 | **IoTHub.ConnectionDeviceId** | 用來傳送此訊息的驗證識別碼。 IoT 中樞會將服務繫結訊息標上此值。 |
 | **IoTHub.ConnectionDeviceGenerationId** | 用來傳送此訊息之已驗證裝置的世代識別碼。 IoT 中樞會將服務繫結訊息標上此值。 |
 | **IoTHub.EnqueuedTime** | IoT 中樞收到訊息的時間。 |
-| **IoTHub.StreamId** | 傳送者裝置所新增的自訂事件屬性。 |
 
 
 ## <a name="stream-data-from-blob-storage"></a>來自 Blob 儲存體的串流資料

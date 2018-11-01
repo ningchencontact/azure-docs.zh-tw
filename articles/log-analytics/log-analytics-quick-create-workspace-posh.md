@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptal
 ms.date: 09/18/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 9abd46bf75e2a0113f44243d7c1695d96f9c1057
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.component: ''
+ms.openlocfilehash: b7b8734e648e79ab22a6783e7fab31e942f08eb4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220648"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418413"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>使用 Azure PowerShell 建立 Log Analytics 工作區
 
@@ -123,7 +123,7 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
 
 部署需要幾分鐘的時間才能完成。 完成後，您會看到類似下列包含結果的訊息：
 
-![部署完成時的範例結果](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+![部署完成時的範例結果](media/log-analytics-quick-create-workspace-posh/template-output-01.png)
 
 ## <a name="next-steps"></a>後續步驟
 有了可用的工作區之後，您可以設定監視遙測的集合、執行記錄搜尋以分析該資料，並且新增管理解決方案，以提供額外的資料和分析深入解析。  

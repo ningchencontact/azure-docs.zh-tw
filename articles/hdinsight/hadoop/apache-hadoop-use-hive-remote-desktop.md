@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 34d0623fe8547c57c52236a117d66cb75d7717b9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d8a0f1baa03d718b2a8e41d82a528a2c7a857c96
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051894"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250547"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>利用遠端桌面搭配使用 Hive 與 HDInsight 上的 Hadoop
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -93,7 +93,7 @@ ms.locfileid: "43051894"
 ## <a id="summary"></a>摘要
 如您所見，Hive 命令提供簡單的方法，以互動方式在 HDInsight 叢集上執行 Hive 查詢、監視工作狀態，以及擷取輸出。
 
-## <a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a>接續步驟
 如需 HDInsight 中 Hive 的一般資訊：
 
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
@@ -109,8 +109,6 @@ ms.locfileid: "43051894"
 * [在以 Linux 為基礎的 HDInsight 上使用 Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

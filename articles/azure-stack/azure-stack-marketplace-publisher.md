@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fabc72e6dc31bb7f244cda9634af3b2556ba23a9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 98a7ae31aeeae29b81a1053b38992d3bc4e0e03f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023788"
+ms.locfileid: "50085304"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>使用發佈工具新增 Marketplace 項目
 
@@ -28,7 +28,7 @@ ms.locfileid: "50023788"
 
 ## <a name="prerequisites"></a>必要條件
 
- - 您必須在 Azure Stack 主機上執行此工具組，或能夠從您執行此工具的機器透過 [VPN](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn) 連線至 ASDK 主機。
+ - 您必須在 Azure Stack 主機上執行此工具組，或能夠從您執行此工具的機器透過 [VPN](.\asdk\asdk-connect.md#connect-with-vpn) 連線至 ASDK 主機。
 
  - 下載 [Azure Stack 快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip)並解壓縮。
 

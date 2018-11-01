@@ -11,12 +11,12 @@ ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: db7677042737ea1377af54cc02ee1c82c05435c8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047569"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50228834"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>使用 Azure Logic Apps 管理 Twilio 中的訊息
 
@@ -49,7 +49,7 @@ ms.locfileid: "43047569"
 
 1. 選擇路徑： 
 
-     * 請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 
+     * 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]。 
 
        -或-
 
@@ -74,7 +74,7 @@ ms.locfileid: "43047569"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

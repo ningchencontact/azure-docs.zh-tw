@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: b26116b974abbfe410b0a6ebc0186d73f4eea1bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c4c95218ca88ce1fe832fda4fabaf957fdd69dc1
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452578"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140361"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>使用範本建立 Redis 快取
 在本主題中，您將學習如何建立 Azure Resource Manager 範本，以部署 Azure Redis 快取。 快取可以搭配現有的儲存體帳戶以保留診斷資料。 您將學習如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
@@ -106,7 +106,7 @@ Redis 快取的位置。 針對最佳效能，使用要與快取搭配使用之�
       },
       "resources": [
         {
-          "apiVersion": "2015-07-01",
+          "apiVersion": "2017-05-01-preview",
           "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
           "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
           "location": "[parameters('redisCacheLocation')]",
