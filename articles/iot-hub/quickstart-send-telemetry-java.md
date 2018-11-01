@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: a4840fee22086bf6716f5f83ba86c4ac464377f9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3b2e25df74d0667b52429a7b998157c4d9e3fe56
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364399"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421096"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (Java)
 
@@ -33,7 +33,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 您在此快速入門中執行的兩個範例應用程式是使用 Java 所撰寫的。 您的開發電腦上需要 Java SE 8 或更高版本。
 
-您可以從 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 下載適用於多種平台的 Java。
+您可以從 [Oracle](https://aka.ms/azure-jdks) 下載適用於多種平台的 Java。
 
 您可以使用下列命令，以確認開發電腦上目前的 Java 版本：
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 78e3bec0d00336ce7cedc1434bf6ad7c65435969
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978177"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420552"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>針對 VM 擴展集使用 Resource Manager 範本的進階自動調整設定
 您可以根據效能標準臨界值、循環排程或特定日期，針對虛擬機器擴展集進行相應縮小和放大。 您也可以針對調整動作設定電子郵件和 webhook 通知。 本逐步解說會示範在 VM 擴展集上使用 Resource Manager 範本設定所有這些物件。
@@ -29,7 +29,7 @@ ms.locfileid: "46978177"
 1. 使用基本自動調整設定部署新的擴展集。 這篇文章會使用 Azure 快速入門資源庫中擁有基本自動調整範本的 Windows 擴展集設定。 Linux 擴展集的使用方式相同。
 2. 建立擴展集之後，請透過 Azure 資源總管瀏覽到擴展集資源。 您會在 Microsoft.Insights 節點下看見下列內容。
 
-    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Explorer](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     範本的執行已建立了具有名稱為 **'autoscalewad'** 的預設自動調整設定。 您可以在右手邊檢視此自動調整設定的完整定義。 在此情況下，預設自動調整設定具有以 CPU% 為基礎的相應放大和相應縮小規則。  
 
@@ -58,11 +58,11 @@ ms.locfileid: "46978177"
 
 5. 請確定您已處於資源總管的**讀寫**模式
 
-    ![Autoscalewad, default autoscale setting, 自動調整, 預設自動調整設定](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad, default autoscale setting, 自動調整, 預設自動調整設定](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. 按一下 [編輯]。 使用下列組態**取代**自動調整設定中的 'profiles' 元素：
 
-    ![設定檔](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![設定檔](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {
@@ -240,7 +240,7 @@ ms.locfileid: "46978177"
 
 [自動調整的常用計量](insights-autoscale-common-metrics.md)
 
-[Azure 自動調整的最佳做法](insights-autoscale-best-practices.md)
+[Azure 自動調整的最佳作法](insights-autoscale-best-practices.md)
 
 [使用 PowerShell 管理自動調整](insights-powershell-samples.md#create-and-manage-autoscale-settings)
 

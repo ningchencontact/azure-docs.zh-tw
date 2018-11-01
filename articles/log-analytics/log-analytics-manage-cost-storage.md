@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 179d5c71a309fd79c23519544d1da6bcc07cda0c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.component: ''
+ms.openlocfilehash: 2c52baf47e0b1495a5abfa727ab8bc8d997a4283
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044995"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418886"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>藉由控制 Log Analytics 中的資料量與保留期來管理成本
 
@@ -55,7 +55,7 @@ Log Analytics 是為縮放及支援每日大量資料的收集、索引編製和
 Log Analytics 可讓您根據最近的使用模式來輕鬆地了解可能的成本。  若要這樣做，請執行下列步驟。  
 
 1. 登入 [Azure 入口網站](http://portal.azure.com)。 
-2. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br><br> ![Azure 入口網站](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br><br> ![Azure 入口網站](media/log-analytics-manage-cost-storage/azure-portal-01.png)<br><br>  
 3. 在 Log Analytics 訂用帳戶窗格中，從左側窗格選取您的工作區，然後按一下 [使用量和估計成本]。<br><br> ![使用量和估計成本頁面](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 您可以在此檢閱當月的資料量。 這之中包括 Log Analytics 工作區中接收和保留的所有資料。  按一下頁面頂端的 [使用量詳細資料]可檢視使用量儀表板，其中的資訊包含以來源、電腦及供應項目為依據的資料量趨勢。 若要檢視和設定每日上限或修改保留期限，請按一下 [資料量管理]。

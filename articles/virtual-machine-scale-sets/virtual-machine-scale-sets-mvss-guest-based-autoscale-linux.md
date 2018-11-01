@@ -3,7 +3,7 @@ title: 在 Linux 擴展集範本中搭配客體計量使用 Azure 自動調整�
 description: 了解如何在 Linux 虛擬機器擴展集範本中使用客體計量自動調整規模
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: negat
-ms.openlocfilehash: 8e822d83dd3bafabfea60ad50224c87df226bdc6
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 0718ad7112c759dd3fdd363f38b863186ec9a978
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781423"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740157"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>在 Linux 擴展集範本中使用客體計量自動調整規模
 

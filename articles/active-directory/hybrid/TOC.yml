@@ -83,6 +83,8 @@ items:
       href: plan-connect-performance-factors.md
     - name: 使用者登入方式
       href: plan-connect-user-signin.md
+    - name: Azure AD UserPrincipalName 填入
+      href: plan-connect-userprincipalname.md
     - name: 執行個體的特殊考量
       href: reference-connect-instances.md
     - name: 混合式身分識別設計考量
@@ -137,6 +139,8 @@ items:
       href: how-to-connect-azureadaccount.md
     - name: 變更 AD DS 連接器帳戶密碼
       href: how-to-connect-sync-change-addsacct-pass.md
+    - name: 什麼是 ADConnectivityTools PowerShell 模組？
+      href: how-to-connect-adconnectivitytools.md
   - name: 管理同盟服務
     items:
     - name: 什麼是使用 Azure AD Connect 進行同盟？
@@ -153,6 +157,8 @@ items:
       href: how-to-connect-fed-ssl-update.md
     - name: 使用 Azure AD 管理 AD FS 信任
       href: how-to-connect-azure-ad-trust.md
+    - name: 變更 O365 RP 的雜湊演算法
+      href: how-to-connect-fed-sha256-guidance.md
     - name: Azure AD 同盟相容性清單
       href: how-to-connect-fed-compatibility.md
     - name: 使用 SAML 2.0 伺服器作為 LDP
@@ -287,9 +293,17 @@ items:
     href: reference-connect-sync-functions-reference.md
   - name: Azure AD 同盟相容性清單
     href: how-to-connect-fed-compatibility.md
-ms.openlocfilehash: eda2a26a9bd3d5a484865a8458246506f24bb518
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+  - name: TLS 1.2 強制執行
+    href: reference-connect-tls-enforcement.md
+  - name: ADSyncConfig 參考
+    href: reference-connect-adsyncconfig.md
+  - name: ADSyncTools 參考
+    href: reference-connect-adsynctools.md
+  - name: ADConnectivityTools 參考
+    href: reference-connect-adconnectivitytools.md
+ms.openlocfilehash: e5eaaa3446db7af705825e74a456770a4e981915
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351927"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414007"

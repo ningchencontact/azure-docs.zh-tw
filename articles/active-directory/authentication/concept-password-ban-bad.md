@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42142078"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739816"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>避免在組織中使用不當密碼
 
@@ -50,7 +50,7 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
    - 使用者若嘗試將其密碼設定為 "P@ssword"，由於這個字會轉換為 "password"，並且是 password 的變異形式，因此會遭到封鎖。
    - 系統管理員若嘗試將使用者密碼設定為 "Password123!"， 由於這個字會轉換為 "password123!"， 並且是 password 的變異形式，因此會遭到封鎖。
 
-每當使用者重設或變更其 Azure AD 密碼時，密碼都須經過此程序的處理，以確認它不在禁用密碼清單上。 此檢查會使用自助式密碼重設、密碼雜湊同步和傳遞驗證包含在混合式案例中。
+每當使用者重設或變更其 Azure AD 密碼時，密碼都須經過此程序的處理，以確認它不在禁用密碼清單上。 這項檢查會使用自助式密碼重設、密碼雜湊同步和傳遞驗證包含在混合式案例中。
 
 ## <a name="license-requirements"></a>授權需求
 
@@ -70,4 +70,4 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 ## <a name="next-steps"></a>後續步驟
 
 * [設定自訂禁用密碼清單](howto-password-ban-bad.md)
-* [啟用內部部署的 Azure AD 密碼保護代理程式](howto-password-ban-bad-on-premises.md)
+* [啟用內部部署的 Azure AD 密碼保護代理程式](howto-password-ban-bad-on-premises-deploy.md)

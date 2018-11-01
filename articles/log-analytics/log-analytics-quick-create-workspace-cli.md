@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptal
-ms.date: 08/27/2018
+ms.date: 10/02/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: a36702d13e32b9629b09ef88200d3e383693b67b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.component: ''
+ms.openlocfilehash: e3201562bd532084e528dddbee667bbafc39ede6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132605"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416536"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>使用 Azure CLI 2.0 建立 Log Analytics 工作區
 
@@ -92,7 +92,7 @@ Azure CLI 2.0 用於從命令列或在指令碼中建立和管理 Azure 資源�
             "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          },
+          }
     },
     "resources": [
         {
@@ -118,12 +118,12 @@ Azure CLI 2.0 用於從命令列或在指令碼中建立和管理 Azure 資源�
 4. 您已準備好部署此範本。 從包含範本的資料夾使用下列命令：
 
     ```azurecli
-    azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+    azure group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 部署需要幾分鐘的時間才能完成。 完成後，您會看到類似下列包含結果的訊息：
 
-![部署完成時的範例結果](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+![部署完成時的範例結果](media/log-analytics-quick-create-workspace-cli/template-output-01.png)
 
 ## <a name="next-steps"></a>後續步驟
 有了可用的工作區之後，您可以設定監視遙測的集合、執行記錄搜尋以分析該資料，並且新增管理解決方案，以提供額外的資料和分析深入解析。  

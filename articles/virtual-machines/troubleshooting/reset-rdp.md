@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/23/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 470834da9e9a571594789dedcbb0a67b55abd799
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 6f825d3419a8aebeae4500a383740058e984a2f2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953707"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420824"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>在 Windows VM 中重設遠端桌面服務或其系統管理員密碼
 如果您無法連線到 Windows 虛擬機器 (VM)，您可以重設本機系統管理員密碼，或重設遠端桌面服務設定 (Windows 網域控制站上不支援)。 若要重設密碼，您可以使用 Azure 入口網站或 Azure PowerShell 中的 VM 存取延伸模組。 當您登入 VM 之後，請重設該本機系統管理員的密碼。  
