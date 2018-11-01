@@ -1,24 +1,23 @@
 ---
 title: 跨多個 Azure SQL Database 執行隨選報表查詢 | Microsoft Docs
 description: 在多租用戶應用程式範例中，跨多個 SQL 資料庫執行隨選報表查詢。
-keywords: SQL Database Azure
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
+author: AyoOlubeko
+ms.author: ayolubek
+ms.reviewer: sstein
+manager: craigg
 ms.date: 04/01/2018
-ms.author: AyoOlubeko
-ms.openlocfilehash: 95ea5f2a40bd629384e1bc1f7d707eb30d9eaf5f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5c829ee77f1ba61bf8b1a19488c51dabe2262a0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644268"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241968"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>跨多個 Azure SQL Database 執行臨機操作分析查詢
 

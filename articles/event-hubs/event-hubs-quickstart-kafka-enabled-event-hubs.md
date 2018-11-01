@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2018
 ms.author: bahariri
-ms.openlocfilehash: 4b78cef29c64c5c4c522ad5c751c10bbf6a7057c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 18224c3ebf3b5dd9920dcc4b4868ee8bb42e5f91
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363413"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418784"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>串流至適用於 Apache Kafka 的事件中樞
 本快速入門說明如何串流至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 您將了解如何僅在應用程式中變更設定，就能讓產生者和取用者與已啟用 Kafka 的事件中樞交談。 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)。
@@ -32,7 +32,7 @@ ms.locfileid: "49363413"
 
 * 請參閱[適用於 Apache Kafka 的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)一文。
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)。
 * [下載](http://maven.apache.org/download.cgi)及[安裝](http://maven.apache.org/install.html) Maven 二進位封存檔。
 * [Git](https://www.git-scm.com/)
 * [已啟用 Kafka 的事件中樞命名空間](event-hubs-create.md)

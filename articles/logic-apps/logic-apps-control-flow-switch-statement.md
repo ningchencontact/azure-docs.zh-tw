@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 27a73bddc2e7fb613950d78967d3100c7adcae41
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883834"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232438"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>建立 Switch 陳述式，以根據 Azure Logic Apps 中的特定值執行工作流程動作
 
@@ -26,11 +26,11 @@ ms.locfileid: "48883834"
 > 如同所有的程式設計語言，Switch 陳述式僅支援等號比較運算子。 如果您需要其他關係運算子 (例如，「大於」)，請使用[條件陳述式](../logic-apps/logic-apps-control-flow-conditional-statement.md)。
 > 若要確認確定性執行行為，案例必須包含唯一且靜態的值，而不是動態的權杖或運算式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，請[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-* 若要依照此文章中的範例，請使用 Outlook.com 或 Office 365 Outlook 帳戶來[建立此範例邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+* 若要依循本文中的範例，請使用 Outlook.com 或 Office 365 Outlook 帳戶來[建立此範例邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
   1. 當您新增要傳送電子郵件的動作時，請改為尋找並選取下列動作：**傳送核准電子郵件**
 
@@ -125,7 +125,7 @@ ms.locfileid: "48883834"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能與建議，請造訪 [Azure Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能與建議，請造訪 [Azure Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

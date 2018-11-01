@@ -16,12 +16,12 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 84bf6bb3ed4d639851b110c6db7b8b5dc8c3f87f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 01ada4e0bcd266d99071988532221611711e2f1b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404248"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418376"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>為混合式環境中的 Linux 電腦設定 Log Analytics 代理程式
 [Azure Log Analytics](log-analytics-overview.md) 可直接從資料中心或其他雲端環境內的實體或虛擬 Linux 電腦，將資料收集到單一存放庫，來進行詳細的分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Linux 電腦的資料。  針對 Azure Linux VM，請參閱下列主題[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  
@@ -34,7 +34,7 @@ ms.locfileid: "49404248"
 在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。 
 
 ## <a name="create-a-workspace"></a>建立工作區
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br><br> ![Azure 入口網站](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br><br> ![Azure 入口網站](media/log-analytics-quick-collect-linux-computer/azure-portal-01.png)<br><br>  
 2. 按一下 [建立]，然後選取下列項目的選項：
 
   * 為新的 [Log Analytics 工作區] 提供名稱，例如 DefaultLAWorkspace。 OMS 工作區現在稱為 Log Analytics 工作區。   
@@ -43,7 +43,7 @@ ms.locfileid: "49404248"
   * 選取要部署 VM 的 [位置]。  如需詳細資訊，請查看 [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)。  
   * 如果您要在 2018 年 4 月 2 之後建立的新訂用帳戶中建立工作區，系統會自動使用「每 GB」定價方案和選項來選取將無法使用的定價層。  如果您要為在 4 月 2 日之前建立的現有訂用帳戶，或已繫結至現有 EA 註冊的訂用帳戶建立工作區，請選取您偏好的定價層。  如需特定層的詳細資訊，請參閱 [Log Analytics 價格詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
 
-        ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
 3. 在 [Log Analytics 工作區] 窗格上提供必要資訊之後，按一下 [確定]。  
 
@@ -56,7 +56,7 @@ ms.locfileid: "49404248"
 
 1. 在 Azure 入口網站中，按一下左上角的 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在 Log Analytics 工作區清單中，選取稍早建立的 *DefaultLAWorkspace*。
-3. 選取 [進階設定]。<br><br> ![Log Analytics 進階設定](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. 選取 [進階設定]。<br><br> ![Log Analytics 進階設定](media/log-analytics-quick-collect-linux-computer/log-analytics-advanced-settings-01.png)<br><br>  
 4. 選取 [連接的來源]，然後選取 [Linux 伺服器]。   
 5. [工作區識別碼] 和 [主要金鑰] 右邊的值。 將兩者複製並貼到您最愛的編輯器。   
 
@@ -107,7 +107,7 @@ Log Analytics 可以從 Linux Syslog 收集事件，和收集您指定要用於�
 3. 在表格中，取消選取 [資訊]、[注意] 和 [偵錯] 嚴重性。 
 4. 按一下頁面頂端的 [儲存] 來儲存設定。
 5. 選取 [Linux 效能資料] 以啟用收集 Windows 電腦上的效能計數器。 
-6. 當您第一次為新的 Log Analytics 工作區設定 Linux 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。 這些計數器旁邊皆會列出核取方塊。<br><br> ![選取的預設 Windows 效能計數器](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)<br> 按一下 [新增選定的效能計數器]。  隨即會新增且收集取樣間隔時間的預設值為 10 秒。  
+6. 當您第一次為新的 Log Analytics 工作區設定 Linux 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。 這些計數器旁邊皆會列出核取方塊。<br><br> ![選取的預設 Windows 效能計數器](media/log-analytics-quick-collect-linux-computer/linux-perfcounters-default.png)<br> 按一下 [新增選定的效能計數器]。  隨即會新增且收集取樣間隔時間的預設值為 10 秒。  
 7. 按一下頁面頂端的 [儲存] 來儲存設定。
 
 ## <a name="view-data-collected"></a>檢視收集的資料
@@ -123,7 +123,7 @@ Log Analytics 可以從 Linux Syslog 收集事件，和收集您指定要用於�
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-若要刪除工作區，請選取您先前建立的 Log Analytics 工作區，然後在資源頁面上，按一下 [刪除]。<br><br> ![刪除 Log Analytics 資源](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+若要刪除工作區，請選取您先前建立的 Log Analytics 工作區，然後在資源頁面上，按一下 [刪除]。<br><br> ![刪除 Log Analytics 資源](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>後續步驟
 既然您正在從內部部署 Linux 電腦收集作業和效能資料，即可輕鬆開始針對收集的資料「免費」進行探索、分析及採取行動。  

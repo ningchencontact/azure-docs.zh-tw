@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386514"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418412"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
@@ -21,7 +21,7 @@ Azure 監視器現在已成為整合的完整堆疊監視服務，其現在可�
 
 隨著新的 Azure 監視和警示平台到來，我們即將淘汰「傳統」監視和警示平台 (裝載於 Azure 警示的 [檢視傳統警示] 區段，且將於 2019 年 6 月前淘汰)。
 
- ![Azure 入口網站中的傳統警示](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Azure 入口網站中的傳統警示](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 建議您開始使用警示，並在新的平台中重新建立警示。 對於有大量警示的客戶，我們正設法提供自動化的方式，讓其可以將現有傳統警示移至新的警示系統，而不會中斷作業或增加成本。
 

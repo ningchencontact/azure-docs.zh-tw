@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: e0c1a038a0d63bcae8620c89462bdecfd88d8227
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9fc9d35db50305b632f5d9c8bdfa13d28ab97980
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121969"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412970"
 ---
 # <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>快速入門：使用 Java 來呼叫 Bing Web 搜尋 API  
 
@@ -23,11 +23,11 @@ ms.locfileid: "46121969"
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 以下是執行本快速入門之前的幾個必備項目：
 
-* [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (英文)
+* [JDK 7 或 8](https://aka.ms/azure-jdks) (英文)
 * [Gson 程式庫](https://github.com/google/gson) (英文)
 * 訂用帳戶金鑰
 
@@ -192,7 +192,7 @@ java -cp ./gson-2.8.1.jar BingWebSearch
 
 ## <a name="sample-response"></a>範例回應
 
-來自 Bing Web 搜尋 API 的回應會以 JSON 格式傳回。 此範例回應已截斷而只顯示單一結果。
+來自 Bing Web 搜尋 API 的回應會以 JSON 格式傳回。 本範例回應已截斷而只顯示單一結果。
 
 ```json
 {

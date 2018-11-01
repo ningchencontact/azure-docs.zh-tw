@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: b34597c604160cc5c0880561a6c3afb70816f9b3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617619"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417322"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
@@ -43,9 +43,9 @@ ms.locfileid: "42617619"
 9. 選取 [ **儲存**]。
 10. 選取 **wp-config.php** 旁邊的鉛筆圖示。
 11. 將文字變更為下列程式碼：
-   ```
+   ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
    ```
 12. 在 Azure 入口網站的 Web 應用程式功能表中，重新啟動 Web 應用程式。
 
@@ -70,7 +70,7 @@ ms.locfileid: "42617619"
 *   修改 iisnode.yml 檔案。 在 iisnode.yml 檔案中變更 Node.js 版本只會設定 iisnode 使用的執行階段環境。 Kudu cmd 和其他命令仍然使用在 Azure 入口網站**應用程式設定**中所設的 Node.js 版本。
 
     若要手動設定 iisnode.yml，請在應用程式根資料夾中建立 iisnode.yml 檔案。 在檔案中，包含下列一行：
-   ```
+   ```yml
    nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
    ```
    
@@ -80,7 +80,7 @@ ms.locfileid: "42617619"
     2. 如果 Web 應用程式根資料夾中沒有部署指令碼 (deploy.cmd、.deployment 檔案)，則建立預設部署指令碼。
     3. 如果您在 package.json 檔案 > 引擎 `"engines": {"node": "5.9.1","npm": "3.7.3"}` 中提到 Node.js 版本，則執行部署指令碼來建立 iisnode.yml 檔案。
     4. iisnode.yml 檔案具有下列一行程式碼：
-        ```
+        ```yml
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
 
@@ -146,7 +146,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 2. 如果您使用自訂的 Tomcat 或 Azure Marketplace Tomcat Web 伺服器，請將此 .jar 檔案複製到 Tomcat lib 資料夾。
 3. 如果您從 Azure 入口網站啟用 Java (選取 **Java 1.8** > **Tomcat 伺服器**)，請將 sqljdbc.* jar 檔案複製到與應用程式並列的資料夾中。 然後，將下列 classpath 設定新增到 web.config 檔案：
 
-    ```
+    ```xml
     <httpPlatform>
     <environmentVariables>
     <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true

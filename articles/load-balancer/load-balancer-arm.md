@@ -4,9 +4,6 @@ description: 搭配使用適用於 Load Balancer 的 PowerShell 與 Azure Resour
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: tysonn
-ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f972495fe1a5a0744cf6d7046b555349e5bc8c54
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790384"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416421"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>搭配 Azure Load Balancer 使用 Azure Resource Manager 支援
 
@@ -61,7 +58,7 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。 在單�
 
 開始使用 Azure Resource Manager Cmdlet、命令列工具和 REST API
 
-* [Azure 網路 Cmdlet](https://msdn.microsoft.com/library/azure/mt163510.aspx) 可用來建立負載平衡器。
+* [Azure 網路 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.network#networking) 可用來建立負載平衡器。
 * [如何使用 Azure 資源管理員建立負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 * [搭配使用 Azure 資源管理與 Azure CLI](../xplat-cli-azure-resource-manager.md)
 * [負載平衡器 REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx)

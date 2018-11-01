@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/16/2018
-ms.openlocfilehash: c52f64c2508870bf061e144229cf26ab269c343b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f757db47ff91537405b04dbc949797f5855b7952
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049231"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416166"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教學課程：使用 Apache Kafka Producer 和 Consumer API
 
@@ -37,7 +37,7 @@ Kafka Producer API 可讓應用程式將資料流傳送至 Kafka 叢集。 Kafka
 
 您必須在開發環境中安裝下列元件：
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或同等功能版本，例如 OpenJDK。
+* [Java JDK 8](https://aka.ms/azure-jdks) 或同等功能版本，例如 OpenJDK。
 
 * [Apache Maven](http://maven.apache.org/)
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 286f8e560ec653ed4f4f1cad5a2ae27b940f8d15
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781775"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741822"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>預覽：強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
 
@@ -33,16 +33,6 @@ Azure AD 密碼保護由三項軟體元件所組成：
 * DC 代理程式密碼篩選 dll 會接收來自作業系統的密碼驗證要求，並將其轉送至在網域控制站上本機執行的 Azure AD 密碼保護 DC 代理程式服務。
 
 ![Azure AD 密碼保護元件搭配運作的方式](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
-
-## <a name="requirements"></a>需求
-
-* 安裝 Azure AD 密碼保護元件的所有機器 (包括網域控制站)，都必須執行 Windows Server 2012 或更新版本。
-* 安裝 Azure AD 密碼保護元件的所有機器 (包括網域控制站)，都必須安裝 Universal C 執行階段。 透過 Windows Update 來完整修補此機器，是達到此需求的較佳做法。 否則，可能會安裝適當的 OS 專屬更新套件 - 請參閱[更新 Windows 中的 Universal C 執行階段](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
-* 每個網域中至少要有一個網域控制站有網路連線，且至少要有一部伺服器裝載 Azure AD 密碼保護 Proxy 服務。
-* 任何使用密碼保護功能的 Active Directory 網域控制站都必須已安裝 DC 代理程式。
-* 執行 DC 代理程式服務軟體的任何 Active Directory 網域，都必須使用 DFSR 進行 sysvol 複寫。
-* 一個全域系統管理員帳戶，用以向 Azure AD 註冊 Azure AD 密碼保護 Proxy 服務。
-* 一個在樹系根網域中具有 Active Directory 網域系統管理員權限的帳戶。
 
 ### <a name="license-requirements"></a>授權需求
 
@@ -70,7 +60,6 @@ Azure AD 密碼保護有兩個可從 [Microsoft 下載](https://www.microsoft.co
 * 建議您在所有 DC 上安裝 DC 代理程式，以確保密碼保護的施行。 
 * Azure AD 密碼保護不是即時原則應用程式引擎。 從密碼原則組態變更後，到變更同步至所有網域控制站並強制執行時，可能會有時間上的延遲。
 
-
 ## <a name="next-steps"></a>後續步驟
 
-[部署 Azure AD 密碼保護](howto-password-ban-bad-on-premises.md)
+[部署 Azure AD 密碼保護](howto-password-ban-bad-on-premises-deploy.md)

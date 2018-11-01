@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993012"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421062"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>將 Azure 診斷記錄檔串流至 Log Analytics
 
@@ -44,21 +44,21 @@ Log Analytics 工作區並不一定要與發出記錄檔的資源位於相同的
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>使用入口網站串流診斷記錄
 1. 在入口網站中，瀏覽至 Azure 監視器，然後按一下 [診斷設定]
 
-    ![Azure 監視器的監視區段](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
+    ![Azure 監視器的監視區段](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-blade.png)
 
 2. 選擇性地依資源群組或資源類型篩選清單，然後按一下您要設定診斷設定的資源。
 
 3. 如果您選取的資源上沒有任何設定，系統會提示您建立設定。 按一下「開啟診斷」。
 
-   ![新增診斷設定 - 無現有的設定](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
+   ![新增診斷設定 - 無現有的設定](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-none.png)
 
    如果資源上已有設定，您將會看此資源上已設定的設定清單。 按一下「新增診斷設定」。
 
-   ![新增診斷設定 - 現有的設定](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
+   ![新增診斷設定 - 現有的設定](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-multiple.png)
 
 3. 為您的設定提供名稱，並選取 [傳送至 Log Analytics] 核取方塊，然後選取 Log Analytics 工作區。
 
-   ![新增診斷設定 - 現有的設定](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
+   ![新增診斷設定 - 現有的設定](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-configure.png)
 
 4. 按一下 [檔案] 。
 

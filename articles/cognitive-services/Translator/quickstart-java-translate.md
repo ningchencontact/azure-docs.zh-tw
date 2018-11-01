@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 5a2b478d39f14b993a389fc48e037e1980d83e52
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: f9f9b6758a74ac846e7b44ab9024620e6176218d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646139"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414605"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-java"></a>快速入門：使用翻譯工具文字 REST API (Java) 翻譯文字
 
@@ -23,7 +23,7 @@ ms.locfileid: "49646139"
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要有 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (英文)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE，也可以拿來使用，但亦可使用文字編輯器。
+您將需要有 [JDK 7 或 8](https://aka.ms/azure-jdks) (英文)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE，也可以拿來使用，但亦可使用文字編輯器。
 
 若要使用翻譯工具文字 API，您也需要有訂用帳戶金鑰；請參閱[如何註冊翻譯工具文字 API](translator-text-how-to-signup.md)。
 

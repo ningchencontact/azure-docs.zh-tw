@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a5e86b7c93344a6c61fecaa41b98bc1daa20f36f
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: af37822429098f904e08404462deb134d4370898
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423216"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421198"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 Java 模組以及對其進行偵錯
 
@@ -33,7 +33,7 @@ ms.locfileid: "47423216"
 * [Docker 擴充功能](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 若要建立模組，您必須以 Java 和 Maven 來建置和執行模組程式碼、以 Docker 建置模組映像，並且以容器登錄來保存模組映像：
-* [Java SE 開發套件 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (英文)，並[設定 `JAVA_HOME` 環境變數](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) (英文) 指向 JDK 安裝。
+* [Java SE 開發套件 10](https://aka.ms/azure-jdks) (英文)，並[設定 `JAVA_HOME` 環境變數](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) (英文) 指向 JDK 安裝。
 * [Maven](https://maven.apache.org/)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 或 [Docker 中樞](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)

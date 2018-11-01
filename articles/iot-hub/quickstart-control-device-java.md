@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 6b7de80d18250550c9bd7e52537a7a950e6ffea7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3e936b3e08884c1728809aea9054278ffdb99045
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364757"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416982"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入門：控制連線到 IoT 中樞的裝置 (Java)
 
@@ -36,7 +36,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取�
 
 您在此快速入門中執行的兩個範例應用程式是使用 Java 所撰寫的。 您的開發電腦上需要 Java SE 8 或更高版本。
 
-您可以從 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 下載適用於多種平台的 Java。
+您可以從 [Oracle](https://aka.ms/azure-jdks) 下載適用於多種平台的 Java。
 
 您可以使用下列命令，以確認開發電腦上目前的 Java 版本：
 

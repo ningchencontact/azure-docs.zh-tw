@@ -5,7 +5,7 @@ keywords: azure app service, web 應用程式, 常見問題集, linux, oss, 用�
 services: app-service
 documentationCenter: ''
 author: yili
-manager: apurvajo
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 10/30/2018
 ms.author: yili
-ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 94e61cf5bf4f629dfd776cf9ea2ae54233e91dc6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295713"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417577"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -92,7 +92,7 @@ ms.locfileid: "44295713"
 
 ```nodejs
 var io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 
