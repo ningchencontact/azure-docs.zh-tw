@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778506"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251017"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集 (FAQ)
 ## <a name="general"></a>一般
@@ -213,7 +213,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 [通知中樞資訊安全模型]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [通知中樞安全推播教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [通知中樞疑難排解]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[通知中樞計量]: https://msdn.microsoft.com/library/dn458822.aspx
+[通知中樞計量]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
 [通知中樞計量範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [註冊匯出/匯入]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure 入口網站]: https://portal.azure.com

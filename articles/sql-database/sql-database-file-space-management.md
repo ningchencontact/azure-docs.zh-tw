@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 306e541ad67d6b44d2d3cc4cd2f73aa09d629d0c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159936"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954743"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>以 Azure SQL Database 管理檔案空間
 本文說明 Azure SQL Database 中不同類型的儲存空間，以及需要明確管理為資料庫與彈性集區配置的檔案空間時所能採取的步驟。
 
 ## <a name="overview"></a>概觀
 
-在 Azure SQL Database 中，大部分的儲存體空間計量會顯示在 Azure 入口網站，而下列 API 會測量資料庫和彈性集區已使用的資料頁：
+在 Azure SQL Database 的某些工作負載模式中，資料庫的基礎資料檔案配置可能會逐漸大於已使用資料頁數。 當使用的空間增加，隨後卻將資料刪除時，就會發生這種狀況。 原因是因為在資料刪除後，並不會自動回收已配置的檔案空間。
+
+在下列情況中，可能需要監視檔案空間使用量和壓縮資料檔案：
+- 當配置給檔案資料庫的檔案空間達到集區大小上限時，允許彈性集區中的資料成長。
+- 允許減少單一資料庫或彈性集區的大小上限。
+- 允許將單一資料庫或彈性集區變更為大小上限較低的不同服務層級或效能層級。
+
+### <a name="monitoring-file-space-usage"></a>監視檔案空間使用量
+在 Azure 入口網站和下列 API 中顯示的大部分儲存體空間計量只會測量已使用資料頁面的大小：
 - Azure Resource Manager 型計量 API 包括 PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL：[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+不過，下列 API 也會測量配置給資料庫和彈性集區的空間大小：
 - T-SQL：[sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL：[sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-在某些工作負載模式中，資料庫的基礎資料檔案配置可能會逐漸大於已使用資料頁數。  當使用的空間增加，隨後卻將資料刪除時，就會發生這種情況。  這是因為在資料刪除後，並不會自動回收已配置的檔案空間。  在此情況下，為資料庫或集區配置的空間可能會超過支援的限制，而妨礙到資料成長或使服務層和計算大小無法變更，因此需要壓縮資料檔案來因應此狀況。
+### <a name="shrinking-data-files"></a>壓縮資料檔案
 
 由於可能會對資料庫效能造成影響，因此 SQL DB 服務不會自動壓縮資料檔案，以回收未使用的配置空間。  不過，客戶可以依照[回收未使用的配置空間](#reclaim-unused-allocated-space)中說明的步驟，在其選擇的時間自行壓縮資料檔案。 
 
@@ -121,7 +131,7 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>配置的彈性集區資料空間與已配置但未使用的空間
 
-修改下列 PowerShell 指令碼以傳回資料表，列出為彈性集區中的每個資料庫配置的空間與未使用的配置空間。 此資料表會根據已配置但未使用空間量，從最大至最小來排序資料庫。  查詢結果以 MB 為單位。  
+修改下列 PowerShell 指令碼以傳回資料表，列出為彈性集區中的每個資料庫配置的空間與未使用的配置空間。 此資料表會根據資料庫已配置但未使用的空間量，從最大至最小來排序資料庫。  查詢結果以 MB 為單位。  
 
 以查詢判斷為集區中的每個資料庫配置的空間所產生的結果，可在加總後用來判斷為彈性集區配置的總空間。 配置的彈性集區空間不應超過彈性集區大小上限。  
 
@@ -191,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>回收未使用的配置空間
 
-在識別哪些資料庫要回收已配置但未使用的空間後，請修改下列命令，以壓縮每個資料庫的資料檔案。
+### <a name="dbcc-shrink"></a>DBCC 壓縮
+
+在識別哪些資料庫要回收已配置但未使用的空間後，請修改下列命令中的資料庫名稱，以壓縮每個資料庫的資料檔案。
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+此命令可能會在資料庫執行時影響其效能，如果可能，應該在低使用量期間執行。  
+
 如需有關此命令的詳細資訊，請參閱 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)。 
 
-> [!IMPORTANT] 
-> 在資料庫資料檔案壓縮後，索引可能會變得分散而失去效能最佳化效益，請考慮重建資料庫索引。 如果發生這種情況，則應該重建索引。 如需索引分散和如何重建索引的詳細資訊，請參閱[重新組織與重建索引](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)。
+### <a name="auto-shrink"></a>自動壓縮
+
+或者，可以啟用資料庫自動壓縮。  自動壓縮會減少檔案管理的複雜度，且相較於 SHRINKDATABASE 或 SHRINKFILE 對於資料庫效能的影響較低。  自動壓縮對於管理包含許多資料庫的彈性集區可能特別有用。  不過，相較於 SHRINKDATABASE 和 SHRINKFILE，自動壓縮在回收檔案空間方面較沒有效率。
+若要啟用自動壓縮，請修改下列命令中的資料庫名稱。
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+如需有關此命令的詳細資訊， [請參閱 ](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) 選項。 
+
+### <a name="rebuild-indexes"></a>重建索引
+
+在資料庫資料檔案壓縮後，索引可能會變得分散而失去效能最佳化效益。 如果發生效能降低的情形，請考慮重建資料庫索引。 如需索引分散和如何重建索引的詳細資訊，請參閱[重新組織與重建索引](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)。
 
 ## <a name="next-steps"></a>後續步驟
 
