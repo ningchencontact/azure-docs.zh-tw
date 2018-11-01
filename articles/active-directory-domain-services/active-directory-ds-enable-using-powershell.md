@@ -3,7 +3,7 @@ title: 使用 PowerShell 啟用 Azure Active Directory Domain Services | Microso
 description: 使用 PowerShell 啟用 Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.author: maheshu
-ms.openlocfilehash: ee3f65b7afde19a1f9c730334043cc7dae9ea791
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: b58df5ebf5332688424ac6ed2eeb9679487bcdc4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503803"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240251"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 啟用 Azure Active Directory Domain Services
 本文說明如何使用 PowerShell 啟用 Azure Active Directory (AD) Domain Services。
@@ -38,7 +38,7 @@ ms.locfileid: "39503803"
 輸入下列 PowerShell 命令，為 Azure AD 目錄中的 Azure AD Domain Services 建立所需的服務主體。
 ```powershell
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
 ## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>工作 3：建立和設定「AAD DC 系統管理員」群組
@@ -166,7 +166,7 @@ Connect-AzureAD
 Connect-AzureRmAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `

@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/22/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cc206e1134fe6df0280512e89447336a32a2d810
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068350"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649086"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路： 
@@ -104,9 +104,10 @@ ms.locfileid: "49068350"
 
 | 方向 | 傳輸通訊協定 | 來源 | 來源連接埠範圍 | 目的地 | 目的地連接埠範圍 | 註解 |
 |---|---|---|---|---|---|---|
-| 輸入 | TCP | Internet | * | VirtualNetwork | 29876、29877 (如果您將 IR 加入 Azure Resource Manager 虛擬網路) <br/><br/>10100、20100、30100 (如果您將 IR 加入傳統虛擬網路)| Data Factory 服務會使用這些連接埠與虛擬網路中的 Azure SSIS 整合執行階段節點進行通訊。 <br/><br/> 無論您是否有建立子網路層級的 NSG，Data Factory 一律會在連結至 Azure-SSIS IR 主控虛擬機器的網路介面卡 (NIC) 的層級上設定 NSG。 該 NIC 層級的 NSG 僅允許來自指定連接埠上 Data Factory IP 位址的輸入流量。 即使您在子網路層級上對網際網路流量開啟這些連接埠，只要流量不是來自 Data Factory 的 IP 位址，就會在 NIC 層級上遭到封鎖。 |
-| 輸出 | TCP | VirtualNetwork | * | Internet | 443 | 虛擬網路中的 Azure-SSIS 整合執行階段節點會使用此連接埠來存取 Azure 服務，例如 Azure 儲存體和 Azure 事件中樞。 |
-| 輸出 | TCP | VirtualNetwork | * | 網際網路或 Sql | 1433、11000-11999、14000-14999 | 您在虛擬網路中的 Azure-SSIS 整合執行階段節點會使用這些連接埠，來存取 Azure SQL Database 伺服器所裝載的 SSISDB，此用途不適用於受控執行個體所裝載的 SSISDB。 |
+| 輸入 | TCP | AzureCloud<br/>(或較大的範圍，例如網際網路) | * | VirtualNetwork | 29876、29877 (如果您將 IR 加入 Azure Resource Manager 虛擬網路) <br/><br/>10100、20100、30100 (如果您將 IR 加入傳統虛擬網路)| Data Factory 服務會使用這些連接埠與虛擬網路中的 Azure SSIS 整合執行階段節點進行通訊。 <br/><br/> 無論您是否有建立子網路層級的 NSG，Data Factory 一律會在連結至 Azure-SSIS IR 主控虛擬機器的網路介面卡 (NIC) 的層級上設定 NSG。 該 NIC 層級的 NSG 僅允許來自指定連接埠上 Data Factory IP 位址的輸入流量。 即使您在子網路層級上對網際網路流量開啟這些連接埠，只要流量不是來自 Data Factory 的 IP 位址，就會在 NIC 層級上遭到封鎖。 |
+| 輸出 | TCP | VirtualNetwork | * | AzureCloud<br/>(或較大的範圍，例如網際網路) | 443 | 虛擬網路中的 Azure-SSIS 整合執行階段節點會使用此連接埠來存取 Azure 服務，例如 Azure 儲存體和 Azure 事件中樞。 |
+| 輸出 | TCP | VirtualNetwork | * | Internet | 80 | 虛擬網路中的 Azure-SSIS 整合執行階段節點會使用此連接埠從網際網路下載憑證撤銷清單。 |
+| 輸出 | TCP | VirtualNetwork | * | Sql<br/>(或較大的範圍，例如網際網路) | 1433、11000-11999、14000-14999 | 您在虛擬網路中的 Azure-SSIS 整合執行階段節點會使用這些連接埠，來存取 Azure SQL Database 伺服器所裝載的 SSISDB，此用途不適用於受控執行個體所裝載的 SSISDB。 |
 ||||||||
 
 ### <a name="route"></a> 使用 Azure ExpressRoute 或使用者定義的路由

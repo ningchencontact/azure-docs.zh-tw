@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: cb927c0bad69bb3b5b3001e4ba19b11acd1eb316
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: ''
+ms.openlocfilehash: 75faceb641382df29a93c44803af48dcfed142d4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389964"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421164"
 ---
 # <a name="manage-workspaces"></a>管理工作區
 
@@ -64,7 +64,7 @@ ms.locfileid: "39389964"
 
 2. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。  
 
-    ![Azure 入口網站](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)  
+    ![Azure 入口網站](media/log-analytics-manage-access/azure-portal-01.png)  
 
 3. 在 [Log Analytics 訂用帳戶] 窗格上選取工作區。
 

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: f77310ebf10812c1bf15a2555520f46c10c8c182
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165757"
+---
 <!--alkohli 02/21/2017 cloud appliance security-->
 
 使用 StorSimple 雲端設備時，請留意下列安全性考量：

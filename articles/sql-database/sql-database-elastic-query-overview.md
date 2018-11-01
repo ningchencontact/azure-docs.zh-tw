@@ -3,7 +3,7 @@ title: Azure SQL Database 彈性查詢概觀 | Microsoft Docs
 description: 彈性查詢可讓您執行跨多個資料庫的 Transact-SQL 查詢。
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 8a7962866b70ae0ec99b8425a365575fbd4e5913
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb546c8ffd3c4f3cdd2024bf9d60ae96401b263f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164362"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242206"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
 

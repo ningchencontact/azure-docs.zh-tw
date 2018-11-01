@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 64e49dee5bf560dec263e67daa3c130a0ba8b40c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165524"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420943"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>從 Go 收集分散式追蹤 (預覽)
 
@@ -208,7 +208,7 @@ ms.locfileid: "49165524"
 
     因為我們只追蹤一個方法呼叫，所以應用程式對應並不有趣。 但是，應用程式對應經過調整後，即可顯示更多的分散式應用程式：
 
-   ![應用程式對應](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![應用程式對應](media/opencensus-go/application-map.png)
 
 4. 選取 [調查效能] 以執行詳細的效能分析，並判斷效能緩慢的根本原因。
 

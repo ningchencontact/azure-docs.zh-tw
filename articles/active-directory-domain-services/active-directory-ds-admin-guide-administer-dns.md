@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services：管理受控網域上的 DNS | M
 description: 管理 Azure Active Directory Domain Services 受控網域上的 DNS
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: f20b2859f72087e208e8963fb18b297c7c670f4f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: f2eea139209a03950217a855b5c8af7bc9a17372
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504279"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155298"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>管理 Azure AD 網域服務受控網域上的 DNS
 Azure Active Directory 網域服務包括可為受控網域提供 DNS 解析的 DNS (網域名稱解析) 伺服器。 有時候，您可能需要在受控網域上設定 DNS。 您可能需要為未新增網域的機器建立 DNS 記錄、設定負載平衡器的虛擬 IP 位址，或設定外部 DNS 轉寄站。 基於這個理由，屬於「AAD DC 系統管理員」群組的使用者會獲授與受控網域上的 DNS 系統管理權限。

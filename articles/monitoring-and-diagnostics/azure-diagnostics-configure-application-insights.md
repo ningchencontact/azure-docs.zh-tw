@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262132"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416676"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>將雲端服務、虛擬機器或 Service Fabric 診斷資料傳送至 Application Insights
 雲端服務、虛擬機器、虛擬機器擴展集和 Service Fabric 全都使用 Azure 診斷擴充功能來收集資料。  Azure 診斷會將資料傳送至 Azure 儲存體資料表。  不過，您也可以使用 Azure 診斷擴充功能 1.5 或更新版本，將所有資料或一部分資料傳送至其他位置。
@@ -77,11 +77,11 @@ Application Insights 的接收器組態範例：
 
 下圖顯示此關聯性。
 
-![診斷公用組態](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
+![診斷公用組態](media/azure-diagnostics-configure-application-insights/AzDiag_Channels_App_Insights.png)
 
 下圖摘要說明設定值及其運作方式。 您可以在組態中的不同階層等級中包含多個接收器。 在最上層指定的接收器會成為全域設定，而在個別元素指定的接收器就形同覆寫該全域設定。
 
-![診斷接收器組態和 Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
+![診斷接收器組態和 Application Insights](media/azure-diagnostics-configure-application-insights/Azure_Diagnostics_Sinks.png)
 
 ## <a name="complete-sink-configuration-example"></a>完整接收器組態範例
 以下是完整的公用組態檔範例，可以

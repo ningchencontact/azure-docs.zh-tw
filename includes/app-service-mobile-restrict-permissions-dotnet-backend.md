@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133189"
+---
 根據預設，可以匿名方式叫用 Mobile Apps 後端中的 API。 接下來，您必須限制只有經過驗證的用戶端才有存取權。  
 
 * **Node.js 後端 (透過 Azure 入口網站)**：  

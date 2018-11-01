@@ -283,7 +283,7 @@ HDInsight 查詢主控台包括下列功能：
 
     ![HDInsight portal Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 
-    從「Hadoop UI」，您可以瀏覽檔案，並檢查記錄檔。
+    從\*「Hadoop UI」，您可以瀏覽檔案，並檢查記錄檔。
 * **Yarn UI**。
 
     ![HDInsight portal YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)

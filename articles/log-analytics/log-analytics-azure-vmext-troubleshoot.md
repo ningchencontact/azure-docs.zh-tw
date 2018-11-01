@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 700d6b2c3bcd39aed38bf75556bcdcb59d1ab78b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 845bc46ec56bfd6681c4fb318a57de19f66c0edf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128821"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403862"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>針對 Log Analytics VM 擴充功能進行疑難排解
 本文可協助您針對在使用執行 Microsoft Azure 之 Windows 與 Linux 虛擬機器的 Log Analytics VM 擴充功能時可能遇到的錯誤進行疑難排解，並建議可能的解決方法。
@@ -61,16 +61,17 @@ ms.locfileid: "37128821"
 如需詳細資訊，請參閱[針對 Windows 擴充功能進行疑難排解](../virtual-machines/windows/extensions-oms.md)。
 
 ## <a name="troubleshooting-linux-vm-extension"></a>針對 Linux VM 擴充功能進行疑難排解
-如果*適用於 Linux 的 OMS 代理程式* VM 擴充功能尚未安裝或沒有回報，您可以執行下列步驟來針對問題進行疑難排解。
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+如果 *Log Analytics Linux 代理程式* VM 擴充功能尚未安裝或沒有回報，您可以執行下列步驟來針對問題進行疑難排解。
 
 1. 如果擴充狀態是「未知」，請檢閱 VM 代理程式記錄檔 `/var/log/waagent.log`，以檢查 Azure VM 代理程式是否已安裝且正常運作
    * 如果記錄檔不存在，則表示未安裝 VM 代理程式。
    * [在 Linux VM 上安裝 Azure VM 代理程式](log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. 若是其他不良狀態，請檢閱 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` 和 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log` 中的 OMS Agent for Linux VM 擴充記錄檔
-3. 如果擴充狀態良好，但資料未上傳，請檢閱 `/var/opt/microsoft/omsagent/log/omsagent.log` 中的 OMS Agent for Linux 記錄檔
+2. 若是其他不良狀態，請檢閱 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` 和 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log` 中的 Log Analytics Linux 代理程式 VM 擴充功能記錄檔
+3. 如果擴充狀態良好，但資料未上傳，請檢閱 `/var/opt/microsoft/omsagent/log/omsagent.log` 中的 Log Analytics Linux 代理程式記錄檔
 
 如需詳細資訊，請參閱[針對 Linux 擴充功能進行疑難排解](../virtual-machines/linux/extensions-oms.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需與在 Azure 外部電腦上所裝載之適用於 Linux 的 OMS 代理程式相關的其他疑難排解指引，請參閱[針對 Azure Log Analytics Linux 代理程式進行疑難排解](log-analytics-agent-linux-support.md)。  
+如需與在 Azure 外部電腦上所裝載的 Log Analytics Linux 代理程式相關的其他疑難排解指引，請參閱[針對 Azure Log Analytics Linux 代理程式進行疑難排解](log-analytics-agent-linux-support.md)。  

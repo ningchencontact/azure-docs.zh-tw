@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/15/2018
 ms.author: raynew
-ms.openlocfilehash: 35cce4e9e0b722e8ee1b2ea42a79f18a987033f0
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: bb756a89babef96b16419104737e87405b3527ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078631"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407396"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>管理 VMware VM 的設定伺服器
 
@@ -33,7 +33,7 @@ ms.locfileid: "49078631"
 ## <a name="modify-credentials-for-automatic-discovery"></a>修改自動探索所需的認證
 
 1. 若要更新用來連線到 VMware 伺服器以自動探索 VMware VM 的認證，請在[登入](#access-configuration-server)之後選擇該帳戶，然後按一下 [編輯]。
-2. 輸入新的認證，然後選取 [確定]。
+2. 輸入新的認證，然後選取 [確定] 。
 
     ![修改 VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "49078631"
 
 1. 在[登入](#access-configuration-server)之後，選取 [管理虛擬機器認證]
 2. 選擇您要修改的帳戶類型，然後按一下 [編輯]
-3. 輸入新的認證，然後選取 [確定]。
+3. 輸入新的認證，然後選取 [確定] 。
 
     ![修改行動服務認證](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -88,9 +88,9 @@ ms.locfileid: "49078631"
 - 若要在保存庫中註冊設定伺服器之後新增介面卡，請在 VM 屬性中新增介面卡。 接著，您必須在保存庫中[重新註冊](#reregister-a-configuration-server-in-the-same-vault)伺服器。
 
 
-## <a name="reregister-a-configuration-server-in-the-same-vault"></a>在同一個保存庫中重新註冊設定伺服器
+## <a name="reregister-a-configuration-server-in-the-same-vault"></a>在同一個保存庫中註冊設定伺服器
 
-如果需要，您可以在同一個保存庫中重新註冊設定伺服器。 如果您除了在設定伺服器電腦上執行的預設處理伺服器之外，還有其他處理伺服器電腦，則請重新註冊這兩部電腦。
+如果需要，您可以在同一個保存庫中註冊設定伺服器。 如果您除了在設定伺服器電腦上執行的預設處理伺服器之外，還有其他處理伺服器電腦，則請註冊這兩部電腦。
 
 
   1. 在保存庫中，開啟 [管理] > [Site Recovery 基礎結構] > [設定伺服器]。
@@ -138,6 +138,9 @@ ms.locfileid: "49078631"
 - 如果您執行 9.6 或更早版本，而且想要升級至 9.11，則在升級到 9.11 之前，必須先升級到 版本 9.7。
 
 用來升級至組態伺服器所有版本的更新彙總連結，可以在 [wiki 更新頁面](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)取得。
+
+> [!IMPORTANT]
+> 每當發行最新的第「N」版 Azure Site Recovery 元件時，第「N-4」版以下的所有版本將不再受到支援。 我們一律建議您升級到可用的最新版本。
 
 升級伺服器，如下所示：
 

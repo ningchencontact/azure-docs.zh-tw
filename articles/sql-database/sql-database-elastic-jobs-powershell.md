@@ -2,19 +2,22 @@
 title: 使用 PowerShell 建立和管理彈性作業 | Microsoft Docs
 description: 用來管理 Azure SQL Database 集區的 PowerShell
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: pwershell
 ms.topic: conceptual
-ms.date: 06/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498414"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243192"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>使用 PowerShell 建立和管理 SQL Database 彈性作業 (預覽)
 

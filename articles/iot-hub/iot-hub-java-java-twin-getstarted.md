@@ -2,19 +2,18 @@
 title: 開始使用 Azure IoT 中樞裝置對應項 (Java) | Microsoft Docs
 description: 如何使用 Azure IoT 中樞裝置對應項來新增標籤，然後使用 IoT 中樞查詢。 您可以使用適用於 Java 的 Azure IoT 裝置 SDK，實作裝置應用程式，也可以使用適用於 Java 的 Azure IoT 服務 SDK，實作服務應用程式，以新增標籤和執行 IoT 中樞查詢。
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: b8884cafbf250b9d7a88219b5647addafee9904a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 98ef140635da1d773da86bbbe41e5494453d6287
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186895"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418036"
 ---
 # <a name="get-started-with-device-twins-java"></a>開始使用裝置對應項 (Java)
 
@@ -30,8 +29,10 @@ ms.locfileid: "39186895"
 
 若要完成本教學課程，您需要：
 
-* 最新的 [Java SE 開發套件 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* 最新的 [Java SE 開發套件 8](https://aka.ms/azure-jdks)
+
 * [Maven 3](https://maven.apache.org/install.html)
+
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](http://azure.microsoft.com/pricing/free-trial/)。)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -44,13 +45,15 @@ ms.locfileid: "39186895"
 
 1. 在您的開發電腦上建立名為 `iot-java-twin-getstarted` 的空資料夾。
 
-1. 在 `iot-java-twin-getstarted` 資料夾中，在命令提示字元中使用下列命令，建立名為 **add-tags-query** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
+2. 在 `iot-java-twin-getstarted` 資料夾中，在命令提示字元中使用下列命令，建立名為 **add-tags-query** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-1. 在命令提示字元中，巡覽至 `add-tags-query` 資料夾。
+3. 在命令提示字元中，巡覽至 `add-tags-query` 資料夾。
 
-1. 使用文字編輯器，開啟 `add-tags-query` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-service-client** 套件與 IoT 中樞通訊：
+4. 使用文字編輯器，開啟 `add-tags-query` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-service-client** 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -64,7 +67,7 @@ ms.locfileid: "39186895"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-service-client**。
 
-1. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
+5. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -82,11 +85,11 @@ ms.locfileid: "39186895"
     </build>
     ```
 
-1. 儲存並關閉 `pom.xml` 檔案。
+6. 儲存並關閉 `pom.xml` 檔案。
 
-1. 使用文字編輯器開啟 `add-tags-query\src\main\java\com\mycompany\app\App.java` 檔案。
+7. 使用文字編輯器開啟 `add-tags-query\src\main\java\com\mycompany\app\App.java` 檔案。
 
-1. 在此檔案中新增下列 **import** 陳述式：
+8. 在此檔案中新增下列 **import** 陳述式：
 
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.*;
@@ -97,7 +100,7 @@ ms.locfileid: "39186895"
     import java.util.Set;
     ```
 
-1. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
+9. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -107,13 +110,13 @@ ms.locfileid: "39186895"
     public static final String plant = "Redmond43";
     ```
 
-1. 更新 **Main** 方法簽章，以包含下列 `throws` 子句：
+10. 更新 **Main** 方法簽章，以包含下列 `throws` 子句：
 
     ```java
     public static void main( String[] args ) throws IOException
     ```
 
-1. 將下列程式碼新增至 **Main** 方法，建立 **DeviceTwin** 和 **DeviceTwinDevice** 物件。 **DeviceTwin** 物件會處理與 IoT 中樞的通訊。 **DeviceTwinDevice** 物件會以其屬性和標籤代表裝置對應項：
+11. 將下列程式碼新增至 **Main** 方法，建立 **DeviceTwin** 和 **DeviceTwinDevice** 物件。 **DeviceTwin** 物件會處理與 IoT 中樞的通訊。 **DeviceTwinDevice** 物件會以其屬性和標籤代表裝置對應項：
 
     ```java
     // Get the DeviceTwin and DeviceTwinDevice objects
@@ -121,7 +124,7 @@ ms.locfileid: "39186895"
     DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
     ```
 
-1. 將以下 `try/catch` 區塊新增至 **Main** 方法：
+12. 將以下 `try/catch` 區塊新增至 **Main** 方法：
 
     ```java
     try {
@@ -133,7 +136,7 @@ ms.locfileid: "39186895"
     }
     ```
 
-1. 若要更新裝置對應項的**區域**和**工廠**裝置對應項標籤，請在 `try` 區塊中新增下列程式碼：
+13. 若要更新裝置對應項的**區域**和**工廠**裝置對應項標籤，請在 `try` 區塊中新增下列程式碼：
 
     ```java
     // Get the device twin from IoT Hub
@@ -162,7 +165,7 @@ ms.locfileid: "39186895"
     System.out.println(device);
     ```
 
-1. 若要在 IoT 中樞中查詢裝置對應項，請將下列程式碼新增至 `try` 區塊，此區塊在上個步驟所新增的程式碼後面。 程式碼執行兩個查詢。 每個查詢都會傳回上限為 100 的裝置：
+14. 若要在 IoT 中樞中查詢裝置對應項，請將下列程式碼新增至 `try` 區塊，此區塊在上個步驟所新增的程式碼後面。 程式碼執行兩個查詢。 每個查詢都會傳回上限為 100 的裝置：
 
     ```java
     // Query the device twins in IoT Hub
@@ -191,11 +194,13 @@ ms.locfileid: "39186895"
     }
     ```
 
-1. 儲存並關閉 `add-tags-query\src\main\java\com\mycompany\app\App.java` 檔案。
+15. 儲存並關閉 `add-tags-query\src\main\java\com\mycompany\app\App.java` 檔案。
 
-1. 建置 **add-tags-query** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `add-tags-query` 資料夾，並執行下列命令：
+16. 建置 **add-tags-query** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `add-tags-query` 資料夾，並執行下列命令：
 
-    `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="create-a-device-app"></a>建立裝置應用程式
 
@@ -203,11 +208,13 @@ ms.locfileid: "39186895"
 
 1. 在 `iot-java-twin-getstarted` 資料夾中，在命令提示字元中使用下列命令，建立名為 **simulated-device** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-1. 在命令提示字元中，巡覽至 `simulated-device` 資料夾。
+2. 在命令提示字元中，巡覽至 `simulated-device` 資料夾。
 
-1. 使用文字編輯器，開啟 `simulated-device` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-device-client** 套件與 IoT 中樞通訊：
+3. 使用文字編輯器，開啟 `simulated-device` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-device-client** 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -220,7 +227,7 @@ ms.locfileid: "39186895"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-device-client**。
 
-1. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
+4. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -238,11 +245,11 @@ ms.locfileid: "39186895"
     </build>
     ```
 
-1. 儲存並關閉 `pom.xml` 檔案。
+5. 儲存並關閉 `pom.xml` 檔案。
 
-1. 使用文字編輯器開啟 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
+6. 使用文字編輯器開啟 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
 
-1. 在此檔案中新增下列 **import** 陳述式：
+7. 在此檔案中新增下列 **import** 陳述式：
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -253,7 +260,7 @@ ms.locfileid: "39186895"
     import java.util.Scanner;
     ```
 
-1. 將下列類別層級變數新增到 **App** 類別中。 以您的 IoT 中樞名稱取代 `{youriothubname}`，並以您在＜建立裝置身分識別＞一節中產生的裝置金鑰值取代 `{yourdevicekey}`：
+8. 將下列類別層級變數新增到 **App** 類別中。 以您的 IoT 中樞名稱取代 `{youriothubname}`，並以您在＜建立裝置身分識別＞一節中產生的裝置金鑰值取代 `{yourdevicekey}`：
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -263,7 +270,7 @@ ms.locfileid: "39186895"
 
     此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。 
 
-1. 將以下程式碼新增至 **Main** 方法，以：
+9. 將以下程式碼新增至 **Main** 方法，以：
     * 建立與 IoT 中樞通訊的裝置用戶端。
     * 建立**裝置**物件以儲存裝置對應項屬性。
 
@@ -280,7 +287,7 @@ ms.locfileid: "39186895"
     };
     ```
 
-1. 將下列程式碼新增至 **Main** 方法，建立 **connectivityType** 回報屬性，並將它傳送到 IoT 中樞：
+10. 將下列程式碼新增至 **Main** 方法，建立 **connectivityType** 回報屬性，並將它傳送到 IoT 中樞：
 
     ```java
     try {
@@ -300,7 +307,7 @@ ms.locfileid: "39186895"
     }
     ```
 
-1. 在 **Main** 方法的結尾新增下列程式碼。 等候 **Enter** 索引鍵給 IoT 中樞時間回報裝置對應項作業的狀態：
+11. 在 **Main** 方法的結尾新增下列程式碼。 等候 **Enter** 索引鍵給 IoT 中樞時間回報裝置對應項作業的狀態：
 
     ```java
     System.out.println("Press any key to exit...");
@@ -312,11 +319,13 @@ ms.locfileid: "39186895"
     client.close();
     ```
 
-1. 儲存並關閉 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
+12. 儲存並關閉 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
 
-1. 建置 **simulated-device** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `simulated-device` 資料夾，並執行下列命令：
+13. 建置 **simulated-device** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `simulated-device` 資料夾，並執行下列命令：
 
-    `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="run-the-apps"></a>執行應用程式
 
@@ -324,23 +333,29 @@ ms.locfileid: "39186895"
 
 1. 在 `add-tags-query` 資料夾的命令提示字元中執行下列命令，以執行 **add-tags-query** 服務應用程式：
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
-    ![更新標籤值並執行裝置查詢的 Java IoT 中樞服務應用程式](media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![更新標籤值並執行裝置查詢的 Java IoT 中樞服務應用程式](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     您可以看到新增至裝置對應項的**工廠**和**區域**標籤。 第一個查詢會傳回您的裝置，但第二個則不然。
 
-1. 在 `simulated-device` 資料夾的命令提示字元中，執行下列命令將 **connectivityType** 回報屬性新增至裝置對應項：
+2. 在 `simulated-device` 資料夾的命令提示字元中，執行下列命令將 **connectivityType** 回報屬性新增至裝置對應項：
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
-    ![裝置用戶端會新增 **connectivityType** 回報屬性](media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![裝置用戶端會新增 **connectivityType** 回報屬性](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
-1. 在 `add-tags-query` 資料夾的命令提示字元中執行下列命令，以再次執行 **add-tags-query** 服務應用程式：
+3. 在 `add-tags-query` 資料夾的命令提示字元中執行下列命令，以再次執行 **add-tags-query** 服務應用程式：
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
-    ![更新標籤值並執行裝置查詢的 Java IoT 中樞服務應用程式](media/iot-hub-java-java-twin-getstarted/service-app-2.png)
+    ![更新標籤值並執行裝置查詢的 Java IoT 中樞服務應用程式](./media/iot-hub-java-java-twin-getstarted/service-app-2.png)
 
     現在您的裝置已將 **connectivityType** 屬性傳送到 IoT 中樞，第二個查詢會傳回您的裝置。
 
@@ -351,12 +366,5 @@ ms.locfileid: "39186895"
 使用下列資源來了解如何：
 
 * 利用[開始使用 IoT 中樞](quickstart-send-telemetry-java.md)教學課程，傳送裝置的遙測資料。
+
 * 以互動方式控制裝置 (例如，從使用者控制的應用程式開啟風扇)，請參閱[使用直接方法](quickstart-control-device-java.md)教學課程。
-
-<!-- Images. -->
-[7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png
-[8]: ./media/iot-hub-java-java-twin-getstarted/device-listen.png
-[9]: ./media/iot-hub-java-java-twin-getstarted/device-respond.png
-
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md

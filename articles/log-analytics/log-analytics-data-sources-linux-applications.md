@@ -1,6 +1,6 @@
 ---
-title: 在 OMS Log Analytics 中收集 Linux 應用程式效能 | Microsoft Docs
-description: 本文詳細說明如何設定 OMS Agent for Linux，以收集 MySQL 和 Apache HTTP Server 的效能計數器。
+title: 在 Log Analytics 中收集 Linux 應用程式效能 | Microsoft Docs
+description: 本文詳細說明如何設定適用於 Linux 的 Log Analytics 代理程式，以收集 MySQL 和 Apache HTTP Server 的效能計數器。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: df5e55c2c03fec13ada258be91f0d98b7ce70d94
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044564"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406155"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>在 Log Analytics 中收集 Linux 應用程式的效能計數器 
-本文詳細說明如何設定 [OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux)，以收集特定應用程式的效能計數器。  本文包含的應用程式如下︰  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+本文詳細說明如何設定[適用於 Linux 的 Log Analytics 代理程式](https://github.com/Microsoft/OMS-Agent-for-Linux)，以收集特定應用程式的效能計數器。  本文包含的應用程式如下︰  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-如果在安裝 OMS 代理程式時於電腦上偵測到 MySQL 伺服器或 MariaDB 伺服器，則會自動安裝 MySQL 伺服器的效能監視提供者。 此提供者會連接到本機 MySQL/MariaDB 伺服器，以公開效能統計資料。 必須設定 MySQL 使用者認證，提供者才能存取 MySQL 伺服器。
+如果在安裝 Log Analytics 代理程式時於電腦上偵測到 MySQL 伺服器或 MariaDB 伺服器，則會自動安裝 MySQL 伺服器的效能監視提供者。 此提供者會連接到本機 MySQL/MariaDB 伺服器，以公開效能統計資料。 必須設定 MySQL 使用者認證，提供者才能存取 MySQL 伺服器。
 
 ### <a name="configure-mysql-credentials"></a>設定 MySQL 認證
 MySQL OMI 提供者需要預先設定的 MySQL 使用者，並已安裝 MySQL 用戶端程式庫，才能從 MySQL 執行個體查詢效能和健康情況資訊。  這些認證儲存在 Linux 代理程式上的驗證檔案。  驗證檔案指定 MySQL 執行個體所接聽的繫結位址和連接埠，以及要用來收集計量的認證。  
 
-在 OMS Agent for Linux 安裝期間，MySQL OMI 提供者將掃描繫結位址和連接埠的 MySQL my.cnf 組態檔 (預設位置)，並局部設定 MySQL OMI 驗證檔案。
+安裝適用於 Linux 的 Log Analytics 代理程式期間，MySQL OMI 提供者將掃描繫結位址和連接埠的 MySQL my.cnf 組態檔 (預設位置)，並局部設定 MySQL OMI 驗證檔案。
 
 MySQL 驗證檔案儲存在 `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`。
 
@@ -115,7 +116,7 @@ MySQL 使用者需要下列預設資料表的 SELECT 存取權。
 
 ### <a name="define-performance-counters"></a>定義效能計數器
 
-設定 OMS Agent for Linux 將資料傳送至 Log Analytics 之後，您必須設定要收集的效能計數器。  使用 [Log Analytics 中的 Windows 和 Linux 效能資料來源](log-analytics-data-sources-windows-events.md)中的程序與下表中的計數器。
+設定適用於 Linux 的 Log Analytics 代理程式將資料傳送至 Log Analytics 之後，您必須設定要收集的效能計數器。  使用 [Log Analytics 中的 Windows 和 Linux 效能資料來源](log-analytics-data-sources-windows-events.md)中的程序與下表中的計數器。
 
 | 物件名稱 | 計數器名稱 |
 |:--|:--|
@@ -151,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>定義效能計數器
 
-設定 OMS Agent for Linux 將資料傳送至 Log Analytics 之後，您必須設定要收集的效能計數器。  使用 [Log Analytics 中的 Windows 和 Linux 效能資料來源](log-analytics-data-sources-windows-events.md)中的程序與下表中的計數器。
+設定適用於 Linux 的 Log Analytics 代理程式將資料傳送至 Log Analytics 之後，您必須設定要收集的效能計數器。  使用 [Log Analytics 中的 Windows 和 Linux 效能資料來源](log-analytics-data-sources-windows-events.md)中的程序與下表中的計數器。
 
 | 物件名稱 | 計數器名稱 |
 |:--|:--|

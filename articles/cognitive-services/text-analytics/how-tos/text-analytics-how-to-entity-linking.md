@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248059"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645792"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>如何在文字分析 (預覽) 中使用具名實體辨識
 
@@ -28,12 +28,12 @@ ms.locfileid: "48248059"
 ### <a name="entity-linking"></a>實體連結
 連結實體可識別及區分文字中找到的實體身分識別 (例如，判斷 "Mars" 是用來指星體或指羅馬的戰神)。 此程序需具備可讓辨識項目與之連結的知識庫 - `entities` 端點文字分析即是使用維基百科作為知識庫。
 
-在文字分析 [2.1-Preview 版](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) \(英文\) 中，只有提供實體連結。
+在文字分析 [2.0 版](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) \(英文\) 中，只有提供實體連結。
 
 ### <a name="named-entity-recognition-ner"></a>具名實體辨識 (NER)
 具名實體辨識 (NER) 是識別文字中各種不同的實體，並將它們分類至預先定義類別的能力。 下面列出所支援的實體類別。
 
-在文字分析 2.1-Preview 版 (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`) 中，同時提供實體連結和具名實體辨識 (NER)。
+在文字分析 [2.1 版-預覽](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)中，同時提供實體連結和具名實體辨識 (NER)。
 
 ### <a name="language-support"></a>語言支援
 

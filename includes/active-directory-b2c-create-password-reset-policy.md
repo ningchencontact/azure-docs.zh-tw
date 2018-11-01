@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: bff2543ec48c66c10db697650def0077e3de28be
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134409"
+---
 若要在您的應用程式上啟用更細緻的密碼重設，您可使用**密碼重設**原則。 請注意，[這裡](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md)包含租用戶密碼重設的所有選項。 此原則描述客戶在密碼重設期間將經歷的體驗，以及成功完成時，應用程式將收到的權杖內容。
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]

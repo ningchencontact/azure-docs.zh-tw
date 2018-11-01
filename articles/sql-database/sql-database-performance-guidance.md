@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 效能調整指導方針 | Microsoft Docs
-description: 深入了解使用建議來改善 Azure SQL Database 查詢效能。
+title: Azure SQL Database 效能微調指引 | Microsoft Docs
+description: 深入了解如何使用建議來手動微調 Azure SQL Database 查詢效能。
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,50 +11,30 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 9af699dca5aab26f0bf24b4609bef14558236523
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/22/2018
+ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854808"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645519"
 ---
-# <a name="tuning-performance-in-azure-sql-database"></a>調整 Azure SQL Database 中的資料庫效能
+# <a name="manual-tune-query-performance-in-azure-sql-database"></a>在 Azure SQL Database 中手動微調查詢效能
 
-Azure SQL Database 提供您可以用來改善資料庫效能的[建議](sql-database-advisor.md)，或您可讓 Azure SQL Database [自動調整應用程式](sql-database-automatic-tuning.md)並套用可改善工作負載效能的變更。
+在您發現 SQL Database 的效能問題後，這篇文章可協助您：
 
-如果沒有任何適用的建議且仍有效能問題，您可以使用下列方法來改善效能：
+- 微調您的應用程式，並套用一些可以改善效能的最佳做法。
+- 變更索引和查詢來微調資料庫，更有效率地使用資料。
 
-- 在 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)或[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md) 中增加服務層，以提供更多資源給您的資料庫。
-- 調整您的應用程式，並套用一些可以改善效能的最佳做法。
-- 變更索引和查詢來調整資料庫，更有效率地使用資料。
+本文假設您已完成 Azure SQL Database [資料庫建議程式的建議](sql-database-advisor.md)和 Azure SQL Database [自動微調建議](sql-database-automatic-tuning.md)。 也假設您已檢閱[監視和微調概觀](sql-database-monitor-tune-overview.md)及其相關文章，來對效能問題進行疑難排解。 此外，本文假設您沒有 CPU 資源的執行相關效能問題，若要解決此問題，可藉由增加計算大小或服務層來提供更多資源給資料庫。
 
-這些是手動方法，因為您必須決定符合您需求的數量資源。 否則，您需要重寫應用程式或資料庫程式碼，並部署變更。
+## <a name="tune-your-application"></a>微調應用程式
 
-## <a name="increasing-service-tier-of-your-database"></a>增加資料庫的服務層級
-
-Azure SQL Database 提供[兩種購買模型](sql-database-service-tiers.md)供您選擇：[DTU 型購買模型](sql-database-service-tiers-dtu.md)與[虛擬核心型購買模型](sql-database-service-tiers-vcore.md)。 每個服務層都會嚴格地隔離出 SQL Database 可以使用的資源，並保證該服務層級會有可預測的效能。 在本文中，我們會提供指引來協助您選擇應用程式的服務層。 我們也會討論您可以調整應用程式以充分利用 Azure SQL Database 的方式。 每個服務層都有自己的[資源限制](sql-database-resource-limits.md)。 如需詳細資訊，請參閱 [vCore 型資源限制](sql-database-vcore-resource-limits-single-databases.md)與 [DTU 型資源限制](sql-database-dtu-resource-limits-single-databases.md)。
-
-> [!NOTE]
-> 本文著重在 Azure SQL Database 中單一資料庫的效能指引。 如需彈性集區的相關效能指引，請參閱[彈性集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。 但請注意，您可以將本文的諸多調整建議套用到彈性集區中的資料庫，並獲得類似的效能優點。
-
-您需要的 SQL Database 服務層級取決於每個資源維度的尖峰負載需求。 有些應用程式雖使用少量的某一資源，但卻對其他資源有大量需求。
-
-### <a name="service-tier-capabilities-and-limits"></a>服務層的功能和限制
-
-您在每個服務層都可以設定計算大小，因此能夠彈性地只支付所需容量的費用。 您可以在工作負載變更時向上或向下 [調整容量](sql-database-single-database-scale.md)。 比方說，如果資料庫工作負載在返校購物季期間很高，您可以在一段固定時間內 (7 月到 9 月) 提高資料庫的計算大小。 當旺季結束時，您可以將效能等級降低。 您可以依據商務季節性最佳化您的雲端環境，藉以將支出降到最低。 此模型也非常適合軟體產品發行週期。 測試小組可以在執行測試回合時配置容量，然後在測試完成時釋放該容量。 在容量要求模型中，您可以在需要時付費使用容量，避免將支出花費在可能很少使用的專用資源上。
-
-### <a name="the-purpose-of-service-tiers"></a>服務層的目的
-
-雖然每個資料庫的工作負載可能不同，但服務層的目的是要在各種計算大小提供效能可預測性。 對資料庫有大規模資源需求的客戶，則可以在更專用的運算環境中工作。
-
-## <a name="tune-your-application"></a>調整您的應用程式
-
-在傳統的內部部署 SQL Server 中，初始容量規劃的程序通常會和在生產環境中執行應用程式的程序分開。 先購買硬體和產品授權，之後再調整效能。 當您使用 Azure SQL Database 時，最好是將執行和調整應用程式的程序交織在一起。 透過容量隨選的付費模型，您可以調整應用程式以使用目前需要的最少資源，而不是根據對應用程式未來成長計劃的猜測 (這通常是不正確的) 來過度佈建。 某些客戶可能會選擇不調整應用程式，而改為選擇過度佈建硬體資源。 若您不想在忙碌時期變更關鍵應用程式，這種方法可能很適合。 但是，當您使用 Azure SQL Database 中的服務層時，調整應用程式可以最小化資源需求並降低每月帳單。
+在傳統的內部部署 SQL Server 中，初始容量規劃的程序通常會和在生產環境中執行應用程式的程序分開。 先購買硬體和產品授權，之後再微調效能。 當您使用 Azure SQL Database 時，最好是將執行和微調應用程式的程序交織在一起。 透過容量隨選的付費模型，您可以調整應用程式以使用目前需要的最少資源，而不是根據對應用程式未來成長計劃的猜測 (這通常是不正確的) 來過度佈建。 某些客戶可能會選擇不微調應用程式，而改為選擇過度佈建硬體資源。 若您不想在忙碌時期變更關鍵應用程式，這種方法可能很適合。 但是，當您使用 Azure SQL Database 中的服務層時，微調應用程式可以最小化資源需求並降低每月帳單。
 
 ### <a name="application-characteristics"></a>應用程式特性
 
-雖然 Azure SQL Database 服務層的設計可以改善應用程式的效能穩定性和可預測性，但某些最佳做法可以協助您調整應用程式，以更充分利用某一計算大小的資源。 雖然許多應用程式只藉由切換至較高的計算大小或服務層就能有顯著的效能提升，但是某些應用程式需要額外的調整才能從較高的服務等級獲益。 為了提高效能，請考慮為具有下列特性的應用程式進行額外的應用程式調整︰
+雖然 Azure SQL Database 服務層的設計可以改善應用程式的效能穩定性和可預測性，但某些最佳做法可以協助您微調應用程式，以更充分利用某一計算大小的資源。 雖然許多應用程式只藉由切換至較高的計算大小或服務層就能有顯著的效能提升，但是某些應用程式需要額外的微調才能從較高的服務等級獲益。 為了提高效能，請考慮為具有下列特性的應用程式進行額外的應用程式微調︰
 
 - **因為「多對話」行為而使效能變差的應用程式**
 
@@ -66,26 +46,15 @@ Azure SQL Database 提供[兩種購買模型](sql-database-service-tiers.md)供�
 
 - **具有次佳查詢的應用程式**
 
-  其查詢未經適當調整的應用程式，尤其是位在資料存取層中者，可能無法受益於較高的計算大小。 這包括缺少 WHERE 子句、具有遺漏的索引或具有過時統計資料的查詢。 這些應用程式會受益於標準查詢效能調整技術。 如需詳細資訊，請參閱[遺漏索引](#identifying-and-adding-missing-indexes)和[查詢調整和提示](#query-tuning-and-hinting)。
+  其查詢未經適當微調的應用程式，尤其是位在資料存取層中者，可能無法受益於較高的計算大小。 這包括缺少 WHERE 子句、具有遺漏的索引或具有過時統計資料的查詢。 這些應用程式會受益於標準查詢效能微調技術。 如需詳細資訊，請參閱[遺漏索引](#identifying-and-adding-missing-indexes)和[查詢微調和提示](#query-tuning-and-hinting)。
 
 - **具有次佳資料存取設計的應用程式**
 
    具有內在資料存取並行問題的應用程式，例如死結，可能無法受益於較高的計算大小。 請考慮藉由使用 Azure 快取服務或其他快取技術來快取用戶端的資料，以減少對 Azure SQL Database 的往返作業。 請參閱 [應用程式層快取](#application-tier-caching)。
 
-## <a name="tune-your-database"></a>調整您的資料庫
+## <a name="tune-your-database"></a>微調資料庫
 
-在本節中，我們會討論一些技術，您可以用這些技術來調整 Azure SQL Database 以獲取應用程式的最佳效能，並且盡可能在最小的計算大小中執行。 其中有些技術符合傳統的 SQL Server 調整最佳做法，但是其他技術則是專屬於 Azure SQL Database。 在某些情況下，您可以檢查資料庫已取用的資源來尋找要進一步調整的區域，並擴充傳統的 SQL Server 技術以使其適用於 Azure SQL Database。
-
-### <a name="identify-performance-issues-using-azure-portal"></a>使用 Azure 入口網站找出效能問題
-
-Azure 入口網站中有下列工具協助您分析及修正 SQL Database 的效能問題：
-
-- [查詢效能深入解析](sql-database-query-performance.md)
-- [SQL Database 建議程式](sql-database-advisor.md)
-
-Azure 入口網站有關於這兩個工具以及其使用方式的詳細資訊。 若要有效率地診斷並更正問題，建議您先嘗試使用 Azure 入口網站中的這兩個工具。 我們建議您使用接下來要討論的手動調整方法，以處理特殊情況下的遺漏索引和查詢調整。
-
-如需識別 Azure SQL Database 中問題的詳細資訊，可在 [Azure 入口網站中的效能監視](sql-database-monitor-tune-overview.md)和[使用 DMV 監視資料庫](sql-database-monitoring-with-dmvs.md)文章中找到。
+在本節中，我們會討論一些技術，您可以用這些技術來微調 Azure SQL Database 以獲取應用程式的最佳效能，並且盡可能在最小的計算大小中執行。 其中有些技術符合傳統的 SQL Server 微調最佳做法，但是其他技術則是專屬於 Azure SQL Database。 在某些情況下，您可以檢查資料庫已取用的資源來尋找要進一步微調的區域，並擴充傳統的 SQL Server 技術以使其適用於 Azure SQL Database。
 
 ### <a name="identifying-and-adding-missing-indexes"></a>找出並新增遺漏的索引
 
@@ -154,9 +123,9 @@ CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])
 
 重要的觀念是共用商品系統的 IO 容量會比專用伺服器電腦的容量受到更多限制。 重點在於要最小化不必要的 IO，才能在 Azure SQL Database 的服務層中，於每個計算大小的 DTU 內充分利用此系統。 適當的實體資料庫設計選項可以大幅改善個別查詢的延遲、改善每個縮放單位中可處理的並行要求輸送量，並最小化滿足查詢所需的成本。 如需有關遺漏索引 DMV 的詳細資訊，請參閱 [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx)。
 
-### <a name="query-tuning-and-hinting"></a>查詢調整和提示
+### <a name="query-tuning-and-hinting"></a>查詢微調和提示
 
-Azure SQL Database 內的查詢最佳化工具類似於傳統的 SQL Server 查詢最佳化工具。 調整查詢和了解查詢最佳化工具之推論模型限制的大多數最佳做法也適用於 Azure SQL Database。 如果您調整 Azure SQL Database 中的查詢，您可以因為減少彙整資源需求而獲得額外好處。 您的應用程式能夠以低於未經調整之查詢的成本執行，因為它可以在較低的計算大小中執行。
+Azure SQL Database 內的查詢最佳化工具類似於傳統的 SQL Server 查詢最佳化工具。 微調查詢和了解查詢最佳化工具之推論模型限制的大多數最佳做法也適用於 Azure SQL Database。 如果您微調 Azure SQL Database 中的查詢，您可以因為減少彙整資源需求而獲得額外好處。 您的應用程式能夠以低於未經調整之查詢的成本執行，因為它可以在較低的計算大小中執行。
 
 SQL Server 中常見並且也適用於 Azure SQL Database 的範例是查詢最佳化工具如何「探查」參數。 在編譯期間，查詢最佳化工具會評估參數值以判斷該值是否可以產生較佳的查詢計劃。 雖然這個策略產生的查詢計劃通常在速度上明顯優於不知道參數值就編譯的計劃，但是此策略目前在 SQL Server 和 Azure SQL Database 中的運作狀況並不完美。 有時參數並未經過探查，有時則是參數已經過探查，但產生的計劃對工作負載中的整組參數值而言只是次佳的。 Microsoft 包括查詢提示 (指示詞)，因此您可以更刻意地指定意圖及覆寫參數探查的預設行為。 如果您使用提示，您通常可以修正指定客戶工作負載的預設 SQL Server 或 Azure SQL Database 行為不完美的情況。
 
@@ -234,17 +203,17 @@ DECLARE @i int = 0;
 
 此範例中的每個部分都嘗試執行參數化的 insert 陳述式 1000 次 (以產生足夠的負載來做為測試資料集)。 當它執行預存程序時，查詢處理器會檢查第一次編譯 (參數「探查」) 期間傳遞至程序的參數值。 即使參數值不同，處理器還是會快取產生的計劃並用於稍後的叫用。 最佳的計劃可能不會用於所有情況。 有時候您必須引導最佳化工具挑選計劃，相較於第一次編譯查詢時的特定案例，此計劃較適合平均案例。 在此範例中，初始計劃會產生「掃描」計劃，此計劃會讀取所有資料列來尋找符合參數的每個值：
 
-![使用掃描計劃調整查詢](./media/sql-database-performance-guidance/query_tuning_1.png)
+![使用掃描計劃微調查詢](./media/sql-database-performance-guidance/query_tuning_1.png)
 
 因為我們以值 1 執行此程序，所以產生的計劃會是值 1 的最佳選擇，但是對資料表中的其他值而言未必是最佳的。 如果您隨機挑選每個計劃，因為該計劃執行得更慢而且使用更多資源，因此結果可能不是您要的。
 
 如果您以 `SET STATISTICS IO` 設為 `ON` 來執行測試，此範例會在幕後完成邏輯掃描工作。 您可以看到計劃完成了 1,148 次讀取 (如果平均案例是只傳回一個資料列，則此計劃是沒效率的)：
 
-![使用邏輯掃描調整查詢](./media/sql-database-performance-guidance/query_tuning_2.png)
+![使用邏輯掃描微調查詢](./media/sql-database-performance-guidance/query_tuning_2.png)
 
 此範例的第二個部分使用查詢提示告訴最佳化工具，在編譯處理程序期間使用特定值。 在此情況下，它會強制查詢處理器忽略傳遞做為參數的值，並改為假設 `UNKNOWN`。 這表示資料表中具有平均頻率的值 (忽略扭曲)。 產生的計劃是以搜尋為基礎的計劃，平均而言會比此範例第 1 部分的計劃更快速並使用較少資源：
 
-![使用查詢提示調整查詢](./media/sql-database-performance-guidance/query_tuning_3.png)
+![使用查詢提示微調查詢](./media/sql-database-performance-guidance/query_tuning_3.png)
 
 您可以在 **sys.resource_stats** 資料表中看到這個影響 (從您執行測試的時間到資料填入資料表的時間會發生延遲)。 在此範例中，第 1 部分會在 22:25:00 時間範圍期間執行，而第 2 部分會在 22:35:00 執行。 較早的時間範圍在該時間範圍內使用的資源比較晚的時間範圍還多 (因為計劃效率改善)。
 
@@ -255,7 +224,7 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![查詢調整範例結果](./media/sql-database-performance-guidance/query_tuning_4.png)
+![查詢微調範例結果](./media/sql-database-performance-guidance/query_tuning_4.png)
 
 > [!NOTE]
 > 雖然此範例中的數量已刻意簡化，次佳參數的影響還是很明顯，尤其是對於較大型的資料庫。 在極端的情況下，快速案例之間的差異可達數秒，而緩慢案例之間的差異可達數小時。

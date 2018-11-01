@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 10/01/2018
-ms.openlocfilehash: 925173f85301d6481ae3b9cf891041239b06bc8f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 10/29/2018
+ms.openlocfilehash: 3b2ff5bf4413c5d6a681aff66f0f338567f3b6a8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113711"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242733"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>使用 Azure Machine Learning 在 FPGA 上將模型部署為 Web 服務
 
@@ -24,9 +24,7 @@ ms.locfileid: "49113711"
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-- 您必須要求 FPGA 配額並取得核准。 若要要求存取權，請填妥配額要求表單： https://aka.ms/aml-real-time-ai
-
-- 已安裝 Azure Machine Learning 服務工作區與適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
+- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
  
   - 您的工作區必須位於*美國東部 2* 區域。
 

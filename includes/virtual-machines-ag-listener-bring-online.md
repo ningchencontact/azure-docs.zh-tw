@@ -1,10 +1,23 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226727"
+---
 1. 在容錯移轉叢集管理員中，展開 [角色]，然後醒目提示您的可用性群組。  
 
 2. 在 [資源] 索引標籤上，以滑鼠右鍵按一下接聽程式名稱，然後按一下 [屬性]。
 
 3. 按一下 [相依性]  索引標籤。如果列出多個資源，請確認 IP 位址具有 OR (而非 AND) 相依性。  
 
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
 
 5. 以滑鼠右鍵按一下接聽程式名稱，然後按一下 [上線]。
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068531"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470059"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
@@ -188,7 +188,11 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 > 不支援使用 "/31" 或 "/32" 前置詞大小的小型位址範圍。  這些範圍應該使用個別的 IP 位址規則設定。
 >
 
-只有**公用網際網路** IP 位址允許使用 IP 網路規則。  IP 規則中不允許保留私人網路的 IP 位址範圍 (如 RFC 1918 中所定義)。  私人網路包括以 *10.\**、*172.16.\** 和 *192.168.\** 開頭的位址。
+只有**公用網際網路** IP 位址允許使用 IP 網路規則。  IP 規則中不允許保留私人網路的 IP 位址範圍 (如 [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3) 中所定義)。  私人網路包括以 *10.\**、*172.16.\** - *172.31.\** 和 *192.168.\** 開頭的位址。
+
+> [!NOTE]
+> IP 網路規則不會影響源自儲存體帳戶所在 Azure 區域的要求。  使用[虛擬網路規則](#grant-access-from-a-virtual-network)來允許同一個區域的要求。
+>
 
 目前僅支援 IPV4 位址。
 

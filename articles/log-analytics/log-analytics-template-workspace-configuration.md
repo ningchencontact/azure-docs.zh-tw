@@ -14,13 +14,13 @@ ms.devlang: json
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 314b3b5ae331d562b13ba593d5f9b35b87786003
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.component: ''
+ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225543"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402211"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Log Analytics
 您可以使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)來建立和設定 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
@@ -178,7 +178,7 @@ ms.locfileid: "47225543"
       "minValue": 7,
       "maxValue": 730,
       "metadata": {
-        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and Log Analytics plans include 30 days for free"
       }
     },
     "location": {
@@ -518,7 +518,7 @@ Azure 快速入門範本庫中有數個 Log Analytics 的範本，包括︰
 * [部署執行 Linux 和 Log Analytics VM 擴充功能的虛擬機器](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [使用現有 Log Analytics 工作區監視 Azure Site Recovery](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [使用現有 Log Analytics 工作區監視 Azure Web Apps](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [將現有的儲存體帳戶新增到 OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
+* [將現有的儲存體帳戶新增至 Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 Resource Manager 範本將 Windows 代理程式部署到 Azure VM](../virtual-machines/windows/extensions-oms.md)。

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870871"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959038"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -106,16 +106,17 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 當 API 管理服務執行個體裝載於 VNET 時，會使用下表中的連接埠。
 
-| 來源 / 目的地連接埠 | 方向          | 傳輸通訊協定 | 來源 / 目的地                  | 目的 (*)                                                 | 虛擬網路類型 |
+| 來源 / 目的地連接埠 | 方向          | 傳輸通訊協定 |   [服務標記](../virtual-network/security-overview.md#service-tags) <br> 來源 / 目的地   | 目的 (*)                                                 | 虛擬網路類型 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | 輸入            | TCP                | INTERNET / VIRTUAL_NETWORK            | 與 API 管理的用戶端通訊                      | 外部             |
-| * / 3443                     | 輸入            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Azure 入口網站和 PowerShell 的管理端點         | 外部和內部  |
+| * / 3443                     | 輸入            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure 入口網站和 PowerShell 的管理端點         | 外部和內部  |
 | * / 80, 443                  | 輸出           | TCP                | VIRTUAL_NETWORK / Storage             | **與 Azure 儲存體的相依性**                             | 外部和內部  |
-| * / 80, 443                  | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | Azure Active Directory (如果適用)                   | 外部和內部  |
+| * / 80, 443                  | 輸出           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (如果適用)                   | 外部和內部  |
 | * / 1433                     | 輸出           | TCP                | VIRTUAL_NETWORK / SQL                 | **存取 Azure SQL 端點**                           | 外部和內部  |
 | * / 5672                     | 輸出           | TCP                | VIRTUAL_NETWORK / EventHub            | 「記錄到事件中樞」原則和監視代理程式的相依性 | 外部和內部  |
 | * / 445                      | 輸出           | TCP                | VIRTUAL_NETWORK / Storage             | 與「適用於 GIT 的 Azure 檔案共用」的相依性                      | 外部和內部  |
 | * / 1886                     | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 將健康情況狀態發佈至 [資源健康狀態] 時所需          | 外部和內部  |
+| * / 443                     | 輸出           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | 發佈診斷記錄和計量                        | 外部和內部  |
 | * / 25                       | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
 | * / 587                      | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |
 | * / 25028                    | 輸出           | TCP                | VIRTUAL_NETWORK / INTERNET            | 連線到 SMTP 轉送以便傳送電子郵件                    | 外部和內部  |

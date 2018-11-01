@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3ee62ec6b8155841121eed6c4ab9c12b08f0e9b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f0c852b0b3de4edcf894d80ae397eae6c8980d49
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165211"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240404"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
@@ -59,7 +59,7 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
 
 ### <a name="amo"></a>AMO  
 
- AMO 是用於伺服器管理及資料定義的受控用戶端程式庫。 工具和用戶端應用程式會加以安裝並使用。 例如，SQL Server Management Studio (SSMS) 會使用 AMO 來連線到 Analysis Services。 使用 AMO 的連線通常是最簡短的，由 `“data source=\<servername>”` 所組成。 建立連線之後，您可以使用 API 來處理資料庫集合與主要物件。 SSDT 和 SSMS 都會使用 AMO 來連線到 Analysis Services 執行個體。  
+ AMO 是用於伺服器管理及資料定義的受控用戶端程式庫。 工具和用戶端應用程式會加以安裝並使用。 例如，SQL Server Management Studio (SSMS) 會使用 AMO 來連線到 Analysis Services。 使用 AMO 的連線通常是最簡短的，由 `"data source=\<servername>"` 所組成。 建立連線之後，您可以使用 API 來處理資料庫集合與主要物件。 SSDT 和 SSMS 都會使用 AMO 來連線到 Analysis Services 執行個體。  
 
   
 ### <a name="adomd"></a>ADOMD

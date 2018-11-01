@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>先決條件
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 752c43604349a2361a8f5b26cd6d0bce7b516bc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134423"
+---
+### <a name="prerequisites"></a>必要條件
 * [MailChimp](https://www.MailChimp.com/) 帳戶 
 
 您必須先授與邏輯應用程式連接到 MailChimp 帳戶的權限，之後才能在邏輯應用程式中使用您的 MailChimp 帳戶。 所幸，您可以使用 Azure 入口網站在邏輯應用程式內輕易達成這項作業。 

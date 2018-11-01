@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 93aa77edaedbd3984e9e83ccfb7374422952e83a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227279"
+---
 可用性群組接聽程式是一個 IP 位址及網路名稱，可供 SQL Server 可用性群組接聽。 若要建立可用性群組接聽程式，請執行下列步驟：
 
 1. <a name="getnet"></a>取得叢集網路資源名稱。

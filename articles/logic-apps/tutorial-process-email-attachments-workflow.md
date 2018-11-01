@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429409"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231963"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>使用 Azure Logic Apps 來處理電子郵件和附件
 
@@ -56,7 +56,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 您可以將內送電子郵件和附件儲存為 [Azure 儲存體容器](../storage/common/storage-introduction.md)中的 Blob。 
 
-1. 您必須先透過下列設定[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)，才能建立儲存體容器：
+1. 您必須先透過下列設定[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)，才能建立儲存體容器：
 
    | 設定 | 值 | 說明 | 
    |---------|-------|-------------| 
@@ -670,7 +670,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

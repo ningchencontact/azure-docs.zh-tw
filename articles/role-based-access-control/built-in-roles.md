@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/27/2018
+ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 88667749d9cdf5239be33f3aca52d1a614556a41
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 72a8a09d04dc009598dafc35b65304662b7b8915
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816596"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955904"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 [角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
@@ -95,7 +95,6 @@ ms.locfileid: "48816596"
 | [監視讀取器](#monitoring-reader) | 可以讀取所有監視資料 (計量、記錄檔等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。 |
 | [網路參與者](#network-contributor) | 可讓您管理網路，但無法存取它們。 |
 | [New Relic APM 帳戶參與者](#new-relic-apm-account-contributor) | 可讓您管理 New Relic Application Performance Management 帳戶及應用程式，但無法存取它們。 |
-| [PowerApps 系統管理員測試](#powerapps-administrator-test) | 可讓您管理 Azure DNS 中的 DNS 區域與記錄集，但無法讓您控制誰可存取它們。 |
 | [讀取者及資料存取](#reader-and-data-access) | 可讓您檢視所有內容，但無法讓您刪除或建立儲存體帳戶或內含的資源。 也可透過存取儲存體帳戶金鑰，對儲存體帳戶中內含的所有資料進行讀取/寫入存取。 |
 | [Redis 快取參與者](#redis-cache-contributor) | 可讓您管理 Redis 快取，但無法存取它們。 |
 | [資源原則參與者 (預覽)](#resource-policy-contributor-preview) | (預覽) 從 EA 回填的使用者，有權建立/修改資源原則、建立支援票證及讀取資源/階層。 |
@@ -147,8 +146,8 @@ ms.locfileid: "48816596"
 > | Microsoft.Authorization/*/Delete | 無法刪除角色和角色指派 |
 > | Microsoft.Authorization/*/Write | 無法建立角色和角色指派 |
 > | Microsoft.Authorization/elevateAccess/Action | 對呼叫者授與租用戶範圍的使用者存取系統管理員存取權 |
-> | Microsoft.Blueprint/blueprintAssignments/write |  |
-> | Microsoft.Blueprint/blueprintAssignments/delete |  |
+> | Microsoft.Blueprint/blueprintAssignments/write | 建立或更新任何藍圖成品 |
+> | Microsoft.Blueprint/blueprintAssignments/delete | 刪除任何藍圖成品 |
 
 ## <a name="reader"></a>讀取者
 > [!div class="mx-tableFixed"]
@@ -379,10 +378,9 @@ ms.locfileid: "48816596"
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.Network/virtualNetworks/read | 取得虛擬網路定義 |
 > | Microsoft.RecoveryServices/locations/* |  |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | 管理備份管理上作業的結果 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | 在復原服務保存庫的備份網狀架構內建立和管理備份容器 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 重新整理容器清單 |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 建立和管理備份作業 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 匯出作業 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 傳回匯出作業的作業結果。 |
@@ -399,13 +397,26 @@ ms.locfileid: "48816596"
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | 取得復原服務保存庫的警示。 |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | 「取得保存庫」作業會取得物件，此物件代表 'vault' 類型的 Azure 資源 |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 重新整理容器清單 |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | 建立和管理註冊的身分識別 |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | 建立和管理復原服務保存庫的使用方式 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | 驗證受保護項目上的作業 |
+> | Microsoft.RecoveryServices/Vaults/write | 「建立保存庫」作業會建立 'vault' 類型的 Azure 資源 |
+> | Microsoft.RecoveryServices/Vaults/backupOperations/read | 傳回復原服務保存庫的備份作業狀態。 |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | 傳回已向保存庫註冊的所有備份管理伺服器。 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | 取得所有可保護的容器 |
+> | Microsoft.RecoveryServices/locations/backupStatus/action | 檢查復原服務保存庫的備份狀態 |
+> | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | 驗證功能 |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | 解決警示。 |
+> | Microsoft.RecoveryServices/operations/read | 作業會傳回資源提供者的作業清單 |
+> | Microsoft.RecoveryServices/locations/operationStatus/read | 取得給定作業的作業狀態 |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 列出所有的備份保護用途 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="backup-operator"></a>備份操作員
@@ -417,8 +428,6 @@ ms.locfileid: "48816596"
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.Network/virtualNetworks/read | 取得虛擬網路定義 |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 傳回作業的狀態 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 取得對保護容器執行之作業的結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | 對受保護的項目執行備份。 |
@@ -431,19 +440,15 @@ ms.locfileid: "48816596"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | 為受保護的項目撤銷即時項目復原 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 建立備用的受保護項目 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | 傳回所有已註冊的容器 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 重新整理容器清單 |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 建立和管理備份作業 |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | 取消作業 |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | 傳回作業的作業結果。 |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | 傳回所有作業物件 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 匯出作業 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 傳回匯出作業的作業結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | 傳回復原服務保存庫的備份管理中繼資料。 |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 建立和管理備份管理作業的結果 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 取得原則作業的結果。 |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationStatus/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 傳回所有保護原則 |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | 建立和管理可以備份的項目 |
-> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | 傳回所有可保護項目的清單。 |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | 傳回所有受保護項目的清單。 |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | 傳回屬於訂用帳戶的所有容器 |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | 傳回復原服務之受保護項目和受保護伺服器的摘要。 |
@@ -453,15 +458,31 @@ ms.locfileid: "48816596"
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | 取得復原服務保存庫的警示。 |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | 「取得保存庫」作業會取得物件，此物件代表 'vault' 類型的 Azure 資源 |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 重新整理容器清單 |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | 「取得作業結果」作業可用來取得以非同步方式提交之作業的作業狀態和結果 |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | 「取得容器」作業可用來取得為資源註冊的容器。 |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | 「註冊服務容器」作業可用來向復原服務註冊容器。 |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | 傳回復原服務保存庫的使用量詳細資料。 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | 驗證受保護項目上的作業 |
+> | Microsoft.RecoveryServices/Vaults/backupOperations/read | 傳回復原服務保存庫的備份作業狀態。 |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | 取得原則作業的狀態。 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | 建立已註冊的容器 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | 執行容器內工作負載的查詢 |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | 傳回已向保存庫註冊的所有備份管理伺服器。 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | 建立備份保護用途 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | 取得備份保護用途 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | 取得所有可保護的容器 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | 取得容器中的所有項目 |
+> | Microsoft.RecoveryServices/locations/backupStatus/action | 檢查復原服務保存庫的備份狀態 |
+> | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | 驗證功能 |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | 解決警示。 |
+> | Microsoft.RecoveryServices/operations/read | 作業會傳回資源提供者的作業清單 |
+> | Microsoft.RecoveryServices/locations/operationStatus/read | 取得給定作業的作業狀態 |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 列出所有的備份保護用途 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="backup-reader"></a>備份讀取者
@@ -472,15 +493,18 @@ ms.locfileid: "48816596"
 > | **Id** | a795c7a0-d4a2-40c1-ae25-d81f01202912 |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 傳回作業的狀態 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 取得對保護容器執行之作業的結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | 取得對受保護項目執行之作業的結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | 傳回對受保護項目執行之作業的狀態。 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | 傳回受保護項目的物件詳細資料 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | 取得受保護項目的復原點。 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | 傳回所有已註冊的容器 |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | 傳回作業的作業結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | 傳回所有作業物件 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 匯出作業 |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 傳回匯出作業的作業結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | 傳回復原服務保存庫的備份管理中繼資料。 |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | 傳回復原服務保存庫的備份作業結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 取得原則作業的結果。 |
@@ -489,17 +513,23 @@ ms.locfileid: "48816596"
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | 傳回屬於訂用帳戶的所有容器 |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | 傳回復原服務之受保護項目和受保護伺服器的摘要。 |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | 「取得延伸資訊」作業會取得物件的延伸資訊，此延伸資訊代表 'vault' 類型的 Azure 資源 |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | 取得復原服務保存庫的警示。 |
 > | Microsoft.RecoveryServices/Vaults/read | 「取得保存庫」作業會取得物件，此物件代表 'vault' 類型的 Azure 資源 |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/read |  |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | 「取得作業結果」作業可用來取得以非同步方式提交之作業的作業狀態和結果 |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | 「取得容器」作業可用來取得為資源註冊的容器。 |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | 取得復原服務保存庫的警示。 |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | 取得受保護項目的復原點。 |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 傳回匯出作業的作業結果。 |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | 傳回復原服務保存庫的儲存體組態。 |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/read | 傳回復原服務保存庫的組態。 |
+> | Microsoft.RecoveryServices/Vaults/backupOperations/read | 傳回復原服務保存庫的備份作業狀態。 |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | 取得原則作業的狀態。 |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | 傳回已向保存庫註冊的所有備份管理伺服器。 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | 取得備份保護用途 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | 取得容器中的所有項目 |
+> | Microsoft.RecoveryServices/locations/backupStatus/action | 檢查復原服務保存庫的備份狀態 |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | 解決警示。 |
+> | Microsoft.RecoveryServices/operations/read | 作業會傳回資源提供者的作業清單 |
+> | Microsoft.RecoveryServices/locations/operationStatus/read | 取得給定作業的作業狀態 |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 列出所有的備份保護用途 |
 > | Microsoft.RecoveryServices/Vaults/usages/read | 傳回復原服務保存庫的使用量詳細資料。 |
 
 ## <a name="billing-reader"></a>帳單讀取器
@@ -786,14 +816,14 @@ ms.locfileid: "48816596"
 > | **說明** | 可讓您管理 Data Factory，但無法加以存取。 |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **動作** |  |
-> | Microsoft.Authorization/*/read | 讀取角色和角色指派。 |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.DataFactory/dataFactories/* | 建立和管理 Data Factory 以及其中的子資源。 |
 > | Microsoft.DataFactory/factories/* | 建立和管理 Data Factory 以及其中的子資源。 |
-> | Microsoft.Insights/alertRules/* | 建立和管理警示規則。 |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態。 |
-> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署。 |
+> | Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
-> | Microsoft.Support/* | 建立和管理支援票證。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="data-lake-analytics-developer"></a>Data Lake Analytics 開發人員
 > [!div class="mx-tableFixed"]
@@ -1211,21 +1241,6 @@ ms.locfileid: "48816596"
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | NewRelic.APM/accounts/* |  |
 
-## <a name="powerapps-administrator-test"></a>PowerApps 系統管理員測試
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **說明** | 可讓您管理 Azure DNS 中的 DNS 區域與記錄集，但無法讓您控制誰可存取它們。 |
-> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
-> | **動作** |  |
-> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
-> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
-> | Microsoft.Network/dnsZones/* |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
-> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
-> | Microsoft.Support/* | 建立和管理支援票證 |
-
 ## <a name="reader-and-data-access"></a>讀取者及資料存取
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1510,6 +1525,8 @@ ms.locfileid: "48816596"
 > | Microsoft.Sql/servers/databases/* | 建立和管理 SQL 資料庫 |
 > | Microsoft.Sql/servers/read | 傳回伺服器清單，或取得指定伺服器的屬性。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Insights/metrics/read | 讀取計量 |
+> | Microsoft.Insights/metricDefinitions/read | 讀取計量定義 |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 無法編輯稽核原則 |
@@ -1578,6 +1595,8 @@ ms.locfileid: "48816596"
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/* | 建立和管理 SQL Server |
 > | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Insights/metrics/read | 讀取計量 |
+> | Microsoft.Insights/metricDefinitions/read | 讀取計量定義 |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 無法編輯 SQL Server 稽核原則 |

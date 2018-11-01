@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 5f5b03090f374f936e03d487596ca0462feea348
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042423"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407498"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT Service Management Connector 將 Azure 連線到 ITSM 工具
 
@@ -63,9 +63,13 @@ ITSMC 支援與下列 ITSM 工具連線：
     ![新增 ITSMC 解決方案](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
 3.  在 [OMS 工作區] 區段中，選取您要安裝解決方案的 Azure Log Analytics 工作區。
+   >[!NOTE]
+   >因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 工作區現在稱為 Log Analytics 工作區。
 4.  在 [OMS 工作區設定] 區段中，選取您要建立解決方案資源的資源群組。
 
     ![ITSMC 工作區](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    >[!NOTE]
+    >因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 工作區現在稱為 Log Analytics 工作區。
 
 5.  按一下頁面底部的 [新增] 。
 
@@ -290,7 +294,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - 請確定已成功部署 Web 應用程式，且已建立混合式連線。 若要確認是否已成功與內部部署 Service Manager 機器建立連線，請瀏覽 Web 應用程式 URL，如文件中針對建立[混合式連線](log-analytics-itsmc-connections.md#configure-the-hybrid-connection)所述。  
 
 2.  如果 ServiceNow 的資料未同步處理至 Log Analytics，請確定 ServiceNow 執行個體並非處在睡眠中。 ServiceNow 開發人員執行個體閒置很長的時間時，有時會進入睡眠狀態。 否則，請回報問題。
-3.  如果引發 OMS 警示，但未在 ITSM 產品中建立工作項目，或未將設定項目建立為/連結至工作項目，或需任何其他一般資訊，請查看下列位置：
+3.  如果引發 Log Analytics 警示，但未在 ITSM 產品中建立工作項目，或未將設定項目建立為/連結至工作項目，或需任何其他一般資訊，請查看下列位置：
  -  ITSMC：解決方案會顯示連線/工作項目/電腦等的摘要。按一下顯示 [連接器狀態] 的磚，這會利用相關的查詢帶您前往 [記錄搜尋]。 如需詳細資訊，請查看 ERROR 為 LogType_S 的記錄檔記錄。
  - [記錄搜尋] 頁面：使用查詢 `*`ServiceDeskLog_CL`*` 直接檢視錯誤/相關資訊。
 

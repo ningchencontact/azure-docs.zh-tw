@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.component: na
-ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: ''
+ms.openlocfilehash: bc2b93312ed005154aa7d2530fb5493278a15c67
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481985"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418597"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Log Analytics 中的 Azure 網路監視解決方案
 
@@ -70,7 +70,7 @@ Azure 應用程式閘道分析和網路安全性群組分析管理解決方案�
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Log Analytics 中的 Azure 應用程式閘道分析解決方案
 
-![Azure 應用程式閘道分析符號](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Azure 應用程式閘道分析符號](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 應用程式閘道支援下列記錄檔︰
 
@@ -94,10 +94,10 @@ Azure 應用程式閘道分析和網路安全性群組分析管理解決方案�
 1. 在 Azure 入口網站中，瀏覽至要監視的應用程式閘道資源
 2. 選取 [診斷記錄] 以開啟下列頁面
 
-   ![Azure 應用程式閘道資源的影像](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
+   ![Azure 應用程式閘道資源的影像](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. 按一下 [開啟診斷] 以開啟下列頁面
 
-   ![Azure 應用程式閘道資源的影像](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
+   ![Azure 應用程式閘道資源的影像](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. 若要開啟診斷，請按一下 [狀態] 下的 [開啟]
 5. 按一下 [傳送到 Log Analytics] 核取方塊
 6. 選取現有的 Log Analytics 工作區，或建立工作區
@@ -117,7 +117,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 ```
 
 ### <a name="use-azure-application-gateway-analytics"></a>使用 Azure 應用程式閘道分析
-![Azure 應用程式閘道分析圖格的影像](./media/log-analytics-azure-networking/log-analytics-appgateway-tile.png)
+![Azure 應用程式閘道分析圖格的影像](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-tile.png)
 
 在您按一下 [概觀] 上的 [Azure 應用程式閘道分析] 圖格之後，您可以檢視記錄摘要，然後深入探索下列類別的詳細資訊：
 
@@ -130,9 +130,9 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
   * 應用程式閘道的主機健康狀態
   * 應用程式閘道失敗要求的最大和第 95 個百分位數
 
-![Azure 應用程式閘道分析儀表板的影像](./media/log-analytics-azure-networking/log-analytics-appgateway01.png)
+![Azure 應用程式閘道分析儀表板的影像](media/log-analytics-azure-networking-analytics/log-analytics-appgateway01.png)
 
-![Azure 應用程式閘道分析儀表板的影像](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
+![Azure 應用程式閘道分析儀表板的影像](media/log-analytics-azure-networking-analytics/log-analytics-appgateway02.png)
 
 在 [Azure 應用程式閘道分析] 儀表板上，檢閱其中一個刀鋒視窗中的摘要資訊，然後按一下其中一個以在記錄搜尋頁面中檢視詳細資訊。
 
@@ -141,7 +141,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Log Analytics 中的 Azure 網路安全性群組分析解決方案
 
-![Azure 網路安全性群組分析符號](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Azure 網路安全性群組分析符號](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 > [!NOTE]
 > 網路安全性群組分析解決方案將會移至社群支援，因為其功能已由[流量分析](../network-watcher/traffic-analytics.md)取代。
@@ -165,10 +165,10 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 1. 在 Azure 入口網站中，瀏覽至要監視的網路安全性群組資源
 2. 選取 [診斷記錄] 以開啟下列頁面
 
-   ![Azure 網路安全性群組資源的影像](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
+   ![Azure 網路安全性群組資源的影像](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. 按一下 [開啟診斷] 以開啟下列頁面
 
-   ![Azure 網路安全性群組資源的影像](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
+   ![Azure 網路安全性群組資源的影像](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. 若要開啟診斷，請按一下 [狀態] 下的 [開啟]
 5. 按一下 [傳送到 Log Analytics] 核取方塊
 6. 選取現有的 Log Analytics 工作區，或建立工作區
@@ -196,9 +196,9 @@ Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspac
   * 網路安全性群組規則與允許流量
   * MAC 位址與允許流量
 
-![Azure 網路安全性群組分析儀表板的影像](./media/log-analytics-azure-networking/log-analytics-nsg01.png)
+![Azure 網路安全性群組分析儀表板的影像](media/log-analytics-azure-networking-analytics/log-analytics-nsg01.png)
 
-![Azure 網路安全性群組分析儀表板的影像](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
+![Azure 網路安全性群組分析儀表板的影像](media/log-analytics-azure-networking-analytics/log-analytics-nsg02.png)
 
 在 [Azure 網路安全性群組分析] 儀表板上，檢閱其中一個刀鋒視窗中的摘要資訊，然後按一下其中一個以在記錄搜尋頁面中檢視詳細資訊。
 

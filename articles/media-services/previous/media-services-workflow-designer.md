@@ -4,7 +4,7 @@ description: 深入了解如何使用工作流程設計工具建立進階編碼�
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: d75a3b58934b3da05a15700ecaf82226b549fffa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1521d18ab94c647aebf303b660574afe6612474d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785757"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250507"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流程設計工具建立進階編碼工作流程
 ## <a name="overview"></a>概觀

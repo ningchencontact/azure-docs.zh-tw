@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 44408e7b6ad1a068f265bf7b78d973e6aae3001b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 564ea3efe35a1054b8c905cff4b7f4c739cc9216
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628754"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156369"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT 中心架構
 
@@ -79,7 +79,7 @@ Azure IoT 中心會使用時間序列來儲存您的裝置所傳送的量值資�
 
 根據每個裝置範本，應用程式可以有一或多個模擬與真實裝置。
 
-## <a name="rbac"></a>RBAC
+## <a name="role-based-access-control-rbac"></a>角色型存取控制 (RBAC)
 
 針對使用預先定義角色的 Azure IoT 中心應用程式，[系統管理員可以為其定義存取規則](howto-administer.md)。 系統管理員可以將使用者指派給角色，而這些角色可判斷使用者可以存取應用程式的哪些區域。
 

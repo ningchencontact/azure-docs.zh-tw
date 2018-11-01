@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: na
-ms.openlocfilehash: 3c9352e8e4aee7817b1195c15f74503e86e597ea
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.component: ''
+ms.openlocfilehash: fb84b20630eb63cb53ccb1d13a383ed6287b802b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434914"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406614"
 ---
 # <a name="service-connectivity-monitor"></a>服務連線能力監視
 
@@ -44,7 +44,7 @@ ms.locfileid: "37434914"
 ![設定網路效能監控](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>設定用於監視的 Operations Management Suite 代理程式
+### <a name="configure-log-analytics-agents-for-monitoring"></a>設定 Log Analytics 代理程式以進行監視
 在用於監視的節點上啟用下列防火牆規則，讓解決方案可以探索從您的節點到服務端點的拓撲： 
 
 ```

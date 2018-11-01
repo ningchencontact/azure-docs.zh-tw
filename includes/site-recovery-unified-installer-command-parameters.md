@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 4b0c8ad227b9aa8a0692ff453c3751aaa38a4849
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164803"
+---
 |參數名稱| 類型 | 說明| 可能的值|
 |-|-|-|-|
 | /ServerMode|強制|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|

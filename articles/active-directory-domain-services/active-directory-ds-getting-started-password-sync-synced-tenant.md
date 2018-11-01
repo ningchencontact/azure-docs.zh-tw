@@ -3,7 +3,7 @@ title: Azure AD 網域服務︰啟用密碼同步處理 | Microsoft Docs
 description: 開始使用 Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: maheshu
-ms.openlocfilehash: 33cbc65ec5971f8bfe0133e5dca181194cd0bbdd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: ergreenl
+ms.openlocfilehash: 751c9df8dc3826b54baab6166cd63a0dd8cff4f5
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293994"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155944"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services 的密碼同步
 在先前工作中，您已啟用 Azure Active Directory (Azure AD) 租用戶的 Azure Active Directory Domain Services。 下一項工作是啟用 NT LAN Manager (NTLM) 和 Kerberos 驗證所需的認證雜湊與 Azure AD Domain Services 的同步。 設定認證同步處理後，使用者即可使用他們的公司認證來登入受控網域。

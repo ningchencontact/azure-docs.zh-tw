@@ -2,24 +2,18 @@
 title: 搭配 Windows 使用 Azure 檔案共用 | Microsoft Docs
 description: 了解如何搭配 Windows 和 Windows Server 使用 Azure 檔案共用。
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.openlocfilehash: 54e084e6480c872ff6dd4625b8c87d5a60a181ba
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: files
+ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392262"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415605"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -52,20 +46,11 @@ ms.locfileid: "39392262"
 
 * **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您需要主要 (或次要) 金鑰。 掛接目前不支援 SAS 金鑰。
 
-* **確定已開啟連接埠 445**：SMB 通訊協定要求 TCP 連接埠 445 為開啟狀態；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 下列 PowerShell 程式碼假設您已安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resoure-group-name>`。
+* **確定已開啟連接埠 445**：SMB 通訊協定要求 TCP 連接埠 445 為開啟狀態；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 請記得將 `your-storage-account-name` 取代為您儲存體帳戶的相關名稱。
 
     ```PowerShell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
+    
     ```
 
     如果連線成功，您應會看見下列輸出：
@@ -104,7 +89,7 @@ $storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceG
 # The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
 # consume the appropriate values from the storage account variables. The value given to the add parameter of the
 # cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
-# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign 
+# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign 
 # clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
 Invoke-Expression -Command "cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
     "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)"
@@ -165,7 +150,7 @@ if ($fileShare -eq $null) {
 
 # The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
 # <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
-# used because non-Public Azure regions, such as soverign clouds or Azure Stack deployments, will have different 
+# used because non-Public Azure regions, such as sovereign clouds or Azure Stack deployments, will have different 
 # hosts for Azure file shares (and other storage resources).
 $password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
@@ -208,6 +193,26 @@ Remove-PSDrive -Name <desired-drive-letter>
     ![現在已掛接 Azure 檔案共用](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
 7. 當您準備好要卸載 Azure 檔案共用時，您可以滑鼠右鍵按一下 [檔案總管] 中 [網路位置] 下的共用項目，然後選取 [中斷連線]。
+
+### <a name="accessing-share-snapshots-from-windows"></a>從 Windows 存取共用快照集
+如果您已建立共用快照集 (透過指令碼或 Azure 備份之類的服務手動或自動建立)，您即可從 Windows 上的檔案共用檢視舊版的共用、目錄或特定檔案。 您可以從 [Azure 入口網站](storage-how-to-use-files-portal.md)、[Azure PowerShell](storage-how-to-use-files-powershell.md) 和 [Azure CLI](storage-how-to-use-files-cli.md) 建立共用快照集。
+
+#### <a name="list-previous-versions"></a>列出舊版
+瀏覽至需要還原的項目或父項目。 按兩下以移至所需的目錄。 按一下滑鼠右鍵，然後從功能表中選取 [屬性]。
+
+![以滑鼠右鍵按一下功能表以取得選取的目錄](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
+
+選取 [舊版]，以查看此目錄之共用快照集的清單。 視網路速度和目錄中的共用快照集數目而定，清單可能需要幾秒鐘的時間才能載入。
+
+![[舊版] 索引標籤](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
+
+您可以選取 [開啟]，開啟特定的快照集。 
+
+![已開啟快照集](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+
+#### <a name="restore-from-a-previous-version"></a>從舊版還原
+選取 [還原] 可在共用快照集建立時，將整個目錄的內容以遞迴方式複製到原始位置。
+ ![警告訊息中的 [還原] 按鈕](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>保護 Windows/Windows Server
 為了在 Windows 上掛接 Azure 檔案共用，必須可以存取連接埠 445。 許多組織會封鎖連接埠 445，因為 SMB 1 固有的安全性風險。 SMB 1 也稱為 CIFS (Common Internet File System)，是 Windows 和 Windows Server 隨附的舊版檔案系統通訊協定。 SMB 1 已過期、沒有效率，而且最重要的是不安全的通訊協定。 好消息是 Azure 檔案服務不支援 SMB 1，而且所有支援的 Windows 和 Windows Server 版本都允許移除或停用 SMB 1。 我們始終[強烈建議](https://aka.ms/stopusingsmb1)先在 Windows 中移除或停用 SMB 1 用戶端和伺服器，再於生產環境中使用 Azure 檔案共用。

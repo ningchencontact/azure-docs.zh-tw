@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371f8c1d69482381e3a400da6010825bc3ac7c1a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2765021d80701826644f095d22c650160001e907
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697776"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414891"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 
@@ -57,7 +57,7 @@ ms.locfileid: "43697776"
 
 當您從 Visual Studio 提交 Storm 拓撲時，SCP.NET 會產生包含拓撲及相依性的 ZIP 檔案。 系統會使用 Java 來建立這些 ZIP 檔案，因為它所使用的格式和以 Linux 為基礎的叢集更具相容性。
 
-1. 在您的開發環境上安裝 Java Developer Kit (JDK) 7 或更新版本。 您可以從 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) \(英文\) 取得 Oracle JDK。 您也可以使用[其他 Java 發佈](http://openjdk.java.net/) \(英文\)。
+1. 在您的開發環境上安裝 Java Developer Kit (JDK) 7 或更新版本。 您可以從 [Oracle](https://aka.ms/azure-jdks) \(英文\) 取得 Oracle JDK。 您也可以使用[其他 Java 發佈](http://openjdk.java.net/) \(英文\)。
 
 2. `JAVA_HOME` 環境變數必須指向包含 Java 的目錄。
 
@@ -70,30 +70,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
@@ -758,8 +758,8 @@ Context.Logger.Info("Component started");
 
 **Apache Hadoop on HDInsight**
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](../hadoop/hdinsight-use-hive.md)
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](../hadoop/hdinsight-use-pig.md)
+* [搭配 HDInsight 上的 Hadoop 使用 Hive](../hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 上的 Hadoop 使用 Pig](../hadoop/hdinsight-use-pig.md)
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](../hadoop/hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**

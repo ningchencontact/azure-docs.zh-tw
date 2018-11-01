@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2018
+ms.date: 10/31/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 087de711fdbc70a4562045f8d774f2c6ae5a0db5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477653"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417033"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>使用 PowerShell 建立具有多個 NIC 的 VM (傳統)
 
@@ -36,7 +36,7 @@ ms.locfileid: "38477653"
 
 在下列步驟中，WEB 伺服器使用名為 *IaaSStory* 的資源群組，而 DB 伺服器使用名為 *IaaSStory-BackEnd* 的資源群組。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您需要建立 *IaaSStory* 資源群組，其中含有此案例的所有必要資源，才能建立 DB 伺服器。 若要建立這些資源，請完成下列步驟。 依照[建立虛擬網路](virtual-networks-create-vnet-classic-netcfg-ps.md)文章中的步驟建立虛擬網路。
 

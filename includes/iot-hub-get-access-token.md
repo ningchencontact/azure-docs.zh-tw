@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: ab9d059ede2464318205a90b8ac738727e8d89a4
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166045"
+---
 ## <a name="obtain-an-azure-resource-manager-token"></a>取得 Azure Resource Manager 權杖
 Azure Active Directory 必須驗證您在使用 Azure 資源管理員的資源上執行的所有工作。 此處顯示的範例使用密碼驗證，如需其他方法，請參閱[驗證 Azure Resource Manager 要求][lnk-authenticate-arm]。
 

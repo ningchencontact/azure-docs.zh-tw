@@ -1,9 +1,9 @@
 ---
 title: 使用 Azure SQL Database 的資料相依路由 | Microsoft Docs
-description: 如何在 .NET 應用程式中將 ShardMapManager 類別用於資料相依路由 (Azure SQL Database 中的分區化資料庫的一個功能)
+description: 如何在 .NET 應用程式中將 ShardMapManager 類別用於資料相依路由 (Azure SQL Database 中的分區化資料庫的一項功能)
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: c54a644b140d65ccad1a3cba6c5a07a8e201cddb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d40d0aff62492a01694eecac0a3650fcba69c448
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869613"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242920"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>使用資料相依路由將查詢路由至適當的資料庫
 
@@ -161,7 +161,7 @@ Configuration.SqlRetryPolicy.ExecuteAction(() =&gt;
 }); 
 ```
 
-當您建置彈性資料庫範例應用程式時，自動會下載實作暫時性錯誤處理所需的套件。 
+當您建置彈性資料庫範例應用程式時，自動會下載實作暫時性錯誤處理所需的封裝。 
 
 ## <a name="transactional-consistency"></a>交易一致性
 對於分區範圍內的所有作業，都保證交易式屬性。 例如，透過資料相依路由提交的交易，都在連接的目標分區範圍內執行。 目前無法將多個連接編列到交易中，因此對於跨分區執行的作業，不提供交易式保證。
