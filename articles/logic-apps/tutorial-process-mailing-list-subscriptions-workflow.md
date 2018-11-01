@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044411"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232659"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>使用 Azure Logic Apps 來管理郵寄清單要求
 
@@ -317,7 +317,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

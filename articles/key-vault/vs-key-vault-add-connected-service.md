@@ -1,6 +1,6 @@
 ---
 title: 使用 Visual Studio 在 ASP.NET 專案中新增 Key Vault 支援 | Microsoft Docs
-description: 使用此教學課程，以協助您了解如何在 ASP.NET 或 ASP.NET Core Web 應用程式中新增 Key Vault 支援。
+description: 使用本教學課程，以協助您了解如何在 ASP.NET 或 ASP.NET Core Web 應用程式中新增 Key Vault 支援。
 services: key-vault
 author: ghogen
 manager: douge
@@ -11,20 +11,20 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465787"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958505"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 連線服務在 Web 應用程式中新增 Key Vault
 
-在此教學課程中，您將了解如何輕鬆地新增所需的項目，以便開始在 Visual Studio 中使用 Azure Key Vault 來管理 Web 專案的祕密，而不論您使用的是 ASP.NET Core 或任何類型的 ASP.NET 專案。 透過使用 Visual Studio 2017 中的「連線服務」功能，您可以讓 Visual Studio 自動新增所需的所有 NuGet 套件和組態設定，以連線到 Azure 中的 Key Vault。 
+在本教學課程中，您將了解如何輕鬆地新增所需的項目，以便開始在 Visual Studio 中使用 Azure Key Vault 來管理 Web 專案的祕密，而不論您使用的是 ASP.NET Core 或任何類型的 ASP.NET 專案。 藉由使用 Visual Studio 2017 中的「連線服務」功能，您可以讓 Visual Studio 自動新增所需的所有 NuGet 封裝和組態設定，以連線到 Azure 中的 Key Vault。 
 
 針對「連線服務」在您專案中為啟用 Key Vault 所做的變更，如需詳細資料，請參閱 [Key Vault 連線服務 - 我的 ASP.NET 4.7.1 專案發生什麼情形](vs-key-vault-aspnet-what-happened.md)或 [Key Vault 連線服務 - 我的 ASP.NET Core 專案發生什麼情形](vs-key-vault-aspnet-core-what-happened.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **Azure 訂用帳戶**。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 - **Visual Studio 2017 版本 15.7**，並且已安裝**網頁程式開發**工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
@@ -79,7 +79,7 @@ Key Vault 的連線會在啟動時由實作 [Microsoft.AspNetCore.Hosting.IHosti
 
 若要存取您的祕密：
 
-1. 在 Visual Studio 的 ASP.NET Core 專案中，您現在可以透過在程式碼中使用下列運算式來參考這些祕密：
+1. 在 Visual Studio 的 ASP.NET Core 專案中，您現在可以藉由在程式碼中使用下列運算式來參考這些祕密：
  
    ```csharp
       config["MySecret"] // Access a secret without a section
@@ -93,7 +93,7 @@ Key Vault 的連線會在啟動時由實作 [Microsoft.AspNetCore.Hosting.IHosti
       @inject Microsoft.Extensions.Configuration.IConfiguration config
    ```
 
-1. 進行測試時，您可以透過在其中一個頁面上顯示祕密的值，來確認其可供使用。 使用 @config 來參考 config 變數。
+1. 進行測試時，您可以藉由在其中一個頁面上顯示祕密的值，來確認其可供使用。 使用 @config 來參考 config 變數。
  
    ```cshtml
       <p> @config["MySecret"] </p>
@@ -138,13 +138,35 @@ Key Vault 的連線會由 ConfigurationBuilder 類別使用您在執行**新增�
       <h3>@ViewBag.Secret2</h3>
    ```
 
-恭喜，您現在已確認 Web 應用程式可以使用 Key Vault，安全地存取已儲存的祕密。
+1. 在本機執行應用程式，以確認您可以讀取您在 Azure 入口網站中輸入的祕密，而不是組態檔中的虛擬值。
+
+接下來，將您的應用程式發佈到 Azure。
+
+## <a name="publish-to-azure-app-service"></a>發佈到 Azure App Service
+
+1. 以滑鼠右鍵按一下專案節點，然後選擇 [發佈]。 指出 [挑選發佈目標] 的畫面會隨即顯示。 從左側選擇 [App Service]，然後選擇 [新建]。
+
+   ![發佈至 App Service](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. 在 [建立 App Service] 畫面上，確定訂用帳戶和資源群組與您建立 Key Vault 時所用的一樣，然後選擇 [建立]。
+
+   ![建立應用程式服務](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. 建立您的 Web 應用程式之後，[發佈] 畫面會隨即出現。 請記下已發佈 Web 應用程式 (裝載在 Azure 中) 的 URL。 如果您在 **Key Vault** 旁看到 [無]，您仍必須告訴 App Service 要連線到哪個 Key Vault。 選擇 [新增 Key Vault] 連結，然後選擇您建立的 Key Vault。
+
+   ![新增 Key Vault](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   如果您看到 [管理 Key Vault]，您可以在上方按一下以檢視目前設定、編輯權限或變更 Azure 入口網站中的祕密。
+
+1. 現在，請選擇網站 URL 連結，在瀏覽器中瀏覽 Web 應用程式。 請確認您可以看到 Key Vault 中的正確值。
+
+恭喜，您已確認 Web 應用程式可以使用 Key Vault，在 Azure 中執行時可安全地存取已儲存的祕密。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要資源群組時，請將它刪除。 這會刪除 Key Vault 及相關資源。 若要透過入口網站刪除資源群組：
+不再需要資源群組時，請加以刪除。 這會刪除 Key Vault 及相關資源。 若要透過入口網站刪除資源群組：
 
-1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到此快速入門中使用的資源群組時，請選取它。
+1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請加以選取。
 2. 選取 [刪除資源群組]。
 3. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
 

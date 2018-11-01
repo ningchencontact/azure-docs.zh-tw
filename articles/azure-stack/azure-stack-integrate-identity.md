@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902438"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024438"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -53,7 +53,6 @@ ms.locfileid: "48902438"
 
 需求：
 
-
 |元件|需求|
 |---------|---------|
 |圖形|Microsoft Active Directory 2012/2012 R2/2016|
@@ -65,11 +64,21 @@ Graph 僅支援單一 Active Directory 樹系的整合。 如果存在多個樹�
 
 需要下列資訊，做為自動化參數的輸入：
 
-
 |參數|說明|範例|
 |---------|---------|---------|
 |CustomADGlobalCatalog|您想整合的<br>目標 Active Directory 樹系的 FQDN|Contoso.com|
 |CustomADAdminCredentials|具有 LDAP 讀取權限的使用者|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>設定 Active Directory 站台
+
+如果 Active Directory 部署有多個站台，請設定最接近 Azure Stack 部署的 Active Directory 站台。 進行此設定後，Azure Stack Graph 服務就不需要使用通用類別目錄伺服器從遠端站台解析查詢。
+
+將 Azure Stack [公用 VIP 網路](azure-stack-network.md#public-vip-network)的子網路新增至最接近 Azure Stack 的 Azure AD 站台。 例如，如果您的 Active Directory 有西雅圖和雷德蒙兩個站台，且 Azure stack 部署在西雅圖站台，您就應將 Azure Stack 公用 VIP 網路的子網路新增至西雅圖的 Azure AD 站台。
+
+如需 Active Directory 站台的詳細資訊，請參閱[設計站台拓撲](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)。
+
+> [!Note]  
+> 如果您的 Active Directory 只有一個站台，則可以略過此步驟。 如果您設定了全面涵蓋的子網路，請驗證 Azure Stack 公用 VIP 網路的子網路不是其中的一部分。
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>在現有 Active Directory 中建立使用者帳戶 (選擇性)
 
@@ -85,14 +94,14 @@ Graph 僅支援單一 Active Directory 樹系的整合。 如果存在多個樹�
 
 針對此程序，請使用您資料中心網路內能夠與 Azure Stack 中具特殊權限端點通訊的電腦。
 
-2. 開啟一個已提高權限的 Windows PowerShell 工作階段 (以系統管理員身分執行)，然後連線到具特殊權限端點的 IP 位址。 使用適用於 **CloudAdmin** 的認證進行驗證。
+1. 開啟一個已提高權限的 Windows PowerShell 工作階段 (以系統管理員身分執行)，然後連線到具特殊權限端點的 IP 位址。 使用適用於 **CloudAdmin** 的認證進行驗證。
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. 您已連接到特殊權限端點，請執行下列命令： 
+2. 您已連接到特殊權限端點，請執行下列命令： 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -199,6 +208,9 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
+   > [!Note]  
+   > 在現有的 AD FS (帳戶 STS) 輪替憑證時，您必須重新設定 AD FS 整合。 即使中繼資料端點可連線，或已藉由提供中繼資料檔案加以設定，您仍須設定整合。
+
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>在現有的 AD FS 部署上設定信賴憑證者 (帳戶 STS)
 
 Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指令碼。 使用指令碼是選擇性的，因為您可以手動執行命令。
@@ -263,7 +275,7 @@ Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > 使用 Windows Server 2012 或 2012 R2 AD FS 時，必須使用 AD FS MMC 嵌入式管理單元來設定發行授權規則。
 
 4. 使用 Internet Explorer 或 Edge 瀏覽器來存取 Azure Stack 時，您必須忽略權杖繫結。 否則，登入嘗試會失敗。 在您的 AD FS 執行個體或伺服器陣列成員上，執行下列命令：
@@ -283,7 +295,7 @@ Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指
 - 使用 AD FS 部署時的 System Center Management Pack for Azure Stack
 - 使用 AD FS 部署時 Azure Stack 中的資源提供者
 - 各種應用程式
-- 需要非互動式登入
+- 您需要非互動式登入
 
 > [!Important]  
 > AD FS 僅支援互動式登入工作階段。 如果您的自動化案例需要非互動式登入，則必須使用 SPN。

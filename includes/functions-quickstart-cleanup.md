@@ -1,3 +1,16 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: a1bedf97f5ae7c48e5bcb47880a25ee1219b917b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133931"
+---
 此集合中的其他快速入門會建置在本快速入門。 如果您打算繼續進行後續的快速入門、教學課程或者您在本快速入門中建立的任何服務，請勿清除資源。
 
 在 Azure 中「資源」是指函式應用程式、函式、儲存體帳戶等等。 它們會分組為「資源群組」，您可以藉由刪除群組來刪除群組中的所有項目。 

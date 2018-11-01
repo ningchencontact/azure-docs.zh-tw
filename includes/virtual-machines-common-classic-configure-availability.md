@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227006"
+---
 可用性設定組可協助您的虛擬機器在停機期間 (例如維護期間) 仍然保持可用狀態。 在可用性設定組中置入二或多個類似設定的虛擬機器，將可針對虛擬機器所執行的應用程式或服務，建立維護其可用性所需的備援。 如需其運作方式的詳細資訊，請參閱[管理虛擬機器的可用性][Manage the availability of virtual machines]。
 
 同時使用可用性設定組和負載平衡端點，是協助確保您的應用程式一直可用並有效率執行的最佳做法。 如需負載平衡端點的詳細資訊，請參閱 [Azure 基礎結構服務的負載平衡][Load balancing for Azure infrastructure services]。

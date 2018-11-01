@@ -3,7 +3,7 @@ title: 針對 Azure AD Domain Services 中的安全 LDAP (LDAPS) 進行疑難排
 description: 針對 Azure AD Domain Services 受控網域的安全 LDAP (LDAPS) 進行疑難排解
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 445c60da-e115-447b-841d-96739975bdf6
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: maheshu
-ms.openlocfilehash: 9713a06bbf6a61b316e061cb851721a3554cd632
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 3925db10a490be3c6d572f6d107e556595be8237
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503667"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155775"
 ---
 # <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD Domain Services 受控網域的安全 LDAP (LDAPS) 進行疑難排解
 
-## <a name="connection-issues"></a>連線問題
+## <a name="connection-issues"></a>連接問題
 如果您無法使用安全 LDAP 連線到受控網域：
 
 * 安全 LDAP 憑證的簽發者鏈結在用戶端上必須受信任。 您可以選擇將根憑證授權單位新增到用戶端上受信任的根憑證存放區，以建立信任。

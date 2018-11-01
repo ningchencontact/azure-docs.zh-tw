@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: 3495a923683d78446e61ff0545c7d86023c14bc0
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471470"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233849"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>概觀：主動式異地複寫和自動容錯移轉群組
 
@@ -281,18 +281,18 @@ ms.locfileid: "49471470"
 | --- | --- |
 | [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |建立、更新或還原主要或次要資料庫。 |
 | [取得建立或更新資料庫狀態](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |在建立作業期間傳回狀態。 |
-| [將次要資料庫設定為主要資料庫 (計劃性容錯移轉)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |從目前主要複本資料庫進行容錯移轉，以設定主要的複本資料庫。 |
-| [將次要資料庫設定為主要資料庫 (非計劃的容錯移轉)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |從目前主要複本資料庫進行容錯移轉，以設定主要的複本資料庫。 這項作業可能會導致資料遺失。 |
-| [取得複寫連結](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |取得異地複寫關聯性中指定 SQL Database 的特定複寫連結。 它會擷取 sys.geo_replication_links 目錄檢視中顯示的資訊。 |
-| [複寫連結 - 依資料庫列示](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | 取得異地複寫關聯性中指定 SQL Database 的所有複寫連結。 它會擷取 sys.geo_replication_links 目錄檢視中顯示的資訊。 |
-| [刪除複寫連結](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | 刪除資料庫複寫連結。 無法在容錯移轉期間進行。 |
-| [建立或更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | 建立或更新容錯移轉群組 |
-| [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | 從伺服器中移除容錯移轉群組 |
-| [容錯移轉 (計劃性)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | 從目前主要伺服器容錯移轉到此伺服器。 |
-| [強制容錯移轉允許資料遺失](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |從目前主要伺服器容錯移轉到此伺服器。 這項作業可能會導致資料遺失。 |
-| [取得容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | 取得容錯移轉群組。 |
-| [依伺服器列出容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | 列出伺服器中的容錯移轉群組。 |
-| [更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | 更新容錯移轉群組。 |
+| [將次要資料庫設定為主要資料庫 (計劃性容錯移轉)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |從目前主要複本資料庫進行容錯移轉，以設定主要的複本資料庫。 |
+| [將次要資料庫設定為主要資料庫 (非計劃的容錯移轉)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |從目前主要複本資料庫進行容錯移轉，以設定主要的複本資料庫。 這項作業可能會導致資料遺失。 |
+| [取得複寫連結](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |取得異地複寫關聯性中指定 SQL Database 的特定複寫連結。 它會擷取 sys.geo_replication_links 目錄檢視中顯示的資訊。 |
+| [複寫連結 - 依資料庫列示](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | 取得異地複寫關聯性中指定 SQL Database 的所有複寫連結。 它會擷取 sys.geo_replication_links 目錄檢視中顯示的資訊。 |
+| [刪除複寫連結](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | 刪除資料庫複寫連結。 無法在容錯移轉期間進行。 |
+| [建立或更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | 建立或更新容錯移轉群組 |
+| [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 從伺服器中移除容錯移轉群組 |
+| [容錯移轉 (計劃性)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | 從目前主要伺服器容錯移轉到此伺服器。 |
+| [強制容錯移轉允許資料遺失](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |從目前主要伺服器容錯移轉到此伺服器。 這項作業可能會導致資料遺失。 |
+| [取得容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | 取得容錯移轉群組。 |
+| [依伺服器列出容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | 列出伺服器中的容錯移轉群組。 |
+| [更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | 更新容錯移轉群組。 |
 |  | |
 
 ## <a name="next-steps"></a>後續步驟

@@ -2,18 +2,18 @@
 title: 快速入門：使用 Node.js 上傳、下載及列出 Blob - Azure 儲存體
 description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Node.js 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 09/20/2018
-ms.author: cshoe
-ms.openlocfilehash: 1c62dbd6856ec7bf2663f0b70a47357b52528899
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: tamram
+ms.openlocfilehash: 267218b4b958251e6748fbae17ca1ac267cf3287
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040807"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140582"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>快速入門：使用 Node.js 上傳、下載及列出 Blob
 
@@ -48,7 +48,7 @@ npm install
 ```
 
 ## <a name="run-the-sample"></a>執行範例
-相依性已安裝好，因此您可以發出下列命令來來執行範例：
+相依性現已安裝，因此您可以發出下列命令來來執行範例：
 
 ```bash
 npm start

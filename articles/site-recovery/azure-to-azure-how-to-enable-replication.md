@@ -5,15 +5,15 @@ services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: e7cd3032053b3628b94f93f3c7e00b6890afd4ca
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 2f4721155610da3be3ff0db3608d7c1e163aa344
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916277"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211837"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>將 Azure 虛擬機器複寫到另一個 Azure 區域
 
@@ -21,7 +21,7 @@ ms.locfileid: "37916277"
 
 本文說明如何將 Azure VM 從一個 Azure 區域複寫到另一個區域。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您已經設定適用於此案例的 Site Recovery，如 [Azure 至 Azure 教學課程](azure-to-azure-tutorial-enable-replication.md)中所述。 確定您已備妥必要條件，並建立了復原服務保存庫。
 
@@ -36,6 +36,7 @@ ms.locfileid: "37916277"
     - **來源**：VM 的起點，在此案例中為 **Azure**。
     - **來源位置**：您想要保護虛擬機器的 Azure 區域。 在此圖例中，來源位置是 [東亞]
     - **部署模型**：來源機器的 Azure 部署模型。
+    - **來源訂用帳戶**：來源虛擬機器所屬的訂用帳戶。 這可以是您的復原服務保存庫所在的相同 Azure Active Directory 租用戶內的任何訂用帳戶。
     - **資源群組**：來源虛擬機器所屬的資源群組。 下一個步驟會列出所選取資源群組下的所有 VM，以供保護。
 
     ![啟用複寫](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -46,6 +47,7 @@ ms.locfileid: "37916277"
 4. 在 [設定] 中，您可以選擇性地設定目標網站設定：
 
     - **目標位置**：將複寫來源虛擬機器資料的位置。 端視您選取的機器位置而定，Site Recovery 將提供適當目標區域的清單。 建議您讓目標位置與復原服務保存庫位置保持相同。
+    - **目標訂用帳戶**：用於災害復原的目標訂用帳戶。 根據預設，目標訂用帳戶會與來源訂用帳戶相同。
     - **目標資源群組**：所有已複寫虛擬機器所屬的資源群組。 根據預設，Azure Site Recovery 會在目標區域中建立名稱尾碼為 "asr" 的新資源群組。 如果 Azure Site Recovery 建立的資源群組已經存在，則會重複使用。 您也可以選擇對它進行自訂，如下所示。 目標資源群組的位置可以是任何 Azure 區域，但是裝載您來源虛擬機器所在的區域除外。
     - **目標虛擬網路**：根據預設，Site Recovery 將在目標區域中建立名稱尾碼為 "asr" 的新虛擬網路。 這會對應至您的來源網路，並用來進行任何未來的保護。 [深入了解](site-recovery-network-mapping-azure-to-azure.md)網路對應。
     - **目標儲存體帳戶 (如果您的來源 VM 不使用受控磁碟)**：根據預設，Site Recovery 會建立新的目標儲存體帳戶，以模擬您的來源 VM 儲存體設定。 如果儲存體帳戶已經存在，就會重複使用。
@@ -60,7 +62,9 @@ ms.locfileid: "37916277"
 
 您可以修改 Site Recovery 所使用的預設目標設定。
 
-1. 按一下 [自訂:] 以修改預設設定：
+1. 按一下「目標訂用帳戶」旁的 [自訂] 來修改預設目標訂用帳戶。 在同一個 Azure Active Directory (AAD) 租用戶中，從所有可用的訂用帳戶清單中選取訂用帳戶。
+
+2. 按一下 [自訂:] 以修改預設設定：
     - 在 [目標資源群組] 中，從訂用帳戶目標位置上的所有資源群組清單中選取資源群組。
     - 在 [目標虛擬網路] 中，從目標位置上的所有虛擬網路清單中選取網路。
     - 在 [可用性設定組] 中，如果 VM 是來源區域中可用性設定組的一部分，即可將可用性設定組新增至其中。

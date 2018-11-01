@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 4d2837a99c10f1600eb457e20cd7473f9f931302
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.component: ''
+ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125982"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408203"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector 管理解決方案 (預覽)
 
@@ -58,8 +58,8 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 ## <a name="configuration"></a>組態
 
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，啟用 Azure Web Apps 分析解決方案。
-2. 在 OMS 入口網站中，按一下 [設定] &gt; [資料] &gt; [Application Insights]。
-3. 在 [選取訂用帳戶] 之下，選取擁有 Application Insights 資源的訂用帳戶，然後在 [應用程式名稱] 之下，選取一或多個應用程式。
+2. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 [所有服務] 來開啟 Application Insights。 然後，搜尋 Application Insights。 
+3. 在 [訂用帳戶] 之下，選取擁有 Application Insights 資源的訂用帳戶，然後在 [名稱] 之下，選取一或多個應用程式。
 4. 按一下 [檔案] 。
 
 大約 30 分鐘內，資料就會變成可用，而且 Application Insights 圖格資料會更新，如下圖所示：
@@ -133,7 +133,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>在 Azure 入口網站中轉換至應用程式
 
-當您使用 OMS 入口網站時，Application Insights Connector 刀鋒視窗的設計可讓您轉換到所選的 Application Insights 應用程式。 您可以使用此解決方案作為高階監視平台，協助您針對應用程式進行疑難排解。 當您在任何已連線的應用程式中看到潛在問題時，您可以在 Log Analytics 搜尋中深入探詢，也可以直接轉換至 Application Insights 應用程式。
+當您使用 Azure 入口網站時，Application Insights Connector 刀鋒視窗的設計可讓您轉換到所選的 Application Insights 應用程式。 您可以使用此解決方案作為高階監視平台，協助您針對應用程式進行疑難排解。 當您在任何已連線的應用程式中看到潛在問題時，您可以在 Log Analytics 搜尋中深入探詢，也可以直接轉換至 Application Insights 應用程式。
 
 若要轉換，按一下出現在每行結尾的省略符號 (**...**)，然後選取 [在 Application Insights 中開啟]。
 

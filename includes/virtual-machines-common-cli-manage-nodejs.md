@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227090"
+---
 您必須具有 Azure 的帳戶，才能搭配使用 Azure CLI 與 Resource Manager 命令和範本，使用資源群組來部署 Azure 資源和工作負載。 如果您沒有帳戶，可以取得 [此處免費試用的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 如果您尚未安裝 Azure CLI 並且連接至您的訂用帳戶，請參閱[安裝 Azure CLI](../articles/cli-install-nodejs.md)，將模式設定為 `arm` 與 `azure config mode arm`，並連接至 Azure 與 `azure login` 命令。

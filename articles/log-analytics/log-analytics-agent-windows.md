@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 975b3d30f242b877512312f8a5a030bde9349287
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.component: ''
+ms.openlocfilehash: 677cd65b011ed69868564617ff79b7a57947c230
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003642"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404438"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>將 Windows 電腦連接到 Azure 中的 Log Analytics 服務
 
@@ -54,7 +54,7 @@ ms.locfileid: "40003642"
 2. 在 [歡迎] 頁面中按 [下一步]。
 3. 閱讀 [授權條款] 頁面上的授權，然後按一下 [我接受]。
 4. 在 [目的資料夾] 頁面上，變更或保留預設的安裝資料夾，然後按 [下一步]。
-5. 在 [代理程式安裝選項] 頁面上，選擇將代理程式連線到 Azure Log Analytics (OMS)，然後按 [下一步]。   
+5. 在 [代理程式安裝選項] 頁面上，選擇將代理程式連線到 Azure Log Analytics，然後按 [下一步]。   
 6. 在 [Azure Log Analytics] 頁面上，執行下列操作：
    1. 貼上您先前複製的**工作區識別碼**和**工作區金鑰 (主要金鑰)**。  如果電腦應該向 Azure Government Cloud 中的 Log Analytics 工作區回報，請從 [Azure 雲端] 下拉式清單中選取 [Azure 美國政府]。  
    2. 如果電腦需要透過 Proxy 伺服器與 Log Analytics 服務進行通訊，請按一下 [進階]，然後提供 Proxy 伺服器的 URL 和連接埠號碼。  如果您的 Proxy 伺服器會要求驗證，請輸入要向 Proxy 伺服器進行驗證的使用者名稱和密碼，然後按 [下一步]。  
@@ -160,7 +160,7 @@ ms.locfileid: "40003642"
 
 代理程式的安裝一旦完成，可以兩種方式確認其連線成功和報告。  
 
-在電腦的 [控制台] 中，找到 [Microsoft Monitoring Agent]。  選取它，在 [Azure Log Analytics (OMS)] 索引標籤上，代理程式應該會顯示下列訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務。**<br><br> ![MMA 對 Log Analytics 的連線狀態](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+在電腦的 [控制台] 中，找到 [Microsoft Monitoring Agent]。  選取它，在 [Azure Log Analytics] 索引標籤上，代理程式應該會顯示下列訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務。**<br><br> ![MMA 對 Log Analytics 的連線狀態](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 您也可以在 Azure 入口網站中執行簡單的記錄搜尋。  
 

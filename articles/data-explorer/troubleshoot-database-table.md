@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6ec81d6154f15d1c49428b50f0e65eed8edcedad
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986503"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215081"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>疑難排解：無法在 Azure 資料總管中建立或刪除資料庫或資料表
 
@@ -51,13 +51,13 @@ ms.locfileid: "46986503"
 
 如需有關權限的詳細資訊，請參閱[管理資料庫權限](manage-database-permissions.md)。
 
-## <a name="general-guidance"></a>一般指導方針
+## <a name="general-guidance"></a>一般方針
 
 1. 查看 [Azure 服務健康情況儀表板](https://azure.microsoft.com/status/>)。 在您要嘗試使用資料庫或資料表的區域中尋找 Azure 資料總管的狀態。
 
     如果狀態不是**良好** (綠色核取記號)，請在狀態改善之後再試一次。
 
-1. 若您仍然需要協助來解決問題，請在 [Azure 入口網站](https://portal.azure.com)中開啟支援要求。
+1. 若您仍然需要協助來解決問題，請在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)中開啟支援要求。
 
 ## <a name="next-steps"></a>後續步驟
 

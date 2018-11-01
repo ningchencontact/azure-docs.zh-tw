@@ -3,24 +3,24 @@ title: Azure Functions 中的觸發程序和繫結
 description: 了解如何在 Azure Functions 中使用觸發程序和繫結，將您的程式碼執行連接到線上事件和雲端服務。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
-ms.author: glenga
-ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: cshoe
+ms.openlocfilehash: 5e529953d06c37f382bdd5e65c23fe16d9928008
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801300"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250898"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
-此文章是 Azure Functions 中觸發程序和繫結的概念性概觀。 這裡描述所有繫結及所有支援語言的通用功能。
+本文是 Azure Functions 中觸發程序和繫結的概念性概觀。 這裡描述所有繫結及所有支援語言的通用功能。
 
 ## <a name="overview"></a>概觀
 
@@ -75,11 +75,12 @@ ms.locfileid: "48801300"
 ```cs
 #r "Newtonsoft.Json"
 
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 // From an incoming queue message that is a JSON object, add fields and write to Table storage
 // The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
+public static Person Run(JObject order, ILogger log)
 {
     return new Person() { 
             PartitionKey = "Orders", 
@@ -124,7 +125,7 @@ function generateRandomId() {
      [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
      public static Person Run(
          [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         TraceWriter log)
+         ILogger log)
      {
          return new Person() {
                  PartitionKey = "Orders",
@@ -164,7 +165,7 @@ function generateRandomId() {
 
 ### <a name="azure-portal-development"></a>Azure 入口網站開發
 
-此節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
+本節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
 
 當您建立函式或新增繫結時，系統會在觸發程序或繫結的擴充功能需要註冊時提示您。 請按一下 [安裝] 來註冊擴充功能，以回應提示。 安裝在取用方案上可能需要多達 10 分鐘。
 
@@ -172,7 +173,7 @@ function generateRandomId() {
 
 ### <a name="local-development-azure-functions-core-tools"></a>本機開發 Azure Functions Core Tools
 
-此節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
+本節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
@@ -238,10 +239,10 @@ dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
@@ -249,10 +250,10 @@ public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -273,19 +274,19 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, Trace
 以下是 C# 指令程式碼，接著則是非同步範例：
 
 ```cs
-public static string Run(WorkItem input, TraceWriter log)
+public static string Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
 
 ```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
+public static Task<string> Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -306,9 +307,9 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 以下是 F# 程式碼：
 
 ```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
+let Run(input: WorkItem, log: ILogger) =
     let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
+    log.LogInformation(sprintf "F# script processed queue message '%s'" json)
     json
 ```
 
@@ -401,9 +402,9 @@ module.exports = function (context, input) {
 [FunctionName("QueueTrigger")]
 public static void Run(
     [QueueTrigger("%input-queue-name%")]string myQueueItem, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 }
 ```
 
@@ -445,9 +446,9 @@ Blob 觸發程序的 `path` 可以是可讓您參考其他繫結和函式程式�
 
 ```csharp
 // C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+public static void Run(Stream image, string filename, Stream imageSmall, ILogger log)  
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 } 
 ```
@@ -463,9 +464,9 @@ public static void Run(
     [BlobTrigger("sample-images/{filename}")] Stream image,
     [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
     string filename,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 }
 
@@ -544,19 +545,20 @@ public static void Run(
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public class BlobInfo
 {
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, ILogger log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
 
-    log.Info($"Processing: {info.BlobName}");
+    log.LogInformation($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"

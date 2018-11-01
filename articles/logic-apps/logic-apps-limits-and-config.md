@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1ae350e74a9b56aaaa72b38a9e3a43bddfbefefc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320425"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232268"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -332,7 +332,7 @@ ms.locfileid: "49320425"
 >
 > * 建立[整合服務環境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，此環境可連線至 Azure 虛擬網路中的資源。 
 > 
-> * 如果您已經使用「API 管理」，則可以針對這個案例使用這個服務。 如需詳細資訊，請參閱[簡單的企業整合架構](http://aka.ms/aisarch)。
+> * 如果您已經使用「API 管理」，則可以針對這個案例使用這個服務。 如需詳細資訊，請參閱[簡單的企業整合架構](https://aka.ms/aisarch)。
 
 | Logic Apps 區域 | 輸出 IP | 
 |-------------------|-------------|  

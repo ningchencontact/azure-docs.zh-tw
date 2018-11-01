@@ -1,6 +1,6 @@
 ---
-title: 在 OMS Log Analytics 中收集 Nagios 和 Zabbix 警示 | Microsoft Docs
-description: Nagios 和 Zabbix 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Log Analytics，以搭配其他來源的警示一起分析。  本文說明如何設定 OMS Agent for Linux 以收集來自這些系統的警示。
+title: 在 Log Analytics 中收集 Nagios 和 Zabbix 警示 | Microsoft Docs
+description: Nagios 和 Zabbix 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Log Analytics，以搭配其他來源的警示一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,19 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131546"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402935"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>從 OMS Agent for Linux 在 Log Analytics 中收集來自 Nagios 和 Zabbix 的警示 
-[Nagios](https://www.nagios.org/) 和 [Zabbix](http://www.zabbix.com/) 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Log Analytics，以搭配[其他來源的警示](log-analytics-alerts.md)一起分析。  本文說明如何設定 OMS Agent for Linux 以收集來自這些系統的警示。
+# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>從 Log Analytics Linux 代理程式在 Log Analytics 中收集來自 Nagios 和 Zabbix 的警示 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[Nagios](https://www.nagios.org/) 和 [Zabbix](http://www.zabbix.com/) 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Log Analytics，以搭配[其他來源的警示](log-analytics-alerts.md)一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
  
-## <a name="prerequisites"></a>先決條件
-適用於 Linux 的 OMS 代理程式支援從 Nagios 收集的警示最高為 4.2.x 版，Zabbix 則最高為 2.x 版。
+## <a name="prerequisites"></a>必要條件
+Log Analytics Linux 代理程式支援從 Nagios 收集的警示最高為 4.2.x 版，Zabbix 則最高為 2.x 版。
 
 ## <a name="configure-alert-collection"></a>設定警示收集
 

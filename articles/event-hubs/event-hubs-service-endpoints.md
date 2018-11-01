@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: ff0ebbb140627caaaa71c5d09d0a4078eca86055
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 29b5f877065029dc271e49c1afd6d547def58a6e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888061"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408127"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>將虛擬網路服務端點搭配 Azure 事件中樞使用
 
@@ -24,7 +24,7 @@ ms.locfileid: "48888061"
 > [!IMPORTANT]
 > 事件中樞的**標準**和**專用**層級支援虛擬網路。 基本層中不支援虛擬網路。 
 
-一旦設定為繫結到至少一個虛擬網路子網路服務端點，這些端點各自的事件中樞命名空間除了授權的虛擬網路以外，無法再接受來自任何位置的流量。 從虛擬網路的角度來看，將事件中樞命名空間繫結至服務端點，會設定從虛擬網路子網路到傳訊服務的隔離式網路通道。
+一旦設定為繫結到至少一個虛擬網路子網路服務端點，這些端點各自的事件中樞命名空間除了虛擬網路中已授權的子網路以外，無法再接受來自任何位置的流量。 從虛擬網路的角度來看，將事件中樞命名空間繫結至服務端點，會設定從虛擬網路子網路到傳訊服務的隔離式網路通道。
 
 最終這會在繫結至子網路的工作負載與各自的事件中樞命名空間之間，建立私人且隔離的關係，儘管傳訊服務端點顯示的網路位址位於公用 IP 範圍中。
 
@@ -38,7 +38,7 @@ ms.locfileid: "48888061"
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>將事件中樞繫結至虛擬網路
 
-*虛擬網路規則*是防火牆安全性功能，可控制 Azure 事件中樞伺服器是否接受來自特定虛擬網路子網路的連線。
+「虛擬網路規則」是防火牆安全性功能，可控制 Azure 事件中樞命名空間是否接受來自特定虛擬網路子網路的連線。
 
 將事件中樞命名空間繫結至虛擬網路是一個雙步驟程序。 您必須先在虛擬網路子網路上建立**虛擬網路服務端點**，然後為 "Microsoft.EventHub" 啟用該端點，如[服務端點概觀][vnet-sep]所述。 一旦您新增服務端點，便會使用*虛擬網路規則*將事件中樞命名空間與其繫結。
 

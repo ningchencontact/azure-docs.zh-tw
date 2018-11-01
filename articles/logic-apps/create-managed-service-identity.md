@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 2964869933dd096b96e892cf08b8d4b66a8f210c
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817053"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229634"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
@@ -23,7 +23,7 @@ ms.locfileid: "48817053"
 > [!NOTE]
 > 您目前最多可擁有 10 個邏輯應用程式工作流程，而且每個 Azure 訂用帳戶中具有系統指派的受控識別。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶，或如果沒有訂用帳戶，您可以<a href="https://azure.microsoft.com/free/" target="_blank">免費註冊 Azure 帳戶</a>。
 
@@ -41,7 +41,7 @@ ms.locfileid: "48817053"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-1. 依照下列步驟執行： 
+1. 請遵循下列步驟： 
 
    1. 在邏輯應用程式功能表的 [設定] 下，選取 [工作流程設定]。 
 
@@ -170,7 +170,7 @@ ms.locfileid: "48817053"
 
 1. 在邏輯應用程式設計工具中，開啟您的邏輯應用程式。
 
-1. 依照下列步驟執行： 
+1. 請遵循下列步驟： 
 
    1. 在邏輯應用程式功能表的 [設定] 下，選取 [工作流程設定]。 
    
@@ -193,5 +193,5 @@ ms.locfileid: "48817053"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 

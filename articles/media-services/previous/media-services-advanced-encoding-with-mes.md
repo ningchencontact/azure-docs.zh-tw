@@ -4,7 +4,7 @@ description: 本主題說明如何透過自訂 Media Encoder Standard 工作預�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 9480e6f3f651611e5281968d6d1651bd39dda44f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783787"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250762"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>自訂 MES 預設值來執行進階編碼 
 
@@ -54,7 +54,7 @@ ms.locfileid: "33783787"
 >
 >
 
-如需結構描述的資訊，請參閱 [這個主題](media-services-mes-schema.md) 。
+如需結構描述的資訊，請參閱 [這個](media-services-mes-schema.md) 主題。
 
 請務必閱讀 [考量](#considerations) 一節。
 

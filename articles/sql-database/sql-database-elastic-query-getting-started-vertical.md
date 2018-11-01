@@ -3,7 +3,7 @@ title: 開始使用跨資料庫查詢 (垂直資料分割) | Microsoft Docs
 description: 如何使用具有垂直分割資料庫的彈性資料庫查詢
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/03/2018
-ms.openlocfilehash: d78767f9360c8cb3a304af19f619dd9f74d3fb8e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e665e00c9f769f4ee1f6e468ee6a03ee28271d5b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162979"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239777"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>開始使用跨資料庫查詢 (垂直資料分割) (預覽)
 

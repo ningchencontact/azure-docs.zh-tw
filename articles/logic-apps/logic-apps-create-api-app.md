@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122241"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233509"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>建立您可以從 Azure Logic Apps 呼叫的自訂 API
 
@@ -41,7 +41,7 @@ ms.locfileid: "43122241"
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> 如需針對 Logic Apps 建置的 API 應用程式範例，請瀏覽 [Azure Logic Apps GitHub 存放庫](http://github.com/logicappsio)或[部落格](http://aka.ms/logicappsblog)。
+> 如需針對 Logic Apps 建置的 API 應用程式範例，請瀏覽 [Azure Logic Apps GitHub 存放庫](http://github.com/logicappsio)或[部落格](https://aka.ms/logicappsblog)。
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>自訂 API 與自訂連接器有何不同？
 
@@ -230,7 +230,7 @@ Webhook 觸發程序作用很像本主題之前所述的 [webhook 動作](#webho
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
 
-* 若要協助改善 Logic Apps，請在 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)上票選或提交想法。 
+* 若要協助改善 Logic Apps，請在 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)上票選或提交想法。 
 
 ## <a name="next-steps"></a>後續步驟
 

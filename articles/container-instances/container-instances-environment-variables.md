@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 9fd23ce8236688f1456bcddb2b16b539d5e18482
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855624"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238143"
 ---
 # <a name="set-environment-variables"></a>設定環境變數
 
@@ -46,7 +46,7 @@ az container create \
     --name mycontainer2 \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
-    --environment-variables NumWords=5 MinLength=8
+    --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
 一旦這兩個容器的狀態顯示為「已終止」 (使用 [az container show][az-container-show] 檢查狀態)，即可使用 [az container logs][az-container-logs] 來顯示其記錄，以查看輸出。
@@ -95,7 +95,7 @@ New-AzureRmContainerGroup `
 現在，執行下列 [New-AzureRmContainerGroup][new-azurermcontainergroup] 命令。 此命令會在填入陣列變數 `envVars` 後，指定 NumWords 和 MinLength 環境變數：
 
 ```azurepowershell-interactive
-$envVars = @{NumWords=5;MinLength=8}
+$envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
@@ -167,7 +167,7 @@ Azure:\
 使用下列程式碼片段來建立 `secure-env.yaml` 檔案。
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: securetest
 properties:
@@ -175,10 +175,10 @@ properties:
   - name: mycontainer
     properties:
       environmentVariables:
-        - "name": "NOTSECRET"
-          "value": "my-exposed-value"
-        - "name": "SECRET"
-          "secureValue": "my-secret-value"
+        - name: 'NOTSECRET'
+          value: 'my-exposed-value'
+        - name: 'SECRET'
+          secureValue: 'my-secret-value'
       image: nginx
       ports: []
       resources:

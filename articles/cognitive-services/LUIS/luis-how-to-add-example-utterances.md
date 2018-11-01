@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888283"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645554"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>使用實體新增範例語句和標籤
 
@@ -159,6 +159,36 @@ book me 2 adult business tickets to Paris tomorrow on Air France
     >在單一應用程式的所有實體中，子實體名稱必須是唯一的。 兩個不同的階層式實體不能包含同名的子實體。 
 
     請參閱[資料擷取](luis-concept-data-extraction.md#hierarchical-entity-data)，以深入了解如何從端點 JSON 查詢回應擷取階層式實體。 嘗試階層式實體[快速入門](luis-quickstart-intent-and-hier-entity.md)，以深入了解如何使用階層式實體。
+
+## <a name="entity-status-predictions"></a>實體狀態預測
+
+當您在 LUIS 入口網站中輸入新的語句時，語句可能有實體預測誤差。 預測誤差是如何標示實體和 LUIS 如何預測實體之間的差異。 
+
+語句中的差異會顯示在 LUIS 入口網站中，以紅色底線標示。 紅色底線可能會出現在實體括號內或括號外部。 
+
+![實體狀態預測差異的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+選取語句中以紅色底線標示的字組。 
+
+如果有預測差異，實體方塊會顯示具有紅色驚嘆號的 [實體狀態]。 若要查看實體狀態和有關標示實體和預測實體之間的差異資訊，請選取 [實體狀態]，然後選取右邊的項目。
+
+![實體狀態預測差異的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+可能出現紅線的時機如下：
+
+    * 在實體未標示時輸入語句
+    * 套用實體標籤時
+    * 移除實體標籤時
+    * 對該文字預測多個實體標籤時 
+
+下列解決方案可協助您解決實體預測差異：
+
+|實體|視覺指標|預測|解決方法|
+|--|--|--|--|
+|已輸入語句，但實體尚未標示。|紅色底線|預測是正確的。|以預測值標示實體。|
+|未標示的文字|紅色底線|不正確的預測|目前語句使用了這個不正確的實體，必須透過所有意圖進行檢閱。 目前語句已使 LUIS 誤以為此文字是預測實體。
+|已正確標示的文字|以藍色醒目提示實體，有紅色底線|不正確的預測|以各種位置和用法提供更多實體標示正確的語句。 目前語句不足以教導 LUIS 此實體是 (或類似) 相同內容中出現的實體。 類似的實體應該合併成單一實體，才不會讓 LUIS 混淆。 另一個解決方案是新增片語清單，以大幅提升字組的精確度。 |
+|未正確標示的文字|以藍色醒目提示實體，有紅色底線|正確的預測| 以各種位置和用法提供更多實體標示正確的語句。 
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>從語句中移除實體標籤

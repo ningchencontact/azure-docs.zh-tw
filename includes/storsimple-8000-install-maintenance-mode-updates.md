@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165986"
+---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>透過適用於 StorSimple 的 Windows PowerShell 安裝維護模式更新
 
 當您將維護模式更新將套用至 StorSimple 裝置時，所有 I/O 要求都會暫停。 靜態隨機存取記憶體 (NVRAM) 之類的服務或叢集服務都會停止。 這兩個控制站會在您進入或結束此模式時重新啟動。 當您結束此模式時，所有的服務都會繼續執行，而且健康情況良好。 (這可能需要數分鐘的時間)。

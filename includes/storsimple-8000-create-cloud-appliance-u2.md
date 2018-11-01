@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164826"
+---
 #### <a name="to-create-a-cloud-appliance"></a>建立雲端設備
 
 1. 在 Azure 入口網站中，移至 **StorSimple 裝置管理員**服務。

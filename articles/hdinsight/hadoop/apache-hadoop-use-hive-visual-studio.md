@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: fd57e713a24fb83e42d46b4a1978530b706bf583
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d4fd75030a1d90e1543ba4a1713bb2d84a35c87b
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049891"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248657"
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Hive 查詢
 
@@ -106,7 +106,7 @@ ms.locfileid: "43049891"
 
 9. 若要確認作業已建立資料表，請使用 [伺服器總管] 並展開 [Azure] > [HDInsight] > 您的 HDInsight 叢集 > [Hive 資料庫] > [預設]。 會列出 **errorLogs** 資料表和 **log4jLogs** 資料表。
 
-## <a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a>接續步驟
 
 如您所見，HDInsight tools for Visual Studio 提供簡單的方法，可在 HDInsight 上使用 Hive 查詢。
 
@@ -123,8 +123,6 @@ ms.locfileid: "43049891"
 如需 HDInsight Tools for Visual Studio 的詳細資訊：
 
 * [開始使用 HDInsight Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

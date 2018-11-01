@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 038c273806188d04223f1e455c158249a3e17718
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165652"
+---
 | 資源 | 標準檔案共用 | 進階檔案共用 (預覽) |
 |----------|---------------|------------------------------------------|
 | 檔案共用大小上限 | (無下限；預付型) | 100 GiB |

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696443"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242285"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>歡迎使用 Azure Cosmos DB
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 是一個全球分散式多模型資料庫服務，可讓您輕�
 * **確保「永遠可用」可用性**
     * 所有單一區域的資料庫帳戶可享有 99.99% 可用性的 SLA，所有多重區域的資料庫帳戶則享有 99.999% 的讀取可用性。
     * 可部署至任意數目的 [Azure 區域](https://azure.microsoft.com/regions)，以提升可用性和效能。
-    * 可動態設定區域的優先順序，並以保證不會遺失任何資料的方式對一或多個區域[進行失敗模擬](regional-failover.md)，以便測試整個應用程式 (而非只是資料庫) 的端對端可用性。 
+    * 可動態設定區域的優先順序，並以保證不會遺失任何資料的方式對一或多個區域[進行失敗模擬](high-availability.md)，以便測試整個應用程式 (而非只是資料庫) 的端對端可用性。 
 
 * **以正確方式撰寫全球散發應用程式**
     * 五個定義完善、實用且直覺的[一致性模型](consistency-levels.md)，可提供強式的 SQL 型一致性、寬鬆的 NoSQL 型最終一致性，以及介於兩者之間的各種一致性。 

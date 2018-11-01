@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223826"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404557"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Log Analytics 使用者從 OMS 入口網站轉換到 Azure 入口網站的常見問題
 Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網站) 來管理其設定和分析收集到的資料。  這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。
@@ -113,7 +113,7 @@ OMS 入口網站之 [設定] 區段中的許多設定，都位於 Azure 入口�
 根據 Log Analytics 查詢的警示規則現在是以[統一的警示體驗](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)進行管理。 如需在 Azure 入口網站中設定和使用警示的詳細資料，請參閱[如何將警示從 Log Analytics 延伸到 Azure 警示](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md)。
 
 ## <a name="how-do-i-access-my-dashboards"></a>如何存取我的儀表板？
-已淘汰 Log Analytics 中的[儀表板](../log-analytics/log-analytics-dashboards.md)。  您可以使用[檢視設計工具](../log-analytics/log-analytics-view-designer.md)將 Log Analytics 中的資料視覺化，此檢視設計工具具有額外的功能，可將查詢和檢視釘選到 Azure 的儀表板中。
+已淘汰 Log Analytics 中的[我的儀表板](../log-analytics/log-analytics-dashboards.md)功能。 這項功能可讓您擁有私人的「檢視設計工具」組件，但已由內建的 Azure 儀表板功能所取代。 您可以繼續針對共用檢視，使用[檢視設計工具](../log-analytics/log-analytics-view-designer.md)將 Log Analytics 中的資料視覺化。 您也可以將來自這些檢視的視覺效果釘選到 Azure 儀表板，或針對[個別查詢](../log-analytics/log-analytics-tutorial-dashboards.md)的視覺效果來進行相同操作。
 
 ## <a name="how-do-i-check-my-usage"></a>如何查看我的使用量？
 現在，您可以藉由選取工作區中的 [使用量和估計成本]，輕鬆地檢視及管理您的 Log Analytics 使用量和成本。

@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226655"
+---
 在此步驟中，您會使用在相同網路上執行的用戶端應用程式來測試可用性群組接聽程式。
 
 用戶端連線能力具有下列需求：

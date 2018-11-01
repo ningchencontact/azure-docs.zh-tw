@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services：功能 | Microsoft Docs
 description: Azure Active Directory 網域服務的功能
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: maheshu
-ms.openlocfilehash: a64401792fd034fde98fe1330340b1ffaa7dfcc1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: cd4fdb1e59f5b85fdfd8eb7ca17b77d02dcdac05
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505407"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157032"
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD 網域服務
 ## <a name="features"></a>特性
@@ -39,7 +39,6 @@ ms.locfileid: "39505407"
 * **管理 DNS：**「AAD DC 系統管理員」群組成員可以使用熟悉的 DNS 系統管理工具 (例如 DNS 系統管理 MMC 嵌入式管理單元)，來管理您受控網域的 DNS。
 * **建立自訂的組織單位 (OU)：**「AAD DC 系統管理員」群組成員可以在受控網域中建立自訂的 OU。 這些使用者會被授與自訂 OU 的完整系統管理權限，讓他們可以在這些自訂的 OU 內新增或移除服務帳戶、電腦、群組等。
 * **可在許多 Azure 全球區域中使用：** 請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services/)頁面，以了解可使用 Azure AD 網域服務的 Azure 區域。
-* 
-  **高可用性：** Azure AD 網域服務可針對您的網域提供高可用性。 此功能提供了對於更高的服務運作時間以及失敗恢復措施的保證。 內建的狀況監控功能可提供失敗的自動補救措施，做法是啟動新的執行個體來取代失敗的執行個體，並為您的網域提供繼續執行的服務。
+* **高可用性：** Azure AD 網域服務可針對您的網域提供高可用性。 此功能提供了對於更高的服務運作時間以及失敗恢復措施的保證。 內建的狀況監控功能可提供失敗的自動補救措施，做法是啟動新的執行個體來取代失敗的執行個體，並為您的網域提供繼續執行的服務。
 * **AD 帳戶鎖定保護：** 如果在 2 分鐘內使用 5 個無效的密碼，使用者帳戶會被鎖定 30 分鐘。 30 分鐘後，帳戶會自動解除鎖定。
 * **使用熟悉的管理工具：** 您可以使用 Active Directory 管理中心或 PowerShell 的 Active Directory 等熟悉的 Windows Server Active Directory 管理工具，管理受控網域。

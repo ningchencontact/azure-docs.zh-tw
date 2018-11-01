@@ -2,18 +2,18 @@
 title: Azure 儲存體安全性指南 | Microsoft Docs
 description: 詳述許多保護 Azure 儲存體的方法，包括但不限於 RBAC、儲存體服務加密、用戶端加密、SMB 3.0 及 Azure 磁碟加密。
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 584db1400ddd2b4f447b7ca397f2c98b701c7848
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: cd7b475dc2bd4dade822a82f285c2e96c8d532d2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341866"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138165"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 

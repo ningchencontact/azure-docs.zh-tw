@@ -11,12 +11,12 @@ ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 7af2db528866d687064e854e00e43e81d2601b2b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042320"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230347"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>使用 Azure Logic Apps 來監視及管理 Slack
 
@@ -47,7 +47,7 @@ ms.locfileid: "43042320"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "slack" 作為篩選條件。 請在觸發程序清單底下，選取您想要的觸發程序。 
+1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "slack" 作為篩選條件。 在觸發程序清單底下，選取您想要的觸發程序。 
 
    -或-
 
@@ -75,7 +75,7 @@ ms.locfileid: "43042320"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

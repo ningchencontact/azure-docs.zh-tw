@@ -2,26 +2,25 @@
 title: Azure 備份：準備備份虛擬機器
 description: 確認在 Azure 中備份虛擬機器的環境已準備就緒。
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: 備份；備份；
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884928"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025934"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>準備環境以備份 Resource Manager 部署的虛擬機器
+# <a name="prepare-to-back-up-azure-vms"></a>準備備份 Azure VM
 
-本文提供的步驟可讓您備妥環境，以備份 Azure Resource Manager 部署的虛擬機器 (VM)。 程序中展示的步驟使用 Azure 入口網站。 當您備份虛擬機器時，備份資料或復原點會儲存在復原服務保存庫中。 復原服務保存庫會為傳統和資源管理員部署的虛擬機器儲存備份資料。
+本文提供的步驟可讓您備妥環境，以備份 Azure Resource Manager 部署的虛擬機器 (VM)。 程序中展示的步驟使用 Azure 入口網站。 當您備份虛擬機器時，備份資料或復原點會儲存在復原服務備份保存庫中。 
 
-> [!NOTE]
-> Azure 有兩種用來建立和使用資源的部署模型： [Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。
+
 
 在保護 (或備份) 資源管理員部署的虛擬機器之前，請確認以下必要條件是否存在：
 
@@ -47,7 +46,6 @@ ms.locfileid: "48884928"
 準備環境之前，請務必先了解下列限制：
 
 * 不支援備份具有 32 個以上資料磁碟的虛擬機器。
-* 不支援備份具有保留的 IP 且沒有已定義之端點的虛擬機器。
 * 不支援備份透過 Linux 統一金鑰設定 (LUKS) 加密所加密的 Linux VM。
 * 我們不建議備份包含叢集共用磁碟區 (CSV) 或向外延展檔案伺服器設定的 VM。 如果已完成，CSV 寫入器預期會失敗。 其需要涉及在快照集工作期間，叢集設定中包含的所有 VM。 Azure 備份無法保持 VM 間的一致性。
 * 備份資料不包含連結至 VM 的網路掛接磁碟機。

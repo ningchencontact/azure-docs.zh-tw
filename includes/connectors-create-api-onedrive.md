@@ -1,4 +1,17 @@
-#### <a name="prerequisites"></a>先決條件
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 7cfce34cb2d6002dba5ec570bf859ec47e894c65
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132866"
+---
+#### <a name="prerequisites"></a>必要條件
 * Azure 帳戶；您可以建立一個 [免費帳戶](https://azure.microsoft.com/free)
 * [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 帳戶 
 

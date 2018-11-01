@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377389"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232591"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>在 Azure Logic Apps 中安全存取
 
@@ -168,7 +168,7 @@ POST
 
 ### <a name="using-parameters-and-secure-parameters"></a>使用參數和安全參數
 
-為了在執行階段存取資源參數的值，[工作流程定義語言 (英文)](http://aka.ms/logicappsdocs) 提供 `@parameters()` 作業。 此外，您可以[指定資源部署範本中的參數](../azure-resource-manager/resource-group-authoring-templates.md#parameters)。 但是，如果您將參數類型指定為 `securestring`，將無法透過其餘的資源定義傳回此參數，而且在部署之後，將無法藉由檢視資源存取此資源。
+為了在執行階段存取資源參數的值，[工作流程定義語言 (英文)](https://aka.ms/logicappsdocs) 提供 `@parameters()` 作業。 此外，您可以[指定資源部署範本中的參數](../azure-resource-manager/resource-group-authoring-templates.md#parameters)。 但是，如果您將參數類型指定為 `securestring`，將無法透過其餘的資源定義傳回此參數，而且在部署之後，將無法藉由檢視資源存取此資源。
 
 > [!NOTE]
 > 如果您在要求的標頭或主體中使用參數，可藉由存取執行歷程記錄及連出 HTTP 要求來檢視該參數。 請務必適當地設定您的內容存取原則。

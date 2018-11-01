@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818529"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233628"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
 
@@ -158,7 +158,7 @@ Logic Apps 會提供下列幾種觸發程序：
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
 
-* 若要提出或票選 Azure Logic Apps 和連接器的想法，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提出或票選 Azure Logic Apps 和連接器的想法，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 * 這些文件是否遺漏您認為重要的文章或詳細資訊？ 如果是，您可以將遺漏的資訊新增至現有文章或撰寫您自己的文章。 文件是開放原始碼並存放於 GitHub。 從 Azure 文件的 [GitHub 存放庫](https://github.com/Microsoft/azure-docs)著手。 
 

@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 59a6a94e2906413423a4ae03a7c1c115b2ec0cc0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd3be916587ab884ea5579234a6189af54b53797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045786"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209202"
 ---
 # <a name="manage-cluster-scaling-to-accommodate-changing-demand"></a>管理叢集縮放以適應變更的需求
 
@@ -63,4 +63,4 @@ ms.locfileid: "47045786"
 
 您現在已為您的 Azure 資料總管叢集設定相應放大作業。 為相應縮小作業新增另一條規則。 這可讓您的叢集根據指定的使用率計量，動態調整大小。
 
-若您需要叢集縮放問題的協助，請在 [Azure 入口網站](https://portal.azure.com)中開立支援要求。
+若您需要叢集縮放問題的協助，請在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)中開立支援要求。

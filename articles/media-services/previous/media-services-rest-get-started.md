@@ -4,7 +4,7 @@ description: 本教學課程會帶您逐步完成使用 REST API 實作含 Azure
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 757ba9e999bfbb46be96e653e7939d91bdf67679
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: fbfb52b758089acf65f89c62f716d46d62b0f289
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287120"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233815"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>使用 REST 傳遞點播內容入門
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -54,7 +54,7 @@ ms.locfileid: "43287120"
 >[!NOTE]
 >對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限 (例如要長時間維持就地的定位器原則 (非上載原則))，請使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
-如需本文章中所用之 AMS REST 實體的詳細資訊，請參閱 [Azure 媒體服務 REST API 參考](https://docs.microsoft.com/en-us/rest/api/media/services/azure-media-services-rest-api-reference)。 此外，請參閱 [Azure 媒體服務概念](media-services-concepts.md)。
+如需本文章中所用之 AMS REST 實體的詳細資訊，請參閱 [Azure 媒體服務 REST API 參考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)。 此外，請參閱 [Azure 媒體服務概念](media-services-concepts.md)。
 
 >[!NOTE]
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
@@ -405,7 +405,7 @@ SAS URL 具有下列格式：
 
 ## <a id="encode"></a>將來源檔案編碼為一組調適性位元速率 MP4 檔案
 
-將資產內嵌到媒體服務之後，可以先將媒體編碼、轉碼多工處理、加上浮水印等，再傳遞給用戶端。 這些活動會針對多個背景角色執行個體排定和執行，以確保高效能與可用性。 這些活動稱為作業，每個作業包含對資產檔案執行實際工作的不可部分完成的工作 (如需詳細資訊，請參閱[作業](https://docs.microsoft.com/en-us/rest/api/media/operations/job)、[工作](https://docs.microsoft.com/en-us/rest/api/media/operations/task)說明)。
+將資產內嵌到媒體服務之後，可以先將媒體編碼、轉碼多工處理、加上浮水印等，再傳遞給用戶端。 這些活動會針對多個背景角色執行個體排定和執行，以確保高效能與可用性。 這些活動稱為作業，每個作業包含對資產檔案執行實際工作的不可部分完成的工作 (如需詳細資訊，請參閱[作業](https://docs.microsoft.com/rest/api/media/operations/job)、[工作](https://docs.microsoft.com/rest/api/media/operations/task)說明)。
 
 如稍早所提及，使用 Azure 媒體服務時，其中一個最常見的案例是將調適性位元速率串流傳遞給用戶端。 媒體服務可以以下列其中一種格式動態封裝一組自適性 MP4 檔案：HTTP 即時串流 (HLS)、Smooth Streaming 和 MPEG DASH。
 

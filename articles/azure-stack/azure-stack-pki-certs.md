@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 61c91f7e1f2ba266be6453bb6e6fb25f3834485e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585891"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456997"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 
@@ -40,8 +40,9 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 旋轉憑證時，憑證必須是與從用來簽署憑證 (在部署時提供) 相同的內部憑證授權單位，或上述任何公用憑證授權單位發行
 - 不支援使用自我簽署憑證
 - 針對部署和旋轉，您可以使用單一憑證以涵蓋憑證之主體名稱和主體別名 (SAN) 欄位中的所有命名空間，也可以針對下面您規劃利用之 Azure Stack 服務所需的每個命名空間來使用個別憑證。 這兩種方法都需要將萬用字元用於需要它們的端點 (例如 **KeyVault** 和 **KeyVaultInternal**)。 
-- 憑證簽章演算法必須是 3DES。 該演算法不能是 SHA1，因為它必須更強大。 
+- 簽章演算法不能是 SHA1，因為它必須更強大。 
 - 憑證格式必須是 PFX，因為安裝 Azure Stack 時需要公用與私密金鑰。 
+- PFX 加密必須是 3DES (如果從 Windows 10 用戶端或 Windows Server 2016 憑證存放區匯出，這會是預設值)。
 - 憑證 pfx 檔案的 [金鑰使用方法] 欄位中必須有 [數位簽章] 和 [KeyEncipherment] 值。
 - 憑證 pfx 檔案的 [增強金鑰使用方法] 欄位中必須有 [伺服器驗證 (1.3.6.1.5.5.7.3.1)] 和 [用戶端驗證 (1.3.6.1.5.5.7.3.2)]。
 - 憑證的 [核發給：] 欄位不能與 [核發者：] 欄位相同。
@@ -63,7 +64,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 針對您的部署，[region] 和 [externalfqdn] 值必須符合您為 Azure Stack 系統選擇的地區和外部網域名稱。 例如，如果區域名稱為 Redmond，而外部網域名稱為 contoso.com，則 DNS 名稱的格式會是 *&lt;prefix>.redmond.contoso.com*。 Microsoft 會預先指定 *&lt;prefix>* 值，以描述憑證所保護的端點。 此外，外部基礎結構端點的 *&lt;prefix>* 值取決於使用特定端點的 Azure Stack 服務。 
 
 > [!note]  
-> 憑證可以作為單一萬用字元憑證，涵蓋複製到所有目錄的主體以及主體別名 (SAN) 欄位中的所有命名空間；或作為個別憑證，供複製到對應目錄的每個端點使用。 請記住，無論使用哪種方式，在必要時您都必須針對端點 (例如 **acs** 和 Key Vault) 使用萬用宇元憑證。 
+> 針對生產環境，我們建議為每個端點產生個別的憑證，並將其複製到對應的目錄中。 針對開發環境，憑證可以作為單一萬用字元憑證，涵蓋複製到所有目錄的主體以及主體別名 (SAN) 欄位中的所有命名空間。 涵蓋所有端點和服務的單一憑證是不安全的，因此僅限用於開發。 請記住，無論使用哪種方式，在必要時您都必須針對端點 (例如 **acs** 和 Key Vault) 使用萬用宇元憑證。 
 
 | 部署資料夾 | 必要的憑證主體和主體別名 (SAN) | 範圍 (每個區域) | 子網域命名空間 |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5b52fd41fc3e37078bbddc721c0c54af2c430b43
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819380"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419226"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>整合跨元件交易診斷
 
@@ -38,7 +38,7 @@ ms.locfileid: "42819380"
 ## <a name="transaction-diagnostics-experience"></a>交易診斷體驗
 此檢視有四大重要組件：結果清單、跨元件交易圖表、此作業所有相關遙測的時間序列清單、左側任何選定的遙測項目的詳細資料窗格。
 
-![重要組件](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
+![重要組件](media/app-insights-transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>跨元件交易圖表
 
@@ -57,19 +57,19 @@ ms.locfileid: "42819380"
 
 此區段會以此交易所有相關遙測的時間序列顯示一般清單檢視。 此外，也會顯示交易圖表中未顯示的自訂事件和追蹤。 您可以篩選這份清單，以顯示由特定元件/呼叫產生的遙測。 您可以選取清單中的任何遙測項目，並在[右側查看對應的詳細資料](#details-of-the-selected-telemetry)。
 
-![所有遙測資料的時間序列](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+![所有遙測資料的時間序列](media/app-insights-transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>所選遙測的詳細資料
 
 這個可摺疊的窗格會顯示交易圖表或清單中任何選取項目的詳細資料。 [全部顯示] 能列出所有收集到的標準屬性。 任何自訂屬性都會分別列在標準集合下方。 按一下堆疊追蹤視窗下面的 [...] 可取得複製追蹤的選項。 [開啟分析工具追蹤] 或 [開啟偵錯快照集] 會在對應的詳細資料窗格中顯示程式碼層級的診斷資料。
 
-![例外狀況詳細資料](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![例外狀況詳細資料](media/app-insights-transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>搜尋結果
 
 這個可摺疊的窗格會顯示符合篩選準則的其他結果。 按一下任何結果，即可更新上面所列 3 個區段的個別詳細資料。 我們試著找出最可能具有所有元件可用詳細資料的範例 (即使任何一個已有生效的取樣功能)。 這些項目會顯示為「建議」範例。
 
-![搜尋結果](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+![搜尋結果](media/app-insights-transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>分析工具和快照集偵錯工具
 
@@ -79,7 +79,7 @@ ms.locfileid: "42819380"
 
 如果無法使用快照偵錯工具，請連絡 **snapshothelp@microsoft.com**
 
-![分析工具整合](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
+![分析工具整合](media/app-insights-transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>常見問題集
 

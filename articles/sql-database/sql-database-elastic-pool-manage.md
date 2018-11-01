@@ -3,7 +3,7 @@ title: 建立和管理彈性集區 - Azure SQL Database | Microsoft Docs
 description: 建立和管理 Azure SQL 彈性集區。
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: acf17533ee73313937c2edb9badaef9007309373
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466064"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243090"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>建立和管理 Azure SQL Database 中的彈性集區
 
@@ -99,11 +99,11 @@ ms.locfileid: "49466064"
 
 | 命令 | 說明 |
 | --- | --- |
-|[彈性集區 - 建立或更新](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|建立新的彈性集區或更新現有的彈性集區。|
-|[彈性集區 - 刪除](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|刪除彈性集區。|
-|[彈性集區 - 取得](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|取得彈性集區。|
-|[彈性集區 - 依伺服器列出](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|傳回將伺服器中的彈性集區列出的清單。|
-|[彈性集區 - 更新](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|更新現有的彈性集區。|
+|[彈性集區 - 建立或更新](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|建立新的彈性集區或更新現有的彈性集區。|
+|[彈性集區 - 刪除](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|刪除彈性集區。|
+|[彈性集區 - 取得](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|取得彈性集區。|
+|[彈性集區 - 依伺服器列出](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|傳回將伺服器中的彈性集區列出的清單。|
+|[彈性集區 - 更新](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|更新現有的彈性集區。|
 |[彈性集區活動](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|傳回彈性集區活動。|
 |[彈性集區資料庫活動](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|傳回資料庫內彈性集區上的活動。|
 |[資料庫 - 建立或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|

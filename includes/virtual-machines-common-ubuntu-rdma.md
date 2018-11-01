@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 7f5b829399004a58ba84dc9abc34b2c9dd544fbf
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227431"
+---
 1. 安裝 dapl、rdmacm、ibverbs 及 mlx4
 
   ```bash
@@ -15,7 +28,7 @@
   OS.UpdateRdmaDriver=y
   ```
 
-3. 在 /etc/security/limits.conf 檔案中，新增或變更下列記憶體設定 (KB)。 您必須要有根目錄存取權才能編輯此檔案。 基於測試目的，您可以將 memlock 設定為無限制。 例如：`<User or group name>   hard    memlock   unlimited`。
+3. 在 /etc/security/limits.conf 檔案中，新增或變更下列記憶體設定 (KB)。 您必須要有根目錄存取權才能編輯此檔案。 基於測試目的，您可以將 memlock 設定為無限制。 例如： `<User or group name>   hard    memlock   unlimited` 。
 
   ```
   <User or group name> hard    memlock <memory required for your application in KB>

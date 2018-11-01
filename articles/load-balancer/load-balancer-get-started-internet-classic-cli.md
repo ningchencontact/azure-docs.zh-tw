@@ -4,22 +4,19 @@ description: 了解如何使用 Azure 傳統 CLI 在傳統部署模型中建立�
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
-tags: azure-service-management
-ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a91a53070985a24ccd87f16254f652fe48c42c5a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0640e3d0b7ccc11ee5603a9b1f21daf53318266
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988150"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740496"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>開始在 Azure 傳統 CLI 中建立網際網路面向的負載平衡器 (傳統)
 

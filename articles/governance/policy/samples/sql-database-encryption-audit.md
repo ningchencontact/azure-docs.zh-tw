@@ -6,15 +6,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 4e825317cd7faf75e024e92393585e7d9812c7e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d7e8571c0b8301da953d84893ac48934a2392d55
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958844"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229998"
 ---
 # <a name="audit-sql-database-encryption"></a>稽核 SQL 資料庫加密
 
@@ -24,37 +24,7 @@ ms.locfileid: "46958844"
 
 ## <a name="sample-template"></a>範例範本
 
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Sql/servers/databases"
-      },
-      {
-        "field": "name",
-        "notEquals": "master"
-      }
-    ]
-  },
-  "then": {
-    "effect": "AuditIfNotExists",
-    "details": {
-      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-      "name": "current",
-      "existenceCondition": {
-        "allOf": [
-          {
-            "field": "Microsoft.Sql/transparentDataEncryption.status",
-            "equals": "enabled"
-          }
-        ]
-      }
-    }
-  }
-}
-```
+[!code-json[main](../../../../policy-templates/samples/SQL/audit-sql-db-tde-status/azurepolicy.json "Audit TDE for SQL Database")]
 
 您可以使用 [Azure 入口網站](#deploy-with-the-portal) [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。 若要取得內建原則，請使用識別碼 `17k78e20-9358-41c9-923c-fb736d382a12`。
 
@@ -98,4 +68,4 @@ az policy assignment delete --name "SQL TDE Audit" --resource-group myResourceGr
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在 [Azure 原則範例](index.md)檢閱更多範例
+- 在 [Azure 原則範例](index.md)中檢閱更多範例

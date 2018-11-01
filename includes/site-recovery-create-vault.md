@@ -1,4 +1,16 @@
-
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 62bb01b39f33f801f1eb43d128083cff7e16830a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165033"
+---
 1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]。
 2. 按一下 [建立群組] > [監視和管理] > [備份和 Site Recovery]。
 3. 在 [名稱] 中，指定保存庫的易記識別名稱。 如果您有多個訂用帳戶，請選取適當的一個。

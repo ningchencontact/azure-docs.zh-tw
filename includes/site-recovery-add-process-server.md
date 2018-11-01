@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: b6e3abb56ebd02131fac78c2a8f03ddcbf50958a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166499"
+---
 1. 啟動 Azure Site Recovery UnifiedSetup.exe
 2. 在 [開始之前] 中，選取 [新增額外處理序伺服器以相應放大部署]。
 

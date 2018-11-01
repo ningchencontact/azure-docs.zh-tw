@@ -1,19 +1,18 @@
 ---
 title: 監視 Azure Site Recovery | Microsoft Docs
 description: 使用入口網站為 Azure Site Recovery 複寫問題和各項作業進行監視及疑難排解
-services: site-recovery
 author: bsiva
 manager: abhemra
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 89270a0bd1914a2486c8cc634563bdded743adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: dc089e29889b12a5a6d3fcb17328cfc13fe8d0c9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746468"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211803"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>進行 Site Recovery 的監視和疑難排解
 
@@ -21,7 +20,7 @@ ms.locfileid: "42746468"
 
 ## <a name="use-the-dashboard"></a>使用儀表板
 
-1. 在保存庫中，按一下 [概觀] 以開啟 Site Recovery 儀表板。 Site Recovery 和備份都有儀表板頁面，並可加以切換。
+1. 在保存庫中，按一下 [概觀] 以開啟 Site Recovery 儀表板。 Azure Site Recovery 和 Azure 備份都有儀表板頁面，並可加以切換。
 
     ![Site Recovery 儀表板](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
@@ -30,7 +29,7 @@ ms.locfileid: "42746468"
     ![Site Recovery 儀表板](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
 3. 在 [複寫的項目] 中，按一下 [全部檢視] 以查看保存庫中的所有伺服器。
-4. 對每個區段的狀態詳細資料按一下以便向下切入。 在 [基礎結構檢視] 中，您可以依您要複寫的機器類型對監視資訊進行排序。
+4. 按一下各區段的狀態詳細資料即可向下切入。 在 [基礎結構檢視] 您可根據要複寫的機器類型來排序監視資訊。
 
 ## <a name="monitor-replicated-items"></a>監視複寫的項目
 
@@ -78,7 +77,7 @@ Healthy | 正常複寫中。 未偵測到任何錯誤或警告症狀。
 - 接著會顯示影響已複寫伺服器的複寫錯誤症狀。
 - 資料表項目會先依錯誤嚴重性遞減排序，再依受影響機器的計數遞減排序。
 - 受影響的伺服器計數可方便您了解是否有可能是單一根本問題影響到多個機器。 例如，網路故障可能會影響所有複寫至 Azure 的機器。 
-- 單一伺服器上可能會發生多個複寫錯誤。 在此情況下，每個錯誤症狀都會將該伺服器計入受此症狀影響的伺服器清單中。 問題修復後，複寫參數會改善，錯誤也從該機器中清除了。
+- 單一伺服器上可能會發生多個複寫錯誤。 在此情況下，每個錯誤症狀都會將該伺服器計入受此症狀影響的伺服器清單中。 問題修復後，複寫參數會改善，錯誤也會從該機器中清除。
 
 ## <a name="monitor-the-infrastructure"></a>監視基礎結構。
 

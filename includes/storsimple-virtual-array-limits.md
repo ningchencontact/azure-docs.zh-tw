@@ -1,5 +1,16 @@
-
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 658fd9178495f14274c85eab2129c9dcd3be7693
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165001"
+---
 | **限制識別碼** | **限制** | **註解** |
 | --- | --- | --- |
 | 總容量 (包括雲端) |每個虛擬裝置最高 64 TB |您可以將完整 StorSimple 虛擬陣列容錯移轉至另一個空陣列。 如果嘗試還原到相同裝置，請確定裝置上有足夠的空間，可以完成這項作業。 超過 32 TB 之後，即無法還原至相同裝置。 |

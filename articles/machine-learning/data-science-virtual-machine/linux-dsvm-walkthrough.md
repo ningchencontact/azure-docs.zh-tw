@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7576c479b9e3e443b048a9295c0ff0f30d4b9423
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116158"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240319"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。
 
-本逐步解說所示範的資料科學工作遵循 [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)所述的步驟。 此程序可讓使用者以系統化方法執行資料科學，讓資料科學家團隊可以在智慧型應用程式的建置生命週期內有效地共同作業。 資料科學程序也為資料科學提供了可反覆進行的架構供個人遵循。
+本逐步解說所示範的資料科學工作遵循 [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview)所述的步驟。 此程序可讓使用者以系統化方法執行資料科學，讓資料科學家團隊可以在智慧型應用程式的建置生命週期內有效地共同作業。 資料科學程序也為資料科學提供了可反覆進行的架構供個人遵循。
 
 在本逐步解說中，我們會分析 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 資料集。 這是一組標示為垃圾郵件或非垃圾郵件 (亦即這些郵件不是垃圾郵件) 的電子郵件，並同時包含關於電子郵件內容的一些統計資料。 其中所含的統計資料會在下下一節中討論。
 
@@ -544,6 +544,6 @@ Azure SQL 資料倉儲是一種雲端架構、相應放大的資料庫，可處�
 您也可以使用 Squirrel SQL 進行查詢。 使用 Microsoft MSSQL Server JDBC 驅動程式 (可在 ***/usr/share/java/jdbcdrivers/sqljdbc42.jar*** 中找到) 按照適用於 PostgreSQL 的類似步驟來進行。
 
 ## <a name="next-steps"></a>後續步驟
-如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [Team Data Science Process](http://aka.ms/datascienceprocess)。
+如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview)。
 
 如需會示範 Team Data Science Process 中適用於特定案例之步驟的其他端對端逐步解說的說明，請參閱 [Team Data Science Process 逐步解說](../team-data-science-process/walkthroughs.md)。 這些逐步解說也示範如何將雲端和內部部署工具與服務組合成工作流程或管線，以建立智慧型應用程式。

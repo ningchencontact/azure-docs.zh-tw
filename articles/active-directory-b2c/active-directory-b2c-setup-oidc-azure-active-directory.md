@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f51fbff11412324ad167d49202f7215cefb5ac2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: beb2d618d93f4c599f946194bd483326471065f4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076913"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944798"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中設定登入 Azure Active Directory 帳戶的內建原則
 
@@ -26,21 +26,18 @@ ms.locfileid: "49076913"
 
 ## <a name="create-an-azure-ad-app"></a>建立 Azure AD 應用程式
 
-若要讓特定 Azure AD 組織的使用者登入，您需要在組織 Azure AD 租用戶內註冊應用程式。
-
->[!NOTE]
->在下列指示中，會使用 `Contoso.com` 作為組織的 Azure AD 租用戶，以及使用 `fabrikamb2c.onmicrosoft.com` 作為 Azure AD B2C 租用戶。
+若要讓特定 Azure AD 組織的使用者登入，您需要在組織 Azure AD 租用戶內註冊應用程式，此租用戶與您的 Azure AD B2C 租用戶不同。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您 Azure AD 租用戶的目錄，以確定您使用的是包含 Azure AD 租用戶 (contoso.com) 的目錄。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您 Azure AD 租用戶的目錄，以確定您使用的是包含 Azure AD 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [應用程式註冊]。
 4. 選取 [新增應用程式註冊]。
-5. 輸入應用程式的名稱。 例如：`Azure AD B2C App`。
+5. 輸入應用程式的名稱。 例如： `Azure AD B2C App`。
 6. 針對 [應用程式類型]，選取 `Web app / API`。
-7. 針對 [登入 URL]，以全小寫字母輸入下列 URL，其中以您 Azure AD B2C 租用戶的名稱 (fabrikamb2c.onmicrosoft.com) 取代 `your-tenant`：
+7. 針對 [登入 URL]，以全小寫字母輸入下列 URL，其中以您 Azure AD B2C 租用戶的名稱取代 `your-B2C-tenant-name`。 例如，`https://fabrikam.b2clogin.com/fabrikam.b2clogin.com/oauth2/authresp`：
 
     ```
-    https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.b2clogin.com/oauth2/authresp
     ```
 
     所有 URL 現在都應會使用 [b2clogin.com](b2clogin.md)。
@@ -49,21 +46,22 @@ ms.locfileid: "49076913"
 9. 選取應用程式，然後選取 [設定]。
 10. 選取 [金鑰]，輸入金鑰描述，選取持續時間，然後按一下 [儲存]。 複製顯示的金鑰值以供稍後使用。
 
-## <a name="configure-azure-ad-as-an-identity-provider-in-your-tenant"></a>將 Azure AD 設定成您租用戶中的識別提供者
+## <a name="configure-azure-ad-as-an-identity-provider"></a>將 Azure AD 設定成識別提供者
 
-1. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您 Azure AD B2C 租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶 (fabrikamb2c.onmicrosoft.com) 的目錄。
+1. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您 Azure AD B2C 租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 2. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 3. 選取 [識別提供者]，然後選取 [新增]。
 4. 輸入 [名稱]。 例如，輸入 "Contoso Azure AD"。
 5. 選取 [識別提供者類型]，選取 [Open ID Connect (預覽)]，然後按一下 [確定]。
 6. 按一下 [設定此識別提供者]。
-7. 針對 [中繼資料 URL] 輸入以下 URL，並將 `your-tenant` 取代為您的 Azure AD 租用戶名稱：
+7. 針對 [中繼資料 URL] 輸入以下 URL，並將 `your-AD-tenant-domain` 取代為您的 Azure AD 租用戶網域名稱。 例如：`https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`：
 
     ```
-    https://login.microsoftonline.com/your-tenant/.well-known/openid-configuration
+    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
+
 8. 針對 [用戶端識別碼] 輸入您先前記錄的應用程式識別碼，並輸入您先前記錄的金鑰值作為 [用戶端祕密]。
-9. 您也可以選擇輸入 **Domain_hint** 的值 (如 `ContosoAD`)。 這是在要求中使用 *domain_hint* 參考此識別提供者時，要使用的值。 
+9. 您也可以選擇輸入 **Domain_hint** 的值。 例如： `ContosoAD`。 這是在要求中使用 *domain_hint* 參考此識別提供者時，要使用的值。 
 10. 按一下 [確定]。
 11. 選取 [對應此識別提供者的宣告]，然後設定下列宣告：
     

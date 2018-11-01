@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 2dcbd0cab055e8a2b2128b1f83f5c080a0887b85
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.component: ''
+ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122515"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407719"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL Server 健康情況檢查方案最佳化 SQL 環境
 
@@ -86,7 +86,7 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
 >
 
 1. 在 Operations Manager 中開啟 Operations 主控台，然後按一下 [管理] 。
-2. 在 [執行身分組態] 下方，按一下 [設定檔]，並開啟 [OMS SQL 評估執行身分設定檔]。
+2. 在 [執行身分組態] 下方，按一下 [設定檔]，並開啟 [SQL 評定執行身分設定檔]。
 3. 在 [執行身分帳戶] 頁面上，按一下 [新增]。
 4. 選取包含 SQL Server 所需認證的 Windows 執行身分帳戶，或按一下 [新增]  建立一個。
 
@@ -123,7 +123,7 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
-    $profile = Get-SCOMRunAsProfile -DisplayName "OMS SQL Assessment Run As Profile"
+    $profile = Get-SCOMRunAsProfile -DisplayName "SQL Assessment Run As Profile"
     $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```

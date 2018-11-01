@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 23ac75b4afb07c3f8d5f0d90755a5cf2087087e1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130670"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408535"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 記錄檔搜尋中的電腦群組
 
@@ -62,7 +62,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 
 
 ### <a name="active-directory"></a>Active Directory
-當您設定匯入 Log Analytics 來匯入 Active Directory 群組成員資格時，它會分析已加入網域且裝有 OMS 代理程式的任何電腦的群組成員資格。  針對 Active Directory 中的每個安全性群組，Log Analytics 中會建立一個電腦群組，而每一部電腦會新增至對應到它們所屬安全性群組的電腦群組。  此成員資格持續地每 4 小時更新一次。  
+當您設定匯入 Log Analytics 來匯入 Active Directory 群組成員資格時，它會針對已加入網域且裝有 Log Analytics 代理程式的任何電腦分析群組成員資格。  針對 Active Directory 中的每個安全性群組，Log Analytics 中會建立一個電腦群組，而每一部電腦會新增至對應到它們所屬安全性群組的電腦群組。  此成員資格持續地每 4 小時更新一次。  
 
 您可以在 Azure 入口網站中，將 Log Analytics 設定為從 Log Analytics [進階設定] 匯入 Active Directory 安全性群組。  依序選取 [電腦群組]、[Active Directory] 和 [從電腦匯入 Active Directory 群組成員資格]。  不需要進一步的組態。
 
@@ -71,7 +71,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 匯入群組後，此功能表會列出已偵測到群組成員資格的電腦數目，以及匯入的群組數目。  您可以按一下任一連結，以連同此資訊傳回 **ComputerGroup** 記錄。
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-當您設定匯入 Log Analytics 來匯入 WSUS 群組成員資格時，它會分析裝有 OMS 代理程式的任何電腦的目標群組成員資格。  如果您使用用戶端目標，則任何連線至 Log Analytics 且屬於任何 WSUS 目標群組的電腦，其群組成員資格都會匯入至 Log Analytics。 如果您使用伺服器端目標，則 WSUS 伺服器上應該安裝 OMS 代理程式，才能將群組成員資格資訊匯入至 Log Analytics。  此成員資格持續地每 4 小時更新一次。 
+當您設定匯入 Log Analytics 來匯入 WSUS 群組成員資格時，它會針對裝有 Log Analytics 代理程式的任何電腦分析目標群組成員資格。  如果您使用用戶端目標，則任何連線至 Log Analytics 且屬於任何 WSUS 目標群組的電腦，其群組成員資格都會匯入至 Log Analytics。 如果您使用伺服器端目標，則 WSUS 伺服器上應該安裝 Log Analytics 代理程式，才能將群組成員資格資訊匯入至 Log Analytics。  此成員資格持續地每 4 小時更新一次。 
 
 您可以在 Azure 入口網站中，將 Log Analytics 設定為從 Log Analytics [進階設定] 匯入 WSUS 群組。  依序選取 [電腦群組]、[WSUS] 和 [匯入 WSUS 群組成員資格]。  不需要進一步的組態。
 

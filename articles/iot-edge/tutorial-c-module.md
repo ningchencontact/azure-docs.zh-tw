@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fff53e7412a17d1b2c1c444e189151651d8d3235
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: a7151f8b681b0e6129308b194008742986d6a358
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166928"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155689"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 C IoT Edge 模組並部署至模擬裝置
 
@@ -375,6 +375,3 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 > [!div class="nextstepaction"]
 > [使用 SQL Server 資料庫在Edge 上儲存資料](tutorial-store-data-sql-server.md)
 
-<!-- Links -->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md
