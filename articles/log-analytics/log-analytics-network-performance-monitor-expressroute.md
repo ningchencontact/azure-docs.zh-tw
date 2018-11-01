@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: na
-ms.openlocfilehash: 27169193a468d98be879164b80e63fffde419002
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: ''
+ms.openlocfilehash: 73978609d018eb43ab8031dc6e8261861e1ee3bf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38633344"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402525"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 監視
 
@@ -36,7 +36,7 @@ ms.locfileid: "38633344"
 若要開啟網路效能監控的組態，請開啟[網路效能監控解決方案](log-analytics-network-performance-monitor.md)，然後選取 [設定]。
 
 ### <a name="configure-network-security-group-rules"></a>設定網路安全性群組規則 
-針對 Azure 中用來透過網路效能監控進行監視的伺服器，設定網路安全性群組 (NSG) 規則，以在網路效能監控用來進行綜合交易的連接埠上允許 TCP 流量。 預設連接部是 8084。 此組態允許安裝在 Azure 虛擬機器上的 Operations Management Suite 代理程式與內部部署監視代理程式通訊。 
+針對 Azure 中用來透過網路效能監控進行監視的伺服器，設定網路安全性群組 (NSG) 規則，以在網路效能監控用來進行綜合交易的連接埠上允許 TCP 流量。 預設連接部是 8084。 此組態允許安裝在 Azure 虛擬機器上的 Log Analytics 代理程式與內部部署監視代理程式通訊。 
 
 如需有關 NSG 的詳細資訊，請參閱 [網路安全性群組](../virtual-network/manage-network-security-group.md)。 
 
@@ -90,7 +90,7 @@ ms.locfileid: "38633344"
 
 ### <a name="trends-of-loss-latency-and-throughput"></a>遺失、延遲及輸送量的趨勢 
 
-頻寬使用率、延遲及遺失圖表是互動式圖表。 您可以使用滑鼠控制項，將這些圖表的任何部分放大。 您也可以看到其他間隔的頻寬、延遲及遺失資料。 在左上方的 [動作] 按鈕底下，選取 [日期/時間] ****。 
+頻寬使用率、延遲及遺失圖表是互動式圖表。 您可以使用滑鼠控制項，將這些圖表的任何部分放大。 您也可以看到其他間隔的頻寬、延遲及遺失資料。 在左上方的 **[動作]** 按鈕底下，選取  **[日期/時間]**。 
 
 ![ExpressRoute 延遲](media/log-analytics-network-performance-monitor/expressroute-latency.png) 
 

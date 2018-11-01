@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067755"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649307"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding 常見問題集
 
@@ -157,11 +157,9 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 * 您可以在 [Review endpoint utterances] \(檢閱端點語句\) 頁面中，從 LUIS 所建議的使用者語句清單中刪除語句。 刪除此清單中的語句可防止建議它們，但並不會從記錄中刪除它們。
 * 若您刪除帳戶，則會刪除所有應用程式，以及其範例語句和記錄。 資料會在伺服器上保留 60 天後再永久刪除。
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft 會針對本身用途來存取我的 LUIS 應用程式資料嗎？例如，一般的 LUIS 或 Microsoft 改善？
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Microsoft 如何管理我傳送至 LUIS 的資料？
 
-否。 LUIS 不會使用 LUIS 應用程式的資料模型來改善作為平台的 LUIS，也不會以任何方式讓 Microsoft 使用。 每個應用程式資料皆各自獨立，而且只有使用者及共同作業者可擁有。
-
-深入了解[使用者隱私權](luis-user-privacy.md)、[其他安全性規範](luis-concept-security.md#security-compliance)及[資料儲存體](luis-concept-data-storage.md)。
+[信任中心](https://www.microsoft.com/trustcenter)會說明我們的承諾，以及您在 Azure 服務中可用的資料管理和存取選項。
 
 ## <a name="language-and-translation-support"></a>語言和翻譯支援
 

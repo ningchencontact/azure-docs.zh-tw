@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e3770fe29d6f1073a0ca6507fdf57059cbd3727e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067529"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427394"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -200,7 +200,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 使用 **like** 和 **notLike** 條件時，您可以在值中提供萬用字元 `*`。
 值不能包含一個以上的萬用字元 `*`。
 
-當使用 **match** 和 **notMatch** 條件時，請提供 `#` 來表示數字、`?` 來表示字母，以及任何其他字元來表示該實際字元。 如需範例，請參閱[允許多個名稱模式](../samples/allow-multiple-name-patterns.md)。
+當使用 **match** 和 **notMatch** 條件時，請提供 `#` 來表示數字、`?` 來表示字母、`.` 來表示所有字元，以及任何其他字元來表示該實際字元。 如需範例，請參閱[允許多個名稱模式](../samples/allow-multiple-name-patterns.md)。
 
 ### <a name="fields"></a>欄位
 

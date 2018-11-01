@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f02da6f21d0c11724b4192d5af0d5cc75d2c770c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 0c274b1ed3cbd0e00e96072adb2fca41541af686
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321558"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402655"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>將 Operations Manager 連接到 Log Analytics
 若要維護 System Center Operations Manager 中的現有投資，並使用 Log Analytics 的延伸功能，您可以整合 Operations Manager 與 Log Analytics 工作區。 這可讓您利用 Log Analytics 的機會，同時繼續使用 Operations Manager：
@@ -37,7 +37,7 @@ ms.locfileid: "49321558"
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-如果 IT 安全性原則不允許您網路上的電腦連線到網際網路，則可以將管理伺服器設定為連線到 OMS 閘道，以根據已啟用的解決方案來接收組態資訊和傳送收集到的資料。 如需如何設定 Operations Manager 管理群組以透過 OMS 閘道與 Log Analytics 服務進行通訊的其他資訊和步驟，請參閱[使用 OMS 閘道將電腦連線到 OMS](log-analytics-oms-gateway.md)。  
+如果 IT 安全性原則不允許您網路上的電腦連線到網際網路，則可以將管理伺服器設定為連線到 Log Analytics 閘道，以根據已啟用的解決方案來接收組態資訊和傳送收集到的資料。 如需如何設定 Operations Manager 管理群組以透過 Log Analytics 閘道與 Log Analytics 服務進行通訊的其他資訊和步驟，請參閱[使用 Log Analytics 閘道將電腦連線至 Log Analytics](log-analytics-oms-gateway.md)。  
 
 ## <a name="prerequisites"></a>必要條件 
 開始之前，請檢閱下列需求。
@@ -69,7 +69,7 @@ ms.locfileid: "49321558"
 |\*.blob.core.windows.net| 443| 是|  
 |\*.ods.opinsights.azure.com| 443| 是|  
 |*.azure-automation.net | 443| 是|  
-|**Operations Manager 主控台至 OMS**|||  
+|**Operations Manager 主控台到 Log Analytics**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.live.com| 80 和 443||  
@@ -96,12 +96,16 @@ ms.locfileid: "49321558"
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-完成下列步驟與 Log Analytics 的整合之後，您可以透過執行 `netsh winhttp reset proxy` 來移除設定，然後使用 Operations 主控台中的 [設定 Proxy 伺服器] 選項來指定 Proxy 或 OMS 閘道伺服器。 
+完成下列步驟與 Log Analytics 的整合之後，您可以透過執行 `netsh winhttp reset proxy` 來移除設定，然後使用 Operations 主控台中的 [設定 Proxy 伺服器] 選項來指定 Proxy 或 Log Analytics 閘道伺服器。 
 
 1. 在 Operations Manager 主控台中，選取 [管理]  工作區。
 1. 展開 Operations Management Suite 節點，然後按一下 [連接] 。
 1. 按一下 [註冊到 Operations Management Suite]  連結。
 1. 在 [Operations Management Suite 登入精靈：驗證] 頁面上，輸入與 OMS 訂用帳戶相關聯之系統管理員帳戶的電子郵件地址或電話號碼和密碼，然後按一下 [登入]。
+
+   >[!NOTE]
+   >OMS 現在稱為「Log Analytics」。
+   
 1. 成功通過驗證之後，在 [Operations Management Suite 登入精靈: 選取工作區] 頁面上，系統會提示您選取 Azure 租用戶、訂用帳戶與 Log Analytics 工作區。 如果您有多個工作區，請從下拉式清單中選取您想要向 Operations Manager 管理群組註冊的工作區，然後按 [下一步] 。
    
    > [!NOTE]
@@ -129,7 +133,7 @@ ms.locfileid: "49321558"
 1. 在 [OMS 連線] 檢視中，按一下 [設定 Proxy 伺服器] 。
 1. 在 [Operations Management Suite 精靈：Proxy 伺服器] 頁面上，選取 [使用 Proxy 伺服器來存取 Operations Management Suite]，然後輸入具有連接埠號碼的 URL (例如， http://corpproxy:80 )，然後按一下 [完成]。
 
-如果 Proxy 伺服器需要驗證，請執行下列步驟來設定認證和設定，這些需要傳播到管理群組中向 OMS 回報的受控電腦。
+如果 Proxy 伺服器需要驗證，請執行下列步驟來設定認證和設定，這些需要傳播到管理群組中向 Log Analytics 回報的受控電腦。
 
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
 1. 在 [RunAs 組態] 底下，選取 [設定檔]。
@@ -143,7 +147,7 @@ ms.locfileid: "49321558"
 建立連線並設定哪些代理程式將收集資料並回報給 Log Analytics 之後，管理群組中就會套用下列組態，但未必依照下列順序︰
 
 * 建立執行身分帳戶 **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** 。 它是與執行身分設定檔 **Microsoft System Center Advisor Run As Profile Blob** 相關聯，而且將目標設為兩個類別：[收集伺服器] 和 [Operations Manager 管理群組]。
-* 會建立兩個連接器。  第一個稱為 **Microsoft.SystemCenter.Advisor.DataConnector**，並自動以一個訂用帳戶設定，這個訂用帳戶會將管理群組中所有類別之執行個體產生的所有警示轉送給 Log Analytics。 第二個連接器是 **Advisor 連接器**，負責與 OMS Web 服務進行通訊以及共用資料。
+* 會建立兩個連接器。  第一個稱為 **Microsoft.SystemCenter.Advisor.DataConnector**，並自動以一個訂用帳戶設定，這個訂用帳戶會將管理群組中所有類別之執行個體產生的所有警示轉送給 Log Analytics。 第二個連接器是 **Advisor 連接器**，負責與 Log Analytics 通訊以及共用資料。
 * 您在管理群組中已選擇來收集資料的代理程式和群組，將會新增至 [Microsoft System Center Advisor 監控伺服器群組]。
 
 ## <a name="management-pack-updates"></a>管理組件更新
@@ -152,7 +156,7 @@ ms.locfileid: "49321558"
 * **Microsoft.SystemCenter.Advisor.MPUpdate** - 更新基底 Log Analytics 管理組件。 預設會每 12 小時執行一次。
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - 更新工作區中所啟用的解決方案管理組件。 預設會每五 (5) 分鐘執行一次。
 
-您可以透過停用來覆寫這兩個規則以防止自動下載，或者修改管理伺服器與 OMS 同步處理之頻率的頻率，來決定新的管理組件是否可用而且應該予以下載。 遵循[如何覆寫規則或監視器](https://technet.microsoft.com/library/hh212869.aspx)步驟，使用值 (秒) 修改 [頻率] 參數來變更同步處理排程，或修改 [已啟用] 參數來停用規則。 將目標設為覆寫 [Operations Manager 管理群組] 類別的所有物件。
+您可以透過停用來覆寫這兩個規則以防止自動下載，或者修改管理伺服器與 Log Analytics 同步處理之頻率的頻率，來決定新的管理組件是否可用而且應該予以下載。 遵循[如何覆寫規則或監視器](https://technet.microsoft.com/library/hh212869.aspx)步驟，使用值 (秒) 修改 [頻率] 參數來變更同步處理排程，或修改 [已啟用] 參數來停用規則。 將目標設為覆寫 [Operations Manager 管理群組] 類別的所有物件。
 
 若要繼續遵循現有的變更控制程序來控制生產管理群組中的管理組件發行版本，則可以停用規則，並在允許更新時於特定期間啟用它們。 如果您的環境中有開發或 QA 管理群組，而且該管理群組連接到網際網路，則可以設定該管理群組與 Log Analytics 工作區，以支援此案例。 這可讓您先檢閱和評估 Log Analytics 管理組件的反覆版本，再發行到生產管理群組。
 
@@ -160,9 +164,9 @@ ms.locfileid: "49321558"
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]，然後建立工作區。  
 1. 使用身為 Operations Manager 系統管理員角色成員的帳戶開啟 Operations Manager 主控台，然後選取 [管理]  工作區。
-1. 展開 Operations Management Suite，選取 [連接] 。
+1. 展開 Log Analytics，然後選取 [連線]。
 1. 選取窗格中間的 [重新設定 Operation Management Suite]  連結。
-1. 遵循 [Operations Management Suite 登入精靈]  進行，輸入與新的 Log Analytics 工作區相關聯之系統管理員帳戶的電子郵件地址或電話號碼和密碼。
+1. 遵循 [Log Analytics 上架精靈]，然後輸入與新的 Log Analytics 工作區相關聯之系統管理員帳戶的電子郵件地址或電話號碼和密碼。
    
    > [!NOTE]
    > [Operations Management Suite 登入精靈：選取工作區] 頁面會顯示使用中的現有工作區。
@@ -213,7 +217,7 @@ ms.locfileid: "49321558"
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
-1. 在 OMS 入口網站中，按一下 [設定] 圖格。
+1. 在 Azure 入口網站中，按一下 [設定] 圖格。
 1. 選取 [連接的來源] 。
 1. 在 [System Center Operations Manager] 區段下方的表格中，您應該會看到想要從工作區移除的管理群組名稱。 在 [最後一筆資料] 資料行之下，按一下 [移除]。  
    
