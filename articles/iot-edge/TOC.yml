@@ -16,28 +16,28 @@ items:
   expanded: true
 - name: 教學課程
   items:
-  - name: 在邊緣尋找見解
-    items:
-    - name: 使用 Azure Functions 篩選資料
-      href: tutorial-deploy-function.md
-    - name: 使用 ASA 尋找平均值
-      href: tutorial-deploy-stream-analytics.md
-    - name: 使用 Azure ML 為資料評分
-      href: tutorial-deploy-machine-learning.md
-    - name: 使用自訂程式碼篩選資料
-      items:
-      - name: C#
-        href: tutorial-csharp-module.md
-      - name: Python
-        href: tutorial-python-module.md
-      - name: Node.js
-        href: tutorial-node-module.md
-      - name: Java
-        href: tutorial-java-module.md
-      - name: C
-        href: tutorial-c-module.md
+  - name: 使用 Azure Functions 篩選資料
+    href: tutorial-deploy-function.md
+  - name: 使用 ASA 尋找平均值
+    href: tutorial-deploy-stream-analytics.md
+  - name: 使用 Azure ML 為資料評分
+    href: tutorial-deploy-machine-learning.md
+  - name: 以自訂視覺服務分類映像
+    href: tutorial-deploy-custom-vision.md
   - name: 使用 SQL 在本機儲存資料
     href: tutorial-store-data-sql-server.md
+  - name: 開發自訂程式碼模組
+    items:
+    - name: C#
+      href: tutorial-csharp-module.md
+    - name: Python
+      href: tutorial-python-module.md
+    - name: Node.js
+      href: tutorial-node-module.md
+    - name: Java
+      href: tutorial-java-module.md
+    - name: C
+      href: tutorial-c-module.md
 - name: 概念
   items:
   - name: IoT Edge 執行階段
@@ -92,6 +92,8 @@ items:
       href: how-to-install-iot-edge-windows-with-linux.md
     - name: IoT Core
       href: how-to-install-iot-core.md
+    - name: 更新執行階段版本
+      href: how-to-update-iot-edge.md
   - name: 使用 DPS 自動佈建
     items:
     - name: Linux
@@ -134,10 +136,10 @@ items:
       href: how-to-deploy-monitor-cli.md
   - name: 使用 Edge 裝置作為閘道
     items:
-    - name: 透明閘道 (Linux)
-      href: how-to-create-transparent-gateway-linux.md
-    - name: 透明閘道 (Windows)
-      href: how-to-create-transparent-gateway-windows.md
+    - name: 設定透明閘道
+      href: how-to-create-transparent-gateway.md
+    - name: 連線下游裝置
+      href: how-to-connect-downstream-device.md
     - name: Modbus 通訊協定閘道
       href: deploy-modbus-gateway.md
   - name: 設定 Proxy 支援
@@ -218,9 +220,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: e862a2a04a1b00460651feb27e3ab155dc21ee97
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 625545123d9cbd4c587667bb7bf4e1eda8984a6d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423403"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913477"

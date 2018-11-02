@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 0564cd1b2c7acf09ee59b858eafb49a4217afe35
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 10f0062f27c03d8776415272766a1ec0729e1f80
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954821"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747281"
 ---
 <h1>Azure 認知服務文件</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。</p>
@@ -325,6 +325,7 @@ ms.locfileid: "49954821"
                         <p><a href="/azure/cognitive-services/bing-entities-search/">Bing 實體搜尋</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">Bing 圖片搜尋</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">Bing 圖像式搜尋</a></p>
+                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing 當地商家搜尋&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: bff078b73834308742bbdaa9ba98e62ca067a7ff
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748778"
+documentType: LandingData
+title: Bing 當地商家搜尋 API 文件
+titleSuffix: Azure Cognitive Services
+metadata:
+  title: Bing 當地商家搜尋 API 文件
+  description: Bing 當地商家搜尋 API 是一套 RESTful 服務，可讓您的應用程式依搜尋查詢項目，尋找當地地點及商家資訊。
+  services: cognitive-services
+  author: mikedodaro
+  manager: rosh
+  ms.component: bing-local-business
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/02/2018
+  ms.author: rosh, v-gedod
+abstract:
+  description: Bing 當地商家搜尋 API 可讓您的應用程式依搜尋查詢項目，尋找當地地點及商家的連絡方式及位置資訊。
+sections:
+- title: 快速入門
+  items:
+  - type: paragraph
+    text: 傳送搜尋查詢項目並檢視 JSON 回應，開始使用 Bing 當地商家搜尋 API：
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/logo_csharp.svg
+      href: quickstarts/local-quickstart.md
+      text: C#
+    - image:
+        src: media/logo_java.svg
+      href: quickstarts/local-search-java-quickstart.md
+      text: Java
+    - image:
+        src: media/logo_nodejs.svg
+      href: quickstarts/local-search-node-quickstart.md
+      text: 節點
+    - image:
+        src: media/logo_python.svg
+      href: quickstarts/local-search-python-quickstart.md
+      text: Python
+- title: 參考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API
+      html: >
+        <p><a href="local-search-reference.md">REST API 參考資料</a></p>
+    - title: PowerShell
+      html: >
+        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
