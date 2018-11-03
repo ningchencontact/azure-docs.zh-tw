@@ -41,11 +41,9 @@ items:
     href: tutorial-monitoring.md
   - name: 12 - 管理 VM 安全性
     href: tutorial-azure-security.md
-  - name: 13 - Azure Pipelines CI/CD
-    href: tutorial-vsts-iis-cicd.md
-  - name: 14 - 安裝 SQL\IIS\.NET 堆疊
+  - name: 13 - 安裝 SQL\IIS\.NET 堆疊
     href: tutorial-iis-sql.md
-  - name: 15 - 使用 SSL 保護網路伺服器
+  - name: 14 - 使用 SSL 保護網路伺服器
     href: tutorial-secure-web-server.md
 - name: 範例
   items:
@@ -451,9 +449,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: 常見問題集
     href: faq.md
-ms.openlocfilehash: 5e33ab701e1499a7bff65c0906ebd6adbcd9994c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 45e2dba5a95660e123754c1770d68de5493a1c10
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855794"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979432"
