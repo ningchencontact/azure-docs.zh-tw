@@ -120,7 +120,7 @@ ms.locfileid: "50238500"
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. 將首頁 URL 設定為您想要的值。 此值必須是已發佈應用程式的子網域路徑。 例如，如果您將首頁 URL 從 *https://sharepoint-iddemo.msappproxy.net/* 變更為 *https://sharepoint-iddemo.msappproxy.net/hybrid/*，則應用程式使用者會直接前往自訂首頁。
+3. 將首頁 URL 設定為您想要的值。 此值必須是已發佈應用程式的子網域路徑。 例如，如果您將首頁 URL 從 *https://sharepoint-iddemo.msappproxy.net/* 變更為 *https://sharepoint-iddemo.msappproxy.net/hybrid/* ，則應用程式使用者會直接前往自訂首頁。
 
     ```
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
