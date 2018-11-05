@@ -86,7 +86,18 @@
 ### [透過 Azure 銷售 SaaS](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS API](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
 
-## [容器](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
+
+## [容器供應項目](./cloud-partner-portal/containers/cpp-containers-offer.md)
+### [先決條件](./cloud-partner-portal/containers/cpp-prerequisites.md)
+### [建立容器供應項目](./cloud-partner-portal/containers/cpp-create-offer.md)
+#### [供應項目設定索引標籤](./cloud-partner-portal/containers/cpp-offer-settings-tab.md)
+#### [SKU 索引標籤](./cloud-partner-portal/containers/cpp-skus-tab.md)
+#### [Marketplace 索引標籤](./cloud-partner-portal/containers/cpp-marketplace-tab.md)
+#### [支援索引標籤](./cloud-partner-portal/containers/cpp-support-tab.md)
+### [建立容器技術資產](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
+### [發佈容器供應項目](./cloud-partner-portal/containers/cpp-publish-offer.md)
+### [更新現有供應項目](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
 
 ## [IoT Edge 模組供應項目](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [先決條件](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
