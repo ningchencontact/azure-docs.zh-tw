@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8035a704a76d8f6287addff9c5503eb93f8e04fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886399"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227836"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
 [Azure App Service](app-service-web-overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式，輕鬆建立應用程式備份。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。 
@@ -155,7 +155,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 ## <a name="how-backups-are-stored"></a>備份的儲存方式
 在您為應用程式建立一或多個備份之後，這些備份就會顯示在您儲存體帳戶及應用程式的 [容器] 頁面中。 在儲存體帳戶中，每個備份都是由一個 `.zip` 檔案 (包含備份資料) 和一個 `.xml` 檔案 (包含 `.zip` 檔案內容的資訊清單) 所組成。 如果您要存取備份而不實際執行應用程式還原，則可以將這些檔案解壓縮並加以瀏覽。
 
-應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。 若是 SQL 資料庫，這會是 BACPAC 檔案 (無副檔名)，而且可以匯入。 若要根據 BACPAC 匯出內容建立的 SQL Database，請參閱[匯入 BACPAC 檔案以建立新的使用者資料庫](http://technet.microsoft.com/library/hh710052.aspx)。
+應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。 若是 SQL 資料庫，這會是 BACPAC 檔案 (無副檔名)，而且可以匯入。 若要根據 BACPAC 匯出內容建立的 SQL Database，請參閱[匯入 BACPAC 檔案以建立新的使用者資料庫](https://technet.microsoft.com/library/hh710052.aspx)。
 
 > [!WARNING]
 > 對 **websitebackups** 容器中的檔案進行任何變更，都可能導致備份失效，進而無法還原。

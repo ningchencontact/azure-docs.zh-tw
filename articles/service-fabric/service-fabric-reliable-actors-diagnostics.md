@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 03c8bf129bcb8bf1b8af4bb7d189f1a38ba8f503
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 61c01e8ea3b4cbe7b5f7ab83ab35383d74df3105
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809085"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234919"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors 的診斷和效能監視
 Reliable Actors 執行階段會發出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件與[效能計數器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 這些項目提供深入了解執行階段的運作方式，並有助於疑難排解及效能監視。
@@ -27,7 +27,7 @@ Reliable Actors 執行階段會發出 [EventSource](https://msdn.microsoft.com/l
 ## <a name="eventsource-events"></a>EventSource 事件
 Reliable Actors 執行階段的 EventSource 提供者名稱為 "Microsoft-ServiceFabric-Actors"。 當 [Visual Studio 中正在偵錯](service-fabric-debugging-your-application.md)動作項目應用程式時，事件來源中的事件會出現在 [診斷事件](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 視窗中。
 
-可協助您收集和/或檢視 EventSource 事件的工具和技術範例包括 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)、[語意記錄](https://msdn.microsoft.com/library/dn774980.aspx)和 [Microsoft TraceEvent 程式庫](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
+可協助您收集和/或檢視 EventSource 事件的工具和技術範例包括 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)、[語意記錄](https://msdn.microsoft.com/library/dn774980.aspx)和 [Microsoft TraceEvent 程式庫](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
 ### <a name="keywords"></a>關鍵字
 所有屬於 Reliable Actor EventSource 的事件皆有一或多個相關聯的關鍵字。 這會啟動篩選所選的事件。 以下為已定義的關鍵字位元。

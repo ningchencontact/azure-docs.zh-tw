@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a1459e3cbd433e2997ffd822b961ac781a72ca90
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: b05492941defc6ac3aa252d6bb29043d55e6b66c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423522"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261769"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 Node.js 模組以及針對其進行偵錯
 
@@ -37,7 +37,7 @@ ms.locfileid: "47423522"
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 或 [Docker 中樞](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * 您可以使用本機 Docker 登錄作為原型並用於測試，而非使用雲端登錄。 
 
-若要設定本機開發環境以偵錯、執行及測試您的 IoT Edge 解決方案，您需要 [Azure IoT EdgeHub Dev 工具](https://pypi.org/project/iotedgehubdev/)。 安裝 [Python (2.7/3.6) 與 Pip](https://www.python.org/)。 Pip 隨附於 Python 安裝程式。 接著，在您的終端機中執行下列命令以安裝 **iotedgehubdev**。
+若要設定本機開發環境以偵錯、執行及測試您的 IoT Edge 解決方案，您需要 [Azure IoT EdgeHub Dev 工具](https://pypi.org/project/iotedgehubdev/)。 安裝 [Python (2.7/3.6) 與 Pip](https://www.python.org/)。 Pip 隨附於 Python 安裝程式。 然後，在您的終端機中執行下列命令，以安裝 **iotedgehubdev**。
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -123,7 +123,7 @@ IoT Edge Node.js 模組相依於 Azure IoT Node.js 裝置 SDK。 在預設模組
 
 5. 在 VS Code 整合式終端機中執行下列命令，將 **Hello World** 訊息傳送至您的模組。 這是先前的步驟中在 IoT Edge 模擬器設定成功時所顯示的命令。 如果目前的終端機被封鎖，您可能需要建立或切換至另一個整合式終端機。
 
-    ```cmd
+    ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 
@@ -144,7 +144,7 @@ IoT Edge Node.js 模組相依於 Azure IoT Node.js 裝置 SDK。 在預設模組
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>設定 IoT Edge 解決方案的 IoT Edge 模擬器
 
-在您的開發電腦中，您可以透過啟動 IoT Edge 模擬器來執行 IoT Edge 解決方案，而不安裝 IoT Edge 安全性精靈。 
+在您的開發電腦中，您可以藉由啟動 IoT Edge 模擬器來執行 IoT Edge 解決方案，而不安裝 IoT Edge 安全性精靈。 
 
 1. 在左側的裝置總管中，以滑鼠右鍵按一下您的 IoT Edge 裝置識別碼，然後選取 [設定 IoT Edge 模擬器] 以使用裝置連接字串啟動模擬器。
 

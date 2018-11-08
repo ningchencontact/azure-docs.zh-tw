@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
-ms.openlocfilehash: dab7623c86bea4e562313e618f238b9b33c0fdc5
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117285"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262789"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>從 Azure 入口網站取得連接字串
 使用 [Azure 入口網站](https://portal.azure.com/)來取得用戶端程式與 Azure SQL Database 進行互動所需的連接字串。
@@ -38,7 +38,7 @@ ms.locfileid: "39117285"
 
 8. 以其中一種格式，將連接字串資訊貼入您的用戶端程式碼中。
 
-如需詳細資訊，請參閱[連接字串與設定檔](http://msdn.microsoft.com/library/ms254494.aspx)。
+如需詳細資訊，請參閱[連接字串與設定檔](https://msdn.microsoft.com/library/ms254494.aspx)。
 
 <!-- Image references. -->
 

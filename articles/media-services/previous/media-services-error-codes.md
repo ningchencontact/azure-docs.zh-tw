@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 43e2b2b7f398e8adce0760678c6f0a5208c24c34
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d485195b868b6cbca587c736ac02663491742cdb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240523"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236869"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒體服務錯誤代碼
 使用 Microsoft Azure 媒體服務時，您可能會根據問題從服務收到 HTTP 錯誤代碼，例如驗證權杖過期到媒體服務中不支援的動作。 以下是媒體服務可能會傳回的「HTTP 錯誤代碼」的清單，以及其可能原因。  
@@ -117,7 +117,7 @@ ms.locfileid: "50240523"
 > 
 
 ## <a name="see-also"></a>另請參閱
-[媒體服務管理錯誤代碼](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[媒體服務管理錯誤代碼](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
