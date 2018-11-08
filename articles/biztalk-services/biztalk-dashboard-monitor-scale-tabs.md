@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 3f4763b5e15d4b9b84e868262a9e8538b8a407a2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24103356"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228822"
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>檢閱儀表板、監視器、調整、設定和混合式連線索引標籤
 
@@ -39,20 +39,20 @@ ms.locfileid: "24103356"
         <td><strong>取得工具</strong></td>
         <td>下載 BizTalk 服務 SDK，將 Visual Studio 專案範本安裝到內部部署開發電腦上。 這些範本會建立 <strong>BizTalk 服務</strong> (橋接)，以及可部署至 BizTalk 服務的 <strong>BizTalk 服務成品</strong> (轉換) Visual Studio 專案。
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">如何開始使用 Azure BizTalk 服務 SDK</a> 和<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">安裝 Azure BizTalk 服務 SDK</a> 列出開始進行的步驟。
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302335">如何開始使用 Azure BizTalk 服務 SDK</a> 和<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=241589">安裝 Azure BizTalk 服務 SDK</a> 列出開始進行的步驟。
         </td>
     </tr>
     <tr>
         <td><strong>建立夥伴協議</strong></td>
         <td>開啟裝載於 Azure 的 Azure BizTalk 服務入口網站，以加入夥伴並建立 X12、AS2 和 EDIFACT EDI 協議。
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>列出開始進行的步驟。
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>列出開始進行的步驟。
         </td>
     </tr>
 
 <tr>
         <td><strong>深入了解 BizTalk 服務</strong></td>
-        <td>前往<a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">學習中心</a>以深入了解 Azure BizTalk 服務。</td>
+        <td>前往<a HREF="https://azure.microsoft.com/documentation/services/biztalk-services/">學習中心</a>以深入了解 Azure BizTalk 服務。</td>
 </tr>
 </table>
 
@@ -65,16 +65,16 @@ ms.locfileid: "24103356"
 <td><strong>管理</strong>應用程式部署</td>
 <td>開啟 Azure BizTalk 服務入口網站。 BizTalk 服務入口網站是 EDI 組態的入口，包括加入夥伴及建立 X12、AS2 和 EDIFACT 協議。
 <br/><br/>
-這與 [快速入門]<strong></strong> 索引標籤上的 [建立夥伴合約]<strong></strong> 相同。
+這與 [快速入門] 索引標籤上的 [建立夥伴合約] 相同。
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>提供 BizTalk 服務入口網站的詳細資訊。</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>提供 BizTalk 服務入口網站的詳細資訊。</td>
 </tr>
 
 <tr>
 <td>存取控制命名空間的<strong>連線資訊</strong></td>
 <td>選取 [連線資訊] 時會顯示 [存取控制命名空間]、[預設核發者] 和 [預設金鑰]。 您可以複製這些值。
 <br/><br/>
-您也可以開啟存取控制入口網站。 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">建立存取控制命名空間</a>提供了存取控制入口網站的詳細資訊。</td>
+您也可以開啟存取控制入口網站。 <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">建立存取控制命名空間</a>提供了存取控制入口網站的詳細資訊。</td>
 </tr>
 
 <tr>
@@ -84,9 +84,9 @@ ms.locfileid: "24103356"
 例如，您希望 BizTalk 服務對儲存體帳戶使用新的主要金鑰。 作法：
 <br/><br/>
 <ol>
-<li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。 選取次要金鑰。 這時，BizTalk 服務就會開始使用次要金鑰。</li>
+<li>選取 BizTalk 服務，再選取 [同步金鑰]。 選取次要金鑰。 這時，BizTalk 服務就會開始使用次要金鑰。</li>
 <li>選取您的儲存體帳戶並重新產生主要金鑰。 記住，BizTalk 服務現在使用次要金鑰。</li>
-<li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。 現在，選取主要金鑰。 這是您重新產生的新主要金鑰。</li>
+<li>選取 BizTalk 服務，再選取 [同步金鑰]。 現在，選取主要金鑰。 這是您重新產生的新主要金鑰。</li>
 <li>選取您的儲存體帳戶並重新產生次要金鑰。</li>
 </ol>
 <br/>
@@ -122,7 +122,7 @@ ms.locfileid: "24103356"
 </tr>
 <tr>
 <td><strong>更新 SSL 憑證</strong></td>
-<td>可更新 BizTalk 服務來使用不同的 SSL 憑證。 在您<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">建立 BizTalk 服務</a>時，自我簽署 SSL 憑證會自動建立。</td>
+<td>可更新 BizTalk 服務來使用不同的 SSL 憑證。 在您<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">建立 BizTalk 服務</a>時，自我簽署 SSL 憑證會自動建立。</td>
 </tr>
 <tr>
 <td><strong>下載憑證</strong></td>
@@ -130,7 +130,7 @@ ms.locfileid: "24103356"
 </tr>
 <tr>
 <td><strong>狀態</strong></td>
-<td>顯示 BizTalk 服務的目前狀態。 請參閱 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk 服務：服務狀態圖</a> (英文)。 </td>
+<td>顯示 BizTalk 服務的目前狀態。 請參閱 <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk 服務：服務狀態圖</a> (英文)。 </td>
 </tr>
 <tr>
 <td><strong>服務 URL</strong></td>
@@ -160,13 +160,13 @@ ms.locfileid: "24103356"
 <td><strong>追蹤資料庫</strong></td>
 <td>儲存 BizTalk 服務所使用之追蹤資料表的 Azure SQL Database 名稱。 
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">需求說明</a>提供追蹤資料庫的詳細資料。</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">需求說明</a>提供追蹤資料庫的詳細資料。</td>
 </tr>
 <tr>
 <td><strong>監視/封存儲存體</strong></td>
 <td>儲存 BizTalk 服務之監視輸出的 Azure 儲存體帳戶名稱。
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">需求說明</a>提供儲存體帳戶的詳細資料。</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">需求說明</a>提供儲存體帳戶的詳細資料。</td>
 </tr>
 <tr>
 <td><strong>訂用帳戶名稱</strong></td>
@@ -178,7 +178,7 @@ ms.locfileid: "24103356"
 </tr>
 </table>
 
-[BizTalk 服務：佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)列出建立 BizTalk 服務的步驟。
+[BizTalk 服務：佈建](https://go.microsoft.com/fwlink/p/?LinkID=302280)列出建立 BizTalk 服務的步驟。
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>工作列中的管理、連線資訊、同步金鑰和刪除：
 <table border="1">
@@ -187,9 +187,9 @@ ms.locfileid: "24103356"
 <td><strong>管理</strong>應用程式部署</td>
 <td>開啟 Azure BizTalk 服務入口網站。 BizTalk 服務入口網站是 EDI 組態的入口，包括加入夥伴及建立 X12、AS2 和 EDIFACT 協議。
 <br/><br/>
-這與 [快速入門]<strong></strong> 索引標籤上的 [建立夥伴合約]<strong></strong> 相同。
+這與 [快速入門] 索引標籤上的 [建立夥伴合約] 相同。
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>提供 BizTalk 服務入口網站的詳細資訊。</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>提供 BizTalk 服務入口網站的詳細資訊。</td>
 </tr>
 <tr>
 <td>存取控制命名空間的<strong>連線資訊</strong></td>
@@ -197,7 +197,7 @@ ms.locfileid: "24103356"
 <br/><br/>
 您也可以開啟存取控制入口網站。 此存取控制入口網站的功用就與使用左側導覽窗格中的 [Active Directory] 選項一樣。
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">管理您的 ACS 命名空間</a>提供存取控制入口網站的詳細資訊。</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">管理您的 ACS 命名空間</a>提供存取控制入口網站的詳細資訊。</td>
 </tr>
 <tr>
 <td>儲存體帳戶內的<strong>同步金鑰</strong></td>
@@ -206,9 +206,9 @@ ms.locfileid: "24103356"
 例如，您希望 BizTalk 服務對儲存體帳戶使用新的主要金鑰。 作法：
 <br/><br/>
 <ol>
-<li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。 選取次要金鑰。 這時，BizTalk 服務就會開始使用次要金鑰。</li>
+<li>選取 BizTalk 服務，再選取 [同步金鑰]。 選取次要金鑰。 這時，BizTalk 服務就會開始使用次要金鑰。</li>
 <li>選取您的儲存體帳戶並重新產生主要金鑰。 記住，BizTalk 服務現在使用次要金鑰。</li>
-<li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。 現在，選取主要金鑰。 這是您重新產生的新主要金鑰。</li>
+<li>選取 BizTalk 服務，再選取 [同步金鑰]。 現在，選取主要金鑰。 這是您重新產生的新主要金鑰。</li>
 <li>選取您的儲存體帳戶並重新產生次要金鑰。</li>
 </ol>
 <br/>
@@ -342,11 +342,11 @@ ms.locfileid: "24103356"
 * [BizTalk 服務：備份與還原](biztalk-backup-restore.md)
 
 ## <a name="see-also"></a>另請參閱
-* [VNet](integration-hybrid-connection-overview.md)  
+* [混合式連線](integration-hybrid-connection-overview.md)  
 * [BizTalk 服務：開發人員、基本、標準和高級版本圖表](biztalk-editions-feature-chart.md)  
 * [BizTalk 服務：佈建](biztalk-provision-services.md)  
 * [BizTalk 服務：BizTalk 服務狀態圖](biztalk-service-state-chart.md)  
-* [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
