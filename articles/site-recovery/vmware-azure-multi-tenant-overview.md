@@ -1,22 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 將 VMware VM 複寫至 Azure (CSP) 的多租用戶支援概觀 | Microsoft Docs
-description: 提供在多租用戶環境中，透過 CSP 方案對於租用戶訂用帳戶之 Azure Site Recovery 支援的概觀。
-services: site-recovery
+title: 使用 Azure Site Recovery 將 VMware VM 災害復原至 Azure (CSP) 的多租用戶支援概觀 | Microsoft Docs
+description: 概述 Azure Site Recovery 在多租用戶環境 (CSP) 程式中，如何支援將 VMware VM 災害復原至 Azure。
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 89e731d6c255092b087f0615bad49185c7181f1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352866"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210749"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>使用 CSP 將 VMware 複寫至 Azure 的多租用戶支援概觀
+# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>概述多租用戶如何支援使用 CSP 將 VMware 災害復原至 Azure
 
 [Azure Site Recovery](site-recovery-overview.md) 支援租用戶訂用帳戶的多租用戶環境。 對於透過 Microsoft Cloud 解決方案提供者 (CSP) 方案建立及管理的租用戶訂用帳戶，它也支援多租用戶。
 

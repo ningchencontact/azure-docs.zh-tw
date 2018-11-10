@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962125"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245353"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>快速入門：從 Azure Active Directory 移除應用程式
 
@@ -36,7 +36,7 @@ ms.locfileid: "46962125"
 
 若要開始，您需要有一個已有應用程式向其註冊的 Azure AD 租用戶。
 
-* 如果您還沒有租用戶，[了解如何取得租用戶](quickstart-create-new-tenant.md)。
+* 如果您還沒有租用戶， [了解如何取得租用戶](quickstart-create-new-tenant.md)。
 * 若要了解如何新增並註冊應用程式到您的租用戶，請參閱[新增應用程式到 Azure AD](quickstart-v1-integrate-apps-with-azure-ad.md)。
 
 ## <a name="removing-an-application-authored-by-your-organization"></a>移除您的組織所編寫的應用程式
@@ -69,7 +69,7 @@ ms.locfileid: "46962125"
 
 就技術上來說，這些多租用戶應用程式是來自其他租用戶，且已在同意程序期間註冊到您的租用戶中。 更具體來說，它們僅由您租用戶中的服務主體物件表示，而沒有對應的應用程式物件。 如需有關應用程式與服務主體物件之差異的詳細資訊，請參閱 [Azure AD 中的應用程式和服務主體物件](app-objects-and-service-principals.md)。
 
-若要移除多租用戶應用程式對您目錄的存取權 (在授與同意之後)，公司系統管理員必須移除應用程式的服務主體。 系統管理員必須擁有全域系統管理員存取權，才能透過 Azure 入口網站移除或使用 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151) 來移除存取權。
+若要移除多租用戶應用程式對您目錄的存取權 (在授與同意之後)，公司系統管理員必須移除應用程式的服務主體。 系統管理員必須擁有全域系統管理員存取權，才能透過 Azure 入口網站移除或使用 [Azure AD PowerShell Cmdlet](https://go.microsoft.com/fwlink/?LinkId=294151) 來移除存取權。
 
 ## <a name="next-steps"></a>後續步驟
 

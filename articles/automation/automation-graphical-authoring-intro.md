@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144228"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233672"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
 
@@ -48,7 +48,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 |:--- |:--- |
 | Cmdlet |包含可以在 Runbook 中使用的所有 Cmdlet。 Cmdlet 是依模組組織。 已在您自動化帳戶中安裝的所有模組皆可供使用。 |
 | Runbook |包含自動化帳戶中的 Runbook。 這些 Runbook 可以加入至畫布以做為子 Runbook。 只會顯示與所編輯之 Runbook 相同核心類型的 Runbook。針對圖形化 Runbook，只會顯示以 PowerShell 為基礎的 Runbook，而針對圖形化 PowerShell 工作流程 Runbook，只會顯示以 PowerShell 工作流程為基礎的 Runbook。 |
-| Assets |包含您的自動化帳戶中可以在 Runbook 中使用的 [自動化資產](http://msdn.microsoft.com/library/dn939988.aspx) 。 當您將資產加入 Runbook，它會新增工作流程活動，取得所選資產。 如果是變數資產，您可以選取是否要加入活動以取得變數或設定變數。 |
+| Assets |包含您的自動化帳戶中可以在 Runbook 中使用的 [自動化資產](https://msdn.microsoft.com/library/dn939988.aspx) 。 當您將資產加入 Runbook，它會新增工作流程活動，取得所選資產。 如果是變數資產，您可以選取是否要加入活動以取得變數或設定變數。 |
 | Runbook 控制項 |包含可在目前的 Runbook 中使用的 Runbook 控制項活動。 「接合」  會接受多個輸入，並等待所有項目完成，然後再繼續工作流程。 「程式碼」  活動會根據圖形化 Runbook 類型而定，執行一或多行 PowerShell 或 PowerShell 工作流程程式碼。 您可以對很難利用其他活動來達成的自訂程式碼或功能使用此活動。 |
 
 ### <a name="configuration-control"></a>組態控制項
@@ -336,7 +336,7 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 
 ## <a name="powershell-expressions"></a>PowerShell 運算式
 
-圖形化撰寫的優點之一是提供您以 PowerShell 的基本知識建立 Runbook 的能力。 目前，您還是需要稍微了解 PowerShell，以填入某些[參數值](#activities)和設定[連結條件](#links-and-workflow)。 本節提供 PowerShell 運算式的快速簡介，供不熟悉的使用者參考。 PowerShell 的完整詳細資料位於 [使用 Windows PowerShell 撰寫指令碼](http://technet.microsoft.com/library/bb978526.aspx)。
+圖形化撰寫的優點之一是提供您以 PowerShell 的基本知識建立 Runbook 的能力。 目前，您還是需要稍微了解 PowerShell，以填入某些[參數值](#activities)和設定[連結條件](#links-and-workflow)。 本節提供 PowerShell 運算式的快速簡介，供不熟悉的使用者參考。 PowerShell 的完整詳細資料位於 [使用 Windows PowerShell 撰寫指令碼](https://technet.microsoft.com/library/bb978526.aspx)。
 
 ### <a name="powershell-expression-data-source"></a>PowerShell 運算式資料來源
 您可以使用 PowerShell 運算式做為資料來源，使用一些 PowerShell 程式碼的結果來填入 [活動參數](#activities) 的值。 這可以是執行一些簡單函式的單行程式碼，或執行一些複雜邏輯的多行程式碼。 未指派給變數的任何命令輸出都會輸出到參數值。
@@ -414,7 +414,7 @@ $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 
 ### <a name="hashtables"></a>雜湊表
 
-[雜湊表](http://technet.microsoft.com/library/hh847780.aspx) 是傳回一組值時很有用的名稱/值組。 某些活動的屬性可能是雜湊表而不是簡單值。 雜湊表也可能稱為字典。
+[雜湊表](https://technet.microsoft.com/library/hh847780.aspx) 是傳回一組值時很有用的名稱/值組。 某些活動的屬性可能是雜湊表而不是簡單值。 雜湊表也可能稱為字典。
 
 使用下列語法建立雜湊表。 雜湊表可以包含任意數目的項目，但是每個項目都由一個名稱和值定義。
 

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/08/2018
-ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960238"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232319"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 [Azure Kubernetes Service (AKS)](/azure/aks/) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
@@ -372,6 +372,6 @@ Kubernetes 工具可用來驗證新建立的叢集。
 在本文中，您可了解如何使用 Terraform 和 AKS 建立 Kubernetes 叢集。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform： 
 
  [Microsoft.com 中的 Terraform 中樞](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 提供者文件](http://aka.ms/terraform)  
- [Terraform Azure 提供者來源](http://aka.ms/tfgit)  
- [Terraform Azure 模組](http://aka.ms/tfmodules)
+ [Terraform Azure 提供者文件](https://aka.ms/terraform)  
+ [Terraform Azure 提供者來源](https://aka.ms/tfgit)  
+ [Terraform Azure 模組](https://aka.ms/tfmodules)

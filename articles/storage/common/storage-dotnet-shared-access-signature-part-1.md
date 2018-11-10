@@ -2,18 +2,18 @@
 title: 在 Azure 儲存體中使用共用存取簽章 (SAS) | Microsoft Docs
 description: 學習如何使用共用存取簽章 (SAS) 委派存取至 Azure 儲存體資源，包括 Blob、佇列、資料表及檔案。
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 315c5a88d16206414b6b81a83963cbb1f8b4424a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c7d2c16ef135644c1ff23d7a71c66bec27ac930d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524749"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241040"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共用存取簽章 (SAS)
 
@@ -108,7 +108,7 @@ SAS 權杖是*用戶端*所產生的字串 (如需程式碼範例，請參閱〈
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Name | SAS 部分 | 說明 |
+| 名稱 | SAS 部分 | 說明 |
 | --- | --- | --- |
 | Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Blob 的位址。 請注意，我們強烈建議您使用 HTTPS。 |
 | 儲存體服務版本 |`sv=2015-04-05` |若是儲存體服務版本 2012-02-12 和更新版本，此參數表示要使用的版本。 |
@@ -128,7 +128,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Name | SAS 部分 | 說明 |
+| 名稱 | SAS 部分 | 說明 |
 | --- | --- | --- |
 | 資源 URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Blob 服務端點，具有用來取得服務屬性 (使用 GET 呼叫時) 或設定服務屬性 (使用 SET 呼叫時) 的參數。 |
 | 服務 |`ss=bf` |SAS 適用於 Blob 和檔案服務 |
@@ -222,7 +222,7 @@ catch (StorageException e)
 6. **請具體指出要存取的資源。** 安全性最佳做法是提供使用者最低需求權限。 如果使用者只需要單一實體的讀取存取權，則授與他們該單一實體的讀取存取權，而非授與他們所有實體的讀取/寫入/刪除存取權。 這有助於減輕洩露 SAS 遭受的損害，因為當 SAS 落入攻擊者手中時，即無法發揮固有功能。
 7. **了解您帳戶的任何方式將會被收取費用，包括以 SAS 方式完成的部分。** 如果您提供 Blob 的寫入存取權，則使用者可能會選擇上傳 200GB 的 Blob。 若您也同時提供使用者讀取存取權，則他們可能會選擇下載 10 次，而您便會產生 2TB 的出口成本。 再次強調，提供有限的權限有助於減少惡意使用者採取的潛在動作。 使用短期 SAS 以降低此威脅 (但請注意結束時間的時鐘誤差)。
 8. **使用 SAS 驗證寫入資料。** 當用戶端應用程式將資料寫入您的儲存體帳戶時，請留意該資料可能會造成問題。 如果您的應用程式要求在開始使用資料之前先驗證或授權資料，則您應在寫入資料之後但應用程式尚未開始使用資料之前執行此驗證。 此做法也可防止正確取得 SAS 的使用者或是利用洩漏 SAS 的使用者，損毀資料或將惡意資料寫入您的帳戶。
-9. **請勿一直使用 SAS。** 有時候，在儲存體帳戶中執行特定作業的相關風險可能大過 SAS 的好處。 針對此類作業，請建立一個中介層服務，在執行商務規則驗證、驗證及稽核之後才寫入您的儲存體帳戶。 另外，有時候以其他方式管理存取權可能比較簡單。 例如，如果您要讓容器中的所有 Blob 都可公開讀取，則您可以將此容器設定為 [公用]，而不是將 SAS 提供給每個用戶端進行存取。
+9. **請勿一直使用 SAS。** 有時候，在儲存體帳戶中執行特定作業的相關風險可能大過 SAS 的好處。 針對此類作業，請建立一個中介層服務，在執行商務規則驗證、驗證及稽核之後才寫入您的儲存體帳戶。 另外，有時候以其他方式管理存取權可能比較簡單。 例如，如果您想要讓容器中的所有 Blob 都可供公開讀取，則您可以將此容器設定為 [公用]，而不是將 SAS 提供給每個用戶端進行存取。
 10. **使用儲存體分析來監視您的應用程式。** 您可以使用記錄和度量來觀察由於 SAS 提供者服務中斷或不小心移除預存存取原則，而造成的任何驗證失敗急劇增加。 如需額外資訊，請參閱 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (英文)。
 
 ## <a name="sas-examples"></a>SAS 範例

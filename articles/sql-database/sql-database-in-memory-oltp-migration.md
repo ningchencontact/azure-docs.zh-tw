@@ -2,20 +2,22 @@
 title: In-Memory OLTP 可改善 SQL 交易效能 | Microsoft Docs
 description: 採用記憶體內部 OLTP 來改善現有 SQL Database 的交易效能。
 services: sql-database
-author: jodebrui
-manager: craigg
-ms.reviewer: MightyPen
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: a2f0d901abfa0013a6f53bacd72a9f8db2e0fd99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648042"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228040"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用記憶體內部 OLTP 改善 SQL Database 中的應用程式效能
 在[進階和業務關鍵層](sql-database-service-tiers-vcore.md)資料庫中，[記憶體內部 OLTP](sql-database-in-memory.md) 可用來改善交易處理、資料擷取和暫時性資料案例的效能，而無須增加定價層。 
@@ -45,7 +47,7 @@ SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易�
 * 在 [物件總管] 中，以滑鼠右鍵按一下您的資料庫節點。
 * 按一下 [報表] > [標準報表] > [交易效能分析概觀]。
 
-如需詳細資訊，請參閱 [判斷資料表或預存程序是否應該移植到 In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx)。
+如需詳細資訊，請參閱 [判斷資料表或預存程序是否應該移植到 In-Memory OLTP](https://msdn.microsoft.com/library/dn205133.aspx)。
 
 ## <a name="step-3-create-a-comparable-test-database"></a>步驟 3：建立可比較的測試資料庫
 假設報告指出您的資料庫的某個資料表若轉換成記憶體最佳化的資料表將會有好處。 我們建議您先測試以確認這項指示。
@@ -78,9 +80,9 @@ SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易�
    * [資料表記憶體最佳化建議程式]  精靈隨即顯示。
 3. 在此精靈中按一下 [移轉驗證] \(或 [下一步] 按鈕)，以查看資料表是否有任何在記憶體最佳化資料表中不受支援的功能。 如需詳細資訊，請參閱
    
-   * *記憶體最佳化建議程式* 中的 [記憶體最佳化檢查清單](http://msdn.microsoft.com/library/dn284308.aspx)。
-   * [In-Memory OLTP 不支援的 Transact-SQL 建構](http://msdn.microsoft.com/library/dn246937.aspx)。
-   * [移轉至 In-Memory OLTP](http://msdn.microsoft.com/library/dn247639.aspx)。
+   * *記憶體最佳化建議程式* 中的 [記憶體最佳化檢查清單](https://msdn.microsoft.com/library/dn284308.aspx)。
+   * [In-Memory OLTP 不支援的 Transact-SQL 建構](https://msdn.microsoft.com/library/dn246937.aspx)。
+   * [移轉至 In-Memory OLTP](https://msdn.microsoft.com/library/dn247639.aspx)。
 4. 如果資料表沒有不受支援的功能，建議程式可以為您執行實際的結構描述和資料移轉。
 
 #### <a name="manual-t-sql"></a>手動 T-SQL
@@ -112,7 +114,7 @@ In-Memory 功能也可以修改預存程序，以改善效能。
 * NATIVE_COMPILATION
 * SCHEMABINDING：表示除非您捨棄預存程序，否則無法由預存程序以任何會影響到預存程序的方式變更其資料行定義的資料表。
 
-原生模組必須使用一個大型 [ATOMIC 區塊](http://msdn.microsoft.com/library/dn452281.aspx) 進行交易管理。 沒有明確 BEGIN TRANSACTION 或 ROLLBACK TRANSACTION 的角色。 如果您的程式碼偵測到違反商務規則，它可以利用 [THROW](http://msdn.microsoft.com/library/ee677615.aspx) 陳述式終止不可部分完成的區塊。
+原生模組必須使用一個大型 [ATOMIC 區塊](https://msdn.microsoft.com/library/dn452281.aspx) 進行交易管理。 沒有明確 BEGIN TRANSACTION 或 ROLLBACK TRANSACTION 的角色。 如果您的程式碼偵測到違反商務規則，它可以利用 [THROW](https://msdn.microsoft.com/library/ee677615.aspx) 陳述式終止不可部分完成的區塊。
 
 ### <a name="typical-create-procedure-for-natively-compiled"></a>原生編譯的一般 CREATE PROCEDURE
 建立原生編譯預存程序的 T-SQL 通常會類似於下列範本：
@@ -143,7 +145,7 @@ CREATE PROCEDURE schemaname.procedurename
 2. 請重寫其標頭，以符合先前的範本。
 3. 確認預存程序 T-SQL 程式碼是否使用任何不支援原生編譯預存程序的功能。 視需要實作因應措施。
    
-   * 如需詳細資訊，請參閱 [原生編譯預存程序的移轉問題](http://msdn.microsoft.com/library/dn296678.aspx)。
+   * 如需詳細資訊，請參閱 [原生編譯預存程序的移轉問題](https://msdn.microsoft.com/library/dn296678.aspx)。
 4. 使用 SP_RENAME 重新命名舊的預存程序。 或直接加以捨棄。
 5. 執行已編輯的 CREATE PROCEDURE T-SQL 指令碼。
 
@@ -166,7 +168,7 @@ CREATE PROCEDURE schemaname.procedurename
 * [使用動態管理檢視監視 Azure SQL Database](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>相關連結
-* [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
-* [原生編譯預存程序簡介](http://msdn.microsoft.com/library/dn133184.aspx)
-* [記憶體最佳化建議程式](http://msdn.microsoft.com/library/dn284308.aspx)
+* [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
+* [原生編譯預存程序簡介](https://msdn.microsoft.com/library/dn133184.aspx)
+* [記憶體最佳化建議程式](https://msdn.microsoft.com/library/dn284308.aspx)
 

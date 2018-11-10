@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4156071c36b06be586b05ee98e9eeb0a9138e4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441522"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246849"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點
 在 Azure 中設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) 叢集，其中包含一個執行 Windows Server 的前端節點，以及數個執行支援之 Linux 散發套件的計算節點。 探索叢集的 Linux 節點與 Windows 前端節點之間移動資料的一些選項。 了解如何將 Linux HPC 作業提交至叢集。
@@ -186,7 +186,7 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔作為輸入，以描述 HPC
 ### <a name="azure-file-storage"></a>Azure 檔案儲存體
 [Azure 檔案](https://azure.microsoft.com/services/storage/files/) 服務會公開使用標準 SMB 2.1 通訊協定的檔案共用。 Azure VM 和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API，存取共用中的檔案資料。 
 
-如需建立 Azure 檔案共用以及將其裝載於前端節點上的詳細步驟，請參閱 [開始使用 Windows 上的 Azure 檔案儲存體](../../../storage/files/storage-how-to-use-files-windows.md)。 若要在 Linux 節點上裝載 Azure 檔案共用，請參閱[如何搭配使用 Azure 檔案儲存體與 Linux](../../../storage/files/storage-how-to-use-files-linux.md)。 若要設定持續性連線，請參閱 [Microsoft Azure 檔案的持續性連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)。
+如需建立 Azure 檔案共用以及將其裝載於前端節點上的詳細步驟，請參閱 [開始使用 Windows 上的 Azure 檔案儲存體](../../../storage/files/storage-how-to-use-files-windows.md)。 若要在 Linux 節點上裝載 Azure 檔案共用，請參閱[如何搭配使用 Azure 檔案儲存體與 Linux](../../../storage/files/storage-how-to-use-files-linux.md)。 若要設定持續性連線，請參閱 [Microsoft Azure 檔案的持續性連線](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)。
 
 在下列範例中，在儲存體帳戶上建立 Azure 檔案共用。 若要在前端節點上裝載共用，請開啟 [命令提示字元] 並輸入下列命令：
 
@@ -271,7 +271,7 @@ NFS 服務可讓您使用 SMB 通訊協定在執行 Windows Server 2012 作業�
 
 透過 HPC Pack GUI 工具和 Web 入口網站將工作提交至 Azure 中的叢集，與提交至 Windows 運算節點相同。 請參閱 [HPC Pack Job Manager (HPC Pack 作業管理員)](https://technet.microsoft.com/library/ff919691.aspx) 與[如何從內部部署用戶端電腦提交作業](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-若要透過 REST API 提交作業，請參閱 [在 Microsoft HPC Pack 中使用 REST API 建立和提交作業](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)。 若要從 Linux 用戶端提交作業，另請參閱 [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756)中的 Python 範例。
+若要透過 REST API 提交作業，請參閱 [在 Microsoft HPC Pack 中使用 REST API 建立和提交作業](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)。 若要從 Linux 用戶端提交作業，另請參閱 [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756)中的 Python 範例。
 
 ## <a name="clusrun-for-linux-nodes"></a>適用於 Linux 節點的 CLusrun
 HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) 工具可透過命令提示字元或 HPC 叢集管理員用來在 Linux 節點上執行命令。 以下有一些基本範例。

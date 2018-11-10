@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 4619c26e34c90f58702ad286f76a999f83f49cc4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894504"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246815"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure 虛擬機器的自動備份 v2 (Resource Manager)
 
@@ -31,7 +31,7 @@ ms.locfileid: "33894504"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用「自動備份 v2」，請檢閱下列必要條件：
 
 **作業系統**：
@@ -151,7 +151,7 @@ ms.locfileid: "33894504"
 
 您可以使用 PowerShell 來設定「自動備份 v2」。 開始進行之前，您必須：
 
-- [下載並安裝最新的 Azure PowerShell](http://aka.ms/webpi-azps)。
+- [下載並安裝最新的 Azure PowerShell](https://aka.ms/webpi-azps)。
 - 開啟 Windows PowerShell，並使用 **Connect-AzureRmAccount** 命令，將其與您的帳戶建立關聯。
 
 ### <a name="install-the-sql-iaas-extension"></a>安裝 SQL IaaS 擴充功能

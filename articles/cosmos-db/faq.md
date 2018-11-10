@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: de67d71a209ea0889b4dc5c87fed254700cb9916
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 554718f0bb465ca757fc4dcf6c22d3b0dd80f2fb
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395123"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251085"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -53,7 +53,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Azure Cosmos DB 的輸送量限制有哪些？
 對於容器可以在 Azure Cosmos DB 中支援的總輸送量，沒有任何限制。 其主要概念在於，將您的工作負載大致平均分配在數量夠大的資料分割索引鍵之間。
 
-### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>直接和閘道連線模式是否會加密？ 
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted"></a>直接和閘道連線模式是否會加密？ 
 是，這兩種模式一律會完整加密。 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Azure Cosmos DB 的費用是多少？
@@ -72,7 +72,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)。 Stack Overflow 最適合用於詢問程式設計問題。 確保您的問題[契合主題](https://stackoverflow.com/help/on-topic)且[盡可能提供愈多的詳細資料，讓問題更加清楚並可得到答覆](https://stackoverflow.com/help/how-to-ask)。 
 
-若要要求新功能，請在 [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db) 上建立新的要求。
+若要要求新功能，請在 [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) 上建立新的要求。
 
 若要修正您的帳戶問題，請在 Azure 入口網站中提出[支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 
@@ -230,7 +230,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 ### <a name="where-is-table-api-not-identical-with-azure-table-storage-behavior"></a>資料表 API 與 Azure 資料表儲存體的行為有哪些不同？
 來自 Azure 資料表儲存體而想要使用 Azure Cosmos DB 資料表 API 來建立資料表的使用者，應該注意以下的部分行為差異：
 
-* Azure Cosmos DB 資料表 API 使用保留容量模型來確保效能獲得保證，但這也表示，使用者一建立資料表，就必須支付其容量費用，即使該容量並未使用也是如此。 而在使用 Azure 資料表儲存體時，使用者只需要就實際使用的容量付費。 此一行為有助於解釋，為何資料表 API 可於第 99 個百分位數的水準提供 10 毫秒的讀取和 15 毫秒的寫入 SLA，而 Azure 資料表儲存體則是提供 10 秒的 SLA。 但也因為這樣，資料表 API 的資料表 (甚至是沒有任何要求的空白資料表) 必須付出金錢，才能確保有容量可用來處理其所收到的任何要求，並以 Azure Cosmos DB 所提供的 SLA 來進行。
+* Azure Cosmos DB 資料表 API 使用保留容量模型來確保效能獲得保證，但這也表示，使用者一建立資料表，就必須支付其容量費用，即使該容量並未使用也是如此。 而在使用 Azure 資料表儲存體時，使用者只需要就使用的容量付費。 此一行為有助於解釋，為何資料表 API 可於第 99 個百分位數的水準提供 10 毫秒的讀取和 15 毫秒的寫入 SLA，而 Azure 資料表儲存體則是提供 10 秒的 SLA。 但也因為這樣，資料表 API 的資料表 (甚至是沒有任何要求的空白資料表) 必須付出金錢，才能確保有容量可用來處理其所收到的任何要求，並以 Azure Cosmos DB 所提供的 SLA 來進行。
 * 資料表 API 所傳回的查詢結果，不會和 Azure 資料表儲存體一樣使用資料分割索引鍵/資料列索引鍵順序來排序。
 * 資料列索引鍵最多只能是 255 個位元組
 * 批次最多只可包含 2 MB
@@ -260,7 +260,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 |                  | \*ServiceStats* |
 | CloudTable | SetPermissions* |
 |            | GetPermissions* |
-| TableServiceContext | * (此類別實際上已被取代) |
+| TableServiceContext | * (此類別已被取代) |
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
@@ -270,7 +270,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>如何提供關於 SDK 和 Bug 的意見反應？
 您可以使用以下任何方式來分享意見反應：
 
-* [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
+* [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)。 Stack Overflow 最適合用於詢問程式設計問題。 確保您的問題[契合主題](https://stackoverflow.com/help/on-topic)且[盡可能提供愈多的詳細資料，讓問題更加清楚並可得到答覆](https://stackoverflow.com/help/how-to-ask)。
 
@@ -329,7 +329,7 @@ Azure Cosmos DB 的設計乃藉由使用水平調整提供無限制的儲存體�
 您可以使用 Azure Cosmos DB 入口網站的[全域複寫設定](tutorial-global-distribution-sql-api.md#portal)，加入適合應用程式的區域。 若要開發全域散發的應用程式，您還應該使用設為本地區域的 PreferredLocation 資訊來加入您的應用程式，以提供低讀取延遲。 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>如何在「資料表 API」中變更帳戶的主要寫入區域？
-您可以使用 Azure Cosmos DB 的全球複寫入口網站窗格來加入一個區域，然後容錯移轉至所需的區域。 如需指示，請參閱[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 
+您可以使用 Azure Cosmos DB 的全球複寫入口網站窗格來加入一個區域，然後容錯移轉至所需的區域。 如需指示，請參閱[使用多區域 Azure Cosmos DB 帳戶進行開發](high-availability.md)。 
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>當我散發資料時，如何設定慣用的讀取區域以取得低延遲？ 
 若要協助讀取本機位置，請使用 app.config 檔案中的 PreferredLocation 金鑰 。 對於現有的應用程式，如果您已設定 LocationMode，資料表 API 會擲回錯誤。 請移除該程式碼，因為資料表 API 會從 app.config 檔案取用這項資訊。 如需詳細資訊，請參閱 [Azure Cosmos DB 功能](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities)。
@@ -351,7 +351,7 @@ Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即�
 有了 Azure Cosmos DB，您可以設定容器層級的一致性層級 (在資料表中)。 透過 .NET SDK，您可以在 app.config 檔案中提供 TableConsistencyLevel 索引鍵的值，藉以變更層級。 可能的值包括：強式、限定過期、工作階段、一致前置詞或最終。 如需詳細資訊，請參閱 [Azure Cosmos DB 中的 Tunable 資料一致性層級](consistency-levels.md)。 主要概念在於，您無法將要求一致性層級設定為高於資料表設定的值。 例如，您無法將資料表的一致性層級設定為「最終」，而將要求一致性層級設定為「強式」。 
 
 ### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>當區域發生服務中斷時，「資料表 API」如何處理容錯移轉？ 
-資料表 API 會利用 Azure Cosmos DB 的全域散發平台。 若要確保您的應用程式可以容許資料中心停機，請在 Azure Cosmos DB 入口網站中針對該帳戶至少啟用一個以上的區域，[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 您可以使用入口網站來設定區域的優先順序，[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 
+資料表 API 會利用 Azure Cosmos DB 的全域散發平台。 若要確保您的應用程式可以容許資料中心停機，請在 Azure Cosmos DB 入口網站中針對該帳戶至少啟用一個以上的區域，[使用多區域 Azure Cosmos DB 帳戶進行開發](high-availability.md)。 您可以使用入口網站來設定區域的優先順序，[使用多區域 Azure Cosmos DB 帳戶進行開發](high-availability.md)。 
 
 您可以針對帳戶加入任意數目的區域，並藉由提供容錯移轉優先順序來控制容錯移轉的目標位置。 當然，若要使用的資料庫，您還需要在目標位置提供應用程式。 如果您這樣做，您的客戶就不會經歷停機時間。 [最新的 .NET 用戶端 SDK](table-sdk-dotnet.md) 會自動連接，但其他 SDK 則不會。 也就是說，它可以偵測到區域已關閉，並自動容錯移轉至新的區域。
 
@@ -431,7 +431,7 @@ Azure Cosmos DB 能提供效能和延遲上的保證，限定作業時的上限�
 
 透過輸送量規格，您可以彈性地變更它來從應用程式季節性當中獲得好處、滿足輸送量需求和節省成本。
 
-### <a name="azure-table-storage-has-been-very-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-azure-cosmos-db-table-api-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>Azure 資料表儲存體對我而言非常便宜，因為我只需要支付資料的儲存費用，而且我很少查詢。 即使我尚未執行單一交易或儲存任何項目，Azure Cosmos DB 資料表 API 供應項目似乎還是會向我收取費用。 可以請您說明嗎？
+### <a name="azure-table-storage-has-been-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-azure-cosmos-db-table-api-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>Azure 資料表儲存體對我而言並不貴，因為我只需要支付資料的儲存費用，而且我很少查詢。 即使我尚未執行單一交易或儲存任何項目，Azure Cosmos DB 資料表 API 供應項目似乎還是會向我收取費用。 可以請您說明嗎？
 
 Azure Cosmos DB 已設計為全域散發的 SLA 型系統，並提供可用性、延遲和輸送量的保證。 當您在 Azure Cosmos DB 中保留輸送量時，與其他系統輸送量不同的是，它會提供保證。 Azure Cosmos DB 會提供客戶要求的其他功能，如次要索引和全域散發。  
 
@@ -579,7 +579,7 @@ g.V('mary').out('knows').executionProfile()
 ## <a id="cassandra"></a> Cassandra API
 
 ### <a name="what-is-the-protocol-version-supported-in-the-private-preview-is-there-a-plan-to-support-other-protocols"></a>私人預覽版所支援的通訊協定版本為何？ 是否打算支援其他通訊協定？
-Azure Cosmos DB 的 Apache Cassandra API 目前支援 CQL 第 4 版。 如果您有關於支援其他通訊協定的意見反應，請透過 [UserVoice 意見反應](https://feedback.azure.com/forums/263030-azure-cosmos-db)讓我們知道，或傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。 
+Azure Cosmos DB 的 Apache Cassandra API 目前支援 CQL 第 4 版。 如果您有關於支援其他通訊協定的意見反應，請透過 [User Voice 意見反應](https://feedback.azure.com/forums/263030-azure-cosmos-db)讓我們知道，或傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。 
 
 ### <a name="why-is-choosing-a-throughput-for-a-table-a-requirement"></a>為什麼必須要為資料表選擇輸送量？
 Azure Cosmos DB 會根據您是透過入口網站還是 CQL 建立資料表，為您的容器設定預設輸送量。 Azure Cosmos DB 能提供效能和延遲上的保證，限定作業時的上限。 當引擎能針對租用戶作業強制執行控管時，這項保證是可行的。 設定輸送量能確保您享有保證的輸送量和延遲，因為平台會保留產能，保證作業成功。 您可以彈性地變更輸送量，以從應用程式的季節因素獲益，並節省成本。
@@ -614,7 +614,7 @@ Azure Cosmos DB 能提供效能和延遲上的保證，限定作業時的上限�
 是，資料分割索引鍵可用來將實體放在正確的位置。 在 Azure Cosmos DB 中，我們會用它來尋找實體資料分割上所儲存的正確邏輯資料分割。 資料分割概念的詳細說明請見[在 Azure Cosmos DB 中進行資料分割和調整](partition-data.md)一文。 這裡的重點是，邏輯資料分割目前不應超過 10 GB 的限制。 
 
 ### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>如果我收到「配額已滿」通知，內容指出資料分割已滿，會發生什麼事？
-Azure Cosmos DB 是 SLA 型系統，它提供無限制的調整和延遲、輸送量、可用性、一致性保證。 其 Cassandra API 也允許無限制地儲存資料。 此無限制的儲存是根據使用資料分割做為重要概念的水平方式資料相應放大。 資料分割概念的詳細說明請見[在 Azure Cosmos DB 中進行資料分割和調整](partition-data.md)一文。
+Azure Cosmos DB 是 SLA 型系統，它提供無限制的調整和延遲、輸送量、可用性、一致性保證。 此無限制的儲存是根據使用資料分割做為重要概念的水平方式資料相應放大。 資料分割概念的詳細說明請見[在 Azure Cosmos DB 中進行資料分割和調整](partition-data.md)一文。
 
 您應該遵守實體數目或每個邏輯資料分割之項目數的 10 GB 限制。 為了確保您的應用程式能夠進行適當的調整，建議您「避免」建立常用資料分割 (將所有資訊儲存在一個資料分割，然後進行查詢)。 當您的資料分佈有所傾斜 (也就是說，如果您在一個資料分割索引鍵放了大量資料，亦即超過 10 GB) 時才會發生這個錯誤。 您可以使用儲存體入口網站來找到資料的分佈。 若要修正此錯誤，方法是重新建立資料表，然後選擇細微的主要資料分割索引鍵，以讓資料分佈情形更加適當。
 
@@ -627,11 +627,11 @@ Azure Cosmos DB 可以透過相應放大儲存體以儲存無限量的資料。 
 ### <a name="is-it-possible-to-create-multiple-tables-in-succession"></a>是否能夠連續建立多個資料表？
 Azure Cosmos DB 是適用於資料和控制平面活動的資源所管理的系統。 集合和資料表等容器是針對給定的輸送量容量所佈建的執行階段實體。 快速地連續建立這些容器並非預料中的活動，因此會受到節流。 如果您要進行會立即卸除/建立資料表的測試，請嘗試將這些資料表分開。
 
-### <a name="what-is-maximum-number-of-tables-which-can-be-created"></a>可建立的資料表數目上限為何？
-資料表數目並無實際限制，如果您有非常大量的資料表 (穩定大小總計超過 10 TB 的資料)，且一般必須以 10 個或 100 個為單位來建立，請傳送電子郵件給 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。 
+### <a name="what-is-maximum-number-of-tables-that-can-be-created"></a>可建立的資料表數目上限為何？
+資料表數目並無實際限制，如果您有大量的資料表 (穩定大小總計超過 10 TB 的資料)，且一般必須以 10 個或 100 個為單位來建立，請傳送電子郵件給 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。 
 
-### <a name="what-is-the-maximum--of-keyspace-which-we-can-create"></a>可建立的 keyspace 數目上限為何？ 
-keyspace 是中繼資料容器，因此 keyspace 數目並無實際限制，如果您因為某些原因而擁有非常大量的 keyspace，請傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。 
+### <a name="what-is-the-maximum--of-keyspace-that-we-can-create"></a>可建立的 keyspace 數目上限為何？ 
+keyspace 是中繼資料容器，因此 keyspace 數目並無實際限制，如果您因為某些原因而擁有大量的 keyspace，請傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。 
 
 ### <a name="is-it-possible-to-bring-in-lot-of-data-after-starting-from-normal-table"></a>從一般資料表開始後，有可能在其中放入大量資料嗎？ 
 儲存體容量是由系統自動管理，並且會隨著您放入更多的資料而增加。 因此，您可以放心地匯入您所需的資料量，而不必管理和佈建節點等。 
@@ -661,8 +661,8 @@ Azure Cosmos DB 是一種平台服務，可協助您提高產能，而不必擔�
 ### <a name="is-composite-partition-key-supported"></a>是否支援複合資料分割索引鍵？
 是，您可以使用一般語法來建立複合的資料分割索引鍵。 
 
-### <a name="can-i-use-sstable-loader-for-data-loading"></a>是否可以使用 sstable loader 來載入資料？
-否，預覽期間不支援 sstable loader。 
+### <a name="can-i-use-stable-loader-for-data-loading"></a>是否可以使用穩定載入器來載入資料？
+否，預覽期間不支援使用穩定載入器。 
 
 ### <a name="can-an-on-premises-cassandra-cluster-be-paired-with-azure-cosmos-dbs-apache-cassandra-api"></a>內部部署 Cassandra 叢集是否可以與 Azure Cosmos DB 的 Apache Cassandra API 配對使用？
 目前，Azure Cosmos DB 具有最佳化的雲端環境體驗，而不會產生作業負荷。 如果您需要配對，請傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)，並說明您的案例。
@@ -671,7 +671,7 @@ Azure Cosmos DB 是一種平台服務，可協助您提高產能，而不必擔�
 Azure Cosmos DB 會提供兩個免費的完整備份，並於當天以四個小時為間隔針對所有 API 來擷取。 這可確保您不需要設定備份排程等。如果您想要修改保留時間和頻率，請傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)，或提出支援案例。 [使用 Azure Cosmos DB 進行自動線上備份及還原](online-backup-and-restore.md)一文會提供備份功能的相關資訊。 
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>當區域發生服務中斷時，Cassandra API 帳戶如何處理容錯移轉？ 
-Azure Cosmos DB Cassandra API 會藉助 Azure Cosmos DB 的全域分散式平台。 若要確保您的應用程式可以容許資料中心停機，請在 Azure Cosmos DB 入口網站中針對該帳戶至少啟用一個以上的區域，[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 您可以使用入口網站來設定區域的優先順序，[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 
+Azure Cosmos DB Cassandra API 會藉助 Azure Cosmos DB 的全域分散式平台。 若要確保您的應用程式可以容許資料中心停機，請在 Azure Cosmos DB 入口網站中針對該帳戶至少啟用一個以上的區域，[使用多區域 Azure Cosmos DB 帳戶進行開發](high-availability.md)。 您可以使用入口網站來設定區域的優先順序，[使用多區域 Azure Cosmos DB 帳戶進行開發](high-availability.md)。 
 
 您可以針對帳戶加入任意數目的區域，並藉由提供容錯移轉優先順序來控制容錯移轉的目標位置。 若要使用的資料庫，您還需要在目標位置提供應用程式。 如果您這樣做，您的客戶就不會經歷停機時間。 
 

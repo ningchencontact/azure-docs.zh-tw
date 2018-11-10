@@ -1,27 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 複寫多層式 SharePoint 應用程式 | Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 功能複寫多層式 SharePoint 應用程式。
-services: site-recovery
-documentationcenter: ''
+title: 使用 Azure Site Recovery 設定多層式 SharePoint 應用程式的災害復原 | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 功能設定多層式 SharePoint 應用程式的災害復原。
 author: sujayt
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: eb5801988b6fa966a0326c39be4a267ea08500a8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5e3ebd7d3aa5555fbe5ea77dece6eb3177809de7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916780"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215067"
 ---
-# <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 SharePoint 應用程式以便進行災害復原
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 設定多層式 SharePoint 應用程式的災害復原，以便進行災害復原
 
 本文詳細說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 保護 SharePoint 應用程式。
 
@@ -41,7 +34,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您瞭解下列項目︰
 
@@ -69,10 +62,10 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
 **案例** | **至次要網站** | **至 Azure**
 --- | --- | ---
-**Hyper-V** | yes | yes
-**VMware** | yes | yes
-**實體伺服器** | yes | yes
-**Azure** | NA | yes
+**Hyper-V** | 是 | 是
+**VMware** | 是 | 是
+**實體伺服器** | 是 | 是
+**Azure** | NA | 是
 
 ### <a name="sharepoint-versions"></a>SharePoint 版本
 支援下列 SharePoint Server 版本。

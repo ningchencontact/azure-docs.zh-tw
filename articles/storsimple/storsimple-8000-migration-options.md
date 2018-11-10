@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498278"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242954"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>從 StorSimple 5000-7000 系列移轉資料的選項 
 
@@ -29,15 +29,21 @@ StorSimple 5000-7000 系列即將在 2019 年 7 月[終止支援](https://suppor
 
 ## <a name="migration-options"></a>移轉選項
 
-使用 StorSimple 5000-7000 系列的客戶有下列兩個主要選項：
+使用 StorSimple 5000-7000 系列的客戶有下列選項：
 
-- **升級至 StorSimple 8000 系列** – 升級至 StorSimple 8000 系列，並繼續使用 StorSimple 平台。  客戶若選擇此升級路徑，即必須將其 5000-7000 系列裝置取代為 8000 系列。 資料可透過移轉工具從 5000-7000 系列裝置進行移轉。 移轉順利完成後，StorSimple 8000 系列裝置會繼續將資料分層至 Azure Blob 儲存體。 
+- **Azure 選項**：
+
+    - **升級至 StorSimple 8000 系列** – 升級至 StorSimple 8000 系列，並繼續使用 StorSimple 平台。  客戶若選擇此升級路徑，即必須將其 5000-7000 系列裝置取代為 8000 系列。 資料可透過移轉工具從 5000-7000 系列裝置進行移轉。 移轉順利完成後，StorSimple 8000 系列裝置會繼續將資料分層至 Azure Blob 儲存體。 
 
     如需如何使用 StorSimple 8000 系列移轉資料的詳細資訊，請移至[將資料從 StorSimple 5000-7000 系列移轉至 8000 系列裝置](storsimple-8000-migrate-from-5000-7000.md)。
 
-- **移轉至 Azure 檔案同步** – 這個全新的移轉選項可讓客戶將其組織的檔案共用儲存在 Azure 檔案服務中。 這些檔案共用隨後可集中管理，以便使用 Azure 檔案同步 (AFS) 進行內部部署存取。 AFS 可部署在 Windows Server 主機上。 其後，可以透過主機複本或使用移轉工具來執行實際資料移轉。
+    - **移轉至 Azure 檔案同步** – 這個全新的移轉選項可讓客戶將其組織的檔案共用儲存在 Azure 檔案服務中。 這些檔案共用隨後可集中管理，以便使用 Azure 檔案同步 (AFS) 進行內部部署存取。 AFS 可部署在 Windows Server 主機上。 其後，可以透過主機複本或使用移轉工具來執行實際資料移轉。
 
     如需如何將資料移轉至 Azure 檔案同步的詳細資訊，請移至[將資料從 StorSimple 5000-7000 系列移轉至 Azure 檔案同步](https://aka.ms/StorSimpleMigrationAFS)。
+
+- **第三方選項**：
+
+    - **移轉至 Panzura Freedom NAS** - StorSimple 5000-7000 客戶可以選擇移轉至 Panzura Freedom NAS 以將其資料保存在 Azure。 Panzura Freedom 解決方案提供一個跨資料中心、辦公室、公用與私人雲端的 NAS 解決方案。 此解決方案可針對 NFS、SMB 和行動用戶端啟用本機、混合式及雲端內資料工作流程。 此移轉由 Panzura 支援，而客戶可以從向 [Panzura 網站](https://panzura.com/storsimple-migration/)要求移轉支援開始著手。
 
 ## <a name="migration---frequently-asked-questions"></a>移轉 - 常見問題集
 
@@ -50,11 +56,11 @@ A. StorSimple 5000-7000 系列將在 2019 年 7 月[終止服務](https://suppor
 A. 將資料移轉至較新的服務後，您即可繼續在 Azure 中使用這些資料。 
 
 
-### <a name="q--what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>問：  我已在 StorSimple 裝置的本機儲存的資料將會如何？ 
+### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>問： 我已在 StorSimple 裝置的本機儲存的資料將會如何？ 
 
 A. 本機裝置上的資料可複製到較新的服務，如移轉文件所說明。
 
-### <a name="what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>如果我想要保留 StorSimple 5000/7000 系列設備，會有何後果？ 
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>問： 如果我想要保留 StorSimple 5000/7000 系列設備，會有何後果？ 
 
 A. 雖然服務或許可繼續運作，但 Microsoft 將無法再提供軟硬體支援。 為保有商務持續性，強烈建議您進行移轉。
 

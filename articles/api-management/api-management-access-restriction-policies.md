@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092536"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240846"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
-本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
+本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。  
   
 ##  <a name="AccessRestrictionPolicies"></a>存取限制原則  
   
@@ -71,7 +71,7 @@ ms.locfileid: "49092536"
 |ignore-case|可以設定為 True 或 False。 如果設定為 True，則會在標頭值與一組可接受的值進行比較時，忽略大小寫。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰** 輸入、輸出  
   
@@ -126,7 +126,7 @@ ms.locfileid: "49092536"
 |renewal-period|重設配額的時間週期 (以秒為單位)。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰** 輸入  
   
@@ -181,7 +181,7 @@ ms.locfileid: "49092536"
 |renewal-period|重設配額的時間週期 (以秒為單位)。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰** inbound  
   
@@ -224,7 +224,7 @@ ms.locfileid: "49092536"
 |ip-filter action="allow &#124; forbid"|指定允許或不允許指定的 IP 位址和範圍進行呼叫。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰** inbound  
 -   **原則範圍︰** 全域、產品、API、作業  
@@ -279,7 +279,7 @@ ms.locfileid: "49092536"
 |renewal-period|重設配額的時間週期 (以秒為單位)。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰** 輸入  
 -   **原則範圍︰** 產品  
@@ -336,7 +336,7 @@ ms.locfileid: "49092536"
 |renewal-period|重設配額的時間週期 (以秒為單位)。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰** inbound  
 -   **原則範圍︰** 全域、產品、API、作業  
@@ -506,7 +506,7 @@ ms.locfileid: "49092536"
 |url|可從中取得 Open ID 設定中繼資料的 Open ID 設定端點 URL。 回應應該根據 URL 所定義的規格：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。  對於 Azure Active Directory，使用下列 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 代替您的目錄租用戶名稱，例如 `contoso.onmicrosoft.com`。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰** inbound  
 -   **原則範圍︰** 全域、產品、API、作業  

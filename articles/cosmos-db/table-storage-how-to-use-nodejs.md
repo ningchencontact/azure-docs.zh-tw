@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 2b88bd3c86d520b10c27746319f807d2f6208bfa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 77d5d6fa9b9494c934f850d5b82a0328cead67b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048170"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245166"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何從 Node.js 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -123,7 +123,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 * **PartitionKey** - 可決定儲存實體的分割區。
 * **RowKey** - 可在分割區內唯一地識別實體。
 
-**PartitionKey** 和 **RowKey** 都必須是字串值。 如需詳細資訊，請參閱 [了解表格服務資料模型](http://msdn.microsoft.com/library/azure/dd179338.aspx)。
+**PartitionKey** 和 **RowKey** 都必須是字串值。 如需詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。
 
 以下是定義實體的範例。 請注意，**dueDate** 定義為 **Edm.DateTime** 類型。 您可以視需要指定類型，若未指定，系統就會推斷類型。
 

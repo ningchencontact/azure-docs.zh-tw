@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114595"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232217"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 儲存體帳戶金鑰
 
@@ -31,38 +31,45 @@ ms.locfileid: "49114595"
 --------------
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 安裝 Azure CLI   
 2. [建立儲存體帳戶](https://azure.microsoft.com/services/storage/)
-    - 請依照本[文件](https://docs.microsoft.com/azure/storage/)中的步驟來建立儲存體帳戶。  
+    - 請依照本[文件](https://docs.microsoft.com/azure/storage/)中的步驟來建立儲存體帳戶  
     - **命名指導方針：** 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。        
       
 <a name="step-by-step-instructions"></a>逐步指示
 -------------------------
+在下面的指示中，我們會將 Key Vault 指派為服務，以便擁有儲存體帳戶的操作員權限
 
-1. 取得您想要管理的 Azure 儲存體帳戶的資源識別碼。
-    a. 建立儲存體帳戶之後，執行下列命令來取得您想要管理的儲存體帳戶的資源識別碼
+1. 建立儲存體帳戶之後，執行下列命令來取得您想要管理的儲存體帳戶的資源識別碼
+
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
+    
 2. 取得 Azure Key Vault 服務主體的應用程式識別碼 
+
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
+    
 3. 將儲存體金鑰操作員角色指派給 Azure Key Vault 身分識別
+
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
+    
 4. 建立 Key Vault 受控儲存體帳戶。     <br /><br />
-   以下命令會要求 Key Vault 定期重新產生儲存體的存取金鑰 (具有重新產生期間)。 下面我們會設定 90 天的重新產生期間。 90 天之後，Key Vault 會重新產生 'key1'，並將作用中的金鑰從 'key2' 交換為 'key1'。
-   ### <a name="key-regeneration"></a>金鑰重新產生
+   下面我們會設定 90 天的重新產生期間。 90 天之後，Key Vault 會重新產生 'key1'，並將作用中的金鑰從 'key2' 交換為 'key1'。
+   
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-generate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     如果使用者未建立儲存體帳戶且沒有儲存體帳戶的權限，下列步驟會為您的帳戶設定權限，確保您可以管理 Key Vault 中的所有儲存體權限。
-    [!NOTE] 在使用者沒有儲存體帳戶權限的情況下，我們會先取得使用者的物件識別碼
+ > [!NOTE] 
+    在使用者沒有儲存體帳戶權限的情況下，我們會先取得使用者的物件識別碼
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
+    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
 
 ### <a name="relevant-powershell-cmdlets"></a>相關的 Powershell Cmdlet

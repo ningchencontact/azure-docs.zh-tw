@@ -2,20 +2,22 @@
 title: SQL Database 中的擴充事件 | Microsoft Docs
 description: 描述 Azure SQL Database 中的擴充事件 (XEvents)，以及事件工作階段與 Microsoft SQL Server 中的事件工作階段有如何的些微不同。
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
-ms.workload: On Demand
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 9c0115254fc3368868584e76ead8da812656e4d1
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028841"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246747"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database 中的擴充事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -30,15 +32,15 @@ ms.locfileid: "37028841"
 
 如需有關 Azure SQL Database 和 Microsoft SQL Server 之擴充事件的其他資訊，請參閱：
 
-- [Quick Start: Extended events in SQL Server (快速入門：SQL Server 中的擴充事件)](http://msdn.microsoft.com/library/mt733217.aspx)
-- [擴充事件](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Quick Start: Extended events in SQL Server (快速入門：SQL Server 中的擴充事件)](https://msdn.microsoft.com/library/mt733217.aspx)
+- [擴充事件](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本主題假設您已經有一些下列項目的知識：
 
 - [Azure SQL Database 服務](https://azure.microsoft.com/services/sql-database/)。
-- [Extended events](http://msdn.microsoft.com/library/bb630282.aspx) 。
+- [Extended events](https://msdn.microsoft.com/library/bb630282.aspx) 。
 
 - 我們的大部分文件是關於適用於 SQL Server 和 SQL Database 的擴充事件。
 
@@ -67,10 +69,10 @@ ms.locfileid: "37028841"
 ## <a name="transact-sql-differences"></a>Transact-SQL 差異
 
 
-- 當您在 SQL Server 上執行 [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) 命令時，您使用 **ON SERVER** 子句。 但是在 SQL Database 上，您改為使用 **ON DATABASE** 子句。
+- 當您在 SQL Server 上執行 [CREATE EVENT SESSION](https://msdn.microsoft.com/library/bb677289.aspx) 命令時，您使用 **ON SERVER** 子句。 但是在 SQL Database 上，您改為使用 **ON DATABASE** 子句。
 
 
-- **ON DATABASE** 子句也適用於 [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) 和 [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL 命令。
+- **ON DATABASE** 子句也適用於 [ALTER EVENT SESSION](https://msdn.microsoft.com/library/bb630368.aspx) 和 [DROP EVENT SESSION](https://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL 命令。
 
 
 - 最佳做法是在您的 **CREATE EVENT SESSION** 或 **ALTER EVENT SESSION** 陳述式中包含 **STARTUP_STATE = ON** 的事件工作階段選項。
@@ -78,7 +80,7 @@ ms.locfileid: "37028841"
 
 ## <a name="new-catalog-views"></a>新的目錄檢視
 
-擴充事件功能受到多個 [目錄檢視](http://msdn.microsoft.com/library/ms174365.aspx)支援。 目錄檢視會告訴您目前資料庫中使用者建立事件工作階段的 *中繼資料或定義* 的相關資訊。 檢視不會傳回作用中事件工作階段的執行個體的相關資訊。
+擴充事件功能受到多個 [目錄檢視](https://msdn.microsoft.com/library/ms174365.aspx)支援。 目錄檢視會告訴您目前資料庫中使用者建立事件工作階段的 *中繼資料或定義* 的相關資訊。 檢視不會傳回作用中事件工作階段的執行個體的相關資訊。
 
 | 名稱<br/>目錄檢視的名稱 | 說明 |
 |:--- |:--- |
@@ -90,9 +92,9 @@ ms.locfileid: "37028841"
 
 在 Microsoft SQL Server 中，類似的目錄檢視具有包含 .server_\_ 而不是 .database\_ 的名稱。 名稱模式類似 **sys.server_event_%**。
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>新的動態管理檢視 [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>新的動態管理檢視 [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL Database 具有支援擴充事件的 [動態管理檢視 (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) 。 DMV 會告訴您 *作用中* 事件工作階段的相關資訊。
+Azure SQL Database 具有支援擴充事件的 [動態管理檢視 (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) 。 DMV 會告訴您 *作用中* 事件工作階段的相關資訊。
 
 | DMV 的名稱 | 說明 |
 |:--- |:--- |
@@ -147,11 +149,11 @@ SELECT
 
 以下是可以從您的 SQL Database 上的事件工作階段擷取結果的目標：
 
-- [信號緩衝區目標](http://msdn.microsoft.com/library/ff878182.aspx) -在記憶體中簡短保留事件資料。
-- [事件計數器目標](http://msdn.microsoft.com/library/ff878025.aspx) -會計算在擴充事件工作階段期間發生的所有事件。
-- [事件檔案目標](http://msdn.microsoft.com/library/ff878115.aspx) - 會將完整緩衝區寫入 Azure 儲存體容器。
+- [信號緩衝區目標](https://msdn.microsoft.com/library/ff878182.aspx) -在記憶體中簡短保留事件資料。
+- [事件計數器目標](https://msdn.microsoft.com/library/ff878025.aspx) -會計算在擴充事件工作階段期間發生的所有事件。
+- [事件檔案目標](https://msdn.microsoft.com/library/ff878115.aspx) - 會將完整緩衝區寫入 Azure 儲存體容器。
 
-[Windows 事件追蹤 (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) API 不適用於 SQL Database 上的擴充事件。
+[Windows 事件追蹤 (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API 不適用於 SQL Database 上的擴充事件。
 
 ## <a name="restrictions"></a>限制
 
@@ -193,8 +195,8 @@ SELECT
 - [Azure 儲存體 Cmdlet](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [搭配 Azure 儲存體使用 Azure PowerShell](../storage/common/storage-powershell-guide-full.md) - 提供 PowerShell 和 Azure 儲存體服務的完整資訊。
 - [如何使用 .NET 的 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [關於 Microsoft SQL Server 中擴充事件的 Jonathan Kehayias 部落格文章](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
@@ -207,6 +209,6 @@ SELECT
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

@@ -1,8 +1,21 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254697"
+---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>為虛擬機器建立 TCP 端點
 若要從網際網路存取 SQL Server，虛擬機器必須具有端點才能接聽傳入 TCP 通訊。 此 Azure 組態步驟能將傳入 TCP 連接埠流量導向虛擬機器可存取的 TCP 連接埠。
 
 > [!NOTE]
-> 如果您在相同的雲端服務或虛擬網路內連接，則不需要建立可公開存取的端點 在此情況下，您可以繼續進行下一個步驟。 如需詳細資訊，請參閱[連接案例](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios)。
+> 如果您要在相同的雲端服務或虛擬網路內進行連線，則不需要建立可公開存取的端點。 在此情況下，您可以繼續進行下一個步驟。 如需詳細資訊，請參閱[連接案例](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios)。
 > 
 > 
 

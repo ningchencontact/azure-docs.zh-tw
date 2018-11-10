@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 552b39c520396942fa81f963c0cfa1c8c7b47db4
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 325071be56935ca02adccf69f99fa1718e3f7b91
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456961"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239418"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教學課程：在 Azure Resource Manager 範本中使用條件
 
-深入了解如何根據條件部署 Azure 資源。 
+深入了解如何根據條件部署 Azure 資源。
 
-本教學課程中所使用的案例與[教學課程：建立具有相依資源的 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的案例類似。 在該教學課程中，您建立了虛擬機器、虛擬網路和其他相依資源，包括儲存體帳戶。 您可以不用每次都建立新的儲存體帳戶，而是讓使用者在建立新的儲存體帳戶與使用現有的儲存體帳戶之間做選擇。 為了達成此目標，您會定義額外的參數。 如果參數的值是 "new"，則會建立新的儲存體帳戶。
+在[設定資源部署順序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教學課程中，您建立了虛擬機器、虛擬網路和其他相依資源，包括儲存體帳戶。 您可以不用每次都建立新的儲存體帳戶，而是讓使用者在建立新的儲存體帳戶與使用現有的儲存體帳戶之間做選擇。 為了達成此目標，您會定義額外的參數。 如果參數的值是 "new"，則會建立新的儲存體帳戶。
 
 本教學課程涵蓋下列工作：
 
@@ -40,7 +40,13 @@ ms.locfileid: "49456961"
 
 若要完成本文，您需要：
 
-* [Visual Studio Code](https://code.visualstudio.com/) 搭配 [Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) 搭配 [Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 以下是用於產生密碼的範例：
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault 的設計訴求是保護加密金鑰和其他祕密。 如需詳細資訊，請參閱[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)。 我們也建議您每三個月更新一次密碼。
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
@@ -53,7 +59,16 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. 選取 [開啟] 以開啟檔案。
-4. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
+4. 範本中定義了五項資源：
+
+    * `Microsoft.Storage/storageAccounts` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。
+    * `Microsoft.Network/publicIPAddresses` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)。
+    * `Microsoft.Network/virtualNetworks` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)。
+    * `Microsoft.Network/networkInterfaces` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)。
+    * `Microsoft.Compute/virtualMachines` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)。
+
+    自訂範本之前，最好能初步了解範本。
+5. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
 
 ## <a name="modify-the-template"></a>修改範本
 
@@ -61,6 +76,8 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 * 新增儲存體帳戶名稱參數。 使用者可以指定新的儲存體帳戶名稱或現有的儲存體帳戶名稱。
 * 新增名為 **newOrExisting** 的參數。 部署會使用這個參數來決定要建立新的儲存體帳戶或使用現有儲存體帳戶。
+
+進行變更的程序如下：
 
 1. 在 Visual Studio Code 中，開啟 **azuredeploy.json**。
 2. 在整個範本中以 **parameters('storageAccountName')** 來取代 **variables('storageAccountName')**。  **variables('storageAccountName')** 會出現三次。
@@ -74,7 +91,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     ```json
     "storageAccountName": {
       "type": "string"
-    },    
+    },
     "newOrExisting": {
       "type": "string", 
       "allowedValues": [
@@ -112,22 +129,26 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 請依照[部署範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)中的指示來部署範本。
 
-當您使用 Azure PowerShell 部署範本時，需要指定一個額外參數：
+當您使用 Azure PowerShell 部署範本時，需要指定一個額外參數。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
 
 ```azurepowershell
+$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
 $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
 $vmAdmin = Read-Host -Prompt "Enter the admin username"
-$vmPassword = Read-Host -Prompt "Enter the admin password"
+$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-$vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
-    -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin `
+    -adminPassword $vmPassword `
+    -dnsLabelPrefix $dnsLabelPrefix `
+    -storageAccountName $storageAccountName `
+    -newOrExisting $newOrExisting `
     -TemplateFile azuredeploy.json
 ```
 
@@ -147,7 +168,7 @@ New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $re
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您會開發範本，讓使用者在建立新儲存體帳戶與使用現有儲存體帳戶之間做選擇。 在本教學課程中建立的虛擬機器需要系統管理員使用者名稱和密碼。 您並非在部署期間傳遞密碼，而是使用 Azure Key Vault 預先儲存密碼，然後在部署期間擷取密碼。 若要深入了解如何從 Azure Key Vault 擷取祕密，並且在範本部署中使用祕密，請參閱：
+在本教學課程中，您開發了範本，讓使用者在建立新儲存體帳戶與使用現有儲存體帳戶之間做選擇。 若要深入了解如何從 Azure Key Vault 擷取祕密，並且在範本部署中使用祕密作為密碼，請參閱：
 
 > [!div class="nextstepaction"]
 > [在範本部署中整合 Key Vault](./resource-manager-tutorial-use-key-vault.md)

@@ -1,21 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 設定及管理 VMware 複寫的複寫原則 | Microsoft Docs
-description: 說明如何使用 Azure Site Recovery 設定從 VMware 複寫到 Azure 的複寫設定。
-services: site-recovery
+title: 使用 Azure Site Recovery 來設定及管理 VMware 災害復原的複寫原則 | Microsoft Docs
+description: 說明如何使用 Azure Site Recovery 設定從 VMware 災害復原至 Azure 的複寫設定。
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 03197d1f42a17d6fc99b85d3fbc3635468b1e6ae
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fd987097c2ca7b1e7509a1a0e63905c36ec8fec8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423601"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212891"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>設定及管理 VMware 複寫的複寫原則
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>設定及管理「將 VMware 災害復原至 Azure」的複寫原則
 本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 複寫至 Azure 時，如何設定複寫原則。
 
 

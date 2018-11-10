@@ -1,17 +1,17 @@
 ---
-title: 在 Azure Site Recovery 中管理處理序伺服器 | Microsoft Doc
-description: 本文說明在 Azure Site Recovery 中管理針對 VMware VM 和 實體伺服器複寫設定的處理序伺服器。
+title: 使用 Azure Site Recovery 來管理處理序伺服器以便進行從 VMware VM 和實體伺服器至 Azure 的災害復原 | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 來管理處理序伺服器的設定，以便進行從 VMware VM 和實體伺服器至 Azure 的災害復原。
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/21/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: f8368aab1bc979492143d77a191a31afef754c4c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 8a9342a2354cd4c92fa0230965b4eef6284ee826
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213005"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209117"
 ---
 # <a name="manage-process-servers"></a>管理處理序伺服器
 
@@ -56,7 +56,7 @@ ms.locfileid: "39213005"
 
 1. 登入處理序伺服器電腦。 
 2. 開啟系統管理 PowerShell 命令視窗並執行下列命令：
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine

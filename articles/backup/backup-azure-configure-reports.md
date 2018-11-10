@@ -6,26 +6,33 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c1d7a404ffd9b4da4868f56a5e17300495b57db
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269355"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418274"
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 此文章說明使用「復原服務」保存庫針對「Azure 備份」設定報告時，所需依循的步驟。 本文也說明如何使用 Power BI 來存取報告。 完成這些步驟之後，您可以直接移至 Power BI 來檢閱、自訂及建立報告。
 
+> [!IMPORTANT]
+> 從 2018 年 11 月 1 日起，部分客戶在 Power BI 的 Azure 備份應用程式中載入資料時可能會出現問題，其中顯示「我們在 JSON 輸入結尾發現額外字元。 此例外狀況是由 IDataReader 介面所引起。」
+這是因為資料以變更過的格式載入儲存體帳戶。
+請下載最新應用程式 (1.8 版) 以避免此問題。
+>
+>
+
 ## <a name="supported-scenarios"></a>支援的案例
 - 藉由使用「Azure 復原服務代理程式」，可針對 Azure 虛擬機器備份及將檔案/資料夾備份到雲端，支援「Azure 備份」報告。
-- 目前不支援 Azure SQL Database、Data Protection Manager 及「Azure 備份」伺服器的報告。
+- 目前不支援 Azure SQL Database、Azure 檔案共用、Data Protection Manager 及「Azure 備份」伺服器的報告。
 - 如果針對每個保存庫皆設定相同的儲存體帳戶，您便可以跨保存庫和訂用帳戶檢閱報告。 所選儲存體帳戶必須與「復原服務」保存庫位於相同的區域。
 - Power BI 中報告的排程重新整理頻率為 24 小時。 您也可以在 Power BI 中執行特定的報告重新整理。 在此情況下，會使用客戶儲存體帳戶中的最新資料來轉譯報告。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 - 建立 [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)以針對報告進行設定。 這個儲存體帳戶會用來儲存與報告相關的資料。
 - [建立 Power BI 帳戶](https://powerbi.microsoft.com/landing/signin/)，以使用 Power BI 入口網站來檢視、自訂及建立您自己的報告。
 - 註冊資源提供者 **Microsoft.insights** (如果尚未註冊的話)。 請使用儲存體帳戶和「復原服務」保存庫的訂用帳戶，以便讓報告資料能夠流向儲存體帳戶。 若要執行此步驟，請前往 Azure 入口網站，選取 [訂用帳戶] > [資源提供者]，然後查看是否有此提供者以註冊它。
@@ -67,23 +74,24 @@ ms.locfileid: "48269355"
       ![檢視診斷設定步驟 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> 在您儲存儲存體帳戶來設定報告之後，請「等候 24 小時」，讓初始資料推送完成。 請只在該時間之後，才在 Power BI 中匯入「Azure 備份」內容套件。 如需詳細資訊，請參閱[常見問題集](#frequently-asked-questions)一節。 
+> 在您儲存儲存體帳戶來設定報告之後，請「等候 24 小時」，讓初始資料推送完成。 請只在該時間之後，才在 Power BI 中匯入 Azure 備份應用程式。 如需詳細資訊，請參閱[常見問題集](#frequently-asked-questions)一節。 
 >
 >
 
 ## <a name="view-reports-in-power-bi"></a>在 Power BI 中檢視報告 
 使用「復原服務」保存庫針對報告設定儲存體帳戶之後，大約需要 24 小時的時間，報告資料才會開始流入。 在設定儲存體帳戶的 24 小時後，請依照下列步驟在 Power BI 中檢視報告。
-1. [登入](https://powerbi.microsoft.com/landing/signin/) Power BI。
-2. 選取 [取得資料]。 在 [內容套件庫] 中，選取 [服務] 底下的 [取得]。 依照[說明如何存取內容套件的 Power BI 文件](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/)中的步驟進行操作。
+如果要自訂和共用報表，請 建立工作區並執行下列步驟
 
-     ![匯入內容套件](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [登入](https://powerbi.microsoft.com/landing/signin/) Power BI。
+2. 選取 [取得資料]。 在 [用更多方式建立自己的內容] 中，選取 [服務內容套件]。 依照[說明如何存取內容套件的 Power BI 文件](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/)中的步驟進行操作。
+
 3. 在 [搜尋] 列中，輸入 **Azure 備份**，然後選取 [立即取得]。
 
       ![取得內容套件](./media/backup-azure-configure-reports/content-pack-get.png)
 4. 輸入在先前步驟 5 中所設定儲存體帳戶的名稱，然後選取 [下一步]。
 
     ![輸入儲存體帳戶名稱](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. 輸入此儲存體帳戶的儲存體帳戶金鑰。 若要[檢視並複製儲存體存取金鑰](../storage/common/storage-account-manage.md#access-keys)，請移至 Azure 入口網站中您的儲存體帳戶。 
+5. 使用驗證方法「金鑰」輸入此儲存體帳戶的儲存體帳戶金鑰。 若要[檢視並複製儲存體存取金鑰](../storage/common/storage-account-manage.md#access-keys)，請移至 Azure 入口網站中您的儲存體帳戶。 
 
      ![輸入儲存體帳戶](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -95,9 +103,7 @@ ms.locfileid: "48269355"
     
     ![成功匯入內容套件](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. 成功匯入資料之後，就可以在 [瀏覽] 窗格的 [應用程式] 中看到 [Azure 備份] 內容套件。 在 [儀表板]、[報告] 及 [資料集] 底下，清單現在會顯示含有黃色星號的「Azure 備份」，該星號表示新匯入的報告。
-
-     ![Azure 備份內容套件](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+7. 成功匯入資料之後，就可以在 [瀏覽] 窗格的 [應用程式] 中看到 [Azure 備份] 內容套件。 在 [儀表板]、[報告] 和 [資料集] 下，清單現在會顯示 Azure 備份。
      
 8. 在 [儀表板] 底下，選取 [Azure 備份]，這會顯示一組已釘選的重要報告。
 

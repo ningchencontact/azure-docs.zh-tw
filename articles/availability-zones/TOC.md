@@ -1,6 +1,6 @@
 
 # Azure Resiliency
-## [Azure Resiliency 功能頁面](http://azure.microsoft.com/features/resiliency)
+## [Azure Resiliency 功能頁面](https://azure.microsoft.com/features/resiliency)
 ## [具有恢復功能設計 Azure 應用程式](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # 高可用性

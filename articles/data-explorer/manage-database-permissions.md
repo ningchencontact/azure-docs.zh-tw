@@ -8,18 +8,18 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fbbc5a199116e46aac0874f3dc6d6d9aa18c60cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 287b95b59b0ec2b308d3e455c4f6ffce4baf4ff7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954011"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212874"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>管理 Azure 資料總管資料庫權限
 
 Azure 資料總管可讓您使用角色型存取控制模型，來控制對資料庫和資料表的存取權。 在此模型中，*主體* (使用者、群組和應用程式) 會對應至*角色*。 主體可以根據其指派的角色存取資源。
 
-本文說明可用的角色，以及如何將主體指派給這些角色。
+本文說明可用的角色，以及如何使用 Azure 入口網站和 Azure 資料總管管理命令將主體指派給這些角色。
 
 ## <a name="roles-and-permissions"></a>角色和權限
 
@@ -31,7 +31,6 @@ Azure 資料總管會有下列角色：
 |資料庫使用者              |可以讀取資料庫中的所有資料和中繼資料。 此外，他們可以在資料庫中建立資料表 (成為該資料表的資料表管理員) 和函式。|
 |資料庫檢視器            |可以讀取資料庫中的所有資料和中繼資料。|
 |資料庫擷取器          |可以將資料擷取到資料庫中所有現有的資料表，但不能查詢資料。|
-|資料庫不受限制檢視器|可以查詢啟用了 **RestrictedViewAccess** 原則的資料表。 無法查詢其他資料表。|
 |資料庫監視器           |可以在資料庫和其子實體的內容中執行 '.show ...' 命令。|
 |資料表系統管理員                |可以在特定資料表的範圍內執行任何操作。 |
 |資料表擷取器             |可以在特定資料表的範圍內擷取資料，但不能查詢資料。|

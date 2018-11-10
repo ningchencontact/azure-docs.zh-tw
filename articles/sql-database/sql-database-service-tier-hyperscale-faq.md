@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 31f61a1d6dee19ada60a1024a235f6329d7d5ca0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377809"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242147"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -253,7 +253,7 @@ SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>超大規模資料庫隨附的 SLA 為何
 
-一般而言，在公開預覽期間並不會提供 SLA。 不過，「超大規模」會提供與目前的 SQL DB 供應項目相同層級的高可用性。 請參閱 [SLA](http://azure.microsoft.com/support/legal/sla/)。
+一般而言，在公開預覽期間並不會提供 SLA。 不過，「超大規模」會提供與目前的 SQL DB 供應項目相同層級的高可用性。 請參閱 [SLA](https://azure.microsoft.com/support/legal/sla/)。
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Azure SQL Database 服務是否會為我管理資料庫備份
 

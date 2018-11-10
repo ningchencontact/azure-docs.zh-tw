@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382734"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248296"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中設定 Always On 可用性群組的負載平衡器
 本文說明如何在使用 Azure Resource Manager 執行的 Azure 虛擬機器中建立 SQL Server AlwaysOn 可用性群組的負載平衡器。 當 SQL Server 執行個體位於 Azure 虛擬機器時，可用性群組需要負載平衡器。 負載平衡器會儲存可用性群組接聽程式的 IP 位址。 如果可用性群組跨越多個區域，則每個區域都需要負載平衡器。
@@ -120,7 +120,7 @@ Azure 更新後端位址集區的設定。 您的可用性設定組現在有包�
 4.  按一下 [確定]。 
 
 > [!NOTE]
-> 確定您指定的連接埠會在兩個 SQL Server 執行個體的防火牆上開啟。 這兩個執行個體需要您所用 TCP 通訊埠的輸入規則。 如需詳細資訊，請參閱[新增或編輯防火牆規則](http://technet.microsoft.com/library/cc753558.aspx)。 
+> 確定您指定的連接埠會在兩個 SQL Server 執行個體的防火牆上開啟。 這兩個執行個體需要您所用 TCP 通訊埠的輸入規則。 如需詳細資訊，請參閱[新增或編輯防火牆規則](https://technet.microsoft.com/library/cc753558.aspx)。 
 > 
 > 
 
@@ -276,7 +276,7 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
 如果可用性群組加入分散式可用性群組中，負載平衡器會需要額外的規則。 此規則會儲存分散式可用性群組接聽程式所使用的連接埠。
 
 >[!IMPORTANT]
->只有在可用性群組加入[分散式可用性群組](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)時，才適用此步驟。 
+>只有在可用性群組加入[分散式可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)時，才適用此步驟。 
 
 1. 在加入分散式可用性群組的每個伺服器上，對分散式可用性群組接聽程式的 TCP 連接埠建立輸入規則。 在許多範例中，文件會使用 5022。 
 
@@ -289,7 +289,7 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
    |**名稱** |用來識別分散式可用性群組之負載平衡規則的名稱。 
    |**前端 IP 位址** |使用和可用性群組相同的前端 IP 位址。
    |**通訊協定** |TCP
-   |**連接埠** |5022 - [分散式可用性群組端點接聽程式](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)的連接埠。</br> 可以是任何可用連接埠。  
+   |**連接埠** |5022 - [分散式可用性群組端點接聽程式](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)的連接埠。</br> 可以是任何可用連接埠。  
    |**後端連接埠** | 5022 - 使用和 [連接埠] 相同的值。
    |**後端集區** |包含虛擬機器和 SQL Server 執行個體的集區。 
    |**健康狀態探查** |選擇您所建立的探查。

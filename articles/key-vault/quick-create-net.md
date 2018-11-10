@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604173"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230926"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>快速入門：使用 .NET Web 應用程式從 Azure Key Vault 設定及擷取祕密
 
@@ -25,7 +25,7 @@ ms.locfileid: "45604173"
 > * 將秘密儲存在金鑰保存庫中。
 > * 從金鑰保存庫擷取祕密。
 > * 建立 Azure Web 應用程式。
-> * 啟用 Web 應用程式的[受控識別](../active-directory/managed-identities-azure-resources/overview.md)。
+> * 啟用 Web 應用程式的[受控服務識別](../active-directory/managed-identities-azure-resources/overview.md)。
 > * 授與 Web 應用程式從金鑰保存庫讀取資料所需的權限。
 
 在我們繼續之前，請閱讀[基本概念](key-vault-whatis.md#basic-concepts)。
@@ -33,7 +33,7 @@ ms.locfileid: "45604173"
 >[!NOTE]
 >Key Vault 是一個中央存放庫，可透過程式設計方式儲存秘密。 但若要這樣做，應用程式和使用者必須要先向 Key Vault 進行驗證，也就是出具祕密。 為了遵循安全性最佳做法，第一個秘密必須要定期輪替。 
 >
->使用 [Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/overview.md)時，在 Azure 中執行的應用程式將會獲得一個由 Azure 自動管理的身分識別。 這有助於解決*祕密導入問題*，如此，使用者和應用程式即可遵循最佳做法，且不需要擔心輪替第一個祕密的問題。
+>使用 [Azure 資源的受控服務識別](../active-directory/managed-identities-azure-resources/overview.md)時，在 Azure 中執行的應用程式將會獲得一個由 Azure 自動管理的身分識別。 這有助於解決*祕密導入問題*，如此，使用者和應用程式即可遵循最佳做法，且不需要擔心輪替第一個祕密的問題。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -71,7 +71,7 @@ az login
 az group create --name "<YourResourceGroupName>" --location "East US"
 ```
 
-此文章將一律使用您剛才建立的資源群組。
+本文將一律使用您剛才建立的資源群組。
 
 ## <a name="create-a-key-vault"></a>建立金鑰保存庫
 

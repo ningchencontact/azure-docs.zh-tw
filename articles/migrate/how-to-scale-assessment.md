@@ -4,14 +4,14 @@ description: 說明如何使用 Azure Migrate 服務評定大量的內部部署�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: b5685640a55e2ce52a202c341cb293fe9315ab14
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325017"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240183"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
 
@@ -122,7 +122,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
 1. 在 Azure Migrate 專案中，按一下 [開始使用] > [探索及評定] > [探索機器]。
 2. 在 [探索電腦] 中，有兩個選項可供設備使用。按一下 [下載] 以根據您的需求下載適當的設備。
 
-    a. **單次探索**：此模型的設備會與 vCenter Server 通訊，以收集 VM 的相關中繼資料。 針對 VM 的效能資料收集，它會仰賴儲存在 vCenter Server 中的歷史效能資料，並收集上一個月的效能歷程記錄。 在此模型中，Azure Migrate 會收集每個計量的平均計數器 (相對於尖峰計數器)，[深入了解] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)。 由於它是單次探索，因此在探索之後將不會繼續反映出內部部署環境中的變更。 如果您想要反映變更，便必須針對相同的專案重新進行相同環境的探索。
+    a. **單次探索**：此模型的設備會與 vCenter Server 通訊，以收集 VM 的相關中繼資料。 針對 VM 的效能資料收集，它會仰賴儲存在 vCenter Server 中的歷史效能資料，並收集上一個月的效能歷程記錄。 在此模型中，Azure Migrate 會收集每個計量的平均計數器 (相對於尖峰計數器)，[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)。 由於它是單次探索，因此在探索之後將不會繼續反映出內部部署環境中的變更。 如果您想要反映變更，便必須針對相同的專案重新進行相同環境的探索。
 
     b. **連續探索**：此模型的設備會持續剖析內部部署環境，以收集每個 VM 的即時使用量資料。 在此模型中，會收集每個計量 (CPU 使用量、記憶體使用量等) 的尖峰計數器。 此模型並不需仰賴 vCenter Server 的統計資料設定來收集效能資料。 您可以隨時從設備停止持續性的剖析。
 
@@ -148,7 +148,15 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
 
 #### <a name="one-time-discovery"></a>單次探索
 
-OVA 1.0.9.14 版
+OVA 1.0.9.15 版 (2018 年 10 月 23 日發行)
+
+**演算法** | **雜湊值**
+--- | ---
+MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+
+OVA 1.0.9.14 版 (2018 年 8 月 24 日發行)
 
 **演算法** | **雜湊值**
 --- | ---

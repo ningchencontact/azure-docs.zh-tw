@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214081"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244333"
 ---
 # <a name="remove-servers-and-disable-protection"></a>移除伺服器並停用保護
 
@@ -34,7 +34,7 @@ ms.locfileid: "50214081"
 3. 記下 VMM 伺服器的識別碼。
 4. 將您想要移除的 VMM 伺服器上取消雲端和複寫原則的關聯。  在 [Site Recovery 基礎結構] > [適用於 System Center VMM] >  [複寫原則] 中，按兩下相關聯的原則。 以滑鼠右鍵按一下雲端 > [取消關聯]。
 5. 刪除 VMM 伺服器或作用中的節點。 在 [Site Recovery 基礎結構] > [適用於 System Center VMM] > [VMM 伺服器] 中，以滑鼠右鍵按一下伺服器 > [刪除]。
-6. 如果您的 VMM 伺服器處於中斷連線的狀態，則在 VMM 伺服器上下載並執行[清除指令碼](http://aka.ms/asr-cleanup-script-vmm)。 使用 [以系統管理員身分執行] 選項開啟 PowerShell，以變更預設 (LocalMachine) 範圍的執行原則。 在指令碼中，指定您想要移除的 VMM 伺服器的識別碼。 該指令碼會從伺服器移除註冊及雲端配對資訊。
+6. 如果您的 VMM 伺服器處於中斷連線的狀態，則在 VMM 伺服器上下載並執行[清除指令碼](https://aka.ms/asr-cleanup-script-vmm)。 使用 [以系統管理員身分執行] 選項開啟 PowerShell，以變更預設 (LocalMachine) 範圍的執行原則。 在指令碼中，指定您想要移除的 VMM 伺服器的識別碼。 該指令碼會從伺服器移除註冊及雲端配對資訊。
 5. 在任何次要 VMM 伺服器上執行清除指令碼。
 6. 在已安裝提供者的任何其他被動 VMM 叢集節點上執行清除指令碼。
 7. 在 VMM 伺服器上手動將提供者解除安裝。 如果您有叢集，請將它從所有節點中移除。

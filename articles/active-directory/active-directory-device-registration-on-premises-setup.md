@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: ccb3c6b1349576c0fa91066f4e98f0a53f5bef45
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b1711b86042c74eba47fe1cfa41bbbd36ceaf127
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319587"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248753"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 
@@ -51,7 +51,7 @@ ms.locfileid: "49319587"
 * Azure Active Directory Premium 的授權
 * Windows Server 2012 R2 Federation Services，針對 Azure AD 的 SSO 設定
 * Windows Server 2012 R2 Web 應用程式 Proxy 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(下載 Azure AD Connect)](http://www.microsoft.com/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(下載 Azure AD Connect)](https://www.microsoft.com/download/details.aspx?id=47594)
 * 已驗證的網域
 
 ## <a name="known-issues-in-this-release"></a>此版本已知的問題

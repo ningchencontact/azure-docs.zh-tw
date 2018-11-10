@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f50be01d067032b1143a80e56ccb5d49d899d4d6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1f48e3273ac0a237c72565acf25049b763dba8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415962"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246662"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系統重新啟動
 
@@ -108,7 +108,7 @@ Azure 中的 VM 依賴作業系統的虛擬磁碟以及 Azure 儲存體基礎結
 
 **超出 IO 限制**
 
-當 I/O 要求因為每秒 I/O 作業次數 (IOPS) 超出磁碟的 I/O 限制而一直節流時，VM 可能會暫時關閉。 (標準磁碟儲存體受限於 500 IOPS)。若要緩和這個問題，請使用磁碟等量化或在客體 VM 內設定儲存體空間 (視工作負載而定)。 如需詳細資訊，請參閱[設定 Azure VM 以達到最佳的儲存體效能](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)。
+當 I/O 要求因為每秒 I/O 作業次數 (IOPS) 超出磁碟的 I/O 限制而一直節流時，VM 可能會暫時關閉。 (標準磁碟儲存體受限於 500 IOPS)。若要緩和這個問題，請使用磁碟等量化或在客體 VM 內設定儲存體空間 (視工作負載而定)。 如需詳細資訊，請參閱[設定 Azure VM 以達到最佳的儲存體效能](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)。
 
 透過有高達 80,000 IOPS 的 Azure 進階儲存體可取得較高的 IOPS 限制。 如需詳細資訊，請參閱[高效能進階儲存體](../windows/premium-storage.md)。
 

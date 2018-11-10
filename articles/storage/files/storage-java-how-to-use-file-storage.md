@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: aa63a31f7f84502a29aad6b38f454ea1080127e0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a5a71fada190939abf638cd1b681adff7e80970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529089"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244537"
 ---
 # <a name="develop-for-azure-files-with-java"></a>使用 Java 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -231,6 +231,6 @@ if ( file.deleteIfExists() ) {
 * [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
 * [Azure 儲存體用戶端 SDK 參考](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure 儲存體團隊部落格](https://blogs.msdn.com/b/windowsazurestorage/)
 * [使用 AzCopy 命令列公用程式傳輸資料](../common/storage-use-azcopy.md)
 * [針對 Azure 檔案服務問題進行疑難排解 - Windows](storage-troubleshoot-windows-file-connection-problems.md)

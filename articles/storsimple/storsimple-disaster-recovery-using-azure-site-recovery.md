@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: d6b8341f16cca29fe5bedca34749f47053a14ebb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666933"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249263"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>針對 StorSimple 上裝載的檔案共用使用 Azure Site Recovery 的自動化災害復原解決方案
 ## <a name="overview"></a>概觀
@@ -43,7 +43,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
    - 裝載在 StorSimple 儲存體裝置上設定之磁碟區中的檔案共用
    - [Azure Site Recovery 服務保存庫](../site-recovery/site-recovery-vmm-to-vmm.md) 
 
-此外，如果 Azure 是您的復原網站，請在 VM 上執行 [Azure 虛擬機器整備評估工具](http://azure.microsoft.com/downloads/vm-readiness-assessment/) ，以確保相容於 Azure VM 與 Azure Site Recovery 服務。
+此外，如果 Azure 是您的復原網站，請在 VM 上執行 [Azure 虛擬機器整備評估工具](https://azure.microsoft.com/downloads/vm-readiness-assessment/) ，以確保相容於 Azure VM 與 Azure Site Recovery 服務。
 
 為避免延遲問題 (可能導致較高成本)，請確定您是在相同區域中建立 StorSimple Cloud Appliance、自動化帳戶及儲存體帳戶。
 
@@ -81,7 +81,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
 
 1. 在每部檔案伺服器 VM 上安裝 VM 代理程式。 這是必要的，以便您可以在已容錯移轉的 VM 上執行 Azure 自動化指令碼。
    
-   1. [下載代理程式](http://aka.ms/vmagentwin)至`C:\\Users\\<username>\\Downloads`
+   1. [下載代理程式](https://aka.ms/vmagentwin)至`C:\\Users\\<username>\\Downloads`
    1. 以系統管理員模式 (以系統管理員身分執行) 開啟 Windows PowerShell，然後輸入下列命令以瀏覽至下載位置：  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -321,10 +321,10 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
 ## <a name="best-practices"></a>最佳做法
 ### <a name="capacity-planning-and-readiness-assessment"></a>容量規劃和整備性評估
 #### <a name="hyper-v-site"></a>Hyper-V 站台
-使用 [使用者容量規劃工具](http://www.microsoft.com/download/details.aspx?id=39057) 來為您的 Hyper-V 複本環境設計伺服器、儲存體及網路基礎結構。
+使用 [使用者容量規劃工具](https://www.microsoft.com/download/details.aspx?id=39057) 來為您的 Hyper-V 複本環境設計伺服器、儲存體及網路基礎結構。
 
 #### <a name="azure"></a>Azure
-您可以在 VM 上執行 [Azure 虛擬機器整備評估工具](http://azure.microsoft.com/downloads/vm-readiness-assessment/)，以確保它們相容於 Azure VM 與 Azure Site Recovery 服務。 整備評估工具會檢查 VM 組態，並在組態與 Azure 不相容時提出警告。 例如，如果 C: 磁碟大小超過 127 GB，它就會提出警告。
+您可以在 VM 上執行 [Azure 虛擬機器整備評估工具](https://azure.microsoft.com/downloads/vm-readiness-assessment/)，以確保它們相容於 Azure VM 與 Azure Site Recovery 服務。 整備評估工具會檢查 VM 組態，並在組態與 Azure 不相容時提出警告。 例如，如果 C: 磁碟大小超過 127 GB，它就會提出警告。
 
 容量規劃至少包含兩個重要程序：
 

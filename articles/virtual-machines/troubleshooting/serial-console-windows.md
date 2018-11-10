@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 2cde7d2af4dee9e2bd241f0856b8f2d29ccad6ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024406"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210732"
 ---
 # <a name="virtual-machine-serial-console"></a>虛擬機器序列主控台
 
@@ -54,20 +54,26 @@ Azure 上的「虛擬機器序列主控台」可讓您存取 Windows 虛擬機�
   4. 向下捲動至 [支援與疑難排解] 區段，然後按一下 [序列主控台] 選項。 將會開啟含有序列主控台的新窗格，並開始連線。
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>在自訂或舊版的映像中啟用序列主控台
-Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主控台](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC)。 在伺服器版本的 Windows 上可支援 SAC，但在用戶端版本 (例如 Windows 10、Windows 8 或 Windows 7) 上則不支援。 若要為在 2018 年 2 月之前建立的 Windows 虛擬機器啟用序列主控台，請使用下列步驟： 
+Azure 上的新版 Windows Server 映像將會預設啟用[特殊系統管理主控台](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC)。 在伺服器版本的 Windows 上可支援 SAC，但在用戶端版本 (例如 Windows 10、Windows 8 或 Windows 7) 上則不支援。 
+
+至於舊版 Windows Server 映像 (在 2018 年 2 月前建立的映像)，則可透過 Azure 入口網站的「執行命令」功能自動啟用序列主控台。 請在 Azure 入口網站中尋找名為「EnableEMS」的「執行命令」。
+
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
+
+或者，若要為 2018 年 2 月前所建立的 Windows 虛擬機器啟用序列主控台，請使用下列步驟： 
 
 1. 透過「遠端桌面」連線至您的 Windows 虛擬機器
-2. 從系統管理命令提示字元中執行下列命令 
-* `bcdedit /ems {current} on`
-* `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
-3. 重新啟動系統以啟用 SAC 主控台
+1. 從系統管理命令提示字元中執行下列命令 
+    * `bcdedit /ems {current} on`
+    * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+1. 重新啟動系統以啟用 SAC 主控台
 
-![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 如有需要，也可以離線啟用 SAC：
 
 1. 將您想要為其設定 SAC 的 Windows 磁碟以資料磁碟的形式連結至現有的 VM。 
-2. 從系統管理命令提示字元中執行下列命令 
+1. 從系統管理命令提示字元中執行下列命令 
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 

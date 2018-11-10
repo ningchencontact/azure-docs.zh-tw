@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990230"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415693"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>將警示從 Log Analytics 延伸至 Azure 警示
 Azure Log Analytics 中的警示功能已由 Azure 警示取代。 作為此轉換的一部分，您最初在 Log Analytics 中設定的警示將會延伸至 Azure。 如果不想等警示自動移動到 Azure 中，您可以起始此程序：
@@ -29,24 +29,24 @@ Azure Log Analytics 中的警示功能已由 Azure 警示取代。 作為此轉�
 
 1. 在 Azure 入口網站中，選取 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後選取 [OMS 入口網站] 圖格。
-![Log Analytics 訂用帳戶窗格螢幕擷取畫面，其中反白顯示 OMS 入口網站圖格](./media/monitor-alerts-extend/azure-portal-01.png) 
+![Log Analytics 訂用帳戶窗格螢幕擷取畫面，其中反白顯示 OMS 入口網站圖格](media/monitoring-alerts-extend-tool/azure-portal-01.png) 
 3. 將您重新導向至 Operations Management Suite 入口網站之後，請選取 [設定] 圖示。
-![Operations Management Suite 入口網站的螢幕擷取畫面，其中反白顯示 [設定] 圖示](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+![Operations Management Suite 入口網站的螢幕擷取畫面，其中反白顯示 [設定] 圖示](media/monitoring-alerts-extend-tool/oms-portal-settings-option.png) 
 4. 在 [設定] 頁面中，選取 [警示]。  
 5. 選取 [延伸至 Azure]。
-![Operations Management Suite 入口網站 [警示設定] 頁面的螢幕擷取畫面，其中反白顯示 [延伸至 Azure]](./media/monitor-alerts-extend/ExtendInto.png)
+![Operations Management Suite 入口網站 [警示設定] 頁面的螢幕擷取畫面，其中反白顯示 [延伸至 Azure]](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. 三步驟精靈會出現在 [警示] 窗格中。 閱讀概觀，並選取 [下一步]。
-![精靈的步驟 1 螢幕擷取畫面](./media/monitor-alerts-extend/ExtendStep1.png)  
+![精靈的步驟 1 螢幕擷取畫面](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
 7. 在第二個步驟中，您會看到建議變更的摘要，其中列出適用於警示的[動作群組](monitoring-action-groups.md)。 如果在多個警示中看到類似動作，精靈會提議將單一動作群組與這些動作建立關聯。  命名慣例如下：*WorkspaceName_AG_#Number*。 若要繼續，請選取 [下一步]。
-![精靈的步驟 2 螢幕擷取畫面](./media/monitor-alerts-extend/ExtendStep2.png)  
+![精靈的步驟 2 螢幕擷取畫面](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. 在精靈的最後一個步驟中，選取 [完成]，並在系統提示您時確認以起始程序。 或者，您可以提供電子郵件地址，以便在程序完成且所有警示都已成功移至 Azure 警示時收到通知。
-![精靈的步驟 3 螢幕擷取畫面](./media/monitor-alerts-extend/ExtendStep3.png)
+![精靈的步驟 3 螢幕擷取畫面](media/monitoring-alerts-extend-tool/ExtendStep3.png)
 
 精靈完成時，在 [警示設定] 頁面上，將警示延伸至 Azure 的選項會移除。 在背景中，警示會移動到 Azure，這可能需要一些時間。 在作業期間，您無法從 Operations Management Suite 入口網站對警示進行變更。 您可以在入口網站頂端的橫幅中看到目前狀態。 如果您先前已提供電子郵件地址，則程序順利完成時，您會收到電子郵件。  
 
 
 警示會持續列在 Operations Management Suite 入口網站中，即使在成功移至 Azure 之後也是。
-![Operations Management Suite 入口網站警示設定頁面的螢幕擷取畫面](./media/monitor-alerts-extend/PostExtendList.png)
+![Operations Management Suite 入口網站警示設定頁面的螢幕擷取畫面](media/monitoring-alerts-extend-tool/PostExtendList.png)
 
 
 ## <a name="option-2-use-the-alertsversion-api"></a>選項 2：使用 AlertsVersion API
@@ -460,7 +460,7 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 > 若 Azure 公用雲端的 Log Analytics 使用者未在 2018 年 7 月 5 日之前採取下列修復步驟，警示會在 Azure 中執行，但不會觸發任何動作或通知。 若要取得警示通知，您必須手動編輯並新增[動作群組](monitoring-action-groups.md)，或使用先前的[自訂 PowerShell 指令碼](#option-3---using-custom-powershell-script)。
 
 以下是每個錯誤的修復步驟：
-- **錯誤：寫入作業的訂用帳戶/資源群組層級出現範圍鎖定**：![Operations Management Suite 入口網站 [警示設定] 頁面的螢幕擷取畫面，其中反白顯示範圍鎖定錯誤訊息](./media/monitor-alerts-extend/ErrorScopeLock.png)
+- **錯誤：寫入作業的訂用帳戶/資源群組層級出現範圍鎖定**：![Operations Management Suite 入口網站 [警示設定] 頁面的螢幕擷取畫面，其中反白顯示範圍鎖定錯誤訊息](media/monitoring-alerts-extend-tool/ErrorScopeLock.png)
 
     啟用範圍鎖定時，此功能會限制包含 Log Analytics (Operations Management Suite) 工作區的訂用帳戶或資源群組中的任何新變更。 系統無法將警示延伸至 Azure，並建立必要的動作群組。
     
@@ -468,7 +468,7 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
     
     在您使用文章所述步驟來解決錯誤後，Operations Management Suite 會在隔日的排定執行內將警示延伸到 Azure。 您不需要採取任何進一步的動作或起始任何項目。
 
-- **錯誤：訂用帳戶/資源群組層級出現原則**：![Operations Management Suite 入口網站 [警示設定] 頁面的螢幕擷取畫面，其中反白顯示原則錯誤訊息](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **錯誤：訂用帳戶/資源群組層級出現原則**：![Operations Management Suite 入口網站 [警示設定] 頁面的螢幕擷取畫面，其中反白顯示原則錯誤訊息](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
     套用 [Azure 原則](../azure-policy/azure-policy-introduction.md)時，它會限制包含 Log Analytics (Operations Management Suite) 工作區的訂用帳戶或資源群組中的任何新資源。 系統無法將警示延伸至 Azure，並建立必要的動作群組。
     

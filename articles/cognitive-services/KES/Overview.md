@@ -10,12 +10,12 @@ ms.component: knowledge-exploration
 ms.topic: overview
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: a34396a7f707ed5f9982e20dbd1b49cddce98251
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6f744815b9b2670ddf9b2a873956715a3964bcd6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121794"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242393"
 ---
 # <a name="knowledge-exploration-service"></a>知識探索服務
 
@@ -25,7 +25,7 @@ ms.locfileid: "46121794"
 
 ![AcademicAutoComplete](AutoComplete.png)
 
-KES 已經從認知服務預覽移至認知服務實驗室。 此專案的新首頁是 [http://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration](http://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration)。
+KES 已經從認知服務預覽移至認知服務實驗室。 此專案的新首頁是 [http://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration](https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration)。
 
 ## <a name="reference"></a>參考
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 4d13d9dbea9da9db5bfe9a9af85fdbf9eab1ae84
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 4c4c03fffa5786bf3a50f4d2c03511f0a2de0f48
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26127754"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250946"
 ---
 # <a name="api-management-authentication-policies"></a>API 管理驗證原則
-本主題提供下列「API 管理」原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
+本主題提供下列「API 管理」原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。  
 
 ##  <a name="AuthenticationPolicies"></a> 驗證原則  
   
@@ -47,26 +47,26 @@ ms.locfileid: "26127754"
   
 ### <a name="elements"></a>元素  
   
-|Name|說明|必要|  
+|名稱|說明|必要|  
 |----------|-----------------|--------------|  
-|authentication-basic|根元素。|yes|  
+|authentication-basic|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|說明|必要|預設值|  
+|名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|username|指定「基本驗證」認證的使用者名稱。|yes|N/A|  
-|password|指定「基本驗證」認證的密碼。|yes|N/A|  
+|username|指定「基本驗證」認證的使用者名稱。|是|N/A|  
+|password|指定「基本驗證」認證的密碼。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰** inbound  
   
 -   **原則範圍︰** API  
   
 ##  <a name="ClientCertificate"></a> 使用用戶端憑證進行驗證  
- 使用 `authentication-certificate` 原則以利用用戶端憑證向後端服務進行驗證。 憑證必須先[安裝到 API 管理中](http://go.microsoft.com/fwlink/?LinkID=511599)且會以其指紋作為識別。  
+ 使用 `authentication-certificate` 原則以利用用戶端憑證向後端服務進行驗證。 憑證必須先[安裝到 API 管理中](https://go.microsoft.com/fwlink/?LinkID=511599)且會以其指紋作為識別。  
   
 ### <a name="policy-statement"></a>原則陳述式  
   
@@ -82,18 +82,18 @@ ms.locfileid: "26127754"
   
 ### <a name="elements"></a>元素  
   
-|Name|說明|必要|  
+|名稱|說明|必要|  
 |----------|-----------------|--------------|  
-|authentication-certificate|根元素。|yes|  
+|authentication-certificate|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|說明|必要|預設值|  
+|名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|用戶端憑證的指紋。|yes|N/A|  
+|thumbprint|用戶端憑證的指紋。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰** inbound  
   

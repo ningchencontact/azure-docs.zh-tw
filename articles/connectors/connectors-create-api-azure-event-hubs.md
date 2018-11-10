@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 86fc1c3542bea1be840041bb73df15631c066c7e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a91daf08a56470e4d1e112e37b51150c2c5f00ef
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294967"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230313"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>使用 Azure 事件中樞與 Azure Logic Apps 監視、接收和傳送事件 
 
@@ -25,7 +25,7 @@ ms.locfileid: "35294967"
 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 如需連接器特定的技術資訊，請參閱 <a href="https://docs.microsoft.com/connectors/eventhubs/" target="blank">Azure 事件中樞連接器參考</a>。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [Azure 事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)
 
@@ -52,7 +52,7 @@ ms.locfileid: "35294967"
       ![複製事件中樞命名空間連接字串](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > 若要確認您的連接字串是否與事件中樞命名空間或特定事件中樞相關聯，請確認連接字串沒有 `EntityPath` 參數。 如果您發現這個參數，此連接字串適用於特定事件中樞「實體」，而不是使用您的邏輯應用程式的正確字串。
+      > 若要確認您的連接字串是否與事件中樞命名空間或特定事件中樞相關聯，請確認連接字串沒有 `EntityPath` 參數。 如果您發現這個參數，此連接字串適用於特定事件中樞「實體」，而不是使用您的邏輯應用程式的正確字串。
 
 4. 現在繼續[新增事件中樞觸發程序](#add-trigger)或[新增事件中樞動作](#add-action)。
 
@@ -68,7 +68,8 @@ ms.locfileid: "35294967"
 
 2. 在搜尋方塊中，輸入「事件中樞」作為篩選條件。 從觸發程序清單中，選取您想要的觸發程序。 
 
-   此範例使用以下觸發程序：**事件中樞 - 當事件可用於事件中樞時**
+   此範例使用以下觸發程序： 
+   **事件中樞 - 當事件可用於事件中樞時**
 
    ![選取觸發程序](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -111,7 +112,7 @@ ms.locfileid: "35294967"
 
 1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在觸發程序或動作底下，選擇 [新增步驟] > [新增動作]。
+2. 在觸發程序或動作底下，選擇 [新增步驟]  >  [新增動作]。
 
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
    選擇顯示的加號 (**+**)，然後選擇 [新增動作]。
@@ -127,7 +128,7 @@ ms.locfileid: "35294967"
 
    | 屬性 | 必要 | 說明 | 
    |----------|----------|-------------|
-   | 事件中樞名稱 | yes | 選取要傳送事件的事件中樞 | 
+   | 事件中樞名稱 | 是 | 選取要傳送事件的事件中樞 | 
    | 事件內容 | 否 | 您要傳送事件的內容 | 
    | properties | 否 | 要傳送的應用程式屬性與值 | 
    |||| 
@@ -148,8 +149,8 @@ ms.locfileid: "35294967"
 
    | 屬性 | 必要 | 值 | 說明 | 
    |----------|----------|-------|-------------|
-   | 連線名稱 | yes | <*connection-name*> | 要為連線建立的名稱 |
-   | 事件中樞命名空間 | yes | <*event-hubs-namespace*> | 選取您想要使用的事件中樞命名空間。 | 
+   | 連線名稱 | 是 | <*connection-name*> | 要為連線建立的名稱 |
+   | 事件中樞命名空間 | 是 | <*event-hubs-namespace*> | 選取您想要使用的事件中樞命名空間。 | 
    |||||  
 
    例如︰
@@ -172,7 +173,7 @@ ms.locfileid: "35294967"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 
