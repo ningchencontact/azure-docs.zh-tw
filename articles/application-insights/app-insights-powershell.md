@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: cfed1636bf27279b8a391559d3e88b823036f703
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 262d2511879047d1723d3b15c4c107b80ba1c297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632983"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250334"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>使用 PowerShell 建立 Application Insights 資源
 本文說明如何使用 Azure 資源管理，自動將 [Application Insights](app-insights-overview.md) 資源的建立和更新自動化。 例如，您可能建置程序中這麼做。 除了基本的 Application Insights 資源外，您可以建立[可用性 Web 測試](app-insights-monitor-web-app-availability.md)、設定[警示](app-insights-alerts.md)、設定[價格配置](app-insights-pricing.md)和建立其他 Azure 資源。
@@ -30,7 +30,7 @@ ms.locfileid: "35632983"
 
 在您要執行指令碼的電腦上安裝 Azure Powershell 模組：
 
-1. 安裝 [Microsoft Web Platform Installer (v5 或更新版本)](http://www.microsoft.com/web/downloads/platform.aspx)。
+1. 安裝 [Microsoft Web Platform Installer (v5 或更新版本)](https://www.microsoft.com/web/downloads/platform.aspx)。
 2. 請使用它來安裝 Microsoft Azure Powershell。
 
 ## <a name="create-an-azure-resource-manager-template"></a>建立 Azure Resource Manager 範本
@@ -448,6 +448,6 @@ Azure 應以嚴格的順序設定資源。 為確保一項設定完成後再開�
 * [設定警示](app-insights-powershell-alerts.md)
 * [建立 Web 測試](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [將 Azure 診斷傳送至 Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [從 GitHub 部署至 Azure (英文)](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [從 GitHub 部署至 Azure (英文)](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [建立版本附註](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944136"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249773"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
-Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用使用規定。
+Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 此文章將說明如何開始使用使用規定。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -46,8 +46,9 @@ Azure AD 使用規定可讓您執行下列作業：
 - 協助符合隱私權法規。
 - 列出已同意或未同意使用規定的人員。
 - 顯示使用規定活動的記錄，以符合合規性及進行稽核。
+- 使用 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) \(英文\) (目前處於預覽狀態) 來建立和管理使用規定。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用及設定 Azure AD 使用規定，您必須有：
 
 - Azure AD Premium P1、P2、EMS E3 或 EMS E5 訂用帳戶。
@@ -78,7 +79,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 2. 輸入**顯示名稱**。  使用者在登入時會看到此標頭。
 
-3. **瀏覽**至您已完成的使用規定 PDF 並加以選取。
+3. **瀏覽**至您已完成的使用規定 PDF 並選取它。
 
 4. **選取**使用規定的語言。  語言選項可讓您上傳多個使用規定，各有不同的語言。  終端使用者會看到的使用規定版本將以其瀏覽器喜好設定為基礎。
 
@@ -203,7 +204,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
     您應該再也看不到您的使用規定。
 
 ## <a name="deleted-users-and-active-terms-of-use"></a>已刪除的使用者和有效使用規定
-根據預設，已刪除的使用者會在 Azure AD 中以已刪除的狀態保留 30 天，在這段期間內，系統管理員可以視需要加以還原。  經過 30 天後，該使用者將永久刪除。  此外，全域管理員可以使用 Azure Active Directory 入口網站，在該時段結束之前明確地[永久刪除最近刪除的使用者](../fundamentals/active-directory-users-restore.md)。  使用者永久刪除後，關於該使用者的資料將會從作用中的使用規定中移除。  與已刪除的使用者有關的稽核資訊仍會保留在稽核記錄中。
+根據預設，已刪除的使用者會在 Azure AD 中以已刪除的狀態保留 30 天，在這段期間內，系統管理員可以視需要還原該使用者。  經過 30 天後，該使用者將永久刪除。  此外，全域管理員可以使用 Azure Active Directory 入口網站，在該時段結束之前明確地[永久刪除最近刪除的使用者](../fundamentals/active-directory-users-restore.md)。  使用者永久刪除後，關於該使用者的資料將會從作用中的使用規定中移除。  與已刪除的使用者有關的稽核資訊仍會保留在稽核記錄中。
 
 ## <a name="policy-changes"></a>原則變更
 條件式存取原則會立即生效。 當此情況發生時，系統管理員便會開始看到「悲傷雲端」或「Azure AD 權杖問題」。 系統管理員必須登出並再次登入，才能符合新的原則。

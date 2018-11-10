@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7d42c026975a18c7574e4bc64ec28ab3ed0082bc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915101"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248447"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>將隨選「高載」節點新增至 Azure 中的 HPC Pack 叢集
 如果您在 Azure 中設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 叢集，您可能想迅速相應增加或相應減少叢集容量，而不用維護一組預先設定的計算節點 VM。 本文說明如何將隨選「高載」節點 (在雲端服務中執行的背景工作角色執行個體) 新增至 Azure 中的前端節點作為運算資源。 
@@ -33,7 +33,7 @@ ms.locfileid: "30915101"
 
 本文中的步驟可協助您將 Azure 節點快速新增至雲端型 HPC Pack 前端節點 VM，以進行測試或概念驗證部署。 高階步驟與將雲端計算能力新增至內部部署 HPC Pack 叢集的「將暴增的工作負載移至 Azure」步驟相同。 如需教學課程，請參閱 [使用 Microsoft HPC Pack 設定混合式計算叢集](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)。 如需生產部署的詳細指引和考量，請參閱 [使用 Microsoft HPC Pack 將暴增的工作負載移至 Azure](https://technet.microsoft.com/library/gg481749.aspx)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **部署在 Azure VM 中的 HPC Pack 前端節點** -您可以使用獨立的前端節點 VM 或屬於較大叢集的節點。 若要建立獨立的前端節點，請參閱 [在 Azure VM 中部署 HPC Pack 前端節點](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 如需自動化的 HPC Pack 叢集部署選項，請參閱 [使用 Microsoft HPC Pack 在 Azure 中建立及管理 Windows HPC 叢集的選項](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
   
   > [!TIP]
@@ -68,7 +68,7 @@ ms.locfileid: "30915101"
 
 2. 按一下 [管理憑證] > [上傳]。
 
-如需設定管理憑證的其他選項，請參閱 [為 Azure 高載部署設定 Azure 管理憑證的案例](http://technet.microsoft.com/library/gg481759.aspx)。
+如需設定管理憑證的其他選項，請參閱 [為 Azure 高載部署設定 Azure 管理憑證的案例](https://technet.microsoft.com/library/gg481759.aspx)。
 
 ## <a name="step-3-deploy-azure-nodes-to-the-cluster"></a>步驟 3：將 Azure 節點部署至叢集
 在此案例中新增及啟動 Azure 節點的步驟，與用於內部部署前端節點的步驟大致相同。 如需詳細資訊，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點的步驟](https://technet.microsoft.com/library/gg481758.aspx)中的下列小節：
@@ -79,7 +79,7 @@ ms.locfileid: "30915101"
 
 節點新增並啟動之後，即可供您用來執行叢集工作。
 
-如果您在部署 Azure 節點時遇到問題，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點時的疑難排解](http://technet.microsoft.com/library/jj159097.aspx)。
+如果您在部署 Azure 節點時遇到問題，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點時的疑難排解](https://technet.microsoft.com/library/jj159097.aspx)。
 
 ## <a name="next-steps"></a>後續步驟
 * 若要對高載節點使用密集計算的執行個體大小，請參閱[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的考量。

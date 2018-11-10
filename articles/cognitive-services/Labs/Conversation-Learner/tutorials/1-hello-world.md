@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 271141f24ff729fc99210af67ad769a5ef83a65c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170866"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242716"
 ---
 # <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>如何使用對話學習模組建立 "Hello World" 模型
 
@@ -23,7 +23,7 @@ ms.locfileid: "39170866"
 
 ## <a name="video"></a>影片
 
-[![教學課程 1 預覽](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+[![教學課程 1 預覽](https://aka.ms/cl-tutorial-01-preview)](https://aka.ms/blis-tutorial-01)
 
 
 ## <a name="requirements"></a>需求
@@ -40,7 +40,7 @@ ms.locfileid: "39170866"
 ### <a name="create-the-model"></a>建立模型
 1. 按一下 [新增模型]
 2. 在 [名稱] 欄位中，輸入 Hello World
-3. Click Create
+3. 按一下 [建立專案]。
 
 ### <a name="create-an-action"></a>建立動作
 
@@ -49,7 +49,7 @@ ms.locfileid: "39170866"
     - 動作可以是對話學習模組傳回給使用者、API 呼叫或卡片的文字訊息。
 3. 在 [回應] 中，鍵入「Hello World!」
     - 這是聊天機器人將傳回的回應
-4. Click Create
+4. 按一下 [建立專案]。
 
 您已建立聊天機器人可以執行的第一個動作，也就是傳回文字回應。
 

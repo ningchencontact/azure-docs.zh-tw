@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: efab734cc7d6facf82f622b95c12a1a27e99c5f7
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c2b7935cc110b2ad05f4af2773158c2e1b658d4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575927"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242002"
 ---
 # <a name="security-management-in-azure"></a>Azure 的安全性管理
 Azure 訂閱者可從多種裝置管理其雲端環境，這些裝置包括管理工作站、開發人員的電腦，甚至是具有工作專用權限的特殊權限使用者裝置。 有時候，管理功能是透過 Web 式主控台來執行，例如 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。 至於其他時候，則可能會從內部部署系統，透過虛擬私人網路 (VPN)、終端機服務、用戶端應用程式通訊協定或 Azure 服務管理 API (SMAPI) (以程式設計方式) 直接連線至 Azure。 此外，用戶端端點也可以加入網域或是遭到隔離且非受控，例如平板電腦或智慧型手機。
@@ -83,7 +83,7 @@ Azure 提供了安全性機制來協助系統管理員管理 Azure 雲端服務�
 
 在內部部署企業環境中，您可以透過專用管理網路、必須用身分卡片才能進入的伺服器機房以及在受保護的網路區域上執行的工作站，限制實體基礎結構的受攻擊面。 在雲端或混合式 IT 模型中，由於無法實際接觸到 IT 資源，因此想要努力讓管理服務保持安全會是更複雜的工作。 實作保護解決方案需要小心軟體設定、安全性為主的處理程序及完善的原則。
 
-在鎖定的工作站中使用最低權限的最少軟體使用量來管理雲端 (以及開發應用程式)，可藉由將遠端管理和開發環境標準化來降低引發安全性事件的風險。 強化後的工作站組態可透過關閉惡意程式碼和入侵程式使用的許多常見手段，來協助避免用來管理重要雲端資源的帳戶遭到入侵。 具體而言，您可以使用 [Windows AppLocker](http://technet.microsoft.com/library/dd759117.aspx) 和 Hyper-V 技術來控制和隔離用戶端系統行為並減輕威脅，包括電子郵件或網際網路瀏覽。
+在鎖定的工作站中使用最低權限的最少軟體使用量來管理雲端 (以及開發應用程式)，可藉由將遠端管理和開發環境標準化來降低引發安全性事件的風險。 強化後的工作站組態可透過關閉惡意程式碼和入侵程式使用的許多常見手段，來協助避免用來管理重要雲端資源的帳戶遭到入侵。 具體而言，您可以使用 [Windows AppLocker](https://technet.microsoft.com/library/dd759117.aspx) 和 Hyper-V 技術來控制和隔離用戶端系統行為並減輕威脅，包括電子郵件或網際網路瀏覽。
 
 在強化後的工作站上，系統管理員會執行標準使用者帳戶 (它會封鎖執行系統管理層級)，且相關聯的應用程式會由允許清單進行控制。 強化後之工作站的基本要素如下︰
 
@@ -107,12 +107,12 @@ Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows P
 
 遠端桌面閘道是以原則為基礎 RDP Proxy 服務，會強制執行安全性需求。 同時實作 RD 閘道與 Windows Server 網路存取保護 (NAP)，可協助確保只有符合 Active Directory 網域服務 (AD DS) 群組原則物件 (GPO) 所建立之特定安全性健全狀況準則的用戶端可以連線。 此外：
 
-* 在 RD 閘道上佈建 [Azure 管理憑證](http://msdn.microsoft.com/library/azure/gg551722.aspx)，使它成為可以存取 Azure 入口網站的唯一主機。
-* 將 RD 閘道加入至相同的[管理網域](http://technet.microsoft.com/library/bb727085.aspx)以做為系統管理員的工作站。 當您在具有對 Azure AD 之單向信任的網域內使用網站間 IPsec VPN 或 ExpressRoute 時，或是如果您要同盟內部部署 AD DS 執行個體與 Azure AD 之間的認證，就必須這麼做。
-* 設定[用戶端連線授權原則](http://technet.microsoft.com/library/cc753324.aspx)，讓 RD 閘道驗證用戶端電腦名稱是否有效 (已加入網域)，並允許存取 Azure 入口網站。
+* 在 RD 閘道上佈建 [Azure 管理憑證](https://msdn.microsoft.com/library/azure/gg551722.aspx)，使它成為可以存取 Azure 入口網站的唯一主機。
+* 將 RD 閘道加入至相同的[管理網域](https://technet.microsoft.com/library/bb727085.aspx)以做為系統管理員的工作站。 當您在具有對 Azure AD 之單向信任的網域內使用網站間 IPsec VPN 或 ExpressRoute 時，或是如果您要同盟內部部署 AD DS 執行個體與 Azure AD 之間的認證，就必須這麼做。
+* 設定[用戶端連線授權原則](https://technet.microsoft.com/library/cc753324.aspx)，讓 RD 閘道驗證用戶端電腦名稱是否有效 (已加入網域)，並允許存取 Azure 入口網站。
 * 針對 [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) 使用 IPsec 以進一步防止管理流量遭到竊聽以及權杖遭竊，或考慮使用透過 [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) 的隔離網際網路連結。
 * 針對透過 RD 閘道登入的系統管理員啟用 Multi-Factor Authentication (透過 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) 或智慧卡驗證。
-* 在 Azure 中設定來源 [IP 位址限制](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/)或[網路安全性群組](../virtual-network/security-overview.md)以將允許的管理端點數目降到最低。
+* 在 Azure 中設定來源 [IP 位址限制](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/)或[網路安全性群組](../virtual-network/security-overview.md)以將允許的管理端點數目降到最低。
 
 ## <a name="security-guidelines"></a>安全性方針
 協助保護搭配雲端使用之系統管理員工作站的做法，通常會與用於任何內部部署工作站的做法類似 - 例如，最小化的組建和嚴格的權限。 雲端管理的幾項特點則更類似於遠端或頻外企業管理。 這些特點包括使用和稽核認證、增強安全性的遠端存取以及威脅偵測和回應。
@@ -194,7 +194,7 @@ Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows P
 | 請勿讓系統管理員共用帳戶和密碼，或在多個使用者帳戶或服務重複使用密碼，特別是用於社交媒體或其他非系統管理活動的帳戶或服務。 |建立專用的 Microsoft 帳戶來管理您的 Azure 訂用帳戶，此帳戶不會用於個人電子郵件。 |
 | 請勿以電子郵件寄送組態檔。 |應該從信任的來源 (例如，加密的 USB 快閃磁碟機) 而非從可輕易入侵的機制 (例如電子郵件) 安裝組態檔和設定檔。 |
 | 請勿使用弱式或簡單的登入密碼。 |強制使用強式密碼原則、到期循環 (首次使用時變更)、主控台逾時和自動帳戶鎖定。 使用用戶端密碼管理系統搭配 Multi-Factor Authentication 來存取密碼保存庫。 |
-| 請勿對網際網路公開管理連接埠。 |鎖定 Azure 連接埠和 IP 位址來限制管理存取。 如需詳細資訊，請參閱 [Azure 網路安全性](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx)技術白皮書。 |
+| 請勿對網際網路公開管理連接埠。 |鎖定 Azure 連接埠和 IP 位址來限制管理存取。 如需詳細資訊，請參閱 [Azure 網路安全性](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx)技術白皮書。 |
 | - | 針對所有管理連線使用防火牆、VPN 和 NAP。 |
 
 ## <a name="azure-operations"></a>Azure 作業
@@ -209,8 +209,8 @@ Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows P
 
 * IE 強化。 Internet Explorer 瀏覽器 (或任何類似用途的網頁瀏覽器) 因為會與外部伺服器廣泛互動，所以是有害程式碼的主要進入點。 請檢閱您的用戶端原則並強制要求在受保護模式中執行、停用附加元件、停用檔案下載，以及使用 [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx) 篩選。 確定會顯示安全性警告。 利用網際網路區域，並建立已為其設定合理強化的信任網站清單。 封鎖其他所有網站和瀏覽器中的程式碼，例如 ActiveX 和 Java。
 * 標準使用者。 以標準使用者的身分執行有許多好處，最重要的好處是透過惡意程式碼竊取系統管理員認證會變得更困難。 此外，標準使用者帳戶沒有根作業系統的提高的權限，而且許多組態選項和 API 已依預設鎖定起來。
-* AppLocker。 您可以使用 [AppLocker](http://technet.microsoft.com/library/ee619725.aspx) 來限制使用者可以執行的程式和指令碼。 您可以在稽核或強制模式中執行 AppLocker。 根據預設，AppLocker 的允許規則可讓具有系統管理員權杖的使用者執行用戶端上的所有程式碼。 此規則的存在是為了避免系統管理員將自己鎖定，而且只適用於提高權限的權杖。 另請參閱做為 Windows Server [核心安全性](http://technet.microsoft.com/library/dd348705.aspx)一部分的「程式碼完整性」。
-* 程式碼簽署。 為系統管理員使用的所有工具和指令碼進行程式碼簽署，可提供方便管理的機制來部署應用程式鎖定原則。 雜湊不會隨著程式碼的快速變更而做調整，而且檔案路徑不會提供高度安全性。 您應該將 AppLocker 規則結合 PowerShell [執行原則](http://technet.microsoft.com/library/ee176961.aspx)，此原則只允許[執行](http://technet.microsoft.com/library/hh849812.aspx)特定已簽署的程式碼和指令碼。
+* AppLocker。 您可以使用 [AppLocker](https://technet.microsoft.com/library/ee619725.aspx) 來限制使用者可以執行的程式和指令碼。 您可以在稽核或強制模式中執行 AppLocker。 根據預設，AppLocker 的允許規則可讓具有系統管理員權杖的使用者執行用戶端上的所有程式碼。 此規則的存在是為了避免系統管理員將自己鎖定，而且只適用於提高權限的權杖。 另請參閱做為 Windows Server [核心安全性](https://technet.microsoft.com/library/dd348705.aspx)一部分的「程式碼完整性」。
+* 程式碼簽署。 為系統管理員使用的所有工具和指令碼進行程式碼簽署，可提供方便管理的機制來部署應用程式鎖定原則。 雜湊不會隨著程式碼的快速變更而做調整，而且檔案路徑不會提供高度安全性。 您應該將 AppLocker 規則結合 PowerShell [執行原則](https://technet.microsoft.com/library/ee176961.aspx)，此原則只允許[執行](https://technet.microsoft.com/library/hh849812.aspx)特定已簽署的程式碼和指令碼。
 * 群組原則。 建立全域系統管理原則以套用至任何用於管理的網域工作站 (並封鎖來自其他所有用途的存取)，以及套用至在這些工作站上進行驗證的使用者帳戶。
 * 已增強安全性的佈建。 保護您的基準強化後工作站映像以防遭到竄改。 使用加密和隔離等安全性措施來儲存映像、虛擬機器和指令碼，並限制存取 (或許是使用可稽核的簽入/簽出程序)。
 * 修補。 維護一致的組建 (或針對開發、作業和其他系統管理工作使用不同的映像)、定期掃描變更和惡意程式碼、讓組建保持最新狀態，並且只在需要時才啟用機器。
@@ -226,7 +226,7 @@ Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows P
 * [保護特殊權限存取](https://technet.microsoft.com/library/mt631194.aspx) – 取得設計和建置安全的系統管理工作站以管理 Azure 的技術詳細資料
 * [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/cloudservices/azure) - 了解可保護 Azure 網狀架構和在 Azure 上執行之工作負載的 Azure 平台功能
 * [Microsoft 安全性回應中心](https://technet.microsoft.com/security/dn440717.aspx) -- 可在其中回報 Microsoft 安全性弱點 (包括 Azure 的問題) 或透過電子郵件傳送給 [secure@microsoft.com](mailto:secure@microsoft.com)
-* [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) – 隨時掌握 Azure 安全性的最新消息
+* [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) – 隨時掌握 Azure 安全性的最新消息
 
 <!--Image references-->
 [1]: ./media/azure-security-management/typical-management-network-topology.png

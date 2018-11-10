@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 68754f85347fe6bc075af513580697d1e7a83c18
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386582"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247410"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何透過 Python 使用通知中樞
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-您可以使用通知中樞 REST 介面，透過 Java/PHP/Python/Ruby 後端來存取所有通知中樞功能，如 MSDN 文章[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx)所述。
+您可以使用通知中樞 REST 介面，透過 Java/PHP/Python/Ruby 後端來存取所有通知中樞功能，如 MSDN 文章[通知中樞 REST API](https://msdn.microsoft.com/library/dn223264.aspx)所述。
 
 > [!NOTE]
 > 這是在 Python 實作通知傳送的範例參考實作，並非正式支援的通知中樞 Python SDK。
@@ -47,7 +47,7 @@ ms.locfileid: "49386582"
 > 
 
 ## <a name="client-interface"></a>用戶端介面
-主要用戶端介面提供的方法與 [.NET 通知中樞 SDK](http://msdn.microsoft.com/library/jj933431.aspx)中的方法相同。 這個介面可讓您直接轉換此網站目前所提供，以及由網際網路社群所貢獻的所有教學課程和範例。
+主要用戶端介面提供的方法與 [.NET 通知中樞 SDK](https://msdn.microsoft.com/library/jj933431.aspx)中的方法相同。 這個介面可讓您直接轉換此網站目前所提供，以及由網際網路社群所貢獻的所有教學課程和範例。
 
 您可在 [Python REST 包裝函式範例]中找到所有可用的程式碼。
 
@@ -64,7 +64,7 @@ ms.locfileid: "49386582"
 ## <a name="implementation"></a>實作
 如果尚未這麼做，請遵循[開始使用教學課程]中的指示，一路進行到您必須實作後端的最後一節。
 
-您可以在 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx)上找到所有實作完整 REST 包裝函式的詳細資料。 本節將針對存取通知中樞 REST 端點和傳送通知所需主要步驟的 Python 實作進行說明
+您可以在 [MSDN](https://msdn.microsoft.com/library/dn530746.aspx)上找到所有實作完整 REST 包裝函式的詳細資料。 本節將針對存取通知中樞 REST 端點和傳送通知所需主要步驟的 Python 實作進行說明
 
 1. 解析連接字串
 2. 產生授權權杖
@@ -96,7 +96,7 @@ ms.locfileid: "49386582"
 
 
 ### <a name="create-security-token"></a>建立安全性權杖
-您可以在 [此處](http://msdn.microsoft.com/library/dn495627.aspx)找到建立安全性權杖的詳細資料。
+您可以在 [此處](https://msdn.microsoft.com/library/dn495627.aspx)找到建立安全性權杖的詳細資料。
 將下列方法新增至 **NotificationHub** 類別，以依據目前要求的 URI，以及從連接字串擷取的認證來建立權杖。
 
     @staticmethod
@@ -148,7 +148,7 @@ ms.locfileid: "49386582"
 
 此類別是範本通知的原生通知主體或一組屬性的容器；為標頭集合，其包含格式 (原生平台或範本)，以及平台特定屬性 (如 Apple 到期屬性和 WNS 標頭)。
 
-請參閱[通知中樞 REST API 文件](http://msdn.microsoft.com/library/dn495827.aspx)及特定通知平台的格式，以取得所有可用選項。
+請參閱[通知中樞 REST API 文件](https://msdn.microsoft.com/library/dn495827.aspx)及特定通知平台的格式，以取得所有可用選項。
 
 透過此類別，現在可以在 **NotificationHub** 類別內寫入傳送通知方法。
 

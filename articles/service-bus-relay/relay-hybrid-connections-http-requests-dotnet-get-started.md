@@ -14,31 +14,31 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: spelluru
-ms.openlocfilehash: e66a1651a46cfaeb7fb8b232eeb7cf6a2fb8044d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 55e97ff95245ce222ccbc2a99f6ae2882cef3715
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451217"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248770"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>在 .NET 中開始使用轉送混合式連線 HTTP 要求
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-此教學課程會介紹 [Azure 轉送混合式連線](relay-what-is-it.md#hybrid-connections)。 了解如何使用 Microsoft .NET 來建立用戶端應用程式，以將要求傳送至對應的接聽程式應用程式。 
+本教學課程會介紹 [Azure 轉送混合式連線](relay-what-is-it.md#hybrid-connections)。 了解如何使用 Microsoft .NET 來建立用戶端應用程式，以將要求傳送至對應的接聽程式應用程式。 
 
 ## <a name="what-will-be-accomplished"></a>將會完成的工作
-混合式連線需要同時用到用戶端元件和伺服器元件。 在此教學課程中，您會完成下列步驟來建立兩個主控台應用程式：
+混合式連線需要同時用到用戶端元件和伺服器元件。 在本教學課程中，您會完成下列步驟來建立兩個主控台應用程式：
 
 1. 使用 Azure 入口網站建立轉送命名空間。
 2. 使用 Azure 入口網站，在該命名空間中建立混合式連線。
 3. 撰寫伺服器 (接聽端) 主控台應用程式來接收要求。
 4. 撰寫用戶端 (傳送端) 主控台應用程式來傳送要求。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要下列先決條件：
+若要完成本教學課程，您需要下列必要條件：
 
-* [Visual Studio 2015 或更新版本](http://www.visualstudio.com)。 此教學課程中的範例使用 Visual Studio 2017。
+* [Visual Studio 2015 或更新版本](https://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017。
 * Azure 訂用帳戶。
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]

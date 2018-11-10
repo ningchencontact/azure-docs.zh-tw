@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: 2e736872dc3e471af7c5b3f758516910a02067fe
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 827153300b9cab4ea805689b1e103bea1b334ec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786077"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249569"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>針對即時串流中的計時中繼資料傳送訊號
 
@@ -404,7 +404,7 @@ Smooth Streaming 內嵌要求媒體資料方塊 (‘mdat’) 必須包含 [SCTE-
 
 **[HLS]** [「HTTP 即時串流」，draft-pantos-http-live-streaming-14，2014 年 10 月 14 日，](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
 
-**[MS-SSTR]** [「Microsoft Smooth Streaming 通訊協定」，2014 年 5 月 15 日](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+**[MS-SSTR]** [「Microsoft Smooth Streaming 通訊協定」，2014 年 5 月 15 日](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
 **[AMF0]** [「動作訊息格式 AMF0」](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 

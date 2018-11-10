@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 94c7bd50b9c331370aaac802e0a453c5cdd8b7c1
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 80d96bcb6b6073987f07ed6954f25023ab1133a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141275"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247512"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>透過 C 後端和 C 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 
@@ -31,7 +31,7 @@ ms.locfileid: "42141275"
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [Azure 免費帳戶](http://azure.microsoft.com/pricing/free-trial/))。
+* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [Azure 免費帳戶](https://azure.microsoft.com/pricing/free-trial/))。
 * IoT 中樞。
 * 最新的 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)。
 

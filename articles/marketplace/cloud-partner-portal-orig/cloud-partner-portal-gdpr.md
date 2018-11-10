@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7470416ab5e5d71cc569db19e47d34c5a29bc063
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1cd9e99d9f530abb34ff072a740d89bc511c64ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805649"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241509"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Cloud Partner 入口網站 GDPR 合規性
 ====================================
@@ -48,6 +48,6 @@ Cloud Partner 入口網站在 [使用者] 索引標籤中提供對您所有資�
 
 -   [Microsoft 何時以及在何處傳送客戶資料，包括地理位置](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 -   [可存取客戶資料的轉包商](https://aka.ms/Online_Serv_Subcontractor_List)
--   [由 Microsoft 所管理之 Azure 安全性措施的詳細資料](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+-   [由 Microsoft 所管理之 Azure 安全性措施的詳細資料](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 -   [有關 Microsoft 針對所有產品 (包括所有 Azure 服務) 採取之隱私權審核程序的詳細資料](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards)
 -   [Microsoft 從客戶系統與使用者收集並處理哪些資料](https://www.microsoft.com/trustcenter/privacy/you-own-your-data)

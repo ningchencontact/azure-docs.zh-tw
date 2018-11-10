@@ -4,17 +4,17 @@ description: Azure 原則評估和效果會決定合規性。 了解如何取得
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3fa185e741f1b14bf3f2e7413945b70b1ea1baaa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f88e68150aa2708557775df2719409228166520b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970850"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233407"
 ---
 # <a name="getting-compliance-data"></a>取得合規性資料
 
@@ -40,6 +40,44 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 - 更新已指派給範圍的原則或計畫。 此案例的評估週期和時間與範圍的新指派相同。
 - 資源會透過 Resource Manager、REST、Azure CLI 或 Azure PowerShell 部署到具有指派的範圍。 在此案例中，個別資源的效果事件 (附加、稽核、拒絕、部署) 和合規性狀態資訊，約 15 分鐘後會在入口網站和 SDK 中變成可用。 此事件不會造成對其他資源的評估。
 - 標準合規性評估週期。 每 24 小時會自動重新評估指派一次。 對範圍很大的資源評估大型原則或計畫可能需要一些時間，因此沒有預期何時將完成評估週期的預先定義。 完成之後，會在入口網站和 SDK 中提供更新的合規性結果。
+- 隨選掃描
+
+### <a name="on-demand-evaluation-scan"></a>隨選評估掃描
+
+針對訂用帳戶或資源群組的評估掃描，可透過呼叫 REST API 來啟動。 這是非同步的程序。 這種情況下，REST 端點會開始掃描，而不會等待掃描完成回應。 相反地，它會提供 URI，可用來查詢要求之評估的狀態。
+
+在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
+
+- `{YourRG}` - 以您的資源群組名稱取代
+- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
+
+掃描支援訂用帳戶或資源群組中的資源評估。 若要使用 REST API **POST** 命令針對所需的範圍啟動掃描，請使用下列 URI 結構：
+
+- 訂用帳戶
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- 資源群組
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+呼叫會傳回 **202 已接受**狀態。 包含在回應標頭中的是 **Location** 屬性，其格式如下：
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}` 是針對要求的範圍以靜態方式所產生。 如果某個範圍已在執行隨選掃描，則新的掃描不會啟動。 相反地，系統會提供相同的 `{ResourceContainerGUID}` **location** URI 新要求以取得狀態。 針對 **Location** URI 的 REST API **GET** 命令會傳回 **202 已接受**，同時持續進行評估。 評估掃描完成時，會傳回 **200 確定**狀態。 完成掃描的主體是具有狀態的 JSON 回應：
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>合規性的運作方式
 

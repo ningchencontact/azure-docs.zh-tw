@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 54ca22d9a3e685f6ae1e1454569bab9d058ce4fe
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 08434007c7ef66349cae2a368d3be94ee522bab1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834486"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242343"
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>探索 Azure AI 資源庫中的競賽
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "34834486"
 如需關於競賽之常見問題集的解答，請參閱 [Microsoft Cortana Intelligence 競賽常見問題集](competition-faq.md)。
 
 ## <a name="discover"></a>探索
-[[競賽](https://gallery.cortanaintelligence.com/competitions)] 頁面 ([aka.ms/CIComp](http://aka.ms/CIComp)) 會顯示最受歡迎的競賽清單。
+[[競賽](https://gallery.cortanaintelligence.com/competitions)] 頁面 ([aka.ms/CIComp](https://aka.ms/CIComp)) 會顯示最受歡迎的競賽清單。
 
 ![從 Gallery 首頁選取競賽](./media/gallery-competitions/select-competitions-in-gallery.png)
 

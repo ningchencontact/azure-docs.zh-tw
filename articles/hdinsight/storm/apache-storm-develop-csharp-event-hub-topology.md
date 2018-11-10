@@ -2,19 +2,19 @@
 title: 在事件中樞內使用 Storm 來處理事件 - Azure HDInsight
 description: 了解如何利用在 Visual Studio 中使用 HDInsight Tools for Visual Studio 所建立之 C# Storm 拓撲來處理 Azure 事件中樞的資料。
 services: hdinsight,notification hubs
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cda21c5b0d06335b13ba1aff0e9113544ca11c80
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0eb283eda04d4123e0c05d2c48663a5aca88ebc4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414194"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249552"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
 
@@ -115,7 +115,7 @@ topologyBuilder.SetJavaBolt(
 
 * [Azure 事件中樞](../../event-hubs/event-hubs-create.md)。
 
-* [Azure .NET SDK](http://azure.microsoft.com/downloads/)。
+* [Azure .NET SDK](https://azure.microsoft.com/downloads/)。
 
 * [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 

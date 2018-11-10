@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: bb1c59fa7df9cf466ce1fd7f32f08d255fe656bd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097058"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251119"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可調整且效用佳的資料表
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -312,7 +312,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 
 舉例來說，假設某家大型跨國公司有數十萬個部門和員工實體，其中每個部門都有許多員工，且每位員工都與一個特定部門相關聯。 其中一個方法是儲存個別部門和這些員工實體，如下所示：  
 
-![][1]
+![部門與員工實體][1]
 
 此範例會根據 **PartitionKey** 值說明類型之間的隱含一對多關聯性。 每個部門可以有許多員工。  
 
@@ -418,7 +418,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 #### <a name="context-and-problem"></a>內容和問題
 表格服務會使用 **PartitionKey** 和 **RowKey** 值自動編製實體的索引。 這可讓用戶端應用程式使用這些值有效率地擷取實體。 例如，若使用如下的資料表結構，用戶端應用程式將可使用點查詢透過部門名稱和員工識別碼 (**PartitionKey** 和 **RowKey** 值) 來擷取個別員工實體。 用戶端也可以擷取每個部門內以員工識別碼排序的實體。
 
-![][6]
+![員工實體][6]
 
 如果您也想能夠根據其他屬性 (例如電子郵件地址) 的值尋找員工實體，您必須使用效率較低的資料分割掃描來尋找相符項目。 這是因為資料表服務不會提供次要索引。 此外，您無法要求以 **RowKey** 順序以外的不同順序來排序的員工清單。  
 
@@ -437,7 +437,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 * 若要在銷售部門中，找出員工識別碼範圍從 000100 至 000199 的所有員工：請使用 $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * 若要在銷售部門中，找出電子郵件地址開頭為字母 'a' 的所有員工：請使用 $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  請注意，上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](http://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+  上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](http://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 #### <a name="issues-and-considerations"></a>問題和考量
 當您決定如何實作此模式時，請考慮下列幾點：  
@@ -756,7 +756,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="context-and-problem"></a>內容和問題
 許多應用程式刪除用戶端應用程式已無需使用的舊資料，或應用程式已封存至其他儲存媒體的舊資料。 一般而言，您可以依日期來識別這類資料：例如，您需要刪除所有存留期超過 60 天的登入要求記錄。  
 
-可行的設計之一，就是在 **RowKey**中使用登入要求的日期和時間：  
+可行的設計之一，就是在 **RowKey** 中使用登入要求的日期和時間：  
 
 ![][21]
 

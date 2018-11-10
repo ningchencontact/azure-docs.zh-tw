@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 43aaddc224403f69f90452c024f24eab8c5bdcd2
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5590f1fc3716582da090b8429f8bcf4fc7911dbe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304697"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251758"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>判斷混合式身分識別生命週期採用策略
 在這項工作中，您將為混合式身分識別解決方案定義身分識別管理策略，以滿足您在 [判斷混合式身分識別管理工作](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)中定義的商務需求。
@@ -94,7 +94,7 @@ Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用�
 | 同步處理管理選項 | 優點 | 缺點 |
 | --- | --- | --- |
 | 同步型 (透過 DirSync 或 AADConnect) |從內部部署和雲端同步的使用者和群組 <br>  **原則控制**：系統管理員可以透過 Active Directory 設定帳戶原則，以管理密碼原則、工作站、限制、鎖定控制等，而不必在雲端中執行其他工作。  <br>  **存取控制**：可以限制對雲端服務的存取，以透過公司環境、線上伺服器或兩者來存取服務。 <br>  減少支援電話：如果使用者要記住的密碼越少，就越不會忘記。 <br>  安全性：使用者身分識別和資訊受到保護，因為單一登入中使用的所有伺服器和服務都由內部部署掌控。 <br>  支援增強式驗證：您可以對雲端服務使用增強式驗證 (也稱為雙重要素驗證)。 不過，如果使用增強式驗證，則必須使用單一登入。 | |
-| 同盟型 (透過 AD FS) |由 Security Token Service (STS) 啟用。 當您設定 STS 以提供 Microsoft 雲端服務的單一登入存取時，您會在內部部署 STS 與您在 Azure AD 租用戶中指定的同盟網域之間建立同盟信任。 <br> 可讓使用者使用同一組認證來取得多個資源的存取權 <br>使用者不需要維護多組認證。 但是，使用者必須向每個參與的資源提供認證。支援 B2B 和 B2C 案例。 |需要專業人員來部署及維護專用的內部部署 AD FS 伺服器。 如果您打算對 STS 使用 AD FS，使用增強式驗證會受到限制。 如需詳細資訊，請參閱 [設定 AD FS 2.0 的進階選項](http://go.microsoft.com/fwlink/?linkid=235649)。 |
+| 同盟型 (透過 AD FS) |由 Security Token Service (STS) 啟用。 當您設定 STS 以提供 Microsoft 雲端服務的單一登入存取時，您會在內部部署 STS 與您在 Azure AD 租用戶中指定的同盟網域之間建立同盟信任。 <br> 可讓使用者使用同一組認證來取得多個資源的存取權 <br>使用者不需要維護多組認證。 但是，使用者必須向每個參與的資源提供認證。支援 B2B 和 B2C 案例。 |需要專業人員來部署及維護專用的內部部署 AD FS 伺服器。 如果您打算對 STS 使用 AD FS，使用增強式驗證會受到限制。 如需詳細資訊，請參閱 [設定 AD FS 2.0 的進階選項](https://go.microsoft.com/fwlink/?linkid=235649)。 |
 
 > [!NOTE]
 > 如需詳細資訊，請參閱 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

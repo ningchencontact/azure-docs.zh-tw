@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0e5de93f8a10d27c28b3f07567f9b6fa7e41d482
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 42f3378196b4e3e1dfe1234e801e87875f9c61fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781837"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247648"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中啟用授權映像
 
 在 Azure DevTest Labs 中，授權映像當中包含條款及條件 (通常是來自第三方)，實驗室中的使用者必須先接受這些條款和條件之後才能存取映像。 下列各節說明如何使用授權映像，使其可用來建立虛擬機器。
 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>判斷授權映像是否可供使用者使用
-讓使用者能夠從授權映像建立 VM 的第一步是確定已接受授權映像的條款和條件。 下列步驟顯示如何檢視授權映像的提供狀態，並且必要時接受當中的條款和條件。
+讓使用者能夠從授權映像建立 VM 的第一步是確定已接受授權映像的條款和條件。 下列步驟顯示如何檢視授權映像的供應項目狀態，並且必要時接受當中的條款和條件。
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
 1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 
@@ -40,11 +40,11 @@ ms.locfileid: "33781837"
 
     ![[Marketplace 映像] 功能表項目](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-marketplace-images.png)
 
-    此時會顯示所有可用 Marketplace 映像的清單，包括每個映像的 [提供狀態]。
+    此時會顯示所有可用 Marketplace 映像的清單，包括每個映像的 [供應項目狀態]。
 
-    ![顯示每個映像提供狀態的 Marketplace 映像清單](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-offer-status.png)
+    ![顯示每個映像供應項目狀態的 Marketplace 映像清單](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-offer-status.png)
 
-    授權映像會顯示下列項目的提供狀態： 
+    授權映像會顯示下列項目的供應項目狀態： 
     
     - **接受條款：** 授權映像可供使用者建立 VM。 
     - **必須檢閱條款：** 使用者目前無法使用授權映像。 實驗室使用者必須先接受授權的條款和條件，才能使用它來建立 VM。 
@@ -54,7 +54,7 @@ ms.locfileid: "33781837"
 
 您可以依照下列步驟，啟用以程式設計方式部署授權映像：
 
-1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)中，移至 [Marketplace 映像] 的清單。
+1. 在 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)中，移至 [Marketplace 映像] 的清單。
 
 1. 找出您想要讓使用者存取，但還未接受條款的授權映像。 例如，您可能會看到一個「資料科學虛擬機器」，顯示 [接受條款] 或 [必須檢閱條款] 其中一種狀態。
 
@@ -65,7 +65,7 @@ ms.locfileid: "33781837"
    >
    >
 
-1. 在映像的 [提供狀態] 欄中，選取 [必須檢閱條款]。
+1. 在映像的 [供應項目狀態] 欄中，選取 [必須檢閱條款]。
 
 1. 在 [設定以程式設計方式部署] 視窗中，選取 [啟用]。
 

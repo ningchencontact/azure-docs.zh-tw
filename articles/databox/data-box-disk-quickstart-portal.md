@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365229"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245064"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱磁碟 (預覽)
 
@@ -31,11 +31,11 @@ ms.locfileid: "49365229"
 
 開始之前：
 
-- 請確定您已啟用 Azure 資料箱服務的訂用帳戶。 若要啟用這項服務的訂用帳戶，請[註冊服務](http://aka.ms/azuredataboxfromdiskdocs)。
+- 請確定您已啟用 Azure 資料箱服務的訂用帳戶。 若要啟用這項服務的訂用帳戶，請[註冊服務](https://aka.ms/azuredataboxfromdiskdocs)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs) 登入 Azure 入口網站。
+在 [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs) 登入 Azure 入口網站。
 
 ## <a name="order"></a>順序
 
@@ -70,11 +70,11 @@ ms.locfileid: "49365229"
     3. 執行資料箱磁碟解除鎖定工具，並提供通行金鑰。 若要執行磁碟重新插入，請再次執行解除鎖定工具，並提供通行金鑰。 **請勿使用 BitLocker 對話方塊或 BitLocker 金鑰來解除鎖定磁碟。** 如需如何將磁碟解除鎖定的詳細資訊，請移至[解除鎖定 Windows 用戶端上的磁碟]()或[解除鎖定 Linux 用戶端上的磁碟]()。
     4. 指派給磁碟的磁碟機代號會由工具顯示。 請記下磁碟機代號。 這會用於後續的步驟。
 
-## <a name="copy-data-and-verify"></a>複製資料並加以確認
+## <a name="copy-data-and-validate"></a>複製資料並驗證
 
 完成這項作業的時間取決於您的資料大小。 
 
-1. 磁碟機包含 PageBlob、BlockBlob、AzureImportExport 資料夾。 拖放需要以區塊 Blob 形式匯入的資料，並複製到 BlockBlob 資料夾。 同樣地，將 VHD/VHDX 等資料拖放到 PageBlob 資料夾。
+1. 磁碟機包含 PageBlob、BlockBlobDataBoxDiskImport 資料夾。 拖放需要以區塊 Blob 形式匯入的資料，並複製到 BlockBlob 資料夾。 同樣地，將 VHD/VHDX 等資料拖放到 PageBlob 資料夾。
 
     系統會在 Azure 儲存體帳戶中，為 BlockBlob 和 PageBlob 資料夾下的每個子資料夾建立容器。 BlockBlob 和 PageBlob 資料夾下的所有檔案，都會複製到 Azure 儲存體帳戶下的預設容器 `$root`。
 
@@ -82,7 +82,7 @@ ms.locfileid: "49365229"
     > - 所有容器和 Blob 都應符合 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)。 如果未遵循這些規則，則將資料上傳至 Azure 會失敗。
     > - 請確定檔案的區塊 Blob 不超過約 4.75 TiB，而分頁 Blob 不超過約 8 TiB。
 
-2. (選擇性) 複製完成之後，建議您執行 AzureImportExport 資料夾中提供的 `DataBoxDiskValidation.cmd`，以產生驗證的總和檢查碼。 視資料大小而定，此步驟可能需要一段時間。 
+2. (選擇性) 複製完成之後，建議您執行 DataBoxDiskImport 資料夾中提供的 `DataBoxDiskValidation.cmd`，以產生驗證的總和檢查碼。 視資料大小而定，此步驟可能需要一段時間。 
 3. 拔除磁碟機。 
 
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 75d630b91a1380102fd285edfb11effa22f47859
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 29af7ad8b582682189320185c460597af53cf6d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413210"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243908"
 ---
 # <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) 是一種自助診斷工具，此工具會收集和分析診斷資料，並提供報表來協助進行 Azure 中 Windows 虛擬機器效能問題的疑難排解。 您可以在虛擬機器上將 PerfInsights 當作獨立工具執行、使用 [Azure 虛擬機器的效能診斷](performance-diagnostics.md)直接從入口網站執行，或藉由安裝 [Azure 效能診斷 VM 擴充功能](performance-diagnostics-vm-extension.md)來執行。
+[PerfInsights](https://aka.ms/perfinsightsdownload) 是一種自助診斷工具，此工具會收集和分析診斷資料，並提供報表來協助進行 Azure 中 Windows 虛擬機器效能問題的疑難排解。 您可以在虛擬機器上將 PerfInsights 當作獨立工具執行、使用 [Azure 虛擬機器的效能診斷](performance-diagnostics.md)直接從入口網站執行，或藉由安裝 [Azure 效能診斷 VM 擴充功能](performance-diagnostics-vm-extension.md)來執行。
 
 如果您遇到虛擬機器的效能問題，在連絡支援人員之前，請先執行這個工具。
 
@@ -190,7 +190,7 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 若要執行 PerfInsights 工具，請遵循下列步驟：
 
 
-1. 下載 [PerfInsights.zip](http://aka.ms/perfinsightsdownload)。
+1. 下載 [PerfInsights.zip](https://aka.ms/perfinsightsdownload)。
 
 2. 解除封鎖 PerfInsights.zip 檔案。 若要這樣做，請以滑鼠右鍵按一下 PerfInsights.zip 檔案，然後選取 [屬性]。 在 [一般] 索引標籤上，選取 [解除封鎖]，然後選取 [確定]。 如此可確保工具執行時不會出現任何額外的安全性提示。  
 

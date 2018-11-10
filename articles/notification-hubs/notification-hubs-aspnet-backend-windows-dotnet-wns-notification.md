@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
-ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d2d0e878aed5b200852e56a29ce0430305d4efc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452408"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251537"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知傳送給特定使用者
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "38452408"
 > * 測試應用程式
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本教學課程的建置基礎，是通知中樞以及您在[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教學課程中建立的 Visual Studio 專案。 因此，請先加以完成，再開始進行本教學課程。 
 
 > [!NOTE]
@@ -222,7 +222,7 @@ ms.locfileid: "38452408"
     ```
 1. 以滑鼠右鍵按一下 **WindowsApp** 專案、按一下 [新增]，然後按一下 [類別]。 將類別命名為 **RegisterClient.cs**，然後按一下 [確定] 以產生類別。
    
-   為了註冊推播通知，此類別會包裝連絡應用程式後端所需的 REST 呼叫。 它也會在本機儲存通知中心所建立的 *registrationIds* ，如 [從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。 當您按一下 [登入並註冊] 按鈕時，系統會使用儲存在本機儲存體中的授權權杖。
+   為了註冊推播通知，此類別會包裝連絡應用程式後端所需的 REST 呼叫。 它也會在本機儲存通知中心所建立的 *registrationIds* ，如 [從您的應用程式後端註冊](https://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。 當您按一下 [登入並註冊] 按鈕時，系統會使用儲存在本機儲存體中的授權權杖。
 2. 在 RegisterClient.cs 檔案開頭加入下列 `using` 陳述式：
 
     ```csharp   

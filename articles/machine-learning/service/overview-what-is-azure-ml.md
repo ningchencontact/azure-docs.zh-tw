@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945955"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244931"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>什麼是 Azure Machine Learning 服務 (預覽)？
 
@@ -48,7 +48,7 @@ Azure Machine Learning 服務也包含[自動產生模型與微調](tutorial-aut
 Azure Machine Learning 服務可自動產生模型及為您自動調整。
 例如，請參閱[教學課程：使用自動化的 Azure Machine Learning 自動定型分類模型](tutorial-auto-train-models.md)。
 
-或者，使用開放原始碼 Python 套件時，搭配適用於 Python 的 Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>，即可自行於 Azure Machine Learning 服務工作區中，建置及定型高精確度的機器學習服務與深度學習模型。
+或者，使用開放原始碼 Python 套件時，搭配適用於 Python 的 Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>，即可自行於 Azure Machine Learning 服務工作區中，建置及定型高精確度的機器學習服務與深度學習模型。
 您可選擇開放原始碼 Python 套件中所提供的許多機器學習服務元件，如下所示：
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -59,7 +59,7 @@ Azure Machine Learning 服務可自動產生模型及為您自動調整。
 
 有了模型之後，即可使用該模型建立容器 (例如 Docker)，於本機部署進行測試，然後再到 [Azure Container Instances](how-to-deploy-to-aci.md) 或 [Azure Kubernetes Service](how-to-deploy-to-aks.md) 中的生產 Web 環境中。
 
-接著，您可以使用 [Azure 入口網站](https://portal.azure.com/)或 [Azure Machine Learning CLI 延伸模組](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli) 管理所部署的模型。
+接著，您可以使用 [Azure 入口網站](https://portal.azure.com/)或 [Azure Machine Learning CLI 延伸模組](reference-azure-machine-learning-cli.md) 管理所部署的模型。
 您可以評估模型計量、重新定型及重新部署新版本的模型，還能同時追蹤模型的實驗。
 
 若要開始使用 Azure Machine Learning 服務，請參閱以下的[後續步驟](#next-steps)。
@@ -85,6 +85,8 @@ Azure Machine Learning Studio 是可進行共同作業的拖放式視覺化工�
 - 完成整個教學課程，[利用 Azure Machine Learning 定型影像分類模型](tutorial-train-models-with-aml.md)，以了解如何利用 Azure Machine Learning 服務，定型及部署模型
 
 - 如需允許 Azure Machine Learning 自動產生及自動調整模型的相關資訊，請參閱[教學課程：利用自動化的 Azure Machine Learning 定型分類模型](tutorial-auto-train-models.md)
+
+- 了解用來建置、最佳化及管理機器學習案例的[機器學習管線](/azure/machine-learning/service/concept-ml-pipelines)。
 
 - 如需服務的技術與深入解析，請參閱 [Azure Machine Learning 服務架構與概念](concept-azure-machine-learning-architecture.md)
 

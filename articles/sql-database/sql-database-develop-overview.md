@@ -2,20 +2,22 @@
 title: SQL Database 應用程式開發概觀 | Microsoft Docs
 description: 深入了解連接至 SQL Database 的應用程式的可用連線庫和最佳作法。
 services: sql-database
-author: stevestein
-manager: craigg
-ms.reviewer: genemi
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 1986c19e6625df7c281f7de9b322124da6a12c45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: genemi
+manager: craigg
+ms.date: 06/20/2018
+ms.openlocfilehash: 707e10f77bf00ed12f09a23e490105f52ceed4ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973828"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241594"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 應用程式開發概觀
 本文將逐步解說開發人員在撰寫程式碼以連接到 Azure SQL Database 時應注意的基本考量事項。
@@ -59,7 +61,7 @@ Azure SQL Database 提供資源以在 SQL Database 上限制存取、保護資�
 
 ## <a name="managing-connections"></a>管理連線
 * 在您的用戶端連線邏輯中，將預設的逾時覆寫為 30 秒。  預設 15 秒對於依賴網際網路的連線而言太短。
-* 如果您使用的是 [連接集區](http://msdn.microsoft.com/library/8xx3tyca.aspx)，請確定在程式未主動使用時即時關閉連接，而不是準備重複使用連接。
+* 如果您使用的是 [連接集區](https://msdn.microsoft.com/library/8xx3tyca.aspx)，請確定在程式未主動使用時即時關閉連接，而不是準備重複使用連接。
 
 ## <a name="network-considerations"></a>網路考量事項
 * 在託管您的用戶端程式的電腦上，請確定防火牆允許連接埠 1433 上的傳出 TCP 通訊。  詳細資訊：[設定 Azure SQL Database 防火牆](sql-database-configure-firewall-settings.md)。

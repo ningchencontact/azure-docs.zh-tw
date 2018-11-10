@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: 7e5c85890585230961f52803b081c636c950c518
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a376e4f5d8d74731f30da47a696656e79ae55ac7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529189"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245676"
 ---
 # <a name="develop-for-azure-files-with-python"></a>使用 Python 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -177,6 +177,6 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ## <a name="next-steps"></a>後續步驟
 您現在已經學會如何使用 Python 操作 Azure 檔案服務，請遵循這些連結深入了解。
 
-* [Python 開發人員中心](/develop/python/)
-* [Azure 儲存體服務 REST API](http://msdn.microsoft.com/library/azure/dd179355)
+* [Python 開發人員中心](https://azure.microsoft.com/develop/python/)
+* [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)

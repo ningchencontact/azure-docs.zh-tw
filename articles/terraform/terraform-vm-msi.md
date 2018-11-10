@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343821"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242087"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>使用 Azure Marketplace 映像透過 Azure 資源的受控識別來建立 Terraform Linux 虛擬機器
 
@@ -97,9 +97,9 @@ Terraform VM 映像會執行下列步驟：
 在本文中，您已了解如何在 Azure 上設定 Terraform Linux 虛擬機器。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform： 
 
  [Microsoft.com 中的 Terraform 中樞](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 提供者文件](http://aka.ms/terraform)  
- [Terraform Azure 提供者來源](http://aka.ms/tfgit)  
- [Terraform Azure 模組](http://aka.ms/tfmodules)
+ [Terraform Azure 提供者文件](https://aka.ms/terraform)  
+ [Terraform Azure 提供者來源](https://aka.ms/tfgit)  
+ [Terraform Azure 模組](https://aka.ms/tfmodules)
  
 
 

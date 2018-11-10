@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390307"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420232"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -37,6 +37,37 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 
 下載 | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
 
+## <a name="12650"></a>1.2.65.0 
+
+### <a name="release-status"></a>發行狀態 
+
+2018/10/25：已發行，可供下載
+
+ 
+### <a name="new-features-and-improvements"></a>新功能和改進 
+
+
+- 變更屬性回寫的功能，確保裝載的語音信箱如預期般運作。  在某些情況下，Azure AD 會在回寫期間以 Null 值覆寫 msExchUcVoicemailSettings 屬性。  如果未設定雲端值，Azure AD 現在不會再清除此屬性的內部部署值。
+- 增強變更預設規則的處理。 現在如果對預設規則做出變更，您就會收到通知，並提供修復預設規則的選項。 
+- 在 Azure AD Connect 精靈中新增診斷功能，可調查和識別 Azure AD 的連線能力問題。 使用 Test-AdSyncAzureServiceConnectivity Cmdlet 透過 Powershell，也可以直接執行這些相同的診斷。 
+- 在 Azure AD Connect 精靈中新增診斷功能，可調查和識別 AD 的連線能力問題。 使用 ADConnectivityTools Powershell 模組中的 Start-ConnectivityValidation 函式，透過 Powershell，也可以直接執行這些相同的診斷。  如需詳細資訊，請參閱[什麼是 ADConnectivityTool PowerShell 模組？](how-to-connect-adconnectivitytools.md)
+- 針對混合式 Azure Active Directory Join 和裝置回寫，新增 AD 結構描述版本前置檢查 
+- 目錄擴充頁面屬性搜尋已變更為不區分大小寫。
+-   新增對 TLS 1.2 的完整支援。 這個版本支援在安裝 Azure AD Connect 的電腦上，停用所有其他通訊協定，而僅啟用 TLS 1.2。  如需詳細資訊，請參閱[針對 Azure AD Connect 強制執行 TLS 1.2](reference-connect-tls-enforcement.md)
+
+ 
+
+### <a name="fixed-issues"></a>已修正的問題   
+
+- 已修正如果使用 SQL Always On，Azure AD Connect 升級就會失敗的錯誤 (bug)。 
+- 已修正錯誤 (bug)，可正確地剖析含有正斜線的 OU 名稱。 
+- 已修正在預備模式進行全新安裝時，就會停用傳遞驗證的問題。 
+- 已修正在執行疑難排解工具時會無法載入 PowerShell 模組的錯誤 (bug) 
+- 已修正會妨礙客戶在主機名稱的第一個字元使用數值的錯誤 (bug)。 
+- 已修正 Azure AD Connect 允許無效資料分割和容器選取項目的錯誤 (bug) 
+- 已修正在啟用傳統型 SSO 時的「密碼無效」錯誤訊息。 
+- AD FS 信任管理的各種錯誤 (bug)修正  
+- 在設定裝置回寫時的結構描述檢查，已修正為尋找 msDs-DeviceContainer 物件類別 (在 WS2012 R2 引進)
 
  
 ## <a name="118820"></a>1.1.882.0  

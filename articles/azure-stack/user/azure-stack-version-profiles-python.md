@@ -14,12 +14,12 @@ ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: c55dcf0736642690f245f680db5cb1620c2175e7
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 657eefcd5b7793f2f181d074084a272e65943681
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41946603"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246441"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔與 Python
 
@@ -154,4 +154,4 @@ os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 - [Azure Python 開發中心](https://azure.microsoft.com/develop/python/)
 - [Azure 虛擬機器文件](https://azure.microsoft.com/services/virtual-machines/)
 - [虛擬機器的學習路徑](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- 如果您沒有 Microsoft Azure 訂用帳戶，則可以在[這裡](http://go.microsoft.com/fwlink/?LinkId=330212)建立免費的試用帳戶。
+- 如果您沒有 Microsoft Azure 訂用帳戶，則可以在[這裡](https://go.microsoft.com/fwlink/?LinkId=330212)建立免費的試用帳戶。

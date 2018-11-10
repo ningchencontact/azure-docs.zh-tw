@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 5d2f4fc77d5849dc2be80ada9610098c9a381f92
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466149"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244095"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中輪替使用祕密
 
@@ -92,7 +92,7 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
 5.  將用於輪替的憑證備份儲存在安全的備份位置。 如果執行輪替時發生失敗，您可以使用備份副本取代檔案共用中的憑證，然後再重新執行輪替。 請記得將備份副本保存在安全的備份位置。
 6.  建立可以從 ERCS VM 存取的檔案共用。 檔案共用必須讓 **CloudAdmin** 身分識別可讀取和寫入。
 7.  從您可存取檔案共用的電腦中開啟 PowerShell ISE 主控台。 瀏覽至您的檔案共用。 
-8.  執行 **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** 以建立您外部憑證所需的目錄。
+8.  執行 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 以建立您外部憑證所需的目錄。
 
 ## <a name="rotating-external-and-internal-secrets"></a>輪替外部和內部秘密
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: a961565815ca0d89dc98a8d6a3e14b338b649398
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9d009847856936d14a182b234910fb717c084d11
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687803"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248056"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>從 VHD 檔案建立自訂映像
 
@@ -33,7 +33,7 @@ ms.locfileid: "38687803"
 
 下列步驟將逐步引導您使用 Azure 入口網站從 VHD 檔案建立自訂映像：
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
 1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 
@@ -61,8 +61,7 @@ ms.locfileid: "38687803"
 1. 如果用來建立自訂映像的映像不是授權的映像 (由 Microsoft 發行)，您也可以輸入計劃名稱、計劃供應項目及計劃發行者。
 
    - **方案名稱：** 輸入建立此自訂映像的 Marketplace 映像 (SKU) 名稱 
-   - 
-  **方案供應項目：** 輸入建立此自訂映像的 Marketplace 映像產品 (供應項目) 
+   - **方案供應項目：** 輸入建立此自訂映像的 Marketplace 映像產品 (供應項目) 
    - **方案發行者：** 輸入建立此自訂映像的 Marketplace 映像發行者
 
    > [!NOTE]

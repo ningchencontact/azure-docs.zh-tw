@@ -3,17 +3,17 @@ title: 透過一次性事件處理來建立 Spark 串流作業 - Azure HDInsight
 description: 如何設定 Spark 串流來一次處理一個事件，且只處理一次。
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618816"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241306"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>透過一次性事件處理來建立 Spark 串流作業
 
@@ -61,13 +61,21 @@ Spark 串流支援使用預寫記錄檔，其中每個收到的事件會先寫�
 
 1. 在 StreamingContext 物件中，設定檢查點的儲存體路徑：
 
-    val ssc = new StreamingContext(spark, Seconds(1))  ssc.checkpoint("/path/to/checkpoints")
+    ```Scala
+    val ssc = new StreamingContext(spark, Seconds(1))
+    ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     在 HDInsight 中，這些檢查點應會儲存到您的叢集所連結的預設儲存體，即 Azure 儲存體或 Azure Data Lake Store。
 
 2. 接下來，在 DStream 上指定檢查點間隔 (以秒為單位)。 在每個間隔中，衍生自輸入事件的狀態資料會保存到儲存體。 保存的狀態資料可減少從來源事件重建狀態時所需的運算。
 
-    val lines = ssc.socketTextStream("hostname", 9999)  lines.checkpoint(30)  ssc.start()  ssc.awaitTermination()
+    ```Scala
+    val lines = ssc.socketTextStream("hostname", 9999)
+    lines.checkpoint(30)
+    ssc.start()
+    ssc.awaitTermination()
+    ```
 
 ### <a name="use-idempotent-sinks"></a>使用等冪接收端
 

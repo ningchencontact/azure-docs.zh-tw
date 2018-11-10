@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 554c575f338ebaa415ed21be8dc8b27eb79c3c0c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634399"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244520"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>將機器上架交由 Azure Automation State Configuration 管理
 
@@ -150,9 +150,9 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 內部部署 Windows 電腦和非 Azure 雲端中的 Windows 電腦 (例如 Amazon Web Services) 也可以上架到 Azure Automation State Configuration，只要它們對外可存取網際網路，透過一些簡單的步驟：
 
-1. 確定在您想要上架到 Azure Automation State Configuration 的電腦上已安裝最新版的 [WMF 5](http://aka.ms/wmf5latest)。
+1. 確定在您想要上架到 Azure Automation State Configuration 的電腦上已安裝最新版的 [WMF 5](https://aka.ms/wmf5latest)。
 1. 請依照下列[**產生 DSC 中繼設定**](#generating-dsc-metaconfigurations)一節中的指示，來產生包含所需 DSC 中繼設定的資料夾。
-1. 從遠端將 PowerShell DSC 中繼設定套用至您想要上架的電腦。 **執行此命令的電腦必須安裝最新版的 [WMF 5](http://aka.ms/wmf5latest)** ：
+1. 從遠端將 PowerShell DSC 中繼設定套用至您想要上架的電腦。 **執行此命令的電腦必須安裝最新版的 [WMF 5](https://aka.ms/wmf5latest)** ：
 
    ```powershell
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -190,7 +190,7 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
     Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
     ```
 
-執行此命令的電腦必須安裝最新版的 [WMF 5](http://aka.ms/wmf5latest) 。
+執行此命令的電腦必須安裝最新版的 [WMF 5](https://aka.ms/wmf5latest) 。
 
 1. 如果您無法從遠端套用 PowerShell DSC 中繼設定，針對要上架的每部 Linux 電腦，請從步驟 5 的資料夾複製對應於該電腦的中繼組態到 Linux 電腦。 然後在您要上架到 Azure Automation State Configuration 的每部 Linux 電腦本機上呼叫 `SetDscLocalConfigurationManager.py`：
 
@@ -207,7 +207,7 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 ### <a name="using-a-dsc-configuration"></a>使用 DSC 設定
 
-1. 在您本機環境的電腦中，以系統管理員身分開啟 VSCode (或您喜愛的編輯器)。 電腦必須安裝最新版本的 [WMF 5](http://aka.ms/wmf5latest) 。
+1. 在您本機環境的電腦中，以系統管理員身分開啟 VSCode (或您喜愛的編輯器)。 電腦必須安裝最新版本的 [WMF 5](https://aka.ms/wmf5latest) 。
 1. 在本機複製下列指令碼。 此指令碼包含用來建立中繼設定的 PowerShell DSC 設定，以及開始執行中繼設定建立作業的命令。
 
 > [!NOTE]

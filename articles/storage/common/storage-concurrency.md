@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.component: common
-ms.openlocfilehash: 91eb9c12a8913c0a96ee7c3133dc5f982c42cad7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 25de4f28d7516f5c7830b24e4c999ceb855a7759
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025290"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242971"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>管理 Microsoft Azure 儲存體中的並行存取
 ## <a name="overview"></a>概觀
@@ -45,7 +45,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 4. 如果 Blob 目前的 ETag 值與要求中的 **If-Match** 條件式標頭內的 ETag 不是相同版本，服務會將 412 錯誤傳回至用戶端。 這會向用戶端指出在用戶端擷取 Blob 後，有另一個程序更新過該 Blob。
 5. 如果 Blob 目前的 ETag 值與要求中的 **If-Match** 條件式標頭內的 ETag 是相同版本，服務將會執行要求的作業，並更新 Blob 目前的 ETag 值，以顯示它已建立新版本。  
 
-下列 C# 程式碼片段 (使用用戶端儲存體程式庫 4.2.0) 所顯示的簡易範例，說明如何根據從先前擷取或插入之 Blob 的屬性中存取的 ETag 值，來建構 **If-Match AccessCondition** 。 接著它會在更新 blob 時使用 **AccessCondition** 物件：**AccessCondition** 物件會將 **If-Match** 標頭新增至要求。 如果有其他程序更新了 Blob，Blob 服務將會傳回 HTTP 412 (預先指定的條件失敗) 狀態訊息。 此處可下載完整的範例： [使用 Azure 儲存體管理並行存取](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)。  
+下列 C# 程式碼片段 (使用用戶端儲存體程式庫 4.2.0) 所顯示的簡易範例，說明如何根據從先前擷取或插入之 Blob 的屬性中存取的 ETag 值，來建構 **If-Match AccessCondition** 。 接著它會在更新 blob 時使用 **AccessCondition** 物件：**AccessCondition** 物件會將 **If-Match** 標頭新增至要求。 如果有其他程序更新了 Blob，Blob 服務將會傳回 HTTP 412 (預先指定的條件失敗) 狀態訊息。 此處可下載完整的範例： [使用 Azure 儲存體管理並行存取](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)。  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -80,7 +80,7 @@ catch (StorageException ex)
 }  
 ```
 
-儲存體服務也包含對其他條件式標頭的支援，例如 **If-Modified-Since**、**If-Unmodified-Since** 和 **If-None-Match** 及其組合。 如需詳細資訊，請參閱 MSDN 上的 [為 Blob 服務作業指定條件式標頭](http://msdn.microsoft.com/library/azure/dd179371.aspx) 。  
+儲存體服務也包含對其他條件式標頭的支援，例如 **If-Modified-Since**、**If-Unmodified-Since** 和 **If-None-Match** 及其組合。 如需詳細資訊，請參閱 MSDN 上的 [為 Blob 服務作業指定條件式標頭](https://msdn.microsoft.com/library/azure/dd179371.aspx) 。  
 
 下表彙總了在要求中接受條件式標頭 (例如 **If-Match** ) 以及在回應中傳回 ETag 值的容器作業。  
 
@@ -122,11 +122,11 @@ catch (StorageException ex)
 (*) 租用 Blob 並不會變更 Blob 上的 ETag。  
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Blob 的封閉式並行存取
-若要鎖定 Blob 以進行獨佔使用，您可以取得其 [租用](http://msdn.microsoft.com/library/azure/ee691972.aspx) 。 您取得租用時，可指定需要租用的時間長度：這可以是 15 至 60 秒，也可以是無限期 (等於獨佔鎖定)。 您可以更新有限租用而加以延伸，而且您可以在用完任何租用後加以釋放。 Blob 服務會在有限租用到期時自動加以釋放。  
+若要鎖定 Blob 以進行獨佔使用，您可以取得其 [租用](https://msdn.microsoft.com/library/azure/ee691972.aspx) 。 您取得租用時，可指定需要租用的時間長度：這可以是 15 至 60 秒，也可以是無限期 (等於獨佔鎖定)。 您可以更新有限租用而加以延伸，而且您可以在用完任何租用後加以釋放。 Blob 服務會在有限租用到期時自動加以釋放。  
 
 租用可讓不同的同步處理策略獲得支援，包括獨佔寫入/共用讀取、獨佔寫入/獨佔讀取和共用寫入/獨佔讀取。 只要有租用存在，儲存體服務就會強制執行獨佔寫入 (放置、設定和刪除作業)，但要確保讀取作業的獨佔性，開發人員必須確定所有的用戶端應用程式都使用同一個租用識別碼，並確定同一時間只有一個用戶端具有有效的租用識別碼。 未包含租用識別碼的讀取作業將會導致共用讀取。  
 
-下列 C# 程式碼片段說明對某個 Blob 取得獨佔租用 30 秒、更新該 Blob 的內容，然後釋放租用的範例。 當您嘗試取得新租用時，若 Blob 上已存在有效租用，則 Blob 服務會傳回「HTTP (409) 衝突」狀態結果。 下列程式碼片段在要求更新儲存體服務中的 Blob 時，使用 **AccessCondition** 物件封裝租用資訊。  此處可下載完整的範例： [使用 Azure 儲存體管理並行存取](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)。
+下列 C# 程式碼片段說明對某個 Blob 取得獨佔租用 30 秒、更新該 Blob 的內容，然後釋放租用的範例。 當您嘗試取得新租用時，若 Blob 上已存在有效租用，則 Blob 服務會傳回「HTTP (409) 衝突」狀態結果。 下列程式碼片段在要求更新儲存體服務中的 Blob 時，使用 **AccessCondition** 物件封裝租用資訊。  此處可下載完整的範例： [使用 Azure 儲存體管理並行存取](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)。
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -155,7 +155,7 @@ catch (StorageException ex)
 }  
 ```
 
-如果您直接嘗試對已租用的 Blob 執行寫入作業，而未傳送租用識別碼，要求將會失敗，並出現 412 錯誤。 請注意，如果在呼叫 **UploadText** 方法之前租用已過期，但您仍傳送租用識別碼，要求也會失敗，並出現 **412** 錯誤。 如需管理租用到期時間和租用識別碼的詳細資訊，請參閱 [租用 Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST 文件。  
+如果您直接嘗試對已租用的 Blob 執行寫入作業，而未傳送租用識別碼，要求將會失敗，並出現 412 錯誤。 請注意，如果在呼叫 **UploadText** 方法之前租用已過期，但您仍傳送租用識別碼，要求也會失敗，並出現 **412** 錯誤。 如需管理租用到期時間和租用識別碼的詳細資訊，請參閱 [租用 Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) REST 文件。  
 
 下列 Blob 作業可使用租用來管理封閉式並行存取：  
 
@@ -191,9 +191,9 @@ catch (StorageException ex)
 
 如需詳細資訊，請參閱  
 
-* [指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [租用容器](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [租用 Blob ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [指定 Blob 服務作業的條件式標頭](https://msdn.microsoft.com/library/azure/dd179371.aspx)
+* [租用容器](https://msdn.microsoft.com/library/azure/jj159103.aspx)
+* [租用 Blob ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>管理資料表服務中的並行存取
 當您使用實體時，資料表服務會使用開放式並行存取檢查作為預設行為，這一點不同於必須明確選擇執行開放式並行存取檢查的 Blob 服務。 資料表服務與 Blob 服務的另一個差異是您只能管理實體的並行存取行為，而在使用 Blob 服務時，您可以同時管理容器和 Blob 的並行存取。  
@@ -208,7 +208,7 @@ catch (StorageException ex)
 
 請注意，不同於 Blob 服務，在使用資料表服務時，用戶端必須在更新要求中納入 **If-Match** 標頭。 但如果用戶端將要求中的 **If-Match** 標頭設為萬用字元 (*)，則有可能強制執行非條件式更新 (「最後寫入為準」策略)，並略過並行存取檢查。  
 
-下列 C# 程式碼片段說明先前建立或擷取的客戶實體更新了其電子郵件地址。 初始插入或擷取作業將 ETag 值儲存在客戶物件中，且因為範例在執行取代作業時使用了相同的物件執行個體，因此自動將 ETag 值傳回至資料表服務，使服務能夠檢查是否有並行存取違規。 如果有其他程序更新了資料表儲存體中的實體，服務將會傳回 HTTP 412 (預先指定的條件失敗) 狀態訊息。  此處可下載完整的範例： [使用 Azure 儲存體管理並行存取](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)。
+下列 C# 程式碼片段說明先前建立或擷取的客戶實體更新了其電子郵件地址。 初始插入或擷取作業將 ETag 值儲存在客戶物件中，且因為範例在執行取代作業時使用了相同的物件執行個體，因此自動將 ETag 值傳回至資料表服務，使服務能夠檢查是否有並行存取違規。 如果有其他程序更新了資料表儲存體中的實體，服務將會傳回 HTTP 412 (預先指定的條件失敗) 狀態訊息。  此處可下載完整的範例： [使用 Azure 儲存體管理並行存取](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)。
 
 ```csharp
 try
@@ -251,7 +251,7 @@ customer.ETag = "*";
 
 如需詳細資訊，請參閱  
 
-* [實體上的作業](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
+* [實體上的作業](https://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>管理佇列服務中的並行存取
 在使用佇列服務時必須考量並行存取的案例之一，是有多個用戶端從一個佇列擷取訊息時。 從佇列擷取訊息時，回應中會包含訊息，以及刪除訊息所需的 pop receipt 值。 訊息並不會從佇列中自動刪除，但在擷取之後，其他用戶端在 visibilitytimeout 參數所指定的時間間隔內將看不到此訊息。 擷取訊息的用戶端應會在訊息完成處理後、回應的 TimeNextVisible 元素所指定的時間之前刪除訊息；這段時間會根據 visibilitytimeout 參數值計算得出。 visibilitytimeout 的值會加到擷取訊息的時間上，以決定 TimeNextVisible 的值。  
@@ -260,8 +260,8 @@ customer.ETag = "*";
 
 如需詳細資訊，請參閱  
 
-* [佇列服務 REST API](http://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [取得訊息](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
+* [佇列服務 REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx)
+* [取得訊息](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## <a name="managing-concurrency-in-the-file-service"></a>管理檔案服務中的並行存取
 檔案服務可使用兩種不同的通訊協定端點來存取 – SMB 和 REST。 REST 服務不支援開放式鎖定或封閉式鎖定，且所有更新都將遵循「最後寫入為準」策略。 裝載檔案共用的 SMB 用戶端可利用檔案系統鎖定機制，來管理對共用檔案的存取 – 包括執行封閉式鎖定的功能。 SMB 用戶端在開啟檔案時，會同時指定檔案存取和共用模式。 將 [檔案存取] 選項設為 [寫入] 或 [讀取/寫入]，並將 [檔案共用] 模式設為 [無]，會使檔案被 SMB 用戶端鎖定，直到檔案關閉為止。 如果嘗試對已由 SMB 用戶端鎖定的檔案執行 REST 作業，REST 服務將會傳回狀態碼 409 (衝突) 和錯誤碼 SharingViolation。  
@@ -270,19 +270,19 @@ SMB 用戶端在開啟檔案以進行刪除時，會將檔案標示為「擱置�
 
 如需詳細資訊，請參閱  
 
-* [管理檔案鎖定](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
+* [管理檔案鎖定](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 ## <a name="summary-and-next-steps"></a>摘要和後續步驟
 Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式的需求，而不會迫使開發人員犧牲或再三考量主要的設計假設，例如已被開發人員視為理所當然的並行存取和資料一致性。  
 
 如需此部落格中參考的完整範例應用程式：  
 
-* [使用 Azure 儲存體管理並行存取 - 範例應用程式](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
+* [使用 Azure 儲存體管理並行存取 - 範例應用程式](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
 如需 Azure 儲存體的詳細資訊，請參閱：  
 
 * [Microsoft Azure 儲存體首頁](https://azure.microsoft.com/services/storage/)
 * [Azure 儲存體簡介](storage-introduction.md)
 * [Blob](../blobs/storage-dotnet-how-to-use-blobs.md)、[資料表](../../cosmos-db/table-storage-how-to-use-dotnet.md)、[佇列](../storage-dotnet-how-to-use-queues.md)及[檔案](../storage-dotnet-how-to-use-files.md)的儲存體入門
-* 儲存體架構 – [Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* 儲存體架構 – [Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

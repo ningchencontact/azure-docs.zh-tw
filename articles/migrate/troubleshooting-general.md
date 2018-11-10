@@ -1,23 +1,33 @@
 ---
-title: 針對 Azure Migrate 問題進行疑難排解 | Microsoft Docs
+title: 為 Azure Migrate 問題進行疑難排解 | Microsoft Docs
 description: 概括介紹 Azure Migrate 服務的已知問題以及常見錯誤的疑難排解訣竅。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/31/2018
 ms.author: raynew
-ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433492"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413328"
 ---
-# <a name="troubleshoot-azure-migrate"></a>針對 Azure Migrate 疑難排解
+# <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
 ## <a name="troubleshoot-common-errors"></a>常見問題疑難排解
 
-[Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 此文章可對 Azure Migrate 部署與使用方面的問題進行疑難排解。
+[Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 本文可對 Azure Migrate 部署與使用方面的問題進行疑難排解。
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>我使用連續探索 OVA，但我內部部署環境已刪除的 VM 仍顯示於入口網站中。
+
+連續探索設備只會持續收集效能資料，不會偵測內部部署環境中的任何組態變更 (也就是新增、刪除 VM 或新增磁碟等)。 如果內部部署環境中有組態變更，您可以執行下列動作，以在入口網站中反映變更：
+
+- 新增項目 (VM、磁碟、核心等)：若要在 Azure 入口網站中反映這些變更，您可以從設備停止探索，然後重新啟動。 這可確保所做的變更會在 Azure Migrate 專案中更新。
+
+   ![停止探索](./media/troubleshooting-general/stop-discovery.png)
+
+- 刪除 VM：基於設備的設計方式，刪除 VM 並不會有所反映，即使您停止探索後再重新啟動也一樣。 這是因為後續探索中的資料會附加至較舊的探索，而且不會受到覆寫。 在此情況下，您可以藉由從群組中移除 VM 並重新計算評定，以直接忽略入口網站中的 VM。
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>移轉專案建立失敗，發生「要求必須包含使用者識別標頭」錯誤。
 
@@ -43,9 +53,16 @@ ms.locfileid: "47433492"
 
 ## <a name="collector-errors"></a>收集器錯誤
 
-### <a name="deployment-of-collector-ova-failed"></a>收集器 OVA 的部署失敗
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Azure Migrate 收集器的部署失敗，發生錯誤：提供的資訊清單檔案無效：無效的 OVF 資訊清單項目。
 
-如果您使用 vSphere Web 用戶端來部署 OVA，但 OVA 只下載一部分或者由於瀏覽器的某些因素，就會發生這種錯誤。 請確認下載已完成，並使用不同的瀏覽器來部署 OVA。
+1. 藉由檢查其雜湊值，驗證是否正確下載了 Azure Migrate 收集器 OVA 檔案。 請參閱[文章](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance)以驗證雜湊值。 如果雜湊值不相符，請再次下載 OVA 檔案並重試部署。
+2. 如果仍然失敗，且您使用 VMware vSphere 用戶端部署 OVF，請嘗試透過 vSphere Web 用戶端部署它。 如果仍然失敗，請嘗試使用不同的網頁瀏覽器。
+3. 如果您是使用 vSphere Web 用戶端，並嘗試在 vCenter Server 6.5 上部署它，請嘗試依照下列步驟直接在 ESXi 主機上部署 OVA：
+  - 使用 Web 客戶端 (https://<*主機 IP 位址*>/ui) 直接連線至 ESXi 主機 (而不是 vCenter Server)
+  - 移至首頁 > 清查
+  - 按一下 [檔案] > 部署 OVF 範本 > 瀏覽至 OVA 並完成部署
+4. 如果部署仍然失敗，請連絡 Azure Migrate 的支援。
+
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>收集器無法連線到網際網路
 
@@ -63,7 +80,7 @@ ms.locfileid: "47433492"
 
 **收集器無法使用我從入口網站複製的專案識別碼和金鑰連線到專案。**
 
-請確定已複製並貼上正確的資訊。 若要進行疑難排解，請安裝 Microsoft Monitoring Agent (MMA) 並確認 MMA 是否可以連線至專案，如下所示：
+請確定已複製並貼上正確的資訊。 若要疑難排解，請安裝 Microsoft Monitoring Agent (MMA) 並確認 MMA 是否可以連線至專案，如下所示：
 
 1. 在收集器虛擬機器上，下載 [MMA](https://go.microsoft.com/fwlink/?LinkId=828603)。
 2. 若要開始安裝，請按兩下下載的檔案。
@@ -84,7 +101,7 @@ ms.locfileid: "47433492"
 
 ### <a name="vmware-powercli-installation-failed"></a>VMware PowerCLI 安裝失敗
 
-Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 PowerCLI 安裝失敗可能是因為無法連線到 PowerCLI 存放庫的端點。 若要解決問題，請試著使用下列步驟，在收集器 VM 中手動安裝 PowerCLI：
+Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 PowerCLI 安裝失敗可能是因為無法連線到 PowerCLI 儲存機制的端點。 若要解決問題，請試著使用下列步驟，在收集器 VM 中手動安裝 PowerCLI：
 
 1. 在系統管理員模式下開啟 Windows PowerShell
 2. 移至目錄 C:\ProgramFiles\ProfilerService\VMWare\Scripts\
@@ -142,7 +159,7 @@ Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>如果群組所含的 VM 超過 10 個，是否無法將其相依性視覺化？
 針對所含 VM 在 10 個以內的群組，您可以[將群組的相依性視覺化](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies)，如果您的群組所含 VM 超過 10 個，則建議您先將群組分割成較小的群組，再將相依性視覺化。
 
-## <a name="troubleshoot-readiness-issues"></a>針對整備問題進行疑難排解
+## <a name="troubleshoot-readiness-issues"></a>整備問題的疑難排解
 
 **問題** | 修正
 --- | ---
@@ -204,9 +221,8 @@ Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>收集器錯誤碼和建議的動作
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| 錯誤碼 | 錯誤名稱                      | 訊息                                                                       | 可能的原因                                                                                        | 建議的動作                                                                                                                          |
+| 錯誤碼 | 錯誤名稱   | 訊息   | 可能的原因 | 建議的動作  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | 收集器已過期。                                                        | 收集器已過期。                                                                                    | 請下載新版收集器，然後重試一次。                                                                                      |
 | 751       | UnableToConnectToServer        | 因為發生錯誤 %ErrorMessage;，所以無法連線至 vCenter Server '%Name;'     | 請查看錯誤訊息，以取得詳細資料。                                                             | 請解決問題，然後再試一次。                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | 伺服器 '%Name;' 並非 vCenter Server。                                  | 請提供 vCenter Server 詳細資料。                                                                       | 請使用正確的 vCenter Server 詳細資料重試作業。                                                                                   |

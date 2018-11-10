@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fbe3aeac3918142388edfa8cd053badd362d7fd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952819"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241917"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
-[資料科學虛擬機器](http://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](http://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。 
+[資料科學虛擬機器](https://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](https://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。 
 
 以下是 DSVM 上所提供之所有深度學習架構的詳細資料。
 
@@ -145,7 +145,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 ```
 
 使用 Deep Water：
-* * 在終端機：啟用 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 環境，然後執行 _python_。 <br/>
+* 在終端機：啟用 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 環境，然後執行 _python_。 <br/>
 * 在 JupyterHub：[連線到 JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後瀏覽至 deep_water 目錄以尋找範例筆記本。
 
 ## <a name="mxnet"></a>MXNet
@@ -174,7 +174,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
     sudo systemctl start digits
 
-服務需要約一分鐘才能啟動。 開啟網頁瀏覽器，並瀏覽至 `http://localhost:5000`。
+服務需要約一分鐘才能啟動。 開啟網頁瀏覽器，並瀏覽至 `http://localhost:5000`。 請注意，DIGITS 不提供安全登入，請勿在虛擬機器外公開。
 
 
 
