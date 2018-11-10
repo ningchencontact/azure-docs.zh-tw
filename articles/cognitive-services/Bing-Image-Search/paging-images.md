@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 019d91f6a86bab5c4f446085e0244f9b5323f1fb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294402"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739360"
 ---
 # <a name="paging-results"></a>分頁結果
 
@@ -61,3 +61,6 @@ Host: api.cognitive.microsoft.com
 
 > [!NOTE]
 > 逐頁瀏覽只適用於影像搜尋 (/images/search)，不適用於影像見解或發燒影像 (/images/trending)。
+
+> [!NOTE]
+> `TotalEstimatedAnswers` 欄位是針對您可從目前查詢中擷取之搜尋結果總數的估計。  當您設定 `count` 和 `offset` 參數時，`TotalEstimatedAnswers` 的數目可能會變更。 

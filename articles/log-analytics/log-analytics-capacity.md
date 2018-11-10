@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182615"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961937"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>使用容量和效能解決方案來規劃 Hyper-V 虛擬機器容量 (預覽)
 
@@ -50,8 +50,8 @@ ms.locfileid: "47182615"
 
 | 連接的來源 | 支援 | 說明 |
 |---|---|---|
-| [Windows 代理程式](log-analytics-windows-agent.md) | 是 | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
-| [Linux 代理程式](log-analytics-linux-agents.md) | 否    | 解決方案不會從直接 Linux 代理程式收集容量和效能資料的資訊。|
+| [Windows 代理程式](log-analytics-agent-windows.md) | 是 | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
+| [Linux 代理程式](log-analytics-quick-collect-linux-computer.md) | 否    | 解決方案不會從直接 Linux 代理程式收集容量和效能資料的資訊。|
 | [SCOM 管理群組](log-analytics-om-agents.md) | 是 |解決方案會從已連線之 SCOM 管理群組中的代理程式收集容量和效能資料。 不需要從 SCOM 代理程式直接連接到 Log Analytics。|
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | Azure 儲存體不包含容量和效能資料。|
 
@@ -64,7 +64,7 @@ ms.locfileid: "47182615"
 
 執行下列步驟以將容量和效能解決方案新增至您的工作區。
 
-- 使用[從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將「容量與效能」解決方案新增至您的 Log Analytics 工作區。
+- 使用[從方案庫加入 Log Analytics 方案](../monitoring/monitoring-solutions.md)中所述的程序，將「容量與效能」解決方案新增至您的 Log Analytics 工作區。
 
 ## <a name="management-packs"></a>管理組件
 
@@ -138,4 +138,4 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics 中的記錄搜尋](log-analytics-log-search.md)，來檢視詳細的容量和效能資料。
+* 使用 [Log Analytics 中的記錄搜尋](log-analytics-queries.md)，來檢視詳細的容量和效能資料。

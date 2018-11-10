@@ -4,16 +4,16 @@ description: 本文說明如何對複雜資料類型 (如 陣列、JSON、CSV �
 services: stream-analytics
 ms.service: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: 208dfd1d78437e4ae8270d599f6365ad70a708c7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 456167d3f17811aa77bb0c43165e5e70bb641814
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580137"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979007"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>在 Azure 串流分析中剖析 JSON 和 Avro 資料
 

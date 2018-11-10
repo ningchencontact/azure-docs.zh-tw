@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: e10bd04f37951f93db8af083692b7a2fe25ac9b7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 9d1229084410b6fe7c500a22f8e1e1aed1b8107d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347761"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227343"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>在 StorSimple Virtual Array 上安裝 Update 1.1
 
@@ -66,7 +66,7 @@ ms.locfileid: "39347761"
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>下載更新或 Hotfix
 
-1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com)。
+1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)。
 
 2. 如果這是您第一次在此電腦上使用 Microsoft Update Catalog，請在系統提示您安裝 Microsoft Update Catalog 附加元件時，按一下 [安裝]。
 
@@ -76,16 +76,16 @@ ms.locfileid: "39347761"
    
     ![搜尋目錄](./media/storsimple-virtual-array-install-update-11/download1.png)
 
-4. 按一下 [下載]。
+4. 按一下 [下載] 。
 
 5. 將兩個檔案下載至資料夾。 您也可以將資料夾複製到裝置可連線的網路共用位置。
 
 6. 開啟檔案所在的資料夾。
 
-    ![套件中的檔案](./media/storsimple-virtual-array-install-update-11/update01folder.png)
+    ![封裝中的檔案](./media/storsimple-virtual-array-install-update-11/update01folder.png)
 
     您會看到兩個檔案：
-    -  Microsoft Update 獨立套件檔案`WindowsTH-KB3011067-x64`。 此檔案用來更新裝置軟體。
+    -  Microsoft Update 獨立封裝檔案`WindowsTH-KB3011067-x64`。 此檔案用來更新裝置軟體。
     - 包含今年 6 月份累積更新的檔案 `Windows8.1-KB4284815-x64`。 如需有關此彙總套件中包含之內容的詳細資訊，請移至 [6 月份每月安全性彙總套件](https://support.microsoft.com/help/4284815/windows-81-update-kb4284815)。
 
 ### <a name="install-the-update-or-the-hotfix"></a>安裝更新或 Hotfix

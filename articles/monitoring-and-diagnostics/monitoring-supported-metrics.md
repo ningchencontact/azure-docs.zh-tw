@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962942"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964181"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 Azure 監視器提供數種與計量進行互動的方式，包括在入口網站中製作計量圖表、透過 REST API 存取計量，或使用 PowerShell 或 CLI 查詢計量。 以下是目前可供 Azure 監視器計量管線使用的所有計量完整清單。 其他計量可在入口網站中或使用舊版 API 提供。 下列清單只包含使用彙總 Azure 監視器計量管線時可供使用的計量。 若要查詢及存取這些計量，請使用 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -587,8 +587,8 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |devices.totalDevices|裝置總計 (已淘汰)|Count|總計|向 IoT 中樞註冊的裝置數目|無維度|
 |devices.connectedDevices.allProtocol|連接的裝置 (已淘汰) |Count|總計|連接至 IoT 中樞的裝置數目|無維度|
 |d2c.telemetry.egress.success|路由：已傳遞的遙測訊息|Count|總計|使用 IoT 中樞路由成功地將訊息傳遞到所有端點的次數。 如果將訊息路由至多個端點，這個值會為每一次成功傳遞加 1。 如果將訊息多次傳遞到同一個端點，這個值會為每一次成功傳遞加 1。|無維度|
-|d2c.telemetry.egress.dropped|路由：已捨棄的遙測訊息 |Count|總計|IoT 中樞路由因為端點無效而捨棄訊息的次數。 這個值不會計算傳遞到後援路由的訊息，因為捨棄的訊息不會傳遞到那裡。|無維度|
-|d2c.telemetry.egress.orphaned|路由：已遺棄的遙測訊息 |Count|總計|IoT 中樞路由因為訊息不符合任何路由規則 (包括後援規則) 而遺棄訊息的次數。 |無維度|
+|d2c.telemetry.egress.dropped|路由：已捨棄的遙測訊息 |Count|總計|IoT 中樞路由因為端點無效而捨棄訊息的次數。 這個值不會計算傳遞到後援路由的訊息，因為捨棄的訊息不會傳遞到那裡。|無維度|
+|d2c.telemetry.egress.orphaned|路由：已遺棄的遙測訊息 |Count|總計|IoT 中樞路由因為訊息不符合任何路由規則 (包括後援規則) 而遺棄訊息的次數。 |無維度|
 |d2c.telemetry.egress.invalid|路由：不相容的遙測訊息|Count|總計|IoT 中樞路由因為與端點不相容而無法傳遞訊息的次數。 這個值不包含重試次數。|無維度|
 |d2c.telemetry.egress.fallback|路由：傳遞至後援的訊息|Count|總計|IoT 中樞路由傳遞訊息至與後援路由相關聯之端點的次數。|無維度|
 |d2c.endpoints.egress.eventHubs|路由：傳遞至事件中樞的訊息|Count|總計|IoT 中樞路由成功將訊息傳遞至事件中樞端點的次數。|無維度|
@@ -1040,7 +1040,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |BackendRequestCount|後端要求計數|Count|總計|從 HTTP/S Proxy 傳送至後端的要求數|HttpStatus、HttpStatusGroup、Backend|
 |BackendRequestLatency|後端要求延遲|毫秒|平均值|從 HTTP/S Proxy 傳送要求到後端一直到 HTTP/S Proxy 從後端接收最後回應位元組之間算出的時間|後端|
 |TotalLatency|延遲總計|毫秒|平均值|從 HTTP/S Proxy 接收用戶端要求一直到用戶端認可來自 HTTP/S Proxy 的最後回應位元組之間算出的時間|HttpStatus、HttpStatusGroup、ClientRegion、ClientCountry|
-|BackendHealthPercentage|後端健全狀況百分比|百分比|平均值|從 HTTP/S Proxy 到後端的健全狀況探查成功百分比|Backend、BackendPool|
+|BackendHealthPercentage|後端健康情況百分比|百分比|平均值|從 HTTP/S Proxy 到後端的健全狀況探查成功百分比|Backend、BackendPool|
 |WebApplicationFirewallRequestCount|Web 應用程式防火牆要求計數|Count|總計|Web 應用程式防火牆處理的用戶端要求數|PolicyName、RuleName、Action|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -1303,7 +1303,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |reserved_storage_mb|保留的儲存體空間|Count|平均值|保留的儲存體空間|無維度|
 |storage_space_used_mb|使用的儲存體空間|Count|平均值|使用的儲存體空間|無維度|
 |io_requests|IO 要求計數|Count|平均值|IO 要求計數|無維度|
-|io_bytes_read|IO 位元組讀取|位元組|平均值|讀取的 IO 位元組|無維度|
+|io_bytes_read|讀取的 IO 位元組|位元組|平均值|讀取的 IO 位元組|無維度|
 |io_bytes_written|寫入的 IO 位元組|位元組|平均值|寫入的 IO 位元組|無維度|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
@@ -1570,6 +1570,6 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |MemoryPercentage|記憶體百分比|百分比|平均值|記憶體百分比|執行個體|
 
 ## <a name="next-steps"></a>後續步驟
-* [了解 Azure 監視器中的計量](monitoring-overview-metrics.md)
-* [建立計量警示](insights-receive-alert-notifications.md)
+* [了解 Azure 監視器中的計量](../monitoring/monitoring-data-collection.md)
+* [建立計量警示](monitoring-overview-alerts.md)
 * [將計量匯出至儲存體、事件中樞或 Log Analytics](monitoring-overview-of-diagnostic-logs.md)

@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 34293ffc70ebbc2a8639913aefe3b62ed8e618d4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a86b7375122d38d36707a419b265dcd3c1b57087
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222772"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741686"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>透過 HDInsight 從 Spark on YARN 存取 Azure Cosmos DB Cassandra API
 
@@ -34,7 +34,7 @@ ms.locfileid: "47222772"
 
 * **Spark2 中的 Cassandra API 組態** - 適用於 Cassandra 的 Spark 連接器需要將 Cassandra 連線詳細資料初始化以作為 Spark 內容的一部分。 當您啟動 Jupyter Notebook 時，Spark 工作階段和內容即已初始化，建議您不要停止並重新初始化 Spark 內容，除非初始化已完成，且每個組態皆設定為 HDInsight 預設 Jupyter Notebook 啟動程序的一部分。 有個解決方法是將 Cassandra 執行個體詳細資料直接新增至 Ambari (Spark2) 服務組態。 這是個別叢集的一次性活動，在完成後需要重新啟動 Spark2 服務。
  
-  1. 移至 Ambari (Spark2) 服務，然後按一下 [設定]
+  1. 移至 Ambari、Spark2 服務並選取設定
 
   2. 接著，移至自訂 spark2-defaults 並以下列方式新增屬性，然後重新啟動 Spark2 服務：
 

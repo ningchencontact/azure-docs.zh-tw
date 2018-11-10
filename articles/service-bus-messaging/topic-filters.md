@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: ac30718a92d76dedcb5b0ef3bdd2f282dd117720
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853516"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741057"
 ---
 # <a name="topic-filters-and-actions"></a>主題篩選和動作
 
@@ -30,7 +30,7 @@ ms.locfileid: "48853516"
 
 -   布林篩選 - **TrueFilter** 和 **FalseFilter** 能讓您針對訂用帳戶選取所有抵達的訊息 (**true**)，或所有抵達的訊息都不選取 (**false**)。
 
--   SQL 篩選 - **SqlFilter** 保留類似 SQL 的條件運算式，系統會在訊息代理程式中根據抵達訊息的使用者定義屬性和系統屬性進行評估。 條件運算式中的所有系統屬性都必須加上 `sys.` 前置詞。 [篩選條件的 SQL 語言子集](service-bus-messaging-sql-filter.md)能測試屬性是否存在 (`EXISTS`)，也能測試 Null 值 (`IS NULL`)、邏輯 NOT/AND/OR、關係運算子、簡單數值算數及符合 `LIKE` 的簡單文字模式。
+-   SQL 篩選 - **SqlFilter** 保留類似 SQL 的條件運算式，系統會在訊息代理程式中根據抵達訊息的使用者定義屬性和系統屬性加以評估。 條件運算式中的所有系統屬性都必須加上 `sys.` 前置詞。 [篩選條件的 SQL 語言子集](service-bus-messaging-sql-filter.md)能測試屬性是否存在 (`EXISTS`)，也能測試 Null 值 (`IS NULL`)、邏輯 NOT/AND/OR、關係運算子、簡單數值算數及符合 `LIKE` 的簡單文字模式。
 
 -   相互關聯篩選 - **CorrelationFilter** 能保留一組條件，比對抵達訊息中一或多個使用者或系統屬性。 常見的用法是比對 **CorrelationId** 屬性，不過應用程式也能選擇比對 **ContentType**、**Label**、**MessageId**、**ReplyTo**、**ReplyToSessionId**、**SessionId**、**To** 及任何使用者定義屬性。 當抵達訊息的某個屬性值等於在相互關聯篩選中指定的值時，代表一個相符項目。 字串運算式的比較會區分大小寫。 指定多個比對屬性時，篩選會將它們結合為邏輯 AND 條件，表示所有條件必須相符才算是篩選出相符項目。
 
@@ -40,7 +40,7 @@ ms.locfileid: "48853516"
 
 ## <a name="actions"></a>動作
 
-使用 SQL 篩選條件時，您可以定義動作來透過新增、移除或取代屬性和屬性值為訊息加入註解。 動作[使用類似 SQL 的運算式](service-bus-messaging-sql-filter.md)，其大致上仰賴 SQL UPDATE 陳述式語法。 系統會在訊息比對完成後，將訊息選入主題之前，針對訊息執行動作。 訊息屬性的變更僅涉及複製到訂用帳戶中的訊息。
+使用 SQL 篩選條件時，您可以定義動作來透過新增、移除或取代屬性和屬性值為訊息加入註解。 動作[使用類似 SQL 的運算式](service-bus-messaging-sql-filter.md)，其大致上仰賴 SQL UPDATE 陳述式語法。 系統會在訊息比對完成之後，以及在將訊息選取至訂用帳戶之前，針對訊息執行動作。 訊息屬性的變更僅涉及複製到訂用帳戶中的訊息。
 
 ## <a name="usage-patterns"></a>使用模式
 

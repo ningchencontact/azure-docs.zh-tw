@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 6c23e29238d393dc8d27128cfd6d785c0ac9f4c3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964555"
+---
 | 資源 | 目標 |
 |----------|---------------|
 | 單一 Blob 容器的大小上限 | 與儲存體帳戶容量上限相同 |

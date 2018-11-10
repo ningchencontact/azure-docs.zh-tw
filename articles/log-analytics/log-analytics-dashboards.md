@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: d906515214e042a09d434f02be1778c275f214a8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129307"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958129"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>建立用於 Log Analytics 中的自訂儀表板
 
@@ -88,4 +88,4 @@ ms.locfileid: "37129307"
 ![移除磚](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 在 Log Analytics 中建立[警示](log-analytics-alerts.md)，以產生通知並修復問題。
+* 在 Log Analytics 中建立[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)，以產生通知並修復問題。

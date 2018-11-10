@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 80679d6efd44598fbe403707ad2e757010eb8d91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423386"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741669"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模組
 
@@ -31,7 +31,7 @@ IoT Edge 模組映像包含應用程式，該應用程式會利用 IoT Edge 執�
 
 每次模組映像部署至裝置並且由 IoT Edge 執行階段啟動時，就會建立該模組的新執行個體。 在世界不同地方的兩個裝置可以使用相同的模組映像。不過在裝置上啟動模組時，每個裝置會有自己的模組執行個體。 
 
-![雲端中的模組映像 - 裝置上的模組執行個體][1]
+![雲端中的模組映像 - 裝置上的模組執行個體](./media/iot-edge-modules/image_instance.png)
 
 在實作中，容器映像在存放庫中存在為容器映像，而容器執行個體是裝置上的容器。 
 
@@ -46,23 +46,23 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 
 很明顯地，在案例中當您需要在相同裝置上部署一個模組映像多次時，您可以使用不同名稱部署相同映像多次。
 
-![模組身分識別是唯一的][2]
+![模組身分識別是唯一的](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>模組對應項
 
 每個模組執行個體也有對應的模組對應項，您可以用來設定模組執行個體。 執行個體和對應項是透過模組身分識別彼此相互關聯。 
 
-模組對應項是 JSON 文件，它會儲存模組資訊和設定屬性。 這個概念與 IoT 中樞的[裝置對應項][lnk-device-twin]概念相同。 模組對應項的結構與裝置對應項完全相同。 用來與這兩種對應項互動的 API 也相同。 兩者之間唯一的差別是用來具現化用戶端 SDK 的身分識別。 
+模組對應項是 JSON 文件，它會儲存模組資訊和設定屬性。 這個概念與 IoT 中樞的[裝置對應項](../iot-hub/iot-hub-devguide-device-twins.md)概念相同。 模組對應項的結構與裝置對應項完全相同。 用來與這兩種對應項互動的 API 也相同。 兩者之間唯一的差別是用來具現化用戶端 SDK 的身分識別。 
 
 ```csharp
-// Create a ModuleClient object. This ModuleClient will act on behalf of a 
-// module since it is created with a module’s connection string instead 
-// of a device connection string. 
-ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
-await client.OpenAsync(); 
- 
-// Get the module twin 
-Twin twin = await client.GetTwinAsync(); 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
+await client.OpenAsync(); 
+ 
+// Get the module twin 
+Twin twin = await client.GetTwinAsync(); 
 ```
 
 ## <a name="offline-capabilities"></a>離線功能
@@ -79,15 +79,8 @@ Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前會受
 其他離線功能可於公開預覽中取得。 如需詳細資訊，請參閱[了解適用於 IoT Edge 裝置、模組及子裝置的擴充離線功能](offline-capabilities.md)。
 
 ## <a name="next-steps"></a>後續步驟
- - [了解開發 IoT Edge 模組的需求和工具][lnk-mod-dev]
- - [了解 Azure IoT Edge 執行階段和架構][lnk-runtime]
+ - [了解開發 IoT Edge 模組的需求和工具](module-development.md)
+ - [了解 Azure IoT Edge 執行階段和架構](iot-edge-runtime.md)
 
 <!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

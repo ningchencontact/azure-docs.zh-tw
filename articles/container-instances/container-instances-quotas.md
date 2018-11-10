@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: danlep
-ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902345"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739680"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances 的配額和區域可用性
 
@@ -30,9 +30,9 @@ ms.locfileid: "48902345"
 | -------- | -- | :---: | :-----------: |
 | 美國東部、北歐、西歐、美國西部、美國西部 2 | Linux | 4 | 14 |
 | 澳大利亞東部、美國東部 2、東南亞 | Linux | 2 | 7 |
-| 印度中部、美國中南部 | Linux | 2 | 3.5 |
+| 加拿大中部、印度中部、美國中南部 | Linux | 2 | 3.5 |
 | 美國東部、西歐、美國西部 | Windows | 4 | 14 |
-| 澳大利亞東部、印度中部、美國東部 2、北歐、美國中南部、東南亞、美國西部 2 | Windows | 2 | 3.5 |
+| 澳大利亞東部、加拿大中部、印度中部、美國東部 2、北歐、美國中南部、東南亞、美國西部 2 | Windows | 2 | 3.5 |
 
 在這些資源限制下建立的容器執行個體都會受限於部署地區的可用性。 地區負載過重時，您在部署執行個體時可能會失敗。 若要減少這類的部署失敗，請嘗試部署 CPU 和記憶體設定較低階的執行個體，或過一段時間再部署。
 

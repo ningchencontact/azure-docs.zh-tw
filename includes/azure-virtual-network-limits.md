@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006468"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219883"
 ---
 <a name="virtual-networking-limits-classic"></a>下列限制僅適用於透過每個訂用帳戶的傳統部署模型所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -21,7 +21,7 @@ ms.locfileid: "47006468"
 | --- | --- | --- |
 | 虛擬網路 |50 |100 |
 | 區域網路網站 |20 |連絡支援人員 |
-| 每一虛擬網路的 DNS 伺服器 |20 |100 |
+| 每一虛擬網路的 DNS 伺服器 |20 |20 |
 | 每個虛擬網路的私人 IP 位址 |4096 |4096 |
 | 虛擬機器或角色執行個體之每個 NIC 的並行 TCP 或 UDP 流程 |500K |500K |
 | 網路安全性群組 (NSG) |100 |200 |

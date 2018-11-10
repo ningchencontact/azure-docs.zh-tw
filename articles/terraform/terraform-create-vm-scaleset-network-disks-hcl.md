@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5fe85d74b247e890790ec577d813d42f15290cde
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140903"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228397"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>使用 Terraform 來建立 Azure 虛擬機器擴展集
 
@@ -569,6 +569,6 @@ terraform destroy
 在本文中，您會了解如何使用 Terraform 來建立 Azure 虛擬機器擴展集。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform： 
 
  [Microsoft.com 中的 Terraform 中樞](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 提供者文件](http://aka.ms/terraform)  
- [Terraform Azure 提供者來源](http://aka.ms/tfgit)  
- [Terraform Azure 模組](http://aka.ms/tfmodules)
+ [Terraform Azure 提供者文件](https://aka.ms/terraform)  
+ [Terraform Azure 提供者來源](https://aka.ms/tfgit)  
+ [Terraform Azure 模組](https://aka.ms/tfmodules)

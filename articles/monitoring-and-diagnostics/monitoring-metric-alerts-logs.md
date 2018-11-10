@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 62b5c8fd0a63e660cd4126755d94ea90cf4d412b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388292"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961155"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>為 Azure 監視器中的記錄建立計量警示  
 
@@ -22,8 +22,8 @@ Azure 監視器支援的[計量警示類型](monitoring-near-real-time-metric-al
 
 您可以將計量警示使用在「來自記錄的計量」程序所擷取作為計量的常用 Log Analytics 記錄上，包括 Azure 或內部部署中的資源。 以下列出支援的 Log Analytics 解決方案：
 - Windows 和 Linux 電腦的[效能計數器](../log-analytics/log-analytics-data-sources-performance-counters.md)
-- [代理程式健全狀況的活動訊號記錄](../operations-management-suite/oms-solution-agenthealth.md)
-- [更新管理](../operations-management-suite/oms-solution-update-management.md)記錄
+- [代理程式健全狀況的活動訊號記錄](../monitoring/monitoring-solution-agenthealth.md)
+- [更新管理](../automation/automation-update-management.md)記錄
 - [事件資料](../log-analytics/log-analytics-data-sources-windows-events.md)記錄
  
 在 Azure 中對以查詢為基礎的[記錄警示](alert-log.md)使用**記錄的計量警示**有許多優點；以下列出一部分優點：
@@ -47,7 +47,7 @@ Azure 監視器支援的[計量警示類型](monitoring-near-real-time-metric-al
 在針對 Log Analytics 資料所收集記錄的計量發揮作用之前，必須先設定並提供下列各項：
 1. **使用中的 Log Analytics 工作區**：有效且使用中的 Log Analytics 工作區必須存在。 如需詳細資訊，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
 2. **為 Log Analytics 工作區設定代理程式**：需要為 Azure VM (和/或) 內部部署 VM 設定代理程式，才能將資料傳送至先前步驟中使用的 Log Analytics 工作區。 如需詳細資訊，請參閱 [Log Analytics - 代理程式概觀](../monitoring/monitoring-overview-azure-agents.md)。
-3. **已安裝支援的 Log Analytics 解決方案**：應設定 Log Analytics 解決方案並將資料傳送至 Log Analytics 工作區 - 支援的解決方案為 [Windows 和 Linux 效能計數器](../log-analytics/log-analytics-data-sources-performance-counters.md)、[代理程式健康情況的活動訊號記錄](../operations-management-suite/oms-solution-agenthealth.md)、更新管理以及[事件資料](../log-analytics/log-analytics-data-sources-windows-events.md)。
+3. **已安裝支援的 Log Analytics 解決方案**：應設定 Log Analytics 解決方案並將資料傳送至 Log Analytics 工作區 - 支援的解決方案為 [Windows 和 Linux 效能計數器](../log-analytics/log-analytics-data-sources-performance-counters.md)、[代理程式健康情況的活動訊號記錄](../monitoring/monitoring-solution-agenthealth.md)、更新管理以及[事件資料](../log-analytics/log-analytics-data-sources-windows-events.md)。
 4. **設定 Log Analytics 解決方案以傳送記錄**：Log Analytis 解決方案應啟用對應至 [Log Analytics 工作區所支援計量](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)的必要記錄/資料。 例如，您必須先在[效能計數器](../log-analytics/log-analytics-data-sources-performance-counters.md)解決方案中設定其 *% Available Memory* 計數器。
 
 ## <a name="configuring-metric-alert-for-logs"></a>設定記錄的計量警示

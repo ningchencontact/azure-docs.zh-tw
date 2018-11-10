@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93b79b7adacdec18912d28bb9725e2dc77737d59
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2190978b2583b2f5d8a1b10431c65fd24fe6842d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050758"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228142"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>在 Windows Server 上升級獨立的 Azure Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -43,9 +43,9 @@ ms.locfileid: "43050758"
 兩個不同的工作流程可以將您的叢集升級至最新版本或支援的 Service Fabric 版本。 一個工作流程適用於具備連線能力而可自動下載最新版本的叢集。 另一個工作流程則適用於不具備連線能力因而無法下載最新 Service Fabric 版本的叢集。
 
 ### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>升級具有連線能力而可下載最新程式碼和組態的叢集
-如果您的叢集節點與 [Microsoft 下載中心](http://download.microsoft.com)的網際網路連線，則可以使用這些步驟將您的叢集升級至支援的版本。
+如果您的叢集節點與 [Microsoft 下載中心](https://download.microsoft.com)的網際網路連線，則可以使用這些步驟將您的叢集升級至支援的版本。
 
-對於可以連線至 [Microsoft 下載中心](http://download.microsoft.com)的叢集，Microsoft 會定期檢查新版本 Service Fabric 的可用性。
+對於可以連線至 [Microsoft 下載中心](https://download.microsoft.com)的叢集，Microsoft 會定期檢查新版本 Service Fabric 的可用性。
 
 當新的 Service Fabric 版本可用時，系統會將套件下載至本機叢集並佈建以進行升級。 除了通知客戶這個新版本之外，系統會顯示明確的叢集健全狀況警告，如下所示：
 
@@ -106,7 +106,7 @@ ms.locfileid: "43050758"
     在解決導致復原的問題後，請依照先前所述的相同步驟再次起始升級。
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>升級*沒有連線能力*因而無法下載最新程式碼和組態的叢集
-如果您的叢集節點未與 [Microsoft 下載中心](http://download.microsoft.com)的網際網路連線，則可以使用這些步驟將您的叢集升級至支援的版本。
+如果您的叢集節點未與 [Microsoft 下載中心](https://download.microsoft.com)的網際網路連線，則可以使用這些步驟將您的叢集升級至支援的版本。
 
 > [!NOTE]
 > 如果您正在執行的叢集未連線至網際網路，您必須關注 Service Fabric 小組部落格，以便得知新版本的消息。 系統不會顯示叢集健康狀態警告來提醒您有新版本。  

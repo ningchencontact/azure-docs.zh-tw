@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 031524f4ef00b57f598c1114d594fb70eeedd15b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e9db20a1458c398913387e40d247400ee933578b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393995"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912300"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>透過 IoT Edge 裝置閘道連線 Modbus TCP 裝置
 
@@ -99,5 +99,5 @@ docker logs -f modbus
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解有關 IoT Edge 裝置如何才能作為閘道的詳細資訊，請參閱[建立作為透明閘道的 IoT Edge 裝置](./how-to-create-transparent-gateway-linux.md)
+- 若要了解有關 IoT Edge 裝置如何才能作為閘道的詳細資訊，請參閱[建立作為透明閘道的 IoT Edge 裝置](./how-to-create-transparent-gateway.md)
 - 如需有關 IoT Edge 模組如何運作的詳細資訊，請參閱[了解 Azure IoT Edge 模組](iot-edge-modules.md)

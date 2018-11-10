@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a46564c324edb1999a2e1b1d482817685df2893
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205981"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228533"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -141,7 +141,7 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * 在 [Microsoft Azure 主儀表板](https://portal.azure.com)中，查看服務健全狀況對應。 如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
-* 也請查閱 [我們的狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
+* 也請查閱 [我們的狀態部落格](https://blogs.msdn.com/b/applicationinsights-status/)。
 * 您針對[伺服器端 SDK](app-insights-api-custom-events-metrics.md) 撰寫的任何程式碼是否可能會變更 `TelemetryClient` 執行個體或 `TelemetryContext` 中的檢測金鑰？ 或者您撰寫的 [篩選或取樣組態](app-insights-api-filtering-sampling.md) 可能會篩選出過多項目？
 * 如果您編輯過 ApplicationInsights.config，請仔細檢查 [TelemetryInitializers 和 TelemetryProcessors](app-insights-api-filtering-sampling.md)的組態。 不當命名的類型或參數可能導致 SDK 不會傳送任何資料。
 
@@ -158,7 +158,7 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 請參閱[相依性遙測](app-insights-asp-net-dependencies.md)和[例外狀況遙測](app-insights-asp-net-exceptions.md)。
 
 ## <a name="no-performance-data"></a>沒有效能資料
-效能資料 (CPU、IO 速率等等) 適用於 [Java Web 服務](app-insights-java-collectd.md)、[Windows 傳統型應用程式](app-insights-windows-desktop.md)、[IIS Web 應用程式和服務 (若您安裝狀態監視器)](app-insights-monitor-performance-live-website-now.md) 和 [Azure 雲端服務](app-insights-azure.md)。 您將會在 [設定]、[伺服器] 之下看到該資料。
+效能資料 (CPU、IO 速率等等) 適用於 [Java Web 服務](app-insights-java-collectd.md)、[Windows 傳統型應用程式](app-insights-windows-desktop.md)、[IIS Web 應用程式和服務 (若您安裝狀態監視器)](app-insights-monitor-performance-live-website-now.md) 和 [Azure 雲端服務](app-insights-overview.md)。 您將會在 [設定]、[伺服器] 之下看到該資料。
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>我發佈應用程式到我的伺服器之後卻沒有 (伺服器) 資料
 * 請確認您實際上已複製所有 Microsoft. ApplicationInsights DLL 到伺服器，並且連帶 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll ApplicationInsights Dll 一併複製。
@@ -167,7 +167,7 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 * Windows Server 2008：確定您已安裝以下更新：[KB2468871](https://support.microsoft.com/kb/2468871)、[KB2533523](https://support.microsoft.com/kb/2533523)、[KB2600217](https://support.microsoft.com/kb/2600217)。
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>我曾經看到資料，但是已停止
-* 檢查 [狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
+* 檢查 [狀態部落格](https://blogs.msdn.com/b/applicationinsights-status/)。
 * 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>我並沒有看到預期的所有資料

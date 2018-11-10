@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe1fe5d270dd8eb871301a8ec81375f35b2568da
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0083c157eab489943f94ed1453c66a5c8d2f291a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096577"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960291"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights 中的智慧型偵測
  「智慧型偵測」會自動警告您 Web 應用程式中的可能效能問題。 它會針對您應用程式傳送給 [Application Insights](app-insights-overview.md) 的遙測執行主動式分析。 如果失敗率急遽上升或是用戶端或伺服器效能出現異常模式，您就會收到警示。 這項功能不需要進行任何設定。 只要您的應用程式傳送的遙測足夠，它就能發揮作用。
@@ -57,7 +57,7 @@ ms.locfileid: "47096577"
 
 * [計量瀏覽器](app-insights-metrics-explorer.md)
 * [搜尋總管](app-insights-diagnostic-search.md)
-* [分析 - 功能強大的查詢語言](app-insights-analytics-tour.md)
+* [分析 - 功能強大的查詢語言](../log-analytics/query-language/get-started-analytics-portal.md)
 
 「智慧型偵測」是全自動的。 但是，或許您會想要再設定一些警示？
 

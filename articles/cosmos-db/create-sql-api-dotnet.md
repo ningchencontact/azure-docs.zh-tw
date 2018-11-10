@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 clicktale: true
-ms.openlocfilehash: 36265685b9bc43e95c6d7bc1e7a9ad3c52835b36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 506d21589ee8c5d284bd9ffc430d8b1d40afb910
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977990"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741720"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>教學課程：使用 SQL API 和 Azure 入口網站建置採用 Azure Cosmos DB 的 .NET 應用程式
 
@@ -120,7 +120,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，於您 Azure Cosmos DB 帳戶的左側瀏覽區中，按一下 [金鑰]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將 URI 和主要金鑰複製到 web.config 檔案。
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，於您 Azure Cosmos DB 帳戶的左側瀏覽區中，選取 [金鑰]，然後選取 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將 URI 和主要金鑰複製到 web.config 檔案。
 
     ![在 Azure 入口網站的 [金鑰] 刀鋒視窗中檢視並複製存取金鑰](./media/create-sql-api-dotnet/keys.png)
 
@@ -139,15 +139,15 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     `<add key="database" value="Tasks" />`    
     
 ## <a name="run-the-web-app"></a>執行 Web 應用程式
-1. 在 Visual Studio 中，於 [方案總管] 中的專案上按一下滑鼠右鍵，然後按一下 [管理 NuGet 套件]。 
+1. 在 Visual Studio 中，於 [方案總管] 中的專案上按一下滑鼠右鍵，然後選取 [管理 NuGet 套件]。 
 
 2. 在 NuGet [瀏覽] 方塊中，輸入 *DocumentDB*。
 
 3. 從結果中，安裝 **Microsoft.Azure.DocumentDB** 程式庫。 這會安裝 Microsoft.Azure.DocumentDB 套件以及所有相依性。
 
-4. 按 CTRL + F5 來執行應用程式。 您的應用程式會顯示在瀏覽器中。 
+4. 選取 CTRL + F5 以執行應用程式。 您的應用程式會顯示在瀏覽器中。 
 
-5. 按一下瀏覽器中的 [新建]，然後在您的待辦事項應用程式中建立一些新工作。
+5. 選取瀏覽器中的 [新建]，然後在您的待辦事項應用程式中建立一些新工作。
 
    ![具有範例資料的待辦事項應用程式](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 

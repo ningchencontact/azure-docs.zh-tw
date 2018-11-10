@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 28be3a1734639ac175e4d18d9e9f21b83b9a7e7c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c8a15e8d609624ff22a831c832e48ef59c640a1b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093997"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958197"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 監視 Node.js 服務和應用程式
 
@@ -212,7 +212,7 @@ server.on("listening", () => {
 ## <a name="next-steps"></a>後續步驟
 
 * [在入口網站中監視遙測](app-insights-dashboards.md)
-* [寫您的遙測的分析查詢](app-insights-analytics-tour.md)
+* [寫您的遙測的分析查詢](../log-analytics/query-language/get-started-analytics-portal.md)
 
 <!--references-->
 

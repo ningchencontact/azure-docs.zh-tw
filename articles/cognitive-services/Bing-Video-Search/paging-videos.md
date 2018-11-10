@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: cd5d6ef6a75088d02bc34558f66ed520c230e06b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225560"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741882"
 ---
 # <a name="paging-videos"></a>逐頁瀏覽影片
 
@@ -65,3 +65,6 @@ Host: api.cognitive.microsoft.com
 
 > [!NOTE]
 > 逐頁瀏覽只適用於影片搜尋 (/videos/search)，而不適用於影片見解 (/videos/details) 或發燒影片 (/videos/trending)。
+
+> [!NOTE]
+> `TotalEstimatedAnswers` 欄位是針對您可從目前查詢中擷取之搜尋結果總數的估計。  當您設定 `count` 和 `offset` 參數時，`TotalEstimatedAnswers` 的數目可能會變更。 

@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 09f827e8784fe2a97c587524d70baf76ae4458ba
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269491"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741856"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是彈性、快速的全域複寫資料庫，適合用於 IoT、遊戲、零售，以及操作記錄應用程式。 這類應用程式常用的設計模式，是利用資料的變更啟動其他動作的進行。 其他的動作可能是下列其中一個： 
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是彈性、快速的全域複寫資料庫，適合用於 IoT、遊戲、零售，以及操作記錄應用程式。 這類應用程式常用的設計模式，是利用資料的變更啟動其他動作的進行。 其他的動作可能是下列其中一項： 
 
 * 於插入或修改文件時觸發 API 通知或呼叫。
 * 進行 IoT 資料流處理或執行分析。
@@ -54,7 +54,7 @@ Azure Cosmos DB 中的變更摘要支援是靠接聽 Azure Cosmos DB 集合的�
 * 變更記錄檔中只會包含指定文件的最新變更。 中繼變更可能無法使用。
 * 變更摘要會依照各個資料分割索引鍵值內的修改順序排序。 跨資料分割索引鍵值順序不會是固定的。
 * 變更可以從任何時間點同步處理，也就是說，可用變更沒有固定的資料保留期限。
-* 變更會以資料分割索引鍵區塊為單位提供。 此功能可讓大型集合的變更由多個取用者/伺服器平行處理。
+* 變更會以資料分割索引鍵區塊為單位提供。 這項功能可讓大型集合的變更由多個取用者/伺服器平行處理。
 * 應用程式可以同時要求同一個集合的多個變更摘要。
 * ChangeFeedOptions.StartTime 可用來提供初始的起點，例如，用來尋找對應到指定時鐘時間的接續權杖。 ContinuationToken 如經指定，會優先於 StartTime 和 StartFromBeginning 值。 ChangeFeedOptions.StartTime 的精確度為 5 秒內。 
 
@@ -77,7 +77,7 @@ Azure Cosmos DB 中的變更摘要支援是靠接聽 Azure Cosmos DB 集合的�
 此外，在您的 [serverless](http://azure.com/serverless) Web 和行動應用程式內，您可以追蹤例如變更客戶設定檔、喜好設定或位置等的事件，以觸發像是使用 [Azure Functions](#azure-functions) 傳送推播通知到客戶裝置的特定動作。 例如，如果您使用 Azure Cosmos DB 來建置遊戲，就可以根據完成遊戲的分數，使用變更摘要來實作即時排行榜。
 
 <a id="azure-functions"></a>
-## <a name="using-azure-functions"></a>使用 Azure Functions 
+## <a name="using-azure-functions"></a>使用 Azure Functions 
 
 如果您使用 Azure Functions，要與 Azure Cosmos DB 變更摘要連線最簡單的方式，是在您的 Azure Functions 應用程式新增 Azure Cosmos DB 觸發程序。 當您在 Azure Functions 應用程式中 建立 Azure Cosmos DB 觸發程序時，需選取要連線的 Azure Cosmos DB 集合，以及集合每次變更時要觸發的函式。 
 
@@ -88,7 +88,7 @@ Azure Cosmos DB 中的變更摘要支援是靠接聽 Azure Cosmos DB 集合的�
 
 Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理變更摘要的所有功能。 但是，能力愈強責任愈多。 如果您想要管理檢查點、處理文件序號，並能夠更精確地控制分割區索引鍵，那麼，使用 SDK 可能是正確的方法。
 
-此節逐步解說如何使用 SQL SDK 運用變更摘要。
+本節逐步解說如何使用 SQL SDK 運用變更摘要。
 
 1. 首先，讀取 appconfig 中的下列資源。 擷取端點和授權金鑰的指示，可於[更新連接字串](create-sql-api-dotnet.md#update-your-connection-string)中找到。
 
@@ -100,7 +100,7 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
     string authorizationKey = ConfigurationManager.AppSettings["authKey"];
     ```
 
-2. 依照下列方式建立用戶端：
+2. 遵循下列方式建立用戶端：
 
     ```csharp
     using (client = new DocumentClient(new Uri(endpointUrl), authorizationKey,
@@ -114,9 +114,9 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
     ```csharp
     FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
         collectionUri,
-        new FeedOptions
-            {RequestContinuation = pkRangesResponseContinuation });
-     
+        new FeedOptions
+            {RequestContinuation = pkRangesResponseContinuation });
+     
     partitionKeyRanges.AddRange(pkRangesResponse);
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     ```
@@ -125,29 +125,29 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
-        string continuation = null;
-        checkpoints.TryGetValue(pkRange.Id, out continuation);
-        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-            collectionUri,
-            new ChangeFeedOptions
-            {
-                PartitionKeyRangeId = pkRange.Id,
-                StartFromBeginning = true,
-                RequestContinuation = continuation,
-                MaxItemCount = -1,
-                // Set reading time: only show change feed results modified since StartTime
-                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
-            });
-        while (query.HasMoreResults)
-            {
-                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collectionUri,
+            new ChangeFeedOptions
+            {
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = -1,
+                // Set reading time: only show change feed results modified since StartTime
+                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
+            });
+        while (query.HasMoreResults)
+            {
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
     
-                foreach (dynamic changedDocument in readChangesResponse)
-                    {
-                         Console.WriteLine("document: {0}", changedDocument);
-                    }
-                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
-            }
+                foreach (dynamic changedDocument in readChangesResponse)
+                    {
+                         Console.WriteLine("document: {0}", changedDocument);
+                    }
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            }
     }
     ```
 
@@ -158,24 +158,24 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 
 如果您有多個讀取器，可以使用 **ChangeFeedOptions** 將讀取負載分配至不同的執行緒或不同的用戶端。
 
-就這麼簡單，只要這幾行程式碼，您便可以開始讀取變更摘要。 您可以從 [GitHub 存放庫](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)取得此文章中使用的完整程式碼。
+就這麼簡單，只要這幾行程式碼，您便可以開始讀取變更摘要。 您可以從 [GitHub 儲存機制](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)取得本文中使用的完整程式碼。
 
 在上述的步驟 4 程式碼中，最後一行的 **ResponseContinuation** 中有最後一個邏輯序號 (LSN)，下一次您讀取新文件時會用到這個序號 (新文件在這個序號之後)。 利用 **ChangeFeedOption** 的 **StartTime**，可以加大取得文件的範圍。 因此，如果您的 **ResponseContinuation** 是 null，但 **StartTime** 是過去的時間，則會取得自 **StartTime** 開始變更過的所有文件。 但是，如果 **ResponseContinuation** 有值，則系統會取得自 LSN 開始的所有文件。
 
 因此，您的檢查點陣列只保留每個分割區的 LSN。 但是，如果您不想處理分割區、檢查點、LSN、開始時間等，更簡單的做法是使用變更摘要處理器程式庫。
 
 <a id="change-feed-processor"></a>
-## <a name="using-the-change-feed-processor-library"></a>使用變更摘要處理器程式庫 
+## <a name="using-the-change-feed-processor-library"></a>使用變更摘要處理器程式庫 
 
 [Azure Cosmos DB 變更摘要處理器程式庫](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed)可幫助您輕鬆地將事件處理分散給多個取用者。 此程式庫會簡化跨分割區和多個平行運作執行緒上的變更讀取。
 
 變更摘要處理器程式庫的主要優點是您不需要管理每個分割區和接續權杖，也不需要手動輪詢每個集合。
 
-變更摘要處理器程式庫可以簡化跨分割區和多個平行運作執行緒上的變更讀取。  它會使用租用機制自動管理所有分割區上的變更讀取。 如您在下圖中所見，如果您啟動了使用變更摘要處理器程式庫的兩個用戶端，它們會在彼此之中分割工作。 當您繼續增加用戶端，它們會繼續在彼此之中分割工作。
+變更摘要處理器程式庫可以簡化跨分割區和多個平行運作執行緒上的變更讀取。  它會使用租用機制自動管理所有分割區上的變更讀取。 如您在下圖中所見，如果您啟動了使用變更摘要處理器程式庫的兩個用戶端，它們會在彼此之中分割工作。 當您繼續增加用戶端，它們會繼續在彼此之中分割工作。
 
 ![Azure Cosmos DB 變更摘要的分散式處理](./media/change-feed/change-feed-output.png)
 
-左邊的用戶端會先啟動，而且它會開始監視所有分割區，接著啟動第二個用戶端，然後第一個用戶端將部分租用釋出給第二個用戶端。 如您所見，這是在不同電腦與用戶端之間分散工作的好方法。
+先啟動左邊的用戶端，它開始並啟監視所有分割區，接著啟動第二個用戶端，然後第一個將部份放租用釋出給第二個用戶端。 如您所見，這是在不同電腦與用戶端之間分散工作的好方法。
 
 請注意，如果您有兩個無伺服器的 Azure 函式使用相同的租用在監視相同的集合，則這兩個函式可能會得到不同的文件，取決於處理器程式庫決定如何處理分割區。
 
@@ -375,7 +375,7 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 
 就這麼簡單！ 執行這幾個步驟之後，文件會開始顯示於 **DocumentFeedObserver ProcessChangesAsync** 方法中。
 
-上述程式碼為說明之用，以顯示不同類型的物件及其互動。 您必須定義適當的變數，並且以正確的值啟動這些變數。 您可以從 [GitHub 存放庫](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2)取得此文章中使用的完整程式碼。
+上述程式碼為說明之用，以顯示不同類型的物件及其互動。 您必須定義適當的變數，並且以正確的值啟動這些變數。 您可以從 [GitHub 儲存機制](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2)取得本文中使用的完整程式碼。
 
 > [!NOTE]
 > 如以上的程式碼所示，在您的程式碼或組態檔中，永遠都不應該有主要金鑰。 請參閱[如何使用 Key Vault 擷取金鑰](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/) (英文)。
@@ -433,7 +433,7 @@ Azure Functions 會使用預設的連線原則。 您可以在 Azure Functions �
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>我的文件每秒更新一次，而我沒有收到接聽變更摘要之 Azure Functions 中的所有變更。
 
-Azure Functions 每 5 秒輪詢變更摘要一次，因此，5 秒內所做的任何變更都將遺失。 Azure Cosmos DB 每 5 秒僅儲存一次單一版本，因此您會得到該文件第五次變更的版本。 不過，如果您想要讓時間少於 5 秒，而希望每秒輪詢變更摘要一次，則可設定輪詢時間 "feedPollTime"，請參閱 [Azure Cosmos DB 繫結](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)。 它以毫秒為單位定義，預設值為 5000。 低於 1 秒是可行的 (但不建議)，因為您會耗用更多 CPU。
+Azure Functions 每 5 秒輪詢變更摘要一次，因此，5 秒內所做的任何變更都將遺失。 Azure Cosmos DB 每 5 秒僅儲存一次單一版本，因此您會得到該文件第五次變更的版本。 不過，如果您想要讓時間少於 5 秒，而希望每秒輪詢變更摘要一次，則可設定輪詢時間 "feedPollDelay"，請參閱 [Azure Cosmos DB 繫結](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)。 它以毫秒為單位定義，預設值為 5000。 低於 1 秒是可行的 (但不建議)，因為您會耗用更多 CPU。
 
 ### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>我在 Mongo API 集合中已插入文件，但是當我在變更摘要中取得文件時，其顯示的是不同的 ID 值。 這其中發生什麼狀況？
 

@@ -2,7 +2,7 @@
 title: 媒體服務 PlayReady 授權範本概觀
 description: 本主題提供了用來設定 PlayReady 授權之 PlayReady 授權範本的概觀。
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 74a2eb579f38cfc885234fac7fd3ad4be1747ad7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 780fa37351ec590beff6fd2d9e80ec8f22afa84d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783657"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228499"
 ---
 # <a name="media-services-playready-license-template-overview"></a>媒體服務 PlayReady 授權範本概觀
 Azure 媒體服務現在有提供傳遞 PlayReady 授權的服務。 當播放程式 (例如 Silverlight) 嘗試播放受 PlayReady 保護的內容時，會將要求傳送到授權傳遞服務來取得授權。 如果授權服務核准要求，就會發出授權以傳送給用戶端，並將它用來解密和播放所指定內容。
@@ -81,7 +81,7 @@ XML 需符合 PlayReady 授權範本 XML 結構描述，該結構描述定義於
 > 
 > 
 
-如需 Silverlight 支援的保護層級範例，請參閱 [Silverlight 的輸出保護支援](http://go.microsoft.com/fwlink/?LinkId=617318) \(英文\)。
+如需 Silverlight 支援的保護層級範例，請參閱 [Silverlight 的輸出保護支援](https://go.microsoft.com/fwlink/?LinkId=617318) \(英文\)。
 
 ## <a id="schema"></a>PlayReady 授權範本 XML 結構描述
     <?xml version="1.0" encoding="utf-8"?>

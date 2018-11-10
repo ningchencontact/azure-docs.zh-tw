@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 49ee6b7fabe78c2328a2a772347c612ad38cfe7a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8e4c97a710cc9e6d3af4ebdd7dc97bda9f8d02ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091714"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228431"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中樞和 Node.js 傳送推播通知
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "44091714"
 如需通知中心的詳細資訊，請參閱 [後續步驟](#next) 一節。
 
 ## <a name="what-are-notification-hubs"></a>什麼是通知中心？
-Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以將推播通知傳送至行動裝置。 如需服務基礎結構的詳細資訊，請參閱 [Azure 通知中樞](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 頁面。
+Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以將推播通知傳送至行動裝置。 如需服務基礎結構的詳細資訊，請參閱 [Azure 通知中樞](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 頁面。
 
 ## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 本教學課程的第一個步驟是建立新的空白 Node.js 應用程式。 如需有關建立 Node.js 應用程式的指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][nodejswebsite]、使用 Windows PowerShell 的 [Node.js 雲端服務][Node.js Cloud Service]，或[使用 WebMatrix 的網站][webmatrix]。
@@ -141,11 +141,11 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 * **Tags** - 標籤識別碼。 若未提供標籤，通知會傳送至所有用戶端。
 * **Payload** - 訊息的 XML 承載。
 * **TargetName** - 快顯通知的 `toast`。 `token` 代表磚通知。
-* **NotificationClass** - 通知的優先順序。 如需有效值，請參閱[來自伺服器的推播通知](http://msdn.microsoft.com/library/hh221551.aspx)文件的＜HTTP 標頭元素＞一節。
+* **NotificationClass** - 通知的優先順序。 如需有效值，請參閱[來自伺服器的推播通知](https://msdn.microsoft.com/library/hh221551.aspx)文件的＜HTTP 標頭元素＞一節。
 * **Options** - 選用的要求標頭。
 * **Callback** - 回呼函數。
 
-如需有效 **TargetName**、**NotificationClass** 及標頭選項的清單，請參閱[來自伺服器的推播通知](http://msdn.microsoft.com/library/hh221551.aspx)頁面。
+如需有效 **TargetName**、**NotificationClass** 及標頭選項的清單，請參閱[來自伺服器的推播通知](https://msdn.microsoft.com/library/hh221551.aspx)頁面。
 
 下列範例程式碼會使用 **NotificationHubService** 所公開的 **MpnsService** 執行個體來傳送快顯推播通知：
 
@@ -165,7 +165,7 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 * **Options** - 選用的要求標頭。
 * **Callback** - 回呼函數。
 
-如需有效類型和要求標頭的清單，請參閱 [推播通知服務要求和回應標頭](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx)。
+如需有效類型和要求標頭的清單，請參閱 [推播通知服務要求和回應標頭](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx)。
 
 下列程式碼會使用 **NotificationHubService** 所公開的 **WnsService** 執行個體，將快顯推播通知傳送至 UWP 應用程式：
 

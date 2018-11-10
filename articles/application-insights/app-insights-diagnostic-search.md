@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bf722756ed04349a06cbcb7b9686e6340e8d4b6c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038761"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958401"
 ---
 # <a name="using-search-in-application-insights"></a>在 Application Insights 中使用搜尋
 「搜尋」是 [Application Insights](app-insights-overview.md) 的一項功能，可用來尋找及探索個別遙測項目，例如頁面檢視、例外狀況或 Web 要求。 而您可以檢視所編寫的記錄追蹤和事件。
 
-(若要對您的資料執行更複雜的查詢，請使用[分析](app-insights-analytics-tour.md)。)
+(若要對您的資料執行更複雜的查詢，請使用[分析](../log-analytics/query-language/get-started-analytics-portal.md)。)
 
 ## <a name="where-do-you-see-search"></a>「搜尋」在哪裡？
 
@@ -102,7 +102,7 @@ ms.locfileid: "47038761"
 ## <a name="search-the-data"></a>搜尋資料
 
 > [!NOTE]
-> 若要撰寫更複雜的查詢，請從 [搜尋] 刀鋒視窗頂端開啟 [[分析](app-insights-analytics-tour.md)]。
+> 若要撰寫更複雜的查詢，請從 [搜尋] 刀鋒視窗頂端開啟 [[分析](../log-analytics/query-language/get-started-analytics-portal.md)]。
 > 
 
 您可以搜尋任何屬性值中的字詞。 如果您已編寫具有屬性值的[自訂事件](app-insights-api-custom-events-metrics.md)，這特別實用。 
@@ -163,8 +163,8 @@ ms.locfileid: "47038761"
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="add"></a>後續步驟
-* [在分析中撰寫複雜的查詢](app-insights-analytics-tour.md)
+## <a name="add"></a>接續步驟
+* [在分析中撰寫複雜的查詢](../log-analytics/query-language/get-started-analytics-portal.md)
 * [將記錄和自訂遙測傳送至 Application Insights](app-insights-asp-net-trace-logs.md)
 * [設定可用性和回應性測試](app-insights-monitor-web-app-availability.md)
 * [疑難排解](app-insights-troubleshoot-faq.md)
