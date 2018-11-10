@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102737"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228193"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>使用 BizTalk 服務狀態可執行以及不可執行的作業分別有哪些
 
@@ -53,10 +53,10 @@ ms.locfileid: "24102737"
 
 
 ## <a name="see-also"></a>另請參閱
-* [您可以在 BizTalk 服務的儀表板、監視和調整索引標籤中執行哪些作業](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [您可以從 BizTalk 服務中的開發人員、基本、標準和高級版本取得哪些功能](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [如何備份和還原 BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk 服務中說明的節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-* [針對 BizTalk 服務擷取服務匯流排以及存取控制簽發者名稱和簽發者金鑰值](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-* [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [您可以在 BizTalk 服務的儀表板、監視和調整索引標籤中執行哪些作業](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [您可以從 BizTalk 服務中的開發人員、基本、標準和高級版本取得哪些功能](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [如何備份和還原 BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk 服務中說明的節流](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [針對 BizTalk 服務擷取服務匯流排以及存取控制簽發者名稱和簽發者金鑰值](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 

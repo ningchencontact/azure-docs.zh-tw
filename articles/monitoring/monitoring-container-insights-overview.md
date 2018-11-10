@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 13fde8a4ec4ecf43b9997d5d4d181a232505626f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b90aa9e3c627708b2640086b2b812b8c7079e5bf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212993"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912525"
 ---
 # <a name="azure-monitor-for-containers-preview-overview"></a>適用於容器的 Azure 監視器 (預覽) 概觀
 
 適用於容器的 Azure 監視器是一項功能，其設計訴求是要監視部署至 Azure Kubernetes Service (AKS) 上所裝載受控 Kubernetes 叢集的容器工作負載效能。 監視容器很重要，尤其在您使用多個應用程式大規模執行生產環境叢集時。
 
-適用於容器的 Azure 監視器可藉由透過計量 API 從 Kubernetes 中取得的控制器、節點與容器來收集記憶體與處理器計量，為您提供效能可見度。 容器記錄也會一併收集。  當您從 Kubernetes 叢集啟用監視之後，系統就會透過適用於 Linux 的 Log Analytics 代理程式容器化版本自動收集這些計量和記錄，並儲存在您的 [Log Analytics](../log-analytics/log-analytics-overview.md) 工作區中。 
+適用於容器的 Azure 監視器可藉由透過計量 API 從 Kubernetes 中取得的控制器、節點與容器來收集記憶體與處理器計量，為您提供效能可見度。 容器記錄也會一併收集。  當您從 Kubernetes 叢集啟用監視之後，系統就會透過適用於 Linux 的 Log Analytics 代理程式容器化版本自動收集這些計量和記錄，並儲存在您的 [Log Analytics](../log-analytics/log-analytics-queries.md) 工作區中。 
  
 ## <a name="what-does-azure-monitor-for-containers-provide"></a>適用於容器的 Azure 監視器提供哪些功能？
 

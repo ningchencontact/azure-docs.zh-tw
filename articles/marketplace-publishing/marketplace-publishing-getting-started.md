@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715996"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227394"
 ---
 > [!NOTE]
 > 本文件並非最新版本，且資訊並不準確。 如需在 Azure Marketplace 發佈供應項目的說明資訊，請改至 Azure Marketplace [賣方指南](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide)。
@@ -28,7 +28,7 @@ ms.locfileid: "39715996"
 此文章可協助開發人員建立解決方案、部署並管理他們在 Azure Marketplace 中列出的解決方案，讓其他 Azure 客戶與合作夥伴可進行購買及使用。
 
 ## <a name="marketplace-publishing"></a>Marketplace 發佈
-身為 Azure 發行者，您可以將創新的解決方案或服務散發和販售給 Marketplace 中的其他開發人員、ISV 和 IT 專業人員。 透過 Marketplace，您可以接觸到想要快速開發其雲端型應用程式和行動解決方案的客戶。 如果您的解決方案是以商務使用者為目標，則您可能要考慮 [AppSource](http://appsource.microsoft.com) Marketplace。
+身為 Azure 發行者，您可以將創新的解決方案或服務散發和販售給 Marketplace 中的其他開發人員、ISV 和 IT 專業人員。 透過 Marketplace，您可以接觸到想要快速開發其雲端型應用程式和行動解決方案的客戶。 如果您的解決方案是以商務使用者為目標，則您可能要考慮 [AppSource](https://appsource.microsoft.com) Marketplace。
 
 
 ## <a name="supported-types-of-solutions"></a>支援的解決方案類型
@@ -51,7 +51,7 @@ ms.locfileid: "39715996"
 >[!NOTE]
 > 如果您與合作夥伴帳戶管理員或 DX 合作夥伴管理員合作，請要求他們提名讓您的解決方案能夠加入 Azure 認證計劃。 您也可以移至 [Microsoft Azure 認證](http://createopportunity.azurewebsites.net)網頁，然後填妥申請表單。 在 [Microsoft 贊助者連絡人] 方塊中輸入您的夥伴客戶經理或 DX 夥伴經理的電子郵件。
 
-如果您符合 [Azure Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)的資格條件，且您的應用程式獲得核准，我們就會開始與您合作將您的解決方案上架到 Marketplace。
+如果您符合 [Azure Marketplace 參與原則](https://go.microsoft.com/fwlink/?LinkID=526833)的資格條件，且您的應用程式獲得核准，我們就會開始與您合作將您的解決方案上架到 Marketplace。
 
 ### <a name="register-your-account-as-a-microsoft-seller"></a>將您的帳戶註冊為 Microsoft 賣方
 將您的 Microsoft 帳戶註冊為 [Microsoft 開發人員帳戶](marketplace-publishing-accounts-creation-registration.md)。

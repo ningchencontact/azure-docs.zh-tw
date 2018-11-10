@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: e35686e7ba7c2e88d62930082d39856673a661b6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 482bfe41ebfec7353466f7e243e9e767caee7828
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782447"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228278"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>使用 AzCopy 將 VHD 檔案上傳到實驗室的儲存體帳戶
 
@@ -33,11 +33,11 @@ ms.locfileid: "33782447"
 
 ## <a name="step-by-step-instructions"></a>逐步指示
 
-下列步驟將逐步引導您使用 [AzCopy](http://aka.ms/downloadazcopy) 將 VHD 檔案上傳到 Azure DevTest Labs。 
+下列步驟將逐步引導您使用 [AzCopy](https://aka.ms/downloadazcopy) 將 VHD 檔案上傳到 Azure DevTest Labs。 
 
 1. 使用 Azure 入口網站來取得實驗室的儲存體帳戶名稱：
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
 1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 
@@ -65,7 +65,7 @@ ms.locfileid: "33782447"
 
 1. 使用 AzCopy 來上傳 VHD 檔案：
  
-1. [下載並安裝最新版的 AzCopy](http://aka.ms/downloadazcopy)。
+1. [下載並安裝最新版的 AzCopy](https://aka.ms/downloadazcopy)。
 
 1. 開啟命令視窗，然後瀏覽至 AzCopy 安裝目錄。 您可以視需要將 AzCopy 安裝位置新增到您的系統路徑。 AzCopy 預設會安裝到下列目錄：
 

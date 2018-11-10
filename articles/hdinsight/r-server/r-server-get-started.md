@@ -3,18 +3,18 @@ title: 開始使用 HDInsight 上的 ML 服務 - Azure
 description: 了解如何在包含 ML 服務的 HDInsight 叢集上建立 Apache Spark，並在叢集上提交 R 指令碼。
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7b3d2d47db733d1290bccca0e44958098451324e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 0811f0e115545a37b6c570c436900a8548adae61
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046407"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006357"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>開始使用 Azure HDInsight 上的 ML 服務
 

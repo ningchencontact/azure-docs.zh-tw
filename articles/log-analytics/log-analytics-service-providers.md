@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: ef3cc76c0188cb2a0d3236d462d0645e3e45040b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ef1956f5283105548ba8790b87e82c35d6c9e1cd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044275"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960934"
 ---
 # <a name="log-analytics-for-service-providers"></a>服務提供者的 Log Analytics
 Log Analytics 可協助管理服務提供者 (MSP)、大型企業、獨立軟體廠商 (ISV) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。 
@@ -31,7 +31,7 @@ Log Analytics 可協助管理服務提供者 (MSP)、大型企業、獨立軟體
 
 ## <a name="architectures-for-service-providers"></a>服務提供者的架構
 
-Log Analytics 工作區可讓系統管理員控制記錄檔的流程與隔離，以及建立因應其特定商務需求的記錄檔架構。 [此文章](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)說明工作區管理的一般考量。 服務提供者會有其他考量。
+Log Analytics 工作區可讓系統管理員控制記錄檔的流程與隔離，以及建立因應其特定商務需求的記錄檔架構。 [本文](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)說明工作區管理的一般考量。 服務提供者會有其他考量。
 
 服務提供者對於 Log Analytics 工作區有三個可能的架構：
 
@@ -82,6 +82,6 @@ Log Analytics 工作區可讓系統管理員控制記錄檔的流程與隔離，
 ## <a name="next-steps"></a>後續步驟
 * 使用 [Resource Manager 範本](log-analytics-template-workspace-configuration.md)建立和設定工作區
 * 使用 [PowerShell](log-analytics-powershell-workspace-configuration.md)自動建立工作區 
-* 使用[警示](log-analytics-alerts.md)與現有的系統整合
+* 使用[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)與現有的系統整合
 * 使用 [Power BI](log-analytics-powerbi.md) 來產生摘要報告
 * 檢閱[設定 Log Analytics 與 Power BI 來監視多個 CSP 客戶](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)的程序

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8498033163ce3dece96b856b294f97e00bb811d3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 9105b7f44a9677b2b843305c30fec30c74dd8be5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633293"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958486"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流︰以 1 秒的延遲進行監視與診斷
 
@@ -203,7 +203,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.A
 
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Application Insights 監視使用情況](app-insights-web-track-usage.md)
+* [使用 Application Insights 監視使用情況](app-insights-usage-overview.md)
 * [使用診斷搜尋](app-insights-diagnostic-search.md)
 * [分析工具](app-insights-profiler.md)
 * [快照集偵錯工具](app-insights-snapshot-debugger.md)

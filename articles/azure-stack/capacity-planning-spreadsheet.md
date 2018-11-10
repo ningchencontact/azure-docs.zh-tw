@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 5ebddbf1fea49fbf868d15a544a18e5a8c6369fd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078302"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740836"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner 為用於 Azure Stack 資源容量規劃的試算表。 此容量規劃工具可讓您設計各種運算資源的配置，進而了解這些配置如何與選取之硬體供應項目相應。 以下提供使用 Azure Stack Calculator 的詳細指示。
@@ -56,7 +56,7 @@ Azure Stack 提供作為解決方案合作夥伴所安裝之軟體的整合系�
 ## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint 指示
 若要建立使用不同大小和數量之 VM 的單一集合建立模型，請選取 [DefineByVMFootprint] 索引標籤，並遵循此步驟順序。
 
-1. 在此工作表的右上角中，使用所提供之下拉式清單方塊控制項，以選取您想安裝於各硬體系統 (SKU) 的初始伺服器數量 (4 與 12 之間)。 此伺服器數量可在模型化程序期間隨時修改，以了解此數量如何影響資源配置模型的整體可用資源。
+1. 在此工作表的右上角中，使用所提供之下拉式清單方塊控制項，以選取您想安裝於各硬體系統 (SKU) 的初始伺服器數量 (介於 4 與 16 之間)。 此伺服器數量可在模型化程序期間隨時修改，以了解此數量如何影響資源配置模型的整體可用資源。
 2. 如果您想針對一個特定硬體組態建立各種 VM 資源配置，請找出頁面右上角之「目前的 SKU」標籤正下方的藍色下拉式清單方塊。 下拉此清單方塊，然後選取您需要的硬體 SKU。
 3. 您現在已準備好開始將各種大小的 VM 新增置模型。 若要包含特定的 VM 類型，請在該 VM 項目左側的藍色外框方塊內輸入數量值。
 
@@ -73,7 +73,7 @@ Azure Stack 提供作為解決方案合作夥伴所安裝之軟體的整合系�
 > [!TIP]
 > 若要變更 Azure Stack VM 的儲存體大小，請檢視上一節步驟三中的附註。
 
-1. 在此頁面的右上角中，使用所提供之下拉式清單方塊控制項，以選取您想安裝於各硬體系統 (SKU) 的初始伺服器數量 (4 與 12 之間)。
+1. 在此頁面的右上角中，使用所提供之下拉式清單方塊控制項，以選取您想安裝於各硬體系統 (SKU) 的初始伺服器數量 (介於 4 與 16 之間)。
 2. 如果您想針對一個特定硬體組態建立各種 VM 資源配置，請找出頁面右上角之「目前的 SKU」標籤正下方的藍色下拉式清單方塊。 下拉此清單方塊，然後選取您需要的硬體 SKU。
 3. 根據上節 DefineByVMFootprint 指示步驟三所述，針對 DefineByVMFootprint 頁面上各個所需的 Azure Stack VM，選取適當的儲存體大小。 每個 VM 的儲存體大小均定義於 DefineByVMFootprint 表。
 4. 從 DefineByWorkloadFootprint 頁面的左上角開始，透過輸入包含於該工作負載內的各 VM 類型數量，針對最多六個不同的工作負載類型建立組態。 透過在該工作負載名稱正下方的欄位，輸入數值即可完成。 工作負載名稱可修改，以反映將由此特定組態所支援的工作負載類型。

@@ -4,11 +4,7 @@ description: 如何部署 Azure Load Balancer 和負載平衡 VM 的 IPv6 支援
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 keywords: ipv6, azure load balancer, 雙重堆疊, 公用 ip, 原生 ipv6, 行動, iot
-ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -16,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 431b43979ac364d943c58c40b4199b7f30f9acf6
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 14a28fb341692c309ff4f965628b38a767c56633
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263073"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740735"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>使用範本部署配置有 IPv6 的網際網路面向負載平衡器解決方案
 
@@ -115,8 +111,8 @@ Azure Resource Manager 範本可包含多個變數和參數，讓您自訂自己
 | --- | --- |
 | adminUsername |指定用來登入虛擬機器的系統管理員帳戶名稱。 |
 | adminPassword |指定用來登入虛擬機器的系統管理員帳戶密碼。 |
-| dnsNameforIPv4LbIP |指定您想要指派為負載平衡器公用名稱的 DNS 主機名稱。 這個名稱會解析為負載平衡器的公用 IPv4 位址。 此名稱必須是小寫，並符合規則運算式：^ [a-z][a-z0-9-]{1,61}[a-z0-9]$。 |
-| dnsNameforIPv6LbIP |指定您想要指派為負載平衡器公用名稱的 DNS 主機名稱。 這個名稱會解析為負載平衡器的公用 IPv6 位址。 此名稱必須是小寫，並符合規則運算式：^ [a-z][a-z0-9-]{1,61}[a-z0-9]$。 這可以和 IPv4 位址的名稱相同。 當名稱相同時，若用戶端傳送此名稱的 DNS 查詢，Azure 將傳回 A 和 AAAA 記錄。 |
+| dnsNameforIPv4LbIP |指定您想要指派為負載平衡器公用名稱的 DNS 主機名稱。 這個名稱會解析為負載平衡器的公用 IPv4 位址。 此名稱必須是小寫，並符合規則運算式：^[a-z][a-z0-9-]{1,61}[a-z0-9]$。 |
+| dnsNameforIPv6LbIP |指定您想要指派為負載平衡器公用名稱的 DNS 主機名稱。 這個名稱會解析為負載平衡器的公用 IPv6 位址。 此名稱必須是小寫，並符合規則運算式：^[a-z][a-z0-9-]{1,61}[a-z0-9]$。 這可以和 IPv4 位址的名稱相同。 當名稱相同時，若用戶端傳送此名稱的 DNS 查詢，Azure 將傳回 A 和 AAAA 記錄。 |
 | vmNamePrefix |指定 VM 名稱前置詞。 建立 VM 時，範本會在名稱上附加一個數字 (0、1 等等)。 |
 | nicNamePrefix |指定網路介面名稱前置詞。 建立網路介面時，範本會在名稱上附加一個數字 (0、1 等等)。 |
 | storageAccountName |輸入現有儲存體帳戶的名稱，或指定範本所建立的新儲存體帳戶的名稱。 |

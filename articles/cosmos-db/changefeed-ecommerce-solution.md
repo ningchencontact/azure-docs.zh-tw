@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145742"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740972"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>使用 Azure Cosmos DB 變更摘要以視覺方式呈現即時資料分析
 
@@ -104,7 +104,7 @@ Azure Cosmos DB 變更摘要是可在記錄建立或修改的同時，從 Azure 
    * 針對 [儲存體容量]，選取 [不受限]。  
    * 針對 [資料分割索引鍵] 欄位，輸入 **/Item**。 此欄位會區分大小寫，請務必正確輸入。  
    * 針對 [輸送量] 欄位，輸入 **10000**。  
-   * 按一下 [確定] 按鈕。  
+   * 選取 [確定] 按鈕。  
 
 3. 接著，建立名為 **leases** 的另一個集合，以進行變更摘要處理。 租用集合會協調如何處理多個背景工作間的變更摘要。 另外會有一個集合用來儲存租用 (每個分割區一個租用)。  
 
@@ -114,7 +114,7 @@ Azure Cosmos DB 變更摘要是可在記錄建立或修改的同時，從 Azure 
    * 針對 [集合識別碼] 欄位，輸入 **leases**。  
    * 針對 [儲存體容量]，選取 [固定]。  
    * 將 [輸送量] 欄位保留為預設值。  
-   * 按一下 [確定] 按鈕。
+   * 選取 [確定] 按鈕。
 
 ## <a name="get-the-connection-string-and-keys"></a>取得連接字串和金鑰
 
@@ -207,7 +207,7 @@ Azure 串流分析是一項完全受控、可即時處理串流資料的雲端�
    * 將 [事件序列化格式] 保留為 [JSON]。  
    * 將 [編碼] 欄位保留為 [UTF-8]。  
    * 將 [事件壓縮類型] 欄位保留為 [無]。  
-   * 按一下 [儲存]  按鈕。
+   * 選取 [儲存] 按鈕。
 
 5. 瀏覽回串流分析作業頁面，並選取 [輸出]。  
 
@@ -219,10 +219,10 @@ Azure 串流分析是一項完全受控、可即時處理串流資料的雲端�
    * 將 [群組工作區] 欄位保留為 [授權連線以載入工作區]。  
    * 在 [資料集名稱] 欄位中，輸入 **averagePrice**。  
    * 在 [資料表名稱] 欄位中，輸入 **averagePrice**。  
-   * 按一下 [授權] 按鈕，然後依照指示授權對 Power BI 的連線。  
-   * 按一下 [儲存]  按鈕。  
+   * 選取 [授權] 按鈕，然後依照指示授權對 Power BI 的連線。  
+   * 選取 [儲存] 按鈕。  
 
-8. 接著，返回 **streamjob1** 並按一下 [編輯查詢]。
+8. 接著，返回 **streamjob1** 並選取 [編輯查詢]。
 
    ![Edit query](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -235,9 +235,9 @@ Azure 串流分析是一項完全受控、可即時處理串流資料的雲端�
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. 然後，按一下位於左上角的 [儲存]。  
+10. 然後，選取位於左上角的 [儲存]。  
 
-11. 現在請返回 **streamjob1**，然後按一下頁面頂端的 [啟動] 按鈕。 Azure 串流分析可能需要幾分鐘的時間才會啟動，但啟動後您就會看到它從「啟動中」變更為「執行中」。
+11. 現在請返回 **streamjob1**，然後選取頁面頂端的 [啟動] 按鈕。 Azure 串流分析可能需要幾分鐘的時間才會啟動，但啟動後您就會看到它從「啟動中」變更為「執行中」。
 
 ## <a name="connect-to-power-bi"></a>連線至 Power BI
 
@@ -249,9 +249,9 @@ Power BI 是一套商務分析工具，用來分析資料及分享見解。 它�
 
 3. 選取位於右上角的 [+ 新增圖格]。  
 
-4. 選取 [自訂串流資料]，然後按 [下一步] 按鈕。  
+4. 選取 [自訂串流資料]，然後選取 [下一步] 按鈕。  
  
-5. 從 [您的資料集] 中選取 **averagePrice**，然後按 [下一步]。  
+5. 從 [您的資料集] 中選取 **averagePrice**，然後選取 [下一步]。  
 
 6. 在 [視覺效果類型] 欄位中，從下拉式功能表中選擇 [群組橫條圖]。 在 [軸] 下方新增動作。 略過 [圖例] 而不新增任何項目。 然後，在名為 [值] 的下一個區段下方，新增 [平均值]。選取 [下一步]，然後為圖表加上標題，並選取 [套用]。 您應該會在儀表板上看到新的圖表！  
 
@@ -261,7 +261,7 @@ Power BI 是一套商務分析工具，用來分析資料及分享見解。 它�
    b. **輸出別名：** top5Output、資料集名稱：top5、資料表名稱：top5  
    c. **輸出別名：** uniqueVisitorCountOutput、資料集名稱：uniqueVisitorCount、資料表名稱：uniqueVisitorCount
 
-   然後，按一下 [編輯查詢]，並在您已撰寫的查詢**上方**貼上下列查詢。
+   然後，選取 [編輯查詢]，並在您已撰寫的查詢**上方**貼上下列查詢。
 
    ```sql
     /*TOP 5*/
@@ -329,7 +329,7 @@ Power BI 是一套商務分析工具，用來分析資料及分享見解。 它�
 
    以**不受限的**儲存體容量，在名為 **topItems** 的 **changefeedlabdatabase** 下新增另一個集合。 寫入 **/Item** 作為資料分割索引鍵。
 
-2. 按一下 **topItems** 集合，然後在 [調整與設定] 下將 [存留時間] 設定為 **30 秒**，讓 topItems 每 30 秒更新一次。
+2. 選取 **topItems** 集合，然後在 [調整與設定] 下將 [存留時間] 設定為 **30 秒**，讓 topItems 每 30 秒更新一次。
 
    ![存留時間](./media/changefeed-ecommerce-solution/time-to-live.png)
 

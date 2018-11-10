@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 65585e6c09def23101d9735c8b9c719d213938ac
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1aaa753c91a324621dc66fab23e5fed3a9d11d01
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887398"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912760"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>在 Azure 中設定管理解決方案目標 (預覽)
 當您將管理解決方案新增至訂用帳戶時，預設會將該解決方案自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。  您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。  本文說明如何使用**設定解決方案目標**，此功能可讓您將範圍套用至解決方案。
@@ -74,5 +74,5 @@ ms.locfileid: "33887398"
 - 代理程式健康狀態評估
 
 ## <a name="next-steps"></a>後續步驟
-- 在[將 Azure Log Analytics 管理解決方案新增至您的工作區](../log-analytics/log-analytics-add-solutions.md)中深入了解管理解決方案，包含可在您的環境中安裝的可用解決方案。
+- 在[將 Azure Log Analytics 管理解決方案新增至您的工作區](monitoring-solutions.md)中深入了解管理解決方案，包含可在您的環境中安裝的可用解決方案。
 - 在 [Log Analytics 記錄檔搜尋中的電腦群組](../log-analytics/log-analytics-computer-groups.md)中深入了解建立電腦群組。

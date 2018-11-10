@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e9f082b795325349001b5231304588e5297a1443
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421062"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960713"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>將 Azure 診斷記錄檔串流至 Log Analytics
 
@@ -96,7 +96,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>如何查詢 Log Analytics 中的資料？
 
-在入口網站的 [記錄搜尋] 刀鋒視窗或 Log Analytics 隨附的 [進階分析] 體驗中，您可以在 [AzureDiagnostics] 資料表底下查詢「記錄管理」解決方案隨附的診斷記錄。 此外，也有[數個適用於 Azure 資源的解決方案](../log-analytics/log-analytics-add-solutions.md)，您可以安裝這些解決方案來立即深入了解要傳送到 Log Analytics 的記錄資料。
+在入口網站的 [記錄搜尋] 刀鋒視窗或 Log Analytics 隨附的 [進階分析] 體驗中，您可以在 [AzureDiagnostics] 資料表底下查詢「記錄管理」解決方案隨附的診斷記錄。 此外，也有[數個適用於 Azure 資源的解決方案](../monitoring/monitoring-solutions.md)，您可以安裝這些解決方案來立即深入了解要傳送到 Log Analytics 的記錄資料。
 
 ## <a name="next-steps"></a>後續步驟
 

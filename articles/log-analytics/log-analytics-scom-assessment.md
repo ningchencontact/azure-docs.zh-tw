@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 7ce8afa04751cd38e64b9ed920a6f863781e3ad1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.component: ''
+ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126276"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006510"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 
@@ -212,7 +212,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 
 ## <a name="use-health-check-focus-area-recommendations"></a>使用健康情況檢查焦點區域建議
 
-在使用 Log Analytics 中的健康情況檢查解決方案之前，您必須先安裝解決方案。 若要深入了解如何安裝解決方案，請參閱[安裝管理解決方案](log-analytics-add-solutions.md)。 安裝之後，您可以在 Azure 入口網站中的工作區 [概觀] 頁面上，使用 [System Center Operations Manager 健全狀況檢查] 圖格來檢視建議摘要。
+在使用 Log Analytics 中的健康情況檢查解決方案之前，您必須先安裝解決方案。 若要深入了解如何安裝解決方案，請參閱[安裝管理解決方案](../monitoring/monitoring-solutions.md)。 安裝之後，您可以在 Azure 入口網站中的工作區 [概觀] 頁面上，使用 [System Center Operations Manager 健全狀況檢查] 圖格來檢視建議摘要。
 
 檢視基礎結構的總結法務遵循評估結果，然後再深入鑽研建議事項。
 
@@ -238,7 +238,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
     ```
 
     >[!NOTE]
-    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-queries.md)，則以上查詢會變更如下。
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
     ```
 
     >[!NOTE]
-    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-queries.md)，則以上查詢會變更如下。
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ AdvisorAssessment.exe 程序在哪裡執行？ AdvisorAssessment.exe 會在啟�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [搜尋記錄](log-analytics-log-searches.md)可讓您了解如何分析詳細的 System Center Operations Manager 健康情況檢查資料和建議。
+- [搜尋記錄](log-analytics-queries.md)可讓您了解如何分析詳細的 System Center Operations Manager 健康情況檢查資料和建議。

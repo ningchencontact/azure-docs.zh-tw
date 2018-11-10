@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 526ba73858322ee41f649a338f22226da6af33e7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421181"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964036"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT Service Management Connector 將 Azure 連線到 ITSM 工具
 
@@ -157,13 +157,13 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 您也可以在服務對應解決方案中，將針對受影響電腦同步處理的事件視覺化。
 
-服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 如果您想到您的伺服器，ADM 可讓您以互連系統 (提供重要服務) 的形式檢視它們。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連接架構的伺服器、處理程序和連接埠之間的連接。 [深入了解](../operations-management-suite/operations-management-suite-service-map.md)。
+服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 如果您想到您的伺服器，ADM 可讓您以互連系統 (提供重要服務) 的形式檢視它們。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連接架構的伺服器、處理程序和連接埠之間的連接。 [深入了解](../monitoring/monitoring-service-map.md)。
 
 如果您使用服務對應解決方案，則可檢視 ITSM 解決方案中建立的服務台項目，如下列範例中所示：
 
 ![Log Analytics 畫面](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-詳細資訊︰[服務對應](../operations-management-suite/operations-management-suite-service-map.md)
+詳細資訊︰[服務對應](../monitoring/monitoring-service-map.md)
 
 
 ## <a name="additional-information"></a>其他資訊

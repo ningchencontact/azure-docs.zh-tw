@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 38537f3e2884160a99d333f1414d3f45755cd4f9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404608"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005218"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics 中的 VMware 監視 (預覽) 解決方案
 
@@ -42,7 +42,7 @@ Log Analytics 中的 VMware 監視解決方案是一個可協助您針對大型 
 vSphere ESXi 主機 5.5、6.0 和 6.5
 
 #### <a name="prepare-a-linux-server"></a>準備 Linux 伺服器
-建立 Linux 作業系統 VM 來接收來自 ESXi 主機的所有 syslog 資料。 [Log Analytics Linux 代理程式](log-analytics-linux-agents.md)是所有 ESXi 主機 syslog 資料的收集點。 您可以使用多個 ESXi 主機將記錄檔轉送到單一 Linux 伺服器，如下列範例所示。
+建立 Linux 作業系統 VM 來接收來自 ESXi 主機的所有 syslog 資料。 [Log Analytics Linux 代理程式](log-analytics-quick-collect-linux-computer.md)是所有 ESXi 主機 syslog 資料的收集點。 您可以使用多個 ESXi 主機將記錄檔轉送到單一 Linux 伺服器，如下列範例所示。
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
@@ -131,7 +131,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 按一下任何刀鋒視窗以開啟 Log Analytics 搜尋窗格，窗格中會顯示該刀鋒視窗的詳細資訊。
 
-您可以在此編輯搜尋查詢，修改查核來尋找特定目標。 如需有關建立記錄搜尋的詳細資料，請參閱[在 Log Analytics 中使用記錄搜尋以尋找資料](log-analytics-log-searches.md)。
+您可以在此編輯搜尋查詢，修改查核來尋找特定目標。 如需有關建立記錄搜尋的詳細資料，請參閱[在 Log Analytics 中使用記錄搜尋以尋找資料](log-analytics-queries.md)。
 
 #### <a name="find-esxi-host-events"></a>尋找 ESXi 主機事件
 單一 ESXi 主機會產生多個記錄檔，取決於其程序。 VMware 監視解決方案會將它們集中在一起，並總結事件計數。 這個集中式的檢視可幫助您了解哪些 ESXi 主機有大量的事件，以及在您的環境中最常發生哪些事件。
@@ -165,7 +165,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>從查詢建立警示
-建立您的查詢後，您可能想要使用該查詢在特定事件發生時發出警示。 如需有關如何建立警示的資訊，請參閱 [Log Analytics 中的警示](log-analytics-alerts.md)。 如需警示查詢和其他查詢的範例，請參閱部落格文章[使用 Log Analytics 監視 VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)。
+建立您的查詢後，您可能想要使用該查詢在特定事件發生時發出警示。 如需有關如何建立警示的資訊，請參閱 [Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)。 如需警示查詢和其他查詢的範例，請參閱部落格文章[使用 Log Analytics 監視 VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>我需要在 ESXi 主機設定上做什麼設定？ 它會對我目前的環境造成什麼影響？
@@ -206,6 +206,6 @@ syslog 時間戳記有一個 ESXi 主機錯誤。 如需詳細資訊，請參閱
     d. 如果檔案不存在或使用者和群組設定錯誤，請透過[準備 Linux 伺服器](#prepare-a-linux-server)來採取更正動作。
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 Log Analytics 中的 [Log Analytics](log-analytics-log-searches.md) 檢視詳細的 VMware 主機資料。
+* 使用 Log Analytics 中的 [Log Analytics](log-analytics-queries.md) 檢視詳細的 VMware 主機資料。
 * [建立您自己的儀表板](log-analytics-dashboards.md)來顯示 VMware 主機的資料。
-* 在特定的 VMware 主機事件發生時[建立警示](log-analytics-alerts.md)。
+* 在特定的 VMware 主機事件發生時[建立警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)。

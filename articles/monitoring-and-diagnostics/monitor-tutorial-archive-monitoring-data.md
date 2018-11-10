@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ac8be998a70b31af9829eeeab24902c62fd2fe37
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409485"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961498"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 儲存體封存 Azure 計量和記錄資料
 
@@ -42,7 +42,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-首先，您必須設定用來封存監視資料的儲存體帳戶。 若要這樣做，[請遵循這裡的步驟](../storage/common/storage-create-storage-account.md)。
+首先，您必須設定用來封存監視資料的儲存體帳戶。 若要這樣做，[請遵循這裡的步驟](../storage/common/storage-quickstart-create-account.md)。
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>將訂用帳戶記錄路由傳送至儲存體帳戶
 
@@ -198,4 +198,4 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 為了更妥善利用您的資料和衍生額外的深入解析，也請將資料傳送到 Log Analytics。
 
 > [!div class="nextstepaction"]
-> [開始使用 Log Analytics](../log-analytics/log-analytics-get-started.md)
+> [開始使用 Log Analytics](../log-analytics/log-analytics-queries.md)
