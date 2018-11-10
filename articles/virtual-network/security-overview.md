@@ -4,9 +4,6 @@ description: 了解網路和應用程式安全性群組。 安全性群組可協
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 79ea839a5b57a2b64b80feba8324764a23c05697
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9a4aa1606e99057565891dc10d17ba9abf15d9c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987011"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159072"
 ---
 # <a name="security-groups"></a>安全性群組
 <a name="network-security-groups"></a>
@@ -60,9 +57,9 @@ ms.locfileid: "46987011"
  下列服務標籤可使用於安全性規則定義中。 其在 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)之間的名稱稍有不同。
 
 * **VirtualNetwork** (**Resource Manager) (適用於傳統部署的 VIRTUAL_NETWORK**)：這個標籤包含虛擬網路位址空間 (針對虛擬網路定義的所有 CIDR 範圍)、所有已連線的內部部署位址空間，以及[對等互連](virtual-network-peering-overview.md)的虛擬網路或已連線至[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的虛擬網路。
-* **AzureLoadBalancer** (Resource Manager) (適用於傳統部署的 **AZURE_LOADBALANCER**)：這個標籤代表 Azure 基礎結構的負載平衡器。 此標籤會轉譯成作為 Azure 健康情況探查來源的 [Azure 資料中心 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。
+* **AzureLoadBalancer** (Resource Manager) (適用於傳統部署的 **AZURE_LOADBALANCER**)：這個標籤代表 Azure 基礎結構的負載平衡器。 此標記會轉譯成作為 Azure 健康情況探查來源的[主機虛擬 IP 位址](security-overview.md##azure-platform-considerations) (168.63.129.16)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。
 * **Internet** (Resource Manager) (適用於傳統部署的 **INTERNET**)：這個標籤代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。
-* **AzureCloud** (僅限資源管理員)：此標記代表包含所有資料中心公用 IP 位址的 Azure IP 位址空間。 如果您指定 *AzureCloud* 作為值，就會允許或拒絕 Azure 公用 IP 位址的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureCloud，您可以指定區域。 例如，如果您只想要在美國東部區域允許存取 Azure AzureCloud，您可以指定 *AzureCloud.EastUS* 作為服務標記。 
+* **AzureCloud** (僅限資源管理員)：此標記代表包含所有[資料中心公用 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)的 Azure IP 位址空間。 如果您指定 *AzureCloud* 作為值，就會允許或拒絕 Azure 公用 IP 位址的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureCloud，您可以指定區域。 例如，如果您只想要在美國東部區域允許存取 Azure AzureCloud，您可以指定 *AzureCloud.EastUS* 作為服務標記。 
 * **AzureTrafficManager** (僅限資源管理員)：此標記代表 Azure 流量管理員探查 IP 位址的 IP 位址空間。 如需流量管理員探查 IP 位址的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)。 
 * **Storage** (僅限 Resource Manager)：這個標籤代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[地區](https://azure.microsoft.com/regions)中的儲存體，您可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure 儲存體，您可以指定 *Storage.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。 此標記所表示的所有位址前置詞，也都可用**網際網路**標記表示。 
 * **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database 和 Azure SQL 資料倉儲服務的位址前置詞。 如果您指定 Sql 作為值，就會允許或拒絕 Sql 的流量。 如果您只需要允許存取特定[地區](https://azure.microsoft.com/regions)中的 Sql，可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。 此標記所表示的所有位址前置詞，也都可用**網際網路**標記表示。 
@@ -79,7 +76,6 @@ ms.locfileid: "46987011"
 * **GatewayManager** (僅限資源管理員)：此標記代表 Azure Gateway Manager 服務的位址前置詞。 如果您指定 GatewayManager 作為值，就會允許或拒絕 GatewayManager 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 GatewayManager，您可以用 GatewayManager.[region name] 的格式指定區域。 
 * **AzureDataLake** (僅限資源管理員)：此標記代表 Azure Data Lake 服務的位址前置詞。 如果您指定 AzureDataLake 作為值，就會允許或拒絕 AzureDataLake 的流量。 
 * **AzureActiveDirectory** (僅限資源管理員)：此標記代表 AzureActiveDirectory 服務的位址前置詞。 如果您指定 AzureActiveDirectory 作為值，就會允許或拒絕 AzureActiveDirectory 的流量。  
-* **CorpNetSAW** (僅限資源管理員)：此標記代表以 Azure 運作的 [CorpNetSAW 裝置](../security/azure-security-iaas.md)所用的位址前置詞。 在某些情況下，Azure 服務可使用此服務標記來要求存取由客戶管理的執行個體，以改善支援能力。 如果您指定 CorpNetSAW 作為值，就會允許或拒絕 CorpNetSAW 的流量。 
 
 > [!NOTE]
 > Azure 服務的服務標記代表所使用之特定雲端中的位址前置詞。 區域服務標記在國家雲端中不受支援，只有全域格式可支援。 例如「儲存體」和「Sql」。

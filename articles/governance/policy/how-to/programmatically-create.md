@@ -4,16 +4,16 @@ description: 本文會逐步引導您以程式設計方式建立及管理 Azure 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dd7ec4f1d0c018a3c7eed19bea523f7c09bfea3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985311"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242617"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
 
@@ -74,7 +74,13 @@ ms.locfileid: "46985311"
    New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   此命令會建立名為_對公用網路開放的稽核儲存體帳戶_的原則定義。 如需您可使用的其他參數詳細資訊，請參閱 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)。
+   此命令會建立名為_對公用網路開放的稽核儲存體帳戶_的原則定義。
+   如需您可使用的其他參數詳細資訊，請參閱 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)。
+
+   若在未指定位置參數的情況下呼叫，`New-AzureRmPolicyDefinition` 會預設儲存工作階段內容中所選訂用帳戶的原則定義。 若要將定義儲存至不同位置，請使用下列參數：
+
+   - **SubscriptionId** - 儲存到不同的訂用帳戶。 需要 _GUID_ 值。
+   - **ManagementGroupName** - 儲存至管理群組。 需要_字串_值。
 
 1. 建立原則定義之後，您可以執行下列命令來建立原則指派：
 
@@ -85,6 +91,13 @@ ms.locfileid: "46985311"
    ```
 
    以您想要的資源群組名稱取代 _ContosoRG_。
+
+   `New-AzureRmPolicyAssignment` 上的 **Scope** 參數也適用訂用帳戶和管理群組。 此參數會使用 `Get-AzureRmResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。
+   將 `{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源群組名稱、訂用帳戶識別碼和管理群組名稱。
+
+   - 資源群組 - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - 訂用帳戶 - `/subscriptions/{subId}/`
+   - 管理群組 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 如需使用 Azure Resource Manager PowerShell 模組來管理資源原則的詳細資訊，請參閱 [AzureRM.Resources](/powershell/module/azurerm.resources/#policies)。
 

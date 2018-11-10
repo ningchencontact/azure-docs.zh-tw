@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: 88265ee6f8a340909880ba70bd9f37a49ef85bf5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 60248da2bbdac751845a40720f8967203c562b4a
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857358"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085731"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>快速入門：將容器登錄事件傳送至事件方格
 
@@ -111,7 +111,7 @@ az eventgrid event-subscription create \
     --endpoint $APP_ENDPOINT
 ```
 
-完成訂閱時，您應該會輸出類似下列的內容：
+完成訂閱時，您應該會看見類似下列內容的輸出：
 
 ```JSON
 {

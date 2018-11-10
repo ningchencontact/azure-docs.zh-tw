@@ -1,21 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 針對 VMware 到 Azure 的複寫進行容量和規模調整規劃 | Microsoft Docs
-description: 使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 時，可使用本文來進行容量規劃和調整。
-services: site-recovery
+title: 使用 Azure Site Recovery 針對 VMware 到 Azure 的災害復原進行容量和規模調整規劃 | Microsoft Docs
+description: 使用 Azure Site Recovery 來設定 VMware VM 至 Azure 的災害復原時，可使用本文來進行容量規劃和調整
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 833000cb09d315a996ebc9e2d66210c805160f2a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9bc0d5976cf01eb61c2a09a35ccd3a834313ca00
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067541"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210494"
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>使用 Azure Site Recovery 規劃容量並調整 Azure 中的 VMware 複寫
+# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-auzre"></a>針對 VMware 至 Azure 的災害復原進行容量和規模調整規劃
 
 您可透過這篇文章，了解在使用 [Azure Site Recovery](site-recovery-overview.md) 將內部部署 VMware VM 和實體伺服器複寫至 Azure 時，如何進行容量規劃和調整。
 

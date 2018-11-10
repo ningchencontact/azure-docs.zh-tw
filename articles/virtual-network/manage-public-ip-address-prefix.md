@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 32ad02583f84a84c494dc8300834cd9ff2f0d771
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405728"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094968"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>建立、變更或刪除公用 IP 位址首碼
 
@@ -29,7 +29,7 @@ ms.locfileid: "47405728"
 ## <a name="before-you-begin"></a>開始之前
 
 > [!IMPORTANT]
-> 公用 IP 位址首碼在有限的區域內為公開預覽。 您可以[了解預覽的意義](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 公用 IP 位址首碼目前已於下列區域提供：美國中西部、美國西部、美國西部 2、美國中部、北歐、西歐和東南亞。 如需區域的更新清單，請前往 [Azure 更新](https://azure.microsoft.com/updates/?product=virtual-network)。
+> 公用 IP 位址首碼在有限的區域內為公開預覽。 您可以[了解預覽的意義](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 公用 IP 位址首碼目前已於下列區域提供：美國中西部、美國西部、美國西部 2、美國中部、北歐、西歐與東南亞。 如需區域的更新清單，請瀏覽 [Azure 更新](https://azure.microsoft.com/updates/?product=virtual-network)。
 
 在完成本文任一節的步驟之前，請先完成下列工作︰
 
@@ -62,8 +62,8 @@ ms.locfileid: "47405728"
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
-|PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|PowerShell|[New-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>從首碼建立靜態公用 IP 位址
 建立首碼之後，您必須從首碼建立靜態 IP 位址。 若要這樣做，請遵循下面的步驟。
@@ -91,8 +91,8 @@ ms.locfileid: "47405728"
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-list) 可列出公用 IP 位址、[az network public-ip prefix show](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-show) 可顯示設定；[az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) 可進行更新；[az network public-ip prefix delete](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-delete) 可進行刪除|
-|PowerShell|[Get-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix) 可擷取公用 IP 位址物件並檢視其設定、[Set-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix) 可更新設定；[Remove-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix) 可進行刪除|
+|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) 可列出公用 IP 位址、[az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) 可顯示設定；[az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) 可進行更新；[az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) 可進行刪除|
+|PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix) 可擷取公用 IP 位址物件並檢視其設定、[Set-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix) 可更新設定；[Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix) 可進行刪除|
 
 ## <a name="permissions"></a>權限
 

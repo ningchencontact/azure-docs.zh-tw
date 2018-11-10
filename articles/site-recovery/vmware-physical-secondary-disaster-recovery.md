@@ -1,21 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 設定 VMware VM 或實體伺服器至次要網站的災害復原 | Microsoft Docs
 description: 了解如何使用 Azure Site Recovery 設定 VMware VM 或 Windows 和 Linux 實體伺服器至次要網站的災害復原。
-services: site-recovery
-author: nsoneji
-manager: gauarvd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618983"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215458"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>設定內部部署 VMware 虛擬機器或實體伺服器至次要網站的災害復原
 
@@ -176,7 +173,7 @@ Scout Update 5 是累積更新， 包含 Update 1 到 Update 4 的所有修正�
 > [!NOTE]
 > * P2V 叢集修正僅適用於剛以 Site Recovery Scout Update 5 加以保護的實體 MSCS 叢集。 若要在以舊版更新保護的 P2V MSCS 叢集上安裝叢集修正，請遵循 [Site Recovery Scout 版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節中所述的升級步驟。
 > * 重新保護時，只有當在每個叢集節點上使用中的幾個磁碟與最初受保護時相同，重新保護實體 MSCS 叢集才可以重複使用現有的目標磁碟。 如果沒有，則使用 [Site Recovery Scout 版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節中的手動步驟，將目標端磁碟移至正確的資料存放區路徑，以便在重新保護時重複使用。 如果未遵循升級步驟重新保護 P2V 模式中的 MSCS 叢集，則會在目標 ESXi 伺服器上建立新的磁碟。 您必須手動刪除資料存放區中的舊磁碟。
-> * 當來源 SLES11 或 SLES11 (含任何 Service Pack) 伺服器正常重新開機時，請手動標記**根**磁碟複寫配對以利重新同步處理。 CX 介面中不會有任何通知。 如果您未標記要重新同步處理的根磁碟，可能會注意到資料完整性問題。
+> * 當來源 SLES11 或 SLES11 (含任何 Service Pack) 伺服器正常重新開機時，請手動標記**根**磁碟複寫配對以利重新同步處理。 CX 介面中不會有任何通知。 如果您未標記要重新同步處理的根磁碟，可能會注意到資料完整性問題。
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4

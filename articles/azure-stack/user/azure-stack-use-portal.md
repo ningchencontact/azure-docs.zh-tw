@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713728"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086500"
 ---
 # <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 入口網站
 
@@ -32,12 +32,13 @@ ms.locfileid: "44713728"
 
 - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，且格式會是 https://portal.&lt.region&gt;&lt;.FQDN&gt;。
 - 如果您使用 Azure Stack 開發套件，則入口網站位址為 https://portal.local.azurestack.external。
-
-![Azure Stack 使用者入口網站的螢幕擷取](media/azure-stack-use-portal/UserPortal.png)
+- 所有 Azure Stack 部署的預設時區都會設定為國際標準時間 (UTC)。 安裝 Azure Stack 時，您可以選取時區，不過，在安裝期間，它會自動還原成以 UTC 作為預設值。
 
 ## <a name="customize-the-dashboard"></a>自訂儀表板
 
 儀表板包含一組預設圖格。 您可以選取 [編輯儀表板] 來修改預設儀表板，或是選取 [新增儀表板] 來建立自訂儀表板。 您可以透過新增或移除圖格，輕鬆地自訂儀表板。 例如，若要新增 [計算] 圖格，請選取 [+ 建立資源]。 在 [計算] 上按一下滑鼠右鍵，然後選取 [釘選到儀表板]。
+
+![Azure Stack 使用者入口網站的螢幕擷取](media/azure-stack-use-portal/userportal.png)
 
 ## <a name="create-subscription-and-browse-available-resources"></a>建立訂用帳戶及瀏覽可用的資源
 

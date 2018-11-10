@@ -4,9 +4,6 @@ description: 此文章說明如何在流量管理員中使用循環配置資源�
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 6637132481ee33d43ec2b747ba89a56983205ff2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432438"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154911"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>在流量管理員中設定加權流量路由方法
 
-常見的流量路由方法提供一組完全相同的端點 (包括雲端服務和網站)，並以循環配置資源方式將流量傳送到每一個端點。 下列步驟概述如何設定這種類型的流量路由方法。
+常見的流量路由方法提供一組完全相同的端點 (包括雲端服務和網站)，並以均等的方式將流量傳送到每一個端點。 下列步驟概述如何設定這種類型的流量路由方法。
 
 > [!NOTE]
-> Azure Web 應用程式已為 Azure 區域 (包含多個資料中心) 內的網站提供循環配置資源負載平衡功能。 流量管理員可讓您在不同的資料中心網站中指定循環配置資源流量路由方法。
+> Azure Web 應用程式已為 Azure 區域 (可能包含多個資料中心) 內的網站提供循環配置資源負載平衡功能。 流量管理員可讓您將流量分散到位於不同資料中心的網站。
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>設定加權流量路由方法
 

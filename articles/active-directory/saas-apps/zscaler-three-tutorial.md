@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 0ef8fc2ea8b006d49dd54d638183a58bf78a5797
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b148967af0882993d8ab113bdf0fd3ad3835296f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311772"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>教學課程：Azure Active Directory 與 Zscaler Three 整合
 
@@ -115,14 +115,11 @@ ms.locfileid: "49311772"
 
     ![設定單一登入](./media/zscaler-three-tutorial/tutorial_general_302.png)
 
-5. 在 [基本 SAML 設定] 區段上，執行下列步驟：
+5. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
 
-    在 [回覆 URL] 文字方塊中，輸入 URL：`https://login.zscalerthree.net/sfc_sso`
-
-    > [!NOTE]
-    > 您必須使用實際的「登入 URL」來更新此值。 請連絡 [Zscaler Three 用戶端支援小組](https://www.zscaler.com/company/contact)以取得這些值。
+    在 [登入 URL] 文字方塊中，輸入 URL：`https://login.zscalerthree.net/sfc_sso`
 
 6. 在 [SAML 簽署憑證] 區段上，按一下 [下載] 以下載 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -206,11 +203,11 @@ ms.locfileid: "49311772"
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者]，然後選取 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
     ![建立 Azure AD 使用者][100]
 
-2. 選取畫面頂端的 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]。
 
     ![建立 Azure AD 測試使用者](./media/zscaler-three-tutorial/create_aaduser_01.png) 
 
@@ -223,7 +220,7 @@ ms.locfileid: "49311772"
     b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 依序選取 [屬性]、[顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 按一下頁面底部的 [新增] 。
 
@@ -262,7 +259,7 @@ ms.locfileid: "49311772"
 
 在本節中，您會將 Zscaler Three 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
     ![指派使用者][201]
 

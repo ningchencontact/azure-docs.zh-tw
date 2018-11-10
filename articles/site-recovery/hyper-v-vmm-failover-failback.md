@@ -1,19 +1,19 @@
 ---
-title: 使用 Site Recovery 將複寫的 Hyper-V VM 容錯移轉及容錯回復到次要資料中心 | Microsoft Docs
-description: 了解如何使用 Azure Site Recovery 將 Hyper-V VM 容錯移轉至次要內部部署網站，以及容錯回復至主要網站
+title: 使用 Azure Site Recovery 在災害復原期間將複寫的 Hyper-V VM 容錯移轉及容錯回復至次要資料中心 | Microsoft Docs
+description: 了解如何使用 Azure Site Recovery 在災害復原期間將 Hyper-V VM 容錯移轉至次要內部部署網站，以及容錯回復至主要網站。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 782ddc3ebb7b3c533d0eb5c4b7735a13cbaf268c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077675"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210001"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>將複寫的 Hyper-V VM 容錯移轉及容錯回至次要內部部署網站
 

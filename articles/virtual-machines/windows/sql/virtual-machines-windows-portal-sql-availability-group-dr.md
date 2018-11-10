@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 84fa2e051c46e178e3e72709886babc8c3db7b9d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43f3628878654a32be8aeafe1ba0d2e42e03d82f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852824"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240404"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在不同區域的 Azure 虛擬機器上設定 Always On 可用性群組
 
@@ -56,7 +56,7 @@ ms.locfileid: "29852824"
    ![可用性群組](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
->此架構會針對 Azure 區域之間複寫的資料產生輸出資料費用。 請參閱[頻寬定價](http://azure.microsoft.com/pricing/details/bandwidth/)。  
+>此架構會針對 Azure 區域之間複寫的資料產生輸出資料費用。 請參閱[頻寬定價](https://azure.microsoft.com/pricing/details/bandwidth/)。  
 
 ## <a name="create-remote-replica"></a>建立遠端複本
 
@@ -104,13 +104,13 @@ ms.locfileid: "29852824"
    - 使用來自遠端資料中心的網路。
    - 指派來自新 Azure Load Balancer 的 IP 位址。 
 
-1. 在「SQL Server 組態管理員」中的新 SQL Server 上，[啟用 Always On 可用性群組](http://msdn.microsoft.com/library/ff878259.aspx)。
+1. 在「SQL Server 組態管理員」中的新 SQL Server 上，[啟用 Always On 可用性群組](https://msdn.microsoft.com/library/ff878259.aspx)。
 
 1. [在新的 SQL Server 上開啟防火牆連接埠](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall)。
 
    您需要開啟的連接埠號碼取決於您的環境。 請開啟要供鏡像端點及 Azure Load Balancer 健康情況探查使用的連接埠。
 
-1. [將複本新增到新 SQL Server 上的可用性群組](http://msdn.microsoft.com/library/hh213239.aspx)。
+1. [將複本新增到新 SQL Server 上的可用性群組](https://msdn.microsoft.com/library/hh213239.aspx)。
 
    針對遠端 Azure 區域中的複本，請設定它來進行非同步複寫搭配手動容錯移轉。  
 
@@ -142,9 +142,9 @@ ms.locfileid: "29852824"
 
 遠端資料中心內的複本是可用性群組的一部份，但是位於不同的子網路。 如果此複本變成主要複本，可能會發生應用程式連線逾時。 此行為與多子網路部署中的內部部署可用性群組相同。 若要允許來自用戶端應用程式的連線，請更新用戶端連線，或在叢集網路名稱資源上設定名稱解析快取功能。
 
-建議您更新用戶端連接字串以設定 `MultiSubnetFailover=Yes`。 請參閱[使用 MultiSubnetFailover 進行連接](http://msdn.microsoft.com/library/gg471494#Anchor_0)。
+建議您更新用戶端連接字串以設定 `MultiSubnetFailover=Yes`。 請參閱[使用 MultiSubnetFailover 進行連接](https://msdn.microsoft.com/library/gg471494#Anchor_0)。
 
-如果您無法修改連接字串，您可以設定名稱解析快取功能。 請參閱[多子網路可用性群組中的連線逾時 (英文)](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/)。
+如果您無法修改連接字串，您可以設定名稱解析快取功能。 請參閱[多子網路可用性群組中的連線逾時 (英文)](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/)。
 
 ## <a name="fail-over-to-remote-region"></a>容錯移轉至遠端區域
 
@@ -175,12 +175,12 @@ ms.locfileid: "29852824"
 
 如需詳細資訊，請參閱下列主題：
 
-- [執行可用性群組的已規劃手動容錯移轉 (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
-- [執行可用性群組的強制手動容錯移轉 (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
+- [執行可用性群組的已規劃手動容錯移轉 (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
+- [執行可用性群組的強制手動容錯移轉 (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
 ## <a name="additional-links"></a>其他連結
 
-* [Always On 可用性群組](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure 虛擬機器](http://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Always On 可用性群組](https://msdn.microsoft.com/library/hh510230.aspx)
+* [Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure 可用性設定組](../manage-availability.md)

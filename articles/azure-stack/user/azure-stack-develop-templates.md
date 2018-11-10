@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 21fd3a33181542d86eccc4292ae68f7ce25e0a05
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366721"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244044"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager 範本考量
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-當您開發應用程式時，請務必確保 Azure 與 Azure Stack 之間的範本可攜性。 本文提供開發 Azure Resource Manager [範本](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)時必須考量的事項，以便您可以建立原型應用程式，並在 Azure 中測試部署，而不需要存取 Azure Stack 環境。
+當您開發應用程式時，請務必確保 Azure 與 Azure Stack 之間的範本可攜性。 本文提供開發 Azure Resource Manager [範本](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)時必須考量的事項，以便您可以建立原型應用程式，並在 Azure 中測試部署，而不需要存取 Azure Stack 環境。
 
 ## <a name="resource-provider-availability"></a>資源提供者可用性
 

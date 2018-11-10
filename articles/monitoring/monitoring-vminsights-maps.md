@@ -1,5 +1,5 @@
 ---
-title: 如何使用適用於 VM 的 Azure 監視器來檢視應用程式相依性 | Microsoft Docs
+title: 如何使用適用於 VM 的 Azure 監視器 (預覽) 來檢視應用程式相依性 | Microsoft Docs
 description: 對應是適用於 VM 的 Azure 監視器的一項功能，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文提供如何將它用於各種案例的詳細資料。
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 5d9aa8e144109b41144bb8b09447b8701d04f87e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389984"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095473"
 ---
-# <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器對應來了解應用程式元件
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器 (預覽) 對應來了解應用程式元件
 檢視在 Azure 中執行之 Windows 和 Linux 虛擬機器上探索到的應用程式元件，可搭配適用於 VM 的 Azure 監視器使用下列兩種方式來觀測您的環境：直接從虛擬機器，或者從 Azure 監視器跨 VM 群組進行。 
 
 本文將協助您了解這兩個檢視方塊之間的體驗，以及對應功能的使用方式。 如需設定適用於 VM 的 Azure 監視器相關資訊，請參閱[啟用適用於 VM 的 Azure 監視器](monitoring-vminsights-onboard.md)。

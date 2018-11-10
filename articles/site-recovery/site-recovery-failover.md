@@ -1,21 +1,22 @@
 ---
-title: Site Recovery 中的容錯移轉 | Microsoft Docs
-description: Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及復原作業。 了解如何容錯移轉到 Azure 或次要資料中心。
+title: 使用 Azure Site Recovery 在災害復原期間進行容錯移轉 | Microsoft Docs
+description: 了解使用 Azure Site Recovery 服務在災害復原期間對 VM 和實體伺服器進行容錯移轉。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: 6e16529740377b9a082fda4f3e4409b57441715e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391312"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215152"
 ---
-# <a name="failover-in-site-recovery"></a>Site Recovery 中的容錯移轉
+# <a name="fail-over-vms-and-physical-servers"></a>對 VM 和實體伺服器進行容錯移轉 
+
 本文說明如何容錯移轉 Site Recovery 所保護的虛擬機器和實體伺服器。
 
 ## <a name="prerequisites"></a>必要條件
@@ -110,7 +111,7 @@ ms.locfileid: "44391312"
 ## <a name="post-failover-considerations"></a>容錯移轉後的考量
 容錯移轉之後，您可能要考慮下列建議：
 ### <a name="retaining-drive-letter-after-failover"></a>在容錯移轉之後保留磁碟機代號
-若要在容錯移轉後保留虛擬機器上的磁碟機代號，您可以將虛擬機器的 [SAN 原則] 設定為 [OnlineAll]。 [閱讀更多資訊](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
+若要在容錯移轉後保留虛擬機器上的磁碟機代號，您可以將虛擬機器的 [SAN 原則] 設定為 [OnlineAll]。 [閱讀更多](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>準備在容錯移轉後連接到 Azure VM
 

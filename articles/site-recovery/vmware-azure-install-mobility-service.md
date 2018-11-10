@@ -1,19 +1,19 @@
 ---
-title: 安裝行動服務 (VMware 或實體至 Azure) | Microsoft Docs
-description: 了解如何安裝行動服務代理程式，以使用 Azure Site Recovery 保護您的內部部署 VMware VM 和實體伺服器。
+title: 安裝行動服務以進行從 VMware VM 和實體伺服器至 Azure 的災害復原 | Microsoft Docs
+description: 了解如何安裝行動服務代理程式，以使用 Azure Site Recovery 服務進行從 VMware VM 和實體伺服器至 Azure 的災害復原。
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 145affbcff128e0ec599ad1f97c79260b0dcae5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526992"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212687"
 ---
-# <a name="install-the-mobility-service"></a>安裝行動服務 
+# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>安裝行動服務以進行 VMware VM 和實體伺服器的災害復原
 
 Azure Site Recovery 行動服務安裝在您想要複寫到 Azure 的 VMware VM 和實體伺服器上。 此服務會擷取電腦上的資料寫入，然後將它們轉送至處理序伺服器。 將行動服務部署至您要複寫至 Azure 的每部電腦 (VMware VM 或實體伺服器)。 您可以使用下列方法，將行動服務部署至您要保護的伺服器和 VMware VM：
 

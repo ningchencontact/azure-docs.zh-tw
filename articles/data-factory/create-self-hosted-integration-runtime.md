@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 251d1a187c2a6742c361349274fd1e0bb1e41525
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817140"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248901"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -146,6 +146,8 @@ ms.locfileid: "48817140"
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>與多個資料處理站共用自我裝載整合執行階段
 
 您可以重複使用您已經在資料處理站中設定的現有自我裝載整合執行階段基礎結構。 這可讓您藉由參考現有的自我裝載 IR (共用)，在不同的資料處理站中建立*連結的自我裝載整合執行階段*。
+
+若要使用 PowerShell 共用自我裝載整合執行階段，請參閱[使用 PowerShell 在 Azure Data Factory 中建立共用的自我裝載整合執行階段](create-shared-self-hosted-integration-runtime-powershell.md)。
 
 ### <a name="terminology"></a>術語
 

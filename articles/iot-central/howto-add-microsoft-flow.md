@@ -8,16 +8,16 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 7a52ee11e52367755d2a241a0bea2cfc053cff3d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039933"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155570"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程
 
-*此主題適用於建置人員和系統管理員。*
+*本主題適用於建置員和系統管理員。*
 
 使用 Microsoft Flow，將商務使用者所依賴的多個應用程式和服務的工作流程自動化。 在 Microsoft Flow 中使用 IoT Central 連接器時，您可以在規則於 IoT Central 中被觸發時觸發工作流程。 在 IoT Central 或任何其他應用程式所觸發的工作流程中，您可以使用 IoT Central 連接器中的動作建立裝置、更新裝置的屬性和設定，或刪除裝置。 請了解可將 IoT Central 連線至其他服務 (例如行動裝置和 Microsoft Teams 等) 的[這些 Microsoft Flow 範本](https://aka.ms/iotcentralflowtemplates)。
 
@@ -56,7 +56,7 @@ ms.locfileid: "47039933"
 
 ## <a name="create-a-device-in-a-workflow"></a>在工作流程中建立裝置
 
-本節說明如何使用 Microsoft Flow 行動應用程式，透過按下行動裝置的按鈕在 IoT Central 中建立新的裝置。 您可以在流程中使用此動作，而在某個裝置新增於他處時建立新的裝置，將 Dynamics 之類的 ERP 系統與 IoT Central 整合。
+本節說明如何使用 Microsoft Flow 行動應用程式，藉由按下行動裝置的按鈕在 IoT Central 中建立新的裝置。 您可以在流程中使用此動作，而在某個裝置新增於他處時建立新的裝置，將 Dynamics 之類的 ERP 系統與 IoT Central 整合。
 
 1. 首先，在 Microsoft Flow 中建立空的工作流程。
 
@@ -81,7 +81,7 @@ ms.locfileid: "47039933"
 
 ## <a name="update-a-device-in-a-workflow"></a>更新工作流程中的裝置
 
-本節說明如何使用 Microsoft Flow 行動應用程式，透過按下行動裝置的按鈕來更新 IoT Central 中的裝置設定和屬性。
+本節說明如何使用 Microsoft Flow 行動應用程式，藉由按下行動裝置的按鈕來更新 IoT Central 中的裝置設定和屬性。
 
 1. 首先，在 Microsoft Flow 中建立空的工作流程。
 
@@ -96,6 +96,8 @@ ms.locfileid: "47039933"
     ![IoT Central Device Explorer 裝置識別碼](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
 1. 您可以更新裝置名稱。 若要更新裝置的任何屬性和設定，您必須在 [裝置範本] 下拉式清單中針對您要更新的裝置選取裝置範本。 動作圖格會展開以顯示您可以更新的所有屬性和設定。
+
+    ![流程更新裝置工作流程](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
 
 1. 選取您要更新的每個屬性和設定。 在動態內容窗格中，從觸發程序中選擇對應的輸入。 在此範例中，[位置] 值會向下傳播，以更新裝置的 [位置] 屬性。
 

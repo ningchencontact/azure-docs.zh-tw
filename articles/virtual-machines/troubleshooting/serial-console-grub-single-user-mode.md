@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855862"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211378"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>使用序列主控台來存取 GRUB 與單一使用者模式
 GRUB 的全名是 GRand Unified Bootloader。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。
@@ -33,7 +33,7 @@ GRUB 的全名是 GRand Unified Bootloader。 從 GRUB，您可以修改開機�
 ## <a name="general-grub-access"></a>一般 GRUB 存取
 若要存取 GRUB，您必須將序列主控台維持開啟，並將 VM 重新開機。 某些發行版本需要鍵盤輸入才能顯示 GRUB，而其他發行版本將會自動顯示 GRUB 幾秒並允許使用者鍵盤輸入以取消逾時。 
 
-建議您確定已在您的 VM 上啟用 GRUB，以便存取單一使用者模式。 視您的發行版本而定，您可能必須完成一些設定工作，才能啟用 GRUB。 發行版本特定資訊如下。
+建議您確定已在您的 VM 上啟用 GRUB，以便存取單一使用者模式。 視您的發行版本而定，您可能必須完成一些設定工作，才能啟用 GRUB。 發行版本特定資訊可於下方和[此連結](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)中取得。
 
 ### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>將您的 VM 重新開機以在序列主控台中存取 GRUB
 在序列主控台刀鋒視窗維持開啟的情況下將您的 VM 重新開機可以透過 SysRq `'b'` 命令來完成 (若 [SysRq](./serial-console-nmi-sysrq.md) 已啟用)，或透過按一下 [概觀] 刀鋒視窗中的 [重新啟動] 按鈕 (在瀏覽器索引標籤中開啟 VM，以在不關閉序列主控台刀鋒視窗的情況下重新開機) 來完成。 依照下面的發行版本特定指示來了解重新開機時，GRUB 會發生什麼情況。
@@ -186,6 +186,7 @@ Oracle Linux 預設會啟用 GRUB。 若要進入 GRUB，請使用 `sudo reboot`
 
 ## <a name="next-steps"></a>後續步驟
 * 主要序列主控台 Linux 文件頁面在[這裡](serial-console-linux.md)。
-* 適用於 [NMI 與 SysRq 呼叫](serial-console-nmi-sysrq.md)的序列主控台
+* 了解如何使用序列主控台[在各種散發版本中啟用 GRUB](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
+* 使用「序列主控台」來進行[NMI 和 SysRq 呼叫](serial-console-nmi-sysrq.md)
 * 「序列主控台」也適用於 [Windows](serial-console-windows.md) VM
 * 深入了解[開機診斷](boot-diagnostics.md)

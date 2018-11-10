@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 3675889e583fbe2bf949891c3d6b4d5f731e6ac1
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0d069490f2e5b495b417b5a4d511f02fa7891ea9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355005"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240098"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>為不在資源庫內的應用程式設定密碼單一登入時遇到的問題
 
@@ -141,7 +141,7 @@ ms.locfileid: "44355005"
 
 -   再次嘗試手動擷取程序，確保正確的欄位上都有紅色標記。
 
--   如果手動擷取程序看起來沒有回應，或者登入頁面不會執行任何動作 (上述的案例 3)，請再試一次手動擷取程序。 但這次已完成此程序，請按 **F12** 按鈕，以開啟瀏覽器的開發人員主控台。 此時，開啟 [主控台]並輸入 **window.location="&lt;輸入您在設定應用程式時所指定的登入 url&gt;"**，然後按 **Enter** 鍵。 這樣會強制執行頁面重新導向，以結束擷取程序並儲存已擷取的欄位。
+-   如果手動擷取程序看起來沒有回應，或者登入頁面不會執行任何動作 (上述的案例 3)，請再試一次手動擷取程序。 但這次已完成此程序，請按 **F12** 按鈕，以開啟瀏覽器的開發人員主控台。 此時，開啟 [主控台]並輸入 **window.location="&lt;輸入您在設定應用程式時所指定的登入 url&gt;"**，然後按 **Enter**。 這樣會強制執行頁面重新導向，以結束擷取程序並儲存已擷取的欄位。
 
 如果這其中沒有任何一種方式適合您，客戶支援很樂意提供協助。 請開啟一個支援案例，並提供您所嘗試動作的詳細資料，以及[如何查看入口網站通知的詳細資料](#i-cannot-manually-detect-sign-in-fields-for-my-application)和[如何將通知詳細資料傳送給支援工程師以取得協助](#how-to-get-help-by-sending-notification-details-to-a-support-engineer)小節 (如果適用) 中所收集的資訊。
 

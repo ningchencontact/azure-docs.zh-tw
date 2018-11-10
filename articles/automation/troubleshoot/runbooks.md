@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955409"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094859"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -39,7 +39,7 @@ Unknown_user_type: Unknown User Type
 為了判斷錯誤原因，請執行下列步驟：  
 
 1. 確定您沒有任何特殊字元，包括用來連線到 Azure 的「自動化」認證資產名稱中的 **@** 字元。  
-2. 確認您可以在本機 PowerShell ISE 編輯器中使用儲存在「Azure 自動化」認證中的使用者名稱和密碼。 您可以在 PowerShell ISE 中執行下列 Cmdlet，以檢查使用者名稱和密碼是否正確：  
+2. 請檢查您可以使用儲存在本機 PowerShell ISE 編輯器中的 Azure 自動化認證的使用者名稱和密碼。 您可以在 PowerShell ISE 中執行下列 Cmdlet，以檢查使用者名稱和密碼是否正確：  
 
    ```powershell
    $Cred = Get-Credential  
@@ -85,7 +85,7 @@ Unknown_user_type: Unknown User Type
 The subscription named <subscription name> cannot be found.
 ```
 
-#### <a name="error"></a>錯誤
+#### <a name="error"></a>Error
 
 如果訂用帳戶名稱無效，或嘗試取得訂用帳戶詳細資料的 Azure Active Directory 使用者未被設定為訂用帳戶的系統管理員，就會發生此錯誤。
 
@@ -93,8 +93,9 @@ The subscription named <subscription name> cannot be found.
 
 若要判斷您是否已正確地向 Azure 進行驗證並取得所嘗試選取之訂用帳戶的存取權，請執行下列步驟：  
 
-1. 確認您在執行 **Select-AzureSubscription** Cmdlet 之前，已經執行 **Add-AzureAccount** Cmdlet。  
-2. 如果您仍然看到此錯誤訊息，請在 **Add-AzureAccount** Cmdlet 之後新增 **-AzureRmContext** 參數，以修改您的程式碼，然後執行此程式碼。
+1. 在 Azure 自動化外部測試您的指令碼，確定它能獨立運作。
+2. 確認您在執行 **Select-AzureSubscription** Cmdlet 之前，已經執行 **Add-AzureAccount** Cmdlet。  
+3. 如果您仍然看到此錯誤訊息，請在 **Add-AzureAccount** Cmdlet 之後新增 **-AzureRmContext** 參數，以修改您的程式碼，然後執行此程式碼。
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -104,7 +105,7 @@ The subscription named <subscription name> cannot be found.
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
-   ```
+    ```
 
 ### <a name="auth-failed-mfa"></a>案例：對 Azure 的驗證失敗，因為已啟用多重要素驗證
 
@@ -305,7 +306,7 @@ The quota for the monthly total job run time has been reached for this subscript
 * 確認您已正確輸入 Cmdlet 名稱。  
 * 請確定 Cmdlet 存在於您的自動化帳戶中且沒有衝突。 如要確認 Cmdlet 是否存在，請以編輯模式開啟 Runbook，然後搜尋您想要在程式庫中尋找的 Cmdlet，或執行 `Get-Command <CommandName>`。 在驗證 Cmdlet 可供帳戶使用，且與其他 Cmdlet 或 Runbook 沒有名稱衝突之後，請將其新增至畫布，並確定您在 Runbook 中使用有效的參數集。  
 * 如果有名稱衝突，而且 Cmdlet 可以在兩個不同的模組中使用，您可以使用 Cmdlet 的完整名稱來解決此問題。 例如，您可以使用 **ModuleName\CmdletName**。  
-* 如果您是以混合式背景工作角色群組身分在內部部署環境中執行 Runbook，則請確定模組/Cmdlet 是安裝在裝載混合式背景工作角色的機器上。
+* 如果您是以混合式背景工作角色群組身分在內部部署環境中執行 Runbook，則請確定模組和 Cmdlet 是安裝在裝載混合式背景工作角色的機器上。
 
 ### <a name="long-running-runbook"></a>情節：長時間執行的 Runbook 無法完成
 

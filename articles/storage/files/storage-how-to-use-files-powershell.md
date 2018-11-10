@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 16f557d48f8056d438d55fdd066395e7e36ed8a5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 119853df5b5234b65bdade890df1fecb72c326b7
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945479"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157372"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立及管理 Azure 檔案共用 
 本指南會逐步說明透過 PowerShell 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
@@ -165,6 +165,57 @@ Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "
 ```
 
 雖然 `Start-AzureStorageFileCopy` Cmdlet 很方便用來進行 Azure 檔案共用與 Azure Blob 儲存體容器之間的臨機操作檔案移動，但我們建議較大型的移動 (就移動的檔案數目和大小而言) 應使用 AzCopy。 深入了解[適用於 Windows 的 AzCopy](../common/storage-use-azcopy.md) 和[適用於 Linux 的 AzCopy](../common/storage-use-azcopy-linux.md)。 AzCopy 必須安裝於本機 - 它不適用於 Cloud Shell。 
+
+## <a name="create-and-manage-share-snapshots"></a>建立及管理共用快照集
+可以使用 Azure 檔案共用來執行的另一項實用工作，是建立共用快照集。 快照集會保留 Azure 檔案共用的時間點。 共用快照集類似於您可能已經很熟悉的下列作業系統技術：
+- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS
+- Linux 系統的[邏輯磁碟區管理員 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照集
+- macOS 的 [Apple 檔案系統 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照集。 
+ 您可以對檔案共用 (使用 [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare) Cmdlet 擷取) 的 PowerShell 物件使用 `Snapshot` 方法，以建立共用的共用快照集。 
+
+```azurepowershell-interactive
+$share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
+$snapshot = $share.Snapshot()
+```
+
+### <a name="browse-share-snapshots"></a>瀏覽共用快照集
+您可以將快照集參考 (`$snapshot`) 傳至 `Get-AzureStorageFile` Cmdlet 的 `-Share` 參數，以瀏覽共用快照集的內容。
+
+```azurepowershell-interactive
+Get-AzureStorageFile -Share $snapshot
+```
+
+### <a name="list-share-snapshots"></a>列出共用快照集
+您可以使用下列命令，檢視您為共用建立的快照集清單。
+
+```azurepowershell-interactive
+Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.Name -eq "myshare" -and $_.IsSnapshot -eq $true }
+```
+
+### <a name="restore-from-a-share-snapshot"></a>從共用快照集還原
+您可以使用我們先前使用的 `Start-AzureStorageFileCopy` 命令來還原檔案。 基於此快速入門的用途，我們會先刪除我們先前上傳的 `SampleUpload.txt` 的檔案，以便從快照集加以還原。
+
+```azurepowershell-interactive
+# Delete SampleUpload.txt
+Remove-AzureStorageFile `
+    -Context $storageAcct.Context `
+    -ShareName "myshare" `
+    -Path "myDirectory\SampleUpload.txt"
+ # Restore SampleUpload.txt from the share snapshot
+Start-AzureStorageFileCopy `
+    -SrcShare $snapshot `
+    -SrcFilePath "myDirectory\SampleUpload.txt" `
+    -DestContext $storageAcct.Context `
+    -DestShareName "myshare" `
+    -DestFilePath "myDirectory\SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>刪除共用快照集
+您可以使用 [Remove-AzureStorageShare](/powershell/module/azure.storage/remove-azurestorageshare) Cmdlet，並指定包含 `-Share` 參數之 `$snapshot` 參考的變數，來刪除共用快照集。
+
+```azurepowershell-interactive
+Remove-AzureStorageShare -Share $snapshot
+```
 
 ## <a name="clean-up-resources"></a>清除資源
 完成作業後，您可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) Cmdlet 移除資源群組和所有相關資源。 

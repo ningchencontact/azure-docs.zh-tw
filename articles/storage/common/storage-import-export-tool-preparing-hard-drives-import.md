@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025612"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244027"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>準備匯入工作的硬碟
 
@@ -309,7 +309,7 @@ WAImportExport 工具是磁碟機準備及修復工具，可搭配 Microsoft Azu
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>哪裡可以找到舊版的 WAImportExport 工具？
 
-WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportExport 工具可讓使用者指定多個來源並寫入多個磁碟機。 此外，使用者可以輕鬆地管理多個來源位置 (資料必須從這些來源位置複製到單一 CSV 檔案)。 不過，如果您需要 SAS 支援或想要將單一來源複製到單一磁碟，您可以[下載 WAImportExport V1 工具](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)並參閱 [WAImportExport V1 參考](storage-import-export-tool-how-to-v1.md)，以取得 WAImportExport V1 使用方式的說明。
+WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportExport 工具可讓使用者指定多個來源並寫入多個磁碟機。 此外，使用者可以輕鬆地管理多個來源位置 (資料必須從這些來源位置複製到單一 CSV 檔案)。 不過，如果您需要 SAS 支援或想要將單一來源複製到單一磁碟，您可以[下載 WAImportExport V1 工具](https://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)並參閱 [WAImportExport V1 參考](storage-import-export-tool-how-to-v1.md)，以取得 WAImportExport V1 使用方式的說明。
 
 #### <a name="what-is-a-session-id"></a>什麼是工作階段識別碼？
 

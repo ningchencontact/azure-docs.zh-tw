@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650106"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085816"
 ---
 # <a name="entities-in-luis"></a>LUIS 中的實體
 
@@ -96,8 +96,9 @@ LUIS 提供許多類型的實體；預先建置的實體、自訂的機器學習
 ## <a name="entity-limits"></a>實體限制
 請檢閱[限制](luis-boundaries.md#model-boundaries)，以了解您可以將多少個每一種類型的實體新增到模型中。
 
-## <a name="entity-roles"></a>實體角色
-實體[角色](luis-concept-roles.md)會套用至自訂和預先建置的實體，且僅在模式中使用。 
+## <a name="roles-versus-hierarchical-entities"></a>角色與階層式實體
+
+如需詳細資訊，請參閱[角色與階層式實體](luis-concept-roles.md#roles-versus-hierarchical-entities)。
 
 ## <a name="composite-vs-hierarchical-entities"></a>複合實體與階層式實體的比較
 複合實體和階層式實體都有父子關係，且都是機器學習實體。 機器學習可讓 LUIS 根據不同的內容 (單字的排列) 理解實體。 複合實體較具彈性，因為它們允許以不同的實體類型作為子系。 階層實體的子系僅限簡單實體。 

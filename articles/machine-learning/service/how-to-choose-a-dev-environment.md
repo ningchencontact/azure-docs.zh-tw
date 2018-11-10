@@ -6,15 +6,16 @@ author: rastala
 ms.author: roastala
 manager: cgronlun
 ms.service: machine-learning
+ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: 260e209bcf00396ee545851684038578c4fd148a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4d25e147044053aa76afe2da482b71c24efc2325
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971037"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242869"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Azure Machine Learning 的開發環境 
 
@@ -24,7 +25,7 @@ Azure Machine Learning 服務不限使用任何平台，而且不需要特定的
 
 此文件的其餘部分會討論建議使用的開發環境：
 
-* __Jupyter Notebook__
+* __Jupyter 筆記本__
 * __Azure Notebooks__
 * __整合式開發環境 (IDE) 與程式碼編輯器__
 * __資料科學虛擬機器__
@@ -58,7 +59,7 @@ Azure Notebooks 的缺點是，您對環境沒有完整的控制權，而且不�
 
 ## <a name="data-science-virtual-machine"></a>資料科學虛擬機器
 
-資料科學虛擬機器 (DSVM) 是先前環境的組合。 它是 Azure 平台上的 VM，該平台已預先安裝 Jupyter Notebook、Visual Studio Code 與 Azure Machine Learning SDK。 建立 VM 會比 Azure Notebooks 更複雜，但會比從頭開始設定機器較不複雜。 因為 VM 映像中已預先安裝必要的軟體，所以建立 VM 之後，您就可以很快開始使用 Azure Machine Learning 進行實驗。
+資料科學虛擬機器 (DSVM) 是先前環境的組合。 它是 Azure 平台上的 VM，該平台已預先安裝 Jupyter Notebook、Visual Studio Code 與 Azure Machine Learning SDK。 因為 VM 映像中已預先安裝必要的軟體，所以建立 VM 之後，您就可以很快開始使用 Azure Machine Learning 進行實驗。
 
 DSVM 可讓您選取所需的計算資源，例如 CPU、 GPU 與記憶體。 它也已預先安裝如 PyCharm 等其他編輯器，以及 TensorFlow、Keras 與 PyTorch 等常用機器學習軟體。 如果您所需的軟體未安裝，您也可以自行安裝。
 

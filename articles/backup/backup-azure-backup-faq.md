@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 9df0e4674bde0722bf79d16882f21a9cc4dfe2c2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026308"
+ms.locfileid: "50095523"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -88,7 +88,7 @@ ms.locfileid: "50026308"
 
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>可以使用 DPM 備份 Azure Stack 中的應用程式嗎？
-否。 雖然您可以使用「Azure 備份」來保護 Azure Stack，但「Azure 備份」不支援使用 DPM 來備份 Azure Stack 中的應用程式。
+否。 雖然您可以使用 Azure 備份來保護 Azure Stack，但 Azure 備份不支援使用 DPM 來備份 Azure Stack 中的應用程式。
 
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>如果我已安裝「Azure 備份」代理程式來保護檔案和資料夾，是否可以安裝 System Center DPM 將內部部署工作負載備份至 Azure？
@@ -245,7 +245,7 @@ Microsoft 不會解密在任何時間點所備份的資料。
 
 當您使用 Azure 備份代理程式時，加密金鑰應該至少包含 16 個字元。 在 Azure VM 中，Azure KeyVault 所使用的金鑰長度沒有限制。
 
-### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>如果我忘記將加密金鑰放在哪裡，則會發生什麼情況？ 我是否可以復原資料？ Microsoft 是否可以復原資料？
+### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>如果我錯置加密金鑰，則會發生什麼情況？ 我是否可以復原資料？ Microsoft 是否可以復原資料？
 用來加密備份資料的金鑰只存在於您的站台上。 Microsoft 不會維護 Azure 中的複本，且無法存取金鑰。 如果您忘記將金鑰放在哪裡，Microsoft 並無法復原該備份資料。
 
 ## <a name="next-steps"></a>後續步驟

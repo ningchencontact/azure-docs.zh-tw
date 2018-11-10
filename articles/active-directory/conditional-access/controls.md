@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a40774faadc4393a1ebbb6e26673ba7dff22560c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406767"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092299"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？ 
 
@@ -166,8 +166,14 @@ ms.locfileid: "49406767"
 
 ### <a name="use-app-enforced-restrictions"></a>使用應用程式強制執行限制
 
-您可以使用這個控制項，要求 Azure AD 將裝置資訊傳遞至雲端應用程式。 這有助於雲端應用程式了解使用者是否來自符合規範的裝置或加入網域的裝置。 此控制項目前僅支援使用 SharePoint 作為雲端應用程式。 視裝置狀態而定，SharePoint 會使用裝置資訊來提供使用者有限或完整的經驗。
-若要深入了解如何要求 SharePoint 的有限存取，請參閱[從非受控裝置控制存取](https://aka.ms/spolimitedaccessdocs)。
+您可以使用這個控制項，要求 Azure AD 將裝置資訊傳遞至所選的雲端應用程式。 裝置資訊可讓雲端應用程式知道連線是否從符合規範或已加入網域的裝置起始。 此控制項僅支援 SharePoint Online 和 Exchange Online 作為選取的雲端應用程式。 選取後，雲端應用程式會使用裝置資訊來提供使用者有限或完整的體驗 (視裝置狀態而定)。
+
+若要深入了解，請參閱：
+
+- [啟用 SharePoint Online 的有限存取](https://aka.ms/spolimitedaccessdocs) 
+
+- [啟用 Exchange Online 的有限存取](https://aka.ms/owalimitedaccess)
+
 
 
 

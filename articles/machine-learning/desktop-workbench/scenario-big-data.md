@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a3329c7f08dfabdf1bb8a010ad5bc865fc509f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964696"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241645"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>資料的伺服器工作負載預測 (TB)
 

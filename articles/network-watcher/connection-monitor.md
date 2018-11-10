@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639022"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093035"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站監視兩部虛擬機器之間的網路通訊
 
@@ -30,6 +30,7 @@ ms.locfileid: "34639022"
 > [!div class="checklist"]
 > * 建立兩部虛擬機器
 > * 使用網路監看員的連線監視功能，監視虛擬機器之間的通訊
+> * 產生連線監視計量的警示
 > * 診斷兩部虛擬機器之間的通訊問題，並且了解可以如何解決
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -50,7 +51,7 @@ ms.locfileid: "34639022"
 
     |設定|值|
     |---|---|
-    |Name|myVm1|
+    |名稱|myVm1|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |訂用帳戶| 選取您的訂用帳戶。|
@@ -73,7 +74,7 @@ ms.locfileid: "34639022"
 |步驟|設定|值|
 |---|---|---|
 | 1 | 選取 [Ubuntu Server 17.10 VM] |                                                                         |
-| 3 | Name                              | myVm2                                                                   |
+| 3 | 名稱                              | myVm2                                                                   |
 | 3 | 驗證類型               | 貼上您的 SSH 公開金鑰，或選取 [密碼]，然後輸入密碼。 |
 | 3 | 資源群組                    | 選取 [使用現有項目]，然後選取 [myResourceGroup]。                 |
 | 6 | 擴充功能                        | **適用於 Linux 的網路代理程式**                                             |
@@ -92,7 +93,7 @@ ms.locfileid: "34639022"
 
     | 設定                  | 值               |
     | ---------                | ---------           |
-    | Name                     | myVm1-myVm2(22)     |
+    | 名稱                     | myVm1-myVm2(22)     |
     | 來源                   |                     |
     | 虛擬機器          | myVm1               |
     | 目的地              |                     |
@@ -121,6 +122,19 @@ ms.locfileid: "34639022"
     | Hops                     | 連線監視可讓您知道兩個端點之間的躍點。 在此範例中，連線是在相同虛擬網路中的兩部虛擬機器之間進行，因此只有一個躍點通往 10.0.0.5 IP 位址。 如果任何現有的系統或自訂路由會透過 VPN 閘道或網路虛擬設備等，路由傳送虛擬機器之間的流量，則會列出其他躍點。                                                                                                                         |
     | 狀態                   | 每個端點的綠色核取記號可讓您知道每個端點狀況良好。    ||
 
+## <a name="generate-alerts"></a>產生警示
+
+警示是由 Azure 監視器中的警示規則所建立，可定期自動執行儲存的查詢或自訂的記錄搜尋。 產生的警示可自動執行一或多個動作，例如通知某人或啟動另一個程序。 設定警示規則時，您設為目標的資源將決定可用來產生警示的計量清單。
+
+1. 在 Azure 入口網站中選取 [監視] 服務，然後選取 [警示] > [新增警示規則]。
+2. 按一下 [選取目標]，然後要設為目標的資源。 選取 [訂用帳戶]，然後設定 [資源類型] 以篩選出您要使用的連線監視器。
+
+    ![已選取目標的警示畫面](./media/connection-monitor/set-alert-rule.png)
+1. 在您選取要設為目標的資源後，請選取 [新增準則]。網路監看員具有[可建立警示的計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported)。 將 [可用的訊號] 設為 ProbesFailedPercent 和 AverageRoundtripMs 計量：
+
+    ![已選取訊號的警示頁面](./media/connection-monitor/set-alert-signals.png)
+1. 填寫警示詳細資料，例如警示規則名稱、描述和嚴重性。 您也可以將動作群組新增至警示，以自動化和自訂警示回應。
+
 ## <a name="view-a-problem"></a>檢視問題
 
 根據預設，Azure 會允許相同虛擬網路中的虛擬機器透過所有連接埠通訊。 經過一段時間，您或您的組織中的其他人，可能會覆寫 Azure 的預設規則，不小心造成通訊失敗。 完成下列步驟以建立通訊問題，然後再次檢視連線監視：
@@ -138,7 +152,7 @@ ms.locfileid: "34639022"
     | 目的地連接埠範圍 | 22             |
     | 動作                  | 拒絕           |
     | 優先順序                | 100            |
-    | Name                    | DenySshInbound |
+    | 名稱                    | DenySshInbound |
 
 5. 因為連線監視會每隔 60 秒進行探查，所以請稍候幾分鐘，然後在入口網站左側，依序選取 [網路監看員]、[連線監視]，然後再次選取 [myVm1-myVm2(22)] 監視。 現在結果會不同，如下圖所示：
 

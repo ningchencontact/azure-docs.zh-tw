@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: c71f683355a09c8ba2381db406eeb1ccabdb7afa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697691"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215203"
 ---
-# <a name="replicate-azure-stack-vms-to-azure-preview"></a>將 Azure Stack VM 複寫至 Azure (預覽)
+# <a name="replicate-azure-stack-vms-to-azure"></a>將 Azure Stack VM 複寫至 Azure
 
-本文說明如何使用 [Azure Site Recovery 服務](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)設定將 Azure Stack VM 進行災害復原至 Azure。
+本文說明如何使用 [Azure Site Recovery 服務](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)設定從 Azure Stack VM 至 Azure 的災害復原。
 
 Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 此服務可確保當停電時，無論是計劃性或突發性，您的 VM 工作負載皆維持可供使用。
 
@@ -25,10 +25,6 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 - 當主要網站停電時，您可以使用 Site Recovery 容錯移轉至 Azure。
 - 容錯移轉時，系統會從儲存的 VM 資料中建立 Azure VM，使用者便可繼續存取在這些 Azure VM 上執行的工作負載。
 - 若所有一切都恢復啟動並運作，您可以將 Azure VM 容錯回復到主要網站，並再次開始複寫至 Azure 儲存體。
-
-
-> [!NOTE]
-> 適用於 Azure Stack 的 Site Recovery 目前為預覽狀態。
 
 
 在本文中，您將了解：
@@ -193,7 +189,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> 組態伺服器也可從命令列安裝。 [深入了解](http://aka.ms/installconfigsrv)。
+> 組態伺服器也可從命令列安裝。 [深入了解](physical-manage-configuration-server.md#install-from-the-command-line)。
 
 > 可能需要 15 分鐘以上，帳戶名稱才會出現在入口網站。 若要立即更新，請選取 [設定伺服器] > 伺服器名稱 > [重新整理伺服器]。
 

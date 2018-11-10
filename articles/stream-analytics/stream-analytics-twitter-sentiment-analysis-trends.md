@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030609"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248722"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
 
@@ -30,7 +30,7 @@ ms.locfileid: "37030609"
 
 為了在 Twitter 上即時找出熱門話題，公司需要即時分析重要話題的推文數量和情感。 換言之，他們需要以該社交媒體摘要為基礎的情感分析分析引擎。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在本教學課程中，您將會透過用戶端應用程式來連線到 Twitter，並尋找具有特定主題標籤 (可設定) 的推文。 若要執行應用程式並使用 Azure 串流分析來分析推文，您必須具備下列項目：
 
 * Azure 訂用帳戶
@@ -235,7 +235,7 @@ ms.locfileid: "37030609"
 
 1. 關閉 [輸入] 刀鋒視窗 (如果尚未關閉)。
 
-2. 在作業刀鋒視窗中，按一下 [查詢] 方塊。 Azure 會列出作業已設定的輸入和輸出，還可讓您建立查詢，在輸入資料流傳送至輸出時進行轉換。
+2. 在 [概觀] 刀鋒視窗中，按一下靠近 [查詢] 方塊右上方的 [編輯查詢]。 Azure 會列出作業已設定的輸入和輸出，還可讓您建立查詢，在輸入資料流傳送至輸出時進行轉換。
 
 3. 請確定 TwitterWpfClient 應用程式正在執行。 
 

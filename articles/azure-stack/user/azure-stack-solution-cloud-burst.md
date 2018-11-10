@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 1f3dcc7da3e91d3805cae805422778978d0187c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971326"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095333"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>教學課程：使用 Azure 建立跨雲端縮放解決方案
 
@@ -40,7 +40,7 @@ ms.locfileid: "46971326"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的延伸模組。 Azure Stack 可將雲端運算的靈活性和創新能力引進您的內部部署環境中，並啟用獨特的混合式雲端，讓您能夠隨處建置及部署混合式應用程式。  
+> Microsoft Azure Stack 是 Azure 的延伸模組。 Azure Stack 可將雲端運算的靈活性和創新能力導入您的內部部署環境中，並啟用獨特的混合式雲端，讓您能夠隨處建置及部署混合式應用程式。  
 > 
 > [混合式應用程式的設計考量](https://aka.ms/hybrid-cloud-applications-pillars)技術白皮書檢閱了設計、部署和操作混合式應用程式時的軟體品質要素 (放置、延展性、可用性、復原、管理性和安全性)。 這些設計考量有助於您設計出最佳的混合式應用程式，讓生產環境遇到最少的挑戰。
 
@@ -101,7 +101,7 @@ ms.locfileid: "46971326"
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>將程式碼新增至 Visual Studio Team Services 專案
 
-1. 使用在 Visual Studio Team Services (VSTS) 上具有專案建立權限的帳戶登入 VSTS~~。~~
+1. 使用在 Visual Studio Team Services (VSTS) 上具有專案建立權限的帳戶登入 VSTS。
 
     混合式 CI/CD 可同時套用至應用程式程式碼和基礎結構程式碼。 使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/)進行私用與託管的雲端開發。
 

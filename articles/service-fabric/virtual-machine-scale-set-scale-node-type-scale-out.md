@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8f460b41cd2ce62b7a3e0138caa25f68e2fd22ad
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887783"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156488"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>透過新增虛擬機器擴展集來調整 Service Fabric 叢集的規模
 此文章說明如何透過將新的虛擬機器擴展集新增至現有的叢集，來調整 Azure Service Fabric 叢集的規模。 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 屬於叢集一部分的機器或 VM 都稱為節點。 虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Azure 叢集中定義的每個節點類型，會[設定為不同的擴展集](service-fabric-cluster-nodetypes.md)。 隨後，您即可個別管理每個節點類型。 建立 Service Fabric 叢集之後，您可以垂直調整叢集節點類型 (變更節點的資源)、將節點類型 VM 的作業系統升級，或將新的虛擬機器擴展集新增至現有的叢集。  您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。  在叢集進行調整時，您的應用程式也會自動調整。
@@ -34,7 +34,7 @@ ms.locfileid: "42887783"
 若要將主要節點類型 VM 的 VM 大小和作業系統升級，其程序如下。  升級之後，主要節點類型 VM 的大小為標準 D4_V2，所執行的是 Windows Server 2016 Datacenter with Containers。
 
 > [!WARNING]
-> 在對生產叢集嘗試此程序之前，建議您先研究範本範例，並確認要對測試叢集所進行的程序。 叢集也會有一段時間無法使用。
+> 在對生產叢集嘗試此程序之前，建議您先研究範本範例，並確認要對測試叢集所進行的程序。 叢集也會有一段時間無法使用。 您無法變更平行宣告為相同 NodeType 的多個 VMSS；您必須執行不同的部署作業，將變更個別套用至每個 NodeType VMSS。
 
 1. 使用這些[範本](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json)和[參數](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json)檔案範例，為初始叢集部署兩個節點類型和兩個擴展集 (兩個節點類型各一個擴展集)。  這兩個擴展集的大小為標準 D2_V2，所執行的是 Windows Server 2012 R2 Datacenter。  等候叢集完成基準升級。   
 2. 選擇性 - 在叢集中部署具狀態範例。

@@ -14,22 +14,22 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041640"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085771"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>在 Azure Logic Apps 中利用區塊化處理大型訊息
 
-在處理訊息時，Logic Apps 會限制訊息內容的大小上限。 此限制有助於減少儲存和處理大型訊息所造成的額外負荷。 若要處理大於此限制的訊息，Logic Apps 可將大型訊息分割成多個較小的訊息。 透過這種方式，您仍可在特定情況下使用 Logic Apps 傳輸大型檔案。 在透過連接器或 HTTP 與其他服務通訊時，Logic Apps 可以消化大型訊息，但前提是訊息必須先分割為區塊。 此條件代表連接器也必須支援區塊化，或者 Logic Apps 與這些服務間的基礎 HTTP 訊息交換必須使用區塊化。
+在處理訊息時，Logic Apps 會限制訊息內容的大小上限。 此限制有助於減少儲存和處理大型訊息所造成的額外負荷。 若要處理大於此限制的訊息，Logic Apps 可將大型訊息分割成多個較小的訊息。 透過這種方式，您仍可在特定情況下使用 Logic Apps 傳輸大型檔案。 在透過連接器或 HTTP 與其他服務通訊時，Logic Apps 可以消化大型訊息，但前提是訊息必須先分割為區塊。 這項條件代表連接器也必須支援區塊化，或者 Logic Apps 與這些服務間的基礎 HTTP 訊息交換必須使用區塊化。
 
-此文章會為您示範如何為大過限制的訊息設定區塊化支援。
+本文示範如何針對可處理大於限制訊息量的動作，設定區塊化支援。 邏輯應用程式觸發程序不支援區塊處理，因為交換多個訊息會增加額外負荷。 
 
 ## <a name="what-makes-messages-large"></a>要如何判定訊息「過大」？
 
-訊息是否「過大」須以處理這些訊息的服務為基準。 因此 Logic Apps 和連接器對大型訊息的實際大小限制會有所不同。 當 Logic Apps 和連接器都無法直接消化大型訊息時，就必須將其分塊。 針對 Logic Apps 的訊息大小限制，請參閱 [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md) (Logic Apps 限制與設定)。
+訊息是否「過大」須以處理這些訊息的服務為基準。 因此 Logic Apps 和連接器對大型訊息的實際大小限制會有所不同。 當 Logic Apps 和連接器都無法直接消化大型訊息時，就必須加以分塊。 針對 Logic Apps 的訊息大小限制，請參閱 [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md) (Logic Apps 限制與設定)。
 針對各連接器的訊息大小限制，則請參閱 [connector's specific technical details](../connectors/apis-list.md) (連接器的特定技術詳細資料)。
 
 ### <a name="chunked-message-handling-for-logic-apps"></a>Logic Apps 的分塊訊息處理
@@ -65,7 +65,7 @@ Logic Apps 無法直接使用超過訊息大小上限的分塊訊息輸出。 �
 
    ![開啟區塊化](./media/logic-apps-handle-large-messages/set-up-chunking.png)
 
-3. 若要繼續為下載或上傳設定區塊化，請繼續閱讀以下各節。
+3. 若要繼續為下載或上傳設定區塊化，請遵循以下各節繼續。
 
 <a name="download-chunks"></a>
 
@@ -89,7 +89,7 @@ Logic Apps 無法直接使用超過訊息大小上限的分塊訊息輸出。 �
 
     您的邏輯應用程式繼續傳送後續 GET 要求，直到擷取所有內容為止。
 
-舉例來說，此動作定義呈現了設定 `Range` 標頭的 HTTP GET 要求。 該標頭會建議端點應以分塊內容回應：
+舉例來說，這項動作定義呈現了設定 `Range` 標頭的 HTTP GET 要求。 該標頭會建議端點應以分塊內容回應：
 
 ```json
 "getAction": {
@@ -146,7 +146,7 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
 4. 端點會在收到每項 PATCH 要求之後回應 "200" 狀態碼，來確認各區塊的接收狀況。
 
-舉例來說，此動作定義呈現了將分塊內容傳送至端點的 HTTP POST 要求。 在動作的 `runTimeConfiguration` 屬性中，`contentTransfer` 屬性將 `transferMode` 設定為 `chunked`：
+舉例來說，這項動作定義呈現了將分塊內容傳送至端點的 HTTP POST 要求。 在動作的 `runTimeConfiguration` 屬性中，`contentTransfer` 屬性將 `transferMode` 設定為 `chunked`：
 
 ```json
 "postAction": {

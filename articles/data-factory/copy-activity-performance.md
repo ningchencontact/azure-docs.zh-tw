@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 958d1ea09ce4d85afc59af412e1050efc6290a1a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002240"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416931"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 注意事項：
 
 * 輸送量的計算公式如下：[從來源讀取的資料大小]/[複製活動執行持續時間]。
-* 表中的效能參考數字是使用單一複製活動執行裡的 [TPC-H](http://www.tpc.org/tpch/) 資料集來測量的。
+* 表中的效能參考數字是使用單一複製活動執行裡的 [TPC-H](http://www.tpc.org/tpch/) 資料集來測量的。 檔案型存放區的測試檔案是大小為 10GB 的多個檔案。
 * 在 Azure 資料存放區中，來源和接收位於相同 Azure 區域中。
 * 對於內部部署和雲端資料存放區之間的混合式複製，每個自我裝載整合執行階段節點都在與資料存放區分開的機器上執行，該機器具有以下規格。 當僅執行單一活動，複製作業將只會取用測試電腦一小部分的 CPU、記憶體或網路頻寬。
     <table>
@@ -76,7 +76,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 
 > [!TIP]
-> 您可以利用比預設最大資料整合單位 (DIU) 更多的 DIU，也就是對雲端到雲端複製活動執行使用 32 單位，以達到更高的輸送量。 例如，使用 100 DIU，您就可以用 **1.0GBps** 的速率將資料從 Azure Blob 複製到 Azure Data Lake Store。 如需此功能和支援案例的詳細資訊，請參閱[資料整合單位](#data-integration-units)一節。 請連絡 [Azure 支援](https://azure.microsoft.com/support/)來要求更多 DIU。
+> 您可以使用更多資料整合單位 (DIU) 來達到更高的輸送量。 例如，使用 100 DIU，您就可以用 **1.0GBps** 的速率將資料從 Azure Blob 複製到 Azure Data Lake Store。 如需此功能和支援案例的詳細資訊，請參閱[資料整合單位](#data-integration-units)一節。 
 
 ## <a name="data-integration-units"></a>資料整合單位
 
@@ -94,7 +94,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 監視活動執行時，您可以在複製活動輸出中查看每個複製執行實際使用的資料整合單位。 請參閱[複製活動監視](copy-activity-overview.md#monitoring)了解詳細資料。
 
 > [!NOTE]
-> 如果您需要更多 DIU 以提高輸送量，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。 目前只有當您是將多個檔案從 Blob 儲存體/Data Lake Store/Amazon S3/雲端 FTP/雲端 SFTP 複製到任一其他雲端資料存放區時，設定 8 及 8 以上的值才有作用。
+> 目前只有在**將多個檔案從 Blob 儲存體/Data Lake Store/Amazon S3/雲端 FTP/雲端 SFTP 複製到任一其他雲端資料存放區**時，**超過 4 個 DIU 的設定**才有作用。
 >
 
 **範例：**

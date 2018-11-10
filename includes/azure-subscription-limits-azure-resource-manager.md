@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 08/22/2018
+ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979448"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458841"
 ---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -24,8 +24,6 @@ ms.locfileid: "45979448"
 | 每一訂用帳戶每一區域的[儲存體帳戶](../articles/storage/common/storage-quickstart-create-account.md) |200 |200<sup>2</sup> |
 | 每一訂用帳戶[資源群組](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | 每一訂用帳戶[可用性設定組](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |每個區域 2,000 個 |每個區域 2,000 個 |
-| 資源管理員 API 讀取 |每小時 15,000 個 |每小時 15,000 個 |
-| 資源管理員 API 寫入 |每小時 1,200 個 |每小時 1,200 個 |
 | 資源管理員 API 要求的大小 |4,194,304 個位元組 |4,194,304 個位元組 |
 | 每個訂用帳戶的標籤<sup>3</sup> |無限制 |無限制 |
 | 每個訂用帳戶的唯一標記計算<sup>3</sup> | 10,000 | 10,000 |

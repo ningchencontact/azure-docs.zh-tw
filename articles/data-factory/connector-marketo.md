@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: efbc020f482a46621eb5c3e3cd6137d1114da6de
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129602"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415826"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>使用 Azure Data Factory 複製 Marketo 中的資料 (預覽)
 
-此文章概述如何使用 Azure Data Factory 中的「複製活動」，從 Marketo 複製資料。 此文章是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Marketo 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!IMPORTANT]
 > 此連接器目前為預覽版。 您可以親身體驗並提供意見反應。 如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。
@@ -32,6 +32,9 @@ ms.locfileid: "46129602"
 您可以將資料從 Marketo 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
+
+>[!NOTE]
+>此 Marketo 連接器會建置在 Marketo REST API 上方。 請注意，Marketo 在服務端上有[並行要求限制](http://developers.marketo.com/rest-api/)。 如果您遇到錯誤指出「嘗試使用 REST API 時發生錯誤：'20' 秒內超過比率上限 '100' (606)」或「嘗試使用 REST API 時發生錯誤：已達到並行存取限制 '10' (615)」，請考慮減少並行複製活動的執行，以減少對服務發出的要求數目。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -74,7 +77,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 此節提供 Marketo 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Marketo 資料集所支援的屬性清單。
 
 若要從 Marketo 複製資料，請將資料集的 type 屬性設定為 **MarketoObject**。 在此類型的資料集中，沒有任何其他類型特定的屬性。
 
@@ -95,7 +98,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 此節提供 Marketo 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Marketo 來源所支援的屬性清單。
 
 ### <a name="marketosource-as-source"></a>將 MarketoSource 作為來源
 

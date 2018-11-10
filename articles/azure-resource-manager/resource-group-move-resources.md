@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394403"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093816"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -28,8 +28,10 @@ ms.locfileid: "49394403"
 您無法變更資源的位置。 移動資源只會將它移動到新的資源群組。 新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
 
 > [!NOTE]
-> 本文說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您真的想要變更 Azure 帳戶供應項目 (例如，從隨用隨付升級為預付)，同時繼續使用現有的資源，請參閱 [切換至不同的 Azure 訂用帳戶供應項目](../billing/billing-how-to-switch-azure-offer.md)。
->
+> 本文說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您實際想要變更 Azure 帳戶供應項目 (例如從免費升級為預付型方案)，則必須轉換您的訂用帳戶。 
+> * 若要將免費試用升級，請參閱[將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付](..//billing/billing-upgrade-azure-subscription.md)。
+> * 若要變更預付型方案帳戶，請參閱[將您的 Azure 預付型方案訂閱變更為其他供應項目](../billing/billing-how-to-switch-azure-offer.md)。
+> * 如果您無法轉換訂用帳戶，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
 >
 
 ## <a name="checklist-before-moving-resources"></a>移動資源前的檢查清單
@@ -269,7 +271,7 @@ Authorization: Bearer <access-token>
 
 自 2018 年 9 月 24 日起，支援移動受控磁碟。 
 
-1. 您必須註冊才能啟用此功能。
+1. 在來源訂用帳戶中，註冊這項功能。
 
   ```azurepowershell-interactive
   Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute

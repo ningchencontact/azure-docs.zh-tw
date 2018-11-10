@@ -4,9 +4,6 @@ description: 本文列出 Azure 流量管理員地理路由類型使用的國家
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1609daa4edbc3db9384941d575c141faaa799fb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28201491"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138237"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Azure 流量管理員用於地理流量路由方法的國家/地區階層
 
-本文列出 Azure 流量管理員中**地理**流量路由方法所使用的國家和區域。 您也可以用程式設計方式呼叫 [ Azure 流量管理員的 REST API](https://docs.microsoft.com/rest/api/trafficmanager/)，以取得這項資訊。 
+本文列出 Azure 流量管理員中**地理**流量路由方法所使用的國家和區域。 您也可以呼叫 [Azure 流量管理員的 REST API](https://docs.microsoft.com/rest/api/trafficmanager/)，以程式設計方式取得這項資訊。 
 
 - WORLD(世界)
 
@@ -79,7 +76,7 @@ ms.locfileid: "28201491"
 
         - IE(愛爾蘭)
 
-        - IM(曼城島)
+        - IM(曼島)
 
         - IS(冰島)
 
@@ -259,7 +256,7 @@ ms.locfileid: "28201491"
 
         - PA(巴拿馬)
 
-        - PM(聖匹島)
+        - PM(聖皮埃與密克隆群島)
 
         - PR(波多黎各)
 
@@ -379,9 +376,9 @@ ms.locfileid: "28201491"
 
         - VC(聖文森及格瑞那丁)
 
-        - VG(英屬維爾京群島)
+        - VG(英屬維京群島)
 
-        - VI(美屬維爾京群島)
+        - VI(美屬維京群島)
 
         - XE(聖佑達修斯)
 
@@ -415,7 +412,7 @@ ms.locfileid: "28201491"
 
         - IN(印度)
 
-        - IO(英屬印度洋領土)
+        - IO(英屬印度洋領地)
 
         - JP(日本)
 
@@ -567,7 +564,7 @@ ms.locfileid: "28201491"
 
         - TD(查德)
 
-        - TF(法國南方領土)
+        - TF(法屬南部屬地)
 
         - TG(多哥)
 
@@ -607,7 +604,7 @@ ms.locfileid: "28201491"
 
         - GF(法屬圭亞那)
 
-        - GS(南喬治亞及南三明治群島)
+        - GS(南喬治亞與南三明治群島)
 
         - GY(蓋亞納)
 
@@ -643,7 +640,7 @@ ms.locfileid: "28201491"
 
             - AU-WA(西澳大利亞)
 
-        - CK(柯克群島)
+        - CK(庫克群島)
 
         - FJ(斐濟)
 
@@ -651,13 +648,13 @@ ms.locfileid: "28201491"
 
         - GU(關島)
 
-        - HM(赫德島及麥當勞群島)
+        - HM(赫德島及麥唐納群島)
 
         - KI(吉里巴斯)
 
         - MH(馬紹爾群島)
 
-        - MP(北馬里安納群島)
+        - MP(北馬利安納群島)
 
         - NC(新喀里多尼亞群島)
 
@@ -673,7 +670,7 @@ ms.locfileid: "28201491"
 
         - PG(巴布亞紐幾內亞)
 
-        - PN(皮特康群島)
+        - PN(皮特肯群島)
 
         - PW(帛琉)
 

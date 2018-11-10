@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cd7b475dc2bd4dade822a82f285c2e96c8d532d2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138165"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243789"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
@@ -479,7 +479,7 @@ Azure 儲存體可讓您啟用 CORS – 跨原始來源資源共用。 對於每
 * [在 MSDN 上 Azure 儲存體服務的跨原始資源共用 (CORS) 支援](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   這是適用於 Azure 儲存體服務的 CORS 支援的參考文件。 其中提供適用於每個儲存體服務的文章連結，並示範範例且說明 CORS 檔案中的每個元素。
-* [Microsoft Azure 儲存體︰CORS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure 儲存體︰CORS 簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   此為最初發表 CORS 並示範如何使用之部落格文章的連結。
 
@@ -490,7 +490,7 @@ Azure 儲存體可讓您啟用 CORS – 跨原始來源資源共用。 對於每
 
    如果您可以使用 HTTPS 來提供傳輸層安全性，則使用 MD5 檢查是多餘且不必要的。
 
-   如需詳細資訊，請查看 [Azure Blob MD5 概觀](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)。
+   如需詳細資訊，請查看 [Azure Blob MD5 概觀](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)。
 2. **美國政府的 FIPS 相符性為何？**
 
    美國聯邦資訊處理標準 (FIPS) 會定義由美國聯邦政府電腦系統核准使用的密碼編譯演算法，以便保護機密資料。 在 Windows 伺服器或桌面上啟用 FIPS 模式，會告知作業系統僅應使用 FIPS 驗證的密碼編譯演算法。 如果應用程式使用不相容的演算法，該應用程式將會中斷。 利用 .NET Framework 4.5.2 或更新版本，應用程式會在電腦處於 FIPS 模式時，自動切換密碼編譯演算法來使用 FIPS 相容的演算法。

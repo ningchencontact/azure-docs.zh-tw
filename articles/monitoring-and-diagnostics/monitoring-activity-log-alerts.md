@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5ddf510d50f38ed9aaf742bd06c330e53ffe1391
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6f007ca3aacb338c14bf481ee58407596c8290ad
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992791"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091618"
 ---
 # <a name="alerts-on-activity-log"></a>活動記錄警示 
 
@@ -50,7 +50,7 @@ ms.locfileid: "46992791"
 - **事件起始者**：也稱為「呼叫者」。 執行作業之使用者的電子郵件地址或 Azure Active Directory 識別碼。
 
 > [!NOTE]
-> 在訂用帳戶中，範圍的活動最多可有 100 個警示規則，層級包括單一資源、資源群組中所有資源或整個訂用帳戶。
+> 在訂用帳戶中，最多可為活動建立 100 個警示規則，範圍層級如下：單一資源、資源群組中所有資源或整個訂用帳戶。
 
 當活動記錄警示啟動時，會使用動作群組來產生動作或通知。 動作群組是一組可重複使用的通知接收者，例如電子郵件地址、Webhook URL 或 SMS 電話號碼。 可以從多個警示參考接收者，將通知通道集中管理並群組。 當您定義活動記錄警示時，會有兩個選項。 您可以：
 

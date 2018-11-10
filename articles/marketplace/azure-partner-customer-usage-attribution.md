@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365612"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157933"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -44,7 +44,7 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 
 若要新增全域唯一識別碼 (GUID)，您只需要在主要範本檔案中進行一處修改：
 
-1. [建立 GUID](#create-guids) (例如 eb7927c8-dd66-43e1-b0cf-c346a422063) 並[註冊 GUID](#register-guids-and-offers)。
+1. 使用建議的方法[建立 GUID](#create-guids) 並[註冊 GUID](#register-guids-and-offers)。
 
 1. 開啟 Resource Manager 範本。
 
@@ -58,9 +58,26 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 
 1. [驗證範本部署中的 GUID 已成功建立](#verify-the-guid-deployment)。
 
-### <a name="sample-template-code"></a>範例範本程式碼
+### <a name="sample-resource-manager-template-code"></a>範例 Resource Manager 範本程式碼
+在將下列範例程式碼新增至主要範本檔案時，請務必使用您自己的輸入對該範例進行修改。
+資源只需要新增至 **mainTemplate.json** 或 **azuredeploy.json** 檔案，不可新增至任何巢狀或連結的範本。
+```
+// Make sure to modify this sample code with your own inputs where applicable
 
-![範例範本程式碼](media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG)
+{ // add this resource to the mainTemplate.json (do not add the entire file)
+    "apiVersion": "2018-02-01",
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "resources": []
+        }
+    }
+} // remove all comments from the file when complete
+```
 
 ## <a name="use-the-resource-manager-apis"></a>使用 Resource Manager API
 
@@ -77,7 +94,7 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 > [!Note]
 > 此字串的格式至關重要。 若未包括 **pid-** 前置詞，就無法查詢資料。 不同的 SDK 會以不同的方式追蹤。 若要實作此方法，請檢閱支援和適用於慣用 Azure SDK 的方法。 
 
-### <a name="example-the-python-sdk"></a>範例：Python SDK
+#### <a name="example-the-python-sdk"></a>範例：Python SDK
 
 針對 Python，請使用 **config** 屬性。 您只能將屬性新增到 UserAgent。 以下是範例：
 
@@ -104,7 +121,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 ## <a name="create-guids"></a>建立 GUID
 
-GUID 是具有 32 個十六進位數字的參考號碼。 若要建立 GUID 來進行追蹤，您應該使用 GUID 產生器。 建議您利用 [Azure 儲存體的 GUID 產生器表單](https://aka.ms/StoragePartners)。 不過，如果您不想使用 Azure 儲存體的 GUID 產生器，有多個[線上 GUID 產生器](https://www.bing.com/search?q=guid%20generator)可供您使用。
+GUID 是具有 32 個十六進位數字的參考號碼。 若要建立 GUID 來進行追蹤，您應該使用 GUID 產生器。 Azure 儲存體小組已建立 [GUID 產生器表單](https://aka.ms/StoragePartners)，其會透過電子郵件傳送正確格式的 GUID 給您，且可跨不同追蹤系統重複使用。 
 
 > [!Note]
 > 強烈建議您使用 [Azure 儲存體的 GUID 產生器表單](https://aka.ms/StoragePartners)來建立您的 GUID。 如需詳細資訊，請參閱[常見問題集](#faq)。

@@ -11,19 +11,24 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: ed7a117d4422b3b3feddd7d2fafa5eabea43f9e5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/25/2018
+ms.openlocfilehash: 2882bd782359697cf714214e68166c9f997f52e4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164932"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093542"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 威脅偵測
 
-Azure SQL Database 威脅偵測會偵測意圖存取或攻擊資料庫，並可能會造成損害的異常活動。
+適用於 [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的 Azure SQL 威脅偵測會偵測意圖存取或惡意探索資料庫，並可能會造成損害的異常活動。
 
 威脅偵測是 [SQL 進階威脅防護](sql-advanced-threat-protection.md) (ATP) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 威脅偵測可以透過中央 SQL ATP 入口網站存取及管理。
+
+
+> [!NOTE] 
+> 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
+
 
 ## <a name="what-is-threat-detection"></a>什麼是威脅偵測？
 
@@ -65,7 +70,7 @@ SQL 威脅偵測提供新的一層安全性，在發生異常活動時會提供�
 
 SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合。 在 Azure 入口網站中，資料庫和 SQL ATP 刀鋒視窗內的 SQL 動態威脅偵測圖格會追蹤作用中威脅的狀態。
 
-按一下 [威脅偵測警示] 會啟動 Azure 資訊安全中心的警示頁面，並獲得在資料庫中偵測到的作用中 SQL 威脅概觀。
+按一下 [威脅偵測警示] 會啟動 Azure 資訊安全中心的警示頁面，並獲得在資料庫或資料倉儲中偵測到的作用中 SQL 威脅概觀。
 
    ![威脅偵測警示](./media/sql-database-threat-detection/threat_detection_alert.png)
    

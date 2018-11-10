@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 應用程式型條件式存取 | Microsoft Docs
-description: 了解 Azure Active Directory 應用程式型條件式存取有何作用。
+title: 如何在 Azure Active Directory 中透過條件式存取要求必須從已核准用戶端應用程式存取雲端應用程式 | Microsoft Docs
+description: 如何在 Azure Active Directory 中透過條件式存取要求必須從已核准用戶端應用程式存取雲端應用程式。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: f34fc4c41094292db9bed1294ee7b26ec04c96c6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630597"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415384"
 ---
-# <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory 應用程式型條件式存取  
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求必須從已核准用戶端應用程式存取雲端應用程式 
 
-您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 有了 Azure Active Directory (Azure AD) 應用程式型條件式存取，您可以將雲端應用程式的存取限制為能保護公司資料的用戶端應用程式。  
+您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 有了 Azure Active Directory (Azure AD) 條件式存取，您可以將雲端應用程式的存取限制為能保護公司資料的已核准用戶端應用程式。  
 
-本主題說明如何設定 Azure AD 應用程式型條件式存取。
+本主題說明如何設定需要已核准用戶端應用程式的條件式存取原則。
 
 ## <a name="overview"></a>概觀
 
@@ -36,7 +36,7 @@ ms.locfileid: "39630597"
 
 您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來協助保護公司資料。 Intune 應用程式保護原則不需要行動裝置管理 (MDM) 解決方案，因此不論您是否在裝置管理解決方案中註冊裝置，都可以保護公司的資料。
 
-Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用程式的存取限制為支援 Intune 應用程式保護原則的用戶端應用程式。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。
+Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取限制為支援 Intune 應用程式保護原則的用戶端應用程式。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。
 
 在條件式存取術語中，這些用戶端應用程式稱為**核准的用戶端應用程式**。  
 
@@ -120,9 +120,9 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
     ![條件式存取](./media/app-based-conditional-access/03.png)
 
-    b. [用戶端應用程式] 需選取 [行動裝置應用程式和桌面應用程式]。
+    b. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式與傳統型應用程式] 和 [新式驗證用戶端]。
 
-    ![條件式存取](./media/app-based-conditional-access/04.png)
+    ![條件式存取](./media/app-based-conditional-access/91.png)
 
 5. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
 
@@ -144,11 +144,11 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：**[條件] 需要設定 [用戶端應用程式]。 
+4. **條件：**[條件] 需要設定 [用戶端應用程式 (預覽)]。 
 
-    a. [用戶端應用程式] 請選取 [Exchange Active Sync]。
+    a. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
 
-    ![條件式存取](./media/app-based-conditional-access/08.png)
+    ![條件式存取](./media/app-based-conditional-access/92.png)
 
     b. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
 
@@ -201,9 +201,9 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
     ![條件式存取](./media/app-based-conditional-access/03.png)
 
-    b. [用戶端應用程式] 需選取 [行動裝置應用程式和桌面應用程式]。
+    b. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [新式驗證用戶端]。
 
-    ![條件式存取](./media/app-based-conditional-access/04.png)
+    ![條件式存取](./media/app-based-conditional-access/91.png)
 
 5. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
 
@@ -228,9 +228,9 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
 4. **條件：**[條件] 需要設定 [用戶端應用程式]：
 
-    a. [用戶端應用程式] 請選取 [Exchange Active Sync]。
+    a. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
 
-    ![條件式存取](./media/app-based-conditional-access/08.png)
+    ![條件式存取](./media/app-based-conditional-access/92.png)
 
     b. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
 
@@ -285,9 +285,9 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
     ![條件式存取](./media/app-based-conditional-access/03.png)
 
-    b. [用戶端應用程式] 需選取 [行動裝置應用程式和桌面應用程式]。
+    b. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [新式驗證用戶端]。
 
-    ![條件式存取](./media/app-based-conditional-access/04.png)
+    ![條件式存取](./media/app-based-conditional-access/91.png)
 
 5. [存取控制項] 需要選取下列項目：
 
@@ -317,9 +317,9 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
 4. **條件：**[條件] 需要設定 [用戶端應用程式]。 
 
-    選取 [Exchange Active Sync] 做為 **用戶端應用程式*。
+    [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
 
-    ![條件式存取](./media/app-based-conditional-access/08.png)
+    ![條件式存取](./media/app-based-conditional-access/91.png)
 
 5. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
  
@@ -381,9 +381,9 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
     ![條件式存取](./media/app-based-conditional-access/03.png)
 
-    b. [用戶端應用程式] 需選取 [行動裝置應用程式和桌面應用程式]。
+    b. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式與傳統型應用程式] 和 [新式驗證用戶端]。
 
-    ![條件式存取](./media/app-based-conditional-access/04.png)
+    ![條件式存取](./media/app-based-conditional-access/91.png)
 
 5. [存取控制項] 需要選取下列項目：
 
@@ -411,11 +411,11 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：**[條件] 需要設定 [用戶端應用程式]。 
+4. **條件：**[條件] 需要設定 [用戶端應用程式 (預覽)]。 
 
-    [用戶端應用程式] 請選取 [Exchange Active Sync]。
+    [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
 
-    ![條件式存取](./media/app-based-conditional-access/08.png)
+    ![條件式存取](./media/app-based-conditional-access/92.png)
 
 5. [存取控制項] 需要選取下列項目：
 

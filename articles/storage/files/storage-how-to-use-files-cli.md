@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: aab248ac7c9adf7d996406ec35e0317594ce0b68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945013"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158970"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>快速入門：使用 Azure CLI 建立及管理 Azure 檔案共用
 本指南會逐步說明透過 Azure CLI 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
@@ -185,6 +185,80 @@ az storage file list \
 ```
 
 雖然在 Azure 檔案共用與 Azure Blob 儲存體容器間的移動檔案時使用 `az storage file copy start` 命令很方便，但建議您只在移動的檔案較大時才使用 AzCopy。 (即指移動的檔案數目和大小較大。)深入了解 [適用於 Linux 的 AzCopy](../common/storage-use-azcopy-linux.md) 和[適用於 Windows 的 AzCopy](../common/storage-use-azcopy.md)。 AzCopy 必須安裝在本機上。 AzCopy 無法在 Cloud Shell 中使用。 
+
+## <a name="create-and-manage-share-snapshots"></a>建立及管理共用快照集
+可使用 Azure 檔案共用來執行的另一項實用工作是建立共用快照集。 快照集會保留 Azure 檔案共用的時間點複本。 共用快照集類似於您可能已經很熟悉的一些作業系統技術：
+
+- Linux 系統的[邏輯磁碟區管理員 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照集
+- macOS 的 [Apple 檔案系統 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照集
+- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS。您可以使用 [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) 命令建立共用快照集：
+
+```azurecli-interactive
+SNAPSHOT=$(az storage share snapshot \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --query "snapshot" | tr -d '"')
+```
+
+### <a name="browse-share-snapshot-contents"></a>瀏覽共用快照集內容
+您可以將我們在 `$SNAPSHOT` 變數中擷取的共用快照集時間戳記傳遞至 `az storage file list` 命令，以瀏覽共用快照集的內容：
+
+```azurecli-interactive
+az storage file list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --snapshot $SNAPSHOT \
+    --output table
+```
+
+### <a name="list-share-snapshots"></a>列出共用快照集
+若要檢視您為共用建立的快照集清單，請使用下列命令：
+
+```azurecli-interactive
+az storage share list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --include-snapshot \
+    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
+```
+
+### <a name="restore-from-a-share-snapshot"></a>從共用快照集還原
+您可以使用您先前使用的 `az storage file copy start` 命令來還原檔案。 首先，刪除您上傳的 SampleUpload.txt 檔案，以便您可以從快照集將其還原：
+
+```azurecli-interactive
+# Delete SampleUpload.txt
+az storage file delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --path "myDirectory/SampleUpload.txt"
+ # Build the source URI for a snapshot restore
+URI=$(az storage account show \
+    --resource-group "myResourceGroup" \
+    --name $STORAGEACCT \
+    --query "primaryEndpoints.file" | tr -d '"')
+ URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+ # Restore SampleUpload.txt from the share snapshot
+az storage file copy start \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --source-uri $URI \
+    --destination-share "myshare" \
+    --destination-path "myDirectory/SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>刪除共用快照集
+您可以使用 [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete) 命令來刪除共用快照集。 使用將 `$SNAPSHOT` 參考納入 `--snapshot` 參數的變數：
+
+```azurecli-interactive
+az storage share delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --snapshot $SNAPSHOT
+```
 
 ## <a name="clean-up-resources"></a>清除資源
 完成作業後，您可以使用 [`az group delete`](/cli/azure/group#delete) 命令來移除資源群組和所有相關資源： 

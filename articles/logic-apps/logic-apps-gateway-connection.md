@@ -3,19 +3,18 @@ title: 存取 Azure Logic Apps 的內部部署資料來源 | Microsoft Docs
 description: 建立及設定內部部署資料閘道，以便從邏輯應用程式存取內部部署資料來源
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 65c7e03b349314ad61fa5f1ea8322f4d1352b8e6
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.date: 10/01/2018
+ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145684"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413701"
 ---
 # <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>透過內部部署資料閘道從 Azure Logic Apps 連線至內部部署資料來源
 
@@ -34,8 +33,7 @@ ms.locfileid: "39145684"
 
 * 您的閘道安裝尚未與 Azure 中的閘道資源相關聯。 您可以將閘道安裝只連結至一個閘道資源，當建立閘道資源並選取閘道安裝時會發生這種情況。 此連結讓其他資源無法使用閘道安裝。
 
-* 當您登入 Azure 入口網站並建立閘道資源時，您必須使用先前用來[安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md#requirements)的同一個登入帳戶。
-您也必須使用在安裝閘道時所用的同一個 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)。 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
+* 當您登入 Azure 入口網站並建立閘道資源時，請確定您使用先前用來[安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md#requirements)的同一個登入帳戶，以及用來安裝閘道的相同 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)。 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
 * 若要在 Azure 入口網站中建立和維護閘道資源，[Windows 服務帳戶](../logic-apps/logic-apps-gateway-install.md#windows-service-account)必須至少具備**參與者**權限。 內部部署資料閘道會以 Windows 服務身分執行，並且設定成使用 `NT SERVICE\PBIEgwService` 作為 Windows 服務登入認證。 
 
@@ -44,7 +42,7 @@ ms.locfileid: "39145684"
 
 ## <a name="download-and-install-gateway"></a>下載並安裝閘道
 
-您必須已在本機電腦上安裝閘道，才可以繼續進行本文中的步驟。
+請確定您已在本機電腦上安裝閘道，才可以繼續進行本文中的步驟。
 如果您還沒有這麼做，請依照步驟來[下載並安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。 
 
 <a name="create-gateway-resource"></a>
@@ -155,7 +153,7 @@ ms.locfileid: "39145684"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

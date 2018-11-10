@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Active Directory 管理應用程式 | Microsoft Docs
-description: 此文章章說明整合 Azure Active Directory 與您的內部部署、雲端和 SaaS 應用程式的優點。
+description: 本文章說明整合 Azure Active Directory 與您的內部部署、雲端和 SaaS 應用程式的優點。
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 10/30/2018
 ms.author: barbkess
 ms.reviewer: arvinh
-ms.openlocfilehash: 820c6a5cb0bf5fb2d98d27c171c1276866082700
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 577be6669442befec0c14a275505e2eebed72611
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716176"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418087"
 ---
 # <a name="application-management-with-azure-active-directory"></a>搭配 Azure Active Directory 的應用程式管理
 
-Azure Active Directory (Azure AD) 能針對雲端和內部部署應用程式提供安全且順暢的存取。 使用者僅需登入一次，便可以存取 Office 365 及其他來自 Microsoft 的商務應用程式、數千個軟體即服務 (SaaS) 應用程式、內部部署應用程式，以及企業營運 (LOB) 應用程式。 透過將使用者佈建自動化來減少系統管理成本。 使用多重要素驗證及條件式存取原則來提供安全的應用程式存取。
+Azure Active Directory (Azure AD) 能針對雲端和內部部署應用程式提供安全且順暢的存取。 使用者僅需登入一次，便可以存取 Office 365 及其他來自 Microsoft 的商務應用程式、軟體即服務 (SaaS) 應用程式、內部部署應用程式，以及企業營運 (LOB) 應用程式。 透過將使用者佈建自動化來減少系統管理成本。 使用多重要素驗證及條件式存取原則來提供安全的應用程式存取。
 
-![透過 Azure AD 同盟的應用程式](media/migrate-adfs-apps-to-azure/migrate2.png)
+![透過 Azure AD 同盟的應用程式](media/what-is-application-management/app-management-overview.png)
 
 ## <a name="why-manage-applications-with-a-cloud-solution"></a>為何要以雲端解決方案來管理應用程式？
 
@@ -40,5 +40,5 @@ SSO 能改善安全性。 「在沒有單一登入的情況下」，系統管理
 透過 Azure AD，您可以透過能運用安全性事件與事件監視 (SIEM) 工具的報告，來監視應用程式登入。 您可以從入口網站或 API 存取這些報告。 以程式設計方式對存取您應用程式的人員進行稽核，並透過存取權檢閱來移除非使用中使用者的存取權。
 
 ## <a name="manage-costs"></a>管理成本
-透過移轉至 Azure AD，您可以降低成本並免除自行管理內部部署基礎結構的麻煩。 Azure AD 也能針對應用程式提供自助存取，這能同時為系統管理員和使用者節省寶貴時間。 單一登入能免除使用應用程式特定的密碼，這能省下因重設應用程式密碼，以及擷取密碼時喪失生產力所導致的相關成本。
+透過移轉至 Azure AD，您可以降低成本並免除自行管理內部部署基礎結構的麻煩。 Azure AD 也能針對應用程式提供自助存取，這能同時為系統管理員和使用者節省寶貴時間。 單一登入可免除應用程式專用密碼的使用。 這種只需登入一次的功能，可省下因重設應用程式密碼，以及擷取密碼時喪失生產力所導致的相關成本。
 

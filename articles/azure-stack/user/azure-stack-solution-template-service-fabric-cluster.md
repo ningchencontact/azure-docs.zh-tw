@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946108"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087271"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
 使用 Azure Marketplace 中的 [Service Fabric 叢集] 項目，在 Azure Stack 中部署安全的 Service Fabric 叢集。 
 
 如需有關使用 Service Fabric 的詳細資訊，請參閱 Azure 文件中的 [Azure Service Fabric 概觀](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)和 [Service Fabric 叢集安全性案例](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
+
+Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.ServiceFabric。 在 Azure Stack 中，Service Fabric 叢集是一個虛擬機器擴展集，內含以「期望的狀態設定 (DSC)」設定的預先安裝軟體。
 
 ## <a name="prerequisites"></a>必要條件
 

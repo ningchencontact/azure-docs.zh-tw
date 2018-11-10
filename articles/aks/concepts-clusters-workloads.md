@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648763"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155978"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -71,6 +71,27 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 在 AKS 中，您的叢集中各個節點的 VM 映像目前均以 Ubuntu Linux 為基礎。 當您建立 AKS 叢集或相應增加節點數目時，Azure 平台即會依據您要求的數目建立 VM，並加以設定。 沒有手動設定可供執行。
 
 如果您需要使用不同的主機 OS、容器執行階段或要納入自訂套件，您可以使用 [acs-engine][acs-engine] 自行部署 Kubernetes 叢集。 上游 `acs-engine` 會在功能於 AKS 叢集中正式受到支援之前發行這些功能，並提供設定選項。 例如，如果您想要使用 Docker 以外的 Windows 容器或容器執行階段，您可以使用 `acs-engine` 設定及部署 Kubernetes 叢集，以符合您目前的需求。
+
+### <a name="resource-reservations"></a>資源保留
+
+您不需要管理每個節點上的核心 Kubernetes 元件，例如 kubelet、kube-proxy 和 kube-dns，但它們的確會耗用一些可用的計算資源。 為了維持節點的效能與功能，每個節點上都會保留下列計算資源：
+
+- **CPU** - 60 毫秒
+- **記憶體** - 20%，最多 4 GiB
+
+保留這些資源代表應用程式可用的 CPU 和記憶體數量，看起來可能會小於節點本身所含的資源數量。 如果由於所執行的應用程式數量導致資源受限，則所保留的這些資源可確保仍有 CPU 和記憶體可供核心 Kubernetes 元件使用。 保留的資源無法變更。
+
+例如︰
+
+- **標準 DS2 v2** 節點大小包含 2 個 vCPU 和 7 GiB 記憶體
+    - 7 GiB 記憶體的 20% = 1.4 GiB
+    - 共有 (7 - 1.4) = 5.6 GiB 記憶體可供節點使用
+    
+- **標準 E4s v3** 節點大小包含 4 個 vCPU 和 32 GiB 記憶體
+    - 32 GiB 記憶體的 20% = 6.4 GiB，但 AKS 最多只會保留 4 GiB
+    - 共有 (32 - 4) = 28 GiB 可供節點使用
+    
+基礎節點 OS 也需要一定數量的 CPU 和記憶體資源，才能完成它自己的核心功能。
 
 ### <a name="node-pools"></a>節點集區
 

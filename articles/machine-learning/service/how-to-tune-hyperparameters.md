@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430012"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140801"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>為您的模型微調超參數
 
@@ -238,16 +238,18 @@ early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, trun
 
 ### <a name="no-termination-policy"></a>無終止原則
 
-如果您想要所有定型執行完成執行，請使用 NoTerminationPolicy。 其效果相當於不套用任何提早終止原則。
+如果您希望所有定型執行完成執行，請將原則設定為 None。 其效果相當於不套用任何提早終止原則。
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>預設原則
 
-如果未指定任何原則，超參數微調服務預設會使用 `evaluation_interval` 為 1 且 `delay_evaluation` 為 5 的中位數停止原則。 這些是保守的設定，可在不遺失主要計量的情況下省下約 25%-35% (取決於我們的評估資料)。
+如果未指定任何原則，則超參數微調服務會讓所有定型執行完成執行。
+
+>[!NOTE] 
+>如果您在尋求可節省成本，但不會終止大有可為作業的保守原則，您可以使用「中位數停止原則」搭配 `evaluation_interval` 1 和 `delay_evaluation` 5。 這些是保守的設定，可在不遺失主要計量的情況下省下約 25%-35% (取決於我們的評估資料)。
 
 ## <a name="allocate-resources"></a>配置資源
 

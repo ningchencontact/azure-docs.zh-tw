@@ -1,23 +1,23 @@
 ---
 title: 準備內部部署 Hyper-V 伺服器以進行 Hyper-V VM 至 Azure 的災害復原 | Microsoft Docs
-description: 了解如何使用 Azure Site Recovery 服務，準備不由 System Center VMM 管理的內部部署 Hyper-V VM 來進行至 Azure 的災害復原。
+description: 了解如何準備內部部署 Hyper-V VM 以便使用 Azure Site Recovery 服務來災害復原至 Azure。
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5f46f22ab524e1d51b01fcedb4ea1420d755ecbe
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720764"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209882"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>準備內部部署 Hyper-V 伺服器以進行至 Azure 的災害復原
 
-此教學課程說明如何基於災害復原的目的，在您想要將 Hyper-V VM 複寫至 Azure 時，準備內部部署 Hyper-V 基礎結構。 Hyper-V 主機可由 System Center Virtual Machine Manager (VMM) 管理，但並非必要。  在此教學課程中，您將了解如何：
+本教學課程說明如何基於災害復原的目的，在您想要將 Hyper-V VM 複寫至 Azure 時，準備內部部署 Hyper-V 基礎結構。 Hyper-V 主機可由 System Center Virtual Machine Manager (VMM) 管理，但並非必要。  在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 檢閱 Hyper-V 需求和 VMM 需求 (如果適用)。
@@ -29,7 +29,7 @@ ms.locfileid: "44720764"
 
 
 
-## <a name="review-requirements-and-prerequisites"></a>檢閱需求和先決條件
+## <a name="review-requirements-and-prerequisites"></a>檢閱需求和必要條件
 
 確定 Hyper-V 主機和 VM 符合下列需求。
 
@@ -59,7 +59,7 @@ ms.locfileid: "44720764"
 
 ## <a name="verify-internet-access"></a>確認網際網路存取
 
-1. 對此教學課程來說，最簡單的設定是讓 Hyper-V 主機和 VMM 伺服器可直接存取網際網路，而不需使用 Proxy。 
+1. 對本教學課程來說，最簡單的設定是讓 Hyper-V 主機和 VMM 伺服器可直接存取網際網路，而不需使用 Proxy。 
 2. 確定 Hyper-V 主機和 VMM 伺服器 (如果相關) 可以存取以下必要的 URL。   
 3. 如果您要依據 IP 位址來控制存取，請確定：
     - 以 IP 位址為基礎的防火牆規則可以連線至 [Azure Datacenter IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)，以及 HTTPS (443) 連接埠。

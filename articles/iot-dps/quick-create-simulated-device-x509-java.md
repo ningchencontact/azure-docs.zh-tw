@@ -1,6 +1,6 @@
 ---
 title: 使用 Java 將模擬 X.509 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
-description: Azure 快速入門 - 使用適用於 IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 X.509 裝置
+description: Azure 快速入門 - 使用適用於 IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 X.509 裝置。本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040732"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418223"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 X.509 裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -24,9 +24,15 @@ ms.locfileid: "47040732"
 
 如果您不熟悉自動佈建程序，請務必也要檢閱[自動佈建概念](concepts-auto-provisioning.md)。 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。 
 
+Azure IoT 裝置佈建服務支援兩種類型的註冊：
+- [註冊群組](concepts-service.md#enrollment-group)：用來註冊多個相關的裝置。
+- [個別註冊](concepts-service.md#individual-enrollment)：用來註冊單一裝置。
+
+本文將示範個別註冊。
+
 ## <a name="prepare-the-environment"></a>準備環境 
 
-1. 請確定您已在電腦上安裝 [Java SE 開發套件 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。
+1. 請確定您已在電腦上安裝 [Java SE 開發套件 8](https://aka.ms/azure-jdks)。
 
 2. 下載並安裝 [Maven](https://maven.apache.org/install.html)。
 
@@ -55,7 +61,7 @@ ms.locfileid: "47040732"
 在本節中，您會使用自我簽署 X.509 憑證，請務必記住下列事項：
 
 * 自我簽署憑證僅適用於測試，不應該用於生產環境。
-* 自我簽署憑證的預設到期日為 1 年。
+* 自我簽署憑證的預設到期日為一年。
 
 您會使用[適用於 Java 的 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-java.git) 中的範例程式碼建立憑證，以便與模擬裝置的個別註冊項目搭配使用。
 

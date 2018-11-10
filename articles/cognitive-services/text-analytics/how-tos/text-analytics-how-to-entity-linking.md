@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645792"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230551"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>如何在文字分析 (預覽) 中使用具名實體辨識
 
@@ -95,7 +95,7 @@ ms.locfileid: "49645792"
 
 + 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[實體連結 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) \(英文\)
 
-+ 設定適用於關鍵片語擷取的 HTTP 端點。 它必須包括 `/entities` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ 設定適用於實體擷取的 HTTP 端點。 它必須包括 `/entities` 資源：`https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 

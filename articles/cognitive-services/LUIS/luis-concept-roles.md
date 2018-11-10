@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: fea70e2b1912bde94e23dbd98fa933784d2a69ac
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638070"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140310"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>模式中的實體角色為內容子類型
 角色是實體的具名內容子類型，只能使用於[模式](luis-concept-patterns.md)中。
@@ -42,13 +42,8 @@ ms.locfileid: "49638070"
 ## <a name="role-syntax-in-patterns"></a>模式中的角色語法
 實體和角色都會以大括號 `{}` 括住。 實體與角色是以冒號隔開。 
 
-## <a name="roles-versus-hierarchical-entities"></a>角色與階層式實體
-階層式實體會提供與角色相同的內容資訊，但僅限於**意圖**中的語句。 同樣地，角色會提供與階層式實體相同的內容資訊，但僅限於**模式**。
 
-|內容學習|使用於|
-|--|--|
-|階層式實體|意圖|
-|角色|模式|
+[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>具有預先建置實體的角色
 
@@ -60,4 +55,4 @@ datetimeV2 預先建置實體在理解語句中日期與時間的各種不同變
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解如何新增[角色](luis-how-to-add-entities.md#add-role-to-pattern-based-entity)
+* 了解如何新增[角色](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)

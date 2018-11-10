@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116907"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231231"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>針對 Azure Stack Kubernetes 部署進行疑難排解
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116907"
 > [!Note]  
 > Azure Stack 上的 Kubernetes 處於預覽狀態。
 
-下列文章探討 Kubernetes 叢集的疑難排解方法。 您可以檢閱部署警示，並根據部署所需元素來檢閱部署狀態。 您可能需要從 Azure Stack 或裝載 Kubernetes 的 Linux VM 收集部署記錄。 此外，您可能需要與 Azure Stack 系統管理員合作，從系統管理端點擷取記錄。
+下列文章探討 Kubernetes 叢集的疑難排解方法。 您可以檢閱部署警示，並查看部署所需元素來檢閱部署狀態。 您可能需要從 Azure Stack 或裝載 Kubernetes 的 Linux VM 收集部署記錄。 此外，您可能需要與 Azure Stack 系統管理員合作，從系統管理端點擷取記錄。
 
 ## <a name="overview-of-deployment"></a>部署概觀
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: db1005bbce25b0fa3fec76e6f9428a4cdd6fa4aa
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: ec942d97e7671c0477d8d723afacb06b73565c1c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024354"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414552"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java 和 MySQL Web 應用程式
 
@@ -47,7 +47,7 @@ ms.locfileid: "50024354"
 ## <a name="prerequisites"></a>必要條件
 
 1. [下載並安裝 Git](https://git-scm.com/)
-1. [下載並安裝 Java 7 JDK 或更高版本](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. [下載並安裝 Java JDK](https://aka.ms/azure-jdks)
 1. [下載、安裝並啟動 MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>準備本機 MySQL 
@@ -272,7 +272,7 @@ Web 應用程式定義備妥之後，Azure CLI 會顯示類似下列範例的資
 
 在 Cloud Shell 中，使用 [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set) 命令來設定您應用程式需要的 Java 執行階段組態。
 
-下列命令會將 Web 應用程式設定為在最新的 Java 8 JDK 和 [Apache Tomcat](http://tomcat.apache.org/) 8.0 上執行。
+下列命令會將 Web 應用程式設定為在最新的 [Java 8 JDK](https://aka.ms/azure-jdks) 和 [Apache Tomcat](http://tomcat.apache.org/) 8.0 上執行。
 
 ```azurecli-interactive
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0

@@ -1,22 +1,19 @@
 ---
-title: 將 Azure 虛擬機器容錯移轉至另一個 Azure 區域時保留 IP 位址 | Microsoft Docs
-description: 說明如何在使用 Azure Site Recovery 進行 Azure 至 Azure 容錯移轉案例時保留 IP 位址
+title: 保留 Azure VM 容錯移轉的 IP 位址 | Microsoft Docs
+description: 說明如何在容錯移轉 Azure VM 時保留 IP 位址，以便使用 Azure Site Recovery 災害復原至次要區域
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4260a4487480c42b518374965d8deda1e7803e62
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 86adaa21a069c168b512231ba231940bfa2ef9e8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353317"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213027"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>針對 Azure 虛擬機器容錯移轉保留 IP 位址
+# <a name="ip-address-retention-for-azure-vm-failover"></a>針對 Azure VM 容錯移轉保留 IP 位址
 
 Azure Site Recovery 能針對 Azure VM 啟用災害復原。 從一個 Azure 區域容錯移轉至另一個區域時，客戶通常需要保留其 IP 設定。 在目標區域上建立這些資源時，Site Recovery 預設會模擬來源的虛擬網路和子網路結構。 針對以靜態私人 IP 位址設定的 Azure VM，Site Recovery 也會盡力嘗試在目標 VM 上佈建相同的私人 IP，前提是該 IP 未被 Azure 資源或已複寫的 VM 封鎖。
 

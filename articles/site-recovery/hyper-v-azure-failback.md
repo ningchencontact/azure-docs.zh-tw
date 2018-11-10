@@ -1,6 +1,6 @@
 ---
-title: 針對 Hyper-V 虛擬機器的內部部署網站執行容錯回復 | Microsoft Docs
-description: Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及復原作業。 了解從 Azure 容錯回復至內部部署資料中心。
+title: 在災害期間將 Hyper-V VM 從 Azure 容錯回復到內部部署 | Microsoft Docs
+description: 了解如何在災害復原期間使用 Azure Site Recovery 服務將 Hyper-V VM 從 Azure 容錯回復至內部部署網站。
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: fd171251ef465a28e4844901a529e0a3eaaf8f9d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b841dee766399f1e3c7325d2ab67e342dfa8657a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920867"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211854"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>執行 Hyper-V VM 的容錯回復
 
 本文說明如何容錯回復 Site Recovery 所保護的 Hyper-V 虛擬機器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 1. 請確定您已閱讀[不同類型容錯回復](concepts-types-of-failback.md)的相關詳細資料和對應的須知。
 1. 請確定主要網站 VMM 伺服器或 Hyper-V 主機伺服器已連線至 Azure。
 2. 您應該已在虛擬機器上執行**認可**。
@@ -40,10 +40,10 @@ ms.locfileid: "37920867"
 
 4. 如果已針對雲端啟用資料加密，請在 [加密金鑰] 中，選取當您在 VMM 伺服器上安裝提供者期間啟用資料加密時所發出的憑證。
 5. 起始容錯移轉。 您可以在 [工作]  索引標籤上追蹤容錯移轉進度。
-6. 如果您選取要在容錯移轉前同步處理資料的選項，則在完成初始資料同步處理且您已經準備好關閉 Azure 中的虛擬機器之後，按一下 [作業] > <計劃性容錯移轉作業名稱> > [完成容錯移轉]。 這會將 Azure 機器關機、將最新變更轉送至內部部署虛擬機器，然後啟動內部部署的 VM。
+6. 如果您選取要在容錯移轉前同步處理資料的選項，則在完成初始資料同步處理後，且您已經準備好關閉 Azure 中的虛擬機器時，請按一下 [作業] > 作業名稱 > [完成容錯移轉]。 這會將 Azure 機器關機、將最新變更轉送至內部部署虛擬機器，然後啟動內部部署的 VM。
 7. 您現在可以登入虛擬機器，來驗證它是否會如預期般出現。
 8. 虛擬機器目前處於認可擱置中的狀態。 按一下 [認可]  以認可容錯移轉。
-9. 現在為了完成容錯回復，請按一下 [反向複寫]  ，開始保護主要站台中的虛擬機器。
+9. 若要完成容錯回復，請按一下 [反向複寫] 以開始保護主要站台中的虛擬機器。
 
 
 請遵循這些程序，以容錯回復到原始的主要站台。 此程序說明如何針對復原方案執行計劃性容錯移轉。 或者，您可以在 [虛擬機器]  索引標籤上針對單一虛擬機器執行容錯移轉。
@@ -57,7 +57,7 @@ ms.locfileid: "37920867"
 3. 選取 [受保護的項目]  ->  [保護群組]  ->  <ProtectionGroupName>  ->  您想要進行容錯回復的 <VirtualMachineName>，然後選取 [計畫性容錯移轉]。
 4. 在 [記事]  select 中張貼意見或問題。
 5. 在 [主機名稱] 中，**選取要放置虛擬機器的新 Hyper-V 主機伺服器。
-6. 在 [資料同步處理] 中，建議您選取 [容錯移轉之前同步處理資料] 的選項。 這個選項可以將虛擬機器的停機時間降至最低，因為不需關閉虛擬機器即可進行同步處理。 它具有下列功能：
+6. 在 [資料同步處理] 中，建議您選取在容錯移轉前同步處理資料的選項。 這個選項可以將虛擬機器的停機時間降至最低，因為不需關閉虛擬機器即可進行同步處理。 它具有下列功能：
 
     - 階段 1：在 Azure 中取得虛擬機器的快照，並將其複製到內部部署的 HYPER-V 主機。 機器會繼續在 Azure 中執行。
     - 階段 2：關閉 Azure 中的虛擬機器，如此一來，虛擬機器上就不會有任何新的變更。 最後一組變更會傳送到內部部署伺服器，並啟動內部部署虛擬機器。

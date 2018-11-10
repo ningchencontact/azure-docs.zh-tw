@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: a6e7aad6c3d20a67ecba66c49be4efcdebdf718a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fbba1d9b4bdf1536ed596e9a78e53116fe824027
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153416"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232914"
 ---
 > [!WARNING]
 > 僅[「開發人員」、「標準」與「進階」](https://azure.microsoft.com/pricing/details/api-management/)層提供 Azure Active Directory B2C 整合。
@@ -32,22 +32,22 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 授權開發人員帳戶
 
-1. 若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [發佈者入口網站]。 這會帶您前往 API 管理發行者入口網站。
-
-   ![發行者入口網站][api-management-management-console]
+1. 若要開始使用，請登入 [Azure 入口網站](https://portal.azure.com)，並找出您的 API 管理執行個體。
 
    > [!NOTE]
    > 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理教學課程][Get started with Azure API Management]中的[建立 API 管理服務執行個體][Create an API Management service instance]。
 
-2. 在 [API 管理] 功能表上，按一下 [安全性]。 在 [身分識別] 索引標籤上，選擇 [Azure Active Directory B2C]。
+2. 在 [安全性] 底下選取 [身分識別]。 按一下頂端的 [+ 新增]。
 
-  ![外部身分識別 1][api-management-howto-aad-b2c-security-tab]
+   [新增識別提供者] 窗格隨即出現在右邊。 選擇 [Azure Active Directory B2C]。
+    
+   ![將 AAD B2C 新增為識別提供者][api-management-howto-add-b2c-identity-provider]
 
-3. 記下 [重新導向 URL]，然後切換到 Azure 入口網站中的 Azure Active Directory B2C。
+3. 複製 [重新導向 URL] 。
 
-  ![外部身分識別 2][api-management-howto-aad-b2c-security-tab-reply-url]
+  ![AAD B2C 識別提供者重新導向 URL][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
-4. 按一下 [應用程式] 按鈕。
+4. 以新的索引標籤存取 Azure 入口網站中的 Azure Active Directory B2C 租用戶，然後開啟 [應用程式] 刀鋒視窗。
 
   ![註冊新的應用程式 1][api-management-howto-aad-b2c-portal-menu]
 
@@ -55,7 +55,7 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
   ![註冊新的應用程式 2][api-management-howto-aad-b2c-add-button]
 
-6. 在 [新增應用程式] 刀鋒視窗中，輸入應用程式的名稱。 在 [Web 應用程式/Web API] 下選擇 [是]，然後在 [允許隱含流程] 下選擇 [是]。 然後，從發佈者入口網站中 [身分識別] 索引標籤的 [Azure Active Directory B2C] 區段，複製 [重新導向 URL] 並貼到 [回覆 URL] 文字方塊。
+6. 在 [新增應用程式] 刀鋒視窗中，輸入應用程式的名稱。 在 [Web 應用程式/Web API] 下選擇 [是]，然後在 [允許隱含流程] 下選擇 [是]。 將在步驟 3 複製的**重新導向 URL** 貼到 [回覆 URL] 文字方塊。
 
   ![註冊新的應用程式 3][api-management-howto-aad-b2c-app-details]
 
@@ -67,15 +67,15 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
   ![應用程式識別碼 1][api-management-howto-aad-b2c-app-id]
 
-9. 切換回發佈者入口網站，並將識別碼貼到 [用戶端識別碼] 文字方塊。
+9. 切換回 API 管理的 [新增識別提供者] 窗格，然後將識別碼貼到 [用戶端識別碼] 文字方塊。
 
   ![應用程式識別碼 2][api-management-howto-aad-b2c-client-id]
 
-10. 切換回 Azure 入口網站，按一下 [金鑰] 按鈕，然後按一下 [產生金鑰]。 按一下 [儲存] 以儲存組態並顯示**應用程式金鑰**。 複製金鑰至剪貼簿。
+10. 切換回 B2C 應用程式註冊，按一下 [金鑰] 按鈕，然後按一下 [產生金鑰]。 按一下 [儲存] 以儲存組態並顯示**應用程式金鑰**。 複製金鑰至剪貼簿。
 
   ![應用程式金鑰 1][api-management-howto-aad-b2c-app-key]
 
-11. 切換回發行者入口網站，並將金鑰貼上至 [ **用戶端密碼** ] 文字方塊。
+11. 切換回 API 管理的 [新增識別提供者] 窗格，然後將金鑰貼到 [用戶端密碼] 文字方塊。
 
   ![應用程式金鑰 2][api-management-howto-aad-b2c-client-secret]
 
@@ -83,7 +83,7 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
   ![允許的租用戶][api-management-howto-aad-b2c-allowed-tenant]
 
-13. 指定 [註冊原則] 和 [登入原則]。 (選擇性) 您也可以提供 [設定檔編輯原則] 和 [密碼重設原則]。
+13. 指定 B2C 租用戶原則中的 [註冊原則] 和 [登入原則]。 (選擇性) 您也可以提供 [設定檔編輯原則] 和 [密碼重設原則]。
 
   ![原則][api-management-howto-aad-b2c-policies]
 
@@ -126,9 +126,8 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
 
 
-
-[api-management-howto-aad-b2c-security-tab]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab.PNG
-[api-management-howto-aad-b2c-security-tab-reply-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab-reply-url.PNG
+[api-management-howto-add-b2c-identity-provider]: ./media/api-management-howto-aad-b2c/api-management-add-b2c-identity-provider.PNG
+[api-management-howto-copy-b2c-identity-provider-redirect-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-identity-provider-redirect-url.PNG
 [api-management-howto-aad-b2c-portal-menu]: ./media/api-management-howto-aad-b2c/api-management-b2c-portal-menu.PNG
 [api-management-howto-aad-b2c-add-button]: ./media/api-management-howto-aad-b2c/api-management-b2c-add-button.PNG
 [api-management-howto-aad-b2c-app-details]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-details.PNG

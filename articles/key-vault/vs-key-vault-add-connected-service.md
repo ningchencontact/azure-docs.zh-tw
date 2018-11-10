@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 9f2adfcbf2d6ca5de79cc787029f5139138b0e52
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958505"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230432"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 連線服務在 Web 應用程式中新增 Key Vault
 
@@ -57,7 +57,7 @@ ms.locfileid: "49958505"
 
    ![正在將連線服務新增至專案](media/vs-key-vault-add-connected-service/KeyVaultConnectedService4.PNG)
 
-1. 現在，在 Azure 的 Key Vault 中新增祕密。 若要到達入口網站中的正確位置，按一下 [管理儲存在此 Key Vault 中的祕密] 連結。 如果您關閉了頁面或專案，可以在 [Azure 入口網站](https://portal.azure.com)中，選擇 [安全性] 下方的 [所有服務]、選擇 [Key Vault]，然後選擇您剛才建立的 Key Vault，就能瀏覽到該頁面或專案。
+1. 現在，在 Azure 的 Key Vault 中新增祕密。 若要到達入口網站中的正確位置，按一下 [管理儲存在此 Key Vault 中的祕密] 連結。 如果您關閉了頁面或專案，可以在 [Azure 入口網站](https://portal.azure.com)中，選擇 [安全性] 下方的 [所有服務]、選擇 [Key Vault]，然後選擇您所建立的 Key Vault，就能瀏覽到該頁面或專案。
 
    ![瀏覽至入口網站](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
 
@@ -73,94 +73,62 @@ ms.locfileid: "49958505"
  
 現在，您可透過程式碼存取祕密。 後續步驟會根據您使用的是 ASP.NET 4.7.1 或 ASP.NET Core 而有所差異。
 
-## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>透過程式碼存取祕密 (ASP.NET Core 專案)
+## <a name="access-your-secrets-in-code"></a>在程式碼中存取您的祕密
 
-Key Vault 的連線會在啟動時由實作 [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) 的類別以擴充啟動行為的方式設定，其擴充方式的說明請見[透過 IHostingStartup 從 ASP.NET Core 中的外部組件增強應用程式](/aspnet/core/fundamentals/host/platform-specific-configuration)。 啟動類別會使用兩個包含 Key Vault 連線資訊的環境變數：ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED (設定為 true) 和 ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT (設定為您的 Key Vault URL)。 當您執行**新增已連線的服務**程序時，這些變數將會新增至 launchsettings.json 檔案。
+1. 安裝 [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 和 [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 程式庫這兩個 nuget 套件。
 
-若要存取您的祕密：
+2. 開啟 Program.cs 檔案，並以下列程式碼取代其中的程式碼： 
+```
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            BuildWebHost(args).Run();
+        }
 
-1. 在 Visual Studio 的 ASP.NET Core 專案中，您現在可以藉由在程式碼中使用下列運算式來參考這些祕密：
- 
-   ```csharp
-      config["MySecret"] // Access a secret without a section
-      config["Secrets:MySecret"] // Access a secret in a section
-      config.GetSection("Secrets")["MySecret"] // Get the configuration section and access a secret in it.
-   ```
+        public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
 
-1. 在 .cshtml 頁面 (假設為 About.cshtml) 中，在接近檔案最上方處加入 @inject 指示詞，以設定可用來存取 Key Vault 設定的變數。
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+    }
+```
+3. 接下來開啟 About.cshtml.cs 檔案，並撰寫下列程式碼
+    1. 通過此 using 陳述式包含對 Microsoft.Extensions.Configuration 的參考    
+        ```
+        using Microsoft.Extensions.Configuration
+        ```
+    2. 新增此建構函式
+        ```
+        public AboutModel(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+        ```
+    3. 更新 OnGet 方法。 使用您在上述命令中建立的祕密名稱更新此處顯示的預留位置的值
+        ```
+        public void OnGet()
+        {
+            //Message = "Your application description page.";
+            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+        }
+        ```
 
-   ```cshtml
-      @inject Microsoft.Extensions.Configuration.IConfiguration config
-   ```
-
-1. 進行測試時，您可以藉由在其中一個頁面上顯示祕密的值，來確認其可供使用。 使用 @config 來參考 config 變數。
- 
-   ```cshtml
-      <p> @config["MySecret"] </p>
-      <p> @config.GetSection("Secrets")["MySecret"] </p>
-      <p> @config["Secrets:MySecret"] </p>
-   ```
-
-1. 建置並執行 Web 應用程式、瀏覽至 [關於] 頁面，然後查看「祕密」值。
-
-## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>透過程式碼存取祕密 (ASP.NET 4.7.1 專案)
-
-Key Vault 的連線會由 ConfigurationBuilder 類別使用您在執行**新增已連線的服務**程序時新增至 web.config 檔案中的資訊來設定。
-
-若要存取您的祕密：
-
-1. 修改 web.config，如下所示。 金鑰乃是預留位置，將由 AzureKeyVault ConfigurationBuilder 以 Key Vault 中的祕密值來取代。
-
-   ```xml
-     <appSettings configBuilders="AzureKeyVault">
-       <add key="webpages:Version" value="3.0.0.0" />
-       <add key="webpages:Enabled" value="false" />
-       <add key="ClientValidationEnabled" value="true" />
-       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-       <add key="MySecret" value="dummy1"/>
-       <add key="Secrets--MySecret" value="dummy2"/>
-     </appSettings>
-   ```
-
-1. 在 HomeController 的 [關於] 控制器方法中，加入下列程式碼行以擷取祕密，並將它儲存於 ViewBag。
- 
-   ```csharp
-            var secret = ConfigurationManager.AppSettings["MySecret"];
-            var secret2 = ConfigurationManager.AppSettings["Secrets--MySecret"];
-            ViewBag.Secret = $"Secret: {secret}";
-            ViewBag.Secret2 = $"Secret2: {secret2}";
-   ```
-
-1. 在 About.cshtml 檢視中，加入下列程式碼以顯示祕密的值 (僅限測試)。
-
-   ```csharp
-      <h3>@ViewBag.Secret</h3>
-      <h3>@ViewBag.Secret2</h3>
-   ```
-
-1. 在本機執行應用程式，以確認您可以讀取您在 Azure 入口網站中輸入的祕密，而不是組態檔中的虛擬值。
-
-接下來，將您的應用程式發佈到 Azure。
-
-## <a name="publish-to-azure-app-service"></a>發佈到 Azure App Service
-
-1. 以滑鼠右鍵按一下專案節點，然後選擇 [發佈]。 指出 [挑選發佈目標] 的畫面會隨即顯示。 從左側選擇 [App Service]，然後選擇 [新建]。
-
-   ![發佈至 App Service](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
-
-1. 在 [建立 App Service] 畫面上，確定訂用帳戶和資源群組與您建立 Key Vault 時所用的一樣，然後選擇 [建立]。
-
-   ![建立應用程式服務](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
-
-1. 建立您的 Web 應用程式之後，[發佈] 畫面會隨即出現。 請記下已發佈 Web 應用程式 (裝載在 Azure 中) 的 URL。 如果您在 **Key Vault** 旁看到 [無]，您仍必須告訴 App Service 要連線到哪個 Key Vault。 選擇 [新增 Key Vault] 連結，然後選擇您建立的 Key Vault。
-
-   ![新增 Key Vault](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
-
-   如果您看到 [管理 Key Vault]，您可以在上方按一下以檢視目前設定、編輯權限或變更 Azure 入口網站中的祕密。
-
-1. 現在，請選擇網站 URL 連結，在瀏覽器中瀏覽 Web 應用程式。 請確認您可以看到 Key Vault 中的正確值。
-
-恭喜，您已確認 Web 應用程式可以使用 Key Vault，在 Azure 中執行時可安全地存取已儲存的祕密。
+瀏覽至 [關於] 頁面，在本機執行應用程式。 您應該擷取您的密碼值
 
 ## <a name="clean-up-resources"></a>清除資源
 

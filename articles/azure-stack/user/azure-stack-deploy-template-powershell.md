@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4b254f9a4446a1b0ff400e0d63effe68fc4f82b4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: cf39ba6b1754a5e809e7295f2783846e95636ce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363661"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241731"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>使用 PowerShell 將範本部署到 Azure Stack
 
@@ -35,7 +35,7 @@ ms.locfileid: "46363661"
 >[!NOTE]
 >嘗試此範例之前，請確定您已經為 Azure Stack 使用者[設定 PowerShell](azure-stack-powershell-configure-user.md)。
 
-1. 移至 [http://aka.ms/AzureStackGitHub](http://aka.ms/AzureStackGitHub)並尋找 **101-simple-windows-vm** 範本。 將範本儲存到這個位置：C:\\templates\\azuredeploy-101-simple-windows-vm.json。
+1. 移至 [http://aka.ms/AzureStackGitHub](https://aka.ms/AzureStackGitHub)並尋找 **101-simple-windows-vm** 範本。 將範本儲存到這個位置：C:\\templates\\azuredeploy-101-simple-windows-vm.json。
 2. 開啟已提高權限的 PowerShell 命令提示字元。
 3. 以您的使用者名稱和密碼取代下列指令碼中的 username 和 password，然後執行指令碼。
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Log Analytics 追蹤 B2B 訊息 - Azure Logic Apps | Microsoft Docs
+title: 使用 Log Analytics 追蹤 B2B 訊息 - Azure Logic Apps | Microsoft Docs
 description: 使用 Azure Log Analytics 追蹤整合帳戶和 Azure Logic Apps 的 B2B 通訊
 services: logic-apps
 ms.service: logic-apps
@@ -8,18 +8,17 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 06/19/2018
-ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 10/19/2018
+ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405679"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233546"
 ---
-# <a name="track-b2b-communication-with-azure-log-analytics"></a>使用 Azure Log Analytics 追蹤 B2B 通訊
+# <a name="track-b2b-messages-with-azure-log-analytics"></a>使用 Azure Log Analytics 追蹤 B2B 訊息
 
-在您透過整合帳戶設定兩個執行中商務程序或應用程式之間的 B2B 通訊之後，這些實體也可以彼此交換訊息。 若要檢查是否正確處理這些訊息，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 追蹤 AS2、X12 和 EDIFACT 訊息。 例如，您可以使用這些網頁追蹤功能來追蹤訊息：
+當您在整合帳戶中的交易合作夥伴之間設定了 B2B 通訊之後，合作夥伴就可以使用通訊協定 (例如 AS2、X12 和 EDIFACT) 交換訊息。 若要檢查這些訊息是否有經過正確處理，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 追蹤這些訊息。 例如，您可以使用這些網頁追蹤功能來追蹤訊息：
 
 * 訊息計數和狀態
 * 通知狀態
@@ -27,7 +26,10 @@ ms.locfileid: "49405679"
 * 失敗的詳細錯誤描述
 * 搜尋功能
 
-## <a name="requirements"></a>需求
+> [!NOTE]
+> 以前，本頁面所描述的是如何使用 Microsoft Operations Management Suite (OMS) 來執行這些工作的步驟，但 OMS 將於 [2019 年 1 月淘汰](../log-analytics/log-analytics-oms-portal-transition.md)，請改為使用 Azure Log Analytics 來取代這些步驟。 
+
+## <a name="prerequisites"></a>必要條件
 
 * 已設定診斷記錄的邏輯應用程式。 了解[如何建立邏輯應用程式](quickstart-create-first-logic-app-workflow.md)和[如何設定該邏輯應用程式的記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
 
@@ -35,51 +37,57 @@ ms.locfileid: "49405679"
 
 * 如果您還沒有這麼做，請[將診斷資料發佈至 Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
 
-> [!NOTE]
-> 在您符合先前的需求之後，Log Analytics 中應該有工作區。 您應該在 Log Analytics 中使用相同的工作區來追蹤 B2B 通訊。 
->  
-> 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
+* 當您符合上述需求之後，也需要一個 Log Analytics 工作區，用以透過 Log Analytics 追蹤 B2B 通訊。 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
 
-## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>將 Logic Apps B2B 解決方案新增至 Azure
+## <a name="install-logic-apps-b2b-solution"></a>安裝 Logic Apps B2B 解決方案
 
-若要讓 Log Analytics 追蹤邏輯應用程式的 B2B 訊息，您必須將 **Logic Apps B2B** 解決方案新增至 Log Analytics。 深入了解[將解決方案新增至 Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)。
+若要讓 Log Analytics 追蹤邏輯應用程式的 B2B 訊息，請將 **Logic Apps B2B** 解決方案新增至 Log Analytics。 深入了解[將解決方案新增至 Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [所有服務]。 搜尋 "log analytics"，然後選擇 [Log Analytics]，如下所示：
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「log analytics」，然後選取 [Log Analytics]。
 
-   ![尋找 Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
+   ![選取 [Log Analytics]](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
-2. 在 [Log Analytics] 下，尋找並選取 Log Analytics 工作區。 
+1. 在 [Log Analytics] 下，尋找並選取 Log Analytics 工作區。 
 
-   ![選取 Log Analytics 工作區](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![選取 Log Analytics 工作區](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-3. 在 [管理] 下，選擇 [工作區摘要]。
+1. 在 [開始使用 Log Analytics] > [設定監視解決方案] 下，選擇 [檢視解決方案]。
 
-   ![選擇 Log Analytics 入口網站](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![選擇 [檢視解決方案]](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
-4. 首頁開啟後，選擇 [新增] 以安裝 Logic Apps B2B 解決方案。    
-   ![選擇方案庫](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
+1. 在 [概觀] 頁面上，選擇 [新增] 以開啟 [管理解決方案] 清單。 從該清單中，選取 [Logic Apps B2B]。 
 
-5. 在 [管理解決方案] 下，尋找和建立 [Logic Apps B2B] 解決方案。     
-   ![選擇 Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+   ![選取 Logic Apps B2B 解決方案](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   在首頁上，現在會顯示 [Logic Apps B2B 訊息] 的圖格。 
-   處理 B2B 訊息時，此磚會更新訊息計數。
+   如果找不到該解決方案，請在清單底部選擇 [載入更多] 直到解決方案出現。
+
+1. 選擇 [建立]，確認您想要在其中安裝解決方案的 Log Analytics 工作區，然後再次選擇 [建立]。   
+
+   ![針對 Logic Apps B2B 選擇 [建立]](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+
+   如果您不想使用現有工作區，也可以在此時建立新的工作區。
+
+1. 完成時，請返回工作區的 [概觀] 頁面。 
+
+   Logic Apps B2B 解決方案現在會出現在 [概觀] 頁面上。 
+   B2B 訊息獲得處理時，此頁面上的訊息計數就會更新。
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-log-analytics"></a>在 Log Analytics 中追蹤訊息狀態和詳細資料
+## <a name="view-b2b-message-information"></a>檢視 B2B 訊息資訊
 
-1. 處理 B2B 訊息之後，即可檢視這些訊息的狀態和詳細資料。 在 [概觀] 頁面上，選擇 [Logic Apps B2B 訊息] 圖格。
+B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這些訊息的狀態和詳細資料。
+
+1. 請移至 Log Analytics 工作區，然後開啟 [概觀] 頁面。 選擇 [Logic Apps B2B]。
 
    ![更新的訊息計數](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > [Logic Apps B2B 訊息] 磚預設會顯示以一天為基礎的資料。 若要將資料範圍變更為不同的間隔，請選擇頁面頂端的範圍控制項：
+   > [Logic Apps B2B] 圖格預設會顯示以一天為基礎的資料。 若要將資料範圍變更為不同的間隔，請選擇頁面頂端的範圍控制項：
    > 
-   > ![變更資料範圍](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
-   >
+   > ![變更間隔](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
 
-2. 訊息狀態儀表板出現之後，即可檢視特定訊息類型的其他詳細資料，這會顯示以一天為基礎的資料。 選擇 [AS2]、[X12] 或 [EDIFACT] 的磚。
+1. 訊息狀態儀表板出現之後，即可檢視特定訊息類型的其他詳細資料，這會顯示以一天為基礎的資料。 選擇 [AS2]、[X12] 或 [EDIFACT] 的磚。
 
    ![檢視訊息狀態](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 

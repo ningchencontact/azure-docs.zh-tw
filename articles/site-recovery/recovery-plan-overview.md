@@ -1,29 +1,24 @@
 ---
-title: 在 Azure Site Recovery 中使用復原方案 | Microsoft Docs
-description: 深入了解 Azure Site Recovery 中的復原方案。
-services: site-recovery
-documentationcenter: ''
+title: 搭配 Azure Site Recovery 在災害復原中使用復原方案 | Microsoft Docs
+description: 了解搭配 Azure Site Recovery 服務針對災害復原使用復原方案。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 011c9acb5d34e15f65b64d59867e7501f0720a08
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 463a7fc51cac6160fbb97fc53077d0b5eda80533
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920104"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215186"
 ---
 # <a name="about-recovery-plans"></a>關於復原方案
 
 本文說明 [Azure Site Recovery](site-recovery-overview.md) 中的復原方案。
 
 復原方案會將機器收集至復原群組中。 您可以將順序、指示及工作新增至方案來加以自訂。 定義方案之後，您可以在該方案上執行容錯移轉。
-
-
 
 
 

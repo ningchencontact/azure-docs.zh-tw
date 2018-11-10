@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012056"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412800"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用角色型存取控制來管理 Azure 備份復原點
 Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需的存取權。
@@ -34,19 +34,29 @@ Azure 備份提供 3 種用來控制備份管理作業的內建角色。 深入�
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>將備份的內建角色對應至備份管理動作
 下表會擷取備份管理動作與執行該作業所需的最小對應 RBAC 角色。
 
-| 管理作業 | 所需的最小 RBAC 角色 |
-| --- | --- |
-| 建立復原服務保存庫 | 保存庫資源群組的參與者 |
-| 啟用 Azure VM 的備份 | 在包含保存庫的資源群組範圍內定義的備份操作員、VM 的虛擬機器參與者 |
-| VM 的隨選備份 | 備份操作員 |
-| 還原 VM | 備份操作員、要部署 VM 的資源群組參與者、且選取 Vnet 的「讀取」和子網路的「加入」 |
-| 從 VM 備份還原磁碟、個別檔案 | 備份操作員，在 VM 上為虛擬機器參與者 |
-| 建立 Azure VM 備份的備份原則 | 備份參與者 |
-| 修改 Azure VM 備份的備份原則 | 備份參與者 |
-| 刪除 Azure VM 備份的備份原則 | 備份參與者 |
-| 在 VM 備份上停止備份 (保留資料或刪除資料) | 備份參與者 |
-| 註冊內部部署 Windows Server/用戶端/SCDPM 或 Azure 備份伺服器 | 備份操作員 |
-| 刪除已註冊的內部部署 Windows Server/用戶端/SCDPM 或 Azure 備份伺服器 | 備份參與者 |
+| 管理作業 | 所需的最小 RBAC 角色 | 所需的範圍 |
+| --- | --- | --- |
+| 建立復原服務保存庫 | 參與者 | 包含保存庫的資源群組 |
+| 啟用 Azure VM 的備份 | 備份操作員 | 包含保存庫的資源群組 |
+| | 虛擬機器參與者 | VM 資源 |
+| VM 的隨選備份 | 備份操作員 | 復原保存庫資源 |
+| 還原 VM | 備份操作員 | 將部署 VM 的資源群組 |
+| | 虛擬機器參與者 | 將部署 VM 的資源群組 |
+| 還原非受控磁碟 VM 備份 | 備份操作員 | 復原保存庫資源 |
+| | 虛擬機器參與者 | VM 資源 |
+| | 儲存體帳戶參與者 | 儲存體帳戶資源 |
+| 從 VM 備份還原受控磁碟 | 備份操作員 | 復原保存庫資源 |
+| | 虛擬機器參與者 | VM 資源 |
+| | 儲存體帳戶參與者 | 儲存體帳戶資源 |
+| | 參與者 | 要將受控磁碟還原到其中的資源群組 |
+| 從 VM 備份還原個別檔案 | 備份操作員 | 復原保存庫資源 |
+| | 虛擬機器參與者 | VM 資源 |
+| 建立 Azure VM 備份的備份原則 | 備份參與者 | 復原保存庫資源 |
+| 修改 Azure VM 備份的備份原則 | 備份參與者 | 復原保存庫資源 |
+| 刪除 Azure VM 備份的備份原則 | 備份參與者 | 復原保存庫資源 |
+| 在 VM 備份上停止備份 (保留資料或刪除資料) | 備份參與者 | 復原保存庫資源 |
+| 註冊內部部署 Windows Server/用戶端/SCDPM 或 Azure 備份伺服器 | 備份操作員 | 復原保存庫資源 |
+| 刪除已註冊的內部部署 Windows Server/用戶端/SCDPM 或 Azure 備份伺服器 | 備份參與者 | 復原保存庫資源 |
 
 ## <a name="next-steps"></a>後續步驟
 * [角色型存取控制](../role-based-access-control/role-assignments-portal.md)：開始在 Azure 入口網站中使用 RBAC。

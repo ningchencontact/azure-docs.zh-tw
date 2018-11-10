@@ -1,6 +1,6 @@
 ---
-title: 如何從適用於 VM 的 Azure 監視器查詢記錄 | Microsoft Docs
-description: 適用於 VM 的 Azure 監視器解決方案會將計量和記錄資料轉送到 Log Analytics，此文章將說明記錄並提供範例查詢。
+title: 如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄 | Microsoft Docs
+description: 適用於 VM 的 Azure 監視器解決方案會將計量和記錄資料轉送到 Log Analytics，本文將說明記錄並提供範例查詢。
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269389"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095417"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>如何從適用於 VM 的 Azure 監視器查詢記錄
+# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄
 適用於 VM 的 Azure 監視器會收集效能和連線計量、電腦和處理序清查資料，以及健康狀態資訊，並將它轉送到 Azure 監視器中的 Log Analytics 資料存放區。  此資料可用來在 Log Analytics 中進行[搜尋](../log-analytics/log-analytics-log-searches.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
 
 ## <a name="map-records"></a>對應記錄

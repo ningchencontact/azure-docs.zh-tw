@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b2e0b65f210774f760ce2d0898c601115ab3a94d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960153"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092452"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Execute SSIS 套件活動執行 SSIS 套件
 本文描述如何使用 Execute SSIS 套件活動，在 Azure Data Factory 管線執行 SSIS 套件。 
@@ -94,6 +94,8 @@ ms.locfileid: "46960153"
 (選擇性) 使用 [執行 SSIS 套件活動] 方塊底部的 [檢視原始程式碼] 按鈕，或管線區域右上角的 [程式碼] 按鈕，將可以參考 Data Factory 系統變數的值、運算式或函式，以 JSON 格式指派給您的專案或封裝參數。 例如，您可以將 Data Factory 管線參數指派給 SSIS 專案或套件參數，如下列螢幕擷取畫面所示：
 
 ![編輯執行 SSIS 套件活動的 JSON 指令碼](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![將參數新增至 Execute SSIS 套件活動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ![將參數新增至 Execute SSIS 套件活動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
@@ -204,9 +206,9 @@ ms.locfileid: "46960153"
                     "runtime": "x64",
                     "loggingLevel": "Basic",
                     "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
+                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
                     },
-                    "environmentPath":   "FolderName/EnvironmentName",
+                    "environmentPath":   "FolderName/EnvironmentName",
                     "projectParameters": {
                         "project_param_1": {
                             "value": "123"
@@ -244,7 +246,7 @@ ms.locfileid: "46960153"
                         }
                     },
                     "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
+                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
                             "value": 8,
                             "isSensitive": false
                         }

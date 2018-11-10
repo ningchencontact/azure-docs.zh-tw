@@ -7,17 +7,17 @@ ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
-ms.date: 03/19/2017
-ms.openlocfilehash: 0cc215d6643c86460a1d5471aa1eed8fdf18e028
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 10/30/2018
+ms.openlocfilehash: 2786de150307b21b06b624914d5fea55ded6e3c7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194728"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249770"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>建立 Azure 自動化監看員工作，以追蹤本機電腦上的檔案變更
 
-Azure 自動化會使用監看員工作來監看事件和觸發動作。 本教學課程將逐步引導您建立監看員工作，以監視目錄中何時新增了檔案。
+Azure 自動化會使用監看員工作搭配 PowerShell Runbook 來監看事件和觸發動作。 本教學課程將逐步引導您建立監看員工作，以監視目錄中何時新增了檔案。
 
 在本教學課程中，您了解如何：
 
@@ -29,7 +29,7 @@ Azure 自動化會使用監看員工作來監看事件和觸發動作。 本教�
 > * 觸發監看員
 > * 檢查輸出
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，需要有下列項目：
 
@@ -42,15 +42,15 @@ Azure 自動化會使用監看員工作來監看事件和觸發動作。 本教�
 本教學課程會使用名為 **Watch-NewFile** 的監看員 Runbook 來尋找目錄中的新檔案。 監看員 Runbook 會擷取資料夾檔案的最後已知寫入時間，並查看比該浮水印還新的任何檔案。 在此步驟中，您會將此 Runbook 匯入自動化帳戶。
 
 1. 開啟自動化帳戶，然後按一下 [Runbook] 頁面。
-1. 按一下 [瀏覽資源庫] 按鈕。
-1. 搜尋「監看員 Runbook」，選取 [會尋找目錄中新檔案的監看員 Runbook]，然後選取 [匯入]。
+2. 按一下 [瀏覽資源庫] 按鈕。
+3. 搜尋「監看員 Runbook」，選取 [會尋找目錄中新檔案的監看員 Runbook]，然後選取 [匯入]。
   ![從 UI 匯入自動化 Runbook](media/automation-watchers-tutorial/importsourcewatcher.png)
 1. 提供 Runbook 的名稱和描述，然後選取 [確定]，以將 Runbook 匯入自動化帳戶。
 1. 選取 [編輯]，然後按一下 [發佈]。 出現提示時，選取 [是] 以發佈 Runbook。
 
 ## <a name="create-an-automation-variable"></a>建立自動化變數
 
-[自動化變數](automation-variables.md)可用來儲存先前之 Runbook 從每個檔案所讀取並儲存的時間戳記。 
+[自動化變數](automation-variables.md)可用來儲存先前之 Runbook 從每個檔案所讀取並儲存的時間戳記。
 
 1. 選取 [共用資源] 底下的 [變數]，然後選取 [+ 新增變數]。
 1. 輸入 "Watch-NewFileTimestamp" 作為 [名稱]
@@ -59,7 +59,7 @@ Azure 自動化會使用監看員工作來監看事件和觸發動作。 本教�
 
 ## <a name="create-an-action-runbook"></a>建立動作 Runbook
 
-在監看員工作中，動作 Runbook 會用來處理從監看員 Runbook 傳來的資料。 在此步驟中，您要更新匯入預先定義的動作 Runbook，其名稱為 "Process-NewFile"。
+在監看員工作中，動作 Runbook 會用來處理從監看員 Runbook 傳來的資料。 監看員工作不支援 PowerShell 工作流程 Runbook，您必須使用 PowerShell Runbook。 在此步驟中，您要更新匯入預先定義的動作 Runbook，其名稱為 "Process-NewFile"。
 
 1. 瀏覽至自動化帳戶，然後選取 [程序自動化] 分類下的 [Runbook]。
 1. 按一下 [瀏覽資源庫] 按鈕。
@@ -89,8 +89,8 @@ Azure 自動化會使用監看員工作來監看事件和觸發動作。 本教�
 1. 選取 [設定動作]，然後選取 [Process-NewFile] Runbook。
 1. 針對參數輸入下列值︰
 
-   *    **EVENTDATA** - 保留為空白。 資料會從監看員 Runbook 傳入。  
-   *    **回合設定** - 保留為 [Azure]，因為此 Runbook 是在自動化服務中執行。
+   ***EVENTDATA** - 保留為空白。 資料會從監看員 Runbook 傳入。  
+   ***回合設定** - 保留為 [Azure]，因為此 Runbook 是在自動化服務中執行。
 
 1. 按一下 [確定]，然後按一下 [選取] 以返回監看員頁面。
 1. 按一下 [確定] 以建立監看員工作。

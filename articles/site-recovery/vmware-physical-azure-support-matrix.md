@@ -1,21 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 將 VMware VM 和實體伺服器複寫至 Azure 的支援矩陣 | Microsoft Docs
-description: 摘要說明可支援使用 Azure Site Recovery 將 VMware VM 和實體伺服器複寫到 Azure 的作業系統和元件。
-services: site-recovery
+title: 使用 Azure Site Recovery 進行從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣 | Microsoft Docs
+description: 摘要說明可支援使用 Azure Site Recovery 進行從 VMware VM 和實體伺服器至 Azure 之災害復原的作業系統和元件。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: f6f1ceb4f9afaaeb0a436879802144bdebc06280
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b472ed1c32e64b8f8ac881c09f22590c49f39c75
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378647"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215356"
 ---
-# <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>將 VMware 和實體伺服器複寫至 Azure 的支援對照表
+# <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
 本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 災害復原至 Azure 所支援的元件和設定。
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: dc54c232b972c25e6b21dbbb8a91a0218f17d584
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670202"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035518"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重新開機 - 維護與停機時間
 有三種情況可能會導致 Azure 中的虛擬機器受到影響：未規劃的硬體維護、未預期的停機時間以及規劃的維護。
@@ -32,7 +32,7 @@ ms.locfileid: "34670202"
 
 * [針對備援在可用性設定組中設定多部虛擬機器]
 * [將受控磁碟使用於可用性設定組中的 VM]
-* [使用排程的事件主動回應受 VM 影響的事件] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [使用排程的事件主動回應受 VM 影響的事件](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [將每個應用程式層設定至不同的可用性設定組中]
 * [將負載平衡器與可用性設定組結合]
 * [使用可用性區域來防禦資料中心層級的失敗]
@@ -47,8 +47,7 @@ ms.locfileid: "34670202"
 
 容錯網域定義共用通用電源和網路交換器的虛擬機器群組。 根據預設，可用性設定組中設定的虛擬機器會分置於最多三個容錯網域中，以進行 Resource Manager 部署 (如果是傳統，則是兩個容錯網域)。 將虛擬機器放入可用性設定組，並無法保護應用程式不會遭受作業系統錯誤或特定應用程式錯誤，而只會限制可能的實體硬體錯誤、網路中斷或電源中斷所帶來的影響。
 
-<!--Image reference-->
-   ![更新網域和容錯網域組態的概念圖](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+<!--Image reference--> ![更新網域和容錯網域組態的概念圖](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>將受控磁碟使用於可用性設定組中的 VM
 如果您目前使用 VM 搭配非受控磁碟，強烈建議您[將可用性設定組中的 VM 轉換為受控磁碟](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)。
@@ -72,8 +71,7 @@ ms.locfileid: "34670202"
 
 例如，您可以在一個可用性設定組中，將所有虛擬機器放入執行 IIS、Apache、Nginx 等的應用程式前端中。 請確認相同的可用性設定組中只有放入前端的虛擬機器。 同樣地，也要確認資料層的虛擬機器僅會放在它們自己的可用性設定組中，如同複寫的 SQL Server 虛擬機器或 MySQL 虛擬機器。
 
-<!--Image reference-->
-   ![應用程式層](./media/virtual-machines-common-manage-availability/application-tiers.png)
+<!--Image reference--> ![應用程式層](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-sets"></a>將負載平衡器與可用性設定組結合
 將 [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) 與可用性設定組結合，以獲得最多的應用程式備援能力。 Azure 負載平衡器會在多部虛擬機器之間分配流量。 我們的標準層虛擬機器中包含 Azure 負載平衡器。 並非所有的虛擬機器階層都包含 Azure Load Balancer。 如需關於負載平衡虛擬機器的詳細資訊，請參閱 [負載平衡虛擬機器](../articles/virtual-machines/virtual-machines-linux-load-balance.md)。

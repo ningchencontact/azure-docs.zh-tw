@@ -1,25 +1,26 @@
 ---
-title: Azure Site Recovery 中的 VMware 至 Azure 複寫架構 | Microsoft Docs
-description: 本文概述使用 Azure Site Recovery 將內部部署 VMware VM 複寫至 Azure 時，所使用的元件和架構
+title: Azure Site Recovery 中的 VMware 至 Azure 災害復原架構 | Microsoft Docs
+description: 本文概述使用 Azure Site Recovery 來設定從內部部署 VMware VM 至 Azure 的災害復原時，所使用的元件和架構
 author: rayne-wiselman
 ms.service: site-recovery
+ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 58129ece0fb1b7f446e5f8d738b5d1135aa0256e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715749"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212381"
 ---
-# <a name="vmware-to-azure-replication-architecture"></a>VMware 至 Azure 複寫架構
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 至 Azure 災害復原架構
 
-本文說明透過 [Azure Site Recovery](site-recovery-overview.md)，在內部部署 VMware 網站與 Azure 之間複寫、容錯移轉和復原 VMware 虛擬機器 (VM) 時所使用的架構和程序。
+本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務在內部部署 VMware 網站與 Azure 之間部署 VMware 虛擬機器 (VM) 的災害復原複寫、容錯移轉和復原時，所使用的架構和程序。
 
 
 ## <a name="architectural-components"></a>架構元件
 
-下表和圖形提供將 VMware 複寫至 Azure 時所用元件的高層級檢視。
+下表和圖形提供將 VMware 災害復原至 Azure 時所用元件的高層級檢視。
 
 **元件** | **需求** | **詳細資料**
 --- | --- | ---

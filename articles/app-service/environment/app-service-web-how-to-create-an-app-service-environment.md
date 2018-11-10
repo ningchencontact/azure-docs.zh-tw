@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 2741ea2931ddd7989fc05e1cddbeedb80bf30410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1df3b790d0c6c0f597a8559551ff5e42c9f110e4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386617"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230262"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>如何建立 App Service 環境 v1 
 
@@ -40,7 +40,7 @@ App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供
 * 使用的子網路 
 * 子網路大小
 
-挑選 VNet 然後指定子網路時，請確定它足夠大以容納未來的成長。 
+挑選 VNet 然後指定子網路時，請確定它大到足以適應未來的成長。 
 
 ### <a name="creating-an-app-service-environment-v1"></a>建立 App Service 環境 v1
 若要建立 App Service 環境 v1，您可以在 Azure Marketplace 中搜尋 App Service Environment v1，或透過 [建立資源]  ->  [Web + 行動]  ->  [App Service 環境] 執行這項操作。 若要建立 ASEv1：

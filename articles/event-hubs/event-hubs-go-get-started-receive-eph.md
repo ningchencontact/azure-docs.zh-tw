@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: shvija
-ms.openlocfilehash: eaea6adbaef7baf9bb1e617ba0a709cf14edf781
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005573"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239486"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>使用 Go 從事件中樞接收事件
 
@@ -33,7 +33,7 @@ Azure 事件中樞是可高度擴充的事件管理系統，每秒可以處理�
 若要完成本教學課程，您需要下列必要條件：
 
 * 安裝在本機的 Go。 如果有需要，請依照[這些指示](https://golang.org/doc/install) \(英文\) 執行。
-* 使用中的 Azure 帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶][]。
+* 使用中的 Azure 帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶][] 。
 * 若要接收訊息，目標事件中樞中必須有訊息。 若要了解如何傳送訊息，請參閱[傳送教學課程](event-hubs-go-get-started-send.md)。
 * 現有的事件中樞 (請參閱下節內容)。
 * 現有的儲存體帳戶和容器 (請參閱下下節的內容)。
@@ -80,7 +80,7 @@ import (
 
 ## <a name="create-service-principal"></a>建立服務主體
 
-依照[使用Azure CLI 2.0 來建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)中的指示建立新的服務主體。 使用下列名稱將提供的認證儲存在您的環境中。 Azure SDK for Go 與事件中樞套件皆已預先設定為會尋找這些變數名稱。
+依照[使用Azure CLI 2.0 來建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)中的指示建立新的服務主體。 使用下列名稱，將提供的認證儲存在您的環境中：Azure SDK for Go 和事件中樞套件都會預先設定為尋找這些變數名稱。
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -197,13 +197,7 @@ if err != nil {
 本教學課程使用單一 **EventProcessorHost**執行個體。 若要提升輸送量和可靠性，您應該在不同的系統上執行多個 **EventProcessorHost** 執行個體。 Leaser 系統能確保在指定時間內，單一接收者只會和指定的分割區關聯，並從之接收訊息。
 
 ## <a name="next-steps"></a>後續步驟
-
-請造訪這些網頁以深入了解事件中樞：
-
-* [搭配 Go 傳送事件](event-hubs-go-get-started-send.md)
-* [事件中心概觀](event-hubs-about.md)
-* [建立事件中樞](event-hubs-create.md)
-* [事件中樞常見問題集](event-hubs-faq.md)
+在此快速入門中，您已建立可從事件中樞接收訊息的 Go 應用程式。 若要了解如何使用 Go 將事件傳送到事件中樞，請參閱[從事件中樞傳送事件 - Go](event-hubs-go-get-started-send.md)。
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

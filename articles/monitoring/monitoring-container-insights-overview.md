@@ -1,5 +1,5 @@
 ---
-title: 適用於容器的 Azure 監視器概觀 | Microsoft Docs
+title: 適用於容器的 Azure 監視器 (預覽) 概觀 | Microsoft Docs
 description: 本文說明適用於容器的 Azure 監視器，其會監視 AKS 容器深入解析解決方案，以及它藉由監視您 AKS 叢集和 Azure 中容器執行個體的健康情況來提供的值。
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 6819cf96eb968e8faad5441cf3f3dd672653f1cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 13fde8a4ec4ecf43b9997d5d4d181a232505626f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971428"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212993"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>適用於容器的 Azure 監視器概觀
+# <a name="azure-monitor-for-containers-preview-overview"></a>適用於容器的 Azure 監視器 (預覽) 概觀
 
 適用於容器的 Azure 監視器是一項功能，其設計訴求是要監視部署至 Azure Kubernetes Service (AKS) 上所裝載受控 Kubernetes 叢集的容器工作負載效能。 監視容器很重要，尤其在您使用多個應用程式大規模執行生產環境叢集時。
 

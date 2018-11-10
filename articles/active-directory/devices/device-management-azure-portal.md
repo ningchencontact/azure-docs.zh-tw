@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041420"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138855"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>如何使用 Azure 入口網站來管理裝置
 
@@ -118,12 +118,19 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 ## <a name="device-management-tasks"></a>裝置管理工作
 
-身為系統管理員，您可以管理已註冊或已加入的裝置。 本節為您提供一般裝置管理工作的相關資訊。
+身為全域管理員，您可以管理已註冊或已加入的裝置。 Intune 服務管理員可以：
+ 
+- 更新裝置 – 範例為啟用/停用裝置等每日作業
+
+- 刪除裝置 – 當裝置已淘汰且應在 Azure AD 中刪除時
+
+本節為您提供一般裝置管理工作的相關資訊。
+
 
 
 ### <a name="manage-an-intune-device"></a>管理 Intune 裝置
 
-如果您是 Intune 管理員，您可以管理標示為 **Microsoft Intune** 的裝置。 系統管理員可能會看到其他裝置 
+如果您是 Intune 管理員，您可以管理標示為 **Microsoft Intune** 的裝置。 
 
 ![管理 Intune 裝置](./media/device-management-azure-portal/31.png)
 

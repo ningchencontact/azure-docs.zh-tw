@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628771"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158137"
 ---
 <!---
 Purpose of an Overview article: 
@@ -42,7 +42,7 @@ Azure IoT 中心是完全受控的 IoT 軟體即服務解決方案，可讓您�
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-這篇文章的其餘部分針對 Azure IoT 中心大略敘述：
+這篇文章的其餘部分將概述 Azure IoT 中心：
 
 - 與專案相關聯的典型角色。
 - 如何建立您的應用程式。
@@ -65,7 +65,7 @@ Azure IoT 中心文件中提及四個會與 Azure IoT 中心應用程式互動�
 - 雲端式應用程式，可接收來您的裝置的遙測，並可讓您管理這些裝置。
 - 多個裝置，這些裝置會執行已連線到雲端式應用程式的自訂程式碼。
 
-您可以快速部署新的 Azure IoT 中心應用程式，然後在瀏覽器中針對您的特定需求加以自訂。 Azure IoT 中心建置者可以使用 Web 架構工具，為連線到您應用程式的裝置建立「裝置範本」。 裝置範本是裝置模型的藍圖，所有裝置都是從裝置範本共用建立而來。 裝置範本可定義某種裝置的特性和行為，例如：
+您可以快速部署新的 Azure IoT 中心應用程式，然後在瀏覽器中針對您的特定需求加以自訂。 Azure IoT 中心建置者可以使用 Web 架構工具，為連線到您應用程式的裝置建立「裝置範本」。 裝置範本是裝置型號的藍圖。 從相同裝置範本建立的所有裝置會共用相同的範本。 裝置範本可定義某種裝置的特性和行為，例如：
 
 - 它所傳送的遙測。
 - 操作員可以修改的業務屬性。

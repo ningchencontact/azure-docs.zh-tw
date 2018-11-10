@@ -1,25 +1,18 @@
 ---
-title: 在 Azure Site Recovery 中將指令碼新增至復原方案 | Microsoft Docs
-description: 深入了解在 Azure 中將 System Center Virtual Machine Manager (VMM) 指令碼新增至復原方案的必要條件。
-services: site-recovery
-documentationcenter: ''
+title: 使用 Azure Site Recovery 將指令碼新增至災害復原的復原方案 | Microsoft Docs
+description: 了解如何在 VMM 雲端的 Hyper-V VM 災害復原方案中新增 VMM 指令碼。
 author: rajani-janaki-ram
 manager: rochakm
-editor: ''
-ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b2bb17c85f76498e11ea3f007d55d7488f249cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 239ccacaed9420fb15e9e116f46ad93596ddaaa2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426882"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214880"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>將 VMM 指令碼新增至復原方案
 

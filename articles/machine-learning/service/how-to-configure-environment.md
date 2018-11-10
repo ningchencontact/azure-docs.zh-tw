@@ -5,57 +5,60 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
+ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 8/6/2018
-ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 10/24/2018
+ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220290"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158987"
 ---
-# <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>設定 Azure Machine Learning 服務的開發環境
+# <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
-了解如何設定開發環境以使用 Azure Machine Learning 服務。 您將了解如何建立組態檔，以便讓您的環境與 Azure Machine Learning 工作區產生關聯。 您也將了解如何設定下列開發環境：
+本文說明如何設定開發環境以使用 Azure Machine Learning services，包括：
 
-* 您自己電腦上的 Jupyter Notebook
-* Visual Studio Code
-* 您偏好的程式碼編輯器
-
-建議方法是使用 Continuum Anaconda [Conda 虛擬環境](https://conda.io/docs/user-guide/tasks/manage-environments.html)來隔離您的工作環境，以避免套件之間的相依性衝突。 本文將說明設定 Conda 環境的步驟，並用它來執行 Azure Machine Learning。
-
+- 如何建立組態檔，以讓您的環境與 Azure Machine Learning services 工作區產生關聯。
+- 如何設定下列開發環境：
+  - 您自己電腦上的 Jupyter Notebook
+  - Visual Studio Code
+  - 自訂程式碼編輯器
+- 如何設定 [conda 虛擬環境](https://conda.io/docs/user-guide/tasks/manage-environments.html)並用於 Azure Machine Learning。 我們建議使用 Continuum Anaconda 來隔離工作環境，以避免在各個封裝之間產生相依性衝突。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure Machine Learning 服務工作區。 若要建立工作區，請使用[開始使用 Azure Machine Learning 服務](quickstart-get-started.md)文件中的步驟。
+- 設定 Azure Machine Learning services 工作區。 遵循[開始使用 Azure Machine Learning services](quickstart-get-started.md) 中說明的步驟操作。
+- 安裝 [Continuum Anaconda](https://www.anaconda.com/download/) 或 [Miniconda](https://conda.io/miniconda.html) 套件管理員。
+- 如果您使用 Visual Studio Code，請取得 [Python 擴充功能](https://code.visualstudio.com/docs/python/python-tutorial)。
 
-* [Continuum Anaconda](https://www.anaconda.com/download/) 或 [Miniconda](https://conda.io/miniconda.html) 套件管理員。
+> [!NOTE]
+> 您可使用 Bash (針對 Linux 與 Mac 作業系統) 或命令提示字元 (針對 Windows)，測試本文中顯示的殼層命令。
 
- * [若使用 Visual Studio Code，請使用 Python 擴充功能](https://code.visualstudio.com/docs/python/python-tutorial)。
+## <a name="create-a-workspace-configuration-file"></a>建立工作區組態檔
 
-## <a name="create-workspace-configuration-file"></a>建立工作區組態檔
+Azure Machine Learning SDK 會使用工作區組態檔來和您的 Azure Machine Learning services 工作區進行通訊。
 
-SDK 會使用工作區組態檔來和您的 Azure 機器學習服務工作區進行通訊。  有兩種方式可取得此檔案：
+- 若要建立組態檔，請完成 [Azure Machine Learning 快速入門](quickstart-get-started.md)。
+  - 快速入門程序會在 Azure Notebooks 中建立 `config.json` 檔案。 此檔案包含您工作區的組態資訊。
+  - 將 `config.json` 下載或複製至參考此工作區的指令碼或 Notebook 所在目錄。
 
-* 完成建立工作區和組態檔的[快速入門](quickstart-get-started.md)。 這會在 Azure Notebook 中為您建立 `config.json` 檔案。  此檔案包含您工作區的組態資訊。  將此檔案下載或複製到參考此工作區的指令碼或 Notebook 所在目錄。
-
-
-* 使用下列步驟自行建立組態檔：
+- 或者，您可遵循下列步驟透過手動方式建置檔案：
 
     1. 在 [Azure 入口網站](https://portal.azure.com)中開啟工作區。 複製__工作區名稱__、__資源群組__和__訂用帳戶識別碼__。 這些值會用來建立組態檔。
+        ![Azure 入口網站](./media/how-to-configure-environment/configure.png)
 
-        ![Azure 入口網站](./media/how-to-configure-environment/configure.png) 
-    
-    1. 以此 Python 程式碼建立檔案。 在參考工作區的指令碼或 Notebook 所在目錄中，執行該程式碼：
-        ```
+    1. 請使用下列 Python 程式碼建立檔案，並務必在參考此工作區的指令碼或 Notebook 所在目錄中執行此程式碼：
+
+        ```python
         from azureml.core import Workspace
 
         subscription_id ='<subscription-id>'
         resource_group ='<resource-group>'
         workspace_name = '<workspace-name>'
-        
+
         try:
            ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
            ws.write_config()
@@ -63,8 +66,8 @@ SDK 會使用工作區組態檔來和您的 Azure 機器學習服務工作區進
         except:
            print('Workspace not found')
         ```
-        這會寫入下列 `aml_config/config.json` 檔案： 
-    
+        此程式碼會寫入下列 `aml_config/config.json` 檔案：
+
         ```json
         {
         "subscription_id": "<subscription-id>",
@@ -74,58 +77,70 @@ SDK 會使用工作區組態檔來和您的 Azure 機器學習服務工作區進
         ```
         您可以將 `aml_config` 目錄或 `config.json` 複製到任何其他參考工作區的目錄中。
 
->[!NOTE] 
->相同目錄或其下方目錄中的其他指令碼或 Notebook 會以 `ws=Workspace.from_config()` 來載入工作區
+       > [!NOTE]
+       > 相同目錄或下方目錄中的其他指令碼或 Notebook，會以 `ws=Workspace.from_config()` 來載入工作區。
 
-## <a name="azure-notebooks-and-data-science-virtual-machine"></a>Azure Notebooks 與資料科學虛擬機器
+## <a name="azure-notebooks-and-data-science-virtual-machines"></a>Azure Notebooks 與資料科學虛擬機器
 
-Azure Notebooks 和 Azure 資料科學虛擬機器 (DSVM) 已預先設定為可搭配使用 Azure Machine Learning 服務。 這些環境中已安裝必要的元件，例如 Azure Machine Learning SDK。
+Azure Notebooks 和 Azure 資料科學虛擬機器 (DSVM) 已設定為可搭配使用 Azure Machine Learning services。 這些環境已包含所有必要的元件，例如 Azure Machine Learning SDK。
 
-Azure Notebooks 是 Azure 雲端中的 Jupyter Notebook 服務。 資料科學虛擬機器是專為資料科學工作預先設定的 VM 映像。 VM 中包含熱門工具、IDE 及 Jupyter Notebook、PyCharm 和 Tensorflow 等套件。
+- Azure Notebooks 是 Azure 雲端中的 Jupyter Notebook 服務。
+- 資料科學虛擬機器是專為資料科學工作設計的自訂虛擬機器 (VM) 映像。 其中包括：
+  - 常用工具
+  - 整合式開發環境 (IDE)
+  - Jupyter Notebooks、PyCharm 和 Tensorflow 等套件
+- 但您仍然需要工作區組態檔來使用這些環境。
 
-但您仍然需要工作區組態檔來使用這些環境。
+如需搭配使用 Azure Notebooks 和 Azure Machine Learning 服務的範例，請參閱[開始使用 Azure Machine Learning services](quickstart-get-started.md)。
 
-如需有關資料科學虛擬機器的詳細資訊，請參閱[資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)的文件。
+如需有關資料科學虛擬機器的詳細資訊，請參閱[資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)。
 
-如需搭配使用 Azure Notebooks 和 Azure Machine Learning 服務的範例，請參閱[開始使用 Azure Machine Learning 服務](quickstart-get-started.md)的文件。
-
-## <a name="configure-jupyter-notebooks-on-your-own-computer"></a>在您自己的電腦上設定 Jupyter Notebook
+## <a name="configure-jupyter-notebooks-on-your-computer"></a>在您自己的電腦上設定 Jupyter Notebook
 
 1. 開啟命令提示字元或殼層。
 
-2. 若要建立 Conda 環境，請使用下列命令：
+1. 使用下列命令建立 Conda 環境：
 
     ```shell
-    # create a new conda environment with Python 3.6, numpy and cython
+    # create a new conda environment with Python 3.6, numpy, and cython
     conda create -n myenv Python=3.6 cython numpy
 
     # activate the conda environment
     conda activate myenv
 
-    # If you are running Mac OS you should run
+    # On Mac OS run
     source activate myenv
     ```
 
     建立環境可能需要幾分鐘的時間，因為或許需要下載 Python 3.6 和其他元件。
 
-3. 若要安裝 Azure Machine Learning SDK 和 Notebook 的額外項目，請使用下列命令：
+1. 使用下列命令安裝 Azure Machine Learning SDK 與 Notebook 的額外項目，以及資料準備 SDK：
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl]
+    pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
     ```
 
-    安裝 SDK 可能需要幾分鐘的時間。
+   您可以參閱 Python 參考文件，以了解下列 SDK 中的類別和方法：
+   + [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk)
+   + [Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk)
 
-4. 若要為您的機器學習實驗安裝套件，請使用下列命令，並將 `<new package>` 取代為您想要安裝的套件：
+   > [!NOTE]
+   > 如果顯示訊息表示無法解除安裝 `PyYAML`，請改用下列命令：
+   >
+   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+
+   安裝 SDK 可能需要幾分鐘的時間。
+
+1. 安裝您的機器學習實驗套件。 使用下列命令，將 `<new package>` 取代為想要安裝的套件：
 
     ```shell
     conda install <new package>
     ```
 
-5. 若要安裝可感知 Conda 的 Jupyter Notebook 伺服器，並啟用實驗 widget (用於檢視執行資訊)，請使用下列命令：
+1. 安裝可感知 Conda 的 Jupyter Notebook 伺服器，並啟用實驗 widget (用於檢視執行資訊)。 使用下列命令：
 
     ```shell
-    # install Jupyter 
+    # install Jupyter
     conda install nb_conda
 
     # install experiment widget
@@ -135,13 +150,13 @@ Azure Notebooks 是 Azure 雲端中的 Jupyter Notebook 服務。 資料科學�
     jupyter nbextension enable --py --user azureml.train.widgets
     ```
 
-6. 若要啟動 Jupyter Notebook，請使用下列命令：
+1. 使用下列命令開啟 Jupyter Notebook：
 
     ```shell
     jupyter notebook
     ```
 
-7. 開啟新的 Notebook，然後選取 "myenv" 作為您的核心。 然後藉由在 Notebook 資料格中執行下列命令，確認您已安裝 Azure Machine Learning SDK：
+1. 開啟新的 Notebook，選取「myenv」做為核心，然後驗證您已安裝 Azure Machine Learning SDK。 在 Notebook 資料格中執行下列命令：
 
     ```python
     import azureml.core
@@ -152,7 +167,7 @@ Azure Notebooks 是 Azure 雲端中的 Jupyter Notebook 服務。 資料科學�
 
 1. 開啟命令提示字元或殼層。
 
-2. 若要建立 Conda 環境，請使用下列命令：
+1. 使用下列命令建立 Conda 環境：
 
     ```shell
     # create a new conda environment with Python 3.6, numpy and cython
@@ -165,36 +180,39 @@ Azure Notebooks 是 Azure 雲端中的 Jupyter Notebook 服務。 資料科學�
     source activate myenv
     ```
 
-2. 若要安裝 Azure Machine Learning SDK，請使用下列命令：
- 
+1. 使用下列命令安裝 Azure Machine Learning SDK 與資料準備 SDK：
+
     ```shell
-    pip install --upgrade azureml-sdk[automl]
+    pip install --upgrade azureml-sdk[automl] azureml-dataprep
     ```
 
-4. 若要安裝適用於 AI 的 Visual Studio 程式碼工具，請參閱適用於 [AI 工具](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)的 Visual Studio 市集項目。 
+1. 安裝適用於 AI 擴充功能的 Visual Studio Code 工具。 參閱[適用於 AI 的工具](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)。
 
-5. 若要為您的機器學習實驗安裝套件，請使用下列命令，並將 `<new package>` 取代為您想要安裝的套件：
+1. 安裝您的機器學習實驗套件。 使用下列命令，將 `<new package>` 取代為想要安裝的套件：
 
     ```shell
     conda install <new package>
     ```
 
-6. 啟動 Visual Studio Code，然後使用 __CTRL-SHIFT-P__ 來取得__命令選擇區__。 輸入「Python：選取解譯器」，然後選取您所建立的 Conda 環境。
+1. 開啟 Visual Studio Code，然後再使用 **CTRL-SHIFT-P** (針對 Windows) 或 **COMMAND-SHIFT-P** (針對 Mac 作業系統) 取得**命令選擇區**。 輸入「Python：選取解譯器」，然後選取您所建立的 Conda 環境。
 
-    > [!NOTE]
-    > Visual Studio Code 會自動感知您電腦上的 Conda 環境。 如需詳細資訊，請參閱 [Visual Studio 程式碼文件](https://code.visualstudio.com/docs/python/environments#_conda-environments)。
+   > [!NOTE]
+   > Visual Studio Code 會自動感知您電腦上的 Conda 環境。 如需詳細資訊，請參閱 [Visual Studio 程式碼文件](https://code.visualstudio.com/docs/python/environments#_conda-environments)。
 
-7. 若要驗證組態，請使用 Visual Studio Code 與下列程式碼來建立新的 Python 指令碼檔案，然後執行它：
+1. 使用 Visual Studio Code 驗證設定，以搭配下列程式碼來建立新的 Python 指令碼檔案，然後再執行它：
 
     ```python
     import azureml.core
     azureml.core.VERSION
     ```
 
-## <a name="configure-code-editor-of-your-choice"></a>依據您的偏好來設定程式碼編輯器
+## <a name="configure-a-custom-code-editor"></a>設定自訂程式碼編輯器
 
-若要搭配使用自訂程式碼編輯器和 Azure 機器學習服務 SDK，請先建立 Conda 環境，如上面所述。 然後依照每個編輯器的指示來使用 Conda 環境。 例如，PyCharm 的指示位於 [https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html](https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html)。
- 
+您可搭配 Azure Machine Learning SDK 使用您所選擇的程式碼編輯器。
+
+1. 依照上文的[設定 Visual Studio Code](#configure-visual-studio-code) 步驟 2 中所述，建立您的 Conda 環境。
+1. 按照每個編輯器的說明指示，使用 Conda 環境。 例如可依照 [PyCharm 指示](https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html)進行。
+
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 MNIST 資料集訓練 Azure Machine Learning 上的模型](tutorial-train-models-with-aml.md)
+- [使用 MNIST 資料集訓練 Azure Machine Learning 上的模型](tutorial-train-models-with-aml.md)

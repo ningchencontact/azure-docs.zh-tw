@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003108"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242121"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
 ## <a name="overview"></a>概觀
-本教學課程示範如何建立具有 ASP.NET MVC 前端的多層式 .NET 應用程式，並將它部署到 [Azure 雲端服務](cloud-services-choose-me.md)。 應用程式會使用 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279)、[Azure Blob 服務](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)和 [Azure 佇列服務](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)。 您可以從 MSDN Code Gallery [下載 Visual Studio 專案](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 。
+本教學課程示範如何建立具有 ASP.NET MVC 前端的多層式 .NET 應用程式，並將它部署到 [Azure 雲端服務](cloud-services-choose-me.md)。 應用程式會使用 [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279)、[Azure Blob 服務](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)和 [Azure 佇列服務](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)。 您可以從 MSDN Code Gallery [下載 Visual Studio 專案](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 。
 
 本教學課程將示範如何在本機建置並執行應用程式、如何將應用程式部署至 Azure 並且在雲端執行，以及如何從頭建置應用程式。 之後，如果需要，也可以自從頭建置應用程式開始，然後執行測試和部署步驟。
 
@@ -36,7 +36,7 @@ ms.locfileid: "39003108"
 此應用程式會使用 [以佇列為中心的工作模式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) ，將建立縮圖的 CPU 密集工作轉變為後端程序。
 
 ## <a name="alternative-architecture-web-apps-and-webjobs"></a>替代架構：Web Apps 和 WebJob
-本教學課程示範如何在 Azure 雲端服務中執行前端與後端。 替代方式是在 [Azure Web Apps](/azure/app-service/) 中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能用於後端。 如需使用 WebJob 的教學課程，請參閱 [開始使用 Azure WebJob SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。 如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../app-service/choose-web-site-cloud-service-vm.md)。
+本教學課程示範如何在 Azure 雲端服務中執行前端與後端。 替代方式是在 [Azure Web Apps](/azure/app-service/) 中執行前端，並且將 [WebJob](https://go.microsoft.com/fwlink/?LinkId=390226) 功能用於後端。 如需使用 WebJob 的教學課程，請參閱 [開始使用 Azure WebJob SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。 如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../app-service/choose-web-site-cloud-service-vm.md)。
 
 ## <a name="what-youll-learn"></a>您將學到什麼
 * 如何安裝 Azure SDK 好讓電腦適合用於進行 Azure 開發。
@@ -71,7 +71,7 @@ ms.locfileid: "39003108"
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## <a name="download-and-run-the-completed-solution"></a>下載並執行已完成的方案
-1. 下載並解壓縮 [已完成的方案](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)(英文)。
+1. 下載並解壓縮 [已完成的方案](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)(英文)。
 2. 啟動 Visual Studio。
 3. 從 [檔案] 功能表中，選擇 [開啟專案]，導覽至方案的下載位置，然後開啟方案檔。
 4. 按 CTRL+SHIFT+B 建置解決方案。
@@ -81,7 +81,7 @@ ms.locfileid: "39003108"
 6. 如果您使用 Visual Studio 2015 或更新版本，變更 ContosoAdsWeb 專案中的 Web.config 檔案和 ContosoAdsCloudService 專案中的 ServiceConfiguration.Local.cscfg 檔案的應用程式中的 SQL Server 連接字串。 在每個案例中，將 "(localdb)\v11.0" 變更為 "(localdb)\MSSQLLocalDB"。
 7. 按 CTRL+F5 執行應用程式。
 
-    在本機執行雲端服務專案時，Visual Studio 會自動叫用 Azure「計算模擬器」和 Azure「儲存體模擬器」。 計算模擬器會使用您電腦的資源來模擬 Web 角色和背景工作角色環境。 儲存體模擬器則使用 [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) 資料庫來模擬 Azure 雲端儲存體。
+    在本機執行雲端服務專案時，Visual Studio 會自動叫用 Azure「計算模擬器」和 Azure「儲存體模擬器」。 計算模擬器會使用您電腦的資源來模擬 Web 角色和背景工作角色環境。 儲存體模擬器則使用 [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) 資料庫來模擬 Azure 雲端儲存體。
 
     第一次執行雲端服務專案時，需要約一分鐘的時間，才能啟動模擬器。 模擬器啟動完成時，預設的瀏覽器會開啟到應用程式首頁。
 
@@ -311,7 +311,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 >
 
 ## <a name="create-the-application-from-scratch"></a>從頭開始建立應用程式
-如果您尚未下載 [完整的應用程式](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)，請立即下載。 您會從所下載的專案複製檔案到新專案。
+如果您尚未下載 [完整的應用程式](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)，請立即下載。 您會從所下載的專案複製檔案到新專案。
 
 建立 Contoso Ads 應用程式包含下列步驟：
 
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。 例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體。 模型繫結器可為方法提供 [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 物件。
+多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。 例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體。 模型繫結器可為方法提供 [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 物件。
 
 ```csharp
 [HttpPost]
@@ -766,8 +766,8 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。 �
 
 以下是可示範更多真實世界程式碼編寫作法的一些雲端服務範例應用程式，依較不複雜到較複雜的順序列出：
 
-* [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。 概念類似 Contoso Ads，但實作更多功能和更多真實世界程式碼編寫實務。
-* [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。 介紹 Azure 儲存體資料表以及 Blob 和佇列。 根據舊版的 Azure SDK for .NET，將需要一些修改，以使用目前的版本。
+* [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。 概念類似 Contoso Ads，但實作更多功能和更多真實世界程式碼編寫實務。
+* [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。 介紹 Azure 儲存體資料表以及 Blob 和佇列。 根據舊版的 Azure SDK for .NET，將需要一些修改，以使用目前的版本。
 
 如需針對雲端進行開發的一般資訊，請參閱「 [使用 Azure 建置實際的雲端應用程式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)」。
 

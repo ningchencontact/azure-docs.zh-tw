@@ -1,21 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 複寫多層式 IIS 型 Web 應用程式 | Microsoft Docs
+title: 使用 Azure Site Recovery 設定多層式 IIS 型 Web 應用程式的災害復原 | Microsoft Docs
 description: 了解如何使用 Azure Site Recovery 複寫 IIS Web 伺服陣列虛擬機器。
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920843"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211820"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>複寫多層式 IIS 型 Web 應用程式
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>設定多層式 IIS 型 Web 應用程式的災害復原
 
 應用程式軟體是組織中商務產能的引擎。 各種 web 應用程式可在組織提供不同的用途。 對組織而言，有些應用程式 (例如用於薪資處理的應用程式、財務應用程式及客戶面向的網站) 可能極為重要。 若要避免降低生產力，組織務必能夠持續啟動並執行這些應用程式。 更重要的是，讓這些應用程式一直處於可用狀態，有助於防止組織的品牌或形象受損。
 
@@ -27,7 +26,7 @@ ms.locfileid: "37920843"
 
 本文說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 來保護以 Internet Information Services (IIS) 為基礎的 Web 應用程式。 本文涵蓋將三層式 IIS 型 Web 應用程式複寫至 Azure 的最佳做法、如何進行災害復原演練，以及如何將應用程式容錯移轉至 Azure。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在開始之前，請確定您了解如何執行下列工作：
 
@@ -61,10 +60,10 @@ IIS 型 Web 應用程式通常會遵循下列其中一個部署模式︰
 
 案例 | 至次要網站 | 至 Azure
 --- | --- | ---
-Hyper-V | yes | yes
-VMware | yes | yes
-實體伺服器 | 否 | yes
-Azure|NA|yes
+Hyper-V | 是 | 是
+VMware | 是 | 是
+實體伺服器 | 否 | 是
+Azure|NA|是
 
 ## <a name="replicate-virtual-machines"></a>複寫虛擬機器
 

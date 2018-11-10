@@ -4,20 +4,22 @@ description: 了解如何針對更新管理問題進行疑難排解
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405220"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092622"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
 本文探討您使用「更新管理」時可能遇到之問題的解決方案。
+
+混合式背景工作角色代理程式有代理程式疑難排解員可判斷根本問題。 若要深入了解疑難排解員，請參閱[針對更新代理程式問題進行疑難排解](update-agent-issues.md)。 對於所有其他問題，請參閱以下有關可能問題的詳細資訊。
 
 ## <a name="general"></a>一般
 
@@ -110,6 +112,20 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 #### <a name="resolution"></a>解決方案
 
 確認系統帳戶具有 **C:\ProgramData\Microsoft\Crypto\RSA** 資料夾的讀取存取權，然後再試一次。
+
+### <a name="nologs"></a>案例：機器的更新管理資料未顯示在 Log Analytics 中
+
+#### <a name="issue"></a>問題
+
+您有在 [合規性] 之下顯示為 [未評估] 的電腦，但您可以在 Log Analytics 中查看混合式 Runbook 背景工作角色 (而非更新管理) 的活動訊號資料。
+
+#### <a name="cause"></a>原因
+
+混合式 Runbook 背景工作角色可能需要重新註冊及重新安裝。
+
+#### <a name="resolution"></a>解決方案
+
+請遵循[部署 Windows 混合式 Runbook 背景工作角色](../automation-windows-hrw-install.md)中的步驟來重新安裝混合式背景工作角色。
 
 ### <a name="hresult"></a>案例：機器顯示為 [未評估] 並顯示 HResult 例外狀況
 

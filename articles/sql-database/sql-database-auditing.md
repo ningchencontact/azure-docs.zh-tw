@@ -11,21 +11,26 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/25/2018
+ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466676"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092946"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
-Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
+稽核 Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)，可追蹤資料庫事件並將事件寫入 Azure 儲存體帳戶、OMS 工作區或事件中樞的稽核記錄。 稽核也具備下列功能：
 
 - 協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 
 - 啟用及推動遵循法規標準，但不保證符合法規。 如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)。
+
+
+> [!NOTE] 
+> 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
+
 
 ## <a id="subheading-1"></a>Azure SQL 資料庫稽核概觀
 
@@ -51,7 +56,7 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
 
 - 如果「伺服器 Blob 稽核已啟用」，它「一律」會套用到資料庫。 不論資料庫稽核資料是什麼，都會稽核資料庫。
 
-- 如果在伺服器和資料庫上都啟用 Blob 稽核，這「不會」覆寫或變更伺服器 Blob 稽核的任何設定。 這兩種稽核將會並存。 換句話說，系統將會對資料庫進行兩次相同的稽核；一次是由伺服器原則，一次是由資料庫原則。
+- 如果除了伺服器以外，也在資料庫或資料倉儲上啟用 Blob 稽核，這「不會」覆寫或變更伺服器 Blob 稽核的任何設定。 這兩種稽核將會並存。 換句話說，系統將會對資料庫進行兩次相同的稽核；一次是由伺服器原則，一次是由資料庫原則。
 
    > [!NOTE]
    > 您應該避免同時啟用伺服器 Blob 稽核與資料庫 Blob 稽核，除非：
@@ -98,6 +103,11 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
 9. 按一下 [檔案] 。
 10. 如果您想要自訂稽核的事件，您可以透過 [PowerShell Cmdlet](#subheading-7) 或 [REST API](#subheading-9) 來自訂。
 11. 設定您的稽核設定之後，您可以開啟新的威脅偵測功能，並設定電子郵件以接收安全性警示。 使用威脅偵測時，您會接收與指示潛在安全性威脅的異常資料庫活動相關的主動式警示。 如需詳細資訊，請參閱[開始使用威脅偵測](sql-database-threat-detection-get-started.md)。
+
+
+> [!IMPORTANT]
+>在 Azure SQL 資料倉儲或擁有 Azure SQL 資料倉儲的伺服器上啟用稽核，**將導致資料倉儲恢復運作** (即使先前已暫停)。 **啟用稽核之後，請務必再次暫停資料倉儲**。
+
 
 ## <a id="subheading-3"></a>分析稽核記錄和報告
 
@@ -206,6 +216,9 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
     FAILED_DATABASE_AUTHENTICATION_GROUP
 
     您可以使用 PowerShell 設定不同動作和動作群組類型的稽核，如[使用 Azure PowerShell 管理 SQL 資料庫稽核](#subheading-7)一節中所述。
+
+- 使用 AAD 驗證時，失敗的登入記錄「不會」顯示在 SQL 稽核記錄中。 若要檢視失敗的登入稽核記錄，您需要瀏覽 [Azure Active Directory 入口網站]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)，其中會記錄這些事件的詳細資料。
+
 
 ## <a id="subheading-7"></a>使用 Azure PowerShell 管理 SQL 資料庫稽核
 

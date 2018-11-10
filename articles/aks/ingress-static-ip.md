@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ffa1541439890a0591b52c1fdbc717c7d5aa5ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e528f06ffc6b7ef00800605f5f9022fe164821b4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362540"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091892"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用靜態公用 IP 位址建立輸入控制器
 
@@ -24,8 +24,8 @@ ms.locfileid: "49362540"
 
 - [建立具有外部網路連線的基本輸入控制器][aks-ingress-basic]
 - [啟用 HTTP 應用程式路由附加元件][aks-http-app-routing]
-- [建立使用內部私人網路和 IP 位址的輸入控制器][aks-ingress-internal]
-- [使用動態公用 IP 建立輸入控制器，並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-tls]
+- [建立使用自有 TLS 憑證的輸入控制器][aks-ingress-own-tls]
+- [建立輸入控制器，其使用 Let's Encrypt 自動產生具有動態公用 IP 的 TLS 憑證][aks-ingress-tls]
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -335,6 +335,7 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eas
 - [建立具有外部網路連線的基本輸入控制器][aks-ingress-basic]
 - [啟用 HTTP 應用程式路由附加元件][aks-http-app-routing]
 - [建立使用內部私人網路和 IP 位址的輸入控制器][aks-ingress-internal]
+- [建立使用自有 TLS 憑證的輸入控制器][aks-ingress-own-tls]
 - [使用動態公用 IP 建立輸入控制器，並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-tls]
 
 <!-- LINKS - external -->
@@ -356,3 +357,4 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eas
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

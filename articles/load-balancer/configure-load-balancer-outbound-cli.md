@@ -4,8 +4,6 @@ description: 本文說明如何使用 Azure CLI 在 Standard Load Balancer 中�
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a6d442452fe5ffc61648b3c004c03f1756f8f57e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0759b6a8e3deb9bc1d04e41598e4eef9304ecd83
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160650"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416404"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>使用 Azure CLI 在 Standard Load Balancer 中設定負載平衡和輸出規則
 
@@ -63,7 +61,7 @@ ms.locfileid: "47160650"
 
 ## <a name="create-outbound-public-ip-address"></a>建立輸出公用 IP 位址 
 
-在 myresourcegroupoutbound 中，針對 Load Balancer 的前端輸出組態 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) (名為 mypublicipoutbound) 建立標準 IP 位址。
+使用 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create)，針對 Load Balancer 的前端輸出組態建立標準 IP 位址。
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +79,7 @@ ms.locfileid: "47160650"
 
 ### <a name="create-load-balancer"></a>建立負載平衡器
 
-使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) 建立具有輸入 IP 位址、名為 lb 的 Load Balancer，其包含名為 myfrontendinbound 的輸入前端 IP 組態、名為 bepool 且與您在前一個步驟中建立的公用 IP 位址 mypublicipinbound 相關聯的後端集區。
+使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) 建立具有輸入 IP 位址、名為 *lb* 的 Load Balancer，其包含一個輸入前端 IP 組態，以及與您在前一個步驟中建立的公用 IP 位址 *mypublicipinbound* 相關聯的後端集區。
 
 ```azurecli-interactive
   az network lb create \

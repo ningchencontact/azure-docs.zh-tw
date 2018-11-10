@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/15/2018
+ms.date: 10/29/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f4de10c29364ab96f54e5d07e9c416a2beb038f6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8e764bfc4481343a1e1fb710df7d09f7a38f4f78
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380157"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420342"
 ---
 # <a name="start-monitoring-your-website"></a>開始監視您的網站
 
 Azure Monitor Application Insights 可讓您輕鬆監視網站的可用性、效能和使用情形。 還可讓您快速識別並診斷應用程式的錯誤，不必等使用者回報。 Application Insights 提供伺服器端監視功能，以及用戶端/瀏覽器端監視功能。
 
-本快速入門引導您新增[開放原始碼 Application Insight JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)，讓您了解您網站訪客的用戶端/瀏覽器端體驗。
+本快速入門將引導您新增[開放原始碼 Application Insights JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)，讓您了解您網站訪客的用戶端/瀏覽器端體驗。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -74,7 +74,7 @@ Application Insights 可以從任何連上網際網路的應用程式 (不論是
 
 1. 選取 [概觀] > **[程式集]** > 複製應用程式的 [檢測金鑰]。
 
-   ![新增 App Insights 資源表單](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![新增 App Insights 資源表單](media/app-insights-website-monitoring/instrumentation-key-001.png)
 
 2. 將下列指令碼新增到 ``hello_world.html`` 中右邊 ``</head>`` 標記之前：
 
@@ -98,7 +98,7 @@ Application Insights 可以從任何連上網際網路的應用程式 (不論是
 
 1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights [概觀] 頁面 (您先前在此擷取檢測金鑰)，以檢視目前執行中應用程式的詳細資料。 概觀頁面上的四個預設圖表都只限於伺服器端應用程式資料。 因為我們會檢測用戶端/瀏覽器端與 JavaScript SDK 的互動，所以此特定檢視就不適用，除非我們也安裝了用戶端 SDK。
 
-2. 按一下 ![應用程式對應圖示](./media/app-insights-nodejs-quick-start/006.png) **Analytics**。  這會開啟 **Analytics**，它可提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 若要檢視用戶端瀏覽器要求相關資料，請執行下列查詢：
+2. 按一下 ![應用程式對應圖示](media/app-insights-website-monitoring/006.png) **Analytics**。  這會開啟 **Analytics**，它可提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 若要檢視用戶端瀏覽器要求相關資料，請執行下列查詢：
 
     ```kusto
     // average pageView duration by name

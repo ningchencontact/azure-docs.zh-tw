@@ -1,6 +1,6 @@
 ---
-title: 在 Microsoft Azure PowerShell 中使用 Azure 資料庫移轉服務模組，將 SQL Server 內部部署移轉至 Azure SQL DB MI | Microsoft Docs
-description: 了解如何使用 Azure PowerShell 從內部部署 SQL Server 移轉至 Azure SQL DB MI。
+title: 搭配資料庫移轉服務和 PowerShell 將 SQL Server 移轉至 Azure SQL Database 受控執行個體 | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 從內部部署 SQL Server 移轉至 Azure SQL DB 受控執行個體。
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364987"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247151"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>使用 Azure PowerShell 將 SQL Server 內部部署移轉至 Azure SQL DB
-在本文中，您會使用 Microsoft Azure PowerShell，將已還原至內部部署 SQL Server 2005 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database。 您可以使用 Microsoft Azure PowerShell 中的 `AzureRM.DataMigration` 模組，將資料庫從內部部署 SQL Server 執行個體移轉至 Azure SQL Database。
+# <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>使用 Azure PowerShell 將 SQL Server 內部部署移轉至 Azure SQL Database 受控執行個體
+在本文中，您會使用 Microsoft Azure PowerShell，將已還原至內部部署 SQL Server 2005 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database 受控執行個體。 您可以使用 Microsoft Azure PowerShell 中的 `AzureRM.DataMigration` 模組，將資料庫從內部部署 SQL Server 執行個體移轉至 Azure SQL Database 受控執行個體。
 
 在本文中，您將了解：
 > [!div class="checklist"]

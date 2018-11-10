@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298195"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240880"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 Microsoft 資料科學虛擬機器 (DSVM) 是 Windows Azure 虛擬機器 (VM) 映像。 它會預先安裝並且以數個用於資料分析和機器學習的工具進行設定。 包含下列工具：
@@ -186,7 +186,7 @@ VM 上提供含機器學習服務的 SQL Server 2017 開發人員版本 (可使�
 * **Microsoft Azure PowerShell** 是利用 Powershell 指令碼語言來管理 Azure 資源的工具。 它也會安裝在 VM 上。 
 
 ### <a name="power-bi"></a>Power BI
-為了協助您建立儀表板和視覺效果，已安裝 **Power BI Desktop**。 使用此工具以從不同來源提取資料，來撰寫您的儀表板和報告並發佈至雲端。 如需詳細資訊，請參閱 [Power BI](http://powerbi.microsoft.com) 網站。 您可以在 [開始] 功能表上找到 Power BI 桌面。 
+為了協助您建立儀表板和視覺效果，已安裝 **Power BI Desktop**。 使用此工具以從不同來源提取資料，來撰寫您的儀表板和報告並發佈至雲端。 如需詳細資訊，請參閱 [Power BI](https://powerbi.microsoft.com) 網站。 您可以在 [開始] 功能表上找到 Power BI 桌面。 
 
 > [!NOTE]
 > 您需要 Microsoft Office 365 帳戶才能存取 Power BI。 
@@ -228,7 +228,7 @@ Workbench 的每個使用者都必須採取一次性動作。 按兩下 ```Azure
 * 選取 [開始] 功能表，以探索資料科學 VM 上的工具。
 * 若要了解 Azure 機器學習服務和 Azure Machine Learning Workbench，可瀏覽產品的[快速入門與教學課程頁面](../service/index.yml)。 
 * 瀏覽至 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**，以取得在 R 中使用 RevoScaleR 程式庫的範例，其支援企業規模的資料分析。  
-* 閱讀文章：[您可以在 Data Science Virtual Machine 上做的十件事](http://aka.ms/dsvmtenthings)。
+* 閱讀文章：[您可以在 Data Science Virtual Machine 上做的十件事](https://aka.ms/dsvmtenthings)。
 * 了解如何使用 [Team Data Science Process](../team-data-science-process/index.yml)，以系統化方式建置端對端分析方案。
 * 瀏覽 [Azure AI 資源庫](http://gallery.cortanaintelligence.com)，可取得在 Azure 上使用 Azure Machine Learning 和相關資料服務的機器學習和資料分析範例。 我們也已經在虛擬機器的 [開始] 功能表與桌面上提供此資源庫的圖示。
 

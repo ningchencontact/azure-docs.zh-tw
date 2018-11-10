@@ -1,21 +1,20 @@
 ---
-title: VMware 到 Azure 的 Azure Site Recovery Deployment Planner | Microsoft Docs
-description: 這是 Azure Site Recovery Deployment Planner 使用者指南。
-services: site-recovery
+title: 在 Azure Site Recovery 部署規劃工具中檢閱成本估計報告 | Microsoft Docs
+description: 本文說明如何在 Azure Site Recovery 部署規劃工具中檢閱進行從 VMware 至 Azure 之災害復原的成本估計報告。
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7470dab537a8ab248228b9c445e1124e7ec9c444
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 7244aa2c0b665b47d597662b98ec291d6bfeeddd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387798"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215016"
 ---
-# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署規劃工具的成本估計報告  
+# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>在 Site Recovery 部署規劃工具中檢閱針對 Azure 進行 VMware 災害復原的成本估計報告
 
 部署規劃工具報告在[建議](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)工作表中提供成本估計摘要，以及在成本估計工作表中提供詳細的成本分析。 其中包含每部 VM 的詳細成本分析。 
 

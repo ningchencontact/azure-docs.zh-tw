@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389270"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231877"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -74,9 +74,9 @@ Reset-StorageSyncServer
 如果您看到這個訊息，而 Azure 檔案共用目前未由雲端端點使用中，請執行下列步驟，以清除 Azure 檔案共用上的 Azure 檔案同步中繼資料：
 
 > [!Warning]  
-> 刪除 Azure 檔案共用上目前正由雲端端點使用中的中繼資料時，會導致 Azure 檔案同步作業失敗。 
+> 刪除 Azure 檔案共用上目前正由雲端端點使用中的中繼資料時，會導致 Azure 檔案同步作業失敗。 
 
-1. 在 Azure 入口網站中，移至您的 Azure 檔案共用。  
+1. 在 Azure 入口網站中，移至您的 Azure 檔案共用。  
 2. 以滑鼠右鍵按一下 Azure 檔案共用，然後選取 [編輯中繼資料]。
 3. 以滑鼠右鍵按一下 [SyncService]，然後選取 [刪除]。
 
@@ -519,7 +519,7 @@ PerItemErrorCount: 1006.
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (十進位)** | -2134375908 |
-| **錯誤字串** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **錯誤字串** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **需要補救** | 是 |
 | | |
 | **HRESULT** | 0x80c80253 |

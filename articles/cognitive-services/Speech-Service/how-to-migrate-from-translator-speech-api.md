@@ -1,7 +1,7 @@
 ---
 title: 從翻譯語音 API 移轉至語音服務
 titleSuffix: Azure Cognitive Services
-description: 使用本主題來將應用程式從翻譯語音 API 移轉至語音服務。
+description: 了解如何將應用程式從翻譯語音 API 移轉至語音服務。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: a35c4a7f2d2b64bd3650df1f18d08da4ea191e3a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 81513819fd60dc088c2ed4a781562684c84e803a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466387"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415469"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>從翻譯語音 API 移轉至語音服務
 
@@ -32,7 +32,7 @@ ms.locfileid: "49466387"
 | 翻譯為語音                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 全域端點                                   | :heavy_check_mark:                                              | :heavy_minus_sign:                 | 語音服務目前不提供全域端點。 全域端點可自動將流量導向最接近的區域端點，並降低應用程式中的延遲。                                                    |
 | 區域端點                                | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| 連線時間限制                             | 90 分鐘                                               | 搭配 SDK 時沒有限制。 搭配 WebSocket 連線時為 10 分鐘                                                                                                                                                                                                                                                                                   |
+| 連線時間限制                             | 90 分鐘                                               | 搭配 SDK 時沒有限制。 搭配 WebSocket 連線時為 10 分鐘。                                                                                                                                                                                                                                                                                   |
 | 標頭中的驗證金鑰                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 在單一要求中翻譯多個語言 | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 可用的 SDK                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 請參閱[語音服務文件](index.yml)以取得可用的 SDK。                                                                                                                                                    |
@@ -49,13 +49,13 @@ ms.locfileid: "49466387"
 
 ## <a name="migration-strategies"></a>移轉策略
 
-如果您或您的組織具有使用翻譯語音 API 的開發中或生產環境應用程式，您應該更新它們以使用語音服務。 請參閱[語音服務](index.yml)文件以取得可用的 SDK、程式碼範例及教學課程。 下面是移轉時應考慮的一些事項：
+如果您或您的組織具有使用翻譯語音 API 的開發中或生產環境應用程式，您應該更新它們以使用語音服務。 請參閱[語音服務](index.yml)文件以取得可用的 SDK、程式碼範例及教學課程。 移轉時，請考慮下列事項：
 
-* 語音服務目前不提供全域端點。 您必須判斷自己的應用程式是否能在針對所有流量使用單一區域端點的情況下有效運作。 如果不行，您便需使用地理位置來判斷最有效的端點。
+* 語音服務目前不提供全域端點。 請判斷自己的應用程式是否能在針對所有流量使用單一區域端點的情況下有效運作。 如果不行，請使用地理位置來判斷最有效的端點。
 
-* 如果您的應用程式會使用長時間執行的連線，且無法使用可用的 SDK，您可以使用 WebSocket 連線，並透過在適當的時機重新連線來管理 10 分鐘的逾時限制。
+* 如果您的應用程式會使用長時間執行的連線，且無法可用的 SDK，您可以使用 WebSocket 連線。 請透過在適當時間重新連線來因應 10 分鐘的逾時限制。
 
-* 如果您的應用程式使用翻譯文字 API 及翻譯語音 API 以啟用自訂翻譯模型，您將能使用語音服務來直接新增「類別」識別碼。
+* 如果您的應用程式使用翻譯文字 API 及翻譯語音 API 以啟用自訂翻譯模型，您可以使用語音服務來直接新增類別識別碼。
 
 * 語音服務和翻譯語音 API 不同，可以在單一要求中完成多個語言的翻譯。
 

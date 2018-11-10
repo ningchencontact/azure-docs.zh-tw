@@ -1,19 +1,19 @@
 ---
 title: 關於 Azure Site Recovery | Microsoft Docs
-description: 提供 Azure Site Recovery 服務的概觀，並摘要說明部署案例。
+description: 提供 Azure Site Recovery 服務的概觀，並摘要說明災難復原和移轉的部署案例。
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 334b7aa3a3a174055c3741f20a4817063efd21f6
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: b03681e6205b7db24960c99a87a3c84c213884d2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456638"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240285"
 ---
 # <a name="about-site-recovery"></a>關於 Site Recovery
 
@@ -58,7 +58,7 @@ Site Recovery 可以管理複寫：
 --- | ---
 **複寫案例** | 將 Azure VM 從一個 Azure 區域複寫至另一個 Azure 區域。<br/><br/>  將內部部署 VMware VM、Hyper-V VM、實體伺服器 (Windows 和 Linux)、Azure4 Stack VM 複寫至 Azure。<br/><br/> 將 System Center VMM 管理的內部部署 VMware VM、Hyper-V VM 和實體伺服器複寫至次要站台。
 **區域** | 檢閱 Site Recovery 的[支援區域](https://azure.microsoft.com/regions/services/)。 |
-**複寫的機器** | 檢閱 [Azure VM](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions) 複寫、[內部部署 VM 和實體伺服器](vmware-physical-azure-support-matrix.md#replicated-machines)及[內部部署 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 的複寫需求。
+**複寫的機器** | 檢閱 [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) 複寫、[內部部署 VM 和實體伺服器](vmware-physical-azure-support-matrix.md#replicated-machines)及[內部部署 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 的複寫需求。
 **工作負載** | 您可以複寫在支援複寫之機器上執行的所有工作負載。 此外，Site Recovery 小組已經針對[應用程式數目](site-recovery-workload.md#workload-summary)執行應用程式專屬測試。
 
 

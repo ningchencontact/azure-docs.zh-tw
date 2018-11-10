@@ -1,20 +1,18 @@
 ---
-title: 針對啟用複寫期間發生的行動服務推送安裝失敗進行疑難排解 (VMware 至 Azure) | Microsoft Docs
-description: 針對您複寫 Azure 虛擬機器時發生的行動服務/推送安裝錯誤進行疑難排解。
-services: site-recovery
+title: 針對啟用災害復原複寫時的行動服務推送安裝失敗進行疑難排解 | Microsoft Docs
+description: 針對啟用災害復原複寫時的行動服務安裝錯誤進行疑難排解
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.author: ramamill
-ms.date: 09/19/2018
-ms.openlocfilehash: 4c57d048f4c3222ac180355a6a700562415f601c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/29/2018
+ms.openlocfilehash: c12683fee7022b84e097c2b71628776271611429
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390188"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210987"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 

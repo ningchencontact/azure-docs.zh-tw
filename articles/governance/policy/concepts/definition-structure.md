@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427394"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212772"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -228,8 +228,8 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 原則支援下列類型的效果：
 
-- **Deny**：會在稽核記錄中產生事件，並讓要求失敗
-- **Audit**：會在稽核記錄中產生事件，但不會讓要求失敗
+- **Deny**：會在活動記錄中產生事件，並讓要求失敗
+- **Audit**：會在活動記錄中產生事件，但不會讓要求失敗
 - **Append**：會在要求中加入一組已定義的欄位
 - **AuditIfNotExists**：如果資源不存在，便啟用稽核
 - **DeployIfNotExists**：如果資源不存在，便部署該資源。

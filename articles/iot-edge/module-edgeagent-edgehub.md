@@ -8,18 +8,18 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: ecc48adfeef30a777ae4d96c9b996c8bcdfea12d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017699"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247805"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge 代理程式和 Edge 中樞模組對應項的屬性
 
 Edge 代理程式和 Edge 中樞是構成 IoT Edge 執行階段的兩個模組。 如需模組各自執行哪些工作的相關資訊，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。 
 
-此文章提供執行階段模組對應項的所需屬性和報告屬性。 如需如何在 IoT Edge 裝置上部署模組的詳細資訊，請參閱[部署與監視][lnk-deploy]。
+本文提供執行階段模組對應項的所需屬性和報告屬性。 如需如何在 IoT Edge 裝置上部署模組的詳細資訊，請參閱[部署與監視](module-deployment-monitoring.md)。
 
 ## <a name="edgeagent-desired-properties"></a>EdgeAgent 的所需屬性
 
@@ -30,26 +30,26 @@ Edge 代理程式的模組對應項稱為 `$edgeAgent`，並且會協調裝置�
 | schemaVersion | 必須為「1.0」 | 是 |
 | runtime.type | 必須為「docker」 | 是 |
 | runtime.settings.minDockerVersion | 此部署資訊清單需要設定為最小 Docker 版本 | 是 |
-| runtime.settings.loggingOptions | stringified JSON，包含 Edge 代理程式容器的記錄選項。 [Docker 記錄選項][lnk-docker-logging-options] | 否 |
+| runtime.settings.loggingOptions | stringified JSON，包含 Edge 代理程式容器的記錄選項。 [Docker 記錄選項](https://docs.docker.com/engine/admin/logging/overview/) | 否 |
 | runtime.settings.registryCredentials<br>.{registryId}.username | 容器登錄的使用者名稱。 Azure Container Registry 的使用者名稱通常是登錄名稱。<br><br> 非公用的任何模組映像都需要登錄認證。 | 否 |
 | runtime.settings.registryCredentials<br>.{registryId}.password | 容器登錄的密碼。 | 否 |
 | runtime.settings.registryCredentials<br>.{registryId}.address | 容器登錄的位址。 Azure Container Registry 的位址通常是 *{registryname}.azurecr.io*。 | 否 |  
 | systemModules.edgeAgent.type | 必須為「docker」 | 是 |
 | systemModules.edgeAgent.settings.image | Edge 代理程式映像的 URI。 目前，Edge 代理程式無法自行更新。 | 是 |
-| systemModules.edgeAgent.settings<br>.createOptions | stringified JSON，包含 Edge 代理程式容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
+| systemModules.edgeAgent.settings<br>.createOptions | stringified JSON，包含 Edge 代理程式容器的建立選項。 [Docker 建立選項](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 否 |
 | systemModules.edgeAgent.configuration.id | 部署此模組之部署的識別碼。 | 使用部署套用此資訊清單時，此屬性會由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
 | systemModules.edgeHub.type | 必須為「docker」 | 是 |
 | systemModules.edgeHub.status | 必須為「執行中」 | 是 |
 | systemModules.edgeHub.restartPolicy | 必須為「永遠」 | 是 |
 | systemModules.edgeHub.settings.image | Edge 中樞映像的 URI。 | 是 |
-| systemModules.edgeHub.settings<br>.createOptions | stringified JSON，包含 Edge 中樞容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
+| systemModules.edgeHub.settings<br>.createOptions | stringified JSON，包含 Edge 中樞容器的建立選項。 [Docker 建立選項](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 否 |
 | systemModules.edgeHub.configuration.id | 部署此模組之部署的識別碼。 | 使用部署套用此資訊清單時，此屬性會由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
 | modules.{moduleId}.version | 使用者定義的字串，表示此模組的版本。 | 是 |
 | modules.{moduleId}.type | 必須為「docker」 | 是 |
 | modules.{moduleId}.status | {"running" \| "stopped"} | 是 |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | 是 |
 | modules.{moduleId}.settings.image | 模組映像的 URI。 | 是 |
-| modules.{moduleId}.settings.createOptions | stringified JSON，包含模組容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
+| modules.{moduleId}.settings.createOptions | stringified JSON，包含模組容器的建立選項。 [Docker 建立選項](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 否 |
 | modules.{moduleId}.configuration.id | 部署此模組之部署的識別碼。 | 使用部署套用此資訊清單時，此屬性會由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
 
 ## <a name="edgeagent-reported-properties"></a>EdgeAgent 的報告屬性
@@ -60,10 +60,10 @@ Edge 代理程式報告屬性包含三個主要部分資訊：
 2. 目前在裝置上執行之模組的狀態；由 Edge 代理程式報告；以及
 3. 目前在裝置上執行之預期屬性的複本。
 
-萬一最新的預期屬性未由執行階段成功套用，讓裝置仍在執行先前的部署資訊清單，這個最後一個資訊就很有用。
+萬一最新的預期屬性未由執行階段成功套用，讓裝置仍在執行先前的部署資訊清單，這個最後一項資訊就很有用。
 
 > [!NOTE]
-> 可以使用 [IoT 中樞查詢語言][lnk-iothub-query]查詢，以調查大規模部署的狀態時，Edge 代理程式的報告屬性相當有用。 如需如何將 Edge 代理程式屬性用於狀態的詳細資訊，請參閱[了解單一裝置或大規模的 IoT Edge 部署][lnk-deploy]。
+> 可以使用 [IoT 中樞查詢語言](../iot-hub/iot-hub-devguide-query-language.md)查詢，以調查大規模部署的狀態時，Edge 代理程式的報告屬性相當有用。 如需如何將 Edge 代理程式屬性用於狀態的詳細資訊，請參閱[了解單一裝置或大規模的 IoT Edge 部署](module-deployment-monitoring.md)。
 
 下表不包含從預期屬性複製的資訊。
 
@@ -117,9 +117,3 @@ Edge 中樞的模組對應項稱為 `$edgeHub`，並且會協調裝置與 IoT �
 ## <a name="next-steps"></a>後續步驟
 
 若要了解如何使用這些屬性建置部署資訊清單，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
-
-<!--links -->
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md

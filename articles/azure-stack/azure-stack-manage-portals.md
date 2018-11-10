@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985289"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085777"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>使用 Azure Stack 中的系統管理員入口網站
 
@@ -40,6 +40,8 @@ Azure Stack 中有兩種入口網站：系統管理員入口網站和使用者�
 | | |
 
  ![系統管理員入口網站](media/azure-stack-manage-portals/admin-portal.png)
+
+請注意，所有的 Azure Stack 部署的預設時區都會設定為國際標準時間 (UTC)。 安裝 Azure Stack 時，您可以選取時區，不過，在安裝期間，它會自動還原成以 UTC 作為預設值。
 
 在系統管理員入口網站中，您可以執行像是下列各項作業：
 

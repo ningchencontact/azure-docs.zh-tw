@@ -6,8 +6,6 @@ services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
 ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.component: studio
@@ -16,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 22d060ca38663f21bef977f5d506f215fd947a50
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998316"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247767"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 常見問題集：計費、功能、限制及支援
 以下是有關 Azure Machine Learning 的一些常見問題和對應解答，而 Azure Machine Learning 是適合透過 Web 服務開發預測性模型和運作方案的雲端服務。 這個常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
 
 **是否有您無法在這裡找到的問題？**
 
-Azure Machine Learning 在 MSDN 上有一個論壇，資料科學社群的成員可在其中詢問有關 Azure Machine Learning 的問題。 此論壇由 Azure Machine Learning 團隊控管。 移至 [Azure Machine Learning 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)，搜尋答案或張貼您自己的新問題。
+Azure Machine Learning 在 MSDN 上有一個論壇，資料科學社群的成員可在其中詢問有關 Azure Machine Learning 的問題。 此論壇由 Azure Machine Learning 團隊控管。 移至 [Azure Machine Learning 論壇](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)，搜尋答案或張貼您自己的新問題。
 
 ## <a name="general-questions"></a>一般問題
 **什麼是 Azure Machine Learning 服務？**
@@ -125,7 +123,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 ### <a name="modules"></a>模組
 **我在尋找的演算法、資料來源、資料格式或資料轉換作業不在 Azure Machine Learning Studio 中。我有哪些選擇？**
 
-您可以前往[使用者意見反應論壇](http://go.microsoft.com/fwlink/?LinkId=404231)，檢視我們所追蹤的功能要求。 如果您要找的功能已有人要求，請投票給該要求。 如果您要找的功能不存在，請建立新要求。 您也可以在此論壇中檢視您的要求狀態。 我們會密切追蹤此清單，並經常更新功能可用性的狀態。 此外，您可以利用對 R 和 Python 的內建支援，視需要建立自訂轉換。
+您可以前往[使用者意見反應論壇](https://go.microsoft.com/fwlink/?LinkId=404231)，檢視我們所追蹤的功能要求。 如果您要找的功能已有人要求，請投票給該要求。 如果您要找的功能不存在，請建立新要求。 您也可以在此論壇中檢視您的要求狀態。 我們會密切追蹤此清單，並經常更新功能可用性的狀態。 此外，您可以利用對 R 和 Python 的內建支援，視需要建立自訂轉換。
 
 **是否可將我現有的程式碼放入 Machine Learning Studio 中？**
 
@@ -184,7 +182,7 @@ Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision
 ### <a name="r-module"></a>R 模組
 **Machine Learning Studio 中可使用什麼 R 套件？**
 
-Machine Learning Studio 目前支援 400 個以上的 CRAN 套件，以下是所有內含套件的[目前清單](http://az754797.vo.msecnd.net/docs/RPackages.xlsx)。 此外，若要了解如何自行擷取此清單，請參閱 [透過 R 擴展您的實驗](extend-your-experiment-with-r.md) 。 如果您要的套件不在此清單中，請在 [使用者意見反映論壇](http://go.microsoft.com/fwlink/?LinkId=404231)提供套件名稱。
+Machine Learning Studio 目前支援 400 個以上的 CRAN 套件，以下是所有內含套件的[目前清單](http://az754797.vo.msecnd.net/docs/RPackages.xlsx)。 此外，若要了解如何自行擷取此清單，請參閱 [透過 R 擴展您的實驗](extend-your-experiment-with-r.md) 。 如果您要的套件不在此清單中，請在 [使用者意見反映論壇](https://go.microsoft.com/fwlink/?LinkId=404231)提供套件名稱。
 
 **是否可以建置自訂的 R 模組？**
 
@@ -314,7 +312,7 @@ Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能�
 
 若要取得 Azure Machine Learning 的技術支援，請移至 [Azure 支援](https://azure.microsoft.com/support/options/)，並選取 [Machine Learning]。
 
-Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure Machine Learning 的相關問題。 此論壇由 Azure Machine Learning 團隊控管。 請移至 [Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)。
+Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure Machine Learning 的相關問題。 此論壇由 Azure Machine Learning 團隊控管。 請移至 [Azure 論壇](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)。
 
 ## <a name="billing-questions"></a>計費問題
 **機器學習服務如何計費？**

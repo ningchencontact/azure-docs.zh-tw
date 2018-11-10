@@ -1,7 +1,7 @@
 ---
 title: REST API (V4) - Python - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您在 Azure 上快速開始使用 Microsoft 認知服務中的 Microsoft Translator Text API。
+description: 取得 Python 資訊和程式碼範例，以協助您在 Azure 上快速開始使用 Microsoft 認知服務中的 Microsoft Translator Text API。
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 595eee6a10192d877aa77f4849bac494dff05808
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1eff6ab146bb3a7ee053b8ac7fe3137d7c58c93a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650004"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212466"
 ---
 # <a name="qna-maker-rest-api-with-python"></a>搭配 Python 的 QnA Maker REST API
 <a name="HOLTop"></a>
 
-本文說明如何搭配使用 [Microsoft QnA Maker API](../Overview/overview.md) 和 Python，以執行以下動作。
+本文說明如何搭配使用 [Microsoft QnA Maker API](../Overview/overview.md) 和 Python，以執行以下動作。
 
 - [建立新的知識庫。](#Create)
 - [更新現有的知識庫。](#Update)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098935"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421351"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>使用 Node.js 在 Azure 中的 Linux 上執行 Cassandra 叢集
 
@@ -118,13 +118,13 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於進行�
 
 <table>
 <tr><th>軟體</th><th>來源</th><th>版本</th></tr>
-<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](https://aka.ms/azure-jdks) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-您下載 JRE 時，必須手動接受 Oracle 授權。 因此，為了簡化部署，請將所有必要的軟體下載到桌面。 然後將它上傳至 Ubuntu 範本映像，以便為叢集部署做準備。
+為了簡化部署，請將所有必要的軟體下載到桌面。 然後將它上傳至 Ubuntu 範本映像，以便為叢集部署做準備。
 
 將上述軟體下載到本機電腦上已知的下載目錄 (例如，Windows 上的 %TEMP%/downloads，或者大多數 Linux 散發套件或 Mac 上的 ~/Downloads)。
 
@@ -308,7 +308,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於進行�
 
 <table>
 <tr><th>VM 屬性名稱</th><th>值</th><th>備註</th></tr>
-<tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>
+<tr><td>名稱</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>區域</td><td>美國西部</td><td></td></tr>
 <tr><td>DNS 伺服器</td><td>None</td><td>請忽略此項，因為我們不使用 DNS 伺服器</td></tr>
 <tr><td>位址空間</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -319,7 +319,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於進行�
 新增下列子網路：
 
 <table>
-<tr><th>Name</th><th>起始 IP</th><th>CIDR</th><th>備註</th></tr>
+<tr><th>名稱</th><th>起始 IP</th><th>CIDR</th><th>備註</th></tr>
 <tr><td>Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Web 伺服陣列的子網路</td></tr>
 <tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>資料庫節點的子網路</td></tr>
 </table>
@@ -330,13 +330,13 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於進行�
 
 <table>
 <tr><th>機器名稱    </th><th>子網路    </th><th>IP 位址    </th><th>可用性設定組</th><th>DC/機架</th><th>是否為種子？</th></tr>
-<tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc=WESTUS 機架=rack1 </td><td>yes</td></tr>
+<tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc=WESTUS 機架=rack1 </td><td>是</td></tr>
 <tr><td>hk-c2-west-us    </td><td>data    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc=WESTUS 機架=rack1    </td><td>否 </td></tr>
-<tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc=WESTUS 機架=rack2    </td><td>yes</td></tr>
+<tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc=WESTUS 機架=rack2    </td><td>是</td></tr>
 <tr><td>hk-c4-west-us    </td><td>data    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc=WESTUS 機架=rack2    </td><td>否 </td></tr>
-<tr><td>hk-c5-west-us    </td><td>data    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc=WESTUS 機架=rack3    </td><td>yes</td></tr>
+<tr><td>hk-c5-west-us    </td><td>data    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc=WESTUS 機架=rack3    </td><td>是</td></tr>
 <tr><td>hk-c6-west-us    </td><td>data    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc=WESTUS 機架=rack3    </td><td>否 </td></tr>
-<tr><td>hk-c7-west-us    </td><td>data    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc=WESTUS 機架=rack4    </td><td>yes</td></tr>
+<tr><td>hk-c7-west-us    </td><td>data    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc=WESTUS 機架=rack4    </td><td>是</td></tr>
 <tr><td>hk-c8-west-us    </td><td>data    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc=WESTUS 機架=rack4    </td><td>否 </td></tr>
 <tr><td>hk-w1-west-us    </td><td>Web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
 <tr><td>hk-w2-west-us    </td><td>Web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
@@ -396,7 +396,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於進行�
         #Create internal load balancer
         Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
         Write-Host "Created $ilbName"
-        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        #Add the thrift endpoint to the internal load balancer for all the VMs
         foreach($vmName in $vmNames)
         {
             Get-AzureVM -ServiceName $serviceName -Name $vmName |
@@ -467,7 +467,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於進行�
 
 <table>
 <tr><th>屬性名稱    </th><th>值    </th><th>備註</th></tr>
-<tr><td>Name    </td><td>vnet-cass-east-us</td><td></td></tr>
+<tr><td>名稱    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>區域    </td><td>美國東部</td><td></td></tr>
 <tr><td>DNS 伺服器        </td><td></td><td>請忽略此項，因為我們不使用 DNS 伺服器</td></tr>
 <tr><td>設定點對站 VPN</td><td></td><td>        略過此項</td></tr>
@@ -480,7 +480,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於進行�
 新增下列子網路：
 
 <table>
-<tr><th>Name    </th><th>起始 IP    </th><th>CIDR    </th><th>備註</th></tr>
+<tr><th>名稱    </th><th>起始 IP    </th><th>CIDR    </th><th>備註</th></tr>
 <tr><td>Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Web 伺服陣列的子網路</td></tr>
 <tr><td>data    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>資料庫節點的子網路</td></tr>
 </table>
@@ -527,12 +527,12 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 
 | 機器名稱 | 子網路 | IP 位址 | 可用性設定組 | DC/機架 | 是否為種子？ |
 | --- | --- | --- | --- | --- | --- |
-| hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |dc=EASTUS 機架=rack1 |yes |
+| hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |dc=EASTUS 機架=rack1 |是 |
 | hk-c2-east-us |data |10.2.2.5 |hk-c-aset-1 |dc=EASTUS 機架=rack1 |否 |
-| hk-c3-east-us |data |10.2.2.6 |hk-c-aset-1 |dc=EASTUS 機架=rack2 |yes |
-| hk-c5-east-us |data |10.2.2.8 |hk-c-aset-2 |dc=EASTUS 機架=rack3 |yes |
+| hk-c3-east-us |data |10.2.2.6 |hk-c-aset-1 |dc=EASTUS 機架=rack2 |是 |
+| hk-c5-east-us |data |10.2.2.8 |hk-c-aset-2 |dc=EASTUS 機架=rack3 |是 |
 | hk-c6-east-us |data |10.2.2.9 |hk-c-aset-2 |dc=EASTUS 機架=rack3 |否 |
-| hk-c7-east-us |data |10.2.2.10 |hk-c-aset-2 |dc=EASTUS 機架=rack4 |yes |
+| hk-c7-east-us |data |10.2.2.10 |hk-c-aset-2 |dc=EASTUS 機架=rack4 |是 |
 | hk-c8-east-us |data |10.2.2.11 |hk-c-aset-2 |dc=EASTUS 機架=rack4 |否 |
 | hk-w1-east-us |Web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
 | hk-w2-east-us |Web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |

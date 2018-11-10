@@ -1,6 +1,6 @@
 ---
 title: 將 Windows AWS VM 移至 Azure | Microsoft Docs
-description: 使用 Azure PowerShell 將 Amazon Web Services (AWS) EC2 Windows 執行個體移至 Azure 虛擬機器。
+description: 將 Amazon Web Services (AWS) EC2 Windows 執行個體移至 Azure 虛擬機器。
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: cb5b68e7bd0a1b247327e7147fe38eae19395f50
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726528"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094421"
 ---
-# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>使用 PowerShell 將 Windows VM 從 Amazon Web Services (AWS) 移至 Azure
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>將 Windows VM 從 Amazon Web Services (AWS) 移至 Azure 虛擬機器
 
 如果您正在評估 Azure 虛擬機器來裝載您的工作負載，您可以匯出現有的 Amazon Web Services (AWS) EC2 Windows VM 執行個體，然後將虛擬硬碟 (VHD) 上傳至 Azure。 上傳 VHD 後，您可以從 VHD 在 Azure 中建立新的 VM。 
 

@@ -4,17 +4,17 @@ description: 使用 Azure Resource Graph 執行一些入門查詢。
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ba3df8f0f7fa0443e64972647b6f146f756e62d6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646623"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084525"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
 
@@ -42,7 +42,7 @@ Azure CLI (透過擴充功能) 與 Azure PowerShell (透過模組) 支援 Azure 
 
 ## <a name="count-resources">計算的 Azure 資源計數</a>
 
-此查詢會傳回您具有存取權之訂用帳戶中存在的 Azure 資源的數目。 這也是很好的查詢，用於驗證您選擇的殼層是否已安裝適當的 Azure Resource Graph 元件，並處於正常運作狀態。
+此查詢會傳回您具有存取權之訂用帳戶中存在的 Azure 資源的數目。 這也是很好的查詢，可驗證您選擇的殼層是否已安裝適當的 Azure Resource Graph 元件，並處於正常運作狀態。
 
 ```Query
 summarize count()
@@ -58,7 +58,7 @@ Search-AzureRmGraph -Query "summarize count()"
 
 ## <a name="list-resources"></a>列出依名稱排序的資源
 
-在不限制任何類型的資源或特定比對屬性的情況下，此查詢僅傳回 Azure 資源的**名稱**、**類型**，以及**位置**，但會使用 `order by` 以依照**名稱**屬性，按遞增 (`asc`) 順序排序。
+此查詢會傳回任何類型的資源，但僅限於 **name**、**type** 和 **location** 屬性。 它會使用 `order by`，以遞增 (`asc`) 順序依 **name** 屬性將屬性排序。
 
 ```Query
 project name, type, location
@@ -75,8 +75,7 @@ Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 
 ## <a name="show-vms"></a>依名稱遞減順序顯示所有虛擬機器
 
-如果我們只需要虛擬機器的清單 (類型為 `Microsoft.Compute/virtualMachines`)，而非取得所有 Azure 資源，我們可以在結果中比對屬性**類型**。
-與上述查詢類似，`desc` 會將 `order by` 變更為遞減。 類型比對中的 `=~` 會告知 Resource Graph 不區分大小寫。
+若只要列出虛擬機器 (類型為 `Microsoft.Compute/virtualMachines`)，我們可以在結果中比對 **type** 屬性。 與上述查詢類似，`desc` 會將 `order by` 變更為遞減。 類型比對中的 `=~` 會告知 Resource Graph 不區分大小寫。
 
 ```Query
 project name, location, type
@@ -165,7 +164,8 @@ Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 
 ## <a name="list-publicip"></a>列出所有公用 IP 位址
 
-與上述查詢類似，尋找字組 **publicIPAddresses** 之類型的所有項目。 此查詢擴展該模式，以排除 **properties.ipAddress** 為 Null 的結果，僅傳回 **properties.ipAddress**，並將結果 `limit` 在前 100 個。 您可能需要逸出的引號，根據您所選擇的殼層而定。
+與上述查詢類似，尋找類型具有字組 **publicIPAddresses** 的所有項目。
+此查詢擴展該模式，以排除 **properties.ipAddress** 為 Null 的結果，僅傳回 **properties.ipAddress**，並將結果 `limit` 在前 100 個。 您可能需要逸出的引號，根據您所選擇的殼層而定。
 
 ```Query
 where type contains 'publicIPAddresses' and properties.ipAddress != ''
@@ -215,7 +215,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
-如果需要同時提供資源具有的標籤及其值，則可以藉由將屬性**標籤**加入 `project`。
+若也要提供資源具有哪些標籤和其值，請將 **tags** 屬性新增至 `project` 關鍵字。
 
 ```Query
 where tags.environment=~'internal'
@@ -232,7 +232,7 @@ Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, t
 
 ## <a name="list-specific-tag"></a>列出具有特定標籤值的所有儲存體帳戶
 
-將先前範例的篩選功能結合使用依**類型**屬性的 Azure 資源類型篩選，我們可以使用特定標記名稱和值，限制 Azure 資源之特定類型的搜尋。
+結合前一個範例的篩選功能，依 **type** 屬性篩選 Azure 資源類型。 此查詢也會將搜尋限制為具有特定標籤名稱和值的特定類型 Azure 資源。
 
 ```Query
 where type =~ 'Microsoft.Storage/storageAccounts'

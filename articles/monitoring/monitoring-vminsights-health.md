@@ -1,5 +1,5 @@
 ---
-title: 使用適用於 VM 的 Azure 監視器來監視虛擬機器健康情況 | Microsoft Docs
+title: 使用適用於 VM 的 Azure 監視器 (預覽) 來監視虛擬機器健康情況 | Microsoft Docs
 description: 本文說明您如何使用適用於 VM 的 Azure 監視器，來了解虛擬機器和基礎作業系統的健康情況。
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387816"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094222"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>使用適用於 VM 的 Azure 監視器來了解 Azure 虛擬機器的健康情況
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>使用適用於 VM 的 Azure 監視器 (預覽) 來了解 Azure 虛擬機器的健康情況
 Azure 包含多個服務，它們可在監視空間中分別執行特定的角色或工作，但無法用來為裝載於 Azure 虛擬機器的作業系統提供深入的健康情況檢視方塊。  雖然您可以使用 Log Analytics 或 Azure 監視器來監視不同的情況，但它們並不是設計來呈現核心元件的健康情況或虛擬機器的整體健康情況或為其設定模型。  透過適用於 VM 的 Azure 監視器健康情況功能，它會利用一個模型主動監視 Windows 或 Linux 客體 OS 的可用性和效能，該模型代表重要元件及其關聯性、指定如何測量那些元件健康情況的準則，並在偵測到狀況不良的情況時向您發出警示。  
 
 檢視 Azure VM 和基礎作業系統的整體健康狀態，可以從含有適用於 VM 的 Azure 監視器健康情況的兩個檢視方塊、直接從虛擬機器，或者跨 Azure 監視器中某個資源群組的所有 VM 來觀測。
@@ -35,7 +35,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 
 ### <a name="windows-vms"></a>Windows VM
 
-- 記憶體的可用 MB 
+- 記憶體的可用 MB 
 - 每次寫入 (邏輯磁碟) 的平均磁碟秒數
 - 每次寫入 (磁碟) 的平均磁碟秒數
 - 每次讀取的平均邏輯磁碟秒數

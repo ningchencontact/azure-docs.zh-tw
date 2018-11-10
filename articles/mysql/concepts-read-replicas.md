@@ -7,17 +7,17 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 283b529aa8c6431ea725b066c9b5cb3db19a929b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/30/2018
+ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969439"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412443"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 
-讀取複本功能 (公開預覽) 可讓您將資料從「適用於 MySQL 的 Azure 資料庫伺服器」(主要) 複寫到相同 Azure 區域內的最多五部唯讀伺服器 (複本)。 唯讀複本會使用 MySQL 引擎的原生二進位記錄 (binlog) 檔案位置型複寫技術來進行非同步更新。 若要深入了解二進位記錄 (binlog) 複寫，請參閱 [MySQL 二進位記錄 (binlog) 複寫概觀](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) \(英文\)。
+讀取複本功能 (公開預覽) 可讓您將資料從「適用於 MySQL 的 Azure 資料庫伺服器」(主要) 複寫到相同 Azure 區域內的最多五部唯讀伺服器 (複本)。 唯讀複本會使用 MySQL 引擎的原生二進位記錄 (binlog) 檔案位置型複寫技術來進行非同步更新。 若要深入了解 binlog 複寫，請參閱 [MySQL binlog 複寫概觀](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) \(英文\)。
 
 在「適用於 MySQL 的 Azure 資料庫」服務中建立的複本是新的伺服器，而且可使用與正常/獨立 MySQL 伺服器一樣的方式來管理。 這些伺服器的費率與標準伺服器的費率相同。
 
@@ -34,6 +34,10 @@ ms.locfileid: "46969439"
 ### <a name="pricing-tiers"></a>定價層
 
 目前只有「一般用途」與「記憶體最佳化」定價層提供讀取複本。
+
+### <a name="master-server-restart"></a>主要伺服器重新啟動
+
+在此預覽期間，當您為沒有任何現有複本的主要伺服器建立複本時，主要伺服器首先將會重新啟動，以準備本身進行複寫。 請考慮這一點，並在離峰期間執行這些作業。
 
 ### <a name="stopping-replication"></a>停止複寫
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471525"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254573"
 ---
 ### <a name="what-is-azure-firewall"></a>何謂 Azure 防火牆？
 
@@ -111,10 +111,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="what-are-the-known-service-limits"></a>已知的服務限制有哪些？
 
-* 「Azure 防火牆」的軟性限制為每個月每個防火牆 1000 TB。
-* 在中央虛擬網路中執行的「Azure 防火牆」執行個體有虛擬網路對等互連限制，亦即支點虛擬網路的數目上限為 50 個。  
-* Azure 防火牆無法搭配全球對等互連使用，因此您應該在每個區域都至少部署一個防火牆。
-* 「Azure 防火牆」可支援 1 萬個應用程式規則與 1 萬個網路規則。
+針對 Azure 防火牆服務限制，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../articles/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>中樞虛擬網路中的 Azure 防火牆是否可以在兩個輪幅虛擬網路之間轉寄和篩選網路流量？
 

@@ -1,21 +1,21 @@
 ---
-title: 常見問題 - 使用 Azure Site Recovery 進行 Hyper-V 到 Azure 的複寫 | Microsoft Docs
-description: 此文章摘要說明使用 Azure Site Recovery 將內部部署 Hyper-V VM 複寫到Azure 時的常見問題。
+title: 常見問題 - 使用 Azure Site Recovery 進行從 Hyper-V 至 Azure 的災害復原 | Microsoft Docs
+description: 本文摘要說明使用 Azure Site Recovery 網站來設定「內部部署 Hyper-V VM 至Azure 的災害復原」時的常見問題。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6345cf47d19f7990e776e0fe4ec2bafd005c9cf2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319722"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212483"
 ---
-# <a name="common-questions---hyper-v-to-azure-replication"></a>常見問題 - Hyper-V 到 Azure
+# <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常見問題 - 從 Hyper-V 至 Azure 的災害復原
 
 此文章將解答我們將內部部署 Hyper- VM 複寫到 Azure 時的常見問題。 
 

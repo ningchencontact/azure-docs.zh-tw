@@ -1,34 +1,31 @@
 ---
-title: Azure Databricks：常見問題與說明 | Microsoft Docs
+title: Azure Databricks：常見問題與說明
 description: 取得有關 Azure Databricks 的常見問題解答和疑難排解資訊。
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: conceptual
+ms.date: 10/25/2018
+ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434596"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138356"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>關於 Azure Databricks 的常見問題
 
-本文列出關於 Azure Databricks 的最常見疑問。 其中也會列出您在使用 Databricks 時可能遇到的一些常見問題。 如需詳細資訊，請參閱[何謂 Azure Databricks](what-is-azure-databricks.md)。 
+本文列出關於 Azure Databricks 的最常見問題。 其中也會列出您在使用 Databricks 時可能遇到的一些常見問題。 如需詳細資訊，請參閱[何謂 Azure Databricks](what-is-azure-databricks.md)。 
 
-## <a name="can-i-use-my-own-keys-for-local-encryption"></a>我可以使用自己的金鑰進行本機加密嗎？ 
-在目前版本中，不支援您從 Azure Key Vault 使用自己的金鑰。 
+## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>可以使用 Azure Key Vault 來儲存金鑰/祕密以使用於 Azure Databricks 嗎？
+是。 您可以使用 Azure Key Vault 來儲存金鑰/祕密，以便搭配 Azure Databricks 使用。 如需詳細資訊，請參閱 [Azure Key Vault 支援的範圍](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss)。
+
 
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>我可以將 Azure 虛擬網路與 Databricks 搭配使用嗎？
-新的虛擬網路會在 Azure Databricks 佈建期間建立。 在這個版本中，您無法使用自己的 Azure 虛擬網路。
+是。 您可以將 Azure 虛擬網路 (VNET) 與 Azure Databricks 搭配使用。 如需詳細資訊，請參閱[在 Azure 虛擬網路中部署 Azure Databricks](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html)。
 
 ## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>我如何從筆記本中存取 Azure Data Lake Store？ 
 
@@ -116,7 +113,7 @@ Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳
 
 #### <a name="background"></a>背景
 
-Azure Databricks 會與 Azure AD 整合。 這可讓您藉由指定 Azure AD 的使用者，在 Azure Databricks 內設定權限 (例如，在筆記型電腦或叢集上)。 若要讓 Azure Databricks 能夠列出來自您 Azure AD 的使用者名稱，它需要讀取該資訊的權限。 這需要經過同意。 如果尚未取得同意，您就會看到錯誤。
+Azure Databricks 會與 Azure Active Directory 整合。 您可藉由指定 Azure AD 的使用者，在 Azure Databricks 內設定權限 (例如，在筆記型電腦或叢集上)。 若要讓 Azure Databricks 能夠列出來自您 Azure AD 的使用者名稱，它需要讀取該資訊的權限以及給予同意。 如果尚未取得同意，您就會看到錯誤。
 
 #### <a name="solution"></a>解決方法
 

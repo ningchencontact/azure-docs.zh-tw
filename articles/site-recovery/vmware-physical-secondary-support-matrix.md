@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Site Recovery 將 VMware VM 或實體伺服器複寫至次要 VMware 網站的支援矩陣 | Microsoft Docs
-description: 摘要說明使用 Azure Site Recovery 將 VMware/實體伺服器複寫至次要網站的支援
-services: site-recovery
+title: 使用 Azure Site Recovery 將 VMware VM 或實體伺服器災害復原至次要 VMware 網站的支援矩陣 | Microsoft Docs
+description: 摘要說明使用 Azure Site Recovery 將 VMware VM 和實體伺服器災害復原至次要網站的支援。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923406"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209797"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>將 VMware VM 和實體伺服器複寫至次要網站的支援矩陣
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>從 VMware VM 和實體伺服器至次要網站之災害復原的支援矩陣
 
-本文摘要說明使用 [Azure Site Recovery ](site-recovery-overview.md) 服務將 VMware VM 或 Windows/Linux 實體伺服器複寫至次要 VMware 網站時所支援的項目。
+本文摘要說明使用 [Azure Site Recovery ](site-recovery-overview.md) 服務將 VMware VM 或 Windows/Linux 實體伺服器災害復原至次要 VMware 網站時所支援的項目。
 
 - 如果您需要將 VMware VM 或實體伺服器複寫至 Azure，請檢閱[此支援矩陣](vmware-physical-azure-support-matrix.md)。
 - 如果您需要將 Hyper-V VM 複寫至次要網站，請檢閱[此支援矩陣](hyper-v-azure-support-matrix.md)。
@@ -57,15 +56,15 @@ Linux | Red Hat Enterprise Linux 6.7、6.8、6.9、7.1、7.2 <br/><br/> Centos 6
 
 **組態** | **支援**  
 --- | --- 
-主機 - NIC 小組 | yes 
-主機 - VLAN | yes 
-主機 - IPv4 | yes 
+主機 - NIC 小組 | 是 
+主機 - VLAN | 是 
+主機 - IPv4 | 是 
 主機 - IPv6 | 否 
 客體 VM - NIC 小組 | 否
-客體 VM - IPv4 | yes
+客體 VM - IPv4 | 是
 客體 VM - IPv6 | 否
-客體 VM - Windows/Linux - 靜態 IP 位址 | yes
-客體 VM - 多重 NIC | yes
+客體 VM - Windows/Linux - 靜態 IP 位址 | 是
+客體 VM - 多重 NIC | 是
 
 
 ## <a name="storage"></a>儲存體
@@ -74,29 +73,29 @@ Linux | Red Hat Enterprise Linux 6.7、6.8、6.9、7.1、7.2 <br/><br/> Centos 6
 
 **儲存體 (主機)** | **支援** 
 --- | --- 
-NFS | yes 
+NFS | 是 
 SMB 3.0 | N/A 
-SAN (ISCSI) | yes 
-多重路徑 (MPIO) | yes 
+SAN (ISCSI) | 是 
+多重路徑 (MPIO) | 是 
 
 ### <a name="guest-or-physical-server-storage"></a>客體或實體伺服器儲存體
 
 **組態** | **支援** 
 --- | --- 
-VMDK | yes 
+VMDK | 是 
 VHD/VHDX | N/A 
 第 2 代 VM | N/A 
-共用叢集磁碟 | yes 
+共用叢集磁碟 | 是 
 已加密磁碟 | 否 
-UEFI| yes 
+UEFI| 是 
 NFS | 否 
 SMB 3.0 | 否 
-RDM | yes 
-磁碟 > 1 TB | yes 
-使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | yes 
+RDM | 是 
+磁碟 > 1 TB | 是 
+使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | 是 
 儲存空間 | 否 
-熱新增/移除磁碟 | yes 
-排除磁碟 | yes 
+熱新增/移除磁碟 | 是 
+排除磁碟 | 是 
 多重路徑 (MPIO) | N/A 
 
 ## <a name="vaults"></a>保存庫
@@ -112,7 +111,7 @@ RDM | yes
 
 更新 | **詳細資料** 
 --- | --- 
-Scout 更新 | [了解並下載](/vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新 | Scout 更新是累計的。
+Scout 更新 | [了解並下載](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新 | Scout 更新是累計的。
 元件更新 | Scout 更新包含所有元件的更新，包括 RX 伺服器、設定伺服器、處理序和主要目標伺服器、vContinuum 伺服器，以及您要保護的來源伺服器。<br/><br/> [深入了解](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。
 
 

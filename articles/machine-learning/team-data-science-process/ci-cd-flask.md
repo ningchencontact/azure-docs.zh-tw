@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304283"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094381"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>人工智慧 (AI) 應用程式的 DevOps：使用 Docker 和 Kubernetes 在 Azure 上建立持續整合管線
 就 AI 應用程式而言，有兩個經常性的工作資料流：資料科學家建置機器學習模型，而應用程式開發人員則建置應用程式並將其公開給使用者取用。 在本文中，我們將示範如何實作 AI 應用程式的持續整合 (CI)/持續部署 (CD) 管線。 AI 應用程式是內嵌了預先定型機器學習 (ML) 模型的應用程式碼組合。 針對本文，我們會從私用的 Azure Blob 儲存體帳戶 (也可以是 AWS S3 帳戶) 中擷取一個預先定型的模型。 我們將針對本文使用一個簡單的 Python Flask Web 應用程式。
@@ -38,7 +38,7 @@ ms.locfileid: "44304283"
 * [Azure DevOps 組織](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [執行 Kubernetes 的 Azure Container Service (AKS) 叢集](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Azure Container Registy (ACR) 帳戶](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
+* [Azure Container Registry (ACR) 帳戶](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [安裝 Kubectl 以針對 Kubernetes 叢集執行命令](https://kubernetes.io/docs/tasks/tools/install-kubectl/)。 我們將需要此工具，才能從 ACS 叢集擷取設定。 
 * 在您的 GitHub 帳戶建立該存放庫的分叉。
 
@@ -70,5 +70,5 @@ ms.locfileid: "44304283"
 ## <a name="references"></a>參考
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
 * [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
+* [Azure DevOps](https://www.visualstudio.com/vso/)
 * [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

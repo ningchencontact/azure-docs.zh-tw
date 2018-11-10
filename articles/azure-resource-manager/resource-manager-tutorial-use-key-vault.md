@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/10/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 601d022917adc71ff3a3c728c7b674ae47a632c4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645468"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238473"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault
 
 了解如何從 Azure Key Vault 擷取祕密值，並且在 Resource Manager 部署期間傳遞祕密值作為參數。 您只參考其 Key Vault 識別碼，因此該值絕不會公開。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](./resource-manager-keyvault-parameter.md)。
 
-在本教學課程中，您會使用[教學課程：建立具有相依資源的 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的相同範本，建立虛擬機器以及一些相依資源。 從 Azure Key Vault 擷取虛擬機器的系統管理員密碼。
+在[設定資源部署順序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教學課程中，您建立了虛擬機器、虛擬網路和其他相依資源。 在本教學課程中，您會自訂從 Azure Key Vault 擷取虛擬機器系統管理員密碼的範本。
 
 本教學課程涵蓋下列工作：
 
@@ -42,13 +42,19 @@ ms.locfileid: "49645468"
 
 若要完成本文，您需要：
 
-* [Visual Studio Code](https://code.visualstudio.com/) 搭配 [Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) 搭配 [Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 以下是用於產生密碼的範例：
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault 的設計訴求是保護加密金鑰和其他祕密。 如需詳細資訊，請參閱[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)。 我們也建議您每三個月更新一次密碼。
 
 ## <a name="prepare-the-key-vault"></a>準備 Key Vault
 
 在本節中，您會使用 Resource Manager 範本建立 Key Vault 和祕密。 此範本會：
 
-* 建立已啟用 **enabledForTemplateDeployment** 屬性的 Key Vault。 此屬性必須為 true，範本部署程序才能存取此 Key Vault 中定義的祕密。
+* 在啟用 `enabledForTemplateDeployment` 屬性的情況下建立 Key Vault。 此屬性必須為 true，範本部署程序才能存取此 Key Vault 中定義的祕密。
 * 將秘密新增至 Key Vault。  此祕密會儲存虛擬機器的系統管理員密碼。
 
 如果您 (作為要部署虛擬機器範本的使用者) 不是 Key Vault 的擁有者或參與者，則 Key Vault 的擁有者或參與者必須准許您存取 Key Vault 的 Microsoft.KeyVault/vaults/deploy/action 權限。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](./resource-manager-keyvault-parameter.md)。
@@ -58,7 +64,9 @@ ms.locfileid: "49645468"
 1. 執行下列 Azure PowerShell 或 Azure CLI 命令。  
 
     ```azurecli-interactive
-    az ad user show --upn-or-object-id "<Your User Principle Name>" --query "objectId"
+    echo "Enter your email address that is associated with your Azure subscription):" &&
+    read upn &&
+    az ad user show --upn-or-object-id $upn --query "objectId" &&
     openssl rand -base64 32
     ```
     ```azurepowershell-interactive
@@ -95,21 +103,21 @@ ms.locfileid: "49645468"
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` 是 Key Vault 屬性。 此屬性必須為 true，才可以在部署期間從此 Key Vault 擷取祕密。 
+    `enabledForTemplateDeployment` 是 Key Vault 屬性。 此屬性必須為 true，才可以在部署期間從此 Key Vault 擷取祕密。
 6. 瀏覽至第 89 行。 這是 Key Vault 祕密定義。
 7. 選取頁面底部的 [捨棄]。 您並未進行任何變更。
 8. 確認您已提供如前一個螢幕擷取畫面顯示的所有值，然後按一下頁面底部的 [購買]。
 9. 選取頁面頂端的鈴鐺圖示 (通知)，以開啟 [通知] 窗格。 等到資源部署成功為止。
-8. 在 [通知] 窗格中選取 [移至資源群組]。 
-9. 輸入 Key Vault 名稱，加以開啟。
-10. 從左窗格中選取 [存取原則]。 您的名稱 (Active Directory) 應會列出，否則您就沒有存取金鑰保存庫的權限。
-11. 選取 [按一下以顯示進階存取原則]。 請注意，[為範本部署啟用對 Azure Resource Manager 的存取] 已選取。 這是讓 Key Vault 整合得以運作的另一個條件。
+10. 在 [通知] 窗格中選取 [移至資源群組]。 
+11. 輸入 Key Vault 名稱，加以開啟。
+12. 從左窗格中選取 [存取原則]。 您的名稱 (Active Directory) 應會列出，否則您就沒有存取金鑰保存庫的權限。
+13. 選取 [按一下以顯示進階存取原則]。 請注意，[為範本部署啟用對 Azure Resource Manager 的存取] 已選取。 這是讓 Key Vault 整合得以運作的另一個條件。
 
-    ![Resource Manager 範本 Key Vault 整合存取原則](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)    
-12. 選取左窗格中的 [屬性]。
-13. 複製 [資源識別碼] 。 當您部署虛擬機器時，您會需要此識別碼。  資源識別碼格式為：
+    ![Resource Manager 範本 Key Vault 整合存取原則](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
+14. 選取左窗格中的 [屬性]。
+15. 複製 [資源識別碼] 。 當您部署虛擬機器時，您會需要此識別碼。  資源識別碼格式為：
 
-    ```
+    ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
     ```
 
@@ -124,8 +132,17 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. 選取 [開啟] 以開啟檔案。 這與[教學課程：建立具有相依資源的 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的案例相同。
-4. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
-5. 重複步驟 1-4 以開啟下列 URL，然後將檔案儲存為 **azuredeploy.parameters.json**。
+4. 範本中定義了五項資源：
+
+    * `Microsoft.Storage/storageAccounts` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。
+    * `Microsoft.Network/publicIPAddresses` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)。
+    * `Microsoft.Network/virtualNetworks` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)。
+    * `Microsoft.Network/networkInterfaces` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)。
+    * `Microsoft.Compute/virtualMachines` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)。
+
+    自訂範本之前，最好能初步了解範本。
+5. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
+6. 重複步驟 1-4 以開啟下列 URL，然後將檔案儲存為 **azuredeploy.parameters.json**。
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json

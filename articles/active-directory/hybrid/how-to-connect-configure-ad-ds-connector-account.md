@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389950"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412851"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect：設定 AD DS 連接器帳戶權限 
 
-組建 1.1.880.0 (2018 年 8 月發行) 導入了名為 ADSyncConfig.psm1 的新 PowerShell 模組，其中包含一個 Cmdlet 集合，可協助您為 Azure AD Connect 部署設定正確的 Active Directory 權限。 
+組建 1.1.880.0 (2018 年 8 月發行) 導入了名為 [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) 的新 PowerShell 模組，其中包含一個 Cmdlet 集合，可協助您為 Azure AD Connect 部署設定正確的 Active Directory 權限。 
 
 ## <a name="overview"></a>概觀 
 下列 PowerShell Cmdlet 可用來針對每個您要在 Azure AD Connect 中啟用的功能，設定 AD DS 連接器帳戶的 Active Directory 權限。 若要防止發生任何問題，只要您想要使用自訂網域帳戶安裝 Azure AD Connect 以連線到您的樹系，即應事先備妥 Active Directory 權限。 此 ADSyncConfig 模組也可在 Azure AD Connect 部署之後用來設定權限。
@@ -49,7 +49,8 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![設定](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->![NOTE] 您也可以將檔案 **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** 複製到已安裝「適用於 AD DS 的 RSAT」的網域控制站，並存該處使用此 PowerShell 模組。
+>[!NOTE]
+>您也可以將檔案 **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** 複製到已安裝「適用於 AD DS 的 RSAT」的網域控制站，並存該處使用此 PowerShell 模組。
 
 若要開始使用 ADSyncConfig，您必須在 Windows PowerShell 視窗中載入模組： 
 
@@ -269,10 +270,10 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 - 停用指定物件上的繼承 
 - 對特定物件移除 SELF 特有的 ACE 以外的所有 ACE，因為我們想要讓預設權限在用於 SELF 時保持不變。 
  
- -ObjectDN 參數是必須限定權限的 AD 帳戶。 這通常是在 AD DS 連接器中設定的 MSOL_nnnnnnnnnnnn 網域帳戶 (請參閱「決定您的 AD DS 連接器帳戶」)。 若要指定具有必要權限可對目標 AD 物件限制 Active Directory 權限的系統管理員帳戶，必須要使用 -Credential 參數。 這通常是企業或網域系統管理員。  
+ -ADConnectorAccountDN 參數是必須限定權限的 AD 帳戶。 這通常是在 AD DS 連接器中設定的 MSOL_nnnnnnnnnnnn 網域帳戶 (請參閱「決定您的 AD DS 連接器帳戶」)。 若要指定具有必要權限可對目標 AD 物件限制 Active Directory 權限的系統管理員帳戶，必須要使用 -Credential 參數。 這通常是企業或網域系統管理員。  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 例如： 
@@ -301,3 +302,5 @@ Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Con
 - [Azure AD Connect：帳戶與權限](reference-connect-accounts-permissions.md)
 - [快速安裝](how-to-connect-install-express.md)
 - [自訂安裝](how-to-connect-install-custom.md)
+- [ADSyncConfig 參考](reference-connect-adsyncconfig.md)
+

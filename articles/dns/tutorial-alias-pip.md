@@ -7,87 +7,86 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 842015d853790e3ac78214cca6a70becb7f9fadf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1b157d8292eacff87a28554939a6f144b9f5d0e9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991216"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092088"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>教學課程：設定別名記錄來參考 Azure 公用 IP 位址 
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 建立網路基礎結構
-> * 建立 Web 伺服器虛擬機器
-> * 建立別名記錄
-> * 測試別名記錄
+> * 建立網路基礎結構。
+> * 建立 Web 伺服器虛擬機器。
+> * 建立別名記錄。
+> * 測試別名記錄。
 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
-您必須提供一個可在要測試的 Azure DNS 中裝載的網域名稱。 您必須能夠完全控制此網域，包括能夠設定網域的名稱伺服器 (NS) 記錄。
+必須提供可用的網域名稱，如此才能裝載於 Azure DNS 進行測試。 您必須擁有此網域的完整控制權。 完整控制權包括為網域設定名稱伺服器 (NS) 記錄的能力。
 
-如需有關在 Azure DNS 中裝載網域的指示，請參閱[教學課程：在 Azure DNS 中裝載您的網域](dns-delegate-domain-azure-dns.md)。
+關於在 Azure DNS 中裝載網域的指示，請參閱[教學課程：在 Azure DNS 中裝載您的網域](dns-delegate-domain-azure-dns.md)。
 
-本教學課程使用的範例網域是 contoso.com，但您應該使用自己的網域名稱。
+本教學課程使用的範例網域是 contoso.com，但請使用您自己的網域名稱。
 
 ## <a name="create-the-network-infrastructure"></a>建立網路基礎結構
-首先，請建立一個可供放置您 Web 伺服器的 VNet 和子網域。
+首先，請建立一個可供放置 Web 伺服器的虛擬網路和子網域。
 1. 在 http://portal.azure.com 登入 Azure 入口網站。
-2. 在入口網站的左上方，按一下 [建立資源]，在搜尋方塊中輸入「資源群組」，然後建立一個名為 **RG-DNS-Alias-pip** 的資源群組。
-3. 依序按一下 [建立資源]、[網路] 及 [虛擬網路]。
-4. 建立名為 **VNet-Server** 的虛擬網路，將它放在 **RG-DNS-Alias-pip** 資源群組中，然後將子網路命名為 **SN-Web**。
+2. 在入口網站的左上方，選取 [建立資源]。 在搜尋方塊中輸入資源群組，然後建立名為 **RG-DNS-Alias-pip** 的資源群組。
+3. 選取 [建立資源] > [網路] > [虛擬網路]。
+4. 建立名為 **VNet-Server** 的虛擬網路。 將它放在 **RG-DNS-Alias-pip** 資源群組中，然後將子網路命名為 **SN-Web**。
 
 ## <a name="create-a-web-server-virtual-machine"></a>建立 Web 伺服器虛擬機器
-1. 依序按一下 [建立資源] 和 [Windows Server 2016 VM]。
-2. 輸入 **Web-01** 作為名稱，然後將 VM 放在 [RG-DNS-Alias-TM] 資源群組中。 輸入使用者名稱、密碼，然後按一下 [確定]。
-3. 針對 [大小]，選擇具有 8 GB RAM 的 SKU。
-4. 針對 [設定]，選取 [VNet-Servers] 虛擬網路、[SN-Web] 子網路。 針對公用輸入連接埠，選取 [HTTP]、[HTTPS]及 [RDP (3389)]，然後按一下 [確定]。
-5. 在 [摘要] 頁面上，按一下 [建立]。
+1. 選取 [建立資源] > [Windows Server 2016 VM]。
+2. 輸入 **Web-01** 作為名稱，然後將 VM 放在 [RG-DNS-Alias-TM] 資源群組中。 輸入使用者名稱和密碼，然後選取 [確定]。
+3. 針對 [大小]，選取具有 8 GB RAM 的 SKU。
+4. 針對 [設定]，選取 [VNet-Servers] 虛擬網路和 [SN-Web] 子網路。 針對公用輸入連接埠，選取 [HTTP] > [HTTPS] > [RDP (3389)]，然後選取 [確定]。
+5. 在 [摘要] 頁面上，選取 [建立]。
 
-   這需要幾分鐘的時間來完成。
+完成此程序需要數分鐘的時間。
 
 ### <a name="install-iis"></a>安裝 IIS
 
 在 **Web-01** 上安裝 IIS。
 
 1. 連線至 **Web-01** 並登入。
-2. 從「伺服器管理員儀表板」中，按一下 [新增角色及功能]。
-3. 按 [下一步] 三次，然後在 [伺服器角色] 頁面上，選取 [網頁伺服器 (IIS)]。
-4. 按一下 [新增功能]，然後按 [下一步]。
-5. 按 [下一步] 四次，然後按一下 [安裝]。
-
-   這需要幾分鐘才能完成。
-6. 當安裝完成時，按一下 [關閉]。
-7. 開啟網頁瀏覽器，然後瀏覽至 **localhost** 以確認預設 IIS 網頁伺服器有出現。
+2. 在 [伺服器管理員] 儀表板上，選取 [新增角色及功能]。
+3. 選取 [下一步] 三次。 在 [伺服器角色] 頁面上，選取 [Web 伺服器 (IIS)]。
+4. 選取 [新增功能]，然後選取 [下一步]。
+5. 選取 [新增功能]，然後選取 [下一步]。 完成此程序需要數分鐘的時間。
+6. 在安裝完成後，選取 [關閉]。
+7. 請開啟網頁瀏覽器。 瀏覽至 **localhost**，以確認預設的 IIS 網頁已出現。
 
 ## <a name="create-an-alias-record"></a>建立別名記錄
 
 建立一個指向公用 IP 位址的別名記錄。
 
-1. 按一下您的 Azure DNS 區域以開啟該區域。
-2. 按一下 [記錄集]。
-3. 在 [名稱]**Name** 文字方塊中，輸入 **web01**。
+1. 選取您的 Azure DNS 區域以開啟該區域。
+2. 選取 [記錄集]。
+3. 在 [名稱] 文字方塊中，選取 **web01**。
 4. 將 [類型] 保留為 [A] 記錄。
-5. 按一下 [別名記錄集] 核取方塊。
-6. 按一下 [選擇 Azure 服務]，然後選取 [Web-01-ip] 公用 IP 位址。
+5. 選取 [別名記錄集] 核取方塊。
+6. 選取 [選擇 Azure 服務]，然後選取 [Web-01-ip] 公用 IP 位址。
 
 ## <a name="test-the-alias-record"></a>測試別名記錄
 
-1. 在 [RG-DNS-Alias-pip] 資源群組中，按一下 [Web-01] 虛擬機器。 記下公用 IP 位址。
-1. 從網頁瀏覽器中，瀏覽至 Web01-01 虛擬機器的完整網域名稱。 例如：**web01.contoso.com**。 您應該會看見 IIS 預設網頁。
+1. 在 [RG-DNS-Alias-pip] 資源群組中，選取 [Web-01] 虛擬機器。 記下公用 IP 位址。
+1. 從網頁瀏覽器中，瀏覽至 Web01-01 虛擬機器的完整網域名稱。 例如 **web01.contoso.com**。 您現在會看到 IIS 預設網頁。
 2. 關閉網頁瀏覽器。
 3. 停止 **Web-01** 虛擬機器，然後將它重新啟動。
-4. 當它重新啟動時，記下虛擬機器的新公用 IP 位址。
-5. 開啟新瀏覽器，然後再次瀏覽至 Web01-01 虛擬機器的完整網域名稱。 例如：**web01.contoso.com**。
-6. 這應該仍然會成功，因為您使用別名記錄來指向公用 IP 位址資源，而不是標準的 A 記錄。
+4. 在虛擬機器重新啟動後，記下虛擬機器的新公用 IP 位址。
+5. 開啟新的瀏覽器。 再次瀏覽至 Web01-01 虛擬機器的完整網域名稱。 例如 **web01.contoso.com**。
+
+此程序會成功，因為您使用別名記錄來指向公用 IP 位址資源，而不是標準的 A 記錄。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要 **RG-DNS-Alias-pip** 資源群組時，您可以將它刪除，以刪除為本教學課程建立的所有資源。
+不再需要為本教學課程建立的資源群組時，請刪除 **RG-DNS-Alias-pip** 資源群組。
 
 
 ## <a name="next-steps"></a>後續步驟

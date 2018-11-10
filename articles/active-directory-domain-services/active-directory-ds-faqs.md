@@ -3,7 +3,7 @@ title: 常見問題集 - Azure Active Directory Domain Services | Microsoft Docs
 description: 關於「Azure Active Directory 網域服務」的常見問題集
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: maheshu
-ms.openlocfilehash: 8747e597883d96756e676061bde04b920b13cadd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.author: ergreenl
+ms.openlocfilehash: c2f10b1bf3b61577a2b0616be6fa50f7639559ba
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023200"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158905"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。
@@ -51,7 +51,7 @@ ms.locfileid: "44023200"
 是。 了解[如何使用 PowerShell 啟用 Azure AD 網域服務](active-directory-ds-enable-using-powershell.md)。
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>是否可以使用 Resource Manager 範本啟用 Azure AD Domain Services？
-是。 了解[如何使用 PowerShell 啟用 Azure AD 網域服務](active-directory-ds-enable-using-powershell.md)。
+否，目前無法使用範本來啟用 Azure AD Domain Services。 改為使用 PowerShell，詳情請參閱[如何使用 PowerShell 啟用 Azure AD 網域服務](active-directory-ds-enable-using-powershell.md)。
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>可以將網域控制站新增至 Azure AD 網域服務的受控網域嗎？
 否。 Azure Active Directory Domain Services 所提供的網域是受控網域。 您不需要佈建、設定或管理此網域的網域控制站 - Microsoft 會以服務形式提供這些管理活動。 因此，您無法為受控網域新增其他網域控制站 (讀寫或唯讀)。

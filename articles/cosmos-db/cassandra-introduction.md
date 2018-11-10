@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: fe0ed06c5ecd0a84e9999c09cd312ddea2557f80
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1037f7921093d38d9020bafd9fd3597f27ca5011
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221638"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230245"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 簡介
 
@@ -47,7 +47,7 @@ Azure Cosmos DB Cassandra API 可供針對 [Apache Cassandra](https://cassandra.
   - [.NET 應用程式](create-cassandra-dotnet.md)
   - [Python 應用程式](create-cassandra-python.md)
 
-* 開始使用 Java 應用程式來[建立 Cassandra API 帳戶、資料庫及資料表](create-cassandra-api-account-java.md)。
+* 開始使用 Java 應用程式來[建立 Cassandra API 帳戶、資料庫與資料表](create-cassandra-api-account-java.md)。
 
 * 使用 Java 應用程式[將範例資料載入至 Azure Cosmos DB Cassandra API 資料表](cassandra-api-load-data.md)。
 

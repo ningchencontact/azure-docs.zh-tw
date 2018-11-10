@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95c49ccc11a12c2e9174ba2d186a302f500e8bf2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bb7e422e0eb4a71e0f88a911083f8f5d6fb0ef2f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650140"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092163"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -26,7 +26,7 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 
 每一個混合式 Runbook 背景工作是您安裝代理程式時指定的混合式 Runbook 背景工作群組的成員。 群組可包含單一代理程式，但您可以在群組中安裝多個代理程式以獲得高可用性。
 
-在 Hybrid Runbook Worker 上啟動 Runbook 時，您會指定要執行它的群組。 每個群組中的背景工作角色會對 Azure 自動化進行輪詢，以查看是否有任何可用的作業。 若有可用的作業，會由第一個取得該作業的背景工作角色負責。 您無法指定特定背景工作角色。 混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的諸多限制。 它們在磁碟空間、記憶體或網路通訊端上並沒有相同的限制。 混合式 Runbook 背景工作角色只會受限於混合式 Runbook 背景工作角色本身上的資源。 此外，混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的 180 分鐘[公平共用](automation-runbook-execution.md#fair-share)時間限制。 若要深入了解 Azure 沙箱和混合式 Runbook 背景工作角色的服務限制，請參閱作業[限制](../azure-subscription-service-limits.md#automation-limits)頁面。
+在 Hybrid Runbook Worker 上啟動 Runbook 時，您會指定要執行它的群組。 每個群組中的背景工作角色會對 Azure 自動化進行輪詢，以查看是否有任何可用的作業。 若有可用的作業，會由第一個取得該作業的背景工作角色負責。 作業佇列的處理時間取決於混合式背景工作角色的硬體設定檔和負載。 您無法指定特定背景工作角色。 混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的諸多限制。 它們在磁碟空間、記憶體或網路通訊端上並沒有相同的限制。 混合式 Runbook 背景工作角色只會受限於混合式 Runbook 背景工作角色本身上的資源。 此外，混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的 180 分鐘[公平共用](automation-runbook-execution.md#fair-share)時間限制。 若要深入了解 Azure 沙箱和混合式 Runbook 背景工作角色的服務限制，請參閱作業[限制](../azure-subscription-service-limits.md#automation-limits)頁面。
 
 ## <a name="install-a-hybrid-runbook-worker"></a>安裝混合式 Runbook 背景工作角色
 

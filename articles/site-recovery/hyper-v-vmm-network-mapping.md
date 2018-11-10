@@ -1,21 +1,21 @@
 ---
-title: 關於使用 Site Recovery 對 Hyper-V VM (含VMM) 複寫至 Azure 所需的網路對應 | Microsoft Docs
-description: 說明如何設定使用 Site Recovery 對 VMM 雲端中管理的 Hyper-V VM 進行複寫所需的網路對應。
+title: 關於使用 Site Recovery 對 Hyper-V VM (含VMM) 災害復原至 Azure 所需的網路對應 | Microsoft Docs
+description: 說明如何使用 Azure Site Recovery 對 (VMM 雲端所管理的) Hyper-V VM 的災害復原設定網路對應。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: d683554a97a1616b0d4d7b1ae95d62b476de04eb
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cecc1df23ebed88db315e7de14ea850ba5297697
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078506"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212976"
 ---
-# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>準備 Azure 之 Hyper-V VM 複寫的網路對應
+# <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>準備「Hyper-V VM 災害復原至 Azure」的網路對應
 
 
 本文可協助您了解和準備在使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 System Center Virtual Machine Manager (VMM) 雲端中 Hyper-V VM 複寫到 Azure，或到次要網站時所需的網路對應。

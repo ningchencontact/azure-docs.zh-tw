@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5e198310dd18cc8574b5510b9318ff4badaffca3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2b8cc34e5ace5e252acae94a16858a69edc63a1c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646297"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240234"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本
 
@@ -29,10 +29,8 @@ ms.locfileid: "49646297"
 本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
-> * 設定安全的環境
 > * 開啟快速入門範本
 > * 瀏覽範本
-> * 編輯參數檔案
 > * 部署範本
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
@@ -41,8 +39,8 @@ ms.locfileid: "49646297"
 
 若要完成本文，您需要：
 
-* [Visual Studio Code](https://code.visualstudio.com/) 搭配 Resource Manager Tools 擴充功能。  請參閱[安裝擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-* 若要避免密碼噴灑攻擊，請為虛擬機器系統管理員帳戶產生密碼。 以下是範例：
+* [Visual Studio Code](https://code.visualstudio.com/) 搭配 Resource Manager Tools 擴充功能。  請參閱[安裝延伸模組](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 以下是用於產生密碼的範例：
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -66,37 +64,45 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 當您探索這一節中的範本時，請試著回答下列問題：
 
-- 此範本中定義了多少個 Azure 資源？
-- 其中一項資源是 Azure 儲存體帳戶。  定義是否與最後一個教學課程中使用的定義相仿？
-- 您是否可找到此範本中定義的資源所適用的範本參考？
-- 您是否可找到資源的相依性？
+* 此範本中定義了多少個 Azure 資源？
+* 其中一項資源是 Azure 儲存體帳戶。  定義是否與最後一個教學課程中使用的定義相仿？
+* 您是否可找到此範本中定義的資源所適用的範本參考？
+* 您是否可找到資源的相依性？
 
 1. 在 Visual Studio Code 中摺疊元素，直到您只看到**資源**內的第一層元素和第二層元素：
 
     ![Visual Studio Code 的 Azure Resource Manager 範本](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    範本中定義了五項資源。
-2. 展開第一項資源。 這是儲存體帳戶。 其定義應與最後一個教學課程開頭所用的定義相同。
+    範本中定義了五項資源：
+
+    * `Microsoft.Storage/storageAccounts` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。
+    * `Microsoft.Network/publicIPAddresses` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)。
+    * `Microsoft.Network/virtualNetworks` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)。
+    * `Microsoft.Network/networkInterfaces` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)。
+    * `Microsoft.Compute/virtualMachines` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)。
+
+    自訂範本之前，最好能初步了解範本。
+
+2. 展開第一項資源。 這是儲存體帳戶。 將資源定義與[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)相比較。
 
     ![Visual Studio Code 的 Azure Resource Manager 範本儲存體帳戶定義](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. 展開第二項資源。 其資源類型為 **Microsoft.Network/publicIPAddresses**。 若要尋找範本參考，請瀏覽至[範本參考](https://docs.microsoft.com/azure/templates/)，然後在 [依標題篩選] 欄位中輸入**公用 IP 位址**或**多個公用 IP 位址**。 將資源定義與範本參考相比較。
+3. 展開第二項資源。 資源類型為 `Microsoft.Network/publicIPAddresses`。 將資源定義與[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)相比較。
 
     ![Visual Studio Code 的 Azure Resource Manager 範本公用 IP 位址定義](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. 重複上一個步驟，以尋找此範本中定義的其他資源所適用的範本參考。  將資源定義與參考相比較。
-5. 展開第四項資源：
+4. 展開第四項資源。 資源類型為 `Microsoft.Network/networkInterfaces`：  
 
     ![Visual Studio Code 的 Azure Resource Manager 範本 dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
-    dependsOn 元素可讓您定義一項資源，作為一或多項資源的相依項目。 在此範例中，此資源是 networkInterface。  它依存於其他兩項資源：
+    dependsOn 元素可讓您定義一項資源，作為一或多項資源的相依項目。 此資源依存於其他兩項資源：
 
-    * publicIPAddress
-    * virtualNetwork
+    * `Microsoft.Network/publicIPAddresses`
+    * `Microsoft.Network/virtualNetworks`
 
-6. 展開第五項資源。 此資源是虛擬機器。 它依存於其他兩項資源：
+5. 展開第五項資源。 此資源是虛擬機器。 它依存於其他兩項資源：
 
-    * storageAccount
-    * networkInterface
+    * `Microsoft.Storage/storageAccounts`
+    * `Microsoft.Network/networkInterfaces`
 
 下圖說明此範本的資源和相依性資訊：
 
@@ -129,22 +135,23 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     ```bash
     cat azuredeploy.json
     ```
-7. 從 Cloud Shell 執行下列 PowerShell 命令。 為了提高安全性，請針對虛擬機器系統管理員帳戶使用產生的密碼。 請參閱[必要條件](#prerequisites)。
+7. 從 Cloud Shell 執行下列 PowerShell 命令。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
 
     ```azurepowershell
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
-    $adminPassword = Read-Host -Prompt "Enter the admin password"
-    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -adminUsername = $adminUsername `
-        -adminPassword = $adminPassword `
-        -dnsLabelPrefix = $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json 
+        -adminUsername $adminUsername `
+        -adminPassword $adminPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json
     ```
 8. 執行下列 PowerShell 命令，以列出新建立的虛擬機器：
 
@@ -155,7 +162,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
     在範本內，虛擬機器名稱會硬式編碼為 **SimpleWinVM**。
 
-9. 登入虛擬機器，以測試系統管理員的認證。 
+9. 透過 RDP 連線至虛擬機器，以確認虛擬機器已成功建立。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -168,9 +175,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您會開發和部署用來建立虛擬機器、虛擬網路和相依資源的範本。 若要深入了解如何根據條件部署 Azure 資源，請參閱：
-
+在本教學課程中，您已開發和部署用來建立虛擬機器、虛擬網路和相依資源的範本。 若要深入了解如何根據條件部署 Azure 資源，請參閱：
 
 > [!div class="nextstepaction"]
 > [使用條件](./resource-manager-tutorial-use-conditions.md)
-

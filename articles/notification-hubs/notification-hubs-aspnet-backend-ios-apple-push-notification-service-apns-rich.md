@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: 21ed7dd1120958576651703283a0732e3843546d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777452"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232507"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure 通知中心豐富內容推播
 ## <a name="overview"></a>概觀
@@ -136,7 +136,7 @@ ms.locfileid: "33777452"
 2. 按一下 [功能]，並開啟 [背景模式]，然後核取 [遠端通知] 核取方塊。
    
     ![][IOS3]
-3. 移至 **Main.storyboard**，並確定您有 [通知使用者](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 教學課程中的 [檢視控制器]\(在本教學課程中稱為 [首頁檢視控制器])。
+3. 移至 **Main.storyboard**，並確定您有[通知使用者](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)教學課程中的 [檢視控制器] (在本教學課程中稱為 [首頁檢視控制器])。
 4. 將 [導覽控制器] 新增至您的腳本，並按住 Control 再拖曳到 [首頁檢視控制器]，使其成為導覽的**根目錄檢視**。 請確定只針對 [導覽控制器] 選取 [屬性檢查程式] 中的 [是初始檢視控制器]  。
 5. 將 [檢視控制器] 新增至腳本，並新增 [影像檢視]。 這是使用者選擇要深入了解，在按一下通知之後會看到的頁面。 您的腳本應如下所示：
    

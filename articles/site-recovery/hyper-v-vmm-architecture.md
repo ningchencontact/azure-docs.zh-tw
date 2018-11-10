@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 將 Hyper-V 複寫至次要網站架構 | Microsoft Docs
-description: 本文提供使用 Azure Site Recovery 將內部部署 Hyper-V VM 複寫至次要 System Center VMM 網站的架構概觀。
+title: 使用 Azure Site Recovery 從 Hyper-V 災害復原至次要內部部署網站的架構 | Microsoft Docs
+description: 本文提供使用 Azure Site Recovery 將內部部署 Hyper-V VM 災害復原至次要 System Center VMM 網站的架構概觀。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 8f8b498164cc4a77cace470f7483aa572fefbaed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 98eb654468eb27b8100a0cc9b73994e5a7add167
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078914"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214591"
 ---
-# <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V 複寫至次要網站
+# <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>架構 - Hyper-V 複寫至次要網站
 
 本文說明在 Azure 入口網站中使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 System Center Virtual Machine Manager (VMM) 雲端中的內部部署 Hyper-V 虛擬機器 (VM) 複寫至次要 VMM 網站時所涉及的元件和程序。
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 759de1c62cb9cb4aa642fa564378b1ed551d7dae
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145757"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239350"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 儲存體安全性概觀
 
@@ -33,6 +33,7 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 * 使用分析來追蹤當某人存取儲存體時使用的驗證方法。
 
 若要深入了解「Azure 儲存體」中的安全性，請參閱 [Azure 儲存體安全性指南](../storage/common/storage-security-guide.md)。 本指南提供 Azure 儲存體安全性功能的深入探討。 這些功能包括儲存體帳戶金鑰、傳輸中和待用資料加密，以及儲存體分析。
+
 
 本文提供可與 Azure 儲存體搭配使用的 Azure 安全性功能概觀。 文中也會提供文章的連結，更詳細說明每個功能，好讓您能夠深入了解。
 
@@ -91,13 +92,35 @@ SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進�
 
 * [適用於 Windows 和 Linux IaaS 虛擬機器的 Azure 磁碟加密](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-storage-firewalls-and-virtual-networks"></a>Azure 儲存體防火牆和虛擬網路
+## <a name="firewalls-and-virtual-networks"></a>防火牆與虛擬網路
 
 Azure 儲存體可讓您啟用儲存體帳戶的防火牆規則。 啟用之後，這些規則將會封鎖資料的傳入要求，包括來自其他 Azure 服務的要求。 但您可以設定例外狀況來允許流量。 您可以在現有的儲存體帳戶上或建立儲存體帳戶時，啟用防火牆規則。
 
 您應該使用此功能來保護您的儲存體帳戶，只讓一組允許的特定網路存取儲存體帳戶。
 
 如需有關 Azure 儲存體防火牆和虛擬網路的詳細資訊，請檢閱[設定 Azure 儲存體防火牆和虛擬網路](../storage/common/storage-network-security.md)一文
+
+## <a name="azure-data-box"></a>Azure 資料箱
+
+資料箱、資料箱磁碟及 Data Box Heavy 裝置可協助您在網路無法使用時，將大量資料轉送到 Azure。 這些離線資料轉送裝置會在您的組織與 Azure 資料中心之間運送。 裝置使用 AES 加密來協助保護傳輸中的資料，而且會在上傳後經過徹底的清理過程，以從裝置中刪除您的資料。
+
+Data Box Edge 與 Data Box Gateway 是連線資料轉送產品，等同於在您的位置與 Azure 之間管理資料的網路儲存體閘道。 Data Box Edge 是內部部署網路裝置，與 Azure 來回轉送資料，並使用具備人工智慧 (AI) 的邊緣計算來處理資料。 Data Box Gateway 是具備儲存體閘道功能的虛擬設備。
+
+深入了解：
+
+* [Azure 資料箱](https://azure.microsoft.com/services/storage/databox/)
+* [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+* [Azure 資料箱閘道服務](..//databox-online/data-box-gateway-overview.md)
+
+## <a name="advanced-threat-protection"></a>進階威脅防護
+
+Azure 儲存體提供「進階威脅防護」來增加額外的安全智慧層級，用於偵測儲存體帳戶中異常且可能有害的存取意圖或攻擊。 進階威脅防護會監視 Azure 儲存體診斷記錄，找出對 Blob 儲存體發出的可疑讀取、寫入或刪除要求。 
+
+您可以從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視進階威脅保護警示。 Azure 資訊安全中心會在偵測到任何可疑活動時提供相關的詳細資料，並提供調查和修復潛在威脅的建議動作。 
+
+深入了解：
+
+* [Azure 儲存體進階威脅防護概觀](../storage/common/storage-advanced-threat-protection.md)
 
 ## <a name="azure-key-vault"></a>Azure 金鑰保存庫
 

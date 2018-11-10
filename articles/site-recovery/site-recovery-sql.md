@@ -1,20 +1,21 @@
 ---
-title: 使用 SQL Server 和 Azure Site Recovery 複寫應用程式 | Microsoft Docs
-description: 本文說明如何使用適用於 SQL Server 災害復原功能的 Azure Site Recovery 來複寫 SQL Server。
+title: 使用 SQL Server 和 Azure Site Recovery 來設定 SQL Server 的災害復原 | Microsoft Docs
+description: 本文說明如何使用 SQL Server 和 Azure Site Recovery 來設定 SQL Server 的災害復原。
 services: site-recovery
-author: rayne-wiselman
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
-ms.author: raynew
-ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.author: sutalasi
+ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188768"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210256"
 ---
-# <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>使用 SQL Server 災害復原和 Azure Site Recovery 保護 SQL Server
+# <a name="set-up-disaster-recovery-for-sql-server"></a>設定 SQL Server 的災害復原 
 
 本文說明如何使用一套 SQL Server 商務持續性和災害復原 (BCDR) 技術，加上 [Azure Site Recovery](site-recovery-overview.md)，以保護應用程式的 SQL Server 後端。
 

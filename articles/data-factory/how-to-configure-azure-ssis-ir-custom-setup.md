@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 10/31/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ad3ec09f039b38290929289c7bca77664b0fb554
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441780"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420263"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>自訂 Azure-SSIS 整合執行階段的安裝
 
@@ -98,7 +98,11 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
        ![複製並儲存共用存取簽章](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-    1.  當您使用 PowerShell 佈建或重新設定 Azure-SSIS IR 時，在啟動 Azure-SSIS IR 之前，請先執行 `Set-AzureRmDataFactoryV2IntegrationRuntime` Cmdlet，並以容器的 SAS URI 作為新 `SetupScriptContainerSasUri` 參數的值。 例如︰
+    1.  當您使用 Data Factory UI 佈建或重新設定 Azure-SSIS IR 時，請在 [進階設定] 面板上於適當的欄位中輸入 SAS URI：
+
+       ![輸入共用存取簽章](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
+
+       當您使用 PowerShell 佈建或重新設定 Azure-SSIS IR 時，在啟動 Azure-SSIS IR 之前，請先執行 `Set-AzureRmDataFactoryV2IntegrationRuntime` Cmdlet，並以容器的 SAS URI 作為新 `SetupScriptContainerSasUri` 參數的值。 例如︰
 
        ```powershell
        Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -137,13 +141,15 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
        1. 一個 `.NET FRAMEWORK 3.5` 資料夾，其中包含要安裝舊版 .NET Framework (Azure-SSIS IR 每個節點上的自訂元件可能需要它) 的自訂安裝。
 
+       1. `AAS` 資料夾，其中包含在 Azure-SSIS IR 的每個節點上安裝用戶端的自訂設定，讓您的 Analysis Services 工作使用服務主體驗證連線到 Azure Analysis Services (AAS) 執行個體。 首先，從[這裡](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers)下載最新的 **MSOLAP (amd64)** 和 **AMO** 用戶端程式庫/Windows 安裝程式 (例如，`x64_15.0.900.108_SQL_AS_OLEDB.msi` 和 `x64_15.0.900.108_SQL_AS_AMO.msi`)，然後將它們全部一起和 `main.cmd` 上傳到您的容器中。  
+
        1. 一個 `BCP` 資料夾，其中包含自訂安裝程式，用以在 Azure-SSIS IR 的每個節點上安裝 SQL Server 命令列公用程式 (`MsSqlCmdLnUtils.msi`)，包括大量複製程式 (`bcp`)。
 
        1. 一個 `EXCEL` 資料夾，其中包含自訂安裝程式，用以在 Azure-SSIS IR 的每個節點上安裝開放原始碼組件 (`DocumentFormat.OpenXml.dll`、`ExcelDataReader.DataSet.dll` 和 `ExcelDataReader.dll`)。
 
        1. 一個 `MSDTC` 資料夾，其中包含自訂安裝，可修改 Azure-SSIS IR 每個節點上 Microsoft Distributed Transaction Coordinator (MSDTC) 服務的網路與安全性組態。 若要確保 MSDTC 會啟動，請在套件的控制流程起點新增「執行程序工作」，以執行下列命令：`%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
-       1. 一個 `ORACLE ENTERPRISE` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`) 和無訊息安裝組態檔 (`client.rsp`)，用以在 Azure-SSIS IR Enterprise Edition 的每個節點上安裝 Oracle OCI 驅動程式。 此安裝可讓您使用 Oracle 連線管理員、來源和目的地。 首先，請從 [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) 下載最新的 Oracle 用戶端，例如 `winx64_12102_client.zip`，然後與 `main.cmd` 和 `client.rsp` 一起將其上傳至您的容器。 如果您使用 TNS 連線至 Oracle，則也必須下載 `tnsnames.ora`、加以編輯，然後將其上傳到您的容器中，使其能夠在安裝期間複製到 Oracle 安裝資料夾中。
+       1. `ORACLE ENTERPRISE` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`) 和無訊息安裝組態檔 (`client.rsp`)，用以在 Azure-SSIS IR Enterprise Edition 的每個節點上安裝 Oracle 連接器和 OCI 驅動程式。 此安裝可讓您使用 Oracle 連線管理員、來源和目的地。 首先，從 [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) 下載 Microsoft Connectors v5.0 for Oracle (`AttunitySSISOraAdaptersSetup.msi` 和 `AttunitySSISOraAdaptersSetup64.msi`)，並從 [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)，下載最新的 Oracle 用戶端 (例如，`winx64_12102_client.zip`)，然後將它們全部一起與 `main.cmd` 和 `client.rsp` 上傳到您的容器。 如果您使用 TNS 連線至 Oracle，則也必須下載 `tnsnames.ora`、加以編輯，然後將其上傳到您的容器中，使其能夠在安裝期間複製到 Oracle 安裝資料夾中。
 
        1. 一個 `ORACLE STANDARD` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`)，用以在 Azure-SSIS IR 的每個節點上安裝 Oracle ODP.NET 驅動程式。 此安裝可讓您使用 ADO.NET 連線管理員、來源和目的地。 首先，請從 [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) 下載最新的 Oracle ODP.NET 驅動程式，例如 `ODP.NET_Managed_ODAC122cR1.zip`，然後與 `main.cmd` 一起將其上傳至您的容器。
 
@@ -151,7 +157,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
        1. 一個 `STORAGE` 資料夾，其中包含自訂安裝程式，用以在 Azure-SSIS IR 的每個節點上安裝 Azure PowerShell。 此安裝可讓您部署和執行 SSIS 套件，以執行 [PowerShell 指令碼來管理您的 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell)。 將 `main.cmd` (一個範例 `AzurePowerShell.msi`) 和 `storage.ps1` 複製到您的容器 (或安裝最新版本)。 使用 PowerShell.dtsx 作為您套件的範本。 此套件範本結合了 [Azure Blob 下載工作](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task) (會下載 `storage.ps1` 作為可修改的 PowerShell 指令碼) 和[執行程序工作](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) (會在每個節點上執行指令碼)。
 
-       1. 一個 `TERADATA` 資料夾，其中包含自訂安裝指令碼 `main.cmd)` 及其相關聯的檔案 (`install.cmd`)，和安裝程式套件 (`.msi`)。 這些檔案會在 Azure-SSIS IR Enterprise Edition 的每個節點上安裝 Teradata 連接器、TPT API 和 ODBC 驅動程式。 此安裝可讓您使用 Teradata 連線管理員、來源和目的地。 首先，從 [Teradata](http://partnerintelligence.teradata.com) 下載 Teradata Tools and Utilities (TTU) 15.x zip 檔案 (例如 `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`)，然後將其連同上述的 `.cmd` 和 `.msi` 檔案一起上傳到您的容器中。
+       1. `TERADATA` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`) 及其相關聯的檔案 (`install.cmd`)，和安裝程式套件 (`.msi`)。 這些檔案會在 Azure-SSIS IR Enterprise Edition 的每個節點上安裝 Teradata 連接器、TPT API 和 ODBC 驅動程式。 此安裝可讓您使用 Teradata 連線管理員、來源和目的地。 首先，從 [Teradata](http://partnerintelligence.teradata.com) 下載 Teradata Tools and Utilities (TTU) 15.x zip 檔案 (例如 `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`)，然後將其連同上述的 `.cmd` 和 `.msi` 檔案一起上傳到您的容器中。
 
     ![使用者案例資料夾中的資料夾](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

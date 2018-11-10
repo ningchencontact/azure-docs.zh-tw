@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323720"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210120"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>資料處理與各項使用者定義功能
 
@@ -25,7 +25,7 @@ Azure Digital Twins 提供進階計算功能。 開發人員可定義自訂函�
 
 ![Digital Twins 資料處理流程][1]
 
-1. _驗證_階段會將傳入的遙測訊息轉換為一般認知的 [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) 格式。 此階段也會執行裝置和感應器驗證。
+1. _驗證_階段會將傳入的遙測訊息轉換為一般認知的[**資料轉送物件**](https://en.wikipedia.org/wiki/Data_transfer_object)格式。 此階段也會執行裝置和感應器驗證。
 1. _比對_階段會尋找適當的使用者定義函式並加以執行。 預先定義的比對器會根據傳入的遙測訊息中包含的裝置、感應器和空間資訊，來尋找使用者定義函式。
 1. _計算_階段會執行在上一個階段中比對出來的使用者定義函式。 這些函式可讀取和更新空間圖形節點上的計算值，並可發出自訂通知。
 1. _分派_階段會將計算階段所產生的任何自訂通知路由到圖形中定義的端點。
@@ -40,11 +40,11 @@ Azure Digital Twins 中的資料處理由三個物件的定義所組成：_比�
 
 _比對器_會定義一組條件，據以評估要根據傳入的感應器遙測資料執行的動作。 用來決定相符項目的條件可能包含來自於感應器、感應器的父裝置和感應器父空間的屬性。 這些條件會表示為與 [JSON 路徑](http://jsonpath.com/)間的比較，如下列範例所述：
 
-- 屬於 `Temperature` 資料類型的所有感應器。
+- 屬於 **Temperature** 資料類型的所有感應器。
 - 在其連接埠中具有 `01`。
-- 所屬裝置具有設為值 `GoodCorp` 的擴充屬性索引鍵 `Manufacturer`。
-- 屬於 `Venue` 類型的空間。
-- 屬於父系 `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD` 的子系。
+- 所屬裝置具有設為值 `"GoodCorp"` 的擴充屬性索引鍵 **Manufacturer**。
+- 屬於 `"Venue"` 類型的空間。
+- 屬於父系 **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD` 的子系。
 
 ```JSON
 {

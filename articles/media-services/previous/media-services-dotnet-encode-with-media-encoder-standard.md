@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 7b0de5e149b8b64252f90a01f66642c15fb25ddc
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247787"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241084"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 透過 Media Encoder Standard 為資產編碼 
 編碼工作是媒體服務中最常見的處理作業。 您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。 編碼時，您可以使用媒體服務內建的 Media Encoder。 您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。 
 
-本文說明如何使用 .NET 透過媒體編碼器標準 (MES) 將您的資產編碼。 媒體編碼器標準是使用[這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)所描述的其中一個編碼器預設來進行設定。
+本文說明如何使用 .NET 透過媒體編碼器標準 (MES) 將您的資產編碼。 媒體編碼器標準是使用[這裡](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)所描述的其中一個編碼器預設來進行設定。
 
 建議一律將來源檔編碼為調適性位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)將該集合轉換為所要的格式。 
 
@@ -39,7 +39,7 @@ ms.locfileid: "50247787"
 [格式和轉碼器](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES 預設值
-媒體編碼器標準是使用[這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)所描述的其中一個編碼器預設來進行設定。
+媒體編碼器標準是使用[這裡](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)所描述的其中一個編碼器預設來進行設定。
 
 ### <a name="input-and-output-metadata"></a>輸入和輸出中繼資料
 如果您使用 MES 為輸入資產 (或資產) 編碼，在該編碼工作完成時，您便能取得輸出資產。 輸出資產包含視訊、音訊、縮圖、資訊清單等等，依據您所使用的編碼預設格式而定。

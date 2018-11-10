@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 19d8fbf82410136fd6a50a2088dd9b774dd6cb27
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259206"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094808"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>使用 Azure 預算來管理成本
 
@@ -85,7 +85,7 @@ ms.locfileid: "39259206"
     > [!NOTE]
     > 如果 Runbook 有強制參數，除非提供值，否則您無法建立 Webhook。
 8.  按一下 [確定] 以接受 Webhook 參數值。
-9.  按一下 [建立] 以建立 Webhook。
+9.  按一下 [ **建立** ] 來建立 Webhook。
 10. 接下來，請依照上述步驟建立名為 **Complete** 的第二個 Webhook。 
     > [!IMPORTANT]
     > 請務必儲存這兩個 Webhook URL，以用於本教學課程稍後的步驟。 為了安全起見，當您建立 Webhook 之後，就無法再次查看或擷取該 URL。
@@ -139,7 +139,7 @@ ms.locfileid: "39259206"
 4.  在 [Logic Apps 設計工具] 搜尋方塊中搜尋「剖析 JSON」，以尋找並選取 [資料作業 - 剖析 JSON] [動作](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)。 
     
     ![Azure - 邏輯應用程式 - 新增剖析 JSON 動作](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png) 
-5.  輸入「承載」作為剖析 JSON 承載的 [內容] 名稱。
+5.  輸入 "Payload" 作為剖析 JSON 承載的 [內容] 名稱或使用動態內容中的 "Body" 標籤。
 6.  選取 [剖析 JSON] 方塊中的 [請使用範例承載產生結構描述] 選項。
     
     ![Azure - 邏輯應用程式 - 使用範例 JSON 資料來產生結構描述](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png) 
@@ -148,7 +148,7 @@ ms.locfileid: "39259206"
     文字方塊看起來應如下所示：
         
     ![Azure - 邏輯應用程式 - 範例 JSON 承載](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png) 
-8.  按一下 [完成]。
+8.  按一下 [完成] 。
 
 ### <a name="add-the-first-conditional-action"></a>新增第一個條件式動作
 
@@ -204,7 +204,7 @@ ms.locfileid: "39259206"
         
     ![Azure -邏輯應用程式 - 傳送電子郵件動作](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-17.png) 
     
-    對於個人 Microsoft 帳戶，選取 [Outlook.com]。 對於 Azure 公司或學校帳戶，選取 [Office 365 Outlook]。 如果您還沒有連線，系統會要求您登入您的電子郵件帳戶。 Logic Apps 會建立與電子郵件帳戶的連線。
+    對於個人 Microsoft 帳戶，選取 [Outlook.com]。 對於 Azure 工作或學校帳戶，選取 [Office 365 Outlook]。 如果您還沒有連線，系統會要求您登入您的電子郵件帳戶。 Logic Apps 會建立與電子郵件帳戶的連線。
         
     您必須允許邏輯應用程式存取您的電子郵件資訊。
     

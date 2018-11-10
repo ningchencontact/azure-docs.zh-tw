@@ -1,21 +1,21 @@
 ---
-title: Hyper-V 複寫至 Azure 的支援矩陣 | Microsoft Docs
-description: 摘要說明使用 Azure Site recovery 將 Hyper-V 複寫至 Azure 的支援元件和需求
+title: 內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣 | Microsoft Docs
+description: 摘要說明使用 Azure Site recovery 將 Hyper-V VM 災害復原至 Azure 的支援元件和需求
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e389f37448211afc35fb98572161be4fcaea7556
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079203"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210715"
 ---
-# <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V 複寫至 Azure 的支援矩陣
+# <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
 
 本文摘要說明將內部部署 Hyper-V VM 災害復原至 Azure (使用 [Azure Site Recovery](site-recovery-overview.md)) 所支援的元件和設定。

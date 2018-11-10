@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2018
+ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7323f532787fa767d875e13262cce9f1ceaa79d8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ef4bffe3aca05afbdf579b34ddb85c58095b3f3b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955508"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138203"
 ---
-# <a name="azure-active-directory-code-samples-v2-endpoint"></a>Azure Active Directory 程式碼範例 (V2 端點)
+# <a name="azure-active-directory-code-samples-v20-endpoint"></a>Azure Active Directory 程式碼範例 (v2.0 端點)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-您可以使用 Microsoft Azure Active Directory (Azure AD)：
+您可以使用 Microsoft 身分識別平台：
 
 - 將驗證和授權新增至您的 Web 應用程式與 Web API。
 - 要求存取權杖以存取受保護的 Web API。
 
-本文簡短描述 Azure AD V2 端點，並提供範例連結。 這些範例將告訴您如何進行，並顯示可在應用程式中使用的程式碼片段。 在程式碼範例頁面上，您可以找到詳細的讀我主題，協助您了解需求並進行安裝及設定。 程式碼內有註解可幫助您了解重要區段。
+本文簡短描述 Azure AD v2.0 端點，並提供範例連結。 這些範例將告訴您如何進行，並顯示可在應用程式中使用的程式碼片段。 在程式碼範例頁面上，您可以找到詳細的讀我主題，協助您了解需求並進行安裝及設定。 程式碼內有註解可幫助您了解重要區段。
 
 > [!NOTE]
-> 如果您對 V1 範例感興趣，請參閱 [Azure AD 程式碼範例 (V1 端點)](sample-v1-code.md)。
+> 如果您對 v1.0 範例感興趣，請參閱 [Azure AD 程式碼範例 (v1.0 端點)](sample-v1-code.md)。
 
 若要了解每個範例類型的基本情節，請參閱 [Azure Active Directory v2.0 端點的應用程式類型](v2-app-types.md)。
 
@@ -44,7 +44,11 @@ ms.locfileid: "49955508"
 
 ## <a name="single-page-applications-spa"></a>單頁應用程式 (SPA)
 
-這個範例示範如何撰寫使用 Azure AD 保護的單頁應用程式。 這些範例會使用其中一種 MSAL.js：[Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)、[Microsoft Authentication Library for Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)、[Microsoft Authentication Library for AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
+這些範例示範如何撰寫使用 Azure AD 保護的單頁應用程式。 這些範例會使用其中一種 MSAL.js 種：
+
+* [適用於 JavaScript 的 Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)
+* [適用於 Angular 的 Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)
+* [適用於 AngularJS 的 Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
 
  平台 |  呼叫 Microsoft Graph
  -------- |  ---------------------
@@ -58,20 +62,20 @@ ms.locfileid: "49955508"
 
  平台 | 僅登入使用者 | 登入使用者與呼叫 Microsoft Graph
  -------- | ------------------- | ---------------------------------
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [appmodelv2-webapp-openIDConnect-dotNet](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) (英文) <p/> [dotnet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2) (英文)  |              [aspnet-connect-rest-sample](https://github.com/microsoftgraph/aspnet-connect-rest-sample) (英文)
-![ASP.NET](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) (英文) |              [aspnetcore-connect-sample](https://github.com/microsoftgraph/aspnetcore-connect-sample) (英文)
-![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [AppModelv2-WebApp-OpenIDConnect-nodejs](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) (英文)
-![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [ruby-connect-rest-sample](https://github.com/microsoftgraph/ruby-connect-rest-sample) (英文)
+![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) (英文) | [signInAndCallMsGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/signInAndCallMsGraph) 分支中的相同範例
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [ASP.NET 快速入門](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [dotnet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2) (英文)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) (英文) <p/>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js 快速入門](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
+![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>桌上型與行動裝置公開用戶端應用程式
 
-下列範例的公開用戶端應用程式 (桌上型/行動裝置應用程式) 會以使用者名稱存取 Microsoft Graph 或您自己的 Web API。 這些用戶端應用程式全都會使用 MicroSoft 驗證程式庫 (MSAL)
+下列範例的公開用戶端應用程式 (桌上型/行動裝置應用程式) 會以使用者名稱存取 Microsoft Graph API 或您自己的 Web API。 這些用戶端應用程式全都會使用 Microsoft 驗證程式庫 (MSAL)。
 
 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph | 呼叫 ASP.NET Core 2.0 Web API
 ------------------ | -------- |  ----------| ---------- | -------------------------
-桌上型 (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 互動式 | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) (英文) <p/> [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) (英文) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2) (英文)
+桌上型 (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 互動式 | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) (英文) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2) (英文)
 桌上型 (主控台)   | ![.NET/C# (桌上型)](media/sample-v2-code/logo_NET.png) | 整合式 Windows 驗證 |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
-桌上型 (主控台)   | ![.NET/C# (桌上型)](media/sample-v2-code/logo_NETcore.png) | 使用者名稱/密碼 |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-up-v2)
+桌上型 (主控台)   | ![.NET/C# (桌上型)](media/sample-v2-code/logo_NETcore.png) | 使用者名稱/密碼 |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 行動裝置 (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | 互動式 |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) (英文) |
 行動裝置 (Android、iOS、UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | 互動式 |[xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) (英文) |
 行動裝置 (iOS)       | ![iOS/Objective C 或 swift](media/sample-v2-code/logo_iOS.png) | 互動式 |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) (英文) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) (英文) |
@@ -79,7 +83,7 @@ ms.locfileid: "49955508"
 
 ## <a name="daemon-applications"></a>精靈應用程式
 
-下列範例說明會使用其自有身分識別 (無使用者) 存取 Microsoft Graph 的應用程式。
+下列範例說明如何使用其自有的身分識別 (無使用者) 存取 Microsoft Graph API 的應用程式。
 
 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph
 ------------------ | -------- | ---------- | --------------------
@@ -88,7 +92,7 @@ Web 應用程式 | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> AS
 
 ## <a name="headless-applications"></a>無周邊應用程式
 
-下列範例示範在裝置 (沒有網頁瀏覽器) 上執行的公開用戶端應用程式。 這些應用程式可以是命令列工具，或是在 Linux/Mac 上執行的應用程式，或者是 iOT 應用程式。 範例應用程式會以使用者 (可以互動式方式登入另一部裝置，例如行動電話) 的名稱存取 Microsoft Graph。 這些用戶端應用程式全都會使用 MicroSoft 驗證程式庫 (MSAL)
+下列範例示範在裝置 (沒有網頁瀏覽器) 上執行的公開用戶端應用程式。 此應用程式可以是命令列工具，或是在 Linux/Mac 上執行的應用程式，或者是 IOT 應用程式。 範例應用程式會以使用者 (可以互動式方式登入另一部裝置，例如行動電話) 的名稱存取 Microsoft Graph API。 此用戶端應用程式會使用 MicroSoft 驗證程式庫 (MSAL)。
 
 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph
 ------------------ | -------- |  ----------| ----------
@@ -96,11 +100,11 @@ Web 應用程式 | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> AS
 
 ## <a name="web-apis"></a>Web API
 
-以下範例示範如何透過 Azure AD V2 端點保護 Web API。 此 API 會由 WPF 應用程式執行 (但實際上可由任何應用程式加以呼叫)
+以下範例示範如何透過 Azure AD v2.0 端點保護 Web API。 此 API 會由 WPF 應用程式執行，但可由任何應用程式呼叫。
 
 平台 | 範例
  -------- | -------------------
-![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2) (英文)
+![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2) 的 WebAPI (服務)
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 範例
 

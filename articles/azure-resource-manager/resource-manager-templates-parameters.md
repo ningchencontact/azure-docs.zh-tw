@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 10/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604330"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417764"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的參數區段
 在範本的 parameters 區段中，您會指定可在部署資源時輸入的值。 提供針對特定環境 (例如開發、測試和生產環境) 量身訂做的參數值，可讓您自訂部署。 您不必在範本中提供參數，但若沒有參數，您的範本一律會部署具有相同名稱、位置和屬性的相同資源。
 
-您在範本中限制為 255 個參數。 您可以使用包含多個屬性的物件，以減少參數數目，如本文所示。
+範本中限制使用 256 個參數。 您可以使用包含多個屬性的物件，以減少參數數目，如本文所示。
 
 ## <a name="define-and-use-a-parameter"></a>定義及使用參數
 
@@ -85,8 +85,8 @@ ms.locfileid: "34604330"
 
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
-| parameterName |yes |參數名稱。 必須是有效的 JavaScript 識別碼。 |
-| type |yes |參數值類型。 允許的類型和值為 **string**、**securestring**、**int**、**bool**、**object**、**secureObject**，以及 **array**。 |
+| parameterName |是 |參數名稱。 必須是有效的 JavaScript 識別碼。 |
+| type |是 |參數值類型。 允許的類型和值為 **string**、**securestring**、**int**、**bool**、**object**、**secureObject**，以及 **array**。 |
 | defaultValue |否 |如果未提供參數值，則會使用參數的預設值。 |
 | allowedValues |否 |參數的允許值陣列，確保提供正確的值。 |
 | minValue |否 |int 類型參數的最小值，含此值。 |
@@ -97,7 +97,7 @@ ms.locfileid: "34604330"
 
 ## <a name="template-functions-with-parameters"></a>使用參數的範本函式
 
-為參數提供預設值時，您可以使用大部分的範本函式。 您可以使用另一個參數以建立預設值。 下列範本示範如何以預設值使用函式：
+為參數指定預設值時，您可以使用大部分的範本函式。 您可以使用另一個參數以建立預設值。 下列範本示範如何以預設值使用函式：
 
 ```json
 "parameters": {
@@ -118,7 +118,7 @@ ms.locfileid: "34604330"
 }
 ```
 
-您無法使用參數區段中的 `reference` 函式。 會在部署之前評估參數，因此，`reference` 函式無法取得資源的執行階段狀態。 
+您無法使用參數區段中的 `reference` 函式。 參數會在部署之前受到評估，因此，`reference` 函式無法取得資源的執行階段狀態。 
 
 ## <a name="objects-as-parameters"></a>作為參數的物件
 
@@ -212,7 +212,7 @@ ms.locfileid: "34604330"
    }
    ```
 
-* 定義參數的預設值 (密碼和 SSH 金鑰除外)。 藉由提供預設值，該參數在部署期間變成選用。 預設值可以是空字串。 
+* 定義參數的預設值 (密碼和 SSH 金鑰除外)。 藉由指定預設值，該參數在部署期間變成選用。 預設值可以是空字串。 
    
    ```json
    "parameters": {
@@ -239,7 +239,7 @@ ms.locfileid: "34604330"
    }
    ```
 
-* 請使用參數以指定位置，並盡可能和可能位於相同位置的資源一起共用該參數值。 此方法可以降低系統要求使用者提供位置資訊的次數。 如果只在有限的位置支援某資源類型，您可能想要直接在範本中指定有效的位置，或新增其他位置參數。 當組織限制其使用者的允許區域時，**resourceGroup().location** 運算式可能會導致使用者無法部署範本。 例如，某位使用者在區域中建立資源群組。 第二個使用者必須部署至該資源群組，但沒有該區域的存取權。 
+* 請使用參數以指定位置，並盡可能和可能位於相同位置的資源一起共用該參數值。 此方法可以降低系統要求使用者提供位置資訊的次數。 如果只在有限的位置支援某資源類型，您可能想要直接在範本中指定有效的位置，或新增其他位置參數。 當組織限制其使用者的允許區域時，**resourceGroup().location** 運算式可能會阻止使用者部署範本。 例如，某位使用者在區域中建立資源群組。 第二個使用者必須部署至該資源群組，但沒有該區域的存取權。 
    
    ```json
    "resources": [

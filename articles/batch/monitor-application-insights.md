@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35766823"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138339"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>使用 Application Insights 監視 Azure Batch .NET 應用程式並進行偵錯
 
@@ -25,6 +25,10 @@ ms.locfileid: "35766823"
 本文會示範如何將 Application Insights 程式庫新增至您的 Azure Batch .NET 解決方案並加以設定，以及檢測應用程式的程式碼。 同時示範透過 Azure 入口網站監視應用程式和建置自訂儀表板的方法。 如需了解其他語言中的 Application Insights 支援，請查看[語言、平台及整合文件](../application-insights/app-insights-platforms.md)。
 
 隨附於本文的 C# 解決方案範例與程式碼可於 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) 中取得。 此範例會將 Application Insights 檢測程式碼新增至 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 範例。 如果您不熟悉該範例，請先嘗試建置及執行 TopNWords。 這麼做可協助您了解在多個計算節點上平行處理一組輸入 Blob 的基本 Batch 工作流程。 
+
+> [!TIP]
+> 或者，將您的 Batch 解決方案設定為顯示 Application Insights 資料，例如 Batch Explorer 中的 VM 效能計數器。 [Batch Explorer](https://github.com/Azure/BatchExplorer)是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchExplorer/)。 如需在 Batch Explorer 中啟用 Application Insights 資料的快速步驟，請參閱 [batch-insights 存放庫](https://github.com/Azure/batch-insights)。 
+>
 
 ## <a name="prerequisites"></a>必要條件
 * [Visual Studio 2017](https://www.visualstudio.com/vs)

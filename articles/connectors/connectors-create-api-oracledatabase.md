@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 8e83a246c815a01b417f7658535906c396bf5996
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296014"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230228"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>開始使用 Oracle Database 連接器
 
@@ -27,7 +27,7 @@ ms.locfileid: "35296014"
 
 本文說明如何在邏輯應用程式中使用 Oracle Database 連接器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 支援的 Oracle 版本： 
     * Oracle 9 和更新版本
@@ -36,9 +36,9 @@ ms.locfileid: "35296014"
 * 安裝內部部署資料閘道。 [從邏輯應用程式連線至內部部署資料](../logic-apps/logic-apps-gateway-connection.md)中會列出相關步驟。 您需要閘道或是已安裝 Oracle DB 的 Azure VM，才能連線至內部部署 Oracle Database。 
 
     > [!NOTE]
-    > 內部部署資料閘道的角色如同橋接器，在內部部署資料 (不在雲端中的資料) 和邏輯應用程式之間提供安全的資料傳輸。 相同的閘道可以與多個服務，以及多個資料來源搭配使用。 因此，您只需要安裝一次閘道即可。
+    > 內部部署資料閘道的角色如同橋接器，在內部部署資料 (不在雲端中的資料) 和邏輯應用程式之間提供安全的資料傳輸。 相同的閘道可以與多個服務，以及多個資料來源搭配使用。 因此，您只需要安裝一次閘道即可。
 
-* 在您安裝內部部署資料閘道的機器上安裝 Oracle Client。 請務必從 Oracle 安裝 64 位元的 Oracle Data Provider for .NET：  
+* 在您安裝內部部署資料閘道的機器上安裝 Oracle Client。 請務必從 Oracle 安裝 64 位元的 Oracle Data Provider for .NET：  
 
   [適用於 Windows x64 的 64 位元 ODAC 12c 版本 4 (12.1.0.2.4)](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -97,25 +97,25 @@ ms.locfileid: "35296014"
 
 #### <a name="error-cannot-reach-the-gateway"></a>**錯誤**：無法連線至閘道
 
-**原因**：內部部署資料閘道無法連線至雲端。 
+**原因**：內部部署資料閘道無法連線至雲端。 
 
-**風險降低**：確保您的閘道在安裝的內部部署機器中執行，且可連線至網際網路。  我們建議不要在可能關閉或休眠的電腦上安裝閘道。 您也可以重新啟動內部部署資料閘道服務 (PBIEgwService)。
+**風險降低**：確保您的閘道在安裝的內部部署機器中執行，且可連線至網際網路。  我們建議不要在可能關閉或休眠的電腦上安裝閘道。 您也可以重新啟動內部部署資料閘道服務 (PBIEgwService)。
 
 #### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**錯誤**：使用的提供者已被取代：'System.Data.OracleClient requires Oracle 用戶端軟體版本 8.1.7 或更高版本。'。 請參閱 [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) 來安裝官方提供者。
 
-**原因**：Oracle 用戶端 SDK 並未安裝在內部部署資料閘道執行的機器上。  
+**原因**：Oracle 用戶端 SDK 並未安裝在內部部署資料閘道執行的機器上。  
 
 **解決方案**：在與內部部署資料閘道相同的電腦上下載並安裝 Oracle 用戶端 SDK。
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**錯誤**：資料表 '[Tablename]' 並未定義任何索引鍵資料行
 
-**原因**：資料表沒有任何主要索引鍵。  
+**原因**：資料表沒有任何主要索引鍵。  
 
 **解決方案**：Oracle Database 連接器需要使用主要索引鍵資料行的資料表。
 
 #### <a name="currently-not-supported"></a>目前不支援
 
-* 檢視和已存程序 
+* 檢視和已存程序 
 * 包含複合索引鍵的任何資料表
 * 資料表中的巢狀物件類型
  
@@ -127,7 +127,7 @@ ms.locfileid: "35296014"
 
 若要提出問題、回答問題以及查看其他 Logic Apps 使用者的做法，可以前往 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。 
 
-您可以投票並在 [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish) 中提交意見，協助改善 Logic Apps 和連接器。 
+您可以投票並在 [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish) 中提交意見，協助改善 Logic Apps 和連接器。 
 
 
 ## <a name="next-steps"></a>後續步驟

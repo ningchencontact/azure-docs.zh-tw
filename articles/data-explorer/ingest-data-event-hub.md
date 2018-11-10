@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: efaf551d134d339205d40966cb84f41b408559bd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3350c222cced036af6319cee166c53da0b14f2a9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394173"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210443"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>快速入門：將資料從事件中樞內嵌至 Azure 資料總管
 
@@ -27,7 +27,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 * [測試叢集和資料庫](create-cluster-database-portal.md)
 
-* 產生資料的[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)
+* 產生資料並將其傳送至事件中樞的[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)
 
 * [Visual studio 2017 15.3.2 版或更新版本](https://www.visualstudio.com/vs/)，以執行範例應用程式
 
@@ -37,9 +37,9 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 ## <a name="create-an-event-hub"></a>建立事件中樞
 
-在本快速入門中，您會產生範例資料，並將之傳送到事件中樞。 第一個步驟是建立事件中樞。 做法是使用 Azure 入口網站中的 Azure Resource Manager (ARM) 範本。
+在本快速入門中，您會產生範例資料，並將之傳送到事件中樞。 第一個步驟是建立事件中樞。 其做法是使用 Azure 入口網站中的 Azure Resource Manager 範本。
 
-1. 選取下列按鈕以開始部署。
+1. 使用下列按鈕開始部署。 建議您在另一個索引標籤或視窗中開啟連結，以依照本文中的其餘步驟操作。
 
     [![部署至 Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -69,13 +69,15 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 1. 選取 [採購]，這會確認您正在您的訂用帳戶中建立資源。
 
-1. 在工具列上選取 [通知] \(鈴鐺圖示\) 以監視佈建程序。 可能需要幾分鐘的時間，部署才會成功，但您現在可以移至下一個步驟。
+1. 在工具列上選取 [通知] 以監視佈建程序。 可能需要幾分鐘的時間，部署才會成功，但您現在可以移至下一個步驟。
+
+    ![通知](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>在 Azure 資料總管中建立目標資料表
 
 現在要在 Azure 資料總管中建立一個資料表，供事件中樞將資料傳送至此。 您會在於**必要條件**中佈建的叢集與資料庫中建立該資料表。
 
-1. 在 Azure 入口網站中，您的叢集下方，選取 [查詢]。
+1. 在 Azure 入口網站中瀏覽至您的叢集，然後選取 [查詢]。
 
     ![查詢應用程式連結](media/ingest-data-event-hub/query-explorer-link.png)
 
@@ -92,11 +94,11 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    此命令會將傳入的 JSON 資料對應到建立資料表時使用的資料行名稱與資料類型。
+    此命令會將傳入的 JSON 資料對應至資料表 (TestTable) 的資料行名稱與資料類型。
 
 ## <a name="connect-to-the-event-hub"></a>連線至事件中樞
 
-現在會從 Azure 資料總管連線到事件中樞，讓流入事件中樞的資料串流到測試資料表。
+現在您應從 Azure 資料總管連線至事件中樞。 此連線建立後，流入事件中樞資料的資料即會串流至您先前在本文中建立的測試資料表。
 
 1. 選取工具列上的 [通知]，以確認事件中樞部署已成功。
 
@@ -118,27 +120,27 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     | 事件中樞命名空間 | 唯一命名空間名稱 | 您先前選擇用來辨識命名空間的名稱。 |
     | 事件中樞 | *test-hub* | 您建立的事件中樞。 |
     | 取用者群組 | *test-group* | 在您所建立事件中樞中定義的取用者群組。 |
+    | 目標資料表 | 將 [我的資料包含路由資訊] 保留為未選取。 | 路由有兩個選項：*靜態*和*動態*。 在本快速入門中，您將使用靜態路由 (預設值)，而指定資料表名稱、檔案格式和對應。 您也可以使用動態路由，此時您的資料會包含必要的路由資訊。 |
     | 資料表 | *TestTable* | 您在 **TestDatabase** 中建立的資料表。 |
     | 資料格式 | *JSON* | 支援 JSON 和 CSV 格式。 |
-    | 資料行對應 | *TestMapping* | 您在 [TestDatabase] 中建立的對應。 |
-
-    對於本快速入門，您使用事件中樞中的*靜態路由*，在此您會指定資料表名稱、檔案格式和對應。 您也可以使用動態路由，由您的應用程式設定這些屬性。
+    | 資料行對應 | *TestMapping* | 您在 **TestDatabase** 中建立的對應，會將傳入的 JSON 資料對應至 **TestTable** 的資料行名稱與資料類型。|
+    | | |
 
 ## <a name="copy-the-connection-string"></a>複製連接字串
 
-當執行應用程式產生範例資料時，您需要事件中樞命名空間的連接字串。
+當您執行「必要條件」中所列的[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)時，您需要事件中樞命名空間的連接字串。
 
 1. 在您建立的事件中樞命名空間下方，選取 [共用存取原則]，然後選取 [RootManageSharedAccessKey]。
 
     ![共用存取原則](media/ingest-data-event-hub/shared-access-policies.png)
 
-1. 複製 [連接字串 - 主索引鍵]。
+1. 複製 [連接字串 - 主索引鍵]。 您在下一節中貼上這項資料。
 
     ![連接字串](media/ingest-data-event-hub/connection-string.png)
 
 ## <a name="generate-sample-data"></a>產生範例資料
 
-現在 Azure 資料總管與事件中樞已連線，接著您會使用您下載的範例應用程式產生資料。
+現在 Azure 資料總管與事件中樞已連線，接著您會使用您下載的[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)產生資料。
 
 1. 請在 Visual Studio 中開啟範例應用程式解決方案。
 
@@ -156,20 +158,22 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 ## <a name="review-the-data-flow"></a>檢閱資料流程
 
+在應用程式產生資料後，您現在可以檢視該資料從事件中樞傳至叢集中資料表的流程。
+
 1. 當應用程式正在執行時，在 Azure 入口網站內事件中樞的下方，您會看見活動爆增。
 
     ![事件中樞圖](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. 請返回應用程式，並在到達第 99 個訊息後將之停止。
+1. 請返回範例應用程式，並在到達第 99 個訊息後將其停止。
 
-1. 請在測試資料庫中執行下列查詢，檢查目前為止已有多少則訊息成功進入資料庫。
+1. 若要檢查目前為止已有多少則訊息成功進入資料庫，請在測試資料庫中執行下列查詢。
 
     ```Kusto
     TestTable
     | count
     ```
 
-1. 請執行下列查詢以查看訊息的內容。
+1. 若要查看訊息的內容，請執行下列查詢。
 
     ```Kusto
     TestTable

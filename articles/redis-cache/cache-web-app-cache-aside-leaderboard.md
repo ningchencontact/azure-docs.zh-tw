@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
-ms.openlocfilehash: b0f1ba7f0799fb9f8f58370a39758416eab43dc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2dffc178a017d8b16ea7a36407d8bbf62c6d642
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195799"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242138"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教學課程：在 ASP.NET 上建立另行快取排行榜
 
@@ -36,7 +36,7 @@ ms.locfileid: "32195799"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您必須具備下列先決條件：
 
@@ -150,7 +150,7 @@ ms.locfileid: "32195799"
     }
     ```
 
-1. 在 [方案總管] 中，連按兩下 [web.config] 來加以開啟。
+1. 在 [方案總管] 中，連按兩下 [Web.config] 加以開啟。
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 

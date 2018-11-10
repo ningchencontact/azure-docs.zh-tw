@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6e0029e051e418bc54471284547329a0b0a2e9cd
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404319"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246649"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault 的虛擬網路服務端點
 
@@ -44,7 +44,7 @@ Key Vault 的虛擬網路服務端點可讓您將指定虛擬網路和/或 IPv4 
 如需詳細的逐步指示，請參閱[設定 Azure Key Vault 防火牆和虛擬網路](key-vault-network-security.md)。
 
 > [!IMPORTANT]
-> 防火牆規則一旦生效，只有在呼叫端要求源自允許的虛擬網路或 IPV4 位址範圍時，才可以執行所有的 Key Vault [資料平面](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control)作業。 這也適用於從 Azure 入口網站存取金鑰保存庫。 雖然使用者可以從 Azure 入口網站瀏覽金鑰保存庫，但是如果其用戶端電腦不在允許的清單中，他們就無法列出金鑰/祕密/憑證。 這也會影響其他 Azure 服務的 [金鑰保存庫選擇器]。 使用者可以看到金鑰保存庫清單，但是如果防火牆規則阻止其用戶端電腦，則不會列出金鑰。
+> 防火牆規則一旦生效，只有在呼叫端要求源自允許的虛擬網路或 IPV4 位址範圍時，才可以執行所有的 Key Vault [資料平面](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control)作業。 (若要深入了解管理平面與資料平面的詳細資訊，請閱讀[此節](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control)) 這也適用於從 Azure 入口網站存取金鑰保存庫。 雖然使用者可以從 Azure 入口網站瀏覽金鑰保存庫，但是如果其用戶端電腦不在允許的清單中，他們就無法列出金鑰/祕密/憑證。 這也會影響其他 Azure 服務的 [金鑰保存庫選擇器]。 使用者可以看到金鑰保存庫清單，但是如果防火牆規則阻止其用戶端電腦，則不會列出金鑰。
 
 
 > [!NOTE]

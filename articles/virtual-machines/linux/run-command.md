@@ -1,19 +1,19 @@
 ---
 title: 在 Azure 上的 Linux VM 中執行殼層指令碼
-description: 此主題說明如何使用執行命令在 Azure Linux 虛擬機器中執行指令碼
+description: 本主題說明如何使用執行命令在 Azure Linux 虛擬機器中執行指令碼
 services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ba60f770c094f65ee5a4ed6dc21a5e07bac3d27
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267744"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158800"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>使用執行命令在 Linux VM 中執行殼層指令碼
 
@@ -38,6 +38,9 @@ ms.locfileid: "48267744"
 * 指令碼可以執行的最長時間是 90 分鐘，經過這段時間後會逾時
 * 需要有虛擬機器的輸出連線，才能傳回指令碼結果。
 
+> [!NOTE]
+> Run 命令需要連線 (連接埠 443) 到 Azure 公用 IP 位址，才能正確運作。 如果擴充功能無法存取這些端點，指令碼可能會執行成功，但不會傳回結果。 如果您要封鎖虛擬機器上的流量，可以使用[服務標籤](../../virtual-network/security-overview.md#service-tags)，以便利用 `AzureCloud` 標籤來允許送至 Azure 公用 IP 位址的流量。
+
 ## <a name="azure-cli"></a>Azure CLI
 
 以下是使用 [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 命令在 Azure Linux VM 上執行殼層指令碼的範例。
@@ -55,7 +58,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ![執行命令清單](./media/run-command/run-command-list.png)
 
-選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可讓您提供輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼] 檢視執行中的指令碼。 **RunShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。 
+選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可讓您提供輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼] 檢視執行中的指令碼。 **RunShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。
 
 > [!NOTE]
 > 內建命令是無法編輯的。

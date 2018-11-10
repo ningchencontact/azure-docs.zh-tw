@@ -1,20 +1,21 @@
 ---
-title: LUIS 應用程式的應用程式儀表板 | Microsoft Docs
+title: Language Understanding 應用程式的應用程式儀表板
+titleSuffix: Azure Cognitive Services
 description: 了解應用程式儀表板，這個視覺化報告工具可讓您以速覽方式監視您的應用程式。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224495"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212803"
 ---
 # <a name="application-dashboard"></a>應用程式儀表板
 應用程式儀表板可讓您以速覽方式監視您的應用程式。 [儀表板] 會在您開啟應用程式時顯示，做法是在 [我的應用程式] 頁面上按一下應用程式名稱，然後從頂端面板中選取 [儀表板]。 

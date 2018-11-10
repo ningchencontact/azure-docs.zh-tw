@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 43b317cd9d1c9384a58e9d525fdd15d18eb63968
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246631"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242514"
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知
 
@@ -28,7 +28,7 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 ## <a name="prerequisites"></a>必要條件
 
 * Azure Logic Apps 支援的任何電子郵件提供者 (如 Office 365 Outlook、Outlook.com 或 Gmail) 所提供的電子郵件帳戶。 這個電子郵件帳戶用來傳送事件通知。 如需支援的完整邏輯應用程式連接器清單，請參閱[連接器概觀](https://docs.microsoft.com/connectors/)
-* 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以[建立免費帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+* 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以[建立免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 * Azure 中的 IoT 中樞。 若尚未建立，請參閱[開始使用 IoT 中樞](../iot-hub/iot-hub-csharp-csharp-getstarted.md)的逐步解說。 
 
 ## <a name="create-a-logic-app"></a>建立邏輯應用程式

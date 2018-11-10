@@ -1,19 +1,19 @@
 ---
 title: 在 Azure 的 Windows 虛擬機器中執行 PowerShell 指令碼
-description: 此主題說明如何使用執行命令在 Azure Windows 虛擬機器中執行 PowerShell 指令碼
+description: 本主題說明如何使用執行命令在 Azure Windows 虛擬機器中執行 PowerShell 指令碼
 services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267948"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138220"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>使用執行命令在 Windows 虛擬機器中執行 PowerShell 指令碼
 
@@ -37,6 +37,9 @@ ms.locfileid: "48267948"
 * 您無法取消執行中的指令碼
 * 指令碼可以執行的最長時間是 90 分鐘，經過這段時間後會逾時
 * 需要有虛擬機器的輸出連線，才能傳回指令碼結果。
+
+> [!NOTE]
+> Run 命令需要連線 (連接埠 443) 到 Azure 公用 IP 位址，才能正確運作。 如果擴充功能無法存取這些端點，指令碼可能會執行成功，但不會傳回結果。 如果您要封鎖虛擬機器上的流量，可以使用[服務標籤](../../virtual-network/security-overview.md#service-tags)，以便利用 `AzureCloud` 標籤來允許送至 Azure 公用 IP 位址的流量。
 
 ## <a name="run-a-command"></a>執行命令
 

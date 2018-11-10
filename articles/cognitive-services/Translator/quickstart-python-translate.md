@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Python 翻譯文字 - 翻譯工具文字 API
+title: 快速入門：翻譯文字 (Python) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將使用翻譯工具文字 API 搭配 Python，在 10 分鐘內將文字翻譯成另一種語言。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: a9f848098f377a79ded07d3bbe41f212cb4a7e74
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945344"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085972"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>快速入門：搭配使用翻譯工具文字 API 和 Python 翻譯字串
 
@@ -102,7 +102,7 @@ body = [{
 }]
 ```
 
-接著，我們將使用 `requests` 模組建立 post 要求。 此作業會採用三個引數：串連的 URL、要求標頭和要求本文：
+接著，我們將使用 `requests` 模組建立 POST 要求。 此作業會採用三個引數：串連的 URL、要求標頭和要求本文：
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -114,7 +114,7 @@ response = request.json()
 最後一個步驟是列印結果。 此程式碼片段會排序索引鍵、設定縮排，並宣告項目和索引鍵分隔符號，以美化結果。
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>組合在一起

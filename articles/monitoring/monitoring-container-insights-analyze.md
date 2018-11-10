@@ -1,5 +1,5 @@
 ---
-title: 使用適用於容器的 Azure 監視器來監視 AKS 叢集效能 | Microsoft Docs
+title: 使用適用於容器的 Azure 監視器 (預覽) 來監視 AKS 叢集效能 | Microsoft Docs
 description: 本文說明如何使用適用於容器的 Azure 監視器，來檢視和分析效能與記錄資料。
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 6df7d42bc291713a815cac9f719f53136ed35b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: daec3d6e6cd8e4df3fdfe45fbb8ee98966c8a38e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956650"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214149"
 ---
-## <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用適用於容器的 Azure 監視器來了解 AKS 叢集效能
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers-preview"></a>使用適用於容器的 Azure 監視器 (預覽) 來了解 AKS 叢集效能
 檢視 Azure Kubernetes Service (AKS) 叢集的效能，可以使用適用於容器的 Azure 監視器從兩個檢視方塊中觀測到：直接從 AKS 叢集，或者從 Azure 監視器檢視訂用帳戶中的所有 AKS 叢集。 
 
 本文將協助您了解這兩個檢視方塊之間的體驗，以及如何快速地評估、調查和解決所偵測到的問題。
@@ -109,6 +109,10 @@ Azure 監視器提供多叢集檢視，來顯示您訂用帳戶中跨資源群�
 
 ![效能檢視中的範例 Kubernetes 節點階層](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
+在展開的節點，您可以從節點上執行的 Pod 或容器向下切入到控制器，檢視為該控制器篩選的效能資料。 按一下特定節點 [控制器] 欄下方的值。   
+
+![效能檢視中從節點到控制器的向下切入範例](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
 您可以從頁面頂端選取控制器或容器，然後檢閱那些物件的狀態與資源使用率。  如果您想要改為檢閱記憶體使用率，請在 [計量] 下拉式清單中選取 [記憶體 RSS] 或 [記憶體工作集]。 只有 Kubernetes 1.8 版和更新版本才支援**記憶體 RSS**。 否則，您會以 *NaN&nbsp;%* 的形式檢視 **Min&nbsp;%** 的值，這是代表未定義或無法顯示之值的數值資料類型值。 
 
 ![容器節點效能檢視](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
@@ -144,7 +148,9 @@ Azure 監視器提供多叢集檢視，來顯示您訂用帳戶中跨資源群�
 
 ![<Name> 控制器效能檢視](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-資料列階層會以控制器開始並展開控制器。 您會檢視一或多個容器。 展開 Pod，最後一個資料夾會顯示分組至 Pod 的容器。  
+資料列階層以控制器為首，展開控制器時，您會看到一或多個 Pod。  展開 Pod，最後一個資料列會顯示分組至 Pod 的容器。 在展開的控制器，您可以向下切入到控制器執行的節點，檢視為該節點篩選的效能資料。 按一下特定控制器 [節點] 欄下方的值。   
+
+![效能檢視中從節點到控制器的向下切入範例](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 在您檢視控制器時所顯示的資訊已詳述於下表：
 
@@ -178,6 +184,10 @@ Azure 監視器提供多叢集檢視，來顯示您訂用帳戶中跨資源群�
 您可在這裡檢視 Azure Kubernetes 容器的效能健康情況。  
 
 ![<Name> 控制器效能檢視](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+您可以在容器向下切入至 Pod 或節點，檢視為該物件篩選的資料。 按一下特定容器的 [Pod] 或 [節點] 欄。   
+
+![效能檢視中從節點到控制器的向下切入範例](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 在您檢視容器時所顯示的資訊已詳述於下表：
 

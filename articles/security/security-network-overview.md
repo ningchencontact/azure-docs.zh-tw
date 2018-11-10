@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498499"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233798"
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 
@@ -29,12 +29,15 @@ ms.locfileid: "46498499"
 
 * Azure 網路
 * 網路存取控制
+* Azure 防火牆
 * 安全遠端存取和跨單位連線
 * 可用性
 * 名稱解析
 * 周邊網路 (DMZ) 架構
-* 監視與威脅偵測
 * Azure DDoS 保護
+* Azure Front Door
+* 流量管理員
+* 監視與威脅偵測
 
 ## <a name="azure-networking"></a>Azure 網路
 
@@ -126,6 +129,19 @@ Azure 網路支援在虛擬網路上自訂網路流量路由行為的能力。 �
 
 您可以使用 Azure 合作夥伴方案，來存取這些增強的網路安全性功能。 您可以造訪 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 並搜尋「安全性」和「網路安全性」，來尋找最新的 Azure 合作夥伴網路安全性解決方案。
 
+## <a name="azure-firewall"></a>Azure 防火牆
+
+Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 Azure 虛擬網路資源。 它是完全具狀態防火牆即服務，具有內建的高可用性和不受限制的雲端延展性。 部分功能包括：
+
+* 高可用性
+* 雲端延展性
+* 應用程式 FQDN 篩選規則
+* 網路流量篩選規則
+
+深入了解：
+
+* [Azure 防火牆概觀](../firewall/overview.md)
+
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>安全遠端存取和跨單位連線
 
 需要從遠端完成 Azure 資源的安裝、設定和管理。 此外，您可能想要部署其元件位於內部部署和 Azure 公用雲端中的[混合式 IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) \(英文\) 解決方案。 這些案例都需要安全遠端存取。
@@ -139,9 +155,15 @@ Azure 網路支援下列安全遠端存取案例︰
 
 ### <a name="connect-individual-workstations-to-a-virtual-network"></a>將個別工作站連線到虛擬網路
 
-您可能想要讓個別的開發人員或操作人員在 Azure 中管理虛擬機器和服務。 例如，假設您需要存取虛擬網路上的虛擬機器。 但您的安全性原則不允許以 RDP 或 SSH 方式遠端存取個別虛擬機器。 在此情況下，您可以使用點對站 VPN 連接。
+您可能想要讓個別的開發人員或操作人員在 Azure 中管理虛擬機器和服務。 例如，假設您需要存取虛擬網路上的虛擬機器。 但您的安全性原則不允許以 RDP 或 SSH 方式遠端存取個別虛擬機器。 在此情況下，您可以使用[點對站 VPN](../vpn-gateway/point-to-site-about.md) 連線。
 
-點對站 VPN 連線會使用 [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) \(英文\) 通訊協定，讓您可以在使用者與虛擬網路之間設定私人的安全連線。 建立 VPN 連線時，使用者可以透過 VPN 連結以 RDP 或 SSH 方式連線到虛擬網路上的任何虛擬機器 (這假設使用者可進行驗證且已獲授權)。
+點對站 VPN 連線可讓您在使用者與虛擬網路之間設定私人的安全連線。 建立 VPN 連線時，使用者可以透過 VPN 連結以 RDP 或 SSH 方式連線到虛擬網路上的任何虛擬機器 (這假設使用者可進行驗證且已獲授權)。點對站 VPN 支援：
+
+* 安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎的專屬 VPN 通訊協定。 SSL VPN 解決方案可以穿透防火牆，因為大部分防火牆都會開啟 SSL 使用的 TCP 連接埠 443。 SSTP 僅在 Microsoft 裝置上提供支援。 Azure 支援所有具有 SSTP (Windows 7 及更新版本) 的 Windows 版本。
+
+* IKEv2 VPN，標準型 IPsec VPN 解決方案。 IKEv2 VPN 可用於從 Mac 裝置連線 (OSX 版本 10.11 和更新版本)。
+
+* [OpenVPN](https://azure.microsoft.com/updates/openvpn-support-for-azure-vpn-gateways/)
 
 深入了解：
 
@@ -165,11 +187,13 @@ Azure 網路支援下列安全遠端存取案例︰
 * VPN 連線會透過網際網路移動資料。 這會讓這些連線暴露在與透過公用網路移動資料有關的潛在安全性問題之中。 此外，無法保證網際網路連線的可靠性和可用性。
 * 連線到虛擬網路的 VPN 連線可能沒有頻寬可供某些應用程式和用途使用，因為最大頻寬約為 200 Mbps。
 
-需要最高安全性和可用性層級進行其跨單位連接的組織，一般會使用專用 WAN 連結連接到遠端網站。 Azure 讓您能夠使用可用來將內部部署網路連線到虛擬網路的專用 WAN 連結。 Azure ExpressRoute 會啟用此功能。
+需要最高安全性和可用性層級進行其跨單位連接的組織，一般會使用專用 WAN 連結連接到遠端網站。 Azure 讓您能夠使用可用來將內部部署網路連線到虛擬網路的專用 WAN 連結。 Azure ExpressRoute、Express Route Direct 與 Express Route Global Reach 可啟用此功能。
 
 深入了解：
 
 * [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)
+* [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md)
+* [Express Route Global Reach](..//expressroute/expressroute-global-reach.md)
 
 ### <a name="connect-virtual-networks-to-each-other"></a>使虛擬網路彼此連線
 
@@ -287,6 +311,46 @@ Azure 會以 Azure DNS 的形式提供高可用性且高效能的外部 DNS 解�
 
 * [Microsoft 雲端服務和網路安全性](../best-practices-network-security.md)
 
+## <a name="azure-ddos-protection"></a>Azure DDoS 保護
+
+分散式阻斷服務 (DDoS) 攻擊是將應用程式移至雲端的客戶所面臨的最大可用性和安全性顧慮之一。 DDoS 攻擊會嘗試耗盡應用程式的資源，讓合法使用者無法使用該應用程式。 DDoS 攻擊可以鎖定可透過網際網路公開觸達的任何端點。
+Microsoft 提供在 Azure 平台中名為**基本**的 DDoS 保護。 此功能不收費，且會持續監視和即時緩解常見的網路層級攻擊。 除了隨附於 DDoS 保護**基本**的保護功能以外，您也可以啟用**標準**選項。 DDoS Protection Standard 功能包括：
+
+* **原生平台整合**：原生整合到 Azure。 包括透過 Azure 入口網站進行設定。 DDoS Protection Standard 了解您的資源和資源組態。
+* **現成的保護：** 經過簡化的組態會在啟用 DDoS Protection Standard 後，立即保護虛擬網路上的所有資源。 不需要任何介入或使用者定義。 一旦偵測到攻擊，DDoS Protection Standard 就會立即自動減輕攻擊。
+* **永遠可用流量監視：** 您的應用程式流量模式受到全年無休的全天候監視，以尋找 DDoS 攻擊的指標。 超出保護原則時，就會執行安全防護功能。
+* **攻擊風險降低報**攻擊風險降低報告會使用彙總的網路流量資料，提供有關以您資源為目標的攻擊詳細資訊。
+* **攻擊風險降低流程記錄**攻擊風險降低流程記錄可讓您在作用中 DDoS 攻擊期間，近乎即時地查看丟棄的流量、轉送的流量及其他相關攻擊資料。
+* **自適性調整：** 智慧型流量分析功能可了解不同時間的應用程式流量，並選取及更新最適合您服務的設定檔。 設定檔會隨著時間調整流量變更。 第 3 層至第 7 層保護：搭配 Web 應用程式防火牆使用時，可提供完整的堆疊 DDoS 保護。
+* **廣泛的安全防護範圍：** 可利用全域功能降低超過 60 種不同攻擊類型的風險，以抵禦最大的已知 DDoS 攻擊。
+* **攻擊計量：** 透過 Azure 監視器可以存取每個攻擊的摘要計量。
+* **攻擊警示：** 警示可設定為在開始和停止攻擊時，並且在攻擊的持續時間內使用內建攻擊計量。 警示會整合到您的作業軟體，例如 Microsoft Azure Log Analytics、Splunk、Azure 儲存體、電子郵件和 Azure 入口網站。
+* **成本保證：** 資料傳輸和應用程式相應放大服務會針對記載的 DDoS 攻擊計算點數。
+* **DDoS 快速回應**標準 DDoS 保護的客戶現在可以在攻擊進行期間，連絡 Rapid Response 小組。 DRR 可協助您在攻擊發生期間調查攻擊和自訂移轉，以及進行攻擊後的分析。
+
+
+深入了解：
+
+* [DDOS 保護概觀](../virtual-network/ddos-protection-overview.md)
+
+## <a name="azure-front-door"></a>Azure Front Door
+
+Azure Front Door 服務可讓您定義、管理及監視您 Web 流量的全域路由。 這可最佳化您的流量路由，以達到最佳效能和高可用性。 Azure Front Door 可讓您撰寫自訂 Web 應用程式防火牆 (WAF) 規則進行存取控制，以保護您的 HTTP/HTTPS 工作負載，免於遭受以用戶端 IP 位址、國家/地區代碼及 http 參數為基礎的攻擊。 此外，Front Door 也可讓您建立比率限制規則，以對抗惡意的 Bot 流量，其中包括 SSL 卸載，以及每個 HTTP/HTTPS 要求和應用程式層的處理。
+
+Front Door 平台本身受到基本 Azure DDoS 保護所保護。 如需進一步保護，可在您的 VNET 啟用標準 Azure DDoS 保護，以透過自動調整和風險降低，保護資源免於遭受網路層 (TCP/UDP) 攻擊。 Front Door 是第 7 層反向 Proxy，只允許 Web 流量傳遞到後端伺服器，且預設會封鎖其他類型的流量。
+
+深入了解：
+
+* 如需有關整組 Azure Front Door 功能的詳細資訊，您可以檢閱 [Azure Front Door 概觀](../frontdoor/front-door-overview.md)
+
+## <a name="azure-traffic-manager"></a>Azure 流量管理員
+
+Azure 流量管理員是 DNS 型流量負載平衡器，可讓您跨全球的 Azure 區域將流量最佳分散至服務，同時提供高可用性和回應性。 流量管理員會使用 DNS，根據流量路由方法和端點的健康情況，將用戶端要求導向最適當的服務端點。 端點是裝載於 Azure 內部或外部的任何網際網路對向服務。 流量管理員會監視端點，而且不會將流量導向任何無法使用的端點。
+
+深入了解：
+
+* [Azure 流量管理員概觀](../traffic-manager/traffic-manager-overview.md)
+
 ## <a name="monitoring-and-threat-detection"></a>監視與威脅偵測
 
 Azure 提供的功能可協助您在這個重要領域中及早偵測、監視，並收集和檢視網路流量。
@@ -318,6 +382,14 @@ Azure 資訊安全中心可協助您預防、偵測和回應威脅，並加強�
 
 * [Azure 資訊安全中心簡介](../security-center/security-center-intro.md)
 
+### <a name="virtual-network-tap"></a>虛擬網路 TAP
+
+Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路流量串流到網路封包收集器或分析工具。 收集器或分析工具是由網路虛擬設備合作夥伴所提供。 您可以使用相同的虛擬網路 TAP 資源，以從相同或不同訂用帳戶中的多個網路介面彙總流量。
+
+深入了解：
+
+* [虛擬網路 TAP](../virtual-network/virtual-network-tap-overview.md)
+
 ### <a name="logging"></a>記錄
 
 網路層級的記錄是任何網路安全性案例的重要功能。 在 Azure 中，您可以記錄針對 NSG 所取得的資訊，以取得網路層級的記錄資訊。 使用 NSG 記錄，您可以從下列項目取得資訊︰
@@ -330,21 +402,3 @@ Azure 資訊安全中心可協助您預防、偵測和回應威脅，並加強�
 深入了解：
 
 * [網路安全性群組 (NSG) 的 Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md)
-
-## <a name="azure-ddos-protection"></a>Azure DDoS 保護
-
-分散式阻斷服務 (DDoS) 攻擊是將應用程式移至雲端的客戶所面臨的最大可用性和安全性顧慮之一。 DDoS 攻擊會嘗試耗盡應用程式的資源，讓合法使用者無法使用該應用程式。 DDoS 攻擊可以鎖定可透過網際網路公開觸達的任何端點。
-Microsoft 提供在 Azure 平台中名為**基本**的 DDoS 保護。 此功能不收費，且會持續監視和即時緩解常見的網路層級攻擊。 除了隨附於 DDoS 保護**基本**的保護功能以外，您也可以啟用**標準**選項。 DDoS Protection Standard 功能包括：
-
-* **原生平台整合**：原生整合到 Azure。 包括透過 Azure 入口網站進行設定。 DDoS Protection Standard 了解您的資源和資源組態。
-* **現成的保護：** 經過簡化的組態會在啟用 DDoS Protection Standard 後，立即保護虛擬網路上的所有資源。 不需要任何介入或使用者定義。 一旦偵測到攻擊，DDoS Protection Standard 就會立即自動減輕攻擊。
-* **永遠可用流量監視：** 您的應用程式流量模式受到全年無休的全天候監視，以尋找 DDoS 攻擊的指標。 超出保護原則時，就會執行安全防護功能。
-* **自適性調整：** 智慧型流量分析功能可了解不同時間的應用程式流量，並選取及更新最適合您服務的設定檔。 設定檔會隨著時間調整流量變更。 第 3 層至第 7 層保護：搭配 Web 應用程式防火牆使用時，可提供完整的堆疊 DDoS 保護。
-* **廣泛的安全防護範圍：** 可利用全域功能降低超過 60 種不同攻擊類型的風險，以抵禦最大的已知 DDoS 攻擊。
-* **攻擊計量：** 透過 Azure 監視器可以存取每個攻擊的摘要計量。
-* **攻擊警示：** 警示可設定為在開始和停止攻擊時，並且在攻擊的持續時間內使用內建攻擊計量。 警示會整合到您的作業軟體，例如 Microsoft Azure Log Analytics、Splunk、Azure 儲存體、電子郵件和 Azure 入口網站。
-* **成本保證：** 資料傳輸和應用程式相應放大服務會針對記載的 DDoS 攻擊計算點數。
-
-深入了解：
-
-* [DDOS 保護概觀](../virtual-network/ddos-protection-overview.md)

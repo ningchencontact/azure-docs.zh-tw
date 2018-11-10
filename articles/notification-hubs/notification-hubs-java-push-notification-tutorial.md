@@ -14,19 +14,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: fe20cf9c9137dc1ca41d3b8e2445bac079fb33fc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a7ced71f2d0a8c5d956bbdbcd8fcae485aee3fc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141480"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241562"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>如何從 Java 使用通知中樞
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 本主題說明最新完整支援的官方 Azure 通知中樞 Java SDK 有哪些主要功能。 此專案為開放原始碼專案，您可以在 [Java SDK] 中檢視完整的 SDK 程式碼。 
 
-一般而言，您可以使用通知中樞 REST 介面，來存取 Java/PHP/Python/Ruby 後端的所有通知中樞功能，如 MSDN 主題 [通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx)中所述。 此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。 
+一般而言，您可以使用通知中樞 REST 介面，來存取 Java/PHP/Python/Ruby 後端的所有通知中樞功能，如 MSDN 主題 [通知中樞 REST API](https://msdn.microsoft.com/library/dn223264.aspx)中所述。 此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。 
 
 SDK 目前支援：
 

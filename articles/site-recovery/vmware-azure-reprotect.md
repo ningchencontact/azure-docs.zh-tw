@@ -1,21 +1,20 @@
 ---
-title: 從 Azure 在內部部署網站中重新保護 VM | Microsoft Docs
-description: 將 VM 容錯移轉到 Azure 之後，您可以起始將 VM 容錯回復到內部部署的作業。 了解如何在容錯回復之前重新保護。
-services: site-recovery
+title: 在 VMware VM 和實體伺服器的災害復原期間將 VM 從 Azure 重新保護至內部部署網站 | Microsoft Docs
+description: 在 VMware VM 和實體伺服器的災害復原期間容錯移轉至 Azure 後，了解如何從 Azure 容錯回復至內部部署網站。
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346674"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213282"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>從 Azure 在內部部署網站中重新保護機器
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>在容錯移轉至 Azure 之後將機器重新保護和容錯回復至內部部署網站
 
 將內部部署 VMware VM 或實體伺服器[容錯移轉](site-recovery-failover.md)到 Azure 之後，容錯回復到內部部署網站的第一個步驟，是重新保護在容錯移轉期間建立的 Azure VM。 本文說明如何執行此操作。 
 

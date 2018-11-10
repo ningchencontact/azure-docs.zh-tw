@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237971"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210681"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>架構與概念：Azure Machine Learning 服務如何運作？ 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
 此文件說明 Azure Machine Learning 服務的架構與概念。 下圖顯示服務的主要元件，並說明使用服務時的一般工作流程： 
 
@@ -156,16 +156,28 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 
 如需實驗使用範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-get-started.md)文件。
 
+## <a name="pipelines"></a>管線
+
+管線可用來建立和管理結合了多個機器學習階段的工作流程。 例如，管線可能包含資料準備、模型訓練、模型部署和推斷階段。 每個階段都可以包含多個步驟，這些步驟各自都可以在各種計算目標中自動執行。
+
+如需機器學習管線與此服務的詳細資訊，請參閱[管線和 Azure Machine Learning](concept-ml-pipelines.md) 一文。
+
 ## <a name="compute-target"></a>計算目標
 
-計算目標是用來執行定型指令碼，或裝載 Web 服務部署的計算資源。 支援的計算目標包括： 
+計算目標是用來執行定型指令碼，或裝載服務部署的計算資源。 支援的計算目標包括： 
 
-* 您的本機電腦
-* Azure 中的 Linux VM (例如資料科學虛擬機器)
-* Azure Batch AI 叢集
-* Apache Spark for HDInsight
-* Azure 容器執行個體
-* Azure Kubernetes Service
+| 計算目標 | 訓練 | 部署 |
+| ---- |:----:|:----:|
+| 您的本機電腦 | ✓ | &nbsp; |
+| Azure 中的 Linux VM</br>(例如資料科學虛擬機器) | ✓ | &nbsp; |
+| Azure Batch AI 叢集 | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Data Lake Analytics | ✓ | &nbsp; |
+| Apache Spark for HDInsight | ✓ | &nbsp; |
+| Azure 容器執行個體 | ✓ | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(現場可程式化閘陣列) | &nbsp; | ✓ |
 
 計算目標會附加至工作區。 本機電腦以外的計算目標會由工作區的使用者共用。
 
@@ -187,7 +199,7 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 
 您可以指定包含定型指令碼與相關聯檔案的目錄，以將模型定型。 您也可以指定用來儲存定型期間所收集資訊的實驗名稱。 在定型期間，整個目錄會複製到定型環境 (計算目標)，然後啟動回合組態指定的指令碼。 目錄的快照集也會儲存在工作區中的實驗底下。
 
-如需使用指令碼將模型定型的範例，請參閱[使用 Python 建立工作區](quickstart-get-started.md)
+如需範例，請參閱[使用 Python 建立工作區](quickstart-get-started.md)
 
 ## <a name="logging"></a>記錄
 

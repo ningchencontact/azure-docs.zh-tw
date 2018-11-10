@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 複寫至次要網站的支援矩陣 | Microsoft Docs
+title: 使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 災害復原至次要網站的支援矩陣 | Microsoft Docs
 description: 摘要說明使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 複寫至次要網站的支援。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 13b4dc6e49c67ae9fd880ab64880966835242dec
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3203ae48163ba325c8dad2f29c9f566e330928b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923416"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214285"
 ---
-# <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>將 Hyper-V VM 複寫至次要網站的支援矩陣
+# <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>將 Hyper-V 虛擬機器災害復原至次要網站的支援矩陣
 
 本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 System Center Virtual Machine Manager (VMM) 雲端中管理的 Hyper-V VM 複寫至次要網站時所支援的項目。 如果您需要將 Hyper-V VM 複寫至 Azure，請檢閱[此支援矩陣](hyper-v-azure-support-matrix.md)。
 
@@ -55,15 +55,15 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上 [Hyper-V 所支援的](https
 
 **組態** | **支援**  
 --- | --- 
-主機 - NIC 小組 | yes 
-主機 - VLAN | yes 
-主機 - IPv4 | yes 
+主機 - NIC 小組 | 是 
+主機 - VLAN | 是 
+主機 - IPv4 | 是 
 主機 - IPv6 | 否 
 客體 VM - NIC 小組 | 否
-客體 VM - IPv4 | yes
+客體 VM - IPv4 | 是
 客體 VM - IPv6 | 否
-客體 VM - Windows/Linux - 靜態 IP 位址 | yes
-客體 VM - 多重 NIC | yes
+客體 VM - Windows/Linux - 靜態 IP 位址 | 是
+客體 VM - 多重 NIC | 是
 
 
 ## <a name="storage"></a>儲存體
@@ -73,9 +73,9 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上 [Hyper-V 所支援的](https
 **儲存體 (主機)** | **支援**
 --- | --- 
 NFS | N/A
-SMB 3.0 |  yes
-SAN (ISCSI) | yes
-多重路徑 (MPIO) | yes
+SMB 3.0 |  是
+SAN (ISCSI) | 是
+多重路徑 (MPIO) | 是
 
 ### <a name="guest-or-physical-server-storage"></a>客體或實體伺服器儲存體
 
@@ -83,19 +83,19 @@ SAN (ISCSI) | yes
 --- | --- | 
 VMDK |  N/A
 VHD/VHDX | 是 (最多 16 個磁碟)
-第 2 代 VM | yes
+第 2 代 VM | 是
 共用叢集磁碟 | 否
 已加密磁碟 | 否
 UEFI| N/A
 NFS | 否
 SMB 3.0 | 否
 RDM | N/A
-磁碟 > 1 TB | yes
-使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | yes
-儲存空間 | yes
+磁碟 > 1 TB | 是
+使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | 是
+儲存空間 | 是
 熱新增/移除磁碟 | 否
-排除磁碟 | yes
-多重路徑 (MPIO) | yes
+排除磁碟 | 是
+多重路徑 (MPIO) | 是
 
 ## <a name="vaults"></a>保存庫
 

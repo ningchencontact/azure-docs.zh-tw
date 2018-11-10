@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580426"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140344"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -182,7 +182,7 @@ public static void Run(
 
 在本機執行的 Azure 儲存體模擬器沒有 WebJobs SDK 所需的全部功能。 所以在本節中，您會在 Azure 中建立儲存體帳戶，並設定專案來使用它。
 
-1. 開啟 [伺服器總管] 並登入 Azure。 以滑鼠右鍵按一下 **Azure** 節點，然後選取 [連線至 Microsoft Azure 訂用帳戶]。
+1. 在 Visual Studio 中開啟 [伺服器總管] 並登入 Azure。 以滑鼠右鍵按一下 **Azure** 節點，然後選取 [連線至 Microsoft Azure 訂用帳戶]。
 
    ![登入 Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -245,7 +245,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 關閉主控台視窗。
 
-1. 在 [伺服器總管] 中，展開新儲存體帳戶的節點，然後以滑鼠右鍵按一下 [佇列]。 
+1. 在 Visual Studio 的 [伺服器總管] 中，展開新儲存體帳戶的節點，然後以滑鼠右鍵按一下 [佇列]。 
 
 1. 選取 [建立佇列]。 
 
@@ -310,7 +310,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 ### <a name="configure-app-settings"></a>進行應用程式設定 
 
-1. 在 [伺服器總管] 中，展開 [Azure] 之下的 [App Service] 節點。
+1. 在 Visual Studio 的 [伺服器總管] 中，展開 [Azure] 之下的 [App Service] 節點。
 
 1. 展開 App Service 應用程式所在的資源群組，然後以滑鼠右鍵按一下您的 App Service 應用程式。
 
@@ -396,7 +396,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 您會在本節中再度於本機執行，確認記錄資料現在正移至 Application Insights 和主控台。
 
-1. 使用 [伺服器總管] 建立佇列訊息，做法如[稍早](#trigger-the-function)一樣，但輸入 Hello App Insights! 作為訊息文字。
+1. 在 Visual Studio 中使用 [伺服器總管] 建立佇列訊息，做法如[稍早](#trigger-the-function)一樣，但輸入 Hello App Insights! 作為訊息文字。
 
 1. 執行專案。
 
@@ -442,7 +442,6 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 確定您不是在本機執行 (如果主控台視窗仍然開啟，請予以關閉)。 否則，本機執行個體可能是第一個處理您建立之任何佇列訊息的執行個體。
 
-1. 使用 [伺服器總管] 建立佇列訊息，做法如[稍早](#trigger-the-function)一樣，但輸入 Hello Azure!。
 
 1. 在 Visual Studio 中重新整理 [佇列] 頁面，而新訊息會因為在 Azure App Service 中執行的函式進行處理而消失。
 
@@ -485,7 +484,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 在儲存體帳戶中建立 Blob 容器。
 
-   a. 在 [伺服器總管] 中，展開您儲存體帳戶的節點，以滑鼠右鍵按一下 [Blob]，然後選取 [建立 Blob 容器]。
+   a. 在 Visual Studio 的 [伺服器總管] 中，展開您儲存體帳戶的節點，以滑鼠右鍵按一下 [Blob]，然後選取 [建立 Blob 容器]。
 
    b. 在 [建立 Blob 容器] 對話方塊中，輸入 container 作為容器名稱，然後按一下 [確定]。
 

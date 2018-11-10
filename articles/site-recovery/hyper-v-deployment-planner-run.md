@@ -1,20 +1,20 @@
 ---
-title: Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具 | Microsoft Docs
-description: 本文指示如何執行 Site Recovery 部署規劃工具以進行 Hyper-V 到 Azure 的複寫。
+title: 針對 Hyper-V 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具 | Microsoft Docs
+description: 本文說明如何針對 Hyper-V 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具。
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1df8f7025787eb864b7e9ad6f41105df8fb2cc8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094185"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213333"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>執行 Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>針對 Hyper-V 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
 
 您可以在下列四種模式中執行 Site Recovery 部署規劃工具命令列工具 (ASRDeploymentPlanner.exe)： 
 -   [取得虛擬機器 (VM) 清單](#get-vm-list-for-profiling-hyper-v-vms)

@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c9ed3f3511def085f5e0658bbcbd7978e3a7ce20
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079304"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212959"
 ---
 <a name="saas-sell-through-azure---apis"></a>透過 Azure API 銷售 SaaS 
 ==============================
 
-本文說明如何使用 API 建立 SaaS 供應項目。 如果您已選取 [透過 Azure 銷售]，則必須使用 API 才能允許您 SaaS 供應項目的訂用帳戶。 如果您要建置未啟用商務的一般 SaaS 清單，請參閱 [SaaS 應用程式技術發行指南]./cloud-partner-portal-saas-offers-tech-publishing-guide.md)。
+本文說明如何使用 API 建立 SaaS 供應項目。 如果您已選取 [透過 Azure 銷售]，則必須使用 API 才能允許您 SaaS 供應項目的訂用帳戶。 如果您要建置未啟用商務的一般 SaaS 清單，請參閱 [SaaS 應用程式技術發行指南](./cloud-partner-portal-saas-offers-tech-publishing-guide.md)。
 
 本文分成兩部分：
 

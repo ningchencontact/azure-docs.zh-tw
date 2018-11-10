@@ -1,25 +1,25 @@
 ---
-title: 使用 PowerShell (Azure Resource Manager) 將 Virtual Machine Manager 雲端中的 Hyper-V VM 複寫至次要網站 | Microsoft Docs
-description: 說明如何使用 PowerShell (Resource Manager) 將 Virtual Machine Manager 雲端中的 Hyper-V VM 複寫至次要 Virtual Machine Manager 網站
+title: 使用 Azure Site Recovery 和 PowerShell 將 VMM 雲端中 Hyper-V VM 的災害復原設定至次要網站 | Microsoft Docs
+description: 說明如何使用 Azure Site Recovery 和 PowerShell 將 VMM 雲端中 Hyper-V VM 的災害復原設定至次要 VMM 網站。
 services: site-recovery
-author: sujaytalasila
+author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 0fecc7ba48daf396c3d25969cdda5891bdf08232
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917960"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214574"
 ---
-# <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>使用 PowerShell (Resource Manager) 將 Hyper-V VM 複寫至次要網站
+# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>使用 PowerShell (Resource Manager) 將 Hyper-V VM 的災害復原設定至次要網站
 
 本文說明如何自動執行相關步驟，使用 [Azure Site Recovery](site-recovery-overview.md) 將 System Center Virtual Machine Manager 雲端中的 Hyper-V VM 複寫至次要內部部署網站中的 Virtual Machine Manager 雲端。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 檢閱[案例架構和元件](hyper-v-vmm-architecture.md)。
 - 檢閱所有元件的[支援需求](site-recovery-support-matrix-to-sec-site.md)。

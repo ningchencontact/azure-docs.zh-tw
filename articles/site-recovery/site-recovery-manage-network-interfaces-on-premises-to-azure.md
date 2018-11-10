@@ -1,22 +1,20 @@
 ---
-title: 在 Azure Site Recovery 中管理內部部署至 Azure 複寫的網路介面 | Microsoft Docs
-description: 描述如何利用 Azure Site Recovery 管理內部部署至 Azure 複寫的網路介面
-services: site-recovery
+title: 在 Azure Site Recovery 中管理內部部署至 Azure 災害復原的網路介面 | Microsoft Docs
+description: 說明如何使用 Azure Site Recovery 管理內部部署至 Azure 災害復原的網路介面
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 0ca2d32910e57042d2cbc9d3b772d226d835b545
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352405"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212449"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>管理內部部署至 Azure 複寫的虛擬機器網路介面
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>管理內部部署至 Azure 災害復原的虛擬機器網路介面
 Azure 中的虛擬機器 (VM) 必須至少擁有一個連接的網路介面。 可連接的網路介面數量上限則不盡相同，須視 VM 大小支援的數量而定。
 
 根據預設，系統會將 Azure 虛擬機器連接的第一個網路介面定義為主要網路介面。 虛擬機器中的其他所有網路介面均為次要網路介面。 除此之外，系統在傳送來自虛擬機器的所有輸出流量時，預設都會送出指派給主要網路介面之主要 IP 組態的 IP 位址。

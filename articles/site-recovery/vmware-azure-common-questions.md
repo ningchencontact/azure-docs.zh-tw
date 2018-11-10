@@ -1,23 +1,22 @@
 ---
-title: 常見問題 - 使用 Azure Site Recovery 進行 VMware 到 Azure 的複寫 | Microsoft Docs
-description: 本文摘錄了您使用 Azure Site Recovery 將內部部署 VMware VM 複寫至 Azure 時的常見問題
-services: site-recovery
+title: 常見問題 - 使用 Azure Site Recovery 進行從 VMware 至 Azure 的災害復原 | Microsoft Docs
+description: 本文摘錄了使用 Azure Site Recovery 設定從內部部署 VMware VM 至 Azure 之災害復原時的常見問題
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/19/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388437"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215441"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
-本文將解答我們將內部部署 VMware VM 複寫至 Azure 時的常見問題。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
+本文將解答部署從內部部署 VMware VM 至 Azure 之災害復原時的常見問題。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
 
 
 ## <a name="general"></a>一般

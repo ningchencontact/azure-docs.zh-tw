@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3c1bff98debf426fc02dbd4518c0bb798d7ba96d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74607f61482d4a96931e307e77b4a6d4c45e4c30
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576012"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420926"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何透過「Azure 監視器」警示觸發複雜動作
 
@@ -38,25 +38,25 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
 
 1.  在 Azure 入口網站中，選取左上角的 [建立資源]。
 
-2.  搜尋並選取 [邏輯應用程式]，然後選取 [建立]。
+2.  搜尋並選取 [邏輯應用程式] ****，然後選取 [建立] ****。
 
 3.  指定邏輯應用程式的 [名稱]、選擇 [資源群組] 等等。
 
-    ![建立邏輯應用程式](media/monitoring-action-groups/create-logic-app-dialog.png "建立邏輯應用程式")
+    ![建立邏輯應用程式](media/monitoring-action-groups-logic-app/create-logic-app-dialog.png "建立邏輯應用程式")
 
 4.  選取 [建立] 以建立邏輯應用程式。 系統會顯示快顯訊息，指出已建立邏輯應用程式。 選取 [啟動資源]以開啟 [Logic Apps 設計工具]。
 
 5.  選取觸發程序：[收到 HTTP 要求時]。
 
-    ![邏輯應用程式觸發程序](media/monitoring-action-groups/logic-app-triggers.png "邏輯應用程式觸發程序")
+    ![邏輯應用程式觸發程序](media/monitoring-action-groups-logic-app/logic-app-triggers.png "邏輯應用程式觸發程序")
 
 6.  選取 [編輯] 以變更 HTTP 要求觸發程序。
 
-    ![HTTP 要求觸發程序](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP 要求觸發程序")
+    ![HTTP 要求觸發程序](media/monitoring-action-groups-logic-app/http-request-trigger-shape.png "HTTP 要求觸發程序")
 
 7.  選取 [使用範例承載來產生結構描述]。
 
-    ![使用範例承載](media/monitoring-action-groups/use-sample-payload-button.png "使用範例承載")
+    ![使用範例承載](media/monitoring-action-groups-logic-app/use-sample-payload-button.png "使用範例承載")
 
 8.  將下列範例結構描述複製並貼到對話方塊中：
 
@@ -99,15 +99,15 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
 
 9. [邏輯應用程式設計工具] 會顯示一個快顯示窗，以提醒您傳送給邏輯應用程式的要求必須將 **Content-Type** 標頭設定為 **application/json**。 請關閉快顯視窗。 「Azure 監視器」警示會設定此標頭。
 
-    ![設定 Content-type 標頭](media/monitoring-action-groups/content-type-header.png "設定 Content-type 標頭")
+    ![設定 Content-type 標頭](media/monitoring-action-groups-logic-app/content-type-header.png "設定 Content-type 標頭")
 
 10. 選取 [+ 新增步驟]，然後選擇 [新增動作]。
 
-    ![新增動作](media/monitoring-action-groups/add-action.png "新增動作")
+    ![新增動作](media/monitoring-action-groups-logic-app/add-action.png "新增動作")
 
 11. 搜尋並選取 Microsoft Teams 連接器。 選擇 [Microsoft Teams – 張貼訊息] 動作。
 
-    ![動作](media/monitoring-action-groups/microsoft-teams-actions.png "動作")
+    ![動作](media/monitoring-action-groups-logic-app/microsoft-teams-actions.png "動作")
 
 12. 設定 Microsoft Teams 動作。 [Logic Apps 設計工具] 會要求您向 Office 365 帳戶進行驗證。 選擇要對其傳送訊息的 [小組識別碼] 和 [通道識別碼]。
 
@@ -125,13 +125,13 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
     > [!NOTE]
     > 有兩個名為 **status** 的動態欄位。 請將這兩個欄位都新增到訊息中。 使用 **activityLog** 屬性包中的欄位，並刪除另一個欄位。 將滑鼠停留在 **status** 欄位上，即可看到完整的欄位參考，如以下螢幕擷取畫面所示：
 
-    ![Microsoft Teams 動作：張貼訊息](media/monitoring-action-groups/teams-action-post-message.png "Microsoft Teams 動作：張貼訊息")
+    ![Microsoft Teams 動作：張貼訊息](media/monitoring-action-groups-logic-app/teams-action-post-message.png "Microsoft Teams 動作：張貼訊息")
 
 14. 在 [Logic Apps 設計工具] 頂端，選取 [儲存] 以儲存邏輯應用程式。
 
 15. 開啟現有的動作群組，然後新增要參考邏輯應用程式的動作。 如果您沒有現有的動作群組，請參閱[在 Azure 入口網站中建立和管理動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)來建立一個。 請記得儲存變更。
 
-    ![更新動作群組](media/monitoring-action-groups/update-action-group.png "更新動作群組")
+    ![更新動作群組](media/monitoring-action-groups-logic-app/update-action-group.png "更新動作群組")
 
 下一次警示呼叫您的動作群組時，系統就會呼叫您的邏輯應用程式。
 
@@ -192,7 +192,7 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
 
-      ![「服務健康狀態承載條件」](media/monitoring-action-groups/service-health-payload-condition.png "服務健康狀態承載條件")
+      ![「服務健康狀態承載條件」](media/monitoring-action-groups-logic-app/service-health-payload-condition.png "服務健康狀態承載條件")
 
    1. 在 [若為 true] 條件中，依照[建立活動記錄警示](#create-an-activity-log-alert-administrative)中步驟 11 至 13 的指示來新增 Microsoft Teams 動作。
 
@@ -209,7 +209,7 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
        <p>[communication]</p>
        ```
 
-       ![「服務健康狀態的 True 條件張貼動作」](media/monitoring-action-groups/service-health-true-condition-post-action.png "服務健康狀態的 True 條件張貼動作")
+       ![「服務健康狀態的 True 條件張貼動作」](media/monitoring-action-groups-logic-app/service-health-true-condition-post-action.png "服務健康狀態的 True 條件張貼動作")
 
    1. 針對 [若為 false] 條件，提供有用的訊息：
 
@@ -219,7 +219,7 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
        <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       ![「服務健康情況的 False 條件張貼動作」](media/monitoring-action-groups/service-health-false-condition-post-action.png "服務健康情況的 False 條件張貼動作")
+       ![「服務健康情況的 False 條件張貼動作」](media/monitoring-action-groups-logic-app/service-health-false-condition-post-action.png "服務健康情況的 False 條件張貼動作")
 
 - 步驟 15 相同。 請依照指示來儲存邏輯應用程式並更新動作群組。
 
@@ -279,15 +279,15 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
        - `schemaId == AzureMonitorMetricAlert`
        - `version == "2.0"`
        
-       ![「計量警示承載條件」](media/monitoring-action-groups/metric-alert-payload-condition.png "計量警示承載條件")
+       ![「計量警示承載條件」](media/monitoring-action-groups-logic-app/metric-alert-payload-condition.png "計量警示承載條件")
 
    1. 在 [若為 true] 條件中，新增 **For each** 迴圈和 Microsoft Teams 動作。 使用 HTML 與動態內容的組合來定義訊息。
 
-       ![「計量警示的 True 條件張貼動作」](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "計量警示的 True 條件張貼動作")
+       ![「計量警示的 True 條件張貼動作」](media/monitoring-action-groups-logic-app/metric-alert-true-condition-post-action.png "計量警示的 True 條件張貼動作")
 
    1. 在 [若為 false] 條件中，定義 Microsoft Teams 動作，以傳達計量警示不符合邏輯應用程式預期的訊息。 請包含自訂 JSON 承載。 請注意如何在 `json()` 運算式中參考 `triggerBody` 動態內容。
 
-       ![「計量警示的 False 條件張貼動作」](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "計量警示的 False 條件張貼動作")
+       ![「計量警示的 False 條件張貼動作」](media/monitoring-action-groups-logic-app/metric-alert-false-condition-post-action.png "計量警示的 False 條件張貼動作")
 
 - 步驟 15 相同。 請依照指示來儲存邏輯應用程式並更新動作群組。
 

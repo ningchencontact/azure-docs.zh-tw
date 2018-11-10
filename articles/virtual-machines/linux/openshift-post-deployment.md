@@ -4,7 +4,7 @@ description: 在部署 OpenShift 叢集之後的其他工作。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: najoshi
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7b129eea513b7856ca99b02842b3b9c33c6ec19b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426442"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084980"
 ---
 # <a name="post-deployment-tasks"></a>部署後工作
 
-部署 OpenShift 叢集之後，您可以設定其他項目。 本文涵蓋下列內容：
+部署 OpenShift 叢集之後，您可以設定其他項目。 本文將說明：
 
 - 如何使用 Azure Active Directory (Azure AD) 設定單一登入
 - 如何設定 Log Analytics 來監視 OpenShift
 - 如何設定計量與記錄
+- 如何安裝 Open Service Broker for Azure (OSBA)
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>使用 Azure Active Directory 設定單一登入
 
@@ -39,15 +40,15 @@ ms.locfileid: "49426442"
 這些步驟使用 Azure CLI 建立應用程式註冊，以及使用 GUI (入口網站) 設定權限。 若要建立應用程式註冊，您需要下列五項資訊：
 
 - 顯示名稱：應用程式註冊名稱 (例如 OCPAzureAD)
-- 首頁：OpenShift 主控台 URL (例如， https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- 識別碼 URI：OpenShift 主控台 URL (例如， https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- 首頁：OpenShift 主控台 URL (例如， https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- 識別碼 URI：OpenShift 主控台 URL (例如， https://masterdns343khhde.westus.cloudapp.azure.com/console)
 - 回覆 URL：主要公用 URL 及應用程式註冊名稱 (例如， https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - 密碼：安全密碼 (使用強式密碼)
 
 下列範例將會使用上述資訊建立應用程式註冊：
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com/console --password {Strong Password}
 ```
 
 如果命令成功，您會獲得類似以下的 JSON 輸出：
@@ -58,9 +59,9 @@ az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.
   "appPermissions": null,
   "availableToOtherTenants": false,
   "displayName": "OCPAzureAD",
-  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console",
+  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com/console",
   "identifierUris": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/console"
   ],
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
@@ -82,7 +83,7 @@ az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.
 
   ![App 註冊](media/openshift-post-deployment/app-registration.png)
 
-6.  按一下 [步驟 1：選取 API]，然後按一下 [Azure Active Directory (Microsoft.Azure.ActiveDirectory)]。 按一下底部的 [選取]。
+6.  按一下「步驟 1：選取 API」，然後按一下 [Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)]。 按一下底部的 [選取]。
 
   ![應用程式註冊選取 API](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -106,7 +107,7 @@ az account show
 
 ```yaml
 oauthConfig:
-  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console/
+  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com/console/
   grantConfig:
     method: auto
   identityProviders:
@@ -146,16 +147,9 @@ oauthConfig:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-使用下列 CLI 命令找到租用戶識別碼：```az account show```
+請確定 identityProviders 下方的文字已正確對齊。 使用下列 CLI 命令找到租用戶識別碼：```az account show```
 
 重新啟動所有主要節點上的 OpenShift 主要服務：
-
-**OpenShift Origin**
-
-```bash
-sudo systemctl restart origin-master-api
-sudo systemctl restart origin-master-controllers
-```
 
 **具有多個主機的 OpenShift 容器平台 (OCP)**
 
@@ -170,135 +164,47 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
+**具有多個主機的 OKD**
+
+```bash
+sudo systemctl restart origin-master-api
+sudo systemctl restart origin-master-controllers
+```
+
+**具有單一主機的 OKD**
+
+```bash
+sudo systemctl restart origin-master
+```
+
 在 OpenShift 主控台中，您現在會看到兩個用於驗證的選項：htpasswd_auth 和 [應用程式註冊]。
 
 ## <a name="monitor-openshift-with-log-analytics"></a>使用 Log Analytics 監視 OpenShift
 
-若要使用 Log Analytics 監視 OpenShift，您可以使用下列兩個選項之一：VM 主機上的 Log Analytics 代理程式安裝，或 Log Analytics 容器。 本文提供部署 Log Analytics 容器的相關指示。
+有三種方式可將 Log Analytics 代理程式新增至 OpenShift。
+- 直接在每個 OpenShift 節點上安裝適用於 Linux 的 Log Analytics 代理程式
+- 在每個 OpenShift 節點上啟用 Log Analytics VM 延伸模組
+- 安裝 Log Analytics 代理程式作為 OpenShift 精靈集
 
-## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>建立適用於 Log Analytics 的 OpenShift 專案，然後設定使用者存取權
-
-```bash
-oadm new-project omslogging --node-selector='zone=default'
-oc project omslogging
-oc create serviceaccount omsagent
-oadm policy add-cluster-role-to-user cluster-reader system:serviceaccount:omslogging:omsagent
-oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent
-```
-
-## <a name="create-a-daemon-set-yaml-file"></a>建立精靈集 yaml 檔案
-
-建立名為 ocp-omsagent.yml 的檔案：
-
-```yaml
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: oms
-spec:
-  selector:
-    matchLabels:
-      name: omsagent
-  template:
-    metadata:
-      labels:
-        name: omsagent
-        agentVersion: 1.4.0-45
-        dockerProviderVersion: 10.0.0-25
-    spec:
-      nodeSelector:
-        zone: default
-      serviceAccount: omsagent
-      containers:
-      - image: "microsoft/oms"
-        imagePullPolicy: Always
-        name: omsagent
-        securityContext:
-          privileged: true
-        ports:
-        - containerPort: 25225
-          protocol: TCP
-        - containerPort: 25224
-          protocol: UDP
-        volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-sock
-        - mountPath: /etc/omsagent-secret
-          name: omsagent-secret
-          readOnly: true
-        livenessProbe:
-          exec:
-            command:
-              - /bin/bash
-              - -c
-              - ps -ef | grep omsagent | grep -v "grep"
-          initialDelaySeconds: 60
-          periodSeconds: 60
-      volumes:
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-      - name: omsagent-secret
-        secret:
-         secretName: omsagent-secret
-````
-
-## <a name="create-a-secret-yaml-file"></a>建立祕密 yaml 檔案
-
-若要建立祕密 yaml 檔案，將需要兩項資訊：Log Analytics 工作區識別碼、Log Analytics 工作區共用金鑰。 
-
-ocp-secret.yml 檔案範例： 
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: omsagent-secret
-data:
-  WSID: wsid_data
-  KEY: key_data
-```
-
-將 wsid_data 取代為 Base64 編碼的 Log Analytics 工作區識別碼。 將 key_data 取代為 Base64 編碼的 Log Analytics 工作區識別碼共用金鑰。
-
-```bash
-wsid_data='11111111-abcd-1111-abcd-111111111111'
-key_data='My Strong Password'
-echo $wsid_data | base64 | tr -d '\n'
-echo $key_data | base64 | tr -d '\n'
-```
-
-## <a name="create-the-secret-and-daemon-set"></a>建立祕密與精靈集
-
-部署祕密檔案：
-
-```bash
-oc create -f ocp-secret.yml
-```
-
-部署 Log Analytics 代理程式精靈集：
-
-```bash
-oc create -f ocp-omsagent.yml
-```
+完整指示位於此處： https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift。
 
 ## <a name="configure-metrics-and-logging"></a>設定計量與記錄
 
-適用於 OpenShift 容器平台的 Azure Resource Manager 範本可提供輸入參數，用於啟用計量與記錄。 OpenShift 容器平台服務 Marketplace 供應項目有此功能，OpenShift Origin Resource Manager 範本則沒有。
+根據分支，適用於 OpenShift 容器平台和 OKD 的 Azure Resource Manager 範本可提供輸入參數，用以在安裝程序中啟用計量與記錄。
 
-如果您使用 OCP Resource Manager 範本，安裝時不會啟用計量與記錄；或者，如果使用 OCP Marketplace 供應項目，則可以在事後輕鬆啟用這些功能。 如果使用 OpenShift Origin Resource Manager 範本，則需要一些事前工作。
+OpenShift 容器平台服務 Marketplace 供應項目也會提供在叢集安裝期間啟用計量和記錄的選項。
 
-### <a name="openshift-origin-template-pre-work"></a>OpenShift Origin 範本事前工作
+如果未在叢集安裝期間啟用計量/記錄功能，後續仍可輕鬆地加以啟用。
 
-1. 使用連接埠 2200 透過 SSH 連線到第一個主要節點。
+### <a name="ansible-inventory-pre-work"></a>Ansible 清查事前工作
 
-   範例：
+確認 Ansible 清查檔案 (/etc/ansible/hosts) 具有計量/記錄的適當變數。 清查檔案可根據使用的範本在不同的主機上找到。
 
-   ```bash
-   ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
-   ```
+就 OpenShift 容器範本和 Marketplace 供應項目而言，清查檔案會位於防禦主機上。 就 OKD 範本而言，清查檔案會根據使用中的分支，位於master-0 主機或防禦主機上。
 
-2. 編輯 /etc/ansible/hosts 檔案，然後在「身分識別提供者」區段 (# Enable HTPasswdPasswordIdentityProvider) 後面加入下列幾行：
+1. 編輯 /etc/ansible/hosts 檔案，然後在 [識別提供者] 區段 (# Enable HTPasswdPasswordIdentityProvider) 後面加入下列幾行。 如果這幾行已存在，就不要再加入。
+
+   OpenShift/OKD 3.9 版和更早版本
 
    ```yaml
    # Setup metrics
@@ -320,35 +226,130 @@ oc create -f ocp-omsagent.yml
    openshift_master_logging_public_url=https://kibana.$ROUTING
    ```
 
+   OpenShift/OKD 3.10 版和更新版本
+
+   ```yaml
+   # Setup metrics
+   openshift_metrics_install_metrics=false
+   openshift_metrics_start_cluster=true
+   openshift_metrics_hawkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
+
+   # Setup logging
+   openshift_logging_install_logging=false
+   openshift_logging_fluentd_nodeselector={"logging":"true"}
+   openshift_logging_es_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_kibana_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_curator_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_master_public_url=https://kibana.$ROUTING
+   ```
+
 3. 在相同的 /etc/ansible/hosts 檔案中，將 $ROUTING 取代為用於 openshift_master_default_subdomain 選項的字串。
 
 ### <a name="azure-cloud-provider-in-use"></a>Azure 雲端提供者使用中
 
-在第一個主要節點 (Origin) 或防禦節點 (OCP) 上，使用部署期間提供的認證進行 SSH。 發出以下命令：
+使用部署期間提供的認證，透過 SSH 連線至第一個主要節點 (根據使用中的範本和分支)。 發出以下命令：
+
+**OpenShift 容器平台 3.7 和更早版本**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True \
 -e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-### <a name="azure-cloud-provider-not-in-use"></a>Azure 雲端提供者未使用中
-
-在第一個主要節點 (Origin) 或防禦節點 (OCP) 上，使用部署期間提供的認證進行 SSH。 發出以下命令：
+**OpenShift 容器平台 3.9 和更新版本**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
 ```
+
+**OKD 3.7 和更早版本**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_hosted_logging_storage_kind=dynamic
+```
+
+**OKD 3.9 和更新版本**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
+```
+
+### <a name="azure-cloud-provider-not-in-use"></a>Azure 雲端提供者未使用中
+
+使用部署期間提供的認證，透過 SSH 連線至第一個主要節點 (根據使用中的範本和分支)。 發出以下命令：
+
+
+**OpenShift 容器平台 3.7 和更早版本**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OpenShift 容器平台 3.9 和更新版本**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3.7 和更早版本**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3.9 和更新版本**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+## <a name="install-open-service-broker-for-azure-osba"></a>安裝 Open Service Broker for Azure (OSBA)
+
+開啟 Service Broker for Azure (或稱 OSBA)，可讓您直接從 OpenShift 佈建 Azure 雲端服務。 Azure 的 Open Service Broker API 實作中的 OSBA。 Open Service Broker API 是一項規格，可為雲端提供者定義可供雲端原生應用程式直接用來管理雲端服務而不需要鎖定的通用語言。
+
+若要在 OpenShift 上安裝 OSBA，請遵循此處的指示： https://github.com/Azure/open-service-broker-azure#openshift-project-template。 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [開始使用 OpenShift 容器平台](https://docs.openshift.com/container-platform/3.6/getting_started/index.html) \(英文\)
-- [開始使用 OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [開始使用 OpenShift 容器平台](https://docs.openshift.com/container-platform) \(英文\)
+- [開始使用 OKD](https://docs.okd.io/latest)

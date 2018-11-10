@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1cfccdf644b1748a96f7638e574c66eace8d113a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 14dd76e60f615bce4e5b5aa52e6237615071779c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456655"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241918"
 ---
-# <a name="tutorial-create-multiple-resource-instances-using-resource-manager-templates"></a>教學課程：使用 Resource Manager 範本建立多個資源執行個體
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教學課程：使用 Resource Manager 範本建立多個資源執行個體
 
-了解如何在您的 Azure Resource Manager 範本中逐一查看以建立 Azure 資源的多個執行個體。 在上一個教學課程中，您已修改現有範本以建立加密的 Azure 儲存體帳戶。 在此教學課程中，您將修改相同的範本以建立三個儲存體帳戶執行個體。
+了解如何在您的 Azure Resource Manager 範本中逐一查看以建立 Azure 資源的多個執行個體。 在本教學課程中，您將修改範本以建立三個儲存體帳戶執行個體。
 
 > [!div class="checklist"]
 > * 開啟快速入門範本
@@ -39,7 +39,7 @@ ms.locfileid: "49456655"
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
-本快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
+[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)是 Resource Manager 範本的存放庫。 您可以尋找範例範本並加以自訂，而不要從頭建立範本。 本快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
 
 1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
 2. 在 [檔案名稱] 中，貼上下列 URL：
@@ -48,20 +48,21 @@ ms.locfileid: "49456655"
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. 選取 [開啟] 以開啟檔案。
-4. 選取 [檔案]>[另存新檔]，在您的本機電腦上將檔案另存為 **azuredeploy.json**。
+4. 範本中有已定義的 'Microsoft.Storage/storageAccounts' 資源。 將範本與[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)相比較。 自訂範本之前，最好能初步了解範本。
+5. 選取 [檔案]>[另存新檔]，在您的本機電腦上將檔案另存為 **azuredeploy.json**。
 
 ## <a name="edit-the-template"></a>編輯範本
 
-此教學課程的目標是使用資源反覆項目來建立三個儲存體帳戶。  範例範本只會建立一個儲存體帳戶。 
+現有的範本會建立一個儲存體帳戶。 您會自訂範本以建立三個儲存體帳戶。  
 
 從 Visual Studio Code 進行下列四個變更：
 
 ![Azure Resource Manager 建立多個執行個體](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. 新增 `copy` 元素到儲存體帳戶資源定義。 在複製元素中，您可以指定反覆項目的數目以及此迴圈的名稱。 計數值必須為不超過 800 的正整數。
-2. `copyIndex()` 函式會傳回迴圈中的目前反覆項目。 `copyIndex()`是以零為基礎。 若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 例如，*copyIndex(1)*。
+1. 新增 `copy` 元素到儲存體帳戶資源定義。 在複製元素中，您可以指定反覆運算次數以及此迴圈的變數。 計數值必須為不超過 800 的正整數。
+2. `copyIndex()` 函式會傳回迴圈中的目前反覆項目。 您可以使用索引作為名稱前置詞。 `copyIndex()`是以零為基礎。 若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 例如，*copyIndex(1)*。
 3. 刪除 **variables** 元素，因為已不再使用它。
-4. 刪除 **outputs** 元素。
+4. 刪除 **outputs** 元素。 已不再需要此項目。
 
 完成的範本看起來像這樣：
 

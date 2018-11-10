@@ -1,25 +1,18 @@
 ---
-title: 針對容錯移轉至 Azure 失敗進行疑難排解 | Microsoft Docs
-description: 本文說明如何針對容錯移轉至 Azure 的常見錯誤進行疑難排解
-services: site-recovery
-documentationcenter: ''
+title: 對容錯移轉至 Azure 進行疑難排解 | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 對容錯移轉至 Azure 期間所發生的常見問題進行疑難排解。
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 6be71424e30c5783a03b157171b3f5acd0160e65
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: de0b3a51ae7c7cca91366b955c5fa74963d95d27
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391005"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211667"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>針對將虛擬機器容錯移轉至 Azure 時的錯誤進行疑難排解
 
@@ -86,7 +79,7 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的傳統虛擬機器。 �
 一般而言，無須擔心此問題，對於非計劃性容錯移轉，通常可忽略此問題。 在計劃性容錯移轉的情況下，請確保在容錯移轉之前，正確關閉虛擬機器，並為擱置的複寫資料內部部署提供足夠的時間，將其傳送至 Azure。 然後使用 [容錯移轉](site-recovery-failover.md#run-a-failover) 畫面控制項 上的 [最新] 選項，以便將 Azure 上的任何擱置資料處理到復原點，然後將其用於 VM 容錯移轉。
 
 ## <a name="retaining-drive-letter-after-failover"></a>在容錯移轉之後保留磁碟機代號
-若要在容錯移轉後，保留虛擬機器上的磁碟機代號，您可以將虛擬機器內部部署的 **SAN 原則**設為 **OnlineAll**。 [閱讀更多資訊](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
+若要在容錯移轉後，保留虛擬機器上的磁碟機代號，您可以將虛擬機器內部部署的 **SAN 原則**設為 **OnlineAll**。 [閱讀更多](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
 
 ## <a name="next-steps"></a>後續步驟
 - 對 [Windows VM 的 RDP 連線](../virtual-machines/windows/troubleshoot-rdp-connection.md)進行移難排解

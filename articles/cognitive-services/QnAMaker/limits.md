@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384937"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137288"
 ---
 # <a name="qna-maker-limits"></a>QnA Maker 限制
 QnA Maker 的完整限制清單。
@@ -26,7 +26,7 @@ QnA Maker 的完整限制清單。
 
 |**Azure 搜尋服務層** | **免費** | **基本** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|允許的已發佈知識庫數目上限 (索引數上限 -- 1 (保留以供測試)|2|14|49|199|199|2999|
+|允許的已發佈知識庫數目上限 (索引數上限 -- 1 (保留以供測試)|2|14|49|199|199|2,999|
 
 ## <a name="extraction-limits"></a>擷取限制
 * 可擷取的檔案數目上限與檔案大小上限：請參閱 [QnAMaker 定價](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -37,12 +37,12 @@ QnA Maker 的完整限制清單。
 
 |**Azure 搜尋服務層** | **免費** | **基本** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|每項 QnA Maker 服務的中繼資料欄位數上限 (橫跨所有的知識庫)|1000|100*|1000|1000|1000|1000|
+|每項 QnA Maker 服務的中繼資料欄位數上限 (橫跨所有的知識庫)|1,000|100*|1,000|1,000|1,000|1,000|
 
 ## <a name="knowledge-base-content-limits"></a>知識庫的內容限制
 知識庫內容的整體限制：
-* 解答文字的長度：250000
-* 問題文字的長度：1000
+* 解答文字的長度：25,000
+* 問題文字的長度：1,000
 * 中繼資料索引鍵/值文字的長度：100
 * 中繼資料名稱的支援字元：英文字母、數字和 _  
 * 中繼資料值的支援字元：: 和 | 以外的所有字元 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: 047d23184ccf640dd6510faca9f508eef0dc50cb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: e007b23b6e4a55e2a939994e8f95d01fc24cc529
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050808"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241563"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis 快取的 ASP.NET 工作階段狀態提供者
 Azure Redis 快取提供工作階段狀態提供者，可讓您用來將記憶體內部工作階段狀態儲存在 Redis 快取中，而不是 SQL Server 資料庫中。 若要使用快取工作階段狀態提供者，請先設定快取，再使用「Redis 快取工作階段狀態 NuGet 套件」設定 ASP.NET 應用程式的快取。
@@ -94,11 +94,11 @@ NuGet 封裝會下載和加入必要的組件參考，並將下列區段加入�
 * **retryTimeoutInMilliseconds** – 會在此間隔期間 (以毫秒指定) 重試失敗的作業。 第一次重試會在 20 毫秒後發生，然後每秒進行重試，直到 retryTimeoutInMilliseconds 間隔到期為止。 緊接著此間隔之後，作業會進行最後一次重試。 如果作業仍失敗，會視 throwOnError 設定將例外狀況擲回給呼叫者。 預設值為 0，表示不會重試。
 * **databaseId** – 指定快取輸出資料所使用的資料庫。 若未指定，就會使用預設值 0。
 * **applicationName** – 金鑰在 redis 中會儲存為 `{<Application Name>_<Session ID>}_Data`。 這個命名配置可讓多個應用程式共用同一個 Redis 執行個體。 此參數是選擇性的，如果您未提供，將會使用預設值。
-* **connectionTimeoutInMilliseconds** – 此設定可讓您覆寫 StackExchange.Redis 用戶端中的 connectTimeout 設定。 若未指定，將會使用預設的 connectTimeout 設定為 5000。 如需詳細資訊，請參閱 [StackExchange.Redis 設定模型](http://go.microsoft.com/fwlink/?LinkId=398705)(英文)。
-* **operationTimeoutInMilliseconds** – 此設定可讓您覆寫 StackExchange.Redis 用戶端中的 syncTimeout 設定。 若未指定，將會使用預設的 syncTimeout 設定為 1000。 如需詳細資訊，請參閱 [StackExchange.Redis 設定模型](http://go.microsoft.com/fwlink/?LinkId=398705)(英文)。
+* **connectionTimeoutInMilliseconds** – 此設定可讓您覆寫 StackExchange.Redis 用戶端中的 connectTimeout 設定。 若未指定，將會使用預設的 connectTimeout 設定為 5000。 如需詳細資訊，請參閱 [StackExchange.Redis 設定模型](https://go.microsoft.com/fwlink/?LinkId=398705)(英文)。
+* **operationTimeoutInMilliseconds** – 此設定可讓您覆寫 StackExchange.Redis 用戶端中的 syncTimeout 設定。 若未指定，將會使用預設的 syncTimeout 設定為 1000。 如需詳細資訊，請參閱 [StackExchange.Redis 設定模型](https://go.microsoft.com/fwlink/?LinkId=398705)(英文)。
 * **redisSerializerType** - 此設定可讓您為傳送到 Redis 的工作階段內容指定自訂序列化。 指定的類型必須實作 `Microsoft.Web.Redis.ISerializer` 且必須宣告公用無參數建構函式。 預設會使用 `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter`。
 
-如需這些屬性的相關詳細資訊，請參閱 [發佈 Redis 的 ASP.NET 工作階段狀態提供者](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)(英文) 上的原始部落格文章公告。
+如需這些屬性的相關詳細資訊，請參閱 [發佈 Redis 的 ASP.NET 工作階段狀態提供者](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)(英文) 上的原始部落格文章公告。
 
 別忘記備註您 web.config 中的標準 InProc 工作階段狀態提供者區段。
 

@@ -1,5 +1,5 @@
 ---
-title: 如何對適用於容器的 Azure 監視器進行疑難排解 | Microsoft Docs
+title: 如何對適用於容器的 Azure 監視器 (預覽) 進行疑難排解 | Microsoft Docs
 description: 本文說明如何對適用於容器的 Azure 監視器問題進行疑難排解並解決問題。
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: de7ae5788224b83105e4dc9a24aea35c8b841c88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69e5a61d5e66e5904df31456e9311a39058787b2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986722"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212347"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>對適用於容器的 Azure 監視器進行疑難排解
+# <a name="troubleshooting-azure-monitor-for-containers-preview"></a>對適用於容器的 Azure 監視器 (預覽) 進行疑難排解
 
 當您設定使用適用於容器的 Azure 監視器來監視 Azure Kubernetes Service (AKS) 叢集時，您可能會遇到阻止資料收集或報告狀態的問題。 本文將詳細說明一些常見問題與疑難排解步驟。
 
@@ -91,6 +91,18 @@ ms.locfileid: "46986722"
     omsagent 1.6.0.23
     docker-cimprov 1.0.0.31
     ```
+
+## <a name="error-messages"></a>錯誤訊息
+
+下表簡要說明使用適用於容器的 Azure 監視器時，可能遇到的已知錯誤。
+
+| 錯誤訊息  | 動作 |  
+| ---- | --- |  
+| 錯誤訊息 `No data for selected filters`  | 為新建立的叢集打造監視資料流程可能需要點時間。 至少需 10 到 15 分鐘才會出現叢集的資料。 |   
+| 錯誤訊息 `Error retrieving data` | 雖然 Azure Kubenetes Service 叢集是為監視健康情況和效能而設定，但這個叢集和 Azure Log Analytics 工作區之間有所連結。 Log Analytics 工作區是用來儲存叢集的所有監視資料。 Log Analytics 工作區遭刪除或消失時可能會發生此錯誤。 請查看[管理存取權](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information)，檢查工作區是否可使用。 如果工作區消失，您必須使用適用於容器的 Azure 監視器，將叢集重新上架。 若要重新上架，您必須[停用](/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json)對叢集的監視，並再次[啟用](monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster)適用於容器的 Azure 監視器。 |  
+| 透過 az aks cli 新增適用於容器的 Azure 監視器後，會出現 `Error retrieving data` | 使用 `az aks cli` 上架時，適用於容器的 Azure 監視器罕見地無法正常上架。 檢查這個解決方案是否已上架。 若要檢查，請前往 Log Analytics 工作區，選取左側窗格的 [Solutions (解決方案)]，查看解決方案是否可使用。 若要解決此問題，您必須按照[如何部署適用於容器的 Azure 監視器](monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json)的指示，重新部署這個解決方案 |  
+
+為協助診斷問題，[在此](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)提供疑難排解指令碼。  
 
 ## <a name="next-steps"></a>後續步驟
 藉由啟用監視來擷取 AKS 叢集節點和 Pod 的健康情況計量，這些健康情況計量都可在 Azure 入口網站中取得。 若要了解如何使用適用於容器的 Azure 監視器，請參閱[檢視 Azure Kubernetes Service 健康情況](monitoring-container-insights-analyze.md)。

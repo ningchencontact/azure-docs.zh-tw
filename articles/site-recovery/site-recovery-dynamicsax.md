@@ -1,29 +1,22 @@
 ---
-title: 使用 Azure Site Recovery 複寫多層式 Dynamics AX 部署 | Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 複寫和保護 Dynamics AX
-services: site-recovery
-documentationcenter: ''
+title: 使用 Azure Site Recovery 來設定多層式 Dynamics AX 部署的災害復原 | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 來設定 Dynamics AX 的災害復原
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669437"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210817"
 ---
-# <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 Dynamics AX 應用程式
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>設定多層式 Dynamics AX 應用程式的災害復原 
 
-## <a name="overview"></a>概觀
+
 
 
  Dynamics AX 是企業愛用的 ERP 解決方案之一，可橫跨位置將程序標準化、管理資源及簡化合規性。 因為應用程式攸關組織的運作，在發生災害時，應用程式應該要在最短的時間內啟動並執行。

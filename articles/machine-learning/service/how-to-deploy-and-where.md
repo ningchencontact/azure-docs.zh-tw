@@ -9,12 +9,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/29/2018
-ms.openlocfilehash: 606e8aed42bce69d5b3210b4e97f8cbfeaaf104c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97ac405db3de4fa2c6f1173f813eafd41a5361ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961003"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209440"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -22,36 +22,41 @@ Azure Machine Learning 服務提供數種部署定型模型的方式。 在此�
 
 您可以將模型部署到下列計算目標：
 
-- Azure 容器執行個體 (ACI)
-- Azure Kubernetes Service (AKS)
-- Azure IoT Edge
-- 現場可程式化閘陣列 (FPGA)
+- [Azure Container Instances (ACI)](#aci)：快速部署。 適合用於開發或測試。
+- [Azure Kubernetes Service (AKS)](#aks)：適合用於大規模生產環境部署。 提供自動調整和快速的回應時間。
+- [Azure IoT Edge](#iotedge)：在 IoT 裝置上部署模型。 裝置上會發生推斷。
+- [現場可程式化閘陣列 (FPGA)](#fpga)：超低的即時推斷延遲。
 
 此文件的其餘部分會詳細討論每個選項。
 
-## <a name="azure-container-instances"></a>Azure Container Instances
+## <a id="aci"></a>Azure Container Instances
 
 如果符合下列一或多個條件，請使用 Azure 容器執行個體來將您的模型部署為 REST API 端點：
-- 您正在尋找能夠為模型評分及驗證的快速部署。 ACI 部署通常在 5 分鐘內完成。
+- 您需要快速部署及驗證模型。 ACI 部署會在 5 分鐘內完成。
 - 您想要將模型部署在在開發或測試環境中。 ACI 可讓您在每一訂用帳戶部署 20 個容器群組。 如需詳細資訊，請參閱 [Azure 容器執行個體的配額和區域可用性](https://docs.microsoft.com/azure/container-instances/container-instances-quotas)文件。
 
 如需詳細資訊，請參閱[將模型部署到 Azure 容器執行個體](how-to-deploy-to-aci.md)文件。
 
-## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+## <a id="aks"></a>Azure Kubernetes Service
 
-針對大規模生產案例，您可以將模型部署到 Azure Kubernetes Service (AKS)。 您可以使用現有的 AKS 叢集，或使用 Azure Machine Learning SDK、CLI 或 Azure 入口網站建立新的叢集。
+針對大規模生產環境案例，請使用 Azure Kubernetes Service (AKS)。 您可以使用現有的 AKS 叢集，或使用 Azure Machine Learning SDK、CLI 或 Azure 入口網站建立新的叢集。
 
-建立 AKS 叢集是工作區的一次性程序。 建立之後，就可以重複使用此叢集進行多個部署。 如果刪除叢集或包含該叢集的資源群組，就必須在下次需要部署時建立新的叢集。
+建立 AKS 叢集是工作區的一次性程序。 您可以重複使用此叢集進行多個部署。 如果刪除叢集，就必須在下次需要部署時建立新的叢集。
 
-部署到 AKS 可為您的 Web 服務提供自動調整規模、記錄、模型資料收集與快速回應時間等優點。 
+Azure Kubernetes Service 提供以下功能：
+
+* 自動調整
+* 記錄
+* 模型資料收集
+* 快速的 Web 服務回應時間
 
 建立 AKS 叢集的程序大約需要 20 分鐘。
 
 如需詳細資訊，請參閱[將模型部署到 Azure Kubernetes Service](how-to-deploy-to-aks.md) 文件。
 
-## <a name="azure-iot-edge"></a>Azure IoT Edge
+## <a id="iotedge"></a>Azure IoT Edge
 
-若使用 IoT 裝置，在裝置上執行評分會比將資料傳送到雲端，並等待裝載在雲端的模型將資料傳回來得快。 透過 Azure IoT Edge，您可以在邊緣裝置上裝載您的模型。 如果您需要下列的一或多個功能，請將您的模型部署到 IoT Edge：
+若使用 IoT 裝置，在裝置上執行評分會比將資料傳送到雲端進行評分還快。 透過 Azure IoT Edge，您可以在邊緣裝置上裝載您的模型。 如果您需要下列的一或多個功能，請將您的模型部署到 IoT Edge：
 - 即使沒有雲端連線，也可以在本機處理優先工作
 - 處理因太大而無法快速從雲端提取的產生資料
 - 透過在本機裝置中或接近本機裝置的情報啟用即時處理
@@ -62,7 +67,7 @@ Azure Machine Learning 服務提供數種部署定型模型的方式。 在此�
 如需 IoT Edge 服務的詳細資訊，請參閱 [Azure IoT Edge 文件](https://docs.microsoft.com/azure/iot-edge/)。
 
 
-## <a name="field-programmable-gate-arrays-fpga"></a>現場可程式化閘陣列 (FPGA)
+## <a id="fpga"></a>現場可程式化閘陣列 (FPGA)
 
 Project Brainwave 提供的硬體加速模型，使系統對於即時推斷要求能達到超低延遲。 Project Brainwave 加速了 Azure 雲端中部署在現場可程式化閘陣列上的深度類神經網路 (DNN)。 常用的 DNN 可供取得的形式有轉送學習的特徵化對象，或從您自己的資料定型所得之權重的可自訂項目。
 

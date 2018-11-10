@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 450314dddd49825bae689701b694f9a26758835e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377634"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420518"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
 於定義的間隔進行資料快照，來保護您的資料。 這些快照稱為復原點，而且儲存在復原服務保存庫中。 如果需要修復或重新建立虛擬機器 (VM)，您可以從任何已儲存的復原點還原 VM。 當您還原復原點時，您可以：
@@ -151,7 +151,7 @@ ms.locfileid: "49377634"
 透過索引標籤 [取代現有] 完成 [就地還原]。
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>從還原點取代現有磁碟
-[取代現有] 選項可協助將目前 VM 中的現有磁碟取代為選取的還原點。 僅當目前的 VM 存在時才能執行此作業。 如果因任何原因而刪除 VM，則無法執行這項作業；或者，建議您 [新建] VM 或磁碟，以繼續進行還原作業。 在取代現有磁碟作業期間，我們會在起始取代磁碟作業之前先備份資料，以防患未然。 如果還原點中的磁碟多/少於目前的 VM，則還原點中的磁碟數目只會反映在 VM 中。 目前僅支援受控磁碟和未加密 VM 的取代現有選項。  
+[取代現有] 選項可協助將目前 VM 中的現有磁碟取代為選取的還原點。 僅當目前的 VM 存在時才能執行此作業。 如果因任何原因而刪除 VM，則無法執行這項作業；或者，建議您 [新建] VM 或磁碟，以繼續進行還原作業。 在取代現有磁碟作業期間，我們會在起始取代磁碟作業之前先備份資料，以防患未然。 如果還原點中的磁碟多/少於目前的 VM，則還原點中的磁碟數目只會反映在 VM 中。 目前僅支援非受控磁碟和加密 VM 的 [取代現有] 選項。 對於[一般化 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 以及使用[自訂映像](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/)建立的 VM，也不支援此功能。  
 
  在 [還原組態] 刀鋒視窗中，唯一需要選取的輸入是 [預備環境位置]。
 
@@ -170,7 +170,7 @@ ms.locfileid: "49377634"
 
 [備份作業] 刀鋒視窗會開啟並顯示作業的清單。
 
-![保存庫中的 VM 清單](./media/backup-azure-arm-restore-vms/restore-job-completed.png)
+![保存庫中的 VM 清單](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>使用範本自訂還原的 VM
 [還原磁碟作業完成](#Track-the-restore-operation)之後，請使用還原作業進行過程中所產生的範本，來建立具有不同於備份組態之組態的新 VM。 您也可以使用它來自訂在從還原點建立新 VM 的程序期間所建立之資源的名稱。

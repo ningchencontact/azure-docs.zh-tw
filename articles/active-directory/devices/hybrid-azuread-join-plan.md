@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 10/29/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190267"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238792"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何規劃混合式 Azure Active Directory Join 實作
 
@@ -95,13 +95,13 @@ ms.locfileid: "43190267"
 
 如果您依賴虛擬機器 (VM) 快照集來建立其他 VM，請確定您使用的 VM 快照集尚未針對混合式 Azure AD Join 進行設定。
 
-對於已針對使用者設定檔漫遊或認證漫遊設定的裝置，不支援註冊舊版 Windows 裝置。 如果您倚賴設定檔或設定的漫遊，請使用 Windows 10。
+舊版 Windows 裝置的混合式 Azure AD Join：
 
-- 在非同盟環境中，**支援**透過無縫單一登入 [Azure Active Directory 無縫單一登入](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)來註冊舊版 Windows 裝置。 
- 
-- 使用沒有無縫單一登入的 Azure AD 傳遞驗證時，**不**支援舊版 Windows 裝置的註冊。
+- 在非同盟環境中，透過[無縫單一登入 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)時，**可支援**。 
 
-- 對於使用漫遊設定檔的裝置，**不支援**註冊舊版 Windows 裝置。 如果您倚賴設定檔或設定的漫遊，請使用 Windows 10。
+- 使用沒有無縫單一登入的 Azure AD 傳遞驗證時，**不**支援。
+
+- 使用認證漫遊或使用者設定檔漫遊，或使用虛擬桌面基礎結構 (VDI) 時，**不**支援。
 
 
 不支援註冊執行網域控制站 (DC) 角色的 Windows Server。

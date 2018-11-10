@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/02/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627384"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215407"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>使用群組來管理 Azure Active Directory 授權的案例、限制及已知問題
 
@@ -213,21 +213,19 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 
 - 群組型授權目前不支援包含其他群組的群組 (巢狀群組)。 如果您將授權套用至巢狀群組，則只有群組的直接第一層級使用者成員會套用授權。
 
-- 此功能只能用於安全性群組。 目前不支援 Office 群組，因此您將無法在授權指派程序中使用。
+- 只有安全性群組和 securityEnabled = TRUE 的 Office 365 群組才能使用此功能。
 
 - [Office 365 系統管理入口網站](https://portal.office.com )目前不支援群組型授權。 如果使用者從群組繼承授權，此授權在 Office 系統管理入口網站中會顯示為一般使用者授權。 如果您嘗試修改該授權或嘗試移除授權，入口網站會傳回錯誤訊息。 無法直接修改使用者繼承的群組授權。
 
-- 當使用者從群組移除且失去授權時，來自該授權的服務方案 (例如 SharePoint Online) 會設定為「暫停」狀態。 服務方案不會設定為最終的已停用狀態。 此預防措施可避免系統管理員在群組成員資格管理時犯錯，而意外移除使用者資料。
-
 - 當指派或修改大型群組 (例如 100,000 個使用者) 的授權時，可能會影響效能。 具體來說，Azure AD 自動化所產生的大量變更，可能會降低 Azure AD 和內部部署系統之間目錄同步作業的效能。
 
-- 在某些高負載情況下，授權處理可能會延遲，導致諸如新增/移除群組授權或新增/移除群組使用者等變更，可能需要很長的時間來處理。 如果您發現變更需要 24 小時以上才能處理完畢，請[開啟支援票證](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest)讓我們調查。 我們會在這項功能「正式運作」之前改善它的效能特性。
+- 如果您使用動態群組來管理使用者的成員資格，請確認使用者是群組的一部分，如此才能指派授權。 否則，請對動態群組[檢查成員資格規則的處理狀態](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule)。 
+
+- 在某些高負載情況下，處理群組的授權變更，或現有授權的群組成員資格變更，可能需要很長的時間。 如果您發現變更需要 24 小時以上才能將使用者數為 60K 或以下的群組大小處理完畢，請[開啟支援票證](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest)讓我們調查。 
 
 - 授權管理自動化並不會自動對環境中所有類型的變更做出回應。 例如，您可能已用盡授權，導致某些使用者處於錯誤狀態。 若要釋出可用的授權數量，您可以移除其他使用者的一些直接指派授權。 不過，系統不會自動回應這項變更，也不會修正處於該錯誤狀態的使用者。
 
   若要解決這幾種限制，您可以前往 Azure AD 中的 [群組] 刀鋒視窗，然後按一下 [重新處理]。 此命令會處理該群組中的所有使用者，並解決錯誤狀態 (如果可能)。
-
-- 如果由於 Exchange Online 中的重複 Proxy 位址設定而無法對使用者指派授權，群組型授權不會記錄錯誤，而且在授權指派期間會略過這類使用者。 如需如何識別及解決此問題的詳細資訊，請參閱[本節](licensing-groups-resolve-problems.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -237,3 +235,5 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 * [將授權指派給 Azure Active Directory 中的群組](licensing-groups-assign.md)
 * [識別及解決 Azure Active Directory 中群組的授權問題](licensing-groups-resolve-problems.md)
 * [如何將個別授權使用者移轉至 Azure Active Directory 中以群組為基礎的授權](licensing-groups-migrate-users.md)
+* [如何使用 Azure Active Directory 中的群組型授權在產品授權之間移轉使用者](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Azure Active Directory 群組型授權的 PowerShell 範例](../users-groups-roles/licensing-ps-examples.md)

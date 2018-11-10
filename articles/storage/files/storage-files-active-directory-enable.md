@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: ae6f7646192b7bee8cbd836f1eff3814c26a6b46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ed35380e66e6d5d59058552d8e0504220c100b73
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427304"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231384"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>為 Azure 檔案 (預覽) 啟用「透過 SMB 進行 Azure Active Directory 驗證」
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -88,7 +88,11 @@ ms.locfileid: "49427304"
   
 ### <a name="powershell"></a>PowerShell  
 
-若要從 Azure PowerShell 啟用透過 SMB 進行 Azure AD 驗證，請先安裝 `AzureRM.Storage 6.0.0-preview` 模組。 如需安裝 PowerShell 的相關資訊，請參閱[使用 PowerShellGet 在 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+若要從 Azure PowerShell 啟用透過 SMB 進行 Azure AD 驗證，請先安裝 `AzureRM.Storage` 模組 (`6.0.0-preview` 版本)，如下所示。 如需如何安裝 PowerShell 的詳細資訊，請參閱[使用 PowerShellGet 在 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)：
+
+```powershell
+Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+```
 
 接著，建立新的儲存體帳戶，然後呼叫 [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount)，並將 **EnableAzureFilesAadIntegrationForSMB** 參數設定為 **true**。 在以下範例中，請記得以您自己的值取代預留位置值。
 

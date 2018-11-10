@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 81a9f84a925fc424fc6371fcbe02a141d4ee8ec1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b0b67121e172bb29d1f95e56d3b31f509552bf2e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498346"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211225"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>啟用適用於 Linux IaaS VM 的 Azure 磁碟加密 (舊版)
 
@@ -192,8 +192,11 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 - 不是根/OS/開機磁碟分割
 - 尚未加密
 - 不是 BEK 磁碟區
+- 不是 RAID 磁碟區
+- 不是 LVM 磁碟區
 - 已掛接
 
+對組成 RAID 或 LVM 磁碟區的磁碟進行加密，而非對 RAID 或 LVM 磁碟區本身進行加密。
 
 ### <a name="bkmk_EFATemplate"> </a> 使用 EncryptFormatAll 參數搭配範本
 若要使用 EncryptFormatAll 選項，請使用任何加密 Linux VM 的預存 Azure Resource Manager 範本，並且變更 AzureDiskEncryption 資源的 **EncryptionOperation** 欄位。

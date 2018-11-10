@@ -7,40 +7,146 @@ ms.service: firewall
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 554ecd51eec3a4ade9a04c7280c0feff4b5bec27
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988984"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233390"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure 防火牆 Log Analytics 範例
 
-下列 Log Analytics 查詢範例可用來分析您的 Azure 防火牆記錄。
+下列 Log Analytics 範例可用來分析您的 Azure 防火牆記錄。 範例檔案為內建的 Log Analytics 檢視設計工具；[Log Analytics 檢視設計工具](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer)一文提供檢視設計概念的詳細資訊。
 
-## <a name="application-rules"></a>應用程式規則
+## <a name="log-analytics-view"></a>Log Analytics 檢視
 
-```
+以下是設定範例 Log Analytics 視覺效果的方法。 您可以從 [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) \(英文\) 存放庫下載該範例視覺效果。 最簡單的方法是以滑鼠右鍵按一下本頁面上的超連結，然後選擇 [另存新檔]，並提供如 **AzureFirewall.omsview** 的名稱。 
+
+執行下列步驟，以將檢視新增至您的 Log Analytics 工作區：
+
+1. 在 Azure 入口網站中開啟 Log Analytics 工作區。
+2. 開啟位於 [一般] 底下的 [檢視設計工具]。
+3. 按一下 [匯入] 。
+4. 瀏覽並選取您之前所下載的 **AzureFirewall.omsview** 檔案。
+5. 按一下 [檔案] 。
+
+以下是針對應用程式規則記錄資料的檢視外觀：
+
+![應用程式規則記錄資料](./media/log-analytics-samples/azurefirewall-applicationrulelogstats.png)
+
+而以下是網路規則記錄資料的外觀：
+
+![網路規則記錄資料]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
+
+Azure 防火牆會將資料記錄在 AzureDiagnostics 底下，並將類別設定為 **AzureFirewallApplicationRule** 或 **AzureFirewallApplicationRule**。 包含詳細資料的資料會儲存在 msg_s 欄位中。 使用 [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) \(英文\) 運算子，我們便可以從 msg_s 欄位中擷取各種有趣的屬性。 下列查詢會同時從兩個類別中擷取資訊。
+
+## <a name="application-rules-log-data-query"></a>應用程式規則記錄資料查詢
+
+下列查詢會剖析應用程式規則記錄資料。 各個不同的註解行中提供有建置查詢之方式的指導：
+
+```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallApplicationRule"
-| where msg_s !contains "SNI TLS extension was missing" 
-| parse msg_s with Protocol "request from" SourceIP ":" SourcePort:int " to" TargetURL ":" TargetPort:int ". Action:" Action "." *
-| parse msg_s with * ". Rule Collection:" UserRuleCollection ". Rule:" UserRule
-| parse msg_s with * "No rule matched. Proceeding with" DefaultRule
-| extend Rule = case(DefaultRule == "", UserRule, DefaultRule), RuleCollection = case(UserRuleCollection == "", DefaultRule, UserRuleCollection)
-| project TimeGenerated,msg_s, Protocol, Action, SourceIP, tostring(SourcePort), TargetURL, tostring(TargetPort), RuleCollection, Rule
+| where Category == "AzureFirewallApplicationRule"
+//using :int makes it easier to pars but later we'll convert to string as we're not interested to do mathematical functions on these fields
+//this first parse statement is valid for all entries as they all start with this format
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
+//case 1: for records that end with: "was denied. Reason: SNI TLS extension was missing."
+| parse TempDetails with "was " Action1 ". Reason: " Rule1
+//case 2: for records that end with
+//"to ocsp.digicert.com:80. Action: Allow. Rule Collection: RC1. Rule: Rule1"
+//"to v10.vortex-win.data.microsoft.com:443. Action: Deny. No rule matched. Proceeding with default action"
+| parse TempDetails with "to " FQDN ":" TargetPortInt:int ". Action: " Action2 "." *
+//case 2a: for records that end with:
+//"to ocsp.digicert.com:80. Action: Allow. Rule Collection: RC1. Rule: Rule1"
+| parse TempDetails with * ". Rule Collection: " RuleCollection2a ". Rule:" Rule2a
+//case 2b: for records that end with:
+//for records that end with: "to v10.vortex-win.data.microsoft.com:443. Action: Deny. No rule matched. Proceeding with default action"
+| parse TempDetails with * "Deny." RuleCollection2b ". Proceeding with" Rule2b
+| extend 
+SourcePort = tostring(SourcePortInt)
+|extend
+TargetPort = tostring(TargetPortInt)
+| extend
+//make sure we only have Allowed / Deny in the Action Field
+Action1 = case(Action1 == "denied","Deny","Unknown Action")
+| extend
+    Action = case(Action2 == "",Action1,Action2),
+    Rule = case(Rule2a == "",case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
+    RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rule matched",RuleCollection2a),RuleCollection2b),
+    FQDN = case(FQDN == "", "N/A", FQDN),
+    TargetPort = case(TargetPort == "", "N/A", TargetPort)
+| project TimeGenerated, msg_s, Protocol, SourceIP, SourcePort, FQDN, TargetPort, Action ,RuleCollection, Rule
 ```
 
-## <a name="network-rules"></a>網路規則
+以下是以更精簡方式呈現的相同查詢：
 
-```
+```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallNetworkRule"
-| parse msg_s with Protocol "request from" SourceIP ":" SourcePort:int " to" TargetIP ":" TargetPort:int *
-| parse msg_s with * ". Action:" fw_Action
-| parse msg_s with * "was" nat_Action
-| extend Action = case(fw_Action == "", nat_Action, fw_Action)
-| project TimeGenerated, msg_s, SourceIP,tostring(SourcePort),TargetIP,tostring(TargetPort),Action
+| where Category == "AzureFirewallApplicationRule"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
+| parse TempDetails with "was " Action1 ". Reason: " Rule1
+| parse TempDetails with "to " FQDN ":" TargetPortInt:int ". Action: " Action2 "." *
+| parse TempDetails with * ". Rule Collection: " RuleCollection2a ". Rule:" Rule2a
+| parse TempDetails with * "Deny." RuleCollection2b ". Proceeding with" Rule2b
+| extend SourcePort = tostring(SourcePortInt)
+| extend TargetPort = tostring(TargetPortInt)
+| extend Action1 = case(Action1 == "denied","Deny","Unknown Action")
+| extend Action = case(Action2 == "",Action1,Action2),Rule = case(Rule2a == "", case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
+RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rule matched",RuleCollection2a), RuleCollection2b),FQDN = case(FQDN == "", "N/A", FQDN),TargetPort = case(TargetPort == "", "N/A", TargetPort)
+| project TimeGenerated, msg_s, Protocol, SourceIP, SourcePort, FQDN, TargetPort, Action ,RuleCollection, Rule
+```
+
+## <a name="network-rules-log-data-query"></a>網路規則記錄資料查詢
+
+下列查詢會剖析網路規則記錄資料。 各個不同的註解行中提供有建置查詢之方式的指導：
+
+```Kusto
+AzureDiagnostics
+| where Category == "AzureFirewallNetworkRule"
+//using :int makes it easier to pars but later we'll convert to string as we're not interested to do mathematical functions on these fields
+//case 1: for records that look like this:
+//TCP request from 10.0.2.4:51990 to 13.69.65.17:443. Action: Deny//Allow
+//UDP request from 10.0.3.4:123 to 51.141.32.51:123. Action: Deny/Allow
+//TCP request from 193.238.46.72:50522 to 40.119.154.83:3389 was DNAT'ed to 10.0.2.4:3389
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+//case 1a: for regular network rules
+//TCP request from 10.0.2.4:51990 to 13.69.65.17:443. Action: Deny//Allow
+//UDP request from 10.0.3.4:123 to 51.141.32.51:123. Action: Deny/Allow
+| parse msg_s with * ". Action: " Action1a
+//case 1b: for NAT rules
+//TCP request from 193.238.46.72:50522 to 40.119.154.83:3389 was DNAT'ed to 10.0.2.4:3389
+| parse msg_s with * " was " Action1b " to " NatDestination
+//case 2: for ICMP records
+//ICMP request from 10.0.2.4 to 10.0.3.4. Action: Allow
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend
+SourcePort = tostring(SourcePortInt),
+TargetPort = tostring(TargetPortInt)
+| extend 
+    Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),
+    Protocol = case(Protocol == "", Protocol2, Protocol),
+    SourceIP = case(SourceIP == "", SourceIP2, SourceIP),
+    TargetIP = case(TargetIP == "", TargetIP2, TargetIP),
+    //ICMP records don't have port information
+    SourcePort = case(SourcePort == "", "N/A", SourcePort),
+    TargetPort = case(TargetPort == "", "N/A", TargetPort),
+    //Regular network rules don't have a DNAT destination
+    NatDestination = case(NatDestination == "", "N/A", NatDestination)
+| project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
+```
+
+以下是以更精簡方式呈現的相同查詢：
+
+```Kusto
+AzureDiagnostics
+| where Category == "AzureFirewallNetworkRule"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action1a
+| parse msg_s with * " was " Action1b " to " NatDestination
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
+| project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中使用服務對應解決方案 | Microsoft Docs
-description: 服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 此文章會詳細說明如何在環境中部署服務對應並將它用於各種案例。
+description: 服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。
 services: monitoring
 documentationcenter: ''
 author: mgoedtel
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269253"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215254"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序、輸入和輸出連線的延遲，和連接埠之間的連線。
 
-此文章說明上線和使用服務對應的詳細資訊。 如需設定服務對應和啟用代理程式的相關資訊，請參閱[在 Azure 中設定服務對應解決方案]( monitoring-service-map-configure.md)。
+本文說明上線和使用服務對應的詳細資訊。 如需設定服務對應和啟用代理程式的相關資訊，請參閱[在 Azure 中設定服務對應解決方案]( monitoring-service-map-configure.md)。
 
 >[!NOTE]
 >如果您已部署服務對應，則現在還可以在適用於 VM 的 Azure 監視器中檢視您的對應，其中包括用於監視 VM 健康情況和效能的其他功能。 若要深入了解，請參閱[適用於 VM 的 Azure 監視器概觀](monitoring-vminsights-overview.md)。
@@ -72,11 +72,6 @@ ms.locfileid: "48269253"
 
 根據預設，「服務對應」對應會顯示過去 30 分鐘的相依性資訊。 使用左上角的時間控制項，可查詢過往時間範圍的對應 (最長可達一小時)，以顯示相依性的過往情形 (例如在事件發生期間或變更發生之前)。 付費工作區的服務對應資料會儲存 30 天，免費工作區的服務對應資料則會儲存 7 天。
 
-
-
-
-
-
 ## <a name="status-badges-and-border-coloring"></a>狀態徽章和框線色彩
 在對應中每一部伺服器的底部，可以是一串狀態徽章，傳達伺服器的相關狀態資訊。 徽章表示在其中一個解決方案整合中，有某些伺服器的相關資訊。 按一下徽章，即會在右窗格中直接顯示狀態的詳細資料。 目前可使用的狀態徽章包括警示、服務台、變更、安全性和更新。
 
@@ -104,7 +99,7 @@ ms.locfileid: "48269253"
 ![為群組命名](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->機器群組目前的限制是 10 部伺服器，但預計短期內會提高此限制。
+>電腦群組是限制為 10 部伺服器。
 
 ### <a name="viewing-a-group"></a>檢視群組
 建立群組之後，可以選擇 [群組] 索引標籤來檢視所建立的群組。
@@ -503,7 +498,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 服務對應中所有的伺服器、處理序及相依性資料，都可透過[服務對應 REST API](https://docs.microsoft.com/rest/api/servicemap/) 取得。
 
 ## <a name="diagnostic-and-usage-data"></a>診斷和使用量資料
-當您使用服務對應服務時，Microsoft 會自動收集使用量和效能資料。 Microsoft 使用此資料來提供和改進服務對應服務的品質、安全性和完整性。 資料中包含軟體設定的相關資訊，像是作業系統與版本、IP 位址、DNS 名稱和工作站名稱，以便能夠正確且有效率地進行疑難排解。 Microsoft 不會收集姓名、地址或其他連絡資訊。
+當您使用服務對應服務時，Microsoft 會自動收集使用量和效能資料。 Microsoft 使用這項資料來提供和改進服務對應服務的品質、安全性和完整性。 資料中包含軟體設定的相關資訊，像是作業系統與版本、IP 位址、DNS 名稱和工作站名稱，以便能夠正確且有效率地進行疑難排解。 Microsoft 不會收集姓名、地址或其他連絡資訊。
 
 如需有關資料收集與使用方式的詳細資訊，請參閱 [Microsoft 線上服務隱私權聲明](https://go.microsoft.com/fwlink/?LinkId=512132)。
 

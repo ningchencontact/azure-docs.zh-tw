@@ -4,16 +4,16 @@ description: 了解使用 Resource Graph 查詢語言來瀏覽您的資源，並
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f488dfad8a38bbfab3b5b74e5b504463af09c089
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bcd25b95d1369ef98662384945123126ebbbd70f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645927"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086891"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>使用 Resource Graph 探索您的 Azure 資源
 
@@ -216,7 +216,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' an
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>連線至進階受控磁碟的虛擬機器
 
-如果我們想要取得附加到這些 **Standard_B2s** 虛擬機器之進階受控磁碟的詳細資訊，可以展開查詢以提供我們這些受控磁碟的資源識別碼。
+如果我們想要取得連結到這些 **Standard_B2s** 虛擬機器的進階受控磁碟詳細資訊，可以展開查詢以提供我們這些受控磁碟的資源識別碼。
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
@@ -240,7 +240,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' an
 
 ### <a name="managed-disk-discovery"></a>受控磁碟探索
 
-從上一個查詢中採取第一筆記錄，我們將探索附加到第一個虛擬機器之受控磁碟上存在的屬性。 更新的查詢使用磁碟識別碼並變更類型。
+透過上一個查詢中的第一筆記錄，我們將探索連結到第一個虛擬機器的受控磁碟上存在的屬性。 更新的查詢使用磁碟識別碼並變更類型。
 
 上一個查詢的範例輸出，例如：
 
@@ -314,7 +314,7 @@ JSON 結果的結構類似於下列範例：
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>瀏覽虛擬機器以尋找公用 IP 位址
 
-此 Azure CLI 的多步驟查詢集首先會尋找並儲存連線至虛擬機器的所有網路介面 (NIC) 資源，使用 NIC 清單尋找作為公用 IP 位址的每個 IP 位址資源並儲存這些值，最後會提供實際公用 IP 位址的清單。
+這組 Azure CLI 查詢會先尋找及儲存所有連線到虛擬機器的網路介面 (NIC) 資源。 然後它會使用 NIC 清單來尋找每個屬於公用 IP 位址的 IP 位址資源，並儲存這些值。 最後，它會提供公用 IP 位址清單。
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -324,7 +324,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-得到 `nics.txt` 檔案後，我們將在下一個查詢中使用它來取得相關的網路介面資源詳細資料，其中有一個公用 IP 位址附加至 NIC。
+在下一個查詢中使用 `nics.txt` 檔案來取得相關的網路介面資源詳細資料，其中有一個公用 IP 位址附加至 NIC。
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file

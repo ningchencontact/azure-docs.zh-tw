@@ -8,18 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: dd8e4178-9a63-492a-bd48-782e94e404af
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 16252f690bfd34e596b2b8db26ab3a2ede0dfdee
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a8ed2f04bf3004907cdd6e33bfb30260233fb101
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48833338"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>教學課程：Azure Active Directory 與 BorrowBox 整合
 
@@ -61,15 +62,15 @@ BorrowBox 與 Azure AD 整合提供下列優點：
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
-    ![映像](./media/borrowbox-tutorial/selectazuread.png)
+    ![映像](./common/selectazuread.png)
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![映像](./media/borrowbox-tutorial/a_select_app.png)
+    ![映像](./common/a_select_app.png)
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![映像](./media/borrowbox-tutorial/a_new_app.png)
+    ![映像](./common/a_new_app.png)
 
 4. 在搜尋方塊中，輸入 **BorrowBox**，從結果面板中選取 [BorrowBox]，然後按一下 [新增] 按鈕以新增應用程式。
 
@@ -97,21 +98,17 @@ BorrowBox 與 Azure AD 整合提供下列優點：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [BorrowBox] 應用程式整合頁面上，選取 [單一登入]。
 
-    ![映像](./media/borrowbox-tutorial/B1_B2_Select_SSO.png)
+    ![映像](./common/B1_B2_Select_SSO.png)
 
-2. 按一下畫面頂端的 [變更單一登入模式]，選取 [SAML] 模式。
+2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML] 模式以啟用單一登入。
 
-      ![映像](./media/borrowbox-tutorial/b1_b2_saml_ssso.png)
+    ![映像](./common/b1_b2_saml_sso.png)
 
-3. 在 [選取單一登入方法] 對話方塊中，選取 [SAML] 模式以啟用單一登入。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
 
-    ![映像](./media/borrowbox-tutorial/b1_b2_saml_sso.png)
+    ![映像](./common/b1-domains_and_urlsedit.png)
 
-4. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
-
-    ![映像](./media/borrowbox-tutorial/b1-domains_and_urlsedit.png)
-
-5. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
+4. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
     ![映像](./media/borrowbox-tutorial/tutorial_borrowbox_url.png)
 
@@ -122,13 +119,29 @@ BorrowBox 與 Azure AD 整合提供下列優點：
     ![映像](./media/borrowbox-tutorial/tutorial_borrowbox_url1.png)
 
     > [!NOTE]
-    > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [BorrowBox 用戶端支援小組](mailto:borrowbox@bolinda.com)以取得此值。 
+    > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [BorrowBox 用戶端支援小組](mailto:borrowbox@bolinda.com)以取得此值。
 
-6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求下載適當的憑證，並儲存在電腦上。
+5. BorrowBox 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性與宣告] 區段中管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性與宣告] 對話方塊。
+
+    ![映像](./media/borrowbox-tutorial/i4-attribute.png)
+
+6. 在 [使用者屬性與宣告] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+    
+    a. 按一下 [編輯] 圖示以開啟 [管理使用者宣告] 對話方塊。
+
+    ![映像](./media/borrowbox-tutorial/i2-attribute.png)
+
+    ![映像](./media/borrowbox-tutorial/i3-attribute.png)
+
+    b. 從 [來源屬性] 清單中，選取 [user.mail]。
+
+    c. 按一下 [檔案] 。 
+
+7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求下載適當的憑證，並儲存在電腦上。
 
     ![映像](./media/borrowbox-tutorial/tutorial_borrowbox_certificate.png) 
 
-7. 若要在 **BorrowBox** 端設定單一登入，您必須將從 Azure 入口網站下載的憑證/中繼資料傳送至 [BorrowBox 支援小組](mailto:borrowbox@bolinda.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+8. 若要在 **BorrowBox** 端設定單一登入，您必須將從 Azure 入口網站下載的憑證/中繼資料傳送至 [BorrowBox 支援小組](mailto:borrowbox@bolinda.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -136,20 +149,20 @@ BorrowBox 與 Azure AD 整合提供下列優點：
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
-    ![映像](./media/borrowbox-tutorial/d_users_and_groups.png)
+    ![映像](./common/d_users_and_groups.png)
 
 2. 在畫面頂端選取 [新增使用者]。
 
-    ![映像](./media/borrowbox-tutorial/d_adduser.png)
+    ![映像](./common/d_adduser.png)
 
 3. 在 [使用者] 屬性中，執行下列步驟。
 
-    ![映像](./media/borrowbox-tutorial/d_userproperties.png)
+    ![映像](./common/d_userproperties.png)
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
     b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
-    例如，BrittaSimon@contoso.com
+    例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
@@ -159,7 +172,7 @@ BorrowBox 與 Azure AD 整合提供下列優點：
 
 本節目標是在 BorrowBox 中建立名為 Britta Simon 的使用者。 BorrowBox 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 BorrowBox 時，如果使用者還不存在，就會建立新使用者。
 >[!Note]
->如果您需要手動建立使用者，請連絡 [BorrowBox 支援小組](mailto:borrowbox@bolinda.com)。
+>如果您需要手動建立使用者，請連絡  [BorrowBox 支援小組](mailto:borrowbox@bolinda.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -167,7 +180,7 @@ BorrowBox 與 Azure AD 整合提供下列優點：
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
-    ![映像](./media/borrowbox-tutorial/d_all_applications.png)
+    ![映像](./common/d_all_applications.png)
 
 2. 在應用程式清單中，選取 [BorrowBox]。
 
@@ -175,11 +188,11 @@ BorrowBox 與 Azure AD 整合提供下列優點：
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
-    ![映像](./media/borrowbox-tutorial/d_leftpaneusers.png)
+    ![映像](./common/d_leftpaneusers.png)
 
 4. 選取 [新增] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
 
-    ![映像](./media/borrowbox-tutorial/d_assign_user.png)
+    ![映像](./common/d_assign_user.png)
 
 4. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
 
@@ -190,7 +203,7 @@ BorrowBox 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 BorrowBox 圖示時，應該會自動登入 BorrowBox 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

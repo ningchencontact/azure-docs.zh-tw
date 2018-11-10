@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 5f11129e562ec47f4c81790cf21c9a390cc697b8
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621400"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138648"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的網路虛擬設備問題
 
@@ -77,14 +77,14 @@ ms.locfileid: "39621400"
 **檢查流量是否可路由至 NVA**
 
 1. 在 [Azure 入口網站](https://portal.azure.com)上開啟 [網路監看員]，然後選取 [下一個躍點]。
-2. 指定要讓 NVA 作為下一個躍點的 VM，以及用來檢視下一個躍點的目的地 IP 位址。 
+2. 指定設定為要將流量重新導向 NVA 的 VM，以及用來檢視下一個躍點的目的地 IP 位址。 
 3. 如果 NVA 未列為**下一個躍點**，請檢查和更新 Azure 路由表。
 
 **檢查流量是否可到達 NVA**
 
 1.  在 [Azure 入口網站](https://portal.azure.com)中開啟 [網路監看員]，然後選取 [IP 流量驗證]。 
 2.  指定 VM 和 NVA 的 IP 位址，然後檢查是否有任何網路安全性群組 (NSG) 會封鎖流量。
-3.  如果有 NSG 規則會封鎖流量，請在**有效的安全性**規則中找出 NSG，然後將其更新為允許流量通過。 接著，再次執行 [IP 流量驗證]，並使用 [連線檢查] 測試從 VM 到您內部或外部 IP 位址的 TCP 通訊。
+3.  如果有 NSG 規則會封鎖流量，請在**有效的安全性**規則中找出 NSG，然後將其更新為允許流量通過。 接著，再次執行 [IP 流量驗證]，並使用 [連線疑難排解] 測試從 VM 到您內部或外部 IP 位址的 TCP 通訊。
 
 **檢查 NVA 和 VM 是否接聽預期的流量**
 
@@ -132,5 +132,5 @@ ms.locfileid: "39621400"
 
 如果您未看到傳入後端 VM 追蹤的封包，則有可能是受到 NSG 或 UDR 干擾，或 NVA 路由表不正確。
 
-若您看到了傳入封包但沒有回應，則您可能需要解決 VM 應用程式或防火牆的問題。 發生前述任一問題時，請[視需要連絡 NVA 廠商以取得協助](Let's link customer to 3rd party vendor again here: https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
+若您看到了傳入封包但沒有回應，則您可能需要解決 VM 應用程式或防火牆的問題。 發生前述任一問題時，請[視需要連絡 NVA 廠商以取得協助](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
 

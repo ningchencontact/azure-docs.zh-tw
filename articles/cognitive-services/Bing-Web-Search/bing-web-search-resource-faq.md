@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: b0b8fd3eb80d7418546788565402042de20ab3e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2d43a73d93b24599b28af849ee9d1532441ef6bc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129313"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233545"
 ---
 # <a name="frequently-asked-questions-faq"></a>常見問題集 (FAQ)
 
@@ -55,7 +55,7 @@ ms.locfileid: "46129313"
 
 前一個解答中描述的 CORS Proxy 方法也適用於開發、測試和學習。
 
-不過，在生產環境中，您應該在與使用 Bing Web 搜尋 API 的網頁相同的網域上，裝載伺服器端指令碼。 此指令碼應該在收到來自網頁 JavaScript 的要求時實際進行 API 呼叫，並將所有的結果 (包括標頭) 傳回給用戶端。 因為兩個資源 (頁面和指令碼) 會共用來源，所以 CORS 不會開始生效，且網頁上的 JavaScript 可存取特殊標頭。
+不過，在生產環境中，您應該在與使用 Bing Web 搜尋 API 的網頁相同的網域上，裝載伺服器端指令碼。 此指令碼應該在收到來自網頁 JavaScript 的要求時實際進行 API 呼叫，並將所有的結果 (包括標頭) 傳回給用戶端。 因為兩個資源 (頁面和指令碼) 會共用來源，所以 CORS 不會開始生效，且特殊標頭可供網頁上的 JavaScript 存取。
 
 這個方法也會保護您的 API 金鑰，以免對大眾公開，因為只有伺服器端指令碼需要它。 此指令碼可以使用其他方法來確定要求已獲得授權。
 

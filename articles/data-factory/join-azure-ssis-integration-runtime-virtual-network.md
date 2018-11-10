@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649086"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094590"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路： 
@@ -28,6 +28,9 @@ ms.locfileid: "49649086"
 - 您要將 SQL Server Integration Services (SSIS) 目錄資料庫裝載於具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 中。 
 
  Azure Data Factory 可讓您將 Azure-SSIS 整合執行階段加入透過傳統部署模型或 Azure Resource Manager 部署模型建立的虛擬網路。 
+
+> [!IMPORTANT]
+> 傳統虛擬網路目前已淘汰，請改為使用 Azure Resource Manager 虛擬網路。  如果您已經使用傳統虛擬網路，請盡快切換成使用 Azure Resource Manager 虛擬網路。
 
 ## <a name="access-to-on-premises-data-stores"></a>存取內部部署資料存放區
 如果 SSIS 套件只會存取公用雲端資料存放區，則您不需要將 Azure-SSIS IR 加入虛擬網路中。 如果 SSIS 套件會存取內部部署資料存放區，則您必須將 Azure-SSIS IR 加入連線至內部部署網路的虛擬網路中。 
@@ -46,11 +49,13 @@ ms.locfileid: "49649086"
 如果 SSIS 目錄已裝載於具有虛擬網路服務端點或受控執行個體的 Azure SQL Database 中，您可以將 Azure-SSIS IR 加入至： 
 
 - 相同虛擬網路 
-- 具有網路對網路連線的虛擬網路，不同於處理具有虛擬網路服務端點/受控執行個體的 Azure SQL Database 時所用的虛擬網路 
+- 具有網路對網路連線 (與受控執行個體連線) 的其他虛擬網路 
 
-如果您將 Azure-SSIS IR 加入至受控執行個體所在的虛擬網路上，請確定 Azure-SSIS IR 和受控執行個體分屬不同的子網路。 如果 Azure-SSIS IR 並不是加入至受控執行個體所在的虛擬網路，我們建議虛擬網路對等互連 (限制為相同的區域) 或虛擬網路對虛擬網路連線。 請參閱[將您的應用程式連線到 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-connect-app.md)。
+如果您使用虛擬網路服務在 Azure SQL Database 中裝載您的 SSIS 目錄，請確定將您的 Azure-SSIS IR 加入到相同的虛擬網路和子網路。
 
-虛擬網路可透過傳統部署模型或 Azure Resource Manager 部署模型來部署。
+如果您將 Azure-SSIS IR 加入至受控執行個體所在的虛擬網路上，請確定 Azure-SSIS IR 和受控執行個體分屬不同的子網路。 如果您的 Azure-SSIS IR 並不是加入至受控執行個體所在的虛擬網路，我們建議虛擬網路對等互連 (僅限相同的區域) 或虛擬網路對虛擬網路連線。 請參閱[將您的應用程式連線到 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-connect-app.md)。
+
+在此情況下，只能透過 Azure Resource Manager 部署模型來部署虛擬網路。
 
 下列各節提供更多詳細資料。 
 
@@ -73,13 +78,13 @@ ms.locfileid: "49649086"
 
 建立 Azure-SSIS Integration Runtime 的使用者必須具有下列權限：
 
-- 如果您要將 SSIS IR 加入最新版本的 Azure 虛擬網路，您會有兩個選項：
+- 如果您正要將 SSIS IR 加入 Azure Resource Manager 虛擬網路，您有兩個選項：
 
-  - 使用內建角色：網路參與者。 此角色需要 *Microsoft.Network/\** 權限，但具有更大的範圍。
+  - 使用內建的「網路參與者」角色。 此角色隨附 *microsoft.network /\**  權限，它的權限範圍大於必要的範圍。
 
-  - 建立包含 *Microsoft.Network/virtualNetworks/\*/join/action* 權限的自訂角色。 
+  - 建立包含只有必要 *Microsoft.Network/virtualNetworks/\*/join/action* 權限的自訂角色。 
 
-- 如果您要將 SSIS IR 加入傳統 Azure 虛擬網路中，我們建議您使用內建角色：傳統虛擬機器參與者。 否則，您必須定義自訂角色，以包含可加入虛擬網路的權限。
+- 如果您要將 SSIS IR 加入傳統虛擬網路中，我們建議您使用內建的「傳統虛擬機器參與者」角色。 否則，您必須定義自訂角色，以包含可加入虛擬網路的權限。
 
 ### <a name="subnet"></a> 選取子網路
 -   請勿選取 GatewaySubnet 來部署 Azure-SSIS Integration Runtime，因為它是虛擬網路閘道所專用。 

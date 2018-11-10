@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: b2b81938eafe104369e52e72f9958e2adf2cca6f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 041d679cfc428278737a5668887e73f13ac694b1
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345215"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137048"
 ---
 # <a name="what-is-azure-stack"></a>什麼是 Azure Stack？
 
@@ -30,7 +30,7 @@ Microsoft Azure Stack 是一個混合式雲端平台，可讓您在資料中心�
 Azure Stack 是透過兩種部署選項來提供的，用以滿足您的需求。
 
 ## <a name="azure-stack-integrated-systems"></a>Azure Stack 整合系統
-Azure Stack 整合系統是透過 Microsoft 與[硬體合作夥伴](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)的合作來提供的，可建立既提供雲端步調的創新又兼顧計算管理簡易性的解決方案。 由於是以整合的軟硬體系統形式來提供 Azure Stack，因此您可以獲得所需的彈性和控制力，以及從雲端創新的能力。 Azure Stack 整合系統的大小範圍為 4 到 12 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。  請使用 Azure Stack 整合系統，來為生產環境工作負載建立新案例和部署新解決方案。
+Azure Stack 整合系統是透過 Microsoft 與[硬體合作夥伴](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)的合作來提供的，可建立既提供雲端步調的創新又兼顧計算管理簡易性的解決方案。 由於是以整合的軟硬體系統形式來提供 Azure Stack，因此您可以獲得所需的彈性和控制力，以及從雲端創新的能力。 Azure Stack 整合系統的大小範圍為 4 到 16 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。  請使用 Azure Stack 整合系統，來為生產環境工作負載建立新案例和部署新解決方案。
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 開發套件
 

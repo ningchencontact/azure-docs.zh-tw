@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 7fbaff5ed1b60a4434ba2eb0c78c6aa1f3fd6645
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 8094965da5fb0a5fad0313fd96e2878f86d78aa7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323747"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215492"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中使用使用者定義函數
 
@@ -25,10 +25,10 @@ ms.locfileid: "49323747"
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 ```
 
-| 自訂屬性名稱 | 更換為 |
+| 自訂屬性名稱 | 取代為 |
 | --- | --- |
-| `yourInstanceName` | Azure Digital Twins 執行個體的名稱 |
-| `yourLocation` | 裝載您執行個體的伺服器區域 |
+| yourInstanceName | Azure Digital Twins 執行個體的名稱 |
+| yourLocation | 裝載您執行個體的伺服器區域 |
 
 ## <a name="client-library-reference"></a>用戶端程式庫參考
 
@@ -50,9 +50,9 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 - `SensorDevice`
 - `SensorSpace`
 
-下列比對器範例在資料類型值為 `Temperature` 的任何感應器遙測事件上會評估為 True。 您可以在使用者定義函式上建立多個比對器。
+下列比對器範例在資料類型值為 `"Temperature"` 的任何感應器遙測事件上會評估為 True。 您可以在使用者定義函式上建立多個比對器。
 
-```text
+```plaintext
 POST https://yourManagementApiUrl/api/v1.0/matchers
 {
   "Name": "Temperature Matcher",
@@ -68,10 +68,10 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 }
 ```
 
-| 自訂屬性名稱 | 更換為 |
+| 自訂屬性名稱 | 取代為 |
 | --- | --- |
-| `yourManagementApiUrl` | 管理 API 的完整 URL 路徑  |
-| `yourSpaceIdentifier` | 裝載您執行個體的伺服器區域 |
+| *yourManagementApiUrl* | 管理 API 的完整 URL 路徑  |
+| yourSpaceIdentifier | 裝載您執行個體的伺服器區域 |
 
 ## <a name="create-a-user-defined-function-udf"></a>建立使用者定義函式 (UDF)
 
@@ -88,9 +88,9 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
 
-| 自訂屬性名稱 | 更換為 |
+| 自訂屬性名稱 | 取代為 |
 | --- | --- |
-| `yourManagementApiUrl` | 管理 API 的完整 URL 路徑  |
+| *yourManagementApiUrl* | 管理 API 的完整 URL 路徑  |
 
 主體：
 
@@ -116,16 +116,16 @@ function process(telemetry, executionContext) {
 --userDefinedBoundary--
 ```
 
-| 自訂屬性名稱 | 更換為 |
+| 自訂屬性名稱 | 取代為 |
 | --- | --- |
-| `yourSpaceIdentifier` | 空間識別碼  |
-| `yourMatcherIdentifier` | 您想要使用的比對器識別碼 |
+| yourSpaceIdentifier | 空間識別碼  |
+| *yourMatcherIdentifier* | 您想要使用的比對器識別碼 |
 
 ### <a name="example-functions"></a>函式範例
 
-直接針對資料類型為 `Temperature` (也就是 sensor.DataType) 的感應器設定感應器遙測讀取：
+直接針對資料類型為 **Temperature** (也就是 `sensor.DataType`) 的感應器設定感應器遙測讀取：
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Get sensor metadata
@@ -139,9 +139,21 @@ function process(telemetry, executionContext) {
 }
 ```
 
-如果感應器遙測讀取超出預先定義的閾值，則記錄訊息。 如果 Digital Twins 執行個體上已啟用診斷設定，將會轉送使用者定義函式中的記錄：
+telemetry 參數會公開 **SensorId** 和 **Message** 屬性 (對應到感應器所傳送的訊息)。 ExecutionContext 參數會公開下列屬性：
 
-```javascript
+```csharp
+var executionContext = new UdfExecutionContext
+{
+    EnqueuedTime = request.HubEnqueuedTime,
+    ProcessorReceivedTime = request.ProcessorReceivedTime,
+    UserDefinedFunctionId = request.UserDefinedFunctionId,
+    CorrelationId = correlationId.ToString(),
+};
+```
+
+在下一個範例中，如果感應器遙測讀取超出預先定義的閾值，我們就會記錄訊息。 如果 Digital Twins 執行個體上已啟用診斷設定，則也會轉送使用者定義函式中的記錄：
+
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -156,7 +168,7 @@ function process(telemetry, executionContext) {
 
 如果溫度高於在預先定義的常數，下列程式碼會觸發通知。
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -184,27 +196,30 @@ function process(telemetry, executionContext) {
 
 我們需要建立角色指派，讓使用者定義函式可在其下方執行。 如果不這樣做，使用者定義函式不會有能與管理 API 互動的適當權限，也無法在圖表物件上執行動作。 使用者定義函式所執行的動作仍須遵循 Digital Twins 管理 API 內的角色型存取控制。 您可以藉由指定特定角色或特定存取控制路徑來限制這些動作的範圍。 如需詳細資訊，請參閱[角色型存取控制](./security-role-based-access-control.md)文件。
 
-- 查詢角色，並取得您想要指派給 UDF 的角色識別碼；將它傳遞給下列 RoleId。
+1. 查詢角色，並取得您想要指派給 UDF 的角色識別碼；將它傳遞給下列 **RoleId**。
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/system/roles
 ```
 
-| 自訂屬性名稱 | 更換為 |
+| 自訂屬性名稱 | 取代為 |
 | --- | --- |
-| `yourManagementApiUrl` | 管理 API 的完整 URL 路徑  |
+| *yourManagementApiUrl* | 管理 API 的完整 URL 路徑  |
 
-- ObjectId 就是稍早建立的 UDF 識別碼
-- 使用空間的完整路徑來查詢空間，以找出 `Path`，並複製 `spacePaths` 值。 建立 UDF 角色指派時，將該值貼到以下路徑
+2. **ObjectId** 就是稍早建立的 UDF 識別碼。
+3. 藉由使用 `fullpath` 查詢您的空間來找到 **Path** 的值。
+4. 複製傳回的 `spacePaths` 值。 您會在下面用到該值。
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
 ```
 
-| 自訂屬性名稱 | 更換為 |
+| 自訂屬性名稱 | 取代為 |
 | --- | --- |
-| `yourManagementApiUrl` | 管理 API 的完整 URL 路徑  |
-| `yourSpaceName` | 想要使用的空間名稱 |
+| *yourManagementApiUrl* | 管理 API 的完整 URL 路徑  |
+| yourSpaceName | 想要使用的空間名稱 |
+
+4. 現在，將傳回的 `spacePaths` 值貼到 **Path** 以建立 UDF 角色指派。
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
@@ -216,12 +231,12 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 }
 ```
 
-| 自訂屬性名稱 | 更換為 |
+| 自訂屬性名稱 | 取代為 |
 | --- | --- |
-| `yourManagementApiUrl` | 管理 API 的完整 URL 路徑  |
-| `yourDesiredRoleIdentifier` | 所需角色的識別碼 |
-| `yourUserDefinedFunctionId` | 要使用的 UDF 識別碼 |
-| `yourAccessControlPath` | 存取控制路徑 |
+| *yourManagementApiUrl* | 管理 API 的完整 URL 路徑  |
+| yourDesiredRoleIdentifier | 所需角色的識別碼 |
+| *yourUserDefinedFunctionId* | 要使用的 UDF 識別碼 |
+| yourAccessControlPath | 存取控制路徑 |
 
 ## <a name="send-telemetry-to-be-processed"></a>傳送要處理的遙測
 
@@ -241,7 +256,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | 空間識別碼 |
+| *id*  | `guid` | 空間識別碼 |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
@@ -251,7 +266,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | 感應器識別碼 |
+| *id*  | `guid` | 感應器識別碼 |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
@@ -261,7 +276,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | 裝置識別碼 |
+| *id* | `guid` | 裝置識別碼 |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue(sensorId, dataType) ⇒ `value`
 
@@ -283,7 +298,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
 | spaceId  | `guid` | 空間識別碼 |
-| valueName  | `string` | 空間屬性名稱 |
+| valueName | `string` | 空間屬性名稱 |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
@@ -293,8 +308,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | 感應器識別碼 |
-| dataType  | `string` | 感應器資料類型 |
+| sensorId | `guid` | 感應器識別碼 |
+| dataType | `string` | 感應器資料類型 |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
 
@@ -304,8 +319,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 空間識別碼 |
-| valueName  | `string` | 空間屬性名稱 |
+| spaceId | `guid` | 空間識別碼 |
+| valueName | `string` | 空間屬性名稱 |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -315,7 +330,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 空間識別碼 |
+| spaceId | `guid` | 空間識別碼 |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
@@ -325,7 +340,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 空間識別碼 |
+| spaceId | `guid` | 空間識別碼 |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
 
@@ -335,7 +350,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 空間識別碼 |
+| spaceId | `guid` | 空間識別碼 |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
@@ -345,7 +360,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | 裝置識別碼 |
+| deviceId | `guid` | 裝置識別碼 |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
@@ -355,7 +370,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| childSpaceId  | `guid` | 空間識別碼 |
+| childSpaceId | `guid` | 空間識別碼 |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
@@ -365,7 +380,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | 感應器識別碼 |
+| childSensorId | `guid` | 感應器識別碼 |
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
 
@@ -375,7 +390,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| childDeviceId  | `guid` | 裝置識別碼 |
+| childDeviceId | `guid` | 裝置識別碼 |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
@@ -385,7 +400,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | 感應器識別碼 |
+| childSensorId | `guid` | 感應器識別碼 |
 
 ### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
@@ -395,8 +410,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 空間識別碼 |
-| propertyName  | `string` | 空間屬性名稱 |
+| spaceId | `guid` | 空間識別碼 |
+| propertyName | `string` | 空間屬性名稱 |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
@@ -406,8 +421,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | 感應器識別碼 |
-| propertyName  | `string` | 感應器屬性名稱 |
+| sensorId | `guid` | 感應器識別碼 |
+| propertyName | `string` | 感應器屬性名稱 |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
@@ -417,8 +432,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | 裝置識別碼 |
-| propertyName  | `string` | 裝置屬性名稱 |
+| deviceId | `guid` | 裝置識別碼 |
+| propertyName | `string` | 裝置屬性名稱 |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue(sensorId, dataType, value)
 
@@ -428,9 +443,9 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | 感應器識別碼 |
+| sensorId | `guid` | 感應器識別碼 |
 | dataType  | `string` | 感應器資料類型 |
-| value  | `string` | value |
+| *value*  | `string` | value |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue(spaceId, dataType, value)
 
@@ -440,9 +455,9 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 空間識別碼 |
-| dataType  | `string` | 資料類型 |
-| value  | `string` | value |
+| spaceId | `guid` | 空間識別碼 |
+| dataType | `string` | 資料類型 |
+| *value* | `string` | value |
 
 ### <a name="logmessage"></a>log(message)
 
@@ -452,7 +467,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| Message  | `string` | 要記錄的訊息 |
+| *message* | `string` | 要記錄的訊息 |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification(topologyObjectId, topologyObjectType, payload)
 
@@ -462,9 +477,9 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| topologyObjectId  | `Guid` | 圖表物件識別碼 (例如： 空間/感應器/裝置識別碼)|
+| topologyObjectId  | `guid` | 圖表物件識別碼 (例如： 空間/感應器/裝置識別碼)|
 | topologyObjectType  | `string` | (例如 空間/感應器/裝置)|
-| payload  | `string` | 與通知一起傳送的 json 承載 |
+| payload  | `string` | 與通知一起傳送的 JSON 承載 |
 
 ## <a name="return-types"></a>傳回型別
 
@@ -527,7 +542,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| payload | `string` | 要包含在通知中的 json 承載 |
+| payload | `string` | 要包含在通知中的 JSON 承載 |
 
 ### <a name="device"></a>裝置
 
@@ -571,7 +586,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| payload | `string` | 要包含在通知中的 json 承載 |
+| payload | `string` | 要包含在通知中的 JSON 承載 |
 
 ### <a name="sensor"></a>感應器
 
@@ -627,7 +642,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 參數  | 類型                | 說明  |
 | ------ | ------------------- | ------------ |
-| payload | `string` | 要包含在通知中的 json 承載 |
+| payload | `string` | 要包含在通知中的 JSON 承載 |
 
 ### <a name="value"></a>值
 

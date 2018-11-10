@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801925"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086942"
 ---
 # <a name="how-to-configure-password-writeback"></a>如何：設定密碼回寫
 
@@ -49,7 +49,7 @@ ms.locfileid: "48801925"
 * **變更密碼** 
 * `lockoutTime` 的**寫入權限**
 * `pwdLastSet` 的**寫入權限**
-* 下列其中一個的**延伸權限**：
+* 下列其中一項的**延伸權限**：
    * 該樹系中「每個網域」的根物件
    * 要在 SSPR 範圍中的使用者組織單位 (OU)
 
@@ -72,13 +72,14 @@ ms.locfileid: "48801925"
 3. 在左面板中，於代表網域根目錄的物件上按一下滑鼠右鍵，然後選取 [屬性] > [安全性] > [進階]。
 4. 從 [權限] 索引標籤中，選取 [新增]。
 5. 挑選要套用權限的帳戶 (從 Azure AD Connect 安裝程式)。
-6. 在 [套用至] 下拉式清單中，選取 [下階使用者] 物件。
+6. 在 [套用至] 下拉式清單中，選取 [下階使用者物件]。
 7. 在 [權限] 底下，選取下列選項的方塊：
-    * **重設密碼**
     * **變更密碼**
+    * **重設密碼**
+8. 在 [屬性] 底下，選取下列選項的方塊：
     * **寫入 lockoutTime**
     * **寫入 pwdLastSet**
-8. 選取 [套用]/[確定] 以套用變更並結束任何開啟的對話方塊。
+9. 選取 [套用]/[確定] 以套用變更並結束任何開啟的對話方塊。
 
 ## <a name="next-steps"></a>後續步驟
 

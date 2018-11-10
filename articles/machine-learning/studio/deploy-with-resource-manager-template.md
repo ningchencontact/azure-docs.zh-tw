@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/05/2018
-ms.openlocfilehash: 82d2316b3f72fbb0c5c3ee1ea9424afcc7661361
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fc19c77e90ffd2d300497fc496da02b2d2234d3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833966"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244384"
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>使用 Azure Resource Manager 部署 Machine Learning 工作區
 ## <a name="introduction"></a>簡介
@@ -138,7 +138,7 @@ $rgd.Outputs.mlWorkspaceToken.Value
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
 ```
-佈建工作區之後，您也可以使用 [適用於 Azure Machine Learning 的 PowerShell 模組](http://aka.ms/amlps)將許多 Azure Machine Learning Studio 工作自動化。
+佈建工作區之後，您也可以使用 [適用於 Azure Machine Learning 的 PowerShell 模組](https://aka.ms/amlps)將許多 Azure Machine Learning Studio 工作自動化。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)。 

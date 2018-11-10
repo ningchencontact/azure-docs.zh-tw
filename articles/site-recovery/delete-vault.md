@@ -1,6 +1,6 @@
 ---
-title: 刪除 Site Recovery 保存庫
-description: 瞭解如何根據 Site Recovery 案例刪除 Azure Site Recovery 保存庫。
+title: 刪除針對 Azure Site Recovery 服務所設定的復原服務保存庫
+description: 了解如何刪除針對 Azure Site Recovery 所設定的復原服務保存庫
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9c4a88d8a3d63555a57bd5553b721cfbcd77df2c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971183"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212415"
 ---
-# <a name="delete-a-site-recovery-vault"></a>刪除 Site Recovery 保存庫
+# <a name="delete-a-site-recovery-recovery-services-vault"></a>刪除 Site Recovery 復原服務保存庫
 
 相依性會阻擋您刪除 Azure Site Recovery 保存庫。 您所須採取的動作，會隨著 Site Recovery 案例而有所不同。 若要刪除 Azure 備份使用的保存庫，請參閱[刪除 Azure 中的備份保存庫](../backup/backup-azure-delete-vault.md)。
 

@@ -1,6 +1,6 @@
 ---
-title: 適用於 VM 的 Azure 監視器常見問題集 | Microsoft Docs
-description: 適用於 VM 的 Azure 監視器是 Azure 中的解決方案，結合了 Azure VM 作業系統的健康情況和效能監視，以及自動探索應用程式元件和其他資源的相依性，並對應它們之間的通訊。 本文將回答常見問題。
+title: 適用於 VM 的 Azure 監視器 (預覽) 常見問題集 | Microsoft Docs
+description: 適用於 VM 的 Azure 監視器 (預覽) 是結合了 Azure VM 作業系統健康情況與效能監控的 Azure 解決方案，其會自動探索應用程式元件和與其他資源的相依性，並且會對應它們之間的通訊。 本文將回答常見問題。
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ff870f948acaae14ba772e14d48b27683f0bf07e
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388352"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091686"
 ---
-# <a name="azure-monitor-for-vms-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器常見問題集
-此 Microsoft 常見問題集是 Microsoft Azure 中適用於 VM 的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
+# <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器 (預覽) 常見問題集
+此 Microsoft 常見問題集是適用於 VM 的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>我可以將現有的工作區上線嗎？
 如果您的虛擬機器已經連線到 Log Analytics 工作區，則您可以在上線到適用於 VM 的 Azure 監視器時繼續使用該工作區，但前提是它位於[此處](monitoring-vminsights-onboard.md#prerequisites)所列的其中一個支援區域。

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 3af2b2a1b35a290746007d7f486473162a055b99
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958415"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211361"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -71,7 +71,6 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br>
   不支援下列服務：
     * CDN
-    * Azure DevOps Services 負載測試
     * 多因素驗證
     * 流量管理員
 
@@ -81,10 +80,9 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Azure DevOps Services 負載測試
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure 全域服務社群)
 * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br>**不支援**下列服務：
     * CDN
-    * Azure DevOps Services 負載測試
     * 多因素驗證
     * 流量管理員
 

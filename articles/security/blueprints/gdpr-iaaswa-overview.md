@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 509c33f2774e2d16bb8a96c50d1fb53962578dee
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f5f04fdaa12c716b21bafcc0abccc719428fe791
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409317"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242070"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-gdpr"></a>Azure 安全性與合規性藍圖 - 適用於 GDPR 的 IaaS Web 應用程式
 
 ## <a name="overview"></a>概觀
 一般資料保護規定 (GDPR) 包含許多有關收集、儲存和使用個人資訊的需求，包括組織如何識別及保護個人資料、容納透明度需求、偵測和報告個人資料缺口，以及訓練隱私權人員和其他員工。 GDPR 讓個人可進一步控制其個人資料，並對收集、處理或分析個人資料的組織加諸許多新義務。 GDPR 會針對提供商品和服務給歐盟 (EU) 居民，或收集和分析 EU 居民相關資料的組織，施加新的規則。 無論組織位於何處都適用 GDPR。
 
-Microsoft 設計的 Azure 具有領先業界的安全性措施和隱私權原則，可保護雲端資料，包括 GDPR 所識別的個人資料類別。 Microsoft 的[合約條款](http://aka.ms/Online-Services-Terms)要求 Microsoft 符合處理器需求。
+Microsoft 設計的 Azure 具有領先業界的安全性措施和隱私權原則，可保護雲端資料，包括 GDPR 所識別的個人資料類別。 Microsoft 的[合約條款](https://aka.ms/Online-Services-Terms)要求 Microsoft 符合處理器需求。
 
 此「Azure 安全性與合規性藍圖」提供指引以部署基礎結構即服務 (IaaS) 環境，此環境適合網際網路面向的簡易 Web 應用程式。 此解決方案示範的方式讓客戶能符合 GDPR 特定的安全性和合規性需求，並且作為客戶在 Azure 上建置及設定自有 IaaS Web 應用程式解決方案的基礎。 客戶可以在符合 GDPR 規範的過程中利用此參考架構，並遵循 Microsoft 的[四個步驟程序](https://aka.ms/gdprebook)：
 1. 探索：識別存在哪些個人資料，及其所在位置。

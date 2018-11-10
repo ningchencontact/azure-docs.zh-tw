@@ -1,19 +1,18 @@
 ---
-title: 使用 Azure Site Recovery 執行從 Hyper-V VM 到次要網站的 DR 演練 | Microsoft Docs
-description: 了解如何使用 Azure Site Recovery 執行從 VMM 雲端中的 Hyper-V VM 到次要資料中心的 DR 演練。
-services: site-recovery
+title: 使用 Azure Site Recovery 執行從 Hyper-V VM 到次要網站的災害復原演練 | Microsoft Docs
+description: 了解如何使用 Azure Site Recovery 執行從 VMM 雲端中的 Hyper-V VM 到次要內部部署資料中心的 DR 演練。
 author: ponatara
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 03533af27ac6fd406b4639c31c3add0015a76f45
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918793"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211344"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>執行從 Hyper-V VM 到次要網站的 DR 演練
 

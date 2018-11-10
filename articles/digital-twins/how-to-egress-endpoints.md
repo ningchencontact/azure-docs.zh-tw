@@ -6,20 +6,20 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: c917fab84448684cf29af162ec0781d764605f71
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c09ee84cda5f0a9747d3ee1f8f1b37d1323f2cc2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323745"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212245"
 ---
 # <a name="egress-and-endpoints"></a>輸出和端點
 
 Azure Digital Twins 支援「端點」的概念，而在使用者的 Azure 訂用帳戶中，每個端點都代表訊息/事件的訊息代理程式。 事件和訊息可以傳送至**事件中樞**、**事件方格**和**服務匯流排主題**。
 
-事件會根據預先定義的路由喜好設定來傳送至端點：使用者可以指定應接收下列任一事件的端點：`TopologyOperation`、`UdfCustom`、`SensorChange`、`SpaceChange` 或 `DeviceMessage`。
+事件會根據預先定義的路由喜好設定來傳送至端點：使用者可以指定應接收下列任一事件的端點：**TopologyOperation**、**UdfCustom**、**SensorChange**、**SpaceChange** 或 **DeviceMessage**。
 
 若要對事件路由和事件類型有基本了解，請參閱[路由事件和訊息](concepts-events-routing.md)。
 
@@ -27,9 +27,9 @@ Azure Digital Twins 支援「端點」的概念，而在使用者的 Azure 訂�
 
 以下是每個事件類型的事件格式：
 
-- `TopologyOperation`
+- **TopologyOperation**
 
-  適用於圖表變更。 `subject` 屬性會指定受影響的物件類型。 可能會觸發此事件的物件類型為：`Device, DeviceBlobMetadata`、`DeviceExtendedProperty`、`ExtendedPropertyKey`、`ExtendedType`、`KeyStore`、`Report`、`RoleDefinition`、`Sensor`、`SensorBlobMetadata`、`SensorExtendedProperty`、`Space`、`SpaceBlobMetadata`、`SpaceExtendedProperty`、`SpaceResource`、`SpaceRoleAssignment`、`System`、`User`、`UserBlobMetadata`、`UserExtendedProperty`。
+  適用於圖表變更。 subject 屬性會指定受影響的物件類型。 可觸發此事件的物件類型為：**Device**、**DeviceBlobMetadata**、**DeviceExtendedProperty**、**ExtendedPropertyKey**、**ExtendedType**、**KeyStore**、**Report**、**RoleDefinition**、**Sensor**、**SensorBlobMetadata**、**SensorExtendedProperty**、**Space**、**SpaceBlobMetadata**、**SpaceExtendedProperty**、**SpaceResource**、**SpaceRoleAssignment**、**System**、**User**、**UserBlobMetadata**、**UserExtendedProperty**。
 
   範例：
 
@@ -53,13 +53,16 @@ Azure Digital Twins 支援「端點」的概念，而在使用者的 Azure 訂�
   }
   ```
 
-    | 自訂屬性名稱 | 更換為 |
+    | 自訂屬性名稱 | 取代為 |
     | --- | --- |
-    | `yourTopicName` | 自訂主題的名稱 |
+    | yourTopicName | 自訂主題的名稱 |
 
-- `UdfCustom`
+- **UdfCustom**
 
-  由使用者定義函式 (UDF) 傳送的事件。 請注意，此事件必須以明確地從 UDF 本身傳送。
+  由使用者定義函式 (UDF) 傳送的事件。 
+  
+  > [!IMPORTANT]
+  > 此事件必須以明確地從 UDF 本身傳送。
 
   範例：
 
@@ -81,11 +84,11 @@ Azure Digital Twins 支援「端點」的概念，而在使用者的 Azure 訂�
   }
   ```
 
-    | 自訂屬性名稱 | 更換為 |
+    | 自訂屬性名稱 | 取代為 |
     | --- | --- |
-    | `yourTopicName` | 自訂主題的名稱 |
+    | yourTopicName | 自訂主題的名稱 |
 
-- `SensorChange`
+- **SensorChange**
 
   以遙測變更為基礎的感應器狀態更新。
 
@@ -116,11 +119,11 @@ Azure Digital Twins 支援「端點」的概念，而在使用者的 Azure 訂�
   }
   ```
 
-    | 自訂屬性名稱 | 更換為 |
+    | 自訂屬性名稱 | 取代為 |
     | --- | --- |
-    | `yourTopicName` | 自訂主題的名稱 |
+    | yourTopicName | 自訂主題的名稱 |
 
-- `SpaceChange`
+- **SpaceChange**
 
   以遙測變更為基礎的空間狀態更新。
 
@@ -151,17 +154,17 @@ Azure Digital Twins 支援「端點」的概念，而在使用者的 Azure 訂�
   }
   ```
 
-    | 自訂屬性名稱 | 更換為 |
+    | 自訂屬性名稱 | 取代為 |
     | --- | --- |
-    | `yourTopicName` | 自訂主題的名稱 |
+    | yourTopicName | 自訂主題的名稱 |
 
-- `DeviceMessage`
+- **DeviceMessage**
 
-  可讓您指定 `EventHub` 連線，原始遙測事件也可從 Azure Digital Twins 路由至此。
+  可讓您指定 **EventHub** 連線，原始遙測事件也可從 Azure Digital Twins 路由至此。
 
 > [!NOTE]
-> - `DeviceMessage` 只能與 `EventHub` 結合；您無法讓 `DeviceMessage` 與任何其他事件類型結合。
-> - 您只能指定 1 個結合 `EventHub`/`DeviceMessage` 類型的端點。
+> - **DeviceMessage** 只能與 **EventHub** 結合；您無法讓 **DeviceMessage** 與任何其他事件類型結合。
+> - 您只能指定一個結合 **EventHub** 或 **DeviceMessage** 類型的端點。
 
 ## <a name="configuring-endpoints"></a>設定端點
 
@@ -171,7 +174,7 @@ Azure Digital Twins 支援「端點」的概念，而在使用者的 Azure 訂�
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- 路由至**服務匯流排**的事件類型：`SensorChange`、`SpaceChange`、`TopologyOperation`
+- 路由傳送至**服務匯流排**事件類型：**SensorChange**、**SpaceChange**、**TopologyOperation**
 
   ```JSON
   {
@@ -187,14 +190,14 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | 自訂屬性名稱 | 更換為 |
+    | 自訂屬性名稱 | 取代為 |
     | --- | --- |
-    | `yourNamespace` | 端點的命名空間 |
-    | `yourPrimaryKey` | 用於驗證的主要連接字串 |
-    | `yourSecondaryKey` | 用於驗證的次要連接字串 |
-    | `yourTopicName` | 自訂主題的名稱 |
+    | yourNamespace | 端點的命名空間 |
+    | yourPrimaryKey | 用於驗證的主要連接字串 |
+    | yourSecondaryKey | 用於驗證的次要連接字串 |
+    | yourTopicName | 自訂主題的名稱 |
 
-- 路由至**事件方格**的事件類型：`SensorChange`、`SpaceChange`、`TopologyOperation`
+- 路由傳送至**事件方格**事件類型：**SensorChange**、**SpaceChange**、**TopologyOperation**
 
   ```JSON
   {
@@ -210,13 +213,13 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | 自訂屬性名稱 | 更換為 |
+    | 自訂屬性名稱 | 取代為 |
     | --- | --- |
-    | `yourPrimaryKey` | 用於驗證的主要連接字串|
-    | `yourSecondaryKey` | 用於驗證的次要連接字串 |
-    | `yourTopicName` | 自訂主題的名稱 |
+    | yourPrimaryKey | 用於驗證的主要連接字串|
+    | yourSecondaryKey | 用於驗證的次要連接字串 |
+    | yourTopicName | 自訂主題的名稱 |
 
-- 路由至**事件中樞**的事件類型：`SensorChange`、`SpaceChange`、`TopologyOperation`
+- 路由傳送至**事件中樞**事件類型：**SensorChange**、**SpaceChange**、**TopologyOperation**
 
   ```JSON
   {
@@ -232,14 +235,14 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | 自訂屬性名稱 | 更換為 |
+    | 自訂屬性名稱 | 取代為 |
     | --- | --- |
-    | `yourNamespace` | 端點的命名空間 |
-    | `yourPrimaryKey` | 用於驗證的主要連接字串 |
-    | `yourSecondaryKey` | 用於驗證的次要連接字串 |
-    | `yourEventHubName` | 事件中樞的名稱 |
+    | yourNamespace | 端點的命名空間 |
+    | yourPrimaryKey | 用於驗證的主要連接字串 |
+    | yourSecondaryKey | 用於驗證的次要連接字串 |
+    | yourEventHubName | **事件中樞**的名稱 |
 
-- 路由至**事件中樞**的事件類型：`DeviceMessage`。 請注意包含在 `connectionString` 中的 _EntityPath_，這是必要項目。
+- 路由傳送至**事件中樞**事件類型：**DeviceMessage**。 包含在 **connectionString** 中包含 `EntityPath`。
 
   ```JSON
   {
@@ -253,12 +256,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | 自訂屬性名稱 | 更換為 |
+    | 自訂屬性名稱 | 取代為 |
     | --- | --- |
-    | `yourNamespace` | 端點的命名空間 |
-    | `yourPrimaryKey` | 用於驗證的主要連接字串 |
-    | `yourSecondaryKey` | 用於驗證的次要連接字串 |
-    | `yourEventHubName` | 事件中樞的名稱 |
+    | yourNamespace | 端點的命名空間 |
+    | yourPrimaryKey | 用於驗證的主要連接字串 |
+    | yourSecondaryKey | 用於驗證的次要連接字串 |
+    | yourEventHubName | **事件中樞**的名稱 |
 
 > [!NOTE]
 > 建立新端點時，可能需要 5 到 10 分鐘的時間，才能開始在端點上接收事件。

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f70cd5de29cc3050142dfff905acae2008dab115
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379117"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157355"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure 資料箱閘道的系統需求 (預覽)
 
@@ -56,7 +56,7 @@ ms.locfileid: "49379117"
 
 ## <a name="supported-storage-accounts"></a>支援的儲存體帳戶
 
-以下是資料箱閘道所支援的儲存體類型清單。
+以下是資料箱閘道所支援的儲存體帳戶清單。
 
 | **儲存體帳戶** | **注意事項** |
 | --- | --- |

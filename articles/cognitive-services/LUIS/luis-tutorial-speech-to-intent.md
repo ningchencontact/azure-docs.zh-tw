@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883919"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139076"
 ---
 # <a name="integrate-speech-service"></a>整合語音服務
 [語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 封裝 (已隨附提供參考)。 
@@ -39,7 +39,7 @@ ms.locfileid: "48883919"
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>新增 KeyPhrase 預先建置的實體
-匯入應用程式後，選取 [實體]，然後再選取 [管理預先建立的實體]。 新增 **KeyPhrase** 實體。 KeyPhrase 實體會從語句中擷取金鑰主題。
+匯入應用程式後，請選取 [實體]，然後選取 [新增預先建置的實體]。 新增 **KeyPhrase** 實體。 KeyPhrase 實體會從語句中擷取金鑰主題。
 
 ## <a name="train-and-publish-the-app"></a>訓練和發佈應用程式
 1. 在頂端右側的導覽列中，選取 [訓練] 按鈕以訓練 LUIS 應用程式。

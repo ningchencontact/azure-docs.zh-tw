@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 排除磁碟不要保護 | Microsoft Docs
-description: 說明為何及如何排除 VM 磁碟不要從 VMware 複寫到 Azure。
+title: 從使用 Azure Site Recovery 的 VMware 至 Azure 災害復原複寫作業排除磁碟 | Microsoft Docs
+description: 說明從 VMware 至 Azure 的災害復原複寫作業排除 VM 磁碟的原因和方式。
 author: nsoneji
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: ea0e9f3572287139612256863ee28b72c83cd4ef
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f8e5fd094e453088dab83c1967bc0733f91a2b98
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092418"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210580"
 ---
-# <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>排除磁碟不要從 VMware 複寫到 Azure 案例
+# <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>從 VMware VM 至 Azure 的複寫作業排除磁碟
 
 本文說明如何在將 VMware VM 複寫至 Azure 時排除磁碟。 這種排除可以最佳化已使用的複寫頻寬，或最佳化此類磁碟使用的目標端資源。 如果您需要針對 Hyper-V 排除磁碟的詳細資訊，請參閱[這篇文章](hyper-v-exclude-disk.md)
 

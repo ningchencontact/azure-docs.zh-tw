@@ -1,27 +1,27 @@
 ---
-title: 準備目標環境 (VMware/實體至 Azure) | Microsoft Docs
-description: 此文章說明如何準備您的目標 Azure 環境，用於將 VMware VM 和實體伺服器複寫至 Azure。
+title: 準備將 VMware 複寫至 Azure 的目標環境 | Microsoft Docs
+description: 本文說明如何準備您的目標 Azure 環境，用於將 VMware 虛擬機器複寫至 Azure。
 services: site-recovery
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: bsiva
-ms.openlocfilehash: 948812f05697362978ad041566d22977efec92a1
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434631"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233424"
 ---
-# <a name="prepare-the-target-environment-vmwarephysical-to-azure"></a>準備目標環境 (VMware/實體至 Azure)
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>準備目標環境以進行從 VMware VM 或實體伺服器至 Azure 的災害復原
 
 此文章將說明如何準備您的目標 Azure 環境，以開始將 VMware 虛擬機器或實體伺服器複寫至 Azure。
 
 ## <a name="prerequisites"></a>必要條件
 
-此文章假設：
+本文假設：
 - 您已經在 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")上建立復原服務保存庫以保護您的來源機器
 - 您已經將內部部署環境設定為將來源 [VMware 虛擬機器](vmware-azure-set-up-source.md)或[實體伺服器](physical-azure-set-up-source.md)複寫至 Azure。
 

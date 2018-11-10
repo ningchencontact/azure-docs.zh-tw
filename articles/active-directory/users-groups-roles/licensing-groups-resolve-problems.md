@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d64cf71ea3a44b7539835e3616150218e8b3635
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861091"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211531"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>識別及解決 Azure Active Directory 中群組的授權指派問題
 
@@ -97,6 +97,19 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 > [!NOTE]
 > 當 Azure AD 指派群組授權時，不具有指定之使用位置的任何使用者會繼承目錄的位置。 我們建議系統管理員先為使用者設定正確的使用位置值，再使用以群組為基礎的授權，以符合當地法規。
 
+## <a name="duplicate-proxy-addresses"></a>重複的 Proxy 位址
+
+如果您使用 Exchange Online，則租用戶中有些使用者可能錯誤地設定相同的 Proxy 位址值。 當以群組為基礎的授權嘗試指派授權給這類使用者時，將會失敗，並顯示 [Proxy 位址已在使用中]。
+
+> [!TIP]
+> 若要查看是否有重複的 Proxy 位址，請針對 Exchange Online 執行下列 PowerShell Cmdlet：
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> 如需此問題的詳細資訊，請參閱 [Exchange Online 中出現「已使用此 Proxy 位址」錯誤訊息](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)。 該文章也包括[如何使用遠端 PowerShell 連線至 Exchange Online](https://technet.microsoft.com/library/jj984289.aspx)的相關資訊。 如需詳細資訊，請參閱[如何在 Azure AD 中填入 proxyAddresses 屬性](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad) \(英文\) 一文。
+
+為受影響的使用者解決任何 Proxy 位址問題之後，請務必在群組上強制執行授權處理，以確保現在可以套用授權。
+
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>當群組中有一個以上的產品授權時，會發生什麼事？
 
 您可以將一個以上的產品授權指派給群組。 例如，您可以將 Office 365 企業版 E3 和 Enterprise Mobility + Security 指派給群組，以便輕鬆地為使用者啟用所有已納入的服務。
@@ -134,19 +147,7 @@ Azure AD 會嘗試將群組中指定的所有授權指派給每位使用者。 �
 > [!TIP]
 > 您可以針對每個必要條件服務方案建立多個群組。 比方說，如果您對使用者同時使用 Office 365 企業版 E1 和 Office 365 企業版 E3，則可以建立兩個群組來授權 Microsoft 工作場所分析：一個使用 E1 作為必要條件，另一個使用 E3 作為必要條件。 這可讓您將附加元件散發給 E1 和 E3 使用者，而不會耗用額外的授權。
 
-## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>使用者的授權指派會因為 Exchange Online 中 Proxy 位址重複而無訊息的失敗
 
-如果您使用 Exchange Online，則租用戶中有些使用者可能錯誤地設定相同的 Proxy 位址值。 當以群組為基礎的授權嘗試指派授權給這類使用者時，將會失敗，但不會記錄錯誤。 在此功能的預覽版中，無法在此執行個體中記錄錯誤，我們會在「正式運作」之前解決此問題。
-
-> [!TIP]
-> 如果您發現某些使用者未收到授權，也沒有對這些使用者記錄錯誤，請先檢查他們是否有重複的 Proxy 位址。
-> 若要查看是否有重複的 Proxy 位址，請針對 Exchange Online 執行下列 PowerShell Cmdlet：
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
-> 如需此問題的詳細資訊，請參閱 [Exchange Online 中出現「已使用此 Proxy 位址」錯誤訊息](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)。 該文章也包括[如何使用遠端 PowerShell 連線至 Exchange Online](https://technet.microsoft.com/library/jj984289.aspx)的相關資訊。
-
-為受影響的使用者解決任何 Proxy 位址問題之後，請務必在群組上強制執行授權處理，以確保現在可以套用授權。
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>如何強制處理群組中的授權來解決錯誤？
 
@@ -154,11 +155,19 @@ Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.co
 
 比方說，如果您移除使用者的直接授權指派來釋出一些授權，則必須觸發處理先前未能完整授權所有使用者成員的群組。 若要重新處理群組，請移至群組窗格，開啟 [授權]，然後選取工具列上的 [重新處理]按鈕。
 
+## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>如何強制處理使用者的授權來解決錯誤？
+
+根據您為了解決錯誤所採取的步驟而定，可能需要手動觸發處理使用者來更新使用者狀態。
+
+例如，在為受影響的使用者解決重複的 Proxy 位址問題之後，您必須觸發處理該使用者。 若要重新處理使用者，請移至使用者窗格，開啟 [授權]，然後選取工具列上的 [重新處理]按鈕。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解透過群組管理授權的其他案例，請閱讀下列各項：
 
-* [將授權指派給 Azure Active Directory 中的群組](licensing-groups-assign.md)
 * [什麼是 Azure Active Directory 中以群組為基礎的授權？](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [將授權指派給 Azure Active Directory 中的群組](licensing-groups-assign.md)
 * [如何將個別授權使用者移轉至 Azure Active Directory 中以群組為基礎的授權](licensing-groups-migrate-users.md)
+* [如何使用 Azure Active Directory 中的群組型授權在產品授權之間移轉使用者](licensing-groups-change-licenses.md)
 * [Azure Active Directory 群組型授權其他案例 (英文)](licensing-group-advanced.md)
+* [Azure Active Directory 群組型授權的 PowerShell 範例](licensing-ps-examples.md)

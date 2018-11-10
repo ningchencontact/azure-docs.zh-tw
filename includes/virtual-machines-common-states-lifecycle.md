@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: 603e7c3a0c30eb42cb75d6a6ff87a96d847b7c9f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "40100729"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035365"
 ---
 Azure 虛擬機器 (VM) 會經歷不同狀態，這些狀態可以分成「佈建」和「電源」狀態。 本文的目的是要說明這些狀態，並具體指出何時會向客戶收取執行個體使用量費用。 
 
@@ -287,7 +287,7 @@ State
 
 執行個體檢視 API 會提供 VM 的執行狀態資訊。 如需詳細資訊，請參閱[虛擬機器 - 執行個體檢視](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API。
 
-Azure 資源總管會提供一個簡單的 UI 供您檢視 VM 的執行中狀態：[資源總管] (https://resources.azure.com/)。
+Azure 資源總管會提供一個簡單的 UI 供您檢視 VM 的執行中狀態：[資源總管](https://resources.azure.com/)。
 
 佈建狀態可於 VM 屬性和執行個體檢視中看到。 電源狀態可於 VM 的執行個體檢視中看到。 
 

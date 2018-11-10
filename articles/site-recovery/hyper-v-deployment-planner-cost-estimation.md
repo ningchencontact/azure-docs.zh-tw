@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery 部署規劃工具對 Hyper-V 到 Azure 的成本估計詳細資料 | Microsoft Docs
-description: 本文說明使用 Azure Site Recovery 部署規劃工具針對 Hyper-V 到 Azure 案例產生之報告的成本估計詳細資料。
+title: 檢閱 Azure Site Recovery 部署規劃工具針對 Hyper-V VM 至 Azure 的災害復原所做的成本預估報告 | Microsoft Docs
+description: 本文說明如何檢閱 Azure Site Recovery 部署規劃工具針對 Hyper-V VM 至 Azure 的災害復原所產生的成本預估報告。
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0233446f817436632efc4110872e84b6b3105453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387237"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213180"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署規劃工具的成本估計報告 
 

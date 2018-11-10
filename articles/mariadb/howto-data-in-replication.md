@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13d1353b0f8b3320972973d428f4aedb0fb68ac8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990680"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212755"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>如何為適用於 MariaDB 的 Azure 資料庫設定資料輸入複寫
 
@@ -62,7 +62,7 @@ ms.locfileid: "46990680"
 
    在使用複寫權限設定的主要伺服器上建立使用者帳戶。 此作業可透過 SQL 命令或 MySQL Workbench 等工具完成。 考慮是打算否使用 SSL 進行複寫，因為此設定必須在建立使用者時指定。 請參閱 MariaDB 文件，了解如何在主要伺服器中[新增使用者帳戶](https://mariadb.com/kb/en/library/create-user/)。 
 
-   在以下命令中，新建的複寫角色除了從裝載主要伺服器的機器存取主要伺服器，還可從任何機器存取主要伺服器。 在建立使用者命令中指定 "syncuser@'%'"，即可執行此作業。 請參閱 MariaDB 文件，進一步了解[如何指定帳戶名稱](https://mariadb.com/kb/en/library/create-user/#account-names)。
+   在以下命令中，新建的複寫角色除了從裝載主要伺服器的機器存取主要伺服器，還可從任何機器存取主要伺服器。 在建立使用者命令中指定 "syncuser\@'%'"，即可執行此作業。 請參閱 MariaDB 文件，進一步了解[如何指定帳戶名稱](https://mariadb.com/kb/en/library/create-user/#account-names)。
 
    **SQL 命令**
 
@@ -142,7 +142,7 @@ ms.locfileid: "46990680"
 
 1. 設定主要伺服器
 
-   所有「資料輸入複寫」功能都可由已儲存的程序執行完成。 您可以在[資料輸入複寫預存程序](reference-data-in-stored-procedures.md)中找到所有程序。 已儲存的程序可在 MySQL Shell 或 MySQL Workbench 中執行。
+   所有「複寫中的資料」功能都可由已儲存的程序執行完成。 您可在[複寫中的資料已儲存的程序](reference-data-in-stored-procedures.md)中找到所有程序。 已儲存的程序可在 MySQL Shell 或 MySQL Workbench 中執行。
 
    若要連結兩個伺服器並開始複寫，請在適用於 MariaDB 的 Azure DB 服務中登入目標複本伺服器，然後將外部執行個體設為主要伺服器。 在適用於 MariaDB 伺服器的 Azure DB 中使用 `mysql.az_replication_change_master` 已儲存的程序，即可執行此作業。
 

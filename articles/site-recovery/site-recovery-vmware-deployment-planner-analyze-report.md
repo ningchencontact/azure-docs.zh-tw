@@ -1,21 +1,21 @@
 ---
-title: VMware 到 Azure 的 Azure Site Recovery Deployment Planner | Microsoft Docs
-description: 本文針對 VMware 到 Azure 案例說明 Azure Site Recovery 部署規劃工具所產生報告的分析。
-services: site-recovery
+title: 分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告 | Microsoft Docs
+description: 本文說明如何分析 Azure Site Recovery 部署規劃工具針對「VMWare 至 Azure 的災害復原」所產生的報告。
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e6aa3a8c788fe06a528a9c363a28faffa0a9ca88
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094083"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213911"
 ---
-# <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery 部署規劃工具報告
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告
+
 產生的 Microsoft Excel 報告包含下列工作表：
 ## <a name="on-premises-summary"></a>內部部署摘要
 內部部署摘要工作表提供已剖析的 VMware 環境概觀。

@@ -1,22 +1,20 @@
 ---
-title: 對使用 Azure Site Recovery 從 Azure VM 容錯回復至內部部署 VMware 期間發生的失敗進行疑難排解 | Microsoft Docs
-description: 本文說明對使用 Azure Site Recovery 從 Azure 容錯回復至 VMware 期間發生的常見容錯回復和重新保護錯誤進行疑難排解的方式。
-services: site-recovery
-documentationcenter: ''
+title: 對使用 Azure Site Recovery 從 VMWare VM 災害復原至 Azure 期間所進行的內部部署環境容錯回復進行疑難排解 | Microsoft Docs
+description: 本文說明對使用 Azure Site Recovery 從 VMWare VM 災害復原至 Azure 期間所發生的容錯回復和重新保護問題進行疑難排解的方式。
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: c5ba0f1d98f3e4023e767bf3eea7a0b497d47686
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 89484e14d69493c74ed1ff983cf88ec146e0313d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920958"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210358"
 ---
-# <a name="troubleshoot-failback-from-azure-to-vmware"></a>針對從 Azure 到 VMware 的容錯回復進行疑難排解
+# <a name="troubleshoot-failback-to-on-premises-from-azure"></a>針對從 Azure 至內部部署環境的容錯回復進行疑難排解
 
 本文說明如何排解您在使用 [Azure Site Recovery](site-recovery-overview.md) 執行容錯移轉後從 Azure VM 容錯回復至內部部署 VMware 基礎結構時可能遇到的問題。
 

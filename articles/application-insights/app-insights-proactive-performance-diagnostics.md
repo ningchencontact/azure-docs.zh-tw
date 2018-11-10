@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095458"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419719"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智慧型偵測 - 效能異常
 
@@ -47,7 +47,7 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 通知會包含診斷資訊。 以下是範例：
 
 
-![以下是伺服器回應時間降低偵測的範例](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![以下是伺服器回應時間降低偵測的範例](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **分級**。 通知會顯示受影響的使用者人數或作業數。 這可協助您將優先順序指派給此問題。
 2. **範圍**。 此問題是否會影響所有流量，還是只會影響某些頁面？ 它是否限制為特定的瀏覽器或位置？ 可以從通知取得這項資訊。
@@ -61,7 +61,7 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 
 依預設會啟用智慧型偵測通知，並將這些通知傳送給具有 [Application Insights 資源的擁有者、參與者和讀取者存取權](app-insights-resources-roles-access-control.md)的人員。 若要變更這種情況，請按一下電子郵件通知中的 [設定]，或開啟 Application Insights 中的 [智慧型偵測] 設定。 
   
-  ![智慧型偵測設定](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![智慧型偵測設定](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * 您可以使用智慧型偵測電子郵件中的 [取消訂閱] 連結，停止接收電子郵件通知。
 
@@ -143,7 +143,7 @@ Web 上有改善您的伺服器回應和頁面載入時間的完整建議，因�
 
 範例相依性降低通知︰
 
-![以下是相依性持續時間降低偵測的範例](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![以下是相依性持續時間降低偵測的範例](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 請注意，它會告訴您︰
 

@@ -3,23 +3,19 @@ title: Durable Functions 中的版本控制 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions  擴充中實作版本控制。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0a86e4a87f5ec23c284aa4e5cfb2c67622b3ebe9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cd8e21ede794fcb46683ea7cedd2bf9ed833204
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22991283"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086976"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的版本控制
 
@@ -127,11 +123,23 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```json
 {
-    "durableTask": {
-        "HubName": "MyTaskHubV2"
+    "extensions": {
+        "durableTask": {
+            "HubName": "MyTaskHubV2"
+        }
     }
 }
 ```
+
+> [!NOTE]
+> 在 V1 函式中，*host.json* 應該改為設定如下
+>```json
+>{
+>    "durableTask": {
+>        "HubName": "MyTaskHubV2"
+>    }
+>}
+>```
 
 預設值為 `DurableFunctionsHub`。
 

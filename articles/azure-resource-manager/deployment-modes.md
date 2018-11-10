@@ -9,18 +9,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 10/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: c8c6c5499e1cea04bc5bdffbb5c07b53b96182e2
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 4d1b27c9b1694f987ea7461c16899f3e5ecb84d2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141874"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140988"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
-部署您的資源時，您可以指定部署是累加式更新或完整更新。  這兩種模式的主要差異在於 Resource Manager 如何處理資源群組中未在範本內的現有資源。
-預設模式為累加。
+部署您的資源時，您可以指定部署是累加式更新或完整更新。  這兩種模式的主要差異在於 Resource Manager 如何處理資源群組中未在範本內的現有資源。 預設模式為累加。
 
 ## <a name="incremental-and-complete-deployments"></a>累加部署與完整部署
 部署資源時：
@@ -28,19 +27,21 @@ ms.locfileid: "42141874"
 * 在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。 
 * 在累加模式中，Resource Manager 會讓現存於資源群組中但未在範本內指定的資源**保持不變**。
 
-在這兩種模式中，Resource Manager 都會嘗試佈建範本內指定的所有資源。 如果資源已存在於資源群組中，且其設定保持不變，此作業不會導致任何變更。 如果您變更資源設定，則會以這些新設定佈建資源。 如果您嘗試更新現有資源的位置或類型，部署會失敗並發生錯誤。 相反地，請以您需要的位置或類型部署新的資源。
+在這兩種模式中，Resource Manager 都會嘗試建立範本內指定的所有資源。 如果資源已存在於資源群組中，且其設定保持不變，此作業不會導致任何變更。 如果您變更資源的屬性值，則會以這些新值來更新資源。 如果您嘗試更新現有資源的位置或類型，部署會失敗並發生錯誤。 相反地，請以您需要的位置或類型部署新的資源。
+
+以累加模式重新部署資源時，指定資源的所有屬性值，而不只是您正在更新的屬性值。 如果您未指定特定屬性，Resource Manager 會將更新解譯為覆寫這些值。
 
 ## <a name="example-result"></a>範例結果
 
 若要說明增量和完整模式之間的差異，請考慮下列案例。
 
-**現有資源群組**包含︰
+**資源群組**包含：
 
 * 資源 A
 * 資源 B
 * 資源 C
 
-**範本**定義：
+**範本**包含：
 
 * 資源 A
 * 資源 B

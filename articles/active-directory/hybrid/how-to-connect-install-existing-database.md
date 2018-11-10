@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 36db41308678f3f1bd713561f9a844288f5db401
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bbf8dc4ccbd16f2157e65773b01fb42587fbfe9d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306297"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417475"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>使用現有的 ADSync 資料庫安裝 Azure AD Connect
 Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 Azure AD Connect 安裝的預設 SQL Server 2012 Express LocalDB 或使用您自己的完整版 SQL。 在先前，當您安裝 Azure AD Connect 時，一律會建立名為 ADSync 的新資料庫。 使用 Azure AD Connect 1.1.613.0 版 (或更新版本)，您可以選擇指向現有的 ADSync 資料庫來安裝 Azure AD Connect。
@@ -86,6 +86,17 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 A
  
 11. 安裝完成之後，Azure AD Connect 伺服器會自動啟用暫存模式。 建議您先檢閱伺服器組態和擱置的未預期變更匯出，然後再停用暫存模式。 
 
+## <a name="post-installation-tasks"></a>後續安裝工作
+還原 1.2.65.0 版之前的 Azure AD Connect 所建立的資料庫備份時，預備伺服器會自動選取 [請勿設定] 的登入方法。 雖然會還原密碼雜湊同步處理和密碼回寫喜好設定，但您必須隨後變更登入方法，以符合作用中同步處理伺服器的其他生效原則。  無法完成這些步驟，當此伺服器變為作用中時，使用者可能會無法登入。  
+
+請使用下表來確認所需的任何其他步驟。
+
+|功能|步驟|
+|-----|-----|
+|密碼雜湊同步處理| 從 Azure AD Connect 1.2.65.0 版開始，都會完全還原密碼雜湊同步處理和密碼回寫設定。  如果使用舊版的 Azure AD Connect 還原，請檢閱這些功能的同步處理選項設定，以確保和作用中的同步處理伺服器相符。  應該不需要進行任何其他設定步驟。|
+|與 AD FS 同盟|Azure 驗證會繼續使用為作用中的同步處理伺服器所設定的 AD FS 原則。  如果您使用 Azure AD Connect 來管理 AD FS 伺服器陣列，準備將待命伺服器變成作用中的同步處理執行個體時，可選擇性地將登入方法變更為 AD FS 同盟。   如果作用中的同步處理伺服器上已啟用裝置選項，請執行 [設定裝置選項] 工作，設定此伺服器上的這些選項。|
+|傳遞驗證和傳統型單一登入|更新登入方法，以符合作用中同步處理伺服器上的設定。  如果您未在升階為主要伺服器之前這樣做，就會停用傳遞驗證和無縫單一登入，並在備份登入選項並非密碼雜湊同步處理時鎖定您的租用戶。 另請注意，當您在預備模式啟用傳遞驗證時，隨即會安裝、註冊新的驗證代理程式，並會執行為接受登入要求的高可用性代理程式。|
+|與 PingFederate 同盟|Azure 驗證會繼續使用為作用中的同步處理伺服器所設定的 PingFederate 原則。  您準備將待命伺服器變成作用中的同步處理執行個體時，可選擇性地將登入方法變更為 PingFederate。  您可以延後此步驟，直到您要使用 PingFederate 和其他網域建立同盟為止。|
 ## <a name="next-steps"></a>後續步驟
 
 - 安裝了 Azure AD Connect 之後，您可以 [驗證安裝和指派授權](how-to-connect-post-installation.md)。

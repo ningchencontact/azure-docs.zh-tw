@@ -4,17 +4,17 @@ description: 使用 Azure Resource Graph 執行一些進階查詢。
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647828"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085371"
 ---
 # <a name="advanced-resource-graph-queries"></a>進階 Resource Graph 查詢
 
@@ -33,9 +33,9 @@ ms.locfileid: "49647828"
 
 Azure CLI (透過擴充功能) 與 Azure PowerShell (透過模組) 支援 Azure Resource Graph。 在執行下列任何查詢之前，請檢查您的環境已準備就緒。 請參閱 [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) 與 [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module)，以了解安裝及驗證所選殼層環境的步驟。
 
-## <a name="vmss-capacity"></a>取得 VMSS 容量和大小
+## <a name="vmss-capacity"></a>取得虛擬機器擴展集的容量和大小
 
-此查詢會尋找虛擬機器擴展集 (VMSS) 資源，並取得各種詳細資料 (包括虛擬機器大小與擴展集的容量)。 此資訊會使用 `toint()` 函式，將容量轉換為數字以便進行排序。 這也會將傳回到自訂具名屬性的值重新命名。
+此查詢會尋找虛擬機器擴展集資源，並取得各種詳細資料，包括虛擬機器大小與擴展集的容量。 此查詢會使用 `toint()` 函式，將容量轉換為數字以便進行排序。 最後，資料行會重新命名為自訂的具名屬性。
 
 ```Query
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -75,7 +75,7 @@ Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
 **matches regex @** 可讓我們定義要比對的 RegEx，也就是 **^Contoso(.*)[0-9]+$**。 該 RegEx 定義說明如下：
 
 - `^`：比對必須從字串的開頭開始。
-- `Contoso`：我們要比對的核心字串 (區分大小寫)。
+- `Contoso`：區分大小寫的字串。
 - `(.*)`：子運算式比對：
   - `.`：比對任何單一字元 (除了新行符號)。
   - `*`：比對前一個元素零或多次。

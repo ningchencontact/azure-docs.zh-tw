@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 978cce4642dc61143bd829fcae03357fd8c969c2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5a3d63637d7b680a012057b92546ccde87ac73de
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405507"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233356"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>將 Kubernetes 新增至 Azure Stack Marketplace
 
@@ -72,9 +72,10 @@ ms.locfileid: "47405507"
 
 1. 輸入 `UbuntuServer`。
 
-1. 選取具有下列設定檔的最新伺服器版本：
+1. 選取伺服器的最新版本。 檢查完整版本，並確定您已有最新的版本：
     - **發行者**：Canonical
     - **供應項目**：UbuntuServer
+    - **版本**：16.04.201806120
     - **SKU**：16.04-LTS
 
 1. 選取 [下載]。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958647"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138982"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 
@@ -245,7 +245,7 @@ Key Vault 也支援秘密的 contentType 欄位。 用戶端可以指定祕密�
 
 - exp：選擇性的 IntDate，預設值為**永久 (forever)**。 Exp (到期時間) 屬性會識別到期時間，在此時間點或之後「不應」擷取秘密資料，除非在[特定情況下](#date-time-controlled-operations)。 此欄位僅供**參考**用，因為它告知金鑰保存庫的使用者服，特定祕密可能無法使用。 其值必須是包含 IntDate 值的數字。   
 - nbf：選擇性的 IntDate，預設值為**現在 (now)**。 nbf (不早於) 屬性會識別一個時間，在此時間之前「不應」擷取秘密資料，除非在[特定情況下](#date-time-controlled-operations)。 此欄位僅供**參考**用。 其值必須是包含 IntDate 值的數字。 
-- enabled：選擇性的布林值，預設值是 **true**。 此屬性會指定是否可以擷取秘密資料。 當作業發生於 nbf 和 exp 之間時，enabled 屬性會用來搭配 nbf 和 exp 使用，只有在 enabled 設定為 **true** 時，才能允許此作業。 發生於 nbf 和 exp 範圍外的作業將自動禁止，除了在[特定情況下](#date-time-controlled-operations)。  
+- enabled：選擇性的布林值，預設值是 **true**。 此屬性會指定是否可以擷取秘密資料。 當作業發生於 *nbf* 和 *exp* 之間時，enabled 屬性會用來搭配 *nbf* 和 *exp* 使用，只有在 enabled 設定為 **true** 時，才能允許此作業。 發生於 nbf 和 exp 範圍外的作業將自動禁止，除了在[特定情況下](#date-time-controlled-operations)。  
 
 任何包含秘密屬性的回應中，可包含其他唯讀屬性：  
 

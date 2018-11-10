@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874144"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035463"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>什麼是 ExpressRoute Global Reach？
 
@@ -21,7 +21,7 @@ ExpressRoute Global Reach 是可透過 Microsoft 的全球網路經由 ExpressRo
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>如何啟用或停用 ExpressRoute Global Reach？
 
-您可將 ExpressRoute 線路連在一起，以啟用 ExpressRoute Global Reach。 您可中斷線路的連線以停用此功能。 請參閱組態。
+您可將 ExpressRoute 線路連在一起，以啟用 ExpressRoute Global Reach。 您可中斷線路的連線以停用此功能。 請參閱[組態](../articles/expressroute/expressroute-howto-set-global-reach.md)。
 
 ### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>我需要適用於 ExpressRoute Global Reach 的 ExpressRoute Premium？
 
@@ -36,6 +36,7 @@ ExpressRoute 可從內部部署網路連線到 Microsoft 雲端服務。 Express
 下列國家/地區支援 ExpressRoute Global Reach。 您必須在這些國家/地區的對等互連位置建立 ExpressRoute 線路。
 
 * 澳大利亞
+* 法國
 * 香港
 * 愛爾蘭
 * 日本
@@ -58,3 +59,11 @@ ExpressRoute 可從內部部署網路連線到 Microsoft 雲端服務。 Express
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>在啟用 ExpressRoute Global Reach 之後，我可以預期的內部部署網路間網路輸送量為何？
 
 由 ExpressRoute Global Reach 所啟用的內部部署網路間網路輸送量，是以兩個 ExpressRoute 線路中的較小者為上限。
+
+### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>使用 ExpressRoute Global Reach 時，可通告的路由數目和我可收到的路由數目有何限制？
+
+您可以透過 Azure 私人對等互連向 Microsoft 通告的路由數目，仍保持為標準線路 4000 個或進階線路 10000 個。 您可透過 Azure 私人對等互連從 Microsoft 接收的路由數目，將是您的 Azure 虛擬網路和您其他透過 ExpressRoute Global Reach 連線的內部部署網路兩者的路由數目總和。 請確實為您的內部部署路由器設定適當的最大前置詞限制。 
+
+### <a name="what-is-the-sla-for-expressroute-global-reach"></a>ExpressRoute Global Reach 的 SLA 為何？
+
+ExpressRoute Global Reach 將提供與一般 ExpressRoute 服務相同的[可用性 SLA](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/)。

@@ -1,19 +1,19 @@
 ---
-title: 關於在 Azure Site Recovery 中進行移轉 | Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 服務來移轉內部部署和 Azure VM。
+title: 關於使用 Azure Site Recovery 對內部部署機器與 Azure VM 進行移轉 | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 服務將內部部署和 Azure IaaS VM 移轉至 Azure。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 329f03c30af167b147e5e45c618e6ec4e58efd3f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6f510ac394b939996defe0a7ed49317ec0aabe3b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49075994"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211990"
 ---
 # <a name="about-migration"></a>關於移轉
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301549"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247376"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>安全性架構︰通訊安全性 | 風險降低 
 | 產品/服務 | 文章 |
@@ -113,7 +113,7 @@ ms.locfileid: "43301549"
 | **適用的技術** | 泛型 |
 | **屬性**              | EnvironmentType - Azure |
 | **參考**              | [在 Azure App Service 上強制使用 HTTPS](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
-| **步驟** | <p>雖然 Azure 已使用 *.azurewebsites.net 網域的萬用字元憑證來啟用 Azure App Service 的 HTTPS，但它不會強制使用 HTTPS。 訪客可能仍會使用 HTTP 存取應用程式，而危及應用程式的安全性，因此您必須明確地強制使用 HTTPS。 ASP.NET MVC 應用程式應使用 [RequireHttps 篩選](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 來強迫不安全的 HTTP 要求透過 HTTPS 重新傳送。</p><p>或者，您也可以使用 Azure App Service 隨附的 URL Rewrite 模組來強制使用 HTTPS。 URL Rewrite 模組可讓開發人員定義連入要求在送達應用程式之前要套用的規則。 您可以在儲存於應用程式根目錄的 web.config 檔案中定義 URL Rewrite 規則</p>|
+| **步驟** | <p>雖然 Azure 已使用 *.azurewebsites.net 網域的萬用字元憑證來啟用 Azure App Service 的 HTTPS，但它不會強制使用 HTTPS。 訪客可能仍會使用 HTTP 存取應用程式，而危及應用程式的安全性，因此您必須明確地強制使用 HTTPS。 ASP.NET MVC 應用程式應使用 [RequireHttps 篩選](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 來強迫不安全的 HTTP 要求透過 HTTPS 重新傳送。</p><p>或者，您也可以使用 Azure App Service 隨附的 URL Rewrite 模組來強制使用 HTTPS。 URL Rewrite 模組可讓開發人員定義連入要求在送達應用程式之前要套用的規則。 您可以在儲存於應用程式根目錄的 web.config 檔案中定義 URL Rewrite 規則</p>|
 
 ### <a name="example"></a>範例
 下列範例包含可強制所有連入流量使用 HTTPS 的基本 URL Rewrite 規則
@@ -156,7 +156,7 @@ ms.locfileid: "43301549"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | SQL Azure  |
 | **屬性**              | SQL 版本 - V12 |
-| **參考**              | [為 SQL Database 撰寫安全連接字串的最佳作法](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
+| **參考**              | [為 SQL Database 撰寫安全連接字串的最佳作法](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
 | **步驟** | <p>SQL Database 和用戶端應用程式之間的所有通訊永遠都會使用安全通訊端層 (SSL) 來加密。 SQL Database 不支援未加密連線。 若要使用應用程式程式碼或工具驗證憑證，請明確地要求加密的連接，並且不要信任伺服器憑證。 即使您的應用程式程式碼或工具未要求加密連線，它們仍然會接收加密的連線</p><p>不過，它們可能不會驗證伺服器憑證，這樣一來很容易受到「攔截式」攻擊。 若要使用 ADO.NET 應用程式程式碼驗證憑證，請在資料庫連接字串中設定 `Encrypt=True` 和 `TrustServerCertificate=False`。 若要透過 SQL Server Management Studio 驗證憑證，請開啟 [連線至伺服器] 對話方塊。 按一下 [連線屬性] 索引標籤上的 [加密連線]</p>|
 
 ## <a id="encrypted-sqlserver"></a>強制加密與 SQL Server 的通訊

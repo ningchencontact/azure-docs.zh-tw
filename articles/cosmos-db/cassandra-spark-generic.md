@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: f2f5aebf32cf5860ca8fc32ab741177c6df15c60
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227192"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094239"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>從 Spark 連線至 Azure Cosmos DB Cassandra API
 
@@ -29,7 +29,7 @@ ms.locfileid: "47227192"
 ## <a name="dependencies-for-connectivity"></a>連線能力的相依項目
 * **適用於 Cassandra 的 Spark 連接器：** Spark 連接器用來連線到 Azure Cosmos DB Cassandra API。  請找出位於 [Maven 中心]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector)且與 Spark 環境的 Spark 和 Scala 版本相容的連接器版本，並加以使用。
 
-* **適用於 Cassandra API 的 Azure Cosmos DB 協助程式程式庫：** 除了 Spark 連接器之外，您還需要 Azure Cosmos DB 中另一個稱為 [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) 的程式庫。 此程式庫包含連線處理站和自訂重試原則類別。
+* **適用於 Cassandra API 的 Azure Cosmos DB 協助程式程式庫：** 除了 Spark 連接器之外，您還需要 Azure Cosmos DB 中另一個稱為 [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) 的程式庫。 此程式庫包含自訂連線處理站和重試原則類別。
 
   Azure Cosmos DB 中的重試原則設定為處理 HTTP 狀態碼 429 (「要求速率很大」) 的例外狀況。 Azure Cosmos DB Cassandra API 會將這些例外狀況轉譯成 Cassandra 原生通訊協定上的多載錯誤，您可以使用輪詢進行重試。 由於 Azure Cosmos DB 會使用佈建的輸送量模型，因此輸入/輸出速率增加時，也會發生要求速率限制例外狀況。 重試原則可保護您的 Spark 工作以免遭受資料暴增的影響，而資料暴增會暫時超出配置給集合的輸送量。
 
@@ -64,7 +64,7 @@ ms.locfileid: "47227192"
 ```bash
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
-cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
+cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
 ```
 
 ### <a name="1--azure-databricks"></a>1.Azure Databricks

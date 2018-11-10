@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 10/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c3256b2b1e8be0e883d0f7b47e66ab1fee95b042
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406036"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138155"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中啟用並檢閱 Kubernetes 主要節點記錄
 
@@ -42,7 +42,7 @@ Log Analytics 的啟用和管理是在 Azure 入口網站中進行。 若要在 
 ![針對 AKS 叢集的 Log Analytics 啟用 Log Analytics 工作區](media/view-master-logs/enable-oms-log-analytics.png)
 
 >[!NOTE]
->OMS 工作區現在稱為 Log Analytics 工作區。 
+>OMS 工作區現在稱為 Log Analytics 工作區。
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>在 AKS 叢集上對測試 Pod 進行排程
 
@@ -82,7 +82,7 @@ pod/nginx created
 
 ![選擇適用於 AKS 叢集的 Log Analytics 工作區](media/view-master-logs/select-log-analytics-workspace.png)
 
-選擇左邊的 [記錄搜尋]。 若要檢視 *kube-apiserver*，請在文字方塊中輸入下列查詢：
+選擇左邊的 [記錄]。 若要檢視 *kube-apiserver*，請在文字方塊中輸入下列查詢：
 
 ```
 AzureDiagnostics

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3d9a5b3c0ae0b6058d3e8ccf8cdb340bd1200edc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299106"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247036"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中將標記新增到實驗室
 
@@ -40,7 +40,7 @@ ms.locfileid: "38299106"
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>在現有實驗室中管理標記的步驟
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 視需要選取 [所有服務]，然後從清單中選取 [DevTest Labs]。 您的實驗室可能已顯示在 [所有資源] 下方的儀表板上。
 1. 從實驗室清單中，選取您想要新增或管理標記的實驗室。  
 1. 在實驗室的 [概觀] 區域中選取 [組態和原則]。  

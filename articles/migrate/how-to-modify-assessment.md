@@ -4,14 +4,14 @@ description: 說明如何使用 Azure Migration Planner，設定和執行將 VMw
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/30/2018
 ms.author: raynew
-ms.openlocfilehash: 9ddd6c32388b2e05fd97138414958b67c009f9ee
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d0cfab51b686b5b6eb9617d4424ac3f834de8d6f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284908"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241067"
 ---
 # <a name="customize-an-assessment"></a>自訂評估
 
@@ -21,13 +21,13 @@ ms.locfileid: "36284908"
 ## <a name="edit-assessment-properties"></a>編輯評量屬性
 
 1. 在移轉專案的 [評量] 頁面中選取評量，然後按一下 [編輯屬性]。
-2. 根據下表修改屬性：
+2. 根據下列詳細資料自訂評量屬性：
 
     **設定** | **詳細資料** | **預設值**
     --- | --- | ---
     **目標位置** | 要作為移轉目的地的 Azure 位置。<br/><br/> Azure Migrate 目前支援 30 個區域，包括澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、印度中部、美國中部、中國東部、中國北部、東亞、美國東部、德國中部、德國東北部、美國東部 2、日本東部、日本西部、南韓中部、南韓南部、美國中北部、北歐、美國中南部、東南亞、印度南部、英國南部、英國西部、US Gov 維吉尼亞州、US Gov 德克薩斯州、US Gov 維吉尼亞州、美國中西部、西歐、印度西部、美國西部和美國西部 2。 |  預設位置是「美國西部 2」。
-    **定價層** | 您可以指定目標 Azure VM 的[定價層 (基本/標準)](../virtual-machines/windows/sizes-general.md)。 例如，如果您打算移轉到生產環境，則可考慮標準層，這會提供低延遲的 VM，但成本可能比較高。 另一方面，如果您具有開發測試環境，則可以考慮基本層，其中有較高延遲和較低成本的 VM。 | 預設會使用[標準](../virtual-machines/windows/sizes-general.md)層。
-    **儲存體類型** | 您可以指定要在 Azure 中配置的磁碟類型。 當調整大小準則為「作為內部部署調整大小」時，才適用此屬性。 您可以將目標磁碟類型指定為進階受控磁碟或標準受控磁碟。 若以效能為基礎調整大小，則會根據 VM 的效能資料自動建議磁碟。 請注意，Azure Migrate 只支援將受控磁碟用於進行移轉評估。 | 預設值為進階受控磁碟 (其調整大小準則為「作為內部部署調整大小」)。
+    **定價層** | 您可以指定目標 Azure VM 的[定價層 (基本/標準)](../virtual-machines/windows/sizes-general.md)。 例如，如果您打算移轉到生產環境，則可考慮標準層。 另一方面，如果您具有開發測試環境，則可以考慮基本層，其中有較高延遲和較低成本的 VM。 | 預設會使用[標準](../virtual-machines/windows/sizes-general.md)層。
+    **儲存體類型** | 您可以使用此屬性，指定要在 Azure 中配置的磁碟類型。 針對內部部署的大小調整，您可以將目標磁碟類型指定為進階受控磁碟或標準受控磁碟。 針對以效能為基礎的大小調整，您可以將目標磁碟類型指定為自動、進階受控磁碟或標準受控磁碟。 將儲存體類型指定為自動時，將根據磁碟的效能資料 (IOPS 和輸送量) 完成磁碟建議。 例如，如果您想要達成 [99.9% 的單一執行個體 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)，則可能需要將儲存體類型指定為進階受控磁碟，如此可確保將評估中的所有磁碟建議為進階受控磁碟。 請注意，Azure Migrate 只支援將受控磁碟用於進行移轉評估。 | 預設值為進階受控磁碟 (其調整大小準則為「作為內部部署調整大小」)。
     **保留執行個體** |  您也可以指定在 Azure 中是否有[保留執行個體](https://azure.microsoft.com/pricing/reserved-vm-instances/)，Azure Migrate 會據此預估成本。 保留執行個體不適用於主權區域 (Azure Government、Azure 德國和 Azure 中國)，只適用於 Azure Migrate 中的預付型方案供應項目。 | 這個屬性的預設值是 3 年期的保留執行個體。
     **調整大小準則** | Azure Migrate 用於為 Azure 設定適當 VM 大小的準則。 您可以執行*以效能為基礎*的大小調整或將 VM 調整為*內部部署*大小，而不必考量效能歷程記錄。 | 以效能為基礎的大小調整是預設選項。
     **效能歷程記錄** | 考量評估 VM 效能的持續時間。 當調整大小的準則為*以效能為基礎的大小調整*時，此屬性才適用。 | 預設值為一天。

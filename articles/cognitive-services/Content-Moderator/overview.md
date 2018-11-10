@@ -8,51 +8,56 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/05/2018
+ms.date: 10/22/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5756e8fb451b073c68271359848ab27373ad85ed
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 076948e7434802af7f0ad47f279335009817d40e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309547"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209578"
 ---
-# <a name="what-is-content-moderator"></a>什麼是內容仲裁？
+# <a name="what-is-azure-content-moderator"></a>什麼是 Azure Content Moderator？
 
-內容仲裁是監視文字、影像或影片內容中是否包含潛在的冒犯性、不當或危險素材的程序。 加上旗標的內容可以隱藏或另行處理，以遵循法規或維護使用者應有的環境。
+Azure Content Moderator API 是一項認知服務，可檢查文字、影像和視訊內容是否含有可能具冒犯意味、有風險或不當的資料。 找到這類資料時，服務會對內容套用適當的標籤 (旗標)。 加上旗標的內容隨後可由您的應用程式處理，以遵循法規或維護使用者應有的環境。 請參閱 [Content Moderator API](#content-moderator-apis) 一節，以深入了解不同內容旗標的意義。
 
 ## <a name="where-it-is-used"></a>使用位置
 
-下列清單顯示可使用 Content Moderator 的某些範例案例：
+以下是軟體開發人員或小組可能使用 Content Moderator 的幾個案例：
 
-- 對產品目錄和使用者產生的內容進行仲裁的線上市集
+- 對產品目錄和使用者產生的其他內容進行仲裁的線上市集
 - 對使用者產生的遊戲成品和聊天室進行仲裁的遊戲公司
 - 對使用者新增的影像、文字和影片進行仲裁的社交傳訊平台
-- 針對其內容實作集中式內容仲裁的企業媒體公司
-- 為學生和授課者篩選掉不當和冒犯內容的 K-12 教育解決方案提供者
+- 對其內容實作集中式仲裁的企業媒體公司
+- 為學生和授課者篩選掉不當內容的 K-12 教育解決方案提供者
 
 ## <a name="what-it-includes"></a>包含內容
 
-內容仲裁包含數個 Web 服務 API 和內建人機互動審核工具，可協助仲裁影像、文字和影片。
+Content Moderator 服務由數個可透過 REST 呼叫和 .NET SDK 使用的 Web 服務 API 所組成。 此外也包含人工審核工具，可讓人工審核者輔助服務，以及改善或微調其仲裁功能。
 
-![內容仲裁區塊圖](images/content-moderator-block-diagram.png)
+![顯示仲裁 API、審核 API 和人工審核工具的 Content Moderator 區塊圖](images/content-moderator-block-diagram.png)
 
-### <a name="apis"></a>API
+### <a name="content-moderator-apis"></a>Content Moderator API
 
-Content Moderator 服務包含下列 API：
-  - [**文字仲裁 API**](text-moderation-api.md)：使用此 API 掃描文字中有無可能的粗話、偏激、具暗示性、冒犯及個人識別資訊 (PII)。
-  - [**自訂字組清單 API**](try-terms-list-api.md)：使用此 API 比對除內建字詞以外的自訂字詞清單。 使用這些清單根據您的內容原則來封鎖或允許內容。  
-  - [**影像仲裁 API**](image-moderation-api.md)：使用此 API 掃描影像中有無成人和猥褻內容、使用光學字元辨識 (OCR) 功能偵測影像中的文字，以及偵測臉部。
-  - [**自訂影像清單 API**](try-image-list-api.md)：使用此 API 比對自訂影像清單，這是您不需要重新分類的預先識別內容。
-  - [**影片仲裁 API**](video-moderation-api.md)：使用此 API 掃描影片中有無潛在的成人和猥褻內容。
-  - [**審核 API**](try-review-api-job.md)：使用[工作](try-review-api-job.md)、[審核](try-review-api-review.md)與[工作流程](try-review-api-workflow.md)作業來建立及自動化審核工具中的人機互動工作流程。
+Content Moderator 服務包含適用於下列案例的 API。
 
-### <a name="human-review-tool"></a>人工審核工具
+| 動作 | 說明 |
+| ------ | ----------- |
+|[**文字仲裁**](text-moderation-api.md)| 掃描文字中具冒犯性的內容、明顯色情或性暗示內容、粗話，和個人識別資訊 (PII)。|
+|[**自訂字詞清單**](try-terms-list-api.md)| 除了內建字詞外，也根據自訂字詞清單掃描文字。 使用自訂清單可根據您自己的內容原則來封鎖或允許內容。|  
+|[**影像仲裁**](image-moderation-api.md)| 掃描影像中的成人或猥褻內容、使用光學字元辨識 (OCR) 功能偵測影像中的文字，以及偵測臉部。|
+|[**自訂影像清單**](try-image-list-api.md)| 根據自訂影像清單掃描影像。 使用自訂影像清單，篩選掉重複出現、而您不想再次分類的內容執行個體。|
+|[**影片仲裁**](video-moderation-api.md)| 掃描影片中的成人或猥褻內容，並傳回該內容的時間標記。|
+|[**審核**](try-review-api-job.md)| 使用[作業](try-review-api-job.md)、[審核](try-review-api-review.md)與[工作流程](try-review-api-workflow.md)作業來建立及自動化審核工具的人機互動工作流程。 工作流程 API 尚無法透過 .NET SDK 來使用。|
 
-您的內容仲裁訂用帳戶包含內建[人工審核工具](Review-Tool-User-Guide/human-in-the-loop.md)。 使用前述的審核 API 建立文字、影像和影片的審核，以便您的仲裁人員制定最終決策。
+### <a name="human-review-tool"></a>人工檢閱工具
 
-![內容仲裁的影片審核工具](images/video-review-default-view.png)
+Content Moderator 服務也包含以 Web 為基礎的[人工審核工具](Review-Tool-User-Guide/human-in-the-loop.md)。 
+
+![Content Moderator 的人工審核工具首頁](images/homepage.PNG)
+
+您可以使用審核 API，根據您指定的篩選條件來設定文字、影像和影片內容的小組審核。 然後，人工仲裁者可做出最終的仲裁決策。 人工輸入不會訓練服務，但在服務與人工審核小組的搭配運作下，開發人員將可在效率和精確度之間取得適當的平衡。
 
 ## <a name="next-steps"></a>後續步驟
 
-使用[快速入門](quick-start.md)以開始使用內容仲裁。
+依照[快速入門](quick-start.md)開始使用 Content Moderator。

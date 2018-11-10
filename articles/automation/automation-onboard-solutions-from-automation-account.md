@@ -9,18 +9,18 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d031965a812cd218fbb4e78dfbf90ee01c26f5bb
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352441"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085964"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
 Azure 自動化提供的解決方案可管理作業系統安全性更新、追蹤變更，以及清查您的電腦上安裝的項目。 讓機器上線的方式有很多種，您可以[從虛擬機器](automation-onboard-solutions-from-vm.md)、[瀏覽多部機器時](automation-onboard-solutions-from-browse.md)、從您的自動化帳戶，或透過 [Runbook](automation-onboard-solutions.md) 來讓解決方案上線。 此文章說明如何從您的自動化帳戶讓這些解決方案上線。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
 在 https://portal.azure.com 登入 Azure
 
@@ -52,7 +52,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 * **MicrosoftDefaultScopeConfig-Updates**
 
-如果選取的工作區已經有該解決方案。 系統不會重新部署解決方案，範圍設定也不會新增至解決方案。
+如果選取的工作區已有解決方案，則不會重新部署解決方案，也不會新增範圍設定。
 
 ## <a name="saved-searches"></a>已儲存的搜尋
 
@@ -73,7 +73,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
 
-按一下 [+ 加入 Azure VM]，從清單中選取一或多個 VM。 無法啟用的虛擬機器會呈現灰色且無法選取。 在 [啟用更新管理] 頁面上，按一下 [啟用]。 這會為解決方案將選取的 VM 加入至電腦群組儲存的搜尋。
+按一下 [+ 加入 Azure VM]，從清單中選取一或多個 VM。 無法啟用的虛擬機器會呈現灰色且無法選取。 在 [啟用更新管理] 頁面上，按一下 [啟用]。 此動作會為解決方案將選取的 VM 新增至電腦群組儲存的搜尋。
 
 ![啟用 Azure VM](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -81,23 +81,23 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 您必須手動加入不在 Azure 中的機器。 從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
 
-按一下 [加入非 Azure 電腦]。 這會開啟新的瀏覽器視窗，[指示如何在電腦上安裝和設定 Microsoft Monitoring Agent](../log-analytics/log-analytics-concept-hybrid.md)，讓電腦可以開始向解決方案回報。 如果您讓目前受 System Center Operations Manager 管理的機器上線，不需要新的代理程式，就會將工作區資訊輸入現有的代理程式。
+按一下 [加入非 Azure 電腦]。 此動作會開啟新的瀏覽器視窗，[指示如何在電腦上安裝和設定 Microsoft Monitoring Agent](../log-analytics/log-analytics-concept-hybrid.md)，讓電腦可以開始向解決方案回報。 如果您讓目前受 System Center Operations Manager 管理的機器上線，不需要新的代理程式，就會將工作區資訊輸入現有的代理程式。
 
 ## <a name="onboard-machines-in-the-workspace"></a>讓工作區中的機器上線
 
-您必須將手動安裝的機器或已向您工作區回報的機器加入至 Azure 自動化，才能啟用解決方案。 從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
+您必須將手動安裝的機器或已向您工作區回報的機器新增至 Azure 自動化，才能啟用解決方案。 從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
 
-選取 [管理機器]。 這會開啟 [管理機器] 頁面。 此頁面可讓您啟用一組特定機器、所有可用機器上的解決方案，或啟用所有目前機器的解決方案，以及啟用未來所有機器的解決方案。
+選取 [管理機器]。 此動作會開啟 [管理機器] 頁面。 此頁面可讓您啟用一組特定機器、所有可用機器上的解決方案，或啟用所有目前機器的解決方案，以及啟用未來所有機器的解決方案。 如果您先前選擇 [在所有可用及未來的機器上啟用] 選項，則 [管理機器] 按鈕可能會呈現灰色。
 
 ![已儲存的搜尋](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
 ### <a name="all-available-machines"></a>所有可用的機器
 
-若要為所有可用的機器啟用解決方案，請選取 [在所有可用的機器上啟用]。 這會停用個別新增機器的控制項。 此工作會將向工作區回報之所有機器的名稱新增至電腦群組儲存的搜尋查詢。 選取時，會停用 [管理機器] 按鈕。
+若要為所有可用的機器啟用解決方案，請選取 [在所有可用的機器上啟用]。 此動作會停用個別新增機器的控制項。 此工作會將向工作區回報之所有機器的名稱新增至電腦群組儲存的搜尋查詢。 選取時，此動作會停用 [管理機器] 按鈕。
 
 ### <a name="all-available-and-future-machines"></a>所有可用與未來的機器
 
-若要為所有可用的機器與所有未來的機器啟用解決方案，請選取 [在所有可用及未來的機器上啟用]。 此選項會從工作區中刪除已儲存搜尋和範圍設定。 這會開啟向工作區回報之所有 Azure 與非 Azure 機器的解決方案。 選取時，會停用 [管理機器] 按鈕。
+若要為所有可用的機器與未來的機器啟用解決方案，請選取 [在所有可用及未來的機器上啟用]。 此選項會從工作區中刪除已儲存搜尋和範圍設定。 此動作會開啟向工作區回報之所有 Azure 與非 Azure 機器的解決方案。 選取時，此動作會永久停用 [管理機器] 按鈕，因為沒留下任何範圍設定。
 
 ### <a name="selected-machines"></a>選取的機器
 
@@ -113,12 +113,12 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 若決定不想再讓自動化帳戶與 Log Analytics 整合，您可以直接從 Azure 入口網站將您的帳戶取消連結。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
 
-移除這些解決方案之後，您可以執行下列步驟以將您的自動化帳戶取消連結。
+移除這些解決方案之後，您可以完成下列步驟以將您的自動化帳戶取消連結。
 
 > [!NOTE]
 > 某些包含舊版 Azure SQL 監視解決方案的解決方案可能已建立自動化資產，在取消連結工作區之前，可能也需要先加以移除。
 
-1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源] 區段下選取 [已取消連結的工作區]。
+1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，於左側標示 [相關資源] 的區段下選取 [已取消連結的工作區]。
 
 2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
 
@@ -134,7 +134,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 * 針對解決方案建立的混合式背景工作角色群組 - 每個都會具有如下名稱：machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8。
 
-若使用「於下班時間啟動/停止 VM」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
+若使用「於下班時間啟動和停止 VM」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
 
 * 啟動及停止 VM Runbook 排程
 * 啟動及停止 VM Runbook

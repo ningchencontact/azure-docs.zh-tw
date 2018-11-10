@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144508"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138990"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>快速入門：嘗試以雲端式解決方案管理我的工業用 IoT 裝置
 
@@ -32,13 +32,13 @@ ms.locfileid: "39144508"
 
 在將解決方案加速器部署到 Azure 訂用帳戶時，必須設定一些組態選項。
 
-使用 Azure 帳戶認證登入 [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators)。
+瀏覽至 [Microsoft Azure IoT 解決方案加速器](https://www.azureiotsolutions.com)，並使用您的 Azure 帳戶認證登入。
 
-按一下 [連線工廠] 圖格上的 [立即試用]。
+按一下 [連線的處理站] 圖格。 在 [連線的處理站] 頁面上，按一下 [立即試用]：
 
-![選擇連線工廠](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![立即試用](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-在 [建立連線工廠解決方案] 頁面上，為您的連線工廠解決方案加速器，輸入唯一的**解決方案名稱**。 此名稱是包含所有解決方案加速器資源的 Azure 資源群組名稱。 本快速入門中，我們的名稱是 **MyDemoConnectedFactory**。
+在 [建立連線工廠解決方案] 頁面上，為您的連線工廠解決方案加速器，輸入唯一的**解決方案名稱**。 此名稱是包含所有解決方案加速器資源的 Azure 資源群組名稱。 本快速入門使用的名稱是 **MyDemoConnectedFactory**。
 
 選取您要用來部署解決方案加速器的 [訂用帳戶] 和 [區域]。 一般而言，您會選擇與您最接近的區域。 在本快速入門中，我們會使用 **Visual Studio Enterprise** 和**美國東部**。 您必須是訂用帳戶中的[全域管理員或使用者](iot-accelerators-permissions.md)。
 
@@ -66,7 +66,7 @@ ms.locfileid: "39144508"
 
 [![解決方案儀表板](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-您可以使用儀表板來管理您的工業用 IoT 裝置。 連線工廠會使用階層來顯示全體工廠組態。 階層最上層是包含一個或多個工廠的企業，每個工廠會包含生產線，而每個生產線則是由工作站組成。 在每一層級上，您都可以檢視 OEE 和 KPI、針對遙測發佈新節點及回應警示。
+您可以使用儀表板來管理您的工業用 IoT 裝置。 連線工廠會使用階層來顯示全體工廠組態。 階層的最上層是包含一或多個處理站的企業。 每個處理站都包含產品線，而每個生產線分別由站台組成。 在每一層級上，您都可以檢視 OEE 和 KPI、針對遙測發佈新節點及回應警示。
 
 在儀表板上，您可以看到：
 
@@ -122,7 +122,7 @@ OEE 會使用生產相關作業參數來評比製造程序的效率。 OEE 是�
 
 ### <a name="alarms"></a>警示
 
-[警示] 面板會顯示當回報的值或計算的 OEE/KPI 值超過其所設閾值時產生的警示。 此面板會顯示階層中每個層級的警示 (從工作區層級到企業層級)。 每個警示都會包含描述、日期、時間、位置和發生次數：
+[警示] 面板會顯示當回報的值或計算的 OEE/KPI 值超過閾值時所產生的警示。 此面板會顯示階層中每個層級的警示 (從工作區層級到企業層級)。 每個警示都會包含描述、日期、時間、位置和發生次數：
 
 [![警示](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
@@ -137,7 +137,7 @@ OEE 會使用生產相關作業參數來評比製造程序的效率。 OEE 是�
 
 若要進一步分析警示資料，請按一下警示面板上的圖表。
 
-這些警示是由解決方案加速器中的組態檔指定的規則所產生。 當 OEE 或 KPI 數字或 OPC UA 節點值超過其設定的閾值時，這些規則即可產生警示。
+這些警示是由解決方案加速器中的組態檔指定的規則所產生。 當 OEE 或 KPI 數據或 OPC UA 節點值超過閾值時，這些規則即可產生警示。 您可以設定此閾值。
 
 ## <a name="clean-up-resources"></a>清除資源
 

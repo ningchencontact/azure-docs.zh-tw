@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 7848b52bcf5204a871920cbfab8a0e95223654d4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3f23b28c1b20155e50fddf17db90cd2a53c04855
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735896"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209814"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的群組型授權？
 
@@ -28,14 +28,12 @@ Microsoft 付費的雲端服務 (例如 Office 365、Enterprise Mobility + Secur
 
 為了克服這些挑戰，Azure AD 現在包含群組型授權。 您可以將一或多個產品授權指派給群組。 Azure AD 會確保將授權指派給該群組的所有成員。 任何加入群組的新成員會獲派適當的授權。 當他們離開群組時，就會移除這些授權。 如此一來，不需透過 PowerShell 來自動管理授權，即可依據每一使用者反映組織和部門結構中的變更。
 
->[!Note]
->群組型授權是 Azure Active Directory (Azure AD) 的公用預覽版功能，可與任何付費 Azure AD 授權方案搭配使用。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="features"></a>特性
 
 以下是群組型授權的主要特色：
 
-- 可將授權指派給 Azure AD 中的任何安全性群組。 內部部署可以使用 Azure AD Connect 來同步處理安全性群組。 您也可以直接在 Azure AD 中建立安全性群組 (也稱為僅限雲端的群組)，或透過 Azure AD 動態群組功能自動建立安全性群組。
+- 可將授權指派給 Azure AD 中的任何安全性群組。 安全性群組可使用 Azure AD Connect 從內部部署環境進行同步處理。 您也可以直接在 Azure AD 中建立安全性群組 (也稱為僅限雲端的群組)，或透過 Azure AD 動態群組功能自動建立安全性群組。
 
 - 將產品授權指派給群組時，系統管理員可以停用該產品中的一或多個服務方案。 通常是在組織尚未準備好開始使用產品中的服務時，才會這樣做。 比方說，系統管理員可能將 Office 365 指派給某個部門，但暫時停用 Yammer 服務。
 
@@ -45,11 +43,11 @@ Microsoft 付費的雲端服務 (例如 Office 365、Enterprise Mobility + Secur
 
 - Azure AD 會自動管理因群組成員資格變更而產生的授權修改。 一般而言，在成員資格變更後的幾分鐘內，授權修改就會生效。
 
-- 一個使用者可以屬於多個已指定授權原則的群組。 使用者也可以有一些直接從任何群組之外指派的授權。 產生的使用者狀態是所有已指派之產品與服務授權的組合。
+- 一個使用者可以屬於多個已指定授權原則的群組。 使用者也可以有一些直接從任何群組之外指派的授權。 產生的使用者狀態是所有已指派之產品與服務授權的組合。 如果使用者從多個來源獲派相同授權，該授權只會耗用一次。
 
 - 在某些情況下，授權無法指派給使用者。 比方說，租用戶可能沒有足夠可用的授權，或可能同時指派衝突的服務。 對於 Azure AD 無法完整處理群組授權的使用者，系統管理員可以存取這些使用者的相關資訊。 然後，他們可以根據該資訊採取更正動作。
 
-- 在公開預覽期間，租用戶中必須要有 Azure AD Basic 或 Premium 版本的付費或試用訂用帳戶，才能使用群組型授權管理。
+- 租用戶中必須要有 Azure AD Basic 的付費或試用訂用帳戶，或是付費或試用的 Office 365 Enterprise E3、Office 365 A3 和以上版本，才能使用群組型授權管理。 若要使用此功能，屬於已獲派授權群組成員的每個唯一使用者都需要有授權。 您不需要將授權指派給使用者，使用者就能成為已獲派授權群組的成員，但是您必須在租用戶中有最小數量的授權，才能涵蓋所有這類使用者。 例如，如果您租用戶中的所有已獲派授權群組總計有 1,000 個唯一使用者，則需要至少 1,000 個授權才符合授權需求。
 
 ## <a name="your-feedback-is-welcome"></a>歡迎您提供寶貴的意見！
 
@@ -61,5 +59,7 @@ Microsoft 付費的雲端服務 (例如 Office 365、Enterprise Mobility + Secur
 
 * [將授權指派給 Azure Active Directory 中的群組](../users-groups-roles/licensing-groups-assign.md)
 * [識別及解決 Azure Active Directory 中群組的授權問題](../users-groups-roles/licensing-groups-resolve-problems.md)
-* [如何將個別的已授權使用者移轉成 Azure Active Directory 中的群組型授權 (英文)](../users-groups-roles/licensing-groups-migrate-users.md)
+* [如何將個別授權使用者移轉至 Azure Active Directory 中以群組為基礎的授權](../users-groups-roles/licensing-groups-migrate-users.md)
+* [如何使用 Azure Active Directory 中的群組型授權在產品授權之間移轉使用者](../users-groups-roles/licensing-groups-change-licenses.md)
 * [Azure Active Directory 群組型授權其他案例 (英文)](../users-groups-roles/licensing-group-advanced.md)
+* [Azure Active Directory 群組型授權的 PowerShell 範例](../users-groups-roles/licensing-ps-examples.md)

@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364332"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092180"
 ---
 # <a name="security-best-practices"></a>安全性最佳做法
 
@@ -33,8 +33,9 @@ Azure Digital Twins 也會利用 Azure IoT 上的其他安全性功能，包括 
 > [!div class="checklist"]
 > * 以防竄改的方式保護連線到 IoT 空間的每個裝置。
 > * 限制 IoT 空間內每個裝置、感應器及人員的角色。 如果遭到入侵，影響可降至最低。
-> * 可能會使用裝置 IP 位址篩選。
+> * 可能會使用裝置 IP 位址篩選和連接埠限制。
 > * 限制 I/O 和裝置頻寬，以改善效能。 速率限制可以藉由防止拒絕服務的攻擊來改善安全性。
+> * 讓裝置韌體保持最新狀態。
 
 可以安全地保護 IoT 空間的一些主要做法包括：
 
@@ -55,7 +56,7 @@ Azure Digital Twins 會使用 Azure Active Directory 來驗證使用者及保護
 
 > [!div class="checklist"]
 > * 將 Azure Active Directory 應用程式祕密和金鑰儲存在安全的位置，例如 [Key Vault](https://azure.microsoft.com/services/key-vault/)。
-> * 使用受信任[憑證授權單位](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started)所發行的憑證 (而非應用程式祕密) 來進行驗證。
+> * 使用受信任[憑證授權單位](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started)所核發的憑證 (而非應用程式祕密) 來進行驗證。
 > * 限制權杖的 OAuth 2.0 存取範圍。
 > * 確認權杖的有效時間長度以及權杖是否依然有效。
 > * 設定適當的權杖有效時間長度。

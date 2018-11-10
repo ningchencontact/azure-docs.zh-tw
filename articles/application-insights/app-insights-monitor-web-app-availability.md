@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632818"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421249"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -47,7 +47,7 @@ ms.locfileid: "45632818"
 ## <a name="setup"></a>建立 URL Ping 測試
 開啟 [可用性] 刀鋒視窗並新增一項測試。
 
-![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **URL** 可以是您想要測試的任何網頁，但必須可從公用網際網路看見它。 URL 可以包含查詢字串。 例如，您可以訓練一下您的資料庫。 如果 URL 解析為重新導向，我們會跟隨它，最多 10 個重新導向。
 * **剖析相依要求**︰若已核取這個選項，測試會要求影像、指令碼、樣式檔案以及其他屬於受測試網頁的檔案。 記錄的回應時間包含取得這些檔案所需的時間。 如果無法在逾時內為整個測試成功下載所有這些資源，則測試將會失敗。 如果未核取這個選項，測試只會要求您指定之 URL 中的檔案。
@@ -56,10 +56,10 @@ ms.locfileid: "45632818"
 
 * **測試頻率**：設定從每個測試位置執行測試的頻率。 預設頻率為 5 分鐘且有五個測試位置，則您的網站平均每一分鐘會執行測試。
 
-* **測試位置** 是我們的伺服器將 Web 要求傳送至您的 URL 的位置。 請選擇多個位置，以便區分網站問題與網路問題。 您最多可以選取 16 個位置。
+* **測試位置** 是我們的伺服器將 Web 要求傳送至您的 URL 的位置。 建議的測試位置數目下限為五個，以確保您可以區分網站問題與網路問題。 您最多可以選取 16 個位置。
 
-> [!NOTE] 
-> * 強烈建議從多個位置進行測試，以防止特定位置的暫時性問題造成的假警報。
+> [!NOTE]
+> * 強烈建議您從多個位置測試 (最少五個位置)。 這樣做可避免因特定位置發生暫時性問題，而造成誤判。 此外我們發現，最佳設定就是測試位置數目等於警示位置閾值 + 2。 
 > * 啟用「剖析相依要求」選項會進行更嚴格的檢查。 手動瀏覽網站時，測試可能會在不明顯的情況下失敗。
 
 * **成功準則**：
@@ -70,10 +70,12 @@ ms.locfileid: "45632818"
 
     **內容比對**：字串，例如「歡迎！ 我們會測試每個回應中的區分大小寫完全相符。 必須是單純字串，不含萬用字元。 別忘了，如果頁面內容變更，則可能需要更新。
 
+* **警示位置閾值**：建議至少為位置數的 3/5。 警示位置閾值與測試位置數目之間的最佳關聯性，就是**警示位置閾值** = **測試位置數目** - 2 (最少五個測試位置)。
+
 ## <a name="multi-step-web-tests"></a>多重步驟 Web 測試
 您可以監視涉及一連串 URL 的案例。 例如，如果您正在監視銷售網站，您可以測試將項目加入購物車正確運作。
 
-> [!NOTE] 
+> [!NOTE]
 > 進行多步驟 Web 測試此會收取費用。 [價格方案](http://azure.microsoft.com/pricing/details/application-insights/)。
 > 
 

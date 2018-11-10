@@ -1,6 +1,6 @@
 ---
-title: 如何將適用於容器的 Azure 監視器上線 | Microsoft Docs
-description: 此文章說明如何將適用於容器的 Azure 監視器上線並進行設定，讓您可以了解容器的執行方式，以及已識別出哪些效能相關問題。
+title: 如何將適用於容器的 Azure 監視器上線 (預覽) | Microsoft Docs
+description: 此文章說明您如何將適用於容器的 Azure 監視器上線並進行設定，讓您可以了解容器的執行方式，以及已識別出哪些效能相關問題。
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fa0df0bbf363a7c751de460fd98740b4314f996
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 505abe8f3dc19458b3f0e18f349974199ae4ba58
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831189"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212109"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>如何將適用於容器的 Azure 監視器上線
+# <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>如何將適用於容器的 Azure 監視器上線 (預覽) 
 此文章說明如何設定適用於容器的 Azure 監視器，來監視部署至 Kubernetes 環境並裝載於 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) 上之工作負載的效能。
 
 ## <a name="prerequisites"></a>先決條件 
@@ -103,7 +103,7 @@ provisioningState       : Succeeded
     ![啟用 AKS 容器深入解析監視](./media/monitoring-container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >如果您想要建立新的 Log Analytics 工作區以儲存來自叢集的監視資料，請依照[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)中的指示執行。 請務必在和部署 AKS 容器相同的訂用帳戶中建立工作區。 
+    >如果您想要建立新的 Log Analytics 工作區以儲存來自叢集的監視資料，請遵循[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)中的指示。 請務必在和部署 AKS 容器相同的訂用帳戶中建立工作區。 
  
 啟用監視之後，可能需要約 15 分鐘的時間才能檢視叢集的健康情況計量。 
 
@@ -125,7 +125,7 @@ provisioningState       : Succeeded
     ![啟用 AKS 容器健康情況監視](./media/monitoring-container-insights-onboard/kubernetes-onboard-brownfield-02.png)
 
     >[!NOTE]
-    >如果您想要建立新的 Log Analytics 工作區以儲存來自叢集的監視資料，請依照[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)中的指示執行。 請務必在和部署 AKS 容器相同的訂用帳戶中建立工作區。 
+    >如果您想要建立新的 Log Analytics 工作區以儲存來自叢集的監視資料，請遵循[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)中的指示。 請務必在和部署 AKS 容器相同的訂用帳戶中建立工作區。 
  
 在啟用監視之後，可能需要約 15 分鐘的時間才能檢視叢集的作業資料。 
 

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520661"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241311"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>使用 Azure IoT 中樞佈建服務用戶端 (.NET) 將裝置註冊到 IoT 中樞
 
@@ -70,10 +70,10 @@ ms.locfileid: "39520661"
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. 將下列欄位新增到 **Program** 類別。 將預留位置的值取代為在上一節中記下的 DPS 連接字串。
+1. 將下列欄位新增到 **Program** 類別。 請將預留位置值取代為您在上一節中記下的裝置佈建服務連接字串。
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =
@@ -222,7 +222,7 @@ ms.locfileid: "39520661"
 
 至此，下列設定已可用來註冊裝置：
 
-1. 您的裝置或裝置群組已註冊至裝置佈建服務，而且 
+1. 您的裝置或裝置群組已向裝置佈建服務註冊，而且 
 2. 您的裝置已設定安全性而做好準備，且可透過應用程式使用裝置佈建服務用戶端 SDK 加以存取。
 
 請啟動裝置，讓用戶端應用程式開始向裝置佈建服務進行註冊。  
@@ -230,7 +230,7 @@ ms.locfileid: "39520661"
 
 ## <a name="verify-the-device-is-registered"></a>確認裝置已註冊
 
-裝置開機後應該會發生下列動作。 如需詳細資訊，請參閱 TPM 模擬器應用程式範例 [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c)。 
+裝置開機後應該會發生下列動作。 如需詳細資訊，請參閱[佈建裝置用戶端範例](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device)。 
 
 1. 裝置會向裝置佈建服務傳送註冊要求。
 2. 若為 TPM 裝置，裝置佈建服務會回傳註冊挑戰供您的裝置回應。 

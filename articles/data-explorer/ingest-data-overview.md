@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 94f96d949f2a05f71e9565fdcbc7b48ed2c2a5c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1df22c505bffdfaf60bf9c6eec3ad4e698fff02
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972653"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139521"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 資料總管資料擷取
 
@@ -60,9 +60,15 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目擷取及查詢資料：
 
 * [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
+* [Node SDK]
+
 * [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **程式設計擷取技術**：
+
+* 透過 Azure 資料總管資料管理服務 (高輸送量且可靠的擷取) 擷取資料
+
+  * [**批次擷取**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (由 SDK 提供)：用戶端將資料上傳至 Azure Blob 儲存體 (Azure 資料總管資料管理服務所指定)，並將通知張貼到 Azure 佇列。 這是針對大量、可靠且不費力的資料擷取所建議的技術。
 
 * 將資料直接擷取到 Azure 資料總管引擎 (最適合探索和原型設計)：
 
@@ -71,10 +77,6 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目擷取及查詢資料：
   * **從查詢擷取**：指向查詢結果的控制命令 (.set、.set-or-append、.set-or-replace)，用來產生報表或小型暫存資料表。
 
   * **從儲存體擷取**：資料儲存在外部 (例如 Azure Blob 儲存體) 的控制命令 (.ingest into) 允許有效大量擷取資料。
-
-* 透過 Azure 資料總管資料管理服務 (高輸送量且可靠的擷取) 擷取資料
-
-  * [**批次擷取**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (由 SDK 提供)：用戶端將資料上傳至 Azure Blob 儲存體 (Azure 資料總管資料管理服務所指定)，並將通知張貼到 Azure 佇列。 這是針對大量、可靠且不費力的資料擷取所建議的技術。
 
 **不同方法的延遲**：
 

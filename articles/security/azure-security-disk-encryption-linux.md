@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 1cebb3dae8fbfd4188487a6ff7fca42ac0505cf0
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 3561c2959283cd1c589414b96724cf0341af5e0a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498482"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215373"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>啟用 Linux IaaS VM 適用的 Azure 磁碟加密 
 
@@ -252,7 +252,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 - 不是根/OS/開機磁碟分割
 - 尚未加密
 - 不是 BEK 磁碟區
+- 不是 RAID 磁碟區
+- 不是 LVM 磁碟區
 - 已掛接
+
+對組成 RAID 或 LVM 磁碟區的磁碟進行加密，而非對 RAID 或 LVM 磁碟區本身進行加密。
 
 ### <a name="bkmk_EFAPSH"> </a> 使用 EncryptFormatAll 參數搭配 Azure CLI
 在 Azure 中使用 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) 命令以在執行中的 IaaS 虛擬機器上啟用加密。

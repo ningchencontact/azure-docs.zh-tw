@@ -1,22 +1,21 @@
 ---
-title: 具備 Site Recovery 的公用 IP 位址 | Microsoft Docs
+title: 使用 Azure Site Recovery 在進行容錯移轉之後使用公用 IP 位址 | Microsoft Docs
 description: 說明如何使用 Azure Site Recovery 和 Azure 流量管理員設定公用 IP 位址，以進行災害復原和移轉
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mayg
-ms.openlocfilehash: fd17c786515a6db1f8aa5c1aff7c0dcd42ed7dc6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435819"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215271"
 ---
-# <a name="public-ip-address-with-site-recovery"></a>具備 Site Recovery 的公用 IP 位址
+# <a name="set-up-public-ip-addresses-after-failover"></a>在容錯移轉之後設定公用 IP 位址
 
 公用 IP 位址可讓網際網路資源向 Azure 資源進行輸入通訊。 公用 IP 位址也可透過指派給資源的 IP 位址，讓 Azure 資源向網際網路和公眾對應的 Azure 服務進行輸出通訊。
 - 啟用從網路網路到資源的輸入通訊；資源包括 Azure 虛擬機器 (VM)、Azure 應用程式閘道、Azure Load Balancer、Azure VPN 閘道等等。 即使未將公用 IP 位址指派給該虛擬機器，只要虛擬機器是負載平衡器後端集區的一部分，且已將公用 IP 位址指派給負載平衡器，就可以讓您與來自網際網路的虛擬機器等資源進行通訊。

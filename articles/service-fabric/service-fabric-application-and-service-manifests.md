@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 10/29/2018
 ms.author: ryanwi
-ms.openlocfilehash: b79206b9d456226d14984e8a1c1002c07c4f626a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 78315409c5d83a98321e16913b1090e8996ed8ce
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208466"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230279"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 應用程式和服務資訊清單
-本文說明如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案來定義 Service Fabric 應用程式和服務及設定其版本。  這些資訊清單檔的 XML 結構描述記載於 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
+本文說明如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案來定義 Service Fabric 應用程式和服務及設定其版本。  如需更詳細的範例，請參閱[應用程式和服務資訊清單範例](service-fabric-manifest-examples.md)。  這些資訊清單檔的 XML 結構描述記載於 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>在 ServiceManifest.xml 中描述服務
-服務資訊清單以宣告方式定義服務類型和版本。 它會指定如服務類型的服務中繼資料、健康狀態屬性、負載平衡度量、服務二進位檔和組態檔。  換句話說，它會描述組成服務封裝的程式碼、組態和資料封裝，以支援一或多個服務類型。 服務資訊清單可以包含多個程式碼、組態和資料套件，而這些套件可以獨立設定版本。 以下是[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)之 ASP.NET Core Web 前端服務的服務資訊清單：
+服務資訊清單以宣告方式定義服務類型和版本。 它會指定如服務類型的服務中繼資料、健康狀態屬性、負載平衡度量、服務二進位檔和組態檔。  換句話說，它會描述組成服務封裝的程式碼、組態和資料封裝，以支援一或多個服務類型。 服務資訊清單可以包含多個程式碼、組態和資料套件，而這些套件可以獨立設定版本。 以下是[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)之 ASP.NET Core Web 前端服務的服務資訊清單 (這裡有一些[更詳細的範例](service-fabric-manifest-examples.md))：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -76,7 +76,7 @@ ms.locfileid: "34208466"
 * 設定及初始化服務可執行檔需要的環境變數。 這不限於透過 Service Fabric 程式設計模型撰寫的執行檔。 例如，npm.exe 部署 node.js 應用程式，需要設定某些環境變數。
 * 透過安裝安全性憑證設定存取控制。
 
-如需有關如何設定 **SetupEntryPoint** 的詳細資訊，請參閱[設定服務安裝程式進入點的原則](service-fabric-application-runas-security.md)
+如需有關如何設定 SetupEntryPoint 的詳細資訊，請參閱[設定服務設定進入點的原則](service-fabric-application-runas-security.md)
 
 **EnvironmentVariables** (未設定於前一個範例中) 提供針對此程式碼套件設定的環境變數清單。 您可以在 `ApplicationManifest.xml` 中覆寫環境變數，以針對不同的服務執行個體提供不同的值。 
 
@@ -108,7 +108,7 @@ For more information about other features supported by service manifests, refer 
 ## <a name="describe-an-application-in-applicationmanifestxml"></a>在 ApplicationManifest.xml 中描述應用程式
 應用程式資訊清單以宣告方式描述應用程式類型和版本。 它指定服務組成中繼資料，例如穩定的名稱、分割配置、執行個體計數/複寫因數、安全性/隔離原則、安置限制、組態覆寫和組成服務類型。 也說明要放置應用程式的負載平衡網域。
 
-因此，應用程式資訊清單描述應用程式層級的元素，並參考用來組成應用程式類型的一個或多個服務資訊清單。 以下是[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)的應用程式資訊清單：
+因此，應用程式資訊清單描述應用程式層級的元素，並參考用來組成應用程式類型的一個或多個服務資訊清單。 以下是[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)的應用程式資訊清單 (這裡有一些[更詳細的範例](service-fabric-manifest-examples.md))：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

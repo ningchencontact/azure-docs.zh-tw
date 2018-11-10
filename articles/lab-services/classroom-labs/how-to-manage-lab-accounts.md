@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345883"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140818"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>管理 Azure 實驗室服務中的實驗室帳戶 
 在 Azure 實驗室服務中，實驗室帳戶是受控實驗室 (例如教室實驗室) 的容器。 系統管理員會使用 Azure 實驗室服務來設定實驗室帳戶，並向可以在帳戶中建立實驗室的實驗室擁有者提供存取權。 本文說明如何建立實驗室帳戶、檢視所有實驗室帳戶，或刪除實驗室帳戶。
@@ -90,6 +90,28 @@ ms.locfileid: "39345883"
 2. 從工作列中選取 [刪除]。 
 3. 輸入 **Yes** 進行確認。
 4. 選取 [刪除] 。 
+
+## <a name="view-and-manage-labs-in-the-lab-account"></a>檢視及管理實驗室帳戶中的實驗室
+
+1. 在 [實驗室帳戶] 頁面上，選取左側功能表上的 [實驗室]。
+
+    ![帳戶中的實驗室](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. 您會看到帳戶中的**實驗室清單**以及下列資訊： 
+    1. 實驗室名稱。
+    2. 建立實驗室的日期。 
+    3. 建立實驗室之使用者的電子郵件地址。 
+    4. 實驗室中允許的使用者數目上限。 
+    5. 實驗室的狀態。 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>刪除實驗室帳戶中的實驗室
+請遵循上一節的指示，以查看實驗室帳戶中的實驗室清單。
+
+1. 選取 **... (省略符號)**，然後選取 [刪除]。 
+
+    ![刪除實驗室 - 按鈕](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. 在警告訊息上選取 [是]。 
+
+
 
 ## <a name="next-steps"></a>後續步驟
 使用 Azure 實驗室服務以設定實驗室的入門：

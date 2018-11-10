@@ -1,21 +1,20 @@
 ---
-title: 在 Azure Site Recovery 中測試容錯移轉到 Azure | Microsoft Docs
-description: 了解如何使用 Azure Site Recovery 服務執行從內部部署到 Azure 的測試容錯移轉。
-services: site-recovery
+title: 使用 Azure Site Recovery 執行 Azure 災害復原演練 | Microsoft Docs
+description: 了解如何使用 Azure Site Recovery 服務執行從內部部署至 Azure 的災害復原演練。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 09/11/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 4c72a58cdc6082a40fe80b7a3cf8cf964199371e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 6eb1ee90b22b9e37dcae900cd80f80cb549090e9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391771"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213945"
 ---
-# <a name="test-failover-to-azure-in-site-recovery"></a>在 Site Recovery 中測試容錯移轉到 Azure
+# <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練 
 
 
 本文說明如何使用 Site Recovery 測試容錯移轉，將災害復原深入執行至 Azure。  

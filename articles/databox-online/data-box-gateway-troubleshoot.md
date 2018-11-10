@@ -1,5 +1,5 @@
 ---
-title: Azure 資料箱閘道疑難排解 | Micrsoft Docs
+title: 使用 Azure 入口網站對 Azure 資料箱閘道進行疑難排解 | Micrsoft Docs
 description: 描述如何針對 Azure 資料箱閘道問題進行疑難排解。
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 00797cdf50104b41777cc8b537c140045677c1a5
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: b542ca2876149b9a60e5c5b9e3fa17284477864f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167319"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241595"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>針對 Azure 資料箱閘道問題進行疑難排解 
 

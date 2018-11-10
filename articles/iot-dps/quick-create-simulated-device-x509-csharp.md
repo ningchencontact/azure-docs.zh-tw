@@ -1,6 +1,6 @@
 ---
 title: 使用 C# 將模擬 X.509 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
-description: Azure 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置
+description: Azure 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/18
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d42280935c406a7af0e632434749b2b082ea8b8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ae5601cf35540b6f506521a851b4d90dfaf0a20a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039662"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156454"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -23,6 +23,12 @@ ms.locfileid: "47039662"
 這些步驟示範如何在執行 Windows OS 的開發機器上建置 [Azure IoT 中樞 C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) 所模擬的 X.509 裝置範例，並將模擬的裝置與裝置佈建服務和 IoT 中樞連線。
 
 如果您不熟悉自動佈建程序，請務必也要檢閱[自動佈建概念](concepts-auto-provisioning.md)。 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。 
+
+Azure IoT 裝置佈建服務支援兩種類型的註冊：
+- [註冊群組](concepts-service.md#enrollment-group)：用來註冊多個相關的裝置。
+- [個別註冊](concepts-service.md#individual-enrollment)：用來註冊單一裝置。
+
+本文將示範個別註冊。
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -44,7 +50,7 @@ ms.locfileid: "47039662"
 在本節中，您會使用自我簽署 X.509 憑證，請務必記住下列事項：
 
 * 自我簽署憑證僅適用於測試，不應該用於生產環境。
-* 自我簽署憑證的預設到期日為 1 年。
+* 自我簽署憑證的預設到期日為一年。
 
 您會使用[適用於 .NET 的 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-csharp.git) 中的範例程式碼建立憑證，以便與模擬裝置的個別註冊項目搭配使用。
 
@@ -96,7 +102,7 @@ ms.locfileid: "47039662"
     dotnet run <IDScope>
     ```
 
-3. 出現提示時，輸入您先前建立的 PFX 檔案之密碼。 請注意，模擬裝置開機並連線至裝置佈建服務的訊息，以取得您的 IoT 中樞資訊。 
+3. 出現提示時，請輸入您先前建立的 PFX 檔案之密碼。 請注意，模擬裝置開機並連線至裝置佈建服務的訊息，以取得您的 IoT 中樞資訊。 
 
     ![範例裝置輸出](./media/quick-create-simulated-device-x509-csharp/sample-output.png) 
 

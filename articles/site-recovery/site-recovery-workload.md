@@ -1,22 +1,21 @@
 ---
 title: Azure Site Recovery 可以保護哪些工作負載？ | Microsoft Docs
 description: 描述可以透過 Azure Site Recovery 服務使用災害復原來保護的工作負載。
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 70f19213da9c311e306e09890f54185f6d2834dc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205947"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213233"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
 
-本文說明您可以使用 [Azure Site Recovery](site-recovery-overview.md) 服務進行複寫的工作負載和應用程式。
+本文說明您可以使用 [Azure Site Recovery](site-recovery-overview.md) 服務進行災害復原保護的工作負載和應用程式。
 
 
 
@@ -105,7 +104,7 @@ Azure Site Recovery 可協助保護您的 Dynamics AX ERP 解決方案，方法�
 |---| --- | --- | --- | --- | --- | --- | --- |
 | **集區化虛擬桌面 (非受控)** |否|是 |否 |是 |否 |是 |否 |
 | **集區化虛擬桌面 (受控但不含 UPD)** |否|是 |否 |是 |否 |是 |否 |
-| **遠端應用程式和桌面工作階段 (不含 UPD)** |是|yes |yes |yes |yes |yes |是 |
+| **遠端應用程式和桌面工作階段 (不含 UPD)** |是|是 |是 |是 |是 |是 |是 |
 
 [使用 Azure Site Recovery 設定適用於 RDS 的災害復原](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure)。
 

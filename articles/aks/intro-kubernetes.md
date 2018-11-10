@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ac18b8099b14f29579b35eb8dd2124d2d63f80d7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 196c3cb58eb60922f4898b6919c8393853c6126a
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390069"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094275"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -101,7 +101,7 @@ Azure Kubernetes Service (AKS) 已經由 CNCF 認證，符合 Kubernetes 相關�
 
 ## <a name="regulatory-compliance"></a>法規遵循
 
-Azure Kubernetes Service (AKS) 符合 SOC、ISO 和 PCI DSS 的規範。
+Azure Kubernetes Service (AKS) 符合 SOC、ISO、PCI DSS 和 HIPAA 的規範。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
 title: 使用 Node.js 將模擬 X.509 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
-description: 使用適用於 Azure IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 X.509 裝置
+description: 使用適用於 Azure IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 X.509 裝置。本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 92c2bc013af13b70ae6dac419ae4aaf4dbb8c9e1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: aeeab619ac2366796a1039bf85cc71f89a10b83c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031827"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158494"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建 X.509 模擬裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -23,6 +23,12 @@ ms.locfileid: "47031827"
 下列步驟說明如何在裝置佈建服務中建立註冊項目、在您的開發電腦上模擬 X.509 裝置、將模擬裝置與裝置佈建服務連線，並使用 [Azure IoT 中樞 Node.js 裝置 SDK](https://github.com/Azure/azure-iot-sdk-node) 在您的 IoT 中樞上註冊裝置。
 
 如果您不熟悉自動佈建程序，請務必也要檢閱[自動佈建概念](concepts-auto-provisioning.md)。 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。 
+
+Azure IoT 裝置佈建服務支援兩種類型的註冊：
+- [註冊群組](concepts-service.md#enrollment-group)：用來註冊多個相關的裝置。
+- [個別註冊](concepts-service.md#individual-enrollment)：用來註冊單一裝置。
+
+本文將示範個別註冊。
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -45,7 +51,7 @@ ms.locfileid: "47031827"
 在本節中，您會使用自我簽署 X.509 憑證，請務必記住下列事項：
 
 * 自我簽署憑證僅適用於測試，不應該用於生產環境。
-* 自我簽署憑證的預設到期日為 1 年。
+* 自我簽署憑證的預設到期日為一年。
 
 您會使用[適用於 Node.js 的 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-node.git) 中的範例程式碼建立憑證，以便與模擬裝置的個別註冊項目搭配使用。
 
@@ -63,7 +69,7 @@ ms.locfileid: "47031827"
     npm install
     ```
 
-3. 使用您自己的_憑證名稱_執行指令碼，以建立_分葉_ X.509 憑證。 請注意，分葉憑證的通用名稱會成為[註冊識別碼](https://docs.microsoft.com/azure/iot-dps/concepts-device#registration-id)，因此請務必一律使用小寫英數字元與連字號。
+3. 使用您自己的_憑證名稱_執行指令碼，以建立_分葉_ X.509 憑證。 分葉憑證的通用名稱會成為[註冊識別碼](https://docs.microsoft.com/azure/iot-dps/concepts-device#registration-id)，因此請務必一律使用小寫英數字元與連字號。
 
     ```cmd/sh
     node create_test_cert.js device {certificate-name}

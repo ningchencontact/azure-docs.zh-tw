@@ -1,5 +1,5 @@
 ---
-title: 適用於 VM 的 Azure 監視器已知問題 | Microsoft Docs
+title: 適用於 VM 的 Azure 監視器 (預覽) 已知問題 | Microsoft Docs
 description: 適用於 VM 的 Azure 監視器是結合了 Azure VM 作業系統健康情況與效能監控的 Azure 解決方案，其會自動探索應用程式元件和與其他資源的相依性，並且會對應它們之間的通訊。 本文涵蓋各項已知問題。
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: eba9e26f12fd9e1862727adec4f8c8f594e8f659
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385078"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091669"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms"></a>適用於 VM 的 Azure 監視器已知問題
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>適用於 VM 的 Azure 監視器 (預覽) 已知問題
 
 下列為「適用於 VM 的 Azure 監視器」健康情況功能的已知問題：
 

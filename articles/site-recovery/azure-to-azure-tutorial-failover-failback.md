@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 將複寫的 Azure VM 容錯移轉及容錯回復到次要 Azure 區域
-description: 了解如何使用 Azure Site Recovery 將 Azure VM 複寫容錯移轉及容錯回復到次要 Azure 區域
+title: 使用 Azure Site Recovery 服務將複寫的 Azure IaaS VM 容錯移轉及容錯回復到次要 Azure 區域，以進行災害復原。
+description: 了解如何使用 Azure Site Recovery 服務將複寫的 Azure VM 容錯移轉及容錯回復到次要 Azure 區域，以進行災害復原。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9917656a3bc8fd8cfe7d71786dc39d296a2449c1
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456502"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239282"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 區域之間容錯移轉及容錯回復 Azure VM
 
@@ -34,7 +34,7 @@ ms.locfileid: "49456502"
 ## <a name="prerequisites"></a>必要條件
 
 - 確定您已完成[災害復原演練](azure-to-azure-tutorial-dr-drill.md)，檢查一切是否如預期般運作。
-- 執行測試容錯移轉之前，請確認 VM 屬性。 VM 必須符合 [Azure 需求](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions)。
+- 執行測試容錯移轉之前，請確認 VM 屬性。 VM 必須符合 [Azure 需求](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)。
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>執行容錯移轉至次要區域
 

@@ -1,19 +1,18 @@
 ---
-title: 使用 PowerShell 與 Azure Resource Manager 來複寫 Hyper-V VM | Microsoft Docs
-description: 使用 PowerShell 和 Azure Resource Manager，透過 Azure Site Recovery 將 Hyper-V VM 至 Azure 的複寫自動化。
-services: site-recovery
+title: 使用 PowerShell 和 Azure Resource Manager 來為 Hyper-V VM 設定 Azure 災害復原 | Microsoft Docs
+description: 使用 PowerShell 和 Azure Resource Manager，透過 Azure Site Recovery 服務自動將 Hyper-V VM 災害復原至 Azure。
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1d72d56188c3b787ab335ced554eb7c1dc74e0b7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f8f690a4f94ee56cfaa5532fa090fada1a33bddf
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427428"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214778"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>針對 Hyper-V VM，使用 PowerShell 和 Azure Resource Manager 設定至 Azure 的災害復原
 

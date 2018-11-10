@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 398594c37cb01cd337da983307a5f56753e54fd2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574754"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249046"
 ---
 # <a name="azure-database-security-overview"></a>Azure 資料庫安全性概觀
 
@@ -65,6 +65,7 @@ SQL Database 透過提供加密來協助您保護資料：
 在應用程式連接字串中，您必須指定參數來將連線加密，而不是信任伺服器憑證 (如果您從 Azure 入口網站複製出連接字串，即會為您完成此動作)。否則，連線將不會驗證伺服器的身分識別，而且將受到「攔截式」攻擊。 例如，對於 ADO.NET 驅動程式，這些連接字串參數為 `Encrypt=True` 和 `TrustServerCertificate=False`。
 
 ### <a name="encryption-at-rest"></a>待用加密
+
 您可以採取幾個預防措施來協助保護資料庫。 例如，設計安全的系統、將機密資產加密，以及在資料庫伺服器周圍建置防火牆。 但是，在實體媒體 (例如磁碟機或備份磁帶) 遭竊的案例中，惡意人士可能會直接還原或連結資料庫，然後瀏覽資料。
 
 其中一個解決方案就是將資料庫中的敏感性資料加密，然後使用憑證來保護用來加密資料的金鑰。 這個解決方案可防止所有沒有金鑰的人使用該資料，但這種保護必須予以規劃。
@@ -92,6 +93,7 @@ Always Encrypted 可將擁有資料 (且可加以檢視) 的人員與管理資�
 此外，Always Encrypted 讓加密對應用程式透明化。 啟用 Always Encrypted 的驅動程式會安裝於用戶端電腦上，以便自動加密和解密用戶端應用程式中的敏感性資料。 驅動程式會先將敏感性資料行中的資料加密，然後將資料傳遞到資料庫引擎。 驅動程式會自動重寫查詢，以便保留應用程式的語意。 同樣地，驅動程式會將儲存在加密資料庫資料行並包含在查詢結果中的資料明確解密。
 
 ## <a name="access-control"></a>存取控制
+
 為了提供安全性，SQL Database 使用下列方式來控制存取：
 
 - 依 IP 位址限制連線的防火牆規則。
@@ -124,11 +126,13 @@ Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的�
   - 它可以透過啟用整合式 Windows 驗證和 Azure AD 支援的其他形式驗證來減少密碼儲存需求。
 
 #### <a name="authorization"></a>Authorization
+
 [授權](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)是指使用者可在 Azure SQL 資料庫內執行的動作。 它是由您使用者帳戶的資料庫[角色成員資格](https://msdn.microsoft.com/library/ms189121)和[物件層級權限](https://msdn.microsoft.com/library/ms191291.aspx)來控制的。 授權是決定主體可存取哪些安全性實體資源，以及可對這些資源執行哪些作業的程序。
 
 ### <a name="application-access"></a>應用程式存取
 
 #### <a name="dynamic-data-masking"></a>動態資料遮罩
+
 客服中心的服務代表可能會透過來電者的社會安全號碼或信用卡號碼中的數個號碼來識別他們。 但不應向服務代表完全公開那些資料項目。
 
 您可以定義遮罩規則，針對任何查詢結果集中社會安全號碼或信用卡號碼末四碼以外的所有數字進行遮罩處理。
@@ -141,11 +145,11 @@ Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的�
 
 [動態資料遮罩](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)可讓您在應用程式層級受到最小影響的情況下指定要顯示多少敏感性資料，而協助防止未經授權者存取敏感性資料。 它是以原則為基礎的安全性功能，可針對指定的資料庫欄位隱藏查詢結果集中的機密資料，而不變更資料庫中的資料。
 
-
 > [!Note]
 > 動態資料遮罩可由　Azure 資料庫管理員、伺服器管理員或安全性主管人員等角色來設定。
 
 #### <a name="row-level-security"></a>資料列層級安全性
+
 多租用戶資料庫的另一個常見安全性需求是[資料列層級安全性](https://msdn.microsoft.com/library/dn765131.aspx)。 您可以使用此功能，根據執行查詢的使用者特性，以控制對資料庫資料表中的資料列存取權 (範例特性是群組成員資格和執行內容)。
 
 ![允許使用者透過用戶端應用程式存取資料表中資料列的資料列層級安全性](./media/azure-databse-security-overview/azure-database-fig4.png)
@@ -155,18 +159,20 @@ Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的�
 資料列層級安全性引進述詞型存取控制。 它提供彈性的集中式評估，可將系統管理員認定適當的中繼資料或任何其他準則列入考量。 此述詞會當做準則來使用，以根據使用者屬性，來判斷使用者是否具有資料的適當存取權限。 您可以使用述詞型存取控制來實作標籤型存取控制。
 
 ## <a name="proactive-monitoring"></a>主動監視
+
 SQL Database 可透過提供「稽核」和「威脅偵測」功能，協助保護您的資料。
 
 ### <a name="auditing"></a>稽核
+
 [Azure SQL Database 稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started)可提高您的能力，以取得資料庫內所發生事件和變更的見解。 範例為對資料進行更新和查詢。
 
 SQL Database 稽核會追蹤資料庫事件，並將它們寫入至您 Azure 儲存體帳戶中的稽核記錄。 稽核可協助您保持法規合規性、了解資料庫活動，以及取得可能指出商務考量或疑似安全違規的不一致和異常見解。 稽核會啟用及推動遵循法規標準，但不保證符合法規。
 
 您可以使用 SQL Database 稽核來：
 
--   **保留** 所選事件的稽核記錄。 您可以定義要稽核的資料庫動作類別。
--   **報告** 資料庫活動。 您可以使用預先設定的報告和儀表板，以便快速開始使用活動和事件報告。
--   **分析** 報告。 您可以尋找可疑事件、異常活動及趨勢。
+- **保留** 所選事件的稽核記錄。 您可以定義要稽核的資料庫動作類別。
+- **報告** 資料庫活動。 您可以使用預先設定的報告和儀表板，快速地開始使用活動和事件報告。
+- **分析** 報告。 您可以尋找可疑事件、異常活動及趨勢。
 
 稽核方法有兩種：
 
@@ -174,13 +180,26 @@ SQL Database 稽核會追蹤資料庫事件，並將它們寫入至您 Azure 儲
 -   **資料表稽核**：記錄會寫入至 Azure 資料表儲存體。
 
 ### <a name="threat-detection"></a>威脅偵測
-[Azure SQL Database 威脅偵測](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)會偵測可疑的活動，指出潛在的安全性威脅。 您可以使用威脅偵測來回應資料庫中所發生的可疑事件，例如 SQL 插入。 它會提供警示，並允許使用 Azure SQL Database 稽核來探索可疑事件。
+
+[Azure SQL Database 的進階威脅防護](https://docs.microsoft.com/azure/sql-database/sql-advanced-threat-protection)會偵測可疑的活動，指出潛在的安全性威脅。 您可以使用威脅偵測來回應資料庫中所發生的可疑事件，例如 SQL 插入。 它會提供警示，並允許使用 Azure SQL Database 稽核來探索可疑事件。
 
 ![包括外部攻擊者與惡意內部人員對於 SQL Database 和 Web 應用程式的威脅偵測](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
-例如，SQL 插入是常見的 Web 應用程式安全性問題之一。 它會被用來攻擊資料導向的應用程式。 攻擊者利用應用程式弱點將惡意的 SQL 陳述式插入應用程式輸入欄位，破壞或修改資料庫中的資料。
+SQL 進階威脅防護 (ATP) 提供一組進階的 SQL 安全性功能，包括資料探索與分類、弱點評估及威脅偵測。 
 
-資訊安全人員或其他指定的系統管理員可以在發生可疑的資料庫活動時立即取得通知。 每個通知都會提供可疑活動的詳細資料，以及建議如何進一步調查並減輕威脅。        
+- [資料探索與分類](../sql-database/sql-database-data-discovery-and-classification.md)
+- [弱點評估](../sql-database/sql-vulnerability-assessment.md)  
+- [威脅偵測](../sql-database/sql-database-threat-detection.md)
+
+[「適用於 PostgreSQL 的 Azure 資料庫」進階威脅防護](../postgresql/concepts-data-access-and-security-threat-protection.md)能提供一層新的安全性，藉由提供異常活動的安全性警示，讓您能夠在潛在威脅發生時偵測到它們並做出回應。 當有可疑的資料庫活動、潛在弱點，以及異常的資料庫存取和查詢模式發生時，使用者就會收到警示。 「適用於 PostgreSQL 的 Azure 資料庫」的進階威脅防護會將警示與 Azure 資訊安全中心整合。 警示類型包括：
+
+- 從不尋常的位置存取
+- 從不尋常的 Azure 資料中心存取 
+- 從不熟悉的主體存取 
+- 從可能有害的應用程式存取 
+- 暴力密碼破解「適用於 PostgreSQL 的 Azure 資料庫」的認證 
+
+[「適用於 MySQL 的 Azure 資料庫」進階威脅防護](/mysql/concepts-data-access-and-security-threat-protection.md)能提供類似 PostgreSQL 進階威脅防護的保護。  
 
 ## <a name="centralized-security-management"></a>集中式安全性管理
 
@@ -188,12 +207,20 @@ SQL Database 稽核會追蹤資料庫事件，並將它們寫入至您 Azure 儲
 
 [資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-sql-database)藉由提供您所有伺服器和資料庫的安全性可見性，協助您保護 SQL Database 中的資料。 使用資訊安全中心，您可以︰
 
--   定義 SQL Database 加密和稽核原則。
--   監視所有訂用帳戶的 SQL Database 資源安全性。
--   快速找出並修復安全性問題。
--   整合 [Azure SQL Database 威脅偵測](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)所提供的警示。
+- 定義 SQL Database 加密和稽核原則。
+- 監視所有訂用帳戶的 SQL Database 資源安全性。
+- 快速找出並修復安全性問題。
+- 整合 [Azure SQL Database 威脅偵測](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)所提供的警示。
 
 資訊安全中心支援角色型存取。
+
+## <a name="sql-information-protection"></a>SQL 資訊保護
+
+[SQL 資訊保護](../sql-database/sql-database-data-discovery-and-classification.md)會自動探索和分類可能的敏感性資料、提供標記機制以使用分類屬性持續標記敏感性資料，並提供詳細儀表板以顯示資料庫的分類狀態。  
+
+此外，它還會計算 SQL 查詢的結果集敏感度，以明確地稽核可擷取敏感性資料的查詢，並保護資料。 如需 SQL 資訊保護的詳細資料，請參閱＜Azure SQL Database 的資料探索與分類＞。
+
+您可以在 Azure 資訊安全中心中設定 [SQL 資訊保護原則](/security-center/security-center-info-protection-policy.md)。
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

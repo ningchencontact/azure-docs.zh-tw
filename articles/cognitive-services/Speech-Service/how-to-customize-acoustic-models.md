@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466081"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215237"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>教學課程：建立自訂原音模型
 
@@ -53,7 +53,7 @@ ms.locfileid: "49466081"
 * 資料集中的所有音訊檔應儲存為 WAV (RIFF) 音效格式。
 * 音訊的取樣率必須為 8 千赫茲 (KHz) 或 16 kHz，範例值應儲存為未壓縮的脈衝碼調制 (PCM) 16 位元帶正負號整數 (短)。
 * 僅支援單聲道 (mono) 音訊檔。
-* 音訊檔的長度必須介於 100 毫秒與 1 分鐘之間。 每個音訊檔的開頭和結尾最好至少有 100 毫秒是無聲的，有時候 500 毫秒至 1 秒間沒聲音都是可行的。
+* 音訊檔的長度可介於 100 毫秒與 1 分鐘之間，但最好是 10-12 秒左右。 每個音訊檔的開頭和結尾最好至少有 100 毫秒是無聲的，有時候 500 毫秒至 1 秒間沒聲音都是可行的。
 * 如果您的資料中有背景噪音，建議您也對一些資料範例使用較長的無聲區段，例如，在您語音內容前面和/或後面保留幾秒的無聲區段。
 * 每個音訊檔應包含單一語句，例如聽寫的單一句子、單一查詢或對話系統的單一回合。
 * 資料集中的每個音訊檔應具有唯一檔名，且副檔名應為 .wav。
@@ -69,7 +69,7 @@ ms.locfileid: "49466081"
 | 取樣率 | 8000 赫茲 (Hz) 或 16000 Hz |
 | 聲道 | 1 (mono) |
 | 樣本格式 | PCM，16 位元整數 |
-| 檔案持續時間 | 0.1 秒 < 持續時間 < 60 秒 |
+| 檔案持續時間 | 0.1 秒 < 持續時間 < 12 秒 | 
 | 無聲迴圈 | > 0.1 秒 |
 | 封存格式 | .zip |
 | 封存大小上限 | 2 GB |

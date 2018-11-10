@@ -7,20 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 50005e38214bf22aa664c2d2b0cc4f86da412818
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144489"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140852"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>快速入門：嘗試雲端式遠端監視解決方案
 
-本快速入門會說明如何部署 Azure IoT 遠端監視解決方案加速器，來執行雲端式遠端監視模擬。 部署了解決方案加速器之後，您會使用解決方案的 [儀表板] 頁面在地圖上以視覺化方式呈現模擬裝置，以及使用 [維護] 頁面以回應模擬冷卻器裝置的壓力警示。 您可以使用這個解決方案加速器，作為您自己實作的起點，或是作為學習工具。
+本快速入門說明如何部署 Azure IoT 遠端監視解決方案加速器。 在此雲端式解決方案中，您會使用 [儀表板] 頁面在地圖上以視覺化方式呈現模擬裝置，以及使用 [維護] 頁面以回應模擬冷卻器裝置的壓力警示。 您可以使用這個解決方案加速器，作為您自己實作的起點，或是作為學習工具。
 
-初始部署會針對稱為 Contoso 的公司設定遠端監視解決方案加速器。 Contoso 管理了一組部署在不同實體環境的不同裝置類型 (例如冷卻器)。 冷卻器裝置會將溫度、溼度和壓力遙測資料傳送給遠端監視解決方案加速器。
+初始部署會針對名為 Contoso 的公司設定解決方案加速器。 身為 Contoso 的操作員，您管理了一組部署在不同實體環境的不同裝置類型 (例如冷卻器)。 冷卻器裝置會將溫度、溼度和壓力遙測資料傳送給遠端監視解決方案加速器。
 
 若要完成本快速入門，您需要有效的 Azure 訂用帳戶。
 
@@ -44,7 +44,7 @@ ms.locfileid: "39144489"
 
 選取您要用來部署解決方案加速器的 [訂用帳戶] 和 [區域]。 一般而言，您會選擇與您最接近的區域。 在本快速入門中，我們會使用 **Visual Studio Enterprise** 和**西歐**。 您必須是訂用帳戶中的[全域管理員或使用者](iot-accelerators-permissions.md)。
 
-按一下 [建立解決方案] 來開始部署。 此程序至少需要執行五分鐘：
+若要開始部署，請按一下 [建立解決方案]。 此程序至少需要執行五分鐘：
 
 ![遠端監視解決方案的詳細資料](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -68,15 +68,15 @@ ms.locfileid: "39144489"
 
 解決方案儀表板會顯示下列關於 Contoso 模擬裝置的資訊：
 
-* **裝置統計資料**會顯示警示的相關摘要資訊和裝置總數。 在預設部署中，Contoso 有 10 個不同類型的模擬裝置。
+* [裝置統計資料] 面板會顯示警示的相關摘要資訊和裝置總數。 在預設部署中，Contoso 有 10 個不同類型的模擬裝置。
 
-* **裝置位置**會顯示裝置實際所在的位置。 裝置有警示時，便會顯示圖釘顏色。
+* [裝置位置] 面板會顯示裝置實際所在的位置。 裝置有警示時，便會顯示圖釘顏色。
 
-* **警示**會顯示裝置警示的詳細資料。
+* [警示] 面板會顯示裝置警示的詳細資料。
 
-* **遙測資料**會顯示裝置的遙測資料。 您可以按一下頂端的遙測資料類型，以檢視不同的遙測資料串流。
+* [遙測資料] 面板會顯示裝置的遙測資料。 您可以按一下頂端的遙測資料類型，以檢視不同的遙測資料串流。
 
-* **分析**會顯示有關於裝置警示的合併資訊。
+* [分析] 面板會顯示有關於裝置警示的合併資訊。
 
 ## <a name="respond-to-an-alert"></a>回應警示
 
@@ -94,11 +94,11 @@ ms.locfileid: "39144489"
 
 [![[維護] 頁面會顯示已觸發的警示清單](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-expanded.png#lightbox)
 
-您現在已識別出觸發警示及相關聯裝置的問題。 身為操作員，後續步驟是認可警示並修正問題。
+您現在已識別出觸發警示及相關聯裝置的問題。 身為操作員，您的後續步驟是認可警示並修正問題。
 
 ### <a name="fix-the-issue"></a>修正問題
 
-若要向其他操作員指出您目前正在處理警示，請選取該警示，然後將 [警示狀態] 變更為 [已認可]：
+若要向其他操作員指出您正在處理警示，請選取該警示，然後將 [警示狀態] 變更為 [已認可]：
 
 [![選取並認可警示](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-expanded.png#lightbox)
 
@@ -108,7 +108,7 @@ ms.locfileid: "39144489"
 
 [![選取裝置及排程動作](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-在 [作業] 面板中，選擇 [執行方法]，然後選擇 [EmergencyValveRelease] 方法。 新增作業名稱 **ChillerPressureRelease**，然後按一下 [套用]。 這些設定會建立可立即執行的作業。
+在 [作業] 面板中，選擇 [執行方法]，然後選擇 [EmergencyValveRelease] 方法。 新增作業名稱 **ChillerPressureRelease**，然後按一下 [套用]。 這些設定會為您建立立即執行的作業。
 
 若要檢視作業狀態，請返回 [維護] 頁面，然後在 [作業] 檢視中檢視作業清單。 您可能需要等候幾秒鐘的時間才能看到作業開始執行，從而釋放冷卻器上的閥門壓力：
 

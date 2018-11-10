@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297770"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139715"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>如何：在 Azure Active Directory 中新增或移除群組擁有者
 Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理。 群組擁有者是由資源擁有者 (系統管理員) 指派來管理群組與其成員。 群組擁有者不需要是該群組的成員。 指派群組擁有者之後，只有資源擁有者可以新增或移除擁有者。
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理�
 ### <a name="to-add-a-group-owner"></a>新增群組擁有者
 1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 [Azure Active Directory] 並選取 [群組]，然後選取您要新增擁有者的群組 (針對此案例，是 _MDM policy - West_)。
+2. 選取 [Azure Active Directory] 並選取 [群組]，然後選取您要新增擁有者的群組 (針對此案例，是 *MDM policy - West*)。
 
 3. 在 [MDM 原則- 西部概觀] 頁面上，選取 [擁有者]。
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理�
 ### <a name="to-remove-an-owner"></a>移除擁有者
 1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 [Azure Active Directory] 並選取 [群組]，然後選取您要新增擁有者的群組 (針對此案例，是 _MDM policy - West_)。
+2. 選取 [Azure Active Directory] 並選取 [群組]，然後選取您要移除擁有者的群組 (在此案例中是「MDM 原則 - 西部」)。
 
 3. 在 [MDM 原則- 西部概觀] 頁面上，選取 [擁有者]。
 

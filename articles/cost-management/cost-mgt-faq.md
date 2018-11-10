@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/26/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4984332e1a149ae838bc76a24abec90364f5699e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ba6d8250d70320b33822d73c9213e9005128633f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221973"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157202"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn 的常見問題集
 
-本文說明 Cloudyn 的一些常見問題。 如果您有關於 Cloudyn 的問題，可在 [Cloudyn 的常見問題集](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn)發問。
+本文說明 Cloudyn 的一些常見問題。 如果您有關於 Cloudyn 的問題，可在 [Cloudyn 的常見問題集](https://social.msdn.microsoft.com/Forums/home?forum=faqs-for-azure-cost-management-by-cloudyn)發問。
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>如何解決常見的間接企業設定問題？
 
@@ -35,7 +35,7 @@ ms.locfileid: "47221973"
 
 1. 您的轉銷商必須為您的帳戶啟用「標記」。 如需指示，請參閱[間接客戶上線指南](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide)。
 
-2. 您要產生用於 Cloudyn 的 Azure Enterprise 合約金鑰。 如需指示，請參閱[新增您的 Azure EA](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) 或[如何尋找您的 EA 註冊識別碼和 API 金鑰](https://youtu.be/u_phLs_udig)。
+2. 您要產生用於 Cloudyn 的 Azure Enterprise 合約金鑰。 如需指示，請參閱[新增您的 Azure EA](quick-register-ea.md#register-with-cloudyn) 或[如何尋找您的 EA 註冊識別碼和 API 金鑰](https://youtu.be/u_phLs_udig)。
 
 只有 Azure 服務系統管理員可以啟用 Cloudyn。 共同管理員的權限不足。
 
@@ -100,7 +100,7 @@ Cloudyn 使用者帳戶使用單一登入從 Azure 連線。 如果使用者輸�
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>如何使用 Azure 認證啟用尚未啟用的帳戶？
 
-一旦 Cloudyn 探索到您的 Azure 帳戶，與成本相關的報表就會立即提供成本資料。 不過，要讓 Cloudyn 提供使用方式和效能資料，您還必須為帳戶註冊您的 Azure 認證。 如需指示，請參閱[新增 Azure Resource Manager](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager)。
+一旦 Cloudyn 探索到您的 Azure 帳戶，與成本相關的報表就會立即提供成本資料。 不過，要讓 Cloudyn 提供使用方式和效能資料，您還必須為帳戶註冊您的 Azure 認證。 如需相關指示，請參閱[新增帳戶或更新訂用帳戶](activate-subs-accounts.md#add-an-account-or-update-a-subscription)。
 
 若要為帳戶新增 Azure 認證，請在 Cloudyn 入口網站中，選取帳戶名稱 (不是訂用帳戶) 右邊的編輯符號。
 
@@ -108,10 +108,7 @@ Cloudyn 使用者帳戶使用單一登入從 Azure 連線。 如果使用者輸�
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>如何將多個帳戶和實體新增至現有的訂用帳戶？
 
-其他實體可用來將其他的 Enterprise 合約新增到 Cloudyn 訂用帳戶。 下列連結說明如何新增其他實體：
-
-- [新增實體](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity) \(英文\) 文章
-- [使用成本實體定義您的階層](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) \(英文\) 影片
+其他實體可用來將其他的 Enterprise 合約新增到 Cloudyn 訂用帳戶。 如需詳細資訊，請參閱[建立和管理實體](tutorial-user-access.md#create-and-manage-entities)。
 
 如果是雲端解決方案提供者：
 

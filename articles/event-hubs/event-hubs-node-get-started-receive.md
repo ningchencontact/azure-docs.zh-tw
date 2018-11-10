@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2f59b7f47acc8ce8e566b7f0e2bcfed379ea60d2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429179"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239079"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>使用 Node.js 從 Azure 事件中樞接收事件
 
@@ -141,12 +141,7 @@ export EVENTHUB_NAME="<your-event-hub-name>"
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽下列頁面以深入了解事件中樞：
-
-* [使用 Node.js 傳送事件](event-hubs-go-get-started-send.md)
-* [事件中樞範例](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/)
-* [將事件擷取至 Azure 儲存體或 Data Lake Store](event-hubs-capture-overview.md)
-* [事件中樞常見問題集](event-hubs-faq.md)
+在此快速入門中，您已建立可從事件中樞接收訊息的 Node.js 應用程式。 若要了解如何使用 Node.js 將事件傳送到事件中樞，請參閱[從事件中樞傳送事件 - Node.js](event-hubs-node-get-started-send.md)。
 
 <!-- Links -->
 [免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

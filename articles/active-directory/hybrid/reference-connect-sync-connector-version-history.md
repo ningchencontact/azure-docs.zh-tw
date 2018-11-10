@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95f2ffb1a51184f1194f87a4a5e9a54e682edf80
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cbafe7fcdf2ccd515dfec5554c93bec9c7f3537a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305957"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243158"
 ---
 # <a name="connector-version-release-history"></a>連接器版本發行歷程記錄
 適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器會經常更新。
@@ -98,7 +98,7 @@ ms.locfileid: "46305957"
 * 一般 Web 服務︰
   * Wsconfig 工具未正確地從 REST 服務方法的「範例要求」轉換 Json 陣列。 這會造成 REST 要求的 Json 陣列發生序列化問題。
   * Web 服務連接器組態工具不支援在 JSON 屬性名稱中使用空間符號 
-    * 可以手動將取代模式新增至 WSConfigTool.exe.config 檔案，例如 ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * 可以手動將取代模式新增至 WSConfigTool.exe.config 檔案，例如 ```<appSettings> <add key="JSONSpaceNamePattern" value="__" /> </appSettings>```
 > [!NOTE]
 > JSONSpaceNamePattern 是必要索引鍵，因為您將會收到下列匯出錯誤：訊息：空白名稱不合法。 
 
@@ -143,7 +143,7 @@ Lotus：
 ### <a name="enhancements"></a>增強功能
 
 * 一般 SQL：</br>
-  **案例徵兆︰** SQL 連接器的已知限制，一個物件類型只允許一個參考，且成員需要交互參考。 </br>
+  **案例徵兆︰** SQL 連接器的已知限制，一個物件類型只允許一個參考，且成員需要交互參考。 </br>
   **解決方案說明︰** 在已選擇 "*" 選項之參考的處理步驟中，物件類型的所有組合會傳回給同步處理引擎。
 
 >[!Important]

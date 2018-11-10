@@ -1,7 +1,7 @@
 ---
 title: REST API (V4) - Java - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 取得以 REST 為基礎的資訊和程式碼範例，以協助您快速開始使用 Azure 上「Microsoft 認知服務」中的「Microsoft 翻譯工具文字 API」。
+description: 取得以 Java REST 為基礎的資訊和程式碼範例，以協助您快速開始在 Azure 上使用 Microsoft 認知服務中的 Microsoft 翻譯文字 API。
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: c92addcbb6a4071022474c5c157c498364ebf0f6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 70fa8c5af4f00500c39ce3832e182a5532721799
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647930"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419702"
 ---
 # <a name="qna-maker-rest-api-with-java"></a>搭配 Java 的 QnA Maker REST API 
 <a name="HOLTop"></a>
 
-本文說明如何搭配使用 [Microsoft QnA Maker API](../Overview/overview.md) 和 JAVA，以執行以下動作。
+本文說明如何搭配使用 [Microsoft QnA Maker API](../Overview/overview.md) 和 JAVA，以執行以下動作。
 
 - [建立新的知識庫。](#Create)
 - [更新現有的知識庫。](#Update)
@@ -41,7 +41,7 @@ ms.locfileid: "49647930"
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要有 [JDK 7 或 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
+您將需要有 [JDK 7 或 8](https://aka.ms/azure-jdks)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
 
 您必須擁有包含 **Microsoft QnA Maker API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您將需要來自 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServices)的付費訂用帳戶金鑰。
 

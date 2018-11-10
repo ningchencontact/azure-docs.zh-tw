@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408875"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415180"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>網路效能監控解決方案常見問題集
 
-![網路效能監控符號](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![網路效能監控符號](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 本文集結了一些 Azure 內網路效能監控 (NPM) 相關的常見問題 (常見問題集)。
 
@@ -54,7 +54,7 @@ ms.locfileid: "49408875"
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>應該選擇監視 TCP 還是 ICMP 通訊協定？
 如果您要使用 Windows Server 型節點監視您的網路，建議使用精確度較佳的 TCP 作為監視通訊協定。 
 
-至於以 Windows 桌面/用戶端作業系統為基礎的節點，建議使用 ICMP，因為此平台不允許透過原始通訊端傳送 TCP 資料，而 NPM 需要以此種作法探索網路拓撲。
+建議將 ICMP 用於以 Windows 桌面/用戶端作業系統為基礎的節點。 此平台不允許透過原始通訊端傳送 TCP 資料，NPM 可以透過原始通訊端探索網路拓撲。
 
 您可以在[此處](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol)取得有關各種通訊協定彼此優勢所在的詳細資料。
 

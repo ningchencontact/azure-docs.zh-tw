@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456808"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159004"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning
 
-在本快速入門中，您會使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 
+在本快速入門中，您會使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 本快速入門使用雲端資源，因此不需要安裝。 若要改為設定您自己的 Jupyter Notebook 伺服器，請參閱[快速入門：利用 Python 開始使用 Azure Machine Learning](quickstart-create-workspace-with-python.md)。
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ Azure Notebooks 會為 Jupyter Notebook 提供免費的雲端平台，其會利�
 
 選取 `01.run-experiment.ipynb` 來開啟 Notebook。
 
-若要一次執行一個資料格，請使用 `Shift`+`Enter`。 或者選取 `Cells` > `Run All` 來執行整個 Notebook。 當您在資料格旁邊看到 [*] 時，表示它正在執行中。 該資料格的程式碼完成後，就會出現一個數字。
+若要一次執行一個資料格，請使用 `Shift`+`Enter`。 或者選取 `Cells` > `Run All` 來執行整個 Notebook。 當您在資料格旁邊看到 [*] 時，表示它正在執行中。 該資料格的程式碼完成後，就會出現一個數字。 
 
-系統會提示您登入。 複製訊息中的程式碼。 然後選取連結，並將程式碼貼到新視窗中。 請確定不會複製程式碼前後的空格。 請使用您在 Azure 入口網站中使用的相同帳戶登入。
-
- ![登入](./media/quickstart-get-started/login.png)
-
-在 Notebook 中，第二個資料格會從 `config.json` 讀取以連線到您的工作區。
-```
-ws = Workspace.from_config()
-```
-
-程式碼的第三個資料格會開始進行名為 "my-first-experiment" 的實驗。 使用此名稱來查看要返回您工作區之執行的相關資訊。
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-在 Notebook 的最後一個資料格中，請注意要寫入到記錄檔的值。
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-執行程式碼之後，您可以在工作區中檢視這些值。
+在 Notebook 中的所有資料格都執行完成後，您可以在工作區中檢視記錄的值。
 
 ## <a name="view-logged-values"></a>檢視記錄的值
 
@@ -121,11 +98,11 @@ run.log("Final error: ",math.pi-pi_estimate)
 
  ![執行歷程記錄連結](./media/quickstart-get-started/report.png)
 
-您會看到已自動建立所記錄值的繪圖。  
+您會看到已自動建立所記錄值的繪圖。 每當您使用相同的名稱參數記錄多個值時，系統就會自動為您產生繪圖。
 
    ![檢視歷程記錄](./media/quickstart-get-started/plots.png)
 
-用於大致估計 pi 的程式碼會使用隨機值，因此您的圖會顯示不同的值。
+用於大致估計 pi 的程式碼會使用隨機值，因此您的圖會顯示不同的值。  
 
 ## <a name="clean-up-resources"></a>清除資源 
 

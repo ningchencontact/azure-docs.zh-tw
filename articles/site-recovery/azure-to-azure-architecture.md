@@ -1,24 +1,24 @@
 ---
 title: Azure Site Recovery 中的 Azure 至 Azure 複寫架構 | Microsoft Docs
-description: 本文概要說明使用 Azure Site Recovery 服務複寫 Azure 區域之間的 Azure VM 時所用的元件和架構。
+description: 本文概述當您使用 Azure Site Recovery 服務在 Azure VM 的 Azure 區域之間設定災害復原時，所用的元件和架構。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 20387c325497934ccb2e02188b24a0125f937e00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0069ece5d02ad52b6fea9add7817e63fa3c412b6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078252"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212722"
 ---
-# <a name="azure-to-azure-replication-architecture"></a>Azure 至 Azure 複寫架構
+# <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 至 Azure 災害復原架構
 
 
-本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務，在 Azure 區域之間對 Azure 虛擬機器 (VM) 進行複寫、容錯移轉和復原時所使用的架構。
+本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務，在 Azure 區域之間對 Azure 虛擬機器 (VM) 的複寫、容錯移轉和復原部署災害復原時所使用的架構。
 
 
 

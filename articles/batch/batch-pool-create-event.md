@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: danlep
-ms.openlocfilehash: bf7dfc2600c3d94faeb8d03561f6f2b30a0ee2d2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f8c0adf96d027f58a35dbe570f1b19c311cd84b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246509"
 ---
 # <a name="pool-create-event"></a>集區建立事件
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 04/03/2018
 |-------------|----------|-----------|
 |id|字串|集區識別碼。|
 |displayName|String|集區顯示名稱。|
-|vmSize|字串|集區中虛擬機器的大小。 集區中所有虛擬機器的大小相同。 <br/><br/> 如需雲端服務集區 (使用 cloudServiceConfiguration 建立的集區) 的虛擬機器可用大小相關資訊，請參閱[雲端服務的大小](http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/)。 Batch 支援 `ExtraSmall` 以外的所有雲端服務 VM 大小。<br/><br/> 如需使用 Virtual Machines Marketplace 中映像的集區 (使用 virtualMachineConfiguration 建立的集區) 其可用 VM 大小的相關資訊，請參閱[虛擬機器大小](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (英文) (Linux) 或 [Azure 中 Windows 虛擬機器的大小](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows)。 除了 `STANDARD_A0` 和進階儲存體的大小 (`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列) 以外，Batch 支援所有的 Azure VM 大小。|
+|vmSize|字串|集區中虛擬機器的大小。 集區中所有虛擬機器的大小相同。 <br/><br/> 如需雲端服務集區 (使用 cloudServiceConfiguration 建立的集區) 的虛擬機器可用大小相關資訊，請參閱[雲端服務的大小](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/)。 Batch 支援 `ExtraSmall` 以外的所有雲端服務 VM 大小。<br/><br/> 如需使用 Virtual Machines Marketplace 中映像的集區 (使用 virtualMachineConfiguration 建立的集區) 其可用 VM 大小的相關資訊，請參閱[虛擬機器大小](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (英文) (Linux) 或 [Azure 中 Windows 虛擬機器的大小](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows)。 除了 `STANDARD_A0` 和進階儲存體的大小 (`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列) 以外，Batch 支援所有的 Azure VM 大小。|
 |[cloudServiceConfiguration](#bk_csconf)|複雜類型|集區的雲端服務組態。|
 |[virtualMachineConfiguration](#bk_vmconf)|複雜類型|集區的虛擬機器組態。|
 |[networkConfiguration](#bk_netconf)|複雜類型|集區的網路組態。|
@@ -67,7 +68,7 @@ ms.lasthandoff: 04/03/2018
 |元素名稱|類型|注意|
 |------------------|----------|-----------|
 |osFamily|字串|安裝在集區中虛擬機器上的 Azure 客體 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** – OS 系列 2，相當於 Windows Server 2008 R2 SP1。<br /><br /> **3** – OS 系列 3，相當於 Windows Server 2012。<br /><br /> **4** – OS 系列 4，相當於Windows Server 2012 R2。<br /><br /> 如需詳細資訊，請參閱[客體 ​OS 發佈新聞](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)。|
-|targetOSVersion|字串|安裝在集區中虛擬機器上的 Azure 客體 OS 版本。<br /><br /> 預設值為 **\***用於指定所指定系列的最新作業系統版本。<br /><br /> 如需其他允許的值，請參閱[客體 OS 發佈新聞](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)。|
+|targetOSVersion|字串|安裝在集區中虛擬機器上的 Azure 客體 OS 版本。<br /><br /> 預設值為 **\*** 用於指定所指定系列的最新作業系統版本。<br /><br /> 如需其他允許的值，請參閱[客體 OS 發佈新聞](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)。|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 04/03/2018
 |元素名稱|類型|注意|
 |------------------|----------|-----------|
 |publisher|字串|映像的發行者。|
-|提供項目|字串|映像的提供項目。|
+|供應項目|字串|映像的供應項目。|
 |sku|字串|映像的 SKU。|
 |version|字串|映像的版本。|
 

@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958545"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158698"
 ---
 # <a name="what-is-baseline-protection-preview"></a>何謂基準保護 (預覽)？  
 
@@ -51,7 +51,7 @@ ms.locfileid: "49958545"
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-此基準原則會提供給您排除使用者和群組的選項。 您可以排除一個*[緊急存取系統管理帳戶](../users-groups-roles/directory-emergency-access.md)* 以確保系統不會將您鎖定而讓您無法使用租用戶。
+此基準原則會提供給您排除使用者的選項。 您可以排除一個*[緊急存取系統管理帳戶](../users-groups-roles/directory-emergency-access.md)* 以確保系統不會將您鎖定而讓您無法使用租用戶。
 
 
 ## <a name="enable-a-baseline-policy"></a>啟用基準原則 

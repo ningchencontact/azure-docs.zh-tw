@@ -10,27 +10,28 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 79572a364c2346ffd567cab7d3633ae398715210
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945785"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239945"
 ---
-# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>教學課程：建立用來部署加密儲存體帳戶的 Azure Resource Manager 範本
+# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>教學課程：使用 Resource Manager 範本部署加密的 Azure 儲存體帳戶
 
-了解如何尋找完成 Azure Resource Manager 範本所需的資訊。
+了解如何尋找範本結構描述資訊，以及使用此資訊來建立 Azure Resource Manager 範本。
 
-在本教學課程中，您會使用 Azure 快速入門範本中的基底範本，來建立 Azure 儲存體帳戶。  您可以使用範本參考文件來自訂基底範本，用以建立加密儲存體帳戶。
+在本教學課程中，您會使用 Azure 快速入門範本中的基底範本。 您可以使用範本參考文件來自訂範本，用以建立加密的儲存體帳戶。
 
 本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 開啟快速入門範本
 > * 了解範本
+> * 尋找範本參考
 > * 編輯範本
 > * 部署範本
 
@@ -44,7 +45,7 @@ ms.locfileid: "49945785"
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
-本快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
+[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)是 Resource Manager 範本的存放庫。 您可以尋找範例範本並加以自訂，而不要從頭建立範本。 本快速入門中使用的範本名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
 
 1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
 2. 在 [檔案名稱] 中，貼上下列 URL：
@@ -57,58 +58,22 @@ ms.locfileid: "49945785"
 
 ## <a name="understand-the-schema"></a>了解結構描述
 
-在 VS Code 中，將範本摺疊至根層級。 此時會有最簡單的結構，內含下列元素：
+1. 在 VS Code 中，將範本摺疊至根層級。 此時會有最簡單的結構，內含下列元素：
 
-![最簡單的 Resource Manager 範本結構](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
+    ![最簡單的 Resource Manager 範本結構](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
 
-* **$schema**：指定說明範本語言版本的 JSON 結構描述檔案所在的位置。
-* **contentVersion**：為此元素指定任何值，用以記錄範本中的重大變更。
-* **parameters**：指定執行部署以自訂資源部署時所提供的值。
-* **variables**：指定範本中作為 JSON 片段以簡化範本語言運算式的值。
-* **resources**：指定在資源群組中部署或更新的資源類型。
-* **outputs**：指定部署後傳回的值。
+    * **$schema**：指定說明範本語言版本的 JSON 結構描述檔案所在的位置。
+    * **contentVersion**：為此元素指定任何值，用以記錄範本中的重大變更。
+    * **parameters**：指定執行部署以自訂資源部署時所提供的值。
+    * **variables**：指定範本中作為 JSON 片段以簡化範本語言運算式的值。
+    * **resources**：指定在資源群組中部署或更新的資源類型。
+    * **outputs**：指定部署後傳回的值。
 
-## <a name="use-parameters"></a>使用參數
+2. 擴充**資源**。 已定義 `Microsoft.Storage/storageAccounts` 資源。 此範本會建立未加密的儲存體帳戶。
 
-參數可提供針對特定環境量身訂做的值，讓您自訂部署。 您可以在設定儲存體帳戶的值時使用範本中定義的參數。
+    ![Resource Manager 範本儲存體帳戶定義](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
-![Resource Manager 範本參數](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-parameters.png)
-
-此範本中會定義兩個參數。 請注意，在 location.defaultValue 中使用了範本函式：
-
-```json
-"defaultValue": "[resourceGroup().location]",
-```
-
-resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本函式清單，請參閱 [Azure 資源管理員範本函式](./resource-group-template-functions.md)。
-
-若要使用範本中定義的參數：
-
-```json
-"location": "[parameters('location')]",
-"name": "[parameters('storageAccountType')]"
-```
-
-## <a name="use-variables"></a>使用變數
-
-變數可讓您建構可用於整個範本的值。 變數有助於降低範本的複雜度。
-
-![Resource Manager 範本變數](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-variables.png)
-
-此範本會定義一個變數 *storageAccountName*。 在定義中，會使用兩個範本函式：
-
-- **concat()**：串連字串。 如需詳細資訊，請參閱 [concat](./resource-group-template-functions-string.md#concat)。
-- **uniqueString()**：根據當作參數提供的值，建立具決定性的雜湊字串。 每個 Azure 儲存體帳戶的名稱在整個 Azure 中都必須是唯一的。 此函式會提供唯一字串。 如需更多字串函式，請參閱[字串函式](./resource-group-template-functions-string.md)。
-
-若要使用範本中定義的變數：
-
-```json
-"name": "[variables('storageAccountName')]"
-```
-
-## <a name="edit-the-template"></a>編輯範本
-
-本教學課程的目標是要定義用來建立加密儲存體帳戶的範本。  範例範本只會建立基本的未加密儲存體帳戶。 若要尋找加密相關組態，您可以使用 Azure 儲存體帳戶的範本參考。
+## <a name="find-the-template-reference"></a>尋找範本參考
 
 1. 瀏覽至 [Azure 範本](https://docs.microsoft.com/azure/templates/)。
 2. 在 [依標題篩選] 中，輸入**儲存體帳戶**。
@@ -120,17 +85,52 @@ resourceGroup() 函式會傳回代表目前資源群組的物件。 如需範本
 
     ```json
     "encryption": {
-        "keySource": "Microsoft.Storage",
+      "services": {
+        "blob": {
+          "enabled": boolean
+        },
+        "file": {
+          "enabled": boolean
+        }
+      },
+      "keySource": "string",
+      "keyvaultproperties": {
+        "keyname": "string",
+        "keyversion": "string",
+        "keyvaulturi": "string"
+      }
+    },
+    ```
+
+    在相同的網頁上，下列描述會確認 `encryption` 物件用來建立加密的儲存體帳戶。
+
+    ![Resource Manager 範本參考儲存體帳戶加密](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption.png)
+
+    而且有兩種方式可供管理加密金鑰。 您可以搭配「儲存體服務加密」使用 Microsoft 管理的加密金鑰，或是使用自己的加密金鑰。 若要簡化本教學課程，您可使用 `Microsoft.Storage` 選項，因此不必建立 Azure Key Vault。
+
+    ![Resource Manager 範本參考儲存體帳戶加密物件](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption-object.png)
+
+    加密物件應如下所示：
+
+    ```json
+    "encryption": {
         "services": {
             "blob": {
                 "enabled": true
+            },
+            "file": {
+              "enabled": true
             }
-        }
+        },
+        "keySource": "Microsoft.Storage"
     }
     ```
-5. 從 Visual Studio Code 修改範本，使最終的資源元素顯示如下：
-    
-    ![Resource Manager 範本加密的儲存體帳戶資源](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+
+## <a name="edit-the-template"></a>編輯範本
+
+從 Visual Studio Code 修改範本，使資源元素如下所示：
+
+![Resource Manager 範本加密的儲存體帳戶資源](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>部署範本
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3bdf44e0a1cf0ccda6d015fa3683964f3530d4af
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003478"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242155"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>開始使用 Azure Active Directory Identity Protection 和 Microsoft Graph
 Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API 的寄居地。 第一個 API **identityRiskEvents** 可讓您查詢 Microsoft Graph，以取得[風險事件](../reports-monitoring/concept-risk-events.md)清單和關聯的資訊。 本文可協助您開始查詢此 API。 如需深入的簡介、完整文件以及 Graph 總管的存取權，請參閱 [Microsoft Graph 網站](https://graph.microsoft.io/)。
@@ -37,8 +37,11 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
 開始之前，您需要下列項目：
 
-* 系統管理員權限，以便在 Azure AD 中建立應用程式
-* 租用戶網域的名稱 (例如 contoso.onmicrosoft.com)
+- Azure AD P2 租用戶
+
+- 系統管理員權限，以便在 Azure AD 中建立應用程式
+
+- 租用戶網域的名稱 (例如 contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>擷取網域名稱 
@@ -49,12 +52,14 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
    
     ![建立應用程式](./media/graph-get-started/41.png)
 
+3. 按一下 [自訂網域名稱]。
 
-3. 在 [管理] 區段中，按一下 [屬性]。
+    ![自訂網域名稱](./media/graph-get-started/71.png)
 
-    ![建立應用程式](./media/graph-get-started/42.png)
+4. 從網域名稱清單中，複製標示為主要的網域名稱。
 
-4. 複製網域名稱。
+    ![自訂網域名稱](./media/graph-get-started/72.png)
+
 
 
 ## <a name="create-a-new-app-registration"></a>建立新的應用程式註冊
@@ -74,7 +79,7 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
     a. 在 [名稱] 文字方塊中，輸入應用程式的名稱 (例如︰AADIP Risk Event API Application)。
    
-    b. 在 [類型]，選取 [Web 應用程式和/或 Web API]。
+    b. 在 [應用程式類型] 中，選取 [Web 應用程式和/或 Web API]。
    
     c. 在 [登入 URL] 文字方塊中，輸入 `http://localhost`。
 
@@ -156,9 +161,9 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
 若要驗證，請傳送 post 要求至 `https://login.microsoft.com` ，並在主體中加入下列參數︰
 
-- grant_type: “**client_credentials**”
+- grant_type: "**client_credentials**"
 
--  資源：“**https://graph.microsoft.com**”
+-  resource: "**https://graph.microsoft.com**"
 
 - client_id：\<您的用戶端識別碼\>
 
@@ -168,7 +173,7 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 如果成功，這會傳回驗證權杖。  
 若要呼叫 API，請建立具有下列參數的標頭︰
 
-    `Authorization`=”<token_type> <access_token>"
+    `Authorization`="<token_type> <access_token>"
 
 
 驗證時，您可以在傳回的權杖中找到權杖類型和存取權杖。

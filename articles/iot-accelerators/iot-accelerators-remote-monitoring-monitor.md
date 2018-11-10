@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 10/26/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1f9e5885e79e184b621ba2be7e2a8f329e31a6b1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 563c7a74d307a2c842680a031cf74b4a05ba800f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284484"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138553"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>教學課程：監視 IoT 裝置
 
@@ -41,7 +41,7 @@ ms.locfileid: "39284484"
 
 [![儀表板上的卡車篩選條件](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-當您套用篩選條件時，只有符合篩選條件的裝置會顯示在 [儀表板] 頁面的地圖上和遙測面板中。 您可以看到，有兩輛卡車連線至解決方案加速器，其中包括 truck-02：
+當您套用篩選條件時，只有符合篩選條件的裝置會顯示在地圖上和遙測面板中。 您可以看到，有兩輛卡車連線至解決方案加速器，其中包括 truck-02：
 
 [![只有卡車會顯示在地圖上](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 

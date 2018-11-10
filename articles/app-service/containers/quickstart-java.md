@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 92dde19e42c1adb6d83e1708106f844f228e8989
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239337"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247550"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>快速入門：在 Linux 上的 App Service 中建立 Java Web 應用程式
 
@@ -77,26 +77,7 @@ code pom.xml
 
 
 > [!NOTE] 
-> 在本文中，我們只會使用封裝在 WAR 檔案中的 JAVA 應用程式。 此外掛程式也支援 JAR Web 應用程式。 請對這些應用程式使用下列替代的外掛程式定義。 此組態將會在您本機檔案系統的 `${project.build.directory}/${project.build.finalName}.jar` 上部署由 Maven 所建置的 JAR。
->
->```xml
-><plugin>
->            <groupId>com.microsoft.azure</groupId>
->            <artifactId>azure-webapp-maven-plugin</artifactId>
->            <version>1.4.0</version>
->            <configuration>
->                <deploymentType>jar</deploymentType>
->
->           <!-- Web App information -->
->            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
->            <appName>${WEBAPP_NAME}</appName>
->            <region>${REGION}</region>  
->
->                <!-- Java Runtime Stack for Web App on Linux-->
->                <linuxRuntime>jre8</linuxRuntime>
->            </configuration>
->         </plugin>
->```    
+> 在本文中，我們只會使用封裝在 WAR 檔案中的 JAVA 應用程式。 此外掛程式也支援 JAR Web 應用程式，請瀏覽[將 Java SE JAR 檔案部署至 Linux 上的 App Service](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，並加以試用。
 
 
 更新外掛程式組態中的下列預留位置：
@@ -127,8 +108,8 @@ mvn package azure-webapp:deploy
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您可以使用 Maven 建立 Java Web 應用程式、設定[適用於 Azure Web Apps 的 Maven 外掛程式 (預覽)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，然後將以網頁封存封裝的 Java Web 應用程式部署至 Linux 上的 App Service。 若要深入了解如何使用 Java 搭配 Azure，請遵循下面的連結。
+在本快速入門中，您已使用 Maven 建立 Java Web 應用程式、設定[適用於 Azure Web Apps 的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，然後將以網頁封存封裝的 Java 應用程式部署至 Linux 上的 App Service。 若要了解如何連接資料庫、設定記錄和監視、設定安全性，以及設定執行階段選項，請繼續參閱 Linux 上的 App Service 適用的 Java 開發人員指南。
 
 > [!div class="nextstepaction"]
-> [適用於 Java 開發人員的 Azure](https://docs.microsoft.com/java/azure/)
+> [Linux 上的 App Service 適用的 Java 開發人員指南](app-service-linux-java.md)
 

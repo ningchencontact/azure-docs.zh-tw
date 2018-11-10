@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666054"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414772"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>使用網路監看員和 Graylog 在 Azure 中管理和分析網路安全性群組流量記錄
 
@@ -38,7 +38,7 @@ ms.locfileid: "43666054"
 
 ### <a name="enable-network-security-group-flow-logging"></a>啟用網路安全性群組流量記錄
 
-在此案例中，您必須在您的帳戶中至少一個網路安全性群組上啟用「網路安全性群組流量記錄」。 如需有關啟用網路安全性群組流量記錄的指示，請參閱下列文章︰[網路安全性群組流量記錄簡介](network-watcher-nsg-flow-logging-overview.md)。
+在此案例中，您必須在您的帳戶中至少一個網路安全性群組上啟用「網路安全性群組流量記錄」。 如需有關啟用網路安全性群組流量記錄的指示，請參閱下列文章︰ [網路安全性群組流量記錄簡介](network-watcher-nsg-flow-logging-overview.md)。
 
 ### <a name="setting-up-graylog"></a>設定 Graylog
 
@@ -51,7 +51,7 @@ ms.locfileid: "43666054"
 
 根據平台和喜好設定，Graylog 可以進行多種方式的安裝。 如需完整的可行安裝方法清單，請參閱 Graylog 的官方[文件](http://docs.graylog.org/en/2.2/pages/installation.html)。 Graylog 伺服器應用程式會在 Linux 發行版本上執行，並具有下列必要條件：
 
--  Oracle Java SE 8 或更新版本 – [Oracle 的安裝文件](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Java SE 8 或更新版本 – [Azul Azure JDK 文件](https://aka.ms/azure-jdks)
 -  ElasticSearch 2.x (2.1.0 或更新版本) - [Elasticsearch 安裝文件](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 或更新版本 – [MongoDB 安裝文件](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -244,4 +244,4 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解如何利用 Power BI 將網路安全性群組流量記錄視覺化，請瀏覽[利用 Power BI 將網路安全性群組流量記錄視覺化](network-watcher-visualize-nsg-flow-logs-power-bi.md)。
+若要了解如何利用 Power BI 將網路安全性群組流量記錄視覺化，請瀏覽 [利用 Power BI 將網路安全性群組流量記錄視覺化](network-watcher-visualize-nsg-flow-logs-power-bi.md)。

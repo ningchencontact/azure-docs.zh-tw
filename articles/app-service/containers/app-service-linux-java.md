@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815166"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418529"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 上 App Service 的 Java 開發人員指南
 
@@ -96,7 +96,7 @@ Azure App Service for Linux 支援透過 Azure 入口網站和 CLI 的預設調�
 
 在應用程式的 [應用程式設定] 中，開啟 Azure 入口網站中的 Web 通訊端支援。 您必須重新啟動應用程式，設定才會生效。
 
-使用 Azure CLI 搭配下列命令，以開啟 Web 通訊端支援：
+搭配使用 Azure CLI 與下列命令，以開啟 Web 通訊端支援：
 
 ```azurecli-interactive
 az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true 
@@ -132,13 +132,13 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 使用 [驗證與授權] 選項，設定 Azure 入口網站中的應用程式驗證。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。  如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)，以及其他身分識別提供者的相關文章。
 
-如果您需要啟用多個登入提供者，請依照[自訂 App Service 驗證](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)一文中的指示執行。
+如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)一文中的指示。
 
  Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易版](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)，以利用熟悉的 Spring Security 註釋和 API 來保護應用程式。
 
 ### <a name="configure-tlsssl"></a>設定 TLS/SSL
 
-請依照[繫結現有自訂 SSL 憑證](/azure/app-service/app-service-web-tutorial-custom-ssl)中的指示，上傳現有的 SSL 憑證，並將其繫結至您應用程式的網域名稱。 根據預設，您的應用程式仍然允許 HTTP 連線；請依照教學課程中的特定步驟執行，以強制執行 SSL 與 TLS。
+請遵循[繫結現有自訂 SSL 憑證](/azure/app-service/app-service-web-tutorial-custom-ssl)中的指示，上傳現有的 SSL 憑證，並將其繫結至您應用程式的網域名稱。 根據預設，您的應用程式仍然允許 HTTP 連線；請遵循教學課程中的特定步驟，以強制執行 SSL 和 TLS。
 
 ## <a name="tomcat"></a>Tomcat 
 
@@ -146,6 +146,8 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 >[!NOTE]
 > 如果您的應用程式使用 Spring Framework 或 Spring Boot，則可以設定 Spring Data JPA 的資料庫連線資訊作為環境變數 [在應用程式屬性檔案中]。 然後使用[應用程式設定](/azure/app-service/web-sites-configure#app-settings)，以在 Azure 入口網站或 CLI 中定義您應用程式的這些值。
+
+本節的範例設定程式碼片段使用 MySQL 資料庫。 如需詳細資訊，請參閱 [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) \(英文\)、[SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) 及 [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html) \(英文\) 的設定文件。
 
 若要使用 Java Database Connectivity (JDBC) 或 Java Persistence API (JPA) 設定 Tomcat 使用受控資料庫連線，請先自訂 Tomcat 在啟動時所讀入的 CATALINA_OPTS 環境變數。 透過 App Service Maven 外掛程式中的應用程式設定這些值：
 
@@ -233,7 +235,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ## <a name="docker-containers"></a>Docker 容器
 
-若要在您的容器中使用支援 Azure 的 Zulu JDK，請務必提取並使用 [Azul 的下載頁面](https://www.azul.com/downloads/azure-only/zulu/#docker)上所列出的預先建置映像，或使用來自 [Microsoft Java GitHub 存放庫](https://github.com/Microsoft/java/tree/master/docker)的 `Dockerfile` 範例。
+若要在您的容器中使用支援 Azure 的 Zulu JDK，請務必提取並使用預先建置映像 (如[適用於 Azure 的支援 Azul Zulu Enterprise 下載頁面](https://www.azul.com/downloads/azure-only/zulu/) \(英文\) 所述)，或使用來自 [Microsoft Java GitHub 存放庫](https://github.com/Microsoft/java/tree/master/docker) 的 `Dockerfile` 範例。
 
 ## <a name="runtime-availability-and-statement-of-support"></a>執行階段可用性和支援聲明
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: jeedes
-ms.openlocfilehash: c9134ceebca696ed2b3376a69e26c2ea06f4f0f6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507119"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>教學課程：Azure Active Directory 與 4me
 
@@ -218,7 +218,7 @@ ms.locfileid: "39507119"
 本節目標是在 4me 中建立名為 Britta Simon 的使用者。 4me 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 4me 時若尚無使用者，則會建立新使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [4me 支援小組](mailto:support@4me.com)。
+>如果您需要手動建立使用者，請連絡  [4me 支援小組](mailto:support@4me.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -255,7 +255,7 @@ ms.locfileid: "39507119"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 4me 圖格時，應該會自動登入您的 4me 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

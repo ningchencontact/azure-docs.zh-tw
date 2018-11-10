@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982267"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230058"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>重新導向使用 Azure AD Application Proxy 發佈之應用程式的硬式編碼連結
 
@@ -29,7 +29,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 若要確定連結在公司網路內部和外部的運作方式相同，最佳方法就是將您應用程式的外部 URL 設定為與其內部 URL 相同。 使用[自訂網域](application-proxy-configure-custom-domain.md)，將您的外部 URL 設定為包含公司網域名稱，而不是預設的應用程式 Proxy 網域。
 
 
-如果您無法在租用戶中使用自訂網域，有數個其他選項可提供這項功能。 這些選項全部也都可與自訂網域相容且彼此相容，讓您可以視需要設定自訂網域和其他解決方案。 
+如果您無法在租用戶中使用自訂網域，有數個其他選項可提供此功能。 這些選項全部也都可與自訂網域相容且彼此相容，讓您可以視需要設定自訂網域和其他解決方案。 
 
 **選項 1：使用 Managed Browser** – 這個解決方案只有在您打算建議或要求使用者透過 Intune Managed Browser 存取應用程式時才適用。 它將會處理所有已發佈的 URL。 
 
@@ -41,7 +41,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 
  
 > [!NOTE]
-> 最後一個選項僅適用於無法使用自訂網域 (不論何種原因) 讓其應用程式具有相同內部和外部 URL 的租用戶。 在您啟用這項功能之前，請查看您是否適用 [Azure AD Application Proxy 中的自訂網域](application-proxy-configure-custom-domain.md)。 
+> 最後一個選項僅適用於無法使用自訂網域 (不論哪種原因) 讓其應用程式具有相同內部和外部 URL 的租用戶。 在您啟用此功能之前，請查看您是否適用 [Azure AD Application Proxy 中的自訂網域](application-proxy-configure-custom-domain.md)。 
 
 >或者，如果您需要透過連結轉譯設定的應用程式為 SharePoint，請參閱[設定 SharePoint 2013 的備用存取對應](https://technet.microsoft.com/library/cc263208.aspx)以取得對應連結的另一種方法。 
 
@@ -97,6 +97,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 
 - 不在程式碼標籤內的連結。 
 - 不在 HTML 或 CSS 中的連結。 
+- URL 編碼格式的連結。
 - 從其他程式開啟的內部連結。 不會轉譯透過電子郵件或立即訊息傳送的連結，或包含在其他文件中的連結。 使用者必須知道要移至外部 URL。
 
 如果您必須支援下列其中一種情況，請使用相同的內部和外部 URL，而不需進行連結轉譯。  
@@ -116,7 +117,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 
 ## <a name="send-feedback"></a>傳送意見反應
 
-我們需要您的協助，讓這項功能可用於您所有的應用程式。 我們在 HTML 和 CSS 中搜尋超過 30 個標籤。 如果您有不在轉譯中的已產生連結範例，請將程式碼片段傳送至 [Application Proxy 意見反應](mailto:aadapfeedback@microsoft.com)。 
+我們需要您的協助，讓此功能可用於您所有的應用程式。 我們在 HTML 和 CSS 中搜尋超過 30 個標籤。 如果您有不在轉譯中的已產生連結範例，請將程式碼片段傳送至 [Application Proxy 意見反應](mailto:aadapfeedback@microsoft.com)。 
 
 ## <a name="next-steps"></a>後續步驟
 [使用自訂網域搭配 Azure AD 應用程式 Proxy](application-proxy-configure-custom-domain.md) 以具有相同的內部和外部 URL

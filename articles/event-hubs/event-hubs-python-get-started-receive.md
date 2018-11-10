@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: sethm
-ms.openlocfilehash: f5388f2de599d94f68a1d24a7d701a2cb4795915
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9707f0cf5a76c0ac4006b53ca8166d3b42fc9af4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703274"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240557"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>使用 Python 從事件中樞接收事件
 
@@ -108,14 +108,7 @@ start python recv.py
 ```
  
 ## <a name="next-steps"></a>後續步驟
-
-若要傳送事件，請參閱[相對應的傳送文章](event-hubs-python-get-started-send.md)。
-
-請瀏覽下列頁面以深入了解事件中樞：
-
-* [事件中樞概觀][Event Hubs overview]
-* [建立事件中樞](event-hubs-create.md)
-* [事件中樞常見問題集](event-hubs-faq.md)
+在此快速入門中，您已建立可從事件中樞接收訊息的 Python 應用程式。 若要了解如何使用 Python 將事件傳送到事件中樞，請參閱[從事件中樞傳送事件 - Python](event-hubs-python-get-started-send.md)。
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

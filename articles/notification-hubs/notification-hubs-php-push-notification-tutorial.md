@@ -14,16 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 930da7cca312ac6233b337dd7ddac478c3bbee7b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cf7dd8b111683a3b5b2f0a9f371c08ffb788fe58
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241067"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>如何從 PHP 使用通知中樞
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題 [通知中心 REST API](http://msdn.microsoft.com/library/dn223264.aspx)中所述。
+您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題 [通知中心 REST API](https://msdn.microsoft.com/library/dn223264.aspx)中所述。
 
 在本主題中，我們將說明如何：
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 05/07/2018
 * 依照 [開始使用教學課程](notification-hubs-ios-apple-push-notification-apns-get-started.md) ，針對您所選的行動平台，在 PHP 中實作後端部分。
 
 ## <a name="client-interface"></a>用戶端介面
-主要用戶端介面可提供與 [.NET 通知中心 SDK](http://msdn.microsoft.com/library/jj933431.aspx)提供的相同方法，這可讓您直接轉譯本網站上目前所提供以及網際網路上社群所貢獻的所有教學課程和範例。
+主要用戶端介面可提供與 [.NET 通知中心 SDK](https://msdn.microsoft.com/library/jj933431.aspx)提供的相同方法，這可讓您直接轉譯本網站上目前所提供以及網際網路上社群所貢獻的所有教學課程和範例。
 
 您可在 [PHP REST 包裝函式範例]中找到所有可用的程式碼。
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 05/07/2018
 如果尚未這麼做，請遵循[開始使用教學課程]中的指示，一路進行到您必須實作後端的最後一節。
 另外，若有需要，您可以使用 [PHP REST 包裝函式範例]的程式碼，並直接移至[完成教學課程](#complete-tutorial)一節。
 
-您可以在 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx)上找到所有實作完整 REST 包裝函式的詳細資料。 在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 PHP 實作進行說明：
+您可以在 [MSDN](https://msdn.microsoft.com/library/dn530746.aspx)上找到所有實作完整 REST 包裝函式的詳細資料。 在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 PHP 實作進行說明：
 
 1. 解析連接字串
 2. 產生授權權杖
@@ -91,7 +92,7 @@ ms.lasthandoff: 05/07/2018
 
 
 ### <a name="create-security-token"></a>建立安全性權杖
-您可以在 [此處](http://msdn.microsoft.com/library/dn495627.aspx)找到建立安全性權杖的詳細資料。
+您可以在 [此處](https://msdn.microsoft.com/library/dn495627.aspx)找到建立安全性權杖的詳細資料。
 已將下列方法新增至 **NotificationHub** 類別，以根據目前要求的 URI 和從連接字串中擷取的認證來建立權杖。
 
     private function generateSasToken($uri) {
@@ -134,7 +135,7 @@ ms.lasthandoff: 05/07/2018
 
 此類別是原生通知主體的容器，或是一組範本通知案例的屬性，及一組包含格式 (原生平台或範本) 的標頭，以及平台特定屬性 (如 Apple 到期屬性和 WNS 標頭)。
 
-請參閱[通知中樞 REST API 文件](http://msdn.microsoft.com/library/dn495827.aspx)及特定通知平台的格式，以取得所有可用選項。
+請參閱[通知中樞 REST API 文件](https://msdn.microsoft.com/library/dn495827.aspx)及特定通知平台的格式，以取得所有可用選項。
 
 有了此類別之後，我們現在可以在 **NotificationHub** 類別內寫入傳送通知方法。
 
@@ -249,7 +250,7 @@ ms.lasthandoff: 05/07/2018
 * 繼續了解 [即時新聞教學課程] 中的通知中心標記功能
 * 了解 [通知使用者教學課程] 中的推播通知給個人使用者
 
-如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
+如需詳細資訊，另請參閱 [PHP 開發人員中心](https://azure.microsoft.com/develop/php/)。
 
 [PHP REST 包裝函式範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [開始使用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

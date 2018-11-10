@@ -14,30 +14,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385837"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230296"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
-Azure Key Vault 可協助您解決下列問題
-- **祕密管理** - Azure Key Vault 可用來安全地儲存權杖、密碼、憑證、API 金鑰和其他祕密，並嚴密控制其存取
+Azure Key Vault 可協助您解決下列問題：
+- **祕密管理** - Azure Key Vault 可用來安全地儲存權杖、密碼、憑證、API 金鑰和其他祕密，並嚴密控制其存取。
 - **金鑰管理** - Azure Key Vault 也可作為金鑰管理解決方案。 Azure Key Vault 可讓您輕鬆地建立和控制用來加密資料的加密金鑰。 
 - **憑證管理** - Azure Key Vault 也是一項服務，可讓您輕鬆地佈建、管理及部署 Azure 和您內部連線的資源所使用的公用和私人安全通訊端層/傳輸層安全性 (SSL/TLS) 憑證。 
-- **儲存受到硬體安全性模型支援的祕密** - 祕密和金鑰可受到軟體的保護，或由通過 FIPS 140-2 Level 2 驗證的 HSM 保護
+- **儲存受到硬體安全性模型支援的祕密** - 祕密和金鑰可受到軟體的保護，或由通過 FIPS 140-2 Level 2 驗證的 HSM 保護。
 
 ## <a name="basic-concepts"></a>基本概念
 
 Azure Key Vault 是可安全儲存及存取祕密的工具。 祕密是指任何需受到嚴密存取控制的項目，例如 API 金鑰、密碼或憑證。 **保存庫**是祕密的邏輯群組。 現在若要對 Key Vault 執行任何作業，您必須先向它進行驗證。 
 
-基本上有 3 種向 Key Vault 驗證的方法
+基本上有 3 種向 Key Vault 驗證的方法：
 
 1. **使用[Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)** (**建議和最佳做法**)：當您在 Azure 中的虛擬機器上部署應用程式時，您可以將身分識別指派給具有 Key Vault 存取權的虛擬機器。 您也可以將身分識別指派給列在[這裡](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)的其他 Azure 資源。 使用此方法的優點是應用程式/服務並未管理第一個祕密的輪替。 Azure 會自動輪換身分識別。 
-2. **使用服務主體和憑證：** 第 2 個選項是使用具有 Key Vault 存取權的服務主體和相關聯的憑證。 輪換憑證的責任在於應用程式擁有者或開發人員，因此不建議這麼做
-3. **使用服務主體和祕密：** 第 3 個選項 (非偏好選項) 是使用服務主體和祕密來驗證 Key Vault
+2. **使用服務主體和憑證：** 第 2 個選項是使用具有 Key Vault 存取權的服務主體和相關聯的憑證。 輪換憑證的責任在於應用程式擁有者或開發人員，因此不建議這麼做。
+3. **使用服務主體和祕密：** 第 3 個選項 (非偏好選項) 是使用服務主體和祕密來驗證 Key Vault。
+
+> [!NOTE]
+> 因為難以自動輪替用來向 Key Vault 進行驗證的啟動程序祕密，所以請勿使用上述的第 3 個選項。
 
 以下提供部分主要詞彙：
 - **租用戶**：租用戶是擁有並且可管理特定 Microsoft 雲端服務執行個體的組織。 租用戶最常以明確的方式用來參照組織的 Azure 和 Office 365 服務集合。
@@ -45,7 +48,7 @@ Azure Key Vault 是可安全儲存及存取祕密的工具。 祕密是指任何
 - **保存庫取用者**：保存庫取用者可在保存庫擁有者為取用者授與存取權時，對金鑰保存庫內的資產執行動作。 可用的動作取決於授與的權限。
 - **資源**：資源是可透過 Azure 提供的可管理項目。 部分常見資源有虛擬機器、儲存體帳戶、Web 應用程式、資料庫和虛擬網路，但這只是其中一小部分。
 - **資源群組**：資源群組是可保存 Azure 解決方案相關資源的容器。 資源群組可以包含方案的所有資源，或只包含您要以群組方式管理的資源。 您可決定如何根據對組織最有利的方式，將資源配置到資源群組。
-- **服務主體** - 若要存取受到 Azure AD 租用戶保護的資源，需要存取權的實體必須以安全性主體呈現。 這同時適用於使用者 (使用者主體) 和應用程式 (服務主體)。 安全性主體會定義該租用戶中使用者/應用程式的存取原則和權限。 此動作可啟用核心功能，例如登入期間的使用者/應用程式驗證，以及資源存取期間的授權。
+- **服務主體** - Azure 服務主體是一項安全性身分識別，可供使用者所建立的應用程式、服務和自動化工具用來存取特定 Azure 資源。 您可以把它想成是具有特定角色及嚴格控制權限的「使用者身分識別」(使用者名稱和密碼或憑證)。 不同於一般的使用者身分識別，服務主體只需要執行特定動作。 如果您只對服務主體授與它為了執行管理工作所需要的最低權限等級，它就能提高安全性。
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**：Azure AD 是租用戶的 Active Directory 服務。 每個目錄都有一或多個網域。 一個目錄可以有多個相關聯的訂用帳戶，但只能有一個租用戶。 
 - **Azure 租用戶識別碼**：租用戶識別碼是對 Azure 訂用帳戶內的 Azure AD 執行個體進行識別的唯一方法。
 - **Azure 資源的受控識別**：Azure Key Vault 可讓您安全地儲存認證和其他金鑰及秘密，但是您的程式碼必須向 Key Vault 進行驗證，才可擷取這些項目。 使用受控識別可以輕易地解決此問題，因為它可在 Azure AD 中將自動受控識別提供給 Azure 服務。 您可以使用此身分識別向 Key Vault 或任何支援 Azure AD 驗證的服務進行驗證，而無須在程式碼中使用任何認證。 如需詳細資訊，請參閱下圖和 [Auzre 資源的受控識別概觀](../active-directory/managed-identities-azure-resources/overview.md)。

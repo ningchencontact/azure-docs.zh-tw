@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 08/26/2018
 ms.author: shvija
-ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128161"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240627"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>使用 Java 從 Azure 事件中樞接收事件
 
@@ -22,16 +22,16 @@ ms.locfileid: "43128161"
 
 如需詳細資訊，請參閱 [事件中樞概觀][Event Hubs overview]。
 
-本教學課程也會示範如何使用以 Java 撰寫的主控台應用程式，將事件接收到事件中樞。
+此教學課程也會示範如何使用以 Java 撰寫的主控台應用程式，將事件接收到事件中樞。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要完成本教學課程，您需要下列必要條件：
+若要完成此教學課程，您需要下列先決條件：
 
-* Java 開發環境。 針對本教學課程，我們採用 [Eclipse](https://www.eclipse.org/)。
+* Java 開發環境。 針對此教學課程，我們採用 [Eclipse](https://www.eclipse.org/)。
 * 使用中的 Azure 帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
 
-本教學課程中的程式碼是根據 [GitHub 上的 EventProcessorSample 程式碼](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample)，您可以檢查該程式碼以查看完整的運作中應用程式。
+此教學課程中的程式碼是根據 [GitHub 上的 EventProcessorSample 程式碼](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample)，您可以檢查該程式碼以查看完整的運作中應用程式。
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>在 Java 中使用 EventProcessorHost 接收訊息
 
@@ -50,11 +50,11 @@ ms.locfileid: "43128161"
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    將 key1 值複製到暫存位置，以便稍後在此教學課程中使用。
+    將 key1 值複製到暫存位置。 您將在此教學課程稍後使用它。
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>使用 EventProcessor 主機建立 Java 專案
 
-適用於事件中樞的 Java 用戶端程式庫可以在來自 [Maven 中央儲存機制][Maven Package]的 Maven 專案中使用，而且可在您的 Maven 專案檔內使用下列相依性宣告來參考。 成品 azure-eventhubs-eph 目前的版本是 2.0.1，而成品 azure-eventhubs 目前的版本是 1.0.2：    
+適用於事件中樞的 Java 用戶端程式庫可以在來自 [Maven 中央存放庫][Maven Package]的 Maven 專案中使用，而且可在您的 Maven 專案檔內使用下列相依性宣告來參考。 成品 azure-eventhubs-eph 目前的版本是 2.0.1，而成品 azure-eventhubs 目前的版本是 1.0.2：    
 
 ```xml
 <dependency>
@@ -69,7 +69,7 @@ ms.locfileid: "43128161"
 </dependency>
 ```
 
-對於不同類型的組建環境，您可以明確從 [Maven 中央儲存機制][Maven Package]取得最新發佈的 JAR 檔案。  
+對於不同類型的組建環境，您可以明確從 [Maven 中央存放庫][Maven Package]取得最新發佈的 JAR 檔案。  
 
 1. 針對下列範例，在您最喜愛的 Java 開發環境中，先為主控台/殼層應用程式建立新的 Maven 專案。 類別稱為 `ErrorNotificationHandler`。     
    
@@ -241,15 +241,15 @@ ms.locfileid: "43128161"
     }
     ```
 
-本教學課程使用單一 EventProcessorHost 執行個體。 若要增加輸送量，建議您執行多個 EventProcessorHost 執行個體 (最好能在個別的機器上)。  這麼做也會提供備援性。 在這些情況下，各種執行個體會自動彼此協調以對已接收的事件進行負載平衡。 如果您想要多個接收者都處理 *所有* 事件，則必須使用 **ConsumerGroup** 概念。 收到來自不同電腦的事件時，根據在其中執行 EventProcessorHost 執行個體的電腦 (或角色) 來指定名稱可能十分有用。
+此教學課程使用單一 EventProcessorHost 執行個體。 若要增加輸送量，我們建議您執行多個 EventProcessorHost 執行個體 (最好能在個別的機器上)。  這麼做也會提供備援。 在這些情況下，各種執行個體會自動彼此協調以對已接收的事件進行負載平衡。 如果您想要多個接收者都處理 *所有* 事件，則必須使用 **ConsumerGroup** 概念。 收到來自不同電腦的事件時，根據在其中執行 EventProcessorHost 執行個體的電腦 (或角色) 來指定名稱可能十分有用。
 
 ## <a name="publishing-messages-to-eventhub"></a>將訊息發佈至 EventHub
 
 在取用者擷取訊息之前，發行者必須先將這些訊息發佈至分割區。 需注意的是，在 com.microsoft.azure.eventhubs.EventHubClient 物件上使用 sendSync() 方法將訊息同步發佈到事件中樞後，可以根據是否指定分割區索引鍵，將訊息傳送到特定分割區或以循環配置方式分散到所有可用的分割區。
 
-指定代表分割索引鍵的字串後，將會雜湊處理此索引鍵來判斷事件要傳送到哪個分割區。
+指定代表分割區索引鍵的字串之後，就會對此索引鍵進行雜湊處理，以判斷要將事件傳送到哪個分割區。
 
-若未設定分割區索引鍵，則訊息會循環配置到所有可用的分割區
+若未設定分割區索引鍵，則會將訊息循環配置到所有可用的分割區
 
 ```java
 // Serialize the event into bytes
@@ -271,25 +271,20 @@ eventHubClient.sendSync(sendEvent, partitionKey);
 
 此 API 所提供的機制，可讓您在預設的實作方式與您的使用案例不相容時實作自訂檢查點管理程式。
 
-預設的檢查點管理程式會使用 Blob 儲存體，但如果您以自訂實作方式覆寫 EPH 所使用的檢查點管理程式，您將可使用任何存放區來支援檢查點管理程式實作。
+預設的檢查點管理程式會使用 Blob 儲存體，但如果您以自己的實作來覆寫 EPH 所使用的檢查點管理程式，您可以使用任何所需的存放區來支援檢查點管理程式實作。
 
-您必須建立會實作 com.microsoft.azure.eventprocessorhost.ICheckpointManager 介面的類別
+建立要實作 com.microsoft.azure.eventprocessorhost.ICheckpointManager 介面的類別
 
 請使用您自訂的檢查點管理程式實作 (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-在您的實作中，您可以覆寫預設的檢查點機制，並根據您自己的資料存放區 (SQL Server、CosmosDB、Redis 快取等) 實作自己的檢查點。 我們建議，用來支援檢查點管理程式實作的存放區，應可供所有處理取用者群組事件的 EPH 執行個體存取。
+在您的實作中，您可以覆寫預設的檢查點機制，並根據您自己的資料存放區 (SQL Server、CosmosDB、Redis 快取等) 實作自己的檢查點。 我們建議用來支援檢查點管理程式實作的存放區，可供正在處理取用者群組事件的所有 EPH 執行個體存取。
 
-您可以使用在環境中將可供使用的任何資料存放區。
+您可以使用環境中可用的任何資料存放區。
 
-com.microsoft.azure.eventprocessorhost.EventProcessorHost 類別可為您提供 2 個建構函式，讓您覆寫 EventProcessorHost 的檢查點管理程式。
+com.microsoft.azure.eventprocessorhost.EventProcessorHost 類別可為您提供兩個建構函式，讓您能夠覆寫 EventProcessorHost 的檢查點管理程式。
 
 ## <a name="next-steps"></a>後續步驟
-
-您可以造訪下列連結以深入了解事件中樞︰
-
-* [事件中心概觀](event-hubs-what-is-event-hubs.md)
-* [建立事件中樞](event-hubs-create.md)
-* [事件中樞常見問題集](event-hubs-faq.md)
+在此快速入門中，您已建立可從事件中樞接收訊息的 Java 應用程式。 若要了解如何使用 Java 將事件傳送到事件中樞，請參閱[從事件中樞傳送事件 - Java](event-hubs-java-get-started-send.md)。
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

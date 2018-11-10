@@ -8,16 +8,16 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990615"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248384"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>了解如何使用部署資訊清單來部署模組及建立路由
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>了解如何在 IoT Edge 中部署模組及建立路由
 
-每個 IoT Edge 裝置會至少執行兩個模組：$edgeAgent 和 $edgeHub，由這兩個模組組成 IoT Edge 執行階段。 除了這兩個標準的模組，任何 IoT Edge 裝置都可以執行多個模組，以執行任意數目的處理程序。 當您將所有這些模組同時部署至裝置時，您需要有方法來宣告包含的模組，以及這些模組彼此互動的方式。 
+每個 IoT Edge 裝置會至少執行兩個模組：$edgeAgent 和 $edgeHub，由這兩個模組組成 IoT Edge 執行階段。 此外，任何 IoT Edge 裝置都可以執行多個模組，以執行任意數目的處理程序。 當您將所有這些模組同時部署至裝置時，您需要有方法來宣告包含的模組，以及這些模組彼此互動的方式。 
 
 部署資訊清單是 JSON 文件，描述：
 
@@ -27,7 +27,7 @@ ms.locfileid: "46990615"
 
 所有 IoT Edge 裝置都需要使用部署資訊清單來設定。 新安裝的 IoT Edge 執行階段會報告錯誤碼，直到使用有效的資訊清單進行設定。 
 
-在 Azure IoT Edge 教學課程中，您會藉由完成 Azure IoT Edge 入口網站中的精靈，來建置部署資訊清單。 您也可以程式設計方式使用 REST 或 IoT 中樞服務 SDK，套用部署資訊清單。 如需詳細資訊，請參閱[了解 IoT Edge 部署][lnk-deploy]。
+在 Azure IoT Edge 教學課程中，您會藉由完成 Azure IoT Edge 入口網站中的精靈，來建置部署資訊清單。 您也可以程式設計方式使用 REST 或 IoT 中樞服務 SDK，套用部署資訊清單。 如需詳細資訊，請參閱[了解 IoT Edge 部署](module-deployment-monitoring.md)。
 
 ## <a name="create-a-deployment-manifest"></a>建立部署資訊清單
 
@@ -138,7 +138,7 @@ Edge 中樞提供方法以宣告方式在模組之間及模組與 IoT 中樞之�
 | `/messages/modules/{moduleId}/outputs/{output}` | 由 {moduleId} 使用 {output} 傳送的任何裝置到雲端訊息 |
 
 ### <a name="condition"></a>條件
-條件在路由宣告中是選擇性項目。 如果您想要將所有訊息從接收傳遞至來源，請直接省略整個 **WHERE** 子句。 您可以使用 [IoT 中樞查詢語言][lnk-iothub-query]來篩選特定訊息或符合條件的訊息類型。
+條件在路由宣告中是選擇性項目。 如果您想要將所有訊息從接收傳遞至來源，請直接省略整個 **WHERE** 子句。 您可以使用 [IoT 中樞查詢語言](../iot-hub/iot-hub-devguide-routing-query-syntax.md)來篩選特定訊息或符合條件的訊息類型。
 
 在 IoT Edge 的模組之間傳遞的訊息所用的格式，和您的裝置與 Azure IoT 中樞傳遞訊息時所用的格式相同。 所有訊息均採用 JSON 格式，且含 **systemProperties**、**appProperties** 和 **body** 參數。 
 
@@ -262,10 +262,4 @@ IoT Edge 提供至少一次的保證。 Edge 中樞會將訊息儲存在本機�
 
 * 如需 $edgeAgent 和 $edgeHub 中可包含或必須包含的屬性完整清單，請參閱 [Edge 代理程式和 Edge 中樞的屬性](module-edgeagent-edgehub.md)。
 
-* 您現在知道如何使用 IoT Edge 模組，[了解開發 IoT Edge 模組的需求和工具][lnk-module-dev]。
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* 您現在知道如何使用 IoT Edge 模組，[了解開發 IoT Edge 模組的需求和工具](module-development.md)。

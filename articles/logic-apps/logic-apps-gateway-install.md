@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/01/2018
+ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855420"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420093"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -60,10 +60,12 @@ ms.locfileid: "48855420"
 * 您的本機電腦需求如下：
 
   **最低需求**
+
   * .NET Framework 4.5.2
   * 64 位元版本的 Windows 7 或 Windows Server 2008 R2 (或更新版本)
 
   **建議需求**
+
   * 8 核心 CPU
   * 8 GB 記憶體
   * 64 位元版本的 Windows Server 2012 R2 (或更新版本)
@@ -75,11 +77,11 @@ ms.locfileid: "48855420"
     > [!TIP]
     > 若要盡量減少延遲，您可以將閘道安裝在最靠近資料來源的位置或同一部電腦上，但前提是您有相關權限。
 
-  * 將閘道安裝在連線至網際網路、一律開啟且「不會」進入睡眠模式的電腦上。 否則，閘道將無法執行。 此外，透過無線網路的效能可能會受到影響。
+  * 將閘道安裝在連線至網際網路、一律開啟且「不會」進入睡眠模式的電腦上。 否則，閘道將無法執行。 
+  此外，透過無線網路的效能可能會受到影響。
 
-  * 在安裝期間，您只能以[公司或學校帳戶](../active-directory/sign-up-organization.md)登入，且該帳戶必須是由 Azure Active Directory (Azure AD) 所管理，而非 Microsoft 帳戶。 
-  此外，請確定此帳戶不是 Azure B2B (來賓) 帳戶。 
-  當您為閘道建立 Azure 資源以便註冊閘道安裝時，也必須在 Azure 入口網站中使用相同的登入帳戶。 
+  * 在安裝期間，您只能以[公司或學校帳戶](../active-directory/sign-up-organization.md)登入，且該帳戶必須是由 Azure Active Directory (Azure AD) 所管理 (例如 @contoso.onmicrosoft.com)，而非 Azure B2B (來賓) 帳戶或個人 Microsoft 帳戶 (例如 @hotmail.com 或 @outlook.com)。 
+  透過建立閘道資源在 Azure 入口網站中註冊閘道安裝時，請確定您使用相同的登入帳戶。 
   接著，在建立從邏輯應用程式到內部部署資料來源的連線時，可以選取此閘道資源。 
   [為何必須使用公司或學校的 Azure AD 帳戶？](#why-azure-work-school-account)
 
@@ -96,6 +98,19 @@ ms.locfileid: "48855420"
   * 如果您已經有使用 14.16.6317.4 版之前的安裝程式所設定的閘道，就無法藉由執行最新版的安裝程式來變更閘道位置。 不過，您可以使用最新版的安裝程式，將新的閘道設定為您想要的位置。
   
     如果您的閘道安裝程式版本比 14.16.6317.4 還舊，但尚未安裝閘道，則可以下載並使用最新版的安裝程式。
+
+## <a name="high-availability-support"></a>高可用性支援
+
+當您有一個以上的閘道安裝並將它們設定為叢集時，內部部署資料閘道可支援高可用性。 當您要建立另一個閘道時，如果有現有的閘道，可以選擇地建立高可用性叢集。 這些叢集會將閘道器組織成群組，有助於避免出現單一失敗點。 此外，所有的內部部署資料閘道連接器現在都支援高可用性。
+
+若要使用內部部署資料閘道，請檢閱下列需求和考量：
+
+* 在與主要閘道相同的 Azure 訂用帳戶內，您必須已經有至少一個閘道安裝，以及該安裝的修復金鑰。 
+
+* 主要閘道必須執行 2017 年 11 月或更新版本的閘道更新。
+
+符合這些需求之後，當您建立下一個閘道時，請選取 [新增至現有的閘道叢集]，為您的叢集選取主要閘道，然後提供該主要閘道的修復金鑰。
+如需詳細資訊，請參閱[適用於內部部署資料閘道的高可用性叢集](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)。
 
 <a name="install-gateway"></a>
 
@@ -160,19 +175,6 @@ ms.locfileid: "48855420"
    ![已完成的閘道](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 10. [為閘道安裝建立 Azure 資源](../logic-apps/logic-apps-gateway-connection.md)，立即在 Azure 中註冊您的閘道。 
-
-## <a name="enable-high-availability"></a>啟用高可用性
-
-當您有一個以上的閘道安裝並將它們設定為叢集時，內部部署資料閘道可支援高可用性。 當您要建立另一個閘道時，如果有現有的閘道，可以選擇地建立高可用性叢集。 這些叢集會將閘道器組織成群組，有助於避免出現單一失敗點。 若要使用這項功能，請檢閱下列需求和考量：
-
-* 只有某些連接器支援高可用性，例如檔案系統連接器和其他同類的連接器。 
-     
-* 在與主要閘道相同的 Azure 訂用帳戶內，您必須已經有至少一個閘道安裝，以及該安裝的修復金鑰。 
-
-* 主要閘道必須執行 2017 年 11 月或更新版本的閘道更新。
-
-符合這些需求之後，當您建立下一個閘道時，請選取 [新增至現有的閘道叢集]，為您的叢集選取主要閘道，然後提供該主要閘道的修復金鑰。
-如需詳細資訊，請參閱[適用於內部部署資料閘道的高可用性叢集](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)。
 
 <a name="update-gateway-installation"></a>
 

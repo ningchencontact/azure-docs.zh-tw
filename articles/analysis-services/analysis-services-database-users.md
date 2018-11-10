@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 863e465d888774730b9d9269024665a097a1207b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429287"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238874"
 ---
 # <a name="manage-database-roles-and-users"></a>管理資料庫角色和使用者
 
@@ -135,8 +135,8 @@ ms.locfileid: "49429287"
   
 |資料表|DAX 運算式|  
 |-----------|--------------------|  
-|區域|=Region[Country]=”USA”|  
-|ProductCategory|=ProductCategory[Name]=”Bicycles”|  
+|區域|=Region[Country]="USA"|  
+|ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |交易|=Transactions[Year]=2016|  
   
  淨效應是成員可以查詢客戶位於美國、產品類別為自行車且 2016 年之資料的資料列。 使用者無法查詢美國以外的交易、非自行車的交易或不在 2016 年的交易，除非他們是授與這些權限之另一個角色的成員。

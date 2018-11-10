@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 216cebe74b7661e0ca336480774a56ea953ddc75
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 1079b83411fd76b4b9115ee80e385f1f2c63ba85
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069466"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247087"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
@@ -342,7 +342,7 @@ Application Insights 中會顯示兩種類型的資料︰彙總資料 (儲存並
 
 * 在 Windows 伺服器上，安裝：
 
-  * [Microsoft Visual C++ 可轉散發套件](http://www.microsoft.com/download/details.aspx?id=40784)
+  * [Microsoft Visual C++ 可轉散發套件](https://www.microsoft.com/download/details.aspx?id=40784)
 
     (此元件會啟用效能計數器。)
 

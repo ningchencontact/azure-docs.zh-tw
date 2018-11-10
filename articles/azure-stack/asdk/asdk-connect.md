@@ -12,28 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 55be312046f5cdea2c1481ed435b5859ab2c2540
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: knithinc
+ms.openlocfilehash: 1b5d5a2934205877f0e0c2ac891e62c90e960b3d
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026815"
+ms.locfileid: "50085144"
 ---
-# <a name="connect-to-the-azure-stack-development-kit"></a>連線到 Azure Stack 開發套件
+# <a name="connect-to-the-asdk"></a>連線到 ASDK
 
-若要管理資源，您必須先連線到「Azure Stack 開發套件」(ASDK)。 在本文中，我們會說明連線到 ASDK 所需採取的步驟。 您可以使用下列其中一個連線選項：
+若要管理資源，您必須先連線到「Azure Stack 開發套件」(ASDK)。 在本文中，我們將說明使用下列連線選項連線至 ASDK 所需採取的步驟：
 
-* [遠端桌面連線](#connect-with-remote-desktop)。 當您使用「遠端桌面連線」進行連線時，單一使用者可以快速連線至開發套件。
+* [遠端桌面連線 (RDP)](#connect-with-rdp)。 當您使用「遠端桌面連線」進行連線時，單一使用者可以快速連線至開發套件。
 * [虛擬私人網路 (VPN)](#connect-with-vpn)。 當您使用 VPN 進行連線時，多名使用者可以同時從 Azure Stack 基礎結構外部的用戶端進行連線。 VPN 連線需要進行某些設定。
 
-<a name="connect-to-azure-stack-with-remote-desktop"></a>
-##  <a name="connect-to-azure-stack-by-using-remote-desktop-connection"></a>使用遠端桌面連線來連線到 Azure Stack
+<a name="connect-with-rdp"></a>
+## <a name="connect-to-azure-stack-using-rdp"></a>使用 RDP 連線至 Azure Stack
 
-單一並行使用者可以透過「遠端桌面連線」在操作員入口網站或使用者入口網站中管理資源。
+單一並行使用者可以透過「遠端桌面連線」直接從 ASDK 主機電腦在 Azure Stack 系統管理入口網站或使用者入口網站中管理資源。 
 
-1. 開啟 [遠端桌面連線] (mstc.exe)，然後使用設定 ASDK 時所指定的密碼，以 **AzureStack\AzureStackAdmin** 身分連線到開發套件主機電腦。  
+> [!TIP]
+> 此選項也可讓您在已登入 ASDK 主機電腦的情況下，使用 RDP 登入在 ASDK 主機電腦上建立的虛擬機器。 
+
+1. 開啟遠端桌面連線 (mstc.exe)，然後使用有權從遠端登入 ASDK 主機電腦的帳戶連線至開發套件主機電腦 IP 位址。 根據預設，**AzureStack\AzureStackAdmin** 具有從遠端登入 ASDK 主機電腦的權限。  
 
 2. 在開發套件主機電腦上，開啟 [伺服器管理員] (ServerManager.exe)。 選取 [本機伺服器]、關閉 [IE 增強式安全性設定]，然後關閉 [伺服器管理員]。
 
@@ -44,15 +48,15 @@ ms.locfileid: "50026815"
 > [!NOTE]
 > 如需有關何時該使用哪個帳戶的詳細資訊，請參閱 [ASDK 管理基本概念](asdk-admin-basics.md#what-account-should-i-use)。
 
-<a name="connect-to-azure-stack-with-vpn"></a>
-## <a name="connect-to-azure-stack-by-using-vpn"></a>使用 VPN 來連線到 Azure Stack
+<a name="connect-with-vpn"></a>
+## <a name="connect-to-azure-stack-using-vpn"></a>使用 VPN 連線至 Azure Stack
 
-您可以建立與 ASDK 的分割通道 VPN 連線，以存取 Azure Stack 入口網站及安裝在本機的工具 (例如 Visual Studio 和 PowerShell)。 使用 VPN 連線時，多個使用者可以同時連線到 ASDK 所裝載的 Azure Stack 資源。
+您可以建立對 ASDK 主機電腦的分割通道 VPN 連線，以存取 Azure Stack 入口網站及安裝在本機的工具 (例如 Visual Studio 和 PowerShell)。 使用 VPN 連線時，多個使用者可以同時連線到 ASDK 所裝載的 Azure Stack 資源。
 
 Azure AD 和「Active Directory 同盟服務」(AD FS) 部署都支援 VPN 連線。
 
 > [!NOTE]
-> VPN 連線無法連線到 Azure Stack 基礎結構 VM。
+> VPN 連線*無法*讓您連線至 Azure Stack VM。 透過 VPN 連線時，您無法使用 RDP 連線至 Azure Stack VM。
 
 ### <a name="prerequisites"></a>必要條件
 在設定與 ASDK 的 VPN 連線之前，請確定您符合下列先決條件。
@@ -98,29 +102,33 @@ Add-AzsVpnConnection `
 
 如果設定成功，**azurestack** 會出現在您的 VPN 連線清單。
 
-![網路連線](media/asdk-connect/image3.png)  
+![網路連線](media/asdk-connect/vpn.png)  
 
 ### <a name="connect-to-azure-stack"></a>連線至 Azure Stack
 
-請使用下列其中一個方法來連線到 Azure Stack 執行個體：  
+  請使用下列其中一個方法來連線到 Azure Stack 執行個體：  
 
-* 使用 `Connect-AzsVpn ` 命令：
-    
-  ```PowerShell
-  Connect-AzsVpn `
-    -Password $Password
-  ```
+  * 使用 `Connect-AzsVpn ` 命令：
+      
+    ```PowerShell
+    Connect-AzsVpn `
+      -Password $Password
+    ```
 
-  出現提示時，請信任 Azure Stack 主機，然後將來自 **AzureStackCertificateAuthority** 的憑證安裝到您本機電腦的憑證存放區中。 
+  * 在您的本機電腦上，選取 [網路設定] > [VPN] > [azurestack] > [連線]。 出現登入提示時，輸入使用者名稱 (**AzureStack\AzureStackAdmin**) 和密碼。
+
+第一次連線時，系統會提示您在本機電腦的憑證存放區中安裝來自 **AzureStackCertificateAuthority** 的 Azure Stack 根憑證。 此步驟會將 ASDK 憑證授權單位 (CA) 新增至信任主機清單。 按一下 [是] 可安裝憑證。
+
+![根憑證](media/asdk-connect/cert.png)  
   
   > [!IMPORTANT]
-  > 提示可能會被 PowerShell 視窗隱藏。
-
-* 在您的本機電腦上，選取 [網路設定] > [VPN] > [azurestack] > [連線]。 出現登入提示時，輸入使用者名稱 (**AzureStack\AzureStackAdmin**) 和密碼。
+  > PowerShell 視窗或其他應用程式可能會隱藏提示。
 
 ### <a name="test-vpn-connectivity"></a>測試 VPN 連線能力
 
-若要測試入口網站連線，請開啟網頁瀏覽器，然後移至使用者入口網站 (https://portal.local.azurestack.external/)) 或管理入口網站 (https://adminportal.local.azurestack.external/))。 登入並建立資源。  
+若要測試入口網站連線，請開啟網頁瀏覽器，然後移至使用者入口網站 (https://portal.local.azurestack.external/)) 或管理入口網站 (https://adminportal.local.azurestack.external/))。 
+
+使用適當的訂用帳戶認證登入，以建立和管理資源。  
 
 ## <a name="next-steps"></a>後續步驟
 
