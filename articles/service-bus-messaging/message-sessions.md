@@ -11,18 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 09/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 25dfcf57fc92e2404f184569f12e24d801ee60c9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 523394010058ace7f61da2196a110fd3e6db610c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700482"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739850"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>訊息工作階段：先進先出 (FIFO) 
 
 Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結的相關訊息序列。 若要實現服務匯流排中的 FIFO 保證，使用工作階段。 服務匯流排對於訊息之間關係的本質並無任何規範，而且也不會定義特殊的模型來判斷訊息序列開頭或結尾的位置。
+
+> [!NOTE]
+> 基本層的服務匯流排並不支援工作階段。 標準層和高階層則支援工作階段。 如需詳細資訊，請參閱[服務匯流排價格](/pricing/details/service-bus/)。
 
 所有傳送者均可在將訊息提交至佇列或主題時建立工作階段，方法是將 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 屬性設定為某個應用程式定義的識別碼，此識別碼對該工作階段而言是唯一的。 在 AMQP 1.0 通訊協定層級，這個值會對應至「群組識別碼」屬性。
 
@@ -81,7 +84,6 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 
 若要深入了解服務匯流排傳訊，請參閱下列主題：
 
-* [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 * [服務匯流排佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服務匯流排主題和訂用帳戶](service-bus-dotnet-how-to-use-topics-subscriptions.md)

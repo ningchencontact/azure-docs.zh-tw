@@ -11,12 +11,12 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 4aa3509fcdfc6fd1bccb4db95a8c916a42ce23d2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e98407dface348dfdbc99a1146d50c46f3bb03a7
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125267"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739238"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>如何逐頁檢視 Bing Web 搜尋 API 的搜尋結果
 
@@ -61,4 +61,7 @@ Host: api.cognitive.microsoft.com
 
 Web 搜尋 API 會傳回包含網頁的結果，其中可能包含影像、影片和新聞。 當您逐頁瀏覽搜尋結果時，您會逐頁瀏覽 [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) 解答，而不是逐頁瀏覽其他解答 (例如影像或新聞)。 例如，如果您將 `count` 設定為 50，您會得到 50 筆網頁結果，但回應可能也包含其他解答的結果。 例如，回應可能包含 15 個影像和 4 篇新聞文章。 此外，結果也可能包含第一頁 (但不是第二頁) 上的新聞，反之亦然。   
 
-如果您指定 `responseFilter` 查詢參數且未在篩選條件清單中包含網頁，請勿使用 `count` 和 `offset` 參數。  
+如果您指定 `responseFilter` 查詢參數且未在篩選條件清單中包含網頁，請勿使用 `count` 和 `offset` 參數。 
+
+> [!NOTE]
+> `TotalEstimatedAnswers` 欄位是針對您可從目前查詢中擷取之搜尋結果總數的估計。  當您設定 `count` 和 `offset` 參數時，`TotalEstimatedAnswers` 的數目可能會變更。 

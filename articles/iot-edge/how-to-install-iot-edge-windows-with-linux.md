@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 2ff7c3482100545c476040ba556d464b9f44e434
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c389f904fb3ea21c9bcc538a62c7a866ef3b254d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031113"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739255"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>在 Windows 上安裝要與 Linux 容器搭配使用的 Azure IoT Edge 執行階段
 
@@ -36,9 +36,9 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 ## <a name="install-the-container-runtime"></a>安裝容器執行階段 
 
-Azure IoT Edge 須依賴 [OCI 相容][lnk-oci]的容器執行階段 (例如 Docker)。 
+Azure IoT Edge 依賴 [OCI 相容](https://www.opencontainers.org/)的容器執行階段 (例如 Docker)。 
 
-您可以使用[適用於 Windows 的 Docker][lnk-docker-for-windows] 來進行開發與測試。 將適用於 Windows 的 Docker 設定為[使用 Linux 容器][lnk-docker-config]
+您可以使用[適用於 Windows 的 Docker](https://www.docker.com/docker-windows) 來進行開發與測試。 將適用於 Windows 的 Docker 設定為[使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)。
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>安裝 Azure IoT Edge 安全性精靈
 
@@ -49,7 +49,7 @@ Azure IoT Edge 須依賴 [OCI 相容][lnk-oci]的容器執行階段 (例如 Dock
 
 ### <a name="option-1-install-and-manually-provision"></a>選項 1：安裝並手動佈建
 
-1. 依照[註冊新的 Azure IoT Edge 裝置][lnk-dcs]中的步驟註冊您的裝置，並擷取裝置連接字串。 
+1. 依照[註冊新的 Azure IoT Edge 裝置](how-to-register-device-portal.md)中的步驟註冊您的裝置，並擷取裝置連接字串。 
 
 2. 在您的 IoT Edge 裝置上，以系統管理員身分執行 PowerShell。 
 
@@ -64,7 +64,7 @@ Azure IoT Edge 須依賴 [OCI 相容][lnk-oci]的容器執行階段 (例如 Dock
 
 ### <a name="option-2-install-and-automatically-provision"></a>選項 2：安裝並自動佈建
 
-1. 依照[在 Windows 上建立及佈建模擬 TPM Edge 裝置][lnk-dps]中的步驟設定裝置佈建服務並擷取其 [範圍識別碼]、模擬 TPM 裝置並擷取其 [註冊識別碼]，然後建立個別註冊。 在您的 IoT 中樞註冊裝置之後，請繼續進行安裝。  
+1. 依照[在 Windows 上建立及佈建模擬 TPM Edge 裝置](how-to-auto-provision-simulated-device-windows.md)中的步驟設定裝置佈建服務，並擷取其 [範圍識別碼]、模擬 TPM 裝置並擷取其 [註冊識別碼]，然後建立個別註冊。 在您的 IoT 中樞註冊裝置之後，請繼續進行安裝。  
 
    >[!TIP]
    >在安裝和測試期間，請將執行 TPM 模擬器的視窗保持開啟。 
@@ -110,24 +110,10 @@ iotedge list
 
 ## <a name="tips-and-suggestions"></a>祕訣與建議
 
-若您的網路具有 Proxy 伺服器，請遵循[設定您的 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中的步驟，來安裝及啟動 IoT Edge 執行階段。
+若您的網路具有 Proxy 伺服器，請遵循[設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中的步驟，來安裝及啟動 IoT Edge 執行階段。
 
 ## <a name="next-steps"></a>後續步驟
 
-現在您已佈建 IoT Edge 裝置並安裝執行階段，接下來您可以[部署 IoT Edge 模組][lnk-modules]。
+現在您已佈建 IoT Edge 裝置並安裝執行階段，接下來您可以[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)。
 
-如果您有 Edge 執行階段是否正確安裝的問題，請參閱[疑難排解][lnk-trouble]頁面。
-
-
-<!-- Images -->
-[img-docker-nat]: ./media/how-to-install-iot-edge-windows-with-linux/dockernat.png
-
-<!-- Links -->
-[lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md
-[lnk-docker-for-windows]: https://www.docker.com/docker-windows
-[lnk-modules]: how-to-deploy-modules-portal.md
+如果您有 Edge 執行階段是否正確安裝的問題，請參閱[疑難排解](troubleshoot.md)頁面。

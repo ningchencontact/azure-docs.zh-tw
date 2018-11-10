@@ -2,19 +2,19 @@
 title: 使用以 Linux 為基礎的 HDInsight 開發指令碼動作 - Azure
 description: 深入了解如何使用 Bash 指令碼自訂以 Linux 為基礎的 HDInsight 叢集。 HDInsight 的指令碼動作功能可讓您在建立叢集期間或之後執行指令碼。 指令碼可用於變更叢集組態設定或安裝其他軟體。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
-ms.openlocfilehash: 9a10620e3a388fa47076afd54e1789607e5ca47e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986246"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005388"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
@@ -368,7 +368,7 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 請�
 
 以包含 BOM 的檔案取代 `INFILE`。 `OUTFILE` 應該是新檔案的名稱，且包含不具有 BOM 的指令碼。
 
-## <a name="seeAlso"></a>後續步驟
+## <a name="seeAlso"></a>接續步驟
 
 * 深入了解 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)
 * 使用 [HDInsight.NET SDK 參考](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) ，深入了解如何建立 .NET 應用程式來管理 HDInsight

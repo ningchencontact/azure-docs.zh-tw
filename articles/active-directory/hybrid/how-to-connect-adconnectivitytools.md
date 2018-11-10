@@ -1,0 +1,80 @@
+---
+title: Azure AD Connect：什麼是 ADConnectivityTool PowerShell 模組 | Microsoft Docs
+description: 本文件介紹新的 ADConnectivity PowerShell 模組
+services: active-directory
+author: billmath
+manager: mtillman
+ms.service: active-directory
+ms.workload: identity
+ms.topic: article
+ms.date: 10/19/2018
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: 4020d754bd8c7728b43ef583aa7e7d8dbddcebec
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50669795"
+---
+# <a name="what-is-the-adconnectivitytool-powershell-module"></a>什麼是 ADConnectivityTool PowerShell 模組？
+
+ADConnectivity 工具是 PowerShell 模組，可在下列其中一種情況使用：
+
+- 在安裝期間，發生網路連線問題，而無法成功驗證使用者在精靈中提供的 Active Directory 認證。
+- 由從 PowerShell 工作階段呼叫函式的使用者進行後續安裝。
+
+此工具位於：**C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
+
+## <a name="adconnectivitytool-during-installation"></a>在安裝期間使用 ADConnectivityTool
+
+在 Azure AD Connect 精靈的 [連線您的目錄] 頁面上，如果發生網路問題，ADConnectivityTool 會自動使用其函式之一，判斷發生什麼狀況。  下列任一項都可視為網路問題：
+
+- 使用者提供的樹系名稱輸入錯誤，或該樹系並不存在 
+- 與使用者所提供樹系相關聯的網域控制站已關閉 UDP 連接埠 389
+- 在 [AD 樹系帳戶] 視窗中提供的認證沒有權限，無法擷取與目標樹系相關聯的網域控制站
+- 與使用者所提供樹系相關聯的網域控制站已關閉以下任一 TCP 連接埠：53、88 或 389 
+- UDP 389 和 TCP 連接埠都已關閉
+- 無法為提供的樹系和/或其相關聯的網域控制站解析 DNS
+
+每當發現上述的任何問題，都會在 AADConnect 精靈中顯示相關的錯誤訊息：
+
+
+![Error](media\how-to-connect-adconnectivitytools\error1.png)
+
+例如，當我們嘗試在 [連線您的目錄] 畫面上新增目錄時，Azure AD Connect 需要加以驗證，並預期能夠透過連接埠 389 和網域控制站通訊。  如果不行，就會看到上述螢幕擷取畫面所示的錯誤。  
+
+背後實際的情況是，Azure AD Connect 正在呼叫 `Start-NetworkConnectivityDiagnosisTools` 函式。  由於網路連線問題，導致認證驗證失敗時，會呼叫此函式。
+
+最後，每當從精靈呼叫此工具時，都會產生詳細的記錄檔。 記錄檔位於 **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
+
+## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools 後續安裝
+在安裝 Azure AD Connect 之後，可以使用 ADConnectivityTools PowerShell 模組中的任何函式。  
+
+您可以在 [ADConnectivityTools 參考](reference-connect-adconnectivitytools.md)中找到函式的參考資訊
+
+### <a name="start-connectivityvalidation"></a>Start-ConnectivityValidation
+
+因為在將 ADConnectivityTool.psm1 匯入 PowerShell 之後，此函式**只**能手動呼叫一次，所以我們即將呼叫此函式。 
+
+此函式會執行相同的邏輯，Azure AD Connect 精靈會執行以驗證提供的 AD 認證。  不過，它會提供有關問題和建議解決方案的更詳細說明。 
+
+連線驗證包含下列步驟：
+-   取得網域 FQDN (完整網域名稱) 物件
+-   驗證使用者是否選取 [建立新的 AD 帳戶]、這些認證是否屬於企業系統管理員群組
+-   取得樹系 FQDN 物件
+-   確認可觸達至少一個與先前所取得樹系 FQDN 物件相關聯的網域
+-   確認樹系功能等級是 Windows Server 2003 或更新版本。
+
+如果這些動作已全部成功執行，使用者就能夠新增目錄。
+
+如果使用者在問題解決 (或完全沒有問題) 之後執行此函式，輸出會指出使用者必須返回 Azure AD Connect 精靈，並再次嘗試插入認證。
+
+
+
+## <a name="next-steps"></a>後續步驟
+- [Azure AD Connect：帳戶與權限](reference-connect-accounts-permissions.md)
+- [快速安裝](how-to-connect-install-express.md)
+- [自訂安裝](how-to-connect-install-custom.md)
+- [ADConnectivityTools 參考](reference-connect-adconnectivitytools.md)
+

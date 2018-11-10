@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415249"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006493"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>在 Log Analytics 中分析資料使用量
 
@@ -58,7 +58,7 @@ Log Analytics 包含下列資訊：收集的資料量、傳送資料的來源，
 3. 在 Log Analytics 工作區清單中，選取工作區。
 4. 從左窗格中的清單選取 [使用量和估計成本]。
 5. 在 [使用量和估計成本] 儀表板上，您可以選取 [時間：過去 24 小時] 並變更時間間隔以修改時間範圍。<br><br> ![時間間隔](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. 檢視顯示您感興趣之領域的使用量類別刀鋒視窗。 選擇刀鋒視窗，然後在其中按一下某個項目以在 [記錄檔搜尋](log-analytics-log-searches.md) 中檢視詳細資料。<br><br> ![範例資料使用量 KPI](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. 檢視顯示您感興趣之領域的使用量類別刀鋒視窗。 選擇刀鋒視窗，然後在其中按一下某個項目以在 [記錄檔搜尋](log-analytics-queries.md) 中檢視詳細資料。<br><br> ![範例資料使用量 KPI](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. 在 [記錄檔搜尋] 儀表板中，檢閱搜尋傳回的結果。<br><br> ![範例使用量記錄檔搜尋](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>當資料收集高於預期時建立警示
@@ -78,7 +78,7 @@ Azure 警示支援使用搜尋查詢的[記錄警示](../monitoring-and-diagnost
 
 若要針對不同的資料量顯示警示，請將查詢中的 100 變更為您要顯示警示的 GB 數。
 
-使用[建立新記錄警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)中所述的步驟，可在資料收集高於預期時收到通知。
+使用[建立新記錄警示](../monitoring-and-diagnostics/alert-metric.md)中所述的步驟，可在資料收集高於預期時收到通知。
 
 建立第一個查詢的警示時 - 在 24 小時內有超過 100GB 的資料時，請：  
 
@@ -163,19 +163,19 @@ Azure 警示支援使用搜尋查詢的[記錄警示](../monitoring-and-diagnost
 | 事件記錄檔                 | 變更[事件記錄組態](log-analytics-data-sources-windows-events.md)以： <br> - 減少所收集的事件記錄數目 <br> - 只收集必要的事件層級。 例如，不要收集「資訊」層級事件 |
 | syslog                     | 變更 [Syslog 組態](log-analytics-data-sources-syslog.md)以： <br> - 減少所收集的設施數目 <br> - 只收集必要的事件層級。 例如，不要收集「資訊」和「偵錯」層級事件 |
 | AzureDiagnostics           | 變更資源記錄集合： <br> - 減少會將記錄傳送至 Log Analytics 的資源數目 <br> - 只收集必要的記錄 |
-| 電腦中不需要解決方案的方案資料 | 使用[方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)，只從必要的電腦群組收集資料。 |
+| 電腦中不需要解決方案的方案資料 | 使用[方案目標](../monitoring/monitoring-solution-targeting.md)，只從必要的電腦群組收集資料。 |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>檢查是否有比預期更多的節點
 如果您是在「每節點 (Log Analytics)」定價層上，系統便會根據您使用的節點和解決方案數目來向您收費。 您可以在使用量儀表板的 [供應項目] 區段中，查看每個供應項目目前使用的節點數。<br><br> ![使用量儀表板](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 按一下 [查看所有...] 以檢視針對所選供應項目傳送資料的完整電腦清單。
 
-使用[方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)，只從必要的電腦群組收集資料。
+使用[方案目標](../monitoring/monitoring-solution-targeting.md)，只從必要的電腦群組收集資料。
 
 ## <a name="next-steps"></a>後續步驟
-* 請參閱 [Log Analytics 中的記錄搜尋](log-analytics-log-searches.md)，以了解如何使用搜尋語言。 您可以使用搜尋查詢，對使用量資料執行額外的分析。
-* 使用[建立新的記錄警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)中所述的步驟，可在符合搜尋條件時收到通知。
-* 使用[方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)，只從必要的電腦群組收集資料。
+* 請參閱 [Log Analytics 中的記錄搜尋](log-analytics-queries.md)，以了解如何使用搜尋語言。 您可以使用搜尋查詢，對使用量資料執行額外的分析。
+* 使用[建立新的記錄警示](../monitoring-and-diagnostics/alert-metric.md)中所述的步驟，可在符合搜尋條件時收到通知。
+* 使用[方案目標](../monitoring/monitoring-solution-targeting.md)，只從必要的電腦群組收集資料。
 * 若要設定有效的安全性事件收集原則，請檢閱 [Azure 資訊安全中心篩選原則](../security-center/security-center-enable-data-collection.md)。
 * 變更[效能計數器組態](log-analytics-data-sources-performance-counters.md)。
 * 若要修改事件收集設定，請檢閱[事件記錄組態](log-analytics-data-sources-windows-events.md)。

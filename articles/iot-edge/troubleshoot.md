@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a63a31c5ceb4298829f85627196fea5d7a38ca4b
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 632a91e9c76f14bceace00c9cee29a189b604464
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068497"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740207"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -108,7 +108,7 @@ ms.locfileid: "49068497"
 
 ### <a name="view-the-messages-going-through-the-edge-hub"></a>檢視通過 Edge 中樞的訊息
 
-檢視通過 Edge 中樞的訊息，以及透過 edgeAgent 和 edgeHub 執行階段容器的詳細記錄來收集裝置屬性更新的深入解析。 若要開啟這些容器上的詳細資訊記錄，請在 yaml 組態檔中設定 `RuntimeLogLevel`。 若要開啟檔案：
+您可以檢視通過 Edge 中樞的訊息，以及透過執行階段容器的詳細記錄來收集見解。 若要開啟這些容器上的詳細資訊記錄，請在 yaml 組態檔中設定 `RuntimeLogLevel`。 若要開啟檔案：
 
 在 Linux 上：
 
@@ -122,7 +122,7 @@ ms.locfileid: "49068497"
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-根據預設，`agent` 元素會如下所示：
+根據預設，`agent` 元素看起來如下範例所示：
 
    ```yaml
    agent:
@@ -146,7 +146,7 @@ ms.locfileid: "49068497"
 
 儲存檔案並重新啟動 IoT Edge 安全性管理員。
 
-您也可以檢查在 IoT 中樞與 IoT Edge 裝置之間傳送的訊息。 您可以使用 Visual Studio Code 的 [Azure IoT 工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)擴充功能來檢視這些訊息。 如需詳細指引，請參閱[使用 Azure IoT 進行開發時的便利工具](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
+您也可以檢查在 IoT 中樞與 IoT Edge 裝置之間傳送的訊息。 您可以使用 Visual Studio Code 的 [Azure IoT 工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)擴充功能來檢視這些訊息。 如需詳細資訊，請參閱[使用 Azure IoT 進行開發時的便利工具](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
 
 ### <a name="restart-containers"></a>重新啟動容器
 檢查過記錄和訊息並取得資訊後，您可以嘗試重新啟動容器：
@@ -181,7 +181,7 @@ iotedge restart edgeAgent && iotedge restart edgeHub
 
 ## <a name="edge-agent-stops-after-about-a-minute"></a>Edge 代理程式會在大約一分鐘後停止
 
-Edge 代理程式會啟動並成功執行約一分鐘，然後停止。 記錄指出 Edge 代理程式會嘗試透過 AMQP 連線到 IoT 中樞，然後大約 30 秒之後嘗試使用 AMQP 透過 WebSocket 連線。 當這些作業失敗後，Edge 代理程式就會退出。 
+Edge 代理程式會啟動並成功執行約一分鐘，然後停止。 記錄指出 Edge 代理程式會嘗試透過 AMQP 連線到 IoT 中樞，然後嘗試使用 AMQP 透過 WebSocket 連線。 當這些作業失敗後，Edge 代理程式就會退出。 
 
 Edge 代理程式記錄的範例：
 
@@ -193,7 +193,7 @@ Edge 代理程式記錄的範例：
 ```
 
 ### <a name="root-cause"></a>根本原因
-主機網路上的網路組態阻止了 Edge 代理程式觸達該網路。 代理程式首先嘗試透過 AMQP (連接埠 5671) 進行連線。 如果此作業失敗，代理程式會嘗試 Websocket (連接埠 443)。
+主機網路上的網路組態阻止了 Edge 代理程式觸達該網路。 代理程式首先嘗試透過 AMQP (連接埠 5671) 進行連線。 如果連線失敗，代理程式會嘗試 Websocket (連接埠 443)。
 
 IoT Edge 執行階段會為每個模組設定要在其中通訊的網路。 在 Linux 上，此網路是橋接網路。 在 Windows 上則是使用 NAT。 此問題較常見於使用 Windows 容器 (使用 NAT 網路) 的 Windows 裝置。 
 
@@ -235,7 +235,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 ```
 
 ### <a name="root-cause"></a>根本原因
-IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 如此通常不會造成實體機器發生問題，但當在虛擬機器上設定執行階段時，就可能會產生問題。 在 Azure 中代管的 Windows 虛擬機器自動產生的主機名稱通常很長。 
+IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 實體機器通常不需要很長的主機名稱，但問題在虛擬機器上更常發生。 在 Azure 中代管的 Windows 虛擬機器自動產生的主機名稱通常很長。 
 
 ### <a name="resolution"></a>解決方案
 當發現這個錯誤時，可以設定虛擬機器的 DNS 名稱，然後將 DNS 名稱設定為安裝命令中的主機名稱來解決。
@@ -265,7 +265,7 @@ IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 如此通
 您可能會遇到受限裝置 (例如 Raspberry Pi) 的穩定性問題，尤其在該裝置當作閘道的時候。 徵兆包括 Edge 中樞模組的記憶體不足例外狀況，下游裝置無法連線，或裝置在幾小時後停止傳送遙測訊息。
 
 ### <a name="root-cause"></a>根本原因
-根據預設，Edge 中樞 (也是邊線執行階段的一部分) 已針對效能最佳化，而且會嘗試配置大量的記憶體。 這不適合用於受限邊緣裝置，而且可能會造成穩定性問題。
+根據預設，Edge 中樞 (也是邊線執行階段的一部分) 已針對效能最佳化，而且會嘗試配置大量的記憶體。 此最佳化不適合用於受限邊緣裝置，而且可能會造成穩定性問題。
 
 ### <a name="resolution"></a>解決方案
 針對 Edge 中樞，將環境變數 **OptimizeForPerformance** 設定為 **false**。 作法有二：
@@ -274,7 +274,7 @@ IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 如此通
 
 在入口網站中，從 [裝置詳細資料]->[設定模組]->[設定進階 Edge 執行階段設定]，建立名為 OptimizeForPerformance 的環境變數，該變數會針對 [Edge 中樞] 設定為 false。
 
-![optimizeforperformance][img-optimize-for-perf]
+![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
 
 **或**
 
@@ -327,7 +327,7 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>適用於 IoT Edge 部署的防火牆和連接埠設定規則
-Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定進行從內部部署 Edge Server 到 Azure 雲端的通訊，請參閱[選擇通訊協定](../iot-hub/iot-hub-devguide-protocols.md)。 為了增強安全性，Azure IoT Edge 與 Azure IoT Hub 之間的通訊通道一律會設定為輸出；這是根據[服務輔助通訊模式](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)，可將惡意實體能夠探索的攻擊面縮減到最小。 只有針對 Azure IoT Hub 需要將訊息向下推送至 Azure IoT Edge Server 的特定情況 (例如「雲端到裝置」傳訊)，才需要輸入通訊，同樣地，會使用安全 TLS 通道來保護這些訊息，並可使用 X.509 憑證和 TPM 裝置模組來提供進一步的保護。 「Azure IoT Edge 安全性管理員」會控管此通訊的建立方式，請參閱 [IoT Edge 安全性管理員](../iot-edge/iot-edge-security-manager.md)。
+Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定進行從內部部署 Edge Server 到 Azure 雲端的通訊，請參閱[選擇通訊協定](../iot-hub/iot-hub-devguide-protocols.md)。 為了加強安全性，Azure IoT Edge 和 Azure IoT 中樞之間的通訊通道一律會設定為輸出。 此設定根據[服務輔助通訊模式](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)，可有效減少惡意實體要探索的攻擊面。 僅當 Azure IoT 中樞需要將訊息推送到 Azure IoT Edge 裝置的特定案例時，才需要輸入通信。 使用安全的 TLS 通道保護雲端到裝置訊息，並且可以使用 X.509 憑證和 TPM 裝置模組進一步保護雲端。 「Azure IoT Edge 安全性管理員」會控管此通訊的建立方式，請參閱 [IoT Edge 安全性管理員](../iot-edge/iot-edge-security-manager.md)。
 
 雖然 IoT Edge 提供增強的設定來保護 Azure IoT Edge 執行階段和已部署的模組，但它仍然倚賴基礎的機器和網路設定。 因此，請務必確保設定適當的網路和防火牆規則，以提供安全的「Edge 到雲端」通訊。 為裝載 Azure IoT Edge 執行階段的基礎伺服器設定防火牆規則時，可以使用下表作為指導方針：
 
@@ -335,11 +335,9 @@ Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定進行從內部部署 E
 |--|--|--|--|--|
 |MQTT|8883|已封鎖 (預設值)|已封鎖 (預設值)|<ul> <li>使用 MQTT 作為通訊協定時，請將「傳出」(輸出) 設定為「開放」。<li>IoT Edge 不支援適用於 MQTT 的 1883。 <li>應該將傳入 (輸入) 連線封鎖。</ul>|
 |AMQP|5671|已封鎖 (預設值)|開放 (預設值)|<ul> <li>IoT Edge 的預設通訊協定。 <li> 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或 AMQP 是所需的通訊協定，則必須設定為「開放」。<li>IoT Edge 不支援適用於 AMQP 的 5672。<li>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。<li>應該將傳入 (輸入) 連線封鎖。</ul></ul>|
-|HTTPS|443|已封鎖 (預設值)|開放 (預設值)|<ul> <li>將「傳出」(輸出) 設定為在 443「開放」以進行 IoT Edge 佈建，當使用手動指令碼或 Azure IoT 裝置佈建服務 (DPS) 時，必須這樣設定。 <li>「傳入」(輸入) 連線應該只有針對特定案例才設定為「開放」： <ul> <li>  如果您有透明閘道，而此閘道具有可能傳送方法要求的分葉裝置。 在此情況下，無須對外部網路開放連接埠 443，即可連線至 IoTHub 或透過 Azure IoT Edge 提供 IoTHub 服務。 因此，可將傳入規則限制成只從內部網路開放「傳入」(輸入)。 <li> 針對「用戶端到裝置」(C2D) 案例。</ul><li>IoT Edge 不支援適用於 HTTP 的 80。<li>如果無法在企業中設定非 HTTP 通訊協定 (例如 AMQP、MQTT)；則可透過 WebSocket 傳送訊息。 在該情況下，會使用連接埠 443 來進行 WebSocket 通訊。</ul>|
+|HTTPS|443|已封鎖 (預設值)|開放 (預設值)|<ul> <li>設定連出 (輸出) 在 443 上開啟以進行 IoT Edge 佈建。 使用手動指令碼或 Azure IoT 裝置佈建服務 (DPS) 時，就需要此設定。 <li>「傳入」(輸入) 連線應該只有針對特定案例才設定為「開放」： <ul> <li>  如果您有透明閘道，而此閘道具有可能傳送方法要求的分葉裝置。 在此情況下，無須對外部網路開放連接埠 443，即可連線至 IoTHub 或透過 Azure IoT Edge 提供 IoTHub 服務。 因此，可將傳入規則限制成只從內部網路開放「傳入」(輸入)。 <li> 針對「用戶端到裝置」(C2D) 案例。</ul><li>IoT Edge 不支援適用於 HTTP 的 80。<li>如果無法在企業中設定非 HTTP 通訊協定 (例如 AMQP 或 MQTT)；則可透過 WebSocket 傳送訊息。 在該情況下，會使用連接埠 443 來進行 WebSocket 通訊。</ul>|
 
 
 ## <a name="next-steps"></a>後續步驟
-您在 IoT Edge 平台中發現到錯誤嗎？ 請[提交問題](https://github.com/Azure/iotedge/issues)，讓我們可以持續進行改善。 
+您在 IoT Edge 平台中發現到錯誤嗎？ [提交問題](https://github.com/Azure/iotedge/issues)，讓我們可以持續進行改善。 
 
-<!-- Images -->
-[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png

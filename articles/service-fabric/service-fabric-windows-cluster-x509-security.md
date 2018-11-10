@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721835"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228567"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>使用 X.509 憑證保護 Windows 上的獨立叢集
 本文說明如何保護獨立 Windows 叢集的不同節點之間的通訊。 此外，也會說明如何藉由使用 X.509 憑證，驗證連線到此叢集的用戶端。 驗證可確保只有已獲授權的使用者可以存取叢集和已部署的應用程式，以及執行管理工作。 憑證安全性應在叢集建立之時先在叢集上啟用。  
@@ -257,7 +257,7 @@ ms.locfileid: "44721835"
 ## <a name="acquire-the-x509-certificates"></a>取得 X.509 憑證
 若要保護叢集內的通訊，您必須先取得叢集節點的 X.509 憑證。 此外，若要將此叢集的連線限制於經過授權的電腦/使用者，您必須取得並安裝這些用戶端電腦的憑證。
 
-對於執行生產環境工作負載的叢集，請使用[憑證授權單位 (CA)](https://en.wikipedia.org/wiki/Certificate_authority) 簽署的 X.509 憑證來保護叢集。 如需如何取得這些憑證的詳細資訊，請參閱[如何取得憑證](http://msdn.microsoft.com/library/aa702761.aspx)。
+對於執行生產環境工作負載的叢集，請使用[憑證授權單位 (CA)](https://en.wikipedia.org/wiki/Certificate_authority) 簽署的 X.509 憑證來保護叢集。 如需如何取得這些憑證的詳細資訊，請參閱[如何取得憑證](https://msdn.microsoft.com/library/aa702761.aspx)。
 
 若是用於測試的叢集，您可以選擇使用自我簽署憑證。
 

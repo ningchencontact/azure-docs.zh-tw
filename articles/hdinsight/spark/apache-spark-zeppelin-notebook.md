@@ -2,19 +2,19 @@
 title: 在 Azure HDInsight 上搭配使用 Zeppelin Notebook 和 Apache Spark 叢集
 description: 如何在 Azure HDInsight 上搭配使用 Zeppelin Notebook 和 Apache Spark 叢集的逐步指示。
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b4c79ada0a243d50aad64600de6dfdfebd59b9da
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364858"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005831"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上搭配使用 Zeppelin Notebook 和 Apache Spark 叢集
 

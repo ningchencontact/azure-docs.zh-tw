@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: 316e10d56e5c235c4d64dde0fde4dcb9429629c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18b8fab53e9e2de6d083b3a9e78001a3844b38d5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527782"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226338"
 ---
 # <a name="introduction-to-table-storage-in-azure"></a>Azure 中的資料表儲存體簡介
 
@@ -34,6 +34,6 @@ Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服�
 
 * 如需可用 API 的完整詳細資訊，請檢視資料表服務參考文件：
 
-    * [Storage Client Library for .NET 參考資料](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Storage Client Library for .NET 參考資料](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [REST API 參考資料](http://msdn.microsoft.com/library/azure/dd179355)
+    * [REST API 參考資料](https://msdn.microsoft.com/library/azure/dd179355)

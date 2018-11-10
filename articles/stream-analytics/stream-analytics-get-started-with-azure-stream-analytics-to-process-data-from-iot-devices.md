@@ -3,18 +3,18 @@ title: 使用 Azure 串流分析的 IoT 即時資料流
 description: IoT 感應器標記和具有串流分析的資料串流與即時資料處理
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ea4d33b569ae0932d6091869c4825cf2b5e69664
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 8a4e5b180438203e345ef6c5323ab010f4757c0e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697708"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978071"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>開始使用 Azure 串流分析來處理 IoT 裝置的資料
 在本教學課程中，您將學習如何建立串流處理邏輯，以從物聯網 (IoT) 裝置收集資料。 我們將使用真實世界的物聯網 (IoT) 使用案例以示範如何快速且經濟地建置您的解決方案。

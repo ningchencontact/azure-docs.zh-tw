@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4fec410db81077fd454f29d3359dc3728aad4bff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987518"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739612"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的展開傳送/收合傳送情節 - 雲端備份範例
 
@@ -131,7 +131,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> 您叫用的 `HttpStart`函式僅適用於 JSON 格式的內容。 因此，需要 `Content-Type: application/json` 標頭，而且目錄路徑會編碼為 JSON 字串。
+> 您叫用的 `HttpStart`函式僅適用於 JSON 格式的內容。 因此，需要 `Content-Type: application/json` 標頭，而且目錄路徑會編碼為 JSON 字串。 此外，HTTP 程式碼片段假設 `host.json` 檔案中有一個項目會從所有的 HTTP 觸發程序函式 URL 中移除預設 `api/` 前置詞。 您可以在範例的 `host.json` 檔案中找到此組態的標記。
 
 此 HTTP 要求將會觸發 `E2_BackupSiteContent` 協調器並傳遞字串 `D:\home\LogFiles` 當作參數。 回應提供的連結可取得備份作業的狀態：
 

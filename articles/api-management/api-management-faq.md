@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 760feae2c9b58e162dae487e240dda72099ed91b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144803"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227972"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -77,7 +77,7 @@ ms.locfileid: "42144803"
 可以，您可以使用下列各項，以程式設計方式管理 API 管理：
 
 * [API 管理 REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)。
-* [Microsoft Azure ApiManagement 服務管理資源庫 SDK](http://aka.ms/apimsdk)。
+* [Microsoft Azure ApiManagement 服務管理資源庫 SDK](https://aka.ms/apimsdk)。
 * [服務部署](https://docs.microsoft.com/powershell/module/wds)和[服務管理](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell Cmdlet。
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>如何將使用者新增至 Administrators 群組？
@@ -104,7 +104,7 @@ ms.locfileid: "42144803"
 * 在不同租用戶上裝載相同的 API。
 
 ### <a name="can-i-use-soap-with-api-management"></a>可以使用 SOAP 搭配 API 管理嗎？
-現在可以使用 [SOAP 傳遞](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/)支援。 系統管理員可以匯入其 SOAP 服務的 WSDL，而 Azure API 管理將會建立 SOAP 前端。 開發人員入口網站文件、測試主控台、原則和分析全都適用於 SOAP 服務。
+現在可以使用 [SOAP 傳遞](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/)支援。 系統管理員可以匯入其 SOAP 服務的 WSDL，而 Azure API 管理將會建立 SOAP 前端。 開發人員入口網站文件、測試主控台、原則和分析全都適用於 SOAP 服務。
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API 管理閘道 IP 位址是否固定？ 我可以用在防火牆規則嗎？
 在 API 管理的所有層級中，API 管理租用戶的公用 IP 位址 (VIP) 在租用戶的存留期內是靜態的，但有一些例外狀況。 在下列情況下，IP 位址會變更︰
@@ -126,7 +126,7 @@ ms.locfileid: "42144803"
 API 管理會在部署到多個地理位置時，使用[效能流量路由方法](../traffic-manager/traffic-manager-routing-methods.md#performance)。 連入流量會傳送至最接近的 API 閘道。 如果一個區域離線，則連入流量會自動路由傳送至下一個最接近的閘道。 深入了解[流量管理員路由方法](../traffic-manager/traffic-manager-routing-methods.md)中的路由方法。
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>可以使用 Azure Resource Manager 範本建立 API 管理服務執行個體嗎？
-是。 請參閱 [Azure API 管理服務](http://aka.ms/apimtemplate)快速入門範本。
+是。 請參閱 [Azure API 管理服務](https://aka.ms/apimtemplate)快速入門範本。
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>是否可以對後端使用自我簽署的 SSL 憑證？
 是。 這可以透過 PowerShell 或直接提交至 API 來完成。 這將會停用信任鏈結驗證，在從 API 管理對後端服務進行通訊時，還可讓您使用自我簽署或私人簽署的憑證。

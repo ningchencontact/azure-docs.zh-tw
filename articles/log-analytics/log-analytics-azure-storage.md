@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 7633d00c24a18763d414b1a2595073753d651a50
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.component: ''
+ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579015"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006527"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>收集 Azure 服務的記錄和計量以便使用於 Log Analytics
 
@@ -51,7 +51,7 @@ ms.locfileid: "45579015"
 | 復原保存庫         | Microsoft.RecoveryServices/vaults       |             |             | [Azure 復原服務分析 (預覽)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | 搜尋服務         | Microsoft.Search/searchServices         | 診斷 | 診斷 | |
 | 服務匯流排命名空間   | Microsoft.ServiceBus/namespaces         | 診斷 | 診斷 | [服務匯流排分析 (預覽)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | 儲存體     |             | [Service Fabric Analytics (Service Fabric 分析) (預覽)](log-analytics-service-fabric.md) |
+| Service Fabric          |                                         | 儲存體     |             | [Service Fabric Analytics (Service Fabric 分析) (預覽)](../service-fabric/service-fabric-diagnostics-oms-setup.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | 診斷 | [Azure SQL Analytics (預覽)](log-analytics-azure-sql.md) |
 | 儲存體                 |                                         |             | 指令碼      | [Azure 儲存體分析 (預覽)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | 虛擬機器        | Microsoft.Compute/virtualMachines       | 分機   | 分機 <br> 診斷  | |
@@ -61,14 +61,14 @@ ms.locfileid: "45579015"
 
 
 > [!NOTE]
-> 若要監視 Azure 虛擬機器 (Linux 和 Windows)，我們建議您安裝 [Log Analytics VM 擴充](log-analytics-azure-vm-extension.md)。 代理程式將虛擬機器內收集到的深入資訊提供給您。 您也可以使用虛擬機器擴展集的擴充。
+> 若要監視 Azure 虛擬機器 (Linux 和 Windows)，我們建議您安裝 [Log Analytics VM 擴充](log-analytics-quick-collect-azurevm.md)。 代理程式將虛擬機器內收集到的深入資訊提供給您。 您也可以使用虛擬機器擴展集的擴充。
 >
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure 診斷直達 Log Analytics
 許多 Azure 資源能夠直接將診斷記錄和度量寫入 Log Analytics，這是收集資料來分析的較佳做法。 使用 Azure 診斷時，資料會立即寫入 Log Analytics，不需要先將資料寫入儲存體。
 
-支援 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)的 Azure 資源可以直接將記錄和度量傳送至 Log Analytics。
+支援 [Azure 監視器](../azure-monitor/overview.md)的 Azure 資源可以直接將記錄和度量傳送至 Log Analytics。
 
 > [!NOTE]
 > 目前不支援透過診斷設定將多維度計量傳送至 Log Analytics。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
@@ -158,5 +158,5 @@ Azure 範本庫包含[使用 Azure 自動化的範例](https://azure.microsoft.c
 ## <a name="next-steps"></a>後續步驟
 
 * [對 IIS 使用 Blob 儲存體，對事件使用表格儲存體](log-analytics-azure-storage-iis-table.md)，以讀取 Azure 服務 (將診斷寫入表格儲存體) 的記錄，或讀取寫入 Blob 儲存體的 IIS 記錄。
-* [啟用解決方案](log-analytics-add-solutions.md) 以提供資料的深入見解。
-* [使用搜尋查詢](log-analytics-log-searches.md) 以分析資料。
+* [啟用解決方案](../monitoring/monitoring-solutions.md) 以提供資料的深入見解。
+* [使用搜尋查詢](log-analytics-queries.md) 以分析資料。

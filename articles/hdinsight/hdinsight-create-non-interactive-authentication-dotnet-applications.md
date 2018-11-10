@@ -3,18 +3,18 @@ title: 在 Azure HDInsight 中建立非互動式驗證 .NET 應用程式
 description: 了解如何在 Azure HDInsight 中建立非互動式驗證 Microsoft .NET 應用程式。
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 01ff5faa130bf1d6d5b89ac42d5664b13306c203
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: hrasheed
+ms.openlocfilehash: 495806d47839d471976cd8dff112a1db0b072db9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956148"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006102"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>建立非互動式驗證 .NET HDInsight 應用程式
 您可以使用應用程式本身的身分識別 (非互動式) 或使用應用程式的登入使用者的身分識別 (互動式)，執行 Microsoft .NET Azure HDInsight 應用程式。 本文將說明如何建立非互動式驗證 .NET 應用程式，來連線到 Azure 及管理 HDInsight。 如需互動式應用程式的範例，請參閱[連線至 Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)。 

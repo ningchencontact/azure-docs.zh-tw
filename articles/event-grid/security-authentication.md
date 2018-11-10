@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 ms.author: babanisa
-ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068179"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741516"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -37,7 +37,7 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 
 1. **ValidationCode 交握**：在事件訂閱建立期間，EventGrid 會將「訂閱驗證事件」發佈至您的端點。 此事件的結構描述類似於其他 EventGridEvent，而此事件的資料部分會包含 `validationCode` 屬性。 當您的應用程式確認驗證要求是針對預期的事件訂閱而發出時，應用程式的程式碼必須將驗證碼傳回至 EventGrid，作為回應。 所有 EventGrid 版本都支援此交握機制。
 
-2. **ValidationURL 交握 (手動交握)**：在某些情況下，您可能沒有端點原始程式碼的控制權，而無法實作以 ValidationCode 為基礎的交握。 例如，如果您使用第三方服務 (例如 [Zapier](https://zapier.com) 或 [IFTTT](https://ifttt.com/))，就可能無法以程式設計方式在回應中提供驗證碼。 從 2018-05-01-preview 版開始，EventGrid 已可支援手動驗證交握。 如果您以採用這個新 API 版本 (2018-05-01-preview) 的 SDK/工具建立事件訂閱，EventGrid 會傳送 `validationUrl` 屬性作為訂閱驗證事件資料部分的一部分。 若要完成交握，您只需透過 REST 用戶端或使用網頁瀏覽器，對該 URL 執行 GET 要求即可。 提供的驗證 URL 的有效期大約只有 10 分鐘。 在那段時間，事件訂閱的佈建狀態為 `AwaitingManualAction`。 如果您未在 10 分鐘內完成手動驗證，則會將佈建狀態設為 `Failed`。 您必須再次建立事件訂閱，才能嘗試進行手動驗證。
+2. **ValidationURL 交握 (手動交握)**：在某些情況下，您可能沒有端點原始程式碼的控制權，以實作以 ValidationCode 為基礎的交握。 例如，如果您使用第三方服務 (例如 [Zapier](https://zapier.com) \(英文\) 或 [IFTTT](https://ifttt.com/) \(英文\))，就無法以程式設計方式在回應中提供驗證碼。 從 2018-05-01-preview 版開始，EventGrid 已可支援手動驗證交握。 如果您是以採用 API 2018-05-01-preview 版或更新版本的 SDK 或工具來建立事件訂閱，EventGrid 會傳送 `validationUrl` 屬性作為訂閱驗證事件資料部分的一部分。 若要完成交握，您只需透過 REST 用戶端或使用網頁瀏覽器，對該 URL 執行 GET 要求即可。 提供的驗證 URL 的有效期大約只有 10 分鐘。 在那段時間，事件訂閱的佈建狀態為 `AwaitingManualAction`。 如果您未在 10 分鐘內完成手動驗證，則會將佈建狀態設為 `Failed`。 您必須再次建立事件訂閱，才能開始進行手動驗證。
 
 此一手動驗證機制目前為預覽狀態。 若要使用它，您必須為 [Azure CLI](/cli/azure/install-azure-cli) 安裝[事件格線延伸模組](/cli/azure/azure-cli-extensions-list)。 您可以使用 `az extension add --name eventgrid` 進行安裝。 若您正使用 REST API，請確定您使用了 `api-version=2018-05-01-preview`。
 
@@ -93,7 +93,7 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 
 ### <a name="event-delivery-security"></a>事件傳遞安全性
 
-您可以在建立事件訂閱時將查詢參數新增至 Webhook URL，以保護您的 Webhook 端點。 將其中一個查詢參數設定為祕密，例如[存取權杖](https://en.wikipedia.org/wiki/Access_token)，Webhook 可用其來辨識事件是否來自具有效權限的事件格線。 事件格線會在傳遞至 Webhook 的每個事件中包含這些查詢參數。
+您可以在建立事件訂閱時將查詢參數新增至 Webhook URL，以保護您的 Webhook 端點。 將這些查詢參數中的其中一個設定為祕密，例如[存取權杖](https://en.wikipedia.org/wiki/Access_token)。 Webhook 可以用來辨識來自事件格線並具有有效權限的事件。 事件格線會在傳遞至 Webhook 的每個事件中包含這些查詢參數。
 
 編輯事件訂閱時，除非在 Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 中使用 [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) 參數，否則不會顯示或傳回查詢參數。
 
@@ -174,11 +174,11 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Management Access Control
 
-Azure Event Grid 讓您能控制給予不同使用者進行各種管理作業的存取層級，這些作業包含列出事件訂閱、建立新訂閱及產生金鑰等等。 Event Grid 會使用 Azure 的角色型存取檢查 (RBAC)。
+Azure Event Grid 讓您能控制給予不同使用者進行各種管理作業的存取層級，這些作業包含列出事件訂閱、建立新訂閱及產生金鑰等等。 事件格線會使用 Azure 的角色型存取控制 (RBAC)。
 
 ### <a name="operation-types"></a>作業類型
 
-Azure Event Grid 支援下列動作：
+事件格線支援下列動作：
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -187,13 +187,17 @@ Azure Event Grid 支援下列動作：
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-最後三種作業可能會回傳秘密資訊，這種資訊在一般讀取作業時是會被篩選掉的。 建議您限制這些作業的存取。 自訂角色可以使用 [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)、[Azure 命令列介面 (CLI)](../role-based-access-control/role-assignments-cli.md) 和 [REST API](../role-based-access-control/role-assignments-rest.md) 建立。
+最後三種作業可能會回傳秘密資訊，這種資訊在一般讀取作業時是會被篩選掉的。 建議您限制這些作業的存取。 
 
-### <a name="enforcing-role-based-access-check-rbac"></a>強制執行 Role Based Access Check (RBAC)
+### <a name="built-in-roles"></a>內建角色
 
-進行下列步驟以強制不同使用者執行 RBAC：
+事件格線能提供兩個內建角色以用來管理事件訂閱。 這些角色是 `EventSubscription Contributor (Preview)` 和 `EventSubscription Reader (Preview)`。 它們在實作事件網域時具有相當的重要性。 如需授與動作的詳細資訊，請參閱[事件網域 - 存取管理](event-domains.md#access-management)。
 
-#### <a name="create-a-custom-role-definition-file-json"></a>建立自訂的角色定義檔案 (.json)
+您可以[將這些角色指派給使用者或群組](../role-based-access-control/quickstart-assign-role-user-portal.md)。
+
+### <a name="custom-roles"></a>自訂角色
+
+如果您需要指定不同於內建角色的權限，則可以建立自訂角色。
 
 以下是允許使用者採取不同動作的事件方格角色定義範例。
 
@@ -201,18 +205,18 @@ Azure Event Grid 支援下列動作：
 
 ```json
 {
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
@@ -220,22 +224,22 @@ Azure Event Grid 支援下列動作：
 
 ```json
 {
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
@@ -243,37 +247,25 @@ Azure Event Grid 支援下列動作：
 
 ```json
 {
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-#### <a name="create-and-assign-custom-role-with-azure-cli"></a>使用 Azure CLI 建立並指派自訂角色
-
-若要建立自訂角色，請使用：
-
-```azurecli
-az role definition create --role-definition @<file path>
-```
-
-若要指派角色給使用者，請使用：
-
-```azurecli
-az role assignment create --assignee <user name> --role "<name of role>"
-```
+您可以搭配 [PowerShell](../role-based-access-control/custom-roles-powershell.md)、[Azure CLI](../role-based-access-control/custom-roles-cli.md) 和 [REST](../role-based-access-control/custom-roles-rest.md) 建立自訂角色。
 
 ## <a name="next-steps"></a>後續步驟
 

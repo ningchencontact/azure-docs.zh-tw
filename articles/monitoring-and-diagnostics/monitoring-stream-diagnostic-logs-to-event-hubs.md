@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d178041a420c49480c6043869f139eb3a09c91fd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996548"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959268"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>將 Azure 診斷記錄串流至事件中樞
 您可以使用入口網站中內建的「匯出至事件中樞」選項，或透過 Azure PowerShell Cmdlet 或 Azure CLI 來啟用診斷設定中事件中樞授權規則識別碼的方式，以近乎即時的速度將 **[Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md)** 串流至任何應用程式。
@@ -44,7 +44,7 @@ ms.locfileid: "46996548"
 您可以透過入口網站或使用 [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)，啟用以程式控制方式對診斷記錄進行串流的功能。 無論如何，您所建立的診斷設定可讓您指定事件中樞命名空間，以及記錄類別和您需要傳送至命名空間的計量。 針對您所啟用的每個記錄類別，會在命名空間中建立事件中樞。 診斷**記錄類別**是一種資源可以收集的記錄類型。
 
 > [!WARNING]
-> 啟用和串流來自計算資源 (例如，VM 或 Service Fabric) 的診斷記錄 [需要一組不同的步驟](../event-hubs/event-hubs-streaming-azure-diags-data.md)。
+> 啟用和串流來自計算資源 (例如，VM 或 Service Fabric) 的診斷記錄 [需要一組不同的步驟](azure-diagnostics-streaming-event-hubs.md)。
 
 事件中樞命名空間不一定要和資源發出記錄檔屬於相同的訂用帳戶，只要進行設定的使用者有這兩個訂用帳戶的適當 RBAC 存取權，而且這兩個訂用帳戶都屬於同一個 ADD 租用戶。
 
@@ -191,10 +191,10 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="stream-data-from-compute-resources"></a>從計算資源中串流資料
 
-您也可以使用 Windows Azure 診斷代理程式，從計算資源中串流診斷記錄。 [請參閱本文章](../event-hubs/event-hubs-streaming-azure-diags-data.md)了解如何設定。
+您也可以使用 Windows Azure 診斷代理程式，從計算資源中串流診斷記錄。 [請參閱本文章](azure-diagnostics-streaming-event-hubs.md)了解如何設定。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Azure 監視器來串流 Azure Active Directory 記錄檔](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [使用 Azure 監視器來串流 Azure Active Directory 記錄檔](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [深入了解 Azure 診斷記錄檔](monitoring-overview-of-diagnostic-logs.md)
-* [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [開始使用事件中心](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

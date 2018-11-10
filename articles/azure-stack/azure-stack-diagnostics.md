@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 3dd3e3391cc2536f56a5e42610c09c85b4068234
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 6e15fee02fd001bddd25a19b8a9420eb899d4f85
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740548"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978667"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 診斷工具
 
@@ -112,11 +112,11 @@ if($s)
 - 如果未指定 **FromDate** 和 **ToDate** 參數，預設將會收集過去 4 小時的記錄。
 - 使用 **FilterByNode** 參數依電腦名稱篩選記錄。 例如︰
 ```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
 ```
 - 使用 **FilterByLogType** 參數依類型篩選記錄。 您可以選擇依檔案、共用或 WindowsEvent 進行篩選。 例如︰
 ```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
 ```
 - 您可以使用 **TimeOutInMinutes** 參數來設定記錄收集的逾時。 根據預設，它是設定為 150 (2.5 個小時)。
 - 在 1805 版和更新版本中，預設會停用傾印檔案記錄收集。 若要加以啟用，請使用 **IncludeDumpFile** 切換參數。 
@@ -124,30 +124,25 @@ Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -
 
  |   |   |   |    |
  | - | - | - | -  |   
- |ACS|計算|InfraServiceController|QueryServiceCoordinator|
- |ACSBlob|CPI|基礎結構|QueryServiceWorker|
- |ACSDownloadService|CRP|KeyVaultAdminResourceProvider|SeedRing|
- |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
- |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
- |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
- |ACSMigrationService|網域|KeyVaultInternalDataPlane|SQL|
- |ACSMonitoringService|ECE|KeyVaultNamingService|SRP|
- |ACSSettingsService|EventAdminRP|MDM|儲存體|
- |ACSTableMaster|EventRP|MetricsAdminRP|儲存體帳戶|
- |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
- |ACSWac|網狀架構|MetricsServer|租用戶|
- |ADFS|FabricRing|MetricsStoreService|TraceCollector|
- |ApplicationController|FabricRingServices|MonAdminRP|URP|
- |ASAppGateway|FirstTierAggregationService|MonitoringAgent|使用量|
- |AzureBridge|FRP|MonRP|UsageBridge|
- |AzureMonitor|資源庫|NC|VirtualMachines|
- |AzureStackBitlocker|閘道器|網路|WAS|
- |BareMetal|HealthMonitoring|NonPrivilegedAppGateway|WASBootstrap|
- |BRP|HintingServiceV2|NRP|WASPUBLIC|
- |CA|HRP|OboService|WindowsDefender|
- |CacheService|IBC|OEM|     |
- |雲端|IdentityProvider|OnboardRP|     |   
- |叢集|iDns|PXE|     |
+ |ACS                   |CacheService                   |IBC                            |OEM|
+ |ACSDownloadService    |計算                        |InfraServiceController         |OnboardRP|
+ |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
+ |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
+ |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
+ |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
+ |ACSMonitoringService  |網域                         |KeyVaultInternalDataPlane      |SeedRingServices|
+ |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
+ |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
+ |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
+ |ACSWac                |ExternalDNS                    |MetricsRP                      |儲存體|
+ |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
+ |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
+ |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
+ |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
+ |AzureMonitor          |閘道器                        |NC                             |WAS|
+ |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
+ |BRP                   |HintingServiceV2               |NRP                            |   |
+ |CA                    |HRP                            |OboService                     |   |
  |   |   |   |    |
 
 ### <a name="additional-considerations"></a>其他考量

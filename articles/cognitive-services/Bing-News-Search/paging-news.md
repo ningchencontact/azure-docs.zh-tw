@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: fff1da15df2e690cd0b37bb82654a4d30159325a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0507f2cfb1d75025d1b6aadccc442326a52ceebc
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803387"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739799"
 ---
 # <a name="paging-news"></a>逐頁瀏覽新聞
 
@@ -58,3 +58,6 @@ Host: api.cognitive.microsoft.com
   
 > [!NOTE]
 > 逐頁瀏覽只適用於新聞搜尋 (/news/search)，但不適用於發燒主題 (/news/trendingtopics) 或新聞分類 (/news)。
+
+> [!NOTE]
+> `TotalEstimatedAnswers` 欄位是針對您可從目前查詢中擷取之搜尋結果總數的估計。  當您設定 `count` 和 `offset` 參數時，`TotalEstimatedAnswers` 的數目可能會變更。 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 555bf95367ab0d3e6c4afe09edb6777899400dd8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 66a2871e0c4b36959ccd8f08df5b6b7edd09f624
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344663"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227819"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 管理基本概念 
 若您還不熟悉 Azure Stack 開發套件(ASDK) 管理，有幾件事需要知道。 本指南提供您在評估環境中擔任 Azure Stack 操作員之角色的概觀，以及如何確定測試使用者可以快速上手。
@@ -43,7 +43,7 @@ ms.locfileid: "49344663"
 ## <a name="what-tools-do-i-use-to-manage"></a>我可以使用哪些工具來管理？
 您可以使用 [Azure Stack 系統管理員入口網站](https://adminportal.local.azurestack.external)或 PowerShell 來管理 Azure Stack。 了解基本概念最簡單的方式是透過入口網站。 如果您想要使用 PowerShell，您需要安裝[適用於 Azure Stack 的 PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) 並[從 GitHub 下載 Azure Stack 工具](asdk-post-deploy.md#download-the-azure-stack-tools)。
 
-Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及組織機制。 如果您要管理 Azure Stack 並協助支援使用者，您應該了解 Azure Resource Manager。 您可以透過閱讀[開始使用 Azure Resource Manager 白皮書](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)來深入了解。
+Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及組織機制。 如果您要管理 Azure Stack 並協助支援使用者，您應該了解 Azure Resource Manager。 您可以透過閱讀[開始使用 Azure Resource Manager 白皮書](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)來深入了解。
 
 ## <a name="your-typical-responsibilities"></a>您的一般責任
 您的使用者想要使用服務。 從其觀點看來，您的主要角色是將這些服務提供給他們。 您可以使用 ASDK 來了解該提供什麼服務，以及如何藉由[建立方案、供應項目及配額](asdk-offer-services.md)來提供這些服務。 您還需要將項目 (例如虛擬機器映像) 新增到 Marketplace 中。 最簡單的方式就是從 Azure [下載市集項目](asdk-marketplace-item.md)到 Azure Stack。

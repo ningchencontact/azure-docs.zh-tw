@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 1c6e0521f37e85bcb3395de0ad1e9d463125e17f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469793"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218883"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 UWP 應用程式中辨識語音
 
@@ -70,7 +70,7 @@ ms.locfileid: "49469793"
 1. 下列輸出行會出現在套件管理器主控台中。
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
    ```
 
 1. 由於應用程式使用麥克風進行語音輸入，請將 [麥克風] 功能新增至專案。 在 [方案總管] 中，按兩下 [Package.appxmanifest] 以編輯您的應用程式資訊清單。 接著，切換至 [功能] 索引標籤，選取 [麥克風] 功能的方塊，然後儲存您的變更。

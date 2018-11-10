@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: f515ddc58a9f9b434e40f44ca7cc50d738ed69f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6d6d29d9bce68f22a83f2b4de228968b00b8bba0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993103"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739595"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux (x64) 上安裝 Azure IoT Edge 執行階段
 
@@ -60,7 +60,7 @@ sudo apt-get upgrade
 
 ## <a name="install-the-container-runtime"></a>安裝容器執行階段 
 
-Azure IoT Edge 會依賴 [OCI 相容][lnk-oci]的容器執行階段。 針對生產案例，強烈建議您使用下方所提供的 [Moby 型][lnk-moby]引擎。 它是 Azure IoT Edge 正式支援的唯一容器引擎。 Docker CE/EE 容器映像與 Moby 執行階段相容。
+Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器執行階段。 針對生產案例，強烈建議您使用下方所提供的 [Moby 型](https://mobyproject.org/)引擎。 它是 Azure IoT Edge 正式支援的唯一容器引擎。 Docker CE/EE 容器映像與 Moby 執行階段相容。
 
 更新 apt-get。
 
@@ -108,7 +108,7 @@ sudo apt-get install iotedge
 
 ### <a name="option-1-manual-provisioning"></a>選項 1：手動佈建
 
-若要手動佈建裝置，您需要提供[裝置連接字串][lnk-dcs]，在您的 IoT 中樞註冊新裝置即可建立該字串。
+若要手動佈建裝置，您需要提供[裝置連接字串](how-to-register-device-portal.md)，在您的 IoT 中樞註冊新裝置即可建立該字串。
 
 
 開啟組態檔。 
@@ -143,7 +143,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>選項 2：自動佈建
 
-若要自動佈建裝置，[請設定裝置佈建服務並擷取您的裝置註冊識別碼][lnk-dps] (DPS)。 自動佈建只適用於具有信賴平台模組 (TPM) 晶片的裝置。 例如，Raspberry Pi 裝置預設未隨附 TPM。 
+若要自動佈建裝置，[請設定裝置佈建服務並擷取您的裝置註冊識別碼](how-to-auto-provision-simulated-device-linux.md)。 自動佈建只適用於具有信賴平台模組 (TPM) 晶片的裝置。 例如，Raspberry Pi 裝置預設未隨附 TPM。 
 
 開啟組態檔。 
 
@@ -201,17 +201,11 @@ sudo iotedge list
 
 您必須要有提高的權限才能執行 `iotedge` 命令。 安裝執行階段之後，請登出您的電腦並重新登入，以自動更新您的權限。 在那之前，請在任何 `iotedge` 命令前面使用 **sudo**。
 
-在資源受限的裝置上，強烈建議將 OptimizeForPerformance 環境變數設定為 false，如[疑難排解指南][lnk-trouble]中的指示所述。
+在資源受限的裝置上，強烈建議將 OptimizeForPerformance 環境變數設定為 false，如[疑難排解指南](troubleshoot.md)中的指示所述。
 
 如果您的網路具有 Proxy 伺服器，請遵循[設定您的 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中的步驟。
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您有 Edge 執行階段是否正確安裝的問題，請參閱[疑難排解][lnk-trouble]頁面。
+如果您有 Edge 執行階段是否正確安裝的問題，請參閱[疑難排解](troubleshoot.md)頁面。
 
-<!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md

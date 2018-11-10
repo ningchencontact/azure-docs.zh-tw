@@ -4,18 +4,18 @@ description: 如何在串流分析作業中測試查詢。
 keywords: 本文說明如何使用 Azure 入口網站測試 Azure 串流分析作業、輸入取樣，以及上傳樣本資料。
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 63f9b98bcd70378ae02769298f0ffcd796378612
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 139ad76826f3e67577beba0369f6d4425e242af9
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027260"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978344"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>使用樣本資料測試串流分析查詢
 

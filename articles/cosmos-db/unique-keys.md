@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ff432de59e5a5fdfeaad4c3a5361554ee32e21b0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696134"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740003"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵
 
@@ -130,7 +130,7 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
 下列命令範例示範如何在 MongoDB API 之 users 集合的 firstName、lastName 和 email 欄位上建立唯一索引。 這可確保集合中全部文件的這三個欄位組合的唯一性。 對於 MongoDB 集合，唯一索引會在集合建立之後，但在填入集合之前建立。
 
 > [!NOTE]
-> MongoDB API 帳戶與 SQL API 帳戶的唯一索引鍵格式不同，您不必在欄位名稱前面指定反斜線 (/) 字元。 
+> MongoDB API 帳戶與 SQL API 帳戶的唯一索引鍵格式不同，您不必在欄位名稱前面指定正斜線 (/) 字元。 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

@@ -6,36 +6,34 @@ documentationcenter: ''
 author: apwestgarth
 manager: stefsch
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/10/2018
 ms.author: anwestg
-ms.openlocfilehash: f12eb7d74d9c47567c72cddda8d2813f394fb1de
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: fcbc924675a97a17b4fcfdf0e1ac39ad5aae9ffd
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41946601"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218503"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>更新 Azure App Service on Azure Stack
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 在部署 Azure App Service 1.3 之前，請先將 1807 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
 >
 >
 
 您可以遵循本文章中的指示，將部署在連線到網際網路之 Azure Stack 環境中的 [App Service 資源提供者](azure-stack-app-service-overview.md)進行升級。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 在執行升級之前，請確定您已完成 [Azure App Service on Azure Stack 資源提供者的部署](azure-stack-app-service-deploy.md)
->
->
+
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>執行 App Service 資源提供者安裝程式
 

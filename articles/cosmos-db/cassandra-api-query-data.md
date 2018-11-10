@@ -9,14 +9,14 @@ ms.reviewer: sngun
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c1fb4c27f897e3c0952ed6419e167613ac8204f7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a06e7e6159953bfeffa966759d29b91bbcbafd37
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223486"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739204"
 ---
-# <a name="query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>從 Azure Cosmos DB Cassandra API 帳戶查詢資料
+# <a name="tutorial-query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>教學課程：從 Azure Cosmos DB Cassandra API 帳戶查詢資料
 
 本教學課程說明如何使用 Java 應用程式，從 Azure Cosmos DB Cassandra API 帳戶查詢使用者資料。 Java 應用程式會使用 [Java 驅動程式](https://github.com/datastax/java-driver)並查詢使用者資料，例如使用者識別碼、使用者名稱、使用者所在城市。 
 
@@ -28,59 +28,65 @@ ms.locfileid: "47223486"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 本文為多部分教學課程的一部分。 在開始之前，請務必完成上述步驟來[建立 Cassandra API 帳戶、keyspace、資料表](create-cassandra-api-account-java.md)，並[將範例資料載入到資料表](cassandra-api-load-data.md)。 
+* 本文為多部分教學課程的一部分。 在開始之前，請務必完成上述步驟來建立 Cassandra API 帳戶、keyspace、資料表，並[將範例資料載入到資料表](cassandra-api-load-data.md)。 
 
 ## <a name="query-data"></a>查詢資料
 
-開啟 `src\main\java\com\azure\cosmosdb\cassandra` 資料夾下的 `UserRepository.java` 檔案。 附加下列程式碼區塊。 此程式碼提供三個函式：查詢資料庫中的所有使用者、依使用者識別碼篩選查詢特定使用者，以及刪除資料表。 
+若要從您的 Cassandra API 帳戶查詢資料，請使用下列步驟：
 
-```java
-/**
-* Select all rows from user table
-*/
-public void selectAllUsers() {
+1. 開啟 `src\main\java\com\azure\cosmosdb\cassandra` 資料夾下的 `UserRepository.java` 檔案。 附加下列程式碼區塊。 此程式碼提供三種方法： 
 
-    final String query = "SELECT * FROM uprofile.user";
-    List<Row> rows = session.execute(query).all();
+   * 查詢資料庫中的所有使用者
+   * 查詢依使用者識別碼篩選的特定使用者
+   * 刪除資料表。
 
-    for (Row row : rows) {
-       LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-    }
-}
+   ```java
+   /**
+   * Select all rows from user table
+   */
+   public void selectAllUsers() {
 
-/**
-* Select a row from user table
-*
-* @param id user_id
-*/
-public void selectUser(int id) {
-    final String query = "SELECT * FROM uprofile.user where user_id = 3";
-    Row row = session.execute(query).one();
+     final String query = "SELECT * FROM uprofile.user";
+     List<Row> rows = session.execute(query).all();
 
-    LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-}
+     for (Row row : rows) {
+        LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+     }
+   }
 
-/**
-* Delete user table.
-*/
-public void deleteTable() {
-   final String query = "DROP TABLE IF EXISTS uprofile.user";
-   session.execute(query);
-}
-```
+   /**
+   * Select a row from user table
+   *
+   * @param id user_id
+   */
+   public void selectUser(int id) {
+      final String query = "SELECT * FROM uprofile.user where user_id = 3";
+      Row row = session.execute(query).one();
 
-開啟 `src\main\java\com\azure\cosmosdb\cassandra` 資料夾下的 `UserProfile.java` 檔案。 此類別包含會呼叫您先前所定義 createKeyspace、createTable 和 insert data 方法的主要方法。 現在，附加查詢所有使用者或特定使用者的下列程式碼：
+      LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+   }
 
-```java
-LOGGER.info("Select all users");
-repository.selectAllUsers();
+   /**
+   * Delete user table.
+   */
+   public void deleteTable() {
+     final String query = "DROP TABLE IF EXISTS uprofile.user";
+     session.execute(query);
+   }
+   ```
 
-LOGGER.info("Select a user by id (3)");
-repository.selectUser(3);
+2. 開啟 `src\main\java\com\azure\cosmosdb\cassandra` 資料夾下的 `UserProfile.java` 檔案。 此類別包含會呼叫您先前所定義 createKeyspace、createTable 和 insert data 方法的主要方法。 現在，附加查詢所有使用者或特定使用者的下列程式碼：
 
-LOGGER.info("Delete the users profile table");
-repository.deleteTable();
-```
+   ```java
+   LOGGER.info("Select all users");
+   repository.selectAllUsers();
+
+   LOGGER.info("Select a user by id (3)");
+   repository.selectUser(3);
+
+   LOGGER.info("Delete the users profile table");
+   repository.deleteTable();
+   ```
 
 ## <a name="run-the-java-app"></a>執行 Java 應用程式
 1. 開啟命令提示字元或終端機視窗。 貼上下列程式碼區塊。 

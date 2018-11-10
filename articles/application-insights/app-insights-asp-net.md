@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 86c0343a3492bf91eedda9303e3c6ac9cf86c4c3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 498633d9f73c4a9b669ddd3469b62c01d2a19397
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947314"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958707"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
@@ -150,7 +150,7 @@ Application Insights 設定畫面：
 
 * **[在 Visual Studio 中使用 Application Insights](app-insights-visual-studio.md)**<br/>包括使用遙測來偵錯、診斷搜尋及鑽研程式碼的相關資訊。
 * **[使用 Application Insights 入口網站](app-insights-dashboards.md)**<br/> 包括儀表板、功能強大的診斷和分析工具、警示、即時的應用程式相依性對應，以及遙測匯出的相關資訊。
-* **[分析 - ](app-insights-analytics-tour.md)** - 功能強大的查詢語言。
+* **[分析 - ](../log-analytics/query-language/get-started-analytics-portal.md)** - 功能強大的查詢語言。
 
 ### <a name="alerts"></a>警示
 

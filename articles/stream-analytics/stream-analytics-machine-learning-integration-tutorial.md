@@ -3,18 +3,18 @@ title: Azure 串流分析與 Azure Machine Learning 整合
 description: 本文說明如何使用使用者定義函式，快速設定與 Azure Machine Learning 整合的簡單 Azure 串流分析作業。
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/16/2018
-ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5468117fe117623b2e03fdf8ec451a9a0151e3dd
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527907"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979160"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>使用 Azure 串流分析和 Azure Machine Learning 執行情感分析
 本文說明如何快速設定簡單的 Azure 串流分析工作與 Azure Machine Learning 整合。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
@@ -36,7 +36,7 @@ ms.locfileid: "31527907"
 
 ![串流分析機器學習服務整合概觀](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始之前，請確定您具有下列項目：
 
 * 有效的 Azure 訂用帳戶。

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: eb50673b4f618caadfa1abfb654d7e3f15e51713
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023946"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740955"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "50023946"
 ## <a name="release-notes"></a>版本資訊
 
 ### <a name="v2-builds"></a>v2 組建
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* 已修正分割租用集合時處理分割期間可能發生的問題。 此問題可能會導致已刪除分割區的租用未從租用集合中刪除。 此版本已經修正這個問題。
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * 固定式估算程式計算，適用於多重主機帳戶和新的工作階段權杖格式。

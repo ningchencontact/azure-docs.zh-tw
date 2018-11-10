@@ -4,7 +4,7 @@ description: 轉換擴展集範本至受控磁碟擴展集範本。
 keywords: 虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
-ms.author: negat
-ms.openlocfilehash: 760e30f5c6f4ecaff299bae1725548a6a7c5184c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781066"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739561"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>轉換擴展集範本至受控磁碟擴展集範本
 
-使用 Resource Manager 範本來建立不使用受控磁碟之擴展集的客戶可能希望修改它以使用受控磁碟。 本文說明如何使用受控磁碟，來作為 [Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates) (提供 Resource Manager 範本範例的社群導向存放庫) 的提取要求範例。 您可以在 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998) 找到完整提取要求，並在下面找到主要差異部分以及說明：
+使用 Resource Manager 範本來建立不使用受控磁碟之擴展集的客戶可能希望修改它以使用受控磁碟。 本文說明如何使用受控磁碟，來作為 [Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates) (提供 Resource Manager 範本範例的社群導向存放庫) 的提取要求範例。 您可以在 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998) 找到完整的提取要求，下方則提供相關的差異部分及說明：
 
 ## <a name="making-the-os-disks-managed"></a>將 OS 磁碟設定為受控磁碟
 

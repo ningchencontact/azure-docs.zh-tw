@@ -8,12 +8,12 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dbbd07e93602855afb0c9755e8872e0b46557611
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030014"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741417"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>了解開發 IoT Edge 模組的需求和工具
 
@@ -28,27 +28,25 @@ IoT Edge 中樞提供兩個主要功能：Proxy 到 IoT 中樞，以及本機通
 ### <a name="iot-hub-primitives"></a>IoT 中樞基本項目
 IoT 中樞會看見一個類似裝置的模組執行個體，這表示：
 
-* 它具有一個模組對應項，其與[裝置對應項][ lnk-devicetwin]及該裝置的其他模組對應項截然不同；
-* 它會傳送[裝置到雲端的訊息][lnk-iothub-messaging]；
-* 它可以接收特別在其身分識別上設為目標的[直接方法][lnk-methods]。
+* 它具有一個模組對應項，其與[裝置對應項](../iot-hub/iot-hub-devguide-device-twins.md)及該裝置的其他模組對應項截然不同；
+* 它會傳送[裝置到雲端的訊息](../iot-hub/iot-hub-devguide-messaging.md)；
+* 它可以接收特別在其身分識別上設為目標的[直接方法](../iot-hub/iot-hub-devguide-direct-methods.md)。
 
 模組目前無法接收雲端到裝置的訊息，也無法使用檔案上傳功能。
 
-撰寫模組時，您可以只使用 [Azure IoT 裝置 SDK][lnk-devicesdk] 來連線到 IoT Edge 中樞，並使用上述功能，就像您在搭配裝置應用程式使用 IoT 中樞時所做的，唯一差異在於您必須從應用程式後端參考模組識別，而不是參考裝置識別。
+撰寫模組時，您可以使用 [Azure IoT 裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md) 來連線到 IoT Edge 中樞，並使用上述功能，就像您在搭配裝置應用程式使用 IoT 中樞時所做的，唯一差異在於您必須從應用程式後端參考模組識別，而不是參考裝置識別。
 
-請參閱[開發 IoT Edge 模組並部署至模擬裝置][lnk-tutorial2]，以取得傳送裝置到雲端訊息和使用模組對應項的模組應用程式範例。
+請參閱[開發 IoT Edge 模組並部署至模擬裝置](tutorial-csharp-module.md)，以取得傳送裝置到雲端訊息和使用模組對應項的模組應用程式範例。
 
 ### <a name="device-to-cloud-messages"></a>裝置到雲端的訊息
-為了能夠對裝置到雲端的訊息進行複雜處理，IoT Edge 中樞在模組之間以及模組與 IoT 中樞之間提供宣告式路由傳送。
-這樣可讓模組攔截並處理其他模組所傳送的訊息，並將它們傳播至複雜的管線。
-[模組撰寫][lnk-module-comp]一文說明如何使用路由，將模組撰寫為複雜的管線。
+為了能夠對裝置到雲端的訊息進行複雜處理，IoT Edge 中樞在模組之間以及模組與 IoT 中樞之間提供宣告式路由傳送。 宣告式路由可讓模組攔截並處理其他模組所傳送的訊息，並將它們傳播至複雜的管線。 [模組撰寫](module-composition.md)一文說明如何使用路由，將模組撰寫為複雜的管線。
 
 IoT Edge 模組不同於一般的 IoT 中樞裝置應用程式，可接收其本機 IoT Edge 中樞正在進行 Proxy 處理的裝置到雲端訊息，以處理它們。
 
-IoT Edge 中樞會根據[模組撰寫][lnk-module-comp]一文中所述的宣告式路由，將訊息傳播至模組。 開發 IoT Edge 模組時，您可以藉由設定訊息處理常式來接收這些訊息，如[開發 IoT Edge 模組並部署至模擬裝置][lnk-tutorial2]教學課程中所示。
+IoT Edge 中樞會根據[模組撰寫](module-composition.md)一文中所述的宣告式路由，將訊息傳播至模組。 在開發 IoT Edge 模組時，您可以透過設定訊息處理常式來接收這些訊息。
 
 為了簡化路由的建立，IoT Edge 新增了模組「輸入」和「輸出」端點的概念。 模組可以接收路由傳送給它的所有裝置到雲端訊息，而不需指定任何輸入，而且可以在未指定任何輸出的情況下傳送裝置到雲端訊息。
-不過，使用明確的輸入和輸出，可讓路由傳送規則更容易了解。 如需路由傳送規則以及模組之輸入和輸出端點的詳細資訊，請參閱[模組撰寫][lnk-module-comp]。
+不過，使用明確的輸入和輸出，可讓路由傳送規則更容易了解。 如需路由規則以及模組之輸入和輸出端點的詳細資訊，請參閱[模組撰寫](module-composition.md)。
 
 最後，使用下列系統屬性來為 Edge 中樞所處理的裝置到雲端訊息加上戳記：
 
@@ -66,20 +64,7 @@ IoT Edge 中樞會根據[模組撰寫][lnk-module-comp]一文中所述的宣告�
 
 類似情況是，IoT Edge 執行階段會在可於環境變數 `EdgeModuleCACertificateFile` 中取得其路徑的檔案中，插入用來驗證 IoT Edge 中樞連線的憑證。
 
-[開發 IoT Edge 模組並部署至模擬裝置][lnk-tutorial2]教學課程示範如何確定憑證位於您模組應用程式的電腦存放區中。 顯然使用該憑證來信任連線的任何其他方法都適用。
-
-## <a name="packaging-as-an-image"></a>封裝為映像
-IoT Edge 模組會封裝為 Docker 映像。
-您可以直接使用 Docker 工具鏈，或[開發 IoT Edge 模組並部署至模擬裝置][lnk-tutorial2]教學課程中所示的 Visual Studio Code。
-
 ## <a name="next-steps"></a>後續步驟
 
-當您開發模組之後，請了解如何[大範圍部署和監視 IoT Edge 模組][lnk-howto-deploy]。
+當您開發模組之後，請了解如何[大範圍部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)。
 
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-devicetwin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-iothub-messaging]: ../iot-hub/iot-hub-devguide-messaging.md
-[lnk-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-tutorial2]: tutorial-csharp-module.md
-[lnk-module-comp]: module-composition.md
-[lnk-howto-deploy]: how-to-deploy-monitor.md

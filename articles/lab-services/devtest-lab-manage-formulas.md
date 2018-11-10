@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7a68f545f60829e5da83f0734c57a4d210cb843
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 47699925f057aab25fe6f7c1c7d0b0620e7e4dbe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001476"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227989"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>管理 Azure DevTest Labs 公式
 
@@ -38,7 +38,7 @@ ms.locfileid: "39001476"
 ### <a name="create-a-formula-from-a-base"></a>從基底建立公式
 下列步驟會引導您完成從自訂映像、Marketplace 映像或其他公式建立公式的程序。
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
 2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 
@@ -86,7 +86,7 @@ ms.locfileid: "39001476"
 > 
 > 
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。  
 4. 在實驗室的 [概觀]  刀鋒視窗中，選取要從中建立公式的 VM。
@@ -103,7 +103,7 @@ ms.locfileid: "39001476"
 ## <a name="modify-a-formula"></a>修改公式
 若要修改公式，請遵循下列步驟︰
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。  
 4. 在實驗室的刀鋒視窗上，選取 [公式 (可重複使用的基底)] 。
@@ -115,7 +115,7 @@ ms.locfileid: "39001476"
 ## <a name="delete-a-formula"></a>刪除公式
 若要刪除公式，請遵循下列步驟︰
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。  
 4. 在實驗室的 [設定] 刀鋒視窗上，選取 [公式]。

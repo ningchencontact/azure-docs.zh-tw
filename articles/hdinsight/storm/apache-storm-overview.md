@@ -2,20 +2,20 @@
 title: 什麼是 Apache Storm - Azure HDInsight
 description: Apache Storm 可讓您即時處理資料流。 Azure HDInsight 可讓您在 Azure 雲端上輕鬆建立 Storm 叢集。 使用 Visual Studio，您可以使用 C# 建立 Storm 解決方案，然後再部署到 HDInsight Storm 叢集。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm 使用案例,storm 叢集,什麼是 apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 353ab846c576a9b133cf640bbc856ec6eddf73f4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 034e3cfddee8cd6b51193e16ba0972d7f7595832
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982884"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005905"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 

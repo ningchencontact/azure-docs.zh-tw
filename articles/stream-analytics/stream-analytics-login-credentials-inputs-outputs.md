@@ -3,18 +3,18 @@ title: 替換 Azure 串流分析作業中的登入認證
 description: 本文說明如何更新 Azure 串流分析作業中輸入和輸出接收的認證。
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 362fdca3b9a54ea0a8785ae37b32b88cbe0f67ba
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025764"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978759"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>針對串流分析作業的輸入和輸出替換登入認證
 

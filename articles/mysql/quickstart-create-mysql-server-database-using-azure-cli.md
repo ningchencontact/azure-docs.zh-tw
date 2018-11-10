@@ -1,6 +1,6 @@
 ---
 title: 快速入門：建立適用於 MySQL 的 Azure 資料庫伺服器 - Azure CLI
-description: 此快速入門說明如何使用 Azure CLI 在 Azure 資源群組中建立 Azure Database for MySQL 伺服器。
+description: 本快速入門說明如何使用 Azure CLI 在 Azure 資源群組中建立 Azure Database for MySQL 伺服器。
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,23 +9,23 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/01/2018
 ms.custom: mvc
-ms.openlocfilehash: c5d76141de6f5d256c7591da928c1395e83a8362
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6e6a22d450aa9b51aa16ebf5e712d65e924b7869
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406017"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958384"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 建立 Azure Database for MySQL 伺服器
-此快速入門說明如何使用 Azure CLI，在大約 5 分鐘內於 Azure 資源群組中建立 Azure Database for MySQL 伺服器。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
+本快速入門說明如何使用 Azure CLI，在大約 5 分鐘內於 Azure 資源群組中建立 Azure Database for MySQL 伺服器。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，此文章會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 如果您有多個訂用帳戶，請選擇資源所在或作為計費對象的適當訂用帳戶。 使用 [az account set](/cli/azure/account#az-account-set) 命令來選取您帳戶底下的特定訂用帳戶 ID。
 ```azurecli-interactive
@@ -56,7 +56,7 @@ ssl-enforcement | 已啟用 | 是否應針對此伺服器啟用 SSL。 允許的
 storage-size | 51200 | 伺服器的儲存體容量 (單位為 MB)。 有效 storage-size 的最小值為 5120 MB，並以 1024 MB 的增量增加。 如需儲存體大小限制的詳細資訊，請參閱[定價層](./concepts-pricing-tiers.md)文件。 
 version | 5.7 | MySQL 主要版本。
 admin-user | myadmin | 適用於系統管理員登入的使用者名稱。 此名稱不得為 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
-admin-password | *安全密碼* | 系統管理員使用者的密碼。 它必須包含 8 到 128 個字元。 您的密碼必須包含下列三個類別的字元：英文大寫字母、英文小寫字母、數字與非英數字元。
+admin-password | *安全密碼* | 系統管理員使用者的密碼。 其必須包含 8 到 128 個字元。 您的密碼必須包含下列三個類別的字元：英文大寫字母、英文小寫字母、數字與非英數字元。
 
 
 sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
@@ -89,7 +89,7 @@ az mysql server firewall-rule create --resource-group myresourcegroup --server m
 
 
 ## <a name="configure-ssl-settings"></a>進行 SSL 設定
-預設會強制執行您的伺服器與用戶端應用程式之間的 SSL 連線。 此預設值可透過加密透過網際網路的資料流，確保「移動中」資料的安全性。 為了讓此快速入門更容易進行，請停用您伺服器的 SSL 連線。 不建議對生產伺服器停用 SSL。 如需詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。
+預設會強制執行您的伺服器與用戶端應用程式之間的 SSL 連線。 此預設值可藉由加密透過網際網路的資料流，確保「移動中」資料的安全性。 為了讓本快速入門更容易進行，請停用您伺服器的 SSL 連線。 不建議對生產伺服器停用 SSL。 如需詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。
 
 下列範例會停用在 MySQL 伺服器上強制執行 SSL。
  
@@ -136,12 +136,12 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>使用 mysql.exe 命令列工具連線到伺服器
-使用 **mysql.exe** 命令列工具連線到伺服器。 您可以從[這裡](https://dev.mysql.com/downloads/)下載 MySQL，再將它安裝於電腦上。 相反地，您也可以按一下程式碼範例上的 [試用] 按鈕，或是 Azure 入口網站右上角工具列的 `>_` 按鈕，並啟動 **Azure Cloud Shell**。
+使用 **mysql.exe** 命令列工具連線到伺服器。 您可以從[這裡](https://dev.mysql.com/downloads/)下載 MySQL，再將它安裝於電腦上。 
 
 輸入下一個命令： 
 
 1. 使用 **mysql** 命令列工具連線到伺服器︰
-```azurecli-interactive
+```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
@@ -206,7 +206,7 @@ mysql>
 |   連線名稱 | 我的連線 | 指定此連線的標籤 (這可以是任何項目) |
 | 連線方式 | 選擇標準 (TCP/IP) | 使用 TCP/IP 通訊協定來連線到 MySQL> 的 Azure 資料庫 |
 | 主機名稱 | mydemoserver.mysql.database.azure.com | 您先前記下的伺服器名稱。 |
-| 連接埠 | 3306 | 會使用 MySQL 的預設連接埠。 |
+| Port | 3306 | 會使用 MySQL 的預設連接埠。 |
 | 使用者名稱 | myadmin@mydemoserver | 先前記下的伺服器管理員登入。 |
 | 密碼 | **** | 使用您稍早設定的管理帳戶密碼。 |
 

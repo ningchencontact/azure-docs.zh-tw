@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 845bc46ec56bfd6681c4fb318a57de19f66c0edf
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f1ca7abc867df25d37093cb777f35216b5ee5a30
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403862"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957976"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>針對 Log Analytics VM 擴充功能進行疑難排解
 本文可協助您針對在使用執行 Microsoft Azure 之 Windows 與 Linux 虛擬機器的 Log Analytics VM 擴充功能時可能遇到的錯誤進行疑難排解，並建議可能的解決方法。
@@ -58,7 +58,7 @@ ms.locfileid: "49403862"
 6. 在虛擬機器上提高權限的 PowerShell 視窗中輸入下列命令，以檢視 Microsoft Monitoring Agent 的狀態 `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. 檢閱 `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs` 中的 Microsoft Monitoring Agent 安裝記錄檔
 
-如需詳細資訊，請參閱[針對 Windows 擴充功能進行疑難排解](../virtual-machines/windows/extensions-oms.md)。
+如需詳細資訊，請參閱[針對 Windows 擴充功能進行疑難排解](../virtual-machines/extensions/oms-windows.md)。
 
 ## <a name="troubleshooting-linux-vm-extension"></a>針對 Linux VM 擴充功能進行疑難排解
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
@@ -70,7 +70,7 @@ ms.locfileid: "49403862"
 2. 若是其他不良狀態，請檢閱 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` 和 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log` 中的 Log Analytics Linux 代理程式 VM 擴充功能記錄檔
 3. 如果擴充狀態良好，但資料未上傳，請檢閱 `/var/opt/microsoft/omsagent/log/omsagent.log` 中的 Log Analytics Linux 代理程式記錄檔
 
-如需詳細資訊，請參閱[針對 Linux 擴充功能進行疑難排解](../virtual-machines/linux/extensions-oms.md)。
+如需詳細資訊，請參閱[針對 Linux 擴充功能進行疑難排解](../virtual-machines/extensions/oms-linux.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

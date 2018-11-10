@@ -2,19 +2,19 @@
 title: 在 HDInsight 上執行 Hadoop 範例 - Azure
 description: 利用提供的範例開始使用 Azure HDInsight 服務。 使用 PowerShell 指令碼在資料叢集上執行 MapReduce 程式。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59e6fd0a05374329efb20201c8d904cbbdc72b1a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d1da4d10b6346d774c657b0263c9da6278116b61
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110994"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006408"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 中執行 Hadoop MapReduce 範例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "43110994"
 * [字數統計][hdinsight-sample-wordcount]：計算文字檔中的文字出現次數。
 * [C# 串流字數統計][hdinsight-sample-csharp-streaming]：使用 Hadoop 串流介面計算文字檔中的文字出現次數。
 * [Pi 估算器][hdinsight-sample-pi-estimator]：使用統計 (擬蒙特卡羅法) 方法來估計 Pi 的值。
-* [10-GB Graysort][hdinsight-sample-10gb-graysort]：使用 HDInsight 在 10 GB 檔案上執行一般用途的 GraySort。 有三個工作可執行：Teragen、Terasort 和 Teravalidate，分別用來產生資料、排序資料，以及確認資料已適當排序。
+* [**10-GB Graysort**][hdinsight-sample-10gb-graysort]：使用 HDInsight 在 10 GB 檔案上執行一般用途的 GraySort。 有三個工作可執行：Teragen、Terasort 和 Teravalidate，分別用來產生資料、排序資料，以及確認資料已適當排序。
 
 > [!NOTE]
 > 原始程式碼可以在附錄中找到。
@@ -167,7 +167,7 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 �
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10-GB Graysort
-本範例使用不太大的 10GB 資料，所以執行起來相對較快。 本範例使用 Owen O'Malley 和 Arun Murthy 所開發的 MapReduce 應用程式，此應用程式於 2009 年的年度一般目的 (「耐力賽」) TB 排序效能評定中，以 0.578TB/分鐘 (173 分鐘內達到 100TB) 的速率獲勝。 如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark](http://sortbenchmark.org/) 網站。
+本範例使用不太大的 10 GB 資料，所以執行起來相對較快。 本範例使用 Owen O'Malley 和 Arun Murthy 所開發的 MapReduce 應用程式，此應用程式於 2009 年的年度一般目的 (「耐力賽」) TB 排序效能評定中，以 0.578TB/分鐘 (173 分鐘內達到 100 TB) 的速率獲勝。 如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark](http://sortbenchmark.org/) 網站。
 
 本範例使用三組 MapReduce 程式：
 
@@ -211,7 +211,6 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 �
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop][hdinsight-use-pig]
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop][hdinsight-use-hive]
 * [在 HDInsight 中提交 Hadoop 作業][hdinsight-submit-jobs]
-* [Azure HDInsight SDK 文件][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>附錄 A - 字數統計原始程式碼
 
@@ -977,8 +976,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md

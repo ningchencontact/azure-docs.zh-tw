@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2edfa84530c147e1f716aef10c967ac36eadc922
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250725"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740367"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>治理 Azure DevTest Labs 基礎結構 - 資源
 此文章將說明如何在組織內調整與管理適用於 DevTest Labs 的資源。 
@@ -67,7 +67,7 @@ ms.locfileid: "48250725"
 
 您可能也需要考慮地理界限。 例如，位於美國東部 (US) 的開發人員可能會使用佈建於美國東部 2 的實驗室。 此外，可能會將位於德克薩斯州達拉斯和科羅拉多州丹佛的開發人員重新導向來使用位於美國中南部的資源。 如果要與外部協力廠商共同合作，則可能會將他們指派到不是由內部開發人員所使用的實驗室。 
 
-您也可以在 Visual Studio Team Services 小組專案內，針對特定專案使用實驗室。 然後，透過指定的 Azure Active Directory 群組套用安全性，以允許您存取這兩組資源。 指派到實驗室的虛擬網路可以是另一個要合併使用者的界限。
+您還可以將實驗室用於 Azure DevOps 專案內的特定專案。 然後，透過指定的 Azure Active Directory 群組套用安全性，以允許您存取這兩組資源。 指派到實驗室的虛擬網路可以是另一個要合併使用者的界限。
 
 ## <a name="deletion-of-resources"></a>刪除資源
 

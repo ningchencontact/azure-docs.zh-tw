@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038002"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979194"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -142,7 +142,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>如何為雲端服務啟用 WAD 記錄？
 您可以透過下列選項來啟用 Windows Azure 診斷 (WAD) 記錄：
-1. [從 Visual Studio 啟用](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+1. [從 Visual Studio 啟用](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [透過 .Net 程式碼啟用](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [透過 PowerShell 啟用](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
@@ -248,7 +248,7 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 
 有關啟用雲端服務 Application Insights 的詳細資訊，請參閱 [Azure 雲端服務的 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
-有關如何啟用雲端服務 Azure 診斷記錄的詳細資訊，請參閱[為 Azure 雲端服務和虛擬機器設定診斷](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+有關如何啟用雲端服務 Azure 診斷記錄的詳細資訊，請參閱[為 Azure 雲端服務和虛擬機器設定診斷](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## <a name="generic"></a>泛型
 

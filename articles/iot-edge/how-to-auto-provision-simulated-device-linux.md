@@ -4,16 +4,16 @@ description: 在 Linux VM 上使用模擬的 TPM 來測試 Azure IoT Edge 的裝
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9609aab6c70bc0c2755de142023bd26e7417987a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347592"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739659"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>使用虛擬 TPM 在 Linux 虛擬機器上建立及佈建 Edge 裝置
 
@@ -28,7 +28,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 本文中的步驟係供測試之用。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [已啟用 Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 的 Windows 開發機器。 本文使用執行 Ubuntu Server VM 的 Windows 10。 
 * 使用中的 IoT 中樞。 
@@ -180,7 +180,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
    成功的輸出顯示如下：
 
    ```output
-   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
 8. 開啟 IoT Edge 執行階段複寫檔案。 

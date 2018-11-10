@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: df48e0dbf5a6c010f659e1019e56b7670c264234
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319688"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228176"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>保留的 IP 位址 (傳統部署)
 
@@ -43,7 +43,7 @@ ms.locfileid: "49319688"
 - 我可以有多少保留的 IP？
     如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
 - 保留的 IP 是否會收取費用？
-    有時是。 如需定價詳細資料，請參閱[保留的 IP 位址定價詳細資料](http://go.microsoft.com/fwlink/?LinkID=398482)頁面。
+    有時是。 如需定價詳細資料，請參閱[保留的 IP 位址定價詳細資料](https://go.microsoft.com/fwlink/?LinkID=398482)頁面。
 - 我該如何保留 IP 位址？
     您可以使用 PowerShell、[Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 或 [Azure 入口網站](https://portal.azure.com)，在 Azure 區域中保留 IP 位址。 保留的 IP 位址會與您的訂用帳戶關聯。
 - 我是否可以將保留的 IP 位址與同質群組型 VNet 搭配使用？
@@ -83,7 +83,7 @@ Get-AzureReservedIP
     OperationStatus      : Succeeded
 
 >[!NOTE]
->使用 PowerShell 來建立保留的 IP 位址時，您無法指定資源群組以在其中建立保留的 IP。 Azure 會自動將它放在名為 *Default-Networking* 的資源群組中。 如果您使用 [Azure 入口網站](http://portal.azure.com)來建立保留的 IP，則可以指定您選擇的任何資源群組。 不過，如果您是在 *Default-Networking* 以外的資源群組中建立保留的 IP，則每當您使用 `Get-AzureReservedIP` 和 `Remove-AzureReservedIP` 之類的命令來參考保留的 IP 時，都必須參考 *Group resource-group-name reserved-ip-name* 名稱。  例如，如果您在名為 *myResourceGroup* 的資源群組中建立名為 *myReservedIP* 的保留 IP，就必須以 *Group myResourceGroup myReservedIP* 的形式參考保留的 IP 名稱。   
+>使用 PowerShell 來建立保留的 IP 位址時，您無法指定資源群組以在其中建立保留的 IP。 Azure 會自動將它放在名為 *Default-Networking* 的資源群組中。 如果您使用 [Azure 入口網站](http://portal.azure.com)來建立保留的 IP，則可以指定您選擇的任何資源群組。 不過，如果您是在 *Default-Networking* 以外的資源群組中建立保留的 IP，則每當您使用 `Get-AzureReservedIP` 和 `Remove-AzureReservedIP` 之類的命令來參考保留的 IP 時，都必須參考 *Group resource-group-name reserved-ip-name* 名稱。  例如，如果您在名為 *myResourceGroup* 的資源群組中建立名為 *myReservedIP* 的保留 IP，就必須以 *Group myResourceGroup myReservedIP* 的形式參考保留的 IP 名稱。   
 
 
 一旦保留 IP，其就會與您的訂用帳戶相關聯，直到刪除為止。 請刪除保留的 IP，如下所示：

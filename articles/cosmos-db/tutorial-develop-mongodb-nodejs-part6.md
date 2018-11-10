@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/17/2018
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: a1705913e1656901d0a87a3cebb2eb69a6c7ad63
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 667c1fbce398e06f9f2a6edca21935ae1062a737
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698582"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740565"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 6 部分：將 Post、Put 和 Delete 函式新增至應用程式
 
@@ -88,13 +88,13 @@ ms.locfileid: "43698582"
     });
     ```
 
-5. 執行應用程式，檢查一切是否運作正常。 在 Visual Studio Code 中，儲存所有的變更，按一下左側的 [偵錯] 按鈕![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png)，然後按一下 [開始偵錯] 按鈕![Visual Studio Code 中的開始偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png)。
+5. 執行應用程式，檢查一切是否運作正常。 在 Visual Studio Code 中儲存您所有的變更，選取左側的 [偵錯] 按鈕 ![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png)，然後選取 [開始偵錯] 按鈕 ![Visual Studio Code 中的開始偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png)。
 
 6. 現在返回您的網際網路瀏覽器，並且按 F12 (在大部分的機器上) 開啟開發人員工具 [網路] 索引標籤。 瀏覽至 [http://localhost:3000](http://localhost:3000) 以監看透過網路撥打的電話。
 
     ![Chrome 中的 [網路] 索引標籤會顯示網路活動](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. 按一下 [新增 Hero] 按鈕來新增 Hero。 輸入識別碼為 "999"、名稱為 "Fred"，且招呼語為 "Hello"，然後按一下 [儲存]。 您應會在 [網路] 索引標籤中看到您已針對新 Hero 傳送 POST 要求。 
+7. 選取 [新增主圖] 按鈕以新增主圖。 輸入識別碼 "999"、名稱 "Fred" 和招呼語 "Hello"，然後選取 [儲存]。 您應會在 [網路] 索引標籤中看到您已針對新 Hero 傳送 POST 要求。 
 
     ![Chrome 中的 [網路] 索引標籤會顯示 Get 和 Post 函式的網路活動](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
@@ -173,17 +173,17 @@ ms.locfileid: "43698582"
     };
     ```
 
-4. 我們現已更新程式碼，請按一下 Visual Studio Code 中的 [重新啟動] 按鈕![Visual Studio Code 中的重新啟動按鈕](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png)。
+4. 我們現已更新程式碼，請選取 Visual Studio Code 中的 [重新啟動] 按鈕 ![Visual Studio Code 中的重新啟動按鈕](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png)。
 
-5. 重新整理網際網路瀏覽器中的頁面，然後按一下 [新增 Hero] 按鈕。 新增識別碼為 "9"、名稱為 "Starlord" 的 Hero，且招呼語為 "Hi"。 按一下 [儲存] 按鈕以儲存新 Hero。
+5. 重新整理網際網路瀏覽器中的頁面，然後選取 [新增主圖] 按鈕。 新增識別碼為 "9"、名稱為 "Starlord" 的 Hero，且招呼語為 "Hi"。 選取 [儲存] 按鈕以儲存新的主圖。
 
-6. 現在選取 **Starlord** Hero，並將招呼語從 "Hi" 變更為 "Bye"，然後按一下 [儲存] 按鈕。 
+6. 現在，選取 **Starlord** 主圖，並將招呼語從 "Hi" 變更為 "Bye"，然後選取 [儲存] 按鈕。 
 
     您現在可以在 [網路] 索引標籤中選取識別碼來顯示承載。 您可以在承載中看到招呼語現在已設定為 "Bye"。
 
     ![顯示承載的 Hero 應用程式和網路索引標籤](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
-    您也可以在 UI 中刪除其中一個 Hero，並查看完成刪除作業所需的時間。 試著針對名為 "Fred" 的 Hero 按一下 [刪除] 按鈕。
+    您也可以在 UI 中刪除其中一個 Hero，並查看完成刪除作業所需的時間。 試著針對名為 "Fred" 的主圖選取 [刪除] 按鈕。
 
     ![顯示完成函式所需時間的 Hero 應用程式和網路索引標籤](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 

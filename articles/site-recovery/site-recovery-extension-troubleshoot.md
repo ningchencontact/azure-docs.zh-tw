@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215033"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227467"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>對 Azure Site Recovery 代理程式的問題進行疑難排解
 
@@ -64,7 +64,7 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 1. 判斷「Windows Azure 客體代理程式服務」是否在 VM 服務 (services.msc) 中執行。 嘗試重新啟動「Windows Azure 客體代理程式服務」。    
 2. 如果「Windows Azure 客體代理程式服務」未顯示在控制台的服務中，請移至 [程式和功能] 來判斷是否已安裝「Windows 客體代理程式服務」。
 4. 如果「Windows Azure 客體代理程式」顯示在 [程式和功能] 中，請將「Windows 客體代理程式」解除安裝。
-5. 下載並安裝[最新版的代理程式 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您必須擁有系統管理員權限，才能完成安裝。
+5. 下載並安裝[最新版的代理程式 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您必須擁有系統管理員權限，才能完成安裝。
 6. 確認「Windows Azure 客體代理程式服務」顯示在服務中。
 7. 重新啟動保護作業。
 

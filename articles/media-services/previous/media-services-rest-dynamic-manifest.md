@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 396abe0801d76af3820d302d40d2fc076754741b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 50becbe517e98802c9a3af91b86f845df05378a7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785727"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227513"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>使用 Azure 媒體服務 REST API 建立篩選器
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ Request body
 
 
 ## <a name="update-filters"></a>更新篩選器
-使用 PATCH、PUT 或 MERGE 以新的屬性值更新篩選器。  如需這些作業的詳細資訊，請參閱 [PATCH、PUT、MERGE](http://msdn.microsoft.com/library/dd541276.aspx)。
+使用 PATCH、PUT 或 MERGE 以新的屬性值更新篩選器。  如需這些作業的詳細資訊，請參閱 [PATCH、PUT、MERGE](https://msdn.microsoft.com/library/dd541276.aspx)。
 
 如果您更新篩選器，則資料流端點需要兩分鐘的時間來重新整理規則。 如果內容是使用此篩選器提供的 (並快取在 Proxy 與 CDN 快取中)，則更新此篩選器會造成播放程式失敗。 更新篩選器之後，請清除快取。 如果這個選項無法執行，請考慮使用不同的篩選器。  
 

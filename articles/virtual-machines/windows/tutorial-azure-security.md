@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298505"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978497"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>教學課程：使用 Azure 資訊安全中心來監視 Windows 虛擬機器
 
@@ -133,7 +133,7 @@ Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資
 > * 檢視及修正組態的健康狀態問題
 > * 檢閱所偵測到的威脅
 
-前進到下一個教學課程，以了解如何建立具有 Azure DevOps Services 的 CI/CD 管線，並建立執行 IIS 的 Windows VM。
+前往下一個教學課程，了解如何在一組 Windows 虛擬機器上安裝 SQL&#92;IIS&#92;.NET 堆疊。
 
 > [!div class="nextstepaction"]
-> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)
+> [SQL&#92;IIS&#92;.NET 堆疊](tutorial-iis-sql.md)

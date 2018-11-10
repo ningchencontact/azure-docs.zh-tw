@@ -9,14 +9,14 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 56fc07c6d775ee8015ce244acb7782607bda802a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247845"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739782"
 ---
-# <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>將您的資料移轉至 Azure Cosmos DB Cassandra API 帳戶
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>教學課程：將您的資料移轉至 Azure Cosmos DB Cassandra API 帳戶
 
 本教學課程提供有關如何將 Apache Cassandra 資料移轉至 Azure Cosmos DB Cassandra API 的指示。 
 
@@ -101,7 +101,7 @@ ms.locfileid: "48247845"
 
 - 使用[資料表複製作業](cassandra-spark-table-copy-ops.md)將資料移至目的地 Cassandra API 端點 
 
-如果您的資料位於 Azure 虛擬機器或任何其他雲端的現有叢集中，則建議使用 Spark 作業來移轉資料。 這需要將 Spark 設定為一次性或定期擷取的中繼項目。 您可以使用內部部署環境與 Azure 之間的 Express Route 連線，來加速這項移轉。 
+如果您的資料位於 Azure 虛擬機器或任何其他雲端的現有叢集中，則建議使用 Spark 作業來移轉資料。 此選項需要將 Spark 設定為一次性或定期擷取的中繼項目。 您可以使用內部部署環境與 Azure 之間的 Express Route 連線，來加速這項移轉。 
 
 ## <a name="next-steps"></a>後續步驟
 

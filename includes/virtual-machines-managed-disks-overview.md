@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 617f60345fb2a349eddb0db697604ba383794591
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3e660dbcbfecd57c43ecec6006581364660adb44
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060470"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50737220"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure 受控磁碟概觀
 
@@ -69,7 +69,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 
 以下是進階受控磁碟可用的磁碟大小：
 
-| **進階 HDD 受控<br>磁碟類型** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **進階 SDD 受控<br>磁碟類型** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | 磁碟大小        | 32 GiB  | 64 GiB  | 128 GB | 256 GiB | 512 GB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
 

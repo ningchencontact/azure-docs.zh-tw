@@ -3,7 +3,7 @@ title: 修改 Azure 虛擬機器擴展集 | Microsoft Docs
 description: 深入了解如何使用 REST API、Azure PowerShell 及 Azure CLI，修改和更新 Azure 虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: negat
-ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: manayar
+ms.openlocfilehash: c3c01d7013749ca5cbd95224c230932a20a8146b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322068"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740582"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虛擬機器擴展集
-在應用程式的整個生命週期中，您可能需要修改或更新您的虛擬機器擴展集。 這些更新可能包括如何更新擴展集的組態，或者變更應用程式組態。 本文說明如何使用 REST API、Azure PowerShell 或 Azure CLI 來修改現有的擴展集。
+在應用程式的整個生命週期中，您可能需要修改或更新您的虛擬機器擴展集。 這些更新可能包括如何更新擴展集的組態，或者變更應用程式組態。 此文章說明如何使用 REST API、Azure PowerShell 或 Azure CLI 來修改現有的擴展集。
 
 ## <a name="fundamental-concepts"></a>基本概念
 
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-這些屬性會描述 VM 執行個體的組態，而非擴展集整體的組態。 例如，擴展集模型有 `overprovision` 作為屬性，而擴展集中 VM 執行個體的模型則沒有。 之所以會有這個差異，是因為過度佈建是適用於擴展集整體的屬性，而不適用於擴展集中個別 VM 執行個體 (如需有關過度佈建的詳細資訊，請參閱[擴展集的設計考量](virtual-machine-scale-sets-design-overview.md#overprovisioning))。
+這些屬性會描述擴展集內 VM 執行個體的設定，而非整個擴展集的設定。 例如，擴展集模型具有 `overprovision` 作為屬性，而擴展集內 VM 執行個體的模型則沒有。 之所以會有這個差異，是因為過度佈建是適用於擴展集整體的屬性，而不適用於擴展集中個別 VM 執行個體 (如需有關過度佈建的詳細資訊，請參閱[擴展集的設計考量](virtual-machine-scale-sets-design-overview.md#overprovisioning))。
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>擴展集 VM 執行個體檢視
-就像擴展集有執行個體檢視一樣，擴展集內的每個 VM 執行個體也有自己的執行個體檢視。 若要查詢擴展集中特定 VM 執行個體的執行個體檢視，您可以使用：
+就像擴展集有執行個體檢視一樣，擴展集內的每個 VM 執行個體也有自己的執行個體檢視。 若要查詢擴展集內特定 VM 執行個體的執行個體檢視，您可以使用：
 
 - REST API 執行 [ompute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview)，如下所示：
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-這些屬性會描述 VM 執行個體的目前執行階段狀態，包括套用至擴展集的所有擴充功能。
+這些屬性會描述擴展集內 VM 執行個體的目前執行階段狀態，包括套用至擴展集的所有擴充功能。
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>如何更新全域擴展集屬性
@@ -363,7 +363,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 
 ## <a name="vm-specific-updates"></a>VM 特定的更新
-某些修改可以套用至特定 VM，而無法套用至全域擴展集屬性。 目前唯一支援的虛擬機器特定更新是將資料磁碟連結至擴展集內的虛擬機器，或將資料磁碟與那些虛擬機器中斷連結。 這項功能處於預覽狀態。 如需詳細資訊請，參閱[預覽文件](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk) \(英文\)。
+某些修改可以套用至特定 VM，而無法套用至全域擴展集屬性。 目前唯一支援的虛擬機器特定更新是將資料磁碟連結至擴展集內的虛擬機器，或將資料磁碟與那些虛擬機器中斷連結。 此功能處於預覽狀態。 如需詳細資訊請，參閱[預覽文件](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk) \(英文\)。
 
 
 ## <a name="scenarios"></a>案例

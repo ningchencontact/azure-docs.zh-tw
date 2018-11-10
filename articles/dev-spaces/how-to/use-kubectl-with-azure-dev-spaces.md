@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 05/11/2018
 ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-manager: douge
-ms.openlocfilehash: 3dc0dd4b571f716bcabb67c4cbef1ea6d762eb94
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 6af96556d816e8773c3419b4545198148f6eca3a
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248653"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978327"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>使用 Kubectl 搭配 Azure Dev Spaces
 

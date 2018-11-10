@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7fa581610e007c583dfbad512f74ad335dc21a1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3364df360926f2065af8650076e129de75934c1a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974437"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741006"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>教學課程：使用 Azure CLI 建立包含 SSL 終止的應用程式閘道
 
@@ -155,15 +155,17 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-若要取得應用程式閘道的公用 IP 位址，您可以使用 [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。
+若要取得應用程式閘道的公用 IP 位址，您可以使用 [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show)。
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
   --query [ipAddress] \
   --output tsv
 ```
+
+將公用 IP 位址複製並貼到您瀏覽器的網址列。 在此範例中，URL 為：**https://52.170.203.149**。
 
 ![安全警告](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -180,14 +182,6 @@ az group delete --name myResourceGroupAG --location eastus
 ```
 
 ## <a name="next-steps"></a>後續步驟
-
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 建立自我簽署憑證
-> * 設定網路
-> * 建立包含憑證的應用程式閘道
-> * 建立包含預設後端集區的虛擬機器擴展集
 
 > [!div class="nextstepaction"]
 > [建立裝載多個網站的應用程式閘道](./tutorial-multiple-sites-cli.md)
