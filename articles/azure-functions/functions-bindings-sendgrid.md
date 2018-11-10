@@ -3,21 +3,19 @@ title: Azure Functions SendGrid 繫結
 description: Azure Functions SendGrid 繫結參考。
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: cfowler
-ms.service: functions
+author: craigshoemaker
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/29/2017
-ms.author: glenga
-ms.openlocfilehash: 2796a7d9fb44a05e1873e2fcbde82c837db202be
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.author: cshoe
+ms.openlocfilehash: 23ec5cd6eee3333922b5371a0ece631ebbc20939
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346448"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248026"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 繫結
 
@@ -103,8 +101,9 @@ public class OutgoingEmail
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
+using Microsoft.Extensions.Logging;
 
-public static void Run(TraceWriter log, string input, out Mail message)
+public static void Run(ILogger log, string input, out Mail message)
 {
      message = new Mail
     {        
@@ -153,7 +152,7 @@ public static void Run(TraceWriter log, string input, out Mail message)
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },        
         subject: "Azure news",
         content: [{
@@ -200,6 +199,31 @@ public static void Run(
 |**text**|**文字**| 電子郵件內容。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>host.json 設定
+
+蔖節說明 2.x 版中適用於此繫結的全域組態設定。 下面的範例 host.json 檔案僅包含此繫結的 2.x 版設定。 如需有關 2.x 版中全域組態設定的詳細資訊，請參閱[適用於 Azure Functions 2.x 版的 host.json 參考](functions-host-json.md)。
+
+> [!NOTE]
+> 有關 Functions 1.x 中 host.json 的參考，請參閱[適用於 Azure Functions 1.x 的 host.json 參考](functions-host-json-v1.md)。
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        }
+    }
+}
+```  
+
+|屬性  |預設值 | 說明 |
+|---------|---------|---------| 
+|from|n/a|所有函式的寄件者電子郵件地址。| 
+
 
 ## <a name="next-steps"></a>後續步驟
 

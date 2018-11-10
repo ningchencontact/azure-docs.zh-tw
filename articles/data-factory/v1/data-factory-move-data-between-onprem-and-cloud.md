@@ -1,6 +1,6 @@
 ---
 title: 移動資料 - 資料管理閘道 | Microsoft Docs
-description: 設定資料閘道器以在內部部署與雲端之間移動資料。 使用 Azure Data Factory 中的資料管理閘道移動資料。
+description: 設定資料閘道以在內部部署與雲端之間移動資料。 使用 Azure Data Factory 中的資料管理閘道移動資料。
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b221697b7450ad1c6dac87b7a08c7db8b11810bf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242835"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240449"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 在內部部署和雲端之間複製資料](../tutorial-hybrid-copy-powershell.md)。
+> 此文章適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 在內部部署和雲端之間複製資料](../tutorial-hybrid-copy-powershell.md)。
 
-本文提供使用 Data Factory 整合內部部署資料存放區與雲端資料存放區資料的概觀。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文和其他 Data Factory 核心概念文章：[資料集](data-factory-create-datasets.md)和[管線](data-factory-create-pipelines.md)。
+此文章提供使用 Data Factory 整合內部部署資料存放區與雲端資料存放區資料的概觀。 此文章是根據[資料移動活動](data-factory-data-movement-activities.md)一文和其他 Data Factory 核心概念文章：[資料集](data-factory-create-datasets.md)和[管線](data-factory-create-pipelines.md)。
 
 ## <a name="data-management-gateway"></a>資料管理閘道
 若要將資料移入/移出內部部署資料存放區，您必須在內部部署機器上安裝資料管理閘道。 您可以將閘道安裝在與資料存放區相同或相異的電腦上，只要閘道可以連接資料存放區即可。
@@ -36,7 +36,7 @@ ms.locfileid: "51242835"
 以下逐步解說將示範如何使用將資料從內部部署 **SQL Server** 資料庫移至 Azure Blob 儲存體的管線來建立 Data Factory。 在逐步解說中，您會在電腦上安裝及設定資料管理閘道。
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>逐步解說︰將內部部署資料複製到雲端
-在本逐步解說中，您會執行下列步驟： 
+在此逐步解說中，您會執行下列步驟： 
 
 1. 建立資料處理站。
 2. 建立資料管理閘道。 
@@ -44,12 +44,12 @@ ms.locfileid: "51242835"
 4. 建立資料集來代表輸入和輸出資料。
 5. 建立具有複製活動的管線來移動資料。
 
-## <a name="prerequisites-for-the-tutorial"></a>教學課程的必要條件
-開始進行本逐步解說之前，您必須具備下列必要條件：
+## <a name="prerequisites-for-the-tutorial"></a>教學課程的先決條件
+開始進行此逐步解說之前，您必須具備下列先決條件：
 
-* **Azure 訂用帳戶**。  如果您沒有訂用帳戶，則只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [免費試用](https://azure.microsoft.com/pricing/free-trial/) 一文。
-* **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文以取得建立步驟。
-* **SQL Server**。 在本教學課程中，您會使用內部部署 SQL 資料庫作為**來源**資料存放區。 
+* **Azure 訂用帳戶**。  如果您沒有訂用帳戶，則只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [免費試用](http://azure.microsoft.com/pricing/free-trial/) 一文。
+* **Azure 儲存體帳戶**。 在此教學課程中，您會使用 Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文以取得建立步驟。
+* **SQL Server**。 在此教學課程中，您會使用內部部署 SQL 資料庫作為**來源**資料存放區。 
 
 ## <a name="create-data-factory"></a>建立資料處理站
 在此步驟中，您將使用 Azure 入口網站來建立名為 **ADFTutorialOnPremDF**的 Azure Data Factory 執行個體。
@@ -92,7 +92,7 @@ ms.locfileid: "51242835"
     ![[建立閘道] 頁面](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
     > [!NOTE]
-    > 在本逐步解說中，您會建立只具有一個節點的邏輯閘道 (內部部署 Windows 機器)。 您可以將多個內部部署機器關聯到閘道以相應放大資料管理閘道。 您可以增加可在節點上同時執行的資料移動作業數目來進行相應增加。 這項功能也適用於具有單一節點的邏輯閘道。 如需得詳細資料，請參閱[在 Azure Data Factory 中調整資料管理閘道](data-factory-data-management-gateway-high-availability-scalability.md)一文。  
+    > 在此逐步解說中，您會建立只具有一個節點的邏輯閘道 (內部部署 Windows 機器)。 您可以將多個內部部署機器關聯到閘道以相應放大資料管理閘道。 您可以增加可在節點上同時執行的資料移動作業數目來進行相應增加。 此功能也適用於具有單一節點的邏輯閘道。 如需得詳細資料，請參閱[在 Azure Data Factory 中調整資料管理閘道](data-factory-data-management-gateway-high-availability-scalability.md)一文。  
 4. 在 [設定] 頁面中，按一下 [直接安裝在此電腦上]。 此動作會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。  
 
    > [!NOTE]
@@ -108,12 +108,12 @@ ms.locfileid: "51242835"
 
     這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。 您可以看到 **Microsoft 資料管理閘道組態管理員**應用程式已安裝在電腦上。 您也可以在 **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 資料夾中找到執行檔 **ConfigManager.exe**。
 
-    您也可以使用此頁面中的連結手動下載與安裝閘道器，並使用 [新金鑰]  文字方塊中顯示的金鑰來加以註冊。
+    您也可以使用此頁面中的連結手動下載與安裝閘道，並使用 [新金鑰]  文字方塊中顯示的金鑰來註冊它。
 
     如需閘道的所有詳細資料，請參閱 [資料管理閘道](data-factory-data-management-gateway.md) 一文。
 
    > [!NOTE]
-   > 您必須是本機電腦上的系統管理員，才能成功安裝和設定「資料管理閘道」。 您可以將其他使用者加入至 [資料管理閘道使用者]  本機 Windows 群組。 此群組的成員可以使用「資料管理閘道組態管理員」工具來設定閘道器。
+   > 您必須是本機電腦上的系統管理員，才能成功安裝和設定「資料管理閘道」。 您可以將其他使用者加入至 [資料管理閘道使用者]  本機 Windows 群組。 此群組的成員可以使用「資料管理閘道組態管理員」工具來設定閘道。
    >
    >
 5. 等候幾分鐘，或等候直到您看見下列通知訊息︰
@@ -121,7 +121,7 @@ ms.locfileid: "51242835"
     ![閘道安裝成功](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
 6. 在電腦上啟動**資料管理閘道組態管理員**應用程式。 在 [搜尋] 視窗中，輸入**資料管理閘道**以存取這個公用程式。 您也可以在 **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 資料夾中找到執行檔 **ConfigManager.exe**
 
-    ![閘道器組態管理員](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
+    ![閘道組態管理員](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. 確認您有看到 `adftutorialgateway is connected to the cloud service` 訊息。 底部的狀態列會顯示 [已連接到雲端服務] 和一個**綠色的核取記號**。
 
     在 [首頁] 索引標籤上，您也可以執行下列作業︰
@@ -131,9 +131,9 @@ ms.locfileid: "51242835"
    * 將更新安裝作業**排程**在一天當中的指定時間。
    * 檢視閘道的 **上次更新**時間。
    * 指定可以安裝閘道更新的時間。
-8. 切換到 [設定]  索引標籤。在 [憑證]  區段中指定的憑證，可用來加密/解密在入口網站指定的內部部署資料存放區認證 (選擇性)。 按一下 [變更]  以改用您自己的憑證。 根據預設，閘道器會使用由 Data Factory 服務自動產生的憑證。
+8. 切換到 [設定]  索引標籤。在 [憑證]  區段中指定的憑證，可用來加密/解密在入口網站指定的內部部署資料存放區認證 (選擇性)。 按一下 [變更]  以改用您自己的憑證。 根據預設，閘道會使用由 Data Factory 服務自動產生的憑證。
 
-    ![閘道器憑證組態](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
+    ![閘道憑證組態](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
     您也可以在 [設定] 索引標籤上執行下列動作︰
 
@@ -146,7 +146,7 @@ ms.locfileid: "51242835"
 
     您也可以在 [診斷]  索引標籤上執行以下動作：
 
-   * 使用 **測試連線** 一節來對使用閘道器的內部部署資料來源。
+   * 使用 **測試連線** 一節來對使用閘道的內部部署資料來源。
    * 按一下 [檢視記錄檔]  以查看 [事件檢視器] 視窗中的資料管理閘道記錄檔。
    * 按一下 [傳送記錄檔]  將含有過去七天記錄檔的 zip 檔案上傳到 Microsoft，以幫助針對問題進行疑難排解。
 10. 在 [診斷] 索引標籤的 [測試連接] 區段中，選取 [SqlServer] 做為資料存放區的類型，輸入資料庫伺服器名稱和資料庫名稱，指定驗證類型，輸入使用者名稱和密碼，然後按一下 [測試] 來測試閘道是否可連線到資料庫。
@@ -154,7 +154,7 @@ ms.locfileid: "51242835"
 12. 左側的樹狀檢視中，[資料閘道] 下方應該會顯示 **adftutorialgateway**。  如果按一下，應該會看到相關聯的 JSON。
 
 ## <a name="create-linked-services"></a>建立連結的服務
-在此步驟中，您會建立兩個連結服務：**AzureStorageLinkedService** 和 **SqlServerLinkedService**。 **SqlServerLinkedService** 會連結內部部署 SQL Server 資料庫，而 **AzureStorageLinkedService** 連結服務則會將 Azure Blob 存放區連結至 Data Factory。 稍後在本逐步解說中，您會建立可將內部部署 SQL Server 資料庫的資料複製到 Azure Blob 存放區的管線。
+在此步驟中，您會建立兩個連結服務：**AzureStorageLinkedService** 和 **SqlServerLinkedService**。 **SqlServerLinkedService** 會連結內部部署 SQL Server 資料庫，而 **AzureStorageLinkedService** 連結服務則會將 Azure Blob 存放區連結至 Data Factory。 稍後在此逐步解說中，您會建立可將內部部署 SQL Server 資料庫的資料複製到 Azure Blob 存放區的管線。
 
 #### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>在內部部署 SQL Server 資料庫中新增連結服務
 1. 在 [Data Factory 編輯器] 中，按一下工具列上的 [新增資料存放區]，然後選取 [SQL Server]。
@@ -363,7 +363,7 @@ ms.locfileid: "51242835"
    * 在 **typeProperties** 區段中，**來源類型**指定為 **SqlSource**，**接收類型**指定為 **BlobSink**。
    * **SqlSource** 的 **sqlReaderQuery** 屬性指定為 SQL 查詢 `select * from emp`。
 
-   開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如：2014-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。
+   開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如：2014-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在此教學課程中會用到。
 
    如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
 

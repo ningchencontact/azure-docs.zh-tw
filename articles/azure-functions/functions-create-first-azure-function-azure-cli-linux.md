@@ -1,103 +1,105 @@
 ---
-title: 在 Linux 上從 Azure CLI 建立您的第一個函式 (預覽) | Microsoft Docs
-description: 了解如何使用 Azure CLI 來建立您的第一個在預設 Linux 映像上執行的 Azure 函式。
+title: 在 Azure 中的 Linux 上建立您的第一個函式
+description: 了解如何使用 Azure Functions Core Tools 和 Azure CLI 建立第一個在 Azure 中的 Linux 上裝載的函式。
 services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 11/15/2017
+ms.date: 09/12/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
+ms.devlang: multiple
 manager: jeconnoc
-ms.openlocfilehash: 1cf20a4a93ef1b5bfb9c7818f35be5e75e45a3d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 1045e0cc0d114bb8b35e6136a2054b3642eac7e8
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901085"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249860"
 ---
-# <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>使用 Azure CLI 建立第一個在 Linux 上執行的函式 (預覽)
+# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>使用 Core Tools 和 Azure CLI 建立第一個在 Linux 上裝載的函式 (預覽)
 
-Azure Functions 可讓您在 Linux 上預設的 Azure App Service 容器中裝載函式。 您也可以[自備自訂容器](functions-create-function-linux-custom-image.md)。 這項功能目前為預覽狀態並且需要 [Functions 2.0 執行階段](functions-versions.md)。
+Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/serverless-computing/) Linux 環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 Linux 裝載功能目前為預覽狀態，並且需要 [Functions 2.0 執行階段](functions-versions.md)。
 
-本快速入門主題會逐步解說如何使用 Azure Functions 與 Azure CLI，在預設 App Service 容器裝載的 Linux 上建立第一個函式應用程式。 函式程式碼本身是從 GitHub 範例存放庫部署到映像。    
+本快速入門文章會逐步解說如何使用 Azure CLI 建立第一個在 Linux 上執行的函式應用程式。 您可以使用 [Azure Functions Core Tools](functions-run-local.md) 在本機建立函式程式碼，然後將其部署至 Azure。
 
-下列步驟適用於 Mac、Windows 或 Linux 電腦。 
+下列步驟適用於 Mac、Windows 或 Linux 電腦。 本文說明如何以 JavaScript 或 C# 建立函式。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，您需要：
+在執行此範例之前，您必須具備下列項目︰
+
++ 安裝 [Azure Core Tools 2.x 版](functions-run-local.md#v2)。
+
++ 安裝 [Azure CLI]( /cli/azure/install-azure-cli)。 此文章需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 您也可以使用 [Azure Cloud Shell](https://shell.azure.com/bash)。
 
 + 有效的 Azure 訂用帳戶。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="create-the-local-function-app-project"></a>建立本機函式應用程式專案
 
-如果您選擇在本機安裝和使用 CLI，本主題需要 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
+從命令列執行下列命令，以在目前本機目錄的 `MyFunctionProj` 資料夾中建立函式應用程式專案。 系統也會在 `MyFunctionProj` 中建立 GitHub 存放庫。
+
+```bash
+func init MyFunctionProj
+```
+
+當出現提示時，請使用方向鍵從下列語言選項中選取背景工作角色執行階段：
+
++ `dotnet`：建立 .NET 類別庫專案 (.csproj)。
++ `node`：建立 JavaScript 專案。
+
+```output
+Writing .gitignore
+Writing host.json
+Writing local.settings.json
+Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
+```
+
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
+
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>建立 Linux App Service 方案
+## <a name="create-a-linux-function-app-in-azure"></a>在 Azure 中建立 Linux 函式應用程式
 
-使用於 Functions 的 Linux 裝載目前僅支援 App Service 方案。 尚未支援使用情況方案裝載。 若要深入了解裝載，請參閱 [Azure Functions 裝載方案比較](functions-scale.md)。 
+您必須擁有函式應用程式以便在 Linux 上主控函式的執行。 函式應用程式可提供無伺服器環境讓您執行函式程式碼。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 命令，建立在 Linux 上執行的函式應用程式。
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+在下列命令中，請使用唯一函式應用程式名稱來替代您看到的 `<app_name>` 預留位置，並使用儲存體帳戶名稱來替代 `<storage_name>`。 `<app_name>` 也是函式應用程式的預設 DNS 網域。 此名稱在 Azure 中的所有應用程式之間必須是唯一的。
 
-## <a name="create-a-function-app-on-linux"></a>在 Linux 上建立函式應用程式
-
-您必須擁有函式應用程式以便在 Linux 上主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行執行。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 命令與 Linux App Service 方案來建立函式應用程式。 
-
-在下列命令中，使用唯一函式應用程式名稱來替代您看見 `<app_name>` 預留位置的地方，並使用儲存體帳戶名稱來替代 `<storage_name>`。 `<app_name>` 會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 _deployment-source-url_ 參數是 GitHub 中的範例存放庫，其中包含 "Hello World" HTTP 觸發函式。
-
-```azurecli-interactive
+```azurecli
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myAppServicePlan --deployment-source-url https://github.com/Azure-Samples/functions-quickstart-linux
-```
-建立及部署函式應用程式後，Azure CLI 會顯示類似下列範例的資訊：
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 1536,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "quickstart.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "quickstart.azurewebsites.net",
-    "quickstart.scm.azurewebsites.net"
-  ],
-   ....
-    // Remaining output has been truncated for readability.
-}
+--location "westus" --is-linux
 ```
 
-因為 `myAppServicePlan` 是 Linux 方案，內建 Docker 映像會用來建立容器 (在 Linux 上執行函式應用程式)。 
+> [!NOTE]
+> 如果您有現有的資源群組名為 `myResourceGroup`，且該群組中含有任何非 Linux App Service 應用程式，您就必須使用不同的資源群組。 您無法將 Windows 和 Linux 應用程式裝載在相同的資源群組中。  
 
->[!NOTE]  
->範例存放庫目前包含兩個指令碼檔案，[deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) 和 [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment)。 .deployment 檔案會告知部署程序使用 deploy.sh 作為[自訂部署指令碼](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)。 在目前的預覽版本中，需要指令碼才能在 Linux 映像上部署函式應用程式。  
+建立函式應用程式之後，您會看到下列訊息：
 
-## <a name="configure-the-function-app"></a>設定函式應用程式
-
-GitHub 存放庫中的專案需要 1.x 版的 Functions 執行階段。 將 `FUNCTIONS_WORKER_RUNTIME` 應用程式設定設為 `~1`，以將函式應用程式釘選至最新的 1.x 版本。 使用 [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) 命令設定應用程式設定。
-
-在下列 Azure CLI 命令中，`<app_name> 是函式應用程式的名稱。
-
-```azurecli-interactive
-az functionapp config appsettings set --name <app_name> \
---resource-group myResourceGroup \
---settings FUNCTIONS_WORKER_RUNTIME=~1
+```output
+Your serverless Linux function app 'myfunctionapp' has been successfully created.
+To active this function app, publish your app content using Azure Functions Core Tools or the Azure portal.
 ```
+
+現在，您可以將專案發佈至 Azure 中的新函式應用程式。
+
+[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+## <a name="next-steps"></a>後續步驟
+
+本文說明如何在預設的 Azure App Service 容器中裝載函式應用程式。 您也可以在 Linux 上將函式裝載到自己的的自訂容器中。
+
+> [!div class="nextstepaction"] 
+> [在使用自訂映像的 Linux 上建立函式](functions-create-function-linux-custom-image.md)

@@ -1,20 +1,19 @@
 ---
-title: 使用 Site Recovery 將複寫的 VMware VM 和實體伺服器容錯移轉及容錯回復至 Azure | Microsoft Docs
-description: 了解如何使用 Site Recovery，將 VMware VM 和實體伺服器容錯移轉到 Azure，然後容錯回復到內部部署網站
-services: site-recovery
+title: 在災害復原期間使用 Site Recovery 將 VMware VM 和實體伺服器容錯移轉及容錯回復至 Azure | Microsoft Docs
+description: 了解如何在災害復原期間使用 Azure Site Recovery，將 VMware VM 和實體伺服器容錯移轉到 Azure，然後容錯回復到內部部署網站
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/11/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: a574c28cae449526ddc8fe0fbb9323fb14b7b6f1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457033"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215339"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>將複寫的 VMware VM 和實體伺服器容錯移轉及容錯回復至 Azure
 

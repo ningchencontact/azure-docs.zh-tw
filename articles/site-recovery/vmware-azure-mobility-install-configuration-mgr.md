@@ -1,17 +1,17 @@
 ---
-title: 使用 System Center Configuration Manager 自動進行適用於 Azure Site Recovery 的行動服務安裝 | Microsoft Docs
-description: 本文協助您使用 System Center Configuration Manager 自動進行行動服務安裝。
+title: 使用 System Center Configuration Manager 針對 VMware VM 和實體伺服器至 Azure 的災害復原將 Azure Site Recovery 行動服務的安裝自動化 | Microsoft Docs
+description: 本文能協助您搭配 System Center Configuration Manager 將行動服務的安裝自動化，以使用 Site Recovery 進行 VMware VM 和實體伺服器至 Azure 的災害復原。
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 6aff17908d220557720776a2d7884adc28b5deee
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: f14c02404dae5a923aabcd2df8279a6150c42f57
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "37917164"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215288"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自動進行行動服務安裝
 

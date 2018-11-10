@@ -1,22 +1,22 @@
 ---
-title: 以 Azure Site Recovery 保護 Active Directory 和 DNS | Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 實作 Active directory 的災害復原解決方案。
+title: 使用 Azure Site Recovery 設定 Active Directory 和 DNS 的災害復原 | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 針對 Active Directory 和 DNS 實作災害復原解決方案。
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/19/2018
-ms.author: manayar
-ms.openlocfilehash: 28ea6c58eed110cfb57f3feaa6b828289bd20e64
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054541"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211888"
 ---
-# <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>使用 Azure Site Recovery 保護 Active Directory 和 DNS
+# <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>設定 Active Directory 和 DNS 的災害復原
 
 企業應用程式 (例如 SharePoint、Dynamics AX 和 SAP) 須倚賴 Active Directory 和 DNS 基礎結構才能正確運作。 當您設定應用程式的災害復原時，您通常必須先復原 Active Directory 和 DNS，再復原其他應用程式元件，以確保應用程式功能可正常運作。
 

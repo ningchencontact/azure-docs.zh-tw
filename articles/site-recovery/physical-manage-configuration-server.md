@@ -1,24 +1,24 @@
 ---
-title: " 使用 Azure Site Recovery 管理實體伺服器災害復原的組態伺服器 | Microsoft Docs"
-description: 本文說明如何使用 Azure Site Recovery 服務管理將實體伺服器災害復原到 Azure 的現有組態伺服器。
+title: 使用 Azure Site Recovery 為組態伺服器管理內部部署實體伺服器至 Azure 的災害復原 | Microsoft Docs
+description: 本文說明如何針對實體伺服器至 Azure 的災害復原管理 Azure Site Recovery 組態伺服器。
 services: site-recovery
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951171"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213237"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 服務將實體伺服器災害復原到 Azure 時，便會設定內部部署組態伺服器。 組態伺服器會協調內部部署機器與 Azure 之間的通訊，以及管理資料複寫。 本文摘要說明部署設定伺服器之後，管理設定伺服器的一般工作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 下表摘要說明部署內部部署組態伺服器機器的必要條件。
 
@@ -69,7 +69,7 @@ Site Recovery 入口網站中提供最新版本的組態伺服器安裝檔案。
      ![防火牆](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. 在 [必要條件檢查] 中，安裝程式會執行檢查來確定可以執行安裝。 如果出現有關「通用時間同步處理檢查」的警告，請確認系統時鐘上的時間 ([日期和時間] 設定) 與時區相同。
 
-    ![先決條件](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![必要條件](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. 在 [MySQL 組態] 中，建立認證來登入已安裝的 MySQL 伺服器執行個體。
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)

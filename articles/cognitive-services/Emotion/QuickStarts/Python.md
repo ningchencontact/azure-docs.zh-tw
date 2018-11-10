@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: c7611628918cf40800d173dc9404b0948b9a68a4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f0bcc88b60e0a9b93856aa32a10b9c0ad898ce95
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236562"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240693"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入門：建置應用程式以辨識影像中的臉部表情。
 
@@ -46,7 +46,7 @@ assert subscription_key
 emotion_recognition_url = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize"
 ```
 
-本逐步解說會使用磁碟所儲存的影像。 您也可以使用能透過可公開存取的 URL 來取得的影像。 如需詳細資訊，請參閱 [REST API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)。
+本逐步解說會使用磁碟所儲存的影像。 您也可以使用能透過可公開存取 URL 取得的映像。 如需詳細資訊，請參閱 [REST API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)。
 
 因為影像資料會作為要求本文的一部分來傳遞，請注意您需要將 `Content-Type` 標頭設定為 `application/octet-stream`。 如果您透過 URL 傳入影像，請記得將標頭設定為：
 ```python

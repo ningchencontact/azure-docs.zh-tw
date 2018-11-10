@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 1db7219beead4d7ee228baff4c802c105419ba1c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 758871537b89a9c010cfaddf324e2208f9846afb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524598"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241309"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 儲存體延展性和效能目標
 ## <a name="overview"></a>概觀
 本文說明 Azure 儲存體的延展性和效能主題。 如需其他 Azure 限制的摘要，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../../azure-subscription-service-limits.md)。
 
 > [!NOTE]
-> 所有儲存體帳戶都能在新的一般網路拓撲上執行，並支援本文中說明的延展性和效能目標，無論它們在何時建立。 如需 Azure 儲存體平面網路架構及延展性的詳細資訊，請參閱 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。
+> 所有儲存體帳戶都能在新的一般網路拓撲上執行，並支援本文中說明的延展性和效能目標，無論它們在何時建立。 如需 Azure 儲存體平面網路架構及延展性的詳細資訊，請參閱 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。
 > 
 
 > [!IMPORTANT]
@@ -35,6 +35,8 @@ ms.locfileid: "39524598"
 ## <a name="scalability-targets-for-a-storage-account"></a>儲存體帳戶的延展性目標
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
+### <a name="storage-resource-provider-limits"></a>儲存體資源提供者限制 
+
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## <a name="azure-blob-storage-scale-targets"></a>Azure Blob 儲存體擴展目標
@@ -46,6 +48,8 @@ ms.locfileid: "39524598"
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure 檔案同步擴展目標
+藉由 Azure 檔案同步，我們已儘可能嘗試設計沒有限制的使用方式，但並非總是可行。 下表指出我們測試的界限，及哪些目標實際上是固定限制：
+
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ## <a name="azure-queue-storage-scale-targets"></a>Azure 佇列儲存體擴展目標
@@ -59,5 +63,5 @@ ms.locfileid: "39524598"
 * [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)
 * [Azure 儲存體複寫](../storage-redundancy.md)
 * [Microsoft Azure 儲存體效能與延展性檢查清單](../storage-performance-checklist.md)
-* [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務。](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務。](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
