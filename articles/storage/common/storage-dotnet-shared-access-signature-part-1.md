@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c7d2c16ef135644c1ff23d7a71c66bec27ac930d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1bc93b083b0f6f0d813f209c9371ce38e8a9daa6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241040"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228805"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共用存取簽章 (SAS)
 
@@ -223,7 +223,7 @@ catch (StorageException e)
 7. **了解您帳戶的任何方式將會被收取費用，包括以 SAS 方式完成的部分。** 如果您提供 Blob 的寫入存取權，則使用者可能會選擇上傳 200GB 的 Blob。 若您也同時提供使用者讀取存取權，則他們可能會選擇下載 10 次，而您便會產生 2TB 的出口成本。 再次強調，提供有限的權限有助於減少惡意使用者採取的潛在動作。 使用短期 SAS 以降低此威脅 (但請注意結束時間的時鐘誤差)。
 8. **使用 SAS 驗證寫入資料。** 當用戶端應用程式將資料寫入您的儲存體帳戶時，請留意該資料可能會造成問題。 如果您的應用程式要求在開始使用資料之前先驗證或授權資料，則您應在寫入資料之後但應用程式尚未開始使用資料之前執行此驗證。 此做法也可防止正確取得 SAS 的使用者或是利用洩漏 SAS 的使用者，損毀資料或將惡意資料寫入您的帳戶。
 9. **請勿一直使用 SAS。** 有時候，在儲存體帳戶中執行特定作業的相關風險可能大過 SAS 的好處。 針對此類作業，請建立一個中介層服務，在執行商務規則驗證、驗證及稽核之後才寫入您的儲存體帳戶。 另外，有時候以其他方式管理存取權可能比較簡單。 例如，如果您想要讓容器中的所有 Blob 都可供公開讀取，則您可以將此容器設定為 [公用]，而不是將 SAS 提供給每個用戶端進行存取。
-10. **使用儲存體分析來監視您的應用程式。** 您可以使用記錄和度量來觀察由於 SAS 提供者服務中斷或不小心移除預存存取原則，而造成的任何驗證失敗急劇增加。 如需額外資訊，請參閱 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (英文)。
+10. **使用儲存體分析來監視您的應用程式。** 您可以使用記錄和度量來觀察由於 SAS 提供者服務中斷或不小心移除預存存取原則，而造成的任何驗證失敗急劇增加。 如需額外資訊，請參閱 [Azure 儲存體團隊部落格](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (英文)。
 
 ## <a name="sas-examples"></a>SAS 範例
 下面是兩種類型共用存取簽章 (帳戶 SAS 和服務 SAS) 的一些範例。
@@ -423,5 +423,5 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ## <a name="next-steps"></a>後續步驟
 * [共用存取簽章，第 2 部分：透過 Blob 儲存體來建立與使用 SAS](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [管理對容器與 Blob 的匿名讀取權限。](../blobs/storage-manage-access-to-resources.md)
-* [使用共用存取簽章來委派存取權](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [資料表與佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [使用共用存取簽章來委派存取權](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [資料表與佇列 SAS 簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

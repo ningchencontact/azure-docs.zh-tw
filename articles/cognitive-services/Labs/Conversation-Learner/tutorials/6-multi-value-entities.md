@@ -10,19 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 9ef86ea728e197540180d486dc1cb171f78a2590
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321422"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229453"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用多重值實體
 本教學課程說明實體的「多重值」屬性。
 
 ## <a name="video"></a>影片
 
-[![教學課程 6 預覽](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
+[![教學課程 6 預覽](https://aka.ms/cl-tutorial-06-preview)](https://aka.ms/blis-tutorial-06)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人

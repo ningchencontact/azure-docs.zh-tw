@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d850aff8ddb2a8b6cdd68620ae823d582c527581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166923"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229085"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>使用 SQL Database 中的記憶體內部技術將效能最佳化
 
@@ -57,11 +57,11 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 有關這些技術的深入資訊：
 
 - [記憶體內部 OLTP 概觀和使用案例](https://msdn.microsoft.com/library/mt774593.aspx) (包括客戶案例研究參考和入門資訊)
-- [記憶體內部 OLTP 的文件](http://msdn.microsoft.com/library/dn133186.aspx)
+- [記憶體內部 OLTP 的文件](https://msdn.microsoft.com/library/dn133186.aspx)
 - [資料行存放區索引指南](https://msdn.microsoft.com/library/gg492088.aspx)
 - 混合式交易/分析處理 (HTAP)，也稱為[即時作業分析](https://msdn.microsoft.com/library/dn817827.aspx)
 
-記憶體內部 OLTP 快速入門：[快速入門 1：獲得更快 T-SQL 效能的記憶體內部 OLTP 技術)](http://msdn.microsoft.com/library/mt694156.aspx) (另一篇協助您開始使用的文章)
+記憶體內部 OLTP 快速入門：[快速入門 1：獲得更快 T-SQL 效能的記憶體內部 OLTP 技術)](https://msdn.microsoft.com/library/mt694156.aspx) (另一篇協助您開始使用的文章)
 
 技術的相關深入介紹影片︰
 
@@ -158,7 +158,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，於伺服器上建立進階或業務關鍵資料庫。 將 [來源]  設定為 AdventureWorksLT 範例資料庫。 如需詳細指示，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started-portal.md)。
 
-2. 使用 SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx)連接到資料庫。
+2. 使用 SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx)連接到資料庫。
 
 3. 將 [In-Memory OLTP Transact-SQL 指令碼](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) 複製到剪貼簿。 T-SQL 指令碼會在步驟 1 建立的 AdventureWorksLT 範例資料庫中建立所需的 In-Memory 物件。
 
@@ -291,9 +291,9 @@ end
 在 VM 上或你選擇的任何主機上，安裝 Replay Markup Language (RML) 公用程式。 這些公用程式包括 ostress.exe。
 
 如需詳細資訊，請參閱
-- [記憶體內部 OLTP 的範例資料庫](http://msdn.microsoft.com/library/mt465764.aspx)中的 ostress.exe 討論。
-- [記憶體內部 OLTP 的範例資料庫](http://msdn.microsoft.com/library/mt465764.aspx)。
-- [安裝 ostress.exe 的部落格](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)。
+- [記憶體內部 OLTP 的範例資料庫](https://msdn.microsoft.com/library/mt465764.aspx)中的 ostress.exe 討論。
+- [記憶體內部 OLTP 的範例資料庫](https://msdn.microsoft.com/library/mt465764.aspx)。
+- [安裝 ostress.exe 的部落格](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)。
 
 
 
@@ -379,7 +379,7 @@ EXECUTE Demo.usp_DemoReset;
 在本節中，您將比較使用資料行存放區索引與使用傳統 B 型樹狀結構索引時的 IO 和統計資料結果。
 
 
-針對 OLTP 工作負載的即時分析，通常最好使用非叢集式資料行存放區索引。 如需詳細資訊，請參閱[已描述的資料行存放區索引](http://msdn.microsoft.com/library/gg492088.aspx)。
+針對 OLTP 工作負載的即時分析，通常最好使用非叢集式資料行存放區索引。 如需詳細資訊，請參閱[已描述的資料行存放區索引](https://msdn.microsoft.com/library/gg492088.aspx)。
 
 
 
@@ -493,7 +493,7 @@ GO
 
 ## <a name="next-steps"></a>後續步驟
 
-- [快速入門 1：可讓 Transact-SQL 擁有更快效能的記憶體內部 OLTP 技術](http://msdn.microsoft.com/library/mt694156.aspx)
+- [快速入門 1：可讓 Transact-SQL 擁有更快效能的記憶體內部 OLTP 技術](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [在現有的 Azure SQL 應用程式中使用記憶體內部 OLTP](sql-database-in-memory-oltp-migration.md)
 
@@ -508,17 +508,17 @@ GO
 
 - [Azure SQL Database 中的記憶體內部 OLTP 部落格文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [了解記憶體內部 OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
+- [了解記憶體內部 OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [了解資料行存放區索引](https://msdn.microsoft.com/library/gg492088.aspx)
 
-- [了解即時作業分析](http://msdn.microsoft.com/library/dn817827.aspx)
+- [了解即時作業分析](https://msdn.microsoft.com/library/dn817827.aspx)
 
-- 請參閱[一般工作負載模式和移轉考量](http://msdn.microsoft.com/library/dn673538.aspx) (其中描述記憶體內部 OLTP 經常提供顯著效能改善的工作負載模式)
+- 請參閱[一般工作負載模式和移轉考量](https://msdn.microsoft.com/library/dn673538.aspx) (其中描述記憶體內部 OLTP 經常提供顯著效能改善的工作負載模式)
 
 #### <a name="application-design"></a>應用程式設計
 
-- [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
+- [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [在現有的 Azure SQL 應用程式中使用記憶體內部 OLTP](sql-database-in-memory-oltp-migration.md)
 
@@ -528,4 +528,4 @@ GO
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-- [SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

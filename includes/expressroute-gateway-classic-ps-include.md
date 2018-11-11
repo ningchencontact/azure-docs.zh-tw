@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 03/22/2018
+ms.date: 11/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0bf55d2353d3524e65602c7e67b7adbf80432043
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fab00e5281bb91bce10228b3bc2e9cfd503d5d5b
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198072"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219812"
 ---
 您必須先建立 VNET 和閘道器子網路，才能進行下列工作。
 
@@ -26,7 +26,7 @@ ms.locfileid: "30198072"
 使用以下的命令建立閘道器。 所有的值請務必替換成您自己的值。
 
 ```powershell
-New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
 ## <a name="verify-the-gateway-was-created"></a>確認已建立閘道

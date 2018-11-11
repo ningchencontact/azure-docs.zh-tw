@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
 ms.author: angrobe
-ms.openlocfilehash: 64bf734543825284db29790fc3c1f7c9ef89ff59
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 98cb089baa759b6569d1e1e06c90022eb75f5355
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737108"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228108"
 ---
 # <a name="azure-security-documentation"></a>Azure 安全性文件
 
@@ -57,7 +57,7 @@ Azure 將資訊安全納入了各個層面。 Azure 提供獨特的資訊安全�
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="http://aka.ms/sharedresponsibility">
+        <a href="https://aka.ms/sharedresponsibility">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -172,7 +172,7 @@ Azure 將資訊安全納入了各個層面。 Azure 提供獨特的資訊安全�
                         <h3>白皮書</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
-                                <a class="barLink" href="http://aka.ms/SecurityResponsepaper">雲端的 Azure 安全性回應</a>
+                                <a class="barLink" href="https://aka.ms/SecurityResponsepaper">雲端的 Azure 安全性回應</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-threat-detection">Azure 進階威脅偵測</a>

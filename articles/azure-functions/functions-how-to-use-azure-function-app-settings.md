@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301478"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228975"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
 
@@ -50,7 +50,7 @@ ms.locfileid: "44301478"
 
 [設定] 索引標籤可供您更新函數應用程式所使用的 Functions 執行階段版本。 您也可以在此處管理主機金鑰，這些金鑰可用來限制對函數應用程式所裝載之所有函數的 HTTP 存取。
 
-Functions 支援「取用」主控方案和 App Service 主控方案。 如需詳細資訊，請參閱[選擇正確的 Azure Functions 服務方案](functions-scale.md)。 為了在「取用」方案中提升可預測性，Functions 可讓您設定每日使用量配額 (以 GB-秒為單位) 來限制平台使用量。 一旦達到每日使用量配額，系統就會停止函數應用程式。 針對因達到花費配額而停止運作的函數應用程式，您可以從與建立每日花費配額相同的內容中予以重新啟用。 如需有關計費的詳細資料，請參閱 [Azure Functions 定價頁面](http://azure.microsoft.com/pricing/details/functions/)。   
+Functions 支援「取用」主控方案和 App Service 主控方案。 如需詳細資訊，請參閱[選擇正確的 Azure Functions 服務方案](functions-scale.md)。 為了在「取用」方案中提升可預測性，Functions 可讓您設定每日使用量配額 (以 GB-秒為單位) 來限制平台使用量。 一旦達到每日使用量配額，系統就會停止函數應用程式。 針對因達到花費配額而停止運作的函數應用程式，您可以從與建立每日花費配額相同的內容中予以重新啟用。 如需有關計費的詳細資料，請參閱 [Azure Functions 定價頁面](https://azure.microsoft.com/pricing/details/functions/)。   
 
 ## <a name="platform-features-tab"></a>平台功能索引標籤
 

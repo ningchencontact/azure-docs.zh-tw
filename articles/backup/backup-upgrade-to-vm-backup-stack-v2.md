@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406529"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962524"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>升級至 Azure VM 備份堆疊 V2
 
@@ -28,8 +28,8 @@ ms.locfileid: "49406529"
 
 * 還原時，可以使用非受控 VM 的原始儲存體帳戶。 即使 VM 的磁碟分散於多個儲存體帳戶，仍然具有此功能。 它能夠針對各種不同的 VM 設定，加快還原作業的速度。
     > [!NOTE]
-    > 此功能與使用來自復原點的資料來取代 VM 的磁碟不同。 
-    
+    > 此功能與使用來自復原點的資料來取代 VM 的磁碟不同。
+
 
 ## <a name="whats-changing-in-the-new-stack"></a>新堆疊有何改變？
 目前的備份作業包含兩個階段：
@@ -55,7 +55,7 @@ ms.locfileid: "49406529"
 * 對於進階儲存體帳戶，針對立即復原點取得的快照集會計入配置空間的 10 TB 限制。
 
 > [!NOTE]
-> 請升級至「Azure VM 備份」堆疊 V2，以取得適用於[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)和最多具有 32 個資料磁碟之虛擬機器的「Azure 備份」支援。
+> 請升級至「Azure VM 備份」堆疊 V2，以取得適用於[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)的「Azure 備份」支援。
 
 ## <a name="upgrade"></a>升級
 ### <a name="the-azure-portal"></a>Azure 入口網站
@@ -119,4 +119,4 @@ Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNa
 增量快照集適用於非受控磁碟。 針對受控磁碟，Azure 備份所建立的還原點集合會使用 Blob 快照集，因此會持續累加。
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>如何取得適用於虛擬機器的標準 SSD 受控磁碟支援？
-請升級至「Azure VM 備份」堆疊 V2，以取得適用於[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)的「Azure 備份」支援。 升級之後，您便也能夠備份最多具有 32 個資料磁碟的虛擬機器。
+請升級至「Azure VM 備份」堆疊 V2，以取得適用於[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)的「Azure 備份」支援。

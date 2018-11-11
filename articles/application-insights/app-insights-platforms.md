@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 4f474ad234c80a0dcb5a9f704a263a97e7df0cc1
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 9d23c680d1ec43a671eba29b4e0168af18af4e1e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174229"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229419"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>開發人員分析：程式語言、平台和整合
 這些項目是我們曾聽過的 [Application Insights](app-insights-overview.md) 實作，包括一些協力廠商提供的實作。
@@ -67,7 +67,7 @@ ms.locfileid: "39174229"
 * [Log4Net、NLog 或 System.Diagnostics.Trace](app-insights-asp-net-trace-logs.md)
 * [Java、Log4J 或 Logback](app-insights-java-trace-logs.md)
 * [語意記錄 (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - 與[語意記錄應用程式區塊](https://msdn.microsoft.com/library/dn440729.aspx)整合
-* [雲端式負載測試](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
+* [雲端式負載測試](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash 外掛程式](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
@@ -83,7 +83,7 @@ ms.locfileid: "39174229"
 
 ## <a name="export-and-data-analysis"></a>匯出和資料分析
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
-* [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
+* [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [串流分析](app-insights-export-power-bi.md)
 
 ## <a name="projects"></a> 建置您自己的 SDK
