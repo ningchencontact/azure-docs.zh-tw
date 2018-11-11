@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.component: metric
-ms.openlocfilehash: 67dac4f8d9b66f4b5f2654ffb16d9829387fc060
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3cdf2371ccdaca5573c088c33527985f98ef2f90
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263291"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957096"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立傳統計量警示
 本文章將說明如何使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md) 設定 Azure 度量警示。 這可讓您在建立警示以確保正確地監視所有資源時，自動在您的資源上設定警示。
@@ -402,6 +402,6 @@ ms.locfileid: "35263291"
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* [深入了解警示](insights-receive-alert-notifications.md)
+* [深入了解警示](monitoring-overview-alerts.md)
 * [將診斷設定新增](monitoring-enable-diagnostic-logs-using-template.md) 至您的 Resource Manager 範本
 

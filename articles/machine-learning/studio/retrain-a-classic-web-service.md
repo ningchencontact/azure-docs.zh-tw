@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3de17375670d7697a298023dc79ffc2418cb7e42
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836869"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963749"
 ---
 # <a name="retrain-a-classic-web-service"></a>重新訓練傳統 Web 服務
 您部署的預測性 Web 服務是預設評分端點。 預設端點會與原始定型和計分實驗同步，因此無法取代預設端點的定型模型。 若要重新訓練 Web 服務，必須在 Web 服務新增新端點。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 您必須已設定訓練實驗與預測性實驗，如[以程式設計方式重新訓練機器學習服務模型](retrain-models-programmatically.md)中所示。 
 
 > [!IMPORTANT]
@@ -51,7 +51,7 @@ ms.locfileid: "34836869"
 2. 使用 Microsoft Azure Web 服務入口網站
 
 ### <a name="programmatically-add-an-endpoint"></a>以程式設計方式新增端點
-您可以使用此 [GitHub 儲存機制](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs)提供的範例程式碼來新增評分端點。
+您可以使用此 [GitHub 儲存機制](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint)提供的範例程式碼來新增評分端點。
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>使用 Microsoft Azure Web 服務入口網站新增端點
 1. 在 Machine Learning Studio 中，按一下左側的 [Web 服務]。
@@ -70,7 +70,7 @@ ms.locfileid: "34836869"
 2. 按一下 [更新資源] 連結。
 3. 複製 PATCH 要求的 POST URL。 例如︰
    
-     修補 URL：https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     修補 URL： https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 您現在可以使用定型模型來更新您先前建立的評分端點。
 

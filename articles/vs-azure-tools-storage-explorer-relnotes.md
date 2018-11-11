@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dde2983c57d0f3ec9c58537809f2d2d952b4a00e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388284"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741941"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
@@ -27,13 +27,110 @@ ms.locfileid: "49388284"
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
+## <a name="version-150"></a>1.5.0 版
+2018 年 10 月 29 日
+
+### <a name="download-azure-storage-explorer-150"></a>下載 Azure 儲存體總管 1.5.0
+- [適用於 Windows 的 Azure 儲存體總管 1.5.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 1.5.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 1.5.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新增
+
+* 您現在可以使用 [AzCopy v10 (預覽)](https://github.com/Azure/azure-storage-azcopy) 來上傳和下載 Blob。 若要啟用此功能，請移至 [Experimental] \(實驗性\) 功能表，然後按一下 [Use AzCopy for Improved Blob Upload and Download] \(使用 AzCopy 來改善 Blob 上傳和下載\)。 啟用時，會在下列情況下使用 AzCopy：
+   * 將資料夾和檔案上傳到 Blob 容器 (不論是透過工具列還是拖放)。
+   * 下載資料夾和檔案 (不論是透過工具列還是操作功能表)。
+
+* 此外，使用 AzCopy 時：
+   * 您可以將用來執行傳輸的 AzCopy 命令複製到剪貼簿。 只要按一下活動記錄中的 [Copy AzCopy Command to Clipboard] \(將 AzCopy 命令複製到剪貼簿\) 即可。
+   * 上傳之後，您將需要手動重新整理 Blob 編輯器。
+   * 不支援上傳檔案來附加 Blob，.vhds 將會以分頁 Blob 的形式上傳，而所有其他檔案則會以區塊 Blob 的形式上傳。
+   * 在上傳或下載期間如有發生錯誤和衝突，將在上傳或下載完成之後才會顯示。
+
+最後，未來將會支援搭配「檔案共用」使用 AzCopy。
+* 「儲存體總管」目前使用 Electron 2.0.11 版。
+* 目前只能一次在一個 Blob 上執行中斷租用。 此外，您還必須輸入要中斷租用的 Blob 名稱。 進行這項變更是為了降低不小心中斷租用的可能性，尤其是在用於 VM 的 .vhds 情況中。 #394
+* 如果您遇到登入問題，現在已可嘗試重設驗證。 請移至 [Help] \(說明\) 功能表，然後按一下 [Reset] \(重設\) 以存取此功能。 #419
+
+### <a name="fix"></a>修正
+
+* 在收到強烈的使用者意見反應之後，我們已重新啟用預設模擬器節點。 您仍然可以透過 [Connect] \(連接\) 對話方塊來新增額外的模擬器連線，但如果您的模擬器已設定為使用預設連接埠，則您也可以使用 [Local & Attached] \(本機和已連結\) > [Storage Accounts] \(儲存體帳戶\) 底下的.[Emulator * Default Ports] \(模擬器 * 預設連接埠\)。 #669
+* 「儲存體總管」將不再允許您設定開頭或結尾包含空白字元的 Blob 中繼資料值。 #760
+* 在相同的 [Connect] \(連接\) 對話方塊頁面上一律啟用了 [Sign In] \(登入\) 按鈕。 現在已在適當的情況下予以停用。 #761
+* 未新增任何「快速存取」項目時，「快速存取」不會再於主控台中產生錯誤。
+
+### <a name="known-issues"></a>已知問題
+
+* 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 如需詳細資訊，請參閱 #537。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請在此問題加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。 若要解決這個在上傳到 Blob 容器或從 Blob 容器下載時的問題，您可以使用實驗性的 AzCopy 功能。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* Azure Stack 不支援下列功能。 嘗試在使用 Azure Stack 資源時使用這些功能，可能會導致非預期的錯誤。
+   * 檔案共用
+   * 存取層級
+   * 虛刪除
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>舊版
+
+* [1.4.4 版](#version-144)
+* [1.4.3 版](#version-143)
+* [1.4.2 版](#version-142)
+* [1.4.1 版](#version-141)
+* [1.3.0 版](#version-130)
+* [版本 1.2.0](#version-120)
+* [1.1.0 版](#version-110)
+* [1.0.0 版](#version-100)
+* [0.9.6 版](#version-096)
+* [0.9.5 版](#version-095)
+* [0.9.4 和 0.9.3 版](#version-094-and-093)
+* [0.9.2 版](#version-092)
+* [0.9.1 和 0.9.0 版](#version-091-and-090)
+* [0.8.16 版](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [0.8.13 版](#version-0813)
+* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
+* [0.8.9 和 0.8.8 版](#version-089-and-088)
+* [0.8.7 版](#version-087)
+* [0.8.6 版](#version-086)
+* [0.8.5 版](#version-085)
+* [0.8.4 版](#version-084)
+* [0.8.3 版](#version-083)
+* [0.8.2 版](#version-082)
+* [0.8.0 版](#version-080)
+* [0.7.20160509.0 版](#version-07201605090)
+* [0.7.20160325.0 版](#version-07201603250)
+* [0.7.20160129.1 版](#version-07201601291)
+* [0.7.20160105.0 版](#version-07201601050)
+* [0.7.20151116.0 版](#version-07201511160)
+
 ## <a name="version-144"></a>1.4.4 版
 10/15/2018
-
-### <a name="download-azure-storage-explorer-144"></a>下載 Azure 儲存體總管1.4.4
-- [適用於 Windows 的 Azure 儲存體總管 1.4.4](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 1.4.4](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 1.4.4](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfix
 * 已復原 Azure 資源管理 Api 版本，以將 Azure US Government 使用者解除封鎖。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
@@ -87,38 +184,6 @@ ms.locfileid: "49388284"
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>舊版
-
-* [1.4.3 版](#version-143)
-* [1.4.2 版](#version-142)
-* [1.4.1 版](#version-141)
-* [1.3.0 版](#version-130)
-* [版本 1.2.0](#version-120)
-* [1.1.0 版](#version-110)
-* [1.0.0 版](#version-100)
-* [0.9.6 版](#version-096)
-* [0.9.5 版](#version-095)
-* [0.9.4 和 0.9.3 版](#version-094-and-093)
-* [0.9.2 版](#version-092)
-* [0.9.1 和 0.9.0 版](#version-091-and-090)
-* [0.8.16 版](#version-0816)
-* [版本 0.8.14](#version-0814)
-* [0.8.13 版](#version-0813)
-* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
-* [0.8.9 和 0.8.8 版](#version-089-and-088)
-* [0.8.7 版](#version-087)
-* [0.8.6 版](#version-086)
-* [0.8.5 版](#version-085)
-* [0.8.4 版](#version-084)
-* [0.8.3 版](#version-083)
-* [0.8.2 版](#version-082)
-* [0.8.0 版](#version-080)
-* [0.7.20160509.0 版](#version-07201605090)
-* [0.7.20160325.0 版](#version-07201603250)
-* [0.7.20160129.1 版](#version-07201601291)
-* [0.7.20160105.0 版](#version-07201601050)
-* [0.7.20151116.0 版](#version-07201511160)
 
 ## <a name="version-143"></a>1.4.3 版
 10/11/2018

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a3f2021a1a1e0a0ff97c5966e151894fd7b6743b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1f94e297e784d000c829a50c077e7fa6d303333f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574636"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962209"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>將含有 Azure Application Insights 資料的自訂報表自動化
 
@@ -160,7 +160,7 @@ availabilityResults
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解建立 [Analytics 查詢](app-insights-analytics-using.md)。
+* 深入了解建立 [Analytics 查詢](../log-analytics/query-language/get-started-queries.md)。
 * 深入了解[以程式設計方式查詢 Application Insights 資料](https://dev.applicationinsights.io/)
 * 深入了解 [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)。
 * 深入了解 [Microsoft Flow](https://ms.flow.microsoft.com)。

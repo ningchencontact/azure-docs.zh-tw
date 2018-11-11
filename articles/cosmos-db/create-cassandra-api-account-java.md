@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: b5e3d87e026b65a602b7bdf2e52365d13b21f62f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1220bcc8445f13a4573f1a6d3181c172799638fb
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166826"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741774"
 ---
-# <a name="create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>使用 Java 應用程式來建立 Azure Cosmos DB Cassandra API 帳戶、資料庫及資料表
+# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>教學課程：使用 Java 應用程式來建立 Azure Cosmos DB Cassandra API 帳戶、資料庫及資料表
 
 本教學課程說明如何使用 Java 應用程式來建立 Azure Cosmos DB Cassandra API 帳戶、新增資料庫 (也稱為 keyspace) 以及新增資料表。 Java 應用程式會使用 [Java 驅動程式](https://github.com/datastax/java-driver)來建立使用者資料庫，其中包含使用者識別碼、使用者名稱、使用者所在城市等詳細資料。  
 
@@ -33,7 +33,7 @@ ms.locfileid: "49166826"
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立  [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。 或者，您可以 [免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) ，無需 Azure 訂用帳戶，也無需任何費用和履約承諾。 
 
-* 取得最新版本的 [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+* 取得最新版本的 [Java Development Kit (JDK)](https://aka.ms/azure-jdks) 
 
 * [下載](http://maven.apache.org/download.cgi)及[安裝](http://maven.apache.org/install.html) [Maven](http://maven.apache.org/) 二進位封存 
   - 在 Ubuntu 上，您可以執行  `apt-get install maven` 來安裝 Maven。 
@@ -60,7 +60,7 @@ ms.locfileid: "49166826"
 
 ## <a name="get-the-connection-details-of-your-account"></a>取得您帳戶的連線詳細資料  
 
-從 Azure 入口網站取得連接字串資訊，並將其複製到 Java 設定檔。 這可讓您的應用程式與託管資料庫進行通訊。 
+從 Azure 入口網站取得連接字串資訊，並將其複製到 Java 設定檔。 連接字串可讓您的應用程式與託管資料庫進行通訊。 
 
 1. 從  [Azure 入口網站](http://portal.azure.com/)瀏覽至您的 Azure Cosmos DB 帳戶。 
 

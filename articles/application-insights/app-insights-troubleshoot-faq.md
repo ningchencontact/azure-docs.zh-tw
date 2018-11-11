@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8ef0ea20256807650f19d25aa77276cb8cbcb7d7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "35632971"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959302"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -27,7 +27,7 @@ ms.locfileid: "35632971"
 
 * [.NET 應用程式](app-insights-asp-net-troubleshoot-no-data.md)
 * [監視已在執行的應用程式](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure 診斷](app-insights-azure-diagnostics.md)
+* [Azure 診斷](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Java Web 應用程式](app-insights-java-troubleshoot.md)
 
 我的伺服器沒有傳回資料
@@ -111,7 +111,7 @@ ms.locfileid: "35632971"
 
 從[用戶端網頁](app-insights-javascript.md)：
 
-* [頁面檢視計數](app-insights-web-track-usage.md)
+* [頁面檢視計數](app-insights-usage-overview.md)
 * [AJAX 呼叫](app-insights-asp-net-dependencies.md) - 從執行中指令碼發出的要求。
 * 頁面檢視載入資料
 * 使用者和工作階段計數
@@ -119,7 +119,7 @@ ms.locfileid: "35632971"
 
 從其他來源 (如果您設定它們的話)：
 
-* [Azure 診斷](app-insights-azure-diagnostics.md)
+* [Azure 診斷](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Docker 容器](app-insights-docker.md)
 * [將資料表匯入到分析](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
