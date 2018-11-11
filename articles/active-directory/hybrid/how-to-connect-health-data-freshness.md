@@ -3,7 +3,7 @@ title: Azure AD Connect 健康情況 - 健康情況服務的資料並非最新�
 description: 本文說明「健康情況服務的資料並非最新」警示的成因，以及如何進行疑難排解。
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: maheshu
 editor: ''
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: zhiweiw
-ms.openlocfilehash: ca9f23703315424fcf08350ae3111a20dd94c160
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 93f0d31f5daa13d0598367e2a4ddab67ff3dbc66
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233220"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279688"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>健康情況服務的資料並非最新警示
 
@@ -39,7 +39,7 @@ ms.locfileid: "50233220"
 
 | 資料元素 | 疑難排解步驟 |
 | --- | --- | 
-| PerfCounter | - [Azure 服務端點的輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [已篩選或停用輸出流量的 SSL 檢查](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [防火牆連接埠 (位於執行代理程式的伺服器上)](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [如果啟用 IE 增強式安全性，則允許指定的網站](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| PerfCounter | - [Azure 服務端點的輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [已篩選或停用輸出流量的 SSL 檢查](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [防火牆連接埠 (位於執行代理程式的伺服器上)](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [如果啟用 IE 增強式安全性，則允許指定的網站](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
 | AadSyncService-SynchronizationRules， <br /> AadSyncService-Connectors， <br /> AadSyncService-GlobalConfigurations， <br /> AadSyncService-RunProfileResults， <br /> AadSyncService-ServiceConfigurations， <br /> AadSyncService-ServiceStatus | - 以 IP 位址為基礎的輸出連線，請參閱 [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Azure 服務端點的輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [防火牆連接埠 (位於執行代理程式的伺服器上)](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
 
 ### <a name="connect-health-for-adfs"></a>適用於 ADFS 的 Connect Health
@@ -48,14 +48,14 @@ ms.locfileid: "50233220"
 
 | 資料元素 | 疑難排解步驟 |
 | --- | --- | 
-| PerfCounter，TestResult | - [Azure 服務端點的輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [已篩選或停用輸出流量的 SSL 檢查](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [防火牆連接埠 (位於執行代理程式的伺服器上)](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [如果啟用 IE 增強式安全性，則允許指定的網站](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| PerfCounter，TestResult | - [Azure 服務端點的輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [已篩選或停用輸出流量的 SSL 檢查](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [防火牆連接埠 (位於執行代理程式的伺服器上)](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [如果啟用 IE 增強式安全性，則允許指定的網站](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
 |  Adfs-UsageMetrics | 以 IP 位址為基礎的輸出連線，請參閱 [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) | 
 
 ### <a name="connect-health-for-adds"></a>適用於 ADDS 的 Connect Health
 
 | 資料元素 | 疑難排解步驟 |
 | --- | --- | 
-| PerfCounter，Adds-TopologyInfo-Json，Common-TestData-Json | - [Azure 服務端點的輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [已篩選或停用輸出流量的 SSL 檢查](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [防火牆連接埠 (位於執行代理程式的伺服器上)](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [如果啟用 IE 增強式安全性，則允許指定的網站](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) <br />  - 以 IP 位址為基礎的輸出連線，請參閱 [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)  |
+| PerfCounter，Adds-TopologyInfo-Json，Common-TestData-Json | - [Azure 服務端點的輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [已篩選或停用輸出流量的 SSL 檢查](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [防火牆連接埠 (位於執行代理程式的伺服器上)](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [如果啟用 IE 增強式安全性，則允許指定的網站](https://technet.microsoft.com/windows/ms537180(v=vs.60)) <br />  - 以 IP 位址為基礎的輸出連線，請參閱 [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)  |
 
 
 ## <a name="next-steps"></a>後續步驟

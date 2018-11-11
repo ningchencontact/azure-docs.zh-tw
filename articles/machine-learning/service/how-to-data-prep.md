@@ -10,12 +10,12 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 673b8ddf3ed07507cbce4b54e9b8a488cb3ac689
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a315394ab394e7f4dfe528cf765c9ac5a65c80c4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166600"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51276996"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>使用 Azure Machine Learning 準備模型用的資料
  
@@ -34,4 +34,4 @@ ms.locfileid: "47166600"
 ![資料準備程序](./media/concept-data-preparation/data-prep-process.png)
 
 ## <a name="next-steps"></a>後續步驟
-檢閱使用「Azure Machine Learning 資料準備 SDK」進行之資料準備的[範例 Notebook](https://github.com/Microsoft/PendletonDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb)。
+檢閱使用「Azure Machine Learning 資料準備 SDK」進行之資料準備的[範例 Notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb)。

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: fb05ddabab3702299df0e81e8dda5af5cb676c1a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 7cf4613f2fdceca3e869473ed3ec7f47fb417fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127504"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277643"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>將 Azure Log Analytics 資料匯入至 Power BI
 
@@ -33,7 +33,7 @@ ms.locfileid: "37127504"
 ![Log Analytics 到 Power BI](media/log-analytics-powerbi/overview.png)
 
 ## <a name="export-query"></a>匯出查詢
-首先建立[記錄搜尋](log-analytics-log-search-new.md)，傳回您想要填入 Power BI 資料集的 Log Analytics 資料。  您接著可以將該查詢匯出到可以由 Power BI Desktop 使用的 [Power Query (M) 語言](https://msdn.microsoft.com/library/mt807488.aspx)。
+首先建立[記錄搜尋](log-analytics-queries.md)，傳回您想要填入 Power BI 資料集的 Log Analytics 資料。  您接著可以將該查詢匯出到可以由 Power BI Desktop 使用的 [Power Query (M) 語言](https://msdn.microsoft.com/library/mt807488.aspx)。
 
 1. 在 Log Analytics 中建立記錄搜尋，擷取您資料集的資料。
 2. 如果您使用記錄搜尋入口網站，請按一下 **Power BI**。  如果您使用 Analytics 入口網站，請選取**匯出** > **Power BI 查詢 (M)**。  這兩個選項都會將查詢匯出到稱為 **PowerBIQuery.txt** 的文字檔。 
@@ -81,5 +81,5 @@ Power BI Desktop 是桌面應用程式，可讓您建立可發行至 Power BI �
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解 [記錄檔搜尋](log-analytics-log-searches.md) ，建置可以匯出至 Power BI 的查詢。
-* 深入了解 [Power BI](http://powerbi.microsoft.com)，建置以 Log Analytics 匯出為基礎的視覺效果。
+* 深入了解 [記錄檔搜尋](log-analytics-queries.md) ，建置可以匯出至 Power BI 的查詢。
+* 深入了解 [Power BI](https://powerbi.microsoft.com)，建置以 Log Analytics 匯出為基礎的視覺效果。

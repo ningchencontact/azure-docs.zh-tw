@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951996"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280736"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>教學課程：將應用程式部署至 Azure 和 Azure Stack
 
@@ -52,7 +52,7 @@ ms.locfileid: "46951996"
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack 是 Azure 的延伸模組。 Azure Stack 可將雲端運算的靈活性和創新能力導入您的內部部署環境中，並啟用獨特的混合式雲端，讓您能夠隨處建置及部署混合式應用程式。  
 > 
-> [混合式應用程式的設計考量](https://aka.ms/hybrid-cloud-applications-pillars)技術白皮書檢閱了設計、部署和操作混合式應用程式時的軟體品質要素 (放置、延展性、可用性、復原能力、管理性和安全性)。 這些設計考量有助於您設計出最佳的混合式應用程式，讓生產環境遇到最少的挑戰。
+> [混合式應用程式的設計考量](https://aka.ms/hybrid-cloud-applications-pillars)技術白皮書檢閱了設計、部署和操作混合式應用程式時的軟體品質要素 (放置、延展性、可用性、復原、管理性和安全性)。 這些設計考量有助於您設計出最佳的混合式應用程式，讓生產環境遇到最少的挑戰。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -273,21 +273,57 @@ Azure DevOps Services 會使用服務主體對 Azure Resource Manager 進行驗�
 10. 選取 [儲存變更]。
 
 端點資訊已存在，所以 Azure DevOps Services 對 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 Azure DevOps Services 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
+
 ## <a name="create-an-azure-stack-endpoint"></a>建立 Azure Stack 端點
+
+### <a name="create-an-endpoint-for-azure-ad-deployments"></a>建立 Azure AD 部署的端點
 
 您可以依照[以現有的服務主體建立 Azure Resource Manager 服務連線](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) (英文) 一文中的指示，使用現有的服務主體建立服務連線，並使用下列對應：
 
-- 環境：Azure Stack
-- 環境 URL：類似於 `https://management.local.azurestack.external`
-- 訂用帳戶識別碼：Azure Stack 中的使用者訂用帳戶識別碼
-- 訂用帳戶名稱：Azure Stack 中的使用者訂用帳戶名稱
-- 服務主體用戶端識別碼：本文[這一節](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal)中的主體識別碼。
-- 服務主體金鑰：同一篇文章中的金鑰 (如果您使用指令碼，則是密碼)。
-- 租用戶識別碼：您依照[取得租用戶識別碼](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)中的指示，所擷取的租用戶識別碼。
+您可以使用下列對應來建立服務連線：
 
-現在已建立端點，所以 VSTS 到 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 VSTS 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
+| 名稱 | 範例 | 說明 |
+| --- | --- | --- |
+| 連接名稱 | Azure Stack Azure AD | 連線的名稱。 |
+| 環境 | AzureStack | 您的環境名稱。 |
+| 環境 URL | `https://management.local.azurestack.external` | 您的管理端點。 |
+| 範圍層級 | 訂用帳戶 | 連線的範圍。 |
+| 訂用帳戶識別碼 | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack 中的使用者訂用帳戶識別碼 |
+| 訂用帳戶名稱 | name@contoso.com | Azure Stack 中的使用者訂用帳戶名稱。 |
+| 服務主體用戶端識別碼 | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | 本文[這一節](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal)中的主體識別碼。 |
+| 服務主體金鑰 | THESCRETGOESHERE= | 同一篇文章中的金鑰 (如果您使用指令碼，則是密碼)。 |
+| 租用戶識別碼 | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 您依照[取得租用戶識別碼](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)中的指示擷取的租用戶識別碼。  |
+| 連線： | 未驗證 | 向服務主體驗證您的連線設定。 |
 
-![組建代理程式](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+現在已建立端點，所以 DevOps 到 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 DevOps 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
+
+![組建代理程式 Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+### <a name="create-an-endpoint-for-ad-fs"></a>建立 AD FS 的端點
+
+Azure DevOps 的最新更新可讓您使用以憑證進行驗證的服務主體建立服務連線。 以 AD FS 作為識別提供者部署 Azure Stack 時，就必須這麼做。 
+
+![組建代理程式 AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+
+您可以使用下列對應來建立服務連線：
+
+| 名稱 | 範例 | 說明 |
+| --- | --- | --- |
+| 連接名稱 | Azure Stack ADFS | 連線的名稱。 |
+| 環境 | AzureStack | 您的環境名稱。 |
+| 環境 URL | `https://management.local.azurestack.external` | 您的管理端點。 |
+| 範圍層級 | 訂用帳戶 | 連線的範圍。 |
+| 訂用帳戶識別碼 | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack 中的使用者訂用帳戶識別碼 |
+| 訂用帳戶名稱 | name@contoso.com | Azure Stack 中的使用者訂用帳戶名稱。 |
+| 服務主體用戶端識別碼 | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | 您為 AD FS 建立的服務主體所具備的用戶端識別碼。 |
+| 憑證 | `<certificate>` |  將憑證檔案從 PFX 轉換為 PEM。 將憑證 PEM 檔案內容貼到此欄位中。 <br> 將 PFX 轉換為 PEM：<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
+| 租用戶識別碼 | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 您依照[取得租用戶識別碼](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)中的指示擷取的租用戶識別碼。 |
+| 連線： | 未驗證 | 向服務主體驗證您的連線設定。 |
+
+現在已建立端點，所以 Azure DevOps 到 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 Azure DevOps 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
+
+> [!Note]
+> 如果您的 Azure Stack 使用者 ARM 端點未向網際網路公開，連線驗證將會失敗。 這預期行為，且您可以使用簡單的工作建立發行管線，以驗證您的連線。 
 
 ## <a name="develop-your-application-build"></a>開發應用程式組建
 

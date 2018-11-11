@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419362"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279090"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure 監視器來建立、檢視及管理記錄警示  
 
@@ -57,7 +57,7 @@ ms.locfileid: "50419362"
 
    > [!NOTE]
 
-   > [警示] 清單可匯入分析查詢作為訊號類型 - [記錄 (已儲存的查詢)]，如上圖所示。 因此使用者可在 Analytics 中完成理想的查詢後，將其儲存以供日後在警示中使用 - 如需使用儲存查詢的詳細資料，請參閱[在記錄分析中使用記錄搜尋](../log-analytics/log-analytics-log-searches.md)或[在 Application Insights 分析中的共用的查詢](../log-analytics/log-analytics-overview.md)。 
+   > [警示] 清單可匯入分析查詢作為訊號類型 - [記錄 (已儲存的查詢)]，如上圖所示。 因此使用者可在 Analytics 中完成理想的查詢後，將其儲存以供日後在警示中使用 - 如需使用儲存查詢的詳細資料，請參閱[在記錄分析中使用記錄搜尋](../log-analytics/log-analytics-queries.md)或[在 Application Insights 分析中的共用的查詢](../log-analytics/log-analytics-queries.md)。 
 
 1.  *記錄警示*：選好後，即可在 [搜尋查詢] 欄位中指定警示的查詢；如果查詢語法不正確，欄位會以紅色顯示錯誤。 如果查詢語法正確 - 指定查詢的記錄資料會顯示為圖形以供參考，以及顯示調整時間範圍的選項 (從過去六小時到過去一週)。
 
@@ -132,7 +132,7 @@ ms.locfileid: "50419362"
 ### <a name="azure-resource-template-for-log-analytics"></a>適用於 Log Analytics 的 Azure 資源範本
 Log Analytics 的記錄警示是由警示規則所建立，這些規則會定期執行已儲存的搜尋。 如果查詢的結果符合指定的準則，就會建立警示記錄，並執行一或多個動作。 
 
-您可以在文件的 Log Analytics 一節中，取得記錄分析儲存的搜尋和記錄分析警示資源範本。 若要深入了解，請參閱[新增 Log Analytics 的已儲存搜尋和警示](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)；其中包含說明範例與結構描述詳細資料。
+您可以在文件的 Log Analytics 一節中，取得記錄分析儲存的搜尋和記錄分析警示資源範本。 若要深入了解，請參閱[新增 Log Analytics 的已儲存搜尋和警示](../monitoring/monitoring-solutions-resources-searches-alerts.md)；其中包含說明範例與結構描述詳細資料。
 
 ### <a name="azure-resource-template-for-application-insights"></a>適用於 Application Insights 的 Azure 資源範本
 Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights/scheduledQueryRules/`。 如需有關此資源類型的詳細資訊，請參閱 [Azure 監視器 - 排程的查詢規則 API 參考](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)。
@@ -246,5 +246,5 @@ az group deployment create --resource-group myRG --template-file sampleScheduled
 * 了解 [Azure 警示中的記錄警示](monitor-alerts-unified-log.md)
 * 了解 [Webhook 動作記錄警示](monitor-alerts-unified-log-webhook.md)
 * 深入了解 [Application Insights](../application-insights/app-insights-analytics.md)
-* 深入了解 [Log Analytics](../log-analytics/log-analytics-overview.md)。 
+* 深入了解 [Log Analytics](../log-analytics/log-analytics-queries.md)。 
 

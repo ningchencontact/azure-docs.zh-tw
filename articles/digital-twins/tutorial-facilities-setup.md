@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 9ca8a9de9a286d4b14dae4a822f3e9baf4747c60
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7e51513e5cc17b18b6822925051b207f61e20ea1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363328"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283847"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>教學課程：部署 Azure Digital Twins 及設定空間圖形
 
@@ -44,7 +44,7 @@ Azure Digital Twins 服務可讓您在一致的空間系統中將人員、地點
 
 使用這一節中的步驟，建立 Digital Twins 服務的新執行個體。 每個訂閱只能建立一個執行個體；如果您已經有一個執行中的執行個體，請跳到下一節。 
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 
 <a id="permissions" />

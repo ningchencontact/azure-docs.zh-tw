@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: b10236a1e0307c9464d58e50eb0c7b4e6a60b5e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5e9dc207d84a9a66d83f01f49c3aefe2d77a64fa
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987756"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281433"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 監視器中資料的來源
 本文描述 Azure 監視器所收集的資料來源，這些資料可用來監視資源 (以及在資源上執行的應用程式) 健康情況和效能。 這些資源可能在 Azure、另一個雲端或內部部署中。  請參閱 [Azure 監視器所收集的資料](monitoring-data-collection.md)，以取得這項資料儲存方式以及如何檢視它的詳細資訊。
@@ -63,10 +63,10 @@ Azure 中的監視資料來自各種來源，可分為多層，最高層是您�
 ### <a name="resource-diagnostic-logs"></a>資源診斷記錄
 活動記錄提供在 Azure 資源上執行作業的相關資訊，而資源層級[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)則提供對於資源作業本身的深入解析。   這些記錄的組態需求與內容[因資源類型而異](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md)。
 
-您無法在 Azure 入口網站中直接檢視診斷記錄，但是您可以[將記錄傳送到 Azure 儲存體以進行封存](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，以及將它們匯出至[事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)以便重新導向至其他服務，或者匯出至 [Log Analytics](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) 以進行分析。 部分資源可以直接寫入到 Log Analytics，但是其他資源則需要先寫入到儲存體帳戶，然後再[匯入到 Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)。
+您無法在 Azure 入口網站中直接檢視診斷記錄，但是您可以[將記錄傳送到 Azure 儲存體以進行封存](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，以及將它們匯出至[事件中樞](../event-hubs/event-hubs-about.md)以便重新導向至其他服務，或者匯出至 [Log Analytics](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) 以進行分析。 部分資源可以直接寫入到 Log Analytics，但是其他資源則需要先寫入到儲存體帳戶，然後再[匯入到 Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)。
 
 ### <a name="monitoring-solutions"></a>監視解決方案
- [監視解決方案](../monitoring/monitoring-solutions.md)會收集資料，針對特定服務或應用程式的作業提供額外深入解析。 解決方案會將資料收集到 Log Analytics，您可在該處使用[查詢語言](../log-analytics/log-analytics-log-search.md)，或者解決方案中通常會包含的[檢視](../log-analytics/log-analytics-view-designer.md)來分析資料。
+ [監視解決方案](monitoring-solutions.md)會收集資料，針對特定服務或應用程式的作業提供額外深入解析。 解決方案會將資料收集到 Log Analytics，您可在該處使用[查詢語言](../log-analytics/log-analytics-queries.md)，或者解決方案中通常會包含的[檢視](../log-analytics/log-analytics-view-designer.md)來分析資料。
 
 ## <a name="guest-operating-system"></a>客體作業系統
 Azure、其他雲端和內部部署中的計算資源具有要監視的客體作業系統。 若安裝了一或多個代理程式，您就可以將客體遙測收集到與 Azure 服務本身相同的監視工具中。
@@ -78,10 +78,10 @@ Azure、其他雲端和內部部署中的計算資源具有要監視的客體作
 
 
 ### <a name="log-analytics-agent"></a>Log Analytics 代理程式
-您可以在任何 [Windows](../log-analytics/log-analytics-agent-windows.md) 或 [Linux]() 虛擬機器或實體電腦上安裝 Log Analytics 代理程式。 虛擬機器可以在 Azure、其他雲端或內部部署中執行。  代理程式會直接連線到 Log Analytics，或者透過[已連線 System Center Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)連線；此外，還可讓您從所設定的[資料來源](../log-analytics/log-analytics-data-sources.md)或[管理解決方案](../monitoring/monitoring-solutions.md)收集資料，後者會針對在虛擬機器上執行的應用程式提供額外深入解析。
+您可以在任何 [Windows](../log-analytics/log-analytics-agent-windows.md) 或 [Linux]() 虛擬機器或實體電腦上安裝 Log Analytics 代理程式。 虛擬機器可以在 Azure、其他雲端或內部部署中執行。  代理程式會直接連線到 Log Analytics，或者透過[已連線 System Center Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)連線；此外，還可讓您從所設定的[資料來源](../log-analytics/log-analytics-data-sources.md)或[管理解決方案](monitoring-solutions.md)收集資料，後者會針對在虛擬機器上執行的應用程式提供額外深入解析。
 
 ### <a name="service-map"></a>服務對應
-[服務對應](../operations-management-suite/operations-management-suite-service-map.md)需要 Windows 和 Linux 虛擬機器上的相依性代理程式。 這項服務可與 Log Analytics 代理程式搭配使用，收集虛擬機器上所執行程序的相關資料，以及外部程序的相依性。 它會將此資料儲存在 Log Analytics 中，並且包含主控台，以視覺方式顯示所收集的資料，以及 Log Analytics 中儲存的其他資料。
+[服務對應](../monitoring/monitoring-service-map.md)需要 Windows 和 Linux 虛擬機器上的相依性代理程式。 這項服務可與 Log Analytics 代理程式搭配使用，收集虛擬機器上所執行程序的相關資料，以及外部程序的相依性。 它會將此資料儲存在 Log Analytics 中，並且包含主控台，以視覺方式顯示所收集的資料，以及 Log Analytics 中儲存的其他資料。
 
 ## <a name="applications"></a>[應用程式]
 除了您的應用程式會寫入到客體作業系統的遙測之外，系統會透過 [Application Insights](https://docs.microsoft.com/azure/application-insights/) 來完成詳細應用程式監視。 Application Insights 可以從各種平台上所執行的應用程式收集資料。 應用程式可以在 Azure、其他雲端或內部部署中執行。

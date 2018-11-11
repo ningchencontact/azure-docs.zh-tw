@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283356"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092769"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>如何將適用於 VM 的 Azure 監視器上線 (預覽)
 本文說明如何設定適用於 VM 的 Azure 監視器來監視 Azure 虛擬機器的作業系統健康情況，以及探索和對應可能裝載於其上的應用程式相依性。  
@@ -337,7 +337,7 @@ ms.locfileid: "51283356"
     ```
 
 ### <a name="enable-using-azure-policy"></a>使用 Azure 原則啟用
-若要大規模啟用適用於 VM 的 Azure 監視器，並確保所佈建的新 VM 具有一致的合規性且會自動啟用，建議您使用 [Azure 原則](../governance/policy/overview.md)。 這些原則會：
+若要大規模啟用適用於 VM 的 Azure 監視器，並確保所佈建的新 VM 具有一致的合規性且會自動啟用，建議您使用 [Azure 原則](../azure-policy/azure-policy-introduction.md)。 這些原則會：
 
 * 部署 Log Analytics 代理程式和 Dependency Agent 
 * 報告合規性結果 

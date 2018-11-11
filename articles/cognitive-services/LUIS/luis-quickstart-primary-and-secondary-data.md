@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4647e663f4a2734451835f90d2687bb6aaf91712
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036046"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277795"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>教學課程 7：利用簡單實體和片語清單擷取名稱
 
@@ -86,7 +86,7 @@ ms.locfileid: "47036046"
 
 標示範例語句中的實體後，請務必新增片語清單，以提升簡單實體的訊號。 片語清單**不會**作為完全相符項目，而且不必是您預期的每個可能值。 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 在 [意圖] 頁面上，選取 [ApplyForJob] 意圖。 
 
@@ -299,7 +299,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "[建立新的片語清單] 對話方塊快顯與片語清單值方塊中字組的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. 重新[訓練](#train-the-luis-app)並[發行](#publish-the-app-to-get-the-endpoint-URL)應用程式以使用片語清單。
+5. 重新[訓練](#train)並[發行](#publish)應用程式以使用片語清單。
 
 6. 在端點使用相同語句重新查詢：`This is the lead welder paperwork.`
 

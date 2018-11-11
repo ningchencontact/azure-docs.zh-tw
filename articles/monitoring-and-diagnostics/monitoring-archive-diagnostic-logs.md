@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6efcb7bccfdfab18a57e709d9fdfa8492b159b34
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983679"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278084"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
 
@@ -26,7 +26,7 @@ ms.locfileid: "46983679"
 
 ## <a name="prerequisites"></a>必要條件
 
-在開始之前，您需要[建立儲存體帳戶](../storage/storage-create-storage-account.md)，以便將診斷記錄封存至其中。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，則將同一儲存體帳戶用於診斷記錄合情合理，因為可以將所有監視資料集中在一個位置。
+在開始之前，您需要[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)，以便將診斷記錄封存至其中。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，則將同一儲存體帳戶用於診斷記錄合情合理，因為可以將所有監視資料集中在一個位置。
 
 > [!NOTE]
 >  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
@@ -161,7 +161,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234
 
 ## <a name="next-steps"></a>後續步驟
 
-* [下載 blob 以供分析](../storage/storage-dotnet-how-to-use-blobs.md)
+* [下載 blob 以供分析](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [將診斷記錄串流至事件中樞命名空間](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [使用 Azure 監視器來封存 Azure Active Directory 記錄](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [深入了解診斷記錄](monitoring-overview-of-diagnostic-logs.md)

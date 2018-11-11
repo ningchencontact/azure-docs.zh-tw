@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: d91e148320c4c59bb888975499aa1de16ffbf134
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dda137ecba91e3ac59be635eed22d18e5bcadcce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955056"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277302"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>Log Analytics 查詢中的 app() 運算式
 
@@ -80,4 +80,4 @@ union
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱 [workspace 運算式](workspace-expression.md)以參考 Log Analytics 工作區。
-- 了解 [Log Analytics 資料](../../log-analytics/log-analytics-log-search.md)的儲存方式。
+- 了解 [Log Analytics 資料](../../log-analytics/log-analytics-queries.md)的儲存方式。

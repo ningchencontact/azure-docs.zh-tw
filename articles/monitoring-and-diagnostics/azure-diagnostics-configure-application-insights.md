@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b27b8605e23a4c4333f6f1a9c9dd12444fd43fb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416676"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277115"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>將雲端服務、虛擬機器或 Service Fabric 診斷資料傳送至 Application Insights
 雲端服務、虛擬機器、虛擬機器擴展集和 Service Fabric 全都使用 Azure 診斷擴充功能來收集資料。  Azure 診斷會將資料傳送至 Azure 儲存體資料表。  不過，您也可以使用 Azure 診斷擴充功能 1.5 或更新版本，將所有資料或一部分資料傳送至其他位置。
@@ -217,4 +217,4 @@ Application Insights 的接收器組態範例：
 ## <a name="next-steps"></a>後續步驟
 * 了解如何在 Application Insights 中[檢視您的 Azure 診斷資訊](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events)。
 * 使用 [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) 來為您的應用程式啟用 Azure 診斷擴充。
-* 使用 [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 來為您的應用程式啟用 Azure 診斷擴充
+* 使用 [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) 來為您的應用程式啟用 Azure 診斷擴充

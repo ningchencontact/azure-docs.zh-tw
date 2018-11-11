@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248705"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282814"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>監視 Azure 監視器所收集的資料
 [Azure 監視器](../azure-monitor/overview.md)是一項服務，可協助您監視應用程式及其所依賴的資源。 此功能的核心是儲存來自受監視資源的遙測和其他資料。 本文提供如何透過 Azure 監視器來儲存和使用此資料的完整說明。
@@ -98,7 +98,7 @@ Azure 監視器所收集的計量有三個基本來源。 這些計量全都適�
 您可以使用計量來執行的工作包括下列各項：
 
 - 使用[計量瀏覽器](../monitoring-and-diagnostics/monitoring-metric-charts.md)來分析收集到的計量，並將它們繪製於圖表上。 追蹤資源 (例如 VM、網站或邏輯應用程式) 的效能，只要將該圖表釘選到 [Azure 儀表板](../azure-portal/azure-portal-dashboards.md)即可。
-- 設定[計量警示規則](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)，在計量超出閾值時，傳送通知或採取[自動化動作](../monitoring-and-diagnostics/monitoring-action-groups.md)。
+- 設定[計量警示規則](../monitoring-and-diagnostics/alert-metric.md)，在計量超出閾值時，傳送通知或採取[自動化動作](../monitoring-and-diagnostics/monitoring-action-groups.md)。
 - 使用[自動調整規模](../monitoring-and-diagnostics/monitoring-overview-autoscale.md)，根據超出閾值的計量來增加或減少資源。
 - 將計量路由傳送到 Log Analytics 來分析計量資料與記錄資料，並儲存計量值超過 93 天。 
 - 將計量串流處理到[事件中樞](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)，以將它們路由傳送到 [Azure 串流分析](../stream-analytics/stream-analytics-introduction.md)或外部系統。
@@ -138,7 +138,7 @@ Azure 監視器所收集的記錄都會儲存於 Log Analytics，其會從各種
 Log Analytics 可以在 Azure 中及內部部署資源的各種來源收集資料。 寫入到 Log Analytics 的資料來源包含下列各項：
 
 - 來自 Azure 資源的[活動記錄](../log-analytics/log-analytics-activity.md) (包括其設定和健康情況的相關資訊) 與[診斷記錄](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) (可深入解析它們的作業)。
-- [Windows](../log-analytics/log-analytics-windows-agent.md) 和 [Linux](../log-analytics/log-analytics-linux-agents.md) 虛擬機器上的代理程式會根據您設定的[資料來源](../log-analytics/log-analytics-data-sources.md)，將遙測從客體作業系統和應用程式傳送到 Log Analytics。
+- [Windows](../log-analytics/log-analytics-windows-agent.md) 和 [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) 虛擬機器上的代理程式會根據您設定的[資料來源](../log-analytics/log-analytics-data-sources.md)，將遙測從客體作業系統和應用程式傳送到 Log Analytics。
 - [Application Insights](https://docs.microsoft.com/azure/application-insights/) 所收集的應用程式資料。
 - 可從[監視解決方案](../monitoring/monitoring-solutions.md)或功能 (例如，容器深入解析、VM Insights 或資源群組深入解析) 來深入解析特定應用程式或服務的資料。
 - [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/)所收集的安全性資料。

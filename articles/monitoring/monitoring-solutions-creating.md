@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528022"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282045"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>在 Azure 中設計和建置管理解決方案 (預覽)
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.locfileid: "39528022"
 
 ## <a name="what-is-a-management-solution"></a>何謂管理解決方案？
 
-管理解決方案包含可共同運作以達成特殊監視案例的 Azure 資源。  解決方案會實作為[資源管理範本](../azure-resource-manager/resource-manager-template-walkthrough.md)，範本中包含如何在安裝解決方案時安裝及設定其內含資源的詳細資料。
+管理解決方案包含可共同運作以達成特殊監視案例的 Azure 資源。  解決方案會實作為[資源管理範本](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)，範本中包含如何在安裝解決方案時安裝及設定其內含資源的詳細資料。
 
 基本策略是藉由在 Azure 環境中建置個別元件來開始您的管理解決方案。  當功能正常運作後，您就可以開始將這些元件封裝到[管理解決方案檔]( monitoring-solutions-solution-file.md)。 
 
@@ -49,16 +49,16 @@ ms.locfileid: "39528022"
 如果您需要的資料無法透過任何可用的資料來源取得，可以使用 [HTTP 資料收集器 API](../log-analytics/log-analytics-data-collector-api.md)，這個 API 可讓您從任何可以呼叫 REST API 的用戶端，將資料寫入 Log Analytics 存放庫。  若要在管理解決方案中自訂資料收集，最常見的方法是建立 [Azure 自動化中的 Runbook](../automation/automation-runbook-types.md)，以從 Azure 或外部資源收集所需的資料，並使用資料收集器 API 將資料寫入存放庫中。  
 
 ### <a name="log-searches"></a>記錄檔搜尋
-[記錄搜尋](../log-analytics/log-analytics-log-searches.md)可用來擷取和分析 Log Analytics 存放庫中的資料。  除了讓使用者能夠對存放庫中的資料執行特定分析外，記錄搜尋也可供檢視和警示使用。  
+[記錄搜尋](../log-analytics/log-analytics-queries.md)可用來擷取和分析 Log Analytics 存放庫中的資料。  除了讓使用者能夠對存放庫中的資料執行特定分析外，記錄搜尋也可供檢視和警示使用。  
 
 您應該定義您認為會對使用者有幫助的任何查詢，即使沒有任何檢視或警示使用這些查詢也是如此。  在入口網站中，這些查詢會以「已儲存搜尋」的形式提供給使用者來使用，而您也可以將這些查詢包含在自訂檢視中的[查詢清單視覺效果部分](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part)。
 
 ### <a name="alerts"></a>警示
-[Log Analytics 中的警示](../log-analytics/log-analytics-alerts.md)可透過對存放庫中的資料進行[記錄搜尋](#log-searches)來識別問題。  它們會通知使用者，或自動執行回應中的動作。 您應該識別應用程式的不同警示條件，並在解決方案檔中包含對應的警示規則。
+[Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)可透過對存放庫中的資料進行[記錄搜尋](#log-searches)來識別問題。  它們會通知使用者，或自動執行回應中的動作。 您應該識別應用程式的不同警示條件，並在解決方案檔中包含對應的警示規則。
 
 如果問題有可能透過自動化程序加以修正，您通常會在 Azure 自動化中建立 Runbook 以執行此修復。  大部分 Azure 服務都可使用 [Cmdlet](/powershell/azure/overview) 來管理，Runbook 會運用這些 Cmdlet 來執行這類功能。
 
-如果您的解決方案需要外部功能以對警示做出回應，您可以使用 [Webhook 回應](../log-analytics/log-analytics-alerts-actions.md)。  這可讓您呼叫外部 Web 服務，以從警示傳送資訊。
+如果您的解決方案需要外部功能以對警示做出回應，您可以使用 [Webhook 回應](../monitoring-and-diagnostics/alert-metric.md)。  這可讓您呼叫外部 Web 服務，以從警示傳送資訊。
 
 ### <a name="views"></a>Views
 Log Analytics 中的檢視可以視覺方式呈現 Log Analytics 儲存機制中的資料。  每個解決方案通常會有一個檢視，這個檢視具有[圖格](../log-analytics/log-analytics-view-designer-tiles.md)，並且會顯示在使用者的主要儀表板上。  檢視可以包含任意數目的[視覺效果部分](../log-analytics/log-analytics-view-designer-parts.md)，以便為使用者提供不同的視覺效果來呈現收集到的資料。

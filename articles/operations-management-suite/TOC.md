@@ -3,7 +3,7 @@
 
 # 開始使用
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
-## [自動化](../automation/automation-offering-get-started.md)
+## [自動化](/azure/automation/)
 ## [備份](../backup/backup-introduction-to-azure-backup.md)
 ## [站台復原](../site-recovery/site-recovery-overview.md)
 
@@ -11,7 +11,7 @@
 # 作法
 
 ## 分析
-### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics](../log-analytics/log-analytics-queries.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## 自動化
 ### [Azure 自動化概觀](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 

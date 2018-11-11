@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
-ms.author: bwren, vinagara
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 427ac67b812da449333e4868e54ca36d2c6f54af
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999506"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282319"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
@@ -27,13 +27,13 @@ ms.locfileid: "46999506"
 > 這是建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。   
 
 
-[管理解決方案](monitoring-solutions.md)通常會包含 Log Analytics 中[儲存的搜尋](../log-analytics/log-analytics-log-searches.md)，來分析解決方案所收集的資料。  它們可能也會定義[警示](../log-analytics/log-analytics-alerts.md)來通知使用者，或自動採取動作以回應重大的問題。  本文說明如何在[資源範本範本](../resource-manager-template-walkthrough.md)中定義 Log Analytics 儲存的搜尋與警示，讓它們能夠包含於[管理解決方案](monitoring-solutions-creating.md)中。
+[管理解決方案](monitoring-solutions.md)通常會包含 Log Analytics 中[儲存的搜尋](../log-analytics/log-analytics-queries.md)，來分析解決方案所收集的資料。  它們可能也會定義[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)來通知使用者，或自動採取動作以回應重大的問題。  本文說明如何在[資源範本範本](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)中定義 Log Analytics 儲存的搜尋與警示，讓它們能夠包含於[管理解決方案](monitoring-solutions-creating.md)中。
 
 > [!NOTE]
 > 本文中的範例使用管理解決方案所需或通用的參數和變數，如[在 Azure 中設計和建置管理解決方案](monitoring-solutions-creating.md)所述。  
 
 ## <a name="prerequisites"></a>必要條件
-本文假設您已經熟悉如何[建立管理解決方案](monitoring-solutions-creating.md)，以及 [Resource Manager 範本](../resource-group-authoring-templates.md)和解決方案檔案的結構。
+本文假設您已經熟悉如何[建立管理解決方案](monitoring-solutions-creating.md)，以及 [Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)和解決方案檔案的結構。
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 工作區
@@ -54,9 +54,9 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 
 ## <a name="saved-searches"></a>儲存的搜尋
-在解決方案中包含[儲存的搜尋](../log-analytics/log-analytics-log-searches.md)，可讓使用者查詢您解決方案所收集的資料。  儲存的搜尋會出現在 OMS 入口網站的 [我的最愛] 下方，以及 Azure 入口網站的 [儲存的搜尋] 下方。  每個警示也會需要儲存的搜尋。   
+在解決方案中包含[儲存的搜尋](../log-analytics/log-analytics-queries.md)，可讓使用者查詢您解決方案所收集的資料。  儲存的搜尋會出現在 Azure 入口網站的 [儲存的搜尋] 下方。  每個警示也會需要儲存的搜尋。   
 
-[Log Analytics 儲存的搜尋](../log-analytics/log-analytics-log-searches.md)資源都具有 `Microsoft.OperationalInsights/workspaces/savedSearches` 類型，並具備下列結構。  這包括一般變數和參數，因此您可以將此程式碼片段複製並貼到您的解決方案檔，然後變更參數名稱。 
+[Log Analytics 儲存的搜尋](../log-analytics/log-analytics-queries.md)資源都具有 `Microsoft.OperationalInsights/workspaces/savedSearches` 類型，並具備下列結構。  這包括一般變數和參數，因此您可以將此程式碼片段複製並貼到您的解決方案檔，然後變更參數名稱。 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
@@ -84,13 +84,13 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | query | 要執行的查詢。 |
 
 > [!NOTE]
-> 如果查詢包含可解譯為 JSON 的字元，您可能需要在查詢中使用逸出字元。  例如，如果查詢為 **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**，就應該在方案檔中撰寫為 **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**。
+> 如果查詢包含可解譯為 JSON 的字元，您可能需要在查詢中使用逸出字元。  例如，如果查詢為 **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**，就應該在方案檔中撰寫為 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**。
 
 ## <a name="alerts"></a>警示
 [Azure 記錄警示](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)是由 Azure 警示規則所建立，以定期執行指定的記錄查詢。  如果查詢的結果符合指定的準則，就會建立警示記錄，並使用[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)執行一或多個動作。  
 
 > [!NOTE]
-> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
+> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都已開始延伸至 Azure。 如需詳細資訊，請參閱[將警示延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
 
 管理解決方案中的警示規則是由下列三個不同資源所組成。
 
@@ -146,7 +146,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 動作可以使用 [動作群組] 資源或動作資源來定義。
 
 > [!NOTE]
-> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
+> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都已自動開始延伸至 Azure。 如需詳細資訊，請參閱[將警示延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
 
 
 **Type** 屬性會指定兩種類型的動作資源。  排程需要一個**警示**動作，其會定義警示規則的詳細資料，以及建立警示時要採取哪些動作。 動作資源具有 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions` 類型。  
@@ -242,7 +242,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 每個排程都會有一個**警示**動作。  這會定義警示的詳細資料，以及選擇性地定義通知和修復動作的詳細資料。  通知會將電子郵件傳送到一或多個地址。  修復會在 Azure 自動化中啟動 Runbook，以嘗試修復偵測到的問題。
 
 > [!NOTE]
-> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
+> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都已自動開始延伸至 Azure。 如需詳細資訊，請參閱[將警示延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
 
 ##### <a name="emailnotification"></a>EmailNotification
  此為選擇性區段  如果您想要警示將郵件傳送給一或多位收件者，請包含此區段。

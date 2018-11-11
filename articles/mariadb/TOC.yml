@@ -52,6 +52,10 @@ items:
       href: concepts-business-continuity.md
     - name: 備份與還原
       href: concepts-backup.md
+  - name: 開發
+    items:
+    - name: 恢復連線
+      href: concepts-connectivity.md
   - name: 複寫
     items:
     - name: 複寫中的資料
@@ -90,6 +94,12 @@ items:
     items:
     - name: 設定複寫中的資料
       href: howto-data-in-replication.md
+  - name: 疑難排解
+    items:
+    - name: 針對連線問題進行疑難排解
+      href: howto-troubleshoot-common-connection-issues.md
+    - name: 針對查詢效能進行疑難排解
+      href: howto-troubleshoot-query-performance.md
 - name: 參考
   items:
   - name: REST API
@@ -109,14 +119,14 @@ items:
   - name: 堆疊溢位
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: 要求功能
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+    href: https://feedback.azure.com/forums/915439-azure-database-for-mariadb
   - name: 區域可用性
     href: https://azure.microsoft.com/regions/services/
   - name: 支援選項
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 2ba86afb2bb0aeff5ab83cfb9e3ee1b27ce3b3f5
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: aca88da087f0d51b0c6759e4cecd91889210b614
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986335"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344347"

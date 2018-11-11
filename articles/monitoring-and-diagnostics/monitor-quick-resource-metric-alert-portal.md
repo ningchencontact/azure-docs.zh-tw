@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 965a35eb4cf33abe78ca802e8d59f13a649dec0a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982856"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279223"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>當計量值符合條件時收到通知
 
 Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表達這些資源的健康情況和效能。 在許多情況下，計量值可以指出資源發生問題。 您可以建立計量警示來監視異常行為，並於發生時收到通知。 此快速入門逐步引導您建立邏輯應用程式、建立工作，以及視覺化邏輯應用程式的計量。 接著會建立警示，並接收邏輯應用程式資源的計量通知。
 
-如需計量和計量警示的詳細資訊，請參閱 [Azure 監視器計量概觀](./monitoring-overview-metrics.md)和 [Azure 監視器警示概觀](./monitoring-overview-alerts.md)。 
+如需計量和計量警示的詳細資訊，請參閱 [Azure 監視器計量概觀](../monitoring/monitoring-data-collection.md)和 [Azure 監視器警示概觀](./monitoring-overview-alerts.md)。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -79,7 +79,7 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>建立邏輯應用程式的計量警示
 
-1.  在計量面板的頂端部分，按一下 [新增計量警示] 按鈕。
+1.  在計量面板的頂端部份，按一下 [新增計量警示] 按鈕。
 
 2. 將計量警示命名為 'myLogicAppAlert'，並提供警示的簡短描述。
 

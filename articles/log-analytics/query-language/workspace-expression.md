@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 70ee244599f926f4d6c4a36f6065a1f743de2466
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8b83650acfee638ae2a667cd0925fd91d44b80b2
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971819"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282691"
 ---
 # <a name="workspace-expression-in-log-analytics-query"></a>Log Analytics 查詢中的 workspace() 運算式
 
@@ -29,7 +29,7 @@ ms.locfileid: "46971819"
 
 ## <a name="syntax"></a>語法
 
-`workspace(`識別碼`)`
+`workspace(`*識別碼*`)`
 
 ## <a name="arguments"></a>引數
 
@@ -74,4 +74,4 @@ union
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱[應用程式運算式](workspace-expression.md)來參考 Application Insights 應用程式。
-- 了解 [Log Analytics 資料](../../log-analytics/log-analytics-log-search.md)的儲存方式。
+- 了解 [Log Analytics 資料](../../log-analytics/log-analytics-queries.md)的儲存方式。

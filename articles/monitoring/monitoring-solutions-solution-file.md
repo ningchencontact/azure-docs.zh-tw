@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46e6ea791752045b0f1afbf1e83e43f498415e54
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 21e280740d5d7f467ee70952febf858e0dc0b89d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887458"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278203"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
 > 這是在 Azure 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。  
 
-Azure 中的管理解決方案會實作為 [Resource Manager 範本](../azure-resource-manager/resource-manager-template-walkthrough.md)。  學習如何撰寫管理解決方案的主要工作，是學習如何[撰寫範本](../azure-resource-manager/resource-group-authoring-templates.md)。  本文提供用於解決方案的範本獨特詳細資料，以及設定一般解決方案資源的方式。
+Azure 中的管理解決方案會實作為 [Resource Manager 範本](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)。  學習如何撰寫管理解決方案的主要工作，是學習如何[撰寫範本](../azure-resource-manager/resource-group-authoring-templates.md)。  本文提供用於解決方案的範本獨特詳細資料，以及設定一般解決方案資源的方式。
 
 
 ## <a name="tools"></a>工具
@@ -34,7 +34,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../azure-re
 您可以使用任何文字編輯器來處理解決方案檔，但建議您利用 Visual Studio 或 Visual Studio Code 中提供的功能，如下列文章所述。
 
 - [透過 Visual Studio 建立與部署 Azure 資源群組](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [在 Visual Studio Code 中使用 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-vs-code.md)
+- [在 Visual Studio Code 中使用 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
 

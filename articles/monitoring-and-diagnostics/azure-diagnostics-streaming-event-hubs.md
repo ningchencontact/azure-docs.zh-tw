@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d21b6235c91a7d2f14b8b39c07891efe967ef572
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341225"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278237"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中樞串流最忙碌路徑中的 Azure 診斷資料
 Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機器 (VM) 的度量和記錄檔，再將結果傳輸至 Azure 儲存體。 從 2016 年 3 月 (SDK 2.9) 的時間範圍開始，您可以使用 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，將 Azure 診斷傳送至自訂的資料來源，並立即傳輸最忙碌路徑資料。
@@ -34,15 +34,15 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 * 如何檢視事件中樞串流資料
 * 如何針對連線問題進行疑難排解  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 雲端服務、VM、虛擬機器擴展集，以及 Azure SDK 2.9 開始的 Service Fabric 和對應的 Azure Tools for Visual Studio，皆支援從 Azure 診斷接收資料的事件中樞。
 
 * Azure 診斷擴充 1.6 ([Azure SDK for. NET 2.9 或更新版本](https://azure.microsoft.com/downloads/) 預設以此為目標)
 * [Visual Studio 2013 或更新版本](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * 在應用程式中使用 *.wadcfgx* 檔案和以下任一方法的 Azure 診斷現有組態：
-  * Visual Studio： [為 Azure 雲端服務和虛擬機器設定診斷功能](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio： [為 Azure 雲端服務和虛擬機器設定診斷功能](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell： [使用 PowerShell 在 Azure 雲端服務中啟用診斷](../cloud-services/cloud-services-diagnostics-powershell.md)
-* 文章中佈建的事件中樞命名空間，[開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* 文章中佈建的事件中樞命名空間，[開始使用事件中樞](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>將 Azure 診斷連接至事件中樞接收
 根據預設，Azure 診斷一律會將記錄檔和計量傳送至 Azure 儲存體帳戶。 應用程式可能會將資料傳送至事件中樞，方法是將新的 [接收] 區段新增至 *.wadcfgx* 檔案的 **PublicConfig** / **WadCfg** 元素底下。 在 Visual Studio 中，*.wadcfgx* 檔案會儲存在以下路徑：[雲端服務專案] > [角色] > **(RoleName)** > **diagnostics.wadcfgx** 檔案。
@@ -70,7 +70,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 
 在此範例中，事件中樞 URL 設定為事件中樞的完整命名空間：事件中樞命名空間 + "/" + 事件中樞名稱。  
 
-事件中樞 URL 會在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkID=213885) 中的 [事件中樞] 儀表板上顯示。  
+事件中樞 URL 會在 [Azure 入口網站](https://go.microsoft.com/fwlink/?LinkID=213885) 中的 [事件中樞] 儀表板上顯示。  
 
 [接收]  名稱可以設定為任何有效的字串，只要在整個組態檔一致使用相同的值即可。
 
@@ -220,7 +220,7 @@ Visual Studio 提供最簡單的路徑供您部署應用程式和事件中樞接
 ## <a name="view-hot-path-data"></a>檢視忙碌路徑資料
 如前文所述，接聽和處理事件中樞資料有許多使用案例。
 
-一個簡單的作法是建立小型測試主控台應用程式，接聽事件中樞並列印輸出串流。 您可以將下列程式碼 (會在[開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)中詳細說明) 放置在主控台應用程式中。  
+一個簡單的作法是建立小型測試主控台應用程式，接聽事件中樞並列印輸出串流。 您可以將下列程式碼 (會在[開始使用事件中樞](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)中詳細說明) 放置在主控台應用程式中。  
 
 請注意，主控台應用程式必須包含 [Event Processor Host NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)。  
 
@@ -508,7 +508,7 @@ namespace EventHubListener
 ## <a name="next-steps"></a>後續步驟
 您可以造訪下列連結以深入了解事件中樞︰
 
-* [事件中心概觀](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [事件中心概觀](../event-hubs/event-hubs-about.md)
 * [建立事件中樞](../event-hubs/event-hubs-create.md)
 * [事件中樞常見問題集](../event-hubs/event-hubs-faq.md)
 

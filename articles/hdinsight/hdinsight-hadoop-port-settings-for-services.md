@@ -2,19 +2,19 @@
 title: HDInsight 上 Hadoop 服務所使用的連接埠 - Azure
 description: 在 HDInsight 上執行的 Hadoop 服務所使用的連接埠清單。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: jasonh
-ms.openlocfilehash: 3dea97d674c2027307ac7eb7cae34b6664e40b0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: e6204933d6b9a4a6b296a141520fc8887c9181f1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108115"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279687"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight 上 Hadoop 服務所使用的連接埠
 
@@ -37,7 +37,7 @@ ms.locfileid: "43108115"
 HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接從網際網路存取。 公用閘道提供下列連接埠 (常見於所有的 HDInsight 叢集類型) 的網際網路存取。
 
 | 服務 | Port | 通訊協定 | 說明 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | sshd |22 |SSH |將用戶端連接到主要前端節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
 | sshd |22 |SSH |將用戶端連接至邊緣節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
 | sshd |23 |SSH |將用戶端連接到次要前端節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |

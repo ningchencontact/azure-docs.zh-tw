@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d2400c09a7d18faccc94464158419c81962d4a86
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042262"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282147"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>教學課程 1：修正不確定的預測
 在本教學課程中，藉由驗證或更正透過 LUIS 不確定的 LUIS HTTPS 端點所收到的語句來改善應用程式的預測。 有些語句可能必須針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。 
@@ -61,7 +61,7 @@ ms.locfileid: "47042262"
 
 ## <a name="review-endpoint-utterances"></a>檢閱端點語句
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 從左側導覽選取 [檢閱端點語句]。 此清單已針對 **ApplyForJob** 意圖進行篩選。 
 
