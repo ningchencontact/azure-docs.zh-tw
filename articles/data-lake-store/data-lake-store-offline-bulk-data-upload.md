@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6430bf524ac81af242bf7afb4c2c8196309806ab
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391670"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242189"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>使用 Azure 匯入/匯出服務將資料離線複製到 Azure Data Lake Storage Gen1
 在本文中，您將深入了解如何使用離線複製方法 (例如 [Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md)) 將大型資料集 (>200 GB) 複製到 Azure Data Lake Storage Gen1 中。 具體來說，作為本文中範例的檔案是 339,420,860,416 個位元組，或在磁碟上大約是 319 GB。 讓我將此檔案稱為 319GB.tsv。
@@ -29,7 +29,7 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure 儲存體帳戶**。
-* **Azure Data Lake Storage Gen1 帳戶**。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Azure Data Lake Storage Gen1 帳戶**。 如需建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>準備資料
 
@@ -52,7 +52,7 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
 
 1. 取得符合 Auzre 匯入/匯出服務使用需求的硬碟。
 2. 識別當資料被送至 Azure 資料中心時，將用來複製資料的 Azure 儲存體帳戶。
-3. 使用 [Azure 匯入/匯出工具](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)，這是一個命令列公用程式。 以下是一個有關如何使用該工具的簡單程式碼片段。
+3. 使用 [Azure 匯入/匯出工具](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)，這是一個命令列公用程式。 以下是一個有關如何使用該工具的簡單程式碼片段。
 
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/

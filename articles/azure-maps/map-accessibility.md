@@ -11,16 +11,16 @@ ms.service: azure-maps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.openlocfilehash: 59e4226d7abb1d2692c531f146685feb203ab423
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ef948b4dca3d3800a81ac52f3a73beee2558d21c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129432"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247223"
 ---
 # <a name="building-an-accessible-application"></a>建置無障礙應用程式
 
-此文章示範如何建置螢幕助讀程式可使用的地圖應用程式。
+本文示範如何建置螢幕助讀程式可使用的地圖應用程式。
 
 ## <a name="understand-the-code"></a>了解程式碼
 
@@ -34,7 +34,7 @@ ms.locfileid: "46129432"
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解此文章中所使用的 Popup 類別及其方法：
+深入了解本文中所使用的 Popup 類別及其方法：
 
 > [!div class="nextstepaction"]
 > [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
@@ -42,4 +42,4 @@ ms.locfileid: "46129432"
 查看更多程式碼範例：
 
 > [!div class="nextstepaction"]
-> [程式碼範例頁面](http://aka.ms/AzureMapsSamples) \(英文\)
+> [程式碼範例頁面](https://aka.ms/AzureMapsSamples) \(英文\)

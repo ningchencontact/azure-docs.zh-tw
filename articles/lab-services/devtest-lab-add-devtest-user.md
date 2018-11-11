@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573395"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243704"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中新增擁有者和使用者
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -40,20 +40,20 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ro
 | **此角色中的使用者可以執行的動作** | **DevTest Labs 使用者** | **擁有者** | **參與者** |
 | --- | --- | --- | --- |
 | **實驗室工作** | | | |
-| 將使用者新增至實驗室 |否 |yes |否 |
-| 更新成本設定 |否 |yes |yes |
+| 將使用者新增至實驗室 |否 |是 |否 |
+| 更新成本設定 |否 |yes |是 |
 | **VM 的基本工作** | | | |
-| 新增和移除自訂映像 |否 |yes |yes |
-| 新增、更新和刪除公式 |yes |yes |yes |
-| 將 Azure Marketplace 映像加入白名單 |否 |yes |yes |
+| 新增和移除自訂映像 |否 |yes |是 |
+| 新增、更新和刪除公式 |是 |是 |是 |
+| 將 Azure Marketplace 映像加入白名單 |否 |yes |是 |
 | **VM 工作** | | | |
-| 建立 VM |yes |yes |yes |
-| 啟動、停止和刪除 VM |僅限使用者所建立的 VM |yes |yes |
-| 更新 VM 原則 |否 |yes |yes |
-| 在 VM 中新增/移除資料磁碟 |僅限使用者所建立的 VM |yes |yes |
+| 建立 VM |是 |是 |是 |
+| 啟動、停止和刪除 VM |僅限使用者所建立的 VM |是 |是 |
+| 更新 VM 原則 |否 |yes |是 |
+| 在 VM 中新增/移除資料磁碟 |僅限使用者所建立的 VM |是 |是 |
 | **構件工作** | | | |
-| 新增和移除構件儲存機制 |否 |yes |yes |
-| 套用構件 |yes |yes |yes |
+| 新增和移除構件儲存機制 |否 |yes |是 |
+| 套用構件 |是 |是 |是 |
 
 > [!NOTE]
 > 當使用者建立 VM 時，該使用者會自動指派給所建立 VM 的 **擁有者** 角色。
@@ -64,7 +64,7 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ro
 可透過 Azure 入口網站在實驗室層級新增擁有者和使用者。 使用者可以是具備有效 [Microsoft 帳戶 (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account) 的外部使用者。
 下列步驟會引導您進行在 Azure DevTest Labs 新增擁有者或使用者至實驗室的程序︰
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。
 4. 在實驗室的刀鋒視窗上，選取 [組態和原則]。 
@@ -116,11 +116,11 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ro
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>在訂用帳戶層級新增擁有者或使用者
 在 Azure 中，Azure 權限會從父範圍傳播至子範圍。 因此，包含實驗室之 Azure 訂用帳戶的擁有者會自動成為這些實驗室的擁有者。 他們也擁有實驗室使用者和 Azure DevTest Labs 服務所建立的 VM 和其他資源。 
 
-您可以在 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)中透過實驗室的刀鋒視窗對實驗室新增其他擁有者。 不過，所新增擁有者的管理範圍小於訂用帳戶擁有者的範圍。 例如，新增的擁有者沒有 DevTest Labs 服務在訂用帳戶中所建立之某些資源的完整存取權。 
+您可以在 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)中透過實驗室的刀鋒視窗對實驗室新增其他擁有者。 不過，所新增擁有者的管理範圍小於訂用帳戶擁有者的範圍。 例如，新增的擁有者沒有 DevTest Labs 服務在訂用帳戶中所建立之某些資源的完整存取權。 
 
 若要對 Azure 訂用帳戶新增擁有者，請遵循下列步驟︰
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [所有服務]，然後從清單中選取 [訂用帳戶]。
 3. 選取所需的訂用帳戶。
 4. 選取 [存取]  圖示。 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: a41dcd5f2c93e5c1279e1c7511e10e6d72574b3b
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098741"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242886"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -78,9 +78,9 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
 
 | SQL Server BI 功能 | 在資源庫映像上安裝 | 注意 |
 | --- | --- | --- |
-| **Reporting Services 原生模式** |yes |已安裝但需要組態，包括報表管理員 URL。 請參閱 [設定 Reporting Services](#configure-reporting-services)一節。 |
+| **Reporting Services 原生模式** |是 |已安裝但需要組態，包括報表管理員 URL。 請參閱 [設定 Reporting Services](#configure-reporting-services)一節。 |
 | **Reporting Services SharePoint 模式** |否 |Microsoft Azure 虛擬機器資源庫映像庫不包含 SharePoint 或 SharePoint 安裝檔案。 <sup>1</sup> |
-| **Analysis Services 多維度和資料採礦 (OLAP)** |yes |已安裝並設定為預設的 Analysis Services 執行個體 |
+| **Analysis Services 多維度和資料採礦 (OLAP)** |是 |已安裝並設定為預設的 Analysis Services 執行個體 |
 | **Analysis Services 表格式** |否 |SQL Server 2012、2014 和 2016 映像中支援，但預設不會安裝。 安裝另一個執行個體的 Analysis Services。 請參閱本主題中的＜安裝其他 SQL Server 服務和功能＞一節。 |
 | **適用於 SharePoint 的 Analysis Services Power Pivot** |否 |Microsoft Azure 虛擬機器資源庫映像庫不包含 SharePoint 或 SharePoint 安裝檔案。 <sup>1</sup> |
 
@@ -226,7 +226,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 2. 在虛擬機器防火牆中開啟連接埠 80。
 3. 使用 Azure 虛擬機器 **DNS 名稱** 做為 URL 中的伺服器名稱，瀏覽至入口網站或報表管理員。 例如︰
    
-    **報表伺服器**：http://uebi.cloudapp.net/reportserver**Web 入口網站**：http://uebi.cloudapp.net/reports
+    **報表伺服器**： http://uebi.cloudapp.net/reportserver**Web 入口網站**： http://uebi.cloudapp.net/reports
    
     [為報表伺服器存取設定防火牆](https://msdn.microsoft.com/library/bb934283.aspx)
 
@@ -336,7 +336,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。 �
 ![要在 Azure VM 中為 BI 應用程式開啟的連接埠](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## <a name="resources"></a>資源
-* 檢閱 Azure 虛擬機器環境中使用的 Microsoft 伺服器軟體的支援原則。 下列主題摘要說明 BitLocker、容錯移轉叢集和網路負載平衡等功能的支援。 [Azure 虛擬機器的 Microsoft 伺服器軟體支援](http://support.microsoft.com/kb/2721672)。
+* 檢閱 Azure 虛擬機器環境中使用的 Microsoft 伺服器軟體的支援原則。 下列主題摘要說明 BitLocker、容錯移轉叢集和網路負載平衡等功能的支援。 [Azure 虛擬機器的 Microsoft 伺服器軟體支援](https://support.microsoft.com/kb/2721672)。
 * [Azure 虛擬機器上的 SQL Server 概觀](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [在 Azure 上佈建 SQL Server 虛擬機器](../sql/virtual-machines-windows-portal-sql-server-provision.md)

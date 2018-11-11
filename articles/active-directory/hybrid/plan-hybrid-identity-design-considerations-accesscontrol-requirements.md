@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 8a40acda189507c1589373a48166ed1668e30650
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308327"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247699"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的存取控制需求
 當組織正在設計他們的混合式身分識別解決方案時，也可以利用這個機會，針對他們正規劃來讓使用者使用的資源檢閱存取需求。 您可以橫跨下列這四種身分識別要件來存取資料：
@@ -34,7 +34,7 @@ ms.locfileid: "46308327"
 後續小節將更詳細說明驗證與授權，系統管理和稽核則是混合式身分識別生命週期的一部分。 如需這些功能的詳細資訊，請參閱 [判斷混合式身分識別管理工作](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) 。
 
 > [!NOTE]
-> 如需每一個要件的詳細資訊，請參閱 [身分識別的四個要件 - 混合式 IT 使用期間的身分識別管理](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) 。
+> 如需每一個要件的詳細資訊，請參閱 [身分識別的四個要件 - 混合式 IT 使用期間的身分識別管理](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) 。
 > 
 > 
 

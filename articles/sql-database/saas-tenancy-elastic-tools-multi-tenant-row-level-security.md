@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242563"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242903"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>使用彈性資料庫工具和資料列層級安全性的多租用戶應用程式
 
@@ -41,7 +41,7 @@ ms.locfileid: "50242563"
 
 - 使用 Visual Studio (2012 或更新版本)
 - 建立三個 Azure SQL 資料庫
-- 下載範例專案：[Azure SQL 的彈性資料庫工具：多租用戶分區](http://go.microsoft.com/?linkid=9888163)
+- 下載範例專案：[Azure SQL 的彈性資料庫工具：多租用戶分區](https://go.microsoft.com/?linkid=9888163)
   - 在 **Program.cs** 開頭填寫您的資料庫資訊 
 
 此專案會新增對多租用戶分區資料庫的支援，藉此擴充 [Azure SQL 的彈性資料庫工具：Entity Framework 整合](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 中所述的項目。 專案會建置用於建立部落格和貼文的簡易主控台應用程式。 專案包含四個租用戶，再加上兩個多租用戶分區資料庫。 上圖說明此組態。 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> 在複雜的專案中，您可能需要將述詞新增到數百個資料表，這麼做很費時。 協助程式預存程序可以自動產生安全性原則，並為結構描述中的所有資料表加入述詞。 如需詳細資訊，請參閱部落格文章[將資料列層級安全性套用至所有資料表 - 協助程式指令碼 (部落格)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script) \(英文\)。
+> 在複雜的專案中，您可能需要將述詞新增到數百個資料表，這麼做很費時。 協助程式預存程序可以自動產生安全性原則，並為結構描述中的所有資料表加入述詞。 如需詳細資訊，請參閱部落格文章[將資料列層級安全性套用至所有資料表 - 協助程式指令碼 (部落格)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script) \(英文\)。
 
 現在，如果您再次執行範例應用程式，租用戶只會看到屬於自己的資料列。 此外，應用程式無法插入目前沒有連線到分區資料庫的租用戶所屬的資料列。 此外，應用程式無法更新它可以看到之任何資料列中的 TenantId。 如果應用程式嘗試執行任一作業，就會引發 DbUpdateException。
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>維護 
 
 - **新增分區**：執行 T-SQL 指令碼來啟用所有新分區上的 RLS，否則系統不會篩選這些分區的查詢。
-- **新增資料表**：在每次建立新資料表時，將 FILTER 和 BLOCK 述詞新增到所有分區上的安全性原則。 否則，系統不會篩選針對新資料表的查詢。 如[自動將資料列層級安全性套用至新建立的資料表 (部落格)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx) \(英文\) 中所述，此新增動作可以使用 DDL 觸發程序來自動執行。
+- **新增資料表**：在每次建立新資料表時，將 FILTER 和 BLOCK 述詞新增到所有分區上的安全性原則。 否則，系統不會篩選針對新資料表的查詢。 如[自動將資料列層級安全性套用至新建立的資料表 (部落格)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx) \(英文\) 中所述，此新增動作可以使用 DDL 觸發程序來自動執行。
 
 ## <a name="summary"></a>摘要
 
@@ -358,7 +358,7 @@ GO
 
 ## <a name="questions-and-feature-requests"></a>問題和功能要求
 
-如有問題，您可以在 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) 上連絡我們。 在 [SQL Database 意見反應論壇](https://feedback.azure.com/forums/217321-sql-database/) \(英文\) 中提出功能要求。
+如有問題，您可以在 [SQL Database 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) 上連絡我們。 在 [SQL Database 意見反應論壇](https://feedback.azure.com/forums/217321-sql-database/) \(英文\) 中提出功能要求。
 
 
 <!--Image references-->

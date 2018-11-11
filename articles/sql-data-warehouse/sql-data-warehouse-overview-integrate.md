@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 221d5d05906e7e162013c0d4cdddc01a95f4024c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 5b302be582bd22a7b38601c90f5fe475062afb26
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302697"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239666"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>將其他服務與 SQL 資料倉儲整合
 除了其核心功能，SQL 資料倉儲可讓使用者整合許多其他 Azure 中的服務。 其中一些服務包括：
@@ -33,7 +33,7 @@ Power BI 整合可讓您結合 SQL 資料倉儲的計算能力以及 Power BI �
 * **直接連接**：針對 SQL 資料倉儲進行之邏輯下推的更進階連接。 下推可提供更快速且更大規模的分析。
 * **在 Power BI 中開啟**：[在 Power BI 中開啟] 按鈕會傳遞執行個體資訊給 Power BI，提供簡化的連接方式。
 
-如需詳細資訊，請參閱[與 Power BI 整合](sql-data-warehouse-get-started-visualize-with-power-bi.md)或 [Power BI 文件](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx)。
+如需詳細資訊，請參閱[與 Power BI 整合](sql-data-warehouse-get-started-visualize-with-power-bi.md)或 [Power BI 文件](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx)。
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory 提供使用者一個受控平台，以建立複雜的擷取和載入管線。 SQL 資料倉儲與 Azure Data Factory 的整合包含：

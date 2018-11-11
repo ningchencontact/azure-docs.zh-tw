@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: bf91ec77f8d7248c6fa2047636f295c187f626c8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7e9de68866b5e5849d0e48ad5073fc7b89fbb1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078217"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239293"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的資料分割圖表
 
-Azure Cosmos DB 中的 Gremlin API 的主要功能之一，是能夠透過水平延展性處理大規模的圖形。 此程序可透過 [Azure Cosmos DB 中的資料分割功能](partition-data.md#how-does-partitioning-work)，利用可在儲存體和輸送量兩方面獨立進行調整的容器來達成。 Azure Cosmos DB 在所有的 API 間支援下列類型的容器：
+Azure Cosmos DB 中的 Gremlin API 的主要功能之一，是能夠透過水平延展性處理大規模的圖形。 此程序可透過 [Azure Cosmos DB 中的資料分割功能](partition-data.md)，利用可在儲存體和輸送量兩方面獨立進行調整的容器來達成。 Azure Cosmos DB 在所有的 API 間支援下列類型的容器：
 
 - **固定容器**：這些容器最多可儲存大小為 10 GB 的圖表資料庫，且最多可為其配置每秒 10,000 個要求單位。 若要建立固定容器，並不需要在資料中指定資料分割索引鍵屬性。
 

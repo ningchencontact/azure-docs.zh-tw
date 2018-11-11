@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b2f6df1e5688bf9bc47056c7b05cf6ac16026c6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c6dddbdbc781869ef6a3c1a0a707eeb83941b92a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634858"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239316"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM 上的 SAP NetWeaver 高可用性
 
@@ -504,7 +504,7 @@ Azure Resource Manager 與 Azure 傳統部署模型在下列方面有所不同�
 
 在 Azure Resource Manager 中，您可以在一個叢集中安裝多個 SAP 系統識別碼 (SID) ASCS/SCS 執行個體。 因為每個 Azure 內部負載平衡器的多個 IP 位址支援，可能有多重 SID 執行個體。
 
-若要使用 Azure 傳統部署模型，請依照 [Azure 上的 SAP NetWeaver：在 Azure 上使用 Windows Server 容錯移轉叢集搭配 SIOS DataKeeper 將 SAP ASCS/SCS 執行個體組成叢集](http://go.microsoft.com/fwlink/?LinkId=613056)中所述的步驟操作。
+若要使用 Azure 傳統部署模型，請依照 [Azure 上的 SAP NetWeaver：在 Azure 上使用 Windows Server 容錯移轉叢集搭配 SIOS DataKeeper 將 SAP ASCS/SCS 執行個體組成叢集](https://go.microsoft.com/fwlink/?LinkId=613056)中所述的步驟操作。
 
 > [!IMPORTANT]
 > 強烈建議您針對 SAP 安裝使用 Azure Resource Manager 部署模型。 它提供傳統部署模型所沒有的許多好處。 進一步了解 Azure [部署模型][virtual-machines-azure-resource-manager-architecture-benefits-arm]。   

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719982"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239829"
 ---
 # <a name="what-is-the-myapps-portal"></a>什麼是 MyApps 入口網站？
 
@@ -137,7 +137,7 @@ Intune Managed Browser 已在 [Apple App Store](https://itunes.apple.com/us/app/
 若要在不同使用者帳戶中進行測試，請執行下列作業：
 
 1. 在 Azure 入口網站或 MyApps 入口網站右上角選取 [登出]。 
-2. 前往 [MyApps 入口網站](http://myapps.microsoft.com)。
+2. 前往 [MyApps 入口網站](https://myapps.microsoft.com)。
 3. 在登入頁面上，在您需要測試的目錄中，輸入帳戶的使用者名稱和密碼。
 
 

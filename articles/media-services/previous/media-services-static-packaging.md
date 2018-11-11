@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: a5300f3b998e22cca56001bd52f761bb0a366cbe
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9af5ebe9f37127656c7f61357240d4e69a28812b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231452"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243124"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure Media Packager 完成靜態封裝工作
 > [!NOTE]
@@ -48,7 +48,7 @@ ms.locfileid: "50231452"
 * 搭配 PlayReady 使用靜態加密保護 HLSv3
 
 ## <a name="validating-adaptive-bitrate-mp4s-encoded-with-external-encoders"></a>驗證使用外部編碼器編碼的調適型位元速率 MP4
-如果您要使用一組調適型位元速率 (多位元速率) MP4 檔案，而這些檔案不是使用媒體服務的編碼器來編碼，則應先驗證檔案後再進一步處理。 媒體服務封裝器可驗證包含一組 MP4 檔案的資產，並檢查該資產是否可封裝為 Smooth Streaming 或 HLS。 如果驗證工作失敗，處理工作的作業會在完成時顯示錯誤。 您可以在 [Azure Media Packager 的工作預設](http://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中，找到定義驗證工作預設的 XML。
+如果您要使用一組調適型位元速率 (多位元速率) MP4 檔案，而這些檔案不是使用媒體服務的編碼器來編碼，則應先驗證檔案後再進一步處理。 媒體服務封裝器可驗證包含一組 MP4 檔案的資產，並檢查該資產是否可封裝為 Smooth Streaming 或 HLS。 如果驗證工作失敗，處理工作的作業會在完成時顯示錯誤。 您可以在 [Azure Media Packager 的工作預設](https://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中，找到定義驗證工作預設的 XML。
 
 > [!NOTE]
 > 請使用媒體編碼器標準產生您的內容，或者使用媒體服務封裝工具進行驗證，以避免執行階段的問題。 如果隨選資料流處理伺服器無法在執行階段剖析您的來源檔案，則您會收到 HTTP 1.1 錯誤「415 不支援的媒體類型」。 如果重複使伺服器無法剖析來源檔案，將會影響隨選資料流伺服器的效能，且可能會減少提供其他要求的可用頻寬。 Azure 媒體服務會在其隨選資料流服務上，提供服務等級協定 (SLA)；然而，若伺服器在上述方法中被誤用，此 SLA 便無法履行。
@@ -82,7 +82,7 @@ ms.locfileid: "50231452"
 
 取得調適型位元速率 MP4 集後，您便可以利用動態封裝。 動態封裝可讓您在指定通訊協定中傳遞資料流，無須進一步封裝。 如需詳細資訊，請參閱 [動態封裝](media-services-dynamic-packaging-overview.md)。
 
-下列程式碼範例會使用 Azure Media Services.NET SDK 延伸模組。  請務必更新指向資料夾 (您可在其中找到輸入的 MP4 檔案與 .ism 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_ValidateTask.xml 檔案位置的程式碼。 此 XML 檔案定義於 [Azure Media Packager 的工作預設](http://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中。
+下列程式碼範例會使用 Azure Media Services.NET SDK 延伸模組。  請務必更新指向資料夾 (您可在其中找到輸入的 MP4 檔案與 .ism 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_ValidateTask.xml 檔案位置的程式碼。 此 XML 檔案定義於 [Azure Media Packager 的工作預設](https://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中。
 
 ```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
@@ -258,13 +258,13 @@ ms.locfileid: "50231452"
 媒體服務現在提供一種服務，來傳遞 Microsoft PlayReady 授權。 本文中的範例將會示範如何設定媒體服務 PlayReady 授權傳遞服務 (請參閱以下程式碼中定義的 ConfigureLicenseDeliveryService 方法)。 如需關於媒體服務 PlayReady 授權傳遞服務的詳細資訊，請參閱 [使用 PlayReady 動態加密和授權傳遞服務](media-services-protect-with-playready-widevine.md)。
 
 > [!NOTE]
-> 若要傳遞使用 PlayReady 加密的 MPEG DASH，請務必使用 CENC 選項，只要將 useSencBox 和 adjustSubSamples 屬性 (如 [Azure Media Encryptor 的工作預設](http://msdn.microsoft.com/library/azure/hh973610.aspx) \(英文\) 一文中所述) 設為 true 即可。  
+> 若要傳遞使用 PlayReady 加密的 MPEG DASH，請務必使用 CENC 選項，只要將 useSencBox 和 adjustSubSamples 屬性 (如 [Azure Media Encryptor 的工作預設](https://msdn.microsoft.com/library/azure/hh973610.aspx) \(英文\) 一文中所述) 設為 true 即可。  
 > 
 > 
 
 請務必更新下列指向資料夾 (您可在其中找到輸入的 MP4 檔案) 的程式碼。
 
-此外，也請更新指向 MediaPackager_MP4ToSmooth.xml 和 MediaEncryptor_PlayReadyProtection.xml 檔案位置的程式碼。 MediaPackager_MP4ToSmooth.xml 定義於 [Azure Media Packager 的工作預設](http://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 中，而 MediaEncryptor_PlayReadyProtection.xml 則定義於 [Azure Media Encryptor 的工作預設](http://msdn.microsoft.com/library/azure/hh973610.aspx) \(英文\) 一文中。 
+此外，也請更新指向 MediaPackager_MP4ToSmooth.xml 和 MediaEncryptor_PlayReadyProtection.xml 檔案位置的程式碼。 MediaPackager_MP4ToSmooth.xml 定義於 [Azure Media Packager 的工作預設](https://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 中，而 MediaEncryptor_PlayReadyProtection.xml 則定義於 [Azure Media Encryptor 的工作預設](https://msdn.microsoft.com/library/azure/hh973610.aspx) \(英文\) 一文中。 
 
 此範例會定義可用來動態更新 MediaEncryptor_PlayReadyProtection.xml 檔案的 UpdatePlayReadyConfigurationXMLFile 方法。 如果您有可用的金鑰種子，可以使用 CommonEncryption.GeneratePlayReadyContentKey 方法產生以 keySeedValue 和 KeyId 值為基礎的內容金鑰。
 
@@ -712,7 +712,7 @@ ms.locfileid: "50231452"
 > 
 > 
 
-本節中的範例會將夾層檔案 (本例中為 MP4) 編碼為多位元速率 MP4 檔案，然後將 MP4 封裝為 Smooth Streaming。 接著，該範例會將 Smooth Streaming 封裝為 HTTP Live Streaming (HLS)，該格式使用進階加密標準 (AES) 128 位元串流加密進行加密。 請務必更新下列指向資料夾 (您可在其中找到輸入的 MP4 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_MP4ToSmooth.xml 和 MediaPackager_SmoothToHLS.xml 檔案位置的程式碼。 您可以在 [Azure Media Packager 的工作預設](http://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中找到這些檔案的定義。
+本節中的範例會將夾層檔案 (本例中為 MP4) 編碼為多位元速率 MP4 檔案，然後將 MP4 封裝為 Smooth Streaming。 接著，該範例會將 Smooth Streaming 封裝為 HTTP Live Streaming (HLS)，該格式使用進階加密標準 (AES) 128 位元串流加密進行加密。 請務必更新下列指向資料夾 (您可在其中找到輸入的 MP4 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_MP4ToSmooth.xml 和 MediaPackager_SmoothToHLS.xml 檔案位置的程式碼。 您可以在 [Azure Media Packager 的工作預設](https://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中找到這些檔案的定義。
 
 ```csharp
     using System;
@@ -997,7 +997,7 @@ ms.locfileid: "50231452"
 
 媒體服務現在提供一種服務，來傳遞 Microsoft PlayReady 授權。 本文中的範例將會示範如何設定媒體服務 PlayReady 授權傳遞服務 (請參閱以下程式碼中定義的 **ConfigureLicenseDeliveryService** 方法)。 
 
-請務必更新下列指向資料夾 (您可在其中找到輸入的 MP4 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_MP4ToSmooth.xml、MediaPackager_SmoothToHLS.xml 和 MediaEncryptor_PlayReadyProtection.xml 檔案位置的程式碼。 MediaPackager_MP4ToSmooth.xml 和 MediaPackager_SmoothToHLS.xml 定義於 [Azure Media Packager 的工作預設](http://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 中，而 MediaEncryptor_PlayReadyProtection.xml 則定義於 [Azure Media Encryptor 的工作預設](http://msdn.microsoft.com/library/azure/hh973610.aspx) \(英文\) 一文中。
+請務必更新下列指向資料夾 (您可在其中找到輸入的 MP4 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_MP4ToSmooth.xml、MediaPackager_SmoothToHLS.xml 和 MediaEncryptor_PlayReadyProtection.xml 檔案位置的程式碼。 MediaPackager_MP4ToSmooth.xml 和 MediaPackager_SmoothToHLS.xml 定義於 [Azure Media Packager 的工作預設](https://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 中，而 MediaEncryptor_PlayReadyProtection.xml 則定義於 [Azure Media Encryptor 的工作預設](https://msdn.microsoft.com/library/azure/hh973610.aspx) \(英文\) 一文中。
 
 ```csharp
     using System;

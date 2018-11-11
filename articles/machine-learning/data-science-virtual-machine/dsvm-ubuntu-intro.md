@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d9008956d3a5542d71438ee13050a3951230e101
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: cf5a15a55cf3f0d33edeec9440e745c9dce996c1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338802"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244860"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -81,7 +81,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>建立 Linux 適用的資料科學虛擬機器
 建立 Linux 適用的資料科學虛擬機器執行個體的步驟如下：
 
-1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu)上的虛擬機器清單。 如果您還沒登入，則系統會提示您登入 Azure 帳戶。 
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu)上的虛擬機器清單。 如果您尚未登入 Azure 帳戶，系統可能會提示您登入。 
 1. 按一下底部的 [建立] 以進入 wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. 下列各節提供精靈中每個步驟 (列舉於上圖的右邊) 的輸入，可用來建立 Microsoft 資料科學虛擬機器。 以下是設定每個步驟所需的輸入：
    
@@ -429,6 +429,6 @@ Rattle (**R** **A**nalytical **T**ool **T**o **L**earn **E**asily) 會使用 GUI
 
 * [適用於 Linux 的資料科學虛擬機器上的資料科學](linux-dsvm-walkthrough.md)逐步解說示範如何使用此處佈建的 Linux 資料科學 VM 來執行數個常見的資料科學工作。 
 * 試試本文中所述的工具，在資料科學 VM 上探索各種資料科學工具。 您也可以在虛擬機器內的殼層上執行 *dsvm-more-info* ，以獲得關於 VM 上所安裝工具的基本簡介和詳細資訊的指標。  
-* 了解如何使用 [Team Data Science Process](http://aka.ms/tdsp)，以系統化方式建置端對端分析方案。
+* 了解如何使用 [Team Data Science Process](https://aka.ms/tdsp)，以系統化方式建置端對端分析方案。
 * 瀏覽 [Azure AI 資源庫](https://gallery.azure.ai/)，可取得使用 Azure AI 服務的機器學習和資料分析範例。
 

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387883"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247716"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>如何輪替 X.509 裝置憑證
 
 在 IoT 解決方案的生命週期內，您必須輪替憑證。 輪替憑證的兩大主因是安全性缺口和憑證到期。 
 
-輪替憑證是一種最佳安全性做法，可在外洩事件中協助保護您的系統。 在[假想缺口方法](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)中，Microsoft 主張備妥回應式安全程序和預防性措施的需求。 輪替裝置憑證應納入這些安全程序中。 您輪替憑證的頻率將取決於您解決方案的安全性需求。 有解決方案涉及高度敏感性資料的客戶可以每天輪替，然而其他客戶則是每隔幾年輪替其憑證。
+輪替憑證是一種最佳安全性做法，可在外洩事件中協助保護您的系統。 在[假想缺口方法](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)中，Microsoft 主張備妥回應式安全程序和預防性措施的需求。 輪替裝置憑證應納入這些安全程序中。 您輪替憑證的頻率將取決於您解決方案的安全性需求。 有解決方案涉及高度敏感性資料的客戶可以每天輪替，然而其他客戶則是每隔幾年輪替其憑證。
 
 輪替裝置憑證涉及更新儲存在裝置和 IoT 中樞上的憑證。 之後，裝置可以使用正常[自動佈建](concepts-auto-provisioning.md)搭配裝置佈建服務，本身向 IoT 中樞重新佈建。
 

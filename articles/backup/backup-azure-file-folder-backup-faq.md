@@ -9,19 +9,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: saurse;trinadhk
-ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577876"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239828"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>關於 Azure 備份代理程式的問題
 本文包含常見問題的解答，可協助您快速了解 Azure 備份代理程式元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
 
 ## <a name="configure-backup"></a>設定備份
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>哪裡可以下載最新的 Azure 備份代理程式？ <br/>
-您可以下載最新的代理程式，以便從 [這裡](http://aka.ms/azurebackup_agent)備份 Windows Server、System Center DPM 或 Windows 用戶端。 如果您想要備份虛擬機器，請使用 VM 代理程式 (這會自動安裝適當的擴充功能)。 從 Azure 資源庫建立的虛擬機器上已經有 VM 代理程式。
+您可以下載最新的代理程式，以便從 [這裡](https://aka.ms/azurebackup_agent)備份 Windows Server、System Center DPM 或 Windows 用戶端。 如果您想要備份虛擬機器，請使用 VM 代理程式 (這會自動安裝適當的擴充功能)。 從 Azure 資源庫建立的虛擬機器上已經有 VM 代理程式。
 
 ### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>當設定 Azure 備份代理程式時，系統提示我要輸入保存庫認證。 保存庫認證是否過期？
 是，保存庫認證將於 48 小時後過期。 若檔案已過期，請登入 Azure 入口網站，並從您的保存庫下載保存庫認證檔。

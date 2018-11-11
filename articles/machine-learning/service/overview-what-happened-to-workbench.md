@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b8263c399f287be79590860cce7036207ef2e3f7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239249"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243738"
 ---
 # <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Azure Machine Learning (預覽) 中的 Workbench 發生什麼事？
 
-Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本中遭到取代，以便為改善的[架構](concept-azure-machine-learning-architecture.md)做準備。 該版本中包含了許多由客戶意見反應所提示的重大更新，這些更新可改善您的體驗。 從實驗執行到模型部署的核心功能沒有變更，但您現在可以使用健全的 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 和 [CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。  
+Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本中遭到取代，以便為改善的[架構](concept-azure-machine-learning-architecture.md)做準備。 該版本中包含了許多由客戶意見反應所提示的重大更新，這些更新可改善您的體驗。 從實驗執行到模型部署的核心功能沒有變更，但您現在可以使用健全的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 和 [CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。  
 
 在本文中，您將了解變更的項目為何，以及它們如何影響使用 Azure Machine Learning 服務的既有工作。
 
@@ -27,7 +27,7 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 最新版的 Azure Machine Learning 服務包括：
 + [簡化的 Azure 資源模型](concept-azure-machine-learning-architecture.md)
 + [新的入口網站 UI](how-to-track-experiments.md)，可管理您的實驗和計算目標
-+ 全新且更全面的 Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
++ 全新且更全面的 Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>
 + 全新且經過擴充的適用於機器學習的 [Azure CLI 擴充功能](reference-azure-machine-learning-cli.md)
 
 以容易使用為目標而重新設計的[架構](concept-azure-machine-learning-architecture.md)。 您只需要一個 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md#workspace)，而不是多個 Azure 資源和帳戶。  您可以在 [Azure 入口網站](quickstart-get-started.md)中快速建立工作區。  可以多個使用者將工作區用來儲存定型和部署計算目標、模型實驗、Docker 映像、已部署的模型等等。
@@ -46,11 +46,10 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 
 |階段|舊版功能的支援詳細資料|
 |:---:|----------------|
-|1|在 Azure 入口網站中或從 CLI 建立「Azure Machine Learning 測試帳戶」和「模型管理帳戶」的能力。 從 CLI 建立 ML Compute 環境的能力也會終止。 如果您目前有帳戶，CLI 和桌面 Workbench 在此階段會繼續運作。|
-|2|在桌面 Workbench 中和使用 CLI 建立舊工作區和專案所使用的基礎 API 會終止。 在此階段中，您仍然可以開啟現有的專案、對它新增其他指令碼、在現有的專案中執行指令碼，以及將 Web 服務部署至現有的 ML Compute 環境。|
-|3|在此階段中，對其他項目 (包括其餘 API 和桌面 Workbench) 的支援會終止。|
+|1|在 Azure 入口網站中或從 CLI 端建立「Azure Machine Learning 測試帳戶」和「模型管理帳戶」的能力。 從 CLI 建立 ML Compute 環境的能力也會終止。 如果您目前有帳戶，CLI 和桌面 Workbench 在此階段會繼續運作。|
+|2|在此階段中，對其他項目 (包括其餘 API 和桌面 Workbench) 的支援會終止。|
 
-立即[開始遷移](how-to-migrate.md)。 使用新的 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>、[CLI](reference-azure-machine-learning-cli.md) 和[入口網站](quickstart-get-started.md)存取所有最新功能。
+立即[開始遷移](how-to-migrate.md)。 使用新的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>、[CLI](reference-azure-machine-learning-cli.md) 和[入口網站](quickstart-get-started.md)存取所有最新功能。
 
 ## <a name="what-about-run-histories"></a>那麼執行歷程記錄呢？
 
@@ -67,9 +66,9 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 
 您現有的資料準備檔案無法攜帶到最新的版本，因為我們已經沒有 Workbench。 不過您仍然可以準備模型化要用的資料。  
 
-對於較小的資料集，您可以在模型化之前，使用 <a href="http://aka.ms/aml-sdk" target="_blank">Azure Machine Learning 資料準備 SDK</a> 來快速準備您的資料。 
+對於較小的資料集，您可以在模型化之前，使用 <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning 資料準備 SDK</a> 來快速準備您的資料。 
 
-您可以將這個相同的 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 用於較大的資料集，或使用 Azure Databricks 來準備大型資料集。 
+您可以將這個相同的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 用於較大的資料集，或使用 Azure Databricks 來準備大型資料集。 
 
 ## <a name="will-projects-persist"></a>專案是否會保存？
 
@@ -95,7 +94,7 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 
 是，它們會繼續運作一段時間 (請參閱上述的[時間表](#timeline))。 建議您開始使用最新的 SDK 和/或 CLI 來建立新的實驗和模型。
 
-在最新版本中，新的 Python SDK 可讓您在任何 Python 環境中與 Azure Machine Learning 服務互動。 了解如何安裝最新的 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>。  您也可以使用[更新的Azure CLI 機器學習擴充功能](reference-azure-machine-learning-cli.md)，其中包含豐富的 `az ml` 命令集，可在任何命令列環境 (包括 Azure 入口網站 Cloud Shell) 中與服務互動。
+在最新版本中，新的 Python SDK 可讓您在任何 Python 環境中與 Azure Machine Learning 服務互動。 了解如何安裝最新的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>。  您也可以使用[更新的Azure CLI 機器學習擴充功能](reference-azure-machine-learning-cli.md)，其中包含豐富的 `az ml` 命令集，可在任何命令列環境 (包括 Azure 入口網站 Cloud Shell) 中與服務互動。
 
 ## <a name="what-about-vs-code-tools-for-ai"></a>那麼 VS Code Tools for AI 呢？
 
@@ -105,7 +104,7 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 
 ## <a name="what-about-domain-packages"></a>那麼領域套件呢？
 
-適用於[電腦視覺、文字分析和預測](../desktop-workbench/reference-python-package-overview.md)的領域套件無法與最新版的 Azure Machine Learning 搭配使用。 不過，您仍然可以使用最新版的 Azure Machine Learning Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 來建置電腦視覺、文字和預測模型，以及將它們定型。 若要了解如何遷移使用電腦視覺、文字分析和預測套件建置的現有模型，請透過 [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com) 連絡我們。
+適用於[電腦視覺、文字分析和預測](../desktop-workbench/reference-python-package-overview.md)的領域套件無法與最新版的 Azure Machine Learning 搭配使用。 不過，您仍然可以使用最新版的 Azure Machine Learning Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 來建置電腦視覺、文字和預測模型，以及將它們定型。 若要了解如何遷移使用電腦視覺、文字分析和預測套件建置的現有模型，請透過 [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com) 連絡我們。
 
 ## <a name="next-steps"></a>後續步驟
 

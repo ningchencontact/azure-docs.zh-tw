@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: willzhan;juliako
-ms.openlocfilehash: 1584dab96d1cd772bf04620c68dbe1f133304a1c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 84e2eb6a16ce9ee4889eacbf394754c5c2544f7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783557"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245302"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系統的混合式設計
 
@@ -96,35 +96,35 @@ Azure 媒體服務 DRM 是全面雲端視訊平台的一部分，設計富彈性
 
 |**內容裝載與來源**|**DRM 加密**|**DRM 授權傳遞**|**設定內容金鑰**|**設定資產傳遞原則**|**範例**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|yes|yes|範例 1|
-|AMS|AMS|協力廠商|yes|yes|範例 2|
-|AMS|協力廠商|AMS|yes|否|範例 3|
+|AMS|AMS|AMS|是|是|範例 1|
+|AMS|AMS|協力廠商|是|是|範例 2|
+|AMS|協力廠商|AMS|是|否|範例 3|
 |AMS|協力廠商|外部|否|否|範例 4|
-|協力廠商|協力廠商|AMS|yes|否|    
+|協力廠商|協力廠商|AMS|是|否|    
 
-在範例中，PlayReady 保護對 DASH 和 Smooth Streaming 都有效。 下列的影片 URL 是 Smooth Streaming URL。 若要取得對應的 DASH URL，只要加上 "(format=mpd-time-csf)" 即可。 您可以使用 [Azure 媒體測試播放器](http://aka.ms/amtest)在瀏覽器中測試。 它可讓您設定要在哪些技術之下使用哪一個串流處理通訊協定。 Windows 10 的 IE11 和 MS Edge 都透過 EME 支援 PlayReady。 如需詳細資訊，請參閱[測試工具的詳細資料](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/)。
+在範例中，PlayReady 保護對 DASH 和 Smooth Streaming 都有效。 下列的影片 URL 是 Smooth Streaming URL。 若要取得對應的 DASH URL，只要加上 "(format=mpd-time-csf)" 即可。 您可以使用 [Azure 媒體測試播放器](https://aka.ms/amtest)在瀏覽器中測試。 它可讓您設定要在哪些技術之下使用哪一個串流處理通訊協定。 Windows 10 的 IE11 和 MS Edge 都透過 EME 支援 PlayReady。 如需詳細資訊，請參閱[測試工具的詳細資料](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/)。
 
 ### <a name="sample-1"></a>範例 1
 
-* 來源 (基底) URL：https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
-* PlayReady LA_URL (虛線與平滑)：https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
-* Widevine LA_URL (虛線)：https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4 
-* FairPlay LA_URL (HLS)：https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
+* 來源 (基底) URL： https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
+* PlayReady LA_URL (虛線與平滑)： https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* Widevine LA_URL (虛線)： https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4 
+* FairPlay LA_URL (HLS)： https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
 
 ### <a name="sample-2"></a>範例 2
 
-* 來源 (基底) URL：http://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* PlayReady LA_URL (虛線與平滑)：http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
+* 來源 (基底) URL： http://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* PlayReady LA_URL (虛線與平滑)： http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
 
 ### <a name="sample-3"></a>範例 3
 
-* 來源 URL：https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (虛線與平滑)：https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* 來源 URL： https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL (虛線與平滑)： https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
 
 ### <a name="sample-4"></a>範例 4
 
-* 來源 URL：https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (虛線與平滑)：https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+* 來源 URL： https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL (虛線與平滑)： https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
 
 ## <a name="summary"></a>總結
 

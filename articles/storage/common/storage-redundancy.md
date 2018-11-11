@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7afbdaba46674b69aa601355e80160e7c72ff373
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954482"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240965"
 ---
 # <a name="azure-storage-replication"></a>Azure 儲存體複寫
 
@@ -34,12 +34,12 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 
 | 案例                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| 資料中心內的節點無法供使用                                                                 | 是                             | yes                              | yes                                  | 是                                  |
-| 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | yes                              | yes                                  | 是                                  |
+| 資料中心內的節點無法供使用                                                                 | 是                             | 是                              | 是                                  | 是                                  |
+| 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | yes                              | 是                                  | 是                                  |
 | 全區域服務中斷                                                                                     | 否                              | 否                               | yes                                  | 是                                  |
 | 在全區域服務無法供使用的情況下對資料 (位於遠端、異地複寫區域) 進行讀取存取 | 否                              | 否                               | 否                                   | 是                                  |
 | 設計為可在指定的一年中讓物件持久性達到 \_\_                                          | 至少 99.999999999% (11 個 9) | 至少 99.9999999999% (12 個 9) | 至少 99.99999999999999% (16 個 9) | 至少 99.99999999999999% (16 個 9) |
-| 支援的儲存體帳戶類型                                                                   | GPv2、GPv1、Blob                | GPv2、GPv1 (透過 PowerShell、Azure CLI 或資源提供者 API)                             | GPv2、GPv1、Blob                     | GPv2、GPv1、Blob                     |
+| 支援的儲存體帳戶類型                                                                   | GPv2、GPv1、Blob                | GPv2                             | GPv2、GPv1、Blob                     | GPv2、GPv1、Blob                     |
 | 讀取要求的可用性 SLA | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.99% (非經常性存取層為 99.9%) |
 | 寫入要求的可用性 SLA | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) |
 
@@ -68,5 +68,5 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 - [異地備援儲存體 (GRS)：適用於 Azure 儲存體的跨區域複寫](storage-redundancy-grs.md)
 - [Azure 儲存體的延展性與效能目標](storage-scalability-targets.md)
 - [使用 RA-GRS 儲存體設計高可用性應用程式](../storage-designing-ha-apps-with-ragrs.md)
-- [Microsoft Azure 儲存體備援選項和讀取權限異地備援儲存體 ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [SOSP 文件：Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [Microsoft Azure 儲存體備援選項和讀取權限異地備援儲存體 ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [SOSP 文件：Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

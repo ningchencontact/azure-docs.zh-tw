@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436356"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239418"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解適用於自動化 Runbook 的重要 Windows PowerShell 工作流程概念
 
@@ -22,7 +22,7 @@ Azure 自動化中的 Runbook 會實作為 Windows PowerShell 工作流程。  W
 
 工作流程是一連串的程式化、連接步驟，執行長時間執行的工作，或是需要跨多個裝置或受控節點協調多個步驟。 透過標準的指令碼工作流程的好處包括能夠同時對多個裝置執行動作，以及可自動從失敗復原的能力。 Windows PowerShell 工作流程是使用 Windows Workflow Foundation 的 Windows PowerShell 指令碼。 雖然工作流程是使用 Windows PowerShell 語法編寫，並由 Windows PowerShell 啟動，它是由 Windows Workflow Foundation 來處理。
 
-如需這篇文章中的主題的完整詳細資訊，請參閱 [開始使用 Windows PowerShell 工作流程](http://technet.microsoft.com/library/jj134242.aspx)。
+如需這篇文章中的主題的完整詳細資訊，請參閱 [開始使用 Windows PowerShell 工作流程](https://technet.microsoft.com/library/jj134242.aspx)。
 
 ## <a name="basic-structure-of-a-workflow"></a>工作流程的基本結構
 
@@ -45,9 +45,9 @@ PowerShell 工作流程程式碼看起來幾乎類似於 PowerShell 指令碼，
 
 ### <a name="activities"></a>活動
 
-活動是工作流程中的特定工作。 就像指令碼是由一或多個命令所組成，工作流程是由序列中執行的一或多個活動所組成。 執行工作流程時，Windows PowerShell 工作流程會自動將許多 Windows PowerShell Cmdlet 轉換為活動。 在 Runbook 中指定其中一個 Cmdlet 時，對應的活動是由 Windows Workflow Foundation 執行。 針對沒有對應活動的 Cmdlet，Windows PowerShell 工作流程會自動在 [InlineScript](#inlinescript) 活動內執行 Cmdlet。 有一組 Cmdlet 被排除，除非您明確在 InlineScript 區塊中將其納入，否則無法用在工作流程中。 如需這些概念的詳細資訊，請參閱 [在指令碼工作流程中使用活動](http://technet.microsoft.com/library/jj574194.aspx)。
+活動是工作流程中的特定工作。 就像指令碼是由一或多個命令所組成，工作流程是由序列中執行的一或多個活動所組成。 執行工作流程時，Windows PowerShell 工作流程會自動將許多 Windows PowerShell Cmdlet 轉換為活動。 在 Runbook 中指定其中一個 Cmdlet 時，對應的活動是由 Windows Workflow Foundation 執行。 針對沒有對應活動的 Cmdlet，Windows PowerShell 工作流程會自動在 [InlineScript](#inlinescript) 活動內執行 Cmdlet。 有一組 Cmdlet 被排除，除非您明確在 InlineScript 區塊中將其納入，否則無法用在工作流程中。 如需這些概念的詳細資訊，請參閱 [在指令碼工作流程中使用活動](https://technet.microsoft.com/library/jj574194.aspx)。
 
-工作流程活動共用一組通用參數來設定其作業。 如需有關工作流程通用參數的詳細資訊，請參閱 [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx)。
+工作流程活動共用一組通用參數來設定其作業。 如需有關工作流程通用參數的詳細資訊，請參閱 [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx)。
 
 ### <a name="positional-parameters"></a>位置參數
 
@@ -152,7 +152,7 @@ Workflow Stop-MyService
 * 您不能在 InlineScriptBlock 內使用[平行執行](#parallel-processing)。
 * InlineScript 會影響工作流程的延展性，因為它會保留 InlineScript 區塊的整個長度的 Windows PowerShell 工作階段。
 
-如需使用 InlineScript 的詳細資訊，請參閱[在工作流程中執行 Windows PowerShell 命令](http://technet.microsoft.com/library/jj574197.aspx)和 [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx)。
+如需使用 InlineScript 的詳細資訊，請參閱[在工作流程中執行 Windows PowerShell 命令](https://technet.microsoft.com/library/jj574197.aspx)和 [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx)。
 
 ## <a name="parallel-processing"></a>平行處理
 
@@ -291,7 +291,7 @@ workflow CreateTestVms
 
 如果您使用以服務主體設定的執行身分帳戶進行驗證，則不必這麼做。
 
-如需有關檢查點的詳細資訊，請參閱 [加入檢查點至指令碼工作流程](http://technet.microsoft.com/library/jj574114.aspx)。
+如需有關檢查點的詳細資訊，請參閱 [加入檢查點至指令碼工作流程](https://technet.microsoft.com/library/jj574114.aspx)。
 
 ## <a name="next-steps"></a>後續步驟
 

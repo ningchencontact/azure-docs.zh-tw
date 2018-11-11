@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408603"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239792"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>在 Azure 上佈建地區人工智慧虛擬機器 
 
-地區人工智慧資料科學虛擬機器 (Geo-DSVM) 是熱門 [Azure 資料科學虛擬機器](http://aka.ms/dsvm)的擴充功能，特別設定來合併人工智慧與地理空間分析。 VM 中的地理空間分析是由 [ArcGIS Pro](https://www.arcgis.com/features/index.html) 驅動。 資料科學 VM 可以對藉由地理資訊而更加豐富的資料，快速訓練機器學習模型，甚至是深度學習模型。 只在 Windows 2016 DSVM 上提供支援。 
+地區人工智慧資料科學虛擬機器 (Geo-DSVM) 是熱門 [Azure 資料科學虛擬機器](https://aka.ms/dsvm)的擴充功能，特別設定來合併人工智慧與地理空間分析。 VM 中的地理空間分析是由 [ArcGIS Pro](https://www.arcgis.com/features/index.html) 驅動。 資料科學 VM 可以對藉由地理資訊而更加豐富的資料，快速訓練機器學習模型，甚至是深度學習模型。 只在 Windows 2016 DSVM 上提供支援。 
 
 Geo-DSVM 包含數個人工智慧工具，包括：
 

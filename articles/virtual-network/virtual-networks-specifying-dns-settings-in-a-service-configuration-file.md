@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: genli
-ms.openlocfilehash: 009206f1e0ba848538ed2c666032a63051d062e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0ac488a67d8b9debf6539d199395997cf44cf1e4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790741"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247172"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>指定服務組態檔中的 DNS 設定
 ## <a name="dns-elements"></a>DNS 項目
@@ -41,9 +41,9 @@ ms.locfileid: "31790741"
 ## <a name="see-also"></a>另請參閱
 [Azure 服務組態結構描述 (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Azure 虛擬網路組態結構描述](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure 虛擬網路組態結構描述](https://go.microsoft.com/fwlink/?LinkId=248093)
 
-[使用網路組態檔設定虛擬網路](http://go.microsoft.com/fwlink/?LinkId=248094)
+[使用網路組態檔設定虛擬網路](https://go.microsoft.com/fwlink/?LinkId=248094)
 
-[關於管理入口網站中的虛擬網路設定](http://go.microsoft.com/fwlink/?LinkId=248092)
+[關於管理入口網站中的虛擬網路設定](https://go.microsoft.com/fwlink/?LinkId=248092)
 

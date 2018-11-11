@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 53e737f35904a90bb56ec15c8a8282f8775e3c3a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 45ed1867d6d151250340bb21450b4b0d9b00e993
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393486"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243142"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>什麼是 Azure Machine Learning CLI？
 
@@ -25,7 +25,7 @@ Azure Machine Learning 命令列介面 (CLI) 是專門提供給使用 Azure Mach
 
 + 封裝、部署和追蹤機器學習模型的生命週期
 
-此機器學習 CLI 是 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 的擴充功能，是以 Azure Machine Learning 服務的 Python 型 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 為基礎。
+此機器學習 CLI 是 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 的擴充功能，是以 Azure Machine Learning 服務的 Python 型 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 為基礎。
 
 > [!NOTE]
 > CLI 目前為早期預覽狀態，日後將會更新。

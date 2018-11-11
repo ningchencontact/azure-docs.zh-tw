@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f2e0c7b335b09a0d2b8b8399e807a354ec8e4282
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805574"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245081"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>如何透過 Cloud Partner 入口網站建立 Dynamics 365 for Operations 供應項目
 
 發行入口網站能提供對入口網站的角色型存取，可讓多個人員就發行供應項目共同作業。 請參閱 [Cloud 入口網站管理使用者](./cloud-partner-portal-manage-users.md)以取得更多資訊。
 
-在代表發行者帳戶發行供應項目之前，必須有一個具有「擁有者」\"\"角色的人員同意遵守[使用條款](https://azure.microsoft.com/support/legal/website-terms-of-use/)、[Microsoft 隱私權聲明](http://www.microsoft.com/privacystatement/default.aspx)與 [Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)。
+在代表發行者帳戶發行供應項目之前，必須有一個具有「擁有者」\"\"角色的人員同意遵守[使用條款](https://azure.microsoft.com/support/legal/website-terms-of-use/)、[Microsoft 隱私權聲明](https://www.microsoft.com/privacystatement/default.aspx)與 [Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)。
 
 ## <a name="how-to-create-a-new-dynamics-365-for-operations-offer"></a>如何建立新的 Dynamics 365 for Operations 供應項目
 
@@ -49,7 +49,7 @@ ms.locfileid: "48805574"
 
 ### <a name="offer-id"></a>供應項目識別碼
 
-這是在發行者設定檔內供應項目的唯一識別碼。 此識別碼在產品 URL 中將是可見的。 此識別碼只能包含小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且不能超過 50 個字元。 供應項目上架後，此欄位便會鎖住。
+這是在發行者設定檔內供應項目的唯一識別碼。 此識別碼會出現在產品 URL 中。 此識別碼只能包含小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且不能超過 50 個字元。 供應項目上架後，此欄位便會鎖住。
 
 例如，如果發行者 contoso 建立具有供應項目識別碼 *sample-dynamics365 for operations* 的供應項目，它將會在 AppSource 中顯示為 \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics 365 for operations*?tab=Overview\"
 

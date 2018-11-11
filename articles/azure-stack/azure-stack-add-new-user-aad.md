@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fa8c8da34a687edd1bd92c1d516183ee5d3e1bd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038012"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240115"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中新增 Azure Stack 租用戶帳戶
 
@@ -42,7 +42,7 @@ ms.locfileid: "47038012"
 
     - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
     - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。
-        使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[將自訂網域名稱新增至 Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md)。
+        使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md)。
     - **設定檔。** (選擇性) 您可以新增更多有關使用者的資訊。 您也可以稍後新增使用者資訊。 如需新增使用者資訊的詳細資訊，請參閱[如何新增或變更使用者設定檔資訊](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)。
     - **目錄角色。**  選擇 [使用者]。
 
@@ -65,7 +65,7 @@ ms.locfileid: "47038012"
 > 
 
 1. 安裝[適用於 IT 專業人員的 Microsoft Online Services 登入小幫手 RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950)。
-2. 安裝[適用於 Windows PowerShell (64 位元版本) 的 Azure Active Directory 模組](http://go.microsoft.com/fwlink/p/?linkid=236297) \(英文\)，並將它開啟。
+2. 安裝[適用於 Windows PowerShell (64 位元版本) 的 Azure Active Directory 模組](https://go.microsoft.com/fwlink/p/?linkid=236297) \(英文\)，並將它開啟。
 3. 執行下列 Cmdlet：
 
     ```powershell
