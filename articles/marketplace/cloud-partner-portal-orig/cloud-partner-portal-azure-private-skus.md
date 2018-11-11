@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fa82db289cd3080cc1e51027b609cc6c8aa66921
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805634"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230235"
 ---
 <a name="private-skus"></a>私人 SKU
 ============
 
-私人 SKU 讓您可以限制 SKU 僅供特定客戶使用。 當 SKU 標記為私人時，代表該 SKU 不在包含 [Azure Marketplace](http://azuremarketplace.microsoft.com) 及 [Azure 入口網站](http://portal.azure.com)在內的任何公開目錄上開放使用。 在 Azure 入口網站上，只有擁有 SKU 存取權的客戶可以看見它。 此外，系統會提示這些客戶，他們擁有私人供應項目的存取權。
+私人 SKU 讓您可以限制 SKU 僅供特定客戶使用。 當 SKU 標記為私人時，代表該 SKU 不在包含 [Azure Marketplace](https://azuremarketplace.microsoft.com) 及 [Azure 入口網站](http://portal.azure.com)在內的任何公開目錄上開放使用。 在 Azure 入口網站上，只有擁有 SKU 存取權的客戶可以看見它。 此外，系統會提示這些客戶，他們擁有私人供應項目的存取權。
 
 >[!NOTE]
 >私人 SKU 必須有新的唯一 SKU/方案識別碼，來避免與您的公用 SKU 發生任何衝突。

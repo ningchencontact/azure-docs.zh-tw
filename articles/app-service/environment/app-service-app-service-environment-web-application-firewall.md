@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: 3fc9677d72dacd06bde2fcfa4812cf4613efef01
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e1c327051982ce36e94cd1fe0f824db5ec424da1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394259"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226986"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>設定 App Service 環境的 Web 應用程式防火牆 (WAF)
 ## <a name="overview"></a>概觀
 
-Web 應用程式防火牆 (WAF) 會檢查輸入的 Web 流量以封鎖 SQL 插入、跨網站指令碼、惡意程式碼上傳和應用程式 DDoS 以及其他攻擊，以保護您的 Web 應用程式。 它們也會檢查來自後端 Web 伺服器的回應，以進行資料外洩防護 (DLP)。 這與隔離以及 App Service 環境所提供的額外調整合併使用，以提供裝載商務關鍵 Web 應用程式的理想環境，而這些 Web 應用程式需要防禦惡意要求和大量流量。 Azure 提供隨附於[應用程式閘道](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)的 WAF 功能。  若想了解如何整合您的 App Service 環境與應用程式閘道，請參閱[整合您的 ILB ASE 與應用程式閘道](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)一文。
+Web 應用程式防火牆 (WAF) 會檢查輸入的 Web 流量以封鎖 SQL 插入、跨網站指令碼、惡意程式碼上傳和應用程式 DDoS 以及其他攻擊，以保護您的 Web 應用程式。 它們也會檢查來自後端 Web 伺服器的回應，以進行資料外洩防護 (DLP)。 這與隔離以及 App Service 環境所提供的額外調整合併使用，以提供裝載商務關鍵 Web 應用程式的理想環境，而這些 Web 應用程式需要防禦惡意要求和大量流量。 Azure 提供隨附於[應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)的 WAF 功能。  若想了解如何整合您的 App Service 環境與應用程式閘道，請參閱[整合您的 ILB ASE 與應用程式閘道](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)一文。
 
 除了 Azure 應用程式閘道以外，[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) 還提供多個市集選項，例如 [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure)。 本文的其餘內容將著重於如何整合您的 App Service 環境與 Barracuda WAF 裝置。
 

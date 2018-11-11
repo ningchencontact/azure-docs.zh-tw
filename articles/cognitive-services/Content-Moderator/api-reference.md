@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: f065310e3afeaf95af602e513421da6770c9583f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ecc22b097c14fc7597d8ee0e31f9691098a2211d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222399"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229742"
 ---
 # <a name="content-moderator-api-reference"></a>Content Moderator API 參考
 
 您可透過下列方式開始使用 Azure Content Moderator API：(另請參閱[管理認證](review-tool-user-guide/credentials.md))。
 
 - 在 Azure 入口網站中，[訂閱 Content Moderator API](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)。
-- 註冊 [Content Moderator 審查工具](http://contentmoderator.cognitive.microsoft.com/)。 請參閱[快速入門](quick-start.md)。
+- 註冊 [Content Moderator 審查工具](https://contentmoderator.cognitive.microsoft.com/)。 請參閱[快速入門](quick-start.md)。
 
 ## <a name="moderation-apis"></a>仲裁 API
 

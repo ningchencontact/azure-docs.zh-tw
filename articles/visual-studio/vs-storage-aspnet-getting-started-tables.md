@@ -7,16 +7,17 @@ manager: douge
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 39456380769e1c3b790d2bbc6fdf9c04c983d054
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531384"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228958"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 資料表儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -27,10 +28,10 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
 
 本教學課程說明如何使用 Azure 表格儲存體實體撰寫一些常見案例的 ASP.NET 程式碼。 這些案例包括建立資料表，以及新增、查詢和刪除資料表實體。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -172,7 +173,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
   
     ![建立資料表](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    如前所述，僅當資料表不存在且已建立時，**CloudTable.CreateIfNotExists** 方法才會傳回 **true**。 因此，如果您在資料表已存在時執行應用程式，此方法會傳回 **false**。 若要多次執行應用程式，您必須先刪除資料表後，才能再次執行應用程式。 可以透過完成 **CloudTable.Delete** 方法來刪除資料表。 您也可以使用 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)或 [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)來刪除資料表。  
+    如前所述，僅當資料表不存在且已建立時，**CloudTable.CreateIfNotExists** 方法才會傳回 **true**。 因此，如果您在資料表已存在時執行應用程式，此方法會傳回 **false**。 若要多次執行應用程式，您必須先刪除資料表後，才能再次執行應用程式。 可以透過完成 **CloudTable.Delete** 方法來刪除資料表。 您也可以使用 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)或 [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)來刪除資料表。  
 
 ## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 

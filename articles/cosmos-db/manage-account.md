@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 8b28143dc92fa526b631baf6d47e4a9f2367ee0e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: abcf51c6bd196c2ffb0bb35e2df161531a53972d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612151"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229385"
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>如何管理 Azure Cosmos DB 帳戶
 了解如何在 Azure 入口網站中設定全域一致性、使用金鑰，以及刪除 Azure Cosmos DB 帳戶。
@@ -81,7 +81,7 @@ ms.locfileid: "34612151"
 2. 在 [資源] 功能表中，按一下 [金鑰] \(若為 MongoDB API 帳戶，則按一下 [連接字串])。
 3. 按一下 [主要連接字串] 或 [次要連接字串] 方塊旁邊的 [複製] 按鈕。 
 
-如果您要在 [Azure Cosmos DB 資料庫移轉工具](import-data.md)中使用連接字串，請在連接字串結尾加上資料庫名稱。 `AccountEndpoint=< >;AccountKey=< >;Database=< >`。
+如果您要在 [Azure Cosmos DB 資料庫移轉工具](import-data.md)中使用連接字串，請在連接字串結尾加上資料庫名稱。 `AccountEndpoint=< >;AccountKey=< >;Database=< >` 。
 
 ## <a id="delete"></a> 刪除 Azure Cosmos DB 帳戶
 若要從 Azure 入口網站中移除您不再使用的 Azure Cosmos DB 帳戶，請以滑鼠右鍵按一下帳戶名稱，然後按一下 [刪除帳戶]。
@@ -95,8 +95,8 @@ ms.locfileid: "34612151"
 
 ![如何在 Azure 入口網站中刪除 Azure Cosmos DB 帳戶](./media/manage-account/delete-account-confirm.png)
 
-## <a id="next"></a>後續步驟
-了解如何[開始使用 Azure Cosmos DB 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=402364)。
+## <a id="next"></a>接續步驟
+了解如何[開始使用 Azure Cosmos DB 帳戶](https://go.microsoft.com/fwlink/p/?LinkId=402364)。
 
 <!--Image references-->
 [5]: ./media/manage-account/documentdb_change_consistency-1.png

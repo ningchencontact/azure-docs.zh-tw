@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 1807dc67d09b521e66314fb98535fb2c1225d34f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964533"
+---
 下表列出與不同服務層 (S1, S2, S3, F1) 關聯的限制。 如需有關每一層中各個 *單位* 之成本的詳細資訊，請參閱 [IoT 中樞價格](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
 | 資源 | S1 標準 | S2 標準 | S3 標準 | F1 免費 |
