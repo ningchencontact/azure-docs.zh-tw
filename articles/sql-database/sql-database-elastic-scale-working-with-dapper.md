@@ -2,26 +2,29 @@
 title: 搭配使用彈性資料庫用戶端程式庫與 Dapper | Microsoft Docs
 description: 搭配使用彈性資料庫用戶端程式庫與 Dapper。
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 6619f2dfe5f58cd23dbd0ffe6e2b545b803f3acc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 3a25d68b0f0bdd97b204906af87fac8013ad3cff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647923"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253018"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>搭配使用彈性資料庫用戶端程式庫與 Dapper
 本文件適用於下列開發人員︰依賴 Dapper 建置應用程式，但也想利用[彈性資料庫工具](sql-database-elastic-scale-introduction.md)建立應用程式，經由實作分區化來相應放大資料層。  這份文件說明為了與彈性資料庫工具整合，Dapper 應用程式中需要做的變更。 重點在於使用 Dapper 撰寫彈性資料庫分區管理和資料相依路由。 
 
 **範例程式碼**： [Azure SQL Database - Dapper 整合的彈性資料庫工具](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f)。
 
-整合 **Dapper** 和 **DapperExtensions** 與 Azure SQL Database 的彈性資料庫用戶端程式庫很容易。 將新的 [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 物件的建立和開啟作業變更為使用[用戶端程式庫](http://msdn.microsoft.com/library/azure/dn765902.aspx)的 [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) 呼叫，您的應用程式即可使用資料相依路由。 這會使應用程式中的變更侷限於建立和開啟新連線的位置。 
+整合 **Dapper** 和 **DapperExtensions** 與 Azure SQL Database 的彈性資料庫用戶端程式庫很容易。 將新的 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 物件的建立和開啟作業變更為使用[用戶端程式庫](https://msdn.microsoft.com/library/azure/dn765902.aspx)的 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 呼叫，您的應用程式即可使用資料相依路由。 這會使應用程式中的變更侷限於建立和開啟新連線的位置。 
 
 ## <a name="dapper-overview"></a>Dapper 概觀
 **Dapper** 是物件關聯式對應程式。 它可將應用程式的 .NET 物件對應到關聯式資料庫 (反之亦然) 。 範例程式碼的第一部分說明如何整合彈性資料庫用戶端程式庫與 Dapper 應用程式。 範例程式碼的第二部分說明如何在同時使用 Dapper 和 DapperExtensions 時進行整合。  
@@ -41,7 +44,7 @@ Dapper 以及 DapperExtensions 的另一個好處就是應用程式可控制資�
 
 分區對應管理員可防止使用者檢視 Shardlet 資料時出現不一致，這種情況發生於資料庫正在進行並行 Shardlet 管理作業時。 在作法上，分區對應會代理以程式庫建置的應用程式的資料庫連接。 當分區管理作業可能影響 Shardlet 時，即可允許分區對應功能自動終止資料庫連線。 
 
-您需要使用 [OpenConnectionForKey 方法](http://msdn.microsoft.com/library/azure/dn824099.aspx)來為 Dapper 建立連線，而不使用傳統的方式。 這可確保所有驗證都會發生，而且在分區之間移動任何資料時會適當地管理連線。
+您需要使用 [OpenConnectionForKey 方法](https://msdn.microsoft.com/library/azure/dn824099.aspx)來為 Dapper 建立連線，而不使用傳統的方式。 這可確保所有驗證都會發生，而且在分區之間移動任何資料時會適當地管理連線。
 
 ### <a name="requirements-for-dapper-integration"></a>Dapper 整合需求
 當使用彈性資料庫用戶端程式庫和 Dapper API 時，您需要保留下列屬性：
@@ -54,7 +57,7 @@ Dapper 以及 DapperExtensions 的另一個好處就是應用程式可控制資�
 
 ## <a name="technical-guidance"></a>技術指導
 ### <a name="data-dependent-routing-with-dapper"></a>Dapper 的資料相依路由
-有了 Dapper，應用程式通常負責建立和開啟對基礎資料庫的連線。 如果應用程式指定型別 T，Dapper 會將查詢結果傳回為型別 T 的 .NET 集合。Dapper 會執行從 T-SQL 結果資料列到型別 T 物件的對應。同樣地，Dapper 會將 .NET 物件對應到資料操作語言 (DML) 陳述式的 SQL 值或參數。 Dapper 透過延伸方法，在 ADO.NET SQL 用戶端程式庫中的標準 [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 物件上提供這項功能。 Elastic Scale DDR API 所傳回的 SQL 連接也是標準 [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 物件。 如此一來，我們即可透過用戶端程式庫的 DDR API 所傳回的型別，直接使用 Dapper 延伸模組，因為這也是簡單的 SQL 用戶端連接。
+有了 Dapper，應用程式通常負責建立和開啟對基礎資料庫的連線。 如果應用程式指定型別 T，Dapper 會將查詢結果傳回為型別 T 的 .NET 集合。Dapper 會執行從 T-SQL 結果資料列到型別 T 物件的對應。同樣地，Dapper 會將 .NET 物件對應到資料操作語言 (DML) 陳述式的 SQL 值或參數。 Dapper 透過延伸方法，在 ADO.NET SQL 用戶端程式庫中的標準 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 物件上提供這項功能。 Elastic Scale DDR API 所傳回的 SQL 連接也是標準 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 物件。 如此一來，我們即可透過用戶端程式庫的 DDR API 所傳回的型別，直接使用 Dapper 延伸模組，因為這也是簡單的 SQL 用戶端連接。
 
 經過這些觀察，請直接使用 Dapper 的彈性資料庫用戶端程式庫所代理的連接。
 
@@ -73,15 +76,15 @@ Dapper 以及 DapperExtensions 的另一個好處就是應用程式可控制資�
                         );
     }
 
-呼叫 [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) API 可取代 SQL 用戶端連接的預設建立和開啟作業。 [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) 呼叫接受資料相依路由所需的引數： 
+呼叫 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) API 可取代 SQL 用戶端連接的預設建立和開啟作業。 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 呼叫接受資料相依路由所需的引數： 
 
 * 用來存取資料相依路由介面的分區對應
 * 用來識別 Shardlet 的分區化索引鍵
 * 用來連接到分區的認證 (使用者名稱和密碼)
 
-分區對應物件會建立分區的連線，而此分區保留給定分區化索引鍵的 Shardlet。 彈性資料庫用戶端 API 也會標記此連接以履行其一致性保證。 由於呼叫 [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) 會傳回標準 SQL 用戶端連接物件，所以後續從 Dapper 呼叫 **Execute** 延伸方法時會遵循標準 Dapper 作法。
+分區對應物件會建立分區的連線，而此分區保留給定分區化索引鍵的 Shardlet。 彈性資料庫用戶端 API 也會標記此連接以履行其一致性保證。 由於呼叫 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 會傳回標準 SQL 用戶端連接物件，所以後續從 Dapper 呼叫 **Execute** 延伸方法時會遵循標準 Dapper 作法。
 
-查詢的運作方式幾乎完全相同 - 首先使用 [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) 從用戶端 API 開啟連線。 然後使用標準 Dapper 延伸方法，將 SQL 查詢的結果對應至 .NET 物件：
+查詢的運作方式幾乎完全相同 - 首先使用 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 從用戶端 API 開啟連線。 然後使用標準 Dapper 延伸方法，將 SQL 查詢的結果對應至 .NET 物件：
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1, 
@@ -106,7 +109,7 @@ Dapper 以及 DapperExtensions 的另一個好處就是應用程式可控制資�
 ## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Dapper 和 DapperExtensions 的資料相依路由
 Dapper 隨附其他延伸模組的生態系統，可在開發資料庫應用程式時從資料庫提供進一步的便利性和抽象概念。 DapperExtensions 就是一個範例。 
 
-在您的應用程式中使用 DapperExtensions，不會改變建立和管理資料庫連線的方式。 仍然由應用程式負責開啟連線，而延伸方法預期會有標準 SQL 用戶端連線物件。 我們可以如上所述依賴 [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) 。 如下列程式碼範例所示，唯一的改變就是您不再需要撰寫 T-SQL 陳述式：
+在您的應用程式中使用 DapperExtensions，不會改變建立和管理資料庫連線的方式。 仍然由應用程式負責開啟連線，而延伸方法預期會有標準 SQL 用戶端連線物件。 我們可以如上所述依賴 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 。 如下列程式碼範例所示，唯一的改變就是您不再需要撰寫 T-SQL 陳述式：
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2, 
@@ -134,7 +137,7 @@ Dapper 隨附其他延伸模組的生態系統，可在開發資料庫應用程�
     }
 
 ### <a name="handling-transient-faults"></a>處理暫時性錯誤
-Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊](http://msdn.microsoft.com/library/hh680934.aspx)，以協助應用程式開發人員緩和在雲端執行時所遇到的常見暫時性錯誤狀況。 如需詳細資訊，請參閱 [堅持，是所有成功的秘方：使用暫時性錯誤處理應用程式區塊](http://msdn.microsoft.com/library/dn440719.aspx)。
+Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/hh680934.aspx)，以協助應用程式開發人員緩和在雲端執行時所遇到的常見暫時性錯誤狀況。 如需詳細資訊，請參閱 [堅持，是所有成功的秘方：使用暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/dn440719.aspx)。
 
 此程式碼範例依賴暫時性錯誤程式庫來防止暫時性錯誤。 
 
@@ -154,10 +157,10 @@ Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊
 這份文件中所述的方法有幾個限制：
 
 * 這份文件的範例程式碼不示範如何管理跨分區的結構描述。
-* 提出要求時，我們假定所有資料庫處理都包含在要求所提供的分區化索引鍵所識別的單一分區內。 不過，這項假設並未永遠維持，例如，不可能使用分區化索引鍵時。 為了解決這個問題，彈性資料庫用戶端程式庫中提供 [MultiShardQuery 類別](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx)。 此類別可實作透過數個分區查詢的連線抽象概念。 使用 MultiShardQuery 搭配 Dapper 已超出本文的範圍
+* 提出要求時，我們假定所有資料庫處理都包含在要求所提供的分區化索引鍵所識別的單一分區內。 不過，這項假設並未永遠維持，例如，不可能使用分區化索引鍵時。 為了解決這個問題，彈性資料庫用戶端程式庫中提供 [MultiShardQuery 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx)。 此類別可實作透過數個分區查詢的連線抽象概念。 使用 MultiShardQuery 搭配 Dapper 已超出本文的範圍
 
 ## <a name="conclusion"></a>結論
-使用 Dapper 與 DapperExtensions 的應用程式可以輕易地受益於 Azure SQL Database 的彈性資料庫工具。 透過這份文件中所述的步驟，將新的 [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 物件的建立和開啟作業變更為使用彈性資料庫用戶端程式庫的 [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) 呼叫，這些應用程式即可使用工具的資料相依路由功能。 這會將所需的應用程式變更限制為建立及開啟新連線的位置。 
+使用 Dapper 與 DapperExtensions 的應用程式可以輕易地受益於 Azure SQL Database 的彈性資料庫工具。 透過這份文件中所述的步驟，將新的 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 物件的建立和開啟作業變更為使用彈性資料庫用戶端程式庫的 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 呼叫，這些應用程式即可使用工具的資料相依路由功能。 這會將所需的應用程式變更限制為建立及開啟新連線的位置。 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

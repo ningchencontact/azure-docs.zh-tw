@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190151"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249606"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>在 PIM 中指派 Azure AD 目錄角色
 
@@ -112,6 +112,39 @@ Azure AD Privileged Identity Management (PIM) 服務也允許特殊權限角色�
     ![移除角色](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     已移除角色指派。
+
+## <a name="authorization-error-when-assigning-roles"></a>指派角色時的授權錯誤
+
+如果您最近已針對訂用帳戶啟用 PIM，而且在嘗試將使用者設為合格的目錄角色時發生授權錯誤，則可能是因為 MS-PIM 服務主體尚未具備適當的權限。 MS-PIM 服務主體必須擁有[使用者存取系統管理員](../../role-based-access-control/built-in-roles.md#user-access-administrator)角色，才能將角色指派給其他人。 您不需等到系統為 MS-PIM 指派使用者存取系統管理員角色，可以改為手動指派。
+
+遵循下列步驟，將使用者存取系統管理員角色指派給訂用帳戶的 MS-PIM 服務主體。
+
+1. 以全域系統管理員身分登入 Azure 入口網站。
+
+1. 選擇 [所有服務]，然後選擇 [訂用帳戶]。
+
+1. 選擇您的訂用帳戶。
+
+1. 選擇 [存取控制 (IAM)]，以查看訂用帳戶範圍中目前的角色指派清單。
+
+   ![訂用帳戶的存取控制 (IAM) 刀鋒視窗](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. 檢查是否已為 **MS-PIM** 服務主體指派**使用者存取系統管理員**角色。
+
+1. 如果沒有，請選擇 [新增] 以開啟 [新增權限] 窗格。
+
+1. 在 [角色] 下拉式清單中，選取 [使用者存取系統管理員] 角色。
+
+1. 在 [選取] 清單中，尋找並選取 [MS-PIM] 服務主體。
+
+   ![新增適用於 MS-PIM 的權限](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. 選擇 [儲存] 以指派角色。
+
+   稍後片刻，即會在訂用帳戶範圍中，為 MS-PIM 服務主體指派使用者存取系統管理員角色。
+
+   ![適用於 MS-PIM 的使用者存取系統管理員角色](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>後續步驟
 

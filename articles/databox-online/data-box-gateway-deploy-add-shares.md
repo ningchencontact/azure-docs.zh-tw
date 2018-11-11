@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 6220a794c10f43d562155adbad910694a233ec88
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166012"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249875"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>教學課程：使用 Azure 資料箱閘道傳輸資料 (預覽)
 
@@ -146,6 +146,6 @@ ms.locfileid: "49166012"
 請繼續進行下一個教學課程，以了解如何管理資料箱閘道。
 
 > [!div class="nextstepaction"]
-> [使用本機 Web UI 來管理資料箱閘道](http://aka.ms/dbg-docs)
+> [使用本機 Web UI 來管理資料箱閘道](https://aka.ms/dbg-docs)
 
 

@@ -3,19 +3,19 @@ title: 修正 Azure HDInsight 中的 Hive 記憶體不足錯誤
 description: 修正 HDInsight 中的 Hive 記憶體不足錯誤。 客戶案例是一個橫跨許多大型資料表的查詢。
 keywords: 記憶體不足錯誤, OOM, Hive 設定
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 1ef4d8fa85a983c736fad73b652d8614c9a96ae5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109846"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248297"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>修正 Azure HDInsight 中的 Hive 記憶體不足錯誤
 
@@ -99,7 +99,7 @@ hive-site.xml 檔案中的 **hive.auto.convert.join.noconditionaltask** 已設�
         </description>
       </property>
 
-對應聯結有可能是「Java 堆積空間」記憶體不足錯誤的原因。 如部落格文章 [HDInsight 中的 Hadoop Yarn 記憶體設定](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)中所述，使用 Tez 執行引擎時，所使用的堆積空間實際上是屬於 Tez 容器。 查看下面說明 Tez 容器記憶體的影像。
+對應聯結有可能是「Java 堆積空間」記憶體不足錯誤的原因。 如部落格文章 [HDInsight 中的 Hadoop Yarn 記憶體設定](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)中所述，使用 Tez 執行引擎時，所使用的堆積空間實際上是屬於 Tez 容器。 查看下面說明 Tez 容器記憶體的影像。
 
 ![Tez 容器記憶體圖表：Hive 記憶體不足錯誤](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 

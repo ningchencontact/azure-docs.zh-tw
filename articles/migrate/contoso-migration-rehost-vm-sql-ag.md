@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 54a506b509ca1b6129a549589da3f2d18068a82f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 18041c95405614768845399f92efac229db53b20
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115432"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250725"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 移轉：在 Azure VM 和 SQL Server AlwaysOn 可用性群組上重新裝載內部部署應用程式
 
@@ -416,7 +416,7 @@ Contoso 管理員會依照下列方式設定帳戶：
 此外，當他們執行容錯移轉時，需要檢查以下各項：
 
 - 觸發容錯移轉時，VM 上不應該有擱置的 Windows 更新。 如果有，在更新完成之前，使用者將無法登入 VM。
-- 在容錯移轉之後，他們可以勾選 [開機診斷] 以檢視 VM 的螢幕擷取畫面。 若未解決問題，他們應確認 VM 是否執行中，並檢閱這些[疑難排解祕訣](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。
+- 在容錯移轉之後，他們可以勾選 [開機診斷] 以檢視 VM 的螢幕擷取畫面。 若未解決問題，他們應確認 VM 是否執行中，並檢閱這些[疑難排解祕訣](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。
 
 
 **需要其他協助？**

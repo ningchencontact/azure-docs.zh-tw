@@ -13,15 +13,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: dccdd6518dd97299150892a5629809ea7f708838
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209350"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253326"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>適用於 Windows Server 的 Service Fabric 獨立封裝內容
-在[下載](http://go.microsoft.com/fwlink/?LinkId=730690)的 Service Fabric 獨立封裝中，您會找到下列檔案︰
+在[下載](https://go.microsoft.com/fwlink/?LinkId=730690)的 Service Fabric 獨立封裝中，您會找到下列檔案︰
 
 | **檔案名稱** | **簡短說明** |
 | --- | --- |
@@ -33,7 +33,7 @@ ms.locfileid: "34209350"
 | TestConfiguration.ps1 |分析 Cluster.json 中指定之基礎結構的 PowerShell 指令碼。 |
 | DownloadServiceFabricRuntimePackage.ps1 |用於下載最新的頻外執行階段封裝的 PowerShell 指令碼，適用於部署未與網際網路連線的電腦。 |
 | DeploymentComponentsAutoextractor.exe |包含獨立封裝指令碼使用之部署元件的自我解壓縮封存。 |
-| EULA_ENU.txt |使用 Microsoft Azure Service Fabric 獨立 Windows Server 封裝的授權條款。 您可以立即[下載一份 EULA](http://go.microsoft.com/fwlink/?LinkID=733084)。 |
+| EULA_ENU.txt |使用 Microsoft Azure Service Fabric 獨立 Windows Server 封裝的授權條款。 您可以立即[下載一份 EULA](https://go.microsoft.com/fwlink/?LinkID=733084)。 |
 | Readme.txt |指向版本資訊和基本安裝指示的連結。 這是您在此文件中找到的一部分指示。 |
 | ThirdPartyNotice.rtf |套件中協力廠商軟體的注意事項。 |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |依需求執行的 StandaloneLogCollector.exe，可收集追蹤記錄檔並上傳至 Microsoft 以供支援用途。 |

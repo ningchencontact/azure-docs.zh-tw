@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321847"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250810"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 
@@ -141,7 +141,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
   
     ![建立佇列](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    如前所述，僅當容器不存在且已建立時，**CloudQueue.CreateIfNotExists** 方法才會傳回 **true**。 因此，如果您在佇列已存在時執行應用程式，此方法會傳回 **false**。 若要多次執行應用程式，您必須先刪除佇列後，才能再次執行應用程式。 可以透過完成 **CloudQueue.Delete** 方法來刪除佇列。 您也可以使用 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)或 [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)來刪除佇列。  
+    如前所述，僅當容器不存在且已建立時，**CloudQueue.CreateIfNotExists** 方法才會傳回 **true**。 因此，如果您在佇列已存在時執行應用程式，此方法會傳回 **false**。 若要多次執行應用程式，您必須先刪除佇列後，才能再次執行應用程式。 可以透過完成 **CloudQueue.Delete** 方法來刪除佇列。 您也可以使用 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)或 [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)來刪除佇列。  
 
 ## <a name="add-a-message-to-a-queue"></a>將訊息新增至佇列
 

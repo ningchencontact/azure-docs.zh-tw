@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714327"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255263"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 虛擬機器映像的技術性必要條件
 開始之前，請先徹底閱讀程序，並且了解每個步驟執行的位置及原因。 在供應項目建立程序之前，您應該盡可能準備您的公司資訊和其他資料、下載必要的工具，和/或建立技術元件。 檢閱本文之後，您會更清楚這些項目。  
@@ -30,7 +30,7 @@ ms.locfileid: "39714327"
 * 視您的目標作業系統而定，從 [Azure 下載](https://azure.microsoft.com/downloads/)頁面安裝 [Azure PowerShell Cmdlet](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) 或 [Linux 命令列介面工具](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409)。
 * 從 CodePlex 安裝 Azure 儲存體總管。
 * 下載並安裝適用於 Azure 認證的認證測試工具：
-  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913)。 您需要 Windows 架構的電腦才能執行認證工具。 如果您沒有 Windows 電腦，可以在 Azure 中使用 Windows 架構的 VM 執行工具。
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](https://go.microsoft.com/fwlink/?LinkID=526913)。 您需要 Windows 架構的電腦才能執行認證工具。 如果您沒有 Windows 電腦，可以在 Azure 中使用 Windows 架構的 VM 執行工具。
 
 ## <a name="platforms-supported"></a>支援的平台
 您可以在 Windows 或 Linux 上開發 Azure VM。 發佈程序的一些項目—例如建立與 Azure 相容的虛擬硬碟 (VHD)—會根據使用的作業系統而使用不同的工具和步驟。  

@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 3790994c94a1d62d8afb0e2f3b9e6d029ba9ecc1
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7a70859df572e7de7c10d211ebdd34dd5423df2d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340387"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252882"
 ---
 # <a name="how-to-sign-up-for-the-translator-speech-api"></a>如何註冊翻譯工具語音 API
 
@@ -46,7 +46,7 @@ ms.locfileid: "49340387"
 ## <a name="4-learn-test-and-get-support"></a>4：了解、測試和取得支援
 
 - [GitHub 上的範例程式碼](https://github.com/MicrosoftTranslator)
-- [Microsoft Translator 支援論壇](http://www.aka.ms/TranslatorForum)
+- [Microsoft Translator 支援論壇](https://www.aka.ms/TranslatorForum)
 
 ## <a name="pricing-options"></a>定價選項
 

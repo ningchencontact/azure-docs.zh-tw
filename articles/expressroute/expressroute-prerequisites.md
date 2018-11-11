@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 62cd6baa489ed3fb193ecacadf88cf34448319b5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 24cb21e81d2b4385423512ae58de2d6c0f94b93b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403502"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251895"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 必要條件和檢查清單
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須確認是否符合以下各節中所列的下列需求。
@@ -57,7 +57,7 @@ ms.locfileid: "49403502"
 ## <a name="dynamics-365"></a>Dynamics 365
 如果您打算在 ExpressRoute 上啟用 Dynamics 365，請檢閱下列文件以取得 Dynamics 365 的詳細資訊
 
-* [Dynamics 365 和 ExpressRoute 白皮書](http://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
+* [Dynamics 365 和 ExpressRoute 白皮書](https://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
 * [Dynamics 365 URL](https://support.microsoft.com/kb/2655102) 和 [IP 位址範圍](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>後續步驟

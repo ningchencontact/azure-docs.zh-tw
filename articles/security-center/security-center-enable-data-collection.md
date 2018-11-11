@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/5/2018
+ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9100722042bfdcbee48af1fc44e294df046c828e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044071"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007207"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器 (VM) 和非 Azure 電腦收集資料，以監視安全性漏洞與威脅。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區。
 
 必須收集資料，才能掌握遺漏的更新、設定錯誤的 OS 安全性設定、端點保護啟用，以及健康情況和威脅偵測。 
 
-此文章提供指導方針說明如何安裝 Microsoft Monitoring Agent，以及設定用於儲存所收集資料的 Log Analytics 工作區。 需要執行這兩個作業，才能啟用資料收集。 
+本文提供的指引有關於如何安裝 Microsoft Monitoring Agent，以及設定用於儲存所收集資料的 Log Analytics 工作區。 需要執行這兩項作業，才能啟用資料收集。 
 
 > [!NOTE]
 > - 計算資源 (VM 和非 Azure 電腦) 才需要收集資料。 即使您未佈建代理程式，也可受惠於 Azure 資訊安全中心；不過，您的安全性有限，而且不支援以上所列的功能。  
@@ -87,7 +87,7 @@ ms.locfileid: "48044071"
 -   資訊安全中心會依據為訂用帳戶設定的定價層，在工作區上自動啟用資訊安全中心解決方案。 
 
 > [!NOTE]
-> 資訊安全中心所建立的工作區不會產生 Log Analytics 費用。 資訊安全中心所建立工作區的 Log Analytics 定價層不會影響資訊安全中心的收費。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案。 針對免費層，資訊安全中心在預設工作區啟用 SecurityCenterFree 解決方案。 對於標準層，資訊安全中心在預設工作區啟用 Security 解決方案。
+> 資訊安全中心所建立工作區的 Log Analytics 定價層不會影響資訊安全中心的收費。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案。 針對免費層，資訊安全中心在預設工作區啟用 SecurityCenterFree 解決方案。 對於標準層，資訊安全中心在預設工作區啟用 Security 解決方案。
 
 如需詳細資訊，請參閱[資訊安全中心價格](https://azure.microsoft.com/pricing/details/security-center/)。
 
@@ -123,7 +123,7 @@ ms.locfileid: "48044071"
    - 如果您希望新的工作區設定套用在所有虛擬機器，請選取 [是]。 此外，每個連線到資訊安全中心建立之工作區的虛擬機器會重新連線到新的目標工作區。
 
    > [!NOTE]
-   > 如果您選取 [是]，您必須刪除資訊安全中心建立的工作區，直到所有虛擬機器已重新連線至新的目標工作區。 如果過早刪除工作區，此作業將會失敗。
+   > 如果您選取 [是]，您必須刪除資訊安全中心建立的工作區，直到所有虛擬機器已重新連線至新的目標工作區。 如果過早刪除工作區，這項作業將會失敗。
    >
    >
 
@@ -216,7 +216,7 @@ ms.locfileid: "48044071"
     - 如果您環境中的用戶端工作站上已安裝 Microsoft Monitoring Agent 並會向現有的 Log Analytics 工作區報告，請檢閱 [Azure 資訊安全中心支援的作業系統](security-center-os-coverage.md)清單，確保您的作業系統受支援，並請參閱[現有的 Log Analytics 客戶](security-center-faq.md#existingloganalyticscust)以取得詳細資訊。
  
 ### 關閉自動佈建 <a name="offprovisioning"></a>
-您可以在安全性原則中關閉從資源自動佈建，隨時關閉此設定。 
+您可以在安全性原則中關閉從資源自動佈建，隨時關閉這項設定。 
 
 
 1. 返回 [資訊安全中心] 主功能表，並選取 [安全性原則]。
@@ -261,7 +261,7 @@ ms.locfileid: "48044071"
     a.  [安裝適用於 Windows 的 OMS 虛擬機器擴充功能](../virtual-machines/extensions/oms-windows.md)
     
     b.  [安裝適用於 Linux 的 OMS 虛擬機器擴充功能](../virtual-machines/extensions/oms-linux.md)
-5.  若要在現有的 VM 上部署擴充功能，請依照[收集有關 Azure 虛擬機器的資料](../log-analytics/log-analytics-quick-collect-azurevm.md)中的指示執行。
+5.  若要在現有的 VM 上部署擴充功能，請遵循[收集有關 Azure 虛擬機器的資料](../log-analytics/log-analytics-quick-collect-azurevm.md)中的指示。
 
   > [!NOTE]
   > **收集事件和效能資料**一節是選擇性的。
@@ -307,7 +307,7 @@ ms.locfileid: "48044071"
 - 若要找出未受監視的 VM 和電腦問題，請參閱[未受監視的 VM 和電腦](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)。
 
 ## <a name="next-steps"></a>後續步驟
-此文章說明資料收集和自動佈建如何在資訊安全中心運作。 如要深入了解資訊安全中心，請參閱下列主題：
+本文說明資料收集和自動佈建如何在資訊安全中心運作。 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)-- 尋找有關使用服務的常見問題。
 * [Azure 資訊安全中心的安全性健康狀態監視](security-center-monitoring.md)--了解如何監視 Azure 資源的健康狀態。

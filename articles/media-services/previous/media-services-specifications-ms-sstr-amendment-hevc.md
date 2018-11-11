@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 78ec0e3ee4304e820bf64afa26440380887630a1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6330de2aa67fd83a5d4762c2c13d4916f642743d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786057"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250929"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款
 
@@ -30,7 +30,7 @@ ms.locfileid: "33786057"
 本文在 Smooth Streaming 資訊清單中提供 HEVC 視訊轉碼器訊號的技術實作需求，而標準參考已更新為參考包含 HEVC、HEVC 一般加密的現行 MPEG 標準，且 ISO Base Media 檔案格式已更新為與最新規格一致。 
 
 參考的 Smooth Streaming 通訊協定規格 [MS-SSTR] 說明用來以下列方式傳遞即時和點播數位媒體 (例如音訊及視訊) 的電傳格式：從編碼器到 Web 伺服器、從伺服器到另一部伺服器，以及從伺服器到 HTTP 用戶端。
-使用透過 HTTP 的 MPEG-4 ([[MPEG4-RA])](http://go.microsoft.com/fwlink/?LinkId=327787) 型資料結構傳遞，可幾近即時地在壓縮媒體內容的不同品質水準間進行切換。 其結果是，HTTP 用戶端使用者可享有穩定的播放體驗，即使用戶端電腦或裝置的網路和視訊轉譯條件有所變動，仍不受影響。
+使用透過 HTTP 的 MPEG-4 ([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) 型資料結構傳遞，可幾近即時地在壓縮媒體內容的不同品質水準間進行切換。 其結果是，HTTP 用戶端使用者可享有穩定的播放體驗，即使用戶端電腦或裝置的網路和視訊轉譯條件有所變動，仍不受影響。
 
 ## <a name="11-glossary"></a>1.1 詞彙 
 
@@ -40,11 +40,11 @@ ms.locfileid: "33786057"
 
 以下是本文專用的字詞：
 
->  **編寫階段：** 樣本存留在用戶端上的時間，如 [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) 所定義。
+>  **編寫階段：** 樣本存留在用戶端上的時間，如 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 所定義。
 
 >   **CENC**：一般加密，如 [ISO/IEC 23001-7] 第二版所定義。
 
->   **解碼階段：** 樣本必須在用戶端上解碼的時間，如 [[ISO/IEChttp://go.microsoft.com/fwlink/?LinkId=18369514496-12] 所定義。](http://go.microsoft.com/fwlink/?LinkId=183695)
+>   **解碼階段：** 樣本必須在用戶端上解碼的時間，如 [[ISO/IEC http://go.microsoft.com/fwlink/?LinkId=18369514496-12] 所定義。](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 **片段：** 可單獨下載、包含一或多個**樣本**的**媒體**單元。
 
@@ -52,11 +52,11 @@ ms.locfileid: "33786057"
 
 >   **資訊清單：** 可讓用戶端發出**媒體**要求之**顯示**的相關中繼資料。 **媒體：** 用戶端用來播放**顯示**的壓縮音訊、視訊和文字資料。 **媒體格式：** 一個妥善定義的格式，可將音訊或視訊顯示為壓縮的**樣本**。
 
->   **顯示：** 播放單一影片所需的所有**資料流**和相關中繼資料的集合。 **要求：** 從用戶端傳送至伺服器的 HTTP 訊息，如 [[RFC2616]](http://go.microsoft.com/fwlink/?LinkId=90372) 所定義。 **回應：** 從伺服器傳送至用戶端的 HTTP 訊息，如 [[RFC2616]](http://go.microsoft.com/fwlink/?LinkId=90372) 所定義。
+>   **顯示：** 播放單一影片所需的所有**資料流**和相關中繼資料的集合。 **要求：** 從用戶端傳送至伺服器的 HTTP 訊息，如 [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) 所定義。 **回應：** 從伺服器傳送至用戶端的 HTTP 訊息，如 [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) 所定義。
 
 >   **樣本：** 儲存及處理**媒體**的最小基本單位 (例如框架)。
 
->   **「可能」、「應該」、「必須」、「不應」、「不可」：** 這些字詞 (全都會加上引號) 的用法如 [[RFC2119]](http://go.microsoft.com/fwlink/?LinkId=90317) 所說明。 選擇性行為的所有陳述均使用「可能」、「應該」或「不應」。
+>   **「可能」、「應該」、「必須」、「不應」、「不可」：** 這些字詞 (全都會加上引號) 的用法如 [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) 所說明。 選擇性行為的所有陳述均使用「可能」、「應該」或「不應」。
 
 ## <a name="12-references"></a>1.2 參考 
 -----------
@@ -65,7 +65,7 @@ ms.locfileid: "33786057"
 
  ### <a name="121-normative-references"></a>1.2.1 標準參考 
 
->  [MS-SSTR] Smooth Streaming 通訊協定 *v20140502* [http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR].pdf](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+>  [MS-SSTR] Smooth Streaming 通訊協定 *v20140502* [http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR].pdf](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
 >   [ISO/IEC 14496-12] 國際標準化組織，「資訊技術 -- 音訊-視覺化物件的編碼 -- 第 12 部分：ISO Base Media 檔案格式」，ISO/IEC 14496-12:2014，第4 版，Plus Corrigendum 1，修訂文件 1 和 2。
 >   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -79,17 +79,17 @@ ms.locfileid: "33786057"
 
 >   [RFC-6381] IETF RFC-6381，「貯體媒體類型的轉碼器和設定檔參數」<http://tools.ietf.org/html/rfc6381>
 
->   [MPEG4-RA] MP4 登錄授權單位，"MP4REG"，[http://www.mp4ra.org   ](http://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] MP4 登錄授權單位，"MP4REG"，[http://www.mp4ra.org   ](https://go.microsoft.com/fwlink/?LinkId=327787)
 
->   [RFC2119] Bradner, S.，「在 RFC 中用來指出需求層級的關鍵字」，BCP 14，RFC 2119，1997 年 3 月，[http://www.rfc-editor.org/rfc/rfc2119.txt   ](http://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S.，「在 RFC 中用來指出需求層級的關鍵字」，BCP 14，RFC 2119，1997 年 3 月，[http://www.rfc-editor.org/rfc/rfc2119.txt   ](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 資訊參考 
 
 >   [MS-GLOS] Microsoft Corporation，「*Windows 通訊協定主要詞彙*」。
 
->   [RFC3548] Josefsson, S., Ed.,，「Base16、Base32 和 Base64 資料編碼」，RFC 3548，2003 年 7 月，[http://www.ietf.org/rfc/rfc3548.txt   ](http://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed.,，「Base16、Base32 和 Base64 資料編碼」，RFC 3548，2003 年 7 月，[http://www.ietf.org/rfc/rfc3548.txt   ](https://go.microsoft.com/fwlink/?LinkId=90432)
 
->   [RFC5234] Crocker, D., Ed., and Overell, P., ，「語法規格的增強型 BNF：ABNF」，STD 68，RFC 5234，2008 年 1 月，[http://www.rfc-editor.org/rfc/rfc5234.txt   ](http://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., Ed., and Overell, P., ，「語法規格的增強型 BNF：ABNF」，STD 68，RFC 5234，2008 年 1 月，[http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 概觀 
@@ -115,7 +115,7 @@ ms.locfileid: "33786057"
 >   「應該」使用下列方法來識別使用 HEVC 視訊格式的資料流：
 
 >   * **媒體格式的自訂描述性代碼：** 這項功能由 **FourCC** 欄位提供，如 *2.2.2.5* 小節所指定。
->   實作者可將延伸模組註冊至 MPEG4-RA，以確保延伸模組不會衝突，如 [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) 所指定
+>   實作者可將延伸模組註冊至 MPEG4-RA，以確保延伸模組不會衝突，如 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 所指定
 
 ## <a name="19-standards-assignments"></a>1.9 標準指派 
 ----------------------
@@ -163,7 +163,7 @@ ms.locfileid: "33786057"
 
 >   * 當 TrackElement 說明 HEVC 視訊時，**FourCC** 欄位「應該」等於 **"hev1"**。
 
->   **CodecPrivateData** 欄位「應該」包含下列位元組序列十六進位編碼的字串表示法，指定於 ABNF [[RFC5234]](http://go.microsoft.com/fwlink/?LinkId=123096) 中：(與 MS-SSTR 相同)
+>   **CodecPrivateData** 欄位「應該」包含下列位元組序列十六進位編碼的字串表示法，指定於 ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) 中：(與 MS-SSTR 相同)
 
 >   * %x00 %x00 %x00 %x01 SPSField %x00 %x00 %x00 %x01 PPSField
 
@@ -209,21 +209,21 @@ ms.locfileid: "33786057"
 
 #### <a name="2246-tfhdbox"></a>2.2.4.6 TfhdBox 
 
->   **TfhdBox** 和相關欄位中包含片段中每個樣本中繼資料的預設值。 **TfhdBox** 欄位的語法是 [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) 的 8.8.7 條款所定義之「磁軌片段標題方塊」的嚴格語法子集。
+>   **TfhdBox** 和相關欄位中包含片段中每個樣本中繼資料的預設值。 **TfhdBox** 欄位的語法是 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 的 8.8.7 條款所定義之「磁軌片段標題方塊」的嚴格語法子集。
 
 >   **BaseDataOffset (8 位元組)：**，從 **MdatBox** 欄位開頭到 **MdatBox** 欄位中的樣本欄位的位移 (以位元組為單位)。 若要指出此限制，必須設定 default-base-is-moof 旗標 (0x020000)。
 
 #### <a name="2247-trunbox"></a>2.2.4.7 TrunBox 
 
->   **TrunBox** 和相關欄位中包含所要求之片段的每個樣本中繼資料。 **TrunBox** 的語法是 [[ISO/IEC-14496-](http://go.microsoft.com/fwlink/?LinkId=183695)*12]* 的 8.8.8 條款所定義之「第 1 版磁軌片段執行方塊」的嚴格子集。
+>   **TrunBox** 和相關欄位中包含所要求之片段的每個樣本中繼資料。 **TrunBox** 的語法是 [[ISO/IEC-14496-](https://go.microsoft.com/fwlink/?LinkId=183695)*12]* 的 8.8.8 條款所定義之「第 1 版磁軌片段執行方塊」的嚴格子集。
 
 >   **SampleCompositionTimeOffset (4 個位元組)：** 每個樣本為了讓片段中第一個顯示之樣本的顯示時間等於第一個解碼樣本的解碼時間，而進行調整的樣本組合時間位移。 「應該」使用反面視訊樣本組合位移，
 
->   如 [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) 所定義。
+>   如 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 所定義。
 
 >   注意：這可以避免等同於最大解碼圖片緩衝移除延遲的視訊延遲音訊所造成的視訊同步處理錯誤，並可在可能有不同移除延遲的替代片段之間保持顯示時機。
 
->   本節中定義之欄位的語法 (指定於 ABNF [[RFC5234]](http://go.microsoft.com/fwlink/?LinkId=123096) 中) 仍保持相同，但有下列例外：
+>   本節中定義之欄位的語法 (指定於 ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) 中) 仍保持相同，但有下列例外：
 
 >   SampleCompositionTimeOffset = SIGNED_INT32
 
@@ -239,7 +239,7 @@ ms.locfileid: "33786057"
 
 #### <a name="2271-filetype"></a>2.2.7.1 FileType 
 
->   **FileType (變數)：** 指定 MPEG-4 ([[MPEG4-RA])](http://go.microsoft.com/fwlink/?LinkId=327787) 檔案的子類型和預定用法，以及高階屬性。
+>   **FileType (變數)：** 指定 MPEG-4 ([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) 檔案的子類型和預定用法，以及高階屬性。
 
 >   **MajorBrand (變數)：** 媒體檔案的主要品牌。 「必須」設為 "isml"。
 
@@ -248,7 +248,7 @@ ms.locfileid: "33786057"
 >   **CompatibleBrands (變數)：** 指定支援的 MPEG-4 品牌。
 >   「必須」包含 "ccff" 和 "iso8"。
 
->   本節中定義之欄位的語法 (指定於 ABNF [[RFC5234]](http://go.microsoft.com/fwlink/?LinkId=123096) 中) 如下所示：
+>   本節中定義之欄位的語法 (指定於 ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) 中) 如下所示：
 
     FileType = MajorBrand MinorVersion CompatibleBrands
     MajorBrand = STRING_UINT32

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 5369e16e0f1adc48eb019f3790dc900577c144af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248376"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243654"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>如何在對話學習模組模型中記錄對話
 
@@ -23,7 +23,7 @@ ms.locfileid: "48248376"
 
 ## <a name="video"></a>影片
 
-[![教學課程 9 預覽](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+[![教學課程 9 預覽](https://aka.ms/cl-tutorial-09-preview)](https://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人

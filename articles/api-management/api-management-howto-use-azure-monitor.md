@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 683b77e47857e4efbe2c24425953e9a3d83177f9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972993"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418837"
 ---
 # <a name="monitor-published-apis"></a>監視發佈的 API
 
@@ -36,11 +36,10 @@ ms.locfileid: "38972993"
 下列影片示範如何使用 Azure 監視器來監視 API 管理。 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
->
->
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
++ 了解 [Azure API 管理術語](api-management-terminology.md)。
 + 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 + 同時也請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
 
@@ -55,17 +54,16 @@ API 管理會每分鐘發出計量，讓您近乎即時地了解 API 的狀態�
 * 未經授權閘道器要求︰收到 401、403 和 429 HTTP 回應碼的 API 要求數目。
 * 其他閘道要求︰所收到的 HTTP 回應碼不屬於上述任何類別 (例如 418) 的 API 要求數目。
 
+![計量圖表](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 存取計量：
 
 1. 從靠近頁面底部的功能表中，選取 [計量]。
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. 從下拉式清單中，選取您想了解的計量 (您可以新增多個度量)。  
-    例如，從可用的度量清單中選取 [閘道要求總數] 和 [失敗的閘道要求]。
-3. 該圖表會顯示 API 呼叫的總數。 也會顯示失敗的 API 呼叫數目。
-
-    ![計量圖表](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+2. 從下拉式清單中，選取您想了解的計量。 例如，**成功的閘道器要求**。 您也可以將更多計量新增至圖表。
+3. 圖表會顯示成功 API 呼叫的總數。
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>針對未經授權的要求設定警示規則
 
@@ -102,6 +100,8 @@ API 管理會每分鐘發出計量，讓您近乎即時地了解 API 的狀態�
 
 您可以在 API 管理服務中存取活動記錄，或在 Azure 監視器中存取所有 Azure 資源的記錄。 
 
+![活動記錄](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 檢視活動記錄：
 
 1. 選取您的 APIM 服務執行個體。
@@ -111,8 +111,6 @@ API 管理會每分鐘發出計量，讓您近乎即時地了解 API 的狀態�
 
 3. 選取所需的篩選範圍，然後按一下 [套用]。
 
-    ![活動記錄](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
-
 ## <a name="diagnostic-logs"></a>診斷記錄檔
 
 診斷記錄可提供豐富的作業與錯誤資訊，這些資訊對於稽核和疑難排解用途來說很重要。 診斷記錄與活動記錄不同。 活動記錄可讓您深入了解 Azure 資源上所執行的作業。 診斷記錄能讓您了解資源執行的作業。
@@ -120,7 +118,7 @@ API 管理會每分鐘發出計量，讓您近乎即時地了解 API 的狀態�
 若要設定診斷記錄：
 
 1. 選取您的 APIM 服務執行個體。
-2. 按一下 [ **診斷記錄**]。
+2. 按一下 [診斷設定]。
 
     ![診斷記錄](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 

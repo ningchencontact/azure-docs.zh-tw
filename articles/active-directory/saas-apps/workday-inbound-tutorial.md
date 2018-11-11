@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 2ab2ac34132eff65e1d6c77794486bc8d9858b40
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62dc796de430e7c5926f3231db29ef554f210142
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408167"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016772"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>教學課程︰設定 Workday 來自動佈建使用者 (預覽)
 
@@ -365,7 +365,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 | **UserID**    |  cn    |   |   僅於建立時寫入 |
 | **Join("@", [UserID], "contoso.com")**   | userPrincipalName     |     | 僅於建立時寫入 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         僅於建立時寫入 |
-| **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | 建立 + 更新 |
+| **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | 建立 + 更新 |
 | **名字**   | givenName       |     |    建立 + 更新 |
 | **姓氏**   |   sn   |     |  建立 + 更新 |
 | **PreferredNameData**  |  displayName |     |   建立 + 更新 |

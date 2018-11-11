@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
-ms.comopnent: na
-ms.openlocfilehash: 65320e7d3cc97a3d53fd1a00fbbeab5559c02fce
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.comopnent: ''
+ms.openlocfilehash: 52d81e4f4070d8d8e13497ad39d5adf1b99470de
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133276"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007734"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log Analytics 中的 IIS 記錄檔
 Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Log Analytics 進行收集。  
@@ -80,5 +80,5 @@ IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 
 ## <a name="next-steps"></a>後續步驟
 * 設定 Log Analytics 以收集其他 [資料來源](log-analytics-data-sources.md) 進行分析。
-* 了解 [記錄檔搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。
+* 了解 [記錄檔搜尋](log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。
 * 設定 Log Analytics 中的警示，以主動通知您在 IIS 記錄檔中找到的重要狀況。

@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: e3de78bdf38a326498b984dc2a9f8eaa42233d22
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5a12a65e03e7ac104eb7b09b116f7c463bbb5b98
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091278"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240710"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能 
 
@@ -159,7 +159,7 @@ Azure Cosmos DB Cassandra API 提供讀取作業的一致性選擇。 所有寫�
 
 ## <a name="permission-and-role-management"></a>權限與角色管理
 
-Azure Cosmos DB 支援角色型存取控制 (RBAC) 與讀寫和唯讀密碼/金鑰，可透過 [Azure 入口網站](https://portal.azure.com來取得。 Azure Cosmos DB 尚不支援資料平面活動的使用者與角色。 
+Azure Cosmos DB 支援角色型存取控制 (RBAC) 與讀寫和唯讀密碼/金鑰，可透過 [Azure 入口網站](https://portal.azure.com)來取得。 Azure Cosmos DB 尚不支援資料平面活動的使用者與角色。 
 
 ## <a name="planned-support"></a>計劃的支援 
 * 搭配使用時間戳記與 TTL  

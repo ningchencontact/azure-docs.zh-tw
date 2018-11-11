@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/10/2017
 ms.author: trinadhk
-ms.openlocfilehash: 358c7b0e61d1c85e236007c2495941a31502431a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 01aacaecba8c5a4adf1dab5483a2f921df9314c0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606854"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252525"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>將備份保存庫升級為復原服務保存庫
 本文提供復原服務保存庫提供服務的概觀、將現有備份保存庫升級為復原服務保存庫的常見問題集，與升級後步驟。 復原服務保存庫是您存放備份資料之備份保存庫的 Azure Resource Manager 對等項目。 資料通常是資料的副本，或是虛擬機器 (VM)、工作負載、伺服器或工作站的設定資訊，無論是內部部署或是在 Azure 中。
@@ -26,13 +26,13 @@ ms.locfileid: "34606854"
 
 - **可協助保護備份資料安全的增強功能**︰透過復原服務保存庫，Azure 備份能提供安全性功能來保護雲端備份。 這些安全性功能可確保您能保護您的備份，並安全地從雲端備份將資料復原，即使生產和備份伺服器遭到入侵也一樣。 [深入了解](backup-azure-security-feature.md)
 
-- **將您的混合式 IT 環境集中監視**︰透過復原服務保存庫，您不只可以監視 [Azure IaaS VM](backup-azure-manage-vms.md)，還可以從中央入口網站監視[內部部署資產](backup-azure-manage-windows-server.md#manage-backup-items)。 [深入了解](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **將您的混合式 IT 環境集中監視**︰透過復原服務保存庫，您不只可以監視 [Azure IaaS VM](backup-azure-manage-vms.md)，還可以從中央入口網站監視[內部部署資產](backup-azure-manage-windows-server.md#manage-backup-items)。 [深入了解](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
 - **角色型存取控制 (RBAC)**：RBAC 提供 Azure 中的更細緻存取權管理。 [Azure 提供各種內建角色](../role-based-access-control/built-in-roles.md)，且 Azure Backup 有三個[內建的角色可用來管理復原點](backup-rbac-rs-vault.md)。 復原服務保存庫與 RBAC 相容，且會對一組定義之使用者角色的備份和還原存取權限加以限制。 [深入了解](backup-rbac-rs-vault.md)
 
-- **保護 Azure 虛擬機器的所有設定**︰復原服務保存庫會保護以 Resource Manager 為基礎的 VM，包括進階磁碟、受控磁碟及加密的 VM。 將備份保存庫升級至復原服務保存庫，讓您有機會可將以 Service Manager 為基礎的 VM 升級至以 Resource Manager 為基礎的 VM。 在升級保存庫時，您可以保留以 Service Manager 為基礎的 VM 復原點，並設定已升級 (已啟用 Resource Manager) 的 VM 保護。 [深入了解](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **保護 Azure 虛擬機器的所有設定**︰復原服務保存庫會保護以 Resource Manager 為基礎的 VM，包括進階磁碟、受控磁碟及加密的 VM。 將備份保存庫升級至復原服務保存庫，讓您有機會可將以 Service Manager 為基礎的 VM 升級至以 Resource Manager 為基礎的 VM。 在升級保存庫時，您可以保留以 Service Manager 為基礎的 VM 復原點，並設定已升級 (已啟用 Resource Manager) 的 VM 保護。 [深入了解](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **IaaS VM 的立即還原**︰您可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM，這樣可加速還原時間。 IaaS VM 的立即還原適用於 Windows 和 Linux VM。 [深入了解](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **IaaS VM 的立即還原**︰您可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM，這樣可加速還原時間。 IaaS VM 的立即還原適用於 Windows 和 Linux VM。 [深入了解](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 > [!NOTE]
 > 如果您向備份保存庫註冊的項目具有 2.0.9083.0 之前的 MARS 代理程式，[下載最新的 MARS 代理程式]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)版本，以獲得復原服務保存庫所有功能的優點。 
@@ -62,16 +62,16 @@ ms.locfileid: "34606854"
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 **升級計畫是否會影響我進行中的備份？**</br>
-編號 在升級期間和升級之後，進行中的備份持續不受干擾。
+否。 在升級期間和升級之後，進行中的備份持續不受干擾。
 
 **對於我現有的工具來說，此升級有何意義？**</br>
 您必須將現有自動化功能或工具更新為 Resource Manager 部署模型，以確保它在移轉之後仍可繼續運作。 如需了解 [Resource Manager 部署模型](backup-client-automation.md)，請參閱 PowerShell Cmdlet 參考。
 
 **升級之後可以復原嗎？**</br>
-編號 將資源成功升級之後，即不支援復原。
+否。 將資源成功升級之後，即不支援復原。
 
 **在升級後可以檢視我的傳統保存庫嗎？**</br>
-編號 您在升級後無法檢視或管理您的傳統保存庫。 您只能將新的 Azure 入口網站用於保存庫的所有管理動作。
+否。 您在升級後無法檢視或管理您的傳統保存庫。 您只能將新的 Azure 入口網站用於保存庫的所有管理動作。
 
 **為什麼我看不到升級的保存庫受到 MARS 代理程式保護的伺服器？**</br>
 您必須安裝最新的 MARS 代理程式，才能看到在您的保存庫中受到 MARS 代理程式保護的所有伺服器。 您可以從[這裡]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)下載最新版本的代理程式。

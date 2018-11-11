@@ -3,18 +3,18 @@ title: 使用 Apache Spark 來分析 Azure Data Lake Store 中的資料
 description: 執行 Spark 作業來分析 Azure Data Lake Store 中所儲存的資料
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: aae63b06999c0b8eafa0d42608d32a4d467a900c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9fe4b3e49f8e3270f58929a5708a83ab02e2486c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041056"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255245"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>使用 HDInsight Spark 叢集來分析 Data Lake Store 中的資料
 
@@ -34,7 +34,7 @@ ms.locfileid: "43041056"
 >
 >
 
-如果您建立具有 Data Lake Store 的 HDInsight Spark 叢集做為額外的儲存體並以 Azure 儲存體 Blob 做為預設儲存體，您應該先將某些範例資料複製到 Data Lake Store 帳戶。 您可以使用與 HDInsight 叢集相關聯之 Azure 儲存體 Blob 中的資料範例。 您可以使用 [ADLCopy 工具](http://aka.ms/downloadadlcopy) 來執行此動作。 從連結下載並安裝此工具。
+如果您建立具有 Data Lake Store 的 HDInsight Spark 叢集做為額外的儲存體並以 Azure 儲存體 Blob 做為預設儲存體，您應該先將某些範例資料複製到 Data Lake Store 帳戶。 您可以使用與 HDInsight 叢集相關聯之 Azure 儲存體 Blob 中的資料範例。 您可以使用 [ADLCopy 工具](https://aka.ms/downloadadlcopy) 來執行此動作。 從連結下載並安裝此工具。
 
 1. 開啟命令提示字元，並瀏覽至安裝 AdlCopy 的目錄，通常是 `%HOMEPATH%\Documents\adlcopy`。
 

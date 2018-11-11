@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ce95a2177260e97113fd5e639671075eb6ad40cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e86568da7f3d607c90e42e09a61ced9993c4d744
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215011"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254038"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中對實驗室新增 VM
 如果您已經[建立您的第一個 VM](devtest-lab-create-first-vm.md)，您很有可能是透過預先載入的 [Marketplace 映像](devtest-lab-configure-marketplace-images.md)來完成的。 現在，如果您想要將後續的 VM 新增至您的實驗室，您也可以選擇一個「基底」，它可以是[自訂映像](devtest-lab-create-template.md)或[公式](devtest-lab-manage-formulas.md)。 本教學課程會逐步引導您使用 Azure 入口網站，在 DevTest Labs 中對實驗室新增 VM。
@@ -27,7 +27,7 @@ ms.locfileid: "39215011"
 本文同時說明如何在實驗室中管理 VM 的構件。
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中對實驗室新增 VM 的步驟
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 1. 從實驗室清單中，選取您想要在其中建立 VM 的實驗室。  
 1. 在實驗室的 [概觀] 窗格中，選取 [+ 新增]。  
@@ -69,7 +69,7 @@ ms.locfileid: "39215011"
 
 若要了解如何建立構件，請參閱 [了解如何撰寫您自己的構件以用於研發/測試實驗室](devtest-lab-artifact-author.md)文章。
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 1. 從實驗室清單中，選取您想要使用之 VM 所在的實驗室。  
 1. 選取 [我的虛擬機器]。

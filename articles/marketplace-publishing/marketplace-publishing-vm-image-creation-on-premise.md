@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e5571a0933284a52d5567db0505ecaced6c6c336
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390052"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253494"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>開發 Azure Marketplace 的內部部署虛擬機器映像
 強烈建議您使用遠端桌面通訊協定，在雲端中直接開發您的 Azure 虛擬硬碟 (VHD)。 不過如果需要，可以使用內部部署基礎結構來下載 VHD 並進行開發。  
@@ -71,7 +71,7 @@ ms.locfileid: "49390052"
    ![繪圖](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### <a name="download-a-vhd-by-using-powershell"></a>使用 PowerShell 下載 VHD
-除了使用 Azure 入口網站，還可以使用 [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) Cmdlet 下載作業系統 VHD。
+除了使用 Azure 入口網站，還可以使用 [Save-AzureVhd](https://msdn.microsoft.com/library/dn495297.aspx) Cmdlet 下載作業系統 VHD。
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -139,7 +139,7 @@ ms.locfileid: "49390052"
 建立儲存體帳戶和容器之後，就可以上傳您準備好的 VHD。 您可以使用 PowerShell、Linux 命令列工具或其他 Azure 儲存體管理工具。
 
 ### <a name="upload-a-vhd-via-powershell"></a>透過 PowerShell 上傳 VHD
-使用 [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) Cmdlet。
+使用 [Add-AzureVhd](https://msdn.microsoft.com/library/dn495173.aspx) Cmdlet。
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 

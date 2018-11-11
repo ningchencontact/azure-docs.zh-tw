@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577225"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241492"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>將應用程式加入至 Azure AD 的方式和原因
 
@@ -69,7 +69,7 @@ ms.locfileid: "39577225"
 
 * 當使用者登入與 Azure AD 整合的第三方應用程式時
   * 登入期間，系統會要求使用者為應用程式提供可用來存取其設定檔的權限以及其他權限。 第一個同意的人就會將代表應用程式的服務主體新增至目錄。
-* 當使用者登入 Microsoft 線上服務時，例如 [Office 365](http://products.office.com/)
+* 當使用者登入 Microsoft 線上服務時，例如 [Office 365](https://products.office.com/)
   * 訂閱或開始試用 Office 365 時，目錄中會建立一或多個服務主體，代表用來傳遞所有 Office 365 相關功能的各種服務。
   * 某些 Office 365 服務(如 SharePoint) 會持續建立服務主體，以允許元件之間的安全通訊，包括工作流程。
 * 當系統管理員從應用程式庫新增應用程式時 (這也會建立基礎應用程式物件)

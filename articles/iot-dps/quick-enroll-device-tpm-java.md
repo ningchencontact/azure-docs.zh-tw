@@ -1,6 +1,6 @@
 ---
 title: 使用 Java 向 Azure 裝置佈建服務註冊 TPM 裝置 | Microsoft Docs
-description: Azure 快速入門 - 使用 Java 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置
+description: Azure 快速入門 - 使用 Java 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -10,19 +10,19 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 68f8125ddc0691346813bb31124fa3abd4976296
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b0068bc912de13590cd9bc7418ea6fcdb01189f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234019"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420484"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>使用 Java 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 
-這些步驟顯示如何使用 [Java 服務 SDK](https://azure.github.io/azure-iot-sdk-java/service/) 與範例 Java 應用程式的協助，以程式設計方式向 Azure IoT 中樞裝置佈建服務註冊 TPM 模擬裝置。 雖然 Java 服務 SDK 在 Windows 和 Linux 電腦上都適用，本文會使用 Windows 開發電腦來逐步引導進行註冊程序。
+下列步驟說明如何使用 [Java 服務 SDK](https://azure.github.io/azure-iot-sdk-java/service/) 和範例 Java 應用程式的輔助，以程式設計方式在 Azure IoT 中樞裝置佈建服務中建立模擬 TPM 裝置的個別註冊。 雖然 Java 服務 SDK 在 Windows 和 Linux 電腦上都適用，本文會使用 Windows 開發電腦來逐步引導進行註冊程序。
 
 繼續之前，請務必[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)，以及[模擬 TPM 裝置](quick-create-simulated-device.md#simulatetpm)。
 
@@ -30,9 +30,9 @@ ms.locfileid: "40234019"
 
 ## <a name="prepare-the-development-environment"></a>準備開發環境 
 
-1. 請確定您已在電腦上安裝 [Java SE 開發套件 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。 
+1. 請確定您已在電腦上安裝 [Java SE 開發套件 8](https://aka.ms/azure-jdks)。 
 
-2. 設定您 Java 安裝的環境變數。 `PATH` 變數應該包含 jdk1.8.x\bin 目錄的完整路徑。 如果這是您第一次在電腦上安裝 Java，請建立名為 `JAVA_HOME` 的新環境變數，並加以指向 jdk1.8.x 目錄的完整路徑。 在 Windows 電腦上，此目錄通常是位於 C:\\Program Files\\Java\\ 資料夾，您可以在 Windows 電腦的 [控制台] 上搜尋 [編輯系統環境變數] 來建立或編輯環境變數。 
+2. 設定您 Java 安裝的環境變數。 `PATH` 變數應該包含 jdk1.8.x\bin 目錄的完整路徑。 如果這是您第一次在電腦上安裝 Java，請建立名為 `JAVA_HOME` 的新環境變數，並加以指向 jdk1.8.x 目錄的完整路徑。 在 Windows 電腦上，此目錄位於 C:\\Program Files\\Java\\ 資料夾，您可以在 Windows 電腦的 [控制台] 上搜尋 [編輯系統環境變數] 來建立或編輯環境變數。 
 
   您可以在命令視窗中執行下列命令，查看 Java 是否在您的電腦上成功設定：
 

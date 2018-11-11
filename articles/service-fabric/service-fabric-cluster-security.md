@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 52730ae24f4917ab593914c390df798f7f58dbde
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145551"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240591"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 叢集安全性案例
 Azure Service Fabric 叢集是您擁有的資源。 保護叢集是您的責任，從而協助避免未經授權的使用者與它們連線。 在叢集上執行生產工作負載時，安全的叢集尤其重要。 雖然可以建立不安全的叢集，但如果叢集向公用網際網路公開管理端點，匿名使用者就可以連線叢集。 不支援將不安全的叢集用作生產工作負載。 
@@ -85,13 +85,14 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 當您建立叢集時，請設定系統管理員和使用者用戶端角色。 為每種角色類型提供個別的身分識別 (例如，使用憑證或 Azure AD)，從而 指派角色。 如需有關預設存取控制設定及如何變更預設設定的詳細資訊，請參閱[適用於 Service Fabric 用戶端的角色型存取控制](service-fabric-cluster-security-roles.md)。
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 憑證和 Service Fabric
-X509 數位憑證通常用來驗證用戶端與伺服器。 它們也用來加密及數位簽署訊息。 Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的安全性功能。 如需關於 X.509 數位憑證的詳細資訊，請參閱[使用憑證](http://msdn.microsoft.com/library/ms731899.aspx)。 您可以使用 [Key Vault](../key-vault/key-vault-get-started.md) 來管理 Azure 中 Service Fabric 叢集的憑證。
+X509 數位憑證通常用來驗證用戶端與伺服器。 它們也用來加密及數位簽署訊息。 Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的安全性功能。 如需關於 X.509 數位憑證的詳細資訊，請參閱[使用憑證](https://msdn.microsoft.com/library/ms731899.aspx)。 您可以使用 [Key Vault](../key-vault/key-vault-get-started.md) 來管理 Azure 中 Service Fabric 叢集的憑證。
 
 一些需要考量的重要事項︰
 
 * 若要建立執行生產環境工作負載之叢集的憑證，請使用已正確設定的 Windows Server 憑證服務，或是已核准[憑證授權單位 (CA)](https://en.wikipedia.org/wiki/Certificate_authority)中的服務。
 * 請勿使用您透過諸如 MakeCert.exe 等工具，在生產環境中建立的任何暫存或測試憑證。
 * 您可以使用自我簽署的憑證，但只能在測試叢集中。 請勿在生產環境中使用自我簽署的憑證。
+* 在產生憑證指紋時，請務必產生 SHA1 指紋。 在設定用戶端和叢集的憑證指紋時，會用到 SHA1。
 
 ### <a name="cluster-and-server-certificate-required"></a>叢集和伺服器憑證 (必要)
 需有這些憑證 (一個主要憑證和選擇性次要憑證) 以便保護叢集，並避免未經授權的存取。 這些憑證會提供叢集和伺服器驗證。
@@ -108,7 +109,7 @@ X509 數位憑證通常用來驗證用戶端與伺服器。 它們也用來加�
 
 * [主體] 欄位可以有多個值。 每個值前面都會加上起首字母來表示實值類型。 通常，起首字母是 **CN** (針對一般名稱)；例如 **CN = www.contoso.com**。 
 * [主體] 欄位可以是空白。 
-* 如果選擇性 [主體別名] 欄位已填入資料，此欄位就必須具有憑證的一般名稱，以及每個 SAN 的一個項目。 這些會以 **DNS 名稱**值輸入。 若要深入了解如何產生具有 SAN 的憑證，請參閱[如何將主體別名新增至安全 LDAP 憑證](http://support.microsoft.com/kb/931351)。
+* 如果選擇性 [主體別名] 欄位已填入資料，此欄位就必須具有憑證的一般名稱，以及每個 SAN 的一個項目。 這些會以 **DNS 名稱**值輸入。 若要深入了解如何產生具有 SAN 的憑證，請參閱[如何將主體別名新增至安全 LDAP 憑證](https://support.microsoft.com/kb/931351)。
 * 憑證的 [預定目的] 欄位值應包含適當的值，例如**伺服器驗證**或**用戶端驗證**。
 
 ### <a name="application-certificates-optional"></a>應用程式憑證 (選用)

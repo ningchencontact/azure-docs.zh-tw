@@ -11,30 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 9e579123124615df83483e244ef11810ca590844
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: avishwan
+ms.openlocfilehash: c07e1282a755962b6fe6bc980207a510bd3287a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253766"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>建立及發行 Marketplace 項目
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 ## <a name="create-a-marketplace-item"></a>建立 Marketplace 項目
-1. [下載](http://www.aka.ms/azurestackmarketplaceitem) Azure Gallery Packager 工具和範例 Azure Stack Marketplace 項目。
+1. [下載](https://www.aka.ms/azurestackmarketplaceitem) Azure Gallery Packager 工具和範例 Azure Stack Marketplace 項目。
 2. 開啟範例 Marketplace 項目，並重新命名 **SimpleVMTemplate** 資料夾。 (使用與您的 Marketplace 項目相同的名稱 - 例如 **Contoso.TodoList**。)此資料夾包含：
    
-       /Contoso.TodoList/
-       /Contoso.TodoList/Manifest.json
-       /Contoso.TodoList/UIDefinition.json
-       /Contoso.TodoList/Icons/
-       /Contoso.TodoList/Strings/
-       /Contoso.TodoList/DeploymentTemplates/
+   ```shell
+   /Contoso.TodoList/
+   /Contoso.TodoList/Manifest.json
+   /Contoso.TodoList/UIDefinition.json
+   /Contoso.TodoList/Icons/
+   /Contoso.TodoList/Strings/
+   /Contoso.TodoList/DeploymentTemplates/
+   ```
+
 3. [建立 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)，或從 GitHub 選擇範本。 Marketplace 項目會使用此範本來建立資源。
 
     > [!Note]  
@@ -52,22 +55,30 @@ ms.locfileid: "45633958"
 8. 在 **manifest.json** 檔案中，將 [名稱] 變更為您的 Marketplace 項目的名稱。 同時將 [發行者] 變更為您的姓名或公司。
 9. 在 [構件] 下，將 [名稱] 和 [路徑] 變更為您所併入 Azure Resource Manager 範本的正確資訊。
    
-         "artifacts": [
-            {
-                "name": "Type your template name",
-                "type": "Template",
-                "path": "DeploymentTemplates\\Type your path",
-                "isDefault": true
-            }
+   ```json
+   "artifacts": [
+      {
+          "name": "Type your template name",
+          "type": "Template",
+          "path": "DeploymentTemplates\\Type your path",
+          "isDefault": true
+      }
+   ```
+
 10. 將**我的 Marketplace 項目**取代為您的 Marketplace 項目應出現位置的目錄清單。
     
-             "categories":[
-                 "My Marketplace Items"
-              ],
+   ```json
+   "categories":[
+   "My Marketplace Items"
+   ],
+   ```
+
 11. 若要對 manifest.json 進行任何進一步的編輯，請參閱[參考：Marketplace 項目 manifest.json](#reference-marketplace-item-manifestjson)。
 12. 若要將資料夾封裝到 .azpkg 檔案中，請開啟命令提示字元，然後執行下列命令：
     
-        AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```shell
+   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```
     
     > [!NOTE]
     > 輸出套件的完整路徑必須存在。 例如，如果輸出路徑是 C:\MarketPlaceItem\yourpackage.azpkg，資料夾 C:\MarketPlaceItem 必須存在。
@@ -79,8 +90,10 @@ ms.locfileid: "45633958"
 2. 在 Microsoft Azure Stack 環境中的用戶端虛擬機器上，確定您的 PowerShell 工作階段已設有您服務系統管理員的認證。 您可以在[使用 PowerShell 部署範本](user/azure-stack-deploy-template-powershell.md)中找到如何在 Azure Stack 中驗證 PowerShell 的指示。
 3. 當您使用 [PowerShell 1.3.0]( azure-stack-powershell-install.md) 或更新版本時，可以使用 **Add-AzsGalleryItem** PowerShell Cmdlet 將 Marketplace 項目發佈至 Azure Stack。 在使用 PowerShell 1.3.0 之前，使用 **Add-AzureRMGalleryitem** Cmdlet 代替 **Add-AzsGalleryItem**。  例如，當您使用 PowerShell 1.3.0 或更新版本時：
    
-       Add-AzsGalleryItem -GalleryItemUri `
-       https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```powershell
+   Add-AzsGalleryItem -GalleryItemUri `
+   https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```
    
    | 參數 | 說明 |
    | --- | --- |
@@ -102,7 +115,9 @@ ms.locfileid: "45633958"
 
 6. 使用 **Remove-AzureRMGalleryItem** Cmdlet 可移除 Marketplace 項目。 範例：
    
-        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```powershell
+   Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```
    
    > [!NOTE]
    > 移除項目之後，Marketplace UI 可能會顯示錯誤。 若要修正錯誤，請按一下入口網站中的 [設定]。 然後，在 [入口網站自訂] 之下，選取 [捨棄修改]。

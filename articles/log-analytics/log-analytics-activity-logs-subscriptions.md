@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: richrund; bwren
-ms.component: na
-ms.openlocfilehash: c2bb802213d903290a0168623d7e6a302ba0e324
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: magoedte
+ms.component: ''
+ms.openlocfilehash: 41e627d895f0276d372ee42df3e0a43fdadc4051
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127436"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016058"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics
 
@@ -29,7 +29,7 @@ ms.locfileid: "37127436"
 
 ## <a name="overview"></a>概觀
 
-此案例中所使用的策略是讓 Azure 活動記錄將事件傳送至[事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)其中，[邏輯應用程式](../logic-apps/logic-apps-overview.md)會將它們傳送至 Log Analytics 工作區。 
+此案例中所使用的策略是讓 Azure 活動記錄將事件傳送至[事件中樞](../event-hubs/event-hubs-about.md)其中，[邏輯應用程式](../logic-apps/logic-apps-overview.md)會將它們傳送至 Log Analytics 工作區。 
 
 ![從活動記錄到 Log Analytics 之資料流程的影像](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -130,7 +130,7 @@ ms.locfileid: "37127436"
 
    |設定 | 說明  |
    |:---|:---|
-   | Name           | 邏輯應用程式的唯一名稱。 |
+   | 名稱           | 邏輯應用程式的唯一名稱。 |
    | 訂用帳戶   | 選取將包含邏輯應用程式的 Azure 訂用帳戶。 |
    | 資源群組 | 選取現有 Azure 資源群組，或建立邏輯應用程式的新 Azure 資源群組。 |
    | 位置       | 選取資料中心區域，用於部署邏輯應用程式。 |

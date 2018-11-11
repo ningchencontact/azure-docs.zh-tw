@@ -1,272 +1,167 @@
 ---
-title: 快速入門：尋找替代的翻譯 (Node.js) - 翻譯工具文字 API
+title: 快速入門：取得替代的翻譯 (Node.js) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
-description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Node.js，為內容中的字詞尋找替代的翻譯與範例。
+description: 在本快速入門中，您將了解如何搭配使用 Node.js 和翻譯工具文字 REST API 尋找指定文字的替代翻譯和使用範例。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 4b5857fdb7871107396ca1fd50865f317038abb5
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646223"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035623"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-nodejs"></a>快速入門：使用翻譯工具文字 REST API (Node.js) 尋找替代的翻譯
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>快速入門：搭配使用翻譯工具文字 API 和 Node.js 取得替代的翻譯
 
-在本快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
+在本快速入門中，您將了解如何搭配使用 Node.js 和翻譯工具文字 REST API 尋找指定文字的替代翻譯和使用範例。
+
+本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和翻譯工具文字資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要有 [Node.js 6](https://nodejs.org/en/download/) (英文)，才能執行此程式碼。
+本快速入門需要：
 
-若要使用翻譯工具文字 API，您也需要有訂用帳戶金鑰；請參閱[如何註冊翻譯工具文字 API](translator-text-how-to-signup.md)。
+* [Node 8.12.x 或更新版本](https://nodejs.org/en/)
+* 翻譯工具文字的 Azure 訂用帳戶金鑰
 
-## <a name="dictionary-lookup-request"></a>Dictionary Lookup 要求
+## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
-下列程式碼會使用 [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) 方法，以取得字組的替代翻譯。
-
-1. 在您慣用的程式碼編輯器中，建立新的 Node.js 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `subscriptionKey` 值。
-4. 執行程式。
+使用您慣用的 IDE 或編輯器建立新的專案。 然後，將下列程式碼片段複製到您的專案中名為 `dictionary-lookup.js` 的檔案。
 
 ```javascript
-'use strict';
-
-let fs = require ('fs');
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-
-let host = 'api.cognitive.microsofttranslator.com';
-let path = '/dictionary/lookup?api-version=3.0';
-
-let params = '&from=en&to=fr';
-
-let text = 'great';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, 4);
-        console.log(json);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_guid = function () {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
-
-let DictionaryLookup = function (content) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            'X-ClientTraceId' : get_guid (),
-        }
-    };
-
-    let req = https.request (request_params, response_handler);
-    req.write (content);
-    req.end ();
-}
-
-let content = JSON.stringify ([{'Text' : text}]);
-
-DictionaryLookup (content);
+const request = require('request');
+const uuidv4 = require('uuid/v4');
 ```
 
-## <a name="dictionary-lookup-response"></a>Dictionary Lookup 回應
+> [!NOTE]
+> 如果您未曾使用這些模組，則必須先加以安裝，再執行您的程式。 若要安裝這些套件，請執行：`npm install request uuidv4`。
 
-成功的回應會以 JSON 格式傳回，如下列範例所示：
+需有這些模組，才能建構 HTTP 要求，以及建立 `'X-ClientTraceId'` 標頭的唯一識別碼。
+
+## <a name="set-the-subscription-key"></a>設定訂用帳戶金鑰
+
+此程式碼會嘗試從環境變數 `TRANSLATOR_TEXT_KEY` 中讀取您的翻譯工具文字訂用帳戶金鑰。 如果您不熟悉環境變數，您可以將 `subscriptionKey` 設為字串，並註解化條件陳述式。
+
+請將下列程式碼複製到您的專案中：
+
+```javascript
+/* Checks to see if the subscription key is available
+as an environment variable. If you are setting your subscription key as a
+string, then comment these lines out.
+
+If you want to set your subscription key as a string, replace the value for
+the Ocp-Apim-Subscription-Key header as a string. */
+const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
+if (!subscriptionKey) {
+  throw new Error('Environment variable for your subscription key is not set.')
+};
+```
+
+## <a name="configure-the-request"></a>設定要求
+
+`request()` 方法 (可透過要求模組取得) 可讓我們傳遞 HTTP 方法、URL、要求參數、標頭和 JSON 內文作為 `options` 物件。 在此程式碼片段中，我們將設定要求：
+
+>[!NOTE]
+> 如需關於端點、路由和要求參數的詳細資訊，請參閱[翻譯工具文字 API 3.0：字典查閱](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup)。
+
+```javascript
+let options = {
+    method: 'POST',
+    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    url: 'dictionary/lookup',
+    qs: {
+      'api-version': '3.0',
+      'from': 'en',
+      'to': 'es'
+    },
+    headers: {
+      'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Content-type': 'application/json',
+      'X-ClientTraceId': uuidv4().toString()
+    },
+    body: [{
+          'text': 'Elephants'
+    }],
+    json: true,
+};
+```
+
+### <a name="authentication"></a>驗證
+
+要驗證要求，最簡單的方式是將您的訂用帳戶金鑰以 `Ocp-Apim-Subscription-Key` 標頭的形式傳入，我們在此範例中即採用此方式。 或者，您可以將訂用帳戶金鑰替換為存取權杖，並將存取權杖連同 `Authorization` 標頭傳入，以驗證您的要求。 如需詳細資訊，請參閱[驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。
+
+## <a name="make-the-request-and-print-the-response"></a>提出要求並列印回應
+
+接著，我們將使用 `request()` 方法建立要求。 它會採用我們在上一節中建立的 `options` 物件作為第一個引數，然後列印美化的 JSON 回應。
+
+```javascript
+request(options, function(err, res, body){
+    console.log(JSON.stringify(body, null, 4));
+});
+```
+
+>[!NOTE]
+> 在此範例中，我們會在 `options` 物件中定義 HTTP 要求。 不過，要求模組也支援便利方法，例如 `.post` 和 `.get`。 如需詳細資訊，請參閱[便利方法](https://github.com/request/request#convenience-methods)。
+
+## <a name="put-it-all-together"></a>組合在一起
+
+如此，您就建立了一個簡單的程式，會呼叫翻譯工具文字 API 並傳回 JSON 回應。 現在，請執行您的程式：
+
+```console
+node dictionary-lookup.js
+```
+
+如果想要將您的程式碼與我們的做比較，請使用 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS) 上提供的完整範例。
+
+## <a name="sample-response"></a>範例回應
 
 ```json
 [
-  {
-    "normalizedSource": "great",
-    "displaySource": "great",
-    "translations": [
-      {
-        "normalizedTarget": "grand",
-        "displayTarget": "grand",
-        "posTag": "ADJ",
-        "confidence": 0.2783,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 34358
-          },
-          {
-            "normalizedText": "big",
-            "displayText": "big",
-            "numExamples": 15,
-            "frequencyCount": 21770
-          },
-...
+    {
+        "displaySource": "elephants",
+        "normalizedSource": "elephants",
+        "translations": [
+            {
+                "backTranslations": [
+                    {
+                        "displayText": "elephants",
+                        "frequencyCount": 1207,
+                        "normalizedText": "elephants",
+                        "numExamples": 5
+                    }
+                ],
+                "confidence": 1.0,
+                "displayTarget": "elefantes",
+                "normalizedTarget": "elefantes",
+                "posTag": "NOUN",
+                "prefixWord": ""
+            }
         ]
-      },
-      {
-        "normalizedTarget": "super",
-        "displayTarget": "super",
-        "posTag": "ADJ",
-        "confidence": 0.1514,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "super",
-            "displayText": "super",
-            "numExamples": 15,
-            "frequencyCount": 12023
-          },
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 10931
-          },
-...
-        ]
-      },
-...
-    ]
-  }
+    }
 ]
 ```
 
-## <a name="dictionary-examples-request"></a>Dictionary Examples 要求
+## <a name="clean-up-resources"></a>清除資源
 
-下列程式碼會使用 [Dictionary Examples](./reference/v3-0-dictionary-examples.md) 方法，以取得如何在字典中使用字詞的內容相關範例。
-
-1. 在您慣用的程式碼編輯器中，建立新的 Node.js 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `subscriptionKey` 值。
-4. 執行程式。
-
-```javascript
-'use strict';
-
-let fs = require ('fs');
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-
-let host = 'api.cognitive.microsofttranslator.com';
-let path = '/dictionary/examples?api-version=3.0';
-
-let params = '&from=en&to=fr';
-
-let text = 'great';
-let translation = 'formidable';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, 4);
-        console.log(json);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_guid = function () {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
-
-let DictionaryExamples = function (content) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            'X-ClientTraceId' : get_guid (),
-        }
-    };
-
-    let req = https.request (request_params, response_handler);
-    req.write (content);
-    req.end ();
-}
-
-let content = JSON.stringify ([{'Text' : text, 'Translation' : translation}]);
-
-DictionaryExamples (content);
-```
-
-## <a name="dictionary-examples-response"></a>Dictionary Examples 回應
-
-成功的回應會以 JSON 格式傳回，如下列範例所示：
-
-```json
-[
-  {
-    "normalizedSource": "great",
-    "normalizedTarget": "formidable",
-    "examples": [
-      {
-        "sourcePrefix": "You have a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " expression there.",
-        "targetPrefix": "Vous avez une expression ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-      {
-        "sourcePrefix": "You played a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " game today.",
-        "targetPrefix": "Vous avez été ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-...
-    ]
-  }
-]
-```
+如果您已將訂用帳戶金鑰硬式編碼到您的程式中，請務必在完成本快速入門後移除訂用帳戶金鑰。
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽本快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
-
 > [!div class="nextstepaction"]
-> [瀏覽 GitHub 上的 Node.js 範例](https://aka.ms/TranslatorGitHub?type=&language=javascript) (英文)
+> [瀏覽 GitHub 上的 Node.js 範例](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS) (英文)
+
+## <a name="see-also"></a>另請參閱
+
+除了語言偵測外，請了解如何使用翻譯工具文字 API 執行下列作業：
+
+* [翻譯文字](quickstart-nodejs-translate.md)
+* [進行文字音譯](quickstart-nodejs-transliterate.md)
+* [從輸入識別語言](quickstart-nodejs-detect.md)
+* [取得支援的語言清單](quickstart-nodejs-languages.md)
+* [從輸入判斷句子長度](quickstart-nodejs-sentences.md)

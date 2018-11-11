@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5a36c239e296d6f393c49932f1a369d8aae80b83
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304677"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244452"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
 本文說明如何使用 Azure Active Directory (Azure AD) Connect 管理及自訂 Active Directory Federation Services (AD FS)。 它也包含您可能需要進行以完整設定 AD FS 伺服器陣列的其他常見 AD FS 工作。
@@ -81,7 +81,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 
     ![2012 R2 上缺少 KB 的警告](./media/how-to-connect-fed-management/kbwarning.png)
 
-    若要在缺少 KB 時修正設定，請安裝必要的 [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590)，然後使用[修復 AAD 與 AD FS 信任](#repairthetrust)來修復信任。
+    若要在缺少 KB 時修正設定，請安裝必要的 [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590)，然後使用[修復 AAD 與 AD FS 信任](#repairthetrust)來修復信任。
 
 > [!NOTE]
 > 如需替代識別碼以及手動設定步驟的詳細資訊，請閱讀[設定替代登入識別碼](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)

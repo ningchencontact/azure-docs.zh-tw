@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2a64b9fc7e2f13c3b9974e95d914a3d3b675d883
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413055"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006799"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics 中的檢視設計工具圖格參考指南
 藉由使用 Azure Log Analytics 中的檢視設計工具，您可以在 Azure 入口網站中建立能顯示 Log Analytics 工作區中各種資料視覺效果的自訂檢視。 本文章是自訂檢視中可用的圖格設定的參考指南。
@@ -179,5 +179,5 @@ ms.locfileid: "50413055"
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解[記錄檔搜尋](log-analytics-log-searches.md)以支援在圖格中查詢。
+* 深入了解[記錄檔搜尋](log-analytics-queries.md)以支援在圖格中查詢。
 * 將[視覺效果組件](log-analytics-view-designer-parts.md)新增至您的自訂檢視。

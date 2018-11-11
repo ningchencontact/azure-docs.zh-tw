@@ -4,22 +4,22 @@ description: 本文說明 Azure 資訊安全中心如何使用角色型存取控
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 ms.assetid: ''
 ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/13/2017
-ms.author: terrylan
-ms.openlocfilehash: f85f49bd54eacbca67143b35eaf555cfb744a41d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: conceptual
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410517"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007853"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure 資訊安全中心的權限
 
@@ -44,7 +44,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 | 角色 | 編輯安全性原則 | 針對資源套用安全性建議 | 關閉警示和建議 | 檢視警示和建議 |
 |:--- |:---:|:---:|:---:|:---:|
 | 訂用帳戶擁有者 | X | X | X | X |
-| 訂用帳戶參與者 | X | X | X | X |
+| 訂用帳戶參與者 | -- | X | X | X |
 | 資源群組擁有者 | -- | X | -- | X |
 | 資源群組參與者 | -- | X | -- | X |
 | 讀取者 | -- | -- | -- | X |

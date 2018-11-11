@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: magoedte
-ms.openlocfilehash: a399c3968e5ee1e2d1f6d623a68dbb1e15cef212
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 81db6720422de111cc5b390c58e9020d7c19f90a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088416"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282028"
 ---
 # <a name="overview-of-the-azure-agents-to-monitor-azure-virtual-machines"></a>用以監視 Azure 虛擬機器的 Azure 代理程式概觀
 Microsoft Azure 提供多種方法，可從 Azure 或其他執行 Microsoft Windows 和 Linux 的雲端提供者中裝載的虛擬機器，收集不同類型的資料。  本文將協助說明每個代理程式的差異和可用功能，以便您判斷哪個代理程式將支援服務管理或一般監視需求。  
@@ -27,7 +27,7 @@ Microsoft Azure 提供多種方法，可從 Azure 或其他執行 Microsoft Wind
 ## <a name="comparing-azure-diagnostic-and-log-analytics-agent"></a>比較 Azure 診斷和 Log Analytics 代理程式
 在 Azure 中，目前有兩種代理程式可用於監視 Azure VM - Azure 診斷擴充功能和適用於 Linux 和 Windows 的 Log Analytics 代理程式。  基本上，這些代理程式的設計訴求是收集計量和記錄，並轉送至存放庫。 不過，其相似之處僅止於此。  
 
-[Azure 診斷擴充功能](../monitoring-and-diagnostics/azure-diagnostics.md)是一個代理程式 (已在 2010 年 Azure 雲端服務正式推出後提供)，可供從 Azure IaaS 資源 (例如 VM) 簡單收集診斷資料，並將它保存到 Azure 儲存體。  放入儲存體後，您便選擇使用其中一個可用工具進行檢視，例如 [Visual Studio 中的伺服器總管](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md)和 [Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)。
+[Azure 診斷擴充功能](../monitoring-and-diagnostics/azure-diagnostics.md)是一個代理程式 (已在 2010 年 Azure 雲端服務正式推出後提供)，可供從 Azure IaaS 資源 (例如 VM) 簡單收集診斷資料，並將它保存到 Azure 儲存體。  放入儲存體後，您便選擇使用其中一個可用工具進行檢視，例如 [Visual Studio 中的伺服器總管](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)和 [Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)。
 
 您可以選擇收集：
 
@@ -38,7 +38,7 @@ Microsoft Azure 提供多種方法，可從 Azure 或其他執行 Microsoft Wind
 * 從 syslog 收集事件  
 * 損毀傾印 
 
-或者，也可以將資料轉送至 [Application Insights](../application-insights/app-insights-cloudservices.md)、[Log Analytics](../log-analytics/log-analytics-overview.md)，或使用[事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)的非 Azure 服務。 
+或者，也可以將資料轉送至 [Application Insights](../application-insights/app-insights-cloudservices.md)、[Log Analytics](../log-analytics/log-analytics-queries.md)，或使用[事件中樞](../event-hubs/event-hubs-about.md)的非 Azure 服務。 
 
 若要進行不只需要收集計量和一部分記錄的進階監視，一定要有適用於 Windows 和 Linux 的 Log Analytics 代理程式。  使用代理程式，您就能夠利用 Azure 服務 (例如自動化和 Log Analytics，包括它們所提供的整組功能) 在 Azure VM 的生命週期中提供全方位的管理。 其中包括：
 

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f2f96faf6bd8132422aeb3484547e4b6a1195a7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380281"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255535"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>設定傳統計量警示使用 Webhook 通知非 Azure 系統
 您可以使用 Webhook 將 Azure 警示通知路由到其他系統以進行後處理或自訂動作。 您可以針對警示使用 Webhook，以將警示路由到會傳送簡訊、記錄錯誤、透過聊天或傳訊服務通知小組，或進行其他許多動作的服務。 
 
-本文說明如何針對 Azure 計量警示設定 Webhook。 文中也會說明 HTTP POST 至 Webhook 的承載資料樣貌。 如需有關 Azure 活動記錄警示 (事件警示) 設定和結構描述的詳細資訊，請參閱[針對 Azure 活動記錄警示呼叫 Webhook](insights-auditlog-to-webhook-email.md)。
+本文說明如何針對 Azure 計量警示設定 Webhook。 文中也會說明 HTTP POST 至 Webhook 的承載資料樣貌。 如需有關 Azure 活動記錄警示 (事件警示) 設定和結構描述的詳細資訊，請參閱[針對 Azure 活動記錄警示呼叫 Webhook](monitor-alerts-unified-log-webhook.md)。
 
 Azure 警示會使用 HTTP POST 將警示內容以 JSON 格式傳送到您在建立警示時提供的 Webhook URI。 稍後在本文中會定義結構描述。 該 URI 必須是有效的 HTTP 或 HTTPS 端點。 當警示啟動時，Azure 會針對每個要求張貼一個項目。
 
@@ -101,8 +101,8 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 >
 
 ## <a name="next-steps"></a>後續步驟
-* 請觀賞 [使用 PagerDuty 整合 Azure 警示](http://go.microsoft.com/fwlink/?LinkId=627080) \(英文\) 影片以深入了解 Azure 警示與 Webhook。
-* 深入了解如何[對 Azure 警示執行 Azure 自動化指令碼 (Runbook)](http://go.microsoft.com/fwlink/?LinkId=627081) \(英文\)。
+* 請觀賞 [使用 PagerDuty 整合 Azure 警示](https://go.microsoft.com/fwlink/?LinkId=627080) \(英文\) 影片以深入了解 Azure 警示與 Webhook。
+* 深入了解如何[對 Azure 警示執行 Azure 自動化指令碼 (Runbook)](https://go.microsoft.com/fwlink/?LinkId=627081) \(英文\)。
 * 深入了解如何[使用邏輯應用程式透過 Twilio 從 Azure 警示傳送簡訊](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) \(英文\)。
 * 深入了解如何[使用邏輯應用程式從 Azure 警示傳送 Slack 訊息](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app) \(英文\)。
 * 深入了解如何[使用邏輯應用程式從 Azure 警示將訊息傳送到 Azure 佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app) \(英文\)。

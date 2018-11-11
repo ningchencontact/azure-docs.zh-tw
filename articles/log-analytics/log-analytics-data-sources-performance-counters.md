@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5822d32906419e8b0615dd8686ec47de28deb38f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 15991faa61dc5f543b1b9db491bc1669daf219cc
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182201"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014205"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics 中的 Windows 和 Linux 效能資料來源
 Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業系統及應用程式的效能。  Log Analytics 可收集效能計數器，以頻繁間隔進行接近即時 (NRT) 的分析，並彙總較長期分析和報告所需的效能資料。
@@ -227,5 +227,5 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 
 ## <a name="next-steps"></a>後續步驟
 * [從 Linux 應用程式收集效能計數器](log-analytics-data-sources-linux-applications.md)，包括 MySQL 和 Apache HTTP Server。
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。  
+* 了解 [記錄搜尋](log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。  
 * 將收集的資料匯出至 [Power BI](log-analytics-powerbi.md) 以進行其他視覺效果和分析。

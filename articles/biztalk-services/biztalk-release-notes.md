@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576465"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253426"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk 服務的版本資訊
 
@@ -188,7 +188,7 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>即使 SQL 資料庫離線，橋接器還是繼續處理訊息
 即使 Microsoft Azure SQL Database (其中儲存執行資訊，例如已部署的構件和管線) 離線，BizTalk 服務橋接器還是繼續處理訊息一段時間。 這是因為 BizTalk 服務使用快取的構件和橋接器組態。
-若不想讓橋接器在 SQL Database 離線時處理任何訊息，您可以使用 BizTalk 服務 PowerShell Cmdlet 來停止或暫停 BizTalk 服務。 關於用於管理作業的 Windows PowerShell Cmdlet，請參閱 [Azure BizTalk 服務管理範例](http://go.microsoft.com/fwlink/p/?LinkID=329019) 。  
+若不想讓橋接器在 SQL Database 離線時處理任何訊息，您可以使用 BizTalk 服務 PowerShell Cmdlet 來停止或暫停 BizTalk 服務。 關於用於管理作業的 Windows PowerShell Cmdlet，請參閱 [Azure BizTalk 服務管理範例](https://go.microsoft.com/fwlink/p/?LinkID=329019) 。  
 
 ### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>在橋接器的自訂程式碼元件內讀取 XML 訊息會包含額外的 BOM 字元
 假設您想要在橋接器的自訂程式碼內讀取 XML 訊息。 如果您使用 .NET API System.Text.Encoding.UTF8.GetString(bytes)，輸出中的訊息開頭會包含額外的 BOM 字元。 因此，如果您不希望輸出包含額外的 BOM 字元，您必須使用 ```System.IO.StreamReader().ReadToEnd()```。

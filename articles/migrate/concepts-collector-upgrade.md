@@ -4,15 +4,15 @@ description: 提供有關 Azure Migrate 收集器設備升級的資訊。
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/29/2018
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: 6080096194ec5b11f1d5593fcbb6732d1551667f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: cd48b824845a0195fc78814a88dd449507c99394
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431387"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241458"
 ---
 # <a name="collector-update-release-history"></a>收集器更新版本歷程記錄
 
@@ -22,6 +22,18 @@ ms.locfileid: "47431387"
 
 
 ## <a name="one-time-discovery-upgrade-versions"></a>單次探索：升級版本
+
+### <a name="version-10916-released-on-10292018"></a>1.0.9.16 版 (2018 年 10 月 29 日發行)
+
+包含設定設備時所面臨的 PowerCLI 問題修正。 
+
+升級[套件 1.0.9.16](https://aka.ms/migrate/col/upgrade_9_16) 的雜湊值
+
+**演算法** | **雜湊值**
+--- | ---
+MD5 | d2c53f683b0ec7aaf5ba3d532a7382e1
+SHA1 | e5f922a725d81026fa113b0c27da185911942a01
+SHA256 | a159063ff508e86b4b3b7b9a42d724262ec0f2315bdba8418bce95d973f80cfc
 
 ### <a name="version-10914"></a>1.0.9.14 版
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 052ef249f3367a562e5598b90533c0e52ed75df4
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e23ff60a0a2ea10ace09130ba115e72b4e1c9ad7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171379"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249807"
 ---
 # <a name="demo-pizza-order"></a>示範：披薩訂單
 這段示範說明披薩訂購聊天機器人。 這支援藉由下列功能訂購一份披薩：
@@ -26,7 +26,7 @@ ms.locfileid: "39171379"
 
 ## <a name="video"></a>影片
 
-[![示範披薩預覽](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
+[![示範披薩預覽](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行披薩訂單聊天機器人

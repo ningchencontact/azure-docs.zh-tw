@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9d77952a96bff6cc2d50ecbd4bde7e499f20de6d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23036733"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420025"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>使用網路監看員和開放原始碼工具執行網路入侵偵測
 
 封包擷取是實作網路入侵偵測系統 (ID) 和執行網路安全性監視 (NSM) 的重要元件。 有數個開放原始碼 IDS 工具，可處理封包擷取並尋找可能的網路入侵和惡意活動的簽章。 使用網路監看員所提供的封包擷取，您可以分析您的網路找出任何有害的入侵或安全性弱點。
 
-一種開放原始碼工具是 Suricata，這是使用規則集監視網路流量且在可疑事件發生時就會觸發警示的 IDS 引擎。 Suricata 提供多執行緒的引擎，這表示它可以更高的速度和效率執行網路流量分析。 如需關於 Suricata 和其功能的詳細資訊，請瀏覽其網站：https://suricata-ids.org/。
+一種開放原始碼工具是 Suricata，這是使用規則集監視網路流量且在可疑事件發生時就會觸發警示的 IDS 引擎。 Suricata 提供多執行緒的引擎，這表示它可以更高的速度和效率執行網路流量分析。 如需關於 Suricata 和其功能的詳細資訊，請瀏覽其網站： https://suricata-ids.org/。
 
 ## <a name="scenario"></a>案例
 
@@ -81,7 +81,8 @@ tail -f /var/log/suricata/fast.log
 
 #### <a name="install-elasticsearch"></a>安裝 Elasticsearch
 
-1. 5.0 版和更新版本的彈性堆疊需要 Java 8。 執行命令 `java -version` 來檢查您的版本。 如果您沒有安裝 Java，請參閱 [Oracle 網站](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)上的文件
+1. 5.0 版和更新版本的彈性堆疊需要 Java 8。 執行命令 `java -version` 來檢查您的版本。 如果您沒有安裝 Java，請參閱 [Azure 支援的 JDK](https://aka.ms/azure-jdks) 上的文件。
+
 1. 針對您的系統下載正確的二進位套件︰
 
     ```

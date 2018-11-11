@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: bf2116d7fc143e66309e3bbbdefc50bfa33f1521
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 99822fc1d99d914327a64cfb9fe8e18189f30a4f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974556"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251233"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>使用 Ansible 在 Azure 中建立 Linux 虛擬機器
 使用宣告式語言時，Ansible 可讓您透過 Ansible *腳本*自動建立、設定及部署 Azure 資源。 本文的各節將分別顯示 Ansible 腳本的各個區段在建立及設定 Linux 虛擬機器的不同層面時所呈現的樣貌。 [完整 Ansible 腳本](#complete-sample-ansible-playbook)會列在本文結尾處。
@@ -29,9 +29,9 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
 
 ```yaml
 - name: Create resource group
-    azure_rm_resourcegroup:
-      name: myResourceGroup
-      location: eastus
+  azure_rm_resourcegroup:
+    name: myResourceGroup
+    location: eastus
 ```
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
@@ -205,7 +205,7 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
 
 本節會引導您執行本文中介紹的範例 Ansible 腳本。
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
 1. 開啟 [Cloud Shell](/azure/cloud-shell/overview)。
 

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 9b61362525962c5e01d7fef6d317cf9861dfd0a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 565a484d2eae0879b625e79ef7ffbdd8eb5e4455
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977888"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251031"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用已連接服務加入 Azure Active Directory
 
@@ -64,7 +64,7 @@ ms.locfileid: "46977888"
     - [開始進行 .NET MVC 專案](vs-active-directory-dotnet-getting-started.md)
     - [開始進行 WebApI 專案](vs-active-directory-webapi-getting-started.md)
 
-1. 您也可以在 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)上看到 Active Directory 網域。
+1. 您也可以在 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)上看到 Active Directory 網域。
 
 ## <a name="how-your-project-is-modified"></a>您的專案修改方式
 

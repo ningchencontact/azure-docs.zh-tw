@@ -14,15 +14,15 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 34c041bf96ecc8ce7f4440d7afaa64de775baef7
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ee0b9fad15653c9315a8bdaad9a76d8355912863
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576931"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248838"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service 環境簡介 #
- 
+ 
 ## <a name="overview"></a>概觀 ##
 
 Azure App Service Environment 是 Azure App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。 此功能可以裝載您的：
@@ -73,7 +73,7 @@ ASE 可以是具有公用 IP 位址的網際網路對應，或只具有 Azure �
 
 [網路安全性群組][NSGs]會將輸入網路通訊限制於 ASE 所在的子網路。 您可以使用 NSG 在上游裝置和服務 (例如 WAF 和網路 SaaS 提供者) 背後執行應用程式。
 
-應用程式也經常需要存取公司資源，例如內部資料庫和 Web 服務。 如果您在具有內部部署網路 VPN 連線的虛擬網路中部署 ASE，ASE 中的應用程式便可以存取內部部署資源。 無論 VPN 是[站對站](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site)或 [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN，此功能都可適用。
+應用程式也經常需要存取公司資源，例如內部資料庫和 Web 服務。 如果您在具有內部部署網路 VPN 連線的虛擬網路中部署 ASE，ASE 中的應用程式便可以存取內部部署資源。 無論 VPN 是[站對站](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site)或 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) VPN，此功能都可適用。
 
 如需有關 ASE 與虛擬網路和內部部署網路搭配運作方式的詳細資訊，請參閱 [App Service Environment 的網路考量][ASENetwork]。
 

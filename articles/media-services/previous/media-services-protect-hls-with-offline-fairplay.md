@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: dc38772097dddb7c7135d55598373d7ab544f9ea
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785887"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251827"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>適用於 iOS 的離線 FairPlay 串流 
  Azure 媒體服務提供一組設計良好的[內容保護服務](https://azure.microsoft.com/services/media-services/content-protection/)，其中涵蓋：
@@ -190,7 +190,7 @@ func requestApplicationCertificate() throws -> Data {
 * 受到 FPS 保護，具備影片和音訊，但不具替代曲目
 * 受到 FPS 保護，僅具備影片，而不具音訊
 
-您可以在[這個示範網站](http://aka.ms/poc#22) (英文) 找到這些範例，以及裝載於 Azure Web 應用程式中的對應應用程式憑證。
+您可以在[這個示範網站](https://aka.ms/poc#22) (英文) 找到這些範例，以及裝載於 Azure Web 應用程式中的對應應用程式憑證。
 對於 FPS Server SDK 第 3 版或第 4 版的範例，如果主要播放清單包含替代音訊，則在離線模式期間，它只會播放音訊。 因此，您必須移除替代音訊。 也就是說，前面所列的第二個和第三個範例會在線上及離線模式下運作。 所列出的第一個範例在離線模式期間只會播放音訊，然而線上串流會正常運作。
 
 ## <a name="faq"></a>常見問題集

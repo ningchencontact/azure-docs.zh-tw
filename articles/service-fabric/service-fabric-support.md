@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: e22a2431ecae68278276b069bc199cfea60cd413
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 5d2edd3b4d8655133ef2835f0d0e579280123ae7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347353"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249416"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支援選項
 
@@ -27,7 +27,7 @@ ms.locfileid: "44347353"
 
 ## <a name="report-production-issues-or-request-paid-support-for-azure"></a>報告實際執行問題，或要求 Azure 的付費支援
 
-對於報告 Azure 上部署之 Service Fabric 叢集的問題，在 [Azure 入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)或 [Microsoft 支援入口網站](http://support.microsoft.com/oas/default.aspx?prid=16146)上建立支援票證。
+對於報告 Azure 上部署之 Service Fabric 叢集的問題，在 [Azure 入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)或 [Microsoft 支援入口網站](https://support.microsoft.com/oas/default.aspx?prid=16146)上建立支援票證。
 
 深入了解：
  
@@ -38,7 +38,7 @@ ms.locfileid: "44347353"
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>報告實際執行問題，或要求獨立 Service Fabric 叢集的付費支援
 
-對於報告內部部署或其他雲端上部署之 Service Fabric 叢集的問題，在 [Microsoft 支援入口網站](http://support.microsoft.com/oas/default.aspx?prid=16146)上建立專業支援票證。
+對於報告內部部署或其他雲端上部署之 Service Fabric 叢集的問題，在 [Microsoft 支援入口網站](https://support.microsoft.com/oas/default.aspx?prid=16146)上建立專業支援票證。
 
 深入了解：
 

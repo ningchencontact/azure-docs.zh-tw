@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
-ms.openlocfilehash: ed7f02d3e389db3bc772c4fcb00a7b3877d60173
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 36f7ed9b02b66718327c1a05a6cf29eedf39e7a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794519"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248380"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>指定虛擬網路組態檔中的 DNS 設定
 網路組態檔有兩種您可以用來指定網域名稱系統 (DNS) 設定的項目：**DnsServers** 和 **DnsServerRef**。 您可以藉由指定其 IP 位址並參考 **DnsServers** 項目的名稱，新增 DNS 伺服器的清單。 然後您可以使用 **DnsServerRef** 項目，來針對您虛擬網路內的不同網站，指定要使用 DnsServers 項目中哪些 DNS 伺服器項目。
@@ -36,7 +36,7 @@ ms.locfileid: "31794519"
 > 
 > 
 
-[Dns 項目](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Dns 項目](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -51,7 +51,7 @@ ms.locfileid: "31794519"
 > 
 > 
 
-[Virtual Network Sites 項目](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Virtual Network Sites 項目](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />
@@ -65,7 +65,7 @@ ms.locfileid: "31794519"
 > 
 
 ## <a name="next-steps"></a>後續步驟
-* 了解 [Azure 虛擬網路組態結構描述](http://go.microsoft.com/fwlink/?LinkId=248093)。
+* 了解 [Azure 虛擬網路組態結構描述](https://go.microsoft.com/fwlink/?LinkId=248093)。
 * 了解 [Azure 服務組態結構描述](https://msdn.microsoft.com/library/windowsazure/ee758710)。
 * [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
 

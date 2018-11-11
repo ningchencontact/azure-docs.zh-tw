@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: b518d86d5cb08f85beecd4afe30efc9e4f70e1f7
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371463"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249773"
 ---
 # <a name="indexing-in-azure-search"></a>在 Azure 搜尋服務中編製索引
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.locfileid: "43371463"
 
 + [Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 + [資料表儲存體](search-howto-indexing-azure-tables.md)
-+ [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer)
++ [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Azure VM 上的 Azure SQL Database 和 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 索引子可將索引連接到資料來源 (通常是資料表、檢視或對等結構)，並將來源欄位對應至索引中的對等欄位。 在執行期間，資料列集會自動轉換為 JSON 並載入指定的索引。 所有索引子都支援排程，以便您指定資料重新整理的頻率。 如果資料來源支援索引子，則大部分的索引子都會提供變更追蹤。 除了辨識新文件，索引子還會追蹤現有文件的變更和刪除，讓您不必主動管理索引中的資料。 

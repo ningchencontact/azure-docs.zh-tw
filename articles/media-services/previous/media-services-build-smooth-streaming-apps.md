@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: f55e8aa652d65ea751a77742fa5823b09d9ee87b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e46ff880ff94abb2de2a9bef1464df0f6ac78fc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783807"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250793"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何建置 Smooth Streaming Windows 市集應用程式
 
@@ -32,20 +32,20 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 3. 選取 Smooth Streaming 資料流
 4. 選取 Smooth Streaming 曲目
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 > [!NOTE]
 > Windows 市集 8.1 版和更早版本的專案在 Visual Studio 2017 不受支援。  如需詳細資訊，請參閱 [Visual Studio 2017 平台目標及相容性](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)。
 
 * Windows 8 32 位元或 64 位元。
 * Visual Studio 2012 到 2015 版。
-* [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)(英文)。
+* [Microsoft Smooth Streaming Client SDK for Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)(英文)。
 
 您可以從 MSDN 開發人員程式碼範例 (Code Gallery) 下載每個課程的已完成解答： 
 
-* [課程 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) - 簡單 Windows 8 Smooth Streaming Media Player， 
-* [課程 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) - 具有滑動軸控制項的簡單 Windows 8 Smooth Streaming Media Player， 
-* [課程 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - 具有串流選擇的 Windows 8 Smooth Streaming Media Player，  
-* [課程 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - 具有追蹤選擇的 Windows 8 Smooth Streaming Media Player。
+* [課程 1](https://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) - 簡單 Windows 8 Smooth Streaming Media Player， 
+* [課程 2](https://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) - 具有滑動軸控制項的簡單 Windows 8 Smooth Streaming Media Player， 
+* [課程 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - 具有串流選擇的 Windows 8 Smooth Streaming Media Player，  
+* [課程 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - 具有追蹤選擇的 Windows 8 Smooth Streaming Media Player。
 
 ## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>課程 1：建立基本的 Smooth Streaming 市集應用程式
 
@@ -53,7 +53,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
 
-如需關於開發 Windows 市集應用程式的詳細資訊，請參閱 [開發 Windows 8 適用的好用應用程式](http://msdn.microsoft.com/windows/apps/br229512.aspx)。 本課程包含下列程序：
+如需關於開發 Windows 市集應用程式的詳細資訊，請參閱 [開發 Windows 8 適用的好用應用程式](https://msdn.microsoft.com/windows/apps/br229512.aspx)。 本課程包含下列程序：
 
 1. 建立 Windows 市集專案
 2. 設計使用者介面 (XAML)
@@ -66,11 +66,11 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 3. 從 [新增專案] 對話方塊中，輸入或選取下列值：
 
-| Name | 值 |
+| 名稱 | 值 |
 | --- | --- |
 | 範本群組 |已安裝/範本/Visual C#/Windows 市集 |
 | 範本 |空白應用程式 (XAML) |
-| Name |SSPlayer |
+| 名稱 |SSPlayer |
 | 位置 |C:\SSTutorials |
 | 方案名稱 |SSPlayer |
 | 為方案建立目錄 |(已選取) |
@@ -82,7 +82,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 1. 從 [方案總管] 中，在 [SSPlayer] 上按一下滑鼠右鍵，然後按一下 [加入參考]。
 2. 輸入或選取下列值：
 
-| Name | 值 |
+| 名稱 | 值 |
 | --- | --- |
 | 參考群組 |Windows/延伸 |
 | 參考 |選取 Microsoft Smooth Streaming Client SDK for Windows 8 和 Microsoft Visual C++ Runtime Package |
@@ -747,7 +747,6 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
    
     因此，當 MediaElement 資訊清單就緒時，程式碼會取得可用資料流清單，並將這份清單填入 UI 清單方塊。
 6. 在 MainPage 類別中，找到 UI 按鈕並按一下事件區域，再新增下列函式定義：
-
    
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
@@ -945,7 +944,6 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
 6. 在 MainPage 類別中，找到 UI 按鈕並按一下事件區域，再新增下列函式定義：
-
    
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {

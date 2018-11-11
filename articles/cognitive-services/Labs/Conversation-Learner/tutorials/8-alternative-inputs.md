@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171012"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252542"
 ---
 # <a name="how-to-use-alternative-inputs"></a>如何使用替代輸入
 
@@ -23,7 +23,7 @@ ms.locfileid: "39171012"
 
 ## <a name="video"></a>影片
 
-[![教學課程 8 預覽](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![教學課程 8 預覽](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人
@@ -51,7 +51,7 @@ ms.locfileid: "39171012"
 1. 按一下 [動作]，然後按一下 [新增動作]
 2. 在 [回應] 中，鍵入「Which city do you want?」(您想要哪座城市？)。
 3. 在 [不合格的實體] 中，輸入 $city。
-3. Click Create
+3. 按一下 [建立專案]。
 
 然後建立第二個動作：
 
@@ -66,7 +66,7 @@ ms.locfileid: "39171012"
 3. 在 [回應] 中，鍵入「Try asking for the weather」(嘗試詢問天氣)。
     - 這會回應「系統能夠怎麼做？」之類的使用者問題
 4. 在 [不合格的實體] 中，輸入 $city。
-4. Click Create
+4. 按一下 [建立專案]。
 
 您現在有三個動作。
 

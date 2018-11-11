@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: markgal
-ms.openlocfilehash: fd988e2209d8a6547ec30edb4ee62fc8ff2c803d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8107af53a78960d29f506c77f8ba9697c7a49d1c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619950"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252899"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>使用資源管理員部署模型將 Windows Server 或用戶端備份至 Azure
 本文說明如何 Resource Manager 部署模型將 Windows Server (或 Windows 用戶端) 檔案和資料夾備份至 Azure。
@@ -250,7 +250,7 @@ Microsoft Azure 備份代理程式提供網路節流。 節流會控制資料傳
 ![IR 已完成](./media/backup-configure-vault/ircomplete.png)
 
 ## <a name="questions"></a>有疑問嗎？
-如果您有問題，或希望我們加入任何功能，請 [傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
+如果您有問題，或希望我們加入任何功能，請 [傳送意見反應給我們](https://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>後續步驟
 如需備份 VM 或其他工作負載的詳細資訊，請參閱︰

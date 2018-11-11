@@ -2,19 +2,19 @@
 title: 透過 JDBC 驅動程式查詢 Hive - Azure HDInsight
 description: 從 Java 應用程式使用 JDBC 驅動程式，將 Hive 查詢提交到 HDInsight 上的 Hadoop。 以程式設計方式連接和透過 SQuirrel SQL 用戶端連接。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: jasonh
-ms.openlocfilehash: da2b3484f80f7116664cf5a25c7de99da723f202
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041687"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014409"
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中透過 JDBC 驅動程式查詢 Hive
 

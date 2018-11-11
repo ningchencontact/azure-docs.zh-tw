@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 497b5b9d33ab2dea37e1017fa2d5bf2d0db66a5f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319705"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007666"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)
 本文示範如何使用「HTTP 資料收集器 API」將資料從 REST API 用戶端傳送給 Log Analytics。  它說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Log Analytics 授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -201,7 +201,7 @@ HTTP 狀態碼 200 表示已經接受要求且正在處理。 這表示作業已
 若要查詢 Log Analytics HTTP 資料收集器 API 所提交的資料，請搜尋 **Type** 等於您所指定之 **LogType** 值且附加 **_CL** 的記錄。 例如，如果您使用 **MyCustomLog**，則會傳回 **Type=MyCustomLog_CL** 的所有記錄。
 
 >[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
+> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-queries.md)，則以上查詢會變更如下。
 
 > `MyCustomLog_CL`
 
@@ -470,6 +470,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 使用[記錄搜尋 API](log-analytics-log-search-api.md) 從 Log Analytics 儲存機制擷取資料。
+- 使用[記錄搜尋 API](log-analytics-queries.md) 從 Log Analytics 儲存機制擷取資料。
 
 - 深入了解如何透過 Logic Apps 工作流程，[使用資料收集器 API 建立通往 Log Analytics 的資料管線](log-analytics-create-pipeline-datacollector-api.md)。
