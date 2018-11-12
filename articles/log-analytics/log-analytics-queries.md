@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6e587f79f0f77446ea5a61cbb989f3f1c3655e0a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005048"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741754"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>分析 Azure 監視器中的 Log Analytics 資料
 
@@ -32,7 +32,7 @@ Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區�
 
 ## <a name="log-queries"></a>記錄查詢
 
-您需要記錄查詢，以從 Log Analytics 擷取任何資料。  無論您要[分析入口網站中的資料](log-analytics-log-search-portals.md)、[設定在特定條件下進行通知的警示規則](../monitoring-and-diagnostics/alert-metric.md)，或是使用 [Log Analytics API](https://dev.loganalytics.io/) 擷取資料，會需要使用查詢來指定您想要的資料。  本文說明記錄查詢在 Log Analytics 中的使用方式，並且提供在建立之前應該了解的概念。
+您需要記錄查詢，以從 Log Analytics 擷取任何資料。  無論您要[分析入口網站中的資料](log-analytics-log-search-portals.md)、[設定在特定條件下進行通知的警示規則](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)，或是使用 [Log Analytics API](https://dev.loganalytics.io/) 擷取資料，會需要使用查詢來指定您想要的資料。  本文說明記錄查詢在 Log Analytics 中的使用方式，並且提供在建立之前應該了解的概念。
 
 
 
@@ -41,12 +41,12 @@ Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區�
 您在 Log Analytics 中使用查詢的不同方式包括：
 
 - **入口網站。** 您可以在 [Azure 入口網站](log-analytics-log-search-portals.md)中執行記錄資料的互動式分析。  這可讓您在各種不同的格式和視覺效果中編輯查詢及分析結果。  
-- **警示規則。** [警示規則](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)會主動識別您的工作區中資料的問題。  每個警示規則是根據以固定間隔自動執行的記錄搜尋。  會檢查結果來判斷是否應該建立警示。
+- **警示規則。** [警示規則](log-analytics-alerts.md)會主動識別您的工作區中資料的問題。  每個警示規則是根據以固定間隔自動執行的記錄搜尋。  會檢查結果來判斷是否應該建立警示。
 - **儀表板。** 您可以將任何查詢的結果釘選到 [Azure 儀表板]()中，如此即可以視覺化方式顯示記錄和計量資料，並選擇性地將其與其他 Azure 使用者共用。 
 - **檢視。**  您可以使用[檢視設計工具](log-analytics-view-designer.md)，建立要包含在使用者儀表板中的資料視覺效果。  記錄查詢會在各個檢視中提供[圖格](log-analytics-view-designer-tiles.md)和[視覺效果部分](log-analytics-view-designer-parts.md)所使用的資料。  
 - **匯出。**  當您將資料從 Log Analytics 工作區匯入至 Excel 或 [Power BI](log-analytics-powerbi.md) 時，您會建立記錄查詢以定義要匯出的資料。
 - **Powershell。** 您可以從命令列或 Azure 自動化 Runbook (使用 [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0)) 執行 PowerShell 指令碼，以從 Log Analytics 擷取資料。  此 Cmdlet 需要查詢來決定要擷取的資料。
-- **Log Analytics API。**  [Log Analytics 記錄搜尋 API](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 可讓任何 REST API 用戶端從工作區擷取記錄資料。  API 要求包含針對 Log Analytics 執行的查詢，來判斷要擷取的資料。
+- **Log Analytics API。**  [Log Analytics 記錄搜尋 API](log-analytics-log-search-api.md) 可讓任何 REST API 用戶端從工作區擷取記錄資料。  API 要求包含針對 Log Analytics 執行的查詢，來判斷要擷取的資料。
 
 ![記錄檔搜尋](media/log-analytics-queries/queries-overview.png)
 

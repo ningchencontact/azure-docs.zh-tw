@@ -1,5 +1,5 @@
-# [Azure Marketplace 和 AppSource 文件](index.md)  
-
+# [Azure Marketplace 和 AppSource 文件](index.md)
+## [原則評等和檢閱](./rating-review-policies.md)   
 ## [Azure Marketplace 和 AppSource 概觀和優點](./marketplace-publishers-guide.md)  
 
 ### [在市集上成為發行者](./become-publisher.md)  
@@ -34,6 +34,14 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [雲端合作夥伴入口網站](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## 連接埠管理
+### [開發人員中心帳戶註冊](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+### [私人 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+### [SEO 指導](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [管理發行者設定檔](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+### [管理使用者](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+### [GDPR 合規性](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## [虛擬機器供應項目](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 ### [先決條件](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -70,8 +78,7 @@
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
 
-## Azure 應用程式
-### [開發人員中心帳戶註冊](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+## [Azure 應用程式供應項目](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
 ### [建立者受控應用程式](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
 ### [建立者解決方案範本](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
 ### [發佈管理解決方案](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
@@ -79,14 +86,12 @@
 ### [讓供應項目即時上線](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
 ### [更新現有供應項目](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
 ### [刪除供應項目](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-### [遷移供應項目](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
 
-## SaaS 應用程式
+## [SaaS 應用程式供應項目](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
 ### [SaaS 應用程式技術發行指南](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### [透過 Azure 銷售 SaaS](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS API](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-
-<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [容器供應項目](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [先決條件](./cloud-partner-portal/containers/cpp-prerequisites.md)
@@ -98,6 +103,7 @@
 ### [建立容器技術資產](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
 ### [發佈容器供應項目](./cloud-partner-portal/containers/cpp-publish-offer.md)
 ### [更新現有供應項目](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [IoT Edge 模組供應項目](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [先決條件](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
@@ -118,24 +124,16 @@
 ### [IoT Edge module FAQ](./cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md)
 -->
 
-## 管理潛在客戶
-### [設定潛在客戶](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure 資料表](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS 端點](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
 <!-- ## [Cortana Intelligence](./cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md)  -->
 
-## Dynamics 365 for Customer Engagement
+## [Dynamics 365 for Customer Engagement 供應項目](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
 ### [建立解決方案](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
 ### [建立套件](./cloud-partner-portal-orig/appSource-package-preparation.md)
 ### [產生 SAS 金鑰](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
 ### [建立供應項目](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
 ### [發佈供應項目](./cloud-partner-portal-orig/request-to-publish-the-app.md)
 
-## Dynamics 365 for Business Central
+## [Dynamics 365 for Business Central 供應項目](./cloud-partner-portal-orig/cpp-business-central-offer.md)
 ### [發佈概觀](./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md)
 ### [建立新供應項目](./cloud-partner-portal-orig/d365-finance-create-new-offer.md)
 ### [供應項目設定](./cloud-partner-portal-orig/d365-finance-create-offer-settings.md)
@@ -143,7 +141,7 @@
 ### [店面詳細資料](./cloud-partner-portal-orig/d365-finance-create-storefront-details.md)
 ### [發行設定檔](./cloud-partner-portal-orig/d365-finance-app-publishing-process.md)
 
-## Dynamics 365 for Operations
+## [Dynamics 365 for Operations 供應項目](./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md)
 ### [先決條件](./cloud-partner-portal-orig/pre-requisites.md)
 ### [發佈方法](./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md)
 ### [LCS 訂用帳戶](./cloud-partner-portal-orig/lcs-subscription.md)
@@ -151,6 +149,11 @@
 ### [資料實體](./cloud-partner-portal-orig/data-entities.md)
 ### [BPM 和方法](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [說明 Wiki](./cloud-partner-portal-orig/help-wiki.md)
+
+## [諮詢服務](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+## [管理發行者設定檔](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+## [管理使用者](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+## [GDPR 合規性](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## 試用產品
 ### [什麼是試用產品？](./cloud-partner-portal-orig/what-is-test-drive.md)
@@ -160,12 +163,15 @@
 ### [試用產品的轉換範例](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
 ### [行銷與最佳做法](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
-## [諮詢服務](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
-## [管理發行者設定檔](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [管理使用者](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [GDPR 合規性](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+## 管理潛在客戶
+### [設定潛在客戶](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+### [Azure 資料表](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+### [HTTPS 端點](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
 
-## 深入解析
+## Seller Insights
 ### [開始使用](./cloud-partner-portal-orig/si-getting-started.md)
 ### [新功能](./cloud-partner-portal-orig/si-changes.md)
 ### [Web 分析](./cloud-partner-portal-orig/web-analytics.md)
