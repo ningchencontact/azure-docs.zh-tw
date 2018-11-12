@@ -9,19 +9,19 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 5d25aed196dd6b4ce92ae1cf18e556d1c32295d3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051962"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246458"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>使用 Azure Data Lake Analytics 來分析網站記錄
 了解如何使用資料湖分析來分析網站記錄，特別是找出哪些訪客來源在嘗試瀏覽網站時遇到錯誤。
 
 ## <a name="prerequisites"></a>必要條件
 * **Visual Studio 2015 或 Visual Studio 2013**。
-* **[Visual Studio 適用的 Data Lake 工具](http://aka.ms/adltoolsvs)**。
+* **[Visual Studio 適用的 Data Lake 工具](https://aka.ms/adltoolsvs)**。
 
     安裝適用於 Visual Studio 的 Data Lake 工具之後，您會在 Visual Studio 的 [工具] 功能表中看到 [Datat Lake] 項目：
 

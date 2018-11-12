@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 65a0d8074b8dcf89d8fc713cb4b2272c6576e8fb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 400cb16e4f4440283a783116c4ee843bc0a7344c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043949"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248566"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>從 Visual Studio R 工具提交作業
 
-[Visual Studio R 工具](https://www.visualstudio.com/vs/rtvs/) (RTVS) 是免費、開放來源的擴充功能，適用於 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 和 [Visual Studio 2015 Update 3](http://go.microsoft.com/fwlink/?LinkId=691129) 或更新版本的 Community (免費)、Professional 及 Enterprise 版本。
+[Visual Studio R 工具](https://www.visualstudio.com/vs/rtvs/) (RTVS) 是免費、開放來源的擴充功能，適用於 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 和 [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) 或更新版本的 Community (免費)、Professional 及 Enterprise 版本。
 
 RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL)、IntelliSense (程式碼完成)、[繪圖視覺效果](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) 等工具，透過例如 ggplot2 和 ggviz、[R 程式碼偵錯](https://docs.microsoft.com/visualstudio/rtvs/debugging) 等程式庫。
 

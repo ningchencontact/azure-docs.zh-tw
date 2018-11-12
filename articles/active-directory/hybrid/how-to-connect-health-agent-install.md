@@ -3,7 +3,7 @@ title: Azure AD Connect Health 代理程式安裝 | Microsoft Docs
 description: 這是 Azure AD Connect Health 頁面，其中說明 AD FS 與同步處理的代理程式安裝。
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c57e6d3e35994bea99e15f37ed0fb6aa2d108f74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb3ecff394aa8f2f80c61499e848d7d63806b37d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303922"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279750"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health 代理程式安裝
 本文件會逐步引導您安裝和設定 Azure AD Connect Health 代理程式。 您可以從 [這裡](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent)下載代理程式。
@@ -37,7 +37,7 @@ ms.locfileid: "46303922"
 | 已篩選或停用輸出流量的 SSL 檢查 | 如果網路層的輸出流量有 SSL 檢查或終止，代理程式註冊步驟或資料上傳作業可能會失敗。 深入了解[如何設定 SSL 檢查](https://technet.microsoft.com/library/ee796230.aspx) |
 | 防火牆連接埠 (位於執行代理程式的伺服器上) |為了讓代理程式能與 Azure AD Health 服務端點進行通訊，代理程式要求開啟下列防火牆連接埠。</br></br><li>TCP 通訊埠 443</li><li>TCP 通訊埠 5671</li> </br>深入了解[啟用防火牆連接埠](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | 如果啟用 IE 增強式安全性，則允許下列網站 |如果啟用 IE 增強式安全性，則在即將安裝代理程式的伺服器上必須允許下列網站。</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Azure Active Directory 所信任適用於您組織的同盟伺服器。 例如：https:\//sts.contoso.com</li> 深入了解[如何設定 IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-| 確定已安裝 PowerShell 4.0 版或更新版本 | <li>Windows Server 2008 R2 隨附了 PowerShell 2.0 版，它對代理程式來說並不足夠。  如以下的 [Windows Server 2008 R2 伺服器上的代理程式安裝](#agent-installation-on-windows-server-2008-r2-servers)中所述，更新 PowerShell。</li><li>Windows Server 2012 隨附了 PowerShell 3.0 版，它對代理程式來說並不足夠。  [更新](http://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework。</li><li>Windows Server 2012 R2 和更新版本隨附了足夠的 PowerShell 最新版本。</li>|
+| 確定已安裝 PowerShell 4.0 版或更新版本 | <li>Windows Server 2008 R2 隨附了 PowerShell 2.0 版，它對代理程式來說並不足夠。  如以下的 [Windows Server 2008 R2 伺服器上的代理程式安裝](#agent-installation-on-windows-server-2008-r2-servers)中所述，更新 PowerShell。</li><li>Windows Server 2012 隨附了 PowerShell 3.0 版，它對代理程式來說並不足夠。  [更新](https://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework。</li><li>Windows Server 2012 R2 和更新版本隨附了足夠的 PowerShell 最新版本。</li>|
 |停用 FIPS|Azure AD Connect Health 代理程式不支援 FIPS。|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 服務端點的輸出連線
@@ -53,12 +53,12 @@ ms.locfileid: "46303922"
 ## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>下載和安裝 Azure AD Connect Health 代理程式
 * 確定您符合 Azure AD Connect Health 的[需求](how-to-connect-health-agent-install.md#requirements)。
 * 開始使用適用於 AD FS 的 Azure AD Connect Health
-    * [下載適用於 AD FS 的 Azure AD Connect Health 代理程式](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [下載適用於 AD FS 的 Azure AD Connect Health 代理程式](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [請參閱安裝指示](#installing-the-azure-ad-connect-health-agent-for-ad-fs)。
 * 開始使用適用於同步處理的 Azure AD Connect Health
-    * [下載並安裝最新版的 Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771)。 適用於同步處理的健康狀態代理程式將會隨著 Azure AD Connect 安裝 (1.0.9125.0 或更高版本) 一起安裝。
+    * [下載並安裝最新版的 Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771)。 適用於同步處理的健康狀態代理程式將會隨著 Azure AD Connect 安裝 (1.0.9125.0 或更高版本) 一起安裝。
 * 開始使用適用於 AD DS 的 Azure AD Connect Health
-    * [下載適用於 AD DS 的 Azure AD Connect Health 代理程式](http://go.microsoft.com/fwlink/?LinkID=820540)。
+    * [下載適用於 AD DS 的 Azure AD Connect Health 代理程式](https://go.microsoft.com/fwlink/?LinkID=820540)。
     * [請參閱安裝指示](#installing-the-azure-ad-connect-health-agent-for-ad-ds)。
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>安裝適用於 AD FS 的 Azure AD Connect Health 代理程式
@@ -105,7 +105,7 @@ ms.locfileid: "46303922"
    * 安裝 PowerShell ISE (從 Windows 功能)
    * 安裝 [Windows Management Framework 4.0。](https://www.microsoft.com/download/details.aspx?id=40855)
    * 在伺服器上安裝 Internet Explorer 10 或更新版本。 (Health 服務使用 Azure 系統管理員認證進行驗證時所需)。
-4. 如需有關在 Windows Server 2008 R2 上安裝 Windows PowerShell 4.0 的詳細資訊，請參閱[這裡](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)的 Wiki 文章。
+4. 如需有關在 Windows Server 2008 R2 上安裝 Windows PowerShell 4.0 的詳細資訊，請參閱[這裡](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)的 Wiki 文章。
 
 ### <a name="enable-auditing-for-ad-fs"></a>啟用 AD FS 的稽核
 > [!NOTE]
@@ -175,7 +175,7 @@ ms.locfileid: "46303922"
 > 同步伺服器應不同於您的 AD FS 伺服器。 請勿將同步代理程式安裝到 AD FS 伺服器上。
 >
 
-適用於同步處理的 Azure AD Connect Health 代理程式會自動安裝在 Azure AD Connect 的最新組建中。 如果要使用適用於同步處理的 Azure AD Connect，您必須下載最新版的 Azure AD Connect 並加以安裝。 您可以在 [此處](http://www.microsoft.com/download/details.aspx?id=47594)下載最新版本。
+適用於同步處理的 Azure AD Connect Health 代理程式會自動安裝在 Azure AD Connect 的最新組建中。 如果要使用適用於同步處理的 Azure AD Connect，您必須下載最新版的 Azure AD Connect 並加以安裝。 您可以在 [此處](https://www.microsoft.com/download/details.aspx?id=47594)下載最新版本。
 
 若要確認已安裝代理程式，請在伺服器上尋找下列服務。 如果您已完成設定，這些服務應已在執行中。 否則會停止，直到設定完成為止。
 

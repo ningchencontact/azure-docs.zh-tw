@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 8f923cc081ea652c8e32d4109225044c70c8767d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 83c7862e8a9e3ce069765f81607bfbbeee272be2
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128736"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278645"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>針對 Log Analytics 的事件，使用 IIS 和 Azure 表格儲存體的 Azure blob 儲存體
 
@@ -53,7 +53,7 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 >
 >
 
-若為虛擬機器，您可以選擇將 [Log Analytics agent](log-analytics-azure-vm-extension.md) 安裝到虛擬機器中以啟用其他見解。 除了分析 IIS 記錄檔和事件記錄檔之外，您也可以執行其他分析，包括組態變更追蹤、SQL 評估及更新評估。
+若為虛擬機器，您可以選擇將 [Log Analytics agent](log-analytics-quick-collect-azurevm.md) 安裝到虛擬機器中以啟用其他見解。 除了分析 IIS 記錄檔和事件記錄檔之外，您也可以執行其他分析，包括組態變更追蹤、SQL 評估及更新評估。
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>為事件記錄檔和 IIS 記錄檔集合啟用虛擬機器中的 Azure 診斷
 您可以搭配使用下列程序與 Microsoft Azure 入口網站，為事件記錄檔和 IIS 記錄檔集合啟用虛擬機器中的 Azure 診斷。
@@ -151,7 +151,7 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 使用[設定 Log Analytics 來為 Azure 診斷編製索引](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) 中的步驟，以使用 PowerShell 從寫入表格儲存體的 Azure 診斷讀取資料。
 
 您可以使用 Azure PowerShell，更精確地指定寫入至 Azure 儲存體的事件。
-如需詳細資訊，請參閱[在 Azure 虛擬機器中啟用診斷](../virtual-machines-dotnet-diagnostics.md)。
+如需詳細資訊，請參閱[在 Azure 虛擬機器中啟用診斷](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
 
 您可以使用下列 PowerShell 指令碼啟用和更新 Azure 診斷。
 您也可以搭配使用此指令碼與自訂記錄組態。
@@ -194,5 +194,5 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 
 ## <a name="next-steps"></a>後續步驟
 * 針對支援的 Azure 服務[收集 Azure 服務的記錄檔與計量](log-analytics-azure-storage.md)。
-* [啟用解決方案](log-analytics-add-solutions.md) 以提供資料的深入見解。
-* [使用搜尋查詢](log-analytics-log-searches.md) 以分析資料。
+* [啟用解決方案](../monitoring/monitoring-solutions.md) 以提供資料的深入見解。
+* [使用搜尋查詢](log-analytics-queries.md) 以分析資料。

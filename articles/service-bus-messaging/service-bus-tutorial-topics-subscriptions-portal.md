@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 357bdcbbee348d8cb89e2d75060a3e7ba05e2c86
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5d209d0290d8ca813101b531f18fc0f08a6edf8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406229"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246883"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教學課程：使用 Azure 入口網站和主題/訂用帳戶來更新庫存
 
@@ -38,7 +38,7 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 
 若要完成本教學課程，請確定您已安裝︰
 
-- [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](http://www.visualstudio.com/vs) 或更新版本。
+- [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。
 - [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
 
 ## <a name="service-bus-topics-and-subscriptions"></a>服務匯流排主題和訂用帳戶

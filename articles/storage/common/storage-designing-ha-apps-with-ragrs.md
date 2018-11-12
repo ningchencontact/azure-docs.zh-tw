@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524537"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231358"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
 
@@ -149,7 +149,7 @@ ms.locfileid: "39524537"
 
 您有三個主要選項可用來監視主要區域中的重試頻率，以判斷何時要切換到次要區域，並將應用程式變更為在唯讀模式中執行。
 
-*   針對您傳遞到儲存體要求的 [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 物件上的 [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 事件新增處理常式 - 這是本文所示的方法，並會在隨附的範例中使用。 每當用戶端重試要求時，這些事件即會觸發，讓您能夠追蹤用戶端在主要端點上發生可重試錯誤的頻率。
+*   針對您傳遞到儲存體要求的 [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 物件上的 [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 事件新增處理常式 - 這是本文所示的方法，並會在隨附的範例中使用。 每當用戶端重試要求時，這些事件即會觸發，讓您能夠追蹤用戶端在主要端點上發生可重試錯誤的頻率。
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -160,7 +160,7 @@ ms.locfileid: "39524537"
     };
     ```
 
-*   在自訂重試原則的 [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 方法中，您可以在每次進行重試時執行自訂程式碼。 除了記錄重試發生的時間，這也能讓您有機會修改重試行為。
+*   在自訂重試原則的 [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 方法中，您可以在每次進行重試時執行自訂程式碼。 除了記錄重試發生的時間，這也能讓您有機會修改重試行為。
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 111976cd684561f5bc63b92f09a20470fe3036d7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 89ca7a5fa13696856bed108e4cbf7462b536b4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606641"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246611"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>在 StorSimple Virtual Array 上安裝 Update 0.6
 
@@ -57,7 +57,7 @@ ms.locfileid: "38606641"
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>下載更新或 Hotfix
 
-1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com)。
+1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)。
 
 2. 如果這是您第一次在此電腦上使用 Microsoft Update Catalog，請在系統提示您安裝 Microsoft Update Catalog 附加元件時，按一下 [安裝]。
 

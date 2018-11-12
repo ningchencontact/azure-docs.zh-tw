@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419787"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283439"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Log Analytics 使用者從 OMS 入口網站轉換到 Azure 入口網站的常見問題
 Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網站) 來管理其設定和分析收集到的資料。  這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。
@@ -35,7 +35,7 @@ Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網�
 ![Log Analytics 工作區](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>如何管理權限？
-如果您沒有 Azure 入口網站中 Log Analytics 工作區的存取權，則需要使用 [Azure 角色型存取](../active-directory/role-based-access-control-configure.md)來設定您的權限。 如需管理工作區權限的詳細資料，請參閱[管理工作區](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users)。 如需管理警示權限的資訊，請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md)。
+如果您沒有 Azure 入口網站中 Log Analytics 工作區的存取權，則需要使用 [Azure 角色型存取](../role-based-access-control/role-assignments-portal.md)來設定您的權限。 如需管理工作區權限的詳細資料，請參閱[管理工作區](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users)。 如需管理警示權限的資訊，請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md)。
 
 ## <a name="how-do-i-create-a-new-workspace"></a>如何建立新工作區？ 
 從 Azure 入口網站的工作區清單中，按一下工作區清單中的 [新增]。  如需完整詳細資料，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
@@ -82,7 +82,7 @@ OMS 入口網站之 [設定] 區段中的許多設定，都位於 Azure 入口�
 | Linux 伺服器   | 工作區的 [進階設定] 功能表。 |
 | Azure 儲存體     | 工作區的 [進階設定] 功能表。 |
 | System Center     | 工作區的 [進階設定] 功能表。 |
-| Office 365        | 如需設定詳細資料，請參閱 [Office 365 管理解決方案的文件](../operations-management-suite/oms-solution-office-365.md)。 |
+| Office 365        | 如需設定詳細資料，請參閱 [Office 365 管理解決方案的文件](../monitoring/monitoring-solution-office-365.md)。 |
 | Windows 遙測 | 解決方案的 [設定] 功能表。 如需設定的詳細資料，請參閱 [Azure 入口網站中的 Windows 分析](/windows/deployment/update/windows-analytics-azure-portal)。 |
 | ITSM 連接器    | 如需使用 Log Analytics 與 ITSM 服務連線的指示，請參閱[將 ITSM 產品/服務與 IT 服務管理連接器連線](../log-analytics/log-analytics-itsmc-connections.md)。 |
 
@@ -110,7 +110,7 @@ OMS 入口網站之 [設定] 區段中的許多設定，都位於 Azure 入口�
 在 OMS 入口網站中，您可從 [方案庫] 安裝管理解決方案，並從 [設定] 移除這些解決方案。 在 Azure 入口網站中，請從 Azure Marketplace [ 安裝管理解決方案](../monitoring/monitoring-solutions.md#install-a-management-solution)， 並從已安裝的解決方案清單中[移除解決方案](../monitoring/monitoring-solutions.md#remove-a-management-solution)。
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>如何建立及管理警示？
-根據 Log Analytics 查詢的警示規則現在是以[統一的警示體驗](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)進行管理。 如需在 Azure 入口網站中設定和使用警示的詳細資料，請參閱[如何將警示從 Log Analytics 延伸到 Azure 警示](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md)。
+根據 Log Analytics 查詢的警示規則現在是以[統一的警示體驗](../monitoring-and-diagnostics/alert-metric.md)進行管理。 如需在 Azure 入口網站中設定和使用警示的詳細資料，請參閱[如何將警示從 Log Analytics 延伸到 Azure 警示](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md)。
 
 ## <a name="how-do-i-access-my-dashboards"></a>如何存取我的儀表板？
 已淘汰 Log Analytics 中的[我的儀表板](../log-analytics/log-analytics-dashboards.md)功能。 這項功能可讓您擁有私人的「檢視設計工具」組件，但已由內建的 Azure 儀表板功能所取代。 您可以繼續針對共用檢視，使用[檢視設計工具](../log-analytics/log-analytics-view-designer.md)將 Log Analytics 中的資料視覺化。 您也可以將來自這些檢視的視覺效果釘選到 Azure 儀表板，或針對[個別查詢](../log-analytics/log-analytics-tutorial-dashboards.md)的視覺效果來進行相同操作。

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 04e0a694d3e8d978a21417e728feabf32f85299f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 28900c39e658a2a8c66b2ded6f2d70b50bf17e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394590"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231510"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>航太與其他業務中預測性維護的 Cortana Intelligence 解決方案範本的技術指南
 
@@ -39,7 +39,7 @@ ms.locfileid: "49394590"
 - 示範如何修改方案範本。  
 
 > [!TIP]
-> 您可以下載及列印[本文的 PDF 版本](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf)。
+> 您可以下載及列印[本文的 PDF 版本](https://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf)。
 > 
 > 
 
@@ -47,7 +47,7 @@ ms.locfileid: "49394590"
 ![預測性維護架構](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 當您部署解決方案時，解決方案會啟動 Cortana Analytics Suite 內的 Azure 服務 (包含事件中樞、串流分析、HDInsight、Data Factory 和 Machine Learning)。 架構圖顯示為航太解決方案範本建構預測性維護的方式。 您可以按一下在部署解決方案時所建立的解決方案範本圖表上的服務 (HDInsight 除外，因為 HDInsight 是在需要執行相關管線活動，且會在執行之後刪除的情況下，才能依需求佈建)。
-下載[完整大小版本的圖表](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)。
+下載[完整大小版本的圖表](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)。
 
 下列各節會說明解決方案的各個部分。
 
@@ -67,7 +67,7 @@ ms.locfileid: "49394590"
 使用 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)提供有關 [Azure 事件中樞](#azure-event-hub)服務之輸入串心的近乎即時分析。 接著將結果發佈到 [Power BI](https://powerbi.microsoft.com) 儀表板，以及將所有未經處理的內送事件封存至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)服務，供 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 服務後續處理。
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 自訂彙總
-使用 HDInsight 執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼 (由 Azure Data Factory 協調)，以提供使用 Azure 串流分析服務封存之原始事件的彙總。
+使用 HDInsight 執行 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼 (由 Azure Data Factory 協調)，以提供使用 Azure 串流分析服務封存之原始事件的彙總。
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 使用 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 服務 (由 Azure Data Factory 協調) 對特定飛機引擎 (提供所收到輸入資料) 的剩餘使用年限 (RUL) 進行預測。 
@@ -122,22 +122,22 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
-此 Factory 的其中兩個管線包含 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼，可用來分割及彙總資料。 如上述，指令碼會位在安裝期間建立的 [Azure 儲存體](https://azure.microsoft.com/services/storage/)帳戶中。 其位置會是：maintenancesascript\\\\script\\\\hive\\\\ (或 https://[您的解決方案名稱].blob.core.windows.net/maintenancesascript)。
+此 Factory 的其中兩個管線包含 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼，可用來分割及彙總資料。 如上述，指令碼會位在安裝期間建立的 [Azure 儲存體](https://azure.microsoft.com/services/storage/)帳戶中。 其位置會是：maintenancesascript\\\\script\\\\hive\\\\ (或 https://[您的解決方案名稱].blob.core.windows.net/maintenancesascript)。
 
-類似於 [Azure 串流分析](#azure-stream-analytics-1)查詢，[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼對於內送資料格式具有隱含知識，因此必須根據您的資料格式進行變更。
+類似於 [Azure 串流分析](#azure-stream-analytics-1)查詢，[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼對於內送資料格式具有隱含知識，因此必須根據您的資料格式進行變更。
 
 #### <a name="aggregateflightinfopipeline"></a><bpt id="p1">*</bpt>AggregateFlightInfoPipeline<ept id="p1">*</ept>
-這個[管線](../../data-factory/concepts-pipelines-activities.md)包含單一活動 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活動，會在 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)作業期間，執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼來分割放在 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中的資料。
+這個[管線](../../data-factory/concepts-pipelines-activities.md)包含單一活動 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活動，會在 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)作業期間，執行 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼來分割放在 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中的資料。
 
-此資料分割工作的 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 ***AggregateFlightInfo.hql***
+此資料分割工作的 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a><bpt id="p1">*</bpt>MLScoringPipeline<ept id="p1">*</ept>
 這個[管線](../../data-factory/concepts-pipelines-activities.md)包含數個活動，而其最終結果為來自與這個解決方案範本相關聯的 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗評分的預測。
 
 包含的活動為：
 
-* 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活動會執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼來執行 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗所需的彙總及特徵工程設計。
-  此資料分割工作的 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼是 ***PrepareMLInput.hql***。
+* 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活動會執行 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼來執行 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗所需的彙總及特徵工程設計。
+  此資料分割工作的 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼是 ***PrepareMLInput.hql***。
 * [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，它會將來自 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活動的結果移至 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 活動所存取的單一 [Azure 儲存體](https://azure.microsoft.com/services/storage/) Blob。
 * 呼叫 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗的 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 活動，會導致將結果放入單一 [Azure 儲存體](https://azure.microsoft.com/services/storage/) Blob。
 
@@ -241,5 +241,5 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
 下列兩項工具可協助您進一步了解在您的訂用帳戶中執行航太解決方案範本的預測性維護所牽涉的總成本：
 
 * [Microsoft Azure Cost Estimator Tool (線上版)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure Cost Estimator Tool (桌面版)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure Cost Estimator Tool (桌面版)](https://www.microsoft.com/download/details.aspx?id=43376)
 

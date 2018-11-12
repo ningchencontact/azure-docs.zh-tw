@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 31501cb0cc66c9d8db646e3cf0c75cc3d8daf7e0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 52f507d8040f6ad628f7427253ce040ac69978ef
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242529"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250963"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>彈性資料庫工具常見問題集 (FAQ)
 
@@ -39,7 +39,7 @@ ms.locfileid: "50242529"
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>每次啟動應用程式，都必須建立分區對應管理員和填入分區嗎？
 
-否，建立分區對應管理員 (例如，**[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) 是一次性作業。  您的應用程式應在應用程式啟動時使用 **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** 呼叫。  每一應用程式網域應只有一個這類呼叫。
+否，建立分區對應管理員 (例如，**[ShardMapManagerFactory.CreateSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) 是一次性作業。  您的應用程式應在應用程式啟動時使用 **[ShardMapManagerFactory.TryGetSqlShardMapManager()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** 呼叫。  每一應用程式網域應只有一個這類呼叫。
 
 #### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>我有關於使用彈性資料庫工具的疑問，要如何尋求解答？
 

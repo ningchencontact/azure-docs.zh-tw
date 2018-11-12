@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: ccf27748699a49c569a43f041cbc5e3625055852
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a39eebda5abb41e02ce7254e2084541e86ecee30
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503412"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229504"
 ---
 # <a name="what-is-azure-notification-hubs"></a>什麼是 Azure 通知中樞？
 Azure 通知中樞提供易於使用且相應放大的推播引擎，可讓您從任何後端 (雲端或內部部署) 傳送通知到任何平台 (iOS、Android、Windows、Kindle、Baidu 等)。 通知中樞很適合企業和消費者案例。 以下是一些範例案例：
@@ -40,7 +40,7 @@ Azure 通知中樞提供易於使用且相應放大的推播引擎，可讓您�
 如需幾個熱門平台推播通知的詳細資訊，請參閱以下主題： 
 * [iOS](https://developer.apple.com/notifications/)
 * [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
-* [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
+* [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>推播通知如何運作？
 推播通知可透過名為「平台通知系統 (PNS)」的平台特定基礎結構來傳遞。 它們可提供推播準系統功能，以所提供的控制代碼傳遞訊息至裝置，且沒有通用介面。 若要將通知傳送給 iOS、Android 和 Windows 版應用程式上的所有客戶，開發人員必須使用 Apple 推播通知服務 (APNS)、Firebase Cloud Messaging (FCM) 和 Windows 通知服務 (WNS)。
@@ -101,8 +101,7 @@ PNS 的功能強大， 但很多部分都必須由應用程式開發人員處理
     - 共用存取密碼 (SAS) 或同盟驗證。
 
 ## <a name="integration-with-app-service-mobile-apps"></a>與 App Service Mobile Apps 整合
-為了在 Azure 服務間促進完美且統一的體驗， [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 具備使用通知中樞提供推播通知的內建支援。 
-  [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 具有高擴充性且可供全球使用，是專為企業開發人員與系統整合人員設計的行動應用程式開發平台，能提供一組豐富的功能給行動應用程式開發人員。
+為了在 Azure 服務間促進完美且統一的體驗， [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 具備使用通知中樞提供推播通知的內建支援。 [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 具有高擴充性且可供全球使用，是專為企業開發人員與系統整合人員設計的行動應用程式開發平台，能提供一組豐富的功能給行動應用程式開發人員。
 
 Mobile Apps 開發人員可以使用下列流程來利用通知中樞：
 

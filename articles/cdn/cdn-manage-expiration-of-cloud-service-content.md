@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: d4ae0c4d5924fab8fcdaf1b4da5c8183a3a5fd0f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 19f928d854618a5e29841dc45d7846faf7fb83b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092468"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253120"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>在 Azure CDN 中管理 Web 內容的到期
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ ms.locfileid: "49092468"
 若要使用 **cacheControlMaxAge** 屬性，您必須將 **cacheControlMode** 屬性的值設為 `UseMaxAge`。 此設定會產生要新增至回應的 HTTP 標頭及指示詞，`Cache-Control: max-age=<nnn>`。 **cacheControlMaxAge** 屬性的時間範圍值格式為 `<days>.<hours>:<min>:<sec>`。 此值會轉換為秒，且會當做 `Cache-Control` `max-age` 指示詞使用。 如需 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取<clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)。  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>以程式設計方式設定 Cache-Control 標頭
-針對 ASP.NET 應用程式，設定 .NET API 的 **HttpResponse.Cache** 屬性即可透過程式設計方式控制 CDN 快取行為。 如需 **HttpResponse.Cache** 屬性的資訊，請參閱 [HttpResponse.Cache 屬性](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx)和 [HttpCachePolicy 類別](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)。  
+針對 ASP.NET 應用程式，設定 .NET API 的 **HttpResponse.Cache** 屬性即可透過程式設計方式控制 CDN 快取行為。 如需 **HttpResponse.Cache** 屬性的資訊，請參閱 [HttpResponse.Cache 屬性](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx)和 [HttpCachePolicy 類別](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)。  
 
 若要以程式設計方式快取 ASP.NET 中的應用程式內容，遵循下列步驟：
    1. 確認內容已標示為可快取(將 `HttpCacheability` 設定為 `Public`)。 
@@ -132,6 +132,6 @@ Response.Cache.SetLastModified(DateTime.Now);
 
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 **clientCache** 項目](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [閱讀 **HttpResponse.Cache** 屬性的文件](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [閱讀 **HttpCachePolicy 類別**的文件](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [閱讀 **HttpResponse.Cache** 屬性的文件](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
+* [閱讀 **HttpCachePolicy 類別**的文件](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [深入了解快取概念](cdn-how-caching-works.md)

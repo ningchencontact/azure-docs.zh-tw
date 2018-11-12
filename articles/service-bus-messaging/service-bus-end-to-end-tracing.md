@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854876"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283830"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>透過服務匯流排傳訊進行分散式追蹤與相互關聯
 
@@ -181,7 +181,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 #### <a name="logging-additional-properties"></a>記錄其他屬性
 
-`Activty.Current` 會提供目前作業及其父系的詳細內容。 如需詳細資訊，請參閱 [Activity 文件](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) \(英文\) 以取得詳細資料。
+`Activity.Current` 會提供目前作業及其父系的詳細內容。 如需詳細資訊，請參閱 [Activity 文件](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) \(英文\) 以取得詳細資料。
 服務匯流排檢測會在 `Activity.Current.Tags` 中提供額外資訊，它們會保存 `MessageId` 和 `SessionId` (若有提供)。
 
 追蹤 'Receive'、'Peek' 及 'ReceiveDeferred' 事件的活動，也可能會有 `RelatedTo` 標記。 它會保存結果所接收到訊息之 `Diagnostic-Id` 的相異清單。

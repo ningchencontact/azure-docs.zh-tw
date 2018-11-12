@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 322c398bd6384821697e2b672825cc0805eb43ad
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092893"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229606"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>什麼是 Azure 資料箱磁碟？ (預覽)
 
@@ -25,7 +25,7 @@ Microsoft Azure 資料箱磁碟解決方案可讓您以快速、實惠和可靠�
 
 > [!IMPORTANT]
 > - 資料箱磁碟處於預覽狀態。 部署此解決方案之前，請先檢閱 [Azure 預覽版服務條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
-> - 您必須註冊此服務。 若要註冊，請移至[預覽版入口網站](http://aka.ms/azuredataboxfromdiskdocs)。
+> - 您必須註冊此服務。 若要註冊，請移至[預覽版入口網站](https://aka.ms/azuredataboxfromdiskdocs)。
 > - 在預覽期間，資料箱磁碟可運送給美國與歐盟的客戶。 如需詳細資訊，請移至[區域可用性](#region-availability)。
 
 ## <a name="use-cases"></a>使用案例
@@ -112,7 +112,7 @@ Microsoft Azure 資料箱磁碟解決方案可讓您以快速、實惠和可靠�
 
 ## <a name="pricing"></a>價格
 
-在預覽期間，資料箱磁碟可供免費使用。 當資料箱磁碟正式推出後，此機制將可能有所變更。
+如需定價的相關資訊，請移至[預覽定價頁面](https://azure.microsoft.com/pricing/details/storage/databox/disk/)。
 
 ## <a name="next-steps"></a>後續步驟
 

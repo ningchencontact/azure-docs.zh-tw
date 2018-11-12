@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 3aca6e29f7701a09fa54e778da180a0ead55deb2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 253a50f50e94888a5d764e51a4ff49cc0c1424c6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240727"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253528"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>部署分割合併服務以在分區化資料庫之間移動資料
 
@@ -63,7 +63,7 @@ ms.locfileid: "50240727"
 為了執行簡單的測試部署以完成本教學課程，將會執行一組最基本的設定步驟，讓服務啟動並執行。 這些步驟只會啟用一個電腦/帳戶來與服務通訊。
 
 ### <a name="create-a-self-signed-certificate"></a>建立自我簽署憑證
-使用 [Visual Studio 開發人員命令提示字元](http://msdn.microsoft.com/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
+使用 [Visual Studio 開發人員命令提示字元](https://msdn.microsoft.com/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
 
    ```
     makecert ^

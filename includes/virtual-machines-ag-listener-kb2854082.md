@@ -4,16 +4,16 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d656d756759c997972eb034e194355185be93e1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28aab15dc67e051190e8d4e35e92240a56fe54a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226639"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262911"
 ---
-接下來，如果叢集上的任何伺服器正在執行 Windows Server 2008 R2 或 Windows Server 2012，您必須確認在屬於叢集一部分的每台內部部署伺服器或 Azure VM 上安裝了 Hotfix [KB2854082](http://support.microsoft.com/kb/2854082) 。 在叢集不在的可用性群組中的任何伺服器或 VM，也應該安裝這個 Hotfix。
+接下來，如果叢集上的任何伺服器正在執行 Windows Server 2008 R2 或 Windows Server 2012，您必須確認在屬於叢集一部分的每台內部部署伺服器或 Azure VM 上安裝了 Hotfix [KB2854082](https://support.microsoft.com/kb/2854082) 。 在叢集不在的可用性群組中的任何伺服器或 VM，也應該安裝這個 Hotfix。
 
-在每個叢集節點的遠端桌面工作階段中，下載 [KB2854082](http://support.microsoft.com/kb/2854082) 至本機目錄。 然後，依序在每個叢集節點上安裝 Hotfix。 如果叢集服務目前在叢集節點上執行，伺服器會在 Hotfix 安裝結束時重新啟動。
+在每個叢集節點的遠端桌面工作階段中，下載 [KB2854082](https://support.microsoft.com/kb/2854082) 至本機目錄。 然後，依序在每個叢集節點上安裝 Hotfix。 如果叢集服務目前在叢集節點上執行，伺服器會在 Hotfix 安裝結束時重新啟動。
 
 > [!WARNING]
 > 停止叢集服務或重新啟動伺服器會影響叢集和可用性群組的仲裁健全狀況，而且可能造成叢集離線。 若要在安裝期間維護叢集的高可用性，請確定：

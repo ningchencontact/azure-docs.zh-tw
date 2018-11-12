@@ -19,7 +19,7 @@
     PSRemotingProtocolVersion      2.2
 
 
-確認 **PSVersion** 的值是 3.0 或 4.0。 如果為否，請參閱 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)。
+確認 **PSVersion** 的值是 3.0 或 4.0。 如果為否，請參閱 [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。
 
 ### <a name="set-your-azure-account-and-subscription"></a>設定 Azure 帳戶和訂用帳戶
 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。

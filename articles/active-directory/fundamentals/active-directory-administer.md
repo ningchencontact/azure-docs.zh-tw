@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 75fae7a1de6cd9ec2416b11c79c6e8634b92846f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297923"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230813"
 ---
 # <a name="manage-your-azure-active-directory-tenant"></a>管理 Azure Active Directory 租用戶
 
@@ -51,7 +51,7 @@ Azure AD 提供大部分 Microsoft 雲端服務的核心目錄和身分識別管
 如果您還沒有 Microsoft 雲端服務的訂用帳戶，您可使用下列其中一個連結進行註冊。 註冊第一項服務可自動建立 Azure AD 目錄。
 
 * [Microsoft Azure](https://account.azure.com/organization)
-* [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
+* [Office 365](https://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>如何變更訂用帳戶的預設目錄
